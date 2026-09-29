@@ -19,7 +19,13 @@
   ],
   "endpoint": "https://hf-mirror.com",
   "destination": "project data disk HF hub cache",
-  "status": "RESOURCE_BLOCKED_403",
+  "status": "PARTIAL_PUBLIC_ASSETS_GUARDRAIL_ACCESS_BLOCKED",
   "selection": "Guardrail blocklist/face/safety-filter files, plus separately pinned SigLIP and Qwen model/tokenizer assets. Excludes only nested duplicate HF cache.",
-  "limitation": "Mirror endpoint rejected gated Guardrail1 file; official authenticated access not verified. No auxiliary snapshot completed."
+  "limitation": "Official authenticated Guardrail1 metadata request returned HTTP 403 GatedRepo. Qwen3Guard has passed pinned-file integrity and offline config/tokenizer checks; SigLIP is downloading under a bounded supervisor. Full safety pipeline remains unvalidated.",
+  "evidence": [
+    "reports/guardrail_official_auth_20260929.json",
+    "reports/qwen_integrity_20260929.json",
+    "reports/qwen_config_check_20260929.json",
+    "reports/siglip_resume_r1_launch.json"
+  ]
 }

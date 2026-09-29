@@ -1,8 +1,10 @@
 # Current state — 2026-09-29
 
+Earlier sections below include historical observations; the final reviewed section and current receipts supersede them.
+
 ## Scientific status
 
-No GPU-generated sample or measured quality/time result from this project yet. Continue WorldCache F0/F1, conditional on runtime import and asset readiness. OMR resource availability is not established; the project page release section still says Coming soon.
+No GPU-generated sample or measured quality/time result from this project yet. Continue WorldCache F0/F1, conditional on the remaining safety assets and full forward readiness. Core construction and weight loading have passed. OMR resource availability is not established; the project page release section still says Coming soon.
 
 ## Implemented and checked
 
@@ -36,7 +38,7 @@ Read-only reuse of the existing Python environment remains a compatibility candi
 
 Direct Hugging Face and the old forwarded proxy endpoint both failed a bounded connection test. A task-scoped SSH proxy is being checked for asset acquisition. Missing safety assets are not disabled.
 
-## Current stop condition
+## Historical first acquisition failure (superseded by official access check below)
 
 Auxiliary download reached the mirror but failed with GatedRepoError HTTP 403 for a Cosmos-Guardrail1 blocklist file. Durable receipt: reports/auxiliary_download_20260929.json. No auxiliary snapshot completed; download exited. This establishes failure of the attempted access path, not a universal claim about the user's account permissions. Official authenticated access is not yet verified. No GPU generation is running.
 
