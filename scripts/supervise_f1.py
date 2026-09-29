@@ -98,7 +98,9 @@ for mode in (('core_model_load',) if a.probe_only else ('native', 'worldcache'))
                                   'wall_seconds': wall, 'stop_reason': reason})
             budget['used_gpu_hours'] += wall / 3600
             budget['gpu_jobs_launched'] += 1
-            budget['status'] = 'F1_EXECUTION_REQUIRES_RESULT_REVIEW'
+            budget['status'] = ('F0_LOAD_PROBE_REQUIRES_REVIEW' if a.probe_only
+                                else 'F1_EXECUTION_REQUIRES_RESULT_REVIEW')
+            budget['accounting'] = 'Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts'
             save(budget_path, budget)
             state['status'] = reason or ('ARM_EXITED' if child.returncode == 0 else 'FAILED')
             save(output / 'supervisor.json', state)

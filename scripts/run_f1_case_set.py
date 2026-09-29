@@ -70,6 +70,8 @@ try:
     params.update(output_dir=str(output), worldcache_enabled=args.mode == 'worldcache')
     samples = InferenceArguments.from_files([project / 'configs/smoke.jsonl'])
     setup = SetupArguments(**params)
+    from wcomr.runtime_config import install_core_inference_registration
+    state['registration_adapter'] = install_core_inference_registration(setup.model, setup.experiment)
     state.update(setup=json.loads(setup.model_dump_json()),
                  input_sha256=sha(project / 'configs/smoke.jsonl'),
                  profile_sha256=sha(project / 'configs/f1_setup.json'),

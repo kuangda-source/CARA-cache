@@ -3,6 +3,7 @@ import argparse
 import inspect
 import json
 import os
+import sys
 from pathlib import Path
 import time
 import traceback
@@ -12,6 +13,7 @@ p.add_argument('--project', type=Path, required=True)
 p.add_argument('--gpu-uuid', required=True)
 p.add_argument('--receipt', type=Path, required=True)
 a = p.parse_args()
+sys.path.insert(0, str(a.project.resolve() / 'src'))
 os.environ['CUDA_VISIBLE_DEVICES'] = a.gpu_uuid
 os.environ['HF_HUB_OFFLINE'] = '1'
 os.environ['TRANSFORMERS_OFFLINE'] = '1'
@@ -31,6 +33,8 @@ try:
     init_environment()
     params = json.loads((a.project / 'configs/f1_setup.json').read_text())
     setup = SetupArguments(**params, output_dir=str(a.receipt.parent/'unused-model-load'))
+    from wcomr.runtime_config import install_core_inference_registration
+    state['registration_adapter'] = install_core_inference_registration(setup.model, setup.experiment)
     checkpoint = Path(str(setup.checkpoint_path))
     state.update(status='LOADING', checkpoint=str(checkpoint), checkpoint_bytes=checkpoint.stat().st_size)
     save()
