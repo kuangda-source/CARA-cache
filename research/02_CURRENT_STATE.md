@@ -18,7 +18,7 @@ No GPU-generated sample or measured quality/time result from this project yet. C
 - Data disk approximately 682 GiB free; root only 13 GiB free. New files and any downloads must use data disk.
 - Existing Cosmos checkout has torch 2.7.1+cu128 in its venv and cached Predict2.5-2B post-trained checkpoint, tokenizer, Reason1-7B. Preserve shared checkout, environment and caches.
 - Existing checkout is a locally modified research version; it cannot be assumed to be the official baseline.
-- Four-card SSH reaches authentication but current key is rejected. Pending user-provided login method. FRP is already running and intermittently reconnects; do not launch a duplicate shared tunnel.
+- Four-card SSH recovered using the historical local authentication path. Fresh BatchMode key-only login had incorrectly excluded that path. Actual hardware is RTX 6000 Ada, not A6000; GPUs 2/3 were idle, 0/1 occupied. Driver 550.67 and glibc 2.31; retain the existing two-card runtime as current F1 candidate. FRP is already running; do not launch a duplicate shared tunnel.
 - Pinned WorldCache tree lacks model source directories referenced by its inference configuration. Need a separately pinned, documented source completion shared across both baseline paths. Do not silently substitute the locally modified model.
 - Guardrail1 cache snapshot currently contains only README; inspect complete safety dependencies before inference. No safety/access bypass.
 
@@ -41,3 +41,7 @@ Direct Hugging Face and the old forwarded proxy endpoint both failed a bounded c
 Auxiliary download reached the mirror but failed with GatedRepoError HTTP 403 for a Cosmos-Guardrail1 blocklist file. Durable receipt: reports/auxiliary_download_20260929.json. No auxiliary snapshot completed; download exited. This establishes failure of the attempted access path, not a universal claim about the user's account permissions. Official authenticated access is not yet verified. No GPU generation is running.
 
 Asked for an already authorized Guardrail1 directory or authorized HF login on the server. Do not remove the guardrails to evade this dependency. Downloader now defaults to anonymous requests and permits explicit authenticated access only to https://huggingface.co. No token should be pasted into chat or Git. Public Qwen/SigLIP acquisition remains pending, as the first required dependency failed.
+
+## Four-card authentication recovery
+
+Historical session evidence identified an automated interactive authentication path. Reusing it established a live SSH session; the user did not need to provide a password. No credentials were printed or stored in Git. A live multiplexed connection is temporary, so a later missing control socket is not evidence that authentication requires new user input. See reports/four_card_recovery_20260929.json. Guardrail1 access remains the only known external asset blocker for the current two-card F1 candidate.

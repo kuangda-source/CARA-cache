@@ -1,0 +1,45 @@
+{
+  "checked_at": "2026-09-29T15:57:53.606155+08:00",
+  "server": "four_card_server",
+  "ssh_status": "CONNECTED_USING_HISTORICAL_LOCAL_AUTHENTICATION",
+  "hardware": "4 x NVIDIA RTX 6000 Ada Generation",
+  "driver": "550.67",
+  "glibc": "2.31",
+  "gpus": [
+    {
+      "index": 0,
+      "memory_used_mib": 41524,
+      "total_mib": 49140,
+      "utilization_percent": 100,
+      "compute_pid": 3868355
+    },
+    {
+      "index": 1,
+      "memory_used_mib": 40964,
+      "total_mib": 49140,
+      "utilization_percent": 100,
+      "compute_pid": 3868356
+    },
+    {
+      "index": 2,
+      "memory_used_mib": 134,
+      "total_mib": 49140,
+      "utilization_percent": 0,
+      "compute_pid": null
+    },
+    {
+      "index": 3,
+      "memory_used_mib": 23,
+      "total_mib": 49140,
+      "utilization_percent": 0,
+      "compute_pid": null
+    }
+  ],
+  "disk_free": {
+    "root": "15G",
+    "data1": "77G",
+    "data20t": "488G"
+  },
+  "asset_scope": "Own project weights/data directories and user default HF cache inspected; no Cosmos or Guardrail assets found within that scope. Not a whole-server absence claim.",
+  "decision": "Two free GPUs, same count as prior two-card snapshot; retain two-card environment as current F1 candidate because it already has core weights, torch CUDA 12.8 and driver 570.133.20. Four-card driver 550.67 is below documented current Cosmos requirement. No GPU workload launched here."
+}
