@@ -6,7 +6,7 @@ Scope: four public PAI cases (av/common/physics/robot), seed 0, 93 frames, 432x7
 
 One process per arm, Native first then official WorldCache, four samples per process. Both arms share configs/f1_setup.json; only worldcache_enabled differs. WC settings follow the public README's all-module example, with threshold/retention/probe defaults. Guardrails are retained. Eager execution and text/tokenizer CPU offloading are explicitly a local technical-smoke profile; do not equate its latency with the paper's throughput configuration. No scalar/shrink hook is installed in F1.
 
-Use the documented source-completion runtime for both arms. The runner verifies the pinned cache module and added model-source hashes. Model loading and compatibility remain unvalidated. A source hash is provenance, not proof of numerical equivalence.
+Use the documented source-completion runtime for both arms. The runner verifies the pinned cache module and added model-source hashes. Core model loading and retained safety-pipeline compatibility have passed; generation and numerical/latency equivalence remain unvalidated. A source hash is provenance, not proof of numerical equivalence.
 
 ## Measurement
 
@@ -24,6 +24,6 @@ From the experiment project, invoke scripts/supervise_f1.py with --project, --ru
 
 The supervisor aborts its own process group if another compute process appears on the selected GPU. Timing from interrupted/shared GPU runs is not accepted. No training, paid scoring or wider benchmark is launched by this script.
 
-Status: runner implemented and CPU helper tests passed; whole runner and actual Cosmos outputs are NOT_RUN because Guardrail1 official authenticated access returns HTTP 403.
+Status: Guardrail1 access resolved (HTTP 200), all required files hash-verified, and full safety-pipeline probe passed. F1 smoke r1 launched; inspect terminal receipts and videos before calling it successful.
 
 Registration adaptation: the pinned config imports the user example-training package, whose GR00T 14B example eagerly resolves a 14B checkpoint. For the frozen 2B post-trained experiment, src/wcomr/runtime_config.py skips that one package root and retains the official internal experiment registration. It checks the source hash and refuses any other model/experiment. Both arms apply it. See manifests/runtime_adaptations.json. This is an explicit runtime adaptation, not an unmodified upstream reproduction.

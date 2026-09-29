@@ -1,0 +1,33 @@
+{
+  "stage": "F0_GUARDRAIL_PIPELINE",
+  "pid": 2369564,
+  "status": "PIPELINE_LOAD_FORWARD_PASS",
+  "started_unix": 1790676694.362091,
+  "video_generation_started": false,
+  "components": [
+    "Blocklist",
+    "Qwen3Guard",
+    "VideoContentSafetyFilter",
+    "RetinaFaceFilter"
+  ],
+  "text_results": [
+    {
+      "component": "Blocklist",
+      "safe": true
+    },
+    {
+      "component": "Qwen3Guard",
+      "safe": true
+    }
+  ],
+  "synthetic_frame_label": 0,
+  "synthetic_video_decision": true,
+  "output_shape": [
+    1,
+    256,
+    256,
+    3
+  ],
+  "limitation": "Compatibility on benign synthetic inputs only; not classifier accuracy or F1 generation",
+  "elapsed_seconds": 40.69402527809143
+}
