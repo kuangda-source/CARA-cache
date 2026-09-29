@@ -1,3 +1,9 @@
+# Latest: F1 stopped; sampler protocol decision pending
+
+F1 r1 Native generated one valid-format video and passed safety, then failed the 70-CFG-call assertion. Supervisor 2370231/child 2370237 exited (code 1, 418.42s); GPU is free. Total budget 0.183703/4h. WC never ran. Exact observed block counts were lost before the assertion; do not invent a receipt. Artifact reports/private/native-r1-av.mp4 is excluded from Git, hash/format receipt in reports/f1_smoke_r1_artifact.json.
+
+CPU diagnostic of the actual runtime proves default FlowUniPCMultistepScheduler with Karras mode yields 36 steps for requested35, not paper35Euler. WorldCache horizon remains70 vs actual72 calls, causing early reset. User decision asked: complete public-code four-case technical baseline then separately add Euler (recommended), or reconstruct/validate35Euler first. Answer pending; do not launch dependent GPU work. See research/10_SAMPLER_PROTOCOL_DECISION.md. Runner now saves pending sample/scheduler/count data before assertions but still rejects non70 counts; diagnostic code compiled, not yet deployed. All source and safety preparation remains usable.
+
 # Latest handoff — F1 smoke r1 running
 
 User authorized autonomous WorldCache/OMR experimentation with a private GitHub repo and stopping only for major decisions. Guardrail permission blocker is resolved: screenshot granted access and server token official HEAD HTTP 200. No new login/token needed. All 81 required Guardrail files downloaded and hash-verified; Qwen/SigLIP already verified and CPU forward tested. Full retained safety GPU probe passed, 43.84 supervised seconds, with actual Blocklist, Qwen3Guard, VideoContentSafetyFilter and RetinaFaceFilter. Compatibility on benign synthetic inputs only.

@@ -118,8 +118,25 @@ try:
             if Fraction(stream['r_frame_rate']) != 16:
                 raise RuntimeError('Unexpected output frame rate')
             block_counts = counts.result()
+            # Preserve the observation before any protocol assertion can reject it.
+            # A failed run must still explain actual scheduler/block behavior.
+            scheduler = model.sample_scheduler
+            state['pending_sample'] = {
+                'name': sample.name, 'path': str(path), 'ffprobe': stream,
+                'end_to_end_seconds': total, 'stages': timing.values,
+                'block_counts': block_counts,
+                'scheduler_class': type(scheduler).__name__,
+                'scheduler_config': dict(scheduler.config),
+                'requested_steps': sample.num_steps,
+                'actual_schedule_steps': len(scheduler.timesteps),
+                'timesteps': scheduler.timesteps.detach().cpu().tolist(),
+                'use_kerras_sigma': model.config.use_kerras_sigma_at_inference,
+            }
+            save()
             if block_counts['denoiser_calls'] != 2 * sample.num_steps:
-                raise RuntimeError('Unexpected CFG/denoiser call count')
+                raise RuntimeError(f"Unexpected CFG/denoiser call count: {block_counts}; "
+                                   f"requested_steps={sample.num_steps}, "
+                                   f"actual_schedule_steps={len(scheduler.timesteps)}")
             if args.mode == 'native' and block_counts['skipped_deep_calls']:
                 raise RuntimeError('Native unexpectedly skipped deep computation')
             state['samples'].append({'name': sample.name, 'index': index,
