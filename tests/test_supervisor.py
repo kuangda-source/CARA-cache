@@ -71,3 +71,14 @@ def test_existing_lock_refuses_duplicate_launch(tmp_path):
     assert result.returncode != 0
     assert not output.exists()
     assert json.loads((project / 'reports/budget.json').read_text())['gpu_jobs_launched'] == 0
+
+
+def test_probe_mode_launches_one_load_only_command(tmp_path):
+    project, output, cmd, env = fixture(tmp_path, delay=.02)
+    subprocess.run(cmd + ['--probe-only'], env=env, check=True, capture_output=True, timeout=10)
+    state = json.loads((output / 'supervisor.json').read_text())
+    assert state['status'] == 'CORE_LOAD_EXITED_REQUIRES_STATE_REVIEW'
+    assert [a['mode'] for a in state['arms']] == ['core_model_load']
+    assert str(project / 'scripts/check_model_load.py') in state['command']
+    assert '--mode' not in state['command']
+    assert int(state['command'][2]) <= 410

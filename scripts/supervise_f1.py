@@ -18,6 +18,7 @@ p.add_argument('--runtime', type=Path, required=True)
 p.add_argument('--python', required=True)
 p.add_argument('--gpu-uuid', required=True)
 p.add_argument('--output', type=Path, required=True)
+p.add_argument('--probe-only', action='store_true', help='F0 core-model load only, at most 420 seconds; no generation')
 a = p.parse_args()
 project, runtime, output = a.project.resolve(), a.runtime.resolve(), a.output.resolve()
 lock_path = project / '.sync/f1.lock'; lock_path.parent.mkdir(parents=True, exist_ok=True)
@@ -50,15 +51,21 @@ def stop(child):
         os.killpg(child.pid, signal.SIGKILL); child.wait()
 
 save(output / 'supervisor.json', state)
-for mode in ('native', 'worldcache'):
+for mode in (('core_model_load',) if a.probe_only else ('native', 'worldcache')):
     admission = query_gpu()
     if admission['pids'] or admission['memory_used_mib'] > 1024:
         state.update(status='RESOURCE_BUSY', admission=admission); break
     seconds_left = remaining - sum(arm['wall_seconds'] for arm in state['arms'])
     if seconds_left <= 0: state['status'] = 'BUDGET_STOP'; break
+    if a.probe_only:
+        seconds_left = min(seconds_left, 420)
     command = ['timeout', '--kill-after=10', str(max(1, int(seconds_left) - 10)),
                a.python, str(project / 'scripts/run_f1_case_set.py'), '--project', str(project),
                '--mode', mode, '--gpu-uuid', a.gpu_uuid, '--output', str(output / mode)]
+    if a.probe_only:
+        command = ['timeout', '--kill-after=10', str(max(1, int(seconds_left) - 10)), a.python,
+                   str(project / 'scripts/check_model_load.py'), '--project', str(project),
+                   '--gpu-uuid', a.gpu_uuid, '--receipt', str(output / 'core-model-load.json')]
     env = dict(os.environ, PYTHONPATH='.:packages/cosmos-oss:packages/cosmos-cuda',
                CUDA_VISIBLE_DEVICES=a.gpu_uuid, HF_HUB_OFFLINE='1', TRANSFORMERS_OFFLINE='1')
     started = time.time()
@@ -72,7 +79,7 @@ for mode in ('native', 'worldcache'):
         try:
             while child.poll() is None:
                 if time.time() - started >= max(0, seconds_left - 10):
-                    reason = 'BUDGET_STOP'; stop(child); break
+                    reason = 'PROBE_TIMEOUT' if a.probe_only else 'BUDGET_STOP'; stop(child); break
                 observed = query_gpu(); monitor.write(json.dumps(observed) + '\n'); monitor.flush()
                 for pid in observed['pids']:
                     try: group = os.getpgid(pid)
@@ -97,5 +104,6 @@ for mode in ('native', 'worldcache'):
             save(output / 'supervisor.json', state)
     if reason or child.returncode != 0: break
 else:
-    state['status'] = 'PAIR_EXITED_AWAITING_RECEIPT_AND_VIDEO_REVIEW'
+    state['status'] = ('CORE_LOAD_EXITED_REQUIRES_STATE_REVIEW' if a.probe_only
+                       else 'PAIR_EXITED_AWAITING_RECEIPT_AND_VIDEO_REVIEW')
 save(output / 'supervisor.json', state)
