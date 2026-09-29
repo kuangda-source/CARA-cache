@@ -4,7 +4,7 @@ Private research workspace for improving the quality–time tradeoff of video wo
 
 ## Current status
 
-2026-09-29: 17 CPU tests pass; the complete Linux inference entry point also passes a bounded GPU-visible import. No model-load validation, generated video, speedup measurement, or quality result yet. Missing WorldCache model directories have a separately pinned source-completion candidate. F1 is blocked on auxiliary assets: the attempted Guardrail1 download returned HTTP 403; model loading remains unvalidated. Four-card login has been recovered using the previous local authentication path; GPUs 2/3 were free. Its driver is older, so the prepared two-card environment remains the current candidate.
+2026-09-29: 22 CPU tests pass; the complete Linux inference entry point also passes a bounded GPU-visible import. No model-load validation, generated video, speedup measurement, or quality result yet. Missing WorldCache model directories have a separately pinned source-completion candidate. F1 is blocked on auxiliary assets: official access using the existing server HF login returned HTTP 403; model loading remains unvalidated. Four-card login has been recovered using the previous local authentication path; GPUs 2/3 were free. Its driver is older, so the prepared two-card environment remains the current candidate.
 
 ## Reproduce CPU checks
 
@@ -28,3 +28,5 @@ The integration tests extract the pinned upstream functions and execute a synthe
 - `reports/`: small receipts only; large artifacts stay outside Git.
 
 Every meaningful code/config/result change is committed and pushed to this private repository. No autonomous training, full benchmark, or paid evaluation is part of the initial smoke batch.
+
+F1 execution protocol and evidence limits: `research/04_F1_PROTOCOL.md`. `scripts/supervise_f1.py` is prepared but has not run a real video batch.
