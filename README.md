@@ -4,7 +4,7 @@ Private research workspace for improving the quality–time tradeoff of video wo
 
 ## Current status
 
-2026-09-29: 17 CPU tests pass; the complete Linux inference entry point also passes a bounded GPU-visible import. No model-load validation, generated video, speedup measurement, or quality result yet. Missing WorldCache model directories have a separately pinned source-completion candidate. F1 assets/environment validation remains in progress. Four-card login requires authentication.
+2026-09-29: 17 CPU tests pass; the complete Linux inference entry point also passes a bounded GPU-visible import. No model-load validation, generated video, speedup measurement, or quality result yet. Missing WorldCache model directories have a separately pinned source-completion candidate. F1 is blocked on auxiliary assets: the attempted Guardrail1 download returned HTTP 403; model loading remains unvalidated. Four-card login requires authentication.
 
 ## Reproduce CPU checks
 

@@ -1,0 +1,25 @@
+{
+  "sources": [
+    {
+      "repo_id": "nvidia/Cosmos-Guardrail1",
+      "revision": "d6d4bfa899a71454a700907664f3e88f503950cf",
+      "ignore_patterns": [
+        "video_content_safety_filter/models--google--siglip-so400m-patch14-384/**"
+      ],
+      "reason": "Nested duplicate HF cache unused by current vision_encoder; acquire google model separately."
+    },
+    {
+      "repo_id": "Qwen/Qwen3Guard-Gen-0.6B",
+      "revision": "fada3b2f655b89601929198343c94cd2f64d93cc"
+    },
+    {
+      "repo_id": "google/siglip-so400m-patch14-384",
+      "revision": "9fdffc58afc957d1a03a25b10dba0329ab15c2a3"
+    }
+  ],
+  "endpoint": "https://hf-mirror.com",
+  "destination": "project data disk HF hub cache",
+  "status": "RESOURCE_BLOCKED_403",
+  "selection": "Guardrail blocklist/face/safety-filter files, plus separately pinned SigLIP and Qwen model/tokenizer assets. Excludes only nested duplicate HF cache.",
+  "limitation": "Mirror endpoint rejected gated Guardrail1 file; official authenticated access not verified. No auxiliary snapshot completed."
+}
