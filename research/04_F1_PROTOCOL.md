@@ -25,3 +25,5 @@ From the experiment project, invoke scripts/supervise_f1.py with --project, --ru
 The supervisor aborts its own process group if another compute process appears on the selected GPU. Timing from interrupted/shared GPU runs is not accepted. No training, paid scoring or wider benchmark is launched by this script.
 
 Status: runner implemented and CPU helper tests passed; whole runner and actual Cosmos outputs are NOT_RUN because Guardrail1 official authenticated access returns HTTP 403.
+
+Registration adaptation: the pinned config imports the user example-training package, whose GR00T 14B example eagerly resolves a 14B checkpoint. For the frozen 2B post-trained experiment, src/wcomr/runtime_config.py skips that one package root and retains the official internal experiment registration. It checks the source hash and refuses any other model/experiment. Both arms apply it. See manifests/runtime_adaptations.json. This is an explicit runtime adaptation, not an unmodified upstream reproduction.

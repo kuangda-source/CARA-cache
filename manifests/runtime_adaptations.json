@@ -1,0 +1,29 @@
+{
+  "adaptations": [
+    {
+      "name": "missing_model_source_completion",
+      "manifest": "manifests/runtime_completion.json",
+      "applies_to": [
+        "native",
+        "worldcache"
+      ],
+      "validation": "GPU-visible import only; full model loading under investigation"
+    },
+    {
+      "name": "core_inference_registration",
+      "implementation": "src/wcomr/runtime_config.py",
+      "source_config_sha256": "0ccb2fbdf4d997a680c50cfe3a52b22e85c285464884177ce7822b969ad2ddd9",
+      "excluded_import": "cosmos_predict2.experiments",
+      "preserved_import": "cosmos_predict2._src.predict2.configs.video2world.experiment",
+      "selected_experiment": "Stage-c_pt_4-Index-2-Size-2B-Res-720-Fps-16-Note-rf_with_edm_ckpt",
+      "selected_experiment_source": "cosmos_predict2/_src/predict2/configs/video2world/experiment/specialized_model/SFT_2B_RF.py",
+      "reason": "Public example-training registration eagerly requests unrelated 14B checkpoint even for 2B inference",
+      "applies_to": [
+        "native",
+        "worldcache",
+        "F0 load-only probe"
+      ],
+      "validation": "Two CPU routing/scope checks passed; real load recheck running"
+    }
+  ]
+}
