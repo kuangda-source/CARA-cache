@@ -41,10 +41,11 @@ def main():
     p.add_argument('--cache', type=Path, required=True)
     p.add_argument('--repo', required=True)
     p.add_argument('--receipt', type=Path, required=True)
+    p.add_argument('--all-files', action='store_true', help='Verify every file in an explicitly selected asset manifest')
     a = p.parse_args()
     lock = json.loads(a.manifest.read_text())[a.repo]
     root = a.cache / ('models--' + a.repo.replace('/', '--')) / 'snapshots' / lock['revision']
-    entries = [x for x in lock['files'] if any(fnmatch.fnmatch(x['path'], pat) for pat in PATTERNS)]
+    entries = [x for x in lock['files'] if a.all_files or any(fnmatch.fnmatch(x['path'], pat) for pat in PATTERNS)]
     if not entries: raise ValueError('No expected inference assets in manifest')
     files = [verify(root, item) for item in entries]
     state = {'repo_id': a.repo, 'revision': lock['revision'], 'metadata_source': lock['source'],

@@ -18,8 +18,11 @@ p.add_argument('--runtime', type=Path, required=True)
 p.add_argument('--python', required=True)
 p.add_argument('--gpu-uuid', required=True)
 p.add_argument('--output', type=Path, required=True)
-p.add_argument('--probe-only', action='store_true', help='F0 core-model load only, at most 420 seconds; no generation')
+probes = p.add_mutually_exclusive_group()
+probes.add_argument('--guardrail-only', action='store_true', help='F0 full safety pipeline compatibility probe, at most 420 seconds')
+probes.add_argument('--probe-only', action='store_true', help='F0 core-model load only, at most 420 seconds; no generation')
 a = p.parse_args()
+is_probe = a.probe_only or a.guardrail_only
 project, runtime, output = a.project.resolve(), a.runtime.resolve(), a.output.resolve()
 lock_path = project / '.sync/f1.lock'; lock_path.parent.mkdir(parents=True, exist_ok=True)
 lock = lock_path.open('a')
@@ -51,21 +54,21 @@ def stop(child):
         os.killpg(child.pid, signal.SIGKILL); child.wait()
 
 save(output / 'supervisor.json', state)
-for mode in (('core_model_load',) if a.probe_only else ('native', 'worldcache')):
+for mode in (('guardrail_pipeline',) if a.guardrail_only else ('core_model_load',) if a.probe_only else ('native', 'worldcache')):
     admission = query_gpu()
     if admission['pids'] or admission['memory_used_mib'] > 1024:
         state.update(status='RESOURCE_BUSY', admission=admission); break
     seconds_left = remaining - sum(arm['wall_seconds'] for arm in state['arms'])
     if seconds_left <= 0: state['status'] = 'BUDGET_STOP'; break
-    if a.probe_only:
+    if is_probe:
         seconds_left = min(seconds_left, 420)
     command = ['timeout', '--kill-after=10', str(max(1, int(seconds_left) - 10)),
                a.python, str(project / 'scripts/run_f1_case_set.py'), '--project', str(project),
                '--mode', mode, '--gpu-uuid', a.gpu_uuid, '--output', str(output / mode)]
-    if a.probe_only:
+    if is_probe:
         command = ['timeout', '--kill-after=10', str(max(1, int(seconds_left) - 10)), a.python,
-                   str(project / 'scripts/check_model_load.py'), '--project', str(project),
-                   '--gpu-uuid', a.gpu_uuid, '--receipt', str(output / 'core-model-load.json')]
+                   str(project / ('scripts/check_guardrail_pipeline.py' if a.guardrail_only else 'scripts/check_model_load.py')), '--project', str(project),
+                   '--gpu-uuid', a.gpu_uuid, '--receipt', str(output / ('guardrail-pipeline.json' if a.guardrail_only else 'core-model-load.json'))]
     env = dict(os.environ, PYTHONPATH='.:packages/cosmos-oss:packages/cosmos-cuda',
                CUDA_VISIBLE_DEVICES=a.gpu_uuid, HF_HUB_OFFLINE='1', TRANSFORMERS_OFFLINE='1')
     started = time.time()
@@ -79,7 +82,7 @@ for mode in (('core_model_load',) if a.probe_only else ('native', 'worldcache'))
         try:
             while child.poll() is None:
                 if time.time() - started >= max(0, seconds_left - 10):
-                    reason = 'PROBE_TIMEOUT' if a.probe_only else 'BUDGET_STOP'; stop(child); break
+                    reason = 'PROBE_TIMEOUT' if is_probe else 'BUDGET_STOP'; stop(child); break
                 observed = query_gpu(); monitor.write(json.dumps(observed) + '\n'); monitor.flush()
                 for pid in observed['pids']:
                     try: group = os.getpgid(pid)
@@ -98,7 +101,7 @@ for mode in (('core_model_load',) if a.probe_only else ('native', 'worldcache'))
                                   'wall_seconds': wall, 'stop_reason': reason})
             budget['used_gpu_hours'] += wall / 3600
             budget['gpu_jobs_launched'] += 1
-            budget['status'] = ('F0_LOAD_PROBE_REQUIRES_REVIEW' if a.probe_only
+            budget['status'] = ('F0_GUARDRAIL_PROBE_REQUIRES_REVIEW' if a.guardrail_only else 'F0_LOAD_PROBE_REQUIRES_REVIEW' if a.probe_only
                                 else 'F1_EXECUTION_REQUIRES_RESULT_REVIEW')
             budget['accounting'] = 'Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts'
             save(budget_path, budget)
@@ -106,6 +109,6 @@ for mode in (('core_model_load',) if a.probe_only else ('native', 'worldcache'))
             save(output / 'supervisor.json', state)
     if reason or child.returncode != 0: break
 else:
-    state['status'] = ('CORE_LOAD_EXITED_REQUIRES_STATE_REVIEW' if a.probe_only
+    state['status'] = ('GUARDRAIL_PROBE_EXITED_REQUIRES_REVIEW' if a.guardrail_only else 'CORE_LOAD_EXITED_REQUIRES_STATE_REVIEW' if a.probe_only
                        else 'PAIR_EXITED_AWAITING_RECEIPT_AND_VIDEO_REVIEW')
 save(output / 'supervisor.json', state)
