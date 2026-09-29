@@ -4,7 +4,7 @@ Private research workspace for improving the quality–time tradeoff of video wo
 
 ## Current status
 
-2026-09-29: F0 preparation; 17 CPU tests pass. No completed GPU generation, speedup measurement, or quality result yet. WorldCache public source omits model directories required by its inference imports; runtime completion is under investigation. Two A6000 GPUs were observed without compute processes; four-card login requires authentication.
+2026-09-29: 17 CPU tests pass; the complete Linux inference entry point also passes a bounded GPU-visible import. No model-load validation, generated video, speedup measurement, or quality result yet. Missing WorldCache model directories have a separately pinned source-completion candidate. F1 assets/environment validation remains in progress. Four-card login requires authentication.
 
 ## Reproduce CPU checks
 
