@@ -1,0 +1,36 @@
+{
+  "pid": 2362849,
+  "gpu_uuid": "GPU-cebf7119-cf03-23b9-e192-cd196332b704",
+  "status": "CORE_LOAD_EXITED_REQUIRES_STATE_REVIEW",
+  "arms": [
+    {
+      "mode": "core_model_load",
+      "pid": 2362854,
+      "exit_code": 0,
+      "wall_seconds": 113.15968608856201,
+      "stop_reason": null
+    }
+  ],
+  "current_mode": "core_model_load",
+  "child_pid": 2362854,
+  "child_started_unix": 1790673205.872653,
+  "admission": {
+    "unix": 1790673205.8720553,
+    "memory_used_mib": 24,
+    "utilization_percent": 0,
+    "pids": []
+  },
+  "command": [
+    "timeout",
+    "--kill-after=10",
+    "410",
+    "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python",
+    "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/scripts/check_model_load.py",
+    "--project",
+    "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr",
+    "--gpu-uuid",
+    "GPU-cebf7119-cf03-23b9-e192-cd196332b704",
+    "--receipt",
+    "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/outputs/f0-core-load-r2/core-model-load.json"
+  ]
+}

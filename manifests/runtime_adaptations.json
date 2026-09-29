@@ -7,7 +7,7 @@
         "native",
         "worldcache"
       ],
-      "validation": "GPU-visible import only; full model loading under investigation"
+      "validation": "Core-model load passed with no missing/unexpected state keys; forward and generation not tested"
     },
     {
       "name": "core_inference_registration",
@@ -23,7 +23,7 @@
         "worldcache",
         "F0 load-only probe"
       ],
-      "validation": "Two CPU routing/scope checks passed; real load recheck running"
+      "validation": "Scope/routing tests and actual core-model construction passed; selected network loaded 689 keys with no missing/unexpected keys"
     }
   ]
 }

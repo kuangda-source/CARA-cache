@@ -1,0 +1,48 @@
+{
+  "stage": "F0_CORE_MODEL_LOAD_ONLY",
+  "pid": 2362855,
+  "status": "CORE_CONSTRUCTOR_PASS_REQUIRES_STATE_REVIEW",
+  "started_unix": 1790673205.9396927,
+  "video_generation_started": false,
+  "state_load_calls": [
+    {
+      "class": "WanVAE_",
+      "input_key_count": 194,
+      "missing_keys": [],
+      "unexpected_keys": []
+    },
+    {
+      "class": "QwenVLBaseModel",
+      "input_key_count": 729,
+      "missing_keys": [],
+      "unexpected_keys": []
+    },
+    {
+      "class": "MinimalV1LVGDiT",
+      "input_key_count": 689,
+      "missing_keys": [],
+      "unexpected_keys": []
+    }
+  ],
+  "registration_adapter": {
+    "config_sha256": "0ccb2fbdf4d997a680c50cfe3a52b22e85c285464884177ce7822b969ad2ddd9",
+    "excluded_package": "cosmos_predict2.experiments",
+    "selected_experiment": "Stage-c_pt_4-Index-2-Size-2B-Res-720-Fps-16-Note-rf_with_edm_ckpt",
+    "scope": "exclude unrelated example training registration only"
+  },
+  "checkpoint": "/home/gaokuangda/.cache/huggingface/hub/models--nvidia--Cosmos-Predict2.5-2B/snapshots/15a82a2ec231bc318692aa0456a36537c806e7d4/base/post-trained/81edfebe-bd6a-4039-8c1d-737df1a790bf_ema_bf16.pt",
+  "checkpoint_bytes": 4118575006,
+  "network_class": "MinimalV1LVGDiT",
+  "network_parameters": 2059174912,
+  "blocks": 28,
+  "parameter_devices": [
+    "cuda:0"
+  ],
+  "parameter_dtypes": [
+    "torch.bfloat16"
+  ],
+  "peak_allocated_bytes": 25150418432,
+  "safety_pipeline_load_validated": false,
+  "ended_unix": 1790673315.5263014,
+  "elapsed_seconds": 109.58660864830017
+}

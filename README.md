@@ -4,7 +4,7 @@ Private research workspace for improving the quality–time tradeoff of video wo
 
 ## Current status
 
-2026-09-29: 22 CPU tests pass; the complete Linux inference entry point also passes a bounded GPU-visible import. No model-load validation, generated video, speedup measurement, or quality result yet. Missing WorldCache model directories have a separately pinned source-completion candidate. F1 is blocked on auxiliary assets: official access using the existing server HF login returned HTTP 403; model loading remains unvalidated. Four-card login has been recovered using the previous local authentication path; GPUs 2/3 were free. Its driver is older, so the prepared two-card environment remains the current candidate.
+2026-09-29: Cosmos 2.5-2B, tokenizer and Reason1 weights load successfully on the two-card server with no missing/unexpected state keys. Explicit source-completion and config-registration adaptations are documented. Core loading is not a forward/generation test. F1 video generation remains blocked by official Guardrail1 access (HTTP 403). Qwen auxiliary assets pass official metadata hash checks; SigLIP is resuming download. Four-card login is recovered, but its driver is older.
 
 ## Reproduce CPU checks
 
