@@ -184,3 +184,5 @@ python3 scripts/summarize_f1.py --native reports/f1_smoke_r3_native.json --world
 2026-09-30 r3实机拒绝续跑检查通过：physics_001记录为VIDEO_REJECTED，72次完整前向，无被拒绝mp4保存；随后进入原定robot_000，监督与子进程仍在运行。[现场回执](reports/f1_smoke_r3_rejection_continuation.json)。这验证了失败记录和继续执行机制，不代表4场景全通过，WorldCache结果仍待完成。
 
 2026-09-30 Native r3终态：全部4场景已尝试，AV/common/robot被接受，physics输出被拒绝；整体状态ATTEMPTED_ALL_WITH_REJECTIONS。Native监督耗时1322.462s，正常exit0仅表示记录完整。机器人单样本295.289s、去噪249.675s；common单样本296.992s、去噪249.370s。[Native完整回执](reports/f1_smoke_r3_native.json)。WorldCache已开始初始化，[切换快照](reports/f1_smoke_r3_worldcache_start.json)不是终态；无配对速度或质量结论。
+
+2026-09-30 首个WorldCache AV结果已保存，进入common：72次调用、38次完整计算、34次跳过深层；调用1和71的cache counter均为0，符合冻结70周期/72调用协议。实际setup（除输出目录与WC开关）、输入/采样/源码/结果处理协议与Native一致。单样本端到端213.119s、去噪152.435s；仅运行观察，未报告整批或质量等价加速。[在途快照](reports/f1_smoke_r3_worldcache_first_snapshot.json)。此外3个接受的Native视频全部哈希匹配并完整解码，[检查回执](reports/f1_smoke_r3_native_integrity.json)。
