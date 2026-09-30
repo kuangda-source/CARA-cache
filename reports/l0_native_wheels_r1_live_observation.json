@@ -1,0 +1,82 @@
+{
+  "observed_unix": 1790811768.5098846,
+  "supervisor": {
+    "pid": 2507524,
+    "status": "RUNNING",
+    "started_unix": 1790811492.2498105,
+    "cpu_max_wall_seconds": 3600,
+    "gpu_workload_started": false,
+    "source_commit": "e7338fec73e9b22e9c67dbffbedd4631a4f1e50f",
+    "source_sha256": {
+      "scripts/download_l0_native_wheels.py": "242a33c2be1879319d98f97dacf21435b20005391b5ef150930dcbdb4ef20545",
+      "src/wcomr/__init__.py": "b9996da0a87bb746cdac0935ead475246fc34d88b37e73f63f14e5065494f311",
+      "src/wcomr/ranged_download.py": "1d0f78b457f35ed82ea3a3b31b155d0642369635ad7a11a47ef9c40a3b94e92f",
+      "src/wcomr/wheel_assets.py": "4980e9af2791258d3b3cca8d7ed5988babc900c4f3aacf1a3e8cda2e9ad501c6",
+      "tests/test_ranged_download.py": "3e09d8093e6cf5016826d3099488ffe0a5825fca42ad53e6763623b69a45647d",
+      "tests/test_wheel_assets.py": "280f6276ef73caa60ae41a8f1edc23c3e50f39da346ff3ab7337f630a1f968b1",
+      "manifests/l0_native_wheel_acquisition_20261001.json": "ba54ddf4be102cf32564499c09db1c3f2f77989d7893647ddabc89ec85155893"
+    },
+    "budget_before": {
+      "batch": "F0-F1",
+      "cap_gpu_hours": 4,
+      "used_gpu_hours": 3.6512467238638138,
+      "gpu_jobs_launched": 22,
+      "status": "W1_VQA_CONTROLS_REQUIRES_REVIEW",
+      "gpu_import_probes_completed": 1,
+      "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts"
+    },
+    "child_pid": 2507525,
+    "command": [
+      "timeout",
+      "--kill-after=10",
+      "3590",
+      "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python",
+      "/home/gaokuangda/data/gkd/worldcache_omr/.sync/l0-native-wheel-cpu-r1/scripts/download_l0_native_wheels.py",
+      "--manifest",
+      "/home/gaokuangda/data/gkd/worldcache_omr/.sync/l0-native-wheel-cpu-r1/manifests/l0_native_wheel_acquisition_20261001.json",
+      "--cache",
+      "/home/gaokuangda/data/gkd/worldcache_omr/.sync/l0-native-wheel-cache",
+      "--receipt",
+      "/home/gaokuangda/data/gkd/worldcache_omr/outputs/l0-native-wheels-r1/download.json"
+    ]
+  },
+  "download": {
+    "pid": 2507526,
+    "started_unix": 1790811492.3392296,
+    "status": "RUNNING",
+    "gpu_workload_started": false,
+    "completed": [],
+    "current": "torch-2.4.1+cu121-cp311-cp311-linux_x86_64.whl",
+    "current_transfer": {
+      "status": "RUNNING",
+      "initial_bytes": 0,
+      "durable_bytes": 167772160,
+      "size": 798979686,
+      "requests": 10,
+      "completed_chunks": 10,
+      "retries": 0
+    }
+  },
+  "processes": {
+    "2507524": {
+      "cmdline": "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python /home/gaokuangda/data/gkd/worldcache_omr/.sync/l0-native-wheel-cpu-r1/supervisor-native-wheels-r1.py ",
+      "cuda_visible_devices_empty": true
+    },
+    "2507525": {
+      "cmdline": "timeout --kill-after=10 3590 /home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python /home/gaokuangda/data/gkd/worldcache_omr/.sync/l0-native-wheel-cpu-r1/scripts/download_l0_native_wheels.py --manifest /home/gaokuangda/data/gkd/worldcache_omr/.sync/l0-native-wheel-cpu-r1/manifests/l0_native_wheel_acquisition_20261001.json --cache /home/gaokuangda/data/gkd/worldcache_omr/.sync/l0-native-wheel-cache --receipt /home/gaokuangda/data/gkd/worldcache_omr/outputs/l0-native-wheels-r1/download.json ",
+      "cuda_visible_devices_empty": true
+    },
+    "2507526": {
+      "cmdline": "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python /home/gaokuangda/data/gkd/worldcache_omr/.sync/l0-native-wheel-cpu-r1/scripts/download_l0_native_wheels.py --manifest /home/gaokuangda/data/gkd/worldcache_omr/.sync/l0-native-wheel-cpu-r1/manifests/l0_native_wheel_acquisition_20261001.json --cache /home/gaokuangda/data/gkd/worldcache_omr/.sync/l0-native-wheel-cache --receipt /home/gaokuangda/data/gkd/worldcache_omr/outputs/l0-native-wheels-r1/download.json ",
+      "cuda_visible_devices_empty": true
+    }
+  },
+  "cpu_download_lock_held": true,
+  "source_hashes_match": true,
+  "budget_unchanged": true,
+  "gpu_workload_started": false,
+  "cache_file_bytes": {
+    "torch-2.4.1+cu121-cp311-cp311-linux_x86_64.whl.incomplete": 179306496
+  },
+  "log_tail": ""
+}

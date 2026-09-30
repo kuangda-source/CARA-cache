@@ -1,3 +1,11 @@
+## 最新运行 — 四个native binary CPU获取
+
+native-wheels-r1/source e7338fe 已唯一启动，3PIDs 2507524/2507525/2507526 实际live/下载锁持有；四个源exact206/64KiB前缀通过。当前Torch已持久提交 167772160 字节，完整4 wheel/hash尚未完成；CPU3600秒cap/source与GPU账本不变，无安装/import/GPU。
+
+[运行卡](44_L0_NATIVE_WHEEL_ACQUISITION_RUN.md)。同handle观察，旧launch不可重复。
+
+## 以下为历史快照
+
 # Next actions — 输入对照终态，下一预算/范围决定
 
 1. controls-r1/source72c9e24原8/126全有效，repeat0/42变、blank14/42、cyclic14/42；全PIDs退出/锁/GPU释放/模型输入raw/hash/本地重算通过。[结果](30_W1_VQA_INPUT_CONTROLS_RESULTS.md)/[审计](../reports/w1_vqa_controls_r1_audit.json)。只证重复稳定/内容响应，不证明物理准确，不再重复控制或调prompt。

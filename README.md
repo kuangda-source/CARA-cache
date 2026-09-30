@@ -1,3 +1,5 @@
+最新资源状态：[native binary CPU获取运行](research/44_L0_NATIVE_WHEEL_ACQUISITION_RUN.md)，完整payload/环境尚未验收。
+
 # WorldCache / OMR experiments
 
 Private research workspace for improving the quality–time tradeoff of video world models. Initial priority: reproduce Cosmos-Predict2.5-2B Native and WorldCache, then test simple residual calibration. OMR is a conditional second direction.
