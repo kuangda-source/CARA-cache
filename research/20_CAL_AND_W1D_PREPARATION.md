@@ -1,6 +1,6 @@
 # CAL来源连接与下一轮W1-D准备
 
-2026-09-30；CAL membership FROZEN_NOT_GENERATED；W1-D PREPARED_NOT_IMPLEMENTED_NOT_RUN。
+2026-09-30；CAL membership FROZEN_NOT_GENERATED；W1-D IMPLEMENTED_CPU_CHECKED_NOT_GPU_RUN。
 
 ## 来源与分组
 
@@ -23,3 +23,9 @@
 既有单样本off/on+四点truth实测约530秒含加载，扣单次加载后生成/评分约430秒；8个样本共用一次model load，增加稀疏点/分布归约，粗估3,800–4,500秒。下一轮提议一次单GPU串行batch上限6,000秒/1.666667GPUh，从现有2.002225685h余额扣除，预留至少0.335559018h。不增加总4小时预算；硬截止包含加载、失败、flush，部分完成按INCONCLUSIVE/覆盖实际报告。尚未实现或启动；完成CPU/源码部署/预算锁/GPU准入核验后方可提交。
 
 以样本为主要单位，报告候选相对官方的各样本aggregate误差、覆盖/拒绝/fallback及残差-versus-velocity排序，不把token/帧/CFG点当独立样本。初轮筛查不作统计确认或质量推断。数值异质性/排序反转能支持下一局部假设，但仍不足以称质量损害或批准复杂W2；8场景再无优势则暂停这一标量/收缩公式线，优先F2成本可行性或报告资源缺口。完整F2的12–24场景多工作点明显超过当前剩余预算，不能以少数样本冒充完成。无需人工评审，不训练/付费评分。
+
+## 实现冻结
+
+`run_w1d_cal.py`一次加载依次执行8off/on，保留原keep_going语义下的text/video拒绝，未知错误立即终止。OFF trace每样本先冻结四对诊断点，ON共用full truth并记录明确布局的分布/缓存年龄。逐call输出、cache/trace、latent/raw decode/guardrail/接受视频及flags/decoder状态相同才认技术通过；无可用skip记覆盖不足，不能冒充负结果。`supervise_f1.py --w1d-cal`单batch最多6000秒，原项目锁/准入/冲突停止/记账保留。
+
+筛查规则在新数值结果前固定：全部8各4对且无fallback；候选至少6/8样本联合改善velocity与postwarp，两个等样本权重均值比均小于1才MECHANISM_ONLY_CAL8；两候选velocity均值都不低于1则NO_GAIN_CAL8_IN_SCOPE，其余INCONCLUSIVE。任何partial只LIVE_PARTIAL_NO_DECISION。拒绝样本保留分母，作为数值诊断，不据此声称可接受质量。针对性43项本机CPU检查通过，尚未GPU提交。

@@ -13,14 +13,21 @@ from .shadow_metrics import tensor_error
 
 
 class SameStateProbe(ShadowProbe):
-    def __init__(self, calls, calibration_params=None):
+    def __init__(self, calls, calibration_params=None, grouped=False):
         super().__init__(calls)
         self.calibration_params = dict(calibration_params or {})
+        self.grouped = grouped
         self.model_identity = None
         self.calibrators = None
         self.prewarp = None
         self.warp = None
         self.cycle = 0
+
+    def score(self, prediction, truth, kind):
+        if self.grouped:
+            from .w1d import grouped_error
+            return grouped_error(prediction,truth,kind)
+        return tensor_error(prediction,truth)
 
     def begin_request(self, identity):
         super().begin_request(identity)
@@ -64,6 +71,9 @@ class SameStateProbe(ShadowProbe):
                 predicted_hidden, predicted_velocity, block_kwargs, embedding, adaln):
         if not skipped or self.call not in self.calls:
             return
+        if self.grouped:
+            from .w1d import validate_geometry
+            validate_geometry(net,original_input,predicted_velocity)
         if self.prewarp is None or self.warp is None:
             raise RuntimeError('Missing same-call prewarp or pinned warp')
         if net.training or any(m.training for m in net.modules()):
@@ -110,14 +120,14 @@ class SameStateProbe(ShadowProbe):
                 sync(); truth_seconds = time.perf_counter()-truth_started
                 truth_residual = truth-original_input
                 scores = {'official': {
-                    'prewarp_residual': tensor_error(official_residual, truth_residual),
-                    'postwarp_residual': tensor_error(predicted_hidden-original_input, truth_residual),
-                    'velocity': tensor_error(predicted_velocity, truth_velocity), 'reason': 'official'}}
+                    'prewarp_residual': self.score(official_residual, truth_residual, 'residual'),
+                    'postwarp_residual': self.score(predicted_hidden-original_input, truth_residual, 'residual'),
+                    'velocity': self.score(predicted_velocity, truth_velocity, 'velocity'), 'reason': 'official'}}
                 for mode, item in candidates.items():
                     scores[mode] = {
-                        'prewarp_residual': tensor_error(item['residual'], truth_residual),
-                        'postwarp_residual': tensor_error(item['hidden']-original_input, truth_residual),
-                        'velocity': tensor_error(item['velocity'], truth_velocity),
+                        'prewarp_residual': self.score(item['residual'], truth_residual, 'residual'),
+                        'postwarp_residual': self.score(item['hidden']-original_input, truth_residual, 'residual'),
+                        'velocity': self.score(item['velocity'], truth_velocity, 'velocity'),
                         'reason': item['reason'], 'history': item['history'],
                         'beta': item['beta'], 'anchor_gap_ratio': item['anchor_gap_ratio']}
                     if self.calibrators[mode][branch].receipt() != item['history']:
@@ -125,6 +135,7 @@ class SameStateProbe(ShadowProbe):
                 sync()
                 self.records.append({'request': self.request, 'call': self.call,
                     'cache_counter': net.cnt, 'cfg_branch': branch, 'cycle': self.cycle,
+                    'cache_age_from_last_true_full':(net.cnt-self.calibrators['scalar'][branch].anchors[-1].step if self.calibrators['scalar'][branch].anchors else None),
                     'shadow_deep_blocks': len(net.blocks)-net.probe_depth,
                     'truth_tail_seconds': truth_seconds,
                     'diagnostic_seconds': time.perf_counter()-started, 'candidates': scores,

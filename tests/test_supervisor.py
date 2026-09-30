@@ -151,3 +151,17 @@ def test_decoder_policy_requires_stage_gate_and_passes_explicit_flag(tmp_path):
     subprocess.run(cmd+['--stage-witness','--deterministic-decode'],env=env,check=True,capture_output=True,timeout=10)
     state=json.loads((output/'supervisor.json').read_text())
     assert len(state['arms'])==2 and '--deterministic-decode' in state['command']
+
+
+def test_w1d_cal_is_single_serial_batch_charged_under_existing_cap(tmp_path):
+    project,output,cmd,env=fixture(tmp_path,delay=.02,cap=3)
+    subprocess.run(cmd+['--w1d-cal'],env=env,check=True,capture_output=True,timeout=10)
+    state=json.loads((output/'supervisor.json').read_text())
+    assert state['status']=='W1D_CAL_EXITED_REQUIRES_REVIEW'
+    assert [a['mode'] for a in state['arms']]==['w1d_cal']
+    assert str(project/'scripts/run_w1d_cal.py') in state['command']
+    assert str(output/'w1d-cal.json') in state['command']
+    assert int(state['command'][2])<=5990
+    budget=json.loads((project/'reports/budget.json').read_text())
+    assert budget['gpu_jobs_launched']==1
+    assert abs(budget['used_gpu_hours']-state['arms'][0]['wall_seconds']/3600)<1e-9
