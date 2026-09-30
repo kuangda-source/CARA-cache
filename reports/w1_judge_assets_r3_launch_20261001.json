@@ -1,0 +1,55 @@
+{
+  "status": "DISPATCHED_REQUIRES_LIVE_VERIFICATION",
+  "source_commit": "202e21df5466929a0d805865870ae1c5e881d33d",
+  "source_sha256": {
+    "scripts/supervise_asset_download.py": "dbd390dc8ece77ec459aec85d6f986b585e579d04f12cb939f3c5916882b47f4",
+    "scripts/download_auxiliary.py": "5da139b7f38cd4adf60db09771f72ec48308656aa6a3555aa48f7cb72d4913f6",
+    "scripts/verify_public_assets.py": "decb5b43bcc64470aa8b9adb50a0bc39e75440f78015ff84bc6752f2765aa058",
+    "tests/test_asset_supervisor.py": "ed9046c5f34ef010675755737f02d061d0134996cfef62de06de64df95dd3444",
+    "tests/test_asset_integrity.py": "cd355282c8f47d7776e0ac54f653639ca6ca4bbd961e98e87aee3cbe8294503b",
+    "manifests/w1_development_judge_assets_resume.json": "75d4a91d2f117b5b9c807bcbbc6feca537839f24a33e687c4699328e21283944",
+    "manifests/w1_development_judge_integrity.json": "8d11b58610428a2aeb2f57eca4f49e2b0581fe930bf2bf90aa75dab8c9a01621"
+  },
+  "linux_cpu_exit": 0,
+  "linux_cpu_stdout": "....                                                                     [100%]\n4 passed in 0.55s\n",
+  "started_unix": 1790791247.938378,
+  "max_cpu_wall_seconds": 3600,
+  "gpu_workload_started": false,
+  "budget_before": {
+    "batch": "F0-F1",
+    "cap_gpu_hours": 4,
+    "used_gpu_hours": 3.612360697322422,
+    "gpu_jobs_launched": 20,
+    "status": "W1_IMAGING_REQUIRES_REVIEW",
+    "gpu_import_probes_completed": 1,
+    "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts"
+  },
+  "output": "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/outputs/w1-judge-assets-r3",
+  "transport": "Anonymous direct public mirror; final official Git/LFS digest required",
+  "prior_r2_status": "DOWNLOAD_FAILED_OR_TIMEOUT",
+  "prior_r2_exit": 124,
+  "prior_r2_pids_absent": [
+    2478913,
+    2478914,
+    2478915
+  ],
+  "partial_objects_before": [
+    {
+      "name": "7de1838c87a5349b016c26a1c3f7d2bc400a3d485f95ef39a7059ffd734977a0.incomplete",
+      "bytes": 786432000
+    }
+  ],
+  "pid": 2481616,
+  "command": [
+    "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python",
+    "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/scripts/supervise_asset_download.py",
+    "--project",
+    "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr",
+    "--manifest",
+    "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/manifests/w1_development_judge_assets_resume.json",
+    "--output",
+    "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/outputs/w1-judge-assets-r3",
+    "--python",
+    "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python"
+  ]
+}

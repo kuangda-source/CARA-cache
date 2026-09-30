@@ -9,7 +9,7 @@
 - CPU r1/sourced0faa4b：服务器直接Hub元数据请求失败，exit1，261.483689秒；父/子/downloader全退出、source hash一致、GPU账本不变。没有权重下载。[审计](../reports/w1_judge_assets_r1_audit.json)。
 - CPU r2/sourceb5a6a49：使用任务专用SSH loopback转发本机已有代理；固定版本元数据HTTP200，真实权重文件有进度。最终1190.036513秒后timeout exit124，全部PIDs退出/CPU lock释放，保留786432000字节（750MiB）。downloader文件仍RUNNING是被timeout后的旧状态，不能当进程在跑。[审计](../reports/w1_judge_assets_r2_audit.json)/[supervisor](../reports/w1_judge_assets_r2_supervisor.json)。未主动取消该任务。专用代理在其终态后请求停止，不影响共享FRPC或系统代理。
 - 匿名公共镜像元数据0.347秒返回同一revision；8MiB range probe为HTTP206/总大小4255140312，5.489秒完成，SHA256 prefix与既有部分文件完全一致。只是运输路径对照，不是完整模型验证。[metadata](../reports/w1_judge_alternate_route_probe_20261001.json)/[range](../reports/w1_judge_mirror_range_probe_20261001.json)。
-- 下一r3使用[CPU resume manifest](../manifests/w1_development_judge_assets_resume.json)，相同10文件/revision/官方Git/LFS哈希与项目cache；匿名镜像，只因测得吞吐不足将CPU-only cap由1200改为3600秒，原4GPUh额度不变。下载器不使用认证token，不把认证请求交给镜像。不修改旧协议/旧运行。当前r3待源码同步/LinuxCPU/唯一启动；最终须用[官方完整性manifest](../manifests/w1_development_judge_integrity.json)逐文件验证，prefix匹配不能代替完整digest。
+- 下一r3使用[CPU resume manifest](../manifests/w1_development_judge_assets_resume.json)，相同10文件/revision/官方Git/LFS哈希与项目cache；匿名镜像，只因测得吞吐不足将CPU-only cap由1200改为3600秒，原4GPUh额度不变。下载器不使用认证token，不把认证请求交给镜像。不修改旧协议/旧运行。当前r3已唯一启动/source202e21d，Linux4CPU/source hash通过，supervisor2481616/timeout2481618/downloader2481619 live，partial850MiB未完整；[启动](../reports/w1_judge_assets_r3_launch_20261001.json)/[观察](../reports/w1_judge_assets_r3_live_observation.json)。继续同handles不改在跑CPU文件/重复提交；最终须用[官方完整性manifest](../manifests/w1_development_judge_integrity.json)逐文件验证，prefix匹配不能代替完整digest。
 
 ## 原8场景/原题/相同输入
 

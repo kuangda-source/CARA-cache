@@ -1,3 +1,15 @@
+## 最新恢复核验 — 2026-10-01 02:01:45 北京时间：judge CPU镜像续传r3 live
+
+已fetch GitHub main并核对本地/远端同为202e21d，SSH实测成功，共享FRPC未改/未重复启动；原r1/r2和GPU任务均已退出。新唯一`outputs/w1-judge-assets-r3`部署source202e21d，文件SHA256一致，Linux4项CPU acquisition检查通过。supervisor2481616/timeout2481618/downloader2481619三个PIDs本次真实ps/proc核实存活，CUDA为空、无代理环境，CPU锁由本任务持有。匿名公共镜像/固定revision/同官方hash/cache，cap3600秒；权重partial由786432000增至891289600字节（850MiB），仍未完整/未验收，未加载权重/未VLM forward/未GPU评分。
+
+继续观察同一handles，不改在跑CPU源码/manifest、不重复提交；终态后核验PIDs退出/锁/source、逐文件官方Git/LFS digest，再实现并检查GPU runner。原8/42题/10采样帧输入和parser已CPU准备，完整小模型结果仍仅开发代理，不是235B标准Joint或独立确认。robot拒绝保留，不要求人评/训练/付费或自动扩额。
+
+GPU1本次24MiB/no compute apps，所有GPU阶段终态；账本与启动前相同，累计3.612360697322422/4GPUh、余0.387639302677578h。scalar CAL8仅机制信号，固定重放7接受1拒绝、MUSIQ3升4降，无整体/物理质量或clean speed正结果，暂不加W2。此后文档HEAD不改变实机source202e21d身份。
+
+证据：[唯一启动](../reports/w1_judge_assets_r3_launch_20261001.json)、[live观察](../reports/w1_judge_assets_r3_live_observation.json)、[开发准备卡](../research/26_W1_DEVELOPMENT_VQA_PREPARATION.md)。
+
+## 以下为历史快照
+
 ## 最新接续 — 2026-10-01：CPU r1失败/r2超时终态，准备镜像续传；VQA输入CPU通过
 
 r1直连Hub metadata失败exit1/261.483689秒；r2代理下载真实有进度，1190.036513秒后timeout exit124，786432000字节/750MiB保留。原r2 supervisor2478913/timeout2478914/downloader2478915全退出/CPU lock释放、source哈希一致、GPU账本未变；downloader状态文件仍RUNNING是超时后的旧文件，不是live。任务专用SSH代理在终态后停止，不改共享FRPC/系统代理。不是观察超时导致重复提交，也未主动取消r2。
