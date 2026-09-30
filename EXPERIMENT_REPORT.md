@@ -176,3 +176,5 @@ python3 scripts/summarize_f1.py --native reports/f1_smoke_r3_native.json --world
 ```
 
 2026-09-30 r3 首个 Native AV 视频已完成：单样本端到端314.463s、去噪256.631s，72次完整前向、0次深层跳过。本地视频SHA256与回执一致，93帧完整解码通过，768×432，时间戳0–5.75s严格递增。[完整性回执](reports/f1_smoke_r3_first_native_decode.json)。任务已进入common场景；尚无WorldCache配对或质量审查结论。
+
+2026-09-30 W1-D CPU准备：新增 `src/wcomr/shadow_metrics.py`，分别计算残差与最终速度预测的MSE、相对误差、方向余弦，并按显式张量轴汇总时间/通道等位置。零能量参考的相对误差记为空；非有限值显式报错状态。合成下游映射测试复现“残差更小、输出误差更大”的排序反转，仅验证评分逻辑，不是本模型的实验证据。尚未实现真实同状态shadow采样/部署不变性验收；未部署到在跑的F1。
