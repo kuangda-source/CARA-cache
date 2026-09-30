@@ -1,3 +1,11 @@
+# Latest — W1-S1 r2 generating; inspect this identity
+
+Source7e5bc10,matchingarchive f40c3e9d669128d54c041410e142852cc4f467d927db5fdafe0051c042d40de7. r2supervisor2444752/timeout2444757/runner2444759live,outputs/w1-s1-r2,max900s. Cachepathprojecthfhub verifiedinactualprocess;offgenerating. Prior r1 failedinit0generated after75.011195s becausecacheenvomitted;fixedin supervisor and6local+6Linuxsubprocesschecks pass. AlloldPIDs verifiedgone;newadmission24MiB/noapps. SettledbudgetBEFOREr2 1.266033649245898/4h,ongoingcostextra. No secondjob orrunning-sourceedit.
+
+Afterterminal: take w1-same-state.json,supervisor.json,budget andGPU/process/lock/video-hash receipts; run local scripts/summarize_w1_same_state.py. Local7receipt-summarychecks pass;thatcodeisnotdeployedtor2. Triadscoredonexactofficialtrajectory withtruepastfullanchorsandpinnedcandidate-specificwarp;currenttruthscoreonly. Need72output/cache/video/traceoff-onparitybeforemechanismclaim. Manualannotationnotrequired. Candidateclosed-loop/independentCAL/quality/cleanspeedremainpending evenonparitypass.
+
+## Historical snapshots
+
 # Latest — W1-S1 r1 initialization failure archived; cache fix ready
 
 r1 sourcef43e0a1 supervisor2443666/timeout2443671 exited1 after75.011195s,0generatedruns. MissingHF_HUB_CACHE causedofflineGuardrail1 path to default incompletecache. Actual authorized projectassets remainready. Fixedsupervisor nowsetsHF_HUB_CACHE=project/hfhub;6local subprocesschecks pass. Budget1.266033649245898/4h. Do not retryr1 or overwrite outputs; nextverifygonePIDs/lock/projectcache,deployfixedsource,launchr2<=900s once. prior19LinuxCPUchecks validatedsame-stateimplementation;noGPUdiagnosticresultyet.

@@ -32,3 +32,9 @@
 `src/wcomr/same_state.py`维护mode/CFG独立calibrator，观察真实full分支，预测先于truth补算；原始forward返回官方输出。直接提取固定官方flow片段，让各候选使用与现有注入相同的warp语义，并区分prewarp/postwarp/velocity评分。request、70周期、模型/expert变更均清空候选历史。新增随机buffer/RNG、空间变化flow与实际candidate首次skip匹配测试。
 
 `check_w1_parity.py --same-state`新版本执行同seed off/on，要求72output/cache/video/trace不变、四点有限且anchor严格过去。`supervise_f1.py --w1-same-state`沿用全项目锁、GPU准入、外来计算冲突停止及记账，最多900s。一旦启动，应以新的launch/terminal回执覆盖这里的NOT_GPU_RUN快照。
+
+## r1失败及r2实机接续
+
+r1在初始化阶段因启动缺少项目HF_HUB_CACHE退出，0生成；75.011195s全部计账。已固定监督器环境，旧PIDs缺失/全项目锁可获取后，源`7e5bc10`归档哈希匹配且6项Linux监督器测试通过，重新准入GPU1 24MiB/no compute apps，启动不同目录`outputs/w1-s1-r2`。supervisor2444752/timeout2444757/runner2444759核实存活，HF_HUB_CACHE已指向项目hfhub，进入off生成。此段是运行快照，终态以后续回执为准；不改在跑源码。
+
+数值摘要只从完整off/on终态生成，重核72输出/状态/视频/采样一致性、四点及past anchor，拒绝部分、非有限或不同truth的回执。预设工程筛查：候选无fallback，四点中至少三点velocity MSE低于官方，且四点velocity与postwarp residual的sum-MSE比均<1，才记MECHANISM_ONLY候选信号；两候选总velocity MSE都>=官方则记NO_GAIN_IN_SCOPE，否则INCONCLUSIVE。这是单场景相关四点的描述性筛查，不是统计确认，不据此扩大预算或作质量结论。

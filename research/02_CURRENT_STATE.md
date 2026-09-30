@@ -144,4 +144,8 @@ Budget settled1.2451972062057919/4GPUh,remaining2.754802793794208h. reports/w1_p
 
 SameStateProbe retains official deployed output, scores3approximators at fixedcalls, preserves pinnedcandidate-specificwarp and pre/postwarp distinction, resets realfullanchor trackers on request/cycle/model/expert.58localtests pass, including random state preservation, spatialflow matching to actualcandidatefirstskip, expertfallback and boundedserialsupervision. New --w1-same-state mode caps one off/on job900s under remainingbudget. Not yet LinuxCPUchecked/deployed/GPUrun.
 
-W1-S1 r1初始化失败，未生成：启动环境缺少HF_HUB_CACHE，默认offline缓存无Guardrail1 blocklist目录。监督耗时75.011195s/0.020836443GPUh已结算；当前累计1.266033649/4GPUh。已把项目hfhub路径固定到监督器，6项本地真实子进程测试确认缓存环境，准备核验旧进程/锁后运行不同身份r2。保留[失败回执](reports/w1_s1_r1_failure_summary.json)（research文档链接需从总文档访问）。
+W1-S1 r1初始化失败，未生成：启动环境缺少HF_HUB_CACHE，默认offline缓存无Guardrail1 blocklist目录。监督耗时75.011195s/0.020836443GPUh已结算；当前累计1.266033649/4GPUh。已把项目hfhub路径固定到监督器，6项本地真实子进程测试确认缓存环境，准备核验旧进程/锁后运行不同身份r2。保留[失败回执](../reports/w1_s1_r1_failure_summary.json)。
+
+## W1-S1 r2 live after explicit cache fix
+
+Source7e5bc10 archive matched,6LinuxsupervisorCPUchecks passed afterprior19same-statechecks. Previousr1 PIDs absent,lockavailable;GPU1admitted24MiB/noapps. supervisor2444752/child2444757/runner2444759live,actualprojectHF_HUB_CACHEverified,offgenerating. Settled1.266033649h BEFOREr2;inflightadditional. Do notmodifydeployedsource orsubmitsecondjob. Localreceipt-only summarytool preparedwith7tests,notdeployed. Resultsremainpending.

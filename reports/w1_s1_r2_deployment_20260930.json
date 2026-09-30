@@ -1,0 +1,33 @@
+{
+  "source_commit": "7e5bc108a73997cdacaf0b7218979389e45742b6",
+  "archive_sha256": "f40c3e9d669128d54c041410e142852cc4f467d927db5fdafe0051c042d40de7",
+  "archive_hash_matches": true,
+  "linux_cpu_exit": 0,
+  "linux_cpu_stdout": "......                                                                   [100%]\n6 passed in 1.26s\n",
+  "linux_cpu_stderr": "",
+  "linux_cpu_seconds": 1.87772798538208,
+  "budget_before": {
+    "batch": "F0-F1",
+    "cap_gpu_hours": 4,
+    "used_gpu_hours": 1.266033649245898,
+    "gpu_jobs_launched": 9,
+    "status": "W1_SAME_STATE_REQUIRES_REVIEW",
+    "gpu_import_probes_completed": 1,
+    "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts"
+  },
+  "deployed_unix": 1790767629.0212672,
+  "runtime_source_files": {
+    "scripts/check_w1_parity.py": "d8fc0c214c96cf5ea5d0956f664c1b5c66997a072ae83decf7fb4c7bf5e0fade",
+    "scripts/supervise_f1.py": "8640fe5b143bcf0871d8ea691d5dbbd49a0d4464e075bc824fd0e84ead80e517",
+    "src/wcomr/same_state.py": "4b5460c695be664a8fe6efbab13e0e391d44efd9f08201a00c1ceae905b31d3b",
+    "manifests/w1_same_state_protocol.json": "8b078eefff2a1195a38f62dcd648ad59376a9b7fa68e0f3be11e87ef91185f4b"
+  },
+  "test_source_sha256": "b485cb8fd6e262a40e5823365c34ef7db1bc036c591d7577489e04077c515903",
+  "test_source_scope": "One hash-verified pinned runtime cache file copied as ignored CPU AST fixture; not a complete vendor checkout",
+  "prior_same_state_linux_cpu_checks": {
+    "source_commit": "f43e0a1",
+    "tests_passed": 19,
+    "gpu_run": false
+  },
+  "scope": "Source deployment and CPU tests only; no generation launched"
+}
