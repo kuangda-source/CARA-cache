@@ -133,3 +133,9 @@ Source d98f447 deployed with matching archive.49local/13LinuxCPUtests pass. Supe
 ## User scope correction
 
 Manual semantic review was prematurely emphasized; it is not required by original F1 smoke scope and must not block W1. Continue parity and numerical diagnostics. Optional review UI is not a prerequisite; quality-equivalence still requires appropriate later evidence.
+
+## W1-P0 terminal recovered; next candidate diagnostic prepared — 2026-09-30
+
+Live FRPC/SSH connection succeeded. W1-P0 r1 exited0; all7parity checks pass on officialWC AV/seed0.72forward hashes,38full/34skip counts/trace,finalcache andvideo hashes match off/on; calls15/16/37/38 finite. Both artifacts independently rehashed remotely. Old PIDs absent, no project generation processes, supervisor lock available; GPU1 24MiB/no compute apps at18:52Beijing. Source files/protocol hashes match local. No new GPU job.
+
+Budget settled1.2451972062057919/4GPUh,remaining2.754802793794208h. reports/w1_p0_r1{,_supervisor,_summary,_recovery_audit}.json archive evidence; research/12_W1_P0_TERMINAL_RESULTS.md separates implementation acceptance from candidate efficacy. Next research/13_W1_S1_PREPARATION.md is PREPARED_NOT_IMPLEMENTED_NOT_RUN: isolated three approximators on the same official state, <=900s proposed from remainingbudget only after implementation/invariance gates. Current scalar/shrink deployment hooks are not a same-state three-arm diagnostic. Manualsemanticreview remains optional, not a W1gate.

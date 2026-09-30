@@ -8,7 +8,7 @@ Private research workspace for improving the quality–time tradeoff of video wo
 
 ## Current status
 
-2026-09-30 latest: F1 r3 finished both arms: Native3accepted/1rejected, WC4accepted. Three jointly accepted cases show measured E2E ratios1.476–1.602; this is baseline timing, not a quality-equivalent or new-method gain. All7accepted videos hash/full-decode pass. Cost1.092568/4GPUh settled before W1-P0; official-shadow parity gate now running (900s cap), results pending. [Technical results and next gate](research/11_F1_R3_TECHNICAL_RESULTS.md).
+2026-09-30 latest: F1 r3 is terminal (Native3accepted/1rejected, WC4accepted); three accepted pairs have measured E2E ratios1.476–1.602, without a quality-equivalent or new-method claim. W1-P0 official-shadow off/on gate exited0 and all7checks pass on one engineering sample. Live recovery verified no project generation processes, available supervisor lock, matching artifact hashes and idle GPU1. Settled cost1.245197206/4GPUh. Next: implement isolated same-state official/shrink/scalar scoring per the [W1-S1 preparation card](research/13_W1_S1_PREPARATION.md); no new GPU job was launched during recovery. [W1-P0 results](research/12_W1_P0_TERMINAL_RESULTS.md).
 
 Prior terminal run: Core assets and the retained safety pipeline are ready. F1 r2 completed two Native samples, then stopped when the physics_001 generated video was rejected by the output guardrail. WorldCache has not run; there is no paired speed/quality result. Charged cost: 0.473298 / 4 GPUh. Terminal receipts are in `reports/f1_smoke_r2_*.json`.
 
@@ -37,4 +37,4 @@ The integration tests extract the pinned upstream functions and execute a synthe
 
 Every meaningful code/config/result change is committed and pushed to this private repository. No autonomous training, full benchmark, or paid evaluation is part of the initial smoke batch.
 
-F1 execution protocol and evidence limits: `research/04_F1_PROTOCOL.md`. `scripts/supervise_f1.py` has run real Native generation; the paired comparison remains incomplete.
+F1 execution protocol and evidence limits: `research/04_F1_PROTOCOL.md`. `scripts/supervise_f1.py` completed both r3 arms and W1-P0; see terminal receipts rather than historical RUNNING notes.

@@ -16,4 +16,4 @@ physics：Native输出被拒绝，WC接受；没有两份可接受视频，不�
 
 证据：[配对汇总](../reports/f1_smoke_r3_summary.json)、[执行与GPU审计](../reports/f1_smoke_r3_execution_audit.json)、[Native视频完整性](../reports/f1_smoke_r3_native_integrity.json)、[WC视频完整性](../reports/f1_smoke_r3_worldcache_integrity.json)、[预算](../reports/budget.json)。
 
-决定：继续WorldCache主线。真实缓存跳过与本地端到端收益已得到技术证据，尚不能判断质量保持。先完成完整视频审查；同时准备W1同状态诊断的有界入口，先做同seed诊断开关的真实模型输出/状态一致性验收，再开展CAL机制比较。W1现在只有CPU源码接入测试，不能直接视为GPU可用。任何额外shadow成本计入剩余额度；暂不抢跑Wan/OMR训练或扩展预算。
+决定：继续WorldCache主线。真实缓存跳过与本地端到端收益已得到技术证据，尚不能判断质量保持。人工语义审查不阻塞W1数值诊断；W1-P0官方路径单样本实机诊断开关一致性现已通过，见[终态结果](12_W1_P0_TERMINAL_RESULTS.md)。下一步按[准备卡](13_W1_S1_PREPARATION.md)实现同状态三近似器评分，候选专用实机验收及CAL机制比较仍待开展。任何额外shadow成本计入剩余额度；暂不抢跑Wan/OMR训练或扩展预算。

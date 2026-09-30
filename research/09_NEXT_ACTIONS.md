@@ -1,7 +1,8 @@
-# Next actions — F1 r3 terminal, 2026-09-30
+# Next actions — 2026-09-30 recovery complete
 
-1. W1-P0 r1 is RUNNING: supervisor2439296/child2439301, outputs/w1-p0-r1, max900s. Check live process/terminal receipt before any action; no source edits or second job. Read research/11_F1_R3_TECHNICAL_RESULTS.md and terminal F1 receipts. Both arms finished, all processes absent. Do not restart r3. Native3accepted/1rejected; WC4accepted; all7videos hash/full-decode pass. No full-video quality judgment yet.
-2. F1 technical smoke is complete within its original scope. Manual semantic annotation is NOT a prerequisite for W1. The review page is optional. Preserve physics asymmetric rejection and the limitation that measured timing does not establish quality equivalence. Standard quality evaluation and any human comparison belong to their later planned stage.
-3. W1-P0 runner check_w1_parity.py and --w1-parity supervisor mode are prepared,49CPUtests pass. Source deployed with matching hash; one <=900s official-shadow off/on gate is now running on the AV engineering sample under remaining budget. Validate output/state invariance with diagnostics on/off, real GPU memory and cost before CAL/shadow comparisons. CPU48tests are not GPU acceptance. Retain approved36steps/72calls andWC70horizon.
-4. Allocate F2/W1 from measured cost and remaining2.90743237276872/4GPUh. L0 may audit compatible Wan5B assets without a GPU; L1 only after primary budget reserved. No extra budget or second expensive job; no training/paid scoring.
-5. Keep EXPERIMENT_REPORT.md, receipts, budget and handoff synchronized to private GitHub. Recheck actual GPU/process admission before any new run; terminal historical records are not future admission.
+1. F1 r3 已完成，不重跑。Native 3 接受 / 1 视频拒绝，WC 4 接受；三组成对输出的 E2E 比为 1.476–1.602，只有官方基线技术计时结论。W1-P0 也已结束并审阅：[结果](12_W1_P0_TERMINAL_RESULTS.md)。不把旧 RUNNING 快照作为当前状态。
+2. 最优先任务：实现 [W1-S1 同状态三近似器评分入口](13_W1_S1_PREPARATION.md)。在官方部署轨迹上独立评分 official/shrink/scalar，不把三条不同生成轨迹当成同状态比较。先做无真值泄漏 / 输出状态不变验收，再提交一个有监督、<=900s 的实机工程诊断。当前为 PREPARED_NOT_IMPLEMENTED_NOT_RUN。
+3. 最新账本 1.245197206 / 4 GPUh，剩余 2.754802794 h。W1-S1 拟用不超过 0.25 h，从现有余额划拨；加载、失败、诊断和 flush 全计入。新任务前核验远端进程、锁、账本、部署哈希及 GPU UUID / VRAM / compute apps。一次仅一个昂贵任务，断线不重复启动。
+4. 人工语义标注不阻塞 F1/W1 数值诊断。可选 review 页面仅供后续检查；质量等价结论仍需适当的计划内评价。候选机制信号之后才进入候选专用 parity、固定 schedule 闭环、独立 CAL / DEV 和 F2 工作点。
+5. L0 可穿插非 GPU 的 Wan5B 兼容性核对；L1 等待主线预算和兼容性，OMR 资源执行前重核。当前不扩预算、不训练、不调用付费评分、不切换方向。
+6. 每次 meaningful 变更同步实验总文档、回执、预算、队列与 handoff 到私有 GitHub。连接凭证、FRPC 配置、模型、视频和大张量只留 ignored / 服务器目录。

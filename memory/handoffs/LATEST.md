@@ -1,3 +1,17 @@
+# Latest — W1-P0 terminal verified; W1-S1 preparation next
+
+2026-09-30 18:52 北京时间实时恢复核验。GitHub/local 源码恢复基点 `75c66bd`，运行部署源为 `d98f447`。W1-P0 supervisor2439296 / timeout2439301已退出，exit0，无 stop reason。原始回执已取回，所有7项checks通过；72次输出、38full/34skip、trace、最终缓存和视频哈希严格一致，4个诊断点数值有限。两份远端视频重新哈希匹配。结果仅限官方WC、单个AV工程样本，不是候选收益。
+
+累计1.2451972062057919/4GPUh，剩余2.754802793794208h。共享监督锁观察时可获取，无项目生成脚本活跃；GPU1 UUID GPU-cebf7119-cf03-23b9-e192-cd196332b704，24MiB/no compute apps。提交前重核，不视为持续资源保留。数据盘约677GiB可用，根盘约13GiB可用，新增文件用数据盘。
+
+继续使用既有终端侧FRPC项目visitor后SSH，私有连接信息在ignored configs/hosts.local.json。本次已实际登录，不需重复建隧道或索取凭证。共享FRP不改动。另一台历史称四卡A6000的机器实际为RTX6000Ada，本次未重核，当前无需切换服务器。
+
+下一任务：research/13_W1_S1_PREPARATION.md，状态PREPARED_NOT_IMPLEMENTED_NOT_RUN。实现官方同一轨迹的三近似器独立评分；现有scalar/shrink forward会改变部署，不能直接用于同状态三臂。先CPU因果性及状态检查，再新版本实机无扰动验收，准备<=900s/0.25GPUh有监督任务；本次恢复没有新增GPU运行。人工语义标注不是W1门槛。报告research/12_W1_P0_TERMINAL_RESULTS.md和reports/w1_p0_r1_{summary,recovery_audit}.json为此次结果依据。
+
+F1 r3仍为终态：Native3接受/1拒绝，WC4接受；三组E2E比1.476–1.602。暂无新方法正结果或质量等价结论。仅继续WorldCache主线，不扩预算/训练/付费评分。代码、回执和总文档须同步GitHub，视频及秘密不入Git。
+
+## Historical handoff snapshots (superseded by the terminal recovery above)
+
 # Latest — W1-P0 r1 running; F1 terminal retained
 
 Official shadow off/on parity gate launched once in outputs/w1-p0-r1, source d98f447, verified supervisor2439296 / timeout child2439301. Fresh GPU1 admission24MiB/no compute apps. Local49tests andLinux13CPU/fake-GPU tests pass; source archive hash matches. Hard bound900s, charged to original4GPUh cap. Settled BEFORE gate1.09256762723128h; in-flight cost extra. Check reports/w1_p0_r1_launch_20260930.json and live process/terminal receipt before any action. Do not modify deployed source during run.
