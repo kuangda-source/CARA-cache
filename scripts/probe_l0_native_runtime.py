@@ -27,6 +27,7 @@ def main():
     parser.add_argument('--base', type=Path, required=True)
     parser.add_argument('--output', type=Path, required=True)
     parser.add_argument('--environment-root', type=Path, required=True)
+    parser.add_argument('--environment-lock', type=Path, required=True)
     args = parser.parse_args()
     if os.environ.get('CUDA_VISIBLE_DEVICES') != '' or os.environ.get('HF_HUB_OFFLINE') != '1':
         raise ValueError('Use empty CUDA visibility and offline model access')
@@ -77,8 +78,26 @@ def main():
         save()
         if not all(r['satisfies'] for r in requirements):
             raise ValueError('Official native dependency requirements are not all satisfied')
+        environment = json.loads(args.environment_lock.read_text())
+        pinned = []
+        for raw in environment['pins'] + ['flash-attn==' + environment['flash_attention_version']]:
+            req = Requirement(raw)
+            version = metadata.version(req.name)
+            if not req.specifier.contains(version, prereleases=True):
+                raise ValueError('Selected native environment pin differs: ' + raw)
+            pinned.append({'requirement': raw, 'installed_version': version})
+        state.update(environment_lock_sha256=digest(args.environment_lock), pinned_packages=pinned)
+        save()
         sys.path.insert(0, str(source))
         import torch
+        if torch.cuda.is_initialized():
+            raise ValueError('Unexpected CUDA initialization')
+        if torch._C._GLIBCXX_USE_CXX11_ABI != environment['torch_cpp_abi']:
+            raise ValueError('Actual Torch ABI differs from selected FlashAttention binary')
+        state.update(status='TORCH_IMPORT_ABI_PASS_FULL_WAN_IMPORT_PENDING',
+                     torch_version=torch.__version__, torch_cpp_abi=torch._C._GLIBCXX_USE_CXX11_ABI,
+                     cuda_initialized=False)
+        save()
         import wan
         from wan.textimage2video import WanTI2V
         from wan.modules.model import WanModel
@@ -94,7 +113,8 @@ def main():
                     raise ValueError('Imported native module origin differs: ' + name)
                 origins[name] = str(path.relative_to(source))
         state.update(status='FULL_NATIVE_IMPORT_PASS', module_origins=origins,
-                     torch_version=torch.__version__, cuda_initialized=False)
+                     torch_version=torch.__version__, torch_cpp_abi=torch._C._GLIBCXX_USE_CXX11_ABI,
+                     cuda_initialized=False)
         save()
         protocol = json.loads(args.protocol.read_text())
         selected = {'config.json', protocol['index']} | {

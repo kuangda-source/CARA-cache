@@ -1,3 +1,11 @@
+## 最新运行 — fresh CPU audit-r1 live，binary元数据已锁
+
+CPU audit-r1/sourcedbe863c已唯一实际启动，3PIDs2505483/2505484/2505485 live、900秒cap/锁持有/source与GPU账本不变。fresh18输入/CFG-only825tensor与3shard/525untargeted通过，few-step+CFG尚待。官方Torch三wheel SHA与Flash官方asset ID/size已锁，Flash官方digest UNKNOWN；均未下载/安装，实际ABI/fullruntime未通过。
+
+[运行及资源卡](../../research/41_L0_FRESH_AUDIT_AND_BINARY_SOURCE_LOCK.md)/[launch](../../reports/l0_cpu_fusion_audit_r1_launch_20261001.json)/[live](../../reports/l0_cpu_fusion_audit_r1_live_observation.json)。同 .sync/observe_l0_cpu_fusion_audit_r1.py 至终态；audit-stage原source不改、旧launch不能重复。原fusion已终态，当前新运行是独立审计，完整两臂/终态还未验收。新native probe尚未部署/执行，必须新empty env安装完成并指定--environment-lock；CLI参数已改变，不用旧命令。官方Flash缺digest不叫公开包不存在；只在新env补依赖。
+
+## 以下为历史快照
+
 ## 最新终态 — CPU fusion-r1 exit0，两臂/18输入完整，fresh audit下一
 
 CPU fusion-r1/sourcec69e492已exit0/1960.417015秒终态，peak RSS30.8287GiB；两臂各825tensor/3分片/300目标/525未目标完整，18原输入融合前后官方digest一致，3PIDs退出/CPU锁释放/source与GPU账本不变。完整独立fresh产物审计尚未执行，不能称模型/任务/GPU就绪。

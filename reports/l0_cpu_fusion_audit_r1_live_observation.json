@@ -1,0 +1,251 @@
+{
+  "observed_unix": 1790809751.2223449,
+  "supervisor": {
+    "pid": 2505483,
+    "status": "RUNNING",
+    "started_unix": 1790809302.4158394,
+    "cpu_max_wall_seconds": 900,
+    "gpu_workload_started": false,
+    "audit_source_commit": "dbe863c640023b8d5f3b620fc0bf8f444d60ac30",
+    "audit_source_sha256": "a9caec6fc5803e6a149d934009d293bb3780087d174f71d35449f70ff2befe47",
+    "supervisor_sha256": "eaf007d439886bb02a5f6938aa2303c9ba62c79574617df88b53d6ab3ece8092",
+    "budget_before": {
+      "batch": "F0-F1",
+      "cap_gpu_hours": 4,
+      "used_gpu_hours": 3.6512467238638138,
+      "gpu_jobs_launched": 22,
+      "status": "W1_VQA_CONTROLS_REQUIRES_REVIEW",
+      "gpu_import_probes_completed": 1,
+      "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts"
+    },
+    "child_pid": 2505484,
+    "command": [
+      "timeout",
+      "--kill-after=10",
+      "890",
+      "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python",
+      "/home/gaokuangda/data/gkd/worldcache_omr/.sync/l0-fusion-audit-code-r1/scripts/audit_l0_cpu_fusion.py",
+      "--project",
+      "/home/gaokuangda/data/gkd/worldcache_omr",
+      "--code-root",
+      "/home/gaokuangda/data/gkd/worldcache_omr/.sync/l0-assets-range-cpu-r1-20261001",
+      "--job",
+      "/home/gaokuangda/data/gkd/worldcache_omr/outputs/l0-cpu-fusion-r1",
+      "--base",
+      "/home/gaokuangda/data/gkd/Wan/checkpoints/Wan2.2-TI2V-5B-modelscope-master-20260901",
+      "--cache",
+      "/home/gaokuangda/data/gkd/worldcache_omr/hfhub",
+      "--output",
+      "/home/gaokuangda/data/gkd/worldcache_omr/outputs/l0-cpu-fusion-audit-r1/audit.json"
+    ]
+  },
+  "audit": {
+    "pid": 2505485,
+    "started_unix": 1790809302.5375044,
+    "status": "FRESH_SERIALIZED_TENSOR_AUDIT",
+    "gpu_workload_started": false,
+    "arms": [
+      {
+        "name": "cfg_only",
+        "tensor_count": 825,
+        "target_count": 300,
+        "untargeted_count": 525,
+        "target_bytes_changed_count": 300,
+        "max_runner_formula_abs_error": 0.0,
+        "shards": [
+          {
+            "path": "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/l0-fused-models-r1/cfg_only/diffusion_pytorch_model-00001-of-00003.safetensors",
+            "bytes": 9825014472,
+            "sha256": "a7a8edaf3f70c8120b77efc853d8804491dfea21c1595a71037cfc79aab79817",
+            "fresh_tensor_audit": "PASS"
+          },
+          {
+            "path": "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/l0-fused-models-r1/cfg_only/diffusion_pytorch_model-00002-of-00003.safetensors",
+            "bytes": 9995661736,
+            "sha256": "ce2b9c8451350649c02d203d338ba1e80cb5151dbe49b1be84582fb6fa3fffc9",
+            "fresh_tensor_audit": "PASS"
+          },
+          {
+            "path": "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/l0-fused-models-r1/cfg_only/diffusion_pytorch_model-00003-of-00003.safetensors",
+            "bytes": 178558176,
+            "sha256": "64146344b10abbe80f5ce13ecf260a20c81a9a7bc0ba3384a069b4f86a1fdda5",
+            "fresh_tensor_audit": "PASS"
+          }
+        ],
+        "status": "FRESH825_SERIALIZED_FINITE_DIGEST_AND525_UNTARGETED_PASS"
+      }
+    ],
+    "scope": "Fresh official input digests, serialized tensors and untouched weights. Runner formula evidence retained; no model/task/GPU acceptance.",
+    "original_pids": [
+      2502473,
+      2502474,
+      2502475
+    ],
+    "all_original_pids_absent": true,
+    "cpu_lock_free_before_audit": true,
+    "source_commit": "c69e492be17c4c9ae005354c051a3a5400569fbf",
+    "source_hashes_match": true,
+    "supervisor_sha256": "b0cce005c14cbd20d02d9a2de63d8969f367c3d9a02ba3175ec223825908839d",
+    "fusion_receipt_sha256": "6bb08309cc2f4f2cb5dce9b798fc7f0480fe5e9ab7fdd15eb14c9a274b46ecf9",
+    "cpu_fusion_wall_seconds": 1960.4170146561228,
+    "child_ru_maxrss_kib": 32326196,
+    "fresh_input_integrity": [
+      {
+        "path": "/home/gaokuangda/data/gkd/Wan/checkpoints/Wan2.2-TI2V-5B-modelscope-master-20260901/Wan2.2_VAE.pth",
+        "bytes": 2818839170,
+        "digest": "20eb789667fa5e60e7516bf509512f6cb61f01b0aa0695eadaea930c13892b36",
+        "algorithm": "sha256"
+      },
+      {
+        "path": "/home/gaokuangda/data/gkd/Wan/checkpoints/Wan2.2-TI2V-5B-modelscope-master-20260901/config.json",
+        "bytes": 251,
+        "digest": "abb356dedbca416450700e180a6622626d789601",
+        "algorithm": "git-blob-sha1"
+      },
+      {
+        "path": "/home/gaokuangda/data/gkd/Wan/checkpoints/Wan2.2-TI2V-5B-modelscope-master-20260901/diffusion_pytorch_model-00001-of-00003.safetensors",
+        "bytes": 9825014472,
+        "digest": "720b06c4ade5e87c1246bba8ac95b664c638749cd9b102cf84d823bb44c026a1",
+        "algorithm": "sha256"
+      },
+      {
+        "path": "/home/gaokuangda/data/gkd/Wan/checkpoints/Wan2.2-TI2V-5B-modelscope-master-20260901/diffusion_pytorch_model-00002-of-00003.safetensors",
+        "bytes": 9995661736,
+        "digest": "09ec5ef720d8396f6cfa51fbdcbdb2327e37722afd6e89fd38f1e7e5e782c283",
+        "algorithm": "sha256"
+      },
+      {
+        "path": "/home/gaokuangda/data/gkd/Wan/checkpoints/Wan2.2-TI2V-5B-modelscope-master-20260901/diffusion_pytorch_model-00003-of-00003.safetensors",
+        "bytes": 178558176,
+        "digest": "6306f7894c345de9093ad588771c2abfaeb668a81f7a6d9a918bd26ba3568e49",
+        "algorithm": "sha256"
+      },
+      {
+        "path": "/home/gaokuangda/data/gkd/Wan/checkpoints/Wan2.2-TI2V-5B-modelscope-master-20260901/diffusion_pytorch_model.safetensors.index.json",
+        "bytes": 72865,
+        "digest": "2a1d8b9ee7cd1456f79f944ae15c87724d49110e",
+        "algorithm": "git-blob-sha1"
+      },
+      {
+        "path": "/home/gaokuangda/data/gkd/Wan/checkpoints/Wan2.2-TI2V-5B-modelscope-master-20260901/google/umt5-xxl/special_tokens_map.json",
+        "bytes": 6623,
+        "digest": "14855e7052ffbb595057dfd791d293c1c940db2c",
+        "algorithm": "git-blob-sha1"
+      },
+      {
+        "path": "/home/gaokuangda/data/gkd/Wan/checkpoints/Wan2.2-TI2V-5B-modelscope-master-20260901/google/umt5-xxl/spiece.model",
+        "bytes": 4548313,
+        "digest": "e3909a67b780650b35cf529ac782ad2b6b26e6d1f849d3fbb6a872905f452458",
+        "algorithm": "sha256"
+      },
+      {
+        "path": "/home/gaokuangda/data/gkd/Wan/checkpoints/Wan2.2-TI2V-5B-modelscope-master-20260901/google/umt5-xxl/tokenizer.json",
+        "bytes": 16837417,
+        "digest": "6e197b4d3dbd71da14b4eb255f4fa91c9c1f2068b20a2de2472967ca3d22602b",
+        "algorithm": "sha256"
+      },
+      {
+        "path": "/home/gaokuangda/data/gkd/Wan/checkpoints/Wan2.2-TI2V-5B-modelscope-master-20260901/google/umt5-xxl/tokenizer_config.json",
+        "bytes": 61728,
+        "digest": "4e1cc1cd85599ce0b47fd0a746af188fe4043ff2",
+        "algorithm": "git-blob-sha1"
+      },
+      {
+        "path": "/home/gaokuangda/data/gkd/Wan/checkpoints/Wan2.2-TI2V-5B-modelscope-master-20260901/models_t5_umt5-xxl-enc-bf16.pth",
+        "bytes": 11361920418,
+        "digest": "7cace0da2b446bbbbc57d031ab6cf163a3d59b366da94e5afe36745b746fd81d",
+        "algorithm": "sha256"
+      },
+      {
+        "path": "/home/gaokuangda/data/gkd/worldcache_omr/hfhub/models--Efficient-Large-Model--LongLive-Plug-Wan2.2-TI2V-5B-cfg/snapshots/195c8c100e145d5b18068d506f8f2b4498dcaaa4/adapter_config.json",
+        "bytes": 8691,
+        "digest": "4e3cc5925f087bc31ff1273efd7d05b6258bc72a",
+        "algorithm": "git-blob-sha1"
+      },
+      {
+        "path": "/home/gaokuangda/data/gkd/worldcache_omr/hfhub/models--Efficient-Large-Model--LongLive-Plug-Wan2.2-TI2V-5B-cfg/snapshots/195c8c100e145d5b18068d506f8f2b4498dcaaa4/adapter_model.safetensors",
+        "bytes": 644949288,
+        "digest": "c16212b483e3fd3d3a8a91b9732342777addc23d08ef0be055ff442c650944d4",
+        "algorithm": "sha256"
+      },
+      {
+        "path": "/home/gaokuangda/data/gkd/worldcache_omr/hfhub/models--Efficient-Large-Model--LongLive-Plug-Wan2.2-TI2V-5B-cfg/snapshots/195c8c100e145d5b18068d506f8f2b4498dcaaa4/provenance.json",
+        "bytes": 2638,
+        "digest": "aebb21a6caf3369df6c20836b8b9a3065039042a",
+        "algorithm": "git-blob-sha1"
+      },
+      {
+        "path": "/home/gaokuangda/data/gkd/worldcache_omr/hfhub/models--Efficient-Large-Model--LongLive-Plug-Wan2.2-TI2V-5B-cfg/snapshots/195c8c100e145d5b18068d506f8f2b4498dcaaa4/release_metadata.json",
+        "bytes": 1065,
+        "digest": "1949fe84c995f662fd56c03e536fbe4c39129233",
+        "algorithm": "git-blob-sha1"
+      },
+      {
+        "path": "/home/gaokuangda/data/gkd/worldcache_omr/hfhub/models--Efficient-Large-Model--LongLive-Plug-Wan2.2-TI2V-5B-few-step/snapshots/38a6ec4e8f5b644749d3072bfe1ac383d00951c0/adapter_config.json",
+        "bytes": 9349,
+        "digest": "79aa7c10d9fa58eebd270dd7c7266029042663c9",
+        "algorithm": "git-blob-sha1"
+      },
+      {
+        "path": "/home/gaokuangda/data/gkd/worldcache_omr/hfhub/models--Efficient-Large-Model--LongLive-Plug-Wan2.2-TI2V-5B-few-step/snapshots/38a6ec4e8f5b644749d3072bfe1ac383d00951c0/adapter_model.safetensors",
+        "bytes": 1289824400,
+        "digest": "69807b3bdfc4d9d153a5660dcd70812f9c973eb8bc52861fea19a5e563341316",
+        "algorithm": "sha256"
+      },
+      {
+        "path": "/home/gaokuangda/data/gkd/worldcache_omr/hfhub/models--Efficient-Large-Model--LongLive-Plug-Wan2.2-TI2V-5B-few-step/snapshots/38a6ec4e8f5b644749d3072bfe1ac383d00951c0/provenance.json",
+        "bytes": 2641,
+        "digest": "2f13eba7c3ba312354ccdaf700374c71bc46ab2d",
+        "algorithm": "git-blob-sha1"
+      }
+    ],
+    "current_arm": {
+      "name": "cfg_only",
+      "tensor_count": 825,
+      "target_count": 300,
+      "untargeted_count": 525,
+      "target_bytes_changed_count": 300,
+      "max_runner_formula_abs_error": 0.0,
+      "shards": [
+        {
+          "path": "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/l0-fused-models-r1/cfg_only/diffusion_pytorch_model-00001-of-00003.safetensors",
+          "bytes": 9825014472,
+          "sha256": "a7a8edaf3f70c8120b77efc853d8804491dfea21c1595a71037cfc79aab79817",
+          "fresh_tensor_audit": "PASS"
+        },
+        {
+          "path": "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/l0-fused-models-r1/cfg_only/diffusion_pytorch_model-00002-of-00003.safetensors",
+          "bytes": 9995661736,
+          "sha256": "ce2b9c8451350649c02d203d338ba1e80cb5151dbe49b1be84582fb6fa3fffc9",
+          "fresh_tensor_audit": "PASS"
+        },
+        {
+          "path": "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/l0-fused-models-r1/cfg_only/diffusion_pytorch_model-00003-of-00003.safetensors",
+          "bytes": 178558176,
+          "sha256": "64146344b10abbe80f5ce13ecf260a20c81a9a7bc0ba3384a069b4f86a1fdda5",
+          "fresh_tensor_audit": "PASS"
+        }
+      ],
+      "status": "FRESH825_SERIALIZED_FINITE_DIGEST_AND525_UNTARGETED_PASS"
+    }
+  },
+  "processes": {
+    "2505483": {
+      "cmdline": "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python /home/gaokuangda/data/gkd/worldcache_omr/.sync/l0-fusion-audit-code-r1/supervisor.py ",
+      "cuda_visible_devices_empty": true
+    },
+    "2505484": {
+      "cmdline": "timeout --kill-after=10 890 /home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python /home/gaokuangda/data/gkd/worldcache_omr/.sync/l0-fusion-audit-code-r1/scripts/audit_l0_cpu_fusion.py --project /home/gaokuangda/data/gkd/worldcache_omr --code-root /home/gaokuangda/data/gkd/worldcache_omr/.sync/l0-assets-range-cpu-r1-20261001 --job /home/gaokuangda/data/gkd/worldcache_omr/outputs/l0-cpu-fusion-r1 --base /home/gaokuangda/data/gkd/Wan/checkpoints/Wan2.2-TI2V-5B-modelscope-master-20260901 --cache /home/gaokuangda/data/gkd/worldcache_omr/hfhub --output /home/gaokuangda/data/gkd/worldcache_omr/outputs/l0-cpu-fusion-audit-r1/audit.json ",
+      "cuda_visible_devices_empty": true
+    },
+    "2505485": {
+      "cmdline": "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python /home/gaokuangda/data/gkd/worldcache_omr/.sync/l0-fusion-audit-code-r1/scripts/audit_l0_cpu_fusion.py --project /home/gaokuangda/data/gkd/worldcache_omr --code-root /home/gaokuangda/data/gkd/worldcache_omr/.sync/l0-assets-range-cpu-r1-20261001 --job /home/gaokuangda/data/gkd/worldcache_omr/outputs/l0-cpu-fusion-r1 --base /home/gaokuangda/data/gkd/Wan/checkpoints/Wan2.2-TI2V-5B-modelscope-master-20260901 --cache /home/gaokuangda/data/gkd/worldcache_omr/hfhub --output /home/gaokuangda/data/gkd/worldcache_omr/outputs/l0-cpu-fusion-audit-r1/audit.json ",
+      "cuda_visible_devices_empty": true
+    }
+  },
+  "cpu_lock_held": true,
+  "source_hashes_match": true,
+  "budget_unchanged": true,
+  "gpu_workload_started": false,
+  "log_tail": ""
+}
