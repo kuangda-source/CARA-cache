@@ -1,3 +1,13 @@
+# Latest — F1 r3 terminal, paired timing available, quality pending
+
+Supervisor and both children verified absent; GPU1 released (24MiB, no compute apps). Both arms exit0: Native3accepted/1VIDEO_REJECTED(physics), WC4accepted. All4cases attempted per arm. Seven accepted videos locally hash/full93-frame decode pass; full-video quality review still pending.
+
+All terminal receipts now reports/f1_smoke_r3_{native,worldcache,supervisor}.json. summarize_f1.py passed matched actual setup/input/protocol checks; reports/f1_smoke_r3_summary.json has3accepted pairs. E2E ratios AV1.475529(cold),common1.601593,robot~1.600; no aggregate/no quality-equivalent claim. Execution monitor audit reports/f1_smoke_r3_execution_audit.json. Cost1.09256762723128/4GPUh settled, remaining2.90743237276872h; no live task.
+
+Next: read research/11_F1_R3_TECHNICAL_RESULTS.md; review complete videos; build bounded W1 parity runner, then real-model diagnostics off/on invariance, state/VRAM/cost gate before CAL experiments. Local shadow prototype/tests not yet deployed or CUDA validated. Do not rerun F1 from stale earlier notes. Keep exact approved sampler72calls/WC70horizon. No direction switch or training now.
+
+## Historical snapshots (not current process status)
+
 # Latest — r3 Native terminal, WorldCache live
 
 Native r3 attempted all4:3accepted (AV/common/robot),1VIDEO_REJECTED (physics); exit0 means outcomes recorded, not whole-batch pass. Supervisor measured1322.461758s. Terminal Native receipt is reports/f1_smoke_r3_native.json. Settled budget now0.8406482060750325/4GPUh, with ongoing WC cost additional.

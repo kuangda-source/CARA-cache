@@ -8,7 +8,7 @@ Private research workspace for improving the quality–time tradeoff of video wo
 
 ## Current status
 
-2026-09-30 latest: F1 r3 Native finished with3accepted/1video-rejected; WorldCache is running (supervisor2431971, WC child2435496, source57c8660). It attempts all original cases with retained guardrails and explicit rejection receipts; results pending. See `reports/f1_smoke_r3_launch_20260930.json`.
+2026-09-30 latest: F1 r3 finished both arms: Native3accepted/1rejected, WC4accepted. Three jointly accepted cases show measured E2E ratios1.476–1.602; this is baseline timing, not a quality-equivalent or new-method gain. All7accepted videos hash/full-decode pass. Cost1.092568/4GPUh settled; no live job. [Technical results and next gate](research/11_F1_R3_TECHNICAL_RESULTS.md).
 
 Prior terminal run: Core assets and the retained safety pipeline are ready. F1 r2 completed two Native samples, then stopped when the physics_001 generated video was rejected by the output guardrail. WorldCache has not run; there is no paired speed/quality result. Charged cost: 0.473298 / 4 GPUh. Terminal receipts are in `reports/f1_smoke_r2_*.json`.
 

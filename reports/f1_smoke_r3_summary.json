@@ -1,0 +1,138 @@
+{
+  "status": "COMPLETE_ATTEMPTS_REVIEW_PENDING",
+  "expected_cases_per_arm": 4,
+  "counts": {
+    "native": {
+      "accepted": 3,
+      "rejected": 1,
+      "not_recorded": 0
+    },
+    "worldcache": {
+      "accepted": 4,
+      "rejected": 0,
+      "not_recorded": 0
+    }
+  },
+  "pairs": [
+    {
+      "name": "av_002b815b-7595-4d54-a9f4-4c62c83d3009",
+      "native_outcome": "ACCEPTED",
+      "worldcache_outcome": "ACCEPTED",
+      "cold_first_sample": true,
+      "seconds": {
+        "native": {
+          "end_to_end": 314.46268797200173,
+          "denoising": 256.63139203796163
+        },
+        "worldcache": {
+          "end_to_end": 213.11853732680902,
+          "denoising": 152.43522618804127
+        }
+      },
+      "native_block_counts": {
+        "denoiser_calls": 72,
+        "full_calls": 72,
+        "skipped_deep_calls": 0
+      },
+      "worldcache_block_counts": {
+        "denoiser_calls": 72,
+        "full_calls": 38,
+        "skipped_deep_calls": 34
+      },
+      "native_over_worldcache": {
+        "end_to_end": 1.4755294960089997,
+        "denoising": 1.6835438792958912
+      }
+    },
+    {
+      "name": "common_sense_049c9292-db5f-490b-a72b-546775e8156c",
+      "native_outcome": "ACCEPTED",
+      "worldcache_outcome": "ACCEPTED",
+      "cold_first_sample": false,
+      "seconds": {
+        "native": {
+          "end_to_end": 296.9917561467737,
+          "denoising": 249.36986509570852
+        },
+        "worldcache": {
+          "end_to_end": 185.43524559633806,
+          "denoising": 135.49846102576703
+        }
+      },
+      "native_block_counts": {
+        "denoiser_calls": 72,
+        "full_calls": 72,
+        "skipped_deep_calls": 0
+      },
+      "worldcache_block_counts": {
+        "denoiser_calls": 72,
+        "full_calls": 35,
+        "skipped_deep_calls": 37
+      },
+      "native_over_worldcache": {
+        "end_to_end": 1.6015928104265342,
+        "denoising": 1.840388910751445
+      }
+    },
+    {
+      "name": "physics_001",
+      "native_outcome": "VIDEO_REJECTED",
+      "worldcache_outcome": "ACCEPTED"
+    },
+    {
+      "name": "robot_000",
+      "native_outcome": "ACCEPTED",
+      "worldcache_outcome": "ACCEPTED",
+      "cold_first_sample": false,
+      "seconds": {
+        "native": {
+          "end_to_end": 295.2889598379843,
+          "denoising": 249.67527373228222
+        },
+        "worldcache": {
+          "end_to_end": 184.5230496097356,
+          "denoising": 135.54059748910367
+        }
+      },
+      "native_block_counts": {
+        "denoiser_calls": 72,
+        "full_calls": 72,
+        "skipped_deep_calls": 0
+      },
+      "worldcache_block_counts": {
+        "denoiser_calls": 72,
+        "full_calls": 35,
+        "skipped_deep_calls": 37
+      },
+      "native_over_worldcache": {
+        "end_to_end": 1.6002822436682977,
+        "denoising": 1.8420700392172464
+      }
+    }
+  ],
+  "quality_status": "NOT_REVIEWED",
+  "limitations": [
+    "Ratios describe only jointly accepted cases, not all prompts.",
+    "No quality-equivalent speedup established without full-video review.",
+    "Cold first sample remains separate; no aggregate hides rejected cases.",
+    "Receipt provenance does not independently verify video bytes or GPU exclusivity."
+  ],
+  "sources": [
+    {
+      "path": "reports/f1_smoke_r3_native.json",
+      "sha256": "bb99dd6b6786f87ad27e3390db51acee75e9ac0bea3cc9275c000a2c4f6d990a"
+    },
+    {
+      "path": "reports/f1_smoke_r3_worldcache.json",
+      "sha256": "45d08951843bc979762afd0cffd12cec3515b0c17402714a4ef5a965beceb637"
+    },
+    {
+      "path": "reports/f1_smoke_r3_supervisor.json",
+      "sha256": "739ead4b9eb976ee326b9c700c24b3b4e033376a6a68ca355134def588866ab9"
+    },
+    {
+      "path": "manifests/smoke.json",
+      "sha256": "89a01c25dd83292efd1acb3271c41b8de0f07dd1aad2ef7ed1d2a683589b541e"
+    }
+  ]
+}

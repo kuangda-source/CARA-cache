@@ -1,0 +1,2697 @@
+{
+  "stage": "F1_SMOKE",
+  "mode": "worldcache",
+  "pid": 2435498,
+  "started_unix": 1790762353.297773,
+  "status": "TECHNICAL_PASS_AWAITING_VIDEO_REVIEW",
+  "samples": [
+    {
+      "name": "av_002b815b-7595-4d54-a9f4-4c62c83d3009",
+      "index": 0,
+      "cold_first_sample": true,
+      "end_to_end_seconds": 213.11853732680902,
+      "stages": {
+        "text_guardrail": {
+          "calls": 1,
+          "seconds": 9.122019290924072
+        },
+        "text_encoding": {
+          "calls": 2,
+          "seconds": 0.8765296279452741
+        },
+        "denoising": {
+          "calls": 1,
+          "seconds": 152.43522618804127
+        },
+        "decode": {
+          "calls": 1,
+          "seconds": 6.989852659869939
+        },
+        "video_guardrail": {
+          "calls": 1,
+          "seconds": 9.678275980055332
+        }
+      },
+      "block_counts": {
+        "denoiser_calls": 72,
+        "full_calls": 38,
+        "skipped_deep_calls": 34
+      },
+      "sampling": {
+        "name": "av_002b815b-7595-4d54-a9f4-4c62c83d3009",
+        "outcome": "ACCEPTED",
+        "guardrail_events": [
+          {
+            "stage": "text",
+            "accepted": true
+          },
+          {
+            "stage": "video",
+            "accepted": true
+          }
+        ],
+        "end_to_end_seconds": 213.11853732680902,
+        "stages": {
+          "text_guardrail": {
+            "calls": 1,
+            "seconds": 9.122019290924072
+          },
+          "text_encoding": {
+            "calls": 2,
+            "seconds": 0.8765296279452741
+          },
+          "denoising": {
+            "calls": 1,
+            "seconds": 152.43522618804127
+          },
+          "decode": {
+            "calls": 1,
+            "seconds": 6.989852659869939
+          },
+          "video_guardrail": {
+            "calls": 1,
+            "seconds": 9.678275980055332
+          }
+        },
+        "block_counts": {
+          "denoiser_calls": 72,
+          "full_calls": 38,
+          "skipped_deep_calls": 34
+        },
+        "scheduler_class": "FlowUniPCMultistepScheduler",
+        "scheduler_config": {
+          "num_train_timesteps": 1000,
+          "solver_order": 2,
+          "prediction_type": "flow_prediction",
+          "shift": 1,
+          "use_dynamic_shifting": false,
+          "thresholding": false,
+          "dynamic_thresholding_ratio": 0.995,
+          "sample_max_value": 1.0,
+          "predict_x0": true,
+          "solver_type": "bh2",
+          "lower_order_final": true,
+          "disable_corrector": [],
+          "solver_p": null,
+          "timestep_spacing": "linspace",
+          "steps_offset": 0,
+          "final_sigmas_type": "zero",
+          "_use_default_values": [
+            "predict_x0",
+            "dynamic_thresholding_ratio",
+            "steps_offset",
+            "solver_order",
+            "final_sigmas_type",
+            "timestep_spacing",
+            "prediction_type",
+            "solver_p",
+            "disable_corrector",
+            "lower_order_final",
+            "sample_max_value",
+            "solver_type",
+            "thresholding"
+          ]
+        },
+        "requested_steps": 35,
+        "actual_schedule_steps": 36,
+        "timesteps": [
+          995,
+          994,
+          993,
+          992,
+          990,
+          988,
+          986,
+          984,
+          981,
+          977,
+          973,
+          967,
+          960,
+          951,
+          941,
+          927,
+          910,
+          889,
+          863,
+          831,
+          791,
+          742,
+          684,
+          618,
+          543,
+          462,
+          380,
+          301,
+          228,
+          166,
+          116,
+          77,
+          49,
+          30,
+          17,
+          9
+        ],
+        "use_kerras_sigma": true,
+        "worldcache_horizon": 70,
+        "denoiser_trace": [
+          {
+            "call": 1,
+            "cache_counter_before": 0,
+            "deep_executed": true
+          },
+          {
+            "call": 2,
+            "cache_counter_before": 1,
+            "deep_executed": true
+          },
+          {
+            "call": 3,
+            "cache_counter_before": 2,
+            "deep_executed": true
+          },
+          {
+            "call": 4,
+            "cache_counter_before": 3,
+            "deep_executed": true
+          },
+          {
+            "call": 5,
+            "cache_counter_before": 4,
+            "deep_executed": true
+          },
+          {
+            "call": 6,
+            "cache_counter_before": 5,
+            "deep_executed": true
+          },
+          {
+            "call": 7,
+            "cache_counter_before": 6,
+            "deep_executed": true
+          },
+          {
+            "call": 8,
+            "cache_counter_before": 7,
+            "deep_executed": true
+          },
+          {
+            "call": 9,
+            "cache_counter_before": 8,
+            "deep_executed": true
+          },
+          {
+            "call": 10,
+            "cache_counter_before": 9,
+            "deep_executed": true
+          },
+          {
+            "call": 11,
+            "cache_counter_before": 10,
+            "deep_executed": true
+          },
+          {
+            "call": 12,
+            "cache_counter_before": 11,
+            "deep_executed": true
+          },
+          {
+            "call": 13,
+            "cache_counter_before": 12,
+            "deep_executed": true
+          },
+          {
+            "call": 14,
+            "cache_counter_before": 13,
+            "deep_executed": true
+          },
+          {
+            "call": 15,
+            "cache_counter_before": 14,
+            "deep_executed": false
+          },
+          {
+            "call": 16,
+            "cache_counter_before": 15,
+            "deep_executed": false
+          },
+          {
+            "call": 17,
+            "cache_counter_before": 16,
+            "deep_executed": false
+          },
+          {
+            "call": 18,
+            "cache_counter_before": 17,
+            "deep_executed": false
+          },
+          {
+            "call": 19,
+            "cache_counter_before": 18,
+            "deep_executed": false
+          },
+          {
+            "call": 20,
+            "cache_counter_before": 19,
+            "deep_executed": false
+          },
+          {
+            "call": 21,
+            "cache_counter_before": 20,
+            "deep_executed": false
+          },
+          {
+            "call": 22,
+            "cache_counter_before": 21,
+            "deep_executed": false
+          },
+          {
+            "call": 23,
+            "cache_counter_before": 22,
+            "deep_executed": true
+          },
+          {
+            "call": 24,
+            "cache_counter_before": 23,
+            "deep_executed": false
+          },
+          {
+            "call": 25,
+            "cache_counter_before": 24,
+            "deep_executed": false
+          },
+          {
+            "call": 26,
+            "cache_counter_before": 25,
+            "deep_executed": true
+          },
+          {
+            "call": 27,
+            "cache_counter_before": 26,
+            "deep_executed": true
+          },
+          {
+            "call": 28,
+            "cache_counter_before": 27,
+            "deep_executed": true
+          },
+          {
+            "call": 29,
+            "cache_counter_before": 28,
+            "deep_executed": false
+          },
+          {
+            "call": 30,
+            "cache_counter_before": 29,
+            "deep_executed": false
+          },
+          {
+            "call": 31,
+            "cache_counter_before": 30,
+            "deep_executed": true
+          },
+          {
+            "call": 32,
+            "cache_counter_before": 31,
+            "deep_executed": false
+          },
+          {
+            "call": 33,
+            "cache_counter_before": 32,
+            "deep_executed": false
+          },
+          {
+            "call": 34,
+            "cache_counter_before": 33,
+            "deep_executed": true
+          },
+          {
+            "call": 35,
+            "cache_counter_before": 34,
+            "deep_executed": true
+          },
+          {
+            "call": 36,
+            "cache_counter_before": 35,
+            "deep_executed": true
+          },
+          {
+            "call": 37,
+            "cache_counter_before": 36,
+            "deep_executed": false
+          },
+          {
+            "call": 38,
+            "cache_counter_before": 37,
+            "deep_executed": false
+          },
+          {
+            "call": 39,
+            "cache_counter_before": 38,
+            "deep_executed": true
+          },
+          {
+            "call": 40,
+            "cache_counter_before": 39,
+            "deep_executed": true
+          },
+          {
+            "call": 41,
+            "cache_counter_before": 40,
+            "deep_executed": false
+          },
+          {
+            "call": 42,
+            "cache_counter_before": 41,
+            "deep_executed": false
+          },
+          {
+            "call": 43,
+            "cache_counter_before": 42,
+            "deep_executed": false
+          },
+          {
+            "call": 44,
+            "cache_counter_before": 43,
+            "deep_executed": false
+          },
+          {
+            "call": 45,
+            "cache_counter_before": 44,
+            "deep_executed": true
+          },
+          {
+            "call": 46,
+            "cache_counter_before": 45,
+            "deep_executed": true
+          },
+          {
+            "call": 47,
+            "cache_counter_before": 46,
+            "deep_executed": false
+          },
+          {
+            "call": 48,
+            "cache_counter_before": 47,
+            "deep_executed": false
+          },
+          {
+            "call": 49,
+            "cache_counter_before": 48,
+            "deep_executed": true
+          },
+          {
+            "call": 50,
+            "cache_counter_before": 49,
+            "deep_executed": true
+          },
+          {
+            "call": 51,
+            "cache_counter_before": 50,
+            "deep_executed": false
+          },
+          {
+            "call": 52,
+            "cache_counter_before": 51,
+            "deep_executed": false
+          },
+          {
+            "call": 53,
+            "cache_counter_before": 52,
+            "deep_executed": true
+          },
+          {
+            "call": 54,
+            "cache_counter_before": 53,
+            "deep_executed": true
+          },
+          {
+            "call": 55,
+            "cache_counter_before": 54,
+            "deep_executed": false
+          },
+          {
+            "call": 56,
+            "cache_counter_before": 55,
+            "deep_executed": false
+          },
+          {
+            "call": 57,
+            "cache_counter_before": 56,
+            "deep_executed": true
+          },
+          {
+            "call": 58,
+            "cache_counter_before": 57,
+            "deep_executed": true
+          },
+          {
+            "call": 59,
+            "cache_counter_before": 58,
+            "deep_executed": false
+          },
+          {
+            "call": 60,
+            "cache_counter_before": 59,
+            "deep_executed": false
+          },
+          {
+            "call": 61,
+            "cache_counter_before": 60,
+            "deep_executed": true
+          },
+          {
+            "call": 62,
+            "cache_counter_before": 61,
+            "deep_executed": true
+          },
+          {
+            "call": 63,
+            "cache_counter_before": 62,
+            "deep_executed": false
+          },
+          {
+            "call": 64,
+            "cache_counter_before": 63,
+            "deep_executed": false
+          },
+          {
+            "call": 65,
+            "cache_counter_before": 64,
+            "deep_executed": true
+          },
+          {
+            "call": 66,
+            "cache_counter_before": 65,
+            "deep_executed": true
+          },
+          {
+            "call": 67,
+            "cache_counter_before": 66,
+            "deep_executed": false
+          },
+          {
+            "call": 68,
+            "cache_counter_before": 67,
+            "deep_executed": false
+          },
+          {
+            "call": 69,
+            "cache_counter_before": 68,
+            "deep_executed": false
+          },
+          {
+            "call": 70,
+            "cache_counter_before": 69,
+            "deep_executed": false
+          },
+          {
+            "call": 71,
+            "cache_counter_before": 0,
+            "deep_executed": true
+          },
+          {
+            "call": 72,
+            "cache_counter_before": 1,
+            "deep_executed": true
+          }
+        ]
+      },
+      "peak_allocated_bytes_since_upstream_last_reset": 26040339456,
+      "peak_reserved_bytes_since_upstream_last_reset": 26650607616,
+      "path": "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/outputs/f1-smoke-r3/worldcache/av_002b815b-7595-4d54-a9f4-4c62c83d3009.mp4",
+      "sha256": "5e6755f3ec7ca4ea3c897a4e372cf4db8a9e1aeac2c435402d7eda26f38c5350",
+      "bytes": 1463965,
+      "ffprobe": {
+        "width": 768,
+        "height": 432,
+        "r_frame_rate": "16/1",
+        "nb_read_frames": "93"
+      }
+    },
+    {
+      "name": "common_sense_049c9292-db5f-490b-a72b-546775e8156c",
+      "index": 1,
+      "cold_first_sample": false,
+      "end_to_end_seconds": 185.43524559633806,
+      "stages": {
+        "text_guardrail": {
+          "calls": 1,
+          "seconds": 4.759765924885869
+        },
+        "text_encoding": {
+          "calls": 2,
+          "seconds": 0.20919553702697158
+        },
+        "denoising": {
+          "calls": 1,
+          "seconds": 135.49846102576703
+        },
+        "decode": {
+          "calls": 1,
+          "seconds": 5.747708069160581
+        },
+        "video_guardrail": {
+          "calls": 1,
+          "seconds": 9.730457212775946
+        }
+      },
+      "block_counts": {
+        "denoiser_calls": 72,
+        "full_calls": 35,
+        "skipped_deep_calls": 37
+      },
+      "sampling": {
+        "name": "common_sense_049c9292-db5f-490b-a72b-546775e8156c",
+        "outcome": "ACCEPTED",
+        "guardrail_events": [
+          {
+            "stage": "text",
+            "accepted": true
+          },
+          {
+            "stage": "video",
+            "accepted": true
+          }
+        ],
+        "end_to_end_seconds": 185.43524559633806,
+        "stages": {
+          "text_guardrail": {
+            "calls": 1,
+            "seconds": 4.759765924885869
+          },
+          "text_encoding": {
+            "calls": 2,
+            "seconds": 0.20919553702697158
+          },
+          "denoising": {
+            "calls": 1,
+            "seconds": 135.49846102576703
+          },
+          "decode": {
+            "calls": 1,
+            "seconds": 5.747708069160581
+          },
+          "video_guardrail": {
+            "calls": 1,
+            "seconds": 9.730457212775946
+          }
+        },
+        "block_counts": {
+          "denoiser_calls": 72,
+          "full_calls": 35,
+          "skipped_deep_calls": 37
+        },
+        "scheduler_class": "FlowUniPCMultistepScheduler",
+        "scheduler_config": {
+          "num_train_timesteps": 1000,
+          "solver_order": 2,
+          "prediction_type": "flow_prediction",
+          "shift": 1,
+          "use_dynamic_shifting": false,
+          "thresholding": false,
+          "dynamic_thresholding_ratio": 0.995,
+          "sample_max_value": 1.0,
+          "predict_x0": true,
+          "solver_type": "bh2",
+          "lower_order_final": true,
+          "disable_corrector": [],
+          "solver_p": null,
+          "timestep_spacing": "linspace",
+          "steps_offset": 0,
+          "final_sigmas_type": "zero",
+          "_use_default_values": [
+            "predict_x0",
+            "dynamic_thresholding_ratio",
+            "steps_offset",
+            "solver_order",
+            "final_sigmas_type",
+            "timestep_spacing",
+            "prediction_type",
+            "solver_p",
+            "disable_corrector",
+            "lower_order_final",
+            "sample_max_value",
+            "solver_type",
+            "thresholding"
+          ]
+        },
+        "requested_steps": 35,
+        "actual_schedule_steps": 36,
+        "timesteps": [
+          995,
+          994,
+          993,
+          992,
+          990,
+          988,
+          986,
+          984,
+          981,
+          977,
+          973,
+          967,
+          960,
+          951,
+          941,
+          927,
+          910,
+          889,
+          863,
+          831,
+          791,
+          742,
+          684,
+          618,
+          543,
+          462,
+          380,
+          301,
+          228,
+          166,
+          116,
+          77,
+          49,
+          30,
+          17,
+          9
+        ],
+        "use_kerras_sigma": true,
+        "worldcache_horizon": 70,
+        "denoiser_trace": [
+          {
+            "call": 1,
+            "cache_counter_before": 0,
+            "deep_executed": true
+          },
+          {
+            "call": 2,
+            "cache_counter_before": 1,
+            "deep_executed": true
+          },
+          {
+            "call": 3,
+            "cache_counter_before": 2,
+            "deep_executed": true
+          },
+          {
+            "call": 4,
+            "cache_counter_before": 3,
+            "deep_executed": true
+          },
+          {
+            "call": 5,
+            "cache_counter_before": 4,
+            "deep_executed": true
+          },
+          {
+            "call": 6,
+            "cache_counter_before": 5,
+            "deep_executed": true
+          },
+          {
+            "call": 7,
+            "cache_counter_before": 6,
+            "deep_executed": true
+          },
+          {
+            "call": 8,
+            "cache_counter_before": 7,
+            "deep_executed": true
+          },
+          {
+            "call": 9,
+            "cache_counter_before": 8,
+            "deep_executed": true
+          },
+          {
+            "call": 10,
+            "cache_counter_before": 9,
+            "deep_executed": true
+          },
+          {
+            "call": 11,
+            "cache_counter_before": 10,
+            "deep_executed": true
+          },
+          {
+            "call": 12,
+            "cache_counter_before": 11,
+            "deep_executed": true
+          },
+          {
+            "call": 13,
+            "cache_counter_before": 12,
+            "deep_executed": true
+          },
+          {
+            "call": 14,
+            "cache_counter_before": 13,
+            "deep_executed": true
+          },
+          {
+            "call": 15,
+            "cache_counter_before": 14,
+            "deep_executed": false
+          },
+          {
+            "call": 16,
+            "cache_counter_before": 15,
+            "deep_executed": false
+          },
+          {
+            "call": 17,
+            "cache_counter_before": 16,
+            "deep_executed": false
+          },
+          {
+            "call": 18,
+            "cache_counter_before": 17,
+            "deep_executed": false
+          },
+          {
+            "call": 19,
+            "cache_counter_before": 18,
+            "deep_executed": false
+          },
+          {
+            "call": 20,
+            "cache_counter_before": 19,
+            "deep_executed": false
+          },
+          {
+            "call": 21,
+            "cache_counter_before": 20,
+            "deep_executed": false
+          },
+          {
+            "call": 22,
+            "cache_counter_before": 21,
+            "deep_executed": false
+          },
+          {
+            "call": 23,
+            "cache_counter_before": 22,
+            "deep_executed": true
+          },
+          {
+            "call": 24,
+            "cache_counter_before": 23,
+            "deep_executed": true
+          },
+          {
+            "call": 25,
+            "cache_counter_before": 24,
+            "deep_executed": false
+          },
+          {
+            "call": 26,
+            "cache_counter_before": 25,
+            "deep_executed": false
+          },
+          {
+            "call": 27,
+            "cache_counter_before": 26,
+            "deep_executed": false
+          },
+          {
+            "call": 28,
+            "cache_counter_before": 27,
+            "deep_executed": false
+          },
+          {
+            "call": 29,
+            "cache_counter_before": 28,
+            "deep_executed": false
+          },
+          {
+            "call": 30,
+            "cache_counter_before": 29,
+            "deep_executed": false
+          },
+          {
+            "call": 31,
+            "cache_counter_before": 30,
+            "deep_executed": false
+          },
+          {
+            "call": 32,
+            "cache_counter_before": 31,
+            "deep_executed": false
+          },
+          {
+            "call": 33,
+            "cache_counter_before": 32,
+            "deep_executed": true
+          },
+          {
+            "call": 34,
+            "cache_counter_before": 33,
+            "deep_executed": true
+          },
+          {
+            "call": 35,
+            "cache_counter_before": 34,
+            "deep_executed": false
+          },
+          {
+            "call": 36,
+            "cache_counter_before": 35,
+            "deep_executed": false
+          },
+          {
+            "call": 37,
+            "cache_counter_before": 36,
+            "deep_executed": false
+          },
+          {
+            "call": 38,
+            "cache_counter_before": 37,
+            "deep_executed": false
+          },
+          {
+            "call": 39,
+            "cache_counter_before": 38,
+            "deep_executed": false
+          },
+          {
+            "call": 40,
+            "cache_counter_before": 39,
+            "deep_executed": false
+          },
+          {
+            "call": 41,
+            "cache_counter_before": 40,
+            "deep_executed": true
+          },
+          {
+            "call": 42,
+            "cache_counter_before": 41,
+            "deep_executed": true
+          },
+          {
+            "call": 43,
+            "cache_counter_before": 42,
+            "deep_executed": false
+          },
+          {
+            "call": 44,
+            "cache_counter_before": 43,
+            "deep_executed": false
+          },
+          {
+            "call": 45,
+            "cache_counter_before": 44,
+            "deep_executed": true
+          },
+          {
+            "call": 46,
+            "cache_counter_before": 45,
+            "deep_executed": true
+          },
+          {
+            "call": 47,
+            "cache_counter_before": 46,
+            "deep_executed": false
+          },
+          {
+            "call": 48,
+            "cache_counter_before": 47,
+            "deep_executed": false
+          },
+          {
+            "call": 49,
+            "cache_counter_before": 48,
+            "deep_executed": true
+          },
+          {
+            "call": 50,
+            "cache_counter_before": 49,
+            "deep_executed": true
+          },
+          {
+            "call": 51,
+            "cache_counter_before": 50,
+            "deep_executed": false
+          },
+          {
+            "call": 52,
+            "cache_counter_before": 51,
+            "deep_executed": false
+          },
+          {
+            "call": 53,
+            "cache_counter_before": 52,
+            "deep_executed": true
+          },
+          {
+            "call": 54,
+            "cache_counter_before": 53,
+            "deep_executed": true
+          },
+          {
+            "call": 55,
+            "cache_counter_before": 54,
+            "deep_executed": true
+          },
+          {
+            "call": 56,
+            "cache_counter_before": 55,
+            "deep_executed": false
+          },
+          {
+            "call": 57,
+            "cache_counter_before": 56,
+            "deep_executed": true
+          },
+          {
+            "call": 58,
+            "cache_counter_before": 57,
+            "deep_executed": true
+          },
+          {
+            "call": 59,
+            "cache_counter_before": 58,
+            "deep_executed": true
+          },
+          {
+            "call": 60,
+            "cache_counter_before": 59,
+            "deep_executed": true
+          },
+          {
+            "call": 61,
+            "cache_counter_before": 60,
+            "deep_executed": false
+          },
+          {
+            "call": 62,
+            "cache_counter_before": 61,
+            "deep_executed": false
+          },
+          {
+            "call": 63,
+            "cache_counter_before": 62,
+            "deep_executed": true
+          },
+          {
+            "call": 64,
+            "cache_counter_before": 63,
+            "deep_executed": true
+          },
+          {
+            "call": 65,
+            "cache_counter_before": 64,
+            "deep_executed": false
+          },
+          {
+            "call": 66,
+            "cache_counter_before": 65,
+            "deep_executed": false
+          },
+          {
+            "call": 67,
+            "cache_counter_before": 66,
+            "deep_executed": false
+          },
+          {
+            "call": 68,
+            "cache_counter_before": 67,
+            "deep_executed": false
+          },
+          {
+            "call": 69,
+            "cache_counter_before": 68,
+            "deep_executed": false
+          },
+          {
+            "call": 70,
+            "cache_counter_before": 69,
+            "deep_executed": false
+          },
+          {
+            "call": 71,
+            "cache_counter_before": 0,
+            "deep_executed": true
+          },
+          {
+            "call": 72,
+            "cache_counter_before": 1,
+            "deep_executed": true
+          }
+        ]
+      },
+      "peak_allocated_bytes_since_upstream_last_reset": 26039708160,
+      "peak_reserved_bytes_since_upstream_last_reset": 26638024704,
+      "path": "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/outputs/f1-smoke-r3/worldcache/common_sense_049c9292-db5f-490b-a72b-546775e8156c.mp4",
+      "sha256": "504d675ac2f31de978487c9cea3348d9607c68818ed5b789509ddc4ffb1ecfbd",
+      "bytes": 884223,
+      "ffprobe": {
+        "width": 768,
+        "height": 432,
+        "r_frame_rate": "16/1",
+        "nb_read_frames": "93"
+      }
+    },
+    {
+      "name": "physics_001",
+      "index": 2,
+      "cold_first_sample": false,
+      "end_to_end_seconds": 186.0549586727284,
+      "stages": {
+        "text_guardrail": {
+          "calls": 1,
+          "seconds": 3.6289195539429784
+        },
+        "text_encoding": {
+          "calls": 2,
+          "seconds": 0.2053305609151721
+        },
+        "denoising": {
+          "calls": 1,
+          "seconds": 132.32411532197148
+        },
+        "decode": {
+          "calls": 1,
+          "seconds": 5.744749105069786
+        },
+        "video_guardrail": {
+          "calls": 1,
+          "seconds": 10.397029183339328
+        }
+      },
+      "block_counts": {
+        "denoiser_calls": 72,
+        "full_calls": 34,
+        "skipped_deep_calls": 38
+      },
+      "sampling": {
+        "name": "physics_001",
+        "outcome": "ACCEPTED",
+        "guardrail_events": [
+          {
+            "stage": "text",
+            "accepted": true
+          },
+          {
+            "stage": "video",
+            "accepted": true
+          }
+        ],
+        "end_to_end_seconds": 186.0549586727284,
+        "stages": {
+          "text_guardrail": {
+            "calls": 1,
+            "seconds": 3.6289195539429784
+          },
+          "text_encoding": {
+            "calls": 2,
+            "seconds": 0.2053305609151721
+          },
+          "denoising": {
+            "calls": 1,
+            "seconds": 132.32411532197148
+          },
+          "decode": {
+            "calls": 1,
+            "seconds": 5.744749105069786
+          },
+          "video_guardrail": {
+            "calls": 1,
+            "seconds": 10.397029183339328
+          }
+        },
+        "block_counts": {
+          "denoiser_calls": 72,
+          "full_calls": 34,
+          "skipped_deep_calls": 38
+        },
+        "scheduler_class": "FlowUniPCMultistepScheduler",
+        "scheduler_config": {
+          "num_train_timesteps": 1000,
+          "solver_order": 2,
+          "prediction_type": "flow_prediction",
+          "shift": 1,
+          "use_dynamic_shifting": false,
+          "thresholding": false,
+          "dynamic_thresholding_ratio": 0.995,
+          "sample_max_value": 1.0,
+          "predict_x0": true,
+          "solver_type": "bh2",
+          "lower_order_final": true,
+          "disable_corrector": [],
+          "solver_p": null,
+          "timestep_spacing": "linspace",
+          "steps_offset": 0,
+          "final_sigmas_type": "zero",
+          "_use_default_values": [
+            "predict_x0",
+            "dynamic_thresholding_ratio",
+            "steps_offset",
+            "solver_order",
+            "final_sigmas_type",
+            "timestep_spacing",
+            "prediction_type",
+            "solver_p",
+            "disable_corrector",
+            "lower_order_final",
+            "sample_max_value",
+            "solver_type",
+            "thresholding"
+          ]
+        },
+        "requested_steps": 35,
+        "actual_schedule_steps": 36,
+        "timesteps": [
+          995,
+          994,
+          993,
+          992,
+          990,
+          988,
+          986,
+          984,
+          981,
+          977,
+          973,
+          967,
+          960,
+          951,
+          941,
+          927,
+          910,
+          889,
+          863,
+          831,
+          791,
+          742,
+          684,
+          618,
+          543,
+          462,
+          380,
+          301,
+          228,
+          166,
+          116,
+          77,
+          49,
+          30,
+          17,
+          9
+        ],
+        "use_kerras_sigma": true,
+        "worldcache_horizon": 70,
+        "denoiser_trace": [
+          {
+            "call": 1,
+            "cache_counter_before": 0,
+            "deep_executed": true
+          },
+          {
+            "call": 2,
+            "cache_counter_before": 1,
+            "deep_executed": true
+          },
+          {
+            "call": 3,
+            "cache_counter_before": 2,
+            "deep_executed": true
+          },
+          {
+            "call": 4,
+            "cache_counter_before": 3,
+            "deep_executed": true
+          },
+          {
+            "call": 5,
+            "cache_counter_before": 4,
+            "deep_executed": true
+          },
+          {
+            "call": 6,
+            "cache_counter_before": 5,
+            "deep_executed": true
+          },
+          {
+            "call": 7,
+            "cache_counter_before": 6,
+            "deep_executed": true
+          },
+          {
+            "call": 8,
+            "cache_counter_before": 7,
+            "deep_executed": true
+          },
+          {
+            "call": 9,
+            "cache_counter_before": 8,
+            "deep_executed": true
+          },
+          {
+            "call": 10,
+            "cache_counter_before": 9,
+            "deep_executed": true
+          },
+          {
+            "call": 11,
+            "cache_counter_before": 10,
+            "deep_executed": true
+          },
+          {
+            "call": 12,
+            "cache_counter_before": 11,
+            "deep_executed": true
+          },
+          {
+            "call": 13,
+            "cache_counter_before": 12,
+            "deep_executed": true
+          },
+          {
+            "call": 14,
+            "cache_counter_before": 13,
+            "deep_executed": true
+          },
+          {
+            "call": 15,
+            "cache_counter_before": 14,
+            "deep_executed": false
+          },
+          {
+            "call": 16,
+            "cache_counter_before": 15,
+            "deep_executed": false
+          },
+          {
+            "call": 17,
+            "cache_counter_before": 16,
+            "deep_executed": false
+          },
+          {
+            "call": 18,
+            "cache_counter_before": 17,
+            "deep_executed": false
+          },
+          {
+            "call": 19,
+            "cache_counter_before": 18,
+            "deep_executed": false
+          },
+          {
+            "call": 20,
+            "cache_counter_before": 19,
+            "deep_executed": false
+          },
+          {
+            "call": 21,
+            "cache_counter_before": 20,
+            "deep_executed": false
+          },
+          {
+            "call": 22,
+            "cache_counter_before": 21,
+            "deep_executed": false
+          },
+          {
+            "call": 23,
+            "cache_counter_before": 22,
+            "deep_executed": true
+          },
+          {
+            "call": 24,
+            "cache_counter_before": 23,
+            "deep_executed": true
+          },
+          {
+            "call": 25,
+            "cache_counter_before": 24,
+            "deep_executed": false
+          },
+          {
+            "call": 26,
+            "cache_counter_before": 25,
+            "deep_executed": false
+          },
+          {
+            "call": 27,
+            "cache_counter_before": 26,
+            "deep_executed": false
+          },
+          {
+            "call": 28,
+            "cache_counter_before": 27,
+            "deep_executed": false
+          },
+          {
+            "call": 29,
+            "cache_counter_before": 28,
+            "deep_executed": false
+          },
+          {
+            "call": 30,
+            "cache_counter_before": 29,
+            "deep_executed": false
+          },
+          {
+            "call": 31,
+            "cache_counter_before": 30,
+            "deep_executed": false
+          },
+          {
+            "call": 32,
+            "cache_counter_before": 31,
+            "deep_executed": false
+          },
+          {
+            "call": 33,
+            "cache_counter_before": 32,
+            "deep_executed": true
+          },
+          {
+            "call": 34,
+            "cache_counter_before": 33,
+            "deep_executed": true
+          },
+          {
+            "call": 35,
+            "cache_counter_before": 34,
+            "deep_executed": false
+          },
+          {
+            "call": 36,
+            "cache_counter_before": 35,
+            "deep_executed": false
+          },
+          {
+            "call": 37,
+            "cache_counter_before": 36,
+            "deep_executed": false
+          },
+          {
+            "call": 38,
+            "cache_counter_before": 37,
+            "deep_executed": false
+          },
+          {
+            "call": 39,
+            "cache_counter_before": 38,
+            "deep_executed": false
+          },
+          {
+            "call": 40,
+            "cache_counter_before": 39,
+            "deep_executed": false
+          },
+          {
+            "call": 41,
+            "cache_counter_before": 40,
+            "deep_executed": true
+          },
+          {
+            "call": 42,
+            "cache_counter_before": 41,
+            "deep_executed": true
+          },
+          {
+            "call": 43,
+            "cache_counter_before": 42,
+            "deep_executed": false
+          },
+          {
+            "call": 44,
+            "cache_counter_before": 43,
+            "deep_executed": false
+          },
+          {
+            "call": 45,
+            "cache_counter_before": 44,
+            "deep_executed": false
+          },
+          {
+            "call": 46,
+            "cache_counter_before": 45,
+            "deep_executed": false
+          },
+          {
+            "call": 47,
+            "cache_counter_before": 46,
+            "deep_executed": true
+          },
+          {
+            "call": 48,
+            "cache_counter_before": 47,
+            "deep_executed": true
+          },
+          {
+            "call": 49,
+            "cache_counter_before": 48,
+            "deep_executed": false
+          },
+          {
+            "call": 50,
+            "cache_counter_before": 49,
+            "deep_executed": false
+          },
+          {
+            "call": 51,
+            "cache_counter_before": 50,
+            "deep_executed": true
+          },
+          {
+            "call": 52,
+            "cache_counter_before": 51,
+            "deep_executed": true
+          },
+          {
+            "call": 53,
+            "cache_counter_before": 52,
+            "deep_executed": false
+          },
+          {
+            "call": 54,
+            "cache_counter_before": 53,
+            "deep_executed": false
+          },
+          {
+            "call": 55,
+            "cache_counter_before": 54,
+            "deep_executed": true
+          },
+          {
+            "call": 56,
+            "cache_counter_before": 55,
+            "deep_executed": true
+          },
+          {
+            "call": 57,
+            "cache_counter_before": 56,
+            "deep_executed": false
+          },
+          {
+            "call": 58,
+            "cache_counter_before": 57,
+            "deep_executed": false
+          },
+          {
+            "call": 59,
+            "cache_counter_before": 58,
+            "deep_executed": true
+          },
+          {
+            "call": 60,
+            "cache_counter_before": 59,
+            "deep_executed": true
+          },
+          {
+            "call": 61,
+            "cache_counter_before": 60,
+            "deep_executed": false
+          },
+          {
+            "call": 62,
+            "cache_counter_before": 61,
+            "deep_executed": false
+          },
+          {
+            "call": 63,
+            "cache_counter_before": 62,
+            "deep_executed": true
+          },
+          {
+            "call": 64,
+            "cache_counter_before": 63,
+            "deep_executed": true
+          },
+          {
+            "call": 65,
+            "cache_counter_before": 64,
+            "deep_executed": false
+          },
+          {
+            "call": 66,
+            "cache_counter_before": 65,
+            "deep_executed": false
+          },
+          {
+            "call": 67,
+            "cache_counter_before": 66,
+            "deep_executed": false
+          },
+          {
+            "call": 68,
+            "cache_counter_before": 67,
+            "deep_executed": false
+          },
+          {
+            "call": 69,
+            "cache_counter_before": 68,
+            "deep_executed": true
+          },
+          {
+            "call": 70,
+            "cache_counter_before": 69,
+            "deep_executed": true
+          },
+          {
+            "call": 71,
+            "cache_counter_before": 0,
+            "deep_executed": true
+          },
+          {
+            "call": 72,
+            "cache_counter_before": 1,
+            "deep_executed": true
+          }
+        ]
+      },
+      "peak_allocated_bytes_since_upstream_last_reset": 26034608128,
+      "peak_reserved_bytes_since_upstream_last_reset": 26600275968,
+      "path": "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/outputs/f1-smoke-r3/worldcache/physics_001.mp4",
+      "sha256": "7ec58bce4d8e282c01f90a38274fc167c50d7830fa3036de668963ba0e33c30d",
+      "bytes": 270546,
+      "ffprobe": {
+        "width": 768,
+        "height": 432,
+        "r_frame_rate": "16/1",
+        "nb_read_frames": "93"
+      }
+    },
+    {
+      "name": "robot_000",
+      "index": 3,
+      "cold_first_sample": false,
+      "end_to_end_seconds": 184.5230496097356,
+      "stages": {
+        "text_guardrail": {
+          "calls": 1,
+          "seconds": 3.7786836810410023
+        },
+        "text_encoding": {
+          "calls": 2,
+          "seconds": 0.20660783583298326
+        },
+        "denoising": {
+          "calls": 1,
+          "seconds": 135.54059748910367
+        },
+        "decode": {
+          "calls": 1,
+          "seconds": 5.7455510213039815
+        },
+        "video_guardrail": {
+          "calls": 1,
+          "seconds": 9.869889420922846
+        }
+      },
+      "block_counts": {
+        "denoiser_calls": 72,
+        "full_calls": 35,
+        "skipped_deep_calls": 37
+      },
+      "sampling": {
+        "name": "robot_000",
+        "outcome": "ACCEPTED",
+        "guardrail_events": [
+          {
+            "stage": "text",
+            "accepted": true
+          },
+          {
+            "stage": "video",
+            "accepted": true
+          }
+        ],
+        "end_to_end_seconds": 184.5230496097356,
+        "stages": {
+          "text_guardrail": {
+            "calls": 1,
+            "seconds": 3.7786836810410023
+          },
+          "text_encoding": {
+            "calls": 2,
+            "seconds": 0.20660783583298326
+          },
+          "denoising": {
+            "calls": 1,
+            "seconds": 135.54059748910367
+          },
+          "decode": {
+            "calls": 1,
+            "seconds": 5.7455510213039815
+          },
+          "video_guardrail": {
+            "calls": 1,
+            "seconds": 9.869889420922846
+          }
+        },
+        "block_counts": {
+          "denoiser_calls": 72,
+          "full_calls": 35,
+          "skipped_deep_calls": 37
+        },
+        "scheduler_class": "FlowUniPCMultistepScheduler",
+        "scheduler_config": {
+          "num_train_timesteps": 1000,
+          "solver_order": 2,
+          "prediction_type": "flow_prediction",
+          "shift": 1,
+          "use_dynamic_shifting": false,
+          "thresholding": false,
+          "dynamic_thresholding_ratio": 0.995,
+          "sample_max_value": 1.0,
+          "predict_x0": true,
+          "solver_type": "bh2",
+          "lower_order_final": true,
+          "disable_corrector": [],
+          "solver_p": null,
+          "timestep_spacing": "linspace",
+          "steps_offset": 0,
+          "final_sigmas_type": "zero",
+          "_use_default_values": [
+            "predict_x0",
+            "dynamic_thresholding_ratio",
+            "steps_offset",
+            "solver_order",
+            "final_sigmas_type",
+            "timestep_spacing",
+            "prediction_type",
+            "solver_p",
+            "disable_corrector",
+            "lower_order_final",
+            "sample_max_value",
+            "solver_type",
+            "thresholding"
+          ]
+        },
+        "requested_steps": 35,
+        "actual_schedule_steps": 36,
+        "timesteps": [
+          995,
+          994,
+          993,
+          992,
+          990,
+          988,
+          986,
+          984,
+          981,
+          977,
+          973,
+          967,
+          960,
+          951,
+          941,
+          927,
+          910,
+          889,
+          863,
+          831,
+          791,
+          742,
+          684,
+          618,
+          543,
+          462,
+          380,
+          301,
+          228,
+          166,
+          116,
+          77,
+          49,
+          30,
+          17,
+          9
+        ],
+        "use_kerras_sigma": true,
+        "worldcache_horizon": 70,
+        "denoiser_trace": [
+          {
+            "call": 1,
+            "cache_counter_before": 0,
+            "deep_executed": true
+          },
+          {
+            "call": 2,
+            "cache_counter_before": 1,
+            "deep_executed": true
+          },
+          {
+            "call": 3,
+            "cache_counter_before": 2,
+            "deep_executed": true
+          },
+          {
+            "call": 4,
+            "cache_counter_before": 3,
+            "deep_executed": true
+          },
+          {
+            "call": 5,
+            "cache_counter_before": 4,
+            "deep_executed": true
+          },
+          {
+            "call": 6,
+            "cache_counter_before": 5,
+            "deep_executed": true
+          },
+          {
+            "call": 7,
+            "cache_counter_before": 6,
+            "deep_executed": true
+          },
+          {
+            "call": 8,
+            "cache_counter_before": 7,
+            "deep_executed": true
+          },
+          {
+            "call": 9,
+            "cache_counter_before": 8,
+            "deep_executed": true
+          },
+          {
+            "call": 10,
+            "cache_counter_before": 9,
+            "deep_executed": true
+          },
+          {
+            "call": 11,
+            "cache_counter_before": 10,
+            "deep_executed": true
+          },
+          {
+            "call": 12,
+            "cache_counter_before": 11,
+            "deep_executed": true
+          },
+          {
+            "call": 13,
+            "cache_counter_before": 12,
+            "deep_executed": true
+          },
+          {
+            "call": 14,
+            "cache_counter_before": 13,
+            "deep_executed": true
+          },
+          {
+            "call": 15,
+            "cache_counter_before": 14,
+            "deep_executed": false
+          },
+          {
+            "call": 16,
+            "cache_counter_before": 15,
+            "deep_executed": false
+          },
+          {
+            "call": 17,
+            "cache_counter_before": 16,
+            "deep_executed": false
+          },
+          {
+            "call": 18,
+            "cache_counter_before": 17,
+            "deep_executed": false
+          },
+          {
+            "call": 19,
+            "cache_counter_before": 18,
+            "deep_executed": false
+          },
+          {
+            "call": 20,
+            "cache_counter_before": 19,
+            "deep_executed": false
+          },
+          {
+            "call": 21,
+            "cache_counter_before": 20,
+            "deep_executed": false
+          },
+          {
+            "call": 22,
+            "cache_counter_before": 21,
+            "deep_executed": false
+          },
+          {
+            "call": 23,
+            "cache_counter_before": 22,
+            "deep_executed": true
+          },
+          {
+            "call": 24,
+            "cache_counter_before": 23,
+            "deep_executed": false
+          },
+          {
+            "call": 25,
+            "cache_counter_before": 24,
+            "deep_executed": true
+          },
+          {
+            "call": 26,
+            "cache_counter_before": 25,
+            "deep_executed": true
+          },
+          {
+            "call": 27,
+            "cache_counter_before": 26,
+            "deep_executed": false
+          },
+          {
+            "call": 28,
+            "cache_counter_before": 27,
+            "deep_executed": false
+          },
+          {
+            "call": 29,
+            "cache_counter_before": 28,
+            "deep_executed": true
+          },
+          {
+            "call": 30,
+            "cache_counter_before": 29,
+            "deep_executed": true
+          },
+          {
+            "call": 31,
+            "cache_counter_before": 30,
+            "deep_executed": false
+          },
+          {
+            "call": 32,
+            "cache_counter_before": 31,
+            "deep_executed": false
+          },
+          {
+            "call": 33,
+            "cache_counter_before": 32,
+            "deep_executed": false
+          },
+          {
+            "call": 34,
+            "cache_counter_before": 33,
+            "deep_executed": false
+          },
+          {
+            "call": 35,
+            "cache_counter_before": 34,
+            "deep_executed": false
+          },
+          {
+            "call": 36,
+            "cache_counter_before": 35,
+            "deep_executed": false
+          },
+          {
+            "call": 37,
+            "cache_counter_before": 36,
+            "deep_executed": true
+          },
+          {
+            "call": 38,
+            "cache_counter_before": 37,
+            "deep_executed": true
+          },
+          {
+            "call": 39,
+            "cache_counter_before": 38,
+            "deep_executed": false
+          },
+          {
+            "call": 40,
+            "cache_counter_before": 39,
+            "deep_executed": false
+          },
+          {
+            "call": 41,
+            "cache_counter_before": 40,
+            "deep_executed": false
+          },
+          {
+            "call": 42,
+            "cache_counter_before": 41,
+            "deep_executed": false
+          },
+          {
+            "call": 43,
+            "cache_counter_before": 42,
+            "deep_executed": true
+          },
+          {
+            "call": 44,
+            "cache_counter_before": 43,
+            "deep_executed": true
+          },
+          {
+            "call": 45,
+            "cache_counter_before": 44,
+            "deep_executed": false
+          },
+          {
+            "call": 46,
+            "cache_counter_before": 45,
+            "deep_executed": false
+          },
+          {
+            "call": 47,
+            "cache_counter_before": 46,
+            "deep_executed": true
+          },
+          {
+            "call": 48,
+            "cache_counter_before": 47,
+            "deep_executed": true
+          },
+          {
+            "call": 49,
+            "cache_counter_before": 48,
+            "deep_executed": false
+          },
+          {
+            "call": 50,
+            "cache_counter_before": 49,
+            "deep_executed": false
+          },
+          {
+            "call": 51,
+            "cache_counter_before": 50,
+            "deep_executed": true
+          },
+          {
+            "call": 52,
+            "cache_counter_before": 51,
+            "deep_executed": true
+          },
+          {
+            "call": 53,
+            "cache_counter_before": 52,
+            "deep_executed": false
+          },
+          {
+            "call": 54,
+            "cache_counter_before": 53,
+            "deep_executed": false
+          },
+          {
+            "call": 55,
+            "cache_counter_before": 54,
+            "deep_executed": true
+          },
+          {
+            "call": 56,
+            "cache_counter_before": 55,
+            "deep_executed": true
+          },
+          {
+            "call": 57,
+            "cache_counter_before": 56,
+            "deep_executed": false
+          },
+          {
+            "call": 58,
+            "cache_counter_before": 57,
+            "deep_executed": false
+          },
+          {
+            "call": 59,
+            "cache_counter_before": 58,
+            "deep_executed": true
+          },
+          {
+            "call": 60,
+            "cache_counter_before": 59,
+            "deep_executed": true
+          },
+          {
+            "call": 61,
+            "cache_counter_before": 60,
+            "deep_executed": false
+          },
+          {
+            "call": 62,
+            "cache_counter_before": 61,
+            "deep_executed": false
+          },
+          {
+            "call": 63,
+            "cache_counter_before": 62,
+            "deep_executed": true
+          },
+          {
+            "call": 64,
+            "cache_counter_before": 63,
+            "deep_executed": true
+          },
+          {
+            "call": 65,
+            "cache_counter_before": 64,
+            "deep_executed": false
+          },
+          {
+            "call": 66,
+            "cache_counter_before": 65,
+            "deep_executed": false
+          },
+          {
+            "call": 67,
+            "cache_counter_before": 66,
+            "deep_executed": false
+          },
+          {
+            "call": 68,
+            "cache_counter_before": 67,
+            "deep_executed": false
+          },
+          {
+            "call": 69,
+            "cache_counter_before": 68,
+            "deep_executed": false
+          },
+          {
+            "call": 70,
+            "cache_counter_before": 69,
+            "deep_executed": false
+          },
+          {
+            "call": 71,
+            "cache_counter_before": 0,
+            "deep_executed": true
+          },
+          {
+            "call": 72,
+            "cache_counter_before": 1,
+            "deep_executed": true
+          }
+        ]
+      },
+      "peak_allocated_bytes_since_upstream_last_reset": 26039409664,
+      "peak_reserved_bytes_since_upstream_last_reset": 26627538944,
+      "path": "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/outputs/f1-smoke-r3/worldcache/robot_000.mp4",
+      "sha256": "9dc555e0d506ddcb32fd7575a84c8f1741cbfe76cae796fa418d35adca98ffba",
+      "bytes": 673039,
+      "ffprobe": {
+        "width": 768,
+        "height": 432,
+        "r_frame_rate": "16/1",
+        "nb_read_frames": "93"
+      }
+    }
+  ],
+  "rejections": [],
+  "source_completion_commit": "a2c298b0a3df3778b973fe65e9e58877b292d8a7",
+  "sampling_protocol": {
+    "name": "public_code_unipc_karras_35_requested_36_actual",
+    "approved_by_user": "2026-09-30: \u5148\u5b8c\u6210\u5f53\u524d\u4ee3\u7801\u6280\u672f\u5bf9\u7167",
+    "scheduler_source_sha256": "f6a06c75f059693ade6c802e99f6058575969b6a71ef18ab05e7ed46701053d3",
+    "scheduler_class": "FlowUniPCMultistepScheduler",
+    "requested_steps": 35,
+    "actual_steps": 36,
+    "cfg_calls": 72,
+    "use_kerras_sigma": true,
+    "timesteps": [
+      995,
+      994,
+      993,
+      992,
+      990,
+      988,
+      986,
+      984,
+      981,
+      977,
+      973,
+      967,
+      960,
+      951,
+      941,
+      927,
+      910,
+      889,
+      863,
+      831,
+      791,
+      742,
+      684,
+      618,
+      543,
+      462,
+      380,
+      301,
+      228,
+      166,
+      116,
+      77,
+      49,
+      30,
+      17,
+      9
+    ],
+    "worldcache_horizon": 70,
+    "scope": "Current completed public-code technical comparison, not paper Euler reproduction"
+  },
+  "sampling_protocol_sha256": "c4f580da88c78e4e68a533b2b58b16a82c9ea4935656642faa9e5149d29a4ed7",
+  "outcome_protocol": {
+    "version": 1,
+    "date": "2026-09-30",
+    "inference_source_sha256": "0db96c49f0b3f18a971bc989e0727132dafc27ef621145a2d25a3da62a7a1975",
+    "keep_going": true,
+    "scope": "Attempt all four frozen cases in both arms; retain rejected outcomes and no rejected video. Unexpected exceptions/output mismatches still fail closed. No replacements or seed changes.",
+    "inference_changes": "Only official keep_going is enabled identically in both arms; sampling protocol and model/cache remain unchanged.",
+    "comparison": "Fresh r3 for both arms; r1/r2 retained separately. Exit zero means all outcomes recorded, not all samples accepted.",
+    "budget": "Existing remaining 4 GPUh cap; no new budget."
+  },
+  "expected_samples": [
+    "av_002b815b-7595-4d54-a9f4-4c62c83d3009",
+    "common_sense_049c9292-db5f-490b-a72b-546775e8156c",
+    "physics_001",
+    "robot_000"
+  ],
+  "registration_adapter": {
+    "config_sha256": "0ccb2fbdf4d997a680c50cfe3a52b22e85c285464884177ce7822b969ad2ddd9",
+    "excluded_package": "cosmos_predict2.experiments",
+    "selected_experiment": "Stage-c_pt_4-Index-2-Size-2B-Res-720-Fps-16-Note-rf_with_edm_ckpt",
+    "scope": "exclude unrelated example training registration only"
+  },
+  "setup": {
+    "output_dir": "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/outputs/f1-smoke-r3/worldcache",
+    "model": "2B/post-trained",
+    "checkpoint_path": "/home/gaokuangda/data/gkd/worldcache_omr/hfhub/models--nvidia--Cosmos-Predict2.5-2B/snapshots/15a82a2ec231bc318692aa0456a36537c806e7d4/base/post-trained/81edfebe-bd6a-4039-8c1d-737df1a790bf_ema_bf16.pt",
+    "experiment": "Stage-c_pt_4-Index-2-Size-2B-Res-720-Fps-16-Note-rf_with_edm_ckpt",
+    "config_file": "cosmos_predict2/_src/predict2/configs/video2world/config.py",
+    "context_parallel_size": 1,
+    "offload_diffusion_model": false,
+    "offload_tokenizer": true,
+    "offload_text_encoder": true,
+    "disable_guardrails": false,
+    "offload_guardrail_models": true,
+    "keep_going": true,
+    "profile": false,
+    "worldcache_enabled": true,
+    "worldcache_num_steps": 35,
+    "worldcache_rel_l1_thresh": 0.06,
+    "worldcache_ret_ratio": 0.2,
+    "worldcache_probe_depth": 2,
+    "worldcache_motion_sensitivity": 2.0,
+    "worldcache_flow_enabled": true,
+    "worldcache_flow_scale": 2.0,
+    "worldcache_saliency_enabled": true,
+    "worldcache_saliency_weight": 1.0,
+    "worldcache_osi_enabled": true,
+    "worldcache_dynamic_decay": true,
+    "use_torch_compile": false
+  },
+  "input_sha256": "c90715f39ee298c95678e026834c9f8d7db9408ecaaded9022cd3758301dc7b7",
+  "profile_sha256": "ffc7fa84d38667236cda4a2f0825b57d832cee0378d637ba375d6e6ea3c60a9f",
+  "torch": "2.7.1+cu128",
+  "cuda": "12.8",
+  "measurement": "Synchronized stage boundaries and two block hooks in both arms; first sample includes cold effects",
+  "model_load_seconds": 71.43977858917788,
+  "current_sample": "robot_000",
+  "pending_sample": {
+    "name": "robot_000",
+    "outcome": "ACCEPTED",
+    "guardrail_events": [
+      {
+        "stage": "text",
+        "accepted": true
+      },
+      {
+        "stage": "video",
+        "accepted": true
+      }
+    ],
+    "end_to_end_seconds": 184.5230496097356,
+    "stages": {
+      "text_guardrail": {
+        "calls": 1,
+        "seconds": 3.7786836810410023
+      },
+      "text_encoding": {
+        "calls": 2,
+        "seconds": 0.20660783583298326
+      },
+      "denoising": {
+        "calls": 1,
+        "seconds": 135.54059748910367
+      },
+      "decode": {
+        "calls": 1,
+        "seconds": 5.7455510213039815
+      },
+      "video_guardrail": {
+        "calls": 1,
+        "seconds": 9.869889420922846
+      }
+    },
+    "block_counts": {
+      "denoiser_calls": 72,
+      "full_calls": 35,
+      "skipped_deep_calls": 37
+    },
+    "scheduler_class": "FlowUniPCMultistepScheduler",
+    "scheduler_config": {
+      "num_train_timesteps": 1000,
+      "solver_order": 2,
+      "prediction_type": "flow_prediction",
+      "shift": 1,
+      "use_dynamic_shifting": false,
+      "thresholding": false,
+      "dynamic_thresholding_ratio": 0.995,
+      "sample_max_value": 1.0,
+      "predict_x0": true,
+      "solver_type": "bh2",
+      "lower_order_final": true,
+      "disable_corrector": [],
+      "solver_p": null,
+      "timestep_spacing": "linspace",
+      "steps_offset": 0,
+      "final_sigmas_type": "zero",
+      "_use_default_values": [
+        "predict_x0",
+        "dynamic_thresholding_ratio",
+        "steps_offset",
+        "solver_order",
+        "final_sigmas_type",
+        "timestep_spacing",
+        "prediction_type",
+        "solver_p",
+        "disable_corrector",
+        "lower_order_final",
+        "sample_max_value",
+        "solver_type",
+        "thresholding"
+      ]
+    },
+    "requested_steps": 35,
+    "actual_schedule_steps": 36,
+    "timesteps": [
+      995,
+      994,
+      993,
+      992,
+      990,
+      988,
+      986,
+      984,
+      981,
+      977,
+      973,
+      967,
+      960,
+      951,
+      941,
+      927,
+      910,
+      889,
+      863,
+      831,
+      791,
+      742,
+      684,
+      618,
+      543,
+      462,
+      380,
+      301,
+      228,
+      166,
+      116,
+      77,
+      49,
+      30,
+      17,
+      9
+    ],
+    "use_kerras_sigma": true,
+    "worldcache_horizon": 70,
+    "denoiser_trace": [
+      {
+        "call": 1,
+        "cache_counter_before": 0,
+        "deep_executed": true
+      },
+      {
+        "call": 2,
+        "cache_counter_before": 1,
+        "deep_executed": true
+      },
+      {
+        "call": 3,
+        "cache_counter_before": 2,
+        "deep_executed": true
+      },
+      {
+        "call": 4,
+        "cache_counter_before": 3,
+        "deep_executed": true
+      },
+      {
+        "call": 5,
+        "cache_counter_before": 4,
+        "deep_executed": true
+      },
+      {
+        "call": 6,
+        "cache_counter_before": 5,
+        "deep_executed": true
+      },
+      {
+        "call": 7,
+        "cache_counter_before": 6,
+        "deep_executed": true
+      },
+      {
+        "call": 8,
+        "cache_counter_before": 7,
+        "deep_executed": true
+      },
+      {
+        "call": 9,
+        "cache_counter_before": 8,
+        "deep_executed": true
+      },
+      {
+        "call": 10,
+        "cache_counter_before": 9,
+        "deep_executed": true
+      },
+      {
+        "call": 11,
+        "cache_counter_before": 10,
+        "deep_executed": true
+      },
+      {
+        "call": 12,
+        "cache_counter_before": 11,
+        "deep_executed": true
+      },
+      {
+        "call": 13,
+        "cache_counter_before": 12,
+        "deep_executed": true
+      },
+      {
+        "call": 14,
+        "cache_counter_before": 13,
+        "deep_executed": true
+      },
+      {
+        "call": 15,
+        "cache_counter_before": 14,
+        "deep_executed": false
+      },
+      {
+        "call": 16,
+        "cache_counter_before": 15,
+        "deep_executed": false
+      },
+      {
+        "call": 17,
+        "cache_counter_before": 16,
+        "deep_executed": false
+      },
+      {
+        "call": 18,
+        "cache_counter_before": 17,
+        "deep_executed": false
+      },
+      {
+        "call": 19,
+        "cache_counter_before": 18,
+        "deep_executed": false
+      },
+      {
+        "call": 20,
+        "cache_counter_before": 19,
+        "deep_executed": false
+      },
+      {
+        "call": 21,
+        "cache_counter_before": 20,
+        "deep_executed": false
+      },
+      {
+        "call": 22,
+        "cache_counter_before": 21,
+        "deep_executed": false
+      },
+      {
+        "call": 23,
+        "cache_counter_before": 22,
+        "deep_executed": true
+      },
+      {
+        "call": 24,
+        "cache_counter_before": 23,
+        "deep_executed": false
+      },
+      {
+        "call": 25,
+        "cache_counter_before": 24,
+        "deep_executed": true
+      },
+      {
+        "call": 26,
+        "cache_counter_before": 25,
+        "deep_executed": true
+      },
+      {
+        "call": 27,
+        "cache_counter_before": 26,
+        "deep_executed": false
+      },
+      {
+        "call": 28,
+        "cache_counter_before": 27,
+        "deep_executed": false
+      },
+      {
+        "call": 29,
+        "cache_counter_before": 28,
+        "deep_executed": true
+      },
+      {
+        "call": 30,
+        "cache_counter_before": 29,
+        "deep_executed": true
+      },
+      {
+        "call": 31,
+        "cache_counter_before": 30,
+        "deep_executed": false
+      },
+      {
+        "call": 32,
+        "cache_counter_before": 31,
+        "deep_executed": false
+      },
+      {
+        "call": 33,
+        "cache_counter_before": 32,
+        "deep_executed": false
+      },
+      {
+        "call": 34,
+        "cache_counter_before": 33,
+        "deep_executed": false
+      },
+      {
+        "call": 35,
+        "cache_counter_before": 34,
+        "deep_executed": false
+      },
+      {
+        "call": 36,
+        "cache_counter_before": 35,
+        "deep_executed": false
+      },
+      {
+        "call": 37,
+        "cache_counter_before": 36,
+        "deep_executed": true
+      },
+      {
+        "call": 38,
+        "cache_counter_before": 37,
+        "deep_executed": true
+      },
+      {
+        "call": 39,
+        "cache_counter_before": 38,
+        "deep_executed": false
+      },
+      {
+        "call": 40,
+        "cache_counter_before": 39,
+        "deep_executed": false
+      },
+      {
+        "call": 41,
+        "cache_counter_before": 40,
+        "deep_executed": false
+      },
+      {
+        "call": 42,
+        "cache_counter_before": 41,
+        "deep_executed": false
+      },
+      {
+        "call": 43,
+        "cache_counter_before": 42,
+        "deep_executed": true
+      },
+      {
+        "call": 44,
+        "cache_counter_before": 43,
+        "deep_executed": true
+      },
+      {
+        "call": 45,
+        "cache_counter_before": 44,
+        "deep_executed": false
+      },
+      {
+        "call": 46,
+        "cache_counter_before": 45,
+        "deep_executed": false
+      },
+      {
+        "call": 47,
+        "cache_counter_before": 46,
+        "deep_executed": true
+      },
+      {
+        "call": 48,
+        "cache_counter_before": 47,
+        "deep_executed": true
+      },
+      {
+        "call": 49,
+        "cache_counter_before": 48,
+        "deep_executed": false
+      },
+      {
+        "call": 50,
+        "cache_counter_before": 49,
+        "deep_executed": false
+      },
+      {
+        "call": 51,
+        "cache_counter_before": 50,
+        "deep_executed": true
+      },
+      {
+        "call": 52,
+        "cache_counter_before": 51,
+        "deep_executed": true
+      },
+      {
+        "call": 53,
+        "cache_counter_before": 52,
+        "deep_executed": false
+      },
+      {
+        "call": 54,
+        "cache_counter_before": 53,
+        "deep_executed": false
+      },
+      {
+        "call": 55,
+        "cache_counter_before": 54,
+        "deep_executed": true
+      },
+      {
+        "call": 56,
+        "cache_counter_before": 55,
+        "deep_executed": true
+      },
+      {
+        "call": 57,
+        "cache_counter_before": 56,
+        "deep_executed": false
+      },
+      {
+        "call": 58,
+        "cache_counter_before": 57,
+        "deep_executed": false
+      },
+      {
+        "call": 59,
+        "cache_counter_before": 58,
+        "deep_executed": true
+      },
+      {
+        "call": 60,
+        "cache_counter_before": 59,
+        "deep_executed": true
+      },
+      {
+        "call": 61,
+        "cache_counter_before": 60,
+        "deep_executed": false
+      },
+      {
+        "call": 62,
+        "cache_counter_before": 61,
+        "deep_executed": false
+      },
+      {
+        "call": 63,
+        "cache_counter_before": 62,
+        "deep_executed": true
+      },
+      {
+        "call": 64,
+        "cache_counter_before": 63,
+        "deep_executed": true
+      },
+      {
+        "call": 65,
+        "cache_counter_before": 64,
+        "deep_executed": false
+      },
+      {
+        "call": 66,
+        "cache_counter_before": 65,
+        "deep_executed": false
+      },
+      {
+        "call": 67,
+        "cache_counter_before": 66,
+        "deep_executed": false
+      },
+      {
+        "call": 68,
+        "cache_counter_before": 67,
+        "deep_executed": false
+      },
+      {
+        "call": 69,
+        "cache_counter_before": 68,
+        "deep_executed": false
+      },
+      {
+        "call": 70,
+        "cache_counter_before": 69,
+        "deep_executed": false
+      },
+      {
+        "call": 71,
+        "cache_counter_before": 0,
+        "deep_executed": true
+      },
+      {
+        "call": 72,
+        "cache_counter_before": 1,
+        "deep_executed": true
+      }
+    ]
+  },
+  "ended_unix": 1790763253.6215763,
+  "process_wall_seconds": 900.3238034248352
+}
