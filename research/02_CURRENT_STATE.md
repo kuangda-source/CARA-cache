@@ -369,3 +369,13 @@ w1-vqa-controls-r1/source72c9e24 exit0，supervisor2488580/timeout2488585/runner
 [结果](../research/30_W1_VQA_INPUT_CONTROLS_RESULTS.md)/[完整审计](../reports/w1_vqa_controls_r1_audit.json)/[本地重算](../reports/w1_vqa_controls_r1_local_recompute.json)。[下一窗口成本方案](../research/31_W1_NEXT_WINDOW_COST_AND_DECISION.md)：原8×两臂旧诊断约3141.247秒，非clean下界；当前余额不足以稳妥提交完整批次。新4GPUh提议用于原8×两臂×3重复clean成本门（非独立质量确认），或先CPU核对替代资源；预算/方向待用户决定，尚未实现或新GPU提交。不以挑好子集替代原8。旧实机source72c9e24保持，后续文档HEAD不是新的实机运行。
 
 ## 以下为历史快照
+
+## 最新准备 — 2026-10-01：完整配对计时runner实现/CPU48通过，未GPU
+
+原8×两臂×3次重复的50尝试计划（48计时+2预热）已冻结/实现，禁用计时内逐call/pipeline tensor hash/shadow/dump，保留算法与安全管线开销，artifact检查/持久化在计时外且总wall仍计账。两次预热必须post-timer逐93帧RGB核对旧各臂首场景，真实门未执行。partial/拒绝/暖场不变性/预算处理有完整CPU覆盖；本地及Linux48同范围通过，CUDA未初始化。
+
+实际Linux新runner validate-only与固定runtime/source/原输入/raw通过；真实未批准4h账本被拒绝且未模型import/生成。新代码只在独立CPUstaging，旧runtime source72c9e24/PIDs全退出/锁GPU释放，主ledger未变3.6512467238638138/4h。下一新增4GPUh窗口仍待用户决定；不部署/提交GPU或以CPU称clean实机/质量通过，不要求人评。
+
+[准备卡](../research/32_W1_CLEAN_TIMING_CPU_PREPARATION.md)/[冻结协议](../manifests/w1_clean_timing_protocol.json)/[Linux检查](../reports/w1_clean_timing_linux_cpu_20261001.json)。预算决定后才更新授权/ledger、sync/hash部署/fresh准入唯一clean-timing-r1；不要重跑旧controls。
+
+## 以下为历史快照

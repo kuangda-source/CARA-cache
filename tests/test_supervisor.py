@@ -230,3 +230,30 @@ def test_vqa_controls_one300s_task_charged_and_mutually_exclusive(tmp_path):
     assert budget['status']=='W1_VQA_CONTROLS_REQUIRES_REVIEW' and budget['gpu_jobs_launched']==1
     assert abs(budget['used_gpu_hours']-state['arms'][0]['wall_seconds']/3600)<1e-9
     assert subprocess.run(cmd+['--w1-vqa-controls','--w1-vqa'],env=env,capture_output=True,timeout=10).returncode!=0
+
+
+def test_clean_timing_refuses_unchanged_first_batch_cap_before_job_or_output(tmp_path):
+    project, output, cmd, env=fixture(tmp_path,delay=.02,cap=4)
+    before=(project/'reports/budget.json').read_bytes()
+    result=subprocess.run(cmd+['--w1-clean-timing'],env=env,capture_output=True,timeout=10)
+    assert result.returncode!=0 and b'decision pending' in result.stderr
+    assert not output.exists() and not (project/'reports/child_env.json').exists()
+    assert (project/'reports/budget.json').read_bytes()==before
+
+
+def test_clean_timing_proposed_full_window_is_one_accounted_job_when_ledger_allows(tmp_path):
+    project, output, cmd, env=fixture(tmp_path,delay=.02,cap=8)
+    subprocess.run(cmd+['--w1-clean-timing'],env=env,check=True,capture_output=True,timeout=10)
+    s=json.loads((output/'supervisor.json').read_text());b=json.loads((project/'reports/budget.json').read_text())
+    assert s['status']=='W1_CLEAN_TIMING_EXITED_REQUIRES_REVIEW'
+    assert [x['mode'] for x in s['arms']]==['w1_clean_timing']
+    assert int(s['command'][2])==14390 and str(project/'scripts/run_w1_clean_timing.py') in s['command']
+    assert str(output/'w1-clean-timing.json') in s['command']
+    assert b['gpu_jobs_launched']==1 and abs(b['used_gpu_hours']-s['arms'][0]['wall_seconds']/3600)<1e-9
+
+
+def test_clean_timing_requires_full_window_balance_not_just_new_cap(tmp_path):
+    project, output, cmd, env=fixture(tmp_path,delay=.02,cap=8)
+    path=project/'reports/budget.json';b=json.loads(path.read_text());b['used_gpu_hours']=5;path.write_text(json.dumps(b))
+    result=subprocess.run(cmd+['--w1-clean-timing'],env=env,capture_output=True,timeout=10)
+    assert result.returncode!=0 and not output.exists() and json.loads(path.read_text())['used_gpu_hours']==5

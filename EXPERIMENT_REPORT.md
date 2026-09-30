@@ -19,7 +19,7 @@
 | 评价边界 | 重复稳定/部分内容响应，不是物理准确金标准/235BJoint/方法接受 |
 | 方法证据 | CAL8机制改善；VQA/MUSIQ未一致收益，clean速度/独立确认仍未证 |
 | 成本 | 控制79.023695秒；累计3.6512467238638138/4GPUh，余1255.511794秒，无在途 |
-| 下一步 | [新窗口成本方案](research/31_W1_NEXT_WINDOW_COST_AND_DECISION.md)，提议4GPUh或先CPU资源核对；未扩额/新提交 |
+| 下一步 | [完整计时程序](research/32_W1_CLEAN_TIMING_CPU_PREPARATION.md)原8/50已实现/本地Linux48CPU通过，提议4GPUh仍未扩额/新提交 |
 
 证据：[控制结果](research/30_W1_VQA_INPUT_CONTROLS_RESULTS.md)、[控制终态审计](reports/w1_vqa_controls_r1_audit.json)、[本地重算](reports/w1_vqa_controls_r1_local_recompute.json)、[原VQA结果](research/28_W1_DEVELOPMENT_VQA_RESULTS.md)、[账本](reports/budget.json)。部分场景在三条件均相同不能隐去；即使controls通过也没有新的物理质量正结果。
 此前：[固定重放结果](research/24_W1_FIXED_REPLAY_RESULTS.md)、[重放完整汇总](reports/w1_replay_r1_summary.json)、[CAL8机制结果](research/21_W1D_CAL8_RESULTS.md)、[CAL8分布/排序](reports/w1d_cal8_r1_analysis.json)。
@@ -103,7 +103,7 @@
 
 1. 输入控制原8/126终态审计与本地重算完成，不重复评分/调prompt。原方法机制与负小代理边界保持，尚无质量—时间收益。
 2. 余1255.511794秒，旧原8×两臂诊断3141.247秒（不是clean下界）；不能稳妥提交完整计时，不挑好子集替代原8。
-3. [下一窗口](research/31_W1_NEXT_WINDOW_COST_AND_DECISION.md)提议新4GPUh原8×两臂×3repeat clean成本门，或先CPU核对替代资源。预算/范围待用户决定；新runner尚未实现/未GPU，不自动扩额。
+3. [下一窗口](research/31_W1_NEXT_WINDOW_COST_AND_DECISION.md)提议新4GPUh原8×两臂×3repeat clean成本门，或先CPU核对替代资源。预算/范围待用户决定；新runner原8/50已实现/本地Linux48CPU与真实validate-only通过，未GPU、不自动扩额。
 4. 批准后实现/CPU/协议与Git同步/hash部署/fresh锁GPU准入，失败与原拒绝保留，partial不凑完整结论；source/身份不混用旧run。
 5. 成本通过也不替代强质量指标/调优WC和原生少步曲线/DEV独立确认。暂不加W2/切OMR、无人评/付费/训练。
 
@@ -270,3 +270,5 @@ runner先hash绑定完整CAL8/reference screen并重新计算screen、校验setu
 ## 以下为历史快照
 
 2026-10-01 输入对照终态：原8/126、repeat完全一致/blank与cyclic各14变化，全hash/raw与成本审计通过；累计3.6512467238638138/4h。现有方法仍机制only/代理无收益；下一窗口具体成本方案待决定，未新GPU。见[控制结果](research/30_W1_VQA_INPUT_CONTROLS_RESULTS.md)和[成本方案](research/31_W1_NEXT_WINDOW_COST_AND_DECISION.md)。
+
+2026-10-01 clean计时CPU准备：原8×2×3/48计时+2预热顺序冻结，runner/summarizer/14400秒监督实现，本地Linux48CPU、真实validate-only和未批准预算拒绝通过；主runtime/账本未变、新GPU未提交。见[准备卡](research/32_W1_CLEAN_TIMING_CPU_PREPARATION.md)。
