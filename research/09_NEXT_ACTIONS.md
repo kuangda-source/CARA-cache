@@ -17,3 +17,7 @@
 10. L0 r2因第二次HTTP流中断exit1/583.253381秒终态；3PIDs2496080/2496081/2496082已退出/CPU锁释放、原source/协议核验和GPU账本不变，owned r2转发在完整审计后关闭。few-step保留555745280字节（530MiB），CFG4文件继续官方hash PASS。新16MiB range/retry/rollback/fullSHA获取程序和完整融合监督已实现，本地/Linux39同范围CPU通过；还未r3提交/完整5B融合。 [range恢复与接口门](35_L0_RANGE_RECOVERY_AND_INTERFACE_GATE.md)：下一r3小段续传，完整/finite后真实有界全模型融合，再共同native管线任务/noise/条件与单分支验收；不将CPU scheduler或spy计数当GPU。r2旧live已被终态覆盖。
 
 11. L0 CPU range-r3/sourcebd8253d已唯一实际启动，3PIDs2498231/2498232/2498233都/proc verified live，CPU获取锁持有、CUDA空/source协议hash一致/账本未变。官方精确206/64KiB旧prefix边界preflight通过；已完成2个16MiB chunk、重试0次，已fsync字节589299712（562MiB），另有在途文件长度602931200（575MiB）。未完整1289824400/整SHA验收或两模型融合。复用原530MiB，不改r2失败或扩大GPU预算。 当前r3已启动，前述准备项是历史步骤；继续同handles和owned forward，不再跑旧r2观察/settle。
+
+12. [native T2V scope准备](36_L0_NATIVE_CONDITIONAL_CPU_PREPARATION.md)Local/Linux7及真实CPU UniPC fullbody probe通过；guide5 reference bit equal/guide1cond only，明确BF16guide1非stockbitparity。等待fullweights/真实CPU融合，再隔离全包/load/任务/GPU门；不重跑旧GPU控制或自动扩额。
+
+13. r3已审计终态/仅owned forward关闭；同步后新r4补12658832字节，同revision/cache/cap，完整7 SHA/实际1200finite后才真实CPU fusion。

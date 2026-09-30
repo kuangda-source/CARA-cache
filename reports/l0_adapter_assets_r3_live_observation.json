@@ -1,8 +1,8 @@
 {
-  "observed_unix": 1790804869.2318952,
+  "observed_unix": 1790806424.5948842,
   "supervisor": {
     "pid": 2498231,
-    "status": "RUNNING",
+    "status": "DOWNLOAD_FAILED_OR_TIMEOUT",
     "started_unix": 1790804787.035442,
     "gpu_workload_started": false,
     "max_cpu_wall_seconds": 3600,
@@ -19,12 +19,15 @@
       "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/hfhub",
       "--receipt",
       "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/outputs/l0-adapter-assets-r3/download.json"
-    ]
+    ],
+    "exit_code": 1,
+    "ended_unix": 1790806004.011979,
+    "wall_seconds": 1216.9762773513794
   },
   "download": {
     "stage": "L0_ADAPTER_RANGE_CPU_ACQUISITION",
     "pid": 2498233,
-    "status": "RUNNING",
+    "status": "RESOURCE_BLOCKED_PARTIAL_RETAINED",
     "started_unix": 1790804787.202646,
     "completed": [
       {
@@ -70,17 +73,20 @@
     "current_transfer": {
       "status": "RUNNING",
       "initial_bytes": 555745280,
-      "durable_bytes": 589299712,
+      "durable_bytes": 1277165568,
       "size": 1289824400,
-      "requests": 2,
-      "completed_chunks": 2,
-      "retries": 0
-    }
+      "requests": 46,
+      "completed_chunks": 43,
+      "retries": 3,
+      "last_error_type": "URLError"
+    },
+    "error_type": "RuntimeError",
+    "ended_unix": 1790806003.9105175
   },
   "processes": {
-    "2498231": "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python /home/gaokuangda/data/gkd/worldcache_omr/scripts/supervise_asset_download.py --project /home/gaokuangda/data/gkd/worldcache_omr --manifest /home/gaokuangda/data/gkd/worldcache_omr/manifests/l0_adapter_range_acquisition_20261001.json --output /home/gaokuangda/data/gkd/worldcache_omr/outputs/l0-adapter-assets-r3 --python /home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python --range-download ",
-    "2498232": "timeout --kill-after=10 3590 /home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/scripts/download_l0_adapter_ranges.py --manifest /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/manifests/l0_adapter_range_acquisition_20261001.json --cache /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/hfhub --receipt /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/outputs/l0-adapter-assets-r3/download.json ",
-    "2498233": "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/scripts/download_l0_adapter_ranges.py --manifest /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/manifests/l0_adapter_range_acquisition_20261001.json --cache /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/hfhub --receipt /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/outputs/l0-adapter-assets-r3/download.json "
+    "2498231": null,
+    "2498232": null,
+    "2498233": null
   },
   "files": [
     {
@@ -131,7 +137,7 @@
     {
       "repo": "Efficient-Large-Model/LongLive-Plug-Wan2.2-TI2V-5B-few-step",
       "path": "blobs/69807b3bdfc4d9d153a5660dcd70812f9c973eb8bc52861fea19a5e563341316.incomplete",
-      "bytes": 602931200
+      "bytes": 1277165568
     },
     {
       "repo": "Efficient-Large-Model/LongLive-Plug-Wan2.2-TI2V-5B-few-step",
@@ -154,7 +160,7 @@
       "bytes": 2641
     }
   ],
-  "cpu_lock_held": true,
+  "cpu_lock_held": false,
   "source_hashes_match": true,
   "budget_unchanged": true,
   "gpu_workload_started": false,
@@ -167,7 +173,7 @@
     "gpu_import_probes_completed": 1,
     "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts"
   },
-  "log_tail_redacted": "",
+  "log_tail_redacted": "Traceback (most recent call last):\n  File \"/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/scripts/download_l0_adapter_ranges.py\", line 88, in <module>\n    main()\n  File \"/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/scripts/download_l0_adapter_ranges.py\", line 81, in main\n    raise RuntimeError('L0 bounded range acquisition failed; inspect durable receipt') from None\nRuntimeError: L0 bounded range acquisition failed; inspect durable receipt\n",
   "gpu": "GPU-de9a5370-cd87-0f1c-a48e-288888777dd3, 346, 0\nGPU-cebf7119-cf03-23b9-e192-cd196332b704, 24, 0\n",
   "apps": ""
 }

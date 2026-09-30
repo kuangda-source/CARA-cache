@@ -1,3 +1,21 @@
+## 最新接续 — r3最后range终态，下一新r4
+
+L0 range-r3/sourcebd8253d已exit1/1216.976277秒终态；最后range三次URLError，已提交43个16MiB chunk，保留1277165568字节（1218MiB），仍缺12658832字节。CFG4文件/两few-step JSON官方digest PASS，few-step模型MISSING；原3PIDs退出/CPU锁释放/source与协议一致/账本不变，完整审计后仅关闭本任务owned r3转发。下一新唯一r4从保留prefix续传，同官方revision/16MiB/3600秒上限；未新GPU、未完整few-step hash/真实融合。
+
+[终态](../../reports/l0_adapter_assets_r3_audit_20261001.json)/[恢复卡](../../research/37_L0_RANGE_R3_TERMINAL_AND_R4_RECOVERY.md)。旧r3 success-only settle不可调用；所有旧launch/settle不能重跑。下一新r4 sync/source/端口/边界preflight后唯一提交，当前尚未提交。native CPU7证据保持，不是模型/GPU通过。
+
+## 以下为历史快照
+
+## 最新CPU接口准备 — 2026-10-01：native条件分支7通过，r3续传同handles
+
+已实现仅T2V的scope adaptation，guide1直接conditional、guide!=1保留原CFG运算，finally恢复，不改源文件/i2v。Local/Linux7检查通过；完整native T2V body+真实UniPC/CPU替身在4/50步guide5输入/timestep/输出bit equal，guide1分别4/50cond/0negative。不是实际模型/GPU parity；保留BF16guide1的stock抵消差异，不称guide1 OFF/ON bit invariant。
+
+[准备](../../research/36_L0_NATIVE_CONDITIONAL_CPU_PREPARATION.md)/[Linux真实CPU body](../../reports/l0_native_conditional_linux_cpu_20261001.json)。实际模型/任务/GPU未测试，未改正在下载的7文件。range-r3仍同supervisor2498231/timeout2498232/downloader2498233，使用 .sync/observe_l0_adapter_assets_r3.py；完整download/PIDs/lock/source/budget后 .sync/settle_l0_adapter_r3.py CPU核验全7 SHA/真实1200finite/825当前base header，再只关此r3 owned转发，共享路线不动。若观察超时先查同process/输出，不能重复audit/launch。
+
+完整fusion后续唯一job/model identity/cap3600，尚未提交；CPU39及fullbody7不是GPU acceptance，新4GPUh仍待用户。
+
+## 以下为历史快照
+
 ## 最新运行 — 2026-10-01：L0 range-r3真实live，两小段已成功提交
 
 L0 CPU range-r3/sourcebd8253d已唯一实际启动，3PIDs2498231/2498232/2498233都/proc verified live，CPU获取锁持有、CUDA空/source协议hash一致/账本未变。官方精确206/64KiB旧prefix边界preflight通过；已完成2个16MiB chunk、重试0次，已fsync字节589299712（562MiB），另有在途文件长度602931200（575MiB）。未完整1289824400/整SHA验收或两模型融合。复用原530MiB，不改r2失败或扩大GPU预算。

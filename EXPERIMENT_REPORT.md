@@ -38,6 +38,8 @@
 
 最新实际CPU恢复：L0 CPU range-r3/sourcebd8253d已唯一实际启动，3PIDs2498231/2498232/2498233都/proc verified live，CPU获取锁持有、CUDA空/source协议hash一致/账本未变。官方精确206/64KiB旧prefix边界preflight通过；已完成2个16MiB chunk、重试0次，已fsync字节589299712（562MiB），另有在途文件长度602931200（575MiB）。未完整1289824400/整SHA验收或两模型融合。复用原530MiB，不改r2失败或扩大GPU预算。 [r3 launch](reports/l0_adapter_assets_r3_launch_20261001.json)/[live](reports/l0_adapter_assets_r3_live_observation.json)。
 
+原生公共管线准备：[T2V单条件scope CPU检查](research/36_L0_NATIVE_CONDITIONAL_CPU_PREPARATION.md)。已实现仅T2V的scope adaptation，guide1直接conditional、guide!=1保留原CFG运算，finally恢复，不改源文件/i2v。Local/Linux7检查通过；完整native T2V body+真实UniPC/CPU替身在4/50步guide5输入/timestep/输出bit equal，guide1分别4/50cond/0negative。不是实际模型/GPU parity；保留BF16guide1的stock抵消差异，不称guide1 OFF/ON bit invariant。 资源下载/真实融合仍按r3回执推进，GPU预算未变。
+
 ## 2. 研究背景、假设与判定方式
 
 目标是在相同质量下更快，或在相同时间下质量更好。比较对象应包含合理调参的官方缓存与原生少步采样，避免只超过一个默认配置。研究成功需落在端到端质量—时间曲线上，特征误差降低只作机制证据。
@@ -286,3 +288,5 @@ runner先hash绑定完整CAL8/reference screen并重新计算screen、校验setu
 2026-10-01 L0资源核验：Wan5B base资产11hash通过、native3文件/官方来源和两个公开LoRA release锁定，header结构及16CPU通过；无完整LoRA payload/真实融合/GPU，OMR公开资源未发布。GPU账本未变。
 
 2026-10-01 L0 CPU获取live：两套锁定适配器匿名官方下载、source68afc3e/3600秒，同3PIDs真实live、CFG70MiB partial，未全SHA/融合/模型前向。主GPU账本不变，拥有的临时forward终态再关闭，未改变共享路线。
+
+最新资源终态：[r3最后range失败与r4恢复](research/37_L0_RANGE_R3_TERMINAL_AND_R4_RECOVERY.md)。L0 range-r3/sourcebd8253d已exit1/1216.976277秒终态；最后range三次URLError，已提交43个16MiB chunk，保留1277165568字节（1218MiB），仍缺12658832字节。CFG4文件/两few-step JSON官方digest PASS，few-step模型MISSING；原3PIDs退出/CPU锁释放/source与协议一致/账本不变，完整审计后仅关闭本任务owned r3转发。下一新唯一r4从保留prefix续传，同官方revision/16MiB/3600秒上限；未新GPU、未完整few-step hash/真实融合。

@@ -421,3 +421,13 @@ L0 r2因第二次HTTP流中断exit1/583.253381秒终态；3PIDs2496080/2496081/2
 L0 CPU range-r3/sourcebd8253d已唯一实际启动，3PIDs2498231/2498232/2498233都/proc verified live，CPU获取锁持有、CUDA空/source协议hash一致/账本未变。官方精确206/64KiB旧prefix边界preflight通过；已完成2个16MiB chunk、重试0次，已fsync字节589299712（562MiB），另有在途文件长度602931200（575MiB）。未完整1289824400/整SHA验收或两模型融合。复用原530MiB，不改r2失败或扩大GPU预算。
 
 [r3 launch](../reports/l0_adapter_assets_r3_launch_20261001.json)/[live](../reports/l0_adapter_assets_r3_live_observation.json)。继续同handles/owned转发至终态，不重复提交，CPU partial不是L0完整READY。
+
+## 2026-10-01：native条件分支公共管线CPU准备
+
+已实现仅T2V的scope adaptation，guide1直接conditional、guide!=1保留原CFG运算，finally恢复，不改源文件/i2v。Local/Linux7检查通过；完整native T2V body+真实UniPC/CPU替身在4/50步guide5输入/timestep/输出bit equal，guide1分别4/50cond/0negative。不是实际模型/GPU parity；保留BF16guide1的stock抵消差异，不称guide1 OFF/ON bit invariant。
+
+[准备与边界](36_L0_NATIVE_CONDITIONAL_CPU_PREPARATION.md)，不改在跑range-r3 source或部署GPU。
+
+## 最新r3终态
+
+L0 range-r3/sourcebd8253d已exit1/1216.976277秒终态；最后range三次URLError，已提交43个16MiB chunk，保留1277165568字节（1218MiB），仍缺12658832字节。CFG4文件/两few-step JSON官方digest PASS，few-step模型MISSING；原3PIDs退出/CPU锁释放/source与协议一致/账本不变，完整审计后仅关闭本任务owned r3转发。下一新唯一r4从保留prefix续传，同官方revision/16MiB/3600秒上限；未新GPU、未完整few-step hash/真实融合。
