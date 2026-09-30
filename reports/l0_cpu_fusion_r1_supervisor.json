@@ -1,0 +1,61 @@
+{
+  "pid": 2502473,
+  "status": "CPU_FUSION_EXIT0_REQUIRES_FULL_ARTIFACT_AUDIT",
+  "started_unix": 1790806793.365582,
+  "cpu_max_wall_seconds": 3600,
+  "gpu_workload_started": false,
+  "source_commit": "c69e492be17c4c9ae005354c051a3a5400569fbf",
+  "source_sha256": {
+    "scripts/supervise_l0_cpu_fusion.py": "4918c50fb2221e2c915e9ef393e9b5a9c14051787d10f4d9aa41fdf5113ec565",
+    "scripts/run_l0_cpu_fusion.py": "6422d63fb5a861c40acfebce169d15efa8048492f0bdb105f8f4bf3ea4cc7816",
+    "src/wcomr/__init__.py": "b9996da0a87bb746cdac0935ead475246fc34d88b37e73f63f14e5065494f311",
+    "src/wcomr/lora_cpu_fusion.py": "a25398c55c06d5436c8e0b55264f3209c5c87e3b1d621b5f098ac2817f60ec66",
+    "src/wcomr/lora_header_audit.py": "8b0490342a94cf0b992f574a29b136bca3f65487649ba5f141a01cf021334703",
+    "manifests/l0_cpu_fusion_protocol_20261001.json": "f3e9a660ed7433a3fe4ce066f3a2fb0464b394ca93ee052cb109f39c98ad3e8a",
+    "public/merge_lora.py": "7b5b6438dd71e36ca30d356313fc7fbaabe60afdcc66f77c527db023a8c2cbec"
+  },
+  "deployment_sha256": "692b902fb931103b34bc9505894614c8fd2737662a4503b6221662a27f64f950",
+  "budget_before": {
+    "batch": "F0-F1",
+    "cap_gpu_hours": 4,
+    "used_gpu_hours": 3.6512467238638138,
+    "gpu_jobs_launched": 22,
+    "status": "W1_VQA_CONTROLS_REQUIRES_REVIEW",
+    "gpu_import_probes_completed": 1,
+    "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts"
+  },
+  "model_output": "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/l0-fused-models-r1",
+  "child_pid": 2502474,
+  "command": [
+    "timeout",
+    "--kill-after=10",
+    "3590",
+    "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python",
+    "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/.sync/l0-assets-range-cpu-r1-20261001/scripts/run_l0_cpu_fusion.py",
+    "--protocol",
+    "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/.sync/l0-assets-range-cpu-r1-20261001/manifests/l0_cpu_fusion_protocol_20261001.json",
+    "--base",
+    "/home/gaokuangda/data/gkd/Wan/checkpoints/Wan2.2-TI2V-5B-modelscope-master-20260901",
+    "--cache",
+    "/home/gaokuangda/data/gkd/worldcache_omr/hfhub",
+    "--upstream",
+    "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/.sync/l0-assets-range-cpu-r1-20261001/public/merge_lora.py",
+    "--output",
+    "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/l0-fused-models-r1"
+  ],
+  "exit_code": 0,
+  "ended_unix": 1790808753.782867,
+  "wall_seconds": 1960.4170146561228,
+  "child_ru_maxrss_kib": 32326196,
+  "source_hashes_match_after": true,
+  "budget_after": {
+    "batch": "F0-F1",
+    "cap_gpu_hours": 4,
+    "used_gpu_hours": 3.6512467238638138,
+    "gpu_jobs_launched": 22,
+    "status": "W1_VQA_CONTROLS_REQUIRES_REVIEW",
+    "gpu_import_probes_completed": 1,
+    "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts"
+  },
+  "budget_unchanged": true
+}

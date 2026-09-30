@@ -1,3 +1,11 @@
+## 最新终态 — CPU fusion-r1 exit0，两臂/18输入完整，fresh audit下一
+
+CPU fusion-r1/sourcec69e492已exit0/1960.417015秒终态，peak RSS30.8287GiB；两臂各825tensor/3分片/300目标/525未目标完整，18原输入融合前后官方digest一致，3PIDs退出/CPU锁释放/source与GPU账本不变。完整独立fresh产物审计尚未执行，不能称模型/任务/GPU就绪。
+
+[全runner](../../reports/l0_cpu_fusion_r1_runner.json)/[监督](../../reports/l0_cpu_fusion_r1_supervisor.json)/[下一门](../../research/40_L0_CPU_FUSION_AUDIT_AND_ENV_CACHE.md)。原3PIDs2502473/2502474/2502475缺失/source/CPU锁/预算已实时核实；旧launch/observe若不同结果先查原handle，不能重启。下一unique outputs/l0-cpu-fusion-audit-r1，独立audit-stage/newsource/900CPU cap，父子PID/阶段receipt，保存fresh全1650/6shard/18输入核验。新empty env已建但未安装，cache只有获取缺项。
+
+## 以下为历史快照
+
 ## 最新两臂/环境门 — whole posthash与fresh审计待
 
 真实CPU两臂均已825/3分片内部验收；完整posthash/终态与独立fresh artifact审计仍待。新独立env已创建，实际offline缓存解析缺Torch2.4.1+cu121，未装包。独立CPU终态审计程序已准备/语法检查，待原3PIDs退出/锁释放后唯一timeout900秒执行，不重跑融合/改stage/新GPU。

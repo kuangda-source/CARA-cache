@@ -19,3 +19,9 @@
 [拟定独立环境pins](../manifests/l0_native_environment_proposed_pins_20261001.json)/[原命令问题](../reports/l0_native_environment_metadata_r1_20261001.json)/[修正后真实缓存检查](../reports/l0_native_environment_metadata_r2_20261001.json)。下一从官方PyTorch/PyPI与官方FlashAttention匹配binary补资源或核对现有本地wheel，固定实际release/hash/全部resolved依赖，再新环境安装与唯一600秒CPU probe。不能改共享包/源码以忽略缺项。
 
 原生Wan requirements要求Transformers4.49–4.51.3；同一native common pipeline的A/B/C必须使用同一固定环境。既有环境元数据/历史PhysCache结果不作为新模型load或GPU证据。新4GPUh WorldCache clean50仍待决定，L1余额不足不自动提交。
+
+## 实际融合终态
+
+CPU fusion-r1/sourcec69e492已exit0/1960.417015秒终态，peak RSS30.8287GiB；两臂各825tensor/3分片/300目标/525未目标完整，18原输入融合前后官方digest一致，3PIDs退出/CPU锁释放/source与GPU账本不变。完整独立fresh产物审计尚未执行，不能称模型/任务/GPU就绪。
+
+[监督完整终态](../reports/l0_cpu_fusion_r1_supervisor.json)/[全两臂逐tensor runner](../reports/l0_cpu_fusion_r1_runner.json)。下一独立audit-r1/hash部署新程序/CPU900上限，仍不重跑融合。
