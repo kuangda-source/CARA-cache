@@ -1,3 +1,11 @@
+## 最新接续 — 2026-10-01：L0 r1连接中断终态，CFG完整验收/CPU融合22通过，准备r2
+
+L0 CPU获取r1因连接中断exit1/1218.181533秒终态，原3PIDs退出/CPU锁释放/账本不变；仅关闭本任务owned临时转发。CFG4文件完整官方hash、真实600tensor finite/300pair alpha-r通过，独立核验PIDs2495417/2495418退出；few-step保留167772160字节（160MiB），非完整payload。两配方分片CPU融合程序已实现，本地/Linux22同范围检查通过，尚未真实Wan5B融合/模型任务load/GPU。下一同固定release/cache/3600秒的新r2续传，不重启旧identity或改共享路线。
+
+[准备卡](../../research/34_L0_CPU_FUSION_PREPARATION_AND_CFG_PAYLOAD.md)/[r1完整审计](../../reports/l0_adapter_assets_r1_audit_20261001.json)/[CFG真实payload](../../reports/l0_cfg_payload_audit_r1_observation_20261001.json)/[Linux22](../../reports/l0_fusion_linux_cpu_20261001.json)。CPU新code仍在隔离staging，仅小模型测试，未实机5B融合。下一r2需要新owned转发/唯一output/source同步；旧r1在跑源码/协议保持不改，临时forward身份历史存ignored .sync/l0-owned-forward-r1.json。主线clean50CPU48准备完，新GPU4h未授权，不据自动goal continuation扩额。
+
+## 以下为历史快照
+
 ## 最新CPU资源获取 — 2026-10-01：L0两适配器r1实际live，非GPU
 
 资源核验/协议/source68afc3e同步后，唯一outputs/l0-adapter-assets-r1已启动。匿名官方HF、固定两release、独立project cache、cap3600 CPU-only；supervisor2493078/timeout2493079/downloader2493080本次proc核实live、CPU获取锁持有、CUDA空/source与协议hash一致。CFG partial73400320字节（70MiB），3小JSON已到位；few-step尚未开始，未完整payload/SHA/真实5B融合或前向。

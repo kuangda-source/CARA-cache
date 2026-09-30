@@ -1,0 +1,81 @@
+{
+  "observed_unix": 1790802653.9766374,
+  "launch": {
+    "status": "CPU_CFG_PAYLOAD_AUDIT_LAUNCHED",
+    "timeout_pid": 2495417,
+    "started_unix": 1790802611.4814155,
+    "payload_sha256": "3e1ac8aa6f01e6c0044f9529e649061cb1174afa0a893909d6fb48b7177c9a56",
+    "budget_before": {
+      "batch": "F0-F1",
+      "cap_gpu_hours": 4,
+      "used_gpu_hours": 3.6512467238638138,
+      "gpu_jobs_launched": 22,
+      "status": "W1_VQA_CONTROLS_REQUIRES_REVIEW",
+      "gpu_import_probes_completed": 1,
+      "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts"
+    }
+  },
+  "runner": {
+    "status": "CFG4_FILES_OFFICIAL_HASH_AND_REAL600_TENSORS_FINITE_CPU_PASS_NOT_MERGE_OR_GPU",
+    "pid": 2495418,
+    "started_unix": 1790802613.327923,
+    "finished_unix": 1790802615.6712894,
+    "repo": "Efficient-Large-Model/LongLive-Plug-Wan2.2-TI2V-5B-cfg",
+    "revision": "195c8c100e145d5b18068d506f8f2b4498dcaaa4",
+    "integrity": [
+      {
+        "path": "adapter_config.json",
+        "status": "PASS",
+        "bytes": 8691,
+        "digest": "4e3cc5925f087bc31ff1273efd7d05b6258bc72a",
+        "algorithm": "git-blob-sha1"
+      },
+      {
+        "path": "adapter_model.safetensors",
+        "status": "PASS",
+        "bytes": 644949288,
+        "digest": "c16212b483e3fd3d3a8a91b9732342777addc23d08ef0be055ff442c650944d4",
+        "algorithm": "sha256"
+      },
+      {
+        "path": "provenance.json",
+        "status": "PASS",
+        "bytes": 2638,
+        "digest": "aebb21a6caf3369df6c20836b8b9a3065039042a",
+        "algorithm": "git-blob-sha1"
+      },
+      {
+        "path": "release_metadata.json",
+        "status": "PASS",
+        "bytes": 1065,
+        "digest": "1949fe84c995f662fd56c03e536fbe4c39129233",
+        "algorithm": "git-blob-sha1"
+      }
+    ],
+    "real_tensor_count": 600,
+    "target_pair_count": 300,
+    "upstream_alpha_over_rank": 1.0,
+    "source_sha256": {
+      "/home/gaokuangda/data/gkd/worldcache_omr/scripts/verify_public_assets.py": "decb5b43bcc64470aa8b9adb50a0bc39e75440f78015ff84bc6752f2765aa058",
+      "/home/gaokuangda/data/gkd/worldcache_omr/.sync/l0-fusion-cpu-r2-20261001/public/merge_lora.py": "7b5b6438dd71e36ca30d356313fc7fbaabe60afdcc66f77c527db023a8c2cbec"
+    },
+    "cuda_initialized": false,
+    "gpu_workload_started": false
+  },
+  "processes": {
+    "2495417": {
+      "cmdline_bytes": null,
+      "exists": false
+    },
+    "2495418": {
+      "cmdline_bytes": null,
+      "exists": false
+    }
+  },
+  "budget_unchanged": true,
+  "gpu_workload_started": false,
+  "source_hashes_match": true,
+  "gpu": "GPU-de9a5370-cd87-0f1c-a48e-288888777dd3, 346, 0\nGPU-cebf7119-cf03-23b9-e192-cd196332b704, 24, 0\n",
+  "apps": "",
+  "log_tail": "{\"status\": \"CFG4_FILES_OFFICIAL_HASH_AND_REAL600_TENSORS_FINITE_CPU_PASS_NOT_MERGE_OR_GPU\", \"files\": 4, \"real_tensors\": 600}\n"
+}

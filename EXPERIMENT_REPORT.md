@@ -30,6 +30,8 @@
 
 最新非GPU资源进展：[L0审计](research/33_L0_WAN_LONGLIVE_OMR_RESOURCE_AUDIT.md)，历史Wan5B11文件官方完整hash可复用/两600tensor header结构匹配、16CPU通过；尚缺完整adapter/真实融合与隔离环境。OMR公开release仍Coming soon，未新生成或切换主线。
 
+最新L0推进：[CFG真实payload/两配方CPU融合准备](research/34_L0_CPU_FUSION_PREPARATION_AND_CFG_PAYLOAD.md)。L0 CPU获取r1因连接中断exit1/1218.181533秒终态，原3PIDs退出/CPU锁释放/账本不变；仅关闭本任务owned临时转发。CFG4文件完整官方hash、真实600tensor finite/300pair alpha-r通过，独立核验PIDs2495417/2495418退出；few-step保留167772160字节（160MiB），非完整payload。两配方分片CPU融合程序已实现，本地/Linux22同范围检查通过，尚未真实Wan5B融合/模型任务load/GPU。下一同固定release/cache/3600秒的新r2续传，不重启旧identity或改共享路线。
+
 ## 2. 研究背景、假设与判定方式
 
 目标是在相同质量下更快，或在相同时间下质量更好。比较对象应包含合理调参的官方缓存与原生少步采样，避免只超过一个默认配置。研究成功需落在端到端质量—时间曲线上，特征误差降低只作机制证据。
@@ -39,7 +41,7 @@
 | H-W1：简单收缩或浅深层增量校准能改善跨步残差近似 | 同状态 shadow → 固定跳步闭环 → 自由调度下的质量—时间对照 | CAL8同状态scalar机制信号；固定schedule技术通过，MUSIQ混合/开发VQA无代理收益，质量—时间未证，额外计算抵消收益则停止深化 |
 | H-W1D：残差误差大小不能完全代表下游危害 | 对照残差 MSE、最终速度预测误差/方向与局部伪影 | CAL8所有8样本有内部排序差异；未联系视频物理损害，先全局scalar闭环 |
 | H-J：减少不必要的 OMR 纠正调用/梯度可改善折中 | 先复现有效原版，再测稀疏、未来侧梯度与复用 | 资源与兼容性待复核；原版无效或 adapter 不匹配时不做归因 |
-| H-L：预训练 CFG / 少步适配器是值得纳入的强基线 | 同一兼容 Wan5B 上原生、CFG-only、四步 Few-step+CFG 三臂 | 尚未做本地兼容性和 GPU 测试；小批次仅筛查可用性 |
+| H-L：预训练 CFG / 少步适配器是值得纳入的强基线 | 同一兼容 Wan5B 上原生、CFG-only、四步 Few-step+CFG 三臂 | L0 base/header和CFG真实payload通过；两配方CPU准备22通过，完整融合/任务与GPU仍未验证；小批次仅筛查可用性 |
 
 不把 PhysCache 的历史物理损伤、抖动或运动结果当作本项目先验结论。若出现运动变少、模糊或动作未完成，不能仅凭“更平滑”指标宣称改进。
 

@@ -397,3 +397,9 @@ w1-vqa-controls-r1/source72c9e24 exit0，supervisor2488580/timeout2488585/runner
 GPU账本严格未变3.6512467238638138/4h，无新GPU工作。已确认Wan5B base11官方hash与header结构/16CPU，不叫L0完整READY；OMR公开release仍Coming soon，新4GPUh计时决定仍待用户。后续完整LoRA/真实CPU融合/隔离环境/任务接口检查独立推进，不自动跑L1或训练/付费/人评。
 
 ## 以下为历史快照
+
+## 2026-10-01：L0 r1终态与真实CFG资源/完整融合CPU准备
+
+L0 CPU获取r1因连接中断exit1/1218.181533秒终态，原3PIDs退出/CPU锁释放/账本不变；仅关闭本任务owned临时转发。CFG4文件完整官方hash、真实600tensor finite/300pair alpha-r通过，独立核验PIDs2495417/2495418退出；few-step保留167772160字节（160MiB），非完整payload。两配方分片CPU融合程序已实现，本地/Linux22同范围检查通过，尚未真实Wan5B融合/模型任务load/GPU。下一同固定release/cache/3600秒的新r2续传，不重启旧identity或改共享路线。
+
+[准备与验收](34_L0_CPU_FUSION_PREPARATION_AND_CFG_PAYLOAD.md)，主线预算/质量边界保持。

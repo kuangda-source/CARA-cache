@@ -36,3 +36,9 @@
 ## 后续同日CPU获取启动
 
 协议/source68afc3e与审计同步后，唯一CPU l0-adapter-assets-r1已提交，3600秒上限/匿名官方/固定release/新project cache；supervisor2493078/timeout2493079/downloader2493080都proc verified live，CPU lock held。CFG73400320字节partial/3JSON，few-step未开始，尚未完整SHA/真实融合。[启动](../reports/l0_adapter_assets_r1_launch_20261001.json)/[实时观察](../reports/l0_adapter_assets_r1_live_observation.json)。使用专用owned temporary loopback forward，仅CPU终态后按ignored本机PID identity关闭它；共享路线未改。继续同handles，GPU账本未变，不重复提交/修改在跑源码。
+
+## 后续终态与真实CFG资源进展
+
+L0 CPU获取r1因连接中断exit1/1218.181533秒终态，原3PIDs退出/CPU锁释放/账本不变；仅关闭本任务owned临时转发。CFG4文件完整官方hash、真实600tensor finite/300pair alpha-r通过，独立核验PIDs2495417/2495418退出；few-step保留167772160字节（160MiB），非完整payload。两配方分片CPU融合程序已实现，本地/Linux22同范围检查通过，尚未真实Wan5B融合/模型任务load/GPU。下一同固定release/cache/3600秒的新r2续传，不重启旧identity或改共享路线。
+
+见[完整CPU融合准备与CFG验收](34_L0_CPU_FUSION_PREPARATION_AND_CFG_PAYLOAD.md)。早先header-only/live段落是历史快照，当前以r1终态审计与此新检查为准。

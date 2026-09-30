@@ -8,4 +8,6 @@
 
 6. [L0部分资源验收](33_L0_WAN_LONGLIVE_OMR_RESOURCE_AUDIT.md)：Wan5B11文件完整hash/两套LoRA header结构与16CPU通过，非完整adapter或真实融合/GPU。下一可独立CPU下载锁定2适配器1.802GiB/逐SHA、真实融合新输出和隔离环境/任务接口验收；OMR公开入口仍BLOCKED。保持主线，不自动转L1/训练/扩额。
 
-7. L0两适配器唯一CPU assets-r1/source68afc3e已经实际live（3PIDs2493078/2493079/2493080），3600秒。继续同handles/partial至终态，保留本任务owned loopback forward；终态完整SHA/source/锁/GPU预算审计，再只关闭该自有转发。当前CFG70MiB，非完整adapter/融合；不要重新启动或停止共享路线。
+7. L0 CPU获取r1因连接中断exit1/1218.181533秒终态，原3PIDs退出/CPU锁释放/账本不变；仅关闭本任务owned临时转发。CFG4文件完整官方hash、真实600tensor finite/300pair alpha-r通过，独立核验PIDs2495417/2495418退出；few-step保留167772160字节（160MiB），非完整payload。两配方分片CPU融合程序已实现，本地/Linux22同范围检查通过，尚未真实Wan5B融合/模型任务load/GPU。下一同固定release/cache/3600秒的新r2续传，不重启旧identity或改共享路线。
+
+8. [真实CFG验收/完整融合准备](34_L0_CPU_FUSION_PREPARATION_AND_CFG_PAYLOAD.md)：two-recipe runner/协议/本地Linux22已齐，full5B fusion尚未执行。r2完整release后先逐全SHA/finite，再新CPU identity/bounded3600/hash-deploy/32GiB+80GiB准入，全825×2融合及原条件权重/序列化检查；后续隔离任务环境/接口。无新GPU或重要预算答案。

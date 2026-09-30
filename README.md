@@ -14,7 +14,9 @@ Prior terminal run: Core assets and the retained safety pipeline are ready. F1 r
 
 The [long-term plan](plans/LONG_HORIZON_EXPERIMENT_PLAN_WorldCache_OMR_20260929.md) and [first-batch instructions](plans/CODEX_FIRST_BATCH_WorldCache_OMR_20260929.md) are now v1.1: preserve the current WorldCache comparison, add QuantWM-inspired downstream diagnostics and a bounded compatible Wan5B/LongLive-Plug baseline. Combinations and training remain conditional. No new GPU job was launched by this plan update.
 
-[L0 resource audit](research/33_L0_WAN_LONGLIVE_OMR_RESOURCE_AUDIT.md): existingWan5B all11 official file hashes verified; both600tensor LoRA headers match300targets each,16 CPU checks pass; fulladapter payload/realmerge/environment/GPU remain pending. OMR public artifacts stillComing soon; no route pivot or GPU cost. Pinned twoadapter CPU acquisition r1/source68afc3e now verified live under3600s,CFG70MiB partial;not complete payload/merge/GPU. See launch/live receipts and handoff.
+[L0 resource audit](research/33_L0_WAN_LONGLIVE_OMR_RESOURCE_AUDIT.md): existingWan5B all11 official file hashes verified; both600tensor LoRA headers match300targets each,16 CPU checks pass; fulladapter payload/realmerge/environment/GPU remain pending. OMR public artifacts stillComing soon; no route pivot or GPU cost. Historical r1/source68afc3e live snapshot has been superseded by the terminal audit below; no full-pair/merge/GPU readiness claim.
+
+[L0 CFG actual payload / CPU fusion preparation](research/34_L0_CPU_FUSION_PREPARATION_AND_CFG_PAYLOAD.md): L0 CPU获取r1因连接中断exit1/1218.181533秒终态，原3PIDs退出/CPU锁释放/账本不变；仅关闭本任务owned临时转发。CFG4文件完整官方hash、真实600tensor finite/300pair alpha-r通过，独立核验PIDs2495417/2495418退出；few-step保留167772160字节（160MiB），非完整payload。两配方分片CPU融合程序已实现，本地/Linux22同范围检查通过，尚未真实Wan5B融合/模型任务load/GPU。下一同固定release/cache/3600秒的新r2续传，不重启旧identity或改共享路线。
 
 ## Reproduce CPU checks
 
