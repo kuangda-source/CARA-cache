@@ -28,7 +28,9 @@
 
 依据：[F1 r3配对汇总](reports/f1_smoke_r3_summary.json)、[W1-P0终态结果](research/12_W1_P0_TERMINAL_RESULTS.md)、[实时恢复审计](reports/w1_p0_r1_recovery_audit.json)、[预算账本](reports/budget.json)。
 
-最新L0 CPU资源：[完整两适配器与融合](research/38_L0_FULL_ADAPTER_PAYLOAD_AND_REAL_CPU_FUSION.md)。L0 range-r4/source7c0f2ec唯一实际续传成功，exit0/31.271029秒，最后12658832字节一次range完成/0retry。全部7文件官方digest与实际1200张量CPU有限性、300×2目标/rank/alpha及825基座header匹配通过；原3PIDs2502124/2502125/2502126退出/CPU锁释放/source与协议一致/账本不变，审计后仅owned临时转发关闭。真实融合尚未提交，实际模型/GPU parity仍未通过；新4GPUh仍待用户重要预算决定。
+最新L0 CPU资源：[完整两适配器与融合](research/38_L0_FULL_ADAPTER_PAYLOAD_AND_REAL_CPU_FUSION.md)。L0 range-r4/source7c0f2ec唯一实际续传成功，exit0/31.271029秒，最后12658832字节一次range完成/0retry。全部7文件官方digest与实际1200张量CPU有限性、300×2目标/rank/alpha及825基座header匹配通过；原3PIDs2502124/2502125/2502126退出/CPU锁释放/source与协议一致/账本不变，审计后仅owned临时转发关闭。真实CPU fusion-r1/sourcec69e492正在执行；实际模型/GPU parity仍未通过，新4GPUh仍待用户重要预算决定。
+
+最新原生环境准备：[完整源码与运行检查](research/39_L0_NATIVE_SOURCE_AND_ENVIRONMENT_PREPARATION.md)。官方固定Wan运行源码60文件已独立部署/全Gitblob与SHA匹配；旧参考import观察超时、PID后续消失，结果UNKNOWN。参考环境满足官方requirements版本元数据；新隔离env/full native import尚未通过。带PID/阶段持久回执的CPU runtime probe已准备/仅语法检查，未执行。fusion-r1仍同handles/3600秒CPU cap，CFG-only已有413tensor/首shard验收，尚未全两臂验收。
 
 [公共native T2V CPU准备](research/36_L0_NATIVE_CONDITIONAL_CPU_PREPARATION.md)本地/Linux7通过；真实模型/GPU未验收。
 

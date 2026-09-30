@@ -1,3 +1,11 @@
+## 最新准备 — 全60原生source验收，CPU融合同handles进行
+
+官方固定Wan运行源码60文件已独立部署/全Gitblob与SHA匹配；旧参考import观察超时、PID后续消失，结果UNKNOWN。参考环境满足官方requirements版本元数据；新隔离env/full native import尚未通过。带PID/阶段持久回执的CPU runtime probe已准备/仅语法检查，未执行。fusion-r1仍同handles/3600秒CPU cap，CFG-only已有413tensor/首shard验收，尚未全两臂验收。
+
+[准备卡](../../research/39_L0_NATIVE_SOURCE_AND_ENVIRONMENT_PREPARATION.md)/[source部署](../../reports/l0_native_runtime_source_deployment_r1_20261001.json)/[依赖metadata](../../reports/l0_native_reference_env_metadata_20261001.json)。不要重跑prepare_l0_native_source_r1或inspect旧import/helper：源码目录已存在，旧import无receipt结果仍UNKNOWN。参考PID2503544已后续缺失；下一个CPU probe需新独立env、唯一receipt/PID/timeout600，先完成fusion后再大复制/import。原CPUfusion stage和3PIDs不改，同 .sync/observe_l0_cpu_fusion_r1.py。
+
+## 以下为历史快照
+
 ## 最新运行 — 真实CPU两臂fusion-r1 live
 
 真实Wan5B两臂CPU fusion-r1/sourcec69e492已唯一启动。supervisor2502473/timeout2502474/runner2502475实际/proc live，独立fusion锁持有、CUDA空/source固定与账本未变。准入时MemAvailable59360669696字节（55.3GiB）、磁盘720206147584字节（670.7GiB）；3600秒CPU cap，当前完整输入hash阶段/未创建模型目录，尚未完成merge或产物验收。
