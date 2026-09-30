@@ -1,3 +1,15 @@
+## 最新接续 — 2026-10-01 02:24:30 北京时间：r3连接中断终态，VQA runner CPU通过，准备r4续传
+
+r3/source202e21d实际exit1/1153.880144秒，IncompleteRead连接中断；supervisor2481616/timeout2481618/downloader2481619全退出/CPU锁释放/source hash一致/GPU账本未变，保留3030384640字节（2890MiB）。不是cap超时/人工取消，旧RUNNING快照已被终态覆盖。下一同匿名镜像/固定revision/官方hash/cache/cap3600秒CPU-only的新唯一r4，复用既有字节，不改r3输出/协议或扩GPU额度。
+
+已实现scripts/run_w1_vqa.py与supervise_f1 --w1-vqa：单900秒/all8/42参考39接受候选题，一次离线BF16/SDPA模型加载，严格逐题原提示/贪心/原始tokens与答案/每题持久化，parse invalid继续，技术异常停止且保留部分覆盖。scripts/summarize_w1_vqa.py重新计算原题/原答案、检查原视频/采样元数据/coverage/rejection/token数，partial不得汇总成完整结果。模型/processor/vision utility的真实CPU安装hash/version已另锁定，不改初始VQA输入manifest。
+
+本地25及Linux隔离staging25 CPU检查通过（不相加计数）；全部15接受视频原文件hash、实际10帧元数据/processor与42题hash/count真实CPU通过，CUDA未初始化；实际runner在部分权重时也已拒绝，未import torch/load/forward。当前只是实现与CPU证据，不是GPU load/评分/质量通过。GPU累计3.612360697322422/4h、余0.387639302677578h、无在途；scalar机制/MUSIQ混合结果保持，暂不加W2，不要求人评/付费/训练/自动扩额。
+
+证据：[r3终态审计](../reports/w1_judge_assets_r3_audit.json)、[runner准备卡](../research/27_W1_VQA_RUNNER_PREPARATION.md)、[Linux25检查](../reports/w1_vqa_runner_linux_cpu_20261001.json)、[全部15输入](../reports/w1_vqa_all_inputs_cpu_20261001.json)。下一完整下载/hash后才可部署并fresh预算/锁/GPU准入。当前r4尚未启动，未来文档HEAD不改变旧CPU source202e21d。
+
+## 以下为历史快照
+
 ## 最新恢复核验 — 2026-10-01 02:01:45 北京时间：judge CPU镜像续传r3 live
 
 已fetch GitHub main并核对本地/远端同为202e21d，SSH实测成功，共享FRPC未改/未重复启动；原r1/r2和GPU任务均已退出。新唯一`outputs/w1-judge-assets-r3`部署source202e21d，文件SHA256一致，Linux4项CPU acquisition检查通过。supervisor2481616/timeout2481618/downloader2481619三个PIDs本次真实ps/proc核实存活，CUDA为空、无代理环境，CPU锁由本任务持有。匿名公共镜像/固定revision/同官方hash/cache，cap3600秒；权重partial由786432000增至891289600字节（850MiB），仍未完整/未验收，未加载权重/未VLM forward/未GPU评分。

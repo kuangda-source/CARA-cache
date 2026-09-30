@@ -195,3 +195,26 @@ def test_imaging_evaluation_is_one_serial_bounded_budgeted_job(tmp_path):
     assert abs(budget['used_gpu_hours']-state['arms'][0]['wall_seconds']/3600)<1e-9
     result=subprocess.run(cmd+['--w1-imaging','--w1-replay'],env=env,capture_output=True,timeout=10)
     assert result.returncode!=0
+
+
+def test_vqa_single_job_deadline_partial_stop_and_original_budget(tmp_path):
+    project,output,cmd,env=fixture(tmp_path,delay=.02)
+    subprocess.run(cmd+['--w1-vqa'],env=env,check=True,capture_output=True,timeout=10)
+    state=json.loads((output/'supervisor.json').read_text())
+    assert state['status']=='W1_VQA_EXITED_REQUIRES_REVIEW'
+    assert len(state['arms'])==1 and state['arms'][0]['mode']=='w1_vqa'
+    assert str(project/'scripts/run_w1_vqa.py') in state['command']
+    assert str(output/'w1-vqa.json') in state['command'] and int(state['command'][2])<=890
+    budget=json.loads((project/'reports/budget.json').read_text())
+    assert budget['gpu_jobs_launched']==1 and budget['status']=='W1_VQA_REQUIRES_REVIEW'
+    assert abs(budget['used_gpu_hours']-state['arms'][0]['wall_seconds']/3600)<1e-9
+    assert subprocess.run(cmd+['--w1-vqa','--w1-imaging'],env=env,capture_output=True,timeout=10).returncode!=0
+
+
+def test_vqa_budget_exhaustion_charges_failure_and_does_not_submit_second_job(tmp_path):
+    project,output,cmd,env=fixture(tmp_path,delay=30,cap=.001)
+    subprocess.run(cmd+['--w1-vqa'],env=env,check=True,capture_output=True,timeout=10)
+    state=json.loads((output/'supervisor.json').read_text());budget=json.loads((project/'reports/budget.json').read_text())
+    assert state['status']=='PROBE_TIMEOUT' and len(state['arms'])==1
+    assert state['arms'][0]['exit_code']!=0 and budget['gpu_jobs_launched']==1
+    assert abs(budget['used_gpu_hours']-state['arms'][0]['wall_seconds']/3600)<1e-9

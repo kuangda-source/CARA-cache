@@ -1,0 +1,346 @@
+{
+  "status": "ACTUAL_GPU_RUNNER_REFUSES_PARTIAL_WEIGHTS_BEFORE_TORCH_OR_MODEL_LOAD",
+  "observed_unix": 1790792908.9618924,
+  "exit_code": 1,
+  "runner_receipt": {
+    "pid": 2484231,
+    "status": "TECH_BLOCKED",
+    "gpu_uuid": "CPU_INVALID_UUID_TEST",
+    "rows": [],
+    "started_unix": 1790792908.76654,
+    "source_sha256": {
+      "scripts/run_w1_vqa.py": "06e21a07f3bad23a875b94d8c966009b6ca4010109e2c9100345acf776f4f883",
+      "scripts/supervise_f1.py": "f823fdc9d88c596c4fca505b8d4dffc7e1b9483187913a927a0141ebece832d6",
+      "scripts/verify_public_assets.py": "decb5b43bcc64470aa8b9adb50a0bc39e75440f78015ff84bc6752f2765aa058",
+      "src/wcomr/development_vqa.py": "401002ebd5819941e1dd130a18601f951ff67d274835b1dd4c42aa39dd7de5c6",
+      "src/wcomr/development_vqa_input.py": "9a4ee7f65129d29e9184198f895a31f6316ab93064d32c8b69a42fd2657f1fc4",
+      "src/wcomr/development_vqa_run.py": "a30b491c890140b06bffa9fd77f338eaaf31456fbabe0163c9d868ac0d3da382",
+      "src/wcomr/replay_results.py": "a1afb8603dfd1cbb9aab42ed53a683f827eeacafd8b404ba9443c0276f9ca928",
+      "manifests/w1_development_vqa_protocol.json": "e6d12c1a435a398ae71a43c5db6359b3eb36939083c594107e0275509428476c",
+      "manifests/w1_vqa_runtime_protocol.json": "fc596d2ad66ba26ab1dcaa63e1ab84d0438ad6dd5d67a880bc0bf4718264e6c2",
+      "manifests/w1_development_judge_integrity.json": "8d11b58610428a2aeb2f57eca4f49e2b0581fe930bf2bf90aa75dab8c9a01621"
+    },
+    "protocol": {
+      "status": "INPUTS_PARSER_CPU_PREPARED_PENDING_COMPLETE_MODEL_ASSETS_AND_GPU_RUNNER",
+      "reference_receipt": "reports/w1d_cal8_r1_runner.json",
+      "reference_sha256": "934dc2d63b79ee1cc68f765fdcb21bfea91f4f81584ad17259e9f6c55cd3eec9",
+      "candidate_receipt": "reports/w1_replay_r1_runner.json",
+      "candidate_sha256": "45baadc9939f0286ebeb5179ab14b0113cd1d41b4368e27d5342d9900be2491d",
+      "samples": [
+        "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+        "common_sense_6487f37f-ef57-49ca-afdc-d898922b5191",
+        "human_199",
+        "industry_084",
+        "misc_13398218_3840_2160_60fps",
+        "physics_045",
+        "robot_054",
+        "av_51b45829-502e-4143-9c32-c026bd6ab191"
+      ],
+      "question_inputs": {
+        "status": "ORIGINAL_CAL8_QUESTION_FILES_DOWNLOADED_NOT_SCORED",
+        "revision": "c36b7beb69bd7c4adcedc1431407fce98f9dfe44",
+        "samples": [
+          {
+            "name": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+            "url": "https://huggingface.co/datasets/shi-labs/physical-ai-bench-generation/resolve/c36b7beb69bd7c4adcedc1431407fce98f9dfe44/vqa/av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632.json",
+            "sha256": "95bf1341db43a26c57e773b5d5c86e64a7ffdad14d13f94f92229f173a5e9855",
+            "git_blob_sha1": "cfe84f6a784d786a162547663eceba190184be23",
+            "bytes": 1403,
+            "root_type": "list",
+            "top_keys": null,
+            "root_count": 4
+          },
+          {
+            "name": "common_sense_6487f37f-ef57-49ca-afdc-d898922b5191",
+            "url": "https://huggingface.co/datasets/shi-labs/physical-ai-bench-generation/resolve/c36b7beb69bd7c4adcedc1431407fce98f9dfe44/vqa/common_sense_6487f37f-ef57-49ca-afdc-d898922b5191.json",
+            "sha256": "8850fd8ea3483938653c64d827fe9864ac6a5003889d82ce73eb3ef9546c719c",
+            "git_blob_sha1": "df19525e11627409cff714c483fac6ee6ce119ee",
+            "bytes": 360,
+            "root_type": "list",
+            "top_keys": null,
+            "root_count": 1
+          },
+          {
+            "name": "human_199",
+            "url": "https://huggingface.co/datasets/shi-labs/physical-ai-bench-generation/resolve/c36b7beb69bd7c4adcedc1431407fce98f9dfe44/vqa/human_199.json",
+            "sha256": "7b9aad4622d52606e9bef88ac5075bc4b9103215f062ea36df0215f50472ae94",
+            "git_blob_sha1": "3223bae826bc9c44661095ae5824c13121d22cdd",
+            "bytes": 1303,
+            "root_type": "list",
+            "top_keys": null,
+            "root_count": 4
+          },
+          {
+            "name": "industry_084",
+            "url": "https://huggingface.co/datasets/shi-labs/physical-ai-bench-generation/resolve/c36b7beb69bd7c4adcedc1431407fce98f9dfe44/vqa/industry_084.json",
+            "sha256": "50f99ecee90a1864ed08ba1d9036b44afd30084af807b6c10f20c6dc4eb5a5a7",
+            "git_blob_sha1": "420a97d2913a88853311fd1f3420f0ef16e07260",
+            "bytes": 963,
+            "root_type": "list",
+            "top_keys": null,
+            "root_count": 3
+          },
+          {
+            "name": "misc_13398218_3840_2160_60fps",
+            "url": "https://huggingface.co/datasets/shi-labs/physical-ai-bench-generation/resolve/c36b7beb69bd7c4adcedc1431407fce98f9dfe44/vqa/misc_13398218_3840_2160_60fps.json",
+            "sha256": "96eb245a607ff66a46567fbcc3434c5797bb80b2e8d29103156c6a0562f9e1d7",
+            "git_blob_sha1": "d8871ea4663336476cb40754c7b5f794797a23bc",
+            "bytes": 3100,
+            "root_type": "list",
+            "top_keys": null,
+            "root_count": 9
+          },
+          {
+            "name": "physics_045",
+            "url": "https://huggingface.co/datasets/shi-labs/physical-ai-bench-generation/resolve/c36b7beb69bd7c4adcedc1431407fce98f9dfe44/vqa/physics_045.json",
+            "sha256": "fe6d65fd5d2f785d643e52c42c781f4a37e5b2eddcbb404c49bd792e790e77ee",
+            "git_blob_sha1": "04fe45e6a5b1fe54e8cc06f66ce4e5c0e06f56e8",
+            "bytes": 4717,
+            "root_type": "list",
+            "top_keys": null,
+            "root_count": 14
+          },
+          {
+            "name": "robot_054",
+            "url": "https://huggingface.co/datasets/shi-labs/physical-ai-bench-generation/resolve/c36b7beb69bd7c4adcedc1431407fce98f9dfe44/vqa/robot_054.json",
+            "sha256": "e85e73167649aea210bfcd064e3fcf7153a09a0e5bcf027946c1d04b1cdc6d16",
+            "git_blob_sha1": "473cffe9aa3d362b33508c7ac392cb55dc641e8c",
+            "bytes": 998,
+            "root_type": "list",
+            "top_keys": null,
+            "root_count": 3
+          },
+          {
+            "name": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+            "url": "https://huggingface.co/datasets/shi-labs/physical-ai-bench-generation/resolve/c36b7beb69bd7c4adcedc1431407fce98f9dfe44/vqa/av_51b45829-502e-4143-9c32-c026bd6ab191.json",
+            "sha256": "f3794e2cbb33d7b708fa04f0b75b770aba92e51529aad377e5b46514f681023a",
+            "git_blob_sha1": "38ccc8f4770bbb7e9883a1cc47ae68ffa83810b5",
+            "bytes": 1386,
+            "root_type": "list",
+            "top_keys": null,
+            "root_count": 4
+          }
+        ],
+        "scope": "Pinned public benchmark VQA inputs for the original8 scenes; source/input preparation only, no VLM scoring or GPU/API spend"
+      },
+      "runtime_question_directory": "cache/development_vqa/vqa",
+      "planned_reference_questions": 42,
+      "planned_candidate_questions_for_accepted": 39,
+      "rejected_candidate_questions_not_imputed": 3,
+      "label_counts": {
+        "yes": 32,
+        "no": 10
+      },
+      "constant_yes_question_accuracy_all42": 0.7619047619047619,
+      "judge_repo": "Qwen/Qwen3-VL-2B-Instruct",
+      "judge_revision": "89644892e4d85e24eaac8bacfd4f463576704203",
+      "asset_integrity_manifest": "manifests/w1_development_judge_integrity.json",
+      "system": "You are a helpful AI assistant that answers questions about videos. Answer with just YES or NO.",
+      "begin_user": "I'll show you a video with several frames. Please look carefully at all frames to understand what's happening in the video, then answer the question about the video with either YES or NO.",
+      "question_suffix": "Please answer with YES or NO.",
+      "prompt_source_sha256": "20ed465efd1faa994a8d9b028823faf42a3bcd516d9d97b735c1cedaddb92fce",
+      "question_mode": "Original single question per generation, answers/uid/method labels not included in model prompt",
+      "fps_requested": 2.0,
+      "actual_sampled_frames": 10,
+      "sampled_frame_indices": [
+        0,
+        10,
+        20,
+        31,
+        41,
+        51,
+        61,
+        72,
+        82,
+        92
+      ],
+      "source_frames": 93,
+      "source_fps": 16,
+      "max_pixels": 602112,
+      "image_patch_size": 16,
+      "video_backend": "decord",
+      "do_sample_frames_in_processor": false,
+      "video_metadata": "Original fps/indices/total frame count passed explicitly; CPU verified actual timestamped input",
+      "generation": {
+        "dtype": "bfloat16",
+        "attention": "sdpa",
+        "do_sample": false,
+        "max_new_tokens": 1024,
+        "seed": 0
+      },
+      "arm_order": "SHA256(scene) parity chooses reference/candidate first; method labels never enter prompt",
+      "answer_parser": "Whole response YES/NO, optional terminal punctuation; explanations/mixed labels invalid, no silent substring match or reruns",
+      "aggregation": "Questions retained per scene; equal-scene pairs, invalid answers give accuracy bounds not confidence intervals; rejected candidate no imputation, original8 denominator retained; no standard Joint",
+      "max_gpu_seconds": 900,
+      "gpu_scope": "Proposed one model load/all original8/42reference39acceptedcandidate questions, includes loading/checks/diagnostics/parse failures/flush under remaining original4GPUh. Not a measured cost or completed GPU test",
+      "limitation": "Small development judge with sparse10frame input, not paper235B, independent confirmation, full-video physical ground truth or overall quality acceptance"
+    },
+    "video_integrity": [
+      {
+        "name": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+        "arm": "reference",
+        "sha256": "2913c7c4a93c09df70c6278fb0f4418786d4d31409b4d47cd4d3f77c59a404ba",
+        "bytes": 444939
+      },
+      {
+        "name": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+        "arm": "candidate",
+        "sha256": "0acb13fd17e89ae8f0b2a351972aa2bc82be600e36f73253487d30e9451e31a2",
+        "bytes": 291103
+      },
+      {
+        "name": "common_sense_6487f37f-ef57-49ca-afdc-d898922b5191",
+        "arm": "reference",
+        "sha256": "fa7f466534e7e7984136dfaa9fb47794dedf0c81444229527b9722142715c379",
+        "bytes": 531916
+      },
+      {
+        "name": "common_sense_6487f37f-ef57-49ca-afdc-d898922b5191",
+        "arm": "candidate",
+        "sha256": "c37f7d72860100f3aee45c1c28f34e8f3c0671df0112ec016ff5ac7f1f72cd0e",
+        "bytes": 489945
+      },
+      {
+        "name": "human_199",
+        "arm": "reference",
+        "sha256": "4d0f0549dbabf04e7f217037c40f6a30f41cb240289162d6fb0fbec2dde982fb",
+        "bytes": 1100497
+      },
+      {
+        "name": "human_199",
+        "arm": "candidate",
+        "sha256": "7c980fb5bf88ebca49b3a1717009cd772babc42bbe54ff289f25442fb5bb434f",
+        "bytes": 1121936
+      },
+      {
+        "name": "industry_084",
+        "arm": "reference",
+        "sha256": "41c2b0e76c88b9faf6e36e459ef2d9fabdd325d23c85d6de2dc94811859e732a",
+        "bytes": 1759195
+      },
+      {
+        "name": "industry_084",
+        "arm": "candidate",
+        "sha256": "d443da9fbcb6c511d93f69777c41ed635a73055bbad96d581ebd8de68eab12ae",
+        "bytes": 1883971
+      },
+      {
+        "name": "misc_13398218_3840_2160_60fps",
+        "arm": "reference",
+        "sha256": "cf0548f3838c7041da9139f384437175ef5f3399dd6da44a9d951e48da4aee92",
+        "bytes": 1429900
+      },
+      {
+        "name": "misc_13398218_3840_2160_60fps",
+        "arm": "candidate",
+        "sha256": "db32d2767686368e18b96ef9107d2bc92e9213bff46039dd4d0c745532eed5d8",
+        "bytes": 1801140
+      },
+      {
+        "name": "physics_045",
+        "arm": "reference",
+        "sha256": "17edd008c0a02f272e1581647bd9bab9e3da82cca2dae2768ab45548cce4b639",
+        "bytes": 605547
+      },
+      {
+        "name": "physics_045",
+        "arm": "candidate",
+        "sha256": "d6a142d69f311c678cf62186acdb707b2c236cf25a407874c7d999a46c1b3329",
+        "bytes": 505168
+      },
+      {
+        "name": "robot_054",
+        "arm": "reference",
+        "sha256": "e088e4e7119050a74928919126f532ee574b5f71411c855b741235c174dd2b7b",
+        "bytes": 719586
+      },
+      {
+        "name": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+        "arm": "reference",
+        "sha256": "c66cd32a8021a76355e3b340b6301056a869012245f3ed6cf5904a897237b19d",
+        "bytes": 488030
+      },
+      {
+        "name": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+        "arm": "candidate",
+        "sha256": "a19f6fead5db5fcafcbde89c8c7f74fa7cf6ed07d39ba46ba4d1eede0585dae8",
+        "bytes": 207504
+      }
+    ],
+    "model_integrity": [
+      {
+        "path": "chat_template.json",
+        "status": "PASS",
+        "bytes": 5502,
+        "digest": "e49e75bdda104c8de941eb20e0b3765184fb27bc",
+        "algorithm": "git-blob-sha1"
+      },
+      {
+        "path": "config.json",
+        "status": "PASS",
+        "bytes": 1505,
+        "digest": "0cd8c646eb55794594b14fefcd1d3acea5cc000f",
+        "algorithm": "git-blob-sha1"
+      },
+      {
+        "path": "generation_config.json",
+        "status": "PASS",
+        "bytes": 269,
+        "digest": "7bb37933d2d86e4ceaabcc6540be989658f238e9",
+        "algorithm": "git-blob-sha1"
+      },
+      {
+        "path": "merges.txt",
+        "status": "PASS",
+        "bytes": 1671839,
+        "digest": "20024bfe7c83998e9aeaf98a0cd6a2ce6306c2f0",
+        "algorithm": "git-blob-sha1"
+      },
+      {
+        "path": "model.safetensors",
+        "status": "MISSING"
+      },
+      {
+        "path": "preprocessor_config.json",
+        "status": "PASS",
+        "bytes": 390,
+        "digest": "2ea84a437d448ff71b08df68fdd949d5cc4ebb64",
+        "algorithm": "git-blob-sha1"
+      },
+      {
+        "path": "tokenizer.json",
+        "status": "PASS",
+        "bytes": 7032403,
+        "digest": "c6cc1014128b19d1fc46b1d30a23e3b1d35db421",
+        "algorithm": "git-blob-sha1"
+      },
+      {
+        "path": "tokenizer_config.json",
+        "status": "PASS",
+        "bytes": 10868,
+        "digest": "d3d3763207692c78780f4bf42d4dadf49a5c8012",
+        "algorithm": "git-blob-sha1"
+      },
+      {
+        "path": "video_preprocessor_config.json",
+        "status": "PASS",
+        "bytes": 385,
+        "digest": "3ba673a5ad7d4d13f54155ecd38b2a94a6dac8fe",
+        "algorithm": "git-blob-sha1"
+      },
+      {
+        "path": "vocab.json",
+        "status": "PASS",
+        "bytes": 2776833,
+        "digest": "4783fe10ac3adce15ac8f358ef5462739852c569",
+        "algorithm": "git-blob-sha1"
+      }
+    ],
+    "error_type": "ValueError",
+    "error": "Incomplete/corrupt model assets",
+    "ended_unix": 1790792908.9343204,
+    "wall_seconds": 0.16778135299682617
+  },
+  "gpu_workload_started": false,
+  "scope": "CPU invalid UUID makes GPU unavailable; actual runner validates15 source videos and42 questions/9small assets, fails specifically at missing complete weights before torch import/load/generation. Not an actual GPU admission or forward."
+}

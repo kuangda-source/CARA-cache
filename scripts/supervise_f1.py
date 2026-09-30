@@ -19,6 +19,7 @@ p.add_argument('--python', required=True)
 p.add_argument('--gpu-uuid', required=True)
 p.add_argument('--output', type=Path, required=True)
 probes = p.add_mutually_exclusive_group()
+probes.add_argument('--w1-vqa',action='store_true',help='Original CAL8 small-judge VQA, at most900 seconds from existing total budget')
 probes.add_argument('--w1-imaging',action='store_true',help='All original CAL8 MUSIQ pairs, at most600 seconds from existing total budget')
 probes.add_argument('--w1-replay',action='store_true',help='Frozen official-schedule scalar CAL8 replay, at most3000 seconds from existing total budget')
 probes.add_argument('--w1d-cal',action='store_true',help='CAL-first8 batch, at most6000 seconds from existing total budget')
@@ -34,7 +35,7 @@ if a.deterministic_decode and not a.stage_witness:
     p.error('--deterministic-decode requires --stage-witness')
 if a.w1_recent_calibration and not a.w1_same_state:
     p.error('--w1-recent-calibration requires --w1-same-state')
-is_probe = a.w1_imaging or a.w1_replay or a.w1d_cal or a.stage_witness or a.probe_only or a.guardrail_only or a.w1_parity or a.w1_same_state
+is_probe = a.w1_vqa or a.w1_imaging or a.w1_replay or a.w1d_cal or a.stage_witness or a.probe_only or a.guardrail_only or a.w1_parity or a.w1_same_state
 project, runtime, output = a.project.resolve(), a.runtime.resolve(), a.output.resolve()
 lock_path = project / '.sync/f1.lock'; lock_path.parent.mkdir(parents=True, exist_ok=True)
 lock = lock_path.open('a')
@@ -67,7 +68,7 @@ def stop(child):
 
 save(output / 'supervisor.json', state)
 gate_started = time.monotonic()
-for mode in (('w1_imaging',) if a.w1_imaging else ('w1_replay',) if a.w1_replay else ('w1d_cal',) if a.w1d_cal else ('stage_a','stage_b') if a.stage_witness else ('w1_same_state',) if a.w1_same_state else ('w1_parity',) if a.w1_parity else ('guardrail_pipeline',) if a.guardrail_only else ('core_model_load',) if a.probe_only else ('native', 'worldcache')):
+for mode in (('w1_vqa',) if a.w1_vqa else ('w1_imaging',) if a.w1_imaging else ('w1_replay',) if a.w1_replay else ('w1d_cal',) if a.w1d_cal else ('stage_a','stage_b') if a.stage_witness else ('w1_same_state',) if a.w1_same_state else ('w1_parity',) if a.w1_parity else ('guardrail_pipeline',) if a.guardrail_only else ('core_model_load',) if a.probe_only else ('native', 'worldcache')):
     admission = query_gpu()
     if admission['pids'] or admission['memory_used_mib'] > 1024:
         state.update(status='RESOURCE_BUSY', admission=admission); break
@@ -77,14 +78,14 @@ for mode in (('w1_imaging',) if a.w1_imaging else ('w1_replay',) if a.w1_replay 
         seconds_left = min(seconds_left, 900 - (time.monotonic() - gate_started))
         if seconds_left <= 10: state['status'] = 'PROBE_TIMEOUT'; break
     elif is_probe:
-        seconds_left = min(seconds_left, 600 if a.w1_imaging else 3000 if a.w1_replay else 6000 if a.w1d_cal else 900 if (a.w1_parity or a.w1_same_state) else 420)
+        seconds_left = min(seconds_left, 900 if a.w1_vqa else 600 if a.w1_imaging else 3000 if a.w1_replay else 6000 if a.w1d_cal else 900 if (a.w1_parity or a.w1_same_state) else 420)
     command = ['timeout', '--kill-after=10', str(max(1, int(seconds_left) - 10)),
                a.python, str(project / 'scripts/run_f1_case_set.py'), '--project', str(project),
                '--mode', mode, '--gpu-uuid', a.gpu_uuid, '--output', str(output / mode)]
     if is_probe:
         command = ['timeout', '--kill-after=10', str(max(1, int(seconds_left) - 10)), a.python,
-                   str(project / ('scripts/run_w1_imaging.py' if a.w1_imaging else 'scripts/run_w1_replay.py' if a.w1_replay else 'scripts/run_w1d_cal.py' if a.w1d_cal else 'scripts/check_stage_witness.py' if a.stage_witness else 'scripts/check_w1_parity.py' if (a.w1_parity or a.w1_same_state) else 'scripts/check_guardrail_pipeline.py' if a.guardrail_only else 'scripts/check_model_load.py')), '--project', str(project),
-                   '--gpu-uuid', a.gpu_uuid, '--receipt', str((output / mode / 'witness.json') if a.stage_witness else output / ('w1-imaging.json' if a.w1_imaging else 'w1-replay.json' if a.w1_replay else 'w1d-cal.json' if a.w1d_cal else 'w1-same-state.json' if a.w1_same_state else 'w1-parity.json' if a.w1_parity else 'guardrail-pipeline.json' if a.guardrail_only else 'core-model-load.json'))]
+                   str(project / ('scripts/run_w1_vqa.py' if a.w1_vqa else 'scripts/run_w1_imaging.py' if a.w1_imaging else 'scripts/run_w1_replay.py' if a.w1_replay else 'scripts/run_w1d_cal.py' if a.w1d_cal else 'scripts/check_stage_witness.py' if a.stage_witness else 'scripts/check_w1_parity.py' if (a.w1_parity or a.w1_same_state) else 'scripts/check_guardrail_pipeline.py' if a.guardrail_only else 'scripts/check_model_load.py')), '--project', str(project),
+                   '--gpu-uuid', a.gpu_uuid, '--receipt', str((output / mode / 'witness.json') if a.stage_witness else output / ('w1-vqa.json' if a.w1_vqa else 'w1-imaging.json' if a.w1_imaging else 'w1-replay.json' if a.w1_replay else 'w1d-cal.json' if a.w1d_cal else 'w1-same-state.json' if a.w1_same_state else 'w1-parity.json' if a.w1_parity else 'guardrail-pipeline.json' if a.guardrail_only else 'core-model-load.json'))]
     if a.deterministic_decode:
         command.append('--deterministic-decode')
     if a.w1_same_state:
@@ -94,6 +95,8 @@ for mode in (('w1_imaging',) if a.w1_imaging else ('w1_replay',) if a.w1_replay 
     env = dict(os.environ, PYTHONPATH='.:packages/cosmos-oss:packages/cosmos-cuda',
                CUDA_VISIBLE_DEVICES=a.gpu_uuid, HF_HUB_CACHE=str(project / 'hfhub'),
                HF_HUB_OFFLINE='1', TRANSFORMERS_OFFLINE='1')
+    if a.w1_vqa:
+        env.update(USE_TF='0',FORCE_QWENVL_VIDEO_READER='decord')
     started = time.time()
     with (output / f'{mode}.log').open('w') as log, (output / f'{mode}-gpu.jsonl').open('w') as monitor:
         child = subprocess.Popen(command, cwd=runtime, env=env, stdout=log, stderr=subprocess.STDOUT,
@@ -124,7 +127,7 @@ for mode in (('w1_imaging',) if a.w1_imaging else ('w1_replay',) if a.w1_replay 
                                   'wall_seconds': wall, 'stop_reason': reason})
             budget['used_gpu_hours'] += wall / 3600
             budget['gpu_jobs_launched'] += 1
-            budget['status'] = ('W1_IMAGING_REQUIRES_REVIEW' if a.w1_imaging else 'W1_REPLAY_REQUIRES_REVIEW' if a.w1_replay else 'W1D_CAL_REQUIRES_REVIEW' if a.w1d_cal else 'STAGE_WITNESS_REQUIRES_REVIEW' if a.stage_witness else 'W1_SAME_STATE_REQUIRES_REVIEW' if a.w1_same_state else 'W1_PARITY_REQUIRES_REVIEW' if a.w1_parity else 'F0_GUARDRAIL_PROBE_REQUIRES_REVIEW' if a.guardrail_only else 'F0_LOAD_PROBE_REQUIRES_REVIEW' if a.probe_only
+            budget['status'] = ('W1_VQA_REQUIRES_REVIEW' if a.w1_vqa else 'W1_IMAGING_REQUIRES_REVIEW' if a.w1_imaging else 'W1_REPLAY_REQUIRES_REVIEW' if a.w1_replay else 'W1D_CAL_REQUIRES_REVIEW' if a.w1d_cal else 'STAGE_WITNESS_REQUIRES_REVIEW' if a.stage_witness else 'W1_SAME_STATE_REQUIRES_REVIEW' if a.w1_same_state else 'W1_PARITY_REQUIRES_REVIEW' if a.w1_parity else 'F0_GUARDRAIL_PROBE_REQUIRES_REVIEW' if a.guardrail_only else 'F0_LOAD_PROBE_REQUIRES_REVIEW' if a.probe_only
                                 else 'F1_EXECUTION_REQUIRES_RESULT_REVIEW')
             budget['accounting'] = 'Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts'
             save(budget_path, budget)
@@ -132,6 +135,6 @@ for mode in (('w1_imaging',) if a.w1_imaging else ('w1_replay',) if a.w1_replay 
             save(output / 'supervisor.json', state)
     if reason or child.returncode != 0: break
 else:
-    state['status'] = ('W1_IMAGING_EXITED_REQUIRES_REVIEW' if a.w1_imaging else 'W1_REPLAY_EXITED_REQUIRES_REVIEW' if a.w1_replay else 'W1D_CAL_EXITED_REQUIRES_REVIEW' if a.w1d_cal else 'STAGE_WITNESS_EXITED_REQUIRES_REVIEW' if a.stage_witness else 'W1_SAME_STATE_EXITED_REQUIRES_REVIEW' if a.w1_same_state else 'W1_PARITY_EXITED_REQUIRES_REVIEW' if a.w1_parity else 'GUARDRAIL_PROBE_EXITED_REQUIRES_REVIEW' if a.guardrail_only else 'CORE_LOAD_EXITED_REQUIRES_STATE_REVIEW' if a.probe_only
+    state['status'] = ('W1_VQA_EXITED_REQUIRES_REVIEW' if a.w1_vqa else 'W1_IMAGING_EXITED_REQUIRES_REVIEW' if a.w1_imaging else 'W1_REPLAY_EXITED_REQUIRES_REVIEW' if a.w1_replay else 'W1D_CAL_EXITED_REQUIRES_REVIEW' if a.w1d_cal else 'STAGE_WITNESS_EXITED_REQUIRES_REVIEW' if a.stage_witness else 'W1_SAME_STATE_EXITED_REQUIRES_REVIEW' if a.w1_same_state else 'W1_PARITY_EXITED_REQUIRES_REVIEW' if a.w1_parity else 'GUARDRAIL_PROBE_EXITED_REQUIRES_REVIEW' if a.guardrail_only else 'CORE_LOAD_EXITED_REQUIRES_STATE_REVIEW' if a.probe_only
                        else 'PAIR_EXITED_AWAITING_RECEIPT_AND_VIDEO_REVIEW')
 save(output / 'supervisor.json', state)
