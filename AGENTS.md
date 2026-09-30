@@ -1,6 +1,6 @@
 # WorldCache / OMR experiment rules
 
-- Read `research/02_CURRENT_STATE.md`, `research/09_NEXT_ACTIONS.md`, and `memory/handoffs/LATEST.md` before continuing. Follow the supplied plans in `plans/`; do not restart unrelated historical projects.
+- Read `EXPERIMENT_REPORT.md`, `research/02_CURRENT_STATE.md`, `research/09_NEXT_ACTIONS.md`, and `memory/handoffs/LATEST.md` before continuing. Follow the supplied plans in `plans/`; do not restart unrelated historical projects.
 - User authorized experiment work on the two-card and four-card A6000 servers on 2026-09-29. Select using fresh GPU UUID, VRAM and compute-process observations. No stopping others' jobs, changing shared drivers, or treating idle utilization as admission.
 - First batch: F0 and F1 (4 scenes, 1 seed, Native and official WC), one expensive job at a time. Self-imposed first-batch stop cap: 4 GPU hours including load, failure, diagnostics and flush. This is a conservative execution limit under the current user instruction, not an assertion that the plan itself grants GPU permission. Propose F2/W1 GPU scope from measured costs before expansion; no training or paid scoring in this batch.
 - Keep upstream pinned and unmodified. Experimental runtime adaptations must be separately identified, versioned, and shared by both comparison paths where appropriate.
@@ -8,3 +8,5 @@
 - Synthetic/CPU tests are implementation evidence only; no generated video or quality/latency claim without real receipts. Record UNKNOWN and TECH_BLOCKED honestly.
 - User requests that every meaningful code/config/result change be committed and synchronized to the private GitHub repository `kuangda-source/worldcache-omr-experiments` before reporting completion. Keep code, plans, tests, manifests, summaries and small receipts in Git. Never commit credentials, machine connection secrets, weights, bulk tensors, or videos. Record artifact paths/hashes instead. Do not force-push or overwrite unrelated changes.
 - A GitHub connector atomic tree/commit/ref update may be used when local Git credentials are unavailable. Verify the resulting commit and file tree; preserve remote README and parent history. Record local-to-remote mapping under ignored `.sync/`.
+
+- Maintain `EXPERIMENT_REPORT.md` as the stable cross-device experiment overview. After meaningful experiment changes, update its evidence-bound results/decisions plus next actions and handoff in the same sync. Follow its Git conflict and single GPU submitter protocol; Git synchronization is not a distributed runtime lock.
