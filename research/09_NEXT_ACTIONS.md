@@ -1,7 +1,7 @@
-# Next actions — VQA终态无代理收益，准备judge输入对照
+# Next actions — 输入对照终态，下一预算/范围决定
 
-1. w1-vqa-r1/source1f326b5已exit0/60.966001秒/原81答案有效/全8/7可比1robot拒绝、6平1misc降、scene等权delta-0.031746031746031744。[结果](28_W1_DEVELOPMENT_VQA_RESULTS.md)/[终态audit](../reports/w1_vqa_r1_audit.json)已核验原PIDs退出/锁/GPU释放、15视频/10模型/源码/81token-raw/summary与实际预算。不要重跑原方法或把初始live快照当当前。
-2. 剩余GPU 0.370704302390416h/1334.535秒，无在途。原数据revision根目录未给对应gold视频；不将生成WC当gold/常YES当质量金标准。[控制卡](29_W1_VQA_INPUT_CONTROLS_PREPARATION.md)与[protocol](../manifests/w1_vqa_controls_protocol.json)已冻结，runner已实现/本地Linux35CPU与24真实输入通过；原8/42 matched-repeat/black/cyclic错配输入控制，同judge/原prompt/generation/inputlimits，最多300秒，不改方法/调提示/扩额，不要求人评。
-3. 控制协议已在看原代理后/任何控制答案前冻结，明确非盲；实现/CPU通过，下一source同步，再fresh预算/锁/GPU准入唯一w1-vqa-controls-r1。原循环一位错配无固定点，黑视频同10帧geometry/timestamps，matched-repeat对原raw核验，控制不算物理质量label accuracy。
-4. 控制GPU尚未提交；本地/Linux35及24真实控制输入CPU通过，已有模型/hash充分，不再下载。控制逐题持久化/invalid保留、技术异常停止，不因观察失败重复提交/改变在跑代码；终态全PIDs/锁/GPU/monitor/source/模型输入hash/rawtoken/cost审计再分析。
-5. 当前没有质量—时间收益，暂不扩W2/生成，不据小2B代理直接切OMR。控制只证重复/内容敏感，不证物理正确性；标准judge/clean配对/独立确认仍缺。关键方向或预算决策先具体方案再交用户；所有meaningful代码/回执/docs同步GitHub。
+1. controls-r1/source72c9e24原8/126全有效，repeat0/42变、blank14/42、cyclic14/42；全PIDs退出/锁/GPU释放/模型输入raw/hash/本地重算通过。[结果](30_W1_VQA_INPUT_CONTROLS_RESULTS.md)/[审计](../reports/w1_vqa_controls_r1_audit.json)。只证重复稳定/内容响应，不证明物理准确，不再重复控制或调prompt。
+2. 实际累计3.6512467238638138/4GPUh，余1255.511794秒，无在途；不扩额或提交新生成。原VQA6平1misc降、MUSIQ3升4降/robot拒绝/CAL8机制信号保持，无质量—时间收益。
+3. [成本与重要决策卡](31_W1_NEXT_WINDOW_COST_AND_DECISION.md)：原8两臂旧诊断3141.247秒，并非clean下界；现余额不足以稳妥完整计时。提议新4GPUh原8×两臂×3repeat clean成本门，或先CPU准备替代资源，待用户选择；不以好子集代替原8/冒充F2或DEV。
+4. 若批准新成本窗口，先实现关闭hash/shadow/dump的轻量计时runner及拒绝/同步/顺序/预算CPU核验、冻结/Git同步、hash部署/fresh预算锁和GPU准入后唯一新身份。48计时尝试/2预热/失败/flush都计费，partial不完整结论。未批准则只读/CPU资源工作，不据弱proxy切OMR/W2。
+5. 若成本门通过也需更强质量证据/新明确机制，不能仅速度/当前CAL稳定认方法接受；后续调优WC/原生少步曲线、DEV/CONF仍需设计与独立资源。无非必要人评/付费/训练，meaningful代码/回执/docs同步GitHub。

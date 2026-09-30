@@ -1,0 +1,402 @@
+{
+  "run_id": "w1-vqa-controls-r1",
+  "observed_unix": 1790796931.4886746,
+  "source_commit": "72c9e241df69c9d07422598b027c05bab809adc1",
+  "supervisor": {
+    "pid": 2488580,
+    "gpu_uuid": "GPU-cebf7119-cf03-23b9-e192-cd196332b704",
+    "status": "W1_VQA_CONTROLS_EXITED_REQUIRES_REVIEW",
+    "arms": [
+      {
+        "mode": "w1_vqa_controls",
+        "pid": 2488585,
+        "exit_code": 0,
+        "wall_seconds": 79.02369451522827,
+        "stop_reason": null
+      }
+    ],
+    "current_mode": "w1_vqa_controls",
+    "child_pid": 2488585,
+    "child_started_unix": 1790796682.137495,
+    "admission": {
+      "unix": 1790796682.1371748,
+      "memory_used_mib": 24,
+      "utilization_percent": 0,
+      "pids": []
+    },
+    "command": [
+      "timeout",
+      "--kill-after=10",
+      "290",
+      "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python",
+      "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/scripts/run_w1_vqa_controls.py",
+      "--project",
+      "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr",
+      "--gpu-uuid",
+      "GPU-cebf7119-cf03-23b9-e192-cd196332b704",
+      "--receipt",
+      "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/outputs/w1-vqa-controls-r1/w1-vqa-controls.json"
+    ]
+  },
+  "runner": {
+    "pid": 2488587,
+    "status": "W1_VQA_CONTROLS_ALL_ORIGINAL8_COMPLETE",
+    "setup": {
+      "torch": "2.7.1+cu128",
+      "transformers": "4.57.1",
+      "qwen-vl-utils": "0.0.14",
+      "decord": "0.6.0",
+      "runtime_source_sha256": {
+        "transformers/models/qwen3_vl/modeling_qwen3_vl.py": "dd63ed3b124232735b3dca1bfa28f9d6b0d3f7182afcb75dde8f3e724b2b22da",
+        "transformers/models/qwen3_vl/processing_qwen3_vl.py": "efd8d64aaf608aad1ffb3e6d503d6a99e5227d007df95c1d9fa905d998cda4a9",
+        "qwen_vl_utils/vision_process.py": "f3710ced8ffe735da57d08cf5236cf9d326ff646ed1bdad2e62593a7801adc33"
+      },
+      "model_eval": true,
+      "model_dtype": "torch.bfloat16",
+      "attention": "sdpa",
+      "load_seconds": 2.0546045303344727,
+      "loading_info": {
+        "missing_keys": [],
+        "unexpected_keys": [],
+        "mismatched_keys": [],
+        "error_msgs": []
+      },
+      "generation": {
+        "dtype": "bfloat16",
+        "attention": "sdpa",
+        "do_sample": false,
+        "max_new_tokens": 1024,
+        "seed": 0
+      }
+    },
+    "error_type": null,
+    "error": null,
+    "summary": {
+      "status": "ORIGINAL8_INPUT_CONTROLS_COMPLETE_NOT_QUALITY_VALIDATION",
+      "decision": "REPEAT_STABLE_AND_RESPONDS_TO_CONTENT_NOT_PHYSICAL_VALIDITY",
+      "planned_scenes": 8,
+      "generated_answers": 126,
+      "conditions": {
+        "matched_repeat": {
+          "questions": 42,
+          "valid": 42,
+          "invalid": 0,
+          "parsed_changed": 0,
+          "raw_changed": 0,
+          "yes": 16,
+          "no": 26
+        },
+        "blank": {
+          "questions": 42,
+          "valid": 42,
+          "invalid": 0,
+          "parsed_changed": 14,
+          "raw_changed": 14,
+          "yes": 2,
+          "no": 40
+        },
+        "cyclic_mismatch": {
+          "questions": 42,
+          "valid": 42,
+          "invalid": 0,
+          "parsed_changed": 14,
+          "raw_changed": 14,
+          "yes": 4,
+          "no": 38
+        }
+      },
+      "scenes": [
+        {
+          "name": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+          "conditions": {
+            "matched_repeat": {
+              "questions": 4,
+              "valid": 4,
+              "invalid": 0,
+              "parsed_changed": 0,
+              "raw_changed": 0,
+              "yes": 0,
+              "no": 4
+            },
+            "blank": {
+              "questions": 4,
+              "valid": 4,
+              "invalid": 0,
+              "parsed_changed": 0,
+              "raw_changed": 0,
+              "yes": 0,
+              "no": 4
+            },
+            "cyclic_mismatch": {
+              "questions": 4,
+              "valid": 4,
+              "invalid": 0,
+              "parsed_changed": 0,
+              "raw_changed": 0,
+              "yes": 0,
+              "no": 4
+            }
+          }
+        },
+        {
+          "name": "common_sense_6487f37f-ef57-49ca-afdc-d898922b5191",
+          "conditions": {
+            "matched_repeat": {
+              "questions": 1,
+              "valid": 1,
+              "invalid": 0,
+              "parsed_changed": 0,
+              "raw_changed": 0,
+              "yes": 1,
+              "no": 0
+            },
+            "blank": {
+              "questions": 1,
+              "valid": 1,
+              "invalid": 0,
+              "parsed_changed": 1,
+              "raw_changed": 1,
+              "yes": 0,
+              "no": 1
+            },
+            "cyclic_mismatch": {
+              "questions": 1,
+              "valid": 1,
+              "invalid": 0,
+              "parsed_changed": 0,
+              "raw_changed": 0,
+              "yes": 1,
+              "no": 0
+            }
+          }
+        },
+        {
+          "name": "human_199",
+          "conditions": {
+            "matched_repeat": {
+              "questions": 4,
+              "valid": 4,
+              "invalid": 0,
+              "parsed_changed": 0,
+              "raw_changed": 0,
+              "yes": 2,
+              "no": 2
+            },
+            "blank": {
+              "questions": 4,
+              "valid": 4,
+              "invalid": 0,
+              "parsed_changed": 2,
+              "raw_changed": 2,
+              "yes": 0,
+              "no": 4
+            },
+            "cyclic_mismatch": {
+              "questions": 4,
+              "valid": 4,
+              "invalid": 0,
+              "parsed_changed": 2,
+              "raw_changed": 2,
+              "yes": 0,
+              "no": 4
+            }
+          }
+        },
+        {
+          "name": "industry_084",
+          "conditions": {
+            "matched_repeat": {
+              "questions": 3,
+              "valid": 3,
+              "invalid": 0,
+              "parsed_changed": 0,
+              "raw_changed": 0,
+              "yes": 2,
+              "no": 1
+            },
+            "blank": {
+              "questions": 3,
+              "valid": 3,
+              "invalid": 0,
+              "parsed_changed": 2,
+              "raw_changed": 2,
+              "yes": 0,
+              "no": 3
+            },
+            "cyclic_mismatch": {
+              "questions": 3,
+              "valid": 3,
+              "invalid": 0,
+              "parsed_changed": 2,
+              "raw_changed": 2,
+              "yes": 0,
+              "no": 3
+            }
+          }
+        },
+        {
+          "name": "misc_13398218_3840_2160_60fps",
+          "conditions": {
+            "matched_repeat": {
+              "questions": 9,
+              "valid": 9,
+              "invalid": 0,
+              "parsed_changed": 0,
+              "raw_changed": 0,
+              "yes": 4,
+              "no": 5
+            },
+            "blank": {
+              "questions": 9,
+              "valid": 9,
+              "invalid": 0,
+              "parsed_changed": 4,
+              "raw_changed": 4,
+              "yes": 0,
+              "no": 9
+            },
+            "cyclic_mismatch": {
+              "questions": 9,
+              "valid": 9,
+              "invalid": 0,
+              "parsed_changed": 4,
+              "raw_changed": 4,
+              "yes": 0,
+              "no": 9
+            }
+          }
+        },
+        {
+          "name": "physics_045",
+          "conditions": {
+            "matched_repeat": {
+              "questions": 14,
+              "valid": 14,
+              "invalid": 0,
+              "parsed_changed": 0,
+              "raw_changed": 0,
+              "yes": 3,
+              "no": 11
+            },
+            "blank": {
+              "questions": 14,
+              "valid": 14,
+              "invalid": 0,
+              "parsed_changed": 1,
+              "raw_changed": 1,
+              "yes": 2,
+              "no": 12
+            },
+            "cyclic_mismatch": {
+              "questions": 14,
+              "valid": 14,
+              "invalid": 0,
+              "parsed_changed": 2,
+              "raw_changed": 2,
+              "yes": 3,
+              "no": 11
+            }
+          }
+        },
+        {
+          "name": "robot_054",
+          "conditions": {
+            "matched_repeat": {
+              "questions": 3,
+              "valid": 3,
+              "invalid": 0,
+              "parsed_changed": 0,
+              "raw_changed": 0,
+              "yes": 3,
+              "no": 0
+            },
+            "blank": {
+              "questions": 3,
+              "valid": 3,
+              "invalid": 0,
+              "parsed_changed": 3,
+              "raw_changed": 3,
+              "yes": 0,
+              "no": 3
+            },
+            "cyclic_mismatch": {
+              "questions": 3,
+              "valid": 3,
+              "invalid": 0,
+              "parsed_changed": 3,
+              "raw_changed": 3,
+              "yes": 0,
+              "no": 3
+            }
+          }
+        },
+        {
+          "name": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+          "conditions": {
+            "matched_repeat": {
+              "questions": 4,
+              "valid": 4,
+              "invalid": 0,
+              "parsed_changed": 0,
+              "raw_changed": 0,
+              "yes": 1,
+              "no": 3
+            },
+            "blank": {
+              "questions": 4,
+              "valid": 4,
+              "invalid": 0,
+              "parsed_changed": 1,
+              "raw_changed": 1,
+              "yes": 0,
+              "no": 4
+            },
+            "cyclic_mismatch": {
+              "questions": 4,
+              "valid": 4,
+              "invalid": 0,
+              "parsed_changed": 1,
+              "raw_changed": 1,
+              "yes": 0,
+              "no": 4
+            }
+          }
+        }
+      ],
+      "scope": "All original8/42 questions x3 input conditions. Comparisons are response changes against original WC judge answers, not counterfactual quality accuracy, physical truth, independent confirmation or method acceptance."
+    },
+    "wall_seconds": 77.6921820640564,
+    "ended_unix": 1790796759.9306173,
+    "peak_memory": {
+      "allocated_bytes": 4642345472,
+      "reserved_bytes": 4840226816
+    }
+  },
+  "scene_rows": 8,
+  "complete_scene_rows": 8,
+  "answer_counts": {
+    "matched_repeat": 42,
+    "blank": 42,
+    "cyclic_mismatch": 42
+  },
+  "latest_scene": {
+    "name": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+    "status": "ALL_CONDITIONS_COMPLETE",
+    "condition": null
+  },
+  "processes": [],
+  "source_hashes_match": true,
+  "budget": {
+    "batch": "F0-F1",
+    "cap_gpu_hours": 4,
+    "used_gpu_hours": 3.6512467238638138,
+    "gpu_jobs_launched": 22,
+    "status": "W1_VQA_CONTROLS_REQUIRES_REVIEW",
+    "gpu_import_probes_completed": 1,
+    "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts"
+  },
+  "inflight_gpu_hours_estimate": 0,
+  "gpu": "GPU-de9a5370-cd87-0f1c-a48e-288888777dd3, 350, 0\nGPU-cebf7119-cf03-23b9-e192-cd196332b704, 24, 0\n",
+  "apps": "",
+  "log_tail_sanitized": "qwen-vl-utils using decord to read video.\nThe following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.\n"
+}

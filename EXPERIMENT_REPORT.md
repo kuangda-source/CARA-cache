@@ -8,21 +8,20 @@
 
 ## 1. 当前结论与最重要的下一步
 
-**继续最小judge可信度诊断，暂不扩大scalar/W2或直接切OMR；目前有机制信号，没有质量—时间收益。** 自动VQA开发代理原8/81答案完整：7可比scene6平/1misc降，scene等权delta-0.031746031746031744（-3.174603pp），robot视频拒绝保留。小2B/10帧未有有效性金标准，不能直接称物理变差、非劣、最终方法否定或235B标准Joint。原MUSIQ3升4降、CAL8机制信号均保持。
+**暂停增加scalar复杂度；输入对照问题已回答，下一成本/资源窗口需重要决策。当前有机制信号，没有质量—时间收益。** 原开发VQA6平1misc降/scene等权−3.174603pp、MUSIQ3升4降/robot拒绝保持。重复/明显内容变化对照不验证物理正确性，不直接否定方法或切OMR。
 
 | 项目 | 最新终态证据（2026-10-01） |
 |---|---|
-| 当前阶段 | 开发VQA终态/无代理收益；下一judge输入敏感性与重复稳定控制准备 |
-| 最近运行 | VQA/source1f326b5 exit0/无stop reason/全3PIDs退出/锁释放/GPU1 24MiB/noapps |
-| 覆盖 | 原8/42参考39候选原题，81raw/token decode一致/全部有效；7可比/1robot拒绝不插补 |
-| 单维度结果 | VQA6平1misc降/scene等权-3.174603pp；MUSIQ3升4降，未证明整体物理质量 |
-| 方法证据 | CAL8机制改善；闭环整体质量/clean速度/独立确认仍未证 |
-| 成本 | VQA监督60.966001秒；累计3.629295697610/4GPUh，余0.370704302390h，无在途 |
-| 首要动作 | 原8/42 matched-repeat/black/cyclic错配内容控制，拟300秒从余额扣除；已冻结/实现/本地Linux35CPU与24真实输入通过，下一source同步与fresh准入，尚未控制GPU |
-| 评价边界 | 小模型/内容敏感性不是235B标准Joint或物理正确性金标准；不人评/付费/训练/扩额 |
+| 当前阶段 | 输入控制原8/126完整终态，下一窗口预算/范围提议 |
+| 最近运行 | controls-r1/source72c9e24 exit0；全部3PIDs退出/global锁与GPU释放 |
+| 覆盖/响应 | repeat0/42变化，blank14/42，cyclic14/42；126有效/0invalid |
+| 审计 | 原始tokens/24输入重算/8视频/10模型文件/源码锁与本地原题summary全一致 |
+| 评价边界 | 重复稳定/部分内容响应，不是物理准确金标准/235BJoint/方法接受 |
+| 方法证据 | CAL8机制改善；VQA/MUSIQ未一致收益，clean速度/独立确认仍未证 |
+| 成本 | 控制79.023695秒；累计3.6512467238638138/4GPUh，余1255.511794秒，无在途 |
+| 下一步 | [新窗口成本方案](research/31_W1_NEXT_WINDOW_COST_AND_DECISION.md)，提议4GPUh或先CPU资源核对；未扩额/新提交 |
 
-证据：[VQA结果](research/28_W1_DEVELOPMENT_VQA_RESULTS.md)、[raw runner](reports/w1_vqa_r1_runner.json)、[原题重算](reports/w1_vqa_r1_summary.json)、[终态审计](reports/w1_vqa_r1_audit.json)、[账本](reports/budget.json)。全部15视频/模型10文件/原题、部署与安装source hash/81raw重新decode通过。模型真实离线BF16/SDPA加载2.090181秒/无missing或mismatch；控制尚未执行，不能据本次负小均值直接判方法或judge物理准确性。
-
+证据：[控制结果](research/30_W1_VQA_INPUT_CONTROLS_RESULTS.md)、[控制终态审计](reports/w1_vqa_controls_r1_audit.json)、[本地重算](reports/w1_vqa_controls_r1_local_recompute.json)、[原VQA结果](research/28_W1_DEVELOPMENT_VQA_RESULTS.md)、[账本](reports/budget.json)。部分场景在三条件均相同不能隐去；即使controls通过也没有新的物理质量正结果。
 此前：[固定重放结果](research/24_W1_FIXED_REPLAY_RESULTS.md)、[重放完整汇总](reports/w1_replay_r1_summary.json)、[CAL8机制结果](research/21_W1D_CAL8_RESULTS.md)、[CAL8分布/排序](reports/w1d_cal8_r1_analysis.json)。
 
 历史阶段证据：[decode区间定位](research/17_DECODE_INTERVAL_RESULTS.md)、[下一轮准备卡](research/18_DECODER_POLICY_GATE.md)、[阶段汇总](reports/stage_r2_summary.json)。
@@ -102,11 +101,11 @@
 
 ## 7. 下一轮的执行与停止条件
 
-1. 原VQA与所有GPU阶段已终态审计，robot拒绝保留，VQA6平1misc降/MUSIQ3升4降，无质量—时间收益；不扩scalar/W2/生成或据弱代理直接转OMR。
-2. [judge控制卡](research/29_W1_VQA_INPUT_CONTROLS_PREPARATION.md)：原8/42参考题x3输入条件（matched-repeat/black/cyclic错配），已在原代理后/任何控制答案前冻结，非盲；runner已实现/本地Linux35CPU与24真实输入通过，未控制GPU。
-3. 下一commit/push/hash部署/Linux最终CPU，fresh原GPU预算/锁/UUID VRAM/apps准入，仅一次300秒controls-r1；全部hash/load/失败/诊断/评分/flush计费，当前余0.370704302390416GPUh，不自动扩额。
-4. 同一handles逐题回执，invalid保留/partial不决定；技术错停止，不改在跑source/协议或观察失败重复提交。终态核验原PIDs/锁/GPU/monitor/source/资产/inputsha/raw tokens/cost，原答案与controls重算后才判断。
-5. 输入敏感/重复稳定不是物理有效性金标准或235B标准Joint，标准评价/clean配对与独立确认仍缺。不要求非必要人评/付费/训练。关键预算/方向决策先形成具体方案再交用户。
+1. 输入控制原8/126终态审计与本地重算完成，不重复评分/调prompt。原方法机制与负小代理边界保持，尚无质量—时间收益。
+2. 余1255.511794秒，旧原8×两臂诊断3141.247秒（不是clean下界）；不能稳妥提交完整计时，不挑好子集替代原8。
+3. [下一窗口](research/31_W1_NEXT_WINDOW_COST_AND_DECISION.md)提议新4GPUh原8×两臂×3repeat clean成本门，或先CPU核对替代资源。预算/范围待用户决定；新runner尚未实现/未GPU，不自动扩额。
+4. 批准后实现/CPU/协议与Git同步/hash部署/fresh锁GPU准入，失败与原拒绝保留，partial不凑完整结论；source/身份不混用旧run。
+5. 成本通过也不替代强质量指标/调优WC和原生少步曲线/DEV独立确认。暂不加W2/切OMR、无人评/付费/训练。
 
 ## 8. 多设备、多对话同步约定
 
@@ -269,3 +268,5 @@ runner先hash绑定完整CAL8/reference screen并重新计算screen、校验setu
 下一步：commit/hash部署并Linux CPU gates；重新核验旧PIDs/锁/预算、全部reference视频hash、GPU1 UUID/VRAM/apps，只启动新唯一outputs/w1-replay-r1一次。前门失败立即停止，不能据观察超时重复提交或改在跑代码。上限3000从余1.004955157h扣除，无扩额/训练/付费/人评。部署与launch receipt/PIDs/logs、总体docs和预算需同步GitHub。
 
 ## 以下为历史快照
+
+2026-10-01 输入对照终态：原8/126、repeat完全一致/blank与cyclic各14变化，全hash/raw与成本审计通过；累计3.6512467238638138/4h。现有方法仍机制only/代理无收益；下一窗口具体成本方案待决定，未新GPU。见[控制结果](research/30_W1_VQA_INPUT_CONTROLS_RESULTS.md)和[成本方案](research/31_W1_NEXT_WINDOW_COST_AND_DECISION.md)。

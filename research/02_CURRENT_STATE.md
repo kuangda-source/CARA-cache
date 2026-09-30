@@ -359,3 +359,13 @@ Source99f554f archivehashmatches,16local/16Linuxchecks pass. FreshGPU1 24MiB/noa
 ## Recent-pair terminal; post-model artifact mismatch found
 
 Source99f554f revisionexit0,8checks pass; oldPIDsabsent/lockfree/GPU1released24MiB/noapps,artifactsrehashmatch. Recentvelocitysum-MSEratio2.354245909,shrink5.394980328,both2/4improve: NO_GAIN_IN_SCOPE. Exact72officialoutputs/cache/trace/samplingandall4official+shrinkscoresequalacrossruns;recentvsdefaultscalarvelocityMSEratio0.930094577stillnoadmissionsignal. CrossprocessMP4hashANDall93decodedRGBframesdiffer(MSE31.026577,MAE3.604356); notmetadataonly, firstdifferencesamplingfinal/VAE/guardrail/save/codecstageUNKNOWN. NumericalcontrastscopedMATCHED_DENOISER_ONLY,notvideo/qualityreproduction. Budget1.560151151220004/4hsettled,remaining2.439848848779996. Nextresearch/16_POST_MODEL_REPRODUCTION_GATE.md: readonlystagehashobservationsintwonewprocesses,<=900sproposed,noGPUstartyet. Noadditionalscalarrevisionorhumanannotation.
+
+## 最新终态 — 2026-10-01：输入控制原8/126完整审计，关键下一窗口待决定
+
+w1-vqa-controls-r1/source72c9e24 exit0，supervisor2488580/timeout2488585/runner2488587全部退出，global锁释放/GPU1 24MiB/noapps。126raw/token一致、24输入重算、8视频/模型10文件/源码安装锁通过，本地原题再次重算一致。matched42/42原答案一致；blank和cyclic各14/42改变、三条件都0invalid。判定REPEAT_STABLE_AND_RESPONDS_TO_CONTENT_NOT_PHYSICAL_VALIDITY，不是物理准确/标准Joint/方法通过；部分场景不变应保留。
+
+本轮计费79.02369451522827秒；累计3.6512467238638138/4GPUh，余0.3487532761361862h/1255.511794秒，无在途。原VQA6平1misc降、MUSIQ3升4降、robot拒绝/CAL8仅机制均保持，当前无质量—时间收益。不再重复输入控制/调prompt，不自动加W2/OMR或训练/人评/付费。
+
+[结果](../research/30_W1_VQA_INPUT_CONTROLS_RESULTS.md)/[完整审计](../reports/w1_vqa_controls_r1_audit.json)/[本地重算](../reports/w1_vqa_controls_r1_local_recompute.json)。[下一窗口成本方案](../research/31_W1_NEXT_WINDOW_COST_AND_DECISION.md)：原8×两臂旧诊断约3141.247秒，非clean下界；当前余额不足以稳妥提交完整批次。新4GPUh提议用于原8×两臂×3重复clean成本门（非独立质量确认），或先CPU核对替代资源；预算/方向待用户决定，尚未实现或新GPU提交。不以挑好子集替代原8。旧实机source72c9e24保持，后续文档HEAD不是新的实机运行。
+
+## 以下为历史快照

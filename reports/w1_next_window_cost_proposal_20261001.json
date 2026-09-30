@@ -1,0 +1,105 @@
+{
+  "status": "CPU_COST_PROPOSAL_NOT_GPU_RUN_NOT_CLEAN_SPEED",
+  "observed_unix": 1790797904.548022,
+  "inputs": [
+    {
+      "path": "reports/w1d_cal8_r1_runner.json",
+      "sha256": "934dc2d63b79ee1cc68f765fdcb21bfea91f4f81584ad17259e9f6c55cd3eec9"
+    },
+    {
+      "path": "reports/w1_replay_r1_runner.json",
+      "sha256": "45baadc9939f0286ebeb5179ab14b0113cd1d41b4368e27d5342d9900be2491d"
+    },
+    {
+      "path": "reports/budget.json",
+      "sha256": "26d0cdb74628d57458fea05a51f5fe062e2dcd0cd1a2f06d1d8e7c34ea40da41"
+    }
+  ],
+  "rows": [
+    {
+      "name": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "reference_diagnostic_seconds": 208.1353801251389,
+      "candidate_diagnostic_seconds": 195.1946235531941,
+      "candidate_outcome": "ACCEPTED"
+    },
+    {
+      "name": "common_sense_6487f37f-ef57-49ca-afdc-d898922b5191",
+      "reference_diagnostic_seconds": 203.48221343616024,
+      "candidate_diagnostic_seconds": 191.171612362843,
+      "candidate_outcome": "ACCEPTED"
+    },
+    {
+      "name": "human_199",
+      "reference_diagnostic_seconds": 212.60167914489284,
+      "candidate_diagnostic_seconds": 203.8835229189135,
+      "candidate_outcome": "ACCEPTED"
+    },
+    {
+      "name": "industry_084",
+      "reference_diagnostic_seconds": 193.051792467013,
+      "candidate_diagnostic_seconds": 191.268805002328,
+      "candidate_outcome": "ACCEPTED"
+    },
+    {
+      "name": "misc_13398218_3840_2160_60fps",
+      "reference_diagnostic_seconds": 213.95677688298747,
+      "candidate_diagnostic_seconds": 208.9219989972189,
+      "candidate_outcome": "ACCEPTED"
+    },
+    {
+      "name": "physics_045",
+      "reference_diagnostic_seconds": 182.0301810647361,
+      "candidate_diagnostic_seconds": 186.1201917072758,
+      "candidate_outcome": "ACCEPTED"
+    },
+    {
+      "name": "robot_054",
+      "reference_diagnostic_seconds": 188.75666384631768,
+      "candidate_diagnostic_seconds": 185.57343591889367,
+      "candidate_outcome": "VIDEO_REJECTED"
+    },
+    {
+      "name": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+      "reference_diagnostic_seconds": 190.13267839886248,
+      "candidate_diagnostic_seconds": 186.9651462486945,
+      "candidate_outcome": "ACCEPTED"
+    }
+  ],
+  "reference8_diagnostic_seconds": 1592.1473653661087,
+  "candidate8_diagnostic_seconds": 1549.0993367093615,
+  "one_original8_pair_pass_diagnostic_seconds": 3141.2467020754702,
+  "remaining_gpu_seconds": 1255.5117940902705,
+  "one_pass_budget_ratio": 2.501965108461272,
+  "timing_proposal": {
+    "scenes": [
+      "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "common_sense_6487f37f-ef57-49ca-afdc-d898922b5191",
+      "human_199",
+      "industry_084",
+      "misc_13398218_3840_2160_60fps",
+      "physics_045",
+      "robot_054",
+      "av_51b45829-502e-4143-9c32-c026bd6ab191"
+    ],
+    "arms": [
+      "official_wc_frozen_schedule",
+      "scalar_frozen_schedule"
+    ],
+    "repeats": 3,
+    "timed_attempts": 48,
+    "untimed_warmup_attempts": 2,
+    "assumed_shared_model_startup_and_terminal_audit_gpu_seconds": 180,
+    "assumed_small_evaluation_gpu_seconds": 180,
+    "reserve_multiplier": 1.3,
+    "estimated_seconds": 13229.314727181598,
+    "requested_new_window_cap_gpu_hours": 4,
+    "authorization": "PROPOSED_ONLY_NOT_AUTHORIZED_OR_LAUNCHED"
+  },
+  "limits": [
+    "Old timings include per-call hashing, different run order, and diagnostic overhead: neither clean timing nor strict lower bounds.",
+    "Startup/flush and scoring180s each are planning allowances, not measurements.",
+    "48 attempts include robot rejection and all original8; no subset replacement or imputed quality.",
+    "Repeated seed0 CAL timing is not new seeds, independent quality confirmation, tuned WC/native few-step frontier, or a method acceptance.",
+    "No new W2/OMR training, paid evaluation, human review, or implicit budget extension."
+  ]
+}

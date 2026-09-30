@@ -1,3 +1,5 @@
+> 2026-10-01后续状态：原8/126输入控制已完成并完整审计，[控制终态](30_W1_VQA_INPUT_CONTROLS_RESULTS.md)/[下一窗口成本方案](31_W1_NEXT_WINDOW_COST_AND_DECISION.md)。以下准备/拟运行描述为当时历史，不代表当前尚未运行；原冻结协议不倒改。
+
 # W1开发VQA终态：原8/81答案完整，未显示代理收益
 
 2026-10-01；source1f326b5；DEVELOPMENT_VQA_NO_GAIN_IN_PROXY。继续judge输入敏感性/重复稳定诊断，暂不加W2/生成或直接切换研究方向；没有整体质量/物理质量或clean速度正结果。
