@@ -8,19 +8,19 @@
 
 ## 1. 当前结论与最重要的下一步
 
-**继续WorldCache主线的工程复现与数值诊断，但不将当前scalar/shrink候选送入闭环。** F1三组成对样本技术耗时比1.476–1.602×；W1默认及最近pair修订在四个工程点均NO_GAIN_IN_SCOPE，尚无新方法/质量正结果。跨进程差异已定位decode；两个新进程在局部确定性解码策略下全部93帧严格复现，72net/latent保持旧轨迹，根因尚非独立证明。CAL24及首批8已按来源/词法分组冻结。
+**继续已启动的CAL前8 W1-D数值诊断，等全批固定筛查后决定下一步。** 22:48北京时间已完成2/8，各8点通过全部OFF/ON技术一致性检查，第三个human_199运行；部分局部scalar误差下降，未形成全批机制结论，也尚无新方法/质量正结果。F1三组成对样本技术耗时比1.476–1.602×；W1默认及最近pair修订仅在旧四工程点均NO_GAIN_IN_SCOPE。跨进程decode差异的局部复现门已通过，根因尚非独立证明。CAL24及首批8按来源/词法分组冻结。
 
 | 项目 | 最新已归档证据 |
 |---|---|
-| 当前阶段 | 局部解码复现门通过；CAL24冻结，W1-D前8待实现 |
-| 最近运行 | decoder-policy-r1两个新进程exit0，93帧/全阶段严格一致，GPU释放/哈希审计匹配 |
-| 首要动作 | CAL前8三公式同状态/时间空间分布诊断；无需人评 |
-| 当前成本 | 已结算1.997774315/4GPUh，剩余2.002225685GPUh，无在途任务 |
+| 当前阶段 | CAL前8 W1-D运行，2/8完成；LIVE_PARTIAL_NO_DECISION |
+| 最近运行 | w1d-cal8-r1源62f1c0d；supervisor2461004/timeout2461009/runner2461011；GPU1真实在跑 |
+| 首要动作 | 接续原任务，终态后归档/审计/按固定规则筛查；无需人评 |
+| 当前成本 | 启动前已结算1.997774315/4GPUh；22:48在途另计0.325404GPUh；batch硬上限6000秒 |
 | 方法证据 | CPU/合成测试与资源就绪，不等于生成质量或真实加速收益 |
 | 视频评价 | 已有格式检查；完整视频质量审查尚未完成 |
-| 运行状态时效 | 本表来自仓库内终态回执；接续时必须查远端进程、锁、日志及预算，不能把文档当实时 GPU 状态 |
+| 运行状态时效 | 本表包含22:48非终态快照；接续必须查原进程/锁/日志/预算，不重复提交、不将旧账本余额用于新准入 |
 
-最新阶段证据：[局部解码复现通过](research/19_DECODER_POLICY_RESULTS.md)、[CAL与W1-D准备](research/20_CAL_AND_W1D_PREPARATION.md)。
+最新阶段证据：[CAL与W1-D运行](research/20_CAL_AND_W1D_PREPARATION.md)、[部署](reports/w1d_cal8_r1_deployment_20260930.json)、[启动](reports/w1d_cal8_r1_launch_20260930.json)、[实时快照](reports/w1d_cal8_r1_live_observation.json)、[部分汇总](reports/w1d_cal8_r1_live_partial_summary.json)。此前[局部解码复现通过](research/19_DECODER_POLICY_RESULTS.md)。
 
 历史阶段证据：[decode区间定位](research/17_DECODE_INTERVAL_RESULTS.md)、[下一轮准备卡](research/18_DECODER_POLICY_GATE.md)、[阶段汇总](reports/stage_r2_summary.json)。
 
@@ -99,11 +99,11 @@
 
 ## 7. 下一轮的执行与停止条件
 
-1. F1 r3和W1-P0均已结束，不从旧RUNNING快照重启；每次提交前重新核验进程、锁、远端账本和GPU准入。
-2. 依[W1-S1准备卡](research/13_W1_S1_PREPARATION.md)实现官方同状态三近似器诊断，保存真实anchor和fallback，当前truth只评分。准备卡尚不是已完成runner。
-3. 针对新实现验收输出/缓存/trace不变及无真值回写后，按现有余额开展一个至多900秒/0.25GPUh工程任务。诊断开销全部计入预算。
-4. 机制信号出现后再进入候选专用parity、固定schedule闭环及独立CAL/DEV和F2；工程样本不作独立确认。人工语义标注不作为进入W1的门槛。
-5. L0可穿插资源核对；L1/Wan/OMR等待主线预算与兼容性。无新训练、付费评分或预算扩张。
+1. w1d-cal8-r1已启动，仅观察同一身份；运行时不部署任何源码/配置变化、不提交第二昂贵任务。F1/W1-P0/S1/decoder旧任务都保持终态。
+2. [冻结W1-D协议](manifests/w1d_cal_protocol.json)：CAL前8先OFF trace选点并冻结，ON同状态三近似器、仅过去full anchors，truth只评分；共用明确布局和局部decode策略。每样本全技术一致才通过，拒绝/覆盖不足/失败保留原分母。
+3. 单batch硬上限6000秒，从原4GPUh预算扣除，包含加载/失败/flush；未知错误/parity失败停止。终态审计PIDs/锁/GPU归属、哈希与wall账本，部分完成只按实际覆盖报告，不重新挑样本补齐。
+4. 完整8样本按固定规则输出MECHANISM_ONLY_CAL8/NO_GAIN_CAL8_IN_SCOPE/INCONCLUSIVE；部分数据不决定。即使机制信号出现，候选parity/固定schedule闭环/质量—时间与独立确认仍需后续证据。人评不是当前门槛。
+5. 终态后按实际余额评估下一局部假设或F2资源缺口；12–24场景多工作点F2超现余额，不以小子集冒充完成。L1/Wan/OMR等待预算与兼容性，无训练/付费评分/预算扩张。
 
 遇到关键协议更换、扩大预算、训练立项或方向切换时留给用户决策。一般工程修复可继续，但不得中途改变在跑任务的源码/配置。操作顺序以[下一步队列](research/09_NEXT_ACTIONS.md)为准。
 
@@ -226,3 +226,13 @@ W1-S1 r2收尾：8项真实诊断一致性验收通过；四点velocity sum-MSE�
 单次recent修订已启动：源99f554f，16local/16Linux针对性检查通过，部署哈希匹配；旧PIDs缺失/锁可获取后重新准入GPU1，supervisor2447006/timeout2447012/runner2447014核实存活。官方off生成中，结果尚未得出，见[启动](reports/w1_s1_recent_r1_launch_20260930.json)。
 
 最近pair修订已终态，仍NO_GAIN_IN_SCOPE：velocity sum-MSE比2.354，shrink控制5.395；各自off/on不变性通过。跨任务模型72output/cache/控制数值完全相同，但MP4及93帧decodedRGB不同，首个差异阶段未知，不作质量归因。详见[修订结果与复现问题](research/15_W1_S1_RECENT_RESULTS.md)和[下一阶段见证卡](research/16_POST_MODEL_REPRODUCTION_GATE.md)。
+
+## 最新核验 — 2026-09-30 22:48：CAL8 W1-D运行，2/8技术通过
+
+源`62f1c0d03ab7d789a7e5a86235e2d27cf920825c`，部署archive/源码hash一致，Linux44项CPU检查通过。已真实启动`outputs/w1d-cal8-r1`，GPU1 UUID GPU-cebf7119-cf03-23b9-e192-cd196332b704；supervisor2461004、timeout/PGID2461009、runner2461011 live。22:48只读观察：前两个AV/common样本各8点、四pair完整、ACCEPTED、17项OFF/ON检查全真；第三个human_199 OFF在跑。各样本点先按OFF trace冻结，truth只评分，局部decode flags恢复。此为非终态快照，不是全批成功。
+
+本批一次加载8off/on，上限6000秒/1.666667GPUh，所有成本从原4h cap扣除。启动前已结算1.9977743149465987h，观察时在途另计0.32540379007657366h；旧ledger余额未包含在途，不能用来准入新任务。仍只有此昂贵任务；原FRPC/SSH可用，无需重新建隧道或索取凭证。勿修改部署源码、重启或另起作业。
+
+证据：[部署](reports/w1d_cal8_r1_deployment_20260930.json)、[启动](reports/w1d_cal8_r1_launch_20260930.json)、[进程/GPU/日志](reports/w1d_cal8_r1_live_observation.json)、[真实runner部分快照](reports/w1d_cal8_r1_live_runner_snapshot.json)、[部分汇总](reports/w1d_cal8_r1_live_partial_summary.json)、[协议/进展](research/20_CAL_AND_W1D_PREPARATION.md)。部分scalar等样本velocity/postwarp误差比0.666140/0.820278；shrink1.132306/1.057422，无fallback。LIVE_PARTIAL_NO_DECISION：不据前两样本调公式、判全批成败或进入候选闭环，无质量/干净加速/独立确认结论。旧四工程点NO_GAIN_IN_SCOPE仍是旧范围，不向CAL扩张。
+
+下一步：只读查原handles直至终态；原PIDs退出与锁释放、GPU监控归属/源码/视频哈希核验后归档runner/supervisor/audit及实际wall账本。完整8PAIR_PARITY_PASS才按固定screen汇总；部分/失败保留，不能补样本或重启凑全。随后按机制证据与实际余额自主推进；预算扩张/训练/重大方向决策再交用户。当前无需人评/训练/付费评分。Git只同步代码/小回执/文档；后续本地文档commit不改变此源62f1c0d运行身份。

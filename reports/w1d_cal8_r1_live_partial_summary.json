@@ -1,0 +1,243 @@
+{
+  "status": "LIVE_PARTIAL_NO_DECISION",
+  "completed_pair_samples": 2,
+  "planned_samples": 8,
+  "accepted": 2,
+  "text_rejected": 0,
+  "video_rejected": 0,
+  "full_sparse_coverage": false,
+  "candidate_signals": [],
+  "aggregate": {
+    "scalar": {
+      "mean_sample_velocity_mse_ratio": 0.6661398094128135,
+      "mean_sample_postwarp_mse_ratio": 0.8202784597181682,
+      "velocity_improved_samples": 2,
+      "joint_improved_samples": 2,
+      "fallback_count": 0
+    },
+    "shrink": {
+      "mean_sample_velocity_mse_ratio": 1.132306014083349,
+      "mean_sample_postwarp_mse_ratio": 1.0574216567991557,
+      "velocity_improved_samples": 0,
+      "joint_improved_samples": 0,
+      "fallback_count": 0
+    }
+  },
+  "samples": [
+    {
+      "name": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "outcome": "ACCEPTED",
+      "coverage": "FULL_FOUR_PAIR_SCREEN",
+      "selected_points": 8,
+      "candidates": {
+        "scalar": {
+          "fallback_count": 0,
+          "metrics": {
+            "prewarp_residual": {
+              "sum_mse_ratio": 0.7831576819167114,
+              "improved_points": 6
+            },
+            "postwarp_residual": {
+              "sum_mse_ratio": 0.7920899102903605,
+              "improved_points": 6
+            },
+            "velocity": {
+              "sum_mse_ratio": 0.725114030556861,
+              "improved_points": 8
+            }
+          }
+        },
+        "shrink": {
+          "fallback_count": 0,
+          "metrics": {
+            "prewarp_residual": {
+              "sum_mse_ratio": 0.9603757879839511,
+              "improved_points": 4
+            },
+            "postwarp_residual": {
+              "sum_mse_ratio": 0.9621260562628731,
+              "improved_points": 5
+            },
+            "velocity": {
+              "sum_mse_ratio": 1.0393763588241434,
+              "improved_points": 4
+            }
+          }
+        }
+      },
+      "ranking_reversals": [
+        {
+          "call": 45,
+          "cfg_branch": 0,
+          "modes": [
+            "scalar",
+            "shrink"
+          ],
+          "postwarp_residual_difference": -3.5046138763427734,
+          "velocity_difference": 0.0006850427016615868
+        },
+        {
+          "call": 46,
+          "cfg_branch": 1,
+          "modes": [
+            "scalar",
+            "shrink"
+          ],
+          "postwarp_residual_difference": -5.881038665771484,
+          "velocity_difference": 0.00044892821460962296
+        },
+        {
+          "call": 67,
+          "cfg_branch": 0,
+          "modes": [
+            "official",
+            "scalar"
+          ],
+          "postwarp_residual_difference": -10.47205924987793,
+          "velocity_difference": 0.032685961574316025
+        },
+        {
+          "call": 67,
+          "cfg_branch": 0,
+          "modes": [
+            "scalar",
+            "shrink"
+          ],
+          "postwarp_residual_difference": 10.405786514282227,
+          "velocity_difference": -0.04387533292174339
+        },
+        {
+          "call": 68,
+          "cfg_branch": 1,
+          "modes": [
+            "official",
+            "scalar"
+          ],
+          "postwarp_residual_difference": -10.482044219970703,
+          "velocity_difference": 0.026089880615472794
+        },
+        {
+          "call": 68,
+          "cfg_branch": 1,
+          "modes": [
+            "official",
+            "shrink"
+          ],
+          "postwarp_residual_difference": 0.06850051879882812,
+          "velocity_difference": -0.008553564548492432
+        },
+        {
+          "call": 68,
+          "cfg_branch": 1,
+          "modes": [
+            "scalar",
+            "shrink"
+          ],
+          "postwarp_residual_difference": 10.550544738769531,
+          "velocity_difference": -0.034643445163965225
+        }
+      ],
+      "truth_tail_seconds": 25.396171632688493,
+      "diagnostic_seconds": 29.089855537284166
+    },
+    {
+      "name": "common_sense_6487f37f-ef57-49ca-afdc-d898922b5191",
+      "outcome": "ACCEPTED",
+      "coverage": "FULL_FOUR_PAIR_SCREEN",
+      "selected_points": 8,
+      "candidates": {
+        "scalar": {
+          "fallback_count": 0,
+          "metrics": {
+            "prewarp_residual": {
+              "sum_mse_ratio": 0.840350354457625,
+              "improved_points": 6
+            },
+            "postwarp_residual": {
+              "sum_mse_ratio": 0.8484670091459758,
+              "improved_points": 6
+            },
+            "velocity": {
+              "sum_mse_ratio": 0.6071655882687659,
+              "improved_points": 7
+            }
+          }
+        },
+        "shrink": {
+          "fallback_count": 0,
+          "metrics": {
+            "prewarp_residual": {
+              "sum_mse_ratio": 1.1508388739310669,
+              "improved_points": 3
+            },
+            "postwarp_residual": {
+              "sum_mse_ratio": 1.152717257335438,
+              "improved_points": 2
+            },
+            "velocity": {
+              "sum_mse_ratio": 1.2252356693425546,
+              "improved_points": 2
+            }
+          }
+        }
+      },
+      "ranking_reversals": [
+        {
+          "call": 15,
+          "cfg_branch": 0,
+          "modes": [
+            "official",
+            "scalar"
+          ],
+          "postwarp_residual_difference": 2.9734268188476562,
+          "velocity_difference": -0.00015630200505256653
+        },
+        {
+          "call": 67,
+          "cfg_branch": 0,
+          "modes": [
+            "official",
+            "scalar"
+          ],
+          "postwarp_residual_difference": -10.953407287597656,
+          "velocity_difference": 0.12269831448793411
+        },
+        {
+          "call": 67,
+          "cfg_branch": 0,
+          "modes": [
+            "scalar",
+            "shrink"
+          ],
+          "postwarp_residual_difference": 10.639068603515625,
+          "velocity_difference": -0.17948736995458603
+        },
+        {
+          "call": 68,
+          "cfg_branch": 1,
+          "modes": [
+            "official",
+            "scalar"
+          ],
+          "postwarp_residual_difference": -10.92923355102539,
+          "velocity_difference": 0.11039918661117554
+        },
+        {
+          "call": 68,
+          "cfg_branch": 1,
+          "modes": [
+            "scalar",
+            "shrink"
+          ],
+          "postwarp_residual_difference": 10.758304595947266,
+          "velocity_difference": -0.16123616695404053
+        }
+      ],
+      "truth_tail_seconds": 25.423120992723852,
+      "diagnostic_seconds": 29.10482836700976
+    }
+  ],
+  "limitation": "Reusable CAL development only. Equal sample weighting; points/branches/groups are dependent observations. Rejected videos remain denominator. No quality, deployed candidate efficacy, clean speed or independent confirmation.",
+  "observed_unix": 1790779726.203318,
+  "remote_receipt_sha256": "e74ff5ea882757a31cdf30f68804fc5fe4fe1e9f4a5fd5ed2535517b5681d9d5"
+}

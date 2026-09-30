@@ -1,0 +1,322 @@
+{
+  "observed_unix": 1790779727.743686,
+  "supervisor": {
+    "pid": 2461004,
+    "gpu_uuid": "GPU-cebf7119-cf03-23b9-e192-cd196332b704",
+    "status": "RUNNING",
+    "arms": [],
+    "current_mode": "w1d_cal",
+    "child_pid": 2461009,
+    "child_started_unix": 1790778556.540611,
+    "admission": {
+      "unix": 1790778556.5403178,
+      "memory_used_mib": 24,
+      "utilization_percent": 0,
+      "pids": []
+    },
+    "command": [
+      "timeout",
+      "--kill-after=10",
+      "5990",
+      "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python",
+      "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/scripts/run_w1d_cal.py",
+      "--project",
+      "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr",
+      "--gpu-uuid",
+      "GPU-cebf7119-cf03-23b9-e192-cd196332b704",
+      "--receipt",
+      "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/outputs/w1d-cal8-r1/w1d-cal.json"
+    ]
+  },
+  "runner": {
+    "pid": 2461011,
+    "status": "GENERATING",
+    "current_sample": "human_199",
+    "current_mode": "off",
+    "error": null,
+    "process_wall_seconds": null
+  },
+  "cases": [
+    {
+      "name": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "status": "PAIR_PARITY_PASS",
+      "coverage": "FULL_FOUR_PAIR_SCREEN",
+      "checks": {
+        "outcome": true,
+        "guardrail_events": true,
+        "forward_output_sha256": true,
+        "block_counts": true,
+        "trace": true,
+        "cache_end_sha256": true,
+        "sampling": true,
+        "pipeline_events": true,
+        "decoder_calls": true,
+        "video_sha256": true,
+        "decoded_rgb": true,
+        "flags_before": true,
+        "flags_after": true,
+        "selected_calls_observed": true,
+        "finite_metrics": true,
+        "past_anchors_only": true,
+        "flags_restored": true
+      },
+      "off_outcome": "ACCEPTED",
+      "on_outcome": "ACCEPTED",
+      "points": 8,
+      "selection": {
+        "rule": "OFF trace only; both CFG skip and at least two strictly past full anchors each; evenly spaced eligible-pair ranks",
+        "eligible_pairs": 19,
+        "selected_pairs": [
+          {
+            "calls": [
+              15,
+              16
+            ],
+            "cache_counters": [
+              14,
+              15
+            ],
+            "cycle": 1,
+            "anchor_steps": [
+              [
+                10,
+                12
+              ],
+              [
+                11,
+                13
+              ]
+            ]
+          },
+          {
+            "calls": [
+              29,
+              30
+            ],
+            "cache_counters": [
+              28,
+              29
+            ],
+            "cycle": 1,
+            "anchor_steps": [
+              [
+                12,
+                24
+              ],
+              [
+                13,
+                25
+              ]
+            ]
+          },
+          {
+            "calls": [
+              45,
+              46
+            ],
+            "cache_counters": [
+              44,
+              45
+            ],
+            "cycle": 1,
+            "anchor_steps": [
+              [
+                34,
+                42
+              ],
+              [
+                35,
+                43
+              ]
+            ]
+          },
+          {
+            "calls": [
+              67,
+              68
+            ],
+            "cache_counters": [
+              66,
+              67
+            ],
+            "cycle": 1,
+            "anchor_steps": [
+              [
+                58,
+                62
+              ],
+              [
+                59,
+                63
+              ]
+            ]
+          }
+        ],
+        "calls": [
+          15,
+          16,
+          29,
+          30,
+          45,
+          46,
+          67,
+          68
+        ],
+        "coverage": "FULL_FOUR_PAIR_SCREEN"
+      }
+    },
+    {
+      "name": "common_sense_6487f37f-ef57-49ca-afdc-d898922b5191",
+      "status": "PAIR_PARITY_PASS",
+      "coverage": "FULL_FOUR_PAIR_SCREEN",
+      "checks": {
+        "outcome": true,
+        "guardrail_events": true,
+        "forward_output_sha256": true,
+        "block_counts": true,
+        "trace": true,
+        "cache_end_sha256": true,
+        "sampling": true,
+        "pipeline_events": true,
+        "decoder_calls": true,
+        "video_sha256": true,
+        "decoded_rgb": true,
+        "flags_before": true,
+        "flags_after": true,
+        "selected_calls_observed": true,
+        "finite_metrics": true,
+        "past_anchors_only": true,
+        "flags_restored": true
+      },
+      "off_outcome": "ACCEPTED",
+      "on_outcome": "ACCEPTED",
+      "points": 8,
+      "selection": {
+        "rule": "OFF trace only; both CFG skip and at least two strictly past full anchors each; evenly spaced eligible-pair ranks",
+        "eligible_pairs": 18,
+        "selected_pairs": [
+          {
+            "calls": [
+              15,
+              16
+            ],
+            "cache_counters": [
+              14,
+              15
+            ],
+            "cycle": 1,
+            "anchor_steps": [
+              [
+                10,
+                12
+              ],
+              [
+                11,
+                13
+              ]
+            ]
+          },
+          {
+            "calls": [
+              29,
+              30
+            ],
+            "cache_counters": [
+              28,
+              29
+            ],
+            "cycle": 1,
+            "anchor_steps": [
+              [
+                12,
+                22
+              ],
+              [
+                13,
+                23
+              ]
+            ]
+          },
+          {
+            "calls": [
+              43,
+              44
+            ],
+            "cache_counters": [
+              42,
+              43
+            ],
+            "cycle": 1,
+            "anchor_steps": [
+              [
+                32,
+                40
+              ],
+              [
+                33,
+                41
+              ]
+            ]
+          },
+          {
+            "calls": [
+              67,
+              68
+            ],
+            "cache_counters": [
+              66,
+              67
+            ],
+            "cycle": 1,
+            "anchor_steps": [
+              [
+                58,
+                62
+              ],
+              [
+                59,
+                63
+              ]
+            ]
+          }
+        ],
+        "calls": [
+          15,
+          16,
+          29,
+          30,
+          43,
+          44,
+          67,
+          68
+        ],
+        "coverage": "FULL_FOUR_PAIR_SCREEN"
+      }
+    },
+    {
+      "name": "human_199",
+      "status": "OFF_PENDING",
+      "coverage": null,
+      "checks": null,
+      "off_outcome": null,
+      "on_outcome": null,
+      "points": 0,
+      "selection": null
+    }
+  ],
+  "log_tail": " 17/36 [01:07<00:58,  3.06s/it]\nGenerating samples:  50%|\u2588\u2588\u2588\u2588\u2588     | 18/36 [01:08<00:42,  2.36s/it]\nGenerating samples:  53%|\u2588\u2588\u2588\u2588\u2588\u258e    | 19/36 [01:08<00:31,  1.87s/it]\nGenerating samples:  56%|\u2588\u2588\u2588\u2588\u2588\u258c    | 20/36 [01:09<00:24,  1.53s/it]\nGenerating samples:  58%|\u2588\u2588\u2588\u2588\u2588\u258a    | 21/36 [01:16<00:47,  3.15s/it]\nGenerating samples:  61%|\u2588\u2588\u2588\u2588\u2588\u2588    | 22/36 [01:17<00:33,  2.42s/it]\nGenerating samples:  64%|\u2588\u2588\u2588\u2588\u2588\u2588\u258d   | 23/36 [01:21<00:36,  2.84s/it]\nGenerating samples:  67%|\u2588\u2588\u2588\u2588\u2588\u2588\u258b   | 24/36 [01:27<00:48,  4.06s/it]\nGenerating samples:  69%|\u2588\u2588\u2588\u2588\u2588\u2588\u2589   | 25/36 [01:34<00:54,  4.92s/it]\nGenerating samples:  72%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258f  | 26/36 [01:41<00:55,  5.52s/it]\nGenerating samples:  75%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258c  | 27/36 [01:48<00:53,  5.94s/it]\nGenerating samples:  78%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258a  | 28/36 [01:52<00:42,  5.31s/it]\nGenerating samples:  81%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588  | 29/36 [01:59<00:40,  5.79s/it]\nGenerating samples:  83%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258e | 30/36 [02:06<00:36,  6.13s/it]\nGenerating samples:  86%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258c | 31/36 [02:07<00:22,  4.50s/it]\nGenerating samples:  89%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2589 | 32/36 [02:13<00:20,  5.23s/it]\nGenerating samples:  92%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258f| 33/36 [02:14<00:11,  3.87s/it]\nGenerating samples:  94%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258d| 34/36 [02:15<00:05,  2.93s/it]\nGenerating samples:  97%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258b| 35/36 [02:16<00:02,  2.27s/it]\nGenerating samples: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 36/36 [02:23<00:00,  3.65s/it]\nGenerating samples: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 36/36 [02:23<00:00,  3.97s/it]\n[09-30 22:48:45|INFO|cosmos_predict2/inference.py:160:_generate_sample] Running guardrail check on video...\n",
+  "ps": "    PID    PPID    PGID     ELAPSED COMMAND\n2461004       1 2461004       19:32 /home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/scripts/supervise_f1.py --project /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr --runtime /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/runtime --python /home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python --gpu-uuid GPU-cebf7119-cf03-23b9-e192-cd196332b704 --output /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/outputs/w1d-cal8-r1 --w1d-cal\n2461009 2461004 2461009       19:31 timeout --kill-after=10 5990 /home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/scripts/run_w1d_cal.py --project /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr --gpu-uuid GPU-cebf7119-cf03-23b9-e192-cd196332b704 --receipt /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/outputs/w1d-cal8-r1/w1d-cal.json\n2461011 2461009 2461009       19:31 /home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/scripts/run_w1d_cal.py --project /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr --gpu-uuid GPU-cebf7119-cf03-23b9-e192-cd196332b704 --receipt /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/outputs/w1d-cal8-r1/w1d-cal.json\n",
+  "gpu": "GPU-de9a5370-cd87-0f1c-a48e-288888777dd3, 350, 0\nGPU-cebf7119-cf03-23b9-e192-cd196332b704, 27664, 13\n",
+  "apps": "GPU-cebf7119-cf03-23b9-e192-cd196332b704, 2461011\n",
+  "budget": {
+    "batch": "F0-F1",
+    "cap_gpu_hours": 4,
+    "used_gpu_hours": 1.9977743149465987,
+    "gpu_jobs_launched": 17,
+    "status": "STAGE_WITNESS_REQUIRES_REVIEW",
+    "gpu_import_probes_completed": 1,
+    "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts"
+  },
+  "unsettled_wall_gpu_hours": 0.32540379007657366,
+  "scope": "Live nonterminal observation; inspect original handles before any action. Not settled cost or final mechanism decision."
+}
