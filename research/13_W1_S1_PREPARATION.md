@@ -1,6 +1,6 @@
 # W1-S1：同状态官方 / 收缩 / 标量校准诊断准备卡
 
-日期：2026-09-30；状态 `PREPARED_NOT_IMPLEMENTED_NOT_RUN`。此卡是下一任务的实现与验收范围；尚无可提交的实机三候选 runner，也没有新增 GPU 运行。进入依据是 W1-P0 官方路径单样本 parity 通过。
+日期：2026-09-30；状态 `IMPLEMENTED_CPU_VERIFIED_NOT_GPU_RUN`。三近似器评分入口与有界监督模式已实现，58项本地CPU测试通过；实机验收尚未启动。进入依据是 W1-P0 官方路径单样本 parity 通过。
 
 ## 要回答的问题
 
@@ -26,3 +26,9 @@
 新 run ID `w1-s1-r1` 和新目录；保留提交、部署归档哈希、协议、GPU UUID、PID/进程组/日志、终态、所有诊断点、按阶段成本和原始失败。新 supervisor 入口必须沿用项目单任务锁、准入、外来 compute 进程冲突停止和总预算计账；不得单独启动未监督的生成进程。
 
 若输出/缓存不一致、出现非有限值、锚点不合法、GPU 冲突或到达任务 / 总预算上限，终止自有进程组并记账，不重复启动。只有数值误差降低可标 `MECHANISM_ONLY`；没有优势记 `NO_GAIN_IN_SCOPE`，小分母回退过多或点数不足记 `INCONCLUSIVE`。四点改善不等于质量保持、干净测速收益或独立泛化。机制信号明确后再安排候选专用 parity 和固定跳步闭环。
+
+## 实现接续记录
+
+`src/wcomr/same_state.py`维护mode/CFG独立calibrator，观察真实full分支，预测先于truth补算；原始forward返回官方输出。直接提取固定官方flow片段，让各候选使用与现有注入相同的warp语义，并区分prewarp/postwarp/velocity评分。request、70周期、模型/expert变更均清空候选历史。新增随机buffer/RNG、空间变化flow与实际candidate首次skip匹配测试。
+
+`check_w1_parity.py --same-state`新版本执行同seed off/on，要求72output/cache/video/trace不变、四点有限且anchor严格过去。`supervise_f1.py --w1-same-state`沿用全项目锁、GPU准入、外来计算冲突停止及记账，最多900s。一旦启动，应以新的launch/terminal回执覆盖这里的NOT_GPU_RUN快照。

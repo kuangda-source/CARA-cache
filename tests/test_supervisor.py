@@ -93,3 +93,15 @@ def test_w1_parity_is_one_bounded_job_not_two_f1_arms(tmp_path):
     assert str(project / 'scripts/check_w1_parity.py') in state['command']
     assert int(state['command'][2]) <= 890
     assert json.loads((project / 'reports/budget.json').read_text())['gpu_jobs_launched'] == 1
+
+
+def test_same_state_runs_one_budgeted_gate_with_distinct_receipt(tmp_path):
+    project, output, cmd, env = fixture(tmp_path, delay=.02)
+    subprocess.run(cmd + ['--w1-same-state'], env=env, check=True, capture_output=True, timeout=10)
+    state = json.loads((output / 'supervisor.json').read_text())
+    assert state['status'] == 'W1_SAME_STATE_EXITED_REQUIRES_REVIEW'
+    assert [a['mode'] for a in state['arms']] == ['w1_same_state']
+    assert '--same-state' in state['command']
+    assert str(output / 'w1-same-state.json') in state['command']
+    assert int(state['command'][2]) <= 890
+    assert json.loads((project / 'reports/budget.json').read_text())['gpu_jobs_launched'] == 1
