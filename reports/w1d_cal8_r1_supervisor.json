@@ -1,0 +1,36 @@
+{
+  "pid": 2461004,
+  "gpu_uuid": "GPU-cebf7119-cf03-23b9-e192-cd196332b704",
+  "status": "W1D_CAL_EXITED_REQUIRES_REVIEW",
+  "arms": [
+    {
+      "mode": "w1d_cal",
+      "pid": 2461009,
+      "exit_code": 0,
+      "wall_seconds": 3590.173902273178,
+      "stop_reason": null
+    }
+  ],
+  "current_mode": "w1d_cal",
+  "child_pid": 2461009,
+  "child_started_unix": 1790778556.540611,
+  "admission": {
+    "unix": 1790778556.5403178,
+    "memory_used_mib": 24,
+    "utilization_percent": 0,
+    "pids": []
+  },
+  "command": [
+    "timeout",
+    "--kill-after=10",
+    "5990",
+    "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python",
+    "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/scripts/run_w1d_cal.py",
+    "--project",
+    "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr",
+    "--gpu-uuid",
+    "GPU-cebf7119-cf03-23b9-e192-cd196332b704",
+    "--receipt",
+    "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/outputs/w1d-cal8-r1/w1d-cal.json"
+  ]
+}

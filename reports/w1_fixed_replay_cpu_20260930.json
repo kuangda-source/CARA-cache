@@ -1,0 +1,12 @@
+{
+  "status": "CPU_FIXED_REPLAY_MODULE_ONLY_NOT_GPU_RUN",
+  "tests_passed": 24,
+  "command": ".venv/bin/python -m pytest -q tests/test_fixed_replay.py tests/test_integration.py tests/test_same_state.py tests/test_shadow_forward.py",
+  "result": "24 passed in 1.33s",
+  "source_sha256": {
+    "src/wcomr/fixed_replay.py": "99886e805dbee5416c40e2d609faa6cfcca418291a58f87e41075806fa62340e",
+    "tests/test_fixed_replay.py": "7f7cf62f66a452b5840fc5aa768778429945cefd9b13cb58e522e0dd50397fd8"
+  },
+  "evidence": "Pinned actual forward on CPU toy blocks: official outputs/trace/RNG identical across horizon reset, forced reference schedule despite different natural threshold, explicit decay0 and true full anchors; scalar and official own closed-loop OFF/ON outputs/trace/cache/RNG and controller records identical; invalid counter/expert/early skip/incomplete request rejected.",
+  "limitation": "No real model/decoder/CUDA or complete generation runner tested; deploy only after source commit and Linux CPU/runtime gates."
+}

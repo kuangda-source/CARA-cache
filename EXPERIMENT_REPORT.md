@@ -8,19 +8,19 @@
 
 ## 1. 当前结论与最重要的下一步
 
-**继续已启动的CAL前8 W1-D数值诊断，等全批固定筛查后决定下一步。** 23:09北京时间已完成5/8，各8点通过全部OFF/ON技术一致性检查，第六个physics_045运行；部分局部scalar误差下降，未形成全批机制结论，也尚无新方法/质量正结果。F1三组成对样本技术耗时比1.476–1.602×；W1默认及最近pair修订仅在旧四工程点均NO_GAIN_IN_SCOPE。跨进程decode差异的局部复现门已通过，根因尚非独立证明。CAL24及首批8按来源/词法分组冻结。
+**继续WorldCache主线，scalar-recent进入固定schedule闭环准备；当前有机制信号，尚无质量或加速收益。** CAL8完整终态8/8，每样本8点及17项OFF/ON技术检查全真；scalar7/8联合改善，平均velocity/postwarp误差比0.759185/0.893679，冻结screen为MECHANISM_ONLY_CAL8；misc两指标恶化保留，shrink0/8 velocity改善不入闭环。旧AV工程四点负结果保持旧范围。CAL为开发/校准，独立确认与候选闭环尚未完成。
 
 | 项目 | 最新已归档证据 |
 |---|---|
-| 当前阶段 | CAL前8 W1-D运行，5/8完成；LIVE_PARTIAL_NO_DECISION |
-| 最近运行 | w1d-cal8-r1源62f1c0d；supervisor2461004/timeout2461009/runner2461011；GPU1真实在跑 |
-| 首要动作 | 接续原任务，终态后归档/审计/按固定规则筛查；无需人评 |
-| 当前成本 | 启动前已结算1.997774315/4GPUh；23:09在途另计0.668417GPUh；batch硬上限6000秒 |
-| 方法证据 | CPU/合成测试与资源就绪，不等于生成质量或真实加速收益 |
-| 视频评价 | 已有格式检查；完整视频质量审查尚未完成 |
-| 运行状态时效 | 本表包含23:09非终态快照；接续必须查原进程/锁/日志/预算，不重复提交、不将旧账本余额用于新准入 |
+| 当前阶段 | CAL8终态scalar MECHANISM_ONLY；固定重放CPU模块/协议准备完成，runner待实现 |
+| 最近运行 | w1d-cal8-r1源62f1c0d，原3PIDs退出/exit0/产物重hash/锁可用/GPU释放 |
+| 首要动作 | firstAV官方fixed replay复现门、scalar OFF/ON门，再原8场景候选闭环；runner未实现 |
+| 当前成本 | 已结算2.995044843/4GPUh，剩余1.004955157h，无在途；下一拟cap3000秒 |
+| 方法证据 | CAL8同状态scalar机制信号；候选闭环/质量/干净效率仍待证据 |
+| 视频评价 | 安全接受及完整性通过，标准质量/物理指标未评估；当前不要求人评 |
+| 运行状态时效 | 本表来自终态审计；下一提交仍需实时重核进程/锁/日志/预算/GPU准入 |
 
-最新阶段证据：[CAL与W1-D运行](research/20_CAL_AND_W1D_PREPARATION.md)、[部署](reports/w1d_cal8_r1_deployment_20260930.json)、[启动](reports/w1d_cal8_r1_launch_20260930.json)、[实时快照](reports/w1d_cal8_r1_live_observation.json)、[部分汇总](reports/w1d_cal8_r1_live_partial_summary.json)。此前[局部解码复现通过](research/19_DECODER_POLICY_RESULTS.md)。
+最新阶段证据：[CAL8结果](research/21_W1D_CAL8_RESULTS.md)、[终态汇总](reports/w1d_cal8_r1_summary.json)、[审计](reports/w1d_cal8_r1_audit.json)、[分布/排序](reports/w1d_cal8_r1_analysis.json)、[诊断图](reports/w1d_cal8_r1_diagnostics.png)、[下一固定replay准备卡](research/22_W1_REPLAY_PREPARATION.md)。此前[局部解码复现通过](research/19_DECODER_POLICY_RESULTS.md)、[CAL来源和W1-D冻结](research/20_CAL_AND_W1D_PREPARATION.md)。
 
 历史阶段证据：[decode区间定位](research/17_DECODE_INTERVAL_RESULTS.md)、[下一轮准备卡](research/18_DECODER_POLICY_GATE.md)、[阶段汇总](reports/stage_r2_summary.json)。
 
@@ -32,8 +32,8 @@
 
 | 假设 | 预期验证 | 当前状态 / 否定条件 |
 |---|---|---|
-| H-W1：简单收缩或浅深层增量校准能改善跨步残差近似 | 同状态 shadow → 固定跳步闭环 → 自由调度下的质量—时间对照 | 待真实模型测试；优于合成数据不算成立，额外计算抵消收益则停止深化 |
-| H-W1D：残差误差大小不能完全代表下游危害 | 对照残差 MSE、最终速度预测误差/方向与局部伪影 | 待测；无重复排序差异则不增加敏感性模型复杂度 |
+| H-W1：简单收缩或浅深层增量校准能改善跨步残差近似 | 同状态 shadow → 固定跳步闭环 → 自由调度下的质量—时间对照 | CAL8同状态scalar机制信号；固定schedule/质量—时间未检验，额外计算抵消收益则停止深化 |
+| H-W1D：残差误差大小不能完全代表下游危害 | 对照残差 MSE、最终速度预测误差/方向与局部伪影 | CAL8所有8样本有内部排序差异；未联系视频物理损害，先全局scalar闭环 |
 | H-J：减少不必要的 OMR 纠正调用/梯度可改善折中 | 先复现有效原版，再测稀疏、未来侧梯度与复用 | 资源与兼容性待复核；原版无效或 adapter 不匹配时不做归因 |
 | H-L：预训练 CFG / 少步适配器是值得纳入的强基线 | 同一兼容 Wan5B 上原生、CFG-only、四步 Few-step+CFG 三臂 | 尚未做本地兼容性和 GPU 测试；小批次仅筛查可用性 |
 
@@ -99,11 +99,11 @@
 
 ## 7. 下一轮的执行与停止条件
 
-1. w1d-cal8-r1已启动，仅观察同一身份；运行时不部署任何源码/配置变化、不提交第二昂贵任务。F1/W1-P0/S1/decoder旧任务都保持终态。
-2. [冻结W1-D协议](manifests/w1d_cal_protocol.json)：CAL前8先OFF trace选点并冻结，ON同状态三近似器、仅过去full anchors，truth只评分；共用明确布局和局部decode策略。每样本全技术一致才通过，拒绝/覆盖不足/失败保留原分母。
-3. 单batch硬上限6000秒，从原4GPUh预算扣除，包含加载/失败/flush；未知错误/parity失败停止。终态审计PIDs/锁/GPU归属、哈希与wall账本，部分完成只按实际覆盖报告，不重新挑样本补齐。
-4. 完整8样本按固定规则输出MECHANISM_ONLY_CAL8/NO_GAIN_CAL8_IN_SCOPE/INCONCLUSIVE；部分数据不决定。即使机制信号出现，候选parity/固定schedule闭环/质量—时间与独立确认仍需后续证据。人评不是当前门槛。
-5. 终态后按实际余额评估下一局部假设或F2资源缺口；12–24场景多工作点F2超现余额，不以小子集冒充完成。L1/Wan/OMR等待预算与兼容性，无训练/付费评分/预算扩张。
+1. CAL8终态、完整screen/分布与成本已归档，原handles退出；旧live/partial为历史，不重启。
+2. [固定replay协议](manifests/w1_fixed_replay_protocol.json)与CPU模块就绪，24项针对性检查通过；runner/监督模式及Linux/实机gates待做。firstAV官方重放严格复现旧OFF，scalar OFF/ON自身parity，再其余7候选OFF，8原场景全部保留。
+3. 下一拟单batch cap3000秒，从剩余1.004955157h扣除；forecast2224.619秒+30%=2892.004不是完成保证。新source/hash/CPU/预算锁/GPU admission重新核验，拒绝保留、未知技术错停止，不扩预算/补样本。
+4. 候选自身latent/probe/full anchors、冻结完整计算位置，只替换近似器。truth只评分，不回放旧latent；不是在线调度收益。诊断时间/相对WC视频距离不足以作质量或clean speed结论。
+5. 终态后按实际成本/覆盖和机制决定下一clean计时/标准质量/独立确认或资源缺口。当前不先加W2；完整多点F2及确认超余额时不以小子集冒充完成，不训练/付费评分/补人评。
 
 遇到关键协议更换、扩大预算、训练立项或方向切换时留给用户决策。一般工程修复可继续，但不得中途改变在跑任务的源码/配置。操作顺序以[下一步队列](research/09_NEXT_ACTIONS.md)为准。
 
@@ -244,5 +244,17 @@ W1-S1 r2收尾：8项真实诊断一致性验收通过；四点velocity sum-MSE�
 已完成只读分布分析src/wcomr/w1d_analysis.py与CLI scripts/analyze_w1d_cal.py，严格校验每个分区非空/不重叠/完整覆盖、候选坐标匹配、group MSE与reference energy能重建整体值；按样本等权汇总，零官方误差比留空。scripts/plot_w1d_cal.py输出同状态散点/排序反转计数/velocity时间空间通道图，显示dependent/latent坐标范围，不把组当独立样本。11项针对性CPU检查通过，真实部分回执CLI与私有部分图检查通过；[CPU回执](reports/w1d_analysis_cpu_20260930.json)。仅本地代码，未部署到正在跑的job，无新科学结论或额外GPU成本。
 
 终态归档/审计后执行原screen与新descriptive analysis；plot依赖可用pip install -e '.[analysis]'安装到本地环境。所有partial显式NO_DECISION。接续原PIDs，不重启/改公式/增加样本。没有重要问题时按协议自行收尾和评估下一有界任务。
+
+## 以下为历史快照
+
+## 最新接续 — 2026-09-30：CAL8终态，scalar机制信号，固定重放准备
+
+w1d-cal8-r1（部署源62f1c0d）完整终态：8/8场景、每样本8点/17项OFF-ON检查全真；16接受视频重新hash匹配，原supervisor2461004/timeout2461009/runner2461011均退出，exit0/无stop reason，锁可用、GPU1 24MiB/noapps，699监控点无观察到其他compute。原始runner/supervisor/audit/summary/analysis/figure已归档reports/w1d_cal8_r1_*；旧live与partial文件都是历史，不得重启旧任务。
+
+冻结screen MECHANISM_ONLY_CAL8：scalar7/8联合velocity/postwarp改善，等样本均值比0.759184683/0.893679139，0fallback；misc两指标恶化保留。shrink0/8 velocity改善，均值1.306201721，本CAL8收缩线不送闭环。8样本皆有内部排序反转，共40 dependent point-mode对比；组上scalar均7/8改善，暂不加W2。没有视频质量/干净速度/独立确认正结果。旧AV四工程点负结果保留原范围；CAL是开发数据。详细[结果](research/21_W1D_CAL8_RESULTS.md)。
+
+本批监督3590.173902秒/0.997270528h，累计2.995044843355815/4h，余1.004955156644185h，无在途成本。下一固定schedule scalar-recent闭环最多3000秒/0.833333h，仍原budget内。CPU模块fixed_replay.py及24项针对性检查通过，协议已冻结完整8原trace/hash/参数；[准备卡](research/22_W1_REPLAY_PREPARATION.md)、[manifest](manifests/w1_fixed_replay_protocol.json)、[CPU回执](reports/w1_fixed_replay_cpu_20260930.json)。runner/监督模式尚未实现、未Linux部署、未CUDA/生成测试，不能称候选已经跑过。
+
+下一步自主实现有监督runner：firstAV新official fixed replay对旧OFF严格复现，再scalar OFF/ON自身parity，通过后原其余7scalar OFF；共10generation，firstcandidateOFF计入8成员。自己当前latent/probe/full anchors，shadow truth只评分，不回放旧latent。不择优/替换misc；拒绝保留，技术异常停止。预算forecast2224.619秒+30%=2892.004秒，cap3000；提交前重新核验旧handles/锁/余额/GPU/source/hash/LinuxCPU。尚无第二任务/额外预算/训练/付费评分/人评。代码与docs推送后的新HEAD不改变旧source62运行身份。
 
 ## 以下为历史快照

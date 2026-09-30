@@ -39,11 +39,15 @@ xlim = (min(ax.get_xlim()[0] for ax in axes[0, :2]), max(ax.get_xlim()[1] for ax
 ylim = (min(ax.get_ylim()[0] for ax in axes[0, :2]), max(ax.get_ylim()[1] for ax in axes[0, :2]))
 for ax in axes[0, :2]:
     ax.set(xlim=xlim, ylim=ylim)
+    ticks = [.25, .5, 1, 2, 4, 8]
+    x_ticks = [v for v in ticks if xlim[0] <= v <= xlim[1]]
+    y_ticks = [v for v in ticks if ylim[0] <= v <= ylim[1]]
+    ax.set_xticks(x_ticks, labels=[f'{v:g}' for v in x_ticks])
+    ax.set_yticks(y_ticks, labels=[f'{v:g}' for v in y_ticks])
 ax = axes[0, 2]
 reversal_counts = [sum(r['sample'] == name for r in data['ranking_reversals']) for name in samples]
 ax.bar(range(1, len(samples)+1), reversal_counts, color=[colors(i) for i in range(len(samples))])
 ax.set(title='Residual / velocity ranking reversals', xlabel='Sample index', ylabel='Dependent point-mode comparisons', xticks=list(range(1, len(samples)+1)))
-ax.text(.02, .98, 'Multiple mode pairs per point;\ncounts are not independent samples.', va='top', transform=ax.transAxes, fontsize=8)
 for j, family in enumerate(['time', 'spatial', 'channel']):
     ax = axes[1, j]
     groups = data['group_aggregate']['velocity'][family]
