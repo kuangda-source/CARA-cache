@@ -8,7 +8,7 @@ Private research workspace for improving the quality–time tradeoff of video wo
 
 ## Current status
 
-2026-09-30 latest: F1 technical smoke completed (three accepted-pair E2E ratios1.476–1.602, without quality-equivalence or new-method claims). W1-S1 off/on real-model invariance gate passes all8checks; initial scalar/shrink four-state velocity sum-MSE ratios2.531/5.395 show NO_GAIN_IN_SCOPE (2/4points improve each). Cost1.412720/4GPUh settled; no live task. Next is one fixed recent-full-pair scalar revision under900s, not parameter search. [Initial mechanism results and revision](research/14_W1_S1_INITIAL_RESULTS.md).
+2026-09-30 latest: F1 technical timing completed; no new-method/quality-equivalent gain. W1 default and one recent-full-pair scalar revision both NO_GAIN_IN_SCOPE on four AV engineering states (velocity sum-MSE ratios scalar2.531→2.354; shrink5.395). All within-run8off/onchecks pass; cross-run72model outputs/cache match, but decoded videos differ. Next: isolate final-sample/VAE/guardrail/save/codec stage, without human review. Cost1.560151/4GPUh settled; no live job. [Results and unresolved reproduction issue](research/15_W1_S1_RECENT_RESULTS.md), [next gate](research/16_POST_MODEL_REPRODUCTION_GATE.md).
 
 Prior terminal run: Core assets and the retained safety pipeline are ready. F1 r2 completed two Native samples, then stopped when the physics_001 generated video was rejected by the output guardrail. WorldCache has not run; there is no paired speed/quality result. Charged cost: 0.473298 / 4 GPUh. Terminal receipts are in `reports/f1_smoke_r2_*.json`.
 

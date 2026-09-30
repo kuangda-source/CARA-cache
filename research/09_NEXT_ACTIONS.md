@@ -1,7 +1,7 @@
-# Next actions — W1-S1 default no-gain; one recent-pair revision
+# Next actions — post-model reproducibility gate first
 
-1. F1、W1-P0、W1-S1 r2都已终态；不重启旧身份。r2 output/cache/video/trace等8checks通过，四点scalar/shrink velocity sum-MSE比2.531/5.395，默认候选不进入闭环；详见research/14_W1_S1_INITIAL_RESULTS.md。
-2. 只实施一次有机制依据的scalar修订：decay固定0（最近真实full-pair），其他参数/工程样本/四点/官方部署轨迹/warp不变，shrink作为不变控制。修订协议manifests/w1_same_state_recent_protocol.json。16local/16Linux检查和部署哈希通过后，w1-s1-recent-r1已运行：supervisor2447006/timeout2447012，新鲜24MiB/noapps准入，单个监督任务<=900s/0.25GPUh。先核验同一进程/终态，不改在跑源码。不是参数扫描；若仍无优势不重复调同一公式。
-3. 账本1.412719678/4GPUh，余额2.587280322h（revision启动前，运行成本另计）。每次提交前查远端进程/全项目锁/预算/GPU UUID/VRAM/compute apps。一次一个昂贵任务，无第二作业、无在跑源码变更。
-4. 人工语义标注不阻塞W1。只有机制候选信号后才进入候选专用parity、固定schedule闭环和独立CAL/DEV；工程四点不是独立确认，当前没有候选生成视频/质量结论。
-5. 同步实验报告/原始失败/数值/成本/交接到私有GitHub；不扩预算、不训练、不付费评分、不无依据切换方向。L0非GPU资源核对可穿插；当前不抢跑Wan/OMR。
+1. 最近pair任务已终态；F1/W1-P0/W1-S1全部旧身份不重启。默认scalar/shrink与decay0修订都NO_GAIN_IN_SCOPE：velocity sum-MSE比分别2.531/5.395与2.354/5.395，均2/4改善。停止无依据的第二次标量调整，不送入闭环。
+2. 当前首要任务：[跨新进程阶段见证](16_POST_MODEL_REPRODUCTION_GATE.md)。两轮72模型输出/缓存/四点控制完全相同，但93帧解码RGB不同。需观察最终sample、VAE raw、guardrail前后、save输入、编码/解码，先定位首个差异，不猜原因。准备<=900s/0.25GPUh、两个新进程串行官方生成；尚未实现或启动。每次提交前重核预算、锁、GPU准入及源哈希。
+3. 累计1.560151151/4GPUh，剩余2.439848849h。一次一个昂贵任务，加载/失败/诊断全计费，不改在跑源码。当前无在途任务。
+4. 复现区间被解释/解决后，按新证据开展F2或W1-D时间/空间分布，先诊断再选择是否W2；不无依据增加复杂度。数值结果只来自单工程场景四点，不否定整个方向，不声称质量等价。
+5. 1,044本地固定提示词已清点，但无来源场景字段；CAL/DEV/CONF待自动连接来源/近模板分组，4个工程样本排除独立确认。人评非当前前置，不训练/付费评分/扩预算。代码、原始失败、数值、成本、复现缺口与handoff同步私有GitHub。

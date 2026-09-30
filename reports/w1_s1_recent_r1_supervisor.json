@@ -1,0 +1,38 @@
+{
+  "pid": 2447006,
+  "gpu_uuid": "GPU-cebf7119-cf03-23b9-e192-cd196332b704",
+  "status": "W1_SAME_STATE_EXITED_REQUIRES_REVIEW",
+  "arms": [
+    {
+      "mode": "w1_same_state",
+      "pid": 2447012,
+      "exit_code": 0,
+      "wall_seconds": 530.7533051967621,
+      "stop_reason": null
+    }
+  ],
+  "current_mode": "w1_same_state",
+  "child_pid": 2447012,
+  "child_started_unix": 1790768734.681771,
+  "admission": {
+    "unix": 1790768734.6814778,
+    "memory_used_mib": 24,
+    "utilization_percent": 0,
+    "pids": []
+  },
+  "command": [
+    "timeout",
+    "--kill-after=10",
+    "890",
+    "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python",
+    "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/scripts/check_w1_parity.py",
+    "--project",
+    "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr",
+    "--gpu-uuid",
+    "GPU-cebf7119-cf03-23b9-e192-cd196332b704",
+    "--receipt",
+    "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/outputs/w1-s1-recent-r1/w1-same-state.json",
+    "--same-state",
+    "--same-state-recent"
+  ]
+}

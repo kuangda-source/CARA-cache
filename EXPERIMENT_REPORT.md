@@ -8,14 +8,14 @@
 
 ## 1. 当前结论与最重要的下一步
 
-**F1 r3已完成两臂全部尝试，三组双方接受样本的端到端耗时比为1.476–1.602×。这证明当前配置下官方WorldCache有技术加速，但尚无质量等价或新方法正结果。继续WorldCache主线。** W1-P0及W1-S1实机一致性通过；默认scalar/shrink在四个工程点总体无收益，准备一次最近full-pair标量修订。
+**继续WorldCache主线的工程复现与数值诊断，但不将当前scalar/shrink候选送入闭环。** F1三组成对样本技术耗时比1.476–1.602×；W1默认及最近pair修订在四个工程点均NO_GAIN_IN_SCOPE，尚无新方法/质量正结果。已发现跨新进程视频像素差异，需先定位模型输出之后的阶段。
 
 | 项目 | 最新已归档证据 |
 |---|---|
-| 当前阶段 | W1-S1实机验收通过；默认两候选NO_GAIN_IN_SCOPE；最近full-pair修订运行中 |
-| 最近运行 | 单次recent-full-pair修订已运行，supervisor2447006/timeout2447012；上限900s，结果待收集 |
-| 首要动作 | 单次recent-full-pair标量修订诊断，保持同场景/四点/官方轨迹；不等待人工语义标注 |
-| 当前成本 | 已结算1.412719678/4GPUh，剩余2.587280322GPUh，revision启动前；在途成本另计 |
+| 当前阶段 | W1两版数值负结果归档；后模型跨进程视频复现差异待定位 |
+| 最近运行 | 最近pair任务exit0，8checks通过；原进程退出、GPU释放、产物重哈希匹配 |
+| 首要动作 | 同官方输入两个新进程的sample/VAE/guardrail/save/codec阶段哈希诊断；无需人评 |
+| 当前成本 | 已结算1.560151151/4GPUh，剩余2.439848849GPUh，无在途任务 |
 | 方法证据 | CPU/合成测试与资源就绪，不等于生成质量或真实加速收益 |
 | 视频评价 | 已有格式检查；完整视频质量审查尚未完成 |
 | 运行状态时效 | 本表来自仓库内终态回执；接续时必须查远端进程、锁、日志及预算，不能把文档当实时 GPU 状态 |
@@ -220,3 +220,5 @@ W1-S1 r2已启动：源7e5bc10、部署哈希匹配、Linux6项监督器检查�
 W1-S1 r2收尾：8项真实诊断一致性验收通过；四点velocity sum-MSE比scalar2.531、shrink5.395，均只有较早2/4点改善，默认方法记NO_GAIN_IN_SCOPE，不进入闭环。下一步只有一项因果修订：decay0.9→0最近full-pair beta，固定其他变量；上限900s现有预算内。详见[首轮机制结果与修订依据](research/14_W1_S1_INITIAL_RESULTS.md)。
 
 单次recent修订已启动：源99f554f，16local/16Linux针对性检查通过，部署哈希匹配；旧PIDs缺失/锁可获取后重新准入GPU1，supervisor2447006/timeout2447012/runner2447014核实存活。官方off生成中，结果尚未得出，见[启动](reports/w1_s1_recent_r1_launch_20260930.json)。
+
+最近pair修订已终态，仍NO_GAIN_IN_SCOPE：velocity sum-MSE比2.354，shrink控制5.395；各自off/on不变性通过。跨任务模型72output/cache/控制数值完全相同，但MP4及93帧decodedRGB不同，首个差异阶段未知，不作质量归因。详见[修订结果与复现问题](research/15_W1_S1_RECENT_RESULTS.md)和[下一阶段见证卡](research/16_POST_MODEL_REPRODUCTION_GATE.md)。

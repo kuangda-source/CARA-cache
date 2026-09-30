@@ -1,3 +1,15 @@
+# Latest — recent-pair negative; cross-process post-model reproduction next
+
+AllGPUtasks terminal. Recentrevision source99f554f,supervisor2447006/timeout2447012/runner2447014gone;8within-runoff/oncheckspass,artifactsrehashmatch,lockfree,GPU1released24MiB/noapps. Budget1.560151151220004/4h,remaining2.439848848779996. No currentjob.
+
+Defaultscalar/shrinkvelocitysum-MSEratio2.531/5.395;recentdecay0scalar2.354,shrinkunchanged5.395,both2/4improve.NO_GAIN_IN_SCOPEallversions,notmethodwide rejection. Do notenterclosedlooporcontinueuninformedscalarparamchanges. Detailedresearch/15_W1_S1_RECENT_RESULTS.md,raw/summary/contrast/audit/crossdecode receiptsunderreports/w1_s1_recent_r1*.json.
+
+Importantreproductiongap:cross-runall72officialoutputhashes/finalcache/trace/inputs/samplingand4pointofficial+shrinkmetricsexactlyequal,butMP4hashesand93/93decodedRGBframesdiffer;CPUdecodingMSE31.026577/MAE3.604356,max94. Notmerelymetadata. Within-processoff/onvideohashmatchesineachrun; numericcontrastvalidONLYatmodelstatelevel. Firstdifferencefinalsample/VAE/guardrail/save/codecUNKNOWNbecauseintermediatehashesmissing. Do notguesscauseorclaimvideo/qualityequivalence.
+
+Next implementresearch/16_POST_MODEL_REPRODUCTION_GATE.md:readonlystagewrappers(samplefinal,decodeinput/output,guardrailinput/output,saveinput,encoded/decoded),twofreshofficialprocessesserialunderone<=900s/0.25hjob,existinglock/admission/conflictstop/budget. Noactivationyet. Observebeforealteringdeterminismflags;sharedruntime/sourceuntouched. Afterreproductionexplanation,chooseF2orW1-DlocaldiagnosticbeforeW2. No humanreview,training,paidscoring,extra budget. Datasetinventory1044fixedtext2worldpromptscounted;CALnotfrozen/source-link+neartemplatespending;4engineeringsamplesexcludedconfirmation.
+
+## Historical snapshots
+
 # Latest — single recent-pair revision live
 
 Source99f554f,archive65a4c0225a7925a6ee182bb291e33f71141e6e02fc5b1b20bfbdbb5b60ed9de1verified,16local/16LinuxCPUchecks pass. outputs/w1-s1-recent-r1 launchedonce <=900s,supervisor2447006/timeout2447012/runner2447014verifiedlive,offgenerating. NewadmissionGPU1 24MiB/noapps;actualprojectcacheenvverified. Do notmodifyrunningcode/submitsecondjob. BudgetsettledBEFORErevision1.4127196775542366/4h,inflightadditional.

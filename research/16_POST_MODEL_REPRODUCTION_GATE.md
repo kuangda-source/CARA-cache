@@ -1,0 +1,24 @@
+# 跨进程后模型阶段复现诊断准备卡
+
+2026-09-30；状态PREPARED_NOT_IMPLEMENTED_NOT_RUN。进入依据：两次任务内部off/on全部通过、跨进程72模型输出与缓存相同，却出现93帧解码像素差异。当前不能确认差异发生在哪一阶段；本卡没有启动新GPU任务。
+
+## 最小实验
+
+官方WC、同AV工程输入/seed0、原36时间点/72CFG/WC70协议、同环境/权重/eager/offload/安全配置，两个全新进程顺序执行，每个生成一次。一次监督任务、原共享锁与GPU准入/冲突停止/记账保留，上限900秒/0.25GPUh（包括两个进程加载、失败及flush）从现有2.439848849GPUh余额扣除。不修改模型、缓存近似、VAE、过滤器、编解码参数或共享环境，以观测定位先行。
+
+## 阶段见证
+
+1. 保留72模型输出hash、CFG计数/trace、实际采样网格和最终缓存hash。
+2. wrapper观察`model.generate_samples_from_batch`的最终sample返回值并hash，包含shape/dtype；支持list chunk，不额外调用模型。
+3. wrapper观察`model.decode`的输入latent与raw视频输出；保存张量hash、shape/dtype、有限性，不保存bulk张量、不改变返回值。
+4. wrapper观察`guardrail_presets.run_video_guardrail`的uint8输入与处理后输出，保存array哈希/shape，拒绝状态照原返回，不关闭或绕过检查。
+5. 观察`save_img_or_video`实际输入tensor与编码参数；保存MP4文件hash、codec/container元信息并CPU完整解码RGBhash/时间戳。
+6. 记录模型/tokenizer/source/环境哈希与cudnn/TF32/benchmark/deterministic当前设置；初轮不改变这些开关，不把潜在解决办法当作已验证原因。
+
+正常阶段只进行detach/read-only/hash，保存原函数并恢复，不改变RNG/registered buffers/部署状态；若观察hook导致同进程差异、非有限或输出拒绝，记TECH_BLOCKED并保留失败。只终止自有进程组。两个新进程的首个不同阶段决定下一个确定性修复；不得从最终MP4不同直接假定编码器或VAE出错。
+
+## 验收与证据边界
+
+先做wrapper在正常返回/异常/拒绝/list-chunk/恢复下的针对性CPU检查与源码哈希部署，运行前重核实际预算、锁、GPU UUID/VRAM/compute apps。原进程已终态不代表将来准入。
+
+不同阶段的hash严格比较；只定位到某一区间时写UNKNOWN/范围，不补造阶段内具体原因。修复需要新版本、两条对照共同使用并重新验证；重大采样协议改变再留给用户决策。源端/后处理稳定性问题解决前，不开展候选质量归因或将跨进程视频差异当作候选效果。当前数值负结果仍是工程样本上的机制结果，整个WorldCache方向保持探索状态。

@@ -75,3 +75,55 @@ def summarize(receipt, supervisor):
     return {'status':status, 'candidate_screen_signals':signals, 'candidates':candidates,
             'points':details, 'supervised_gpu_hours':arms[0]['wall_seconds']/3600,
             'scope':'One engineering sample, four dependent selected states on official trajectory; not quality, closed-loop, clean latency, independent CAL or statistical confirmation.'}
+
+
+def compare_recent_revision(initial, revised, artifact_check=None):
+    """Verify the one-variable contrast and the unchanged shrink control."""
+    expected = 'SAME_STATE_CANDIDATE_DIAGNOSTIC_PARITY_PASS_SINGLE_SAMPLE'
+    for receipt in (initial, revised):
+        if receipt.get('status') != expected or not all(v is True for v in receipt['checks'].values()):
+            raise ValueError('Both contrast receipts must pass real-model gates')
+        if len(receipt['runs']) != 2 or any(receipt['runs'][0][k] != receipt['runs'][1][k] for k in PARITY_FIELDS):
+            raise ValueError('Within-run deployment parity failed')
+    left, right = initial['runs'][0], revised['runs'][0]
+    if any(left[k] != right[k] for k in PARITY_FIELDS if k != 'video_sha256') or left['sampling'] != right['sampling']:
+        raise ValueError('Official trajectory changed across revision')
+    videos_equal = left['video_sha256'] == right['video_sha256']
+    decoded_equal = None
+    if not videos_equal:
+        if (not artifact_check or artifact_check.get('status') != 'CROSS_RUN_FULL_DECODE_CHECK'
+                or len(artifact_check.get('runs',[])) != 2
+                or [r['video_sha256'] for r in artifact_check['runs']] != [left['video_sha256'],right['video_sha256']]
+                or any(r['frames'] != 93 or r['shape'] != [432,768,3] or not r['all_frames_same_shape'] for r in artifact_check['runs'])
+                or not artifact_check['timestamps_identical']):
+            raise ValueError('Cross-run video mismatch requires full decode audit; no video reproducibility claim')
+        decoded_equal = artifact_check['decoded_rgb_identical']
+    def setup(r):
+        return {k:v for k,v in r['setup'].items() if k != 'output_dir'}
+    if setup(initial) != setup(revised) or initial['sample'] != revised['sample']:
+        raise ValueError('Inputs/runtime configuration changed')
+    p, q = initial['protocol'], revised['protocol']
+    if p['shadow_calls'] != q['shadow_calls'] or p['sample'] != q['sample']:
+        raise ValueError('Diagnostic points changed')
+    a,b=p['calibration_defaults'],q['calibration_defaults']
+    if a['decay'] != .9 or b['decay'] != 0 or {k:v for k,v in a.items() if k!='decay'} != {k:v for k,v in b.items() if k!='decay'}:
+        raise ValueError('Expected only decay .9 to 0 revision')
+    before, after = initial['runs'][1]['shadow_records'], revised['runs'][1]['shadow_records']
+    if [r['call'] for r in before] != [r['call'] for r in after]:
+        raise ValueError('Changed/missing comparison records')
+    for x,y in zip(before,after):
+        for candidate in ('official','shrink'):
+            for metric in METRICS:
+                if x['candidates'][candidate][metric] != y['candidates'][candidate][metric]:
+                    raise ValueError('Unchanged candidate control differs')
+    ratios={}
+    for metric in METRICS:
+        num=sum(r['candidates']['scalar'][metric]['mse'] for r in after)
+        den=sum(r['candidates']['scalar'][metric]['mse'] for r in before)
+        ratios[metric]=num/den if den>0 else None
+    return {'status':'MATCHED_ONE_VARIABLE_RECENT_PAIR_CONTRAST' if videos_equal else 'MATCHED_DENOISER_ONLY_RECENT_PAIR_CONTRAST',
+            'encoded_video_identical':videos_equal, 'decoded_rgb_identical':decoded_equal,
+            'artifact_reproducibility':'MATCHED' if videos_equal else 'POST_MODEL_VIDEO_MISMATCH_UNRESOLVED',
+            'official_trajectory_identical':True,'shrink_scores_identical':True,
+            'scalar_recent_over_initial_sum_mse_ratio':ratios,
+            'scope':'One AV engineering sample; exact denoiser/cache trajectory and shrink control support numerical contrast only; downstream video mismatch, if present, remains unresolved. Not independent replication, video reproducibility, closed-loop or quality gain.'}
