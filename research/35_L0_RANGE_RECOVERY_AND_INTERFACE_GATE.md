@@ -33,3 +33,9 @@ L0 r2因第二次HTTP流中断exit1/583.253381秒终态；3PIDs2496080/2496081/2
 两边UniPC相同只通过scheduler门；不是完整任务等价。LongLive通用wrapper.forward只支持完整序列T2V，拒绝clean_x/其他非空condition参数；不能直接套到图像条件或动作控制世界模型。默认CFG121帧/few-step125帧，必须明确共同规格，不能靠默认值配对。Wan5B的spatial stride16/temporal4/latent48、1280×704与24fps是源码默认；不把这些默认当显存准入。LongLive原--checkpoint期望adapter；CPU合并全权重应作为新model-dir，不能重复注入adapter。两边原noise构造位置不同，seed同名不证明相同噪声；未来配对需固定实际noise hash/共同入口，原生和适配臂保留同任务条件。
 
 官方推荐Python3.12/torch2.9.1环境仍未验收，当前CPU版本通过不是推理兼容证明。L0剩余：r3全7文件/600×2 finite → bounded真实两臂825融合/全部序列化与未目标权重 → 隔离runtime/model/task接口与共同输入门。L1/GPU新4h尚待用户重大预算决定，不自动训练/付费/人评，主线质量—时间无一致收益的结论保持。
+
+## 后续同日range-r3实际启动
+
+L0 CPU range-r3/sourcebd8253d已唯一实际启动，3PIDs2498231/2498232/2498233都/proc verified live，CPU获取锁持有、CUDA空/source协议hash一致/账本未变。官方精确206/64KiB旧prefix边界preflight通过；已完成2个16MiB chunk、重试0次，已fsync字节589299712（562MiB），另有在途文件长度602931200（575MiB）。未完整1289824400/整SHA验收或两模型融合。复用原530MiB，不改r2失败或扩大GPU预算。
+
+[r3 launch](../reports/l0_adapter_assets_r3_launch_20261001.json)/[live](../reports/l0_adapter_assets_r3_live_observation.json)。继续同handles/owned转发至终态，不重复提交，CPU partial不是L0完整READY。

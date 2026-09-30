@@ -1,3 +1,13 @@
+## 最新运行 — 2026-10-01：L0 range-r3真实live，两小段已成功提交
+
+L0 CPU range-r3/sourcebd8253d已唯一实际启动，3PIDs2498231/2498232/2498233都/proc verified live，CPU获取锁持有、CUDA空/source协议hash一致/账本未变。官方精确206/64KiB旧prefix边界preflight通过；已完成2个16MiB chunk、重试0次，已fsync字节589299712（562MiB），另有在途文件长度602931200（575MiB）。未完整1289824400/整SHA验收或两模型融合。复用原530MiB，不改r2失败或扩大GPU预算。
+
+[唯一r3 launch](../../reports/l0_adapter_assets_r3_launch_20261001.json)/[live](../../reports/l0_adapter_assets_r3_live_observation.json)/[r2终态](../../reports/l0_adapter_assets_r2_audit_20261001.json)/[恢复及接口门](../../research/35_L0_RANGE_RECOVERY_AND_INTERFACE_GATE.md)。继续 .sync/observe_l0_adapter_assets_r3.py 的同handles至终态，不能重跑任何旧launch或settle。r3使用新range manifest与新source；不要改在跑source7文件/协议。owned forward仍在ignored .sync/l0-owned-forward.json（sourcebd8253d），终态逐全7 SHA/真实600×2 finite、PIDs退出/lockfree/source/账本后才只关此r3自有转发，共享FRPC/代理不动。r2旧source已在新部署前存档到服务器ignored .sync/l0-r3-predeployment-old，历史receipt有效；不要重新用旧source helper观察r2。
+
+完整模型融合监督/本地Linux39已准备，真实Wan5B融合仍未提交；下一fresh资源/固定stage deployment/唯一job/model identity，cap3600，全825×2/serialization/未目标weight与输入hash验收。随后共同native任务/noise/条件接口与guidance1只条件分支parity；不能以stock guide1或CPU spy声称GPU调用减半。原GPU账本3.6512467238638138/4h、新4GPUh决定仍待用户，不自动扩额/训练/付费/人评。
+
+## 以下为历史快照
+
 ## 最新接续 — 2026-10-01：L0 r2第二次流中断终态，range39/监督/接口CPU准备
 
 L0 r2因第二次HTTP流中断exit1/583.253381秒终态；3PIDs2496080/2496081/2496082已退出/CPU锁释放、原source/协议核验和GPU账本不变，owned r2转发在完整审计后关闭。few-step保留555745280字节（530MiB），CFG4文件继续官方hash PASS。新16MiB range/retry/rollback/fullSHA获取程序和完整融合监督已实现，本地/Linux39同范围CPU通过；还未r3提交/完整5B融合。

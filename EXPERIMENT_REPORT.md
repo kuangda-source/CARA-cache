@@ -36,6 +36,8 @@
 
 最新L0恢复与接口进展：[range39/真实scheduler/公共管线门](research/35_L0_RANGE_RECOVERY_AND_INTERFACE_GATE.md)。L0 r2因第二次HTTP流中断exit1/583.253381秒终态；3PIDs2496080/2496081/2496082已退出/CPU锁释放、原source/协议核验和GPU账本不变，owned r2转发在完整审计后关闭。few-step保留555745280字节（530MiB），CFG4文件继续官方hash PASS。新16MiB range/retry/rollback/fullSHA获取程序和完整融合监督已实现，本地/Linux39同范围CPU通过；还未r3提交/完整5B融合。 UniPC源码/CPU方程相同，但stock Wan guidance1仍两前向、原默认帧数/noise构造有差异；完整task/GPU parity待验收。
 
+最新实际CPU恢复：L0 CPU range-r3/sourcebd8253d已唯一实际启动，3PIDs2498231/2498232/2498233都/proc verified live，CPU获取锁持有、CUDA空/source协议hash一致/账本未变。官方精确206/64KiB旧prefix边界preflight通过；已完成2个16MiB chunk、重试0次，已fsync字节589299712（562MiB），另有在途文件长度602931200（575MiB）。未完整1289824400/整SHA验收或两模型融合。复用原530MiB，不改r2失败或扩大GPU预算。 [r3 launch](reports/l0_adapter_assets_r3_launch_20261001.json)/[live](reports/l0_adapter_assets_r3_live_observation.json)。
+
 ## 2. 研究背景、假设与判定方式
 
 目标是在相同质量下更快，或在相同时间下质量更好。比较对象应包含合理调参的官方缓存与原生少步采样，避免只超过一个默认配置。研究成功需落在端到端质量—时间曲线上，特征误差降低只作机制证据。
