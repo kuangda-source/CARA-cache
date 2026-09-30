@@ -19,6 +19,7 @@ p.add_argument('--python', required=True)
 p.add_argument('--gpu-uuid', required=True)
 p.add_argument('--output', type=Path, required=True)
 probes = p.add_mutually_exclusive_group()
+probes.add_argument('--stage-witness', action='store_true', help='Two fresh official processes, aggregate 900 seconds')
 probes.add_argument('--w1-same-state', action='store_true', help='W1 three approximators on same official states, at most 900 seconds')
 probes.add_argument('--w1-parity', action='store_true', help='W1 official shadow off/on gate, at most 900 seconds')
 probes.add_argument('--guardrail-only', action='store_true', help='F0 full safety pipeline compatibility probe, at most 420 seconds')
@@ -27,7 +28,7 @@ p.add_argument('--w1-recent-calibration', action='store_true', help='With --w1-s
 a = p.parse_args()
 if a.w1_recent_calibration and not a.w1_same_state:
     p.error('--w1-recent-calibration requires --w1-same-state')
-is_probe = a.probe_only or a.guardrail_only or a.w1_parity or a.w1_same_state
+is_probe = a.stage_witness or a.probe_only or a.guardrail_only or a.w1_parity or a.w1_same_state
 project, runtime, output = a.project.resolve(), a.runtime.resolve(), a.output.resolve()
 lock_path = project / '.sync/f1.lock'; lock_path.parent.mkdir(parents=True, exist_ok=True)
 lock = lock_path.open('a')
@@ -59,21 +60,25 @@ def stop(child):
         os.killpg(child.pid, signal.SIGKILL); child.wait()
 
 save(output / 'supervisor.json', state)
-for mode in (('w1_same_state',) if a.w1_same_state else ('w1_parity',) if a.w1_parity else ('guardrail_pipeline',) if a.guardrail_only else ('core_model_load',) if a.probe_only else ('native', 'worldcache')):
+gate_started = time.monotonic()
+for mode in (('stage_a','stage_b') if a.stage_witness else ('w1_same_state',) if a.w1_same_state else ('w1_parity',) if a.w1_parity else ('guardrail_pipeline',) if a.guardrail_only else ('core_model_load',) if a.probe_only else ('native', 'worldcache')):
     admission = query_gpu()
     if admission['pids'] or admission['memory_used_mib'] > 1024:
         state.update(status='RESOURCE_BUSY', admission=admission); break
     seconds_left = remaining - sum(arm['wall_seconds'] for arm in state['arms'])
     if seconds_left <= 0: state['status'] = 'BUDGET_STOP'; break
-    if is_probe:
+    if a.stage_witness:
+        seconds_left = min(seconds_left, 900 - (time.monotonic() - gate_started))
+        if seconds_left <= 10: state['status'] = 'PROBE_TIMEOUT'; break
+    elif is_probe:
         seconds_left = min(seconds_left, 900 if (a.w1_parity or a.w1_same_state) else 420)
     command = ['timeout', '--kill-after=10', str(max(1, int(seconds_left) - 10)),
                a.python, str(project / 'scripts/run_f1_case_set.py'), '--project', str(project),
                '--mode', mode, '--gpu-uuid', a.gpu_uuid, '--output', str(output / mode)]
     if is_probe:
         command = ['timeout', '--kill-after=10', str(max(1, int(seconds_left) - 10)), a.python,
-                   str(project / ('scripts/check_w1_parity.py' if (a.w1_parity or a.w1_same_state) else 'scripts/check_guardrail_pipeline.py' if a.guardrail_only else 'scripts/check_model_load.py')), '--project', str(project),
-                   '--gpu-uuid', a.gpu_uuid, '--receipt', str(output / ('w1-same-state.json' if a.w1_same_state else 'w1-parity.json' if a.w1_parity else 'guardrail-pipeline.json' if a.guardrail_only else 'core-model-load.json'))]
+                   str(project / ('scripts/check_stage_witness.py' if a.stage_witness else 'scripts/check_w1_parity.py' if (a.w1_parity or a.w1_same_state) else 'scripts/check_guardrail_pipeline.py' if a.guardrail_only else 'scripts/check_model_load.py')), '--project', str(project),
+                   '--gpu-uuid', a.gpu_uuid, '--receipt', str(output / (f'{mode}.json' if a.stage_witness else 'w1-same-state.json' if a.w1_same_state else 'w1-parity.json' if a.w1_parity else 'guardrail-pipeline.json' if a.guardrail_only else 'core-model-load.json'))]
     if a.w1_same_state:
         command.append('--same-state')
         if a.w1_recent_calibration:
@@ -111,7 +116,7 @@ for mode in (('w1_same_state',) if a.w1_same_state else ('w1_parity',) if a.w1_p
                                   'wall_seconds': wall, 'stop_reason': reason})
             budget['used_gpu_hours'] += wall / 3600
             budget['gpu_jobs_launched'] += 1
-            budget['status'] = ('W1_SAME_STATE_REQUIRES_REVIEW' if a.w1_same_state else 'W1_PARITY_REQUIRES_REVIEW' if a.w1_parity else 'F0_GUARDRAIL_PROBE_REQUIRES_REVIEW' if a.guardrail_only else 'F0_LOAD_PROBE_REQUIRES_REVIEW' if a.probe_only
+            budget['status'] = ('STAGE_WITNESS_REQUIRES_REVIEW' if a.stage_witness else 'W1_SAME_STATE_REQUIRES_REVIEW' if a.w1_same_state else 'W1_PARITY_REQUIRES_REVIEW' if a.w1_parity else 'F0_GUARDRAIL_PROBE_REQUIRES_REVIEW' if a.guardrail_only else 'F0_LOAD_PROBE_REQUIRES_REVIEW' if a.probe_only
                                 else 'F1_EXECUTION_REQUIRES_RESULT_REVIEW')
             budget['accounting'] = 'Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts'
             save(budget_path, budget)
@@ -119,6 +124,6 @@ for mode in (('w1_same_state',) if a.w1_same_state else ('w1_parity',) if a.w1_p
             save(output / 'supervisor.json', state)
     if reason or child.returncode != 0: break
 else:
-    state['status'] = ('W1_SAME_STATE_EXITED_REQUIRES_REVIEW' if a.w1_same_state else 'W1_PARITY_EXITED_REQUIRES_REVIEW' if a.w1_parity else 'GUARDRAIL_PROBE_EXITED_REQUIRES_REVIEW' if a.guardrail_only else 'CORE_LOAD_EXITED_REQUIRES_STATE_REVIEW' if a.probe_only
+    state['status'] = ('STAGE_WITNESS_EXITED_REQUIRES_REVIEW' if a.stage_witness else 'W1_SAME_STATE_EXITED_REQUIRES_REVIEW' if a.w1_same_state else 'W1_PARITY_EXITED_REQUIRES_REVIEW' if a.w1_parity else 'GUARDRAIL_PROBE_EXITED_REQUIRES_REVIEW' if a.guardrail_only else 'CORE_LOAD_EXITED_REQUIRES_STATE_REVIEW' if a.probe_only
                        else 'PAIR_EXITED_AWAITING_RECEIPT_AND_VIDEO_REVIEW')
 save(output / 'supervisor.json', state)
