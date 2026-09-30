@@ -1,3 +1,11 @@
+## 最新实际进度 — CFG-only整臂825/3完成，两臂任务仍live
+
+fusion-r1/sourcec69e492同3PIDs实际live，CFG-only一臂已全部825张量/3分片完成融合、独立公式、有限性、未目标字节不变与序列化重读验收；完整两臂及末尾原输入hash尚未完成。CPU锁持有/source一致/账本未变，维持3600秒cap，不重复启动。
+
+[同job观察](../../reports/l0_cpu_fusion_r1_live_observation.json)。完整source60/隔离probe准备见下；本进度不是任务终态/实际模型或GPU验收。
+
+## 以下为历史快照
+
 ## 最新准备 — 全60原生source验收，CPU融合同handles进行
 
 官方固定Wan运行源码60文件已独立部署/全Gitblob与SHA匹配；旧参考import观察超时、PID后续消失，结果UNKNOWN。参考环境满足官方requirements版本元数据；新隔离env/full native import尚未通过。带PID/阶段持久回执的CPU runtime probe已准备/仅语法检查，未执行。fusion-r1仍同handles/3600秒CPU cap，CFG-only已有413tensor/首shard验收，尚未全两臂验收。

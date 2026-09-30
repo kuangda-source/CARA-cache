@@ -13,3 +13,5 @@ L0 range-r4/source7c0f2ec唯一实际续传成功，exit0/31.271029秒，最后1
 真实Wan5B两臂CPU fusion-r1/sourcec69e492已唯一启动。supervisor2502473/timeout2502474/runner2502475实际/proc live，独立fusion锁持有、CUDA空/source固定与账本未变。准入时MemAvailable59360669696字节（55.3GiB）、磁盘720206147584字节（670.7GiB）；3600秒CPU cap，当前完整输入hash阶段/未创建模型目录，尚未完成merge或产物验收。
 
 [唯一launch](../reports/l0_cpu_fusion_r1_launch_20261001.json)/[当前观察](../reports/l0_cpu_fusion_r1_live_observation.json)。固定.stage `.sync/l0-assets-range-cpu-r1-20261001`/deployment-real-fusion-r1.json不可在跑时更改；job `outputs/l0-cpu-fusion-r1`，model `l0-fused-models-r1`。观察失败先核同PIDs/输出，不重复launch。exit0后仍要全2×825/各3shard digest、serialized tensor/未目标/输入前后hash/finite与矩阵公式、PID退出/锁/source/账本终态核验。
+
+最新实际进度：fusion-r1/sourcec69e492同3PIDs实际live，CFG-only一臂已全部825张量/3分片完成融合、独立公式、有限性、未目标字节不变与序列化重读验收；完整两臂及末尾原输入hash尚未完成。CPU锁持有/source一致/账本未变，维持3600秒cap，不重复启动。
