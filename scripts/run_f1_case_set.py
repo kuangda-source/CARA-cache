@@ -28,7 +28,7 @@ os.environ['HF_HUB_OFFLINE'] = '1'
 os.environ['TRANSFORMERS_OFFLINE'] = '1'
 sys.path.insert(0, str(project / 'src'))
 state = {'stage': 'F1_SMOKE', 'mode': args.mode, 'pid': os.getpid(),
-         'started_unix': time.time(), 'status': 'INITIALIZING', 'samples': []}
+         'started_unix': time.time(), 'status': 'INITIALIZING', 'samples': [], 'rejections': []}
 
 def save():
     tmp = output / 'receipt.tmp'
@@ -64,6 +64,7 @@ try:
     from cosmos_predict2._src.imaginaire.auxiliary.guardrail.common import presets
     from wcomr.measurement import StageTimes, BlockCounts
     from wcomr.protocol import validate_schedule
+    from wcomr.guardrail_observation import GuardrailObservation
     policy_path = project / 'manifests/f1_runtime_protocol.json'
     policy = json.loads(policy_path.read_text())
     scheduler_source = runtime / 'cosmos_predict2/_src/predict2/models/fm_solvers_unipc.py'
@@ -75,8 +76,16 @@ try:
     params = json.loads((project / 'configs/f1_setup.json').read_text())
     if params['disable_guardrails'] or params['use_torch_compile']:
         raise ValueError('Unsupported change to frozen F1 execution profile')
+    outcome_policy = json.loads((project / 'manifests/f1_outcome_protocol.json').read_text())
+    if sha(runtime / 'cosmos_predict2/inference.py') != outcome_policy['inference_source_sha256']:
+        raise RuntimeError('Inference source differs from outcome protocol')
+    if outcome_policy['version'] != 1 or outcome_policy['keep_going'] is not True:
+        raise RuntimeError('Unsupported outcome protocol')
+    state['outcome_protocol'] = outcome_policy
+    params['keep_going'] = True  # official filtering stays active; rejected outputs are never saved
     params.update(output_dir=str(output), worldcache_enabled=args.mode == 'worldcache')
     samples = InferenceArguments.from_files([project / 'configs/smoke.jsonl'])
+    state['expected_samples'] = [sample.name for sample in samples]
     setup = SetupArguments(**params)
     from wcomr.runtime_config import install_core_inference_registration
     state['registration_adapter'] = install_core_inference_registration(setup.model, setup.experiment)
@@ -103,16 +112,46 @@ try:
     timing.wrap(presets, 'run_video_guardrail', 'video_guardrail')
     if model.text_encoder is not None:
         timing.wrap(model.text_encoder, 'compute_text_embeddings_online', 'text_encoding')
+    guardrails = GuardrailObservation(presets)
     save()
     try:
         for index, sample in enumerate(samples):
-            timing.reset(); counts.reset()
+            timing.reset(); counts.reset(); guardrails.reset()
+            state.pop('pending_sample', None)
             torch.cuda.reset_peak_memory_stats()
             torch.cuda.synchronize(); start = time.perf_counter()
             state['current_sample'] = sample.name; save()
             paths = inference.generate([sample], output_dir=output)
             torch.cuda.synchronize()
             total = time.perf_counter() - start
+            outcome = guardrails.classify(paths)
+            block_counts = counts.result()
+            # Preserve the observation before any protocol assertion can reject it.
+            # A failed run must still explain actual scheduler/block behavior.
+            scheduler = getattr(model, 'sample_scheduler', None)
+            state['pending_sample'] = {
+                'name': sample.name, 'outcome': outcome, 'guardrail_events': guardrails.events,
+                'end_to_end_seconds': total, 'stages': timing.values,
+                'block_counts': block_counts,
+                'scheduler_class': type(scheduler).__name__,
+                'scheduler_config': dict(scheduler.config) if scheduler is not None else None,
+                'requested_steps': sample.num_steps,
+                'actual_schedule_steps': len(scheduler.timesteps) if outcome != 'TEXT_REJECTED' else None,
+                'timesteps': scheduler.timesteps.detach().cpu().tolist() if outcome != 'TEXT_REJECTED' else None,
+                'use_kerras_sigma': model.config.use_kerras_sigma_at_inference,
+                'worldcache_horizon': getattr(model.net, 'worldcache_num_steps', None),
+                'denoiser_trace': counts.trace,
+            }
+            save()
+            if outcome != 'TEXT_REJECTED':
+                validate_schedule(state['pending_sample'], block_counts, policy, args.mode)
+            elif block_counts['denoiser_calls'] != 0:
+                raise RuntimeError('Text rejection unexpectedly generated')
+            if outcome != 'ACCEPTED':
+                state['rejections'].append({'name': sample.name, 'index': index,
+                    'outcome': outcome, 'sampling': state['pending_sample']})
+                save()
+                continue
             if len(paths) != 1 or not Path(paths[0]).is_file():
                 raise RuntimeError('Expected one accepted generated video')
             path = Path(paths[0])
@@ -125,25 +164,7 @@ try:
                 raise RuntimeError('Generated output specification mismatch')
             if Fraction(stream['r_frame_rate']) != 16:
                 raise RuntimeError('Unexpected output frame rate')
-            block_counts = counts.result()
-            # Preserve the observation before any protocol assertion can reject it.
-            # A failed run must still explain actual scheduler/block behavior.
-            scheduler = model.sample_scheduler
-            state['pending_sample'] = {
-                'name': sample.name, 'path': str(path), 'ffprobe': stream,
-                'end_to_end_seconds': total, 'stages': timing.values,
-                'block_counts': block_counts,
-                'scheduler_class': type(scheduler).__name__,
-                'scheduler_config': dict(scheduler.config),
-                'requested_steps': sample.num_steps,
-                'actual_schedule_steps': len(scheduler.timesteps),
-                'timesteps': scheduler.timesteps.detach().cpu().tolist(),
-                'use_kerras_sigma': model.config.use_kerras_sigma_at_inference,
-                'worldcache_horizon': getattr(model.net, 'worldcache_num_steps', None),
-                'denoiser_trace': counts.trace,
-            }
-            save()
-            validate_schedule(state['pending_sample'], block_counts, policy, args.mode)
+
             state['samples'].append({'name': sample.name, 'index': index,
                 'cold_first_sample': index == 0, 'end_to_end_seconds': total,
                 'stages': timing.values, 'block_counts': block_counts,
@@ -153,8 +174,11 @@ try:
                 'path': str(path), 'sha256': sha(path), 'bytes': path.stat().st_size, 'ffprobe': stream})
             save()
     finally:
-        timing.close(); counts.close()
-    state['status'] = 'TECHNICAL_PASS_AWAITING_VIDEO_REVIEW'
+        guardrails.close(); timing.close(); counts.close()
+    if len(state['samples']) + len(state['rejections']) != len(samples):
+        raise RuntimeError('Incomplete attempted batch')
+    state['status'] = ('ATTEMPTED_ALL_WITH_REJECTIONS' if state['rejections']
+                       else 'TECHNICAL_PASS_AWAITING_VIDEO_REVIEW')
     cleanup_environment()
 except BaseException as exc:
     state.update(status='FAILED', error_type=type(exc).__name__, error=str(exc))

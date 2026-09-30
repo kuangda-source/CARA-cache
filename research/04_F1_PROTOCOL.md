@@ -14,7 +14,7 @@ Record process import/load overhead separately from each sample's generation, gu
 
 The upstream resets PyTorch peak memory inside generation. Runner CUDA peak fields explicitly refer to the period after the most recent upstream reset, not whole-run peak. The supervisor separately samples nvidia-smi every ~5 seconds across import/load/generation, retaining observed memory and other compute processes; that is sampled peak, not exact instantaneous peak.
 
-Validate 93 decoded frames, 432x768, 16 fps and 72 CFG denoiser calls (35 requested,36 actual UniPC/Karras steps; user-approved current-code protocol). A blocked/missing/malformed output fails the arm rather than silently shrinking the sample count. Save video size and SHA256. Review every full video before scientific interpretation; a technical pass is not a quality result.
+Validate 93 decoded frames, 432x768, 16 fps and 72 CFG denoiser calls (35 requested,36 actual UniPC/Karras steps; user-approved current-code protocol). Outcome protocol v1 records explicit text/video guardrail rejections and continues the other frozen cases using official keep_going=True. Rejected video is never saved. Missing outputs without an observed rejection, malformed outputs and unexpected exceptions still fail the arm. The batch denominator always includes all four cases; any rejection prevents a whole-batch technical-pass claim. Save video size and SHA256. Review every full video before scientific interpretation; a technical pass is not a quality result.
 
 ## Launch conditions and durable execution
 
@@ -27,3 +27,7 @@ The supervisor aborts its own process group if another compute process appears o
 Status: User approved completing the current-code protocol on2026-09-30. R1 failed its former70-call assertion; r2 validates the exact36-point time grid and72calls, retaining the unchanged70-call WC reset horizon. This is not paper35Euler reproduction.
 
 Registration adaptation: the pinned config imports the user example-training package, whose GR00T 14B example eagerly resolves a 14B checkpoint. For the frozen 2B post-trained experiment, src/wcomr/runtime_config.py skips that one package root and retains the official internal experiment registration. It checks the source hash and refuses any other model/experiment. Both arms apply it. See manifests/runtime_adaptations.json. This is an explicit runtime adaptation, not an unmodified upstream reproduction.
+
+## Outcome protocol v1 / r3
+
+After r2 video rejection, both arms use the official keep_going option under manifests/f1_outcome_protocol.json. Return-value observation preserves every filter decision and distinguishes TEXT_REJECTED / VIDEO_REJECTED from crashes or missing artifacts. A complete attempted arm with rejections exits zero for serial execution but its receipt status is ATTEMPTED_ALL_WITH_REJECTIONS, not TECHNICAL_PASS. Both arms run fresh in r3; r2 is not mixed into timing. No scene replacements, seed changes or filter bypass. Estimated two-arm cost under 1 GPUh based on current Native process/sample costs, within 3.526702h remaining; actual supervisor accounting remains authoritative.
