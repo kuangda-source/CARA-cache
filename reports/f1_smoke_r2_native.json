@@ -1,0 +1,1622 @@
+{
+  "stage": "F1_SMOKE",
+  "mode": "native",
+  "pid": 2427729,
+  "started_unix": 1790757498.8874607,
+  "status": "FAILED",
+  "samples": [
+    {
+      "name": "av_002b815b-7595-4d54-a9f4-4c62c83d3009",
+      "index": 0,
+      "cold_first_sample": true,
+      "end_to_end_seconds": 312.33256503613666,
+      "stages": {
+        "text_guardrail": {
+          "calls": 1,
+          "seconds": 9.24771179119125
+        },
+        "text_encoding": {
+          "calls": 2,
+          "seconds": 1.2082103262655437
+        },
+        "denoising": {
+          "calls": 1,
+          "seconds": 257.31932150386274
+        },
+        "decode": {
+          "calls": 1,
+          "seconds": 7.2456260728649795
+        },
+        "video_guardrail": {
+          "calls": 1,
+          "seconds": 9.847747194115072
+        }
+      },
+      "block_counts": {
+        "denoiser_calls": 72,
+        "full_calls": 72,
+        "skipped_deep_calls": 0
+      },
+      "sampling": {
+        "name": "av_002b815b-7595-4d54-a9f4-4c62c83d3009",
+        "path": "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/outputs/f1-smoke-r2/native/av_002b815b-7595-4d54-a9f4-4c62c83d3009.mp4",
+        "ffprobe": {
+          "width": 768,
+          "height": 432,
+          "r_frame_rate": "16/1",
+          "nb_read_frames": "93"
+        },
+        "end_to_end_seconds": 312.33256503613666,
+        "stages": {
+          "text_guardrail": {
+            "calls": 1,
+            "seconds": 9.24771179119125
+          },
+          "text_encoding": {
+            "calls": 2,
+            "seconds": 1.2082103262655437
+          },
+          "denoising": {
+            "calls": 1,
+            "seconds": 257.31932150386274
+          },
+          "decode": {
+            "calls": 1,
+            "seconds": 7.2456260728649795
+          },
+          "video_guardrail": {
+            "calls": 1,
+            "seconds": 9.847747194115072
+          }
+        },
+        "block_counts": {
+          "denoiser_calls": 72,
+          "full_calls": 72,
+          "skipped_deep_calls": 0
+        },
+        "scheduler_class": "FlowUniPCMultistepScheduler",
+        "scheduler_config": {
+          "num_train_timesteps": 1000,
+          "solver_order": 2,
+          "prediction_type": "flow_prediction",
+          "shift": 1,
+          "use_dynamic_shifting": false,
+          "thresholding": false,
+          "dynamic_thresholding_ratio": 0.995,
+          "sample_max_value": 1.0,
+          "predict_x0": true,
+          "solver_type": "bh2",
+          "lower_order_final": true,
+          "disable_corrector": [],
+          "solver_p": null,
+          "timestep_spacing": "linspace",
+          "steps_offset": 0,
+          "final_sigmas_type": "zero",
+          "_use_default_values": [
+            "prediction_type",
+            "timestep_spacing",
+            "sample_max_value",
+            "final_sigmas_type",
+            "disable_corrector",
+            "lower_order_final",
+            "thresholding",
+            "solver_order",
+            "solver_type",
+            "dynamic_thresholding_ratio",
+            "steps_offset",
+            "solver_p",
+            "predict_x0"
+          ]
+        },
+        "requested_steps": 35,
+        "actual_schedule_steps": 36,
+        "timesteps": [
+          995,
+          994,
+          993,
+          992,
+          990,
+          988,
+          986,
+          984,
+          981,
+          977,
+          973,
+          967,
+          960,
+          951,
+          941,
+          927,
+          910,
+          889,
+          863,
+          831,
+          791,
+          742,
+          684,
+          618,
+          543,
+          462,
+          380,
+          301,
+          228,
+          166,
+          116,
+          77,
+          49,
+          30,
+          17,
+          9
+        ],
+        "use_kerras_sigma": true,
+        "worldcache_horizon": null,
+        "denoiser_trace": [
+          {
+            "call": 1,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 2,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 3,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 4,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 5,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 6,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 7,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 8,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 9,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 10,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 11,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 12,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 13,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 14,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 15,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 16,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 17,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 18,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 19,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 20,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 21,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 22,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 23,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 24,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 25,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 26,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 27,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 28,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 29,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 30,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 31,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 32,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 33,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 34,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 35,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 36,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 37,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 38,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 39,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 40,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 41,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 42,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 43,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 44,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 45,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 46,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 47,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 48,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 49,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 50,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 51,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 52,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 53,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 54,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 55,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 56,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 57,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 58,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 59,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 60,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 61,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 62,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 63,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 64,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 65,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 66,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 67,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 68,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 69,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 70,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 71,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 72,
+            "cache_counter_before": null,
+            "deep_executed": true
+          }
+        ]
+      },
+      "peak_allocated_bytes_since_upstream_last_reset": 25005734912,
+      "peak_reserved_bytes_since_upstream_last_reset": 25616711680,
+      "path": "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/outputs/f1-smoke-r2/native/av_002b815b-7595-4d54-a9f4-4c62c83d3009.mp4",
+      "sha256": "173e7a9129b3c47ede7b371cd154ce848d18b53af89b04f008bfd448d6dc8d8d",
+      "bytes": 1392057,
+      "ffprobe": {
+        "width": 768,
+        "height": 432,
+        "r_frame_rate": "16/1",
+        "nb_read_frames": "93"
+      }
+    },
+    {
+      "name": "common_sense_049c9292-db5f-490b-a72b-546775e8156c",
+      "index": 1,
+      "cold_first_sample": false,
+      "end_to_end_seconds": 298.3098442177288,
+      "stages": {
+        "text_guardrail": {
+          "calls": 1,
+          "seconds": 4.895206101704389
+        },
+        "text_encoding": {
+          "calls": 2,
+          "seconds": 0.251362472306937
+        },
+        "denoising": {
+          "calls": 1,
+          "seconds": 249.31492285523564
+        },
+        "decode": {
+          "calls": 1,
+          "seconds": 5.739141315687448
+        },
+        "video_guardrail": {
+          "calls": 1,
+          "seconds": 9.636399270966649
+        }
+      },
+      "block_counts": {
+        "denoiser_calls": 72,
+        "full_calls": 72,
+        "skipped_deep_calls": 0
+      },
+      "sampling": {
+        "name": "common_sense_049c9292-db5f-490b-a72b-546775e8156c",
+        "path": "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/outputs/f1-smoke-r2/native/common_sense_049c9292-db5f-490b-a72b-546775e8156c.mp4",
+        "ffprobe": {
+          "width": 768,
+          "height": 432,
+          "r_frame_rate": "16/1",
+          "nb_read_frames": "93"
+        },
+        "end_to_end_seconds": 298.3098442177288,
+        "stages": {
+          "text_guardrail": {
+            "calls": 1,
+            "seconds": 4.895206101704389
+          },
+          "text_encoding": {
+            "calls": 2,
+            "seconds": 0.251362472306937
+          },
+          "denoising": {
+            "calls": 1,
+            "seconds": 249.31492285523564
+          },
+          "decode": {
+            "calls": 1,
+            "seconds": 5.739141315687448
+          },
+          "video_guardrail": {
+            "calls": 1,
+            "seconds": 9.636399270966649
+          }
+        },
+        "block_counts": {
+          "denoiser_calls": 72,
+          "full_calls": 72,
+          "skipped_deep_calls": 0
+        },
+        "scheduler_class": "FlowUniPCMultistepScheduler",
+        "scheduler_config": {
+          "num_train_timesteps": 1000,
+          "solver_order": 2,
+          "prediction_type": "flow_prediction",
+          "shift": 1,
+          "use_dynamic_shifting": false,
+          "thresholding": false,
+          "dynamic_thresholding_ratio": 0.995,
+          "sample_max_value": 1.0,
+          "predict_x0": true,
+          "solver_type": "bh2",
+          "lower_order_final": true,
+          "disable_corrector": [],
+          "solver_p": null,
+          "timestep_spacing": "linspace",
+          "steps_offset": 0,
+          "final_sigmas_type": "zero",
+          "_use_default_values": [
+            "prediction_type",
+            "timestep_spacing",
+            "sample_max_value",
+            "final_sigmas_type",
+            "disable_corrector",
+            "lower_order_final",
+            "thresholding",
+            "solver_order",
+            "solver_type",
+            "dynamic_thresholding_ratio",
+            "steps_offset",
+            "solver_p",
+            "predict_x0"
+          ]
+        },
+        "requested_steps": 35,
+        "actual_schedule_steps": 36,
+        "timesteps": [
+          995,
+          994,
+          993,
+          992,
+          990,
+          988,
+          986,
+          984,
+          981,
+          977,
+          973,
+          967,
+          960,
+          951,
+          941,
+          927,
+          910,
+          889,
+          863,
+          831,
+          791,
+          742,
+          684,
+          618,
+          543,
+          462,
+          380,
+          301,
+          228,
+          166,
+          116,
+          77,
+          49,
+          30,
+          17,
+          9
+        ],
+        "use_kerras_sigma": true,
+        "worldcache_horizon": null,
+        "denoiser_trace": [
+          {
+            "call": 1,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 2,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 3,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 4,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 5,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 6,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 7,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 8,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 9,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 10,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 11,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 12,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 13,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 14,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 15,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 16,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 17,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 18,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 19,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 20,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 21,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 22,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 23,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 24,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 25,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 26,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 27,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 28,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 29,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 30,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 31,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 32,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 33,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 34,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 35,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 36,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 37,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 38,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 39,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 40,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 41,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 42,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 43,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 44,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 45,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 46,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 47,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 48,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 49,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 50,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 51,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 52,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 53,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 54,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 55,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 56,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 57,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 58,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 59,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 60,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 61,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 62,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 63,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 64,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 65,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 66,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 67,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 68,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 69,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 70,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 71,
+            "cache_counter_before": null,
+            "deep_executed": true
+          },
+          {
+            "call": 72,
+            "cache_counter_before": null,
+            "deep_executed": true
+          }
+        ]
+      },
+      "peak_allocated_bytes_since_upstream_last_reset": 25003916800,
+      "peak_reserved_bytes_since_upstream_last_reset": 25591545856,
+      "path": "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/outputs/f1-smoke-r2/native/common_sense_049c9292-db5f-490b-a72b-546775e8156c.mp4",
+      "sha256": "b7f617acb09bb87d82918ca9bf524f0101656fd56fdbc99b4bb222a36310956d",
+      "bytes": 941506,
+      "ffprobe": {
+        "width": 768,
+        "height": 432,
+        "r_frame_rate": "16/1",
+        "nb_read_frames": "93"
+      }
+    }
+  ],
+  "source_completion_commit": "a2c298b0a3df3778b973fe65e9e58877b292d8a7",
+  "sampling_protocol": {
+    "name": "public_code_unipc_karras_35_requested_36_actual",
+    "approved_by_user": "2026-09-30: \u5148\u5b8c\u6210\u5f53\u524d\u4ee3\u7801\u6280\u672f\u5bf9\u7167",
+    "scheduler_source_sha256": "f6a06c75f059693ade6c802e99f6058575969b6a71ef18ab05e7ed46701053d3",
+    "scheduler_class": "FlowUniPCMultistepScheduler",
+    "requested_steps": 35,
+    "actual_steps": 36,
+    "cfg_calls": 72,
+    "use_kerras_sigma": true,
+    "timesteps": [
+      995,
+      994,
+      993,
+      992,
+      990,
+      988,
+      986,
+      984,
+      981,
+      977,
+      973,
+      967,
+      960,
+      951,
+      941,
+      927,
+      910,
+      889,
+      863,
+      831,
+      791,
+      742,
+      684,
+      618,
+      543,
+      462,
+      380,
+      301,
+      228,
+      166,
+      116,
+      77,
+      49,
+      30,
+      17,
+      9
+    ],
+    "worldcache_horizon": 70,
+    "scope": "Current completed public-code technical comparison, not paper Euler reproduction"
+  },
+  "sampling_protocol_sha256": "c4f580da88c78e4e68a533b2b58b16a82c9ea4935656642faa9e5149d29a4ed7",
+  "registration_adapter": {
+    "config_sha256": "0ccb2fbdf4d997a680c50cfe3a52b22e85c285464884177ce7822b969ad2ddd9",
+    "excluded_package": "cosmos_predict2.experiments",
+    "selected_experiment": "Stage-c_pt_4-Index-2-Size-2B-Res-720-Fps-16-Note-rf_with_edm_ckpt",
+    "scope": "exclude unrelated example training registration only"
+  },
+  "setup": {
+    "output_dir": "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/outputs/f1-smoke-r2/native",
+    "model": "2B/post-trained",
+    "checkpoint_path": "/home/gaokuangda/data/gkd/worldcache_omr/hfhub/models--nvidia--Cosmos-Predict2.5-2B/snapshots/15a82a2ec231bc318692aa0456a36537c806e7d4/base/post-trained/81edfebe-bd6a-4039-8c1d-737df1a790bf_ema_bf16.pt",
+    "experiment": "Stage-c_pt_4-Index-2-Size-2B-Res-720-Fps-16-Note-rf_with_edm_ckpt",
+    "config_file": "cosmos_predict2/_src/predict2/configs/video2world/config.py",
+    "context_parallel_size": 1,
+    "offload_diffusion_model": false,
+    "offload_tokenizer": true,
+    "offload_text_encoder": true,
+    "disable_guardrails": false,
+    "offload_guardrail_models": true,
+    "keep_going": false,
+    "profile": false,
+    "worldcache_enabled": false,
+    "worldcache_num_steps": 35,
+    "worldcache_rel_l1_thresh": 0.06,
+    "worldcache_ret_ratio": 0.2,
+    "worldcache_probe_depth": 2,
+    "worldcache_motion_sensitivity": 2.0,
+    "worldcache_flow_enabled": true,
+    "worldcache_flow_scale": 2.0,
+    "worldcache_saliency_enabled": true,
+    "worldcache_saliency_weight": 1.0,
+    "worldcache_osi_enabled": true,
+    "worldcache_dynamic_decay": true,
+    "use_torch_compile": false
+  },
+  "input_sha256": "c90715f39ee298c95678e026834c9f8d7db9408ecaaded9022cd3758301dc7b7",
+  "profile_sha256": "ffc7fa84d38667236cda4a2f0825b57d832cee0378d637ba375d6e6ea3c60a9f",
+  "torch": "2.7.1+cu128",
+  "cuda": "12.8",
+  "measurement": "Synchronized stage boundaries and two block hooks in both arms; first sample includes cold effects",
+  "model_load_seconds": 78.33762549003586,
+  "current_sample": "physics_001",
+  "pending_sample": {
+    "name": "common_sense_049c9292-db5f-490b-a72b-546775e8156c",
+    "path": "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/outputs/f1-smoke-r2/native/common_sense_049c9292-db5f-490b-a72b-546775e8156c.mp4",
+    "ffprobe": {
+      "width": 768,
+      "height": 432,
+      "r_frame_rate": "16/1",
+      "nb_read_frames": "93"
+    },
+    "end_to_end_seconds": 298.3098442177288,
+    "stages": {
+      "text_guardrail": {
+        "calls": 1,
+        "seconds": 4.895206101704389
+      },
+      "text_encoding": {
+        "calls": 2,
+        "seconds": 0.251362472306937
+      },
+      "denoising": {
+        "calls": 1,
+        "seconds": 249.31492285523564
+      },
+      "decode": {
+        "calls": 1,
+        "seconds": 5.739141315687448
+      },
+      "video_guardrail": {
+        "calls": 1,
+        "seconds": 9.636399270966649
+      }
+    },
+    "block_counts": {
+      "denoiser_calls": 72,
+      "full_calls": 72,
+      "skipped_deep_calls": 0
+    },
+    "scheduler_class": "FlowUniPCMultistepScheduler",
+    "scheduler_config": {
+      "num_train_timesteps": 1000,
+      "solver_order": 2,
+      "prediction_type": "flow_prediction",
+      "shift": 1,
+      "use_dynamic_shifting": false,
+      "thresholding": false,
+      "dynamic_thresholding_ratio": 0.995,
+      "sample_max_value": 1.0,
+      "predict_x0": true,
+      "solver_type": "bh2",
+      "lower_order_final": true,
+      "disable_corrector": [],
+      "solver_p": null,
+      "timestep_spacing": "linspace",
+      "steps_offset": 0,
+      "final_sigmas_type": "zero",
+      "_use_default_values": [
+        "prediction_type",
+        "timestep_spacing",
+        "sample_max_value",
+        "final_sigmas_type",
+        "disable_corrector",
+        "lower_order_final",
+        "thresholding",
+        "solver_order",
+        "solver_type",
+        "dynamic_thresholding_ratio",
+        "steps_offset",
+        "solver_p",
+        "predict_x0"
+      ]
+    },
+    "requested_steps": 35,
+    "actual_schedule_steps": 36,
+    "timesteps": [
+      995,
+      994,
+      993,
+      992,
+      990,
+      988,
+      986,
+      984,
+      981,
+      977,
+      973,
+      967,
+      960,
+      951,
+      941,
+      927,
+      910,
+      889,
+      863,
+      831,
+      791,
+      742,
+      684,
+      618,
+      543,
+      462,
+      380,
+      301,
+      228,
+      166,
+      116,
+      77,
+      49,
+      30,
+      17,
+      9
+    ],
+    "use_kerras_sigma": true,
+    "worldcache_horizon": null,
+    "denoiser_trace": [
+      {
+        "call": 1,
+        "cache_counter_before": null,
+        "deep_executed": true
+      },
+      {
+        "call": 2,
+        "cache_counter_before": null,
+        "deep_executed": true
+      },
+      {
+        "call": 3,
+        "cache_counter_before": null,
+        "deep_executed": true
+      },
+      {
+        "call": 4,
+        "cache_counter_before": null,
+        "deep_executed": true
+      },
+      {
+        "call": 5,
+        "cache_counter_before": null,
+        "deep_executed": true
+      },
+      {
+        "call": 6,
+        "cache_counter_before": null,
+        "deep_executed": true
+      },
+      {
+        "call": 7,
+        "cache_counter_before": null,
+        "deep_executed": true
+      },
+      {
+        "call": 8,
+        "cache_counter_before": null,
+        "deep_executed": true
+      },
+      {
+        "call": 9,
+        "cache_counter_before": null,
+        "deep_executed": true
+      },
+      {
+        "call": 10,
+        "cache_counter_before": null,
+        "deep_executed": true
+      },
+      {
+        "call": 11,
+        "cache_counter_before": null,
+        "deep_executed": true
+      },
+      {
+        "call": 12,
+        "cache_counter_before": null,
+        "deep_executed": true
+      },
+      {
+        "call": 13,
+        "cache_counter_before": null,
+        "deep_executed": true
+      },
+      {
+        "call": 14,
+        "cache_counter_before": null,
+        "deep_executed": true
+      },
+      {
+        "call": 15,
+        "cache_counter_before": null,
+        "deep_executed": true
+      },
+      {
+        "call": 16,
+        "cache_counter_before": null,
+        "deep_executed": true
+      },
+      {
+        "call": 17,
+        "cache_counter_before": null,
+        "deep_executed": true
+      },
+      {
+        "call": 18,
+        "cache_counter_before": null,
+        "deep_executed": true
+      },
+      {
+        "call": 19,
+        "cache_counter_before": null,
+        "deep_executed": true
+      },
+      {
+        "call": 20,
+        "cache_counter_before": null,
+        "deep_executed": true
+      },
+      {
+        "call": 21,
+        "cache_counter_before": null,
+        "deep_executed": true
+      },
+      {
+        "call": 22,
+        "cache_counter_before": null,
+        "deep_executed": true
+      },
+      {
+        "call": 23,
+        "cache_counter_before": null,
+        "deep_executed": true
+      },
+      {
+        "call": 24,
+        "cache_counter_before": null,
+        "deep_executed": true
+      },
+      {
+        "call": 25,
+        "cache_counter_before": null,
+        "deep_executed": true
+      },
+      {
+        "call": 26,
+        "cache_counter_before": null,
+        "deep_executed": true
+      },
+      {
+        "call": 27,
+        "cache_counter_before": null,
+        "deep_executed": true
+      },
+      {
+        "call": 28,
+        "cache_counter_before": null,
+        "deep_executed": true
+      },
+      {
+        "call": 29,
+        "cache_counter_before": null,
+        "deep_executed": true
+      },
+      {
+        "call": 30,
+        "cache_counter_before": null,
+        "deep_executed": true
+      },
+      {
+        "call": 31,
+        "cache_counter_before": null,
+        "deep_executed": true
+      },
+      {
+        "call": 32,
+        "cache_counter_before": null,
+        "deep_executed": true
+      },
+      {
+        "call": 33,
+        "cache_counter_before": null,
+        "deep_executed": true
+      },
+      {
+        "call": 34,
+        "cache_counter_before": null,
+        "deep_executed": true
+      },
+      {
+        "call": 35,
+        "cache_counter_before": null,
+        "deep_executed": true
+      },
+      {
+        "call": 36,
+        "cache_counter_before": null,
+        "deep_executed": true
+      },
+      {
+        "call": 37,
+        "cache_counter_before": null,
+        "deep_executed": true
+      },
+      {
+        "call": 38,
+        "cache_counter_before": null,
+        "deep_executed": true
+      },
+      {
+        "call": 39,
+        "cache_counter_before": null,
+        "deep_executed": true
+      },
+      {
+        "call": 40,
+        "cache_counter_before": null,
+        "deep_executed": true
+      },
+      {
+        "call": 41,
+        "cache_counter_before": null,
+        "deep_executed": true
+      },
+      {
+        "call": 42,
+        "cache_counter_before": null,
+        "deep_executed": true
+      },
+      {
+        "call": 43,
+        "cache_counter_before": null,
+        "deep_executed": true
+      },
+      {
+        "call": 44,
+        "cache_counter_before": null,
+        "deep_executed": true
+      },
+      {
+        "call": 45,
+        "cache_counter_before": null,
+        "deep_executed": true
+      },
+      {
+        "call": 46,
+        "cache_counter_before": null,
+        "deep_executed": true
+      },
+      {
+        "call": 47,
+        "cache_counter_before": null,
+        "deep_executed": true
+      },
+      {
+        "call": 48,
+        "cache_counter_before": null,
+        "deep_executed": true
+      },
+      {
+        "call": 49,
+        "cache_counter_before": null,
+        "deep_executed": true
+      },
+      {
+        "call": 50,
+        "cache_counter_before": null,
+        "deep_executed": true
+      },
+      {
+        "call": 51,
+        "cache_counter_before": null,
+        "deep_executed": true
+      },
+      {
+        "call": 52,
+        "cache_counter_before": null,
+        "deep_executed": true
+      },
+      {
+        "call": 53,
+        "cache_counter_before": null,
+        "deep_executed": true
+      },
+      {
+        "call": 54,
+        "cache_counter_before": null,
+        "deep_executed": true
+      },
+      {
+        "call": 55,
+        "cache_counter_before": null,
+        "deep_executed": true
+      },
+      {
+        "call": 56,
+        "cache_counter_before": null,
+        "deep_executed": true
+      },
+      {
+        "call": 57,
+        "cache_counter_before": null,
+        "deep_executed": true
+      },
+      {
+        "call": 58,
+        "cache_counter_before": null,
+        "deep_executed": true
+      },
+      {
+        "call": 59,
+        "cache_counter_before": null,
+        "deep_executed": true
+      },
+      {
+        "call": 60,
+        "cache_counter_before": null,
+        "deep_executed": true
+      },
+      {
+        "call": 61,
+        "cache_counter_before": null,
+        "deep_executed": true
+      },
+      {
+        "call": 62,
+        "cache_counter_before": null,
+        "deep_executed": true
+      },
+      {
+        "call": 63,
+        "cache_counter_before": null,
+        "deep_executed": true
+      },
+      {
+        "call": 64,
+        "cache_counter_before": null,
+        "deep_executed": true
+      },
+      {
+        "call": 65,
+        "cache_counter_before": null,
+        "deep_executed": true
+      },
+      {
+        "call": 66,
+        "cache_counter_before": null,
+        "deep_executed": true
+      },
+      {
+        "call": 67,
+        "cache_counter_before": null,
+        "deep_executed": true
+      },
+      {
+        "call": 68,
+        "cache_counter_before": null,
+        "deep_executed": true
+      },
+      {
+        "call": 69,
+        "cache_counter_before": null,
+        "deep_executed": true
+      },
+      {
+        "call": 70,
+        "cache_counter_before": null,
+        "deep_executed": true
+      },
+      {
+        "call": 71,
+        "cache_counter_before": null,
+        "deep_executed": true
+      },
+      {
+        "call": 72,
+        "cache_counter_before": null,
+        "deep_executed": true
+      }
+    ]
+  },
+  "error_type": "Exception",
+  "error": "Guardrail blocked video2world generation.",
+  "ended_unix": 1790758526.5270853,
+  "process_wall_seconds": 1027.639624595642
+}
