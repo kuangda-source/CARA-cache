@@ -21,3 +21,20 @@ def test_download_is_cpu_only_single_identity_and_lock_blocks_duplicates(tmp_pat
         fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
         result=subprocess.run(cmd[:-3]+[str(tmp_path/'out2'),'--python',sys.executable],env=env,capture_output=True,timeout=10)
         assert result.returncode!=0 and not (tmp_path/'out2').exists()
+
+
+@pytest.mark.parametrize('valid',[True,False])
+def test_range_mode_selects_cpu_downloader_only_after_pinned_protocol_gate(tmp_path,valid):
+    project=tmp_path/'project';(project/'scripts').mkdir(parents=True)
+    manifest=project/'manifest.json';protocol={'endpoint':'https://huggingface.co','cpu_download_seconds_cap':3600}
+    if valid:protocol['download_strategy']='bounded_http_ranges'
+    manifest.write_text(json.dumps(protocol))
+    script=project/'scripts/download_l0_adapter_ranges.py';script.write_text("import os,json,sys\nfrom pathlib import Path\nPath(sys.argv[sys.argv.index('--receipt')+1]).write_text(json.dumps({'cuda':os.environ['CUDA_VISIBLE_DEVICES'],'strategy':'ranges'}))\n")
+    binary=tmp_path/'bin';binary.mkdir();timeout=binary/'timeout';timeout.write_text('#!/usr/bin/env python3\nimport os,sys\nos.execv(sys.argv[3],sys.argv[3:])\n');timeout.chmod(0o755)
+    output=tmp_path/'out';cmd=[sys.executable,str(Path(__file__).resolve().parents[1]/'scripts/supervise_asset_download.py'),'--project',str(project),'--manifest',str(manifest),'--output',str(output),'--python',sys.executable,'--range-download']
+    result=subprocess.run(cmd,env=dict(os.environ,PATH=str(binary)+os.pathsep+os.environ['PATH']),capture_output=True,timeout=10)
+    if valid:
+        assert result.returncode==0 and json.loads((output/'download.json').read_text())=={'cuda':'','strategy':'ranges'}
+        assert json.loads((output/'supervisor.json').read_text())['exit_code']==0
+    else:
+        assert result.returncode!=0 and not output.exists()

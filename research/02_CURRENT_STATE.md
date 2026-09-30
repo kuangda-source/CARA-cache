@@ -409,3 +409,9 @@ L0 CPU获取r1因连接中断exit1/1218.181533秒终态，原3PIDs退出/CPU锁�
 L0 CPU r2/source965a502已实际启动且3PIDs2496080/2496081/2496082均/proc核实live，独立CPU锁持有、3600秒上限、source/协议hash一致、CUDA空/账本不变。复用CFG全部已验收4文件，few-step由160MiB续到188743680字节（180MiB），仍非完整/hash验收/融合。r1原连接失败及160MiB保留不改。
 
 接续同一组新r2 handles，不重复提交；[launch](../reports/l0_adapter_assets_r2_launch_20261001.json)/[live](../reports/l0_adapter_assets_r2_live_observation.json)。
+
+## 2026-10-01：L0 r2终态与range39/真实CPU scheduler接口门
+
+L0 r2因第二次HTTP流中断exit1/583.253381秒终态；3PIDs2496080/2496081/2496082已退出/CPU锁释放、原source/协议核验和GPU账本不变，owned r2转发在完整审计后关闭。few-step保留555745280字节（530MiB），CFG4文件继续官方hash PASS。新16MiB range/retry/rollback/fullSHA获取程序和完整融合监督已实现，本地/Linux39同范围CPU通过；还未r3提交/完整5B融合。
+
+见[恢复与接口](35_L0_RANGE_RECOVERY_AND_INTERFACE_GATE.md)，GUIDE1不能靠参数推断单条件前向；无GPU新结果。

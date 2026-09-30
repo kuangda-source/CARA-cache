@@ -1,0 +1,200 @@
+{
+  "status": "PINNED_INTERFACE_AND_REAL_SCHEDULER_CPU_PASS_NATIVE_CFG1_TWO_FORWARD_INTEGRATION_GATE",
+  "started_unix": 1790803925.6722846,
+  "finished_unix": 1790803928.7827082,
+  "runtime": {
+    "torch": "2.7.1+cu128",
+    "diffusers": "0.35.2"
+  },
+  "scheduler_sha256": "0dec8c7ed17f6f2049275c6848113314da6ccec1c8db5bdc89df43c05c6038d9",
+  "native_longlive_scheduler_code_bit_equal": true,
+  "schedules": [
+    {
+      "steps": 4,
+      "shift": 5.0,
+      "timesteps": [
+        999,
+        937,
+        833,
+        624
+      ],
+      "sigmas": [
+        0.9997998476028442,
+        0.9372654557228088,
+        0.8330553770065308,
+        0.6246873736381531,
+        0.0
+      ],
+      "all_synthetic_flow_steps_bit_equal": true,
+      "zero_final_sigma": true
+    },
+    {
+      "steps": 50,
+      "shift": 5.0,
+      "timesteps": [
+        999,
+        995,
+        991,
+        987,
+        982,
+        978,
+        973,
+        968,
+        963,
+        957,
+        952,
+        946,
+        940,
+        934,
+        927,
+        920,
+        913,
+        906,
+        898,
+        890,
+        882,
+        873,
+        863,
+        854,
+        843,
+        833,
+        821,
+        809,
+        796,
+        783,
+        768,
+        753,
+        737,
+        720,
+        701,
+        681,
+        660,
+        636,
+        611,
+        584,
+        555,
+        522,
+        487,
+        448,
+        405,
+        356,
+        302,
+        241,
+        172,
+        92
+      ],
+      "sigmas": [
+        0.9997998476028442,
+        0.9957323670387268,
+        0.9915304780006409,
+        0.987187385559082,
+        0.9826958179473877,
+        0.9780480265617371,
+        0.9732357859611511,
+        0.9682501554489136,
+        0.9630816578865051,
+        0.9577199220657349,
+        0.9521540403366089,
+        0.9463720321655273,
+        0.9403610825538635,
+        0.9341073036193848,
+        0.9275957345962524,
+        0.9208101034164429,
+        0.913732647895813,
+        0.9063441753387451,
+        0.8986237049102783,
+        0.8905484676361084,
+        0.8820932507514954,
+        0.8732306957244873,
+        0.8639306426048279,
+        0.8541598320007324,
+        0.8438816070556641,
+        0.8330553770065308,
+        0.8216361403465271,
+        0.8095738291740417,
+        0.7968124747276306,
+        0.7832895517349243,
+        0.7689347267150879,
+        0.7536689043045044,
+        0.7374023795127869,
+        0.720033586025238,
+        0.7014464139938354,
+        0.6815081238746643,
+        0.6600657105445862,
+        0.6369423866271973,
+        0.6119323968887329,
+        0.5847949981689453,
+        0.5552467703819275,
+        0.5229514837265015,
+        0.48750731348991394,
+        0.44843021035194397,
+        0.40513139963150024,
+        0.35688769817352295,
+        0.3028006851673126,
+        0.24174034595489502,
+        0.17226514220237732,
+        0.09250685572624207,
+        0.0
+      ],
+      "all_synthetic_flow_steps_bit_equal": true,
+      "zero_final_sigma": true
+    }
+  ],
+  "pinned_sample_cpu_spy_calls": [
+    {
+      "steps": 4,
+      "guidance": 1.0,
+      "conditional_calls": 4,
+      "negative_calls": 0,
+      "cpu_spy_only_not_gpu_dit_call_measurement": true
+    },
+    {
+      "steps": 50,
+      "guidance": 1.0,
+      "conditional_calls": 50,
+      "negative_calls": 0,
+      "cpu_spy_only_not_gpu_dit_call_measurement": true
+    },
+    {
+      "steps": 50,
+      "guidance": 5.0,
+      "conditional_calls": 50,
+      "negative_calls": 50,
+      "cpu_spy_only_not_gpu_dit_call_measurement": true
+    }
+  ],
+  "native_source_callsites": [
+    {
+      "method": "t2v",
+      "model_call_source_lines": [
+        380,
+        382
+      ],
+      "scope": "Source callsites only; no actual model execution."
+    },
+    {
+      "method": "i2v",
+      "model_call_source_lines": [
+        580,
+        584
+      ],
+      "scope": "Source callsites only; no actual model execution."
+    }
+  ],
+  "historical_native_file_matches_pinned_public_source": true,
+  "cuda_initialized": false,
+  "gpu_workload_started": false,
+  "actual_model_or_textencoder_vae_loaded": false,
+  "scope": "Real CPU UniPC schedule/step equations with synthetic flow; pinned sample with CPU spy. Native unconditional calls are static source evidence. Not GPU forward counts, model equivalence, full task acceptance, or quality/speed.",
+  "stage": "/home/gaokuangda/data/gkd/worldcache_omr/.sync/l0-interface-cpu-r1-20261001",
+  "exit_code": 0,
+  "budget_unchanged": true,
+  "source_sha256": {
+    "Wan-Video--Wan2.2/wan/textimage2video.py": "228f2fabf23014ed41ec6b8cd713d5be7371bb558501c71a62a0258b491a877b",
+    "Wan-Video--Wan2.2/wan/utils/fm_solvers_unipc.py": "0dec8c7ed17f6f2049275c6848113314da6ccec1c8db5bdc89df43c05c6038d9",
+    "NVlabs--LongLive/LongLive-Plug/utils/config.py": "ef231d5479cad25c4f04c83e1be3c2aad883062f7d4d6fb59a2aec80d1322cb7",
+    "NVlabs--LongLive/LongLive-Plug/wan_5b/utils/fm_solvers_unipc.py": "0dec8c7ed17f6f2049275c6848113314da6ccec1c8db5bdc89df43c05c6038d9",
+    "NVlabs--LongLive/LongLive-Plug/inference.py": "84ae7993c6da546bceff8340a2caa152096fcb1e0a292edf7e29ff97ccdc4305"
+  },
+  "payload_sha256": "0e920d149c4060875e307347bdc6db7e52f666100e2b86d9531f52a5a37fcc4c"
+}

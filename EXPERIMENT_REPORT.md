@@ -34,6 +34,8 @@
 
 最新实际资源运行：L0 CPU r2/source965a502已实际启动且3PIDs2496080/2496081/2496082均/proc核实live，独立CPU锁持有、3600秒上限、source/协议hash一致、CUDA空/账本不变。复用CFG全部已验收4文件，few-step由160MiB续到188743680字节（180MiB），仍非完整/hash验收/融合。r1原连接失败及160MiB保留不改。 见[r2启动](reports/l0_adapter_assets_r2_launch_20261001.json)/[观察](reports/l0_adapter_assets_r2_live_observation.json)。
 
+最新L0恢复与接口进展：[range39/真实scheduler/公共管线门](research/35_L0_RANGE_RECOVERY_AND_INTERFACE_GATE.md)。L0 r2因第二次HTTP流中断exit1/583.253381秒终态；3PIDs2496080/2496081/2496082已退出/CPU锁释放、原source/协议核验和GPU账本不变，owned r2转发在完整审计后关闭。few-step保留555745280字节（530MiB），CFG4文件继续官方hash PASS。新16MiB range/retry/rollback/fullSHA获取程序和完整融合监督已实现，本地/Linux39同范围CPU通过；还未r3提交/完整5B融合。 UniPC源码/CPU方程相同，但stock Wan guidance1仍两前向、原默认帧数/noise构造有差异；完整task/GPU parity待验收。
+
 ## 2. 研究背景、假设与判定方式
 
 目标是在相同质量下更快，或在相同时间下质量更好。比较对象应包含合理调参的官方缓存与原生少步采样，避免只超过一个默认配置。研究成功需落在端到端质量—时间曲线上，特征误差降低只作机制证据。

@@ -1,3 +1,11 @@
+## 最新接续 — 2026-10-01：L0 r2第二次流中断终态，range39/监督/接口CPU准备
+
+L0 r2因第二次HTTP流中断exit1/583.253381秒终态；3PIDs2496080/2496081/2496082已退出/CPU锁释放、原source/协议核验和GPU账本不变，owned r2转发在完整审计后关闭。few-step保留555745280字节（530MiB），CFG4文件继续官方hash PASS。新16MiB range/retry/rollback/fullSHA获取程序和完整融合监督已实现，本地/Linux39同范围CPU通过；还未r3提交/完整5B融合。
+
+[准备与明确接口门](../../research/35_L0_RANGE_RECOVERY_AND_INTERFACE_GATE.md)/[r2完整终态](../../reports/l0_adapter_assets_r2_audit_20261001.json)/[Linux39](../../reports/l0_range_and_fusion_linux_cpu_20261001.json)/[真实scheduler](../../reports/l0_interface_linux_cpu_20261001.json)。下一提交r3前先同步/hash部署新range source，全部旧PIDs与CPU锁再次核实；只新增本任务owned临时forward，不能重跑旧r1/r2 launch/settle。530MiB保留prefix未整体hash。CPU融合监督已实现，但真实5B未启动。新GPU4h仍未批准，stock Wan guidance1会执行两分支，需公共管线显式skip/参照parity与同noise/task接口后才可测L1。
+
+## 以下为历史快照
+
 ## 最新运行 — 2026-10-01：L0 r2同固定资源CPU续传live，CFG全验收/融合CPU22准备
 
 L0 CPU r2/source965a502已实际启动且3PIDs2496080/2496081/2496082均/proc核实live，独立CPU锁持有、3600秒上限、source/协议hash一致、CUDA空/账本不变。复用CFG全部已验收4文件，few-step由160MiB续到188743680字节（180MiB），仍非完整/hash验收/融合。r1原连接失败及160MiB保留不改。

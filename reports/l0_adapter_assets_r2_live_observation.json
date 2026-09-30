@@ -1,8 +1,8 @@
 {
-  "observed_unix": 1790803016.953705,
+  "observed_unix": 1790803959.8470902,
   "supervisor": {
     "pid": 2496080,
-    "status": "RUNNING",
+    "status": "DOWNLOAD_FAILED_OR_TIMEOUT",
     "started_unix": 1790802976.2477145,
     "gpu_workload_started": false,
     "max_cpu_wall_seconds": 3600,
@@ -19,14 +19,17 @@
       "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/hfhub",
       "--receipt",
       "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/outputs/l0-adapter-assets-r2/download.json"
-    ]
+    ],
+    "exit_code": 1,
+    "ended_unix": 1790803559.5013468,
+    "wall_seconds": 583.2533807754517
   },
   "download": {
     "stage": "F0_AUXILIARY_DOWNLOAD",
     "pid": 2496082,
     "started_unix": 1790802976.5334675,
     "gpu_workload_started": false,
-    "status": "RUNNING",
+    "status": "RESOURCE_BLOCKED",
     "completed": [
       {
         "repo_id": "Efficient-Large-Model/LongLive-Plug-Wan2.2-TI2V-5B-cfg",
@@ -56,12 +59,14 @@
         ]
       }
     ],
-    "current": "Efficient-Large-Model/LongLive-Plug-Wan2.2-TI2V-5B-few-step"
+    "current": "Efficient-Large-Model/LongLive-Plug-Wan2.2-TI2V-5B-few-step",
+    "error": "('Connection broken: IncompleteRead(389924198 bytes read, 732128042 more expected)', IncompleteRead(389924198 bytes read, 732128042 more expected))",
+    "ended_unix": 1790803559.3974857
   },
   "processes": {
-    "2496080": "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python /home/gaokuangda/data/gkd/worldcache_omr/scripts/supervise_asset_download.py --project /home/gaokuangda/data/gkd/worldcache_omr --manifest /home/gaokuangda/data/gkd/worldcache_omr/manifests/l0_adapter_acquisition_20261001.json --output /home/gaokuangda/data/gkd/worldcache_omr/outputs/l0-adapter-assets-r2 --python /home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python ",
-    "2496081": "timeout --kill-after=10 3590 /home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/scripts/download_auxiliary.py --manifest /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/manifests/l0_adapter_acquisition_20261001.json --cache /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/hfhub --receipt /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/outputs/l0-adapter-assets-r2/download.json ",
-    "2496082": "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/scripts/download_auxiliary.py --manifest /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/manifests/l0_adapter_acquisition_20261001.json --cache /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/hfhub --receipt /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/outputs/l0-adapter-assets-r2/download.json "
+    "2496080": null,
+    "2496081": null,
+    "2496082": null
   },
   "files": [
     {
@@ -112,7 +117,7 @@
     {
       "repo": "Efficient-Large-Model/LongLive-Plug-Wan2.2-TI2V-5B-few-step",
       "path": "blobs/69807b3bdfc4d9d153a5660dcd70812f9c973eb8bc52861fea19a5e563341316.incomplete",
-      "bytes": 188743680
+      "bytes": 555745280
     },
     {
       "repo": "Efficient-Large-Model/LongLive-Plug-Wan2.2-TI2V-5B-few-step",
@@ -135,7 +140,7 @@
       "bytes": 2641
     }
   ],
-  "cpu_lock_held": true,
+  "cpu_lock_held": false,
   "source_hashes_match": true,
   "budget_unchanged": true,
   "gpu_workload_started": false,
@@ -148,7 +153,7 @@
     "gpu_import_probes_completed": 1,
     "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts"
   },
-  "log_tail_redacted": "\nFetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]\nFetching 4 files: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 4/4 [00:00<00:00, 59705.40it/s]\n\nFetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]",
+  "log_tail_redacted": "venv/lib/python3.10/site-packages/huggingface_hub/_snapshot_download.py\", line 306, in _inner_hf_hub_download\n    return hf_hub_download(\n  File \"/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py\", line 114, in _inner_fn\n    return fn(*args, **kwargs)\n  File \"/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/lib/python3.10/site-packages/huggingface_hub/file_download.py\", line 1014, in hf_hub_download\n    return _hf_hub_download_to_cache_dir(\n  File \"/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/lib/python3.10/site-packages/huggingface_hub/file_download.py\", line 1175, in _hf_hub_download_to_cache_dir\n    _download_to_tmp_and_move(\n  File \"/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/lib/python3.10/site-packages/huggingface_hub/file_download.py\", line 1742, in _download_to_tmp_and_move\n    http_get(\n  File \"/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/lib/python3.10/site-packages/huggingface_hub/file_download.py\", line 500, in http_get\n    for chunk in r.iter_content(chunk_size=constants.DOWNLOAD_CHUNK_SIZE):\n  File \"/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/lib/python3.10/site-packages/requests/models.py\", line 822, in generate\n    raise ChunkedEncodingError(e)\nrequests.exceptions.ChunkedEncodingError: ('Connection broken: IncompleteRead(389924198 bytes read, 732128042 more expected)', IncompleteRead(389924198 bytes read, 732128042 more expected))\n",
   "gpu": "GPU-de9a5370-cd87-0f1c-a48e-288888777dd3, 346, 0\nGPU-cebf7119-cf03-23b9-e192-cd196332b704, 24, 0\n",
   "apps": ""
 }
