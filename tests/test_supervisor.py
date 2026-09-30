@@ -112,3 +112,12 @@ def test_same_state_runs_one_budgeted_gate_with_distinct_receipt(tmp_path):
     assert json.loads((project / 'reports/budget.json').read_text())['gpu_jobs_launched'] == 1
     child_env = json.loads((project / 'reports/child_env.json').read_text())
     assert child_env == {'HF_HUB_CACHE':str(project / 'hfhub'), 'HF_HUB_OFFLINE':'1', 'TRANSFORMERS_OFFLINE':'1'}
+
+
+def test_recent_revision_uses_same_bounded_single_job_and_explicit_runner_flag(tmp_path):
+    project, output, cmd, env = fixture(tmp_path, delay=.02)
+    subprocess.run(cmd+['--w1-same-state','--w1-recent-calibration'],env=env,check=True,capture_output=True,timeout=10)
+    state=json.loads((output/'supervisor.json').read_text())
+    assert len(state['arms'])==1
+    assert '--same-state-recent' in state['command']
+    assert int(state['command'][2])<=890

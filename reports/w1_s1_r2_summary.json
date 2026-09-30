@@ -1,0 +1,148 @@
+{
+  "status": "NO_GAIN_IN_SCOPE",
+  "candidate_screen_signals": [],
+  "candidates": {
+    "scalar": {
+      "fallback_count": 0,
+      "metrics": {
+        "prewarp_residual": {
+          "sum_mse_ratio": 1.2684352169165212,
+          "improved_points": 2,
+          "points": 4,
+          "median_point_ratio": 1.1703913692161194,
+          "range_point_ratio": [
+            0.6180711058937576,
+            1.8728870698655093
+          ]
+        },
+        "postwarp_residual": {
+          "sum_mse_ratio": 1.2587341866797848,
+          "improved_points": 2,
+          "points": 4,
+          "median_point_ratio": 1.1597590383306695,
+          "range_point_ratio": [
+            0.6206273398544574,
+            1.8429098851647445
+          ]
+        },
+        "velocity": {
+          "sum_mse_ratio": 2.531189803423113,
+          "improved_points": 2,
+          "points": 4,
+          "median_point_ratio": 2.60682720657705,
+          "range_point_ratio": [
+            0.7439715670688136,
+            5.147508675226679
+          ]
+        }
+      }
+    },
+    "shrink": {
+      "fallback_count": 0,
+      "metrics": {
+        "prewarp_residual": {
+          "sum_mse_ratio": 2.3351003546869737,
+          "improved_points": 2,
+          "points": 4,
+          "median_point_ratio": 1.8095317050984674,
+          "range_point_ratio": [
+            0.827042502148272,
+            4.029627123949543
+          ]
+        },
+        "postwarp_residual": {
+          "sum_mse_ratio": 2.316817031063072,
+          "improved_points": 2,
+          "points": 4,
+          "median_point_ratio": 1.7877509213466816,
+          "range_point_ratio": [
+            0.8268535488763531,
+            3.9618522493149553
+          ]
+        },
+        "velocity": {
+          "sum_mse_ratio": 5.3949803281654765,
+          "improved_points": 2,
+          "points": 4,
+          "median_point_ratio": 3.7331920066392104,
+          "range_point_ratio": [
+            0.8722058319442834,
+            16.546517806125664
+          ]
+        }
+      }
+    }
+  },
+  "points": [
+    {
+      "call": 15,
+      "cfg_branch": 0,
+      "ratios_to_official": {
+        "scalar": {
+          "prewarp_residual": 0.7131592983933969,
+          "postwarp_residual": 0.7227486771958876,
+          "velocity": 0.9782123093745746
+        },
+        "shrink": {
+          "prewarp_residual": 0.8633031221100314,
+          "postwarp_residual": 0.8647925677502312,
+          "velocity": 0.9412361684521572
+        }
+      }
+    },
+    {
+      "call": 16,
+      "cfg_branch": 1,
+      "ratios_to_official": {
+        "scalar": {
+          "prewarp_residual": 0.6180711058937576,
+          "postwarp_residual": 0.6206273398544574,
+          "velocity": 0.7439715670688136
+        },
+        "shrink": {
+          "prewarp_residual": 0.827042502148272,
+          "postwarp_residual": 0.8268535488763531,
+          "velocity": 0.8722058319442834
+        }
+      }
+    },
+    {
+      "call": 37,
+      "cfg_branch": 0,
+      "ratios_to_official": {
+        "scalar": {
+          "prewarp_residual": 1.8728870698655093,
+          "postwarp_residual": 1.8429098851647445,
+          "velocity": 4.235442103779525
+        },
+        "shrink": {
+          "prewarp_residual": 2.7557602880869037,
+          "postwarp_residual": 2.710709274943132,
+          "velocity": 6.525147844826264
+        }
+      }
+    },
+    {
+      "call": 38,
+      "cfg_branch": 1,
+      "ratios_to_official": {
+        "scalar": {
+          "prewarp_residual": 1.6276234400388419,
+          "postwarp_residual": 1.5967693994654513,
+          "velocity": 5.147508675226679
+        },
+        "shrink": {
+          "prewarp_residual": 4.029627123949543,
+          "postwarp_residual": 3.9618522493149553,
+          "velocity": 16.546517806125664
+        }
+      }
+    }
+  ],
+  "supervised_gpu_hours": 0.1466860283083386,
+  "scope": "One engineering sample, four dependent selected states on official trajectory; not quality, closed-loop, clean latency, independent CAL or statistical confirmation.",
+  "inputs": {
+    "receipt": "reports/w1_s1_r2.json",
+    "supervisor": "reports/w1_s1_r2_supervisor.json"
+  }
+}

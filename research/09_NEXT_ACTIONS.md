@@ -1,8 +1,7 @@
-# Next actions — 2026-09-30 recovery complete
+# Next actions — W1-S1 default no-gain; one recent-pair revision
 
-1. F1 r3 已完成，不重跑。Native 3 接受 / 1 视频拒绝，WC 4 接受；三组成对输出的 E2E 比为 1.476–1.602，只有官方基线技术计时结论。W1-P0 也已结束并审阅：[结果](12_W1_P0_TERMINAL_RESULTS.md)。不把旧 RUNNING 快照作为当前状态。
-2. 最优先任务：实现 [W1-S1 同状态三近似器评分入口](13_W1_S1_PREPARATION.md)。在官方部署轨迹上独立评分 official/shrink/scalar，不把三条不同生成轨迹当成同状态比较。先做无真值泄漏 / 输出状态不变验收，再提交一个有监督、<=900s 的实机工程诊断。评分入口已实现且58项本地CPU测试及19项Linux针对性测试通过。r1因启动未配置项目cache而初始化失败（无生成），已固定监督器cache环境，6项本地子进程检查通过；r2源7e5bc10现已启动并核实实际生成（supervisor2444752/timeout2444757，900s上限）。先收集同一任务终态，不能改远端在跑源码或另起任务；完成后用summarize_w1_same_state.py分析。
-3. 最新账本 1.266033649 / 4 GPUh，剩余 2.733966351 h。W1-S1 拟用不超过 0.25 h，从现有余额划拨；加载、失败、诊断和 flush 全计入。新任务前核验远端进程、锁、账本、部署哈希及 GPU UUID / VRAM / compute apps。一次仅一个昂贵任务，断线不重复启动。
-4. 人工语义标注不阻塞 F1/W1 数值诊断。可选 review 页面仅供后续检查；质量等价结论仍需适当的计划内评价。候选机制信号之后才进入候选专用 parity、固定 schedule 闭环、独立 CAL / DEV 和 F2 工作点。
-5. L0 可穿插非 GPU 的 Wan5B 兼容性核对；L1 等待主线预算和兼容性，OMR 资源执行前重核。当前不扩预算、不训练、不调用付费评分、不切换方向。
-6. 每次 meaningful 变更同步实验总文档、回执、预算、队列与 handoff 到私有 GitHub。连接凭证、FRPC 配置、模型、视频和大张量只留 ignored / 服务器目录。
+1. F1、W1-P0、W1-S1 r2都已终态；不重启旧身份。r2 output/cache/video/trace等8checks通过，四点scalar/shrink velocity sum-MSE比2.531/5.395，默认候选不进入闭环；详见research/14_W1_S1_INITIAL_RESULTS.md。
+2. 只实施一次有机制依据的scalar修订：decay固定0（最近真实full-pair），其他参数/工程样本/四点/官方部署轨迹/warp不变，shrink作为不变控制。修订协议manifests/w1_same_state_recent_protocol.json。源码测试/部署哈希/新鲜准入后运行w1-s1-recent-r1，单个监督任务<=900s/0.25GPUh。不是参数扫描；若仍无优势不重复调同一公式。
+3. 账本1.412719678/4GPUh，余额2.587280322h。每次提交前查远端进程/全项目锁/预算/GPU UUID/VRAM/compute apps。一次一个昂贵任务，无第二作业、无在跑源码变更。
+4. 人工语义标注不阻塞W1。只有机制候选信号后才进入候选专用parity、固定schedule闭环和独立CAL/DEV；工程四点不是独立确认，当前没有候选生成视频/质量结论。
+5. 同步实验报告/原始失败/数值/成本/交接到私有GitHub；不扩预算、不训练、不付费评分、不无依据切换方向。L0非GPU资源核对可穿插；当前不抢跑Wan/OMR。

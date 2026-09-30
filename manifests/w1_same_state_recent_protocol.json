@@ -1,0 +1,40 @@
+{
+  "version": 2,
+  "date": "2026-09-30",
+  "sample": "av_002b815b-7595-4d54-a9f4-4c62c83d3009",
+  "shadow_calls": [
+    15,
+    16,
+    37,
+    38
+  ],
+  "selection": "Frozen W1-P0 engineering calls; two CFG skip pairs; excluded from independent confirmation",
+  "mode": "Same model and seed official WC off/on; on records independent scalar and shrink predictions on exactly the same current official state",
+  "candidates": [
+    "official",
+    "scalar",
+    "shrink"
+  ],
+  "anchors": "Real official-trajectory deployment full computations only; separate mode/CFG calibrators; request/model/cycle reset. Current shadow truth score-only",
+  "calibration_defaults": {
+    "ridge": 1e-06,
+    "clip": 4.0,
+    "decay": 0.0,
+    "min_energy": 1e-12,
+    "shrinkage": 0.5
+  },
+  "warp": "Exact flow section extracted from pinned source; each candidate follows existing prewarp insertion semantics with candidate-hidden flow input and official residual-cache correction",
+  "metrics": [
+    "prewarp_residual",
+    "postwarp_residual",
+    "velocity"
+  ],
+  "required": "72 deployed outputs, counts/trace, final cache and accepted video exactly match new off/on; four records finite; strictly past anchor receipts; same default protocol except decay0 recent full-pair statistics",
+  "max_gpu_seconds": 900,
+  "budget": "At most 0.25 GPUh including loading/failure/diagnostics/flush from existing 4 GPUh cap",
+  "pending_after_pass": "Candidate closed-loop and candidate-specific off/on parity, independent CAL/DEV, clean end-to-end speed and quality evaluation",
+  "variant": "scalar_recent_full_pair",
+  "parent_protocol": "manifests/w1_same_state_protocol.json",
+  "entry_evidence": "reports/w1_s1_r2_summary.json",
+  "revision_rationale": "Initial scalar improves calls15/16 but worsens37/38; test historical coefficient lag with one fixed revision, not parameter search"
+}

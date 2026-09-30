@@ -131,3 +131,16 @@ def test_expert_switch_resets_candidates_and_falls_back_without_old_anchors():
         c=record['candidates'][mode]
         assert c['history']['anchor_steps']==[]
         assert c['reason']=='insufficient_anchors'
+
+
+def test_recent_full_pair_estimator_ignores_older_coefficient_history():
+    probe=SameStateProbe([8],calibration_params={'decay':0.0})
+    probe.begin_request('latest-pair');m=same_model(probe);probe.start_model_call(m)
+    cal=probe.calibrators['scalar'][0];context=probe.context(m,0)
+    for step,p,r in [(0,0.,0.),(2,1.,2.),(4,2.,1.)]:
+        cal.observe_full(context=context,step=step,probe=torch.tensor([p]),residual=torch.tensor([r]))
+    assert cal.numerator==-1.0 and cal.denominator==1.0 and cal.pairs==2
+    prediction,reason=cal.predict(context=context,step=6,probe=torch.tensor([3.]),official=torch.tensor([99.]),mode='scalar')
+    assert reason=='scalar'
+    assert prediction.item()==pytest.approx(1e-6,abs=1e-7)
+    assert cal.receipt()['anchor_steps']==[2,4]

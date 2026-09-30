@@ -23,7 +23,10 @@ probes.add_argument('--w1-same-state', action='store_true', help='W1 three appro
 probes.add_argument('--w1-parity', action='store_true', help='W1 official shadow off/on gate, at most 900 seconds')
 probes.add_argument('--guardrail-only', action='store_true', help='F0 full safety pipeline compatibility probe, at most 420 seconds')
 probes.add_argument('--probe-only', action='store_true', help='F0 core-model load only, at most 420 seconds; no generation')
+p.add_argument('--w1-recent-calibration', action='store_true', help='With --w1-same-state: one latest-anchor-pair scalar revision')
 a = p.parse_args()
+if a.w1_recent_calibration and not a.w1_same_state:
+    p.error('--w1-recent-calibration requires --w1-same-state')
 is_probe = a.probe_only or a.guardrail_only or a.w1_parity or a.w1_same_state
 project, runtime, output = a.project.resolve(), a.runtime.resolve(), a.output.resolve()
 lock_path = project / '.sync/f1.lock'; lock_path.parent.mkdir(parents=True, exist_ok=True)
@@ -73,6 +76,8 @@ for mode in (('w1_same_state',) if a.w1_same_state else ('w1_parity',) if a.w1_p
                    '--gpu-uuid', a.gpu_uuid, '--receipt', str(output / ('w1-same-state.json' if a.w1_same_state else 'w1-parity.json' if a.w1_parity else 'guardrail-pipeline.json' if a.guardrail_only else 'core-model-load.json'))]
     if a.w1_same_state:
         command.append('--same-state')
+        if a.w1_recent_calibration:
+            command.append('--same-state-recent')
     env = dict(os.environ, PYTHONPATH='.:packages/cosmos-oss:packages/cosmos-cuda',
                CUDA_VISIBLE_DEVICES=a.gpu_uuid, HF_HUB_CACHE=str(project / 'hfhub'),
                HF_HUB_OFFLINE='1', TRANSFORMERS_OFFLINE='1')

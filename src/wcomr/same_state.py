@@ -102,6 +102,7 @@ class SameStateProbe(ShadowProbe):
                     candidates[mode] = {'residual': value, 'hidden': warped, 'velocity': velocity,
                                         'reason': reason, 'history': history, 'beta': beta, 'anchor_gap_ratio': ratio}
                 truth = probe.detach().clone()
+                sync()
                 truth_started = time.perf_counter()
                 for block in net.blocks[net.probe_depth:]:
                     truth = block(truth, **block_kwargs)

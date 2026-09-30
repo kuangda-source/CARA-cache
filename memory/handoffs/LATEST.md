@@ -1,3 +1,11 @@
+# Latest — W1-S1 r2 terminal, default no-gain; recent-pair revision prepared
+
+Source7e5bc10,r2exit0,8checks pass; originalPIDsabsent/lockavailable/GPU1released24MiB/noapps. AllvideoSHA256rehashmatch. Sameofficial4selectedstates:scalarvelocitysum-MSEratio2.531189803,shrink5.394980328,both2/4improve;no fallback.DefaultNO_GAIN_IN_SCOPE,notmethodwide rejection;earlier15/16improve,middle37/38worsen. Officialvideosonly,nocandidateclosedloop/qualityclaim.
+
+Budget1.4127196775542366/4h,remaining2.5872803224457632h. Nextonefixedrevision:decay0latesttruefullpairbeta,allotherprotocolunchanged;shrinkcontrolunchanged. manifests/w1_same_state_recent_protocol.json and supervise_f1.py --w1-same-state --w1-recent-calibration. Localtargeted16CPUtests pass (pendingcompletionreceiptbelow). Needsourcecommit/hash deployment/freshadmission thenuniqueoutputs/w1-s1-recent-r1 <=900s. No secondrevisionwithoutnewmechanismevidence. Reportresearch/14_W1_S1_INITIAL_RESULTS.md andr2raw/summary/auditreceipts. Humanannotationnotrequired. Priorcacheinitfailurearchived/charged,explicitcachefixretained.
+
+## Historical snapshots
+
 # Latest — W1-S1 r2 generating; inspect this identity
 
 Source7e5bc10,matchingarchive f40c3e9d669128d54c041410e142852cc4f467d927db5fdafe0051c042d40de7. r2supervisor2444752/timeout2444757/runner2444759live,outputs/w1-s1-r2,max900s. Cachepathprojecthfhub verifiedinactualprocess;offgenerating. Prior r1 failedinit0generated after75.011195s becausecacheenvomitted;fixedin supervisor and6local+6Linuxsubprocesschecks pass. AlloldPIDs verifiedgone;newadmission24MiB/noapps. SettledbudgetBEFOREr2 1.266033649245898/4h,ongoingcostextra. No secondjob orrunning-sourceedit.

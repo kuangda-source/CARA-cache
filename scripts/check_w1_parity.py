@@ -14,7 +14,10 @@ p.add_argument('--project',type=Path,required=True)
 p.add_argument('--gpu-uuid',required=True)
 p.add_argument('--receipt',type=Path,required=True)
 p.add_argument('--same-state',action='store_true',help='Score official/shrink/scalar on the official trajectory')
-a=p.parse_args();project=a.project.resolve();root=a.receipt.parent
+p.add_argument('--same-state-recent',action='store_true',help='One scalar revision using latest real full-anchor pair only')
+a=p.parse_args()
+if a.same_state_recent and not a.same_state: p.error('--same-state-recent requires --same-state')
+project=a.project.resolve();root=a.receipt.parent
 os.environ.update(CUDA_VISIBLE_DEVICES=a.gpu_uuid,HF_HUB_OFFLINE='1',TRANSFORMERS_OFFLINE='1')
 sys.path.insert(0,str(project/'src'))
 state={'stage':'W1_SAME_STATE_PARITY' if a.same_state else 'W1_SHADOW_PARITY','status':'INITIALIZING','pid':os.getpid(),'started_unix':time.time(),'runs':[]}
@@ -34,7 +37,8 @@ try:
     from wcomr.same_state import SameStateProbe,build_same_state_forward
     from wcomr.measurement import BlockCounts
     from wcomr.protocol import validate_schedule
-    protocol_path=project/('manifests/w1_same_state_protocol.json' if a.same_state else 'manifests/w1_parity_protocol.json')
+    protocol_path=project/('manifests/w1_same_state_recent_protocol.json' if a.same_state_recent else
+                           'manifests/w1_same_state_protocol.json' if a.same_state else 'manifests/w1_parity_protocol.json')
     config=json.loads(protocol_path.read_text())
     state['source_sha256']={str(path.relative_to(project)):sha(path) for path in
         [protocol_path,project/'scripts/check_w1_parity.py',project/'src/wcomr/same_state.py',
