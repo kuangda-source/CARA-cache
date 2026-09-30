@@ -21,3 +21,7 @@
 12. [native T2V scope准备](36_L0_NATIVE_CONDITIONAL_CPU_PREPARATION.md)Local/Linux7及真实CPU UniPC fullbody probe通过；guide5 reference bit equal/guide1cond only，明确BF16guide1非stockbitparity。等待fullweights/真实CPU融合，再隔离全包/load/任务/GPU门；不重跑旧GPU控制或自动扩额。
 
 13. r3已审计终态/仅owned forward关闭；同步后新r4补12658832字节，同revision/cache/cap，完整7 SHA/实际1200finite后才真实CPU fusion。
+
+## 最新全部adapter CPU验收
+
+L0 range-r4/source7c0f2ec唯一实际续传成功，exit0/31.271029秒，最后12658832字节一次range完成/0retry。全部7文件官方digest与实际1200张量CPU有限性、300×2目标/rank/alpha及825基座header匹配通过；原3PIDs2502124/2502125/2502126退出/CPU锁释放/source与协议一致/账本不变，审计后仅owned临时转发关闭。真实融合尚未提交，实际模型/GPU parity仍未通过；新4GPUh仍待用户重要预算决定。

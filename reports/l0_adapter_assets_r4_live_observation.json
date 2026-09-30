@@ -1,0 +1,216 @@
+{
+  "observed_unix": 1790806675.5988092,
+  "supervisor": {
+    "pid": 2502124,
+    "status": "DOWNLOAD_EXITED_REQUIRES_INTEGRITY_CHECK",
+    "started_unix": 1790806613.915142,
+    "gpu_workload_started": false,
+    "max_cpu_wall_seconds": 3600,
+    "child_pid": 2502125,
+    "command": [
+      "timeout",
+      "--kill-after=10",
+      "3590",
+      "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python",
+      "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/scripts/download_l0_adapter_ranges.py",
+      "--manifest",
+      "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/manifests/l0_adapter_range_acquisition_20261001.json",
+      "--cache",
+      "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/hfhub",
+      "--receipt",
+      "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/outputs/l0-adapter-assets-r4/download.json"
+    ],
+    "exit_code": 0,
+    "ended_unix": 1790806645.1864376,
+    "wall_seconds": 31.271029472351074
+  },
+  "download": {
+    "stage": "L0_ADAPTER_RANGE_CPU_ACQUISITION",
+    "pid": 2502126,
+    "status": "ALL_SELECTED_FILES_OFFICIAL_HASH_PASS_NOT_LOAD_TESTED",
+    "started_unix": 1790806614.0149071,
+    "completed": [
+      {
+        "repo_id": "Efficient-Large-Model/LongLive-Plug-Wan2.2-TI2V-5B-cfg",
+        "revision": "195c8c100e145d5b18068d506f8f2b4498dcaaa4",
+        "snapshot": "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/hfhub/models--Efficient-Large-Model--LongLive-Plug-Wan2.2-TI2V-5B-cfg/snapshots/195c8c100e145d5b18068d506f8f2b4498dcaaa4",
+        "integrity": [
+          {
+            "path": "adapter_config.json",
+            "status": "PASS",
+            "bytes": 8691,
+            "digest": "4e3cc5925f087bc31ff1273efd7d05b6258bc72a",
+            "algorithm": "git-blob-sha1"
+          },
+          {
+            "path": "adapter_model.safetensors",
+            "status": "PASS",
+            "bytes": 644949288,
+            "digest": "c16212b483e3fd3d3a8a91b9732342777addc23d08ef0be055ff442c650944d4",
+            "algorithm": "sha256"
+          },
+          {
+            "path": "provenance.json",
+            "status": "PASS",
+            "bytes": 2638,
+            "digest": "aebb21a6caf3369df6c20836b8b9a3065039042a",
+            "algorithm": "git-blob-sha1"
+          },
+          {
+            "path": "release_metadata.json",
+            "status": "PASS",
+            "bytes": 1065,
+            "digest": "1949fe84c995f662fd56c03e536fbe4c39129233",
+            "algorithm": "git-blob-sha1"
+          }
+        ]
+      },
+      {
+        "repo_id": "Efficient-Large-Model/LongLive-Plug-Wan2.2-TI2V-5B-few-step",
+        "revision": "38a6ec4e8f5b644749d3072bfe1ac383d00951c0",
+        "snapshot": "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/hfhub/models--Efficient-Large-Model--LongLive-Plug-Wan2.2-TI2V-5B-few-step/snapshots/38a6ec4e8f5b644749d3072bfe1ac383d00951c0",
+        "integrity": [
+          {
+            "path": "adapter_config.json",
+            "status": "PASS",
+            "bytes": 9349,
+            "digest": "79aa7c10d9fa58eebd270dd7c7266029042663c9",
+            "algorithm": "git-blob-sha1"
+          },
+          {
+            "path": "adapter_model.safetensors",
+            "status": "PASS",
+            "bytes": 1289824400,
+            "digest": "69807b3bdfc4d9d153a5660dcd70812f9c973eb8bc52861fea19a5e563341316",
+            "algorithm": "sha256"
+          },
+          {
+            "path": "provenance.json",
+            "status": "PASS",
+            "bytes": 2641,
+            "digest": "2f13eba7c3ba312354ccdaf700374c71bc46ab2d",
+            "algorithm": "git-blob-sha1"
+          }
+        ]
+      }
+    ],
+    "gpu_workload_started": false,
+    "chunk_bytes": 16777216,
+    "current": "Efficient-Large-Model/LongLive-Plug-Wan2.2-TI2V-5B-few-step",
+    "current_file": "provenance.json",
+    "current_transfer": {
+      "status": "FULL_OBJECT_HASH_PASS",
+      "initial_bytes": 1277165568,
+      "durable_bytes": 1289824400,
+      "size": 1289824400,
+      "requests": 1,
+      "completed_chunks": 1,
+      "retries": 0,
+      "digest": "69807b3bdfc4d9d153a5660dcd70812f9c973eb8bc52861fea19a5e563341316"
+    },
+    "ended_unix": 1790806645.16227
+  },
+  "processes": {
+    "2502124": null,
+    "2502125": null,
+    "2502126": null
+  },
+  "files": [
+    {
+      "repo": "Efficient-Large-Model/LongLive-Plug-Wan2.2-TI2V-5B-cfg",
+      "path": "blobs/4e3cc5925f087bc31ff1273efd7d05b6258bc72a",
+      "bytes": 8691
+    },
+    {
+      "repo": "Efficient-Large-Model/LongLive-Plug-Wan2.2-TI2V-5B-cfg",
+      "path": "blobs/aebb21a6caf3369df6c20836b8b9a3065039042a",
+      "bytes": 2638
+    },
+    {
+      "repo": "Efficient-Large-Model/LongLive-Plug-Wan2.2-TI2V-5B-cfg",
+      "path": "blobs/1949fe84c995f662fd56c03e536fbe4c39129233",
+      "bytes": 1065
+    },
+    {
+      "repo": "Efficient-Large-Model/LongLive-Plug-Wan2.2-TI2V-5B-cfg",
+      "path": "blobs/c16212b483e3fd3d3a8a91b9732342777addc23d08ef0be055ff442c650944d4",
+      "bytes": 644949288
+    },
+    {
+      "repo": "Efficient-Large-Model/LongLive-Plug-Wan2.2-TI2V-5B-cfg",
+      "path": "snapshots/195c8c100e145d5b18068d506f8f2b4498dcaaa4/adapter_config.json",
+      "bytes": 8691
+    },
+    {
+      "repo": "Efficient-Large-Model/LongLive-Plug-Wan2.2-TI2V-5B-cfg",
+      "path": "snapshots/195c8c100e145d5b18068d506f8f2b4498dcaaa4/provenance.json",
+      "bytes": 2638
+    },
+    {
+      "repo": "Efficient-Large-Model/LongLive-Plug-Wan2.2-TI2V-5B-cfg",
+      "path": "snapshots/195c8c100e145d5b18068d506f8f2b4498dcaaa4/release_metadata.json",
+      "bytes": 1065
+    },
+    {
+      "repo": "Efficient-Large-Model/LongLive-Plug-Wan2.2-TI2V-5B-cfg",
+      "path": "snapshots/195c8c100e145d5b18068d506f8f2b4498dcaaa4/adapter_model.safetensors",
+      "bytes": 644949288
+    },
+    {
+      "repo": "Efficient-Large-Model/LongLive-Plug-Wan2.2-TI2V-5B-cfg",
+      "path": "refs/main",
+      "bytes": 40
+    },
+    {
+      "repo": "Efficient-Large-Model/LongLive-Plug-Wan2.2-TI2V-5B-few-step",
+      "path": "blobs/79aa7c10d9fa58eebd270dd7c7266029042663c9",
+      "bytes": 9349
+    },
+    {
+      "repo": "Efficient-Large-Model/LongLive-Plug-Wan2.2-TI2V-5B-few-step",
+      "path": "blobs/2f13eba7c3ba312354ccdaf700374c71bc46ab2d",
+      "bytes": 2641
+    },
+    {
+      "repo": "Efficient-Large-Model/LongLive-Plug-Wan2.2-TI2V-5B-few-step",
+      "path": "blobs/69807b3bdfc4d9d153a5660dcd70812f9c973eb8bc52861fea19a5e563341316",
+      "bytes": 1289824400
+    },
+    {
+      "repo": "Efficient-Large-Model/LongLive-Plug-Wan2.2-TI2V-5B-few-step",
+      "path": "snapshots/38a6ec4e8f5b644749d3072bfe1ac383d00951c0/adapter_config.json",
+      "bytes": 9349
+    },
+    {
+      "repo": "Efficient-Large-Model/LongLive-Plug-Wan2.2-TI2V-5B-few-step",
+      "path": "snapshots/38a6ec4e8f5b644749d3072bfe1ac383d00951c0/provenance.json",
+      "bytes": 2641
+    },
+    {
+      "repo": "Efficient-Large-Model/LongLive-Plug-Wan2.2-TI2V-5B-few-step",
+      "path": "snapshots/38a6ec4e8f5b644749d3072bfe1ac383d00951c0/adapter_model.safetensors",
+      "bytes": 1289824400
+    },
+    {
+      "repo": "Efficient-Large-Model/LongLive-Plug-Wan2.2-TI2V-5B-few-step",
+      "path": "refs/main",
+      "bytes": 40
+    }
+  ],
+  "cpu_lock_held": false,
+  "source_hashes_match": true,
+  "budget_unchanged": true,
+  "gpu_workload_started": false,
+  "budget": {
+    "batch": "F0-F1",
+    "cap_gpu_hours": 4,
+    "used_gpu_hours": 3.6512467238638138,
+    "gpu_jobs_launched": 22,
+    "status": "W1_VQA_CONTROLS_REQUIRES_REVIEW",
+    "gpu_import_probes_completed": 1,
+    "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts"
+  },
+  "log_tail_redacted": "",
+  "gpu": "GPU-de9a5370-cd87-0f1c-a48e-288888777dd3, 346, 0\nGPU-cebf7119-cf03-23b9-e192-cd196332b704, 24, 0\n",
+  "apps": ""
+}

@@ -1,3 +1,11 @@
+## 最新终态 — L0 r4全部7文件/1200实际tensor CPU验收
+
+L0 range-r4/source7c0f2ec唯一实际续传成功，exit0/31.271029秒，最后12658832字节一次range完成/0retry。全部7文件官方digest与实际1200张量CPU有限性、300×2目标/rank/alpha及825基座header匹配通过；原3PIDs2502124/2502125/2502126退出/CPU锁释放/source与协议一致/账本不变，审计后仅owned临时转发关闭。真实融合尚未提交，实际模型/GPU parity仍未通过；新4GPUh仍待用户重要预算决定。
+
+[完整audit](../../reports/l0_adapter_assets_r4_audit_20261001.json)/[下一融合卡](../../research/38_L0_FULL_ADAPTER_PAYLOAD_AND_REAL_CPU_FUSION.md)。下一.sync/launch_l0_cpu_fusion_r1.py需Git clean/remote同步/source与阶段hash/RAM/disk/旧PIDs/锁预算再核实，新outputs/l0-cpu-fusion-r1及l0-fused-models-r1；当前未launch。旧r1—r4 launch/settle不可重跑，共享FRPC/代理不动。
+
+## 以下为历史快照
+
 ## 最新r4传输预检
 
 r4首次传输预检TLS EOF失败、owned转发已关闭，没有下载job提交。独立本机proxy当前官方exact206/65536字节成功，direct超时；下一新r4b transport identity再次预检，同release/资源协议/CPU cap，不重复任何已启动job。

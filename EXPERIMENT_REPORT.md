@@ -28,17 +28,9 @@
 
 依据：[F1 r3配对汇总](reports/f1_smoke_r3_summary.json)、[W1-P0终态结果](research/12_W1_P0_TERMINAL_RESULTS.md)、[实时恢复审计](reports/w1_p0_r1_recovery_audit.json)、[预算账本](reports/budget.json)。
 
-最新非GPU资源进展：[L0审计](research/33_L0_WAN_LONGLIVE_OMR_RESOURCE_AUDIT.md)，历史Wan5B11文件官方完整hash可复用/两600tensor header结构匹配、16CPU通过；尚缺完整adapter/真实融合与隔离环境。OMR公开release仍Coming soon，未新生成或切换主线。
+最新L0 CPU资源：[完整两适配器与融合](research/38_L0_FULL_ADAPTER_PAYLOAD_AND_REAL_CPU_FUSION.md)。L0 range-r4/source7c0f2ec唯一实际续传成功，exit0/31.271029秒，最后12658832字节一次range完成/0retry。全部7文件官方digest与实际1200张量CPU有限性、300×2目标/rank/alpha及825基座header匹配通过；原3PIDs2502124/2502125/2502126退出/CPU锁释放/source与协议一致/账本不变，审计后仅owned临时转发关闭。真实融合尚未提交，实际模型/GPU parity仍未通过；新4GPUh仍待用户重要预算决定。
 
-最新L0推进：[CFG真实payload/两配方CPU融合准备](research/34_L0_CPU_FUSION_PREPARATION_AND_CFG_PAYLOAD.md)。L0 CPU获取r1因连接中断exit1/1218.181533秒终态，原3PIDs退出/CPU锁释放/账本不变；仅关闭本任务owned临时转发。CFG4文件完整官方hash、真实600tensor finite/300pair alpha-r通过，独立核验PIDs2495417/2495418退出；few-step保留167772160字节（160MiB），非完整payload。两配方分片CPU融合程序已实现，本地/Linux22同范围检查通过，尚未真实Wan5B融合/模型任务load/GPU。下一同固定release/cache/3600秒的新r2续传，不重启旧identity或改共享路线。
-
-最新实际资源运行：L0 CPU r2/source965a502已实际启动且3PIDs2496080/2496081/2496082均/proc核实live，独立CPU锁持有、3600秒上限、source/协议hash一致、CUDA空/账本不变。复用CFG全部已验收4文件，few-step由160MiB续到188743680字节（180MiB），仍非完整/hash验收/融合。r1原连接失败及160MiB保留不改。 见[r2启动](reports/l0_adapter_assets_r2_launch_20261001.json)/[观察](reports/l0_adapter_assets_r2_live_observation.json)。
-
-最新L0恢复与接口进展：[range39/真实scheduler/公共管线门](research/35_L0_RANGE_RECOVERY_AND_INTERFACE_GATE.md)。L0 r2因第二次HTTP流中断exit1/583.253381秒终态；3PIDs2496080/2496081/2496082已退出/CPU锁释放、原source/协议核验和GPU账本不变，owned r2转发在完整审计后关闭。few-step保留555745280字节（530MiB），CFG4文件继续官方hash PASS。新16MiB range/retry/rollback/fullSHA获取程序和完整融合监督已实现，本地/Linux39同范围CPU通过；还未r3提交/完整5B融合。 UniPC源码/CPU方程相同，但stock Wan guidance1仍两前向、原默认帧数/noise构造有差异；完整task/GPU parity待验收。
-
-最新实际CPU恢复：L0 CPU range-r3/sourcebd8253d已唯一实际启动，3PIDs2498231/2498232/2498233都/proc verified live，CPU获取锁持有、CUDA空/source协议hash一致/账本未变。官方精确206/64KiB旧prefix边界preflight通过；已完成2个16MiB chunk、重试0次，已fsync字节589299712（562MiB），另有在途文件长度602931200（575MiB）。未完整1289824400/整SHA验收或两模型融合。复用原530MiB，不改r2失败或扩大GPU预算。 [r3 launch](reports/l0_adapter_assets_r3_launch_20261001.json)/[live](reports/l0_adapter_assets_r3_live_observation.json)。
-
-原生公共管线准备：[T2V单条件scope CPU检查](research/36_L0_NATIVE_CONDITIONAL_CPU_PREPARATION.md)。已实现仅T2V的scope adaptation，guide1直接conditional、guide!=1保留原CFG运算，finally恢复，不改源文件/i2v。Local/Linux7检查通过；完整native T2V body+真实UniPC/CPU替身在4/50步guide5输入/timestep/输出bit equal，guide1分别4/50cond/0negative。不是实际模型/GPU parity；保留BF16guide1的stock抵消差异，不称guide1 OFF/ON bit invariant。 资源下载/真实融合仍按r3回执推进，GPU预算未变。
+[公共native T2V CPU准备](research/36_L0_NATIVE_CONDITIONAL_CPU_PREPARATION.md)本地/Linux7通过；真实模型/GPU未验收。
 
 ## 2. 研究背景、假设与判定方式
 

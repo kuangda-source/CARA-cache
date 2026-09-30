@@ -431,3 +431,7 @@ L0 CPU range-r3/sourcebd8253d已唯一实际启动，3PIDs2498231/2498232/249823
 ## 最新r3终态
 
 L0 range-r3/sourcebd8253d已exit1/1216.976277秒终态；最后range三次URLError，已提交43个16MiB chunk，保留1277165568字节（1218MiB），仍缺12658832字节。CFG4文件/两few-step JSON官方digest PASS，few-step模型MISSING；原3PIDs退出/CPU锁释放/source与协议一致/账本不变，完整审计后仅关闭本任务owned r3转发。下一新唯一r4从保留prefix续传，同官方revision/16MiB/3600秒上限；未新GPU、未完整few-step hash/真实融合。
+
+## 最新全部adapter CPU验收
+
+L0 range-r4/source7c0f2ec唯一实际续传成功，exit0/31.271029秒，最后12658832字节一次range完成/0retry。全部7文件官方digest与实际1200张量CPU有限性、300×2目标/rank/alpha及825基座header匹配通过；原3PIDs2502124/2502125/2502126退出/CPU锁释放/source与协议一致/账本不变，审计后仅owned临时转发关闭。真实融合尚未提交，实际模型/GPU parity仍未通过；新4GPUh仍待用户重要预算决定。
