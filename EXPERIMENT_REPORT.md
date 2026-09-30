@@ -196,3 +196,5 @@ python3 scripts/summarize_f1.py --native reports/f1_smoke_r3_native.json --world
 | robot | 295.289 | 184.523 | 1.600× | 35/37 |
 
 全部7个接受视频哈希及完整解码通过。physics的Native拒绝/WC接受单列，不当作质量提升。详细边界和下一步见[技术结果记录](research/11_F1_R3_TECHNICAL_RESULTS.md)。
+
+2026-09-30 W1-P0准备：同一AV工程样本、同seed在官方WC路径关闭/开启shadow各运行一次；在调用15/16、37/38诊断两分支。比较所有72次输出哈希、完整/跳过trace、缓存终态及视频哈希，要求精确相等。单任务900秒上限（0.25GPUh）从剩余预算扣除，先不测试候选效果。49项CPU测试通过，真实模型验收待运行。[冻结验收配置](manifests/w1_parity_protocol.json)。诊断计时含逐步哈希与额外补算，不作为部署速度。

@@ -82,3 +82,14 @@ def test_probe_mode_launches_one_load_only_command(tmp_path):
     assert str(project / 'scripts/check_model_load.py') in state['command']
     assert '--mode' not in state['command']
     assert int(state['command'][2]) <= 410
+
+
+def test_w1_parity_is_one_bounded_job_not_two_f1_arms(tmp_path):
+    project, output, cmd, env = fixture(tmp_path, delay=.02)
+    subprocess.run(cmd + ['--w1-parity'], env=env, check=True, capture_output=True, timeout=10)
+    state = json.loads((output / 'supervisor.json').read_text())
+    assert state['status'] == 'W1_PARITY_EXITED_REQUIRES_REVIEW'
+    assert [a['mode'] for a in state['arms']] == ['w1_parity']
+    assert str(project / 'scripts/check_w1_parity.py') in state['command']
+    assert int(state['command'][2]) <= 890
+    assert json.loads((project / 'reports/budget.json').read_text())['gpu_jobs_launched'] == 1
