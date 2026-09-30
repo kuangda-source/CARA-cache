@@ -25,7 +25,10 @@ def fixture(tmp_path, delay, cap=1):
                       'if any("query-gpu=" in arg for arg in sys.argv): print("24, 0")\n')
     nvidia.chmod(0o755)
     child = binary / 'fake-python'
-    child.write_text('#!/usr/bin/env python3\nimport time\ntime.sleep(%r)\n' % delay)
+    child.write_text('#!/usr/bin/env python3\nimport time,json,os\n'
+                     'from pathlib import Path\n'
+                     'Path(%r).write_text(json.dumps({k:os.environ.get(k) for k in [\"HF_HUB_CACHE\",\"HF_HUB_OFFLINE\",\"TRANSFORMERS_OFFLINE\"]}))\n'
+                     'time.sleep(%r)\n' % (str(project / 'reports/child_env.json'), delay))
     child.chmod(0o755)
     output = tmp_path / 'output'
     command = [sys.executable, str(SCRIPT), '--project', str(project), '--runtime', str(runtime),
@@ -93,6 +96,8 @@ def test_w1_parity_is_one_bounded_job_not_two_f1_arms(tmp_path):
     assert str(project / 'scripts/check_w1_parity.py') in state['command']
     assert int(state['command'][2]) <= 890
     assert json.loads((project / 'reports/budget.json').read_text())['gpu_jobs_launched'] == 1
+    child_env = json.loads((project / 'reports/child_env.json').read_text())
+    assert child_env == {'HF_HUB_CACHE':str(project / 'hfhub'), 'HF_HUB_OFFLINE':'1', 'TRANSFORMERS_OFFLINE':'1'}
 
 
 def test_same_state_runs_one_budgeted_gate_with_distinct_receipt(tmp_path):
@@ -105,3 +110,5 @@ def test_same_state_runs_one_budgeted_gate_with_distinct_receipt(tmp_path):
     assert str(output / 'w1-same-state.json') in state['command']
     assert int(state['command'][2]) <= 890
     assert json.loads((project / 'reports/budget.json').read_text())['gpu_jobs_launched'] == 1
+    child_env = json.loads((project / 'reports/child_env.json').read_text())
+    assert child_env == {'HF_HUB_CACHE':str(project / 'hfhub'), 'HF_HUB_OFFLINE':'1', 'TRANSFORMERS_OFFLINE':'1'}

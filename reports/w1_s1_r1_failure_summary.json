@@ -1,0 +1,21 @@
+{
+  "date": "2026-09-30",
+  "status": "TECH_BLOCKED_FIXED_CACHE_ENV_PENDING_R2",
+  "cause": "Supervisor launch omitted HF_HUB_CACHE; offline default cache lacks Guardrail1 blocklist/custom; project hfhub already has authorized pinned assets",
+  "source_commit": "f43e0a1",
+  "generated_runs": 0,
+  "exit_code": 1,
+  "wall_seconds": 75.01119494438171,
+  "gpu_hours_charged": 0.020836443040106033,
+  "budget_after": {
+    "batch": "F0-F1",
+    "cap_gpu_hours": 4,
+    "used_gpu_hours": 1.266033649245898,
+    "gpu_jobs_launched": 9,
+    "status": "W1_SAME_STATE_REQUIRES_REVIEW",
+    "gpu_import_probes_completed": 1,
+    "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts"
+  },
+  "fix": "Supervisor now explicitly sets HF_HUB_CACHE to project/hfhub with offline flags;6targetedlocalsubprocess tests pass",
+  "decision": "Archive failed r1; verify PIDs gone, lock free and cache file present; deploy fixed supervisor and launch distinct r2 under same900s/4hcap"
+}

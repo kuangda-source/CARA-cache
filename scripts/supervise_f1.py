@@ -74,7 +74,8 @@ for mode in (('w1_same_state',) if a.w1_same_state else ('w1_parity',) if a.w1_p
     if a.w1_same_state:
         command.append('--same-state')
     env = dict(os.environ, PYTHONPATH='.:packages/cosmos-oss:packages/cosmos-cuda',
-               CUDA_VISIBLE_DEVICES=a.gpu_uuid, HF_HUB_OFFLINE='1', TRANSFORMERS_OFFLINE='1')
+               CUDA_VISIBLE_DEVICES=a.gpu_uuid, HF_HUB_CACHE=str(project / 'hfhub'),
+               HF_HUB_OFFLINE='1', TRANSFORMERS_OFFLINE='1')
     started = time.time()
     with (output / f'{mode}.log').open('w') as log, (output / f'{mode}-gpu.jsonl').open('w') as monitor:
         child = subprocess.Popen(command, cwd=runtime, env=env, stdout=log, stderr=subprocess.STDOUT,

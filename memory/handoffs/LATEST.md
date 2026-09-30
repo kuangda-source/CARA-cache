@@ -1,3 +1,9 @@
+# Latest — W1-S1 r1 initialization failure archived; cache fix ready
+
+r1 sourcef43e0a1 supervisor2443666/timeout2443671 exited1 after75.011195s,0generatedruns. MissingHF_HUB_CACHE causedofflineGuardrail1 path to default incompletecache. Actual authorized projectassets remainready. Fixedsupervisor nowsetsHF_HUB_CACHE=project/hfhub;6local subprocesschecks pass. Budget1.266033649245898/4h. Do not retryr1 or overwrite outputs; nextverifygonePIDs/lock/projectcache,deployfixedsource,launchr2<=900s once. prior19LinuxCPUchecks validatedsame-stateimplementation;noGPUdiagnosticresultyet.
+
+## Historical snapshots
+
 # Latest — W1-S1 implementation ready for deployment gate
 
 Same-state3candidate diagnostics implemented.58localCPUtests pass; protocol manifests/w1_same_state_protocol.json freezes4engineeringcalls anddefaults. check_w1_parity.py --same-state does newversionoff/on invariance; supervise_f1.py --w1-same-state enforcesonejob/900s, globalprojectlock/admission/conflictstop/budget. Next verify LinuxCPUtests andmatchingarchive under lock, then freshlyadmitGPU1 andlaunch w1-s1-r1 once. NOT_GPU_RUN atthissnapshot. Priorbudget1.245197206/4h; needremote recheck. Do not rerun F1/W1-P0. No humanannotation gate.
