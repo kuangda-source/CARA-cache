@@ -14,7 +14,7 @@ Record process import/load overhead separately from each sample's generation, gu
 
 The upstream resets PyTorch peak memory inside generation. Runner CUDA peak fields explicitly refer to the period after the most recent upstream reset, not whole-run peak. The supervisor separately samples nvidia-smi every ~5 seconds across import/load/generation, retaining observed memory and other compute processes; that is sampled peak, not exact instantaneous peak.
 
-Validate 93 decoded frames, 432x768, 16 fps and 70 CFG denoiser calls. A blocked/missing/malformed output fails the arm rather than silently shrinking the sample count. Save video size and SHA256. Review every full video before scientific interpretation; a technical pass is not a quality result.
+Validate 93 decoded frames, 432x768, 16 fps and 72 CFG denoiser calls (35 requested,36 actual UniPC/Karras steps; user-approved current-code protocol). A blocked/missing/malformed output fails the arm rather than silently shrinking the sample count. Save video size and SHA256. Review every full video before scientific interpretation; a technical pass is not a quality result.
 
 ## Launch conditions and durable execution
 
@@ -24,6 +24,6 @@ From the experiment project, invoke scripts/supervise_f1.py with --project, --ru
 
 The supervisor aborts its own process group if another compute process appears on the selected GPU. Timing from interrupted/shared GPU runs is not accepted. No training, paid scoring or wider benchmark is launched by this script.
 
-Status: Guardrail1 access resolved (HTTP 200), all required files hash-verified, and full safety-pipeline probe passed. F1 smoke r1 launched; inspect terminal receipts and videos before calling it successful.
+Status: User approved completing the current-code protocol on2026-09-30. R1 failed its former70-call assertion; r2 validates the exact36-point time grid and72calls, retaining the unchanged70-call WC reset horizon. This is not paper35Euler reproduction.
 
 Registration adaptation: the pinned config imports the user example-training package, whose GR00T 14B example eagerly resolves a 14B checkpoint. For the frozen 2B post-trained experiment, src/wcomr/runtime_config.py skips that one package root and retains the official internal experiment registration. It checks the source hash and refuses any other model/experiment. Both arms apply it. See manifests/runtime_adaptations.json. This is an explicit runtime adaptation, not an unmodified upstream reproduction.

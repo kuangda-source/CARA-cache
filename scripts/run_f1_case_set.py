@@ -63,6 +63,14 @@ try:
     from cosmos_predict2.inference import Inference
     from cosmos_predict2._src.imaginaire.auxiliary.guardrail.common import presets
     from wcomr.measurement import StageTimes, BlockCounts
+    from wcomr.protocol import validate_schedule
+    policy_path = project / 'manifests/f1_runtime_protocol.json'
+    policy = json.loads(policy_path.read_text())
+    scheduler_source = runtime / 'cosmos_predict2/_src/predict2/models/fm_solvers_unipc.py'
+    if sha(scheduler_source) != policy['scheduler_source_sha256']:
+        raise RuntimeError('Scheduler source differs from approved protocol')
+    state['sampling_protocol'] = policy
+    state['sampling_protocol_sha256'] = sha(policy_path)
 
     params = json.loads((project / 'configs/f1_setup.json').read_text())
     if params['disable_guardrails'] or params['use_torch_compile']:
@@ -87,7 +95,7 @@ try:
     model = inference.pipe.model
     if getattr(model.config, 'use_torch_compile', False):
         raise RuntimeError('Model config enabled compilation despite frozen eager profile')
-    counts = BlockCounts(model.net.blocks)
+    counts = BlockCounts(model.net.blocks, cache_model=model.net)
     timing = StageTimes(torch.cuda.synchronize)
     timing.wrap(model, 'generate_samples_from_batch', 'denoising')
     timing.wrap(model, 'decode', 'decode')
@@ -131,17 +139,15 @@ try:
                 'actual_schedule_steps': len(scheduler.timesteps),
                 'timesteps': scheduler.timesteps.detach().cpu().tolist(),
                 'use_kerras_sigma': model.config.use_kerras_sigma_at_inference,
+                'worldcache_horizon': getattr(model.net, 'worldcache_num_steps', None),
+                'denoiser_trace': counts.trace,
             }
             save()
-            if block_counts['denoiser_calls'] != 2 * sample.num_steps:
-                raise RuntimeError(f"Unexpected CFG/denoiser call count: {block_counts}; "
-                                   f"requested_steps={sample.num_steps}, "
-                                   f"actual_schedule_steps={len(scheduler.timesteps)}")
-            if args.mode == 'native' and block_counts['skipped_deep_calls']:
-                raise RuntimeError('Native unexpectedly skipped deep computation')
+            validate_schedule(state['pending_sample'], block_counts, policy, args.mode)
             state['samples'].append({'name': sample.name, 'index': index,
                 'cold_first_sample': index == 0, 'end_to_end_seconds': total,
                 'stages': timing.values, 'block_counts': block_counts,
+                'sampling': state['pending_sample'],
                 'peak_allocated_bytes_since_upstream_last_reset': torch.cuda.max_memory_allocated(),
                 'peak_reserved_bytes_since_upstream_last_reset': torch.cuda.max_memory_reserved(),
                 'path': str(path), 'sha256': sha(path), 'bytes': path.stat().st_size, 'ffprobe': stream})

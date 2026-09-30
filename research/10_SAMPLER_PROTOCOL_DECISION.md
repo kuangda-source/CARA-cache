@@ -18,3 +18,7 @@ F1 smoke r1 produced one Native video, passed input/output guardrails and format
 2. Paper-protocol-first: implement and separately validate a 35-step Euler adapter with explicit sigma schedule in both arms, then start fresh paired outputs. Paper wording does not uniquely specify its sigma grid; do not silently claim exact authors' reproduction. This needs more reconstruction before another run.
 
 User was asked to choose because changing sampler/horizon affects the scientific baseline. No replacement GPU job launched while the answer is pending. Preserve original plans and the eventual F2/W1 goal.
+
+## User decision — 2026-09-30
+
+User chose to complete the current-code technical comparison first. F1 r2 retains UniPC/Karras (35 requested,36 actual,72 CFG calls) and unchanged official WC counter horizon70. Frozen time grid and scheduler hash are in manifests/f1_runtime_protocol.json; both arms are validated against it. Per-call block execution and WC counter snapshots expose the reset rather than hiding it. Fresh four-scene paired outputs are required because r1 has no complete measured receipt.

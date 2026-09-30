@@ -38,21 +38,29 @@ class StageTimes:
 
 class BlockCounts:
     """Count shallow calls versus last-block calls, without trusting cache counters."""
-    def __init__(self, blocks):
+    def __init__(self, blocks, cache_model=None):
         if len(blocks) < 2:
             raise ValueError("Need at least two blocks")
+        self.cache_model = cache_model
         self.reset()
         self.handles = [blocks[0].register_forward_pre_hook(self._first),
                         blocks[-1].register_forward_pre_hook(self._last)]
 
     def _first(self, module, args):
         self.first += 1
+        if self.cache_model is not None:
+            self.trace.append({'call': self.first,
+                              'cache_counter_before': getattr(self.cache_model, 'cnt', None),
+                              'deep_executed': False})
 
     def _last(self, module, args):
         self.last += 1
+        if self.cache_model is not None:
+            self.trace[-1]['deep_executed'] = True
 
     def reset(self):
         self.first = self.last = 0
+        self.trace = []
 
     def result(self):
         if not 0 <= self.last <= self.first:

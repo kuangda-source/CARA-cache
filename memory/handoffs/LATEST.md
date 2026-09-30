@@ -1,3 +1,7 @@
+# User decision resolved — F1 r2 preparation
+
+2026-09-30 user explicitly chose current-code technical comparison first. Approval supersedes decision-pending sections below. New frozen protocol validates exact36-point UniPC/Karras grid,72CFGcalls, unchangedWC70-call horizon; per-call trace records counter reset. Run fresh4+4 paired outputs; do not reuse r1 timing because it lacks measured receipt. First-batch budget remains4GPUh with0.183703h used before r2.
+
 # Latest: F1 stopped; sampler protocol decision pending
 
 F1 r1 Native generated one valid-format video and passed safety, then failed the 70-CFG-call assertion. Supervisor 2370231/child 2370237 exited (code 1, 418.42s); GPU is free. Total budget 0.183703/4h. WC never ran. Exact observed block counts were lost before the assertion; do not invent a receipt. Artifact reports/private/native-r1-av.mp4 is excluded from Git, hash/format receipt in reports/f1_smoke_r1_artifact.json.

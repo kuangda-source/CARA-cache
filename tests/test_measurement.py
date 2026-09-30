@@ -43,3 +43,22 @@ def test_counts_observe_actual_full_and_skipped_calls_without_changing_rng():
     counts.close()
     blocks[0](x)
     assert counts.first == 0
+
+
+def test_trace_observes_counter_wrap_and_actual_skips():
+    class Cache:
+        cnt = 69
+    cache = Cache()
+    blocks = torch.nn.ModuleList([torch.nn.Identity(), torch.nn.Identity()])
+    counts = BlockCounts(blocks, cache_model=cache)
+    x = torch.ones(1)
+    blocks[0](x)
+    cache.cnt = 0
+    blocks[1](blocks[0](x))
+    assert counts.trace == [
+        {'call': 1, 'cache_counter_before': 69, 'deep_executed': False},
+        {'call': 2, 'cache_counter_before': 0, 'deep_executed': True},
+    ]
+    counts.reset()
+    assert counts.trace == []
+    counts.close()
