@@ -1,4 +1,5 @@
-> 最新接续：r3因连接IncompleteRead退出1/三PIDs退出/CPU锁释放，2890MiB保留；新r4/source39993d1已live，partial3280MiB/未完整，同cache/官方hash/cap3600CPU-only，见[观察](../reports/w1_judge_assets_r4_live_observation.json)。VQA runner/900s supervisor/原raw汇总已实现，本地25与Linux25/全部15真实输入CPU通过，未load/forward/GPU评分。见[runner卡](27_W1_VQA_RUNNER_PREPARATION.md)；下文为原始输入准备阶段与历史r3启动记录，不据旧live判断当前。
+> 最新接续：r4/source39993d1 exit0/三PIDs退出/CPU锁释放，官方10文件完整Git/LFS hash通过/无partial。VQA runner/900s模式/原raw汇总已CPU通过，未load/forward/评分；下一部署与fresh准入。见[runner卡](27_W1_VQA_RUNNER_PREPARATION.md)/[资源验收](../reports/w1_judge_assets_r4_integrity.json)。下文为历史准备与启动记录。
+
 
 # W1自动开发VQA：资源恢复与输入协议
 

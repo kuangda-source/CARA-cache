@@ -1,3 +1,15 @@
+## 最新资源验收 — 2026-10-01 02:46:45 北京时间：CPU r4终态，官方10文件完整hash通过，待有界VQA部署
+
+r4/source39993d1 exit0/633.154270秒，supervisor2484509/timeout2484510/downloader2484511全退出、CPU锁释放/source一致/GPU账本不变。固定revision的全部10文件逐文件官方Git blob/SHA256通过，包括4255140312字节model.safetensors，权重LFS SHA256 7de1838c87a5349b016c26a1c3f7d2bc400a3d485f95ef39a7059ffd734977a0，无partial；资源下载完整/hash验收成立。未load模型/forward/评分，不能据此称质量或GPU运行通过。
+
+VQA runner/900秒模式/原raw完整汇总代码及本地/Linux25CPU、全部15真实输入/42原题检查已通过。下一同步本次资源回执、hash部署源码并最终LinuxCPU；核验剩余预算/global锁/GPU UUID/VRAM/apps，只提交唯一outputs/w1-vqa-r1，原8/42参考39候选/robot3题拒绝保留。同10帧固定输入/逐题原提示/strict invalid bounds/一次离线BF16 SDPA加载/每题partial回执；任何技术错保留失败，不能择优重问或静默补题。
+
+GPU累计3.612360697322422/4h、余0.387639302677578h，无GPU在途；单900秒包括hash/load/失败/评分/flush，从原余额扣除，未实测完整成本，不扩额。scalar仅机制/MUSIQ3升4降与拒绝保持，尚无整体/物理质量或clean速度收益，暂不加W2；小2B不是235B标准Joint/独立确认。不人评/训练/付费。
+
+证据：[官方10文件完整性](../reports/w1_judge_assets_r4_integrity.json)、[r4终态审计](../reports/w1_judge_assets_r4_audit.json)、[runner准备卡](../research/27_W1_VQA_RUNNER_PREPARATION.md)。CPU旧source39993d1保持，后续文档HEAD不冒充未来实机VQA source。
+
+## 以下为历史快照
+
 ## 最新运行核验 — 2026-10-01 02:38:45 北京时间：CPU r4/source39993d1续传live，VQA runner CPU通过
 
 r3终态/旧3PIDs退出/CPU锁释放后，新唯一outputs/w1-judge-assets-r4已启动。CPU部署source39993d1/hash一致，Linux4 acquisition检查通过；supervisor2484509/timeout2484510/downloader2484511本次proc核实live，CUDA为空/无代理/CPU锁持有。相同匿名镜像/revision/官方hash/cache/cap3600CPU-only，partial3030384640增至3439329280字节（3280MiB），未完整/hash验收/load/VLM forward。不是重复r3、不改旧失败或在跑源。

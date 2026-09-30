@@ -1,9 +1,9 @@
 {
   "run_id": "w1-judge-assets-r4",
-  "observed_unix": 1790793525.7833211,
+  "observed_unix": 1790793981.9594889,
   "supervisor": {
     "pid": 2484509,
-    "status": "RUNNING",
+    "status": "DOWNLOAD_EXITED_REQUIRES_INTEGRITY_CHECK",
     "started_unix": 1790793312.3484933,
     "gpu_workload_started": false,
     "max_cpu_wall_seconds": 3600,
@@ -20,43 +20,80 @@
       "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/hfhub",
       "--receipt",
       "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/outputs/w1-judge-assets-r4/download.json"
-    ]
+    ],
+    "exit_code": 0,
+    "ended_unix": 1790793945.503006,
+    "wall_seconds": 633.1542701721191
   },
   "downloader": {
     "pid": 2484511,
-    "status": "RUNNING",
+    "status": "DOWNLOADED_NOT_LOAD_VALIDATED",
     "current": "Qwen/Qwen3-VL-2B-Instruct",
-    "completed": [],
+    "completed": [
+      {
+        "repo_id": "Qwen/Qwen3-VL-2B-Instruct",
+        "revision": "89644892e4d85e24eaac8bacfd4f463576704203",
+        "snapshot": "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/hfhub/models--Qwen--Qwen3-VL-2B-Instruct/snapshots/89644892e4d85e24eaac8bacfd4f463576704203",
+        "files": [
+          {
+            "path": "chat_template.json",
+            "bytes": 5502,
+            "blob": "e49e75bdda104c8de941eb20e0b3765184fb27bc"
+          },
+          {
+            "path": "config.json",
+            "bytes": 1505,
+            "blob": "0cd8c646eb55794594b14fefcd1d3acea5cc000f"
+          },
+          {
+            "path": "generation_config.json",
+            "bytes": 269,
+            "blob": "7bb37933d2d86e4ceaabcc6540be989658f238e9"
+          },
+          {
+            "path": "merges.txt",
+            "bytes": 1671839,
+            "blob": "20024bfe7c83998e9aeaf98a0cd6a2ce6306c2f0"
+          },
+          {
+            "path": "model.safetensors",
+            "bytes": 4255140312,
+            "blob": "7de1838c87a5349b016c26a1c3f7d2bc400a3d485f95ef39a7059ffd734977a0"
+          },
+          {
+            "path": "preprocessor_config.json",
+            "bytes": 390,
+            "blob": "2ea84a437d448ff71b08df68fdd949d5cc4ebb64"
+          },
+          {
+            "path": "tokenizer.json",
+            "bytes": 7032403,
+            "blob": "c6cc1014128b19d1fc46b1d30a23e3b1d35db421"
+          },
+          {
+            "path": "tokenizer_config.json",
+            "bytes": 10868,
+            "blob": "d3d3763207692c78780f4bf42d4dadf49a5c8012"
+          },
+          {
+            "path": "video_preprocessor_config.json",
+            "bytes": 385,
+            "blob": "3ba673a5ad7d4d13f54155ecd38b2a94a6dac8fe"
+          },
+          {
+            "path": "vocab.json",
+            "bytes": 2776833,
+            "blob": "4783fe10ac3adce15ac8f358ef5462739852c569"
+          }
+        ]
+      }
+    ],
     "gpu_workload_started": false,
     "error": null
   },
-  "partial_objects": [
-    {
-      "name": "7de1838c87a5349b016c26a1c3f7d2bc400a3d485f95ef39a7059ffd734977a0.incomplete",
-      "bytes": 3439329280
-    }
-  ],
-  "processes": [
-    {
-      "pid": 2484509,
-      "cmdline": "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/scripts/supervise_asset_download.py --project /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr --manifest /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/manifests/w1_development_judge_assets_resume.json --output /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/outputs/w1-judge-assets-r4 --python /home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python ",
-      "cuda_visible_devices": "",
-      "proxy_present": false
-    },
-    {
-      "pid": 2484510,
-      "cmdline": "timeout --kill-after=10 3590 /home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/scripts/download_auxiliary.py --manifest /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/manifests/w1_development_judge_assets_resume.json --cache /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/hfhub --receipt /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/outputs/w1-judge-assets-r4/download.json ",
-      "cuda_visible_devices": "",
-      "proxy_present": false
-    },
-    {
-      "pid": 2484511,
-      "cmdline": "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/scripts/download_auxiliary.py --manifest /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/manifests/w1_development_judge_assets_resume.json --cache /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/hfhub --receipt /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/outputs/w1-judge-assets-r4/download.json ",
-      "cuda_visible_devices": "",
-      "proxy_present": false
-    }
-  ],
-  "cpu_lock_available": false,
+  "partial_objects": [],
+  "processes": [],
+  "cpu_lock_available": true,
   "source_sha256": {
     "scripts/supervise_asset_download.py": "dbd390dc8ece77ec459aec85d6f986b585e579d04f12cb939f3c5916882b47f4",
     "scripts/download_auxiliary.py": "5da139b7f38cd4adf60db09771f72ec48308656aa6a3555aa48f7cb72d4913f6",
@@ -67,7 +104,7 @@
     "manifests/w1_development_judge_integrity.json": "8d11b58610428a2aeb2f57eca4f49e2b0581fe930bf2bf90aa75dab8c9a01621"
   },
   "source_hashes_match": true,
-  "log_tail_sanitized": "\nFetching 10 files:   0%|          | 0/10 [00:00<?, ?it/s]",
+  "log_tail_sanitized": "\nFetching 10 files:   0%|          | 0/10 [00:00<?, ?it/s]\nFetching 10 files:  50%|\u2588\u2588\u2588\u2588\u2588     | 5/10 [10:32<10:32, 126.50s/it]\nFetching 10 files: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 10/10 [10:32<00:00, 63.25s/it]\n",
   "budget": {
     "batch": "F0-F1",
     "cap_gpu_hours": 4,

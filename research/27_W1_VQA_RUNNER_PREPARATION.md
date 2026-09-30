@@ -4,7 +4,7 @@
 
 ## 资源与执行身份
 
-CPU r3/source202e21d因IncompleteRead退出1/1153.880144秒，三PIDs退出/CPU锁释放/hash与预算不变，保留3030384640字节（2890MiB），不是超时/主动取消。[终态审计](../reports/w1_judge_assets_r3_audit.json)/[supervisor](../reports/w1_judge_assets_r3_supervisor.json)/[downloader](../reports/w1_judge_assets_r3_download.json)。新唯一r4/source39993d1已live，Linux4 acquisition/hash通过，三PIDs本次核实，partial3280MiB；同镜像/固定revision/同官方完整hash/cache/cap3600CPU-only，旧失败保留。[启动](../reports/w1_judge_assets_r4_launch_20261001.json)/[观察](../reports/w1_judge_assets_r4_live_observation.json)。观察失败或旧RUNNING文件不得触发重复提交。完整权重仍未验收。
+CPU r3/source202e21d因IncompleteRead退出1/1153.880144秒，三PIDs退出/CPU锁释放/hash与预算不变，保留3030384640字节（2890MiB），不是超时/主动取消。[终态审计](../reports/w1_judge_assets_r3_audit.json)/[supervisor](../reports/w1_judge_assets_r3_supervisor.json)/[downloader](../reports/w1_judge_assets_r3_download.json)。r4/source39993d1已exit0/633.154270秒，三PIDs退出/CPU锁释放/source与账本不变，官方10文件完整Git/LFS hash通过，完整权重4255140312字节/无partial。旧失败保留。[完整性](../reports/w1_judge_assets_r4_integrity.json)/[终态审计](../reports/w1_judge_assets_r4_audit.json)。资源验收是完整性证据，未模型load/forward/评分。
 
 scripts/run_w1_vqa.py、supervise_f1 --w1-vqa、scripts/summarize_w1_vqa.py已实现；尚未部署GPU、未load权重/模型forward/评分。原[输入协议](../manifests/w1_development_vqa_protocol.json)最初状态字串保留为历史冻结标签，以本卡和后续回执区分实现/CPU/实机。另[运行时锁](../manifests/w1_vqa_runtime_protocol.json)绑定真实CPU检查的transformers4.57.1/qwen-vl-utils0.0.14/decord0.6.0/torch2.7.1+cu128，以及实际安装的model class/processor/vision utility哈希；模型官方10文件digest必须全部通过。
 
@@ -22,6 +22,6 @@ scripts/run_w1_vqa.py、supervise_f1 --w1-vqa、scripts/summarize_w1_vqa.py已�
 
 [全部真实输入CPU](../reports/w1_vqa_all_inputs_cpu_20261001.json)：15个真实接受视频原文件重新hash，全部10采样帧metadata和每video第一道原题processor输入通过；全部42题文件hash/count核验；CUDA未初始化。不是全题VLM或全帧物理判定。[实际runner拒绝部分资源](../reports/w1_vqa_partial_assets_refusal_cpu_20261001.json)确认15视频/42题/9小文件通过后，在缺完整权重时失败，未import torch/加载/forward；CPU无效UUID隔离，不是实机GPU准入。
 
-下一须终态完整10文件官方Git/LFS hash，离线配置/运行时source匹配，再source commit/hash部署并fresh预算/锁/GPU准入，唯一outputs/w1-vqa-r1。完成后原始receipt/全部PIDs与GPU释放/monitor/source与产物hash/实际成本/原题重算汇总一并审计。
+下一已具备终态完整10文件官方Git/LFS hash；离线配置/运行时source已CPU通过，再source commit/hash部署并fresh预算/锁/GPU准入，唯一outputs/w1-vqa-r1。完成后原始receipt/全部PIDs与GPU释放/monitor/source与产物hash/实际成本/原题重算汇总一并审计。
 
 小[Qwen3-VL2B官方模型](https://huggingface.co/Qwen/Qwen3-VL-2B-Instruct)仅开发judge，10采样帧不等于完整动态物理真值；不能冒充论文235B标准Joint/整体质量验收、clean speed或独立确认。资源恢复与CPU通过不作方法正结果，不要求非必要人评/付费/训练。

@@ -1,0 +1,37 @@
+{
+  "status": "CPU_R4_TERMINAL_OFFICIAL10_ASSETS_HASH_VERIFIED_NOT_MODEL_LOAD",
+  "observed_unix": 1790794005.5325298,
+  "source_commit": "39993d16627b80fb8c7a68ad04059a5862306855",
+  "pids_absent": [
+    2484509,
+    2484510,
+    2484511
+  ],
+  "cpu_lock_available": true,
+  "source_hashes_match": true,
+  "source_sha256": {
+    "scripts/supervise_asset_download.py": "dbd390dc8ece77ec459aec85d6f986b585e579d04f12cb939f3c5916882b47f4",
+    "scripts/download_auxiliary.py": "5da139b7f38cd4adf60db09771f72ec48308656aa6a3555aa48f7cb72d4913f6",
+    "scripts/verify_public_assets.py": "decb5b43bcc64470aa8b9adb50a0bc39e75440f78015ff84bc6752f2765aa058",
+    "tests/test_asset_supervisor.py": "ed9046c5f34ef010675755737f02d061d0134996cfef62de06de64df95dd3444",
+    "tests/test_asset_integrity.py": "cd355282c8f47d7776e0ac54f653639ca6ca4bbd961e98e87aee3cbe8294503b",
+    "manifests/w1_development_judge_assets_resume.json": "75d4a91d2f117b5b9c807bcbbc6feca537839f24a33e687c4699328e21283944",
+    "manifests/w1_development_judge_integrity.json": "8d11b58610428a2aeb2f57eca4f49e2b0581fe930bf2bf90aa75dab8c9a01621"
+  },
+  "budget_unchanged": true,
+  "budget": {
+    "batch": "F0-F1",
+    "cap_gpu_hours": 4,
+    "used_gpu_hours": 3.612360697322422,
+    "gpu_jobs_launched": 20,
+    "status": "W1_IMAGING_REQUIRES_REVIEW",
+    "gpu_import_probes_completed": 1,
+    "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts"
+  },
+  "partial_objects": [],
+  "wall_seconds": 633.1542701721191,
+  "exit_code": 0,
+  "gpu_workload_started": false,
+  "integrity_status": "HASH_VERIFIED_NOT_LOAD_TESTED",
+  "scope": "Actual terminal/PIDs/lock/source/ledger audit. Complete official SHA256/Git blob checks if download succeeded; no model weights load/VLM forward/scoring or GPU charge."
+}
