@@ -8,17 +8,19 @@
 
 ## 1. 当前结论与最重要的下一步
 
-**继续WorldCache主线的工程复现与数值诊断，但不将当前scalar/shrink候选送入闭环。** F1三组成对样本技术耗时比1.476–1.602×；W1默认及最近pair修订在四个工程点均NO_GAIN_IN_SCOPE，尚无新方法/质量正结果。已发现跨新进程视频像素差异，需先定位模型输出之后的阶段。
+**继续WorldCache主线的工程复现与数值诊断，但不将当前scalar/shrink候选送入闭环。** F1三组成对样本技术耗时比1.476–1.602×；W1默认及最近pair修订在四个工程点均NO_GAIN_IN_SCOPE，尚无新方法/质量正结果。同版本两个新进程已将首个差异定位到decode输出：latent/decode输入相同，内部原因仍未知。
 
 | 项目 | 最新已归档证据 |
 |---|---|
-| 当前阶段 | W1两版数值负结果归档；后模型跨进程视频复现差异待定位 |
-| 最近运行 | 最近pair任务exit0，8checks通过；原进程退出、GPU释放、产物重哈希匹配 |
-| 首要动作 | 同官方输入两个新进程的sample/VAE/guardrail/save/codec阶段哈希诊断；无需人评 |
-| 当前成本 | 已结算1.560151151/4GPUh，剩余2.439848849GPUh，无在途任务 |
+| 当前阶段 | W1数值负结果归档；跨进程差异已定位到decode返回边界 |
+| 最近运行 | stage-r2两个新进程exit0，首个不同边界decode_output；GPU释放、视频/源码重哈希匹配 |
+| 首要动作 | 核验decoder权重/状态；局部cuDNN确定性策略复现门；无需人评 |
+| 当前成本 | 已结算1.823217769/4GPUh，剩余2.176782231GPUh，无在途任务 |
 | 方法证据 | CPU/合成测试与资源就绪，不等于生成质量或真实加速收益 |
 | 视频评价 | 已有格式检查；完整视频质量审查尚未完成 |
 | 运行状态时效 | 本表来自仓库内终态回执；接续时必须查远端进程、锁、日志及预算，不能把文档当实时 GPU 状态 |
+
+最新阶段证据：[decode区间定位](research/17_DECODE_INTERVAL_RESULTS.md)、[下一轮准备卡](research/18_DECODER_POLICY_GATE.md)、[阶段汇总](reports/stage_r2_summary.json)。
 
 依据：[F1 r3配对汇总](reports/f1_smoke_r3_summary.json)、[W1-P0终态结果](research/12_W1_P0_TERMINAL_RESULTS.md)、[实时恢复审计](reports/w1_p0_r1_recovery_audit.json)、[预算账本](reports/budget.json)。
 

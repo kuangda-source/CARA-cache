@@ -1,0 +1,23 @@
+{
+  "status": "FIRST_DIFFERING_BOUNDARY",
+  "first_difference": "decode_output",
+  "previous_matching_boundary": "decode_input",
+  "checks": {
+    "forward_output_sha256": true,
+    "block_counts": true,
+    "trace": true,
+    "cache_end_sha256": true,
+    "sampling": true,
+    "runtime_identity": true,
+    "encoding": true
+  },
+  "left": "reports/stage_r2_stage_a.json",
+  "right": "reports/stage_r2_stage_b.json",
+  "source_sha256": {
+    "manifests/stage_witness_protocol.json": "0bc396bb8d543c90816bd03c228bd11a51a8dde6f0c9f6fbfbd535ce9d90813f",
+    "scripts/check_stage_witness.py": "5b0db416d28103a7e7487ce05fab74de3240973d370e9e8dbaa4275d2d995a98",
+    "src/wcomr/stage_witness.py": "9cdd3ea6f215e35c7b6968a884788d5f81aff2b9c6944b081dced45e3b77ef14"
+  },
+  "wall_seconds": 634.2305300235748,
+  "limitation": "Two engineering witnesses only; a matching result does not explain the historical differing video. A differing boundary locates an interval, not a cause."
+}

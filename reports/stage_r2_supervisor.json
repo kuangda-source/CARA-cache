@@ -1,0 +1,43 @@
+{
+  "pid": 2453240,
+  "gpu_uuid": "GPU-cebf7119-cf03-23b9-e192-cd196332b704",
+  "status": "STAGE_WITNESS_EXITED_REQUIRES_REVIEW",
+  "arms": [
+    {
+      "mode": "stage_a",
+      "pid": 2453245,
+      "exit_code": 0,
+      "wall_seconds": 317.2003343105316,
+      "stop_reason": null
+    },
+    {
+      "mode": "stage_b",
+      "pid": 2454606,
+      "exit_code": 0,
+      "wall_seconds": 317.0301957130432,
+      "stop_reason": null
+    }
+  ],
+  "current_mode": "stage_b",
+  "child_pid": 2454606,
+  "child_started_unix": 1790774158.4265823,
+  "admission": {
+    "unix": 1790774158.4262772,
+    "memory_used_mib": 24,
+    "utilization_percent": 100,
+    "pids": []
+  },
+  "command": [
+    "timeout",
+    "--kill-after=10",
+    "572",
+    "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python",
+    "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/scripts/check_stage_witness.py",
+    "--project",
+    "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr",
+    "--gpu-uuid",
+    "GPU-cebf7119-cf03-23b9-e192-cd196332b704",
+    "--receipt",
+    "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/outputs/stage-r2/stage_b/witness.json"
+  ]
+}
