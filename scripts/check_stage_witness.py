@@ -120,9 +120,11 @@ try:
                      video_path=str(paths[0]),video_sha256=sha(paths[0]),encoding=encoding)
         validate_schedule(observed,counts.result(),sampling,'worldcache')
         assert len(traces)==72
-        required=['sample_return','decode_input','decode_output','guardrail_input','guardrail_output','save_input']
-        assert [e['stage'] for e in observer.events]==required,'Unexpected stage topology'
-        assert observer.events[4]['value']['kind']!='None','Guardrail rejected'
+        stages=[e['stage'] for e in observer.events]
+        assert stages[0]=='sample_return' and stages[-3:]==['guardrail_input','guardrail_output','save_input']
+        middle=stages[1:-3]
+        assert middle and len(middle)%2==0 and middle==['decode_input','decode_output']*(len(middle)//2),'Unexpected decode topology'
+        assert observer.events[-2]['value']['kind']!='None','Guardrail rejected'
         frames=[]
         with av.open(str(paths[0])) as container:
             stream=container.streams.video[0]

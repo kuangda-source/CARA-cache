@@ -78,7 +78,7 @@ for mode in (('stage_a','stage_b') if a.stage_witness else ('w1_same_state',) if
     if is_probe:
         command = ['timeout', '--kill-after=10', str(max(1, int(seconds_left) - 10)), a.python,
                    str(project / ('scripts/check_stage_witness.py' if a.stage_witness else 'scripts/check_w1_parity.py' if (a.w1_parity or a.w1_same_state) else 'scripts/check_guardrail_pipeline.py' if a.guardrail_only else 'scripts/check_model_load.py')), '--project', str(project),
-                   '--gpu-uuid', a.gpu_uuid, '--receipt', str(output / (f'{mode}.json' if a.stage_witness else 'w1-same-state.json' if a.w1_same_state else 'w1-parity.json' if a.w1_parity else 'guardrail-pipeline.json' if a.guardrail_only else 'core-model-load.json'))]
+                   '--gpu-uuid', a.gpu_uuid, '--receipt', str((output / mode / 'witness.json') if a.stage_witness else output / ('w1-same-state.json' if a.w1_same_state else 'w1-parity.json' if a.w1_parity else 'guardrail-pipeline.json' if a.guardrail_only else 'core-model-load.json'))]
     if a.w1_same_state:
         command.append('--same-state')
         if a.w1_recent_calibration:

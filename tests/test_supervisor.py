@@ -125,13 +125,19 @@ def test_recent_revision_uses_same_bounded_single_job_and_explicit_runner_flag(t
 
 def test_stage_gate_uses_two_fresh_children_and_shared_remaining_deadline(tmp_path):
     project, output, cmd, env = fixture(tmp_path, delay=1.1)
+    child=Path(cmd[cmd.index('--python')+1])
+    child.write_text(child.read_text()+
+        'import sys\nreceipt=Path(sys.argv[sys.argv.index("--receipt")+1])\n'
+        'receipt.parent.mkdir(parents=True,exist_ok=False)\n'
+        '(receipt.parent/"video").mkdir(exist_ok=False)\nreceipt.write_text("{}")\n')
     subprocess.run(cmd+['--stage-witness'],env=env,check=True,capture_output=True,timeout=10)
     state=json.loads((output/'supervisor.json').read_text())
     assert state['status']=='STAGE_WITNESS_EXITED_REQUIRES_REVIEW'
     assert [arm['mode'] for arm in state['arms']]==['stage_a','stage_b']
     assert len({arm['pid'] for arm in state['arms']})==2
     assert str(project/'scripts/check_stage_witness.py') in state['command']
-    assert str(output/'stage_b.json') in state['command']
+    assert str(output/'stage_b'/'witness.json') in state['command']
+    assert all((output/mode/'witness.json').exists() for mode in ['stage_a','stage_b'])
     assert int(state['command'][2])<=888  # Remaining gate time includes first child.
     budget=json.loads((project/'reports/budget.json').read_text())
     assert budget['gpu_jobs_launched']==2
