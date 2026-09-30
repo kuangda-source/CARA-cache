@@ -11,7 +11,9 @@
       "url": "https://download-r2.pytorch.org/whl/cu121/torch-2.4.1%2Bcu121-cp311-cp311-linux_x86_64.whl",
       "official_sha256": "914d128e5abcbbe79ca1b9eb5311b185444f1b2d7117df555fe418487ecfb894",
       "index_url": "https://download.pytorch.org/whl/cu121/torch/",
-      "index_sha256": "08bf006c8edf29c99054b6d918d064ba8c935d01c1405f2c2e5e9ad3ef8869ca"
+      "index_sha256": "08bf006c8edf29c99054b6d918d064ba8c935d01c1405f2c2e5e9ad3ef8869ca",
+      "size": 798979686,
+      "download_url": "https://download.pytorch.org/whl/cu121/torch-2.4.1%2Bcu121-cp311-cp311-linux_x86_64.whl"
     },
     {
       "package": "torchvision",
@@ -20,7 +22,9 @@
       "url": "https://download-r2.pytorch.org/whl/cu121/torchvision-0.19.1%2Bcu121-cp311-cp311-linux_x86_64.whl",
       "official_sha256": "536417340694b29cc54c308507d098b00cbdcc1fe868072a34b553bed73d9d30",
       "index_url": "https://download.pytorch.org/whl/cu121/torchvision/",
-      "index_sha256": "cad3838ad8e6f08c7ebdfc8ef322a95678efc5106c38b30a3222e27ec5c64732"
+      "index_sha256": "cad3838ad8e6f08c7ebdfc8ef322a95678efc5106c38b30a3222e27ec5c64732",
+      "size": 7073837,
+      "download_url": "https://download.pytorch.org/whl/cu121/torchvision-0.19.1%2Bcu121-cp311-cp311-linux_x86_64.whl"
     },
     {
       "package": "torchaudio",
@@ -29,7 +33,9 @@
       "url": "https://download-r2.pytorch.org/whl/cu121/torchaudio-2.4.1%2Bcu121-cp311-cp311-linux_x86_64.whl",
       "official_sha256": "01b04edb9135a7d60fa0100fc01ffb40a0858010f599ae6418f40e09e88e681b",
       "index_url": "https://download.pytorch.org/whl/cu121/torchaudio/",
-      "index_sha256": "c732b787cf0f3b633fe23d4d1354ed732cdabea91f43a2238e790e87f2fde089"
+      "index_sha256": "c732b787cf0f3b633fe23d4d1354ed732cdabea91f43a2238e790e87f2fde089",
+      "size": 3411156,
+      "download_url": "https://download.pytorch.org/whl/cu121/torchaudio-2.4.1%2Bcu121-cp311-cp311-linux_x86_64.whl"
     },
     {
       "package": "flash-attn",
@@ -44,5 +50,63 @@
     }
   ],
   "scope": "Native common pipeline, no GPU budget expansion",
-  "missing_release_digest_policy": "If upstream omits digest, report UNKNOWN official digest and freeze actual downloaded SHA against the authenticated asset URL/id/size without calling it official SHA validation."
+  "missing_release_digest_policy": "If upstream omits digest, report UNKNOWN official digest and freeze actual downloaded SHA against the authenticated asset URL/id/size without calling it official SHA validation.",
+  "transport_preflight": {
+    "observed_unix": 1790810065.376941,
+    "route": "Existing local proxy; GET metadata/64KiB prefix only, no server forward",
+    "head_probe": "Initial HEAD on index-provided download-r2 host returned403; it is not evidence that GET is unavailable",
+    "checks": [
+      {
+        "filename": "torch-2.4.1+cu121-cp311-cp311-linux_x86_64.whl",
+        "attempts": [
+          {
+            "host": "download-r2.pytorch.org",
+            "status": "PREFLIGHT_FAILED",
+            "error_type": "HTTPError",
+            "http_status": 403
+          },
+          {
+            "host": "download.pytorch.org",
+            "status": "EXACT206_PREFIX_PASS",
+            "size": 798979686,
+            "prefix_sha256": "80cb903536bfa5fff055e176750b6c1d3d60c7965d3add17081fc9aa7376cbac"
+          }
+        ]
+      },
+      {
+        "filename": "torchvision-0.19.1+cu121-cp311-cp311-linux_x86_64.whl",
+        "attempts": [
+          {
+            "host": "download-r2.pytorch.org",
+            "status": "PREFLIGHT_FAILED",
+            "error_type": "HTTPError",
+            "http_status": 403
+          },
+          {
+            "host": "download.pytorch.org",
+            "status": "EXACT206_PREFIX_PASS",
+            "size": 7073837,
+            "prefix_sha256": "87b0f19bdbe3119bf1a0485f7e53d57736c7f9f4d95c4ab765d51c60b242a4ad"
+          }
+        ]
+      },
+      {
+        "filename": "torchaudio-2.4.1+cu121-cp311-cp311-linux_x86_64.whl",
+        "attempts": [
+          {
+            "host": "download-r2.pytorch.org",
+            "status": "PREFLIGHT_FAILED",
+            "error_type": "HTTPError",
+            "http_status": 403
+          },
+          {
+            "host": "download.pytorch.org",
+            "status": "EXACT206_PREFIX_PASS",
+            "size": 3411156,
+            "prefix_sha256": "4e1f477a2f174f396a101af0bb68f6eee3cf5dd55ea64d57aea49f7778de88e4"
+          }
+        ]
+      }
+    ]
+  }
 }

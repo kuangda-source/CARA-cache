@@ -1,3 +1,11 @@
+## 最新完整CPU验收 — 两臂融合+fresh全产物审计终态
+
+真实两臂CPU融合与独立fresh audit均终态通过：fusion1960.417015秒/peakRSS30.8287GiB，audit663.896945秒；18原输入融合前后及fresh官方digest一致，6输出shard/1650实际tensor全finite与dtype/shape/字节digest通过，1050未目标weight原字节不变，两臂各300目标实际bytes_changed。所有原fusion/审计6PIDs退出/CPU锁释放/source与GPU账本不变。仍未实际模型/T5/VAE加载或任务/GPU就绪。
+
+[完整验收卡](../../research/42_L0_FULL_CPU_FUSION_ARTIFACT_ACCEPTANCE.md)/[全audit](../../reports/l0_cpu_fusion_r1_artifact_audit_20261001.json)。所有旧launch/settle/metadata/source helper不可重跑；无CPU任务在途，不重复融合或audit。下一四个官方binary获取/新env完整resolved依赖/CPU600 probe；现仅metadata+三PyTorch64KiB前缀。download-r2实际403，但官方原host download_url精确206通过；Flash官方digest UNKNOWN不叫包缺失，freeze实际下载SHA。要新owned临时proxy forward/独立resource output/source/cap3600/PID+exit receipts；共享FRPC/代理不动。新probe必须--environment-lock；Full native package/825meta架构/tokenizer实际检查、全权重/任务/GPU仍未做。新4GPUh仅clean50提议未授权；L1也不能自动提交。
+
+## 以下为历史快照
+
 ## 最新运行 — fresh CPU audit-r1 live，binary元数据已锁
 
 CPU audit-r1/sourcedbe863c已唯一实际启动，3PIDs2505483/2505484/2505485 live、900秒cap/锁持有/source与GPU账本不变。fresh18输入/CFG-only825tensor与3shard/525untargeted通过，few-step+CFG尚待。官方Torch三wheel SHA与Flash官方asset ID/size已锁，Flash官方digest UNKNOWN；均未下载/安装，实际ABI/fullruntime未通过。
