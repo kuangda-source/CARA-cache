@@ -1,0 +1,46 @@
+{
+  "source_commit": "99f554f2bb37338ecfe182e4273a03d0847adbd7",
+  "archive_sha256": "65a4c0225a7925a6ee182bb291e33f71141e6e02fc5b1b20bfbdbb5b60ed9de1",
+  "status": "DISPATCHED_REQUIRES_LIVE_VERIFICATION",
+  "gpu_uuid": "GPU-cebf7119-cf03-23b9-e192-cd196332b704",
+  "admission_gpu": "GPU-cebf7119-cf03-23b9-e192-cd196332b704, NVIDIA RTX A6000, 49140, 24, 0",
+  "admission_compute_apps": "",
+  "budget_before": {
+    "batch": "F0-F1",
+    "cap_gpu_hours": 4,
+    "used_gpu_hours": 1.4127196775542366,
+    "gpu_jobs_launched": 10,
+    "status": "W1_SAME_STATE_REQUIRES_REVIEW",
+    "gpu_import_probes_completed": 1,
+    "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts"
+  },
+  "max_gpu_seconds": 900,
+  "output": "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/outputs/w1-s1-recent-r1",
+  "started_unix": 1790768734.3901536,
+  "pid": 2447006,
+  "command": [
+    "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python",
+    "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/scripts/supervise_f1.py",
+    "--project",
+    "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr",
+    "--runtime",
+    "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/runtime",
+    "--python",
+    "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python",
+    "--gpu-uuid",
+    "GPU-cebf7119-cf03-23b9-e192-cd196332b704",
+    "--output",
+    "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/outputs/w1-s1-recent-r1",
+    "--w1-same-state",
+    "--w1-recent-calibration"
+  ],
+  "live_verification": {
+    "observed_unix": 1790768819.2550786,
+    "supervisor": 2447006,
+    "child": 2447012,
+    "diagnostic_pid": 2447014,
+    "hf_hub_cache": "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/hfhub",
+    "status": "GENERATING_OFF",
+    "processes_present": true
+  }
+}

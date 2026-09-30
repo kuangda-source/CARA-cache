@@ -1,8 +1,16 @@
+# Latest — single recent-pair revision live
+
+Source99f554f,archive65a4c0225a7925a6ee182bb291e33f71141e6e02fc5b1b20bfbdbb5b60ed9de1verified,16local/16LinuxCPUchecks pass. outputs/w1-s1-recent-r1 launchedonce <=900s,supervisor2447006/timeout2447012/runner2447014verifiedlive,offgenerating. NewadmissionGPU1 24MiB/noapps;actualprojectcacheenvverified. Do notmodifyrunningcode/submitsecondjob. BudgetsettledBEFORErevision1.4127196775542366/4h,inflightadditional.
+
+Revisiononlydecay0latesttruefullpairvsdefault0.9;original AV/seed0/4calls15,16,37,38/72calls/WC70/warpunchanged,shrinkunchangedcontrol. Newprotocolmanifests/w1_same_state_recent_protocol.json. Onterminalcollectw1-same-state.json,supervisor,budget,process/lock/GPU/video-hash audit;runlocal summarize_w1_same_state.py,thencompare official72hashes/config andshrinkmetrics withr2. EarlierdefaultsNO_GAIN_IN_SCOPE scalar2.531/shrink5.395velocityMSEratio,2/4improve;do notlaunchclosedloopfromdefaults. Onefixedrevisiononly,noparameterscan. Quality/candidatevideos/independentCALnotestablished. Humanannotationnotrequired.
+
+## Historical snapshots
+
 # Latest — W1-S1 r2 terminal, default no-gain; recent-pair revision prepared
 
 Source7e5bc10,r2exit0,8checks pass; originalPIDsabsent/lockavailable/GPU1released24MiB/noapps. AllvideoSHA256rehashmatch. Sameofficial4selectedstates:scalarvelocitysum-MSEratio2.531189803,shrink5.394980328,both2/4improve;no fallback.DefaultNO_GAIN_IN_SCOPE,notmethodwide rejection;earlier15/16improve,middle37/38worsen. Officialvideosonly,nocandidateclosedloop/qualityclaim.
 
-Budget1.4127196775542366/4h,remaining2.5872803224457632h. Nextonefixedrevision:decay0latesttruefullpairbeta,allotherprotocolunchanged;shrinkcontrolunchanged. manifests/w1_same_state_recent_protocol.json and supervise_f1.py --w1-same-state --w1-recent-calibration. Localtargeted16CPUtests pass (pendingcompletionreceiptbelow). Needsourcecommit/hash deployment/freshadmission thenuniqueoutputs/w1-s1-recent-r1 <=900s. No secondrevisionwithoutnewmechanismevidence. Reportresearch/14_W1_S1_INITIAL_RESULTS.md andr2raw/summary/auditreceipts. Humanannotationnotrequired. Priorcacheinitfailurearchived/charged,explicitcachefixretained.
+Budget1.4127196775542366/4h,remaining2.5872803224457632h. Nextonefixedrevision:decay0latesttruefullpairbeta,allotherprotocolunchanged;shrinkcontrolunchanged. manifests/w1_same_state_recent_protocol.json and supervise_f1.py --w1-same-state --w1-recent-calibration. Localtargeted16CPUtests pass. Needsourcecommit/hash deployment/freshadmission thenuniqueoutputs/w1-s1-recent-r1 <=900s. No secondrevisionwithoutnewmechanismevidence. Reportresearch/14_W1_S1_INITIAL_RESULTS.md andr2raw/summary/auditreceipts. Humanannotationnotrequired. Priorcacheinitfailurearchived/charged,explicitcachefixretained.
 
 ## Historical snapshots
 

@@ -12,10 +12,10 @@
 
 | 项目 | 最新已归档证据 |
 |---|---|
-| 当前阶段 | W1-S1实机验收通过；默认两候选NO_GAIN_IN_SCOPE；最近full-pair修订待运行 |
-| 最近运行 | W1-S1 r2已exit0，8项checks通过；进程退出、GPU释放、视频重哈希匹配 |
+| 当前阶段 | W1-S1实机验收通过；默认两候选NO_GAIN_IN_SCOPE；最近full-pair修订运行中 |
+| 最近运行 | 单次recent-full-pair修订已运行，supervisor2447006/timeout2447012；上限900s，结果待收集 |
 | 首要动作 | 单次recent-full-pair标量修订诊断，保持同场景/四点/官方轨迹；不等待人工语义标注 |
-| 当前成本 | 已结算1.412719678/4GPUh，剩余2.587280322GPUh，无在途任务 |
+| 当前成本 | 已结算1.412719678/4GPUh，剩余2.587280322GPUh，revision启动前；在途成本另计 |
 | 方法证据 | CPU/合成测试与资源就绪，不等于生成质量或真实加速收益 |
 | 视频评价 | 已有格式检查；完整视频质量审查尚未完成 |
 | 运行状态时效 | 本表来自仓库内终态回执；接续时必须查远端进程、锁、日志及预算，不能把文档当实时 GPU 状态 |
@@ -218,3 +218,5 @@ W1-S1 r1初始化失败，未生成：启动环境缺少HF_HUB_CACHE，默认off
 W1-S1 r2已启动：源7e5bc10、部署哈希匹配、Linux6项监督器检查通过，新鲜GPU1准入24MiB/no compute apps；supervisor2444752/timeout2444757/runner2444759实机存活，项目cache环境已核实，进入off生成。见[启动回执](reports/w1_s1_r2_launch_20260930.json)及[现场快照](reports/w1_s1_r2_start_observation.json)。本地摘要器与7项回执有效性检查不会部署到在跑任务。
 
 W1-S1 r2收尾：8项真实诊断一致性验收通过；四点velocity sum-MSE比scalar2.531、shrink5.395，均只有较早2/4点改善，默认方法记NO_GAIN_IN_SCOPE，不进入闭环。下一步只有一项因果修订：decay0.9→0最近full-pair beta，固定其他变量；上限900s现有预算内。详见[首轮机制结果与修订依据](research/14_W1_S1_INITIAL_RESULTS.md)。
+
+单次recent修订已启动：源99f554f，16local/16Linux针对性检查通过，部署哈希匹配；旧PIDs缺失/锁可获取后重新准入GPU1，supervisor2447006/timeout2447012/runner2447014核实存活。官方off生成中，结果尚未得出，见[启动](reports/w1_s1_recent_r1_launch_20260930.json)。

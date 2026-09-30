@@ -153,3 +153,7 @@ Source7e5bc10 archive matched,6LinuxsupervisorCPUchecks passed afterprior19same-
 ## W1-S1 r2 terminal and initial mechanism decision
 
 Bothmodes exit0,8paritychecks pass; originalPIDsabsent/lockavailable/GPUreleased,artifactsrehashmatch. Fourpoints scalarvelocitysum-MSEratio2.531189803,shrink5.394980328,both2/4improve,nofallback;defaultNO_GAIN_IN_SCOPE. Earlier15/16improve,midtrajectory37/38worsen. See research/14_W1_S1_INITIAL_RESULTS.md. Cost1.4127196775542366/4h settled. Onefixedrevisiondecay0recentfullpairplanned <=900s;notyetlaunched. Noquality/closed-loopgain.
+
+## Recent-full-pair revision live
+
+Source99f554f archivehashmatches,16local/16Linuxchecks pass. FreshGPU1 24MiB/noapps,oldPIDsabsent/lockavailable; supervisor2447006/timeout2447012/runner2447014live,outputs/w1-s1-recent-r1<=900s. Decay0only,shrinkcontrol/sampling/4callsunchanged. Budget1.412719677hBEFORErevision;additionalinflight. Collectcurrentidentity,notstaler2status;nohumanannotationgate.
