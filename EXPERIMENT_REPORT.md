@@ -8,22 +8,22 @@
 
 ## 1. 当前结论与最重要的下一步
 
-**继续WorldCache主线，先做有界自动成像评价；固定schedule scalar重放已全部技术通过，但候选7接受/1安全拒绝。** CAL8 scalar7/8机制改善保持；闭环视频质量、干净效率和独立确认仍未证。暂不加W2或用“更平滑”代替动作/物理质量。
+**继续自动语义/物理开发评价准备，暂不加W2；目前有机制信号，没有闭环整体质量或干净速度正结果。** 固定scalar重放8轨迹技术通过、7接受/robot拒绝；后续MUSIQ成像维度7对全部93帧，3升4降，mean delta +0.004254295，改善不一致。小正均值没有非劣界限或独立确认，不能叫方法质量收益。
 
 | 项目 | 最新终态证据（2026-10-01） |
 |---|---|
-| 当前阶段 | 固定重放8/8轨迹技术通过，下一MUSIQ成像评价CPU/输入就绪，待部署/准入 |
-| 最近运行 | w1-replay-r1/source31a797d，原全部PIDs退出/锁可用/GPU1释放 |
-| 接受/拒绝 | 候选7接受、robot_054 VIDEO_REJECTED，原WC8接受；原8分母不变 |
-| 技术证据 | official14项/scalar OFF-ON18项全真，295scalar预测/0fallback，57自然/冻结判据差异 |
-| 成本 | 本轮2177.784138秒，累计3.599984882/4GPUh，余0.400015118h，无在途 |
-| 视频差异 | 7可比视频对都有像素差异、6/7帧间变化较小；非正确性/质量结论 |
-| 首要动作 | 独立MUSIQ部署与LinuxCPU/预算/锁/GPU核验，单batch600秒，7可比对/原8分母 |
-| 质量资源 | MUSIQ权重CPU前向通过；小Qwen VL缓存无权重，标准大judge环境未就绪，不要求人评 |
+| 当前阶段 | 重放及自动成像均终态，下一小型VQA judge CPU资源准备 |
+| 最近运行 | MUSIQ/sourcea51e3e4，原3PIDs退出/锁可用/GPU1释放 |
+| 覆盖 | 原8分母，7接受视频对全部93帧；robot VIDEO_REJECTED保留 |
+| 单维度结果 | MUSIQ候选3对升4对降，场景等权归一化差+0.004254295，不能判整体质量 |
+| 方法证据 | CAL8机制改善；闭环质量/语义物理/clean速度/独立确认仍未证 |
+| 成本 | MUSIQ监督44.552937秒；累计3.612360697/4GPUh，余0.387639303h，无GPU在途 |
+| 首要动作 | CPU下载固定Qwen3-VL2B约3.974GiB/10文件到项目hfhub，cap1200秒；hash与离线兼容核验后再设计VQA GPU任务 |
+| 评价边界 | 小模型开发judge不等于235B标准benchmark；不引入人评/付费评分/训练/自动扩额 |
 
-最新证据：[重放结果](research/24_W1_FIXED_REPLAY_RESULTS.md)、[完整汇总](reports/w1_replay_r1_summary.json)、[终态审计](reports/w1_replay_r1_audit.json)、[runner](reports/w1_replay_r1_runner.json)、[supervisor](reports/w1_replay_r1_supervisor.json)、[账本](reports/budget.json)。下一[自动成像评价卡](research/23_W1_IMAGING_EVALUATION.md)/[冻结协议](manifests/w1_imaging_protocol.json)尚未GPU运行，MUSIQ仅单成像维度，不判语义/物理/Joint或整体质量。
+证据：[成像结果](research/25_W1_IMAGING_RESULTS.md)、[原runner](reports/w1_imaging_r1_runner.json)、[重新计算汇总](reports/w1_imaging_r1_summary.json)、[终态审计](reports/w1_imaging_r1_audit.json)、[账本](reports/budget.json)。下一[资源manifest](manifests/w1_development_judge_assets.json)/[官方文件完整性](manifests/w1_development_judge_integrity.json)是CPU准备，不是VLM/GPU评分；原42 VQA题已绑定。
 
-此前完整证据：[CAL8机制结果](research/21_W1D_CAL8_RESULTS.md)、[CAL8汇总](reports/w1d_cal8_r1_summary.json)、[分布/排序](reports/w1d_cal8_r1_analysis.json)、[诊断图](reports/w1d_cal8_r1_diagnostics.png)、[局部解码复现](research/19_DECODER_POLICY_RESULTS.md)。
+此前：[固定重放结果](research/24_W1_FIXED_REPLAY_RESULTS.md)、[重放完整汇总](reports/w1_replay_r1_summary.json)、[CAL8机制结果](research/21_W1D_CAL8_RESULTS.md)、[CAL8分布/排序](reports/w1d_cal8_r1_analysis.json)。
 
 历史阶段证据：[decode区间定位](research/17_DECODE_INTERVAL_RESULTS.md)、[下一轮准备卡](research/18_DECODER_POLICY_GATE.md)、[阶段汇总](reports/stage_r2_summary.json)。
 
@@ -102,11 +102,11 @@
 
 ## 7. 下一轮的执行与停止条件
 
-1. 原重放终态已审计，不重启/补样本；8轨迹技术通过与7视频接受分开报告，robot拒绝保留。
-2. 下一MUSIQ原8分母/7可比对/全部93帧，上限600秒从原4GPUh余额扣除；推送/hash部署/LinuxCPU/fresh预算锁GPU准入后只启动一次。
-3. 终态审计进程/锁/GPU/source/checkpoint/输入hash及wall账本；完整覆盖才汇总，partial/拒绝明确记录。无训练/付费评分/人评/自动扩额。
-4. 成像维度与帧间变化不能证明动作/物理/整体质量，带hash诊断时间不作clean speed；暂不加W2。
-5. 原VQA问题已hash绑定，标准judge未就绪；下一需自动语义/物理、clean重复计时和独立确认的具体资源与预算方案，保留科学证据边界。
+1. 原重放与成像均终态已审计；robot拒绝保留原8分母，不补跑/改安全管线；不把单成像维度平均小正差当整体质量。
+2. 新公共Qwen3-VL2B CPU资源准备，固定revision/10文件约3.974GiB；独立项目cache/cap1200秒/唯一任务/父子退出回执。同步源码、LinuxCPU后提交一次；不据超时或观察错重复下载任务。
+3. 完整官方hash/offline config/processor/load兼容核验后，再冻结原8分母/原题/固定输入与解析的开发VQA协议；GPU提交必须fresh预算/锁/GPU准入、成本cap包含加载/失败/评分/flush。
+4. 小judge不是论文235B或独立确认；仍需物理/语义动作、clean重复计时与独立确认，暂不加W2。
+5. 原剩余0.387639303GPUh不自动扩额；不足时完成具体资源与预算方案再交用户，不要求非必要人评/付费服务或训练。
 
 遇到关键协议更换、扩大预算、训练立项或方向切换时留给用户决策。一般工程修复可继续，但不得中途改变在跑任务的源码/配置。操作顺序以[下一步队列](research/09_NEXT_ACTIONS.md)为准。
 

@@ -1,3 +1,17 @@
+## 最新接续 — 2026-10-01：自动成像评价终态，下一开发VQA资源准备
+
+MUSIQ `w1-imaging-r1` sourcea51e3e4已终态：原8分母/7接受视频对全部93帧评分，robot VIDEO_REJECTED保留；3升4降，按可比场景等权mean delta +0.004254295（MUSIQ原始+0.425429518），industry单项较大，其他混合。没有预设非劣界限或独立确认，不能据小正均值称质量收益。原frame scores/均值/配对差/覆盖已重新计算。标准语义/物理/动作完成/整体质量与clean速度仍未评估，暂不加W2。
+
+supervisor2477084/timeout2477091/runner2477093全退出，exit0/无stop reason；锁可用，GPU1 24MiB/noapps，9监控点无观察到其他compute，peak586MiB；source及15输入视频hash匹配。监督44.552937秒，累计3.612360697322/4GPUh，余0.387639302678h，无在途GPU任务。此评价是单成像维度/固定本地pyiqa，非完整标准benchmark/Joint复现。
+
+下一已具体准备：官方公共Qwen3-VL2B revision89644892e4d85e24eaac8bacfd4f463576704203及10个inference文件/Git-LFS hash冻结，约3.974GiB；CPU下载到项目独立hfhub，cap1200秒，匿名官方端点、不写共享cache。小模型仅开发VQA judge，不能替代235B标准judge或独立确认。原42条VQA题已取回hash绑定。新CPU监督器单identity/flock/timeout/exit receipt/env CUDA为空，3项针对性CPU检查通过；当前下载尚未启动。先commit/push、hash部署CPU文件并Linux检查，唯一outputs/w1-judge-assets-r1；下一查同handles至终态，再完整hash/offline config/processor/load资源检查。尚无新VQA GPU评分。
+
+固定重放结果仍8轨迹技术通过/7接受1robot拒绝/295scalar预测0fallback；CAL8只是机制信号。自动GPU VQA必须完整原8分母/所有原题、同模型/固定视频输入与评分协议、有界预算/fresh准入后才提交，不能用小模型单维度判最终方法成功。不扩预算/训练/付费/人评，重大资源/方向决策再交用户。
+
+证据：[成像结果](../../research/25_W1_IMAGING_RESULTS.md)、[重新计算汇总](../../reports/w1_imaging_r1_summary.json)、[终态审计](../../reports/w1_imaging_r1_audit.json)、[开发judge资源manifest](../../manifests/w1_development_judge_assets.json)；后续文档HEAD不等于过去实机source。
+
+## 以下为历史快照
+
 ## 最新接续 — 2026-10-01：固定scalar重放终态，自动成像评价准备
 
 source31a797d的`w1-replay-r1`已终态，原supervisor2471255/timeout2471260/runner2471262全部退出、锁可用、GPU1 24MiB/noapps；424监控点无观察到其他compute，所有9接受artifact/source hash核验通过。official14项/scalar OFF-ON18项全真；原8场景72call/frozen schedule/past-anchor技术通过，295scalar预测/0fallback、57自然与冻结判据差异。候选7接受、robot_054 VIDEO_REJECTED（官方WC8接受），拒绝保留原8分母，不能补跑或安全绕过。总结是FROZEN_REPLAY_TECH_PASS_QUALITY_UNASSESSED，非全视频接受/方法质量收益。
