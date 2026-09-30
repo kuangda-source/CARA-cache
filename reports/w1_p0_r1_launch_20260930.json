@@ -1,0 +1,42 @@
+{
+  "source_commit": "d98f447",
+  "archive_sha256": "1f2ad0ac818e0ed475bc50146dd99e982bb32a00dc9493cd25bb033e4b0c6d35",
+  "pid": 2439296,
+  "started_unix": 1790763721.5878084,
+  "output": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/w1-p0-r1",
+  "budget_before": {
+    "batch": "F0-F1",
+    "cap_gpu_hours": 4,
+    "used_gpu_hours": 1.09256762723128,
+    "gpu_jobs_launched": 7,
+    "status": "F1_EXECUTION_REQUIRES_RESULT_REVIEW",
+    "gpu_import_probes_completed": 1,
+    "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts"
+  },
+  "max_seconds": 900,
+  "command": [
+    "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python",
+    "/home/gaokuangda/data/gkd/worldcache_omr/scripts/supervise_f1.py",
+    "--project",
+    "/home/gaokuangda/data/gkd/worldcache_omr",
+    "--runtime",
+    "/home/gaokuangda/data/gkd/worldcache_omr/runtime",
+    "--python",
+    "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python",
+    "--gpu-uuid",
+    "GPU-cebf7119-cf03-23b9-e192-cd196332b704",
+    "--output",
+    "/home/gaokuangda/data/gkd/worldcache_omr/outputs/w1-p0-r1",
+    "--w1-parity"
+  ],
+  "local_tests_passed": 49,
+  "linux_cpu_tests_passed": 13,
+  "linux_cpu_test_seconds": 4.69,
+  "archive_hash_matches": true,
+  "live_verified": {
+    "supervisor": 2439296,
+    "child": 2439301,
+    "admission_mib": 24,
+    "compute_pids": []
+  }
+}

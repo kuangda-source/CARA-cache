@@ -1,3 +1,11 @@
+# Latest — W1-P0 r1 running; F1 terminal retained
+
+Official shadow off/on parity gate launched once in outputs/w1-p0-r1, source d98f447, verified supervisor2439296 / timeout child2439301. Fresh GPU1 admission24MiB/no compute apps. Local49tests andLinux13CPU/fake-GPU tests pass; source archive hash matches. Hard bound900s, charged to original4GPUh cap. Settled BEFORE gate1.09256762723128h; in-flight cost extra. Check reports/w1_p0_r1_launch_20260930.json and live process/terminal receipt before any action. Do not modify deployed source during run.
+
+Gate compares sameAV/seed officialWC off/on:72output hashes, deployment counts/trace, finalcache and video hashes; selectedshadowcalls15,16,37,38. A pass would validate only this engineering sample/official path, not scalar/shrink candidates or quality. Full-video review of F1 remains pending. No second expensive job.
+
+## Prior context (historical process status)
+
 # Latest — F1 r3 terminal, paired timing available, quality pending
 
 Supervisor and both children verified absent; GPU1 released (24MiB, no compute apps). Both arms exit0: Native3accepted/1VIDEO_REJECTED(physics), WC4accepted. All4cases attempted per arm. Seven accepted videos locally hash/full93-frame decode pass; full-video quality review still pending.
