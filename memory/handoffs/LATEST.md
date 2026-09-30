@@ -1,3 +1,11 @@
+## 最新运行 — 真实CPU两臂fusion-r1 live
+
+真实Wan5B两臂CPU fusion-r1/sourcec69e492已唯一启动。supervisor2502473/timeout2502474/runner2502475实际/proc live，独立fusion锁持有、CUDA空/source固定与账本未变。准入时MemAvailable59360669696字节（55.3GiB）、磁盘720206147584字节（670.7GiB）；3600秒CPU cap，当前完整输入hash阶段/未创建模型目录，尚未完成merge或产物验收。
+
+[准备与运行卡](../../research/38_L0_FULL_ADAPTER_PAYLOAD_AND_REAL_CPU_FUSION.md)/[launch](../../reports/l0_cpu_fusion_r1_launch_20261001.json)/[live](../../reports/l0_cpu_fusion_r1_live_observation.json)。同handles持续观察 .sync/observe_l0_cpu_fusion_r1.py，所有旧launch/settle不可重复；pre-input-hash期无fusion.json是预期，实际runner从timeout children2502475已核实。不得改stage7文件/deployment/protocol，不停止共享FRPC/代理。CPUcap3600/余GPU1255.511794秒/新4GPUh未授权。两adapter7hash/真实1200finite已完整；融合后实际模型/任务/GPU接口仍待。
+
+## 以下为历史快照
+
 ## 最新终态 — L0 r4全部7文件/1200实际tensor CPU验收
 
 L0 range-r4/source7c0f2ec唯一实际续传成功，exit0/31.271029秒，最后12658832字节一次range完成/0retry。全部7文件官方digest与实际1200张量CPU有限性、300×2目标/rank/alpha及825基座header匹配通过；原3PIDs2502124/2502125/2502126退出/CPU锁释放/source与协议一致/账本不变，审计后仅owned临时转发关闭。真实融合尚未提交，实际模型/GPU parity仍未通过；新4GPUh仍待用户重要预算决定。
