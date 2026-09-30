@@ -1,0 +1,44 @@
+{
+  "observed_unix": 1790788600.002944,
+  "supervisor": {
+    "pid": 2478298,
+    "status": "RUNNING",
+    "started_unix": 1790788540.4609993,
+    "gpu_workload_started": false,
+    "max_cpu_wall_seconds": 1200,
+    "child_pid": 2478299,
+    "command": [
+      "timeout",
+      "--kill-after=10",
+      "1190",
+      "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python",
+      "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/scripts/download_auxiliary.py",
+      "--manifest",
+      "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/manifests/w1_development_judge_assets.json",
+      "--cache",
+      "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/hfhub",
+      "--receipt",
+      "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/outputs/w1-judge-assets-r1/download.json"
+    ]
+  },
+  "downloader": {
+    "pid": 2478300,
+    "status": "RUNNING",
+    "current": "Qwen/Qwen3-VL-2B-Instruct",
+    "completed": [],
+    "gpu_workload_started": false,
+    "error": null
+  },
+  "partial_objects": [],
+  "ps": "    PID    PPID    PGID     ELAPSED COMMAND\n2478298       1 2478298       01:00 /home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/scripts/supervise_asset_download.py --project /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr --manifest /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/manifests/w1_development_judge_assets.json --output /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/outputs/w1-judge-assets-r1 --python /home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python\n2478299 2478298 2478299       01:00 timeout --kill-after=10 1190 /home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/scripts/download_auxiliary.py --manifest /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/manifests/w1_development_judge_assets.json --cache /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/hfhub --receipt /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/outputs/w1-judge-assets-r1/download.json\n2478300 2478299 2478299       01:00 /home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/scripts/download_auxiliary.py --manifest /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/manifests/w1_development_judge_assets.json --cache /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/hfhub --receipt /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/outputs/w1-judge-assets-r1/download.json\n",
+  "log_tail_sanitized": "",
+  "budget": {
+    "batch": "F0-F1",
+    "cap_gpu_hours": 4,
+    "used_gpu_hours": 3.612360697322422,
+    "gpu_jobs_launched": 20,
+    "status": "W1_IMAGING_REQUIRES_REVIEW",
+    "gpu_import_probes_completed": 1,
+    "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts"
+  }
+}

@@ -1,3 +1,15 @@
+## 最新运行核验 — 2026-10-01 01:16:40 北京时间：开发judge CPU资源下载在跑
+
+已部署CPU source `d0faa4b`，上传文件hash匹配、Linux3项CPU检查通过；唯一`outputs/w1-judge-assets-r1`已启动。supervisor2478298、timeout/PGID2478299、downloader2478300三PIDs本次ps核验live，CUDA为空/gpu_workload_started=false。固定官方Qwen3-VL2B revision/10文件/匿名端点/项目hfhub，cap1200秒；观察时completed为空、未看到incomplete对象，仍RUNNING，不能称模型已下载或可评分。source/launch/budget证据已归档。
+
+下一继续同一handles与日志；观察超时不代表任务退出，不重复提交。终态后查父子退出/CPU lock释放、完整文件SHA256/Git blob与manifest一致，再offline config/processor兼容及有界GPU方案；小judge只开发评价，不是235B标准Joint或独立确认。当前无VQA GPU评分/额外budget/人评/训练/付费。
+
+固定重放8轨迹技术通过/7视频接受1robot拒绝，MUSIQ3升4降/mean delta+0.004254295，整体/物理质量与clean速度未证，暂不加W2。所有GPU任务已释放，累计3.612360697322422/4GPUh、余0.387639302677578h，无GPU在途；CPU下载不作GPU计费或运行结果。下一实际GPU提交仍需fresh预算/锁/GPU准入。
+
+证据：[CPU启动](../../reports/w1_judge_assets_r1_launch_20261001.json)、[只读进程快照](../../reports/w1_judge_assets_r1_live_observation.json)、[已完成成像结果](../../research/25_W1_IMAGING_RESULTS.md)。
+
+## 以下为历史快照
+
 ## 最新接续 — 2026-10-01：自动成像评价终态，下一开发VQA资源准备
 
 MUSIQ `w1-imaging-r1` sourcea51e3e4已终态：原8分母/7接受视频对全部93帧评分，robot VIDEO_REJECTED保留；3升4降，按可比场景等权mean delta +0.004254295（MUSIQ原始+0.425429518），industry单项较大，其他混合。没有预设非劣界限或独立确认，不能据小正均值称质量收益。原frame scores/均值/配对差/覆盖已重新计算。标准语义/物理/动作完成/整体质量与clean速度仍未评估，暂不加W2。
