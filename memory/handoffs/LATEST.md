@@ -1,3 +1,11 @@
+## 最新准备 — 四个native binary有界CPU获取11通过
+
+四个固定native binary获取程序已实现；本地/Linux11同范围CPU检查通过（不是22项独立证据），涵盖range/rollback/完整SHA、错误wheel名称版本平台、Flash断流续传/冻结local SHA/损坏cache拒绝及官方asset身份改变拒绝。完整wheel尚未下载、依赖未安装/native ABI未验收。
+
+[准备卡](../../research/43_L0_NATIVE_WHEEL_ACQUISITION_PREPARATION.md)。Linux隔离CPUstage .sync/l0-native-wheel-cpu-r1 固定新获取程序/source/test/manifest；该preflight helper不能重跑。同code还未实际下载。下一Git clean/sync后唯一native-wheels-r1/CPU3600/新owned loopback16499/preflight，禁止旧融合/audit/adapter获取launch重复。Shared FRPC/Clash不动，新empty env仍空。
+
+## 以下为历史快照
+
 ## 最新完整CPU验收 — 两臂融合+fresh全产物审计终态
 
 真实两臂CPU融合与独立fresh audit均终态通过：fusion1960.417015秒/peakRSS30.8287GiB，audit663.896945秒；18原输入融合前后及fresh官方digest一致，6输出shard/1650实际tensor全finite与dtype/shape/字节digest通过，1050未目标weight原字节不变，两臂各300目标实际bytes_changed。所有原fusion/审计6PIDs退出/CPU锁释放/source与GPU账本不变。仍未实际模型/T5/VAE加载或任务/GPU就绪。
