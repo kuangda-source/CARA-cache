@@ -29,6 +29,7 @@ def inventory(python):
 
 
 def main():
+    started = time.time()
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--root', type=Path, required=True)
     parser.add_argument('--pins', type=Path, required=True)
@@ -54,7 +55,7 @@ def main():
     budget = (root / 'reports/budget.json').read_bytes()
     fixed = [Path(__file__).resolve(), args.pins, args.wheel_audit]
     sources = {str(p): sha(p) for p in fixed}
-    state = {'pid': os.getpid(), 'started_unix': time.time(), 'status': 'PREPARING',
+    state = {'pid': os.getpid(), 'started_unix': started, 'status': 'PREPARING',
              'mode': args.mode, 'source_sha256': sources, 'environment_root': str(environment),
              'inventory_before': before, 'gpu_workload_started': False,
              'cpu_max_wall_seconds': 600 if args.mode == 'resolve' else 1800}
@@ -67,6 +68,11 @@ def main():
 
     save()
     child = None
+
+    def interrupted(signum, frame):
+        raise InterruptedError('Owned phase received termination')
+
+    signal.signal(signal.SIGTERM, interrupted)
     try:
         pins = json.loads(args.pins.read_text())
         audit = json.loads(args.wheel_audit.read_text())
@@ -117,7 +123,7 @@ def main():
                                      pass_fds=(lock.fileno(),))
             state['child_pid'] = child.pid
             save()
-            child.wait(timeout=state['cpu_max_wall_seconds'] - 30)
+            child.wait(timeout=max(1, state['cpu_max_wall_seconds'] - (time.time() - started) - 45))
         state['exit_code'] = child.returncode
         if child.returncode:
             raise RuntimeError('Bounded dependency phase failed; inspect durable phase log')
@@ -134,7 +140,7 @@ def main():
                 os.killpg(child.pid, signal.SIGKILL)
                 child.wait()
         state.update(exit_code=child.returncode if child else None, ended_unix=time.time(),
-                     inventory_after=inventory(python), budget_unchanged=budget == (root / 'reports/budget.json').read_bytes(),
+                     wall_seconds=time.time() - started, inventory_after=inventory(python), budget_unchanged=budget == (root / 'reports/budget.json').read_bytes(),
                      source_unchanged=all(sha(Path(p)) == h for p, h in sources.items()))
         state['environment_unchanged'] = state['inventory_before'] == state['inventory_after']
         if not state['budget_unchanged'] or not state['source_unchanged'] or (args.mode == 'resolve' and not state['environment_unchanged']):
