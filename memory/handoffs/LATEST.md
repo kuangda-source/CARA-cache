@@ -1,3 +1,13 @@
+## 最新运行 — 2026-10-01：L0 r2同固定资源CPU续传live，CFG全验收/融合CPU22准备
+
+L0 CPU r2/source965a502已实际启动且3PIDs2496080/2496081/2496082均/proc核实live，独立CPU锁持有、3600秒上限、source/协议hash一致、CUDA空/账本不变。复用CFG全部已验收4文件，few-step由160MiB续到188743680字节（180MiB），仍非完整/hash验收/融合。r1原连接失败及160MiB保留不改。
+
+[唯一r2 launch](../../reports/l0_adapter_assets_r2_launch_20261001.json)/[live](../../reports/l0_adapter_assets_r2_live_observation.json)/[r1终态](../../reports/l0_adapter_assets_r1_audit_20261001.json)/[融合准备](../../research/34_L0_CPU_FUSION_PREPARATION_AND_CFG_PAYLOAD.md)。继续 .sync/observe_l0_adapter_assets_r2.py 对同handles至终态；不能重跑任一旧launch/旧r1 settle。r2 owned临时forward的身份仍在ignored .sync/l0-owned-forward.json，live期间保留，终态完整SHA/source/PIDs/lock/budget后才按此r2 identity关闭。不要停共享FRPC/代理。
+
+完整few-step后再两release全部SHA/finite与真实两臂825模型CPU fusion；需要bounded监督新identity/固定source、资源准入。当前只实际CFG600tensor finite＋tiny22程序检查，真实Wan5B融合/模型任务/GPU未执行。clean50新4GPUh仍待重大预算决定；不扩额/训练/人评/付费。
+
+## 以下为历史快照
+
 ## 最新接续 — 2026-10-01：L0 r1连接中断终态，CFG完整验收/CPU融合22通过，准备r2
 
 L0 CPU获取r1因连接中断exit1/1218.181533秒终态，原3PIDs退出/CPU锁释放/账本不变；仅关闭本任务owned临时转发。CFG4文件完整官方hash、真实600tensor finite/300pair alpha-r通过，独立核验PIDs2495417/2495418退出；few-step保留167772160字节（160MiB），非完整payload。两配方分片CPU融合程序已实现，本地/Linux22同范围检查通过，尚未真实Wan5B融合/模型任务load/GPU。下一同固定release/cache/3600秒的新r2续传，不重启旧identity或改共享路线。

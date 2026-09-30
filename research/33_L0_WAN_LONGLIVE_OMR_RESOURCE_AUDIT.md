@@ -42,3 +42,9 @@
 L0 CPU获取r1因连接中断exit1/1218.181533秒终态，原3PIDs退出/CPU锁释放/账本不变；仅关闭本任务owned临时转发。CFG4文件完整官方hash、真实600tensor finite/300pair alpha-r通过，独立核验PIDs2495417/2495418退出；few-step保留167772160字节（160MiB），非完整payload。两配方分片CPU融合程序已实现，本地/Linux22同范围检查通过，尚未真实Wan5B融合/模型任务load/GPU。下一同固定release/cache/3600秒的新r2续传，不重启旧identity或改共享路线。
 
 见[完整CPU融合准备与CFG验收](34_L0_CPU_FUSION_PREPARATION_AND_CFG_PAYLOAD.md)。早先header-only/live段落是历史快照，当前以r1终态审计与此新检查为准。
+
+## 后续同日r2实际续传
+
+L0 CPU r2/source965a502已实际启动且3PIDs2496080/2496081/2496082均/proc核实live，独立CPU锁持有、3600秒上限、source/协议hash一致、CUDA空/账本不变。复用CFG全部已验收4文件，few-step由160MiB续到188743680字节（180MiB），仍非完整/hash验收/融合。r1原连接失败及160MiB保留不改。
+
+接续同一组新r2 handles，不重复提交；[launch](../reports/l0_adapter_assets_r2_launch_20261001.json)/[live](../reports/l0_adapter_assets_r2_live_observation.json)。

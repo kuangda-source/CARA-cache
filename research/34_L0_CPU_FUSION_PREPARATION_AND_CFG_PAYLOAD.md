@@ -25,3 +25,9 @@ CPU工具本地torch2.7.1/safetensors0.7.0，Linux现有隔离CPU staging为torc
 先完成同资源新身份r2续传/两完整release全部SHA/600×2 finite，再部署固定融合source/协议至新CPU路径，在有界监督下执行真实两臂825权重融合并验收。随后隔离runtime/task/scheduler/条件分支接口检查；仍有模型加载、完整任务与GPU调用次数/显存门。所有代码与回执同步GitHub后才对外报告本步完成。
 
 主线原VQA无一致收益、MUSIQ混合/robot拒绝/CAL8机制only不变。GPU预算新4h决定仍待用户，L1不自动加2h；不把CPU资源推进当质量—时间结果，不引入人评、付费或训练。
+
+## 后续同日r2实际续传
+
+L0 CPU r2/source965a502已实际启动且3PIDs2496080/2496081/2496082均/proc核实live，独立CPU锁持有、3600秒上限、source/协议hash一致、CUDA空/账本不变。复用CFG全部已验收4文件，few-step由160MiB续到188743680字节（180MiB），仍非完整/hash验收/融合。r1原连接失败及160MiB保留不改。
+
+接续同一组新r2 handles，不重复提交；[launch](../reports/l0_adapter_assets_r2_launch_20261001.json)/[live](../reports/l0_adapter_assets_r2_live_observation.json)。
