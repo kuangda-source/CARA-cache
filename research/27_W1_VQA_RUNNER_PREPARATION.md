@@ -4,7 +4,7 @@
 
 ## 资源与执行身份
 
-CPU r3/source202e21d因IncompleteRead退出1/1153.880144秒，三PIDs退出/CPU锁释放/hash与预算不变，保留3030384640字节（2890MiB），不是超时/主动取消。[终态审计](../reports/w1_judge_assets_r3_audit.json)/[supervisor](../reports/w1_judge_assets_r3_supervisor.json)/[downloader](../reports/w1_judge_assets_r3_download.json)。计划新唯一r4同镜像/固定revision/同官方完整hash/cache/cap3600CPU-only，旧失败保留。观察失败或旧RUNNING文件不得触发重复提交。完整权重仍未验收。
+CPU r3/source202e21d因IncompleteRead退出1/1153.880144秒，三PIDs退出/CPU锁释放/hash与预算不变，保留3030384640字节（2890MiB），不是超时/主动取消。[终态审计](../reports/w1_judge_assets_r3_audit.json)/[supervisor](../reports/w1_judge_assets_r3_supervisor.json)/[downloader](../reports/w1_judge_assets_r3_download.json)。新唯一r4/source39993d1已live，Linux4 acquisition/hash通过，三PIDs本次核实，partial3280MiB；同镜像/固定revision/同官方完整hash/cache/cap3600CPU-only，旧失败保留。[启动](../reports/w1_judge_assets_r4_launch_20261001.json)/[观察](../reports/w1_judge_assets_r4_live_observation.json)。观察失败或旧RUNNING文件不得触发重复提交。完整权重仍未验收。
 
 scripts/run_w1_vqa.py、supervise_f1 --w1-vqa、scripts/summarize_w1_vqa.py已实现；尚未部署GPU、未load权重/模型forward/评分。原[输入协议](../manifests/w1_development_vqa_protocol.json)最初状态字串保留为历史冻结标签，以本卡和后续回执区分实现/CPU/实机。另[运行时锁](../manifests/w1_vqa_runtime_protocol.json)绑定真实CPU检查的transformers4.57.1/qwen-vl-utils0.0.14/decord0.6.0/torch2.7.1+cu128，以及实际安装的model class/processor/vision utility哈希；模型官方10文件digest必须全部通过。
 

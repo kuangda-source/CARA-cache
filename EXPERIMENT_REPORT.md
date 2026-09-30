@@ -18,10 +18,10 @@
 | 单维度结果 | MUSIQ候选3对升4对降，场景等权归一化差+0.004254295，不能判整体质量 |
 | 方法证据 | CAL8机制改善；闭环质量/语义物理/clean速度/独立确认仍未证 |
 | 成本 | MUSIQ监督44.552937秒；累计3.612360697/4GPUh，余0.387639303h，无GPU在途 |
-| 首要动作 | r3/source202e21d连接中断exit1终态，3PIDs退出/CPU锁释放，2890MiB保留；r4同资源/3600秒CPU-only准备，VQA runner本地/Linux25CPU与全部15真实输入通过，未load/评分 |
+| 首要动作 | r3/source202e21d连接中断exit1终态，3PIDs退出/CPU锁释放，2890MiB保留；r4/source39993d1已live/3PIDs核实，partial3280MiB/未完整，同资源/3600秒CPU-only，VQA runner本地/Linux25CPU与全部15真实输入通过，未load/评分 |
 | 评价边界 | 小模型开发judge不等于235B标准benchmark；不引入人评/付费评分/训练/自动扩额 |
 
-证据：[成像结果](research/25_W1_IMAGING_RESULTS.md)、[原runner](reports/w1_imaging_r1_runner.json)、[重新计算汇总](reports/w1_imaging_r1_summary.json)、[终态审计](reports/w1_imaging_r1_audit.json)、[账本](reports/budget.json)。下一[资源manifest](manifests/w1_development_judge_assets.json)/[官方文件完整性](manifests/w1_development_judge_integrity.json)是CPU准备，当前权重尚未完整，r1/r2均终态，不是VLM/GPU评分；原42 VQA题已绑定。新r3以[唯一启动](reports/w1_judge_assets_r3_launch_20261001.json)/[live观察](reports/w1_judge_assets_r3_live_observation.json)为准，CPU下载未完成/未评分；r3最新以[终态审计](reports/w1_judge_assets_r3_audit.json)为准。[runner准备卡](research/27_W1_VQA_RUNNER_PREPARATION.md)已有代码/25CPU/全部15输入证据，GPU尚未运行。[CPU启动](reports/w1_judge_assets_r1_launch_20261001.json)/[运行快照](reports/w1_judge_assets_r1_live_observation.json)为r1历史identity，不是当前运行。[恢复/输入卡](research/26_W1_DEVELOPMENT_VQA_PREPARATION.md)记录r2终态/新镜像方案/原单题输入与CPUprocessor证据。
+证据：[成像结果](research/25_W1_IMAGING_RESULTS.md)、[原runner](reports/w1_imaging_r1_runner.json)、[重新计算汇总](reports/w1_imaging_r1_summary.json)、[终态审计](reports/w1_imaging_r1_audit.json)、[账本](reports/budget.json)。下一[资源manifest](manifests/w1_development_judge_assets.json)/[官方文件完整性](manifests/w1_development_judge_integrity.json)是CPU准备，当前权重尚未完整，r1/r2均终态，不是VLM/GPU评分；原42 VQA题已绑定。新r3以[唯一启动](reports/w1_judge_assets_r3_launch_20261001.json)/[live观察](reports/w1_judge_assets_r3_live_observation.json)为准，CPU下载未完成/未评分；r3最新以[终态审计](reports/w1_judge_assets_r3_audit.json)为准。[r4启动](reports/w1_judge_assets_r4_launch_20261001.json)/[观察](reports/w1_judge_assets_r4_live_observation.json)是当前CPU任务。[runner准备卡](research/27_W1_VQA_RUNNER_PREPARATION.md)已有代码/25CPU/全部15输入证据，GPU尚未运行。[CPU启动](reports/w1_judge_assets_r1_launch_20261001.json)/[运行快照](reports/w1_judge_assets_r1_live_observation.json)为r1历史identity，不是当前运行。[恢复/输入卡](research/26_W1_DEVELOPMENT_VQA_PREPARATION.md)记录r2终态/新镜像方案/原单题输入与CPUprocessor证据。
 
 此前：[固定重放结果](research/24_W1_FIXED_REPLAY_RESULTS.md)、[重放完整汇总](reports/w1_replay_r1_summary.json)、[CAL8机制结果](research/21_W1D_CAL8_RESULTS.md)、[CAL8分布/排序](reports/w1d_cal8_r1_analysis.json)。
 
@@ -103,7 +103,7 @@
 ## 7. 下一轮的执行与停止条件
 
 1. 原重放与成像均终态已审计；robot拒绝保留原8分母，不补跑/改安全管线；不把单成像维度平均小正差当整体质量。
-2. 新公共Qwen3-VL2B CPU资源准备，固定revision/10文件约3.974GiB；独立项目cache/cap1200秒/唯一任务/父子退出回执。r1/r2已有终态依据，750MiB保留；匿名镜像/更长CPU-only cap为有依据的r3恢复，r3source202e21d已连接中断exit1终态/3PIDs退出，2890MiB保留；下一r4同cache/hash/cap3600CPU-only，GPU cap不变。
+2. 新公共Qwen3-VL2B CPU资源准备，固定revision/10文件约3.974GiB；独立项目cache/cap1200秒/唯一任务/父子退出回执。r1/r2已有终态依据，750MiB保留；匿名镜像/更长CPU-only cap为有依据的r3恢复，r3source202e21d已连接中断exit1终态/3PIDs退出，2890MiB保留；r4source39993d1/Linux4CPU/hash通过后已唯一启动并核实3PIDs live；同cache/hash/cap3600CPU-only，GPU cap不变。
 3. 完整官方hash/offline config/processor/load兼容核验后，原8分母/原题/固定输入与解析协议保持；runner已实现/本地Linux25CPU与15真实输入通过，待实机部署后评分；GPU提交必须fresh预算/锁/GPU准入、成本cap包含加载/失败/评分/flush。
 4. 小judge不是论文235B或独立确认；仍需物理/语义动作、clean重复计时与独立确认，暂不加W2。
 5. 原剩余0.387639303GPUh不自动扩额；不足时完成具体资源与预算方案再交用户，不要求非必要人评/付费服务或训练。
