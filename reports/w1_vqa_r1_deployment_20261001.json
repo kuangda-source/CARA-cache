@@ -1,0 +1,110 @@
+{
+  "source_commit": "1f326b5cefb108749593e3fc0401e2dc00b0c0fd",
+  "archive_sha256": "924f3cfea43391d5e912242fa60366d93626b925edc6912b253f03d3ea1be51d",
+  "archive_hash_matches": true,
+  "deployed_unix": 1790794308.059531,
+  "budget_before": {
+    "batch": "F0-F1",
+    "cap_gpu_hours": 4,
+    "used_gpu_hours": 3.612360697322422,
+    "gpu_jobs_launched": 20,
+    "status": "W1_IMAGING_REQUIRES_REVIEW",
+    "gpu_import_probes_completed": 1,
+    "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts"
+  },
+  "asset_integrity": {
+    "repo_id": "Qwen/Qwen3-VL-2B-Instruct",
+    "revision": "89644892e4d85e24eaac8bacfd4f463576704203",
+    "metadata_source": "https://huggingface.co/api/models/Qwen/Qwen3-VL-2B-Instruct/tree/89644892e4d85e24eaac8bacfd4f463576704203?recursive=true",
+    "status": "HASH_VERIFIED_NOT_LOAD_TESTED",
+    "files": [
+      {
+        "path": "chat_template.json",
+        "status": "PASS",
+        "bytes": 5502,
+        "digest": "e49e75bdda104c8de941eb20e0b3765184fb27bc",
+        "algorithm": "git-blob-sha1"
+      },
+      {
+        "path": "config.json",
+        "status": "PASS",
+        "bytes": 1505,
+        "digest": "0cd8c646eb55794594b14fefcd1d3acea5cc000f",
+        "algorithm": "git-blob-sha1"
+      },
+      {
+        "path": "generation_config.json",
+        "status": "PASS",
+        "bytes": 269,
+        "digest": "7bb37933d2d86e4ceaabcc6540be989658f238e9",
+        "algorithm": "git-blob-sha1"
+      },
+      {
+        "path": "merges.txt",
+        "status": "PASS",
+        "bytes": 1671839,
+        "digest": "20024bfe7c83998e9aeaf98a0cd6a2ce6306c2f0",
+        "algorithm": "git-blob-sha1"
+      },
+      {
+        "path": "model.safetensors",
+        "status": "PASS",
+        "bytes": 4255140312,
+        "digest": "7de1838c87a5349b016c26a1c3f7d2bc400a3d485f95ef39a7059ffd734977a0",
+        "algorithm": "sha256"
+      },
+      {
+        "path": "preprocessor_config.json",
+        "status": "PASS",
+        "bytes": 390,
+        "digest": "2ea84a437d448ff71b08df68fdd949d5cc4ebb64",
+        "algorithm": "git-blob-sha1"
+      },
+      {
+        "path": "tokenizer.json",
+        "status": "PASS",
+        "bytes": 7032403,
+        "digest": "c6cc1014128b19d1fc46b1d30a23e3b1d35db421",
+        "algorithm": "git-blob-sha1"
+      },
+      {
+        "path": "tokenizer_config.json",
+        "status": "PASS",
+        "bytes": 10868,
+        "digest": "d3d3763207692c78780f4bf42d4dadf49a5c8012",
+        "algorithm": "git-blob-sha1"
+      },
+      {
+        "path": "video_preprocessor_config.json",
+        "status": "PASS",
+        "bytes": 385,
+        "digest": "3ba673a5ad7d4d13f54155ecd38b2a94a6dac8fe",
+        "algorithm": "git-blob-sha1"
+      },
+      {
+        "path": "vocab.json",
+        "status": "PASS",
+        "bytes": 2776833,
+        "digest": "4783fe10ac3adce15ac8f358ef5462739852c569",
+        "algorithm": "git-blob-sha1"
+      }
+    ],
+    "gpu_workload_started": false
+  },
+  "linux_cpu_exit": 0,
+  "linux_cpu_stdout": ".........................                                                [100%]\n25 passed in 5.50s\n",
+  "runtime_source_files": {
+    "scripts/run_w1_vqa.py": "06e21a07f3bad23a875b94d8c966009b6ca4010109e2c9100345acf776f4f883",
+    "scripts/summarize_w1_vqa.py": "56d3743a37936b2c6ace48de05eba174d8478e234451985db97cdaf8c77882f7",
+    "scripts/supervise_f1.py": "f823fdc9d88c596c4fca505b8d4dffc7e1b9483187913a927a0141ebece832d6",
+    "scripts/verify_public_assets.py": "decb5b43bcc64470aa8b9adb50a0bc39e75440f78015ff84bc6752f2765aa058",
+    "src/wcomr/development_vqa.py": "401002ebd5819941e1dd130a18601f951ff67d274835b1dd4c42aa39dd7de5c6",
+    "src/wcomr/development_vqa_input.py": "9a4ee7f65129d29e9184198f895a31f6316ab93064d32c8b69a42fd2657f1fc4",
+    "src/wcomr/development_vqa_run.py": "a30b491c890140b06bffa9fd77f338eaaf31456fbabe0163c9d868ac0d3da382",
+    "src/wcomr/replay_results.py": "a1afb8603dfd1cbb9aab42ed53a683f827eeacafd8b404ba9443c0276f9ca928",
+    "manifests/w1_development_vqa_protocol.json": "e6d12c1a435a398ae71a43c5db6359b3eb36939083c594107e0275509428476c",
+    "manifests/w1_vqa_runtime_protocol.json": "fc596d2ad66ba26ab1dcaa63e1ab84d0438ad6dd5d67a880bc0bf4718264e6c2",
+    "manifests/w1_development_judge_integrity.json": "8d11b58610428a2aeb2f57eca4f49e2b0581fe930bf2bf90aa75dab8c9a01621"
+  },
+  "scope": "CPU acquisition and all prior GPU processes terminal/locks acquired; complete official10 model asset digests and25 Linux CPU checks. No model load/forward/GPU scoring started."
+}

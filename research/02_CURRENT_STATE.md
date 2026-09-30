@@ -1,3 +1,25 @@
+## 最新控制准备 — 2026-10-01：原8/42x3已冻结/实现/CPU通过，尚未控制GPU
+
+原VQA/source1f326b5已终态、6平1misc降/robot拒绝，累计3.629295697609584/4GPUh、余1334.535秒，无GPU在途。新控制协议在看原方法代理后/任何控制答案前冻结，非盲：原8/42参考题x matched_repeat/blank/cyclic mismatch，共126答案，同judge/原prompt/输入采样/generation不改；对照只计相对原回答的改变/无correct或quality label。
+
+runner及单300秒控制监督模式已实现，本地/Linux35同范围检查通过；24真实CPU输入（8视频x3条件/每条件首道原题）通过，matched sampled tensor与旧run一致、blank全零、cyclic无固定点且tensor改变，CUDA未初始化/未load/未126答案。下一Git同步/hash部署/Linux最终CPU/fresh锁预算GPU准入唯一controls-r1；不改旧结果/调提示/自动扩额，不人评/训练/付费。重复稳定或内容响应即使通过也不证明物理正确性；原模型proxy没有质量—时间正结果，暂不加W2/生成。
+
+证据：[控制准备卡](../research/29_W1_VQA_INPUT_CONTROLS_PREPARATION.md)、[35项Linux检查](../reports/w1_vqa_controls_linux_cpu_20261001.json)、[24真实输入](../reports/w1_vqa_controls_input_cpu_20261001.json)、[原VQA结果](../research/28_W1_DEVELOPMENT_VQA_RESULTS.md)。旧实机source1f326b5身份不变，当前控制尚未部署/提交。
+
+## 以下为历史快照
+
+## 最新终态 — 2026-10-01 02:56:53 北京时间：开发VQA原8/81答案完整，6平1降，下一judge输入敏感性诊断
+
+w1-vqa-r1/source1f326b5已exit0/无stop reason，监督60.966001秒；supervisor2485687/timeout2485695/runner2485697全退出/global锁释放/GPU1 24MiB/noapps，12monitor点无观察到foreign compute，peak4972MiB。模型离线BF16/SDPA load成功/无missing或mismatch，eval/inference_mode，42参考+39候选原单题完整，81raw token CPU重新decode一致/全部strict有效。原8分母/7可比/robot VIDEO_REJECTED保留，拒绝3题不插补；全部15视频/模型10文件/原题/运行时与源码hash重新通过。
+
+开发judge场景差：6平/1降misc，scene等权mean delta -0.031746031746031744（-3.174603pp）；misc6/9到4/9，只有Q1空间关系与Q9时序两答案YES→NO/原标签YES，其他37可比题同答。参考26/42、接受场景参考23/39/候选21/39仅开发分数；原标签32YES/10NO，常YES32/42只是偏置诊断，不能当视频真值或否定judge。小2B/10帧未有有效性金标准，因此分类DEVELOPMENT_VQA_NO_GAIN_IN_PROXY，不作物理变差/非劣/最终方法否定或235B标准Joint。
+
+GPU实际累计3.629295697609584/4h、余0.370704302390416h（1334.535秒），无在途。结合MUSIQ3升4降/robot拒绝，当前不扩大scalar/W2/生成批次，继续补评价可信度。官方固定数据revision根目录只有condition_image/vqa/metadata，未提供本次8场景对应gold视频；不冒充生成WC视频是gold。下一准备同judge原8/42题的matched repeat/black video/cyclic mismatch三种输入对照，最多300秒从原余额扣除，不改原prompt/模型或原方法结果、不要求人评/付费/训练/扩额。诊断只判断输入敏感性/重复稳定，不是物理正确性金标准；控制分数尚未生成。
+
+证据：[VQA结果](../research/28_W1_DEVELOPMENT_VQA_RESULTS.md)、[raw runner](../reports/w1_vqa_r1_runner.json)、[原题重算汇总](../reports/w1_vqa_r1_summary.json)、[终态审计](../reports/w1_vqa_r1_audit.json)。旧source1f326b5不因新文档HEAD而变化；下一控制GPU尚未提交，需实现/CPU/source同步/fresh锁与预算/准入。
+
+## 以下为历史快照
+
 ## 最新资源验收 — 2026-10-01 02:46:45 北京时间：CPU r4终态，官方10文件完整hash通过，待有界VQA部署
 
 r4/source39993d1 exit0/633.154270秒，supervisor2484509/timeout2484510/downloader2484511全退出、CPU锁释放/source一致/GPU账本不变。固定revision的全部10文件逐文件官方Git blob/SHA256通过，包括4255140312字节model.safetensors，权重LFS SHA256 7de1838c87a5349b016c26a1c3f7d2bc400a3d485f95ef39a7059ffd734977a0，无partial；资源下载完整/hash验收成立。未load模型/forward/评分，不能据此称质量或GPU运行通过。

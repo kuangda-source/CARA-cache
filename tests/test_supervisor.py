@@ -218,3 +218,15 @@ def test_vqa_budget_exhaustion_charges_failure_and_does_not_submit_second_job(tm
     assert state['status']=='PROBE_TIMEOUT' and len(state['arms'])==1
     assert state['arms'][0]['exit_code']!=0 and budget['gpu_jobs_launched']==1
     assert abs(budget['used_gpu_hours']-state['arms'][0]['wall_seconds']/3600)<1e-9
+
+
+def test_vqa_controls_one300s_task_charged_and_mutually_exclusive(tmp_path):
+    project,output,cmd,env=fixture(tmp_path,delay=.02)
+    subprocess.run(cmd+['--w1-vqa-controls'],env=env,check=True,capture_output=True,timeout=10)
+    state=json.loads((output/'supervisor.json').read_text());budget=json.loads((project/'reports/budget.json').read_text())
+    assert state['status']=='W1_VQA_CONTROLS_EXITED_REQUIRES_REVIEW' and len(state['arms'])==1
+    assert state['arms'][0]['mode']=='w1_vqa_controls' and str(project/'scripts/run_w1_vqa_controls.py') in state['command']
+    assert str(output/'w1-vqa-controls.json') in state['command'] and int(state['command'][2])<=290
+    assert budget['status']=='W1_VQA_CONTROLS_REQUIRES_REVIEW' and budget['gpu_jobs_launched']==1
+    assert abs(budget['used_gpu_hours']-state['arms'][0]['wall_seconds']/3600)<1e-9
+    assert subprocess.run(cmd+['--w1-vqa-controls','--w1-vqa'],env=env,capture_output=True,timeout=10).returncode!=0

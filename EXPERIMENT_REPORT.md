@@ -8,20 +8,20 @@
 
 ## 1. 当前结论与最重要的下一步
 
-**继续自动语义/物理开发评价准备，暂不加W2；目前有机制信号，没有闭环整体质量或干净速度正结果。** 固定scalar重放8轨迹技术通过、7接受/robot拒绝；后续MUSIQ成像维度7对全部93帧，3升4降，mean delta +0.004254295，改善不一致。小正均值没有非劣界限或独立确认，不能叫方法质量收益。
+**继续最小judge可信度诊断，暂不扩大scalar/W2或直接切OMR；目前有机制信号，没有质量—时间收益。** 自动VQA开发代理原8/81答案完整：7可比scene6平/1misc降，scene等权delta-0.031746031746031744（-3.174603pp），robot视频拒绝保留。小2B/10帧未有有效性金标准，不能直接称物理变差、非劣、最终方法否定或235B标准Joint。原MUSIQ3升4降、CAL8机制信号均保持。
 
 | 项目 | 最新终态证据（2026-10-01） |
 |---|---|
-| 当前阶段 | CPU评价模型资源完整/hash验收；VQA runner CPU通过，待部署/准入 |
-| 最近运行 | MUSIQ/sourcea51e3e4，原3PIDs退出/锁可用/GPU1释放 |
-| 覆盖 | 原8分母，7接受视频对全部93帧；robot VIDEO_REJECTED保留 |
-| 单维度结果 | MUSIQ候选3对升4对降，场景等权归一化差+0.004254295，不能判整体质量 |
-| 方法证据 | CAL8机制改善；闭环质量/语义物理/clean速度/独立确认仍未证 |
-| 成本 | MUSIQ监督44.552937秒；累计3.612360697/4GPUh，余0.387639303h，无GPU在途 |
-| 首要动作 | r4/source39993d1 exit0/633.154270秒/三PIDs退出/CPU锁释放，官方10文件完整hash通过；同步后部署VQA，fresh预算/锁/GPU准入唯一900秒任务，未load/评分 |
-| 评价边界 | 小模型开发judge不等于235B标准benchmark；不引入人评/付费评分/训练/自动扩额 |
+| 当前阶段 | 开发VQA终态/无代理收益；下一judge输入敏感性与重复稳定控制准备 |
+| 最近运行 | VQA/source1f326b5 exit0/无stop reason/全3PIDs退出/锁释放/GPU1 24MiB/noapps |
+| 覆盖 | 原8/42参考39候选原题，81raw/token decode一致/全部有效；7可比/1robot拒绝不插补 |
+| 单维度结果 | VQA6平1misc降/scene等权-3.174603pp；MUSIQ3升4降，未证明整体物理质量 |
+| 方法证据 | CAL8机制改善；闭环整体质量/clean速度/独立确认仍未证 |
+| 成本 | VQA监督60.966001秒；累计3.629295697610/4GPUh，余0.370704302390h，无在途 |
+| 首要动作 | 原8/42 matched-repeat/black/cyclic错配内容控制，拟300秒从余额扣除；已冻结/实现/本地Linux35CPU与24真实输入通过，下一source同步与fresh准入，尚未控制GPU |
+| 评价边界 | 小模型/内容敏感性不是235B标准Joint或物理正确性金标准；不人评/付费/训练/扩额 |
 
-证据：[成像结果](research/25_W1_IMAGING_RESULTS.md)、[原runner](reports/w1_imaging_r1_runner.json)、[重新计算汇总](reports/w1_imaging_r1_summary.json)、[终态审计](reports/w1_imaging_r1_audit.json)、[账本](reports/budget.json)。固定公共Qwen3-VL2B revision的[全部10文件完整性](reports/w1_judge_assets_r4_integrity.json)通过；[r4终态审计](reports/w1_judge_assets_r4_audit.json)核验exit0/三PIDs退出/CPU锁释放/source与账本不变，已完整下载，但未模型load/forward/评分。[runner准备卡](research/27_W1_VQA_RUNNER_PREPARATION.md)记录原8/42题/10采样帧/25CPU/全部15输入；下一同步source/hash部署与fresh预算/锁/GPU准入，只提交单900秒VQA。旧r1/r2/r3失败按原回执保留，不作当前live任务。
+证据：[VQA结果](research/28_W1_DEVELOPMENT_VQA_RESULTS.md)、[raw runner](reports/w1_vqa_r1_runner.json)、[原题重算](reports/w1_vqa_r1_summary.json)、[终态审计](reports/w1_vqa_r1_audit.json)、[账本](reports/budget.json)。全部15视频/模型10文件/原题、部署与安装source hash/81raw重新decode通过。模型真实离线BF16/SDPA加载2.090181秒/无missing或mismatch；控制尚未执行，不能据本次负小均值直接判方法或judge物理准确性。
 
 此前：[固定重放结果](research/24_W1_FIXED_REPLAY_RESULTS.md)、[重放完整汇总](reports/w1_replay_r1_summary.json)、[CAL8机制结果](research/21_W1D_CAL8_RESULTS.md)、[CAL8分布/排序](reports/w1d_cal8_r1_analysis.json)。
 
@@ -35,7 +35,7 @@
 
 | 假设 | 预期验证 | 当前状态 / 否定条件 |
 |---|---|---|
-| H-W1：简单收缩或浅深层增量校准能改善跨步残差近似 | 同状态 shadow → 固定跳步闭环 → 自由调度下的质量—时间对照 | CAL8同状态scalar机制信号；固定schedule/质量—时间未检验，额外计算抵消收益则停止深化 |
+| H-W1：简单收缩或浅深层增量校准能改善跨步残差近似 | 同状态 shadow → 固定跳步闭环 → 自由调度下的质量—时间对照 | CAL8同状态scalar机制信号；固定schedule技术通过，MUSIQ混合/开发VQA无代理收益，质量—时间未证，额外计算抵消收益则停止深化 |
 | H-W1D：残差误差大小不能完全代表下游危害 | 对照残差 MSE、最终速度预测误差/方向与局部伪影 | CAL8所有8样本有内部排序差异；未联系视频物理损害，先全局scalar闭环 |
 | H-J：减少不必要的 OMR 纠正调用/梯度可改善折中 | 先复现有效原版，再测稀疏、未来侧梯度与复用 | 资源与兼容性待复核；原版无效或 adapter 不匹配时不做归因 |
 | H-L：预训练 CFG / 少步适配器是值得纳入的强基线 | 同一兼容 Wan5B 上原生、CFG-only、四步 Few-step+CFG 三臂 | 尚未做本地兼容性和 GPU 测试；小批次仅筛查可用性 |
@@ -102,13 +102,11 @@
 
 ## 7. 下一轮的执行与停止条件
 
-1. 原重放与成像均终态已审计；robot拒绝保留原8分母，不补跑/改安全管线；不把单成像维度平均小正差当整体质量。
-2. 新公共Qwen3-VL2B CPU资源准备，固定revision/10文件约3.974GiB；独立项目cache/cap1200秒/唯一任务/父子退出回执。r1/r2已有终态依据，750MiB保留；匿名镜像/更长CPU-only cap为有依据的r3恢复，r3source202e21d已连接中断exit1终态/3PIDs退出，2890MiB保留；r4source39993d1已exit0终态/三PIDs退出，官方10文件完整digest通过，GPU cap不变。
-3. 完整官方hash/offline config/processor/load兼容核验后，原8分母/原题/固定输入与解析协议保持；runner已实现/本地Linux25CPU与15真实输入通过，待实机部署后评分；GPU提交必须fresh预算/锁/GPU准入、成本cap包含加载/失败/评分/flush。
-4. 小judge不是论文235B或独立确认；仍需物理/语义动作、clean重复计时与独立确认，暂不加W2。
-5. 原剩余0.387639303GPUh不自动扩额；不足时完成具体资源与预算方案再交用户，不要求非必要人评/付费服务或训练。
-
-遇到关键协议更换、扩大预算、训练立项或方向切换时留给用户决策。一般工程修复可继续，但不得中途改变在跑任务的源码/配置。操作顺序以[下一步队列](research/09_NEXT_ACTIONS.md)为准。
+1. 原VQA与所有GPU阶段已终态审计，robot拒绝保留，VQA6平1misc降/MUSIQ3升4降，无质量—时间收益；不扩scalar/W2/生成或据弱代理直接转OMR。
+2. [judge控制卡](research/29_W1_VQA_INPUT_CONTROLS_PREPARATION.md)：原8/42参考题x3输入条件（matched-repeat/black/cyclic错配），已在原代理后/任何控制答案前冻结，非盲；runner已实现/本地Linux35CPU与24真实输入通过，未控制GPU。
+3. 下一commit/push/hash部署/Linux最终CPU，fresh原GPU预算/锁/UUID VRAM/apps准入，仅一次300秒controls-r1；全部hash/load/失败/诊断/评分/flush计费，当前余0.370704302390416GPUh，不自动扩额。
+4. 同一handles逐题回执，invalid保留/partial不决定；技术错停止，不改在跑source/协议或观察失败重复提交。终态核验原PIDs/锁/GPU/monitor/source/资产/inputsha/raw tokens/cost，原答案与controls重算后才判断。
+5. 输入敏感/重复稳定不是物理有效性金标准或235B标准Joint，标准评价/clean配对与独立确认仍缺。不要求非必要人评/付费/训练。关键预算/方向决策先形成具体方案再交用户。
 
 ## 8. 多设备、多对话同步约定
 

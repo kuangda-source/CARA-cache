@@ -1,0 +1,309 @@
+{
+  "run_id": "w1-vqa-r1",
+  "observed_unix": 1790794554.5820642,
+  "source_commit": "1f326b5cefb108749593e3fc0401e2dc00b0c0fd",
+  "supervisor": {
+    "pid": 2485687,
+    "gpu_uuid": "GPU-cebf7119-cf03-23b9-e192-cd196332b704",
+    "status": "W1_VQA_EXITED_REQUIRES_REVIEW",
+    "arms": [
+      {
+        "mode": "w1_vqa",
+        "pid": 2485695,
+        "exit_code": 0,
+        "wall_seconds": 60.96600103378296,
+        "stop_reason": null
+      }
+    ],
+    "current_mode": "w1_vqa",
+    "child_pid": 2485695,
+    "child_started_unix": 1790794383.341602,
+    "admission": {
+      "unix": 1790794383.3412805,
+      "memory_used_mib": 24,
+      "utilization_percent": 0,
+      "pids": []
+    },
+    "command": [
+      "timeout",
+      "--kill-after=10",
+      "890",
+      "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python",
+      "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/scripts/run_w1_vqa.py",
+      "--project",
+      "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr",
+      "--gpu-uuid",
+      "GPU-cebf7119-cf03-23b9-e192-cd196332b704",
+      "--receipt",
+      "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/outputs/w1-vqa-r1/w1-vqa.json"
+    ]
+  },
+  "runner": {
+    "pid": 2485697,
+    "status": "W1_VQA_ALL_ORIGINAL8_QUESTIONS_ATTEMPTED",
+    "started_unix": 1790794383.4430892,
+    "ended_unix": 1790794443.1710067,
+    "wall_seconds": 59.727919578552246,
+    "setup": {
+      "torch": "2.7.1+cu128",
+      "transformers": "4.57.1",
+      "qwen-vl-utils": "0.0.14",
+      "decord": "0.6.0",
+      "device": "NVIDIA RTX A6000",
+      "model_class": "Qwen3VLForConditionalGeneration",
+      "model_eval": true,
+      "model_dtype": "torch.bfloat16",
+      "attention": "sdpa",
+      "load_seconds": 2.0901808738708496,
+      "loading_info": {
+        "missing_keys": [],
+        "unexpected_keys": [],
+        "mismatched_keys": [],
+        "error_msgs": []
+      },
+      "generation": {
+        "dtype": "bfloat16",
+        "attention": "sdpa",
+        "do_sample": false,
+        "max_new_tokens": 1024,
+        "seed": 0
+      },
+      "runtime_source_sha256": {
+        "transformers/models/qwen3_vl/modeling_qwen3_vl.py": "dd63ed3b124232735b3dca1bfa28f9d6b0d3f7182afcb75dde8f3e724b2b22da",
+        "transformers/models/qwen3_vl/processing_qwen3_vl.py": "efd8d64aaf608aad1ffb3e6d503d6a99e5227d007df95c1d9fa905d998cda4a9",
+        "qwen_vl_utils/vision_process.py": "f3710ced8ffe735da57d08cf5236cf9d326ff646ed1bdad2e62593a7801adc33"
+      }
+    },
+    "peak_memory": {
+      "allocated_bytes": 4642345472,
+      "reserved_bytes": 4840226816
+    },
+    "error_type": null,
+    "error": null,
+    "summary": {
+      "status": "SMALL_JUDGE_DEVELOPMENT_VQA_COMPLETE_NOT_STANDARD_JOINT",
+      "planned_scenes": 8,
+      "accepted_pairs": 7,
+      "rejected_candidates": 1,
+      "fully_parsed_pairs": 7,
+      "samples": [
+        {
+          "name": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+          "reference": {
+            "questions": 4,
+            "correct": 1,
+            "invalid": 0,
+            "accuracy": 0.25,
+            "accuracy_lower_bound": 0.25,
+            "accuracy_upper_bound": 0.25
+          },
+          "candidate_outcome": "ACCEPTED",
+          "candidate": {
+            "questions": 4,
+            "correct": 1,
+            "invalid": 0,
+            "accuracy": 0.25,
+            "accuracy_lower_bound": 0.25,
+            "accuracy_upper_bound": 0.25
+          },
+          "delta": 0.0,
+          "delta_lower_bound": 0.0,
+          "delta_upper_bound": 0.0
+        },
+        {
+          "name": "common_sense_6487f37f-ef57-49ca-afdc-d898922b5191",
+          "reference": {
+            "questions": 1,
+            "correct": 1,
+            "invalid": 0,
+            "accuracy": 1.0,
+            "accuracy_lower_bound": 1.0,
+            "accuracy_upper_bound": 1.0
+          },
+          "candidate_outcome": "ACCEPTED",
+          "candidate": {
+            "questions": 1,
+            "correct": 1,
+            "invalid": 0,
+            "accuracy": 1.0,
+            "accuracy_lower_bound": 1.0,
+            "accuracy_upper_bound": 1.0
+          },
+          "delta": 0.0,
+          "delta_lower_bound": 0.0,
+          "delta_upper_bound": 0.0
+        },
+        {
+          "name": "human_199",
+          "reference": {
+            "questions": 4,
+            "correct": 3,
+            "invalid": 0,
+            "accuracy": 0.75,
+            "accuracy_lower_bound": 0.75,
+            "accuracy_upper_bound": 0.75
+          },
+          "candidate_outcome": "ACCEPTED",
+          "candidate": {
+            "questions": 4,
+            "correct": 3,
+            "invalid": 0,
+            "accuracy": 0.75,
+            "accuracy_lower_bound": 0.75,
+            "accuracy_upper_bound": 0.75
+          },
+          "delta": 0.0,
+          "delta_lower_bound": 0.0,
+          "delta_upper_bound": 0.0
+        },
+        {
+          "name": "industry_084",
+          "reference": {
+            "questions": 3,
+            "correct": 2,
+            "invalid": 0,
+            "accuracy": 0.6666666666666666,
+            "accuracy_lower_bound": 0.6666666666666666,
+            "accuracy_upper_bound": 0.6666666666666666
+          },
+          "candidate_outcome": "ACCEPTED",
+          "candidate": {
+            "questions": 3,
+            "correct": 2,
+            "invalid": 0,
+            "accuracy": 0.6666666666666666,
+            "accuracy_lower_bound": 0.6666666666666666,
+            "accuracy_upper_bound": 0.6666666666666666
+          },
+          "delta": 0.0,
+          "delta_lower_bound": 0.0,
+          "delta_upper_bound": 0.0
+        },
+        {
+          "name": "misc_13398218_3840_2160_60fps",
+          "reference": {
+            "questions": 9,
+            "correct": 6,
+            "invalid": 0,
+            "accuracy": 0.6666666666666666,
+            "accuracy_lower_bound": 0.6666666666666666,
+            "accuracy_upper_bound": 0.6666666666666666
+          },
+          "candidate_outcome": "ACCEPTED",
+          "candidate": {
+            "questions": 9,
+            "correct": 4,
+            "invalid": 0,
+            "accuracy": 0.4444444444444444,
+            "accuracy_lower_bound": 0.4444444444444444,
+            "accuracy_upper_bound": 0.4444444444444444
+          },
+          "delta": -0.2222222222222222,
+          "delta_lower_bound": -0.2222222222222222,
+          "delta_upper_bound": -0.2222222222222222
+        },
+        {
+          "name": "physics_045",
+          "reference": {
+            "questions": 14,
+            "correct": 9,
+            "invalid": 0,
+            "accuracy": 0.6428571428571429,
+            "accuracy_lower_bound": 0.6428571428571429,
+            "accuracy_upper_bound": 0.6428571428571429
+          },
+          "candidate_outcome": "ACCEPTED",
+          "candidate": {
+            "questions": 14,
+            "correct": 9,
+            "invalid": 0,
+            "accuracy": 0.6428571428571429,
+            "accuracy_lower_bound": 0.6428571428571429,
+            "accuracy_upper_bound": 0.6428571428571429
+          },
+          "delta": 0.0,
+          "delta_lower_bound": 0.0,
+          "delta_upper_bound": 0.0
+        },
+        {
+          "name": "robot_054",
+          "reference": {
+            "questions": 3,
+            "correct": 3,
+            "invalid": 0,
+            "accuracy": 1.0,
+            "accuracy_lower_bound": 1.0,
+            "accuracy_upper_bound": 1.0
+          },
+          "candidate_outcome": "VIDEO_REJECTED"
+        },
+        {
+          "name": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+          "reference": {
+            "questions": 4,
+            "correct": 1,
+            "invalid": 0,
+            "accuracy": 0.25,
+            "accuracy_lower_bound": 0.25,
+            "accuracy_upper_bound": 0.25
+          },
+          "candidate_outcome": "ACCEPTED",
+          "candidate": {
+            "questions": 4,
+            "correct": 1,
+            "invalid": 0,
+            "accuracy": 0.25,
+            "accuracy_lower_bound": 0.25,
+            "accuracy_upper_bound": 0.25
+          },
+          "delta": 0.0,
+          "delta_lower_bound": 0.0,
+          "delta_upper_bound": 0.0
+        }
+      ],
+      "equal_scene_mean_delta": -0.031746031746031744,
+      "equal_scene_delta_lower_bound": -0.031746031746031744,
+      "equal_scene_delta_upper_bound": -0.031746031746031744,
+      "scope": "Original scene denominator retained. Bounds account for invalid raw answers, not statistical confidence. Small reusable-CAL proxy, no physical correctness, overall quality, paper Joint, independent confirmation or clean-speed acceptance."
+    }
+  },
+  "scene_rows": 8,
+  "complete_scene_rows": 8,
+  "answer_counts": {
+    "reference": 42,
+    "candidate": 39
+  },
+  "latest_scene": {
+    "name": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+    "status": "SCORING_COMPLETE",
+    "current_arm": null
+  },
+  "processes": [],
+  "source_hashes_match": true,
+  "source_sha256": {
+    "scripts/run_w1_vqa.py": "06e21a07f3bad23a875b94d8c966009b6ca4010109e2c9100345acf776f4f883",
+    "scripts/summarize_w1_vqa.py": "56d3743a37936b2c6ace48de05eba174d8478e234451985db97cdaf8c77882f7",
+    "scripts/supervise_f1.py": "f823fdc9d88c596c4fca505b8d4dffc7e1b9483187913a927a0141ebece832d6",
+    "scripts/verify_public_assets.py": "decb5b43bcc64470aa8b9adb50a0bc39e75440f78015ff84bc6752f2765aa058",
+    "src/wcomr/development_vqa.py": "401002ebd5819941e1dd130a18601f951ff67d274835b1dd4c42aa39dd7de5c6",
+    "src/wcomr/development_vqa_input.py": "9a4ee7f65129d29e9184198f895a31f6316ab93064d32c8b69a42fd2657f1fc4",
+    "src/wcomr/development_vqa_run.py": "a30b491c890140b06bffa9fd77f338eaaf31456fbabe0163c9d868ac0d3da382",
+    "src/wcomr/replay_results.py": "a1afb8603dfd1cbb9aab42ed53a683f827eeacafd8b404ba9443c0276f9ca928",
+    "manifests/w1_development_vqa_protocol.json": "e6d12c1a435a398ae71a43c5db6359b3eb36939083c594107e0275509428476c",
+    "manifests/w1_vqa_runtime_protocol.json": "fc596d2ad66ba26ab1dcaa63e1ab84d0438ad6dd5d67a880bc0bf4718264e6c2",
+    "manifests/w1_development_judge_integrity.json": "8d11b58610428a2aeb2f57eca4f49e2b0581fe930bf2bf90aa75dab8c9a01621"
+  },
+  "budget": {
+    "batch": "F0-F1",
+    "cap_gpu_hours": 4,
+    "used_gpu_hours": 3.629295697609584,
+    "gpu_jobs_launched": 21,
+    "status": "W1_VQA_REQUIRES_REVIEW",
+    "gpu_import_probes_completed": 1,
+    "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts"
+  },
+  "inflight_gpu_hours_estimate": 0,
+  "gpu": "GPU-de9a5370-cd87-0f1c-a48e-288888777dd3, 350, 0\nGPU-cebf7119-cf03-23b9-e192-cd196332b704, 24, 0\n",
+  "compute_apps": "",
+  "log_tail_sanitized": "qwen-vl-utils using decord to read video.\nThe following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.\n"
+}
