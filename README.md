@@ -8,7 +8,7 @@ Private research workspace for improving the quality–time tradeoff of video wo
 
 ## Current status
 
-2026-09-30 latest: W1 default/recent scalar and shrink remain NO_GAIN_IN_SCOPE on four AV engineering states; no new-method/quality gain. Two fresh official processes have identical72net outputs and final latent/decode input, with first divergence at decode_output. Internal cause UNKNOWN; decoder state audit and local determinism policy are next. Cost1.823218/4GPUh settled, no live job. [Stage results](research/17_DECODE_INTERVAL_RESULTS.md), [next gate](research/18_DECODER_POLICY_GATE.md).
+2026-09-30 latest: Two fresh processes pass exact decoder-through-video reproduction under a scoped cuDNN decode policy;72net/latent trajectory matches prior official reference. This is one engineering sample, not causal proof/quality gain. Old scalar/shrink four-point NO_GAIN_IN_SCOPE remains narrow. Primary metadata joined all1044prompts; reference/lexical groups support frozenCAL24 and first8, with recording/session independence unproven. Cost1.997774/4GPUh settled; no live job. [Decode result](research/19_DECODER_POLICY_RESULTS.md), [CAL/W1-D preparation](research/20_CAL_AND_W1D_PREPARATION.md).
 
 Prior terminal run: Core assets and the retained safety pipeline are ready. F1 r2 completed two Native samples, then stopped when the physics_001 generated video was rejected by the output guardrail. WorldCache has not run; there is no paired speed/quality result. Charged cost: 0.473298 / 4 GPUh. Terminal receipts are in `reports/f1_smoke_r2_*.json`.
 

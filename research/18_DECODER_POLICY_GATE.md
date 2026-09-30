@@ -1,6 +1,6 @@
 # 下一步：局部解码确定性策略与状态核验
 
-2026-09-30；IMPLEMENTED_CPU_CHECKED_NOT_GPU_RUN。进入依据：同版本两个新进程的latent/decode输入严格相同，decode输出首先不同。具体内部原因未知。
+2026-09-30；RUN_TERMINAL_LOCAL_REPRODUCTION_PASS。进入依据：同版本两个新进程的latent/decode输入严格相同，decode输出首先不同。具体内部原因未知。
 
 先给现有阶段runner增加解码器运行态见证：真实tokenizer参数/buffer/normalization scale hash、training/dtype/cache设置、实际VAE checkpoint文件hash及调用时flags。参数只读取；不记录bulk tensor到Git。尽量直接固定latent复放，须先证明复放接口与原model.decode一致；若无法低成本证明，沿用已经验证的两新进程完整官方生成，不引入未经核验的tokenizer-only替代。
 
@@ -13,3 +13,7 @@ CPU先查context在正常/异常情况下恢复全局设置、输入/output对�
 ## 实现准备
 
 现有记录只保留latent hash，不能直接复放。为保持入口一致，选已验证的两新进程完整生成。decoder_policy.py仅局部cuDNN策略，正常/异常均恢复flags；stage runner在解码前后hash实际tokenizer参数/buffers/normalization、缓存与设置，并现场流式重算VAE checkpoint SHA核对content-addressed blob。CPU针对性22项通过。注意：状态观测与局部策略相对旧门同时变化，若通过只能称局部工程复现解决，不能独立证明benchmark为根因。
+
+## 终态
+
+源33f080b两个fresh进程均exit0，72net/latent匹配旧参考，状态/flags恢复相同，decode至全部93帧RGB/MP4一致。628.403564秒；累计1.997774315/4h。见19_DECODER_POLICY_RESULTS.md；不将其解释为独立根因证明。

@@ -1,7 +1,8 @@
-# Next actions — post-model reproducibility gate first
+# Next actions — CAL sparse W1-D next
 
-1. 最近pair任务已终态；F1/W1-P0/W1-S1全部旧身份不重启。默认scalar/shrink与decay0修订都NO_GAIN_IN_SCOPE：velocity sum-MSE比分别2.531/5.395与2.354/5.395，均2/4改善。停止无依据的第二次标量调整，不送入闭环。
-2. 同版本stage-r2两个新进程exit0，latent/decode输入相同，首个差异decode_output；guardrail各自未改变输入。具体内部原因UNKNOWN。见[定位结果](17_DECODE_INTERVAL_RESULTS.md)。下一步[decoder状态/局部确定性策略](18_DECODER_POLICY_GATE.md)，准备<=900s/0.25GPUh，不改denoiser/安全检查；尚未实现或启动。
-3. 累计1.823217769/4GPUh，剩余2.176782231h；含r1输出隔离问题的首进程与显式取消费用。所有旧身份终态，不重启；新提交前重核预算、锁、GPU准入与源哈希。
-4. 复现区间被解释/解决后，按新证据开展F2或W1-D时间/空间分布，先诊断再选择是否W2；不无依据增加复杂度。数值结果只来自单工程场景四点，不否定整个方向，不声称质量等价。
-5. 1,044本地固定提示词已清点，但无来源场景字段；CAL/DEV/CONF待自动连接来源/近模板分组，4个工程样本排除独立确认。人评非当前前置，不训练/付费评分/扩预算。代码、原始失败、数值、成本、复现缺口与handoff同步私有GitHub。
+1. 默认/recent scalar与shrink仅在旧AV四点NO_GAIN_IN_SCOPE，不送闭环、不继续无依据参数调整，也不否定整个方向。
+2. [局部解码门](19_DECODER_POLICY_RESULTS.md)两个fresh进程通过：72net/latent与旧参考相同，权重/状态见证相同、flags恢复、decode至93帧RGB/MP4一致。不是全数据集确定性或独立根因证明；所有新对照必须共用该策略并再做off/on。
+3. [CAL24清单](../manifests/cal_v1.json)按官方reference_video+词法近重复组冻结，前8涵盖7域+第2AV；4工程组排除。原recording/session语义独立性未证明，CAL仅校准，DEV/CONF未冻结。
+4. 实现[CAL前8 W1-D](20_CAL_AND_W1D_PREPARATION.md)：预测先于truth、过去full anchors独立、每样本off trace选择稀疏点后冻结；显式布局的时间/空间/通道分布与velocity排序、off/on原轨迹/解码一致、安全拒绝/技术失败保留。提议单batch6000秒/1.666667GPUh，尚未实现或启动。CPU/源码部署后，重核预算/锁/准入。
+5. 当前累计1.997774315/4GPUh，剩余2.002225685；全部旧身份终态，不重启/不修改共享源码/不扩预算。完整F2多点12–24场景成本超现余额，不能以小子集冒充完成。后续按机制证据和实际成本决定新局部假设或报告资源缺口。
+6. 不训练/付费评分/引入非必要人评。所有代码/配置/原始失败/结果/成本/实验总览/handoff同步私有GitHub。

@@ -8,19 +8,21 @@
 
 ## 1. 当前结论与最重要的下一步
 
-**继续WorldCache主线的工程复现与数值诊断，但不将当前scalar/shrink候选送入闭环。** F1三组成对样本技术耗时比1.476–1.602×；W1默认及最近pair修订在四个工程点均NO_GAIN_IN_SCOPE，尚无新方法/质量正结果。同版本两个新进程已将首个差异定位到decode输出：latent/decode输入相同，内部原因仍未知。
+**继续WorldCache主线的工程复现与数值诊断，但不将当前scalar/shrink候选送入闭环。** F1三组成对样本技术耗时比1.476–1.602×；W1默认及最近pair修订在四个工程点均NO_GAIN_IN_SCOPE，尚无新方法/质量正结果。跨进程差异已定位decode；两个新进程在局部确定性解码策略下全部93帧严格复现，72net/latent保持旧轨迹，根因尚非独立证明。CAL24及首批8已按来源/词法分组冻结。
 
 | 项目 | 最新已归档证据 |
 |---|---|
-| 当前阶段 | W1数值负结果归档；跨进程差异已定位到decode返回边界 |
-| 最近运行 | stage-r2两个新进程exit0，首个不同边界decode_output；GPU释放、视频/源码重哈希匹配 |
-| 首要动作 | 核验decoder权重/状态；局部cuDNN确定性策略复现门；无需人评 |
-| 当前成本 | 已结算1.823217769/4GPUh，剩余2.176782231GPUh，无在途任务 |
+| 当前阶段 | 局部解码复现门通过；CAL24冻结，W1-D前8待实现 |
+| 最近运行 | decoder-policy-r1两个新进程exit0，93帧/全阶段严格一致，GPU释放/哈希审计匹配 |
+| 首要动作 | CAL前8三公式同状态/时间空间分布诊断；无需人评 |
+| 当前成本 | 已结算1.997774315/4GPUh，剩余2.002225685GPUh，无在途任务 |
 | 方法证据 | CPU/合成测试与资源就绪，不等于生成质量或真实加速收益 |
 | 视频评价 | 已有格式检查；完整视频质量审查尚未完成 |
 | 运行状态时效 | 本表来自仓库内终态回执；接续时必须查远端进程、锁、日志及预算，不能把文档当实时 GPU 状态 |
 
-最新阶段证据：[decode区间定位](research/17_DECODE_INTERVAL_RESULTS.md)、[下一轮准备卡](research/18_DECODER_POLICY_GATE.md)、[阶段汇总](reports/stage_r2_summary.json)。
+最新阶段证据：[局部解码复现通过](research/19_DECODER_POLICY_RESULTS.md)、[CAL与W1-D准备](research/20_CAL_AND_W1D_PREPARATION.md)。
+
+历史阶段证据：[decode区间定位](research/17_DECODE_INTERVAL_RESULTS.md)、[下一轮准备卡](research/18_DECODER_POLICY_GATE.md)、[阶段汇总](reports/stage_r2_summary.json)。
 
 依据：[F1 r3配对汇总](reports/f1_smoke_r3_summary.json)、[W1-P0终态结果](research/12_W1_P0_TERMINAL_RESULTS.md)、[实时恢复审计](reports/w1_p0_r1_recovery_audit.json)、[预算账本](reports/budget.json)。
 

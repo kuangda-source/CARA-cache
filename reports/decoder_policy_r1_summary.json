@@ -1,0 +1,30 @@
+{
+  "status": "LOCAL_DECODE_POLICY_REPRODUCTION_PASS",
+  "comparison": {
+    "status": "EXACT_PIPELINE_REPRODUCTION_TWO_FRESH_PROCESSES",
+    "checks": {
+      "forward_output_sha256": true,
+      "block_counts": true,
+      "trace": true,
+      "cache_end_sha256": true,
+      "sampling": true,
+      "runtime_identity": true,
+      "encoding": true
+    }
+  },
+  "decoder_identity_identical": true,
+  "flags_restored": true,
+  "official_denoiser_and_latent_reference_identical": true,
+  "scope": "Two fresh engineering processes only; state hashing and scoped cuDNN policy jointly differ from previous witness protocol. Not isolated causal proof, global determinism, quality, method gain or clean latency.",
+  "reference": "reports/stage_r2_stage_a.json",
+  "left": "reports/decoder_policy_r1_stage_a.json",
+  "right": "reports/decoder_policy_r1_stage_b.json",
+  "source_sha256": {
+    "manifests/decoder_policy_protocol.json": "03cb491ba2c423d56d4e7c9181338aa0f127383cc759550214c50ba4072e50ea",
+    "scripts/check_stage_witness.py": "cb73c9460f39a59f8747ba862f3fc97c4068bbcfc5cbb8ffd19714c7cc2778ba",
+    "src/wcomr/stage_witness.py": "78247cc3137d1ea032425c392aa728f35b83fcd0d748f21be4cb3c3d7995ae09",
+    "src/wcomr/decoder_policy.py": "57e1369909dfa9db5ea6ab563b275fe7376bea14d0b247dd7748e79fccf8699b"
+  },
+  "wall_seconds": 628.4035639762878,
+  "limitation": "Two engineering witnesses only; a matching result does not explain the historical differing video. A differing boundary locates an interval, not a cause."
+}
