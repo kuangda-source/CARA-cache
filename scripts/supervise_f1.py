@@ -25,7 +25,10 @@ probes.add_argument('--w1-parity', action='store_true', help='W1 official shadow
 probes.add_argument('--guardrail-only', action='store_true', help='F0 full safety pipeline compatibility probe, at most 420 seconds')
 probes.add_argument('--probe-only', action='store_true', help='F0 core-model load only, at most 420 seconds; no generation')
 p.add_argument('--w1-recent-calibration', action='store_true', help='With --w1-same-state: one latest-anchor-pair scalar revision')
+p.add_argument('--deterministic-decode', action='store_true', help='With --stage-witness: scoped cuDNN deterministic decode')
 a = p.parse_args()
+if a.deterministic_decode and not a.stage_witness:
+    p.error('--deterministic-decode requires --stage-witness')
 if a.w1_recent_calibration and not a.w1_same_state:
     p.error('--w1-recent-calibration requires --w1-same-state')
 is_probe = a.stage_witness or a.probe_only or a.guardrail_only or a.w1_parity or a.w1_same_state
@@ -79,6 +82,8 @@ for mode in (('stage_a','stage_b') if a.stage_witness else ('w1_same_state',) if
         command = ['timeout', '--kill-after=10', str(max(1, int(seconds_left) - 10)), a.python,
                    str(project / ('scripts/check_stage_witness.py' if a.stage_witness else 'scripts/check_w1_parity.py' if (a.w1_parity or a.w1_same_state) else 'scripts/check_guardrail_pipeline.py' if a.guardrail_only else 'scripts/check_model_load.py')), '--project', str(project),
                    '--gpu-uuid', a.gpu_uuid, '--receipt', str((output / mode / 'witness.json') if a.stage_witness else output / ('w1-same-state.json' if a.w1_same_state else 'w1-parity.json' if a.w1_parity else 'guardrail-pipeline.json' if a.guardrail_only else 'core-model-load.json'))]
+    if a.deterministic_decode:
+        command.append('--deterministic-decode')
     if a.w1_same_state:
         command.append('--same-state')
         if a.w1_recent_calibration:

@@ -57,3 +57,21 @@ def test_inference_mode_tensors_are_readable_without_version_counter():
         x=torch.ones(2)
         p=StageWitness();p.record('sample',x)
         assert p.events[0]['value']['finite']
+
+
+def test_call_context_wraps_only_original_call_and_restores_on_failure():
+    from wcomr.decoder_policy import backend_flags,decode_policy
+    original=backend_flags();observations=[]
+    def decode(x):
+        observations.append(('original',backend_flags()))
+        if x is None:raise ValueError('original')
+        return x
+    module=types.SimpleNamespace(decode=decode);p=StageWitness()
+    p.wrap(module,'decode',before=lambda a,k:observations.append(('before',backend_flags())),
+           after=lambda r:observations.append(('after',backend_flags())),call_context=lambda:decode_policy(True))
+    x=torch.ones(1);assert module.decode(x) is x
+    assert observations[0][1]==original and observations[-1][1]==original
+    assert observations[1][1]['cudnn_deterministic'] and not observations[1][1]['cudnn_benchmark']
+    with pytest.raises(ValueError,match='original'):module.decode(None)
+    assert backend_flags()==original
+    p.close();assert module.decode is decode

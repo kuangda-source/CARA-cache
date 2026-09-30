@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "date": "2026-09-30",
+  "sample": "av_002b815b-7595-4d54-a9f4-4c62c83d3009",
+  "mode": "Two fresh official WC generations with identical state hashing and scoped cuDNN decode policy",
+  "required": "Unchanged72net/latent trajectory, decoder state identity, restored flags, exact decoded video across fresh processes",
+  "max_gpu_seconds": 900,
+  "budget": "From remaining existing 4 GPUh cap, including load/failure; no training or quality claims",
+  "pending_after_pass": "Broad numerical diagnostics only after technical reproducibility reviewed",
+  "decoder_policy": {
+    "benchmark": false,
+    "deterministic": true,
+    "allow_tf32": "unchanged",
+    "scope": "only original model.decode call"
+  },
+  "checkpoint": {
+    "revision": "6787e176dce74a101d922174a95dba29fa5f0c55",
+    "filename": "tokenizer.pth"
+  }
+}

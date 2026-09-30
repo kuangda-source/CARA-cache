@@ -9,6 +9,7 @@ p.add_argument('--left',type=Path,required=True)
 p.add_argument('--right',type=Path,required=True)
 p.add_argument('--supervisor',type=Path,required=True)
 p.add_argument('--output',type=Path,required=True)
+p.add_argument('--reference',type=Path,help='Required for local deterministic decode policy acceptance')
 a=p.parse_args()
 left,right=[json.loads(path.read_text()) for path in [a.left,a.right]]
 s=json.loads(a.supervisor.read_text())
@@ -20,7 +21,13 @@ for receipt in [left,right]:
     assert receipt['status']=='STAGE_WITNESS_ACCEPTED_SINGLE_FRESH_PROCESS'
     assert len(receipt['forward_output_sha256'])==72 and len(receipt['decoded_rgb'])==93
 assert left['source_sha256']==right['source_sha256']
-result=compare_stages(left,right)
+if left.get('decoder_policy',{}).get('enabled'):
+    assert a.reference,'Policy acceptance requires original official reference'
+    from wcomr.decoder_policy_summary import summarize_policy
+    result=summarize_policy(left,right,json.loads(a.reference.read_text()))
+    result['reference']=str(a.reference)
+else:
+    result=compare_stages(left,right)
 result.update(left=str(a.left),right=str(a.right),source_sha256=left['source_sha256'],
               wall_seconds=sum(arm['wall_seconds'] for arm in s['arms']),
               limitation='Two engineering witnesses only; a matching result does not explain the historical differing video. A differing boundary locates an interval, not a cause.')

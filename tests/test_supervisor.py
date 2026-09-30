@@ -142,3 +142,12 @@ def test_stage_gate_uses_two_fresh_children_and_shared_remaining_deadline(tmp_pa
     budget=json.loads((project/'reports/budget.json').read_text())
     assert budget['gpu_jobs_launched']==2
     assert abs(budget['used_gpu_hours']-sum(a['wall_seconds'] for a in state['arms'])/3600)<1e-9
+
+
+def test_decoder_policy_requires_stage_gate_and_passes_explicit_flag(tmp_path):
+    project,output,cmd,env=fixture(tmp_path,delay=.02)
+    rejected=subprocess.run(cmd+['--deterministic-decode'],env=env,capture_output=True,timeout=10)
+    assert rejected.returncode!=0 and not output.exists()
+    subprocess.run(cmd+['--stage-witness','--deterministic-decode'],env=env,check=True,capture_output=True,timeout=10)
+    state=json.loads((output/'supervisor.json').read_text())
+    assert len(state['arms'])==2 and '--deterministic-decode' in state['command']

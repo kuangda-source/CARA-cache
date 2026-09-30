@@ -12,6 +12,7 @@ p=argparse.ArgumentParser()
 p.add_argument('--project',type=Path,required=True)
 p.add_argument('--gpu-uuid',required=True)
 p.add_argument('--receipt',type=Path,required=True)
+p.add_argument('--deterministic-decode',action='store_true')
 a=p.parse_args()
 project=a.project.resolve();root=a.receipt.parent
 os.environ.update(CUDA_VISIBLE_DEVICES=a.gpu_uuid,HF_HUB_OFFLINE='1',TRANSFORMERS_OFFLINE='1')
@@ -31,10 +32,10 @@ try:
     from wcomr.runtime_config import install_core_inference_registration
     from wcomr.measurement import BlockCounts
     from wcomr.protocol import validate_schedule
-    protocol_path=project/'manifests/stage_witness_protocol.json'
+    protocol_path=project/('manifests/decoder_policy_protocol.json' if a.deterministic_decode else 'manifests/stage_witness_protocol.json')
     config=json.loads(protocol_path.read_text())
     state['source_sha256']={str(path.relative_to(project)):sha(path) for path in
-        [protocol_path,project/'scripts/check_stage_witness.py',project/'src/wcomr/stage_witness.py']}
+        [protocol_path,project/'scripts/check_stage_witness.py',project/'src/wcomr/stage_witness.py',project/'src/wcomr/decoder_policy.py']}
     upstream=json.loads((project/'manifests/upstream.json').read_text())
     assert sha(wc.__file__)==upstream['cache_module_sha256'],'Cache source drift'
     completion=json.loads((project/'manifests/runtime_completion.json').read_text())
@@ -55,6 +56,8 @@ try:
     import av
     import cosmos_predict2.inference as inference_module
     from wcomr.stage_witness import StageWitness
+    from wcomr.decoder_policy import backend_flags,decode_policy,tokenizer_identity,compare_decoder_identity
+    from contextlib import contextmanager
     observer=StageWitness()
     model=inference.pipe.model
     def tensor_input(stage):
@@ -78,7 +81,38 @@ try:
         'flags':flags,'setup':{k:v for k,v in state['setup'].items() if k!='output_dir'},'sample':state['sample'],
         'asset_manifests':{str(p.relative_to(project)):sha(p) for p in [project/'manifests/upstream.json',project/'manifests/guardrail_integrity.json',project/'manifests/auxiliary_weights.json']}}
     observer.wrap(model,'generate_samples_from_batch',after=lambda r:observer.record('sample_return',r))
-    observer.wrap(model,'decode',before=tensor_input('decode_input'),after=lambda r:observer.record('decode_output',r))
+    decoder_calls=[]
+    checkpoint=project/'hfhub/models--nvidia--Cosmos-Predict2.5-2B/snapshots/6787e176dce74a101d922174a95dba29fa5f0c55/tokenizer.pth'
+    assert checkpoint.is_file(),'Pinned VAE checkpoint missing'
+    # Stream the actual weights; record both requested revision and resolved blob.
+    with checkpoint.open('rb') as file:
+        h=hashlib.sha256()
+        for chunk in iter(lambda:file.read(8*1024*1024),b''):h.update(chunk)
+    actual_hash=h.hexdigest();blob=checkpoint.resolve().name
+    assert len(blob)==64 and actual_hash==blob,'VAE checkpoint content differs from content-addressed blob'
+    state['decoder_checkpoint']={'path':str(checkpoint),'resolved':str(checkpoint.resolve()),
+                                 'bytes':checkpoint.stat().st_size,'sha256':actual_hash}
+    state['decoder_policy']={'enabled':a.deterministic_decode,'scope':'original model.decode only',
+                            'benchmark':False if a.deterministic_decode else flags['cudnn_benchmark'],
+                            'deterministic':True if a.deterministic_decode else flags['cudnn_deterministic']}
+    state['runtime_identity']['decoder_checkpoint']=state['decoder_checkpoint']
+    state['runtime_identity']['decoder_policy']=state['decoder_policy']
+    def before_decode(args,kwargs):
+        tensor_input('decode_input')(args,kwargs)
+        decoder_calls.append({'before':tokenizer_identity(model.tokenizer),'flags_before':backend_flags()})
+    @contextmanager
+    def local_decode_context():
+        with decode_policy(a.deterministic_decode) as active:
+            decoder_calls[-1]['flags_inside']=active
+            yield
+        decoder_calls[-1]['flags_after']=backend_flags()
+    def after_decode(result):
+        observer.record('decode_output',result)
+        call=decoder_calls[-1];call['after']=tokenizer_identity(model.tokenizer)
+        call['identity_unchanged']=compare_decoder_identity(call['before'],call['after'])
+        assert all(call['identity_unchanged'].values()),'Decode mutated weights/normalization/settings'
+        assert call['flags_before']==call['flags_after'],'Decode flags did not restore'
+    observer.wrap(model,'decode',before=before_decode,after=after_decode,call_context=local_decode_context)
     observer.wrap(inference_module.guardrail_presets,'run_video_guardrail',
                   before=tensor_input('guardrail_input'),after=lambda r:observer.record('guardrail_output',r))
     encoding=[]
@@ -138,7 +172,7 @@ try:
         state.update(decoded_rgb=frames,status='STAGE_WITNESS_ACCEPTED_SINGLE_FRESH_PROCESS',
                      limitation='Read-only engineering witness, not a quality or speed result; no causal attribution yet.')
     finally:
-        state['events']=observer.events;observer.close();handle.remove();counts.close()
+        state['events']=observer.events;state['decoder_calls']=decoder_calls;observer.close();handle.remove();counts.close()
     cleanup_environment()
 except BaseException as exc:
     state.update(status='TECH_BLOCKED',error_type=type(exc).__name__,error=str(exc));traceback.print_exc();raise

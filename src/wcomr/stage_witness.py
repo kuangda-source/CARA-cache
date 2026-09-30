@@ -1,6 +1,6 @@
 """Read-only pipeline witnesses. Never replay a model or replace its outputs."""
 import hashlib
-from contextlib import ExitStack
+from contextlib import ExitStack, nullcontext
 import functools
 import numpy as np
 import torch
@@ -44,7 +44,7 @@ class StageWitness:
             assert all(torch.equal(a, b) for a, b in zip(cuda_rng, torch.cuda.get_rng_state_all())), 'Observer changed CUDA RNG'
         self.events.append({'stage': stage, 'value': result})
 
-    def wrap(self, owner, name, before=None, after=None):
+    def wrap(self, owner, name, before=None, after=None, call_context=None):
         original = getattr(owner, name)
         # Restore the original instance namespace, including a method inherited
         # from the class rather than leaving a new bound-method attribute.
@@ -57,7 +57,8 @@ class StageWitness:
         @functools.wraps(original)
         def wrapped(*args, **kwargs):
             if before: before(args, kwargs)
-            result = original(*args, **kwargs)
+            with call_context() if call_context else nullcontext():
+                result = original(*args, **kwargs)
             if after: after(result)
             return result
         setattr(owner, name, wrapped)
