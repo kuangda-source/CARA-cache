@@ -13,9 +13,9 @@
 | 项目 | 最新已归档证据 |
 |---|---|
 | 当前阶段 | F1，4 场景 × 1 seed × Native / 官方 WorldCache 技术对照未完成 |
-| 最近运行 | `f1-smoke-r3` 已启动并核实监督进程 2431971 存活，先 Native 后 WC；结果待回执。r2 的 2 个 Native 与拒绝单独保留 |
+| 最近运行 | `f1-smoke-r3` Native 已结束：3接受、1拒绝；WorldCache 子进程2435496已核实启动，结果待回执。监督进程2431971 |
 | 首要动作 | 检查 r3 原有进程与回执，不重复启动；等待两臂全部样本的接受/拒绝记录 |
-| 当前成本 | r3 启动前已结算 0.4732977178361681 / 4 GPU·h；在途成本另计，终态后由监督器结算 |
+| 当前成本 | 已结算0.8406482060750325 / 4 GPU·h（含r3 Native）；WorldCache在途成本另计 |
 | 方法证据 | CPU/合成测试与资源就绪，不等于生成质量或真实加速收益 |
 | 视频评价 | 已有格式检查；完整视频质量审查尚未完成 |
 | 运行状态时效 | 本表来自仓库内终态回执；接续时必须查远端进程、锁、日志及预算，不能把文档当实时 GPU 状态 |
@@ -182,3 +182,5 @@ python3 scripts/summarize_f1.py --native reports/f1_smoke_r3_native.json --world
 2026-09-30 W1同状态shadow接入原型：`src/wcomr/shadow_forward.py`在选定缓存命中调用中，从当前probe输出直接补算剩余blocks与输出层，仅评分、不调用第二次缓存forward。显式request边界、独立记录；恢复RNG和registered buffers，计量hook排除诊断调用。固定上游源码配合CPU小网络的official/scalar/shrink三路径测试验证输出、缓存、anchor历史与部署计数保持；另测随机层及buffer恢复。全部48项测试通过。该原型未部署，尚不能保证真实CUDA模型所有未注册状态无副作用；真实模型同seed输出一致性、显存、成本验收及W1批次入口仍待实现/执行。
 
 2026-09-30 r3实机拒绝续跑检查通过：physics_001记录为VIDEO_REJECTED，72次完整前向，无被拒绝mp4保存；随后进入原定robot_000，监督与子进程仍在运行。[现场回执](reports/f1_smoke_r3_rejection_continuation.json)。这验证了失败记录和继续执行机制，不代表4场景全通过，WorldCache结果仍待完成。
+
+2026-09-30 Native r3终态：全部4场景已尝试，AV/common/robot被接受，physics输出被拒绝；整体状态ATTEMPTED_ALL_WITH_REJECTIONS。Native监督耗时1322.462s，正常exit0仅表示记录完整。机器人单样本295.289s、去噪249.675s；common单样本296.992s、去噪249.370s。[Native完整回执](reports/f1_smoke_r3_native.json)。WorldCache已开始初始化，[切换快照](reports/f1_smoke_r3_worldcache_start.json)不是终态；无配对速度或质量结论。
