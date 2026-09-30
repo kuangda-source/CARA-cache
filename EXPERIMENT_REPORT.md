@@ -8,22 +8,22 @@
 
 ## 1. 当前结论与最重要的下一步
 
-**继续WorldCache主线；scalar固定schedule闭环已实机启动，两道首样本技术门通过。** CAL8完整8/8，scalar7/8联合改善、等样本velocity/postwarp误差比0.759185/0.893679，冻结screen为MECHANISM_ONLY_CAL8。misc恶化保留，shrink不入闭环；尚无质量、干净加速或独立确认正结果。
+**继续WorldCache主线，先做有界自动成像评价；固定schedule scalar重放已全部技术通过，但候选7接受/1安全拒绝。** CAL8 scalar7/8机制改善保持；闭环视频质量、干净效率和独立确认仍未证。暂不加W2或用“更平滑”代替动作/物理质量。
 
-| 项目 | 最新证据（2026-10-01 00:29:13 北京时间，非终态） |
+| 项目 | 最新终态证据（2026-10-01） |
 |---|---|
-| 当前阶段 | w1-replay-r1运行，official14项/scalar OFF-ON18项严格检查全真 |
-| 最近运行 | source31a797d，supervisor2471255/timeout2471260/runner2471262均live，GPU1仅观察到此runner |
-| 当前覆盖 | 首候选完成1/8、8shadow点，第二common场景scalar OFF生成 |
-| 首要动作 | 继续同一任务；全批终态后PIDs/锁/GPU/源码/产物hash与wall账本审计 |
-| 当前成本 | 已结算2.995044843/4GPUh，另有0.218519319h在途；单batch总cap3000秒，无第二任务 |
-| 方法证据 | CAL8同状态scalar机制信号；固定闭环全批/质量/干净效率仍待证据 |
-| 视频描述 | 首AV完整RGB与WC有差异，帧间变化较小；不代表质量/物理改善，无必要人评 |
-| 时效 | 本表为只读live快照；禁止据旧余额/历史handoff重复启动或改在跑代码 |
+| 当前阶段 | 固定重放8/8轨迹技术通过，下一MUSIQ成像评价CPU/输入就绪，待部署/准入 |
+| 最近运行 | w1-replay-r1/source31a797d，原全部PIDs退出/锁可用/GPU1释放 |
+| 接受/拒绝 | 候选7接受、robot_054 VIDEO_REJECTED，原WC8接受；原8分母不变 |
+| 技术证据 | official14项/scalar OFF-ON18项全真，295scalar预测/0fallback，57自然/冻结判据差异 |
+| 成本 | 本轮2177.784138秒，累计3.599984882/4GPUh，余0.400015118h，无在途 |
+| 视频差异 | 7可比视频对都有像素差异、6/7帧间变化较小；非正确性/质量结论 |
+| 首要动作 | 独立MUSIQ部署与LinuxCPU/预算/锁/GPU核验，单batch600秒，7可比对/原8分母 |
+| 质量资源 | MUSIQ权重CPU前向通过；小Qwen VL缓存无权重，标准大judge环境未就绪，不要求人评 |
 
-最新实机证据：[部署/Linux63 CPU](reports/w1_replay_r1_deployment_20261001.json)、[启动](reports/w1_replay_r1_launch_20261001.json)、[进程/GPU/两门/进度](reports/w1_replay_r1_live_observation.json)、[固定replay卡](research/22_W1_REPLAY_PREPARATION.md)。启动于2026-10-01 00:16，后续文档commit不改变实机source31a797d。视频、模型和连接配置不随Git同步。
+最新证据：[重放结果](research/24_W1_FIXED_REPLAY_RESULTS.md)、[完整汇总](reports/w1_replay_r1_summary.json)、[终态审计](reports/w1_replay_r1_audit.json)、[runner](reports/w1_replay_r1_runner.json)、[supervisor](reports/w1_replay_r1_supervisor.json)、[账本](reports/budget.json)。下一[自动成像评价卡](research/23_W1_IMAGING_EVALUATION.md)/[冻结协议](manifests/w1_imaging_protocol.json)尚未GPU运行，MUSIQ仅单成像维度，不判语义/物理/Joint或整体质量。
 
-此前完整证据：[CAL8结果](research/21_W1D_CAL8_RESULTS.md)、[终态汇总](reports/w1d_cal8_r1_summary.json)、[审计](reports/w1d_cal8_r1_audit.json)、[分布/排序](reports/w1d_cal8_r1_analysis.json)、[诊断图](reports/w1d_cal8_r1_diagnostics.png)、[局部解码复现](research/19_DECODER_POLICY_RESULTS.md)。
+此前完整证据：[CAL8机制结果](research/21_W1D_CAL8_RESULTS.md)、[CAL8汇总](reports/w1d_cal8_r1_summary.json)、[分布/排序](reports/w1d_cal8_r1_analysis.json)、[诊断图](reports/w1d_cal8_r1_diagnostics.png)、[局部解码复现](research/19_DECODER_POLICY_RESULTS.md)。
 
 历史阶段证据：[decode区间定位](research/17_DECODE_INTERVAL_RESULTS.md)、[下一轮准备卡](research/18_DECODER_POLICY_GATE.md)、[阶段汇总](reports/stage_r2_summary.json)。
 
@@ -102,11 +102,11 @@
 
 ## 7. 下一轮的执行与停止条件
 
-1. 接续w1-replay-r1原handles；首official/scalar门通过，原剩余7场景依次scalar OFF。全8原成员/参数/full位置固定；拒绝保留，未知技术错停止，不补样本或重跑。
-2. Linux63项CPU及源码hash通过、唯一任务已启动；原CAL8终态与完整机制screen已归档，旧live/partial为历史。不要部署新HEAD到正在跑的任务。
-3. 本batchcap3000秒从原4GPUh扣除，包含全部加载/诊断/失败/flush；旧ledger只结算CAL8，在途另计，无第二准入或扩额。
-4. 候选使用自身latent/probe/full anchors，truth只评分；固定位置只替换近似器。逐call hash/诊断时间不作clean speed，RGB距离/变化较小不作物理质量。
-5. 终态后验证PIDs/锁/GPU归属/源码/视频hash，归档runner/supervisor/audit和实际wall账本，再重核reference与两门生成summary。按完整覆盖/成本决定clean计时/标准质量/独立确认资源缺口；不先加W2，不引入必要性未证的人评。
+1. 原重放终态已审计，不重启/补样本；8轨迹技术通过与7视频接受分开报告，robot拒绝保留。
+2. 下一MUSIQ原8分母/7可比对/全部93帧，上限600秒从原4GPUh余额扣除；推送/hash部署/LinuxCPU/fresh预算锁GPU准入后只启动一次。
+3. 终态审计进程/锁/GPU/source/checkpoint/输入hash及wall账本；完整覆盖才汇总，partial/拒绝明确记录。无训练/付费评分/人评/自动扩额。
+4. 成像维度与帧间变化不能证明动作/物理/整体质量，带hash诊断时间不作clean speed；暂不加W2。
+5. 原VQA问题已hash绑定，标准judge未就绪；下一需自动语义/物理、clean重复计时和独立确认的具体资源与预算方案，保留科学证据边界。
 
 遇到关键协议更换、扩大预算、训练立项或方向切换时留给用户决策。一般工程修复可继续，但不得中途改变在跑任务的源码/配置。操作顺序以[下一步队列](research/09_NEXT_ACTIONS.md)为准。
 

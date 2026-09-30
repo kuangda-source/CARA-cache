@@ -1,0 +1,252 @@
+{
+  "observed_unix": 1790786305.7104356,
+  "models": [
+    {
+      "repo_id": "Qwen/Qwen3-VL-2B-Instruct",
+      "snapshots": [
+        {
+          "revision": "89644892e4d85e24eaac8bacfd4f463576704203",
+          "files": [
+            {
+              "name": "chat_template.json",
+              "exists": true,
+              "bytes": 5502
+            },
+            {
+              "name": "merges.txt",
+              "exists": true,
+              "bytes": 1671839
+            },
+            {
+              "name": "preprocessor_config.json",
+              "exists": true,
+              "bytes": 390,
+              "sha256": "27225450ac9c6529872ee1924fcb0962ff5634834f817040f444118116f4e516",
+              "json": {
+                "size": {
+                  "longest_edge": 16777216,
+                  "shortest_edge": 65536
+                },
+                "patch_size": 16,
+                "temporal_patch_size": 2,
+                "merge_size": 2,
+                "image_mean": [
+                  0.5,
+                  0.5,
+                  0.5
+                ],
+                "image_std": [
+                  0.5,
+                  0.5,
+                  0.5
+                ],
+                "processor_class": "Qwen3VLProcessor",
+                "image_processor_type": "Qwen2VLImageProcessorFast"
+              }
+            },
+            {
+              "name": "tokenizer.json",
+              "exists": true,
+              "bytes": 7032403
+            },
+            {
+              "name": "tokenizer_config.json",
+              "exists": true,
+              "bytes": 10868
+            },
+            {
+              "name": "video_preprocessor_config.json",
+              "exists": true,
+              "bytes": 385,
+              "sha256": "7768af27c1fafa9cc9011c1dc20067e03f8915e03b63504550e11d5066986d13",
+              "json": {
+                "size": {
+                  "longest_edge": 25165824,
+                  "shortest_edge": 4096
+                },
+                "patch_size": 16,
+                "temporal_patch_size": 2,
+                "merge_size": 2,
+                "image_mean": [
+                  0.5,
+                  0.5,
+                  0.5
+                ],
+                "image_std": [
+                  0.5,
+                  0.5,
+                  0.5
+                ],
+                "processor_class": "Qwen3VLProcessor",
+                "video_processor_type": "Qwen3VLVideoProcessor"
+              }
+            },
+            {
+              "name": "vocab.json",
+              "exists": true,
+              "bytes": 2776833
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "repo_id": "Qwen/Qwen3-VL-8B-Instruct",
+      "snapshots": [
+        {
+          "revision": "0c351dd01ed87e9c1b53cbc748cba10e6187ff3b",
+          "files": [
+            {
+              "name": "chat_template.json",
+              "exists": true,
+              "bytes": 5499
+            },
+            {
+              "name": "config.json",
+              "exists": true,
+              "bytes": 1474,
+              "sha256": "5cd452860dc1e9c29dd71cc3cef7f39b338b7a40793f7a260655c2d3568f3661",
+              "json": {
+                "architectures": [
+                  "Qwen3VLForConditionalGeneration"
+                ],
+                "image_token_id": 151655,
+                "model_type": "qwen3_vl",
+                "text_config": {
+                  "attention_bias": false,
+                  "attention_dropout": 0.0,
+                  "bos_token_id": 151643,
+                  "dtype": "bfloat16",
+                  "eos_token_id": 151645,
+                  "head_dim": 128,
+                  "hidden_act": "silu",
+                  "hidden_size": 4096,
+                  "initializer_range": 0.02,
+                  "intermediate_size": 12288,
+                  "max_position_embeddings": 262144,
+                  "model_type": "qwen3_vl_text",
+                  "num_attention_heads": 32,
+                  "num_hidden_layers": 36,
+                  "num_key_value_heads": 8,
+                  "rms_norm_eps": 1e-06,
+                  "rope_scaling": {
+                    "mrope_interleaved": true,
+                    "mrope_section": [
+                      24,
+                      20,
+                      20
+                    ],
+                    "rope_type": "default"
+                  },
+                  "rope_theta": 5000000,
+                  "use_cache": true,
+                  "vocab_size": 151936
+                },
+                "tie_word_embeddings": false,
+                "transformers_version": "4.57.0.dev0",
+                "video_token_id": 151656,
+                "vision_config": {
+                  "deepstack_visual_indexes": [
+                    8,
+                    16,
+                    24
+                  ],
+                  "depth": 27,
+                  "hidden_act": "gelu_pytorch_tanh",
+                  "hidden_size": 1152,
+                  "in_channels": 3,
+                  "initializer_range": 0.02,
+                  "intermediate_size": 4304,
+                  "model_type": "qwen3_vl",
+                  "num_heads": 16,
+                  "num_position_embeddings": 2304,
+                  "out_hidden_size": 4096,
+                  "patch_size": 16,
+                  "spatial_merge_size": 2,
+                  "temporal_patch_size": 2
+                },
+                "vision_end_token_id": 151653,
+                "vision_start_token_id": 151652
+              }
+            },
+            {
+              "name": "merges.txt",
+              "exists": true,
+              "bytes": 1671839
+            },
+            {
+              "name": "preprocessor_config.json",
+              "exists": true,
+              "bytes": 390,
+              "sha256": "27225450ac9c6529872ee1924fcb0962ff5634834f817040f444118116f4e516",
+              "json": {
+                "size": {
+                  "longest_edge": 16777216,
+                  "shortest_edge": 65536
+                },
+                "patch_size": 16,
+                "temporal_patch_size": 2,
+                "merge_size": 2,
+                "image_mean": [
+                  0.5,
+                  0.5,
+                  0.5
+                ],
+                "image_std": [
+                  0.5,
+                  0.5,
+                  0.5
+                ],
+                "processor_class": "Qwen3VLProcessor",
+                "image_processor_type": "Qwen2VLImageProcessorFast"
+              }
+            },
+            {
+              "name": "tokenizer.json",
+              "exists": true,
+              "bytes": 7032403
+            },
+            {
+              "name": "tokenizer_config.json",
+              "exists": true,
+              "bytes": 10868
+            },
+            {
+              "name": "video_preprocessor_config.json",
+              "exists": true,
+              "bytes": 385,
+              "sha256": "7768af27c1fafa9cc9011c1dc20067e03f8915e03b63504550e11d5066986d13",
+              "json": {
+                "size": {
+                  "longest_edge": 25165824,
+                  "shortest_edge": 4096
+                },
+                "patch_size": 16,
+                "temporal_patch_size": 2,
+                "merge_size": 2,
+                "image_mean": [
+                  0.5,
+                  0.5,
+                  0.5
+                ],
+                "image_std": [
+                  0.5,
+                  0.5,
+                  0.5
+                ],
+                "processor_class": "Qwen3VLProcessor",
+                "video_processor_type": "Qwen3VLVideoProcessor"
+              }
+            },
+            {
+              "name": "vocab.json",
+              "exists": true,
+              "bytes": 2776833
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "scope": "Read-only file presence and config/index hashes, weight content not rehashed or loaded"
+}

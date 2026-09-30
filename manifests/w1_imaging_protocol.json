@@ -1,0 +1,36 @@
+{
+  "status": "FROZEN_BEFORE_IMAGING_SCORES",
+  "date": "2026-10-01",
+  "reference_receipt": "reports/w1d_cal8_r1_runner.json",
+  "reference_sha256": "934dc2d63b79ee1cc68f765fdcb21bfea91f4f81584ad17259e9f6c55cd3eec9",
+  "candidate_receipt": "reports/w1_replay_r1_runner.json",
+  "candidate_sha256": "45baadc9939f0286ebeb5179ab14b0113cd1d41b4368e27d5342d9900be2491d",
+  "samples": [
+    "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+    "common_sense_6487f37f-ef57-49ca-afdc-d898922b5191",
+    "human_199",
+    "industry_084",
+    "misc_13398218_3840_2160_60fps",
+    "physics_045",
+    "robot_054",
+    "av_51b45829-502e-4143-9c32-c026bd6ab191"
+  ],
+  "checkpoint_relative_to_home": "~/.cache/vbench/pyiqa_model/musiq_spaq_ckpt-358bb6af.pth",
+  "checkpoint_sha256": "358bb6af275e28ea56821d44fb55c6cb83645db11f394d3ad65b2d149965ab50",
+  "architecture_source_sha256": "ddab924a5ff529e1668404fa058777a9d00890390166c2b12ef7fffdc0baebb3",
+  "pyiqa_version": "0.1.10",
+  "frames": 93,
+  "geometry": [
+    432,
+    768,
+    3
+  ],
+  "preprocessing": "longer512 bilinear align_cornersFalse antialiasFalse /255, complete93 frames microbatch1, eval/inference_mode",
+  "score": "mean all frame MUSIQ raw/100, then equal-scene candidate-minus-WC; no inference over frames",
+  "rejection": "Keep original8 denominator; rejected candidate has no saved video or imputed score",
+  "max_gpu_seconds": 600,
+  "budget_scope": "Original4 GPUh including all evaluation wall; no training, paid API or human evaluation",
+  "interpretation": "MUSIQ imaging dimension only, not physical/semantic quality, benchmark Joint or clean deployment speed",
+  "pinned_evaluator_commit": "60a486df6d2e6d2aa3c21815895aac157a88e95d",
+  "implementation_note": "Preprocessing exact against pinned torchvision Resize; local installed pyIQA hash-bound and explicit model.eval/inference_mode. This is a controlled imaging-dimension evaluation, not full pinned benchmark environment reproduction."
+}

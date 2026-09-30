@@ -1,0 +1,67 @@
+{
+  "status": "CPU_EXACT_MATCH_PINNED_EVALUATOR_LONGER_PREPROCESS",
+  "observed_unix": 1790786963.350829,
+  "cases": [
+    {
+      "shape": [
+        432,
+        768,
+        3
+      ],
+      "output_shape": [
+        1,
+        3,
+        288,
+        512
+      ],
+      "max_abs_difference": 0.0
+    },
+    {
+      "shape": [
+        224,
+        224,
+        3
+      ],
+      "output_shape": [
+        1,
+        3,
+        224,
+        224
+      ],
+      "max_abs_difference": 0.0
+    },
+    {
+      "shape": [
+        768,
+        432,
+        3
+      ],
+      "output_shape": [
+        1,
+        3,
+        512,
+        288
+      ],
+      "max_abs_difference": 0.0
+    },
+    {
+      "shape": [
+        513,
+        1024,
+        3
+      ],
+      "output_shape": [
+        1,
+        3,
+        256,
+        512
+      ],
+      "max_abs_difference": 0.0
+    }
+  ],
+  "cuda_initialized": false,
+  "module_sha256": "e374a7c78c1b8b66c71dc89a2c9538978df54ccad9c63ae891cc56d3b5438c87",
+  "torch": "2.7.1+cu128",
+  "scope": "Random RGB inputs compared to torchvision Resize used by pinned evaluator; no video quality or GPU scoring",
+  "wall_seconds": 3.7413148880004883
+}

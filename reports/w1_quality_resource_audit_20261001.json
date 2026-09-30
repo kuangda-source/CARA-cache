@@ -1,0 +1,125 @@
+{
+  "observed_unix": 1790786206.0346315,
+  "execution": "CPU filesystem/package metadata only; no model imports, inference, download, API call or GPU use",
+  "packages": {
+    "vllm": null,
+    "qwen-vl-utils": "0.0.14",
+    "pyiqa": "0.1.10",
+    "decord": "0.6.0",
+    "detectron2": null,
+    "torch": "2.7.1+cu128",
+    "torchvision": "0.22.1+cu128",
+    "transformers": "4.57.1",
+    "opencv-python": "4.11.0.86",
+    "openai": null
+  },
+  "cache_paths": [
+    {
+      "path": "/home/gaokuangda/data/gkd/worldcache_omr/hfhub",
+      "exists": true,
+      "top_entries": [
+        "models--Qwen--Qwen3Guard-Gen-0.6B",
+        "models--google--siglip-so400m-patch14-384",
+        "models--nvidia--Cosmos-Guardrail1",
+        "models--nvidia--Cosmos-Predict2.5-2B",
+        "models--nvidia--Cosmos-Reason1-7B"
+      ]
+    },
+    {
+      "path": "/home/gaokuangda/.cache/huggingface/hub",
+      "exists": true,
+      "top_entries": [
+        "datasets--nvidia--PhysicalAI-Autonomous-Vehicles",
+        "models--Qwen--Qwen3-VL-2B-Instruct",
+        "models--Qwen--Qwen3-VL-8B-Instruct",
+        "models--nvidia--Alpamayo-R1-10B",
+        "models--nvidia--Cosmos-Guardrail1",
+        "models--nvidia--Cosmos-Predict2.5-2B",
+        "models--nvidia--Cosmos-Reason1-7B",
+        "version.txt"
+      ]
+    },
+    {
+      "path": "/home/gaokuangda/.cache/vbench",
+      "exists": true,
+      "top_entries": [
+        "aesthetic_model",
+        "amt_model",
+        "pyiqa_model",
+        "raft_model"
+      ]
+    },
+    {
+      "path": "/home/gaokuangda/.cache/torch/hub/checkpoints",
+      "exists": true,
+      "top_entries": [
+        "alexnet-owt-7be5be79.pth",
+        "dino_vitbase16_pretrain.pth",
+        "vgg16-397923af.pth",
+        "weights-inception-2015-12-05-6726825d.pth"
+      ]
+    }
+  ],
+  "default_vbench_assets": {
+    "clip_model/ViT-B-32.pt": false,
+    "clip_model/ViT-L-14.pt": false,
+    "amt_model/amt-s.pth": true,
+    "dino_model/dino_vitbase16_pretrain.pth": false,
+    "pyiqa_model/musiq_spaq_ckpt-358bb6af.pth": true,
+    "ViCLIP/ViClip-InternVid-10M-FLT.pth": false,
+    "aesthetic_model/emb_reader": true
+  },
+  "vbench_override_present": false,
+  "project_data_directories": [
+    "runtime",
+    "receipts",
+    "hfhub",
+    "configs",
+    "manifests",
+    "memory",
+    "plans",
+    "reports",
+    "research",
+    "scripts",
+    "src",
+    "tests",
+    ".pytest_cache",
+    ".sync",
+    "outputs",
+    "vendor"
+  ],
+  "disk_free_bytes": 726629281792,
+  "evaluator_source": {
+    "commit": "60a486df6d2e6d2aa3c21815895aac157a88e95d",
+    "sha256": {
+      "README.md": "482b39e17137df025ba7d858e61fddec1259507a9cf7f8e4112f89ee5dfa652f",
+      "evaluate.py": "34c0c5664ee52c24c531dd4b37ddcbdb3e7d787e482d203729a03de0e5aaeda4",
+      "evaluate_vqa.py": "14a9a4c357fa080d2ef4c59a365de6ca2ff4224368af4787d41db8523cca6159",
+      "pbench/vqa_evaluation.py": "e262ba9c4a369113754cad165bb54a43f69a074d7cecff41791c3fc3a5f32928",
+      "pbench/utils.py": "98993456a985e30b13eadcd05c55e6204b2b26bac340cedbff31b9efcbba89de",
+      "pbench/__init__.py": "a5e45295bb1a70baf67ee16edd35e928dd82355eda70c93fa9e50ac2e2a7858b"
+    },
+    "scope": "Pinned local source read; no evaluator execution/import"
+  },
+  "static_requirements": {
+    "readme_judge_model": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "readme_tensor_parallel_size": 4,
+    "script_default_judge_model": "Qwen/Qwen2.5-VL-72B-Instruct",
+    "script_default_tensor_parallel_size": 8,
+    "judge_metadata": "cosmos_predict2_bench_full_info.json plus per-video vqa JSON",
+    "supported_video_dimensions": [
+      "aesthetic_quality",
+      "background_consistency",
+      "imaging_quality",
+      "motion_smoothness",
+      "overall_consistency",
+      "subject_consistency",
+      "i2v_background",
+      "i2v_subject"
+    ],
+    "dynamic_degree_supported": false,
+    "local_flag_can_still_download_missing_weights": true
+  },
+  "assessment": "NOT_READY_IN_CURRENT_GENERATION_ENVIRONMENT",
+  "limitations": "Scoped cache/metadata inventory only. Missing in inspected paths does not establish machine-wide absence; installed packages are not runtime compatibility. No GPU evaluator or quality result. Qwen3Guard and Cosmos Reason1 safety assets are not automatically benchmark judges."
+}

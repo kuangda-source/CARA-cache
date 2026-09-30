@@ -180,3 +180,18 @@ def test_fixed_replay_has_one3000s_job_and_is_exclusive_with_cal(tmp_path):
     assert int(state['command'][2])<=2990
     assert budget['gpu_jobs_launched']==1
     assert abs(budget['used_gpu_hours']-state['arms'][0]['wall_seconds']/3600)<1e-9
+
+
+def test_imaging_evaluation_is_one_serial_bounded_budgeted_job(tmp_path):
+    project, output, cmd, env = fixture(tmp_path, delay=.02)
+    subprocess.run(cmd+['--w1-imaging'],env=env,check=True,capture_output=True,timeout=10)
+    state=json.loads((output/'supervisor.json').read_text())
+    assert state['status']=='W1_IMAGING_EXITED_REQUIRES_REVIEW'
+    assert len(state['arms'])==1 and state['arms'][0]['mode']=='w1_imaging'
+    assert str(project/'scripts/run_w1_imaging.py') in state['command']
+    assert str(output/'w1-imaging.json') in state['command'] and int(state['command'][2])<=590
+    budget=json.loads((project/'reports/budget.json').read_text())
+    assert budget['gpu_jobs_launched']==1
+    assert abs(budget['used_gpu_hours']-state['arms'][0]['wall_seconds']/3600)<1e-9
+    result=subprocess.run(cmd+['--w1-imaging','--w1-replay'],env=env,capture_output=True,timeout=10)
+    assert result.returncode!=0
