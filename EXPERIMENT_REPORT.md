@@ -166,3 +166,11 @@ Git 同步的是代码、计划、文档与小回执，不是远端正在运行�
 | 2026-09-30 | v1.0：建立 PhysCache 风格的研究全景文档；汇总 F0/F1、v1.1 计划、原始结果、失败和跨设备接续规则 | 仅整理已归档证据，没有发起或重启实验 |
 
 2026-09-30 接续：部署源提交 `57c8660`、归档哈希一致后启动 r3；[启动回执](reports/f1_smoke_r3_launch_20260930.json)。新的质量/加速结论仍待实际配对与视频审查。
+
+2026-09-30 汇总工具：新增 `scripts/summarize_f1.py`，从两臂及监督器回执生成可追溯结果。只有两臂完整终态且输入、实际 setup、协议和版本一致时才输出逐样本时间比；拒绝留在固定分母内，冷首样本单列，质量状态仍为未审查。7 项针对性测试验证部分运行不产生加速结论、配置差异/重复记录/缺失结果/非有限耗时会被拒绝。未改动远端在跑源码。
+
+终态回执归档后执行（文件未齐全时不要用其他轮回执补齐）：
+
+```sh
+python3 scripts/summarize_f1.py --native reports/f1_smoke_r3_native.json --worldcache reports/f1_smoke_r3_worldcache.json --supervisor reports/f1_smoke_r3_supervisor.json --output reports/f1_smoke_r3_summary.json
+```
