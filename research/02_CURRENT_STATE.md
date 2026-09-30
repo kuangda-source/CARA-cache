@@ -109,3 +109,7 @@ R2 PIDs verified absent. Official keep_going=True permits rejection recording wi
 ## R3 first Native artifact integrity verified
 
 AV completed and common started. Local copy matches receipt hash; full93-frame decoding passes,768x432,monotonic0–5.75s timestamps. E2E314.462688s, denoising256.631392s,72full/0skip. See reports/f1_smoke_r3_first_native_decode.json. No paired result or visual-quality conclusion; no source change on the live server.
+
+## R3 rejection continuation verified on real generation
+
+Physics output was rejected with72full/0skip, no rejected mp4 exists, original robot scene started with supervisor/child live. See reports/f1_smoke_r3_rejection_continuation.json. This validates the outcome-continuation implementation, not quality or paired acceleration.

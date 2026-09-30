@@ -180,3 +180,5 @@ python3 scripts/summarize_f1.py --native reports/f1_smoke_r3_native.json --world
 2026-09-30 W1-D CPU准备：新增 `src/wcomr/shadow_metrics.py`，分别计算残差与最终速度预测的MSE、相对误差、方向余弦，并按显式张量轴汇总时间/通道等位置。零能量参考的相对误差记为空；非有限值显式报错状态。合成下游映射测试复现“残差更小、输出误差更大”的排序反转，仅验证评分逻辑，不是本模型的实验证据。尚未实现真实同状态shadow采样/部署不变性验收；未部署到在跑的F1。
 
 2026-09-30 W1同状态shadow接入原型：`src/wcomr/shadow_forward.py`在选定缓存命中调用中，从当前probe输出直接补算剩余blocks与输出层，仅评分、不调用第二次缓存forward。显式request边界、独立记录；恢复RNG和registered buffers，计量hook排除诊断调用。固定上游源码配合CPU小网络的official/scalar/shrink三路径测试验证输出、缓存、anchor历史与部署计数保持；另测随机层及buffer恢复。全部48项测试通过。该原型未部署，尚不能保证真实CUDA模型所有未注册状态无副作用；真实模型同seed输出一致性、显存、成本验收及W1批次入口仍待实现/执行。
+
+2026-09-30 r3实机拒绝续跑检查通过：physics_001记录为VIDEO_REJECTED，72次完整前向，无被拒绝mp4保存；随后进入原定robot_000，监督与子进程仍在运行。[现场回执](reports/f1_smoke_r3_rejection_continuation.json)。这验证了失败记录和继续执行机制，不代表4场景全通过，WorldCache结果仍待完成。

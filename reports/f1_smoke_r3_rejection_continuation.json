@@ -1,0 +1,501 @@
+{
+  "observed_unix": 1790762119.488823,
+  "run": "f1-smoke-r3",
+  "snapshot_status": "GENERATING",
+  "current_sample": "robot_000",
+  "accepted_names": [
+    "av_002b815b-7595-4d54-a9f4-4c62c83d3009",
+    "common_sense_049c9292-db5f-490b-a72b-546775e8156c"
+  ],
+  "rejection": {
+    "name": "physics_001",
+    "index": 2,
+    "outcome": "VIDEO_REJECTED",
+    "sampling": {
+      "name": "physics_001",
+      "outcome": "VIDEO_REJECTED",
+      "guardrail_events": [
+        {
+          "stage": "text",
+          "accepted": true
+        },
+        {
+          "stage": "video",
+          "accepted": false
+        }
+      ],
+      "end_to_end_seconds": 288.4020855128765,
+      "stages": {
+        "text_guardrail": {
+          "calls": 1,
+          "seconds": 3.2917308448813856
+        },
+        "text_encoding": {
+          "calls": 2,
+          "seconds": 0.21237113699316978
+        },
+        "denoising": {
+          "calls": 1,
+          "seconds": 249.32610795181245
+        },
+        "decode": {
+          "calls": 1,
+          "seconds": 5.7321224543266
+        },
+        "video_guardrail": {
+          "calls": 1,
+          "seconds": 8.027939175721258
+        }
+      },
+      "block_counts": {
+        "denoiser_calls": 72,
+        "full_calls": 72,
+        "skipped_deep_calls": 0
+      },
+      "scheduler_class": "FlowUniPCMultistepScheduler",
+      "scheduler_config": {
+        "num_train_timesteps": 1000,
+        "solver_order": 2,
+        "prediction_type": "flow_prediction",
+        "shift": 1,
+        "use_dynamic_shifting": false,
+        "thresholding": false,
+        "dynamic_thresholding_ratio": 0.995,
+        "sample_max_value": 1.0,
+        "predict_x0": true,
+        "solver_type": "bh2",
+        "lower_order_final": true,
+        "disable_corrector": [],
+        "solver_p": null,
+        "timestep_spacing": "linspace",
+        "steps_offset": 0,
+        "final_sigmas_type": "zero",
+        "_use_default_values": [
+          "steps_offset",
+          "prediction_type",
+          "sample_max_value",
+          "predict_x0",
+          "solver_p",
+          "thresholding",
+          "dynamic_thresholding_ratio",
+          "solver_type",
+          "lower_order_final",
+          "timestep_spacing",
+          "final_sigmas_type",
+          "solver_order",
+          "disable_corrector"
+        ]
+      },
+      "requested_steps": 35,
+      "actual_schedule_steps": 36,
+      "timesteps": [
+        995,
+        994,
+        993,
+        992,
+        990,
+        988,
+        986,
+        984,
+        981,
+        977,
+        973,
+        967,
+        960,
+        951,
+        941,
+        927,
+        910,
+        889,
+        863,
+        831,
+        791,
+        742,
+        684,
+        618,
+        543,
+        462,
+        380,
+        301,
+        228,
+        166,
+        116,
+        77,
+        49,
+        30,
+        17,
+        9
+      ],
+      "use_kerras_sigma": true,
+      "worldcache_horizon": null,
+      "denoiser_trace": [
+        {
+          "call": 1,
+          "cache_counter_before": null,
+          "deep_executed": true
+        },
+        {
+          "call": 2,
+          "cache_counter_before": null,
+          "deep_executed": true
+        },
+        {
+          "call": 3,
+          "cache_counter_before": null,
+          "deep_executed": true
+        },
+        {
+          "call": 4,
+          "cache_counter_before": null,
+          "deep_executed": true
+        },
+        {
+          "call": 5,
+          "cache_counter_before": null,
+          "deep_executed": true
+        },
+        {
+          "call": 6,
+          "cache_counter_before": null,
+          "deep_executed": true
+        },
+        {
+          "call": 7,
+          "cache_counter_before": null,
+          "deep_executed": true
+        },
+        {
+          "call": 8,
+          "cache_counter_before": null,
+          "deep_executed": true
+        },
+        {
+          "call": 9,
+          "cache_counter_before": null,
+          "deep_executed": true
+        },
+        {
+          "call": 10,
+          "cache_counter_before": null,
+          "deep_executed": true
+        },
+        {
+          "call": 11,
+          "cache_counter_before": null,
+          "deep_executed": true
+        },
+        {
+          "call": 12,
+          "cache_counter_before": null,
+          "deep_executed": true
+        },
+        {
+          "call": 13,
+          "cache_counter_before": null,
+          "deep_executed": true
+        },
+        {
+          "call": 14,
+          "cache_counter_before": null,
+          "deep_executed": true
+        },
+        {
+          "call": 15,
+          "cache_counter_before": null,
+          "deep_executed": true
+        },
+        {
+          "call": 16,
+          "cache_counter_before": null,
+          "deep_executed": true
+        },
+        {
+          "call": 17,
+          "cache_counter_before": null,
+          "deep_executed": true
+        },
+        {
+          "call": 18,
+          "cache_counter_before": null,
+          "deep_executed": true
+        },
+        {
+          "call": 19,
+          "cache_counter_before": null,
+          "deep_executed": true
+        },
+        {
+          "call": 20,
+          "cache_counter_before": null,
+          "deep_executed": true
+        },
+        {
+          "call": 21,
+          "cache_counter_before": null,
+          "deep_executed": true
+        },
+        {
+          "call": 22,
+          "cache_counter_before": null,
+          "deep_executed": true
+        },
+        {
+          "call": 23,
+          "cache_counter_before": null,
+          "deep_executed": true
+        },
+        {
+          "call": 24,
+          "cache_counter_before": null,
+          "deep_executed": true
+        },
+        {
+          "call": 25,
+          "cache_counter_before": null,
+          "deep_executed": true
+        },
+        {
+          "call": 26,
+          "cache_counter_before": null,
+          "deep_executed": true
+        },
+        {
+          "call": 27,
+          "cache_counter_before": null,
+          "deep_executed": true
+        },
+        {
+          "call": 28,
+          "cache_counter_before": null,
+          "deep_executed": true
+        },
+        {
+          "call": 29,
+          "cache_counter_before": null,
+          "deep_executed": true
+        },
+        {
+          "call": 30,
+          "cache_counter_before": null,
+          "deep_executed": true
+        },
+        {
+          "call": 31,
+          "cache_counter_before": null,
+          "deep_executed": true
+        },
+        {
+          "call": 32,
+          "cache_counter_before": null,
+          "deep_executed": true
+        },
+        {
+          "call": 33,
+          "cache_counter_before": null,
+          "deep_executed": true
+        },
+        {
+          "call": 34,
+          "cache_counter_before": null,
+          "deep_executed": true
+        },
+        {
+          "call": 35,
+          "cache_counter_before": null,
+          "deep_executed": true
+        },
+        {
+          "call": 36,
+          "cache_counter_before": null,
+          "deep_executed": true
+        },
+        {
+          "call": 37,
+          "cache_counter_before": null,
+          "deep_executed": true
+        },
+        {
+          "call": 38,
+          "cache_counter_before": null,
+          "deep_executed": true
+        },
+        {
+          "call": 39,
+          "cache_counter_before": null,
+          "deep_executed": true
+        },
+        {
+          "call": 40,
+          "cache_counter_before": null,
+          "deep_executed": true
+        },
+        {
+          "call": 41,
+          "cache_counter_before": null,
+          "deep_executed": true
+        },
+        {
+          "call": 42,
+          "cache_counter_before": null,
+          "deep_executed": true
+        },
+        {
+          "call": 43,
+          "cache_counter_before": null,
+          "deep_executed": true
+        },
+        {
+          "call": 44,
+          "cache_counter_before": null,
+          "deep_executed": true
+        },
+        {
+          "call": 45,
+          "cache_counter_before": null,
+          "deep_executed": true
+        },
+        {
+          "call": 46,
+          "cache_counter_before": null,
+          "deep_executed": true
+        },
+        {
+          "call": 47,
+          "cache_counter_before": null,
+          "deep_executed": true
+        },
+        {
+          "call": 48,
+          "cache_counter_before": null,
+          "deep_executed": true
+        },
+        {
+          "call": 49,
+          "cache_counter_before": null,
+          "deep_executed": true
+        },
+        {
+          "call": 50,
+          "cache_counter_before": null,
+          "deep_executed": true
+        },
+        {
+          "call": 51,
+          "cache_counter_before": null,
+          "deep_executed": true
+        },
+        {
+          "call": 52,
+          "cache_counter_before": null,
+          "deep_executed": true
+        },
+        {
+          "call": 53,
+          "cache_counter_before": null,
+          "deep_executed": true
+        },
+        {
+          "call": 54,
+          "cache_counter_before": null,
+          "deep_executed": true
+        },
+        {
+          "call": 55,
+          "cache_counter_before": null,
+          "deep_executed": true
+        },
+        {
+          "call": 56,
+          "cache_counter_before": null,
+          "deep_executed": true
+        },
+        {
+          "call": 57,
+          "cache_counter_before": null,
+          "deep_executed": true
+        },
+        {
+          "call": 58,
+          "cache_counter_before": null,
+          "deep_executed": true
+        },
+        {
+          "call": 59,
+          "cache_counter_before": null,
+          "deep_executed": true
+        },
+        {
+          "call": 60,
+          "cache_counter_before": null,
+          "deep_executed": true
+        },
+        {
+          "call": 61,
+          "cache_counter_before": null,
+          "deep_executed": true
+        },
+        {
+          "call": 62,
+          "cache_counter_before": null,
+          "deep_executed": true
+        },
+        {
+          "call": 63,
+          "cache_counter_before": null,
+          "deep_executed": true
+        },
+        {
+          "call": 64,
+          "cache_counter_before": null,
+          "deep_executed": true
+        },
+        {
+          "call": 65,
+          "cache_counter_before": null,
+          "deep_executed": true
+        },
+        {
+          "call": 66,
+          "cache_counter_before": null,
+          "deep_executed": true
+        },
+        {
+          "call": 67,
+          "cache_counter_before": null,
+          "deep_executed": true
+        },
+        {
+          "call": 68,
+          "cache_counter_before": null,
+          "deep_executed": true
+        },
+        {
+          "call": 69,
+          "cache_counter_before": null,
+          "deep_executed": true
+        },
+        {
+          "call": 70,
+          "cache_counter_before": null,
+          "deep_executed": true
+        },
+        {
+          "call": 71,
+          "cache_counter_before": null,
+          "deep_executed": true
+        },
+        {
+          "call": 72,
+          "cache_counter_before": null,
+          "deep_executed": true
+        }
+      ]
+    }
+  },
+  "rejected_mp4_exists": false,
+  "receipt_snapshot_sha256": "7db43ff93b82e6aad0715fef04c356f8060198a232200f9e82b216a364c19a62",
+  "process_observation": "    PID    PPID STAT COMMAND\n2431971       1 Ss   /home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python /home/gaokuangda/data/gkd/worldcache_omr/scripts/supervise_f1.py --project /home/gaokuangda/data/gkd/worldcache_omr --runtime /home/gaokuangda/data/gkd/worldcache_omr/runtime --python /home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python --gpu-uuid GPU-cebf7119-cf03-23b9-e192-cd196332b704 --output /home/gaokuangda/data/gkd/worldcache_omr/outputs/f1-smoke-r3\n2431976 2431971 Ss   timeout --kill-after=10 12686 /home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/scripts/run_f1_case_set.py --project /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr --mode native --gpu-uuid GPU-cebf7119-cf03-23b9-e192-cd196332b704 --output /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/outputs/f1-smoke-r3/native\n",
+  "process_observation_exit": 0,
+  "scientific_result": "NO_PAIRED_RESULT",
+  "meaning": "Retained rejection followed by next frozen sample; not batch pass"
+}
