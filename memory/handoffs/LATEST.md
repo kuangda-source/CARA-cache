@@ -1,3 +1,7 @@
+## 最新r4传输预检
+
+r4首次传输预检TLS EOF失败、owned转发已关闭，没有下载job提交。独立本机proxy当前官方exact206/65536字节成功，direct超时；下一新r4b transport identity再次预检，同release/资源协议/CPU cap，不重复任何已启动job。
+
 ## 最新接续 — r3最后range终态，下一新r4
 
 L0 range-r3/sourcebd8253d已exit1/1216.976277秒终态；最后range三次URLError，已提交43个16MiB chunk，保留1277165568字节（1218MiB），仍缺12658832字节。CFG4文件/两few-step JSON官方digest PASS，few-step模型MISSING；原3PIDs退出/CPU锁释放/source与协议一致/账本不变，完整审计后仅关闭本任务owned r3转发。下一新唯一r4从保留prefix续传，同官方revision/16MiB/3600秒上限；未新GPU、未完整few-step hash/真实融合。
