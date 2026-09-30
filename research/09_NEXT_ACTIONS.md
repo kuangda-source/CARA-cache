@@ -5,3 +5,5 @@
 3. [成本与重要决策卡](31_W1_NEXT_WINDOW_COST_AND_DECISION.md)：原8两臂旧诊断3141.247秒，并非clean下界；现余额不足以稳妥完整计时。提议新4GPUh原8×两臂×3repeat clean成本门，或先CPU准备替代资源，待用户选择；不以好子集代替原8/冒充F2或DEV。
 4. [计时程序准备](32_W1_CLEAN_TIMING_CPU_PREPARATION.md)已完成：原8/50协议runner实现/本地Linux48 CPU与真实validate-only/旧4h拒绝通过，新代码仅staging、主ledger与runtime未变。若批准新窗口，再记录授权/版本化额度、source同步/hash部署/最终CPU/fresh预算锁和GPU准入后唯一新身份。48计时尝试/2预热/失败/flush都计费，partial不完整结论。未批准则只读/CPU资源工作，不据弱proxy切OMR/W2。
 5. 若成本门通过也需更强质量证据/新明确机制，不能仅速度/当前CAL稳定认方法接受；后续调优WC/原生少步曲线、DEV/CONF仍需设计与独立资源。无非必要人评/付费/训练，meaningful代码/回执/docs同步GitHub。
+
+6. [L0部分资源验收](33_L0_WAN_LONGLIVE_OMR_RESOURCE_AUDIT.md)：Wan5B11文件完整hash/两套LoRA header结构与16CPU通过，非完整adapter或真实融合/GPU。下一可独立CPU下载锁定2适配器1.802GiB/逐SHA、真实融合新输出和隔离环境/任务接口验收；OMR公开入口仍BLOCKED。保持主线，不自动转L1/训练/扩额。

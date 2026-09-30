@@ -379,3 +379,11 @@ w1-vqa-controls-r1/source72c9e24 exit0，supervisor2488580/timeout2488585/runner
 [准备卡](../research/32_W1_CLEAN_TIMING_CPU_PREPARATION.md)/[冻结协议](../manifests/w1_clean_timing_protocol.json)/[Linux检查](../reports/w1_clean_timing_linux_cpu_20261001.json)。预算决定后才更新授权/ledger、sync/hash部署/fresh准入唯一clean-timing-r1；不要重跑旧controls。
 
 ## 以下为历史快照
+
+## 最新资源进展 — 2026-10-01：L0部分核验完成，CPU真实资产/结构证据
+
+历史Wan5B11文件/34201521169字节按新锁定官方revision全hash通过，CPU207.093538秒/原PIDs退出/无GPU成本；现有独立Wan入口3文件与官方42bf4cf逐hash相同，不继承历史PhysCache结果。LongLive代码fb16a879与Wan5B CFG/few-step两release已锁；两600tensor headers各300 A-B目标在实际base825tensor上全部key/shape/rank/alpha-r/index结构匹配。本地/Linux16CPU与tiny官方merge算术通过，尚未有完整adapter payload/真实5B融合/前向/GPU就绪。
+
+[资源审计](../research/33_L0_WAN_LONGLIVE_OMR_RESOURCE_AUDIT.md)/[base完整hash](../reports/l0_wan5b_asset_integrity_20261001.json)/[结构重放](../reports/l0_lora_header_structural_audit_20261001.json)。OMR官方release实查仍Coming soon，公开资源BLOCKED，不自动切主线。环境版本不同，后续隔离准备；下一CPU锁定两适配器共1.802GiB下载/全SHA、真实融合/任务接口验收可独立推进。GPU账本不变3.6512467238638138/4h；原8/50计时CPU准备已齐，新4GPUh仍待用户决定。
+
+## 以下为历史快照

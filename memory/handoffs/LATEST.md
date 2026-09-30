@@ -1,3 +1,11 @@
+## 最新资源进展 — 2026-10-01：L0部分核验完成，CPU真实资产/结构证据
+
+历史Wan5B11文件/34201521169字节按新锁定官方revision全hash通过，CPU207.093538秒/原PIDs退出/无GPU成本；现有独立Wan入口3文件与官方42bf4cf逐hash相同，不继承历史PhysCache结果。LongLive代码fb16a879与Wan5B CFG/few-step两release已锁；两600tensor headers各300 A-B目标在实际base825tensor上全部key/shape/rank/alpha-r/index结构匹配。本地/Linux16CPU与tiny官方merge算术通过，尚未有完整adapter payload/真实5B融合/前向/GPU就绪。
+
+[资源审计](../../research/33_L0_WAN_LONGLIVE_OMR_RESOURCE_AUDIT.md)/[base完整hash](../../reports/l0_wan5b_asset_integrity_20261001.json)/[结构重放](../../reports/l0_lora_header_structural_audit_20261001.json)。OMR官方release实查仍Coming soon，公开资源BLOCKED，不自动切主线。环境版本不同，后续隔离准备；下一CPU锁定两适配器共1.802GiB下载/全SHA、真实融合/任务接口验收可独立推进。GPU账本不变3.6512467238638138/4h；原8/50计时CPU准备已齐，新4GPUh仍待用户决定。
+
+## 以下为历史快照
+
 ## 最新准备 — 2026-10-01：完整配对计时runner实现/CPU48通过，未GPU
 
 原8×两臂×3次重复的50尝试计划（48计时+2预热）已冻结/实现，禁用计时内逐call/pipeline tensor hash/shadow/dump，保留算法与安全管线开销，artifact检查/持久化在计时外且总wall仍计账。两次预热必须post-timer逐93帧RGB核对旧各臂首场景，真实门未执行。partial/拒绝/暖场不变性/预算处理有完整CPU覆盖；本地及Linux48同范围通过，CUDA未初始化。

@@ -28,6 +28,8 @@
 
 依据：[F1 r3配对汇总](reports/f1_smoke_r3_summary.json)、[W1-P0终态结果](research/12_W1_P0_TERMINAL_RESULTS.md)、[实时恢复审计](reports/w1_p0_r1_recovery_audit.json)、[预算账本](reports/budget.json)。
 
+最新非GPU资源进展：[L0审计](research/33_L0_WAN_LONGLIVE_OMR_RESOURCE_AUDIT.md)，历史Wan5B11文件官方完整hash可复用/两600tensor header结构匹配、16CPU通过；尚缺完整adapter/真实融合与隔离环境。OMR公开release仍Coming soon，未新生成或切换主线。
+
 ## 2. 研究背景、假设与判定方式
 
 目标是在相同质量下更快，或在相同时间下质量更好。比较对象应包含合理调参的官方缓存与原生少步采样，避免只超过一个默认配置。研究成功需落在端到端质量—时间曲线上，特征误差降低只作机制证据。
@@ -272,3 +274,5 @@ runner先hash绑定完整CAL8/reference screen并重新计算screen、校验setu
 2026-10-01 输入对照终态：原8/126、repeat完全一致/blank与cyclic各14变化，全hash/raw与成本审计通过；累计3.6512467238638138/4h。现有方法仍机制only/代理无收益；下一窗口具体成本方案待决定，未新GPU。见[控制结果](research/30_W1_VQA_INPUT_CONTROLS_RESULTS.md)和[成本方案](research/31_W1_NEXT_WINDOW_COST_AND_DECISION.md)。
 
 2026-10-01 clean计时CPU准备：原8×2×3/48计时+2预热顺序冻结，runner/summarizer/14400秒监督实现，本地Linux48CPU、真实validate-only和未批准预算拒绝通过；主runtime/账本未变、新GPU未提交。见[准备卡](research/32_W1_CLEAN_TIMING_CPU_PREPARATION.md)。
+
+2026-10-01 L0资源核验：Wan5B base资产11hash通过、native3文件/官方来源和两个公开LoRA release锁定，header结构及16CPU通过；无完整LoRA payload/真实融合/GPU，OMR公开资源未发布。GPU账本未变。
