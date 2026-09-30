@@ -1,8 +1,8 @@
-# Next actions — 自动成像终态，开发VQA资源准备
+# Next actions — judge镜像续传与VQA输入准备
 
-1. [成像结果](25_W1_IMAGING_RESULTS.md)：原8分母/7完整可比对、3升4降、mean delta +0.004254295，robot拒绝保留，无一致质量改善/标准语义物理/clean speed/独立确认。暂不加W2或判方法通过。
-2. [MUSIQ终态审计](../reports/w1_imaging_r1_audit.json)/[重新计算汇总](../reports/w1_imaging_r1_summary.json)确认旧3PIDs退出/锁释放/GPU释放/source与15输入视频hash一致。累计3.612360697/4GPUh，余0.387639303h，无GPU在途。
-3. [Qwen3-VL2B资源manifest](../manifests/w1_development_judge_assets.json)/[官方文件完整性](../manifests/w1_development_judge_integrity.json)固定公共revision/10文件约3.974GiB。CPU acquisition cap1200秒到项目hfhub，匿名官方端点，不写共享cache/不GPU；3 CPU测试通过。CPU sourced0faa4b/hash部署/Linux3检查已通过，唯一outputs/w1-judge-assets-r1运行。2026-10-01 01:16:40核验supervisor2478298/timeout2478299/downloader2478300均live，completed为空/没有incomplete对象；查[启动](../reports/w1_judge_assets_r1_launch_20261001.json)/[实时快照](../reports/w1_judge_assets_r1_live_observation.json)，不据观察失败重复提交。
-4. 下载终态确认父/子退出、完整文件SHA256/Git blob与manifest匹配，offline config/processor/model兼容；CPU准备不作VLM inference或质量结果。已有42原题hash输入保留。
-5. 下阶段VQA是小模型开发评价，不是论文235B标准Joint。先冻结完整原8分母/原题/采帧/提示/解析与输入hash、估算成本，从原余量内有界提交；拒绝与parse/unknown保留，不改题或挑场景，不人评/付费/训练/扩额。
-6. 仍需语义/物理/动作完成与clean重复配对/独立确认。若完整下一GPU任务超余额，先完成有界准备并提出具体资源方案，重大预算/方向决策交用户；每次结果/代码/文档同步GitHub。
+1. GPU阶段均终态：固定重放8技术轨迹/7接受1robot拒绝，MUSIQ3升4降/mean delta+0.004254295，无整体/物理质量或clean速度正结果，暂不加W2。原GPU累计3.612360697/4h、余0.387639303h，无在途。
+2. CPU r1直连失败、r2代理下载timeout exit124均终态/PIDs退出/锁释放，r2保留750MiB，downloader旧RUNNING文件不能当live。归档[r1](../reports/w1_judge_assets_r1_audit.json)/[r2](../reports/w1_judge_assets_r2_audit.json)与原failed receipts；代理已在r2结束后停止，共享隧道/代理不改。
+3. [resume资源manifest](../manifests/w1_development_judge_assets_resume.json)与[官方hash manifest](../manifests/w1_development_judge_integrity.json)：同10文件/固定revision，匿名镜像已同revision/8MiB prefix验证并测吞吐；CPU-only cap3600秒，不扩GPU cap。commit/push/source hash/LinuxCPU后唯一outputs/w1-judge-assets-r3，复用部分cache，不改旧协议或观察失败重复提交。
+4. 续传终态后确认全PIDs退出/CPU锁/source，逐文件Git/LFS完整digest通过，再offline model/processor兼容，cleanup任务owned helpers。部分字节/CPUprocessor通过不代替权重完整性或VLM forward。
+5. [开发VQA卡](26_W1_DEVELOPMENT_VQA_PREPARATION.md)/[输入协议](../manifests/w1_development_vqa_protocol.json)：原8/42原题、同single-question提示/输入、requested2fps实际10帧，严格YES/NO/invalid bounds，robot拒绝不插补；本地7CPU和真实Linux config/processor/video输入通过，未VLM forward。实现/检查runner并成本准入后拟单batch900秒/all原8/所有原题/一次load，从原余量扣除。
+6. 小2B是开发代理，不是235B标准Joint/质量通过。仍需标准语义/物理、clean重复配对/独立确认；GPU预算不足时先形成具体方案再交用户，不引入非必要人评/付费/训练/自动扩额。代码/回执/docs每次同步GitHub。

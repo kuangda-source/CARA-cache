@@ -2,9 +2,12 @@ import json,sys,os,subprocess
 from pathlib import Path
 
 
-def test_download_is_cpu_only_single_identity_and_lock_blocks_duplicates(tmp_path):
+import pytest
+
+@pytest.mark.parametrize('endpoint,seconds',[('https://huggingface.co',1200),('https://hf-mirror.com',3600)])
+def test_download_is_cpu_only_single_identity_and_lock_blocks_duplicates(tmp_path,endpoint,seconds):
     project=tmp_path/'project';(project/'scripts').mkdir(parents=True)
-    manifest=project/'manifest.json';manifest.write_text(json.dumps({'endpoint':'https://huggingface.co','cpu_download_seconds_cap':1200}))
+    manifest=project/'manifest.json';manifest.write_text(json.dumps({'endpoint':endpoint,'cpu_download_seconds_cap':seconds,'intended_role':'Small development VQA judge, not paper Qwen3-VL235B or final Joint confirmation'}))
     script=project/'scripts/download_auxiliary.py';script.write_text("import os,json,sys\nfrom pathlib import Path\nPath(sys.argv[sys.argv.index('--receipt')+1]).write_text(json.dumps({'cuda':os.environ['CUDA_VISIBLE_DEVICES'],'token':os.environ['HF_HUB_DISABLE_IMPLICIT_TOKEN']}))\n")
     binary=tmp_path/'bin';binary.mkdir();timeout=binary/'timeout';timeout.write_text('#!/usr/bin/env python3\nimport os,sys\nos.execv(sys.argv[3],sys.argv[3:])\n');timeout.chmod(0o755)
     output=tmp_path/'out';cmd=[sys.executable,str(Path(__file__).resolve().parents[1]/'scripts/supervise_asset_download.py'),'--project',str(project),'--manifest',str(manifest),'--output',str(output),'--python',sys.executable]

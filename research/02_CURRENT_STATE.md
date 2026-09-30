@@ -1,3 +1,17 @@
+## 最新接续 — 2026-10-01：CPU r1失败/r2超时终态，准备镜像续传；VQA输入CPU通过
+
+r1直连Hub metadata失败exit1/261.483689秒；r2代理下载真实有进度，1190.036513秒后timeout exit124，786432000字节/750MiB保留。原r2 supervisor2478913/timeout2478914/downloader2478915全退出/CPU lock释放、source哈希一致、GPU账本未变；downloader状态文件仍RUNNING是超时后的旧文件，不是live。任务专用SSH代理在终态后停止，不改共享FRPC/系统代理。不是观察超时导致重复提交，也未主动取消r2。
+
+已验证匿名公共镜像同一revision metadata、8MiB HTTP206范围和既有权重prefix一致，测得5.489秒；不是完整权重验收。新r3相同10文件/官方Git-LFS哈希/cache，CPU-only cap3600秒因实测吞吐加余量；原4GPUh不扩，当前r3未启动，需先同步source/LinuxCPU/唯一launch并保留旧失败。完整下载后核验每个文件digest，再offline load/有界评分，不据部分字节冒充资源齐备。
+
+VQA原8/42题输入/提示/严格parser协议已准备，本地7项CPU检查通过，真实Linux仅AutoConfig/Processor/视频输入成功，CUDA未初始化、模型权重未加载/无VLM forward。保持原单题提示，groundtruth/方法标签不入prompt；requested2fps实际10帧0到92/完整source93帧16fps，显式metadata。原32YES/10NO，invalid保留bounds，robot3题拒绝不插补。GPU runner尚未实现；下一拟cap900秒需完整权重/hash/代码/CPU/新预算锁GPU准入后方能提交。小2B只是开发judge，不是235B标准Joint/独立确认。
+
+固定重放8技术轨迹/7接受1robot拒绝、MUSIQ3升4降保持，未有整体/物理质量或clean速度正结果；暂不加W2。累计3.612360697322422/4GPUh、余0.387639302677578h，无GPU在途。不人评/训练/付费/自动扩额；有界工程恢复继续，重大科学或GPU预算决策交用户。
+
+证据：[开发VQA卡](../research/26_W1_DEVELOPMENT_VQA_PREPARATION.md)、[r1审计](../reports/w1_judge_assets_r1_audit.json)、[r2审计](../reports/w1_judge_assets_r2_audit.json)、[输入协议](../manifests/w1_development_vqa_protocol.json)。
+
+## 以下为历史快照
+
 ## 最新运行核验 — 2026-10-01 01:16:40 北京时间：开发judge CPU资源下载在跑
 
 已部署CPU source `d0faa4b`，上传文件hash匹配、Linux3项CPU检查通过；唯一`outputs/w1-judge-assets-r1`已启动。supervisor2478298、timeout/PGID2478299、downloader2478300三PIDs本次ps核验live，CUDA为空/gpu_workload_started=false。固定官方Qwen3-VL2B revision/10文件/匿名端点/项目hfhub，cap1200秒；观察时completed为空、未看到incomplete对象，仍RUNNING，不能称模型已下载或可评分。source/launch/budget证据已归档。

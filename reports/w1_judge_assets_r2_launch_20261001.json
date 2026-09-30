@@ -1,0 +1,42 @@
+{
+  "status": "DISPATCHED_REQUIRES_LIVE_VERIFICATION",
+  "source_commit": "b5a6a493bad7de6914ec9ad0088630c0d3bea83d",
+  "source_sha256": {
+    "scripts/supervise_asset_download.py": "5e0b78620033503706f1f1c81ff2f2735335e3209018d29e93b624ae52731dce",
+    "scripts/download_auxiliary.py": "5da139b7f38cd4adf60db09771f72ec48308656aa6a3555aa48f7cb72d4913f6",
+    "scripts/verify_public_assets.py": "decb5b43bcc64470aa8b9adb50a0bc39e75440f78015ff84bc6752f2765aa058",
+    "tests/test_asset_supervisor.py": "6269b3525cc664c100332ded01bcf3f3f26eab5b1509c979ad379b8a8fd4093f",
+    "tests/test_asset_integrity.py": "cd355282c8f47d7776e0ac54f653639ca6ca4bbd961e98e87aee3cbe8294503b",
+    "manifests/w1_development_judge_assets.json": "97d364041d352918e46d6c7a03aa3595c29a639adc1c7857975e610fd8d53a07",
+    "manifests/w1_development_judge_integrity.json": "8d11b58610428a2aeb2f57eca4f49e2b0581fe930bf2bf90aa75dab8c9a01621"
+  },
+  "linux_cpu_exit": 0,
+  "linux_cpu_stdout": "...                                                                      [100%]\n3 passed in 0.28s\n",
+  "started_unix": 1790789058.111123,
+  "max_cpu_wall_seconds": 1200,
+  "gpu_workload_started": false,
+  "budget_before": {
+    "batch": "F0-F1",
+    "cap_gpu_hours": 4,
+    "used_gpu_hours": 3.612360697322422,
+    "gpu_jobs_launched": 20,
+    "status": "W1_IMAGING_REQUIRES_REVIEW",
+    "gpu_import_probes_completed": 1,
+    "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts"
+  },
+  "output": "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/outputs/w1-judge-assets-r2",
+  "transport": "Verified task-scoped SSH loopback HTTP forwarding; endpoint kept private",
+  "pid": 2478913,
+  "command": [
+    "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python",
+    "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/scripts/supervise_asset_download.py",
+    "--project",
+    "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr",
+    "--manifest",
+    "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/manifests/w1_development_judge_assets.json",
+    "--output",
+    "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/outputs/w1-judge-assets-r2",
+    "--python",
+    "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python"
+  ]
+}
