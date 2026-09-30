@@ -1,6 +1,6 @@
 # WorldCache / OMR 实验文档与跨设备接续入口
 
-更新日期：2026-09-30（北京时间）；文档版本：v1.0；实验计划版本：v1.1。
+更新日期：2026-10-01（北京时间）；文档版本：v1.0；实验计划版本：v1.1。
 
 本项目研究视频世界模型的质量—时间折中：以 Cosmos-Predict2.5 上的 WorldCache 低开销改进为当前主线，OMR 物理纠正为条件候选。本文是持续更新的实验总览，固定使用此文件名；具体参数、原始回执和完整计划通过相对链接引用，适用于任何设备上的仓库副本。
 
@@ -8,19 +8,22 @@
 
 ## 1. 当前结论与最重要的下一步
 
-**继续WorldCache主线，scalar-recent进入固定schedule闭环准备；当前有机制信号，尚无质量或加速收益。** CAL8完整终态8/8，每样本8点及17项OFF/ON技术检查全真；scalar7/8联合改善，平均velocity/postwarp误差比0.759185/0.893679，冻结screen为MECHANISM_ONLY_CAL8；misc两指标恶化保留，shrink0/8 velocity改善不入闭环。旧AV工程四点负结果保持旧范围。CAL为开发/校准，独立确认与候选闭环尚未完成。
+**继续WorldCache主线；scalar固定schedule闭环已实机启动，两道首样本技术门通过。** CAL8完整8/8，scalar7/8联合改善、等样本velocity/postwarp误差比0.759185/0.893679，冻结screen为MECHANISM_ONLY_CAL8。misc恶化保留，shrink不入闭环；尚无质量、干净加速或独立确认正结果。
 
-| 项目 | 最新已归档证据 |
+| 项目 | 最新证据（2026-10-01 00:29:13 北京时间，非终态） |
 |---|---|
-| 当前阶段 | CAL8终态scalar MECHANISM_ONLY；固定重放runner已本地CPU验收，待Linux部署/准入 |
-| 最近运行 | w1d-cal8-r1源62f1c0d，原3PIDs退出/exit0/产物重hash/锁可用/GPU释放 |
-| 首要动作 | firstAV官方fixed replay复现门、scalar OFF/ON门，再原8场景候选闭环；runner本地CPU通过待部署 |
-| 当前成本 | 已结算2.995044843/4GPUh，剩余1.004955157h，无在途；下一拟cap3000秒 |
-| 方法证据 | CAL8同状态scalar机制信号；候选闭环/质量/干净效率仍待证据 |
-| 视频评价 | 安全接受及完整性通过，标准质量/物理指标未评估；当前不要求人评 |
-| 运行状态时效 | 本表来自终态审计；下一提交仍需实时重核进程/锁/日志/预算/GPU准入 |
+| 当前阶段 | w1-replay-r1运行，official14项/scalar OFF-ON18项严格检查全真 |
+| 最近运行 | source31a797d，supervisor2471255/timeout2471260/runner2471262均live，GPU1仅观察到此runner |
+| 当前覆盖 | 首候选完成1/8、8shadow点，第二common场景scalar OFF生成 |
+| 首要动作 | 继续同一任务；全批终态后PIDs/锁/GPU/源码/产物hash与wall账本审计 |
+| 当前成本 | 已结算2.995044843/4GPUh，另有0.218519319h在途；单batch总cap3000秒，无第二任务 |
+| 方法证据 | CAL8同状态scalar机制信号；固定闭环全批/质量/干净效率仍待证据 |
+| 视频描述 | 首AV完整RGB与WC有差异，帧间变化较小；不代表质量/物理改善，无必要人评 |
+| 时效 | 本表为只读live快照；禁止据旧余额/历史handoff重复启动或改在跑代码 |
 
-最新阶段证据：[CAL8结果](research/21_W1D_CAL8_RESULTS.md)、[终态汇总](reports/w1d_cal8_r1_summary.json)、[审计](reports/w1d_cal8_r1_audit.json)、[分布/排序](reports/w1d_cal8_r1_analysis.json)、[诊断图](reports/w1d_cal8_r1_diagnostics.png)、[下一固定replay准备卡](research/22_W1_REPLAY_PREPARATION.md)。此前[局部解码复现通过](research/19_DECODER_POLICY_RESULTS.md)、[CAL来源和W1-D冻结](research/20_CAL_AND_W1D_PREPARATION.md)。
+最新实机证据：[部署/Linux63 CPU](reports/w1_replay_r1_deployment_20261001.json)、[启动](reports/w1_replay_r1_launch_20261001.json)、[进程/GPU/两门/进度](reports/w1_replay_r1_live_observation.json)、[固定replay卡](research/22_W1_REPLAY_PREPARATION.md)。启动于2026-10-01 00:16，后续文档commit不改变实机source31a797d。视频、模型和连接配置不随Git同步。
+
+此前完整证据：[CAL8结果](research/21_W1D_CAL8_RESULTS.md)、[终态汇总](reports/w1d_cal8_r1_summary.json)、[审计](reports/w1d_cal8_r1_audit.json)、[分布/排序](reports/w1d_cal8_r1_analysis.json)、[诊断图](reports/w1d_cal8_r1_diagnostics.png)、[局部解码复现](research/19_DECODER_POLICY_RESULTS.md)。
 
 历史阶段证据：[decode区间定位](research/17_DECODE_INTERVAL_RESULTS.md)、[下一轮准备卡](research/18_DECODER_POLICY_GATE.md)、[阶段汇总](reports/stage_r2_summary.json)。
 
@@ -99,11 +102,11 @@
 
 ## 7. 下一轮的执行与停止条件
 
-1. CAL8终态、完整screen/分布与成本已归档，原handles退出；旧live/partial为历史，不重启。
-2. [固定replay协议](manifests/w1_fixed_replay_protocol.json)与CPU模块及runner就绪，原24项/新19项检查有重叠；Linux/实机gates待做。firstAV官方重放严格复现旧OFF，scalar OFF/ON自身parity，再其余7候选OFF，8原场景全部保留。
-3. 下一拟单batch cap3000秒，从剩余1.004955157h扣除；forecast2224.619秒+30%=2892.004不是完成保证。新source/hash/CPU/预算锁/GPU admission重新核验，拒绝保留、未知技术错停止，不扩预算/补样本。
-4. 候选自身latent/probe/full anchors、冻结完整计算位置，只替换近似器。truth只评分，不回放旧latent；不是在线调度收益。诊断时间/相对WC视频距离不足以作质量或clean speed结论。
-5. 终态后按实际成本/覆盖和机制决定下一clean计时/标准质量/独立确认或资源缺口。当前不先加W2；完整多点F2及确认超余额时不以小子集冒充完成，不训练/付费评分/补人评。
+1. 接续w1-replay-r1原handles；首official/scalar门通过，原剩余7场景依次scalar OFF。全8原成员/参数/full位置固定；拒绝保留，未知技术错停止，不补样本或重跑。
+2. Linux63项CPU及源码hash通过、唯一任务已启动；原CAL8终态与完整机制screen已归档，旧live/partial为历史。不要部署新HEAD到正在跑的任务。
+3. 本batchcap3000秒从原4GPUh扣除，包含全部加载/诊断/失败/flush；旧ledger只结算CAL8，在途另计，无第二准入或扩额。
+4. 候选使用自身latent/probe/full anchors，truth只评分；固定位置只替换近似器。逐call hash/诊断时间不作clean speed，RGB距离/变化较小不作物理质量。
+5. 终态后验证PIDs/锁/GPU归属/源码/视频hash，归档runner/supervisor/audit和实际wall账本，再重核reference与两门生成summary。按完整覆盖/成本决定clean计时/标准质量/独立确认资源缺口；不先加W2，不引入必要性未证的人评。
 
 遇到关键协议更换、扩大预算、训练立项或方向切换时留给用户决策。一般工程修复可继续，但不得中途改变在跑任务的源码/配置。操作顺序以[下一步队列](research/09_NEXT_ACTIONS.md)为准。
 

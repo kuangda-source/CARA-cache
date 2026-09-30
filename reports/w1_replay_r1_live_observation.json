@@ -1,0 +1,128 @@
+{
+  "observed_unix": 1790785753.157369,
+  "supervisor": {
+    "pid": 2471255,
+    "gpu_uuid": "GPU-cebf7119-cf03-23b9-e192-cd196332b704",
+    "status": "RUNNING",
+    "arms": [],
+    "current_mode": "w1_replay",
+    "child_pid": 2471260,
+    "child_started_unix": 1790784966.6901238,
+    "admission": {
+      "unix": 1790784966.6898205,
+      "memory_used_mib": 24,
+      "utilization_percent": 0,
+      "pids": []
+    },
+    "command": [
+      "timeout",
+      "--kill-after=10",
+      "2990",
+      "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python",
+      "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/scripts/run_w1_replay.py",
+      "--project",
+      "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr",
+      "--gpu-uuid",
+      "GPU-cebf7119-cf03-23b9-e192-cd196332b704",
+      "--receipt",
+      "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/outputs/w1-replay-r1/w1-replay.json"
+    ]
+  },
+  "runner": {
+    "pid": 2471262,
+    "status": "GENERATING",
+    "current_sample": "common_sense_6487f37f-ef57-49ca-afdc-d898922b5191",
+    "current_mode": "scalar_off",
+    "error": null,
+    "error_type": null,
+    "process_wall_seconds": null
+  },
+  "gates": {
+    "official_reference_pass": true,
+    "candidate_parity_pass": true
+  },
+  "official_outcome": "ACCEPTED",
+  "official_reference_checks": {
+    "outcome": true,
+    "guardrail_events": true,
+    "forward_output_sha256": true,
+    "block_counts": true,
+    "trace": true,
+    "cache_end_sha256": true,
+    "sampling": true,
+    "pipeline_events": true,
+    "decoder_calls": true,
+    "video_sha256": true,
+    "decoded_rgb": true,
+    "flags_before": true,
+    "flags_after": true,
+    "flags_restored": true
+  },
+  "candidate_parity_checks": {
+    "outcome": true,
+    "guardrail_events": true,
+    "forward_output_sha256": true,
+    "block_counts": true,
+    "trace": true,
+    "cache_end_sha256": true,
+    "sampling": true,
+    "pipeline_events": true,
+    "decoder_calls": true,
+    "video_sha256": true,
+    "decoded_rgb": true,
+    "flags_before": true,
+    "flags_after": true,
+    "flags_restored": true,
+    "calibration_end": true,
+    "replay_records": true,
+    "selected_shadow_calls": true,
+    "finite_shadow": true
+  },
+  "cases": [
+    {
+      "name": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "status": "REPLAY_COMPLETED",
+      "scalar_off_outcome": "ACCEPTED",
+      "scalar_on_outcome": "ACCEPTED",
+      "shadow_points": 8,
+      "video_difference": {
+        "frames": 93,
+        "shape": [
+          432,
+          768,
+          3
+        ],
+        "rgb_mse": 975.3708397676958,
+        "rgb_mae": 18.228840238367848,
+        "rgb_max_abs_difference": 255,
+        "psnr_db": 18.239105933290798,
+        "identical_rgb": false,
+        "reference_temporal_rgb_mae": 4.391375943189189,
+        "candidate_temporal_rgb_mae": 2.2747099557829835,
+        "scope": "Complete encoded RGB fidelity and temporal variation only; distance to WC and motion change do not establish correctness or quality."
+      }
+    },
+    {
+      "name": "common_sense_6487f37f-ef57-49ca-afdc-d898922b5191",
+      "status": "SCALAR_OFF_PENDING",
+      "scalar_off_outcome": null,
+      "scalar_on_outcome": null,
+      "shadow_points": 0,
+      "video_difference": null
+    }
+  ],
+  "log_tail": "s:  89%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2589 | 32/36 [02:15<00:17,  4.42s/it]\nGenerating samples:  92%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258f| 33/36 [02:15<00:09,  3.32s/it]\nGenerating samples:  94%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258d| 34/36 [02:22<00:08,  4.45s/it]\nGenerating samples:  97%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258b| 35/36 [02:29<00:05,  5.19s/it]\nGenerating samples: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 36/36 [02:36<00:00,  5.70s/it]\nGenerating samples: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 36/36 [02:36<00:00,  4.35s/it]\n[10-01 00:28:15|INFO|cosmos_predict2/inference.py:160:_generate_sample] Running guardrail check on video...\n[10-01 00:28:26|SUCCESS|cosmos_predict2/inference.py:172:_generate_sample] Passed guardrail on generated video\n[10-01 00:28:30|SUCCESS|cosmos_predict2/inference.py:180:_generate_sample] Saved video to /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/outputs/w1-replay-r1/av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632/scalar_on/av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632.mp4\n[10-01 00:28:41|INFO|cosmos_predict2/inference.py:91:generate] Generating 1 samples: ['common_sense_6487f37f-ef57-49ca-afdc-d898922b5191']\n[10-01 00:28:41|INFO|cosmos_predict2/inference.py:95:generate] [1/1] Processing sample common_sense_6487f37f-ef57-49ca-afdc-d898922b5191\n[10-01 00:28:41|INFO|cosmos_predict2/inference.py:108:_generate_sample] Saved arguments to /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/outputs/w1-replay-r1/common_sense_6487f37f-ef57-49ca-afdc-d898922b5191/scalar_off/common_sense_6487f37f-ef57-49ca-afdc-d898922b5191.json\n[10-01 00:28:45|SUCCESS|cosmos_predict2/inference.py:120:_generate_sample] Passed guardrail on prompt\n[10-01 00:28:45|INFO|cosmos_predict2/inference.py:142:_generate_sample] Generating video with standard mode...\n\nGenerating samples:   0%|          | 0/36 [00:00<?, ?it/s]\nGenerating samples:   3%|\u258e         | 1/36 [00:06<03:55,  6.72s/it]",
+  "ps": "    PID    PPID    PGID     ELAPSED COMMAND\n2471255       1 2471255       13:07 /home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/scripts/supervise_f1.py --project /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr --runtime /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/runtime --python /home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python --gpu-uuid GPU-cebf7119-cf03-23b9-e192-cd196332b704 --output /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/outputs/w1-replay-r1 --w1-replay\n2471260 2471255 2471260       13:06 timeout --kill-after=10 2990 /home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/scripts/run_w1_replay.py --project /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr --gpu-uuid GPU-cebf7119-cf03-23b9-e192-cd196332b704 --receipt /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/outputs/w1-replay-r1/w1-replay.json\n2471262 2471260 2471260       13:06 /home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/scripts/run_w1_replay.py --project /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr --gpu-uuid GPU-cebf7119-cf03-23b9-e192-cd196332b704 --receipt /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/outputs/w1-replay-r1/w1-replay.json\n",
+  "gpu": "GPU-de9a5370-cd87-0f1c-a48e-288888777dd3, 350, 0\nGPU-cebf7119-cf03-23b9-e192-cd196332b704, 15678, 100\n",
+  "apps": "GPU-cebf7119-cf03-23b9-e192-cd196332b704, 2471262\n",
+  "budget": {
+    "batch": "F0-F1",
+    "cap_gpu_hours": 4,
+    "used_gpu_hours": 2.995044843355815,
+    "gpu_jobs_launched": 18,
+    "status": "W1D_CAL_REQUIRES_REVIEW",
+    "gpu_import_probes_completed": 1,
+    "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts"
+  },
+  "unsettled_wall_gpu_hours": 0.21851931903097366
+}
