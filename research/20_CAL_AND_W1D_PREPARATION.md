@@ -37,3 +37,19 @@
 前两个AV/common样本各8点，均ACCEPTED及PAIR_PARITY_PASS，17项技术检查全部通过，四对覆盖完整/无fallback；OFF trace分别有19/18个合格skip pair。第三个human_199 OFF正在运行。真实runner快照[原始数据](../reports/w1d_cal8_r1_live_runner_snapshot.json)，[部分汇总](../reports/w1d_cal8_r1_live_partial_summary.json)明确LIVE_PARTIAL_NO_DECISION。前两样本等权velocity MSE比scalar0.666140、shrink1.132306，postwarp比0.820278/1.057422；这些是部分CAL的局部数值，不能据此推断8场景screen、候选闭环、质量或速度收益，也不能改变正在跑的公式/样本/点选择。
 
 启动前已结算1.9977743149465987/4GPUh；观察时在途另计0.32540379007657366GPUh，未结算。终态后按监督器wall统一入账；此快照不表示资源保留或已完成批次。
+
+## 23:09进展与终态分析工具
+
+同一源62f1c0d任务继续，前5/8样本各8点、17项技术checks全部通过，第6个physics_045 OFF生成；[更新的实时快照](../reports/w1d_cal8_r1_live_observation.json)。启动前1.997774315h已结算，观察时在途另计0.668417069h。上节原始/汇总文件仍是22:48前2样本的历史部分快照，不能当作最新或终态。没有调公式/点/样本/screen规则，也没有第二GPU任务。
+
+本地新增receipt-only descriptive分布分析和Matplotlib图；[11项CPU检查](../reports/w1d_analysis_cpu_20260930.json)覆盖局部误差与整体结论分开、排序反转、分区重叠/计数错误、部分数据/零官方误差不产生信号。每轴分区必须完整覆盖、无交叠，元素数和bounds吻合，各组加权MSE/reference energy重建整体值，候选和跨样本组坐标一致才汇总。先按样本内各点SSE累加，再等样本权重平均ratio；组和CFG点不作独立统计样本。坐标为latent time/space及velocity latent channels，残差channel为hidden features；不可当输出视频帧/物理分数。图只呈现现有数值，冻结screen不变，partial永久NO_DECISION。私有4-pair预览已视觉检查，未作全批判断；新代码不部署到正在跑的任务。
+
+仅在完整终态runner/supervisor及成本/产物/源码/进程审计归档后执行：
+
+```sh
+PYTHONPATH=src .venv/bin/python scripts/summarize_w1d_cal.py --receipt reports/w1d_cal8_r1_runner.json --output reports/w1d_cal8_r1_summary.json
+PYTHONPATH=src .venv/bin/python scripts/analyze_w1d_cal.py --receipt reports/w1d_cal8_r1_runner.json --output reports/w1d_cal8_r1_analysis.json
+.venv/bin/python scripts/plot_w1d_cal.py --analysis reports/w1d_cal8_r1_analysis.json --output reports/w1d_cal8_r1_diagnostics.png
+```
+
+可选本地plot依赖：`pip install -e '.[analysis]'`。若失败/部分终态，完整screen不得强行运行；analysis和screen均显式`--partial`，保留实际覆盖/原失败与NO_DECISION，不补样本。未知/超时终态先核验监督器退出和原PIDs，不把旧GENERATING runner snapshot误认为仍在跑，也不因一次观察失败而重启。

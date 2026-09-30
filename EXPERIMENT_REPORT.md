@@ -8,17 +8,17 @@
 
 ## 1. 当前结论与最重要的下一步
 
-**继续已启动的CAL前8 W1-D数值诊断，等全批固定筛查后决定下一步。** 22:48北京时间已完成2/8，各8点通过全部OFF/ON技术一致性检查，第三个human_199运行；部分局部scalar误差下降，未形成全批机制结论，也尚无新方法/质量正结果。F1三组成对样本技术耗时比1.476–1.602×；W1默认及最近pair修订仅在旧四工程点均NO_GAIN_IN_SCOPE。跨进程decode差异的局部复现门已通过，根因尚非独立证明。CAL24及首批8按来源/词法分组冻结。
+**继续已启动的CAL前8 W1-D数值诊断，等全批固定筛查后决定下一步。** 23:09北京时间已完成5/8，各8点通过全部OFF/ON技术一致性检查，第六个physics_045运行；部分局部scalar误差下降，未形成全批机制结论，也尚无新方法/质量正结果。F1三组成对样本技术耗时比1.476–1.602×；W1默认及最近pair修订仅在旧四工程点均NO_GAIN_IN_SCOPE。跨进程decode差异的局部复现门已通过，根因尚非独立证明。CAL24及首批8按来源/词法分组冻结。
 
 | 项目 | 最新已归档证据 |
 |---|---|
-| 当前阶段 | CAL前8 W1-D运行，2/8完成；LIVE_PARTIAL_NO_DECISION |
+| 当前阶段 | CAL前8 W1-D运行，5/8完成；LIVE_PARTIAL_NO_DECISION |
 | 最近运行 | w1d-cal8-r1源62f1c0d；supervisor2461004/timeout2461009/runner2461011；GPU1真实在跑 |
 | 首要动作 | 接续原任务，终态后归档/审计/按固定规则筛查；无需人评 |
-| 当前成本 | 启动前已结算1.997774315/4GPUh；22:48在途另计0.325404GPUh；batch硬上限6000秒 |
+| 当前成本 | 启动前已结算1.997774315/4GPUh；23:09在途另计0.668417GPUh；batch硬上限6000秒 |
 | 方法证据 | CPU/合成测试与资源就绪，不等于生成质量或真实加速收益 |
 | 视频评价 | 已有格式检查；完整视频质量审查尚未完成 |
-| 运行状态时效 | 本表包含22:48非终态快照；接续必须查原进程/锁/日志/预算，不重复提交、不将旧账本余额用于新准入 |
+| 运行状态时效 | 本表包含23:09非终态快照；接续必须查原进程/锁/日志/预算，不重复提交、不将旧账本余额用于新准入 |
 
 最新阶段证据：[CAL与W1-D运行](research/20_CAL_AND_W1D_PREPARATION.md)、[部署](reports/w1d_cal8_r1_deployment_20260930.json)、[启动](reports/w1d_cal8_r1_launch_20260930.json)、[实时快照](reports/w1d_cal8_r1_live_observation.json)、[部分汇总](reports/w1d_cal8_r1_live_partial_summary.json)。此前[局部解码复现通过](research/19_DECODER_POLICY_RESULTS.md)。
 
@@ -236,3 +236,13 @@ W1-S1 r2收尾：8项真实诊断一致性验收通过；四点velocity sum-MSE�
 证据：[部署](reports/w1d_cal8_r1_deployment_20260930.json)、[启动](reports/w1d_cal8_r1_launch_20260930.json)、[进程/GPU/日志](reports/w1d_cal8_r1_live_observation.json)、[真实runner部分快照](reports/w1d_cal8_r1_live_runner_snapshot.json)、[部分汇总](reports/w1d_cal8_r1_live_partial_summary.json)、[协议/进展](research/20_CAL_AND_W1D_PREPARATION.md)。部分scalar等样本velocity/postwarp误差比0.666140/0.820278；shrink1.132306/1.057422，无fallback。LIVE_PARTIAL_NO_DECISION：不据前两样本调公式、判全批成败或进入候选闭环，无质量/干净加速/独立确认结论。旧四工程点NO_GAIN_IN_SCOPE仍是旧范围，不向CAL扩张。
 
 下一步：只读查原handles直至终态；原PIDs退出与锁释放、GPU监控归属/源码/视频哈希核验后归档runner/supervisor/audit及实际wall账本。完整8PAIR_PARITY_PASS才按固定screen汇总；部分/失败保留，不能补样本或重启凑全。随后按机制证据与实际余额自主推进；预算扩张/训练/重大方向决策再交用户。当前无需人评/训练/付费评分。Git只同步代码/小回执/文档；后续本地文档commit不改变此源62f1c0d运行身份。
+
+## 最新接续 — 2026-09-30 23:09：5/8技术通过，分布分析就绪
+
+原w1d-cal8-r1任务持续运行；supervisor2461004/timeout2461009/runner2461011均live，source62f1c0d保持。前5个样本各8诊断点、17项OFF/ON检查全真；第6个physics_045 OFF生成。当前[实时进程/GPU快照](reports/w1d_cal8_r1_live_observation.json)更新；22:48的runner/partial summary文件仍只归档前2样本，不是最新/终态。启动前结算1.997774315h，23:09在途0.668417069h额外，batch6000秒/原总4h cap不变，无第二任务。
+
+已完成只读分布分析src/wcomr/w1d_analysis.py与CLI scripts/analyze_w1d_cal.py，严格校验每个分区非空/不重叠/完整覆盖、候选坐标匹配、group MSE与reference energy能重建整体值；按样本等权汇总，零官方误差比留空。scripts/plot_w1d_cal.py输出同状态散点/排序反转计数/velocity时间空间通道图，显示dependent/latent坐标范围，不把组当独立样本。11项针对性CPU检查通过，真实部分回执CLI与私有部分图检查通过；[CPU回执](reports/w1d_analysis_cpu_20260930.json)。仅本地代码，未部署到正在跑的job，无新科学结论或额外GPU成本。
+
+终态归档/审计后执行原screen与新descriptive analysis；plot依赖可用pip install -e '.[analysis]'安装到本地环境。所有partial显式NO_DECISION。接续原PIDs，不重启/改公式/增加样本。没有重要问题时按协议自行收尾和评估下一有界任务。
+
+## 以下为历史快照

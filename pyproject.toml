@@ -8,6 +8,9 @@ version = "0.1.0"
 requires-python = ">=3.9"
 dependencies = ["torch>=2.4", "numpy>=1.26", "einops>=0.8"]
 
+[project.optional-dependencies]
+analysis = ["matplotlib>=3.8,<4"]
+
 [tool.setuptools.packages.find]
 where = ["src"]
 
