@@ -200,3 +200,5 @@ python3 scripts/summarize_f1.py --native reports/f1_smoke_r3_native.json --world
 2026-09-30 W1-P0准备：同一AV工程样本、同seed在官方WC路径关闭/开启shadow各运行一次；在调用15/16、37/38诊断两分支。比较所有72次输出哈希、完整/跳过trace、缓存终态及视频哈希，要求精确相等。单任务900秒上限（0.25GPUh）从剩余预算扣除，先不测试候选效果。49项CPU测试通过，真实模型验收待运行。[冻结验收配置](manifests/w1_parity_protocol.json)。诊断计时含逐步哈希与额外补算，不作为部署速度。
 
 2026-09-30 W1-P0 r1已启动：源d98f447，归档哈希一致；49项本地测试、13项Linux CPU/模拟GPU测试通过。监督进程2439296/子进程2439301经新准入后确认存活，单任务900秒上限。启动前已结算1.092568GPUh，在途另计。[启动回执](reports/w1_p0_r1_launch_20260930.json)。真实一致性结果未出，F1完整视频质量审查仍待完成。
+
+2026-09-30 完整视频审查页已生成：本地 `reports/private/r3/review.html`，可从头播放、并列比较、查看原始prompt并导出观察JSON；七个视频已浏览器加载，首组播放到结尾，质量字段仍为空。[页面检查](reports/f1_review_ui_check.json)。这是非盲工程审查入口，不是已完成的质量评价。其他设备取回并按回执校验七个视频后，运行 `python3 scripts/build_f1_review.py` 重新生成页面；视频和HTML留在忽略目录，不上传GitHub。
