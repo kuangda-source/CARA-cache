@@ -1,0 +1,45 @@
+{
+  "source_commit": "57c8660",
+  "archive_sha256": "6d17dcd71ed15a5fd5bb4771f68e03bc57860c3fb4dbfc209fea2bf50133a972",
+  "pid": 2431971,
+  "started_unix": 1790761030.3396094,
+  "output": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/f1-smoke-r3",
+  "budget_before": {
+    "batch": "F0-F1",
+    "cap_gpu_hours": 4,
+    "used_gpu_hours": 0.4732977178361681,
+    "gpu_jobs_launched": 5,
+    "status": "F1_EXECUTION_REQUIRES_RESULT_REVIEW",
+    "gpu_import_probes_completed": 1,
+    "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts"
+  },
+  "command": [
+    "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python",
+    "/home/gaokuangda/data/gkd/worldcache_omr/scripts/supervise_f1.py",
+    "--project",
+    "/home/gaokuangda/data/gkd/worldcache_omr",
+    "--runtime",
+    "/home/gaokuangda/data/gkd/worldcache_omr/runtime",
+    "--python",
+    "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python",
+    "--gpu-uuid",
+    "GPU-cebf7119-cf03-23b9-e192-cd196332b704",
+    "--output",
+    "/home/gaokuangda/data/gkd/worldcache_omr/outputs/f1-smoke-r3"
+  ],
+  "local_tests": {
+    "passed": 32,
+    "seconds": 1.31
+  },
+  "linux_tests": {
+    "passed": 11,
+    "seconds": 4.53,
+    "scope": "CPU/fake GPU: guardrail observation, measurements, protocol, supervisor"
+  },
+  "live_verified": {
+    "supervisor_pid": 2431971,
+    "initial_child_pid": 2431976,
+    "admission_used_mib": 24,
+    "admission_compute_pids": []
+  }
+}

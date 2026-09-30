@@ -101,3 +101,7 @@ User selected current-code comparison. Frozen runtime protocol records exact36-p
 This supersedes the live snapshot above. Remote supervisor2427723 exited FAILED; Native timeout child2427728 exited1 after1042.542395s. Two Native sample receipts exist; physics_001 was blocked by output video safety. WC did not start. Local copies: reports/f1_smoke_r2_supervisor.json and reports/f1_smoke_r2_native.json. Charged total0.4732977178361681/4GPUh. No complete paired result or visual-quality claim.
 
 The latest discussion and QuantWM attachment are integrated into both maintained plans: W1-D downstream diagnostics, bounded L0/L1 Wan5B baseline, conditional J6/X3/J5-P. Source manifest records paper/README checks, attachment hash and pending adapter validation. Current F1 protocol is unchanged. The plan edit launches no GPU job. Next actions prioritize failure review and completion of the existing comparison before new experiments.
+
+## F1 r3 launched after outcome recording fix — 2026-09-30
+
+R2 PIDs verified absent. Official keep_going=True permits rejection recording without saving rejected outputs; new observation wrapper preserves filter return values and rejects unexplained missing outputs. 32 local tests and11 Linux CPU/fake-GPU tests passed. Source57c8660 archive matched. Supervisor2431971/Native child2431976 verified live on freshly admitted GPU1. outputs/f1-smoke-r3; before-run budget0.4732977178361681/4GPUh. No paired result yet. Do not change running code or restart from stale status.
