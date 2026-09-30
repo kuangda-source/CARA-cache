@@ -47,6 +47,8 @@ class BlockCounts:
                         blocks[-1].register_forward_pre_hook(self._last)]
 
     def _first(self, module, args):
+        if getattr(self.cache_model, "_w1_shadow_active", False):
+            return
         self.first += 1
         if self.cache_model is not None:
             self.trace.append({'call': self.first,
@@ -54,6 +56,8 @@ class BlockCounts:
                               'deep_executed': False})
 
     def _last(self, module, args):
+        if getattr(self.cache_model, "_w1_shadow_active", False):
+            return
         self.last += 1
         if self.cache_model is not None:
             self.trace[-1]['deep_executed'] = True
