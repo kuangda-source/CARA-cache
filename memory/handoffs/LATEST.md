@@ -1,3 +1,11 @@
+## 最新两臂/环境门 — whole posthash与fresh审计待
+
+真实CPU两臂均已825/3分片内部验收；完整posthash/终态与独立fresh artifact审计仍待。新独立env已创建，实际offline缓存解析缺Torch2.4.1+cu121，未装包。独立CPU终态审计程序已准备/语法检查，待原3PIDs退出/锁释放后唯一timeout900秒执行，不重跑融合/改stage/新GPU。
+
+[实际fusion观察](../../reports/l0_cpu_fusion_r1_live_observation.json)/[下一门](../../research/40_L0_CPU_FUSION_AUDIT_AND_ENV_CACHE.md)。metadata-r1/r2 helpers不可重跑（job/emptyenv已存在），不是full environment PASS；若后续network/安装需新owned forward身份、唯一bounded job/source receipts。原fusion sourcec69e492仍固定，同handles观察。
+
+## 以下为历史快照
+
 ## 最新实际进度 — CFG-only整臂825/3完成，两臂任务仍live
 
 fusion-r1/sourcec69e492同3PIDs实际live，CFG-only一臂已全部825张量/3分片完成融合、独立公式、有限性、未目标字节不变与序列化重读验收；完整两臂及末尾原输入hash尚未完成。CPU锁持有/source一致/账本未变，维持3600秒cap，不重复启动。

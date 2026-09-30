@@ -1,12 +1,12 @@
 {
-  "observed_unix": 1790808152.7340872,
+  "observed_unix": 1790808914.785595,
   "source_commit": "c69e492be17c4c9ae005354c051a3a5400569fbf",
   "source_hashes_match": true,
   "budget_unchanged": true,
   "gpu_workload_started": false,
   "supervisor": {
     "pid": 2502473,
-    "status": "RUNNING",
+    "status": "CPU_FUSION_EXIT0_REQUIRES_FULL_ARTIFACT_AUDIT",
     "started_unix": 1790806793.365582,
     "cpu_max_wall_seconds": 3600,
     "gpu_workload_started": false,
@@ -48,25 +48,31 @@
       "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/.sync/l0-assets-range-cpu-r1-20261001/public/merge_lora.py",
       "--output",
       "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/l0-fused-models-r1"
-    ]
+    ],
+    "exit_code": 0,
+    "ended_unix": 1790808753.782867,
+    "wall_seconds": 1960.4170146561228,
+    "child_ru_maxrss_kib": 32326196,
+    "source_hashes_match_after": true,
+    "budget_after": {
+      "batch": "F0-F1",
+      "cap_gpu_hours": 4,
+      "used_gpu_hours": 3.6512467238638138,
+      "gpu_jobs_launched": 22,
+      "status": "W1_VQA_CONTROLS_REQUIRES_REVIEW",
+      "gpu_import_probes_completed": 1,
+      "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts"
+    },
+    "budget_unchanged": true
   },
   "processes": {
-    "2502473": {
-      "cmdline": "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python /home/gaokuangda/data/gkd/worldcache_omr/.sync/l0-assets-range-cpu-r1-20261001/scripts/supervise_l0_cpu_fusion.py --project /home/gaokuangda/data/gkd/worldcache_omr --code-root /home/gaokuangda/data/gkd/worldcache_omr/.sync/l0-assets-range-cpu-r1-20261001 --deployment /home/gaokuangda/data/gkd/worldcache_omr/.sync/l0-assets-range-cpu-r1-20261001/deployment-real-fusion-r1.json --base /home/gaokuangda/data/gkd/Wan/checkpoints/Wan2.2-TI2V-5B-modelscope-master-20260901 --cache /home/gaokuangda/data/gkd/worldcache_omr/hfhub --job-output /home/gaokuangda/data/gkd/worldcache_omr/outputs/l0-cpu-fusion-r1 --model-output /home/gaokuangda/data/gkd/worldcache_omr/l0-fused-models-r1 --python /home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python ",
-      "cuda_visible_devices_empty": true
-    },
-    "2502474": {
-      "cmdline": "timeout --kill-after=10 3590 /home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/.sync/l0-assets-range-cpu-r1-20261001/scripts/run_l0_cpu_fusion.py --protocol /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/.sync/l0-assets-range-cpu-r1-20261001/manifests/l0_cpu_fusion_protocol_20261001.json --base /home/gaokuangda/data/gkd/Wan/checkpoints/Wan2.2-TI2V-5B-modelscope-master-20260901 --cache /home/gaokuangda/data/gkd/worldcache_omr/hfhub --upstream /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/.sync/l0-assets-range-cpu-r1-20261001/public/merge_lora.py --output /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/l0-fused-models-r1 ",
-      "cuda_visible_devices_empty": true
-    },
-    "2502475": {
-      "cmdline": "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/.sync/l0-assets-range-cpu-r1-20261001/scripts/run_l0_cpu_fusion.py --protocol /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/.sync/l0-assets-range-cpu-r1-20261001/manifests/l0_cpu_fusion_protocol_20261001.json --base /home/gaokuangda/data/gkd/Wan/checkpoints/Wan2.2-TI2V-5B-modelscope-master-20260901 --cache /home/gaokuangda/data/gkd/worldcache_omr/hfhub --upstream /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/.sync/l0-assets-range-cpu-r1-20261001/public/merge_lora.py --output /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/l0-fused-models-r1 ",
-      "cuda_visible_devices_empty": true
-    }
+    "2502473": null,
+    "2502474": null,
+    "2502475": null
   },
-  "cpu_lock_held": true,
+  "cpu_lock_held": false,
   "model_output_exists": true,
-  "fusion_status": "RUNNING",
+  "fusion_status": "CPU_FUSION_COMPLETE_NOT_MODEL_LOAD_TASK_OR_GPU_READY",
   "arms": [
     {
       "name": "cfg_only",
@@ -74,8 +80,15 @@
       "target_count": 300,
       "tensors_recorded": 825,
       "shards_recorded": 3
+    },
+    {
+      "name": "few_step_cfg",
+      "status": "FULL_CPU_FUSION_SERIALIZATION_AND_UNTARGETED_INVARIANCE_PASS",
+      "target_count": 300,
+      "tensors_recorded": 825,
+      "shards_recorded": 3
     }
   ],
-  "free_disk_bytes": 690502901760,
-  "log_tail": ""
+  "free_disk_bytes": 680328130560,
+  "log_tail": "{\"status\": \"CPU_FUSION_COMPLETE_NOT_MODEL_LOAD_TASK_OR_GPU_READY\", \"arms\": [\"cfg_only\", \"few_step_cfg\"]}\n"
 }
