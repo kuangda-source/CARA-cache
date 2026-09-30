@@ -165,3 +165,18 @@ def test_w1d_cal_is_single_serial_batch_charged_under_existing_cap(tmp_path):
     budget=json.loads((project/'reports/budget.json').read_text())
     assert budget['gpu_jobs_launched']==1
     assert abs(budget['used_gpu_hours']-state['arms'][0]['wall_seconds']/3600)<1e-9
+
+
+def test_fixed_replay_has_one3000s_job_and_is_exclusive_with_cal(tmp_path):
+    project,output,cmd,env=fixture(tmp_path,delay=.02,cap=1)
+    invalid=subprocess.run(cmd+['--w1-replay','--w1d-cal'],env=env,capture_output=True,timeout=10)
+    assert invalid.returncode!=0 and not output.exists()
+    subprocess.run(cmd+['--w1-replay'],env=env,check=True,capture_output=True,timeout=10)
+    state=json.loads((output/'supervisor.json').read_text());budget=json.loads((project/'reports/budget.json').read_text())
+    assert state['status']=='W1_REPLAY_EXITED_REQUIRES_REVIEW'
+    assert [a['mode'] for a in state['arms']]==['w1_replay']
+    assert str(project/'scripts/run_w1_replay.py') in state['command']
+    assert str(output/'w1-replay.json') in state['command']
+    assert int(state['command'][2])<=2990
+    assert budget['gpu_jobs_launched']==1
+    assert abs(budget['used_gpu_hours']-state['arms'][0]['wall_seconds']/3600)<1e-9

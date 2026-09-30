@@ -1,6 +1,6 @@
 # W1固定跳步闭环准备：scalar-recent，原预算内
 
-2026-09-30；状态FROZEN_CPU_MODULE_READY_RUNNER_NOT_IMPLEMENTED_NOT_GPU_RUN。进入依据为完整CAL8的MECHANISM_ONLY_CAL8、7/8联合改善；旧4工程点的负结果不改写。
+2026-09-30；状态RUNNER_LOCAL_CPU_CHECKED_NOT_DEPLOYED_NOT_GPU_RUN。进入依据为完整CAL8的MECHANISM_ONLY_CAL8、7/8联合改善；旧4工程点的负结果不改写。
 
 ## 唯一问题与冻结范围
 
@@ -27,3 +27,8 @@
 从实测8OFF1592.147秒、firstOFF208.135秒、首点诊断29.090秒及此前batch其余187.111秒，预估10次generation合计2224.619秒；30%余量2892.004秒，冻结cap **3000秒/0.833333h**。剩余1.004955157h足够容纳cap，最坏余0.171621823h。校准额外reduce/clone与新比较成本未测，估计不保证全批完成；超时/技术失败按实际覆盖和账本收尾，不自动重跑或扩预算。
 
 完整通过只证明固定schedule候选可运行及自身诊断无扰动；图像/视频相对WC差异是保真描述，不是物理正确性或质量增益。带逐call hashing/诊断的时间不能当干净部署性能；标准质量、clean重复计时、多阈值曲线和未调参确认仍待后续阶段。没有明确局部缺口时不加W2，不引入当前无必要的人评。
+
+
+## 2026-10-01实现更新
+
+完整runner/监督模式/receipt gates/CPU视频描述与summary CLI已实现，19项本地针对性检查通过，[回执](../reports/w1_replay_local_cpu_20261001.json)。上文原“待实现”段保留设计时依据；现在待Linux源码/CPU部署和fresh准入。协议的初始状态标签为历史，没有改变frozen参数/样本/位置/reference哈希。CLI完整终态时必须读取hash绑定的原CAL8回执并重新校验首official gate，不能只信gates booleans；partial标记PARTIAL_REPLAY_NO_QUALITY_DECISION。初始CPU模块24检查与新19范围有重叠，不累加。

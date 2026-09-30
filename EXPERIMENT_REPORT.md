@@ -12,9 +12,9 @@
 
 | 项目 | 最新已归档证据 |
 |---|---|
-| 当前阶段 | CAL8终态scalar MECHANISM_ONLY；固定重放CPU模块/协议准备完成，runner待实现 |
+| 当前阶段 | CAL8终态scalar MECHANISM_ONLY；固定重放runner已本地CPU验收，待Linux部署/准入 |
 | 最近运行 | w1d-cal8-r1源62f1c0d，原3PIDs退出/exit0/产物重hash/锁可用/GPU释放 |
-| 首要动作 | firstAV官方fixed replay复现门、scalar OFF/ON门，再原8场景候选闭环；runner未实现 |
+| 首要动作 | firstAV官方fixed replay复现门、scalar OFF/ON门，再原8场景候选闭环；runner本地CPU通过待部署 |
 | 当前成本 | 已结算2.995044843/4GPUh，剩余1.004955157h，无在途；下一拟cap3000秒 |
 | 方法证据 | CAL8同状态scalar机制信号；候选闭环/质量/干净效率仍待证据 |
 | 视频评价 | 安全接受及完整性通过，标准质量/物理指标未评估；当前不要求人评 |
@@ -100,7 +100,7 @@
 ## 7. 下一轮的执行与停止条件
 
 1. CAL8终态、完整screen/分布与成本已归档，原handles退出；旧live/partial为历史，不重启。
-2. [固定replay协议](manifests/w1_fixed_replay_protocol.json)与CPU模块就绪，24项针对性检查通过；runner/监督模式及Linux/实机gates待做。firstAV官方重放严格复现旧OFF，scalar OFF/ON自身parity，再其余7候选OFF，8原场景全部保留。
+2. [固定replay协议](manifests/w1_fixed_replay_protocol.json)与CPU模块及runner就绪，原24项/新19项检查有重叠；Linux/实机gates待做。firstAV官方重放严格复现旧OFF，scalar OFF/ON自身parity，再其余7候选OFF，8原场景全部保留。
 3. 下一拟单batch cap3000秒，从剩余1.004955157h扣除；forecast2224.619秒+30%=2892.004不是完成保证。新source/hash/CPU/预算锁/GPU admission重新核验，拒绝保留、未知技术错停止，不扩预算/补样本。
 4. 候选自身latent/probe/full anchors、冻结完整计算位置，只替换近似器。truth只评分，不回放旧latent；不是在线调度收益。诊断时间/相对WC视频距离不足以作质量或clean speed结论。
 5. 终态后按实际成本/覆盖和机制决定下一clean计时/标准质量/独立确认或资源缺口。当前不先加W2；完整多点F2及确认超余额时不以小子集冒充完成，不训练/付费评分/补人评。
@@ -256,5 +256,15 @@ w1d-cal8-r1（部署源62f1c0d）完整终态：8/8场景、每样本8点/17项O
 本批监督3590.173902秒/0.997270528h，累计2.995044843355815/4h，余1.004955156644185h，无在途成本。下一固定schedule scalar-recent闭环最多3000秒/0.833333h，仍原budget内。CPU模块fixed_replay.py及24项针对性检查通过，协议已冻结完整8原trace/hash/参数；[准备卡](research/22_W1_REPLAY_PREPARATION.md)、[manifest](manifests/w1_fixed_replay_protocol.json)、[CPU回执](reports/w1_fixed_replay_cpu_20260930.json)。runner/监督模式尚未实现、未Linux部署、未CUDA/生成测试，不能称候选已经跑过。
 
 下一步自主实现有监督runner：firstAV新official fixed replay对旧OFF严格复现，再scalar OFF/ON自身parity，通过后原其余7scalar OFF；共10generation，firstcandidateOFF计入8成员。自己当前latent/probe/full anchors，shadow truth只评分，不回放旧latent。不择优/替换misc；拒绝保留，技术异常停止。预算forecast2224.619秒+30%=2892.004秒，cap3000；提交前重新核验旧handles/锁/余额/GPU/source/hash/LinuxCPU。尚无第二任务/额外预算/训练/付费评分/人评。代码与docs推送后的新HEAD不改变旧source62运行身份。
+
+## 以下为历史快照
+
+## 最新接续 — 2026-10-01：fixed replay runner本地实现/CPU通过，待部署
+
+原CAL8终态、scalar MECHANISM_ONLY和预算2.995044843/4h保持。已实现scripts/run_w1_replay.py、supervise_f1.py --w1-replay（单batch cap3000秒），以及replay_results/video_difference/summary CLI。19项本地针对性CPU检查通过；[回执](reports/w1_replay_local_cpu_20261001.json)。与旧CPU模块24项范围有重叠，不叠加计数。原manifest固定参数/样本/trace/reference hash未改；metadata初始NOT_IMPLEMENTED标签是冻结时历史，当前以此快照和后续运行回执为准。
+
+runner先hash绑定完整CAL8/reference screen并重新计算screen、校验setup/input/runtime/scheduler/VAE；首AV official replay严格复现旧OFF，scalar OFF/ON output/cache/decoder/video及额外calibrator结束状态和controller记录一致，ON真值只评分。余7仅scalar OFF；每sample用自身状态，有限模型输出/固定独立blockcounts/实际controller past anchors/peak memory记录，完整93RGB对旧WC距离与temporal variation描述（非质量）。拒绝/异常保留；SIGTERM尽可能写TECH_BLOCKED，所有真实墙钟计费。无新GPU运行。
+
+下一步：commit/hash部署并Linux CPU gates；重新核验旧PIDs/锁/预算、全部reference视频hash、GPU1 UUID/VRAM/apps，只启动新唯一outputs/w1-replay-r1一次。前门失败立即停止，不能据观察超时重复提交或改在跑代码。上限3000从余1.004955157h扣除，无扩额/训练/付费/人评。部署与launch receipt/PIDs/logs、总体docs和预算需同步GitHub。
 
 ## 以下为历史快照

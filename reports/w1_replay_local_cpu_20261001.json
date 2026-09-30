@@ -1,0 +1,18 @@
+{
+  "status": "REPLAY_RUNNER_LOCAL_CPU_CHECKED_NOT_DEPLOYED_NOT_GPU_RUN",
+  "observed_unix": 1790784647.60218,
+  "tests_passed": 19,
+  "command": ".venv/bin/python -m pytest -q tests/test_fixed_replay.py tests/test_replay_results.py tests/test_supervisor.py",
+  "result": "19 passed in4.94s",
+  "source_sha256": {
+    "scripts/run_w1_replay.py": "78c21cee949fbaec58595e62faff2a00ad0c7a6a003b68ccf89db92ecb1a9d84",
+    "scripts/supervise_f1.py": "7409f7cef9e663553704921600ed28392131b64cc90c62164cbb06e75af0beb3",
+    "src/wcomr/replay_results.py": "a1afb8603dfd1cbb9aab42ed53a683f827eeacafd8b404ba9443c0276f9ca928",
+    "src/wcomr/video_difference.py": "94c4f686639c7e3fcd14137afbd8ef931fa08b52dd4523541dbe9ac9d5400408",
+    "src/wcomr/fixed_replay.py": "99886e805dbee5416c40e2d609faa6cfcca418291a58f87e41075806fa62340e",
+    "tests/test_replay_results.py": "d984960174bf8f2bce606769bcace6eb202734b2dfe671f6ebe1931ccde72709",
+    "tests/test_supervisor.py": "11317c0624305f5697dbd3bd0101426322359f8994a3af5ecc18b477a138210e"
+  },
+  "checks": "Fixed schedule/own-trajectory shadow invariance, fail-closed gate/cache/rawdecode/current-anchor/count changes, original-reference revalidation, partial no quality decision, exact complete RGB/PTS and temporal variation descriptors, one3000s supervised job/exclusive mode/actual wall accounting.",
+  "limitation": "No generation or CUDA acceptance. Linux CPU tests/source deployment/fresh GPU admission and first official+candidate parity gates still required."
+}
