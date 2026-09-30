@@ -174,3 +174,5 @@ Git 同步的是代码、计划、文档与小回执，不是远端正在运行�
 ```sh
 python3 scripts/summarize_f1.py --native reports/f1_smoke_r3_native.json --worldcache reports/f1_smoke_r3_worldcache.json --supervisor reports/f1_smoke_r3_supervisor.json --output reports/f1_smoke_r3_summary.json
 ```
+
+2026-09-30 r3 首个 Native AV 视频已完成：单样本端到端314.463s、去噪256.631s，72次完整前向、0次深层跳过。本地视频SHA256与回执一致，93帧完整解码通过，768×432，时间戳0–5.75s严格递增。[完整性回执](reports/f1_smoke_r3_first_native_decode.json)。任务已进入common场景；尚无WorldCache配对或质量审查结论。
