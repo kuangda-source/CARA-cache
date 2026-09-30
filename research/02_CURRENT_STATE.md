@@ -387,3 +387,13 @@ w1-vqa-controls-r1/source72c9e24 exit0，supervisor2488580/timeout2488585/runner
 [资源审计](../research/33_L0_WAN_LONGLIVE_OMR_RESOURCE_AUDIT.md)/[base完整hash](../reports/l0_wan5b_asset_integrity_20261001.json)/[结构重放](../reports/l0_lora_header_structural_audit_20261001.json)。OMR官方release实查仍Coming soon，公开资源BLOCKED，不自动切主线。环境版本不同，后续隔离准备；下一CPU锁定两适配器共1.802GiB下载/全SHA、真实融合/任务接口验收可独立推进。GPU账本不变3.6512467238638138/4h；原8/50计时CPU准备已齐，新4GPUh仍待用户决定。
 
 ## 以下为历史快照
+
+## 最新CPU资源获取 — 2026-10-01：L0两适配器r1实际live，非GPU
+
+资源核验/协议/source68afc3e同步后，唯一outputs/l0-adapter-assets-r1已启动。匿名官方HF、固定两release、独立project cache、cap3600 CPU-only；supervisor2493078/timeout2493079/downloader2493080本次proc核实live、CPU获取锁持有、CUDA空/source与协议hash一致。CFG partial73400320字节（70MiB），3小JSON已到位；few-step尚未开始，未完整payload/SHA/真实5B融合或前向。
+
+接续[launch](../reports/l0_adapter_assets_r1_launch_20261001.json)/[live观察](../reports/l0_adapter_assets_r1_live_observation.json)，使用同3 handles至终态，不因观察超时重启，不改在跑3份CPU获取/验证source或manifest。当前专用临时loopback转发是本任务拥有的SSH进程，本机身份记录在ignored .sync/l0-owned-forward.json，直到CPU终态保持；共享FRPC/代理未改。终态先完整模型release/逐文件SHA、PID/锁/source/GPU账本核验，再只关闭该owned forward，不停止共享路线。
+
+GPU账本严格未变3.6512467238638138/4h，无新GPU工作。已确认Wan5B base11官方hash与header结构/16CPU，不叫L0完整READY；OMR公开release仍Coming soon，新4GPUh计时决定仍待用户。后续完整LoRA/真实CPU融合/隔离环境/任务接口检查独立推进，不自动跑L1或训练/付费/人评。
+
+## 以下为历史快照

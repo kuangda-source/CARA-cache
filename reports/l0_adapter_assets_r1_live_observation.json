@@ -1,0 +1,91 @@
+{
+  "observed_unix": 1790801489.1103475,
+  "supervisor": {
+    "pid": 2493078,
+    "status": "RUNNING",
+    "started_unix": 1790801360.9188025,
+    "gpu_workload_started": false,
+    "max_cpu_wall_seconds": 3600,
+    "child_pid": 2493079,
+    "command": [
+      "timeout",
+      "--kill-after=10",
+      "3590",
+      "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python",
+      "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/scripts/download_auxiliary.py",
+      "--manifest",
+      "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/manifests/l0_adapter_acquisition_20261001.json",
+      "--cache",
+      "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/hfhub",
+      "--receipt",
+      "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/outputs/l0-adapter-assets-r1/download.json"
+    ]
+  },
+  "download": {
+    "stage": "F0_AUXILIARY_DOWNLOAD",
+    "pid": 2493080,
+    "started_unix": 1790801361.3193288,
+    "gpu_workload_started": false,
+    "status": "RUNNING",
+    "completed": [],
+    "current": "Efficient-Large-Model/LongLive-Plug-Wan2.2-TI2V-5B-cfg"
+  },
+  "processes": {
+    "2493078": "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python /home/gaokuangda/data/gkd/worldcache_omr/scripts/supervise_asset_download.py --project /home/gaokuangda/data/gkd/worldcache_omr --manifest /home/gaokuangda/data/gkd/worldcache_omr/manifests/l0_adapter_acquisition_20261001.json --output /home/gaokuangda/data/gkd/worldcache_omr/outputs/l0-adapter-assets-r1 --python /home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python ",
+    "2493079": "timeout --kill-after=10 3590 /home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/scripts/download_auxiliary.py --manifest /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/manifests/l0_adapter_acquisition_20261001.json --cache /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/hfhub --receipt /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/outputs/l0-adapter-assets-r1/download.json ",
+    "2493080": "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/scripts/download_auxiliary.py --manifest /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/manifests/l0_adapter_acquisition_20261001.json --cache /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/hfhub --receipt /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/outputs/l0-adapter-assets-r1/download.json "
+  },
+  "files": [
+    {
+      "repo": "Efficient-Large-Model/LongLive-Plug-Wan2.2-TI2V-5B-cfg",
+      "path": "blobs/c16212b483e3fd3d3a8a91b9732342777addc23d08ef0be055ff442c650944d4.incomplete",
+      "bytes": 73400320
+    },
+    {
+      "repo": "Efficient-Large-Model/LongLive-Plug-Wan2.2-TI2V-5B-cfg",
+      "path": "blobs/4e3cc5925f087bc31ff1273efd7d05b6258bc72a",
+      "bytes": 8691
+    },
+    {
+      "repo": "Efficient-Large-Model/LongLive-Plug-Wan2.2-TI2V-5B-cfg",
+      "path": "blobs/aebb21a6caf3369df6c20836b8b9a3065039042a",
+      "bytes": 2638
+    },
+    {
+      "repo": "Efficient-Large-Model/LongLive-Plug-Wan2.2-TI2V-5B-cfg",
+      "path": "blobs/1949fe84c995f662fd56c03e536fbe4c39129233",
+      "bytes": 1065
+    },
+    {
+      "repo": "Efficient-Large-Model/LongLive-Plug-Wan2.2-TI2V-5B-cfg",
+      "path": "snapshots/195c8c100e145d5b18068d506f8f2b4498dcaaa4/adapter_config.json",
+      "bytes": 8691
+    },
+    {
+      "repo": "Efficient-Large-Model/LongLive-Plug-Wan2.2-TI2V-5B-cfg",
+      "path": "snapshots/195c8c100e145d5b18068d506f8f2b4498dcaaa4/provenance.json",
+      "bytes": 2638
+    },
+    {
+      "repo": "Efficient-Large-Model/LongLive-Plug-Wan2.2-TI2V-5B-cfg",
+      "path": "snapshots/195c8c100e145d5b18068d506f8f2b4498dcaaa4/release_metadata.json",
+      "bytes": 1065
+    }
+  ],
+  "cpu_lock_held": true,
+  "source_hashes_match": true,
+  "budget_unchanged": true,
+  "gpu_workload_started": false,
+  "budget": {
+    "batch": "F0-F1",
+    "cap_gpu_hours": 4,
+    "used_gpu_hours": 3.6512467238638138,
+    "gpu_jobs_launched": 22,
+    "status": "W1_VQA_CONTROLS_REQUIRES_REVIEW",
+    "gpu_import_probes_completed": 1,
+    "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts"
+  },
+  "log_tail_redacted": "\nFetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]\nFetching 4 files:  25%|\u2588\u2588\u258c       | 1/4 [00:01<00:03,  1.31s/it]",
+  "gpu": "GPU-de9a5370-cd87-0f1c-a48e-288888777dd3, 350, 0\nGPU-cebf7119-cf03-23b9-e192-cd196332b704, 24, 0\n",
+  "apps": ""
+}

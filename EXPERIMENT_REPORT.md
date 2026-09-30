@@ -276,3 +276,5 @@ runner先hash绑定完整CAL8/reference screen并重新计算screen、校验setu
 2026-10-01 clean计时CPU准备：原8×2×3/48计时+2预热顺序冻结，runner/summarizer/14400秒监督实现，本地Linux48CPU、真实validate-only和未批准预算拒绝通过；主runtime/账本未变、新GPU未提交。见[准备卡](research/32_W1_CLEAN_TIMING_CPU_PREPARATION.md)。
 
 2026-10-01 L0资源核验：Wan5B base资产11hash通过、native3文件/官方来源和两个公开LoRA release锁定，header结构及16CPU通过；无完整LoRA payload/真实融合/GPU，OMR公开资源未发布。GPU账本未变。
+
+2026-10-01 L0 CPU获取live：两套锁定适配器匿名官方下载、source68afc3e/3600秒，同3PIDs真实live、CFG70MiB partial，未全SHA/融合/模型前向。主GPU账本不变，拥有的临时forward终态再关闭，未改变共享路线。

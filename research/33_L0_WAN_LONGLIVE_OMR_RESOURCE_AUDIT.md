@@ -32,3 +32,7 @@
 下一L0剩余具体工作：匿名获取锁定的两套完整适配器safetensors及JSON（合约[CPU3600秒获取](../manifests/l0_adapter_acquisition_20261001.json)/[全部SHA锁](../manifests/l0_adapter_integrity_20261001.json)），在新cache逐文件验证；CPU真实目标融合/新输出检查（不覆写底座）与独立环境/任务及scheduler接口验收。两适配器payload总1934773688字节，约1.802GiB，不下载重复generator_lora.pt。资源完整也不能自动开展L1；原4h只余1255.511794秒，2GPUh L1额度不能额外叠加；新GPU范围需其独立实测/方案与当前重大决策。
 
 保留WorldCache primary、原机制only/代理无收益结论；无人评/付费/训练。GPU ledger仍3.6512467238638138/4h，未新生成。下一CPU资源获取可以独立推进，不把这份部分L0审计当完整准备或实验结果。
+
+## 后续同日CPU获取启动
+
+协议/source68afc3e与审计同步后，唯一CPU l0-adapter-assets-r1已提交，3600秒上限/匿名官方/固定release/新project cache；supervisor2493078/timeout2493079/downloader2493080都proc verified live，CPU lock held。CFG73400320字节partial/3JSON，few-step未开始，尚未完整SHA/真实融合。[启动](../reports/l0_adapter_assets_r1_launch_20261001.json)/[实时观察](../reports/l0_adapter_assets_r1_live_observation.json)。使用专用owned temporary loopback forward，仅CPU终态后按ignored本机PID identity关闭它；共享路线未改。继续同handles，GPU账本未变，不重复提交/修改在跑源码。

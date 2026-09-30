@@ -1,3 +1,13 @@
+## 最新CPU资源获取 — 2026-10-01：L0两适配器r1实际live，非GPU
+
+资源核验/协议/source68afc3e同步后，唯一outputs/l0-adapter-assets-r1已启动。匿名官方HF、固定两release、独立project cache、cap3600 CPU-only；supervisor2493078/timeout2493079/downloader2493080本次proc核实live、CPU获取锁持有、CUDA空/source与协议hash一致。CFG partial73400320字节（70MiB），3小JSON已到位；few-step尚未开始，未完整payload/SHA/真实5B融合或前向。
+
+接续[launch](../../reports/l0_adapter_assets_r1_launch_20261001.json)/[live观察](../../reports/l0_adapter_assets_r1_live_observation.json)，使用同3 handles至终态，不因观察超时重启，不改在跑3份CPU获取/验证source或manifest。当前专用临时loopback转发是本任务拥有的SSH进程，本机身份记录在ignored .sync/l0-owned-forward.json，直到CPU终态保持；共享FRPC/代理未改。终态先完整模型release/逐文件SHA、PID/锁/source/GPU账本核验，再只关闭该owned forward，不停止共享路线。
+
+GPU账本严格未变3.6512467238638138/4h，无新GPU工作。已确认Wan5B base11官方hash与header结构/16CPU，不叫L0完整READY；OMR公开release仍Coming soon，新4GPUh计时决定仍待用户。后续完整LoRA/真实CPU融合/隔离环境/任务接口检查独立推进，不自动跑L1或训练/付费/人评。
+
+## 以下为历史快照
+
 ## 最新资源进展 — 2026-10-01：L0部分核验完成，CPU真实资产/结构证据
 
 历史Wan5B11文件/34201521169字节按新锁定官方revision全hash通过，CPU207.093538秒/原PIDs退出/无GPU成本；现有独立Wan入口3文件与官方42bf4cf逐hash相同，不继承历史PhysCache结果。LongLive代码fb16a879与Wan5B CFG/few-step两release已锁；两600tensor headers各300 A-B目标在实际base825tensor上全部key/shape/rank/alpha-r/index结构匹配。本地/Linux16CPU与tiny官方merge算术通过，尚未有完整adapter payload/真实5B融合/前向/GPU就绪。

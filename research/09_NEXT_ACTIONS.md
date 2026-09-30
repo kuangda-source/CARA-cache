@@ -7,3 +7,5 @@
 5. 若成本门通过也需更强质量证据/新明确机制，不能仅速度/当前CAL稳定认方法接受；后续调优WC/原生少步曲线、DEV/CONF仍需设计与独立资源。无非必要人评/付费/训练，meaningful代码/回执/docs同步GitHub。
 
 6. [L0部分资源验收](33_L0_WAN_LONGLIVE_OMR_RESOURCE_AUDIT.md)：Wan5B11文件完整hash/两套LoRA header结构与16CPU通过，非完整adapter或真实融合/GPU。下一可独立CPU下载锁定2适配器1.802GiB/逐SHA、真实融合新输出和隔离环境/任务接口验收；OMR公开入口仍BLOCKED。保持主线，不自动转L1/训练/扩额。
+
+7. L0两适配器唯一CPU assets-r1/source68afc3e已经实际live（3PIDs2493078/2493079/2493080），3600秒。继续同handles/partial至终态，保留本任务owned loopback forward；终态完整SHA/source/锁/GPU预算审计，再只关闭该自有转发。当前CFG70MiB，非完整adapter/融合；不要重新启动或停止共享路线。
