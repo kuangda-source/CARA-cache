@@ -1,6 +1,6 @@
 # Next actions
 
-1. User approved current-code four-scene technical comparison. Run F1 r2 under manifests/f1_runtime_protocol.json after Linux checks and fresh admission. Preserve36actualsteps/72CFGcalls and official70-call WC horizon. Do not blend r1 partial output with r2 timings.
+1. User approved current-code four-scene technical comparison. F1 r2 is live: supervisor2427723, Native child2427728, remote outputs/f1-smoke-r2. Inspect live process/terminal receipts before any action. Preserve36actualsteps/72CFGcalls and official70-call WC horizon. Do not blend r1 partial output with r2 timings.
 2. Assets, core model loading, and complete retained safety-pipeline compatibility have passed. No repeat of unchanged readiness probes is needed.
 3. Four smoke inputs/profile are frozen and accepted by actual Linux Cosmos config classes. Read research/04_F1_PROTOCOL.md and use the prepared supervisor after asset and model-readiness gates. Do not repeat config-only checks without changes.
 4. Recheck GPU UUID/VRAM/compute apps. Launch one bounded job with persistent log, PID, timestamps and exit receipt; retain both total and warm sampling time and peak VRAM.
