@@ -8,6 +8,8 @@
 
 ## 1. 当前结论与最重要的下一步
 
+最新准备：[WC-S1完整源码与隔离构建](research/57_WC_S1_ISOLATED_UPSTREAM_BUILD.md)：80文件Git blob/SHA通过，实际工具链清单已齐，有界900秒upstream构建程序/3CPU负控制通过；实际编译尚未提交。
+
 最新进展：[WC-S0实际checkpoint/源码接口审计](research/56_WC_S0_SOURCE_SHAPE_AND_KERNEL_AUDIT.md)已CPU通过，meta689/28层形状与六个runtime SHA核对；真实QKV仍需hook。已固定SpargeAttn11文件并发现full-mask仍默认PV跳过，首轮采用no-PV控制。服务器另有CUDA12.2，但尚未build/kernel/profile。下一非GPU步骤为隔离有界构建与wrapper准备；[WC-S设计](research/55_WC_SPARSE_COMPUTE_COMPRESSION_DESIGN.md)及长程v1.2保持逐门执行，未GPU/未扩额。原clean50提案保留待决策。
 
 **暂停scalar/W2复杂化；新增WC-S有界分支，先测WC后瓶颈/真实kernel，再比较组合与计算替换。当前仍只有机制信号，没有新方法质量—时间收益。** 原开发VQA6平1misc降/scene等权−3.174603pp、MUSIQ3升4降/robot拒绝保持。重复/明显内容变化对照不验证物理正确性，不直接否定方法或切OMR。

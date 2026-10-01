@@ -1,0 +1,37 @@
+{
+  "observed_unix": 1790856926.5682225,
+  "scope": "read-only build dependency/resource inventory; no torch import/build/GPU",
+  "python": "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python",
+  "packages": {
+    "torch": "2.7.1+cu128",
+    "setuptools": "79.0.1",
+    "packaging": "25.0",
+    "ninja": "1.13.0",
+    "einops": "0.8.1",
+    "triton": "3.3.1"
+  },
+  "commands": {
+    "/usr/local/cuda-12.2/bin/nvcc": {
+      "exit": 0,
+      "output": "nvcc: NVIDIA (R) Cuda compiler driver\nCopyright (c) 2005-2023 NVIDIA Corporation\nBuilt on Tue_Jun_13_19:16:58_PDT_2023\nCuda compilation tools, release 12.2, V12.2.91\nBuild cuda_12.2.r12.2/compiler.32965470_0\n"
+    },
+    "g++": {
+      "exit": 0,
+      "output": "g++ (Ubuntu 9.4.0-1ubuntu1~20.04.2) 9.4.0\nCopyright (C) 2019 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n"
+    },
+    "ninja": {
+      "exit": 0,
+      "output": "1.10.0\n"
+    }
+  },
+  "disk_free_bytes": 670776971264,
+  "memory_available_kib": "MemAvailable:   58240384 kB",
+  "budget_sha256": "26d0cdb74628d57458fea05a51f5fe062e2dcd0cd1a2f06d1d8e7c34ea40da41",
+  "runtime_hashes": {
+    "networks/minimal_v4_dit.py": "a41a1772f694ee338e4b91f032428ea81f28e80fb90990e2db86eb7d1ce30071",
+    "inference/worldcache_utils.py": "b485cb8fd6e262a40e5823365c34ef7db1bc036c591d7577489e04077c515903"
+  },
+  "torch_cpp_extension_sha256": "8f1167e783ad49976e34174bad46e68fb27f5e73854e1f7cd16cc86b923f6c7a",
+  "torch_cpp_extension_cuda_discovery_source": "def _find_cuda_home() -> Optional[str]:\n    \"\"\"Find the CUDA install path.\"\"\"\n    # Guess #1\n    cuda_home = os.environ.get('CUDA_HOME') or os.environ.get('CUDA_PATH')\n    if cuda_home is None:\n        # Guess #2\n        nvcc_path = shutil.which(\"nvcc\")\n        if nvcc_path is not None:\n            cuda_home = os.path.dirname(os.path.dirname(nvcc_path))\n        else:\n            # Guess #3\n            if IS_WINDOWS:\n                cuda_homes = glob.glob(\n                    'C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v*.*')\n                if len(cuda_homes) == 0:\n                    cuda_home = ''\n                else:\n                    cuda_home = cuda_homes[0]\n            else:\n                cuda_home = '/usr/local/cuda'\n            if not os.path.exists(cuda_home):\n                cuda_home = None\n    if cuda_home and not torch.cuda.is_available():\n        print(f\"No CUDA runtime is found, using CUDA_HOME='{cuda_home}'\",\n              file=sys.stderr)\n    return cuda_home\n\n",
+  "status": "CPU_BUILD_DEPENDENCY_INVENTORY_COMPLETE_NOT_BUILD"
+}

@@ -1,3 +1,11 @@
+## 最新准备 — WC-S1 完整源码与有界 CPU 构建
+
+完整 SpargeAttn ae5b629 的80文件已逐Git blob/SHA通过，构建依赖与CUDA12.2实际清单已核对。隔离构建监督/CPU CUDA guard已实现，本地3个负控制通过；尚未提交真实编译。下一固定完整tree部署/服务器CPU控制/唯一900秒upstream build_ext，原Cosmos环境/runtime/账本不改，GPU内核与速度未验收。
+
+[构建准备与接续](../../research/57_WC_S1_ISOLATED_UPSTREAM_BUILD.md)。原GPU余额1255.511794秒，新4GPUh未批准；保持S0/S1逐门推进，无人评。
+
+## 以下为历史快照
+
 ## 最新 CPU 进展 — WC-S0 源码与实际 checkpoint 接口审计
 
 2026-10-01：实际 Cosmos2B checkpoint 完整 SHA/meta689 读取通过，28 层注意力 336 个权重形状符合 2048/16heads/head128；历史 hidden `[1,24,27,48,2048]` 推导 QKV `[1,31104,16,128]`，尚未直接 QKV hook。六个 runtime 文件本地/服务器 SHA 一致，CPU R1/R2 均退出、CUDA 未初始化、账本未变。
