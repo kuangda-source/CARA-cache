@@ -1,3 +1,11 @@
+## 最新接续 — WC-S0 R2缓存路径失败已结算，准备R3
+
+R2 actual runtime来源门通过，但Inference初始化因默认HF缓存缺guardrail blocklist/custom退出，无完整pipeline/forward/profile/QKV；125.141735秒失败已计账/原PIDs与锁/GPU释放审计通过。恢复与历史F1/W1完全相同的project/hfhub缓存，新增完整Guardrail1所有Git/LFS bytes核验和实际import checkpoint路径门；不绕过guardrails。
+
+[范围与保留失败](60_WC_S0_PROFILE_REAL_QKV.md)、[R2失败审计](../reports/wc_s0_profile_r2_failure_audit_20261001.json)。余额1049.188027秒，R3新identity按750秒原范围准备；先CPU核验全资产/来源，未R3 GPU/未扩额/无人评。R1/R2 launch不得重跑。
+
+## 以下为历史快照
+
 ## 最新接续 — WC-S0 R1导入路径失败已结算，准备R2
 
 R1在模型加载前读取native Cosmos包而无法导入WorldCache；无模型/forward/QKV/profile结果，69.455334秒失败墙钟已计账、退款680.544666秒，原PIDs/global锁/GPU释放审计通过。runner现明确runtime及两个package搜索路径、WC实际origin检查；supervisor复用历史PYTHONPATH并在验证后再次准入。

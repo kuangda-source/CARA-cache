@@ -8,6 +8,8 @@
 
 ## 1. 当前结论与最重要的下一步
 
+最新接续：S0 R2 actual runtime来源检查通过，Inference初始化时读取不完整默认HF缓存，guardrail custom缺失退出；无完整pipeline/forward/QKV/profile，失败125.141735秒已结算/释放。恢复历史project/hfhub并增加全Guardrail1 Git/LFS完整检查，下一新R3；余额1049.188027秒、750秒原scope、不扩额/无人评。[审计](reports/wc_s0_profile_r2_failure_audit_20261001.json)。
+
 最新诊断：S0 R1模型load前native包路径错误，失败69.455334秒已按原余额结算/原PIDs与锁/GPU释放；无forward/profile/QKV结果。已修复显式runtime/PYTHONPATH，下一R2实际CPU import-origin门后有界续跑，剩余1174.329762秒。[失败审计](reports/wc_s0_profile_r1_failure_audit_20261001.json)。
 
 最新准备：[S0两阶段成本/真实QKV](research/60_WC_S0_PROFILE_REAL_QKV.md)，首个固定CAL8场景seed0/profile后独立capture12个QKV、既有余额内750秒cap；本地6个CPU控制通过，未GPU/未扩额/未人评。下一实际环境CPU复核/fresh准入后唯一运行。

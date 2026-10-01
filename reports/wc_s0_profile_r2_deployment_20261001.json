@@ -1,0 +1,79 @@
+{
+  "status": "ACTUAL_TORCH_CPU6_AND_CHECKPOINT_SOURCE_VALIDATE_ONLY_PASS_NO_GPU",
+  "observed_unix": 1790862775.485423,
+  "source_revision": "c387fe73772d7583681150d2f4aa6c4c7f81ed25",
+  "payload_sha256": {
+    "scripts/run_wc_s0_profile.py": "3562c42e060801492daa586af032d9ccdb7067fecc86aa67cfbf5f4f7cf44b52",
+    "scripts/supervise_wc_s0_profile.py": "387f32ab471dae0ecc91c7094efc7fa735d9d387fa26a36d93751113344fb9be",
+    "tests/test_wc_cost_observer.py": "90656553ab72e51d9bbdcb60da16aa1da1957184256ca95445e7ef7ddeeb161e",
+    "tests/test_wc_qkv_snapshot.py": "78258a9a1075e96e78b605a00f9a7d1f393b1095f7ec7782a8f677ce87edeb17",
+    "tests/test_wc_s0_profile_budget.py": "6efa700c2b17a961fb2e0b2bea78c86e450a230446376ce36c19d4618aa00570",
+    "profile-config.json": "f570b537133da1205858cd99af2766892db1484a45e7e6e43427fff59cfb555b",
+    "src/wcomr/__init__.py": "b9996da0a87bb746cdac0935ead475246fc34d88b37e73f63f14e5065494f311",
+    "src/wcomr/measurement.py": "c4181ec3220b2fd33d333dffed9ae7163303668b9e152a705d1d70213b45a4c0",
+    "src/wcomr/runtime_config.py": "d35c08a30fb5d0aea31a80e83755c0ed44969988d78c47a65dd3b62a8d507065",
+    "src/wcomr/protocol.py": "afce8e2d52030b46a7b958b4a69963b0ea515c8badb919ae555af2886afa4893",
+    "src/wcomr/guardrail_observation.py": "ac98299a3ac22d1db8b23404d6c03d77a75b955f7ea149039fdf494a5d0bf880",
+    "src/wcomr/decoder_policy.py": "57e1369909dfa9db5ea6ab563b275fe7376bea14d0b247dd7748e79fccf8699b",
+    "src/wcomr/stage_witness.py": "78247cc3137d1ea032425c392aa728f35b83fcd0d748f21be4cb3c3d7995ae09",
+    "src/wcomr/wc_cost_observer.py": "6306262e2278ba4b9e162dc7b542dbd6983c1e8737ead8da8d7133078938b7df",
+    "src/wcomr/wc_qkv_snapshot.py": "e0442429ea804c21b2c5db1ab9c3dd45da4e3e6239dd306192b8d72cf3ecc98c"
+  },
+  "cpu_checks": {
+    "tests": [
+      "test_nested_events_preserve_identity_cache_and_namespace",
+      "test_capture_selection_uses_request_call_and_actual_cfg_counter",
+      "test_profile_capture_mutually_exclusive",
+      "test_noncontiguous_bf16_snapshot_roundtrip_preserves_inputs_rng_and_bytes",
+      "test_invalid_shape_and_nonfinite_refuse_snapshot",
+      "test_balance_and_scope_refuse_expansion_or_any_inflight"
+    ],
+    "torch": "2.7.1+cu128",
+    "cuda_initialized": false,
+    "pid": 2553002
+  },
+  "cpu_import_origins": {
+    "status": "CPU_ACTUAL_COSMOS_IMPORT_ORIGINS_PASS_NO_MODEL_OR_CUDA",
+    "pid": 2553011,
+    "torch": "2.7.1+cu128",
+    "modules": {
+      "cosmos_predict2.inference": {
+        "path": "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/runtime/cosmos_predict2/inference.py",
+        "sha256": "0db96c49f0b3f18a971bc989e0727132dafc27ef621145a2d25a3da62a7a1975"
+      },
+      "cosmos_predict2._src.predict2.inference.worldcache_utils": {
+        "path": "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/runtime/cosmos_predict2/_src/predict2/inference/worldcache_utils.py",
+        "sha256": "b485cb8fd6e262a40e5823365c34ef7db1bc036c591d7577489e04077c515903"
+      },
+      "cosmos_predict2._src.predict2.networks.minimal_v4_dit": {
+        "path": "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/runtime/cosmos_predict2/_src/predict2/networks/minimal_v4_dit.py",
+        "sha256": "a41a1772f694ee338e4b91f032428ea81f28e80fb90990e2db86eb7d1ce30071"
+      },
+      "cosmos_predict2._src.predict2.networks.attention": {
+        "path": "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/runtime/cosmos_predict2/_src/predict2/networks/attention.py",
+        "sha256": "9879fc59c62b4b5a958ebaf8588da1402ee48ddfe7df1979ad986d8a56a34d91"
+      }
+    },
+    "cuda_initialized": false,
+    "triton_guard": "import-only benchmarker factory; returned callable denies execution; no model construction"
+  },
+  "validate_only": {
+    "status": "S0_IDENTITIES_CHECKPOINT_SCOPE_PASS_NO_TORCH_OR_GPU",
+    "config_sha256": "f570b537133da1205858cd99af2766892db1484a45e7e6e43427fff59cfb555b",
+    "sample": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632"
+  },
+  "budget_before": {
+    "batch": "F0-F1",
+    "cap_gpu_hours": 4,
+    "used_gpu_hours": 3.673797288304324,
+    "gpu_jobs_launched": 24,
+    "status": "WC_S0_PROFILE_SETTLED_REQUIRES_RESULT_AUDIT",
+    "gpu_import_probes_completed": 1,
+    "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts"
+  },
+  "global_lock_free": true,
+  "disk": "\u6587\u4ef6\u7cfb\u7edf        \u5bb9\u91cf  \u5df2\u7528  \u53ef\u7528 \u5df2\u7528% \u6302\u8f7d\u70b9\n/dev/sdb1        14T   13T  625G   96% /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b\n",
+  "ram": "              \u603b\u8ba1         \u5df2\u7528        \u7a7a\u95f2      \u5171\u4eab    \u7f13\u51b2/\u7f13\u5b58    \u53ef\u7528\n\u5185\u5b58\uff1a       64032        6560        2991           4       54480       56779\n\u4ea4\u6362\uff1a        8191        2332        5859\n",
+  "gpu_inventory": "GPU-de9a5370-cd87-0f1c-a48e-288888777dd3, NVIDIA RTX A6000, 350, 8.6\nGPU-cebf7119-cf03-23b9-e192-cd196332b704, NVIDIA RTX A6000, 24, 8.6\n",
+  "compute_apps": ""
+}

@@ -80,7 +80,7 @@ def main():
         with (a.output / 'diagnostic.log').open('w') as log:
             child = subprocess.Popen(['timeout', '--kill-after=5s', '740s'] + args,
                                      env=dict(os.environ, CUDA_VISIBLE_DEVICES=a.gpu_uuid, PYTHONDONTWRITEBYTECODE='1', OMP_NUM_THREADS='2',
-                                              PYTHONPATH='.:packages/cosmos-oss:packages/cosmos-cuda'),
+                                              PYTHONPATH='.:packages/cosmos-oss:packages/cosmos-cuda', HF_HUB_CACHE=str(a.project / 'hfhub')),
                                      stdout=log, stderr=subprocess.STDOUT, cwd=a.project / 'runtime', start_new_session=True, pass_fds=(lock.fileno(),))
             state.update(status='GPU_PROFILE_CAPTURE_RUNNING', child_pid=child.pid, child_started_unix=time.time())
             save(a.output / 'supervisor.json', state)

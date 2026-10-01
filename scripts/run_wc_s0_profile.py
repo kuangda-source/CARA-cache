@@ -44,6 +44,19 @@ def validate(project, stage, runtime):
     checkpoint = Path(c['checkpoint']['path'])
     if checkpoint.stat().st_size != c['checkpoint']['bytes'] or sha(checkpoint) != c['checkpoint_sha256']:
         raise RuntimeError('Actual checkpoint changed')
+    guardrail = json.loads((project / 'manifests/guardrail_integrity.json').read_text())['nvidia/Cosmos-Guardrail1']
+    guard_root = project / 'hfhub/models--nvidia--Cosmos-Guardrail1/snapshots' / guardrail['revision']
+    for item in guardrail['files']:
+        path = guard_root / item['path']
+        if not path.is_file() or path.stat().st_size != item['size']:
+            raise RuntimeError('Project guardrail asset missing/size mismatch: ' + item['path'])
+        if item['lfs']:
+            match = sha(path) == item['lfs']['oid']
+        else:
+            raw = path.read_bytes()
+            match = hashlib.sha1(b'blob ' + str(len(raw)).encode() + b'\0' + raw).hexdigest() == item['git_blob_oid']
+        if not match:
+            raise RuntimeError('Project guardrail asset digest mismatch: ' + item['path'])
     samples = [json.loads(x) for x in (project / 'configs/cal_w1d8.jsonl').read_text().splitlines() if x]
     if samples[0]['name'] != c['sample_name'] or samples[0]['num_steps'] != 35 or samples[0]['seed'] != 0:
         raise ValueError('Frozen first CAL case mismatch')
@@ -65,6 +78,7 @@ def main():
         return
     sys.path[:0] = [str(a.stage / 'src'), str(a.project / 'src'), str(a.runtime),
                    str(a.runtime / 'packages/cosmos-oss'), str(a.runtime / 'packages/cosmos-cuda')]
+    os.environ['HF_HUB_CACHE'] = str(a.project / 'hfhub')
     if a.cpu_import_check:
         os.environ.update(CUDA_VISIBLE_DEVICES='', HF_HUB_OFFLINE='1', TRANSFORMERS_OFFLINE='1')
         import importlib
@@ -96,8 +110,14 @@ def main():
                 raise RuntimeError('Imported module origin differs: ' + name)
             identities[name] = {'path': str(actual), 'sha256': sha(actual)}
         assert not torch.cuda.is_initialized()
+        from cosmos_predict2._src.imaginaire.auxiliary.guardrail.common.core import GUARDRAIL1_CHECKPOINT_DIR
+        guardrail_path = Path(GUARDRAIL1_CHECKPOINT_DIR).resolve()
+        expected_guardrail = a.project / 'hfhub/models--nvidia--Cosmos-Guardrail1/snapshots/d6d4bfa899a71454a700907664f3e88f503950cf'
+        if guardrail_path != expected_guardrail.resolve() or not (guardrail_path / 'blocklist/custom').is_dir():
+            raise RuntimeError('Imported guardrail checkpoint differs from verified project cache')
         print(json.dumps({'status': 'CPU_ACTUAL_COSMOS_IMPORT_ORIGINS_PASS_NO_MODEL_OR_CUDA',
                           'pid': os.getpid(), 'torch': torch.__version__, 'modules': identities,
+                          'guardrail_checkpoint': str(guardrail_path), 'hf_hub_cache': os.environ['HF_HUB_CACHE'],
                           'cuda_initialized': False,
                           'triton_guard': 'import-only benchmarker factory; returned callable denies execution; no model construction'}))
         return

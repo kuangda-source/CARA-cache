@@ -29,3 +29,9 @@ R1/source1824d1c，监督/timeout/runner PIDs2550284/2550298/2550300全部退出
 修复明确sys.path runtime与两个package，supervisor恢复历史PYTHONPATH并validate后再准入；新增CPU-import-check，用CUDA hidden和lazy-init拒绝核对实际Inference/WC/minimal_v4/attention origin及SHA，不构造模型。R2使用新stage/launch身份，不覆盖或重跑R1；750秒范围/同一场景/原4h cap不变。CPU6控制仍通过，实际import-origin门待验收。
 
 R2最初CPU full-import被TransformerEngine/Triton导入期autotune benchmarker的驱动探测拦住（0 active drivers），未GPU提交/未改账本。CPU-check增加仅导入期driver guard：提供返回拒绝执行函数的benchmarker factory，其他driver访问仍拒绝，进程退出即消失；真实GPU分支不做这些patch。这是guarded源码来源检查，不能当真实模型/内核parity。
+
+## R2保留失败与R3资产缓存门
+
+R2/sourcec387fe7 actual四模块origin CPU gate与6控制通过，GPU已加载到Inference初始化阶段，但guardrails使用默认HF cache中的不完整snapshot而缺`blocklist/custom`。历史F1/W1 supervisor显式指定project/hfhub，本次遗漏了该环境值。没有完成整套Inference初始化，也没有denoise/生成/成本/QKV结果；完整125.141734749079秒已计账，原2553191/2553206/2553208退出、global锁/GPU释放、payload账本失败审计通过。两次失败均保留并计入4h，余额1049.188027秒。
+
+R3恢复历史HF_HUB_CACHE、checkpoint改为同项目镜像实际路径（待同SHA复核），在Torch/GPU之前逐Guardrail1完整manifest的Git blob或LFS SHA/size核验，CPU actual import另检查GUARDRAIL1_CHECKPOINT_DIR确实指向该已核验snapshot。仍保留guardrails、同场景同seed与750秒范围，先资产检查再新identity，不重跑R1/R2。
