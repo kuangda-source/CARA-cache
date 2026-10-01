@@ -1,3 +1,5 @@
+最新CPU运行：[六个大依赖分段获取](research/49_L0_TRANSITIVE_WHEEL_RANGE_ACQUISITION_RUN.md)，旧安装已终态/新env空/无native import或GPU。
+
 最新资源状态：[安装超时终态及六包分段获取准备](research/48_L0_INSTALL_TIMEOUT_AND_TRANSITIVE_RANGE_PREPARATION.md)，新env仍空/无native import或GPU。
 
 最新CPU运行：[隔离原生环境安装](research/47_L0_NATIVE_ENV_INSTALLATION_RUN.md)，93包hash lock安装进行中/未native import或GPU。

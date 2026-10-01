@@ -1,0 +1,82 @@
+{
+  "observed_unix": 1790816264.4865367,
+  "supervisor": {
+    "pid": 2512783,
+    "status": "RUNNING",
+    "started_unix": 1790816182.5972993,
+    "cpu_max_wall_seconds": 3600,
+    "gpu_workload_started": false,
+    "source_commit": "ffaf53f51417f2e18e54008748b1e5ae427391df",
+    "source_sha256": {
+      "scripts/download_l0_transitive_wheels.py": "467ff23b105b2509992f68cbe26e5de599e7e2567cbc0846b7e014cc8fd17c8c",
+      "src/wcomr/__init__.py": "b9996da0a87bb746cdac0935ead475246fc34d88b37e73f63f14e5065494f311",
+      "src/wcomr/ranged_download.py": "1d0f78b457f35ed82ea3a3b31b155d0642369635ad7a11a47ef9c40a3b94e92f",
+      "src/wcomr/wheel_assets.py": "e22812d5a42ab0a941a9044434810bcb8a3f2f8b05d2d90de3830b1472ae9523",
+      "tests/test_ranged_download.py": "3e09d8093e6cf5016826d3099488ffe0a5825fca42ad53e6763623b69a45647d",
+      "tests/test_wheel_assets.py": "bec60e456e3bfff1ea93dc271dd637e0fe5361df185c0e0a6954f6697b2f3724",
+      "manifests/l0_native_transitive_binary_sources_20261001.json": "90f221a1d7fe0d056de65b7d895f86496462dbca5152957d3371ef52f00465fb"
+    },
+    "budget_before": {
+      "batch": "F0-F1",
+      "cap_gpu_hours": 4,
+      "used_gpu_hours": 3.6512467238638138,
+      "gpu_jobs_launched": 22,
+      "status": "W1_VQA_CONTROLS_REQUIRES_REVIEW",
+      "gpu_import_probes_completed": 1,
+      "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts"
+    },
+    "child_pid": 2512784,
+    "command": [
+      "timeout",
+      "--kill-after=10",
+      "3590",
+      "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python",
+      "/home/gaokuangda/data/gkd/worldcache_omr/.sync/l0-native-transitive-wheel-cpu-r1/scripts/download_l0_transitive_wheels.py",
+      "--manifest",
+      "/home/gaokuangda/data/gkd/worldcache_omr/.sync/l0-native-transitive-wheel-cpu-r1/manifests/l0_native_transitive_binary_sources_20261001.json",
+      "--cache",
+      "/home/gaokuangda/data/gkd/worldcache_omr/.sync/l0-native-transitive-wheel-cache",
+      "--receipt",
+      "/home/gaokuangda/data/gkd/worldcache_omr/outputs/l0-transitive-wheels-r1/download.json"
+    ]
+  },
+  "download": {
+    "pid": 2512785,
+    "started_unix": 1790816182.6867795,
+    "status": "RUNNING",
+    "gpu_workload_started": false,
+    "completed": [],
+    "current": "nvidia_cublas_cu12-12.1.3.1-py3-none-manylinux1_x86_64.whl",
+    "current_transfer": {
+      "status": "RUNNING",
+      "initial_bytes": 0,
+      "durable_bytes": 50331648,
+      "size": 410594774,
+      "requests": 3,
+      "completed_chunks": 3,
+      "retries": 0
+    }
+  },
+  "processes": {
+    "2512783": {
+      "cmdline": "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python /home/gaokuangda/data/gkd/worldcache_omr/.sync/l0-native-transitive-wheel-cpu-r1/supervisor-transitive-wheels-r1.py ",
+      "cuda_visible_devices_empty": true
+    },
+    "2512784": {
+      "cmdline": "timeout --kill-after=10 3590 /home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python /home/gaokuangda/data/gkd/worldcache_omr/.sync/l0-native-transitive-wheel-cpu-r1/scripts/download_l0_transitive_wheels.py --manifest /home/gaokuangda/data/gkd/worldcache_omr/.sync/l0-native-transitive-wheel-cpu-r1/manifests/l0_native_transitive_binary_sources_20261001.json --cache /home/gaokuangda/data/gkd/worldcache_omr/.sync/l0-native-transitive-wheel-cache --receipt /home/gaokuangda/data/gkd/worldcache_omr/outputs/l0-transitive-wheels-r1/download.json ",
+      "cuda_visible_devices_empty": true
+    },
+    "2512785": {
+      "cmdline": "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python /home/gaokuangda/data/gkd/worldcache_omr/.sync/l0-native-transitive-wheel-cpu-r1/scripts/download_l0_transitive_wheels.py --manifest /home/gaokuangda/data/gkd/worldcache_omr/.sync/l0-native-transitive-wheel-cpu-r1/manifests/l0_native_transitive_binary_sources_20261001.json --cache /home/gaokuangda/data/gkd/worldcache_omr/.sync/l0-native-transitive-wheel-cache --receipt /home/gaokuangda/data/gkd/worldcache_omr/outputs/l0-transitive-wheels-r1/download.json ",
+      "cuda_visible_devices_empty": true
+    }
+  },
+  "cpu_download_lock_held": true,
+  "source_hashes_match": true,
+  "budget_unchanged": true,
+  "gpu_workload_started": false,
+  "cache_file_bytes": {
+    "nvidia_cublas_cu12-12.1.3.1-py3-none-manylinux1_x86_64.whl.incomplete": 50331648
+  },
+  "log_tail": ""
+}

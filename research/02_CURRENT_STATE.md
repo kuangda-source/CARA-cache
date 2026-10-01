@@ -1,3 +1,11 @@
+## 最新CPU运行 — 六个大依赖可续传获取
+
+六个大transitive wheel分段获取transitive-wheels-r1/sourceffaf53f 已唯一启动，3PIDs 2512783/2512784/2512785 实际live/下载锁持有；服务器6个official PyPI URL均exact206/64KiB前缀通过，CPU3600秒cap。当前cublas已持久提交50331648字节/0retry，完整6包/fullSHA/meta尚未完成。旧UV install-r1已终态且新env仍空/source与GPU账本不变，无新GPU workload。
+
+[当前运行卡](49_L0_TRANSITIVE_WHEEL_RANGE_ACQUISITION_RUN.md)。只观察同transitive handle，不重复安装或launch。
+
+## 以下为历史快照
+
 ## 最新终态与修复准备 — 安装资源超时
 
 隔离install-r1因下载未完到CPU cap退出：1755.194480秒、UV被TERM，全部4PIDs退出/环境锁释放；fresh93安装清单仍0包，原4 wheel payload hash未变/source与GPU账本不变，仅此次owned forward16500关闭。原93包hash lock保持，6个未完成大包已锁官方PyPI URL/size/SHA（均在原hash lock内），共1781156006字节。分段续传程序及精确vendor tag检查本地/Linux15同范围通过，六个完整payload尚未获取。
