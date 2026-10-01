@@ -8,15 +8,17 @@
 
 ## 1. 当前结论与最重要的下一步
 
+最新准备：[S1真实QKV路由门](research/62_WC_S1_REAL_QKV_ROUTING_GATE.md)，全12输入×6臂（dense/vanilla全mask/两组routed-full与sparse），180秒现有余额内scope。本地7 CPU控制通过，尚未GPU；两策略是已有upstream参数，不称原创方法或保质收益。
+
 最新验收：[S0官方WC成本/12真实QKV](research/61_WC_S0_COST_REAL_QKV_RESULTS.md)。两轮34full/38skip/latent/trace/采样一致、视频SHA一致；profile去噪141.26秒中deep self核心66.92秒/47.37%，flow+warp2.25%、cross核心0.95%。7438事件与12个BF16 QKV完整SHA/finite/CPU roundtrip审计通过，R3 GPU611.180967秒。下一优先余额内真实QKV块选择误差/路由净成本；没有稀疏生成或新方法质量—时间收益。
 
-最新接续：S0 R2 actual runtime来源检查通过，Inference初始化时读取不完整默认HF缓存，guardrail custom缺失退出；无完整pipeline/forward/QKV/profile，失败125.141735秒已结算/释放。恢复历史project/hfhub并增加全Guardrail1 Git/LFS完整检查，下一新R3；余额1049.188027秒、750秒原scope、不扩额/无人评。[审计](reports/wc_s0_profile_r2_failure_audit_20261001.json)。
+历史接续：S0 R2 actual runtime来源检查通过，Inference初始化时读取不完整默认HF缓存，guardrail custom缺失退出；无完整pipeline/forward/QKV/profile，失败125.141735秒已结算/释放。恢复历史project/hfhub并增加全Guardrail1 Git/LFS完整检查，下一新R3；余额1049.188027秒、750秒原scope、不扩额/无人评。[审计](reports/wc_s0_profile_r2_failure_audit_20261001.json)。
 
-最新诊断：S0 R1模型load前native包路径错误，失败69.455334秒已按原余额结算/原PIDs与锁/GPU释放；无forward/profile/QKV结果。已修复显式runtime/PYTHONPATH，下一R2实际CPU import-origin门后有界续跑，剩余1174.329762秒。[失败审计](reports/wc_s0_profile_r1_failure_audit_20261001.json)。
+历史诊断：S0 R1模型load前native包路径错误，失败69.455334秒已按原余额结算/原PIDs与锁/GPU释放；无forward/profile/QKV结果。已修复显式runtime/PYTHONPATH，下一R2实际CPU import-origin门后有界续跑，剩余1174.329762秒。[失败审计](reports/wc_s0_profile_r1_failure_audit_20261001.json)。
 
-最新准备：[S0两阶段成本/真实QKV](research/60_WC_S0_PROFILE_REAL_QKV.md)，首个固定CAL8场景seed0/profile后独立capture12个QKV、既有余额内750秒cap；本地6个CPU控制通过，未GPU/未扩额/未人评。下一实际环境CPU复核/fresh准入后唯一运行。
+历史准备：[S0两阶段成本/真实QKV](research/60_WC_S0_PROFILE_REAL_QKV.md)，首个固定CAL8场景seed0/profile后独立capture12个QKV、既有余额内750秒cap；本地6个CPU控制通过，未GPU/未扩额/未人评。下一实际环境CPU复核/fresh准入后唯一运行。
 
-最新结果：[S1 A6000真实内核](research/59_WC_S1_REAL_KERNEL_RESULTS.md)：8case完成/GPU11.726698秒，N31104 dense/full/50%/25% wall70.35/71.64/39.77/23.65ms；full-mask RMSE1.32%通过技术筛查，固定稀疏mask约100%/174%误差大，不能接入保质生成。原PIDs/锁/GPU释放、source与raw repeats审计通过；下一真实QKV与WC成本profile。
+此前结果：[S1 A6000真实内核](research/59_WC_S1_REAL_KERNEL_RESULTS.md)：8case完成/GPU11.726698秒，N31104 dense/full/50%/25% wall70.35/71.64/39.77/23.65ms；full-mask RMSE1.32%通过技术筛查，固定稀疏mask约100%/174%误差大，不能接入保质生成。原PIDs/锁/GPU释放、source与raw repeats审计通过；下一真实QKV与WC成本profile。
 
 此前CPU终态：[WC-S1两扩展构建/无PV接口](research/57_WC_S1_ISOLATED_UPSTREAM_BUILD.md)：完整upstream CPU构建exit0/648.948283秒，fresh80源文件/两sm86 binary SHA/独立8文件package通过；无PV wrapper本地与实际Cosmos Torch同3项CPU契约通过。CUDA未初始化、原PID退出/锁释放/runtime账本不变；该时点未验收动态ABI/实际kernel；后续S1技术门已完成，模型profile/方法收益仍待。
 

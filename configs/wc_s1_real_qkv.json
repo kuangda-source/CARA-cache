@@ -1,0 +1,36 @@
+{
+  "scope": "S1_REAL12_QKV_ROUTED_NO_PV_KERNEL_DIAGNOSTIC_NOT_GENERATED_SPARSE_VIDEO",
+  "max_gpu_wall_seconds": 180,
+  "warmups": 1,
+  "repeats": 3,
+  "policies": [
+    {
+      "name": "upstream_public_default",
+      "sim": 0.6,
+      "cdf": 0.98
+    },
+    {
+      "name": "upstream_utils_default",
+      "sim": 0.1,
+      "cdf": 0.9
+    }
+  ],
+  "pv_skipping": false,
+  "arms": [
+    "dense",
+    "vanilla_full",
+    "public_default_routed_full",
+    "public_default_sparse",
+    "utils_default_routed_full",
+    "utils_default_sparse"
+  ],
+  "full_mask_relative_rmse_gate": 0.05,
+  "sparse_relative_rmse_screen": 0.05,
+  "sparse_dense_speed_screen": 1.1,
+  "input_manifest_sha256": "c7d5927d0c46b157bac5d26dee08db13957f7414cfef46349e54b45638840bb4",
+  "dense_source_sha256": "9879fc59c62b4b5a958ebaf8588da1402ee48ddfe7df1979ad986d8a56a34d91",
+  "wrapper_sha256": "5cce08ad13cf61d62eef2781417075468d92b65c535ea2b0a8434bcf46398e6e",
+  "routing_wrapper_sha256": "7e895502101be1164d18fc5c04ddbc6ad4fb7aec034eb9c79a18ccbc1bb8b0b4",
+  "coverage": "all 12 captured inputs, same fixed order; retain failed cases; no selection by result",
+  "cost_definition": "operation wall includes validation, packing, fused routing, quantization, LUT, flatten, statistics, sync; IO/JIT/import charged as whole process wall"
+}
