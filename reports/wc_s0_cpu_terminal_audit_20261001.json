@@ -1,0 +1,58 @@
+{
+  "observed_unix": 1790856178.5508218,
+  "scope": "CPU terminal and compiler inventory; no torch import/build/install/GPU workload",
+  "probes": {
+    "r1": {
+      "pid": 2536534,
+      "pid_absent": true,
+      "receipt_sha256": "684bed5968408d1dd28cbf8329e166d8974ff960655651fff75e0fb34250ecb0",
+      "status": "TECH_BLOCKED"
+    },
+    "r2": {
+      "pid": 2536709,
+      "pid_absent": true,
+      "receipt_sha256": "6ab44468276cbd17c2de92d36dafd23881eab409932835359dcf0c612c8228fd",
+      "status": "CPU_ACTUAL_CHECKPOINT_META_PASS_NOT_WEIGHT_LOAD_OR_FORWARD"
+    }
+  },
+  "budget_sha256": "26d0cdb74628d57458fea05a51f5fe062e2dcd0cd1a2f06d1d8e7c34ea40da41",
+  "runtime_hashes": {
+    "networks/minimal_v4_dit.py": "a41a1772f694ee338e4b91f032428ea81f28e80fb90990e2db86eb7d1ce30071",
+    "networks/minimal_v1_lvg_dit.py": "2d3ddcf94158c61223bc610f31ede475f7e4e27cc3b604ff3557b73d891e665f",
+    "networks/a2a_cp.py": "f9f6d61964437bec2950dbcc99e25911b35dd45404b823455f3d4ced2076f708",
+    "configs/video2world/defaults/net.py": "8299d1d68d4d3a69d0fe65f1fb99fb4c9765aa7a0394bc2fc68ec477243ef312",
+    "inference/worldcache_utils.py": "b485cb8fd6e262a40e5823365c34ef7db1bc036c591d7577489e04077c515903",
+    "configs/video2world/experiment/specialized_model/SFT_2B_RF.py": "719fa25c90dcc4f51a9226fa1b5ac677c52cbb1c292c8eac1e3121ab3c3ce814"
+  },
+  "checkpoint_stat_unchanged": true,
+  "toolchain_environment": {
+    "CUDA_HOME": null,
+    "CUDA_PATH": null,
+    "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
+  },
+  "compiler_candidates": {
+    "/usr/bin/nvcc": {
+      "resolved": "/usr/bin/nvcc",
+      "exit_code": 0,
+      "version": "nvcc: NVIDIA (R) Cuda compiler driver\nCopyright (c) 2005-2019 NVIDIA Corporation\nBuilt on Sun_Jul_28_19:07:16_PDT_2019\nCuda compilation tools, release 10.1, V10.1.243\n"
+    },
+    "/usr/local/cuda-11.7/bin/nvcc": {
+      "resolved": "/usr/local/cuda-11.7/bin/nvcc",
+      "exit_code": 0,
+      "version": "nvcc: NVIDIA (R) Cuda compiler driver\nCopyright (c) 2005-2022 NVIDIA Corporation\nBuilt on Tue_May__3_18:49:52_PDT_2022\nCuda compilation tools, release 11.7, V11.7.64\nBuild cuda_11.7.r11.7/compiler.31294372_0\n"
+    },
+    "/usr/local/cuda-12.2/bin/nvcc": {
+      "resolved": "/usr/local/cuda-12.2/bin/nvcc",
+      "exit_code": 0,
+      "version": "nvcc: NVIDIA (R) Cuda compiler driver\nCopyright (c) 2005-2023 NVIDIA Corporation\nBuilt on Tue_Jun_13_19:16:58_PDT_2023\nCuda compilation tools, release 12.2, V12.2.91\nBuild cuda_12.2.r12.2/compiler.32965470_0\n"
+    },
+    "/usr/local/cuda/bin/nvcc": {
+      "resolved": "/usr/local/cuda-12.2/bin/nvcc",
+      "exit_code": 0,
+      "version": "nvcc: NVIDIA (R) Cuda compiler driver\nCopyright (c) 2005-2023 NVIDIA Corporation\nBuilt on Tue_Jun_13_19:16:58_PDT_2023\nCuda compilation tools, release 12.2, V12.2.91\nBuild cuda_12.2.r12.2/compiler.32965470_0\n"
+    }
+  },
+  "status": "CPU_TERMINAL_SOURCE_BUDGET_PASS_TOOLCHAIN_INVENTORY_ONLY",
+  "local_remote_receipts_identical": true,
+  "local_remote_runtime_identical": true
+}

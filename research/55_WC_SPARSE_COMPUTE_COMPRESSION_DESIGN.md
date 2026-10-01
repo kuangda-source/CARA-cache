@@ -1,10 +1,12 @@
 # WC-S：受质量与行为保持约束的计算压缩
 
-日期：2026-10-01；设计版本：v1.0；对应长程计划 v1.2。
+日期：2026-10-01；设计版本：v1.1；对应长程计划 v1.2。
 
-状态：DESIGN_ONLY / CPU资源与接口核对可准备；没有实现稀疏方法、运行内核或提交新GPU任务。本设计不扩充4GPUh账本，不批准训练、付费评分、人工评审或对外消息。
+状态：S0 CPU源码/checkpoint元数据审计通过；构建/实际QKV hook/成本profile/内核均待验收，没有运行稀疏方法或提交新GPU任务。本设计不扩充4GPUh账本，不批准训练、付费评分、人工评审或对外消息。
 
 讨论来源：[调研两个研究方向](chatgpt-conversation://6aba8cd0-f4a8-83ee-adba-d4f960fb6dcb)最新完整轮次，用户“压缩即智能”与缓存/稀疏/模块取舍讨论。对话是研究输入，不是实验结果或额外执行权限。一手资料复核与消息身份见[来源记录](../manifests/plan_update_sources_20261001.json)。
+
+S0实际审计与来源锁见[56_CPU审计](56_WC_S0_SOURCE_SHAPE_AND_KERNEL_AUDIT.md)，不改变未批准GPU范围。
 
 ## 1. 当前证据与优先级
 
@@ -57,7 +59,7 @@ GPU profile仅在有预算时做，Native与官方WC各取预登记的代表性C
 2. 同一候选内核、所有块保留（full-mask）；
 3. 同一内核、部分块跳过（sparse）。
 
-full-mask对dense用于识别后端/低精度变化；sparse对full-mask才隔离块稀疏收益。两种WC配置也须增加匹配full-mask控制，避免只给候选用新内核。全块保留不自动等于数值精确dense。
+S0实际源码核对发现公开full-mask仍默认PV阈值跳过；首轮调用同upstream no-PV binding，对照dense/full-QK-no-PV/sparse-QK-no-PV，PV另作匹配开关。full-mask对dense用于识别后端/低精度变化；在两者PV都关闭时，sparse对full-mask才隔离块稀疏收益。两种WC配置也须增加匹配full-mask控制，避免只给候选用新内核。全块保留不自动等于数值精确dense。
 
 使用真实序列长度、head dimension、精度、布局和causal/noncausal mask；核对padding、软最大归一化、scale、RoPE、CFG分支和层映射。测输出误差、finite、峰值显存与同步计时。路由/打包/转置/编译/参考项额外计算分开记录且纳入端到端成本。
 

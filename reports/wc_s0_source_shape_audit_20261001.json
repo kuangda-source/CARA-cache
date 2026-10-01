@@ -1,0 +1,67 @@
+{
+  "status": "HASH_BOUND_SOURCE_CHECKPOINT_INTERFACE_AUDIT_PASS_NOT_KERNEL_OR_PROFILE",
+  "input_sha256": {
+    "reports/wc_s0_checkpoint_metadata_r2_20261001.json": "6ab44468276cbd17c2de92d36dafd23881eab409932835359dcf0c612c8228fd",
+    "reports/wc_s0_cpu_terminal_audit_20261001.json": "f0da85f79c70748862a348d77a779d70e9e784c69d7532c7296d6c001caf0e1d",
+    "manifests/wc_s0_sparge_source_lock_20261001.json": "b8d4a9b3783219cd5fab811f81be37f487d60631766999f97a18ce80b8d7f7ec",
+    "reports/w1d_cal8_r1_runner.json": "934dc2d63b79ee1cc68f765fdcb21bfea91f4f81584ad17259e9f6c55cd3eec9",
+    "reports/f1_smoke_r3_native.json": "bb99dd6b6786f87ad27e3390db51acee75e9ac0bea3cc9275c000a2c4f6d990a"
+  },
+  "runtime_files_verified": 6,
+  "sparge_files_verified": 11,
+  "sparge_commit": "ae5b629ebb41e41f86b3ea2ab5a3283f13ac151a",
+  "checkpoint_sha256": "565bbb2c9645737327983f4461e4d32627bba465b0a8dc26447edea144e1ff47",
+  "checkpoint_attention_weights_checked": 336,
+  "checkpoint_tensor_elements_not_parameter_count": 2059175652,
+  "recorded_hidden_layout": [
+    1,
+    24,
+    27,
+    48,
+    2048
+  ],
+  "hidden_layout_json_pointer": "/cases/0/on/shadow_records/0/candidates/official/prewarp_residual/layout/shape",
+  "inferred_qkv_nhd_not_direct_hook": [
+    1,
+    31104,
+    16,
+    128
+  ],
+  "ampere_block_shape": [
+    128,
+    64
+  ],
+  "inferred_block_mask_shape": [
+    1,
+    16,
+    243,
+    486
+  ],
+  "lut_int32_bytes": 7558272,
+  "valid_block_count_int32_bytes": 15552,
+  "integration": {
+    "backend": "minimal_a2a",
+    "context_parallel_size": 1,
+    "qkv_source_line": 407,
+    "attention_source_line": 437,
+    "output": "NHD kernel output must flatten H,D before existing output_proj",
+    "scope": "deep self-attention layers 2..27 only; probe/cross attention stay dense",
+    "preserve": "QKV projection, RMSNorm, self-attention RoPE, output projection and CP setter interface"
+  },
+  "confounds": {
+    "public_full_mask_still_pv_skips": true,
+    "no_pv_low_level_binding": "qk_int8_sv_f16_accum_f16_block_sparse_attn_inst_buf",
+    "required_first_comparison": "dense vs full-QK/no-PV vs sparse-QK/no-PV; optional PV matched as separate factor",
+    "quantization": "INT8 Q/K, FP16 V on Ampere; BF16 output allocated from BF16 Q",
+    "sparsity": "compute retained-block density directly; do not use upstream triangular denominator for noncausal mask",
+    "overhead": "include NHD/HND packing, contiguous, quantization, LUT creation and synchronization"
+  },
+  "not_verified": [
+    "actual runtime QKV hook",
+    "full build tree and compiled extensions",
+    "GPU import/finite/numerical parity",
+    "real kernel speed",
+    "WC remaining cost profile",
+    "method quality-time gain"
+  ]
+}

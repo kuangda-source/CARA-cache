@@ -1,0 +1,74 @@
+{
+  "status": "TECH_BLOCKED",
+  "pid": 2536534,
+  "started_unix": 1790855769.2556667,
+  "scope": "Fresh actual checkpoint meta tensor shapes and source/environment inspection; no weights materialized, model construction, forward or GPU workload",
+  "budget_before": {
+    "batch": "F0-F1",
+    "cap_gpu_hours": 4,
+    "used_gpu_hours": 3.6512467238638138,
+    "gpu_jobs_launched": 22,
+    "status": "W1_VQA_CONTROLS_REQUIRES_REVIEW",
+    "gpu_import_probes_completed": 1,
+    "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts"
+  },
+  "budget_sha256_before": "26d0cdb74628d57458fea05a51f5fe062e2dcd0cd1a2f06d1d8e7c34ea40da41",
+  "source_commit": null,
+  "runtime_source": {
+    "networks/minimal_v4_dit.py": {
+      "path": "/home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/_src/predict2/networks/minimal_v4_dit.py",
+      "sha256": "a41a1772f694ee338e4b91f032428ea81f28e80fb90990e2db86eb7d1ce30071"
+    },
+    "networks/minimal_v1_lvg_dit.py": {
+      "path": "/home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/_src/predict2/networks/minimal_v1_lvg_dit.py",
+      "sha256": "2d3ddcf94158c61223bc610f31ede475f7e4e27cc3b604ff3557b73d891e665f"
+    },
+    "networks/a2a_cp.py": {
+      "path": "/home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/_src/predict2/networks/a2a_cp.py",
+      "sha256": "f9f6d61964437bec2950dbcc99e25911b35dd45404b823455f3d4ced2076f708"
+    },
+    "configs/video2world/defaults/net.py": {
+      "path": "/home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/_src/predict2/configs/video2world/defaults/net.py",
+      "sha256": "8299d1d68d4d3a69d0fe65f1fb99fb4c9765aa7a0394bc2fc68ec477243ef312"
+    },
+    "inference/worldcache_utils.py": {
+      "path": "/home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/_src/predict2/inference/worldcache_utils.py",
+      "sha256": "b485cb8fd6e262a40e5823365c34ef7db1bc036c591d7577489e04077c515903"
+    },
+    "configs/video2world/experiment/specialized_model/SFT_2B_RF.py": {
+      "path": "/home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/_src/predict2/configs/video2world/experiment/specialized_model/SFT_2B_RF.py",
+      "sha256": "719fa25c90dcc4f51a9226fa1b5ac677c52cbb1c292c8eac1e3121ab3c3ce814"
+    }
+  },
+  "environment": {
+    "python": "Python 3.10.19",
+    "executable": "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python",
+    "packages": {
+      "torch": "2.7.1+cu128",
+      "transformer-engine": "2.8.0+cu128.torch27",
+      "flash-attn": "2.6.3+cu128.torch27",
+      "triton": "3.3.1",
+      "sageattention": null,
+      "spargeattn": null,
+      "spas-sage-attn": null
+    }
+  },
+  "nvcc": "nvcc: NVIDIA (R) Cuda compiler driver\nCopyright (c) 2005-2019 NVIDIA Corporation\nBuilt on Sun_Jul_28_19:07:16_PDT_2019\nCuda compilation tools, release 10.1, V10.1.243\n",
+  "gpu_inventory_read_only": "GPU-de9a5370-cd87-0f1c-a48e-288888777dd3, NVIDIA RTX A6000, 8.6, 49140, 340\nGPU-cebf7119-cf03-23b9-e192-cd196332b704, NVIDIA RTX A6000, 8.6, 49140, 24\n",
+  "compute_apps_read_only": "",
+  "torch": {
+    "version": "2.7.1+cu128",
+    "build_cuda": "12.8",
+    "cuda_initialized_before": false
+  },
+  "checkpoint": {
+    "path": "/home/gaokuangda/.cache/huggingface/hub/models--nvidia--Cosmos-Predict2.5-2B/snapshots/15a82a2ec231bc318692aa0456a36537c806e7d4/base/post-trained/81edfebe-bd6a-4039-8c1d-737df1a790bf_ema_bf16.pt",
+    "bytes": 4118575006,
+    "mtime_ns": 1764658341306511746
+  },
+  "error_type": "AttributeError",
+  "error": "module 'hashlib' has no attribute 'file_digest'",
+  "ended_unix": 1790855778.5046926,
+  "wall_seconds": 9.249025821685791,
+  "peak_rss_kib": 463352
+}

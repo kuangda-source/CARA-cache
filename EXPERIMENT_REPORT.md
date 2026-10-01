@@ -8,20 +8,20 @@
 
 ## 1. 当前结论与最重要的下一步
 
-最新设计：[WC-S计算压缩](research/55_WC_SPARSE_COMPUTE_COMPRESSION_DESIGN.md)已加入长程计划v1.2，来源为“调研两个研究方向”最新完整轮次及一手资料复核。当前下一非GPU方法准备为S0源码/真实shape/成本方案；未实现稀疏方法/未GPU/未扩额。原clean50提案保留待决策，不是新分支前置必跑任务。
+最新进展：[WC-S0实际checkpoint/源码接口审计](research/56_WC_S0_SOURCE_SHAPE_AND_KERNEL_AUDIT.md)已CPU通过，meta689/28层形状与六个runtime SHA核对；真实QKV仍需hook。已固定SpargeAttn11文件并发现full-mask仍默认PV跳过，首轮采用no-PV控制。服务器另有CUDA12.2，但尚未build/kernel/profile。下一非GPU步骤为隔离有界构建与wrapper准备；[WC-S设计](research/55_WC_SPARSE_COMPUTE_COMPRESSION_DESIGN.md)及长程v1.2保持逐门执行，未GPU/未扩额。原clean50提案保留待决策。
 
 **暂停scalar/W2复杂化；新增WC-S有界分支，先测WC后瓶颈/真实kernel，再比较组合与计算替换。当前仍只有机制信号，没有新方法质量—时间收益。** 原开发VQA6平1misc降/scene等权−3.174603pp、MUSIQ3升4降/robot拒绝保持。重复/明显内容变化对照不验证物理正确性，不直接否定方法或切OMR。
 
 | 项目 | 最新终态证据（2026-10-01） |
 |---|---|
-| 当前阶段 | 输入控制原8/126终态；WC-S设计完成，S0非GPU准备/下一GPU窗口范围待定 |
-| 最近运行 | controls-r1/source72c9e24 exit0；全部3PIDs退出/global锁与GPU释放 |
+| 当前阶段 | WC-S0 CPU checkpoint/source/interface通过；构建、GPU profile/S1 kernel待验收 |
+| 最近运行 | WC-S0 meta-r2 CPU19.648997秒通过；r1/r2 PID退出、CUDA未初始化、runtime/账本不变 |
 | 覆盖/响应 | repeat0/42变化，blank14/42，cyclic14/42；126有效/0invalid |
 | 审计 | 原始tokens/24输入重算/8视频/10模型文件/源码锁与本地原题summary全一致 |
 | 评价边界 | 重复稳定/部分内容响应，不是物理准确金标准/235BJoint/方法接受 |
 | 方法证据 | CAL8机制改善；VQA/MUSIQ未一致收益，clean速度/独立确认仍未证 |
 | 成本 | 控制79.023695秒；累计3.6512467238638138/4GPUh，余1255.511794秒，无在途 |
-| 下一步 | WC-S0源码/真实shape/成本方案；原[clean50程序](research/32_W1_CLEAN_TIMING_CPU_PREPARATION.md)已CPU准备，4GPUh提议仍未批准，按信息价值重新选择下一窗口 |
+| 下一步 | 固定完整Sparge源码/隔离有界CPU构建/wrapper；GPU成本profile、实际QKV、数值/净速度按具体范围重新提议，原4GPUh提案仍未批准 |
 
 证据：[控制结果](research/30_W1_VQA_INPUT_CONTROLS_RESULTS.md)、[控制终态审计](reports/w1_vqa_controls_r1_audit.json)、[本地重算](reports/w1_vqa_controls_r1_local_recompute.json)、[原VQA结果](research/28_W1_DEVELOPMENT_VQA_RESULTS.md)、[账本](reports/budget.json)。部分场景在三条件均相同不能隐去；即使controls通过也没有新的物理质量正结果。
 此前：[固定重放结果](research/24_W1_FIXED_REPLAY_RESULTS.md)、[重放完整汇总](reports/w1_replay_r1_summary.json)、[CAL8机制结果](research/21_W1D_CAL8_RESULTS.md)、[CAL8分布/排序](reports/w1d_cal8_r1_analysis.json)。

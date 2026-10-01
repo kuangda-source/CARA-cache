@@ -1,3 +1,13 @@
+## 最新 CPU 进展 — WC-S0 源码与实际 checkpoint 接口审计
+
+2026-10-01：实际 Cosmos2B checkpoint 完整 SHA/meta689 读取通过，28 层注意力 336 个权重形状符合 2048/16heads/head128；历史 hidden `[1,24,27,48,2048]` 推导 QKV `[1,31104,16,128]`，尚未直接 QKV hook。六个 runtime 文件本地/服务器 SHA 一致，CPU R1/R2 均退出、CUDA 未初始化、账本未变。
+
+固定 SpargeAttn commit ae5b629 的 11 个源码文件已审计。初版只接 deep self-attention2..27，保留 probe/cross/QKV/RoPE，并展平候选输出。公开 full-mask 默认仍 PV 跳过；S1 改用已确认的 no-PV binding，dense/full-QK-no-PV/sparse-QK-no-PV 分离块稀疏与量化/PV 混杂。默认 nvcc10.1，但另有 CUDA12.2；只满足最低构建要求，未 build/install/kernel/profile。
+
+[完整 S0 CPU 审计与下一步](../../research/56_WC_S0_SOURCE_SHAPE_AND_KERNEL_AUDIT.md)。下一非GPU步骤为固定完整源码/隔离环境/有界构建与 wrapper 准备；S0成本 profile/S1实际误差和净速度仍需 GPU 范围决策。没有新方法质量—时间结果；预算仍3.6512467238638138/4GPUh，余1255.511794秒，原新4GPUh未批准。无人工评审或新GPU任务。
+
+## 以下为历史快照
+
 ## 最新设计 — WC-S有界计算压缩分支（v1.2）
 
 2026-10-01最新讨论已整合为长程计划v1.2：受质量与行为保持约束的计算压缩。下一非GPU方法准备为WC-S0源码/真实shape/成本方案，之后按依赖做S1真实kernel（dense/full-mask/sparse）→S2四臂固定轨迹→S3单模块替换与便宜刷新；有机制缺口才S4三档/S5稀疏增量。稀疏刷新不能作true dense anchor。

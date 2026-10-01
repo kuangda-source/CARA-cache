@@ -1,5 +1,7 @@
 # Codex 首批执行说明：WorldCache 优先，OMR 待资源解锁
 
+2026-10-01执行更新：S0实际CPU checkpoint/source接口审计通过，构建/直接QKV/profile未通过；公开full-QK默认仍PV跳过，S1首轮改为dense/full-QK-no-PV/sparse-QK-no-PV并另列PV因子。详见[实际审计](../research/56_WC_S0_SOURCE_SHAPE_AND_KERNEL_AUDIT.md)。GPU预算不变。
+
 **日期：** 2026-09-29；2026-10-01更新至v1.2
 **对应总计划：** `LONG_HORIZON_EXPERIMENT_PLAN_WorldCache_OMR_20260929.md`  
 **用途：** 把下面正文交给当前项目主线程。它要求接续现有项目，不要求先重建科研自动化框架。本文本不是已运行的实验报告。

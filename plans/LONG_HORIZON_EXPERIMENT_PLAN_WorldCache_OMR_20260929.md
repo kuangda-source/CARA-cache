@@ -1,5 +1,7 @@
 # 视频世界模型质量—效率改进：长程实验计划
 
+2026-10-01执行更新：S0实际CPU checkpoint/source接口审计通过，构建/直接QKV/profile未通过；公开full-QK默认仍PV跳过，S1首轮改为dense/full-QK-no-PV/sparse-QK-no-PV并另列PV因子。详见[实际审计](../research/56_WC_S0_SOURCE_SHAPE_AND_KERNEL_AUDIT.md)。GPU预算不变。
+
 **版本：** v1.2（2026-10-01 整合计算压缩 / 稀疏刷新 / 模块取舍）
 **制定日期：** 2026-09-29  
 **周期：** 12–16 个有效工作周；遇到权重、GPU 排队或评测资源阻塞顺延，不把日历时间当作实验进度。  
