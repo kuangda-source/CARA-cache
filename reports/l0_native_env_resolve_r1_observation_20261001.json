@@ -1,0 +1,107 @@
+{
+  "observed_unix": 1790813257.032126,
+  "supervisor": {
+    "pid": 2509814,
+    "status": "RUNNING",
+    "source_commit": "78308f989dcbb12dc032a19ba588747da74c611d",
+    "source_sha256": {
+      "scripts/prepare_l0_native_environment.py": "161a1876c3038654e5d4150a38e17e13f1d79f5d79ad1c4c380f7c3f8d99a008",
+      "manifests/l0_native_environment_proposed_pins_20261001.json": "389e793c4041dce5dfa4223cb4e7c57095b25b262417b8ead27462bdb3291286",
+      "reports/l0_native_wheels_r1_terminal_audit_20261001.json": "2b5bcf69e3e03da263395463cef7cf2e7f07d521735d8cb474a6d817e43af725"
+    },
+    "started_unix": 1790813221.5345595,
+    "cpu_max_wall_seconds": 600,
+    "gpu_workload_started": false,
+    "budget_before": {
+      "batch": "F0-F1",
+      "cap_gpu_hours": 4,
+      "used_gpu_hours": 3.6512467238638138,
+      "gpu_jobs_launched": 22,
+      "status": "W1_VQA_CONTROLS_REQUIRES_REVIEW",
+      "gpu_import_probes_completed": 1,
+      "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts"
+    },
+    "child_pid": 2509815,
+    "command": [
+      "timeout",
+      "--kill-after=10",
+      "590",
+      "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python",
+      "/home/gaokuangda/data/gkd/worldcache_omr/.sync/l0-native-environment-code-r1/scripts/prepare_l0_native_environment.py",
+      "--root",
+      "/home/gaokuangda/data/gkd/worldcache_omr",
+      "--pins",
+      "/home/gaokuangda/data/gkd/worldcache_omr/.sync/l0-native-environment-code-r1/manifests/l0_native_environment_proposed_pins_20261001.json",
+      "--wheel-audit",
+      "/home/gaokuangda/data/gkd/worldcache_omr/.sync/l0-native-environment-code-r1/reports/l0_native_wheels_r1_terminal_audit_20261001.json",
+      "--output",
+      "/home/gaokuangda/data/gkd/worldcache_omr/outputs/l0-native-env-resolve-r1",
+      "--mode",
+      "resolve"
+    ]
+  },
+  "phase": {
+    "pid": 2509816,
+    "started_unix": 1790813221.5925024,
+    "status": "RUNNING",
+    "mode": "resolve",
+    "source_sha256": {
+      "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/.sync/l0-native-environment-code-r1/scripts/prepare_l0_native_environment.py": "161a1876c3038654e5d4150a38e17e13f1d79f5d79ad1c4c380f7c3f8d99a008",
+      "/home/gaokuangda/data/gkd/worldcache_omr/.sync/l0-native-environment-code-r1/manifests/l0_native_environment_proposed_pins_20261001.json": "389e793c4041dce5dfa4223cb4e7c57095b25b262417b8ead27462bdb3291286",
+      "/home/gaokuangda/data/gkd/worldcache_omr/.sync/l0-native-environment-code-r1/reports/l0_native_wheels_r1_terminal_audit_20261001.json": "2b5bcf69e3e03da263395463cef7cf2e7f07d521735d8cb474a6d817e43af725"
+    },
+    "environment_root": "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/.sync/l0-native-env-r1",
+    "inventory_before": {
+      "prefix": "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/.sync/l0-native-env-r1",
+      "base_prefix": "/home/gaokuangda/data/gkd/miniconda3/envs/wan22-ti2v5b-physcache-m0",
+      "packages": []
+    },
+    "gpu_workload_started": false,
+    "cpu_max_wall_seconds": 600,
+    "command": [
+      "/home/gaokuangda/.local/bin/uv",
+      "pip",
+      "compile",
+      "/home/gaokuangda/data/gkd/worldcache_omr/outputs/l0-native-env-resolve-r1/requirements.in",
+      "--python",
+      "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/.sync/l0-native-env-r1/bin/python",
+      "--no-config",
+      "--generate-hashes",
+      "--no-header",
+      "--no-annotate",
+      "--no-python-downloads",
+      "--default-index",
+      "https://pypi.org/simple",
+      "--output-file",
+      "/home/gaokuangda/data/gkd/worldcache_omr/outputs/l0-native-env-resolve-r1/requirements.txt",
+      "--only-binary=:all:"
+    ],
+    "pure_antlr_source_allowed": false,
+    "child_pid": 2509822
+  },
+  "processes": {
+    "2509814": {
+      "cmdline": "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python /home/gaokuangda/data/gkd/worldcache_omr/.sync/l0-native-environment-code-r1/supervisor-resolve-r1.py ",
+      "cuda_visible_devices_empty": true
+    },
+    "2509815": {
+      "cmdline": "timeout --kill-after=10 590 /home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python /home/gaokuangda/data/gkd/worldcache_omr/.sync/l0-native-environment-code-r1/scripts/prepare_l0_native_environment.py --root /home/gaokuangda/data/gkd/worldcache_omr --pins /home/gaokuangda/data/gkd/worldcache_omr/.sync/l0-native-environment-code-r1/manifests/l0_native_environment_proposed_pins_20261001.json --wheel-audit /home/gaokuangda/data/gkd/worldcache_omr/.sync/l0-native-environment-code-r1/reports/l0_native_wheels_r1_terminal_audit_20261001.json --output /home/gaokuangda/data/gkd/worldcache_omr/outputs/l0-native-env-resolve-r1 --mode resolve ",
+      "cuda_visible_devices_empty": true
+    },
+    "2509816": {
+      "cmdline": "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python /home/gaokuangda/data/gkd/worldcache_omr/.sync/l0-native-environment-code-r1/scripts/prepare_l0_native_environment.py --root /home/gaokuangda/data/gkd/worldcache_omr --pins /home/gaokuangda/data/gkd/worldcache_omr/.sync/l0-native-environment-code-r1/manifests/l0_native_environment_proposed_pins_20261001.json --wheel-audit /home/gaokuangda/data/gkd/worldcache_omr/.sync/l0-native-environment-code-r1/reports/l0_native_wheels_r1_terminal_audit_20261001.json --output /home/gaokuangda/data/gkd/worldcache_omr/outputs/l0-native-env-resolve-r1 --mode resolve ",
+      "cuda_visible_devices_empty": true
+    },
+    "2509822": {
+      "cmdline": "/home/gaokuangda/.local/bin/uv pip compile /home/gaokuangda/data/gkd/worldcache_omr/outputs/l0-native-env-resolve-r1/requirements.in --python /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/.sync/l0-native-env-r1/bin/python --no-config --generate-hashes --no-header --no-annotate --no-python-downloads --default-index https://pypi.org/simple --output-file /home/gaokuangda/data/gkd/worldcache_omr/outputs/l0-native-env-resolve-r1/requirements.txt --only-binary=:all: ",
+      "cuda_visible_devices_empty": true
+    }
+  },
+  "environment_lock_held": true,
+  "source_hashes_match": true,
+  "budget_unchanged": true,
+  "gpu_workload_started": false,
+  "phase_log_tail": "",
+  "console_tail": "",
+  "requirements": null
+}

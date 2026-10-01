@@ -1,3 +1,11 @@
+## 最新CPU运行 — 原生完整依赖解析
+
+隔离env-resolve-r1/source78308f9 已唯一启动，4PIDs 2509814/2509815/2509816/2509822 实际live/环境锁持有；CPU600秒上限，官方PyPI TLS metadata预检通过。四个已审计local wheel是固定输入，完整transitive hash lock尚未完成；新env仍未安装/source与GPU账本不变。
+
+[运行卡](46_L0_NATIVE_ENV_DEPENDENCY_RESOLUTION_RUN.md)。同handle观察，不重复launch。
+
+## 以下为历史快照
+
 ## 最新资源终态 — 四个native binary完整通过
 
 四个native binary全部获取并fresh审计通过：997270087字节，CPU1533.184018秒；三PyTorch官方SHA匹配，Flash官方asset ID/name/size/URL和actual local SHA/CRC/metadata通过（官方digest仍UNKNOWN）。全部3PIDs退出/下载锁释放/source与GPU账本不变，仅此次owned forward已关闭。隔离env仍空，未安装/import或新GPU。

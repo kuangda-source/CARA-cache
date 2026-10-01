@@ -1,3 +1,5 @@
+最新CPU运行：[隔离原生完整依赖解析](research/46_L0_NATIVE_ENV_DEPENDENCY_RESOLUTION_RUN.md)，尚未安装/实际native import。
+
 最新资源终态：[完整native binary验收及CPU导入保护](research/45_L0_NATIVE_BINARY_ACCEPTANCE_AND_CPU_IMPORT_GUARD.md)，完整依赖安装/原生环境尚待。
 
 最新资源状态：[native binary CPU获取运行](research/44_L0_NATIVE_WHEEL_ACQUISITION_RUN.md)，完整payload/环境尚未验收。
