@@ -1,3 +1,11 @@
+## 最新CPU终态 — 实际原生导入、meta架构与tokenizer
+
+原生probe-r1/source0da2b73已exit0/CPU20.307796秒，独立终态审计通过；actual Torch/Torch._C/Flash Python与extension origins/SHA、CPPABI false、pinned60完整Wan import（明确仅T5默认设备CPU guard）通过，825meta结构对实际base headers一致、真实tokenizer512与conditional scope签名/恢复通过。原3PIDs退出/环境锁释放，native60/installed93/source与GPU账本未变、CUDA未初始化。没有实际DiT/T5/VAE权重load、forward、完整任务或GPU parity。
+
+[验收与下一CPU门](54_L0_ACTUAL_NATIVE_CPU_IMPORT_ACCEPTANCE.md)。当前无在途CPU/GPU作业，owned16501/16502已在各自终态审计后关闭，Shared FRPC/Clash未改。下一准备actual component CPU load；所有旧下载/resolve/install/fusion/audit/probe launch均不可重跑。不要重复本次审计。
+
+## 以下为历史快照
+
 ## 最新安装终态 — 实际93包完整验收
 
 隔离install-r2/source960a57e已exit0/CPU51.886223秒终态；fresh实际93 inventory逐版本符合原图，0缺包/0extra/0wrong。原4+新6 wheel完整SHA不变，4PIDs退出/环境锁释放/source与GPU账本不变，仅owned16502关闭。installed_lock已写入；actual native import/ABI/825meta/tokenizer/任务与GPU尚未验收。

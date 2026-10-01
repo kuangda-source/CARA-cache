@@ -1,0 +1,362 @@
+{
+  "observed_unix": 1790819321.172586,
+  "supervisor": {
+    "pid": 2515938,
+    "status": "NATIVE_CPU_PROBE_TERMINAL_REQUIRES_AUDIT",
+    "source_commit": "0da2b738ce50787d78d6b95b77cd7ffda2616c92",
+    "source_sha256": {
+      "scripts/probe_l0_native_runtime.py": "f099bcce12ad60ebf41d2eef03b814cecc10e152b990afef31e2932cf295c765",
+      "src/wcomr/__init__.py": "b9996da0a87bb746cdac0935ead475246fc34d88b37e73f63f14e5065494f311",
+      "src/wcomr/native_cpu_import.py": "42b0eb980fa3290ee56b6fa1d3e3fe4ca168c80349ca8e83767d7e8507cf5a1b",
+      "src/wcomr/wan_t2v_conditional.py": "4853df15e3bbc949695077f940454a8d7b6e508b80364044b635da3e69f65773",
+      "manifests/l0_native_runtime_source_20261001.json": "b8751f2a3215e4425d5de45c3201278131e691e7f3b38772afc5bc3b6fe52e9a",
+      "manifests/l0_cpu_fusion_protocol_20261001.json": "f3e9a660ed7433a3fe4ce066f3a2fb0464b394ca93ee052cb109f39c98ad3e8a",
+      "manifests/l0_native_environment_installed_lock_20261001.json": "ecb27632e8e322aec119a9543d3b8a689aab1db1a06d077e21fa012846c8f25a"
+    },
+    "started_unix": 1790819281.3049703,
+    "cpu_max_wall_seconds": 600,
+    "gpu_workload_started": false,
+    "budget_before": {
+      "batch": "F0-F1",
+      "cap_gpu_hours": 4,
+      "used_gpu_hours": 3.6512467238638138,
+      "gpu_jobs_launched": 22,
+      "status": "W1_VQA_CONTROLS_REQUIRES_REVIEW",
+      "gpu_import_probes_completed": 1,
+      "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts"
+    },
+    "child_pid": 2515939,
+    "command": [
+      "timeout",
+      "--kill-after=10",
+      "590",
+      "/home/gaokuangda/data/gkd/worldcache_omr/.sync/l0-native-env-r1/bin/python",
+      "/home/gaokuangda/data/gkd/worldcache_omr/.sync/l0-native-runtime-probe-code-r1/scripts/probe_l0_native_runtime.py",
+      "--source",
+      "/home/gaokuangda/data/gkd/worldcache_omr/.sync/l0-native-official-42bf4cf-r1",
+      "--source-lock",
+      "/home/gaokuangda/data/gkd/worldcache_omr/.sync/l0-native-runtime-probe-code-r1/manifests/l0_native_runtime_source_20261001.json",
+      "--protocol",
+      "/home/gaokuangda/data/gkd/worldcache_omr/.sync/l0-native-runtime-probe-code-r1/manifests/l0_cpu_fusion_protocol_20261001.json",
+      "--base",
+      "/home/gaokuangda/data/gkd/Wan/checkpoints/Wan2.2-TI2V-5B-modelscope-master-20260901",
+      "--output",
+      "/home/gaokuangda/data/gkd/worldcache_omr/outputs/l0-native-runtime-probe-r1/probe.json",
+      "--environment-root",
+      "/home/gaokuangda/data/gkd/worldcache_omr/.sync/l0-native-env-r1",
+      "--environment-lock",
+      "/home/gaokuangda/data/gkd/worldcache_omr/.sync/l0-native-runtime-probe-code-r1/manifests/l0_native_environment_installed_lock_20261001.json"
+    ],
+    "ld_library_path_removed_for_isolated_probe": true,
+    "exit_code": 0,
+    "ended_unix": 1790819301.613048,
+    "wall_seconds": 20.307796026114374,
+    "budget_after": {
+      "batch": "F0-F1",
+      "cap_gpu_hours": 4,
+      "used_gpu_hours": 3.6512467238638138,
+      "gpu_jobs_launched": 22,
+      "status": "W1_VQA_CONTROLS_REQUIRES_REVIEW",
+      "gpu_import_probes_completed": 1,
+      "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts"
+    },
+    "budget_unchanged": true,
+    "source_hashes_match_after": true
+  },
+  "probe": {
+    "pid": 2515940,
+    "started_unix": 1790819281.6399655,
+    "status": "CPU_GUARDED_NATIVE_IMPORT_META_ARCHITECTURE_TOKENIZER_AND_SCOPE_PASS_NOT_MODEL_GPU",
+    "gpu_workload_started": false,
+    "python": "3.11.15 (main, Mar 11 2026, 17:20:07) [GCC 14.3.0]",
+    "interpreter": "/home/gaokuangda/data/gkd/worldcache_omr/.sync/l0-native-env-r1/bin/python",
+    "environment_prefix": "/home/gaokuangda/data/gkd/worldcache_omr/.sync/l0-native-env-r1",
+    "scope": "Native package import with explicit T5 default-device CPU substitution, meta DiT architecture, real tokenizer and scoped method construction. No full weights, forward, VAE, GPU or task parity.",
+    "requirements": [
+      {
+        "requirement": "torch>=2.4.0",
+        "version": "2.4.1+cu121",
+        "satisfies": true
+      },
+      {
+        "requirement": "torchvision>=0.19.0",
+        "version": "0.19.1+cu121",
+        "satisfies": true
+      },
+      {
+        "requirement": "torchaudio",
+        "version": "2.4.1+cu121",
+        "satisfies": true
+      },
+      {
+        "requirement": "opencv-python>=4.9.0.80",
+        "version": "4.11.0.86",
+        "satisfies": true
+      },
+      {
+        "requirement": "diffusers>=0.31.0",
+        "version": "0.37.1",
+        "satisfies": true
+      },
+      {
+        "requirement": "transformers>=4.49.0,<=4.51.3",
+        "version": "4.51.3",
+        "satisfies": true
+      },
+      {
+        "requirement": "tokenizers>=0.20.3",
+        "version": "0.21.4",
+        "satisfies": true
+      },
+      {
+        "requirement": "accelerate>=1.1.1",
+        "version": "1.13.0",
+        "satisfies": true
+      },
+      {
+        "requirement": "tqdm",
+        "version": "4.67.3",
+        "satisfies": true
+      },
+      {
+        "requirement": "imageio[ffmpeg]",
+        "version": "2.37.3",
+        "satisfies": true
+      },
+      {
+        "requirement": "easydict",
+        "version": "1.13",
+        "satisfies": true
+      },
+      {
+        "requirement": "ftfy",
+        "version": "6.3.1",
+        "satisfies": true
+      },
+      {
+        "requirement": "dashscope",
+        "version": "1.25.15",
+        "satisfies": true
+      },
+      {
+        "requirement": "imageio-ffmpeg",
+        "version": "0.6.0",
+        "satisfies": true
+      },
+      {
+        "requirement": "flash_attn",
+        "version": "2.7.4.post1",
+        "satisfies": true
+      },
+      {
+        "requirement": "numpy>=1.23.5,<2",
+        "version": "1.26.4",
+        "satisfies": true
+      }
+    ],
+    "source_files": 60,
+    "source_sha256": "b8751f2a3215e4425d5de45c3201278131e691e7f3b38772afc5bc3b6fe52e9a",
+    "environment_lock_sha256": "ecb27632e8e322aec119a9543d3b8a689aab1db1a06d077e21fa012846c8f25a",
+    "pinned_packages": [
+      {
+        "requirement": "torch==2.4.1+cu121",
+        "installed_version": "2.4.1+cu121"
+      },
+      {
+        "requirement": "torchvision==0.19.1+cu121",
+        "installed_version": "0.19.1+cu121"
+      },
+      {
+        "requirement": "torchaudio==2.4.1+cu121",
+        "installed_version": "2.4.1+cu121"
+      },
+      {
+        "requirement": "diffusers==0.37.1",
+        "installed_version": "0.37.1"
+      },
+      {
+        "requirement": "transformers==4.51.3",
+        "installed_version": "4.51.3"
+      },
+      {
+        "requirement": "tokenizers==0.21.4",
+        "installed_version": "0.21.4"
+      },
+      {
+        "requirement": "accelerate==1.13.0",
+        "installed_version": "1.13.0"
+      },
+      {
+        "requirement": "easydict==1.13",
+        "installed_version": "1.13"
+      },
+      {
+        "requirement": "ftfy==6.3.1",
+        "installed_version": "6.3.1"
+      },
+      {
+        "requirement": "imageio==2.37.3",
+        "installed_version": "2.37.3"
+      },
+      {
+        "requirement": "imageio-ffmpeg==0.6.0",
+        "installed_version": "0.6.0"
+      },
+      {
+        "requirement": "tqdm==4.67.3",
+        "installed_version": "4.67.3"
+      },
+      {
+        "requirement": "dashscope==1.25.15",
+        "installed_version": "1.25.15"
+      },
+      {
+        "requirement": "safetensors==0.7.0",
+        "installed_version": "0.7.0"
+      },
+      {
+        "requirement": "peft==0.17.1",
+        "installed_version": "0.17.1"
+      },
+      {
+        "requirement": "librosa==0.11.0",
+        "installed_version": "0.11.0"
+      },
+      {
+        "requirement": "soundfile==0.14.0",
+        "installed_version": "0.14.0"
+      },
+      {
+        "requirement": "omegaconf==2.3.0",
+        "installed_version": "2.3.0"
+      },
+      {
+        "requirement": "einops==0.8.2",
+        "installed_version": "0.8.2"
+      },
+      {
+        "requirement": "sentencepiece==0.2.1",
+        "installed_version": "0.2.1"
+      },
+      {
+        "requirement": "timm==1.0.26",
+        "installed_version": "1.0.26"
+      },
+      {
+        "requirement": "numpy==1.26.4",
+        "installed_version": "1.26.4"
+      },
+      {
+        "requirement": "opencv-python==4.11.0.86",
+        "installed_version": "4.11.0.86"
+      },
+      {
+        "requirement": "decord==0.6.0",
+        "installed_version": "0.6.0"
+      },
+      {
+        "requirement": "flash-attn==2.7.4.post1",
+        "installed_version": "2.7.4.post1"
+      }
+    ],
+    "torch_version": "2.4.1+cu121",
+    "torch_cpp_abi": false,
+    "cuda_initialized": false,
+    "binary_module_origins": {
+      "torch": {
+        "path": "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/.sync/l0-native-env-r1/lib/python3.11/site-packages/torch/__init__.py",
+        "sha256": "34fd26c3046775a70a6a654df60afb362b2f2e98b2f9b8e713c8763b7a80ff83"
+      },
+      "torch._C": {
+        "path": "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/.sync/l0-native-env-r1/lib/python3.11/site-packages/torch/_C.cpython-311-x86_64-linux-gnu.so",
+        "sha256": "0e042b419d54586f02ab2140388ae415e3816dd46c2fcb911fb47a2d8375191e"
+      },
+      "flash_attn": {
+        "path": "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/.sync/l0-native-env-r1/lib/python3.11/site-packages/flash_attn/__init__.py",
+        "sha256": "19de6aae2ed6ace6bd29a0fa45c1872da7302b308bc2461144d3152f1a287ab8"
+      },
+      "flash_attn_2_cuda": {
+        "path": "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/.sync/l0-native-env-r1/lib/python3.11/site-packages/flash_attn_2_cuda.cpython-311-x86_64-linux-gnu.so",
+        "sha256": "85125c891d6f5c04288b2f1d1fd49e4b33c7096e2b33a0c244279e61aa0440ff"
+      }
+    },
+    "module_origins": {
+      "wan.configs.shared_config": "wan/configs/shared_config.py",
+      "wan.configs.wan_i2v_A14B": "wan/configs/wan_i2v_A14B.py",
+      "wan.configs.wan_s2v_14B": "wan/configs/wan_s2v_14B.py",
+      "wan.configs.wan_t2v_A14B": "wan/configs/wan_t2v_A14B.py",
+      "wan.configs.wan_ti2v_5B": "wan/configs/wan_ti2v_5B.py",
+      "wan.configs.wan_animate_14B": "wan/configs/wan_animate_14B.py",
+      "wan.configs": "wan/configs/__init__.py",
+      "wan.distributed": "wan/distributed/__init__.py",
+      "wan.modules.attention": "wan/modules/attention.py",
+      "wan.modules.model": "wan/modules/model.py",
+      "wan.modules.tokenizers": "wan/modules/tokenizers.py",
+      "wan.modules.t5": "wan/modules/t5.py",
+      "wan.modules.vae2_1": "wan/modules/vae2_1.py",
+      "wan.modules.vae2_2": "wan/modules/vae2_2.py",
+      "wan.modules": "wan/modules/__init__.py",
+      "wan.distributed.fsdp": "wan/distributed/fsdp.py",
+      "wan.distributed.util": "wan/distributed/util.py",
+      "wan.distributed.ulysses": "wan/distributed/ulysses.py",
+      "wan.distributed.sequence_parallel": "wan/distributed/sequence_parallel.py",
+      "wan.utils.fm_solvers": "wan/utils/fm_solvers.py",
+      "wan.utils.fm_solvers_unipc": "wan/utils/fm_solvers_unipc.py",
+      "wan.utils": "wan/utils/__init__.py",
+      "wan.image2video": "wan/image2video.py",
+      "wan.modules.s2v.audio_encoder": "wan/modules/s2v/audio_encoder.py",
+      "wan.modules.s2v.auxi_blocks": "wan/modules/s2v/auxi_blocks.py",
+      "wan.modules.s2v.audio_utils": "wan/modules/s2v/audio_utils.py",
+      "wan.modules.s2v.s2v_utils": "wan/modules/s2v/s2v_utils.py",
+      "wan.modules.s2v.motioner": "wan/modules/s2v/motioner.py",
+      "wan.modules.s2v.model_s2v": "wan/modules/s2v/model_s2v.py",
+      "wan.modules.s2v": "wan/modules/s2v/__init__.py",
+      "wan.speech2video": "wan/speech2video.py",
+      "wan.text2video": "wan/text2video.py",
+      "wan.utils.utils": "wan/utils/utils.py",
+      "wan.textimage2video": "wan/textimage2video.py",
+      "wan.modules.animate.face_blocks": "wan/modules/animate/face_blocks.py",
+      "wan.modules.animate.motion_encoder": "wan/modules/animate/motion_encoder.py",
+      "wan.modules.animate.model_animate": "wan/modules/animate/model_animate.py",
+      "wan.modules.animate.xlm_roberta": "wan/modules/animate/xlm_roberta.py",
+      "wan.modules.animate.clip": "wan/modules/animate/clip.py",
+      "wan.modules.animate": "wan/modules/animate/__init__.py",
+      "wan.modules.animate.animate_utils": "wan/modules/animate/animate_utils.py",
+      "wan.animate": "wan/animate.py",
+      "wan": "wan/__init__.py"
+    },
+    "cpu_import_guard": {
+      "scope": "CPU probe only; T5 constructor default substituted with CPU in this process",
+      "t5_sha256": "8b0cebf3192c542f92a344255a06c203df3ba24160715899a055cc8de0cd930f",
+      "allowed_line": 478,
+      "current_device_calls": 1,
+      "original_query_restored": true
+    },
+    "meta_tensor_count": 825,
+    "weights_loaded": false,
+    "finished_unix": 1790819300.3544261,
+    "tokenizer_shape": [
+      1,
+      512
+    ],
+    "tokenizer_valid_tokens": 10,
+    "tokenizer_ids_sha256": "3da94cb2c4577a0faf68aed36ecbd496ebacf3291e11451005498cd8cedba2b5",
+    "adaptation": {
+      "status": "SCOPED_NATIVE_T2V_GUIDE1_CONDITIONAL_ADAPTATION_NOT_GPU_PARITY",
+      "source_sha256": "228f2fabf23014ed41ec6b8cd713d5be7371bb558501c71a62a0258b491a877b",
+      "source_path": "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/.sync/l0-native-official-42bf4cf-r1/wan/textimage2video.py",
+      "scope": "T2V only; original guide !=1 CFG arithmetic retained. No I2V adaptation."
+    },
+    "source_unchanged": true
+  },
+  "processes": {
+    "2515938": null,
+    "2515939": null,
+    "2515940": null
+  },
+  "environment_lock_held": false,
+  "source_hashes_match": true,
+  "budget_unchanged": true,
+  "gpu_workload_started": false,
+  "log_tail": "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/.sync/l0-native-official-42bf4cf-r1/wan/modules/s2v/motioner.py:30: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.\n  @amp.autocast(enabled=False)\n/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/.sync/l0-native-official-42bf4cf-r1/wan/modules/s2v/motioner.py:41: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.\n  @amp.autocast(enabled=False)\n/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/.sync/l0-native-official-42bf4cf-r1/wan/modules/s2v/model_s2v.py:61: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.\n  @amp.autocast(enabled=False)\n/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/.sync/l0-native-official-42bf4cf-r1/wan/modules/s2v/model_s2v.py:79: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.\n  @amp.autocast(enabled=False)\n{\"status\": \"CPU_GUARDED_NATIVE_IMPORT_META_ARCHITECTURE_TOKENIZER_AND_SCOPE_PASS_NOT_MODEL_GPU\", \"receipt\": \"/home/gaokuangda/data/gkd/worldcache_omr/outputs/l0-native-runtime-probe-r1/probe.json\"}\n"
+}
