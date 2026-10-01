@@ -1,3 +1,11 @@
+## 最新安装终态 — 实际93包完整验收
+
+隔离install-r2/source960a57e已exit0/CPU51.886223秒终态；fresh实际93 inventory逐版本符合原图，0缺包/0extra/0wrong。原4+新6 wheel完整SHA不变，4PIDs退出/环境锁释放/source与GPU账本不变，仅owned16502关闭。installed_lock已写入；actual native import/ABI/825meta/tokenizer/任务与GPU尚未验收。
+
+[验收与下一CPU门](53_L0_LOCAL93_INSTALL_ACCEPTANCE.md)。下一新native probe-r1尚未提交；旧install/resolve/download/审计launch均不可重跑。
+
+## 以下为历史快照
+
 ## 最新CPU运行 — local93独立安装r2
 
 隔离install-r2/source960a57e已唯一启动，4PIDs 2515483/2515484/2515485/2515492 实际live/环境锁持有，CPU1800秒cap。原4+新6实际payload fresh hash、原解析input与derived93重组成校验已过，UV确认93包/1.15秒，安装仍进行中；尚未安装终态/native import/模型/GPU。新stage8 files固定，source与GPU账本不变。
