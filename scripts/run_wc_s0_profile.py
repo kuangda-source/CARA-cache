@@ -73,6 +73,16 @@ def main():
         def forbidden(*args, **kwargs):
             raise RuntimeError('CUDA initialization forbidden in CPU source-binding check')
         torch.cuda._lazy_init = forbidden
+        # TE's @triton.autotune requests a benchmark callable while importing.
+        # CPU origin inspection never executes kernels or benchmarks. This guard
+        # is confined to the exiting CPU-check process; GPU execution is stock.
+        import triton
+        class ImportOnlyDriver:
+            def get_benchmarker(self):
+                return forbidden
+            def __getattr__(self, name):
+                raise RuntimeError('Triton driver access forbidden during CPU import: ' + name)
+        triton.runtime.driver.active = ImportOnlyDriver()
         identities = {}
         modules = {
             'cosmos_predict2.inference': 'cosmos_predict2/inference.py',
@@ -88,7 +98,8 @@ def main():
         assert not torch.cuda.is_initialized()
         print(json.dumps({'status': 'CPU_ACTUAL_COSMOS_IMPORT_ORIGINS_PASS_NO_MODEL_OR_CUDA',
                           'pid': os.getpid(), 'torch': torch.__version__, 'modules': identities,
-                          'cuda_initialized': False}))
+                          'cuda_initialized': False,
+                          'triton_guard': 'import-only benchmarker factory; returned callable denies execution; no model construction'}))
         return
     if not a.gpu_uuid or Path.cwd().resolve() != a.runtime.resolve():
         raise ValueError('Selected UUID and actual assembled runtime cwd required')

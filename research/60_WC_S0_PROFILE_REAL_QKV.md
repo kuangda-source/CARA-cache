@@ -27,3 +27,5 @@
 R1/source1824d1c，监督/timeout/runner PIDs2550284/2550298/2550300全部退出。缺少历史supervisor的PYTHONPATH导致实际import来自原生editable Cosmos，不是已固定runtime；在加载模型前`worldcache_utils` ImportError，无forward/capture/profile。独立失败审计payload/SHA/账本/释放通过，完整69.455333966762秒已计入现有额度，余1174.329762秒。不能把这个失败称生成结果。
 
 修复明确sys.path runtime与两个package，supervisor恢复历史PYTHONPATH并validate后再准入；新增CPU-import-check，用CUDA hidden和lazy-init拒绝核对实际Inference/WC/minimal_v4/attention origin及SHA，不构造模型。R2使用新stage/launch身份，不覆盖或重跑R1；750秒范围/同一场景/原4h cap不变。CPU6控制仍通过，实际import-origin门待验收。
+
+R2最初CPU full-import被TransformerEngine/Triton导入期autotune benchmarker的驱动探测拦住（0 active drivers），未GPU提交/未改账本。CPU-check增加仅导入期driver guard：提供返回拒绝执行函数的benchmarker factory，其他driver访问仍拒绝，进程退出即消失；真实GPU分支不做这些patch。这是guarded源码来源检查，不能当真实模型/内核parity。
