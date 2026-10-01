@@ -1,5 +1,7 @@
 # 视频世界模型质量—效率改进：长程实验计划
 
+2026-10-01后续执行：完整upstream两sm86扩展CPU构建/独立fresh审计通过，无PV wrapper同3CPU契约本地与实际Cosmos Torch通过；下一动态导入/ABI及有界GPUrunner准备，实际kernel/profile/质量尚待。见[构建终态](../research/57_WC_S1_ISOLATED_UPSTREAM_BUILD.md)。
+
 2026-10-01执行更新：S0实际CPU checkpoint/source接口审计通过，构建/直接QKV/profile未通过；公开full-QK默认仍PV跳过，S1首轮改为dense/full-QK-no-PV/sparse-QK-no-PV并另列PV因子。详见[实际审计](../research/56_WC_S0_SOURCE_SHAPE_AND_KERNEL_AUDIT.md)。GPU预算不变。
 
 **版本：** v1.2（2026-10-01 整合计算压缩 / 稀疏刷新 / 模块取舍）

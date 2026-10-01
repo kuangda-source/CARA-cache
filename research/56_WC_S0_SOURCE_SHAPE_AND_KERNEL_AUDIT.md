@@ -2,6 +2,8 @@
 
 日期：2026-10-01。状态：CPU_SOURCE_METADATA_PASS；S0 GPU 成本 profile、S1 构建/内核/质量均未通过。延续[计算压缩设计](55_WC_SPARSE_COMPUTE_COMPRESSION_DESIGN.md)，不扩充 GPU 账本。
 
+后续执行更新：两扩展CPU构建/独立package审计与无PV接口契约已通过，见[57_S1终态](57_WC_S1_ISOLATED_UPSTREAM_BUILD.md)。下文保留S0时点证据，GPU成本/实际kernel尚未验收。
+
 ## 本轮完成的证据
 
 重新验证既有 SSH 路线，实际服务器上执行 CPU checkpoint 元数据核对。R1 在读取权重前因 Python 3.10 没有 `hashlib.file_digest` 退出，9.249026 秒；改为流式 SHA 后用新身份 R2 完成，19.648997 秒。保留两个原始回执，不重跑旧身份。

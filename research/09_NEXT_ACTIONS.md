@@ -1,3 +1,11 @@
+## 最新终态 — WC-S1 两扩展构建与无 PV 接口 CPU 检查
+
+完整上游build-r1/source8047b15实际exit0/CPU648.948283秒，两个sm86扩展完整产出；fresh80 source/两binary SHA/8-file独立package审计通过。原build/entry/wrapper CPU PID均退出、构建锁释放、CUDA未初始化，Cosmos runtime与GPU账本不变。无PV wrapper在本地与实际Cosmos Torch的同3项CPU契约通过；不是GPUkernel或模型parity。
+
+[构建结果、警告与接续](57_WC_S1_ISOLATED_UPSTREAM_BUILD.md)。下一guarded package动态导入/ABI与no-PV binding门、有界GPUrunner准备；实际QKV/profile/误差/净速度仍待。原余额1255.511794秒、新4GPUh提案未批准；不重跑旧build或默认人评，无方法质量—时间收益。
+
+## 以下为历史快照
+
 ## 最新准备 — WC-S1 完整源码与有界 CPU 构建
 
 完整 SpargeAttn ae5b629 的80文件已逐Git blob/SHA通过，构建依赖与CUDA12.2实际清单已核对。隔离构建监督/CPU CUDA guard已实现，本地3个负控制通过；尚未提交真实编译。下一固定完整tree部署/服务器CPU控制/唯一900秒upstream build_ext，原Cosmos环境/runtime/账本不改，GPU内核与速度未验收。

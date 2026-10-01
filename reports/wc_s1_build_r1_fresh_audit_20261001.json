@@ -1,0 +1,114 @@
+{
+  "status": "FRESH80_SOURCE_2_SM86_BINARIES_AND8_PACKAGE_FILES_PASS_NOT_IMPORT_OR_KERNEL",
+  "observed_unix": 1790858381.8408124,
+  "pid": 2546293,
+  "scope": "fresh source/binary hashes and static ELF; assemble isolated package only; no extension import/kernel",
+  "original_pids_absent": {
+    "2538227": true,
+    "2538229": true,
+    "2545988": true
+  },
+  "build_lock_free": true,
+  "source_files_fresh_verified": 80,
+  "binary_audit": {
+    "lib/spas_sage_attn/_qattn.cpython-310-x86_64-linux-gnu.so": {
+      "sha256": "601ad33950cd9d6033720fdb338c15eca84768da18efad00452357366c05f14f",
+      "bytes": 26576128,
+      "elf_needed": [
+        "0x0000000000000001 (NEEDED)             \u5171\u4eab\u5e93\uff1a[libc10.so]",
+        "0x0000000000000001 (NEEDED)             \u5171\u4eab\u5e93\uff1a[libtorch.so]",
+        "0x0000000000000001 (NEEDED)             \u5171\u4eab\u5e93\uff1a[libtorch_cpu.so]",
+        "0x0000000000000001 (NEEDED)             \u5171\u4eab\u5e93\uff1a[libtorch_python.so]",
+        "0x0000000000000001 (NEEDED)             \u5171\u4eab\u5e93\uff1a[libcudart.so.12]",
+        "0x0000000000000001 (NEEDED)             \u5171\u4eab\u5e93\uff1a[libstdc++.so.6]",
+        "0x0000000000000001 (NEEDED)             \u5171\u4eab\u5e93\uff1a[libgcc_s.so.1]",
+        "0x0000000000000001 (NEEDED)             \u5171\u4eab\u5e93\uff1a[libc.so.6]"
+      ],
+      "cuda_arches": [
+        "86"
+      ],
+      "static_cuda_images": 218
+    },
+    "lib/spas_sage_attn/_fused.cpython-310-x86_64-linux-gnu.so": {
+      "sha256": "ad0ab3a6718c453d9c3185be386800a681fafbd86bfc532b3543c46bbaad1669",
+      "bytes": 13687936,
+      "elf_needed": [
+        "0x0000000000000001 (NEEDED)             \u5171\u4eab\u5e93\uff1a[libc10.so]",
+        "0x0000000000000001 (NEEDED)             \u5171\u4eab\u5e93\uff1a[libtorch.so]",
+        "0x0000000000000001 (NEEDED)             \u5171\u4eab\u5e93\uff1a[libtorch_python.so]",
+        "0x0000000000000001 (NEEDED)             \u5171\u4eab\u5e93\uff1a[libcudart.so.12]",
+        "0x0000000000000001 (NEEDED)             \u5171\u4eab\u5e93\uff1a[libstdc++.so.6]",
+        "0x0000000000000001 (NEEDED)             \u5171\u4eab\u5e93\uff1a[libgcc_s.so.1]",
+        "0x0000000000000001 (NEEDED)             \u5171\u4eab\u5e93\uff1a[libc.so.6]"
+      ],
+      "cuda_arches": [
+        "86"
+      ],
+      "static_cuda_images": 1
+    }
+  },
+  "compiler_warning_lines": [
+    "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-s1-source-build-r1/source/setup.py:150: UserWarning: CUDA 12.8 or higher is required for Sage2++",
+    "warnings.warn(\"CUDA 12.8 or higher is required for Sage2++\")",
+    "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/lib/python3.10/site-packages/setuptools/dist.py:759: SetuptoolsDeprecationWarning: License classifiers are deprecated.",
+    "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/lib/python3.10/site-packages/torch/utils/cpp_extension.py:480: UserWarning: The detected CUDA version (12.2) has a minor version mismatch with the version that was used to compile PyTorch (12.8). Most likely this shouldn't be a problem.",
+    "warnings.warn(CUDA_MISMATCH_WARN.format(cuda_str_version, torch.version.cuda))",
+    "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/lib/python3.10/site-packages/torch/utils/cpp_extension.py:490: UserWarning: There are no g++ version bounds defined for CUDA version 12.2",
+    "warnings.warn(f'There are no {compiler_name} version bounds defined for CUDA version {cuda_str_version}')",
+    "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/.sync/wc-s1-source-build-r1/source/csrc/fused/fused.cu(145): warning #549-D: variable \"block_sum_val\" is used before its value is set",
+    "Remark: The warnings can be suppressed with \"-diag-suppress <warning-number>\"",
+    "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/.sync/wc-s1-source-build-r1/source/csrc/fused/fused.cu(145): warning #549-D: variable \"block_sum_val\" is used before its value is set"
+  ],
+  "budget_sha256": "26d0cdb74628d57458fea05a51f5fe062e2dcd0cd1a2f06d1d8e7c34ea40da41",
+  "runtime_unchanged": true,
+  "packages": {
+    "torch": "2.7.1+cu128",
+    "setuptools": "79.0.1",
+    "packaging": "25.0",
+    "ninja": "1.13.0",
+    "einops": "0.8.1",
+    "triton": "3.3.1"
+  },
+  "package_files": {
+    "spas_sage_attn/__init__.py": {
+      "sha256": "f3293ff09459599bf8775e36591d1488ce5fcf2a5f24c8184679f2b6cec9d0d2",
+      "bytes": 199,
+      "origin": "pinned upstream Python source"
+    },
+    "spas_sage_attn/autotune.py": {
+      "sha256": "9dbd814a373cc8d0d6e7edbbee800e9576e7ed32d5ee3459f870dc2e988ee120",
+      "bytes": 15058,
+      "origin": "pinned upstream Python source"
+    },
+    "spas_sage_attn/core.py": {
+      "sha256": "24656fd6de6952e99bcba78ec56109d9c2075df3675efab80ca7541c32c8d3e7",
+      "bytes": 17191,
+      "origin": "pinned upstream Python source"
+    },
+    "spas_sage_attn/quant_per_block.py": {
+      "sha256": "e444520cdbb0f0528d109427abc7c1db27cb55dd34105db811b78b4d05667a30",
+      "bytes": 6368,
+      "origin": "pinned upstream Python source"
+    },
+    "spas_sage_attn/quant_per_warp_cuda.py": {
+      "sha256": "2a7b8e249b83a43abc728f1f2825c9e7949ce0927ad2520aca31bb8297c4bd7e",
+      "bytes": 6897,
+      "origin": "pinned upstream Python source"
+    },
+    "spas_sage_attn/utils.py": {
+      "sha256": "eecf9109d12bbf34e853e327c4fa8f1b60e66dca74ec1a6ca355236bbbd06325",
+      "bytes": 18494,
+      "origin": "pinned upstream Python source"
+    },
+    "spas_sage_attn/_qattn.cpython-310-x86_64-linux-gnu.so": {
+      "sha256": "601ad33950cd9d6033720fdb338c15eca84768da18efad00452357366c05f14f",
+      "bytes": 26576128,
+      "origin": "CPU upstream build artifact"
+    },
+    "spas_sage_attn/_fused.cpython-310-x86_64-linux-gnu.so": {
+      "sha256": "ad0ab3a6718c453d9c3185be386800a681fafbd86bfc532b3543c46bbaad1669",
+      "bytes": 13687936,
+      "origin": "CPU upstream build artifact"
+    }
+  }
+}

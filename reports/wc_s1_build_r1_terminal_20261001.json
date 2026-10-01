@@ -1,0 +1,76 @@
+{
+  "status": "CPU_UPSTREAM_TWO_EXTENSIONS_BUILT_NOT_IMPORT_OR_KERNEL",
+  "pid": 2538227,
+  "started_unix": 1790857502.8106036,
+  "scope": "upstream build_ext in isolated directory; no installation/import/kernel/GPU",
+  "max_wall_seconds": 900,
+  "source": "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-s1-source-build-r1/source",
+  "source_lock_sha256": "d5fafd01904065d1d1ccb603066b8ebebb75a13995ff0de8a0d86151273fc37b",
+  "entry_sha256": "014146b9e649db5c44847059d9b1c5de8a4601dee46f72d3864ed4d9d006e92e",
+  "runner_sha256": "a3ec1b64ed0bff0de3afd054e3f2f0eff303d5449ba4e64608b45b74f7cb6f0d",
+  "child_pid": 2538229,
+  "resources_before": {
+    "disk_free_bytes": 670742732800,
+    "memory_available_bytes": 59605577728
+  },
+  "upstream_commit": "ae5b629ebb41e41f86b3ea2ab5a3283f13ac151a",
+  "source_files_verified_before": 80,
+  "budget_sha256_before": "26d0cdb74628d57458fea05a51f5fe062e2dcd0cd1a2f06d1d8e7c34ea40da41",
+  "runtime_sha256_before": {
+    "networks/minimal_v4_dit.py": "a41a1772f694ee338e4b91f032428ea81f28e80fb90990e2db86eb7d1ce30071",
+    "inference/worldcache_utils.py": "b485cb8fd6e262a40e5823365c34ef7db1bc036c591d7577489e04077c515903"
+  },
+  "build_environment": {
+    "CUDA_VISIBLE_DEVICES": "",
+    "CUDA_HOME": "/usr/local/cuda-12.2",
+    "TORCH_CUDA_ARCH_LIST": "8.6",
+    "MAX_JOBS": "2",
+    "OMP_NUM_THREADS": "2"
+  },
+  "exit_code": 0,
+  "source_files_verified_after": 80,
+  "budget_sha256_after": "26d0cdb74628d57458fea05a51f5fe062e2dcd0cd1a2f06d1d8e7c34ea40da41",
+  "runtime_sha256_after": {
+    "networks/minimal_v4_dit.py": "a41a1772f694ee338e4b91f032428ea81f28e80fb90990e2db86eb7d1ce30071",
+    "inference/worldcache_utils.py": "b485cb8fd6e262a40e5823365c34ef7db1bc036c591d7577489e04077c515903"
+  },
+  "cuda_guard": {
+    "outcome": "UPSTREAM_BUILD_ENTRY_COMPLETED_NOT_IMPORT_OR_KERNEL",
+    "torch": "2.7.1+cu128",
+    "cuda_initialized_after": false,
+    "guard": "availability forced false; enumeration and lazy init rejected"
+  },
+  "artifacts": {
+    "lib/spas_sage_attn/_qattn.cpython-310-x86_64-linux-gnu.so": {
+      "sha256": "601ad33950cd9d6033720fdb338c15eca84768da18efad00452357366c05f14f",
+      "bytes": 26576128
+    },
+    "lib/spas_sage_attn/_fused.cpython-310-x86_64-linux-gnu.so": {
+      "sha256": "ad0ab3a6718c453d9c3185be386800a681fafbd86bfc532b3543c46bbaad1669",
+      "bytes": 13687936
+    }
+  },
+  "ended_unix": 1790858151.7588818,
+  "wall_seconds": 648.948282588739,
+  "log_sha256": "7e79072cab178b37a63e5edca5aea300ce3d5af4f60329bbbf04028a110546ff",
+  "log_bytes": 610586,
+  "diagnostic_excerpt": "build-r1/temp/csrc/fused/fused.o -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options ''\"'\"'-fPIC'\"'\"'' -O3 -std=c++17 -U__CUDA_NO_HALF_OPERATORS__ -U__CUDA_NO_HALF_CONVERSIONS__ --use_fast_math --threads=8 -Xptxas=-v -diag-suppress=174 -Xcompiler -include,cassert -D_GLIBCXX_USE_CXX11_ABI=1 -gencode arch=compute_86,code=sm_86 -DTORCH_API_INCLUDE_EXTENSION_H '-DPYBIND11_COMPILER_TYPE=\"_gcc\"' '-DPYBIND11_STDLIB=\"_libstdcpp\"' '-DPYBIND11_BUILD_ABI=\"_cxxabi1016\"' -DTORCH_EXTENSION_NAME=_fused -D_GLIBCXX_USE_CXX11_ABI=1\n/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/.sync/wc-s1-source-build-r1/source/csrc/fused/fused.cu(145): warning #549-D: variable \"block_sum_val\" is used before its value is set\n      s_mean_val = block_sum_val / fp8_padded_num_tokens;\n                   ^\n          detected during instantiation of \"void MeanScaleKernel<pad_size,sub_mean,T>(T *, int8_t *, float *, float *, float, uint32_t, uint32_t, uint32_t, uint32_t, uint32_t, uint32_t, uint32_t, uint32_t, uint32_t, uint32_t, uint32_t) [with pad_size=128U, sub_mean=false, T=half]\" at line 330\n\nRemark: The warnings can be suppressed with \"-diag-suppress <warning-number>\"\n\n/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/.sync/wc-s1-source-build-r1/source/csrc/fused/fused.cu(145): warning #549-D: variable \"block_sum_val\" is used before its value is set\n      s_mean_val = block_sum_val / fp8_padded_num_tokens;\n                   ^\n          detected during instantiation of \"void MeanScaleKernel<pad_size,sub_mean,T>(T *, int8_t *, float *, float *, float, uint32_t, uint32_t, uint32_t, uint32_t, uint32_t, uint32_t, uint32_t, uint32_t, uint32_t, uint32_t, uint32_t) [with pad_size=128U, sub_mean=false, T=nv_bfloat16]\" at line 330\n\nptxas info    : 19 bytes gmem\nptxas info    : Compiling entry function '_Z15MeanScaleKernelILj128ELb0E13__nv_bfloat16EvPT1_PaPfS4_fjjjjjjjjjjj' for 'sm_86'\nptxas info    : Function properties for _Z15MeanScaleKernelILj128ELb0E13__nv_bfloat16EvPT1_PaPfS4_fjjjjjjjjjjj\n    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads\nptxas info    : Used 35 registers, 260 bytes smem, 432 bytes cmem[0]\nptxas info    : Compiling entry function '_Z15MeanScaleKernelILj128ELb0E6__halfEvPT1_PaPfS4_fjjjjjjjjjjj' for 'sm_86'\nptxas info    : Function properties for _Z15MeanScaleKernelILj128ELb0E6__halfEvPT1_PaPfS4_fjjjjjjjjjjj\n    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads\nptxas info    : Used 35 registers, 260 bytes smem, 432 bytes cmem[0]\nptxas info    : Compiling entry function '_Z25TransposePadPermuteKernelILj128ELj64ELb1E13__nv_bfloat16EvPT2_S2_jjjjjjj' for 'sm_86'\nptxas info    : Function properties for _Z25TransposePadPermuteKernelILj128ELj64ELb1E13__nv_bfloat16EvPT2_S2_jjjjjjj\n    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads\nptxas info    : Used 21 registers, 32768 bytes smem, 396 bytes cmem[0]\nptxas info    : Compiling entry function '_Z25TransposePadPermuteKernelILj64ELj64ELb1E13__nv_bfloat16EvPT2_S2_jjjjjjj' for 'sm_86'\nptxas info    : Function properties for _Z25TransposePadPermuteKernelILj64ELj64ELb1E13__nv_bfloat16EvPT2_S2_jjjjjjj\n    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads\nptxas info    : Used 19 registers, 16384 bytes smem, 396 bytes cmem[0]\nptxas info    : Compiling entry function '_Z25TransposePadPermuteKernelILj128ELj64ELb1E6__halfEvPT2_S2_jjjjjjj' for 'sm_86'\nptxas info    : Function properties for _Z25TransposePadPermuteKernelILj128ELj64ELb1E6__halfEvPT2_S2_jjjjjjj\n    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads\nptxas info    : Used 21 registers, 32768 bytes smem, 396 bytes cmem[0]\nptxas info    : Compiling entry function '_Z25TransposePadPermuteKernelILj64ELj64ELb1E6__halfEvPT2_S2_jjjjjjj' for 'sm_86'\nptxas info    : Function properties for _Z25TransposePadPermuteKernelILj64ELj64ELb1E6__halfEvPT2_S2_jjjjjjj\n    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads\nptxas info    : Used 19 registers, 16384 bytes smem, 396 bytes cmem[0]\ng++ -pthread -B /home/gaokuangda/data/gkd/miniconda3/envs/cosmos/compiler_compat -Wno-unused-result -Wsign-compare -DNDEBUG -fwrapv -O2 -Wall -fPIC -O2 -isystem /home/gaokuangda/data/gkd/miniconda3/envs/cosmos/include -fPIC -O2 -isystem /home/gaokuangda/data/gkd/miniconda3/envs/cosmos/include -shared /home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-s1-source-build-r1/build-r1/temp/csrc/fused/fused.o /home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-s1-source-build-r1/build-r1/temp/csrc/fused/pybind.o -L/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/lib/python3.10/site-packages/torch/lib -L/usr/local/cuda-12.2/lib64 -lc10 -ltorch -ltorch_cpu -ltorch_python -lcudart -lc10_cuda -ltorch_cuda -o /home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-s1-source-build-r1/build-r1/lib/spas_sage_attn/_fused.cpython-310-x86_64-linux-gnu.so\n",
+  "observation": {
+    "observed_unix": 1790858163.0337806,
+    "processes": {
+      "pid": {
+        "pid": 2538227,
+        "live": false,
+        "stat": null
+      },
+      "child_pid": {
+        "pid": 2538229,
+        "live": false,
+        "stat": null
+      }
+    },
+    "log_bytes": 610586,
+    "log_tail": "XX11_ABI=1 -DTORCH_API_INCLUDE_EXTENSION_H '-DPYBIND11_COMPILER_TYPE=\"_gcc\"' '-DPYBIND11_STDLIB=\"_libstdcpp\"' '-DPYBIND11_BUILD_ABI=\"_cxxabi1016\"' -DTORCH_EXTENSION_NAME=_fused -D_GLIBCXX_USE_CXX11_ABI=1\n[2/2] /usr/local/cuda-12.2/bin/nvcc --generate-dependencies-with-compile --dependency-output /home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-s1-source-build-r1/build-r1/temp/csrc/fused/fused.o.d -I/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/lib/python3.10/site-packages/torch/include -I/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/lib/python3.10/site-packages/torch/include/torch/csrc/api/include -I/usr/local/cuda-12.2/include -I/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/include -I/home/gaokuangda/data/gkd/miniconda3/envs/cosmos/include/python3.10 -c -c /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/.sync/wc-s1-source-build-r1/source/csrc/fused/fused.cu -o /home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-s1-source-build-r1/build-r1/temp/csrc/fused/fused.o -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options ''\"'\"'-fPIC'\"'\"'' -O3 -std=c++17 -U__CUDA_NO_HALF_OPERATORS__ -U__CUDA_NO_HALF_CONVERSIONS__ --use_fast_math --threads=8 -Xptxas=-v -diag-suppress=174 -Xcompiler -include,cassert -D_GLIBCXX_USE_CXX11_ABI=1 -gencode arch=compute_86,code=sm_86 -DTORCH_API_INCLUDE_EXTENSION_H '-DPYBIND11_COMPILER_TYPE=\"_gcc\"' '-DPYBIND11_STDLIB=\"_libstdcpp\"' '-DPYBIND11_BUILD_ABI=\"_cxxabi1016\"' -DTORCH_EXTENSION_NAME=_fused -D_GLIBCXX_USE_CXX11_ABI=1\n/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/.sync/wc-s1-source-build-r1/source/csrc/fused/fused.cu(145): warning #549-D: variable \"block_sum_val\" is used before its value is set\n      s_mean_val = block_sum_val / fp8_padded_num_tokens;\n                   ^\n          detected during instantiation of \"void MeanScaleKernel<pad_size,sub_mean,T>(T *, int8_t *, float *, float *, float, uint32_t, uint32_t, uint32_t, uint32_t, uint32_t, uint32_t, uint32_t, uint32_t, uint32_t, uint32_t, uint32_t) [with pad_size=128U, sub_mean=false, T=half]\" at line 330\n\nRemark: The warnings can be suppressed with \"-diag-suppress <warning-number>\"\n\n/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/.sync/wc-s1-source-build-r1/source/csrc/fused/fused.cu(145): warning #549-D: variable \"block_sum_val\" is used before its value is set\n      s_mean_val = block_sum_val / fp8_padded_num_tokens;\n                   ^\n          detected during instantiation of \"void MeanScaleKernel<pad_size,sub_mean,T>(T *, int8_t *, float *, float *, float, uint32_t, uint32_t, uint32_t, uint32_t, uint32_t, uint32_t, uint32_t, uint32_t, uint32_t, uint32_t, uint32_t) [with pad_size=128U, sub_mean=false, T=nv_bfloat16]\" at line 330\n\nptxas info    : 19 bytes gmem\nptxas info    : Compiling entry function '_Z15MeanScaleKernelILj128ELb0E13__nv_bfloat16EvPT1_PaPfS4_fjjjjjjjjjjj' for 'sm_86'\nptxas info    : Function properties for _Z15MeanScaleKernelILj128ELb0E13__nv_bfloat16EvPT1_PaPfS4_fjjjjjjjjjjj\n    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads\nptxas info    : Used 35 registers, 260 bytes smem, 432 bytes cmem[0]\nptxas info    : Compiling entry function '_Z15MeanScaleKernelILj128ELb0E6__halfEvPT1_PaPfS4_fjjjjjjjjjjj' for 'sm_86'\nptxas info    : Function properties for _Z15MeanScaleKernelILj128ELb0E6__halfEvPT1_PaPfS4_fjjjjjjjjjjj\n    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads\nptxas info    : Used 35 registers, 260 bytes smem, 432 bytes cmem[0]\nptxas info    : Compiling entry function '_Z25TransposePadPermuteKernelILj128ELj64ELb1E13__nv_bfloat16EvPT2_S2_jjjjjjj' for 'sm_86'\nptxas info    : Function properties for _Z25TransposePadPermuteKernelILj128ELj64ELb1E13__nv_bfloat16EvPT2_S2_jjjjjjj\n    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads\nptxas info    : Used 21 registers, 32768 bytes smem, 396 bytes cmem[0]\nptxas info    : Compiling entry function '_Z25TransposePadPermuteKernelILj64ELj64ELb1E13__nv_bfloat16EvPT2_S2_jjjjjjj' for 'sm_86'\nptxas info    : Function properties for _Z25TransposePadPermuteKernelILj64ELj64ELb1E13__nv_bfloat16EvPT2_S2_jjjjjjj\n    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads\nptxas info    : Used 19 registers, 16384 bytes smem, 396 bytes cmem[0]\nptxas info    : Compiling entry function '_Z25TransposePadPermuteKernelILj128ELj64ELb1E6__halfEvPT2_S2_jjjjjjj' for 'sm_86'\nptxas info    : Function properties for _Z25TransposePadPermuteKernelILj128ELj64ELb1E6__halfEvPT2_S2_jjjjjjj\n    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads\nptxas info    : Used 21 registers, 32768 bytes smem, 396 bytes cmem[0]\nptxas info    : Compiling entry function '_Z25TransposePadPermuteKernelILj64ELj64ELb1E6__halfEvPT2_S2_jjjjjjj' for 'sm_86'\nptxas info    : Function properties for _Z25TransposePadPermuteKernelILj64ELj64ELb1E6__halfEvPT2_S2_jjjjjjj\n    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads\nptxas info    : Used 19 registers, 16384 bytes smem, 396 bytes cmem[0]\ng++ -pthread -B /home/gaokuangda/data/gkd/miniconda3/envs/cosmos/compiler_compat -Wno-unused-result -Wsign-compare -DNDEBUG -fwrapv -O2 -Wall -fPIC -O2 -isystem /home/gaokuangda/data/gkd/miniconda3/envs/cosmos/include -fPIC -O2 -isystem /home/gaokuangda/data/gkd/miniconda3/envs/cosmos/include -shared /home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-s1-source-build-r1/build-r1/temp/csrc/fused/fused.o /home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-s1-source-build-r1/build-r1/temp/csrc/fused/pybind.o -L/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/lib/python3.10/site-packages/torch/lib -L/usr/local/cuda-12.2/lib64 -lc10 -ltorch -ltorch_cpu -ltorch_python -lcudart -lc10_cuda -ltorch_cuda -o /home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-s1-source-build-r1/build-r1/lib/spas_sage_attn/_fused.cpython-310-x86_64-linux-gnu.so\n",
+    "budget_sha256": "26d0cdb74628d57458fea05a51f5fe062e2dcd0cd1a2f06d1d8e7c34ea40da41"
+  }
+}

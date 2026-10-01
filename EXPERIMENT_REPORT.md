@@ -8,22 +8,22 @@
 
 ## 1. 当前结论与最重要的下一步
 
-最新准备：[WC-S1完整源码与隔离构建](research/57_WC_S1_ISOLATED_UPSTREAM_BUILD.md)：80文件Git blob/SHA通过，实际工具链清单已齐，有界900秒upstream构建程序/3CPU负控制通过；实际编译尚未提交。
+最新终态：[WC-S1两扩展构建/无PV接口](research/57_WC_S1_ISOLATED_UPSTREAM_BUILD.md)：完整upstream CPU构建exit0/648.948283秒，fresh80源文件/两sm86 binary SHA/独立8文件package通过；无PV wrapper本地与实际Cosmos Torch同3项CPU契约通过。CUDA未初始化、原PID退出/锁释放/runtime账本不变；动态ABI/实际kernel/profile/方法收益未验收。
 
-最新进展：[WC-S0实际checkpoint/源码接口审计](research/56_WC_S0_SOURCE_SHAPE_AND_KERNEL_AUDIT.md)已CPU通过，meta689/28层形状与六个runtime SHA核对；真实QKV仍需hook。已固定SpargeAttn11文件并发现full-mask仍默认PV跳过，首轮采用no-PV控制。服务器另有CUDA12.2，但尚未build/kernel/profile。下一非GPU步骤为隔离有界构建与wrapper准备；[WC-S设计](research/55_WC_SPARSE_COMPUTE_COMPRESSION_DESIGN.md)及长程v1.2保持逐门执行，未GPU/未扩额。原clean50提案保留待决策。
+最新进展：[WC-S0实际checkpoint/源码接口审计](research/56_WC_S0_SOURCE_SHAPE_AND_KERNEL_AUDIT.md)已CPU通过，meta689/28层形状与六个runtime SHA核对；真实QKV仍需hook。已固定SpargeAttn11文件并发现full-mask仍默认PV跳过，首轮采用no-PV控制。S0接口依据保留；后续CPU构建已在上面的S1终态验收，GPU kernel/profile仍未通过；[WC-S设计](research/55_WC_SPARSE_COMPUTE_COMPRESSION_DESIGN.md)及长程v1.2保持逐门执行，未GPU/未扩额。原clean50提案保留待决策。
 
 **暂停scalar/W2复杂化；新增WC-S有界分支，先测WC后瓶颈/真实kernel，再比较组合与计算替换。当前仍只有机制信号，没有新方法质量—时间收益。** 原开发VQA6平1misc降/scene等权−3.174603pp、MUSIQ3升4降/robot拒绝保持。重复/明显内容变化对照不验证物理正确性，不直接否定方法或切OMR。
 
 | 项目 | 最新终态证据（2026-10-01） |
 |---|---|
-| 当前阶段 | WC-S0 CPU checkpoint/source/interface通过；构建、GPU profile/S1 kernel待验收 |
-| 最近运行 | WC-S0 meta-r2 CPU19.648997秒通过；r1/r2 PID退出、CUDA未初始化、runtime/账本不变 |
+| 当前阶段 | WC-S0 CPU接口与S1完整上游构建通过；动态import/ABI、GPUprofile/kernel待验收 |
+| 最近运行 | WC-S1 build-r1 CPU648.948283秒exit0/两扩展；独立fresh审计与wrapperCPU契约通过，原PID退出 |
 | 覆盖/响应 | repeat0/42变化，blank14/42，cyclic14/42；126有效/0invalid |
 | 审计 | 原始tokens/24输入重算/8视频/10模型文件/源码锁与本地原题summary全一致 |
 | 评价边界 | 重复稳定/部分内容响应，不是物理准确金标准/235BJoint/方法接受 |
 | 方法证据 | CAL8机制改善；VQA/MUSIQ未一致收益，clean速度/独立确认仍未证 |
 | 成本 | 控制79.023695秒；累计3.6512467238638138/4GPUh，余1255.511794秒，无在途 |
-| 下一步 | 固定完整Sparge源码/隔离有界CPU构建/wrapper；GPU成本profile、实际QKV、数值/净速度按具体范围重新提议，原4GPUh提案仍未批准 |
+| 下一步 | Guarded动态import/ABI与no-PV binding门、有界GPUrunner准备；实际QKV/profile/数值/净速度待测，预算不自动扩充 |
 
 证据：[控制结果](research/30_W1_VQA_INPUT_CONTROLS_RESULTS.md)、[控制终态审计](reports/w1_vqa_controls_r1_audit.json)、[本地重算](reports/w1_vqa_controls_r1_local_recompute.json)、[原VQA结果](research/28_W1_DEVELOPMENT_VQA_RESULTS.md)、[账本](reports/budget.json)。部分场景在三条件均相同不能隐去；即使controls通过也没有新的物理质量正结果。
 此前：[固定重放结果](research/24_W1_FIXED_REPLAY_RESULTS.md)、[重放完整汇总](reports/w1_replay_r1_summary.json)、[CAL8机制结果](research/21_W1D_CAL8_RESULTS.md)、[CAL8分布/排序](reports/w1d_cal8_r1_analysis.json)。
