@@ -1,3 +1,11 @@
+## 接续约束 — native install-r1同handle
+
+最新观察unix 1790814781.6272652：原4PIDs全部live/环境锁持有/source与GPU账本不变。固定source e95adcb，stage .sync/l0-native-environment-code-r1，outputs/l0-native-env-install-r1，CPU1800秒上限。只运行ignored .sync/observe_l0_env_install_r1.py；所有旧wheel/audit/resolve/install launch helpers不可重复。env-owned-forward-r1/port16500保持至完整安装终态审计，只关其owned SSH PID，Shared FRPC/Clash不动。
+
+下一安装exit0且4PIDs退出/锁释放后，fresh actual93 installed metadata逐项匹配resolved lock/major pins与4 binary payload digest，source/budget相同；写installed_lock manifest再Git同步。新CPU probe的ignored .sync/launch_l0_native_runtime_probe_r1.py仅准备/语法通过，不能提前执行：需要manifests/l0_native_environment_installed_lock_20261001.json，status INSTALLED93_HASH_LOCK_INVENTORY_PASS_NATIVE_IMPORT_PENDING。新probe stage/source7/CPU600，actual Torch与Flash extension origins/ABI、T5唯一默认设备CPU guard/825meta/tokenizer/scope，仍不加载完整权重或GPU。93包图没有setuptools；如actual import缺pkg_resources，记录实错后冻结新的完整hash图修复新env，不能随手pip补包后仍声称原93包锁。
+
+观察超时先读同handle/持久receipt；安装非零/超时保留已验证cache，先审计所有实际父子PIDs/锁/状态，不能重复启动。新4GPUh clean50提议仍待答复；L1预算也未自动增加，无新GPU授权。
+
 ## 最新CPU运行 — 隔离原生环境安装
 
 隔离env-install-r1/sourcee95adcb 已唯一启动，4PIDs 2510384/2510385/2510386/2510389 实际live/环境锁持有；CPU1800秒上限，固定93包hash lock安装到新env，NVIDIA运行库等transitive获取进行中。未完成安装/native import/ABI或模型验收；source与GPU账本不变，无新GPU workload。
