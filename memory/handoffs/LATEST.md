@@ -1,3 +1,11 @@
+## 最新终态与修复准备 — 安装资源超时
+
+隔离install-r1因下载未完到CPU cap退出：1755.194480秒、UV被TERM，全部4PIDs退出/环境锁释放；fresh93安装清单仍0包，原4 wheel payload hash未变/source与GPU账本不变，仅此次owned forward16500关闭。原93包hash lock保持，6个未完成大包已锁官方PyPI URL/size/SHA（均在原hash lock内），共1781156006字节。分段续传程序及精确vendor tag检查本地/Linux15同范围通过，六个完整payload尚未获取。
+
+[终态与六包获取准备](../../research/48_L0_INSTALL_TIMEOUT_AND_TRANSITIVE_RANGE_PREPARATION.md)。旧安装/下载/审计launch均不可重复；下一新transitive CPU获取，未再提交安装或native probe。
+
+## 以下为历史快照
+
 ## 接续约束 — native install-r1同handle
 
 最新观察unix 1790814781.6272652：原4PIDs全部live/环境锁持有/source与GPU账本不变。固定source e95adcb，stage .sync/l0-native-environment-code-r1，outputs/l0-native-env-install-r1，CPU1800秒上限。只运行ignored .sync/observe_l0_env_install_r1.py；所有旧wheel/audit/resolve/install launch helpers不可重复。env-owned-forward-r1/port16500保持至完整安装终态审计，只关其owned SSH PID，Shared FRPC/Clash不动。

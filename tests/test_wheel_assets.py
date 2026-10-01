@@ -77,3 +77,24 @@ def test_changed_official_asset_identity_rejected_before_cache_write(monkeypatch
     with pytest.raises(ValueError, match='asset identity changed'):
         acquire_release_asset(source, tmp_path)
     assert not list(tmp_path.iterdir())
+
+
+@pytest.mark.parametrize('package,version,actual,expected,passes', [
+    ('nvidia-cublas-cu12', '12.1.3.1', 'py3-none-manylinux1_x86_64',
+     ['py3-none-manylinux1_x86_64'], True),
+    ('triton', '3.0.0', 'cp311-cp311-manylinux2014_x86_64\nTag: cp311-cp311-manylinux_2_17_x86_64',
+     ['cp311-cp311-manylinux2014_x86_64', 'cp311-cp311-manylinux_2_17_x86_64'], True),
+    ('nvidia-cublas-cu12', '12.1.3.1', 'py3-none-win_amd64',
+     ['py3-none-manylinux1_x86_64'], False),
+    ('nvidia-cublas-cu12', '12.1.3.1', 'py3-none-manylinux1_x86_64\nTag: py3-none-win_amd64',
+     ['py3-none-manylinux1_x86_64'], False),
+])
+def test_frozen_vendor_tag_set(tmp_path, package, version, actual, expected, passes):
+    path = tmp_path / 'wheel.whl'
+    path.write_bytes(wheel_bytes(package, version, actual))
+    manifest = {'package': package, 'version': version, 'required_tags': expected}
+    if passes:
+        assert set(inspect_wheel(path, manifest)['tags']) == set(expected)
+    else:
+        with pytest.raises(ValueError, match='Frozen wheel tag'):
+            inspect_wheel(path, manifest)

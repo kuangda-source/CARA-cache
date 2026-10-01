@@ -1,3 +1,5 @@
+最新资源状态：[安装超时终态及六包分段获取准备](research/48_L0_INSTALL_TIMEOUT_AND_TRANSITIVE_RANGE_PREPARATION.md)，新env仍空/无native import或GPU。
+
 最新CPU运行：[隔离原生环境安装](research/47_L0_NATIVE_ENV_INSTALLATION_RUN.md)，93包hash lock安装进行中/未native import或GPU。
 
 最新CPU终态：[93包完整原生依赖hash lock](research/46_L0_NATIVE_ENV_DEPENDENCY_RESOLUTION_RUN.md)，安装和native import尚待。

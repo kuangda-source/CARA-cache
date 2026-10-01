@@ -30,7 +30,7 @@
 
 最新L0 CPU资源：[全两臂完整CPU产物验收](research/42_L0_FULL_CPU_FUSION_ARTIFACT_ACCEPTANCE.md)。真实两臂CPU融合与独立fresh audit均终态通过：fusion1960.417015秒/peakRSS30.8287GiB，audit663.896945秒；18原输入融合前后及fresh官方digest一致，6输出shard/1650实际tensor全finite与dtype/shape/字节digest通过，1050未目标weight原字节不变，两臂各300目标实际bytes_changed。所有原fusion/审计6PIDs退出/CPU锁释放/source与GPU账本不变。仍未实际模型/T5/VAE加载或任务/GPU就绪。
 
-最新隔离环境：隔离env-install-r1/sourcee95adcb 已唯一启动，4PIDs 2510384/2510385/2510386/2510389 实际live/环境锁持有；CPU1800秒上限，固定93包hash lock安装到新env，NVIDIA运行库等transitive获取进行中。未完成安装/native import/ABI或模型验收；source与GPU账本不变，无新GPU workload。 [安装运行](research/47_L0_NATIVE_ENV_INSTALLATION_RUN.md)。
+最新隔离环境：隔离install-r1因下载未完到CPU cap退出：1755.194480秒、UV被TERM，全部4PIDs退出/环境锁释放；fresh93安装清单仍0包，原4 wheel payload hash未变/source与GPU账本不变，仅此次owned forward16500关闭。原93包hash lock保持，6个未完成大包已锁官方PyPI URL/size/SHA（均在原hash lock内），共1781156006字节。分段续传程序及精确vendor tag检查本地/Linux15同范围通过，六个完整payload尚未获取。 [终态与修复](research/48_L0_INSTALL_TIMEOUT_AND_TRANSITIVE_RANGE_PREPARATION.md)。
 
 [公共native T2V CPU准备](research/36_L0_NATIVE_CONDITIONAL_CPU_PREPARATION.md)本地/Linux7通过；真实模型/GPU未验收。
 

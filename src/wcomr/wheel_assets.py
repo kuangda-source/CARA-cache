@@ -23,7 +23,11 @@ def inspect_wheel(path, row, check_crc=False):
         matches = version == row['version'] or (row['package'] == 'flash-attn' and version.split('+')[0] == row['version'])
         if canonical(info['Name']) != canonical(row['package']) or not matches:
             raise ValueError('Wheel package/version differs')
-        if 'cp311-cp311-linux_x86_64' not in wheel.get_all('Tag', []):
+        tags = wheel.get_all('Tag', [])
+        if 'required_tags' in row:
+            if not row['required_tags'] or set(tags) != set(row['required_tags']):
+                raise ValueError('Frozen wheel tag set differs')
+        elif 'cp311-cp311-linux_x86_64' not in tags:
             raise ValueError('Wheel Python/platform tag differs')
         if check_crc:
             if sum(x.file_size for x in archive.infolist()) > 4 << 30 or archive.testzip() is not None:
