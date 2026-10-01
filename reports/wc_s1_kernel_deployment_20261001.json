@@ -1,0 +1,27 @@
+{
+  "status": "ACTUAL_VALIDATE_ONLY_AND_LINUX_BUDGET_GATES_PASS_NO_TORCH_OR_GPU",
+  "observed_unix": 1790859703.3125708,
+  "source_revision": "cb80dd56be4286b18d0a5cfb782371ab2dd1fdb9",
+  "payload_sha256": {
+    "scripts/run_wc_s1_kernel.py": "343e3b2cbc794cfbddf43985ca352fac1d4b7086fca17b82819c91e345e95dba",
+    "scripts/supervise_wc_s1_kernel.py": "3e31d2d25ee43e72e2fffad927e8edc128cc33259722f184bdc2c90099fc5fc7",
+    "tests/test_wc_s1_kernel_budget.py": "2ed7a135b724445a7b44e46bad677a1f1784c37611b56e39d49e4c8d2f772095",
+    "kernel-config.json": "2b2ae16a7d4994b1b3bddfb2c80ee08605997577200b407a1a4262959c573791"
+  },
+  "validate_only": {
+    "status": "CPU_VALIDATE_ONLY_PASS_NO_TORCH_IMPORT",
+    "config_sha256": "2b2ae16a7d4994b1b3bddfb2c80ee08605997577200b407a1a4262959c573791"
+  },
+  "global_gpu_lock_free": true,
+  "budget_before": {
+    "batch": "F0-F1",
+    "cap_gpu_hours": 4,
+    "used_gpu_hours": 3.6512467238638138,
+    "gpu_jobs_launched": 22,
+    "status": "W1_VQA_CONTROLS_REQUIRES_REVIEW",
+    "gpu_import_probes_completed": 1,
+    "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts"
+  },
+  "gpu_inventory": "GPU-de9a5370-cd87-0f1c-a48e-288888777dd3, NVIDIA RTX A6000, 350, 8.6\nGPU-cebf7119-cf03-23b9-e192-cd196332b704, NVIDIA RTX A6000, 24, 8.6\n",
+  "compute_apps": ""
+}

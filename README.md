@@ -22,7 +22,7 @@ Private research workspace for improving the quality–time tradeoff of video wo
 
 ## Current status
 
-Latest: [S1 actual dynamic import and frozen180s GPU kernel gate](research/58_WC_S1_DYNAMIC_IMPORT_AND_KERNEL_GATE.md). Guarded CPU import passes; kernel runner and existing-balance budget controls prepared; GPU not yet submitted.
+Latest: [S1 actual A6000 kernel results](research/59_WC_S1_REAL_KERNEL_RESULTS.md):8 cases complete/11.726698 GPU seconds, large-N wall70.35/71.64/39.77/23.65ms for dense/full/50%/25%. Full-mask RMSE1.32% passes numerical gate; static sparse masks have large errors. Used3.6545041399802236/4GPUh, no in-flight or budget extension. Next: actual model QKV and remaining WC cost profile, not video method acceptance.
 
 Latest CPU terminal: [complete upstream build and no-PV wrapper](research/57_WC_S1_ISOLATED_UPSTREAM_BUILD.md) passed:648.948283s/two sm86 extensions, fresh80-source/two-binary SHA and isolated8-file package audit; same3 wrapper CPU contracts pass locally and on actual Cosmos Torch. Original PIDs absent/lock free/CUDA uninitialized/ledger unchanged. Dynamic import/ABI, real kernel, remaining WC profile and quality-time gain remain unverified.
 

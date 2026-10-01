@@ -8,9 +8,9 @@
 
 ## 1. 当前结论与最重要的下一步
 
-最新准备：[S1动态导入与180秒kernel门](research/58_WC_S1_DYNAMIC_IMPORT_AND_KERNEL_GATE.md)：实际两扩展/no-PV callable CPU导入通过，GPU程序/预算门已准备，GPU尚未提交。
+最新结果：[S1 A6000真实内核](research/59_WC_S1_REAL_KERNEL_RESULTS.md)：8case完成/GPU11.726698秒，N31104 dense/full/50%/25% wall70.35/71.64/39.77/23.65ms；full-mask RMSE1.32%通过技术筛查，固定稀疏mask约100%/174%误差大，不能接入保质生成。原PIDs/锁/GPU释放、source与raw repeats审计通过；下一真实QKV与WC成本profile。
 
-最新终态：[WC-S1两扩展构建/无PV接口](research/57_WC_S1_ISOLATED_UPSTREAM_BUILD.md)：完整upstream CPU构建exit0/648.948283秒，fresh80源文件/两sm86 binary SHA/独立8文件package通过；无PV wrapper本地与实际Cosmos Torch同3项CPU契约通过。CUDA未初始化、原PID退出/锁释放/runtime账本不变；动态ABI/实际kernel/profile/方法收益未验收。
+此前CPU终态：[WC-S1两扩展构建/无PV接口](research/57_WC_S1_ISOLATED_UPSTREAM_BUILD.md)：完整upstream CPU构建exit0/648.948283秒，fresh80源文件/两sm86 binary SHA/独立8文件package通过；无PV wrapper本地与实际Cosmos Torch同3项CPU契约通过。CUDA未初始化、原PID退出/锁释放/runtime账本不变；该时点未验收动态ABI/实际kernel；后续S1技术门已完成，模型profile/方法收益仍待。
 
 最新进展：[WC-S0实际checkpoint/源码接口审计](research/56_WC_S0_SOURCE_SHAPE_AND_KERNEL_AUDIT.md)已CPU通过，meta689/28层形状与六个runtime SHA核对；真实QKV仍需hook。已固定SpargeAttn11文件并发现full-mask仍默认PV跳过，首轮采用no-PV控制。S0接口依据保留；后续CPU构建已在上面的S1终态验收，GPU kernel/profile仍未通过；[WC-S设计](research/55_WC_SPARSE_COMPUTE_COMPRESSION_DESIGN.md)及长程v1.2保持逐门执行，未GPU/未扩额。原clean50提案保留待决策。
 
@@ -18,14 +18,14 @@
 
 | 项目 | 最新终态证据（2026-10-01） |
 |---|---|
-| 当前阶段 | WC-S0 CPU接口与S1完整上游构建通过；动态import/ABI、GPUprofile/kernel待验收 |
-| 最近运行 | WC-S1 build-r1 CPU648.948283秒exit0/两扩展；独立fresh审计与wrapperCPU契约通过，原PID退出 |
+| 当前阶段 | S1实际内核/量化full-mask技术门通过；固定mask误差大，S0真实QKV与WC成本profile待测 |
+| 最近运行 | S1 kernel-r1真实8case完成/GPU11.726698秒；独立source/派发/重复/成本/释放审计通过 |
 | 覆盖/响应 | repeat0/42变化，blank14/42，cyclic14/42；126有效/0invalid |
 | 审计 | 原始tokens/24输入重算/8视频/10模型文件/源码锁与本地原题summary全一致 |
 | 评价边界 | 重复稳定/部分内容响应，不是物理准确金标准/235BJoint/方法接受 |
 | 方法证据 | CAL8机制改善；VQA/MUSIQ未一致收益，clean速度/独立确认仍未证 |
-| 成本 | 控制79.023695秒；累计3.6512467238638138/4GPUh，余1255.511794秒，无在途 |
-| 下一步 | Guarded动态import/ABI与no-PV binding门、有界GPUrunner准备；实际QKV/profile/数值/净速度待测，预算不自动扩充 |
+| 成本 | kernel11.726698秒；累计3.6545041399802236/4GPUh，余1243.785096秒，无在途/无扩额 |
+| 下一步 | 官方WC剩余成本profile/真实QKV；检验真实注意力选择与误差，保留同内核full-mask，暂不四臂/三档 |
 
 证据：[控制结果](research/30_W1_VQA_INPUT_CONTROLS_RESULTS.md)、[控制终态审计](reports/w1_vqa_controls_r1_audit.json)、[本地重算](reports/w1_vqa_controls_r1_local_recompute.json)、[原VQA结果](research/28_W1_DEVELOPMENT_VQA_RESULTS.md)、[账本](reports/budget.json)。部分场景在三条件均相同不能隐去；即使controls通过也没有新的物理质量正结果。
 此前：[固定重放结果](research/24_W1_FIXED_REPLAY_RESULTS.md)、[重放完整汇总](reports/w1_replay_r1_summary.json)、[CAL8机制结果](research/21_W1D_CAL8_RESULTS.md)、[CAL8分布/排序](reports/w1d_cal8_r1_analysis.json)。

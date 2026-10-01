@@ -1,3 +1,11 @@
+## 最新结果 — WC-S1真实内核已执行，下一真实QKV与WC成本
+
+A6000/kernel-gpu-r1/sourcecb80dd5实际8case完成，GPU墙钟11.726698秒、原PIDs退出/global锁与GPU释放、独立source/8case/raw5repeat审计通过。N31104 dense/full/约50%/约25%同步wall中位数70.35/71.64/39.77/23.65ms；全块RMSE1.32%通过技术筛查，固定稀疏mask约100%/174%误差，不能用作保质方案。
+
+[真实内核结果与决策](59_WC_S1_REAL_KERNEL_RESULTS.md)。当前仍无模型QKV/profile/视频质量—时间收益，下一S0官方WC剩余成本及真实QKV采集；不直接自由三档或四臂。账本精确3.6545041399802236/4GPUh，余1243.785096秒，无inflight；未扩额/无人评。
+
+## 以下为历史快照
+
 ## 最新进展 — WC-S1 动态导入通过，180秒内核范围已固定
 
 实际Cosmos Torch下两扩展/no-PV callable动态导入R2通过（CPU3.119766秒，CUDA未初始化）；R1 guard/Dynamo冲突已修复并保留失败。真实GPUrunner和原4GPUh内180秒supervisor已准备，CPU预算门通过；GPU尚未启动。合成QKV的N31104来自真实hidden/checkpoint推导，不能称直接模型QKV或质量结果。

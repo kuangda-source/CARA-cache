@@ -2,11 +2,11 @@
 
 日期：2026-10-01；设计版本：v1.1；对应长程计划 v1.2。
 
-状态：S0 CPU源码/checkpoint元数据审计通过；构建已CPU验收，动态导入/实际QKV hook/成本profile/内核仍待验收，没有运行稀疏方法或提交新GPU任务。本设计不扩充4GPUh账本，不批准训练、付费评分、人工评审或对外消息。
+状态：S0 CPU源码/checkpoint元数据审计通过；构建/动态导入及合成QKV真实内核技术门已验收，实际QKV hook/成本profile/视频方法仍待；没有新方法质量—时间结果。本设计不扩充4GPUh账本，不批准训练、付费评分、人工评审或对外消息。
 
 讨论来源：[调研两个研究方向](chatgpt-conversation://6aba8cd0-f4a8-83ee-adba-d4f960fb6dcb)最新完整轮次，用户“压缩即智能”与缓存/稀疏/模块取舍讨论。对话是研究输入，不是实验结果或额外执行权限。一手资料复核与消息身份见[来源记录](../manifests/plan_update_sources_20261001.json)。
 
-S0实际审计与来源锁见[56_CPU审计](56_WC_S0_SOURCE_SHAPE_AND_KERNEL_AUDIT.md)，后续两扩展CPU构建与无PV接口见[57_S1结果](57_WC_S1_ISOLATED_UPSTREAM_BUILD.md)；不改变未批准GPU范围。
+S0实际审计与来源锁见[56_CPU审计](56_WC_S0_SOURCE_SHAPE_AND_KERNEL_AUDIT.md)，后续两扩展CPU构建与无PV接口见[57_S1结果](57_WC_S1_ISOLATED_UPSTREAM_BUILD.md)，实际kernel与静态mask误差见[59结果](59_WC_S1_REAL_KERNEL_RESULTS.md)；不改变未批准GPU范围。
 
 ## 1. 当前证据与优先级
 

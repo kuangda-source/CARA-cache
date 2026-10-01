@@ -1,6 +1,6 @@
 # WC-S1：动态导入验收与180秒真实内核门
 
-日期：2026-10-01。状态：CPU_DYNAMIC_IMPORT_R2_PASS；真实GPU内核尚未提交。不是模型、成本profile或质量收益。
+日期：2026-10-01。状态：CPU_DYNAMIC_IMPORT_R2_PASS；后续真实GPU内核已完成，见[59结果](59_WC_S1_REAL_KERNEL_RESULTS.md)，下文保留事前冻结范围。不是模型、成本profile或质量收益。
 
 ## 动态导入与纠错
 

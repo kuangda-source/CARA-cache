@@ -1,0 +1,373 @@
+{
+  "status": "ACTUAL_GPU_KERNEL_R1_TERMINAL_COST_COVERAGE_SOURCE_AUDIT_PASS",
+  "observed_unix": 1790860117.8379986,
+  "pid": 2548125,
+  "original_pids_absent": [
+    2547758,
+    2547764,
+    2547767
+  ],
+  "global_lock_free": true,
+  "all8_package_hashes_unchanged": true,
+  "all4_deployment_hashes_unchanged": true,
+  "raw5_repeats_and_dispatch_checked": true,
+  "gpu_wall_seconds": 11.726698019076139,
+  "reserved_seconds": 180,
+  "refunded_seconds": 168.27330198092386,
+  "budget": {
+    "batch": "F0-F1",
+    "cap_gpu_hours": 4,
+    "used_gpu_hours": 3.6545041399802236,
+    "gpu_jobs_launched": 23,
+    "status": "WC_S1_KERNEL_SETTLED_REQUIRES_RESULT_AUDIT",
+    "gpu_import_probes_completed": 1,
+    "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts"
+  },
+  "monitor_samples": 6,
+  "release": {
+    "unix": 1790859827.3745527,
+    "uuid": "GPU-cebf7119-cf03-23b9-e192-cd196332b704",
+    "name": "NVIDIA RTX A6000",
+    "memory_used_mib": 24,
+    "compute_cap": "8.6",
+    "pids": []
+  },
+  "cases": [
+    {
+      "n": 256,
+      "arm": "dense",
+      "input_shape": [
+        1,
+        256,
+        16,
+        128
+      ],
+      "input_dtype": "torch.bfloat16",
+      "dense_dispatch": [
+        "aten::_scaled_dot_product_flash_attention",
+        "aten::scaled_dot_product_attention"
+      ],
+      "retained_block_fraction": null,
+      "relative_rmse_vs_dense": 0.0,
+      "finite": true,
+      "output_shape": [
+        1,
+        256,
+        2048
+      ],
+      "output_dtype": "torch.bfloat16",
+      "wall_ms": [
+        0.24384493008255959,
+        0.18521584570407867,
+        0.176955945789814,
+        0.1742718741297722,
+        0.17001014202833176
+      ],
+      "cuda_event_ms": [
+        0.1809920072555542,
+        0.1547199934720993,
+        0.14636799693107605,
+        0.1443520039319992,
+        0.14073599874973297
+      ],
+      "median_wall_ms": 0.176955945789814,
+      "median_cuda_event_ms": 0.14636799693107605,
+      "peak_memory_allocated_bytes": 11537408
+    },
+    {
+      "n": 256,
+      "arm": "no_pv_retention_1.0",
+      "input_shape": [
+        1,
+        256,
+        16,
+        128
+      ],
+      "input_dtype": "torch.bfloat16",
+      "dense_dispatch": [
+        "aten::_scaled_dot_product_flash_attention",
+        "aten::scaled_dot_product_attention"
+      ],
+      "retained_block_fraction": 1.0,
+      "relative_rmse_vs_dense": 0.012689974159002304,
+      "finite": true,
+      "output_shape": [
+        1,
+        256,
+        2048
+      ],
+      "output_dtype": "torch.bfloat16",
+      "wall_ms": [
+        1.649009995162487,
+        1.3853139244019985,
+        1.3371999375522137,
+        1.3434188440442085,
+        1.3283398002386093
+      ],
+      "cuda_event_ms": [
+        1.5767680406570435,
+        1.3246079683303833,
+        1.2879040241241455,
+        1.2942399978637695,
+        1.2810560464859009
+      ],
+      "median_wall_ms": 1.3434188440442085,
+      "median_cuda_event_ms": 1.2942399978637695,
+      "peak_memory_allocated_bytes": 15213056
+    },
+    {
+      "n": 256,
+      "arm": "no_pv_retention_0.5",
+      "input_shape": [
+        1,
+        256,
+        16,
+        128
+      ],
+      "input_dtype": "torch.bfloat16",
+      "dense_dispatch": [
+        "aten::_scaled_dot_product_flash_attention",
+        "aten::scaled_dot_product_attention"
+      ],
+      "retained_block_fraction": 0.5,
+      "relative_rmse_vs_dense": 0.9933552742004395,
+      "finite": true,
+      "output_shape": [
+        1,
+        256,
+        2048
+      ],
+      "output_dtype": "torch.bfloat16",
+      "wall_ms": [
+        1.3396511785686016,
+        1.3339659199118614,
+        1.416230108588934,
+        1.3186261057853699,
+        1.328902319073677
+      ],
+      "cuda_event_ms": [
+        1.2850879430770874,
+        1.2856639623641968,
+        1.3688000440597534,
+        1.2715200185775757,
+        1.2814719676971436
+      ],
+      "median_wall_ms": 1.3339659199118614,
+      "median_cuda_event_ms": 1.2850879430770874,
+      "peak_memory_allocated_bytes": 15213056
+    },
+    {
+      "n": 256,
+      "arm": "no_pv_retention_0.25",
+      "input_shape": [
+        1,
+        256,
+        16,
+        128
+      ],
+      "input_dtype": "torch.bfloat16",
+      "dense_dispatch": [
+        "aten::_scaled_dot_product_flash_attention",
+        "aten::scaled_dot_product_attention"
+      ],
+      "retained_block_fraction": 0.25,
+      "relative_rmse_vs_dense": 1.691377878189087,
+      "finite": true,
+      "output_shape": [
+        1,
+        256,
+        2048
+      ],
+      "output_dtype": "torch.bfloat16",
+      "wall_ms": [
+        1.3475879095494747,
+        1.3478361070156097,
+        1.3791602104902267,
+        1.3972441665828228,
+        1.338656060397625
+      ],
+      "cuda_event_ms": [
+        1.292415976524353,
+        1.2907840013504028,
+        1.3305599689483643,
+        1.3479679822921753,
+        1.2909760475158691
+      ],
+      "median_wall_ms": 1.3478361070156097,
+      "median_cuda_event_ms": 1.292415976524353,
+      "peak_memory_allocated_bytes": 15213056
+    },
+    {
+      "n": 31104,
+      "arm": "dense",
+      "input_shape": [
+        1,
+        31104,
+        16,
+        128
+      ],
+      "input_dtype": "torch.bfloat16",
+      "dense_dispatch": [
+        "aten::_scaled_dot_product_flash_attention",
+        "aten::scaled_dot_product_attention"
+      ],
+      "retained_block_fraction": null,
+      "relative_rmse_vs_dense": 0.0,
+      "finite": true,
+      "output_shape": [
+        1,
+        31104,
+        2048
+      ],
+      "output_dtype": "torch.bfloat16",
+      "wall_ms": [
+        70.43885067105293,
+        70.35107398405671,
+        70.34284481778741,
+        70.30005101114511,
+        70.51911111921072
+      ],
+      "cuda_event_ms": [
+        70.40345764160156,
+        70.32364654541016,
+        70.31523132324219,
+        70.27263641357422,
+        70.49215698242188
+      ],
+      "median_wall_ms": 70.35107398405671,
+      "median_cuda_event_ms": 70.32364654541016,
+      "peak_memory_allocated_bytes": 1412865024
+    },
+    {
+      "n": 31104,
+      "arm": "no_pv_retention_1.0",
+      "input_shape": [
+        1,
+        31104,
+        16,
+        128
+      ],
+      "input_dtype": "torch.bfloat16",
+      "dense_dispatch": [
+        "aten::_scaled_dot_product_flash_attention",
+        "aten::scaled_dot_product_attention"
+      ],
+      "retained_block_fraction": 1.0,
+      "relative_rmse_vs_dense": 0.013233431614935398,
+      "finite": true,
+      "output_shape": [
+        1,
+        31104,
+        2048
+      ],
+      "output_dtype": "torch.bfloat16",
+      "wall_ms": [
+        71.63634616881609,
+        71.38020033016801,
+        71.89436815679073,
+        71.39426516368985,
+        71.79056899622083
+      ],
+      "cuda_event_ms": [
+        71.59677124023438,
+        71.35363006591797,
+        71.86732482910156,
+        71.36784362792969,
+        71.76441955566406
+      ],
+      "median_wall_ms": 71.63634616881609,
+      "median_cuda_event_ms": 71.59677124023438,
+      "peak_memory_allocated_bytes": 1866921472
+    },
+    {
+      "n": 31104,
+      "arm": "no_pv_retention_0.5",
+      "input_shape": [
+        1,
+        31104,
+        16,
+        128
+      ],
+      "input_dtype": "torch.bfloat16",
+      "dense_dispatch": [
+        "aten::_scaled_dot_product_flash_attention",
+        "aten::scaled_dot_product_attention"
+      ],
+      "retained_block_fraction": 0.5,
+      "relative_rmse_vs_dense": 1.0043649673461914,
+      "finite": true,
+      "output_shape": [
+        1,
+        31104,
+        2048
+      ],
+      "output_dtype": "torch.bfloat16",
+      "wall_ms": [
+        39.784769993275404,
+        39.76776171475649,
+        39.79580523446202,
+        39.76399498060346,
+        39.7313479334116
+      ],
+      "cuda_event_ms": [
+        39.75369644165039,
+        39.742462158203125,
+        39.769630432128906,
+        39.738014221191406,
+        39.705665588378906
+      ],
+      "median_wall_ms": 39.76776171475649,
+      "median_cuda_event_ms": 39.742462158203125,
+      "peak_memory_allocated_bytes": 1866921472
+    },
+    {
+      "n": 31104,
+      "arm": "no_pv_retention_0.25",
+      "input_shape": [
+        1,
+        31104,
+        16,
+        128
+      ],
+      "input_dtype": "torch.bfloat16",
+      "dense_dispatch": [
+        "aten::_scaled_dot_product_flash_attention",
+        "aten::scaled_dot_product_attention"
+      ],
+      "retained_block_fraction": 0.25102880597114563,
+      "relative_rmse_vs_dense": 1.7367606163024902,
+      "finite": true,
+      "output_shape": [
+        1,
+        31104,
+        2048
+      ],
+      "output_dtype": "torch.bfloat16",
+      "wall_ms": [
+        23.921792395412922,
+        23.770493920892477,
+        23.652940057218075,
+        23.58787367120385,
+        23.615810088813305
+      ],
+      "cuda_event_ms": [
+        23.891231536865234,
+        23.744991302490234,
+        23.627424240112305,
+        23.562047958374023,
+        23.590816497802734
+      ],
+      "median_wall_ms": 23.652940057218075,
+      "median_cuda_event_ms": 23.627424240112305,
+      "peak_memory_allocated_bytes": 1866921472
+    }
+  ],
+  "fresh_gpu_inventory": "GPU-de9a5370-cd87-0f1c-a48e-288888777dd3, NVIDIA RTX A6000, 350\nGPU-cebf7119-cf03-23b9-e192-cd196332b704, NVIDIA RTX A6000, 24\n",
+  "fresh_compute_apps": "",
+  "remote_receipt_sha256": {
+    "supervisor.json": "c4101f9ffa3be2d7ebd056e942e5defa1dd6a3ff338541cd2d770dd28d44d43d",
+    "kernel/receipt.json": "9e0041647e221dd2d653326e5b6e6c9ee8f36735ff1835513c1b0a9d6b3a7e40",
+    "kernel.log": "f6b3fdbcf0c64fb509b5dc2febb46e0340a7308eb58ffad9c76245dc0fa9f53f",
+    "gpu-monitor.jsonl": "09bce2a880e9ab5d76dffd6b964a446112ca7f6c44b6147489155a12d9f12cf2"
+  }
+}
