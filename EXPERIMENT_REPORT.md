@@ -30,7 +30,7 @@
 
 最新L0 CPU资源：[全两臂完整CPU产物验收](research/42_L0_FULL_CPU_FUSION_ARTIFACT_ACCEPTANCE.md)。真实两臂CPU融合与独立fresh audit均终态通过：fusion1960.417015秒/peakRSS30.8287GiB，audit663.896945秒；18原输入融合前后及fresh官方digest一致，6输出shard/1650实际tensor全finite与dtype/shape/字节digest通过，1050未目标weight原字节不变，两臂各300目标实际bytes_changed。所有原fusion/审计6PIDs退出/CPU锁释放/source与GPU账本不变。仍未实际模型/T5/VAE加载或任务/GPU就绪。
 
-最新隔离环境：六个大transitive wheel全部下载并独立fresh审计通过：1781156006字节、CPU2752.631111秒，六包完整官方SHA/实际metadata/exact tag一致，原3PIDs退出/锁释放/source与GPU账本不变，仅owned16501关闭。实际audit数据已离线绑定原93包锁：仅替换六个下载位置，93版本/coverage保留、其余87个block字节不变；新TXT SHA=d4296654b79e26616963df01b4fd15eda29d344bf2d7efb2fcf6840d7ff38abe。这是transport derivation，没有重新resolve或安装/native import/GPU。 [完整验收和下一安装门](research/51_L0_ALL6_TRANSITIVE_ACCEPTANCE_AND_LOCAL93_LOCK.md)。
+最新隔离环境：隔离install-r2/source960a57e已唯一启动，4PIDs 2515483/2515484/2515485/2515492 实际live/环境锁持有，CPU1800秒cap。原4+新6实际payload fresh hash、原解析input与derived93重组成校验已过，UV确认93包/1.15秒，安装仍进行中；尚未安装终态/native import/模型/GPU。新stage8 files固定，source与GPU账本不变。 [运行卡](research/52_L0_LOCAL93_ENV_INSTALL_R2_RUN.md)。
 
 [公共native T2V CPU准备](research/36_L0_NATIVE_CONDITIONAL_CPU_PREPARATION.md)本地/Linux7通过；真实模型/GPU未验收。
 

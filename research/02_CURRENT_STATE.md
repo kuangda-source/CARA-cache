@@ -517,3 +517,8 @@ L0 range-r4/source7c0f2ec唯一实际续传成功，exit0/31.271029秒，最后1
 ## 2026-10-01：六包fresh终态与原93实际绑定
 
 六个大transitive wheel全部下载并独立fresh审计通过：1781156006字节、CPU2752.631111秒，六包完整官方SHA/实际metadata/exact tag一致，原3PIDs退出/锁释放/source与GPU账本不变，仅owned16501关闭。实际audit数据已离线绑定原93包锁：仅替换六个下载位置，93版本/coverage保留、其余87个block字节不变；新TXT SHA=d4296654b79e26616963df01b4fd15eda29d344bf2d7efb2fcf6840d7ff38abe。这是transport derivation，没有重新resolve或安装/native import/GPU。 [验收卡](51_L0_ALL6_TRANSITIVE_ACCEPTANCE_AND_LOCAL93_LOCK.md)。
+
+
+## 2026-10-01：local93独立安装r2实际运行
+
+隔离install-r2/source960a57e已唯一启动，4PIDs 2515483/2515484/2515485/2515492 实际live/环境锁持有，CPU1800秒cap。原4+新6实际payload fresh hash、原解析input与derived93重组成校验已过，UV确认93包/1.15秒，安装仍进行中；尚未安装终态/native import/模型/GPU。新stage8 files固定，source与GPU账本不变。 [运行卡](52_L0_LOCAL93_ENV_INSTALL_R2_RUN.md)。
