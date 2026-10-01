@@ -22,7 +22,9 @@ Private research workspace for improving the quality–time tradeoff of video wo
 
 ## Current status
 
-Current plan v1.3 (2026-10-02): [cache provenance and reuse lifetime by small layer groups](research/65_WC_HIERARCHICAL_PROVENANCE_LIFETIME_DESIGN.md). First fill actual middle-refresh/all-depth coverage, then low-intrusion S/D and C/S/D complementarity, dense/full/sparse sources × reuse1/2/4, and only with evidence a two-group dynamic policy. Static/age-only/source/lifetime/action-location controls address direct related work. This update launches no GPU job or training.
+Plan v1.4 (2026-10-02) adds a conditional [WC-D residual predictability and specialization exploration](research/66_WC_DISTILLED_RESIDUAL_EXPLORATION_DESIGN.md) and [first-window cards](plans/CODEX_FIRST_WINDOW_WC_DISTILLED_RESIDUAL_20261002.md). Test cheap predictability before closed-loop single correction, then only with evidence two experts against stage/capacity controls and a measured quality–time frontier. DESIGN_ONLY: no new labels, student fitting, training or GPU run. Current frozen WC-S/H work finishes first; budgets are proposals.
+
+Preserved v1.3 main execution route (2026-10-02): [cache provenance and reuse lifetime by small layer groups](research/65_WC_HIERARCHICAL_PROVENANCE_LIFETIME_DESIGN.md). First fill actual middle-refresh/all-depth coverage, then low-intrusion S/D and C/S/D complementarity, dense/full/sparse sources × reuse1/2/4, and only with evidence a two-group dynamic policy. Static/age-only/source/lifetime/action-location controls address direct related work. This update launches no GPU job or training.
 
 Latest audited results: [four actual-QKV configurations](research/64_WC_S1_FACTORIAL_RESULTS.md),144cases across two jobs. sim0.1/cdf0.98 median operator speed1.286× passes both screens6/12 but fails all four layer27 inputs; no global all-input configuration, no sparse video/method quality-time acceptance. Ledger3.9117525685110333/4GPUh,317.690753s remaining. Older dated snapshots below retain their historical statuses.
 
@@ -36,7 +38,7 @@ Prior S0 snapshot, superseded by the terminal build above: [WC-S0 actual checkpo
 
 Prior terminal run: Core assets and the retained safety pipeline are ready. F1 r2 completed two Native samples, then stopped when the physics_001 generated video was rejected by the output guardrail. WorldCache has not run; there is no paired speed/quality result. Charged cost: 0.473298 / 4 GPUh. Terminal receipts are in `reports/f1_smoke_r2_*.json`.
 
-The [long-term plan](plans/LONG_HORIZON_EXPERIMENT_PLAN_WorldCache_OMR_20260929.md) and [first-batch instructions](plans/CODEX_FIRST_BATCH_WorldCache_OMR_20260929.md) are now v1.3: preserve existing evidence, add cache provenance × lifetime and small-group controls; compatible Wan5B/LongLive-Plug and OMR remain conditional. Combinations and training remain conditional. No new GPU job was launched by this plan update.
+The [long-term plan](plans/LONG_HORIZON_EXPERIMENT_PLAN_WorldCache_OMR_20260929.md) and [first-batch instructions](plans/CODEX_FIRST_BATCH_WorldCache_OMR_20260929.md) are now v1.4: add conditional WC-D exploration, preserve existing evidence, add cache provenance × lifetime and small-group controls; compatible Wan5B/LongLive-Plug and OMR remain conditional. Combinations and training remain conditional. No new GPU job was launched by this plan update.
 
 [L0 resource audit](research/33_L0_WAN_LONGLIVE_OMR_RESOURCE_AUDIT.md): existingWan5B all11 official file hashes verified; both600tensor LoRA headers match300targets each,16 CPU checks pass; fulladapter payload/realmerge/environment/GPU remain pending. OMR public artifacts stillComing soon; no route pivot or GPU cost. Historical r1/source68afc3e live snapshot has been superseded by the terminal audit below; no full-pair/merge/GPU readiness claim.
 

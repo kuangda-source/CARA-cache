@@ -8,7 +8,7 @@
 
 2026-10-01执行更新：S0实际CPU checkpoint/source接口审计通过，构建/直接QKV/profile未通过；公开full-QK默认仍PV跳过，S1首轮改为dense/full-QK-no-PV/sparse-QK-no-PV并另列PV因子。详见[实际审计](../research/56_WC_S0_SOURCE_SHAPE_AND_KERNEL_AUDIT.md)。GPU预算不变。
 
-**版本：** v1.3（2026-10-02 加入来源×有效期、少量分组与直接相关工作控制）
+**版本：** v1.4（2026-10-02 增加可预测残差与专家蒸馏条件探索；v1.3来源/寿命主队列保留）
 **制定日期：** 2026-09-29  
 **周期：** 12–16 个有效工作周；遇到权重、GPU 排队或评测资源阻塞顺延，不把日历时间当作实验进度。  
 **首要任务：** 保留已完成WorldCache诊断，暂停scalar复杂化；测剩余瓶颈，验证稀疏与缓存组合及计算替换，争取质量—时间收益。
@@ -95,6 +95,16 @@ W1仅有CAL8机制信号，MUSIQ混合/开发VQA无一致收益，暂停scalar/W
 S0实测deep self核心占去噪wall47.37%；S1四组合144case无统一全输入配置，0.1/0.98局部通过6/12但layer27四输入超误差。12输入只覆盖首尾四调用/三个层，下一准备中间刷新全层门。[结果](../research/64_WC_S1_FACTORIAL_RESULTS.md)。S3按边际成本选做，不要求先完成模块删除才诊断寿命。v1.3覆盖旧时间线/队列的执行顺序，不重跑已完成门。
 
 当前账本3.9117525685110333/4GPUh，28jobs，余317.690753秒，无inflight；本次仅文档设计，未改冻结配置/runtime、未启动GPU或扩额。完整寿命与视频曲线需具体成本/范围登记；原new4GPUh/clean50仍待决策，OMR保持资源条件候选。
+
+### 0.4 v1.4：WC-D可预测残差与专家蒸馏的条件探索
+
+完整设计：[66数学/初期实验卡](../research/66_WC_DISTILLED_RESIDUAL_EXPLORATION_DESIGN.md)；首批：[WC-D首窗口](CODEX_FIRST_WINDOW_WC_DISTILLED_RESIDUAL_20261002.md)；[来源核对](../manifests/plan_update_sources_distillation_20261002.json)。采用讨论第二轮的收窄判断：残差小/低秩不保证可预测；专家互补必须可由廉价状态识别；纠正节省的full成本必须覆盖新增开销。DisCa/LESA/OnlineCache/LinCa等为直接先例，不把模块组合或阶段专家称创新。
+
+这是独立于稀疏内核成功的条件探索，但不改变0.3的执行优先级：当前冻结工作与审计先完成，随后根据结果/成本择一分配WC-D或WC-H窗口，不自动同时跑两条完整GPU主线。D0接口/旧标签审计 → D1采集 → D2结构/预测 → D3单纠正器闭环 → 有证据才D4双专家 → D5真实frontier，D6限一次有依据分布修订。固定schedule只验证质量，不宣称额外提速。
+
+FIT24/CAL8/CONF8新场景按源分组，初采FIT8+CAL4；旧CAL8仅技术/开发。q16/32/64、ridge/小MLP、time-conditioned single、stage-only和总参数匹配single、whole-call oracle/gate为预登记控制。shadow与student状态隔离，纠正置官方warp后，full不能回滚轨迹偏差。采样器沿用实际UniPC/72calls，不混称Euler复现。
+
+建议D1/D3/D5额度4/4/8GPUh，合计16为未来提案，不追加旧4h、不保证覆盖全部目标样本；D0/D2/D4拟议CPU工作，D6另决策。当前仅设计/来源/入口同步，无collector、学生拟合、标签或新运行。关键节点为预测信号、闭环收益、专家必要性和净时间，每一门允许停止在single或NO_GAIN_IN_SCOPE。
 
 ## 1. 研究目标、事实基线与约束
 

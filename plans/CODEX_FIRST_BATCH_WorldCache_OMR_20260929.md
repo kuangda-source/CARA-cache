@@ -8,7 +8,7 @@
 
 2026-10-01执行更新：S0实际CPU checkpoint/source接口审计通过，构建/直接QKV/profile未通过；公开full-QK默认仍PV跳过，S1首轮改为dense/full-QK-no-PV/sparse-QK-no-PV并另列PV因子。详见[实际审计](../research/56_WC_S0_SOURCE_SHAPE_AND_KERNEL_AUDIT.md)。GPU预算不变。
 
-**日期：** 2026-09-29；2026-10-02更新至v1.3
+**日期：** 2026-09-29；2026-10-02更新至v1.4
 **对应总计划：** `LONG_HORIZON_EXPERIMENT_PLAN_WorldCache_OMR_20260929.md`  
 **用途：** 把下面正文交给当前项目主线程。它要求接续现有项目，不要求先重建科研自动化框架。本文本不是已运行的实验报告。
 
@@ -22,7 +22,7 @@
 
 当前首选：保留W1诊断，暂停scalar复杂化，增加WC-S有界的成本分析/稀疏内核/缓存组合与模块替换。后备：OMR 均匀稀疏纠正、未来目标侧梯度、梯度复用。训练 adapter、蒸馏执行器、跨动作分支共享和量化组合都不是本批次任务。
 
-**v1.3接续入口（第八节覆盖第七节）：** 下文F0/F1/W1为原首批设计，不要求重跑；最新状态见实验总览/回执，新增顺序见第七节/research/55。更新设计不自动扩GPU额度。
+**v1.4接续入口（第八节保持主线顺序，第九节为条件分支）：** 下文F0/F1/W1为原首批设计，不要求重跑；最新状态见实验总览/回执，主线新增顺序见第八节/research/65，WC-D条件探索见第九节/research/66。更新设计不自动扩GPU额度。
 
 ## 二、本批次范围
 
@@ -133,3 +133,12 @@ Cosmos3 只核对 P0–P2 的已有证据与剩余预算；本批次不自动恢
 4. 有信号才两组，三组另作复杂度控制；增加静态分组、无来源动态、来源/计划寿命消融及相近动作数量的位置控制。不同时独立控制所有MLP/cross/head/token。
 5. 特征与mask失效分别记录，成本明显才加模式复用；PSA表示精度后置，S3模块替换由边际成本驱动。局部dense不恢复Native轨迹，稀疏参考不是true anchor。
 6. 账本3.9117525685110333/4GPUh、余317.690753秒；此次设计更新无新GPU/扩额/训练/人评/付费。新4GPUh/clean50仍待决策，完整寿命/视频曲线另冻结范围和成本。
+
+
+## 九、2026-10-02蒸馏讨论（v1.4，条件探索，不覆盖第八节执行顺序）
+
+新增[WC-D完整设计](../research/66_WC_DISTILLED_RESIDUAL_EXPLORATION_DESIGN.md)和[独立首窗口卡](CODEX_FIRST_WINDOW_WC_DISTILLED_RESIDUAL_20261002.md)。当前工作先完成审计；WC-D不要求稀疏先成功，也不自动启动训练或占用剩余GPU。D0审计标签与因果特征，D1小采集，D2检验低秩与可预测性，再由结果决定D3单纠正器闭环，最后才专家/gate/frontier。
+
+建议采FIT8+CAL4、每轨迹≤12同状态skip labels；使用新场景按源划分，旧CAL8不能CONF。post-warp误差与upstream residual_cache严格区分，shadow不写anchor，部署不看truth。q16/32/64、ridge优先、小MLP条件后置；充分时间条件single、stage-only双头、总参数匹配single与whole-call oracle为必要公平控制。
+
+本次只有设计上传，无新GPU/labels/student fit。未来4/4/8GPUh只是阶段提案，旧4h账本及new4h/clean50决策不变，先具体登记scope/source/data/预算再执行。首窗口结束必须给出继续single、改善观测、进入双专家或暂停的证据与一个下一步，不自动完成全部D0–D6。
