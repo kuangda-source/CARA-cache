@@ -56,18 +56,44 @@ def main():
         p.add_argument('--' + name, type=Path, required=True)
     p.add_argument('--gpu-uuid')
     p.add_argument('--validate-only', action='store_true')
+    p.add_argument('--cpu-import-check', action='store_true')
     a = p.parse_args()
     c, sampling = validate(a.project, a.stage, a.runtime)
     if a.validate_only:
         print(json.dumps({'status': 'S0_IDENTITIES_CHECKPOINT_SCOPE_PASS_NO_TORCH_OR_GPU',
                           'config_sha256': sha(a.stage / 'profile-config.json'), 'sample': c['sample_name']}))
         return
+    sys.path[:0] = [str(a.stage / 'src'), str(a.project / 'src'), str(a.runtime),
+                   str(a.runtime / 'packages/cosmos-oss'), str(a.runtime / 'packages/cosmos-cuda')]
+    if a.cpu_import_check:
+        os.environ.update(CUDA_VISIBLE_DEVICES='', HF_HUB_OFFLINE='1', TRANSFORMERS_OFFLINE='1')
+        import importlib
+        import torch
+        assert not torch.cuda.is_initialized()
+        def forbidden(*args, **kwargs):
+            raise RuntimeError('CUDA initialization forbidden in CPU source-binding check')
+        torch.cuda._lazy_init = forbidden
+        identities = {}
+        modules = {
+            'cosmos_predict2.inference': 'cosmos_predict2/inference.py',
+            'cosmos_predict2._src.predict2.inference.worldcache_utils': 'cosmos_predict2/_src/predict2/inference/worldcache_utils.py',
+            'cosmos_predict2._src.predict2.networks.minimal_v4_dit': 'cosmos_predict2/_src/predict2/networks/minimal_v4_dit.py',
+            'cosmos_predict2._src.predict2.networks.attention': 'cosmos_predict2/_src/predict2/networks/attention.py'}
+        for name, relative in modules.items():
+            module = importlib.import_module(name)
+            actual = Path(module.__file__).resolve()
+            if actual != (a.runtime / relative).resolve():
+                raise RuntimeError('Imported module origin differs: ' + name)
+            identities[name] = {'path': str(actual), 'sha256': sha(actual)}
+        assert not torch.cuda.is_initialized()
+        print(json.dumps({'status': 'CPU_ACTUAL_COSMOS_IMPORT_ORIGINS_PASS_NO_MODEL_OR_CUDA',
+                          'pid': os.getpid(), 'torch': torch.__version__, 'modules': identities,
+                          'cuda_initialized': False}))
+        return
     if not a.gpu_uuid or Path.cwd().resolve() != a.runtime.resolve():
         raise ValueError('Selected UUID and actual assembled runtime cwd required')
     a.output.mkdir(parents=True, exist_ok=False)
     os.environ.update(CUDA_VISIBLE_DEVICES=a.gpu_uuid, HF_HUB_OFFLINE='1', TRANSFORMERS_OFFLINE='1')
-    sys.path.insert(0, str(a.project / 'src'))
-    sys.path.insert(0, str(a.stage / 'src'))
     state = {'status': 'INITIALIZING', 'pid': os.getpid(), 'started_unix': time.time(),
              'scope': c, 'sampling_protocol': sampling, 'gpu_uuid': a.gpu_uuid, 'phases': []}
     def save():
@@ -84,6 +110,8 @@ def main():
         from cosmos_predict2.inference import Inference
         from cosmos_predict2._src.imaginaire.auxiliary.guardrail.common import presets
         from cosmos_predict2._src.predict2.inference import worldcache_utils as wc
+        if Path(wc.__file__).resolve() != (a.runtime / 'cosmos_predict2/_src/predict2/inference/worldcache_utils.py').resolve():
+            raise RuntimeError('Imported WorldCache origin differs from validated runtime')
         from wcomr.measurement import StageTimes, BlockCounts
         from wcomr.protocol import validate_schedule
         from wcomr.guardrail_observation import GuardrailObservation

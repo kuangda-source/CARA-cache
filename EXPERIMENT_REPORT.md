@@ -8,6 +8,8 @@
 
 ## 1. 当前结论与最重要的下一步
 
+最新诊断：S0 R1模型load前native包路径错误，失败69.455334秒已按原余额结算/原PIDs与锁/GPU释放；无forward/profile/QKV结果。已修复显式runtime/PYTHONPATH，下一R2实际CPU import-origin门后有界续跑，剩余1174.329762秒。[失败审计](reports/wc_s0_profile_r1_failure_audit_20261001.json)。
+
 最新准备：[S0两阶段成本/真实QKV](research/60_WC_S0_PROFILE_REAL_QKV.md)，首个固定CAL8场景seed0/profile后独立capture12个QKV、既有余额内750秒cap；本地6个CPU控制通过，未GPU/未扩额/未人评。下一实际环境CPU复核/fresh准入后唯一运行。
 
 最新结果：[S1 A6000真实内核](research/59_WC_S1_REAL_KERNEL_RESULTS.md)：8case完成/GPU11.726698秒，N31104 dense/full/50%/25% wall70.35/71.64/39.77/23.65ms；full-mask RMSE1.32%通过技术筛查，固定稀疏mask约100%/174%误差大，不能接入保质生成。原PIDs/锁/GPU释放、source与raw repeats审计通过；下一真实QKV与WC成本profile。

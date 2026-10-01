@@ -1,3 +1,11 @@
+## 最新接续 — WC-S0 R1导入路径失败已结算，准备R2
+
+R1在模型加载前读取native Cosmos包而无法导入WorldCache；无模型/forward/QKV/profile结果，69.455334秒失败墙钟已计账、退款680.544666秒，原PIDs/global锁/GPU释放审计通过。runner现明确runtime及两个package搜索路径、WC实际origin检查；supervisor复用历史PYTHONPATH并在验证后再次准入。
+
+[诊断与范围](../../research/60_WC_S0_PROFILE_REAL_QKV.md)、[失败审计](../../reports/wc_s0_profile_r1_failure_audit_20261001.json)。余额1174.329762秒，下一新stage R2先actual CPU import-origin检查，再750秒唯一两阶段任务；不重跑R1或扩额/人评。
+
+## 以下为历史快照
+
 ## 最新准备 — WC-S0成本与真实QKV两阶段诊断
 
 已冻结官方WC/首个CAL8场景seed0：先profile各组件，再独立capture调用1/2/71/72×层2/14/27的真实QKV；750秒唯一scope从既有4GPUh余额划拨。观察器/采集/预算本地6项CPU检查通过，未改变sparse/cache/RNG；实际Cosmos环境validate-only/准入与GPU尚待。

@@ -21,3 +21,9 @@
 ## 决策
 
 先根据 WC 后 deep self-attention 实测占比判断上限，再在真实QKV比较dense、同内核no-PV全块、数据驱动块选择；路由/packing成本必须包含。固定band上一轮误差很大，尚不接入视频或三档自由调度。该轮没有训练、付费评价或视频质量—时间方法结论。
+
+## R1保留失败与R2修复
+
+R1/source1824d1c，监督/timeout/runner PIDs2550284/2550298/2550300全部退出。缺少历史supervisor的PYTHONPATH导致实际import来自原生editable Cosmos，不是已固定runtime；在加载模型前`worldcache_utils` ImportError，无forward/capture/profile。独立失败审计payload/SHA/账本/释放通过，完整69.455333966762秒已计入现有额度，余1174.329762秒。不能把这个失败称生成结果。
+
+修复明确sys.path runtime与两个package，supervisor恢复历史PYTHONPATH并validate后再准入；新增CPU-import-check，用CUDA hidden和lazy-init拒绝核对实际Inference/WC/minimal_v4/attention origin及SHA，不构造模型。R2使用新stage/launch身份，不覆盖或重跑R1；750秒范围/同一场景/原4h cap不变。CPU6控制仍通过，实际import-origin门待验收。
