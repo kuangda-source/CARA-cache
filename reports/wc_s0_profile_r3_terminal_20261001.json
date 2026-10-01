@@ -1,0 +1,2014 @@
+{
+  "status": "S0_PROFILE_AND_ACTUAL_QKV_COMPLETE_REQUIRES_AUDIT",
+  "pid": 2555229,
+  "started_unix": 1790863455.291817,
+  "scope": {
+    "scope": "S0_OFFICIAL_WC_PROFILE_THEN_REAL_QKV_CAPTURE_ONE_FROZEN_CAL_CASE",
+    "max_gpu_wall_seconds": 750,
+    "phases": [
+      "profile",
+      "capture"
+    ],
+    "selection": "first frozen CAL8 entry before new observations",
+    "sample_name": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+    "capture_calls": [
+      1,
+      2,
+      71,
+      72
+    ],
+    "capture_layers": [
+      2,
+      14,
+      27
+    ],
+    "expected_qkv_shape": [
+      1,
+      31104,
+      16,
+      128
+    ],
+    "expected_qkv_dtype": "torch.bfloat16",
+    "expected_blocks": 28,
+    "expected_backend": "minimal_a2a",
+    "decode_policy": true,
+    "guardrails_retained": true,
+    "pv_or_sparse_changes": false,
+    "project_files_sha256": {
+      "configs/f1_setup.json": "ffc7fa84d38667236cda4a2f0825b57d832cee0378d637ba375d6e6ea3c60a9f",
+      "configs/cal_w1d8.jsonl": "7b99d44d9ec5aced6983dccbf1eb930344a84f053f185f423cecd12d94354d84",
+      "manifests/f1_runtime_protocol.json": "c4f580da88c78e4e68a533b2b58b16a82c9ea4935656642faa9e5149d29a4ed7",
+      "manifests/f1_outcome_protocol.json": "d80806a56d18eee63af60afd9baf9ce73f3854d708bbebd90eb78abbfe154bcf",
+      "manifests/upstream.json": "38da556f69c1b23ef3db41c356490983e687c10e204a15aa58fbd7137bdf2e1a",
+      "manifests/runtime_completion.json": "df683ebdb0a5de26266164ac148ad8bd5c47d7e9002e946cca2749642f734aca",
+      "src/wcomr/runtime_config.py": "d35c08a30fb5d0aea31a80e83755c0ed44969988d78c47a65dd3b62a8d507065",
+      "src/wcomr/measurement.py": "c4181ec3220b2fd33d333dffed9ae7163303668b9e152a705d1d70213b45a4c0",
+      "src/wcomr/protocol.py": "afce8e2d52030b46a7b958b4a69963b0ea515c8badb919ae555af2886afa4893",
+      "src/wcomr/guardrail_observation.py": "ac98299a3ac22d1db8b23404d6c03d77a75b955f7ea149039fdf494a5d0bf880",
+      "src/wcomr/decoder_policy.py": "57e1369909dfa9db5ea6ab563b275fe7376bea14d0b247dd7748e79fccf8699b",
+      "src/wcomr/stage_witness.py": "78247cc3137d1ea032425c392aa728f35b83fcd0d748f21be4cb3c3d7995ae09",
+      "manifests/guardrail_integrity.json": "777cc4cd54e7e2eb0ba86c3a4f8cea98eb49ddf05fad907d993d12ec4d7cd14d"
+    },
+    "runtime_files_sha256": {
+      "cosmos_predict2/_src/predict2/networks/minimal_v4_dit.py": "a41a1772f694ee338e4b91f032428ea81f28e80fb90990e2db86eb7d1ce30071",
+      "cosmos_predict2/_src/predict2/networks/minimal_v1_lvg_dit.py": "2d3ddcf94158c61223bc610f31ede475f7e4e27cc3b604ff3557b73d891e665f",
+      "cosmos_predict2/_src/predict2/networks/a2a_cp.py": "f9f6d61964437bec2950dbcc99e25911b35dd45404b823455f3d4ced2076f708",
+      "cosmos_predict2/_src/predict2/configs/video2world/defaults/net.py": "8299d1d68d4d3a69d0fe65f1fb99fb4c9765aa7a0394bc2fc68ec477243ef312",
+      "cosmos_predict2/_src/predict2/inference/worldcache_utils.py": "b485cb8fd6e262a40e5823365c34ef7db1bc036c591d7577489e04077c515903",
+      "cosmos_predict2/_src/predict2/configs/video2world/experiment/specialized_model/SFT_2B_RF.py": "719fa25c90dcc4f51a9226fa1b5ac677c52cbb1c292c8eac1e3121ab3c3ce814"
+    },
+    "checkpoint": {
+      "path": "/home/gaokuangda/data/gkd/worldcache_omr/hfhub/models--nvidia--Cosmos-Predict2.5-2B/snapshots/15a82a2ec231bc318692aa0456a36537c806e7d4/base/post-trained/81edfebe-bd6a-4039-8c1d-737df1a790bf_ema_bf16.pt",
+      "bytes": 4118575006,
+      "mtime_ns": 1764658341306511746
+    },
+    "checkpoint_sha256": "565bbb2c9645737327983f4461e4d32627bba465b0a8dc26447edea144e1ff47",
+    "quality_evaluation": "none; mechanism and cost diagnostics only",
+    "cost_warning": "profile event intervals and cold stage costs are diagnostic; capture time includes IO and cannot be used for speedup",
+    "hf_hub_cache": "project/hfhub (same as historical F1/W1 supervisors)"
+  },
+  "sampling_protocol": {
+    "name": "public_code_unipc_karras_35_requested_36_actual",
+    "approved_by_user": "2026-09-30: \u5148\u5b8c\u6210\u5f53\u524d\u4ee3\u7801\u6280\u672f\u5bf9\u7167",
+    "scheduler_source_sha256": "f6a06c75f059693ade6c802e99f6058575969b6a71ef18ab05e7ed46701053d3",
+    "scheduler_class": "FlowUniPCMultistepScheduler",
+    "requested_steps": 35,
+    "actual_steps": 36,
+    "cfg_calls": 72,
+    "use_kerras_sigma": true,
+    "timesteps": [
+      995,
+      994,
+      993,
+      992,
+      990,
+      988,
+      986,
+      984,
+      981,
+      977,
+      973,
+      967,
+      960,
+      951,
+      941,
+      927,
+      910,
+      889,
+      863,
+      831,
+      791,
+      742,
+      684,
+      618,
+      543,
+      462,
+      380,
+      301,
+      228,
+      166,
+      116,
+      77,
+      49,
+      30,
+      17,
+      9
+    ],
+    "worldcache_horizon": 70,
+    "scope": "Current completed public-code technical comparison, not paper Euler reproduction"
+  },
+  "gpu_uuid": "GPU-cebf7119-cf03-23b9-e192-cd196332b704",
+  "phases": [
+    {
+      "phase": "profile",
+      "sample": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "status": "DIAGNOSTIC_PHASE_COMPLETE_NOT_QUALITY_EVIDENCE",
+      "snapshots": [],
+      "end_to_end_seconds": 208.54167109867558,
+      "stages": {
+        "text_guardrail": {
+          "calls": 1,
+          "seconds": 19.953653594944626
+        },
+        "text_encoding": {
+          "calls": 2,
+          "seconds": 1.8092515179887414
+        },
+        "denoising": {
+          "calls": 1,
+          "seconds": 141.26439541392028
+        },
+        "decode": {
+          "calls": 1,
+          "seconds": 6.470470994710922
+        },
+        "video_guardrail": {
+          "calls": 1,
+          "seconds": 10.105110185220838
+        }
+      },
+      "outcome": "ACCEPTED",
+      "guardrail_events": [
+        {
+          "stage": "text",
+          "accepted": true
+        },
+        {
+          "stage": "video",
+          "accepted": true
+        }
+      ],
+      "block_counts": {
+        "denoiser_calls": 72,
+        "full_calls": 34,
+        "skipped_deep_calls": 38
+      },
+      "denoiser_trace": [
+        {
+          "call": 1,
+          "cache_counter_before": 0,
+          "deep_executed": true
+        },
+        {
+          "call": 2,
+          "cache_counter_before": 1,
+          "deep_executed": true
+        },
+        {
+          "call": 3,
+          "cache_counter_before": 2,
+          "deep_executed": true
+        },
+        {
+          "call": 4,
+          "cache_counter_before": 3,
+          "deep_executed": true
+        },
+        {
+          "call": 5,
+          "cache_counter_before": 4,
+          "deep_executed": true
+        },
+        {
+          "call": 6,
+          "cache_counter_before": 5,
+          "deep_executed": true
+        },
+        {
+          "call": 7,
+          "cache_counter_before": 6,
+          "deep_executed": true
+        },
+        {
+          "call": 8,
+          "cache_counter_before": 7,
+          "deep_executed": true
+        },
+        {
+          "call": 9,
+          "cache_counter_before": 8,
+          "deep_executed": true
+        },
+        {
+          "call": 10,
+          "cache_counter_before": 9,
+          "deep_executed": true
+        },
+        {
+          "call": 11,
+          "cache_counter_before": 10,
+          "deep_executed": true
+        },
+        {
+          "call": 12,
+          "cache_counter_before": 11,
+          "deep_executed": true
+        },
+        {
+          "call": 13,
+          "cache_counter_before": 12,
+          "deep_executed": true
+        },
+        {
+          "call": 14,
+          "cache_counter_before": 13,
+          "deep_executed": true
+        },
+        {
+          "call": 15,
+          "cache_counter_before": 14,
+          "deep_executed": false
+        },
+        {
+          "call": 16,
+          "cache_counter_before": 15,
+          "deep_executed": false
+        },
+        {
+          "call": 17,
+          "cache_counter_before": 16,
+          "deep_executed": false
+        },
+        {
+          "call": 18,
+          "cache_counter_before": 17,
+          "deep_executed": false
+        },
+        {
+          "call": 19,
+          "cache_counter_before": 18,
+          "deep_executed": false
+        },
+        {
+          "call": 20,
+          "cache_counter_before": 19,
+          "deep_executed": false
+        },
+        {
+          "call": 21,
+          "cache_counter_before": 20,
+          "deep_executed": false
+        },
+        {
+          "call": 22,
+          "cache_counter_before": 21,
+          "deep_executed": false
+        },
+        {
+          "call": 23,
+          "cache_counter_before": 22,
+          "deep_executed": false
+        },
+        {
+          "call": 24,
+          "cache_counter_before": 23,
+          "deep_executed": false
+        },
+        {
+          "call": 25,
+          "cache_counter_before": 24,
+          "deep_executed": true
+        },
+        {
+          "call": 26,
+          "cache_counter_before": 25,
+          "deep_executed": true
+        },
+        {
+          "call": 27,
+          "cache_counter_before": 26,
+          "deep_executed": false
+        },
+        {
+          "call": 28,
+          "cache_counter_before": 27,
+          "deep_executed": false
+        },
+        {
+          "call": 29,
+          "cache_counter_before": 28,
+          "deep_executed": false
+        },
+        {
+          "call": 30,
+          "cache_counter_before": 29,
+          "deep_executed": false
+        },
+        {
+          "call": 31,
+          "cache_counter_before": 30,
+          "deep_executed": false
+        },
+        {
+          "call": 32,
+          "cache_counter_before": 31,
+          "deep_executed": false
+        },
+        {
+          "call": 33,
+          "cache_counter_before": 32,
+          "deep_executed": false
+        },
+        {
+          "call": 34,
+          "cache_counter_before": 33,
+          "deep_executed": false
+        },
+        {
+          "call": 35,
+          "cache_counter_before": 34,
+          "deep_executed": true
+        },
+        {
+          "call": 36,
+          "cache_counter_before": 35,
+          "deep_executed": true
+        },
+        {
+          "call": 37,
+          "cache_counter_before": 36,
+          "deep_executed": false
+        },
+        {
+          "call": 38,
+          "cache_counter_before": 37,
+          "deep_executed": false
+        },
+        {
+          "call": 39,
+          "cache_counter_before": 38,
+          "deep_executed": false
+        },
+        {
+          "call": 40,
+          "cache_counter_before": 39,
+          "deep_executed": false
+        },
+        {
+          "call": 41,
+          "cache_counter_before": 40,
+          "deep_executed": false
+        },
+        {
+          "call": 42,
+          "cache_counter_before": 41,
+          "deep_executed": false
+        },
+        {
+          "call": 43,
+          "cache_counter_before": 42,
+          "deep_executed": true
+        },
+        {
+          "call": 44,
+          "cache_counter_before": 43,
+          "deep_executed": true
+        },
+        {
+          "call": 45,
+          "cache_counter_before": 44,
+          "deep_executed": false
+        },
+        {
+          "call": 46,
+          "cache_counter_before": 45,
+          "deep_executed": false
+        },
+        {
+          "call": 47,
+          "cache_counter_before": 46,
+          "deep_executed": true
+        },
+        {
+          "call": 48,
+          "cache_counter_before": 47,
+          "deep_executed": true
+        },
+        {
+          "call": 49,
+          "cache_counter_before": 48,
+          "deep_executed": false
+        },
+        {
+          "call": 50,
+          "cache_counter_before": 49,
+          "deep_executed": false
+        },
+        {
+          "call": 51,
+          "cache_counter_before": 50,
+          "deep_executed": true
+        },
+        {
+          "call": 52,
+          "cache_counter_before": 51,
+          "deep_executed": true
+        },
+        {
+          "call": 53,
+          "cache_counter_before": 52,
+          "deep_executed": false
+        },
+        {
+          "call": 54,
+          "cache_counter_before": 53,
+          "deep_executed": false
+        },
+        {
+          "call": 55,
+          "cache_counter_before": 54,
+          "deep_executed": true
+        },
+        {
+          "call": 56,
+          "cache_counter_before": 55,
+          "deep_executed": true
+        },
+        {
+          "call": 57,
+          "cache_counter_before": 56,
+          "deep_executed": false
+        },
+        {
+          "call": 58,
+          "cache_counter_before": 57,
+          "deep_executed": false
+        },
+        {
+          "call": 59,
+          "cache_counter_before": 58,
+          "deep_executed": true
+        },
+        {
+          "call": 60,
+          "cache_counter_before": 59,
+          "deep_executed": true
+        },
+        {
+          "call": 61,
+          "cache_counter_before": 60,
+          "deep_executed": false
+        },
+        {
+          "call": 62,
+          "cache_counter_before": 61,
+          "deep_executed": false
+        },
+        {
+          "call": 63,
+          "cache_counter_before": 62,
+          "deep_executed": true
+        },
+        {
+          "call": 64,
+          "cache_counter_before": 63,
+          "deep_executed": true
+        },
+        {
+          "call": 65,
+          "cache_counter_before": 64,
+          "deep_executed": false
+        },
+        {
+          "call": 66,
+          "cache_counter_before": 65,
+          "deep_executed": false
+        },
+        {
+          "call": 67,
+          "cache_counter_before": 66,
+          "deep_executed": false
+        },
+        {
+          "call": 68,
+          "cache_counter_before": 67,
+          "deep_executed": false
+        },
+        {
+          "call": 69,
+          "cache_counter_before": 68,
+          "deep_executed": true
+        },
+        {
+          "call": 70,
+          "cache_counter_before": 69,
+          "deep_executed": true
+        },
+        {
+          "call": 71,
+          "cache_counter_before": 0,
+          "deep_executed": true
+        },
+        {
+          "call": 72,
+          "cache_counter_before": 1,
+          "deep_executed": true
+        }
+      ],
+      "witnesses": [
+        {
+          "stage": "latent",
+          "value": {
+            "kind": "tensor",
+            "shape": [
+              1,
+              16,
+              24,
+              54,
+              96
+            ],
+            "dtype": "torch.float32",
+            "finite": true,
+            "sha256": "4372935b512f8647cefbceeba551b8b5db456aa6783f213245aa009e1b7c50f7"
+          }
+        }
+      ],
+      "peak_allocated_bytes": 26039466496,
+      "peak_reserved_bytes": 26646413312,
+      "component_costs": {
+        "totals": {
+          "probe_self_q_proj": {
+            "calls": 144,
+            "milliseconds": 315.01171147823334
+          },
+          "probe_self_k_proj": {
+            "calls": 144,
+            "milliseconds": 316.5997437238693
+          },
+          "probe_self_v_proj": {
+            "calls": 144,
+            "milliseconds": 317.68880105018616
+          },
+          "probe_self_core": {
+            "calls": 144,
+            "milliseconds": 10752.440803527832
+          },
+          "probe_self_output_proj": {
+            "calls": 144,
+            "milliseconds": 321.8012490272522
+          },
+          "probe_cross_core": {
+            "calls": 144,
+            "milliseconds": 187.58083379268646
+          },
+          "probe_mlp": {
+            "calls": 144,
+            "milliseconds": 2658.6583919525146
+          },
+          "deep_self_q_proj": {
+            "calls": 884,
+            "milliseconds": 2003.6717145442963
+          },
+          "deep_self_k_proj": {
+            "calls": 884,
+            "milliseconds": 2015.8202238082886
+          },
+          "deep_self_v_proj": {
+            "calls": 884,
+            "milliseconds": 2025.994078874588
+          },
+          "deep_self_core": {
+            "calls": 884,
+            "milliseconds": 66915.47413635254
+          },
+          "deep_self_output_proj": {
+            "calls": 884,
+            "milliseconds": 1986.4792983531952
+          },
+          "deep_cross_core": {
+            "calls": 884,
+            "milliseconds": 1157.4840965270996
+          },
+          "deep_mlp": {
+            "calls": 884,
+            "milliseconds": 16432.872632980347
+          },
+          "net_inclusive": {
+            "calls": 72,
+            "milliseconds": 129478.55303955078
+          },
+          "compute_saliency_map": {
+            "calls": 56,
+            "milliseconds": 193.78182578086853
+          },
+          "estimate_optical_flow": {
+            "calls": 38,
+            "milliseconds": 1835.2956352233887
+          },
+          "warp_feature": {
+            "calls": 76,
+            "milliseconds": 1336.6261768341064
+          }
+        },
+        "rows": 7438,
+        "path": "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-s0-profile-r3/gpu-r3/diagnostic/profile/component-events.json",
+        "sha256": "68525e250ef42b8ee04258cc017bdc892817c6c2c55a31ff30e81393156b963c",
+        "warning": "net_inclusive overlaps components; do not sum inclusive scopes; event intervals include launch gaps"
+      },
+      "sampling": {
+        "scheduler_class": "FlowUniPCMultistepScheduler",
+        "requested_steps": 35,
+        "actual_schedule_steps": 36,
+        "timesteps": [
+          995,
+          994,
+          993,
+          992,
+          990,
+          988,
+          986,
+          984,
+          981,
+          977,
+          973,
+          967,
+          960,
+          951,
+          941,
+          927,
+          910,
+          889,
+          863,
+          831,
+          791,
+          742,
+          684,
+          618,
+          543,
+          462,
+          380,
+          301,
+          228,
+          166,
+          116,
+          77,
+          49,
+          30,
+          17,
+          9
+        ],
+        "use_kerras_sigma": true,
+        "worldcache_horizon": 70
+      },
+      "paths": [
+        {
+          "path": "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-s0-profile-r3/gpu-r3/diagnostic/profile/av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632.mp4",
+          "sha256": "2913c7c4a93c09df70c6278fb0f4418786d4d31409b4d47cd4d3f77c59a404ba",
+          "bytes": 444939,
+          "ffprobe": {
+            "programs": [],
+            "streams": [
+              {
+                "width": 768,
+                "height": 432,
+                "r_frame_rate": "16/1",
+                "nb_read_frames": "93"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "phase": "capture",
+      "sample": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "status": "DIAGNOSTIC_PHASE_COMPLETE_NOT_QUALITY_EVIDENCE",
+      "snapshots": [
+        {
+          "call": 1,
+          "cache_counter_before": 0,
+          "cfg_slot": 0,
+          "layer": 2,
+          "path": "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-s0-profile-r3/gpu-r3/diagnostic/capture/qkv-call01-layer02.pt",
+          "sha256": "db74dfda12371f1e60b0737134e53439eb831458df015a67cbbc5ac82052b84b",
+          "bytes": 382208196,
+          "tensors": {
+            "q": {
+              "shape": [
+                1,
+                31104,
+                16,
+                128
+              ],
+              "dtype": "torch.bfloat16",
+              "stride": [
+                63700992,
+                2048,
+                128,
+                1
+              ],
+              "finite": true,
+              "raw_sha256": "f8f22e916f1e387f2fd6d8902ad28ccc8d8ba56a2b6383936a40ba259ea448bb"
+            },
+            "k": {
+              "shape": [
+                1,
+                31104,
+                16,
+                128
+              ],
+              "dtype": "torch.bfloat16",
+              "stride": [
+                63700992,
+                2048,
+                128,
+                1
+              ],
+              "finite": true,
+              "raw_sha256": "c68a0327e5dc395de771df4e3be014fc3540aab503d0543b4cd6a15ccca4c3b0"
+            },
+            "v": {
+              "shape": [
+                1,
+                31104,
+                16,
+                128
+              ],
+              "dtype": "torch.bfloat16",
+              "stride": [
+                63700992,
+                2048,
+                128,
+                1
+              ],
+              "finite": true,
+              "raw_sha256": "b10deb6636580c902655196ebdd959b0851484dc9d4d7af45a0bbaa27a039293"
+            }
+          },
+          "point": "actual attn_op input after QK norm and self RoPE; NHD",
+          "rng_preserved": true
+        },
+        {
+          "call": 1,
+          "cache_counter_before": 0,
+          "cfg_slot": 0,
+          "layer": 14,
+          "path": "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-s0-profile-r3/gpu-r3/diagnostic/capture/qkv-call01-layer14.pt",
+          "sha256": "5fd38698c382784717a9d83fc9901e39cdd6cfea2b6aac88b03b6ee86bba62fd",
+          "bytes": 382208196,
+          "tensors": {
+            "q": {
+              "shape": [
+                1,
+                31104,
+                16,
+                128
+              ],
+              "dtype": "torch.bfloat16",
+              "stride": [
+                63700992,
+                2048,
+                128,
+                1
+              ],
+              "finite": true,
+              "raw_sha256": "2cb2fa6b3845ffb43c562e09dc9a2d8e2371094a7ee4ced364a395e3b5ba3014"
+            },
+            "k": {
+              "shape": [
+                1,
+                31104,
+                16,
+                128
+              ],
+              "dtype": "torch.bfloat16",
+              "stride": [
+                63700992,
+                2048,
+                128,
+                1
+              ],
+              "finite": true,
+              "raw_sha256": "341bb778836e99317c6b8c37620ed206eaf985b830856d1637c2b3c9e22fda9a"
+            },
+            "v": {
+              "shape": [
+                1,
+                31104,
+                16,
+                128
+              ],
+              "dtype": "torch.bfloat16",
+              "stride": [
+                63700992,
+                2048,
+                128,
+                1
+              ],
+              "finite": true,
+              "raw_sha256": "72aebb80f9fd6d2dea9d41978f8f408bb1f583b819d25463c708a71f771e51e9"
+            }
+          },
+          "point": "actual attn_op input after QK norm and self RoPE; NHD",
+          "rng_preserved": true
+        },
+        {
+          "call": 1,
+          "cache_counter_before": 0,
+          "cfg_slot": 0,
+          "layer": 27,
+          "path": "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-s0-profile-r3/gpu-r3/diagnostic/capture/qkv-call01-layer27.pt",
+          "sha256": "0454169471f303511a4897270dbebc1ce4b43d4ee6e43f7bae3c9da657992aa0",
+          "bytes": 382208196,
+          "tensors": {
+            "q": {
+              "shape": [
+                1,
+                31104,
+                16,
+                128
+              ],
+              "dtype": "torch.bfloat16",
+              "stride": [
+                63700992,
+                2048,
+                128,
+                1
+              ],
+              "finite": true,
+              "raw_sha256": "cbf35074a90b9dbf25a7264e8f2c38ad4e325992d5cd3e61f00d161cc8c884d1"
+            },
+            "k": {
+              "shape": [
+                1,
+                31104,
+                16,
+                128
+              ],
+              "dtype": "torch.bfloat16",
+              "stride": [
+                63700992,
+                2048,
+                128,
+                1
+              ],
+              "finite": true,
+              "raw_sha256": "b95d9978aa8167bd2569540edca7e508329d2a695fd84d8214e746bd8f47992b"
+            },
+            "v": {
+              "shape": [
+                1,
+                31104,
+                16,
+                128
+              ],
+              "dtype": "torch.bfloat16",
+              "stride": [
+                63700992,
+                2048,
+                128,
+                1
+              ],
+              "finite": true,
+              "raw_sha256": "69e43987aa06cbeb1cee3b7f3836fe7f110adfee4e7bdb7bc479543c8c409a92"
+            }
+          },
+          "point": "actual attn_op input after QK norm and self RoPE; NHD",
+          "rng_preserved": true
+        },
+        {
+          "call": 2,
+          "cache_counter_before": 1,
+          "cfg_slot": 1,
+          "layer": 2,
+          "path": "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-s0-profile-r3/gpu-r3/diagnostic/capture/qkv-call02-layer02.pt",
+          "sha256": "f17876025015602d041adfe8a1b5bf4e33c62a7b9a3a2dd806c5d65951e2309e",
+          "bytes": 382208196,
+          "tensors": {
+            "q": {
+              "shape": [
+                1,
+                31104,
+                16,
+                128
+              ],
+              "dtype": "torch.bfloat16",
+              "stride": [
+                63700992,
+                2048,
+                128,
+                1
+              ],
+              "finite": true,
+              "raw_sha256": "09ce8ffcab6a0029e24572c726c4dd052ea0dfcc73584809c5389a91574159ae"
+            },
+            "k": {
+              "shape": [
+                1,
+                31104,
+                16,
+                128
+              ],
+              "dtype": "torch.bfloat16",
+              "stride": [
+                63700992,
+                2048,
+                128,
+                1
+              ],
+              "finite": true,
+              "raw_sha256": "353d2028902a0d7d7c1ad8463e483e932222e140877bd0e11f5c802599bb1955"
+            },
+            "v": {
+              "shape": [
+                1,
+                31104,
+                16,
+                128
+              ],
+              "dtype": "torch.bfloat16",
+              "stride": [
+                63700992,
+                2048,
+                128,
+                1
+              ],
+              "finite": true,
+              "raw_sha256": "8a4521aa9f89dea8cfbb4e7a9bbb011977e4c09effe0da97d448c3419fdf03f9"
+            }
+          },
+          "point": "actual attn_op input after QK norm and self RoPE; NHD",
+          "rng_preserved": true
+        },
+        {
+          "call": 2,
+          "cache_counter_before": 1,
+          "cfg_slot": 1,
+          "layer": 14,
+          "path": "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-s0-profile-r3/gpu-r3/diagnostic/capture/qkv-call02-layer14.pt",
+          "sha256": "a2021b328aecd357579e45d5e39879b7b39161c811e731eef4e1304c36c7e74b",
+          "bytes": 382208196,
+          "tensors": {
+            "q": {
+              "shape": [
+                1,
+                31104,
+                16,
+                128
+              ],
+              "dtype": "torch.bfloat16",
+              "stride": [
+                63700992,
+                2048,
+                128,
+                1
+              ],
+              "finite": true,
+              "raw_sha256": "138017bbec8f42f8603595711b4e46c787bc8560feb4bb5f4338e9d6ed0b86e4"
+            },
+            "k": {
+              "shape": [
+                1,
+                31104,
+                16,
+                128
+              ],
+              "dtype": "torch.bfloat16",
+              "stride": [
+                63700992,
+                2048,
+                128,
+                1
+              ],
+              "finite": true,
+              "raw_sha256": "da4f2fbb50effcff9b8eff3dd4a3feb591ec20f964f1a0216d354c1f5239afc3"
+            },
+            "v": {
+              "shape": [
+                1,
+                31104,
+                16,
+                128
+              ],
+              "dtype": "torch.bfloat16",
+              "stride": [
+                63700992,
+                2048,
+                128,
+                1
+              ],
+              "finite": true,
+              "raw_sha256": "73ec27711ad1f5c35731a7abb132294923b5c7851e23d31a7e9d36664584d7fb"
+            }
+          },
+          "point": "actual attn_op input after QK norm and self RoPE; NHD",
+          "rng_preserved": true
+        },
+        {
+          "call": 2,
+          "cache_counter_before": 1,
+          "cfg_slot": 1,
+          "layer": 27,
+          "path": "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-s0-profile-r3/gpu-r3/diagnostic/capture/qkv-call02-layer27.pt",
+          "sha256": "c85ddd5aff3fc680fbd1be2758e162caa141cd8f73c71edc742136949d91d675",
+          "bytes": 382208196,
+          "tensors": {
+            "q": {
+              "shape": [
+                1,
+                31104,
+                16,
+                128
+              ],
+              "dtype": "torch.bfloat16",
+              "stride": [
+                63700992,
+                2048,
+                128,
+                1
+              ],
+              "finite": true,
+              "raw_sha256": "8bc415002e3f724782004a2c86d06ff5e704586f8eca7adb2856a26860540310"
+            },
+            "k": {
+              "shape": [
+                1,
+                31104,
+                16,
+                128
+              ],
+              "dtype": "torch.bfloat16",
+              "stride": [
+                63700992,
+                2048,
+                128,
+                1
+              ],
+              "finite": true,
+              "raw_sha256": "a10d90bb2dab84bd93290d2a0339ff0d20703618986bf6424f5b1fa15a02a62b"
+            },
+            "v": {
+              "shape": [
+                1,
+                31104,
+                16,
+                128
+              ],
+              "dtype": "torch.bfloat16",
+              "stride": [
+                63700992,
+                2048,
+                128,
+                1
+              ],
+              "finite": true,
+              "raw_sha256": "e96ffc24cfd52f367edee3c816c821064137598ad5aa2a1429694be9d70d7802"
+            }
+          },
+          "point": "actual attn_op input after QK norm and self RoPE; NHD",
+          "rng_preserved": true
+        },
+        {
+          "call": 71,
+          "cache_counter_before": 0,
+          "cfg_slot": 0,
+          "layer": 2,
+          "path": "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-s0-profile-r3/gpu-r3/diagnostic/capture/qkv-call71-layer02.pt",
+          "sha256": "0e87fa17448b328131f4325c19b62c2b8afc9942564c630ea3e47d9edec5e118",
+          "bytes": 382208196,
+          "tensors": {
+            "q": {
+              "shape": [
+                1,
+                31104,
+                16,
+                128
+              ],
+              "dtype": "torch.bfloat16",
+              "stride": [
+                63700992,
+                2048,
+                128,
+                1
+              ],
+              "finite": true,
+              "raw_sha256": "8df43cee5df946e31ef109585f74eae5eb6769c56acd927f7ca5da2002f3f781"
+            },
+            "k": {
+              "shape": [
+                1,
+                31104,
+                16,
+                128
+              ],
+              "dtype": "torch.bfloat16",
+              "stride": [
+                63700992,
+                2048,
+                128,
+                1
+              ],
+              "finite": true,
+              "raw_sha256": "397bcb9770987a6855d8131b49478edfd656c8720670f032ef4d57314072fb6f"
+            },
+            "v": {
+              "shape": [
+                1,
+                31104,
+                16,
+                128
+              ],
+              "dtype": "torch.bfloat16",
+              "stride": [
+                63700992,
+                2048,
+                128,
+                1
+              ],
+              "finite": true,
+              "raw_sha256": "45cd48e78383ce857f8805004e4a7a448c6b51d7427825502e27a133785c8051"
+            }
+          },
+          "point": "actual attn_op input after QK norm and self RoPE; NHD",
+          "rng_preserved": true
+        },
+        {
+          "call": 71,
+          "cache_counter_before": 0,
+          "cfg_slot": 0,
+          "layer": 14,
+          "path": "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-s0-profile-r3/gpu-r3/diagnostic/capture/qkv-call71-layer14.pt",
+          "sha256": "eefe6839c6106fcba47d92bdc1856b4c376a269aae26fc8f551846862b21db80",
+          "bytes": 382208196,
+          "tensors": {
+            "q": {
+              "shape": [
+                1,
+                31104,
+                16,
+                128
+              ],
+              "dtype": "torch.bfloat16",
+              "stride": [
+                63700992,
+                2048,
+                128,
+                1
+              ],
+              "finite": true,
+              "raw_sha256": "f225986c5bc8860ab31e690e87f7b182a55a5ad44fa38ec2ae7819cafda4bcaa"
+            },
+            "k": {
+              "shape": [
+                1,
+                31104,
+                16,
+                128
+              ],
+              "dtype": "torch.bfloat16",
+              "stride": [
+                63700992,
+                2048,
+                128,
+                1
+              ],
+              "finite": true,
+              "raw_sha256": "d6c259a33d14824950c0905b15f296934f23a7f36868547a4a505ed57eacb2c0"
+            },
+            "v": {
+              "shape": [
+                1,
+                31104,
+                16,
+                128
+              ],
+              "dtype": "torch.bfloat16",
+              "stride": [
+                63700992,
+                2048,
+                128,
+                1
+              ],
+              "finite": true,
+              "raw_sha256": "fa274cbb921a77c157e639fa647cde1ac0624fafbcb7d2f84cf796642341fd96"
+            }
+          },
+          "point": "actual attn_op input after QK norm and self RoPE; NHD",
+          "rng_preserved": true
+        },
+        {
+          "call": 71,
+          "cache_counter_before": 0,
+          "cfg_slot": 0,
+          "layer": 27,
+          "path": "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-s0-profile-r3/gpu-r3/diagnostic/capture/qkv-call71-layer27.pt",
+          "sha256": "4c6e2de3d84b5d2b5a3317a717e5c9d03ce837c24f74c2154fe4975f33b71470",
+          "bytes": 382208196,
+          "tensors": {
+            "q": {
+              "shape": [
+                1,
+                31104,
+                16,
+                128
+              ],
+              "dtype": "torch.bfloat16",
+              "stride": [
+                63700992,
+                2048,
+                128,
+                1
+              ],
+              "finite": true,
+              "raw_sha256": "c5ada0b513d6c78652e121bce1175e80d1c6c27d5e224472b5fb0b32f50159f1"
+            },
+            "k": {
+              "shape": [
+                1,
+                31104,
+                16,
+                128
+              ],
+              "dtype": "torch.bfloat16",
+              "stride": [
+                63700992,
+                2048,
+                128,
+                1
+              ],
+              "finite": true,
+              "raw_sha256": "13ba7a93bb65e643218b7896550e118c2bf432a050a9bb23ef8ea4dffc98a1dc"
+            },
+            "v": {
+              "shape": [
+                1,
+                31104,
+                16,
+                128
+              ],
+              "dtype": "torch.bfloat16",
+              "stride": [
+                63700992,
+                2048,
+                128,
+                1
+              ],
+              "finite": true,
+              "raw_sha256": "fc68705e272bf4523ff26161889b42a6c313cf13e1f63ce947b6a58d1090a4c2"
+            }
+          },
+          "point": "actual attn_op input after QK norm and self RoPE; NHD",
+          "rng_preserved": true
+        },
+        {
+          "call": 72,
+          "cache_counter_before": 1,
+          "cfg_slot": 1,
+          "layer": 2,
+          "path": "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-s0-profile-r3/gpu-r3/diagnostic/capture/qkv-call72-layer02.pt",
+          "sha256": "22acefcb0d97165497387e27fabf157cfb16a90bdb69250b90ecf561b5f2663d",
+          "bytes": 382208196,
+          "tensors": {
+            "q": {
+              "shape": [
+                1,
+                31104,
+                16,
+                128
+              ],
+              "dtype": "torch.bfloat16",
+              "stride": [
+                63700992,
+                2048,
+                128,
+                1
+              ],
+              "finite": true,
+              "raw_sha256": "bdec2d73e2519f08c06975a100ffd1282e857c6d24a66fd02859ca006e0258e5"
+            },
+            "k": {
+              "shape": [
+                1,
+                31104,
+                16,
+                128
+              ],
+              "dtype": "torch.bfloat16",
+              "stride": [
+                63700992,
+                2048,
+                128,
+                1
+              ],
+              "finite": true,
+              "raw_sha256": "6fdf304d67e73953dec32581787929e4c9d44ab854ab5e36bce6aa9b1238fb25"
+            },
+            "v": {
+              "shape": [
+                1,
+                31104,
+                16,
+                128
+              ],
+              "dtype": "torch.bfloat16",
+              "stride": [
+                63700992,
+                2048,
+                128,
+                1
+              ],
+              "finite": true,
+              "raw_sha256": "784ca4dfab7da6e752de73585bced23dff0d7581eb04cc96cd2fa5c4ff9dbe43"
+            }
+          },
+          "point": "actual attn_op input after QK norm and self RoPE; NHD",
+          "rng_preserved": true
+        },
+        {
+          "call": 72,
+          "cache_counter_before": 1,
+          "cfg_slot": 1,
+          "layer": 14,
+          "path": "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-s0-profile-r3/gpu-r3/diagnostic/capture/qkv-call72-layer14.pt",
+          "sha256": "8cb9598fcabeace71dd927c31e912b4ead62b740498e9261a06abbd4e9f65d9f",
+          "bytes": 382208196,
+          "tensors": {
+            "q": {
+              "shape": [
+                1,
+                31104,
+                16,
+                128
+              ],
+              "dtype": "torch.bfloat16",
+              "stride": [
+                63700992,
+                2048,
+                128,
+                1
+              ],
+              "finite": true,
+              "raw_sha256": "ca573a8e929ebc1f765a0147fe5cde4b57599670ab709da497fe574c10050e1a"
+            },
+            "k": {
+              "shape": [
+                1,
+                31104,
+                16,
+                128
+              ],
+              "dtype": "torch.bfloat16",
+              "stride": [
+                63700992,
+                2048,
+                128,
+                1
+              ],
+              "finite": true,
+              "raw_sha256": "36454794c9563e15f65ffcc3f625dd0ecd7ab86065789f60029e04d254c4a925"
+            },
+            "v": {
+              "shape": [
+                1,
+                31104,
+                16,
+                128
+              ],
+              "dtype": "torch.bfloat16",
+              "stride": [
+                63700992,
+                2048,
+                128,
+                1
+              ],
+              "finite": true,
+              "raw_sha256": "30bbd7b1af1a7c1d2d68825d1e239ccdb028a1bf3d06818631e28fa68a2bbd7d"
+            }
+          },
+          "point": "actual attn_op input after QK norm and self RoPE; NHD",
+          "rng_preserved": true
+        },
+        {
+          "call": 72,
+          "cache_counter_before": 1,
+          "cfg_slot": 1,
+          "layer": 27,
+          "path": "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-s0-profile-r3/gpu-r3/diagnostic/capture/qkv-call72-layer27.pt",
+          "sha256": "ca4517c109c463a31c988dbcc3dd14747c0a68a62ab8850c6cdc5c1b78d36b44",
+          "bytes": 382208196,
+          "tensors": {
+            "q": {
+              "shape": [
+                1,
+                31104,
+                16,
+                128
+              ],
+              "dtype": "torch.bfloat16",
+              "stride": [
+                63700992,
+                2048,
+                128,
+                1
+              ],
+              "finite": true,
+              "raw_sha256": "bc2796f98016a4bdfa21ae64df54ff2a25010d51864f20ed2702998dba044218"
+            },
+            "k": {
+              "shape": [
+                1,
+                31104,
+                16,
+                128
+              ],
+              "dtype": "torch.bfloat16",
+              "stride": [
+                63700992,
+                2048,
+                128,
+                1
+              ],
+              "finite": true,
+              "raw_sha256": "40a2b50ea4cccb5322237a28d7ac8f64da990ae4453344eae4ee8bd05f813f94"
+            },
+            "v": {
+              "shape": [
+                1,
+                31104,
+                16,
+                128
+              ],
+              "dtype": "torch.bfloat16",
+              "stride": [
+                63700992,
+                2048,
+                128,
+                1
+              ],
+              "finite": true,
+              "raw_sha256": "1925948557a985fbb602743ee5824075c9c1e44edb6062d78a1a85bc829ad958"
+            }
+          },
+          "point": "actual attn_op input after QK norm and self RoPE; NHD",
+          "rng_preserved": true
+        }
+      ],
+      "end_to_end_seconds": 244.3684406997636,
+      "stages": {
+        "text_guardrail": {
+          "calls": 1,
+          "seconds": 17.520875263027847
+        },
+        "text_encoding": {
+          "calls": 2,
+          "seconds": 0.23210302274674177
+        },
+        "denoising": {
+          "calls": 1,
+          "seconds": 175.74229731690139
+        },
+        "decode": {
+          "calls": 1,
+          "seconds": 6.2957140021026134
+        },
+        "video_guardrail": {
+          "calls": 1,
+          "seconds": 10.937162898946553
+        }
+      },
+      "outcome": "ACCEPTED",
+      "guardrail_events": [
+        {
+          "stage": "text",
+          "accepted": true
+        },
+        {
+          "stage": "video",
+          "accepted": true
+        }
+      ],
+      "block_counts": {
+        "denoiser_calls": 72,
+        "full_calls": 34,
+        "skipped_deep_calls": 38
+      },
+      "denoiser_trace": [
+        {
+          "call": 1,
+          "cache_counter_before": 0,
+          "deep_executed": true
+        },
+        {
+          "call": 2,
+          "cache_counter_before": 1,
+          "deep_executed": true
+        },
+        {
+          "call": 3,
+          "cache_counter_before": 2,
+          "deep_executed": true
+        },
+        {
+          "call": 4,
+          "cache_counter_before": 3,
+          "deep_executed": true
+        },
+        {
+          "call": 5,
+          "cache_counter_before": 4,
+          "deep_executed": true
+        },
+        {
+          "call": 6,
+          "cache_counter_before": 5,
+          "deep_executed": true
+        },
+        {
+          "call": 7,
+          "cache_counter_before": 6,
+          "deep_executed": true
+        },
+        {
+          "call": 8,
+          "cache_counter_before": 7,
+          "deep_executed": true
+        },
+        {
+          "call": 9,
+          "cache_counter_before": 8,
+          "deep_executed": true
+        },
+        {
+          "call": 10,
+          "cache_counter_before": 9,
+          "deep_executed": true
+        },
+        {
+          "call": 11,
+          "cache_counter_before": 10,
+          "deep_executed": true
+        },
+        {
+          "call": 12,
+          "cache_counter_before": 11,
+          "deep_executed": true
+        },
+        {
+          "call": 13,
+          "cache_counter_before": 12,
+          "deep_executed": true
+        },
+        {
+          "call": 14,
+          "cache_counter_before": 13,
+          "deep_executed": true
+        },
+        {
+          "call": 15,
+          "cache_counter_before": 14,
+          "deep_executed": false
+        },
+        {
+          "call": 16,
+          "cache_counter_before": 15,
+          "deep_executed": false
+        },
+        {
+          "call": 17,
+          "cache_counter_before": 16,
+          "deep_executed": false
+        },
+        {
+          "call": 18,
+          "cache_counter_before": 17,
+          "deep_executed": false
+        },
+        {
+          "call": 19,
+          "cache_counter_before": 18,
+          "deep_executed": false
+        },
+        {
+          "call": 20,
+          "cache_counter_before": 19,
+          "deep_executed": false
+        },
+        {
+          "call": 21,
+          "cache_counter_before": 20,
+          "deep_executed": false
+        },
+        {
+          "call": 22,
+          "cache_counter_before": 21,
+          "deep_executed": false
+        },
+        {
+          "call": 23,
+          "cache_counter_before": 22,
+          "deep_executed": false
+        },
+        {
+          "call": 24,
+          "cache_counter_before": 23,
+          "deep_executed": false
+        },
+        {
+          "call": 25,
+          "cache_counter_before": 24,
+          "deep_executed": true
+        },
+        {
+          "call": 26,
+          "cache_counter_before": 25,
+          "deep_executed": true
+        },
+        {
+          "call": 27,
+          "cache_counter_before": 26,
+          "deep_executed": false
+        },
+        {
+          "call": 28,
+          "cache_counter_before": 27,
+          "deep_executed": false
+        },
+        {
+          "call": 29,
+          "cache_counter_before": 28,
+          "deep_executed": false
+        },
+        {
+          "call": 30,
+          "cache_counter_before": 29,
+          "deep_executed": false
+        },
+        {
+          "call": 31,
+          "cache_counter_before": 30,
+          "deep_executed": false
+        },
+        {
+          "call": 32,
+          "cache_counter_before": 31,
+          "deep_executed": false
+        },
+        {
+          "call": 33,
+          "cache_counter_before": 32,
+          "deep_executed": false
+        },
+        {
+          "call": 34,
+          "cache_counter_before": 33,
+          "deep_executed": false
+        },
+        {
+          "call": 35,
+          "cache_counter_before": 34,
+          "deep_executed": true
+        },
+        {
+          "call": 36,
+          "cache_counter_before": 35,
+          "deep_executed": true
+        },
+        {
+          "call": 37,
+          "cache_counter_before": 36,
+          "deep_executed": false
+        },
+        {
+          "call": 38,
+          "cache_counter_before": 37,
+          "deep_executed": false
+        },
+        {
+          "call": 39,
+          "cache_counter_before": 38,
+          "deep_executed": false
+        },
+        {
+          "call": 40,
+          "cache_counter_before": 39,
+          "deep_executed": false
+        },
+        {
+          "call": 41,
+          "cache_counter_before": 40,
+          "deep_executed": false
+        },
+        {
+          "call": 42,
+          "cache_counter_before": 41,
+          "deep_executed": false
+        },
+        {
+          "call": 43,
+          "cache_counter_before": 42,
+          "deep_executed": true
+        },
+        {
+          "call": 44,
+          "cache_counter_before": 43,
+          "deep_executed": true
+        },
+        {
+          "call": 45,
+          "cache_counter_before": 44,
+          "deep_executed": false
+        },
+        {
+          "call": 46,
+          "cache_counter_before": 45,
+          "deep_executed": false
+        },
+        {
+          "call": 47,
+          "cache_counter_before": 46,
+          "deep_executed": true
+        },
+        {
+          "call": 48,
+          "cache_counter_before": 47,
+          "deep_executed": true
+        },
+        {
+          "call": 49,
+          "cache_counter_before": 48,
+          "deep_executed": false
+        },
+        {
+          "call": 50,
+          "cache_counter_before": 49,
+          "deep_executed": false
+        },
+        {
+          "call": 51,
+          "cache_counter_before": 50,
+          "deep_executed": true
+        },
+        {
+          "call": 52,
+          "cache_counter_before": 51,
+          "deep_executed": true
+        },
+        {
+          "call": 53,
+          "cache_counter_before": 52,
+          "deep_executed": false
+        },
+        {
+          "call": 54,
+          "cache_counter_before": 53,
+          "deep_executed": false
+        },
+        {
+          "call": 55,
+          "cache_counter_before": 54,
+          "deep_executed": true
+        },
+        {
+          "call": 56,
+          "cache_counter_before": 55,
+          "deep_executed": true
+        },
+        {
+          "call": 57,
+          "cache_counter_before": 56,
+          "deep_executed": false
+        },
+        {
+          "call": 58,
+          "cache_counter_before": 57,
+          "deep_executed": false
+        },
+        {
+          "call": 59,
+          "cache_counter_before": 58,
+          "deep_executed": true
+        },
+        {
+          "call": 60,
+          "cache_counter_before": 59,
+          "deep_executed": true
+        },
+        {
+          "call": 61,
+          "cache_counter_before": 60,
+          "deep_executed": false
+        },
+        {
+          "call": 62,
+          "cache_counter_before": 61,
+          "deep_executed": false
+        },
+        {
+          "call": 63,
+          "cache_counter_before": 62,
+          "deep_executed": true
+        },
+        {
+          "call": 64,
+          "cache_counter_before": 63,
+          "deep_executed": true
+        },
+        {
+          "call": 65,
+          "cache_counter_before": 64,
+          "deep_executed": false
+        },
+        {
+          "call": 66,
+          "cache_counter_before": 65,
+          "deep_executed": false
+        },
+        {
+          "call": 67,
+          "cache_counter_before": 66,
+          "deep_executed": false
+        },
+        {
+          "call": 68,
+          "cache_counter_before": 67,
+          "deep_executed": false
+        },
+        {
+          "call": 69,
+          "cache_counter_before": 68,
+          "deep_executed": true
+        },
+        {
+          "call": 70,
+          "cache_counter_before": 69,
+          "deep_executed": true
+        },
+        {
+          "call": 71,
+          "cache_counter_before": 0,
+          "deep_executed": true
+        },
+        {
+          "call": 72,
+          "cache_counter_before": 1,
+          "deep_executed": true
+        }
+      ],
+      "witnesses": [
+        {
+          "stage": "latent",
+          "value": {
+            "kind": "tensor",
+            "shape": [
+              1,
+              16,
+              24,
+              54,
+              96
+            ],
+            "dtype": "torch.float32",
+            "finite": true,
+            "sha256": "4372935b512f8647cefbceeba551b8b5db456aa6783f213245aa009e1b7c50f7"
+          }
+        }
+      ],
+      "peak_allocated_bytes": 26034688000,
+      "peak_reserved_bytes": 26587693056,
+      "sampling": {
+        "scheduler_class": "FlowUniPCMultistepScheduler",
+        "requested_steps": 35,
+        "actual_schedule_steps": 36,
+        "timesteps": [
+          995,
+          994,
+          993,
+          992,
+          990,
+          988,
+          986,
+          984,
+          981,
+          977,
+          973,
+          967,
+          960,
+          951,
+          941,
+          927,
+          910,
+          889,
+          863,
+          831,
+          791,
+          742,
+          684,
+          618,
+          543,
+          462,
+          380,
+          301,
+          228,
+          166,
+          116,
+          77,
+          49,
+          30,
+          17,
+          9
+        ],
+        "use_kerras_sigma": true,
+        "worldcache_horizon": 70
+      },
+      "paths": [
+        {
+          "path": "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-s0-profile-r3/gpu-r3/diagnostic/capture/av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632.mp4",
+          "sha256": "2913c7c4a93c09df70c6278fb0f4418786d4d31409b4d47cd4d3f77c59a404ba",
+          "bytes": 444939,
+          "ffprobe": {
+            "programs": [],
+            "streams": [
+              {
+                "width": 768,
+                "height": 432,
+                "r_frame_rate": "16/1",
+                "nb_read_frames": "93"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "registration": {
+    "config_sha256": "0ccb2fbdf4d997a680c50cfe3a52b22e85c285464884177ce7822b969ad2ddd9",
+    "excluded_package": "cosmos_predict2.experiments",
+    "selected_experiment": "Stage-c_pt_4-Index-2-Size-2B-Res-720-Fps-16-Note-rf_with_edm_ckpt",
+    "scope": "exclude unrelated example training registration only"
+  },
+  "setup": {
+    "output_dir": "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-s0-profile-r3/gpu-r3/diagnostic",
+    "model": "2B/post-trained",
+    "checkpoint_path": "/home/gaokuangda/data/gkd/worldcache_omr/hfhub/models--nvidia--Cosmos-Predict2.5-2B/snapshots/15a82a2ec231bc318692aa0456a36537c806e7d4/base/post-trained/81edfebe-bd6a-4039-8c1d-737df1a790bf_ema_bf16.pt",
+    "experiment": "Stage-c_pt_4-Index-2-Size-2B-Res-720-Fps-16-Note-rf_with_edm_ckpt",
+    "config_file": "cosmos_predict2/_src/predict2/configs/video2world/config.py",
+    "context_parallel_size": 1,
+    "offload_diffusion_model": false,
+    "offload_tokenizer": true,
+    "offload_text_encoder": true,
+    "disable_guardrails": false,
+    "offload_guardrail_models": true,
+    "keep_going": true,
+    "profile": false,
+    "worldcache_enabled": true,
+    "worldcache_num_steps": 35,
+    "worldcache_rel_l1_thresh": 0.06,
+    "worldcache_ret_ratio": 0.2,
+    "worldcache_probe_depth": 2,
+    "worldcache_motion_sensitivity": 2.0,
+    "worldcache_flow_enabled": true,
+    "worldcache_flow_scale": 2.0,
+    "worldcache_saliency_enabled": true,
+    "worldcache_saliency_weight": 1.0,
+    "worldcache_osi_enabled": true,
+    "worldcache_dynamic_decay": true,
+    "use_torch_compile": false
+  },
+  "torch": "2.7.1+cu128",
+  "cuda": "12.8",
+  "gpu_name": "NVIDIA RTX A6000",
+  "backend_flags": {
+    "cudnn_enabled": true,
+    "cudnn_benchmark": false,
+    "cudnn_deterministic": false,
+    "cudnn_allow_tf32": true,
+    "matmul_allow_tf32": false,
+    "deterministic_algorithms": false
+  },
+  "model_load_seconds": 112.38122961018234,
+  "actual_model": {
+    "blocks": 28,
+    "heads": 16,
+    "head_dim": 128,
+    "backend": "minimal_a2a",
+    "attention_op": "MinimalA2AAttnOp"
+  },
+  "phase_consistency": {
+    "block_counts": true,
+    "denoiser_trace": true,
+    "witnesses": true,
+    "sampling": true,
+    "outcome": true
+  },
+  "ended_unix": 1790864043.7580624,
+  "process_wall_seconds": 588.4662454128265
+}

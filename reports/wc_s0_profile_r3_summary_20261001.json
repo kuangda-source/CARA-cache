@@ -1,0 +1,128 @@
+{
+  "status": "S0_SINGLE_SCENE_OFFICIAL_WC_COST_AND12_REAL_QKV_AUDITED_NOT_METHOD_GAIN",
+  "gpu_wall_seconds": 611.1809668797068,
+  "used_gpu_hours": 3.8783313720900976,
+  "remaining_gpu_seconds": 438.00706047564864,
+  "profile_end_to_end_seconds": 208.54167109867558,
+  "profile_stages": {
+    "text_guardrail": {
+      "calls": 1,
+      "seconds": 19.953653594944626
+    },
+    "text_encoding": {
+      "calls": 2,
+      "seconds": 1.8092515179887414
+    },
+    "denoising": {
+      "calls": 1,
+      "seconds": 141.26439541392028
+    },
+    "decode": {
+      "calls": 1,
+      "seconds": 6.470470994710922
+    },
+    "video_guardrail": {
+      "calls": 1,
+      "seconds": 10.105110185220838
+    }
+  },
+  "block_counts": {
+    "denoiser_calls": 72,
+    "full_calls": 34,
+    "skipped_deep_calls": 38
+  },
+  "component_costs_ms": {
+    "deep_self_q_proj": {
+      "calls": 884,
+      "milliseconds": 2003.6717145442963
+    },
+    "deep_self_core": {
+      "calls": 884,
+      "milliseconds": 66915.47413635254
+    },
+    "net_inclusive": {
+      "calls": 72,
+      "milliseconds": 129478.55303955078
+    },
+    "probe_self_core": {
+      "calls": 144,
+      "milliseconds": 10752.440803527832
+    },
+    "deep_self_k_proj": {
+      "calls": 884,
+      "milliseconds": 2015.8202238082886
+    },
+    "deep_mlp": {
+      "calls": 884,
+      "milliseconds": 16432.872632980347
+    },
+    "probe_cross_core": {
+      "calls": 144,
+      "milliseconds": 187.58083379268646
+    },
+    "probe_self_v_proj": {
+      "calls": 144,
+      "milliseconds": 317.68880105018616
+    },
+    "deep_cross_core": {
+      "calls": 884,
+      "milliseconds": 1157.4840965270996
+    },
+    "deep_self_output_proj": {
+      "calls": 884,
+      "milliseconds": 1986.4792983531952
+    },
+    "warp_feature": {
+      "calls": 76,
+      "milliseconds": 1336.6261768341064
+    },
+    "probe_self_output_proj": {
+      "calls": 144,
+      "milliseconds": 321.8012490272522
+    },
+    "probe_self_k_proj": {
+      "calls": 144,
+      "milliseconds": 316.5997437238693
+    },
+    "probe_self_q_proj": {
+      "calls": 144,
+      "milliseconds": 315.01171147823334
+    },
+    "deep_self_v_proj": {
+      "calls": 884,
+      "milliseconds": 2025.994078874588
+    },
+    "compute_saliency_map": {
+      "calls": 56,
+      "milliseconds": 193.78182578086853
+    },
+    "estimate_optical_flow": {
+      "calls": 38,
+      "milliseconds": 1835.2956352233887
+    },
+    "probe_mlp": {
+      "calls": 144,
+      "milliseconds": 2658.6583919525146
+    }
+  },
+  "deep_self_core_fraction_of_denoising_wall": 0.4736895941845984,
+  "ideal_eliminate_deep_self_core_denoising_upper_bound": 1.9000194352052022,
+  "capture_end_to_end_seconds_including_io": 244.3684406997636,
+  "captured_files": 12,
+  "captured_bytes": 4586498352,
+  "phase_consistency": {
+    "block_counts": true,
+    "denoiser_trace": true,
+    "witnesses": true,
+    "sampling": true,
+    "outcome": true
+  },
+  "phase_video_sha_equal": true,
+  "evidence_limits": [
+    "single frozen development scene/seed",
+    "profile instrumentation and cold effects; not clean speed",
+    "capture includes IO; not a latency arm",
+    "dense official WC only; no sparse video method or quality claim",
+    "Amdahl bound hypothetical zero-cost removal, excludes new routing and error"
+  ]
+}

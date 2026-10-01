@@ -8,6 +8,8 @@
 
 ## 1. 当前结论与最重要的下一步
 
+最新验收：[S0官方WC成本/12真实QKV](research/61_WC_S0_COST_REAL_QKV_RESULTS.md)。两轮34full/38skip/latent/trace/采样一致、视频SHA一致；profile去噪141.26秒中deep self核心66.92秒/47.37%，flow+warp2.25%、cross核心0.95%。7438事件与12个BF16 QKV完整SHA/finite/CPU roundtrip审计通过，R3 GPU611.180967秒。下一优先余额内真实QKV块选择误差/路由净成本；没有稀疏生成或新方法质量—时间收益。
+
 最新接续：S0 R2 actual runtime来源检查通过，Inference初始化时读取不完整默认HF缓存，guardrail custom缺失退出；无完整pipeline/forward/QKV/profile，失败125.141735秒已结算/释放。恢复历史project/hfhub并增加全Guardrail1 Git/LFS完整检查，下一新R3；余额1049.188027秒、750秒原scope、不扩额/无人评。[审计](reports/wc_s0_profile_r2_failure_audit_20261001.json)。
 
 最新诊断：S0 R1模型load前native包路径错误，失败69.455334秒已按原余额结算/原PIDs与锁/GPU释放；无forward/profile/QKV结果。已修复显式runtime/PYTHONPATH，下一R2实际CPU import-origin门后有界续跑，剩余1174.329762秒。[失败审计](reports/wc_s0_profile_r1_failure_audit_20261001.json)。
@@ -24,14 +26,14 @@
 
 | 项目 | 最新终态证据（2026-10-01） |
 |---|---|
-| 当前阶段 | S1实际内核/量化full-mask技术门通过；固定mask误差大，S0真实QKV与WC成本profile待测 |
-| 最近运行 | S1 kernel-r1真实8case完成/GPU11.726698秒；独立source/派发/重复/成本/释放审计通过 |
+| 当前阶段 | S0成本与12真实QKV验收；合成S1硬件/全mask门通过；真实选择误差/净成本下一 |
+| 最近运行 | S0 R3两轮官方WC完成/GPU611.180967秒；7438事件/12 QKV/SHA/一致性与释放审计通过 |
 | 覆盖/响应 | repeat0/42变化，blank14/42，cyclic14/42；126有效/0invalid |
 | 审计 | 原始tokens/24输入重算/8视频/10模型文件/源码锁与本地原题summary全一致 |
 | 评价边界 | 重复稳定/部分内容响应，不是物理准确金标准/235BJoint/方法接受 |
 | 方法证据 | CAL8机制改善；VQA/MUSIQ未一致收益，clean速度/独立确认仍未证 |
-| 成本 | kernel11.726698秒；累计3.6545041399802236/4GPUh，余1243.785096秒，无在途/无扩额 |
-| 下一步 | 官方WC剩余成本profile/真实QKV；检验真实注意力选择与误差，保留同内核full-mask，暂不四臂/三档 |
+| 成本 | S0含2失败共805.778036秒；累计3.8783313720900976/4GPUh，余438.007060秒，无在途/无扩额 |
+| 下一步 | 余额内最多180秒真实QKV选择/匹配no-PV全mask/误差与净路由成本；暂不四臂/三档 |
 
 证据：[控制结果](research/30_W1_VQA_INPUT_CONTROLS_RESULTS.md)、[控制终态审计](reports/w1_vqa_controls_r1_audit.json)、[本地重算](reports/w1_vqa_controls_r1_local_recompute.json)、[原VQA结果](research/28_W1_DEVELOPMENT_VQA_RESULTS.md)、[账本](reports/budget.json)。部分场景在三条件均相同不能隐去；即使controls通过也没有新的物理质量正结果。
 此前：[固定重放结果](research/24_W1_FIXED_REPLAY_RESULTS.md)、[重放完整汇总](reports/w1_replay_r1_summary.json)、[CAL8机制结果](research/21_W1D_CAL8_RESULTS.md)、[CAL8分布/排序](reports/w1d_cal8_r1_analysis.json)。
@@ -53,7 +55,7 @@
 | 假设 | 预期验证 | 当前状态 / 否定条件 |
 |---|---|---|
 | H-W1：简单收缩或浅深层增量校准能改善跨步残差近似 | 同状态 shadow → 固定跳步闭环 → 自由调度下的质量—时间对照 | CAL8同状态scalar机制信号；固定schedule技术通过，MUSIQ混合/开发VQA无代理收益，质量—时间未证，额外计算抵消收益则停止深化 |
-| H-S：复用、稀疏刷新与密集刷新可改善计算分配 | WC后profile → 真实内核三对照 → 四臂闭环/模块替换 → 条件三档与增量诊断 | 新增设计，全部未运行；无净kernel/闭环收益则停止复杂化，不能相乘加速比 |
+| H-S：复用、稀疏刷新与密集刷新可改善计算分配 | WC后profile → 真实内核三对照 → 四臂闭环/模块替换 → 条件三档与增量诊断 | S0成本/12 QKV审计与合成S1硬件门完成，真实选择/闭环未验收；无净收益停止复杂化，不能相乘加速比 |
 | H-W1D：残差误差大小不能完全代表下游危害 | 对照残差 MSE、最终速度预测误差/方向与局部伪影 | CAL8所有8样本有内部排序差异；未联系视频物理损害，先全局scalar闭环 |
 | H-J：减少不必要的 OMR 纠正调用/梯度可改善折中 | 先复现有效原版，再测稀疏、未来侧梯度与复用 | 资源与兼容性待复核；原版无效或 adapter 不匹配时不做归因 |
 | H-L：预训练 CFG / 少步适配器是值得纳入的强基线 | 同一兼容 Wan5B 上原生、CFG-only、四步 Few-step+CFG 三臂 | L0两臂真实CPU融合及独立fresh产物审计、独立93包安装及guarded native import/ABI/meta/tokenizer通过；真实模型权重/任务和GPU仍待验证；小批次仅筛查可用性 |

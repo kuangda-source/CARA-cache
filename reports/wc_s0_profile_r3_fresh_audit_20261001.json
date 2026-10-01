@@ -1,0 +1,301 @@
+{
+  "status": "S0_FRESH_SOURCE_QKV_COST_SETTLEMENT_RELEASE_AUDIT_PASS",
+  "observed_unix": 1790864186.873277,
+  "pid": 2557280,
+  "original_pids_absent": [
+    2555212,
+    2555227,
+    2555229,
+    2555018,
+    2555031
+  ],
+  "global_lock_free": true,
+  "cuda_initialized_after": false,
+  "deployment_and_runtime_and_checkpoint_unchanged": true,
+  "raw_cost_rows_recomputed": 7438,
+  "fresh_cpu_qkv_roundtrip": [
+    {
+      "call": 1,
+      "layer": 2,
+      "file_sha256": "db74dfda12371f1e60b0737134e53439eb831458df015a67cbbc5ac82052b84b",
+      "bytes": 382208196,
+      "cpu_roundtrip_verified": true
+    },
+    {
+      "call": 1,
+      "layer": 14,
+      "file_sha256": "5fd38698c382784717a9d83fc9901e39cdd6cfea2b6aac88b03b6ee86bba62fd",
+      "bytes": 382208196,
+      "cpu_roundtrip_verified": true
+    },
+    {
+      "call": 1,
+      "layer": 27,
+      "file_sha256": "0454169471f303511a4897270dbebc1ce4b43d4ee6e43f7bae3c9da657992aa0",
+      "bytes": 382208196,
+      "cpu_roundtrip_verified": true
+    },
+    {
+      "call": 2,
+      "layer": 2,
+      "file_sha256": "f17876025015602d041adfe8a1b5bf4e33c62a7b9a3a2dd806c5d65951e2309e",
+      "bytes": 382208196,
+      "cpu_roundtrip_verified": true
+    },
+    {
+      "call": 2,
+      "layer": 14,
+      "file_sha256": "a2021b328aecd357579e45d5e39879b7b39161c811e731eef4e1304c36c7e74b",
+      "bytes": 382208196,
+      "cpu_roundtrip_verified": true
+    },
+    {
+      "call": 2,
+      "layer": 27,
+      "file_sha256": "c85ddd5aff3fc680fbd1be2758e162caa141cd8f73c71edc742136949d91d675",
+      "bytes": 382208196,
+      "cpu_roundtrip_verified": true
+    },
+    {
+      "call": 71,
+      "layer": 2,
+      "file_sha256": "0e87fa17448b328131f4325c19b62c2b8afc9942564c630ea3e47d9edec5e118",
+      "bytes": 382208196,
+      "cpu_roundtrip_verified": true
+    },
+    {
+      "call": 71,
+      "layer": 14,
+      "file_sha256": "eefe6839c6106fcba47d92bdc1856b4c376a269aae26fc8f551846862b21db80",
+      "bytes": 382208196,
+      "cpu_roundtrip_verified": true
+    },
+    {
+      "call": 71,
+      "layer": 27,
+      "file_sha256": "4c6e2de3d84b5d2b5a3317a717e5c9d03ce837c24f74c2154fe4975f33b71470",
+      "bytes": 382208196,
+      "cpu_roundtrip_verified": true
+    },
+    {
+      "call": 72,
+      "layer": 2,
+      "file_sha256": "22acefcb0d97165497387e27fabf157cfb16a90bdb69250b90ecf561b5f2663d",
+      "bytes": 382208196,
+      "cpu_roundtrip_verified": true
+    },
+    {
+      "call": 72,
+      "layer": 14,
+      "file_sha256": "8cb9598fcabeace71dd927c31e912b4ead62b740498e9261a06abbd4e9f65d9f",
+      "bytes": 382208196,
+      "cpu_roundtrip_verified": true
+    },
+    {
+      "call": 72,
+      "layer": 27,
+      "file_sha256": "ca4517c109c463a31c988dbcc3dd14747c0a68a62ab8850c6cdc5c1b78d36b44",
+      "bytes": 382208196,
+      "cpu_roundtrip_verified": true
+    }
+  ],
+  "budget": {
+    "batch": "F0-F1",
+    "cap_gpu_hours": 4,
+    "used_gpu_hours": 3.8783313720900976,
+    "gpu_jobs_launched": 26,
+    "status": "WC_S0_PROFILE_SETTLED_REQUIRES_RESULT_AUDIT",
+    "gpu_import_probes_completed": 1,
+    "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts"
+  },
+  "summary": {
+    "status": "S0_SINGLE_SCENE_OFFICIAL_WC_COST_AND12_REAL_QKV_AUDITED_NOT_METHOD_GAIN",
+    "gpu_wall_seconds": 611.1809668797068,
+    "used_gpu_hours": 3.8783313720900976,
+    "remaining_gpu_seconds": 438.00706047564864,
+    "profile_end_to_end_seconds": 208.54167109867558,
+    "profile_stages": {
+      "text_guardrail": {
+        "calls": 1,
+        "seconds": 19.953653594944626
+      },
+      "text_encoding": {
+        "calls": 2,
+        "seconds": 1.8092515179887414
+      },
+      "denoising": {
+        "calls": 1,
+        "seconds": 141.26439541392028
+      },
+      "decode": {
+        "calls": 1,
+        "seconds": 6.470470994710922
+      },
+      "video_guardrail": {
+        "calls": 1,
+        "seconds": 10.105110185220838
+      }
+    },
+    "block_counts": {
+      "denoiser_calls": 72,
+      "full_calls": 34,
+      "skipped_deep_calls": 38
+    },
+    "component_costs_ms": {
+      "deep_self_q_proj": {
+        "calls": 884,
+        "milliseconds": 2003.6717145442963
+      },
+      "deep_self_core": {
+        "calls": 884,
+        "milliseconds": 66915.47413635254
+      },
+      "net_inclusive": {
+        "calls": 72,
+        "milliseconds": 129478.55303955078
+      },
+      "probe_self_core": {
+        "calls": 144,
+        "milliseconds": 10752.440803527832
+      },
+      "deep_self_k_proj": {
+        "calls": 884,
+        "milliseconds": 2015.8202238082886
+      },
+      "deep_mlp": {
+        "calls": 884,
+        "milliseconds": 16432.872632980347
+      },
+      "probe_cross_core": {
+        "calls": 144,
+        "milliseconds": 187.58083379268646
+      },
+      "probe_self_v_proj": {
+        "calls": 144,
+        "milliseconds": 317.68880105018616
+      },
+      "deep_cross_core": {
+        "calls": 884,
+        "milliseconds": 1157.4840965270996
+      },
+      "deep_self_output_proj": {
+        "calls": 884,
+        "milliseconds": 1986.4792983531952
+      },
+      "warp_feature": {
+        "calls": 76,
+        "milliseconds": 1336.6261768341064
+      },
+      "probe_self_output_proj": {
+        "calls": 144,
+        "milliseconds": 321.8012490272522
+      },
+      "probe_self_k_proj": {
+        "calls": 144,
+        "milliseconds": 316.5997437238693
+      },
+      "probe_self_q_proj": {
+        "calls": 144,
+        "milliseconds": 315.01171147823334
+      },
+      "deep_self_v_proj": {
+        "calls": 884,
+        "milliseconds": 2025.994078874588
+      },
+      "compute_saliency_map": {
+        "calls": 56,
+        "milliseconds": 193.78182578086853
+      },
+      "estimate_optical_flow": {
+        "calls": 38,
+        "milliseconds": 1835.2956352233887
+      },
+      "probe_mlp": {
+        "calls": 144,
+        "milliseconds": 2658.6583919525146
+      }
+    },
+    "deep_self_core_fraction_of_denoising_wall": 0.4736895941845984,
+    "ideal_eliminate_deep_self_core_denoising_upper_bound": 1.9000194352052022,
+    "capture_end_to_end_seconds_including_io": 244.3684406997636,
+    "captured_files": 12,
+    "captured_bytes": 4586498352,
+    "phase_consistency": {
+      "block_counts": true,
+      "denoiser_trace": true,
+      "witnesses": true,
+      "sampling": true,
+      "outcome": true
+    },
+    "phase_video_sha_equal": true,
+    "evidence_limits": [
+      "single frozen development scene/seed",
+      "profile instrumentation and cold effects; not clean speed",
+      "capture includes IO; not a latency arm",
+      "dense official WC only; no sparse video method or quality claim",
+      "Amdahl bound hypothetical zero-cost removal, excludes new routing and error"
+    ]
+  },
+  "supervisor": {
+    "status": "EXITED_REQUIRES_RESULT_AUDIT",
+    "pid": 2555212,
+    "run_id": "gpu-r3",
+    "admission": {
+      "unix": 1790863443.1776345,
+      "uuid": "GPU-cebf7119-cf03-23b9-e192-cd196332b704",
+      "name": "NVIDIA RTX A6000",
+      "memory_used_mib": 24,
+      "compute_cap": "8.6",
+      "pids": []
+    },
+    "budget_before": {
+      "batch": "F0-F1",
+      "cap_gpu_hours": 4,
+      "used_gpu_hours": 3.708558881290179,
+      "gpu_jobs_launched": 25,
+      "status": "WC_S0_PROFILE_SETTLED_REQUIRES_RESULT_AUDIT",
+      "gpu_import_probes_completed": 1,
+      "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts"
+    },
+    "reserved_seconds": 750,
+    "child_pid": 2555227,
+    "child_started_unix": 1790863443.1804316,
+    "exit_code": 0,
+    "release": {
+      "unix": 1790864054.3598013,
+      "uuid": "GPU-cebf7119-cf03-23b9-e192-cd196332b704",
+      "name": "NVIDIA RTX A6000",
+      "memory_used_mib": 24,
+      "compute_cap": "8.6",
+      "pids": []
+    },
+    "wall_seconds": 611.1809668797068,
+    "budget_after": {
+      "batch": "F0-F1",
+      "cap_gpu_hours": 4,
+      "used_gpu_hours": 3.8783313720900976,
+      "gpu_jobs_launched": 26,
+      "status": "WC_S0_PROFILE_SETTLED_REQUIRES_RESULT_AUDIT",
+      "gpu_import_probes_completed": 1,
+      "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts"
+    },
+    "ended_unix": 1790864054.3894448
+  },
+  "release": {
+    "unix": 1790864054.3598013,
+    "uuid": "GPU-cebf7119-cf03-23b9-e192-cd196332b704",
+    "name": "NVIDIA RTX A6000",
+    "memory_used_mib": 24,
+    "compute_cap": "8.6",
+    "pids": []
+  },
+  "monitor_samples": 286,
+  "fresh_gpu_inventory": "GPU-de9a5370-cd87-0f1c-a48e-288888777dd3, NVIDIA RTX A6000, 350\nGPU-cebf7119-cf03-23b9-e192-cd196332b704, NVIDIA RTX A6000, 24\n",
+  "fresh_compute_apps": "",
+  "remote_receipt_sha256": {
+    "supervisor.json": "36a324546701360f99cc4244855e53884bcc5416c8911f831ae05e975320e368",
+    "diagnostic/receipt.json": "e3e2d4f5b533171957433dfe6acdfccb006f47a88a11365e83dd3c4442c3ac7b",
+    "diagnostic.log": "fd71e5d262d9b0478663c0809517c08278ded5d79434370696dda9116950d40b",
+    "gpu-monitor.jsonl": "25db565cd9272389151dc0cce0bd75136cbd97d22742d6e57525e3acb75538be"
+  }
+}
