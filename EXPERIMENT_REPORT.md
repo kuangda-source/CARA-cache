@@ -30,7 +30,7 @@
 
 最新L0 CPU资源：[全两臂完整CPU产物验收](research/42_L0_FULL_CPU_FUSION_ARTIFACT_ACCEPTANCE.md)。真实两臂CPU融合与独立fresh audit均终态通过：fusion1960.417015秒/peakRSS30.8287GiB，audit663.896945秒；18原输入融合前后及fresh官方digest一致，6输出shard/1650实际tensor全finite与dtype/shape/字节digest通过，1050未目标weight原字节不变，两臂各300目标实际bytes_changed。所有原fusion/审计6PIDs退出/CPU锁释放/source与GPU账本不变。仍未实际模型/T5/VAE加载或任务/GPU就绪。
 
-最新隔离环境：隔离env-resolve-r1/source78308f9 已唯一启动，4PIDs 2509814/2509815/2509816/2509822 实际live/环境锁持有；CPU600秒上限，官方PyPI TLS metadata预检通过。四个已审计local wheel是固定输入，完整transitive hash lock尚未完成；新env仍未安装/source与GPU账本不变。 四个binary完整审计已通过，未安装/import。 [依赖运行](research/46_L0_NATIVE_ENV_DEPENDENCY_RESOLUTION_RUN.md)。
+最新隔离环境：完整原生依赖图93包已解析并hash lock验收，CPU r2退出0/4.079835秒、全部4PIDs退出/环境锁释放；新env安装前后仍空/source与GPU账本不变。R1因ANTLR无wheel技术退出，R2仅准许纯Python ANTLR4.9.3 source，Torch/Flash不编译。实际安装/native import/模型与GPU仍待。 [依赖门](research/46_L0_NATIVE_ENV_DEPENDENCY_RESOLUTION_RUN.md)。
 
 [公共native T2V CPU准备](research/36_L0_NATIVE_CONDITIONAL_CPU_PREPARATION.md)本地/Linux7通过；真实模型/GPU未验收。
 

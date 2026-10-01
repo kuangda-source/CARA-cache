@@ -1,3 +1,11 @@
+## 最新CPU终态 — 完整原生依赖hash lock
+
+完整原生依赖图93包已解析并hash lock验收，CPU r2退出0/4.079835秒、全部4PIDs退出/环境锁释放；新env安装前后仍空/source与GPU账本不变。R1因ANTLR无wheel技术退出，R2仅准许纯Python ANTLR4.9.3 source，Torch/Flash不编译。实际安装/native import/模型与GPU仍待。
+
+[解析与下一安装门](../../research/46_L0_NATIVE_ENV_DEPENDENCY_RESOLUTION_RUN.md)。owned forward16500仍由此环境任务持有；下一唯一env-install-r1/CPU1800，不能重跑resolve或wheel获取。
+
+## 以下为历史快照
+
 ## 最新CPU运行 — 原生完整依赖解析
 
 隔离env-resolve-r1/source78308f9 已唯一启动，4PIDs 2509814/2509815/2509816/2509822 实际live/环境锁持有；CPU600秒上限，官方PyPI TLS metadata预检通过。四个已审计local wheel是固定输入，完整transitive hash lock尚未完成；新env仍未安装/source与GPU账本不变。

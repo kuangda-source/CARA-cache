@@ -11,3 +11,5 @@
 解析成功需完整hash lock/Git同步，然后唯一CPU1800 newenv install；安装后实际guarded native import CPU600尚待，CPU4保护测试不等于native import。WorldCache新4GPUh/clean50仍待决策，L1也未自动获得预算。
 
 R1已终态失败/原4PIDs全部退出/环境锁释放，empty env安装前后完全一致，source与GPU账本不变。实际原因是omegaconf2.3所需antlr4-python3-runtime4.9系列没有可用wheel；不是Torch/Flash获取失败或方法否定。按既定回退，下一新resolve-r2仅允许这个pure Python依赖source，并保持所有native binary local wheel。 [终态](../reports/l0_native_env_resolve_r1_terminal_audit_20261001.json)。
+
+R2完整成功：完整原生依赖图93包已解析并hash lock验收，CPU r2退出0/4.079835秒、全部4PIDs退出/环境锁释放；新env安装前后仍空/source与GPU账本不变。R1因ANTLR无wheel技术退出，R2仅准许纯Python ANTLR4.9.3 source，Torch/Flash不编译。实际安装/native import/模型与GPU仍待。 [完整终态审计](../reports/l0_native_env_resolve_r2_terminal_audit_20261001.json)/[93包hash lock](../manifests/l0_native_environment_resolved_requirements_20261001.txt)。requirements SHA256 576df6a7b5c36bef10893d7fe5dddfcfd8cfee2e0b0813195d8807171ce43c75；全部24选定major pins/Flash及4 binary SHA逐项一致，每包有SHA。锁内file URL是服务器本地绝对artifact路径，不含credentials；不能直接在其他主机运行。
