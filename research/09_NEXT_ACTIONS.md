@@ -1,3 +1,11 @@
+## 最新完整验收 — 六包fresh与实际derived93锁
+
+六个大transitive wheel全部下载并独立fresh审计通过：1781156006字节、CPU2752.631111秒，六包完整官方SHA/实际metadata/exact tag一致，原3PIDs退出/锁释放/source与GPU账本不变，仅owned16501关闭。实际audit数据已离线绑定原93包锁：仅替换六个下载位置，93版本/coverage保留、其余87个block字节不变；新TXT SHA=d4296654b79e26616963df01b4fd15eda29d344bf2d7efb2fcf6840d7ff38abe。这是transport derivation，没有重新resolve或安装/native import/GPU。
+
+[验收与安装重试门](51_L0_ALL6_TRANSITIVE_ACCEPTANCE_AND_LOCAL93_LOCK.md)。下一install-r2尚未launch；旧任务均不要重启。
+
+## 以下为历史快照
+
 ## 最新准备 — 原93包local6绑定契约
 
 原93包local6 transport绑定程序及安装校验门已准备，本地/Linux同4契约测试通过（fixture，不是实际六包绑定或安装）。六包range-r1同handle仍运行，已3/6完整官方SHA/meta通过；其余尚待全量审计。新stage安装将fresh全6 bytes并重组成原93版本图；旧安装/source与shared连接不动，无新GPU。
