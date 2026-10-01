@@ -38,7 +38,7 @@ def main():
     state = {'pid': os.getpid(), 'started_unix': time.time(), 'status': 'STARTED',
              'gpu_workload_started': False, 'python': sys.version,
              'interpreter': sys.executable, 'environment_prefix': sys.prefix,
-             'scope': 'Full native package import, meta DiT architecture, real tokenizer and scoped method construction. No full weights, forward, VAE, GPU or task parity.'}
+             'scope': 'Native package import with explicit T5 default-device CPU substitution, meta DiT architecture, real tokenizer and scoped method construction. No full weights, forward, VAE, GPU or task parity.'}
 
     def save():
         temp = args.output.with_suffix('.tmp')
@@ -98,10 +98,13 @@ def main():
                      torch_version=torch.__version__, torch_cpp_abi=torch._C._GLIBCXX_USE_CXX11_ABI,
                      cuda_initialized=False)
         save()
-        import wan
-        from wan.textimage2video import WanTI2V
-        from wan.modules.model import WanModel
-        from wan.modules.tokenizers import HuggingfaceTokenizer
+        from wcomr.native_cpu_import import native_cpu_import_guard
+        t5_sha = next(r['sha256'] for r in lock['files'] if r['path'] == 'wan/modules/t5.py')
+        with native_cpu_import_guard(torch, source, t5_sha) as import_guard:
+            import wan
+            from wan.textimage2video import WanTI2V
+            from wan.modules.model import WanModel
+            from wan.modules.tokenizers import HuggingfaceTokenizer
         from wcomr.wan_t2v_conditional import conditional_t2v_scope
         if torch.cuda.is_initialized():
             raise ValueError('Unexpected CUDA initialization')
@@ -112,7 +115,8 @@ def main():
                 if path is None or source not in path.parents or str(path.relative_to(source)) not in expected:
                     raise ValueError('Imported native module origin differs: ' + name)
                 origins[name] = str(path.relative_to(source))
-        state.update(status='FULL_NATIVE_IMPORT_PASS', module_origins=origins,
+        state.update(status='FULL_NATIVE_CPU_GUARDED_IMPORT_PASS', module_origins=origins,
+                     cpu_import_guard=import_guard,
                      torch_version=torch.__version__, torch_cpp_abi=torch._C._GLIBCXX_USE_CXX11_ABI,
                      cuda_initialized=False)
         save()
@@ -165,7 +169,7 @@ def main():
                 raise ValueError('Source changed during probe')
         if torch.cuda.is_initialized():
             raise ValueError('Unexpected CUDA initialization')
-        state.update(status='CPU_NATIVE_IMPORT_META_ARCHITECTURE_TOKENIZER_AND_SCOPE_PASS_NOT_MODEL_GPU',
+        state.update(status='CPU_GUARDED_NATIVE_IMPORT_META_ARCHITECTURE_TOKENIZER_AND_SCOPE_PASS_NOT_MODEL_GPU',
                      finished_unix=time.time(), tokenizer_shape=list(ids.shape),
                      tokenizer_valid_tokens=int(mask.sum()), tokenizer_ids_sha256=hashlib.sha256(ids.numpy().tobytes()).hexdigest(),
                      adaptation=adaptation, source_unchanged=True, cuda_initialized=False)

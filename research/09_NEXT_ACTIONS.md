@@ -1,3 +1,11 @@
+## 最新资源终态 — 四个native binary完整通过
+
+四个native binary全部获取并fresh审计通过：997270087字节，CPU1533.184018秒；三PyTorch官方SHA匹配，Flash官方asset ID/name/size/URL和actual local SHA/CRC/metadata通过（官方digest仍UNKNOWN）。全部3PIDs退出/下载锁释放/source与GPU账本不变，仅此次owned forward已关闭。隔离env仍空，未安装/import或新GPU。
+
+[完整验收与下一CPU门](45_L0_NATIVE_BINARY_ACCEPTANCE_AND_CPU_IMPORT_GUARD.md)。下一新owned forward16500/唯一env-resolve-r1，不重复下载。
+
+## 以下为历史快照
+
 ## 最新运行 — 四个native binary CPU获取
 
 native-wheels-r1/source e7338fe 已唯一启动，3PIDs 2507524/2507525/2507526 实际live/下载锁持有；四个源exact206/64KiB前缀通过。当前Torch已持久提交 167772160 字节，完整4 wheel/hash尚未完成；CPU3600秒cap/source与GPU账本不变，无安装/import/GPU。
