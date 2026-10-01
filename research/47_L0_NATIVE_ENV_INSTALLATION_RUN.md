@@ -9,3 +9,5 @@
 同outputs/l0-native-env-install-r1观察到终态，禁止重复提交/改stage固定source3。owned forward16500保持直到安装终态+完整清单/hash lock/source/账本/4PIDs/锁审计；只关闭该owned SSH进程，Shared FRPC/Clash不动。观察超时需检查同handle，不能重启安装。
 
 安装完成也不等于native/ABI/model就绪。下一唯一新CPU600 guarded native probe；检查实际Torch ABI、全native package module origins、825 meta DiT keys/shapes、真实tokenizer及conditional scope。保护仅CPU import T5默认设备求值；GPU运行不用guard。主线仍无一致质量—时间收益，新4GPUh clean50提议待重要决定，L1不能自动启动。
+
+下一probe额外直接import Torch._C/FlashAttention实际compiled extension，并要求全部实际模块origin属于新env/记录字节SHA及实际Torch ABI；不会仅用dist-info元数据或上游optional import判兼容。代码仅准备/语法通过，仍未实际native import或kernel/GPU。

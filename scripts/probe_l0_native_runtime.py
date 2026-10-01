@@ -90,6 +90,8 @@ def main():
         save()
         sys.path.insert(0, str(source))
         import torch
+        if args.environment_root.resolve() not in Path(torch.__file__).resolve().parents:
+            raise ValueError('Actual Torch import escaped the isolated environment')
         if torch.cuda.is_initialized():
             raise ValueError('Unexpected CUDA initialization')
         if torch._C._GLIBCXX_USE_CXX11_ABI != environment['torch_cpp_abi']:
@@ -97,6 +99,19 @@ def main():
         state.update(status='TORCH_IMPORT_ABI_PASS_FULL_WAN_IMPORT_PENDING',
                      torch_version=torch.__version__, torch_cpp_abi=torch._C._GLIBCXX_USE_CXX11_ABI,
                      cuda_initialized=False)
+        save()
+        import importlib
+        binary_origins = {}
+        for name in ['torch', 'torch._C', 'flash_attn', 'flash_attn_2_cuda']:
+            module = importlib.import_module(name)
+            path = Path(module.__file__).resolve()
+            if args.environment_root.resolve() not in path.parents:
+                raise ValueError('Actual binary import escaped the isolated environment: ' + name)
+            binary_origins[name] = {'path': str(path), 'sha256': digest(path)}
+        if torch.cuda.is_initialized():
+            raise ValueError('Unexpected CUDA initialization during FlashAttention import')
+        state.update(status='ACTUAL_TORCH_FLASH_EXTENSION_IMPORT_AND_ABI_PASS_NATIVE_GUARD_PENDING',
+                     binary_module_origins=binary_origins, cuda_initialized=False)
         save()
         from wcomr.native_cpu_import import native_cpu_import_guard
         t5_sha = next(r['sha256'] for r in lock['files'] if r['path'] == 'wan/modules/t5.py')
