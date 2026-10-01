@@ -1,3 +1,5 @@
+最新CPU运行：[隔离原生环境安装](research/47_L0_NATIVE_ENV_INSTALLATION_RUN.md)，93包hash lock安装进行中/未native import或GPU。
+
 最新CPU终态：[93包完整原生依赖hash lock](research/46_L0_NATIVE_ENV_DEPENDENCY_RESOLUTION_RUN.md)，安装和native import尚待。
 
 最新CPU运行：[隔离原生完整依赖解析](research/46_L0_NATIVE_ENV_DEPENDENCY_RESOLUTION_RUN.md)，尚未安装/实际native import。

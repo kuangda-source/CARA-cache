@@ -1,3 +1,11 @@
+## 最新CPU运行 — 隔离原生环境安装
+
+隔离env-install-r1/sourcee95adcb 已唯一启动，4PIDs 2510384/2510385/2510386/2510389 实际live/环境锁持有；CPU1800秒上限，固定93包hash lock安装到新env，NVIDIA运行库等transitive获取进行中。未完成安装/native import/ABI或模型验收；source与GPU账本不变，无新GPU workload。
+
+[安装运行卡](../../research/47_L0_NATIVE_ENV_INSTALLATION_RUN.md)。同handle观察，禁止重复launch。
+
+## 以下为历史快照
+
 ## 最新CPU终态 — 完整原生依赖hash lock
 
 完整原生依赖图93包已解析并hash lock验收，CPU r2退出0/4.079835秒、全部4PIDs退出/环境锁释放；新env安装前后仍空/source与GPU账本不变。R1因ANTLR无wheel技术退出，R2仅准许纯Python ANTLR4.9.3 source，Torch/Flash不编译。实际安装/native import/模型与GPU仍待。
