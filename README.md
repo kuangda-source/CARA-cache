@@ -22,6 +22,8 @@ Private research workspace for improving the quality–time tradeoff of video wo
 
 ## Current status
 
+Latest: [S1 actual dynamic import and frozen180s GPU kernel gate](research/58_WC_S1_DYNAMIC_IMPORT_AND_KERNEL_GATE.md). Guarded CPU import passes; kernel runner and existing-balance budget controls prepared; GPU not yet submitted.
+
 Latest CPU terminal: [complete upstream build and no-PV wrapper](research/57_WC_S1_ISOLATED_UPSTREAM_BUILD.md) passed:648.948283s/two sm86 extensions, fresh80-source/two-binary SHA and isolated8-file package audit; same3 wrapper CPU contracts pass locally and on actual Cosmos Torch. Original PIDs absent/lock free/CUDA uninitialized/ledger unchanged. Dynamic import/ABI, real kernel, remaining WC profile and quality-time gain remain unverified.
 
 Prior S0 snapshot, superseded by the terminal build above: [WC-S0 actual checkpoint/source interface audit](research/56_WC_S0_SOURCE_SHAPE_AND_KERNEL_AUDIT.md) passed on CPU; meta689/28-layer shapes and six runtime source hashes verified. SpargeAttn ae5b629 selected11 files pinned; full-QK must explicitly disable PV skipping for the first quantization control. CUDA12.2 exists separately from default10.1; build/actual QKV hook/kernel/profile remain pending. Next: isolated bounded CPU build and wrapper preparation, then a concrete GPU scope decision. GPU ledger unchanged, no method quality-time result. Older snapshots below retain their original evidence dates.

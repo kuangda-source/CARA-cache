@@ -1,0 +1,45 @@
+{
+  "status": "ACTUAL_TWO_EXTENSION_IMPORT_AND_NO_PV_BINDING_PASS_NOT_CUDA_KERNEL",
+  "pid": 2546965,
+  "started_unix": 1790859116.5785823,
+  "scope": "actual pinned extension import/callable binding; no model or CUDA kernel",
+  "package_lock_sha256": "bcf85e1e762a71e641cb74423107a26cf71ba28810442c51ae19c4de3ffbc4c6",
+  "budget_sha256_before": "26d0cdb74628d57458fea05a51f5fe062e2dcd0cd1a2f06d1d8e7c34ea40da41",
+  "torch": {
+    "version": "2.7.1+cu128",
+    "cpp_abi": true,
+    "cuda_initialized_before": false,
+    "cuda_initialized_after": false
+  },
+  "modules": {
+    "spas_sage_attn": {
+      "path": "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/.sync/wc-s1-source-build-r1/build-r1/lib/spas_sage_attn/__init__.py",
+      "sha256": "f3293ff09459599bf8775e36591d1488ce5fcf2a5f24c8184679f2b6cec9d0d2"
+    },
+    "spas_sage_attn._qattn": {
+      "path": "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/.sync/wc-s1-source-build-r1/build-r1/lib/spas_sage_attn/_qattn.cpython-310-x86_64-linux-gnu.so",
+      "sha256": "601ad33950cd9d6033720fdb338c15eca84768da18efad00452357366c05f14f"
+    },
+    "spas_sage_attn._fused": {
+      "path": "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/.sync/wc-s1-source-build-r1/build-r1/lib/spas_sage_attn/_fused.cpython-310-x86_64-linux-gnu.so",
+      "sha256": "ad0ab3a6718c453d9c3185be386800a681fafbd86bfc532b3543c46bbaad1669"
+    },
+    "spas_sage_attn.utils": {
+      "path": "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/.sync/wc-s1-source-build-r1/build-r1/lib/spas_sage_attn/utils.py",
+      "sha256": "eecf9109d12bbf34e853e327c4fa8f1b60e66dca74ec1a6ca355236bbbd06325"
+    }
+  },
+  "binding_documentation": "qk_int8_sv_f16_accum_f16_block_sparse_attn_inst_buf(arg0: torch.Tensor, arg1: torch.Tensor, arg2: torch.Tensor, arg3: torch.Tensor, arg4: torch.Tensor, arg5: torch.Tensor, arg6: torch.Tensor, arg7: torch.Tensor, arg8: int, arg9: int, arg10: int, arg11: float) -> None\n",
+  "dense_source": {
+    "path": "/home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/_src/predict2/networks/attention.py",
+    "sha256": "9879fc59c62b4b5a958ebaf8588da1402ee48ddfe7df1979ad986d8a56a34d91"
+  },
+  "budget_sha256_after": "26d0cdb74628d57458fea05a51f5fe062e2dcd0cd1a2f06d1d8e7c34ea40da41",
+  "budget_unchanged": true,
+  "ended_unix": 1790859119.6983433,
+  "wall_seconds": 3.1197657780721784,
+  "exit_code": 0,
+  "probe_sha256": "82047f3d718d9ce83c18ad91096c17e0998a2abcdf65701abe42132cc34abe81",
+  "pid_absent": true,
+  "log_tail": "Warning: Sage2++ NOT enabled\n{\"status\": \"ACTUAL_TWO_EXTENSION_IMPORT_AND_NO_PV_BINDING_PASS_NOT_CUDA_KERNEL\", \"output\": \"/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-s1-source-build-r1/import-r2\"}\n"
+}

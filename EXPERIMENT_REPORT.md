@@ -8,6 +8,8 @@
 
 ## 1. 当前结论与最重要的下一步
 
+最新准备：[S1动态导入与180秒kernel门](research/58_WC_S1_DYNAMIC_IMPORT_AND_KERNEL_GATE.md)：实际两扩展/no-PV callable CPU导入通过，GPU程序/预算门已准备，GPU尚未提交。
+
 最新终态：[WC-S1两扩展构建/无PV接口](research/57_WC_S1_ISOLATED_UPSTREAM_BUILD.md)：完整upstream CPU构建exit0/648.948283秒，fresh80源文件/两sm86 binary SHA/独立8文件package通过；无PV wrapper本地与实际Cosmos Torch同3项CPU契约通过。CUDA未初始化、原PID退出/锁释放/runtime账本不变；动态ABI/实际kernel/profile/方法收益未验收。
 
 最新进展：[WC-S0实际checkpoint/源码接口审计](research/56_WC_S0_SOURCE_SHAPE_AND_KERNEL_AUDIT.md)已CPU通过，meta689/28层形状与六个runtime SHA核对；真实QKV仍需hook。已固定SpargeAttn11文件并发现full-mask仍默认PV跳过，首轮采用no-PV控制。S0接口依据保留；后续CPU构建已在上面的S1终态验收，GPU kernel/profile仍未通过；[WC-S设计](research/55_WC_SPARSE_COMPUTE_COMPRESSION_DESIGN.md)及长程v1.2保持逐门执行，未GPU/未扩额。原clean50提案保留待决策。

@@ -1,0 +1,18 @@
+{
+  "run_scope": "S1_SYNTHETIC_QKV_KERNEL_AT_CHECKPOINT_DERIVED_SHAPE_NOT_MODEL_PROFILE",
+  "max_gpu_wall_seconds": 180,
+  "seed": 0,
+  "batch": 1,
+  "heads": 16,
+  "head_dim": 128,
+  "sequence_lengths": [256, 31104],
+  "dtype": "bfloat16",
+  "warmups": 1,
+  "repeats": 5,
+  "mask_retention_targets": [1.0, 0.5, 0.25],
+  "mask_policy": "fixed_cyclic_band_hardware_diagnostic_not_quality_policy",
+  "pv_skipping": false,
+  "full_mask_relative_rmse_gate": 0.05,
+  "dense_source_sha256": "9879fc59c62b4b5a958ebaf8588da1402ee48ddfe7df1979ad986d8a56a34d91",
+  "wrapper_sha256": "5cce08ad13cf61d62eef2781417075468d92b65c535ea2b0a8434bcf46398e6e"
+}
