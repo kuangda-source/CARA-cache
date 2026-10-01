@@ -1,6 +1,12 @@
+## 当前接续handle — transitive-wheels-r1
+
+最新观察unix 1790816948.6336722：1/6完整，cublas officialSHA/meta通过，cudnn durable83886080/0retry；原3PIDs live/下载锁持有/source与GPU账本不变。只观察ignored .sync/observe_l0_transitive_wheels_r1.py；旧install-r1已terminal/empty env/原4 hashes不变/仅own16500关闭，旧UV/wheel/resolve/fusion/audit launch不要重跑。新owned16501在 .sync/l0-transitive-wheels-owned-forward-r1.json，保持至full6 terminal审计；Shared FRPC/Clash不动。
+
+ignored .sync/audit_l0_transitive_wheels_r1.py已准备/语法检查但未执行，只允许完整6/exit0/3PIDs退出后一次fresh6 fullSHA/meta/source/budget/lock审计，然后只关此次owned16501。若观察超时先查同handle，若实际非零/timeout先审计原PID/partial，不重复launch；stage7 source不可改。下一将全部6已验证local wheel显式绑定入原93图，版本/coverage不变并记录新lock derivation（不是新resolver实验），再唯一新install-r2/actual native CPU probe。当前newenv仍空、尚无installed_lock，所以旧native probe helper不能执行。
+
 ## 最新CPU运行 — 六个大依赖可续传获取
 
-六个大transitive wheel分段获取transitive-wheels-r1/sourceffaf53f 已唯一启动，3PIDs 2512783/2512784/2512785 实际live/下载锁持有；服务器6个official PyPI URL均exact206/64KiB前缀通过，CPU3600秒cap。当前cublas已持久提交50331648字节/0retry，完整6包/fullSHA/meta尚未完成。旧UV install-r1已终态且新env仍空/source与GPU账本不变，无新GPU workload。
+六个大transitive wheel分段获取transitive-wheels-r1/sourceffaf53f 已唯一启动，3PIDs 2512783/2512784/2512785 实际live/下载锁持有；服务器6个official PyPI URL均exact206/64KiB前缀通过，CPU3600秒cap。当前cublas410594774字节完整官方SHA与metadata通过，cudnn已持久提交83886080字节/0retry，完整6包/fullSHA/meta尚未完成。旧UV install-r1已终态且新env仍空/source与GPU账本不变，无新GPU workload。
 
 [当前运行卡](../../research/49_L0_TRANSITIVE_WHEEL_RANGE_ACQUISITION_RUN.md)。只观察同transitive handle，不重复安装或launch。
 

@@ -2,7 +2,7 @@
 
 2026-10-01。
 
-六个大transitive wheel分段获取transitive-wheels-r1/sourceffaf53f 已唯一启动，3PIDs 2512783/2512784/2512785 实际live/下载锁持有；服务器6个official PyPI URL均exact206/64KiB前缀通过，CPU3600秒cap。当前cublas已持久提交50331648字节/0retry，完整6包/fullSHA/meta尚未完成。旧UV install-r1已终态且新env仍空/source与GPU账本不变，无新GPU workload。
+六个大transitive wheel分段获取transitive-wheels-r1/sourceffaf53f 已唯一启动，3PIDs 2512783/2512784/2512785 实际live/下载锁持有；服务器6个official PyPI URL均exact206/64KiB前缀通过，CPU3600秒cap。当前cublas410594774字节完整官方SHA与metadata通过，cudnn已持久提交83886080字节/0retry，完整6包/fullSHA/meta尚未完成。旧UV install-r1已终态且新env仍空/source与GPU账本不变，无新GPU workload。
 
 [launch](../reports/l0_transitive_wheels_r1_launch_20261001.json)/[live](../reports/l0_transitive_wheels_r1_live_observation.json)/[官方来源与CPU15](48_L0_INSTALL_TIMEOUT_AND_TRANSITIVE_RANGE_PREPARATION.md)。固定7 source/test/manifest在stage .sync/l0-native-transitive-wheel-cpu-r1；新cache .sync/l0-native-transitive-wheel-cache；唯一outputs/l0-transitive-wheels-r1，所有旧wheel/install/resolve/fusion/audit launch不可重跑。
 
