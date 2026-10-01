@@ -1,3 +1,11 @@
+## 最新准备 — 原93包local6绑定契约
+
+原93包local6 transport绑定程序及安装校验门已准备，本地/Linux同4契约测试通过（fixture，不是实际六包绑定或安装）。六包range-r1同handle仍运行，已3/6完整官方SHA/meta通过；其余尚待全量审计。新stage安装将fresh全6 bytes并重组成原93版本图；旧安装/source与shared连接不动，无新GPU。
+
+[准备与下一门](50_L0_LOCAL93_BINDING_PREPARATION.md)。同download handle观察；完整6 terminal audit前不能执行真实binding/install-r2。
+
+## 以下为历史快照
+
 ## 最新CPU运行 — 六个大依赖可续传获取
 
 六个大transitive wheel分段获取transitive-wheels-r1/sourceffaf53f 已唯一启动，3PIDs 2512783/2512784/2512785 实际live/下载锁持有；服务器6个official PyPI URL均exact206/64KiB前缀通过，CPU3600秒cap。当前cublas410594774字节完整官方SHA与metadata通过，cudnn已持久提交83886080字节/0retry，完整6包/fullSHA/meta尚未完成。旧UV install-r1已终态且新env仍空/source与GPU账本不变，无新GPU workload。

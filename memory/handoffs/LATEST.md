@@ -1,3 +1,11 @@
+## 最新准备 — 原93包local6绑定契约
+
+原93包local6 transport绑定程序及安装校验门已准备，本地/Linux同4契约测试通过（fixture，不是实际六包绑定或安装）。六包range-r1同handle仍运行，已3/6完整官方SHA/meta通过；其余尚待全量审计。新stage安装将fresh全6 bytes并重组成原93版本图；旧安装/source与shared连接不动，无新GPU。
+
+[准备与下一门](../../research/50_L0_LOCAL93_BINDING_PREPARATION.md)。同download handle观察；完整6 terminal audit前不能执行真实binding/install-r2。
+
+## 以下为历史快照
+
 ## 当前接续handle — transitive-wheels-r1
 
 最新观察unix 1790816948.6336722：1/6完整，cublas officialSHA/meta通过，cudnn durable83886080/0retry；原3PIDs live/下载锁持有/source与GPU账本不变。只观察ignored .sync/observe_l0_transitive_wheels_r1.py；旧install-r1已terminal/empty env/原4 hashes不变/仅own16500关闭，旧UV/wheel/resolve/fusion/audit launch不要重跑。新owned16501在 .sync/l0-transitive-wheels-owned-forward-r1.json，保持至full6 terminal审计；Shared FRPC/Clash不动。

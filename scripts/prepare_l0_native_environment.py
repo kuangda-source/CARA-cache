@@ -37,6 +37,7 @@ def main():
     parser.add_argument('--output', type=Path, required=True)
     parser.add_argument('--mode', choices=['resolve', 'install'], required=True)
     parser.add_argument('--resolution', type=Path)
+    parser.add_argument('--transitive-audit', type=Path)
     parser.add_argument('--allow-pure-antlr-source', action='store_true')
     args = parser.parse_args()
     root = args.root.resolve()
@@ -107,10 +108,45 @@ def main():
                 raise ValueError('Frozen dependency resolution receipt required')
             resolved = json.loads((args.resolution / 'receipt.json').read_text())
             result = args.resolution / 'requirements.txt'
-            if resolved['status'] != 'RESOLVED_HASH_LOCK_NOT_INSTALLED' or sha(result) != resolved['requirements_sha256']:
+            if sha(result) != resolved['requirements_sha256']:
                 raise ValueError('Resolution identity differs')
-            if resolved['source_sha256'][str(args.pins)] != sources[str(args.pins)] or resolved['source_sha256'][str(args.wheel_audit)] != sources[str(args.wheel_audit)]:
-                raise ValueError('Resolution inputs differ')
+            if resolved['status'] == 'DERIVED93_LOCAL6_HASH_LOCK_NOT_INSTALLED':
+                if args.transitive_audit is None or sha(args.transitive_audit) != resolved['transitive_audit_sha256']:
+                    raise ValueError('Fresh transitive audit identity differs')
+                transitive = json.loads(args.transitive_audit.read_text())
+                if transitive['status'] != 'ALL6_TRANSITIVE_FRESH_OFFICIAL_SHA_AND_METADATA_PASS_NOT_INSTALLED' or len(transitive['files']) != 6:
+                    raise ValueError('Complete fresh six-wheel audit required')
+                from wcomr.local_wheel_lock import bind_local_wheels
+                import inspect
+                helper = Path(inspect.getfile(bind_local_wheels)).resolve()
+                original_root = root / 'outputs/l0-native-env-resolve-r2'
+                original = original_root / 'requirements.txt'
+                parent = json.loads((original_root / 'receipt.json').read_text())
+                if sha(original) != resolved['original_requirements_sha256'] or parent['requirements_sha256'] != sha(original):
+                    raise ValueError('Original graph identity differs')
+                original_sources = parent['source_sha256']
+                for suffix, selected in [('manifests/l0_native_environment_proposed_pins_20261001.json', args.pins),
+                                         ('reports/l0_native_wheels_r1_terminal_audit_20261001.json', args.wheel_audit)]:
+                    known = [h for p, h in original_sources.items() if p.endswith(suffix)]
+                    if known != [sha(selected)]:
+                        raise ValueError('Original graph major inputs differ')
+                rebound, changed = bind_local_wheels(original.read_text(), transitive['files'], resolved['versions'])
+                if rebound != result.read_text() or len(changed) != 6 or resolved['package_count'] != 93:
+                    raise ValueError('Derived graph changed scope or versions')
+                for row in transitive['files']:
+                    path = Path(row['path'])
+                    owned = root / '.sync/l0-native-transitive-wheel-cache' / row['filename']
+                    if path.resolve() != owned.resolve() or path.is_symlink() or path.stat().st_size != row['size'] or sha(path) != row['official_sha256']:
+                        raise ValueError('Audited transitive bytes differ')
+                for fixed_path in [helper, args.transitive_audit, original, original_root / 'receipt.json']:
+                    sources[str(fixed_path)] = sha(fixed_path)
+            elif resolved['status'] == 'RESOLVED_HASH_LOCK_NOT_INSTALLED':
+                if resolved['source_sha256'][str(args.pins)] != sources[str(args.pins)] or resolved['source_sha256'][str(args.wheel_audit)] != sources[str(args.wheel_audit)]:
+                    raise ValueError('Resolution inputs differ')
+            else:
+                raise ValueError('Unknown dependency lock provenance')
+            for fixed_path in [args.resolution / 'receipt.json', result]:
+                sources[str(fixed_path)] = sha(fixed_path)
             command = [uv, 'pip', 'sync', str(result), '--python', str(python), '--require-hashes',
                        '--no-config', '--no-python-downloads', '--default-index', 'https://pypi.org/simple', '--link-mode', 'copy'] + binary_options
         state.update(command=command, status='RUNNING', pure_antlr_source_allowed=args.allow_pure_antlr_source)
