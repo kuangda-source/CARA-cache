@@ -8,6 +8,8 @@
 
 ## 1. 当前结论与最重要的下一步
 
+最新准备：[S0两阶段成本/真实QKV](research/60_WC_S0_PROFILE_REAL_QKV.md)，首个固定CAL8场景seed0/profile后独立capture12个QKV、既有余额内750秒cap；本地6个CPU控制通过，未GPU/未扩额/未人评。下一实际环境CPU复核/fresh准入后唯一运行。
+
 最新结果：[S1 A6000真实内核](research/59_WC_S1_REAL_KERNEL_RESULTS.md)：8case完成/GPU11.726698秒，N31104 dense/full/50%/25% wall70.35/71.64/39.77/23.65ms；full-mask RMSE1.32%通过技术筛查，固定稀疏mask约100%/174%误差大，不能接入保质生成。原PIDs/锁/GPU释放、source与raw repeats审计通过；下一真实QKV与WC成本profile。
 
 此前CPU终态：[WC-S1两扩展构建/无PV接口](research/57_WC_S1_ISOLATED_UPSTREAM_BUILD.md)：完整upstream CPU构建exit0/648.948283秒，fresh80源文件/两sm86 binary SHA/独立8文件package通过；无PV wrapper本地与实际Cosmos Torch同3项CPU契约通过。CUDA未初始化、原PID退出/锁释放/runtime账本不变；该时点未验收动态ABI/实际kernel；后续S1技术门已完成，模型profile/方法收益仍待。

@@ -1,0 +1,63 @@
+{
+  "scope": "S0_OFFICIAL_WC_PROFILE_THEN_REAL_QKV_CAPTURE_ONE_FROZEN_CAL_CASE",
+  "max_gpu_wall_seconds": 750,
+  "phases": [
+    "profile",
+    "capture"
+  ],
+  "selection": "first frozen CAL8 entry before new observations",
+  "sample_name": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+  "capture_calls": [
+    1,
+    2,
+    71,
+    72
+  ],
+  "capture_layers": [
+    2,
+    14,
+    27
+  ],
+  "expected_qkv_shape": [
+    1,
+    31104,
+    16,
+    128
+  ],
+  "expected_qkv_dtype": "torch.bfloat16",
+  "expected_blocks": 28,
+  "expected_backend": "minimal_a2a",
+  "decode_policy": true,
+  "guardrails_retained": true,
+  "pv_or_sparse_changes": false,
+  "project_files_sha256": {
+    "configs/f1_setup.json": "ffc7fa84d38667236cda4a2f0825b57d832cee0378d637ba375d6e6ea3c60a9f",
+    "configs/cal_w1d8.jsonl": "7b99d44d9ec5aced6983dccbf1eb930344a84f053f185f423cecd12d94354d84",
+    "manifests/f1_runtime_protocol.json": "c4f580da88c78e4e68a533b2b58b16a82c9ea4935656642faa9e5149d29a4ed7",
+    "manifests/f1_outcome_protocol.json": "d80806a56d18eee63af60afd9baf9ce73f3854d708bbebd90eb78abbfe154bcf",
+    "manifests/upstream.json": "38da556f69c1b23ef3db41c356490983e687c10e204a15aa58fbd7137bdf2e1a",
+    "manifests/runtime_completion.json": "df683ebdb0a5de26266164ac148ad8bd5c47d7e9002e946cca2749642f734aca",
+    "src/wcomr/runtime_config.py": "d35c08a30fb5d0aea31a80e83755c0ed44969988d78c47a65dd3b62a8d507065",
+    "src/wcomr/measurement.py": "c4181ec3220b2fd33d333dffed9ae7163303668b9e152a705d1d70213b45a4c0",
+    "src/wcomr/protocol.py": "afce8e2d52030b46a7b958b4a69963b0ea515c8badb919ae555af2886afa4893",
+    "src/wcomr/guardrail_observation.py": "ac98299a3ac22d1db8b23404d6c03d77a75b955f7ea149039fdf494a5d0bf880",
+    "src/wcomr/decoder_policy.py": "57e1369909dfa9db5ea6ab563b275fe7376bea14d0b247dd7748e79fccf8699b",
+    "src/wcomr/stage_witness.py": "78247cc3137d1ea032425c392aa728f35b83fcd0d748f21be4cb3c3d7995ae09"
+  },
+  "runtime_files_sha256": {
+    "cosmos_predict2/_src/predict2/networks/minimal_v4_dit.py": "a41a1772f694ee338e4b91f032428ea81f28e80fb90990e2db86eb7d1ce30071",
+    "cosmos_predict2/_src/predict2/networks/minimal_v1_lvg_dit.py": "2d3ddcf94158c61223bc610f31ede475f7e4e27cc3b604ff3557b73d891e665f",
+    "cosmos_predict2/_src/predict2/networks/a2a_cp.py": "f9f6d61964437bec2950dbcc99e25911b35dd45404b823455f3d4ced2076f708",
+    "cosmos_predict2/_src/predict2/configs/video2world/defaults/net.py": "8299d1d68d4d3a69d0fe65f1fb99fb4c9765aa7a0394bc2fc68ec477243ef312",
+    "cosmos_predict2/_src/predict2/inference/worldcache_utils.py": "b485cb8fd6e262a40e5823365c34ef7db1bc036c591d7577489e04077c515903",
+    "cosmos_predict2/_src/predict2/configs/video2world/experiment/specialized_model/SFT_2B_RF.py": "719fa25c90dcc4f51a9226fa1b5ac677c52cbb1c292c8eac1e3121ab3c3ce814"
+  },
+  "checkpoint": {
+    "path": "/home/gaokuangda/.cache/huggingface/hub/models--nvidia--Cosmos-Predict2.5-2B/snapshots/15a82a2ec231bc318692aa0456a36537c806e7d4/base/post-trained/81edfebe-bd6a-4039-8c1d-737df1a790bf_ema_bf16.pt",
+    "bytes": 4118575006,
+    "mtime_ns": 1764658341306511746
+  },
+  "checkpoint_sha256": "565bbb2c9645737327983f4461e4d32627bba465b0a8dc26447edea144e1ff47",
+  "quality_evaluation": "none; mechanism and cost diagnostics only",
+  "cost_warning": "profile event intervals and cold stage costs are diagnostic; capture time includes IO and cannot be used for speedup"
+}
