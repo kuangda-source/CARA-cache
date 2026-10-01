@@ -20,13 +20,26 @@ def sha(path):
     return h.hexdigest()
 
 
+def validate_scope(c):
+    catalog = {
+        'defaults': (180, [{'name': 'upstream_public_default', 'sim': .6, 'cdf': .98},
+                          {'name': 'upstream_utils_default', 'sim': .1, 'cdf': .9}], ['public_default', 'utils_default']),
+        'crossed_controls': (120, [{'name': 'low_sim_high_cdf', 'sim': .1, 'cdf': .98},
+                                  {'name': 'high_sim_low_cdf', 'sim': .6, 'cdf': .9}], ['low_sim_high_cdf', 'high_sim_low_cdf'])}
+    phase = c.get('policy_set', 'defaults')
+    if phase not in catalog:
+        raise ValueError('Unknown frozen policy set')
+    seconds, policies, prefixes = catalog[phase]
+    arms = ['dense', 'vanilla_full'] + [prefix + suffix for prefix in prefixes for suffix in ['_routed_full', '_sparse']]
+    if (c['max_gpu_wall_seconds'] != seconds or c['pv_skipping'] is not False or
+            (c['warmups'], c['repeats']) != (1, 3) or c['policies'] != policies or c['arms'] != arms):
+        raise ValueError('Frozen policy/cap/no-PV/repetitions/arms required')
+    return prefixes
+
+
 def validate(a):
     c = json.loads(a.config.read_text())
-    if c['max_gpu_wall_seconds'] != 180 or c['pv_skipping'] is not False or (c['warmups'], c['repeats']) != (1, 3):
-        raise ValueError('Frozen180s/no-PV/repetition scope required')
-    if c['policies'] != [{'name': 'upstream_public_default', 'sim': .6, 'cdf': .98},
-                         {'name': 'upstream_utils_default', 'sim': .1, 'cdf': .9}]:
-        raise ValueError('Frozen existing policies required')
+    validate_scope(c)
     if sha(a.inputs) != c['input_manifest_sha256']:
         raise ValueError('Frozen input manifest changed')
     inputs = json.loads(a.inputs.read_text())
@@ -112,7 +125,7 @@ def main():
                     dense(); torch.cuda.synchronize()
                 dispatch = sorted({e.key for e in prof.key_averages() if 'scaled_dot_product' in e.key})
                 ops = [('dense', dense), ('vanilla_full', lambda: (block_sparse_no_pv(q, k, v, full), {'selected_fraction': 1.0, 'executed_fraction': 1.0}))]
-                for policy, prefix in zip(c['policies'], ['public_default', 'utils_default']):
+                for policy, prefix in zip(c['policies'], validate_scope(c)):
                     for force, suffix in [(True, 'routed_full'), (False, 'sparse')]:
                         ops.append((prefix + '_' + suffix, lambda pol=policy, f=force: routed_no_pv(q, k, v, full, pol['sim'], pol['cdf'], f)))
                 paired_full = {}

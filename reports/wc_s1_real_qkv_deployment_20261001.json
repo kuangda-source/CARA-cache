@@ -1,0 +1,48 @@
+{
+  "status": "ACTUAL_CPU7_AND_REAL12_INPUT_PACKAGE_VALIDATE_ONLY_PASS_NO_GPU",
+  "observed_unix": 1790865527.8309498,
+  "source_revision": "cab2b7cacc37cc0692336641a1a3a71b8f3f95db",
+  "payload_sha256": {
+    "scripts/run_wc_s1_real_qkv.py": "ee61285f6aa916a272c07298f5e2426e9d9baf07ce76e8fdc0d4a12527b8a1ed",
+    "scripts/supervise_wc_s1_real_qkv.py": "eb99ccd4219472f35c73f1bf48143982c62759ec4575da19218d621ca1b9df3e",
+    "tests/test_wc_sparge_no_pv.py": "70da68345a3016a3c786a34dd6125291ea9c7134a2260f552f97210a99ce5fa3",
+    "tests/test_wc_sparge_routed.py": "12fa60952477a77c7db2655c1555a11223ed16077778a4ebb1503f00ee2dcb90",
+    "tests/test_wc_s1_real_budget.py": "97474efe1d399782c11dafbef81006c219ccfd038cce04cca69686df5b601621",
+    "src/wcomr/__init__.py": "b9996da0a87bb746cdac0935ead475246fc34d88b37e73f63f14e5065494f311",
+    "src/wcomr/sparge_no_pv.py": "5cce08ad13cf61d62eef2781417075468d92b65c535ea2b0a8434bcf46398e6e",
+    "src/wcomr/sparge_routed_no_pv.py": "7e895502101be1164d18fc5c04ddbc6ad4fb7aec034eb9c79a18ccbc1bb8b0b4",
+    "kernel-config.json": "56e8d88fd522175d32791f039364aa72e039ddb5e24300a5b90ab85142ff29ef",
+    "input-manifest.json": "c7d5927d0c46b157bac5d26dee08db13957f7414cfef46349e54b45638840bb4"
+  },
+  "cpu_checks": {
+    "tests": [
+      "test_packing_and_no_pv_binding_preserve_projection_layout",
+      "test_invalid_mask_nonfinite_and_cpu_kernel_rejected",
+      "test_nonfinite_binding_output_rejected",
+      "test_paired_routing_full_and_sparse_change_only_executed_map",
+      "test_routed_invalid_map_refused_before_kernel",
+      "test_current_balance_accepts_one_frozen_scope_without_expansion",
+      "test_inflight_exhausted_or_expanded_scope_refused"
+    ],
+    "torch": "2.7.1+cu128",
+    "cuda_initialized": false,
+    "pid": 2558737
+  },
+  "validate_only": {
+    "status": "REAL12_BYTES_PACKAGE_AND_SCOPE_PASS_NO_TORCH_OR_CUDA",
+    "config_sha256": "56e8d88fd522175d32791f039364aa72e039ddb5e24300a5b90ab85142ff29ef",
+    "inputs_sha256": "c7d5927d0c46b157bac5d26dee08db13957f7414cfef46349e54b45638840bb4"
+  },
+  "budget_before": {
+    "batch": "F0-F1",
+    "cap_gpu_hours": 4,
+    "used_gpu_hours": 3.8783313720900976,
+    "gpu_jobs_launched": 26,
+    "status": "WC_S0_PROFILE_SETTLED_REQUIRES_RESULT_AUDIT",
+    "gpu_import_probes_completed": 1,
+    "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts"
+  },
+  "global_lock_free": true,
+  "gpu_inventory": "GPU-de9a5370-cd87-0f1c-a48e-288888777dd3, NVIDIA RTX A6000, 350, 8.6\nGPU-cebf7119-cf03-23b9-e192-cd196332b704, NVIDIA RTX A6000, 24, 8.6\n",
+  "compute_apps": ""
+}

@@ -8,6 +8,8 @@
 
 ## 1. 当前结论与最重要的下一步
 
+最新真实QKV：[S1默认72case审计与交叉控制](research/63_WC_S1_REAL_QKV_RESULTS_AND_CROSSED_CONTROLS.md)。量化全mask误差最大0.753%；public默认中位净1.019×（两筛查1/12），utils默认中位2.139×但最大误差24.04%（两筛查2/12）。下一补sim/cdf非对角组合，120秒原余额内scope，尚未GPU；不能直接部署或称新方法收益。
+
 最新准备：[S1真实QKV路由门](research/62_WC_S1_REAL_QKV_ROUTING_GATE.md)，全12输入×6臂（dense/vanilla全mask/两组routed-full与sparse），180秒现有余额内scope。本地7 CPU控制通过，尚未GPU；两策略是已有upstream参数，不称原创方法或保质收益。
 
 最新验收：[S0官方WC成本/12真实QKV](research/61_WC_S0_COST_REAL_QKV_RESULTS.md)。两轮34full/38skip/latent/trace/采样一致、视频SHA一致；profile去噪141.26秒中deep self核心66.92秒/47.37%，flow+warp2.25%、cross核心0.95%。7438事件与12个BF16 QKV完整SHA/finite/CPU roundtrip审计通过，R3 GPU611.180967秒。下一优先余额内真实QKV块选择误差/路由净成本；没有稀疏生成或新方法质量—时间收益。
@@ -28,14 +30,14 @@
 
 | 项目 | 最新终态证据（2026-10-01） |
 |---|---|
-| 当前阶段 | S0成本与12真实QKV验收；合成S1硬件/全mask门通过；真实选择误差/净成本下一 |
-| 最近运行 | S0 R3两轮官方WC完成/GPU611.180967秒；7438事件/12 QKV/SHA/一致性与释放审计通过 |
+| 当前阶段 | S0及S1真实默认72case已审计，低误差或速度各有信号但缺稳定联合收益；交叉因子下一 |
+| 最近运行 | S1 real-qkv-r1真实72case/GPU62.910135秒；全输入/热3repeat/源/成本/释放审计通过 |
 | 覆盖/响应 | repeat0/42变化，blank14/42，cyclic14/42；126有效/0invalid |
 | 审计 | 原始tokens/24输入重算/8视频/10模型文件/源码锁与本地原题summary全一致 |
 | 评价边界 | 重复稳定/部分内容响应，不是物理准确金标准/235BJoint/方法接受 |
 | 方法证据 | CAL8机制改善；VQA/MUSIQ未一致收益，clean速度/独立确认仍未证 |
-| 成本 | S0含2失败共805.778036秒；累计3.8783313720900976/4GPUh，余438.007060秒，无在途/无扩额 |
-| 下一步 | 余额内最多180秒真实QKV选择/匹配no-PV全mask/误差与净路由成本；暂不四臂/三档 |
+| 成本 | 累计3.8958064096647362/4GPUh，余375.096925秒，无在途/无扩额 |
+| 下一步 | 余额内120秒sim/cdf交叉因子控制；相同12输入/no-PV/新dense与匹配full，暂不四臂/三档 |
 
 证据：[控制结果](research/30_W1_VQA_INPUT_CONTROLS_RESULTS.md)、[控制终态审计](reports/w1_vqa_controls_r1_audit.json)、[本地重算](reports/w1_vqa_controls_r1_local_recompute.json)、[原VQA结果](research/28_W1_DEVELOPMENT_VQA_RESULTS.md)、[账本](reports/budget.json)。部分场景在三条件均相同不能隐去；即使controls通过也没有新的物理质量正结果。
 此前：[固定重放结果](research/24_W1_FIXED_REPLAY_RESULTS.md)、[重放完整汇总](reports/w1_replay_r1_summary.json)、[CAL8机制结果](research/21_W1D_CAL8_RESULTS.md)、[CAL8分布/排序](reports/w1d_cal8_r1_analysis.json)。

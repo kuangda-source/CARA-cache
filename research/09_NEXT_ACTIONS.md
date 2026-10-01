@@ -1,3 +1,11 @@
+## 最新验收与下一 — 真实QKV默认策略72case完成，交叉控制准备
+
+S1 real-qkv-r1/sourcecab2b7c，真实12输入×6臂全部finite/3repeat与source/账本/释放审计通过。全mask最大RMSE0.753%；public默认中位1.019×/两筛查1/12，utils默认中位2.139×/两筛查2/12且最大RMSE24.04%，尚无稳定数值—净速度收益。
+
+[结果/补交叉因子控制](63_WC_S1_REAL_QKV_RESULTS_AND_CROSSED_CONTROLS.md)。两默认同时改sim/cdf，下一sim0.1/cdf0.98与sim0.6/cdf0.9，相同12输入/6臂/no-PV，新job重测dense控制，120秒现余额内scope。新policy/cap与预算本地3检查通过，GPU尚未提交。账本3.8958064096647362/4GPUh，余375.096925秒、27jobs、无inflight；无人评/扩额/稀疏视频或方法质量—时间结论。
+
+## 以下为历史快照
+
 ## 最新准备 — S1全12真实QKV路由与匹配full控制
 
 冻结两组已有upstream参数（sim0.6/cdf0.98与0.1/0.9），每输入dense/vanilla全mask及两组routed-full/sparse，共72case，1warmup/3repeat；完全无PV，操作测速计完整routing/quant/packing/LUT/validation，额外IO/JIT等计总墙钟。新routing/预算与原no-PV本地7项CPU控制通过，实际GPU尚未提交。
