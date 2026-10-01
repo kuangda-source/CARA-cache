@@ -53,6 +53,7 @@ The integration tests extract the pinned upstream functions and execute a synthe
 
 ## Research records
 
+- [WC-S计算压缩设计](research/55_WC_SPARSE_COMPUTE_COMPRESSION_DESIGN.md)：v1.2新增成本/内核、四臂组合、模块替换、条件三档与稀疏增量；设计完成，尚未运行。
 - `plans/`: maintained plans based on user-supplied originals; revisions preserved in Git.
 - `research/02_CURRENT_STATE.md`: evidence and unresolved dependencies.
 - `research/09_NEXT_ACTIONS.md`: ordered execution scope.

@@ -1,3 +1,13 @@
+## 最新设计 — WC-S有界计算压缩分支（v1.2）
+
+2026-10-01最新讨论已整合为长程计划v1.2：受质量与行为保持约束的计算压缩。下一非GPU方法准备为WC-S0源码/真实shape/成本方案，之后按依赖做S1真实kernel（dense/full-mask/sparse）→S2四臂固定轨迹→S3单模块替换与便宜刷新；有机制缺口才S4三档/S5稀疏增量。稀疏刷新不能作true dense anchor。
+
+W1保持CAL8机制only/MUSIQ混合/开发VQA无一致收益，暂停scalar/W2复杂化。F1/W1及L0已完成资产不重跑。预算仍3.6512467238638138/4GPUh、余1255.511794秒，原新4GPUh/clean50成本提案待决策；本次只有设计更新，未GPU/未扩额/未训练/未付费/未默认人评。下一窗口按实际profile/kernel成本提议，不机械追加全部卡。
+
+[完整设计与逐门执行卡](55_WC_SPARSE_COMPUTE_COMPRESSION_DESIGN.md)。L0已通过实际93包/guarded native import/meta/tokenizer，真实DiT/T5/VAE load仍待；这是保留的资源门，不是主方法收益。历史运行状态以下文各自终态回执为准，禁止按旧RUNNING快照重提交。
+
+## 以下为历史快照
+
 ## 最新CPU运行 — 六个大依赖可续传获取
 
 六个大transitive wheel分段获取transitive-wheels-r1/sourceffaf53f 已唯一启动，3PIDs 2512783/2512784/2512785 实际live/下载锁持有；服务器6个official PyPI URL均exact206/64KiB前缀通过，CPU3600秒cap。当前cublas410594774字节完整官方SHA与metadata通过，cudnn已持久提交83886080字节/0retry，完整6包/fullSHA/meta尚未完成。旧UV install-r1已终态且新env仍空/source与GPU账本不变，无新GPU workload。

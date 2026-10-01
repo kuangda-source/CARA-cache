@@ -1,0 +1,67 @@
+{
+  "verified_date": "2026-10-01",
+  "purpose": "Plan v1.2: bounded WC-S compute compression branch; design only",
+  "conversation": {
+    "id": "6aba8cd0-f4a8-83ee-adba-d4f960fb6dcb",
+    "title": "调研两个研究方向",
+    "latest_turn_id": "d627d22f-d3af-4146-9053-6616e53b0833",
+    "assistant_message_id": "6c8e1032-3f51-4aa6-865f-d6b22a032b45",
+    "read_turn_count": 4,
+    "latest_message_complete": true
+  },
+  "source_handling": "Referenced conversation is research input. Primary sources below were live checked; source claims are not local experiment results.",
+  "sources": [
+    {
+      "title": "SpargeAttention official README",
+      "url": "https://github.com/thu-ml/SpargeAttn",
+      "status": "read recommended APIs and installation; Ampere CUDA>=12.0 listed; SageAttention2-based backend; real shapes/speed unverified"
+    },
+    {
+      "title": "CalibAtt official research page",
+      "url": "https://machinelearning.apple.com/research/calibrated-sparse-attention",
+      "status": "read; offline calibration of block sparsity/repetition; no local deployment"
+    },
+    {
+      "title": "CalibAtt official code",
+      "url": "https://github.com/apple-aiml-research/ml-calibatt",
+      "status": "read; Wan/Mochi integrations and Hopper build recipe; not current Cosmos/A6000 compatibility"
+    },
+    {
+      "title": "LiteAttention paper",
+      "url": "https://arxiv.org/abs/2511.11062",
+      "status": "read abstract; temporal reuse of sparse patterns; no local implementation"
+    },
+    {
+      "title": "LiteAttention official code",
+      "url": "https://github.com/moonmath-ai/LiteAttention",
+      "status": "read; compatibility must be separately verified"
+    },
+    {
+      "title": "FastCache paper",
+      "url": "https://arxiv.org/abs/2505.20353",
+      "status": "read abstract; spatial token selection and cross-step caching; related work, not proven local baseline"
+    },
+    {
+      "title": "WorldCache paper and pinned source",
+      "url": "https://arxiv.org/html/2603.22286v1",
+      "status": "method/ablation read earlier this session; pinned commit60a486df6d2e6d2aa3c21815895aac157a88e95d; four enabled controls in configs/f1_setup.json; no upstream mutation"
+    }
+  ],
+  "discussion_only_hypotheses": [
+    "quality-and-behavior constrained computation compression",
+    "three-mode reuse/sparse-refresh/dense-refresh",
+    "expensive compensation replaced by cheaper frequent refresh",
+    "shared inexpensive decision statistics and pattern reuse",
+    "dense-anchor plus matched sparse increment"
+  ],
+  "preserved_execution": {
+    "gpu_cap_hours": 4,
+    "gpu_used_hours": 3.6512467238638138,
+    "jobs_launched": 22,
+    "new_gpu_launch": false,
+    "training_authorized": false,
+    "paid_scoring_authorized": false,
+    "default_human_review": false
+  },
+  "scope": "Update plans and continuation records only. Existing W1 remains mechanism-only; proposed clean50 window stays unapproved; OMR remains resource-gated."
+}
