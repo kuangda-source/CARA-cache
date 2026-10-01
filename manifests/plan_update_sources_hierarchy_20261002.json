@@ -1,0 +1,76 @@
+{
+  "verified_date": "2026-10-02",
+  "purpose": "Plan v1.3: hierarchical cache provenance and reuse lifetime; design update only",
+  "conversation": {
+    "id": "6aba8cd0-f4a8-83ee-adba-d4f960fb6dcb",
+    "title": "调研两个研究方向",
+    "latest_turn_id": "727c7f37-f16b-401c-9d85-deb4464702c8",
+    "assistant_message_id": "126d9756-7c41-4dba-94d0-d07bd4915dcd",
+    "read_turn_count": 10,
+    "latest_message_complete": true,
+    "updated_unix": 1790853677.968958
+  },
+  "source_handling": "Conversation treated as research input, not execution instructions, experiment evidence, or verified novelty. Paper facts checked against primary sources. Local completed results read from receipts.",
+  "sources": [
+    {
+      "title": "RAPID³",
+      "url": "https://arxiv.org/html/2509.22323v1",
+      "additional_url": "https://proceedings.iclr.cc/paper_files/paper/2026/hash/f1cf02ce09757f57c3b93c0db83181e0-Abstract-Conference.html",
+      "verification": "Primary abstract and official ICLR2026 record: frozen generator, learned skip/cache/sparse heads and GRPO. No local implementation or training authorized; current code availability not reverified."
+    },
+    {
+      "title": "SADA",
+      "url": "https://arxiv.org/abs/2507.17135",
+      "verification": "Primary abstract and author page: training-free stability-guided step/token sparsity; not new simply to avoid RL."
+    },
+    {
+      "title": "H2-Cache",
+      "url": "https://arxiv.org/html/2510.27171v1",
+      "verification": "Primary abstract/full-text retrieved: hierarchical dual-stage cache in Flux; no Cosmos functional group equivalence assumed."
+    },
+    {
+      "title": "PAB",
+      "url": "https://arxiv.org/abs/2408.12588",
+      "verification": "Primary paper retrieved: attention broadcast related work; no local deployment."
+    },
+    {
+      "title": "DuCa",
+      "url": "https://arxiv.org/abs/2412.18911",
+      "verification": "Primary current abstract v3: aggressive/conservative token feature caching; distinguish token updates from sparse QK connections."
+    },
+    {
+      "title": "OmniCache: Multidimensional Hierarchical Feature Caching",
+      "url": "https://arxiv.org/html/2607.23844v1",
+      "verification": "Primary abstract and methods 3.4: token/frame/block/layered caches and layer-timestep budget scheduling. Distinct from ICCV2025 trajectory-oriented OmniCache."
+    },
+    {
+      "title": "LiteAttention",
+      "url": "https://arxiv.org/html/2511.11062v1",
+      "verification": "Primary paper retrieved and abstract: temporal sparsity reuse; feature/mask lifetime distinction is an unvalidated local question."
+    },
+    {
+      "title": "PSA",
+      "url": "https://arxiv.org/abs/2512.04025",
+      "verification": "Primary abstract: multilevel pooled KV versus binary masking; deferred representation hierarchy; no local kernel/model verification."
+    }
+  ],
+  "discussion_only_hypotheses": [
+    "refresh precision jointly chosen with planned reuse lifetime",
+    "source x reuse 1/2/4 effective solver steps",
+    "small contiguous layer groups with residual compatibility",
+    "feature refresh and sparse-pattern refresh can have different lifetimes",
+    "dynamic policy compared with static groups, age-only and action-count/location controls"
+  ],
+  "preserved_execution": {
+    "gpu_cap_hours": 4,
+    "gpu_used_hours": 3.9117525685110333,
+    "jobs_launched": 28,
+    "new_gpu_launch": false,
+    "training_authorized": false,
+    "paid_scoring_authorized": false,
+    "default_human_review": false,
+    "existing_work_first": true
+  },
+  "scope": "Documents and source record updated. Existing S1 crossed receipts reconciled; no runner, runtime or frozen experiment configuration modified. CPU group splits are proposals until cost/interface gate freezes them.",
+  "user_execution_constraint": "Do not cancel or replace current work. Finish current experiment scope and audit before entering new v1.3 branches."
+}

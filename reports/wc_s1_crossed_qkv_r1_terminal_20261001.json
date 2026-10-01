@@ -1,0 +1,3103 @@
+{
+  "status": "ALL12_REAL_QKV72_CASES_COMPLETE_NOT_SPARSE_VIDEO_OR_METHOD_ACCEPTANCE",
+  "pid": 2560694,
+  "started_unix": 1790866811.4856174,
+  "gpu_uuid": "GPU-cebf7119-cf03-23b9-e192-cd196332b704",
+  "config": {
+    "scope": "S1_REAL12_QKV_CROSSED_FACTORIAL_NO_PV_DIAGNOSTIC_NOT_VIDEO",
+    "max_gpu_wall_seconds": 120,
+    "warmups": 1,
+    "repeats": 3,
+    "policies": [
+      {
+        "name": "low_sim_high_cdf",
+        "sim": 0.1,
+        "cdf": 0.98
+      },
+      {
+        "name": "high_sim_low_cdf",
+        "sim": 0.6,
+        "cdf": 0.9
+      }
+    ],
+    "pv_skipping": false,
+    "arms": [
+      "dense",
+      "vanilla_full",
+      "low_sim_high_cdf_routed_full",
+      "low_sim_high_cdf_sparse",
+      "high_sim_low_cdf_routed_full",
+      "high_sim_low_cdf_sparse"
+    ],
+    "full_mask_relative_rmse_gate": 0.05,
+    "sparse_relative_rmse_screen": 0.05,
+    "sparse_dense_speed_screen": 1.1,
+    "input_manifest_sha256": "c7d5927d0c46b157bac5d26dee08db13957f7414cfef46349e54b45638840bb4",
+    "dense_source_sha256": "9879fc59c62b4b5a958ebaf8588da1402ee48ddfe7df1979ad986d8a56a34d91",
+    "wrapper_sha256": "5cce08ad13cf61d62eef2781417075468d92b65c535ea2b0a8434bcf46398e6e",
+    "routing_wrapper_sha256": "7e895502101be1164d18fc5c04ddbc6ad4fb7aec034eb9c79a18ccbc1bb8b0b4",
+    "coverage": "all 12 captured inputs, same fixed order; retain failed cases; no selection by result",
+    "cost_definition": "operation wall includes validation, packing, fused routing, quantization, LUT, flatten, statistics, sync; IO/JIT/import charged as whole process wall",
+    "policy_set": "crossed_controls"
+  },
+  "inputs_sha256": "c7d5927d0c46b157bac5d26dee08db13957f7414cfef46349e54b45638840bb4",
+  "cases": [
+    {
+      "call": 1,
+      "layer": 2,
+      "cfg_slot": 0,
+      "arm": "dense",
+      "input_sha256": "db74dfda12371f1e60b0737134e53439eb831458df015a67cbbc5ac82052b84b",
+      "input_shape": [
+        1,
+        31104,
+        16,
+        128
+      ],
+      "output_shape": [
+        1,
+        31104,
+        2048
+      ],
+      "output_dtype": "torch.bfloat16",
+      "finite": true,
+      "relative_rmse_vs_dense": 0.0,
+      "routing": {
+        "selected_fraction": 1.0,
+        "executed_fraction": 1.0
+      },
+      "dense_dispatch": [
+        "aten::_scaled_dot_product_flash_attention",
+        "aten::scaled_dot_product_attention"
+      ],
+      "wall_ms": [
+        70.91556489467621,
+        70.2870381064713,
+        69.68006025999784
+      ],
+      "cuda_event_ms": [
+        70.85699462890625,
+        70.26016235351562,
+        69.65638732910156
+      ],
+      "median_wall_ms": 70.2870381064713,
+      "median_cuda_event_ms": 70.26016235351562,
+      "peak_allocated_bytes": 1409078784
+    },
+    {
+      "call": 1,
+      "layer": 2,
+      "cfg_slot": 0,
+      "arm": "vanilla_full",
+      "input_sha256": "db74dfda12371f1e60b0737134e53439eb831458df015a67cbbc5ac82052b84b",
+      "input_shape": [
+        1,
+        31104,
+        16,
+        128
+      ],
+      "output_shape": [
+        1,
+        31104,
+        2048
+      ],
+      "output_dtype": "torch.bfloat16",
+      "finite": true,
+      "relative_rmse_vs_dense": 0.006892336532473564,
+      "routing": {
+        "selected_fraction": 1.0,
+        "executed_fraction": 1.0
+      },
+      "dense_dispatch": [
+        "aten::_scaled_dot_product_flash_attention",
+        "aten::scaled_dot_product_attention"
+      ],
+      "wall_ms": [
+        70.70965087041259,
+        70.96351496875286,
+        70.29284024611115
+      ],
+      "cuda_event_ms": [
+        70.65113830566406,
+        70.93631744384766,
+        70.26557159423828
+      ],
+      "median_wall_ms": 70.70965087041259,
+      "median_cuda_event_ms": 70.65113830566406,
+      "peak_allocated_bytes": 1607283200
+    },
+    {
+      "call": 1,
+      "layer": 2,
+      "cfg_slot": 0,
+      "arm": "low_sim_high_cdf_routed_full",
+      "input_sha256": "db74dfda12371f1e60b0737134e53439eb831458df015a67cbbc5ac82052b84b",
+      "input_shape": [
+        1,
+        31104,
+        16,
+        128
+      ],
+      "output_shape": [
+        1,
+        31104,
+        2048
+      ],
+      "output_dtype": "torch.bfloat16",
+      "finite": true,
+      "relative_rmse_vs_dense": 0.006892336532473564,
+      "routing": {
+        "selected_fraction": 0.780425488948822,
+        "executed_fraction": 1.0
+      },
+      "dense_dispatch": [
+        "aten::_scaled_dot_product_flash_attention",
+        "aten::scaled_dot_product_attention"
+      ],
+      "wall_ms": [
+        71.52950996533036,
+        71.39747310429811,
+        71.4620747603476
+      ],
+      "cuda_event_ms": [
+        71.48973083496094,
+        71.37062072753906,
+        71.4356460571289
+      ],
+      "median_wall_ms": 71.4620747603476,
+      "median_cuda_event_ms": 71.4356460571289,
+      "peak_allocated_bytes": 1619683328
+    },
+    {
+      "call": 1,
+      "layer": 2,
+      "cfg_slot": 0,
+      "arm": "low_sim_high_cdf_sparse",
+      "input_sha256": "db74dfda12371f1e60b0737134e53439eb831458df015a67cbbc5ac82052b84b",
+      "input_shape": [
+        1,
+        31104,
+        16,
+        128
+      ],
+      "output_shape": [
+        1,
+        31104,
+        2048
+      ],
+      "output_dtype": "torch.bfloat16",
+      "finite": true,
+      "relative_rmse_vs_dense": 0.01331345271319151,
+      "routing": {
+        "selected_fraction": 0.780425488948822,
+        "executed_fraction": 0.780425488948822
+      },
+      "dense_dispatch": [
+        "aten::_scaled_dot_product_flash_attention",
+        "aten::scaled_dot_product_attention"
+      ],
+      "wall_ms": [
+        59.54254977405071,
+        59.7992492839694,
+        59.30533027276397
+      ],
+      "cuda_event_ms": [
+        59.509857177734375,
+        59.77334213256836,
+        59.27734375
+      ],
+      "median_wall_ms": 59.54254977405071,
+      "median_cuda_event_ms": 59.509857177734375,
+      "peak_allocated_bytes": 1746244096,
+      "relative_rmse_vs_matched_routed_full": 0.011424452066421509
+    },
+    {
+      "call": 1,
+      "layer": 2,
+      "cfg_slot": 0,
+      "arm": "high_sim_low_cdf_routed_full",
+      "input_sha256": "db74dfda12371f1e60b0737134e53439eb831458df015a67cbbc5ac82052b84b",
+      "input_shape": [
+        1,
+        31104,
+        16,
+        128
+      ],
+      "output_shape": [
+        1,
+        31104,
+        2048
+      ],
+      "output_dtype": "torch.bfloat16",
+      "finite": true,
+      "relative_rmse_vs_dense": 0.006892336532473564,
+      "routing": {
+        "selected_fraction": 0.7763213515281677,
+        "executed_fraction": 1.0
+      },
+      "dense_dispatch": [
+        "aten::_scaled_dot_product_flash_attention",
+        "aten::scaled_dot_product_attention"
+      ],
+      "wall_ms": [
+        71.35042501613498,
+        71.882548276335,
+        71.56285690143704
+      ],
+      "cuda_event_ms": [
+        71.31970977783203,
+        71.8563232421875,
+        71.536865234375
+      ],
+      "median_wall_ms": 71.56285690143704,
+      "median_cuda_event_ms": 71.536865234375,
+      "peak_allocated_bytes": 1748133888
+    },
+    {
+      "call": 1,
+      "layer": 2,
+      "cfg_slot": 0,
+      "arm": "high_sim_low_cdf_sparse",
+      "input_sha256": "db74dfda12371f1e60b0737134e53439eb831458df015a67cbbc5ac82052b84b",
+      "input_shape": [
+        1,
+        31104,
+        16,
+        128
+      ],
+      "output_shape": [
+        1,
+        31104,
+        2048
+      ],
+      "output_dtype": "torch.bfloat16",
+      "finite": true,
+      "relative_rmse_vs_dense": 0.04468482732772827,
+      "routing": {
+        "selected_fraction": 0.7763213515281677,
+        "executed_fraction": 0.7763213515281677
+      },
+      "dense_dispatch": [
+        "aten::_scaled_dot_product_flash_attention",
+        "aten::scaled_dot_product_attention"
+      ],
+      "wall_ms": [
+        58.64825891330838,
+        58.259191922843456,
+        58.53476095944643
+      ],
+      "cuda_event_ms": [
+        58.61772918701172,
+        58.23353576660156,
+        58.50944137573242
+      ],
+      "median_wall_ms": 58.53476095944643,
+      "median_cuda_event_ms": 58.50944137573242,
+      "peak_allocated_bytes": 1873646080,
+      "relative_rmse_vs_matched_routed_full": 0.044126369059085846
+    },
+    {
+      "call": 1,
+      "layer": 14,
+      "cfg_slot": 0,
+      "arm": "dense",
+      "input_sha256": "5fd38698c382784717a9d83fc9901e39cdd6cfea2b6aac88b03b6ee86bba62fd",
+      "input_shape": [
+        1,
+        31104,
+        16,
+        128
+      ],
+      "output_shape": [
+        1,
+        31104,
+        2048
+      ],
+      "output_dtype": "torch.bfloat16",
+      "finite": true,
+      "relative_rmse_vs_dense": 0.0,
+      "routing": {
+        "selected_fraction": 1.0,
+        "executed_fraction": 1.0
+      },
+      "dense_dispatch": [
+        "aten::_scaled_dot_product_flash_attention",
+        "aten::scaled_dot_product_attention"
+      ],
+      "wall_ms": [
+        71.02729938924313,
+        70.48631180077791,
+        70.31699921935797
+      ],
+      "cuda_event_ms": [
+        70.98397064208984,
+        70.46080017089844,
+        70.29251098632812
+      ],
+      "median_wall_ms": 70.48631180077791,
+      "median_cuda_event_ms": 70.46080017089844,
+      "peak_allocated_bytes": 1417598464
+    },
+    {
+      "call": 1,
+      "layer": 14,
+      "cfg_slot": 0,
+      "arm": "vanilla_full",
+      "input_sha256": "5fd38698c382784717a9d83fc9901e39cdd6cfea2b6aac88b03b6ee86bba62fd",
+      "input_shape": [
+        1,
+        31104,
+        16,
+        128
+      ],
+      "output_shape": [
+        1,
+        31104,
+        2048
+      ],
+      "output_dtype": "torch.bfloat16",
+      "finite": true,
+      "relative_rmse_vs_dense": 0.00752422446385026,
+      "routing": {
+        "selected_fraction": 1.0,
+        "executed_fraction": 1.0
+      },
+      "dense_dispatch": [
+        "aten::_scaled_dot_product_flash_attention",
+        "aten::scaled_dot_product_attention"
+      ],
+      "wall_ms": [
+        71.17385230958462,
+        71.4895692653954,
+        71.33072009310126
+      ],
+      "cuda_event_ms": [
+        71.14598083496094,
+        71.46595001220703,
+        71.30825805664062
+      ],
+      "median_wall_ms": 71.33072009310126,
+      "median_cuda_event_ms": 71.30825805664062,
+      "peak_allocated_bytes": 1615904256
+    },
+    {
+      "call": 1,
+      "layer": 14,
+      "cfg_slot": 0,
+      "arm": "low_sim_high_cdf_routed_full",
+      "input_sha256": "5fd38698c382784717a9d83fc9901e39cdd6cfea2b6aac88b03b6ee86bba62fd",
+      "input_shape": [
+        1,
+        31104,
+        16,
+        128
+      ],
+      "output_shape": [
+        1,
+        31104,
+        2048
+      ],
+      "output_dtype": "torch.bfloat16",
+      "finite": true,
+      "relative_rmse_vs_dense": 0.00752422446385026,
+      "routing": {
+        "selected_fraction": 0.8910735249519348,
+        "executed_fraction": 1.0
+      },
+      "dense_dispatch": [
+        "aten::_scaled_dot_product_flash_attention",
+        "aten::scaled_dot_product_attention"
+      ],
+      "wall_ms": [
+        72.7644870057702,
+        72.63571722432971,
+        72.80858512967825
+      ],
+      "cuda_event_ms": [
+        72.7364501953125,
+        72.61264038085938,
+        72.78546905517578
+      ],
+      "median_wall_ms": 72.7644870057702,
+      "median_cuda_event_ms": 72.7364501953125,
+      "peak_allocated_bytes": 1620696064
+    },
+    {
+      "call": 1,
+      "layer": 14,
+      "cfg_slot": 0,
+      "arm": "low_sim_high_cdf_sparse",
+      "input_sha256": "5fd38698c382784717a9d83fc9901e39cdd6cfea2b6aac88b03b6ee86bba62fd",
+      "input_shape": [
+        1,
+        31104,
+        16,
+        128
+      ],
+      "output_shape": [
+        1,
+        31104,
+        2048
+      ],
+      "output_dtype": "torch.bfloat16",
+      "finite": true,
+      "relative_rmse_vs_dense": 0.018590621650218964,
+      "routing": {
+        "selected_fraction": 0.8910735249519348,
+        "executed_fraction": 0.8910735249519348
+      },
+      "dense_dispatch": [
+        "aten::_scaled_dot_product_flash_attention",
+        "aten::scaled_dot_product_attention"
+      ],
+      "wall_ms": [
+        69.32300888001919,
+        68.4557119384408,
+        68.79361439496279
+      ],
+      "cuda_event_ms": [
+        69.29558563232422,
+        68.43225860595703,
+        68.77017974853516
+      ],
+      "median_wall_ms": 68.79361439496279,
+      "median_cuda_event_ms": 68.77017974853516,
+      "peak_allocated_bytes": 1746244608,
+      "relative_rmse_vs_matched_routed_full": 0.017079276964068413
+    },
+    {
+      "call": 1,
+      "layer": 14,
+      "cfg_slot": 0,
+      "arm": "high_sim_low_cdf_routed_full",
+      "input_sha256": "5fd38698c382784717a9d83fc9901e39cdd6cfea2b6aac88b03b6ee86bba62fd",
+      "input_shape": [
+        1,
+        31104,
+        16,
+        128
+      ],
+      "output_shape": [
+        1,
+        31104,
+        2048
+      ],
+      "output_dtype": "torch.bfloat16",
+      "finite": true,
+      "relative_rmse_vs_dense": 0.00752422446385026,
+      "routing": {
+        "selected_fraction": 1.0,
+        "executed_fraction": 1.0
+      },
+      "dense_dispatch": [
+        "aten::_scaled_dot_product_flash_attention",
+        "aten::scaled_dot_product_attention"
+      ],
+      "wall_ms": [
+        72.63166503980756,
+        72.63503223657608,
+        72.54421105608344
+      ],
+      "cuda_event_ms": [
+        72.60387420654297,
+        72.61170959472656,
+        72.52086639404297
+      ],
+      "median_wall_ms": 72.63166503980756,
+      "median_cuda_event_ms": 72.60387420654297,
+      "peak_allocated_bytes": 1749146624
+    },
+    {
+      "call": 1,
+      "layer": 14,
+      "cfg_slot": 0,
+      "arm": "high_sim_low_cdf_sparse",
+      "input_sha256": "5fd38698c382784717a9d83fc9901e39cdd6cfea2b6aac88b03b6ee86bba62fd",
+      "input_shape": [
+        1,
+        31104,
+        16,
+        128
+      ],
+      "output_shape": [
+        1,
+        31104,
+        2048
+      ],
+      "output_dtype": "torch.bfloat16",
+      "finite": true,
+      "relative_rmse_vs_dense": 0.00752422446385026,
+      "routing": {
+        "selected_fraction": 1.0,
+        "executed_fraction": 1.0
+      },
+      "dense_dispatch": [
+        "aten::_scaled_dot_product_flash_attention",
+        "aten::scaled_dot_product_attention"
+      ],
+      "wall_ms": [
+        72.63246783986688,
+        72.78620917350054,
+        72.7090872824192
+      ],
+      "cuda_event_ms": [
+        72.60511779785156,
+        72.76383972167969,
+        72.68617248535156
+      ],
+      "median_wall_ms": 72.7090872824192,
+      "median_cuda_event_ms": 72.68617248535156,
+      "peak_allocated_bytes": 1873646592,
+      "relative_rmse_vs_matched_routed_full": 0.0
+    },
+    {
+      "call": 1,
+      "layer": 27,
+      "cfg_slot": 0,
+      "arm": "dense",
+      "input_sha256": "0454169471f303511a4897270dbebc1ce4b43d4ee6e43f7bae3c9da657992aa0",
+      "input_shape": [
+        1,
+        31104,
+        16,
+        128
+      ],
+      "output_shape": [
+        1,
+        31104,
+        2048
+      ],
+      "output_dtype": "torch.bfloat16",
+      "finite": true,
+      "relative_rmse_vs_dense": 0.0,
+      "routing": {
+        "selected_fraction": 1.0,
+        "executed_fraction": 1.0
+      },
+      "dense_dispatch": [
+        "aten::_scaled_dot_product_flash_attention",
+        "aten::scaled_dot_product_attention"
+      ],
+      "wall_ms": [
+        70.10511076077819,
+        69.84494207426906,
+        70.11047517880797
+      ],
+      "cuda_event_ms": [
+        70.06790161132812,
+        69.77670288085938,
+        70.06607818603516
+      ],
+      "median_wall_ms": 70.10511076077819,
+      "median_cuda_event_ms": 70.06607818603516,
+      "peak_allocated_bytes": 1417598464
+    },
+    {
+      "call": 1,
+      "layer": 27,
+      "cfg_slot": 0,
+      "arm": "vanilla_full",
+      "input_sha256": "0454169471f303511a4897270dbebc1ce4b43d4ee6e43f7bae3c9da657992aa0",
+      "input_shape": [
+        1,
+        31104,
+        16,
+        128
+      ],
+      "output_shape": [
+        1,
+        31104,
+        2048
+      ],
+      "output_dtype": "torch.bfloat16",
+      "finite": true,
+      "relative_rmse_vs_dense": 0.003935304470360279,
+      "routing": {
+        "selected_fraction": 1.0,
+        "executed_fraction": 1.0
+      },
+      "dense_dispatch": [
+        "aten::_scaled_dot_product_flash_attention",
+        "aten::scaled_dot_product_attention"
+      ],
+      "wall_ms": [
+        70.31895080581307,
+        70.32068213447928,
+        70.42862381786108
+      ],
+      "cuda_event_ms": [
+        70.2911376953125,
+        70.2979507446289,
+        70.40624237060547
+      ],
+      "median_wall_ms": 70.32068213447928,
+      "median_cuda_event_ms": 70.2979507446289,
+      "peak_allocated_bytes": 1615904256
+    },
+    {
+      "call": 1,
+      "layer": 27,
+      "cfg_slot": 0,
+      "arm": "low_sim_high_cdf_routed_full",
+      "input_sha256": "0454169471f303511a4897270dbebc1ce4b43d4ee6e43f7bae3c9da657992aa0",
+      "input_shape": [
+        1,
+        31104,
+        16,
+        128
+      ],
+      "output_shape": [
+        1,
+        31104,
+        2048
+      ],
+      "output_dtype": "torch.bfloat16",
+      "finite": true,
+      "relative_rmse_vs_dense": 0.003935304470360279,
+      "routing": {
+        "selected_fraction": 0.5685733556747437,
+        "executed_fraction": 1.0
+      },
+      "dense_dispatch": [
+        "aten::_scaled_dot_product_flash_attention",
+        "aten::scaled_dot_product_attention"
+      ],
+      "wall_ms": [
+        72.26414699107409,
+        71.57958624884486,
+        71.46510994061828
+      ],
+      "cuda_event_ms": [
+        72.22831726074219,
+        71.55599975585938,
+        71.44265747070312
+      ],
+      "median_wall_ms": 71.57958624884486,
+      "median_cuda_event_ms": 71.55599975585938,
+      "peak_allocated_bytes": 1620696064
+    },
+    {
+      "call": 1,
+      "layer": 27,
+      "cfg_slot": 0,
+      "arm": "low_sim_high_cdf_sparse",
+      "input_sha256": "0454169471f303511a4897270dbebc1ce4b43d4ee6e43f7bae3c9da657992aa0",
+      "input_shape": [
+        1,
+        31104,
+        16,
+        128
+      ],
+      "output_shape": [
+        1,
+        31104,
+        2048
+      ],
+      "output_dtype": "torch.bfloat16",
+      "finite": true,
+      "relative_rmse_vs_dense": 0.05352501571178436,
+      "routing": {
+        "selected_fraction": 0.5685733556747437,
+        "executed_fraction": 0.5685733556747437
+      },
+      "dense_dispatch": [
+        "aten::_scaled_dot_product_flash_attention",
+        "aten::scaled_dot_product_attention"
+      ],
+      "wall_ms": [
+        45.5813892185688,
+        45.42472492903471,
+        45.69845972582698
+      ],
+      "cuda_event_ms": [
+        45.55414581298828,
+        45.40166473388672,
+        45.67548751831055
+      ],
+      "median_wall_ms": 45.5813892185688,
+      "median_cuda_event_ms": 45.55414581298828,
+      "peak_allocated_bytes": 1746244608,
+      "relative_rmse_vs_matched_routed_full": 0.05343092978000641
+    },
+    {
+      "call": 1,
+      "layer": 27,
+      "cfg_slot": 0,
+      "arm": "high_sim_low_cdf_routed_full",
+      "input_sha256": "0454169471f303511a4897270dbebc1ce4b43d4ee6e43f7bae3c9da657992aa0",
+      "input_shape": [
+        1,
+        31104,
+        16,
+        128
+      ],
+      "output_shape": [
+        1,
+        31104,
+        2048
+      ],
+      "output_dtype": "torch.bfloat16",
+      "finite": true,
+      "relative_rmse_vs_dense": 0.003935304470360279,
+      "routing": {
+        "selected_fraction": 0.86290043592453,
+        "executed_fraction": 1.0
+      },
+      "dense_dispatch": [
+        "aten::_scaled_dot_product_flash_attention",
+        "aten::scaled_dot_product_attention"
+      ],
+      "wall_ms": [
+        71.7248311266303,
+        71.72021269798279,
+        71.58708572387695
+      ],
+      "cuda_event_ms": [
+        71.68962860107422,
+        71.6960678100586,
+        71.56253051757812
+      ],
+      "median_wall_ms": 71.72021269798279,
+      "median_cuda_event_ms": 71.68962860107422,
+      "peak_allocated_bytes": 1749146624
+    },
+    {
+      "call": 1,
+      "layer": 27,
+      "cfg_slot": 0,
+      "arm": "high_sim_low_cdf_sparse",
+      "input_sha256": "0454169471f303511a4897270dbebc1ce4b43d4ee6e43f7bae3c9da657992aa0",
+      "input_shape": [
+        1,
+        31104,
+        16,
+        128
+      ],
+      "output_shape": [
+        1,
+        31104,
+        2048
+      ],
+      "output_dtype": "torch.bfloat16",
+      "finite": true,
+      "relative_rmse_vs_dense": 0.02256762608885765,
+      "routing": {
+        "selected_fraction": 0.86290043592453,
+        "executed_fraction": 0.86290043592453
+      },
+      "dense_dispatch": [
+        "aten::_scaled_dot_product_flash_attention",
+        "aten::scaled_dot_product_attention"
+      ],
+      "wall_ms": [
+        64.22366481274366,
+        64.43392811343074,
+        64.29074984043837
+      ],
+      "cuda_event_ms": [
+        64.1965103149414,
+        64.41129302978516,
+        64.26748657226562
+      ],
+      "median_wall_ms": 64.29074984043837,
+      "median_cuda_event_ms": 64.26748657226562,
+      "peak_allocated_bytes": 1873646592,
+      "relative_rmse_vs_matched_routed_full": 0.022240549325942993
+    },
+    {
+      "call": 2,
+      "layer": 2,
+      "cfg_slot": 1,
+      "arm": "dense",
+      "input_sha256": "f17876025015602d041adfe8a1b5bf4e33c62a7b9a3a2dd806c5d65951e2309e",
+      "input_shape": [
+        1,
+        31104,
+        16,
+        128
+      ],
+      "output_shape": [
+        1,
+        31104,
+        2048
+      ],
+      "output_dtype": "torch.bfloat16",
+      "finite": true,
+      "relative_rmse_vs_dense": 0.0,
+      "routing": {
+        "selected_fraction": 1.0,
+        "executed_fraction": 1.0
+      },
+      "dense_dispatch": [
+        "aten::_scaled_dot_product_flash_attention",
+        "aten::scaled_dot_product_attention"
+      ],
+      "wall_ms": [
+        70.08173502981663,
+        69.93959192186594,
+        70.34012861549854
+      ],
+      "cuda_event_ms": [
+        70.0278091430664,
+        69.91484832763672,
+        70.3130874633789
+      ],
+      "median_wall_ms": 70.08173502981663,
+      "median_cuda_event_ms": 70.0278091430664,
+      "peak_allocated_bytes": 1417598464
+    },
+    {
+      "call": 2,
+      "layer": 2,
+      "cfg_slot": 1,
+      "arm": "vanilla_full",
+      "input_sha256": "f17876025015602d041adfe8a1b5bf4e33c62a7b9a3a2dd806c5d65951e2309e",
+      "input_shape": [
+        1,
+        31104,
+        16,
+        128
+      ],
+      "output_shape": [
+        1,
+        31104,
+        2048
+      ],
+      "output_dtype": "torch.bfloat16",
+      "finite": true,
+      "relative_rmse_vs_dense": 0.006991602014750242,
+      "routing": {
+        "selected_fraction": 1.0,
+        "executed_fraction": 1.0
+      },
+      "dense_dispatch": [
+        "aten::_scaled_dot_product_flash_attention",
+        "aten::scaled_dot_product_attention"
+      ],
+      "wall_ms": [
+        70.68936061114073,
+        70.485251955688,
+        71.1031318642199
+      ],
+      "cuda_event_ms": [
+        70.6608657836914,
+        70.46217346191406,
+        71.07315063476562
+      ],
+      "median_wall_ms": 70.68936061114073,
+      "median_cuda_event_ms": 70.6608657836914,
+      "peak_allocated_bytes": 1615904256
+    },
+    {
+      "call": 2,
+      "layer": 2,
+      "cfg_slot": 1,
+      "arm": "low_sim_high_cdf_routed_full",
+      "input_sha256": "f17876025015602d041adfe8a1b5bf4e33c62a7b9a3a2dd806c5d65951e2309e",
+      "input_shape": [
+        1,
+        31104,
+        16,
+        128
+      ],
+      "output_shape": [
+        1,
+        31104,
+        2048
+      ],
+      "output_dtype": "torch.bfloat16",
+      "finite": true,
+      "relative_rmse_vs_dense": 0.006991602014750242,
+      "routing": {
+        "selected_fraction": 0.7776063084602356,
+        "executed_fraction": 1.0
+      },
+      "dense_dispatch": [
+        "aten::_scaled_dot_product_flash_attention",
+        "aten::scaled_dot_product_attention"
+      ],
+      "wall_ms": [
+        72.29644805192947,
+        72.02501175925136,
+        71.9386707060039
+      ],
+      "cuda_event_ms": [
+        72.268798828125,
+        72.00224304199219,
+        71.916259765625
+      ],
+      "median_wall_ms": 72.02501175925136,
+      "median_cuda_event_ms": 72.00224304199219,
+      "peak_allocated_bytes": 1620696064
+    },
+    {
+      "call": 2,
+      "layer": 2,
+      "cfg_slot": 1,
+      "arm": "low_sim_high_cdf_sparse",
+      "input_sha256": "f17876025015602d041adfe8a1b5bf4e33c62a7b9a3a2dd806c5d65951e2309e",
+      "input_shape": [
+        1,
+        31104,
+        16,
+        128
+      ],
+      "output_shape": [
+        1,
+        31104,
+        2048
+      ],
+      "output_dtype": "torch.bfloat16",
+      "finite": true,
+      "relative_rmse_vs_dense": 0.013343212194740772,
+      "routing": {
+        "selected_fraction": 0.7776063084602356,
+        "executed_fraction": 0.7776063084602356
+      },
+      "dense_dispatch": [
+        "aten::_scaled_dot_product_flash_attention",
+        "aten::scaled_dot_product_attention"
+      ],
+      "wall_ms": [
+        60.44957181438804,
+        60.33124076202512,
+        60.296442825347185
+      ],
+      "cuda_event_ms": [
+        60.42172622680664,
+        60.30847930908203,
+        60.27363204956055
+      ],
+      "median_wall_ms": 60.33124076202512,
+      "median_cuda_event_ms": 60.30847930908203,
+      "peak_allocated_bytes": 1746244608,
+      "relative_rmse_vs_matched_routed_full": 0.011408017948269844
+    },
+    {
+      "call": 2,
+      "layer": 2,
+      "cfg_slot": 1,
+      "arm": "high_sim_low_cdf_routed_full",
+      "input_sha256": "f17876025015602d041adfe8a1b5bf4e33c62a7b9a3a2dd806c5d65951e2309e",
+      "input_shape": [
+        1,
+        31104,
+        16,
+        128
+      ],
+      "output_shape": [
+        1,
+        31104,
+        2048
+      ],
+      "output_dtype": "torch.bfloat16",
+      "finite": true,
+      "relative_rmse_vs_dense": 0.006991602014750242,
+      "routing": {
+        "selected_fraction": 0.7836441993713379,
+        "executed_fraction": 1.0
+      },
+      "dense_dispatch": [
+        "aten::_scaled_dot_product_flash_attention",
+        "aten::scaled_dot_product_attention"
+      ],
+      "wall_ms": [
+        72.09698436781764,
+        71.90667698159814,
+        72.56343076005578
+      ],
+      "cuda_event_ms": [
+        72.06422424316406,
+        71.88377380371094,
+        72.54121398925781
+      ],
+      "median_wall_ms": 72.09698436781764,
+      "median_cuda_event_ms": 72.06422424316406,
+      "peak_allocated_bytes": 1749146624
+    },
+    {
+      "call": 2,
+      "layer": 2,
+      "cfg_slot": 1,
+      "arm": "high_sim_low_cdf_sparse",
+      "input_sha256": "f17876025015602d041adfe8a1b5bf4e33c62a7b9a3a2dd806c5d65951e2309e",
+      "input_shape": [
+        1,
+        31104,
+        16,
+        128
+      ],
+      "output_shape": [
+        1,
+        31104,
+        2048
+      ],
+      "output_dtype": "torch.bfloat16",
+      "finite": true,
+      "relative_rmse_vs_dense": 0.04453244432806969,
+      "routing": {
+        "selected_fraction": 0.7836441993713379,
+        "executed_fraction": 0.7836441993713379
+      },
+      "dense_dispatch": [
+        "aten::_scaled_dot_product_flash_attention",
+        "aten::scaled_dot_product_attention"
+      ],
+      "wall_ms": [
+        58.70171682909131,
+        58.66455798968673,
+        58.782664593309164
+      ],
+      "cuda_event_ms": [
+        58.673919677734375,
+        58.64195251464844,
+        58.76006317138672
+      ],
+      "median_wall_ms": 58.70171682909131,
+      "median_cuda_event_ms": 58.673919677734375,
+      "peak_allocated_bytes": 1873646592,
+      "relative_rmse_vs_matched_routed_full": 0.04396790266036987
+    },
+    {
+      "call": 2,
+      "layer": 14,
+      "cfg_slot": 1,
+      "arm": "dense",
+      "input_sha256": "a2021b328aecd357579e45d5e39879b7b39161c811e731eef4e1304c36c7e74b",
+      "input_shape": [
+        1,
+        31104,
+        16,
+        128
+      ],
+      "output_shape": [
+        1,
+        31104,
+        2048
+      ],
+      "output_dtype": "torch.bfloat16",
+      "finite": true,
+      "relative_rmse_vs_dense": 0.0,
+      "routing": {
+        "selected_fraction": 1.0,
+        "executed_fraction": 1.0
+      },
+      "dense_dispatch": [
+        "aten::_scaled_dot_product_flash_attention",
+        "aten::scaled_dot_product_attention"
+      ],
+      "wall_ms": [
+        71.17041386663914,
+        70.94553392380476,
+        70.98369766026735
+      ],
+      "cuda_event_ms": [
+        71.13196563720703,
+        70.92131042480469,
+        70.96041870117188
+      ],
+      "median_wall_ms": 70.98369766026735,
+      "median_cuda_event_ms": 70.96041870117188,
+      "peak_allocated_bytes": 1417598464
+    },
+    {
+      "call": 2,
+      "layer": 14,
+      "cfg_slot": 1,
+      "arm": "vanilla_full",
+      "input_sha256": "a2021b328aecd357579e45d5e39879b7b39161c811e731eef4e1304c36c7e74b",
+      "input_shape": [
+        1,
+        31104,
+        16,
+        128
+      ],
+      "output_shape": [
+        1,
+        31104,
+        2048
+      ],
+      "output_dtype": "torch.bfloat16",
+      "finite": true,
+      "relative_rmse_vs_dense": 0.007266724016517401,
+      "routing": {
+        "selected_fraction": 1.0,
+        "executed_fraction": 1.0
+      },
+      "dense_dispatch": [
+        "aten::_scaled_dot_product_flash_attention",
+        "aten::scaled_dot_product_attention"
+      ],
+      "wall_ms": [
+        71.72328094020486,
+        72.05616123974323,
+        71.82279694825411
+      ],
+      "cuda_event_ms": [
+        71.69558715820312,
+        72.02617645263672,
+        71.79945373535156
+      ],
+      "median_wall_ms": 71.82279694825411,
+      "median_cuda_event_ms": 71.79945373535156,
+      "peak_allocated_bytes": 1615904256
+    },
+    {
+      "call": 2,
+      "layer": 14,
+      "cfg_slot": 1,
+      "arm": "low_sim_high_cdf_routed_full",
+      "input_sha256": "a2021b328aecd357579e45d5e39879b7b39161c811e731eef4e1304c36c7e74b",
+      "input_shape": [
+        1,
+        31104,
+        16,
+        128
+      ],
+      "output_shape": [
+        1,
+        31104,
+        2048
+      ],
+      "output_dtype": "torch.bfloat16",
+      "finite": true,
+      "relative_rmse_vs_dense": 0.007266724016517401,
+      "routing": {
+        "selected_fraction": 0.8418564200401306,
+        "executed_fraction": 1.0
+      },
+      "dense_dispatch": [
+        "aten::_scaled_dot_product_flash_attention",
+        "aten::scaled_dot_product_attention"
+      ],
+      "wall_ms": [
+        73.79051391035318,
+        73.31959996372461,
+        72.97065388411283
+      ],
+      "cuda_event_ms": [
+        73.76262664794922,
+        73.29695892333984,
+        72.94815826416016
+      ],
+      "median_wall_ms": 73.31959996372461,
+      "median_cuda_event_ms": 73.29695892333984,
+      "peak_allocated_bytes": 1620696064
+    },
+    {
+      "call": 2,
+      "layer": 14,
+      "cfg_slot": 1,
+      "arm": "low_sim_high_cdf_sparse",
+      "input_sha256": "a2021b328aecd357579e45d5e39879b7b39161c811e731eef4e1304c36c7e74b",
+      "input_shape": [
+        1,
+        31104,
+        16,
+        128
+      ],
+      "output_shape": [
+        1,
+        31104,
+        2048
+      ],
+      "output_dtype": "torch.bfloat16",
+      "finite": true,
+      "relative_rmse_vs_dense": 0.02119317092001438,
+      "routing": {
+        "selected_fraction": 0.8418564200401306,
+        "executed_fraction": 0.8418564200401306
+      },
+      "dense_dispatch": [
+        "aten::_scaled_dot_product_flash_attention",
+        "aten::scaled_dot_product_attention"
+      ],
+      "wall_ms": [
+        65.83350896835327,
+        65.37046190351248,
+        65.11975917965174
+      ],
+      "cuda_event_ms": [
+        65.80598449707031,
+        65.34716796875,
+        65.09696197509766
+      ],
+      "median_wall_ms": 65.37046190351248,
+      "median_cuda_event_ms": 65.34716796875,
+      "peak_allocated_bytes": 1746244608,
+      "relative_rmse_vs_matched_routed_full": 0.019976159557700157
+    },
+    {
+      "call": 2,
+      "layer": 14,
+      "cfg_slot": 1,
+      "arm": "high_sim_low_cdf_routed_full",
+      "input_sha256": "a2021b328aecd357579e45d5e39879b7b39161c811e731eef4e1304c36c7e74b",
+      "input_shape": [
+        1,
+        31104,
+        16,
+        128
+      ],
+      "output_shape": [
+        1,
+        31104,
+        2048
+      ],
+      "output_dtype": "torch.bfloat16",
+      "finite": true,
+      "relative_rmse_vs_dense": 0.007266724016517401,
+      "routing": {
+        "selected_fraction": 0.9999983906745911,
+        "executed_fraction": 1.0
+      },
+      "dense_dispatch": [
+        "aten::_scaled_dot_product_flash_attention",
+        "aten::scaled_dot_product_attention"
+      ],
+      "wall_ms": [
+        73.17538186907768,
+        73.16306000575423,
+        73.17392434924841
+      ],
+      "cuda_event_ms": [
+        73.14521789550781,
+        73.13958740234375,
+        73.15113830566406
+      ],
+      "median_wall_ms": 73.17392434924841,
+      "median_cuda_event_ms": 73.14521789550781,
+      "peak_allocated_bytes": 1749146624
+    },
+    {
+      "call": 2,
+      "layer": 14,
+      "cfg_slot": 1,
+      "arm": "high_sim_low_cdf_sparse",
+      "input_sha256": "a2021b328aecd357579e45d5e39879b7b39161c811e731eef4e1304c36c7e74b",
+      "input_shape": [
+        1,
+        31104,
+        16,
+        128
+      ],
+      "output_shape": [
+        1,
+        31104,
+        2048
+      ],
+      "output_dtype": "torch.bfloat16",
+      "finite": true,
+      "relative_rmse_vs_dense": 0.007296455558389425,
+      "routing": {
+        "selected_fraction": 0.9999983906745911,
+        "executed_fraction": 0.9999983906745911
+      },
+      "dense_dispatch": [
+        "aten::_scaled_dot_product_flash_attention",
+        "aten::scaled_dot_product_attention"
+      ],
+      "wall_ms": [
+        73.33826879039407,
+        73.18594306707382,
+        73.14957864582539
+      ],
+      "cuda_event_ms": [
+        73.3108139038086,
+        73.16297912597656,
+        73.1272964477539
+      ],
+      "median_wall_ms": 73.18594306707382,
+      "median_cuda_event_ms": 73.16297912597656,
+      "peak_allocated_bytes": 1873646592,
+      "relative_rmse_vs_matched_routed_full": 0.0006523343035951257
+    },
+    {
+      "call": 2,
+      "layer": 27,
+      "cfg_slot": 1,
+      "arm": "dense",
+      "input_sha256": "c85ddd5aff3fc680fbd1be2758e162caa141cd8f73c71edc742136949d91d675",
+      "input_shape": [
+        1,
+        31104,
+        16,
+        128
+      ],
+      "output_shape": [
+        1,
+        31104,
+        2048
+      ],
+      "output_dtype": "torch.bfloat16",
+      "finite": true,
+      "relative_rmse_vs_dense": 0.0,
+      "routing": {
+        "selected_fraction": 1.0,
+        "executed_fraction": 1.0
+      },
+      "dense_dispatch": [
+        "aten::_scaled_dot_product_flash_attention",
+        "aten::scaled_dot_product_attention"
+      ],
+      "wall_ms": [
+        70.77123783528805,
+        70.8072492852807,
+        70.82721777260303
+      ],
+      "cuda_event_ms": [
+        70.7352294921875,
+        70.77315521240234,
+        70.79942321777344
+      ],
+      "median_wall_ms": 70.8072492852807,
+      "median_cuda_event_ms": 70.77315521240234,
+      "peak_allocated_bytes": 1417598464
+    },
+    {
+      "call": 2,
+      "layer": 27,
+      "cfg_slot": 1,
+      "arm": "vanilla_full",
+      "input_sha256": "c85ddd5aff3fc680fbd1be2758e162caa141cd8f73c71edc742136949d91d675",
+      "input_shape": [
+        1,
+        31104,
+        16,
+        128
+      ],
+      "output_shape": [
+        1,
+        31104,
+        2048
+      ],
+      "output_dtype": "torch.bfloat16",
+      "finite": true,
+      "relative_rmse_vs_dense": 0.004765814635902643,
+      "routing": {
+        "selected_fraction": 1.0,
+        "executed_fraction": 1.0
+      },
+      "dense_dispatch": [
+        "aten::_scaled_dot_product_flash_attention",
+        "aten::scaled_dot_product_attention"
+      ],
+      "wall_ms": [
+        70.4539380967617,
+        70.81849873065948,
+        70.73704665526748
+      ],
+      "cuda_event_ms": [
+        70.42582702636719,
+        70.79644775390625,
+        70.71443176269531
+      ],
+      "median_wall_ms": 70.73704665526748,
+      "median_cuda_event_ms": 70.71443176269531,
+      "peak_allocated_bytes": 1615904256
+    },
+    {
+      "call": 2,
+      "layer": 27,
+      "cfg_slot": 1,
+      "arm": "low_sim_high_cdf_routed_full",
+      "input_sha256": "c85ddd5aff3fc680fbd1be2758e162caa141cd8f73c71edc742136949d91d675",
+      "input_shape": [
+        1,
+        31104,
+        16,
+        128
+      ],
+      "output_shape": [
+        1,
+        31104,
+        2048
+      ],
+      "output_dtype": "torch.bfloat16",
+      "finite": true,
+      "relative_rmse_vs_dense": 0.004765814635902643,
+      "routing": {
+        "selected_fraction": 0.518666684627533,
+        "executed_fraction": 1.0
+      },
+      "dense_dispatch": [
+        "aten::_scaled_dot_product_flash_attention",
+        "aten::scaled_dot_product_attention"
+      ],
+      "wall_ms": [
+        72.31423910707235,
+        72.21518829464912,
+        71.81523088365793
+      ],
+      "cuda_event_ms": [
+        72.28688049316406,
+        72.19324493408203,
+        71.79235076904297
+      ],
+      "median_wall_ms": 72.21518829464912,
+      "median_cuda_event_ms": 72.19324493408203,
+      "peak_allocated_bytes": 1620696064
+    },
+    {
+      "call": 2,
+      "layer": 27,
+      "cfg_slot": 1,
+      "arm": "low_sim_high_cdf_sparse",
+      "input_sha256": "c85ddd5aff3fc680fbd1be2758e162caa141cd8f73c71edc742136949d91d675",
+      "input_shape": [
+        1,
+        31104,
+        16,
+        128
+      ],
+      "output_shape": [
+        1,
+        31104,
+        2048
+      ],
+      "output_dtype": "torch.bfloat16",
+      "finite": true,
+      "relative_rmse_vs_dense": 0.06084757298231125,
+      "routing": {
+        "selected_fraction": 0.518666684627533,
+        "executed_fraction": 0.518666684627533
+      },
+      "dense_dispatch": [
+        "aten::_scaled_dot_product_flash_attention",
+        "aten::scaled_dot_product_attention"
+      ],
+      "wall_ms": [
+        43.381028808653355,
+        42.888914700597525,
+        43.225612957030535
+      ],
+      "cuda_event_ms": [
+        43.332862854003906,
+        42.86671829223633,
+        43.2026252746582
+      ],
+      "median_wall_ms": 43.225612957030535,
+      "median_cuda_event_ms": 43.2026252746582,
+      "peak_allocated_bytes": 1746244608,
+      "relative_rmse_vs_matched_routed_full": 0.06069524958729744
+    },
+    {
+      "call": 2,
+      "layer": 27,
+      "cfg_slot": 1,
+      "arm": "high_sim_low_cdf_routed_full",
+      "input_sha256": "c85ddd5aff3fc680fbd1be2758e162caa141cd8f73c71edc742136949d91d675",
+      "input_shape": [
+        1,
+        31104,
+        16,
+        128
+      ],
+      "output_shape": [
+        1,
+        31104,
+        2048
+      ],
+      "output_dtype": "torch.bfloat16",
+      "finite": true,
+      "relative_rmse_vs_dense": 0.004765814635902643,
+      "routing": {
+        "selected_fraction": 0.7627092599868774,
+        "executed_fraction": 1.0
+      },
+      "dense_dispatch": [
+        "aten::_scaled_dot_product_flash_attention",
+        "aten::scaled_dot_product_attention"
+      ],
+      "wall_ms": [
+        72.06681929528713,
+        71.89391925930977,
+        72.51022523269057
+      ],
+      "cuda_event_ms": [
+        72.03929901123047,
+        71.87139129638672,
+        72.48745727539062
+      ],
+      "median_wall_ms": 72.06681929528713,
+      "median_cuda_event_ms": 72.03929901123047,
+      "peak_allocated_bytes": 1749146624
+    },
+    {
+      "call": 2,
+      "layer": 27,
+      "cfg_slot": 1,
+      "arm": "high_sim_low_cdf_sparse",
+      "input_sha256": "c85ddd5aff3fc680fbd1be2758e162caa141cd8f73c71edc742136949d91d675",
+      "input_shape": [
+        1,
+        31104,
+        16,
+        128
+      ],
+      "output_shape": [
+        1,
+        31104,
+        2048
+      ],
+      "output_dtype": "torch.bfloat16",
+      "finite": true,
+      "relative_rmse_vs_dense": 0.041152600198984146,
+      "routing": {
+        "selected_fraction": 0.7627092599868774,
+        "executed_fraction": 0.7627092599868774
+      },
+      "dense_dispatch": [
+        "aten::_scaled_dot_product_flash_attention",
+        "aten::scaled_dot_product_attention"
+      ],
+      "wall_ms": [
+        58.69999900460243,
+        58.531004935503006,
+        58.69821272790432
+      ],
+      "cuda_event_ms": [
+        58.671390533447266,
+        58.5081901550293,
+        58.67407989501953
+      ],
+      "median_wall_ms": 58.69821272790432,
+      "median_cuda_event_ms": 58.671390533447266,
+      "peak_allocated_bytes": 1873646592,
+      "relative_rmse_vs_matched_routed_full": 0.04088464379310608
+    },
+    {
+      "call": 71,
+      "layer": 2,
+      "cfg_slot": 0,
+      "arm": "dense",
+      "input_sha256": "0e87fa17448b328131f4325c19b62c2b8afc9942564c630ea3e47d9edec5e118",
+      "input_shape": [
+        1,
+        31104,
+        16,
+        128
+      ],
+      "output_shape": [
+        1,
+        31104,
+        2048
+      ],
+      "output_dtype": "torch.bfloat16",
+      "finite": true,
+      "relative_rmse_vs_dense": 0.0,
+      "routing": {
+        "selected_fraction": 1.0,
+        "executed_fraction": 1.0
+      },
+      "dense_dispatch": [
+        "aten::_scaled_dot_product_flash_attention",
+        "aten::scaled_dot_product_attention"
+      ],
+      "wall_ms": [
+        70.48767805099487,
+        70.29257668182254,
+        70.4763219691813
+      ],
+      "cuda_event_ms": [
+        70.45027160644531,
+        70.26860809326172,
+        70.4518051147461
+      ],
+      "median_wall_ms": 70.4763219691813,
+      "median_cuda_event_ms": 70.45027160644531,
+      "peak_allocated_bytes": 1417598464
+    },
+    {
+      "call": 71,
+      "layer": 2,
+      "cfg_slot": 0,
+      "arm": "vanilla_full",
+      "input_sha256": "0e87fa17448b328131f4325c19b62c2b8afc9942564c630ea3e47d9edec5e118",
+      "input_shape": [
+        1,
+        31104,
+        16,
+        128
+      ],
+      "output_shape": [
+        1,
+        31104,
+        2048
+      ],
+      "output_dtype": "torch.bfloat16",
+      "finite": true,
+      "relative_rmse_vs_dense": 0.002627820009365678,
+      "routing": {
+        "selected_fraction": 1.0,
+        "executed_fraction": 1.0
+      },
+      "dense_dispatch": [
+        "aten::_scaled_dot_product_flash_attention",
+        "aten::scaled_dot_product_attention"
+      ],
+      "wall_ms": [
+        71.01358892396092,
+        70.93114359304309,
+        70.8690732717514
+      ],
+      "cuda_event_ms": [
+        70.98518371582031,
+        70.90787506103516,
+        70.84569549560547
+      ],
+      "median_wall_ms": 70.93114359304309,
+      "median_cuda_event_ms": 70.90787506103516,
+      "peak_allocated_bytes": 1615904256
+    },
+    {
+      "call": 71,
+      "layer": 2,
+      "cfg_slot": 0,
+      "arm": "low_sim_high_cdf_routed_full",
+      "input_sha256": "0e87fa17448b328131f4325c19b62c2b8afc9942564c630ea3e47d9edec5e118",
+      "input_shape": [
+        1,
+        31104,
+        16,
+        128
+      ],
+      "output_shape": [
+        1,
+        31104,
+        2048
+      ],
+      "output_dtype": "torch.bfloat16",
+      "finite": true,
+      "relative_rmse_vs_dense": 0.002627820009365678,
+      "routing": {
+        "selected_fraction": 0.815554678440094,
+        "executed_fraction": 1.0
+      },
+      "dense_dispatch": [
+        "aten::_scaled_dot_product_flash_attention",
+        "aten::scaled_dot_product_attention"
+      ],
+      "wall_ms": [
+        72.16596370562911,
+        72.10020488128066,
+        72.15584302321076
+      ],
+      "cuda_event_ms": [
+        72.13798522949219,
+        72.07801818847656,
+        72.13318634033203
+      ],
+      "median_wall_ms": 72.15584302321076,
+      "median_cuda_event_ms": 72.13318634033203,
+      "peak_allocated_bytes": 1620696064
+    },
+    {
+      "call": 71,
+      "layer": 2,
+      "cfg_slot": 0,
+      "arm": "low_sim_high_cdf_sparse",
+      "input_sha256": "0e87fa17448b328131f4325c19b62c2b8afc9942564c630ea3e47d9edec5e118",
+      "input_shape": [
+        1,
+        31104,
+        16,
+        128
+      ],
+      "output_shape": [
+        1,
+        31104,
+        2048
+      ],
+      "output_dtype": "torch.bfloat16",
+      "finite": true,
+      "relative_rmse_vs_dense": 0.006105394102632999,
+      "routing": {
+        "selected_fraction": 0.815554678440094,
+        "executed_fraction": 0.815554678440094
+      },
+      "dense_dispatch": [
+        "aten::_scaled_dot_product_flash_attention",
+        "aten::scaled_dot_product_attention"
+      ],
+      "wall_ms": [
+        63.33272159099579,
+        62.74983799085021,
+        62.6448979601264
+      ],
+      "cuda_event_ms": [
+        63.305694580078125,
+        62.727073669433594,
+        62.621856689453125
+      ],
+      "median_wall_ms": 62.74983799085021,
+      "median_cuda_event_ms": 62.727073669433594,
+      "peak_allocated_bytes": 1746244608,
+      "relative_rmse_vs_matched_routed_full": 0.005643051583319902
+    },
+    {
+      "call": 71,
+      "layer": 2,
+      "cfg_slot": 0,
+      "arm": "high_sim_low_cdf_routed_full",
+      "input_sha256": "0e87fa17448b328131f4325c19b62c2b8afc9942564c630ea3e47d9edec5e118",
+      "input_shape": [
+        1,
+        31104,
+        16,
+        128
+      ],
+      "output_shape": [
+        1,
+        31104,
+        2048
+      ],
+      "output_dtype": "torch.bfloat16",
+      "finite": true,
+      "relative_rmse_vs_dense": 0.002627820009365678,
+      "routing": {
+        "selected_fraction": 0.8763013482093811,
+        "executed_fraction": 1.0
+      },
+      "dense_dispatch": [
+        "aten::_scaled_dot_product_flash_attention",
+        "aten::scaled_dot_product_attention"
+      ],
+      "wall_ms": [
+        72.27246230468154,
+        71.92492624744773,
+        71.89805386587977
+      ],
+      "cuda_event_ms": [
+        72.24441528320312,
+        71.90038299560547,
+        71.87542724609375
+      ],
+      "median_wall_ms": 71.92492624744773,
+      "median_cuda_event_ms": 71.90038299560547,
+      "peak_allocated_bytes": 1749146624
+    },
+    {
+      "call": 71,
+      "layer": 2,
+      "cfg_slot": 0,
+      "arm": "high_sim_low_cdf_sparse",
+      "input_sha256": "0e87fa17448b328131f4325c19b62c2b8afc9942564c630ea3e47d9edec5e118",
+      "input_shape": [
+        1,
+        31104,
+        16,
+        128
+      ],
+      "output_shape": [
+        1,
+        31104,
+        2048
+      ],
+      "output_dtype": "torch.bfloat16",
+      "finite": true,
+      "relative_rmse_vs_dense": 0.014770553447306156,
+      "routing": {
+        "selected_fraction": 0.8763013482093811,
+        "executed_fraction": 0.8763013482093811
+      },
+      "dense_dispatch": [
+        "aten::_scaled_dot_product_flash_attention",
+        "aten::scaled_dot_product_attention"
+      ],
+      "wall_ms": [
+        64.61287895217538,
+        64.22423711046576,
+        64.3738592043519
+      ],
+      "cuda_event_ms": [
+        64.5849609375,
+        64.20188903808594,
+        64.35107421875
+      ],
+      "median_wall_ms": 64.3738592043519,
+      "median_cuda_event_ms": 64.35107421875,
+      "peak_allocated_bytes": 1873646592,
+      "relative_rmse_vs_matched_routed_full": 0.014545610174536705
+    },
+    {
+      "call": 71,
+      "layer": 14,
+      "cfg_slot": 0,
+      "arm": "dense",
+      "input_sha256": "eefe6839c6106fcba47d92bdc1856b4c376a269aae26fc8f551846862b21db80",
+      "input_shape": [
+        1,
+        31104,
+        16,
+        128
+      ],
+      "output_shape": [
+        1,
+        31104,
+        2048
+      ],
+      "output_dtype": "torch.bfloat16",
+      "finite": true,
+      "relative_rmse_vs_dense": 0.0,
+      "routing": {
+        "selected_fraction": 1.0,
+        "executed_fraction": 1.0
+      },
+      "dense_dispatch": [
+        "aten::_scaled_dot_product_flash_attention",
+        "aten::scaled_dot_product_attention"
+      ],
+      "wall_ms": [
+        70.94414019957185,
+        70.99201576784253,
+        70.94011036679149
+      ],
+      "cuda_event_ms": [
+        70.89727783203125,
+        70.96697235107422,
+        70.91680145263672
+      ],
+      "median_wall_ms": 70.94414019957185,
+      "median_cuda_event_ms": 70.91680145263672,
+      "peak_allocated_bytes": 1417598464
+    },
+    {
+      "call": 71,
+      "layer": 14,
+      "cfg_slot": 0,
+      "arm": "vanilla_full",
+      "input_sha256": "eefe6839c6106fcba47d92bdc1856b4c376a269aae26fc8f551846862b21db80",
+      "input_shape": [
+        1,
+        31104,
+        16,
+        128
+      ],
+      "output_shape": [
+        1,
+        31104,
+        2048
+      ],
+      "output_dtype": "torch.bfloat16",
+      "finite": true,
+      "relative_rmse_vs_dense": 0.006900640204548836,
+      "routing": {
+        "selected_fraction": 1.0,
+        "executed_fraction": 1.0
+      },
+      "dense_dispatch": [
+        "aten::_scaled_dot_product_flash_attention",
+        "aten::scaled_dot_product_attention"
+      ],
+      "wall_ms": [
+        71.50528160855174,
+        71.5289618819952,
+        71.36636972427368
+      ],
+      "cuda_event_ms": [
+        71.47702026367188,
+        71.5059814453125,
+        71.34300994873047
+      ],
+      "median_wall_ms": 71.50528160855174,
+      "median_cuda_event_ms": 71.47702026367188,
+      "peak_allocated_bytes": 1615904256
+    },
+    {
+      "call": 71,
+      "layer": 14,
+      "cfg_slot": 0,
+      "arm": "low_sim_high_cdf_routed_full",
+      "input_sha256": "eefe6839c6106fcba47d92bdc1856b4c376a269aae26fc8f551846862b21db80",
+      "input_shape": [
+        1,
+        31104,
+        16,
+        128
+      ],
+      "output_shape": [
+        1,
+        31104,
+        2048
+      ],
+      "output_dtype": "torch.bfloat16",
+      "finite": true,
+      "relative_rmse_vs_dense": 0.006900640204548836,
+      "routing": {
+        "selected_fraction": 0.6190420389175415,
+        "executed_fraction": 1.0
+      },
+      "dense_dispatch": [
+        "aten::_scaled_dot_product_flash_attention",
+        "aten::scaled_dot_product_attention"
+      ],
+      "wall_ms": [
+        72.85212585702538,
+        72.57333816960454,
+        72.55748473107815
+      ],
+      "cuda_event_ms": [
+        72.82415771484375,
+        72.55043029785156,
+        72.53478240966797
+      ],
+      "median_wall_ms": 72.57333816960454,
+      "median_cuda_event_ms": 72.55043029785156,
+      "peak_allocated_bytes": 1620696064
+    },
+    {
+      "call": 71,
+      "layer": 14,
+      "cfg_slot": 0,
+      "arm": "low_sim_high_cdf_sparse",
+      "input_sha256": "eefe6839c6106fcba47d92bdc1856b4c376a269aae26fc8f551846862b21db80",
+      "input_shape": [
+        1,
+        31104,
+        16,
+        128
+      ],
+      "output_shape": [
+        1,
+        31104,
+        2048
+      ],
+      "output_dtype": "torch.bfloat16",
+      "finite": true,
+      "relative_rmse_vs_dense": 0.030040264129638672,
+      "routing": {
+        "selected_fraction": 0.6190420389175415,
+        "executed_fraction": 0.6190420389175415
+      },
+      "dense_dispatch": [
+        "aten::_scaled_dot_product_flash_attention",
+        "aten::scaled_dot_product_attention"
+      ],
+      "wall_ms": [
+        52.180124912410975,
+        50.76704267412424,
+        50.96075125038624
+      ],
+      "cuda_event_ms": [
+        52.1495361328125,
+        50.7446403503418,
+        50.938270568847656
+      ],
+      "median_wall_ms": 50.96075125038624,
+      "median_cuda_event_ms": 50.938270568847656,
+      "peak_allocated_bytes": 1746244608,
+      "relative_rmse_vs_matched_routed_full": 0.029273414984345436
+    },
+    {
+      "call": 71,
+      "layer": 14,
+      "cfg_slot": 0,
+      "arm": "high_sim_low_cdf_routed_full",
+      "input_sha256": "eefe6839c6106fcba47d92bdc1856b4c376a269aae26fc8f551846862b21db80",
+      "input_shape": [
+        1,
+        31104,
+        16,
+        128
+      ],
+      "output_shape": [
+        1,
+        31104,
+        2048
+      ],
+      "output_dtype": "torch.bfloat16",
+      "finite": true,
+      "relative_rmse_vs_dense": 0.006900640204548836,
+      "routing": {
+        "selected_fraction": 0.955902099609375,
+        "executed_fraction": 1.0
+      },
+      "dense_dispatch": [
+        "aten::_scaled_dot_product_flash_attention",
+        "aten::scaled_dot_product_attention"
+      ],
+      "wall_ms": [
+        72.91806396096945,
+        72.90919637307525,
+        72.93743174523115
+      ],
+      "cuda_event_ms": [
+        72.89014434814453,
+        72.88639831542969,
+        72.91510772705078
+      ],
+      "median_wall_ms": 72.91806396096945,
+      "median_cuda_event_ms": 72.89014434814453,
+      "peak_allocated_bytes": 1749146624
+    },
+    {
+      "call": 71,
+      "layer": 14,
+      "cfg_slot": 0,
+      "arm": "high_sim_low_cdf_sparse",
+      "input_sha256": "eefe6839c6106fcba47d92bdc1856b4c376a269aae26fc8f551846862b21db80",
+      "input_shape": [
+        1,
+        31104,
+        16,
+        128
+      ],
+      "output_shape": [
+        1,
+        31104,
+        2048
+      ],
+      "output_dtype": "torch.bfloat16",
+      "finite": true,
+      "relative_rmse_vs_dense": 0.011601628735661507,
+      "routing": {
+        "selected_fraction": 0.955902099609375,
+        "executed_fraction": 0.955902099609375
+      },
+      "dense_dispatch": [
+        "aten::_scaled_dot_product_flash_attention",
+        "aten::scaled_dot_product_attention"
+      ],
+      "wall_ms": [
+        70.11599699035287,
+        70.1218331232667,
+        70.06248598918319
+      ],
+      "cuda_event_ms": [
+        70.08834838867188,
+        70.09833526611328,
+        70.03852844238281
+      ],
+      "median_wall_ms": 70.11599699035287,
+      "median_cuda_event_ms": 70.08834838867188,
+      "peak_allocated_bytes": 1873646592,
+      "relative_rmse_vs_matched_routed_full": 0.009335360489785671
+    },
+    {
+      "call": 71,
+      "layer": 27,
+      "cfg_slot": 0,
+      "arm": "dense",
+      "input_sha256": "4c6e2de3d84b5d2b5a3317a717e5c9d03ce837c24f74c2154fe4975f33b71470",
+      "input_shape": [
+        1,
+        31104,
+        16,
+        128
+      ],
+      "output_shape": [
+        1,
+        31104,
+        2048
+      ],
+      "output_dtype": "torch.bfloat16",
+      "finite": true,
+      "relative_rmse_vs_dense": 0.0,
+      "routing": {
+        "selected_fraction": 1.0,
+        "executed_fraction": 1.0
+      },
+      "dense_dispatch": [
+        "aten::_scaled_dot_product_flash_attention",
+        "aten::scaled_dot_product_attention"
+      ],
+      "wall_ms": [
+        70.9174182265997,
+        70.92952961102128,
+        70.57801587507129
+      ],
+      "cuda_event_ms": [
+        70.88102722167969,
+        70.90428924560547,
+        70.55484771728516
+      ],
+      "median_wall_ms": 70.9174182265997,
+      "median_cuda_event_ms": 70.88102722167969,
+      "peak_allocated_bytes": 1417598464
+    },
+    {
+      "call": 71,
+      "layer": 27,
+      "cfg_slot": 0,
+      "arm": "vanilla_full",
+      "input_sha256": "4c6e2de3d84b5d2b5a3317a717e5c9d03ce837c24f74c2154fe4975f33b71470",
+      "input_shape": [
+        1,
+        31104,
+        16,
+        128
+      ],
+      "output_shape": [
+        1,
+        31104,
+        2048
+      ],
+      "output_dtype": "torch.bfloat16",
+      "finite": true,
+      "relative_rmse_vs_dense": 0.007527386769652367,
+      "routing": {
+        "selected_fraction": 1.0,
+        "executed_fraction": 1.0
+      },
+      "dense_dispatch": [
+        "aten::_scaled_dot_product_flash_attention",
+        "aten::scaled_dot_product_attention"
+      ],
+      "wall_ms": [
+        70.63852390274405,
+        71.34036906063557,
+        71.24915719032288
+      ],
+      "cuda_event_ms": [
+        70.61068725585938,
+        71.31779479980469,
+        71.22675323486328
+      ],
+      "median_wall_ms": 71.24915719032288,
+      "median_cuda_event_ms": 71.22675323486328,
+      "peak_allocated_bytes": 1615904256
+    },
+    {
+      "call": 71,
+      "layer": 27,
+      "cfg_slot": 0,
+      "arm": "low_sim_high_cdf_routed_full",
+      "input_sha256": "4c6e2de3d84b5d2b5a3317a717e5c9d03ce837c24f74c2154fe4975f33b71470",
+      "input_shape": [
+        1,
+        31104,
+        16,
+        128
+      ],
+      "output_shape": [
+        1,
+        31104,
+        2048
+      ],
+      "output_dtype": "torch.bfloat16",
+      "finite": true,
+      "relative_rmse_vs_dense": 0.007527386769652367,
+      "routing": {
+        "selected_fraction": 0.3063160479068756,
+        "executed_fraction": 1.0
+      },
+      "dense_dispatch": [
+        "aten::_scaled_dot_product_flash_attention",
+        "aten::scaled_dot_product_attention"
+      ],
+      "wall_ms": [
+        72.05932307988405,
+        71.95941871032119,
+        72.45370093733072
+      ],
+      "cuda_event_ms": [
+        72.03174591064453,
+        71.93689727783203,
+        72.43122863769531
+      ],
+      "median_wall_ms": 72.05932307988405,
+      "median_cuda_event_ms": 72.03174591064453,
+      "peak_allocated_bytes": 1620696064
+    },
+    {
+      "call": 71,
+      "layer": 27,
+      "cfg_slot": 0,
+      "arm": "low_sim_high_cdf_sparse",
+      "input_sha256": "4c6e2de3d84b5d2b5a3317a717e5c9d03ce837c24f74c2154fe4975f33b71470",
+      "input_shape": [
+        1,
+        31104,
+        16,
+        128
+      ],
+      "output_shape": [
+        1,
+        31104,
+        2048
+      ],
+      "output_dtype": "torch.bfloat16",
+      "finite": true,
+      "relative_rmse_vs_dense": 0.057785794138908386,
+      "routing": {
+        "selected_fraction": 0.3063160479068756,
+        "executed_fraction": 0.3063160479068756
+      },
+      "dense_dispatch": [
+        "aten::_scaled_dot_product_flash_attention",
+        "aten::scaled_dot_product_attention"
+      ],
+      "wall_ms": [
+        30.351740773767233,
+        29.2118308134377,
+        30.15153156593442
+      ],
+      "cuda_event_ms": [
+        30.317440032958984,
+        29.18716812133789,
+        30.128671646118164
+      ],
+      "median_wall_ms": 30.15153156593442,
+      "median_cuda_event_ms": 30.128671646118164,
+      "peak_allocated_bytes": 1746244608,
+      "relative_rmse_vs_matched_routed_full": 0.05738510563969612
+    },
+    {
+      "call": 71,
+      "layer": 27,
+      "cfg_slot": 0,
+      "arm": "high_sim_low_cdf_routed_full",
+      "input_sha256": "4c6e2de3d84b5d2b5a3317a717e5c9d03ce837c24f74c2154fe4975f33b71470",
+      "input_shape": [
+        1,
+        31104,
+        16,
+        128
+      ],
+      "output_shape": [
+        1,
+        31104,
+        2048
+      ],
+      "output_dtype": "torch.bfloat16",
+      "finite": true,
+      "relative_rmse_vs_dense": 0.007527386769652367,
+      "routing": {
+        "selected_fraction": 0.9384452104568481,
+        "executed_fraction": 1.0
+      },
+      "dense_dispatch": [
+        "aten::_scaled_dot_product_flash_attention",
+        "aten::scaled_dot_product_attention"
+      ],
+      "wall_ms": [
+        72.10846804082394,
+        72.27606605738401,
+        72.01173389330506
+      ],
+      "cuda_event_ms": [
+        72.0775375366211,
+        72.25212860107422,
+        71.98953247070312
+      ],
+      "median_wall_ms": 72.10846804082394,
+      "median_cuda_event_ms": 72.0775375366211,
+      "peak_allocated_bytes": 1749146624
+    },
+    {
+      "call": 71,
+      "layer": 27,
+      "cfg_slot": 0,
+      "arm": "high_sim_low_cdf_sparse",
+      "input_sha256": "4c6e2de3d84b5d2b5a3317a717e5c9d03ce837c24f74c2154fe4975f33b71470",
+      "input_shape": [
+        1,
+        31104,
+        16,
+        128
+      ],
+      "output_shape": [
+        1,
+        31104,
+        2048
+      ],
+      "output_dtype": "torch.bfloat16",
+      "finite": true,
+      "relative_rmse_vs_dense": 0.012672482058405876,
+      "routing": {
+        "selected_fraction": 0.9384452104568481,
+        "executed_fraction": 0.9384452104568481
+      },
+      "dense_dispatch": [
+        "aten::_scaled_dot_product_flash_attention",
+        "aten::scaled_dot_product_attention"
+      ],
+      "wall_ms": [
+        68.74679680913687,
+        68.40350711718202,
+        68.48604511469603
+      ],
+      "cuda_event_ms": [
+        68.71903991699219,
+        68.38060760498047,
+        68.46387481689453
+      ],
+      "median_wall_ms": 68.48604511469603,
+      "median_cuda_event_ms": 68.46387481689453,
+      "peak_allocated_bytes": 1873646592,
+      "relative_rmse_vs_matched_routed_full": 0.010178392753005028
+    },
+    {
+      "call": 72,
+      "layer": 2,
+      "cfg_slot": 1,
+      "arm": "dense",
+      "input_sha256": "22acefcb0d97165497387e27fabf157cfb16a90bdb69250b90ecf561b5f2663d",
+      "input_shape": [
+        1,
+        31104,
+        16,
+        128
+      ],
+      "output_shape": [
+        1,
+        31104,
+        2048
+      ],
+      "output_dtype": "torch.bfloat16",
+      "finite": true,
+      "relative_rmse_vs_dense": 0.0,
+      "routing": {
+        "selected_fraction": 1.0,
+        "executed_fraction": 1.0
+      },
+      "dense_dispatch": [
+        "aten::_scaled_dot_product_flash_attention",
+        "aten::scaled_dot_product_attention"
+      ],
+      "wall_ms": [
+        70.65768726170063,
+        70.29691385105252,
+        70.28506975620985
+      ],
+      "cuda_event_ms": [
+        70.61980438232422,
+        70.2726058959961,
+        70.25577545166016
+      ],
+      "median_wall_ms": 70.29691385105252,
+      "median_cuda_event_ms": 70.2726058959961,
+      "peak_allocated_bytes": 1417598464
+    },
+    {
+      "call": 72,
+      "layer": 2,
+      "cfg_slot": 1,
+      "arm": "vanilla_full",
+      "input_sha256": "22acefcb0d97165497387e27fabf157cfb16a90bdb69250b90ecf561b5f2663d",
+      "input_shape": [
+        1,
+        31104,
+        16,
+        128
+      ],
+      "output_shape": [
+        1,
+        31104,
+        2048
+      ],
+      "output_dtype": "torch.bfloat16",
+      "finite": true,
+      "relative_rmse_vs_dense": 0.002634341362863779,
+      "routing": {
+        "selected_fraction": 1.0,
+        "executed_fraction": 1.0
+      },
+      "dense_dispatch": [
+        "aten::_scaled_dot_product_flash_attention",
+        "aten::scaled_dot_product_attention"
+      ],
+      "wall_ms": [
+        71.79292477667332,
+        70.976204238832,
+        71.17305509746075
+      ],
+      "cuda_event_ms": [
+        71.76531219482422,
+        70.95394897460938,
+        71.15007781982422
+      ],
+      "median_wall_ms": 71.17305509746075,
+      "median_cuda_event_ms": 71.15007781982422,
+      "peak_allocated_bytes": 1615904256
+    },
+    {
+      "call": 72,
+      "layer": 2,
+      "cfg_slot": 1,
+      "arm": "low_sim_high_cdf_routed_full",
+      "input_sha256": "22acefcb0d97165497387e27fabf157cfb16a90bdb69250b90ecf561b5f2663d",
+      "input_shape": [
+        1,
+        31104,
+        16,
+        128
+      ],
+      "output_shape": [
+        1,
+        31104,
+        2048
+      ],
+      "output_dtype": "torch.bfloat16",
+      "finite": true,
+      "relative_rmse_vs_dense": 0.002634341362863779,
+      "routing": {
+        "selected_fraction": 0.8190485835075378,
+        "executed_fraction": 1.0
+      },
+      "dense_dispatch": [
+        "aten::_scaled_dot_product_flash_attention",
+        "aten::scaled_dot_product_attention"
+      ],
+      "wall_ms": [
+        72.95051403343678,
+        72.54202896729112,
+        72.45001010596752
+      ],
+      "cuda_event_ms": [
+        72.92323303222656,
+        72.5196762084961,
+        72.42745971679688
+      ],
+      "median_wall_ms": 72.54202896729112,
+      "median_cuda_event_ms": 72.5196762084961,
+      "peak_allocated_bytes": 1620696064
+    },
+    {
+      "call": 72,
+      "layer": 2,
+      "cfg_slot": 1,
+      "arm": "low_sim_high_cdf_sparse",
+      "input_sha256": "22acefcb0d97165497387e27fabf157cfb16a90bdb69250b90ecf561b5f2663d",
+      "input_shape": [
+        1,
+        31104,
+        16,
+        128
+      ],
+      "output_shape": [
+        1,
+        31104,
+        2048
+      ],
+      "output_dtype": "torch.bfloat16",
+      "finite": true,
+      "relative_rmse_vs_dense": 0.006017278879880905,
+      "routing": {
+        "selected_fraction": 0.8190485835075378,
+        "executed_fraction": 0.8190485835075378
+      },
+      "dense_dispatch": [
+        "aten::_scaled_dot_product_flash_attention",
+        "aten::scaled_dot_product_attention"
+      ],
+      "wall_ms": [
+        63.701978884637356,
+        63.11892671510577,
+        63.05952416732907
+      ],
+      "cuda_event_ms": [
+        63.674560546875,
+        63.09667205810547,
+        63.03744125366211
+      ],
+      "median_wall_ms": 63.11892671510577,
+      "median_cuda_event_ms": 63.09667205810547,
+      "peak_allocated_bytes": 1746244608,
+      "relative_rmse_vs_matched_routed_full": 0.005552248563617468
+    },
+    {
+      "call": 72,
+      "layer": 2,
+      "cfg_slot": 1,
+      "arm": "high_sim_low_cdf_routed_full",
+      "input_sha256": "22acefcb0d97165497387e27fabf157cfb16a90bdb69250b90ecf561b5f2663d",
+      "input_shape": [
+        1,
+        31104,
+        16,
+        128
+      ],
+      "output_shape": [
+        1,
+        31104,
+        2048
+      ],
+      "output_dtype": "torch.bfloat16",
+      "finite": true,
+      "relative_rmse_vs_dense": 0.002634341362863779,
+      "routing": {
+        "selected_fraction": 0.8782404065132141,
+        "executed_fraction": 1.0
+      },
+      "dense_dispatch": [
+        "aten::_scaled_dot_product_flash_attention",
+        "aten::scaled_dot_product_attention"
+      ],
+      "wall_ms": [
+        72.42205878719687,
+        72.55808962509036,
+        73.11078812927008
+      ],
+      "cuda_event_ms": [
+        72.39472198486328,
+        72.53593444824219,
+        73.0884780883789
+      ],
+      "median_wall_ms": 72.55808962509036,
+      "median_cuda_event_ms": 72.53593444824219,
+      "peak_allocated_bytes": 1749146624
+    },
+    {
+      "call": 72,
+      "layer": 2,
+      "cfg_slot": 1,
+      "arm": "high_sim_low_cdf_sparse",
+      "input_sha256": "22acefcb0d97165497387e27fabf157cfb16a90bdb69250b90ecf561b5f2663d",
+      "input_shape": [
+        1,
+        31104,
+        16,
+        128
+      ],
+      "output_shape": [
+        1,
+        31104,
+        2048
+      ],
+      "output_dtype": "torch.bfloat16",
+      "finite": true,
+      "relative_rmse_vs_dense": 0.014674467034637928,
+      "routing": {
+        "selected_fraction": 0.8782404065132141,
+        "executed_fraction": 0.8782404065132141
+      },
+      "dense_dispatch": [
+        "aten::_scaled_dot_product_flash_attention",
+        "aten::scaled_dot_product_attention"
+      ],
+      "wall_ms": [
+        64.8231073282659,
+        65.08819526061416,
+        64.62311930954456
+      ],
+      "cuda_event_ms": [
+        64.7956771850586,
+        65.0660171508789,
+        64.60047912597656
+      ],
+      "median_wall_ms": 64.8231073282659,
+      "median_cuda_event_ms": 64.7956771850586,
+      "peak_allocated_bytes": 1873646592,
+      "relative_rmse_vs_matched_routed_full": 0.014474693685770035
+    },
+    {
+      "call": 72,
+      "layer": 14,
+      "cfg_slot": 1,
+      "arm": "dense",
+      "input_sha256": "8cb9598fcabeace71dd927c31e912b4ead62b740498e9261a06abbd4e9f65d9f",
+      "input_shape": [
+        1,
+        31104,
+        16,
+        128
+      ],
+      "output_shape": [
+        1,
+        31104,
+        2048
+      ],
+      "output_dtype": "torch.bfloat16",
+      "finite": true,
+      "relative_rmse_vs_dense": 0.0,
+      "routing": {
+        "selected_fraction": 1.0,
+        "executed_fraction": 1.0
+      },
+      "dense_dispatch": [
+        "aten::_scaled_dot_product_flash_attention",
+        "aten::scaled_dot_product_attention"
+      ],
+      "wall_ms": [
+        71.12115994095802,
+        70.975576993078,
+        70.95524575561285
+      ],
+      "cuda_event_ms": [
+        71.0750732421875,
+        70.95001220703125,
+        70.930908203125
+      ],
+      "median_wall_ms": 70.975576993078,
+      "median_cuda_event_ms": 70.95001220703125,
+      "peak_allocated_bytes": 1417598464
+    },
+    {
+      "call": 72,
+      "layer": 14,
+      "cfg_slot": 1,
+      "arm": "vanilla_full",
+      "input_sha256": "8cb9598fcabeace71dd927c31e912b4ead62b740498e9261a06abbd4e9f65d9f",
+      "input_shape": [
+        1,
+        31104,
+        16,
+        128
+      ],
+      "output_shape": [
+        1,
+        31104,
+        2048
+      ],
+      "output_dtype": "torch.bfloat16",
+      "finite": true,
+      "relative_rmse_vs_dense": 0.006910430733114481,
+      "routing": {
+        "selected_fraction": 1.0,
+        "executed_fraction": 1.0
+      },
+      "dense_dispatch": [
+        "aten::_scaled_dot_product_flash_attention",
+        "aten::scaled_dot_product_attention"
+      ],
+      "wall_ms": [
+        71.8553545884788,
+        72.27500900626183,
+        71.93803321570158
+      ],
+      "cuda_event_ms": [
+        71.82745361328125,
+        72.2524185180664,
+        71.91596984863281
+      ],
+      "median_wall_ms": 71.93803321570158,
+      "median_cuda_event_ms": 71.91596984863281,
+      "peak_allocated_bytes": 1615904256
+    },
+    {
+      "call": 72,
+      "layer": 14,
+      "cfg_slot": 1,
+      "arm": "low_sim_high_cdf_routed_full",
+      "input_sha256": "8cb9598fcabeace71dd927c31e912b4ead62b740498e9261a06abbd4e9f65d9f",
+      "input_shape": [
+        1,
+        31104,
+        16,
+        128
+      ],
+      "output_shape": [
+        1,
+        31104,
+        2048
+      ],
+      "output_dtype": "torch.bfloat16",
+      "finite": true,
+      "relative_rmse_vs_dense": 0.006910430733114481,
+      "routing": {
+        "selected_fraction": 0.6155259013175964,
+        "executed_fraction": 1.0
+      },
+      "dense_dispatch": [
+        "aten::_scaled_dot_product_flash_attention",
+        "aten::scaled_dot_product_attention"
+      ],
+      "wall_ms": [
+        73.31855176016688,
+        73.30013765022159,
+        73.66249291226268
+      ],
+      "cuda_event_ms": [
+        73.29142761230469,
+        73.27734375,
+        73.63996887207031
+      ],
+      "median_wall_ms": 73.31855176016688,
+      "median_cuda_event_ms": 73.29142761230469,
+      "peak_allocated_bytes": 1620696064
+    },
+    {
+      "call": 72,
+      "layer": 14,
+      "cfg_slot": 1,
+      "arm": "low_sim_high_cdf_sparse",
+      "input_sha256": "8cb9598fcabeace71dd927c31e912b4ead62b740498e9261a06abbd4e9f65d9f",
+      "input_shape": [
+        1,
+        31104,
+        16,
+        128
+      ],
+      "output_shape": [
+        1,
+        31104,
+        2048
+      ],
+      "output_dtype": "torch.bfloat16",
+      "finite": true,
+      "relative_rmse_vs_dense": 0.027902202680706978,
+      "routing": {
+        "selected_fraction": 0.6155259013175964,
+        "executed_fraction": 0.6155259013175964
+      },
+      "dense_dispatch": [
+        "aten::_scaled_dot_product_flash_attention",
+        "aten::scaled_dot_product_attention"
+      ],
+      "wall_ms": [
+        51.45499622449279,
+        50.937829073518515,
+        51.014978904277086
+      ],
+      "cuda_event_ms": [
+        51.42764663696289,
+        50.914302825927734,
+        50.99248123168945
+      ],
+      "median_wall_ms": 51.014978904277086,
+      "median_cuda_event_ms": 50.99248123168945,
+      "peak_allocated_bytes": 1746244608,
+      "relative_rmse_vs_matched_routed_full": 0.027054186910390854
+    },
+    {
+      "call": 72,
+      "layer": 14,
+      "cfg_slot": 1,
+      "arm": "high_sim_low_cdf_routed_full",
+      "input_sha256": "8cb9598fcabeace71dd927c31e912b4ead62b740498e9261a06abbd4e9f65d9f",
+      "input_shape": [
+        1,
+        31104,
+        16,
+        128
+      ],
+      "output_shape": [
+        1,
+        31104,
+        2048
+      ],
+      "output_dtype": "torch.bfloat16",
+      "finite": true,
+      "relative_rmse_vs_dense": 0.006910430733114481,
+      "routing": {
+        "selected_fraction": 0.9454706311225891,
+        "executed_fraction": 1.0
+      },
+      "dense_dispatch": [
+        "aten::_scaled_dot_product_flash_attention",
+        "aten::scaled_dot_product_attention"
+      ],
+      "wall_ms": [
+        73.06600036099553,
+        73.03168205544353,
+        73.42495070770383
+      ],
+      "cuda_event_ms": [
+        73.0389404296875,
+        73.00908660888672,
+        73.39657592773438
+      ],
+      "median_wall_ms": 73.06600036099553,
+      "median_cuda_event_ms": 73.0389404296875,
+      "peak_allocated_bytes": 1749146624
+    },
+    {
+      "call": 72,
+      "layer": 14,
+      "cfg_slot": 1,
+      "arm": "high_sim_low_cdf_sparse",
+      "input_sha256": "8cb9598fcabeace71dd927c31e912b4ead62b740498e9261a06abbd4e9f65d9f",
+      "input_shape": [
+        1,
+        31104,
+        16,
+        128
+      ],
+      "output_shape": [
+        1,
+        31104,
+        2048
+      ],
+      "output_dtype": "torch.bfloat16",
+      "finite": true,
+      "relative_rmse_vs_dense": 0.012761402875185013,
+      "routing": {
+        "selected_fraction": 0.9454706311225891,
+        "executed_fraction": 0.9454706311225891
+      },
+      "dense_dispatch": [
+        "aten::_scaled_dot_product_flash_attention",
+        "aten::scaled_dot_product_attention"
+      ],
+      "wall_ms": [
+        70.78087702393532,
+        69.87557793036103,
+        70.13211771845818
+      ],
+      "cuda_event_ms": [
+        70.75385284423828,
+        69.85247802734375,
+        70.1091537475586
+      ],
+      "median_wall_ms": 70.13211771845818,
+      "median_cuda_event_ms": 70.1091537475586,
+      "peak_allocated_bytes": 1873646592,
+      "relative_rmse_vs_matched_routed_full": 0.0107558723539114
+    },
+    {
+      "call": 72,
+      "layer": 27,
+      "cfg_slot": 1,
+      "arm": "dense",
+      "input_sha256": "ca4517c109c463a31c988dbcc3dd14747c0a68a62ab8850c6cdc5c1b78d36b44",
+      "input_shape": [
+        1,
+        31104,
+        16,
+        128
+      ],
+      "output_shape": [
+        1,
+        31104,
+        2048
+      ],
+      "output_dtype": "torch.bfloat16",
+      "finite": true,
+      "relative_rmse_vs_dense": 0.0,
+      "routing": {
+        "selected_fraction": 1.0,
+        "executed_fraction": 1.0
+      },
+      "dense_dispatch": [
+        "aten::_scaled_dot_product_flash_attention",
+        "aten::scaled_dot_product_attention"
+      ],
+      "wall_ms": [
+        71.60289492458105,
+        71.43130898475647,
+        71.62033393979073
+      ],
+      "cuda_event_ms": [
+        71.56745910644531,
+        71.40489959716797,
+        71.59526062011719
+      ],
+      "median_wall_ms": 71.60289492458105,
+      "median_cuda_event_ms": 71.56745910644531,
+      "peak_allocated_bytes": 1417598464
+    },
+    {
+      "call": 72,
+      "layer": 27,
+      "cfg_slot": 1,
+      "arm": "vanilla_full",
+      "input_sha256": "ca4517c109c463a31c988dbcc3dd14747c0a68a62ab8850c6cdc5c1b78d36b44",
+      "input_shape": [
+        1,
+        31104,
+        16,
+        128
+      ],
+      "output_shape": [
+        1,
+        31104,
+        2048
+      ],
+      "output_dtype": "torch.bfloat16",
+      "finite": true,
+      "relative_rmse_vs_dense": 0.007474186364561319,
+      "routing": {
+        "selected_fraction": 1.0,
+        "executed_fraction": 1.0
+      },
+      "dense_dispatch": [
+        "aten::_scaled_dot_product_flash_attention",
+        "aten::scaled_dot_product_attention"
+      ],
+      "wall_ms": [
+        71.51472615078092,
+        71.19623478502035,
+        71.18080789223313
+      ],
+      "cuda_event_ms": [
+        71.48710632324219,
+        71.17391967773438,
+        71.15843200683594
+      ],
+      "median_wall_ms": 71.19623478502035,
+      "median_cuda_event_ms": 71.17391967773438,
+      "peak_allocated_bytes": 1615904256
+    },
+    {
+      "call": 72,
+      "layer": 27,
+      "cfg_slot": 1,
+      "arm": "low_sim_high_cdf_routed_full",
+      "input_sha256": "ca4517c109c463a31c988dbcc3dd14747c0a68a62ab8850c6cdc5c1b78d36b44",
+      "input_shape": [
+        1,
+        31104,
+        16,
+        128
+      ],
+      "output_shape": [
+        1,
+        31104,
+        2048
+      ],
+      "output_dtype": "torch.bfloat16",
+      "finite": true,
+      "relative_rmse_vs_dense": 0.007474186364561319,
+      "routing": {
+        "selected_fraction": 0.30560266971588135,
+        "executed_fraction": 1.0
+      },
+      "dense_dispatch": [
+        "aten::_scaled_dot_product_flash_attention",
+        "aten::scaled_dot_product_attention"
+      ],
+      "wall_ms": [
+        72.61224929243326,
+        72.32085289433599,
+        72.29889603331685
+      ],
+      "cuda_event_ms": [
+        72.58348846435547,
+        72.29788970947266,
+        72.27558135986328
+      ],
+      "median_wall_ms": 72.32085289433599,
+      "median_cuda_event_ms": 72.29788970947266,
+      "peak_allocated_bytes": 1620696064
+    },
+    {
+      "call": 72,
+      "layer": 27,
+      "cfg_slot": 1,
+      "arm": "low_sim_high_cdf_sparse",
+      "input_sha256": "ca4517c109c463a31c988dbcc3dd14747c0a68a62ab8850c6cdc5c1b78d36b44",
+      "input_shape": [
+        1,
+        31104,
+        16,
+        128
+      ],
+      "output_shape": [
+        1,
+        31104,
+        2048
+      ],
+      "output_dtype": "torch.bfloat16",
+      "finite": true,
+      "relative_rmse_vs_dense": 0.05700019747018814,
+      "routing": {
+        "selected_fraction": 0.30560266971588135,
+        "executed_fraction": 0.30560266971588135
+      },
+      "dense_dispatch": [
+        "aten::_scaled_dot_product_flash_attention",
+        "aten::scaled_dot_product_attention"
+      ],
+      "wall_ms": [
+        30.47885000705719,
+        29.469694942235947,
+        30.628385953605175
+      ],
+      "cuda_event_ms": [
+        30.452192306518555,
+        29.44691276550293,
+        30.605119705200195
+      ],
+      "median_wall_ms": 30.47885000705719,
+      "median_cuda_event_ms": 30.452192306518555,
+      "peak_allocated_bytes": 1746244608,
+      "relative_rmse_vs_matched_routed_full": 0.05661763623356819
+    },
+    {
+      "call": 72,
+      "layer": 27,
+      "cfg_slot": 1,
+      "arm": "high_sim_low_cdf_routed_full",
+      "input_sha256": "ca4517c109c463a31c988dbcc3dd14747c0a68a62ab8850c6cdc5c1b78d36b44",
+      "input_shape": [
+        1,
+        31104,
+        16,
+        128
+      ],
+      "output_shape": [
+        1,
+        31104,
+        2048
+      ],
+      "output_dtype": "torch.bfloat16",
+      "finite": true,
+      "relative_rmse_vs_dense": 0.007474186364561319,
+      "routing": {
+        "selected_fraction": 0.9401905536651611,
+        "executed_fraction": 1.0
+      },
+      "dense_dispatch": [
+        "aten::_scaled_dot_product_flash_attention",
+        "aten::scaled_dot_product_attention"
+      ],
+      "wall_ms": [
+        72.57292279973626,
+        72.52016570419073,
+        72.42424786090851
+      ],
+      "cuda_event_ms": [
+        72.54547119140625,
+        72.49772644042969,
+        72.40214538574219
+      ],
+      "median_wall_ms": 72.52016570419073,
+      "median_cuda_event_ms": 72.49772644042969,
+      "peak_allocated_bytes": 1749146624
+    },
+    {
+      "call": 72,
+      "layer": 27,
+      "cfg_slot": 1,
+      "arm": "high_sim_low_cdf_sparse",
+      "input_sha256": "ca4517c109c463a31c988dbcc3dd14747c0a68a62ab8850c6cdc5c1b78d36b44",
+      "input_shape": [
+        1,
+        31104,
+        16,
+        128
+      ],
+      "output_shape": [
+        1,
+        31104,
+        2048
+      ],
+      "output_dtype": "torch.bfloat16",
+      "finite": true,
+      "relative_rmse_vs_dense": 0.012495934963226318,
+      "routing": {
+        "selected_fraction": 0.9401905536651611,
+        "executed_fraction": 0.9401905536651611
+      },
+      "dense_dispatch": [
+        "aten::_scaled_dot_product_flash_attention",
+        "aten::scaled_dot_product_attention"
+      ],
+      "wall_ms": [
+        68.84677382186055,
+        69.1040139645338,
+        68.70393082499504
+      ],
+      "cuda_event_ms": [
+        68.81938934326172,
+        69.08124542236328,
+        68.68096160888672
+      ],
+      "median_wall_ms": 68.84677382186055,
+      "median_cuda_event_ms": 68.81938934326172,
+      "peak_allocated_bytes": 1873646592,
+      "relative_rmse_vs_matched_routed_full": 0.010013345628976822
+    }
+  ],
+  "quality_evaluation": false,
+  "active_case": {
+    "call": 72,
+    "layer": 27,
+    "arm": "high_sim_low_cdf_sparse"
+  },
+  "full_mask_numerical_gate": true,
+  "ended_unix": 1790866855.0107138,
+  "wall_seconds": 43.52510138228536
+}

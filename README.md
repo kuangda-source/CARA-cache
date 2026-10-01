@@ -22,6 +22,10 @@ Private research workspace for improving the quality–time tradeoff of video wo
 
 ## Current status
 
+Current plan v1.3 (2026-10-02): [cache provenance and reuse lifetime by small layer groups](research/65_WC_HIERARCHICAL_PROVENANCE_LIFETIME_DESIGN.md). First fill actual middle-refresh/all-depth coverage, then low-intrusion S/D and C/S/D complementarity, dense/full/sparse sources × reuse1/2/4, and only with evidence a two-group dynamic policy. Static/age-only/source/lifetime/action-location controls address direct related work. This update launches no GPU job or training.
+
+Latest audited results: [four actual-QKV configurations](research/64_WC_S1_FACTORIAL_RESULTS.md),144cases across two jobs. sim0.1/cdf0.98 median operator speed1.286× passes both screens6/12 but fails all four layer27 inputs; no global all-input configuration, no sparse video/method quality-time acceptance. Ledger3.9117525685110333/4GPUh,317.690753s remaining. Older dated snapshots below retain their historical statuses.
+
 Latest: [S1 actual A6000 kernel results](research/59_WC_S1_REAL_KERNEL_RESULTS.md):8 cases complete/11.726698 GPU seconds, large-N wall70.35/71.64/39.77/23.65ms for dense/full/50%/25%. Full-mask RMSE1.32% passes numerical gate; static sparse masks have large errors. Used3.6545041399802236/4GPUh, no in-flight or budget extension. Next: actual model QKV and remaining WC cost profile, not video method acceptance.
 
 Latest CPU terminal: [complete upstream build and no-PV wrapper](research/57_WC_S1_ISOLATED_UPSTREAM_BUILD.md) passed:648.948283s/two sm86 extensions, fresh80-source/two-binary SHA and isolated8-file package audit; same3 wrapper CPU contracts pass locally and on actual Cosmos Torch. Original PIDs absent/lock free/CUDA uninitialized/ledger unchanged. Dynamic import/ABI, real kernel, remaining WC profile and quality-time gain remain unverified.
@@ -32,7 +36,7 @@ Prior S0 snapshot, superseded by the terminal build above: [WC-S0 actual checkpo
 
 Prior terminal run: Core assets and the retained safety pipeline are ready. F1 r2 completed two Native samples, then stopped when the physics_001 generated video was rejected by the output guardrail. WorldCache has not run; there is no paired speed/quality result. Charged cost: 0.473298 / 4 GPUh. Terminal receipts are in `reports/f1_smoke_r2_*.json`.
 
-The [long-term plan](plans/LONG_HORIZON_EXPERIMENT_PLAN_WorldCache_OMR_20260929.md) and [first-batch instructions](plans/CODEX_FIRST_BATCH_WorldCache_OMR_20260929.md) are now v1.1: preserve the current WorldCache comparison, add QuantWM-inspired downstream diagnostics and a bounded compatible Wan5B/LongLive-Plug baseline. Combinations and training remain conditional. No new GPU job was launched by this plan update.
+The [long-term plan](plans/LONG_HORIZON_EXPERIMENT_PLAN_WorldCache_OMR_20260929.md) and [first-batch instructions](plans/CODEX_FIRST_BATCH_WorldCache_OMR_20260929.md) are now v1.3: preserve existing evidence, add cache provenance × lifetime and small-group controls; compatible Wan5B/LongLive-Plug and OMR remain conditional. Combinations and training remain conditional. No new GPU job was launched by this plan update.
 
 [L0 resource audit](research/33_L0_WAN_LONGLIVE_OMR_RESOURCE_AUDIT.md): existingWan5B all11 official file hashes verified; both600tensor LoRA headers match300targets each,16 CPU checks pass; fulladapter payload/realmerge/environment/GPU remain pending. OMR public artifacts stillComing soon; no route pivot or GPU cost. Historical r1/source68afc3e live snapshot has been superseded by the terminal audit below; no full-pair/merge/GPU readiness claim.
 
@@ -59,7 +63,7 @@ The integration tests extract the pinned upstream functions and execute a synthe
 
 ## Research records
 
-- [WC-S计算压缩设计](research/55_WC_SPARSE_COMPUTE_COMPRESSION_DESIGN.md)：v1.2新增成本/内核、四臂组合、模块替换、条件三档与稀疏增量；设计完成，尚未运行。
+- [WC-S计算压缩设计](research/55_WC_SPARSE_COMPUTE_COMPRESSION_DESIGN.md)及[v1.3来源/寿命细化](research/65_WC_HIERARCHICAL_PROVENANCE_LIFETIME_DESIGN.md)：S0/S1已执行，分组策略/寿命实验仍是设计；以64结果与09队列接续。
 - `plans/`: maintained plans based on user-supplied originals; revisions preserved in Git.
 - `research/02_CURRENT_STATE.md`: evidence and unresolved dependencies.
 - `research/09_NEXT_ACTIONS.md`: ordered execution scope.
