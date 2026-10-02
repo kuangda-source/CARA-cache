@@ -23,3 +23,7 @@
 累计cap12GPUh，r3前权威已结算4.255375150608726h、30jobs，余7.744624849391274h；历史费用不重置。单卡GPU全过程wall≤1200秒含加载/失败/诊断/flush，1170秒child、kill-after5秒。唯一新stage/output/supervisor，fresh UUID/VRAM/compute、shared f1.lock、无inflight、余额与15秒结算余量；只停止自身任务。
 
 部署先CPU/资产/hash通过，再fresh准入。启动不报结果，持续跟踪同一identity直到终态、原PIDs/锁/GPU释放及实际账本结算。raw/source/fieldwise/成本独立审计后再报技术门结论。失败不自行r4重试。原QKV大文件不入Git，只存小回执/路径/SHA。
+
+## 实际CPU/来源门回执
+
+部署source `4bd3b72ef68b90d0eb3eb833e8f452c2b7149aa4`，实际Cosmos Torch2.7.1+cu128下17项CPU控制（含固定官方prepare OFF/ON和UniPC恢复后下一步）通过，CUDA未初始化、权威账本不变。source/资产/import/package全部字节门通过；[部署回执](../reports/wc_mid_parity_r3_deployment_20261003.json)。剩余disk626.300GB与global锁可用只是CPU准备证据，GPU仍须fresh准入并跟踪终态。

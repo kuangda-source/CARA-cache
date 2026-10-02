@@ -1,3 +1,7 @@
+## 2026-10-03 r3实际CPU17/全部来源资产门通过（未GPU）
+
+[回执](../reports/wc_mid_parity_r3_deployment_20261003.json)：独立source4bd3b72，actual Torch2.7.1+cu128的17项CPU、固定官方prepare OFF/ON、UniPC下一步恢复及完整资产/import/package门通过；CUDA未初始化、账本不变。接下来仅本卡fresh准入后的唯一wc-mid-parity-r3；不重启原r2，原FAIL不变，H0/H1/RV不解锁，禁止r4自动加窗。
+
 ## 2026-10-03 独立prepared-input CPU修复及条件r3卡
 
 [72冻结卡](72_WC_PREPARED_INPUT_CPU_AND_R3_CARD.md)：协调者在r2封存后明确授予WC-PREPARED-INPUT-CPU-20261003-A，以及CPU/资产/来源/成本门通过后的唯一wc-mid-parity-r3；这是独立授权，原r2 FAIL不变。共享官方prepared batch及完整RNG转移、全部命名输入/condition/状态组件，保留原全部门；只到step13/call26，call25/26×layer2的2QKV/6case，1200秒全cost硬上限。先actual CPU/source/资产再fresh GPU/锁/余额，禁止r4自动加窗及提前H0/H1/RV/训练/专家采集。当前CPU准备，未r3 GPU准入或提交。以下无第三窗口限制是r2封存时历史，本卡由后续明确协调授权替代。
