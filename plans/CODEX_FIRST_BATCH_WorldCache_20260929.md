@@ -126,3 +126,9 @@ Cosmos3 只核对 P0–P2 的已有证据与剩余预算；本批次不自动恢
 5. 特征与mask失效分别记录，成本明显才加模式复用；PSA表示精度后置，S3模块替换由边际成本驱动。局部dense不恢复Native轨迹，稀疏参考不是true anchor。
 6. 账本3.9117525685110333/4GPUh、余317.690753秒；此次设计更新无新GPU/扩额/训练/人评/付费。新4GPUh/clean50仍待决策，完整寿命/视频曲线另冻结范围和成本。
 
+
+## 九、2026-10-02刷新收益讨论（v1.5，条件后置）
+
+当前冻结WC-S/H范围先完成，保持第八节队列；新增[WC-RV首窗口](CODEX_FIRST_WINDOW_WC_REFRESH_VALUE_20261002.md)只登记因果恢复/在线可见特征、CFG决策与预算单位、固定后缀及同预算标签区别、RV1具体成本。新[68设计](../research/68_WC_COUNTERFACTUAL_REFRESH_VALUE_DESIGN.md)按收益空间→廉价可预测性→闭环推进，不立即训练Head。
+
+保留原4GPUh/new4h-clean50未分配状态，不动runtime/已有collector或输出；采标签、CPU拟合、Head训练/部署等均未执行。无新增人评/付费/LoRA，也不将对话中“继续W1”的旧阶段描述当本库当前任务。

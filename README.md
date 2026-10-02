@@ -6,7 +6,7 @@
 
 从[实验总览](EXPERIMENT_REPORT.md)开始，再阅读[当前状态](research/02_CURRENT_STATE.md)、[下一步](research/09_NEXT_ACTIONS.md)、[交接](memory/handoffs/LATEST.md)、[长程计划](plans/LONG_HORIZON_EXPERIMENT_PLAN_WorldCache_20260929.md)及[首批说明](plans/CODEX_FIRST_BATCH_WorldCache_20260929.md)。
 
-当前方案v1.3：[WC-S计算压缩](research/55_WC_SPARSE_COMPUTE_COMPRESSION_DESIGN.md)与[WC-H来源/有效期](research/65_WC_HIERARCHICAL_PROVENANCE_LIFETIME_DESIGN.md)。当前冻结工作先完成，再考虑新增分组/寿命实验。
+当前方案v1.5（原v1.3执行顺序保持）：[WC-S计算压缩](research/55_WC_SPARSE_COMPUTE_COMPRESSION_DESIGN.md)与[WC-H来源/有效期](research/65_WC_HIERARCHICAL_PROVENANCE_LIFETIME_DESIGN.md)。当前冻结工作先完成，再考虑新增分组/寿命实验。
 
 已审计[四组真实QKV结果](research/64_WC_S1_FACTORIAL_RESULTS.md)：两任务144case；sim0.1/cdf0.98中位操作加速1.286×、双筛查6/12，但layer27四输入均超5%误差。没有统一全输入配置或稀疏视频方法的质量—时间验收。下一步是准备中间刷新/全26深层覆盖诊断。
 
@@ -24,3 +24,5 @@ python3 -m venv .venv
 CPU测试只验证接口/实现。上游版本固定，vendor、权重、视频、环境和连接凭据不提交Git。`src/wcomr`及原仓库名称沿用历史标识以兼容部署；最新研究内容与队列只含WorldCache。
 
 [仓库拆分记录](research/67_REPOSITORY_SPLIT_20261002.md)说明迁移范围和源提交；原Git历史保留。每次实质变更提交并推送私有库。
+
+2026-10-02新增[WC-RV反事实刷新收益设计](research/68_WC_COUNTERFACTUAL_REFRESH_VALUE_DESIGN.md)：归属W3，先同预算收益空间/标签可靠性，再有依据的小Head及闭环；仅设计，无采集/拟合/训练/GPU，当前WC-S/H工作先完成。
