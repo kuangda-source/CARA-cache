@@ -1,8 +1,8 @@
 # 最新终态（2026-10-03）
 
-[中间覆盖r2及CPU定位](research/71_WC_MIDDLE_R2_RESULTS.md)：104QKV/312case文件、source、费用/释放审计通过，但跨阶段输入/完整状态门失败，原TECH_BLOCKED保持。部分算子诊断中位1.215×、双筛查62/104，不是视频质量—时间结果；H0/H1未解锁、不自行第三GPU窗口。累计4.255375150608726/12GPUh，30jobs，余7.744624849391274h，原PIDs/锁/GPU释放。
+[独立r3最短前缀门](research/73_WC_MIDDLE_R3_PARITY_RESULTS.md)及费用/释放审计通过：共用官方prepared-input与全RNG，26次输入/条件/输出及step13的36状态组件完全一致，2QKV/6case完成。仅技术门，无视频质量或正式因果分叉结论；r1/r2原失败保留，不自动解锁H0/H1或r4。累计4.390463858430222/12GPUh，31jobs，余7.609536141569778h，无inflight，GPU/PIDs/锁已释放。
 
-[WC-RV研究设计](research/68_WC_COUNTERFACTUAL_REFRESH_VALUE_DESIGN.md)已按“科研中的黑暗森林法则”最新对话复核：固定近似器下的同状态、预算约束刷新收益，先验证空间/标签、再有条件的小Head；当前既有实验按原卡完成，RV仍DESIGN_ONLY。r1失败成本与全部历史保留，以下旧状态均为历史快照。
+[WC-RV研究设计](research/68_WC_COUNTERFACTUAL_REFRESH_VALUE_DESIGN.md)已按引用对话复核：归属W3，固定近似器下学习同状态、预算约束的有符号刷新收益；先空间/标签验证，再有依据的小Head。当前既有卡已按原范围完成，RV仍DESIGN_ONLY。以下旧状态为历史快照。
 
 # WorldCache experiments
 

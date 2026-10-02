@@ -1,3 +1,11 @@
+## 2026-10-03 最新终态 — r3独立前缀全部输入/状态门通过并审计
+
+[73完整结果](73_WC_MIDDLE_R3_PARITY_RESULTS.md)：wc-mid-parity-r3/source4bd3b72退出0，共用官方prepared batch及全RNG转移；两臂13 solver更新/26 CFG前向，26原/命名输入、输出与全部condition、trace/counts/时间网格、step13原总指纹及36状态组件均一致，observed restore通过。2真实QKV/6case/source/file/raw SHA/repeat/成本/释放独立CPU审计通过；只是本短前缀技术门，无视频质量或完整可重启因果分叉验收。
+
+r3实计486.319348秒，累计4.390463858430222/12GPUh、31jobs，余7.609536141569778h，无inflight；原PIDs2633815/2633897/2633899全部退出、f1.lock/GPU释放（24MiB、无compute）。r1/r2原FAIL及172.900538/1064.140757秒保留，r2全部104点仍只是部分算子诊断；不能由r3较短范围倒改r2为PASS。
+
+下一由协调者选择具体H0/H1科学卡及完整因果门；当前不自行r4或新增H0/H1/RV/训练/专家采集。引用对话研究已进入[WC-RV W3设计](68_WC_COUNTERFACTUAL_REFRESH_VALUE_DESIGN.md)，先同预算收益空间/短终点标签可靠性，再冻结主干的小Head及闭环确认。以下运行/准备/旧限制为历史快照，以本终态及实际账本为准。
+
 ## 2026-10-03 r3唯一任务已fresh准入（初始化非终态）
 
 [现场回执](../reports/wc_mid_parity_r3_start_observation_20261003.json)：wc-mid-parity-r3/source4bd3b72，supervisor2633815/timeout2633897/runner2633899存活，指定UUID/无其他compute且24MiB通过准入；实际runner初始化。1200秒GPU监督预留，实际child起算最大截止北京时间07:56:45；前两卡失败/成本封存。只跟踪同一handles到终态，不改在跑源码、不重复提交、不自行r4，仍无新视频或H0/H1/RV结果。

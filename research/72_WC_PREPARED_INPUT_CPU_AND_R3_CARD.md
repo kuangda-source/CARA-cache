@@ -27,3 +27,7 @@
 ## 实际CPU/来源门回执
 
 部署source `4bd3b72ef68b90d0eb3eb833e8f452c2b7149aa4`，实际Cosmos Torch2.7.1+cu128下17项CPU控制（含固定官方prepare OFF/ON和UniPC恢复后下一步）通过，CUDA未初始化、权威账本不变。source/资产/import/package全部字节门通过；[部署回执](../reports/wc_mid_parity_r3_deployment_20261003.json)。剩余disk626.300GB与global锁可用只是CPU准备证据，GPU仍须fresh准入并跟踪终态。
+
+## r3终态
+
+独立[73结果](73_WC_MIDDLE_R3_PARITY_RESULTS.md)已完成严格最短前缀技术门、实际成本和释放审计；r2原FAIL保留。没有r4授权、H0/H1或RV自动解锁，当前不新增GPU任务。
