@@ -123,7 +123,8 @@ def main():
                 result['solver_steps']=step
                 if step in c['state_steps']:
                     latent=output[0] if isinstance(output,tuple) else output.prev_sample
-                    snapshot=StateRoundtrip(net,scheduler,latent)
+                    generator=kwargs.get('generator')
+                    snapshot=StateRoundtrip(net,scheduler,latent,generators=[generator] if generator is not None else [])
                     before=snapshot.fingerprint()
                     if phase=='observed_prefix':
                         restored=snapshot.restore()

@@ -13,12 +13,14 @@ def test_roundtrip_restores_both_cfg_histories_solver_extra_field_output_and_rng
                              last_sample=value + 4, extra_mutable={'order': [1, 2]})
     method = lambda x: x
     solver.step = method
-    saved = StateRoundtrip(net, solver, value)
+    generator = torch.Generator().manual_seed(12)
+    saved = StateRoundtrip(net, solver, value, generators=[generator])
     before = saved.fingerprint()
     net.cnt = 1; net.residual_cache[0].add_(9)
     solver.model_outputs[0].zero_(); solver.extra_mutable['order'].append(3)
     solver.unexpected_field = True
     random.random(); np.random.random(); torch.rand(3)
+    torch.rand(3, generator=generator)
     output = saved.restore()
     assert saved.fingerprint() == before and torch.equal(output, torch.arange(8.).reshape(2, 4))
     assert net.cnt == 26 and not hasattr(solver, 'unexpected_field')

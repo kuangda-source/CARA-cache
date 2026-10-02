@@ -14,7 +14,7 @@ observed的104输入各比较dense、同后端匹配routed-full、sparse（固�
 
 ## 状态恢复与实现边界
 
-在第13/18个完整solver更新之后抓取全部scheduler非callable字段、明确列举的两路WC缓存/计数/窗口、最新latent与Python/NumPy/CPU/CUDA RNG。observed执行深拷贝restore，并比较原指纹、继续生成后的prefix；CPU负控制主动破坏两路cache、solver历史/额外字段及RNG，确认恢复。方法包装callable单独保留，不作为数值状态。
+在第13/18个完整solver更新之后抓取全部scheduler非callable字段、明确列举的两路WC缓存/计数/窗口、最新latent与Python/NumPy/CPU/CUDA RNG，以及传给solver.step的独立seed_g状态。observed执行深拷贝restore，并比较原指纹、继续生成后的prefix；CPU负控制主动破坏两路cache、solver历史/额外字段、全局及独立generator RNG，确认恢复。方法包装callable单独保留，不作为数值状态。
 
 这只验收当前进程内、原conditioning/closure保持时的cache/solver恢复。尚不提供可跨进程独立续推的完整pipeline分叉，也未构造H1的三来源×K轨迹；H0/H1仍需各自具体卡与条件/缓存兼容检查。局部dense不是Native全轨迹，量化full不是真dense anchor。
 

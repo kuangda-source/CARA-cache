@@ -50,7 +50,7 @@ class StateRoundtrip:
     The ongoing caller's conditioning/closure is unchanged. This is an in-process
     restoration test, not an independently resumable whole-pipeline branch API.
     """
-    def __init__(self, net, scheduler, output):
+    def __init__(self, net, scheduler, output, generators=()):
         self.net, self.scheduler = net, scheduler
         self.keys = [k for k in WC_FIELDS if hasattr(net, k)]
         self.net_state = copy.deepcopy({k: getattr(net, k) for k in self.keys})
@@ -60,6 +60,7 @@ class StateRoundtrip:
         self.numpy_rng = np.random.get_state()
         self.cpu_rng = torch.random.get_rng_state().clone()
         self.cuda_rng = torch.cuda.get_rng_state_all() if torch.cuda.is_initialized() else []
+        self.generators = [(g, g.get_state().clone()) for g in generators]
 
     def restore(self):
         for k, v in copy.deepcopy(self.net_state).items(): setattr(self.net, k, v)
@@ -69,6 +70,7 @@ class StateRoundtrip:
         random.setstate(self.python_rng); np.random.set_state(self.numpy_rng)
         torch.random.set_rng_state(self.cpu_rng)
         if self.cuda_rng: torch.cuda.set_rng_state_all(self.cuda_rng)
+        for generator, state in self.generators: generator.set_state(state)
         return copy.deepcopy(self.output)
 
     def fingerprint(self):
@@ -76,5 +78,5 @@ class StateRoundtrip:
                             'solver': {k:v for k,v in vars(self.scheduler).items() if not callable(v)}, 'output': self.output,
                             'python_rng': random.getstate(), 'numpy_rng': np.random.get_state(),
                             'cpu_rng': torch.random.get_rng_state(),
+                            'explicit_generators': [g.get_state() for g,_ in self.generators],
                             'cuda_rng': torch.cuda.get_rng_state_all() if self.cuda_rng else []})
-
