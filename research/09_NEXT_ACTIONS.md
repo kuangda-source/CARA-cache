@@ -2,7 +2,7 @@
 
 [69冻结卡](69_WC_MIDDLE_COVERAGE_CARD.md)：WC-MID-COVERAGE-PREP-20261003-A；仅下一单run `wc-mid-coverage-r1`，GPU监督cap1200秒/子进程1170秒。call25/26、35/36×全26深层，baseline/observed两个prefix在第18个完整UniPC更新结束；104QKV/312 dense、匹配full与sparse算子case，当前真dense输出始终原样返回。对比36输入/输出、trace与两处cache/solver/RNG恢复；无完整视频或质量结论。
 
-本地8个针对性CPU契约通过（恢复故障注入、12h预算拒绝、prefix差异拒绝及既有QKV/观察器控制），当前仅实现与CPU准备，实际CPU source/资产/求解器门和fresh GPU准入未完成，未launch。H0/H1在覆盖/数值/接口证据后另卡；不重跑旧W1/S1/build、不训练/RV。历史4h约318秒条目不覆盖最新累计12h授权。
+本地8个针对性CPU契约、实际Cosmos Torch的9项控制（含固定UniPC恢复后下一步逐位一致）及source/资产/import门通过；显式seed_g已纳入快照。新source375261a已hash部署，CUDA未初始化、账本未改；fresh GPU准入仍在提交时核查，当前未launch。H0/H1在覆盖/数值/接口证据后另卡；不重跑旧W1/S1/build、不训练/RV。历史4h约318秒条目不覆盖最新累计12h授权。
 
 ## 最新执行授权 — 2026-10-03
 
