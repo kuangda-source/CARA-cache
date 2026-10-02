@@ -1,3 +1,7 @@
+## 2026-10-03 第二覆盖卡获协调授权，r1封存
+
+WC-MID-COVERAGE-R2-20261003-A / 唯一新run wc-mid-coverage-r2；沿原call25/26、35/36×layers2..27及prefix/恢复控制，仅修复请求horizon检查生命周期。累计12h、当前已用3.959780495795162h/29jobs保留，单次1200秒上限不变。先新source/hash完整实际CPU/资产门与fresh GPU/锁/余额，再独立r2；原r1只读、不重启，不夹带H0/H1/RV/训练或专家采集。技术失败/超时停止，不自行第三GPU窗口。
+
 ## 2026-10-03 中间覆盖r1终态：0覆盖，初始化门位置修正CPU通过
 
 [70失败与修正](70_WC_MIDDLE_R1_FAILURE_AND_REQUEST_GATE.md)：唯一run wc-mid-coverage-r1/source375261a退出码1，新增runner在构建阶段误检查请求期70-call horizon；官方构建35、请求重置后70。去噪前向/prefix/QKV/case均0，不能视为缓存算法负结果或覆盖通过。原PIDs2626531/2626549/2626550已退出、global锁和GPU释放；完整失败/source/成本审计通过。
