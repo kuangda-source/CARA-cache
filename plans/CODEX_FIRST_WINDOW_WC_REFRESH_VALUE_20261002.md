@@ -1,5 +1,7 @@
 # WC-RV首窗口：先验证刷新收益空间，不先训练Head
 
+2026-10-03接续补注：[r2終态](../research/71_WC_MIDDLE_R2_RESULTS.md)未通过跨阶段输入/完整状态门，原数据只用于局部算子诊断，不验收RV0。先CPU全RNG、命名输入/状态与条件闭包预案，再具体卡和实际门；无第三窗口或RV采集/拟合授权。累计4.255375150608726/12GPUh，余7.744624849391274h，以下旧4h/317秒是历史快照。引用对话新增总规划只更新研究分工，不改变当前执行顺序。
+
 [2026-10-03累计12GPUh新授权](../research/BUDGET_AUTHORIZATION_20261003.md)：原建议/未拨款为历史，具体卡仍须资源与停止门，禁止重复旧任务。
 
 2026-10-02；DESIGN_ONLY。按[68完整设计](../research/68_WC_COUNTERFACTUAL_REFRESH_VALUE_DESIGN.md)接续W3，当前冻结WC-S/H工作先完成，执行顺序以[09队列](../research/09_NEXT_ACTIONS.md)为准。

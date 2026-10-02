@@ -1,3 +1,13 @@
+## 2026-10-03 最新终态 — r2输入/完整状态门失败，部分算子诊断已审计
+
+[71终态与CPU定位](../../research/71_WC_MIDDLE_R2_RESULTS.md)：wc-mid-coverage-r2/source dac08aa退出1，104/104 QKV、312/312 case原始文件/source/repeat审计通过。两前缀各18 solver更新/36 CFG输出、trace/块数/时间网格相同，但两处完整状态指纹及36输入聚合哈希均不一致；原TECH_BLOCKED不升级为PASS。算子中位1.215×、双筛查62/104，只能局部诊断，不是视频质量或端到端加速。第13/18步observed进程内restore通过不解锁整管线反事实接口。
+
+原官方输入生成随机FPS，而两阶段未统一Torch CPU/CUDA RNG；实际CPU复现该控制缺口，未删状态字段。但GPU只存总哈希，真实差异字段仍UNKNOWN，不能说只有FPS/RNG不同。下一CPU完善全RNG重置、命名输入/全组件哈希与条件/闭包状态预案，具体下一GPU卡待协调；不自行第三窗口，H0/H1、RV/Head/LoRA及专家采集不提前。
+
+r2实计1064.140757秒，累计4.255375150608726/12GPUh、30jobs，余7.744624849391274h，无inflight。原PIDs2628242/2628258/2628259均退出，f1.lock及指定GPU释放（24MiB、无compute app）；r1失败172.900538秒/旧28jobs保留，原source/stage/receipts封存。
+
+引用对话研究已复核并写入[WC-RV W3设计](../../research/68_WC_COUNTERFACTUAL_REFRESH_VALUE_DESIGN.md)：固定近似器，学习同状态、预算约束的有符号刷新收益；先因果接口→同预算收益空间/短终点标签→有证据的小Head→闭环与未见场景。标量Head与高维残差执行器分别处理，当前不启动RV。以下运行/授权/预算条目是保留历史快照，以本终态及权威账本为准。
+
 ## 2026-10-03 第二覆盖卡r2已启动（非终态）
 
 新run wc-mid-coverage-r2/source dac08aa，经实际10项CPU/source/资产/request-reset门后fresh准入；监督2628242/timeout2628258/runner2628259现场存活，初始化阶段。日志outputs/wc-mid-coverage-r2/coverage.log，1200秒监督上限、北京时间07:09:56最大截止。r1已封存且失败172.900538秒计费；r2预留尚未实际结算，不据初始化/live状态报覆盖通过或方法结果。只跟踪同run，不改在跑源码/重复提交、不自行第三GPU窗口。

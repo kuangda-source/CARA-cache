@@ -1,0 +1,144 @@
+{
+  "receipt_analysis": {
+    "original_status": "TECH_BLOCKED",
+    "checks": {
+      "input_hashes": false,
+      "output_hashes": true,
+      "trace": true,
+      "block_counts": true,
+      "state_fingerprints": false,
+      "sampling": true
+    },
+    "input_mismatch_calls": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36
+    ],
+    "input_hash_lengths": [
+      36,
+      36
+    ],
+    "state_point_pairs": [
+      {
+        "baseline": {
+          "solver_step": 13,
+          "call": 26,
+          "sha256": "c2be5201484be02769304e1864440587b9e7398b2b282c899800464bc431632c"
+        },
+        "observed": {
+          "solver_step": 13,
+          "call": 26,
+          "sha256": "0112b623e7ca371c90e0bec4010cc4969d1120eb6cf5df3890082e4b7e551e19"
+        }
+      },
+      {
+        "baseline": {
+          "solver_step": 18,
+          "call": 36,
+          "sha256": "8c338c1fa09666cb63eec00fbbd38a8a9e04c54f9c3bfb3573dd4ed0f2f46a53"
+        },
+        "observed": {
+          "solver_step": 18,
+          "call": 36,
+          "sha256": "923ead838ce8207d7e5ed45a96e38f310fba262c4e24a447300b434fb86b1bfa"
+        }
+      }
+    ],
+    "actual_field_level_values_saved": false,
+    "actual_differing_state_fields": "UNKNOWN_AGGREGATE_HASHES_ONLY",
+    "coverage_gate_accepted": false
+  },
+  "cpu_control": {
+    "status": "CPU_OFFICIAL_FPS_RNG_GAP_REPRODUCED_NOT_GPU_ROOT_CAUSE",
+    "unmatched_phases": [
+      {
+        "fps": [
+          28.0
+        ],
+        "input_hash": "199e274135c81bbb8cf7908a9467e6696d2572d28d903fd41cfbede17db5817b",
+        "full_state_hash": "4865b592cffd30dffcfebb1227fa5850f6273e3779099cd0b3a0f004de80bd60",
+        "component_hashes": {
+          "net.cnt": "5f9c4ab08cac7457e9111a30e4664920607ea2c115a1433d7be98e97e64244ca",
+          "net.residual_cache": "9a3b548ead6be32c232e681efdb4cbfe7d3ac99f94efa05c183e13c87d58348a",
+          "solver._step_index": "3fdba35f04dc8c462986c992bcf875546257113072a909c162f7e470e581e278",
+          "solver.model_outputs": "8e00c9add9c16ba38fbc5ee0ebf59b092636f305bcba8a761c96c805e3b8183d",
+          "output": "1a77cdfb654bebaee31870a612c8a5104af2e3fd6149a05df6f18144e56baba6",
+          "python_rng": "cf9afa9c78bb3f4098ba3ce92f983b9cec9a38b564bfe1dcccb51a3e241f35ea",
+          "numpy_rng": "b5027249daa9f14abd012ee72156474709f9e837b555623c544c3fdbf893260a",
+          "cpu_rng": "9b2290a150072b7c69dd06c2579919c1e7001a09a483a42e39293aa2178fbd9c",
+          "cuda_rng": "a330395cc0a53ad1207736546afff4735940937564bbf75ce1edad40780d9139",
+          "explicit_generators": "3536b07edf140e1957d9b90ed27345ae310d47ecc9c5b72cc17e26f6b8dc3931"
+        },
+        "output_hash": "1a77cdfb654bebaee31870a612c8a5104af2e3fd6149a05df6f18144e56baba6"
+      },
+      {
+        "fps": [
+          31.0
+        ],
+        "input_hash": "185ee6f8b89fa306bfd9d8cae77cf2e47025c3a5df42def515ee0722573cc36d",
+        "full_state_hash": "1a2b0fe2db68149079bb705417d05fa1dcc8807347321ba9ca42720b2dfb1ca5",
+        "component_hashes": {
+          "net.cnt": "5f9c4ab08cac7457e9111a30e4664920607ea2c115a1433d7be98e97e64244ca",
+          "net.residual_cache": "9a3b548ead6be32c232e681efdb4cbfe7d3ac99f94efa05c183e13c87d58348a",
+          "solver._step_index": "3fdba35f04dc8c462986c992bcf875546257113072a909c162f7e470e581e278",
+          "solver.model_outputs": "8e00c9add9c16ba38fbc5ee0ebf59b092636f305bcba8a761c96c805e3b8183d",
+          "output": "1a77cdfb654bebaee31870a612c8a5104af2e3fd6149a05df6f18144e56baba6",
+          "python_rng": "cf9afa9c78bb3f4098ba3ce92f983b9cec9a38b564bfe1dcccb51a3e241f35ea",
+          "numpy_rng": "b5027249daa9f14abd012ee72156474709f9e837b555623c544c3fdbf893260a",
+          "cpu_rng": "3fc3fe3777c342eb56f957640c5b1803ae66794623d74981b2f7cea5f3e7fdea",
+          "cuda_rng": "a330395cc0a53ad1207736546afff4735940937564bbf75ce1edad40780d9139",
+          "explicit_generators": "3536b07edf140e1957d9b90ed27345ae310d47ecc9c5b72cc17e26f6b8dc3931"
+        },
+        "output_hash": "1a77cdfb654bebaee31870a612c8a5104af2e3fd6149a05df6f18144e56baba6"
+      }
+    ],
+    "differing_cpu_demo_state_fields": [
+      "cpu_rng"
+    ],
+    "reset_cpu_control_exact": true,
+    "all_state_gate_removed_fields": [],
+    "torch_version": "2.7.1+cu128",
+    "cuda_initialized": false,
+    "source_sha256": "59aa9e236a5e7e26490f5cfcb94ab95ce911d9c38eba61dd8aef7d067e458a95",
+    "limitation": "Actual r2 FPS/RNG/component values were not saved; this proves a harness gap only."
+  },
+  "status": "CPU_POSTMORTEM_PASS_ORIGINAL_R2_REMAINS_TECH_BLOCKED",
+  "module_sha256": "218dba5b59a76919bcb03dae0ccba4dae69dc40dc4035aac968f7f85cb14fe0e",
+  "cpu_wall_seconds": 5.544315569102764,
+  "observed_unix": 1790983087.5269573,
+  "gpu_run": false,
+  "budget_unchanged": true
+}

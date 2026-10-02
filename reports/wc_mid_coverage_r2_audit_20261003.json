@@ -1,0 +1,48 @@
+{
+  "status": "FAILURE_SETTLEMENT_SOURCE_PARTIAL_RELEASE_AUDIT_PASS",
+  "observed_unix": 1790982985.371237,
+  "source_revision": "dac08aa8514b7ce671ef1b237d7e89b6a24e7a40",
+  "pids_absent": [
+    2628242,
+    2628258,
+    2628259
+  ],
+  "global_lock_free": true,
+  "source_hashes_verified": true,
+  "raw_roundtrip_checks": 104,
+  "cuda_initialized_in_audit": false,
+  "gpu_wall_seconds": 1064.1407573288307,
+  "budget": {
+    "batch": "F0-F1",
+    "cap_gpu_hours": 12,
+    "used_gpu_hours": 4.255375150608726,
+    "gpu_jobs_launched": 30,
+    "status": "WC_MID_COVERAGE_SETTLED_REQUIRES_RESULT_AUDIT",
+    "gpu_import_probes_completed": 1,
+    "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts",
+    "budget_authorization_ref": "manifests/budget_authorization_20261003.json",
+    "budget_authorization_history": [
+      {
+        "authorized_utc": "2026-10-02T18:03:00Z",
+        "source_thread_id": "01a0f1e6-7ad0-75df-9a02-172b60d2e00b",
+        "user_instruction": "\u628a\u5404\u4e2a\u5b9e\u9a8c\u7684 gpu \u9884\u7b97\u90fd\u8bbe\u7f6e\u4e3a 12gpuh",
+        "previous_cap_gpu_hours": 4,
+        "new_cumulative_cap_gpu_hours": 12,
+        "used_gpu_hours_at_change": 3.9117525685110333,
+        "no_usage_reset_or_transfer": true
+      }
+    ]
+  },
+  "monitor_samples": 498,
+  "monitor_saw_runner": true,
+  "fresh_gpu": "GPU-de9a5370-cd87-0f1c-a48e-288888777dd3, NVIDIA RTX A6000, 346\nGPU-cebf7119-cf03-23b9-e192-cd196332b704, NVIDIA RTX A6000, 24\n",
+  "fresh_apps": "",
+  "output_errors_independently_recomputed": false,
+  "limits": "input raw verified and recorded metrics/repeats recomputed; no new GPU error recomputation; prefix-only no complete video; restoration is in-process only",
+  "receipt_sha256": {
+    "supervisor.json": "6444d38f9bd98e8dcb6451ac28a72c53853aa7795d5c718fff0b7051c7722a76",
+    "diagnostic/receipt.json": "d7553808ab15cf7c643e0488550f5acdec59e94ef5b89c5b3e8607627b0010b2",
+    "coverage.log": "6a784980d9baf67ce2f325a251182f74ecc306ca75b709e185b552ed66ddeac6",
+    "gpu-monitor.jsonl": "e07ceac71bf3bdb838f6c2b60e601efcd4171f73b864c671de4208d40a8f7cfb"
+  }
+}

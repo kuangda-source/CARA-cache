@@ -1,6 +1,8 @@
 # 最新终态（2026-10-03）
 
-[中间覆盖r1失败与CPU修正](research/70_WC_MIDDLE_R1_FAILURE_AND_REQUEST_GATE.md)：初始化门位置错误，0/104覆盖、退出1，172.900538秒计费；累计3.959780496/12GPUh。新请求reset控制CPU通过，未第二GPU提交；下一覆盖卡待协调分配。
+[中间覆盖r2及CPU定位](research/71_WC_MIDDLE_R2_RESULTS.md)：104QKV/312case文件、source、费用/释放审计通过，但跨阶段输入/完整状态门失败，原TECH_BLOCKED保持。部分算子诊断中位1.215×、双筛查62/104，不是视频质量—时间结果；H0/H1未解锁、不自行第三GPU窗口。累计4.255375150608726/12GPUh，30jobs，余7.744624849391274h，原PIDs/锁/GPU释放。
+
+[WC-RV研究设计](research/68_WC_COUNTERFACTUAL_REFRESH_VALUE_DESIGN.md)已按“科研中的黑暗森林法则”最新对话复核：固定近似器下的同状态、预算约束刷新收益，先验证空间/标签、再有条件的小Head；当前既有实验按原卡完成，RV仍DESIGN_ONLY。r1失败成本与全部历史保留，以下旧状态均为历史快照。
 
 # WorldCache experiments
 
