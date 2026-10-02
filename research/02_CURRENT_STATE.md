@@ -1,3 +1,9 @@
+## 2026-10-03 中间覆盖卡准备（新12GPUh授权）
+
+[69冻结卡](69_WC_MIDDLE_COVERAGE_CARD.md)：WC-MID-COVERAGE-PREP-20261003-A；仅下一单run `wc-mid-coverage-r1`，GPU监督cap1200秒/子进程1170秒。call25/26、35/36×全26深层，baseline/observed两个prefix在第18个完整UniPC更新结束；104QKV/312 dense、匹配full与sparse算子case，当前真dense输出始终原样返回。对比36输入/输出、trace与两处cache/solver/RNG恢复；无完整视频或质量结论。
+
+本地8个针对性CPU契约通过（恢复故障注入、12h预算拒绝、prefix差异拒绝及既有QKV/观察器控制），当前仅实现与CPU准备，实际CPU source/资产/求解器门和fresh GPU准入未完成，未launch。H0/H1在覆盖/数值/接口证据后另卡；不重跑旧W1/S1/build、不训练/RV。历史4h约318秒条目不覆盖最新累计12h授权。
+
 ## 最新执行授权 — 2026-10-03
 
 [各项目累计12GPUh与恢复后队列](../research/BUDGET_AUTHORIZATION_20261003.md)取代此前仅文档及旧预算限制；保留已用与历史账目，单昂贵任务，GPU优先WC。WC已用3.9117525685110333GPUh、28jobs保持，当前余额8.088247431488967GPUh。先中间刷新/全26深层覆盖准备和无扰动诊断，再H0互补性、H1来源×寿命；W1/replay已完成不重跑，RV后置。旧new4h/clean50不自动转为新队列。新runner须按明确12h权威账本校验，不能重新执行硬编码4h的旧launch。 下述2026-10-02原包适配/仅文档条目为当时快照。

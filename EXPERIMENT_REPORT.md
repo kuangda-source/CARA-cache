@@ -1,3 +1,9 @@
+## 2026-10-03 中间覆盖卡准备（新12GPUh授权）
+
+[69冻结卡](research/69_WC_MIDDLE_COVERAGE_CARD.md)：WC-MID-COVERAGE-PREP-20261003-A；仅下一单run `wc-mid-coverage-r1`，GPU监督cap1200秒/子进程1170秒。call25/26、35/36×全26深层，baseline/observed两个prefix在第18个完整UniPC更新结束；104QKV/312 dense、匹配full与sparse算子case，当前真dense输出始终原样返回。对比36输入/输出、trace与两处cache/solver/RNG恢复；无完整视频或质量结论。
+
+本地8个针对性CPU契约通过（恢复故障注入、12h预算拒绝、prefix差异拒绝及既有QKV/观察器控制），当前仅实现与CPU准备，实际CPU source/资产/求解器门和fresh GPU准入未完成，未launch。H0/H1在覆盖/数值/接口证据后另卡；不重跑旧W1/S1/build、不训练/RV。历史4h约318秒条目不覆盖最新累计12h授权。
+
 # WorldCache 实验文档与跨设备接续入口
 
 ## 最新执行授权 — 2026-10-03
