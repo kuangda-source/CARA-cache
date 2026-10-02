@@ -1,18 +1,16 @@
 # WorldCache / OMR 实验文档与跨设备接续入口
 
-**对话分工（2026-10-02）：当前对话只推进WorldCache。** OMR已转入独立对话“OMR 物理纠正研究”（ID `01a0fb1f-9751-7ff1-851a-59bdb4f413ef`），接续见[OMR交接](memory/handoffs/OMR_DIRECTION_20261002.md)。历史OMR设计/资产保留，但不作为当前对话自动切换的后备队列。WorldCache既有冻结工作与WC-S/H、WC-D顺序保持，先完成当前范围，不取消或重启；本次分离不改变GPU预算或启动新实验。
+**对话分工（2026-10-02）：当前对话只推进WorldCache。** OMR已转入独立对话“OMR 物理纠正研究”（ID `01a0fb1f-9751-7ff1-851a-59bdb4f413ef`），接续见[OMR交接](memory/handoffs/OMR_DIRECTION_20261002.md)。历史OMR设计/资产保留，但不作为当前对话自动切换的后备队列。WorldCache既有冻结工作与WC-S/H顺序保持，先完成当前范围，不取消或重启；本次分离不改变GPU预算或启动新实验。
 
 **执行顺序约束（用户2026-10-02）：当前工作不取消，先按原范围完成并审计，再考虑本轮新增设计。** 保留已冻结运行的配置、source、预算、失败和输出；当前S1结果归档/中间刷新覆盖准备优先，v1.3的寿命与分组卡后置。本次不终止进程、不重置运行或以新候选替代未完成工作。
 
-更新日期：2026-10-02（北京时间）；文档版本：v1.3；实验计划版本：v1.4。
+更新日期：2026-10-02（北京时间）；文档版本：v1.2；实验计划版本：v1.3。
 
 本项目研究视频世界模型的质量—时间折中：以 Cosmos-Predict2.5 上的 WorldCache 低开销改进为当前主线，OMR 物理纠正由独立对话负责。本文是持续更新的实验总览，固定使用此文件名；具体参数、原始回执和完整计划通过相对链接引用，适用于任何设备上的仓库副本。
 
 结构参考既有 `physcache_full_experiment_report.md` 的背景、假设、实验演进、结果和下一步组织方式。仅借鉴文档结构，不继承 PhysCache 的结论、样本、预算或执行权限。
 
 ## 1. 当前结论与最重要的下一步
-
-新增条件设计v1.4：[WC-D可预测残差与专家蒸馏](research/66_WC_DISTILLED_RESIDUAL_EXPLORATION_DESIGN.md)，[首窗口卡](plans/CODEX_FIRST_WINDOW_WC_DISTILLED_RESIDUAL_20261002.md)。先分开检验低维表达与廉价预测，再检验single固定schedule闭环，最后才测同阶段/年龄内双专家互补与whole-call路由；stage-only和同激活/总容量single是必要对照。当前只完成方案/来源核对，未新采集标签、拟合学生、训练或GPU；没有WC-D结果。保持当前WC-S/H冻结工作优先，后续再分配WC-D窗口，建议预算未拨款。[来源与建议卡](manifests/plan_update_sources_distillation_20261002.json)。
 
 最新设计v1.3：[缓存来源与有效期的分组稀疏刷新](research/65_WC_HIERARCHICAL_PROVENANCE_LIFETIME_DESIGN.md)。读取最新层级缓存讨论，核对RAPID³/SADA等先例；主要待证问题是“稀疏参考能复用多久”与“刷新精度×使用长度”。新增来源×1/2/4步、静态分组/无来源动态/动作位置对照；先低侵入S/D，再有信号才两到三组C/S/D，不预先训练控制器。
 
@@ -75,7 +73,6 @@
 | H-W1D：残差误差大小不能完全代表下游危害 | 对照残差 MSE、最终速度预测误差/方向与局部伪影 | CAL8所有8样本有内部排序差异；未联系视频物理损害，先全局scalar闭环 |
 | H-J：减少不必要的 OMR 纠正调用/梯度可改善折中 | 先复现有效原版，再测稀疏、未来侧梯度与复用 | 资源与兼容性待复核；原版无效或 adapter 不匹配时不做归因 |
 | H-L：预训练 CFG / 少步适配器是值得纳入的强基线 | 同一兼容 Wan5B 上原生、CFG-only、四步 Few-step+CFG 三臂 | L0两臂真实CPU融合及独立fresh产物审计、独立93包安装及guarded native import/ABI/meta/tokenizer通过；真实模型权重/任务和GPU仍待验证；小批次仅筛查可用性 |
-| H-D：廉价状态可预测缓存误差，并在同phase/age内支持有价值的条件专家 | train-only subspace / coefficient prediction → single固定schedule闭环 → whole-call oracle/gate与stage/capacity控制 → 同质量实测时间 | DESIGN_ONLY，尚未label/拟合/运行；单模型足够则保留single，oracle好/gate差不支持部署专家化 |
 
 不把 PhysCache 的历史物理损伤、抖动或运动结果当作本项目先验结论。若出现运动变少、模糊或动作未完成，不能仅凭“更平滑”指标宣称改进。
 
