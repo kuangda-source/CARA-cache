@@ -1,3 +1,11 @@
+## 2026-10-03 中间覆盖r1终态：0覆盖，初始化门位置修正CPU通过
+
+[70失败与修正](research/70_WC_MIDDLE_R1_FAILURE_AND_REQUEST_GATE.md)：唯一run wc-mid-coverage-r1/source375261a退出码1，新增runner在构建阶段误检查请求期70-call horizon；官方构建35、请求重置后70。去噪前向/prefix/QKV/case均0，不能视为缓存算法负结果或覆盖通过。原PIDs2626531/2626549/2626550已退出、global锁和GPU释放；完整失败/source/成本审计通过。
+
+172.900538秒全部计费，累计3.959780495795162/12GPUh、29jobs，余额8.040219504204838h，无inflight。检查已移到首次请求前向并冻结官方reset源码；本地9项控制和实际新reset CPU控制通过，CUDA未初始化、账本不变。原失败stage未改，没有第二GPU提交。第二卡等待唯一协调线程分配，届时新identity/source和完整实际门/fresh准入；H0/H1、W2/RV/训练与专家采集均不提前。
+
+以下准备/运行快照保持历史身份，以此终态为准。
+
 ## 2026-10-03 中间覆盖卡准备（新12GPUh授权）
 
 [69冻结卡](research/69_WC_MIDDLE_COVERAGE_CARD.md)：WC-MID-COVERAGE-PREP-20261003-A；仅下一单run `wc-mid-coverage-r1`，GPU监督cap1200秒/子进程1170秒。call25/26、35/36×全26深层，baseline/observed两个prefix在第18个完整UniPC更新结束；104QKV/312 dense、匹配full与sparse算子case，当前真dense输出始终原样返回。对比36输入/输出、trace与两处cache/solver/RNG恢复；无完整视频或质量结论。

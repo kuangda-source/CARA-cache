@@ -33,6 +33,8 @@ def main():
     c=json.loads((a.stage/'mid-config.json').read_text())
     gate_spec=importlib.util.spec_from_file_location('mid_gate',a.stage/'src/wcomr/mid_scope.py')
     gate=importlib.util.module_from_spec(gate_spec);gate_spec.loader.exec_module(gate);gate.validate_scope(c)
+    if sha(a.runtime/'cosmos_predict2/_src/predict2/inference/video2world.py')!=c['request_lifecycle_source_sha256']:
+        raise ValueError('Official request reset source changed')
     for name,digest in c['payload_sha256'].items():
         if sha(a.stage/name)!=digest:raise ValueError('New payload changed: '+name)
     build=a.project/'.sync/wc-s1-source-build-r1'
@@ -91,7 +93,8 @@ def main():
                     'probe_depth','worldcache_motion_sensitivity','worldcache_flow_enabled','worldcache_flow_scale',
                     'worldcache_saliency_enabled','worldcache_saliency_weight','worldcache_osi_enabled','worldcache_dynamic_decay']}
         state['wc_settings']=wc_settings
-        if wc_settings['worldcache_num_steps']!=70 or wc_settings['probe_depth']!=2:raise ValueError('WC protocol differs')
+        if wc_settings['worldcache_num_steps']!=params['worldcache_num_steps'] or wc_settings['probe_depth']!=params['worldcache_probe_depth']:
+            raise ValueError('WC constructor differs from frozen setup')
         py_rng=random.getstate();np_rng=np.random.get_state()
         for phase in c['phases']:
             random.setstate(py_rng);np.random.set_state(np_rng)
@@ -110,6 +113,7 @@ def main():
             def forward(*args,**kwargs):
                 nonlocal call
                 call+=1
+                if call==1:gate.request_wc_gate(net,sample.num_steps,params['worldcache_probe_depth'])
                 result['input_hashes'].append(tree_digest([x for x in list(args)+list(kwargs.values()) if isinstance(x,torch.Tensor)]))
                 output=original_forward(*args,**kwargs)
                 result['output_hashes'].append(tree_digest(output))

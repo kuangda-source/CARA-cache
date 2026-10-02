@@ -2,6 +2,12 @@
 import json
 
 
+def request_wc_gate(net, requested_steps, probe_depth):
+    """Call after the official request reset, not constructor initialization."""
+    if net.worldcache_num_steps != 2*requested_steps or net.probe_depth != probe_depth:
+        raise ValueError('Actual request WC horizon/probe differs')
+
+
 def scope_gate(budget, seconds):
     if seconds != 1200 or budget['cap_gpu_hours'] != 12 or any(k.endswith('_inflight') for k in budget):
         raise ValueError('New card requires cumulative12h ledger,1200s cap and no inflight')

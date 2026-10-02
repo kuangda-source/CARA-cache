@@ -1,3 +1,7 @@
+# 最新终态（2026-10-03）
+
+[中间覆盖r1失败与CPU修正](research/70_WC_MIDDLE_R1_FAILURE_AND_REQUEST_GATE.md)：初始化门位置错误，0/104覆盖、退出1，172.900538秒计费；累计3.959780496/12GPUh。新请求reset控制CPU通过，未第二GPU提交；下一覆盖卡待协调分配。
+
 # WorldCache experiments
 
 ## 最新执行授权 — 2026-10-03

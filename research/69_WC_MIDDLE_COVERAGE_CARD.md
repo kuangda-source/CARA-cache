@@ -2,6 +2,8 @@
 
 2026-10-03；累计12GPUh已授权；本卡单次GPU监督墙钟上限1200秒，子进程1170秒截止、5秒强杀余量，余额及资源现场重核。CPU准备限2小时。新run候选`wc-mid-coverage-r1`，不重跑任何旧launch/build/W1/replay，不训练或抢跑RV。
 
+本卡终态：[r1初始化门位置错误/0覆盖与失败结算](70_WC_MIDDLE_R1_FAILURE_AND_REQUEST_GATE.md)。原source375261a与配置保持历史身份；当前仓库已准备首次请求前向的生命周期门修正，但没有第二GPU提交。以下是本卡原预登记范围，不能写成已实现的GPU覆盖。
+
 ## 冻结范围与控制
 
 沿用S0第一个CAL8开发场景`av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632`、seed0/93frames/432×768/guidance7；官方WC近似器与probe保持。UniPC/Karras请求35步、实际36步/72CFG调用、WC70-call horizon保持，仅在第18个完整solver更新（call36）后主动结束。因此没有完整视频、decode或视频质量评价，不绕过安全管线生成输出；文本与输入检查正常执行。
