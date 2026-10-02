@@ -659,6 +659,8 @@ v1.2覆盖初始队列：F1/W1已运行证据复用，不重跑；WC-S0-AUDIT为
 
 ### 第 9–10 个有效工作日
 
+复盘当前缓存候选的真实改进、主要成本与尚未回答的机制问题；下一窗口按最有信息的WorldCache任务与实测预算提议。
+
 
 **两周交付标准：** 可靠 baseline、第一批方法对照、真实成本账本、一个明确的继续/修订/暂停决策。不是必须两周写出论文，也不是只完成工程审计。
 
@@ -682,10 +684,6 @@ v1.2覆盖初始队列：F1/W1已运行证据复用，不重跑；WC-S0-AUDIT为
 
 **[R2]** WorldCache 官方实现，核实日期 2026-09-29；实际运行必须另锁定 commit。  
 `https://github.com/umair1221/WorldCache`
-
-**[R3]** Nguyen-Truong et al., *Off-Manifold Refinement: Guiding Video Generators with a Frozen World Model*, arXiv:2608.29904v1，重点为 §3、Table 1/2、Appendix B/F。  
-
-`https://itruonghai.github.io/omr`
 
 **[R5]** *From Reusing to Forecasting: Accelerating Diffusion Models with TaylorSeers*, arXiv:2503.06923。  
 `https://arxiv.org/abs/2503.06923`

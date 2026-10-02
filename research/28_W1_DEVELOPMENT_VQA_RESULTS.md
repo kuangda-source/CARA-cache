@@ -31,6 +31,6 @@
 
 ## 继续还是转方向
 
-继续最小的评价可信度诊断，不扩大scalar或W2，不据本次弱代理直接转向OMR。CAL8标量7/8机制改善仍在，但重放robot拒绝/MUSIQ3升4降/VQA6平1降尚未给出质量—时间收益。下一matched repeat/black/cyclic错配输入对照覆盖原8/42，不改原方法或已有提示；控制只检查重复稳定和是否响应内容变化，不提供物理准确金标准。固定数据revision根目录只含condition_image/vqa/metadata，此资源检查不等于所有外部ground-truth资源不存在。
+继续最小的评价可信度诊断，不扩大scalar或W2，不据本次弱代理直接切换研究方向。CAL8标量7/8机制改善仍在，但重放robot拒绝/MUSIQ3升4降/VQA6平1降尚未给出质量—时间收益。下一matched repeat/black/cyclic错配输入对照覆盖原8/42，不改原方法或已有提示；控制只检查重复稳定和是否响应内容变化，不提供物理准确金标准。固定数据revision根目录只含condition_image/vqa/metadata，此资源检查不等于所有外部ground-truth资源不存在。
 
 拟下一单GPU最多300秒从剩余额度扣除，先协议冻结/实现/CPU/source同步/fresh预算锁与准入。控制输出尚未生成，不能先写judge通过；即使通过也不能替代标准评价、clean配对计时与独立确认。不引入非必要人评、付费、训练或自动扩额。超出原预算/关键方向选择时先具体方案再交用户。
