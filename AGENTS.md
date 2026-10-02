@@ -1,5 +1,9 @@
 # WorldCache experiment rules
 
+## 最新执行授权 — 2026-10-03
+
+[各项目累计12GPUh与恢复后队列](research/BUDGET_AUTHORIZATION_20261003.md)取代此前仅文档及旧预算限制；保留已用与历史账目，单昂贵任务，GPU优先WC。WC已用3.9117525685110333GPUh、28jobs保持，当前余额8.088247431488967GPUh。先中间刷新/全26深层覆盖准备和无扰动诊断，再H0互补性、H1来源×寿命；W1/replay已完成不重跑，RV后置。旧new4h/clean50不自动转为新队列。新runner须按明确12h权威账本校验，不能重新执行硬编码4h的旧launch。 下述2026-10-02原包适配/仅文档条目为当时快照。
+
 - Read `EXPERIMENT_REPORT.md`, `research/02_CURRENT_STATE.md`, `research/09_NEXT_ACTIONS.md`, and `memory/handoffs/LATEST.md` before continuing. Follow the supplied plans in `plans/`; do not restart unrelated historical projects.
 - User authorized experiment work on the two-card and four-card A6000 servers on 2026-09-29. Select using fresh GPU UUID, VRAM and compute-process observations. No stopping others' jobs, changing shared drivers, or treating idle utilization as admission.
 - First batch: F0 and F1 (4 scenes, 1 seed, Native and official WC), one expensive job at a time. Self-imposed first-batch stop cap: 4 GPU hours including load, failure, diagnostics and flush. This is a conservative execution limit under the current user instruction, not an assertion that the plan itself grants GPU permission. Propose F2/W1 GPU scope from measured costs before expansion; no training or paid scoring in this batch.

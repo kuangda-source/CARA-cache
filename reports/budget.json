@@ -1,9 +1,21 @@
 {
   "batch": "F0-F1",
-  "cap_gpu_hours": 4,
+  "cap_gpu_hours": 12,
   "used_gpu_hours": 3.9117525685110333,
   "gpu_jobs_launched": 28,
   "status": "WC_S1_CROSSED_QKV_SETTLED_REQUIRES_RESULT_AUDIT",
   "gpu_import_probes_completed": 1,
-  "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts"
+  "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts",
+  "budget_authorization_ref": "manifests/budget_authorization_20261003.json",
+  "budget_authorization_history": [
+    {
+      "authorized_utc": "2026-10-02T18:03:00Z",
+      "source_thread_id": "01a0f1e6-7ad0-75df-9a02-172b60d2e00b",
+      "user_instruction": "把各个实验的 gpu 预算都设置为 12gpuh",
+      "previous_cap_gpu_hours": 4,
+      "new_cumulative_cap_gpu_hours": 12,
+      "used_gpu_hours_at_change": 3.9117525685110333,
+      "no_usage_reset_or_transfer": true
+    }
+  ]
 }

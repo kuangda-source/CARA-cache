@@ -1,5 +1,7 @@
 # WC-RV首窗口：先验证刷新收益空间，不先训练Head
 
+[2026-10-03累计12GPUh新授权](../research/BUDGET_AUTHORIZATION_20261003.md)：原建议/未拨款为历史，具体卡仍须资源与停止门，禁止重复旧任务。
+
 2026-10-02；DESIGN_ONLY。按[68完整设计](../research/68_WC_COUNTERFACTUAL_REFRESH_VALUE_DESIGN.md)接续W3，当前冻结WC-S/H工作先完成，执行顺序以[09队列](../research/09_NEXT_ACTIONS.md)为准。
 
 ## A. 可准备内容

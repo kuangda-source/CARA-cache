@@ -1,5 +1,7 @@
 # WorldCache 质量—效率改进：长程实验计划
 
+[2026-10-03累计12GPUh新授权](../research/BUDGET_AUTHORIZATION_20261003.md)：原建议/未拨款为历史，具体卡仍须资源与停止门，禁止重复旧任务。
+
 **仓库分工（2026-10-02）：本库只推进WorldCache。** OMR文档、独立队列与Wan/LongLive支持准备已迁至[omr-experiments](https://github.com/kuangda-source/omr-experiments)。当前WC-S/H冻结工作先完成，预算、运行配置和回执不变。拆分不启动或取消实验。
 
 
