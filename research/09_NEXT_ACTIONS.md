@@ -1,3 +1,7 @@
+## 2026-10-03 第二覆盖卡r2已启动（非终态）
+
+新run wc-mid-coverage-r2/source dac08aa，经实际10项CPU/source/资产/request-reset门后fresh准入；监督2628242/timeout2628258/runner2628259现场存活，初始化阶段。日志outputs/wc-mid-coverage-r2/coverage.log，1200秒监督上限、北京时间07:09:56最大截止。r1已封存且失败172.900538秒计费；r2预留尚未实际结算，不据初始化/live状态报覆盖通过或方法结果。只跟踪同run，不改在跑源码/重复提交、不自行第三GPU窗口。
+
 ## 2026-10-03 第二覆盖卡获协调授权，r1封存
 
 WC-MID-COVERAGE-R2-20261003-A / 唯一新run wc-mid-coverage-r2；沿原call25/26、35/36×layers2..27及prefix/恢复控制，仅修复请求horizon检查生命周期。累计12h、当前已用3.959780495795162h/29jobs保留，单次1200秒上限不变。先新source/hash完整实际CPU/资产门与fresh GPU/锁/余额，再独立r2；原r1只读、不重启，不夹带H0/H1/RV/训练或专家采集。技术失败/超时停止，不自行第三GPU窗口。
