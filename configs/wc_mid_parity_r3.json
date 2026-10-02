@@ -1,0 +1,68 @@
+{
+  "card": "WC-INPUT-STATE-PARITY-R3-20261003-A",
+  "max_gpu_wall_seconds": 1200,
+  "capture_calls": [
+    25,
+    26
+  ],
+  "capture_layers": [
+    2
+  ],
+  "stop_after_solver_steps": 13,
+  "state_steps": [
+    13
+  ],
+  "phases": [
+    "baseline_prefix",
+    "observed_prefix"
+  ],
+  "policy": {
+    "sim": 0.1,
+    "cdf": 0.98
+  },
+  "warmups": 1,
+  "repeats": 3,
+  "pv_skipping": false,
+  "deployment_sparse": false,
+  "minimum_disk_free_bytes": 80000000000,
+  "payload_sha256": {
+    "scripts/run_wc_s0_profile.py": "99b0e80857778e9620add53c7770d5a163a67f6147c804ca4cf81e44679c93eb",
+    "tests/test_mid_coverage.py": "14f3258b021347bd2b0f0430200f6ff1e8067ec9dcd677b8095477915d1a3f06",
+    "tests/test_wc_qkv_snapshot.py": "78258a9a1075e96e78b605a00f9a7d1f393b1095f7ec7782a8f677ce87edeb17",
+    "tests/test_wc_cost_observer.py": "90656553ab72e51d9bbdcb60da16aa1da1957184256ca95445e7ef7ddeeb161e",
+    "src/wcomr/__init__.py": "b9996da0a87bb746cdac0935ead475246fc34d88b37e73f63f14e5065494f311",
+    "src/wcomr/mid_scope.py": "94d02ab46cddd70a0a80e5edb62eb12e22eb2647afe66b6843e6372480bb51ac",
+    "src/wcomr/mid_coverage.py": "8e02d740b4ee794531c6263666bbed18348e32ba84c9b94b89f7c979a106fbf4",
+    "src/wcomr/measurement.py": "c4181ec3220b2fd33d333dffed9ae7163303668b9e152a705d1d70213b45a4c0",
+    "src/wcomr/runtime_config.py": "d35c08a30fb5d0aea31a80e83755c0ed44969988d78c47a65dd3b62a8d507065",
+    "src/wcomr/protocol.py": "afce8e2d52030b46a7b958b4a69963b0ea515c8badb919ae555af2886afa4893",
+    "src/wcomr/guardrail_observation.py": "ac98299a3ac22d1db8b23404d6c03d77a75b955f7ea149039fdf494a5d0bf880",
+    "src/wcomr/decoder_policy.py": "57e1369909dfa9db5ea6ab563b275fe7376bea14d0b247dd7748e79fccf8699b",
+    "src/wcomr/stage_witness.py": "78247cc3137d1ea032425c392aa728f35b83fcd0d748f21be4cb3c3d7995ae09",
+    "src/wcomr/wc_qkv_snapshot.py": "e0442429ea804c21b2c5db1ab9c3dd45da4e3e6239dd306192b8d72cf3ecc98c",
+    "src/wcomr/sparge_no_pv.py": "5cce08ad13cf61d62eef2781417075468d92b65c535ea2b0a8434bcf46398e6e",
+    "src/wcomr/sparge_routed_no_pv.py": "7e895502101be1164d18fc5c04ddbc6ad4fb7aec034eb9c79a18ccbc1bb8b0b4",
+    "src/wcomr/wc_cost_observer.py": "6306262e2278ba4b9e162dc7b542dbd6983c1e8737ead8da8d7133078938b7df",
+    "profile-config.json": "e27f5d7cec52b393c2ea9c0fc37c931b0d912ce4530550ed59bdfedcb4158a0c",
+    "tests/test_mid_request_lifecycle.py": "0d67060a610447f6df499b4e38841c7c1b7d125ada1be9216b593af59221e1fb",
+    "scripts/run_wc_mid_parity.py": "3989409f2fc4f83842ae1bf92badbd010fb701c27db5d552b10c8afd0cad7714",
+    "scripts/supervise_wc_mid_parity.py": "60198842521c6b1fca6ecda0691f4b6a886901323182b6388694f8800a56f0be",
+    "src/wcomr/mid_parity_scope.py": "9148efafe28a45603dae2034721accc03251bc4bb1ef802785c4d6c3f3ca0714",
+    "src/wcomr/prepared_input.py": "aa2d916a56d8ac1f7afd8a551c20341d5bed86299f97b0711019517f0e0effdb",
+    "src/wcomr/mid_prefix_audit.py": "218dba5b59a76919bcb03dae0ccba4dae69dc40dc4035aac968f7f85cb14fe0e",
+    "tests/test_prepared_input.py": "e86b30a9fbd4df12a56a58d8de2a499487eff943771800b99be2a79a305183b6",
+    "tests/test_mid_prefix_audit.py": "8d24655bba3121eab69592b59ca5fbab70f9fe29633838437955898c10fd90d9",
+    "manifests/wc_mid_parity_r3_authorization_20261003.json": "2393492d755f3295419dba77db51038f6549cfcd6a630793f8b284b1dd1a25a7"
+  },
+  "scope": "independent_shortest_prefix_input_full_state_parity_not_quality_or_h0",
+  "source_contract": "reuse old S0 asset validation only; no old job execution",
+  "request_lifecycle_source_sha256": "59aa9e236a5e7e26490f5cfcb94ab95ce911d9c38eba61dd8aef7d067e458a95",
+  "prior_run_preserved": [
+    "wc-mid-coverage-r1",
+    "wc-mid-coverage-r2"
+  ],
+  "r3_change": "Share official prepared batch and replay full RNG transition; named input/condition/state signatures; keep all original gates",
+  "cpu_card": "WC-PREPARED-INPUT-CPU-20261003-A",
+  "authorization_ref": "manifests/wc_mid_parity_r3_authorization_20261003.json",
+  "no_r4_authorization": true
+}

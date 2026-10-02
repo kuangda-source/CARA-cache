@@ -1,3 +1,7 @@
+## 2026-10-03 独立prepared-input CPU修复及条件r3卡
+
+[72冻结卡](../../research/72_WC_PREPARED_INPUT_CPU_AND_R3_CARD.md)：协调者在r2封存后明确授予WC-PREPARED-INPUT-CPU-20261003-A，以及CPU/资产/来源/成本门通过后的唯一wc-mid-parity-r3；这是独立授权，原r2 FAIL不变。共享官方prepared batch及完整RNG转移、全部命名输入/condition/状态组件，保留原全部门；只到step13/call26，call25/26×layer2的2QKV/6case，1200秒全cost硬上限。先actual CPU/source/资产再fresh GPU/锁/余额，禁止r4自动加窗及提前H0/H1/RV/训练/专家采集。当前CPU准备，未r3 GPU准入或提交。以下无第三窗口限制是r2封存时历史，本卡由后续明确协调授权替代。
+
 ## 2026-10-03 最新终态 — r2输入/完整状态门失败，部分算子诊断已审计
 
 [71终态与CPU定位](../../research/71_WC_MIDDLE_R2_RESULTS.md)：wc-mid-coverage-r2/source dac08aa退出1，104/104 QKV、312/312 case原始文件/source/repeat审计通过。两前缀各18 solver更新/36 CFG输出、trace/块数/时间网格相同，但两处完整状态指纹及36输入聚合哈希均不一致；原TECH_BLOCKED不升级为PASS。算子中位1.215×、双筛查62/104，只能局部诊断，不是视频质量或端到端加速。第13/18步observed进程内restore通过不解锁整管线反事实接口。
