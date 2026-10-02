@@ -1,3 +1,7 @@
+## 2026-10-03 r3唯一任务已fresh准入（初始化非终态）
+
+[现场回执](../../reports/wc_mid_parity_r3_start_observation_20261003.json)：wc-mid-parity-r3/source4bd3b72，supervisor2633815/timeout2633897/runner2633899存活，指定UUID/无其他compute且24MiB通过准入；实际runner初始化。1200秒GPU监督预留，实际child起算最大截止北京时间07:56:45；前两卡失败/成本封存。只跟踪同一handles到终态，不改在跑源码、不重复提交、不自行r4，仍无新视频或H0/H1/RV结果。
+
 ## 2026-10-03 r3实际CPU17/全部来源资产门通过（未GPU）
 
 [回执](../../reports/wc_mid_parity_r3_deployment_20261003.json)：独立source4bd3b72，actual Torch2.7.1+cu128的17项CPU、固定官方prepare OFF/ON、UniPC下一步恢复及完整资产/import/package门通过；CUDA未初始化、账本不变。接下来仅本卡fresh准入后的唯一wc-mid-parity-r3；不重启原r2，原FAIL不变，H0/H1/RV不解锁，禁止r4自动加窗。
