@@ -433,4 +433,3 @@ w1-vqa-controls-r1/source72c9e24 exit0，supervisor2488580/timeout2488585/runner
 已实现仅T2V的scope adaptation，guide1直接conditional、guide!=1保留原CFG运算，finally恢复，不改源文件/i2v。Local/Linux7检查通过；完整native T2V body+真实UniPC/CPU替身在4/50步guide5输入/timestep/输出bit equal，guide1分别4/50cond/0negative。不是实际模型/GPU parity；保留BF16guide1的stock抵消差异，不称guide1 OFF/ON bit invariant。
 
 ## 2026-10-01：actual原生CPU probe终态验收
-

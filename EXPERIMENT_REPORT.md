@@ -296,4 +296,3 @@ runner先hash绑定完整CAL8/reference screen并重新计算screen、校验setu
 2026-10-01 输入对照终态：原8/126、repeat完全一致/blank与cyclic各14变化，全hash/raw与成本审计通过；累计3.6512467238638138/4h。现有方法仍机制only/代理无收益；下一窗口具体成本方案待决定，未新GPU。见[控制结果](research/30_W1_VQA_INPUT_CONTROLS_RESULTS.md)和[成本方案](research/31_W1_NEXT_WINDOW_COST_AND_DECISION.md)。
 
 2026-10-01 clean计时CPU准备：原8×2×3/48计时+2预热顺序冻结，runner/summarizer/14400秒监督实现，本地Linux48CPU、真实validate-only和未批准预算拒绝通过；主runtime/账本未变、新GPU未提交。见[准备卡](research/32_W1_CLEAN_TIMING_CPU_PREPARATION.md)。
-
