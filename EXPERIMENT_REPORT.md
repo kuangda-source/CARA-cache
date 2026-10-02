@@ -1,12 +1,12 @@
-# WorldCache / OMR 实验文档与跨设备接续入口
+# WorldCache 实验文档与跨设备接续入口
 
-**对话分工（2026-10-02）：当前对话只推进WorldCache。** OMR已转入独立对话“OMR 物理纠正研究”（ID `01a0fb1f-9751-7ff1-851a-59bdb4f413ef`），接续见[OMR交接](memory/handoffs/OMR_DIRECTION_20261002.md)。历史OMR设计/资产保留，但不作为当前对话自动切换的后备队列。WorldCache既有冻结工作与WC-S/H顺序保持，先完成当前范围，不取消或重启；本次分离不改变GPU预算或启动新实验。
+**仓库分工（2026-10-02）：本库只推进WorldCache。** OMR文档、独立队列与Wan/LongLive支持准备已迁至[omr-experiments](https://github.com/kuangda-source/omr-experiments)。当前WC-S/H冻结工作先完成，预算、运行配置和回执不变。拆分不启动或取消实验。
 
 **执行顺序约束（用户2026-10-02）：当前工作不取消，先按原范围完成并审计，再考虑本轮新增设计。** 保留已冻结运行的配置、source、预算、失败和输出；当前S1结果归档/中间刷新覆盖准备优先，v1.3的寿命与分组卡后置。本次不终止进程、不重置运行或以新候选替代未完成工作。
 
-更新日期：2026-10-02（北京时间）；文档版本：v1.2；实验计划版本：v1.3。
+更新日期：2026-10-02（北京时间）；文档版本：v1.3（仓库分离）；实验计划版本：v1.3。
 
-本项目研究视频世界模型的质量—时间折中：以 Cosmos-Predict2.5 上的 WorldCache 低开销改进为当前主线，OMR 物理纠正由独立对话负责。本文是持续更新的实验总览，固定使用此文件名；具体参数、原始回执和完整计划通过相对链接引用，适用于任何设备上的仓库副本。
+本项目研究视频世界模型的质量—时间折中：以 Cosmos-Predict2.5 上的 WorldCache 低开销改进为当前主线。本文是持续更新的实验总览，固定使用此文件名；具体参数、原始回执和完整计划通过相对链接引用，适用于任何设备上的仓库副本。
 
 结构参考既有 `physcache_full_experiment_report.md` 的背景、假设、实验演进、结果和下一步组织方式。仅借鉴文档结构，不继承 PhysCache 的结论、样本、预算或执行权限。
 
@@ -36,7 +36,7 @@
 
 最新进展：[WC-S0实际checkpoint/源码接口审计](research/56_WC_S0_SOURCE_SHAPE_AND_KERNEL_AUDIT.md)已CPU通过，meta689/28层形状与六个runtime SHA核对；真实QKV仍需hook。已固定SpargeAttn11文件并发现full-mask仍默认PV跳过，首轮采用no-PV控制。S0接口依据保留；后续CPU构建已在上面的S1终态验收，GPU kernel/profile仍未通过；[WC-S设计](research/55_WC_SPARSE_COMPUTE_COMPRESSION_DESIGN.md)及长程v1.2保持逐门执行，未GPU/未扩额。原clean50提案保留待决策。
 
-**暂停scalar/W2复杂化；新增WC-S有界分支，先测WC后瓶颈/真实kernel，再比较组合与计算替换。当前仍只有机制信号，没有新方法质量—时间收益。** 原开发VQA6平1misc降/scene等权−3.174603pp、MUSIQ3升4降/robot拒绝保持。重复/明显内容变化对照不验证物理正确性，不直接否定方法或切OMR。
+**暂停scalar/W2复杂化；新增WC-S有界分支，先测WC后瓶颈/真实kernel，再比较组合与计算替换。当前仍只有机制信号，没有新方法质量—时间收益。** 原开发VQA6平1misc降/scene等权−3.174603pp、MUSIQ3升4降/robot拒绝保持。重复/明显内容变化对照不验证物理正确性，不直接否定方法。
 
 | 项目 | 最新终态证据（2026-10-01） |
 |---|---|
@@ -56,12 +56,6 @@
 
 依据：[F1 r3配对汇总](reports/f1_smoke_r3_summary.json)、[W1-P0终态结果](research/12_W1_P0_TERMINAL_RESULTS.md)、[实时恢复审计](reports/w1_p0_r1_recovery_audit.json)、[预算账本](reports/budget.json)。
 
-最新L0 CPU资源：[全两臂完整CPU产物验收](research/42_L0_FULL_CPU_FUSION_ARTIFACT_ACCEPTANCE.md)。真实两臂CPU融合与独立fresh audit均终态通过：fusion1960.417015秒/peakRSS30.8287GiB，audit663.896945秒；18原输入融合前后及fresh官方digest一致，6输出shard/1650实际tensor全finite与dtype/shape/字节digest通过，1050未目标weight原字节不变，两臂各300目标实际bytes_changed。所有原fusion/审计6PIDs退出/CPU锁释放/source与GPU账本不变。仍未实际模型/T5/VAE加载或任务/GPU就绪。
-
-最新隔离环境：原生probe-r1/source0da2b73已exit0/CPU20.307796秒，独立终态审计通过；actual Torch/Torch._C/Flash Python与extension origins/SHA、CPPABI false、pinned60完整Wan import（明确仅T5默认设备CPU guard）通过，825meta结构对实际base headers一致、真实tokenizer512与conditional scope签名/恢复通过。原3PIDs退出/环境锁释放，native60/installed93/source与GPU账本未变、CUDA未初始化。没有实际DiT/T5/VAE权重load、forward、完整任务或GPU parity。 [完整CPU验收与下一门](research/54_L0_ACTUAL_NATIVE_CPU_IMPORT_ACCEPTANCE.md)。
-
-[公共native T2V CPU准备](research/36_L0_NATIVE_CONDITIONAL_CPU_PREPARATION.md)本地/Linux7通过；真实模型/GPU未验收。
-
 ## 2. 研究背景、假设与判定方式
 
 目标是在相同质量下更快，或在相同时间下质量更好。比较对象应包含合理调参的官方缓存与原生少步采样，避免只超过一个默认配置。研究成功需落在端到端质量—时间曲线上，特征误差降低只作机制证据。
@@ -71,21 +65,17 @@
 | H-W1：简单收缩或浅深层增量校准能改善跨步残差近似 | 同状态 shadow → 固定跳步闭环 → 自由调度下的质量—时间对照 | CAL8同状态scalar机制信号；固定schedule技术通过，MUSIQ混合/开发VQA无代理收益，质量—时间未证，额外计算抵消收益则停止深化 |
 | H-S：复用、稀疏刷新与密集刷新可改善计算分配 | WC后profile → 真实内核三对照 → 四臂闭环/模块替换 → 条件三档与增量诊断 | S0成本/12 QKV审计与合成S1硬件门完成，真实选择/闭环未验收；无净收益停止复杂化，不能相乘加速比 |
 | H-W1D：残差误差大小不能完全代表下游危害 | 对照残差 MSE、最终速度预测误差/方向与局部伪影 | CAL8所有8样本有内部排序差异；未联系视频物理损害，先全局scalar闭环 |
-| H-J：减少不必要的 OMR 纠正调用/梯度可改善折中 | 先复现有效原版，再测稀疏、未来侧梯度与复用 | 资源与兼容性待复核；原版无效或 adapter 不匹配时不做归因 |
-| H-L：预训练 CFG / 少步适配器是值得纳入的强基线 | 同一兼容 Wan5B 上原生、CFG-only、四步 Few-step+CFG 三臂 | L0两臂真实CPU融合及独立fresh产物审计、独立93包安装及guarded native import/ABI/meta/tokenizer通过；真实模型权重/任务和GPU仍待验证；小批次仅筛查可用性 |
 
 不把 PhysCache 的历史物理损伤、抖动或运动结果当作本项目先验结论。若出现运动变少、模糊或动作未完成，不能仅凭“更平滑”指标宣称改进。
 
 ## 3. 技术路线与新增参考工作的定位
 
-当前执行顺序：**复用F1/W1证据 → WC-S0/S1成本与内核 → S2简单组合 → S3计算替换 → 信号具备才S4/S5与独立确认**。F2强基线曲线保留；L0已验收资产复用、剩余模型load门按需求补齐；OMR待资源，不开第二昂贵主线。一次仅运行一个昂贵任务。
+当前执行顺序：**复用F1/W1证据 → WC-S0/S1成本与内核 → S2简单组合 → S3计算替换 → 信号具备才S4/S5与独立确认**。F2强基线曲线保留；不同时开第二昂贵主线。一次仅运行一个昂贵任务。
 
 - **WorldCache**：W1已诊断且质量未证，暂停scalar复杂化；WC-S先固定跳步位置/probe，匹配full-mask控制，随后按成本替换模块。三档标记dense/sparse来源，稀疏状态不作真实anchor。
 - **QuantWM 启发的 W1-D**：借鉴“误差大小与下游影响分开测量”。当前 shadow 真值只用于评分，不能回写部署缓存、系数或刷新规则；诊断额外计算计入预算，部署测速关闭。暂不展开完整 KV 量化线。
-- **LongLive-Plug L0/L1**：只在已核实兼容的 Wan2.2-TI2V-5B 上开展三臂测试；8 个预冻结场景、1 seed，条件具备且看质量前可登记扩到 12。提议上限 2 GPU·h 从现有 4 小时中划拨，先保留 F2/W1 成本，不自动增加预算。
-- **OMR J6 / 组合 X3 / Physics-LoRA J5-P**：匹配生成器、VAE 与 adapter，并证明单模块有效后才进入；参数可叠加不代表能力可叠加，单模块加速比不能相乘。训练仍保留重大决策节点。
 
-跨模型家族的参数兼容、适配器精确版本和机器可用性必须在执行前核实。Wan 与 Cosmos 不按绝对耗时直接排胜负。文献事实和未核实资源见[来源清单](manifests/plan_update_sources_20260930.json)；完整实验设计见[长程计划](plans/LONG_HORIZON_EXPERIMENT_PLAN_WorldCache_OMR_20260929.md)和[首批说明](plans/CODEX_FIRST_BATCH_WorldCache_OMR_20260929.md)。
+跨模型家族的参数兼容、适配器精确版本和机器可用性必须在执行前核实。Wan 与 Cosmos 不按绝对耗时直接排胜负。文献事实和未核实资源见[来源清单](manifests/plan_update_sources_20260930.json)；完整实验设计见[长程计划](plans/LONG_HORIZON_EXPERIMENT_PLAN_WorldCache_20260929.md)和[首批说明](plans/CODEX_FIRST_BATCH_WorldCache_20260929.md)。
 
 ## 4. 当前冻结协议与资源
 
@@ -115,7 +105,6 @@
 | F1 r1 | 首个 Native 视频产出，旧 70-call 断言失败；[终态](reports/f1_smoke_r1_supervisor.json)、[解码检查](reports/f1_smoke_r1_decode.json) | 调度诊断发现实际 72 次调用；未保存的精确计数不得补造；不与 r2 混池测速 |
 | 协议决定 | 用户要求先完成当前代码技术对照；[决定记录](research/10_SAMPLER_PROTOCOL_DECISION.md) | 固定 36 时间点 / 72 调用，保留 WC 70 计数周期；Euler 后续单列 |
 | F1 r2 | 2 个 Native 输出；第三个被视频过滤，监督进程 1042.542395 秒后 exit 1；[终态](reports/f1_smoke_r2_supervisor.json) | 不关闭过滤器，不删失败凑通过率；WC 未开始，技术对照未完成 |
-| 计划 v1.1 | 加入 L0/L1、W1-D、J6/X3/J5-P | 计划更新，没有启动新的 Wan / OMR / 训练任务 |
 
 以上都是工程/规划进展；尚无新的研究方法得到质量—时间验证。
 
@@ -144,7 +133,7 @@ v1.2覆盖下列原成本排队建议：先完成WC-S0非GPU代码/shape/成本�
 2. 余1255.511794秒，旧原8×两臂诊断3141.247秒（不是clean下界）；不能稳妥提交完整计时，不挑好子集替代原8。
 3. [下一窗口](research/31_W1_NEXT_WINDOW_COST_AND_DECISION.md)提议新4GPUh原8×两臂×3repeat clean成本门，或先CPU核对替代资源。预算/范围待用户决定；新runner原8/50已实现/本地Linux48CPU与真实validate-only通过，未GPU、不自动扩额。
 4. 批准后实现/CPU/协议与Git同步/hash部署/fresh锁GPU准入，失败与原拒绝保留，partial不凑完整结论；source/身份不混用旧run。
-5. 成本通过也不替代强质量指标/调优WC和原生少步曲线/DEV独立确认。暂不加W2/切OMR、无人评/付费/训练。
+5. 成本通过也不替代强质量指标/调优WC和原生少步曲线/DEV独立确认。暂不加W2、无人评/付费/训练。
 
 ## 8. 多设备、多对话同步约定
 
@@ -284,8 +273,6 @@ W1-S1 r2收尾：8项真实诊断一致性验收通过；四点velocity sum-MSE�
 
 终态归档/审计后执行原screen与新descriptive analysis；plot依赖可用pip install -e '.[analysis]'安装到本地环境。所有partial显式NO_DECISION。接续原PIDs，不重启/改公式/增加样本。没有重要问题时按协议自行收尾和评估下一有界任务。
 
-## 以下为历史快照
-
 ## 最新接续 — 2026-09-30：CAL8终态，scalar机制信号，固定重放准备
 
 w1d-cal8-r1（部署源62f1c0d）完整终态：8/8场景、每样本8点/17项OFF-ON检查全真；16接受视频重新hash匹配，原supervisor2461004/timeout2461009/runner2461011均退出，exit0/无stop reason，锁可用、GPU1 24MiB/noapps，699监控点无观察到其他compute。原始runner/supervisor/audit/summary/analysis/figure已归档reports/w1d_cal8_r1_*；旧live与partial文件都是历史，不得重启旧任务。
@@ -295,8 +282,6 @@ w1d-cal8-r1（部署源62f1c0d）完整终态：8/8场景、每样本8点/17项O
 本批监督3590.173902秒/0.997270528h，累计2.995044843355815/4h，余1.004955156644185h，无在途成本。下一固定schedule scalar-recent闭环最多3000秒/0.833333h，仍原budget内。CPU模块fixed_replay.py及24项针对性检查通过，协议已冻结完整8原trace/hash/参数；[准备卡](research/22_W1_REPLAY_PREPARATION.md)、[manifest](manifests/w1_fixed_replay_protocol.json)、[CPU回执](reports/w1_fixed_replay_cpu_20260930.json)。runner/监督模式尚未实现、未Linux部署、未CUDA/生成测试，不能称候选已经跑过。
 
 下一步自主实现有监督runner：firstAV新official fixed replay对旧OFF严格复现，再scalar OFF/ON自身parity，通过后原其余7scalar OFF；共10generation，firstcandidateOFF计入8成员。自己当前latent/probe/full anchors，shadow truth只评分，不回放旧latent。不择优/替换misc；拒绝保留，技术异常停止。预算forecast2224.619秒+30%=2892.004秒，cap3000；提交前重新核验旧handles/锁/余额/GPU/source/hash/LinuxCPU。尚无第二任务/额外预算/训练/付费评分/人评。代码与docs推送后的新HEAD不改变旧source62运行身份。
-
-## 以下为历史快照
 
 ## 最新接续 — 2026-10-01：fixed replay runner本地实现/CPU通过，待部署
 
@@ -312,22 +297,3 @@ runner先hash绑定完整CAL8/reference screen并重新计算screen、校验setu
 
 2026-10-01 clean计时CPU准备：原8×2×3/48计时+2预热顺序冻结，runner/summarizer/14400秒监督实现，本地Linux48CPU、真实validate-only和未批准预算拒绝通过；主runtime/账本未变、新GPU未提交。见[准备卡](research/32_W1_CLEAN_TIMING_CPU_PREPARATION.md)。
 
-2026-10-01 L0资源核验：Wan5B base资产11hash通过、native3文件/官方来源和两个公开LoRA release锁定，header结构及16CPU通过；无完整LoRA payload/真实融合/GPU，OMR公开资源未发布。GPU账本未变。
-
-2026-10-01 L0 CPU获取live：两套锁定适配器匿名官方下载、source68afc3e/3600秒，同3PIDs真实live、CFG70MiB partial，未全SHA/融合/模型前向。主GPU账本不变，拥有的临时forward终态再关闭，未改变共享路线。
-
-最新资源终态：[r3最后range失败与r4恢复](research/37_L0_RANGE_R3_TERMINAL_AND_R4_RECOVERY.md)。L0 range-r3/sourcebd8253d已exit1/1216.976277秒终态；最后range三次URLError，已提交43个16MiB chunk，保留1277165568字节（1218MiB），仍缺12658832字节。CFG4文件/两few-step JSON官方digest PASS，few-step模型MISSING；原3PIDs退出/CPU锁释放/source与协议一致/账本不变，完整审计后仅关闭本任务owned r3转发。下一新唯一r4从保留prefix续传，同官方revision/16MiB/3600秒上限；未新GPU、未完整few-step hash/真实融合。
-
-最新真实CPU融合：真实Wan5B两臂CPU fusion-r1/sourcec69e492已唯一启动。supervisor2502473/timeout2502474/runner2502475实际/proc live，独立fusion锁持有、CUDA空/source固定与账本未变。准入时MemAvailable59360669696字节（55.3GiB）、磁盘720206147584字节（670.7GiB）；3600秒CPU cap，当前完整输入hash阶段/未创建模型目录，尚未完成merge或产物验收。 [运行卡](research/38_L0_FULL_ADAPTER_PAYLOAD_AND_REAL_CPU_FUSION.md)。
-
-最新CPU融合进度：fusion-r1/sourcec69e492同3PIDs实际live，CFG-only一臂已全部825张量/3分片完成融合、独立公式、有限性、未目标字节不变与序列化重读验收；完整两臂及末尾原输入hash尚未完成。CPU锁持有/source一致/账本未变，维持3600秒cap，不重复启动。
-
-最新两臂/环境门：真实CPU两臂均已825/3分片内部验收；完整posthash/终态与独立fresh artifact审计仍待。新独立env已创建，实际offline缓存解析缺Torch2.4.1+cu121，未装包。独立CPU终态审计程序已准备/语法检查，待原3PIDs退出/锁释放后唯一timeout900秒执行，不重跑融合/改stage/新GPU。 [准备](research/40_L0_CPU_FUSION_AUDIT_AND_ENV_CACHE.md)。
-
-最新CPU融合终态：CPU fusion-r1/sourcec69e492已exit0/1960.417015秒终态，peak RSS30.8287GiB；两臂各825tensor/3分片/300目标/525未目标完整，18原输入融合前后官方digest一致，3PIDs退出/CPU锁释放/source与GPU账本不变。完整独立fresh产物审计尚未执行，不能称模型/任务/GPU就绪。
-
-最新独立审计/二进制资源：CPU audit-r1/sourcedbe863c已唯一实际启动，3PIDs2505483/2505484/2505485 live、900秒cap/锁持有/source与GPU账本不变。fresh18输入/CFG-only825tensor与3shard/525untargeted通过，few-step+CFG尚待。官方Torch三wheel SHA与Flash官方asset ID/size已锁，Flash官方digest UNKNOWN；均未下载/安装，实际ABI/fullruntime未通过。 [运行卡](research/41_L0_FRESH_AUDIT_AND_BINARY_SOURCE_LOCK.md)。
-
-最新CPU完整验收：真实两臂CPU融合与独立fresh audit均终态通过：fusion1960.417015秒/peakRSS30.8287GiB，audit663.896945秒；18原输入融合前后及fresh官方digest一致，6输出shard/1650实际tensor全finite与dtype/shape/字节digest通过，1050未目标weight原字节不变，两臂各300目标实际bytes_changed。所有原fusion/审计6PIDs退出/CPU锁释放/source与GPU账本不变。仍未实际模型/T5/VAE加载或任务/GPU就绪。 [完整卡](research/42_L0_FULL_CPU_FUSION_ARTIFACT_ACCEPTANCE.md)。
-
-最新native binary获取准备：四个固定native binary获取程序已实现；本地/Linux11同范围CPU检查通过（不是22项独立证据），涵盖range/rollback/完整SHA、错误wheel名称版本平台、Flash断流续传/冻结local SHA/损坏cache拒绝及官方asset身份改变拒绝。完整wheel尚未下载、依赖未安装/native ABI未验收。 [准备卡](research/43_L0_NATIVE_WHEEL_ACQUISITION_PREPARATION.md)。

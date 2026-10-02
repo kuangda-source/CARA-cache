@@ -31,4 +31,4 @@ N256 dense中位数0.17696ms，full/50%/25%候选1.3434/1.3340/1.3478ms；三候
 
 决策：保留Sparge no-PV作为当前硬件上可执行候选，**不解锁自由三档控制或直接四臂视频比较**。下一优先S0官方WC单场景剩余成本与真实QKV采集，确认deep self-attention的实际shape/stride/dtype及q/k重要性结构，再比较已有统计选择策略/匹配full-mask数值误差和路由时间。完整profile不是本轮70ms微基准，不能用Native注意力占比替代WC后的可优化占比。
 
-固定band误差大只否定其在本输入的保质用途，不否定数据驱动稀疏注意力，也不直接切OMR。模型QKV上full-mask误差/任务保持仍需实测；即使kernel快也需WC后成本占比及同预算质量证据。下一GPU工作仍事前固定scope/cap并fresh准入；余额内有界S0准备可继续，超出现有4h才提重要预算决定。旧launch/kernel不重复运行。
+固定band误差大只否定其在本输入的保质用途，不否定数据驱动稀疏注意力，也不直接切换研究方向。模型QKV上full-mask误差/任务保持仍需实测；即使kernel快也需WC后成本占比及同预算质量证据。下一GPU工作仍事前固定scope/cap并fresh准入；余额内有界S0准备可继续，超出现有4h才提重要预算决定。旧launch/kernel不重复运行。

@@ -1,4 +1,4 @@
-# WorldCache / OMR experiment rules
+# WorldCache experiment rules
 
 - Read `EXPERIMENT_REPORT.md`, `research/02_CURRENT_STATE.md`, `research/09_NEXT_ACTIONS.md`, and `memory/handoffs/LATEST.md` before continuing. Follow the supplied plans in `plans/`; do not restart unrelated historical projects.
 - User authorized experiment work on the two-card and four-card A6000 servers on 2026-09-29. Select using fresh GPU UUID, VRAM and compute-process observations. No stopping others' jobs, changing shared drivers, or treating idle utilization as admission.
@@ -10,3 +10,5 @@
 - A GitHub connector atomic tree/commit/ref update may be used when local Git credentials are unavailable. Verify the resulting commit and file tree; preserve remote README and parent history. Record local-to-remote mapping under ignored `.sync/`.
 
 - Maintain `EXPERIMENT_REPORT.md` as the stable cross-device experiment overview. After meaningful experiment changes, update its evidence-bound results/decisions plus next actions and handoff in the same sync. Follow its Git conflict and single GPU submitter protocol; Git synchronization is not a distributed runtime lock.
+
+- This repository is WorldCache-only. OMR plans, Wan/LongLive support preparation and future OMR edits belong to private kuangda-source/omr-experiments. Do not switch this queue to OMR; finish existing frozen WC work first. Shared legacy wcomr package/project identifiers and historical deployed paths are retained for compatibility.

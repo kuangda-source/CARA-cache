@@ -1,58 +1,18 @@
-最新CPU运行：[六个大依赖分段获取](research/49_L0_TRANSITIVE_WHEEL_RANGE_ACQUISITION_RUN.md)，旧安装已终态/新env空/无native import或GPU。
+# WorldCache experiments
 
-**对话分工（2026-10-02）：当前对话只推进WorldCache。** OMR已转入独立对话“OMR 物理纠正研究”（ID `01a0fb1f-9751-7ff1-851a-59bdb4f413ef`），接续见[OMR交接](memory/handoffs/OMR_DIRECTION_20261002.md)。历史OMR设计/资产保留，但不作为当前对话自动切换的后备队列。WorldCache既有冻结工作与WC-S/H顺序保持，先完成当前范围，不取消或重启；本次分离不改变GPU预算或启动新实验。
+视频世界模型质量—时间折中研究，当前主线为Cosmos-Predict2.5上的WorldCache计算压缩、稀疏刷新与缓存来源/寿命设计。
 
-最新资源状态：[安装超时终态及六包分段获取准备](research/48_L0_INSTALL_TIMEOUT_AND_TRANSITIVE_RANGE_PREPARATION.md)，新env仍空/无native import或GPU。
+**仓库分工（2026-10-02）：本库只推进WorldCache。** OMR文档、独立队列与Wan/LongLive支持准备已迁至[omr-experiments](https://github.com/kuangda-source/omr-experiments)。当前WC-S/H冻结工作先完成，预算、运行配置和回执不变。拆分不启动或取消实验。
 
-最新CPU运行：[隔离原生环境安装](research/47_L0_NATIVE_ENV_INSTALLATION_RUN.md)，93包hash lock安装进行中/未native import或GPU。
+从[实验总览](EXPERIMENT_REPORT.md)开始，再阅读[当前状态](research/02_CURRENT_STATE.md)、[下一步](research/09_NEXT_ACTIONS.md)、[交接](memory/handoffs/LATEST.md)、[长程计划](plans/LONG_HORIZON_EXPERIMENT_PLAN_WorldCache_20260929.md)及[首批说明](plans/CODEX_FIRST_BATCH_WorldCache_20260929.md)。
 
-最新CPU终态：[93包完整原生依赖hash lock](research/46_L0_NATIVE_ENV_DEPENDENCY_RESOLUTION_RUN.md)，安装和native import尚待。
+当前方案v1.3：[WC-S计算压缩](research/55_WC_SPARSE_COMPUTE_COMPRESSION_DESIGN.md)与[WC-H来源/有效期](research/65_WC_HIERARCHICAL_PROVENANCE_LIFETIME_DESIGN.md)。当前冻结工作先完成，再考虑新增分组/寿命实验。
 
-最新CPU运行：[隔离原生完整依赖解析](research/46_L0_NATIVE_ENV_DEPENDENCY_RESOLUTION_RUN.md)，尚未安装/实际native import。
+已审计[四组真实QKV结果](research/64_WC_S1_FACTORIAL_RESULTS.md)：两任务144case；sim0.1/cdf0.98中位操作加速1.286×、双筛查6/12，但layer27四输入均超5%误差。没有统一全输入配置或稀疏视频方法的质量—时间验收。下一步是准备中间刷新/全26深层覆盖诊断。
 
-最新资源终态：[完整native binary验收及CPU导入保护](research/45_L0_NATIVE_BINARY_ACCEPTANCE_AND_CPU_IMPORT_GUARD.md)，完整依赖安装/原生环境尚待。
+历史预算快照3.9117525685110333/4GPUh，余317.690753秒；非当前服务器准入。原new4GPUh/clean50提案仍待决定，仓库迁移不分配新额度。
 
-最新资源状态：[native binary CPU获取运行](research/44_L0_NATIVE_WHEEL_ACQUISITION_RUN.md)，完整payload/环境尚未验收。
-
-# WorldCache / OMR experiments
-
-Private research workspace for improving the quality–time tradeoff of video world models. Initial priority: reproduce Cosmos-Predict2.5-2B Native and WorldCache, then test simple residual calibration. OMR is a conditional second direction.
-
-## 实验文档与跨设备接续
-
-从[实验总文档](EXPERIMENT_REPORT.md)开始：研究假设、协议、已完成结果、失败、预算和下一步均有证据链接。新设备或新对话先同步 Git，再按文档中的接续顺序核实运行状态；后续持续更新同一文件。
-
-## Current status
-
-Current plan v1.3 (2026-10-02): [cache provenance and reuse lifetime by small layer groups](research/65_WC_HIERARCHICAL_PROVENANCE_LIFETIME_DESIGN.md). First fill actual middle-refresh/all-depth coverage, then low-intrusion S/D and C/S/D complementarity, dense/full/sparse sources × reuse1/2/4, and only with evidence a two-group dynamic policy. Static/age-only/source/lifetime/action-location controls address direct related work. This update launches no GPU job or training.
-
-Latest audited results: [four actual-QKV configurations](research/64_WC_S1_FACTORIAL_RESULTS.md),144cases across two jobs. sim0.1/cdf0.98 median operator speed1.286× passes both screens6/12 but fails all four layer27 inputs; no global all-input configuration, no sparse video/method quality-time acceptance. Ledger3.9117525685110333/4GPUh,317.690753s remaining. Older dated snapshots below retain their historical statuses.
-
-Latest: [S1 actual A6000 kernel results](research/59_WC_S1_REAL_KERNEL_RESULTS.md):8 cases complete/11.726698 GPU seconds, large-N wall70.35/71.64/39.77/23.65ms for dense/full/50%/25%. Full-mask RMSE1.32% passes numerical gate; static sparse masks have large errors. Used3.6545041399802236/4GPUh, no in-flight or budget extension. Next: actual model QKV and remaining WC cost profile, not video method acceptance.
-
-Latest CPU terminal: [complete upstream build and no-PV wrapper](research/57_WC_S1_ISOLATED_UPSTREAM_BUILD.md) passed:648.948283s/two sm86 extensions, fresh80-source/two-binary SHA and isolated8-file package audit; same3 wrapper CPU contracts pass locally and on actual Cosmos Torch. Original PIDs absent/lock free/CUDA uninitialized/ledger unchanged. Dynamic import/ABI, real kernel, remaining WC profile and quality-time gain remain unverified.
-
-Prior S0 snapshot, superseded by the terminal build above: [WC-S0 actual checkpoint/source interface audit](research/56_WC_S0_SOURCE_SHAPE_AND_KERNEL_AUDIT.md) passed on CPU; meta689/28-layer shapes and six runtime source hashes verified. SpargeAttn ae5b629 selected11 files pinned; full-QK must explicitly disable PV skipping for the first quantization control. CUDA12.2 exists separately from default10.1; build/actual QKV hook/kernel/profile remain pending. Next: isolated bounded CPU build and wrapper preparation, then a concrete GPU scope decision. GPU ledger unchanged, no method quality-time result. Older snapshots below retain their original evidence dates.
-
-2026-10-01: source72c9e24 input controls terminal/all126 strict valid: matched-repeat0/42 changes, blank14/42, cyclic14/42; all PIDs absent/lockfree/GPU released, raw tokens/input tensors/model/source hashes audited and locally recomputed. [Control results](research/30_W1_VQA_INPUT_CONTROLS_RESULTS.md). This demonstrates repeat stability and partial content sensitivity, not physical validity or method acceptance. Prior VQA6tied/1misc lower/−3.174603pp, MUSIQ3higher4lower, robot rejection and CAL8 mechanism-only remain; no quality–time gain. Used3.6512467238638138/4GPUh, remaining1255.511794s, no in-flight job. [Next window cost/decision](research/31_W1_NEXT_WINDOW_COST_AND_DECISION.md): proposed new4GPUh for original8×twoarms×3 clean timing repetitions, not authorized/launched, or CPU resource preparation. No W2/OMR pivot, human review, paid scoring, training, or automatic budget extension. No further judge downloads needed. [Full timing runner CPU preparation](research/32_W1_CLEAN_TIMING_CPU_PREPARATION.md): original8/twoarms/3repeats plus2warmups frozen and implemented,48 local/Linux CPU checks and actual validate-only/unchanged4h refusal pass; no CUDA/model generation, new GPU window still pending.
-
-Prior terminal run: Core assets and the retained safety pipeline are ready. F1 r2 completed two Native samples, then stopped when the physics_001 generated video was rejected by the output guardrail. WorldCache has not run; there is no paired speed/quality result. Charged cost: 0.473298 / 4 GPUh. Terminal receipts are in `reports/f1_smoke_r2_*.json`.
-
-The [long-term plan](plans/LONG_HORIZON_EXPERIMENT_PLAN_WorldCache_OMR_20260929.md) and [first-batch instructions](plans/CODEX_FIRST_BATCH_WorldCache_OMR_20260929.md) are now v1.3: preserve existing evidence, add cache provenance × lifetime and small-group controls; compatible Wan5B/LongLive-Plug and OMR remain conditional. Combinations and training remain conditional. No new GPU job was launched by this plan update.
-
-[L0 resource audit](research/33_L0_WAN_LONGLIVE_OMR_RESOURCE_AUDIT.md): existingWan5B all11 official file hashes verified; both600tensor LoRA headers match300targets each,16 CPU checks pass; fulladapter payload/realmerge/environment/GPU remain pending. OMR public artifacts stillComing soon; no route pivot or GPU cost. Historical r1/source68afc3e live snapshot has been superseded by the terminal audit below; no full-pair/merge/GPU readiness claim.
-
-[L0 CFG actual payload / CPU fusion preparation](research/34_L0_CPU_FUSION_PREPARATION_AND_CFG_PAYLOAD.md): L0 CPU获取r1因连接中断exit1/1218.181533秒终态，原3PIDs退出/CPU锁释放/账本不变；仅关闭本任务owned临时转发。CFG4文件完整官方hash、真实600tensor finite/300pair alpha-r通过，独立核验PIDs2495417/2495418退出；few-step保留167772160字节（160MiB），非完整payload。两配方分片CPU融合程序已实现，本地/Linux22同范围检查通过，尚未真实Wan5B融合/模型任务load/GPU。下一同固定release/cache/3600秒的新r2续传，不重启旧identity或改共享路线。
-
-Latest actual L0 acquisition: L0 CPU r2/source965a502已实际启动且3PIDs2496080/2496081/2496082均/proc核实live，独立CPU锁持有、3600秒上限、source/协议hash一致、CUDA空/账本不变。复用CFG全部已验收4文件，few-step由160MiB续到188743680字节（180MiB），仍非完整/hash验收/融合。r1原连接失败及160MiB保留不改。
-
-[L0 range recovery and interface gate](research/35_L0_RANGE_RECOVERY_AND_INTERFACE_GATE.md): L0 r2因第二次HTTP流中断exit1/583.253381秒终态；3PIDs2496080/2496081/2496082已退出/CPU锁释放、原source/协议核验和GPU账本不变，owned r2转发在完整审计后关闭。few-step保留555745280字节（530MiB），CFG4文件继续官方hash PASS。新16MiB range/retry/rollback/fullSHA获取程序和完整融合监督已实现，本地/Linux39同范围CPU通过；还未r3提交/完整5B融合。 Real scheduler CPU checks pass; stock guidance1 still computes both branches. No model/task/GPU acceptance.
-
-Actual bounded-range r3: L0 CPU range-r3/sourcebd8253d已唯一实际启动，3PIDs2498231/2498232/2498233都/proc verified live，CPU获取锁持有、CUDA空/source协议hash一致/账本未变。官方精确206/64KiB旧prefix边界preflight通过；已完成2个16MiB chunk、重试0次，已fsync字节589299712（562MiB），另有在途文件长度602931200（575MiB）。未完整1289824400/整SHA验收或两模型融合。复用原530MiB，不改r2失败或扩大GPU预算。
-
-[Native T2V conditional branch CPU preparation](research/36_L0_NATIVE_CONDITIONAL_CPU_PREPARATION.md): 已实现仅T2V的scope adaptation，guide1直接conditional、guide!=1保留原CFG运算，finally恢复，不改源文件/i2v。Local/Linux7检查通过；完整native T2V body+真实UniPC/CPU替身在4/50步guide5输入/timestep/输出bit equal，guide1分别4/50cond/0negative。不是实际模型/GPU parity；保留BF16guide1的stock抵消差异，不称guide1 OFF/ON bit invariant。
-
-## Reproduce CPU checks
+CPU检查：
 
 ```sh
 python3 -m venv .venv
@@ -61,41 +21,6 @@ python3 -m venv .venv
 .venv/bin/python -m pytest -q
 ```
 
-The integration tests extract the pinned upstream functions and execute a synthetic network. They do not establish full-model equivalence or performance. Upstream is downloaded to ignored `vendor/`; weights, videos, environments and credentials are never committed.
+CPU测试只验证接口/实现。上游版本固定，vendor、权重、视频、环境和连接凭据不提交Git。`src/wcomr`及原仓库名称沿用历史标识以兼容部署；最新研究内容与队列只含WorldCache。
 
-## Research records
-
-- [WC-S计算压缩设计](research/55_WC_SPARSE_COMPUTE_COMPRESSION_DESIGN.md)及[v1.3来源/寿命细化](research/65_WC_HIERARCHICAL_PROVENANCE_LIFETIME_DESIGN.md)：S0/S1已执行，分组策略/寿命实验仍是设计；以64结果与09队列接续。
-- `plans/`: maintained plans based on user-supplied originals; revisions preserved in Git.
-- `research/02_CURRENT_STATE.md`: evidence and unresolved dependencies.
-- `research/09_NEXT_ACTIONS.md`: ordered execution scope.
-- `memory/handoffs/LATEST.md`: continuation state.
-- `manifests/upstream.json`: pinned WorldCache revision and cache-module hash.
-- `src/wcomr/`: scalar calibration and shrinkage prototypes, with a version-checked in-memory hook.
-- `reports/`: small receipts only; large artifacts stay outside Git.
-
-Every meaningful code/config/result change is committed and pushed to this private repository. No autonomous training, full benchmark, or paid evaluation is part of the initial smoke batch.
-
-F1 execution protocol and evidence limits: `research/04_F1_PROTOCOL.md`. `scripts/supervise_f1.py` completed both r3 arms and W1-P0; see terminal receipts rather than historical RUNNING notes.
-
-最新资源终态：[r3最后range失败与r4恢复](research/37_L0_RANGE_R3_TERMINAL_AND_R4_RECOVERY.md)。L0 range-r3/sourcebd8253d已exit1/1216.976277秒终态；最后range三次URLError，已提交43个16MiB chunk，保留1277165568字节（1218MiB），仍缺12658832字节。CFG4文件/两few-step JSON官方digest PASS，few-step模型MISSING；原3PIDs退出/CPU锁释放/source与协议一致/账本不变，完整审计后仅关闭本任务owned r3转发。下一新唯一r4从保留prefix续传，同官方revision/16MiB/3600秒上限；未新GPU、未完整few-step hash/真实融合。
-
-## 最新全部adapter CPU验收
-
-L0 range-r4/source7c0f2ec唯一实际续传成功，exit0/31.271029秒，最后12658832字节一次range完成/0retry。全部7文件官方digest与实际1200张量CPU有限性、300×2目标/rank/alpha及825基座header匹配通过；原3PIDs2502124/2502125/2502126退出/CPU锁释放/source与协议一致/账本不变，审计后仅owned临时转发关闭。真实融合尚未提交，实际模型/GPU parity仍未通过；新4GPUh仍待用户重要预算决定。
-
-最新真实CPU融合：真实Wan5B两臂CPU fusion-r1/sourcec69e492已唯一启动。supervisor2502473/timeout2502474/runner2502475实际/proc live，独立fusion锁持有、CUDA空/source固定与账本未变。准入时MemAvailable59360669696字节（55.3GiB）、磁盘720206147584字节（670.7GiB）；3600秒CPU cap，当前完整输入hash阶段/未创建模型目录，尚未完成merge或产物验收。 [运行卡](research/38_L0_FULL_ADAPTER_PAYLOAD_AND_REAL_CPU_FUSION.md)。
-
-最新完整原生源码/环境准备：官方固定Wan运行源码60文件已独立部署/全Gitblob与SHA匹配；旧参考import观察超时、PID后续消失，结果UNKNOWN。参考环境满足官方requirements版本元数据；新隔离env/full native import尚未通过。带PID/阶段持久回执的CPU runtime probe已准备/仅语法检查，未执行。fusion-r1仍同handles/3600秒CPU cap，CFG-only已有413tensor/首shard验收，尚未全两臂验收。 [准备与边界](research/39_L0_NATIVE_SOURCE_AND_ENVIRONMENT_PREPARATION.md)。
-
-最新CPU融合进度：fusion-r1/sourcec69e492同3PIDs实际live，CFG-only一臂已全部825张量/3分片完成融合、独立公式、有限性、未目标字节不变与序列化重读验收；完整两臂及末尾原输入hash尚未完成。CPU锁持有/source一致/账本未变，维持3600秒cap，不重复启动。
-
-最新两臂/环境门：真实CPU两臂均已825/3分片内部验收；完整posthash/终态与独立fresh artifact审计仍待。新独立env已创建，实际offline缓存解析缺Torch2.4.1+cu121，未装包。独立CPU终态审计程序已准备/语法检查，待原3PIDs退出/锁释放后唯一timeout900秒执行，不重跑融合/改stage/新GPU。 [准备](research/40_L0_CPU_FUSION_AUDIT_AND_ENV_CACHE.md)。
-
-最新CPU融合终态：CPU fusion-r1/sourcec69e492已exit0/1960.417015秒终态，peak RSS30.8287GiB；两臂各825tensor/3分片/300目标/525未目标完整，18原输入融合前后官方digest一致，3PIDs退出/CPU锁释放/source与GPU账本不变。完整独立fresh产物审计尚未执行，不能称模型/任务/GPU就绪。
-
-最新独立审计/二进制资源：CPU audit-r1/sourcedbe863c已唯一实际启动，3PIDs2505483/2505484/2505485 live、900秒cap/锁持有/source与GPU账本不变。fresh18输入/CFG-only825tensor与3shard/525untargeted通过，few-step+CFG尚待。官方Torch三wheel SHA与Flash官方asset ID/size已锁，Flash官方digest UNKNOWN；均未下载/安装，实际ABI/fullruntime未通过。 [运行卡](research/41_L0_FRESH_AUDIT_AND_BINARY_SOURCE_LOCK.md)。
-
-最新CPU完整验收：真实两臂CPU融合与独立fresh audit均终态通过：fusion1960.417015秒/peakRSS30.8287GiB，audit663.896945秒；18原输入融合前后及fresh官方digest一致，6输出shard/1650实际tensor全finite与dtype/shape/字节digest通过，1050未目标weight原字节不变，两臂各300目标实际bytes_changed。所有原fusion/审计6PIDs退出/CPU锁释放/source与GPU账本不变。仍未实际模型/T5/VAE加载或任务/GPU就绪。 [完整卡](research/42_L0_FULL_CPU_FUSION_ARTIFACT_ACCEPTANCE.md)。
-
-最新native binary获取准备：四个固定native binary获取程序已实现；本地/Linux11同范围CPU检查通过（不是22项独立证据），涵盖range/rollback/完整SHA、错误wheel名称版本平台、Flash断流续传/冻结local SHA/损坏cache拒绝及官方asset身份改变拒绝。完整wheel尚未下载、依赖未安装/native ABI未验收。 [准备卡](research/43_L0_NATIVE_WHEEL_ACQUISITION_PREPARATION.md)。
+[仓库拆分记录](research/67_REPOSITORY_SPLIT_20261002.md)说明迁移范围和源提交；原Git历史保留。每次实质变更提交并推送私有库。

@@ -1,4 +1,4 @@
-**对话分工（2026-10-02）：当前对话只推进WorldCache。** OMR已转入独立对话“OMR 物理纠正研究”（ID `01a0fb1f-9751-7ff1-851a-59bdb4f413ef`），接续见[OMR交接](../memory/handoffs/OMR_DIRECTION_20261002.md)。历史OMR设计/资产保留，但不作为当前对话自动切换的后备队列。WorldCache既有冻结工作与WC-S/H顺序保持，先完成当前范围，不取消或重启；本次分离不改变GPU预算或启动新实验。
+**仓库分工（2026-10-02）：本库只推进WorldCache。** OMR文档、独立队列与Wan/LongLive支持准备已迁至[omr-experiments](https://github.com/kuangda-source/omr-experiments)。当前WC-S/H冻结工作先完成，预算、运行配置和回执不变。拆分不启动或取消实验。
 
 ## 最新接续 — v1.3来源与寿命设计，交叉QKV结果已归档
 
@@ -12,15 +12,11 @@
 
 账本3.9117525685110333/4GPUh、28jobs、余317.690753秒，无inflight；依据已归档fresh审计，不是本次服务器重新准入。新4GPUh/clean50仍未批准。此次仅设计与文档/已完成回执归档，没有新增GPU/runner/runtime/冻结协议修改，不默认人评/训练/付费。
 
-## 以下为历史快照
-
 ## 最新验收与下一 — 真实QKV默认策略72case完成，交叉控制准备
 
 S1 real-qkv-r1/sourcecab2b7c，真实12输入×6臂全部finite/3repeat与source/账本/释放审计通过。全mask最大RMSE0.753%；public默认中位1.019×/两筛查1/12，utils默认中位2.139×/两筛查2/12且最大RMSE24.04%，尚无稳定数值—净速度收益。
 
 [结果/补交叉因子控制](63_WC_S1_REAL_QKV_RESULTS_AND_CROSSED_CONTROLS.md)。两默认同时改sim/cdf，下一sim0.1/cdf0.98与sim0.6/cdf0.9，相同12输入/6臂/no-PV，新job重测dense控制，120秒现余额内scope。新policy/cap与预算本地3检查通过，GPU尚未提交。账本3.8958064096647362/4GPUh，余375.096925秒、27jobs、无inflight；无人评/扩额/稀疏视频或方法质量—时间结论。
-
-## 以下为历史快照
 
 ## 最新准备 — S1全12真实QKV路由与匹配full控制
 
@@ -28,15 +24,11 @@ S1 real-qkv-r1/sourcecab2b7c，真实12输入×6臂全部finite/3repeat与source
 
 [新有界门](62_WC_S1_REAL_QKV_ROUTING_GATE.md)。唯一180秒scope从余438.007060秒划拨，实际环境CPU/全输入SHA/准入后才launch；原4h/no-inflight，不扩额/人评。保持S0的47.37%瓶颈证据，无稀疏视频或方法质量—时间结论。
 
-## 以下为历史快照
-
 ## 最新验收 — WC-S0官方剩余成本与12真实QKV
 
 R3/sourcefb43d93，两轮官方WC完成/视频通过guardrail且SHA一致；72CFG、34full/38skip、trace/latent/sampling/outcome一致。profile去噪141.264395秒，deep self核心66.915474秒/47.369%，flow+warp2.245%，cross核心0.952%；7438原始events和12个实际BF16 QKV `[1,31104,16,128]` 的file/raw bytes/finite/CPU roundtrip已独立核验。
 
 [结果与下一门](61_WC_S0_COST_REAL_QKV_RESULTS.md)。R3计账611.180967秒，两次失败均保留计账；账本3.8783313720900976/4GPUh，余438.007060秒、26jobs、无inflight、PIDs/锁/GPU释放。下一余额内最多180秒真实QKV选择/匹配full-mask/误差与净路由成本；尚未prepare/提交该新job，不重跑旧launch，不扩额/人评。无稀疏视频或新方法质量—时间结果。
-
-## 以下为历史快照
 
 ## 最新接续 — WC-S0 R2缓存路径失败已结算，准备R3
 
@@ -44,15 +36,11 @@ R2 actual runtime来源门通过，但Inference初始化因默认HF缓存缺guar
 
 [范围与保留失败](60_WC_S0_PROFILE_REAL_QKV.md)、[R2失败审计](../reports/wc_s0_profile_r2_failure_audit_20261001.json)。余额1049.188027秒，R3新identity按750秒原范围准备；先CPU核验全资产/来源，未R3 GPU/未扩额/无人评。R1/R2 launch不得重跑。
 
-## 以下为历史快照
-
 ## 最新接续 — WC-S0 R1导入路径失败已结算，准备R2
 
 R1在模型加载前读取native Cosmos包而无法导入WorldCache；无模型/forward/QKV/profile结果，69.455334秒失败墙钟已计账、退款680.544666秒，原PIDs/global锁/GPU释放审计通过。runner现明确runtime及两个package搜索路径、WC实际origin检查；supervisor复用历史PYTHONPATH并在验证后再次准入。
 
 [诊断与范围](60_WC_S0_PROFILE_REAL_QKV.md)、[失败审计](../reports/wc_s0_profile_r1_failure_audit_20261001.json)。余额1174.329762秒，下一新stage R2先actual CPU import-origin检查，再750秒唯一两阶段任务；不重跑R1或扩额/人评。
-
-## 以下为历史快照
 
 ## 最新准备 — WC-S0成本与真实QKV两阶段诊断
 
@@ -60,15 +48,11 @@ R1在模型加载前读取native Cosmos包而无法导入WorldCache；无模型/
 
 [冻结范围](60_WC_S0_PROFILE_REAL_QKV.md)。余额1243.785096秒、不扩额/无人评；下一hash部署与实际CPU复核后单次运行，结果须独立审计。旧kernel launch不可重跑。
 
-## 以下为历史快照
-
 ## 最新结果 — WC-S1真实内核已执行，下一真实QKV与WC成本
 
 A6000/kernel-gpu-r1/sourcecb80dd5实际8case完成，GPU墙钟11.726698秒、原PIDs退出/global锁与GPU释放、独立source/8case/raw5repeat审计通过。N31104 dense/full/约50%/约25%同步wall中位数70.35/71.64/39.77/23.65ms；全块RMSE1.32%通过技术筛查，固定稀疏mask约100%/174%误差，不能用作保质方案。
 
 [真实内核结果与决策](59_WC_S1_REAL_KERNEL_RESULTS.md)。当前仍无模型QKV/profile/视频质量—时间收益，下一S0官方WC剩余成本及真实QKV采集；不直接自由三档或四臂。账本精确3.6545041399802236/4GPUh，余1243.785096秒，无inflight；未扩额/无人评。
-
-## 以下为历史快照
 
 ## 最新进展 — WC-S1 动态导入通过，180秒内核范围已固定
 
@@ -76,23 +60,17 @@ A6000/kernel-gpu-r1/sourcecb80dd5实际8case完成，GPU墙钟11.726698秒、原
 
 [动态导入、冻结范围与下一步](58_WC_S1_DYNAMIC_IMPORT_AND_KERNEL_GATE.md)。下一hash部署/actual validate-only/fresh GPU准入后唯一有限kernel门；不扩额或默认人评。
 
-## 以下为历史快照
-
 ## 最新终态 — WC-S1 两扩展构建与无 PV 接口 CPU 检查
 
 完整上游build-r1/source8047b15实际exit0/CPU648.948283秒，两个sm86扩展完整产出；fresh80 source/两binary SHA/8-file独立package审计通过。原build/entry/wrapper CPU PID均退出、构建锁释放、CUDA未初始化，Cosmos runtime与GPU账本不变。无PV wrapper在本地与实际Cosmos Torch的同3项CPU契约通过；不是GPUkernel或模型parity。
 
 [构建结果、警告与接续](57_WC_S1_ISOLATED_UPSTREAM_BUILD.md)。下一guarded package动态导入/ABI与no-PV binding门、有界GPUrunner准备；实际QKV/profile/误差/净速度仍待。原余额1255.511794秒、新4GPUh提案未批准；不重跑旧build或默认人评，无方法质量—时间收益。
 
-## 以下为历史快照
-
 ## 最新准备 — WC-S1 完整源码与有界 CPU 构建
 
 完整 SpargeAttn ae5b629 的80文件已逐Git blob/SHA通过，构建依赖与CUDA12.2实际清单已核对。隔离构建监督/CPU CUDA guard已实现，本地3个负控制通过；尚未提交真实编译。下一固定完整tree部署/服务器CPU控制/唯一900秒upstream build_ext，原Cosmos环境/runtime/账本不改，GPU内核与速度未验收。
 
 [构建准备与接续](57_WC_S1_ISOLATED_UPSTREAM_BUILD.md)。原GPU余额1255.511794秒，新4GPUh未批准；保持S0/S1逐门推进，无人评。
-
-## 以下为历史快照
 
 ## 最新 CPU 进展 — WC-S0 源码与实际 checkpoint 接口审计
 
@@ -102,71 +80,11 @@ A6000/kernel-gpu-r1/sourcecb80dd5实际8case完成，GPU墙钟11.726698秒、原
 
 [完整 S0 CPU 审计与下一步](56_WC_S0_SOURCE_SHAPE_AND_KERNEL_AUDIT.md)。下一非GPU步骤为固定完整源码/隔离环境/有界构建与 wrapper 准备；S0成本 profile/S1实际误差和净速度仍需 GPU 范围决策。没有新方法质量—时间结果；预算仍3.6512467238638138/4GPUh，余1255.511794秒，原新4GPUh未批准。无人工评审或新GPU任务。
 
-## 以下为历史快照
-
 ## 最新设计 — WC-S有界计算压缩分支（v1.2）
 
 2026-10-01最新讨论已整合为长程计划v1.2：受质量与行为保持约束的计算压缩。下一非GPU方法准备为WC-S0源码/真实shape/成本方案，之后按依赖做S1真实kernel（dense/full-mask/sparse）→S2四臂固定轨迹→S3单模块替换与便宜刷新；有机制缺口才S4三档/S5稀疏增量。稀疏刷新不能作true dense anchor。
 
-W1保持CAL8机制only/MUSIQ混合/开发VQA无一致收益，暂停scalar/W2复杂化。F1/W1及L0已完成资产不重跑。预算仍3.6512467238638138/4GPUh、余1255.511794秒，原新4GPUh/clean50成本提案待决策；本次只有设计更新，未GPU/未扩额/未训练/未付费/未默认人评。下一窗口按实际profile/kernel成本提议，不机械追加全部卡。
-
-[完整设计与逐门执行卡](55_WC_SPARSE_COMPUTE_COMPRESSION_DESIGN.md)。L0已通过实际93包/guarded native import/meta/tokenizer，真实DiT/T5/VAE load仍待；这是保留的资源门，不是主方法收益。历史运行状态以下文各自终态回执为准，禁止按旧RUNNING快照重提交。
-
-## 以下为历史快照
-
-## 最新CPU运行 — 六个大依赖可续传获取
-
-六个大transitive wheel分段获取transitive-wheels-r1/sourceffaf53f 已唯一启动，3PIDs 2512783/2512784/2512785 实际live/下载锁持有；服务器6个official PyPI URL均exact206/64KiB前缀通过，CPU3600秒cap。当前cublas410594774字节完整官方SHA与metadata通过，cudnn已持久提交83886080字节/0retry，完整6包/fullSHA/meta尚未完成。旧UV install-r1已终态且新env仍空/source与GPU账本不变，无新GPU workload。
-
-[当前运行卡](49_L0_TRANSITIVE_WHEEL_RANGE_ACQUISITION_RUN.md)。只观察同transitive handle，不重复安装或launch。
-
-## 以下为历史快照
-
-## 最新终态与修复准备 — 安装资源超时
-
-隔离install-r1因下载未完到CPU cap退出：1755.194480秒、UV被TERM，全部4PIDs退出/环境锁释放；fresh93安装清单仍0包，原4 wheel payload hash未变/source与GPU账本不变，仅此次owned forward16500关闭。原93包hash lock保持，6个未完成大包已锁官方PyPI URL/size/SHA（均在原hash lock内），共1781156006字节。分段续传程序及精确vendor tag检查本地/Linux15同范围通过，六个完整payload尚未获取。
-
-[终态与六包获取准备](48_L0_INSTALL_TIMEOUT_AND_TRANSITIVE_RANGE_PREPARATION.md)。旧安装/下载/审计launch均不可重复；下一新transitive CPU获取，未再提交安装或native probe。
-
-## 以下为历史快照
-
-## 最新CPU运行 — 隔离原生环境安装
-
-隔离env-install-r1/sourcee95adcb 已唯一启动，4PIDs 2510384/2510385/2510386/2510389 实际live/环境锁持有；CPU1800秒上限，固定93包hash lock安装到新env，NVIDIA运行库等transitive获取进行中。未完成安装/native import/ABI或模型验收；source与GPU账本不变，无新GPU workload。
-
-[安装运行卡](47_L0_NATIVE_ENV_INSTALLATION_RUN.md)。同handle观察，禁止重复launch。
-
-## 以下为历史快照
-
-## 最新CPU终态 — 完整原生依赖hash lock
-
-完整原生依赖图93包已解析并hash lock验收，CPU r2退出0/4.079835秒、全部4PIDs退出/环境锁释放；新env安装前后仍空/source与GPU账本不变。R1因ANTLR无wheel技术退出，R2仅准许纯Python ANTLR4.9.3 source，Torch/Flash不编译。实际安装/native import/模型与GPU仍待。
-
-[解析与下一安装门](46_L0_NATIVE_ENV_DEPENDENCY_RESOLUTION_RUN.md)。owned forward16500仍由此环境任务持有；下一唯一env-install-r1/CPU1800，不能重跑resolve或wheel获取。
-
-## 以下为历史快照
-
-## 最新CPU运行 — 原生完整依赖解析
-
-隔离env-resolve-r1/source78308f9 已唯一启动，4PIDs 2509814/2509815/2509816/2509822 实际live/环境锁持有；CPU600秒上限，官方PyPI TLS metadata预检通过。四个已审计local wheel是固定输入，完整transitive hash lock尚未完成；新env仍未安装/source与GPU账本不变。
-
-[运行卡](46_L0_NATIVE_ENV_DEPENDENCY_RESOLUTION_RUN.md)。同handle观察，不重复launch。
-
-## 以下为历史快照
-
-## 最新资源终态 — 四个native binary完整通过
-
-四个native binary全部获取并fresh审计通过：997270087字节，CPU1533.184018秒；三PyTorch官方SHA匹配，Flash官方asset ID/name/size/URL和actual local SHA/CRC/metadata通过（官方digest仍UNKNOWN）。全部3PIDs退出/下载锁释放/source与GPU账本不变，仅此次owned forward已关闭。隔离env仍空，未安装/import或新GPU。
-
-[完整验收与下一CPU门](45_L0_NATIVE_BINARY_ACCEPTANCE_AND_CPU_IMPORT_GUARD.md)。下一新owned forward16500/唯一env-resolve-r1，不重复下载。
-
-## 以下为历史快照
-
-## 最新运行 — 四个native binary CPU获取
-
-native-wheels-r1/source e7338fe 已唯一启动，3PIDs 2507524/2507525/2507526 实际live/下载锁持有；四个源exact206/64KiB前缀通过。当前Torch已持久提交 167772160 字节，完整4 wheel/hash尚未完成；CPU3600秒cap/source与GPU账本不变，无安装/import/GPU。
-
-[运行卡](44_L0_NATIVE_WHEEL_ACQUISITION_RUN.md)。同handle观察，旧launch不可重复。
+W1保持CAL8机制only/MUSIQ混合/开发VQA无一致收益，暂停scalar/W2复杂化。F1/W1已完成资产不重跑。预算仍3.6512467238638138/4GPUh、余1255.511794秒，原新4GPUh/clean50成本提案待决策；本次只有设计更新，未GPU/未扩额/未训练/未付费/未默认人评。下一窗口按实际profile/kernel成本提议，不机械追加全部卡。
 
 ## 以下为历史快照
 
@@ -178,8 +96,6 @@ runner及单300秒控制监督模式已实现，本地/Linux35同范围检查通
 
 证据：[控制准备卡](../research/29_W1_VQA_INPUT_CONTROLS_PREPARATION.md)、[35项Linux检查](../reports/w1_vqa_controls_linux_cpu_20261001.json)、[24真实输入](../reports/w1_vqa_controls_input_cpu_20261001.json)、[原VQA结果](../research/28_W1_DEVELOPMENT_VQA_RESULTS.md)。旧实机source1f326b5身份不变，当前控制尚未部署/提交。
 
-## 以下为历史快照
-
 ## 最新终态 — 2026-10-01 02:56:53 北京时间：开发VQA原8/81答案完整，6平1降，下一judge输入敏感性诊断
 
 w1-vqa-r1/source1f326b5已exit0/无stop reason，监督60.966001秒；supervisor2485687/timeout2485695/runner2485697全退出/global锁释放/GPU1 24MiB/noapps，12monitor点无观察到foreign compute，peak4972MiB。模型离线BF16/SDPA load成功/无missing或mismatch，eval/inference_mode，42参考+39候选原单题完整，81raw token CPU重新decode一致/全部strict有效。原8分母/7可比/robot VIDEO_REJECTED保留，拒绝3题不插补；全部15视频/模型10文件/原题/运行时与源码hash重新通过。
@@ -189,8 +105,6 @@ w1-vqa-r1/source1f326b5已exit0/无stop reason，监督60.966001秒；supervisor
 GPU实际累计3.629295697609584/4h、余0.370704302390416h（1334.535秒），无在途。结合MUSIQ3升4降/robot拒绝，当前不扩大scalar/W2/生成批次，继续补评价可信度。官方固定数据revision根目录只有condition_image/vqa/metadata，未提供本次8场景对应gold视频；不冒充生成WC视频是gold。下一准备同judge原8/42题的matched repeat/black video/cyclic mismatch三种输入对照，最多300秒从原余额扣除，不改原prompt/模型或原方法结果、不要求人评/付费/训练/扩额。诊断只判断输入敏感性/重复稳定，不是物理正确性金标准；控制分数尚未生成。
 
 证据：[VQA结果](../research/28_W1_DEVELOPMENT_VQA_RESULTS.md)、[raw runner](../reports/w1_vqa_r1_runner.json)、[原题重算汇总](../reports/w1_vqa_r1_summary.json)、[终态审计](../reports/w1_vqa_r1_audit.json)。旧source1f326b5不因新文档HEAD而变化；下一控制GPU尚未提交，需实现/CPU/source同步/fresh锁与预算/准入。
-
-## 以下为历史快照
 
 ## 最新资源验收 — 2026-10-01 02:46:45 北京时间：CPU r4终态，官方10文件完整hash通过，待有界VQA部署
 
@@ -202,8 +116,6 @@ GPU累计3.612360697322422/4h、余0.387639302677578h，无GPU在途；单900秒
 
 证据：[官方10文件完整性](../reports/w1_judge_assets_r4_integrity.json)、[r4终态审计](../reports/w1_judge_assets_r4_audit.json)、[runner准备卡](../research/27_W1_VQA_RUNNER_PREPARATION.md)。CPU旧source39993d1保持，后续文档HEAD不冒充未来实机VQA source。
 
-## 以下为历史快照
-
 ## 最新运行核验 — 2026-10-01 02:38:45 北京时间：CPU r4/source39993d1续传live，VQA runner CPU通过
 
 r3终态/旧3PIDs退出/CPU锁释放后，新唯一outputs/w1-judge-assets-r4已启动。CPU部署source39993d1/hash一致，Linux4 acquisition检查通过；supervisor2484509/timeout2484510/downloader2484511本次proc核实live，CUDA为空/无代理/CPU锁持有。相同匿名镜像/revision/官方hash/cache/cap3600CPU-only，partial3030384640增至3439329280字节（3280MiB），未完整/hash验收/load/VLM forward。不是重复r3、不改旧失败或在跑源。
@@ -213,8 +125,6 @@ VQA GPU runner/900秒监督/原raw终态汇总已实现，本地25与Linux25 CPU
 GPU累计3.612360697322422/4h、余0.387639302677578h、无GPU在途，账本与启动前相同。scalar CAL8仅机制、固定重放7接受1robot拒绝、MUSIQ3升4降保持，尚无整体/物理质量或clean速度收益，暂不加W2；小2B开发judge不等于标准235B/Joint/独立确认。不引入非必要人评/训练/付费或自动扩额。
 
 证据：[r4启动](../reports/w1_judge_assets_r4_launch_20261001.json)、[live观察](../reports/w1_judge_assets_r4_live_observation.json)、[runner准备卡](../research/27_W1_VQA_RUNNER_PREPARATION.md)、[r3终态](../reports/w1_judge_assets_r3_audit.json)。后续文档HEAD不改变CPU部署source39993d1身份。
-
-## 以下为历史快照
 
 ## 最新接续 — 2026-10-01 02:24:30 北京时间：r3连接中断终态，VQA runner CPU通过，准备r4续传
 
@@ -226,8 +136,6 @@ r3/source202e21d实际exit1/1153.880144秒，IncompleteRead连接中断；superv
 
 证据：[r3终态审计](../reports/w1_judge_assets_r3_audit.json)、[runner准备卡](../research/27_W1_VQA_RUNNER_PREPARATION.md)、[Linux25检查](../reports/w1_vqa_runner_linux_cpu_20261001.json)、[全部15输入](../reports/w1_vqa_all_inputs_cpu_20261001.json)。下一完整下载/hash后才可部署并fresh预算/锁/GPU准入。当前r4尚未启动，未来文档HEAD不改变旧CPU source202e21d。
 
-## 以下为历史快照
-
 ## 最新恢复核验 — 2026-10-01 02:01:45 北京时间：judge CPU镜像续传r3 live
 
 已fetch GitHub main并核对本地/远端同为202e21d，SSH实测成功，共享FRPC未改/未重复启动；原r1/r2和GPU任务均已退出。新唯一`outputs/w1-judge-assets-r3`部署source202e21d，文件SHA256一致，Linux4项CPU acquisition检查通过。supervisor2481616/timeout2481618/downloader2481619三个PIDs本次真实ps/proc核实存活，CUDA为空、无代理环境，CPU锁由本任务持有。匿名公共镜像/固定revision/同官方hash/cache，cap3600秒；权重partial由786432000增至891289600字节（850MiB），仍未完整/未验收，未加载权重/未VLM forward/未GPU评分。
@@ -237,8 +145,6 @@ r3/source202e21d实际exit1/1153.880144秒，IncompleteRead连接中断；superv
 GPU1本次24MiB/no compute apps，所有GPU阶段终态；账本与启动前相同，累计3.612360697322422/4GPUh、余0.387639302677578h。scalar CAL8仅机制信号，固定重放7接受1拒绝、MUSIQ3升4降，无整体/物理质量或clean speed正结果，暂不加W2。此后文档HEAD不改变实机source202e21d身份。
 
 证据：[唯一启动](../reports/w1_judge_assets_r3_launch_20261001.json)、[live观察](../reports/w1_judge_assets_r3_live_observation.json)、[开发准备卡](../research/26_W1_DEVELOPMENT_VQA_PREPARATION.md)。
-
-## 以下为历史快照
 
 ## 最新接续 — 2026-10-01：CPU r1失败/r2超时终态，准备镜像续传；VQA输入CPU通过
 
@@ -252,8 +158,6 @@ VQA原8/42题输入/提示/严格parser协议已准备，本地7项CPU检查通�
 
 证据：[开发VQA卡](../research/26_W1_DEVELOPMENT_VQA_PREPARATION.md)、[r1审计](../reports/w1_judge_assets_r1_audit.json)、[r2审计](../reports/w1_judge_assets_r2_audit.json)、[输入协议](../manifests/w1_development_vqa_protocol.json)。
 
-## 以下为历史快照
-
 ## 最新运行核验 — 2026-10-01 01:16:40 北京时间：开发judge CPU资源下载在跑
 
 已部署CPU source `d0faa4b`，上传文件hash匹配、Linux3项CPU检查通过；唯一`outputs/w1-judge-assets-r1`已启动。supervisor2478298、timeout/PGID2478299、downloader2478300三PIDs本次ps核验live，CUDA为空/gpu_workload_started=false。固定官方Qwen3-VL2B revision/10文件/匿名端点/项目hfhub，cap1200秒；观察时completed为空、未看到incomplete对象，仍RUNNING，不能称模型已下载或可评分。source/launch/budget证据已归档。
@@ -263,8 +167,6 @@ VQA原8/42题输入/提示/严格parser协议已准备，本地7项CPU检查通�
 固定重放8轨迹技术通过/7视频接受1robot拒绝，MUSIQ3升4降/mean delta+0.004254295，整体/物理质量与clean速度未证，暂不加W2。所有GPU任务已释放，累计3.612360697322422/4GPUh、余0.387639302677578h，无GPU在途；CPU下载不作GPU计费或运行结果。下一实际GPU提交仍需fresh预算/锁/GPU准入。
 
 证据：[CPU启动](../reports/w1_judge_assets_r1_launch_20261001.json)、[只读进程快照](../reports/w1_judge_assets_r1_live_observation.json)、[已完成成像结果](../research/25_W1_IMAGING_RESULTS.md)。
-
-## 以下为历史快照
 
 ## 最新接续 — 2026-10-01：自动成像评价终态，下一开发VQA资源准备
 
@@ -278,8 +180,6 @@ supervisor2477084/timeout2477091/runner2477093全退出，exit0/无stop reason�
 
 证据：[成像结果](../research/25_W1_IMAGING_RESULTS.md)、[重新计算汇总](../reports/w1_imaging_r1_summary.json)、[终态审计](../reports/w1_imaging_r1_audit.json)、[开发judge资源manifest](../manifests/w1_development_judge_assets.json)；后续文档HEAD不等于过去实机source。
 
-## 以下为历史快照
-
 ## 最新接续 — 2026-10-01：固定scalar重放终态，自动成像评价准备
 
 source31a797d的`w1-replay-r1`已终态，原supervisor2471255/timeout2471260/runner2471262全部退出、锁可用、GPU1 24MiB/noapps；424监控点无观察到其他compute，所有9接受artifact/source hash核验通过。official14项/scalar OFF-ON18项全真；原8场景72call/frozen schedule/past-anchor技术通过，295scalar预测/0fallback、57自然与冻结判据差异。候选7接受、robot_054 VIDEO_REJECTED（官方WC8接受），拒绝保留原8分母，不能补跑或安全绕过。总结是FROZEN_REPLAY_TECH_PASS_QUALITY_UNASSESSED，非全视频接受/方法质量收益。
@@ -292,8 +192,6 @@ Qwen3-VL2B/8B只有processor/tokenizer/config无权重，标准大judge/环境�
 
 证据：[重放结果](../research/24_W1_FIXED_REPLAY_RESULTS.md)、[完整汇总](../reports/w1_replay_r1_summary.json)、[审计](../reports/w1_replay_r1_audit.json)、[成像评价卡](../research/23_W1_IMAGING_EVALUATION.md)；终态后才部署下一source，原运行source31a身份保持。未来预算/质量/clean计时资源不足时形成具体方案再交用户重大决策。
 
-## 以下为历史快照
-
 ## 最新接续 — 2026-10-01 00:29:13 北京时间：scalar固定重放实机运行，两门通过
 
 GitHub/source `31a797d363a6ebdcf7d8443f84f7d0a0bb073797` 已部署，archive/source hash匹配，Linux63项CPU检查通过。新任务 `outputs/w1-replay-r1` 已于2026-10-01 00:16启动；supervisor2471255、timeout/PGID2471260、runner2471262均live，GPU1仅观察到此runner。继续同一任务，不部署新代码或重复启动。
@@ -304,8 +202,6 @@ GitHub/source `31a797d363a6ebdcf7d8443f84f7d0a0bb073797` 已部署，archive/sou
 
 证据：[部署](../reports/w1_replay_r1_deployment_20261001.json)、[启动](../reports/w1_replay_r1_launch_20261001.json)、[实时快照](../reports/w1_replay_r1_live_observation.json)。下一步只读观察原handles；终态后验证PIDs退出/锁/GPU归属/源码与产物hash，归档原始runner/supervisor/audit并更新实际wall账本；用hash绑定CAL8 reference重新验证summary。失败/拒绝保留，不补样本或自动重跑。完整通过仍只证明固定schedule候选技术可运行，质量/clean计时/独立确认未完成。
 
-## 以下为历史快照
-
 ## 最新接续 — 2026-10-01：fixed replay runner本地实现/CPU通过，待部署
 
 原CAL8终态、scalar MECHANISM_ONLY和预算2.995044843/4h保持。已实现scripts/run_w1_replay.py、supervise_f1.py --w1-replay（单batch cap3000秒），以及replay_results/video_difference/summary CLI。19项本地针对性CPU检查通过；[回执](../reports/w1_replay_local_cpu_20261001.json)。与旧CPU模块24项范围有重叠，不叠加计数。原manifest固定参数/样本/trace/reference hash未改；metadata初始NOT_IMPLEMENTED标签是冻结时历史，当前以此快照和后续运行回执为准。
@@ -313,8 +209,6 @@ GitHub/source `31a797d363a6ebdcf7d8443f84f7d0a0bb073797` 已部署，archive/sou
 runner先hash绑定完整CAL8/reference screen并重新计算screen、校验setup/input/runtime/scheduler/VAE；首AV official replay严格复现旧OFF，scalar OFF/ON output/cache/decoder/video及额外calibrator结束状态和controller记录一致，ON真值只评分。余7仅scalar OFF；每sample用自身状态，有限模型输出/固定独立blockcounts/实际controller past anchors/peak memory记录，完整93RGB对旧WC距离与temporal variation描述（非质量）。拒绝/异常保留；SIGTERM尽可能写TECH_BLOCKED，所有真实墙钟计费。无新GPU运行。
 
 下一步：commit/hash部署并Linux CPU gates；重新核验旧PIDs/锁/预算、全部reference视频hash、GPU1 UUID/VRAM/apps，只启动新唯一outputs/w1-replay-r1一次。前门失败立即停止，不能据观察超时重复提交或改在跑代码。上限3000从余1.004955157h扣除，无扩额/训练/付费/人评。部署与launch receipt/PIDs/logs、总体docs和预算需同步GitHub。
-
-## 以下为历史快照
 
 ## 最新接续 — 2026-09-30：CAL8终态，scalar机制信号，固定重放准备
 
@@ -326,8 +220,6 @@ w1d-cal8-r1（部署源62f1c0d）完整终态：8/8场景、每样本8点/17项O
 
 下一步自主实现有监督runner：firstAV新official fixed replay对旧OFF严格复现，再scalar OFF/ON自身parity，通过后原其余7scalar OFF；共10generation，firstcandidateOFF计入8成员。自己当前latent/probe/full anchors，shadow truth只评分，不回放旧latent。不择优/替换misc；拒绝保留，技术异常停止。预算forecast2224.619秒+30%=2892.004秒，cap3000；提交前重新核验旧handles/锁/余额/GPU/source/hash/LinuxCPU。尚无第二任务/额外预算/训练/付费评分/人评。代码与docs推送后的新HEAD不改变旧source62运行身份。
 
-## 以下为历史快照
-
 ## 最新接续 — 2026-09-30 23:09：5/8技术通过，分布分析就绪
 
 原w1d-cal8-r1任务持续运行；supervisor2461004/timeout2461009/runner2461011均live，source62f1c0d保持。前5个样本各8诊断点、17项OFF/ON检查全真；第6个physics_045 OFF生成。当前[实时进程/GPU快照](../reports/w1d_cal8_r1_live_observation.json)更新；22:48的runner/partial summary文件仍只归档前2样本，不是最新/终态。启动前结算1.997774315h，23:09在途0.668417069h额外，batch6000秒/原总4h cap不变，无第二任务。
@@ -335,8 +227,6 @@ w1d-cal8-r1（部署源62f1c0d）完整终态：8/8场景、每样本8点/17项O
 已完成只读分布分析src/wcomr/w1d_analysis.py与CLI scripts/analyze_w1d_cal.py，严格校验每个分区非空/不重叠/完整覆盖、候选坐标匹配、group MSE与reference energy能重建整体值；按样本等权汇总，零官方误差比留空。scripts/plot_w1d_cal.py输出同状态散点/排序反转计数/velocity时间空间通道图，显示dependent/latent坐标范围，不把组当独立样本。11项针对性CPU检查通过，真实部分回执CLI与私有部分图检查通过；[CPU回执](../reports/w1d_analysis_cpu_20260930.json)。仅本地代码，未部署到正在跑的job，无新科学结论或额外GPU成本。
 
 终态归档/审计后执行原screen与新descriptive analysis；plot依赖可用pip install -e '.[analysis]'安装到本地环境。所有partial显式NO_DECISION。接续原PIDs，不重启/改公式/增加样本。没有重要问题时按协议自行收尾和评估下一有界任务。
-
-## 以下为历史快照
 
 ## 最新核验 — 2026-09-30 22:48：CAL8 W1-D运行，2/8技术通过
 
@@ -348,8 +238,6 @@ w1d-cal8-r1（部署源62f1c0d）完整终态：8/8场景、每样本8点/17项O
 
 下一步：只读查原handles直至终态；原PIDs退出与锁释放、GPU监控归属/源码/视频哈希核验后归档runner/supervisor/audit及实际wall账本。完整8PAIR_PARITY_PASS才按固定screen汇总；部分/失败保留，不能补样本或重启凑全。随后按机制证据与实际余额自主推进；预算扩张/训练/重大方向决策再交用户。当前无需人评/训练/付费评分。Git只同步代码/小回执/文档；后续本地文档commit不改变此源62f1c0d运行身份。
 
-## 以下为历史记录
-
 ## 最新核验 — 2026-09-30：局部解码策略复现通过，CAL已冻结
 
 源33f080b decoder-policy-r1两个fresh进程均exit0；72net/trace/cache/latent匹配旧官方参考。decoder实际参数/buffers/normalization及运行设置相同；cuDNN benchmark=false/deterministic=true只在decode内部、TF32保持原值、离开后恢复；decode/guardrail/save/MP4/全部93帧RGB与PTS严格相同。结论LOCAL_DECODE_POLICY_REPRODUCTION_PASS，仅本工程样本/所测策略，不是独立根因证明、质量、新方法或干净耗时收益。
@@ -358,15 +246,11 @@ w1d-cal8-r1（部署源62f1c0d）完整终态：8/8场景、每样本8点/17项O
 
 官方基准1044条reference_video/image_name元数据全部连接固定prompt，0缺失/不符；reference+TFIDF0.85形成1043组，原recording/session独立性未证。CAL24及首批8在新生成前按固定hash/配额冻结，排除4工程组；DEV/CONF未冻结。见manifests/cal_v1.json。下一轮research/20_CAL_AND_W1D_PREPARATION.md：CAL前8稀疏同状态/布局明确的时间空间通道诊断，三公式冻结、所有路径共用新解码策略、off/on验证、安全拒绝保留分母。提议单batch6000秒/1.666667h，从现有余额扣除，尚未实现/启动；提交前重核资源/锁/预算/源码。不要补人评或追加GPU预算。
 
-## 以下为历史记录
-
 ## 最新核验 — 2026-09-30：差异已定位decode输出
 
 同源fa042d3 stage-r2两新进程均exit0，净监督634.230530秒。72net输出/cache/trace/采样/runtime identity相同，sample与decode输入hash相同，decode_output首先不同。两个guardrail各自输入输出相同；93帧完整RGB全部hash不同、时间戳相同。根因仍UNKNOWN，decoder实际权重/状态hash和局部确定性策略待验。见research/17_DECODE_INTERVAL_RESULTS.md及18_DECODER_POLICY_GATE.md。
 
 最新终态审计：supervisor2453240及两child2453245/2454606与runner2453247/2454608均退出；锁可用，GPU1 24MiB/noapps，无在途任务。预算1.82321776939763/4h、剩余2.17678223060237。r1输出目录问题导致首见证成功而第二child显式取消，原失败/费用保留，勿误写两进程通过。下一轮卡PREPARED_NOT_IMPLEMENTED_NOT_RUN，不能当运行许可或实时准入；提交重核预算/锁/GPU，保护共享源码。数值候选仍NO_GAIN_IN_SCOPE，不推进闭环/不要求人评。
-
-## 以下为历史记录
 
 # Current state — 2026-09-29
 
@@ -374,7 +258,7 @@ Earlier sections below include historical observations; the final reviewed secti
 
 ## Scientific status
 
-No GPU-generated sample or measured quality/time result from this project yet. Continue WorldCache F0/F1, conditional on the remaining safety assets and full forward readiness. Core construction and weight loading have passed. OMR resource availability is not established; the project page release section still says Coming soon.
+No GPU-generated sample or measured quality/time result from this project yet. Continue WorldCache F0/F1, conditional on the remaining safety assets and full forward readiness. Core construction and weight loading have passed. 
 
 ## Implemented and checked
 
@@ -468,10 +352,6 @@ User selected current-code comparison. Frozen runtime protocol records exact36-p
 
 ## F1 r2 terminal; latest plan v1.1 — 2026-09-30
 
-This supersedes the live snapshot above. Remote supervisor2427723 exited FAILED; Native timeout child2427728 exited1 after1042.542395s. Two Native sample receipts exist; physics_001 was blocked by output video safety. WC did not start. Local copies: reports/f1_smoke_r2_supervisor.json and reports/f1_smoke_r2_native.json. Charged total0.4732977178361681/4GPUh. No complete paired result or visual-quality claim.
-
-The latest discussion and QuantWM attachment are integrated into both maintained plans: W1-D downstream diagnostics, bounded L0/L1 Wan5B baseline, conditional J6/X3/J5-P. Source manifest records paper/README checks, attachment hash and pending adapter validation. Current F1 protocol is unchanged. The plan edit launches no GPU job. Next actions prioritize failure review and completion of the existing comparison before new experiments.
-
 ## F1 r3 launched after outcome recording fix — 2026-09-30
 
 R2 PIDs verified absent. Official keep_going=True permits rejection recording without saving rejected outputs; new observation wrapper preserves filter return values and rejects unexplained missing outputs. 32 local tests and11 Linux CPU/fake-GPU tests passed. Source57c8660 archive matched. Supervisor2431971/Native child2431976 verified live on freshly admitted GPU1. outputs/f1-smoke-r3; before-run budget0.4732977178361681/4GPUh. No paired result yet. Do not change running code or restart from stale status.
@@ -536,11 +416,9 @@ Source99f554f revisionexit0,8checks pass; oldPIDsabsent/lockfree/GPU1released24M
 
 w1-vqa-controls-r1/source72c9e24 exit0，supervisor2488580/timeout2488585/runner2488587全部退出，global锁释放/GPU1 24MiB/noapps。126raw/token一致、24输入重算、8视频/模型10文件/源码安装锁通过，本地原题再次重算一致。matched42/42原答案一致；blank和cyclic各14/42改变、三条件都0invalid。判定REPEAT_STABLE_AND_RESPONDS_TO_CONTENT_NOT_PHYSICAL_VALIDITY，不是物理准确/标准Joint/方法通过；部分场景不变应保留。
 
-本轮计费79.02369451522827秒；累计3.6512467238638138/4GPUh，余0.3487532761361862h/1255.511794秒，无在途。原VQA6平1misc降、MUSIQ3升4降、robot拒绝/CAL8仅机制均保持，当前无质量—时间收益。不再重复输入控制/调prompt，不自动加W2/OMR或训练/人评/付费。
+本轮计费79.02369451522827秒；累计3.6512467238638138/4GPUh，余0.3487532761361862h/1255.511794秒，无在途。原VQA6平1misc降、MUSIQ3升4降、robot拒绝/CAL8仅机制均保持，当前无质量—时间收益。不再重复输入控制/调prompt，不自动加W2或训练/人评/付费。
 
 [结果](../research/30_W1_VQA_INPUT_CONTROLS_RESULTS.md)/[完整审计](../reports/w1_vqa_controls_r1_audit.json)/[本地重算](../reports/w1_vqa_controls_r1_local_recompute.json)。[下一窗口成本方案](../research/31_W1_NEXT_WINDOW_COST_AND_DECISION.md)：原8×两臂旧诊断约3141.247秒，非clean下界；当前余额不足以稳妥提交完整批次。新4GPUh提议用于原8×两臂×3重复clean成本门（非独立质量确认），或先CPU核对替代资源；预算/方向待用户决定，尚未实现或新GPU提交。不以挑好子集替代原8。旧实机source72c9e24保持，后续文档HEAD不是新的实机运行。
-
-## 以下为历史快照
 
 ## 最新准备 — 2026-10-01：完整配对计时runner实现/CPU48通过，未GPU
 
@@ -550,101 +428,9 @@ w1-vqa-controls-r1/source72c9e24 exit0，supervisor2488580/timeout2488585/runner
 
 [准备卡](../research/32_W1_CLEAN_TIMING_CPU_PREPARATION.md)/[冻结协议](../manifests/w1_clean_timing_protocol.json)/[Linux检查](../reports/w1_clean_timing_linux_cpu_20261001.json)。预算决定后才更新授权/ledger、sync/hash部署/fresh准入唯一clean-timing-r1；不要重跑旧controls。
 
-## 以下为历史快照
-
-## 最新资源进展 — 2026-10-01：L0部分核验完成，CPU真实资产/结构证据
-
-历史Wan5B11文件/34201521169字节按新锁定官方revision全hash通过，CPU207.093538秒/原PIDs退出/无GPU成本；现有独立Wan入口3文件与官方42bf4cf逐hash相同，不继承历史PhysCache结果。LongLive代码fb16a879与Wan5B CFG/few-step两release已锁；两600tensor headers各300 A-B目标在实际base825tensor上全部key/shape/rank/alpha-r/index结构匹配。本地/Linux16CPU与tiny官方merge算术通过，尚未有完整adapter payload/真实5B融合/前向/GPU就绪。
-
-[资源审计](../research/33_L0_WAN_LONGLIVE_OMR_RESOURCE_AUDIT.md)/[base完整hash](../reports/l0_wan5b_asset_integrity_20261001.json)/[结构重放](../reports/l0_lora_header_structural_audit_20261001.json)。OMR官方release实查仍Coming soon，公开资源BLOCKED，不自动切主线。环境版本不同，后续隔离准备；下一CPU锁定两适配器共1.802GiB下载/全SHA、真实融合/任务接口验收可独立推进。GPU账本不变3.6512467238638138/4h；原8/50计时CPU准备已齐，新4GPUh仍待用户决定。
-
-## 以下为历史快照
-
-## 最新CPU资源获取 — 2026-10-01：L0两适配器r1实际live，非GPU
-
-资源核验/协议/source68afc3e同步后，唯一outputs/l0-adapter-assets-r1已启动。匿名官方HF、固定两release、独立project cache、cap3600 CPU-only；supervisor2493078/timeout2493079/downloader2493080本次proc核实live、CPU获取锁持有、CUDA空/source与协议hash一致。CFG partial73400320字节（70MiB），3小JSON已到位；few-step尚未开始，未完整payload/SHA/真实5B融合或前向。
-
-接续[launch](../reports/l0_adapter_assets_r1_launch_20261001.json)/[live观察](../reports/l0_adapter_assets_r1_live_observation.json)，使用同3 handles至终态，不因观察超时重启，不改在跑3份CPU获取/验证source或manifest。当前专用临时loopback转发是本任务拥有的SSH进程，本机身份记录在ignored .sync/l0-owned-forward.json，直到CPU终态保持；共享FRPC/代理未改。终态先完整模型release/逐文件SHA、PID/锁/source/GPU账本核验，再只关闭该owned forward，不停止共享路线。
-
-GPU账本严格未变3.6512467238638138/4h，无新GPU工作。已确认Wan5B base11官方hash与header结构/16CPU，不叫L0完整READY；OMR公开release仍Coming soon，新4GPUh计时决定仍待用户。后续完整LoRA/真实CPU融合/隔离环境/任务接口检查独立推进，不自动跑L1或训练/付费/人评。
-
-## 以下为历史快照
-
-## 2026-10-01：L0 r1终态与真实CFG资源/完整融合CPU准备
-
-L0 CPU获取r1因连接中断exit1/1218.181533秒终态，原3PIDs退出/CPU锁释放/账本不变；仅关闭本任务owned临时转发。CFG4文件完整官方hash、真实600tensor finite/300pair alpha-r通过，独立核验PIDs2495417/2495418退出；few-step保留167772160字节（160MiB），非完整payload。两配方分片CPU融合程序已实现，本地/Linux22同范围检查通过，尚未真实Wan5B融合/模型任务load/GPU。下一同固定release/cache/3600秒的新r2续传，不重启旧identity或改共享路线。
-
-[准备与验收](34_L0_CPU_FUSION_PREPARATION_AND_CFG_PAYLOAD.md)，主线预算/质量边界保持。
-
-## 后续同日r2实际续传
-
-L0 CPU r2/source965a502已实际启动且3PIDs2496080/2496081/2496082均/proc核实live，独立CPU锁持有、3600秒上限、source/协议hash一致、CUDA空/账本不变。复用CFG全部已验收4文件，few-step由160MiB续到188743680字节（180MiB），仍非完整/hash验收/融合。r1原连接失败及160MiB保留不改。
-
-接续同一组新r2 handles，不重复提交；[launch](../reports/l0_adapter_assets_r2_launch_20261001.json)/[live](../reports/l0_adapter_assets_r2_live_observation.json)。
-
-## 2026-10-01：L0 r2终态与range39/真实CPU scheduler接口门
-
-L0 r2因第二次HTTP流中断exit1/583.253381秒终态；3PIDs2496080/2496081/2496082已退出/CPU锁释放、原source/协议核验和GPU账本不变，owned r2转发在完整审计后关闭。few-step保留555745280字节（530MiB），CFG4文件继续官方hash PASS。新16MiB range/retry/rollback/fullSHA获取程序和完整融合监督已实现，本地/Linux39同范围CPU通过；还未r3提交/完整5B融合。
-
-见[恢复与接口](35_L0_RANGE_RECOVERY_AND_INTERFACE_GATE.md)，GUIDE1不能靠参数推断单条件前向；无GPU新结果。
-
-## 后续同日range-r3实际启动
-
-L0 CPU range-r3/sourcebd8253d已唯一实际启动，3PIDs2498231/2498232/2498233都/proc verified live，CPU获取锁持有、CUDA空/source协议hash一致/账本未变。官方精确206/64KiB旧prefix边界preflight通过；已完成2个16MiB chunk、重试0次，已fsync字节589299712（562MiB），另有在途文件长度602931200（575MiB）。未完整1289824400/整SHA验收或两模型融合。复用原530MiB，不改r2失败或扩大GPU预算。
-
-[r3 launch](../reports/l0_adapter_assets_r3_launch_20261001.json)/[live](../reports/l0_adapter_assets_r3_live_observation.json)。继续同handles/owned转发至终态，不重复提交，CPU partial不是L0完整READY。
-
 ## 2026-10-01：native条件分支公共管线CPU准备
 
 已实现仅T2V的scope adaptation，guide1直接conditional、guide!=1保留原CFG运算，finally恢复，不改源文件/i2v。Local/Linux7检查通过；完整native T2V body+真实UniPC/CPU替身在4/50步guide5输入/timestep/输出bit equal，guide1分别4/50cond/0negative。不是实际模型/GPU parity；保留BF16guide1的stock抵消差异，不称guide1 OFF/ON bit invariant。
 
-[准备与边界](36_L0_NATIVE_CONDITIONAL_CPU_PREPARATION.md)，不改在跑range-r3 source或部署GPU。
-
-## 最新r3终态
-
-L0 range-r3/sourcebd8253d已exit1/1216.976277秒终态；最后range三次URLError，已提交43个16MiB chunk，保留1277165568字节（1218MiB），仍缺12658832字节。CFG4文件/两few-step JSON官方digest PASS，few-step模型MISSING；原3PIDs退出/CPU锁释放/source与协议一致/账本不变，完整审计后仅关闭本任务owned r3转发。下一新唯一r4从保留prefix续传，同官方revision/16MiB/3600秒上限；未新GPU、未完整few-step hash/真实融合。
-
-## 最新全部adapter CPU验收
-
-L0 range-r4/source7c0f2ec唯一实际续传成功，exit0/31.271029秒，最后12658832字节一次range完成/0retry。全部7文件官方digest与实际1200张量CPU有限性、300×2目标/rank/alpha及825基座header匹配通过；原3PIDs2502124/2502125/2502126退出/CPU锁释放/source与协议一致/账本不变，审计后仅owned临时转发关闭。真实融合尚未提交，实际模型/GPU parity仍未通过；新4GPUh仍待用户重要预算决定。
-
-最新真实CPU融合：真实Wan5B两臂CPU fusion-r1/sourcec69e492已唯一启动。supervisor2502473/timeout2502474/runner2502475实际/proc live，独立fusion锁持有、CUDA空/source固定与账本未变。准入时MemAvailable59360669696字节（55.3GiB）、磁盘720206147584字节（670.7GiB）；3600秒CPU cap，当前完整输入hash阶段/未创建模型目录，尚未完成merge或产物验收。 [运行卡](38_L0_FULL_ADAPTER_PAYLOAD_AND_REAL_CPU_FUSION.md)。
-
-最新完整原生源码/环境准备：官方固定Wan运行源码60文件已独立部署/全Gitblob与SHA匹配；旧参考import观察超时、PID后续消失，结果UNKNOWN。参考环境满足官方requirements版本元数据；新隔离env/full native import尚未通过。带PID/阶段持久回执的CPU runtime probe已准备/仅语法检查，未执行。fusion-r1仍同handles/3600秒CPU cap，CFG-only已有413tensor/首shard验收，尚未全两臂验收。 [准备与边界](39_L0_NATIVE_SOURCE_AND_ENVIRONMENT_PREPARATION.md)。
-
-最新CPU融合进度：fusion-r1/sourcec69e492同3PIDs实际live，CFG-only一臂已全部825张量/3分片完成融合、独立公式、有限性、未目标字节不变与序列化重读验收；完整两臂及末尾原输入hash尚未完成。CPU锁持有/source一致/账本未变，维持3600秒cap，不重复启动。
-
-最新两臂/环境门：真实CPU两臂均已825/3分片内部验收；完整posthash/终态与独立fresh artifact审计仍待。新独立env已创建，实际offline缓存解析缺Torch2.4.1+cu121，未装包。独立CPU终态审计程序已准备/语法检查，待原3PIDs退出/锁释放后唯一timeout900秒执行，不重跑融合/改stage/新GPU。 [准备](40_L0_CPU_FUSION_AUDIT_AND_ENV_CACHE.md)。
-
-最新CPU融合终态：CPU fusion-r1/sourcec69e492已exit0/1960.417015秒终态，peak RSS30.8287GiB；两臂各825tensor/3分片/300目标/525未目标完整，18原输入融合前后官方digest一致，3PIDs退出/CPU锁释放/source与GPU账本不变。完整独立fresh产物审计尚未执行，不能称模型/任务/GPU就绪。
-
-最新独立审计/二进制资源：CPU audit-r1/sourcedbe863c已唯一实际启动，3PIDs2505483/2505484/2505485 live、900秒cap/锁持有/source与GPU账本不变。fresh18输入/CFG-only825tensor与3shard/525untargeted通过，few-step+CFG尚待。官方Torch三wheel SHA与Flash官方asset ID/size已锁，Flash官方digest UNKNOWN；均未下载/安装，实际ABI/fullruntime未通过。 [运行卡](41_L0_FRESH_AUDIT_AND_BINARY_SOURCE_LOCK.md)。
-
-最新CPU完整验收：真实两臂CPU融合与独立fresh audit均终态通过：fusion1960.417015秒/peakRSS30.8287GiB，audit663.896945秒；18原输入融合前后及fresh官方digest一致，6输出shard/1650实际tensor全finite与dtype/shape/字节digest通过，1050未目标weight原字节不变，两臂各300目标实际bytes_changed。所有原fusion/审计6PIDs退出/CPU锁释放/source与GPU账本不变。仍未实际模型/T5/VAE加载或任务/GPU就绪。 [完整卡](42_L0_FULL_CPU_FUSION_ARTIFACT_ACCEPTANCE.md)。
-
-最新native binary获取准备：四个固定native binary获取程序已实现；本地/Linux11同范围CPU检查通过（不是22项独立证据），涵盖range/rollback/完整SHA、错误wheel名称版本平台、Flash断流续传/冻结local SHA/损坏cache拒绝及官方asset身份改变拒绝。完整wheel尚未下载、依赖未安装/native ABI未验收。 [准备卡](43_L0_NATIVE_WHEEL_ACQUISITION_PREPARATION.md)。
-
-
-## 2026-10-01：原93包local6绑定CPU准备
-
-原93包local6 transport绑定程序及安装校验门已准备，本地/Linux同4契约测试通过（fixture，不是实际六包绑定或安装）。六包range-r1同handle仍运行，已3/6完整官方SHA/meta通过；其余尚待全量审计。新stage安装将fresh全6 bytes并重组成原93版本图；旧安装/source与shared连接不动，无新GPU。 [准备卡](50_L0_LOCAL93_BINDING_PREPARATION.md)。
-
-
-## 2026-10-01：六包fresh终态与原93实际绑定
-
-六个大transitive wheel全部下载并独立fresh审计通过：1781156006字节、CPU2752.631111秒，六包完整官方SHA/实际metadata/exact tag一致，原3PIDs退出/锁释放/source与GPU账本不变，仅owned16501关闭。实际audit数据已离线绑定原93包锁：仅替换六个下载位置，93版本/coverage保留、其余87个block字节不变；新TXT SHA=d4296654b79e26616963df01b4fd15eda29d344bf2d7efb2fcf6840d7ff38abe。这是transport derivation，没有重新resolve或安装/native import/GPU。 [验收卡](51_L0_ALL6_TRANSITIVE_ACCEPTANCE_AND_LOCAL93_LOCK.md)。
-
-
-## 2026-10-01：local93独立安装r2实际运行
-
-隔离install-r2/source960a57e已唯一启动，4PIDs 2515483/2515484/2515485/2515492 实际live/环境锁持有，CPU1800秒cap。原4+新6实际payload fresh hash、原解析input与derived93重组成校验已过，UV确认93包/1.15秒，安装仍进行中；尚未安装终态/native import/模型/GPU。新stage8 files固定，source与GPU账本不变。 [运行卡](52_L0_LOCAL93_ENV_INSTALL_R2_RUN.md)。
-
-
-## 2026-10-01：local93安装r2实际完整终态
-
-隔离install-r2/source960a57e已exit0/CPU51.886223秒终态；fresh实际93 inventory逐版本符合原图，0缺包/0extra/0wrong。原4+新6 wheel完整SHA不变，4PIDs退出/环境锁释放/source与GPU账本不变，仅owned16502关闭。installed_lock已写入；actual native import/ABI/825meta/tokenizer/任务与GPU尚未验收。 [验收卡](53_L0_LOCAL93_INSTALL_ACCEPTANCE.md)。
-
-
 ## 2026-10-01：actual原生CPU probe终态验收
 
-原生probe-r1/source0da2b73已exit0/CPU20.307796秒，独立终态审计通过；actual Torch/Torch._C/Flash Python与extension origins/SHA、CPPABI false、pinned60完整Wan import（明确仅T5默认设备CPU guard）通过，825meta结构对实际base headers一致、真实tokenizer512与conditional scope签名/恢复通过。原3PIDs退出/环境锁释放，native60/installed93/source与GPU账本未变、CUDA未初始化。没有实际DiT/T5/VAE权重load、forward、完整任务或GPU parity。 [完整卡](54_L0_ACTUAL_NATIVE_CPU_IMPORT_ACCEPTANCE.md)。
