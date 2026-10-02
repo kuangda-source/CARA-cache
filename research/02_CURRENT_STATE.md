@@ -1,5 +1,7 @@
 ## 2026-10-02新增条件探索 — WC-D可预测残差与专家蒸馏（DESIGN_ONLY）
 
+**对话分工（2026-10-02）：当前对话只推进WorldCache。** OMR已转入独立对话“OMR 物理纠正研究”（ID `01a0fb1f-9751-7ff1-851a-59bdb4f413ef`），接续见[OMR交接](../memory/handoffs/OMR_DIRECTION_20261002.md)。历史OMR设计/资产保留，但不作为当前对话自动切换的后备队列。WorldCache既有冻结工作与WC-S/H、WC-D顺序保持，先完成当前范围，不取消或重启；本次分离不改变GPU预算或启动新实验。
+
 [WC-D完整设计](66_WC_DISTILLED_RESIDUAL_EXPLORATION_DESIGN.md)已加入总计划v1.4：D0接口/标签因果性 → D1同状态采集 → D2低秩与廉价可预测性 → D3单纠正器固定schedule闭环 → 有互补且可识别信号才D4双专家 → D5质量—时间；D6只作有依据的一次分布修订。先single，stage-only/充分时间条件single/总参数匹配single为强对照，oracle只离线诊断且与部署同whole-call粒度。
 
 **原冻结工作先完成并审计，现有WC-S/H优先队列不变。** WC-D可复用接口与资产，不要求稀疏方法成功，不自动开第二GPU主线。新增方案、首窗口卡和来源记录已组织；collector/学生/门控未实现或运行，尚无新标签或方法结果。新FIT24/CAL8/CONF8清单待D0冻结；原CAL8已消耗，不作CONF。

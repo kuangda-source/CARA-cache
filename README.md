@@ -1,5 +1,7 @@
 最新CPU运行：[六个大依赖分段获取](research/49_L0_TRANSITIVE_WHEEL_RANGE_ACQUISITION_RUN.md)，旧安装已终态/新env空/无native import或GPU。
 
+**对话分工（2026-10-02）：当前对话只推进WorldCache。** OMR已转入独立对话“OMR 物理纠正研究”（ID `01a0fb1f-9751-7ff1-851a-59bdb4f413ef`），接续见[OMR交接](memory/handoffs/OMR_DIRECTION_20261002.md)。历史OMR设计/资产保留，但不作为当前对话自动切换的后备队列。WorldCache既有冻结工作与WC-S/H、WC-D顺序保持，先完成当前范围，不取消或重启；本次分离不改变GPU预算或启动新实验。
+
 最新资源状态：[安装超时终态及六包分段获取准备](research/48_L0_INSTALL_TIMEOUT_AND_TRANSITIVE_RANGE_PREPARATION.md)，新env仍空/无native import或GPU。
 
 最新CPU运行：[隔离原生环境安装](research/47_L0_NATIVE_ENV_INSTALLATION_RUN.md)，93包hash lock安装进行中/未native import或GPU。
