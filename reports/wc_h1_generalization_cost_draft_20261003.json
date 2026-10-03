@@ -1,0 +1,78 @@
+{
+  "status": "COMPLETE72_EARLY_LATE_TWO_CAL_COST_DRAFT_NOT_GPU_ADMISSION",
+  "scope": {
+    "scenes": 2,
+    "regions_per_scene": 2,
+    "baseline_and_observed_prefix_updates": 33,
+    "CFG_calls_per_phase": 66,
+    "source_arms": 24,
+    "lifetime_cells": 72,
+    "raw_files": 120,
+    "checkpoints": [
+      13,
+      21,
+      33
+    ]
+  },
+  "cost_seconds": {
+    "startup_import_shutdown": 50,
+    "model_load_allowance": 113.85257261339575,
+    "shared_eval": 5,
+    "four_prefixes33_updates_18_seconds_each": 2376,
+    "source96_group_replays_5_seconds_each": 480,
+    "future48_dense_teachers_5_seconds_each": 240,
+    "future288_cheap_replays_150ms_each": 43.199999999999996,
+    "uncategorized_first_use_metadata_IO_120_files_8_seconds_each": 960,
+    "raw_estimate": 4268.052572613396,
+    "contingency_fraction": 0.2,
+    "shutdown_settlement_margin": 30,
+    "planning_envelope_including_settlement": 5151.663087136075
+  },
+  "measured_inputs": {
+    "H1_all_wall_seconds": 889.0046812146902,
+    "H1_load_seconds": 93.43160593416542,
+    "baseline21_seconds": 219.46152535174042,
+    "observed21_seconds": 518.8148019304499,
+    "source_median_based_replay_estimate": 73.9012711532414,
+    "future_teacher_median_based_replay_estimate": 37.515478894114494,
+    "cheap_median_based_replay_estimate": 5.8911986872553825,
+    "uncategorized_median_based_residual_not_separate_IO_measurement": 182.0453278440982,
+    "uncategorized_per30_raw_file": 6.068177594803274,
+    "historical_20_full_22_cached_calls_replaced_with_full_allowance_per_update": 15.531501207225734,
+    "prefix_allowance18_seconds_per_update_is_forecast_not_measured_bound": true
+  },
+  "window_checks": {
+    "fits4800": false,
+    "fits6000": true,
+    "proposed_all_cost_cap": 6000,
+    "child_cap": 5970,
+    "GPU_execution_selected": false
+  },
+  "bytes": {
+    "raw120_estimate": 16243970520,
+    "held_two_regions_12_references_estimate": 6115295232,
+    "minimum_proposed_free_disk": 60000000000,
+    "held_storage_excludes_network_caches_allocator_and_teacher_workspaces": true
+  },
+  "budget_snapshot": {
+    "cap_gpu_hours": 12,
+    "used_gpu_hours": 5.300050075675308,
+    "remaining_gpu_hours": 6.699949924324692,
+    "jobs": 35,
+    "new_GPU_cost": 0
+  },
+  "sources_sha256": {
+    "reports/wc_h1_lifetime_r1_runner_20261003.json": "388107f3225a97f62e8deefc33c092f9cae1c5b9e6690b7f2452d3bd6b02dc85",
+    "reports/wc_h1_lifetime_r1_summary_20261003.json": "21e91b27a8cb86bd6689b68a4b342c709236cef3a6c36ff62fc1113ab03a2932",
+    "reports/wc_h1_lifetime_r1_audit_20261003.json": "45be04d3bbdd3b25c2acf8f9337bab1ef6f3b63136183d1d32a00fcec26ff507",
+    "reports/budget.json": "32870e3d64742ede3e49e0a687a9dc07006fdb923614f75c253a4cf4cab7fcc3",
+    "configs/cal_w1d8.jsonl": "7b99d44d9ec5aced6983dccbf1eb930344a84f053f185f423cecd12d94354d84"
+  },
+  "limits": [
+    "Prefix18s/update is conservative extrapolation allowing all-full calls and another state checkpoint, not a measured bound.",
+    "Median-based deduction mixes warm/cold first-use and IO; 8s/raw scales it conservatively without claiming separate IO measurement.",
+    "Complete72 scope not reduced to fit old1800 or4800; 6000 draft requires separate runner/card and actual gates, not reuse of H1/r4 authorization.",
+    "Both CAL scenes are exposed development data; fixed trajectory only, no continuous safe lifetime or video quality.",
+    "No actual two-scene multi-window GPU costs or peak memory measured."
+  ]
+}

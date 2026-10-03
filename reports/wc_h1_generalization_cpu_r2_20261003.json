@@ -1,0 +1,290 @@
+{
+  "status": "H1_GENERALIZATION_CPU_GATE_PASS",
+  "exit": 0,
+  "payload_sha256": {
+    "src/wcomr/__init__.py": "b9996da0a87bb746cdac0935ead475246fc34d88b37e73f63f14e5065494f311",
+    "src/wcomr/h0_complement.py": "546b3e7dbcaebdfc561dc85abb125ed129ecaef217f4088a9a7cc6c323f7082b",
+    "src/wcomr/h0_mode.py": "849afc06fa124c606e39205542458e7bcaa974adca28d9772f3c23730c1668b4",
+    "src/wcomr/h1_reference.py": "5759254d8fcd0cc772bba08b0fa3873aa1b533fd1142b87e1fe726248b0a43d2",
+    "src/wcomr/h1_lifetime.py": "45fe13ade03ba4dc1e3163752e78e4c1bbd2ef3969f01e0091e8e0c9cfb0fd24",
+    "src/wcomr/mid_coverage.py": "8e02d740b4ee794531c6263666bbed18348e32ba84c9b94b89f7c979a106fbf4",
+    "src/wcomr/mid_scope.py": "94d02ab46cddd70a0a80e5edb62eb12e22eb2647afe66b6843e6372480bb51ac",
+    "src/wcomr/prepared_input.py": "aa2d916a56d8ac1f7afd8a551c20341d5bed86299f97b0711019517f0e0effdb",
+    "src/wcomr/measurement.py": "c4181ec3220b2fd33d333dffed9ae7163303668b9e152a705d1d70213b45a4c0",
+    "src/wcomr/shadow_metrics.py": "59a985ff8b4f9684e77f30f6e1863288c8e5e617b04b20b1e5af313824eda1ee",
+    "src/wcomr/h1_prefix.py": "68895fceaa4ba172a14747b95ced432320ea8d979a2fba57d4f40436ccb61ecf",
+    "src/wcomr/h1_scope.py": "8ee301560db37f28d61a2abfdb547735d0f388035702e991c9c632c392b341a7",
+    "src/wcomr/mid_prefix_audit.py": "218dba5b59a76919bcb03dae0ccba4dae69dc40dc4035aac968f7f85cb14fe0e",
+    "tests/test_h1_reference.py": "cd3c0615b7c5d7857e3921b0f01aa813d0c63299dd3643529f804e857d5c6a3b",
+    "tests/check_h1_lifetime.py": "ef75d1e344764d9fc3680a01b29bd5b740dd23bf442833161958a37f5e3f3eee",
+    "tests/check_h1_prefix.py": "2352b0df1eab6d49594293c1c1a042cedb6e9faff5623d79f86151b70b26daf5",
+    "tests/test_h1_scope.py": "ee51ff28a8daabdcfabc09dfd74dd8e6f27b379e33cf3b83f8c89e50445bea70",
+    "configs/wc_h1_generalization_r1.json": "e2a148743e5f3c1e496c53e5e527885eae60ecd2040fd617790b47bc6cd33641",
+    "src/wcomr/h1_generalization.py": "395030bb3e85d37176ceaff3ca82b6cd05d27a3f77a3cb5f79d6bd6225e41705",
+    "src/wcomr/h1_generalization_prefix.py": "84896361869a00193b28487d3a8b24d9c6753654bd7a12f6c7c81a24c4c946fa",
+    "src/wcomr/h1_generalization_scope.py": "8066348a5bb55821979b1fa4156554085ece0e4baab79a254b3db4fbb300f0c8",
+    "tests/check_h1_generalization_prefix.py": "98e8056d6d42c00aed24c9995f1b5db4f2f3a25d5f0a855992bc5e912baae3cd",
+    "tests/check_h1_generalization_scope.py": "6e73bb9b2c1b1a421428b69172cd4be5f80b6c6b25ec9edf6ab9662297455da7"
+  },
+  "budget_unchanged": true,
+  "budget": {
+    "batch": "F0-F1",
+    "cap_gpu_hours": 12,
+    "used_gpu_hours": 5.300050075675308,
+    "gpu_jobs_launched": 35,
+    "status": "WC_H1_LIFETIME_SETTLED_REQUIRES_RESULT_AUDIT",
+    "gpu_import_probes_completed": 1,
+    "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts",
+    "budget_authorization_ref": "manifests/budget_authorization_20261003.json",
+    "budget_authorization_history": [
+      {
+        "authorized_utc": "2026-10-02T18:03:00Z",
+        "source_thread_id": "01a0f1e6-7ad0-75df-9a02-172b60d2e00b",
+        "user_instruction": "\u628a\u5404\u4e2a\u5b9e\u9a8c\u7684 gpu \u9884\u7b97\u90fd\u8bbe\u7f6e\u4e3a 12gpuh",
+        "previous_cap_gpu_hours": 4,
+        "new_cumulative_cap_gpu_hours": 12,
+        "used_gpu_hours_at_change": 3.9117525685110333,
+        "no_usage_reset_or_transfer": true
+      }
+    ]
+  },
+  "observed_unix": 1791022503.7979462,
+  "cpu_wall_seconds": 80.44689631462097,
+  "scope": "TOY_PINNED_SOURCE_ONLY_NO_GPU_MODEL_WEIGHTS_OR_LIFETIME_RESULT",
+  "controls": {
+    "prefix": {
+      "status": "H1_GENERALIZATION_PRODUCTION_CORE_CPU_CONTROLS_PASS_NOT_REAL_MODEL_RESULT",
+      "checks": [
+        {
+          "flow": false,
+          "request": "common",
+          "same_production_batch_shared_net_solver_inference": true,
+          "actual_unipc_grid": 36,
+          "prefix_updates": [
+            33,
+            33
+          ],
+          "cfg_calls": [
+            66,
+            66
+          ],
+          "nine_gate_checks": {
+            "input_hashes": true,
+            "output_hashes": true,
+            "trace": true,
+            "block_counts": true,
+            "state_fingerprints": true,
+            "sampling": true,
+            "named_inputs": true,
+            "conditions": true,
+            "field_signatures": true
+          },
+          "state_steps": [
+            13,
+            21,
+            33
+          ],
+          "state_component_counts": [
+            36,
+            36,
+            36
+          ],
+          "paired_lifetime_cells": 36,
+          "shared_prepare_RNG_and_buffer_delta_exact": true,
+          "all_hooks_restored": true,
+          "raw_files": 60,
+          "baseline_selected_source_steps": [
+            9,
+            26
+          ],
+          "age3_deployed_refresh_does_not_replace_held_references": true
+        },
+        {
+          "flow": false,
+          "request": "human",
+          "same_production_batch_shared_net_solver_inference": true,
+          "actual_unipc_grid": 36,
+          "prefix_updates": [
+            33,
+            33
+          ],
+          "cfg_calls": [
+            66,
+            66
+          ],
+          "nine_gate_checks": {
+            "input_hashes": true,
+            "output_hashes": true,
+            "trace": true,
+            "block_counts": true,
+            "state_fingerprints": true,
+            "sampling": true,
+            "named_inputs": true,
+            "conditions": true,
+            "field_signatures": true
+          },
+          "state_steps": [
+            13,
+            21,
+            33
+          ],
+          "state_component_counts": [
+            36,
+            36,
+            36
+          ],
+          "paired_lifetime_cells": 36,
+          "shared_prepare_RNG_and_buffer_delta_exact": true,
+          "all_hooks_restored": true,
+          "raw_files": 60,
+          "baseline_selected_source_steps": [
+            9,
+            26
+          ],
+          "age3_deployed_refresh_does_not_replace_held_references": true
+        },
+        {
+          "flow": true,
+          "request": "common",
+          "same_production_batch_shared_net_solver_inference": true,
+          "actual_unipc_grid": 36,
+          "prefix_updates": [
+            33,
+            33
+          ],
+          "cfg_calls": [
+            66,
+            66
+          ],
+          "nine_gate_checks": {
+            "input_hashes": true,
+            "output_hashes": true,
+            "trace": true,
+            "block_counts": true,
+            "state_fingerprints": true,
+            "sampling": true,
+            "named_inputs": true,
+            "conditions": true,
+            "field_signatures": true
+          },
+          "state_steps": [
+            13,
+            21,
+            33
+          ],
+          "state_component_counts": [
+            36,
+            36,
+            36
+          ],
+          "paired_lifetime_cells": 36,
+          "shared_prepare_RNG_and_buffer_delta_exact": true,
+          "all_hooks_restored": true,
+          "raw_files": 60,
+          "baseline_selected_source_steps": [
+            9,
+            26
+          ],
+          "age3_deployed_refresh_does_not_replace_held_references": true
+        },
+        {
+          "flow": true,
+          "request": "human",
+          "same_production_batch_shared_net_solver_inference": true,
+          "actual_unipc_grid": 36,
+          "prefix_updates": [
+            33,
+            33
+          ],
+          "cfg_calls": [
+            66,
+            66
+          ],
+          "nine_gate_checks": {
+            "input_hashes": true,
+            "output_hashes": true,
+            "trace": true,
+            "block_counts": true,
+            "state_fingerprints": true,
+            "sampling": true,
+            "named_inputs": true,
+            "conditions": true,
+            "field_signatures": true
+          },
+          "state_steps": [
+            13,
+            21,
+            33
+          ],
+          "state_component_counts": [
+            36,
+            36,
+            36
+          ],
+          "paired_lifetime_cells": 36,
+          "shared_prepare_RNG_and_buffer_delta_exact": true,
+          "all_hooks_restored": true,
+          "raw_files": 60,
+          "baseline_selected_source_steps": [
+            9,
+            26
+          ],
+          "age3_deployed_refresh_does_not_replace_held_references": true
+        },
+        {
+          "failure": "sparse_late",
+          "planned_source_arms": 24,
+          "planned_lifetime_cells": 72,
+          "full_denominators_preserved": true,
+          "first_request36_cells_preserved": true,
+          "all_hooks_restored": true,
+          "no_reselection": true,
+          "second_request_early_cells_retained": 18
+        },
+        {
+          "failure": "condition_late",
+          "planned_source_arms": 24,
+          "planned_lifetime_cells": 72,
+          "full_denominators_preserved": true,
+          "first_request36_cells_preserved": true,
+          "all_hooks_restored": true,
+          "no_reselection": true,
+          "second_request_early_cells_retained": 18
+        },
+        {
+          "failure": "missing_late",
+          "planned_source_arms": 24,
+          "planned_lifetime_cells": 72,
+          "full_denominators_preserved": true,
+          "first_request36_cells_preserved": true,
+          "all_hooks_restored": true,
+          "no_reselection": true,
+          "second_request_early_cells_retained": 0
+        }
+      ],
+      "cuda_initialized": false,
+      "limits": "Actual pinned WC functions and UniPC with Toy modules, synthetic kernel and stand-in Inference/prepare/reset; controlled finite threshold schedule equal in both paths exercises cache and age3 refresh, not deployed threshold; no GPU, real model, full video or independent fork."
+    },
+    "scope": {
+      "status": "H1_GENERALIZATION_SCOPE_SELECTION_COST_BUDGET_CPU_PASS",
+      "scope_mutations_rejected": 12,
+      "cost_failures_rejected": 3,
+      "budget_failures_rejected": 6,
+      "selector_failures_rejected": [
+        "missing_late",
+        "counter",
+        "bool_counter",
+        "incomplete",
+        "regions"
+      ],
+      "one_branch_full_does_not_select_unpaired_source": true,
+      "full_planned_lifetime_cells": 72,
+      "GPU_execution_authorized_by_this_CPU_test": false
+    },
+    "shared_network_two_request_controls": true,
+    "torch_version": "2.7.1+cu128",
+    "cuda_initialized": false
+  },
+  "fresh_gpu": "GPU-de9a5370-cd87-0f1c-a48e-288888777dd3, NVIDIA RTX A6000, 350 MiB\nGPU-cebf7119-cf03-23b9-e192-cd196332b704, NVIDIA RTX A6000, 24 MiB\n",
+  "fresh_apps": ""
+}

@@ -1,3 +1,10 @@
+## 2026-10-03 H1早晚双CAL批次CPU通过，独立6000秒卡待实际部署
+
+[80独立卡](../../research/80_WC_H1_GENERALIZATION_R1_CARD_AND_CPU.md)：保持H1中间点终态，现CPU同一生产batch在同net/solver/Inference处理两请求，flow OFF/ON各完整72格/120raw；四request各33更新/66CFG/九门与step13/21/33各36组件/restore、age3实际刷新但held参考不覆盖通过。第二请求晚期nonfinite/条件变化/无paired-full保留全24/72分母与第一请求36格，挂钩恢复；实际Torch2.7.1+cu128，禁止CUDA，无真实权重/前向。r1前缀CPU56.275秒、r2批次CPU80.447秒各自source保留。
+
+common与human_199都是曝光CAL；早[8,12]/晚[25,29]从新官方baseline按最早双CFG true-full/已付probe/两过去同CFG历史选点，不用候选误差、缺点不补选。完整成本5151.663秒，不缩矩阵挤进旧1800/4800；自主goal/累计12h队列选定独立WC-H1-GENERALIZATION-R1-20261003-A，单次6000全cost/5970child/kill5，非旧窗口复用。当前尚未新GPU/预付，5.300050075675308/12h、35jobs保持。先source/payload提交、完整实际官方prepare/UniPC下一更新13/21/33/native-meta/assets/import/双样本绑定门，再fresh资源/锁/无inflight/余额/协调槽位；不自动第二泛化/H2/RV/训练，不新增人评。以下状态为历史。
+
+
 ## 2026-10-03 H1首卡终态：完整18格审计通过，共同漂移占主导
 
 [79真实结果](../../research/79_WC_H1_LOCAL_LIFETIME_R1_CARD_AND_RESULTS.md)：source e59b588退出0，actual CPU34、两前缀21更新/42CFG、全部九门、step13/21各36组件/restore、6来源/18格/30原件60张量及独立float64误差/费用/释放通过。age1/2 held-D预测匹配部署cache，age4 D teacher匹配部署full。S来源velocity约0.94%，整组+head省5.53%/5.84%；后续S−D预测差值1.03%–1.44%，绝对来源扰动放大1.10–1.56×，dense-held共同误差11.16%–31.58%，局部双字段5%筛查0/18（D也未过）。一个已曝光CAL/两相关CFG的固定轨迹诊断，无连续安全寿命、闭环、视频或端到端收益。
