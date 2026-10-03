@@ -1,3 +1,11 @@
+## 2026-10-04 早晚因子 D/D 独立通过，原六输出卡 3/6
+
+[97 原执行卡](../../research/97_WC_TIMING_FACTORIAL_SIX_OUTPUT_EXECUTION_CARD.md)/[独立 D/D](../../reports/wc_timing_factorial_human_r1_dd_audit_20261004.json)：原 source a86050c 的九门、五检查点各1216状态组件、完整 pipeline 和共同38deep掩码独立通过；两控制视频 SHA 相同并复现历史 D，93帧完整 CPU 解码 RGB/temporal误差0、SSIM1。D/D原件快照 f9d43c…3c55 单独归档，不用后来终态覆盖。
+
+[现场1791066520.1210723](../../reports/wc_timing_factorial_human_r1_live_observation_20261004.json)：原 supervisor2745653/timeout2747134/runner2747136 和命令行匹配，3/6视频；轻量D已36更新/72CFG/prepare1普通返回，wall215.100901秒，旧legacy SD正在复现，E0L0/E1L1仍待生成。原2400秒预付后9.338551584204605/12h、42jobs保持；只跟踪原冻结stage和句柄，不重提104/本卡或追加下一GPU卡、训练、人评。
+
+四臂有符号汇总入口和11项CPU算术/拒绝控制已准备；须等完整新六输出/源码/实际逐臂配额/来源/视频/费用释放与指标审计，再绑定旧两个实测臂的原件SHA、model/condition/seed/采样/共同掩码/WC设置和指标代码。当前CPU不是缺失臂结果；9/11/11/13不同计算量、完整传播效应不是等成本前沿或RV标签。科学goal active，以下为历史。
+
 ## 2026-10-04 早晚缺失臂唯一提交，原三个句柄已现场确认
 
 [97执行卡与现场](../../research/97_WC_TIMING_FACTORIAL_SIX_OUTPUT_EXECUTION_CARD.md)：冻结sourcea86050c/deploy1全部实际门及fresh准入后，只提交wc-timing-factorial-human-r1一次。现场1791065578.144057确认原supervisor2745653/timeout2747134/runner2747136存活且命令行匹配；已加载83.400秒，第一官方D/D控制在采样，0/6视频。九门/legacy复现止步及两缺失臂实际视频仍待验证；首次launch state null由原现场句柄补证，不重提。

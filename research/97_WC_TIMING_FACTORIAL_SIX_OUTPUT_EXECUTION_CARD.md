@@ -1,5 +1,14 @@
 # 早期×晚期缺失两臂：独立六输出执行卡
 
+## 原 D/D 独立通过，六输出终态待完成
+
+[独立 D/D](../reports/wc_timing_factorial_human_r1_dd_audit_20261004.json)/[两视频全帧指标](../reports/wc_timing_factorial_human_r1_dd_metrics_20261004.json)：九门、五检查点各1216状态组件、完整 pipeline、38deep掩码和固定D来源通过。两93帧视频SHA相同且复现历史 D；完整CPU解码RGB/temporal误差0、SSIM1。原件快照f9d43c…3c55与后来终态分开归档。
+
+[现场1791066520.1210723](../reports/wc_timing_factorial_human_r1_live_observation_20261004.json)：原三PIDs/冻结sourcea860命令行匹配，3/6视频；轻量D wall215.100901秒、36更新/72CFG/prepare1普通返回，legacy SD正在复现，两缺失臂待生成。原2400预付9.338551584204605/12h、42jobs不变。只跟踪原stage，不重提或另投，不训练、扩样或加人评。
+
+[汇总入口](../scripts/summarize_wc_timing_factorial_results_cpu.py)/[CPU11算术和输入拒绝](../reports/wc_timing_factorial_summary_algebra_cpu_20261004.json)：signed early/late/interaction明确正值增加损失、负值减少，不裁成risk。完整新卡独立审计与指标后，逐SHA和生成/指标语义绑定旧E1L0/E0L1及新E0L0/E1L1，保留全分母和不同配额；当前未运行新四臂汇总，不是等成本前沿或预算匹配RV标签。以下为历史启动/部署记录。
+
+
 ## 唯一提交，原三个现场句柄存活
 
 [唯一launch](../reports/wc_timing_factorial_human_r1_launch_20261004.json)/[现场](../reports/wc_timing_factorial_human_r1_start_observation_20261004.json)：冻结source `a86050cf9536a4431f9e77b711f54ab0a13feadf` 的新deploy1在全部实际门及fresh准入后只提交一次。原supervisor2745653、timeout2747134、runner2747136及完整命令行匹配。现场1791065578.144057已加载83.400秒，第一官方D/D控制在采样，0/6视频；九门/历史legacy SD复现及E0L0/E1L1视频均待验证。首次launch state null由原现场句柄补证，不再次提交。
