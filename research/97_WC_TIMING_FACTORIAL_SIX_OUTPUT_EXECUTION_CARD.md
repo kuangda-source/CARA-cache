@@ -1,5 +1,13 @@
 # 早期×晚期缺失两臂：独立六输出执行卡
 
+## 唯一提交，原三个现场句柄存活
+
+[唯一launch](../reports/wc_timing_factorial_human_r1_launch_20261004.json)/[现场](../reports/wc_timing_factorial_human_r1_start_observation_20261004.json)：冻结source `a86050cf9536a4431f9e77b711f54ab0a13feadf` 的新deploy1在全部实际门及fresh准入后只提交一次。原supervisor2745653、timeout2747134、runner2747136及完整命令行匹配。现场1791065578.144057已加载83.400秒，第一官方D/D控制在采样，0/6视频；九门/历史legacy SD复现及E0L0/E1L1视频均待验证。首次launch state null由原现场句柄补证，不再次提交。
+
+原12h已结算8.67188491753794h/41历史jobs保持；2400秒预付后在途9.338551584204605h/42jobs，可用未预留2.661448415795395h。child1791065421.844791起算2370秒/kill5，全cost2400秒最大北京时间06:50:21.844791，终态按实际wall结算。只跟踪原三个句柄/源码和六分母，不改运行stage、不自动下一卡、训练或新增人评。新只读指标入口已准备，实际DD/完整视频审计与指标尚未运行。以下为历史部署状态。
+
+
+
 ## 实际部署与独立原件通过，尚未GPU提交
 
 [部署回执](../reports/wc_timing_factorial_human_r1_deployment_20261004.json)/[独立原件审计](../reports/wc_timing_factorial_human_r1_deployment_audit_20261004.json)：冻结source `a86050cf9536a4431f9e77b711f54ab0a13feadf` 的79payload+mid共80文件在新deploy1验证，服务器原件SHA与本地完全对应。当前实际CPU原件42依赖及5份官方源保持；实际scope52、原teacher/selective/forecast回执及四物理视频/来源图/草案、官方prepare OFF/ON、native-meta eval0/buffers、资产/包/import和人物条件均通过，CUDA未初始化、原预算不变。

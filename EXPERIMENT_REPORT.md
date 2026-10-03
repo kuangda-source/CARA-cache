@@ -1,3 +1,10 @@
+## 2026-10-04 早晚缺失臂唯一提交，原三个句柄已现场确认
+
+[97执行卡与现场](research/97_WC_TIMING_FACTORIAL_SIX_OUTPUT_EXECUTION_CARD.md)：冻结sourcea86050c/deploy1全部实际门及fresh准入后，只提交wc-timing-factorial-human-r1一次。现场1791065578.144057确认原supervisor2745653/timeout2747134/runner2747136存活且命令行匹配；已加载83.400秒，第一官方D/D控制在采样，0/6视频。九门/legacy复现止步及两缺失臂实际视频仍待验证；首次launch state null由原现场句柄补证，不重提。
+
+原12h已结算8.67188491753794h/41历史jobs保持；2400秒预付后在途9.338551584204605h/42jobs，未预留余2.661448415795395h，终态按实际wall替换。child2370秒/kill5、全cost2400秒，最大北京时间06:50:21.844791。只跟踪原source/句柄与六分母，不追加GPU卡、训练或人评；0/6不是新质量或速度结果，goal active。以下为历史。
+
+
 ## 2026-10-04 早晚缺失臂实际部署全部门通过，待唯一GPU提交
 
 [97执行卡与部署](research/97_WC_TIMING_FACTORIAL_SIX_OUTPUT_EXECUTION_CARD.md)：sourcea86050c/80份新deploy1文件、实际当前CPU42依赖/5官方源与原件、scope52、历史teacher/selective/forecast及四物理视频/来源图/草案SHA、prepare OFF/ON、native-meta eval/buffers、资产/package/import及human条件均通过，禁止CUDA、预算保持。独立审计器历史来源12控制通过，不改GPU冻结stage，不是新视频。
