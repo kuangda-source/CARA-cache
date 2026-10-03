@@ -1,5 +1,7 @@
 ## 2026-10-04 在线八输出唯一卡已启动，原三句柄现场匹配
 
+[现场1791071128.3485715](../../reports/wc_online_stage_r1_live_observation_20261004.json)：同一原三句柄仍live，模型加载63.174秒，第一官方D/D臂已通过prompt guardrail并开始完整生成，0/8视频；含预付10.136838727254782/12h不变，严格成对门和候选待结果。仅跟踪原卡，不重提。
+
 [100 原卡](../../research/100_WC_ONLINE_STAGE_EIGHT_OUTPUT_EXECUTION_CARD.md)/[唯一启动](../../reports/wc_online_stage_r1_launch_20261004.json)/[现场1791071016.5860715](../../reports/wc_online_stage_r1_start_observation_20261004.json)：冻结source3ad34e1的实际全部部署/独立审计与fresh GPU/锁/预算/磁盘通过后仅提交wc-online-stage-r1一次。supervisor2758008/timeout2758025/runner2758027存活、命令行匹配stage/run，runner INITIALIZING、0/8视频、D/D及在线结果待验证。最初launch state null由现场句柄补证，不重提。
 
 3600秒预付计入原12h：已结算9.136838727254782h/42历史jobs，含预留10.136838727254782h/43jobs，未预留余1.8631612727452183h；child1791070999.1641538起算3570秒/kill5，最终按含加载/失败/flush/释放全wall结算。只跟踪原冻结source/句柄和八分母，先strict D/D与历史D桥，再独立八视频/在线窗口逐CFG事件/费用释放与四候选CPU指标。单次CAL非稳定速度、强前沿/CONF/语义物理接受，不追加卡、训练或人评，goal active。以下为历史。

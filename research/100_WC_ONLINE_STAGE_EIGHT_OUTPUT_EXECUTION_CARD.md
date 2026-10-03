@@ -34,3 +34,5 @@
 ## 唯一启动现场
 
 [原启动](../reports/wc_online_stage_r1_launch_20261004.json)/[现场](../reports/wc_online_stage_r1_start_observation_20261004.json)：supervisor2758008/timeout2758025/runner2758027及stage命令行匹配，模型初始化、0/8视频；最初launch state null为启动瞬间，不能据此重提。预付3600秒后原账本10.136838727254782/12h、43jobs，已结算9.136838727254782h保持；child起算1791070999.1641538秒，3570秒child/kill5，终态实际替换预付。当前没有D/D、候选反馈或质量/速度验收；只跟踪原卡至终态后独立审计，不启动下一卡。
+
+[现场1791071128.3485715](../reports/wc_online_stage_r1_live_observation_20261004.json)：同一三句柄仍live，模型加载63.174秒，第一官方D/D已过prompt guardrail且开始生成、0/8视频；预付未变，成对门和在线候选待完成。
