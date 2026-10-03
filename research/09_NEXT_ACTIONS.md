@@ -1,3 +1,9 @@
+## 2026-10-04 早期×晚期缺失臂接口与当前源 CPU 通过
+
+[96 实现、验证与下一步](96_WC_EARLY_LATE_FACTORIAL_INTERFACE_AND_CPU.md)/[独立原件审计](../reports/wc_timing_factorial_sampling_cpu_audit_20261004.json)：当前 timing_factorial 六输出核心先 D/D→fixed D/legacy SD/E0L0/E1L1，单独声明逐臂 CFG 配额，旧同预算 guard 保持。实际 Cosmos CPU 186.973 秒通过旧 selective14/forecast8、新 timing8、当前入口拒绝25 和纯策略4组；42份当前依赖/5份官方源与服务器原件绑定，禁止CUDA、账本保持。legacy 四边界实际张量SHA、六分母/失败止步、共同toy掩码/36更新72CFG、来源/计数恢复/native70/清理通过；toy6/4/8不是人物11/9/13，也不是实际核或视频结果。
+
+原单次104点授权已在10月3日完成1153.548秒，四份原回执SHA和104/312及旧PID退出本轮只读复核通过；不重复GPU提交或扣费。现8.67188491753794/12h、41jobs，余3.3281150824620607h，无inflight/新增GPU/预付。下一独立两缺失臂runner/scope/完整成本，再冻结实际门与fresh准入；当前未选下一卡，原两GPU位置臂/人物草案保持。不同S次数及完整传播效应不是等成本前沿、在线策略或RV标签，不扩样、训练或加人评；goal active。以下为历史。
+
 ## 2026-10-04 六输出终态：延后首次S明显改善保真，速度未接受
 
 [95结果与下一步](95_WC_FORECAST_PLACEMENT_RESULTS_AND_TIMING_FACTORIAL_NEXT.md)/[机器摘要](../reports/wc_forecast_placement_human_r1_summary_20261004.json)：原source395唯一卡exit0，六mp4/93完整解码、共同38deep、D/D九门/五处1216状态/完整pipeline、历史D及legacy SD SHA、实际逐CFG6/5 S与253算子/来源窗口/native70及费用释放独立通过。legacy/首次匹配/自由位置的SSIM为0.729829/0.744880/0.927207，PSNR17.876/18.208/27.376；读取S的cache26/15/2与CPU下界吻合。各208.814/207.530/207.249秒，对D210.453少0.779%/1.389%/1.522%，只有描述性单次耗时，无稳定加速或前沿。

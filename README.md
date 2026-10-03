@@ -1,3 +1,9 @@
+## 2026-10-04 当前进度：早晚刷新缺失臂 CPU 通过
+
+[96 接口与 CPU 证据](research/96_WC_EARLY_LATE_FACTORIAL_INTERFACE_AND_CPU.md)承接[95 人物来源位置实测](research/95_WC_FORECAST_PLACEMENT_RESULTS_AND_TIMING_FACTORIAL_NEXT.md)：延后首次 S 的单曝光场景保真改善已记录（SSIM0.927207，速度未接受）；当前新增 E0L0/E1L1 接口已通过旧14/8、新8、入口拒绝25及纯策略4组，42份依赖和5份官方源与原件一致。CPU stand-in 不是两缺失臂的实际人物视频；下一独立runner/scope/完整成本及实际门，尚无新GPU卡或预付。
+
+原104点单次1800秒授权已完成1153.548秒，本轮只读确认四份原回执SHA不变及104/312完成，不重复提交。累计8.67188491753794/12GPUh、41jobs，余3.3281150824620607h，无在途任务或新增GPU费用；科学goal active，不扩样、训练或增加人评。以下为历史。
+
 ## 2026-10-04 同S预算来源位置：离线26→15/2，当前CPU14/8通过
 
 [93 来源下界、CPU与提案](research/93_WC_FORECAST_PLACEMENT_BOUND_CPU_AND_PROPOSAL.md)/[机器摘要](reports/wc_forecast_placement_summary_20261004.json)：复现原三种实际来源组合后，固定38deep/34cache、CFG6/5共11 S与253算子。精确穷举曝光未来掩码：保持首次S23/24可把读取S的cache从26降到15；自由位置最低2（call56/62，首次45/48）。这是来源组合下界，不是视频或线上策略，噪声时间/位置和复用仍有混杂，无RV收益标签。
