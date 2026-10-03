@@ -1,3 +1,9 @@
+## 2026-10-04 人物四输出实际部署门通过，待唯一现场提交
+
+[89 卡及实际部署](research/89_WC_FIXED_HUMAN_FOUR_OUTPUT_CARD.md)：冻结source4bd8951/44份stage文件验证，实际CPU原件4/6与15/12兼容依赖、scope19、官方prepare、native-meta mode/buffers、source/assets/import/package、human条件身份均通过，未初始化CUDA。四输出/38共同动作、1800全cost/1770child和严格D/D止步保持。
+
+当前7.407626319933526/12h、38jobs保持，无新GPU/预付；下一fresh UUID/sm86/VRAM/compute/no-inflight/余额/f1锁/磁盘后wc-fixed-human-r1仅提交一次。曝光固定掩码是离线诊断，未真实D/D、视频或新质量/速度结果，不自动下一卡/训练/人评。以下为历史。
+
 ## 2026-10-04 独立人物四输出卡已选择，实际部署门待验证
 
 [89 执行卡](research/89_WC_FIXED_HUMAN_FOUR_OUTPUT_CARD.md)：WC-FIXED-HUMAN-R1-20261004-A/wc-fixed-human-r1，仅曝光human_199/seed0；官方adaptive与fixed-D严格九门/五状态/完整pipeline通过后再fixed-D/S轻量配对，四分母保持、三份D产物相同、实际38/38共同动作。离线曝光teacher掩码不是线上策略/收益标签；单配对不是重复速度或CONF。

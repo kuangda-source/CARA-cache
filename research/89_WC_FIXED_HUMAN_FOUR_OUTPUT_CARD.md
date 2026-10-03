@@ -19,3 +19,7 @@
 完整规划1635.704284秒（含20%余量与30秒结算）≤1800。当前7.407626319933526/12GPUh、38jobs、余4.592373680066474h；本卡已选择但尚未部署验证/GPU提交，无新 reservation。部署门通过后再做fresh资源/锁/账本准入，只提交此卡一次；无自动下一卡、参数扫描、训练或新增人评。
 
 终态独立核验原四视频字节SHA、完整93帧解码、38/38实际动作/真实核/来源与真D隔离、source/实际费用/原句柄与锁/GPU释放。固定D与旧参考也需协议/资产绑定后才复用旧adaptive-S视频作开发比较，不能直接继承曝光指标为本次新结果。
+
+## 实际部署门通过，待唯一现场提交
+
+[实际部署回执](../reports/wc_fixed_human_r1_deployment_20261004.json)：冻结source `4bd8951aa660cafe6f95a0173714134c6e386e52`、deploy1 的43 payload与mid-config（44份）逐一绑定；当前实际组合CPU4/6原SHA和29依赖保持，之前固定CPU15/12的27依赖除可选dense factory外一致，该变更由当前实际组合原件覆盖。未把旧CPU追认为后改源码通过。新scope内部19项、官方prepare、native-meta1173默认mode→eval0与7 buffers、source/assets/import/package和human样本condition SHA均通过，CUDA未初始化、账本保持。磁盘约564GB，全局f1锁可获取；尚未GPU提交/预付。下一仅fresh准入后唯一提交，D/D不通过即止。
