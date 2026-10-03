@@ -1,3 +1,9 @@
+## 唯一提交与原句柄现场确认
+
+[launch](../reports/wc_fixed_human_r1_launch_20261004.json)/[现场](../reports/wc_fixed_human_r1_start_observation_20261004.json)：实际部署与fresh准入后仅提交一次，supervisor2714273/timeout2714291/runner2714293现场存在且命令行匹配source4bd8951的冻结stage。1791049280.8881557第一官方D/D臂仍在生成，0/4视频，九门与新质量结果待验证。首次launch state null是监督器写状态前瞬间，不重提。
+
+child1791048859.213845起算1770秒/kill5，全cost1800秒最大北京时间02:04:19.213845；1800秒预付0.5GPUh使累计含预留7.907626319933526/12h、39jobs，可用4.092373680066474h。原已结算7.407626319933526/38jobs保持历史，终态按实际替换预付。只跟踪原句柄，D/D不通过即止；不修改在跑payload、不自动下一卡/训练/人评。以下是卡选择和部署历史。
+
 # 独立人物四输出卡：先验证固定 D 等价，再隔离稀疏近似
 
 2026-10-04。基于[88 已完成 CPU 接线及成本](88_WC_FIXED_REFRESH_DIAGNOSTIC_CPU_AND_FOUR_OUTPUT_DRAFT.md)，依现有自主 goal 与累计12GPUh安排独立 `WC-FIXED-HUMAN-R1-20261004-A / wc-fixed-human-r1`，最多一次1800秒全cost/1770秒child/kill5。[选择依据与范围](../manifests/wc_fixed_human_r1_execution_20261004.json)。不是已消耗104点授权或轻量十输出身份的重提。

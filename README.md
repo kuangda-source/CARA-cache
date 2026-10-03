@@ -1,3 +1,9 @@
+## 2026-10-04 人物固定刷新对照唯一提交，原任务在运行
+
+[89 执行卡](research/89_WC_FIXED_HUMAN_FOUR_OUTPUT_CARD.md)/[现场回执](reports/wc_fixed_human_r1_start_observation_20261004.json)：冻结 source4bd8951 在实际部署与 fresh 准入通过后，仅提交 wc-fixed-human-r1 一次。现场1791049280.8881557确认 supervisor2714273/timeout2714291/runner2714293及完整命令行匹配；第一官方D/D臂正在生成，0/4视频，成对九门与新质量结果待验证。首次launch state null由现场句柄补证，不重提。
+
+已结算7.407626319933526h/38历史jobs；预付1800秒计入原12h，当前含预留7.907626319933526h/39jobs，可用4.092373680066474h。child1791048859.213845起算1770秒/kill5，全cost1800秒最大北京时间02:04:19.213845；终态按实际结算。只跟踪原三个句柄/冻结stage，先严格D/D，再固定D/S四输出独立来源、掩码、视频与费用/释放审计，不自动下一卡/训练/人评。104点原单次授权已完成，以下为历史。
+
 ## 2026-10-04 人物四输出实际部署门通过，待唯一现场提交
 
 [89 卡及实际部署](research/89_WC_FIXED_HUMAN_FOUR_OUTPUT_CARD.md)：冻结source4bd8951/44份stage文件验证，实际CPU原件4/6与15/12兼容依赖、scope19、官方prepare、native-meta mode/buffers、source/assets/import/package、human条件身份均通过，未初始化CUDA。四输出/38共同动作、1800全cost/1770child和严格D/D止步保持。
