@@ -1,6 +1,6 @@
 # H0 首卡：同状态 C/S/D 互补性与真实整组成本
 
-2026-10-03；卡 `WC-H0-COMPLEMENT-R1-20261003-A`，唯一候选 run `wc-h0-complement-r1`。状态：CPU 接口已通过，冻结后实际 source/assets/import 与 fresh 准入尚待；未 GPU 启动。用户 06:00:14UTC 授予继续自主推进常规同方向步骤，06:07:41 再确认继续实验；[本卡授权与边界](../manifests/wc_h0_complement_r1_authorization_20261003.json)。保留各项目累计12GPUh、已用历史，WC 优先，唯一协调与一个昂贵任务。r4 的单次授权已消耗，本卡来自后续继续指令，不重启 r4。
+2026-10-03；卡 `WC-H0-COMPLEMENT-R1-20261003-A`，唯一候选 run `wc-h0-complement-r1`。状态：实际CPU26、source/assets/import/package与fresh准入通过，唯一run已启动，结果未定。用户 06:00:14UTC 授予继续自主推进常规同方向步骤，06:07:41 再确认继续实验；[本卡授权与边界](../manifests/wc_h0_complement_r1_authorization_20261003.json)。保留各项目累计12GPUh、已用历史，WC 优先，唯一协调与一个昂贵任务。r4 的单次授权已消耗，本卡来自后续继续指令，不重启 r4。
 
 ## 唯一问题与冻结范围
 
@@ -35,3 +35,9 @@ C 在当前深层 dense 真值前，用官方原 Gamma+flow 分支及过去部�
 [整组 shadow CPU 门](../reports/wc_h0_probe_cpu_controls_20261003.json)：flow开/关各20配对full，两CFG×C/D/同后端full/S实走，输出/cache/buffer/计数严格不变，true-D重复逐位一致、fallback与两个候选后端路径均实际覆盖，八份原件SHA/finite及CPU误差复算一致；非finite S失败保留固定状态分母和已完成四臂，并恢复模式/缓冲。使用synthetic attention做接口断言，不代表真实Sparse kernel/新场景GPU通过。Mac缺Torch，执行在已有Cosmos环境且CUDA禁用。开发时依赖路径与toy绑定失败保留task日志，修复后门通过；未GPU消耗。
 
 实际部署、唯一启动、结果审计与结算回执待写本节；未以本规划宣称实验已执行。重大稳健质量-速度结果、明显方法负结果、跨方向调整或预算扩展回父任务讨论。
+
+## 实际部署与唯一启动（非终态）
+
+[部署](../reports/wc_h0_complement_r1_deployment_20261003.json)：source18e692ebb0f23a6ed832e0d7ff74ec3a6acc0ca9、26项CPU及全部source/资产/package/import通过，CUDA未初始化、账本不变；step13/20下一UniPC更新CPU逐位恢复。数据盘585783341056 bytes可用。GPU提交前源码已同步私有GitHub。
+
+[唯一启动](../reports/wc_h0_complement_r1_launch_20261003.json)/[现场](../reports/wc_h0_complement_r1_start_observation_20261003.json)：supervisor2657420/timeout2657436/runner2657438已现场存活，初始化中。1200秒全cost/1170child、child起算最大截止北京时间15:08:40；预付1/3h，账本在途5.044227085042899h/33jobs，不是最终费用或方法结果。后续只跟踪本identity到终态、独立CPU原件复算及source/cost/release审计，不重复提交/改源码。

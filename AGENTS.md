@@ -1,3 +1,7 @@
+## 2026-10-03 H0首卡实际CPU26通过，唯一诊断已启动
+
+[实际部署](reports/wc_h0_complement_r1_deployment_20261003.json)：冻结source18e692ebb0f23a6ed832e0d7ff74ec3a6acc0ca9，actual CPU26/C分支/完整四臂/原件误差/step13&20/source/assets/import/package全部通过，CUDA未初始化、原账本不变；源码已推送。唯一wc-h0-complement-r1 fresh准入并启动，[启动](reports/wc_h0_complement_r1_launch_20261003.json)/[现场](reports/wc_h0_complement_r1_start_observation_20261003.json)supervisor2657420/timeout2657436/runner2657438存活，初始化非终态。原GPU24MiB/noapps，child起算最多1200秒截止北京时间15:08:40，已预付1/3GPUh（在途5.044227085042899h、第33job），结束按实际全wall结算；已用4.710893751709566h/32job历史保留。只跟踪原句柄，不改在跑source或重提，不据live报互补性/视频收益。H1/H2/RV/训练后置。
+
 ## 2026-10-03 H0首卡：CPU门通过，实际部署准入待验证
 
 用户2026-10-03 06:00:14UTC继续自主推进常规步骤、06:07:41再确认继续实验。H0首卡冻结第二CAL场景/两CFG四臂、6/23/27 dense回退与0.1/0.98，C严格过去同轨历史、真实D唯一路径；CPU原源码/完整shadow/失败分母/原件误差门通过。1200秒总cost/1170child，951.369秒规划包络含余量。当前未GPU启动，必须冻结source、actual assets/import及fresh UUID/VRAM/compute/f1锁/12h余额门；不重启r4/自动H1/H2/RV/训练。used4.710893751709566h/32jobs保留，原件不入Git。 [具体冻结卡](research/76_WC_H0_COMPLEMENT_R1_CARD_AND_RESULTS.md)。以下r4/旧授权条目为历史快照。
