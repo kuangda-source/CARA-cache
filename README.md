@@ -1,3 +1,9 @@
+## 2026-10-04 独立人物四输出卡已选择，实际部署门待验证
+
+[89 执行卡](research/89_WC_FIXED_HUMAN_FOUR_OUTPUT_CARD.md)：WC-FIXED-HUMAN-R1-20261004-A/wc-fixed-human-r1，仅曝光human_199/seed0；官方adaptive与fixed-D严格九门/五状态/完整pipeline通过后再fixed-D/S轻量配对，四分母保持、三份D产物相同、实际38/38共同动作。离线曝光teacher掩码不是线上策略/收益标签；单配对不是重复速度或CONF。
+
+新scope/runner/监督器及CPU19已完成，完整1635.704秒≤独立1800全cost/1770child，依既有自主goal/累计12h选定；现7.407626319933526/12h、38jobs不变，没有GPU提交/reservation。先source/payload冻结同步、实际CPU原件/prepare/native-meta/资产/import/package/样本绑定门，再fresh资源/锁/账本准入，只此一次，不复用104点身份或自动下一卡/训练/人评。以下为历史。
+
 ## 2026-10-04 固定刷新四输出核心 CPU 通过，GPU 部署待准备
 
 [88 接口、验证与四输出草案](research/88_WC_FIXED_REFRESH_DIAGNOSTIC_CPU_AND_FOUR_OUTPUT_DRAFT.md)：固定掩码在原 predicate 位置生效，保留关联状态更新；曝光官方 trace 仅作离线共同动作诊断。实际 Torch2.7.1+cu128 禁止CUDA，15旧轻量/12固定刷新、4旧十输出组合/6新四输出组合及28本地掩码拒绝控制通过。入口RNG和toy解码饱和造成的两次CPU测试失败原件保留；CPU不是实际人物fixed-mask或视频证据。
