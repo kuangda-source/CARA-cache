@@ -1,6 +1,6 @@
 # H0 模式控制修复与独立 r2 卡
 
-2026-10-03。r1/source18e692e 的 `H0 requires eval` 失败已封存并计费；0完整四臂、0原件，不能追认为互补性结果。当前实际 native/meta/shared-eval CPU 修复门通过，独立 r2/source 冻结与部署门待验证，未新增 GPU。
+2026-10-03。r1/source18e692e 的 `H0 requires eval` 失败已封存并计费；0完整四臂、0原件，不能追认为互补性结果。实际CPU31与source/assets/import/package全部通过；独立r2/source4c1c3a8已唯一启动，结果未定。
 
 ## CPU 定位与控制修复
 
@@ -25,3 +25,9 @@ CPU进程禁止CUDA lazy init与Triton执行。TE RMSNorm默认设备与meta res
 [成本](../reports/wc_h0_eval_complement_r2_cost_20261003.json)取r1实际加载113.853秒与r4旧40-call前缀放大229.938秒/臂的较保守组合，24 shadow组×5秒、C10秒、metadata/IO70秒、mode5秒，20%规划余量及30秒结算余量合964.475秒≤1200。完整S组真实成本仍未测；不是保证不超时。
 
 最多一次1200秒全cost/1170child/kill5，无自动第三H0卡。当前4.856303261031603/12GPUh、33jobs，余7.143696738968397h，历史不重置；仅单昂贵任务。先冻结源码/payload、在实际环境补齐旧26项及新native模式/默认模式四臂门、source/assets/import/package；再fresh UUID/VRAM/compute/f1锁/无inflight/余额。启动结果与费用须独立审计后再下科学结论。
+
+## 实际部署与唯一启动（非终态）
+
+[CPU31部署](../reports/wc_h0_eval_complement_r2_deployment_20261003.json)：source4c1c3a81741d9dc7edfaf40f43cf997bd13dcb11，全部31项CPU与source/assets/import/package门通过，native默认1173→eval0，CUDA未初始化、预算未变，数据盘585781604352bytes空闲。源码在GPU前已同步私有GitHub。
+
+[唯一启动](../reports/wc_h0_eval_complement_r2_launch_20261003.json)/[现场](../reports/wc_h0_eval_complement_r2_start_observation_20261003.json)：supervisor2662009/timeout2662025现场存活，runner初始化待记录；fresh选定sm86 GPU24MiB/noapps，全局锁/无inflight/余额门通过。child起算1200秒最大截止北京时间15:49:09；预付1/3h使在途账本5.189636594364936/12h、第34job，结束按实际全wall替换预留。只跟踪同一identity，禁止重复提交和修改在跑source；live状态不构成模式或互补性GPU验收。
