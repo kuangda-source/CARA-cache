@@ -1,0 +1,28 @@
+{
+  "status": "TEN_OUTPUT_LIGHT_FULL_COST_PLANNING_ENVELOPE_NOT_ADMISSION_OR_SPEED",
+  "planned_outputs": 10,
+  "cost_seconds": {
+    "startup_import_shutdown": 50,
+    "model_load": 114,
+    "ten_complete_outputs_450s_each": 4500,
+    "first_sparse_kernel_and_provenance_allowance": 150
+  },
+  "raw_seconds": 4814,
+  "contingency_fraction": 0.2,
+  "planning_envelope_seconds": 5776.8,
+  "shutdown_settlement_margin_seconds": 30,
+  "envelope_with_settlement": 5806.8,
+  "maximum_gpu_wall_seconds": 6000,
+  "measured_reference": "reports/wc_full_output_r1_summary_20261003.json",
+  "limits": [
+    "450s/output exceeds prior maximum debug pair wall389.61s, but is a forecast, not a bound.",
+    "Two diagnostic D/D outputs and eight measurements keep the full denominator; no debug control timings in deployment speed statistics.",
+    "Each arm performs native prepare and full pipeline; first sparse use is included and reported separately, never discarded.",
+    "Failure/load/import/release/flush all charged to existing cumulative12h ledger."
+  ],
+  "budget_snapshot": {
+    "cap": 12,
+    "used": 6.733473505896205,
+    "remaining": 5.266526494103795
+  }
+}

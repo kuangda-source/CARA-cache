@@ -1,3 +1,11 @@
+## 2026-10-03 独立轻量十输出卡：组合CPU通过，实际部署待验证
+
+[86 具体卡](../../research/86_WC_LIGHT_TEN_OUTPUT_CARD_AND_CPU.md)：WC-LIGHT-OUTPUT-R1-20261003-A/wc-light-output-r1先轻量入口fresh-prepare完整D/D两输出（外挂九门/五状态/最终pipeline，只作诊断），再common ABBA/human BAAB各四次完整官方WC/S测量，共十文件/八测量；测量不携带D/D观察hooks。每臂真实prepare，保留必要来源/核成本，主CUDA边界同步完整pipeline，分段host wall不作CUDA阶段耗时。first S全wall保持，不挑最快；两曝光CAL重复不是CONF，人物保真风险保持。
+
+[实际组合CPU](../../reports/wc_light_output_cpu_r1_20261003.json)32.605秒通过四组：flow OFF/ON十生成；D/D扰动拒绝且S不开始；第二场景失败保留第一场景与十分母。固定函数体/toy边界、禁止CUDA，无视频/核/性能证据。新scope/cost/budget11项通过；现累计6.733473505896205/12GPUh、37jobs未变，GPU新增0。
+
+完整规划5806.8秒≤独立6000全cost/5970child，按既有自主goal和累计12h选定，旧1800/六视频单次授权不复用。当前新GPU未提交、无reservation；先冻结source/payload/GitHub并验证实际prepare/metadata/native-meta/source/assets/import/package及已有CPU源一致，再fresh UUID/VRAM/compute/锁/账本/磁盘。严格D/D止步和终态独立十视频/费用/释放审计保持，不自动第二卡/训练/新增人评。以下为历史。
+
 ## 2026-10-03 轻量完整生成 CPU15 通过，真实部署测量待验证
 
 [85 实现与验证](../../research/85_WC_LIGHT_PIPELINE_CPU_AND_TRACE_RESULTS.md)/[源码与原件审计](../../reports/wc_light_sampling_cpu_audit_20261003.json)：当前轻量路径 actual CPU r3 在48.989秒通过15项控制；r1原11项回归对应的19份依赖/默认夹具SHA保持，当前21份payload匹配r3。每臂真实prepare、完整36 solver/72 CFG/93帧接口，D/D九门、反向/ABBA、不足历史回退、来源隔离/70失效/尾dense及失败分母/清理通过。去除生产逐前向诊断哈希/五处复制恢复，保留必要条件签名、来源账本和核检查并计入wall。分段为未独立同步host wall，主pipeline仅计时包装器做CUDA边界同步。测试观察器、toy核/mockwriter不是GPU核/视频/速度证据。
