@@ -1,3 +1,9 @@
+## 2026-10-04 在线八输出独立卡已具体化，本地scope42通过
+
+[100 独立执行卡](100_WC_ONLINE_STAGE_EIGHT_OUTPUT_EXECUTION_CARD.md)：wc-online-stage-r1/独立3600全cost/3570child，strict D/D两输出后两曝光CAL各自适应WC/window23–27 every1/every2，共八输出；历史D复现止步、当前步骤/过去CFG计数、不覆盖原生skip判定、无固定deep/S配额。新scope/runner/监督器及结果/费用释放/四候选CPU指标审计器已完成，核心28依赖与实际CPU原件保持；本地42范围/费用/预算拒绝控制通过。
+
+完整成本3549.549秒≤3600，依既有自主goal/累计12h仅选此独立卡。当前未部署、提交GPU或预付，仍9.136838727254782/12h、42jobs、余2.8631612727452183h无inflight。先source/payload冻结同步、实际CPU原件/prepare/native-meta/source/assets/package/import/两条件/历史D门及独立审计，再fresh资源锁预算唯一提交。三后续拟cap不能共同准入；Native/少步/调过WC前沿和CONF、语义物理/RV标签仍缺，不训练/加人评，科学goal active。以下为历史。
+
 ## 2026-10-04 在线阶段规则 CPU 通过，完整强基线成本已列明
 
 [99接口、证据与预算](../research/99_WC_ONLINE_STAGE_CPU_AND_FAIR_FRONTIER_BUDGET.md)：继承原生WC判定，只在当前step23–27且合法eligible full使用S；窗口外D、窗口内every1/every2两个频率，不读取未来mask或deep truth。新八输出核心先strict D/D，再两曝光CAL各WC/window/cadence；历史D桥在任何S前止步，失败保留八分母/前序输出。没有固定38deep或真实S配额承诺，也没有新GPU反馈/质量/速度结果。
