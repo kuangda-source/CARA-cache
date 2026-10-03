@@ -1,3 +1,9 @@
+## 2026-10-04 固定刷新真实 D/D 独立通过，最后一条 S 视频正在生成
+
+[独立D/D审计](reports/wc_fixed_human_r1_dd_audit_20261004.json)/[全帧控制](reports/wc_fixed_human_r1_dd_metrics_20261004.json)：原source4bd唯一任务的官方/固定D九门、五检查点各1216组件与完整pipeline一致；两mp4 SHA相同、93帧完整解码，CPU RGB误差0/SSIM1/temporal0。原件快照无损归档，15项实际合同拒绝控制通过；这些是D/D等价证据，没有S质量结论。
+
+[现场1791049930.3109043](reports/wc_fixed_human_r1_live_observation_20261004.json)：原三句柄匹配，3/4视频；固定D轻量212.221秒，第四S臂在生成。原12h含预留7.907626319933526/39jobs保持，1800秒上限和原stage不变。等原卡终态后独立四视频/38共同动作/真实核来源/费用释放及指标审计，不重提、训练或新增人评。以下为历史。
+
 ## 2026-10-04 人物固定刷新对照唯一提交，原任务在运行
 
 [89 执行卡](research/89_WC_FIXED_HUMAN_FOUR_OUTPUT_CARD.md)/[现场回执](reports/wc_fixed_human_r1_start_observation_20261004.json)：冻结 source4bd8951 在实际部署与 fresh 准入通过后，仅提交 wc-fixed-human-r1 一次。现场1791049280.8881557确认 supervisor2714273/timeout2714291/runner2714293及完整命令行匹配；第一官方D/D臂正在生成，0/4视频，成对九门与新质量结果待验证。首次launch state null由现场句柄补证，不重提。

@@ -1,3 +1,9 @@
+## 真实 D/D 独立通过，固定 D/S 原任务继续
+
+[独立审计](../reports/wc_fixed_human_r1_dd_audit_20261004.json)/[CPU全帧控制](../reports/wc_fixed_human_r1_dd_metrics_20261004.json)：官方/固定D九门、五处各1216组件与最终pipeline全部一致；两mp4相同SHA、93帧完整解码、RGB MSE0/SSIM1/temporal0。九门D/D原件SHA fce12170d857d888d5f37f0417f831ca1b2062eb9a09eee9ad17732a968c4f3e单独gzip归档，不用终态覆盖。新增合同CPU15控制通过，真实artifact IO由独立审计另行验证，均无新GPU提交。
+
+现场1791049930.3109043原三句柄匹配、3/4视频，固定D测量212.221秒，S最后一臂正在生成，尚无完整四输出或S质量结论。累计12h预付保持；下一仅跟踪原任务并做终态费用/释放和四输出/38共同动作/来源/视频及指标审计。以下为历史。
+
 ## 唯一提交与原句柄现场确认
 
 [launch](../reports/wc_fixed_human_r1_launch_20261004.json)/[现场](../reports/wc_fixed_human_r1_start_observation_20261004.json)：实际部署与fresh准入后仅提交一次，supervisor2714273/timeout2714291/runner2714293现场存在且命令行匹配source4bd8951的冻结stage。1791049280.8881557第一官方D/D臂仍在生成，0/4视频，九门与新质量结果待验证。首次launch state null是监督器写状态前瞬间，不重提。
