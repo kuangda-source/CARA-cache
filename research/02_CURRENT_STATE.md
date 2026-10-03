@@ -1,3 +1,19 @@
+## 2026-10-03 完整六输出首卡终态：真实闭环通过，人物保真差异待解决
+
+[83 完整卡](83_WC_FULL_OUTPUT_R1_CARD.md)/[完整摘要](../reports/wc_full_output_r1_summary_20261003.json)：冻结source b3ed6b084b5e7bad5a242bd9a934a0d502e1ef6c唯一run退出0，六phase均36更新/72CFG、六mp4/93完整解码；D/D九门和五处实际restore/最终pipeline、source/assets/import/package/来源/费用/释放独立审计通过。两曝光CAL各19次S CFG/437个真实注意力算子、29次后续cache读取approximate；合计874算子，不是仅局部算子测试。
+
+相对官方WC，common PSNR24.9893dB/luma SSIM0.90118/motion帧差比0.98596；human PSNR17.4794dB/SSIM0.70541/motion比0.95216，人物保真差异明显更大。common两轨deep35/35，human38/35、9次full/cache选择改变；第一输出SHA分歧均call23，human第一次schedule分歧call46。哈希不能做因果归因；编码代理不是原生full/语义/物理接受，两CAL不是CONF。debug wall common359.8905/389.6099秒、human381.7509/386.8368秒含不同restore/ledger/hash/prepare工作，不报净E2E收益。
+
+实费2442.346019768156秒=0.678429450GPUh，累计6.733473505896205/12h、37jobs，余5.266526494103795h，无inflight；原三PIDs2687791/2687807/2687809与f1锁/GPU释放（24MiB/noapps），1144次monitor峰值26966MiB。6000预付已按实际结算，原104点单次1800授权/H0/H1历史保持，不重启。
+
+下一按[84 CPU与测量方案](84_WC_VIDEO_GATE_AND_CLEAN_TIMING_NEXT.md)先用现有回执核查轨迹/成本并准备轻量部署路径，将人物保真和adaptive schedule反馈作为当前缺口；不扩样/叠学习器/训练/新增人评。下一GPU卡尚未选定，需新的具体范围、实测成本、source及实际门/fresh准入；goal继续，当前无质量—时间前沿或论文接受结论。完整原回执采用无损gzip归档并校验解压SHA，视频/权重/张量不入Git。以下为历史。
+
+## 2026-10-03 第一个完整WC/S配对已独立CPU审计，第二场景原任务继续
+
+[83 完整卡](83_WC_FULL_OUTPUT_R1_CARD.md)的common配对两路径均36更新/72CFG和35次deep，真实S在19次CFG刷新中执行437个注意力算子，29次后续cache读取approximate来源；来源/CFG/group/epoch/call70失效/两尾部dense与6/23/27回退、两视频768×432/16fps/93完整解码独立通过。first-pair自动编码指标为PSNR24.9893dB/luma SSIM0.90118/帧差motion比0.98596；是相对官方WC的描述性开发诊断，不是原生full/语义/物理质量接受。
+
+首场景debug wall为官方359.8905/S389.6099秒，包含恢复/ledger/哈希与prepare工作差异，既不能据此认定净加速，也不能把局部算子加速当E2E结果。现场1791035289.041415共4/6mp4，第二human_199原run正在生成；原3PIDs/source不变，6000预付和累计12h、6全分母保持。先完成原卡、终态source/assets/cost/release和六视频独立审计及自动指标，再决定clean E2E/强基线范围；不重提本卡或自动训练/新增人评。以下均为历史。
+
 ## 2026-10-03 完整六输出首卡在跑：D/D独立原件审计通过，3/6视频
 
 [83 固定卡](83_WC_FULL_OUTPUT_R1_CARD.md)的冻结 source b3ed6b084b5e7bad5a242bd9a934a0d502e1ef6c 在 actual CPU11/19/3、prepare/metadata/native-meta buffers/source/assets/import/package 与 fresh资源/锁/账本门通过后唯一提交。现场1791034920.0072188确认 supervisor2687791/child2687807/runner2687809均live；D/D两臂36更新/72CFG、九门/五处restore/最终pipeline通过。独立CPU再从原回执重算九项/五项与来源、两mp4字节SHA相同/768×432/16fps/93完整解码通过；自动指标DD对照MSE0/SSIM1/temporal0，静止退化、缺帧、多帧与缺结构门拒绝控制通过。

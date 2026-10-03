@@ -1,6 +1,6 @@
 # 完整输出首卡：先官方/D 等价，再两个 WC/S 闭环配对
 
-2026-10-03。独立 card `WC-FULL-OUTPUT-R1-20261003-A`，唯一 run `wc-full-output-r1`。依据累计12GPUh授权与持续自主实验 goal 选定，不复用已消耗的104点/H0/H1单次窗口。承接[82 CPU接线](82_WC_COMPLETE_SAMPLING_AND_REFRESH_CPU.md)。当前为实现/成本/实际部署准备；是否启动以本卡的 launch/现场回执为准，文档选定不等于GPU运行。
+2026-10-03。独立 card `WC-FULL-OUTPUT-R1-20261003-A`，唯一 run `wc-full-output-r1`。依据累计12GPUh授权与持续自主实验 goal 选定，不复用已消耗的104点/H0/H1单次窗口。承接[82 CPU接线](82_WC_COMPLETE_SAMPLING_AND_REFRESH_CPU.md)。本卡已唯一执行并完成全部终态审计，实计2442.346秒；下方冻结范围与准备/在跑条目保留历史身份，当前结论见末尾终态章节。
 
 ## 冻结范围与顺序
 
@@ -54,3 +54,26 @@ S使用现有QK量化/选择与稀疏执行，S−D包括backend量化和稀疏�
 [独立D/D审计](../reports/wc_full_output_r1_dd_audit_20261003.json)重算九项native与五项pipeline、prepared对应及全部来源事件；两个完整输出SHA均fa7f466534e7e7984136dfaa9fb47794dedf0c81444229527b9722142715c379，均531916bytes、768×432/16fps/93完整解码通过。[自动指标CPU控制](../reports/wc_full_output_r1_video_analysis_cpu_control_20261003.json)对真实D/D得到RGB MSE0/luma SSIM1/temporal差0/motion比1，合成运动vs静止候选、缺帧、多帧、结构门未过拒绝五控制通过。脚本在独立analysis目录，不改在跑冻结stage；所有CPU工作不新增GPUjob费用。
 
 现场1791034920.0072188已有3/6mp4，第三是common配对官方WC，common S在生成；完整候选/六输出/费用释放仍待终态，不能据前三视频声称质量或净E2E。预登记编码RGB差/SSIM与帧差motion/temporal均为描述性代理，不是语义/物理接受门。
+
+## 首个完整WC/S配对独立审计（整卡未终态）
+
+[首配对回执](../reports/wc_full_output_r1_first_pair_cpu_20261003.json)：common两路径完整36/72与35次deep；S19次CFG/437算子，后续29次cache读取S来源，选择比例均值0.75306，来源/回退/重置与93完整解码通过。编码视频relative-WC PSNR24.9893dB、luma SSIM0.90118、motion帧差比0.98596、temporal差MSE0.00155664；不构成语义/物理接受或独立确认。
+
+官方debug359.8905秒、S389.6099秒；不同调试/restore/ledger/prepare开销，不报净E2E加速。第二场景仍按原卡继续，4/6视频和6分母保持，等待终态完整source/assets/cost/release/两配对自动审计；不追加第二GPU卡。
+
+## 六输出终态与当前研究结论
+
+[完整摘要](../reports/wc_full_output_r1_summary_20261003.json)、[来源/费用/释放](../reports/wc_full_output_r1_terminal_audit_20261003.json)、[六视频独立审计](../reports/wc_full_output_r1_artifact_audit_20261003.json)、[自动视频指标](../reports/wc_full_output_r1_video_metrics_20261003.json)、[完整原回执gzip](../reports/wc_full_output_r1_runner_20261003.json.gz)。原件gzip解压SHA与远端原receipt SHA一致；原影片路径、大小和SHA均在六视频审计中，影片/权重/张量不入Git。
+
+唯一run退出0，六phase各36更新/72CFG/93帧普通返回；严格D/D九门/五处恢复/最终pipeline和全部source/assets/import/package/来源/成本/释放通过。两个曝光CAL各19次S CFG、437个真实稀疏注意力算子、29次cache读取近似来源，warm/回退/call70重置/两尾部dense正确。这证明完整部署接线，不能直接证明质量或收益。
+
+| 场景 | relative-WC PSNR dB | luma SSIM | 帧差运动量比 | deep调用 WC/S | debug wall WC/S 秒 |
+|---|---:|---:|---:|---:|---:|
+| common | 24.9893 | 0.90118 | 0.98596 | 35 / 35 | 359.8905 / 389.6099 |
+| human_199 | 17.4794 | 0.70541 | 0.95216 | 38 / 35 | 381.7509 / 386.8368 |
+
+人物差异明显更大，同时9次full/cache决策改变。两场景第一输出SHA分歧均call23，人物首次schedule分歧call46；这些不是因果归因。视频帧分段不能当去噪阶段，运动量比不能证明物理或语义保持；相对WC的代理不是原生full质量，曝光CAL不是CONF。该真实S路径同时改变backend和QK量化，不能归因于纯稀疏性。debug wall含恢复/ledger/hash/prepare差异，不能报净E2E加速或等成本质量前沿。
+
+实际全wall2442.346019768156秒=0.678429450GPUh，累计6.733473505896205/12GPUh、37jobs，余5.266526494103795h；6000预付已结算，无inflight，原三PID/f1锁/GPU释放，24MiB/noapps，1144次monitor峰值26966MiB。本卡单次身份消耗，不自动重提或下一GPU卡。
+
+继续WorldCache，但暂不将当前配置提升为质量保持方法，不扩样、叠学习器或训练。下一先按[84 CPU与测量方案](84_WC_VIDEO_GATE_AND_CLEAN_TIMING_NEXT.md)核查现有轨迹/成本并建立轻量路径，将人物保真与adaptive schedule反馈具体化；新的完整比较须另定质量/成本/范围与实际门，非必要不新增人评。goal尚未完成，缺少净部署收益、强基线和独立确认。

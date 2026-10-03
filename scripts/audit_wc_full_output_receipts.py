@@ -82,8 +82,9 @@ def phase_audit(phase, path):
                 assert not row['warm_start'] and not row['inserted_into_true_dense_history']
                 assert row['source']['kind'] == 'sparse'
                 assert row['sparse_layers'] == [v for v in range(2, 28) if v not in (6, 23, 27)]
+                assert [v['layer'] for v in row['operator_metadata']] == row['sparse_layers']
                 for metadata in row['operator_metadata']:
-                    assert 'CPU_STAND_IN_NOT_SPARSE_KERNEL' not in metadata
+                    assert 'CPU_STAND_IN_NOT_SPARSE_KERNEL' not in json.dumps(metadata)
                     assert 0 < metadata['selected_fraction'] <= 1
                     assert metadata['executed_fraction'] == metadata['selected_fraction']
             elif 'source' in row:

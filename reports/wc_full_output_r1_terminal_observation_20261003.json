@@ -1,0 +1,186 @@
+{
+  "observed_unix": 1791036140.572764,
+  "supervisor": {
+    "status": "EXITED_REQUIRES_RESULT_AUDIT",
+    "pid": 2687791,
+    "run_id": "wc-full-output-r1",
+    "admission": {
+      "unix": 1791033603.3418424,
+      "uuid": "GPU-cebf7119-cf03-23b9-e192-cd196332b704",
+      "name": "NVIDIA RTX A6000",
+      "memory_used_mib": 24,
+      "compute_cap": "8.6",
+      "pids": []
+    },
+    "budget_before": {
+      "batch": "F0-F1",
+      "cap_gpu_hours": 12,
+      "used_gpu_hours": 6.055044055960606,
+      "gpu_jobs_launched": 36,
+      "status": "WC_H1_GENERALIZATION_SETTLED_REQUIRES_RESULT_AUDIT",
+      "gpu_import_probes_completed": 1,
+      "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts",
+      "budget_authorization_ref": "manifests/budget_authorization_20261003.json",
+      "budget_authorization_history": [
+        {
+          "authorized_utc": "2026-10-02T18:03:00Z",
+          "source_thread_id": "01a0f1e6-7ad0-75df-9a02-172b60d2e00b",
+          "user_instruction": "\u628a\u5404\u4e2a\u5b9e\u9a8c\u7684 gpu \u9884\u7b97\u90fd\u8bbe\u7f6e\u4e3a 12gpuh",
+          "previous_cap_gpu_hours": 4,
+          "new_cumulative_cap_gpu_hours": 12,
+          "used_gpu_hours_at_change": 3.9117525685110333,
+          "no_usage_reset_or_transfer": true
+        }
+      ]
+    },
+    "reserved_seconds": 6000,
+    "child_pid": 2687807,
+    "child_started_unix": 1791033603.3447514,
+    "exit_code": 0,
+    "release": {
+      "unix": 1791036045.6891062,
+      "uuid": "GPU-cebf7119-cf03-23b9-e192-cd196332b704",
+      "name": "NVIDIA RTX A6000",
+      "memory_used_mib": 24,
+      "compute_cap": "8.6",
+      "pids": []
+    },
+    "wall_seconds": 2442.346019768156,
+    "budget_after": {
+      "batch": "F0-F1",
+      "cap_gpu_hours": 12,
+      "used_gpu_hours": 6.733473505896205,
+      "gpu_jobs_launched": 37,
+      "status": "WC_FULL_OUTPUT_SETTLED_REQUIRES_RESULT_AUDIT",
+      "gpu_import_probes_completed": 1,
+      "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts",
+      "budget_authorization_ref": "manifests/budget_authorization_20261003.json",
+      "budget_authorization_history": [
+        {
+          "authorized_utc": "2026-10-02T18:03:00Z",
+          "source_thread_id": "01a0f1e6-7ad0-75df-9a02-172b60d2e00b",
+          "user_instruction": "\u628a\u5404\u4e2a\u5b9e\u9a8c\u7684 gpu \u9884\u7b97\u90fd\u8bbe\u7f6e\u4e3a 12gpuh",
+          "previous_cap_gpu_hours": 4,
+          "new_cumulative_cap_gpu_hours": 12,
+          "used_gpu_hours_at_change": 3.9117525685110333,
+          "no_usage_reset_or_transfer": true
+        }
+      ]
+    },
+    "ended_unix": 1791036045.6987896
+  },
+  "runner": {
+    "status": "COMPLETE_SIX_OUTPUTS_DD_AND_TWO_WC_S_PAIRS_REQUIRES_AUDIT",
+    "pid": 2687809,
+    "started_unix": 1791033615.3277187,
+    "ended_unix": 1791036029.1574385
+  },
+  "pids": {
+    "2687791": false,
+    "2687807": false,
+    "2687809": false
+  },
+  "phase_progress": [],
+  "snapshots": 0,
+  "cases": 0,
+  "budget": {
+    "batch": "F0-F1",
+    "cap_gpu_hours": 12,
+    "used_gpu_hours": 6.733473505896205,
+    "gpu_jobs_launched": 37,
+    "status": "WC_FULL_OUTPUT_SETTLED_REQUIRES_RESULT_AUDIT",
+    "gpu_import_probes_completed": 1,
+    "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts",
+    "budget_authorization_ref": "manifests/budget_authorization_20261003.json",
+    "budget_authorization_history": [
+      {
+        "authorized_utc": "2026-10-02T18:03:00Z",
+        "source_thread_id": "01a0f1e6-7ad0-75df-9a02-172b60d2e00b",
+        "user_instruction": "\u628a\u5404\u4e2a\u5b9e\u9a8c\u7684 gpu \u9884\u7b97\u90fd\u8bbe\u7f6e\u4e3a 12gpuh",
+        "previous_cap_gpu_hours": 4,
+        "new_cumulative_cap_gpu_hours": 12,
+        "used_gpu_hours_at_change": 3.9117525685110333,
+        "no_usage_reset_or_transfer": true
+      }
+    ]
+  },
+  "gpu": "GPU-de9a5370-cd87-0f1c-a48e-288888777dd3, NVIDIA RTX A6000, 340\nGPU-cebf7119-cf03-23b9-e192-cd196332b704, NVIDIA RTX A6000, 24\n",
+  "apps": "",
+  "dense_control": {
+    "status": "OFFICIAL_DENSE_ADAPTER_FULL_PIPELINE_DD_GATE_PASS",
+    "phases": [
+      {
+        "phase": "baseline_full",
+        "status": "COMPLETE_SAMPLE_RETURNED",
+        "solver_steps": 36,
+        "cfg_calls": 72,
+        "roundtrips": 0
+      },
+      {
+        "phase": "restored_full",
+        "status": "COMPLETE_SAMPLE_RETURNED",
+        "solver_steps": 36,
+        "cfg_calls": 72,
+        "roundtrips": 5
+      }
+    ]
+  },
+  "request_progress": [
+    {
+      "sample": "common_sense_6487f37f-ef57-49ca-afdc-d898922b5191",
+      "status": "FULL36_CFG72_CLOSED_LOOP_INTERFACE_PASS_NOT_QUALITY",
+      "phases": [
+        {
+          "phase": "baseline_full",
+          "status": "COMPLETE_SAMPLE_RETURNED",
+          "solver_steps": 36,
+          "cfg_calls": 72
+        },
+        {
+          "phase": "restored_full",
+          "status": "COMPLETE_SAMPLE_RETURNED",
+          "solver_steps": 36,
+          "cfg_calls": 72
+        }
+      ]
+    },
+    {
+      "sample": "human_199",
+      "status": "FULL36_CFG72_CLOSED_LOOP_INTERFACE_PASS_NOT_QUALITY",
+      "phases": [
+        {
+          "phase": "baseline_full",
+          "status": "COMPLETE_SAMPLE_RETURNED",
+          "solver_steps": 36,
+          "cfg_calls": 72
+        },
+        {
+          "phase": "restored_full",
+          "status": "COMPLETE_SAMPLE_RETURNED",
+          "solver_steps": 36,
+          "cfg_calls": 72
+        }
+      ]
+    }
+  ],
+  "mode": {
+    "policy": "EXPLICIT_EVAL_SHARED_BY_BASELINE_AND_OBSERVED_BEFORE_REQUEST",
+    "all_train_implementations": "torch.nn.Module.train"
+  },
+  "mp4_files": [
+    "diagnostic/comparison/common_sense_6487f37f-ef57-49ca-afdc-d898922b5191/baseline_full/common_sense_6487f37f-ef57-49ca-afdc-d898922b5191.mp4",
+    "diagnostic/comparison/common_sense_6487f37f-ef57-49ca-afdc-d898922b5191/restored_full/common_sense_6487f37f-ef57-49ca-afdc-d898922b5191.mp4",
+    "diagnostic/comparison/human_199/baseline_full/human_199.mp4",
+    "diagnostic/comparison/human_199/restored_full/human_199.mp4",
+    "diagnostic/dense-control/common_sense_6487f37f-ef57-49ca-afdc-d898922b5191/baseline_full/common_sense_6487f37f-ef57-49ca-afdc-d898922b5191.mp4",
+    "diagnostic/dense-control/common_sense_6487f37f-ef57-49ca-afdc-d898922b5191/restored_full/common_sense_6487f37f-ef57-49ca-afdc-d898922b5191.mp4"
+  ],
+  "gpu_elapsed_seconds": 2537.3762323856354,
+  "max_gpu_deadline_beijing": "2026-10-03T23:00:03.344751+08:00",
+  "log_tail": "9,  9.94s/it]\nGenerating samples:  67%|\u2588\u2588\u2588\u2588\u2588\u2588\u258b   | 24/36 [03:12<01:34,  7.88s/it]\nGenerating samples:  69%|\u2588\u2588\u2588\u2588\u2588\u2588\u2589   | 25/36 [03:21<01:28,  8.02s/it]\nGenerating samples:  72%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258f  | 26/36 [03:24<01:05,  6.54s/it]\nGenerating samples:  75%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258c  | 27/36 [03:32<01:03,  7.07s/it]\nGenerating samples:  78%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258a  | 28/36 [03:40<00:59,  7.45s/it]\nGenerating samples:  81%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588  | 29/36 [03:43<00:43,  6.14s/it]\nGenerating samples:  83%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258e | 30/36 [03:52<00:40,  6.80s/it]\nGenerating samples:  86%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258c | 31/36 [03:55<00:28,  5.69s/it]\nGenerating samples:  89%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2589 | 32/36 [04:03<00:25,  6.48s/it]\nGenerating samples:  92%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258f| 33/36 [04:34<00:40, 13.65s/it]\nGenerating samples:  94%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258d| 34/36 [04:37<00:20, 10.48s/it]\nGenerating samples:  97%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258b| 35/36 [04:43<00:09,  9.19s/it]\nGenerating samples: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 36/36 [05:09<00:00, 14.15s/it]\nGenerating samples: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 36/36 [05:09<00:00,  8.59s/it]\n[10-03 22:00:12|INFO|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/inference.py:160:_generate_sample] Running guardrail check on video...\n[10-03 22:00:24|SUCCESS|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/inference.py:172:_generate_sample] Passed guardrail on generated video\n[10-03 22:00:28|SUCCESS|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/inference.py:180:_generate_sample] Saved video to /home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-full-output-r1/diagnostic/comparison/human_199/restored_full/human_199.mp4\n",
+  "status": "TERMINAL_SIX_OUTPUTS_GENERATED_ORIGINAL_PIDS_AND_GPU_RELEASED_INDEPENDENT_AUDIT_PASS",
+  "source_revision": "b3ed6b084b5e7bad5a242bd9a934a0d502e1ef6c",
+  "run_id": "wc-full-output-r1",
+  "claimed_quality_acceptance": false,
+  "claimed_clean_E2E_speed": false
+}
