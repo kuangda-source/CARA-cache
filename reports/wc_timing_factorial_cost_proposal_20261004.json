@@ -1,0 +1,39 @@
+{
+  "status": "TIMING_FACTORIAL_COMPLETE_COST_FITS_SELECTED_INDEPENDENT_CARD_NOT_GPU",
+  "card": "WC-TIMING-FACTORIAL-HUMAN-R1-20261004-A",
+  "run_id": "wc-timing-factorial-human-r1",
+  "planned_DD_controls": 2,
+  "planned_light_measurements": 4,
+  "planned_output_files": 6,
+  "max_total_GPU_seconds": 2400,
+  "child_seconds": 2370,
+  "kill_seconds": 5,
+  "cost_admission": {
+    "planning_envelope_seconds": 2304.4287959468365,
+    "shutdown_settlement_margin_seconds": 30,
+    "unbuffered_seconds": 1920.3573299556972,
+    "buffer_factor": 1.2,
+    "control_per_output_seconds": 381.7508979411796,
+    "measurement_per_output_seconds": 235.7682573137805,
+    "load_seconds": 95.91554894298315,
+    "bookkeeping_seconds": 75,
+    "scope": "TWO_DD_PLUS_D_LEGACY_NEITHER_BOTH_LIGHT_LOADING_SOURCE_KERNEL_FIRST_USE_AND_SETTLEMENT",
+    "both_measurement_proxy_seconds": 278.6352131890133,
+    "both_proxy_basis": "Conservatively multiply the entire candidate pipeline proxy by13/11; same fixed38 full/deep calls, do not assert linear kernel runtime."
+  },
+  "complete_planning_seconds": 2334.4287959468365,
+  "used_GPU_hours": 8.67188491753794,
+  "remaining_GPU_hours": 3.3281150824620607,
+  "hypothetical_used_if_selected_and_prepaid": 9.338551584204605,
+  "selected": true,
+  "reserved_seconds": 0,
+  "new_GPU_submission": false,
+  "basis": [
+    "Historical conservative DD381.751 and light235.768, load95.916 and bookkeeping75 retained.",
+    "Only both-S13 output receives entire-pipeline13/11 multiplier; neither9 not discounted. The factor is a conservative cost proxy, not a linear runtime model.",
+    "20percent envelope and30second settlement/release margin; includes all six outputs, first kernel, selectors/sources, import/loading, decode/guardrail/write/failure/flush.",
+    "Different S quotas9/11/11/13 are mechanism controls, not matched-cost acceleration. No reused104 or forecast run identity."
+  ],
+  "source_recipe_ref": "configs/wc_forecast_placement_human_r1.json",
+  "actual_previous_terminal_ref": "reports/wc_forecast_placement_human_r1_terminal_20261004.json"
+}

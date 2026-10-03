@@ -1,3 +1,9 @@
+## 2026-10-04 早晚缺失两臂独立卡已选择，实际部署门待验证
+
+[97执行卡](../../research/97_WC_TIMING_FACTORIAL_SIX_OUTPUT_EXECUTION_CARD.md)：当前已验证核心不变，新scope/runner/监督器及56项CPU范围通过；严格D/D和旧legacy SD止步后生成E0L0/E1L1，六分母、原38共同deep保持，逐CFG分别6/5、5/4、7/6与253/207/299算子。原forecast两已有因子臂/四物理视频及来源图、旧配置/草案SHA须现场绑定；不同S次数/完整传播不是等成本前沿或RV标签。
+
+依当前自主goal/累计12h选择独立WC-TIMING-FACTORIAL-HUMAN-R1-20261004-A/wc-timing-factorial-human-r1，完整2334.429秒≤独立2400全cost/2370child。79payload+mid待source冻结同步、实际当前42依赖CPU原件与官方源/prepare/native-meta/资产/import/人物条件门，再fresh UUID/sm86/VRAM/compute/锁/预算/磁盘后唯一提交。现8.67188491753794/12h、41jobs保持，余3.3281150824620607h，无GPU提交或预付；原104/forecast单次终态不复用，不扩样、训练或加人评，goal active。以下为历史。
+
 ## 2026-10-04 早期×晚期缺失臂接口与当前源 CPU 通过
 
 [96 实现、验证与下一步](../../research/96_WC_EARLY_LATE_FACTORIAL_INTERFACE_AND_CPU.md)/[独立原件审计](../../reports/wc_timing_factorial_sampling_cpu_audit_20261004.json)：当前 timing_factorial 六输出核心先 D/D→fixed D/legacy SD/E0L0/E1L1，单独声明逐臂 CFG 配额，旧同预算 guard 保持。实际 Cosmos CPU 186.973 秒通过旧 selective14/forecast8、新 timing8、当前入口拒绝25 和纯策略4组；42份当前依赖/5份官方源与服务器原件绑定，禁止CUDA、账本保持。legacy 四边界实际张量SHA、六分母/失败止步、共同toy掩码/36更新72CFG、来源/计数恢复/native70/清理通过；toy6/4/8不是人物11/9/13，也不是实际核或视频结果。

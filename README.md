@@ -1,3 +1,9 @@
+## 2026-10-04 早晚缺失两臂独立卡已选择，实际部署门待验证
+
+[97执行卡](research/97_WC_TIMING_FACTORIAL_SIX_OUTPUT_EXECUTION_CARD.md)：当前已验证核心不变，新scope/runner/监督器及56项CPU范围通过；严格D/D和旧legacy SD止步后生成E0L0/E1L1，六分母、原38共同deep保持，逐CFG分别6/5、5/4、7/6与253/207/299算子。原forecast两已有因子臂/四物理视频及来源图、旧配置/草案SHA须现场绑定；不同S次数/完整传播不是等成本前沿或RV标签。
+
+依当前自主goal/累计12h选择独立WC-TIMING-FACTORIAL-HUMAN-R1-20261004-A/wc-timing-factorial-human-r1，完整2334.429秒≤独立2400全cost/2370child。79payload+mid待source冻结同步、实际当前42依赖CPU原件与官方源/prepare/native-meta/资产/import/人物条件门，再fresh UUID/sm86/VRAM/compute/锁/预算/磁盘后唯一提交。现8.67188491753794/12h、41jobs保持，余3.3281150824620607h，无GPU提交或预付；原104/forecast单次终态不复用，不扩样、训练或加人评，goal active。以下为历史。
+
 ## 2026-10-04 当前进度：早晚刷新缺失臂 CPU 通过
 
 [96 接口与 CPU 证据](research/96_WC_EARLY_LATE_FACTORIAL_INTERFACE_AND_CPU.md)承接[95 人物来源位置实测](research/95_WC_FORECAST_PLACEMENT_RESULTS_AND_TIMING_FACTORIAL_NEXT.md)：延后首次 S 的单曝光场景保真改善已记录（SSIM0.927207，速度未接受）；当前新增 E0L0/E1L1 接口已通过旧14/8、新8、入口拒绝25及纯策略4组，42份依赖和5份官方源与原件一致。CPU stand-in 不是两缺失臂的实际人物视频；下一独立runner/scope/完整成本及实际门，尚无新GPU卡或预付。
