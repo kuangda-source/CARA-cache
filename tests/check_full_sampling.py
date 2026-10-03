@@ -40,7 +40,7 @@ def load_functions(path, names, namespace):
     exec(compile(ast.fix_missing_locations(module), str(path), 'exec'), namespace)
 
 
-def run(runtime, refresh=False, composed=False):
+def run(runtime, refresh=False, composed=False, exercise=None):
     runtime = Path(runtime)
     for path, digest in HASHES.items():
         assert hashlib.sha256((runtime / path).read_bytes()).hexdigest() == digest, path
@@ -187,6 +187,10 @@ def run(runtime, refresh=False, composed=False):
             'refresh_window', 'refresh_nonfinite', 'refresh_kernel_nan']]
     if composed:
         scenarios = [(False, None), (True, None), (True, 'decode')]
+    if exercise is not None:
+        # Reuse the exact pinned sampler/pipeline fixture for independent cores.
+        # Default historical controls below retain their original behavior.
+        scenarios = [(False, None), (True, None)]
     telemetry = {name: getattr(torch.cuda, name) for name in
                  ['is_available', 'memory_allocated', 'reset_peak_memory_stats']}
     # Exact pipe body is kept. Its CUDA-only telemetry is a declared CPU adapter;
@@ -274,6 +278,16 @@ def run(runtime, refresh=False, composed=False):
             state = {}
             originals = (net.forward, model.denoise, scheduler.step, model.generate_samples_from_batch,
                          model.decode, inference_module.save_img_or_video, pipe._get_data_batch_input)
+            if exercise is not None:
+                checks.extend(exercise(inference=inference, samples=[Sample('common'), Sample('human')],
+                    wc=wc, settings=settings, inference_module=inference_module, mode_setup=mode,
+                    kernel=kernel, flow=flow))
+                assert originals == (net.forward, model.denoise, scheduler.step, model.generate_samples_from_batch,
+                         model.decode, inference_module.save_img_or_video, pipe._get_data_batch_input)
+                assert all(float(b) == 0 for b in net.buffers())
+                assert not any(m.training for m in net.modules())
+                assert not hasattr(net, '_wc_refresh_adapter')
+                continue
             full.CompleteStateRoundtrip = CorruptThenRestore if failure in ('corrupt_restore', 'refresh_corrupt_restore') else original_snapshot
             caught = None
             with tempfile.TemporaryDirectory(prefix='full-sampling-cpu-') as directory:
@@ -396,7 +410,8 @@ def run(runtime, refresh=False, composed=False):
         full.CompleteStateRoundtrip = original_snapshot
         for name, method in telemetry.items(): setattr(torch.cuda, name, method)
     assert not torch.cuda.is_initialized()
-    return {'status': ('FULL_SIX_OUTPUT_PRODUCTION_COMPOSITION_CPU_PASS_NOT_VIDEO' if composed else
+    return {'status': ('PINNED_PIPELINE_CPU_FIXTURE_EXTERNAL_EXERCISE_COMPLETE' if exercise is not None else
+                      'FULL_SIX_OUTPUT_PRODUCTION_COMPOSITION_CPU_PASS_NOT_VIDEO' if composed else
                       'FULL36_CFG72_PINNED_SPARSE_REFRESH_INTERFACE_CPU_PASS' if refresh
                       else 'FULL36_CFG72_PINNED_OFFICIAL_SAMPLER_PIPELINE_CPU_CONTROL_PASS'),
         'checks': checks, 'upstream_sha256': HASHES, 'cuda_initialized': False,

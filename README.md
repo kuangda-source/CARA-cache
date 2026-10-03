@@ -1,3 +1,15 @@
+## 2026-10-03 轻量完整生成 CPU15 通过，真实部署测量待验证
+
+[85 实现与验证](research/85_WC_LIGHT_PIPELINE_CPU_AND_TRACE_RESULTS.md)/[源码与原件审计](reports/wc_light_sampling_cpu_audit_20261003.json)：当前轻量路径 actual CPU r3 在48.989秒通过15项控制；r1原11项回归对应的19份依赖/默认夹具SHA保持，当前21份payload匹配r3。每臂真实prepare、完整36 solver/72 CFG/93帧接口，D/D九门、反向/ABBA、不足历史回退、来源隔离/70失效/尾dense及失败分母/清理通过。去除生产逐前向诊断哈希/五处复制恢复，保留必要条件签名、来源账本和核检查并计入wall。分段为未独立同步host wall，主pipeline仅计时包装器做CUDA边界同步。测试观察器、toy核/mockwriter不是GPU核/视频/速度证据。
+
+r2因测试只捕获ValueError而漏接官方文本guardrail通用Exception退出1；已修正并以r3覆盖keep_going两种模式，失败原回执保留，不追认为通过或方法负结果。三轮CPU禁止CUDA、GPU费用0；旧GPU部署源与预算保持。
+
+原完整回执CPU轨迹复核：两CAL均call23首次S/输出SHA变、call25命名模型输入变；common决策无变化，human从call46起9次full/cache差异。末71/72虽dense，输入/输出仍不同，来源reset不是latent reset；全部参考最大age9不是安全寿命或S专属寿命。哈希顺序不能提供误差范数/因果归因，debug wall缺分组件成本，人物保真风险仍未解决。
+
+现场1791039297.6093833：原六输出三PIDs均消失，六mp4保持、compute apps为空；累计6.733473505896205/12GPUh、37jobs，余5.266526494103795h，无inflight/新增GPU提交。原[75 单次104点补验](research/75_WC_FULL104_R4_CARD_AND_RESULTS.md)已完成1153.547616秒/64联合筛查通过，1800秒单次授权已消耗，不重跑。
+
+下一继续独立真实轻量入口、source/assets/import/prepare/mode/buffers门和均衡次序/全cost具体化，再另设GPU卡/fresh资源与锁准入并先真实完整D/D。当前没有下一GPU卡或reservation；人物保真、净部署耗时、强基线和独立CONF仍缺，goal继续。复杂H2/RV/训练及新增人评后置。以下为历史快照。
+
 ## 2026-10-03 H0首卡实际CPU26通过，唯一诊断已启动
 
 [实际部署](reports/wc_h0_complement_r1_deployment_20261003.json)：冻结source18e692ebb0f23a6ed832e0d7ff74ec3a6acc0ca9，actual CPU26/C分支/完整四臂/原件误差/step13&20/source/assets/import/package全部通过，CUDA未初始化、原账本不变；源码已推送。唯一wc-h0-complement-r1 fresh准入并启动，[启动](reports/wc_h0_complement_r1_launch_20261003.json)/[现场](reports/wc_h0_complement_r1_start_observation_20261003.json)supervisor2657420/timeout2657436/runner2657438存活，初始化非终态。原GPU24MiB/noapps，child起算最多1200秒截止北京时间15:08:40，已预付1/3GPUh（在途5.044227085042899h、第33job），结束按实际全wall结算；已用4.710893751709566h/32job历史保留。只跟踪原句柄，不改在跑source或重提，不据live报互补性/视频收益。H1/H2/RV/训练后置。
