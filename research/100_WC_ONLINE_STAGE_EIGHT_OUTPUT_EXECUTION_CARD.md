@@ -1,6 +1,6 @@
 # 在线阶段窗口与刷新频率：独立八输出执行卡
 
-2026-10-04。承接[99 CPU与完整成本](99_WC_ONLINE_STAGE_CPU_AND_FAIR_FRONTIER_BUDGET.md)。基于用户持续自主实验目标和既有累计12 GPUh授权，选择独立 `WC-ONLINE-STAGE-R1-20261004-A` / `wc-online-stage-r1`，单次3600秒全费用、3570秒child、5秒强制退出余量。当前仅选择与本地控制完成，未部署或提交GPU；不得复用104点或旧视频卡身份。
+2026-10-04。承接[99 CPU与完整成本](99_WC_ONLINE_STAGE_CPU_AND_FAIR_FRONTIER_BUDGET.md)。基于用户持续自主实验目标和既有累计12 GPUh授权，选择独立 `WC-ONLINE-STAGE-R1-20261004-A` / `wc-online-stage-r1`，单次3600秒全费用、3570秒child、5秒强制退出余量。当前冻结source `3ad34e10475ab525190bf12a21f46ec8e525385c` 的实际部署与独立审计通过，未提交GPU；不得复用104点或旧视频卡身份。
 
 ## 研究问题和完整矩阵
 
@@ -19,7 +19,7 @@
 
 [本地scope CPU](../reports/wc_online_stage_r1_scope_cpu_20261004.json)42项通过，拒绝改分母/输入/频率/窗口/回退、未来mask、真D污染、无条件复用、错误历史SHA、费用不足/非finite及在途账本。该结果不是GPU证据。
 
-部署须逐项通过：51份stage文件（50 payload加mid配置）SHA；原CPU回执SHA e05b…66cf、28依赖和5官方源、旧15/新10/策略4组绑定；新增实际scope42和官方prepare；实际原类meta网络默认1173→共享eval0、完整buffer库存；源码/模型资产/既有sm86 Sparge包CPU import；两个实际条件序列化SHA；历史两D原件长度/SHA；预算完全未变、CUDA未初始化、全局锁可获取。独立重新读取部署原件和现场stage bytes后，才fresh指定UUID/sm86、VRAM≤1024MiB/no compute、15GB磁盘、f1锁、no-inflight、原12h剩余≥3615秒，仅提交一次。
+[实际部署](../reports/wc_online_stage_r1_deployment_20261004.json)/[独立原件审计](../reports/wc_online_stage_r1_deployment_audit_20261004.json)已通过：51份stage文件（50 payload加mid配置）SHA；原CPU回执SHA e05b…66cf、28依赖和5官方源、旧15/新10/策略4组绑定；新增实际scope42和官方prepare；实际原类meta网络默认1173→共享eval0、完整buffer库存；源码/模型资产/既有sm86 Sparge包CPU import；两个实际条件序列化SHA；历史两D原件长度/SHA；预算完全未变、CUDA未初始化、全局锁可获取。独立重新读取部署原件和现场stage bytes已通过；下一fresh指定UUID/sm86、VRAM≤1024MiB/no compute、15GB磁盘、f1锁、no-inflight、原12h剩余≥3615秒，仅提交一次。
 
 当前累计9.136838727254782/12h、42jobs，余2.8631612727452183h，无inflight。3600秒预付须在原账本增加第43job，退出后用含失败/加载/flush/释放的实际wall替换；不重置旧费用。三后续草案上限不能共同准入，后序在本卡实费结算后重新算余额。
 

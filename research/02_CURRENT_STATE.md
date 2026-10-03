@@ -1,3 +1,9 @@
+## 2026-10-04 在线八输出实际部署与独立原件审计通过，待fresh准入
+
+[100 原卡](100_WC_ONLINE_STAGE_EIGHT_OUTPUT_EXECUTION_CARD.md)/[部署](../reports/wc_online_stage_r1_deployment_20261004.json)/[独立审计](../reports/wc_online_stage_r1_deployment_audit_20261004.json)：冻结source3ad34e1的51stage文件SHA、当前原CPU28依赖/5官方源/旧15新10策略4组绑定、actual scope42/prepare、native-meta默认1173→eval0及buffers、source/assets/package CPU import、两实际条件与历史D原件SHA均通过；CUDA未初始化、预算未变。
+
+现9.136838727254782/12h、42jobs、余2.8631612727452183h无inflight/GPU提交或预付。下一仅fresh UUID/sm86/VRAM/apps/锁/no-inflight/余额/磁盘后wc-online-stage-r1单次3600全cost/3570child提交，八分母与D/D/历史D止步保持。原104/其他旧卡不重提；单次在线CAL不是质量/稳定速度/强前沿或CONF，科学goal active，不训练/加人评。以下为历史。
+
 ## 2026-10-04 在线八输出独立卡已具体化，本地scope42通过
 
 [100 独立执行卡](100_WC_ONLINE_STAGE_EIGHT_OUTPUT_EXECUTION_CARD.md)：wc-online-stage-r1/独立3600全cost/3570child，strict D/D两输出后两曝光CAL各自适应WC/window23–27 every1/every2，共八输出；历史D复现止步、当前步骤/过去CFG计数、不覆盖原生skip判定、无固定deep/S配额。新scope/runner/监督器及结果/费用释放/四候选CPU指标审计器已完成，核心28依赖与实际CPU原件保持；本地42范围/费用/预算拒绝控制通过。
