@@ -36,3 +36,9 @@
 [初步实际CPU](../reports/wc_full_output_cpu_r1_20261003.json)229.492秒通过。生产函数原生50组件与sidecar五个checkpoint分开；无adapter→dense adapter严格九门/最终pipeline成立，flow OFF/ON各六phase432CFG/两个候选配对通过，候选decode失败保留DD及六输出分母。完整服务器部署阶段需将最终config/payload/资产/import绑定到新冻结source后再验，当前记录不是GPU准入。
 
 实际部署准备r1/source34f2d86在CPU加载test_prepared_input时缺少打包依赖mid_parity_scope，未进入控制/模型/GPU。原stage与[失败回执](../reports/wc_full_output_r1_deployment_failure_20261003.json)保留；仅补齐纯Python依赖，在新deploy2 stage重新冻结验证。此为准备失败，非稀疏方法或视频结果；唯一GPU run尚未提交。
+
+## 实际部署门终态
+
+[deploy2回执](../reports/wc_full_output_r1_deployment_20261003.json)绑定冻结source`b3ed6b084b5e7bad5a242bd9a934a0d502e1ef6c`：完整CPU11/19/3、官方prepare与metadata、原网络meta/shared-eval/buffer inventory以及全部source/assets/import/package通过，无CUDA/权重模型执行，账本未变，现场全局锁可用、数据盘564GB余量。原缺依赖准备失败保留，唯一GPU run尚未提交；提交仍需再次现场准入。
+
+S使用现有QK量化/选择与稀疏执行，S−D包括backend量化和稀疏效应；本视频卡不是纯稀疏因果分解。此前matched-full局部对照保留，不据该卡独占归因。

@@ -1,3 +1,9 @@
+## 2026-10-03 完整六输出首卡：实际部署全部门通过，待唯一现场提交
+
+[83 固定卡](83_WC_FULL_OUTPUT_R1_CARD.md)：冻结source b3ed6b084b5e7bad5a242bd9a934a0d502e1ef6c在新deploy2 stage实际完整CPU11/19/3控制、官方prepare/样本metadata、native-meta mode/buffers、全部source/assets/import/package通过，CUDA未初始化、账本保持；原缺依赖准备失败stage/34f2d86保留。源代码已同步GitHub，6输出/6000全cost/5970child/全局锁/累计12h范围不变；尚无本卡GPU费用或视频。
+
+下一仅fresh UUID/VRAM/compute/无inflight/余额/锁/磁盘后提交wc-full-output-r1一次；DD原官方与dense adapter不通过即止，不重启旧任务/自动第二卡，不删分母。当前6.055044055960606/12GPUh、36jobs保持。实际核执行/视频/clean E2E/独立CONF仍待结果；以下为历史。
+
 ## 2026-10-03 独立完整六输出首卡：CPU组合通过，实际部署门待验证
 
 [83 独立卡](83_WC_FULL_OUTPUT_R1_CARD.md)选定WC-FULL-OUTPUT-R1-20261003-A/wc-full-output-r1：先common官方无adapter与dense adapter完整D/D九门/最终pipeline严格等价，再common/human两个曝光CAL的WC/S四输出；合计六phase/六文件。native九门与额外provenance签名单独记录，恢复仍检查完整sidecar。初步实际CPU229.492秒通过完整11条D/D、19条刷新与flow OFF/ON六生成组合、解码失败和scope/预算拒绝，禁止CUDA/无权重/真实VAE；r5 source及51组件旧口径封存，新口径native50+单独来源签名。
