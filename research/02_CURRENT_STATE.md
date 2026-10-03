@@ -1,3 +1,9 @@
+## 2026-10-03 最新文档核对 — 完整104点成本与实施阻碍
+
+[完整104点成本核对](74_WC_FULL_COVERAGE_COST_AND_BLOCKERS_20261003.md)：r3仅call25/26×layer2的2点技术门，r2全104点输入/状态控制失败仍不追认。独立补验需保留共享官方prepared-input、完整RNG及全部九门，step13/18和全26深层。两次实测推算全cost1198.90–1216.65秒，20%规划包络1459.98秒，超现1200秒/child1170秒准入；包络不是实跑必然超时证明。累计余7.609536141569778GPUh足够不代表单卡时间授权。
+
+新实施文件写入被自动审批按本次可信docs-only指令拒绝；草案未入库/部署/实际CPU验证，未GPU提交，新增GPU成本0，已用4.390463858430222/12h、31jobs不变。待实施与时间门得到明确解决后才继续有效coverage→H0→H1；不自动延窗、开多窗、复跑r2或启动RV/训练。以下旧段为各时点历史快照。
+
 ## 2026-10-03 最新终态 — r3独立前缀全部输入/状态门通过并审计
 
 [73完整结果](73_WC_MIDDLE_R3_PARITY_RESULTS.md)：wc-mid-parity-r3/source4bd3b72退出0，共用官方prepared batch及全RNG转移；两臂13 solver更新/26 CFG前向，26原/命名输入、输出与全部condition、trace/counts/时间网格、step13原总指纹及36状态组件均一致，observed restore通过。2真实QKV/6case/source/file/raw SHA/repeat/成本/释放独立CPU审计通过；只是本短前缀技术门，无视频质量或完整可重启因果分叉验收。
