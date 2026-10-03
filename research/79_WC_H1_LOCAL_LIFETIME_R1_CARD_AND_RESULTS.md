@@ -1,3 +1,74 @@
+# H1 独立首卡终态：来源扰动有温和增长，共同缓存漂移占主导
+
+2026-10-03。唯一 `wc-h1-local-lifetime-r1` 正常exit0，状态 `H1_FIXED_TRAJECTORY_LOCAL18_AUDITED_DESCRIPTIVE_ONLY`，source `e59b5880df5a57118a6fdce5df1716b7a972f05a`。6/6来源臂、18/18来源×age格、30文件/60张量完整，全部九门和独立CPU误差复算通过。**这是一张已曝光CAL上的固定轨迹局部诊断，尚未证明安全寿命、视频质量或端到端收益。** 原r4/H0/H1 CPU失败回执保持。
+
+## 实际部署、运行与独立审计
+
+[完整部署回执](../reports/wc_h1_lifetime_r1_deployment_20261003.json)记录实际34组CPU/source/assets/import/package/native-meta/样本序列化门通过，CUDA未初始化；stage的69份payload加mid-config共70个文件通过SHA核对。[启动](../reports/wc_h1_lifetime_r1_launch_20261003.json)后只跟踪这一组handles，无重提或运行中修订。
+
+[runner](../reports/wc_h1_lifetime_r1_runner_20261003.json)两前缀各21 solver更新/42CFG，20 full/22 cache；请求35仍保留36步完整网格和70CFG horizon。全部九项input/output/trace/block counts/state/sampling/named inputs/conditions/field signatures精确相等，step13/21各36组件相等，observed两处进程内restore通过并从13继续到21。共享eval两臂均1173 training标志归零，普通nn.Module.train且参数/buffer对象版本未变。该前缀的219.462/518.815秒含不同诊断负担，不能作部署速度比。
+
+[独立审计](../reports/wc_h1_lifetime_r1_audit_20261003.json)验证冻结source、同CFG/条件、来源身份、true-dense过去计数、预测先于当前teacher、teacher两次逐位一致、held reference未变及全部分母。30个原件60张量的whole/raw SHA、shape/dtype/finite通过；24行×两字段的MSE/reference energy/relative MSE/RMSE/cosine用CPU float64复算，与GPU fp32记录一致（relative2e-6/absolute1e-9）。这是技术验收，不能替代质量评测。
+
+[追加CPU部署哈希核对](../reports/wc_h1_lifetime_r1_deployed_velocity_cpu_20261003.json)：age1/2四次cache的held-dense预测，按原float32张量重建tree SHA，均等于实际官方部署输出；age4两次full的当前D teacher同样匹配部署输出。age4的旧参考预测并未部署，也不能说官方缓存连续复用了4步。
+
+## 来源时的三臂结果
+
+D是原算子，MF是候选后端全块，S是固定稀疏策略（6/23/27 dense回退，0.1/0.98/noPV）。两来源点step17/call33、34仍为官方full，严格过去true-full计数分别[12,22]、[13,23]。每臂1warmup+3repeat，以下为热重复中位，包含完整deep组2..27与head。
+
+| CFG / call | D / MF / S 组+head ms | MF / S residual RMSE | MF / S velocity RMSE | D/S |
+|---|---|---|---|---|
+| 0 / 33 | 3103.487 / 3173.966 / 2931.983 | 2.2259% / 4.3493% | 0.4665% / 0.9390% | 1.05849× |
+| 1 / 34 | 3126.290 / 3195.925 / 2943.667 | 2.1024% / 4.2525% | 0.4547% / 0.9450% | 1.06204× |
+
+S来源的局部residual/velocity均低于描述性5%线；D/S约1.0585/1.0620×，组+head耗时降低5.53%/5.84%。这不是视频或总去噪加速。MF本身已有后端误差，不把S相对D的全部误差归因稀疏mask。
+
+## 全部18格结果
+
+以下每行含三个来源，完整18格保留。[完整JSON](../reports/wc_h1_lifetime_r1_summary_20261003.json)和runner保留原MSE、reference energy、方向余弦及有符号差值。
+
+| CFG | age / step / call | 官方动作 | D / MF / S velocity RMSE | D / MF / S residual RMSE | S−D velocity pp |
+|---|---|---|---|---|---|
+| 0 | 1 / 18 / 35 | cache | 11.1645% / 11.1763% / 11.3165% | 24.3568% / 24.4095% / 24.8795% | 0.1519 |
+| 0 | 2 / 19 / 37 | cache | 16.1128% / 16.1251% / 16.2907% | 34.1045% / 34.1511% / 34.5775% | 0.1779 |
+| 0 | 4 / 21 / 41 | full | 25.7680% / 25.7755% / 25.9373% | 53.9159% / 53.9423% / 54.3030% | 0.1693 |
+| 1 | 1 / 18 / 36 | cache | 13.6086% / 13.6377% / 13.7610% | 29.0374% / 29.1151% / 29.5470% | 0.1524 |
+| 1 | 2 / 19 / 38 | cache | 19.9538% / 19.9843% / 20.1424% | 40.8561% / 40.9258% / 41.3651% | 0.1886 |
+| 1 | 4 / 21 / 42 | full | 31.5805% / 31.6077% / 31.7619% | 63.9253% / 63.9789% / 64.3993% | 0.1813 |
+
+描述性“双字段均≤5%”为0/18，dense-held也0/6。这不构成稀疏方法特有的失败判据，也不能由局部误差否定官方WC的最终视频质量；没有一臂获得这条局部线下的安全寿命。age1/2是官方实际cache，age4是强制保留step17参考的私有诊断，官方已full。此次范围内误差随1/2/4增大，但不据三个K推出普遍单调性或连续安全期限。
+
+## CPU来源扰动分解：区分总误差与来源差值
+
+总RMSE的S−D仅0.152–0.189个百分点，并不等于S与D预测的差值范数。[独立分析脚本](../scripts/analyze_wc_h1_source_delta.py)与[原件分析回执](../reports/wc_h1_source_delta_cpu_20261003.json)在CPU禁止CUDA、重新核验原件SHA后，逐字段float64验证恒等式：
+
+`MSE(S,T) = MSE(D,T) + MSE(S,D) + 2 mean((D−T)·(S−D))`。
+
+这是输出空间恒等式，不假设Gamma+flow预测器线性；附加分析是事后描述，不改变冻结5%筛查。归一化差值为`||S−D||/||当前teacher||`，绝对放大倍数为未来`||S−D||`除以来源时`||S−D||`，分母不同，分别报告。
+
+| CFG | age | S−D velocity 归一化差值范数 | 相比来源时绝对差值范数倍数 | 与dense误差方向余弦 |
+|---|---|---|---|---|
+| 0 | 1 | 1.0328% | 1.1032× | 0.1019 |
+| 1 | 1 | 1.0387% | 1.1021× | 0.1094 |
+| 0 | 2 | 1.2347% | 1.3277× | 0.1066 |
+| 1 | 2 | 1.2148% | 1.2976× | 0.1255 |
+| 0 | 4 | 1.4390% | 1.5633× | 0.0901 |
+| 1 | 4 | 1.3945% | 1.5054× | 0.1083 |
+
+velocity来源扰动从原始约0.94%变为未来1.03%–1.44%，绝对范数放大1.10–1.56×；相较之下共同dense-held误差为11.16%–31.58%。MF−D未来差值也有0.51%–0.71%。S扰动与dense漂移方向余弦约0.09–0.13，轻微同向；总RMSE差距小不能解释为来源误差消失。深层residual的S−D差值为4.64%–7.38%，绝对范数放大1.09–1.76×；共同dense-held residual误差24.36%–63.93%，residual扰动与共同误差接近正交或轻微抵消，不能只看velocity就宣称内部误差可忽略。当前只能说该点来源偏差温和增长、共同预测漂移更大，不能作统计交互或来源不重要的全局结论。
+
+## 费用、释放和接续决策
+
+[supervisor](../reports/wc_h1_lifetime_r1_supervisor_20261003.json)全wall889.004681秒，即0.246945745GPUh，低于1800秒硬上限及1414.365秒规划包络；加载、初始化、诊断、IO和释放都计入。0.5h启动预付已按实费结算。累计5.300050075675308/12GPUh，35jobs，余6.699949924324692h；旧失败费用未删除，无inflight。PIDs2668463/2668479/2668481退出、f1锁可获取；417个监控点只观察到本runner，峰值24912MiB，释放后24MiB/noapps。
+
+**继续WorldCache，但暂不推进H2来源感知分组路由或训练。** 这张首卡没有支持“来源决定可用寿命”的差异：三来源在同一局部筛查下均未达标，来源扰动小于共同漂移。保留简单S/D与age基线，下一先CPU准备预登记早/晚时段及未用于本次选参的CAL场景的有限诊断范围、选择规则和真实成本，检查这一现象是否泛化；不是独立最终确认。不能用总误差高直接跳到RV/Trust Head，刷新价值仍需要同状态、同后续规则、同预算的反事实收益证据。
+
+另一GPU窗口须另一个具体identity/source/card与实际CPU/source/assets/import、fresh UUID/VRAM/compute/锁/无inflight/余额门；本r1授权已消耗，不重启或自动补点。不取消既有冻结工作，非必要不新增人评；早/中/晚、独立场景、闭环、视频和真实质量–时间边界仍待完成。
+
+---
+
+## 以下为执行前冻结卡与CPU快照（历史）
+
 # H1 独立首卡：固定轨迹来源×1/2/4步
 
 2026-10-03。当前状态 `PRODUCTION_CORE_CPU_PASS_PENDING_FULL_ACTUAL_DEPLOYMENT_NO_GPU`。延续[78接口/成本](78_WC_H1_FIXED_TRAJECTORY_CPU_AND_COST.md)；保留r4/H0和H1 CPU r1/r2失败及全部账目。主目标仍是提高调优WorldCache的质量–时间边界，当前局部诊断不等于目标完成。

@@ -1,0 +1,130 @@
+{
+  "observed_unix": 1791019099.531277,
+  "supervisor": {
+    "status": "GPU_H1_LOCAL_LIFETIME_RUNNING",
+    "pid": 2668463,
+    "run_id": "wc-h1-local-lifetime-r1",
+    "admission": {
+      "unix": 1791018715.5006993,
+      "uuid": "GPU-cebf7119-cf03-23b9-e192-cd196332b704",
+      "name": "NVIDIA RTX A6000",
+      "memory_used_mib": 24,
+      "compute_cap": "8.6",
+      "pids": []
+    },
+    "budget_before": {
+      "batch": "F0-F1",
+      "cap_gpu_hours": 12,
+      "used_gpu_hours": 5.05310433089345,
+      "gpu_jobs_launched": 34,
+      "status": "WC_H0_COMPLEMENT_SETTLED_REQUIRES_RESULT_AUDIT",
+      "gpu_import_probes_completed": 1,
+      "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts",
+      "budget_authorization_ref": "manifests/budget_authorization_20261003.json",
+      "budget_authorization_history": [
+        {
+          "authorized_utc": "2026-10-02T18:03:00Z",
+          "source_thread_id": "01a0f1e6-7ad0-75df-9a02-172b60d2e00b",
+          "user_instruction": "\u628a\u5404\u4e2a\u5b9e\u9a8c\u7684 gpu \u9884\u7b97\u90fd\u8bbe\u7f6e\u4e3a 12gpuh",
+          "previous_cap_gpu_hours": 4,
+          "new_cumulative_cap_gpu_hours": 12,
+          "used_gpu_hours_at_change": 3.9117525685110333,
+          "no_usage_reset_or_transfer": true
+        }
+      ]
+    },
+    "reserved_seconds": 1800,
+    "child_pid": 2668479,
+    "child_started_unix": 1791018715.5038266
+  },
+  "runner": {
+    "status": "OBSERVED_PREFIX",
+    "pid": 2668481,
+    "started_unix": 1791018727.7238293
+  },
+  "pids": {
+    "2668463": true,
+    "2668479": true,
+    "2668481": true
+  },
+  "phase_progress": [
+    {
+      "phase": "baseline_prefix",
+      "status": "EXPECTED_PREFIX_COMPLETE_NOT_VIDEO",
+      "solver_steps": 21,
+      "output_hashes": 42,
+      "roundtrips": 0
+    },
+    {
+      "phase": "observed_prefix",
+      "status": "GENERATING_PREFIX",
+      "solver_steps": 0,
+      "output_hashes": 0,
+      "roundtrips": 0
+    }
+  ],
+  "snapshots": 0,
+  "cases": 0,
+  "budget": {
+    "batch": "F0-F1",
+    "cap_gpu_hours": 12,
+    "used_gpu_hours": 5.55310433089345,
+    "gpu_jobs_launched": 35,
+    "status": "WC_H1_LIFETIME_RUNNING_1800S_PREPAID_NOT_ACTUAL_SETTLED",
+    "gpu_import_probes_completed": 1,
+    "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts",
+    "budget_authorization_ref": "manifests/budget_authorization_20261003.json",
+    "budget_authorization_history": [
+      {
+        "authorized_utc": "2026-10-02T18:03:00Z",
+        "source_thread_id": "01a0f1e6-7ad0-75df-9a02-172b60d2e00b",
+        "user_instruction": "\u628a\u5404\u4e2a\u5b9e\u9a8c\u7684 gpu \u9884\u7b97\u90fd\u8bbe\u7f6e\u4e3a 12gpuh",
+        "previous_cap_gpu_hours": 4,
+        "new_cumulative_cap_gpu_hours": 12,
+        "used_gpu_hours_at_change": 3.9117525685110333,
+        "no_usage_reset_or_transfer": true
+      }
+    ],
+    "wc_h1_lifetime_inflight": {
+      "run_id": "wc-h1-local-lifetime-r1",
+      "supervisor_pid": 2668463,
+      "reserved_seconds": 1800
+    }
+  },
+  "gpu": "GPU-de9a5370-cd87-0f1c-a48e-288888777dd3, NVIDIA RTX A6000, 350\nGPU-cebf7119-cf03-23b9-e192-cd196332b704, NVIDIA RTX A6000, 15906\n",
+  "apps": "GPU-cebf7119-cf03-23b9-e192-cd196332b704, 2668481\n",
+  "baseline_full_calls": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    23,
+    24,
+    33,
+    34,
+    41,
+    42
+  ],
+  "mode": {
+    "policy": "EXPLICIT_EVAL_SHARED_BY_BASELINE_AND_OBSERVED_BEFORE_REQUEST",
+    "all_train_implementations": "torch.nn.Module.train"
+  },
+  "completed_h1_states": 0,
+  "source_h1_states": 0,
+  "raw_h1_files": [],
+  "last_capture": null,
+  "gpu_elapsed_seconds": 384.1714434623718,
+  "max_gpu_deadline_beijing": "2026-10-03T17:41:55.503827+08:00",
+  "source_revision": "e59b5880df5a57118a6fdce5df1716b7a972f05a",
+  "interpretation": "LIVE_SINGLE_H1_IDENTITY_NOT_TERMINAL_OR_LIFETIME_ACCEPTANCE"
+}
