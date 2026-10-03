@@ -1,3 +1,7 @@
+## 2026-10-03 执行进度
+
+第1–2项完整D/D尾部/恢复，以及第3–4项简单S/D来源接线的CPU控制见[82完整结果](82_WC_COMPLETE_SAMPLING_AND_REFRESH_CPU.md)。保留本文件作为该阶段事前范围；下一具体化完整输出GPU诊断卡，当前没有新的GPU准入或候选视频。
+
 # H1 机制诊断后的判断与下一步 CPU 准备
 
 2026-10-03。依据 [H1 中间点](79_WC_H1_LOCAL_LIFETIME_R1_CARD_AND_RESULTS.md) 与 [早晚双 CAL 完整结果](80_WC_H1_GENERALIZATION_R1_CARD_AND_CPU.md)。这是下一阶段的 CPU 准备范围，未选定或提交新 GPU 卡，不增加累计 12 GPUh。

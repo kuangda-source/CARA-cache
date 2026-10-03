@@ -1,3 +1,11 @@
+## 2026-10-03 完整采样与简单 S/D 刷新 CPU 接线
+
+[82 当前证据与下一步](research/82_WC_COMPLETE_SAMPLING_AND_REFRESH_CPU.md)：新增完整官方采样核心，35 请求/36 实际更新/72 CFG 到最终返回，保持原生 horizon70/call70 清空及最后两次 warm full。五检查点13/21/33/35/36含 buffers/modes/RNG/UniPC 与实际恢复 latent；D/D严格九门和完整 pipeline 控制通过。CPU r1夹具 stride失败保持，r2 77.964秒通过；r3 178.700秒通过全部旧11条控制与17条 D/D provenance、实际 D/S 接线和失败控制。r4 122.205秒通过新增 model/group 拒绝；清理闭包绑定修正后的r5 122.224秒、19条刷新控制及当前source独立CPU审计通过；全部hook/模式/buffers/forward恢复。每轮原SHA保持，较早CPU不追认后来文件。
+
+S确实进入后续 cache/solver/最终 latent；native forecast window 与 true-dense metadata 分开，S不进入真D历史，call70同时失效两CFG来源。官方OSI用完整probe差分，无deep目标在线校准。此为禁止CUDA、无真实权重的toy接线控制，mock decoder/writer不是视频；生产fallback6/23/27/真实稀疏核尚未闭环验证。严格九门只用于D/D，候选D/S允许输出与自适应轨迹改变。
+
+本阶段GPU费用0，累计6.055044055960606/12h、36jobs，余5.944955944039394h，无新GPU卡。下一具体化官方WC/简单WC+S完整输出诊断的source/成本/实际部署门，再fresh准入；调试哈希/深拷贝wall不作净加速结论，不追加H2/RV/训练/人评。直接授权的r4完整104点已终态且单次授权消耗，不重跑。以下为历史快照。
+
 ## 2026-10-03 H1早晚双CAL终态：完整72格原件审计通过，CPU来源扰动分解完成
 
 [80完整卡](research/80_WC_H1_GENERALIZATION_R1_CARD_AND_CPU.md)：source77111262a02931e01f2ca2253c2ec585e6b0852b实际CPU35后唯一run退出0；两场景各两前缀33更新/66CFG、全部九门、step13/21/33各36组件与进程内restore通过。24来源/72格/120原件240张量和96组独立float64误差、参考语义/费用/释放全部审计通过。早step12/晚step25为预登记选择，两个曝光CAL不是CONF。

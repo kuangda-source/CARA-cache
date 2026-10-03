@@ -1,0 +1,45 @@
+{
+  "status": "FULL_SAMPLING_CPU_GATE_FAILED",
+  "exit": 1,
+  "payload_sha256": {
+    "src/wcomr/__init__.py": "b9996da0a87bb746cdac0935ead475246fc34d88b37e73f63f14e5065494f311",
+    "src/wcomr/full_sampling.py": "4644f81ff434c5ed6e4e93cf861966ef96457beadf42cd123d86ea58773dcb6d",
+    "src/wcomr/decoder_policy.py": "57e1369909dfa9db5ea6ab563b275fe7376bea14d0b247dd7748e79fccf8699b",
+    "src/wcomr/stage_witness.py": "78247cc3137d1ea032425c392aa728f35b83fcd0d748f21be4cb3c3d7995ae09",
+    "src/wcomr/h0_mode.py": "849afc06fa124c606e39205542458e7bcaa974adca28d9772f3c23730c1668b4",
+    "src/wcomr/mid_coverage.py": "8e02d740b4ee794531c6263666bbed18348e32ba84c9b94b89f7c979a106fbf4",
+    "src/wcomr/mid_scope.py": "94d02ab46cddd70a0a80e5edb62eb12e22eb2647afe66b6843e6372480bb51ac",
+    "src/wcomr/mid_prefix_audit.py": "218dba5b59a76919bcb03dae0ccba4dae69dc40dc4035aac968f7f85cb14fe0e",
+    "src/wcomr/prepared_input.py": "aa2d916a56d8ac1f7afd8a551c20341d5bed86299f97b0711019517f0e0effdb",
+    "src/wcomr/measurement.py": "c4181ec3220b2fd33d333dffed9ae7163303668b9e152a705d1d70213b45a4c0",
+    "tests/check_full_sampling.py": "c5db4f6f7c97520aace54f1ccc6d6181c4740cf704c976b5c79dec1a84a8217a"
+  },
+  "budget_unchanged": true,
+  "budget": {
+    "batch": "F0-F1",
+    "cap_gpu_hours": 12,
+    "used_gpu_hours": 6.055044055960606,
+    "gpu_jobs_launched": 36,
+    "status": "WC_H1_GENERALIZATION_SETTLED_REQUIRES_RESULT_AUDIT",
+    "gpu_import_probes_completed": 1,
+    "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts",
+    "budget_authorization_ref": "manifests/budget_authorization_20261003.json",
+    "budget_authorization_history": [
+      {
+        "authorized_utc": "2026-10-02T18:03:00Z",
+        "source_thread_id": "01a0f1e6-7ad0-75df-9a02-172b60d2e00b",
+        "user_instruction": "\u628a\u5404\u4e2a\u5b9e\u9a8c\u7684 gpu \u9884\u7b97\u90fd\u8bbe\u7f6e\u4e3a 12gpuh",
+        "previous_cap_gpu_hours": 4,
+        "new_cumulative_cap_gpu_hours": 12,
+        "used_gpu_hours_at_change": 3.9117525685110333,
+        "no_usage_reset_or_transfer": true
+      }
+    ]
+  },
+  "observed_unix": 1791029284.287387,
+  "cpu_wall_seconds": 10.210345983505249,
+  "scope": "FULL_OFFICIAL_SAMPLER_PIPELINE_TOY_BOUNDARIES_NO_GPU_WEIGHTS_OR_VIDEO_RESULT",
+  "error": "Traceback (most recent call last):\n  File \"<stdin>\", line 11, in <module>\n  File \"/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-full-sampling-cpu-r1/tests/check_full_sampling.py\", line 240, in run\n    full.run_full_sampling_batch(inference, [Sample('common'), Sample('human')], wc,\n  File \"/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-full-sampling-cpu-r1/src/wcomr/full_sampling.py\", line 88, in run_full_sampling_batch\n    run_full_sampling_pair(inference, sample, wc, settings, config,\n  File \"/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-full-sampling-cpu-r1/src/wcomr/full_sampling.py\", line 209, in run_full_sampling_pair\n    paths = inference.generate([sample], output_dir=output / phase)\n  File \"/home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/inference.py\", line 96, in generate\n    output_path = self._generate_sample(sample, output_dir)\n  File \"/home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/inference.py\", line 143, in _generate_sample\n    video = self.pipe.generate_vid2world(\n  File \"/home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/_src/predict2/inference/video2world.py\", line 673, in generate_vid2world\n    sample = generate_samples(\n  File \"/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-full-sampling-cpu-r1/src/wcomr/stage_witness.py\", line 61, in wrapped\n    result = original(*args, **kwargs)\n  File \"/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/lib/python3.10/site-packages/torch/utils/_contextlib.py\", line 116, in decorate_context\n    return func(*args, **kwargs)\n  File \"/home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/_src/predict2/models/text2world_model_rectified_flow.py\", line 581, in generate_samples_from_batch\n    velocity_pred = velocity_fn(noise, latent_model_input, timestep.unsqueeze(0))\n  File \"/home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/_src/predict2/models/text2world_model_rectified_flow.py\", line 485, in velocity_fn\n    cond_v = self.denoise(noise, noise_x, timestep, condition)\n  File \"/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-full-sampling-cpu-r1/src/wcomr/full_sampling.py\", line 161, in denoise\n    return original_denoise(*args, **kwargs)\n  File \"/home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/_src/predict2/models/text2world_model_rectified_flow.py\", line 976, in denoise\n    net_output_B_C_T_H_W = self.net(\n  File \"/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py\", line 1751, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n  File \"/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py\", line 1762, in _call_impl\n    return forward_call(*args, **kwargs)\n  File \"/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-full-sampling-cpu-r1/src/wcomr/full_sampling.py\", line 152, in forward\n    value = original_forward(*args, **kwargs)\n  File \"/home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/_src/predict2/inference/worldcache_utils.py\", line 434, in worldcache_mini_train_dit_forward\n    gamma = compute_optimal_gamma(delta_target, delta_source)\n  File \"/home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/_src/predict2/inference/worldcache_utils.py\", line 189, in compute_optimal_gamma\n    dc = delta_curr.view(B, -1)\nRuntimeError: view size is not compatible with input tensor's size and stride (at least one dimension spans across two contiguous subspaces). Use .reshape(...) instead.\n",
+  "fresh_gpu": "GPU-de9a5370-cd87-0f1c-a48e-288888777dd3, NVIDIA RTX A6000, 350 MiB\nGPU-cebf7119-cf03-23b9-e192-cd196332b704, NVIDIA RTX A6000, 24 MiB\n",
+  "fresh_apps": ""
+}
