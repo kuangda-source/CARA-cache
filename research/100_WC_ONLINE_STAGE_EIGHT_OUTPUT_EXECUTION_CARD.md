@@ -1,6 +1,6 @@
 # 在线阶段窗口与刷新频率：独立八输出执行卡
 
-2026-10-04。承接[99 CPU与完整成本](99_WC_ONLINE_STAGE_CPU_AND_FAIR_FRONTIER_BUDGET.md)。基于用户持续自主实验目标和既有累计12 GPUh授权，选择独立 `WC-ONLINE-STAGE-R1-20261004-A` / `wc-online-stage-r1`，单次3600秒全费用、3570秒child、5秒强制退出余量。当前冻结source `3ad34e10475ab525190bf12a21f46ec8e525385c` 的实际部署与独立审计通过，未提交GPU；不得复用104点或旧视频卡身份。
+2026-10-04。承接[99 CPU与完整成本](99_WC_ONLINE_STAGE_CPU_AND_FAIR_FRONTIER_BUDGET.md)。基于用户持续自主实验目标和既有累计12 GPUh授权，选择独立 `WC-ONLINE-STAGE-R1-20261004-A` / `wc-online-stage-r1`，单次3600秒全费用、3570秒child、5秒强制退出余量。冻结source `3ad34e10475ab525190bf12a21f46ec8e525385c` 的实际部署与独立审计通过，fresh准入后已唯一提交GPU；不得复用104点或旧视频卡身份。
 
 ## 研究问题和完整矩阵
 
@@ -30,3 +30,7 @@
 [终态审计器](../scripts/audit_wc_online_stage_terminal.py)独立核对冻结源码、原PID退出、全局锁、账本单次预付替换、GPU监控及释放。[自动指标](../scripts/analyze_wc_online_stage_pairs_cpu.py)将全部四候选与自身场景WC比，保持不删负结果的四分母。单次固定顺序wall、SSIM/PSNR/RGB和temporal代理仅作CAL诊断，不接受稳定加速、Native保真、语义/物理或CONF。
 
 有可用在线信号才继续完整Native/少步23请求/三WC阈值0.04/0.06/0.08/stage前沿与新独立CONF；它们目前未实现/接受或自动选卡。若保真损坏或必要开销抵消收益，保留负结果并审查23层S候选，优先简单对照，不先训练Trust/RV、不新增人评或付费评分。科学goal保持active。
+
+## 唯一启动现场
+
+[原启动](../reports/wc_online_stage_r1_launch_20261004.json)/[现场](../reports/wc_online_stage_r1_start_observation_20261004.json)：supervisor2758008/timeout2758025/runner2758027及stage命令行匹配，模型初始化、0/8视频；最初launch state null为启动瞬间，不能据此重提。预付3600秒后原账本10.136838727254782/12h、43jobs，已结算9.136838727254782h保持；child起算1791070999.1641538秒，3570秒child/kill5，终态实际替换预付。当前没有D/D、候选反馈或质量/速度验收；只跟踪原卡至终态后独立审计，不启动下一卡。
