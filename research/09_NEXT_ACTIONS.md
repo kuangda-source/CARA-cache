@@ -1,3 +1,10 @@
+## 2026-10-04 早晚缺失臂实际部署全部门通过，待唯一GPU提交
+
+[97执行卡与部署](97_WC_TIMING_FACTORIAL_SIX_OUTPUT_EXECUTION_CARD.md)：sourcea86050c/80份新deploy1文件、实际当前CPU42依赖/5官方源与原件、scope52、历史teacher/selective/forecast及四物理视频/来源图/草案SHA、prepare OFF/ON、native-meta eval/buffers、资产/package/import及human条件均通过，禁止CUDA、预算保持。独立审计器历史来源12控制通过，不改GPU冻结stage，不是新视频。
+
+下一仅fresh UUID/sm86/VRAM/compute/锁/no-inflight/原12h余额/磁盘后wc-timing-factorial-human-r1单次2400全cost/2370child提交；六分母、D/D和legacy复现止步及不同逐臂S配额保持。现8.67188491753794/12h、41jobs无GPU或预付；原104/forecast卡终态不重提，不扩样、训练或加人评。早晚条件效应仍待真实缺失臂，不报等成本前沿或RV标签，goal active。以下为历史。
+
+
 ## 2026-10-04 早晚缺失两臂独立卡已选择，实际部署门待验证
 
 [97执行卡](97_WC_TIMING_FACTORIAL_SIX_OUTPUT_EXECUTION_CARD.md)：当前已验证核心不变，新scope/runner/监督器及56项CPU范围通过；严格D/D和旧legacy SD止步后生成E0L0/E1L1，六分母、原38共同deep保持，逐CFG分别6/5、5/4、7/6与253/207/299算子。原forecast两已有因子臂/四物理视频及来源图、旧配置/草案SHA须现场绑定；不同S次数/完整传播不是等成本前沿或RV标签。

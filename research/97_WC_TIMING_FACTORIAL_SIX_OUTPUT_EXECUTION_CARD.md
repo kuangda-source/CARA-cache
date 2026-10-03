@@ -1,5 +1,15 @@
 # 早期×晚期缺失两臂：独立六输出执行卡
 
+## 实际部署与独立原件通过，尚未GPU提交
+
+[部署回执](../reports/wc_timing_factorial_human_r1_deployment_20261004.json)/[独立原件审计](../reports/wc_timing_factorial_human_r1_deployment_audit_20261004.json)：冻结source `a86050cf9536a4431f9e77b711f54ab0a13feadf` 的79payload+mid共80文件在新deploy1验证，服务器原件SHA与本地完全对应。当前实际CPU原件42依赖及5份官方源保持；实际scope52、原teacher/selective/forecast回执及四物理视频/来源图/草案、官方prepare OFF/ON、native-meta eval0/buffers、资产/包/import和人物条件均通过，CUDA未初始化、原预算不变。
+
+[独立审计器CPU](../reports/wc_timing_factorial_auditor_cpu_20261004.json)12控制以原历史legacy真实来源记录验证native最后两来源、CFG/年龄/真D隔离/实际算子和窗口/reset拒绝，以及pre-core失败六分母；不是构造新两臂GPU产物。独立结果审计器已声明11/9/13逐臂配额、26/1/16近似读取cache和26/2/17来源读数、精确位置，真实D/D/六视频还待新卡。
+
+下一仅fresh UUID/sm86/VRAM/compute/锁/no-inflight/原12h余额/磁盘后唯一提交；目前8.67188491753794/12h、41jobs无预付。以下为选择卡时的历史准备状态。
+
+
+
 2026-10-04。承接[95 真实位置结果](95_WC_FORECAST_PLACEMENT_RESULTS_AND_TIMING_FACTORIAL_NEXT.md)及[96 当前源 CPU 验证](96_WC_EARLY_LATE_FACTORIAL_INTERFACE_AND_CPU.md)，依既有自主研究 goal 和累计 12 GPUh 选择独立 `WC-TIMING-FACTORIAL-HUMAN-R1-20261004-A` / `wc-timing-factorial-human-r1`。[清单](../manifests/wc_timing_factorial_human_r1_execution_20261004.json)、[配置](../configs/wc_timing_factorial_human_r1.json)。当前 GPU 未提交、无预付；原 104 点及 forecast 六输出已终态，不重用单次身份。
 
 只使用已曝光 human_199 / seed0、原模型/condition和入口 RNG，固定原 38-deep / 34-cache、35请求 / 36实际solver / 72CFG、93帧768×432/16fps、probe2、warm14/native70及尾 dense。仍为23个稀疏层、6/23/27 dense、sim0.1/cdf0.98/no-PV。
