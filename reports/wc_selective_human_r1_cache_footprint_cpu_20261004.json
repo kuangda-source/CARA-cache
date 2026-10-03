@@ -1,0 +1,55 @@
+{
+  "status": "ACTUAL_SIX_OUTPUT_NATIVE_FORECAST_SOURCE_FOOTPRINT_CPU",
+  "receipt_sha256": "a752a19587552ca4842a3dec0683bbf42891a3a774c4987ca104c58cc0364265",
+  "CPU_only": true,
+  "new_GPU_submission": false,
+  "variants": [
+    {
+      "variant": "fixed_D",
+      "cache_calls": 34,
+      "reference_kind_pairs": {
+        "dense,dense": 34
+      },
+      "dense_refreshes": 38,
+      "sparse_refreshes": 0,
+      "cache_calls_reading_approximate": 0
+    },
+    {
+      "variant": "full_S",
+      "cache_calls": 34,
+      "reference_kind_pairs": {
+        "dense,dense": 8,
+        "dense,sparse": 8,
+        "sparse,sparse": 18
+      },
+      "dense_refreshes": 16,
+      "sparse_refreshes": 22,
+      "cache_calls_reading_approximate": 26
+    },
+    {
+      "variant": "small_S",
+      "cache_calls": 34,
+      "reference_kind_pairs": {
+        "dense,dense": 8,
+        "dense,sparse": 8,
+        "sparse,sparse": 18
+      },
+      "dense_refreshes": 16,
+      "sparse_refreshes": 22,
+      "cache_calls_reading_approximate": 26
+    },
+    {
+      "variant": "cadenced_S",
+      "cache_calls": 34,
+      "reference_kind_pairs": {
+        "dense,dense": 8,
+        "dense,sparse": 14,
+        "sparse,dense": 12
+      },
+      "dense_refreshes": 27,
+      "sparse_refreshes": 11,
+      "cache_calls_reading_approximate": 26
+    }
+  ],
+  "limits": "Source pair counts establish persistence of approximate forecast inputs, not a causal attribution of final video error. True-D metadata history and native two-source forecast window are distinct."
+}

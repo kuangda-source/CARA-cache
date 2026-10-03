@@ -1,3 +1,11 @@
+## 2026-10-04 六输出终态：小组改善保真但未加速，低频S保真近似原full-S
+
+[92 结果及下一步](research/92_WC_SELECTIVE_HUMAN_RESULTS_AND_FORECAST_WINDOW_NEXT.md)/[机器摘要](reports/wc_selective_human_r1_summary_20261004.json)：冻结source27df唯一卡exit0，六mp4/93完整解码、全部38共同deep、D/D九门/五处1216状态、历史D/full-S视频SHA、三policy实际核/来源/频率与费用释放独立通过。相对官方WC，full-S/small-S/cadenced-S的SSIM为0.726741/0.785909/0.729829，完整wall206.442/213.565/209.029秒，参考D213.015秒；分别少3.086%/增加0.258%/少1.871%。small-S的RGB MSE比full-S低29.966%，仍有明显保真差异；单曝光场景/单次固定顺序，不接受质量、速度或前沿。
+
+full/small/cadenced实际S刷新22/22/11、算子506/66/253，但各26次后续cache仍读取近似来源；低频交替D未清空原生两个残差预测来源，true-D元数据隔离不等于forecast窗口全D或恢复latent。来源计数不是最终误差因果分解。实费1671.191979秒=0.464219994GPUh，累计8.215651676683272/12h、40jobs，余3.7843483233167277h，无inflight；原三PID/锁/GPU释放，783monitor峰值27754MiB。终态原件与D/D快照分别保存。
+
+继续WC，当前三种S均不升级为质量保持加速候选。下一先CPU明确原生两来源窗口与近似复用寿命/连续真D控制及额外计算成本；当前没有下一GPU卡或预付，不重提104/本卡，不扩样、训练或增加人评。Native/少步/调过WC前沿、语义物理/CONF与RV收益标签仍缺，科学goal active。以下为历史。
+
 ## 2026-10-04 六输出原任务在运行：D/D独立通过，4/6视频
 
 [91 六输出卡](research/91_WC_SELECTIVE_SIX_OUTPUT_CARD_AND_CPU.md)、[现场](reports/wc_selective_human_r1_live_observation_20261004.json)与[独立D/D审计](reports/wc_selective_human_r1_dd_audit_20261004.json)：冻结source27df749/deploy1唯一提交后，原supervisor2721519/timeout2721535/runner2721537及命令行匹配。现场1791053915.988251已4/6视频，D/D九门、五处各1216状态组件与完整pipeline通过，两D视频SHA一致、93帧完整CPU解码误差0/SSIM1。原full-S已完成并通过历史SHA止步，小组S{2,3,5}在生成，低频S待运行；新候选指标及六输出终态仍待验证。

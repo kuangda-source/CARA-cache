@@ -1,0 +1,218 @@
+{
+  "observed_unix": 1791054296.7018874,
+  "source_revision": "27df749a79ca3cb9fc3789a01bf1a73fa62211a2",
+  "supervisor": {
+    "status": "EXITED_REQUIRES_RESULT_AUDIT",
+    "pid": 2721519,
+    "run_id": "wc-selective-human-r1",
+    "admission": {
+      "unix": 1791052582.2314484,
+      "uuid": "GPU-cebf7119-cf03-23b9-e192-cd196332b704",
+      "name": "NVIDIA RTX A6000",
+      "memory_used_mib": 24,
+      "compute_cap": "8.6",
+      "pids": []
+    },
+    "budget_before": {
+      "batch": "F0-F1",
+      "cap_gpu_hours": 12,
+      "used_gpu_hours": 7.7514316824275165,
+      "gpu_jobs_launched": 39,
+      "status": "WC_FIXED_OUTPUT_SETTLED_REQUIRES_RESULT_AUDIT",
+      "gpu_import_probes_completed": 1,
+      "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts",
+      "budget_authorization_ref": "manifests/budget_authorization_20261003.json",
+      "budget_authorization_history": [
+        {
+          "authorized_utc": "2026-10-02T18:03:00Z",
+          "source_thread_id": "01a0f1e6-7ad0-75df-9a02-172b60d2e00b",
+          "user_instruction": "\u628a\u5404\u4e2a\u5b9e\u9a8c\u7684 gpu \u9884\u7b97\u90fd\u8bbe\u7f6e\u4e3a 12gpuh",
+          "previous_cap_gpu_hours": 4,
+          "new_cumulative_cap_gpu_hours": 12,
+          "used_gpu_hours_at_change": 3.9117525685110333,
+          "no_usage_reset_or_transfer": true
+        }
+      ]
+    },
+    "reserved_seconds": 2400,
+    "child_pid": 2721535,
+    "child_started_unix": 1791052582.2343378,
+    "exit_code": 0,
+    "release": {
+      "unix": 1791054253.4247956,
+      "uuid": "GPU-cebf7119-cf03-23b9-e192-cd196332b704",
+      "name": "NVIDIA RTX A6000",
+      "memory_used_mib": 24,
+      "compute_cap": "8.6",
+      "pids": []
+    },
+    "wall_seconds": 1671.1919793207198,
+    "budget_after": {
+      "batch": "F0-F1",
+      "cap_gpu_hours": 12,
+      "used_gpu_hours": 8.215651676683272,
+      "gpu_jobs_launched": 40,
+      "status": "WC_SELECTIVE_OUTPUT_SETTLED_REQUIRES_RESULT_AUDIT",
+      "gpu_import_probes_completed": 1,
+      "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts",
+      "budget_authorization_ref": "manifests/budget_authorization_20261003.json",
+      "budget_authorization_history": [
+        {
+          "authorized_utc": "2026-10-02T18:03:00Z",
+          "source_thread_id": "01a0f1e6-7ad0-75df-9a02-172b60d2e00b",
+          "user_instruction": "\u628a\u5404\u4e2a\u5b9e\u9a8c\u7684 gpu \u9884\u7b97\u90fd\u8bbe\u7f6e\u4e3a 12gpuh",
+          "previous_cap_gpu_hours": 4,
+          "new_cumulative_cap_gpu_hours": 12,
+          "used_gpu_hours_at_change": 3.9117525685110333,
+          "no_usage_reset_or_transfer": true
+        }
+      ]
+    },
+    "ended_unix": 1791054253.4371924
+  },
+  "runner": {
+    "status": "SIX_SELECTIVE_OUTPUTS_COMPLETE_REQUIRE_INDEPENDENT_AUDIT",
+    "pid": 2721537,
+    "started_unix": 1791052594.423006,
+    "ended_unix": 1791054236.745148,
+    "load_seconds": 88.3819899102673,
+    "planned_total_phases": 6,
+    "planned_output_files": 6
+  },
+  "processes": {
+    "2721519": {
+      "exists": false,
+      "command": null,
+      "matches_exact_run": false
+    },
+    "2721535": {
+      "exists": false,
+      "command": null,
+      "matches_exact_run": false
+    },
+    "2721537": {
+      "exists": false,
+      "command": null,
+      "matches_exact_run": false
+    }
+  },
+  "budget": {
+    "batch": "F0-F1",
+    "cap_gpu_hours": 12,
+    "used_gpu_hours": 8.215651676683272,
+    "gpu_jobs_launched": 40,
+    "status": "WC_SELECTIVE_OUTPUT_SETTLED_REQUIRES_RESULT_AUDIT",
+    "gpu_import_probes_completed": 1,
+    "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts",
+    "budget_authorization_ref": "manifests/budget_authorization_20261003.json",
+    "budget_authorization_history": [
+      {
+        "authorized_utc": "2026-10-02T18:03:00Z",
+        "source_thread_id": "01a0f1e6-7ad0-75df-9a02-172b60d2e00b",
+        "user_instruction": "\u628a\u5404\u4e2a\u5b9e\u9a8c\u7684 gpu \u9884\u7b97\u90fd\u8bbe\u7f6e\u4e3a 12gpuh",
+        "previous_cap_gpu_hours": 4,
+        "new_cumulative_cap_gpu_hours": 12,
+        "used_gpu_hours_at_change": 3.9117525685110333,
+        "no_usage_reset_or_transfer": true
+      }
+    ]
+  },
+  "gpu": "GPU-de9a5370-cd87-0f1c-a48e-288888777dd3, NVIDIA RTX A6000, 340\nGPU-cebf7119-cf03-23b9-e192-cd196332b704, NVIDIA RTX A6000, 24\n",
+  "apps": "",
+  "video_files": [
+    "diagnostic/dense-control/000_official/human_199.mp4",
+    "diagnostic/dense-control/001_candidate/human_199.mp4",
+    "diagnostic/measurement/human_199/000_official/human_199.mp4",
+    "diagnostic/measurement/human_199/001_candidate/human_199.mp4",
+    "diagnostic/measurement/human_199/002_candidate/human_199.mp4",
+    "diagnostic/measurement/human_199/003_candidate/human_199.mp4"
+  ],
+  "dense_control": {
+    "status": "FRESH_PREPARE_LIGHT_DD_NINE_AND_FINAL_PIPELINE_PASS",
+    "nine_checks": {
+      "input_hashes": true,
+      "output_hashes": true,
+      "trace": true,
+      "block_counts": true,
+      "state_fingerprints": true,
+      "sampling": true,
+      "named_inputs": true,
+      "conditions": true,
+      "field_signatures": true
+    },
+    "pipeline_checks": {
+      "prepared": true,
+      "pipeline_witnesses": true,
+      "artifacts": true,
+      "flags_before": true,
+      "flags_after": true,
+      "rng_after": true
+    },
+    "phases": [
+      {
+        "index": 0,
+        "kind": "official",
+        "status": "COMPLETE36_CFG72_ORDINARY_RETURN_NO_QUALITY_ACCEPTANCE",
+        "solver_steps": 36,
+        "CFG_calls": 72,
+        "prepare_calls": 1,
+        "pipeline_wall_seconds": 349.71848910767585
+      },
+      {
+        "index": 1,
+        "kind": "candidate",
+        "status": "COMPLETE36_CFG72_ORDINARY_RETURN_NO_QUALITY_ACCEPTANCE",
+        "solver_steps": 36,
+        "CFG_calls": 72,
+        "prepare_calls": 1,
+        "pipeline_wall_seconds": 342.07907792460173
+      }
+    ]
+  },
+  "measurements": [
+    {
+      "sample_name": "human_199",
+      "status": "SELECTIVE_D_AND_THREE_S_OUTPUTS_REQUIRE_METRICS",
+      "phases": [
+        {
+          "index": 0,
+          "kind": "official",
+          "status": "COMPLETE36_CFG72_ORDINARY_RETURN_NO_QUALITY_ACCEPTANCE",
+          "solver_steps": 36,
+          "CFG_calls": 72,
+          "prepare_calls": 1,
+          "pipeline_wall_seconds": 213.0152269685641
+        },
+        {
+          "index": 1,
+          "kind": "candidate",
+          "status": "COMPLETE36_CFG72_ORDINARY_RETURN_NO_QUALITY_ACCEPTANCE",
+          "solver_steps": 36,
+          "CFG_calls": 72,
+          "prepare_calls": 1,
+          "pipeline_wall_seconds": 206.44213164318353
+        },
+        {
+          "index": 2,
+          "kind": "candidate",
+          "status": "COMPLETE36_CFG72_ORDINARY_RETURN_NO_QUALITY_ACCEPTANCE",
+          "solver_steps": 36,
+          "CFG_calls": 72,
+          "prepare_calls": 1,
+          "pipeline_wall_seconds": 213.5646506054327
+        },
+        {
+          "index": 3,
+          "kind": "candidate",
+          "status": "COMPLETE36_CFG72_ORDINARY_RETURN_NO_QUALITY_ACCEPTANCE",
+          "solver_steps": 36,
+          "CFG_calls": 72,
+          "prepare_calls": 1,
+          "pipeline_wall_seconds": 209.0292774681002
+        }
+      ]
+    }
+  ],
+  "child_max_deadline_beijing": "2026-10-04T03:16:22.234338+08:00",
+  "log_tail": "/it]\nGenerating samples:  58%|\u2588\u2588\u2588\u2588\u2588\u258a    | 21/36 [01:14<00:43,  2.88s/it]\nGenerating samples:  61%|\u2588\u2588\u2588\u2588\u2588\u2588    | 22/36 [01:15<00:31,  2.23s/it]\nGenerating samples:  64%|\u2588\u2588\u2588\u2588\u2588\u2588\u258d   | 23/36 [01:18<00:35,  2.70s/it]\nGenerating samples:  67%|\u2588\u2588\u2588\u2588\u2588\u2588\u258b   | 24/36 [01:25<00:46,  3.84s/it]\nGenerating samples:  69%|\u2588\u2588\u2588\u2588\u2588\u2588\u2589   | 25/36 [01:31<00:51,  4.64s/it]\nGenerating samples:  72%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258f  | 26/36 [01:38<00:51,  5.19s/it]\nGenerating samples:  75%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258c  | 27/36 [01:44<00:50,  5.58s/it]\nGenerating samples:  78%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258a  | 28/36 [01:48<00:39,  4.92s/it]\nGenerating samples:  81%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588  | 29/36 [01:55<00:38,  5.51s/it]\nGenerating samples:  83%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258e | 30/36 [02:01<00:33,  5.66s/it]\nGenerating samples:  86%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258c | 31/36 [02:01<00:20,  4.17s/it]\nGenerating samples:  89%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2589 | 32/36 [02:08<00:19,  4.99s/it]\nGenerating samples:  92%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258f| 33/36 [02:09<00:11,  3.70s/it]\nGenerating samples:  94%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258d| 34/36 [02:10<00:05,  2.80s/it]\nGenerating samples:  97%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258b| 35/36 [02:10<00:02,  2.17s/it]\nGenerating samples: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 36/36 [02:17<00:00,  3.58s/it]\nGenerating samples: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 36/36 [02:17<00:00,  3.83s/it]\n[10-04 03:03:43|INFO|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/inference.py:160:_generate_sample] Running guardrail check on video...\n[10-04 03:03:54|SUCCESS|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/inference.py:172:_generate_sample] Passed guardrail on generated video\n[10-04 03:03:56|SUCCESS|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/inference.py:180:_generate_sample] Saved video to /home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-selective-human-r1/diagnostic/measurement/human_199/003_candidate/human_199.mp4\n"
+}

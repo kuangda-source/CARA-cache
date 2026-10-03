@@ -1,0 +1,128 @@
+{
+  "status": "SELECTIVE_SIX_OUTPUTS_AUDITED_SMALL_GROUP_IMPROVES_FIDELITY_NO_SPEED_CADENCE_NEAR_FULL_S_NO_ACCEPTANCE",
+  "run": "wc-selective-human-r1",
+  "card": "WC-SELECTIVE-HUMAN-R1-20261004-A",
+  "source_revision": "27df749a79ca3cb9fc3789a01bf1a73fa62211a2",
+  "receipt_sha256": "a752a19587552ca4842a3dec0683bbf42891a3a774c4987ca104c58cc0364265",
+  "variants": [
+    {
+      "variant": "fixed_D",
+      "pipeline_wall_seconds": 213.0152269685641,
+      "deep_CFG_calls": 38,
+      "video_sha256": "4d0f0549dbabf04e7f217037c40f6a30f41cb240289162d6fb0fbec2dde982fb",
+      "sparse_CFG_calls": 0,
+      "sparse_attention_operators": 0,
+      "cache_calls_reading_approximate": 0,
+      "seconds": 213.0152269685641,
+      "D_over_variant": 1.0,
+      "wall_reduction_fraction": 0.0
+    },
+    {
+      "variant": "full_S",
+      "pipeline_wall_seconds": 206.44213164318353,
+      "deep_CFG_calls": 38,
+      "video_sha256": "8113659676684a91ce1e8d070e9893f7d1fa3d2f6e8e58191b1218a1f1ac90e1",
+      "sparse_CFG_calls": 22,
+      "sparse_attention_operators": 506,
+      "cache_calls_reading_approximate": 26,
+      "seconds": 206.44213164318353,
+      "D_over_variant": 1.0318398927247154,
+      "wall_reduction_fraction": 0.03085739652945374,
+      "whole_video": {
+        "frames": 93,
+        "RGB_MSE_0to1": 0.01650695569056364,
+        "RGB_PSNR_dB": 17.823330144839723,
+        "exact_RGB_equality": false,
+        "mean_luma_SSIM_win7": 0.7267407743662412,
+        "transitions": 92,
+        "baseline_mean_abs_RGB_frame_change": 0.06312986322396619,
+        "candidate_mean_abs_RGB_frame_change": 0.06103451621799724,
+        "temporal_difference_MSE_0to1": 0.020891398560550327,
+        "candidate_over_baseline_frame_change": 0.9668089411419241
+      }
+    },
+    {
+      "variant": "small_S",
+      "pipeline_wall_seconds": 213.5646506054327,
+      "deep_CFG_calls": 38,
+      "video_sha256": "7b682fb454a559c00e0658d8ca644557af991c0e1ce8499309d6fc9ac0a4c2f8",
+      "sparse_CFG_calls": 22,
+      "sparse_attention_operators": 66,
+      "cache_calls_reading_approximate": 26,
+      "seconds": 213.5646506054327,
+      "D_over_variant": 0.9974273662082604,
+      "wall_reduction_fraction": -0.00257926930711716,
+      "whole_video": {
+        "frames": 93,
+        "RGB_MSE_0to1": 0.011560464892061695,
+        "RGB_PSNR_dB": 19.370247008638096,
+        "exact_RGB_equality": false,
+        "mean_luma_SSIM_win7": 0.7859094403653505,
+        "transitions": 92,
+        "baseline_mean_abs_RGB_frame_change": 0.06312986322396619,
+        "candidate_mean_abs_RGB_frame_change": 0.061937254998575865,
+        "temporal_difference_MSE_0to1": 0.015362166468802068,
+        "candidate_over_baseline_frame_change": 0.9811086518410582
+      }
+    },
+    {
+      "variant": "cadenced_S",
+      "pipeline_wall_seconds": 209.0292774681002,
+      "deep_CFG_calls": 38,
+      "video_sha256": "7caed197cce35067d62baab668c8b992275fdfb50939f7a5549813e1ac9a119b",
+      "sparse_CFG_calls": 11,
+      "sparse_attention_operators": 253,
+      "cache_calls_reading_approximate": 26,
+      "seconds": 209.0292774681002,
+      "D_over_variant": 1.0190688574765427,
+      "wall_reduction_fraction": 0.018712040247959028,
+      "whole_video": {
+        "frames": 93,
+        "RGB_MSE_0to1": 0.016306759195738502,
+        "RGB_PSNR_dB": 17.87632342041148,
+        "exact_RGB_equality": false,
+        "mean_luma_SSIM_win7": 0.7298292657818324,
+        "transitions": 92,
+        "baseline_mean_abs_RGB_frame_change": 0.06312986322396619,
+        "candidate_mean_abs_RGB_frame_change": 0.061267134040004737,
+        "temporal_difference_MSE_0to1": 0.020970479914700805,
+        "candidate_over_baseline_frame_change": 0.9704936920684742
+      }
+    }
+  ],
+  "GPU_wall_seconds": 1671.1919793207198,
+  "new_GPU_hours": 0.4642199942557555,
+  "budget": {
+    "batch": "F0-F1",
+    "cap_gpu_hours": 12,
+    "used_gpu_hours": 8.215651676683272,
+    "gpu_jobs_launched": 40,
+    "status": "WC_SELECTIVE_OUTPUT_SETTLED_REQUIRES_RESULT_AUDIT",
+    "gpu_import_probes_completed": 1,
+    "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts",
+    "budget_authorization_ref": "manifests/budget_authorization_20261003.json",
+    "budget_authorization_history": [
+      {
+        "authorized_utc": "2026-10-02T18:03:00Z",
+        "source_thread_id": "01a0f1e6-7ad0-75df-9a02-172b60d2e00b",
+        "user_instruction": "\u628a\u5404\u4e2a\u5b9e\u9a8c\u7684 gpu \u9884\u7b97\u90fd\u8bbe\u7f6e\u4e3a 12gpuh",
+        "previous_cap_gpu_hours": 4,
+        "new_cumulative_cap_gpu_hours": 12,
+        "used_gpu_hours_at_change": 3.9117525685110333,
+        "no_usage_reset_or_transfer": true
+      }
+    ]
+  },
+  "remaining_GPU_hours": 3.7843483233167277,
+  "original_PIDs_lock_GPU_released": true,
+  "all_six_common_deep_CFG_calls": 38,
+  "total_sparse_attention_operators": 825,
+  "total_approximate_cache_reads": 78,
+  "historical_full_S_video_exactly_reproduced": true,
+  "quality_acceptance": false,
+  "independent_confirmation": false,
+  "quality_time_frontier_claim": false,
+  "semantic_or_physics_acceptance": false,
+  "next_GPU_card_selected": false,
+  "next_CPU_action": "Inspect native two-source forecast persistence and cost a consecutive-true-D/approximate-reuse-lifetime control before another GPU card; no training."
+}
