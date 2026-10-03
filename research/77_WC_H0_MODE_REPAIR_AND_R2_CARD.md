@@ -30,4 +30,4 @@ CPU进程禁止CUDA lazy init与Triton执行。TE RMSNorm默认设备与meta res
 
 [CPU31部署](../reports/wc_h0_eval_complement_r2_deployment_20261003.json)：source4c1c3a81741d9dc7edfaf40f43cf997bd13dcb11，全部31项CPU与source/assets/import/package门通过，native默认1173→eval0，CUDA未初始化、预算未变，数据盘585781604352bytes空闲。源码在GPU前已同步私有GitHub。
 
-[唯一启动](../reports/wc_h0_eval_complement_r2_launch_20261003.json)/[现场](../reports/wc_h0_eval_complement_r2_start_observation_20261003.json)：supervisor2662009/timeout2662025现场存活，runner初始化待记录；fresh选定sm86 GPU24MiB/noapps，全局锁/无inflight/余额门通过。child起算1200秒最大截止北京时间15:49:09；预付1/3h使在途账本5.189636594364936/12h、第34job，结束按实际全wall替换预留。只跟踪同一identity，禁止重复提交和修改在跑source；live状态不构成模式或互补性GPU验收。
+[唯一启动](../reports/wc_h0_eval_complement_r2_launch_20261003.json)/[现场](../reports/wc_h0_eval_complement_r2_start_observation_20261003.json)：supervisor2662009/timeout2662025/runner2662027现场存活，模型加载和共享eval设置通过，baseline前缀在跑；fresh选定sm86 GPU24MiB/noapps，全局锁/无inflight/余额门通过。child起算1200秒最大截止北京时间15:49:09；预付1/3h使在途账本5.189636594364936/12h、第34job，结束按实际全wall替换预留。只跟踪同一identity，禁止重复提交和修改在跑source；live状态不构成模式或互补性GPU验收。

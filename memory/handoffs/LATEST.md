@@ -1,6 +1,6 @@
 ## 2026-10-03 H0独立r2 actual CPU31通过，唯一诊断在跑
 
-[部署/单次启动](../../research/77_WC_H0_MODE_REPAIR_AND_R2_CARD.md)：source4c1c3a8的CPU31/默认1173→eval0/全部资产/source/import/package通过，CUDA未初始化、旧费用不变；唯一wc-h0-eval-complement-r2 fresh准入后启动，supervisor2662009/timeout2662025存活、runner初始化待记录。共用eval适配事前显式冻结，不删shadow guard，旧r1失败保持。两CFG/四臂/step13&20/九门仍待实际结果。
+[部署/单次启动](../../research/77_WC_H0_MODE_REPAIR_AND_R2_CARD.md)：source4c1c3a8的CPU31/默认1173→eval0/全部资产/source/import/package通过，CUDA未初始化、旧费用不变；唯一wc-h0-eval-complement-r2 fresh准入后启动，supervisor2662009/timeout2662025/runner2662027存活，模型加载和共享eval设置通过，baseline前缀在跑。共用eval适配事前显式冻结，不删shadow guard，旧r1失败保持。两CFG/四臂/step13&20/九门仍待实际结果。
 
 1200秒全cost/1170child/kill5，child起算最大截止北京时间15:49:09。预付1/3h，账本在途5.189636594364936h/34jobs；原已结算4.856303261031603h/33jobs，实际费尚未定。只跟踪原句柄，source/payload不变、不重复提交，完成后独立source/模式/原件误差/成本/释放审计；不据初始化报方法或视频收益，不自动第三H0/H1/H2/RV/训练。以下条目为历史。
 
