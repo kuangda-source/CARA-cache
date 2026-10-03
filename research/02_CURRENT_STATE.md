@@ -1,3 +1,10 @@
+## 2026-10-03 H1早晚双CAL唯一诊断在跑，实际35门通过
+
+[80独立卡](80_WC_H1_GENERALIZATION_R1_CARD_AND_CPU.md)：冻结source77111262a02931e01f2ca2253c2ec585e6b0852b已推送，actual CPU35/source/assets/package/import/native-meta/两真实样本绑定通过，CUDA未初始化；三个检查点13/21/33恢复后的下一更新精确相等。唯一wc-h1-generalization-r1 fresh准入启动，supervisor2674427/timeout2674442/runner2674444均存活；模型加载、共享eval与普通nn.Module.train通过；现场1791025647.810：common两前缀各33更新/66CFG、12来源/36格及九门记录完成，human官方baseline完成、observed在跑。两样本均按预登记选择早step12/晚step25；已有60份raw，完整72格和原件审计仍待终态，无视频或方法收益。
+
+6000秒全cost/5970child/kill5，actual child起算最大截止北京时间20:18:20.580866。原已结算5.300050075675308/12GPUh、35jobs保持；预付1.666667h后在途账本6.966716742341975h/36jobs，不能称实际费，结束按全wall结算。只观察原handles，不改在跑source/config、不重提、补点或开第二任务。完成后独立核对24/72分母、120原件240张量/CPU误差复算、九门/选择器/参考语义、实费与释放；H2/RV/训练和人评未启动。以下状态为历史。
+
+
 ## 2026-10-03 H1早晚双CAL批次CPU通过，独立6000秒卡待实际部署
 
 [80独立卡](80_WC_H1_GENERALIZATION_R1_CARD_AND_CPU.md)：保持H1中间点终态，现CPU同一生产batch在同net/solver/Inference处理两请求，flow OFF/ON各完整72格/120raw；四request各33更新/66CFG/九门与step13/21/33各36组件/restore、age3实际刷新但held参考不覆盖通过。第二请求晚期nonfinite/条件变化/无paired-full保留全24/72分母与第一请求36格，挂钩恢复；实际Torch2.7.1+cu128，禁止CUDA，无真实权重/前向。r1前缀CPU56.275秒、r2批次CPU80.447秒各自source保留。

@@ -1,0 +1,200 @@
+{
+  "observed_unix": 1791025647.8097765,
+  "runner": {
+    "status": "RUNNING_REQUEST_human_199",
+    "pid": 2674444,
+    "started_unix": 1791023912.6840663
+  },
+  "request_progress": [
+    {
+      "sample": "common_sense_6487f37f-ef57-49ca-afdc-d898922b5191",
+      "status": "H1_REGIONS_SOURCE12_LOCAL36_NINE_GATE_PASS_REQUIRES_AUDIT",
+      "phase_progress": [
+        {
+          "phase": "baseline_prefix",
+          "status": "EXPECTED_PREFIX_COMPLETE_NOT_VIDEO",
+          "solver_steps": 33,
+          "output_hashes": 66,
+          "roundtrips": 0
+        },
+        {
+          "phase": "observed_prefix",
+          "status": "EXPECTED_PREFIX_COMPLETE_NOT_VIDEO",
+          "solver_steps": 33,
+          "output_hashes": 66,
+          "roundtrips": 3
+        }
+      ],
+      "source_selection": {
+        "rule": "EARLIEST_PAIRED_TRUE_FULL_WITH_PAID_PROBE_AND_TWO_PAST_SAME_CFG_ANCHORS",
+        "selection_inputs": [
+          "call",
+          "cache_counter_before",
+          "deep_executed"
+        ],
+        "baseline_trace_sha256": "17a51c88fe7734b0b2fa5af17663599a279194923707e35a702496f4055a2d24",
+        "selected": [
+          {
+            "region": "early",
+            "bounds": [
+              8,
+              12
+            ],
+            "source_solver_step": 12,
+            "source_cfg_calls": [
+              23,
+              24
+            ],
+            "historical_true_full_counters": [
+              [
+                10,
+                12
+              ],
+              [
+                11,
+                13
+              ]
+            ],
+            "eligible_source_steps": [
+              12
+            ]
+          },
+          {
+            "region": "late",
+            "bounds": [
+              25,
+              29
+            ],
+            "source_solver_step": 25,
+            "source_cfg_calls": [
+              49,
+              50
+            ],
+            "historical_true_full_counters": [
+              [
+                40,
+                44
+              ],
+              [
+                41,
+                45
+              ]
+            ],
+            "eligible_source_steps": [
+              25,
+              27,
+              28
+            ]
+          }
+        ],
+        "candidate_errors_used_for_selection": false
+      },
+      "source_states": 4,
+      "lifetime_states": 12
+    },
+    {
+      "sample": "human_199",
+      "status": "OBSERVED_PREFIX",
+      "phase_progress": [
+        {
+          "phase": "baseline_prefix",
+          "status": "EXPECTED_PREFIX_COMPLETE_NOT_VIDEO",
+          "solver_steps": 33,
+          "output_hashes": 66,
+          "roundtrips": 0
+        },
+        {
+          "phase": "observed_prefix",
+          "status": "GENERATING_PREFIX",
+          "solver_steps": 0,
+          "output_hashes": 0,
+          "roundtrips": 0
+        }
+      ],
+      "source_selection": {
+        "rule": "EARLIEST_PAIRED_TRUE_FULL_WITH_PAID_PROBE_AND_TWO_PAST_SAME_CFG_ANCHORS",
+        "selection_inputs": [
+          "call",
+          "cache_counter_before",
+          "deep_executed"
+        ],
+        "baseline_trace_sha256": "f2c1377b4fc21a178ab302017b93df37c2f770d7e0bfda7f99cd3fee60520dae",
+        "selected": [
+          {
+            "region": "early",
+            "bounds": [
+              8,
+              12
+            ],
+            "source_solver_step": 12,
+            "source_cfg_calls": [
+              23,
+              24
+            ],
+            "historical_true_full_counters": [
+              [
+                10,
+                12
+              ],
+              [
+                11,
+                13
+              ]
+            ],
+            "eligible_source_steps": [
+              12
+            ]
+          },
+          {
+            "region": "late",
+            "bounds": [
+              25,
+              29
+            ],
+            "source_solver_step": 25,
+            "source_cfg_calls": [
+              49,
+              50
+            ],
+            "historical_true_full_counters": [
+              [
+                44,
+                46
+              ],
+              [
+                41,
+                47
+              ]
+            ],
+            "eligible_source_steps": [
+              25,
+              26,
+              27,
+              29
+            ]
+          }
+        ],
+        "candidate_errors_used_for_selection": false
+      },
+      "source_states": 0,
+      "lifetime_states": 0
+    }
+  ],
+  "pids": {
+    "2674427": true,
+    "2674442": true,
+    "2674444": true
+  },
+  "gpu_elapsed_seconds": 1747.3675487041473,
+  "mode": {
+    "policy": "EXPLICIT_EVAL_SHARED_BY_BASELINE_AND_OBSERVED_BEFORE_REQUEST",
+    "all_train_implementations": "torch.nn.Module.train"
+  },
+  "max_gpu_deadline_beijing": "2026-10-03T20:18:20.580866+08:00",
+  "source_revision": "77111262a02931e01f2ca2253c2ec585e6b0852b",
+  "raw_file_count": 60,
+  "supervisor_status": "GPU_H1_GENERALIZATION_RUNNING",
+  "settled_gpu_hours_before": 5.300050075675308,
+  "ledger_gpu_hours_with_reservation": 6.966716742341975,
+  "scientific_terminal_result": false
+}

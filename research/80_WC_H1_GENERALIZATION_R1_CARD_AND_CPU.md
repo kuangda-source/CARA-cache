@@ -1,3 +1,10 @@
+## 2026-10-03 H1早晚双CAL唯一诊断在跑，实际35门通过
+
+[80独立卡](80_WC_H1_GENERALIZATION_R1_CARD_AND_CPU.md)：冻结source77111262a02931e01f2ca2253c2ec585e6b0852b已推送，actual CPU35/source/assets/package/import/native-meta/两真实样本绑定通过，CUDA未初始化；三个检查点13/21/33恢复后的下一更新精确相等。唯一wc-h1-generalization-r1 fresh准入启动，supervisor2674427/timeout2674442/runner2674444均存活；模型加载、共享eval与普通nn.Module.train通过；现场1791025647.810：common两前缀各33更新/66CFG、12来源/36格及九门记录完成，human官方baseline完成、observed在跑。两样本均按预登记选择早step12/晚step25；已有60份raw，完整72格和原件审计仍待终态，无视频或方法收益。
+
+6000秒全cost/5970child/kill5，actual child起算最大截止北京时间20:18:20.580866。原已结算5.300050075675308/12GPUh、35jobs保持；预付1.666667h后在途账本6.966716742341975h/36jobs，不能称实际费，结束按全wall结算。只观察原handles，不改在跑source/config、不重提、补点或开第二任务。完成后独立核对24/72分母、120原件240张量/CPU误差复算、九门/选择器/参考语义、实费与释放；H2/RV/训练和人评未启动。以下状态为历史。
+
+
 # H1 泛化首卡：两个 CAL 场景的早晚阶段完整72格
 
 2026-10-03。状态 `CPU_BATCH_PASS_NEW_CARD_PENDING_COMPLETE_ACTUAL_DEPLOYMENT_NO_GPU`。上一轮 [H1 中间点](79_WC_H1_LOCAL_LIFETIME_R1_CARD_AND_RESULTS.md) 已完整审计，不重跑、取消或倒改；其来源扰动增长较温和而共同缓存漂移较大。本卡检查这一现象是否只发生在已测的中间点，不预先把来源感知路由当作成立的方法。
