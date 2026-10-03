@@ -1,9 +1,12 @@
-## 2026-10-03 H1早晚双CAL唯一诊断在跑，实际35门通过
+## 2026-10-03 H1早晚双CAL终态：完整72格原件审计通过，CPU来源扰动分解完成
 
-[80独立卡](80_WC_H1_GENERALIZATION_R1_CARD_AND_CPU.md)：冻结source77111262a02931e01f2ca2253c2ec585e6b0852b已推送，actual CPU35/source/assets/package/import/native-meta/两真实样本绑定通过，CUDA未初始化；三个检查点13/21/33恢复后的下一更新精确相等。唯一wc-h1-generalization-r1 fresh准入启动，supervisor2674427/timeout2674442/runner2674444均存活；模型加载、共享eval与普通nn.Module.train通过；现场1791025647.810：common两前缀各33更新/66CFG、12来源/36格及九门记录完成，human官方baseline完成、observed在跑。两样本均按预登记选择早step12/晚step25；已有60份raw，完整72格和原件审计仍待终态，无视频或方法收益。
+[80完整卡](80_WC_H1_GENERALIZATION_R1_CARD_AND_CPU.md)：source77111262a02931e01f2ca2253c2ec585e6b0852b实际CPU35后唯一run退出0；两场景各两前缀33更新/66CFG、全部九门、step13/21/33各36组件与进程内restore通过。24来源/72格/120原件240张量和96组独立float64误差、参考语义/费用/释放全部审计通过。早step12/晚step25为预登记选择，两个曝光CAL不是CONF。
 
-6000秒全cost/5970child/kill5，actual child起算最大截止北京时间20:18:20.580866。原已结算5.300050075675308/12GPUh、35jobs保持；预付1.666667h后在途账本6.966716742341975h/36jobs，不能称实际费，结束按全wall结算。只观察原handles，不改在跑source/config、不重提、补点或开第二任务。完成后独立核对24/72分母、120原件240张量/CPU误差复算、九门/选择器/参考语义、实费与释放；H2/RV/训练和人评未启动。以下状态为历史。
+S来源velocity误差0.8935%–1.7341%，D/S整组+head热耗时比1.05601–1.14293×；human早期S residual7.2962%/7.5772%超过局部5%，来源不是处处安全。未来双字段5%描述性筛查0/72（D/MF/S各0/24），dense-held velocity漂移7.2466%–40.2694%；不是视频接受门或安全寿命结论。CPU来源扰动与交叉项分解177.791秒通过：S−D velocity0.5436%–2.1606%，绝对扰动/来源0.3388–1.8274×，随场景/阶段变化且交叉项可抵消。下一仅CPU完整采样与简单S/D闭环接口准备，不自动H2/RV/训练或新增人评。
 
+实费2717.978329秒（0.754993980h），累计6.055044055960606/12GPUh、36jobs，余5.944955944039394h，无inflight。原PIDs2674427/2674442/2674444/f1锁/GPU已释放（24MiB/noapps），1273次monitor峰值27332MiB；CPU不新增GPU费用。以下在跑/预付/旧授权文字均为历史。
+
+下一科学缺口及CPU范围见[81完整采样准备](81_WC_H1_DECISION_AND_CLOSED_LOOP_CPU_PLAN.md)；先D/D完整尾部与restore等价，再明确approximate reference，不再机械追加局部窗口。下一GPU卡未选定。
 
 ## 2026-10-03 H1早晚双CAL批次CPU通过，独立6000秒卡待实际部署
 

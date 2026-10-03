@@ -1,3 +1,9 @@
+## 2026-10-03 H1早晚双CAL完整机制接续
+
+[80真实72格与CPU分解](80_WC_H1_GENERALIZATION_R1_CARD_AND_CPU.md)：全部九门/24来源/72格/120原件、独立误差、费用和释放审计通过。dense-held velocity漂移7.25%–40.27%，双字段5%筛查D/MF/S各0/24；S−D未来velocity扰动0.54%–2.16%，绝对扰动/来源0.339–1.827×，common晚期放大而human晚期第4步收缩。human早期S来源residual7.30%–7.58%，无处处安全、单调寿命或视频收益结论。两个曝光CAL和相关窗口/CFG不足以接受普适来源路由。
+
+保留WC，暂缓复杂H2/Trust Head，下一按[81](81_WC_H1_DECISION_AND_CLOSED_LOOP_CPU_PLAN.md)先CPU证明完整采样/恢复与简单S/D reference语义，再新具体GPU卡。累计6.055044055960606/12GPUh、余5.944955944039394h，无inflight；不机械追加局部窗口，不新增人评或训练。以下是已有终态和设计快照。
+
 ## 2026-10-03 H1首卡终态：完整18格审计通过，共同漂移占主导
 
 [79真实结果](79_WC_H1_LOCAL_LIFETIME_R1_CARD_AND_RESULTS.md)：source e59b588退出0，actual CPU34、两前缀21更新/42CFG、全部九门、step13/21各36组件/restore、6来源/18格/30原件60张量及独立float64误差/费用/释放通过。age1/2 held-D预测匹配部署cache，age4 D teacher匹配部署full。S来源velocity约0.94%，整组+head省5.53%/5.84%；后续S−D预测差值1.03%–1.44%，绝对来源扰动放大1.10–1.56×，dense-held共同误差11.16%–31.58%，局部双字段5%筛查0/18（D也未过）。一个已曝光CAL/两相关CFG的固定轨迹诊断，无连续安全寿命、闭环、视频或端到端收益。

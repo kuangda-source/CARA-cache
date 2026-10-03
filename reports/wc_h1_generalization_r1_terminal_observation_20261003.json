@@ -1,0 +1,218 @@
+{
+  "observed_unix": 1791027823.045796,
+  "runner": {
+    "status": "H1_REQUESTS2_SOURCE24_LOCAL72_FULL66_NINE_GATE_PASS_REQUIRES_AUDIT",
+    "pid": 2674444,
+    "started_unix": 1791023912.6840663,
+    "ended_unix": 1791026599.8123672
+  },
+  "pids": {
+    "2674427": false,
+    "2674442": false,
+    "2674444": false
+  },
+  "request_progress": [
+    {
+      "sample": "common_sense_6487f37f-ef57-49ca-afdc-d898922b5191",
+      "status": "H1_REGIONS_SOURCE12_LOCAL36_NINE_GATE_PASS_REQUIRES_AUDIT",
+      "phase_progress": [
+        {
+          "phase": "baseline_prefix",
+          "status": "EXPECTED_PREFIX_COMPLETE_NOT_VIDEO",
+          "solver_steps": 33,
+          "output_hashes": 66,
+          "roundtrips": 0
+        },
+        {
+          "phase": "observed_prefix",
+          "status": "EXPECTED_PREFIX_COMPLETE_NOT_VIDEO",
+          "solver_steps": 33,
+          "output_hashes": 66,
+          "roundtrips": 3
+        }
+      ],
+      "source_selection": {
+        "rule": "EARLIEST_PAIRED_TRUE_FULL_WITH_PAID_PROBE_AND_TWO_PAST_SAME_CFG_ANCHORS",
+        "selection_inputs": [
+          "call",
+          "cache_counter_before",
+          "deep_executed"
+        ],
+        "baseline_trace_sha256": "17a51c88fe7734b0b2fa5af17663599a279194923707e35a702496f4055a2d24",
+        "selected": [
+          {
+            "region": "early",
+            "bounds": [
+              8,
+              12
+            ],
+            "source_solver_step": 12,
+            "source_cfg_calls": [
+              23,
+              24
+            ],
+            "historical_true_full_counters": [
+              [
+                10,
+                12
+              ],
+              [
+                11,
+                13
+              ]
+            ],
+            "eligible_source_steps": [
+              12
+            ]
+          },
+          {
+            "region": "late",
+            "bounds": [
+              25,
+              29
+            ],
+            "source_solver_step": 25,
+            "source_cfg_calls": [
+              49,
+              50
+            ],
+            "historical_true_full_counters": [
+              [
+                40,
+                44
+              ],
+              [
+                41,
+                45
+              ]
+            ],
+            "eligible_source_steps": [
+              25,
+              27,
+              28
+            ]
+          }
+        ],
+        "candidate_errors_used_for_selection": false
+      },
+      "source_states": 4,
+      "lifetime_states": 12
+    },
+    {
+      "sample": "human_199",
+      "status": "H1_REGIONS_SOURCE12_LOCAL36_NINE_GATE_PASS_REQUIRES_AUDIT",
+      "phase_progress": [
+        {
+          "phase": "baseline_prefix",
+          "status": "EXPECTED_PREFIX_COMPLETE_NOT_VIDEO",
+          "solver_steps": 33,
+          "output_hashes": 66,
+          "roundtrips": 0
+        },
+        {
+          "phase": "observed_prefix",
+          "status": "EXPECTED_PREFIX_COMPLETE_NOT_VIDEO",
+          "solver_steps": 33,
+          "output_hashes": 66,
+          "roundtrips": 3
+        }
+      ],
+      "source_selection": {
+        "rule": "EARLIEST_PAIRED_TRUE_FULL_WITH_PAID_PROBE_AND_TWO_PAST_SAME_CFG_ANCHORS",
+        "selection_inputs": [
+          "call",
+          "cache_counter_before",
+          "deep_executed"
+        ],
+        "baseline_trace_sha256": "f2c1377b4fc21a178ab302017b93df37c2f770d7e0bfda7f99cd3fee60520dae",
+        "selected": [
+          {
+            "region": "early",
+            "bounds": [
+              8,
+              12
+            ],
+            "source_solver_step": 12,
+            "source_cfg_calls": [
+              23,
+              24
+            ],
+            "historical_true_full_counters": [
+              [
+                10,
+                12
+              ],
+              [
+                11,
+                13
+              ]
+            ],
+            "eligible_source_steps": [
+              12
+            ]
+          },
+          {
+            "region": "late",
+            "bounds": [
+              25,
+              29
+            ],
+            "source_solver_step": 25,
+            "source_cfg_calls": [
+              49,
+              50
+            ],
+            "historical_true_full_counters": [
+              [
+                44,
+                46
+              ],
+              [
+                41,
+                47
+              ]
+            ],
+            "eligible_source_steps": [
+              25,
+              26,
+              27,
+              29
+            ]
+          }
+        ],
+        "candidate_errors_used_for_selection": false
+      },
+      "source_states": 4,
+      "lifetime_states": 12
+    }
+  ],
+  "supervisor_status": "EXITED_REQUIRES_RESULT_AUDIT",
+  "gpu_wall_seconds": 2717.9783290270716,
+  "gpu": [
+    "GPU-cebf7119-cf03-23b9-e192-cd196332b704, NVIDIA RTX A6000, 24"
+  ],
+  "gpu_apps": [],
+  "budget": {
+    "batch": "F0-F1",
+    "cap_gpu_hours": 12,
+    "used_gpu_hours": 6.055044055960606,
+    "gpu_jobs_launched": 36,
+    "status": "WC_H1_GENERALIZATION_SETTLED_REQUIRES_RESULT_AUDIT",
+    "gpu_import_probes_completed": 1,
+    "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts",
+    "budget_authorization_ref": "manifests/budget_authorization_20261003.json",
+    "budget_authorization_history": [
+      {
+        "authorized_utc": "2026-10-02T18:03:00Z",
+        "source_thread_id": "01a0f1e6-7ad0-75df-9a02-172b60d2e00b",
+        "user_instruction": "\u628a\u5404\u4e2a\u5b9e\u9a8c\u7684 gpu \u9884\u7b97\u90fd\u8bbe\u7f6e\u4e3a 12gpuh",
+        "previous_cap_gpu_hours": 4,
+        "new_cumulative_cap_gpu_hours": 12,
+        "used_gpu_hours_at_change": 3.9117525685110333,
+        "no_usage_reset_or_transfer": true
+      }
+    ]
+  },
+  "raw_files": 120,
+  "source_revision": "77111262a02931e01f2ca2253c2ec585e6b0852b"
+}
