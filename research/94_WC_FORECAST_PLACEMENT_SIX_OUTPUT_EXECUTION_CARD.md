@@ -1,0 +1,15 @@
+# 同计算预算的来源位置：独立六输出执行卡
+
+2026-10-04。沿[93离线下界与CPU证据](93_WC_FORECAST_PLACEMENT_BOUND_CPU_AND_PROPOSAL.md)准备独立 `WC-FORECAST-PLACEMENT-HUMAN-R1-20261004-A` / `wc-forecast-placement-human-r1`。依据当前自主研究goal和累计12 GPUh选择；原104点单次1800秒授权已完成，不重用其身份。此前六输出卡及其终态也不重提。当前只完成源码及CPU范围门，没有新GPU、预付或视频。
+
+[执行清单](../manifests/wc_forecast_placement_human_r1_execution_20261004.json)、[配置](../configs/wc_forecast_placement_human_r1.json)。只使用已曝光human_199/seed0，固定原38-deep/34-cache掩码、35请求/36 solver/72 CFG、93帧768×432/16fps、probe2、warm14/native70与尾dense。稀疏23层，6/23/27继续dense，sim0.1/cdf0.98/no-PV。
+
+依次严格官方D/固定D两控制，再轻量fixed D、legacy SD、首次S匹配位置、最小来源位置四测量。三候选分别每CFG执行6/5次S、合计11次刷新/253算子；完整deep次数相同，实际耗时另测。D/D九门和完整pipeline必须先通过，三D产物须相同且复现历史D SHA；legacy SD须复现历史7caed…119b，才进入两新变体。失败保留已有产物和六输出分母，不补跑或替换源。
+
+位置锁定在[历史CPU草案](../manifests/wc_forecast_placement_draft_20261004.json)，SHA a47d9c4167468b4e6e35a7c567aa2108108b8d3f280bf04cfcdbec650fe42ad9；不修改该草案的未选择历史标记。新[scope](../src/wcomr/forecast_placement_scope.py)绑定两代teacher/previous原始回执、模型和condition、物理D/legacy视频、位置manifest及runtime policy。独立[runner](../scripts/run_wc_forecast_placement.py)调用已验证forecast比较核心；[监督器](../scripts/supervise_wc_forecast_placement.py)使用全局f1.lock、UUID/VRAM/compute准入、独立在途键及原账本实际结算。
+
+[本地CPU范围控制](../reports/wc_forecast_placement_scope_cpu_20261004.json)35项通过，涵盖六分母、完整cost、篡改位置/配额/层/CFG布尔、oracle角色、旧SHA、预算余额/在途/权威来源拒绝和源码解析。已实际验证的35份CPU依赖SHA全部保持，r1旧14/current r2新8及其原件审计不以旧回执追认改后的源码。下一还须在实际部署验证原件与对应源码、prepare OFF/ON、native-meta mode/buffer、资产/包/import和人物条件，CUDA禁用；这些门不等于真实核或新视频。
+
+[完整成本提案](../reports/wc_forecast_placement_cost_proposal_20261004.json)2282.988449秒，独立全cost上限2400秒、child2370秒/kill5。两D/D及四轻量、首次核、选择/来源、加载、decoder/guardrail/write、失败/flush/释放均计入；诊断wall不进入部署速度比较。当前已结算8.215651676683272/12 GPUh、40jobs，余3.7843483233167277h，无inflight；仅所有部署及fresh资源/锁/预算/磁盘门后提交一次，2400秒预付到终态用实际费用替换。未预付前不能称预算已扣或GPU已执行。
+
+终态独立审计六mp4完整93帧解码、共同38-deep掩码、实际逐CFG位置/配额/253算子、所有来源窗口/真D隔离/native70清理、历史SHA及源码/成本/原进程/锁/GPU释放，再自动计算相同官方参考的PSNR/SSIM/temporal/帧差量。单曝光场景且每臂一次，无重复速度、质量接受或CONF。未来掩码用于离线oracle；首次自由位置同时改变噪声时间，首次匹配也改变后续S位置，不把来源数15/2或未来视频差异当成唯一因果分解、RV收益标签或线上策略。无训练或新增人工评审，科学goal保持active。

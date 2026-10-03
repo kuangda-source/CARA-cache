@@ -1,0 +1,163 @@
+{
+  "card": "WC-FORECAST-PLACEMENT-HUMAN-R1-20261004-A",
+  "run_id": "wc-forecast-placement-human-r1",
+  "selected": true,
+  "selection_basis": "Current continuation of the existing autonomous goal and cumulative12 GPUh; independent fixed-budget oracle source-position mechanism comparison from research93.",
+  "source_goal_thread": "01a0f1eb-7894-7ed0-a186-d010111e14b1",
+  "max_total_GPU_seconds": 2400,
+  "child_seconds": 2370,
+  "kill_seconds": 5,
+  "planned_outputs": 6,
+  "sample": "human_199",
+  "seed": 0,
+  "comparison": "forecast_placement",
+  "variants": [
+    {
+      "name": "legacy_SD",
+      "sparse_layers": [
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        24,
+        25,
+        26
+      ],
+      "every": 2
+    },
+    {
+      "name": "first_S_matched",
+      "sparse_layers": [
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        24,
+        25,
+        26
+      ],
+      "every": 1,
+      "per_cfg_eligible_ordinals": [
+        [
+          1,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        [
+          1,
+          4,
+          5,
+          6,
+          7
+        ]
+      ]
+    },
+    {
+      "name": "minimum_footprint",
+      "sparse_layers": [
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        24,
+        25,
+        26
+      ],
+      "every": 1,
+      "per_cfg_eligible_ordinals": [
+        [
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ]
+    }
+  ],
+  "same_deep_CFG_calls": 38,
+  "same_S_per_CFG": [
+    6,
+    5
+  ],
+  "same_S_operators_per_candidate": 253,
+  "D_D_then_legacy_SD_gate_before_new_variants": true,
+  "fresh_prepare_every_phase": true,
+  "placement_manifest": "manifests/wc_forecast_placement_draft_20261004.json",
+  "placement_manifest_sha256": "a47d9c4167468b4e6e35a7c567aa2108108b8d3f280bf04cfcdbec650fe42ad9",
+  "CPU_sampler_ref": "reports/wc_forecast_placement_sampling_cpu_r2_20261004.json",
+  "CPU_legacy_sampler_ref": "reports/wc_forecast_placement_sampling_cpu_r1_20261004.json",
+  "CPU_original_source_audit_ref": "reports/wc_forecast_placement_sampling_cpu_audit_20261004.json",
+  "cost_proposal": "reports/wc_forecast_placement_cost_proposal_20261004.json",
+  "cost_complete_planning_seconds": 2282.988448896557,
+  "used_hours_before": 8.215651676683272,
+  "remaining_hours_before": 3.7843483233167277,
+  "one_submission_only": true,
+  "does_not_reuse_104_point_or_prior_six_output_identity_or_authorization": true,
+  "online_policy": false,
+  "causal_refresh_value_labels": false,
+  "no_training_or_new_manual_review": true,
+  "no_automatic_followup_card_or_parameter_scan": true,
+  "GPU_submitted": false,
+  "reserved_seconds": 0,
+  "real_model_DD_legacy_SD_new_positions_video_results_pending": true
+}

@@ -1,3 +1,9 @@
+## 2026-10-04 独立来源位置六输出卡：CPU范围通过，实际部署待验证
+
+[94执行卡](../../research/94_WC_FORECAST_PLACEMENT_SIX_OUTPUT_EXECUTION_CARD.md)/[35项CPU范围控制](../../reports/wc_forecast_placement_scope_cpu_20261004.json)：固定38deep、逐CFG6/5共11次S/253算子；严格D/D和历史legacy SD复现后比较首次S匹配与最小来源位置。新scope/runner/全局锁监督器完成，既有实际CPU35依赖SHA保持，错位置/配额/层、六分母、角色、完整cost与账本拒绝通过。曝光未来掩码oracle不是线上策略或RV标签，15/2仍只是来源CPU下界。
+
+依当前自主goal/累计12h选择独立WC-FORECAST-PLACEMENT-HUMAN-R1-20261004-A，完整2282.988秒≤2400全cost/2370child；63payload+mid待冻结同步和实际原件/source/prepare/native-meta/资产/import/人物条件门，再fresh UUID/sm86/VRAM/compute/锁/预算/磁盘准入后唯一提交。当前8.215651676683272/12h、40jobs保持，余3.7843483233167277h，无新GPU或预付。原104点及上一六输出终态不重提，不训练或加人评，科学goal active。以下为历史。
+
 ## 2026-10-04 同S预算来源位置：离线26→15/2，当前CPU14/8通过
 
 [93 来源下界、CPU与提案](../../research/93_WC_FORECAST_PLACEMENT_BOUND_CPU_AND_PROPOSAL.md)/[机器摘要](../../reports/wc_forecast_placement_summary_20261004.json)：复现原三种实际来源组合后，固定38deep/34cache、CFG6/5共11 S与253算子。精确穷举曝光未来掩码：保持首次S23/24可把读取S的cache从26降到15；自由位置最低2（call56/62，首次45/48）。这是来源组合下界，不是视频或线上策略，噪声时间/位置和复用仍有混杂，无RV收益标签。
