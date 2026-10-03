@@ -95,7 +95,7 @@ def provenance_audit(phase, context, *, sparse_allowed):
             'cache_calls_reading_approximate': hits}
 
 
-def phase_audit(phase, path, *, context, sparse_allowed):
+def phase_audit(phase, path, *, context, sparse_allowed, provenance_validator=None):
     assert phase['status'] == 'COMPLETE36_CFG72_ORDINARY_RETURN_NO_QUALITY_ACCEPTANCE'
     assert phase['solver_steps'] == 36 and phase['CFG_calls'] == 72 and phase['prepare_calls'] == 1
     assert len(phase['trace']) == 72
@@ -131,7 +131,8 @@ def phase_audit(phase, path, *, context, sparse_allowed):
         'pipeline_wall_seconds': phase['pipeline_wall_seconds'],
         'deep_CFG_calls': sum(v['deep_executed'] for v in phase['trace'])}
     if phase['kind'] == 'candidate':
-        info['provenance'] = provenance_audit(phase, context, sparse_allowed=sparse_allowed)
+        validator = provenance_validator or provenance_audit
+        info['provenance'] = validator(phase, context, sparse_allowed=sparse_allowed)
     return info
 
 

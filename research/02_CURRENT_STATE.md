@@ -1,3 +1,9 @@
+## 2026-10-04 六输出原任务在运行：D/D独立通过，4/6视频
+
+[91 六输出卡](91_WC_SELECTIVE_SIX_OUTPUT_CARD_AND_CPU.md)、[现场](../reports/wc_selective_human_r1_live_observation_20261004.json)与[独立D/D审计](../reports/wc_selective_human_r1_dd_audit_20261004.json)：冻结source27df749/deploy1唯一提交后，原supervisor2721519/timeout2721535/runner2721537及命令行匹配。现场1791053915.988251已4/6视频，D/D九门、五处各1216状态组件与完整pipeline通过，两D视频SHA一致、93帧完整CPU解码误差0/SSIM1。原full-S已完成并通过历史SHA止步，小组S{2,3,5}在生成，低频S待运行；新候选指标及六输出终态仍待验证。
+
+当前12h账本含2400秒预付为8.418098349094183h/40jobs，已结算7.7514316824275165h、余未预留3.581901650905817h；child1791052582.2343378起算2370秒/kill5，全cost2400秒，终态按实际替换预付。只跟踪原卡/source/句柄并保留六分母，不重提104点/本卡、不启动后续卡或训练、人评。终态需独立每策略执行层/逐CFG频率/真D来源、六视频/费用/释放与CPU指标；没有质量接受、Native/少步/调过WC前沿或CONF。以下为历史。
+
 ## 2026-10-04 六输出实际部署门通过，待唯一GPU提交
 
 [91 六输出卡](91_WC_SELECTIVE_SIX_OUTPUT_CARD_AND_CPU.md)/[实际部署](../reports/wc_selective_human_r1_deployment_20261004.json)：source27df749/53payload+mid共54文件，CPU r1/r2原件与当前依赖、scope22、旧teacher/上一轮D/S视频SHA、官方prepare、native-meta mode/buffers、资产/import/package及human条件全部通过，CUDA未初始化，账本7.7514316824275165/12h、39jobs保持。
