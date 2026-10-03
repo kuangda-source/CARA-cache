@@ -1,3 +1,9 @@
+## 2026-10-03 H0实际CPU模式修复通过，独立r2具体卡待完整部署门
+
+[CPU修复/独立r2卡](../../research/77_WC_H0_MODE_REPAIR_AND_R2_CARD.md)：固定原类meta网络1173默认training标志，共享eval后0；禁止CUDA/权重/前向，全部train方法为nn.Module.train，参数/buffer对象及版本未变；默认模式toy经实际adapter的四臂与失败分母控制通过。保留严格shadow eval guard和原r1失败，不追认其完整九门/互补性。r2共同eval适配显式应用两臂，不主张与r1默认模式输出等价。
+
+自主goal选定新WC-H0-EVAL-COMPLEMENT-R2-20261003-A/wc-h0-eval-complement-r2具体修复卡，原场景/selector/回退/阈值/2状态8臂/step13&20及全部九门不变，964.475秒规划包络≤1200秒。当前未r2 GPU；先新source/payload及实际旧26+新模式/源码/资产/import/package门，再fresh GPU/全局锁/无inflight/余额，只此一次，不自动第三H0/H1/H2/RV/训练。累计4.856303261031603/12h、33jobs，余7.143696738968397h保持。以下状态为历史。
+
 ## 2026-10-03 H0首卡技术停止，费用/释放已审计，继续CPU模式定位
 
 [终态与下一步](../../research/76_WC_H0_COMPLEMENT_R1_CARD_AND_RESULTS.md)：唯一wc-h0-complement-r1/source18e692e退出1，baseline20更新/40CFG，observed在首个eligible full call33触发新增 `H0 requires eval` 检查。完整四臂0、原件0，2状态/8臂分母保留，完整九门未完成；不是互补性负结果。CPU26的toy显式eval，未覆盖实际官方网络模式，先核查实际固定源码/构建与mode-sensitive路径，再无CUDA修复控制，不直接改原模型mode或重提r1。source/stage/失败回执封存，H1/H2/RV/训练后置。

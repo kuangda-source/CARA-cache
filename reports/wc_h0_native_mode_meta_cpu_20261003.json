@@ -1,0 +1,91 @@
+{
+  "status": "PINNED_NATIVE_META_CONSTRUCTOR_CHECK_ONLY_NO_WEIGHTS_OR_FORWARD",
+  "net_class": "<class 'cosmos_predict2._src.predict2.networks.minimal_v1_lvg_dit.MinimalV1LVGDiT'>",
+  "root_training": true,
+  "training_module_count": 1173,
+  "module_count": 1173,
+  "module_types": {
+    "cosmos_predict2._src.predict2.networks.minimal_v1_lvg_dit.MinimalV1LVGDiT": 1,
+    "cosmos_predict2._src.predict2.networks.minimal_v4_dit.PatchEmbed": 1,
+    "torch.nn.modules.container.Sequential": 88,
+    "einops.layers.torch.Rearrange": 1,
+    "torch.nn.modules.linear.Linear": 455,
+    "cosmos_predict2._src.predict2.networks.minimal_v4_dit.VideoRopePosition3DEmb": 1,
+    "cosmos_predict2._src.predict2.networks.minimal_v4_dit.Timesteps": 1,
+    "cosmos_predict2._src.predict2.networks.minimal_v4_dit.TimestepEmbedding": 1,
+    "torch.nn.modules.activation.SiLU": 86,
+    "torch.nn.modules.container.ModuleList": 1,
+    "torch.distributed.algorithms._checkpoint.checkpoint_wrapper.CheckpointWrapper": 29,
+    "cosmos_predict2._src.predict2.networks.minimal_v4_dit.Block": 28,
+    "torch.nn.modules.normalization.LayerNorm": 85,
+    "cosmos_predict2._src.predict2.networks.minimal_v4_dit.Attention": 56,
+    "transformer_engine.pytorch.module.rmsnorm.RMSNorm": 113,
+    "torch.nn.modules.linear.Identity": 112,
+    "cosmos_predict2._src.predict2.networks.a2a_cp.MinimalA2AAttnOp": 56,
+    "cosmos_predict2._src.predict2.networks.minimal_v4_dit.GPT2FeedForward": 28,
+    "torch.nn.modules.activation.GELU": 29,
+    "cosmos_predict2._src.predict2.networks.minimal_v4_dit.FinalLayer": 1
+  },
+  "mode_sensitive_modules": [],
+  "source_files": {
+    "cosmos_predict2/_src/predict2/networks/minimal_v1_lvg_dit.py": {
+      "sha256": "2d3ddcf94158c61223bc610f31ede475f7e4e27cc3b604ff3557b73d891e665f",
+      "training_lines": []
+    },
+    "cosmos_predict2/_src/predict2/networks/minimal_v4_dit.py": {
+      "sha256": "a41a1772f694ee338e4b91f032428ea81f28e80fb90990e2db86eb7d1ce30071",
+      "training_lines": []
+    },
+    "python-package/einops/layers/torch.py": {
+      "sha256": "e74e06f7d904832edd93550f05b8fd873266664007c1584c0c537ff09fa9dc2f",
+      "training_lines": []
+    },
+    "python-package/transformer_engine/pytorch/module/rmsnorm.py": {
+      "sha256": "4f06e8bfc2d671dbdb61896d4bf0e60dfe1054d69e61e077f5e21a7d11cb4d0e",
+      "training_lines": []
+    },
+    "cosmos_predict2/_src/predict2/networks/a2a_cp.py": {
+      "sha256": "f9f6d61964437bec2950dbcc99e25911b35dd45404b823455f3d4ced2076f708",
+      "training_lines": []
+    }
+  },
+  "parameter_count": 2059174912,
+  "cuda_initialized": false,
+  "net_kwargs": {
+    "adaln_lora_dim": 256,
+    "atten_backend": "minimal_a2a",
+    "concat_padding_mask": true,
+    "crossattn_emb_channels": 1024,
+    "crossattn_proj_in_channels": 100352,
+    "extra_per_block_abs_pos_emb": false,
+    "in_channels": 16,
+    "max_frames": 128,
+    "max_img_h": 240,
+    "max_img_w": 240,
+    "model_channels": 2048,
+    "num_blocks": 28,
+    "num_heads": 16,
+    "out_channels": 16,
+    "patch_spatial": 2,
+    "patch_temporal": 1,
+    "pos_emb_cls": "rope3d",
+    "pos_emb_interpolation": "crop",
+    "pos_emb_learnable": true,
+    "rope_enable_fps_modulation": false,
+    "rope_h_extrapolation_ratio": 3.0,
+    "rope_t_extrapolation_ratio": 1.0,
+    "rope_w_extrapolation_ratio": 3.0,
+    "sac_config": {
+      "mode": "predict2_2b_720_aggressive",
+      "every_n_blocks": 1
+    },
+    "timestep_scale": 0.001,
+    "use_adaln_lora": true,
+    "use_crossattn_projection": true,
+    "use_wan_fp32_strategy": true
+  },
+  "torch": "2.7.1+cu128",
+  "cpu_adaptation": "TE RMSNorm explicit device=meta and skip meta parameter reset which otherwise materializes CUDA; import-only Triton benchmark factory denies execution; no mode modification",
+  "failed_gpu_exact_mode_vector": "NOT_RECORDED_CANNOT_RETROACTIVELY_RECONSTRUCT",
+  "budget_unchanged": true
+}

@@ -1,0 +1,35 @@
+{
+  "status": "INDEPENDENT_H0_R2_COST_CARD_PASS_PENDING_FULL_GATES",
+  "observed_r4_load_seconds": 107.93033873196691,
+  "observed_r4_36_call_prefix_seconds": 206.94455356989056,
+  "scaled_40_call_prefix_seconds": 229.93839285543396,
+  "historical_deep_component_ms_per_full_sum_lower_reference_seconds": 2.721699887689422,
+  "shadow_group_executions": 24,
+  "planning_seconds_per_shadow_group": 5,
+  "C_prediction_allowance_seconds": 10,
+  "extra_metadata_state_and_flush_allowance_seconds": 70,
+  "raw_estimate_seconds": 778.7293583242637,
+  "contingency_fraction": 0.2,
+  "planning_envelope_seconds": 934.4752299891163,
+  "shutdown_settlement_margin_seconds": 30,
+  "hard_all_cost_cap_seconds": 1200,
+  "child_cap_seconds": 1170,
+  "remaining_gpu_hours_before": 7.143696738968397,
+  "sources": {
+    "reports/wc_mid_full_r4_runner_20261003.json": "b9a2ac253524590bd5ef62297e39d53e54e410a113d9761eca8d6c1ee6a85ba2",
+    "reports/wc_s0_profile_r3_summary_20261001.json": "0e8575696f7261f486da9fdc30c150f48de8d207a7a0c40760d47df68eaf37e5",
+    "reports/wc_h0_complement_r1_runner_20261003.json": "397721dbc67f5ab9035a242b78624ebf13fe46b05323f88a491e62f72a09c7c3"
+  },
+  "limits": [
+    "Different existing CAL scene can alter full/skip trace; no guarantee of cost or two eligible CFG cases",
+    "Five second group allowance exceeds recorded component lower reference but is not measured group latency for S/full on the new scene",
+    "Includes repeated true dense compute for same-state control, not old experiment replay",
+    "No video, end-to-end deployment or lifetime result",
+    "R1 actual modes unrecorded; r2 explicitly establishes shared eval. GPU train/eval output equivalence is not assumed."
+  ],
+  "observed_r1_load_seconds": 113.85257261339575,
+  "observed_r1_40_call_prefix_seconds": 214.91813484672457,
+  "load_allowance_seconds": 113.85257261339575,
+  "prefix_allowance_seconds": 229.93839285543396,
+  "shared_eval_mode_metadata_allowance_seconds": 5
+}
