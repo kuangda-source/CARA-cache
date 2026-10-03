@@ -1,6 +1,14 @@
 # H0 首卡：同状态 C/S/D 互补性与真实整组成本
 
-2026-10-03；卡 `WC-H0-COMPLEMENT-R1-20261003-A`，唯一候选 run `wc-h0-complement-r1`。状态：实际CPU26、source/assets/import/package与fresh准入通过，唯一run已启动，结果未定。用户 06:00:14UTC 授予继续自主推进常规同方向步骤，06:07:41 再确认继续实验；[本卡授权与边界](../manifests/wc_h0_complement_r1_authorization_20261003.json)。保留各项目累计12GPUh、已用历史，WC 优先，唯一协调与一个昂贵任务。r4 的单次授权已消耗，本卡来自后续继续指令，不重启 r4。
+2026-10-03；卡 `WC-H0-COMPLEMENT-R1-20261003-A`，唯一 run `wc-h0-complement-r1` 已退出1，状态 `TECH_BLOCKED_NOT_COMPLEMENTARITY_ACCEPTANCE`。首个 eligible full 的新增模式检查停止执行，四臂未产生；不是方法负结果。用户 06:00:14UTC 授予继续自主推进常规同方向步骤，06:07:41 再确认继续实验；[本卡授权与边界](../manifests/wc_h0_complement_r1_authorization_20261003.json)。保留累计12GPUh与所有失败费用，不重启本 identity。
+
+## 终态、控制缺口与后续 CPU 工作
+
+[独立审计](../reports/wc_h0_complement_r1_audit_20261003.json)、[摘要](../reports/wc_h0_complement_r1_summary_20261003.json)、[runner](../reports/wc_h0_complement_r1_runner_20261003.json)、[supervisor](../reports/wc_h0_complement_r1_supervisor_20261003.json)：baseline 完成20更新/40CFG，observed完成16更新/32CFG，在 call33/counter32/CFG0 第一次符合 frozen selector 时抛出 `ValueError: H0 requires eval`。已有严格过去同CFG真实full历史，step13恢复通过；完整四臂0、原件0、step20和最终九门未完成。保留2状态/8臂计划分母，不用别的时刻替换失败，不据此接受或否定互补性。
+
+CPU26 当时全部通过，但 shadow toy 显式 `.eval()`，没有覆盖实际官方构建后网络/子模块的 mode flags。异常仅记录 aggregate guard，具体触发模块尚未现场记录。下一先检查固定源码的实际网络类、推理构建与 mode-sensitive 算子，再做无CUDA的构造/模式控制；不能直接把原模型改为 `.eval()` 或删检查来追认本卡成功。
+
+实际全部wall 523.4742335593328秒，0.145409509322037GPUh；累计4.856303261031603/12GPUh、33jobs，余额7.143696738968397h，预留已替换为实际费用，无inflight。原supervisor2657420/timeout2657436/runner2657438均退出，f1锁与指定GPU释放（24MiB、无compute）。source18e692e与原stage/失败回执保持原样。后续CPU修复可推进；另一GPU卡须有新identity/source、具体冻结范围/成本及完整实际门，不自动重试r1或扩展H1/H2/RV/训练。以下启动记录是历史快照。
 
 ## 唯一问题与冻结范围
 

@@ -1,3 +1,9 @@
+## 2026-10-03 H0首卡技术停止，费用/释放已审计，继续CPU模式定位
+
+[终态与下一步](research/76_WC_H0_COMPLEMENT_R1_CARD_AND_RESULTS.md)：唯一wc-h0-complement-r1/source18e692e退出1，baseline20更新/40CFG，observed在首个eligible full call33触发新增 `H0 requires eval` 检查。完整四臂0、原件0，2状态/8臂分母保留，完整九门未完成；不是互补性负结果。CPU26的toy显式eval，未覆盖实际官方网络模式，先核查实际固定源码/构建与mode-sensitive路径，再无CUDA修复控制，不直接改原模型mode或重提r1。source/stage/失败回执封存，H1/H2/RV/训练后置。
+
+全wall523.4742335593328秒已实计，累计4.856303261031603/12GPUh、33jobs，余7.143696738968397h，无inflight；原三PIDs/f1锁/指定GPU均已释放（24MiB/noapps）。另一GPU卡须新identity/source、具体范围/成本与完整实际门，不自动第二卡。以下在跑及旧预算文字为历史快照。
+
 ## 2026-10-03 H0首卡实际CPU26通过，唯一诊断已启动
 
 [实际部署](reports/wc_h0_complement_r1_deployment_20261003.json)：冻结source18e692ebb0f23a6ed832e0d7ff74ec3a6acc0ca9，actual CPU26/C分支/完整四臂/原件误差/step13&20/source/assets/import/package全部通过，CUDA未初始化、原账本不变；源码已推送。唯一wc-h0-complement-r1 fresh准入并启动，[启动](reports/wc_h0_complement_r1_launch_20261003.json)/[现场](reports/wc_h0_complement_r1_start_observation_20261003.json)supervisor2657420/timeout2657436/runner2657438存活，初始化非终态。原GPU24MiB/noapps，child起算最多1200秒截止北京时间15:08:40，已预付1/3GPUh（在途5.044227085042899h、第33job），结束按实际全wall结算；已用4.710893751709566h/32job历史保留。只跟踪原句柄，不改在跑source或重提，不据live报互补性/视频收益。H1/H2/RV/训练后置。
