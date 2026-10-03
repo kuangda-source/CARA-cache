@@ -1,3 +1,11 @@
+## 2026-10-03 最新终态 — r4完整104点及九门全部通过并审计
+
+[完整结果](../../research/75_WC_FULL104_R4_CARD_AND_RESULTS.md)：唯一wc-mid-full-r4/source8c14046 exit0，两臂18 solver更新/36CFG，104QKV/312case、共享官方prepared-input和完整RNG、全部九项输入/输出/condition/状态等门及step13/18各36组件全部一致。两处进程内restore通过，第13步恢复后实际继续到18；不是独立进程整管线反事实接口。104文件和312张量raw SHA/finite/shape、case/repeat、source/成本/释放独立CPU审计通过。
+
+稀疏算子中位1.219×，RMSE≤5%为92/104、速度≥1.1为76/104、联合64/104；层6/23/27四输入均不安全，不能统一全深层部署。单个已消耗开发场景的算子诊断，无候选视频质量/端到端收益。旧r1/r2 FAIL保留，r3仍只有短前缀身份。
+
+实计1153.547616秒/0.320429893279GPUh，累计4.710893751709566/12h、32jobs，余7.289106248290434h，无inflight；原三PIDs/全局锁/GPU释放（24MiB/no compute）。七文件及CPU22/唯一≤1800秒授权已执行完，不重提同run/自动r5。下一只可准备已有H0具体卡及成本/因果门，再H1；H0/H1/RV/训练没有自动启动。以下准备、在跑和拒绝为历史。
+
 ## 2026-10-03 r4实际CPU22通过，唯一104点补验已提交
 
 [CPU/source/资产回执](../../reports/wc_mid_full_r4_deployment_20261003.json)实际Torch2.7.1+cu128的22项控制全部通过，含官方prepare OFF/ON与step13/18恢复后下一UniPC更新逐位一致；CUDA未初始化、账本未变。冻结部署source8c140469b217b96414e606a44ca17539fb3d202b。[唯一启动](../../reports/wc_mid_full_r4_launch_20261003.json)run wc-mid-full-r4，监督2647232/timeout2647303已现场存活；[启动观察](../../reports/wc_mid_full_r4_start_observation_20261003.json)未见compute冲突，原GPU24MiB，初始化非终态。GPU全cost≤1800秒/child1770秒，child起算最大截止北京时间13:25:03；预留0.5h只是账本在途值，实际尚未结算。旧已结算4.390463858430222h/31jobs保留，本run新增第32job，跟踪同一identity直到终态/审计，不重复提交。104点及九门尚待GPU验收，无视频/H0/H1/RV/训练结果。

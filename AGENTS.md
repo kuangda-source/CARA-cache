@@ -1,5 +1,9 @@
 # WorldCache experiment rules
 
+## 当前补验终态 — 2026-10-03
+
+直接授权的唯一wc-mid-full-r4已执行并独立审计：104QKV/312case及九门/step13&18通过。实计1153.547616秒，累计4.710893751709566/12GPUh、32jobs，无inflight，PIDs/锁/GPU已释放。该单次授权已消耗，不重启同run或自动新增r5/H0/H1/RV；[75完整结果与下一卡边界](research/75_WC_FULL104_R4_CARD_AND_RESULTS.md)。以下准备授权为历史。
+
 ## 当前直接补验授权 — 2026-10-03
 
 用户当前直接授权七份文件、CPU及门通过后的唯一wc-mid-full-r4≤1800秒/现累计12GPUh，见[独立卡](research/75_WC_FULL104_R4_CARD_AND_RESULTS.md)。旧1200秒及无r4约束保留其历史身份；本卡不授予自动下一窗。原已用4.390463858430222h/31jobs不变，必须actual CPU/source/assets及fresh GPU/锁/预算门。
