@@ -1,3 +1,9 @@
+## 2026-10-04 小层组/低频S六输出 CPU 通过，独立卡待部署
+
+[91 卡及CPU](../../research/91_WC_SELECTIVE_SIX_OUTPUT_CARD_AND_CPU.md)：旧四输出CPU6回归与当前selective14控制、scope22通过；禁止CUDA，原预算保持。固定38共同动作下先D/D与历史full-S SHA止步，再D/full-S23层、小组S{2,3,5}、每CFG隔一次S并全D刷新；六输出全分母、真D来源/计数恢复/失败止步保持。CPU stand-in不是实际核或人物视频。
+
+具体完整规划2282.988秒≤独立2400全cost/2370child，依当前自主goal/累计12h选择WC-SELECTIVE-HUMAN-R1-20261004-A/wc-selective-human-r1；53payload+mid需冻结并实际CPU源绑定/原件视频/prepare/native-meta/source/assets/import/package/条件门，fresh资源锁预算后仅提交一次。当前7.7514316824275165/12h、39jobs、余4.2485683175724835h无inflight/新GPU或预付；不复用104/四输出身份，不自动后续卡/训练/人评。以下为历史。
+
 ## 2026-10-04 固定人物四输出终态：固定化略有改善，保真仍待解决
 
 [90 结果及下一步](../../research/90_WC_FIXED_HUMAN_RESULTS_AND_SMALL_GROUP_NEXT.md)/[机器摘要](../../reports/wc_fixed_human_r1_summary_20261004.json)：原source4bd唯一卡exit0，四mp4/93完整解码、四轨38共同deep、D/D九门与五处1216组件、源码资产/真实核来源/费用释放独立通过。S在22次CFG执行506个算子，26次后续cache读近似；三份D视频SHA相同。固定D/S单对wall212.221/204.658秒，少3.564%，只作描述性成本。

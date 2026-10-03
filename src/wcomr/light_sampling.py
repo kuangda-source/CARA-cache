@@ -60,7 +60,7 @@ def synchronize():
 def run_light_pair(inference, sample, wc, settings, *, state, save, output,
                    inference_module, context, mode_setup, adapter_factory=None,
                    sequence=('official', 'candidate'), expected_video=(93, 432, 768),
-                   sync=synchronize, clock=time.perf_counter):
+                   sync=synchronize, clock=time.perf_counter, sequence_policy='balanced'):
     """Each phase calls real prepare; setup/reset and artifact SHA are outside wall.
 
     Substage numbers are unsynchronized host wall; only the complete pipeline
@@ -69,7 +69,10 @@ def run_light_pair(inference, sample, wc, settings, *, state, save, output,
     """
     if (sample.num_steps != 35 or type(sequence) not in (tuple, list)
             or not sequence or set(sequence) != {'official', 'candidate'}
-            or sequence.count('official') != sequence.count('candidate')
+            or sequence_policy not in ('balanced', 'reference_then_candidates')
+            or (sequence_policy == 'balanced' and sequence.count('official') != sequence.count('candidate'))
+            or (sequence_policy == 'reference_then_candidates' and
+                (sequence[0] != 'official' or sequence.count('official') != 1))
             or any(v not in ('official', 'candidate') for v in sequence)
             or type(context) is not tuple or len(context) != 3
             or any(not isinstance(v, str) or not v for v in context)
@@ -92,6 +95,8 @@ def run_light_pair(inference, sample, wc, settings, *, state, save, output,
                  refresh_ledger_and_kernel_checks_counted_in_wall=True,
                  timing_wrappers_CUDA_boundary_sync_only=True, expected_video=list(expected_video),
                  context=list(context), clean_E2E_speed_claim=False)
+    if sequence_policy != 'balanced':
+        state['sequence_policy'] = sequence_policy
     save()
 
     def reset_buffers():
