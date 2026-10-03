@@ -1,5 +1,9 @@
 # WorldCache experiment rules
 
+## 当前直接补验授权 — 2026-10-03
+
+用户当前直接授权七份文件、CPU及门通过后的唯一wc-mid-full-r4≤1800秒/现累计12GPUh，见[独立卡](research/75_WC_FULL104_R4_CARD_AND_RESULTS.md)。旧1200秒及无r4约束保留其历史身份；本卡不授予自动下一窗。原已用4.390463858430222h/31jobs不变，必须actual CPU/source/assets及fresh GPU/锁/预算门。
+
 ## 最新执行授权 — 2026-10-03
 
 [各项目累计12GPUh与恢复后队列](research/BUDGET_AUTHORIZATION_20261003.md)取代此前仅文档及旧预算限制；保留已用与历史账目，单昂贵任务，GPU优先WC。WC已用3.9117525685110333GPUh、28jobs保持，当前余额8.088247431488967GPUh。先中间刷新/全26深层覆盖准备和无扰动诊断，再H0互补性、H1来源×寿命；W1/replay已完成不重跑，RV后置。旧new4h/clean50不自动转为新队列。新runner须按明确12h权威账本校验，不能重新执行硬编码4h的旧launch。 下述2026-10-02原包适配/仅文档条目为当时快照。
