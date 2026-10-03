@@ -1,8 +1,8 @@
-## 2026-10-03 完整六输出首卡已唯一启动：官方首视频完成，D/D控制仍在跑
+## 2026-10-03 完整六输出首卡在跑：D/D独立原件审计通过，3/6视频
 
-[83 固定卡](research/83_WC_FULL_OUTPUT_R1_CARD.md)的冻结 source b3ed6b084b5e7bad5a242bd9a934a0d502e1ef6c 在 actual CPU11/19/3、prepare/metadata/native-meta buffers/source/assets/import/package 与 fresh资源/锁/账本门通过后唯一提交。现场1791034388.669872确认 supervisor2687791/child2687807/runner2687809均live，官方 baseline完整36更新/72CFG普通返回并有第一个mp4；dense adapter控制尚未完整返回，S四输出未开始。global INITIALIZING为runner未终态状态，不能解读为未采样。
+[83 固定卡](research/83_WC_FULL_OUTPUT_R1_CARD.md)的冻结 source b3ed6b084b5e7bad5a242bd9a934a0d502e1ef6c 在 actual CPU11/19/3、prepare/metadata/native-meta buffers/source/assets/import/package 与 fresh资源/锁/账本门通过后唯一提交。现场1791034920.0072188确认 supervisor2687791/child2687807/runner2687809均live；D/D两臂36更新/72CFG、九门/五处restore/最终pipeline通过。独立CPU再从原回执重算九项/五项与来源、两mp4字节SHA相同/768×432/16fps/93完整解码通过；自动指标DD对照MSE0/SSIM1/temporal0，静止退化、缺帧、多帧与缺结构门拒绝控制通过。
 
-只跟踪原run/输出目录，不修改冻结stage/payload、不重复提交。D/D九门和最终pipeline通过后才进S；终态独立审计6分母、源码/原件/真实核/来源/93帧和费用/释放。此前已结算6.055044055960606/12GPUh、36jobs；已预付6000秒=1.666666667h，含预留7.7217107226272725/12h、37jobs，实际费用待终态结算。child1791033603.3447514起算最大北京时间23:00:03.344751；DD失败或任何输出缺失即止，不自动第二卡/训练/新增人评。单次104点≤1800授权已完成并消耗，以下准备文字均为历史。
+当前三个mp4为D/D两对照加common配对官方WC，common的S候选正在生成，尚无完整候选或质量结论。只跟踪原run/输出目录，不修改冻结stage/payload、不重复提交；终态独立审计6分母、源码/原件/真实核/来源/93帧和费用/释放。此前已结算6.055044055960606/12GPUh、36jobs；预付6000秒=1.666666667h，含预留7.7217107226272725/12h、37jobs，实际费用待终态结算。child1791033603.3447514起算最大北京时间23:00:03.344751；任一输出缺失或技术异常即止，不自动第二卡/训练/新增人评。debug wall无净E2E归因；单次104点≤1800授权已完成并消耗，以下为历史。
 
 ## 2026-10-03 完整六输出首卡：实际部署全部门通过，待唯一现场提交
 

@@ -48,3 +48,9 @@ S使用现有QK量化/选择与稀疏执行，S−D包括backend量化和稀疏�
 [启动原回执](../reports/wc_full_output_r1_launch_20261003.json)为dispatch短快照，当时 supervisor_state未写；[后续现场](../reports/wc_full_output_r1_live_observation_20261003.json)1791034388.669872确认原三PID2687791/2687807/2687809和指定GPU运行，baseline已完整36/72普通返回并写首个mp4，dense adapter控制在跑，尚无S结果。不可据launch空state重启，也不可把首个对照视频当成D/D通过。
 
 实际全cost6000预付、child起算1791033603.3447514/最大北京时间23:00:03.344751；已结算6.055044055960606保持，含预留7.7217107226272725/12h、37jobs。仅跟踪原句柄，结束后按实际wall结算并独立核对全六输出/来源/视频/费用/释放。当前未声称质量或clean E2E收益。
+
+## D/D独立原件门与自动指标CPU控制
+
+[独立D/D审计](../reports/wc_full_output_r1_dd_audit_20261003.json)重算九项native与五项pipeline、prepared对应及全部来源事件；两个完整输出SHA均fa7f466534e7e7984136dfaa9fb47794dedf0c81444229527b9722142715c379，均531916bytes、768×432/16fps/93完整解码通过。[自动指标CPU控制](../reports/wc_full_output_r1_video_analysis_cpu_control_20261003.json)对真实D/D得到RGB MSE0/luma SSIM1/temporal差0/motion比1，合成运动vs静止候选、缺帧、多帧、结构门未过拒绝五控制通过。脚本在独立analysis目录，不改在跑冻结stage；所有CPU工作不新增GPUjob费用。
+
+现场1791034920.0072188已有3/6mp4，第三是common配对官方WC，common S在生成；完整候选/六输出/费用释放仍待终态，不能据前三视频声称质量或净E2E。预登记编码RGB差/SSIM与帧差motion/temporal均为描述性代理，不是语义/物理接受门。
