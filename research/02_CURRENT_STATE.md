@@ -1,3 +1,7 @@
+## 2026-10-03 r4实际CPU22通过，唯一104点补验已提交
+
+[CPU/source/资产回执](../reports/wc_mid_full_r4_deployment_20261003.json)实际Torch2.7.1+cu128的22项控制全部通过，含官方prepare OFF/ON与step13/18恢复后下一UniPC更新逐位一致；CUDA未初始化、账本未变。冻结部署source8c140469b217b96414e606a44ca17539fb3d202b。[唯一启动](../reports/wc_mid_full_r4_launch_20261003.json)run wc-mid-full-r4，监督2647232/timeout2647303已现场存活；[启动观察](../reports/wc_mid_full_r4_start_observation_20261003.json)未见compute冲突，原GPU24MiB，初始化非终态。GPU全cost≤1800秒/child1770秒，child起算最大截止北京时间13:25:03；预留0.5h只是账本在途值，实际尚未结算。旧已结算4.390463858430222h/31jobs保留，本run新增第32job，跟踪同一identity直到终态/审计，不重复提交。104点及九门尚待GPU验收，无视频/H0/H1/RV/训练结果。
+
 ## 2026-10-03 最新直接授权 — 独立104点r4条件补验
 
 用户已在本执行对话直接授权七份WorldCache补验文件和CPU验证；全部门通过后，唯一 `wc-mid-full-r4` 全过程≤1800秒、计入现有累计12GPUh。[新卡](75_WC_FULL104_R4_CARD_AND_RESULTS.md)保留104QKV/312case、全部九门、共享官方输入/完整RNG、step13/18及原条件；旧卡/失败/费用保留，不自动H0/H1/RV/训练。七文件已写入，本地20CPU通过，实际UniPC控制仍须在Cosmos环境验收；未GPU提交。账本4.390463858430222/12h、31jobs不变。以下拒绝与旧时间门为历史。
