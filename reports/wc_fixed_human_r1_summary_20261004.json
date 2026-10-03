@@ -1,0 +1,157 @@
+{
+  "status": "FIXED_HUMAN_FOUR_OUTPUT_AUDITED_SMALL_FIDELITY_CHANGE_NO_QUALITY_TIME_FRONTIER",
+  "run_id": "wc-fixed-human-r1",
+  "card": "WC-FIXED-HUMAN-R1-20261004-A",
+  "frozen_GPU_source": "4bd8951aa660cafe6f95a0173714134c6e386e52",
+  "planned_outputs": 4,
+  "completed_outputs": 4,
+  "DD_nine_checks_independently_recomputed": {
+    "input_hashes": true,
+    "output_hashes": true,
+    "trace": true,
+    "block_counts": true,
+    "state_fingerprints": true,
+    "sampling": true,
+    "named_inputs": true,
+    "conditions": true,
+    "field_signatures": true
+  },
+  "DD_components_per_checkpoint": [
+    1216,
+    1216,
+    1216,
+    1216,
+    1216
+  ],
+  "all_four_deep_CFG_calls": [
+    38,
+    38,
+    38,
+    38
+  ],
+  "three_D_artifact_SHA_equal": true,
+  "D_reference_SHA": "4d0f0549dbabf04e7f217037c40f6a30f41cb240289162d6fb0fbec2dde982fb",
+  "fixed_S_SHA": "8113659676684a91ce1e8d070e9893f7d1fa3d2f6e8e58191b1218a1f1ac90e1",
+  "fixed_S_sparse_CFG_calls": [
+    23,
+    24,
+    33,
+    34,
+    41,
+    42,
+    45,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    57,
+    58,
+    59,
+    60,
+    63,
+    64
+  ],
+  "fixed_S_sparse_attention_operators": 506,
+  "fixed_S_approximate_cache_reads": 26,
+  "one_pair_descriptive_pipeline_seconds": {
+    "fixed_D": 212.22117300052196,
+    "fixed_S": 204.6581018883735,
+    "reduction_fraction": 0.035637684050167096,
+    "D_over_S": 1.0369546626415678
+  },
+  "official_WC_relative_encoded_metrics": {
+    "exposed_adaptive_S": {
+      "frames": 93,
+      "RGB_MSE_0to1": 0.017867209171547077,
+      "RGB_PSNR_dB": 17.479432782750802,
+      "exact_RGB_equality": false,
+      "mean_luma_SSIM_win7": 0.7054089124809588,
+      "transitions": 92,
+      "baseline_mean_abs_RGB_frame_change": 0.06312986322396619,
+      "candidate_mean_abs_RGB_frame_change": 0.06010966230820332,
+      "temporal_difference_MSE_0to1": 0.02149043364985983,
+      "candidate_over_baseline_frame_change": 0.9521589187505748
+    },
+    "current_fixed_S": {
+      "frames": 93,
+      "RGB_MSE_0to1": 0.01650695569056364,
+      "RGB_PSNR_dB": 17.823330144839723,
+      "exact_RGB_equality": false,
+      "mean_luma_SSIM_win7": 0.7267407743662412,
+      "transitions": 92,
+      "baseline_mean_abs_RGB_frame_change": 0.06312986322396619,
+      "candidate_mean_abs_RGB_frame_change": 0.06103451621799724,
+      "temporal_difference_MSE_0to1": 0.020891398560550327,
+      "candidate_over_baseline_frame_change": 0.9668089411419241
+    }
+  },
+  "exposed_pair_fidelity_change": {
+    "RGB_MSE_reduction_fraction": 0.07613127869738012,
+    "PSNR_dB_increase": 0.34389736208892074,
+    "SSIM_increase": 0.021331861885282355
+  },
+  "cross_adaptive_fixed_protocol_reference_binding": "EXPOSED_ADAPTIVE_FIXED_PROTOCOL_AND_REFERENCE_BINDING_PASS_DESCRIPTIVE_ONLY",
+  "adaptive_vs_fixed_deep_call_counts": [
+    35,
+    38
+  ],
+  "old_adaptive_vs_new_fixed_deep_decision_differences": [
+    46,
+    47,
+    48,
+    51,
+    52,
+    56,
+    57,
+    58,
+    69
+  ],
+  "gpu_wall_seconds": 1237.6993049783632,
+  "new_GPU_cost_hours": 0.3438053624939898,
+  "cumulative_used_GPU_hours": 7.7514316824275165,
+  "remaining_GPU_hours": 4.2485683175724835,
+  "jobs": 39,
+  "original_three_PIDs_global_lock_and_GPU_released": true,
+  "gpu_monitor_rows": 580,
+  "gpu_peak_memory_mib": 26796,
+  "raw_SHA": "9f1418d55f297f62f5ce8868759de983e0df736185bb939f06b86357eab0f4e5",
+  "raw_gzip_SHA": "a19990b32693317d8bd1ee5b4200069b6ac4b03ba5fd026b03dc260f71d0c65f",
+  "evidence": {
+    "audit": "reports/wc_fixed_human_r1_audit_20261004.json",
+    "terminal": "reports/wc_fixed_human_r1_terminal_20261004.json",
+    "metrics": "reports/wc_fixed_human_r1_metrics_20261004.json",
+    "cross": "reports/wc_fixed_human_r1_cross_metrics_20261004.json",
+    "old_metrics": "reports/wc_light_output_r1_metrics_20261004.json",
+    "shortlist": "reports/wc_fixed_human_next_layer_shortlist_cpu_20261004.json"
+  },
+  "input_SHA256": {
+    "audit": "ea418219858ffdfadf851a427a58405951aa81c1c25d605b5b5ba89c334a5986",
+    "terminal": "e1a0ad48256399fda9dbbb1bff79454c3e35e3bfc77258f29bd0cdce312b8e26",
+    "metrics": "5e215a91f3bb2a532b7c2d1e4059bc41030bc73f451409dadfd020ef02cb5c71",
+    "cross": "26af7761249a386e588dcbb8d99d8ecfce1e1e0dc0475c4e5e1966debfd15a35",
+    "old_metrics": "986cea041025756c1388b4872080a4c60d6c99378e2a3978c4b21451cdf695a0",
+    "shortlist": "b45d2ec62bde4e509fbe36e19c0a7072e45d546606db778d524ec7e97361b8d9"
+  },
+  "quality_acceptance": false,
+  "independent_confirmation": false,
+  "scientific_frontier_claim": false,
+  "causal_additive_decomposition": false,
+  "next_action": "CPU_ONLY_PREPARE_SMALL_LAYER_GROUP_AND_REFRESH_CADENCE_CONTRACT_NO_NEW_GPU_CARD_SELECTED",
+  "next_three_layer_draft": [
+    2,
+    5,
+    3
+  ],
+  "limits": [
+    "One exposed human seed0 and offline teacher trace; four outputs are not four independent scenes.",
+    "One timing pair includes provenance/mask/kernel costs and first sparse use; DD diagnostics excluded. No replicated speed claim.",
+    "Adaptive35 versus fixed38 deep calls prevent same-budget/additive attribution of the7.6percent RGB MSE change.",
+    "Only WC-relative encoded proxies, no Native/fewer-step/tunedWC frontier, semantic/physics acceptance or CONF.",
+    "Layer shortlist is from104 exposed operator inputs, not video quality/generalization or a next GPU authorization."
+  ]
+}

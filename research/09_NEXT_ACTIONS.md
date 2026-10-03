@@ -1,3 +1,13 @@
+## 2026-10-04 固定人物四输出终态：固定化略有改善，保真仍待解决
+
+[90 结果及下一步](90_WC_FIXED_HUMAN_RESULTS_AND_SMALL_GROUP_NEXT.md)/[机器摘要](../reports/wc_fixed_human_r1_summary_20261004.json)：原source4bd唯一卡exit0，四mp4/93完整解码、四轨38共同deep、D/D九门与五处1216组件、源码资产/真实核来源/费用释放独立通过。S在22次CFG执行506个算子，26次后续cache读近似；三份D视频SHA相同。固定D/S单对wall212.221/204.658秒，少3.564%，只作描述性成本。
+
+相同官方WC参考下，fixed-S PSNR17.8233/SSIM0.726741/帧差比0.966809，旧adaptive-S为17.4794/0.705409/0.952159；RGB MSE小降7.613%但差异仍明显。协议/参考SHA绑定通过；旧35与新38deep、非线性反馈，不作调度贡献百分比或可加因果分解，无Native/少步/调过WC前沿、语义物理或CONF接受。
+
+实费1237.699305秒=0.343805362GPUh≤1800，累计7.7514316824275165/12h、39jobs，余4.2485683175724835h，无inflight。原三PID/f1锁/GPU释放（24MiB/noapps），580条monitor峰值26796MiB；原件与D/D快照分开gzip保存，不重提本卡或104点。
+
+继续WC，当前23层同时S不升级质量保持候选；已CPU重排104点，14层四输入通过原局部门，{2,3,5}仅小组草案。下一CPU准备小组/低频S接口与完整成本对照，尚无下一GPU卡/reservation；学习器/RV标签、训练、人评后置，科学goal active。以下为历史。
+
 ## 2026-10-04 固定刷新真实 D/D 独立通过，最后一条 S 视频正在生成
 
 [独立D/D审计](../reports/wc_fixed_human_r1_dd_audit_20261004.json)/[全帧控制](../reports/wc_fixed_human_r1_dd_metrics_20261004.json)：原source4bd唯一任务的官方/固定D九门、五检查点各1216组件与完整pipeline一致；两mp4 SHA相同、93帧完整解码，CPU RGB误差0/SSIM1/temporal0。原件快照无损归档，15项实际合同拒绝控制通过；这些是D/D等价证据，没有S质量结论。

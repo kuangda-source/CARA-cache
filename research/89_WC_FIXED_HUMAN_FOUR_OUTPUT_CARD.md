@@ -1,3 +1,9 @@
+## 终态：四输出完成并独立审计，详细结果见90
+
+[90 结果和下一步](90_WC_FIXED_HUMAN_RESULTS_AND_SMALL_GROUP_NEXT.md)/[机器摘要](../reports/wc_fixed_human_r1_summary_20261004.json)：原source4bd唯一run退出0；四轨38共同deep、三份D SHA相同、四93帧视频、D/D九门/五处1216组件、源码资产/506真实S算子与来源、费用/释放独立通过。fixed-S相对官方WC PSNR17.8233/SSIM0.726741，较曝光adaptive-S略改善但保真仍缺；单对wall212.221/204.658秒仅描述性。
+
+实费1237.699305秒≤1800，累计7.7514316824275165/12h、39jobs，余4.2485683175724835h；无inflight，原三个PID/锁/GPU释放。单次身份已消耗，不重跑104或本卡；下一仅CPU小组/低频范围与成本准备，未选择新GPU卡/训练/RV或人评。以下为卡选择、部署、启动和D/D历史。
+
 ## 真实 D/D 独立通过，固定 D/S 原任务继续
 
 [独立审计](../reports/wc_fixed_human_r1_dd_audit_20261004.json)/[CPU全帧控制](../reports/wc_fixed_human_r1_dd_metrics_20261004.json)：官方/固定D九门、五处各1216组件与最终pipeline全部一致；两mp4相同SHA、93帧完整解码、RGB MSE0/SSIM1/temporal0。九门D/D原件SHA fce12170d857d888d5f37f0417f831ca1b2062eb9a09eee9ad17732a968c4f3e单独gzip归档，不用终态覆盖。新增合同CPU15控制通过，真实artifact IO由独立审计另行验证，均无新GPU提交。
