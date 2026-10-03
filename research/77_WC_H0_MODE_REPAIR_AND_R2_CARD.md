@@ -1,6 +1,29 @@
 # H0 模式控制修复与独立 r2 卡
 
-2026-10-03。r1/source18e692e 的 `H0 requires eval` 失败已封存并计费；0完整四臂、0原件，不能追认为互补性结果。实际CPU31与source/assets/import/package全部通过；独立r2/source4c1c3a8已唯一启动，结果未定。
+2026-10-03。r1/source18e692e 的 `H0 requires eval` 失败已封存并计费；0完整四臂、0原件，不能追认为互补性结果。独立r2/source4c1c3a8已退出0并独立审计，状态 `H0_LOCAL_COMPLEMENT_SCREEN_PASS_TWO_CFG_ONE_DEVELOPMENT_SCENE`。首次局部互补筛查2/2通过；没有视频质量、端到端收益或来源×寿命结果。
+
+## 终态与局部正结果
+
+[独立审计](../reports/wc_h0_eval_complement_r2_audit_20261003.json)、[摘要](../reports/wc_h0_eval_complement_r2_summary_20261003.json)、[runner](../reports/wc_h0_eval_complement_r2_runner_20261003.json)、[监督](../reports/wc_h0_eval_complement_r2_supervisor_20261003.json)：两臂各20更新/40CFG，共享eval模式与全部九门通过；step13/20各36组件逐项一致，observed进程内restore两处通过。call33/CFG0与call34/CFG1为事前selector选出的首次eligible full，历史真实full counters分别12/22和13/23；C在当前D前产生，当前D唯一部署，所有dense重复与实际full hidden/velocity逐位一致。
+
+八文件/16张量raw SHA、finite/shape/各臂三次hot计时、source与共同mode控制、float64 NumPy独立误差复算全部通过。以下误差均相对**同状态当前D**，是relative RMSE，不是视频评分：
+
+| call / CFG | C velocity误差 | matched-full velocity误差 | S velocity误差 | S postwarp residual误差 | D组+head中位耗时 | S组+head中位耗时 | D/S加速 |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| 33 / 0 | 29.8408% | 0.4665% | 0.9390% | 4.3493% | 3098.077ms | 2933.363ms | 1.05615× |
+| 34 / 1 | 38.4000% | 0.4547% | 0.9450% | 4.2525% | 3105.830ms | 2939.572ms | 1.05656× |
+
+C组+head仅81.379/81.543ms，但此刻强行复用的误差较大；官方WC本来就选择full。S在这些full位置相对C大幅降低当前velocity误差，同时比D少约5.3%的整组耗时（加速约1.056×）。两点均满足事前四筛查：S residual/velocity≤5%、S/C velocity≤0.75、D/S≥1.05。matched-full是含量化/路由的控制，不是真dense；它的耗时3172.991/3190.669ms高于D。其误差与S误差不能简单相减当独立可加损失。
+
+这支持“有些时刻C不够准，而S提供介于C/D之间的准确性和成本”这个局部前提。整组速度只略高于1.05门，尚未证明稳定跨场景优势；前面104点算子1.219×不能替代此处整组成本，更不能充当端到端加速。两个CFG属于同一已曝光开发场景，不是两个独立场景；当前稀疏缓存没有被后续采样复用，寿命/最终视频/预算匹配策略均未验收。已有历史sparse残差缺失的完整H0范围仍未补齐。
+
+实计708.4838515026495秒（0.196801069861847GPUh），累计5.05310433089345/12GPUh、34jobs，余额6.94689566910655h；无inflight。原supervisor2662009/timeout2662025/runner2662027全部退出，f1锁与GPU释放（24MiB、无compute）。所有失败及费用保留，预留已被实际费替代。
+
+## 下一步决定
+
+继续WorldCache，下一优先准备原[65设计](65_WC_HIERARCHICAL_PROVENANCE_LIFETIME_DESIGN.md)的H1来源×复用寿命CPU接口与具体成本卡，先1组、三来源dense/matched-full/S×1/2/4个同CFG有效solver步。H0局部正结果允许准备下一卡，不自动解锁GPU、分组动态策略、RV或训练。
+
+下一必须先定义一致的复用算子和来源语义：S/matched-full只能进入approximate reference，不能成为true dense校准锚点；同轨未来probe可读、当前/未来shadow真值只评分。选择能够覆盖后续4步的分支点与尾段，冻结完整配对分母，另验固定轨迹局部诊断与真正分叉闭环的不同接口；r2只保存当前评分原件与状态哈希，不能当成持久化可重启全状态。下一身份/source/范围/成本及实际门另登记，禁止自动第三H0或以当前筛查补造寿命结论。以下部署与启动是历史快照。
 
 ## CPU 定位与控制修复
 

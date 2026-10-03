@@ -1,3 +1,9 @@
+## 2026-10-03 H0独立r2终态：局部互补筛查2/2通过，费用/释放已审计
+
+[完整结果](../../research/77_WC_H0_MODE_REPAIR_AND_R2_CARD.md)：source4c1c3a8退出0，实际CPU31/shared-eval后两臂各20更新/40CFG、九门/step13&20各36组件/进程内restore/D逐位重放全部通过；八原件16张量/source/独立float64误差/重复计时/费用/资源释放审计通过。call33/34两CFG中，C velocity RMSE29.84%/38.40%，S0.939%/0.945%，S residual4.349%/4.253%，D/S整组+head1.05615/1.05656×（耗时降低约5.3%）；固定四项筛查2/2通过。是单个已曝光CAL的局部机制正结果，无候选视频、端到端收益或稀疏来源寿命，旧r1模式失败保持。
+
+实计708.4838515026495秒，累计5.05310433089345/12GPUh、34jobs，余6.94689566910655h，无inflight；三PIDs2662009/2662025/2662027退出，f1锁/GPU释放（24MiB/noapps）。继续WC，下一优先CPU准备既定H1三来源×1/2/4步（先1组）接口/配对/来源语义/具体成本；S/MF不是true dense锚，当前评分原件/状态哈希不是可重启全状态。另冻结下一卡，不自动第三H0/H1GPU/H2/RV/训练，非必要不新增人评。以下在跑/预留/旧授权文字为历史。
+
 ## 2026-10-03 H0独立r2 actual CPU31通过，唯一诊断在跑
 
 [部署/单次启动](../../research/77_WC_H0_MODE_REPAIR_AND_R2_CARD.md)：source4c1c3a8的CPU31/默认1173→eval0/全部资产/source/import/package通过，CUDA未初始化、旧费用不变；唯一wc-h0-eval-complement-r2 fresh准入后启动，supervisor2662009/timeout2662025/runner2662027存活，模型加载和共享eval设置通过，baseline前缀在跑。共用eval适配事前显式冻结，不删shadow guard，旧r1失败保持。两CFG/四臂/step13&20/九门仍待实际结果。

@@ -1,0 +1,292 @@
+{
+  "status": "H0_SOURCE_RAW_ERRORS_NINE_GATES_COST_RELEASE_AUDIT_PASS",
+  "observed_unix": 1791013307.3697627,
+  "source_revision": "4c1c3a81741d9dc7edfaf40f43cf997bd13dcb11",
+  "pids_absent": [
+    2662009,
+    2662025,
+    2662027
+  ],
+  "global_lock_free": true,
+  "source_hashes_verified": true,
+  "raw_output_files_checked": 8,
+  "tensor_raw_hashes_checked": 16,
+  "raw_errors_independently_recomputed": true,
+  "raw_checks": {
+    "checked": [
+      {
+        "call": 33,
+        "cfg_slot": 0,
+        "arm": "C_OFFICIAL_PAST_DENSE_GAMMA_WARP",
+        "sha256": "cfe97a2ac270ffb138a133875c27e2ac43b4d1bd2eb739f80cb1877924299899"
+      },
+      {
+        "call": 33,
+        "cfg_slot": 0,
+        "arm": "dense",
+        "sha256": "6ec9d30c22c46dd501751f5f7d3f75093c7ac56b666c84d9d2fc61d693767a5c"
+      },
+      {
+        "call": 33,
+        "cfg_slot": 0,
+        "arm": "matched_full",
+        "sha256": "5a61d64a1d80241daeee51a76216ef60ad9c9626830e6be35dc9a1e71fc83647"
+      },
+      {
+        "call": 33,
+        "cfg_slot": 0,
+        "arm": "sparse",
+        "sha256": "0e286c3809511cbec1b2d5fde89d50a22acbb61306e5520873b637cb5d024ecb"
+      },
+      {
+        "call": 34,
+        "cfg_slot": 1,
+        "arm": "C_OFFICIAL_PAST_DENSE_GAMMA_WARP",
+        "sha256": "8afcfd43bad90a0e0445d516213c39941526961d203bbcafccd21caa71f16e97"
+      },
+      {
+        "call": 34,
+        "cfg_slot": 1,
+        "arm": "dense",
+        "sha256": "ec36237ddbf70b27b702b41b92a4cb13d8425f18dc82ce2e455dc812e421f3cc"
+      },
+      {
+        "call": 34,
+        "cfg_slot": 1,
+        "arm": "matched_full",
+        "sha256": "565391234645325d514e74e80b50a2a9a14f92e1ee193f60c6b2f4a1047cd985"
+      },
+      {
+        "call": 34,
+        "cfg_slot": 1,
+        "arm": "sparse",
+        "sha256": "50c2ea81d5f029a1e8415f51408e209fdf0907e23bde0eca659b56fcbad3ca47"
+      }
+    ],
+    "recomputed": [
+      {
+        "call": 33,
+        "cfg_slot": 0,
+        "arm": "C_OFFICIAL_PAST_DENSE_GAMMA_WARP",
+        "errors": {
+          "postwarp_residual": {
+            "mse": 339.2744176599368,
+            "reference_mean_square": 1057.0500457590572,
+            "relative_mse": 0.3209634387899838,
+            "relative_rmse": 0.5665363525758818,
+            "direction_cosine": 0.8476911329160658
+          },
+          "velocity": {
+            "mse": 0.17730684751148168,
+            "reference_mean_square": 1.9911486503991738,
+            "relative_mse": 0.08904751911713685,
+            "relative_rmse": 0.2984083093969349,
+            "direction_cosine": 0.9544615902475662
+          }
+        }
+      },
+      {
+        "call": 33,
+        "cfg_slot": 0,
+        "arm": "dense",
+        "errors": {
+          "postwarp_residual": {
+            "mse": 0.0,
+            "reference_mean_square": 1057.0500457590572,
+            "relative_mse": 0.0,
+            "relative_rmse": 0.0,
+            "direction_cosine": 1.0
+          },
+          "velocity": {
+            "mse": 0.0,
+            "reference_mean_square": 1.9911486503991738,
+            "relative_mse": 0.0,
+            "relative_rmse": 0.0,
+            "direction_cosine": 1.0
+          }
+        }
+      },
+      {
+        "call": 33,
+        "cfg_slot": 0,
+        "arm": "matched_full",
+        "errors": {
+          "postwarp_residual": {
+            "mse": 0.5237499171246971,
+            "reference_mean_square": 1057.0500457590572,
+            "relative_mse": 0.0004954826114676505,
+            "relative_rmse": 0.022259438705134738,
+            "direction_cosine": 0.9997522681263522
+          },
+          "velocity": {
+            "mse": 4.333357803686434e-05,
+            "reference_mean_square": 1.9911486503991738,
+            "relative_mse": 2.1763105445782302e-05,
+            "relative_rmse": 0.0046650943662247925,
+            "direction_cosine": 0.9999891184011279
+          }
+        }
+      },
+      {
+        "call": 33,
+        "cfg_slot": 0,
+        "arm": "sparse",
+        "errors": {
+          "postwarp_residual": {
+            "mse": 1.9995266512150216,
+            "reference_mean_square": 1057.0500457590572,
+            "relative_mse": 0.001891610202598479,
+            "relative_rmse": 0.0434926453851508,
+            "direction_cosine": 0.9990543598889904
+          },
+          "velocity": {
+            "mse": 0.00017556059027544872,
+            "reference_mean_square": 1.9911486503991738,
+            "relative_mse": 8.81705091381567e-05,
+            "relative_rmse": 0.009389915289189605,
+            "direction_cosine": 0.9999559244008527
+          }
+        }
+      },
+      {
+        "call": 34,
+        "cfg_slot": 1,
+        "arm": "C_OFFICIAL_PAST_DENSE_GAMMA_WARP",
+        "errors": {
+          "postwarp_residual": {
+            "mse": 475.16320570359926,
+            "reference_mean_square": 1036.9721710141164,
+            "relative_mse": 0.4582217527003729,
+            "relative_rmse": 0.6769207876113519,
+            "direction_cosine": 0.7903084558007875
+          },
+          "velocity": {
+            "mse": 0.29403820083870363,
+            "reference_mean_square": 1.9940722222306355,
+            "relative_mse": 0.14745614404566687,
+            "relative_rmse": 0.3840001875594163,
+            "direction_cosine": 0.9237162513798977
+          }
+        }
+      },
+      {
+        "call": 34,
+        "cfg_slot": 1,
+        "arm": "dense",
+        "errors": {
+          "postwarp_residual": {
+            "mse": 0.0,
+            "reference_mean_square": 1036.9721710141164,
+            "relative_mse": 0.0,
+            "relative_rmse": 0.0,
+            "direction_cosine": 1.0
+          },
+          "velocity": {
+            "mse": 0.0,
+            "reference_mean_square": 1.9940722222306355,
+            "relative_mse": 0.0,
+            "relative_rmse": 0.0,
+            "direction_cosine": 1.0
+          }
+        }
+      },
+      {
+        "call": 34,
+        "cfg_slot": 1,
+        "arm": "matched_full",
+        "errors": {
+          "postwarp_residual": {
+            "mse": 0.45834124420054806,
+            "reference_mean_square": 1036.9721710141164,
+            "relative_mse": 0.00044199956084868606,
+            "relative_rmse": 0.021023785597477113,
+            "direction_cosine": 0.9997790084052134
+          },
+          "velocity": {
+            "mse": 4.1232684686626475e-05,
+            "reference_mean_square": 1.9940722222306355,
+            "relative_mse": 2.0677628536694736e-05,
+            "relative_rmse": 0.0045472660507930186,
+            "direction_cosine": 0.9999896620521344
+          }
+        }
+      },
+      {
+        "call": 34,
+        "cfg_slot": 1,
+        "arm": "sparse",
+        "errors": {
+          "postwarp_residual": {
+            "mse": 1.8752656171491993,
+            "reference_mean_square": 1036.9721710141164,
+            "relative_mse": 0.00180840495971581,
+            "relative_rmse": 0.04252534491001584,
+            "direction_cosine": 0.9990960056717667
+          },
+          "velocity": {
+            "mse": 0.00017806318703954168,
+            "reference_mean_square": 1.9940722222306355,
+            "relative_mse": 8.929625770542768e-05,
+            "relative_rmse": 0.009449669714092005,
+            "direction_cosine": 0.9999554348545789
+          }
+        }
+      }
+    ],
+    "cuda_initialized": false,
+    "comparison_tolerance": {
+      "relative": 2e-06,
+      "absolute": 1e-09
+    },
+    "formula": "Independent chunked float64 NumPy means/cosine versus actual GPU fp32 recorder",
+    "available_raw_file_sha256": {
+      "diagnostic/raw-h0/call33-cfg0/C.pt": "cfe97a2ac270ffb138a133875c27e2ac43b4d1bd2eb739f80cb1877924299899",
+      "diagnostic/raw-h0/call33-cfg0/dense.pt": "6ec9d30c22c46dd501751f5f7d3f75093c7ac56b666c84d9d2fc61d693767a5c",
+      "diagnostic/raw-h0/call33-cfg0/matched_full.pt": "5a61d64a1d80241daeee51a76216ef60ad9c9626830e6be35dc9a1e71fc83647",
+      "diagnostic/raw-h0/call33-cfg0/sparse.pt": "0e286c3809511cbec1b2d5fde89d50a22acbb61306e5520873b637cb5d024ecb",
+      "diagnostic/raw-h0/call34-cfg1/C.pt": "8afcfd43bad90a0e0445d516213c39941526961d203bbcafccd21caa71f16e97",
+      "diagnostic/raw-h0/call34-cfg1/dense.pt": "ec36237ddbf70b27b702b41b92a4cb13d8425f18dc82ce2e455dc812e421f3cc",
+      "diagnostic/raw-h0/call34-cfg1/matched_full.pt": "565391234645325d514e74e80b50a2a9a14f92e1ee193f60c6b2f4a1047cd985",
+      "diagnostic/raw-h0/call34-cfg1/sparse.pt": "50c2ea81d5f029a1e8415f51408e209fdf0907e23bde0eca659b56fcbad3ca47"
+    }
+  },
+  "gpu_wall_seconds": 708.4838515026495,
+  "budget": {
+    "batch": "F0-F1",
+    "cap_gpu_hours": 12,
+    "used_gpu_hours": 5.05310433089345,
+    "gpu_jobs_launched": 34,
+    "status": "WC_H0_COMPLEMENT_SETTLED_REQUIRES_RESULT_AUDIT",
+    "gpu_import_probes_completed": 1,
+    "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts",
+    "budget_authorization_ref": "manifests/budget_authorization_20261003.json",
+    "budget_authorization_history": [
+      {
+        "authorized_utc": "2026-10-02T18:03:00Z",
+        "source_thread_id": "01a0f1e6-7ad0-75df-9a02-172b60d2e00b",
+        "user_instruction": "\u628a\u5404\u4e2a\u5b9e\u9a8c\u7684 gpu \u9884\u7b97\u90fd\u8bbe\u7f6e\u4e3a 12gpuh",
+        "previous_cap_gpu_hours": 4,
+        "new_cumulative_cap_gpu_hours": 12,
+        "used_gpu_hours_at_change": 3.9117525685110333,
+        "no_usage_reset_or_transfer": true
+      }
+    ]
+  },
+  "monitor_samples": 332,
+  "gpu_release": {
+    "unix": 1791013257.621166,
+    "uuid": "GPU-cebf7119-cf03-23b9-e192-cd196332b704",
+    "name": "NVIDIA RTX A6000",
+    "memory_used_mib": 24,
+    "compute_cap": "8.6",
+    "pids": []
+  },
+  "fresh_apps": "",
+  "limits": "Same-state current shadow and in-process restoration only; no candidate video, no sparse-origin reuse, no independent restarted branch, no expert training labels",
+  "receipt_sha256": {
+    "supervisor.json": "7de8347a59048fef4e346f821d33c3d45401dda3ef95ddab21d93ea69e74dd2d",
+    "diagnostic/receipt.json": "bc9b30754ac9b3fdac06c41687366fd264558432bdf3bdd7544a6760bd70d17a",
+    "coverage.log": "5d62fbec912519494fbc2e8cb2e65c71cb23db2469922dcdd5122a53dd491e80",
+    "gpu-monitor.jsonl": "114e9d5ddd34f329e77f687da5af736a7b90165d6e7f842e8bcab54d17bed80b"
+  }
+}
