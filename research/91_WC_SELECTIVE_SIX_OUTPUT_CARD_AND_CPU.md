@@ -1,3 +1,7 @@
+## 实际部署通过，source27df749冻结
+
+[实际部署回执](../reports/wc_selective_human_r1_deployment_20261004.json)：冻结source27df749a79ca3cb9fc3789a01bf1a73fa62211a2/deploy1，53payload+mid共54份文件逐一验证；actual r1/r2 CPU原件与33当前依赖、内部scope22、旧teacher与上一轮D/S原件视频、官方prepare、native-meta mode/buffers、source/assets/import/package和人物condition身份全部匹配。CUDA未初始化，原累计12h账本不变、磁盘约564GB，f1锁可获取。当前无新GPU/预付；下一fresh准入后仅提交此2400秒卡一次。
+
 # 小层组与低频S六输出对照：源码、CPU与具体成本
 
 2026-10-04。沿[90 已完成固定刷新诊断](90_WC_FIXED_HUMAN_RESULTS_AND_SMALL_GROUP_NEXT.md)，依当前自主推进goal和原累计12GPUh选择独立 WC-SELECTIVE-HUMAN-R1-20261004-A/wc-selective-human-r1。[具体卡](../manifests/wc_selective_human_r1_execution_20261004.json)/[配置](../configs/wc_selective_human_r1.json)。旧104点、旧人物四输出单次身份均保持终态，不复用授权窗口；本卡最多一次2400秒全cost、2370秒child/kill5，当前尚未GPU提交或reservation。

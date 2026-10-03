@@ -1,3 +1,9 @@
+## 2026-10-04 六输出实际部署门通过，待唯一GPU提交
+
+[91 六输出卡](../../research/91_WC_SELECTIVE_SIX_OUTPUT_CARD_AND_CPU.md)/[实际部署](../../reports/wc_selective_human_r1_deployment_20261004.json)：source27df749/53payload+mid共54文件，CPU r1/r2原件与当前依赖、scope22、旧teacher/上一轮D/S视频SHA、官方prepare、native-meta mode/buffers、资产/import/package及human条件全部通过，CUDA未初始化，账本7.7514316824275165/12h、39jobs保持。
+
+下一仅fresh UUID/sm86/VRAM/compute/锁/预算无inflight/磁盘准入后wc-selective-human-r1单次2400秒全cost/2370child提交，六分母及D/D→legacy-S不复现即止保持。没有新GPU/预付或真实人物新结果，不自动后续卡、训练或人评。以下为历史。
+
 ## 2026-10-04 小层组/低频S六输出 CPU 通过，独立卡待部署
 
 [91 卡及CPU](../../research/91_WC_SELECTIVE_SIX_OUTPUT_CARD_AND_CPU.md)：旧四输出CPU6回归与当前selective14控制、scope22通过；禁止CUDA，原预算保持。固定38共同动作下先D/D与历史full-S SHA止步，再D/full-S23层、小组S{2,3,5}、每CFG隔一次S并全D刷新；六输出全分母、真D来源/计数恢复/失败止步保持。CPU stand-in不是实际核或人物视频。
