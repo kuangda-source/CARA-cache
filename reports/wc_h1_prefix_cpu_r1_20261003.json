@@ -1,0 +1,214 @@
+{
+  "status": "H1_CPU_GATE_PASS",
+  "exit": 0,
+  "payload_sha256": {
+    "src/wcomr/__init__.py": "b9996da0a87bb746cdac0935ead475246fc34d88b37e73f63f14e5065494f311",
+    "src/wcomr/h0_complement.py": "546b3e7dbcaebdfc561dc85abb125ed129ecaef217f4088a9a7cc6c323f7082b",
+    "src/wcomr/h0_mode.py": "849afc06fa124c606e39205542458e7bcaa974adca28d9772f3c23730c1668b4",
+    "src/wcomr/h1_reference.py": "5759254d8fcd0cc772bba08b0fa3873aa1b533fd1142b87e1fe726248b0a43d2",
+    "src/wcomr/h1_lifetime.py": "45fe13ade03ba4dc1e3163752e78e4c1bbd2ef3969f01e0091e8e0c9cfb0fd24",
+    "src/wcomr/mid_coverage.py": "8e02d740b4ee794531c6263666bbed18348e32ba84c9b94b89f7c979a106fbf4",
+    "src/wcomr/mid_scope.py": "94d02ab46cddd70a0a80e5edb62eb12e22eb2647afe66b6843e6372480bb51ac",
+    "src/wcomr/prepared_input.py": "aa2d916a56d8ac1f7afd8a551c20341d5bed86299f97b0711019517f0e0effdb",
+    "src/wcomr/measurement.py": "c4181ec3220b2fd33d333dffed9ae7163303668b9e152a705d1d70213b45a4c0",
+    "src/wcomr/shadow_metrics.py": "59a985ff8b4f9684e77f30f6e1863288c8e5e617b04b20b1e5af313824eda1ee",
+    "src/wcomr/h1_prefix.py": "68895fceaa4ba172a14747b95ced432320ea8d979a2fba57d4f40436ccb61ecf",
+    "src/wcomr/h1_scope.py": "8ee301560db37f28d61a2abfdb547735d0f388035702e991c9c632c392b341a7",
+    "src/wcomr/mid_prefix_audit.py": "218dba5b59a76919bcb03dae0ccba4dae69dc40dc4035aac968f7f85cb14fe0e",
+    "tests/test_h1_reference.py": "cd3c0615b7c5d7857e3921b0f01aa813d0c63299dd3643529f804e857d5c6a3b",
+    "tests/check_h1_lifetime.py": "ef75d1e344764d9fc3680a01b29bd5b740dd23bf442833161958a37f5e3f3eee",
+    "tests/check_h1_prefix.py": "2352b0df1eab6d49594293c1c1a042cedb6e9faff5623d79f86151b70b26daf5",
+    "tests/test_h1_scope.py": "ee51ff28a8daabdcfabc09dfd74dd8e6f27b379e33cf3b83f8c89e50445bea70",
+    "configs/wc_h1_lifetime_r1.json": "aa118a7dd4d004926360e53aad29bf38eed06792cd8a48449b35a01a60ed6b3e"
+  },
+  "budget_unchanged": true,
+  "budget": {
+    "batch": "F0-F1",
+    "cap_gpu_hours": 12,
+    "used_gpu_hours": 5.05310433089345,
+    "gpu_jobs_launched": 34,
+    "status": "WC_H0_COMPLEMENT_SETTLED_REQUIRES_RESULT_AUDIT",
+    "gpu_import_probes_completed": 1,
+    "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts",
+    "budget_authorization_ref": "manifests/budget_authorization_20261003.json",
+    "budget_authorization_history": [
+      {
+        "authorized_utc": "2026-10-02T18:03:00Z",
+        "source_thread_id": "01a0f1e6-7ad0-75df-9a02-172b60d2e00b",
+        "user_instruction": "\u628a\u5404\u4e2a\u5b9e\u9a8c\u7684 gpu \u9884\u7b97\u90fd\u8bbe\u7f6e\u4e3a 12gpuh",
+        "previous_cap_gpu_hours": 4,
+        "new_cumulative_cap_gpu_hours": 12,
+        "used_gpu_hours_at_change": 3.9117525685110333,
+        "no_usage_reset_or_transfer": true
+      }
+    ]
+  },
+  "observed_unix": 1791017582.062463,
+  "cpu_wall_seconds": 32.68932557106018,
+  "scope": "TOY_PINNED_SOURCE_ONLY_NO_GPU_MODEL_WEIGHTS_OR_LIFETIME_RESULT",
+  "controls": {
+    "prefix": {
+      "status": "H1_PRODUCTION_PREFIX_CORE_CPU_CONTROLS_PASS_NOT_REAL_MODEL_RESULT",
+      "checks": [
+        {
+          "flow": false,
+          "actual_unipc_grid": 36,
+          "prefix_updates": [
+            21,
+            21
+          ],
+          "cfg_calls": [
+            42,
+            42
+          ],
+          "nine_gate_checks": {
+            "input_hashes": true,
+            "output_hashes": true,
+            "trace": true,
+            "block_counts": true,
+            "state_fingerprints": true,
+            "sampling": true,
+            "named_inputs": true,
+            "conditions": true,
+            "field_signatures": true
+          },
+          "state_steps": [
+            13,
+            21
+          ],
+          "state_component_counts": [
+            36,
+            36
+          ],
+          "paired_lifetime_cells": 18,
+          "shared_prepare_RNG_and_buffer_delta_exact": true,
+          "all_hooks_restored": true,
+          "raw_files": 30
+        },
+        {
+          "flow": true,
+          "actual_unipc_grid": 36,
+          "prefix_updates": [
+            21,
+            21
+          ],
+          "cfg_calls": [
+            42,
+            42
+          ],
+          "nine_gate_checks": {
+            "input_hashes": true,
+            "output_hashes": true,
+            "trace": true,
+            "block_counts": true,
+            "state_fingerprints": true,
+            "sampling": true,
+            "named_inputs": true,
+            "conditions": true,
+            "field_signatures": true
+          },
+          "state_steps": [
+            13,
+            21
+          ],
+          "state_component_counts": [
+            36,
+            36
+          ],
+          "paired_lifetime_cells": 18,
+          "shared_prepare_RNG_and_buffer_delta_exact": true,
+          "all_hooks_restored": true,
+          "raw_files": 30
+        },
+        {
+          "failure": "sparse",
+          "full_denominators_preserved": true,
+          "all_hooks_restored": true,
+          "no_future_truth_or_reselection": true
+        },
+        {
+          "failure": "condition",
+          "full_denominators_preserved": true,
+          "all_hooks_restored": true,
+          "no_future_truth_or_reselection": true
+        }
+      ],
+      "cuda_initialized": false,
+      "limits": "Actual pinned WC functions and UniPC with Toy modules, synthetic kernel and stand-in Inference/prepare/reset; no GPU, real model, full video or independent fork."
+    },
+    "scope": {
+      "status": "H1_SCOPE_COST_BUDGET_CONTROLS_PASS",
+      "altered_scope_cases_rejected": 10,
+      "invalid_cost_cases_rejected": 2,
+      "invalid_budget_cases_rejected": 6
+    },
+    "reference_checks": [
+      "test_private_prediction_never_writes_deployed_windows_or_rng",
+      "test_context_cfg_and_age_drift_fail_before_predictor",
+      "test_approximate_source_cannot_claim_dense_and_prior_must_be_past",
+      "test_reference_mutation_and_policy_change_are_rejected",
+      "test_outer_inference_mode_keeps_versioned_private_snapshots",
+      "test_integer_identity_age_and_one_time_policy_contract"
+    ],
+    "wiring": {
+      "status": "H1_PINNED_SOURCE_CPU_WIRING_PASS_NOT_REAL_MODEL_LIFETIME_RESULT",
+      "checks": [
+        {
+          "flow": false,
+          "CPU_artificial_future_skip_control": false,
+          "paired_calls": 42,
+          "source_arms": 6,
+          "paired_lifetime_cells": 18,
+          "raw_files": 30,
+          "outputs_buffers_cache_counts_exact": true,
+          "all_raw_candidate_errors_independently_recomputed": true,
+          "age3_deployed_refresh_does_not_refresh_held_reference": false
+        },
+        {
+          "flow": false,
+          "CPU_artificial_future_skip_control": true,
+          "paired_calls": 42,
+          "source_arms": 6,
+          "paired_lifetime_cells": 18,
+          "raw_files": 30,
+          "outputs_buffers_cache_counts_exact": true,
+          "all_raw_candidate_errors_independently_recomputed": true,
+          "age3_deployed_refresh_does_not_refresh_held_reference": true
+        },
+        {
+          "flow": true,
+          "CPU_artificial_future_skip_control": false,
+          "paired_calls": 42,
+          "source_arms": 6,
+          "paired_lifetime_cells": 18,
+          "raw_files": 30,
+          "outputs_buffers_cache_counts_exact": true,
+          "all_raw_candidate_errors_independently_recomputed": true,
+          "age3_deployed_refresh_does_not_refresh_held_reference": false
+        },
+        {
+          "flow": true,
+          "CPU_artificial_future_skip_control": true,
+          "paired_calls": 42,
+          "source_arms": 6,
+          "paired_lifetime_cells": 18,
+          "raw_files": 30,
+          "outputs_buffers_cache_counts_exact": true,
+          "all_raw_candidate_errors_independently_recomputed": true,
+          "age3_deployed_refresh_does_not_refresh_held_reference": true
+        },
+        {
+          "failed_sparse_source_retained_in_6_source_18_lifetime_denominators": true,
+          "no_source_promotion_reselect_or_future_cells_on_failure": true
+        }
+      ],
+      "cuda_initialized": false,
+      "source_sha256": "b485cb8fd6e262a40e5823365c34ef7db1bc036c591d7577489e04077c515903",
+      "limits": "Toy modules/synthetic sparse kernel; artificial skip control is CPU-only; no actual weights, GPU, forked rollout, video or scientific lifetime result"
+    },
+    "torch_version": "2.7.1+cu128",
+    "cuda_initialized": false
+  },
+  "fresh_gpu": "GPU-de9a5370-cd87-0f1c-a48e-288888777dd3, NVIDIA RTX A6000, 350 MiB\nGPU-cebf7119-cf03-23b9-e192-cd196332b704, NVIDIA RTX A6000, 24 MiB\n",
+  "fresh_apps": ""
+}

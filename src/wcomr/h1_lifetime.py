@@ -55,6 +55,7 @@ class H1LifetimeProbe(H0ComplementProbe):
         self.source_records = []
         self.future_truths = {}
         self.source_attempts = []
+        self.conditions = {}
 
     def start(self, net):
         if type(net.cnt) is not int or net.cnt != self.call:
@@ -108,6 +109,8 @@ class H1LifetimeProbe(H0ComplementProbe):
                     or branch in self.references):
                 attempt['status'] = 'FAILED_SOURCE_INTERFACE_NO_RESELECT'
                 raise ValueError('Frozen H1 source call lacks official full/probe/two dense histories')
+            self.conditions[branch] = tree_digest(block_kwargs['crossattn_emb'])
+            attempt['condition_fingerprint'] = self.conditions[branch]
             state = self.input_state(net, original_input, probe, block_kwargs, embedding, adaln)
             state.update(attempt=attempt, branch=branch,
                          prior_residual=net.residual_window[branch][-1].detach().clone(),
@@ -116,6 +119,8 @@ class H1LifetimeProbe(H0ComplementProbe):
             self.pending = state
         elif step - source_step in self.config['reuse_ages']:
             self.require_eval(net)
+            if tree_digest(block_kwargs['crossattn_emb']) != self.conditions.get(branch):
+                raise ValueError('H1 same-CFG source conditioning changed before reuse')
             self.future(net, branch=branch, skipped=skipped, step=step,
                         state=self.input_state(net, original_input, probe, block_kwargs, embedding, adaln))
 
@@ -167,7 +172,8 @@ class H1LifetimeProbe(H0ComplementProbe):
                 self.valid_metrics(row)
                 if kind == 'dense' and not bitwise:
                     raise ValueError('H1 source true-D replay not bitwise deployed full')
-                identity = ReferenceIdentity(*self.context, branch,
+                identity = ReferenceIdentity(*self.context[:2],
+                    self.context[2] + ':' + self.conditions[branch], branch,
                     (net.probe_depth, len(net.blocks)), attempt['solver_step'], self.call, kind)
                 reference = HeldReference(identity, prior_dense_counter=state['prior_counter'],
                     prior_residual=state['prior_residual'], prior_probe_residual=state['prior_probe'],
@@ -216,7 +222,8 @@ class H1LifetimeProbe(H0ComplementProbe):
         attempt['completed_arms'] = rows
         try:
             net._w1_shadow_active = True
-            context = (*self.context, branch, (net.probe_depth, len(net.blocks)))
+            context = (*self.context[:2], self.context[2] + ':' + self.conditions[branch],
+                       branch, (net.probe_depth, len(net.blocks)))
             for kind, reference in self.references[branch].items():
                 wall = []
                 for repeat in range(self.config['warmups'] + self.config['repeats']):

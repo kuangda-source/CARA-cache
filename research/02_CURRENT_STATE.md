@@ -1,3 +1,9 @@
+## 2026-10-03 H1生产核心CPU通过，独立首卡待完整实际部署门
+
+[79独立卡](79_WC_H1_LOCAL_LIFETIME_R1_CARD_AND_RESULTS.md)：同一生产前缀核心在禁止CUDA的实际环境中通过两组21更新/42CFG、九门与step13/21各36组件、18格/30raw和全部挂钩恢复；条件变化/非finite失败分母保持。原源码/来源六控制与四组分支矩阵再通过，未GPU。
+
+既有自主goal/累计12h队列选定WC-H1-LOCAL-LIFETIME-R1-20261003-A；另计startup/import后的1414.365秒包络保留，最多一次1800全cost/1770child，不复用r4单次授权。另冻source/payload，先官方prepare/实际UniPC下一更新/native meta共同mode/assets/import完整门，再fresh资源/锁/无inflight/余额。6来源/18格不缩、S/MF不是真dense、只固定轨迹无闭环/视频。5.05310433089345/12h、34jobs不变；不自动第二H1/H2/RV/训练。以下状态为历史。
+
 ## 2026-10-03 H1 CPU接口通过，完整18格成本草案待独立执行卡
 
 [78接口与成本](78_WC_H1_FIXED_TRAJECTORY_CPU_AND_COST.md)：六项来源控制、flow OFF/ON×两种未来分支四组42-call/18格配对、失败分母与30 raw roundtrip通过；禁止CUDA、无权重，r1/r2 CPU夹具失败保留，r3通过。共同官方Gamma+warp，held来源不随中间部署刷新更新，S/MF不是true dense锚点。没有真实寿命、闭环或视频结果。

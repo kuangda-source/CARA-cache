@@ -1,0 +1,101 @@
+{
+  "status": "INDEPENDENT_H1_LOCAL18_1800_COST_CARD_PASS_PENDING_COMPLETE_ACTUAL_GATES",
+  "future_scope": {
+    "source_solver_step": 17,
+    "source_cfg_calls": [
+      33,
+      34
+    ],
+    "reuse_ages": [
+      1,
+      2,
+      4
+    ],
+    "future_cfg_calls": [
+      35,
+      36,
+      37,
+      38,
+      41,
+      42
+    ],
+    "prefix_solver_updates_per_phase": 21,
+    "prefix_cfg_calls_per_phase": 42,
+    "source_arms": 6,
+    "paired_lifetime_cells": 18,
+    "raw_files": 30,
+    "scope": "FIXED_OFFICIAL_TRAJECTORY_LOCAL_DIAGNOSTIC_NOT_FORKED_ROLLOUT"
+  },
+  "cost_seconds": {
+    "load_allowance": 113.85257261339575,
+    "prefix_per_phase": 241.43531249820566,
+    "source_24_group_replays": 120,
+    "future_12_true_D_replays": 60,
+    "future_72_cheap_reuse_replays": 10.8,
+    "scaled_uncategorized_metadata_IO_first_use": 311.11447874223813,
+    "shared_eval": 5,
+    "raw_estimate": 1153.6376763520452,
+    "contingency_fraction": 0.2,
+    "shutdown_settlement_margin": 30,
+    "planning_envelope_including_settlement": 1414.3652116224541,
+    "startup_validation_import_shutdown_allowance": 50
+  },
+  "historical_measured_inputs": {
+    "h0_source_group_hot_median_max_seconds": 3.190668508410454,
+    "h0_baseline_prefix_seconds": 201.97015629988164,
+    "h0_observed_prefix_seconds": 359.3477115826681,
+    "h0_uncategorized_difference_after_median_based_replay_deduction_seconds": 82.96386099793017,
+    "h0_replay_estimation_not_measured_separate_IO": true,
+    "h0_all_wall_minus_load_and_two_phase_wall_seconds": 42.09715510625392
+  },
+  "time_checks": {
+    "fits_1200_seconds": false,
+    "draft_1800_envelope_fits": true,
+    "prior_r4_1800_authorization_consumed_and_not_reused": true,
+    "new_frozen_runtime_card_source_complete_actual_gates_required": true
+  },
+  "resource_estimates": {
+    "historical_shape_residual": [
+      1,
+      24,
+      27,
+      48,
+      2048
+    ],
+    "residual_bytes": 127401984,
+    "held_snapshots_6_refs_4_tensors_each_bytes": 3057647616,
+    "estimated_30_raw_files_bytes": 4060992630,
+    "minimum_proposed_free_disk_bytes": 15000000000,
+    "observed_disk_free_bytes": 584697466880,
+    "historical_h0_monitor_peak_mib": 24912,
+    "historical_monitor_sha256": "114e9d5ddd34f329e77f687da5af736a7b90165d6e7f842e8bcab54d17bed80b",
+    "H1_peak_memory_not_measured": true
+  },
+  "budget_snapshot": {
+    "cap_gpu_hours": 12,
+    "used_gpu_hours": 5.05310433089345,
+    "remaining_gpu_hours": 6.94689566910655,
+    "jobs": 34,
+    "no_new_gpu_cost": true
+  },
+  "sources_sha256": {
+    "reports/wc_h0_eval_complement_r2_runner_20261003.json": "bc9b30754ac9b3fdac06c41687366fd264558432bdf3bdd7544a6760bd70d17a",
+    "reports/wc_h0_eval_complement_r2_cost_20261003.json": "9748cc18b49a41676d3e26efb3eb6072808cc6886c6dc7d188ab5685c94a659d",
+    "reports/wc_h1_lifetime_cpu_r3_20261003.json": "966f275736c959accda0327975c1b8e467271521498317bf9ee0350dc8ec122d",
+    "reports/wc_h0_eval_complement_r2_audit_20261003.json": "0a057102012a7601058fbe95aedf7a77278c5970ec31d0deacf2e594a01194ec"
+  },
+  "observed_unix": 1791015917.4857044,
+  "limits": [
+    "Median-based hot replay deduction does not measure cold cost or separate IO; unclassified overhead is conservatively scaled by 30/8 raw count",
+    "Five second group and 150ms cheap reuse allowances exceed existing hot medians but do not establish H1 measured costs",
+    "No scope shrinking, threshold search or failure replacement to fit 1200",
+    "1800 is a future draft candidate, not reuse of consumed r4 single authorization",
+    "GPU runner, shared-input nine-gate integration, actual deployed package/assets and new source/card remain incomplete",
+    "Persistent held-reference memory estimate excludes network caches, allocator peaks and active candidate/teacher workspaces",
+    "Complete independent card adds 50s startup/import allowance from actual H0 all-wall residual; prior 1354.365s draft lacked a separate startup item"
+  ],
+  "selected_card": "WC-H1-LOCAL-LIFETIME-R1-20261003-A",
+  "hard_all_cost_cap_seconds": 1800,
+  "child_cap_seconds": 1770,
+  "execution_basis": "manifests/wc_h1_lifetime_r1_execution_20261003.json"
+}
