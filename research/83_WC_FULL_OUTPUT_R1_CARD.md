@@ -34,3 +34,5 @@
 ## 实现阶段CPU记录
 
 [初步实际CPU](../reports/wc_full_output_cpu_r1_20261003.json)229.492秒通过。生产函数原生50组件与sidecar五个checkpoint分开；无adapter→dense adapter严格九门/最终pipeline成立，flow OFF/ON各六phase432CFG/两个候选配对通过，候选decode失败保留DD及六输出分母。完整服务器部署阶段需将最终config/payload/资产/import绑定到新冻结source后再验，当前记录不是GPU准入。
+
+实际部署准备r1/source34f2d86在CPU加载test_prepared_input时缺少打包依赖mid_parity_scope，未进入控制/模型/GPU。原stage与[失败回执](../reports/wc_full_output_r1_deployment_failure_20261003.json)保留；仅补齐纯Python依赖，在新deploy2 stage重新冻结验证。此为准备失败，非稀疏方法或视频结果；唯一GPU run尚未提交。
