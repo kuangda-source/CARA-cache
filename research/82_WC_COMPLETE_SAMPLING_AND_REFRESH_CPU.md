@@ -28,7 +28,7 @@ D/D 保留严格九门和最终输出等价；D/S 记录九项比较结果而不
 
 r3 的 limits 字段曾沿用 D/D 夹具的“no candidate”表述，与同一 receipt 内明确标记的 CPU stand-in 接线控制不一致；新版本改正文字，原 r3 回执不回写。新增模型对象和 deep group 变化拒绝门后的 CPU r4 状态及实际文件 SHA，见下面的终态记录；不得用 r3 给后来代码追认 CPU 通过。
 
-CPU 使用 4-block toy、2048 通道与缩小几何，fallback 使用 toy layer2。真实 28 层、probe2、fallback6/23/27、N15660/BF16/QKV、真实稀疏 CUDA kernel 的闭环尚未验证。解码 stand-in 给出 1×3×93×16×16，writer 写明确标记 `CPU_MOCK_WRITER_NOT_VIDEO` 的 JSON 文件；没有运行真实 VAE、视频编码、模型权重或 CUDA。恢复仍为同进程/存活条件闭包，不是独立序列化整管线重启。
+CPU 使用 4-block toy、2048 通道与缩小几何，fallback 使用 toy layer2。真实 28 层、probe2、fallback6/23/27、N31104/BF16/QKV、真实稀疏 CUDA kernel 的闭环尚未验证。解码 stand-in 给出 1×3×93×16×16，writer 写明确标记 `CPU_MOCK_WRITER_NOT_VIDEO` 的 JSON 文件；没有运行真实 VAE、视频编码、模型权重或 CUDA。恢复仍为同进程/存活条件闭包，不是独立序列化整管线重启。
 
 ## 下一科学工作
 
@@ -45,3 +45,5 @@ CPU 源码门通过后，具体化两曝光 CAL 的官方 WC 与简单 WC+S **�
 [独立 CPU receipt/source 审计](../reports/wc_full_sampling_cpu_audit_20261003.json)通过：最终payload每文件SHA匹配当前源码；无适配器D/D核心及依赖仍与r3完整11条控制的字节一致；r1失败及各轮原SHA保留。最终19条刷新控制使用明确toy group(1,4)、fallback2，新增provenance后五检查点各51个组件。snapshot仍为同进程接口，未增加独立重启声明。
 
 r5现场观察 Unix1791031104.1672678：指定A6000为24MiB，compute apps为空；账本仍为6.055044055960606/12GPUh、36jobs，新增GPU费0。该观察不是下一任务的持续资源预留。当前没有运行中的CPU控制或新增GPU任务，下一需先具体化完整输出卡。
+
+2026-10-03后续范围修正：真实r4原件QKV为N31104（不是此前误写的15660）；后续完整输出卡将原生状态九门与额外来源sidecar签名单独记录，D/D用原官方无adapter baseline对比dense adapter，恢复仍检查完整native+sidecar。较早r5的51组件口径保留，不能用于后来源码的接受。

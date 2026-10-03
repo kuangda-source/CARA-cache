@@ -1,0 +1,1411 @@
+{
+  "status": "FULL_OUTPUT_CPU_GATE_PASS",
+  "exit": 0,
+  "payload_sha256": {
+    "src/wcomr/__init__.py": "b9996da0a87bb746cdac0935ead475246fc34d88b37e73f63f14e5065494f311",
+    "src/wcomr/full_sampling.py": "d5fc455dbf8d0fe3b5b1fdc2a69d00d1a2a41dd7cc741fc6b0830b74f7b881aa",
+    "src/wcomr/full_output.py": "bce7d514bd506e8cf878747c77e318ac060bfe07718bdbd129a8975af5c5234f",
+    "src/wcomr/full_output_scope.py": "4cfaae233589d9a75d392e34105a058260913a297c0ef11554239da89fc966a0",
+    "src/wcomr/refresh_deployment.py": "c7c6072cffaeda042e374db2cfa3367065f6b58c45219cf53ce08f13b11e1366",
+    "src/wcomr/decoder_policy.py": "57e1369909dfa9db5ea6ab563b275fe7376bea14d0b247dd7748e79fccf8699b",
+    "src/wcomr/stage_witness.py": "78247cc3137d1ea032425c392aa728f35b83fcd0d748f21be4cb3c3d7995ae09",
+    "src/wcomr/h0_mode.py": "849afc06fa124c606e39205542458e7bcaa974adca28d9772f3c23730c1668b4",
+    "src/wcomr/mid_coverage.py": "8e02d740b4ee794531c6263666bbed18348e32ba84c9b94b89f7c979a106fbf4",
+    "src/wcomr/mid_scope.py": "94d02ab46cddd70a0a80e5edb62eb12e22eb2647afe66b6843e6372480bb51ac",
+    "src/wcomr/mid_prefix_audit.py": "218dba5b59a76919bcb03dae0ccba4dae69dc40dc4035aac968f7f85cb14fe0e",
+    "src/wcomr/prepared_input.py": "aa2d916a56d8ac1f7afd8a551c20341d5bed86299f97b0711019517f0e0effdb",
+    "src/wcomr/measurement.py": "c4181ec3220b2fd33d333dffed9ae7163303668b9e152a705d1d70213b45a4c0",
+    "tests/check_full_sampling.py": "16739554e49a6855b40fe3aed1489971a17574a6a5ebedf29114d0a66f29a7b7",
+    "tests/check_full_output_scope.py": "8a379ad50fb93fb670054e623b51721575eee35c85d012ac5016eacbc37657e1",
+    "configs/wc_full_output_r1.json": "4b26f550211bc0479b8fea5eeb1eea9734269aaa703b0cc3167d222b128e63f7"
+  },
+  "budget_unchanged": true,
+  "budget": {
+    "batch": "F0-F1",
+    "cap_gpu_hours": 12,
+    "used_gpu_hours": 6.055044055960606,
+    "gpu_jobs_launched": 36,
+    "status": "WC_H1_GENERALIZATION_SETTLED_REQUIRES_RESULT_AUDIT",
+    "gpu_import_probes_completed": 1,
+    "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts",
+    "budget_authorization_ref": "manifests/budget_authorization_20261003.json",
+    "budget_authorization_history": [
+      {
+        "authorized_utc": "2026-10-02T18:03:00Z",
+        "source_thread_id": "01a0f1e6-7ad0-75df-9a02-172b60d2e00b",
+        "user_instruction": "\u628a\u5404\u4e2a\u5b9e\u9a8c\u7684 gpu \u9884\u7b97\u90fd\u8bbe\u7f6e\u4e3a 12gpuh",
+        "previous_cap_gpu_hours": 4,
+        "new_cumulative_cap_gpu_hours": 12,
+        "used_gpu_hours_at_change": 3.9117525685110333,
+        "no_usage_reset_or_transfer": true
+      }
+    ]
+  },
+  "observed_unix": 1791032499.8619738,
+  "cpu_wall_seconds": 229.49150490760803,
+  "scope": "FULL_OFFICIAL_SAMPLER_PIPELINE_TOY_BOUNDARIES_NO_GPU_WEIGHTS_OR_VIDEO_RESULT",
+  "controls": {
+    "complete_sampling": {
+      "dense_controls": {
+        "status": "FULL36_CFG72_PINNED_OFFICIAL_SAMPLER_PIPELINE_CPU_CONTROL_PASS",
+        "checks": [
+          {
+            "flow": false,
+            "request": "common",
+            "control": "ordinary",
+            "full_updates": [
+              36,
+              36
+            ],
+            "cfg_calls": [
+              72,
+              72
+            ],
+            "nine_gates": {
+              "input_hashes": true,
+              "output_hashes": true,
+              "trace": true,
+              "block_counts": true,
+              "state_fingerprints": true,
+              "sampling": true,
+              "named_inputs": true,
+              "conditions": true,
+              "field_signatures": true
+            },
+            "pipeline_gates": {
+              "pipeline_events": true,
+              "artifacts": true,
+              "flags_before": true,
+              "flags_after": true,
+              "rng_after": true
+            },
+            "checkpoints": [
+              13,
+              21,
+              33,
+              35,
+              36
+            ],
+            "component_counts": [
+              50,
+              50,
+              50,
+              50,
+              50
+            ],
+            "separate_provenance_checkpoints": 0,
+            "actual_restored_latent_continues_to_final": true,
+            "official70_reset_final_counters": [
+              68,
+              69,
+              0,
+              1
+            ],
+            "mock_decode_and_writer_full93_interface": true,
+            "all_hooks_buffers_modes_decode_flags_restored": true,
+            "refresh_controls": {}
+          },
+          {
+            "flow": false,
+            "request": "human",
+            "control": "ordinary",
+            "full_updates": [
+              36,
+              36
+            ],
+            "cfg_calls": [
+              72,
+              72
+            ],
+            "nine_gates": {
+              "input_hashes": true,
+              "output_hashes": true,
+              "trace": true,
+              "block_counts": true,
+              "state_fingerprints": true,
+              "sampling": true,
+              "named_inputs": true,
+              "conditions": true,
+              "field_signatures": true
+            },
+            "pipeline_gates": {
+              "pipeline_events": true,
+              "artifacts": true,
+              "flags_before": true,
+              "flags_after": true,
+              "rng_after": true
+            },
+            "checkpoints": [
+              13,
+              21,
+              33,
+              35,
+              36
+            ],
+            "component_counts": [
+              50,
+              50,
+              50,
+              50,
+              50
+            ],
+            "separate_provenance_checkpoints": 0,
+            "actual_restored_latent_continues_to_final": true,
+            "official70_reset_final_counters": [
+              68,
+              69,
+              0,
+              1
+            ],
+            "mock_decode_and_writer_full93_interface": true,
+            "all_hooks_buffers_modes_decode_flags_restored": true,
+            "refresh_controls": {}
+          },
+          {
+            "flow": true,
+            "request": "common",
+            "control": "ordinary",
+            "full_updates": [
+              36,
+              36
+            ],
+            "cfg_calls": [
+              72,
+              72
+            ],
+            "nine_gates": {
+              "input_hashes": true,
+              "output_hashes": true,
+              "trace": true,
+              "block_counts": true,
+              "state_fingerprints": true,
+              "sampling": true,
+              "named_inputs": true,
+              "conditions": true,
+              "field_signatures": true
+            },
+            "pipeline_gates": {
+              "pipeline_events": true,
+              "artifacts": true,
+              "flags_before": true,
+              "flags_after": true,
+              "rng_after": true
+            },
+            "checkpoints": [
+              13,
+              21,
+              33,
+              35,
+              36
+            ],
+            "component_counts": [
+              50,
+              50,
+              50,
+              50,
+              50
+            ],
+            "separate_provenance_checkpoints": 0,
+            "actual_restored_latent_continues_to_final": true,
+            "official70_reset_final_counters": [
+              68,
+              69,
+              0,
+              1
+            ],
+            "mock_decode_and_writer_full93_interface": true,
+            "all_hooks_buffers_modes_decode_flags_restored": true,
+            "refresh_controls": {}
+          },
+          {
+            "flow": true,
+            "request": "human",
+            "control": "ordinary",
+            "full_updates": [
+              36,
+              36
+            ],
+            "cfg_calls": [
+              72,
+              72
+            ],
+            "nine_gates": {
+              "input_hashes": true,
+              "output_hashes": true,
+              "trace": true,
+              "block_counts": true,
+              "state_fingerprints": true,
+              "sampling": true,
+              "named_inputs": true,
+              "conditions": true,
+              "field_signatures": true
+            },
+            "pipeline_gates": {
+              "pipeline_events": true,
+              "artifacts": true,
+              "flags_before": true,
+              "flags_after": true,
+              "rng_after": true
+            },
+            "checkpoints": [
+              13,
+              21,
+              33,
+              35,
+              36
+            ],
+            "component_counts": [
+              50,
+              50,
+              50,
+              50,
+              50
+            ],
+            "separate_provenance_checkpoints": 0,
+            "actual_restored_latent_continues_to_final": true,
+            "official70_reset_final_counters": [
+              68,
+              69,
+              0,
+              1
+            ],
+            "mock_decode_and_writer_full93_interface": true,
+            "all_hooks_buffers_modes_decode_flags_restored": true,
+            "refresh_controls": {}
+          },
+          {
+            "flow": true,
+            "request": "common",
+            "control": "corrupt_restore",
+            "full_updates": [
+              36,
+              36
+            ],
+            "cfg_calls": [
+              72,
+              72
+            ],
+            "nine_gates": {
+              "input_hashes": true,
+              "output_hashes": true,
+              "trace": true,
+              "block_counts": true,
+              "state_fingerprints": true,
+              "sampling": true,
+              "named_inputs": true,
+              "conditions": true,
+              "field_signatures": true
+            },
+            "pipeline_gates": {
+              "pipeline_events": true,
+              "artifacts": true,
+              "flags_before": true,
+              "flags_after": true,
+              "rng_after": true
+            },
+            "checkpoints": [
+              13,
+              21,
+              33,
+              35,
+              36
+            ],
+            "component_counts": [
+              50,
+              50,
+              50,
+              50,
+              50
+            ],
+            "separate_provenance_checkpoints": 0,
+            "actual_restored_latent_continues_to_final": true,
+            "official70_reset_final_counters": [
+              68,
+              69,
+              0,
+              1
+            ],
+            "mock_decode_and_writer_full93_interface": true,
+            "all_hooks_buffers_modes_decode_flags_restored": true,
+            "refresh_controls": {}
+          },
+          {
+            "flow": true,
+            "request": "human",
+            "control": "corrupt_restore",
+            "full_updates": [
+              36,
+              36
+            ],
+            "cfg_calls": [
+              72,
+              72
+            ],
+            "nine_gates": {
+              "input_hashes": true,
+              "output_hashes": true,
+              "trace": true,
+              "block_counts": true,
+              "state_fingerprints": true,
+              "sampling": true,
+              "named_inputs": true,
+              "conditions": true,
+              "field_signatures": true
+            },
+            "pipeline_gates": {
+              "pipeline_events": true,
+              "artifacts": true,
+              "flags_before": true,
+              "flags_after": true,
+              "rng_after": true
+            },
+            "checkpoints": [
+              13,
+              21,
+              33,
+              35,
+              36
+            ],
+            "component_counts": [
+              50,
+              50,
+              50,
+              50,
+              50
+            ],
+            "separate_provenance_checkpoints": 0,
+            "actual_restored_latent_continues_to_final": true,
+            "official70_reset_final_counters": [
+              68,
+              69,
+              0,
+              1
+            ],
+            "mock_decode_and_writer_full93_interface": true,
+            "all_hooks_buffers_modes_decode_flags_restored": true,
+            "refresh_controls": {}
+          },
+          {
+            "flow": true,
+            "failure": "solver_tail",
+            "error": "CPU injected failure at final sampler tail",
+            "planned_phases": 4,
+            "denominators_preserved": true,
+            "first_request_complete_preserved": true,
+            "second_phase_updates": [
+              36,
+              35
+            ],
+            "all_hooks_and_decode_flags_restored": true
+          },
+          {
+            "flow": true,
+            "failure": "decode",
+            "error": "CPU injected decoder failure",
+            "planned_phases": 4,
+            "denominators_preserved": true,
+            "first_request_complete_preserved": true,
+            "second_phase_updates": [
+              36,
+              36
+            ],
+            "all_hooks_and_decode_flags_restored": true
+          },
+          {
+            "flow": true,
+            "failure": "writer",
+            "error": "Complete generation missing expected output artifact",
+            "planned_phases": 4,
+            "denominators_preserved": true,
+            "first_request_complete_preserved": true,
+            "second_phase_updates": [
+              36,
+              36
+            ],
+            "all_hooks_and_decode_flags_restored": true
+          },
+          {
+            "flow": true,
+            "failure": "output_corruption",
+            "error": "Complete D/D state or final pipeline control differs",
+            "planned_phases": 4,
+            "denominators_preserved": true,
+            "first_request_complete_preserved": true,
+            "second_phase_updates": [
+              36,
+              36
+            ],
+            "all_hooks_and_decode_flags_restored": true
+          },
+          {
+            "flow": true,
+            "failure": "rng_after_decode",
+            "error": "Complete D/D state or final pipeline control differs",
+            "planned_phases": 4,
+            "denominators_preserved": true,
+            "first_request_complete_preserved": true,
+            "second_phase_updates": [
+              36,
+              36
+            ],
+            "all_hooks_and_decode_flags_restored": true
+          }
+        ],
+        "upstream_sha256": {
+          "cosmos_predict2/inference.py": "0db96c49f0b3f18a971bc989e0727132dafc27ef621145a2d25a3da62a7a1975",
+          "cosmos_predict2/_src/predict2/inference/video2world.py": "59aa9e236a5e7e26490f5cfcb94ab95ce911d9c38eba61dd8aef7d067e458a95",
+          "cosmos_predict2/_src/predict2/inference/worldcache_utils.py": "b485cb8fd6e262a40e5823365c34ef7db1bc036c591d7577489e04077c515903",
+          "cosmos_predict2/_src/predict2/models/text2world_model_rectified_flow.py": "c6c68f297859e11c76d2921667a29cabfecef3a7b5d3ab831bf9bb54b25b7d87",
+          "cosmos_predict2/_src/predict2/models/fm_solvers_unipc.py": "f6a06c75f059693ade6c802e99f6058575969b6a71ef18ab05e7ed46701053d3"
+        },
+        "cuda_initialized": false,
+        "limits": "Unchanged pinned sampler/get_velocity/denoise/decode wrapper, WC, UniPC, generate_vid2world and Inference method bodies. Explicit Toy net, CPU noise/conditioner/normalize/broadcast/prepare/tokenizer/mock writer, offload disabled and CUDA telemetry adapters; equal finite threshold schedule is CPU control only. No weights, true VAE/encoded video, GPU completion, independent restart or quality result. No sparse candidate in this control."
+      },
+      "refresh_controls": {
+        "status": "FULL36_CFG72_PINNED_SPARSE_REFRESH_INTERFACE_CPU_PASS",
+        "checks": [
+          {
+            "flow": false,
+            "request": "common",
+            "control": "refresh_dense",
+            "full_updates": [
+              36,
+              36
+            ],
+            "cfg_calls": [
+              72,
+              72
+            ],
+            "nine_gates": {
+              "input_hashes": true,
+              "output_hashes": true,
+              "trace": true,
+              "block_counts": true,
+              "state_fingerprints": true,
+              "sampling": true,
+              "named_inputs": true,
+              "conditions": true,
+              "field_signatures": true
+            },
+            "pipeline_gates": {
+              "pipeline_events": true,
+              "artifacts": true,
+              "flags_before": true,
+              "flags_after": true,
+              "rng_after": true
+            },
+            "checkpoints": [
+              13,
+              21,
+              33,
+              35,
+              36
+            ],
+            "component_counts": [
+              50,
+              50,
+              50,
+              50,
+              50
+            ],
+            "separate_provenance_checkpoints": 5,
+            "actual_restored_latent_continues_to_final": true,
+            "official70_reset_final_counters": [
+              68,
+              69,
+              0,
+              1
+            ],
+            "mock_decode_and_writer_full93_interface": true,
+            "all_hooks_buffers_modes_decode_flags_restored": true,
+            "refresh_controls": {
+              "sparse_refresh_calls": 0,
+              "cache_hit_reads_approximate_forecast": false,
+              "fallback_layer_2_never_sparse": true,
+              "warm_and_final_dense": true,
+              "native70_reset_invalidates_both_cfg_histories": true,
+              "sparse_never_true_dense": true,
+              "ledger_restored_and_rebound": true,
+              "approximate_closure_changes_actual_final_latent": false
+            }
+          },
+          {
+            "flow": false,
+            "request": "human",
+            "control": "refresh_dense",
+            "full_updates": [
+              36,
+              36
+            ],
+            "cfg_calls": [
+              72,
+              72
+            ],
+            "nine_gates": {
+              "input_hashes": true,
+              "output_hashes": true,
+              "trace": true,
+              "block_counts": true,
+              "state_fingerprints": true,
+              "sampling": true,
+              "named_inputs": true,
+              "conditions": true,
+              "field_signatures": true
+            },
+            "pipeline_gates": {
+              "pipeline_events": true,
+              "artifacts": true,
+              "flags_before": true,
+              "flags_after": true,
+              "rng_after": true
+            },
+            "checkpoints": [
+              13,
+              21,
+              33,
+              35,
+              36
+            ],
+            "component_counts": [
+              50,
+              50,
+              50,
+              50,
+              50
+            ],
+            "separate_provenance_checkpoints": 5,
+            "actual_restored_latent_continues_to_final": true,
+            "official70_reset_final_counters": [
+              68,
+              69,
+              0,
+              1
+            ],
+            "mock_decode_and_writer_full93_interface": true,
+            "all_hooks_buffers_modes_decode_flags_restored": true,
+            "refresh_controls": {
+              "sparse_refresh_calls": 0,
+              "cache_hit_reads_approximate_forecast": false,
+              "fallback_layer_2_never_sparse": true,
+              "warm_and_final_dense": true,
+              "native70_reset_invalidates_both_cfg_histories": true,
+              "sparse_never_true_dense": true,
+              "ledger_restored_and_rebound": true,
+              "approximate_closure_changes_actual_final_latent": false
+            }
+          },
+          {
+            "flow": false,
+            "request": "common",
+            "control": "refresh_sparse",
+            "full_updates": [
+              36,
+              36
+            ],
+            "cfg_calls": [
+              72,
+              72
+            ],
+            "nine_gates": {
+              "input_hashes": false,
+              "output_hashes": false,
+              "trace": true,
+              "block_counts": true,
+              "state_fingerprints": false,
+              "sampling": true,
+              "named_inputs": false,
+              "conditions": true,
+              "field_signatures": false
+            },
+            "pipeline_gates": {
+              "pipeline_events": false,
+              "artifacts": true,
+              "flags_before": true,
+              "flags_after": true,
+              "rng_after": true
+            },
+            "checkpoints": [
+              13,
+              21,
+              33,
+              35,
+              36
+            ],
+            "component_counts": [
+              50,
+              50,
+              50,
+              50,
+              50
+            ],
+            "separate_provenance_checkpoints": 5,
+            "actual_restored_latent_continues_to_final": true,
+            "official70_reset_final_counters": [
+              68,
+              69,
+              0,
+              1
+            ],
+            "mock_decode_and_writer_full93_interface": true,
+            "all_hooks_buffers_modes_decode_flags_restored": true,
+            "refresh_controls": {
+              "sparse_refresh_calls": 12,
+              "cache_hit_reads_approximate_forecast": true,
+              "fallback_layer_2_never_sparse": true,
+              "warm_and_final_dense": true,
+              "native70_reset_invalidates_both_cfg_histories": true,
+              "sparse_never_true_dense": true,
+              "ledger_restored_and_rebound": true,
+              "approximate_closure_changes_actual_final_latent": true
+            }
+          },
+          {
+            "flow": false,
+            "request": "human",
+            "control": "refresh_sparse",
+            "full_updates": [
+              36,
+              36
+            ],
+            "cfg_calls": [
+              72,
+              72
+            ],
+            "nine_gates": {
+              "input_hashes": false,
+              "output_hashes": false,
+              "trace": true,
+              "block_counts": true,
+              "state_fingerprints": false,
+              "sampling": true,
+              "named_inputs": false,
+              "conditions": true,
+              "field_signatures": false
+            },
+            "pipeline_gates": {
+              "pipeline_events": false,
+              "artifacts": true,
+              "flags_before": true,
+              "flags_after": true,
+              "rng_after": true
+            },
+            "checkpoints": [
+              13,
+              21,
+              33,
+              35,
+              36
+            ],
+            "component_counts": [
+              50,
+              50,
+              50,
+              50,
+              50
+            ],
+            "separate_provenance_checkpoints": 5,
+            "actual_restored_latent_continues_to_final": true,
+            "official70_reset_final_counters": [
+              68,
+              69,
+              0,
+              1
+            ],
+            "mock_decode_and_writer_full93_interface": true,
+            "all_hooks_buffers_modes_decode_flags_restored": true,
+            "refresh_controls": {
+              "sparse_refresh_calls": 12,
+              "cache_hit_reads_approximate_forecast": true,
+              "fallback_layer_2_never_sparse": true,
+              "warm_and_final_dense": true,
+              "native70_reset_invalidates_both_cfg_histories": true,
+              "sparse_never_true_dense": true,
+              "ledger_restored_and_rebound": true,
+              "approximate_closure_changes_actual_final_latent": true
+            }
+          },
+          {
+            "flow": true,
+            "request": "common",
+            "control": "refresh_dense",
+            "full_updates": [
+              36,
+              36
+            ],
+            "cfg_calls": [
+              72,
+              72
+            ],
+            "nine_gates": {
+              "input_hashes": true,
+              "output_hashes": true,
+              "trace": true,
+              "block_counts": true,
+              "state_fingerprints": true,
+              "sampling": true,
+              "named_inputs": true,
+              "conditions": true,
+              "field_signatures": true
+            },
+            "pipeline_gates": {
+              "pipeline_events": true,
+              "artifacts": true,
+              "flags_before": true,
+              "flags_after": true,
+              "rng_after": true
+            },
+            "checkpoints": [
+              13,
+              21,
+              33,
+              35,
+              36
+            ],
+            "component_counts": [
+              50,
+              50,
+              50,
+              50,
+              50
+            ],
+            "separate_provenance_checkpoints": 5,
+            "actual_restored_latent_continues_to_final": true,
+            "official70_reset_final_counters": [
+              68,
+              69,
+              0,
+              1
+            ],
+            "mock_decode_and_writer_full93_interface": true,
+            "all_hooks_buffers_modes_decode_flags_restored": true,
+            "refresh_controls": {
+              "sparse_refresh_calls": 0,
+              "cache_hit_reads_approximate_forecast": false,
+              "fallback_layer_2_never_sparse": true,
+              "warm_and_final_dense": true,
+              "native70_reset_invalidates_both_cfg_histories": true,
+              "sparse_never_true_dense": true,
+              "ledger_restored_and_rebound": true,
+              "approximate_closure_changes_actual_final_latent": false
+            }
+          },
+          {
+            "flow": true,
+            "request": "human",
+            "control": "refresh_dense",
+            "full_updates": [
+              36,
+              36
+            ],
+            "cfg_calls": [
+              72,
+              72
+            ],
+            "nine_gates": {
+              "input_hashes": true,
+              "output_hashes": true,
+              "trace": true,
+              "block_counts": true,
+              "state_fingerprints": true,
+              "sampling": true,
+              "named_inputs": true,
+              "conditions": true,
+              "field_signatures": true
+            },
+            "pipeline_gates": {
+              "pipeline_events": true,
+              "artifacts": true,
+              "flags_before": true,
+              "flags_after": true,
+              "rng_after": true
+            },
+            "checkpoints": [
+              13,
+              21,
+              33,
+              35,
+              36
+            ],
+            "component_counts": [
+              50,
+              50,
+              50,
+              50,
+              50
+            ],
+            "separate_provenance_checkpoints": 5,
+            "actual_restored_latent_continues_to_final": true,
+            "official70_reset_final_counters": [
+              68,
+              69,
+              0,
+              1
+            ],
+            "mock_decode_and_writer_full93_interface": true,
+            "all_hooks_buffers_modes_decode_flags_restored": true,
+            "refresh_controls": {
+              "sparse_refresh_calls": 0,
+              "cache_hit_reads_approximate_forecast": false,
+              "fallback_layer_2_never_sparse": true,
+              "warm_and_final_dense": true,
+              "native70_reset_invalidates_both_cfg_histories": true,
+              "sparse_never_true_dense": true,
+              "ledger_restored_and_rebound": true,
+              "approximate_closure_changes_actual_final_latent": false
+            }
+          },
+          {
+            "flow": true,
+            "request": "common",
+            "control": "refresh_sparse",
+            "full_updates": [
+              36,
+              36
+            ],
+            "cfg_calls": [
+              72,
+              72
+            ],
+            "nine_gates": {
+              "input_hashes": false,
+              "output_hashes": false,
+              "trace": true,
+              "block_counts": true,
+              "state_fingerprints": false,
+              "sampling": true,
+              "named_inputs": false,
+              "conditions": true,
+              "field_signatures": false
+            },
+            "pipeline_gates": {
+              "pipeline_events": false,
+              "artifacts": true,
+              "flags_before": true,
+              "flags_after": true,
+              "rng_after": true
+            },
+            "checkpoints": [
+              13,
+              21,
+              33,
+              35,
+              36
+            ],
+            "component_counts": [
+              50,
+              50,
+              50,
+              50,
+              50
+            ],
+            "separate_provenance_checkpoints": 5,
+            "actual_restored_latent_continues_to_final": true,
+            "official70_reset_final_counters": [
+              68,
+              69,
+              0,
+              1
+            ],
+            "mock_decode_and_writer_full93_interface": true,
+            "all_hooks_buffers_modes_decode_flags_restored": true,
+            "refresh_controls": {
+              "sparse_refresh_calls": 12,
+              "cache_hit_reads_approximate_forecast": true,
+              "fallback_layer_2_never_sparse": true,
+              "warm_and_final_dense": true,
+              "native70_reset_invalidates_both_cfg_histories": true,
+              "sparse_never_true_dense": true,
+              "ledger_restored_and_rebound": true,
+              "approximate_closure_changes_actual_final_latent": true
+            }
+          },
+          {
+            "flow": true,
+            "request": "human",
+            "control": "refresh_sparse",
+            "full_updates": [
+              36,
+              36
+            ],
+            "cfg_calls": [
+              72,
+              72
+            ],
+            "nine_gates": {
+              "input_hashes": false,
+              "output_hashes": false,
+              "trace": true,
+              "block_counts": true,
+              "state_fingerprints": false,
+              "sampling": true,
+              "named_inputs": false,
+              "conditions": true,
+              "field_signatures": false
+            },
+            "pipeline_gates": {
+              "pipeline_events": false,
+              "artifacts": true,
+              "flags_before": true,
+              "flags_after": true,
+              "rng_after": true
+            },
+            "checkpoints": [
+              13,
+              21,
+              33,
+              35,
+              36
+            ],
+            "component_counts": [
+              50,
+              50,
+              50,
+              50,
+              50
+            ],
+            "separate_provenance_checkpoints": 5,
+            "actual_restored_latent_continues_to_final": true,
+            "official70_reset_final_counters": [
+              68,
+              69,
+              0,
+              1
+            ],
+            "mock_decode_and_writer_full93_interface": true,
+            "all_hooks_buffers_modes_decode_flags_restored": true,
+            "refresh_controls": {
+              "sparse_refresh_calls": 12,
+              "cache_hit_reads_approximate_forecast": true,
+              "fallback_layer_2_never_sparse": true,
+              "warm_and_final_dense": true,
+              "native70_reset_invalidates_both_cfg_histories": true,
+              "sparse_never_true_dense": true,
+              "ledger_restored_and_rebound": true,
+              "approximate_closure_changes_actual_final_latent": true
+            }
+          },
+          {
+            "flow": true,
+            "request": "common",
+            "control": "refresh_corrupt_restore",
+            "full_updates": [
+              36,
+              36
+            ],
+            "cfg_calls": [
+              72,
+              72
+            ],
+            "nine_gates": {
+              "input_hashes": false,
+              "output_hashes": false,
+              "trace": true,
+              "block_counts": true,
+              "state_fingerprints": false,
+              "sampling": true,
+              "named_inputs": false,
+              "conditions": true,
+              "field_signatures": false
+            },
+            "pipeline_gates": {
+              "pipeline_events": false,
+              "artifacts": true,
+              "flags_before": true,
+              "flags_after": true,
+              "rng_after": true
+            },
+            "checkpoints": [
+              13,
+              21,
+              33,
+              35,
+              36
+            ],
+            "component_counts": [
+              50,
+              50,
+              50,
+              50,
+              50
+            ],
+            "separate_provenance_checkpoints": 5,
+            "actual_restored_latent_continues_to_final": true,
+            "official70_reset_final_counters": [
+              68,
+              69,
+              0,
+              1
+            ],
+            "mock_decode_and_writer_full93_interface": true,
+            "all_hooks_buffers_modes_decode_flags_restored": true,
+            "refresh_controls": {
+              "sparse_refresh_calls": 12,
+              "cache_hit_reads_approximate_forecast": true,
+              "fallback_layer_2_never_sparse": true,
+              "warm_and_final_dense": true,
+              "native70_reset_invalidates_both_cfg_histories": true,
+              "sparse_never_true_dense": true,
+              "ledger_restored_and_rebound": true,
+              "approximate_closure_changes_actual_final_latent": true
+            }
+          },
+          {
+            "flow": true,
+            "request": "human",
+            "control": "refresh_corrupt_restore",
+            "full_updates": [
+              36,
+              36
+            ],
+            "cfg_calls": [
+              72,
+              72
+            ],
+            "nine_gates": {
+              "input_hashes": false,
+              "output_hashes": false,
+              "trace": true,
+              "block_counts": true,
+              "state_fingerprints": false,
+              "sampling": true,
+              "named_inputs": false,
+              "conditions": true,
+              "field_signatures": false
+            },
+            "pipeline_gates": {
+              "pipeline_events": false,
+              "artifacts": true,
+              "flags_before": true,
+              "flags_after": true,
+              "rng_after": true
+            },
+            "checkpoints": [
+              13,
+              21,
+              33,
+              35,
+              36
+            ],
+            "component_counts": [
+              50,
+              50,
+              50,
+              50,
+              50
+            ],
+            "separate_provenance_checkpoints": 5,
+            "actual_restored_latent_continues_to_final": true,
+            "official70_reset_final_counters": [
+              68,
+              69,
+              0,
+              1
+            ],
+            "mock_decode_and_writer_full93_interface": true,
+            "all_hooks_buffers_modes_decode_flags_restored": true,
+            "refresh_controls": {
+              "sparse_refresh_calls": 12,
+              "cache_hit_reads_approximate_forecast": true,
+              "fallback_layer_2_never_sparse": true,
+              "warm_and_final_dense": true,
+              "native70_reset_invalidates_both_cfg_histories": true,
+              "sparse_never_true_dense": true,
+              "ledger_restored_and_rebound": true,
+              "approximate_closure_changes_actual_final_latent": true
+            }
+          },
+          {
+            "flow": true,
+            "request": "common",
+            "control": "refresh_insufficient",
+            "full_updates": [
+              36,
+              36
+            ],
+            "cfg_calls": [
+              72,
+              72
+            ],
+            "nine_gates": {
+              "input_hashes": false,
+              "output_hashes": false,
+              "trace": true,
+              "block_counts": true,
+              "state_fingerprints": false,
+              "sampling": true,
+              "named_inputs": false,
+              "conditions": true,
+              "field_signatures": false
+            },
+            "pipeline_gates": {
+              "pipeline_events": false,
+              "artifacts": true,
+              "flags_before": true,
+              "flags_after": true,
+              "rng_after": true
+            },
+            "checkpoints": [
+              13,
+              21,
+              33,
+              35,
+              36
+            ],
+            "component_counts": [
+              50,
+              50,
+              50,
+              50,
+              50
+            ],
+            "separate_provenance_checkpoints": 5,
+            "actual_restored_latent_continues_to_final": true,
+            "official70_reset_final_counters": [
+              68,
+              69,
+              0,
+              1
+            ],
+            "mock_decode_and_writer_full93_interface": true,
+            "all_hooks_buffers_modes_decode_flags_restored": true,
+            "refresh_controls": {
+              "sparse_refresh_calls": 12,
+              "cache_hit_reads_approximate_forecast": true,
+              "fallback_layer_2_never_sparse": true,
+              "warm_and_final_dense": true,
+              "native70_reset_invalidates_both_cfg_histories": true,
+              "sparse_never_true_dense": true,
+              "ledger_restored_and_rebound": true,
+              "approximate_closure_changes_actual_final_latent": true
+            }
+          },
+          {
+            "flow": true,
+            "request": "human",
+            "control": "refresh_insufficient",
+            "full_updates": [
+              36,
+              36
+            ],
+            "cfg_calls": [
+              72,
+              72
+            ],
+            "nine_gates": {
+              "input_hashes": false,
+              "output_hashes": false,
+              "trace": true,
+              "block_counts": true,
+              "state_fingerprints": false,
+              "sampling": true,
+              "named_inputs": false,
+              "conditions": true,
+              "field_signatures": false
+            },
+            "pipeline_gates": {
+              "pipeline_events": false,
+              "artifacts": true,
+              "flags_before": true,
+              "flags_after": true,
+              "rng_after": true
+            },
+            "checkpoints": [
+              13,
+              21,
+              33,
+              35,
+              36
+            ],
+            "component_counts": [
+              50,
+              50,
+              50,
+              50,
+              50
+            ],
+            "separate_provenance_checkpoints": 5,
+            "actual_restored_latent_continues_to_final": true,
+            "official70_reset_final_counters": [
+              68,
+              69,
+              0,
+              1
+            ],
+            "mock_decode_and_writer_full93_interface": true,
+            "all_hooks_buffers_modes_decode_flags_restored": true,
+            "refresh_controls": {
+              "sparse_refresh_calls": 8,
+              "cache_hit_reads_approximate_forecast": true,
+              "fallback_layer_2_never_sparse": true,
+              "warm_and_final_dense": true,
+              "native70_reset_invalidates_both_cfg_histories": true,
+              "sparse_never_true_dense": true,
+              "ledger_restored_and_rebound": true,
+              "approximate_closure_changes_actual_final_latent": true
+            }
+          },
+          {
+            "flow": true,
+            "failure": "refresh_context",
+            "error": "Refresh request/model/condition identity changed",
+            "planned_phases": 4,
+            "denominators_preserved": true,
+            "first_request_complete_preserved": true,
+            "second_phase_updates": [
+              36,
+              11
+            ],
+            "all_hooks_and_decode_flags_restored": true
+          },
+          {
+            "flow": true,
+            "failure": "refresh_model",
+            "error": "Refresh model object changed",
+            "planned_phases": 4,
+            "denominators_preserved": true,
+            "first_request_complete_preserved": true,
+            "second_phase_updates": [
+              36,
+              11
+            ],
+            "all_hooks_and_decode_flags_restored": true
+          },
+          {
+            "flow": true,
+            "failure": "refresh_group",
+            "error": "Refresh deep group changed within request",
+            "planned_phases": 4,
+            "denominators_preserved": true,
+            "first_request_complete_preserved": true,
+            "second_phase_updates": [
+              36,
+              11
+            ],
+            "all_hooks_and_decode_flags_restored": true
+          },
+          {
+            "flow": true,
+            "failure": "refresh_condition",
+            "error": "Refresh actual condition changed within request/CFG",
+            "planned_phases": 4,
+            "denominators_preserved": true,
+            "first_request_complete_preserved": true,
+            "second_phase_updates": [
+              36,
+              11
+            ],
+            "all_hooks_and_decode_flags_restored": true
+          },
+          {
+            "flow": true,
+            "failure": "refresh_window",
+            "error": "Native/provenance reference binding changed",
+            "planned_phases": 4,
+            "denominators_preserved": true,
+            "first_request_complete_preserved": true,
+            "second_phase_updates": [
+              36,
+              11
+            ],
+            "all_hooks_and_decode_flags_restored": true
+          },
+          {
+            "flow": true,
+            "failure": "refresh_nonfinite",
+            "error": "Nonfinite refresh input/probe refused before deep/cache write",
+            "planned_phases": 4,
+            "denominators_preserved": true,
+            "first_request_complete_preserved": true,
+            "second_phase_updates": [
+              36,
+              11
+            ],
+            "all_hooks_and_decode_flags_restored": true
+          },
+          {
+            "flow": true,
+            "failure": "refresh_kernel_nan",
+            "error": "Invalid sparse refresh output; no native cache write",
+            "planned_phases": 4,
+            "denominators_preserved": true,
+            "first_request_complete_preserved": true,
+            "second_phase_updates": [
+              36,
+              11
+            ],
+            "all_hooks_and_decode_flags_restored": true
+          }
+        ],
+        "upstream_sha256": {
+          "cosmos_predict2/inference.py": "0db96c49f0b3f18a971bc989e0727132dafc27ef621145a2d25a3da62a7a1975",
+          "cosmos_predict2/_src/predict2/inference/video2world.py": "59aa9e236a5e7e26490f5cfcb94ab95ce911d9c38eba61dd8aef7d067e458a95",
+          "cosmos_predict2/_src/predict2/inference/worldcache_utils.py": "b485cb8fd6e262a40e5823365c34ef7db1bc036c591d7577489e04077c515903",
+          "cosmos_predict2/_src/predict2/models/text2world_model_rectified_flow.py": "c6c68f297859e11c76d2921667a29cabfecef3a7b5d3ab831bf9bb54b25b7d87",
+          "cosmos_predict2/_src/predict2/models/fm_solvers_unipc.py": "f6a06c75f059693ade6c802e99f6058575969b6a71ef18ab05e7ed46701053d3"
+        },
+        "cuda_initialized": false,
+        "limits": "Unchanged pinned sampler/get_velocity/denoise/decode wrapper, WC, UniPC, generate_vid2world and Inference method bodies. Explicit Toy net, CPU noise/conditioner/normalize/broadcast/prepare/tokenizer/mock writer, offload disabled and CUDA telemetry adapters; equal finite threshold schedule is CPU control only. No weights, true VAE/encoded video, GPU completion, independent restart or quality result. Deployed S uses a controlled CPU output stand-in, not a sparse kernel."
+      },
+      "composition_controls": {
+        "status": "FULL_SIX_OUTPUT_PRODUCTION_COMPOSITION_CPU_PASS_NOT_VIDEO",
+        "checks": [
+          {
+            "flow": false,
+            "complete_phases": 6,
+            "total_CFG_calls": 432,
+            "DD_original_vs_dense_adapter_all9_and_pipeline_pass": true,
+            "real_sparse_branch_is_CPU_stand_in": true,
+            "complete_pairs": 2,
+            "all_hooks_and_forward_restored": true
+          },
+          {
+            "flow": true,
+            "complete_phases": 6,
+            "total_CFG_calls": 432,
+            "DD_original_vs_dense_adapter_all9_and_pipeline_pass": true,
+            "real_sparse_branch_is_CPU_stand_in": true,
+            "complete_pairs": 2,
+            "all_hooks_and_forward_restored": true
+          },
+          {
+            "flow": true,
+            "failure": "decode",
+            "DD_gate_preserved": true,
+            "planned_total_phases": 6,
+            "planned_output_files": 6,
+            "failed_comparison_preserved": true,
+            "all_hooks_and_forward_restored": true
+          }
+        ],
+        "upstream_sha256": {
+          "cosmos_predict2/inference.py": "0db96c49f0b3f18a971bc989e0727132dafc27ef621145a2d25a3da62a7a1975",
+          "cosmos_predict2/_src/predict2/inference/video2world.py": "59aa9e236a5e7e26490f5cfcb94ab95ce911d9c38eba61dd8aef7d067e458a95",
+          "cosmos_predict2/_src/predict2/inference/worldcache_utils.py": "b485cb8fd6e262a40e5823365c34ef7db1bc036c591d7577489e04077c515903",
+          "cosmos_predict2/_src/predict2/models/text2world_model_rectified_flow.py": "c6c68f297859e11c76d2921667a29cabfecef3a7b5d3ab831bf9bb54b25b7d87",
+          "cosmos_predict2/_src/predict2/models/fm_solvers_unipc.py": "f6a06c75f059693ade6c802e99f6058575969b6a71ef18ab05e7ed46701053d3"
+        },
+        "cuda_initialized": false,
+        "limits": "Unchanged pinned sampler/get_velocity/denoise/decode wrapper, WC, UniPC, generate_vid2world and Inference method bodies. Explicit Toy net, CPU noise/conditioner/normalize/broadcast/prepare/tokenizer/mock writer, offload disabled and CUDA telemetry adapters; equal finite threshold schedule is CPU control only. No weights, true VAE/encoded video, GPU completion, independent restart or quality result. No sparse candidate in this control."
+      },
+      "scope_controls": {
+        "status": "FULL_SIX_SCOPE_COST_LEDGER_CPU_PASS",
+        "refused": [
+          "planned_total_phases",
+          "planned_output_files",
+          "dense_fallback_layers",
+          "deployment_sparse",
+          "state_steps",
+          "max_gpu_wall_seconds",
+          "policy",
+          "budget",
+          "budget",
+          "budget"
+        ]
+      }
+    },
+    "torch_version": "2.7.1+cu128",
+    "cuda_initialized": false
+  },
+  "fresh_gpu": "GPU-de9a5370-cd87-0f1c-a48e-288888777dd3, NVIDIA RTX A6000, 350 MiB\nGPU-cebf7119-cf03-23b9-e192-cd196332b704, NVIDIA RTX A6000, 24 MiB\n",
+  "fresh_apps": ""
+}

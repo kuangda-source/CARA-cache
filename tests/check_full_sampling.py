@@ -17,6 +17,7 @@ from einops import rearrange
 import wcomr.full_sampling as full
 from wcomr.h0_mode import establish_shared_eval
 from wcomr.refresh_deployment import SimpleRefreshAdapter
+from wcomr.full_output import run_full_output
 from wcomr.stage_witness import witness
 
 HASHES = {
@@ -39,7 +40,7 @@ def load_functions(path, names, namespace):
     exec(compile(ast.fix_missing_locations(module), str(path), 'exec'), namespace)
 
 
-def run(runtime, refresh=False):
+def run(runtime, refresh=False, composed=False):
     runtime = Path(runtime)
     for path, digest in HASHES.items():
         assert hashlib.sha256((runtime / path).read_bytes()).hexdigest() == digest, path
@@ -184,6 +185,8 @@ def run(runtime, refresh=False):
         scenarios += [(True, f) for f in ['refresh_corrupt_restore', 'refresh_insufficient',
             'refresh_context', 'refresh_model', 'refresh_group', 'refresh_condition',
             'refresh_window', 'refresh_nonfinite', 'refresh_kernel_nan']]
+    if composed:
+        scenarios = [(False, None), (True, None), (True, 'decode')]
     telemetry = {name: getattr(torch.cuda, name) for name in
                  ['is_available', 'memory_allocated', 'reset_peak_memory_stats']}
     # Exact pipe body is kept. Its CUDA-only telemetry is a declared CPU adapter;
@@ -251,7 +254,8 @@ def run(runtime, refresh=False):
             inference_module.save_img_or_video = write
             config = {'run_id': 'CPU', 'sample_names': ['common', 'human'],
                       'phases': ['baseline_full', 'restored_full'], 'state_steps': full.STATE_STEPS}
-            candidate = refresh and failure != 'refresh_dense'
+            candidate = composed or (refresh and failure != 'refresh_dense')
+            config['dense_fallback_layers'] = [2]
             if candidate: config['comparison_kind'] = 'closed_loop_interface'
             def kernel(q, k, v, mask, sim, cdf, force_full):
                 assert sim == .1 and cdf == .98 and not force_full
@@ -264,6 +268,7 @@ def run(runtime, refresh=False):
                 return result, {'selected_fraction': .5, 'executed_fraction': .5,
                                 'CPU_STAND_IN_NOT_SPARSE_KERNEL': True}
             def adapter_factory(phase, context):
+                if phase == 'baseline_full': return None
                 return SimpleRefreshAdapter(context, sparse=candidate and phase == 'restored_full',
                                             fallback_layers=(2,), kernel=kernel)
             state = {}
@@ -273,11 +278,13 @@ def run(runtime, refresh=False):
             caught = None
             with tempfile.TemporaryDirectory(prefix='full-sampling-cpu-') as directory:
                 try:
-                    full.run_full_sampling_batch(inference, [Sample('common'), Sample('human')], wc,
+                    runner = run_full_output if composed else full.run_full_sampling_batch
+                    runner(inference, [Sample('common'), Sample('human')], wc,
                         settings, config, state=state, save=lambda: None, output=Path(directory),
                         inference_module=inference_module,
                         contexts=[('CPU:' + n, 'toy', 'condition:' + n) for n in ['common', 'human']], mode_setup=mode,
-                        adapter_factory=adapter_factory if refresh else None)
+                        **({'kernel': kernel} if composed else
+                           {'adapter_factory': adapter_factory if refresh else None}))
                 except ValueError as error:
                     caught = str(error)
                 assert originals == (net.forward, model.denoise, scheduler.step, model.generate_samples_from_batch,
@@ -285,6 +292,33 @@ def run(runtime, refresh=False):
                 assert all(float(b) == 0 for b in net.buffers())
                 assert not any(m.training for m in net.modules())
                 assert not hasattr(net, '_wc_refresh_adapter')
+                if composed:
+                    assert state['planned_total_phases'] == 6 and state['planned_output_files'] == 6
+                    dense = state['dense_control']
+                    assert dense['status'] == 'OFFICIAL_DENSE_ADAPTER_FULL_PIPELINE_DD_GATE_PASS'
+                    assert all(dense['all_gate_checks'].values()) and all(dense['pipeline_checks'].values())
+                    assert dense['phases'][0]['refresh_field_signatures'] == []
+                    assert len(dense['phases'][1]['refresh_field_signatures']) == 5
+                    comparison = state['comparison']
+                    assert comparison['planned_phases'] == 4
+                    if failure:
+                        assert caught and comparison['requests'][0]['status'] == 'TECH_BLOCKED'
+                        assert [p['solver_steps'] for p in comparison['requests'][0]['phases']] == [36, 36]
+                        checks.append({'flow': flow, 'failure': failure,
+                            'DD_gate_preserved': True, 'planned_total_phases': 6,
+                            'planned_output_files': 6, 'failed_comparison_preserved': True,
+                            'all_hooks_and_forward_restored': True})
+                    else:
+                        assert caught is None, caught
+                        phases = dense['phases'] + [p for q in comparison['requests'] for p in q['phases']]
+                        assert len(phases) == 6 and all(p['solver_steps'] == 36 and p['actual_cfg_calls_entered'] == 72 for p in phases)
+                        assert all(all(q['shared_contract_checks'].values()) for q in comparison['requests'])
+                        assert all(p['refresh_provenance']['events'][69]['native_cycle_reset'] for p in phases if 'refresh_provenance' in p)
+                        checks.append({'flow': flow, 'complete_phases': 6, 'total_CFG_calls': 432,
+                            'DD_original_vs_dense_adapter_all9_and_pipeline_pass': True,
+                            'real_sparse_branch_is_CPU_stand_in': True,
+                            'complete_pairs': 2, 'all_hooks_and_forward_restored': True})
+                    continue
                 assert state['planned_requests'] == 2 and state['planned_phases'] == 4
                 assert state['planned_cfg_calls_per_phase'] == 72
                 first, second = state['requests']
@@ -320,6 +354,8 @@ def run(runtime, refresh=False):
                         events = report['events']
                         sparse_rows = [row for row in events if row.get('source', {}).get('kind') == 'sparse']
                         assert len(events) == 72 and report['epoch'] == 1
+                        assert [v['solver_step'] for v in restored['refresh_field_signatures']] == full.STATE_STEPS
+                        assert request['phases'][0]['refresh_field_signatures'] == []
                         assert events[69]['native_cycle_reset'] and not events[70]['references_read'] and not events[71]['references_read']
                         assert all(e['action'] == 'dense' for e in events[:14] + events[70:])
                         assert all(v['kind'] == 'dense' for w in report['true_dense_history'] for v in w)
@@ -350,6 +386,7 @@ def run(runtime, refresh=False):
                         'nine_gates': request['all_gate_checks'], 'pipeline_gates': request['pipeline_checks'],
                         'checkpoints': full.STATE_STEPS,
                         'component_counts': [len(p['components']) for p in restored['field_signatures']],
+                        'separate_provenance_checkpoints': len(restored['refresh_field_signatures']),
                         'actual_restored_latent_continues_to_final': True,
                         'official70_reset_final_counters': [68, 69, 0, 1],
                         'mock_decode_and_writer_full93_interface': True,
@@ -359,7 +396,8 @@ def run(runtime, refresh=False):
         full.CompleteStateRoundtrip = original_snapshot
         for name, method in telemetry.items(): setattr(torch.cuda, name, method)
     assert not torch.cuda.is_initialized()
-    return {'status': ('FULL36_CFG72_PINNED_SPARSE_REFRESH_INTERFACE_CPU_PASS' if refresh
+    return {'status': ('FULL_SIX_OUTPUT_PRODUCTION_COMPOSITION_CPU_PASS_NOT_VIDEO' if composed else
+                      'FULL36_CFG72_PINNED_SPARSE_REFRESH_INTERFACE_CPU_PASS' if refresh
                       else 'FULL36_CFG72_PINNED_OFFICIAL_SAMPLER_PIPELINE_CPU_CONTROL_PASS'),
         'checks': checks, 'upstream_sha256': HASHES, 'cuda_initialized': False,
         'limits': 'Unchanged pinned sampler/get_velocity/denoise/decode wrapper, WC, UniPC, '

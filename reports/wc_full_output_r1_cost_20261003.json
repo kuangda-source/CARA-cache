@@ -1,0 +1,35 @@
+{
+  "status": "COMPLETE_SIX_OUTPUT_COST_ENVELOPE_NOT_GPU_ADMISSION",
+  "planned_total_phases": 6,
+  "cost_seconds": {
+    "startup_import_shutdown": 50,
+    "model_load": 114,
+    "six_complete36_updates_18s_allowance": 3888,
+    "six_decode_guardrail_write_75s_allowance": 450,
+    "first_kernel_and_extra_provenance_allowance": 150
+  },
+  "contingency_fraction": 0.2,
+  "shutdown_settlement_margin": 30,
+  "measured_inputs": {
+    "previous_model_load_seconds": 93.02098336536437,
+    "previous_two_baseline33_update_seconds": [
+      311.45314957294613,
+      320.722056648694
+    ]
+  },
+  "limits": [
+    "18s/update is a conservative all-full/restoration forecast, not a measured bound.",
+    "75s/output is a historical pipeline allowance; current exact buffers/decode/ledger cost not measured.",
+    "Six outputs include two DD gates and four paired WC/S development outputs; no scope reduced to fit old single1800.",
+    "Debug hashes, copying, RNG/prepared replay and synchronizations prevent clean E2E speed attribution."
+  ],
+  "budget_snapshot": {
+    "cap": 12,
+    "used": 6.055044055960606,
+    "remaining": 5.944955944039394,
+    "new_GPU_cost": 0
+  },
+  "raw_seconds": 4652,
+  "planning_envelope_seconds": 5582.4,
+  "envelope_with_settlement": 5612.4
+}

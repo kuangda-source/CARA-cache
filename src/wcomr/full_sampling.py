@@ -150,11 +150,14 @@ def run_full_sampling_pair(inference, sample, wc, settings, config, *, state, sa
             common_rng.restore()
             reset_buffers()
             wc.apply_worldcache(net, **{k.removeprefix('worldcache_'): v for k, v in settings.items()})
-            adapter = adapter_factory(phase, context).install(net, wc) if adapter_factory else None
+            adapter = adapter_factory(phase, context) if adapter_factory else None
+            if adapter is not None:
+                adapter.install(net, wc)
             result = {'phase': phase, 'status': 'GENERATING_COMPLETE_SAMPLE',
                 'input_hashes': [], 'output_hashes': [], 'named_inputs': [],
                 'conditions': [], 'field_signatures': [], 'state_fingerprints': [],
-                'roundtrips': [], 'solver_steps': 0, 'flags_before': backend_flags()}
+                'refresh_field_signatures': [], 'roundtrips': [],
+                'solver_steps': 0, 'flags_before': backend_flags()}
             state['phases'].append(result)
             counts = BlockCounts(net.blocks, cache_model=net)
             stages = StageWitness()
@@ -193,8 +196,16 @@ def run_full_sampling_pair(inference, sample, wc, settings, config, *, state, sa
                     snapshot = CompleteStateRoundtrip(net, scheduler, value[0],
                         generators=[generator] if generator is not None else [])
                     before = snapshot.fingerprint()
+                    components = snapshot.components()
+                    refresh_signature = components.pop('refresh.provenance', None)
+                    # Provenance is an extra sidecar, not an original native
+                    # state field. Save it separately while the restoration
+                    # fingerprint above still verifies native+sidecar together.
+                    if refresh_signature is not None:
+                        result['refresh_field_signatures'].append({'solver_step': step,
+                            'call': call, 'sha256': refresh_signature})
                     result['field_signatures'].append({'solver_step': step, 'call': call,
-                        'components': snapshot.components()})
+                        'components': components})
                     if phase == 'restored_full':
                         restored = snapshot.restore()
                         if snapshot.fingerprint() != before or tree_digest(restored) != tree_digest(snapshot.output):
@@ -204,7 +215,8 @@ def run_full_sampling_pair(inference, sample, wc, settings, config, *, state, sa
                         value = (restored,) + value[1:]
                         result['roundtrips'].append({'solver_step': step, 'call': call,
                             'status': 'RESTORED_LATENT_RETURNED_TO_OFFICIAL_SAMPLER'})
-                    result['state_fingerprints'].append({'solver_step': step, 'call': call, 'sha256': before})
+                    result['state_fingerprints'].append({'solver_step': step, 'call': call,
+                        'sha256': tree_digest(components)})
                 return value
 
             def input_event(name):

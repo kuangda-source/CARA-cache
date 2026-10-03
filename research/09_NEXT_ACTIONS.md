@@ -1,3 +1,9 @@
+## 2026-10-03 独立完整六输出首卡：CPU组合通过，实际部署门待验证
+
+[83 独立卡](83_WC_FULL_OUTPUT_R1_CARD.md)选定WC-FULL-OUTPUT-R1-20261003-A/wc-full-output-r1：先common官方无adapter与dense adapter完整D/D九门/最终pipeline严格等价，再common/human两个曝光CAL的WC/S四输出；合计六phase/六文件。native九门与额外provenance签名单独记录，恢复仍检查完整sidecar。初步实际CPU229.492秒通过完整11条D/D、19条刷新与flow OFF/ON六生成组合、解码失败和scope/预算拒绝，禁止CUDA/无权重/真实VAE；r5 source及51组件旧口径封存，新口径native50+单独来源签名。
+
+完整成本5732.4秒，独立6000全cost/5970child/kill5；依累计12h及自主goal选定，不复用原r4单次授权。当前尚未新GPU/预付；先冻结source/payload与GitHub同步，再actual完整CPU/官方prepare/metadata/native-meta buffers/source/assets/import/package及fresh资源/锁/账本/磁盘。现累计6.055044055960606/12h、36jobs保持。含hash/深拷贝/同步/共享prepare，debug wall不作净E2E加速结论；不自动第二卡/训练/新增人评。以下为历史。
+
 ## 2026-10-03 完整采样与简单 S/D 刷新 CPU 接线
 
 [82 当前证据与下一步](82_WC_COMPLETE_SAMPLING_AND_REFRESH_CPU.md)：新增完整官方采样核心，35 请求/36 实际更新/72 CFG 到最终返回，保持原生 horizon70/call70 清空及最后两次 warm full。五检查点13/21/33/35/36含 buffers/modes/RNG/UniPC 与实际恢复 latent；D/D严格九门和完整 pipeline 控制通过。CPU r1夹具 stride失败保持，r2 77.964秒通过；r3 178.700秒通过全部旧11条控制与17条 D/D provenance、实际 D/S 接线和失败控制。r4 122.205秒通过新增 model/group 拒绝；清理闭包绑定修正后的r5 122.224秒、19条刷新控制及当前source独立CPU审计通过；全部hook/模式/buffers/forward恢复。每轮原SHA保持，较早CPU不追认后来文件。
