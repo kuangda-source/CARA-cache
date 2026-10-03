@@ -202,6 +202,10 @@ class SimpleRefreshAdapter:
         self.pending = None
         self.mode = 'dense'
 
+    def _transform_decision(self, source, namespace):
+        """Identity for deployed WC; subclasses may expose offline diagnostics."""
+        return source
+
     def install(self, net, wc):
         if self.net is not None or hasattr(net, '_wc_refresh_adapter'):
             raise ValueError('Refresh adapter already installed')
@@ -227,6 +231,7 @@ class SimpleRefreshAdapter:
             source = source.replace(anchor, replacement)
         namespace = dict(original.__globals__, _refresh_start=self.start,
             _refresh_before=self.before, _refresh_after=self.after_refresh, _refresh_finish=self.finish)
+        source = self._transform_decision(source, namespace)
         exec(compile(source, '<simple-refresh-deployment>', 'exec'), namespace)
         self.net = net
         self.attached_net = net

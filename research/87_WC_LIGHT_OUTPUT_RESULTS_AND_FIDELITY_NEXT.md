@@ -1,3 +1,5 @@
+> 2026-10-04后续进展：固定刷新及四输出生产核心已在禁止CUDA的实际环境中通过CPU验证，曝光掩码已绑定；[88 验证与成本草案](88_WC_FIXED_REFRESH_DIAGNOSTIC_CPU_AND_FOUR_OUTPUT_DRAFT.md)。旧十输出终态保持，下一GPU卡仍未选择。
+
 # 轻量十输出终态：有耗时下降，人物保真仍是主要缺口
 
 2026-10-04。唯一 `WC-LIGHT-OUTPUT-R1-20261003-A / wc-light-output-r1` 已结束，冻结 GPU source 为 `7bec5f84ac6eee1289780a574f86972d1d19f3af`。先前[86 执行卡](86_WC_LIGHT_TEN_OUTPUT_CARD_AND_CPU.md)的两次 D/D 控制及八次部署测量全部完成，没有取消或重复提交。这里的审计脚本为独立后处理，不追认为运行时冻结 payload。

@@ -1,0 +1,28 @@
+{
+  "status": "FROZEN_R2_CPU27_PAYLOAD_AND_MASK28_CONTROLS_BOUND_NOT_GPU",
+  "observed_unix": 1791046329.014909,
+  "CPU_receipt": "reports/wc_fixed_refresh_cpu_r2_20261004.json",
+  "CPU_receipt_sha256": "53b292ea1aeb620e15fbe79b46417ec76fb09b9fc813c4f98f39d167d31fa8c9",
+  "failed_r1_preserved": "reports/wc_fixed_refresh_cpu_r1_20261004.json",
+  "failed_r1_reason": "Cross-pair entry RNG was not matched in CPU fixture; preparation samples fps and Python/NumPy metadata. Production fixed routing was not modified by the repair.",
+  "legacy_controls": 15,
+  "fixed_controls": 12,
+  "CPU_wall_seconds": 87.78926706314087,
+  "mask_controls_receipt": "reports/wc_fixed_masks_cpu_20261004.json",
+  "mask_controls_sha256": "b22ce4a0856fb8118815283f6822152fdcdda4d89dbdf4f7142614b857586cfd",
+  "cuda_initialized": false,
+  "real_weights_loaded": false,
+  "sparse_kernel_executed": false,
+  "video_generated": false,
+  "budget_unchanged": true,
+  "cumulative_gpu_hours": 7.407626319933526,
+  "GPU_jobs": 38,
+  "next_GPU_card_selected": false,
+  "limits": [
+    "Pinned original method bodies and actual Torch2.7.1+cu128 with explicitly declared CPU toy preparation/network/kernel/writer boundaries.",
+    "D/D same-state controls are CPU integration evidence, not real-model fixed-mask parity.",
+    "Original frozen GPU7bec outputs remain historical; newer identity decision hook has not run on GPU.",
+    "Later optional dense-control factory in light_output.py is independently covered by the four-output composition receipt; R2 remains an immutable earlier payload."
+  ],
+  "frozen_payload_files": 27
+}

@@ -1,3 +1,9 @@
+## 2026-10-04 固定刷新四输出核心 CPU 通过，GPU 部署待准备
+
+[88 接口、验证与四输出草案](../research/88_WC_FIXED_REFRESH_DIAGNOSTIC_CPU_AND_FOUR_OUTPUT_DRAFT.md)：固定掩码在原 predicate 位置生效，保留关联状态更新；曝光官方 trace 仅作离线共同动作诊断。实际 Torch2.7.1+cu128 禁止CUDA，15旧轻量/12固定刷新、4旧十输出组合/6新四输出组合及28本地掩码拒绝控制通过。入口RNG和toy解码饱和造成的两次CPU测试失败原件保留；CPU不是实际人物fixed-mask或视频证据。
+
+生产四输出核心已接线：人物官方/固定D严格九门和pipeline通过后，固定D/S完整配对；共同入口RNG、每臂真实prepare、4全分母与失败清理保持。完整成本草案1635.704秒，拟议独立1800全cost/1770child；新runner/scope/唯一GPU卡/source及实际部署门尚待准备，没有GPU新增、卡选择或reservation。现仍7.407626319933526/12h、38jobs，余4.592373680066474h，无inflight。原轻量十输出及104点已终态，单次身份不复用；强基线/CONF/RV标签与训练未接受，goal active。以下为历史。
+
 ## 2026-10-04 轻量十输出终态：耗时下降，人物保真问题保持
 
 [87 结果与下一步](../research/87_WC_LIGHT_OUTPUT_RESULTS_AND_FIDELITY_NEXT.md)/[机器摘要](../reports/wc_light_output_r1_summary_20261004.json)：唯一source7bec/run退出0，fresh-prepare D/D九门、五处1216组件和完整pipeline、十mp4/93完整解码、真实来源/核/费用/释放独立审计通过。八次均衡测量全部保留，含首次S；common官方/S均值202.321/198.193秒（耗时降低2.040%），human214.228/197.257秒（降低7.922%）。D/D诊断耗时不入比较，host分段不是CUDA分解；两次重复不是独立质量确认。

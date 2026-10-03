@@ -12,7 +12,7 @@ from .stage_witness import StageWitness
 
 def run_light_dense_control(inference, sample, wc, settings, *, state, save, output,
                             inference_module, context, mode_setup, fallback,
-                            expected_video=(93, 432, 768)):
+                            expected_video=(93, 432, 768), adapter_factory=None):
     """Diagnostic observers apply only to these two unscored control outputs."""
     model, net = inference.pipe.model, inference.pipe.model.net
     scheduler = model.sample_scheduler
@@ -70,8 +70,8 @@ def run_light_dense_control(inference, sample, wc, settings, *, state, save, out
             run_light_pair(inference, sample, wc, settings, state=state, save=save,
                 output=output, inference_module=inference_module, context=context,
                 mode_setup=mode_setup, expected_video=expected_video,
-                adapter_factory=lambda kind, ctx: None if kind == 'official' else
-                    SimpleRefreshAdapter(ctx, fallback_layers=tuple(fallback)))
+                adapter_factory=adapter_factory or (lambda kind, ctx: None if kind == 'official' else
+                    SimpleRefreshAdapter(ctx, fallback_layers=tuple(fallback))))
             if len(rows) != 2:
                 raise ValueError('Light D/D fresh prepare coverage differs')
             for i, (row, phase) in enumerate(zip(rows, state['phases'])):

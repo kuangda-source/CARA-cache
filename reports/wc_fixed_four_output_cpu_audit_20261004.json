@@ -1,0 +1,33 @@
+{
+  "status": "CURRENT_FOUR_OUTPUT_CPU10_AND_COMPATIBLE_FIXED_CPU27_BOUND_NOT_GPU",
+  "observed_unix": 1791047251.259551,
+  "CPU_receipt": "reports/wc_fixed_four_output_cpu_r2_20261004.json",
+  "CPU_receipt_sha256": "7155244b7b89ea98d442eafcc8b493267267634405057b9ba9677a3dadeecf82",
+  "CPU_wall_seconds": 65.1420669555664,
+  "payload_files": 29,
+  "legacy_composition_controls": 4,
+  "fixed_four_composition_controls": 6,
+  "prior_fixed_CPU_receipt": "reports/wc_fixed_refresh_cpu_r2_20261004.json",
+  "prior_fixed_CPU_receipt_sha256": "53b292ea1aeb620e15fbe79b46417ec76fb09b9fc813c4f98f39d167d31fa8c9",
+  "changed_since_prior_payload": [
+    "src/wcomr/light_output.py"
+  ],
+  "changed_module_covered_by_current_legacy_and_fixed_composition": true,
+  "earlier_failures_preserved": [
+    "reports/wc_fixed_refresh_cpu_r1_20261004.json",
+    "reports/wc_fixed_four_output_cpu_r1_20261004.json"
+  ],
+  "composition_r1_failure_reason": "Test wrongly required different mock decoded files. Toy tanh decoder can saturate; test now observes different actual sampler returns while retaining strict D/D and three-dense artifact parity.",
+  "cuda_initialized": false,
+  "real_weights_loaded": false,
+  "sparse_kernel_executed": false,
+  "encoded_video_generated": false,
+  "budget_unchanged": true,
+  "cumulative_GPUh": 7.407626319933526,
+  "jobs": 38,
+  "new_GPU_card_selected": false,
+  "limits": [
+    "Actual pinned sampler/WC/UniPC/Inference function bodies, explicit CPU toy network, preparation, kernel, decoder and writer.",
+    "No real-model fixed-mask D/D or quality result; current GPU source remains frozen7bec historical run."
+  ]
+}
