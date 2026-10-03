@@ -39,3 +39,9 @@ CPU采样函数体固定，但net/noise/conditioning/prepare/VAE/writer和S核�
 ## 实际部署门通过，待唯一现场提交
 
 [实际部署回执](../reports/wc_light_output_r1_deployment_20261003.json)：冻结source `7bec5f84ac6eee1289780a574f86972d1d19f3af` 在独立deploy1 stage通过官方prepare/新scope、原生meta mode/buffers、双场景metadata、全部source/assets/import/package门。既有实际轻量15与组合4控制原回执SHA及21/24份payload逐一绑定到当前stage，未冗余重跑；固定五官方文件SHA再次匹配。共7项准备门（scope内部11控制），CUDA未初始化，账本保持，磁盘约564GB、全局锁可获取。当前未GPU/预付；接下来仅fresh UUID/sm86/VRAM/compute/锁/无inflight/余额后唯一提交，原stage/source不改。
+
+## 唯一启动与现场句柄
+
+[启动回执](../reports/wc_light_output_r1_launch_20261003.json)最初state null是监督器资产复核期间；[现场1791041279.33567](../reports/wc_light_output_r1_start_observation_20261003.json)确认supervisor2701874/timeout2701892/runner2701894均存在且命令行匹配唯一stage/run，指定A6000仅runner占用24514MiB。当前INITIALIZING、输出0/10；加载或PID存活不是D/D、视频或性能结果。只跟踪原stage/句柄，不改冻结source/payload或重提。
+
+child起算1791041205.243499，6000秒最大北京时间2026-10-04 01:06:45.243499（实际child5970秒、kill5）；已结算6.733473505896205/12h、37历史jobs保持，当前38job及6000秒预付后账本8.400140172562871/12h，可用3.599859827437129h，实际费用待终态结算。十输出、原失败历史及先D/D止步保留，结束后独立source/费用/释放/十视频与测量审计。
