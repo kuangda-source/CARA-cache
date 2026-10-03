@@ -1,0 +1,151 @@
+{
+  "role": "ONLINE_STAGE_ADAPTIVE_WC_TWO_EXPOSED_CAL_DRAFT_NOT_EXECUTION_SELECTION",
+  "samples": [
+    "common_sense_6487f37f-ef57-49ca-afdc-d898922b5191",
+    "human_199"
+  ],
+  "sample_indices": [
+    1,
+    2
+  ],
+  "seed": 0,
+  "shared_model": "Cosmos-Predict2.5-2B",
+  "requested_num_steps": 35,
+  "actual_solver_steps": 36,
+  "CFG_calls": 72,
+  "frames": 93,
+  "resolution": [
+    432,
+    768
+  ],
+  "fps": 16,
+  "probe_depth": 2,
+  "dense_fallback_layers": [
+    6,
+    23,
+    27
+  ],
+  "stage_policies": [
+    {
+      "sparse_layers": [
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        24,
+        25,
+        26
+      ],
+      "first_solver_step": 23,
+      "last_solver_step": 27,
+      "every": 1
+    },
+    {
+      "sparse_layers": [
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        24,
+        25,
+        26
+      ],
+      "first_solver_step": 23,
+      "last_solver_step": 27,
+      "every": 2
+    }
+  ],
+  "phase_order": {
+    "DD": [
+      "official_WC",
+      "online_stage_adapter_S_disabled"
+    ],
+    "each_CAL": [
+      "adaptive_official_WC",
+      "stage_every1",
+      "stage_every2"
+    ]
+  },
+  "planned_total_phases": 8,
+  "planned_output_files": 8,
+  "uses_future_trace": false,
+  "overrides_official_cache_predicate": false,
+  "S_counts": "UNKNOWN_ON_ACTUAL_ADAPTIVE_TRAJECTORY_MAX10_AND6_PER_CANDIDATE",
+  "calibration_basis": "Exposure-based window from four-arm human diagnosis; both inputs are CAL, not CONF.",
+  "CPU_original_receipt_sha256": "e05b9bbd64856269924d9a9c83487b5e44191126922bfdd8dceb81b2807366cf",
+  "current_CPU_dependency_sha256": {
+    "src/wcomr/__init__.py": "b9996da0a87bb746cdac0935ead475246fc34d88b37e73f63f14e5065494f311",
+    "src/wcomr/decoder_policy.py": "57e1369909dfa9db5ea6ab563b275fe7376bea14d0b247dd7748e79fccf8699b",
+    "src/wcomr/full_output.py": "bce7d514bd506e8cf878747c77e318ac060bfe07718bdbd129a8975af5c5234f",
+    "src/wcomr/full_output_scope.py": "4cfaae233589d9a75d392e34105a058260913a297c0ef11554239da89fc966a0",
+    "src/wcomr/full_sampling.py": "d5fc455dbf8d0fe3b5b1fdc2a69d00d1a2a41dd7cc741fc6b0830b74f7b881aa",
+    "src/wcomr/h0_eval_scope.py": "748e560fffbe70436c0aba121a11c6001f91d17c8dea85e43abd1d1eb54fcbf9",
+    "src/wcomr/h0_mode.py": "849afc06fa124c606e39205542458e7bcaa974adca28d9772f3c23730c1668b4",
+    "src/wcomr/light_output.py": "fc426b3f9c00ca92f910da222b531e8b55021bf6a1986b063453a3909bce5d57",
+    "src/wcomr/light_sampling.py": "45e721e64e0fba0ea62f5d8f49840d3ae8638c33c7c74032a50bea7496169f94",
+    "src/wcomr/measurement.py": "c4181ec3220b2fd33d333dffed9ae7163303668b9e152a705d1d70213b45a4c0",
+    "src/wcomr/mid_coverage.py": "8e02d740b4ee794531c6263666bbed18348e32ba84c9b94b89f7c979a106fbf4",
+    "src/wcomr/mid_parity_scope.py": "9148efafe28a45603dae2034721accc03251bc4bb1ef802785c4d6c3f3ca0714",
+    "src/wcomr/mid_prefix_audit.py": "218dba5b59a76919bcb03dae0ccba4dae69dc40dc4035aac968f7f85cb14fe0e",
+    "src/wcomr/mid_scope.py": "94d02ab46cddd70a0a80e5edb62eb12e22eb2647afe66b6843e6372480bb51ac",
+    "src/wcomr/prepared_input.py": "aa2d916a56d8ac1f7afd8a551c20341d5bed86299f97b0711019517f0e0effdb",
+    "src/wcomr/refresh_deployment.py": "94d272cd6a35271d251c81ec6eba1a3d3fdb7451c657109adb249dd9e9f2e7bc",
+    "src/wcomr/runtime_config.py": "d35c08a30fb5d0aea31a80e83755c0ed44969988d78c47a65dd3b62a8d507065",
+    "src/wcomr/selective_refresh_policy.py": "d1b67d3ed941b2abb4f19c955df6d7627cde17cf7b5b97554f33e10300af5adb",
+    "src/wcomr/sparge_no_pv.py": "5cce08ad13cf61d62eef2781417075468d92b65c535ea2b0a8434bcf46398e6e",
+    "src/wcomr/sparge_routed_no_pv.py": "7e895502101be1164d18fc5c04ddbc6ad4fb7aec034eb9c79a18ccbc1bb8b0b4",
+    "src/wcomr/stage_output.py": "0778f71889be08b93e3f8e6ce3f65d6d9768f993703edafc581fb68e759bd429",
+    "src/wcomr/stage_refresh.py": "eee10e636abf6dd2141319ac03cf7d56540aa7a8b73146830e6e7c057c714bce",
+    "src/wcomr/stage_refresh_policy.py": "5a6d85fc2c10e2d36ef9d19e1487f3e4e64bee6c4852437956f764bc586d2908",
+    "src/wcomr/stage_witness.py": "78247cc3137d1ea032425c392aa728f35b83fcd0d748f21be4cb3c3d7995ae09",
+    "tests/check_full_sampling.py": "137574672d216ebeae4d2639f381dbb2c63a51505ba37e74989e8b7e3e172cc8",
+    "tests/check_light_sampling.py": "04e0b7f7d8fe1148ad6133255398675dd24fb2e48fd98abb22c581791781b1ad",
+    "tests/check_stage_output_cpu.py": "fa7f9d2074e6ebee5064cc62c8c84ae13c1d8ff8ac36414db287d2ac880db2ee",
+    "tests/test_stage_refresh_policy.py": "29eab39c9090ff386336ccf1476728cc6d2ac0cfd0426b8ed7cd2aebb3469f12"
+  },
+  "complete_cost_draft_ref": "reports/wc_stage_frontier_cost_draft_20261004.json",
+  "proposed_max_seconds": 3600,
+  "proposed_child_seconds": 3570,
+  "proposed_kill_seconds": 5,
+  "GPU_card_selected": false,
+  "GPU_submitted": false,
+  "reserved_seconds": 0,
+  "quality_acceptance": false,
+  "limitations": [
+    "Native/less-step/tuned-WC frontier and independent CONF are separate pending work.",
+    "No fixed future mask or exact S quota. Current predicate feedback, quality and speed require actual GPU.",
+    "No training, artificial source replacement, manual semantic gate, paid scoring or reused historical single-submit identity."
+  ]
+}

@@ -1,3 +1,13 @@
+## 2026-10-04 在线阶段规则 CPU 通过，完整强基线成本已列明
+
+[99接口、证据与预算](../research/99_WC_ONLINE_STAGE_CPU_AND_FAIR_FRONTIER_BUDGET.md)：继承原生WC判定，只在当前step23–27且合法eligible full使用S；窗口外D、窗口内every1/every2两个频率，不读取未来mask或deep truth。新八输出核心先strict D/D，再两曝光CAL各WC/window/cadence；历史D桥在任何S前止步，失败保留八分母/前序输出。没有固定38deep或真实S配额承诺，也没有新GPU反馈/质量/速度结果。
+
+[实际CPU114.439秒](../reports/wc_stage_window_sampling_cpu_r1_20261004.json)/[独立原件审计](../reports/wc_stage_window_sampling_cpu_audit_20261004.json)：旧15/new10/纯policy4组通过，当前28依赖/5官方源与服务器原件SHA绑定，CUDA禁止、预算不变。Toy人为full阈值窗口用于cadence10/6 S、mock decoder/writer和核替身不是实际自适应反馈或视频。
+
+[完整成本草案](../reports/wc_stage_frontier_cost_draft_20261004.json)：新自适应S按full代理留余量，在线八输出3549.549秒/拟3600；Native/少步/三WC阈值/stage及D/D十四输出6298.155秒/拟6300；新CONF六输出2808.526秒/拟3000。三拟上限12900秒+15秒门超当前余10307.381秒约2607.619秒；不能同时准入或删基线，后序按实费替换预付后重新核算。第一卡/前两拟上限单独可容纳，尚未选择/冻结GPU卡、部署或预付。
+
+已结算9.136838727254782/12h、42jobs、余2.8631612727452183h，无inflight保持，旧原卡已终态。下一独立scope/runner/监督器及CPU原件、实际source/assets/import/prepare/native-meta/sample门，再fresh资源/锁/账本后仅提交具体卡；不复用104/旧卡身份，不训练或加人评。强前沿Native少步新入口、自动语义物理/独立CONF仍未实现或接受，科学goal active。以下为历史。
+
 ## 2026-10-04 四组合终态：早期两次S影响大，晚期新增S未补偿
 
 [98结果与下一步](../research/98_WC_TIMING_FACTORIAL_RESULTS_AND_EARLY_PROTECTION_NEXT.md)/[机器汇总](../reports/wc_timing_factorial_human_r1_summary_20261004.json)：冻结sourcea860唯一卡exit0，六mp4/93完整解码、38共同deep、D/D九门/五处1216状态及pipeline、历史D/legacy SHA、实际11/9/13 S与253/207/299算子/来源窗口/native70、源码费用释放独立通过。旧E1L0/E0L1原件及新E0L0/E1L1逐SHA/条件/种子/采样/掩码/WC设置/指标绑定后，SSIM四臂依次0.927613/0.744880/0.927207/0.744302。早期S条件RGB MSE增加约0.01330，两种晚期设置一致；晚期增加约0.0000205/0.0000275，当前没有补偿信号。

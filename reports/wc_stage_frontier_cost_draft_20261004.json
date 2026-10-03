@@ -1,0 +1,98 @@
+{
+  "status": "ONLINE_STAGE_AND_STRONG_BASELINE_COST_DRAFT_FIRST_CARD_FITS_ALL_CAPS_NOT_JOINTLY_ADMITTED",
+  "CPU_only": true,
+  "budget": {
+    "batch": "F0-F1",
+    "cap_gpu_hours": 12,
+    "used_gpu_hours": 9.136838727254782,
+    "gpu_jobs_launched": 42,
+    "status": "WC_TIMING_FACTORIAL_OUTPUT_SETTLED_REQUIRES_RESULT_AUDIT",
+    "gpu_import_probes_completed": 1,
+    "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts",
+    "budget_authorization_ref": "manifests/budget_authorization_20261003.json",
+    "budget_authorization_history": [
+      {
+        "authorized_utc": "2026-10-02T18:03:00Z",
+        "source_thread_id": "01a0f1e6-7ad0-75df-9a02-172b60d2e00b",
+        "user_instruction": "\u628a\u5404\u4e2a\u5b9e\u9a8c\u7684 gpu \u9884\u7b97\u90fd\u8bbe\u7f6e\u4e3a 12gpuh",
+        "previous_cap_gpu_hours": 4,
+        "new_cumulative_cap_gpu_hours": 12,
+        "used_gpu_hours_at_change": 3.9117525685110333,
+        "no_usage_reset_or_transfer": true
+      }
+    ]
+  },
+  "remaining_seconds": 10307.380581882786,
+  "remaining_GPU_hours": 2.8631612727452183,
+  "historical_accepted_native_max_seconds": 314.46268797200173,
+  "full_proxy_seconds": 381.7508979411796,
+  "light_proxy_seconds": 235.7682573137805,
+  "load_seconds": 95.91554894298315,
+  "bookkeeping_seconds": 75,
+  "cards": [
+    {
+      "name": "online_two_exposed_CAL_window_and_cadence",
+      "planned_outputs": 8,
+      "DD_controls": 2,
+      "full_proxy_outputs": 4,
+      "light_proxy_outputs": 2,
+      "unbuffered_seconds": 2932.9574512176214,
+      "buffer_factor": 1.2,
+      "shutdown_seconds": 30,
+      "complete_planning_seconds": 3549.5489414611457,
+      "proposed_cap_seconds": 3600,
+      "selected": false,
+      "GPU_submitted": false
+    },
+    {
+      "name": "two_CAL_native_fewer_step_three_WC_points_and_selected_stage",
+      "planned_outputs": 14,
+      "DD_controls": 2,
+      "full_proxy_outputs": 10,
+      "light_proxy_outputs": 2,
+      "unbuffered_seconds": 5223.462838864699,
+      "buffer_factor": 1.2,
+      "shutdown_seconds": 30,
+      "complete_planning_seconds": 6298.155406637638,
+      "proposed_cap_seconds": 6300,
+      "selected": false,
+      "GPU_submitted": false
+    },
+    {
+      "name": "one_new_CONF_DD_native_fewer_step_selected_WC_and_stage",
+      "planned_outputs": 6,
+      "DD_controls": 2,
+      "full_proxy_outputs": 3,
+      "light_proxy_outputs": 1,
+      "unbuffered_seconds": 2315.4382959626614,
+      "buffer_factor": 1.2,
+      "shutdown_seconds": 30,
+      "complete_planning_seconds": 2808.5259551551935,
+      "proposed_cap_seconds": 3000,
+      "selected": false,
+      "GPU_submitted": false
+    }
+  ],
+  "all_three_proposed_caps_seconds": 12900,
+  "all_three_caps_fit_current_budget": false,
+  "cap_sum_excess_seconds": 2607.619418117214,
+  "first_card_budget_admissible": true,
+  "first_two_caps_fit_current_budget": true,
+  "reserved_seconds": 0,
+  "new_GPU_submission": false,
+  "quality_acceptance": false,
+  "limits": [
+    "Only costs, not selected execution cards; real source/CPU/assets/import/metadata and fresh admission still required.",
+    "Adaptive stage outputs use the full proxy; fewer steps receive no runtime discount.",
+    "Native and WC thresholds use current shared mode/pipeline; historical Native timing is a cost reference, not current output equivalence.",
+    "Do not shrink baseline or CONF denominators to fit caps. Recompute after actual settlement/refund; no budget reset.",
+    "Two exposed CAL and one new CONF are a bounded test, not the complete24-CAL/independent research plan.",
+    "Automatic semantic/physics evaluation and larger independent confirmation need separately measured cost; not silently treated as free."
+  ],
+  "input_files_sha256": {
+    "reports/wc_timing_factorial_cost_proposal_20261004.json": "7e6d7b9ed7acb499445e23b3af3160e438ff5e2ac7e63fe36337d0ff739d714e",
+    "reports/wc_timing_factorial_human_r1_terminal_20261004.json": "0928359d81f5cfd93b94c3c9efefc97069aec95809ac5afff25f6d5687e6cb67",
+    "reports/f1_smoke_r3_summary.json": "99979296e576b1e0cf51fa3822fd70db5564023e3a3792fabecb7fa0222ebb6e"
+  },
+  "planning_code_sha256": "b6d86a6b2ce9f9cf18c535cc89dfbda8e075313c46b56a3901a06743f62c01e7"
+}
