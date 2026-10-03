@@ -1,3 +1,7 @@
+## 2026-10-04 来源位置原任务在运行：1/6文件，D/D尚待完成
+
+[现场1791059926.410151](reports/wc_forecast_placement_human_r1_live_observation_20261004.json)：原三个PID与source395命令行匹配，已有1/6视频文件，第二固定D/D控制在生成；九门及完整pipeline一致性仍待两臂完成，没有候选位置/质量或速度结果。账本含原2400秒预付8.882318343349938/12h、41jobs保持。只跟踪原卡到终态和独立审计，不重提或追加。
+
 ## 2026-10-04 来源位置六输出唯一提交，原三个句柄已确认
 
 [launch](reports/wc_forecast_placement_human_r1_launch_20261004.json)/[现场1791059669.298765](reports/wc_forecast_placement_human_r1_start_observation_20261004.json)：冻结source395eae6/deploy1仅提交wc-forecast-placement-human-r1一次。原supervisor2732730/timeout2732748/runner2732750及完整命令行匹配，第一官方D/D控制生成中、0/6视频。D/D九门、历史legacy复现止步及两新位置完整视频待验证。首次launch state null由原现场句柄补证，不重提。

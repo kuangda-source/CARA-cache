@@ -1,5 +1,7 @@
 # 同计算预算的来源位置：独立六输出执行卡
 
+[最新现场1791059926.410151](../reports/wc_forecast_placement_human_r1_live_observation_20261004.json)：原三个句柄匹配、1/6视频文件，第二D/D控制在生成。九门与完整pipeline待完成，不以文件出现接受完整解码、保真或速度。账本预付保持；以下各时间快照保留原身份。
+
 ## 唯一提交，原三个现场句柄已确认
 
 [唯一launch](../reports/wc_forecast_placement_human_r1_launch_20261004.json)/[现场1791059669.298765](../reports/wc_forecast_placement_human_r1_start_observation_20261004.json)：冻结source395eae6/deploy1通过全部实际门后，fresh UUID/VRAM/compute/锁/预算/磁盘准入提交一次。原supervisor2732730/timeout2732748/runner2732750均在/proc，完整命令行匹配stage/run；runner完成77.397秒加载，第一官方D/D控制生成中，0/6视频，D/D九门和新视频指标尚待验证。首次launch state null由现场句柄补证，不重提。

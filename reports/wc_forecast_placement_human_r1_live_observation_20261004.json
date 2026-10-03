@@ -1,0 +1,130 @@
+{
+  "observed_unix": 1791059926.4101512,
+  "source_revision": "395eae6dee91730cdb8f6f7997a1fba50913c2a1",
+  "supervisor": {
+    "status": "GPU_FORECAST_PLACEMENT_OUTPUT_RUNNING",
+    "pid": 2732730,
+    "run_id": "wc-forecast-placement-human-r1",
+    "admission": {
+      "unix": 1791059440.8045886,
+      "uuid": "GPU-cebf7119-cf03-23b9-e192-cd196332b704",
+      "name": "NVIDIA RTX A6000",
+      "memory_used_mib": 24,
+      "compute_cap": "8.6",
+      "pids": []
+    },
+    "budget_before": {
+      "batch": "F0-F1",
+      "cap_gpu_hours": 12,
+      "used_gpu_hours": 8.215651676683272,
+      "gpu_jobs_launched": 40,
+      "status": "WC_SELECTIVE_OUTPUT_SETTLED_REQUIRES_RESULT_AUDIT",
+      "gpu_import_probes_completed": 1,
+      "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts",
+      "budget_authorization_ref": "manifests/budget_authorization_20261003.json",
+      "budget_authorization_history": [
+        {
+          "authorized_utc": "2026-10-02T18:03:00Z",
+          "source_thread_id": "01a0f1e6-7ad0-75df-9a02-172b60d2e00b",
+          "user_instruction": "\u628a\u5404\u4e2a\u5b9e\u9a8c\u7684 gpu \u9884\u7b97\u90fd\u8bbe\u7f6e\u4e3a 12gpuh",
+          "previous_cap_gpu_hours": 4,
+          "new_cumulative_cap_gpu_hours": 12,
+          "used_gpu_hours_at_change": 3.9117525685110333,
+          "no_usage_reset_or_transfer": true
+        }
+      ]
+    },
+    "reserved_seconds": 2400,
+    "child_pid": 2732748,
+    "child_started_unix": 1791059440.8074398
+  },
+  "runner": {
+    "status": "INITIALIZING",
+    "pid": 2732750,
+    "started_unix": 1791059453.0032284,
+    "load_seconds": 77.39725600834936,
+    "planned_total_phases": 6,
+    "planned_output_files": 6
+  },
+  "processes": {
+    "2732730": {
+      "exists": true,
+      "command": "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python -u /home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-forecast-placement-human-r1-deploy1/scripts/supervise_wc_forecast_placement.py --project /home/gaokuangda/data/gkd/worldcache_omr --stage /home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-forecast-placement-human-r1-deploy1 --output /home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-forecast-placement-human-r1 --gpu-uuid GPU-cebf7119-cf03-23b9-e192-cd196332b704 ",
+      "matches_exact_run": true
+    },
+    "2732748": {
+      "exists": true,
+      "command": "timeout --kill-after=5s 2370s /home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python -u /home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-forecast-placement-human-r1-deploy1/scripts/run_wc_forecast_placement.py --project /home/gaokuangda/data/gkd/worldcache_omr --stage /home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-forecast-placement-human-r1-deploy1 --runtime /home/gaokuangda/data/gkd/worldcache_omr/runtime --output /home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-forecast-placement-human-r1/diagnostic --gpu-uuid GPU-cebf7119-cf03-23b9-e192-cd196332b704 ",
+      "matches_exact_run": true
+    },
+    "2732750": {
+      "exists": true,
+      "command": "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python -u /home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-forecast-placement-human-r1-deploy1/scripts/run_wc_forecast_placement.py --project /home/gaokuangda/data/gkd/worldcache_omr --stage /home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-forecast-placement-human-r1-deploy1 --runtime /home/gaokuangda/data/gkd/worldcache_omr/runtime --output /home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-forecast-placement-human-r1/diagnostic --gpu-uuid GPU-cebf7119-cf03-23b9-e192-cd196332b704 ",
+      "matches_exact_run": true
+    }
+  },
+  "budget": {
+    "batch": "F0-F1",
+    "cap_gpu_hours": 12,
+    "used_gpu_hours": 8.882318343349938,
+    "gpu_jobs_launched": 41,
+    "status": "WC_FORECAST_PLACEMENT_OUTPUT_RUNNING_2400S_PREPAID_NOT_ACTUAL_SETTLED",
+    "gpu_import_probes_completed": 1,
+    "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts",
+    "budget_authorization_ref": "manifests/budget_authorization_20261003.json",
+    "budget_authorization_history": [
+      {
+        "authorized_utc": "2026-10-02T18:03:00Z",
+        "source_thread_id": "01a0f1e6-7ad0-75df-9a02-172b60d2e00b",
+        "user_instruction": "\u628a\u5404\u4e2a\u5b9e\u9a8c\u7684 gpu \u9884\u7b97\u90fd\u8bbe\u7f6e\u4e3a 12gpuh",
+        "previous_cap_gpu_hours": 4,
+        "new_cumulative_cap_gpu_hours": 12,
+        "used_gpu_hours_at_change": 3.9117525685110333,
+        "no_usage_reset_or_transfer": true
+      }
+    ],
+    "wc_forecast_placement_output_inflight": {
+      "run_id": "wc-forecast-placement-human-r1",
+      "supervisor_pid": 2732730,
+      "reserved_seconds": 2400
+    }
+  },
+  "gpu": "GPU-de9a5370-cd87-0f1c-a48e-288888777dd3, NVIDIA RTX A6000, 340\nGPU-cebf7119-cf03-23b9-e192-cd196332b704, NVIDIA RTX A6000, 22818\n",
+  "apps": "GPU-cebf7119-cf03-23b9-e192-cd196332b704, 2732750\n",
+  "video_files": [
+    "diagnostic/dense-control/000_official/human_199.mp4"
+  ],
+  "dense_control": {
+    "status": "NOT_STARTED",
+    "nine_checks": null,
+    "pipeline_checks": null,
+    "phases": [
+      {
+        "index": 0,
+        "kind": "official",
+        "status": "COMPLETE36_CFG72_ORDINARY_RETURN_NO_QUALITY_ACCEPTANCE",
+        "solver_steps": 36,
+        "CFG_calls": 72,
+        "prepare_calls": 1,
+        "pipeline_wall_seconds": 350.01884320378304
+      },
+      {
+        "index": 1,
+        "kind": "candidate",
+        "status": "STARTED",
+        "solver_steps": 0,
+        "CFG_calls": 0,
+        "prepare_calls": 0
+      }
+    ]
+  },
+  "measurements": [
+    {
+      "sample_name": "human_199",
+      "status": "NOT_STARTED_DD_PENDING",
+      "phases": []
+    }
+  ],
+  "child_max_deadline_beijing": "2026-10-04T05:10:40.807440+08:00",
+  "log_tail": "ing samples:  97%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258b| 35/36 [04:07<00:05,  5.96s/it]\nGenerating samples: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 36/36 [04:21<00:00,  8.54s/it]\nGenerating samples: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 36/36 [04:21<00:00,  7.27s/it]\n[10-04 04:38:05|INFO|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/inference.py:160:_generate_sample] Running guardrail check on video...\n[10-04 04:38:16|SUCCESS|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/inference.py:172:_generate_sample] Passed guardrail on generated video\n[10-04 04:38:19|SUCCESS|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/inference.py:180:_generate_sample] Saved video to /home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-forecast-placement-human-r1/diagnostic/dense-control/000_official/human_199.mp4\n[10-04 04:38:19|INFO|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/inference.py:91:generate] Generating 1 samples: ['human_199']\n[10-04 04:38:19|INFO|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/inference.py:95:generate] [1/1] Processing sample human_199\n[10-04 04:38:19|INFO|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/inference.py:108:_generate_sample] Saved arguments to /home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-forecast-placement-human-r1/diagnostic/dense-control/001_candidate/human_199.json\n[10-04 04:38:35|SUCCESS|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/inference.py:120:_generate_sample] Passed guardrail on prompt\n[10-04 04:38:35|INFO|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/inference.py:142:_generate_sample] Generating video with standard mode...\n"
+}
