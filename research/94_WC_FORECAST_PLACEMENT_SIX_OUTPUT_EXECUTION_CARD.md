@@ -1,5 +1,9 @@
 # 同计算预算的来源位置：独立六输出执行卡
 
+## 实际部署通过，尚无新GPU
+
+[deploy1回执](../reports/wc_forecast_placement_human_r1_deployment_20261004.json)绑定source395eae6dee91730cdb8f6f7997a1fba50913c2a1的63payload+mid64文件。r1旧14/current r2新8的实际原件与35依赖对应，r1唯一改变check_forecast_placement_cpu.py由r2覆盖。实际scope33拒绝/准入控制、teacher及上一selective原件/物理D和legacy SD视频/位置SHA、官方prepare、native-meta eval/buffers、source/assets/import/package和human条件全部通过，CUDA未初始化，预算保持。全局锁和磁盘检查通过；GPU资源与余额仍在唯一提交前重新检查。以下为卡选择时的准备状态。
+
 2026-10-04。沿[93离线下界与CPU证据](93_WC_FORECAST_PLACEMENT_BOUND_CPU_AND_PROPOSAL.md)准备独立 `WC-FORECAST-PLACEMENT-HUMAN-R1-20261004-A` / `wc-forecast-placement-human-r1`。依据当前自主研究goal和累计12 GPUh选择；原104点单次1800秒授权已完成，不重用其身份。此前六输出卡及其终态也不重提。当前只完成源码及CPU范围门，没有新GPU、预付或视频。
 
 [执行清单](../manifests/wc_forecast_placement_human_r1_execution_20261004.json)、[配置](../configs/wc_forecast_placement_human_r1.json)。只使用已曝光human_199/seed0，固定原38-deep/34-cache掩码、35请求/36 solver/72 CFG、93帧768×432/16fps、probe2、warm14/native70与尾dense。稀疏23层，6/23/27继续dense，sim0.1/cdf0.98/no-PV。

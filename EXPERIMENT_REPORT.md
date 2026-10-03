@@ -1,3 +1,9 @@
+## 2026-10-04 来源位置六输出实际部署通过，待唯一GPU提交
+
+[实际部署](reports/wc_forecast_placement_human_r1_deployment_20261004.json)：冻结source395eae6、63payload+mid64文件在deploy1验证；CPU r1旧14/current r2新8原件及当前35依赖绑定，唯一变化测试叶由r2覆盖。实际scope33、teacher/旧selective原件/物理D和legacy SD视频/位置SHA、prepare OFF/ON、native-meta eval/buffers、资产/import/package与human条件均通过，CUDA未初始化、账本保持。
+
+下一仅fresh UUID/sm86/VRAM/compute/锁/no-inflight/原12h余额/磁盘准入后wc-forecast-placement-human-r1单次2400全cost/2370child提交。当前8.215651676683272/12h、40jobs，无新GPU或预付；六分母和D/D→legacy复现止步保持。位置15/2不是视频/线上策略/因果RV收益，不重提旧104或上一卡，不训练或加人评。以下为历史。
+
 ## 2026-10-04 独立来源位置六输出卡：CPU范围通过，实际部署待验证
 
 [94执行卡](research/94_WC_FORECAST_PLACEMENT_SIX_OUTPUT_EXECUTION_CARD.md)/[35项CPU范围控制](reports/wc_forecast_placement_scope_cpu_20261004.json)：固定38deep、逐CFG6/5共11次S/253算子；严格D/D和历史legacy SD复现后比较首次S匹配与最小来源位置。新scope/runner/全局锁监督器完成，既有实际CPU35依赖SHA保持，错位置/配额/层、六分母、角色、完整cost与账本拒绝通过。曝光未来掩码oracle不是线上策略或RV标签，15/2仍只是来源CPU下界。
