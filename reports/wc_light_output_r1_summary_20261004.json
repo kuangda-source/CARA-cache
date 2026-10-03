@@ -1,0 +1,215 @@
+{
+  "status": "TEN_OUTPUT_AUDITS_PASS_DESCRIPTIVE_SPEED_WITH_UNRESOLVED_HUMAN_FIDELITY",
+  "run_card": "WC-LIGHT-OUTPUT-R1-20261003-A",
+  "source_revision": "7bec5f84ac6eee1289780a574f86972d1d19f3af",
+  "planned_outputs": 10,
+  "completed_outputs": 10,
+  "deployment_measurements": 8,
+  "all_measurement_repeats_included": true,
+  "DD_observer_timings_excluded": true,
+  "DD_nine_and_final_pipeline_pass": true,
+  "DD_native_components_per_checkpoint": [
+    1216,
+    1216,
+    1216,
+    1216,
+    1216
+  ],
+  "first_sparse_pipeline_included": true,
+  "scenes": [
+    {
+      "sample_name": "common_sense_6487f37f-ef57-49ca-afdc-d898922b5191",
+      "sequence": [
+        "official",
+        "candidate",
+        "candidate",
+        "official"
+      ],
+      "pipeline_seconds_all_repeats": {
+        "official": [
+          201.95340678282082,
+          202.68806987255812
+        ],
+        "candidate": [
+          199.59608845692128,
+          196.78907204046845
+        ]
+      },
+      "mean_pipeline_seconds": {
+        "official": 202.32073832768947,
+        "candidate": 198.19258024869487
+      },
+      "mean_official_over_candidate": 1.0208290243449807,
+      "mean_time_reduction_percent": 2.040402834191135,
+      "sample_stdev_seconds": {
+        "official": 0.5194852526407032,
+        "candidate": 1.9848603429757545
+      },
+      "deep_CFG_calls": {
+        "official": [
+          35,
+          35
+        ],
+        "candidate": [
+          35,
+          35
+        ]
+      },
+      "changed_adaptive_decision_calls": [],
+      "sparse_attention_operators_per_candidate": [
+        437,
+        437
+      ],
+      "approximate_cache_reads_per_candidate": [
+        29,
+        29
+      ],
+      "repeat_artifact_SHA_equal": {
+        "official": true,
+        "candidate": true
+      },
+      "encoded_quality_metrics_per_fixed_pair": {
+        "frames": 93,
+        "RGB_MSE_0to1": 0.0031700964182880473,
+        "RGB_PSNR_dB": 24.989275285413495,
+        "exact_RGB_equality": false,
+        "mean_luma_SSIM_win7": 0.9011789104314855,
+        "transitions": 92,
+        "baseline_mean_abs_RGB_frame_change": 0.022419094952795936,
+        "candidate_mean_abs_RGB_frame_change": 0.022104360532338888,
+        "temporal_difference_MSE_0to1": 0.0015566422686049044,
+        "candidate_over_baseline_frame_change": 0.9859613235449634
+      },
+      "artifact_SHA_equal_to_earlier_debug_pair": true,
+      "host_substage_seconds_sum_is_not_CUDA_decomposition": true
+    },
+    {
+      "sample_name": "human_199",
+      "sequence": [
+        "candidate",
+        "official",
+        "official",
+        "candidate"
+      ],
+      "pipeline_seconds_all_repeats": {
+        "official": [
+          214.33477937616408,
+          214.12184022273868
+        ],
+        "candidate": [
+          197.03694629855454,
+          197.47798398602754
+        ]
+      },
+      "mean_pipeline_seconds": {
+        "official": 214.22830979945138,
+        "candidate": 197.25746514229104
+      },
+      "mean_official_over_candidate": 1.0860339792206013,
+      "mean_time_reduction_percent": 7.921849671991299,
+      "sample_stdev_seconds": {
+        "official": 0.1505707193672198,
+        "candidate": 0.3118607395709909
+      },
+      "deep_CFG_calls": {
+        "official": [
+          38,
+          38
+        ],
+        "candidate": [
+          35,
+          35
+        ]
+      },
+      "changed_adaptive_decision_calls": [
+        46,
+        47,
+        48,
+        51,
+        52,
+        56,
+        57,
+        58,
+        69
+      ],
+      "sparse_attention_operators_per_candidate": [
+        437,
+        437
+      ],
+      "approximate_cache_reads_per_candidate": [
+        29,
+        29
+      ],
+      "repeat_artifact_SHA_equal": {
+        "official": true,
+        "candidate": true
+      },
+      "encoded_quality_metrics_per_fixed_pair": {
+        "frames": 93,
+        "RGB_MSE_0to1": 0.017867209171547077,
+        "RGB_PSNR_dB": 17.479432782750802,
+        "exact_RGB_equality": false,
+        "mean_luma_SSIM_win7": 0.7054089124809588,
+        "transitions": 92,
+        "baseline_mean_abs_RGB_frame_change": 0.06312986322396619,
+        "candidate_mean_abs_RGB_frame_change": 0.06010966230820332,
+        "temporal_difference_MSE_0to1": 0.02149043364985983,
+        "candidate_over_baseline_frame_change": 0.9521589187505748
+      },
+      "artifact_SHA_equal_to_earlier_debug_pair": true,
+      "host_substage_seconds_sum_is_not_CUDA_decomposition": true
+    }
+  ],
+  "gpu_wall_seconds": 2426.9501305343583,
+  "this_job_gpu_hours": 0.6741528140373217,
+  "cumulative_gpu_hours": 7.407626319933526,
+  "remaining_gpu_hours": 4.592373680066474,
+  "gpu_jobs_launched": 38,
+  "no_inflight_and_original_resources_released": true,
+  "monitor_rows": 1138,
+  "peak_memory_mib": 27732,
+  "runner_raw_bytes": 4197745,
+  "runner_raw_sha256": "29ec9b86ca70d7241349f9808057a1e5f47491b0f8b1ba689167f9f8890701ae",
+  "input_receipts": {
+    "terminal": {
+      "path": "reports/wc_light_output_r1_terminal_20261004.json",
+      "sha256": "28b4fefa375026790a57c4e345d5c924578e627ea0cd793eb667ee0ba2e4483a"
+    },
+    "artifact_audit": {
+      "path": "reports/wc_light_output_r1_audit_20261004.json",
+      "sha256": "e0863952edd01c8955c3f69aeca125aeade7112d337d488950a025d79955e33b"
+    },
+    "metrics": {
+      "path": "reports/wc_light_output_r1_metrics_20261004.json",
+      "sha256": "986cea041025756c1388b4872080a4c60d6c99378e2a3978c4b21451cdf695a0"
+    },
+    "runner_gzip": {
+      "path": "reports/wc_light_output_r1_runner_20261004.json.gz",
+      "sha256": "98e639b9383ba4c9d526a8e004617da385be30ec4bfb476e1f9a741017c78560"
+    },
+    "audit_CPU_control": {
+      "path": "reports/wc_light_output_r1_audit_cpu_control_20261003.json",
+      "sha256": "85089a13acb0c107fa993855bdf44c08e836c5b0300a7387a38f2393e0ce2793"
+    },
+    "earlier_debug_metrics": {
+      "path": "reports/wc_full_output_r1_video_metrics_20261003.json",
+      "sha256": "2c412a7f97300b694722d6cde7afdd2d62c437f2b907277fd9d8f60fd12c5a82"
+    }
+  },
+  "summary_code_sha256": "eef8ed0958b8bdb3abed908019c2d0aa1fdd05c4f77a30aef5567a93640b17e2",
+  "quality_acceptance": false,
+  "independent_confirmation": false,
+  "quality_time_frontier_claim": false,
+  "new_GPU_card_selected": false,
+  "training_started": false,
+  "decision": "Continue WC with CPU preparation of fidelity and adaptive-schedule controls; defer learned routing.",
+  "limits": [
+    "Two exposed CAL scenes; two same-seed repeats per arm are not independent quality observations.",
+    "Measured same-host warm pipeline includes prepare, native generation, guardrails, decode, write and necessary provenance.",
+    "Load95.916 seconds and DD diagnostics remain in the total fee, outside the eight measured pipelines.",
+    "Host substage timings are unsynchronized and incomplete; do not sum them or attribute the gap to a specific module.",
+    "Human38 versus35 deep CFG calls and9 changed decisions confound a pure sparse-kernel speed attribution.",
+    "Official WC encoded video is the reference; no current matched native-full, fewer-step, tuned-WC frontier or CONF.",
+    "SSIM/PSNR and frame-change ratios do not establish semantic or physical preservation."
+  ]
+}

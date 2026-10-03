@@ -1,3 +1,5 @@
+> **2026-10-04 终态：** 本卡十输出已全部完成并独立审计，实际2426.950秒、累计7.407626/12GPUh，无inflight且原资源释放。八测量显示common耗时降低2.040%、human7.922%，人物保真差异保持。见[87 结果与决策](87_WC_LIGHT_OUTPUT_RESULTS_AND_FIDELITY_NEXT.md)。以下卡范围和在跑记录是历史，不重提。
+
 # 独立十输出轻量卡：组合 CPU 通过，实际部署门待验证
 
 2026-10-03。基于既有自主研究目标和累计12GPUh预算，选定 `WC-LIGHT-OUTPUT-R1-20261003-A` / `wc-light-output-r1`。这是 [84 测量方案](84_WC_VIDEO_GATE_AND_CLEAN_TIMING_NEXT.md)、[85 轻量 CPU 结果](85_WC_LIGHT_PIPELINE_CPU_AND_TRACE_RESULTS.md)之后的独立范围；原104点1800秒和原六输出6000秒单次身份均不复用。[执行依据](../manifests/wc_light_output_r1_execution_20261003.json)记录已有授权的来源，不称为用户本轮另授新权限。
