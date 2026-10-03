@@ -126,7 +126,7 @@ def main():
             raise RuntimeError('reservation changed; preserve evidence and do not overwrite ledger')
         current['used_gpu_hours'] = before['used_gpu_hours'] + wall / 3600
         current.pop('wc_light_output_inflight')
-        current['status'] = 'WC_FULL_OUTPUT_SETTLED_REQUIRES_RESULT_AUDIT'
+        current['status'] = 'WC_LIGHT_OUTPUT_SETTLED_REQUIRES_RESULT_AUDIT'
         save(budget_path, current)
         state['budget_after'] = current
         state['status'] = state.get('stop_reason') or ('EXITED_REQUIRES_RESULT_AUDIT' if state['exit_code'] == 0 else 'TECH_BLOCKED')
