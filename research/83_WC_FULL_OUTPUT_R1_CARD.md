@@ -42,3 +42,9 @@
 [deploy2回执](../reports/wc_full_output_r1_deployment_20261003.json)绑定冻结source`b3ed6b084b5e7bad5a242bd9a934a0d502e1ef6c`：完整CPU11/19/3、官方prepare与metadata、原网络meta/shared-eval/buffer inventory以及全部source/assets/import/package通过，无CUDA/权重模型执行，账本未变，现场全局锁可用、数据盘564GB余量。原缺依赖准备失败保留，唯一GPU run尚未提交；提交仍需再次现场准入。
 
 S使用现有QK量化/选择与稀疏执行，S−D包括backend量化和稀疏效应；本视频卡不是纯稀疏因果分解。此前matched-full局部对照保留，不据该卡独占归因。
+
+## 唯一实际启动与首视频现场
+
+[启动原回执](../reports/wc_full_output_r1_launch_20261003.json)为dispatch短快照，当时 supervisor_state未写；[后续现场](../reports/wc_full_output_r1_live_observation_20261003.json)1791034388.669872确认原三PID2687791/2687807/2687809和指定GPU运行，baseline已完整36/72普通返回并写首个mp4，dense adapter控制在跑，尚无S结果。不可据launch空state重启，也不可把首个对照视频当成D/D通过。
+
+实际全cost6000预付、child起算1791033603.3447514/最大北京时间23:00:03.344751；已结算6.055044055960606保持，含预留7.7217107226272725/12h、37jobs。仅跟踪原句柄，结束后按实际wall结算并独立核对全六输出/来源/视频/费用/释放。当前未声称质量或clean E2E收益。

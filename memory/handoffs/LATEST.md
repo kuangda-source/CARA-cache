@@ -1,3 +1,9 @@
+## 2026-10-03 完整六输出首卡已唯一启动：官方首视频完成，D/D控制仍在跑
+
+[83 固定卡](../../research/83_WC_FULL_OUTPUT_R1_CARD.md)的冻结 source b3ed6b084b5e7bad5a242bd9a934a0d502e1ef6c 在 actual CPU11/19/3、prepare/metadata/native-meta buffers/source/assets/import/package 与 fresh资源/锁/账本门通过后唯一提交。现场1791034388.669872确认 supervisor2687791/child2687807/runner2687809均live，官方 baseline完整36更新/72CFG普通返回并有第一个mp4；dense adapter控制尚未完整返回，S四输出未开始。global INITIALIZING为runner未终态状态，不能解读为未采样。
+
+只跟踪原run/输出目录，不修改冻结stage/payload、不重复提交。D/D九门和最终pipeline通过后才进S；终态独立审计6分母、源码/原件/真实核/来源/93帧和费用/释放。此前已结算6.055044055960606/12GPUh、36jobs；已预付6000秒=1.666666667h，含预留7.7217107226272725/12h、37jobs，实际费用待终态结算。child1791033603.3447514起算最大北京时间23:00:03.344751；DD失败或任何输出缺失即止，不自动第二卡/训练/新增人评。单次104点≤1800授权已完成并消耗，以下准备文字均为历史。
+
 ## 2026-10-03 完整六输出首卡：实际部署全部门通过，待唯一现场提交
 
 [83 固定卡](../../research/83_WC_FULL_OUTPUT_R1_CARD.md)：冻结source b3ed6b084b5e7bad5a242bd9a934a0d502e1ef6c在新deploy2 stage实际完整CPU11/19/3控制、官方prepare/样本metadata、native-meta mode/buffers、全部source/assets/import/package通过，CUDA未初始化、账本保持；原缺依赖准备失败stage/34f2d86保留。源代码已同步GitHub，6输出/6000全cost/5970child/全局锁/累计12h范围不变；尚无本卡GPU费用或视频。
