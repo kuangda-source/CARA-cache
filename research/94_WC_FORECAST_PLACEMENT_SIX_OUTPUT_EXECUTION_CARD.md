@@ -1,5 +1,11 @@
 # 同计算预算的来源位置：独立六输出执行卡
 
+## 唯一提交，原三个现场句柄已确认
+
+[唯一launch](../reports/wc_forecast_placement_human_r1_launch_20261004.json)/[现场1791059669.298765](../reports/wc_forecast_placement_human_r1_start_observation_20261004.json)：冻结source395eae6/deploy1通过全部实际门后，fresh UUID/VRAM/compute/锁/预算/磁盘准入提交一次。原supervisor2732730/timeout2732748/runner2732750均在/proc，完整命令行匹配stage/run；runner完成77.397秒加载，第一官方D/D控制生成中，0/6视频，D/D九门和新视频指标尚待验证。首次launch state null由现场句柄补证，不重提。
+
+原累计12h已结算8.215651676683272h/40历史jobs保持；2400秒预付后含预留8.882318343349938h/41jobs，未预留余额3.117681656650062h，终态按实际wall替换预付。child2370秒/kill5，全cost2400秒；只跟踪原句柄及冻结stage，不重新提交或追加卡。六分母、D/D及legacy复现止步保持。新增[独立来源审计CPU控制](../reports/wc_forecast_placement_auditor_cpu_20261004.json)10项，真实旧legacy来源图通过，拒绝重排/过时或跨CFG引用、S入真D、错误cadence/层/密度、窗口与reset；只验证审计器，不是新位置GPU结果。以下为历史部署和卡选择状态。
+
 ## 实际部署通过，尚无新GPU
 
 [deploy1回执](../reports/wc_forecast_placement_human_r1_deployment_20261004.json)绑定source395eae6dee91730cdb8f6f7997a1fba50913c2a1的63payload+mid64文件。r1旧14/current r2新8的实际原件与35依赖对应，r1唯一改变check_forecast_placement_cpu.py由r2覆盖。实际scope33拒绝/准入控制、teacher及上一selective原件/物理D和legacy SD视频/位置SHA、官方prepare、native-meta eval/buffers、source/assets/import/package和human条件全部通过，CUDA未初始化，预算保持。全局锁和磁盘检查通过；GPU资源与余额仍在唯一提交前重新检查。以下为卡选择时的准备状态。

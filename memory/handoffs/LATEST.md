@@ -1,3 +1,9 @@
+## 2026-10-04 来源位置六输出唯一提交，原三个句柄已确认
+
+[launch](../../reports/wc_forecast_placement_human_r1_launch_20261004.json)/[现场1791059669.298765](../../reports/wc_forecast_placement_human_r1_start_observation_20261004.json)：冻结source395eae6/deploy1仅提交wc-forecast-placement-human-r1一次。原supervisor2732730/timeout2732748/runner2732750及完整命令行匹配，第一官方D/D控制生成中、0/6视频。D/D九门、历史legacy复现止步及两新位置完整视频待验证。首次launch state null由原现场句柄补证，不重提。
+
+已结算8.215651676683272h/40历史jobs；2400秒预付计入原12h后含预留8.882318343349938h/41jobs，余未预留3.117681656650062h。child2370秒/kill5、全cost2400秒，终态实际替换预付，保留失败和六分母。独立审计器10项CPU控制通过，只是历史来源图及拒绝验证。下一跟踪原卡到终态，独立六视频/逐CFG位置配额与native来源窗口/费用释放及CPU指标；没有新质量或速度接受，不追加卡、训练或人评。原104点终态不重提，以下为历史。
+
 ## 2026-10-04 来源位置六输出实际部署通过，待唯一GPU提交
 
 [实际部署](../../reports/wc_forecast_placement_human_r1_deployment_20261004.json)：冻结source395eae6、63payload+mid64文件在deploy1验证；CPU r1旧14/current r2新8原件及当前35依赖绑定，唯一变化测试叶由r2覆盖。实际scope33、teacher/旧selective原件/物理D和legacy SD视频/位置SHA、prepare OFF/ON、native-meta eval/buffers、资产/import/package与human条件均通过，CUDA未初始化、账本保持。
