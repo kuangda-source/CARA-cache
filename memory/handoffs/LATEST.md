@@ -1,3 +1,7 @@
+## 2026-10-03 H0首卡：CPU门通过，实际部署准入待验证
+
+用户2026-10-03 06:00:14UTC继续自主推进常规步骤、06:07:41再确认继续实验。H0首卡冻结第二CAL场景/两CFG四臂、6/23/27 dense回退与0.1/0.98，C严格过去同轨历史、真实D唯一路径；CPU原源码/完整shadow/失败分母/原件误差门通过。1200秒总cost/1170child，951.369秒规划包络含余量。当前未GPU启动，必须冻结source、actual assets/import及fresh UUID/VRAM/compute/f1锁/12h余额门；不重启r4/自动H1/H2/RV/训练。used4.710893751709566h/32jobs保留，原件不入Git。 [具体冻结卡](../../research/76_WC_H0_COMPLEMENT_R1_CARD_AND_RESULTS.md)。以下r4/旧授权条目为历史快照。
+
 ## 2026-10-03 最新终态 — r4完整104点及九门全部通过并审计
 
 [完整结果](../../research/75_WC_FULL104_R4_CARD_AND_RESULTS.md)：唯一wc-mid-full-r4/source8c14046 exit0，两臂18 solver更新/36CFG，104QKV/312case、共享官方prepared-input和完整RNG、全部九项输入/输出/condition/状态等门及step13/18各36组件全部一致。两处进程内restore通过，第13步恢复后实际继续到18；不是独立进程整管线反事实接口。104文件和312张量raw SHA/finite/shape、case/repeat、source/成本/释放独立CPU审计通过。

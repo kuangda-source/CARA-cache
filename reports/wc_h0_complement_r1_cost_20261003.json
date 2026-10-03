@@ -1,0 +1,28 @@
+{
+  "status": "H0_PLANNING_COST_ADMISSION_PASS_PENDING_CPU_SOURCE_ASSET_AND_FRESH_GATES",
+  "observed_r4_load_seconds": 107.93033873196691,
+  "observed_r4_36_call_prefix_seconds": 206.94455356989056,
+  "scaled_40_call_prefix_seconds": 229.93839285543396,
+  "historical_deep_component_ms_per_full_sum_lower_reference_seconds": 2.721699887689422,
+  "shadow_group_executions": 24,
+  "planning_seconds_per_shadow_group": 5,
+  "C_prediction_allowance_seconds": 10,
+  "extra_metadata_state_and_flush_allowance_seconds": 70,
+  "raw_estimate_seconds": 767.8071244428348,
+  "contingency_fraction": 0.2,
+  "planning_envelope_seconds": 921.3685493314018,
+  "shutdown_settlement_margin_seconds": 30,
+  "hard_all_cost_cap_seconds": 1200,
+  "child_cap_seconds": 1170,
+  "remaining_gpu_hours_before": 7.289106248290434,
+  "sources": {
+    "reports/wc_mid_full_r4_runner_20261003.json": "b9a2ac253524590bd5ef62297e39d53e54e410a113d9761eca8d6c1ee6a85ba2",
+    "reports/wc_s0_profile_r3_summary_20261001.json": "0e8575696f7261f486da9fdc30c150f48de8d207a7a0c40760d47df68eaf37e5"
+  },
+  "limits": [
+    "Different existing CAL scene can alter full/skip trace; no guarantee of cost or two eligible CFG cases",
+    "Five second group allowance exceeds recorded component lower reference but is not measured group latency for S/full on the new scene",
+    "Includes repeated true dense compute for same-state control, not old experiment replay",
+    "No video, end-to-end deployment or lifetime result"
+  ]
+}
