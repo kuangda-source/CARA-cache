@@ -1,5 +1,7 @@
 ## 2026-10-03 轻量十输出唯一提交：原三句柄已现场确认，真实门待结果
 
+[进度1791041804.5606267](reports/wc_light_output_r1_live_observation_20261003.json)：第一官方D/D臂普通返回36更新/72CFG/一次真实prepare并保存1/10视频；第二dense-adapter控制臂在生成，成对九门和S测量仍待结果。337.656秒含诊断观察，不是部署速度数据；原三PID/命令行live、预付未变。
+
 [86 独立卡](research/86_WC_LIGHT_TEN_OUTPUT_CARD_AND_CPU.md)/[现场](reports/wc_light_output_r1_start_observation_20261003.json)：冻结source7bec5f84ac6eee1289780a574f86972d1d19f3af在全部actual CPU/source/assets/import/package/prepare/metadata/native-meta与fresh准入后唯一提交。supervisor2701874/timeout2701892/runner2701894存在且命令行匹配本stage/run，指定GPU仅runner24514MiB。现场1791041279.33567为INITIALIZING、0/10输出，未D/D或速度/质量结果。原首次launch state null已由实际句柄补证，不重提。
 
 6000秒预付计入原累计12h：已结算6.733473505896205h/37历史jobs，当前含预留8.400140172562871h/38job，可用3.599859827437129h；child1791041205.2434986起算5970秒/kill5，全cost6000最大北京时间2026-10-04 01:06:45.243499，实际终态结算待审计。只跟踪原source/句柄/目录，先真实fresh-prepare D/D九门/完整pipeline，再两曝光CAL ABBA/BAAB八次测量；十分母保持，缺产物或技术失败即止。终态独立十视频/真实核来源/费用/释放与自动指标，人物保真/强基线/CONF仍未接受，不自动下一卡/训练/新增人评。以下为历史。
