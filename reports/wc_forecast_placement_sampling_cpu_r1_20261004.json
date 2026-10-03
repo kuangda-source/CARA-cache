@@ -1,0 +1,5504 @@
+{
+  "status": "FORECAST_PLACEMENT_CURRENT_AND_LEGACY_CPU_GATE_PASS_NOT_GPU",
+  "exit_code": 0,
+  "observed_unix": 1791056051.9412928,
+  "CPU_wall_seconds": 126.12897157669067,
+  "payload_sha256": {
+    "src/wcomr/__init__.py": "b9996da0a87bb746cdac0935ead475246fc34d88b37e73f63f14e5065494f311",
+    "src/wcomr/decoder_policy.py": "57e1369909dfa9db5ea6ab563b275fe7376bea14d0b247dd7748e79fccf8699b",
+    "src/wcomr/fixed_output.py": "6af893e92c6185089705ea1e2bb5361d11bf190294ef6cde87abdad6d67ea9fe",
+    "src/wcomr/fixed_refresh_diagnostic.py": "17c291314e599065f52299a99923acb38b898753e5a9710eb2476b8bca42ab16",
+    "src/wcomr/fixed_refresh_mask.py": "684c7d7191b42c1abdc719d4af78283d5f88b33d7f34bcb372688655536385cc",
+    "src/wcomr/forecast_placement.py": "5d3b28e35ccef4a1c836a6b7dc87f30f38ca1bd26bab76fe3ece1818ddd27241",
+    "src/wcomr/full_output.py": "bce7d514bd506e8cf878747c77e318ac060bfe07718bdbd129a8975af5c5234f",
+    "src/wcomr/full_output_scope.py": "4cfaae233589d9a75d392e34105a058260913a297c0ef11554239da89fc966a0",
+    "src/wcomr/full_sampling.py": "d5fc455dbf8d0fe3b5b1fdc2a69d00d1a2a41dd7cc741fc6b0830b74f7b881aa",
+    "src/wcomr/h0_eval_scope.py": "748e560fffbe70436c0aba121a11c6001f91d17c8dea85e43abd1d1eb54fcbf9",
+    "src/wcomr/h0_mode.py": "849afc06fa124c606e39205542458e7bcaa974adca28d9772f3c23730c1668b4",
+    "src/wcomr/light_output.py": "fc426b3f9c00ca92f910da222b531e8b55021bf6a1986b063453a3909bce5d57",
+    "src/wcomr/light_output_scope.py": "10745fd0d9ecca547c79bedd79c92b7ca4b771e7c517bd49ef773132d5f45ff2",
+    "src/wcomr/light_sampling.py": "45e721e64e0fba0ea62f5d8f49840d3ae8638c33c7c74032a50bea7496169f94",
+    "src/wcomr/measurement.py": "c4181ec3220b2fd33d333dffed9ae7163303668b9e152a705d1d70213b45a4c0",
+    "src/wcomr/mid_coverage.py": "8e02d740b4ee794531c6263666bbed18348e32ba84c9b94b89f7c979a106fbf4",
+    "src/wcomr/mid_parity_scope.py": "9148efafe28a45603dae2034721accc03251bc4bb1ef802785c4d6c3f3ca0714",
+    "src/wcomr/mid_prefix_audit.py": "218dba5b59a76919bcb03dae0ccba4dae69dc40dc4035aac968f7f85cb14fe0e",
+    "src/wcomr/mid_scope.py": "94d02ab46cddd70a0a80e5edb62eb12e22eb2647afe66b6843e6372480bb51ac",
+    "src/wcomr/prepared_input.py": "aa2d916a56d8ac1f7afd8a551c20341d5bed86299f97b0711019517f0e0effdb",
+    "src/wcomr/refresh_deployment.py": "94d272cd6a35271d251c81ec6eba1a3d3fdb7451c657109adb249dd9e9f2e7bc",
+    "src/wcomr/runtime_config.py": "d35c08a30fb5d0aea31a80e83755c0ed44969988d78c47a65dd3b62a8d507065",
+    "src/wcomr/selective_output.py": "e5e5d8ddd4d3c253d9078b2ede35067d462dbefdc7313496ea4dc44bce483ee5",
+    "src/wcomr/selective_refresh_diagnostic.py": "b9a32381e87f454cad85080f85ca3d7a150184a6ebf02084f5cf20dce69f1703",
+    "src/wcomr/selective_refresh_policy.py": "d1b67d3ed941b2abb4f19c955df6d7627cde17cf7b5b97554f33e10300af5adb",
+    "src/wcomr/sparge_no_pv.py": "5cce08ad13cf61d62eef2781417075468d92b65c535ea2b0a8434bcf46398e6e",
+    "src/wcomr/sparge_routed_no_pv.py": "7e895502101be1164d18fc5c04ddbc6ad4fb7aec034eb9c79a18ccbc1bb8b0b4",
+    "src/wcomr/stage_witness.py": "78247cc3137d1ea032425c392aa728f35b83fcd0d748f21be4cb3c3d7995ae09",
+    "tests/check_fixed_output_cpu.py": "1b7f34070d54f077bac462dee12ac87aa291a9bf4fcb5e67cbe3599910fb74f3",
+    "tests/check_fixed_refresh_diagnostic_cpu.py": "d8262ab80e8ee490e835401ad63c3ab63b19170519fcb0cc6bf85657ea730f25",
+    "tests/check_forecast_placement_cpu.py": "8fcdabc4fa6648845ebf6d4f9e7d6cb948346ae6760be5459b68aa7b54a737ca",
+    "tests/check_full_sampling.py": "137574672d216ebeae4d2639f381dbb2c63a51505ba37e74989e8b7e3e172cc8",
+    "tests/check_light_output.py": "eb7646be98e22210ed7b3bd2b632a4e2f1c679b676b86d6b2f7f1b12ddeb0f16",
+    "tests/check_light_sampling.py": "04e0b7f7d8fe1148ad6133255398675dd24fb2e48fd98abb22c581791781b1ad",
+    "tests/check_selective_refresh_cpu.py": "707ed1c5ddd15c57cb66b6cbfe16ad263fd4aaa65f2c319e06a052bd09e5a2a8"
+  },
+  "budget_unchanged": true,
+  "budget": {
+    "batch": "F0-F1",
+    "cap_gpu_hours": 12,
+    "used_gpu_hours": 8.215651676683272,
+    "gpu_jobs_launched": 40,
+    "status": "WC_SELECTIVE_OUTPUT_SETTLED_REQUIRES_RESULT_AUDIT",
+    "gpu_import_probes_completed": 1,
+    "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts",
+    "budget_authorization_ref": "manifests/budget_authorization_20261003.json",
+    "budget_authorization_history": [
+      {
+        "authorized_utc": "2026-10-02T18:03:00Z",
+        "source_thread_id": "01a0f1e6-7ad0-75df-9a02-172b60d2e00b",
+        "user_instruction": "\u628a\u5404\u4e2a\u5b9e\u9a8c\u7684 gpu \u9884\u7b97\u90fd\u8bbe\u7f6e\u4e3a 12gpuh",
+        "previous_cap_gpu_hours": 4,
+        "new_cumulative_cap_gpu_hours": 12,
+        "used_gpu_hours_at_change": 3.9117525685110333,
+        "no_usage_reset_or_transfer": true
+      }
+    ]
+  },
+  "limits": "No CUDA initialization, real model weights, sparse kernel, VAE or encoded video; same pinned official function bodies with declared CPU toy boundaries.",
+  "controls": {
+    "controls": {
+      "legacy_selective_six_output_controls": {
+        "status": "SELECTIVE_SIX_OUTPUT_PINNED_CPU_CONTROLS_PASS_NOT_GPU_FIDELITY",
+        "checks": [
+          {
+            "flow": false,
+            "scenario": "complete_six",
+            "complete36_72_prepare_phases": 6,
+            "strict_DD_three_D_files_equal": true,
+            "full_S_exact_legacy_sampler_and_pipeline_regression": true,
+            "selected_layers_and_branch_cadence_actual_events": [
+              {
+                "policy": {
+                  "sparse_layers": [
+                    1,
+                    3
+                  ],
+                  "every": 1,
+                  "cadence": "FIRST_ELIGIBLE_THEN_EVERY_K_PER_CFG_RESET_WITH_NATIVE_CYCLE",
+                  "selection_role": "OFFLINE_FROZEN_LAYER_CADENCE_NOT_ONLINE_RISK_OR_REFRESH_ROUTING"
+                },
+                "sparse_calls": [
+                  23,
+                  24,
+                  41,
+                  42,
+                  51,
+                  52,
+                  65,
+                  66,
+                  67,
+                  68,
+                  69,
+                  70
+                ],
+                "true_D_refresh_calls": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7,
+                  8,
+                  9,
+                  10,
+                  11,
+                  12,
+                  13,
+                  14,
+                  71,
+                  72
+                ]
+              },
+              {
+                "policy": {
+                  "sparse_layers": [
+                    1
+                  ],
+                  "every": 1,
+                  "cadence": "FIRST_ELIGIBLE_THEN_EVERY_K_PER_CFG_RESET_WITH_NATIVE_CYCLE",
+                  "selection_role": "OFFLINE_FROZEN_LAYER_CADENCE_NOT_ONLINE_RISK_OR_REFRESH_ROUTING"
+                },
+                "sparse_calls": [
+                  23,
+                  24,
+                  41,
+                  42,
+                  51,
+                  52,
+                  65,
+                  66,
+                  67,
+                  68,
+                  69,
+                  70
+                ],
+                "true_D_refresh_calls": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7,
+                  8,
+                  9,
+                  10,
+                  11,
+                  12,
+                  13,
+                  14,
+                  71,
+                  72
+                ]
+              },
+              {
+                "policy": {
+                  "sparse_layers": [
+                    1,
+                    3
+                  ],
+                  "every": 2,
+                  "cadence": "FIRST_ELIGIBLE_THEN_EVERY_K_PER_CFG_RESET_WITH_NATIVE_CYCLE",
+                  "selection_role": "OFFLINE_FROZEN_LAYER_CADENCE_NOT_ONLINE_RISK_OR_REFRESH_ROUTING"
+                },
+                "sparse_calls": [
+                  23,
+                  24,
+                  51,
+                  52,
+                  67,
+                  68
+                ],
+                "true_D_refresh_calls": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7,
+                  8,
+                  9,
+                  10,
+                  11,
+                  12,
+                  13,
+                  14,
+                  41,
+                  42,
+                  65,
+                  66,
+                  69,
+                  70,
+                  71,
+                  72
+                ]
+              }
+            ],
+            "true_D_between_sparse_refreshes_on_own_trajectory": true,
+            "selector_checkpoint_restore_and_negative_history_rejection": true,
+            "real_kernel_and_video": false
+          },
+          {
+            "flow": false,
+            "scenario": "DD_mask_mismatch",
+            "error": "Real fresh-prepare light D/D control differs",
+            "six_denominator_and_prior_outputs_preserved": true
+          },
+          {
+            "flow": false,
+            "scenario": "small_S_kernel_failure",
+            "error": "Invalid sparse refresh output; no native cache write",
+            "six_denominator_and_prior_outputs_preserved": true
+          },
+          {
+            "flow": false,
+            "scenario": "legacy_S_reference_mismatch",
+            "error": "Legacy S output differs; new variants not started",
+            "six_denominator_and_prior_outputs_preserved": true
+          },
+          {
+            "flow": false,
+            "scenario": "reject_sequence_balanced",
+            "no_partial_execution": true
+          },
+          {
+            "flow": false,
+            "scenario": "reject_sequence_reference_then_candidates",
+            "no_partial_execution": true
+          },
+          {
+            "flow": false,
+            "scenario": "reject_sequence_unknown",
+            "no_partial_execution": true
+          },
+          {
+            "flow": true,
+            "scenario": "complete_six",
+            "complete36_72_prepare_phases": 6,
+            "strict_DD_three_D_files_equal": true,
+            "full_S_exact_legacy_sampler_and_pipeline_regression": true,
+            "selected_layers_and_branch_cadence_actual_events": [
+              {
+                "policy": {
+                  "sparse_layers": [
+                    1,
+                    3
+                  ],
+                  "every": 1,
+                  "cadence": "FIRST_ELIGIBLE_THEN_EVERY_K_PER_CFG_RESET_WITH_NATIVE_CYCLE",
+                  "selection_role": "OFFLINE_FROZEN_LAYER_CADENCE_NOT_ONLINE_RISK_OR_REFRESH_ROUTING"
+                },
+                "sparse_calls": [
+                  23,
+                  24,
+                  41,
+                  42,
+                  51,
+                  52,
+                  65,
+                  66,
+                  67,
+                  68,
+                  69,
+                  70
+                ],
+                "true_D_refresh_calls": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7,
+                  8,
+                  9,
+                  10,
+                  11,
+                  12,
+                  13,
+                  14,
+                  71,
+                  72
+                ]
+              },
+              {
+                "policy": {
+                  "sparse_layers": [
+                    1
+                  ],
+                  "every": 1,
+                  "cadence": "FIRST_ELIGIBLE_THEN_EVERY_K_PER_CFG_RESET_WITH_NATIVE_CYCLE",
+                  "selection_role": "OFFLINE_FROZEN_LAYER_CADENCE_NOT_ONLINE_RISK_OR_REFRESH_ROUTING"
+                },
+                "sparse_calls": [
+                  23,
+                  24,
+                  41,
+                  42,
+                  51,
+                  52,
+                  65,
+                  66,
+                  67,
+                  68,
+                  69,
+                  70
+                ],
+                "true_D_refresh_calls": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7,
+                  8,
+                  9,
+                  10,
+                  11,
+                  12,
+                  13,
+                  14,
+                  71,
+                  72
+                ]
+              },
+              {
+                "policy": {
+                  "sparse_layers": [
+                    1,
+                    3
+                  ],
+                  "every": 2,
+                  "cadence": "FIRST_ELIGIBLE_THEN_EVERY_K_PER_CFG_RESET_WITH_NATIVE_CYCLE",
+                  "selection_role": "OFFLINE_FROZEN_LAYER_CADENCE_NOT_ONLINE_RISK_OR_REFRESH_ROUTING"
+                },
+                "sparse_calls": [
+                  23,
+                  24,
+                  51,
+                  52,
+                  67,
+                  68
+                ],
+                "true_D_refresh_calls": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7,
+                  8,
+                  9,
+                  10,
+                  11,
+                  12,
+                  13,
+                  14,
+                  41,
+                  42,
+                  65,
+                  66,
+                  69,
+                  70,
+                  71,
+                  72
+                ]
+              }
+            ],
+            "true_D_between_sparse_refreshes_on_own_trajectory": true,
+            "selector_checkpoint_restore_and_negative_history_rejection": true,
+            "real_kernel_and_video": false
+          },
+          {
+            "flow": true,
+            "scenario": "DD_mask_mismatch",
+            "error": "Real fresh-prepare light D/D control differs",
+            "six_denominator_and_prior_outputs_preserved": true
+          },
+          {
+            "flow": true,
+            "scenario": "small_S_kernel_failure",
+            "error": "Invalid sparse refresh output; no native cache write",
+            "six_denominator_and_prior_outputs_preserved": true
+          },
+          {
+            "flow": true,
+            "scenario": "legacy_S_reference_mismatch",
+            "error": "Legacy S output differs; new variants not started",
+            "six_denominator_and_prior_outputs_preserved": true
+          },
+          {
+            "flow": true,
+            "scenario": "reject_sequence_balanced",
+            "no_partial_execution": true
+          },
+          {
+            "flow": true,
+            "scenario": "reject_sequence_reference_then_candidates",
+            "no_partial_execution": true
+          },
+          {
+            "flow": true,
+            "scenario": "reject_sequence_unknown",
+            "no_partial_execution": true
+          }
+        ],
+        "upstream_sha256": {
+          "cosmos_predict2/inference.py": "0db96c49f0b3f18a971bc989e0727132dafc27ef621145a2d25a3da62a7a1975",
+          "cosmos_predict2/_src/predict2/inference/video2world.py": "59aa9e236a5e7e26490f5cfcb94ab95ce911d9c38eba61dd8aef7d067e458a95",
+          "cosmos_predict2/_src/predict2/inference/worldcache_utils.py": "b485cb8fd6e262a40e5823365c34ef7db1bc036c591d7577489e04077c515903",
+          "cosmos_predict2/_src/predict2/models/text2world_model_rectified_flow.py": "c6c68f297859e11c76d2921667a29cabfecef3a7b5d3ab831bf9bb54b25b7d87",
+          "cosmos_predict2/_src/predict2/models/fm_solvers_unipc.py": "f6a06c75f059693ade6c802e99f6058575969b6a71ef18ab05e7ed46701053d3"
+        },
+        "cuda_initialized": false,
+        "limits": "Unchanged pinned sampler/get_velocity/denoise/decode wrapper, WC, UniPC, generate_vid2world and Inference method bodies. Explicit Toy net, CPU noise/conditioner/normalize/broadcast/prepare/tokenizer/mock writer, offload disabled and CUDA telemetry adapters; equal finite threshold schedule is CPU control only. No weights, true VAE/encoded video, GPU completion, independent restart or quality result. No sparse candidate in this control. Sparse branches here use explicit CPU output stand-ins; selection/cadence success is not video quality or speed."
+      },
+      "forecast_placement_six_output_controls": {
+        "status": "FORECAST_PLACEMENT_SIX_OUTPUT_PINNED_CPU_PASS_NOT_VIDEO",
+        "checks": [
+          {
+            "flow": false,
+            "scenario": "complete_six",
+            "six_complete36_CFG72_prepare1": true,
+            "legacy_alternating_exact_sampler_pipeline_regression": true,
+            "first_S_matching_and_equal_S_per_CFG": [
+              3,
+              3
+            ],
+            "actual_source_replay_matches_frozen_placements": [
+              {
+                "deep_calls": 28,
+                "cache_calls": 44,
+                "S_calls": [
+                  23,
+                  24,
+                  51,
+                  52,
+                  67,
+                  68
+                ],
+                "S_per_CFG": [
+                  3,
+                  3
+                ],
+                "S_operators": 12,
+                "approximate_cache_calls": [
+                  25,
+                  26,
+                  27,
+                  28,
+                  29,
+                  30,
+                  31,
+                  32,
+                  33,
+                  34,
+                  35,
+                  36,
+                  37,
+                  38,
+                  39,
+                  40,
+                  43,
+                  44,
+                  45,
+                  46,
+                  47,
+                  48,
+                  49,
+                  50,
+                  53,
+                  54,
+                  55,
+                  56,
+                  57,
+                  58,
+                  59,
+                  60,
+                  61,
+                  62,
+                  63,
+                  64
+                ],
+                "approximate_source_reads": 36,
+                "reference_kind_pairs": {
+                  "dense,dense": 8,
+                  "dense,sparse": 28,
+                  "sparse,dense": 8
+                },
+                "cache_rows": [
+                  {
+                    "call": 15,
+                    "cfg": 0,
+                    "source_calls": [
+                      11,
+                      13
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      2,
+                      1
+                    ]
+                  },
+                  {
+                    "call": 16,
+                    "cfg": 1,
+                    "source_calls": [
+                      12,
+                      14
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      2,
+                      1
+                    ]
+                  },
+                  {
+                    "call": 17,
+                    "cfg": 0,
+                    "source_calls": [
+                      11,
+                      13
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      3,
+                      2
+                    ]
+                  },
+                  {
+                    "call": 18,
+                    "cfg": 1,
+                    "source_calls": [
+                      12,
+                      14
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      3,
+                      2
+                    ]
+                  },
+                  {
+                    "call": 19,
+                    "cfg": 0,
+                    "source_calls": [
+                      11,
+                      13
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      4,
+                      3
+                    ]
+                  },
+                  {
+                    "call": 20,
+                    "cfg": 1,
+                    "source_calls": [
+                      12,
+                      14
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      4,
+                      3
+                    ]
+                  },
+                  {
+                    "call": 21,
+                    "cfg": 0,
+                    "source_calls": [
+                      11,
+                      13
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      5,
+                      4
+                    ]
+                  },
+                  {
+                    "call": 22,
+                    "cfg": 1,
+                    "source_calls": [
+                      12,
+                      14
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      5,
+                      4
+                    ]
+                  },
+                  {
+                    "call": 25,
+                    "cfg": 0,
+                    "source_calls": [
+                      13,
+                      23
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      6,
+                      1
+                    ]
+                  },
+                  {
+                    "call": 26,
+                    "cfg": 1,
+                    "source_calls": [
+                      14,
+                      24
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      6,
+                      1
+                    ]
+                  },
+                  {
+                    "call": 27,
+                    "cfg": 0,
+                    "source_calls": [
+                      13,
+                      23
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      7,
+                      2
+                    ]
+                  },
+                  {
+                    "call": 28,
+                    "cfg": 1,
+                    "source_calls": [
+                      14,
+                      24
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      7,
+                      2
+                    ]
+                  },
+                  {
+                    "call": 29,
+                    "cfg": 0,
+                    "source_calls": [
+                      13,
+                      23
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      8,
+                      3
+                    ]
+                  },
+                  {
+                    "call": 30,
+                    "cfg": 1,
+                    "source_calls": [
+                      14,
+                      24
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      8,
+                      3
+                    ]
+                  },
+                  {
+                    "call": 31,
+                    "cfg": 0,
+                    "source_calls": [
+                      13,
+                      23
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      9,
+                      4
+                    ]
+                  },
+                  {
+                    "call": 32,
+                    "cfg": 1,
+                    "source_calls": [
+                      14,
+                      24
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      9,
+                      4
+                    ]
+                  },
+                  {
+                    "call": 33,
+                    "cfg": 0,
+                    "source_calls": [
+                      13,
+                      23
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      10,
+                      5
+                    ]
+                  },
+                  {
+                    "call": 34,
+                    "cfg": 1,
+                    "source_calls": [
+                      14,
+                      24
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      10,
+                      5
+                    ]
+                  },
+                  {
+                    "call": 35,
+                    "cfg": 0,
+                    "source_calls": [
+                      13,
+                      23
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      11,
+                      6
+                    ]
+                  },
+                  {
+                    "call": 36,
+                    "cfg": 1,
+                    "source_calls": [
+                      14,
+                      24
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      11,
+                      6
+                    ]
+                  },
+                  {
+                    "call": 37,
+                    "cfg": 0,
+                    "source_calls": [
+                      13,
+                      23
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      12,
+                      7
+                    ]
+                  },
+                  {
+                    "call": 38,
+                    "cfg": 1,
+                    "source_calls": [
+                      14,
+                      24
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      12,
+                      7
+                    ]
+                  },
+                  {
+                    "call": 39,
+                    "cfg": 0,
+                    "source_calls": [
+                      13,
+                      23
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      13,
+                      8
+                    ]
+                  },
+                  {
+                    "call": 40,
+                    "cfg": 1,
+                    "source_calls": [
+                      14,
+                      24
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      13,
+                      8
+                    ]
+                  },
+                  {
+                    "call": 43,
+                    "cfg": 0,
+                    "source_calls": [
+                      23,
+                      41
+                    ],
+                    "source_kinds": [
+                      "sparse",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      10,
+                      1
+                    ]
+                  },
+                  {
+                    "call": 44,
+                    "cfg": 1,
+                    "source_calls": [
+                      24,
+                      42
+                    ],
+                    "source_kinds": [
+                      "sparse",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      10,
+                      1
+                    ]
+                  },
+                  {
+                    "call": 45,
+                    "cfg": 0,
+                    "source_calls": [
+                      23,
+                      41
+                    ],
+                    "source_kinds": [
+                      "sparse",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      11,
+                      2
+                    ]
+                  },
+                  {
+                    "call": 46,
+                    "cfg": 1,
+                    "source_calls": [
+                      24,
+                      42
+                    ],
+                    "source_kinds": [
+                      "sparse",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      11,
+                      2
+                    ]
+                  },
+                  {
+                    "call": 47,
+                    "cfg": 0,
+                    "source_calls": [
+                      23,
+                      41
+                    ],
+                    "source_kinds": [
+                      "sparse",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      12,
+                      3
+                    ]
+                  },
+                  {
+                    "call": 48,
+                    "cfg": 1,
+                    "source_calls": [
+                      24,
+                      42
+                    ],
+                    "source_kinds": [
+                      "sparse",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      12,
+                      3
+                    ]
+                  },
+                  {
+                    "call": 49,
+                    "cfg": 0,
+                    "source_calls": [
+                      23,
+                      41
+                    ],
+                    "source_kinds": [
+                      "sparse",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      13,
+                      4
+                    ]
+                  },
+                  {
+                    "call": 50,
+                    "cfg": 1,
+                    "source_calls": [
+                      24,
+                      42
+                    ],
+                    "source_kinds": [
+                      "sparse",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      13,
+                      4
+                    ]
+                  },
+                  {
+                    "call": 53,
+                    "cfg": 0,
+                    "source_calls": [
+                      41,
+                      51
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      6,
+                      1
+                    ]
+                  },
+                  {
+                    "call": 54,
+                    "cfg": 1,
+                    "source_calls": [
+                      42,
+                      52
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      6,
+                      1
+                    ]
+                  },
+                  {
+                    "call": 55,
+                    "cfg": 0,
+                    "source_calls": [
+                      41,
+                      51
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      7,
+                      2
+                    ]
+                  },
+                  {
+                    "call": 56,
+                    "cfg": 1,
+                    "source_calls": [
+                      42,
+                      52
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      7,
+                      2
+                    ]
+                  },
+                  {
+                    "call": 57,
+                    "cfg": 0,
+                    "source_calls": [
+                      41,
+                      51
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      8,
+                      3
+                    ]
+                  },
+                  {
+                    "call": 58,
+                    "cfg": 1,
+                    "source_calls": [
+                      42,
+                      52
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      8,
+                      3
+                    ]
+                  },
+                  {
+                    "call": 59,
+                    "cfg": 0,
+                    "source_calls": [
+                      41,
+                      51
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      9,
+                      4
+                    ]
+                  },
+                  {
+                    "call": 60,
+                    "cfg": 1,
+                    "source_calls": [
+                      42,
+                      52
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      9,
+                      4
+                    ]
+                  },
+                  {
+                    "call": 61,
+                    "cfg": 0,
+                    "source_calls": [
+                      41,
+                      51
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      10,
+                      5
+                    ]
+                  },
+                  {
+                    "call": 62,
+                    "cfg": 1,
+                    "source_calls": [
+                      42,
+                      52
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      10,
+                      5
+                    ]
+                  },
+                  {
+                    "call": 63,
+                    "cfg": 0,
+                    "source_calls": [
+                      41,
+                      51
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      11,
+                      6
+                    ]
+                  },
+                  {
+                    "call": 64,
+                    "cfg": 1,
+                    "source_calls": [
+                      42,
+                      52
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      11,
+                      6
+                    ]
+                  }
+                ],
+                "S_source_exposure": [
+                  {
+                    "S_call": 23,
+                    "cfg": 0,
+                    "future_cache_calls": [
+                      25,
+                      27,
+                      29,
+                      31,
+                      33,
+                      35,
+                      37,
+                      39,
+                      43,
+                      45,
+                      47,
+                      49
+                    ],
+                    "same_CFG_ages": [
+                      1,
+                      2,
+                      3,
+                      4,
+                      5,
+                      6,
+                      7,
+                      8,
+                      10,
+                      11,
+                      12,
+                      13
+                    ]
+                  },
+                  {
+                    "S_call": 24,
+                    "cfg": 1,
+                    "future_cache_calls": [
+                      26,
+                      28,
+                      30,
+                      32,
+                      34,
+                      36,
+                      38,
+                      40,
+                      44,
+                      46,
+                      48,
+                      50
+                    ],
+                    "same_CFG_ages": [
+                      1,
+                      2,
+                      3,
+                      4,
+                      5,
+                      6,
+                      7,
+                      8,
+                      10,
+                      11,
+                      12,
+                      13
+                    ]
+                  },
+                  {
+                    "S_call": 51,
+                    "cfg": 0,
+                    "future_cache_calls": [
+                      53,
+                      55,
+                      57,
+                      59,
+                      61,
+                      63
+                    ],
+                    "same_CFG_ages": [
+                      1,
+                      2,
+                      3,
+                      4,
+                      5,
+                      6
+                    ]
+                  },
+                  {
+                    "S_call": 52,
+                    "cfg": 1,
+                    "future_cache_calls": [
+                      54,
+                      56,
+                      58,
+                      60,
+                      62,
+                      64
+                    ],
+                    "same_CFG_ages": [
+                      1,
+                      2,
+                      3,
+                      4,
+                      5,
+                      6
+                    ]
+                  },
+                  {
+                    "S_call": 67,
+                    "cfg": 0,
+                    "future_cache_calls": [],
+                    "same_CFG_ages": []
+                  },
+                  {
+                    "S_call": 68,
+                    "cfg": 1,
+                    "future_cache_calls": [],
+                    "same_CFG_ages": []
+                  }
+                ]
+              },
+              {
+                "deep_calls": 28,
+                "cache_calls": 44,
+                "S_calls": [
+                  23,
+                  24,
+                  65,
+                  66,
+                  67,
+                  68
+                ],
+                "S_per_CFG": [
+                  3,
+                  3
+                ],
+                "S_operators": 12,
+                "approximate_cache_calls": [
+                  25,
+                  26,
+                  27,
+                  28,
+                  29,
+                  30,
+                  31,
+                  32,
+                  33,
+                  34,
+                  35,
+                  36,
+                  37,
+                  38,
+                  39,
+                  40,
+                  43,
+                  44,
+                  45,
+                  46,
+                  47,
+                  48,
+                  49,
+                  50
+                ],
+                "approximate_source_reads": 24,
+                "reference_kind_pairs": {
+                  "dense,dense": 20,
+                  "dense,sparse": 16,
+                  "sparse,dense": 8
+                },
+                "cache_rows": [
+                  {
+                    "call": 15,
+                    "cfg": 0,
+                    "source_calls": [
+                      11,
+                      13
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      2,
+                      1
+                    ]
+                  },
+                  {
+                    "call": 16,
+                    "cfg": 1,
+                    "source_calls": [
+                      12,
+                      14
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      2,
+                      1
+                    ]
+                  },
+                  {
+                    "call": 17,
+                    "cfg": 0,
+                    "source_calls": [
+                      11,
+                      13
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      3,
+                      2
+                    ]
+                  },
+                  {
+                    "call": 18,
+                    "cfg": 1,
+                    "source_calls": [
+                      12,
+                      14
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      3,
+                      2
+                    ]
+                  },
+                  {
+                    "call": 19,
+                    "cfg": 0,
+                    "source_calls": [
+                      11,
+                      13
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      4,
+                      3
+                    ]
+                  },
+                  {
+                    "call": 20,
+                    "cfg": 1,
+                    "source_calls": [
+                      12,
+                      14
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      4,
+                      3
+                    ]
+                  },
+                  {
+                    "call": 21,
+                    "cfg": 0,
+                    "source_calls": [
+                      11,
+                      13
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      5,
+                      4
+                    ]
+                  },
+                  {
+                    "call": 22,
+                    "cfg": 1,
+                    "source_calls": [
+                      12,
+                      14
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      5,
+                      4
+                    ]
+                  },
+                  {
+                    "call": 25,
+                    "cfg": 0,
+                    "source_calls": [
+                      13,
+                      23
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      6,
+                      1
+                    ]
+                  },
+                  {
+                    "call": 26,
+                    "cfg": 1,
+                    "source_calls": [
+                      14,
+                      24
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      6,
+                      1
+                    ]
+                  },
+                  {
+                    "call": 27,
+                    "cfg": 0,
+                    "source_calls": [
+                      13,
+                      23
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      7,
+                      2
+                    ]
+                  },
+                  {
+                    "call": 28,
+                    "cfg": 1,
+                    "source_calls": [
+                      14,
+                      24
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      7,
+                      2
+                    ]
+                  },
+                  {
+                    "call": 29,
+                    "cfg": 0,
+                    "source_calls": [
+                      13,
+                      23
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      8,
+                      3
+                    ]
+                  },
+                  {
+                    "call": 30,
+                    "cfg": 1,
+                    "source_calls": [
+                      14,
+                      24
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      8,
+                      3
+                    ]
+                  },
+                  {
+                    "call": 31,
+                    "cfg": 0,
+                    "source_calls": [
+                      13,
+                      23
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      9,
+                      4
+                    ]
+                  },
+                  {
+                    "call": 32,
+                    "cfg": 1,
+                    "source_calls": [
+                      14,
+                      24
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      9,
+                      4
+                    ]
+                  },
+                  {
+                    "call": 33,
+                    "cfg": 0,
+                    "source_calls": [
+                      13,
+                      23
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      10,
+                      5
+                    ]
+                  },
+                  {
+                    "call": 34,
+                    "cfg": 1,
+                    "source_calls": [
+                      14,
+                      24
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      10,
+                      5
+                    ]
+                  },
+                  {
+                    "call": 35,
+                    "cfg": 0,
+                    "source_calls": [
+                      13,
+                      23
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      11,
+                      6
+                    ]
+                  },
+                  {
+                    "call": 36,
+                    "cfg": 1,
+                    "source_calls": [
+                      14,
+                      24
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      11,
+                      6
+                    ]
+                  },
+                  {
+                    "call": 37,
+                    "cfg": 0,
+                    "source_calls": [
+                      13,
+                      23
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      12,
+                      7
+                    ]
+                  },
+                  {
+                    "call": 38,
+                    "cfg": 1,
+                    "source_calls": [
+                      14,
+                      24
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      12,
+                      7
+                    ]
+                  },
+                  {
+                    "call": 39,
+                    "cfg": 0,
+                    "source_calls": [
+                      13,
+                      23
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      13,
+                      8
+                    ]
+                  },
+                  {
+                    "call": 40,
+                    "cfg": 1,
+                    "source_calls": [
+                      14,
+                      24
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      13,
+                      8
+                    ]
+                  },
+                  {
+                    "call": 43,
+                    "cfg": 0,
+                    "source_calls": [
+                      23,
+                      41
+                    ],
+                    "source_kinds": [
+                      "sparse",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      10,
+                      1
+                    ]
+                  },
+                  {
+                    "call": 44,
+                    "cfg": 1,
+                    "source_calls": [
+                      24,
+                      42
+                    ],
+                    "source_kinds": [
+                      "sparse",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      10,
+                      1
+                    ]
+                  },
+                  {
+                    "call": 45,
+                    "cfg": 0,
+                    "source_calls": [
+                      23,
+                      41
+                    ],
+                    "source_kinds": [
+                      "sparse",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      11,
+                      2
+                    ]
+                  },
+                  {
+                    "call": 46,
+                    "cfg": 1,
+                    "source_calls": [
+                      24,
+                      42
+                    ],
+                    "source_kinds": [
+                      "sparse",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      11,
+                      2
+                    ]
+                  },
+                  {
+                    "call": 47,
+                    "cfg": 0,
+                    "source_calls": [
+                      23,
+                      41
+                    ],
+                    "source_kinds": [
+                      "sparse",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      12,
+                      3
+                    ]
+                  },
+                  {
+                    "call": 48,
+                    "cfg": 1,
+                    "source_calls": [
+                      24,
+                      42
+                    ],
+                    "source_kinds": [
+                      "sparse",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      12,
+                      3
+                    ]
+                  },
+                  {
+                    "call": 49,
+                    "cfg": 0,
+                    "source_calls": [
+                      23,
+                      41
+                    ],
+                    "source_kinds": [
+                      "sparse",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      13,
+                      4
+                    ]
+                  },
+                  {
+                    "call": 50,
+                    "cfg": 1,
+                    "source_calls": [
+                      24,
+                      42
+                    ],
+                    "source_kinds": [
+                      "sparse",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      13,
+                      4
+                    ]
+                  },
+                  {
+                    "call": 53,
+                    "cfg": 0,
+                    "source_calls": [
+                      41,
+                      51
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      6,
+                      1
+                    ]
+                  },
+                  {
+                    "call": 54,
+                    "cfg": 1,
+                    "source_calls": [
+                      42,
+                      52
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      6,
+                      1
+                    ]
+                  },
+                  {
+                    "call": 55,
+                    "cfg": 0,
+                    "source_calls": [
+                      41,
+                      51
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      7,
+                      2
+                    ]
+                  },
+                  {
+                    "call": 56,
+                    "cfg": 1,
+                    "source_calls": [
+                      42,
+                      52
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      7,
+                      2
+                    ]
+                  },
+                  {
+                    "call": 57,
+                    "cfg": 0,
+                    "source_calls": [
+                      41,
+                      51
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      8,
+                      3
+                    ]
+                  },
+                  {
+                    "call": 58,
+                    "cfg": 1,
+                    "source_calls": [
+                      42,
+                      52
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      8,
+                      3
+                    ]
+                  },
+                  {
+                    "call": 59,
+                    "cfg": 0,
+                    "source_calls": [
+                      41,
+                      51
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      9,
+                      4
+                    ]
+                  },
+                  {
+                    "call": 60,
+                    "cfg": 1,
+                    "source_calls": [
+                      42,
+                      52
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      9,
+                      4
+                    ]
+                  },
+                  {
+                    "call": 61,
+                    "cfg": 0,
+                    "source_calls": [
+                      41,
+                      51
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      10,
+                      5
+                    ]
+                  },
+                  {
+                    "call": 62,
+                    "cfg": 1,
+                    "source_calls": [
+                      42,
+                      52
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      10,
+                      5
+                    ]
+                  },
+                  {
+                    "call": 63,
+                    "cfg": 0,
+                    "source_calls": [
+                      41,
+                      51
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      11,
+                      6
+                    ]
+                  },
+                  {
+                    "call": 64,
+                    "cfg": 1,
+                    "source_calls": [
+                      42,
+                      52
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      11,
+                      6
+                    ]
+                  }
+                ],
+                "S_source_exposure": [
+                  {
+                    "S_call": 23,
+                    "cfg": 0,
+                    "future_cache_calls": [
+                      25,
+                      27,
+                      29,
+                      31,
+                      33,
+                      35,
+                      37,
+                      39,
+                      43,
+                      45,
+                      47,
+                      49
+                    ],
+                    "same_CFG_ages": [
+                      1,
+                      2,
+                      3,
+                      4,
+                      5,
+                      6,
+                      7,
+                      8,
+                      10,
+                      11,
+                      12,
+                      13
+                    ]
+                  },
+                  {
+                    "S_call": 24,
+                    "cfg": 1,
+                    "future_cache_calls": [
+                      26,
+                      28,
+                      30,
+                      32,
+                      34,
+                      36,
+                      38,
+                      40,
+                      44,
+                      46,
+                      48,
+                      50
+                    ],
+                    "same_CFG_ages": [
+                      1,
+                      2,
+                      3,
+                      4,
+                      5,
+                      6,
+                      7,
+                      8,
+                      10,
+                      11,
+                      12,
+                      13
+                    ]
+                  },
+                  {
+                    "S_call": 65,
+                    "cfg": 0,
+                    "future_cache_calls": [],
+                    "same_CFG_ages": []
+                  },
+                  {
+                    "S_call": 66,
+                    "cfg": 1,
+                    "future_cache_calls": [],
+                    "same_CFG_ages": []
+                  },
+                  {
+                    "S_call": 67,
+                    "cfg": 0,
+                    "future_cache_calls": [],
+                    "same_CFG_ages": []
+                  },
+                  {
+                    "S_call": 68,
+                    "cfg": 1,
+                    "future_cache_calls": [],
+                    "same_CFG_ages": []
+                  }
+                ]
+              },
+              {
+                "deep_calls": 28,
+                "cache_calls": 44,
+                "S_calls": [
+                  65,
+                  66,
+                  67,
+                  68,
+                  69,
+                  70
+                ],
+                "S_per_CFG": [
+                  3,
+                  3
+                ],
+                "S_operators": 12,
+                "approximate_cache_calls": [],
+                "approximate_source_reads": 0,
+                "reference_kind_pairs": {
+                  "dense,dense": 44
+                },
+                "cache_rows": [
+                  {
+                    "call": 15,
+                    "cfg": 0,
+                    "source_calls": [
+                      11,
+                      13
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      2,
+                      1
+                    ]
+                  },
+                  {
+                    "call": 16,
+                    "cfg": 1,
+                    "source_calls": [
+                      12,
+                      14
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      2,
+                      1
+                    ]
+                  },
+                  {
+                    "call": 17,
+                    "cfg": 0,
+                    "source_calls": [
+                      11,
+                      13
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      3,
+                      2
+                    ]
+                  },
+                  {
+                    "call": 18,
+                    "cfg": 1,
+                    "source_calls": [
+                      12,
+                      14
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      3,
+                      2
+                    ]
+                  },
+                  {
+                    "call": 19,
+                    "cfg": 0,
+                    "source_calls": [
+                      11,
+                      13
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      4,
+                      3
+                    ]
+                  },
+                  {
+                    "call": 20,
+                    "cfg": 1,
+                    "source_calls": [
+                      12,
+                      14
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      4,
+                      3
+                    ]
+                  },
+                  {
+                    "call": 21,
+                    "cfg": 0,
+                    "source_calls": [
+                      11,
+                      13
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      5,
+                      4
+                    ]
+                  },
+                  {
+                    "call": 22,
+                    "cfg": 1,
+                    "source_calls": [
+                      12,
+                      14
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      5,
+                      4
+                    ]
+                  },
+                  {
+                    "call": 25,
+                    "cfg": 0,
+                    "source_calls": [
+                      13,
+                      23
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      6,
+                      1
+                    ]
+                  },
+                  {
+                    "call": 26,
+                    "cfg": 1,
+                    "source_calls": [
+                      14,
+                      24
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      6,
+                      1
+                    ]
+                  },
+                  {
+                    "call": 27,
+                    "cfg": 0,
+                    "source_calls": [
+                      13,
+                      23
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      7,
+                      2
+                    ]
+                  },
+                  {
+                    "call": 28,
+                    "cfg": 1,
+                    "source_calls": [
+                      14,
+                      24
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      7,
+                      2
+                    ]
+                  },
+                  {
+                    "call": 29,
+                    "cfg": 0,
+                    "source_calls": [
+                      13,
+                      23
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      8,
+                      3
+                    ]
+                  },
+                  {
+                    "call": 30,
+                    "cfg": 1,
+                    "source_calls": [
+                      14,
+                      24
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      8,
+                      3
+                    ]
+                  },
+                  {
+                    "call": 31,
+                    "cfg": 0,
+                    "source_calls": [
+                      13,
+                      23
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      9,
+                      4
+                    ]
+                  },
+                  {
+                    "call": 32,
+                    "cfg": 1,
+                    "source_calls": [
+                      14,
+                      24
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      9,
+                      4
+                    ]
+                  },
+                  {
+                    "call": 33,
+                    "cfg": 0,
+                    "source_calls": [
+                      13,
+                      23
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      10,
+                      5
+                    ]
+                  },
+                  {
+                    "call": 34,
+                    "cfg": 1,
+                    "source_calls": [
+                      14,
+                      24
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      10,
+                      5
+                    ]
+                  },
+                  {
+                    "call": 35,
+                    "cfg": 0,
+                    "source_calls": [
+                      13,
+                      23
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      11,
+                      6
+                    ]
+                  },
+                  {
+                    "call": 36,
+                    "cfg": 1,
+                    "source_calls": [
+                      14,
+                      24
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      11,
+                      6
+                    ]
+                  },
+                  {
+                    "call": 37,
+                    "cfg": 0,
+                    "source_calls": [
+                      13,
+                      23
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      12,
+                      7
+                    ]
+                  },
+                  {
+                    "call": 38,
+                    "cfg": 1,
+                    "source_calls": [
+                      14,
+                      24
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      12,
+                      7
+                    ]
+                  },
+                  {
+                    "call": 39,
+                    "cfg": 0,
+                    "source_calls": [
+                      13,
+                      23
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      13,
+                      8
+                    ]
+                  },
+                  {
+                    "call": 40,
+                    "cfg": 1,
+                    "source_calls": [
+                      14,
+                      24
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      13,
+                      8
+                    ]
+                  },
+                  {
+                    "call": 43,
+                    "cfg": 0,
+                    "source_calls": [
+                      23,
+                      41
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      10,
+                      1
+                    ]
+                  },
+                  {
+                    "call": 44,
+                    "cfg": 1,
+                    "source_calls": [
+                      24,
+                      42
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      10,
+                      1
+                    ]
+                  },
+                  {
+                    "call": 45,
+                    "cfg": 0,
+                    "source_calls": [
+                      23,
+                      41
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      11,
+                      2
+                    ]
+                  },
+                  {
+                    "call": 46,
+                    "cfg": 1,
+                    "source_calls": [
+                      24,
+                      42
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      11,
+                      2
+                    ]
+                  },
+                  {
+                    "call": 47,
+                    "cfg": 0,
+                    "source_calls": [
+                      23,
+                      41
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      12,
+                      3
+                    ]
+                  },
+                  {
+                    "call": 48,
+                    "cfg": 1,
+                    "source_calls": [
+                      24,
+                      42
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      12,
+                      3
+                    ]
+                  },
+                  {
+                    "call": 49,
+                    "cfg": 0,
+                    "source_calls": [
+                      23,
+                      41
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      13,
+                      4
+                    ]
+                  },
+                  {
+                    "call": 50,
+                    "cfg": 1,
+                    "source_calls": [
+                      24,
+                      42
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      13,
+                      4
+                    ]
+                  },
+                  {
+                    "call": 53,
+                    "cfg": 0,
+                    "source_calls": [
+                      41,
+                      51
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      6,
+                      1
+                    ]
+                  },
+                  {
+                    "call": 54,
+                    "cfg": 1,
+                    "source_calls": [
+                      42,
+                      52
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      6,
+                      1
+                    ]
+                  },
+                  {
+                    "call": 55,
+                    "cfg": 0,
+                    "source_calls": [
+                      41,
+                      51
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      7,
+                      2
+                    ]
+                  },
+                  {
+                    "call": 56,
+                    "cfg": 1,
+                    "source_calls": [
+                      42,
+                      52
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      7,
+                      2
+                    ]
+                  },
+                  {
+                    "call": 57,
+                    "cfg": 0,
+                    "source_calls": [
+                      41,
+                      51
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      8,
+                      3
+                    ]
+                  },
+                  {
+                    "call": 58,
+                    "cfg": 1,
+                    "source_calls": [
+                      42,
+                      52
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      8,
+                      3
+                    ]
+                  },
+                  {
+                    "call": 59,
+                    "cfg": 0,
+                    "source_calls": [
+                      41,
+                      51
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      9,
+                      4
+                    ]
+                  },
+                  {
+                    "call": 60,
+                    "cfg": 1,
+                    "source_calls": [
+                      42,
+                      52
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      9,
+                      4
+                    ]
+                  },
+                  {
+                    "call": 61,
+                    "cfg": 0,
+                    "source_calls": [
+                      41,
+                      51
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      10,
+                      5
+                    ]
+                  },
+                  {
+                    "call": 62,
+                    "cfg": 1,
+                    "source_calls": [
+                      42,
+                      52
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      10,
+                      5
+                    ]
+                  },
+                  {
+                    "call": 63,
+                    "cfg": 0,
+                    "source_calls": [
+                      41,
+                      51
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      11,
+                      6
+                    ]
+                  },
+                  {
+                    "call": 64,
+                    "cfg": 1,
+                    "source_calls": [
+                      42,
+                      52
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      11,
+                      6
+                    ]
+                  }
+                ],
+                "S_source_exposure": [
+                  {
+                    "S_call": 65,
+                    "cfg": 0,
+                    "future_cache_calls": [],
+                    "same_CFG_ages": []
+                  },
+                  {
+                    "S_call": 66,
+                    "cfg": 1,
+                    "future_cache_calls": [],
+                    "same_CFG_ages": []
+                  },
+                  {
+                    "S_call": 67,
+                    "cfg": 0,
+                    "future_cache_calls": [],
+                    "same_CFG_ages": []
+                  },
+                  {
+                    "S_call": 68,
+                    "cfg": 1,
+                    "future_cache_calls": [],
+                    "same_CFG_ages": []
+                  },
+                  {
+                    "S_call": 69,
+                    "cfg": 0,
+                    "future_cache_calls": [],
+                    "same_CFG_ages": []
+                  },
+                  {
+                    "S_call": 70,
+                    "cfg": 1,
+                    "future_cache_calls": [],
+                    "same_CFG_ages": []
+                  }
+                ]
+              }
+            ],
+            "snapshot_counter_restore_and_wrong_policy_rejection": true,
+            "true_D_isolation_and_native70_reset": true,
+            "real_sparse_kernel_or_video": false
+          },
+          {
+            "flow": false,
+            "scenario": "DD_mask_mismatch",
+            "six_denominator_and_prior_outputs_preserved": true,
+            "error": "Real fresh-prepare light D/D control differs"
+          },
+          {
+            "flow": false,
+            "scenario": "first_placement_kernel_failure",
+            "six_denominator_and_prior_outputs_preserved": true,
+            "error": "Invalid sparse refresh output; no native cache write"
+          },
+          {
+            "flow": false,
+            "scenario": "legacy_reference_mismatch",
+            "six_denominator_and_prior_outputs_preserved": true,
+            "error": "Legacy S output differs; new variants not started"
+          },
+          {
+            "flow": true,
+            "scenario": "complete_six",
+            "six_complete36_CFG72_prepare1": true,
+            "legacy_alternating_exact_sampler_pipeline_regression": true,
+            "first_S_matching_and_equal_S_per_CFG": [
+              3,
+              3
+            ],
+            "actual_source_replay_matches_frozen_placements": [
+              {
+                "deep_calls": 28,
+                "cache_calls": 44,
+                "S_calls": [
+                  23,
+                  24,
+                  51,
+                  52,
+                  67,
+                  68
+                ],
+                "S_per_CFG": [
+                  3,
+                  3
+                ],
+                "S_operators": 12,
+                "approximate_cache_calls": [
+                  25,
+                  26,
+                  27,
+                  28,
+                  29,
+                  30,
+                  31,
+                  32,
+                  33,
+                  34,
+                  35,
+                  36,
+                  37,
+                  38,
+                  39,
+                  40,
+                  43,
+                  44,
+                  45,
+                  46,
+                  47,
+                  48,
+                  49,
+                  50,
+                  53,
+                  54,
+                  55,
+                  56,
+                  57,
+                  58,
+                  59,
+                  60,
+                  61,
+                  62,
+                  63,
+                  64
+                ],
+                "approximate_source_reads": 36,
+                "reference_kind_pairs": {
+                  "dense,dense": 8,
+                  "dense,sparse": 28,
+                  "sparse,dense": 8
+                },
+                "cache_rows": [
+                  {
+                    "call": 15,
+                    "cfg": 0,
+                    "source_calls": [
+                      11,
+                      13
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      2,
+                      1
+                    ]
+                  },
+                  {
+                    "call": 16,
+                    "cfg": 1,
+                    "source_calls": [
+                      12,
+                      14
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      2,
+                      1
+                    ]
+                  },
+                  {
+                    "call": 17,
+                    "cfg": 0,
+                    "source_calls": [
+                      11,
+                      13
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      3,
+                      2
+                    ]
+                  },
+                  {
+                    "call": 18,
+                    "cfg": 1,
+                    "source_calls": [
+                      12,
+                      14
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      3,
+                      2
+                    ]
+                  },
+                  {
+                    "call": 19,
+                    "cfg": 0,
+                    "source_calls": [
+                      11,
+                      13
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      4,
+                      3
+                    ]
+                  },
+                  {
+                    "call": 20,
+                    "cfg": 1,
+                    "source_calls": [
+                      12,
+                      14
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      4,
+                      3
+                    ]
+                  },
+                  {
+                    "call": 21,
+                    "cfg": 0,
+                    "source_calls": [
+                      11,
+                      13
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      5,
+                      4
+                    ]
+                  },
+                  {
+                    "call": 22,
+                    "cfg": 1,
+                    "source_calls": [
+                      12,
+                      14
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      5,
+                      4
+                    ]
+                  },
+                  {
+                    "call": 25,
+                    "cfg": 0,
+                    "source_calls": [
+                      13,
+                      23
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      6,
+                      1
+                    ]
+                  },
+                  {
+                    "call": 26,
+                    "cfg": 1,
+                    "source_calls": [
+                      14,
+                      24
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      6,
+                      1
+                    ]
+                  },
+                  {
+                    "call": 27,
+                    "cfg": 0,
+                    "source_calls": [
+                      13,
+                      23
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      7,
+                      2
+                    ]
+                  },
+                  {
+                    "call": 28,
+                    "cfg": 1,
+                    "source_calls": [
+                      14,
+                      24
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      7,
+                      2
+                    ]
+                  },
+                  {
+                    "call": 29,
+                    "cfg": 0,
+                    "source_calls": [
+                      13,
+                      23
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      8,
+                      3
+                    ]
+                  },
+                  {
+                    "call": 30,
+                    "cfg": 1,
+                    "source_calls": [
+                      14,
+                      24
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      8,
+                      3
+                    ]
+                  },
+                  {
+                    "call": 31,
+                    "cfg": 0,
+                    "source_calls": [
+                      13,
+                      23
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      9,
+                      4
+                    ]
+                  },
+                  {
+                    "call": 32,
+                    "cfg": 1,
+                    "source_calls": [
+                      14,
+                      24
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      9,
+                      4
+                    ]
+                  },
+                  {
+                    "call": 33,
+                    "cfg": 0,
+                    "source_calls": [
+                      13,
+                      23
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      10,
+                      5
+                    ]
+                  },
+                  {
+                    "call": 34,
+                    "cfg": 1,
+                    "source_calls": [
+                      14,
+                      24
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      10,
+                      5
+                    ]
+                  },
+                  {
+                    "call": 35,
+                    "cfg": 0,
+                    "source_calls": [
+                      13,
+                      23
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      11,
+                      6
+                    ]
+                  },
+                  {
+                    "call": 36,
+                    "cfg": 1,
+                    "source_calls": [
+                      14,
+                      24
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      11,
+                      6
+                    ]
+                  },
+                  {
+                    "call": 37,
+                    "cfg": 0,
+                    "source_calls": [
+                      13,
+                      23
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      12,
+                      7
+                    ]
+                  },
+                  {
+                    "call": 38,
+                    "cfg": 1,
+                    "source_calls": [
+                      14,
+                      24
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      12,
+                      7
+                    ]
+                  },
+                  {
+                    "call": 39,
+                    "cfg": 0,
+                    "source_calls": [
+                      13,
+                      23
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      13,
+                      8
+                    ]
+                  },
+                  {
+                    "call": 40,
+                    "cfg": 1,
+                    "source_calls": [
+                      14,
+                      24
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      13,
+                      8
+                    ]
+                  },
+                  {
+                    "call": 43,
+                    "cfg": 0,
+                    "source_calls": [
+                      23,
+                      41
+                    ],
+                    "source_kinds": [
+                      "sparse",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      10,
+                      1
+                    ]
+                  },
+                  {
+                    "call": 44,
+                    "cfg": 1,
+                    "source_calls": [
+                      24,
+                      42
+                    ],
+                    "source_kinds": [
+                      "sparse",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      10,
+                      1
+                    ]
+                  },
+                  {
+                    "call": 45,
+                    "cfg": 0,
+                    "source_calls": [
+                      23,
+                      41
+                    ],
+                    "source_kinds": [
+                      "sparse",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      11,
+                      2
+                    ]
+                  },
+                  {
+                    "call": 46,
+                    "cfg": 1,
+                    "source_calls": [
+                      24,
+                      42
+                    ],
+                    "source_kinds": [
+                      "sparse",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      11,
+                      2
+                    ]
+                  },
+                  {
+                    "call": 47,
+                    "cfg": 0,
+                    "source_calls": [
+                      23,
+                      41
+                    ],
+                    "source_kinds": [
+                      "sparse",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      12,
+                      3
+                    ]
+                  },
+                  {
+                    "call": 48,
+                    "cfg": 1,
+                    "source_calls": [
+                      24,
+                      42
+                    ],
+                    "source_kinds": [
+                      "sparse",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      12,
+                      3
+                    ]
+                  },
+                  {
+                    "call": 49,
+                    "cfg": 0,
+                    "source_calls": [
+                      23,
+                      41
+                    ],
+                    "source_kinds": [
+                      "sparse",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      13,
+                      4
+                    ]
+                  },
+                  {
+                    "call": 50,
+                    "cfg": 1,
+                    "source_calls": [
+                      24,
+                      42
+                    ],
+                    "source_kinds": [
+                      "sparse",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      13,
+                      4
+                    ]
+                  },
+                  {
+                    "call": 53,
+                    "cfg": 0,
+                    "source_calls": [
+                      41,
+                      51
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      6,
+                      1
+                    ]
+                  },
+                  {
+                    "call": 54,
+                    "cfg": 1,
+                    "source_calls": [
+                      42,
+                      52
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      6,
+                      1
+                    ]
+                  },
+                  {
+                    "call": 55,
+                    "cfg": 0,
+                    "source_calls": [
+                      41,
+                      51
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      7,
+                      2
+                    ]
+                  },
+                  {
+                    "call": 56,
+                    "cfg": 1,
+                    "source_calls": [
+                      42,
+                      52
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      7,
+                      2
+                    ]
+                  },
+                  {
+                    "call": 57,
+                    "cfg": 0,
+                    "source_calls": [
+                      41,
+                      51
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      8,
+                      3
+                    ]
+                  },
+                  {
+                    "call": 58,
+                    "cfg": 1,
+                    "source_calls": [
+                      42,
+                      52
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      8,
+                      3
+                    ]
+                  },
+                  {
+                    "call": 59,
+                    "cfg": 0,
+                    "source_calls": [
+                      41,
+                      51
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      9,
+                      4
+                    ]
+                  },
+                  {
+                    "call": 60,
+                    "cfg": 1,
+                    "source_calls": [
+                      42,
+                      52
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      9,
+                      4
+                    ]
+                  },
+                  {
+                    "call": 61,
+                    "cfg": 0,
+                    "source_calls": [
+                      41,
+                      51
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      10,
+                      5
+                    ]
+                  },
+                  {
+                    "call": 62,
+                    "cfg": 1,
+                    "source_calls": [
+                      42,
+                      52
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      10,
+                      5
+                    ]
+                  },
+                  {
+                    "call": 63,
+                    "cfg": 0,
+                    "source_calls": [
+                      41,
+                      51
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      11,
+                      6
+                    ]
+                  },
+                  {
+                    "call": 64,
+                    "cfg": 1,
+                    "source_calls": [
+                      42,
+                      52
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      11,
+                      6
+                    ]
+                  }
+                ],
+                "S_source_exposure": [
+                  {
+                    "S_call": 23,
+                    "cfg": 0,
+                    "future_cache_calls": [
+                      25,
+                      27,
+                      29,
+                      31,
+                      33,
+                      35,
+                      37,
+                      39,
+                      43,
+                      45,
+                      47,
+                      49
+                    ],
+                    "same_CFG_ages": [
+                      1,
+                      2,
+                      3,
+                      4,
+                      5,
+                      6,
+                      7,
+                      8,
+                      10,
+                      11,
+                      12,
+                      13
+                    ]
+                  },
+                  {
+                    "S_call": 24,
+                    "cfg": 1,
+                    "future_cache_calls": [
+                      26,
+                      28,
+                      30,
+                      32,
+                      34,
+                      36,
+                      38,
+                      40,
+                      44,
+                      46,
+                      48,
+                      50
+                    ],
+                    "same_CFG_ages": [
+                      1,
+                      2,
+                      3,
+                      4,
+                      5,
+                      6,
+                      7,
+                      8,
+                      10,
+                      11,
+                      12,
+                      13
+                    ]
+                  },
+                  {
+                    "S_call": 51,
+                    "cfg": 0,
+                    "future_cache_calls": [
+                      53,
+                      55,
+                      57,
+                      59,
+                      61,
+                      63
+                    ],
+                    "same_CFG_ages": [
+                      1,
+                      2,
+                      3,
+                      4,
+                      5,
+                      6
+                    ]
+                  },
+                  {
+                    "S_call": 52,
+                    "cfg": 1,
+                    "future_cache_calls": [
+                      54,
+                      56,
+                      58,
+                      60,
+                      62,
+                      64
+                    ],
+                    "same_CFG_ages": [
+                      1,
+                      2,
+                      3,
+                      4,
+                      5,
+                      6
+                    ]
+                  },
+                  {
+                    "S_call": 67,
+                    "cfg": 0,
+                    "future_cache_calls": [],
+                    "same_CFG_ages": []
+                  },
+                  {
+                    "S_call": 68,
+                    "cfg": 1,
+                    "future_cache_calls": [],
+                    "same_CFG_ages": []
+                  }
+                ]
+              },
+              {
+                "deep_calls": 28,
+                "cache_calls": 44,
+                "S_calls": [
+                  23,
+                  24,
+                  65,
+                  66,
+                  67,
+                  68
+                ],
+                "S_per_CFG": [
+                  3,
+                  3
+                ],
+                "S_operators": 12,
+                "approximate_cache_calls": [
+                  25,
+                  26,
+                  27,
+                  28,
+                  29,
+                  30,
+                  31,
+                  32,
+                  33,
+                  34,
+                  35,
+                  36,
+                  37,
+                  38,
+                  39,
+                  40,
+                  43,
+                  44,
+                  45,
+                  46,
+                  47,
+                  48,
+                  49,
+                  50
+                ],
+                "approximate_source_reads": 24,
+                "reference_kind_pairs": {
+                  "dense,dense": 20,
+                  "dense,sparse": 16,
+                  "sparse,dense": 8
+                },
+                "cache_rows": [
+                  {
+                    "call": 15,
+                    "cfg": 0,
+                    "source_calls": [
+                      11,
+                      13
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      2,
+                      1
+                    ]
+                  },
+                  {
+                    "call": 16,
+                    "cfg": 1,
+                    "source_calls": [
+                      12,
+                      14
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      2,
+                      1
+                    ]
+                  },
+                  {
+                    "call": 17,
+                    "cfg": 0,
+                    "source_calls": [
+                      11,
+                      13
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      3,
+                      2
+                    ]
+                  },
+                  {
+                    "call": 18,
+                    "cfg": 1,
+                    "source_calls": [
+                      12,
+                      14
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      3,
+                      2
+                    ]
+                  },
+                  {
+                    "call": 19,
+                    "cfg": 0,
+                    "source_calls": [
+                      11,
+                      13
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      4,
+                      3
+                    ]
+                  },
+                  {
+                    "call": 20,
+                    "cfg": 1,
+                    "source_calls": [
+                      12,
+                      14
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      4,
+                      3
+                    ]
+                  },
+                  {
+                    "call": 21,
+                    "cfg": 0,
+                    "source_calls": [
+                      11,
+                      13
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      5,
+                      4
+                    ]
+                  },
+                  {
+                    "call": 22,
+                    "cfg": 1,
+                    "source_calls": [
+                      12,
+                      14
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      5,
+                      4
+                    ]
+                  },
+                  {
+                    "call": 25,
+                    "cfg": 0,
+                    "source_calls": [
+                      13,
+                      23
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      6,
+                      1
+                    ]
+                  },
+                  {
+                    "call": 26,
+                    "cfg": 1,
+                    "source_calls": [
+                      14,
+                      24
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      6,
+                      1
+                    ]
+                  },
+                  {
+                    "call": 27,
+                    "cfg": 0,
+                    "source_calls": [
+                      13,
+                      23
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      7,
+                      2
+                    ]
+                  },
+                  {
+                    "call": 28,
+                    "cfg": 1,
+                    "source_calls": [
+                      14,
+                      24
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      7,
+                      2
+                    ]
+                  },
+                  {
+                    "call": 29,
+                    "cfg": 0,
+                    "source_calls": [
+                      13,
+                      23
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      8,
+                      3
+                    ]
+                  },
+                  {
+                    "call": 30,
+                    "cfg": 1,
+                    "source_calls": [
+                      14,
+                      24
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      8,
+                      3
+                    ]
+                  },
+                  {
+                    "call": 31,
+                    "cfg": 0,
+                    "source_calls": [
+                      13,
+                      23
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      9,
+                      4
+                    ]
+                  },
+                  {
+                    "call": 32,
+                    "cfg": 1,
+                    "source_calls": [
+                      14,
+                      24
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      9,
+                      4
+                    ]
+                  },
+                  {
+                    "call": 33,
+                    "cfg": 0,
+                    "source_calls": [
+                      13,
+                      23
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      10,
+                      5
+                    ]
+                  },
+                  {
+                    "call": 34,
+                    "cfg": 1,
+                    "source_calls": [
+                      14,
+                      24
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      10,
+                      5
+                    ]
+                  },
+                  {
+                    "call": 35,
+                    "cfg": 0,
+                    "source_calls": [
+                      13,
+                      23
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      11,
+                      6
+                    ]
+                  },
+                  {
+                    "call": 36,
+                    "cfg": 1,
+                    "source_calls": [
+                      14,
+                      24
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      11,
+                      6
+                    ]
+                  },
+                  {
+                    "call": 37,
+                    "cfg": 0,
+                    "source_calls": [
+                      13,
+                      23
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      12,
+                      7
+                    ]
+                  },
+                  {
+                    "call": 38,
+                    "cfg": 1,
+                    "source_calls": [
+                      14,
+                      24
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      12,
+                      7
+                    ]
+                  },
+                  {
+                    "call": 39,
+                    "cfg": 0,
+                    "source_calls": [
+                      13,
+                      23
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      13,
+                      8
+                    ]
+                  },
+                  {
+                    "call": 40,
+                    "cfg": 1,
+                    "source_calls": [
+                      14,
+                      24
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "sparse"
+                    ],
+                    "same_CFG_source_ages": [
+                      13,
+                      8
+                    ]
+                  },
+                  {
+                    "call": 43,
+                    "cfg": 0,
+                    "source_calls": [
+                      23,
+                      41
+                    ],
+                    "source_kinds": [
+                      "sparse",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      10,
+                      1
+                    ]
+                  },
+                  {
+                    "call": 44,
+                    "cfg": 1,
+                    "source_calls": [
+                      24,
+                      42
+                    ],
+                    "source_kinds": [
+                      "sparse",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      10,
+                      1
+                    ]
+                  },
+                  {
+                    "call": 45,
+                    "cfg": 0,
+                    "source_calls": [
+                      23,
+                      41
+                    ],
+                    "source_kinds": [
+                      "sparse",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      11,
+                      2
+                    ]
+                  },
+                  {
+                    "call": 46,
+                    "cfg": 1,
+                    "source_calls": [
+                      24,
+                      42
+                    ],
+                    "source_kinds": [
+                      "sparse",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      11,
+                      2
+                    ]
+                  },
+                  {
+                    "call": 47,
+                    "cfg": 0,
+                    "source_calls": [
+                      23,
+                      41
+                    ],
+                    "source_kinds": [
+                      "sparse",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      12,
+                      3
+                    ]
+                  },
+                  {
+                    "call": 48,
+                    "cfg": 1,
+                    "source_calls": [
+                      24,
+                      42
+                    ],
+                    "source_kinds": [
+                      "sparse",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      12,
+                      3
+                    ]
+                  },
+                  {
+                    "call": 49,
+                    "cfg": 0,
+                    "source_calls": [
+                      23,
+                      41
+                    ],
+                    "source_kinds": [
+                      "sparse",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      13,
+                      4
+                    ]
+                  },
+                  {
+                    "call": 50,
+                    "cfg": 1,
+                    "source_calls": [
+                      24,
+                      42
+                    ],
+                    "source_kinds": [
+                      "sparse",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      13,
+                      4
+                    ]
+                  },
+                  {
+                    "call": 53,
+                    "cfg": 0,
+                    "source_calls": [
+                      41,
+                      51
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      6,
+                      1
+                    ]
+                  },
+                  {
+                    "call": 54,
+                    "cfg": 1,
+                    "source_calls": [
+                      42,
+                      52
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      6,
+                      1
+                    ]
+                  },
+                  {
+                    "call": 55,
+                    "cfg": 0,
+                    "source_calls": [
+                      41,
+                      51
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      7,
+                      2
+                    ]
+                  },
+                  {
+                    "call": 56,
+                    "cfg": 1,
+                    "source_calls": [
+                      42,
+                      52
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      7,
+                      2
+                    ]
+                  },
+                  {
+                    "call": 57,
+                    "cfg": 0,
+                    "source_calls": [
+                      41,
+                      51
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      8,
+                      3
+                    ]
+                  },
+                  {
+                    "call": 58,
+                    "cfg": 1,
+                    "source_calls": [
+                      42,
+                      52
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      8,
+                      3
+                    ]
+                  },
+                  {
+                    "call": 59,
+                    "cfg": 0,
+                    "source_calls": [
+                      41,
+                      51
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      9,
+                      4
+                    ]
+                  },
+                  {
+                    "call": 60,
+                    "cfg": 1,
+                    "source_calls": [
+                      42,
+                      52
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      9,
+                      4
+                    ]
+                  },
+                  {
+                    "call": 61,
+                    "cfg": 0,
+                    "source_calls": [
+                      41,
+                      51
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      10,
+                      5
+                    ]
+                  },
+                  {
+                    "call": 62,
+                    "cfg": 1,
+                    "source_calls": [
+                      42,
+                      52
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      10,
+                      5
+                    ]
+                  },
+                  {
+                    "call": 63,
+                    "cfg": 0,
+                    "source_calls": [
+                      41,
+                      51
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      11,
+                      6
+                    ]
+                  },
+                  {
+                    "call": 64,
+                    "cfg": 1,
+                    "source_calls": [
+                      42,
+                      52
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      11,
+                      6
+                    ]
+                  }
+                ],
+                "S_source_exposure": [
+                  {
+                    "S_call": 23,
+                    "cfg": 0,
+                    "future_cache_calls": [
+                      25,
+                      27,
+                      29,
+                      31,
+                      33,
+                      35,
+                      37,
+                      39,
+                      43,
+                      45,
+                      47,
+                      49
+                    ],
+                    "same_CFG_ages": [
+                      1,
+                      2,
+                      3,
+                      4,
+                      5,
+                      6,
+                      7,
+                      8,
+                      10,
+                      11,
+                      12,
+                      13
+                    ]
+                  },
+                  {
+                    "S_call": 24,
+                    "cfg": 1,
+                    "future_cache_calls": [
+                      26,
+                      28,
+                      30,
+                      32,
+                      34,
+                      36,
+                      38,
+                      40,
+                      44,
+                      46,
+                      48,
+                      50
+                    ],
+                    "same_CFG_ages": [
+                      1,
+                      2,
+                      3,
+                      4,
+                      5,
+                      6,
+                      7,
+                      8,
+                      10,
+                      11,
+                      12,
+                      13
+                    ]
+                  },
+                  {
+                    "S_call": 65,
+                    "cfg": 0,
+                    "future_cache_calls": [],
+                    "same_CFG_ages": []
+                  },
+                  {
+                    "S_call": 66,
+                    "cfg": 1,
+                    "future_cache_calls": [],
+                    "same_CFG_ages": []
+                  },
+                  {
+                    "S_call": 67,
+                    "cfg": 0,
+                    "future_cache_calls": [],
+                    "same_CFG_ages": []
+                  },
+                  {
+                    "S_call": 68,
+                    "cfg": 1,
+                    "future_cache_calls": [],
+                    "same_CFG_ages": []
+                  }
+                ]
+              },
+              {
+                "deep_calls": 28,
+                "cache_calls": 44,
+                "S_calls": [
+                  65,
+                  66,
+                  67,
+                  68,
+                  69,
+                  70
+                ],
+                "S_per_CFG": [
+                  3,
+                  3
+                ],
+                "S_operators": 12,
+                "approximate_cache_calls": [],
+                "approximate_source_reads": 0,
+                "reference_kind_pairs": {
+                  "dense,dense": 44
+                },
+                "cache_rows": [
+                  {
+                    "call": 15,
+                    "cfg": 0,
+                    "source_calls": [
+                      11,
+                      13
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      2,
+                      1
+                    ]
+                  },
+                  {
+                    "call": 16,
+                    "cfg": 1,
+                    "source_calls": [
+                      12,
+                      14
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      2,
+                      1
+                    ]
+                  },
+                  {
+                    "call": 17,
+                    "cfg": 0,
+                    "source_calls": [
+                      11,
+                      13
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      3,
+                      2
+                    ]
+                  },
+                  {
+                    "call": 18,
+                    "cfg": 1,
+                    "source_calls": [
+                      12,
+                      14
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      3,
+                      2
+                    ]
+                  },
+                  {
+                    "call": 19,
+                    "cfg": 0,
+                    "source_calls": [
+                      11,
+                      13
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      4,
+                      3
+                    ]
+                  },
+                  {
+                    "call": 20,
+                    "cfg": 1,
+                    "source_calls": [
+                      12,
+                      14
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      4,
+                      3
+                    ]
+                  },
+                  {
+                    "call": 21,
+                    "cfg": 0,
+                    "source_calls": [
+                      11,
+                      13
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      5,
+                      4
+                    ]
+                  },
+                  {
+                    "call": 22,
+                    "cfg": 1,
+                    "source_calls": [
+                      12,
+                      14
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      5,
+                      4
+                    ]
+                  },
+                  {
+                    "call": 25,
+                    "cfg": 0,
+                    "source_calls": [
+                      13,
+                      23
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      6,
+                      1
+                    ]
+                  },
+                  {
+                    "call": 26,
+                    "cfg": 1,
+                    "source_calls": [
+                      14,
+                      24
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      6,
+                      1
+                    ]
+                  },
+                  {
+                    "call": 27,
+                    "cfg": 0,
+                    "source_calls": [
+                      13,
+                      23
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      7,
+                      2
+                    ]
+                  },
+                  {
+                    "call": 28,
+                    "cfg": 1,
+                    "source_calls": [
+                      14,
+                      24
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      7,
+                      2
+                    ]
+                  },
+                  {
+                    "call": 29,
+                    "cfg": 0,
+                    "source_calls": [
+                      13,
+                      23
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      8,
+                      3
+                    ]
+                  },
+                  {
+                    "call": 30,
+                    "cfg": 1,
+                    "source_calls": [
+                      14,
+                      24
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      8,
+                      3
+                    ]
+                  },
+                  {
+                    "call": 31,
+                    "cfg": 0,
+                    "source_calls": [
+                      13,
+                      23
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      9,
+                      4
+                    ]
+                  },
+                  {
+                    "call": 32,
+                    "cfg": 1,
+                    "source_calls": [
+                      14,
+                      24
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      9,
+                      4
+                    ]
+                  },
+                  {
+                    "call": 33,
+                    "cfg": 0,
+                    "source_calls": [
+                      13,
+                      23
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      10,
+                      5
+                    ]
+                  },
+                  {
+                    "call": 34,
+                    "cfg": 1,
+                    "source_calls": [
+                      14,
+                      24
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      10,
+                      5
+                    ]
+                  },
+                  {
+                    "call": 35,
+                    "cfg": 0,
+                    "source_calls": [
+                      13,
+                      23
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      11,
+                      6
+                    ]
+                  },
+                  {
+                    "call": 36,
+                    "cfg": 1,
+                    "source_calls": [
+                      14,
+                      24
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      11,
+                      6
+                    ]
+                  },
+                  {
+                    "call": 37,
+                    "cfg": 0,
+                    "source_calls": [
+                      13,
+                      23
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      12,
+                      7
+                    ]
+                  },
+                  {
+                    "call": 38,
+                    "cfg": 1,
+                    "source_calls": [
+                      14,
+                      24
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      12,
+                      7
+                    ]
+                  },
+                  {
+                    "call": 39,
+                    "cfg": 0,
+                    "source_calls": [
+                      13,
+                      23
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      13,
+                      8
+                    ]
+                  },
+                  {
+                    "call": 40,
+                    "cfg": 1,
+                    "source_calls": [
+                      14,
+                      24
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      13,
+                      8
+                    ]
+                  },
+                  {
+                    "call": 43,
+                    "cfg": 0,
+                    "source_calls": [
+                      23,
+                      41
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      10,
+                      1
+                    ]
+                  },
+                  {
+                    "call": 44,
+                    "cfg": 1,
+                    "source_calls": [
+                      24,
+                      42
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      10,
+                      1
+                    ]
+                  },
+                  {
+                    "call": 45,
+                    "cfg": 0,
+                    "source_calls": [
+                      23,
+                      41
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      11,
+                      2
+                    ]
+                  },
+                  {
+                    "call": 46,
+                    "cfg": 1,
+                    "source_calls": [
+                      24,
+                      42
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      11,
+                      2
+                    ]
+                  },
+                  {
+                    "call": 47,
+                    "cfg": 0,
+                    "source_calls": [
+                      23,
+                      41
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      12,
+                      3
+                    ]
+                  },
+                  {
+                    "call": 48,
+                    "cfg": 1,
+                    "source_calls": [
+                      24,
+                      42
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      12,
+                      3
+                    ]
+                  },
+                  {
+                    "call": 49,
+                    "cfg": 0,
+                    "source_calls": [
+                      23,
+                      41
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      13,
+                      4
+                    ]
+                  },
+                  {
+                    "call": 50,
+                    "cfg": 1,
+                    "source_calls": [
+                      24,
+                      42
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      13,
+                      4
+                    ]
+                  },
+                  {
+                    "call": 53,
+                    "cfg": 0,
+                    "source_calls": [
+                      41,
+                      51
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      6,
+                      1
+                    ]
+                  },
+                  {
+                    "call": 54,
+                    "cfg": 1,
+                    "source_calls": [
+                      42,
+                      52
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      6,
+                      1
+                    ]
+                  },
+                  {
+                    "call": 55,
+                    "cfg": 0,
+                    "source_calls": [
+                      41,
+                      51
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      7,
+                      2
+                    ]
+                  },
+                  {
+                    "call": 56,
+                    "cfg": 1,
+                    "source_calls": [
+                      42,
+                      52
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      7,
+                      2
+                    ]
+                  },
+                  {
+                    "call": 57,
+                    "cfg": 0,
+                    "source_calls": [
+                      41,
+                      51
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      8,
+                      3
+                    ]
+                  },
+                  {
+                    "call": 58,
+                    "cfg": 1,
+                    "source_calls": [
+                      42,
+                      52
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      8,
+                      3
+                    ]
+                  },
+                  {
+                    "call": 59,
+                    "cfg": 0,
+                    "source_calls": [
+                      41,
+                      51
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      9,
+                      4
+                    ]
+                  },
+                  {
+                    "call": 60,
+                    "cfg": 1,
+                    "source_calls": [
+                      42,
+                      52
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      9,
+                      4
+                    ]
+                  },
+                  {
+                    "call": 61,
+                    "cfg": 0,
+                    "source_calls": [
+                      41,
+                      51
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      10,
+                      5
+                    ]
+                  },
+                  {
+                    "call": 62,
+                    "cfg": 1,
+                    "source_calls": [
+                      42,
+                      52
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      10,
+                      5
+                    ]
+                  },
+                  {
+                    "call": 63,
+                    "cfg": 0,
+                    "source_calls": [
+                      41,
+                      51
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      11,
+                      6
+                    ]
+                  },
+                  {
+                    "call": 64,
+                    "cfg": 1,
+                    "source_calls": [
+                      42,
+                      52
+                    ],
+                    "source_kinds": [
+                      "dense",
+                      "dense"
+                    ],
+                    "same_CFG_source_ages": [
+                      11,
+                      6
+                    ]
+                  }
+                ],
+                "S_source_exposure": [
+                  {
+                    "S_call": 65,
+                    "cfg": 0,
+                    "future_cache_calls": [],
+                    "same_CFG_ages": []
+                  },
+                  {
+                    "S_call": 66,
+                    "cfg": 1,
+                    "future_cache_calls": [],
+                    "same_CFG_ages": []
+                  },
+                  {
+                    "S_call": 67,
+                    "cfg": 0,
+                    "future_cache_calls": [],
+                    "same_CFG_ages": []
+                  },
+                  {
+                    "S_call": 68,
+                    "cfg": 1,
+                    "future_cache_calls": [],
+                    "same_CFG_ages": []
+                  },
+                  {
+                    "S_call": 69,
+                    "cfg": 0,
+                    "future_cache_calls": [],
+                    "same_CFG_ages": []
+                  },
+                  {
+                    "S_call": 70,
+                    "cfg": 1,
+                    "future_cache_calls": [],
+                    "same_CFG_ages": []
+                  }
+                ]
+              }
+            ],
+            "snapshot_counter_restore_and_wrong_policy_rejection": true,
+            "true_D_isolation_and_native70_reset": true,
+            "real_sparse_kernel_or_video": false
+          },
+          {
+            "flow": true,
+            "scenario": "DD_mask_mismatch",
+            "six_denominator_and_prior_outputs_preserved": true,
+            "error": "Real fresh-prepare light D/D control differs"
+          },
+          {
+            "flow": true,
+            "scenario": "first_placement_kernel_failure",
+            "six_denominator_and_prior_outputs_preserved": true,
+            "error": "Invalid sparse refresh output; no native cache write"
+          },
+          {
+            "flow": true,
+            "scenario": "legacy_reference_mismatch",
+            "six_denominator_and_prior_outputs_preserved": true,
+            "error": "Legacy S output differs; new variants not started"
+          }
+        ],
+        "upstream_sha256": {
+          "cosmos_predict2/inference.py": "0db96c49f0b3f18a971bc989e0727132dafc27ef621145a2d25a3da62a7a1975",
+          "cosmos_predict2/_src/predict2/inference/video2world.py": "59aa9e236a5e7e26490f5cfcb94ab95ce911d9c38eba61dd8aef7d067e458a95",
+          "cosmos_predict2/_src/predict2/inference/worldcache_utils.py": "b485cb8fd6e262a40e5823365c34ef7db1bc036c591d7577489e04077c515903",
+          "cosmos_predict2/_src/predict2/models/text2world_model_rectified_flow.py": "c6c68f297859e11c76d2921667a29cabfecef3a7b5d3ab831bf9bb54b25b7d87",
+          "cosmos_predict2/_src/predict2/models/fm_solvers_unipc.py": "f6a06c75f059693ade6c802e99f6058575969b6a71ef18ab05e7ed46701053d3"
+        },
+        "cuda_initialized": false,
+        "limits": "Unchanged pinned sampler/get_velocity/denoise/decode wrapper, WC, UniPC, generate_vid2world and Inference method bodies. Explicit Toy net, CPU noise/conditioner/normalize/broadcast/prepare/tokenizer/mock writer, offload disabled and CUDA telemetry adapters; equal finite threshold schedule is CPU control only. No weights, true VAE/encoded video, GPU completion, independent restart or quality result. No sparse candidate in this control. Explicit positions here use toy trace ordinals, CPU stand-in S and mock writer; human oracle positions need a separately frozen GPU card."
+      }
+    },
+    "torch_version": "2.7.1+cu128",
+    "cuda_initialized": false
+  }
+}

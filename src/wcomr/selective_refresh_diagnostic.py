@@ -28,7 +28,7 @@ class SelectiveFixedRefreshAdapter(FixedRefreshDiagnosticAdapter):
         if eligible:
             self.eligible_refreshes[branch] += 1
             ordinal = self.eligible_refreshes[branch]
-            chosen = self.policy.select(ordinal)
+            chosen = self.policy.select(ordinal, cfg=branch)
             if not chosen:
                 self.mode = 'dense'
                 self.pending['action'] = 'dense'

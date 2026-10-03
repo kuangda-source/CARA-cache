@@ -1,3 +1,11 @@
+## 2026-10-04 同S预算来源位置：离线26→15/2，当前CPU14/8通过
+
+[93 来源下界、CPU与提案](research/93_WC_FORECAST_PLACEMENT_BOUND_CPU_AND_PROPOSAL.md)/[机器摘要](reports/wc_forecast_placement_summary_20261004.json)：复现原三种实际来源组合后，固定38deep/34cache、CFG6/5共11 S与253算子。精确穷举曝光未来掩码：保持首次S23/24可把读取S的cache从26降到15；自由位置最低2（call56/62，首次45/48）。这是来源组合下界，不是视频或线上策略，噪声时间/位置和复用仍有混杂，无RV收益标签。
+
+新不可变逐CFG序号policy和六输出forecast_placement接线完成；实际Cosmos CPU r1旧14/r2当前8、19纯policy/source及8早期拒绝通过，CUDA未初始化，当前35依赖与两原件源绑定。r2补强legacy采样返回/解码/guardrail/写入前实际张量SHA，防止mock解码饱和造成伪复现；D/D/legacy不符与kernel失败保留六分母并止步、所有来源/计数恢复与清理保持。Toy/kernel stand-in/mock writer不是人物核/视频证据。
+
+六输出具体提案D/D→fixed D/legacy SD/首次匹配/最小来源，完整cost2282.988秒≤拟独立2400全cost/2370child，未选定/冻结GPU卡、未部署或预付；下一独立runner/scope/监督器与payload，再实际源码/CPU/原视频/prepare/native-meta/资产/import/条件和fresh资源/锁/预算门。累计8.215651676683272/12h、40jobs，余3.7843483233167277h保持，无新增GPU或训练、人评，科学goal active。以下为历史。
+
 ## 2026-10-04 六输出终态：小组改善保真但未加速，低频S保真近似原full-S
 
 [92 结果及下一步](research/92_WC_SELECTIVE_HUMAN_RESULTS_AND_FORECAST_WINDOW_NEXT.md)/[机器摘要](reports/wc_selective_human_r1_summary_20261004.json)：冻结source27df唯一卡exit0，六mp4/93完整解码、全部38共同deep、D/D九门/五处1216状态、历史D/full-S视频SHA、三policy实际核/来源/频率与费用释放独立通过。相对官方WC，full-S/small-S/cadenced-S的SSIM为0.726741/0.785909/0.729829，完整wall206.442/213.565/209.029秒，参考D213.015秒；分别少3.086%/增加0.258%/少1.871%。small-S的RGB MSE比full-S低29.966%，仍有明显保真差异；单曝光场景/单次固定顺序，不接受质量、速度或前沿。

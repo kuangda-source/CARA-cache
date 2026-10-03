@@ -1,0 +1,53 @@
+{
+  "status": "EXACT_EXPOSED_SOURCE_BOUND_AND_CURRENT_CPU_IMPLEMENTATION_PASS_GPU_PROPOSAL_ONLY",
+  "source_raw_sha256": "a752a19587552ca4842a3dec0683bbf42891a3a774c4987ca104c58cc0364265",
+  "same_deep_calls": 38,
+  "same_cache_calls": 34,
+  "same_S_per_CFG": [
+    6,
+    5
+  ],
+  "same_S_operators": 253,
+  "legacy_approximate_cache_calls": 26,
+  "first_matched_minimum_cache_calls": 15,
+  "unconstrained_minimum_cache_calls": 2,
+  "first_matched_enumerated_branch_schedules": 588,
+  "unconstrained_enumerated_branch_schedules": 1176,
+  "actual_CPU_legacy_controls": 14,
+  "actual_current_CPU_forecast_controls": 8,
+  "CPU_preflight_rejections": 8,
+  "local_policy_source_controls": 19,
+  "CPU_r1_wall_seconds": 126.12897157669067,
+  "CPU_r2_wall_seconds": 64.9067451953888,
+  "actual_current_sampler_tensor_boundaries_legacy_reproduced": true,
+  "GPU_submitted": false,
+  "reserved_seconds": 0,
+  "budget": {
+    "batch": "F0-F1",
+    "cap_gpu_hours": 12,
+    "used_gpu_hours": 8.215651676683272,
+    "gpu_jobs_launched": 40,
+    "status": "WC_SELECTIVE_OUTPUT_SETTLED_REQUIRES_RESULT_AUDIT",
+    "gpu_import_probes_completed": 1,
+    "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts",
+    "budget_authorization_ref": "manifests/budget_authorization_20261003.json",
+    "budget_authorization_history": [
+      {
+        "authorized_utc": "2026-10-02T18:03:00Z",
+        "source_thread_id": "01a0f1e6-7ad0-75df-9a02-172b60d2e00b",
+        "user_instruction": "\u628a\u5404\u4e2a\u5b9e\u9a8c\u7684 gpu \u9884\u7b97\u90fd\u8bbe\u7f6e\u4e3a 12gpuh",
+        "previous_cap_gpu_hours": 4,
+        "new_cumulative_cap_gpu_hours": 12,
+        "used_gpu_hours_at_change": 3.9117525685110333,
+        "no_usage_reset_or_transfer": true
+      }
+    ]
+  },
+  "quality_acceptance": false,
+  "online_policy": false,
+  "causal_refresh_value_labels": false,
+  "independent_confirmation": false,
+  "cost_proposal_seconds": 2282.988448896557,
+  "proposed_total_seconds": 2400,
+  "next_action": "Dedicated six-output scope/runner/supervisor and exact source freeze, then actual deployment/fresh admission before any unique GPU submission."
+}

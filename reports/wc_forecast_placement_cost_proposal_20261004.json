@@ -1,0 +1,33 @@
+{
+  "status": "FORECAST_PLACEMENT_SIX_OUTPUT_COST_PROPOSAL_NO_GPU_SELECTED",
+  "proposed_card": "WC-FORECAST-PLACEMENT-HUMAN-R1-20261004-A",
+  "proposed_run_id": "wc-forecast-placement-human-r1",
+  "planned_output_files": 6,
+  "planned_DD_controls": 2,
+  "planned_light_measurements": 4,
+  "proposed_total_wall_cap_seconds": 2400,
+  "proposed_child_timeout_seconds": 2370,
+  "kill_grace_seconds": 5,
+  "control_per_output_seconds": 381.7508979411796,
+  "measurement_per_output_seconds": 235.7682573137805,
+  "load_seconds": 95.91554894298315,
+  "bookkeeping_seconds": 75,
+  "buffer_factor": 1.2,
+  "shutdown_settlement_margin_seconds": 30,
+  "unbuffered_seconds": 1877.4903740804643,
+  "complete_planning_seconds": 2282.988448896557,
+  "used_GPU_hours": 8.215651676683272,
+  "remaining_GPU_hours": 3.7843483233167277,
+  "hypothetical_used_if_selected_and_prepaid": 8.882318343349938,
+  "selected": false,
+  "reserved_seconds": 0,
+  "new_GPU_submission": false,
+  "basis": [
+    "Same six-output pipeline as completed selective card; conservative historical D/D max381.751 and light max214.335 plus10percent retained.",
+    "Same loading95.916, bookkeeping75,20percent envelope and30second settlement margin; nominal11 S refreshes/253 operators in every candidate.",
+    "One measured run per variant; actual routing, provenance, first kernel use, decode/guardrail/write, import/loading/failure/flush/release must be charged.",
+    "A 2400-second independent proposal does not reuse the consumed104-point1800-second identity or the preceding six-output card."
+  ],
+  "source_recipe_ref": "configs/wc_selective_human_r1.json",
+  "actual_previous_terminal_ref": "reports/wc_selective_human_r1_terminal_20261004.json"
+}

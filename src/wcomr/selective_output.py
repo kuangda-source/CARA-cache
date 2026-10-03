@@ -5,26 +5,51 @@ from .light_output import run_light_dense_control
 from .light_sampling import run_light_pair
 from .prepared_input import RNGState
 from .selective_refresh_diagnostic import SelectiveFixedRefreshAdapter
-from .selective_refresh_policy import SparseRefreshPolicy
+from .selective_refresh_policy import SparseRefreshPolicy, SparsePlacementPolicy
 
 
 def run_selective_output(inference, sample, wc, settings, mask, policies, *,
                          state, save, output, inference_module, context, mode_setup,
                          fallback=(6, 23, 27), kernel=None, expected_video=(93, 432, 768),
-                         expected_D_sha256=None, expected_full_S_sha256=None):
+                         expected_D_sha256=None, expected_full_S_sha256=None,
+                         comparison='layer_cadence'):
+    """The default reproduces the original layer/cadence six-output contract.
+
+    forecast_placement compares legacy alternating S with two explicit oracle
+    placements at the same branch-local S budget. The historical S SHA then
+    refers to that first legacy alternating arm, rather than all-layer full S.
+    """
     if not isinstance(mask, FixedRefreshMask) or sample.name != mask.sample_name:
         raise ValueError('Single selective diagnostic sample must match mask')
     mask.bind(context)
-    if (type(policies) is not tuple or len(policies) != 3
+    if (comparison not in ('layer_cadence','forecast_placement')
+            or type(policies) is not tuple or len(policies) != 3
             or any(not isinstance(p, SparseRefreshPolicy) for p in policies)):
-        raise ValueError('Three predeclared full/small/low-frequency policies required')
-    full, small, cadence = policies
+        raise ValueError('Three policies and an explicit supported comparison required')
     group = tuple(v for v in range(inference.pipe.model.net.probe_depth,
         len(inference.pipe.model.net.blocks)) if v not in fallback)
-    if (full.sparse_layers != group or full.every != 1 or cadence.sparse_layers != group
-            or cadence.every != 2 or small.every != 1
-            or not set(small.sparse_layers) < set(full.sparse_layers)):
-        raise ValueError('One-factor full/small/cadenced comparison differs')
+    quotas = None
+    if comparison == 'layer_cadence':
+        full, small, cadence = policies
+        if (any(type(p) is not SparseRefreshPolicy for p in policies)
+                or full.sparse_layers != group or full.every != 1
+                or cadence.sparse_layers != group or cadence.every != 2 or small.every != 1
+                or not set(small.sparse_layers) < set(full.sparse_layers)):
+            raise ValueError('One-factor full/small/cadenced comparison differs')
+    else:
+        legacy, first, free = policies
+        counts = [sum(dense and mask.warm_calls < call <= mask.horizon
+            and (call-1)%2==cfg for call,dense in enumerate(mask.dense_calls,1)) for cfg in (0,1)]
+        quotas = [(n+1)//2 for n in counts]
+        if (type(legacy) is not SparseRefreshPolicy or legacy.every != 2
+                or any(type(p) is not SparsePlacementPolicy for p in (first,free))
+                or any(p.sparse_layers != group for p in policies)
+                or any(not n for n in quotas)
+                or any(len(p.per_cfg_eligible_ordinals[cfg]) != quotas[cfg]
+                    or p.per_cfg_eligible_ordinals[cfg][-1] > counts[cfg]
+                    for p in (first,free) for cfg in (0,1))
+                or any(1 not in first.per_cfg_eligible_ordinals[cfg] for cfg in (0,1))):
+            raise ValueError('Frozen oracle positions must preserve legacy per-CFG S counts and first-S control')
     for p in policies:
         p.validate_geometry(inference.pipe.model.net.probe_depth,
                             len(inference.pipe.model.net.blocks), fallback)
@@ -35,12 +60,16 @@ def run_selective_output(inference, sample, wc, settings, mask, policies, *,
     if state.get('dense_control') or state.get('measurement'):
         raise ValueError('Existing selective identity; inspect instead of rerun')
     state.update(planned_total_phases=6, planned_output_files=6,
-        role='OFFLINE_SELECTIVE_FIXED_MASK_DIAGNOSTIC_NOT_DEPLOYMENT_POLICY',
+        role=('OFFLINE_SELECTIVE_FIXED_MASK_DIAGNOSTIC_NOT_DEPLOYMENT_POLICY' if quotas is None else
+              'OFFLINE_ORACLE_FORECAST_PLACEMENT_NOT_DEPLOYMENT_POLICY'),
         fixed_mask=mask.to_dict(), reference_context=list(context),
         policies=[p.to_dict() for p in policies],
         dense_control={'status':'NOT_STARTED','phases':[]},
         measurement={'status':'NOT_STARTED_DD_PENDING','phases':[],
             'diagnostic_observers':False,'performance_sample':True})
+    if quotas is not None:
+        state.update(comparison=comparison, nominal_S_per_CFG=quotas,
+                     uses_exposed_future_trace=True, causal_refresh_value_labels=False)
     save()
     entry_rng = RNGState()
     def dense_factory(kind, ctx):
@@ -56,7 +85,12 @@ def run_selective_output(inference, sample, wc, settings, mask, policies, *,
             raise ValueError('Light fixed D differs before any S measurement')
         if (index[0] == 1 and expected_full_S_sha256 is not None
                 and previous['artifacts'][0]['sha256'] != expected_full_S_sha256):
-            raise ValueError('Legacy full S output differs; new variants not started')
+            raise ValueError('Legacy S output differs; new variants not started')
+        if index[0] == 1 and quotas is not None:
+            events = previous['refresh_provenance']['events']
+            actual = [sum(bool(e['sparse_layers']) and e['cfg']==cfg for e in events) for cfg in (0,1)]
+            if actual != quotas:
+                raise ValueError('Legacy actual S quota differs; oracle variants not started')
         policy = policies[index[0]]
         index[0] += 1
         return SelectiveFixedRefreshAdapter(ctx, mask, policy, sparse=True,
@@ -81,11 +115,22 @@ def run_selective_output(inference, sample, wc, settings, mask, policies, *,
             raise ValueError('All six actual refresh traces must match common mask')
         if phases[0]['artifacts'] != phases[1]['artifacts'] or phases[0]['artifacts'] != phases[2]['artifacts']:
             raise ValueError('Three ordinary/fixed dense outputs differ')
-        state['measurement']['variant_names'] = ['fixed_D','full_S','small_S','cadenced_S']
-        state['measurement']['status'] = 'SELECTIVE_D_AND_THREE_S_OUTPUTS_REQUIRE_METRICS'
-        state['status'] = 'SIX_SELECTIVE_OUTPUTS_COMPLETE_REQUIRE_INDEPENDENT_AUDIT'
+        if quotas is None:
+            state['measurement']['variant_names'] = ['fixed_D','full_S','small_S','cadenced_S']
+            state['measurement']['status'] = 'SELECTIVE_D_AND_THREE_S_OUTPUTS_REQUIRE_METRICS'
+            state['status'] = 'SIX_SELECTIVE_OUTPUTS_COMPLETE_REQUIRE_INDEPENDENT_AUDIT'
+        else:
+            for phase in state['measurement']['phases'][1:]:
+                events = phase['refresh_provenance']['events']
+                actual = [sum(bool(e['sparse_layers']) and e['cfg']==cfg for e in events) for cfg in (0,1)]
+                if actual != quotas:
+                    raise ValueError('Actual per-CFG S budget differs across placement arms')
+            state['measurement']['variant_names'] = ['fixed_D','legacy_SD','first_S_matched','minimum_footprint']
+            state['measurement']['status'] = 'FORECAST_PLACEMENT_D_AND_THREE_S_OUTPUTS_REQUIRE_METRICS'
+            state['status'] = 'SIX_FORECAST_PLACEMENT_OUTPUTS_COMPLETE_REQUIRE_INDEPENDENT_AUDIT'
     except BaseException as error:
-        state.update(status='TECH_BLOCKED_SELECTIVE_SIX_OUTPUT_DENOMINATOR_PRESERVED',
+        state.update(status=('TECH_BLOCKED_SELECTIVE_SIX_OUTPUT_DENOMINATOR_PRESERVED' if quotas is None else
+                             'TECH_BLOCKED_FORECAST_PLACEMENT_SIX_OUTPUT_DENOMINATOR_PRESERVED'),
                      error_type=type(error).__name__,error=str(error))
         raise
     finally:
