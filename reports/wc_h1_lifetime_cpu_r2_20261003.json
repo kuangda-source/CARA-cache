@@ -1,0 +1,46 @@
+{
+  "status": "H1_CPU_GATE_FAILED",
+  "exit": 1,
+  "payload_sha256": {
+    "src/wcomr/__init__.py": "b9996da0a87bb746cdac0935ead475246fc34d88b37e73f63f14e5065494f311",
+    "src/wcomr/h0_complement.py": "546b3e7dbcaebdfc561dc85abb125ed129ecaef217f4088a9a7cc6c323f7082b",
+    "src/wcomr/h0_mode.py": "849afc06fa124c606e39205542458e7bcaa974adca28d9772f3c23730c1668b4",
+    "src/wcomr/h1_reference.py": "0b07dfa1ae0ff3df8230fddd6f1ba9c94118feb7c5669d6043822334c7eb0a64",
+    "src/wcomr/h1_lifetime.py": "931ee481bdeb86fb8dafba172586c423001459b356147cd755c3a980d81be52c",
+    "src/wcomr/mid_coverage.py": "8e02d740b4ee794531c6263666bbed18348e32ba84c9b94b89f7c979a106fbf4",
+    "src/wcomr/mid_scope.py": "94d02ab46cddd70a0a80e5edb62eb12e22eb2647afe66b6843e6372480bb51ac",
+    "src/wcomr/prepared_input.py": "aa2d916a56d8ac1f7afd8a551c20341d5bed86299f97b0711019517f0e0effdb",
+    "src/wcomr/measurement.py": "c4181ec3220b2fd33d333dffed9ae7163303668b9e152a705d1d70213b45a4c0",
+    "src/wcomr/shadow_metrics.py": "59a985ff8b4f9684e77f30f6e1863288c8e5e617b04b20b1e5af313824eda1ee",
+    "tests/test_h1_reference.py": "0036ee2e0f98c44329655292844899ae944d6e9a96529a80df3a8b9b4769600f",
+    "tests/check_h1_lifetime.py": "51669f7202871afa193f21361acbae65cd4ca165fc345c23097bc3a905d13a3e"
+  },
+  "budget_unchanged": true,
+  "budget": {
+    "batch": "F0-F1",
+    "cap_gpu_hours": 12,
+    "used_gpu_hours": 5.05310433089345,
+    "gpu_jobs_launched": 34,
+    "status": "WC_H0_COMPLEMENT_SETTLED_REQUIRES_RESULT_AUDIT",
+    "gpu_import_probes_completed": 1,
+    "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts",
+    "budget_authorization_ref": "manifests/budget_authorization_20261003.json",
+    "budget_authorization_history": [
+      {
+        "authorized_utc": "2026-10-02T18:03:00Z",
+        "source_thread_id": "01a0f1e6-7ad0-75df-9a02-172b60d2e00b",
+        "user_instruction": "\u628a\u5404\u4e2a\u5b9e\u9a8c\u7684 gpu \u9884\u7b97\u90fd\u8bbe\u7f6e\u4e3a 12gpuh",
+        "previous_cap_gpu_hours": 4,
+        "new_cumulative_cap_gpu_hours": 12,
+        "used_gpu_hours_at_change": 3.9117525685110333,
+        "no_usage_reset_or_transfer": true
+      }
+    ]
+  },
+  "observed_unix": 1791015695.007432,
+  "cpu_wall_seconds": 14.671647787094116,
+  "scope": "TOY_PINNED_SOURCE_ONLY_NO_GPU_MODEL_WEIGHTS_OR_LIFETIME_RESULT",
+  "error": "Traceback (most recent call last):\n  File \"<stdin>\", line 20, in <module>\n  File \"/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-h1-cpu-r2/tests/check_h1_lifetime.py\", line 115, in run\n    a = plain(*args)\n  File \"/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py\", line 1751, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n  File \"/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py\", line 1762, in _call_impl\n    return forward_call(*args, **kwargs)\n  File \"<h1-cpu-fixed-schedule-True>\", line 289, in worldcache_mini_train_dit_forward\nUnboundLocalError: local variable 'residual_x' referenced before assignment\n",
+  "fresh_gpu": "GPU-de9a5370-cd87-0f1c-a48e-288888777dd3, NVIDIA RTX A6000, 350 MiB\nGPU-cebf7119-cf03-23b9-e192-cd196332b704, NVIDIA RTX A6000, 24 MiB\n",
+  "fresh_apps": ""
+}

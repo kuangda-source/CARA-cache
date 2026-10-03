@@ -21,6 +21,8 @@ C组+head仅81.379/81.543ms，但此刻强行复用的误差较大；官方WC本
 
 ## 下一步决定
 
+H1后续CPU接口已实际通过，成本/下一门见[78记录](78_WC_H1_FIXED_TRAJECTORY_CPU_AND_COST.md)，尚无H1 GPU或寿命结果。以下为H0终态时冻结的接续安排。
+
 继续WorldCache，下一优先准备原[65设计](65_WC_HIERARCHICAL_PROVENANCE_LIFETIME_DESIGN.md)的H1来源×复用寿命CPU接口与具体成本卡，先1组、三来源dense/matched-full/S×1/2/4个同CFG有效solver步。H0局部正结果允许准备下一卡，不自动解锁GPU、分组动态策略、RV或训练。
 
 下一必须先定义一致的复用算子和来源语义：S/matched-full只能进入approximate reference，不能成为true dense校准锚点；同轨未来probe可读、当前/未来shadow真值只评分。选择能够覆盖后续4步的分支点与尾段，冻结完整配对分母，另验固定轨迹局部诊断与真正分叉闭环的不同接口；r2只保存当前评分原件与状态哈希，不能当成持久化可重启全状态。下一身份/source/范围/成本及实际门另登记，禁止自动第三H0或以当前筛查补造寿命结论。以下部署与启动是历史快照。

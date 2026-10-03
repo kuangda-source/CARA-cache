@@ -1,3 +1,9 @@
+## 2026-10-03 H1 CPU接口通过，完整18格成本草案待独立执行卡
+
+[78接口与成本](research/78_WC_H1_FIXED_TRAJECTORY_CPU_AND_COST.md)：六项来源控制、flow OFF/ON×两种未来分支四组42-call/18格配对、失败分母与30 raw roundtrip通过；禁止CUDA、无权重，r1/r2 CPU夹具失败保留，r3通过。共同官方Gamma+warp，held来源不随中间部署刷新更新，S/MF不是true dense锚点。没有真实寿命、闭环或视频结果。
+
+保留第二已曝光CAL/step17两CFG、三来源×1/2/4、先1个deep组的草案；完整成本包络1354.365秒，不能按1200秒准入。1800仅候选下一独立卡，不复用r4已消耗单次授权；先单独runner/九门与恢复集成/实际source-assets-import-package，再新卡及fresh准入。累计5.05310433089345/12GPUh、34jobs不变，新增GPU费用0。H0/r4终态及失败历史保持，非必要不新增人评。以下条目为历史。
+
 ## 2026-10-03 H0独立r2终态：局部互补筛查2/2通过，费用/释放已审计
 
 [完整结果](research/77_WC_H0_MODE_REPAIR_AND_R2_CARD.md)：source4c1c3a8退出0，实际CPU31/shared-eval后两臂各20更新/40CFG、九门/step13&20各36组件/进程内restore/D逐位重放全部通过；八原件16张量/source/独立float64误差/重复计时/费用/资源释放审计通过。call33/34两CFG中，C velocity RMSE29.84%/38.40%，S0.939%/0.945%，S residual4.349%/4.253%，D/S整组+head1.05615/1.05656×（耗时降低约5.3%）；固定四项筛查2/2通过。是单个已曝光CAL的局部机制正结果，无候选视频、端到端收益或稀疏来源寿命，旧r1模式失败保持。
