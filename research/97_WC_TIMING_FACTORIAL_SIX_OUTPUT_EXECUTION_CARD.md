@@ -1,5 +1,14 @@
 # 早期×晚期缺失两臂：独立六输出执行卡
 
+## 唯一原卡已终态并独立审计，四组合结果已加入研究设计
+
+[98结果与下一步](98_WC_TIMING_FACTORIAL_RESULTS_AND_EARLY_PROTECTION_NEXT.md)/[机器汇总](../reports/wc_timing_factorial_human_r1_summary_20261004.json)：原sourcea860唯一run exit0，六视频完整93帧、实际位置/逐CFG配额/来源与掩码/native70、D/D九门/完整pipeline/历史SHA和80冻结stage/费用释放全部独立通过。原终态d09e…9b5a、D/D快照f9d4…3c55分别归档；旧两个因子臂原件完整绑定，未重跑。
+
+四臂SSIM E0L0/E1L0/E0L1/E1L1为0.927613/0.744880/0.927207/0.744302；早期两次S总影响大、晚期两次S未见补偿。不同配额和完整传播不是等成本、唯一机制或RV标签；当前仍无质量保持的稳定加速。下一CPU阶段保护和强基线范围/成本，尚无下一GPU卡。
+
+实费1673.833715秒=0.464953810h≤独立2400全cost；累计9.136838727254782/12h、42jobs，余2.863161272745218h，无inflight。现场1791067295.350033原三PID消失、GPU释放，f1锁/费用独立审计通过。原104点补验10月3日已完成，不重提。科学goal active；以下在跑/预付与部署准备文字均保留历史身份。
+
+
 ## 原 D/D 独立通过，六输出终态待完成
 
 [独立 D/D](../reports/wc_timing_factorial_human_r1_dd_audit_20261004.json)/[两视频全帧指标](../reports/wc_timing_factorial_human_r1_dd_metrics_20261004.json)：九门、五检查点各1216状态组件、完整 pipeline、38deep掩码和固定D来源通过。两93帧视频SHA相同且复现历史 D；完整CPU解码RGB/temporal误差0、SSIM1。原件快照f9d43c…3c55与后来终态分开归档。

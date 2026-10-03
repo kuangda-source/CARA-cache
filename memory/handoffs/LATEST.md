@@ -1,3 +1,11 @@
+## 2026-10-04 四组合终态：早期两次S影响大，晚期新增S未补偿
+
+[98结果与下一步](../../research/98_WC_TIMING_FACTORIAL_RESULTS_AND_EARLY_PROTECTION_NEXT.md)/[机器汇总](../../reports/wc_timing_factorial_human_r1_summary_20261004.json)：冻结sourcea860唯一卡exit0，六mp4/93完整解码、38共同deep、D/D九门/五处1216状态及pipeline、历史D/legacy SHA、实际11/9/13 S与253/207/299算子/来源窗口/native70、源码费用释放独立通过。旧E1L0/E0L1原件及新E0L0/E1L1逐SHA/条件/种子/采样/掩码/WC设置/指标绑定后，SSIM四臂依次0.927613/0.744880/0.927207/0.744302。早期S条件RGB MSE增加约0.01330，两种晚期设置一致；晚期增加约0.0000205/0.0000275，当前没有补偿信号。
+
+这是单曝光人物固定掩码的完整干预效应，不能唯一拆为即时误差或cache传播；9/11/11/13不同配额不是等成本前沿/RV标签/CONF。新E0L0/E1L1 wall212.616/211.676秒，相对D215.101少1.155%/1.592%，仅单次描述性成本，无稳定质量保持加速。下一继续WC，优先CPU具体化无未来掩码的简单阶段保护及Native/少步/调过WC强基线完整成本；未选择或提交下一GPU卡，不训练、扩样或加人评。
+
+实费1673.833715秒=0.464953810GPUh，累计9.136838727254782/12h、42jobs，余2.863161272745218h，无inflight。原三PID/f1锁/GPU释放，784monitor峰值27722MiB；2400预付按实际替换，原41历史jobs和104单次授权保持。终态d09e…9b5a与D/D快照f9d4…3c55分开归档；现场1791067295.350033复核释放/账本不变。科学goal active，以下运行/预付记录均为历史。
+
 ## 2026-10-04 早晚因子 D/D 独立通过，原六输出卡 3/6
 
 [97 原执行卡](../../research/97_WC_TIMING_FACTORIAL_SIX_OUTPUT_EXECUTION_CARD.md)/[独立 D/D](../../reports/wc_timing_factorial_human_r1_dd_audit_20261004.json)：原 source a86050c 的九门、五检查点各1216状态组件、完整 pipeline 和共同38deep掩码独立通过；两控制视频 SHA 相同并复现历史 D，93帧完整 CPU 解码 RGB/temporal误差0、SSIM1。D/D原件快照 f9d43c…3c55 单独归档，不用后来终态覆盖。
