@@ -35,3 +35,7 @@ CPU采样函数体固定，但net/noise/conditioning/prepare/VAE/writer和S核�
 独立最多一次6000秒全cost/5970秒child，预付1.666667GPUh；当前已用6.733473505896205/12h、37jobs，余5.266526494103795h。新GPU尚未提交，无新增预付。启动前冻结当前source/payload并同步GitHub，实际全部部署门通过后重新核对UUID/sm86/VRAM/compute、无inflight/余额、全局f1锁和磁盘≥15GB。保留其他任务，单昂贵作业。
 
 真实D/D输出等价是入场门；后八输出需普通完整返回、来源/计数/真实核完整，之后独立审计十文件SHA/完整93帧、指标、source/费用/释放。速度结果只来自无诊断观察的八次，不用之前debugwall，失败和启动开销不从总预算删掉。净速度、人物保真、原生完整/少步/调过WC强基线和独立CONF仍须分别验证。本卡不会自动触发第二次提交、训练、复杂H2/RV或新增人评。
+
+## 实际部署门通过，待唯一现场提交
+
+[实际部署回执](../reports/wc_light_output_r1_deployment_20261003.json)：冻结source `7bec5f84ac6eee1289780a574f86972d1d19f3af` 在独立deploy1 stage通过官方prepare/新scope、原生meta mode/buffers、双场景metadata、全部source/assets/import/package门。既有实际轻量15与组合4控制原回执SHA及21/24份payload逐一绑定到当前stage，未冗余重跑；固定五官方文件SHA再次匹配。共7项准备门（scope内部11控制），CUDA未初始化，账本保持，磁盘约564GB、全局锁可获取。当前未GPU/预付；接下来仅fresh UUID/sm86/VRAM/compute/锁/无inflight/余额后唯一提交，原stage/source不改。

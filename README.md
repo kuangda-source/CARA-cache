@@ -1,3 +1,9 @@
+## 2026-10-03 轻量十输出实际部署全部门通过，待唯一现场提交
+
+[86 独立卡](research/86_WC_LIGHT_TEN_OUTPUT_CARD_AND_CPU.md)/[实际部署](reports/wc_light_output_r1_deployment_20261003.json)：冻结source 7bec5f84ac6eee1289780a574f86972d1d19f3af在deploy1完成官方prepare、新scope内部11控制、native-meta mode/buffers、两样本metadata与source/assets/import/package验证；已有轻量15/组合4实际CPU原SHA和21/24份payload逐一绑定，CUDA未初始化、累计账本保持。十输出/ABBA与BAAB/八测量/6000全cost/5970child/完整5806.8规划不变。
+
+当前新GPU尚未提交，无预付，累计6.733473505896205/12h、37jobs保持；先fresh UUID/sm86/VRAM/compute/无inflight/余额/全局锁/磁盘，再wc-light-output-r1唯一提交。严格真实fresh-prepare D/D不通过即止，不重提原卡/自动下一卡，不删十分母。测量保留必要来源/核成本与首次S，debug控制耗时不进八次部署比较；人物保真/强基线/CONF仍缺，不报收益或启动即接受。以下为历史。
+
 ## 2026-10-03 独立轻量十输出卡：组合CPU通过，实际部署待验证
 
 [86 具体卡](research/86_WC_LIGHT_TEN_OUTPUT_CARD_AND_CPU.md)：WC-LIGHT-OUTPUT-R1-20261003-A/wc-light-output-r1先轻量入口fresh-prepare完整D/D两输出（外挂九门/五状态/最终pipeline，只作诊断），再common ABBA/human BAAB各四次完整官方WC/S测量，共十文件/八测量；测量不携带D/D观察hooks。每臂真实prepare，保留必要来源/核成本，主CUDA边界同步完整pipeline，分段host wall不作CUDA阶段耗时。first S全wall保持，不挑最快；两曝光CAL重复不是CONF，人物保真风险保持。
