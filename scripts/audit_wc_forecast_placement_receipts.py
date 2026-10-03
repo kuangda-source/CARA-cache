@@ -174,11 +174,16 @@ def control(r,directory):
 
 
 def audit(r,directory):
-    binding(r)
+    # A model-load failure can precede the core's mask/policy metadata. Preserve
+    # its declared denominator without pretending a full source binding passed.
+    assert r['run_card']=='WC-FORECAST-PLACEMENT-HUMAN-R1-20261004-A'
+    assert r['scope']['run_id']=='wc-forecast-placement-human-r1'
+    assert r['planned_total_phases']==r['planned_output_files']==6
     if r['status']!='SIX_FORECAST_PLACEMENT_OUTPUTS_COMPLETE_REQUIRE_INDEPENDENT_AUDIT':
         return {'status':'INCOMPLETE_FORECAST_PLACEMENT_SIX_CARD_NOT_ACCEPTED','planned_outputs':6,
             'runner_status':r['status'],'error':r.get('error'),'present_files':[str(p) for p in directory.rglob('*.mp4')],
             'files':[],'quality_acceptance':False}
+    binding(r)
     result=control(r,directory);context,mask=result['reference_context'],result['fixed_mask'];q=r['measurement']
     assert q['status']=='FORECAST_PLACEMENT_D_AND_THREE_S_OUTPUTS_REQUIRE_METRICS'
     assert q['planned_phases']==q['planned_outputs']==len(q['phases'])==4

@@ -1,3 +1,9 @@
+## 2026-10-04 来源位置真实D/D独立通过，3/6视频文件
+
+[独立D/D](reports/wc_forecast_placement_human_r1_dd_audit_20261004.json)：实际九门、五检查点各1216组件及完整pipeline通过；两视频完整93帧解码、相同SHA且复现历史D，固定38deep掩码和真实来源窗口验证。原DD快照与终态分开无损归档。这是接口等价证据，没有稀疏位置质量或速度接受。
+
+[现场1791060535.577780](reports/wc_forecast_placement_human_r1_live_observation_20261004.json)：原三个句柄/source395匹配、3/6文件；轻量D已36solver/72CFG/prepare1普通返回，wall210.452893秒，legacy SD在生成，历史legacy复现止步与两新位置待验证。原2400预付8.882318343349938/12h、41jobs保持。当前独立审计器r2另存12项CPU，增加pre-core失败六分母/缩分母拒绝，旧10原件保留；不改冻结stage/重提卡。下一原卡终态六视频/逐CFG位置配额/窗口/费用释放和CPU指标，不追加卡、训练或人评。以下为历史。
+
 ## 2026-10-04 来源位置原任务在运行：1/6文件，D/D尚待完成
 
 [现场1791059926.410151](reports/wc_forecast_placement_human_r1_live_observation_20261004.json)：原三个PID与source395命令行匹配，已有1/6视频文件，第二固定D/D控制在生成；九门及完整pipeline一致性仍待两臂完成，没有候选位置/质量或速度结果。账本含原2400秒预付8.882318343349938/12h、41jobs保持。只跟踪原卡到终态和独立审计，不重提或追加。

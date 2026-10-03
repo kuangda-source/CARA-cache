@@ -5,6 +5,7 @@ import hashlib
 import importlib.util
 import json
 from pathlib import Path
+import tempfile
 
 
 def run(receipt_path):
@@ -37,6 +38,21 @@ def run(receipt_path):
         try: audit.provenance_audit(q, context, sparse_allowed=True)
         except (AssertionError, ValueError): checks.append('reject_' + label)
         else: raise AssertionError('Corrupt native provenance accepted: ' + label)
+    with tempfile.TemporaryDirectory() as temporary:
+        # Load can fail before policy/mask metadata exists. This is a failure
+        # fixture, never a fabricated completed video or source receipt.
+        failed = {'run_card': 'WC-FORECAST-PLACEMENT-HUMAN-R1-20261004-A',
+                  'scope': {'run_id': 'wc-forecast-placement-human-r1'},
+                  'planned_total_phases': 6, 'planned_output_files': 6,
+                  'status': 'TECH_BLOCKED', 'error': 'CPU failure fixture before core metadata'}
+        result = audit.audit(failed, Path(temporary))
+        assert result['planned_outputs'] == 6 and not result['quality_acceptance'] and not result['files']
+        assert result['status'] == 'INCOMPLETE_FORECAST_PLACEMENT_SIX_CARD_NOT_ACCEPTED'
+        checks.append('pre_core_failure_retains_six_denominator_without_fake_binding')
+        failed['planned_output_files'] = 4
+        try: audit.audit(failed, Path(temporary))
+        except AssertionError: checks.append('reject_failed_card_reduced_denominator')
+        else: raise AssertionError('Reduced failed-card denominator accepted')
     return {'status': 'FORECAST_INDEPENDENT_NATIVE_WINDOW_AUDITOR_HISTORICAL_SOURCE_CPU_CONTROLS_PASS_NOT_NEW_VIDEO',
             'CPU_only': True, 'GPU_submitted_by_test': False, 'source_raw_sha256': digest,
             'audit_code_sha256': hashlib.sha256(source.read_bytes()).hexdigest(),

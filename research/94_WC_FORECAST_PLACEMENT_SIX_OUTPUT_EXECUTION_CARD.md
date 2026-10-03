@@ -1,5 +1,13 @@
 # 同计算预算的来源位置：独立六输出执行卡
 
+## 实际D/D独立通过，原legacy SD测量正在生成
+
+[独立审计](../reports/wc_forecast_placement_human_r1_dd_audit_20261004.json)1.960秒CPU核验通过实际九门、五检查点各1216组件和完整pipeline；两mp4各完整93帧解码、同4d0f…82fb历史D SHA及38共同deep。固定控制来源窗口与真D隔离通过，原预算在CPU审计中未变，无新GPU。该门不是稀疏质量接受。[D/D原快照](../reports/wc_forecast_placement_human_r1_dd_snapshot_meta_20261004.json)raw b7fcaa50cda692c23172813659248df1564746f4f3f5b122476c37a15c7d7c36，2,552,818 bytes，无损gzip独立归档，不用未来终态覆盖。
+
+[现场1791060535.577780](../reports/wc_forecast_placement_human_r1_live_observation_20261004.json)：原三句柄及source395匹配，3/6文件；轻量D已普通返回36solver/72CFG/prepare1，210.452893秒，legacy SD在生成。历史legacy复现止步和两个新位置尚待实际结果。2400秒预付8.882318343349938/12h、41jobs保持，child2370秒/kill5及六分母不变，不重提或追加卡。
+
+[审计器r2 CPU](../reports/wc_forecast_placement_auditor_cpu_r2_20261004.json)12项通过，在旧来源图10控制之外增加“模型加载失败、核心元数据还未产生”时保留六分母且不宣称源绑定，以及缩分母拒绝。旧10回执保留原身份；r2只改独立分析器，不改GPU冻结payload/runner，不是新候选视频证据。完整视频数值指标等原卡终态后再计算。
+
 [最新现场1791059926.410151](../reports/wc_forecast_placement_human_r1_live_observation_20261004.json)：原三个句柄匹配、1/6视频文件，第二D/D控制在生成。九门与完整pipeline待完成，不以文件出现接受完整解码、保真或速度。账本预付保持；以下各时间快照保留原身份。
 
 ## 唯一提交，原三个现场句柄已确认
