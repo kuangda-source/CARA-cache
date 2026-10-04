@@ -1,0 +1,89 @@
+{
+  "status": "TWO_SCENE_RESTORE_COST_AND_MEMORY_CONDITIONAL_PROPOSAL_NOT_SELECTED",
+  "budget": {
+    "batch": "F0-F1",
+    "cap_gpu_hours": 12,
+    "used_gpu_hours": 10.713586944445915,
+    "gpu_jobs_launched": 44,
+    "status": "WC_FAIR_CAL_SETTLED_REQUIRES_RESULT_AUDIT",
+    "gpu_import_probes_completed": 1,
+    "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts",
+    "budget_authorization_ref": "manifests/budget_authorization_20261003.json",
+    "budget_authorization_history": [
+      {
+        "authorized_utc": "2026-10-02T18:03:00Z",
+        "source_thread_id": "01a0f1e6-7ad0-75df-9a02-172b60d2e00b",
+        "user_instruction": "\u628a\u5404\u4e2a\u5b9e\u9a8c\u7684 gpu \u9884\u7b97\u90fd\u8bbe\u7f6e\u4e3a 12gpuh",
+        "previous_cap_gpu_hours": 4,
+        "new_cumulative_cap_gpu_hours": 12,
+        "used_gpu_hours_at_change": 3.9117525685110333,
+        "no_usage_reset_or_transfer": true
+      }
+    ]
+  },
+  "remaining_seconds": 4631.086999994707,
+  "proposed_cap_seconds": 3900,
+  "child_timeout_seconds": 3870,
+  "scope": {
+    "parent_phases": 2,
+    "ordinary_parent_encoded_outputs": 2,
+    "unchanged_suffixes_per_parent": 2,
+    "total_suffixes": 4,
+    "suffix_decode": false,
+    "separate_new_unobserved_parent_phases": 0,
+    "baseline": "RESTORED_LIVE_PARENT_CONTINUATION_AND_FROZEN_ENCODED_WC_BRIDGES",
+    "full_causal_RV0_acceptance": false,
+    "action_interventions": 0,
+    "RV_labels": 0
+  },
+  "cost": {
+    "full_video_proxy_equivalents": 6,
+    "full_video_proxy_seconds": 381.7508979411796,
+    "known_proxy_subtotal_with_buffer_and_release_seconds": 2988.3787798795847,
+    "CPU_host_shape_proxy_seconds": 468.645592097193,
+    "additional_D2H_H2D_context_hash_IO_allowance_not_measured_seconds": 231.354407902807,
+    "total_incremental_allowance_before_1p2_buffer_seconds": 700,
+    "conditional_estimated_seconds": 3828.3787798795847,
+    "proposed_cap_seconds": 3900,
+    "cap_plus_15_fits": true,
+    "hard_timeout_defines_spend_limit_not_scope_completion_guarantee": true,
+    "complete_cost_bound_validated": false
+  },
+  "memory": {
+    "source_bounded_window_slots_per_CFG": 3,
+    "logical_large_hidden_tensors_max_in_WC_fields": 22,
+    "hidden_elements": 63700992,
+    "pessimistic_hidden_dtype": "torch.float32",
+    "bytes_per_hidden_tensor": 254803968,
+    "two_condition_copy_allowance_bytes": 134217728,
+    "WC_small_embeddings_allowance_bytes": 16777216,
+    "latent_solver_output_and_noise_allowance_bytes": 39813120,
+    "recorded_native_buffer_bytes": 712,
+    "pessimistic_logical_capture_proxy_bytes": 5796496072,
+    "logical_capture_hard_cap_bytes": 6442450944,
+    "transient_copy_factor": 2,
+    "runtime_workspace_reserve_bytes": 4294967296,
+    "worst_cap_based_required_live_free_bytes": 17179869184,
+    "real_GPU_peak_or_transfer_measured": false,
+    "total_peak_bound_validated": false,
+    "weights_in_snapshot": false,
+    "inferred_shape_not_saved_real_WC_field_inventory": true
+  },
+  "GPU_execution_selected": false,
+  "GPU_submissions": 0,
+  "reserved_seconds": 0,
+  "RV_labels": 0,
+  "input_files_sha256": {
+    "reports/wc_rv0_host_cost_cpu_r1_20261004.json": "506fb538219eda76bc91ce13bc4d4a69eff4d3a054adb07ab2961a97c6257e38",
+    "reports/wc_rv0_suffix_cost_draft_20261004.json": "5d9730630419a27cadbd8d2ffdb340ce32af48b0215204920379cf2f19b37f87",
+    "reports/wc_rv0_restore_preparation_audit_20261004.json": "b922ddd8c390b278aa4832bf2201fc9c72f7644918f30d34c6163e6b452925ac",
+    "configs/wc_rv0_restore_r1.json": "c50d975e8ee80aec2279627bd3406e3881d11005b4f3a3c5157c4033c9cf19ca",
+    "reports/wc_rv0_restore_scope_cpu_20261004.json": "0c7e10775028b84a77a7adeea30349418e7e3943ecf2ae34da02320b709ebac8"
+  },
+  "limits": [
+    "Recorded shapes and CPU host timings are estimates; actual GPU copy/transfer/peak remain unmeasured.",
+    "22 tensors count logical occurrences, not unique physical storage; official <=2 append creates at most three slots, not two.",
+    "Capture inventory/headroom before allocating, actual stage-time and peak receipts, timeout/failure denominator and independent terminal audit remain mandatory.",
+    "Full two-scene causal C/C, D/D, swapped C/D plus fixed/budget-matched target and reference evaluation are separate incomplete requirements."
+  ]
+}

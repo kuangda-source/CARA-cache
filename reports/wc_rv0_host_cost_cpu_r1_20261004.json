@@ -1,0 +1,139 @@
+{
+  "exit_code": 0,
+  "payload_sha256": {
+    "scripts/profile_wc_rv0_host_cost_cpu.py": "785d8fef8e8572ce9bf290b0298cc6a025dbcdf6af48c8f3122e43f51448d764",
+    "src/wcomr/mid_coverage.py": "8e02d740b4ee794531c6263666bbed18348e32ba84c9b94b89f7c979a106fbf4",
+    ".sync/wc-rv0-host-profile-shapes.json": "5008d138b52afc2421bc48aae9047dae6f2e93c60e7cff19b53595a4d89e082f"
+  },
+  "stage": "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-rv0-host-cost-cpu-r1",
+  "observed_unix": 1791086682.9827037,
+  "budget_before": {
+    "batch": "F0-F1",
+    "cap_gpu_hours": 12,
+    "used_gpu_hours": 10.713586944445915,
+    "gpu_jobs_launched": 44,
+    "status": "WC_FAIR_CAL_SETTLED_REQUIRES_RESULT_AUDIT",
+    "gpu_import_probes_completed": 1,
+    "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts",
+    "budget_authorization_ref": "manifests/budget_authorization_20261003.json",
+    "budget_authorization_history": [
+      {
+        "authorized_utc": "2026-10-02T18:03:00Z",
+        "source_thread_id": "01a0f1e6-7ad0-75df-9a02-172b60d2e00b",
+        "user_instruction": "\u628a\u5404\u4e2a\u5b9e\u9a8c\u7684 gpu \u9884\u7b97\u90fd\u8bbe\u7f6e\u4e3a 12gpuh",
+        "previous_cap_gpu_hours": 4,
+        "new_cumulative_cap_gpu_hours": 12,
+        "used_gpu_hours_at_change": 3.9117525685110333,
+        "no_usage_reset_or_transfer": true
+      }
+    ]
+  },
+  "original_GPU_budget_unchanged": true,
+  "GPU_submissions": 0,
+  "profile": {
+    "status": "CPU_RECORDED_SHAPE_HASH_COST_MEASURED_NOT_GPU_BOUND",
+    "rows": [
+      {
+        "dtype": "torch.bfloat16",
+        "shape": [
+          1,
+          24,
+          27,
+          48,
+          2048
+        ],
+        "bytes_per_tensor": 127401984,
+        "timing_seconds": {
+          "clone": [
+            0.04713133163750172,
+            0.05165904760360718,
+            0.04583549126982689
+          ],
+          "finite_and_SHA256": [
+            0.5953552927821875,
+            0.5994412545114756,
+            0.5974530642852187
+          ]
+        },
+        "max_seconds": {
+          "clone": 0.05165904760360718,
+          "finite_and_SHA256": 0.5994412545114756
+        },
+        "stable_synthetic_tensor_sha256": "7909da0082a530244b1dacfb2a6cc6298e69401b1a5c6b33eeaec1349fc699ca"
+      },
+      {
+        "dtype": "torch.float32",
+        "shape": [
+          1,
+          24,
+          27,
+          48,
+          2048
+        ],
+        "bytes_per_tensor": 254803968,
+        "timing_seconds": {
+          "clone": [
+            0.09121331479400396,
+            0.1404163734987378,
+            0.1289130039513111
+          ],
+          "finite_and_SHA256": [
+            1.011417206376791,
+            1.012590579688549,
+            1.0235492214560509
+          ]
+        },
+        "max_seconds": {
+          "clone": 0.1404163734987378,
+          "finite_and_SHA256": 1.0235492214560509
+        },
+        "stable_synthetic_tensor_sha256": "db46e06749b39ea807c4b08a3f426d4cc34794fb98f615538f44c1757452e3ca"
+      }
+    ],
+    "wall_seconds": 6.057076611556113,
+    "CPU_peak_RSS_bytes": 1441173504,
+    "torch_version": "2.7.1+cu128",
+    "torch_threads": 2,
+    "digest_source_sha256": "8e02d740b4ee794531c6263666bbed18348e32ba84c9b94b89f7c979a106fbf4",
+    "shape_input_sha256": "5008d138b52afc2421bc48aae9047dae6f2e93c60e7cff19b53595a4d89e082f",
+    "shape_provenance": {
+      "recorded_parent_latent_shape": [
+        1,
+        16,
+        24,
+        54,
+        96
+      ],
+      "recorded_parent_latent_dtype": "torch.float32",
+      "inferred_hidden_shape_from_recorded_QKV_and_latent": [
+        1,
+        24,
+        27,
+        48,
+        2048
+      ],
+      "inference": "31104 token positions and 16 heads x 128 dimensions equal 24 x 27 x 48 positions x 2048 channels; hidden spatial axes inferred from latent and patching, not saved WC tensor shapes.",
+      "receipt_sha256": {
+        "reports/wc_fair_cal_r1_runner_20261004.json.gz": "64792ea6b2c41bdd0a516d17fe9b048c747495f139507eb027bcddd1b0be5049",
+        "reports/wc_mid_full_r4_runner_20261003.json": "b9a2ac253524590bd5ef62297e39d53e54e410a113d9761eca8d6c1ee6a85ba2"
+      },
+      "recorded_QKV_shape": [
+        1,
+        31104,
+        16,
+        128
+      ],
+      "recorded_QKV_dtype": "torch.bfloat16",
+      "recorded_QKV_call_layer": [
+        25,
+        2
+      ]
+    },
+    "CUDA_initialized": false,
+    "GPU_submissions": 0,
+    "RV_labels": 0,
+    "D2H_H2D_or_GPU_snapshot_timing_measured": false,
+    "complete_GPU_cost_or_peak_bound_validated": false
+  },
+  "server_receipt_sha256": "26163989ffc8263cd61749828dd1461f2d8e6e9298a006936483b32991dfe748"
+}

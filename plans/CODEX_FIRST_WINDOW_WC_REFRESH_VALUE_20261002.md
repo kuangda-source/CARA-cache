@@ -1,5 +1,7 @@
 # WC-RV首窗口：先验证刷新收益空间，不先训练Head
 
+> 最新恢复与成本准备：[110](../research/110_WC_RV0_FROZEN_CONDITION_RESTORE_AND_COST_CARD.md)。官方frozen条件恢复已修复并CPU验证；两场景/四条未干预后缀入口及3900秒费用预案已具体化，真实模型恢复、完整C/D因果RV0和收益仍待证。下一先独立执行器/冻结部署与实际门，配置未选择GPU；累计预算保持10.713586944446/12h。
+
 > 2026-10-04动作CPU更新：[109](../research/109_WC_RV0_ONE_ACTION_CPU_CONTROLS.md)。一次当前CFG C/D干预加原自适应后缀的Toy CPU控制通过；尚无真实模型标签、等预算验收或已选择GPU卡。账本仍10.713586944446/12GPUh，以当前状态文件为准。下面旧接口缺口保留其当时阶段。
 
 > 2026-10-04最新：原冻结科学工作已完成，[107](../research/107_WC_FAIR_CAL_RESULTS_AND_DIRECTION_GATE.md)未支持稀疏净收益；本轮完成[108 CPU未干预后缀控制与成本准备](../research/108_WC_RV0_CPU_SUFFIX_CONTROLS_AND_COST.md)，R3四组/交换顺序/完整父轨迹复现与来源独立审计通过。仍无真实GPU分叉、C/D路由/收益标签/拟合/训练，下一先CPU动作与保护合同及开销包络。现累计10.713586944446/12h、44jobs无inflight，余1.286413055554h；两拟cap仅算术草案，未选择GPU卡。下文旧状态为历史。

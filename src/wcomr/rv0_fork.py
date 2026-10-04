@@ -5,6 +5,7 @@ checkpoint nor an action router; real model/GPU validation is a separate gate.
 """
 import ast
 import copy
+from dataclasses import is_dataclass
 import hashlib
 import inspect
 import json
@@ -67,6 +68,22 @@ def official_suffix(source_path):
 
 def object_state(obj):
     return {k: v for k, v in vars(obj).items() if not callable(v)}
+
+
+def restore_object_state(obj, saved):
+    """Restore the captured instance, including NVIDIA frozen conditions.
+
+    Frozen dataclasses contain mutable tensors despite rejecting ordinary
+    attribute assignment. Restore only captured instance attributes using
+    Python's low-level reconstruction protocol; retain class and identity.
+    """
+    frozen = is_dataclass(obj) and obj.__dataclass_params__.frozen
+    remove = object.__delattr__ if frozen else delattr
+    assign = object.__setattr__ if frozen else setattr
+    for key in set(object_state(obj)) - set(saved):
+        remove(obj, key)
+    for key, value in copy.deepcopy(saved).items():
+        assign(obj, key, value)
 
 
 class SamplerSuffixControl:
@@ -152,10 +169,7 @@ class SamplerSuffixControl:
 
     def restore_parent(self):
         for condition, saved in zip(self.conditions, self.condition_state):
-            for key in set(object_state(condition)) - set(saved):
-                delattr(condition, key)
-            for key, value in copy.deepcopy(saved).items():
-                setattr(condition, key, value)
+            restore_object_state(condition, saved)
         for key, value in copy.deepcopy(self.configuration).items():
             setattr(self.net, key, value)
         for key in set(WC_FIELDS) - self.original_wc_keys:

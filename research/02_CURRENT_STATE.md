@@ -1,3 +1,11 @@
+## 2026-10-04 W3冻结条件恢复CPU通过，两场景3900秒预案具体化
+
+[110接口修复/诊断范围与成本](./110_WC_RV0_FROZEN_CONDITION_RESTORE_AND_COST_CARD.md)/[R3实际CPU](../reports/wc_rv0_frozen_restore_cpu_r3_20261004.json)/[独立原件审计](../reports/wc_rv0_restore_preparation_audit_20261004.json)：官方条件是frozen dataclass，原直接setattr只通过Toy，已用显式对象重建恢复其属性并保留身份/类型/冻结行为。新flow OFF/ON每组两个父36/72、四条未干预14/28后缀与父continuation/mock桥通过；原未干预四组/C/D四组48后缀回归通过。当前35文件/六官方源/服务器20f2…2f6e原件SHA绑定，CPU197.133秒，禁止CUDA/无权重与真实视频。R1字符串路径/R2整数属性误调用两CPU失败原件保留，R3另身份修复通过。
+
+[配置](../configs/wc_rv0_restore_r1.json)/[范围预算16控制](../reports/wc_rv0_restore_scope_cpu_20261004.json)/[费用预案](../reports/wc_rv0_restore_cost_proposal_20261004.json)明确两个曝光CAL各一次父采样和两次未干预后缀、共两个父视频；对照为本次live parent continuation及历史官方编码桥，非新OFF全pipeline逐项等价或完整C/D因果RV0。CPU host6.057秒测复制/hash；按FP32逻辑capture proxy5.398GiB，现场副本cap6GiB/free两倍副本+4GiB门；GPU峰值/传输未测，不外推为真实上界。六完整费用代理+700秒增量余量的条件估算3828.379秒，拟cap3900/child3870/kill5，未选择、预付或提交。
+
+fresh账本仍10.713586944446/12GPUh、44jobs，余4631.087秒无inflight；本轮GPU/真实标签/训练0。下一独立runner/监督器、冻结source部署与实际资产/import/prepare/native-meta及fresh资源预算门；完整RV0/C/D有符号收益仍缺。3900与原4500不共同承诺，后序按实费退款重算；原104/1800单次身份不复用，107方向节点与W3候选边界保持，不新增人评/付费，科学goal active。以下为历史。
+
 ## 2026-10-04 W3单次C/D动作CPU通过，真实收益标签仍为0
 
 [109动作接口与证据](./109_WC_RV0_ONE_ACTION_CPU_CONTROLS.md)/[实际CPU](../reports/wc_rv0_actions_cpu_r1_20261004.json)/[独立原件审计](../reports/wc_rv0_actions_cpu_audit_20261004.json)：固定官方probe后decision前介入一次C/D，官方代码继续处理cache/full副作用。原后缀回归四组和新增flow OFF/ON×full/cache四组通过；两CFG槽位、48条14更新/28CFG完整后缀的OFF、C/C、D/D、交换顺序、同输入、真实full历史及失败恢复通过。33当前依赖/五官方源/服务器3e5e…576f原件SHA绑定，CPU181.728秒，禁止CUDA、Toy网络及decoder/writer，无真实视频或标签。

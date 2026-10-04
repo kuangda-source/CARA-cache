@@ -1,0 +1,61 @@
+{
+  "run_id": "wc-rv0-restore-r1",
+  "card": "WC-RV0-UNCHANGED-RESTORE-R1-20261004-A",
+  "stage": "RESTORE_CONTROLS_ONLY_NOT_FULL_RV0",
+  "gpu_execution_selected": false,
+  "sample_indices": [
+    1,
+    2
+  ],
+  "sample_names": [
+    "common_sense_6487f37f-ef57-49ca-afdc-d898922b5191",
+    "human_199"
+  ],
+  "snapshot_step": 22,
+  "suffix_labels": [
+    "A",
+    "B"
+  ],
+  "parent_phases": 2,
+  "suffix_controls": 4,
+  "parent_output_files": 2,
+  "parent_solver_updates": 36,
+  "parent_CFG_calls": 72,
+  "suffix_solver_updates": 14,
+  "suffix_CFG_calls": 28,
+  "action_interventions": 0,
+  "RV_labels": 0,
+  "complete_RV0_acceptance": false,
+  "clean_speed_measurement": false,
+  "expected_parent_video_sha256": {
+    "common_sense_6487f37f-ef57-49ca-afdc-d898922b5191": "fa7f466534e7e7984136dfaa9fb47794dedf0c81444229527b9722142715c379",
+    "human_199": "4d0f0549dbabf04e7f217037c40f6a30f41cb240289162d6fb0fbec2dde982fb"
+  },
+  "logical_copy_cap_bytes": 6442450944,
+  "transient_copy_factor": 2,
+  "workspace_reserve_bytes": 4294967296,
+  "upstream_source_sha256": {
+    "cosmos_predict2/inference.py": "0db96c49f0b3f18a971bc989e0727132dafc27ef621145a2d25a3da62a7a1975",
+    "cosmos_predict2/_src/predict2/inference/video2world.py": "59aa9e236a5e7e26490f5cfcb94ab95ce911d9c38eba61dd8aef7d067e458a95",
+    "cosmos_predict2/_src/predict2/inference/worldcache_utils.py": "b485cb8fd6e262a40e5823365c34ef7db1bc036c591d7577489e04077c515903",
+    "cosmos_predict2/_src/predict2/models/text2world_model_rectified_flow.py": "c6c68f297859e11c76d2921667a29cabfecef3a7b5d3ab831bf9bb54b25b7d87",
+    "cosmos_predict2/_src/predict2/models/fm_solvers_unipc.py": "f6a06c75f059693ade6c802e99f6058575969b6a71ef18ab05e7ed46701053d3",
+    "cosmos_predict2/_src/predict2/conditioner.py": "47554e88f2a5d5157e30b18b1d7ad4a4ee55a99dfbaf7071f680c7acf438843a"
+  },
+  "cal_config_sha256": "7b99d44d9ec5aced6983dccbf1eb930344a84f053f185f423cecd12d94354d84",
+  "f1_setup_sha256": "ffc7fa84d38667236cda4a2f0825b57d832cee0378d637ba375d6e6ea3c60a9f",
+  "timeout_seconds": 3900,
+  "child_timeout_seconds": 3870,
+  "kill_grace_seconds": 5,
+  "release_allowance_seconds": 30,
+  "minimum_disk_free_bytes": 15000000000,
+  "cost_model": "FULL_VIDEO_EQUIVALENTS_PLUS_INCREMENTAL_PROXY_NOT_PROVEN_WALL_BOUND",
+  "complete_cost_bound_validated": false,
+  "GPU_submitted": false,
+  "budget_reserved_seconds": 0,
+  "limits": [
+    "Two fresh ordinary parent pipelines; compare two repeated suffixes per scene with their restored live parent continuation and frozen encoded WC bridge. No separate new unobserved full parent phase.",
+    "No branch decoding, current C/D action, signed benefit, training, confidence set or clean timing. Full causal RV0 remains incomplete.",
+    "6 GiB logical capture cap, two-copy headroom plus 4 GiB reserve are runtime admission checks; measured GPU peak/transfer cost still required."
+  ]
+}
