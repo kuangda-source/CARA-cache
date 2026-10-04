@@ -1,5 +1,5 @@
 {
-  "observed_unix": 1791089529.7795167,
+  "observed_unix": 1791090139.8192575,
   "original_handles": {
     "supervisor": {
       "pid": 2794840,
@@ -58,8 +58,54 @@
     "child_started_unix": 1791089499.573996
   },
   "runner_status": "INITIALIZING",
-  "load_seconds": null,
-  "requests": [],
+  "load_seconds": 75.92343720421195,
+  "requests": [
+    {
+      "sample": "common_sense_6487f37f-ef57-49ca-afdc-d898922b5191",
+      "status": "RESTORE_CONTROLS_AND_ORDINARY_PARENT_CONTINUATION_PASS",
+      "CFG_calls": 72,
+      "solver_updates": 36,
+      "suffixes": [
+        {
+          "label": "A",
+          "status": "UNCHANGED_SUFFIX_COMPLETE_NOT_ACTION_LABEL",
+          "CFG_calls": 28,
+          "solver_updates": 14,
+          "parent_restored": true,
+          "inclusive_wall_seconds": 112.83623076230288
+        },
+        {
+          "label": "B",
+          "status": "UNCHANGED_SUFFIX_COMPLETE_NOT_ACTION_LABEL",
+          "CFG_calls": 28,
+          "solver_updates": 14,
+          "parent_restored": true,
+          "inclusive_wall_seconds": 113.03842099290341
+        }
+      ],
+      "copy_gate": {
+        "logical_tensor_copy_bytes": 2828989246,
+        "GPU_logical_copy_bytes": 2828989098,
+        "GPU_free_bytes": 40412774400,
+        "required_GPU_headroom_bytes": 9952945492,
+        "transient_copy_factor": 2,
+        "workspace_reserve_bytes": 4294967296,
+        "scope": "CAPTURE_ADMISSION_NOT_TOTAL_PEAK_OR_COMPLETE_COST_BOUND"
+      },
+      "snapshot_wall_seconds": 10.676049845293164,
+      "error": null
+    },
+    {
+      "sample": "human_199",
+      "status": "STARTED",
+      "CFG_calls": 0,
+      "solver_updates": 0,
+      "suffixes": [],
+      "copy_gate": null,
+      "snapshot_wall_seconds": null,
+      "error": null
+    }
+  ],
   "budget": {
     "batch": "F0-F1",
     "cap_gpu_hours": 12,
@@ -86,13 +132,15 @@
       "reserved_seconds": 3900
     }
   },
-  "mp4_files": [],
-  "gpu": "GPU-cebf7119-cf03-23b9-e192-cd196332b704, NVIDIA RTX A6000, 27, 8.6\n",
-  "compute_apps": "",
+  "mp4_files": [
+    "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-rv0-restore-r1/diagnostic/common_sense_6487f37f-ef57-49ca-afdc-d898922b5191/common_sense_6487f37f-ef57-49ca-afdc-d898922b5191.mp4"
+  ],
+  "gpu": "GPU-cebf7119-cf03-23b9-e192-cd196332b704, NVIDIA RTX A6000, 15684, 8.6\n",
+  "compute_apps": "GPU-cebf7119-cf03-23b9-e192-cd196332b704, 2794861\n",
   "logs": [
     {
       "name": "coverage.log",
-      "tail": "operations, rebuild TensorFlow with the appropriate compiler flags.\n2026-10-04 12:52:07.859478: W tensorflow/compiler/xla/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer.so.7'; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/cosmos/cosmos-predict2.5/.venv/lib/python3.10/site-packages/cv2/../../lib64:\n2026-10-04 12:52:07.859592: W tensorflow/compiler/xla/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer_plugin.so.7'; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/cosmos/cosmos-predict2.5/.venv/lib/python3.10/site-packages/cv2/../../lib64:\n2026-10-04 12:52:07.859604: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.\n[10-04 12:52:09|INFO|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/_src/imaginaire/utils/checkpoint_db.py:171:path] Downloading checkpoint nvidia/Cosmos-Predict2.5-2B/base/post-trained(81edfebe-bd6a-4039-8c1d-737df1a790bf)\n[10-04 12:52:09|INFO|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/_src/imaginaire/utils/checkpoint_db.py:96:_download] Downloading checkpoint file from Hugging Face with {'repo_id': 'nvidia/Cosmos-Predict2.5-2B', 'repo_type': 'model', 'revision': '15a82a2ec231bc318692aa0456a36537c806e7d4', 'filename': 'base/post-trained/81edfebe-bd6a-4039-8c1d-737df1a790bf_ema_bf16.pt'}\n"
+      "tail": "s: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 36/36 [06:52<00:00,  8.78s/it]\nGenerating samples: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 36/36 [06:52<00:00, 11.46s/it]\n[10-04 13:01:22|INFO|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/inference.py:160:_generate_sample] Running guardrail check on video...\n[10-04 13:01:33|SUCCESS|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/inference.py:172:_generate_sample] Passed guardrail on generated video\n[10-04 13:01:35|SUCCESS|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/inference.py:180:_generate_sample] Saved video to /home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-rv0-restore-r1/diagnostic/common_sense_6487f37f-ef57-49ca-afdc-d898922b5191/common_sense_6487f37f-ef57-49ca-afdc-d898922b5191.mp4\n[10-04 13:01:35|INFO|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/inference.py:91:generate] Generating 1 samples: ['human_199']\n[10-04 13:01:35|INFO|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/inference.py:95:generate] [1/1] Processing sample human_199\n[10-04 13:01:35|INFO|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/inference.py:108:_generate_sample] Saved arguments to /home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-rv0-restore-r1/diagnostic/human_199/human_199.json\n[10-04 13:01:54|SUCCESS|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/inference.py:120:_generate_sample] Passed guardrail on prompt\n[10-04 13:01:54|INFO|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/inference.py:142:_generate_sample] Generating video with standard mode...\n\nGenerating samples:   0%|          | 0/36 [00:00<?, ?it/s]"
     },
     {
       "name": "launch.log",

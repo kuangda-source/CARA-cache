@@ -33,3 +33,13 @@
 [唯一启动](../reports/wc_rv0_restore_r1_launch_20261004.json)/[现场原句柄](../reports/wc_rv0_restore_r1_live_observation_20261004.json)：fresh指定GPU24MiB、无compute worker、sm86/锁/余额/磁盘门通过后只提交一次。现场1791089529.779517确认supervisor2794840、timeout2794859、runner2794861均live且命令行匹配原stage和run；模型正在加载，两个父视频和四后缀尚无结果。
 
 原3900秒预付后在途11.796920277779249/12GPUh、第45job，`wc_rv0_restore_inflight`与原supervisor绑定；不是实际已消耗11.7969小时。原已结算10.713586944445915小时保持，最终按实际wall替换预付。只跟踪原句柄，不改冻结阶段、重复提交或把初始化报为恢复通过；完整两父/四后缀/两视频及终态费用释放待验收。
+
+## 第一场景独立部分验收
+
+[原件部分审计](../reports/wc_rv0_restore_r1_first_parent_audit_20261004.json)/[分析源码](../scripts/audit_wc_rv0_restore_first_parent.py)：第一common场景父36/72、两条14/28后缀，全部逐CFG输入/输出/deep、solver输出、最终latent及状态组件与父continuation相等；两次父恢复、decode flags及编码桥SHA `fa7f…c379`与93帧完整解码通过。独立保存原runner快照SHA `272917696d9826dd7eada15c9d9a9473287bb25ff131703e545a558f70f3112d`，不把仍在跑的第二场景改为通过。
+
+实际live两条件类为 `configs.video2world.defaults.conditioner.Video2WorldCondition`，均frozen；这是实际模型恢复证据，区别于CPU Base/Text类AST夹具与部署时三个基础类import控制。当前六官方源码固定表含基础conditioner，不额外声称实际子类文件已预冻结；后续C/D卡须显式核对其origin/source。
+
+该场景逻辑副本2,828,989,246 bytes，GPU副本2,828,989,098 bytes；捕获前free40,412,774,400 bytes，所需两副本加4GiB为9,952,945,492 bytes，准入通过。快照与验证10.676秒，两条后缀含恢复分别112.836/113.038秒，完整父pipeline含诊断489.098秒。父结束时PyTorch max allocated26,278,583,808 bytes、max reserved26,879,197,184 bytes；不是全job外部monitor峰值或干净速度。
+
+现场1791090139.819257原三个句柄仍live且匹配，第一场景通过、第二human_199开始；1/2父视频、2/4后缀已独立验收，完整card/费用释放尚未验收。有符号收益仍0，保持原分母和预算、只跟踪原卡。

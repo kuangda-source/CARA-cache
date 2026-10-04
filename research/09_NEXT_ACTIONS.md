@@ -1,3 +1,11 @@
+## 2026-10-04 W3首场景真实恢复独立通过，原卡继续第二场景
+
+[111实际进度](./111_WC_RV0_RESTORE_EXECUTION_CARD.md)/[首父独立审计](../reports/wc_rv0_restore_r1_first_parent_audit_20261004.json)：common父36/72、两条14/28后缀的每输入/输出/deep/solver及最终latent/状态与父continuation相等，父恢复/decode flags/历史WC桥及完整93帧视频通过；原件2729…12d单独保留。实际Video2WorldCondition两槽位均frozen，已真实恢复；其子类origin/source需在后续C/D卡显式冻结，不冒称当前六源表已有该子类文件。
+
+实际副本2.829GB、快照验证10.676秒、后缀含restore112.836/113.038秒、父含诊断489.098秒；PyTorch max allocated26.279GB/max reserved26.879GB，不作全job峰值或干净速度结论。现场1791090139.819257原2794840/2794859/2794861均live匹配，第二human_199开始，1/2父视频、2/4后缀独立通过，完整两场景/终态source/费用释放待验收。
+
+原793beed/52stage与3900全wall/3870child/kill5不变，在途预付11.796920277779249/12h、45jobs/原inflight；结算仍10.713586944445915待实费替换。只跟踪原卡，不改stage/重提/缩分母/追加GPU/训练/付费/人评；完整C/D因果RV0和RV标签仍缺，科学goal active。以下为历史。
+
 ## 2026-10-04 W3独立恢复首卡唯一提交，原三句柄现场确认
 
 [111执行卡](./111_WC_RV0_RESTORE_EXECUTION_CARD.md)/[实际部署](../reports/wc_rv0_restore_r1_deployment_20261004.json)/[独立审计](../reports/wc_rv0_restore_r1_deployment_audit_20261004.json)：GPU source793beed固定52阶段文件，真实R4/35依赖、六官方源、prepare OFF/ON、native-meta1173→eval0/buffers、资产/import/三实际冻结条件类、双metadata/历史桥全部通过，部署未初始化CUDA或改变费用。
