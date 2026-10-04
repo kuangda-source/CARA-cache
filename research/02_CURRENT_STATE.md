@@ -1,3 +1,11 @@
+## 2026-10-04 W3真实冻结子类与C/D联合CPU通过，完整下一卡预算未准入
+
+[113联合控制/完整费用/下一门](./113_WC_RV0_VIDEO_CONDITION_CD_JOINT_CPU_AND_FULL_COST.md)/[实际R3 CPU](../reports/wc_rv0_video_actions_cpu_r3_20261004.json)/[独立原件审计](../reports/wc_rv0_video_actions_cpu_audit_r3_20261004.json)：实际Video2World类origin/七官方源与37阶段依赖、整个冻结类AST联合C/D通过；两fixture场景×flow OFF/ON×full/cache共8组、两CFG、96条14更新/28CFG完整后缀、20次TECH_BLOCKED父恢复。原WC/router OFF、C/C D/D交换、同输入/过去同CFG真full/完整状态/条件身份值与冻结行为通过，329.270秒；原件faee…924a绑定。R1 FlashAttention硬件可用性/R2 UMT5默认current_device两CPU导入失败保留；R3两适配仅CPU退出进程且恢复，不改共享/GPU路径。Toy网络/构造/decoder/writer，非真实C/D GPU或标签。
+
+完整生产预案保留两曝光CAL、两CFG、Native/cache-off/原WC/router OFF共8父、24完整后缀、16编码输出；一个CFG branch为动作单位，原自适应后缀未来mask/次数可变，非预算匹配。暂定有符号RGB_MSE相对匹配Native仅保真诊断，不替代正式LPIPS主损失/预算标签。实际环境lpips包未装，指定AlexNet缓存存在；不作全盘缺失、训练或质量结论。
+
+[完整费用](../reports/wc_rv0_causal_scope_cost_20261004.json)/[26项CPU拒绝控制](../reports/wc_rv0_causal_scope_cpu_20261004.json)：真实未干预成本代理加明确未测decode/记账余量，条件6693.585秒、拟6900全wall/6870child/kill5；未来C/D开销和峰值仍UNKNOWN。现11.022315686839217/12GPUh、45jobs无inflight，余3519.663527秒；6900+15需6915，短3395.336473秒，预算拒绝，未选/预付/提交GPU。不缩scope或修改cap，原104/3900/4500不重提；下一CPU完整runner/Native兼容/分支解码与LPIPS资源协议后再处理资源门。真实RV标签/Head/完整科学目标仍未完成，107判断保持，无训练/付费/新增人评，goal active。本轮是progress，以下为历史。
+
 ## 2026-10-04 W3真实恢复两父四后缀终态：独立通过，C/D标签仍0
 
 [112完整结果/下一门](./112_WC_RV0_REAL_RESTORE_RESULTS_AND_NEXT_GATE.md)/[汇总](../reports/wc_rv0_restore_r1_summary_20261004.json)/[独立终态审计](../reports/wc_rv0_restore_r1_terminal_20261004.json)：原793beed唯一wc-rv0-restore-r1 exit0；两曝光CAL父36/72、四条14/28未干预后缀每输入/输出/deep/solver及最终latent/完整状态与父continuation相等，真实冻结Video2World条件恢复与两93帧视频历史WC桥/完整解码、52source/资产/费用释放通过。

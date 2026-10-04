@@ -1,5 +1,7 @@
 # WC-RV：同状态、预算约束下的反事实刷新收益
 
+> 最新联合接口与费用：[113](113_WC_RV0_VIDEO_CONDITION_CD_JOINT_CPU_AND_FULL_COST.md)已将真实冻结Video2World完整类AST与原C/D控制组合，CPU329.270秒/96完整后缀与20失败恢复、实际import origin/七官方源/37依赖独立审计通过，仍Toy/CUDA禁止无标签。112真实恢复卡已终态；完整两场景两CFG Native/cache-off/原WC/router OFF八父24后缀16视频生产预案条件6693.585秒、拟6900+15比余额3519.664短3395.336秒，未选/预付GPU。动作单位单CFGbranch，原自适应后缀非预算匹配；RGB_MSE有符号诊断不是正式LPIPS主损失。后续完整runner、主要损失资源协议与预算决定保持，不缩RV0目标；下面旧准备/余额是历史。
+
 > 最新实际准备：[110](110_WC_RV0_FROZEN_CONDITION_RESTORE_AND_COST_CARD.md)发现官方条件frozen dataclass与原setattr不兼容，修复后固定类AST的未干预恢复入口CPU通过，原动作/后缀回归也通过。35当前依赖/六官方源与服务器原件绑定。明确两曝光CAL各一次父采样及两条后缀、父continuation和历史官方视频桥的3900秒恢复/成本诊断预案，非完整C/D因果RV0或新OFF全pipeline等价；条件成本3828.379秒和capture6GiB/live headroom门不是真实GPU耗时/峰值上界。独立runner/部署/准入待做，下一GPU卡仍未选择，标签/训练0。
 
 > 当前CPU动作进度：[109](109_WC_RV0_ONE_ACTION_CPU_CONTROLS.md)在固定官方probe后decision前介入一次CFG C/D；原回归四组和新增四组/两CFG槽位/48条完整后缀通过，33当前依赖、五官方源与服务器原件独立绑定。动作后共用原自适应策略函数，未来mask可不同，尚非预算匹配或收益采集。Toy快照独占CPU tensor约24.27MB不是GPU成本/显存上界。真实RV0/标签/Head仍缺，下一GPU卡未选择，预算10.713586944446/12h保持。下面108的接口缺口是当时状态。
