@@ -1,3 +1,4 @@
+<!-- Latest real restoration: ../research/112_WC_RV0_REAL_RESTORE_RESULTS_AND_NEXT_GATE.md; full causal RV0 and signed benefit remain incomplete. -->
 <!-- Current execution evidence: ../research/111_WC_RV0_RESTORE_EXECUTION_CARD.md; full RV0 remains incomplete. -->
 # WC-RV首窗口：先验证刷新收益空间，不先训练Head
 

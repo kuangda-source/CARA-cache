@@ -1,3 +1,11 @@
+## 2026-10-04 W3真实恢复两父四后缀终态：独立通过，C/D标签仍0
+
+[112完整结果/下一门](../../research/112_WC_RV0_REAL_RESTORE_RESULTS_AND_NEXT_GATE.md)/[汇总](../../reports/wc_rv0_restore_r1_summary_20261004.json)/[独立终态审计](../../reports/wc_rv0_restore_r1_terminal_20261004.json)：原793beed唯一wc-rv0-restore-r1 exit0；两曝光CAL父36/72、四条14/28未干预后缀每输入/输出/deep/solver及最终latent/完整状态与父continuation相等，真实冻结Video2World条件恢复与两93帧视频历史WC桥/完整解码、52source/资产/费用释放通过。
+
+实际副本2.829GB、快照10.676/10.881秒、后缀含恢复112.836–120.208秒；521 monitor峰值26032MiB，不作干净速度/质量收益。本卡对照live parent+历史编码桥，没有新增无观察器父phase；实际子类当前d58f…837c源观察不是本卡预冻结证明，下一卡须显式pin/import origin。A/B非C/D，有符号RV标签/Head/完整因果RV0仍0，不缩研究目标。
+
+实费1111.423473秒替换3900预付，累计11.022315686839217/12GPUh、45jobs，余3519.663527秒/0.977684313161h无inflight；原2794840/2794859/2794861/锁/指定GPU释放，24MiB/noapps。下一CPU补真实冻结子类+C/C D/D交换C/D/OFF两CFG完整控制、动作单位/Native损失与完整成本；旧4500+15超余额995.336473秒，未选/预付下一GPU，不缩scope凑预算、不重提104/旧卡/训练/付费/人评。107稀疏净收益未成立保持，科学goal active。以下为历史。
+
 ## 2026-10-04 W3首场景真实恢复独立通过，原卡继续第二场景
 
 [111实际进度](../../research/111_WC_RV0_RESTORE_EXECUTION_CARD.md)/[首父独立审计](../../reports/wc_rv0_restore_r1_first_parent_audit_20261004.json)：common父36/72、两条14/28后缀的每输入/输出/deep/solver及最终latent/状态与父continuation相等，父恢复/decode flags/历史WC桥及完整93帧视频通过；原件2729…12d单独保留。实际Video2WorldCondition两槽位均frozen，已真实恢复；其子类origin/source需在后续C/D卡显式冻结，不冒称当前六源表已有该子类文件。
