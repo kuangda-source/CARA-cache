@@ -43,3 +43,9 @@ GPU前还须source提交/同步并在独立deploy1核验：服务器r3原件SHA�
 ## 唯一启动已确认，原卡D/D生成中
 
 [单次启动](../reports/wc_fair_cal_r1_launch_20261004.json)/[现场1791076765.7874134](../reports/wc_fair_cal_r1_start_observation_20261004.json)：冻结源1a22ac6，原supervisor2771711/timeout2771727/runner2771729均live且命令行匹配。first launch state null属于启动期，原观察补证后不重提。模型加载99.810秒、第一官方D/D在普通generate中，0/14视频。单次预付6300秒后11.441073425147268/12h、44jobs，child6270秒/kill5，全费用终态按实wall替换。只跟踪原卡，先独立D/D、终态十四输出与全部十组Native相对指标；无质量/前沿或CONF接受，科学goal active。
+
+## 全矩阵汇总接口CPU通过，原卡继续运行
+
+[汇总器](../scripts/summarize_wc_fair_cal_results_cpu.py)/[九项CPU控制](../reports/wc_fair_summary_cpu_20261004.json)已准备，未修改GPU冻结stage/payload。终态必须绑定原runner gzip/SHA、十四输出独立审计、十组指标输入SHA与原费用/释放审计，再保留两个场景各六行；Native自身参考误差零是定义，不新增质量样本。少步24更新/48CFG不能按36/72硬编码汇总；遗漏第十组、错误视频/源码SHA、错误结算和NaN均拒绝。
+
+描述性同时优势要求完整wall/RGB MSE/lumaSSIM/temporal MSE四维全部不劣且至少一维严格更好；权衡或相同点不会被误删。未被支配不等于质量保持加速、独立CONF或物理语义接受，不据单项指标自动升级候选。正式汇总仍待原卡完成及实费结算，CPUfixture不是真实结果。

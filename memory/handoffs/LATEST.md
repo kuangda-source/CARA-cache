@@ -1,3 +1,9 @@
+## 2026-10-04 原公平卡1/14，完整矩阵汇总CPU通过
+
+[105原执行卡与汇总接口](../../research/105_WC_FAIR_NATIVE_TUNED_WC_FOURTEEN_EXECUTION_CARD.md)/[汇总九控制](../../reports/wc_fair_summary_cpu_20261004.json)：原source1a22ac6三个句柄2771711/2771727/2771729现场1791077122.4612532均live且命令行匹配，第一D/D官方视频已输出、第二控制生成中，1/14；D/D九门仍待成对完成，不作质量/速度判断。原6300/6270/kill5、含预付11.441073425147268/12h、44jobs与十四分母保持，只跟踪原卡。
+
+新增全矩阵CPU汇总器绑定runner/audit/十指标/terminal SHA与实费，保留两CAL各六行及Native23 24/48网格；9项控制拒绝缺指标/错网格/视频或source SHA/结算/NaN，四维wall/MSE/SSIM/时序共同支配仅作单次CAL描述。未改GPU冻结55stage/current30依赖，不新增GPU、训练/付费/人评；下一D/D独立原件审计及原卡终态十四视频/十指标/费用释放。科学goal active。以下为历史。
+
 ## 2026-10-04 公平十四输出唯一提交，原三句柄确认并开始D/D
 
 [105执行卡](../../research/105_WC_FAIR_NATIVE_TUNED_WC_FOURTEEN_EXECUTION_CARD.md)/[唯一启动](../../reports/wc_fair_cal_r1_launch_20261004.json)/[现场1791076765.7874134](../../reports/wc_fair_cal_r1_start_observation_20261004.json)：冻结GPU source1a22ac6经actual完整部署/独立审计与fresh GPU24MiB/noapps/sm86/锁/预算/磁盘门，仅提交wc-fair-cal-r1一次。原supervisor2771711/timeout2771727/runner2771729均存活且命令行匹配stage/run；加载99.810秒，第一官方D/D控制完整生成中，0/14视频，九门与Native/十二测量输出待结果。首次launch state null由原句柄现场补证，不重提。
