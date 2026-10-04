@@ -22,7 +22,7 @@ def proposal():
         'parent_modes_per_scene': ['NATIVE_ORIGINAL', 'CACHE_OFF_NATIVE_PATH',
                                   'WC_ORIGINAL_ROUTER_ABSENT', 'WC_ROUTER_OFF_WITH_SHADOWS'],
         'parent_phases': 8, 'suffix_controls': 24, 'parent_output_files': 8,
-        'decoded_unique_C_D_outputs': 8, 'total_encoded_outputs': 16,
+        'decoded_unique_C_D_outputs': 8, 'decoded_OFF_bridge_outputs': 2, 'total_encoded_outputs': 18,
         'unchanged_OFF_suffix_outputs_compared_to_parent': 8,
         'repeated_C_D_suffixes_compared_before_duplicate_decode': 8,
         'suffix_policy': 'ORIGINAL_WC_ADAPTIVE',
@@ -31,13 +31,16 @@ def proposal():
         'causal_control_loss': 'EVERY_INPUT_OUTPUT_DEEP_SOLVER_STATE_LATENT_AND_NATIVE_VIDEO_COMPATIBILITY',
         'signed_fidelity_diagnostic': 'RGB_MSE_C_MINUS_RGB_MSE_D_RELATIVE_TO_MATCHED_NATIVE',
         'signed_fidelity_diagnostic_is_primary_RV_training_label': False,
-        'formal_RV_primary_loss': 'LPIPS_RESOURCE_AND_PROTOCOL_STILL_REQUIRED',
+        'formal_RV_primary_loss': 'LPIPS_V0P1_ALEX_ALL93_FULL432X768_CPU_NATIVE_RELATIVE',
+        'formal_RV_training_labels_ready': False,
         'negative_diagnostic_benefit_retained': True, 'failed_pairs_preserve_denominator': True,
         'new_sparse_kernel_or_W1_approximator': False, 'Head_or_LoRA': False,
         'training_or_paid_scoring_or_human_review': False,
         'logical_copy_cap_bytes': 6*(1<<30), 'transient_copy_factor': 2,
         'workspace_reserve_bytes': 4*(1<<30),
         'proposed_timeout_seconds': 6900, 'proposed_child_timeout_seconds': 6870,
+        'cumulative_cap_gpu_hours': 13,
+        'budget_authorization_ref': 'manifests/budget_authorization_20261004_wc_13gpuh.json',
         'kill_grace_seconds': 5, 'release_allowance_seconds': 30, 'admission_allowance_seconds': 15,
         'complete_cost_bound_validated': False, 'GPU_execution_selected': False,
         'GPU_submitted': False, 'reserved_seconds': 0, 'RV_labels': 0,
@@ -50,7 +53,7 @@ def validate_scope(scope):
         if scope.get(name) != value or type(scope.get(name)) is not type(value):
             raise ValueError('Full causal proposal differs: '+name)
     return {'scene_count': 2, 'CFG_slots': [0, 1], 'parent_phases': 8,
-            'complete_suffixes': 24, 'encoded_outputs': 16, 'GPU_selected': False}
+            'complete_suffixes': 24, 'encoded_outputs': 18, 'GPU_selected': False}
 
 
 def price(scope, *, loading, native_pipeline, wc_pipeline, diagnostic_parent_without_children,
@@ -67,6 +70,7 @@ def price(scope, *, loading, native_pipeline, wc_pipeline, diagnostic_parent_wit
         'two_router_OFF_parents_including_snapshot_without_children': 2*diagnostic_parent_without_children,
         'twenty_four_suffixes_using_unchanged_inclusive_cost_proxy': 24*unchanged_suffix_inclusive,
         'eight_unique_C_D_decode_guardrail_encode_allowances_not_measured': 8*unique_decode_allowance,
+        'two_OFF_decode_bridge_allowances_not_measured': 2*unique_decode_allowance,
         'additional_bookkeeping_allowance_not_measured': bookkeeping_allowance,
     }
     subtotal = sum(parts.values())
@@ -85,11 +89,13 @@ def price(scope, *, loading, native_pipeline, wc_pipeline, diagnostic_parent_wit
 def budget_gate(budget, scope):
     validate_scope(scope)
     used = budget.get('used_gpu_hours')
-    if (budget.get('cap_gpu_hours') != 12 or type(used) not in (int, float)
-            or not math.isfinite(used) or not 0 <= used <= 12
+    if (budget.get('cap_gpu_hours') != scope['cumulative_cap_gpu_hours']
+            or budget.get('budget_authorization_ref') != scope['budget_authorization_ref']
+            or type(used) not in (int, float)
+            or not math.isfinite(used) or not 0 <= used <= scope['cumulative_cap_gpu_hours']
             or any(k.endswith('_inflight') for k in budget)):
-        raise ValueError('Original cumulative12 budget/usage/inflight state differs')
-    remaining = (12-used)*3600
+        raise ValueError('Authorized cumulative13 budget/reference/usage/inflight state differs')
+    remaining = (scope['cumulative_cap_gpu_hours']-used)*3600
     required = scope['proposed_timeout_seconds']+scope['admission_allowance_seconds']
     if remaining < required:
         raise ValueError('Complete causal spend cap plus admission allowance exceeds remaining budget')

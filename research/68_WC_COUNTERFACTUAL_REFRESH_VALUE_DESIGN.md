@@ -1,3 +1,5 @@
+> 2026-10-04更新：[114完整因果核心/LPIPS CPU/13h门](./114_WC_RV0_FULL_CAUSAL_CORE_LPIPS_CPU_AND_13H_GATE.md)。40阶段/9官方源的CPU控制通过；每flow8父24后缀18模拟输出（新增两OFF解码桥），非真实C/D视频或RV标签。lpips隔离预训练CPU已准备、全93帧原分辨率Native相对协议冻结；服务器原件/资源复审因私有代码同步审批待许可。用户直接批准累计13h，used/jobs保持，完整拟卡6915含准入算术可容纳；实际部署/费用显存/正式同预算收益仍待验证，无GPU提交。原104和restore卡不重提，107稀疏判断保持。下文及113是历史设计与阶段证据。
+
 # WC-RV：同状态、预算约束下的反事实刷新收益
 
 > 最新联合接口与费用：[113](113_WC_RV0_VIDEO_CONDITION_CD_JOINT_CPU_AND_FULL_COST.md)已将真实冻结Video2World完整类AST与原C/D控制组合，CPU329.270秒/96完整后缀与20失败恢复、实际import origin/七官方源/37依赖独立审计通过，仍Toy/CUDA禁止无标签。112真实恢复卡已终态；完整两场景两CFG Native/cache-off/原WC/router OFF八父24后缀16视频生产预案条件6693.585秒、拟6900+15比余额3519.664短3395.336秒，未选/预付GPU。动作单位单CFGbranch，原自适应后缀非预算匹配；RGB_MSE有符号诊断不是正式LPIPS主损失。后续完整runner、主要损失资源协议与预算决定保持，不缩RV0目标；下面旧准备/余额是历史。

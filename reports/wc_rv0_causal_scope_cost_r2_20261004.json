@@ -1,0 +1,170 @@
+{
+  "status": "FULL_RV0_CAUSAL_SCOPE_PRICED_CPU_ONLY_NOT_SELECTED",
+  "scope": {
+    "status": "FULL_RV0_CAUSAL_CONTROL_PROPOSAL_NOT_SELECTED",
+    "sample_names": [
+      "common_sense_6487f37f-ef57-49ca-afdc-d898922b5191",
+      "human_199"
+    ],
+    "sample_indices": [
+      1,
+      2
+    ],
+    "scene_role": "EXPOSED_CAL_TECHNICAL_ONLY",
+    "seed": 0,
+    "requested_steps": 35,
+    "parent_solver_updates": 36,
+    "parent_CFG_calls": 72,
+    "WC_horizon": 70,
+    "probe_depth": 2,
+    "WC_threshold": 0.06,
+    "snapshot_step": 22,
+    "CFG_slots": [
+      0,
+      1
+    ],
+    "target_calls": [
+      45,
+      46
+    ],
+    "action_unit": "ONE_CFG_BRANCH_FULL_CALL",
+    "maximum_age_solver_steps": 32,
+    "suffix_labels_per_CFG": [
+      "OFF1",
+      "OFF2",
+      "C_first",
+      "D_second",
+      "D_first",
+      "C_second"
+    ],
+    "suffix_solver_updates": 14,
+    "suffix_CFG_calls": 28,
+    "parent_modes_per_scene": [
+      "NATIVE_ORIGINAL",
+      "CACHE_OFF_NATIVE_PATH",
+      "WC_ORIGINAL_ROUTER_ABSENT",
+      "WC_ROUTER_OFF_WITH_SHADOWS"
+    ],
+    "parent_phases": 8,
+    "suffix_controls": 24,
+    "parent_output_files": 8,
+    "decoded_unique_C_D_outputs": 8,
+    "decoded_OFF_bridge_outputs": 2,
+    "total_encoded_outputs": 18,
+    "unchanged_OFF_suffix_outputs_compared_to_parent": 8,
+    "repeated_C_D_suffixes_compared_before_duplicate_decode": 8,
+    "suffix_policy": "ORIGINAL_WC_ADAPTIVE",
+    "same_policy_function_not_same_future_mask": true,
+    "budget_matched": false,
+    "reference": "MATCHED_NATIVE_ORIGINAL_SAME_INPUT_NOISE_FULL_GRID_AND_DECODE",
+    "causal_control_loss": "EVERY_INPUT_OUTPUT_DEEP_SOLVER_STATE_LATENT_AND_NATIVE_VIDEO_COMPATIBILITY",
+    "signed_fidelity_diagnostic": "RGB_MSE_C_MINUS_RGB_MSE_D_RELATIVE_TO_MATCHED_NATIVE",
+    "signed_fidelity_diagnostic_is_primary_RV_training_label": false,
+    "formal_RV_primary_loss": "LPIPS_RESOURCE_AND_PROTOCOL_STILL_REQUIRED",
+    "negative_diagnostic_benefit_retained": true,
+    "failed_pairs_preserve_denominator": true,
+    "new_sparse_kernel_or_W1_approximator": false,
+    "Head_or_LoRA": false,
+    "training_or_paid_scoring_or_human_review": false,
+    "logical_copy_cap_bytes": 6442450944,
+    "transient_copy_factor": 2,
+    "workspace_reserve_bytes": 4294967296,
+    "proposed_timeout_seconds": 6900,
+    "proposed_child_timeout_seconds": 6870,
+    "kill_grace_seconds": 5,
+    "release_allowance_seconds": 30,
+    "admission_allowance_seconds": 15,
+    "complete_cost_bound_validated": false,
+    "GPU_execution_selected": false,
+    "GPU_submitted": false,
+    "reserved_seconds": 0,
+    "RV_labels": 0,
+    "full_RV0_already_accepted": false
+  },
+  "cost": {
+    "components_seconds": {
+      "loading": 75.92343720421195,
+      "four_Native_original_and_cache_off_parents": 1296.992824267596,
+      "two_uninstrumented_WC_parents": 435.5827131830156,
+      "two_router_OFF_parents_including_snapshot_without_children": 544.501383561641,
+      "twenty_four_suffixes_using_unchanged_inclusive_cost_proxy": 2884.9873359426856,
+      "eight_unique_C_D_decode_guardrail_encode_allowances_not_measured": 240.0,
+      "two_OFF_decode_bridge_allowances_not_measured": 60.0,
+      "additional_bookkeeping_allowance_not_measured": 75.0
+    },
+    "proxy_subtotal_seconds": 5612.98769415915,
+    "planning_buffer_factor": 1.2,
+    "conditional_estimated_seconds": 6765.58523299098,
+    "proposed_timeout_seconds": 6900,
+    "incremental_CD_future_mask_cost_measured": false,
+    "unique_CD_decode_encode_cost_measured": false,
+    "estimate_is_GPU_upper_bound": false,
+    "complete_scope_time_guaranteed": false,
+    "observed_peak_is_next_CD_memory_upper_bound": false
+  },
+  "budget": {
+    "batch": "F0-F1",
+    "cap_gpu_hours": 12,
+    "used_gpu_hours": 11.022315686839217,
+    "gpu_jobs_launched": 45,
+    "status": "WC_RV0_RESTORE_SETTLED_REQUIRES_RESULT_AUDIT",
+    "gpu_import_probes_completed": 1,
+    "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts",
+    "budget_authorization_ref": "manifests/budget_authorization_20261003.json",
+    "budget_authorization_history": [
+      {
+        "authorized_utc": "2026-10-02T18:03:00Z",
+        "source_thread_id": "01a0f1e6-7ad0-75df-9a02-172b60d2e00b",
+        "user_instruction": "\u628a\u5404\u4e2a\u5b9e\u9a8c\u7684 gpu \u9884\u7b97\u90fd\u8bbe\u7f6e\u4e3a 12gpuh",
+        "previous_cap_gpu_hours": 4,
+        "new_cumulative_cap_gpu_hours": 12,
+        "used_gpu_hours_at_change": 3.9117525685110333,
+        "no_usage_reset_or_transfer": true
+      }
+    ]
+  },
+  "remaining_seconds": 3519.6635273788174,
+  "required_cap_plus_admission_seconds": 6915,
+  "shortfall_seconds": 3395.3364726211826,
+  "budget_admissible": false,
+  "budget_refusal": "Complete causal spend cap plus admission allowance exceeds remaining budget",
+  "new_GPU_submission": false,
+  "reserved_seconds": 0,
+  "RV_labels": 0,
+  "measured_input_values": {
+    "load_seconds": 75.92343720421195,
+    "Native_pipeline_by_scene": [
+      321.2620124258101,
+      324.248206066899
+    ],
+    "WC_pipeline_by_scene": [
+      208.20423556677997,
+      217.7913565915078
+    ],
+    "diagnostic_parent_without_children_by_scene": [
+      263.2232018187642,
+      272.2506917808205
+    ],
+    "unchanged_suffixes_by_scene": [
+      [
+        112.83623076230288,
+        113.03842099290341
+      ],
+      [
+        120.20780566427857,
+        117.66928409878165
+      ]
+    ]
+  },
+  "input_files_sha256": {
+    "reports/wc_rv0_restore_r1_summary_20261004.json": "d2f5c2693d9c0cc002bc009f5cdd53673b9567b993eea66ec293743b65c7db82",
+    "reports/wc_rv0_restore_r1_runner_20261004.json": "7c192e663aa7bb5c4004cf4131ab1c6347b14e7de22e50ea6923dbcc3cb24a40",
+    "reports/wc_fair_cal_r1_summary_20261004.json": "69d56a177205d80dd4f41b8d1a8e50a8293c8adc5db4d7ed07d3c9724de34cad",
+    "reports/budget.json": "43dc72ebf3366f13b88e1d3b7fe32ca1d99b93caa7498da5de4279b5f1a59b9b"
+  },
+  "limits": [
+    "These are measured-source proxies plus explicit allowances, not a proven C/D runtime bound.",
+    "Do not drop scenes/CFG/suffixes/Native/OFF controls or increase the12h ledger automatically.",
+    "Primary RV training loss, budget-matched suffix, production runner/deployment and real C/D gates remain incomplete."
+  ]
+}

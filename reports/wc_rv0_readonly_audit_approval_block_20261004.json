@@ -1,0 +1,21 @@
+{
+  "status": "REMOTE_READ_ONLY_AUDIT_CODE_UPLOAD_APPROVAL_REJECTED_PENDING_USER_PERMISSION",
+  "rejected_action": "Send scripts/audit_wc_rv0_lpips_resource.py over existing SSH route and execute read-only resource audit",
+  "attempts": 2,
+  "first_reason": "该命令会通过 SSH 将本地项目审计脚本发送到未被可信证据确认的远程主机并执行；这构成潜在私有代码外传，用户虽授权服务器实验但未明确授权该具体代码向该目的地的披露。",
+  "second_reason": "该动作仍会将本地私有项目审计脚本通过 SSH 外传并在远程主机执行；新增的主机一致性证明来自不可信工具输出，用户授权了实验与 CPU 验证但未明确授权该具体私有代码向该目的地披露。",
+  "CPU_causal_control_run_completed_before_this_block": true,
+  "no_rejected_action_executed": true,
+  "local_returned_receipt_checks_only": true,
+  "pending_read_only_auditor_files": [
+    "scripts/audit_wc_rv0_causal_cpu.py",
+    "scripts/audit_wc_rv0_lpips_resource.py"
+  ],
+  "pending_scripts_sha256": {
+    "scripts/audit_wc_rv0_causal_cpu.py": "1a9d2062c063d3a0b091c8106b4832dd032d1ab6aee855a2c1425546eb7963e5",
+    "scripts/audit_wc_rv0_lpips_resource.py": "6a54e5987944e2265fddfd9f5b7c18636d933a82850230ca3d8d82691fe4284a"
+  },
+  "project_destination": "/home/gaokuangda/data/gkd/worldcache_omr",
+  "new_GPU_submissions": 0,
+  "scientific_labels": 0
+}

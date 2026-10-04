@@ -14,6 +14,7 @@ def run():
     for key, value in [('sample_names', c['sample_names'][:1]), ('CFG_slots', [0]),
                        ('suffix_labels_per_CFG', ['C_first', 'D_first']), ('parent_phases', 6),
                        ('suffix_controls', 12), ('total_encoded_outputs', 8),
+                       ('decoded_OFF_bridge_outputs', 0),
                        ('action_unit', 'PAIRED_CFG_SOLVER_STEP'), ('suffix_solver_updates', 4),
                        ('suffix_policy', 'FIXED_MASK'), ('budget_matched', True),
                        ('GPU_execution_selected', True), ('Head_or_LoRA', True),
@@ -22,11 +23,13 @@ def run():
         try: m.validate_scope(candidate)
         except ValueError: checks.append('refuse_'+key)
         else: raise AssertionError('Reduced/changed scope accepted: '+key)
-    budget = {'cap_gpu_hours': 12, 'used_gpu_hours': 10}
+    budget = {'cap_gpu_hours': 13, 'used_gpu_hours': 11.022315686839217,
+              'budget_authorization_ref': c['budget_authorization_ref']}
     assert m.budget_gate(budget, c)['reserved_seconds'] == 0
-    for change in [{'used_gpu_hours': 11.022315686839217}, {'cap_gpu_hours': 13},
+    for change in [{'used_gpu_hours': 11.1}, {'cap_gpu_hours': 12},
+                   {'budget_authorization_ref': 'manifests/budget_authorization_20261003.json'},
                    {'used_gpu_hours': math.nan}, {'used_gpu_hours': -1},
-                   {'used_gpu_hours': 12.01}, {'used_gpu_hours': True}, {'job_inflight': {}}]:
+                   {'used_gpu_hours': 13.01}, {'used_gpu_hours': True}, {'job_inflight': {}}]:
         try: m.budget_gate({**budget, **change}, c)
         except ValueError: checks.append('refuse_budget_'+str(len(checks)))
         else: raise AssertionError('Unsafe/changed budget admitted')

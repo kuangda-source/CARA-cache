@@ -1,3 +1,13 @@
+## 2026-10-04 W3完整核心与LPIPS CPU通过，13h预算已接入，远端原件复审待明确许可
+
+[114实现/证据/下一门](../../research/114_WC_RV0_FULL_CAUSAL_CORE_LPIPS_CPU_AND_13H_GATE.md)/[完整R3 CPU](../../reports/wc_rv0_causal_cpu_r3_20261004.json)/[本地回执审计](../../reports/wc_rv0_causal_cpu_local_audit_r3_20261004.json)：40阶段依赖/9官方源/实际冻结Video类AST，flow OFF/ON各8父24完整后缀18模拟输出，合计16父48后缀36输出，274.090秒；Native/cache-off与WC/router OFF全轨迹/状态/RNG/mock编码相等，C/C D/D交换、同输入Cdeep0/Dfull、过去同CFG真full、五pipeline事件及两TECH_BLOCKED恢复通过。原R1/R2旧writer观察遗漏失败保留，R3调用时绑定修复，未删门。Toy/CPU、非真实GPU视频/质量/标签，服务器原件及阶段文件尚未独立回读。
+
+[LPIPS隔离V2 CPU](../../reports/wc_rv0_lpips_resource_cpu_v2_20261004.json)/[返回回执检查](../../reports/wc_rv0_lpips_resource_local_check_v2_20261004.json)：包0.1.4/metric0.1/Alex预训练CPU、源码/wheel/已有backbone与linear SHA、四64×64合成图自距/重复/负值/四错配拒绝通过，7.315秒，共享环境未改。协议冻结全93帧432×768相对匹配Native、不缩采样，尚未实际全视频C/D评分或正式同预算RV训练标签。
+
+[直接用户13h授权](../../manifests/budget_authorization_20261004_wc_13gpuh.json)/[原锁变更回执](../../reports/wc_13gpuh_budget_change_20261004.json)已核对另一会话直接用户“允许增加 GPUh”；权威/镜像由该会话更新且SHA一致，used11.022315686839217、45jobs保持，无inflight，余7119.663527秒。[完整18输出费用](../../reports/wc_rv0_causal_scope_cost_r3_20261004.json)/[28拒绝控制](../../reports/wc_rv0_causal_scope_cpu_r3_20261004.json)接入13及精确ref，条件估6765.585233、拟6900全wall/6870child/kill5，含准入需6915，算术余204.663527秒；未来C/D成本/显存未测，非保证，未选/预付/提交GPU。
+
+[自动审批限制](../../reports/wc_rv0_readonly_audit_approval_block_20261004.json)：两次拒绝只读LPIPS审计代码发送到既有服务器，要求明确私有代码传输许可；未绕过。本地两个审计脚本/回执核对完成，待用户准许同步后只读复审原件/资源，再补生产CLI/监督器、视频reader/评分、冻结部署和fresh准入。原104点1153.55秒已完成、不重提；107稀疏净收益未成立判断保持，正式C/D/标签/Head/CONF仍缺，本轮新GPU0、无训练/付费/新增人评，科学goal active。以下为历史。
+
 ## 2026-10-04 W3真实冻结子类与C/D联合CPU通过，完整下一卡预算未准入
 
 [113联合控制/完整费用/下一门](../../research/113_WC_RV0_VIDEO_CONDITION_CD_JOINT_CPU_AND_FULL_COST.md)/[实际R3 CPU](../../reports/wc_rv0_video_actions_cpu_r3_20261004.json)/[独立原件审计](../../reports/wc_rv0_video_actions_cpu_audit_r3_20261004.json)：实际Video2World类origin/七官方源与37阶段依赖、整个冻结类AST联合C/D通过；两fixture场景×flow OFF/ON×full/cache共8组、两CFG、96条14更新/28CFG完整后缀、20次TECH_BLOCKED父恢复。原WC/router OFF、C/C D/D交换、同输入/过去同CFG真full/完整状态/条件身份值与冻结行为通过，329.270秒；原件faee…924a绑定。R1 FlashAttention硬件可用性/R2 UMT5默认current_device两CPU导入失败保留；R3两适配仅CPU退出进程且恢复，不改共享/GPU路径。Toy网络/构造/decoder/writer，非真实C/D GPU或标签。
