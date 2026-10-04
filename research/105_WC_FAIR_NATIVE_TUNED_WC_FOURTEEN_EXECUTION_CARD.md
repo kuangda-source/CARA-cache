@@ -1,5 +1,7 @@
 # 公平十四输出独立执行卡：原生、少步、三WC阈值与阶段候选
 
+> 终态更新：本卡十四输出、完整独立审计与十组Native相对指标均已完成，实际费用3681.049秒；见[107完整结果与方向门](107_WC_FAIR_CAL_RESULTS_AND_DIRECTION_GATE.md)。下文准备/在跑状态为当时记录，当前累计10.713586944446/12h、44jobs无inflight，下一GPU卡未选择。
+
 2026-10-04。承接[104完整CPU接口](104_WC_FAIR_NATIVE_FEWER_STEP_FULL_CPU_INTERFACE.md)和[103在线候选终态](103_WC_ONLINE_STAGE_RESULTS_AND_FAIR_BASELINE_NEXT.md)。依现有自主推进目标与累计12GPUh授权，选择独立 `WC-FAIR-CAL-R1-20261004-A` / `wc-fair-cal-r1`；**本地准备通过，尚未实际部署或GPU提交/预付**。原104点≤1800秒单次授权已完成，本卡不重用该身份、上限或授权。
 
 ## 保留完整对照

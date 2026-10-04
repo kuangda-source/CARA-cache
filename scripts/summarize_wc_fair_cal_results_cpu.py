@@ -40,7 +40,13 @@ def summarize(runner_path,audit_path,metrics_path,terminal_path,cost_path):
     assert len(audit['files'])==runner['planned_output_files']==14 and len(metrics['pairs'])==10
     assert terminal['original_pids_absent']==[terminal['supervisor']['pid'],
         terminal['supervisor']['child_pid'],runner['pid']]
-    assert terminal['global_lock_free'] and not terminal['compute_after'].strip()
+    assert terminal['global_lock_free']
+    # Other users may still be working on the server's other GPUs. Release
+    # evidence is scoped to this card's admitted UUID and original handles.
+    release=terminal['supervisor']['release'];gpu=release['uuid']
+    assert not release['pids']
+    assert not any(line.split(',')[0].strip()==gpu
+                   for line in terminal['compute_after'].splitlines())
     assert audit['original_GPU_budget_unchanged_during_CPU']
     assert metrics['CPU_only'] and not metrics['new_GPU_submission']
     assert metrics['original_GPU_budget_unchanged_during_CPU']

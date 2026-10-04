@@ -1,5 +1,5 @@
 {
-  "observed_unix": 1791078782.8019598,
+  "observed_unix": 1791079172.191711,
   "source_revision": "1a22ac6ef5c31c3cf15998ee868d96fcc6ba6b54",
   "supervisor": {
     "status": "GPU_FAIR_CAL_RUNNING",
@@ -89,7 +89,7 @@
       "reserved_seconds": 6300
     }
   },
-  "gpu": "GPU-de9a5370-cd87-0f1c-a48e-288888777dd3, NVIDIA RTX A6000, 350\nGPU-cebf7119-cf03-23b9-e192-cd196332b704, NVIDIA RTX A6000, 16132\n",
+  "gpu": "GPU-de9a5370-cd87-0f1c-a48e-288888777dd3, NVIDIA RTX A6000, 350\nGPU-cebf7119-cf03-23b9-e192-cd196332b704, NVIDIA RTX A6000, 25254\n",
   "apps": "GPU-cebf7119-cf03-23b9-e192-cd196332b704, 2771729\n",
   "video_files": [
     "diagnostic/dense-control/000_official/common_sense_6487f37f-ef57-49ca-afdc-d898922b5191.mp4",
@@ -98,7 +98,9 @@
     "diagnostic/measurement/common_sense_6487f37f-ef57-49ca-afdc-d898922b5191/001_native23/common_sense_6487f37f-ef57-49ca-afdc-d898922b5191.mp4",
     "diagnostic/measurement/common_sense_6487f37f-ef57-49ca-afdc-d898922b5191/002_wc004/common_sense_6487f37f-ef57-49ca-afdc-d898922b5191.mp4",
     "diagnostic/measurement/common_sense_6487f37f-ef57-49ca-afdc-d898922b5191/003_wc006/common_sense_6487f37f-ef57-49ca-afdc-d898922b5191.mp4",
-    "diagnostic/measurement/common_sense_6487f37f-ef57-49ca-afdc-d898922b5191/004_wc008/common_sense_6487f37f-ef57-49ca-afdc-d898922b5191.mp4"
+    "diagnostic/measurement/common_sense_6487f37f-ef57-49ca-afdc-d898922b5191/004_wc008/common_sense_6487f37f-ef57-49ca-afdc-d898922b5191.mp4",
+    "diagnostic/measurement/common_sense_6487f37f-ef57-49ca-afdc-d898922b5191/005_stage_every1/common_sense_6487f37f-ef57-49ca-afdc-d898922b5191.mp4",
+    "diagnostic/measurement/human_199/000_native35/human_199.mp4"
   ],
   "dense_control": {
     "status": "FRESH_PREPARE_LIGHT_DD_NINE_AND_FINAL_PIPELINE_PASS",
@@ -145,7 +147,7 @@
   "measurements": [
     {
       "sample_name": "common_sense_6487f37f-ef57-49ca-afdc-d898922b5191",
-      "status": "STARTED",
+      "status": "SIX_COMPLETE_NATIVE_FEWER_STEP_TUNED_WC_STAGE_OUTPUTS_REQUIRE_AUDIT_METRICS",
       "phases": [
         {
           "index": 0,
@@ -225,6 +227,40 @@
             "requested_steps": 35,
             "threshold": 0.06
           },
+          "status": "COMPLETE_FULL93_WORKPOINT_NOT_QUALITY_OR_SPEED_ACCEPTANCE",
+          "solver_steps": 36,
+          "CFG_calls": 72,
+          "prepare_calls": 1,
+          "pipeline_wall_seconds": 207.59702232666314
+        }
+      ]
+    },
+    {
+      "sample_name": "human_199",
+      "status": "STARTED",
+      "phases": [
+        {
+          "index": 0,
+          "workpoint": {
+            "name": "native35",
+            "mode": "native",
+            "requested_steps": 35,
+            "threshold": null
+          },
+          "status": "COMPLETE_FULL93_WORKPOINT_NOT_QUALITY_OR_SPEED_ACCEPTANCE",
+          "solver_steps": 36,
+          "CFG_calls": 72,
+          "prepare_calls": 1,
+          "pipeline_wall_seconds": 324.248206066899
+        },
+        {
+          "index": 1,
+          "workpoint": {
+            "name": "native23",
+            "mode": "native",
+            "requested_steps": 23,
+            "threshold": null
+          },
           "status": "STARTED",
           "solver_steps": 0,
           "CFG_calls": 0,
@@ -234,5 +270,5 @@
     }
   ],
   "child_max_deadline_beijing": "2026-10-04T11:01:05.678889+08:00",
-  "log_tail": "2s/it]\nGenerating samples:  19%|\u2588\u2589        | 7/36 [00:47<03:18,  6.84s/it]\nGenerating samples:  22%|\u2588\u2588\u258f       | 8/36 [00:48<02:16,  4.88s/it]\nGenerating samples:  25%|\u2588\u2588\u258c       | 9/36 [00:48<01:36,  3.57s/it]\nGenerating samples:  28%|\u2588\u2588\u258a       | 10/36 [00:49<01:09,  2.68s/it]\nGenerating samples:  31%|\u2588\u2588\u2588       | 11/36 [00:50<00:51,  2.08s/it]\nGenerating samples:  33%|\u2588\u2588\u2588\u258e      | 12/36 [00:57<01:25,  3.54s/it]\nGenerating samples:  36%|\u2588\u2588\u2588\u258c      | 13/36 [00:57<01:01,  2.68s/it]\nGenerating samples:  39%|\u2588\u2588\u2588\u2589      | 14/36 [00:58<00:45,  2.08s/it]\nGenerating samples:  42%|\u2588\u2588\u2588\u2588\u258f     | 15/36 [00:59<00:34,  1.66s/it]\nGenerating samples:  44%|\u2588\u2588\u2588\u2588\u258d     | 16/36 [01:00<00:27,  1.37s/it]\nGenerating samples:  47%|\u2588\u2588\u2588\u2588\u258b     | 17/36 [01:07<01:00,  3.21s/it]\nGenerating samples:  50%|\u2588\u2588\u2588\u2588\u2588     | 18/36 [01:08<00:44,  2.45s/it]\nGenerating samples:  53%|\u2588\u2588\u2588\u2588\u2588\u258e    | 19/36 [01:08<00:32,  1.93s/it]\nGenerating samples:  56%|\u2588\u2588\u2588\u2588\u2588\u258c    | 20/36 [01:09<00:24,  1.56s/it]\nGenerating samples:  58%|\u2588\u2588\u2588\u2588\u2588\u258a    | 21/36 [01:16<00:47,  3.16s/it]\nGenerating samples:  61%|\u2588\u2588\u2588\u2588\u2588\u2588    | 22/36 [01:17<00:33,  2.42s/it]Warning: Sage2++ NOT enabled\n\nGenerating samples:  64%|\u2588\u2588\u2588\u2588\u2588\u2588\u258d   | 23/36 [01:25<00:52,  4.05s/it]\nGenerating samples:  67%|\u2588\u2588\u2588\u2588\u2588\u2588\u258b   | 24/36 [01:25<00:36,  3.04s/it]\nGenerating samples:  69%|\u2588\u2588\u2588\u2588\u2588\u2588\u2589   | 25/36 [01:32<00:44,  4.04s/it]\nGenerating samples:  72%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258f  | 26/36 [01:32<00:30,  3.03s/it]\nGenerating samples:  75%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258c  | 27/36 [01:39<00:36,  4.01s/it]\nGenerating samples:  78%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258a  | 28/36 [01:45<00:39,  4.88s/it]\nGenerating samples:  81%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588  | 29/36 [01:46<00:25,  3.62s/it]\nGenerating samples:  83%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258e | 30/36 [01:53<00:27,  4.60s/it]\nGenerating samples:  86%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258c | 31/36 [01:54<00:17,  3.43s/it]\nGenerating samples:  89%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2589 | 32/36 [02:01<00:17,  4.47s/it]"
+  "log_tail": "47,  6.85s/it]\nGenerating samples:  83%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258e | 30/36 [03:25<00:41,  6.85s/it]\nGenerating samples:  86%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258c | 31/36 [03:32<00:34,  6.85s/it]\nGenerating samples:  89%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2589 | 32/36 [03:38<00:27,  6.84s/it]\nGenerating samples:  92%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258f| 33/36 [03:45<00:20,  6.84s/it]\nGenerating samples:  94%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258d| 34/36 [03:52<00:13,  6.84s/it]\nGenerating samples:  97%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258b| 35/36 [03:59<00:06,  6.84s/it]\nGenerating samples: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 36/36 [04:06<00:00,  6.84s/it]\nGenerating samples: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 36/36 [04:06<00:00,  6.84s/it]\n[10-04 09:59:01|INFO|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/inference.py:160:_generate_sample] Running guardrail check on video...\n[10-04 09:59:12|SUCCESS|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/inference.py:172:_generate_sample] Passed guardrail on generated video\n[10-04 09:59:16|SUCCESS|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/inference.py:180:_generate_sample] Saved video to /home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-fair-cal-r1/diagnostic/measurement/human_199/000_native35/human_199.mp4\n[10-04 09:59:17|INFO|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/inference.py:91:generate] Generating 1 samples: ['human_199']\n[10-04 09:59:17|INFO|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/inference.py:95:generate] [1/1] Processing sample human_199\n[10-04 09:59:17|INFO|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/inference.py:108:_generate_sample] Saved arguments to /home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-fair-cal-r1/diagnostic/measurement/human_199/001_native23/human_199.json\n"
 }

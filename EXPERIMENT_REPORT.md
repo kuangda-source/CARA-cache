@@ -1,9 +1,16 @@
-## 2026-10-04 Native23与WC0.04独立通过，原公平卡7/14
+## 2026-10-04 公平十四输出终态：技术通过，稀疏净收益未成立
+
+[107完整结果与方向门](research/107_WC_FAIR_CAL_RESULTS_AND_DIRECTION_GATE.md)/[完整矩阵汇总](reports/wc_fair_cal_r1_summary_20261004.json)：原source1a22ac6唯一fair卡exit0，strict D/D、十四93帧视频、两CAL各Native35/23/三WC阈值/stage、55源码/资产/费用释放及十组Native相对CPU指标全部独立通过。原件0a9a…7c07无损归档，早期快照保持；汇总器当前R2十一控制覆盖指定UUID释放，不要求服务器其他GPU空闲。
+
+stage common/human wall207.597/214.727秒，较WC0.06单次仅少0.292%/1.407%；Native相对SSIM0.566432/0.468038，较WC低0.000402/0.000081，其余代理混合。实际6S/138算子与9S/207算子，deep35/38及full/cache判定均与WC0.06相同，窗口后仍读近似来源。没有可信端到端净收益、稳定速度、CONF、语义物理或未加观察器Native GPU parity；两曝光CAL不是独立确认，不能把原WC加速算成新模块贡献。
+
+实费3681.048669秒已替换预付，累计10.713586944446/12GPUh、44jobs，余1.286413055554h=4631.087秒，无inflight。原2771711/2771727/2771729、f1锁/指定GPU已释放，24MiB/noapps、峰值26310MiB。现未选择下一GPU卡/预付；CONF拟3000+15虽单独可容纳，当前信号不足，不自动提交。重要科学取舍节点：建议暂缓扩大稀疏扫描/学习器，下一考虑既有68/W3同状态刷新收益的CPU因果接口与成本准备，固定WC近似器/dense算子，强规则先于Head；尚未RV标签/训练或验证该路线。科学goal active，已授权本轮全部完成，不重提104/旧卡，不付费或新增人评。以下为历史。
+
+## 2026-10-04 Native23与WC0.04独立通过，原公平卡9/14
 
 [106 D/D与首批Native证据](research/106_WC_FAIR_DD_AND_FIRST_NATIVE35_ACTUAL_GATE.md)/[三输出部分审计](reports/wc_fair_cal_r1_native23_wc004_partial_audit_20261004.json)：原source1a22ac6的两个Native绑定原类方法、WC关闭/counter0；Native35/23各36/24更新72/48CFG且full72/48无跳过，随后WC0.04恢复36更新72CFG、deep43/cache29及native70尾部reset。三份93帧/16fps完整解码通过，wall321.262/239.265/235.158秒，仅单次描述。原件3e91…a383与D/D e027…37ed/首Native139a…bcd0分开，CPU1.384秒预算未变；无未加观察器GPU parity或质量/前沿接受。
 
-严格D/D九门/五处1216组件/完整pipeline及两视频fa7f…c379复现历史WC独立通过，逐帧MSE0/SSIM1。最新现场1791078782.8019598原2771711/2771727/2771729均live匹配，7/14；common WC0.06/0.08完整返回36/72/prepare1，stage every1生成中，后两WC与桥/真实stage完整独立审计待结果。仍11.441073425147268/12h含预付、44jobs与原6300/6270/kill5，只跟踪原卡和十四分母。终态全部十Native指标/源码/费用释放后重算后序，不重提/追加GPU、训练/付费/人评，科学goal active。以下为历史。
-
+严格D/D九门/五处1216组件/完整pipeline及两视频fa7f…c379复现历史WC独立通过，逐帧MSE0/SSIM1。最新现场1791079172.191711原2771711/2771727/2771729均live匹配，9/14；common六点全部完整返回，WC0.06/0.08/stage wall208.204/198.832/207.597秒；human Native35已36更新72CFG/prepare1返回wall324.248秒，Native23生成中。后两WC与桥/真实stage、第二CAL完整独立审计和十指标待结果。仍11.441073425147268/12h含预付、44jobs与原6300/6270/kill5，只跟踪原卡和十四分母。终态全部十Native指标/源码/费用释放后重算后序，不重提/追加GPU、训练/付费/人评，科学goal active。以下为历史。
 ## 2026-10-04 公平D/D与首个Native35实际输出独立通过，原卡3/14
 
 [106技术证据与原件](research/106_WC_FAIR_DD_AND_FIRST_NATIVE35_ACTUAL_GATE.md)：source1a22ac6的strict D/D九门/五处各1216状态组件/完整pipeline/关闭S的阶段来源与native70、两93帧视频独立通过。两份SHA fa7f…c379复现历史WC，完整逐帧RGB/temporal误差0、lumaSSIM1。D/D原件e027…37ed单独归档，351.034/343.231秒诊断wall不作速度归因。

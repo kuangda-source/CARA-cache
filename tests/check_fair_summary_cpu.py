@@ -62,9 +62,10 @@ def run():
         budget={'cap_gpu_hours':12,'gpu_jobs_launched':44,'used_gpu_hours':before+wall/3600}
         terminal={'status':'FAIR_CAL_SOURCE_ASSETS_FULL_COST_RELEASE_AUDIT_PASS_REQUIRES_FOURTEEN_OUTPUT_AUDIT',
                   'source_revision':'fixture','original_pids_absent':[101,202,303],'global_lock_free':True,
-                  'compute_after':'','budget':budget,'gpu_wall_seconds':wall,
+                  'compute_after':'fixture_GPU_B, 404','budget':budget,'gpu_wall_seconds':wall,
                   'supervisor':{'pid':101,'child_pid':202,'exit_code':0,'budget_before':{'used_gpu_hours':before},
-                                'budget_after':budget,'reserved_seconds':6300}}
+                                'budget_after':budget,'reserved_seconds':6300,
+                                'release':{'uuid':'fixture_GPU_A','pids':[]}}}
         cost={'cards':[{}, {},{'planned_outputs':6,'complete_planning_seconds':2808.5259551551935,'proposed_cap_seconds':3000}]}
         def write(r=runner,a=audit,t=terminal,v=metrics):
             packed=json.dumps(r).encode();sha=hashlib.sha256(packed).hexdigest()
@@ -81,6 +82,7 @@ def run():
         assert result['followup_budget']['CONF_cap_with_15s_admission_fits']
         assert not any(result[k] for k in ['quality_acceptance','quality_time_frontier_claim','independent_confirmation','replicated_speed_claim'])
         checks.append('complete_twelve_rows_ten_pairs_cost_bound_no_acceptance')
+        checks.append('unrelated_GPU_work_does_not_block_target_release')
         mutations=[]
         rr=deepcopy(runner);rr['measurements']['requests'][1]['phases'][1]['solver_steps']=36
         mutations.append(('second_CAL_wrong_Native23_grid',rr,audit,terminal,metrics))
@@ -92,6 +94,8 @@ def run():
         mutations.append(('wrong_frozen_source',runner,audit,tt,metrics))
         tt=deepcopy(terminal);tt['budget']['used_gpu_hours']+=.1
         mutations.append(('changed_settled_budget',runner,audit,tt,metrics))
+        tt=deepcopy(terminal);tt['compute_after']='fixture_GPU_A, 505'
+        mutations.append(('target_GPU_still_busy',runner,audit,tt,metrics))
         vv=deepcopy(metrics);vv['pairs'][0]['whole_video']['RGB_MSE_0to1']=float('nan')
         mutations.append(('nonfinite_metric',runner,audit,terminal,vv))
         for label,r,a,t,v in mutations:
