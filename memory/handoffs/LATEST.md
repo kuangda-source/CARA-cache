@@ -1,3 +1,11 @@
+## 2026-10-04 公平六点/十四输出完整入口CPU14通过，Native原方法已接线
+
+[104当前接口/证据](../../research/104_WC_FAIR_NATIVE_FEWER_STEP_FULL_CPU_INTERFACE.md)/[原件独立审计](../../reports/wc_fair_sampling_cpu_audit_20261004.json)：实际Cosmos CPU r3 64.100秒，当前30依赖/7官方源与服务器原件、两Native forward AST绑定通过，禁止CUDA。Native35/23原始类方法与直接CPU路径的prepared/逐前向tensor/final latent/decode/RNG/mock artifact相等；实际36/24更新72/48CFG，WC0.04/0.06/0.08与stage every1全保留。
+
+完整先strict WC D/D再两CAL各六点，14分母/前序产物保持；D/D不符、Native23错网格/输出缺失、第二CAL写入失败与历史WC桥拒绝，开关/阈值/forward/hooks/buffer恢复通过。CPU Toy构造/mask/embedding/block/decoder/writer/核替身不是真实权重、GPU parity或新视频/前沿结果。
+
+当前9.691073425147268/12h、43jobs无inflight，新增GPU/预付0。下一独立fair14 scope/runner/监督器、全矩阵视频/指标及终态审计，绑定当前CPU原件与实际prepare/native-meta/Native origin/assets/import/package/两条件/历史桥，再source冻结同步及fresh资源锁预算准入；尚未选择下一GPU卡。不重提104/旧卡，不删强基线或改CONF，后序按实际结算重算余额，不训练/付费/人评，科学goal active。以下为历史。
+
 ## 2026-10-04 在线八输出终态：全审计通过，保真改善未形成质量保持加速
 
 [103完整结果/下一步](../../research/103_WC_ONLINE_STAGE_RESULTS_AND_FAIR_BASELINE_NEXT.md)/[原件与指标](../../reports/wc_online_stage_r1_summary_20261004.json)：source3ad34e1原卡exit0，八93帧输出、strict D/D、在线核/来源/逐CFG窗口频率、51源码/费用/释放独立通过。every1 common/human SSIM0.963415/0.927613，单次完整wall减少0.564%/1.034%；every2 SSIM0.962969/0.916786，耗时分别增加1.117%/减少1.608%。human every1编码输出/S calls/整视频指标复现旧E0L0，非全部内部状态等价。
