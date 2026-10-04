@@ -1,5 +1,7 @@
 ## 2026-10-04 在线阶段D/D独立通过，原八输出卡2/8
 
+[现场1791072053.8974915](../../reports/wc_online_stage_r1_live_observation_20261004.json)：原三句柄仍live，3/8视频；common官方测量36更新/72CFG/prepare1正常返回，wall198.348秒，第一在线window候选正在生成。D/D已独立通过，四候选指标待完整矩阵，不据单个官方wall报加速；含预付10.136838727254782/12h不变，仅跟踪原卡。
+
 [101 D/D与少步CPU](../../research/101_WC_ONLINE_STAGE_DD_AND_FEWER_STEP_CPU.md)/[独立D/D](../../reports/wc_online_stage_r1_dd_audit_20261004.json)：source3ad34e1原卡九门、五检查点各1216组件、完整pipeline、关闭S的在线来源/窗口/native70独立通过；两93帧视频SHA fa7f…c379复现历史common D，完整逐帧RGB/temporal误差0、SSIM1。D/D snapshot4224…f969单独归档，2/8不是全卡或候选质量；339.844/324.357秒诊断观察wall不作速度归因。
 
 实际官方scheduler CPU15.452秒确认35请求→36grid、23请求→24grid、35→23→35 reset/toy更新；原件/两官方源/脚本绑定独立复核、禁止CUDA/无权重。Native23完整入口/实际CFG/video/parity仍缺，不按步数折扣成本。现场1791071783.8097043原三PID存活、common官方测量开始，原3600预付后10.136838727254782/12h、43jobs不变；只跟踪原卡终态后八输出/来源/费用释放及四候选CPU指标，不重提/训练/新增人评，科学goal active。以下为历史。
