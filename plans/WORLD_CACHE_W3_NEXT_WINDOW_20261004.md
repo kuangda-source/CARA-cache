@@ -1,10 +1,12 @@
 # WorldCache 下一窗口：全帧保真与同配额刷新位置干预
 
-2026-10-04；计划 v1.6；状态：EXISTING_VIDEO_CPU_COMPLETE / W3_GPU_NOT_EXECUTED。当前入口以本文和[09 队列](../research/09_NEXT_ACTIONS.md)为准，旧周次表与大样本卡保留为条件候选。首次v1.6更新轮只改文档；随后自主接续已完成下述CPU首项，仍未生成/训练/提交新GPU。
+2026-10-04；计划 v1.7；状态：EXISTING_VIDEO_CPU_COMPLETE / FIXED_MASK_SERVER_CPU_PASS / W3_GPU_NOT_EXECUTED。当前入口以本文和[09 队列](../research/09_NEXT_ACTIONS.md)为准，旧周次表与大样本卡保留为条件候选。首次v1.6更新轮只改文档；随后自主接续完成全帧评分及固定mask CPU接口，未生成/训练/提交新GPU。
 
 依据[科研中的黑暗森林法则](chatgpt-conversation://6abf4581-4ec8-83e8-8990-3efe11053cf4)最新完整轮次 d0140e8a、消息 7d9d74ad，结合本库截至 HEAD 4146ec1 的实际回执调整。对话是研究建议，不能代替原始实验回执或执行授权；[来源清单](../manifests/plan_update_sources_w3_review_20261004.json)记录覆盖范围。对话附件未取得，本文根据完整对话增量整合，没有声称导入附件原文。
 
 > **CPU接续结果：** [119](../research/119_WC_EXISTING_FAIR_W1_FULL_FRAME_LPIPS_RESULTS.md)完成十FAIR+两兼容W1的93帧LPIPS及控制/独立审计。W1两例比WC改善约7.9%，仅可用2/8开发子集；其余5接受参考缺失、1拒绝保持。稀疏扩展继续暂停。下一[120小窗口准备](../research/120_WC_W3_PARENT_MASK_SELECTION_AND_SMALL_COST_PREPARATION.md)已枚举4个静态mask交换，完整小C/D控制费用2811.502/6109.684秒代理，未冻结/准入；实际交换合法性与收益仍待。
+
+> **v1.7接口门已通过：** [121实际CPU](../research/121_WC_W3_FIXED_MASK_CPU_INTERFACE.md)在服务器完成24条完整固定mask/交换后缀和24次失败父恢复，120.407秒、54项来源/原件哈希独立审计通过；37旧依赖及旧大卡不改。Toy界面验证不是120四候选的真实GPU合法性或收益。下一直接具体化真实干预卡、参考桥和完整成本，无需重跑已通过的相同CPU控制。
 
 ## 1. 当前方向和保留成果
 
@@ -13,10 +15,10 @@
 | 分支 | 实际证据 | 当前安排 |
 |---|---|---|
 | 官方 WorldCache | [F1](../research/11_F1_R3_TECHNICAL_RESULTS.md)三接受配对，1.476–1.602×本地加速 | 复用；不是论文完整质量复现，不因新计划重跑 smoke/Euler |
-| W1 增量校准 | [CAL8](../research/21_W1D_CAL8_RESULTS.md)7/8内部改善、预测 MSE −24.08%；[视频代理](../research/28_W1_DEVELOPMENT_VQA_RESULTS.md)无一致收益 | 保留机制结果；仅分析既有兼容视频，暂停 W2/网络复杂化 |
+| W1 增量校准 | [CAL8](../research/21_W1D_CAL8_RESULTS.md)7/8内部改善、预测 MSE −24.08%；[全帧保真](../research/119_WC_EXISTING_FAIR_W1_FULL_FRAME_LPIPS_RESULTS.md)两兼容场景LPIPS降低7.87%/7.99%，视频代理无一致收益 | 保留机制与两例终点保真正结果；参考缺失不补生成，暂停 W2/网络复杂化；W1×W3组合后置 |
 | 稀疏刷新 | [104点](../research/75_WC_FULL104_R4_CARD_AND_RESULTS.md)局部算子成立；[H0](../research/77_WC_H0_MODE_REPAIR_AND_R2_CARD.md)两调用整组约省5.3%；[公平14输出](../research/107_WC_FAIR_CAL_RESULTS_AND_DIRECTION_GATE.md)单次仅省0.292%/1.407% | 暂停扩大层、稀疏率、kernel扫描与稀疏训练；不以微小 SSIM 变化单独判死 |
 | 来源/寿命与阶段 | [H1](../research/80_WC_H1_GENERALIZATION_R1_CARD_AND_CPU.md)、[阶段对照](../research/98_WC_TIMING_FACTORIAL_RESULTS_AND_EARLY_PROTECTION_NEXT.md)说明状态依赖 | 作为 W3 动机；不据此认定早期多刷新更好 |
-| W3 恢复与 CPU | [真实恢复](../research/112_WC_RV0_REAL_RESTORE_RESULTS_AND_NEXT_GATE.md)、[实际服务器 CPU](../research/118_WC_RV0_AUTHORIZED_SYNC_AND_ACTUAL_CPU_RESULTS.md)通过 | 复用能力；真实 C/D、同配额收益标签、在线方法收益仍为0/未验证 |
+| W3 恢复与 CPU | [真实恢复](../research/112_WC_RV0_REAL_RESTORE_RESULTS_AND_NEXT_GATE.md)、[固定mask服务器CPU](../research/121_WC_W3_FIXED_MASK_CPU_INTERFACE.md)通过 | 接口门关闭；真实 C/D、同配额收益标签、在线方法收益仍为0/未验证 |
 
 W1 局部 MSE 改善不保证终点保真；刷新还会改变后续缓存和 UniPC 历史。这是下一窗口的待检验解释，不是已完成贡献。早期稀疏的0.9276→0.7449是相对 WC 的 SSIM，不能直接推断相对 Native 质量。
 
@@ -77,7 +79,7 @@ W1 局部 MSE 改善不保证终点保真；刷新还会改变后续缓存和 Un
 - 全部续推到去噪终点；“后缀”不表示只评价视频末尾。完整93帧同 Native 协议，保留负收益、无效及安全拒绝。
 - **相同完整调用数不等于相同秒数**：probe、恢复、决策、同步、访存及分支历史均有成本，必须报告实际时间。先称“同刷新配额”，后续在线候选还须面对相近实测时间的强基线曲线。
 
-现有 one-action 接口只覆盖首动作后自适应续推；固定全后缀mask/双位置交换及其拒绝合同尚未实现或实际验收。先具体化新卡和这部分必要 CPU 接口，已有恢复和不受影响的控制复用，不把服务器 CPU 通过升级成交换实验通过。
+原 one-action 接口只覆盖首动作后自适应续推，保持未改；新独立固定全后缀mask/双位置交换与拒绝合同已在121通过实际Torch CPU。下一具体化新卡及全部费用/来源，复用已经验收的相同控制。实际交换每条分支自己的合法性仍须GPU检查，不把服务器CPU通过升级成交换实验通过。
 
 ## 5. W3-C：有收益空间后，先做无训练规则最小确认
 

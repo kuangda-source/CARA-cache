@@ -1,3 +1,11 @@
+## 2026-10-04 v1.7：W3固定mask/同配额交换实际CPU通过
+
+[121真实CPU](research/121_WC_W3_FIXED_MASK_CPU_INTERFACE.md) / [54项独立审计](reports/wc_w3_fixed_mask_cpu_r1_audit_20261004.json)：source8895c0e独立CPU目录、Torch2.7.1+cu128禁止CUDA，exit0、120.407秒。两个Toy场景×flow OFF/ON、24条完整14更新/28CFG后缀、24次TECH_BLOCKED父恢复通过；原官方/OFF/固定原mask完整pipeline严格相等，交换实际仅两位置、两CFG配额分别匹配、正反重复轨迹/状态相等，69..72自然保护不override。54来源/原件/日志/预算SHA及raw branch配额/deep/同输入/重复/失败独立核对通过；37旧CPU依赖/旧8父24后缀18输出未改，不重跑不受影响的旧回归。
+
+这是Toy/CPU接口结果，不是120四个真实父候选的GPU合法性、视频/质量、同秒数、单步RV标签或在线策略结果。此前119的W1两例7.87%/7.99%全帧保真正结果保留，初批W3仍固定官方近似器/dense以归因。稀疏/W2/Head/LoRA/专家训练后置，无新增人评。
+
+[当前计划v1.7](plans/WORLD_CACHE_W3_NEXT_WINDOW_20261004.md)：已完成全帧评分和固定mask必要CPU门；下一直接冻结真实自适应C/D与最多四组同配额交换的新卡、严格参考桥及完整费用，不重跑已通过控制。小C/D2811.502/6109.684秒仍条件代理、未选timeout，不能承诺三批共同完成；CPUproject-view不作GPU账本/锁根。当前GPU提交/生成/新标签0，13h账本used11.022315686839217/45jobs/无inflight、余额7119.663527秒及原SHA保持，科学goal仍active。本轮CPU已完成，不扩大为GPU提交；以下为历史。
+
 ## 2026-10-04 v1.6全帧CPU评分完成：W1两例约8%保真正结果
 
 [119真实结果](research/119_WC_EXISTING_FAIR_W1_FULL_FRAME_LPIPS_RESULTS.md) / [独立20文件审计](reports/wc_existing_fair_w1_lpips_cpu_r1_audit_20261004.json)：已部署冻结reader/LPIPS在独立CPU目录实际完成10组FAIR+2组兼容W1各93帧，D/D全0、实际不同输入/轻扰动非零、所有均值/PTS/source及视频/预算SHA通过。exit0、CPU总220.767秒、CUDA未初始化，旧核心/原视频/预算不改；GPU生成/提交0。
