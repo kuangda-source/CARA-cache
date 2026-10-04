@@ -1,6 +1,6 @@
 # W3 最小真实 C/D：独立小卡核心与来源准备
 
-2026-10-04；LOCAL_SCOPE_PASS / ACTUAL_TORCH_CORE_PENDING；GPU 0。
+2026-10-04；ACTUAL_TORCH_CORE_PASS / PRODUCTION_ENTRY_PENDING；GPU 0。
 
 ## 独立科学范围
 
@@ -20,4 +20,18 @@
 
 已测未干预后缀代理下完整费用 **2811.502秒**；完整Native35加恢复的压力代理 **6109.684秒**，两者都不是硬上界。新卡候选单次全wall **3900秒** / child3870 / kill5 / 退出30，加准入15共3915秒；当前7119.663527秒余额可容纳候选上限，若全额使用尚余3204.663527秒。压力代理超过候选cap，说明可能触发超时/保留失败矩阵，不能称保证完成，也不能预先承诺后续交换和新样本批次。
 
-[本地scope原件](../reports/wc_w3_small_cd_scope_cpu_r1_20261004.json)：14项范围漂移、6项授权/预算/在途拒绝合同通过，未改权威预算；[新CPU清单](../manifests/wc_w3_small_cd_core_cpu_r1_20261004.json)绑定来源。实际小核心Torch组合控制、生产CLI/监督器/终态审计与四组候选—Native全93帧评分还待接线。新卡尚未选择GPU、预付或提交；不用旧104/1800/restore身份重跑，不增加Head/LoRA/训练/人评。
+[本地scope原件](../reports/wc_w3_small_cd_scope_cpu_r1_20261004.json)：14项范围漂移、6项授权/预算/在途拒绝合同通过，未改权威预算；[新CPU清单](../manifests/wc_w3_small_cd_core_cpu_r1_20261004.json)保留创建时的pending身份并绑定来源。小核心实际Torch组合控制随后通过，见下一节；生产CLI/监督器/终态审计与四组候选—Native全93帧评分还待接线。新卡尚未选择GPU、预付或提交；不用旧104/1800/restore身份重跑，不增加Head/LoRA/训练/人评。
+
+## 实际小核心服务器 CPU 结果
+
+[实际R1原件](../reports/wc_w3_small_cd_core_cpu_r1_20261004.json) / [独立raw轨迹审计](../reports/wc_w3_small_cd_core_cpu_r1_audit_20261004.json)：source **19750056f7818b2691e3f6c95ee58c59e608f69a**，服务器独立`.sync/wc-w3-small-cd-core-cpu-r1-20261004`，Torch2.7.1+cu128、CUDA被禁止且未初始化，exit0，CPU wall **144.952211秒**。
+
+flow OFF/ON两成功批次，每批完整2父/12后缀/8模拟输出，共4父/24完整14更新后缀/16模拟输出。成功组分别检查两个Toy场景的call45/CFG0和call46/CFG1；所有72父调用与36 solver更新、14更新后缀的逐调用/完整UniPC/最终状态、OFF/OFF、C/C和D/D正反顺序重复、同输入Cdeep0/Dfull、五pipeline阶段及OFF编码桥通过。原件明确CPU Toy的网络、输入、权重、decoder与writer，不是真实CAL生成视频。
+
+flow ON还保留三次故意失败：首OFF子写出缺失、首OFF子安全拒绝，以及历史reference的来源/桥条件不兼容。前两次子分支TECH_BLOCKED且父恢复；第三次在父终点来源门TECH_BLOCKED，初始状态/forward/hooks清理通过。原2/12/8分母在全部失败回执保留。成功组另外8份输入/deep/恢复/pipeline证据损坏全部拒绝。
+
+独立用服务器原生cat/sha256sum复读 **84项**：67阶段文件（profile-config同SHA别名显式记录）、9官方源、CPU原件/两日志、权威预算及四份既有Native35/WC0.06视频。原件SHA **c0d9872ca9c6778d18ae7fe8d8f30347951df2a64340f9513e4a86381f5e224f**匹配；本地独立从raw返回轨迹重算4组全部父/后缀/OFF/repeat/每CFG计数/paid-probe/deep/五pipeline/编码桥及三失败，不仅复述返回的pass布尔值。
+
+Toy中C/D未来两个CFG的full次数分别为[10,11]/[11,11]和[11,10]/[11,11]，再次表明首动作自适应诊断不自动预算匹配；这些仅为夹具合同证据，不是真实费用或刷新收益标签。四份历史Native/WC源文件仍匹配119冻结哈希，不表示当前GPU父视频桥已产生。
+
+当前小核心的实际Torch门已关闭，不重跑相同旧完整RV0或121交换测试。生产CLI、共享锁/超时/13h预付与实费结算、实际来源与资源部署、独立终态审计及四组Native相对全93帧LPIPS评分仍需接线；旧full8/24/18全部保持未选、未执行、未验收。3900/3870只为新小卡完整候选花费上限，预算原SHA/used11.022315686839217/45jobs/无inflight保持；新GPU/视频/正式RV标签均0。

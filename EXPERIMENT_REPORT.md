@@ -1,3 +1,11 @@
+## 2026-10-04 小C/D独立核心实际CPU通过：下一生产入口接线
+
+[122核心/新卡](research/122_WC_W3_SMALL_CD_CORE_AND_CARD_PREPARATION.md) / [84项独立审计](reports/wc_w3_small_cd_core_cpu_r1_audit_20261004.json)：source1975005、独立67文件CPUstage、Torch2.7.1+cu128禁止CUDA，exit0、144.952秒。两flow成功批次各2父/12完整14更新后缀/8模拟输出，共4父24后缀16mock，同输入Cdeep0/Dfull、全轨迹/UniPC/状态、OFF/CC/DD交换顺序与完整五pipeline/编码桥通过；写出缺失/安全拒绝/历史来源不兼容三失败保留并清理。84来源/原件/日志/预算/四历史Native-WC视频SHA与raw完整父子轨迹/来源/分支次数/编码桥独立重算。
+
+新WC-W3-SMALL-CD-R1-20261004-A明确common45/CFG0、human46/CFG1，从step22各OFF/OFF/C/D/D/C；科学2对、完整2父12后缀8新输出，两既有Native仅在当前GPU父到历史WC0.06字节桥及context/settings/36grid/source匹配后复用。不是Full RV0/同预算/在线/正式标签；CPU Toy不证明真实CAL父桥或收益。旧8/24/18、121固定mask和119W1两例保真正结果均保留，未重跑旧回归或取消成果。
+
+3900全wall/3870child+15准入为新小卡候选上限，完整名义2811.502秒、压力6109.684秒非硬上界；压力超过cap，不保证完成，花满余3204.663527秒，后序按实际结算决定。下一接生产CLI、真实根/source/assets/import与全局锁/资源门、监督预付/实费/释放、独立终态和四Native相对全93帧CPU评分；当前尚未齐备/选择GPU，不重复已通过的CPU控制。13h used11.022315686839217/45jobs/无inflight、预算SHA不变；本轮新GPU/视频/收益标签0，Head/LoRA/训练/人评后置，科学goal active。以下为历史。
+
 ## 2026-10-04 v1.7：W3固定mask/同配额交换实际CPU通过
 
 [121真实CPU](research/121_WC_W3_FIXED_MASK_CPU_INTERFACE.md) / [54项独立审计](reports/wc_w3_fixed_mask_cpu_r1_audit_20261004.json)：source8895c0e独立CPU目录、Torch2.7.1+cu128禁止CUDA，exit0、120.407秒。两个Toy场景×flow OFF/ON、24条完整14更新/28CFG后缀、24次TECH_BLOCKED父恢复通过；原官方/OFF/固定原mask完整pipeline严格相等，交换实际仅两位置、两CFG配额分别匹配、正反重复轨迹/状态相等，69..72自然保护不override。54来源/原件/日志/预算SHA及raw branch配额/deep/同输入/重复/失败独立核对通过；37旧CPU依赖/旧8父24后缀18输出未改，不重跑不受影响的旧回归。
