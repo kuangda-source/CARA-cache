@@ -1,3 +1,13 @@
+# WorldCache 当前短接续（2026-10-04，计划v1.6）
+
+先读[AGENTS](../../AGENTS.md)、[总览](../../EXPERIMENT_REPORT.md)、[状态](../../research/02_CURRENT_STATE.md)、[队列](../../research/09_NEXT_ACTIONS.md)、[handoff](../../memory/handoffs/LATEST.md)和[下一窗口](../../plans/WORLD_CACHE_W3_NEXT_WINDOW_20261004.md)。本次新指令只是调整计划，未启动CPU评分或GPU实验。
+
+已有104/H0/H1/阶段/FAIR14/真实恢复/118服务器CPU复用，不从原包通用模板重跑。下一先分析已生成FAIR14/W1兼容视频全帧LPIPS，再具体化新小C/D卡完整费用及固定mask交换接口。两CAL各一对自适应C/D只作首动作诊断；每CAL至多两次交换匹配每CFG完整配额、保持保护和各自UniPC历史；有空间先简单规则/新样本确认，不立即训练Head、LoRA或专家。
+
+账本13h累计已用11.022315686839217h/45jobs、余7119.663527秒、无inflight。原8/24/18草案仍未选且身份不缩；CPUproject-view不作GPU账本/锁，后续按具体权限和真实路径/live完整对预算执行，不从余量推导许可。OMR只走独立库。
+
+## 以下为历史短接续快照，非当前运行指令
+
 ## 2026-10-03 最新终态 — r4完整104点及九门全部通过并审计
 
 [完整结果](../../research/75_WC_FULL104_R4_CARD_AND_RESULTS.md)：唯一wc-mid-full-r4/source8c14046 exit0，两臂18 solver更新/36CFG，104QKV/312case、共享官方prepared-input和完整RNG、全部九项输入/输出/condition/状态等门及step13/18各36组件全部一致。两处进程内restore通过，第13步恢复后实际继续到18；不是独立进程整管线反事实接口。104文件和312张量raw SHA/finite/shape、case/repeat、source/成本/释放独立CPU审计通过。

@@ -1,3 +1,17 @@
+# W3首窗口接续入口（2026-10-04更新）
+
+当前详细计划：[WorldCache全帧保真与同配额位置干预 v1.6](WORLD_CACHE_W3_NEXT_WINDOW_20261004.md)。先读[当前状态](../research/02_CURRENT_STATE.md)、[队列](../research/09_NEXT_ACTIONS.md)、[真实恢复](../research/112_WC_RV0_REAL_RESTORE_RESULTS_AND_NEXT_GATE.md)及[118实际CPU](../research/118_WC_RV0_AUTHORIZED_SYNC_AND_ACTUAL_CPU_RESULTS.md)。已完成104点/S-H/阶段/FAIR14/恢复/CPU同步不重跑，W1只复用兼容既有视频分析。
+
+1. 已有FAIR14十组Native比较及W1兼容性表，全93帧CPU LPIPS；复用现有计量检查，补实际不同输入/轻扰动，不新生成填缺失。
+2. 重估新小卡完整父/参考/因果控制/两臂/编码/退出成本；原8父24后缀18输出仍未选且不缩身份。累计13h只余7119.663527秒，0.30h不是经测可执行cap。
+3. 两CAL各一处合法checkpoint/CFG各一对自适应C/D：测有符号终点与后续成本，不能报同预算收益。
+4. 新固定mask接口通过后，两CAL各至多两次合法C/D位置交换：每CFG完整配额匹配，两臂状态独立演化，保护不可移除；无合法点在新卡冻结前登记，不按结果替换。
+5. 有空间才冻结phase/age/已支付probe的简单规则并用新seed或新场景确认；hindsight优势不作在线结果，同prompt新seed不作场景CONF。
+
+本轮仅计划更新，无实际LPIPS评分、新C/D、交换或训练。此前CPU限定同步已完成；CPUproject-view不作GPU账本/锁目录。下一执行沿用具体权限、真实根目录/来源绑定与live资源/完整对预算；不从文档建议扩大授权，亦不重复索要已完成事项的许可。
+
+## 历史首窗口记录（下文为各时点快照，非当前续跑指令）
+
 <!-- Latest real restoration: ../research/112_WC_RV0_REAL_RESTORE_RESULTS_AND_NEXT_GATE.md; full causal RV0 and signed benefit remain incomplete. -->
 <!-- Current execution evidence: ../research/111_WC_RV0_RESTORE_EXECUTION_CARD.md; full RV0 remains incomplete. -->
 # WC-RV首窗口：先验证刷新收益空间，不先训练Head
