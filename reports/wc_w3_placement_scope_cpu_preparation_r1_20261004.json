@@ -1,0 +1,104 @@
+{
+  "status": "PLACEMENT_FULL_FOUR_PAIR_SCOPE_AND_COST_CPU_PREPARATION_NOT_GPU",
+  "scope_check": {
+    "status": "PLACEMENT_FULL_SCOPE_CPU_PASS_NOT_GPU_SELECTION",
+    "parents": 2,
+    "suffixes": 16,
+    "new_outputs": 10,
+    "science_pairs": 4,
+    "Native_relative_losses": 6,
+    "signed_diagnostics": 4
+  },
+  "swaps": [
+    {
+      "scene": "common_sense_6487f37f-ef57-49ca-afdc-d898922b5191",
+      "parent_mask_sha256": "f32002f0e88e4bf493c8f247b71e5e890a9570634ff918f8ec81f741719f2d37",
+      "parent_full_counts_per_CFG": [
+        18,
+        17
+      ],
+      "swaps": [
+        {
+          "CFG_slot": 0,
+          "calls": [
+            47,
+            49
+          ]
+        },
+        {
+          "CFG_slot": 1,
+          "calls": [
+            48,
+            50
+          ]
+        }
+      ]
+    },
+    {
+      "scene": "human_199",
+      "parent_mask_sha256": "b0248fc121b0ccf2220647bf01204cc8a29b0af8613046cd5c7ee740e94fdde5",
+      "parent_full_counts_per_CFG": [
+        20,
+        18
+      ],
+      "swaps": [
+        {
+          "CFG_slot": 0,
+          "calls": [
+            61,
+            63
+          ]
+        },
+        {
+          "CFG_slot": 1,
+          "calls": [
+            46,
+            48
+          ]
+        }
+      ]
+    }
+  ],
+  "cost": {
+    "components_seconds": {
+      "loading": 75.92343720421195,
+      "two_diagnostic_parents": 544.501383561641,
+      "sixteen_unchanged_suffix_proxies": 1923.324890628457,
+      "eight_unique_child_decode_encode_unmeasured_allowance": 240,
+      "new_bookkeeping_unmeasured_allowance": 75
+    },
+    "nominal_complete_seconds": 3460.499653673172,
+    "stress_proxy_complete_seconds": 7858.075341403484,
+    "planning_factor": 1.2,
+    "shutdown_allowance_seconds": 30,
+    "current_remaining_seconds": 7119.663527378818,
+    "A_CD_full_cap_seconds": 3900,
+    "remaining_after_A_CD_full_cap": 3219.663527378818,
+    "nominal_B_shortfall_after_A_full_cap": 255.83612629435402,
+    "nominal_A_plus_B_with_two_admissions": 6302.001840157807,
+    "proxies_are_hard_bounds": false,
+    "real_fixed_mask_swap_cost_measured": false,
+    "proposed_B_timeout_seconds": null,
+    "B_GPU_admitted": false,
+    "both_batches_guaranteed": false,
+    "conditional_reprice_from_actual_A_required": true,
+    "A_payoff_must_be_positive_for_B": false,
+    "current_B_parent_reference_bridge_required": true
+  },
+  "config_sha256": "99337dec2727d4fcafb8cd7b255867a6db76cfa58f36d167c9979dbd627a158d",
+  "source_receipt_sha256": {
+    "reports/wc_w3_small_window_cpu_preparation_20261004.json": "11994374c8b0634f30452540249041bdca1d6fd9c69058eaed92734a388dc24d",
+    "reports/wc_w3_fixed_mask_cpu_r1_audit_20261004.json": "d70a94c6b680be5deca2abe5c8642335f604a5ed31a2a61724c83cb7a2c62f4b",
+    "configs/wc_w3_small_cd_production_r1_draft.json": "607f98193debd37d470081e5d3d282030ca59f6bb1f397572aaa8c572fab247c",
+    "src/wcomr/rv0_fixed_plan.py": "1fdd2c34405536d025ee0600f2c03abcdfd0c0890e2de9f8284acb5207e684bc",
+    "src/wcomr/rv0_fixed_mask.py": "229ba36e018fd0eb6ed1402cdd175956db8b7af5017e2fa6e8619a89ad1e0def",
+    "src/wcomr/rv0_placement_scope.py": "9be9979d46539932c18b9307e3ad7430b2ccf91a07b5e976b2f09be72ae5765b",
+    "scripts/prepare_wc_w3_placement_scope_cpu.py": "e2d2f2d3f95756c65a4532d1edfebd0a80dfc0f5267a77859e493131fe3c412f",
+    "reports/budget.json": "597fa09593f75c89b191b3f94f45e9d26e048ddc63779e4c52aa4e94464f86e5"
+  },
+  "GPU_submissions": 0,
+  "ledger_written": false,
+  "scientific_results": 0,
+  "full_C_D_and_fixed_mask_GPU_core_altered": false,
+  "limits": "Static parent-mask/preregistered full-scope and conditional proxy cost only; no real own-state swap feasibility, video quality or launch authority."
+}
