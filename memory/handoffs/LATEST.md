@@ -1,3 +1,9 @@
+## 2026-10-04 公平十四输出独立卡已选择，本地范围/审计CPU通过
+
+[105独立执行卡](../../research/105_WC_FAIR_NATIVE_TUNED_WC_FOURTEEN_EXECUTION_CARD.md)：wc-fair-cal-r1/6300全wall/6270child/kill5，strict WC D/D后两个曝光CAL各Native35/Native23/WC0.04/0.06/0.08/stage every1，十四输出、十组Native35相对指标全部保留。新scope/runner/监督器及Native24/36网格/原方法/完整十四视频/费用释放/全部十指标审计已具体化，本地48范围费用预算+22审计控制通过。当前30依赖/七官方源与实际r3原件保持，未重跑或修改旧冻结核心。
+
+依据现有自主goal/累计12h仅选择此卡：完整规划6298.155秒≤6300，当前9.691073425147268/12h、43jobs、余2.308926574852732h无inflight，尚未实际部署、GPU提交或预付。先源码冻结同步、actual原件/prepare/native-meta/Native方法origin/assets/import/package/两条件/历史WC门及独立部署审计，再fresh资源/锁/余额/磁盘唯一提交。后序CONF拟cap不能同时准入，按本卡实费重算；不重提104/旧卡、不删强基线/改CONF，不训练/付费/人评。Native GPU独立parity/公平前沿/CONF/语义物理仍待证，科学goal active。以下为历史。
+
 ## 2026-10-04 公平六点/十四输出完整入口CPU14通过，Native原方法已接线
 
 [104当前接口/证据](../../research/104_WC_FAIR_NATIVE_FEWER_STEP_FULL_CPU_INTERFACE.md)/[原件独立审计](../../reports/wc_fair_sampling_cpu_audit_20261004.json)：实际Cosmos CPU r3 64.100秒，当前30依赖/7官方源与服务器原件、两Native forward AST绑定通过，禁止CUDA。Native35/23原始类方法与直接CPU路径的prepared/逐前向tensor/final latent/decode/RNG/mock artifact相等；实际36/24更新72/48CFG，WC0.04/0.06/0.08与stage every1全保留。
