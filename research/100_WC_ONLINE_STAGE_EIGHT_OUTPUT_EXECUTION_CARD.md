@@ -36,3 +36,7 @@
 [原启动](../reports/wc_online_stage_r1_launch_20261004.json)/[现场](../reports/wc_online_stage_r1_start_observation_20261004.json)：supervisor2758008/timeout2758025/runner2758027及stage命令行匹配，模型初始化、0/8视频；最初launch state null为启动瞬间，不能据此重提。预付3600秒后原账本10.136838727254782/12h、43jobs，已结算9.136838727254782h保持；child起算1791070999.1641538秒，3570秒child/kill5，终态实际替换预付。当前没有D/D、候选反馈或质量/速度验收；只跟踪原卡至终态后独立审计，不启动下一卡。
 
 [现场1791071128.3485715](../reports/wc_online_stage_r1_live_observation_20261004.json)：同一三句柄仍live，模型加载63.174秒，第一官方D/D已过prompt guardrail且开始生成、0/8视频；预付未变，成对门和在线候选待完成。
+
+## D/D独立通过，六在线测量待完成
+
+[101独立证据](101_WC_ONLINE_STAGE_DD_AND_FEWER_STEP_CPU.md)：原九门/五状态1216组件/完整pipeline及关闭S的在线来源/native70独立通过，两93帧视频SHA复现历史common D、逐帧/temporal误差0、SSIM1，D/D原件独立归档。原卡2/8，六测量待完成，预算预付不变。另确认23请求官方CPU网格为24更新；完整Native/少步入口与真实管线仍缺，单次CAP与费用规划不变。

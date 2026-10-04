@@ -1,5 +1,5 @@
 {
-  "observed_unix": 1791071128.3485715,
+  "observed_unix": 1791071783.8097043,
   "source_revision": "3ad34e10475ab525190bf12a21f46ec8e525385c",
   "supervisor": {
     "status": "GPU_ONLINE_STAGE_RUNNING",
@@ -89,25 +89,70 @@
       "reserved_seconds": 3600
     }
   },
-  "gpu": "GPU-de9a5370-cd87-0f1c-a48e-288888777dd3, NVIDIA RTX A6000, 340\nGPU-cebf7119-cf03-23b9-e192-cd196332b704, NVIDIA RTX A6000, 24716\n",
+  "gpu": "GPU-de9a5370-cd87-0f1c-a48e-288888777dd3, NVIDIA RTX A6000, 340\nGPU-cebf7119-cf03-23b9-e192-cd196332b704, NVIDIA RTX A6000, 25826\n",
   "apps": "GPU-cebf7119-cf03-23b9-e192-cd196332b704, 2758027\n",
-  "video_files": [],
+  "video_files": [
+    "diagnostic/dense-control/000_official/common_sense_6487f37f-ef57-49ca-afdc-d898922b5191.mp4",
+    "diagnostic/dense-control/001_candidate/common_sense_6487f37f-ef57-49ca-afdc-d898922b5191.mp4"
+  ],
   "dense_control": {
-    "status": "NOT_STARTED",
-    "nine_checks": null,
-    "pipeline_checks": null,
+    "status": "FRESH_PREPARE_LIGHT_DD_NINE_AND_FINAL_PIPELINE_PASS",
+    "nine_checks": {
+      "input_hashes": true,
+      "output_hashes": true,
+      "trace": true,
+      "block_counts": true,
+      "state_fingerprints": true,
+      "sampling": true,
+      "named_inputs": true,
+      "conditions": true,
+      "field_signatures": true
+    },
+    "pipeline_checks": {
+      "prepared": true,
+      "pipeline_witnesses": true,
+      "artifacts": true,
+      "flags_before": true,
+      "flags_after": true,
+      "rng_after": true
+    },
     "phases": [
       {
         "index": 0,
         "kind": "official",
-        "status": "STARTED",
-        "solver_steps": 0,
-        "CFG_calls": 0,
-        "prepare_calls": 0
+        "status": "COMPLETE36_CFG72_ORDINARY_RETURN_NO_QUALITY_ACCEPTANCE",
+        "solver_steps": 36,
+        "CFG_calls": 72,
+        "prepare_calls": 1,
+        "pipeline_wall_seconds": 339.84384189080447
+      },
+      {
+        "index": 1,
+        "kind": "candidate",
+        "status": "COMPLETE36_CFG72_ORDINARY_RETURN_NO_QUALITY_ACCEPTANCE",
+        "solver_steps": 36,
+        "CFG_calls": 72,
+        "prepare_calls": 1,
+        "pipeline_wall_seconds": 324.35702055040747
       }
     ]
   },
-  "measurements": [],
+  "measurements": [
+    {
+      "sample_name": "common_sense_6487f37f-ef57-49ca-afdc-d898922b5191",
+      "status": "STARTED",
+      "phases": [
+        {
+          "index": 0,
+          "kind": "official",
+          "status": "STARTED",
+          "solver_steps": 0,
+          "CFG_calls": 0,
+          "prepare_calls": 0
+        }
+      ]
+    }
+  ],
   "child_max_deadline_beijing": "2026-10-04T08:42:49.164154+08:00",
-  "log_tail": "_predict2/_src/imaginaire/utils/checkpoint_db.py:171:path] Downloading checkpoint nvidia/Cosmos-Reason1.1-7B(cb3e3ffa-7b08-4c34-822d-61c7aa31a14f)\n[10-04 07:43:59|INFO|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/_src/imaginaire/utils/checkpoint_db.py:131:_download] Downloading checkpoint from Hugging Face with {'repo_id': 'nvidia/Cosmos-Reason1-7B', 'repo_type': 'model', 'revision': '3210bec0495fdc7a8d3dbb8d58da5711eab4b423', 'allow_patterns': ['*']}\n[10-04 07:44:44|INFO|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/inference.py:69:__init__] Saved config to /home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-online-stage-r1/diagnostic/config.yaml\n[10-04 07:44:52|INFO|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/inference.py:91:generate] Generating 1 samples: ['common_sense_6487f37f-ef57-49ca-afdc-d898922b5191']\n[10-04 07:44:52|INFO|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/inference.py:95:generate] [1/1] Processing sample common_sense_6487f37f-ef57-49ca-afdc-d898922b5191\n[10-04 07:44:52|INFO|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/inference.py:108:_generate_sample] Saved arguments to /home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-online-stage-r1/diagnostic/dense-control/000_official/common_sense_6487f37f-ef57-49ca-afdc-d898922b5191.json\n[10-04 07:45:11|SUCCESS|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/inference.py:120:_generate_sample] Passed guardrail on prompt\n[10-04 07:45:11|INFO|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/inference.py:142:_generate_sample] Generating video with standard mode...\n"
+  "log_tail": ",  7.11s/it]\n[10-04 07:55:42|INFO|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/inference.py:160:_generate_sample] Running guardrail check on video...\n[10-04 07:55:53|SUCCESS|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/inference.py:172:_generate_sample] Passed guardrail on generated video\n[10-04 07:55:57|SUCCESS|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/inference.py:180:_generate_sample] Saved video to /home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-online-stage-r1/diagnostic/dense-control/001_candidate/common_sense_6487f37f-ef57-49ca-afdc-d898922b5191.mp4\n[10-04 07:55:57|INFO|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/inference.py:91:generate] Generating 1 samples: ['common_sense_6487f37f-ef57-49ca-afdc-d898922b5191']\n[10-04 07:55:57|INFO|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/inference.py:95:generate] [1/1] Processing sample common_sense_6487f37f-ef57-49ca-afdc-d898922b5191\n[10-04 07:55:57|INFO|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/inference.py:108:_generate_sample] Saved arguments to /home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-online-stage-r1/diagnostic/measurement/common_sense_6487f37f-ef57-49ca-afdc-d898922b5191/000_official/common_sense_6487f37f-ef57-49ca-afdc-d898922b5191.json\n[10-04 07:56:16|SUCCESS|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/inference.py:120:_generate_sample] Passed guardrail on prompt\n[10-04 07:56:16|INFO|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/inference.py:142:_generate_sample] Generating video with standard mode...\n"
 }
