@@ -39,3 +39,7 @@ GPU前还须source提交/同步并在独立deploy1核验：服务器r3原件SHA�
 冻结GPU源 `1a22ac6ef5c31c3cf15998ee868d96fcc6ba6b54`。[实际部署](../reports/wc_fair_cal_r1_deployment_20261004.json)在新的deploy1完成8项入口/准备/模式/来源门、48 scope/22审计控制；r3原件14组、当前30依赖/七官方源逐SHA绑定通过。两个实际Native原方法源与CPU绑定一致，native-meta默认1173→eval0，prepare OFF/ON、资产/guardrail/package/import、两个真实条件及两历史WC实体视频均通过；CUDA未初始化、账本未变。[独立复核](../reports/wc_fair_cal_r1_deployment_audit_20261004.json)逐SHA核验55个stage文件与服务器部署原件。磁盘空闲564.233GB。
 
 仍9.691073425147268/12h、43jobs无inflight，新增GPU提交/预付0。仅下一fresh GPU UUID/sm86/VRAM/apps、f1锁、无inflight/原12h余额和磁盘后wc-fair-cal-r1单次提交；实际GPU D/D、Native/十四输出和指标待验证。旧104/其他原卡不重提。
+
+## 唯一启动已确认，原卡D/D生成中
+
+[单次启动](../reports/wc_fair_cal_r1_launch_20261004.json)/[现场1791076765.7874134](../reports/wc_fair_cal_r1_start_observation_20261004.json)：冻结源1a22ac6，原supervisor2771711/timeout2771727/runner2771729均live且命令行匹配。first launch state null属于启动期，原观察补证后不重提。模型加载99.810秒、第一官方D/D在普通generate中，0/14视频。单次预付6300秒后11.441073425147268/12h、44jobs，child6270秒/kill5，全费用终态按实wall替换。只跟踪原卡，先独立D/D、终态十四输出与全部十组Native相对指标；无质量/前沿或CONF接受，科学goal active。
