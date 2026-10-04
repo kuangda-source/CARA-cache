@@ -1,3 +1,11 @@
+## 2026-10-04 在线八输出终态：全审计通过，保真改善未形成质量保持加速
+
+[103完整结果/下一步](research/103_WC_ONLINE_STAGE_RESULTS_AND_FAIR_BASELINE_NEXT.md)/[原件与指标](reports/wc_online_stage_r1_summary_20261004.json)：source3ad34e1原卡exit0，八93帧输出、strict D/D、在线核/来源/逐CFG窗口频率、51源码/费用/释放独立通过。every1 common/human SSIM0.963415/0.927613，单次完整wall减少0.564%/1.034%；every2 SSIM0.962969/0.916786，耗时分别增加1.117%/减少1.608%。human every1编码输出/S calls/整视频指标复现旧E0L0，非全部内部状态等价。
+
+common低频额外full call70，human低频在56新增full、57/58改cache；窗口后的近似来源仍被读取。少S不保证更省或更准；不是同状态RV标签、稳定速度或前沿接受。实费1995.244912秒，累计9.691073425147268/12h、43jobs，余2.308926574852732h，无inflight；原三PID/锁/GPU释放。原104授权已完成，本轮原件SHA只读复核一致，不重提/扣费。
+
+下一继续WC，先CPU准备Native/少步完整入口与调过WC强基线，every1仅CAL选定公平比较候选；后续14输出6300与CONF6/3000两拟cap不能共同准入，缺1002.864秒，先序实费退款后重算。不删基线/改CONF，不训练/付费/加人评，未选下一GPU卡，科学goal active。以下运行/预付记录为历史。
+
 ## 2026-10-04 原在线八输出卡7/8，common真实窗口/反馈独立通过
 
 [102 已完成结构证据](research/102_WC_ONLINE_STAGE_PARTIAL_ADAPTIVE_MECHANISM.md)/[common三臂审计](reports/wc_online_stage_r1_partial_phase_audit_r2_20261004.json)：两在线候选完整93帧/36更新72CFG/prepare1及真实核/来源/窗口/逐CFG选择独立通过。common every1实际6S/138算子/35deep，every2实际4S/92算子/36deep；后者call70(step35 CFG1)将原生cache变为full。两者call57/58(step29)仍读近似来源，窗口23–27仅限制新增S，不清空原生forecast历史。

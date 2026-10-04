@@ -1,3 +1,5 @@
+> 2026-10-04 更新：原八输出卡已退出且完整审计通过，当前结果与费用以[103终态](103_WC_ONLINE_STAGE_RESULTS_AND_FAIR_BASELINE_NEXT.md)为准。以下准备/部分进度保持其历史身份。
+
 # 在线阶段窗口与刷新频率：独立八输出执行卡
 
 2026-10-04。承接[99 CPU与完整成本](99_WC_ONLINE_STAGE_CPU_AND_FAIR_FRONTIER_BUDGET.md)。基于用户持续自主实验目标和既有累计12 GPUh授权，选择独立 `WC-ONLINE-STAGE-R1-20261004-A` / `wc-online-stage-r1`，单次3600秒全费用、3570秒child、5秒强制退出余量。冻结source `3ad34e10475ab525190bf12a21f46ec8e525385c` 的实际部署与独立审计通过，fresh准入后已唯一提交GPU；不得复用104点或旧视频卡身份。

@@ -1,0 +1,334 @@
+{
+  "status": "ALL_EIGHT_ONLINE_STAGE_OUTPUTS_AUDITED_FOUR_CAL_DIAGNOSTICS_NOT_FRONTIER",
+  "CPU_only": true,
+  "run_id": "wc-online-stage-r1",
+  "card": "WC-ONLINE-STAGE-R1-20261004-A",
+  "source_revision": "3ad34e10475ab525190bf12a21f46ec8e525385c",
+  "receipt_sha256": "3a644b3669afe3b08c2e7dea0a320277345456cbd4ea7e8c5c4a8aaa5bef24f5",
+  "planned_outputs": 8,
+  "audited_outputs": 8,
+  "candidate_pairs": 4,
+  "rows": [
+    {
+      "sample_name": "common_sense_6487f37f-ef57-49ca-afdc-d898922b5191",
+      "variant": "stage_every1",
+      "baseline_video_sha256": "fa7f466534e7e7984136dfaa9fb47794dedf0c81444229527b9722142715c379",
+      "candidate_video_sha256": "253773b6338e1803ec0ac1cb0a0493681e72316dd215d9f2883cb9e946d23fc4",
+      "baseline_pipeline_wall_seconds": 198.3484803661704,
+      "candidate_pipeline_wall_seconds": 197.2305622473359,
+      "descriptive_WC_over_candidate": 1.0056680775337068,
+      "descriptive_wall_reduction_fraction": 0.005636131503355624,
+      "baseline_deep_CFG_calls": 35,
+      "candidate_deep_CFG_calls": 35,
+      "S_CFG_calls": [
+        45,
+        46,
+        49,
+        50,
+        53,
+        54
+      ],
+      "S_count": 6,
+      "S_attention_operators": 138,
+      "window_eligible_per_CFG": [
+        3,
+        3
+      ],
+      "cache_calls_reading_approximate": [
+        47,
+        48,
+        51,
+        52,
+        57,
+        58
+      ],
+      "approximate_reads_after_stage_window": [
+        57,
+        58
+      ],
+      "native_decision_differences_vs_WC": [],
+      "whole_video": {
+        "frames": 93,
+        "RGB_MSE_0to1": 0.0005189515169681698,
+        "RGB_PSNR_dB": 32.848732142069046,
+        "exact_RGB_equality": false,
+        "mean_luma_SSIM_win7": 0.9634145138985475,
+        "transitions": 92,
+        "baseline_mean_abs_RGB_frame_change": 0.022419094952795936,
+        "candidate_mean_abs_RGB_frame_change": 0.022482334140295275,
+        "temporal_difference_MSE_0to1": 0.00040842887744035666,
+        "candidate_over_baseline_frame_change": 1.002820773435881
+      }
+    },
+    {
+      "sample_name": "common_sense_6487f37f-ef57-49ca-afdc-d898922b5191",
+      "variant": "stage_every2",
+      "baseline_video_sha256": "fa7f466534e7e7984136dfaa9fb47794dedf0c81444229527b9722142715c379",
+      "candidate_video_sha256": "8d5b494e8098ccf0005c3f39e6d4106a08a5f5696e1c962a414d13097a909380",
+      "baseline_pipeline_wall_seconds": 198.3484803661704,
+      "candidate_pipeline_wall_seconds": 200.56410215981305,
+      "descriptive_WC_over_candidate": 0.9889530490761642,
+      "descriptive_wall_reduction_fraction": -0.011170349223510012,
+      "baseline_deep_CFG_calls": 35,
+      "candidate_deep_CFG_calls": 36,
+      "S_CFG_calls": [
+        45,
+        46,
+        53,
+        54
+      ],
+      "S_count": 4,
+      "S_attention_operators": 92,
+      "window_eligible_per_CFG": [
+        3,
+        3
+      ],
+      "cache_calls_reading_approximate": [
+        47,
+        48,
+        51,
+        52,
+        57,
+        58
+      ],
+      "approximate_reads_after_stage_window": [
+        57,
+        58
+      ],
+      "native_decision_differences_vs_WC": [
+        {
+          "call": 70,
+          "solver_step": 35,
+          "CFG_slot": 1,
+          "WC_deep": false,
+          "candidate_deep": true
+        }
+      ],
+      "whole_video": {
+        "frames": 93,
+        "RGB_MSE_0to1": 0.0005294147611479096,
+        "RGB_PSNR_dB": 32.76203953862567,
+        "exact_RGB_equality": false,
+        "mean_luma_SSIM_win7": 0.9629689086147843,
+        "transitions": 92,
+        "baseline_mean_abs_RGB_frame_change": 0.022419094952795936,
+        "candidate_mean_abs_RGB_frame_change": 0.021763969843408483,
+        "temporal_difference_MSE_0to1": 0.00043317720678189004,
+        "candidate_over_baseline_frame_change": 0.9707782535036834
+      }
+    },
+    {
+      "sample_name": "human_199",
+      "variant": "stage_every1",
+      "baseline_video_sha256": "4d0f0549dbabf04e7f217037c40f6a30f41cb240289162d6fb0fbec2dde982fb",
+      "candidate_video_sha256": "92344543aae6818ec52a313c7d2488ee68dfd00efb5270f5f9fb6b50a71c9149",
+      "baseline_pipeline_wall_seconds": 208.1001524766907,
+      "candidate_pipeline_wall_seconds": 205.94858097005635,
+      "descriptive_WC_over_candidate": 1.0104471295529207,
+      "descriptive_wall_reduction_fraction": 0.010339115474100158,
+      "baseline_deep_CFG_calls": 38,
+      "candidate_deep_CFG_calls": 38,
+      "S_CFG_calls": [
+        45,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54
+      ],
+      "S_count": 9,
+      "S_attention_operators": 207,
+      "window_eligible_per_CFG": [
+        5,
+        4
+      ],
+      "cache_calls_reading_approximate": [
+        56
+      ],
+      "approximate_reads_after_stage_window": [
+        56
+      ],
+      "native_decision_differences_vs_WC": [],
+      "whole_video": {
+        "frames": 93,
+        "RGB_MSE_0to1": 0.001809356516133735,
+        "RGB_PSNR_dB": 27.424758511974442,
+        "exact_RGB_equality": false,
+        "mean_luma_SSIM_win7": 0.9276125662121745,
+        "transitions": 92,
+        "baseline_mean_abs_RGB_frame_change": 0.06312986322396619,
+        "candidate_mean_abs_RGB_frame_change": 0.06324926985560253,
+        "temporal_difference_MSE_0to1": 0.0030495223596885756,
+        "candidate_over_baseline_frame_change": 1.0018914444850406
+      }
+    },
+    {
+      "sample_name": "human_199",
+      "variant": "stage_every2",
+      "baseline_video_sha256": "4d0f0549dbabf04e7f217037c40f6a30f41cb240289162d6fb0fbec2dde982fb",
+      "candidate_video_sha256": "abd1e96e73bfc953d9d8ae79222243ea3e959546f4c8b0f9fa38ba4d5b692e99",
+      "baseline_pipeline_wall_seconds": 208.1001524766907,
+      "candidate_pipeline_wall_seconds": 204.7539612231776,
+      "descriptive_WC_over_candidate": 1.0163424982526508,
+      "descriptive_wall_reduction_fraction": 0.016079715529703442,
+      "baseline_deep_CFG_calls": 38,
+      "candidate_deep_CFG_calls": 37,
+      "S_CFG_calls": [
+        45,
+        48,
+        49,
+        52,
+        53
+      ],
+      "S_count": 5,
+      "S_attention_operators": 115,
+      "window_eligible_per_CFG": [
+        5,
+        4
+      ],
+      "cache_calls_reading_approximate": [
+        57
+      ],
+      "approximate_reads_after_stage_window": [
+        57
+      ],
+      "native_decision_differences_vs_WC": [
+        {
+          "call": 56,
+          "solver_step": 28,
+          "CFG_slot": 1,
+          "WC_deep": false,
+          "candidate_deep": true
+        },
+        {
+          "call": 57,
+          "solver_step": 29,
+          "CFG_slot": 0,
+          "WC_deep": true,
+          "candidate_deep": false
+        },
+        {
+          "call": 58,
+          "solver_step": 29,
+          "CFG_slot": 1,
+          "WC_deep": true,
+          "candidate_deep": false
+        }
+      ],
+      "whole_video": {
+        "frames": 93,
+        "RGB_MSE_0to1": 0.0023335319648865593,
+        "RGB_PSNR_dB": 26.319862457414274,
+        "exact_RGB_equality": false,
+        "mean_luma_SSIM_win7": 0.9167856562253272,
+        "transitions": 92,
+        "baseline_mean_abs_RGB_frame_change": 0.06312986322396619,
+        "candidate_mean_abs_RGB_frame_change": 0.06306293463419146,
+        "temporal_difference_MSE_0to1": 0.00398823667832231,
+        "candidate_over_baseline_frame_change": 0.998939826789466
+      }
+    }
+  ],
+  "human_every1_encoded_bridge_to_offline_E0L0": {
+    "video_sha256": "92344543aae6818ec52a313c7d2488ee68dfd00efb5270f5f9fb6b50a71c9149",
+    "baseline_SHA_S_calls_and_all_whole_video_metrics_equal": true,
+    "internal_full_state_equivalence_claim": false
+  },
+  "GPU_wall_seconds": 1995.244912412949,
+  "GPU_hours": 0.5542346978924858,
+  "budget": {
+    "batch": "F0-F1",
+    "cap_gpu_hours": 12,
+    "used_gpu_hours": 9.691073425147268,
+    "gpu_jobs_launched": 43,
+    "status": "WC_ONLINE_STAGE_SETTLED_REQUIRES_RESULT_AUDIT",
+    "gpu_import_probes_completed": 1,
+    "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts",
+    "budget_authorization_ref": "manifests/budget_authorization_20261003.json",
+    "budget_authorization_history": [
+      {
+        "authorized_utc": "2026-10-02T18:03:00Z",
+        "source_thread_id": "01a0f1e6-7ad0-75df-9a02-172b60d2e00b",
+        "user_instruction": "\u628a\u5404\u4e2a\u5b9e\u9a8c\u7684 gpu \u9884\u7b97\u90fd\u8bbe\u7f6e\u4e3a 12gpuh",
+        "previous_cap_gpu_hours": 4,
+        "new_cumulative_cap_gpu_hours": 12,
+        "used_gpu_hours_at_change": 3.9117525685110333,
+        "no_usage_reset_or_transfer": true
+      }
+    ]
+  },
+  "remaining_GPU_hours": 2.308926574852732,
+  "remaining_seconds": 8312.135669469835,
+  "original_PIDs_lock_GPU_released": true,
+  "followup_budget": {
+    "cards": [
+      {
+        "name": "two_CAL_native_fewer_step_three_WC_points_and_selected_stage",
+        "planned_outputs": 14,
+        "DD_controls": 2,
+        "full_proxy_outputs": 10,
+        "light_proxy_outputs": 2,
+        "unbuffered_seconds": 5223.462838864699,
+        "buffer_factor": 1.2,
+        "shutdown_seconds": 30,
+        "complete_planning_seconds": 6298.155406637638,
+        "proposed_cap_seconds": 6300,
+        "selected": false,
+        "GPU_submitted": false,
+        "fits_settled_budget_with_15s_admission": true
+      },
+      {
+        "name": "one_new_CONF_DD_native_fewer_step_selected_WC_and_stage",
+        "planned_outputs": 6,
+        "DD_controls": 2,
+        "full_proxy_outputs": 3,
+        "light_proxy_outputs": 1,
+        "unbuffered_seconds": 2315.4382959626614,
+        "buffer_factor": 1.2,
+        "shutdown_seconds": 30,
+        "complete_planning_seconds": 2808.5259551551935,
+        "proposed_cap_seconds": 3000,
+        "selected": false,
+        "GPU_submitted": false,
+        "fits_settled_budget_with_15s_admission": true
+      }
+    ],
+    "remaining_proposed_caps_seconds": 9300,
+    "admission_margin_seconds": 15,
+    "both_caps_jointly_fit": false,
+    "additional_seconds_for_both_caps": 1002.8643305301648,
+    "actual_refund_may_change_later_admission": true,
+    "reserved_seconds": 0
+  },
+  "next_GPU_card_selected": false,
+  "new_GPU_submission": false,
+  "quality_acceptance": false,
+  "semantic_or_physics_acceptance": false,
+  "quality_time_frontier_claim": false,
+  "independent_confirmation": false,
+  "causal_refresh_value_labels": false,
+  "replicated_speed_claim": false,
+  "next_action": "CPU_PREPARE_NATIVE_FULL_FEWER_STEP_AND_TUNED_WC_FAIR_BASELINES_BEFORE_NEW_GPU_CARD",
+  "candidate_for_fair_comparison": "stage_every1_CAL_SELECTED_NOT_METHOD_ACCEPTANCE",
+  "limits": [
+    "Two exposed CAL inputs; all four candidates and failures remain in the denominator.",
+    "Single ordered complete pipeline timings include necessary online overhead and first S; not stable speed.",
+    "Reference is official WC, not Native. RGB fidelity and motion proxies do not establish semantics or physics.",
+    "Fewer S can change later native full/cache decisions and degrade fidelity. No matched-cost causal attribution.",
+    "Approximate sources can be read after the S window; no safe cache lifetime proven.",
+    "Native/fewer-step complete entry and parity, tuned WC, independent CONF and automatic semantic/physics assessment remain incomplete.",
+    "Future full14 and CONF6 caps do not fit jointly; re-admit after actual settlement without shrinking baselines or resetting budget."
+  ],
+  "input_files_sha256": {
+    "reports/wc_online_stage_r1_runner_20261004.json.gz": "f81b49d1ed404d0dc52ceaf7baf43c0fec05d63c920d4154187afb27a1382f45",
+    "reports/wc_online_stage_r1_audit_20261004.json": "a95e141673a094bc6a2ea2d6d9d688772c445b114dfc91b76dc4cc1bd698fc75",
+    "reports/wc_online_stage_r1_metrics_20261004.json": "2f7a9fafd970173951078b89a1e07014e33cd8ed5681b63d88574a3fba18f98f",
+    "reports/wc_online_stage_r1_terminal_20261004.json": "30ec0b46a54377cdb4c4fe68fd2d98de1e5d0009313f2b9115066668ac0f16d4",
+    "reports/wc_stage_frontier_cost_draft_20261004.json": "4b914f444c95289ab1d9c259c4184a8851a0d2ee6b24ca94db5fadf78cd87d3d",
+    "reports/wc_timing_factorial_human_r1_summary_20261004.json": "10081ffa8e2bd8c925ec25b5d3afae83c976c0a6ff6d6b645a4ec219e3894c5e"
+  },
+  "summary_code_sha256": "09881006322355dec1d737f66bfb1be7361e502375183c04721f48e12f4a354c"
+}

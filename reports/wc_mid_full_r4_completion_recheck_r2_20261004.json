@@ -1,0 +1,45 @@
+{
+  "status": "PREVIOUS_SINGLE_AUTHORIZED_FULL104_COMPLETION_RECHECK_PASS_NO_RESUBMISSION",
+  "CPU_read_only": true,
+  "run_id": "wc-mid-full-r4",
+  "card": "WC-MID-FULL-COVERAGE-R4-20261003-A",
+  "original_audit": "reports/wc_mid_full_r4_audit_20261003.json",
+  "original_audit_sha256": "5003b967212c06fec6ea848189f96826aa19922f642e6e519cb9fac2831c9e80",
+  "original_GPU_wall_seconds": 1153.5476158056408,
+  "authorized_max_seconds": 1800,
+  "observed_unix": 1791073247.4264271,
+  "original_receipts_unchanged": {
+    "supervisor.json": "6a4515bff8750201a883665163b3373fdcd2d406730116be8022848adbdeff34",
+    "diagnostic/receipt.json": "b9a2ac253524590bd5ef62297e39d53e54e410a113d9761eca8d6c1ee6a85ba2",
+    "coverage.log": "202d2ba424aad1b69fbdb9b7467cf91e92315a69d3c4cc74f54288dfa7f2bd58",
+    "gpu-monitor.jsonl": "c4036d105227b440748bd63fe68fbc2e96c18b72f620ec5ba47b5fc80a7bd8e2"
+  },
+  "original_pids_absent": true,
+  "QKV_groups": 104,
+  "operator_cases": 312,
+  "current_budget": {
+    "batch": "F0-F1",
+    "cap_gpu_hours": 12,
+    "used_gpu_hours": 9.691073425147268,
+    "gpu_jobs_launched": 43,
+    "status": "WC_ONLINE_STAGE_SETTLED_REQUIRES_RESULT_AUDIT",
+    "gpu_import_probes_completed": 1,
+    "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts",
+    "budget_authorization_ref": "manifests/budget_authorization_20261003.json",
+    "budget_authorization_history": [
+      {
+        "authorized_utc": "2026-10-02T18:03:00Z",
+        "source_thread_id": "01a0f1e6-7ad0-75df-9a02-172b60d2e00b",
+        "user_instruction": "\u628a\u5404\u4e2a\u5b9e\u9a8c\u7684 gpu \u9884\u7b97\u90fd\u8bbe\u7f6e\u4e3a 12gpuh",
+        "previous_cap_gpu_hours": 4,
+        "new_cumulative_cap_gpu_hours": 12,
+        "used_gpu_hours_at_change": 3.9117525685110333,
+        "no_usage_reset_or_transfer": true
+      }
+    ]
+  },
+  "compute_apps_after": "",
+  "new_GPU_submission": false,
+  "new_GPU_hours": 0,
+  "limits": "Read-only original receipt/source result recheck, no repeated QKV audit or GPU computation. Original technical coverage is not video quality or end-to-end acceleration."
+}
