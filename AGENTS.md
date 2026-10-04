@@ -1,3 +1,9 @@
+## 2026-10-04 小C/D生产入口已接齐：本地CPU通过，下一服务器CPU
+
+[123生产入口](research/123_WC_W3_SMALL_CD_PRODUCTION_ENTRY_AND_ACTUAL_CPU.md)：新V2/80文件保留原V1/core67及full8/24/18，接齐runner/监督器/独立终态/四Native相对全帧评分。32项拒绝、raw4父24后缀、8新+2旧/4对/2诊断、失败费用与预付重建/并发账本、四CLI检查通过；真实根账本与锁、3900/3870/kill5/实费释放不使用CPUproject-view。服务器CPU尚待本轮冻结source后执行；实际GPU/新视频/收益标签0。
+
+计划继续W3，W1两例约8%保真证据保留；暂停稀疏扩大及W2/Head/LoRA/专家训练，无新增人评。2父12后缀8新输出完整对照不减；历史Native须当前GPU父context/settings/36grid/编码桥。3900+15余额可容纳，但6109.684秒压力代理超过cap，不保证完成；13h used11.022315686839217/45jobs/无inflight与账本SHA保持。下一实际CPU原件/source/assets/import及独立回读；不扩大当前CPU阶段为GPU执行。科学goal active，以下为历史。
+
 ## 2026-10-04 小C/D独立核心实际CPU通过：下一生产入口接线
 
 [122核心/新卡](research/122_WC_W3_SMALL_CD_CORE_AND_CARD_PREPARATION.md) / [84项独立审计](reports/wc_w3_small_cd_core_cpu_r1_audit_20261004.json)：source1975005、独立67文件CPUstage、Torch2.7.1+cu128禁止CUDA，exit0、144.952秒。两flow成功批次各2父/12完整14更新后缀/8模拟输出，共4父24后缀16mock，同输入Cdeep0/Dfull、全轨迹/UniPC/状态、OFF/CC/DD交换顺序与完整五pipeline/编码桥通过；写出缺失/安全拒绝/历史来源不兼容三失败保留并清理。84来源/原件/日志/预算/四历史Native-WC视频SHA与raw完整父子轨迹/来源/分支次数/编码桥独立重算。

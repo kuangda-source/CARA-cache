@@ -1,6 +1,6 @@
 # WorldCache 下一窗口：全帧保真与同配额刷新位置干预
 
-2026-10-04；计划 v1.7；状态：EXISTING_VIDEO_CPU_COMPLETE / FIXED_MASK_SERVER_CPU_PASS / W3_GPU_NOT_EXECUTED。当前入口以本文和[09 队列](../research/09_NEXT_ACTIONS.md)为准，旧周次表与大样本卡保留为条件候选。首次v1.6更新轮只改文档；随后自主接续完成全帧评分及固定mask CPU接口，未生成/训练/提交新GPU。
+2026-10-04；计划 v1.8；状态：EXISTING_VIDEO_CPU_COMPLETE / SMALL_CD_CORE_SERVER_CPU_PASS / PRODUCTION_LOCAL_CPU_PASS / W3_GPU_NOT_EXECUTED。当前入口以本文和[09 队列](../research/09_NEXT_ACTIONS.md)为准，旧周次表与大样本卡保留为条件候选。首次v1.6更新轮只改文档；随后自主接续完成全帧评分及固定mask CPU接口，未生成/训练/提交新GPU。
 
 依据[科研中的黑暗森林法则](chatgpt-conversation://6abf4581-4ec8-83e8-8990-3efe11053cf4)最新完整轮次 d0140e8a、消息 7d9d74ad，结合本库截至 HEAD 4146ec1 的实际回执调整。对话是研究建议，不能代替原始实验回执或执行授权；[来源清单](../manifests/plan_update_sources_w3_review_20261004.json)记录覆盖范围。对话附件未取得，本文根据完整对话增量整合，没有声称导入附件原文。
 
@@ -9,6 +9,8 @@
 > **v1.7接口门已通过：** [121实际CPU](../research/121_WC_W3_FIXED_MASK_CPU_INTERFACE.md)在服务器完成24条完整固定mask/交换后缀和24次失败父恢复，120.407秒、54项来源/原件哈希独立审计通过；37旧依赖及旧大卡不改。Toy界面验证不是120四候选的真实GPU合法性或收益。下一直接具体化真实干预卡、参考桥和完整成本，无需重跑已通过的相同CPU控制。
 
 > **小C/D核心也已验收：** [122实际CPU](../research/122_WC_W3_SMALL_CD_CORE_AND_CARD_PREPARATION.md)完成两flow批次各2父/12后缀/8模拟输出及三次失败拒绝，144.952秒、84项哈希/raw轨迹审计通过。新小卡明确common45/CFG0、human46/CFG1、两历史Native严格WC编码桥，候选3900全wall/3870child+15准入；不是实测新C/D上界，压力代理6109.684秒超过cap，不保证完成或共同承诺后续批次。下一接生产CLI/监督结算/终态及评分，当前无新GPU提交。
+
+> **v1.8生产入口接齐：** [123](../research/123_WC_W3_SMALL_CD_PRODUCTION_ENTRY_AND_ACTUAL_CPU.md)新增V2及80文件CPU来源，原V1/core67/full8/24/18保持。32拒绝/raw全轨迹/预算实费重建/完整4对评分清单与四CLI本地CPU通过；下一独立stage真实根来源、资产和导入CPU验证。GPU仍未选择或提交，不将CPU工程通过当作W3收益。
 
 ## 1. 当前方向和保留成果
 
