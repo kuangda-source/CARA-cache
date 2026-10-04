@@ -1,3 +1,11 @@
+## 2026-10-04 公平D/D与首个Native35实际输出独立通过，原卡3/14
+
+[106技术证据与原件](./106_WC_FAIR_DD_AND_FIRST_NATIVE35_ACTUAL_GATE.md)：source1a22ac6的strict D/D九门/五处各1216状态组件/完整pipeline/关闭S的阶段来源与native70、两93帧视频独立通过。两份SHA fa7f…c379复现历史WC，完整逐帧RGB/temporal误差0、lumaSSIM1。D/D原件e027…37ed单独归档，351.034/343.231秒诊断wall不作速度归因。
+
+首个common Native35原类方法/两官方源、WC关闭、36更新72CFG/prepare1、full72/skipped0/counter0/horizonNone与完整93帧视频独立通过，SHA2d330…efdd、wall321.262秒；独立部分原件139a…bcd0与D/D分开。不是未加观察器的GPU parity、完整公平/CONF或语义物理结果。现场1791077765.7947712原三个句柄2771711/2771727/2771729均live匹配，3/14，Native23生成中。
+
+原6300/6270/kill5、含预付11.441073425147268/12h、44jobs、十四分母保持。仅继续原卡Native23 24/48、三WC点/stage和第二CAL，终态独立十四输出/十组Native相对指标/源码/费用释放；后序按实费与结果重算，不重提104/旧卡、不追加GPU、训练/付费/人评。科学goal active。以下为历史。
+
 ## 2026-10-04 原公平卡1/14，完整矩阵汇总CPU通过
 
 [105原执行卡与汇总接口](./105_WC_FAIR_NATIVE_TUNED_WC_FOURTEEN_EXECUTION_CARD.md)/[汇总九控制](../reports/wc_fair_summary_cpu_20261004.json)：原source1a22ac6三个句柄2771711/2771727/2771729现场1791077122.4612532均live且命令行匹配，第一D/D官方视频已输出、第二控制生成中，1/14；D/D九门仍待成对完成，不作质量/速度判断。原6300/6270/kill5、含预付11.441073425147268/12h、44jobs与十四分母保持，只跟踪原卡。
