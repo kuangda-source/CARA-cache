@@ -1,0 +1,135 @@
+{
+  "status": "AUTHORIZED_LPIPS_CPU_READONLY_SERVER_AUDIT_PASS",
+  "authorized_source": "scripts/audit_wc_rv0_lpips_resource.py",
+  "script_sha256": "6a54e5987944e2265fddfd9f5b7c18636d933a82850230ca3d8d82691fe4284a",
+  "server_script_path": "/home/gaokuangda/data/gkd/worldcache_omr/audit_wc_rv0_lpips_resource.py",
+  "server_resource_stage": "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-rv0-lpips-resource-v2",
+  "user_authorization": "允许将 audit_wc_rv0_lpips_resource.py 经现有 SSH 传到 WorldCache 实验服务器的 /home/gaokuangda/data/gkd/worldcache_omr，并执行对 .sync/wc-rv0-lpips-resource-v2 的 CPU 只读文件及哈希审计",
+  "GPU_submissions": 0,
+  "CPU_metric_forward_rerun": false,
+  "other_private_scripts_transferred": false,
+  "started_unix": 1791098234.3512619,
+  "resource_hashes_before": {
+    "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-rv0-lpips-resource-v2/receipt.json": "796c9ef2762b90c8ebea7e12c5382be64bcc8848f74097a510125dafbc6407ff",
+    "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-rv0-lpips-resource-v2/rv0_lpips.py": "453660dc89595548f808892e3f81e47c13b4bb169d6d104f075db88868eadf60",
+    "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-rv0-lpips-resource-v2/lpips-0.1.4-py3-none-any.whl": "fd537af5828b69d2e6ffc0a397bd506dbc28ca183543617690844c08e102ec5e",
+    "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-rv0-lpips-resource-v2/pypi-release.json": "d285278a1aea66c4b415ec090cc05d7f5cd529f0e4e88af1e5280e0cd1e3e59d",
+    "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-rv0-lpips-resource-v2/site/lpips/__init__.py": "36ee004a45e2cc2c5ab47fa3955f00c0e41f6a151ef0249fb6f362533ed58b22",
+    "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-rv0-lpips-resource-v2/site/lpips/lpips.py": "780d09b907cb9b661e0ae28b2d163ddfba92f9e870d7feba34d4790cc6590658",
+    "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-rv0-lpips-resource-v2/site/lpips/pretrained_networks.py": "6a27f714c51796db466e86bebba6a617c1bfc4d566f3a1756497629c1248686e",
+    "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-rv0-lpips-resource-v2/site/lpips/trainer.py": "c44726c274bd31ff20cc1491375a3dc930e61e5dc2660a63e863ce607ceac213",
+    "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-rv0-lpips-resource-v2/site/lpips/weights/v0.1/alex.pth": "df73285e35b22355a2df87cdb6b70b343713b667eddbda73e1977e0c860835c0",
+    "/home/gaokuangda/.cache/torch/hub/checkpoints/alexnet-owt-7be5be79.pth": "7be5be791159472b1fbf3c69796f7cb30dca7ad8466c2df70058c37116cdee02",
+    "/home/gaokuangda/data/gkd/worldcache_omr/reports/budget.json": "597fa09593f75c89b191b3f94f45e9d26e048ddc63779e4c52aa4e94464f86e5",
+    "/home/gaokuangda/data/gkd/worldcache_omr/manifests/budget_authorization_20261004_wc_13gpuh.json": "77313e5f4bd30dfbbb76f46a2b50534b0c5200727a33bfaa20606ea6b8f376d1"
+  },
+  "transferred_script_SHA_verified": true,
+  "CPU_audit_wall_seconds_including_SSH": 1.478911792,
+  "exit_code": 0,
+  "audit": {
+    "status": "LPIPS_ISOLATED_RESOURCE_ORIGINAL_CPU_AUDIT_PASS_NOT_VIDEO_SCORE",
+    "server_receipt_sha256": "796c9ef2762b90c8ebea7e12c5382be64bcc8848f74097a510125dafbc6407ff",
+    "source_sha256": "453660dc89595548f808892e3f81e47c13b4bb169d6d104f075db88868eadf60",
+    "wheel_sha256": "fd537af5828b69d2e6ffc0a397bd506dbc28ca183543617690844c08e102ec5e",
+    "installed_source_sha256": {
+      "__init__.py": "36ee004a45e2cc2c5ab47fa3955f00c0e41f6a151ef0249fb6f362533ed58b22",
+      "lpips.py": "780d09b907cb9b661e0ae28b2d163ddfba92f9e870d7feba34d4790cc6590658",
+      "pretrained_networks.py": "6a27f714c51796db466e86bebba6a617c1bfc4d566f3a1756497629c1248686e",
+      "trainer.py": "c44726c274bd31ff20cc1491375a3dc930e61e5dc2660a63e863ce607ceac213"
+    },
+    "AlexNet_sha256": "7be5be791159472b1fbf3c69796f7cb30dca7ad8466c2df70058c37116cdee02",
+    "LPIPS_linear_weight_sha256": "df73285e35b22355a2df87cdb6b70b343713b667eddbda73e1977e0c860835c0",
+    "CPU_and_resource_wall_seconds": 7.31536078453064,
+    "synthetic_checks": {
+      "frames": 4,
+      "HWC": [
+        64,
+        64,
+        3
+      ],
+      "self": 0.0,
+      "different": 0.10829029232263565,
+      "repeat_exact": true,
+      "negative_retained": -0.10829029232263565,
+      "refusals": 4
+    },
+    "protocol": {
+      "package": "lpips",
+      "package_version": "0.1.4",
+      "metric_version": "0.1",
+      "backbone": "alex",
+      "spatial": false,
+      "precision": "torch.float32",
+      "device": "cpu",
+      "RGB_input": "UINT8_HWC_TO_NCHW_MINUS1_TO_PLUS1",
+      "resize_crop_subsample": false,
+      "expected_frames": 93,
+      "expected_HWC": [
+        432,
+        768,
+        3
+      ],
+      "aggregation": "ARITHMETIC_MEAN_ALL93_FRAME_DISTANCES",
+      "reference": "MATCHED_NATIVE_FULL35_SAME_REQUEST_NOISE_DECODE",
+      "benefit": "J_C_MINUS_J_D_NEGATIVE_VALUES_RETAINED",
+      "policy": "ONE_ACTION_ADAPTIVE_DIAGNOSTIC_NOT_BUDGET_MATCHED",
+      "formal_RV_training_labels": false,
+      "physics_or_quality_noninferiority": false
+    },
+    "budget": {
+      "batch": "F0-F1",
+      "cap_gpu_hours": 13,
+      "used_gpu_hours": 11.022315686839217,
+      "gpu_jobs_launched": 45,
+      "status": "WC_RV0_RESTORE_SETTLED_REQUIRES_RESULT_AUDIT",
+      "gpu_import_probes_completed": 1,
+      "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts",
+      "budget_authorization_ref": "manifests/budget_authorization_20261004_wc_13gpuh.json",
+      "budget_authorization_history": [
+        {
+          "authorized_utc": "2026-10-02T18:03:00Z",
+          "source_thread_id": "01a0f1e6-7ad0-75df-9a02-172b60d2e00b",
+          "user_instruction": "把各个实验的 gpu 预算都设置为 12gpuh",
+          "previous_cap_gpu_hours": 4,
+          "new_cumulative_cap_gpu_hours": 12,
+          "used_gpu_hours_at_change": 3.9117525685110333,
+          "no_usage_reset_or_transfer": true
+        },
+        {
+          "authorized_utc": "2026-10-04T06:13:36Z",
+          "source_thread_id": "01a0f1e6-7ad0-75df-9a02-172b60d2e00b",
+          "user_message_id": "Sentinel_861e63a87d8c819180ec9a8bcfa6dc92",
+          "user_instruction": "允许增加 GPUh",
+          "previous_cap_gpu_hours": 12,
+          "new_cumulative_cap_gpu_hours": 13,
+          "used_gpu_hours_at_change": 11.022315686839217,
+          "gpu_jobs_launched_at_change": 45,
+          "no_usage_reset_or_transfer": true,
+          "authorization_ref": "manifests/budget_authorization_20261004_wc_13gpuh.json"
+        }
+      ]
+    },
+    "no_Torch_import_in_auditor": true,
+    "GPU_submissions": 0,
+    "real_C_D_video_scores": 0,
+    "formal_RV_training_labels": 0
+  },
+  "server_audit_stdout_sha256": "0874a2f5617bffe983e9093c24fcdf9cd7d9bb9861d175c8a8cb5c63f0639959",
+  "resource_hashes_after": {
+    "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-rv0-lpips-resource-v2/receipt.json": "796c9ef2762b90c8ebea7e12c5382be64bcc8848f74097a510125dafbc6407ff",
+    "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-rv0-lpips-resource-v2/rv0_lpips.py": "453660dc89595548f808892e3f81e47c13b4bb169d6d104f075db88868eadf60",
+    "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-rv0-lpips-resource-v2/lpips-0.1.4-py3-none-any.whl": "fd537af5828b69d2e6ffc0a397bd506dbc28ca183543617690844c08e102ec5e",
+    "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-rv0-lpips-resource-v2/pypi-release.json": "d285278a1aea66c4b415ec090cc05d7f5cd529f0e4e88af1e5280e0cd1e3e59d",
+    "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-rv0-lpips-resource-v2/site/lpips/__init__.py": "36ee004a45e2cc2c5ab47fa3955f00c0e41f6a151ef0249fb6f362533ed58b22",
+    "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-rv0-lpips-resource-v2/site/lpips/lpips.py": "780d09b907cb9b661e0ae28b2d163ddfba92f9e870d7feba34d4790cc6590658",
+    "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-rv0-lpips-resource-v2/site/lpips/pretrained_networks.py": "6a27f714c51796db466e86bebba6a617c1bfc4d566f3a1756497629c1248686e",
+    "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-rv0-lpips-resource-v2/site/lpips/trainer.py": "c44726c274bd31ff20cc1491375a3dc930e61e5dc2660a63e863ce607ceac213",
+    "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-rv0-lpips-resource-v2/site/lpips/weights/v0.1/alex.pth": "df73285e35b22355a2df87cdb6b70b343713b667eddbda73e1977e0c860835c0",
+    "/home/gaokuangda/.cache/torch/hub/checkpoints/alexnet-owt-7be5be79.pth": "7be5be791159472b1fbf3c69796f7cb30dca7ad8466c2df70058c37116cdee02",
+    "/home/gaokuangda/data/gkd/worldcache_omr/reports/budget.json": "597fa09593f75c89b191b3f94f45e9d26e048ddc63779e4c52aa4e94464f86e5",
+    "/home/gaokuangda/data/gkd/worldcache_omr/manifests/budget_authorization_20261004_wc_13gpuh.json": "77313e5f4bd30dfbbb76f46a2b50534b0c5200727a33bfaa20606ea6b8f376d1"
+  },
+  "resource_files_and_GPU_budget_bytes_unchanged": true,
+  "shared_environment_changed": false,
+  "ended_unix": 1791098240.451487
+}

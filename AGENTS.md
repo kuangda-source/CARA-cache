@@ -1,3 +1,9 @@
+## 2026-10-04 指定LPIPS脚本传送与服务器CPU只读审计通过
+
+[116范围与结果](research/116_WC_RV0_LPIPS_AUTHORIZED_SERVER_READONLY_AUDIT.md)/[实际服务器回执](reports/wc_rv0_lpips_resource_server_audit_v2_20261004.json)：本次直接授权仅传audit_wc_rv0_lpips_resource.py到既有WorldCache服务器项目根目录，对既有V2资源执行CPU只读审计。脚本6a54…284a与本地一致、exit0，1.478912秒含SSH；CPU原件796c…07ff、协议4536…f60、wheel/公开metadata/四包源码/两权重及origin/既有CPU协议检查通过，与115原生哈希审计完全匹配。12份资源/权威预算/授权文件前后SHA相同。
+
+本次审计不导入Torch、不新增模型前向或真实C/D视频评分，GPU提交及费用增量0、共享环境未改；既有7.315秒合成图CPU结果保留原身份。13h上限/used11.022315686839217/45jobs/无inflight保持，未改未选草案或复用104身份。该LPIPS脚本传输许可已解决；新W3生产/监督/reader/评分代码同步不属本次授权，实际CPU/解码/部署及真实C/D/正式标签/Head/CONF仍待验。115完整8/24/18范围及107方向判断保持，科学goal active；以下为历史。
+
 ## 2026-10-04 W3完整执行与全视频评分草案CPU通过，原件安全只读复审完成
 
 [115实现/证据/下一门](research/115_WC_RV0_EXECUTION_DRAFT_AND_NATIVE_READONLY_AUDITS.md)/[未选草案](configs/wc_rv0_causal_r1_draft.json)：独立运行入口、监督/实际费用结算、终态轨迹/源码/18视频/费用释放审计及全93帧CPU LPIPS评分接口完成，62payload/9官方源，完整8父24后缀18输出不缩。两曝光CAL/两CFG，8 C-D分别相对匹配Native、两OFF桥、4有符号诊断；非同预算训练标签，Native真实无观察器parity/新入口实际主机CPU和FFmpeg仍未验证。
