@@ -1,3 +1,13 @@
+## 2026-10-04 v1.6全帧CPU评分完成：W1两例约8%保真正结果
+
+[119真实结果](../research/119_WC_EXISTING_FAIR_W1_FULL_FRAME_LPIPS_RESULTS.md) / [独立20文件审计](../reports/wc_existing_fair_w1_lpips_cpu_r1_audit_20261004.json)：已部署冻结reader/LPIPS在独立CPU目录实际完成10组FAIR+2组兼容W1各93帧，D/D全0、实际不同输入/轻扰动非零、所有均值/PTS/source及视频/预算SHA通过。exit0、CPU总220.767秒、CUDA未初始化，旧核心/原视频/预算不改；GPU生成/提交0。
+
+W1 common/human相对WC0.06全帧LPIPS降低7.87%/7.99%，新增终点感知保真正证据；仅参考可用2/8曝光CAL，不作8场景均值/物理/独立CONF或时间优势。原7接受/1拒绝保留，另5接受样本缺匹配已登记Native，本批不补生成。FAIR中WC0.04的LPIPS/单次wall均优于Native23，其他指标可能不一致；stage仅省0.292%/1.407%且LPIPS增0.0784%/0.3319%，稀疏扩展暂停保持。W1保留，W2/Head/LoRA/专家训练后置。
+
+[120 W3小窗口准备](../research/120_WC_W3_PARENT_MASK_SELECTION_AND_SMALL_COST_PREPARATION.md)：从父mask选4对同槽位候选（常识47→49/48→50，人物61→63/46→48），静态配额匹配；实际各臂合法性/固定mask接口及收益仍未验收。另拟两step22自适应C/D、两父12后缀8新输出，完整控制费用条件2811.502秒/压力代理6109.684秒，均非硬上界且未选择；0.30h不可直接执行。原8/24/18身份完整保留，不缩原验收目标。
+
+下一准备固定mask/保护/每CFG合同及完整新卡费用，W3先固定官方近似器以单独归因；有空间再讨论W1×W3受控2×2和新样本确认。CPU阶段范围、真实根报告绑定与live资源门保持，本轮不提交新GPU；13h账本仍used11.022315686839217/45jobs/无inflight，余7119.663527秒，科学目标未完成。以下为历史。
+
 ## 2026-10-04 研究计划v1.6：W3同配额位置干预优先（本轮仅文档）
 
 [当前下一窗口](../plans/WORLD_CACHE_W3_NEXT_WINDOW_20261004.md) / [完整对话来源](../manifests/plan_update_sources_w3_review_20261004.json)：最新讨论已结合107/112/118实际回执整合。继续WorldCache；保留W1机制结果并补已有兼容视频分析，暂停W2及稀疏扫描/复杂化，Head/LoRA/专家训练后置。104、H0/H1、阶段、FAIR14、真实恢复与服务器CPU同步均完成，不重跑或取消既有任务；旧“先完成”的队列措辞仅作历史。

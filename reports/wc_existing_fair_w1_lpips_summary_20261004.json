@@ -1,0 +1,200 @@
+{
+  "status": "TWO_EXPOSED_CAL_LPIPS_ANALYSIS_W1_PARTIAL_POSITIVE_NOT_METHOD_ACCEPTANCE",
+  "CPU_only": true,
+  "rows": [
+    {
+      "sample": "common_sense_6487f37f-ef57-49ca-afdc-d898922b5191",
+      "variant": "native23",
+      "pipeline_wall_seconds": 239.26530641503632,
+      "solver_steps": 24,
+      "CFG_calls": 48,
+      "deep_CFG_calls": 48,
+      "full93_mean_LPIPS": 0.30457588741856234
+    },
+    {
+      "sample": "common_sense_6487f37f-ef57-49ca-afdc-d898922b5191",
+      "variant": "wc004",
+      "pipeline_wall_seconds": 235.15757775586098,
+      "solver_steps": 36,
+      "CFG_calls": 72,
+      "deep_CFG_calls": 43,
+      "full93_mean_LPIPS": 0.2878296740593449
+    },
+    {
+      "sample": "common_sense_6487f37f-ef57-49ca-afdc-d898922b5191",
+      "variant": "wc006",
+      "pipeline_wall_seconds": 208.20423556677997,
+      "solver_steps": 36,
+      "CFG_calls": 72,
+      "deep_CFG_calls": 35,
+      "full93_mean_LPIPS": 0.33315327443102355
+    },
+    {
+      "sample": "common_sense_6487f37f-ef57-49ca-afdc-d898922b5191",
+      "variant": "wc008",
+      "pipeline_wall_seconds": 198.83218878414482,
+      "solver_steps": 36,
+      "CFG_calls": 72,
+      "deep_CFG_calls": 32,
+      "full93_mean_LPIPS": 0.4083038004495764
+    },
+    {
+      "sample": "common_sense_6487f37f-ef57-49ca-afdc-d898922b5191",
+      "variant": "stage_every1",
+      "pipeline_wall_seconds": 207.59702232666314,
+      "solver_steps": 36,
+      "CFG_calls": 72,
+      "deep_CFG_calls": 35,
+      "full93_mean_LPIPS": 0.3334143809092942
+    },
+    {
+      "sample": "human_199",
+      "variant": "native23",
+      "pipeline_wall_seconds": 241.23254888132215,
+      "solver_steps": 24,
+      "CFG_calls": 48,
+      "deep_CFG_calls": 48,
+      "full93_mean_LPIPS": 0.6298408572391797
+    },
+    {
+      "sample": "human_199",
+      "variant": "wc004",
+      "pipeline_wall_seconds": 237.86684714723378,
+      "solver_steps": 36,
+      "CFG_calls": 72,
+      "deep_CFG_calls": 44,
+      "full93_mean_LPIPS": 0.34690743332268087
+    },
+    {
+      "sample": "human_199",
+      "variant": "wc006",
+      "pipeline_wall_seconds": 217.7913565915078,
+      "solver_steps": 36,
+      "CFG_calls": 72,
+      "deep_CFG_calls": 38,
+      "full93_mean_LPIPS": 0.4247454244603393
+    },
+    {
+      "sample": "human_199",
+      "variant": "wc008",
+      "pipeline_wall_seconds": 199.11534797493368,
+      "solver_steps": 36,
+      "CFG_calls": 72,
+      "deep_CFG_calls": 32,
+      "full93_mean_LPIPS": 0.5015631513569945
+    },
+    {
+      "sample": "human_199",
+      "variant": "stage_every1",
+      "pipeline_wall_seconds": 214.72709504608065,
+      "solver_steps": 36,
+      "CFG_calls": 72,
+      "deep_CFG_calls": 38,
+      "full93_mean_LPIPS": 0.42615509385703715
+    }
+  ],
+  "W1": [
+    {
+      "sample": "common_sense_6487f37f-ef57-49ca-afdc-d898922b5191",
+      "WC_LPIPS": 0.33315327443102355,
+      "W1_LPIPS": 0.30693932887046566,
+      "W1_minus_WC": -0.026213945560557894,
+      "relative_distortion_reduction": 0.0786843401294117,
+      "new_data_split": "EXPOSED_CAL_REFERENCE_AVAILABLE_SUBSET_NOT_CONF",
+      "W1_wall_not_comparable_to_current_fair_batch": true
+    },
+    {
+      "sample": "human_199",
+      "WC_LPIPS": 0.4247454244603393,
+      "W1_LPIPS": 0.3908060853199292,
+      "W1_minus_WC": -0.033939339140410085,
+      "relative_distortion_reduction": 0.07990513184110634,
+      "new_data_split": "EXPOSED_CAL_REFERENCE_AVAILABLE_SUBSET_NOT_CONF",
+      "W1_wall_not_comparable_to_current_fair_batch": true
+    }
+  ],
+  "sparse": [
+    {
+      "sample": "common_sense_6487f37f-ef57-49ca-afdc-d898922b5191",
+      "stage_minus_WC_LPIPS": 0.00026110647827065625,
+      "relative_distortion_increase": 0.0007837427944137348,
+      "single_run_time_reduction": 0.0029164307751178287
+    },
+    {
+      "sample": "human_199",
+      "stage_minus_WC_LPIPS": 0.0014096693966978435,
+      "relative_distortion_increase": 0.0033188571683589064,
+      "single_run_time_reduction": 0.014069711458634782
+    }
+  ],
+  "Native23_vs_WC004": [
+    {
+      "sample": "common_sense_6487f37f-ef57-49ca-afdc-d898922b5191",
+      "Native23_LPIPS": 0.30457588741856234,
+      "WC004_LPIPS": 0.2878296740593449,
+      "relative_LPIPS_reduction": 0.05498207195963618,
+      "WC004_minus_Native23_seconds": -4.107728659175336,
+      "scope": "LPIPS and one measured time only; does not imply all quality metrics dominate"
+    },
+    {
+      "sample": "human_199",
+      "Native23_LPIPS": 0.6298408572391797,
+      "WC004_LPIPS": 0.34690743332268087,
+      "relative_LPIPS_reduction": 0.449214147771706,
+      "WC004_minus_Native23_seconds": -3.3657017340883613,
+      "scope": "LPIPS and one measured time only; does not imply all quality metrics dominate"
+    }
+  ],
+  "independent_confirmation": false,
+  "quality_or_physics_acceptance": false,
+  "GPU_submissions": 0,
+  "GPU_budget_changed": false,
+  "W1_denominator": {
+    "original_scenes": 8,
+    "accepted": 7,
+    "video_rejected": 1,
+    "compatible_registered_Native": 2,
+    "accepted_without_registered_Native": 5,
+    "missing": [
+      {
+        "sample": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+        "W1_outcome": "ACCEPTED",
+        "Native_comparison": "NO_REGISTERED_MATCH_IN_F1_R3_OR_FAIR14",
+        "scope": "Bounded to registered Native receipts; no all-disk absence claim"
+      },
+      {
+        "sample": "industry_084",
+        "W1_outcome": "ACCEPTED",
+        "Native_comparison": "NO_REGISTERED_MATCH_IN_F1_R3_OR_FAIR14",
+        "scope": "Bounded to registered Native receipts; no all-disk absence claim"
+      },
+      {
+        "sample": "misc_13398218_3840_2160_60fps",
+        "W1_outcome": "ACCEPTED",
+        "Native_comparison": "NO_REGISTERED_MATCH_IN_F1_R3_OR_FAIR14",
+        "scope": "Bounded to registered Native receipts; no all-disk absence claim"
+      },
+      {
+        "sample": "physics_045",
+        "W1_outcome": "ACCEPTED",
+        "Native_comparison": "NO_REGISTERED_MATCH_IN_F1_R3_OR_FAIR14",
+        "scope": "Bounded to registered Native receipts; no all-disk absence claim"
+      },
+      {
+        "sample": "robot_054",
+        "W1_outcome": "VIDEO_REJECTED",
+        "Native_comparison": "UNAVAILABLE_REJECTED_CANDIDATE"
+      },
+      {
+        "sample": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+        "W1_outcome": "ACCEPTED",
+        "Native_comparison": "NO_REGISTERED_MATCH_IN_F1_R3_OR_FAIR14",
+        "scope": "Bounded to registered Native receipts; no all-disk absence claim"
+      }
+    ]
+  },
+  "CPU_inclusive_wall_seconds": 220.76679510530084,
+  "CPU_metric_wall_seconds": 214.87854228075594,
+  "original_all_videos_and_budget_unchanged": true,
+  "CUDA_initialized": false
+}

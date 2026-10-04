@@ -1,3 +1,5 @@
+> **2026-10-04 CPU首项完成：** [119全帧LPIPS](../research/119_WC_EXISTING_FAIR_W1_FULL_FRAME_LPIPS_RESULTS.md)十FAIR/两兼容W1实际评分与20文件审计通过，W1两例约8%保真改善，五接受参考缺失/一拒绝保持；尚无新方法时间/物理/CONF结论。[120小窗口准备](../research/120_WC_W3_PARENT_MASK_SELECTION_AND_SMALL_COST_PREPARATION.md)选出4个静态mask交换，真实各臂合法性/固定mask接口待做；两父12后缀小C/D条件费用2811.502/6109.684秒代理，未选择，原8/24/18完整保留。下一W3先固定官方近似器，W1复杂化与训练继续后置。
+
 > **2026-10-04 当前计划更新：** [v1.6下一窗口](../plans/WORLD_CACHE_W3_NEXT_WINDOW_20261004.md)取代下文旧首批规模/顺序：已有视频全帧LPIPS → 两CAL各一对真实自适应C/D → 每场景至多两次同刷新配额交换 → 有信号才简单规则/新样本确认。112真实恢复及118实际服务器CPU已通过，部署许可旧缺口已解决；真实C/D、同配额标签/Head/CONF仍未完成。原完整8/24/18未选草案及来源保留，新增小卡另估价、另身份，不修改旧分母。预算仍11.022315686839217/13h、45jobs/无inflight，本轮只改文档。
 
 > 2026-10-04最新：[117 FFmpeg4.2实际读取修复与部署许可门](117_WC_RV0_FFMPEG42_READER_FIX_AND_DEPLOYMENT_GATE.md)。本地reader修复原fps_mode不兼容，服务器原生FFmpeg与本地reader已完整读取既有两93帧原视频，35合同/62源码通过，未上传新代码或运行GPU。40核心/9官方源不变，完整8/24/18未缩；完整新代码同步许可连续三goal回合仍待，安全准备完成后goal转blocked。实际新入口CPU/部署、真实C-D/预算标签/Head/CONF仍缺；以下为历史。

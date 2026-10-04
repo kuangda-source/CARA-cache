@@ -1,3 +1,5 @@
+> **2026-10-04 CPU首项完成：** [119全帧LPIPS](../research/119_WC_EXISTING_FAIR_W1_FULL_FRAME_LPIPS_RESULTS.md)十FAIR/两兼容W1实际评分与20文件审计通过，W1两例约8%保真改善，五接受参考缺失/一拒绝保持；尚无新方法时间/物理/CONF结论。[120小窗口准备](../research/120_WC_W3_PARENT_MASK_SELECTION_AND_SMALL_COST_PREPARATION.md)选出4个静态mask交换，真实各臂合法性/固定mask接口待做；两父12后缀小C/D条件费用2811.502/6109.684秒代理，未选择，原8/24/18完整保留。下一W3先固定官方近似器，W1复杂化与训练继续后置。
+
 # W3首窗口接续入口（2026-10-04更新）
 
 当前详细计划：[WorldCache全帧保真与同配额位置干预 v1.6](WORLD_CACHE_W3_NEXT_WINDOW_20261004.md)。先读[当前状态](../research/02_CURRENT_STATE.md)、[队列](../research/09_NEXT_ACTIONS.md)、[真实恢复](../research/112_WC_RV0_REAL_RESTORE_RESULTS_AND_NEXT_GATE.md)及[118实际CPU](../research/118_WC_RV0_AUTHORIZED_SYNC_AND_ACTUAL_CPU_RESULTS.md)。已完成104点/S-H/阶段/FAIR14/恢复/CPU同步不重跑，W1只复用兼容既有视频分析。
