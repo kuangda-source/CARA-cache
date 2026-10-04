@@ -1,3 +1,11 @@
+## 2026-10-04 已批准 W3 独立同步，实际服务器 CPU 验证通过
+
+[118 范围/失败修复/结果](research/118_WC_RV0_AUTHORIZED_SYNC_AND_ACTUAL_CPU_RESULTS.md)/[R2 部署原件](reports/wc_rv0_authorized_deployment_cpu_r2_20261004.json)/[独立回读](reports/wc_rv0_authorized_deployment_cpu_audit_r2_20261004.json)：用户直接批准提交3f5c304b的代码/配置/回执仅CPU同步，此前传输许可缺口已解决。62冻结payload及必要夹具共69文件已进入服务器独立`.sync/wc-rv0-causal-3f5c304b-cpu-r2`；新入口实际CPU导入/来源/资产、四CLI、35合同及两既有视频各93帧432×768完整reader/CPU预训练LPIPS自距全0通过。R1视图缺历史protocol/guardrail辅助文件在模型导入前失败，回执保留；R2只补既有固定SHA映射，冻结核心及验证入口未改。
+
+CPU总79.753秒，69文件/3回执/4保护文件独立哈希复读通过，CUDA未初始化、原视频/预算/授权字节不变。两视频是既有WC自距控制，不是Native质量、新C/D或正式RV标签；新GPU0，used11.022315686839217/13h、45jobs/无inflight保持。40核心未改，不重复旧274秒回归；原104/restore身份不重提，107科学判断保持。
+
+本次同步/CPU请求已完成，仅CPU授权边界保持。原根目录两新准备报告尚未接入，CPU专用project-view不作为GPU账本/锁目录；下一正式执行先接真实路径的冻结报告绑定、身份及权威账本/全局锁，再fresh资源/预算与真实C/D卡。当前不提交GPU，完整8/24/18科学范围、收益标签、Head/CONF及质量仍待验证。以下为历史。
+
 ## 2026-10-04 FFmpeg4.2读取修复通过，完整新W3部署许可门仍阻塞
 
 [117实际问题/修复/下一门](research/117_WC_RV0_FFMPEG42_READER_FIX_AND_DEPLOYMENT_GATE.md)/[两原视频完整读取](reports/wc_rv0_video_reader_ssh_native_stream_cpu_r2_20261004.json)：服务器4.2.7不支持原fps_mode，exit1/0字节失败保留；本地reader改vsync0。首个SSH适配器漏PIPE失败另留，R2用服务器原生FFmpeg/ffprobe与本地reader完成既有restore两视频各93帧432×768 RGB/92,565,504字节及PTS/timebase/EOF/每帧哈希，原视频与预算前后SHA相同。每份约31.4/31.7秒含传输和本地验证，不作推理或纯解码计时。无私有代码传送或新C/D/LPIPS视频分数/GPU费用。
