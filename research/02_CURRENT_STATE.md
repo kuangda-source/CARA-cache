@@ -1,3 +1,11 @@
+## 2026-10-04 W3/RV0未干预后缀CPU通过，收益标签仍为0
+
+[108接口、证据与成本](./108_WC_RV0_CPU_SUFFIX_CONTROLS_AND_COST.md)/[R3实际CPU](../reports/wc_rv0_suffix_cpu_r3_20261004.json)/[独立原件审计](../reports/wc_rv0_suffix_cpu_audit_20261004.json)：固定官方loop、WC/UniPC，在step22后四条14更新/28CFG后缀交换顺序复现；flow OFF/ON×full/cache四组，各完整父36/72、每输入/输出/deep、最终latent及状态相等。缺身份/改code/半CFG/父latent/网格/条件漂移/nonfinite/重复label拒绝与父状态恢复通过；31当前依赖/五官方源与服务器8cd9…69ef原件SHA绑定，CPU31.470秒，禁止CUDA/无权重/真实VAE或视频。
+
+R1 marshal code哈希误拒绝保留，R2稳定bytecode/常量清单修复通过，R3新增live parent latent/网格/调用方恢复门后另通过，不追认旧source。现只有原进程内未干预续推，没有C/D动作router、真实GPU因果验收或RV标签/Head训练。下一CPU补probe后decision前的动作及保护/失败合同、明确CFG预算单位与后缀损失，记录snapshot/restore/hash/显存包络，不把旧整轨迹差异作标签。
+
+fresh账本仍10.713586944446/12GPUh、44jobs、余1.286413055554h=4631.087秒无inflight，新GPU/预付0。[成本草案](../reports/wc_rv0_suffix_cost_draft_20261004.json)纯恢复6完整视频等价已知项2988.379秒/拟3300，连一对C/D和Native参考9等价4362.682秒/拟4500；单独cap+15算术可容纳，两cap不可共同承诺，新增实际快照/哈希/峰值显存仍UNKNOWN，均未选择或准入。107稀疏净收益未成立/重要方向节点保持，W3仅候选，不训练/付费/新增人评、不重提104或旧卡，科学goal active。以下为历史。
+
 ## 2026-10-04 公平十四输出终态：技术通过，稀疏净收益未成立
 
 [107完整结果与方向门](./107_WC_FAIR_CAL_RESULTS_AND_DIRECTION_GATE.md)/[完整矩阵汇总](../reports/wc_fair_cal_r1_summary_20261004.json)：原source1a22ac6唯一fair卡exit0，strict D/D、十四93帧视频、两CAL各Native35/23/三WC阈值/stage、55源码/资产/费用释放及十组Native相对CPU指标全部独立通过。原件0a9a…7c07无损归档，早期快照保持；汇总器当前R2十一控制覆盖指定UUID释放，不要求服务器其他GPU空闲。

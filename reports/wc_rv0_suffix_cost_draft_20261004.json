@@ -1,0 +1,75 @@
+{
+  "status": "RV0_COST_ARITHMETIC_ONLY_INCREMENTAL_OVERHEAD_UNKNOWN_NOT_ADMITTED",
+  "CPU_only": true,
+  "budget": {
+    "batch": "F0-F1",
+    "cap_gpu_hours": 12,
+    "used_gpu_hours": 10.713586944445915,
+    "gpu_jobs_launched": 44,
+    "status": "WC_FAIR_CAL_SETTLED_REQUIRES_RESULT_AUDIT",
+    "gpu_import_probes_completed": 1,
+    "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts",
+    "budget_authorization_ref": "manifests/budget_authorization_20261003.json",
+    "budget_authorization_history": [
+      {
+        "authorized_utc": "2026-10-02T18:03:00Z",
+        "source_thread_id": "01a0f1e6-7ad0-75df-9a02-172b60d2e00b",
+        "user_instruction": "\u628a\u5404\u4e2a\u5b9e\u9a8c\u7684 gpu \u9884\u7b97\u90fd\u8bbe\u7f6e\u4e3a 12gpuh",
+        "previous_cap_gpu_hours": 4,
+        "new_cumulative_cap_gpu_hours": 12,
+        "used_gpu_hours_at_change": 3.9117525685110333,
+        "no_usage_reset_or_transfer": true
+      }
+    ]
+  },
+  "remaining_seconds": 4631.086999994707,
+  "full_video_proxy_seconds": 381.7508979411796,
+  "last_actual_loading_seconds": 99.81026225257665,
+  "bookkeeping_proxy_seconds": 75,
+  "buffer_factor": 1.2,
+  "release_seconds": 30,
+  "cards": [
+    {
+      "name": "RV0_unchanged_two_parents_four_suffixes_only",
+      "full_video_cost_proxy_equivalents": 6,
+      "known_proxy_subtotal_seconds": 2988.3787798795847,
+      "proposed_cap_seconds": 3300,
+      "cap_plus_15s_arithmetic_fits": true,
+      "unmeasured_snapshot_context_restore_hash_IO_seconds": null,
+      "additional_peak_VRAM_bytes": null,
+      "complete_cost_bound_validated": false,
+      "selected": false,
+      "GPU_submitted": false
+    },
+    {
+      "name": "RV0_controls_plus_one_CD_pair_and_Native_reference",
+      "full_video_cost_proxy_equivalents": 9,
+      "known_proxy_subtotal_seconds": 4362.682012467832,
+      "proposed_cap_seconds": 4500,
+      "cap_plus_15s_arithmetic_fits": true,
+      "unmeasured_snapshot_context_restore_hash_IO_seconds": null,
+      "additional_peak_VRAM_bytes": null,
+      "complete_cost_bound_validated": false,
+      "selected": false,
+      "GPU_submitted": false
+    }
+  ],
+  "both_caps_plus_admission_fit": false,
+  "reserved_seconds": 0,
+  "new_GPU_submission": false,
+  "RV_labels": 0,
+  "input_files_sha256": {
+    "reports/wc_stage_frontier_cost_draft_20261004.json": "4b914f444c95289ab1d9c259c4184a8851a0d2ee6b24ca94db5fadf78cd87d3d",
+    "reports/wc_fair_cal_r1_terminal_20261004.json": "0bb8496573abc8ef6aec05cf255af43b005ec824c773987c976007793faf8b92",
+    "reports/wc_rv0_suffix_cpu_audit_20261004.json": "af8f19516a487d981353435c37e836f6b94123cc9e64325284d485e00bd5bf3b",
+    "reports/wc_fair_cal_r1_runner_20261004.json.gz": "64792ea6b2c41bdd0a516d17fe9b048c747495f139507eb027bcddd1b0be5049"
+  },
+  "limits": [
+    "No per-step discount for suffixes; no use of CPU Toy duration as real GPU cost.",
+    "Six proxies cover two complete parents and four unchanged suffix controls; suffix decode is not included or required for the latent restoration gate.",
+    "Nine proxies add one same-state C/D pair and a Native reference. Action router, fixed suffix, legal point, loss and actual GPU controls are not ready.",
+    "Full proxy is a cost reference, not an upper bound on added snapshots/condition restoration/hash traffic. Additional work and VRAM must be bounded before admission.",
+    "Neither scope is selected; no training, paid scoring or manual semantic gate."
+  ],
+  "load_source_field": "wc-fair-cal-r1 original runner.load_seconds"
+}
