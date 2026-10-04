@@ -33,3 +33,9 @@ GPU前还须source提交/同步并在独立deploy1核验：服务器r3原件SHA�
 [自动CPU指标](../scripts/analyze_wc_fair_cal_pairs_cpu.py)固定Native35为每场景参考，对Native23、三WC点、stage共十组计算完整93帧RGB/lumaSSIM/motion/temporal92差分，不能只报有利组合。单次顺序wall只作描述性成本；编码保真不是语义/物理接受。两个曝光CAL不能充当CONF、独立泛化或稳定速度证据。
 
 先用完整强基线判断stage是否值得深化，再安排独立CONF或RV/小Head。当前未有新视频/公平前沿结果，不训练、付费评分或新增人工评审，科学goal active。
+
+## 实际部署已通过，待fresh准入
+
+冻结GPU源 `1a22ac6ef5c31c3cf15998ee868d96fcc6ba6b54`。[实际部署](../reports/wc_fair_cal_r1_deployment_20261004.json)在新的deploy1完成8项入口/准备/模式/来源门、48 scope/22审计控制；r3原件14组、当前30依赖/七官方源逐SHA绑定通过。两个实际Native原方法源与CPU绑定一致，native-meta默认1173→eval0，prepare OFF/ON、资产/guardrail/package/import、两个真实条件及两历史WC实体视频均通过；CUDA未初始化、账本未变。[独立复核](../reports/wc_fair_cal_r1_deployment_audit_20261004.json)逐SHA核验55个stage文件与服务器部署原件。磁盘空闲564.233GB。
+
+仍9.691073425147268/12h、43jobs无inflight，新增GPU提交/预付0。仅下一fresh GPU UUID/sm86/VRAM/apps、f1锁、无inflight/原12h余额和磁盘后wc-fair-cal-r1单次提交；实际GPU D/D、Native/十四输出和指标待验证。旧104/其他原卡不重提。

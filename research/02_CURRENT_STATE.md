@@ -1,3 +1,9 @@
+## 2026-10-04 公平十四输出实际部署与独立原件审计通过，待fresh准入
+
+[105执行卡](./105_WC_FAIR_NATIVE_TUNED_WC_FOURTEEN_EXECUTION_CARD.md)/[实际部署](../reports/wc_fair_cal_r1_deployment_20261004.json)/[独立审计](../reports/wc_fair_cal_r1_deployment_audit_20261004.json)：冻结GPU source1a22ac6的55stage SHA、实际r3原件14组/当前30依赖/七官方源、48scope/22审计控制、actual prepare OFF/ON、native-meta1173→eval0/buffers及两Native原方法origin、资产/package/import/两个实际条件/两历史WC实体视频均通过；CUDA未初始化、预算未变，磁盘564.233GB。
+
+现9.691073425147268/12h、43jobs无inflight，GPU提交/预付0。下一仅fresh UUID/sm86/VRAM/apps/f1锁/no-inflight/余额/磁盘后wc-fair-cal-r1单次6300全wall/6270child/kill5；十四分母、Native24/36真实deep、三WC点与stage、十组Native35相对指标保留。原104/其他旧卡不重提，后序CONF按实费重算。实际GPU parity/十四视频/质量前沿、语义物理与稳定速度仍待证，不训练/付费/人评，科学goal active。以下为历史。
+
 ## 2026-10-04 公平十四输出独立卡已选择，本地范围/审计CPU通过
 
 [105独立执行卡](./105_WC_FAIR_NATIVE_TUNED_WC_FOURTEEN_EXECUTION_CARD.md)：wc-fair-cal-r1/6300全wall/6270child/kill5，strict WC D/D后两个曝光CAL各Native35/Native23/WC0.04/0.06/0.08/stage every1，十四输出、十组Native35相对指标全部保留。新scope/runner/监督器及Native24/36网格/原方法/完整十四视频/费用释放/全部十指标审计已具体化，本地48范围费用预算+22审计控制通过。当前30依赖/七官方源与实际r3原件保持，未重跑或修改旧冻结核心。
