@@ -91,8 +91,14 @@ def exercise(*, inference, samples, wc, settings, mode_setup, flow, runtime, **u
             assert row['all_suffix_inputs_outputs_solver_deep_latent_state_equal']
             assert row['historical_official_video_bridge_equal']
             assert len(row['controls']) == 2 and row['prepare_calls'] == 1
+            assert row['flags_before']==row['flags_after']
+            assert row['decode_policy']=='SCOPED_CUDNN_BENCHMARK_FALSE_DETERMINISTIC_TRUE'
+            assert all(v['frozen_dataclass'] for v in row['condition_classes'].values())
+            for key in ['memory_before_parent','memory_before_snapshot','memory_after_snapshot','memory_after_parent']:
+                assert row[key]=={'status':'CUDA_NOT_INITIALIZED','GPU_measurement':False}
             for child in row['controls']:
                 assert len(child['inputs']) == 28 and len(child['solver_outputs']) == 14
+                assert child['memory_after_suffix_and_restore']=={'status':'CUDA_NOT_INITIALIZED','GPU_measurement':False}
         # The metadata gate must refuse oversize copies and insufficient GPU
         # headroom before allocations. These values are synthetic gate inputs.
         for totals, cap, free in [({'cpu':100},99,None), ({'cuda:0':100},200,499)]:

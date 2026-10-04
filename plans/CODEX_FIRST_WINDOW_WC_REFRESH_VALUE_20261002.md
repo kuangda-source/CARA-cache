@@ -1,3 +1,4 @@
+<!-- Current execution evidence: ../research/111_WC_RV0_RESTORE_EXECUTION_CARD.md; full RV0 remains incomplete. -->
 # WC-RV首窗口：先验证刷新收益空间，不先训练Head
 
 > 最新恢复与成本准备：[110](../research/110_WC_RV0_FROZEN_CONDITION_RESTORE_AND_COST_CARD.md)。官方frozen条件恢复已修复并CPU验证；两场景/四条未干预后缀入口及3900秒费用预案已具体化，真实模型恢复、完整C/D因果RV0和收益仍待证。下一先独立执行器/冻结部署与实际门，配置未选择GPU；累计预算保持10.713586944446/12h。

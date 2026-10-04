@@ -1,3 +1,11 @@
+## 2026-10-04 W3独立恢复卡接线与真实CPU通过，待实际部署
+
+[111独立执行卡](../../research/111_WC_RV0_RESTORE_EXECUTION_CARD.md)/[R4真实CPU](../../reports/wc_rv0_frozen_restore_cpu_r4_20261004.json)/[原件审计](../../reports/wc_rv0_restore_preparation_audit_r4_20261004.json)：补齐历史WC桥的scoped VAE decode策略及CUDA不初始化的快照/恢复/父pipeline显存记录；197.041595秒、35当前依赖/六官方源及服务器02e5…a020原件绑定，flow OFF/ON两父四未干预后缀与原动作回归通过。Toy/CPU非真实GPU视频或因果验收，旧失败和R3保持。
+
+[配置](../../configs/wc_rv0_restore_r1.json)已按现有自主goal/累计12h选择独立wc-rv0-restore-r1：两曝光CAL各父36/72与两条14/28后缀，共两视频；51payload加配置SHA，独立runner/监督器/字段审计及本地22范围费用、18回执拒绝控制通过。3900全wall/3870child/kill5，原f1锁/UUID/sm86/apps/预算/磁盘门；尚未预付或GPU提交。先source同步后actual部署prepare/native-meta/assets/import/实际冻结类及双metadata和独立审计，再fresh准入唯一提交，失败全分母保持且不自动重试。
+
+权威账本仍10.713586944446/12GPUh、44jobs无inflight，余4631.087秒；条件估3828.379不是完成保证。原104/1800单次保持完成，不复用；旧4500卡不共同承诺，后序按实费重算。C/D、RV标签/Head训练及完整RV0仍缺，不据本卡定义成功，不新增人评/付费；科学goal active。以下为历史。
+
 ## 2026-10-04 W3冻结条件恢复CPU通过，两场景3900秒预案具体化
 
 [110接口修复/诊断范围与成本](../../research/110_WC_RV0_FROZEN_CONDITION_RESTORE_AND_COST_CARD.md)/[R3实际CPU](../../reports/wc_rv0_frozen_restore_cpu_r3_20261004.json)/[独立原件审计](../../reports/wc_rv0_restore_preparation_audit_20261004.json)：官方条件是frozen dataclass，原直接setattr只通过Toy，已用显式对象重建恢复其属性并保留身份/类型/冻结行为。新flow OFF/ON每组两个父36/72、四条未干预14/28后缀与父continuation/mock桥通过；原未干预四组/C/D四组48后缀回归通过。当前35文件/六官方源/服务器20f2…2f6e原件SHA绑定，CPU197.133秒，禁止CUDA/无权重与真实视频。R1字符串路径/R2整数属性误调用两CPU失败原件保留，R3另身份修复通过。

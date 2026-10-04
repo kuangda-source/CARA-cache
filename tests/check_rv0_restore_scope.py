@@ -5,11 +5,11 @@ import json
 from pathlib import Path
 
 
-def run():
+def run(config=None):
     root=Path(__file__).resolve().parents[1]
     spec=importlib.util.spec_from_file_location('restore_scope',root/'src/wcomr/rv0_restore_scope.py')
     gate=importlib.util.module_from_spec(spec);spec.loader.exec_module(gate)
-    config=json.loads((root/'configs/wc_rv0_restore_r1.json').read_text())
+    if config is None:config=json.loads((root/'configs/wc_rv0_restore_r1.json').read_text())
     gate.validate_scope(config)
     budget={'cap_gpu_hours':12,'used_gpu_hours':10.713586944445915,'gpu_jobs_launched':44}
     accepted=gate.budget_gate(budget,config);count=0
@@ -27,9 +27,19 @@ def run():
         try:gate.budget_gate(changed,config)
         except ValueError:count+=1
         else:raise AssertionError('Changed budget accepted')
-    assert not config['gpu_execution_selected'] and not config['GPU_submitted']
-    return {'status':'RESTORE_SCOPE_CPU_CONTROLS_PASS_NO_GPU_SELECTED',
-            'checks':count+1,'valid_scope_and_budget':accepted,'GPU_submissions':0}
+    cost=gate.cost_gate(config)
+    for name,value in [('conditional_estimated_seconds',float('nan')),
+                       ('conditional_estimated_seconds',3901),('full_video_proxy_equivalents',5),
+                       ('incremental_allowance_seconds',0),('complete_cost_bound_validated',True)]:
+        changed=copy.deepcopy(config);changed['cost_admission'][name]=value
+        try:gate.cost_gate(changed)
+        except ValueError:count+=1
+        else:raise AssertionError('Changed cost admitted: '+name)
+    assert type(config['gpu_execution_selected']) is bool and not config['GPU_submitted']
+    assert config['budget_reserved_seconds']==0
+    return {'status':'RESTORE_SCOPE_COST_CPU_CONTROLS_PASS_NO_GPU_SUBMITTED',
+            'checks':count+2,'valid_scope_and_budget':accepted,'cost_admission':cost,
+            'GPU_submissions':0}
 
 
 if __name__=='__main__':print(json.dumps(run()))

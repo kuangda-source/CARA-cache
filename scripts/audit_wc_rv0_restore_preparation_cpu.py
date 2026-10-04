@@ -71,6 +71,11 @@ def audit(root, stage, runtime, expected, profile_stage):
             assert row['historical_official_video_bridge_equal'] is True
             assert row['artifact']['bytes']>0 and len(row['artifact']['sha256'])==64
             assert row['capture_inventory']['clone_or_transfer_performed'] is False
+            assert row['flags_before']==row['flags_after']
+            assert row['decode_policy']=='SCOPED_CUDNN_BENCHMARK_FALSE_DETERMINISTIC_TRUE'
+            assert all(v['frozen_dataclass'] for v in row['condition_classes'].values())
+            for key in ['memory_before_parent','memory_before_snapshot','memory_after_snapshot','memory_after_parent']:
+                assert row[key]=={'status':'CUDA_NOT_INITIALIZED','GPU_measurement':False}
             for child in row['controls']:
                 for key in ['inputs','outputs','deep']:assert child[key]==row[key][44:]
                 assert child['solver_outputs']==row['solver_outputs'][22:]
@@ -78,6 +83,7 @@ def audit(root, stage, runtime, expected, profile_stage):
                 record=child['record'];assert record['parent_restored'] is True
                 assert record['final_state_components']==row['final_components']
                 assert record['current_action_intervention'] is False and record['counterfactual_label'] is False
+                assert child['memory_after_suffix_and_restore']=={'status':'CUDA_NOT_INITIALIZED','GPU_measurement':False}
     profile_raw=(profile_stage/'receipt.json').read_bytes();pr=json.loads(profile_raw)
     assert pr['exit_code']==0 and pr['original_GPU_budget_unchanged'] is True and pr['budget_before']==budget
     for name,digest in pr['payload_sha256'].items():

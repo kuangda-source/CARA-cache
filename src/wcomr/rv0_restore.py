@@ -14,11 +14,26 @@ import numpy as np
 import torch
 
 from .full_sampling import CompleteStateRoundtrip
+from .decoder_policy import backend_flags, decode_policy
 from .h0_mode import verify_shared_eval
 from .light_sampling import Hooks, geometry, synchronize
 from .mid_coverage import WC_FIELDS, tree_digest
 from .prepared_input import input_signatures
 from .rv0_fork import SamplerSuffixControl, object_state, official_suffix
+
+
+def cuda_memory_observation():
+    """Observe the existing CUDA context; never initialize CUDA for CPU tests."""
+    if not torch.cuda.is_initialized():
+        return {'status': 'CUDA_NOT_INITIALIZED', 'GPU_measurement': False}
+    free, total = torch.cuda.mem_get_info()
+    return {'status': 'EXISTING_CUDA_CONTEXT_OBSERVED', 'GPU_measurement': True,
+            'device': torch.cuda.current_device(), 'free_bytes': free, 'total_bytes': total,
+            'allocated_bytes': torch.cuda.memory_allocated(),
+            'reserved_bytes': torch.cuda.memory_reserved(),
+            'max_allocated_bytes': torch.cuda.max_memory_allocated(),
+            'max_reserved_bytes': torch.cuda.max_memory_reserved(),
+            'scope': 'PYTORCH_CONTEXT_STATS_NOT_ALL_PROCESS_ALLOCATIONS'}
 
 
 def capture_inventory(net, scheduler, output, noise, velocity):
@@ -98,7 +113,8 @@ def run_restore_controls(inference, samples, wc, settings, *, state, save, outpu
             raise ValueError('Restore request identity differs')
         row = {'sample_name': sample.name, 'context': list(context), 'status': 'STARTED',
                'inputs': [], 'outputs': [], 'deep': [], 'solver_outputs': [],
-               'controls': [], 'prepare_calls': 0}
+               'controls': [], 'prepare_calls': 0, 'flags_before': backend_flags(),
+               'memory_before_parent': cuda_memory_observation()}
         state['requests'].append(row); save()
         hooks, handles = Hooks(), []
         prior_forward = net.forward
@@ -111,6 +127,10 @@ def run_restore_controls(inference, samples, wc, settings, *, state, save, outpu
                        after=lambda v: row.update(prepare_calls=row['prepare_calls'] + 1))
             hooks.wrap(model, 'get_velocity_fn_from_batch', after=lambda v: active.update(velocity=v))
             hooks.wrap(model, 'denoise', before=lambda a, k: active.update(noise=a[0]))
+            # The historical encoded WC bridge used this scoped decode policy.
+            # Keep it identical here; do not change sampling backend flags.
+            hooks.wrap(model, 'decode', context=lambda: decode_policy(True))
+            row['decode_policy'] = 'SCOPED_CUDNN_BENCHMARK_FALSE_DETERMINISTIC_TRUE'
             for block in list(net.blocks)[settings['probe_depth']:]:
                 handles.append(block.register_forward_hook(lambda *a: deep.__setitem__(0, deep[0]+1)))
             def before_forward(args, kwargs):
@@ -133,6 +153,13 @@ def run_restore_controls(inference, samples, wc, settings, *, state, save, outpu
                 inventory = capture_inventory(net, scheduler, latents, active['noise'], active['velocity'])
                 gpu_free = torch.cuda.mem_get_info()[0] if latents.is_cuda else None
                 row['capture_inventory'] = inventory
+                row['memory_before_snapshot'] = cuda_memory_observation()
+                cells = inspect.getclosurevars(active['velocity']).nonlocals
+                row['condition_classes'] = {
+                    name: {'class': type(cells[name]).__module__ + '.' + type(cells[name]).__qualname__,
+                           'frozen_dataclass': bool(getattr(type(cells[name]), '__dataclass_params__', None)
+                                                    and type(cells[name]).__dataclass_params__.frozen)}
+                    for name in ('condition', 'uncondition')}
                 row['capture_gate'] = capture_gate(inventory,
                     logical_copy_cap_bytes=config['logical_copy_cap_bytes'],
                     transient_copy_factor=config['transient_copy_factor'],
@@ -141,6 +168,7 @@ def run_restore_controls(inference, samples, wc, settings, *, state, save, outpu
                                             active['velocity'], suffix, context=context)
                 row['snapshot_storage'] = fork.snapshot_storage()
                 synchronize(); row['snapshot_and_validation_wall_seconds'] = time.perf_counter()-start
+                row['memory_after_snapshot'] = cuda_memory_observation()
                 save(); active['inside'] = True
                 try:
                     for label in config['suffix_labels']:
@@ -159,6 +187,7 @@ def run_restore_controls(inference, samples, wc, settings, *, state, save, outpu
                             child['status'] = 'TECH_BLOCKED'; raise
                         finally:
                             synchronize(); child['inclusive_wall_seconds'] = time.perf_counter()-started
+                            child['memory_after_suffix_and_restore'] = cuda_memory_observation()
                             save()
                 finally:
                     destination[0] = row; active['inside'] = False
@@ -169,6 +198,10 @@ def run_restore_controls(inference, samples, wc, settings, *, state, save, outpu
             synchronize(); started = time.perf_counter()
             paths = inference.generate([sample], output_dir=output/sample.name)
             synchronize(); row['parent_pipeline_including_diagnostics_wall_seconds'] = time.perf_counter()-started
+            row['memory_after_parent'] = cuda_memory_observation()
+            row['flags_after'] = backend_flags()
+            if row['flags_before'] != row['flags_after']:
+                raise ValueError('Scoped decode policy leaked sampling backend flags')
             if (row['prepare_calls'] != 1 or len(row['inputs']) != 72
                     or len(row['solver_outputs']) != 36 or len(row['controls']) != 2
                     or scheduler._step_index != 36 or net.cnt != 2):

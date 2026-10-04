@@ -43,3 +43,18 @@ def budget_gate(budget, c):
         raise ValueError('Full independent timeout and admission allowance do not fit')
     return {'remaining_seconds':(12-used)*3600,'proposed_seconds_plus_admission':required,
             'fits':True,'reserved_seconds':0,'complete_scope_time_guaranteed':False}
+
+
+def cost_gate(c):
+    """Conditional cost admission, explicitly not a complete time guarantee."""
+    validate_scope(c)
+    cost=c['cost_admission']
+    value=cost['conditional_estimated_seconds']
+    if (type(value) not in (int,float) or not math.isfinite(value) or value<=0
+            or value>c['timeout_seconds'] or cost['full_video_proxy_equivalents']!=6
+            or cost['incremental_allowance_seconds']!=700
+            or cost['complete_cost_bound_validated'] is not False
+            or cost['cost_report_ref']!='reports/wc_rv0_restore_cost_proposal_20261004.json'):
+        raise ValueError('Frozen conditional restore cost admission differs')
+    return {'conditional_estimated_seconds':value,'hard_cap_seconds':c['timeout_seconds'],
+            'complete_scope_time_guaranteed':False}
