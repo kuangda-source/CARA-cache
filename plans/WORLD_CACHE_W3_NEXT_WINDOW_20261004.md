@@ -1,6 +1,6 @@
 # WorldCache 下一窗口：全帧保真与同配额刷新位置干预
 
-2026-10-04；计划 v1.8；状态：EXISTING_VIDEO_CPU_COMPLETE / SMALL_CD_CORE_SERVER_CPU_PASS / PRODUCTION_LOCAL_CPU_PASS / W3_GPU_NOT_EXECUTED。当前入口以本文和[09 队列](../research/09_NEXT_ACTIONS.md)为准，旧周次表与大样本卡保留为条件候选。首次v1.6更新轮只改文档；随后自主接续完成全帧评分及固定mask CPU接口，未生成/训练/提交新GPU。
+2026-10-04；计划 v1.8；状态：EXISTING_VIDEO_CPU_COMPLETE / SMALL_CD_CORE_SERVER_CPU_PASS / PRODUCTION_SERVER_CPU_PASS / W3_GPU_NOT_EXECUTED。当前入口以本文和[09 队列](../research/09_NEXT_ACTIONS.md)为准，旧周次表与大样本卡保留为条件候选。首次v1.6更新轮只改文档；随后自主接续完成全帧评分及固定mask CPU接口，未生成/训练/提交新GPU。
 
 依据[科研中的黑暗森林法则](chatgpt-conversation://6abf4581-4ec8-83e8-8990-3efe11053cf4)最新完整轮次 d0140e8a、消息 7d9d74ad，结合本库截至 HEAD 4146ec1 的实际回执调整。对话是研究建议，不能代替原始实验回执或执行授权；[来源清单](../manifests/plan_update_sources_w3_review_20261004.json)记录覆盖范围。对话附件未取得，本文根据完整对话增量整合，没有声称导入附件原文。
 
@@ -10,7 +10,7 @@
 
 > **小C/D核心也已验收：** [122实际CPU](../research/122_WC_W3_SMALL_CD_CORE_AND_CARD_PREPARATION.md)完成两flow批次各2父/12后缀/8模拟输出及三次失败拒绝，144.952秒、84项哈希/raw轨迹审计通过。新小卡明确common45/CFG0、human46/CFG1、两历史Native严格WC编码桥，候选3900全wall/3870child+15准入；不是实测新C/D上界，压力代理6109.684秒超过cap，不保证完成或共同承诺后续批次。下一接生产CLI/监督结算/终态及评分，当前无新GPU提交。
 
-> **v1.8生产入口接齐：** [123](../research/123_WC_W3_SMALL_CD_PRODUCTION_ENTRY_AND_ACTUAL_CPU.md)新增V2及80文件CPU来源，原V1/core67/full8/24/18保持。32拒绝/raw全轨迹/预算实费重建/完整4对评分清单与四CLI本地CPU通过；下一独立stage真实根来源、资产和导入CPU验证。GPU仍未选择或提交，不将CPU工程通过当作W3收益。
+> **v1.8生产准备已完成：** [123](../research/123_WC_W3_SMALL_CD_PRODUCTION_ENTRY_AND_ACTUAL_CPU.md)的source8ce97cd/80文件实际服务器CPU exit0、39.817510秒，32拒绝/raw4父24后缀、真实根13资产/冻结条件类及新入口导入/四CLI共七步骤通过。原件af7bb5…47e30和133项来源/资产/日志/预算/四旧视频SHA独立回读通过。原V1/core67/full8/24/18保持；GPU未选择或提交，真实C/D、同配额收益仍未验证。下一当前CPU阶段后的新卡执行范围确认与fresh资源/预算门；不重复已过同源CPU。
 
 ## 1. 当前方向和保留成果
 
@@ -115,9 +115,9 @@ W1 局部 MSE 改善不保证终点保真；刷新还会改变后续缓存和 Un
 
 下一准备先列：既有Native/官方WC参考能否严格兼容复用；新增父采样/加载、真实因果控制、快照/哈希/恢复、全部后缀、VAE/过滤/编码、失败/flush/退出/释放及评分开销。CPU评分单列资源成本，不冒充GPU加速。选择现有完整诊断卡或新小诊断卡必须明确新旧身份与验收范围；尽量共享合法父加载/基线以减少浪费，但不删对照凑余额。第一完整对的实费决定后序；不能只支付孤立一个分支，也不自动多开窗口或把余额转给OMR。
 
-122新小卡已具体化2/12/8及全部参考context/grid/source/SHA。候选3900秒花费cap加15准入共3915，在7119.663527余额内；若花满，余3204.663527秒，不能自动承诺原3240秒交换及1440秒确认。新C/D未来mask开销仍未测，压力代理超过cap，超时/不可行继续保留原配对分母；实际结算后再选后序。该范围通过CPU不等于生产CLI/监督器/终态/评分已准备齐全或GPU已准入。
+122新小卡已具体化2/12/8及全部参考context/grid/source/SHA。候选3900秒花费cap加15准入共3915，在7119.663527余额内；若花满，余3204.663527秒，不能自动承诺原3240秒交换及1440秒确认。新C/D未来mask开销仍未测，压力代理超过cap，超时/不可行继续保留原配对分母；实际结算后再选后序。123已补齐生产CLI/监督器/终态/评分并通过实际CPU；GPU实际准入、终态释放、参考桥及科学收益仍未验证。
 
-[118服务器CPU](../research/118_WC_RV0_AUTHORIZED_SYNC_AND_ACTUAL_CPU_RESULTS.md)已完成此前直接授权范围。CPU专用project-view不作GPU账本/锁工作目录；真实根目录两份准备报告绑定仍待正确接入。下一GPU卡须绑定真实根目录、冻结来源/权限、全局锁、live指定GPU与足够显存/磁盘、完整比较对预算及停止/释放回执。本轮计划更新不把CPU限定授权扩成新GPU运行许可；已授权且已完成事项不再索要重复确认。
+[118服务器CPU](../research/118_WC_RV0_AUTHORIZED_SYNC_AND_ACTUAL_CPU_RESULTS.md)已完成此前直接授权范围。CPU专用project-view不作GPU账本/锁工作目录；123生产入口已绑定真实根资产、core与LPIPS准备审计及服务器原件。下一GPU卡须绑定真实根目录、冻结来源/权限、全局锁、live指定GPU与足够显存/磁盘、完整比较对预算及停止/释放回执。本轮计划更新不把CPU限定授权扩成新GPU运行许可；已授权且已完成事项不再索要重复确认。
 
 ## 7. 结果决策与投入门槛
 

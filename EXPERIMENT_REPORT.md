@@ -1,8 +1,10 @@
-## 2026-10-04 小C/D生产入口已接齐：本地CPU通过，下一服务器CPU
+## 2026-10-04 小C/D生产准备实际CPU完成：真实干预仍待执行
 
-[123生产入口](research/123_WC_W3_SMALL_CD_PRODUCTION_ENTRY_AND_ACTUAL_CPU.md)：新V2/80文件保留原V1/core67及full8/24/18，接齐runner/监督器/独立终态/四Native相对全帧评分。32项拒绝、raw4父24后缀、8新+2旧/4对/2诊断、失败费用与预付重建/并发账本、四CLI检查通过；真实根账本与锁、3900/3870/kill5/实费释放不使用CPUproject-view。服务器CPU尚待本轮冻结source后执行；实际GPU/新视频/收益标签0。
+[123结果/具体卡](research/123_WC_W3_SMALL_CD_PRODUCTION_ENTRY_AND_ACTUAL_CPU.md)：source8ce97cd的80文件独立服务器CPU exit0、39.817510秒；32拒绝/raw4父24后缀/完整评分8新+2旧4对2诊断/真实根资产与冻结Video2WorldCondition导入/四CLI等七步骤通过，CUDA未初始化。原件af7bb5…47e30与133项来源/资产/日志/旧CPU/四视频/预算原生只读SHA独立回读通过；未加载权重，新GPU/视频/收益标签0。原V1/core67/full8/24/18保持，CPU准备不等于GPU监督结算实际演练或真实C/D科学收益。
 
-计划继续W3，W1两例约8%保真证据保留；暂停稀疏扩大及W2/Head/LoRA/专家训练，无新增人评。2父12后缀8新输出完整对照不减；历史Native须当前GPU父context/settings/36grid/编码桥。3900+15余额可容纳，但6109.684秒压力代理超过cap，不保证完成；13h used11.022315686839217/45jobs/无inflight与账本SHA保持。下一实际CPU原件/source/assets/import及独立回读；不扩大当前CPU阶段为GPU执行。科学goal active，以下为历史。
+[计划v1.8](plans/WORLD_CACHE_W3_NEXT_WINDOW_20261004.md)继续小真实自适应C/D→同CFG配额位置交换→有信号才无训练规则新样本确认；W1两例7.87%/7.99%保真证据保留，稀疏扩大/W2/Head/LoRA/专家训练后置，无新增人评。新卡完整2父12后缀8输出/common45 CFG0/human46 CFG1；两历史Native仅在当前GPU父严格编码/context/settings/grid桥后复用。
+
+3900总/3870child/kill5+15准入仍候选，未选择GPU或预付。名义2811.502/压力6109.684秒非硬界，后者超过cap，不保证完成；13h used11.022315686839217/45jobs/无inflight，余额7119.663527秒及账本SHA保持。当前CPU限定阶段已交付；此前104点1800秒单次已消耗，不能复用于新3900秒C/D卡。下一执行范围确认与fresh A6000/VRAM/compute/锁/预算门，已过同源CPU不重复。科学goal active，以下为历史。
 
 ## 2026-10-04 小C/D独立核心实际CPU通过：下一生产入口接线
 
