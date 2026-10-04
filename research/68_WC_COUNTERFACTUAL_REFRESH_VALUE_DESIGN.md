@@ -1,3 +1,5 @@
+> 2026-10-04最新：[117 FFmpeg4.2实际读取修复与部署许可门](117_WC_RV0_FFMPEG42_READER_FIX_AND_DEPLOYMENT_GATE.md)。本地reader修复原fps_mode不兼容，服务器原生FFmpeg与本地reader已完整读取既有两93帧原视频，35合同/62源码通过，未上传新代码或运行GPU。40核心/9官方源不变，完整8/24/18未缩；完整新代码同步许可连续三goal回合仍待，安全准备完成后goal转blocked。实际新入口CPU/部署、真实C-D/预算标签/Head/CONF仍缺；以下为历史。
+
 > 2026-10-04最新：[115完整执行/评分草案与安全原件复审](115_WC_RV0_EXECUTION_DRAFT_AND_NATIVE_READONLY_AUDITS.md)。完整8父24后缀18输出、62payload/9官方源的未选草案已具备运行/监督/实际费用/独立终态与全93帧LPIPS评分接口；本地35合同拒绝+6哈希证据拒绝通过。既有R3核心及LPIPS原件经服务器原生只读哈希和本地判断独立复审通过，没有上传私有代码。新代码同步许可/实际主机CPU与FFmpeg/真实Native parity和C-D仍待验证；13h原账本不变，无新GPU/正式标签/Head/CONF，旧104身份不重提。以下更新保留阶段历史。
 
 > 2026-10-04更新：[114完整因果核心/LPIPS CPU/13h门](./114_WC_RV0_FULL_CAUSAL_CORE_LPIPS_CPU_AND_13H_GATE.md)。40阶段/9官方源的CPU控制通过；每flow8父24后缀18模拟输出（新增两OFF解码桥），非真实C/D视频或RV标签。lpips隔离预训练CPU已准备、全93帧原分辨率Native相对协议冻结；服务器原件/资源复审因私有代码同步审批待许可。用户直接批准累计13h，used/jobs保持，完整拟卡6915含准入算术可容纳；实际部署/费用显存/正式同预算收益仍待验证，无GPU提交。原104和restore卡不重提，107稀疏判断保持。下文及113是历史设计与阶段证据。

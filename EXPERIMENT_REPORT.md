@@ -1,3 +1,13 @@
+## 2026-10-04 FFmpeg4.2读取修复通过，完整新W3部署许可门仍阻塞
+
+[117实际问题/修复/下一门](research/117_WC_RV0_FFMPEG42_READER_FIX_AND_DEPLOYMENT_GATE.md)/[两原视频完整读取](reports/wc_rv0_video_reader_ssh_native_stream_cpu_r2_20261004.json)：服务器4.2.7不支持原fps_mode，exit1/0字节失败保留；本地reader改vsync0。首个SSH适配器漏PIPE失败另留，R2用服务器原生FFmpeg/ffprobe与本地reader完成既有restore两视频各93帧432×768 RGB/92,565,504字节及PTS/timebase/EOF/每帧哈希，原视频与预算前后SHA相同。每份约31.4/31.7秒含传输和本地验证，不作推理或纯解码计时。无私有代码传送或新C/D/LPIPS视频分数/GPU费用。
+
+[本地R3合同](reports/wc_rv0_execution_cpu_contract_r3_20261004.json)：35拒绝、62源码/10语法通过，草案仅更新reader SHA，旧v4/R2身份保持；40实际CPU核心/9官方源未改。[既有Native CPU位置](reports/wc_rv0_existing_native_CPU_source_location_audit_20261004.json)在原deploy1找到三文件且与source793beed相同，根目录查找失败不是全盘缺失，未重复meta模型检查。
+
+[三回合阻塞审计](reports/wc_rv0_production_upload_blocked_audit_20261004.json)：完整新运行/监督/终态/reader/评分代码同步许可连续三goal回合仍缺；LPIPS单份脚本已获准/完成，不能替代此许可。安全读取准备已完成，下一必须新入口实际服务器CPU/source/assets/解码评分/冻结部署后才fresh资源及完整13h准入。同步本轮后goal转blocked等待输入，完整8/24/18及科学目标未缩；真实C/D/正式标签/Head/CONF/质量仍缺。
+
+used11.022315686839217/13h、45jobs/无inflight与账本字节保持，新GPU0；原104/restore不重提，107判断保持，无训练/付费/人评。以下为历史。
+
 ## 2026-10-04 指定LPIPS脚本传送与服务器CPU只读审计通过
 
 [116范围与结果](research/116_WC_RV0_LPIPS_AUTHORIZED_SERVER_READONLY_AUDIT.md)/[实际服务器回执](reports/wc_rv0_lpips_resource_server_audit_v2_20261004.json)：本次直接授权仅传audit_wc_rv0_lpips_resource.py到既有WorldCache服务器项目根目录，对既有V2资源执行CPU只读审计。脚本6a54…284a与本地一致、exit0，1.478912秒含SSH；CPU原件796c…07ff、协议4536…f60、wheel/公开metadata/四包源码/两权重及origin/既有CPU协议检查通过，与115原生哈希审计完全匹配。12份资源/权威预算/授权文件前后SHA相同。

@@ -57,7 +57,9 @@ def decode_stream(stream, metadata):
 def decoded_video(path):
     metadata = probe_video(Path(path))
     process = subprocess.Popen(['ffmpeg', '-v', 'error', '-threads', '1', '-filter_threads', '1',
-        '-i', str(path), '-map', '0:v:0', '-an', '-fps_mode', 'passthrough',
+        # The pinned server FFmpeg4.2 has no -fps_mode. Its passthrough
+        # spelling -vsync 0 keeps all frames; source PTS are checked above.
+        '-i', str(path), '-map', '0:v:0', '-an', '-vsync', '0',
         '-f', 'rawvideo', '-pix_fmt', 'rgb24', 'pipe:1'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     try:
         yield decode_stream(process.stdout, metadata)
