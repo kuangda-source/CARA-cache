@@ -29,3 +29,11 @@ Native35编码视频SHA `2d33014068b445e30327b8bb83b07f7ce151499122f51c55da25bde
 现场1791077765.7947712：三个原句柄和命令行匹配、3/14视频，第一Native35完整返回后Native23已启动。含预付11.441073425147268/12GPUh、44jobs保持；原6300全wall/6270child/kill5，终态按含加载、失败、flush与释放的实费替换。
 
 下一先跟踪Native23真实24更新/48CFG，再三WC点及stage、第二CAL完整六点；十四分母和历史WC0.06止步桥不变。已有全矩阵汇总[九项CPU控制](../reports/wc_fair_summary_cpu_20261004.json)通过，完整十四视频/原件/源码/来源/费用释放和全部十组Native35相对RGB/luma/motion/temporal指标待终态后执行。未追加卡、训练、付费评分或人工评审。后序CONF按实际结算和科学结果重新准入，科学goal active。
+
+## Native23与WC0.04随后独立通过
+
+[三输出部分审计](../reports/wc_fair_cal_r1_native23_wc004_partial_audit_20261004.json)/[独立原件](../reports/wc_fair_cal_r1_native23_wc004_partial_runner_20261004.json.gz)绑定原55份stage文件、原方法来源与十四分母，CPU1.384秒、账本未变。Native35/Native23/WC0.04分别36/24/36更新、72/48/72CFG、prepare各1；两个Native均完整deep且counter0，WC0.04实际deep43/cache29及native70/尾部reset。23→35实际采样网格与CFG重置成立；三份93帧/16fps完整解码通过。
+
+Native23 SHA `22a673e8014745d96a0844fda1727f65616cc605ee1e0812a88e050aad76f2a7`，362073 bytes，wall239.265306秒；WC0.04 SHA `f4b60a6887e4dfa8aa02bc8e0b969dc9bddd85448842a8f60552450ecf5bba91`，427489 bytes，wall235.157578秒。新部分原件SHA `3e9107e47aa762f8e598357c86344ba5490930a1ce3c576dd1bbff62c280a383`，与D/D/首Native快照分开。
+
+最新现场1791078782.8019598原三句柄仍live匹配，7/14视频；common WC0.06/0.08均36更新72CFG/prepare1完整返回，wall208.204236/198.832189秒，stage every1在生成。WC0.06返回后才进入后续阶段，符合历史桥止步规则，桥原件与后两WC/真实stage还须完整独立审计。含预付11.441073425147268/12h、44jobs与原6300/6270/kill5不变。尚未计算完整十组指标，不据这些单次wall报质量或速度优势。继续原卡，无新增GPU/训练/付费/人评，科学goal active。
