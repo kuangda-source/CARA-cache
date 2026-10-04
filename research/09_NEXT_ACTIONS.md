@@ -1,3 +1,11 @@
+## 2026-10-04 W3独立恢复首卡唯一提交，原三句柄现场确认
+
+[111执行卡](./111_WC_RV0_RESTORE_EXECUTION_CARD.md)/[实际部署](../reports/wc_rv0_restore_r1_deployment_20261004.json)/[独立审计](../reports/wc_rv0_restore_r1_deployment_audit_20261004.json)：GPU source793beed固定52阶段文件，真实R4/35依赖、六官方源、prepare OFF/ON、native-meta1173→eval0/buffers、资产/import/三实际冻结条件类、双metadata/历史桥全部通过，部署未初始化CUDA或改变费用。
+
+[唯一启动](../reports/wc_rv0_restore_r1_launch_20261004.json)/[现场1791089529.779517](../reports/wc_rv0_restore_r1_live_observation_20261004.json)：fresh资源/锁/预算/磁盘通过，原supervisor2794840/timeout2794859/runner2794861均live且命令行匹配；模型加载中，0/2父视频，四条未干预后缀/真实恢复仍待测。仅跟踪此卡3900全wall/3870child/kill5，不改冻结source、重提或删分母。
+
+预付后在途11.796920277779249/12GPUh、45jobs、原inflight绑定；已结算仍10.713586944445915，终态实费替换。两父36/72、四后缀14/28、两个93帧视频及逐字段/历史桥/峰值、源码/费用/释放须独立验收。不是完整C/D RV0、收益标签或质量/速度接受，不追加GPU/训练/付费/人评，科学goal active；旧104授权保持完成。以下为历史。
+
 ## 2026-10-04 W3独立恢复卡接线与真实CPU通过，待实际部署
 
 [111独立执行卡](./111_WC_RV0_RESTORE_EXECUTION_CARD.md)/[R4真实CPU](../reports/wc_rv0_frozen_restore_cpu_r4_20261004.json)/[原件审计](../reports/wc_rv0_restore_preparation_audit_r4_20261004.json)：补齐历史WC桥的scoped VAE decode策略及CUDA不初始化的快照/恢复/父pipeline显存记录；197.041595秒、35当前依赖/六官方源及服务器02e5…a020原件绑定，flow OFF/ON两父四未干预后缀与原动作回归通过。Toy/CPU非真实GPU视频或因果验收，旧失败和R3保持。

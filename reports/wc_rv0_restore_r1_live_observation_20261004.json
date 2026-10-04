@@ -1,0 +1,102 @@
+{
+  "observed_unix": 1791089529.7795167,
+  "original_handles": {
+    "supervisor": {
+      "pid": 2794840,
+      "present": true,
+      "command_matches_stage": true,
+      "command": "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python -u /home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-rv0-restore-r1-deploy1/scripts/supervise_wc_rv0_restore.py --project /home/gaokuangda/data/gkd/worldcache_omr --stage /home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-rv0-restore-r1-deploy1 --output /home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-rv0-restore-r1 --gpu-uuid GPU-cebf7119-cf03-23b9-e192-cd196332b704 "
+    },
+    "timeout": {
+      "pid": 2794859,
+      "present": true,
+      "command_matches_stage": true,
+      "command": "timeout --kill-after=5s 3870s /home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python -u /home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-rv0-restore-r1-deploy1/scripts/run_wc_rv0_restore.py --project /home/gaokuangda/data/gkd/worldcache_omr --stage /home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-rv0-restore-r1-deploy1 --runtime /home/gaokuangda/data/gkd/worldcache_omr/runtime --output /home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-rv0-restore-r1/diagnostic --gpu-uuid GPU-cebf7119-cf03-23b9-e192-cd196332b704 "
+    },
+    "runner": {
+      "pid": 2794861,
+      "present": true,
+      "command_matches_stage": true,
+      "command": "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python -u /home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-rv0-restore-r1-deploy1/scripts/run_wc_rv0_restore.py --project /home/gaokuangda/data/gkd/worldcache_omr --stage /home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-rv0-restore-r1-deploy1 --runtime /home/gaokuangda/data/gkd/worldcache_omr/runtime --output /home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-rv0-restore-r1/diagnostic --gpu-uuid GPU-cebf7119-cf03-23b9-e192-cd196332b704 "
+    }
+  },
+  "supervisor": {
+    "status": "GPU_RV0_RESTORE_RUNNING",
+    "pid": 2794840,
+    "run_id": "wc-rv0-restore-r1",
+    "admission": {
+      "unix": 1791089499.570724,
+      "uuid": "GPU-cebf7119-cf03-23b9-e192-cd196332b704",
+      "name": "NVIDIA RTX A6000",
+      "memory_used_mib": 24,
+      "compute_cap": "8.6",
+      "pids": []
+    },
+    "budget_before": {
+      "batch": "F0-F1",
+      "cap_gpu_hours": 12,
+      "used_gpu_hours": 10.713586944445915,
+      "gpu_jobs_launched": 44,
+      "status": "WC_FAIR_CAL_SETTLED_REQUIRES_RESULT_AUDIT",
+      "gpu_import_probes_completed": 1,
+      "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts",
+      "budget_authorization_ref": "manifests/budget_authorization_20261003.json",
+      "budget_authorization_history": [
+        {
+          "authorized_utc": "2026-10-02T18:03:00Z",
+          "source_thread_id": "01a0f1e6-7ad0-75df-9a02-172b60d2e00b",
+          "user_instruction": "\u628a\u5404\u4e2a\u5b9e\u9a8c\u7684 gpu \u9884\u7b97\u90fd\u8bbe\u7f6e\u4e3a 12gpuh",
+          "previous_cap_gpu_hours": 4,
+          "new_cumulative_cap_gpu_hours": 12,
+          "used_gpu_hours_at_change": 3.9117525685110333,
+          "no_usage_reset_or_transfer": true
+        }
+      ]
+    },
+    "reserved_seconds": 3900,
+    "child_pid": 2794859,
+    "child_started_unix": 1791089499.573996
+  },
+  "runner_status": "INITIALIZING",
+  "load_seconds": null,
+  "requests": [],
+  "budget": {
+    "batch": "F0-F1",
+    "cap_gpu_hours": 12,
+    "used_gpu_hours": 11.796920277779249,
+    "gpu_jobs_launched": 45,
+    "status": "WC_RV0_RESTORE_RUNNING_3900S_PREPAID_NOT_ACTUAL_SETTLED",
+    "gpu_import_probes_completed": 1,
+    "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts",
+    "budget_authorization_ref": "manifests/budget_authorization_20261003.json",
+    "budget_authorization_history": [
+      {
+        "authorized_utc": "2026-10-02T18:03:00Z",
+        "source_thread_id": "01a0f1e6-7ad0-75df-9a02-172b60d2e00b",
+        "user_instruction": "\u628a\u5404\u4e2a\u5b9e\u9a8c\u7684 gpu \u9884\u7b97\u90fd\u8bbe\u7f6e\u4e3a 12gpuh",
+        "previous_cap_gpu_hours": 4,
+        "new_cumulative_cap_gpu_hours": 12,
+        "used_gpu_hours_at_change": 3.9117525685110333,
+        "no_usage_reset_or_transfer": true
+      }
+    ],
+    "wc_rv0_restore_inflight": {
+      "run_id": "wc-rv0-restore-r1",
+      "supervisor_pid": 2794840,
+      "reserved_seconds": 3900
+    }
+  },
+  "mp4_files": [],
+  "gpu": "GPU-cebf7119-cf03-23b9-e192-cd196332b704, NVIDIA RTX A6000, 27, 8.6\n",
+  "compute_apps": "",
+  "logs": [
+    {
+      "name": "coverage.log",
+      "tail": "operations, rebuild TensorFlow with the appropriate compiler flags.\n2026-10-04 12:52:07.859478: W tensorflow/compiler/xla/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer.so.7'; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/cosmos/cosmos-predict2.5/.venv/lib/python3.10/site-packages/cv2/../../lib64:\n2026-10-04 12:52:07.859592: W tensorflow/compiler/xla/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer_plugin.so.7'; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/cosmos/cosmos-predict2.5/.venv/lib/python3.10/site-packages/cv2/../../lib64:\n2026-10-04 12:52:07.859604: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.\n[10-04 12:52:09|INFO|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/_src/imaginaire/utils/checkpoint_db.py:171:path] Downloading checkpoint nvidia/Cosmos-Predict2.5-2B/base/post-trained(81edfebe-bd6a-4039-8c1d-737df1a790bf)\n[10-04 12:52:09|INFO|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/_src/imaginaire/utils/checkpoint_db.py:96:_download] Downloading checkpoint file from Hugging Face with {'repo_id': 'nvidia/Cosmos-Predict2.5-2B', 'repo_type': 'model', 'revision': '15a82a2ec231bc318692aa0456a36537c806e7d4', 'filename': 'base/post-trained/81edfebe-bd6a-4039-8c1d-737df1a790bf_ema_bf16.pt'}\n"
+    },
+    {
+      "name": "launch.log",
+      "tail": "{\"status\": \"RESTORE_SOURCE_ASSET_COST_CPU_BINDING_PASS_NO_TORCH\", \"config_sha256\": \"fe1090fbecfc81629d33fe09bd55b42300c4fd40d36dea252ec8ef36e1e4b6b0\"}\n"
+    }
+  ]
+}

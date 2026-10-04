@@ -25,3 +25,11 @@
 条件成本代理3828.379秒小于3900，但不是完成时间保证。现有权威账本10.713586944446/12GPUh、44jobs，无inflight，余4631.087秒；3900+15秒单独可容纳，尚未预付或提交。按现有自主实验goal和累计12h选择本卡，**不复用旧104/1800授权**，原4500秒C/D草案不与本卡共同承诺，后序按实费结算重算。
 
 当前冻结payload51项加独立配置SHA。下一先commit/push，再实际部署/prepare/native-meta/资产/import/两条件metadata及独立部署审计，最后fresh UUID/VRAM/apps/锁/no-inflight/预算/磁盘门通过才唯一启动。终态用[独立审计](../scripts/audit_wc_rv0_restore_terminal.py)检查原PID、源码/费用/释放，重算两父四后缀全部字段和完整解码两个93帧视频。真GPU峰值、完整wall及恢复结果仍待测；完整RV0/C/D有符号收益仍缺，107稀疏净收益未成立的结论保持。
+
+## 唯一实际提交与原句柄
+
+[实际部署](../reports/wc_rv0_restore_r1_deployment_20261004.json)/[独立部署审计](../reports/wc_rv0_restore_r1_deployment_audit_20261004.json)全部通过：冻结GPU source `793beed32c0aa48573e356f9f5850b4fb35295b6`，51payload加配置共52阶段文件；真实R4原件/35依赖、六官方源码、CPU prepare OFF/ON、native-meta1173→eval0及buffer、资产/import/三实际冻结条件类、两请求metadata和两历史实体桥全部绑定。CUDA未初始化，GPU账本在部署阶段未变，磁盘564.205GB。CPU准备仍用transfer/text encoder/meta替身，不是GPU前向。
+
+[唯一启动](../reports/wc_rv0_restore_r1_launch_20261004.json)/[现场原句柄](../reports/wc_rv0_restore_r1_live_observation_20261004.json)：fresh指定GPU24MiB、无compute worker、sm86/锁/余额/磁盘门通过后只提交一次。现场1791089529.779517确认supervisor2794840、timeout2794859、runner2794861均live且命令行匹配原stage和run；模型正在加载，两个父视频和四后缀尚无结果。
+
+原3900秒预付后在途11.796920277779249/12GPUh、第45job，`wc_rv0_restore_inflight`与原supervisor绑定；不是实际已消耗11.7969小时。原已结算10.713586944445915小时保持，最终按实际wall替换预付。只跟踪原句柄，不改冻结阶段、重复提交或把初始化报为恢复通过；完整两父/四后缀/两视频及终态费用释放待验收。
