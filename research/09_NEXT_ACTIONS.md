@@ -1,3 +1,13 @@
+## 2026-10-04 W3完整执行与全视频评分草案CPU通过，原件安全只读复审完成
+
+[115实现/证据/下一门](./115_WC_RV0_EXECUTION_DRAFT_AND_NATIVE_READONLY_AUDITS.md)/[未选草案](../configs/wc_rv0_causal_r1_draft.json)：独立运行入口、监督/实际费用结算、终态轨迹/源码/18视频/费用释放审计及全93帧CPU LPIPS评分接口完成，62payload/9官方源，完整8父24后缀18输出不缩。两曝光CAL/两CFG，8 C-D分别相对匹配Native、两OFF桥、4有符号诊断；非同预算训练标签，Native真实无观察器parity/新入口实际主机CPU和FFmpeg仍未验证。
+
+[本地R2合同](../reports/wc_rv0_execution_cpu_contract_r2_20261004.json)：35范围/费用/轨迹/93帧RGB流拒绝+6原生哈希证据拒绝通过、两完整mock计划、62源码SHA/10语法/draft CLI通过；未执行Torch/实际FFmpeg，账本字节不变，新GPU0。R1和v1/v2/v3未选草案保留旧source身份，不追认实际部署。
+
+[原生只读62文件](../reports/wc_rv0_native_readonly_hash_audit_20261004.json)/[完整CPU原件审计](../reports/wc_rv0_causal_cpu_native_audit_r3_20261004.json)/[LPIPS原件审计](../reports/wc_rv0_lpips_resource_native_audit_v2_20261004.json)：服务器已有sha256sum与cat复读原件/阶段/官方源/资源/权威预算/公开PyPI，判断在本地完成；自动审批批准，无私有代码上传或共享环境修改。旧审计脚本传输拒绝保留，既有原件复审门已通过；新私有生产代码/报告的服务器同步仍需明确许可，不能把只读批准当部署许可。
+
+13h直接授权与used11.022315686839217/45jobs/无inflight保持，余7119.663527秒；完整费用条件6765.585233、拟6900全wall/6870child/kill5+15准入需6915、算术余204.663527秒，未来成本/峰值未测。当前未选UUID/预付/提交，原104点1153.55秒已完成、不重提。下一实际部署与CPU导入/93帧reader/评分接口后才fresh准入；真实C/D/正式RV标签/Head/CONF/质量仍缺，107稀疏净收益判断保持，无训练/付费/人评，科学goal active。以下为历史。
+
 ## 2026-10-04 W3完整核心与LPIPS CPU通过，13h预算已接入，远端原件复审待明确许可
 
 [114实现/证据/下一门](./114_WC_RV0_FULL_CAUSAL_CORE_LPIPS_CPU_AND_13H_GATE.md)/[完整R3 CPU](../reports/wc_rv0_causal_cpu_r3_20261004.json)/[本地回执审计](../reports/wc_rv0_causal_cpu_local_audit_r3_20261004.json)：40阶段依赖/9官方源/实际冻结Video类AST，flow OFF/ON各8父24完整后缀18模拟输出，合计16父48后缀36输出，274.090秒；Native/cache-off与WC/router OFF全轨迹/状态/RNG/mock编码相等，C/C D/D交换、同输入Cdeep0/Dfull、过去同CFG真full、五pipeline事件及两TECH_BLOCKED恢复通过。原R1/R2旧writer观察遗漏失败保留，R3调用时绑定修复，未删门。Toy/CPU、非真实GPU视频/质量/标签，服务器原件及阶段文件尚未独立回读。
