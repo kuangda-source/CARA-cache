@@ -134,6 +134,8 @@ class SamplerSuffixControl:
         })
 
     def check_identity(self):
+        if any(m.training for m in self.net.modules()):
+            raise ValueError('RV0 shared eval mode changed')
         if (self.model.net is not self.net or self.model.sample_scheduler is not self.scheduler
                 or self.bindings != (self.model.denoise, self.net.forward, self.scheduler.step)):
             raise ValueError('RV0 model/scheduler/function identity changed')
@@ -168,6 +170,11 @@ class SamplerSuffixControl:
 
     @torch.no_grad()
     def repeat(self, label):
+        return self._execute_suffix(label)
+
+    @torch.no_grad()
+    def _execute_suffix(self, label, *, before=None, after=None, metadata=None,
+                        status='UNCHANGED_SUFFIX_COMPLETE_NOT_RV_LABEL'):
         if type(label) is not str or not label or any(r['label'] == label for r in self.records):
             raise ValueError('RV0 unique control label required')
         self.check_identity()
@@ -176,17 +183,20 @@ class SamplerSuffixControl:
         record = {'label': label, 'status': 'STARTED', 'completed_updates': self.completed,
                   'planned_remaining_updates': 36 - self.completed,
                   'current_action_intervention': False, 'counterfactual_label': False}
+        if metadata: record.update(metadata)
         self.records.append(record)
         started = time.perf_counter()
         try:
             latent = self.restore_parent()
+            if before: before()
             result = self.suffix(self.model, self.noise, latent, self.velocity_fn,
                                  self.generator, self.scheduler.timesteps[self.completed:])
             self.check_identity()
             if self.scheduler._step_index != 36 or self.net.cnt != 2:
                 raise ValueError('RV0 suffix did not complete original grid and WC70 tail')
+            if after: record.update(after())
             final = CompleteStateRoundtrip(self.net, self.scheduler, result, [self.generator])
-            record.update(status='UNCHANGED_SUFFIX_COMPLETE_NOT_RV_LABEL',
+            record.update(status=status,
                           final_latent_sha256=tree_digest(result),
                           final_state_components=final.components(),
                           final_state_sha256=final.fingerprint())
@@ -198,3 +208,36 @@ class SamplerSuffixControl:
             record['control_wall_seconds'] = time.perf_counter() - started
             self.restore_parent()
             record['parent_restored'] = True
+
+    def snapshot_storage(self):
+        """Count owned copies, without CPU transfer or allocating more tensors.
+
+        Physical storage is deduplicated; values describe this state only and
+        are not a production peak-VRAM bound or a Toy-to-GPU extrapolation.
+        """
+        import numpy as np
+        from collections.abc import Mapping
+        s = self.snapshot
+        values = [s.output, s.net_state, s.solver_state,
+                  {k: v[1] for k, v in s.buffers.items()}, self.condition_state,
+                  self.noise, s.cpu_rng, s.cuda_rng, [v for _, v in s.generators]]
+        values.append(s.numpy_rng)
+        logical, physical, seen = {}, {}, set()
+        def walk(value):
+            if isinstance(value, torch.Tensor):
+                device = str(value.device)
+                logical[device] = logical.get(device, 0) + value.numel() * value.element_size()
+                storage = value.untyped_storage()
+                key = (device, storage.data_ptr(), storage.nbytes())
+                if key not in seen:
+                    seen.add(key); physical[device] = physical.get(device, 0) + storage.nbytes()
+            elif isinstance(value, np.ndarray):
+                logical['numpy'] = logical.get('numpy', 0) + value.nbytes
+            elif isinstance(value, Mapping):
+                for v in value.values(): walk(v)
+            elif isinstance(value, (list, tuple)):
+                for v in value: walk(v)
+        walk(values)
+        return {'logical_tensor_bytes_by_device': logical,
+                'unique_owned_tensor_storage_bytes_by_device': physical,
+                'snapshot_copies_only_not_live_weights_or_peak': True}

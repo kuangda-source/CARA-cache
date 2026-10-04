@@ -1,3 +1,11 @@
+## 2026-10-04 W3单次C/D动作CPU通过，真实收益标签仍为0
+
+[109动作接口与证据](../../research/109_WC_RV0_ONE_ACTION_CPU_CONTROLS.md)/[实际CPU](../../reports/wc_rv0_actions_cpu_r1_20261004.json)/[独立原件审计](../../reports/wc_rv0_actions_cpu_audit_20261004.json)：固定官方probe后decision前介入一次C/D，官方代码继续处理cache/full副作用。原后缀回归四组和新增flow OFF/ON×full/cache四组通过；两CFG槽位、48条14更新/28CFG完整后缀的OFF、C/C、D/D、交换顺序、同输入、真实full历史及失败恢复通过。33当前依赖/五官方源/服务器3e5e…576f原件SHA绑定，CPU181.728秒，禁止CUDA、Toy网络及decoder/writer，无真实视频或标签。
+
+动作后沿用原WC自适应策略函数，未来动作可随轨迹变化，不能称固定未来mask或等预算收益。新快照storage计数只测Toy保存副本约24.27MB CPU，不含真实GPU峰值/瞬时副本/workspace或完整时间。下一具体化真实恢复诊断的动作单位、后缀、Native参考与损失、失败分母和开销/内存包络；真实模型恢复及有符号收益仍待验证，Head/训练后置。
+
+fresh账本仍10.713586944446/12GPUh、44jobs、余1.286413055554h=4631.087秒无inflight，本轮GPU提交/预付0，下一GPU卡未选择。原104点1153.547616秒已完成，单次1800授权不复用；107稀疏净收益未成立、W3仅候选的方向节点保持，不付费/新增人评，科学goal active。以下为历史。
+
 ## 2026-10-04 W3/RV0未干预后缀CPU通过，收益标签仍为0
 
 [108接口、证据与成本](../../research/108_WC_RV0_CPU_SUFFIX_CONTROLS_AND_COST.md)/[R3实际CPU](../../reports/wc_rv0_suffix_cpu_r3_20261004.json)/[独立原件审计](../../reports/wc_rv0_suffix_cpu_audit_20261004.json)：固定官方loop、WC/UniPC，在step22后四条14更新/28CFG后缀交换顺序复现；flow OFF/ON×full/cache四组，各完整父36/72、每输入/输出/deep、最终latent及状态相等。缺身份/改code/半CFG/父latent/网格/条件漂移/nonfinite/重复label拒绝与父状态恢复通过；31当前依赖/五官方源与服务器8cd9…69ef原件SHA绑定，CPU31.470秒，禁止CUDA/无权重/真实VAE或视频。
