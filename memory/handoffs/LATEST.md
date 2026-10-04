@@ -1,3 +1,9 @@
+## 2026-10-04 原在线八输出卡7/8，common真实窗口/反馈独立通过
+
+[102 已完成结构证据](../../research/102_WC_ONLINE_STAGE_PARTIAL_ADAPTIVE_MECHANISM.md)/[common三臂审计](../../reports/wc_online_stage_r1_partial_phase_audit_r2_20261004.json)：两在线候选完整93帧/36更新72CFG/prepare1及真实核/来源/窗口/逐CFG选择独立通过。common every1实际6S/138算子/35deep，every2实际4S/92算子/36deep；后者call70(step35 CFG1)将原生cache变为full。两者call57/58(step29)仍读近似来源，窗口23–27仅限制新增S，不清空原生forecast历史。
+
+这是曝光CAL完整策略反馈，不是RV同状态反事实标签或保真/速度接受。现场1791072802.997635原三PID存活、7/8视频，人物every1已36更新/72CFG/prepare1普通返回wall205.949秒，最后cadence生成中；严格D/D独立通过，完整四候选指标待结果。原3600/3570/kill5及含预付10.136838727254782/12h、43jobs不变；只跟踪原卡终态后八输出/原件/费用释放/四指标，不重提/训练/新增人评。科学goal active。以下为历史。
+
 ## 2026-10-04 在线阶段D/D独立通过，原八输出卡2/8
 
 [现场1791072053.8974915](../../reports/wc_online_stage_r1_live_observation_20261004.json)：原三句柄仍live，3/8视频；common官方测量36更新/72CFG/prepare1正常返回，wall198.348秒，第一在线window候选正在生成。D/D已独立通过，四候选指标待完整矩阵，不据单个官方wall报加速；含预付10.136838727254782/12h不变，仅跟踪原卡。
