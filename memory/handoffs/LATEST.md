@@ -1,3 +1,7 @@
+## 2026-10-05 W3-B完整核心实际CPU通过，下一生产入口
+
+[130](../../research/130_WC_W3_PLACEMENT_FULL_CORE_CPU.md)：source7f6efa8/R4/117文件 actual CPU191.474秒，4父32后缀20mock、五失败恢复40损坏拒绝；597源原件账本及8日志句柄SHA独立通过。旧R1保护冲突/R2R3测试措辞失败和Human GPU110文件保留；只是Toy，四真实位置合法性/视频收益待测。B2/16/10和9600草案未选GPU，累计12.99974633233337/24h、47jobs无inflight不变；下一生产CLI/监督/终态/评分和实际CPU绑定，不重跑旧组合或扩训练、人评。以下为历史。
+
 ## 2026-10-05 W3-B完整核心CPU验证准备
 
 [130](../../research/130_WC_W3_PLACEMENT_FULL_CORE_CPU.md)：新增完整2父16后缀10输出核心及纯stdlib verifier/评分拓扑，本机20拒绝/两根接受通过。实际服务器新CPU stage待，GPU仍未选；旧Human和原超时卡/两点结果与费用保持。下一完成实际禁CUDA组合与原件审计，再生产接线；不要重提旧GPU或把Toy位置当四真实CAL可行性。以下为历史结果。

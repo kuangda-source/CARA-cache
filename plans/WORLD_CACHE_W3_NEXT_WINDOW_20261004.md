@@ -1,6 +1,8 @@
 # WorldCache 下一窗口：全帧保真与同配额刷新位置干预
 
-2026-10-05；计划v2.8；状态：TWO_REAL_CD_POINTS_COMPLETE / HUMAN_FULL93_CPU_SCORE_AND_NATIVE_AUDIT_PASS / ORIGINAL_TIMEOUT_RETAINED / PLACEMENT_PRODUCTION_NEXT。当前入口以本文和[09队列](../research/09_NEXT_ACTIONS.md)为准。以下旧“在跑/待批准/13h余额”文字只保留历史身份。
+2026-10-05；计划v2.9；状态：TWO_REAL_CD_POINTS_COMPLETE / ORIGINAL_TIMEOUT_RETAINED / PLACEMENT_FULL_CORE_ACTUAL_CPU_PASS / PLACEMENT_PRODUCTION_CLI_NEXT。当前入口以本文和[09队列](../research/09_NEXT_ACTIONS.md)为准。以下旧“在跑/待批准/13h余额”文字只保留历史身份。
+
+[130完整B核心CPU](../research/130_WC_W3_PLACEMENT_FULL_CORE_CPU.md)已通过：source7f6efa8/R4实际191.474秒，两flow4父32后缀20mock、五失败恢复40损坏拒绝，597冻结/历史源/原件/账本及8日志句柄native SHA、完整行动/配额/状态/OFF与BASE编码桥通过。20范围评分拓扑拒绝实际CPU通过，四双位置汇总/11拒绝本机通过；三旧失败回执保留，禁止保护override等实质门保持。Toy不是四真实点GPU合法性或收益。下一补生产CLI/监督/终态/六全93帧评分与具体卡实际CPU绑定，不重复相同组合；B GPU未选，9600仍草案。以下既有结果和接线前计划为历史，当前入口以上v2.9为准。
 
 **当前决定：继续W3，先完成同配额位置交换B的生产核心与CPU接线，不进入Head训练。** [129完整结果](../research/129_WC_W3_HUMAN_APPROVED_EXECUTION_AND_RESULTS.md)与[跨卡R4](../reports/wc_w3_two_point_summary_r4_real_complete_20261005.json)已补齐两真实科学点：Common C−D=+0.0302871831（原WC本已选D），Human +0.0119268468（原WC选C）。Human D的Native相对全帧LPIPS失真降低2.808%，后续full10/8→8/8，显示改变原决策的单点机制空间；非同配额、干净E2E、CONF或训练标签。两曝光场景等权差值+0.02110701495仅描述性，重复不是额外独立样本。
 
