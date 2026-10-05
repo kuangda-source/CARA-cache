@@ -2,7 +2,9 @@
 
 # WorldCache 下一窗口：全帧保真与同配额刷新位置干预
 
-2026-10-04；计划 v2.0；状态：EXISTING_VIDEO_CPU_COMPLETE / SMALL_CD_CORE_SERVER_CPU_PASS / PRODUCTION_SERVER_CPU_PASS / W3_GPU_NOT_EXECUTED。当前入口以本文和[09 队列](../research/09_NEXT_ACTIONS.md)为准，旧周次表与大样本卡保留为条件候选。首次v1.6更新轮只改文档；随后自主接续完成全帧评分及固定mask CPU接口，未生成/训练/提交新GPU。
+2026-10-05；计划 v2.1；状态：EXISTING_VIDEO_CPU_COMPLETE / BUDGET24_PRODUCTION_SERVER_CPU_PASS / W3_SMALL_CD_GPU_RUNNING_OFF1_COMPLETE。当前入口以本文和[09 队列](../research/09_NEXT_ACTIONS.md)为准，旧周次表与大样本卡保留为条件候选。首次v1.6更新轮只改文档；随后完成全帧评分及固定mask CPU接口，2026-10-05在直接批准后提交唯一小C/D GPU卡，尚未训练。
+
+> 在跑实测：首个OFF后缀control318.154秒、编码38.820秒，当前视频SHA与历史WC一致（未替代母轨/重复完整桥）。完整A卡可能超过3900秒；继续原任务至正常终态或原限时，失败与2父/12后缀/8输出分母保留，不延长、取消或重提。后续B卡必须用实际成本重新估价，不能复用旧名义单后缀代理承诺完成。
 
 依据[科研中的黑暗森林法则](chatgpt-conversation://6abf4581-4ec8-83e8-8990-3efe11053cf4)最新完整轮次 d0140e8a、消息 7d9d74ad，结合本库截至 HEAD 4146ec1 的实际回执调整。对话是研究建议，不能代替原始实验回执或执行授权；[来源清单](../manifests/plan_update_sources_w3_review_20261004.json)记录覆盖范围。对话附件未取得，本文根据完整对话增量整合，没有声称导入附件原文。
 
