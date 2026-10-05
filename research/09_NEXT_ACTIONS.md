@@ -1,3 +1,11 @@
+## 2026-10-05 W3首点全帧评分完成，整卡保留限时失败
+
+[125实际结果](../research/125_WC_W3_SMALL_CD_APPROVAL24_AND_EXECUTION.md)与[服务器CPU全帧评分](../reports/wc_w3_small_cd_failed_card_lpips_cpu_20261005.json)：首场景C/D各93帧、完整432×768、CPU FP32 LPIPS v0.1 Alex，C=0.3634404575、D=0.3331532744，C−D=+0.0302871831；D相对C失真下降8.33%。原WorldCache此处已选D，D完全复现原WC；C强制复用后后缀full配额8/8，D为8/7。结果说明此点原刷新有价值，不能称新调度方法优势或同预算结果。
+
+唯一原GPU卡wc-w3-small-cd-r1/source c12a3cad2cefd3559d60a5256d74d802eb151bab终态BOUNDED_TIMEOUT/124，实际3872.257984秒、小于3900；累计12.0979429045467/24GPUh、46jobs、无inflight，余11.9020570954533h。三PIDs/f1锁/GPU释放。首场景36更新/72CFG、6后缀/4输出/历史桥通过；human_199仅到step22，OFF1未完成。原2父/12后缀/8输出/2科学点分母不变，实际仅1科学点，不接受整卡，也不判W3科学失败。
+
+终态实际CPU审计5.253秒、完整评分31.684秒（监督全wall38.413秒）、103来源/原件/资产/预算独立SHA回读通过，CUDA未初始化、预算不改、新GPU0。下一准备human_199独立1父6完整后缀4新输出补验：固定call46/CFG1和全部OFF/CC/DD控制，合并证据时仍保留原失败与两科学点；约320秒的实测后缀取代旧120秒代理，不重跑已完成常识点。新独立生产范围及CPU门尚需具体化；不重提原run、训练Head/LoRA或扩大稀疏。下面各在跑/未评分/旧预算条目为历史。
+
 ## 2026-10-05 W3小C/D限时终态，首场景完整、第二场景未完成
 
 [125实际结果](125_WC_W3_SMALL_CD_APPROVAL24_AND_EXECUTION.md)：唯一wc-w3-small-cd-r1/source c12a3cad2cefd3559d60a5256d74d802eb151bab 按3870child限时exit124/BOUNDED_TIMEOUT，实际全wall3872.2579837469384秒，小于总3900秒。账本按实费结算为12.0979429045467/24h、46jobs，无inflight；原三PIDs/f1锁/GPU均释放（24MiB/noapps）。预算不是重置，余额11.9020570954533h。

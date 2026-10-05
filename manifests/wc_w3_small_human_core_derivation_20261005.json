@@ -1,0 +1,62 @@
+{
+  "base_path": "src/wcomr/rv0_small_causal.py",
+  "base_sha256": "050b82ee93392248ca1d6cebaa9f10e52adcce37a05427787f124def44e2778d",
+  "derived_path": "src/wcomr/rv0_small_human_causal.py",
+  "derived_sha256": "99d6634e10e709d47b835a3619c3fa7b5986bf3953fe28578ddc2527acd26483",
+  "author_time_text_changes": [
+    {
+      "old": "run_small_causal_batch(",
+      "new": "run_small_human_complement_batch("
+    },
+    {
+      "old": "len(samples) != 2",
+      "new": "len(samples) != 1"
+    },
+    {
+      "old": "len(contexts) != 2",
+      "new": "len(contexts) != 1"
+    },
+    {
+      "old": "config['target_calls'] != [45, 46]",
+      "new": "config['target_calls'] != [46]"
+    },
+    {
+      "old": "startswith('CPU_SMALL:')",
+      "new": "startswith('CPU_SMALL_HUMAN:')"
+    },
+    {
+      "old": "planned_parent_phases=2, planned_suffix_controls=12, planned_encoded_outputs=8",
+      "new": "planned_parent_phases=1, planned_suffix_controls=6, planned_encoded_outputs=4"
+    },
+    {
+      "old": "policy='TWO_ONE_ACTION_ADAPTIVE_DIAGNOSTICS_WITH_HISTORICAL_REFERENCE'",
+      "new": "policy='ONE_HUMAN_COMPLEMENT_ADAPTIVE_DIAGNOSTIC_WITH_HISTORICAL_REFERENCE'"
+    },
+    {
+      "old": "len(state['requests']) != 2",
+      "new": "len(state['requests']) != 1"
+    },
+    {
+      "old": "sum(len(r['children']) for r in state['requests']) != 12",
+      "new": "sum(len(r['children']) for r in state['requests']) != 6"
+    },
+    {
+      "old": "sum(1+len(r['decoded_children']) for r in state['requests']) != 8",
+      "new": "sum(1+len(r['decoded_children']) for r in state['requests']) != 4"
+    },
+    {
+      "old": "Small two-parent/twelve-suffix/eight-output coverage differs",
+      "new": "Human complement one-parent/six-suffix/four-output coverage differs"
+    },
+    {
+      "old": "SMALL_CAUSAL_CORE_COMPLETE_REQUIRES_INDEPENDENT_REAL_GPU_AUDIT",
+      "new": "HUMAN_COMPLEMENT_CORE_COMPLETE_REQUIRES_INDEPENDENT_REAL_GPU_AUDIT"
+    }
+  ],
+  "original_function": "run_small_causal_batch",
+  "new_function": "run_small_human_complement_batch",
+  "shared_strict_row_verifier": "wcomr.rv0_small_causal.verify_small_children",
+  "runtime_source_rewriting": false,
+  "fake_second_scene": false,
+  "GPU_submissions": 0
+}
