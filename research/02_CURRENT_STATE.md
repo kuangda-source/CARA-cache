@@ -1160,3 +1160,8 @@ w1-vqa-controls-r1/source72c9e24 exit0，supervisor2488580/timeout2488585/runner
 已实现仅T2V的scope adaptation，guide1直接conditional、guide!=1保留原CFG运算，finally恢复，不改源文件/i2v。Local/Linux7检查通过；完整native T2V body+真实UniPC/CPU替身在4/50步guide5输入/timestep/输出bit equal，guide1分别4/50cond/0negative。不是实际模型/GPU parity；保留BF16guide1的stock抵消差异，不称guide1 OFF/ON bit invariant。
 
 ## 2026-10-01：actual原生CPU probe终态验收
+## 2026-10-05 Human GPU完整结束，CPU路径审计修复中
+
+[129实际结果](../research/129_WC_W3_HUMAN_APPROVED_EXECUTION_AND_RESULTS.md)：唯一Human卡exit0、实费3246.492340秒；1父36/72、6完整后缀/全部重复、4新输出/历史WC桥完成，D full8/8、C10/8，尚非质量收益。累计12.99974633233337/24h、47jobs、无inflight；原GPU PIDs/锁/24MiB释放。
+
+CPU终态首次检查13.971205秒exit1，输出根为符号链接却只有artifact被resolve。[路径诊断](../reports/wc_w3_small_human_audit_path_failure_20261005.json)保留原件；只将根也resolve，本机普通/符号链接两例通过、7越界/缺来源拒绝。新CPU修复入口严格检查只差一行，原GPU源码stage/回执/失败不改。终态修复审计、全93帧LPIPS及跨卡2点仍待；Human收益未知。以下为历史快照。

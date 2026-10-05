@@ -39,7 +39,7 @@ def evaluation_plan(receipt, config, *, real_GPU_required=True):
     if len({str(Path(f['path']).resolve()) for f in files+references}) != 5:
         raise ValueError('Human new/reference artifact paths must remain distinct')
     if real_GPU_required:
-        root = Path(config['expected_project_root'])/'outputs'/config['run_id']/'diagnostic'
+        root = (Path(config['expected_project_root'])/'outputs'/config['run_id']/'diagnostic').resolve()
         if any(not Path(f['path']).resolve().is_relative_to(root) for f in files):
             raise ValueError('Human artifacts must use the new independent output identity')
     pairs = [{'scene': row['sample_name'], 'CFG_slot': 1, 'target_call': 46,

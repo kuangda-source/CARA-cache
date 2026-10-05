@@ -23,3 +23,8 @@
 selected前置门实际通过，12.254286秒、新授权与R2原件验证，110文件source冻结；原件SHA e172ec4f5f4d5464a1cf3785be3f2a5a29bf25211c82a7511dd91a3588e99797。GPU source **8a46fcce95dee7f0b2ddeca8fd273a223c147c49**。[启动回执](../reports/wc_w3_small_human_launch_20261005.json)与[现场](../reports/wc_w3_small_human_start_observation_20261005.json)确认 supervisor2882869 / timeout2882885 / runner2882887 三句柄存活，进入初始化/模型加载；不能据此称Human干预或质量已通过。
 
 预算一次预付4500秒，当前在途13.3479429045467/24h、第47job，原已结算12.0979429045467h/46jobs保持；预付不是实际最终费用。child起算限时北京时间 **2026-10-05T19:25:45.905665+08:00**，总4500秒保持。只监测原句柄，不改在跑source/stage、延长或重新提交。完成/失败后按实费/原1/6/4分母审计，GPU释放后两全93帧CPU LPIPS。
+## GPU终态与CPU审计路径修复
+
+唯一Human GPU已exit0：实际总wall3246.492340秒，1父36更新/72CFG、六完整后缀、四新视频与历史WC桥完成。全部OFF/CC/DD重复及同输入C0/D26通过；C full10/8、D8/8。累计12.99974633233337/24GPUh、47jobs、无inflight，原三PIDs/锁/GPU已释放。GPU source仍8a46fcce95dee7f0b2ddeca8fd273a223c147c49；原件SHA见新original_receipts。
+
+首次CPU终态审计13.971205秒exit1：expected root未resolve，而artifact已resolve；服务器project为/media数据盘的符号链接。[路径诊断](../reports/wc_w3_small_human_audit_path_failure_20261005.json)记录四文件canonical路径确实在本run根内、字节SHA和GPU原件/账本不变；[失败原件](../reports/wc_w3_small_human_failed_path_audit_originals_20261005.json)保留。修复只把expected输出根也resolve，不减控制、范围或来源门。本机两接受/七拒绝通过，无Torch或GPU。独立CPU修复入口明确核对新旧eval源码仅一行差异，然后使用原冻结CLI/dependencies；原GPU stage、config及回执保持不改。实际修复CPU终态/评分/2点汇总仍待，不能把完整GPU执行报Human收益。以下为阶段观察。
