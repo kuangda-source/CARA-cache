@@ -29,3 +29,7 @@
 冻结GPU source `c12a3cad2cefd3559d60a5256d74d802eb151bab`；supervisor2856696 / timeout2856713 / runner2856714。fresh selected UUID为 GPU-cebf7119-cf03-23b9-e192-cd196332b704，准入24MiB/noapps。输出目录 `/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-w3-small-cd-r1`。
 
 [actual CPU](../reports/wc_w3_small_cd_budget24_actual_cpu_20261005.json) · [独立原件审计](../reports/wc_w3_small_cd_budget24_actual_cpu_audit_20261005.json) · [唯一启动](../reports/wc_w3_small_cd_launch_20261005.json) · [启动现场](../reports/wc_w3_small_cd_start_observation_20261005.json)。预算在途12.105649020172551/24h、46jobs，是3900秒预付；终态按实际全wall替换预付，尚非最终实费。
+
+## 真实GPU检查点观察（进行中）
+
+[原始检查点观察](../reports/wc_w3_small_cd_live_snapshot_20261005.json)：原runner2856714确认存活，首场景母轨迹到step22（44CFG），slot0/target45；真实Video2WorldCondition两槽位状态已捕获，首个OFF1完整后缀开始。逻辑张量复制2,828,989,246bytes，独占GPU快照存储2,319,184,538bytes；capture所需余量9,952,945,492bytes、当时GPU可用40,412,774,400bytes。该存储只含快照，不是总峰值显存；余量门通过不代表完整恢复控制或C/D终点已通过。当前无C/D评分，不据live改原任务或重提。

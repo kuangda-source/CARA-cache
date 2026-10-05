@@ -1,0 +1,58 @@
+{
+  "status": "LIVE_REAL_GPU_STEP22_SNAPSHOT_OBSERVATION_NOT_RESTORE_OR_CD_ACCEPTANCE",
+  "observed_unix": 1791180142.3176112,
+  "source_revision": "c12a3cad2cefd3559d60a5256d74d802eb151bab",
+  "runner_pid": 2856714,
+  "runner_live": true,
+  "receipt_original_sha256_at_observation": "feacd11666f16f321756eb806e6f786ef039c19de77db27adcf53f5565955820",
+  "requests": [
+    {
+      "sample_name": "common_sense_6487f37f-ef57-49ca-afdc-d898922b5191",
+      "status": "STARTED",
+      "slot": 0,
+      "target_call": 45,
+      "capture_gate": {
+        "logical_tensor_copy_bytes": 2828989246,
+        "GPU_logical_copy_bytes": 2828989098,
+        "GPU_free_bytes": 40412774400,
+        "required_GPU_headroom_bytes": 9952945492,
+        "transient_copy_factor": 2,
+        "workspace_reserve_bytes": 4294967296,
+        "scope": "CAPTURE_ADMISSION_NOT_TOTAL_PEAK_OR_COMPLETE_COST_BOUND"
+      },
+      "condition_classes": [
+        "cosmos_predict2._src.predict2.configs.video2world.defaults.conditioner.Video2WorldCondition",
+        "cosmos_predict2._src.predict2.configs.video2world.defaults.conditioner.Video2WorldCondition"
+      ],
+      "snapshot_storage": {
+        "logical_tensor_bytes_by_device": {
+          "cuda:0": 2828989098,
+          "cpu": 5236,
+          "numpy": 2496
+        },
+        "unique_owned_tensor_storage_bytes_by_device": {
+          "cuda:0": 2319184538,
+          "cpu": 5236
+        },
+        "snapshot_copies_only_not_live_weights_or_peak": true
+      }
+    }
+  ],
+  "parent_CFG_inputs": [
+    44
+  ],
+  "parent_solver_updates": [
+    22
+  ],
+  "suffixes": [
+    [
+      {
+        "label": "OFF1",
+        "status": "STARTED"
+      }
+    ]
+  ],
+  "GPU_job_restarted": false,
+  "formal_RV_labels": 0,
+  "real_CD_endpoint_scores": 0
+}
