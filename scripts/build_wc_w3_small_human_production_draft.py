@@ -7,7 +7,9 @@ import json
 from pathlib import Path
 
 
-def build(root):
+def build(root, revision='r1'):
+    if revision not in ['r1', 'r2']:
+        raise ValueError('Explicit production revision required')
     read = lambda p: json.loads((root/p).read_text())
     sha = lambda p: hashlib.sha256((root/p).read_bytes()).hexdigest()
     base_manifest = read('manifests/wc_w3_small_cd_approved_r1_20261005.json')
@@ -40,24 +42,28 @@ def build(root):
             'lpips_resource': base['preparation_audits']['lpips_resource']},
         execution_scope_authority=None, production_CPU_validation='NOT_YET_EXECUTED',
         note='Complete new production entry, prior actual Human core CPU, no new single-card authorization/GPU selection.')
-    path = 'configs/wc_w3_small_human_production_r1_draft.json'
+    path = 'configs/wc_w3_small_human_production_'+revision+'_draft.json'
+    manifest_path = root/('manifests/wc_w3_small_human_production_cpu_'+revision+'_20261005.json')
+    if (root/path).exists() or manifest_path.exists():
+        raise ValueError('Preserve earlier frozen production revisions')
     (root/path).write_text(json.dumps(config, indent=2)+'\n')
     mappings = {**base_manifest['source_path_by_stage_path'],
                 **{name: name for name in core_manifest['new_payload_sha256']}, **{name: name for name in extra}}
     assert set(mappings) == set(payload)
-    manifest = {'identity': 'WC_W3_SMALL_HUMAN_PRODUCTION_CPU_R1_20261005',
-        'stage': '.sync/wc-w3-small-human-production-cpu-r1-20261005',
+    manifest = {'identity': 'WC_W3_SMALL_HUMAN_PRODUCTION_CPU_'+revision.upper()+'_20261005',
+        'stage': '.sync/wc-w3-small-human-production-cpu-'+revision+'-20261005',
         'base_stage': core_manifest['stage'], 'base_payload_sha256': actual['payload_sha256'],
         'payload_sha256': {**payload, 'human-config.json': sha(path)},
         'source_path_by_stage_path': {**mappings, 'human-config.json': path},
         'upstream_sha256': base['upstream_source_sha256'], 'budget_sha256': sha('reports/budget.json'),
         'new_science_counts': [1, 6, 4, 1], 'original_failed_science_counts': [2, 12, 8, 2],
         'GPU_execution_selected': False, 'new_GPU_approval': False, 'GPU_submissions': 0}
-    (root/'manifests/wc_w3_small_human_production_cpu_r1_20261005.json').write_text(json.dumps(manifest, indent=2)+'\n')
+    manifest_path.write_text(json.dumps(manifest, indent=2)+'\n')
     return {'payload_files': len(manifest['payload_sha256']), 'config': path,
             'new_GPU_approval': False, 'GPU_execution_selected': False}
 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(); parser.add_argument('--root', type=Path, required=True)
-    print(json.dumps(build(parser.parse_args().root)))
+    parser.add_argument('--revision', choices=['r1', 'r2'], default='r1'); args = parser.parse_args()
+    print(json.dumps(build(args.root, args.revision)))

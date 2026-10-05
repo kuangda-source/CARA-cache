@@ -23,7 +23,7 @@ def validate(project, stage, runtime, output):
     config = json.loads((stage/'human-config.json').read_text())
     if output.parent.name != config['run_id']:
         raise ValueError('Independent small C/D output identity differs')
-    result = validate_stage(project, stage, runtime, config)
+    result = validate_stage(project, stage, runtime, config, selected=config['GPU_execution_selected'])
     mode = json.loads((stage/'manifests/wc_h0_eval_mode_contract_20261003.json').read_text())
     load(stage/'src/wcomr/h0_eval_scope.py', 'causal_mode_sources').validate_mode_sources(runtime, mode, config)
     # Reuse its asset/source validator, never the old profile's GPU entrypoint.

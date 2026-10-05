@@ -1,5 +1,6 @@
 """Pure CPU production controls using original Human pipeline receipts."""
 import argparse
+import ast
 import copy
 import gzip
 import json
@@ -10,6 +11,13 @@ from wcomr.rv0_small_human_evaluation import audit_trajectories, evaluation_plan
 
 
 def run(config, raw, budget):
+    # The supervisor's prepay --validate-only call must validate selected provenance.
+    source = Path(__file__).resolve().parents[1]/'scripts/run_wc_w3_small_human.py'
+    function = next(n for n in ast.parse(source.read_text()).body if isinstance(n, ast.FunctionDef) and n.name == 'validate')
+    calls = [n for n in ast.walk(function) if isinstance(n, ast.Call) and isinstance(n.func, ast.Name) and n.func.id == 'validate_stage']
+    assert len(calls) == 1
+    keyword = next(k for k in calls[0].keywords if k.arg == 'selected')
+    assert ast.dump(keyword.value) == ast.dump(ast.parse("config['GPU_execution_selected']", mode='eval').body)
     refused = []
     def reject(name, action):
         try:
@@ -109,6 +117,7 @@ def run(config, raw, budget):
         'complete_raw_CPU_parents': 2, 'complete_raw_CPU_suffixes': 12,
         'evaluation_shape': {'new_videos': 4, 'Native_references': 1, 'Native_relative_losses': 2, 'signed_diagnostics': 1, 'CFG_slot': 1},
         'original_failed_scope_preserved': [2, 12, 8, 2], 'settlement_reconstructed': True,
+        'selected_GPU_preflight_checks_actual_scope_and_production_CPU_originals': True,
         'failed_job_cost_retained': True, 'synthetic_authority_and_bridge_not_real_approval_or_video': True,
         'GPU_submissions': 0, 'ledger_written': False}
 
