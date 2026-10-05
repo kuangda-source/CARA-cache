@@ -1,6 +1,8 @@
 # WorldCache 下一窗口：全帧保真与同配额刷新位置干预
 
-2026-10-05；计划v2.6；状态：W3_SMALL_CD_BOUNDED_TIMEOUT / FIRST_POINT_FULL93_CPU_SCORED / CROSS_CARD_ACCOUNTING_BOUND / HUMAN_PRODUCTION_ACTUAL_CPU_PASS / HUMAN_DIRECT_APPROVAL_SELECTED_PREFLIGHT_PENDING。当前入口以本文和[09队列](../research/09_NEXT_ACTIONS.md)为准。旧“在跑/待批准/13h余额”文字只保留历史身份。
+2026-10-05；计划v2.7；状态：W3_SMALL_CD_BOUNDED_TIMEOUT / FIRST_POINT_FULL93_CPU_SCORED / CROSS_CARD_ACCOUNTING_BOUND / HUMAN_PRODUCTION_ACTUAL_CPU_PASS / HUMAN_APPROVED_SINGLE_RUN_LIVE。当前入口以本文和[09队列](../research/09_NEXT_ACTIONS.md)为准。旧“在跑/待批准/13h余额”文字只保留历史身份。
+
+129新Human已实际selected验证和单次启动，source8a46fcc、三句柄存活；4500总/4470child保持，终态前仅跟踪原任务。预付在途13.3479429045467/24h、第47job，旧已结算12.0979429045467h/46jobs保留；当前无Human收益，待完整1/6/4、来源桥/费用/释放与全帧评分。
 
 [129新Human批准](../research/129_WC_W3_HUMAN_APPROVED_EXECUTION_AND_RESULTS.md)：用户“允许”明确对应4500秒/1.25GPUh、现累计24的独立Human1/6/4具体卡；原阻塞解除，goal active。选中配置与R2实际CPU原件/109文件绑定，源码不改；先selected实际前置门与fresh准入，唯一执行后实费/来源/释放及全93帧CPU评分。常识点不重跑、旧失败与跨卡分母保留，不重复确认本卡。
 

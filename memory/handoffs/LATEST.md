@@ -1,3 +1,9 @@
+## 2026-10-05 Human批准卡唯一启动，真实结果待验收
+
+[129实际启动](../../research/129_WC_W3_HUMAN_APPROVED_EXECUTION_AND_RESULTS.md)：selected实际前置门12.254秒/新授权/R2原件/source通过，GPU source8a46fcce95dee7f0b2ddeca8fd273a223c147c49；supervisor2882869/timeout2882885/runner2882887已确认存活，初始化/加载在跑。总4500/child4470/kill5，child截止北京时间2026-10-05T19:25:45.905665+08:00；仅跟踪原run/句柄，不修改payload或重复提交。
+
+预付4500秒使账本在途13.3479429045467/24h、第47job；旧12.0979429045467h/46jobs已结算历史保留，终态按实际全wall结算。Human1/6/4、历史桥、费用/释放与全93帧评分尚待；当前只有旧Common科学点。初始化/活进程不是收益。不重复CPU或授权；以下为历史快照。
+
 ## 2026-10-05 Human独立补验获直接批准，执行4500秒单卡
 
 [129批准与执行](../../research/129_WC_W3_HUMAN_APPROVED_EXECUTION_AND_RESULTS.md)：用户“允许”对应此前新Human具体卡，范围确认解除，goal active。完整Human1父/6后缀/4新输出/1科学点、call46/CFG1与全部控制保持；4500总/4470child/kill5，最多1.25GPUh计入现有24累计。原12.0979429045467h/46jobs、旧失败费用与常识结果保留，不重跑常识或旧run。
