@@ -1,6 +1,6 @@
 ## 2026-10-05 Human批准卡唯一启动，真实结果待验收
 
-[首个OFF结果](reports/wc_w3_small_human_first_off_20261005.json)完整14更新/28CFG、full10/8，control329.273秒、编码43.806秒，Human视频SHA与历史WC一致。新旧step22预测/deep/solver逐位相同，仅未被实际net forward消费的extra gt_frames输入SHA不同，差异保留、不改合同。OFF2及C/D/母轨桥和评分仍待，非Human收益。
+[首个OFF结果](reports/wc_w3_small_human_first_off_20261005.json)完整14更新/28CFG、full10/8，control329.273秒、编码43.806秒，Human视频SHA与历史WC一致。新旧step22预测/deep/solver逐位相同，仅未被实际net forward消费的extra gt_frames输入SHA不同，差异保留、不改合同。OFF/OFF全部轨迹、缓存及最终状态复现通过；C_first完整后缀与历史WC视频SHA相同、full10/8。D及CC/DD重复、母轨桥和评分仍待，非Human收益。
 
 [129实际启动](research/129_WC_W3_HUMAN_APPROVED_EXECUTION_AND_RESULTS.md)：selected实际前置门12.254秒/新授权/R2原件/source通过，GPU source8a46fcce95dee7f0b2ddeca8fd273a223c147c49；supervisor2882869/timeout2882885/runner2882887已确认存活，初始化/加载在跑。总4500/child4470/kill5，child截止北京时间2026-10-05T19:25:45.905665+08:00；仅跟踪原run/句柄，不修改payload或重复提交。
 

@@ -2,6 +2,8 @@
 
 ## 最新观察：首个OFF完成，前缀差异保留
 
+更新：OFF1/OFF2两完整后缀的输入、输出、deep、banks、14步solver、最终latent及完整state逐项相同，[独立重复核对](../reports/wc_w3_small_human_off_repeat_20261005.json)。OFF2 control326.342188秒。C_first完整后缀326.503529秒/full10/8，编码视频SHA与原WC及OFF1一致；原WC此处本已选C。第一个D（D_second）在跑，后续CC/DD重复、完整母轨桥和评分仍待；单卡4500秒及源码不变。
+
 [OFF1原件](../reports/wc_w3_small_human_first_off_20261005.json)完整14更新/28CFG、full10/8，control329.272674秒、解码/guardrail/编码43.806264秒。新视频1100497字节、SHA4d0f0549dbabf04e7f217037c40f6a30f41cb240289162d6fb0fbec2dde982fb，与历史Human WC一致。重复控制、母轨桥及C/D整卡接受和评分仍待。
 
 [step22前缀核对](../reports/wc_w3_small_human_prefix22_compare_20261005.json)保留实际差异：44个输入记录的gt_frames SHA不同，其余参数相同；44预测、deep执行和22solver输出逐项相同。固定MinimalV1LVGDiT.forward首句del kwargs，gt_frames不是显式参数且函数不读取kwargs，这个额外字段不进入实际net forward。差异原因为UNKNOWN，不能报全部输入字节相同；未修改在跑源码或同状态C/D合同。完整历史视频桥继续严格要求，OFF1桥不代替母轨桥。以下部署条目为当时观察。
