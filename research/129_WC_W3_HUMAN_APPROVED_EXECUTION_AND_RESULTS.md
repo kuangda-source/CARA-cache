@@ -28,3 +28,43 @@ selected前置门实际通过，12.254286秒、新授权与R2原件验证，110�
 唯一Human GPU已exit0：实际总wall3246.492340秒，1父36更新/72CFG、六完整后缀、四新视频与历史WC桥完成。全部OFF/CC/DD重复及同输入C0/D26通过；C full10/8、D8/8。累计12.99974633233337/24GPUh、47jobs、无inflight，原三PIDs/锁/GPU已释放。GPU source仍8a46fcce95dee7f0b2ddeca8fd273a223c147c49；原件SHA见新original_receipts。
 
 首次CPU终态审计13.971205秒exit1：expected root未resolve，而artifact已resolve；服务器project为/media数据盘的符号链接。[路径诊断](../reports/wc_w3_small_human_audit_path_failure_20261005.json)记录四文件canonical路径确实在本run根内、字节SHA和GPU原件/账本不变；[失败原件](../reports/wc_w3_small_human_failed_path_audit_originals_20261005.json)保留。修复只把expected输出根也resolve，不减控制、范围或来源门。本机两接受/七拒绝通过，无Torch或GPU。独立CPU修复入口明确核对新旧eval源码仅一行差异，然后使用原冻结CLI/dependencies；原GPU stage、config及回执保持不改。实际修复CPU终态/评分/2点汇总仍待，不能把完整GPU执行报Human收益。以下为阶段观察。
+# W3 Human补验完成：真实刷新干预的机制正结果
+
+2026-10-05。已完成用户批准的唯一WC-W3-SMALL-HUMAN-COMPLEMENT-R1-20261005-A：1母轨、6完整后缀、4新视频。GPU source为8a46fcce95dee7f0b2ddeca8fd273a223c147c49；额外CPU路径修复source为bbff172e83bcf94239f4b48ee34454b0693e5d05，原GPU源码和原件不变。
+
+## 已确认结果
+
+Human199、seed0、曝光CAL index2，step22恢复、target call46/CFG1。36次UniPC/Karras更新/72CFG，768×432、93帧、16fps。C强制复用，D完整刷新，其余仍由原WorldCache自适应续推。
+
+| 指标 | C复用（也是原WorldCache选择） | D刷新 |
+|---|---:|---:|
+| 相对匹配Native35的全93帧LPIPS | 0.4247454244603393 | 0.4128185776613092 |
+| 后缀完整调用，两CFG分别计数 | 10 / 8 | 8 / 8 |
+| 第一次后缀控制wall秒，含诊断开销 | 326.503529 | 320.992239 |
+| 第二次后缀控制wall秒，含诊断开销 | 328.487381 | 321.037228 |
+
+**C−D=+0.01192684679903011，D的Native相对感知失真降低2.8079989%。** C视频SHA与历史WorldCache完全一致；D输出不同。D不仅改变当前计算，还让后续两个CFG的合计完整调用从18减为16，减少的是CFG0的两次完整调用；CFG1总数仍8。这支持“当前刷新会改变后续计算需求”的机制解释，但不是固定刷新配额实验。
+
+控制wall含快照恢复、哈希、同步和记录，不能作为干净加速；LPIPS为原生参考保真，不能升级为物理或整体语义质量提升。这里是一个已曝光场景/一个seed/一个CFG动作点的真实反事实诊断，尚无在线规则、独立确认或方法质量—时间前沿。
+
+## 完整控制与来源
+
+OFF1/OFF2、C_first/C_second、D_first/D_second各自28CFG/14更新的全部输入、输出、deep、banks、solver和最终latent/完整state逐项相同。C/D干预输入相同，实际deep分别0/26；已支付probe、过去自身同CFG真full历史、不用当前deep truth、父恢复及完整pipeline均通过。母轨36/72与OFF continuation/编码和历史WorldCache严格SHA桥通过。四新输出加一历史Native均完整解码93帧。
+
+[GPU原件](../reports/wc_w3_small_human_original_receipts_20261005.json)、[终态审计](../reports/wc_w3_small_human_terminal_audit_20261005.json)、[全帧评分](../reports/wc_w3_small_human_lpips_cpu_20261005.json)、[150项native SHA回查](../reports/wc_w3_small_human_lpips_cpu_audit_20261005.json)绑定原件。GPU runner解压SHA51697e502930a9713e86dfe993b38822fdb68f4f9ab167cc005ae56b06a34923，GPU supervisor SHAeed04cc543f01bbfcc38614a212acc8a7691c6edfd8a035b24e83206d8bfb7ac。全帧CPU评分保持LPIPS0.1.4/v0.1 Alex、FP32、无裁剪/缩放/抽帧，CUDA未初始化。
+
+首次CPU终态13.971205秒因expected输出根未resolve、项目实际为符号链接而失败；失败回执和日志保留。修复仅将根也resolve：普通/符号链接两接受及七越界/缺来源拒绝通过。新独立CPU入口逐字校验新旧eval只差这一行，仍使用原冻结CLI/依赖和全部科学合同。修复版实际终态18.969837秒，CPU评分主体34.855632秒、含初始化监督全wall44.392275秒；GPU及首次失败原件未覆盖。这是审计实现修复，不是放宽路径或科学门槛。旧gt_frames前缀SHA差异及未知原因仍保留，不改同状态C/D要求。
+
+## 费用、跨卡口径及下一步
+
+唯一Human GPU exit0，实际总wall3246.4923400320113秒=0.90180342778667GPUh，小于4500总上限；1522条monitor的峰值31932MiB。原supervisor/timeout/runner三PID退出、f1锁空闲、指定GPU24MiB/无compute进程。累计12.99974633233337/24GPUh、47jobs、无inflight，剩11.00025366766663h；不重置历史使用。
+
+[跨卡R4](../reports/wc_w3_two_point_summary_r4_real_complete_20261005.json)确认2/2真实科学点：Common C−D=+0.0302871831、Human +0.0119268468，场景等权均值+0.0211070149496。Common原WorldCache本已选D，所以它验证原选择；Human原选择C，所以本点才显示改变原选择的局部调整空间。两场景均曝光，相关重复不是独立样本，均值不作总体显著性。正式RV训练标签、同配额和CONF接受仍未成立。
+
+原双场景卡依然BOUNDED_TIMEOUT/124，其3872.2579837469384秒、未完成Human前缀和原2/12/8分母均保留。两卡实际总GPU费用7118.75032377895秒；累计物理计划3父/18后缀/12视频，实际开始3父/13后缀，完成12后缀/8新视频。跨卡补齐科学点不追认旧卡成功，也不能报同一干净批次。
+
+**继续WorldCache W3，下一先完成同配额B位置交换的生产核心和CPU接线。** 保持原四对、2父/16后缀/10新输出及所有OFF/BASE/SWAP重复，测两位置联合收益。[完整实费重估](../reports/wc_w3_placement_cost_from_real_cd_r2_20261005.json)取两实际母轨含控制6115.563秒、四额外后缀、两额外编码及一次启动/退出代理，名义7684.635秒；加20%规划余量与30秒退出为9251.562秒。9600总/9570child/kill5仅下一新卡草案，费用不保证、GPU未选/未批准/未提交，旧3460秒代理不再用于准入。先真实B合法性与收益，再冻结廉价在线规则并做新seed/场景确认；Head/LoRA和稀疏扩大仍后置。非必要不新增人评。
+
+---
+
+以下为批准、执行与阶段观察的历史记录。

@@ -1115,3 +1115,10 @@ LATEST USER SCOPE CORRECTION: Manual semantic review is NOT an F1/W1 gate. Origi
 [129实际结果](../../research/129_WC_W3_HUMAN_APPROVED_EXECUTION_AND_RESULTS.md)：唯一Human卡exit0、实费3246.492340秒；1父36/72、6完整后缀/全部重复、4新输出/历史WC桥完成，D full8/8、C10/8，尚非质量收益。累计12.99974633233337/24h、47jobs、无inflight；原GPU PIDs/锁/24MiB释放。
 
 CPU终态首次检查13.971205秒exit1，输出根为符号链接却只有artifact被resolve。[路径诊断](../../reports/wc_w3_small_human_audit_path_failure_20261005.json)保留原件；只将根也resolve，本机普通/符号链接两例通过、7越界/缺来源拒绝。新CPU修复入口严格检查只差一行，原GPU源码stage/回执/失败不改。终态修复审计、全93帧LPIPS及跨卡2点仍待；Human收益未知。以下为历史快照。
+## 2026-10-05 Human补验及全帧评分完成，W3两真实诊断点
+
+[129完整结果](../../research/129_WC_W3_HUMAN_APPROVED_EXECUTION_AND_RESULTS.md)：Human C LPIPS0.4247454245、D0.4128185777，C−D=+0.0119268468；D相对原WC复用C失真少2.808%，后缀full由10/8降至8/8。全部OFF/CC/DD、同输入C0/D26、36/72母轨/历史桥、4新+1Native全93帧与费用/释放通过，150原件/源/资产/预算native SHA不变。单曝光点机制正结果；非同配额、干净E2E、物理/CONF或在线新方法接受。
+
+[跨卡R4](../../reports/wc_w3_two_point_summary_r4_real_complete_20261005.json)实际2/2科学点，Common +0.0302871831（原WC已选D）、Human +0.0119268468（原WC选C）；场景等权均值+0.02110701495，仅描述性。原双场景卡仍超时失败、3872.257984秒成本保留；累计物理计划3父18后缀12视频，实际开始3父13后缀、完整12后缀8视频，不能追认旧卡整卡成功。
+
+本卡exit0、实费3246.492340秒，累计12.99974633233337/24h、47jobs、无inflight，余11.000253667667h。GPU source8a46fcc未改；首次CPU符号链接根审计失败保留，只根resolve的独立CPU修复source bbff172、两接受7拒绝、实际终态18.970秒/评分44.392秒全部通过。下一B完整2父16后缀10输出范围不变；[实费重估](../../reports/wc_w3_placement_cost_from_real_cd_r2_20261005.json)名义7684.635/规划9251.562秒，9600总/9570child仅新草案，非硬界或GPU批准；生产核心/实际CPU待接线。继续WorldCache W3，不扩训练或稀疏；以下为历史快照。

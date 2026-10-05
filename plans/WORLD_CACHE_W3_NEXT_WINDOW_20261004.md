@@ -1,6 +1,14 @@
 # WorldCache 下一窗口：全帧保真与同配额刷新位置干预
 
-2026-10-05；计划v2.7；状态：W3_SMALL_CD_BOUNDED_TIMEOUT / FIRST_POINT_FULL93_CPU_SCORED / CROSS_CARD_ACCOUNTING_BOUND / HUMAN_PRODUCTION_ACTUAL_CPU_PASS / HUMAN_APPROVED_SINGLE_RUN_LIVE。当前入口以本文和[09队列](../research/09_NEXT_ACTIONS.md)为准。旧“在跑/待批准/13h余额”文字只保留历史身份。
+2026-10-05；计划v2.8；状态：TWO_REAL_CD_POINTS_COMPLETE / HUMAN_FULL93_CPU_SCORE_AND_NATIVE_AUDIT_PASS / ORIGINAL_TIMEOUT_RETAINED / PLACEMENT_PRODUCTION_NEXT。当前入口以本文和[09队列](../research/09_NEXT_ACTIONS.md)为准。以下旧“在跑/待批准/13h余额”文字只保留历史身份。
+
+**当前决定：继续W3，先完成同配额位置交换B的生产核心与CPU接线，不进入Head训练。** [129完整结果](../research/129_WC_W3_HUMAN_APPROVED_EXECUTION_AND_RESULTS.md)与[跨卡R4](../reports/wc_w3_two_point_summary_r4_real_complete_20261005.json)已补齐两真实科学点：Common C−D=+0.0302871831（原WC本已选D），Human +0.0119268468（原WC选C）。Human D的Native相对全帧LPIPS失真降低2.808%，后续full10/8→8/8，显示改变原决策的单点机制空间；非同配额、干净E2E、CONF或训练标签。两曝光场景等权差值+0.02110701495仅描述性，重复不是额外独立样本。
+
+Human唯一GPU已exit0、实费3246.492340秒；原2父卡仍超时失败、3872.257984秒全部保留。当前累计12.99974633233337/24GPUh、47jobs、无inflight、余11.000253667667h。全部重复/母轨历史桥、4新+1Native的93帧与150native SHA通过。首次CPU符号链接根检查失败保留，独立CPU source bbff172只修复expected root.resolve，原GPU stage/source8a46fcc未改；二接受/七越界拒绝和实际终态/评分通过。
+
+B原四对及2父/16后缀/10新输出范围不变。[完整实费重估](../reports/wc_w3_placement_cost_from_real_cd_r2_20261005.json)名义7684.635秒、20%余量+30秒退出规划9251.562秒；9600总/9570child/kill5仅新草案，非硬界、选卡或GPU许可。旧3460秒名义代理不再准入。下一接真实固定mask/SWAP/OFF/BASE控制、自己的状态合法性与全部恢复/来源/费用；复用已过固定mask接口，不重复旧toy工程检查。取得B调整空间后再冻结无训练规则、新seed或场景确认，不以A两点跳过B或直接训练。
+
+以下接续与批准记录均为历史快照，最新执行状态以以上v2.8为准。
 
 129新Human已实际selected验证和单次启动，source8a46fcc、三句柄存活；4500总/4470child保持，终态前仅跟踪原任务。预付在途13.3479429045467/24h、第47job，旧已结算12.0979429045467h/46jobs保留；当前无Human收益，待完整1/6/4、来源桥/费用/释放与全帧评分。
 
@@ -42,7 +50,7 @@
 | W1 增量校准 | [CAL8](../research/21_W1D_CAL8_RESULTS.md)7/8内部改善、预测 MSE −24.08%；[全帧保真](../research/119_WC_EXISTING_FAIR_W1_FULL_FRAME_LPIPS_RESULTS.md)两兼容场景LPIPS降低7.87%/7.99%，视频代理无一致收益 | 保留机制与两例终点保真正结果；参考缺失不补生成，暂停 W2/网络复杂化；W1×W3组合后置 |
 | 稀疏刷新 | [104点](../research/75_WC_FULL104_R4_CARD_AND_RESULTS.md)局部算子成立；[H0](../research/77_WC_H0_MODE_REPAIR_AND_R2_CARD.md)两调用整组约省5.3%；[公平14输出](../research/107_WC_FAIR_CAL_RESULTS_AND_DIRECTION_GATE.md)单次仅省0.292%/1.407% | 暂停扩大层、稀疏率、kernel扫描与稀疏训练；不以微小 SSIM 变化单独判死 |
 | 来源/寿命与阶段 | [H1](../research/80_WC_H1_GENERALIZATION_R1_CARD_AND_CPU.md)、[阶段对照](../research/98_WC_TIMING_FACTORIAL_RESULTS_AND_EARLY_PROTECTION_NEXT.md)说明状态依赖 | 作为 W3 动机；不据此认定早期多刷新更好 |
-| W3 恢复与 CPU | [真实恢复](../research/112_WC_RV0_REAL_RESTORE_RESULTS_AND_NEXT_GATE.md)、[固定mask服务器CPU](../research/121_WC_W3_FIXED_MASK_CPU_INTERFACE.md)通过 | 接口门关闭；真实 C/D、同配额收益标签、在线方法收益仍为0/未验证 |
+| W3 真实反事实诊断 | [129两点汇总](../research/129_WC_W3_HUMAN_APPROVED_EXECUTION_AND_RESULTS.md)：两真实C/D点与全部控制/全帧/费用通过，Human有单点调整空间 | 复用恢复及固定mask接口；下一同配额B，在线方法、正式训练标签及独立确认未成立 |
 
 W1 局部 MSE 改善不保证终点保真；刷新还会改变后续缓存和 UniPC 历史。这是下一窗口的待检验解释，不是已完成贡献。早期稀疏的0.9276→0.7449是相对 WC 的 SSIM，不能直接推断相对 Native 质量。
 
@@ -119,7 +127,7 @@ W1 局部 MSE 改善不保证终点保真；刷新还会改变后续缓存和 Un
 
 ## 6. 剩余预算与新卡估价
 
-**v2.2现值：** 已结算12.0979429045467/24GPUh、46jobs、无inflight，余额11.9020570954533h=42847.40554363188秒。原卡3872.257984秒实费及首场景3033.439秒已审计；所有后续卡按新的完整范围和实测约320秒后缀重估。原A单次授权已执行，未批准下一独立卡，不因大余额自动扩大scope。以下13h余额、2811名义/6109压力及分块表是v1.6–v1.8冻结估价历史，供解释误差，不是现准入参数。
+**v2.8现值：** 已结算12.99974633233337/24GPUh、47jobs、无inflight，余额11.00025366766663h=39600.91320359987秒。原卡3872.257984秒及Human3246.492340秒均实计；两含控制母轨共6115.562830秒、各完整后缀约318–329秒。新B完整名义7684.634694秒、规划9251.561633秒，拟9600+15准入包络在账本算术范围内，但固定mask合法性/真实费用未测，尚无生产核心或具体GPU许可。原A及Human单次授权已执行，不因余额自动扩大scope。以下13h余额、2811名义/6109压力及分块表是v1.6–v1.8冻结估价历史，不是现准入参数。
 
 
 当前[权威账本](../reports/budget.json)：累计上限13 GPUh，已用11.022315686839217 GPUh、45 jobs，无inflight；余额 **1.977684313160783 GPUh=7119.663527秒**。这是本地已结算快照，不替代运行前live账本/资源检查；本次字节不改、不预付、不扩额。
