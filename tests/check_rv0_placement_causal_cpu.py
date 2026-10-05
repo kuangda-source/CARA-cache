@@ -42,13 +42,15 @@ def exercise(*, inference, samples, wc, settings, inference_module, flow, runtim
     saved = CompleteStateRoundtrip(net, model.sample_scheduler, torch.zeros(1))
     saved_config = {k: copy.deepcopy(getattr(net, k)) for k in WC_CONFIGURATION if hasattr(net, k)}
     saved_keys = {k for k in WC_FIELDS if hasattr(net, k)}
-    net.prepare_embedded_sequence = lambda x, **kw: (x[:, :2048].movedim(1, -1).contiguous(), None, None)
+    net.prepare_embedded_sequence = lambda x, **kw: (x.movedim(1, -1).contiguous(), None, None)
     frozen, class_sha = load('check_rv0_video_actions_cpu').pinned_video_condition(runtime,
         wc.worldcache_mini_train_dit_forward.__globals__['DataType'])
     def conditions(batch):
+        gt=torch.arange(32,dtype=torch.float32).reshape(1,2,2,2,4)/31
         return tuple(frozen(crossattn_emb=torch.ones(1, 3, 4)*(1+slot+.1*(batch['prompt']=='human')),
-            fps=batch['fps'], use_video_condition=torch.tensor([True])).set_video_condition(
-                torch.zeros(1, 2048, 2, 8, 8), 0, 0, num_conditional_frames=1) for slot in (0, 1))
+            fps=batch['fps'],padding_mask=torch.zeros(1,1,2,4),use_video_condition=torch.tensor([slot==0]))
+            .set_video_condition(gt.clone(),0,0,num_conditional_frames=1)
+            .edit_for_inference(is_cfg_conditional=slot==0,num_conditional_frames=1) for slot in (0, 1))
     model.conditioner.get_condition_with_negative_prompt = conditions
     # Deterministic preparation is a Toy fixture only, including both scene inputs.
     def deterministic_batch(*args, **kwargs):
@@ -60,14 +62,15 @@ def exercise(*, inference, samples, wc, settings, inference_module, flow, runtim
             entry.restore()
     inference.pipe._get_data_batch_input = deterministic_batch
     mode = establish_shared_eval(net)
-    settings = {**settings, 'probe_depth': 2, 'worldcache_rel_l1_thresh': .06}
+    # Same Toy conditions/settings as the previously passed fixed-mask interface.
+    # The real production settings/pairs in the frozen scope remain untouched.
     scenes, states = [], []
     try:
         for sample in samples:
             saved.restore()
             wc.apply_worldcache(net, **{k.removeprefix('worldcache_'): v for k, v in settings.items()})
             deep, count = [], [0]
-            handles = [b.register_forward_hook(lambda *a: count.__setitem__(0, count[0]+1)) for b in list(net.blocks)[2:]]
+            handles = [b.register_forward_hook(lambda *a: count.__setitem__(0, count[0]+1)) for b in list(net.blocks)[settings['probe_depth']:]]
             hooks = Hooks()
             hooks.wrap(net, 'forward', before=lambda a,k: count.__setitem__(0,0), after=lambda v: deep.append(count[0]))
             try:
@@ -141,7 +144,7 @@ def exercise(*, inference, samples, wc, settings, inference_module, flow, runtim
                         assert expected in error,error
                     else:
                         assert error is None,error
-                        audit_trajectories(state,config,2)
+                        audit_trajectories(state,config,3)
                         for row,scene in zip(state['requests'],scenes):
                             assert row['historical_WC_encoded_bridge_pass']=='CPU_TOY_NOT_REAL_REFERENCE'
                             assert all(c=='cpu_rv0_pinned_video_condition.Video2WorldCondition' for c in row['condition_classes'])
@@ -160,7 +163,7 @@ def exercise(*, inference, samples, wc, settings, inference_module, flow, runtim
                                 elif mutation=='encoding': damaged['decoded_children'][1]['artifact']['sha256']='0'*64
                                 elif mutation=='own_age': next(e for e in child['record']['action_report']['suffix_events'] if e['actual_action']=='C')['age_solver_steps']=34
                                 elif mutation=='restore': child['record']['parent_restored']=False
-                                try: verify_placement_row(damaged,scene,2)
+                                try: verify_placement_row(damaged,scene,3)
                                 except ValueError: pass
                                 else: raise AssertionError('Corrupted placement evidence accepted: '+mutation)
                     states.append({'flow':flow,'failure':failure,'error':error,'receipt':state,
