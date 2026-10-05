@@ -1,6 +1,8 @@
 # WorldCache 下一窗口：全帧保真与同配额刷新位置干预
 
-2026-10-05；计划v2.5；状态：W3_SMALL_CD_BOUNDED_TIMEOUT / FIRST_POINT_FULL93_CPU_SCORED / CROSS_CARD_ACCOUNTING_BOUND / HUMAN_PRODUCTION_ACTUAL_CPU_PASS / HUMAN_SCOPE_BLOCKED。当前入口以本文和[09队列](../research/09_NEXT_ACTIONS.md)为准。旧“在跑/待批准/13h余额”文字只保留历史身份。
+2026-10-05；计划v2.6；状态：W3_SMALL_CD_BOUNDED_TIMEOUT / FIRST_POINT_FULL93_CPU_SCORED / CROSS_CARD_ACCOUNTING_BOUND / HUMAN_PRODUCTION_ACTUAL_CPU_PASS / HUMAN_DIRECT_APPROVAL_SELECTED_PREFLIGHT_PENDING。当前入口以本文和[09队列](../research/09_NEXT_ACTIONS.md)为准。旧“在跑/待批准/13h余额”文字只保留历史身份。
+
+[129新Human批准](../research/129_WC_W3_HUMAN_APPROVED_EXECUTION_AND_RESULTS.md)：用户“允许”明确对应4500秒/1.25GPUh、现累计24的独立Human1/6/4具体卡；原阻塞解除，goal active。选中配置与R2实际CPU原件/109文件绑定，源码不改；先selected实际前置门与fresh准入，唯一执行后实费/来源/释放及全93帧CPU评分。常识点不重跑、旧失败与跨卡分母保留，不重复确认本卡。
 
 [新Human范围阻塞审计](../manifests/wc_w3_human_scope_blocked_audit_20261005.json)已达到三个连续goal轮次，系统工具返回blocked；实际CPU与跨卡汇总准备均完成，真实Human干预仍缺，无在途GPU可等待。已提报的4500秒新卡确认仍未到达，不重复询问或工程检查；批准后恢复并fresh准入一次。目标未完成，原旧卡失败/成本与完整后序范围保留。
 

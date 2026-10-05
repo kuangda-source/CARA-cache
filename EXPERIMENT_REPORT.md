@@ -1,3 +1,9 @@
+## 2026-10-05 Human独立补验获直接批准，执行4500秒单卡
+
+[129批准与执行](research/129_WC_W3_HUMAN_APPROVED_EXECUTION_AND_RESULTS.md)：用户“允许”对应此前新Human具体卡，范围确认解除，goal active。完整Human1父/6后缀/4新输出/1科学点、call46/CFG1与全部控制保持；4500总/4470child/kill5，最多1.25GPUh计入现有24累计。原12.0979429045467h/46jobs、旧失败费用与常识结果保留，不重跑常识或旧run。
+
+选中配置绑定R2实际CPU原件和109文件；新stage110文件，仅GPU/授权配置差异，源码不改。下一selected实际门/fresh资源锁预算/唯一提交，结束后结算、终态与全93帧CPU评分、跨卡汇总。当前尚未新GPU结果；旧blocked/待确认条目为历史，不再要求重复批准本卡。以下为历史快照。
+
 ## 2026-10-05 Human新卡范围确认缺失，goal已标记blocked
 
 [阻塞审计](manifests/wc_w3_human_scope_blocked_audit_20261005.json)核对三个连续goal轮次：生产R2实际CPU与原件审计、跨卡汇总、当前只读回查；前两轮有实质准备进展，但新Human4500秒执行范围确认均未到达。当前生产代码/全部必要CPU与来源准备已完成，无获准实际科学运行可继续；系统goal工具已返回blocked，目标未完成。
