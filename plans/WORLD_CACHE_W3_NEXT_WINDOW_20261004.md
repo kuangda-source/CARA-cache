@@ -1,6 +1,8 @@
 # WorldCache 下一窗口：全帧保真与同配额刷新位置干预
 
-2026-10-05；计划v2.9；状态：TWO_REAL_CD_POINTS_COMPLETE / ORIGINAL_TIMEOUT_RETAINED / PLACEMENT_FULL_CORE_ACTUAL_CPU_PASS / PLACEMENT_PRODUCTION_CLI_NEXT。当前入口以本文和[09队列](../research/09_NEXT_ACTIONS.md)为准。以下旧“在跑/待批准/13h余额”文字只保留历史身份。
+2026-10-05；计划v3.0；状态：EXPLORATORY_RESEARCH_PRINCIPLES_REGISTERED / PLACEMENT_FULL_CORE_ACTUAL_CPU_PASS / PLACEMENT_PRODUCTION_CLI_NEXT。当前入口以本文和[09队列](../research/09_NEXT_ACTIONS.md)为准。以下旧“在跑/待批准/13h余额”文字只保留历史身份。
+
+**本轮新执行原则**：[131](../research/131_EXPLORATORY_RESEARCH_PRINCIPLES.md)及[下一轮假设登记](../manifests/wc_exploratory_hypotheses_r1_20261005.json)依据直接用户指示生效。配置失败、证据不足与方向否定分开，综合质量、速度、成本、适用条件；负结果先查实现/监督/指标对齐，有信号优先低成本区分。原阈值只约束其原实验和主张，不改旧结果或事后放宽验收；补充解释按新版本登记。既有科学结果、B四对/2父16后缀10输出、参考/判据及24h/单卡权限保持。新增逐帧分布、目标对齐和开销条件的解释性分析尚未执行，且不成为新强制门；技术工作仍先完成B生产CLI/监督/终态/评分绑定。汇报先发现价值，必要边界集中说明，重大方向选择一起讨论。
 
 [130完整B核心CPU](../research/130_WC_W3_PLACEMENT_FULL_CORE_CPU.md)已通过：source7f6efa8/R4实际191.474秒，两flow4父32后缀20mock、五失败恢复40损坏拒绝，597冻结/历史源/原件/账本及8日志句柄native SHA、完整行动/配额/状态/OFF与BASE编码桥通过。20范围评分拓扑拒绝实际CPU通过，四双位置汇总/11拒绝本机通过；三旧失败回执保留，禁止保护override等实质门保持。Toy不是四真实点GPU合法性或收益。下一补生产CLI/监督/终态/六全93帧评分与具体卡实际CPU绑定，不重复相同组合；B GPU未选，9600仍草案。以下既有结果和接线前计划为历史，当前入口以上v2.9为准。
 

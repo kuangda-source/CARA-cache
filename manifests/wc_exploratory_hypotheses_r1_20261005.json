@@ -1,0 +1,110 @@
+{
+  "identity": "WC_EXPLORATORY_HYPOTHESES_R1_20261005",
+  "source": "DIRECT_USER_INSTRUCTION_CURRENT_TURN",
+  "source_user_text": "后续按探索性科研原则推进：区分具体配置失败、证据不足和方向被否定；综合质量、速度、成本与适用条件，不用单项阈值否定整个方向。出现负结果先检查实现、监督目标和指标是否对齐，有值得追踪的信号时，优先提出低成本区分实验。保留旧结果和原判据，新假设在下一轮预先登记。汇报先讲发现和价值，再集中说明必要边界；重大方向选择一起讨论，预算与执行权限保持原约定。",
+  "previous_code_and_results_revision": "877680c923525f90de1a8fee5bbb8f2bd1fdcc2c",
+  "previous_plan_v2_9_sha256": "f9ab278b2e21757710d519ffa255d79798d2b50d92bf28f1698d8eb855a274c2",
+  "original_placement_scope_sha256": "99337dec2727d4fcafb8cd7b255867a6db76cfa58f36d167c9979dbd627a158d",
+  "original_scope": [
+    2,
+    16,
+    10,
+    4
+  ],
+  "known_outcome_exposure": {
+    "A_and_Human_and_W1_and_sparse": "ALREADY_READ_NOT_BLIND",
+    "B_real_swap_results": "NOT_EXECUTED_NOT_READ",
+    "B_Toy_CPU": "ALREADY_READ_IMPLEMENTATION_EVIDENCE_ONLY"
+  },
+  "preserved_result_sha256": {
+    "reports/wc_w3_two_point_summary_r4_real_complete_20261005.json": "b18b0d82ab05a2f118240704f5ca38eac98c4afc0b026611b603bebdaef57864",
+    "reports/wc_w3_small_human_lpips_cpu_20261005.json": "caade88d8e1c45546eb1ff40f583299823aaeb66f95b0dbf6a9ad8215aef9549",
+    "reports/wc_w3_placement_core_actual_cpu_r4_20261005.json": "2f5f840934147deda1d7388a21c0b43e4e6c15be89342921d0fd4fff4b817e43",
+    "reports/wc_w3_placement_core_actual_cpu_audit_r4_20261005.json": "884838a67138b310d1b656a24d6ce5642c0194c667cacfb22437385348c00490"
+  },
+  "local_ledger_snapshot_sha256": "f43a9ab4f9c4d7b1b94163bc6e33a5de4eaaecde6dfeb127b12bbc2657513d9a",
+  "hypotheses": [
+    {
+      "id": "WC_EXP_FRAME_DISTRIBUTION_R1",
+      "question": "Mean Native-fidelity benefit may be distributed uniformly, concentrated, or accompanied by local deterioration.",
+      "status": "REGISTERED_BEFORE_NEW_ANALYSIS_AFTER_KNOWN_A_RESULTS",
+      "inputs": "Existing complete 93-frame LPIPS arrays only; future B arrays only after its original acceptance requirements.",
+      "analysis": {
+        "keep_original_full93_mean": true,
+        "contiguous_frame_bins_0_based": [
+          [
+            0,
+            30
+          ],
+          [
+            31,
+            61
+          ],
+          [
+            62,
+            92
+          ]
+        ],
+        "paired_difference": "BASELINE_LOSS_MINUS_VARIANT_LOSS_ALL93",
+        "report": [
+          "bin_means",
+          "all93_paired_difference_distribution",
+          "descriptive_positive_frame_fraction",
+          "per_variant_mean_largest10_distances"
+        ],
+        "independent_statistical_unit": "SCENE_NOT_FRAME_OR_REPEAT",
+        "frames_are_not_denoising_steps": true
+      },
+      "interpretation": "Distributed benefit or local tradeoffs inform conditions and next tests; neither redefines the original metric nor establishes semantics/physics.",
+      "estimated_new_GPU_seconds": 0,
+      "additional_human_review": false,
+      "analysis_executed": false
+    },
+    {
+      "id": "WC_EXP_TARGET_ALIGNMENT_R1",
+      "question": "Adaptive one-action benefit and fixed-quota two-position benefit may differ due to future policy and donor tradeoffs.",
+      "status": "REGISTERED_BEFORE_REAL_B_OUTCOMES_AFTER_KNOWN_A_RESULTS",
+      "inputs": "All original B swaps/repeats/failures, their complete masks and costs when available; A comparisons require matching actual state, call and reference.",
+      "analysis": {
+        "B_benefit": "J_FIXED_BASE_MINUS_J_TWO_POSITION_SWAP",
+        "keep_all_four_pair_denominator": true,
+        "A_minus_B_is_causal_decomposition": false,
+        "negative_or_infeasible_pairs_retained": true
+      },
+      "interpretation": "An unhelpful B swap rejects that placement/configuration claim; it does not alone disprove compute allocation or justify Head training.",
+      "estimated_new_GPU_seconds_for_this_analysis": 0,
+      "new_diagnostic_GPU_execution": "REQUIRES_SEPARATE_CONCRETE_PREREGISTRATION_COST_AND_EXISTING_AUTHORITY",
+      "analysis_executed": false
+    },
+    {
+      "id": "WC_EXP_COST_CONDITIONS_R1",
+      "question": "Local sparse speed may fail to yield global gain because replaceable compute share and auxiliary costs depend on conditions.",
+      "status": "EXPLORATORY_EXTENSION_AFTER_KNOWN_SPARSE_RESULTS_REGISTERED_FOR_NEXT_ANALYSIS",
+      "inputs": "Existing valid timing/provenance only; use UNKNOWN for unmeasured shares.",
+      "analysis": {
+        "keep_original_operator_and_video_criteria": true,
+        "operator_or_diagnostic_time_equals_clean_end_to_end": false,
+        "separate": [
+          "replaceable_compute_share",
+          "selection_and_probe",
+          "cache_and_memory",
+          "loading_and_diagnostics",
+          "clean_pipeline_wall_when_measured"
+        ]
+      },
+      "interpretation": "Explain limits of the tested sparse configuration and plausible applicability; no new kernel/layer search or global-direction rejection from one threshold.",
+      "estimated_new_GPU_seconds": 0,
+      "analysis_executed": false
+    }
+  ],
+  "old_results_or_thresholds_modified": false,
+  "analysis_changes_original_acceptance": false,
+  "new_mandatory_B_gate": false,
+  "production_queue": "COMPLETE_B_CLI_SUPERVISION_TERMINAL_AND_FULL93_SCORE_BINDING_FIRST",
+  "cumulative_gpu_cap_changed": false,
+  "GPU_execution_authorized_by_this_registry": false,
+  "GPU_submissions": 0,
+  "training_or_paid_scoring_or_human_review_authorized": false,
+  "major_direction_choice": "DISCUSS_WITH_USER",
+  "protocol_document": "research/131_EXPLORATORY_RESEARCH_PRINCIPLES.md"
+}
