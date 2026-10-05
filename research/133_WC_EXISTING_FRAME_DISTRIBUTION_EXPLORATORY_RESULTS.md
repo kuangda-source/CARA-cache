@@ -32,7 +32,7 @@
 - [分析入口](../scripts/analyze_wc_frame_distribution_cpu.py)只使用标准库，验证93分母、PTS、候选/参考SHA、旧mean重算、旧评分审计/完整W1原件及原Native身份；[9项损坏控制](../tests/check_wc_frame_distribution_cpu.py)覆盖截断、抽帧、PTS/来源/均值/分段变化，以及平均正而中间区间退化的夹具和完全零差夹具。
 - [新机器结果](../reports/wc_frame_distribution_exploratory_r1_20261005.json)追加四个比较，没有改旧评分、阈值、W1原分母8（仅2例有登记兼容Native，5接受参考缺失、1拒绝）或原A超时失败卡2/12/8/2。
 - 首次本机分析因旧FAIR参考只有path/SHA而新scope另有bytes字段被整字典比较拒绝；调整为核对真实共有path/SHA身份，既有mean/PTS/source SHA门不改。这是新分析的元数据格式对齐问题，无科学负结果、GPU费用或旧原件改动。
-- 服务器原件native回读及独立重算：**待完成**。不加载模型、不重评分、不生成视频，不新增人评/GPU费用。
+- [服务器原件回读及本机独立重算](../reports/wc_frame_distribution_exploratory_native_audit_r1_20261005.json)：**完成**。三个原始评分JSON字节与本地评分一致，15项Native/candidate视频、原分数、B冻结配置及真实账本的native SHA相同；独立实现以`math.fsum`和另一种插值表达重算旧均值、三个区间、全部分位数、正负/零帧及两variant最大10损失，不导入新分析脚本。服务器只读、无写入，不加载模型、不重评分、不生成视频，无新GPU/人评费用。分析源码绑定提交`69197e8`；本机统计约0.006秒。
 
 适用范围集中说明：四比较来自两个已曝光CAL场景，不是四独立场景，93帧也不是93独立样本。LPIPS保真不能替代语义、运动、物理或CONF。W1旧诊断耗时不与FAIR干净wall混成速度，C/D后续配额变化仍保留。因此，这轮增强的是两场景内的保真信号分布证据，未建立新方法端到端优势。
 

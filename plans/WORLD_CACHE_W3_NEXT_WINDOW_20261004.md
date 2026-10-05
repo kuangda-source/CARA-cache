@@ -1,6 +1,8 @@
 # WorldCache 下一窗口：全帧保真与同配额刷新位置干预
 
-2026-10-05；计划v3.1；状态：EXPLORATORY_RESEARCH_PRINCIPLES_REGISTERED / PLACEMENT_PRODUCTION_ACTUAL_CPU_PASS / DISTINCT_PLACEMENT_GPU_SCOPE_PENDING。当前入口以本文和[09队列](../research/09_NEXT_ACTIONS.md)为准；以下旧“在跑/待CPU/13h余额”均保留历史身份。
+2026-10-05；计划v3.2；状态：EXPLORATORY_FRAME_DISTRIBUTION_COMPLETE / PLACEMENT_PRODUCTION_ACTUAL_CPU_PASS / DISTINCT_PLACEMENT_GPU_SCOPE_PENDING。当前入口以本文和[09队列](../research/09_NEXT_ACTIONS.md)为准；以下旧“在跑/待CPU/13h余额”均保留历史身份。
+
+[133新分布分析](../research/133_WC_EXISTING_FRAME_DISTRIBUTION_EXPLORATORY_RESULTS.md)完成第一项登记问题：既有W1两例各93/93帧更接近匹配Native，W3 Common93/93、Human90/93；四比较的三个31帧区间均值均正，Human三帧退化保留。三个原评分JSON字节与15服务器原件/视频/配置/账本native SHA回读、分布独立重算通过，CPU标准库/无重评分或GPU。它区分了“只是少数好帧抬高平均”的解释，但不替代同CFG配额B、物理/语义或独立CONF；旧W1分母8/仅两兼容参考与原A失败费用/原判据不改。原登记不回写：执行状态在新报告追加，A已知均值后的分析标探索性。
 
 **继续W3，下一完整同配额位置交换B。** 两真实C/D点显示刷新位置有终点价值：Common原WC已选择较好D；Human原WC选择C，而D的全93帧Native相对LPIPS失真少2.808%，其后续full10/8→8/8。这支持低成本区分“位置”与“动作配额/后续策略”的问题，尚不是同预算新方法收益。原双场景卡超时与全部费用保留，不据它否定W3。
 
@@ -10,7 +12,7 @@ B原四对：Common CFG0 47→49、CFG1 48→50；Human CFG0 61→63、CFG1 46�
 
 当前累计12.99974633233337/24GPUh、47jobs，无inflight；余11.000253667667h。实费重估名义7684.635秒、规划9251.562秒仍非硬界；9600总/9570child/kill5+准入规划15秒完整草案至多2.666667GPUh计入现有累计，GPU未选/UUID空/authority空/新输出不存在。旧A3900秒和Human4500秒批准已执行，不迁移到B。下一新卡具体范围确认，绑定实际生产CPU原件且源码不改，再fresh UUID/VRAM/compute/f1锁/账本/磁盘准入，唯一执行、完整费用/释放审计及CPU全93帧评分。不重复已过CPU或重提旧run。
 
-依据直接用户指示执行[131科研原则](../research/131_EXPLORATORY_RESEARCH_PRINCIPLES.md)与[下一轮假设登记](../manifests/wc_exploratory_hypotheses_r1_20261005.json)：配置失败、证据不足、有界假设反证、方向否定分开；联合质量/速度/成本/适用条件判断，负结果先查对应实现、目标、指标。旧阈值只约束原实验和主张，旧结果与原判据保持。逐帧分布、目标对齐、开销条件分析已登记未执行，不成为B额外强制门；新假设事前登记，已知A结果后的分析标探索性。报告先发现价值后集中必要边界，重大方向共同讨论，权限预算保持。训练/Head/LoRA/专家、稀疏扩大及非必要人评继续后置。
+依据直接用户指示执行[131科研原则](../research/131_EXPLORATORY_RESEARCH_PRINCIPLES.md)与[下一轮假设登记](../manifests/wc_exploratory_hypotheses_r1_20261005.json)：配置失败、证据不足、有界假设反证、方向否定分开；联合质量/速度/成本/适用条件判断，负结果先查对应实现、目标、指标。旧阈值只约束原实验和主张，旧结果与原判据保持。逐帧分布已按登记完成，目标对齐与开销条件仍待相应数据/分析，不成为B额外强制门；新假设事前登记，已知A结果后的分析标探索性。报告先发现价值后集中必要边界，重大方向共同讨论，权限预算保持。训练/Head/LoRA/专家、稀疏扩大及非必要人评继续后置。
 
 以下接续与批准记录均为历史快照，最新执行状态以以上v2.8为准。
 
