@@ -1,6 +1,8 @@
 # WorldCache 下一窗口：全帧保真与同配额刷新位置干预
 
-2026-10-05；计划v3.3；状态：EXPLORATORY_CPU_FRAME_AND_COST_COMPLETE / PLACEMENT_PRODUCTION_ACTUAL_CPU_PASS / DISTINCT_PLACEMENT_GPU_SCOPE_PENDING。当前入口以本文和[09队列](../research/09_NEXT_ACTIONS.md)为准；以下旧“在跑/待CPU/13h余额”均保留历史身份。
+2026-10-05；计划v3.4；状态：GOAL_BLOCKED_PENDING_DISTINCT_PLACEMENT_SCOPE / EXPLORATORY_CPU_FRAME_AND_COST_COMPLETE / PLACEMENT_PRODUCTION_ACTUAL_CPU_PASS。当前入口以本文和[09队列](../research/09_NEXT_ACTIONS.md)为准；以下旧“在跑/待CPU/13h余额”均保留历史身份。
+
+[B阻塞审计](../manifests/wc_w3_placement_scope_blocked_audit_20261005.json)核对生产CPU、帧分布、成本分析三个连续goal轮均无新B范围确认；当前获准且有意义的已有数据CPU工作已完成，目标对齐须实际B，无在途任务可等待。系统goal已返回blocked，非方向否定或预算耗尽；2/16/10/4与9600草案、累计12.99974633233337/24h和旧结果保持。此前已提报具体确认，不重复询问或工程验证。直接确认后恢复，fresh UUID/VRAM/compute/磁盘/全局锁/账本准入一次，完整B后按原费用/全帧/目标对齐判读，不跳过控制或扩训练。
 
 [134新成本分析](../research/134_WC_SPARSE_COST_CONDITIONS_EXPLORATORY_RESULTS.md)完成另一登记问题：H0整组平均省5.33487%，但实际只替换Common6/35、Human9/38完整调用。Common总wall微快而host sample慢1.023秒，Human二者均快；分项计时不独占CUDA，路由/同步/访存UNKNOWN，条件覆盖算术不是上界或预测。当前配置净优势证据不足，稀疏方向未被否定；未来重访优先少量同状态区分辅助成本，需新登记/对应范围，不扩当前队列。四原JSON与共10 native SHA、独立算术回读通过，无新GPU或预算变更。原登记CPU帧分布/成本已完成，目标对齐分析仍须B实际四对；GPU确认待，此前提报不重复问。
 

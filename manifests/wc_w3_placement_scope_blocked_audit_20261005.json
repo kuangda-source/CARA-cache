@@ -1,0 +1,70 @@
+{
+  "identity": "WC_W3_PLACEMENT_SCOPE_BLOCKED_AUDIT_20261005",
+  "status": "BLOCKED_THRESHOLD_PASSED_GOAL_TOOL_RETURNED_BLOCKED",
+  "condition": "Direct execution scope confirmation missing for complete W3-B placement-swap card",
+  "scope_card": "WC-W3-PLACEMENT-SWAP-R1-20261004-A",
+  "run_id": "wc-w3-placement-swap-r1",
+  "consecutive_condition_turns": [
+    {
+      "turn_id": "01a10c02-0c05-7410-a6c9-a8bd4e788aac",
+      "started_unix": 1791202823,
+      "human_messages": 0,
+      "classification": "PROGRESS_PRODUCTION_ACTUAL_CPU_COMPLETE_SCOPE_MISSING",
+      "progress_commit": "5f1fcc059178e21b2d58f327b57f7ef20641d4f8"
+    },
+    {
+      "turn_id": "01a10c19-8867-7f60-9b6b-dfc80276c3b0",
+      "started_unix": 1791204362,
+      "human_messages": 0,
+      "classification": "PROGRESS_REGISTERED_FRAME_ANALYSIS_COMPLETE_SCOPE_MISSING",
+      "progress_commit": "d02acfdcc5cee55860e0d2e10b1efcf0c43b2d9f"
+    },
+    {
+      "turn_id": "01a10c25-f504-7c51-a50d-891eb7dd45d3",
+      "started_unix": 1791205176,
+      "human_messages": 0,
+      "classification": "PROGRESS_REGISTERED_COST_ANALYSIS_COMPLETE_SCOPE_MISSING",
+      "progress_commit": "8a5699ccaa62945456d022773250c556a710a28e"
+    }
+  ],
+  "goal_status_before": "active",
+  "goal_status_returned": "blocked",
+  "goal_objective_preserved": "按实验设计继续推进，没有重要问题就自行迭代，暂停时汇报当前进度和遇到的问题；非必要不要引入人工评审等人力资源",
+  "goal_tool_updated_unix": 1791206391,
+  "main_scientific_requirement_remaining": "Execute all four registered same-CFG-quota placement swaps with own-state legality, full suffix controls, Native bridge, complete93-frame score and actual cost; then assess target alignment and continuation.",
+  "original_scope": [
+    2,
+    16,
+    10,
+    4
+  ],
+  "new_single_cap_seconds": 9600,
+  "child_cap_seconds": 9570,
+  "completed_approved_cards": [
+    "WC-W3-SMALL-CD-R1-20261004-A",
+    "WC-W3-SMALL-HUMAN-COMPLEMENT-R1-20261005-A"
+  ],
+  "existing_B_preparation": "Full core R4 and production R2 actual CPU,136 payload/389 native hashes complete; unchanged tests are not rerun.",
+  "completed_registered_CPU_analyses": [
+    "WC_EXP_FRAME_DISTRIBUTION_R1",
+    "WC_EXP_COST_CONDITIONS_R1"
+  ],
+  "remaining_registered_analysis": "WC_EXP_TARGET_ALIGNMENT_R1 requires real B outcomes",
+  "cumulative_GPU_hours": 24,
+  "used_GPU_hours": 12.99974633233337,
+  "GPU_jobs_launched": 47,
+  "no_inflight": true,
+  "budget_sha256": "f43a9ab4f9c4d7b1b94163bc6e33a5de4eaaecde6dfeb127b12bbc2657513d9a",
+  "GPU_execution_selected": false,
+  "scope_authority": null,
+  "new_output_exists": false,
+  "new_scope_approval_exists": false,
+  "new_GPU_submissions": 0,
+  "verified_live_handle_wait": false,
+  "live_receipt": "reports/wc_sparse_cost_conditions_native_audit_r1_20261005.json",
+  "confirmation_question_presented_once_no_repeat": true,
+  "reason_no_meaningful_approved_alternative": "All registered available-data CPU analyses and B production preparation are complete. Unchanged CPU repeats cannot establish placement value. Target alignment needs actual B. New Head/LoRA/sparse searches, extra generation, paid or human evaluation are outside this window.",
+  "research_direction_rejected": false,
+  "old_results_or_criteria_changed": false,
+  "resume_requirement": "Direct confirmation of the existing concrete complete B execution card, then fresh UUID/VRAM/compute/disk/project-lock/budget admission and unique submission; no old card restart."
+}
