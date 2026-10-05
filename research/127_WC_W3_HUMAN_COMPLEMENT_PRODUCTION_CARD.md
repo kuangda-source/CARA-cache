@@ -29,7 +29,9 @@
 
 新费用模块在全局项目锁下最多预付4500秒一次；任何失败/写盘/释放都按实际全wall结算，不重置旧usage，不覆盖并发账本修改。完整终态重算预付/实费、三独立PID、锁/GPU释放、源与4新+1参考文件的全部SHA及93帧解码。评分在释放后CPU FP32执行，冻结LPIPS源/权重，保留实际分支full配额及诊断费用；不称同预算、干净速度、正式RV训练标签或物理质量接受。
 
-本地37项原始CPU回执合同通过，包括缺少实际生产CPU原件拒绝、旧卡批准不能代替新卡、旧3900cap不能用于新卡、CFG错槽位、伪第二场景、少重复、真值泄漏、来源桥、费用超限及并发账本修改。R1服务器109文件/8步骤实际CPU exit0、65.890872秒、222原件SHA独立回读通过（source b56207d），原件20b60e9b5ba9c23cce8f6fedb64a934b768b7cc048ed779284f2e459af955d79。随后检查发现GPU选中配置的validate-only需要显式selected校验，R2增加按config GPU选择状态传入selected，并检查该调用AST；生产前置命令在预付前校验实际新CPU原件及新卡授权文件。旧R1回执/配置/stage保留，不追认它覆盖R2；新R2实际CPU待回填，不重跑旧96核心的99秒全管线回归。
+本地37项原始CPU回执合同通过，包括缺少实际生产CPU原件拒绝、旧卡批准不能代替新卡、旧3900cap不能用于新卡、CFG错槽位、伪第二场景、少重复、真值泄漏、来源桥、费用超限及并发账本修改。R1服务器109文件/8步骤实际CPU exit0、65.890872秒、222原件SHA独立回读通过（source b56207d），原件20b60e9b5ba9c23cce8f6fedb64a934b768b7cc048ed779284f2e459af955d79。随后检查发现GPU选中配置的validate-only需要显式selected校验，R2增加按config GPU选择状态传入selected，并检查该调用AST；生产前置命令在预付前校验实际新CPU原件及新卡授权文件。旧R1回执/配置/stage保留，不追认它覆盖R2。[R2实际CPU](../reports/wc_w3_small_human_production_actual_cpu_r2_20261005.json)已在独立109文件stage完成8步骤/37拒绝、exit0、69.441033秒，source `d8f52562554cb286e97adc67c48950b9421fe345`；原件SHA `4d59051a454265d834be834768ef3b8b1b5679e225bc7cbaba9b2ef016967d7a`。[222项独立SHA回读](../reports/wc_w3_small_human_production_actual_cpu_audit_r2_20261005.json)核对R2/原96核心、9官方源、两个Human历史视频、输入/CPU原件/日志和实际账本，全部通过，CUDA未初始化。原99秒核心不重跑，GPU/真实新视频/第二点评分仍0。
+
+[R2冻结109文件清单](../manifests/wc_w3_small_human_production_cpu_r2_20261005.json)与草案保持运行前字节；其中NOT_YET_EXECUTED是冻结时状态，本段和独立回执记录之后的验收，不修改已运行stage追认原哈希。下一GPU配置必须绑定R2原件及原109文件表，除新GPU选择/批准及相应配置外所有已实际CPU检验源码保持。
 
 ## 当前执行授权边界
 

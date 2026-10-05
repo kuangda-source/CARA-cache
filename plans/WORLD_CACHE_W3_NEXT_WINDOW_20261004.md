@@ -1,12 +1,12 @@
 # WorldCache 下一窗口：全帧保真与同配额刷新位置干预
 
-2026-10-05；计划v2.2；状态：W3_SMALL_CD_BOUNDED_TIMEOUT / FIRST_POINT_FULL93_CPU_SCORED / HUMAN_POINT_MISSING。当前入口以本文和[09队列](../research/09_NEXT_ACTIONS.md)为准。旧“在跑/待批准/13h余额”文字只保留历史身份。
+2026-10-05；计划v2.3；状态：W3_SMALL_CD_BOUNDED_TIMEOUT / FIRST_POINT_FULL93_CPU_SCORED / HUMAN_PRODUCTION_ACTUAL_CPU_PASS / NEW_SINGLE_CARD_SCOPE_CONFIRMATION_PENDING。当前入口以本文和[09队列](../research/09_NEXT_ACTIONS.md)为准。旧“在跑/待批准/13h余额”文字只保留历史身份。
 
 [125实际结果](../research/125_WC_W3_SMALL_CD_APPROVAL24_AND_EXECUTION.md)：已批准唯一2父/12后缀/8输出卡在3870秒child限时exit124，实际全wall3872.258秒，未超总3900；原两点分母保留，首点完整、第二点缺失。现账本12.0979429045467/24GPUh、46jobs、无inflight，余11.9020570954533h；原句柄/锁/GPU均释放。
 
 首点全部因果控制/历史来源桥与独立103项SHA审计通过，93帧完整CPU LPIPS：C=0.3634404575、D=0.3331532744、C−D=+0.0302871831；D失真比C少8.33%，后缀full少1。原WC此处本已选D，结果验证原决策，尚未证明新调度收益。缺失Human点不补零，不把六重复当六样本或整个A通过。
 
-下一先准备human_199独立补验：1父、6完整后缀、4新输出，仍step22/call46/CFG1和全部OFF/CC/DD/父桥，复用匹配Native；已完成常识点保留，原失败另列，跨卡汇总仍含原两点。[126独立单场景scope/core](../research/126_WC_W3_FIRST_POINT_RESULTS_AND_HUMAN_COMPLEMENT.md)已通过实际CPU99.114秒和192原件SHA/严格完整行审计；原2父代码和stage不改，不通过伪造双场景调用旧合同。新生产/监督预算/终态/评分绑定待接线，费用名义3221.822/压力4131.853秒，4500总/4470child候选未批准；单卡须新身份和范围确认，不能重提旧run，新GPU0。之后再做B四对同CFG配额交换，有调整空间才冻结规则和新样本确认，Head/LoRA/专家训练与稀疏扩大继续后置。
+下一先准备human_199独立补验：1父、6完整后缀、4新输出，仍step22/call46/CFG1和全部OFF/CC/DD/父桥，复用匹配Native；已完成常识点保留，原失败另列，跨卡汇总仍含原两点。[126独立单场景scope/core](../research/126_WC_W3_FIRST_POINT_RESULTS_AND_HUMAN_COMPLEMENT.md)已通过实际CPU99.114秒和192原件SHA/严格完整行审计；原2父代码和stage不改，不通过伪造双场景调用旧合同。[127新生产/监督预算/终态/评分绑定](../research/127_WC_W3_HUMAN_COMPLEMENT_PRODUCTION_CARD.md)已完成并过R2实际CPU8步骤/37拒绝（69.441秒）及222原件独立SHA审计；GPU选中配置在预付前验证实际生产CPU原件和新的单卡授权。费用名义3221.822/压力4131.853秒，4500总/4470child候选未批准；单卡须新身份和范围确认，不能重提旧run，新GPU0。之后再做B四对同CFG配额交换，有调整空间才冻结规则和新样本确认，Head/LoRA/专家训练与稀疏扩大继续后置。
 
 实测单完整后缀318–324秒，首场景含全部控制3033.439秒；旧120秒代理与2811.5秒双场景名义估计不再用于准入。下一卡完整计入加载、父采样、所有六后缀、四编码、快照/恢复/哈希、写盘和释放；压力估计仍不是硬上界。实际CPU评分不计作GPU加速时间。
 

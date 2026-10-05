@@ -1,3 +1,11 @@
+## 2026-10-05 Human独立补验生产入口已完成，实际CPU通过，等待单卡范围确认
+
+[127具体卡](../research/127_WC_W3_HUMAN_COMPLEMENT_PRODUCTION_CARD.md)：WC-W3-SMALL-HUMAN-COMPLEMENT-R1-20261005-A/wc-w3-small-human-complement-r1，只补human_199/seed0/index2/step22/call46/CFG1；完整1父6后缀4新输出，1历史Native、两全93帧LPIPS与1有符号诊断。4500总/4470child/kill5、准入另15秒；名义3221.822/压力4131.853秒均非硬界，最多1.25GPUh。GPU未选、UUID空、scope_authority=null，无预付或新GPU。
+
+[生产R2实际CPU](../reports/wc_w3_small_human_production_actual_cpu_r2_20261005.json)在独立109文件目录完成8步骤/37拒绝，source d8f52562554cb286e97adc67c48950b9421fe345，exit0、69.441033秒，原件4d59051a454265d834be834768ef3b8b1b5679e225bc7cbaba9b2ef016967d7a；[222项独立原件审计](../reports/wc_w3_small_human_production_actual_cpu_audit_r2_20261005.json)通过，真实根/源码/资产/冻结条件与新模块导入及四CLI检查完成，CUDA未初始化、旧96核心不变、账本不改。选中GPU的validate-only在预付前显式检查实际生产CPU原件和新授权文件；R1回执/配置/stage保留，不追认其覆盖R2。
+
+当前累计12.0979429045467/24GPUh、46jobs、无inflight，余11.9020570954533h。原2/12/8/2卡限时失败与常识点LPIPS C−D=+0.030287（原WC本已选D）保持；Human真实收益仍缺，CPU不是第二科学点。新卡4500秒尚未获具体GPU确认：现有直接批准绑定已执行旧3900秒卡，累计24h不自动覆盖新run；下一直接确认后才fresh UUID/VRAM/compute/f1锁/预算准入与唯一提交。源和文档同步GitHub，不重启旧run，不扩训练、稀疏或人评。以下为历史快照。
+
 ## 2026-10-05 W3首点全帧评分完成，整卡保留限时失败
 
 [125实际结果](../research/125_WC_W3_SMALL_CD_APPROVAL24_AND_EXECUTION.md)与[服务器CPU全帧评分](../reports/wc_w3_small_cd_failed_card_lpips_cpu_20261005.json)：首场景C/D各93帧、完整432×768、CPU FP32 LPIPS v0.1 Alex，C=0.3634404575、D=0.3331532744，C−D=+0.0302871831；D相对C失真下降8.33%。原WorldCache此处已选D，D完全复现原WC；C强制复用后后缀full配额8/8，D为8/7。结果说明此点原刷新有价值，不能称新调度方法优势或同预算结果。
