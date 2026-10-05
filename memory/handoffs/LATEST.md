@@ -1,3 +1,9 @@
+## 2026-10-05 W3小C/D唯一卡已启动，24h预算保留历史
+
+[125批准与执行](../../research/125_WC_W3_SMALL_CD_APPROVAL24_AND_EXECUTION.md)：预算适配actual CPU7步骤/原32+增量16拒绝控制及102原件哈希通过，58.023秒、CUDA未初始化、账本不变。唯一wc-w3-small-cd-r1/source c12a3cad2cefd3559d60a5256d74d802eb151bab 已fresh准入；supervisor2856696/timeout2856713/runner2856714真实存活，[启动现场](../../reports/wc_w3_small_cd_start_observation_20261005.json)。child截止北京时间 2026-10-05T14:53:29.487165+08:00；总cap3900秒保持。
+
+一次预付3900秒，当前在途12.105649020172551/24h、第46job，结算前不是实际最终费用。原已用11.022315686839217h/45jobs保留；只监测原句柄、不重提或修改在跑payload。待终态后费用/来源/2父12后缀8原件及释放审计、全93帧CPU评分；当前无新C/D收益结论。以下待批准/CPU准备/13h限制条目是历史。
+
 ## 2026-10-05 小C/D卡直接批准，累计预算24GPUh
 
 用户批准 **WC-W3-SMALL-CD-R1-20261004-A**；[125批准与执行](../../research/125_WC_W3_SMALL_CD_APPROVAL24_AND_EXECUTION.md)。累计13→24h已在真实项目锁下迁移，原11.022315686839217h/45jobs保持、无inflight；本地预算CPU适配通过，实际服务器CPU增量门及唯一GPU提交待完成。2父/12完整后缀/8新视频，单次3900秒仍不变；GPU释放后全93帧CPU评分。旧blocked/13h条目均为历史快照，不再要求重复批准本卡。未产生新C/D收益，不自动扩大full RV0或训练。

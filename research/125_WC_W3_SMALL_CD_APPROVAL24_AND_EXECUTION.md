@@ -4,7 +4,7 @@
 
 ## 当前阶段
 
-累计24h迁移已在真实服务器的全局 f1 锁下完成；本地预算适配 CPU 检查通过，服务器实际 CPU 增量检查和 GPU 提交待完成。此处尚无新 C/D 视频或收益结论。
+累计24h迁移已在真实服务器的全局 f1 锁下完成；实际CPU7步骤、原32控制与增量16控制及102文件原件哈希通过（58.023秒，CUDA未初始化、账本不变）。唯一GPU卡已经启动，正在初始化。此处尚无新 C/D 视频或收益结论。
 
 ## 预算与来源
 
@@ -23,3 +23,9 @@
 ## 执行后回填
 
 待服务器CPU、唯一启动、原句柄终态、费用/来源/输出完整审计及全帧评分原件完成后在此记录。后续位置交换卡由本次实际技术/成本和科学结果决定，累计预算增加不改变单卡范围。
+
+## 原始启动句柄
+
+冻结GPU source `c12a3cad2cefd3559d60a5256d74d802eb151bab`；supervisor2856696 / timeout2856713 / runner2856714。fresh selected UUID为 GPU-cebf7119-cf03-23b9-e192-cd196332b704，准入24MiB/noapps。输出目录 `/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-w3-small-cd-r1`。
+
+[actual CPU](../reports/wc_w3_small_cd_budget24_actual_cpu_20261005.json) · [独立原件审计](../reports/wc_w3_small_cd_budget24_actual_cpu_audit_20261005.json) · [唯一启动](../reports/wc_w3_small_cd_launch_20261005.json) · [启动现场](../reports/wc_w3_small_cd_start_observation_20261005.json)。预算在途12.105649020172551/24h、46jobs，是3900秒预付；终态按实际全wall替换预付，尚非最终实费。
