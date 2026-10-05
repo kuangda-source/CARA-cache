@@ -1,6 +1,8 @@
 # WorldCache 下一窗口：全帧保真与同配额刷新位置干预
 
-2026-10-05；计划v3.2；状态：EXPLORATORY_FRAME_DISTRIBUTION_COMPLETE / PLACEMENT_PRODUCTION_ACTUAL_CPU_PASS / DISTINCT_PLACEMENT_GPU_SCOPE_PENDING。当前入口以本文和[09队列](../research/09_NEXT_ACTIONS.md)为准；以下旧“在跑/待CPU/13h余额”均保留历史身份。
+2026-10-05；计划v3.3；状态：EXPLORATORY_CPU_FRAME_AND_COST_COMPLETE / PLACEMENT_PRODUCTION_ACTUAL_CPU_PASS / DISTINCT_PLACEMENT_GPU_SCOPE_PENDING。当前入口以本文和[09队列](../research/09_NEXT_ACTIONS.md)为准；以下旧“在跑/待CPU/13h余额”均保留历史身份。
+
+[134新成本分析](../research/134_WC_SPARSE_COST_CONDITIONS_EXPLORATORY_RESULTS.md)完成另一登记问题：H0整组平均省5.33487%，但实际只替换Common6/35、Human9/38完整调用。Common总wall微快而host sample慢1.023秒，Human二者均快；分项计时不独占CUDA，路由/同步/访存UNKNOWN，条件覆盖算术不是上界或预测。当前配置净优势证据不足，稀疏方向未被否定；未来重访优先少量同状态区分辅助成本，需新登记/对应范围，不扩当前队列。四原JSON与共10 native SHA、独立算术回读通过，无新GPU或预算变更。原登记CPU帧分布/成本已完成，目标对齐分析仍须B实际四对；GPU确认待，此前提报不重复问。
 
 [133新分布分析](../research/133_WC_EXISTING_FRAME_DISTRIBUTION_EXPLORATORY_RESULTS.md)完成第一项登记问题：既有W1两例各93/93帧更接近匹配Native，W3 Common93/93、Human90/93；四比较的三个31帧区间均值均正，Human三帧退化保留。三个原评分JSON字节与15服务器原件/视频/配置/账本native SHA回读、分布独立重算通过，CPU标准库/无重评分或GPU。它区分了“只是少数好帧抬高平均”的解释，但不替代同CFG配额B、物理/语义或独立CONF；旧W1分母8/仅两兼容参考与原A失败费用/原判据不改。原登记不回写：执行状态在新报告追加，A已知均值后的分析标探索性。
 

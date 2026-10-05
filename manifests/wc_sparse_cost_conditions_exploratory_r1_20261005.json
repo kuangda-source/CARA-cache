@@ -1,0 +1,54 @@
+{
+  "identity": "WC_SPARSE_COST_CONDITIONS_EXPLORATORY_R1_20261005",
+  "hypothesis_id": "WC_EXP_COST_CONDITIONS_R1",
+  "outcome_exposure": "KNOWN_OPERATOR_H0_FAIR_OUTCOMES_EXPLORATORY_EXTENSION",
+  "input_sha256": {
+    "reports/wc_mid_full_r4_runner_20261003.json": "b9a2ac253524590bd5ef62297e39d53e54e410a113d9761eca8d6c1ee6a85ba2",
+    "reports/wc_mid_full_r4_summary_20261003.json": "eea7760c08af15e67d23ed87fab257ca80c9adc1933b8663809f34eb3a32f5a2",
+    "reports/wc_mid_full_r4_audit_20261003.json": "5003b967212c06fec6ea848189f96826aa19922f642e6e519cb9fac2831c9e80",
+    "reports/wc_h0_eval_complement_r2_runner_20261003.json": "bc9b30754ac9b3fdac06c41687366fd264558432bdf3bdd7544a6760bd70d17a",
+    "reports/wc_h0_eval_complement_r2_summary_20261003.json": "2adfdbe9f98ec54e417568cb3f1e1fe98f7a0830b58b5d401e03755bb4251c05",
+    "reports/wc_h0_eval_complement_r2_audit_20261003.json": "0a057102012a7601058fbe95aedf7a77278c5970ec31d0deacf2e594a01194ec",
+    "reports/wc_fair_cal_r1_runner_20261004.json.gz": "64792ea6b2c41bdd0a516d17fe9b048c747495f139507eb027bcddd1b0be5049",
+    "reports/wc_fair_cal_r1_summary_20261004.json": "69d56a177205d80dd4f41b8d1a8e50a8293c8adc5db4d7ed07d3c9724de34cad",
+    "reports/wc_fair_cal_r1_audit_20261004.json": "bdf619d9702fd05f69c8a6aa4c10c7193839d0b55badb21b3f1f064ae2237ad0",
+    "reports/wc_existing_fair_w1_lpips_cpu_r1_20261004.json": "fc7eb9b08fc98919581179dcd034d0ace81f01114eb587273f12ac2eb76a7141",
+    "manifests/wc_exploratory_hypotheses_r1_20261005.json": "1394d5184d45cf7c6ab8404c4bf97bbc5bc102eb3bf9107d3d9176c5140a1ae8",
+    "src/wcomr/fair_sampling.py": "0dcaf0f62188940d8b982f630b9c1493d91f7f5d41d4049b611335b1cf80fef6",
+    "src/wcomr/refresh_deployment.py": "94d272cd6a35271d251c81ec6eba1a3d3fdb7451c657109adb249dd9e9f2e7bc",
+    "src/wcomr/sparge_routed_no_pv.py": "7e895502101be1164d18fc5c04ddbc6ad4fb7aec034eb9c79a18ccbc1bb8b0b4",
+    "reports/budget.json": "f43a9ab4f9c4d7b1b94163bc6e33a5de4eaaecde6dfeb127b12bbc2657513d9a"
+  },
+  "scenarios": {
+    "all_full_group_share_of_pipeline": [
+      0,
+      0.25,
+      0.5,
+      0.75,
+      1
+    ],
+    "reference_local_group_savings": "MEAN_OF_TWO_H0_ONE_MINUS_S_OVER_D",
+    "target_full_call_share": "ACTUAL_SPARSE_FULL_CALL_COUNT_DIVIDED_BY_OFFICIAL_FULL_COUNT",
+    "formula": "target_full_call_share * assumed_all_full_group_share * reference_local_group_savings",
+    "equal_full_group_duration_and_transferable_local_cost": "EXPLICIT_UNMEASURED_SCENARIO_ASSUMPTION",
+    "scenario_is_measured_bound_or_fit": false
+  },
+  "separation": [
+    "operator_hot_medians",
+    "whole_deep_group_plus_head",
+    "actual_sparse_call_and_layer_coverage",
+    "mask_execution_fraction",
+    "FAIR_pipeline_and_logged_host_substages",
+    "loading_and_diagnostics_inclusive_bill",
+    "unmeasured_auxiliary_and_time_weighted_share"
+  ],
+  "old_operator_criteria": {
+    "relative_RMSE_max": 0.05,
+    "speedup_min": 1.1
+  },
+  "changes_criteria_or_claims_direction_disproof": false,
+  "new_GPU_seconds": 0,
+  "new_generation": false,
+  "kernel_or_layer_search": false,
+  "human_review": false
+}

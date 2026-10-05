@@ -1,0 +1,273 @@
+{
+  "status": "EXPLORATORY_SPARSE_COST_CONDITIONS_FROM_EXISTING_VALID_TIMING_COMPLETE",
+  "hypothesis_id": "WC_EXP_COST_CONDITIONS_R1",
+  "operator": {
+    "inputs": 104,
+    "cases": 312,
+    "median_D_over_S": 1.2189314768127841,
+    "numerics_pass": 92,
+    "speed_pass": 76,
+    "both_pass": 64,
+    "new_criteria": false
+  },
+  "same_state_group_observations": [
+    {
+      "call": 33,
+      "CFG_slot": 0,
+      "dense_group_plus_head_ms": 3098.076914437115,
+      "matched_full_group_plus_head_ms": 3172.9912171140313,
+      "sparse_group_plus_head_ms": 2933.363100513816,
+      "D_over_S": 1.0561518667410958,
+      "one_minus_S_over_D": 0.05316647019179188,
+      "matched_full_over_D_minus1": 0.024180904717960194,
+      "matched_full_net_difference_is_isolated_router_cost": false,
+      "same_deep_group_timing_not_pipeline": true
+    },
+    {
+      "call": 34,
+      "CFG_slot": 1,
+      "dense_group_plus_head_ms": 3105.829831212759,
+      "matched_full_group_plus_head_ms": 3190.668508410454,
+      "sparse_group_plus_head_ms": 2939.5720306783915,
+      "D_over_S": 1.0565585053876019,
+      "one_minus_S_over_D": 0.05353087888573971,
+      "matched_full_over_D_minus1": 0.02731594511234614,
+      "matched_full_net_difference_is_isolated_router_cost": false,
+      "same_deep_group_timing_not_pipeline": true
+    }
+  ],
+  "group_saving_reference_mean": 0.053348674538765795,
+  "FAIR_conditions": [
+    {
+      "scene": "common_sense_6487f37f-ef57-49ca-afdc-d898922b5191",
+      "WC_pipeline_seconds": 208.20423556677997,
+      "sparse_pipeline_seconds": 207.59702232666314,
+      "WC_minus_sparse_pipeline_seconds": 0.6072132401168346,
+      "pipeline_time_reduction_fraction": 0.0029164307751178287,
+      "host_substages": [
+        {
+          "stage": "prepare",
+          "WC_seconds": 0.20227680914103985,
+          "sparse_seconds": 0.20361246168613434,
+          "WC_minus_sparse_seconds": -0.00133565254509449
+        },
+        {
+          "stage": "sample",
+          "WC_seconds": 135.56457791104913,
+          "sparse_seconds": 136.5871810503304,
+          "WC_minus_sparse_seconds": -1.0226031392812729
+        },
+        {
+          "stage": "decode",
+          "WC_seconds": 5.841963551938534,
+          "sparse_seconds": 5.845908308401704,
+          "WC_minus_sparse_seconds": -0.003944756463170052
+        },
+        {
+          "stage": "video_guardrail",
+          "WC_seconds": 10.756446246989071,
+          "sparse_seconds": 10.178971184417605,
+          "WC_minus_sparse_seconds": 0.577475062571466
+        },
+        {
+          "stage": "write",
+          "WC_seconds": 4.0075694639235735,
+          "sparse_seconds": 3.0068217338994145,
+          "WC_minus_sparse_seconds": 1.000747730024159
+        }
+      ],
+      "WC_outside_logged_substages_seconds": 51.831401583738625,
+      "sparse_outside_logged_substages_seconds": 51.77452758792788,
+      "host_brackets_are_CUDA_components": false,
+      "single_fixed_order_no_speed_confidence_interval": true,
+      "official_full_calls": 35,
+      "sparse_full_calls": 6,
+      "sparse_call_ids": [
+        45,
+        46,
+        49,
+        50,
+        53,
+        54
+      ],
+      "full_call_count_share": 0.17142857142857143,
+      "substituted_attention_operators": 138,
+      "possible_deep_attention_operators": 910,
+      "attention_operator_count_share": 0.15164835164835164,
+      "count_share_is_measured_time_share": false,
+      "recorded_executed_block_fraction": {
+        "min": 0.4402223229408264,
+        "mean": 0.7582550504501315,
+        "max": 0.9273532629013062
+      },
+      "executed_block_fraction_is_FLOP_or_speed_ratio": false,
+      "Native_LPIPS_WC006": 0.33315327443102355,
+      "Native_LPIPS_sparse": 0.3334143809092942,
+      "conditional_opportunity_scenarios": [
+        {
+          "assumed_all_full_group_share_of_pipeline": 0,
+          "conditional_pipeline_time_reduction_fraction": 0.0,
+          "measured_prediction_bound_or_causal_fit": false
+        },
+        {
+          "assumed_all_full_group_share_of_pipeline": 0.25,
+          "conditional_pipeline_time_reduction_fraction": 0.0022863717659471054,
+          "measured_prediction_bound_or_causal_fit": false
+        },
+        {
+          "assumed_all_full_group_share_of_pipeline": 0.5,
+          "conditional_pipeline_time_reduction_fraction": 0.004572743531894211,
+          "measured_prediction_bound_or_causal_fit": false
+        },
+        {
+          "assumed_all_full_group_share_of_pipeline": 0.75,
+          "conditional_pipeline_time_reduction_fraction": 0.006859115297841316,
+          "measured_prediction_bound_or_causal_fit": false
+        },
+        {
+          "assumed_all_full_group_share_of_pipeline": 1,
+          "conditional_pipeline_time_reduction_fraction": 0.009145487063788421,
+          "measured_prediction_bound_or_causal_fit": false
+        }
+      ],
+      "measured_time_weighted_replaceable_share": "UNKNOWN",
+      "separately_timed_routing_quantization_selection_sync_memory_cache": "UNKNOWN"
+    },
+    {
+      "scene": "human_199",
+      "WC_pipeline_seconds": 217.7913565915078,
+      "sparse_pipeline_seconds": 214.72709504608065,
+      "WC_minus_sparse_pipeline_seconds": 3.0642615454271436,
+      "pipeline_time_reduction_fraction": 0.014069711458634782,
+      "host_substages": [
+        {
+          "stage": "prepare",
+          "WC_seconds": 0.2066861679777503,
+          "sparse_seconds": 0.20559277664870024,
+          "WC_minus_sparse_seconds": 0.001093391329050064
+        },
+        {
+          "stage": "sample",
+          "WC_seconds": 144.79339210037142,
+          "sparse_seconds": 141.83078730851412,
+          "WC_minus_sparse_seconds": 2.962604791857302
+        },
+        {
+          "stage": "decode",
+          "WC_seconds": 5.842156384140253,
+          "sparse_seconds": 5.847889378666878,
+          "WC_minus_sparse_seconds": -0.0057329945266246796
+        },
+        {
+          "stage": "video_guardrail",
+          "WC_seconds": 10.470691183581948,
+          "sparse_seconds": 10.644705957733095,
+          "WC_minus_sparse_seconds": -0.1740147741511464
+        },
+        {
+          "stage": "write",
+          "WC_seconds": 3.0230059884488583,
+          "sparse_seconds": 2.975257339887321,
+          "WC_minus_sparse_seconds": 0.047748648561537266
+        }
+      ],
+      "WC_outside_logged_substages_seconds": 53.45542476698756,
+      "sparse_outside_logged_substages_seconds": 53.22286228463054,
+      "host_brackets_are_CUDA_components": false,
+      "single_fixed_order_no_speed_confidence_interval": true,
+      "official_full_calls": 38,
+      "sparse_full_calls": 9,
+      "sparse_call_ids": [
+        45,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54
+      ],
+      "full_call_count_share": 0.23684210526315788,
+      "substituted_attention_operators": 207,
+      "possible_deep_attention_operators": 988,
+      "attention_operator_count_share": 0.20951417004048584,
+      "count_share_is_measured_time_share": false,
+      "recorded_executed_block_fraction": {
+        "min": 0.4007492661476135,
+        "mean": 0.6732636429549416,
+        "max": 0.889711320400238
+      },
+      "executed_block_fraction_is_FLOP_or_speed_ratio": false,
+      "Native_LPIPS_WC006": 0.4247454244603393,
+      "Native_LPIPS_sparse": 0.42615509385703715,
+      "conditional_opportunity_scenarios": [
+        {
+          "assumed_all_full_group_share_of_pipeline": 0,
+          "conditional_pipeline_time_reduction_fraction": 0.0,
+          "measured_prediction_bound_or_causal_fit": false
+        },
+        {
+          "assumed_all_full_group_share_of_pipeline": 0.25,
+          "conditional_pipeline_time_reduction_fraction": 0.00315880309769008,
+          "measured_prediction_bound_or_causal_fit": false
+        },
+        {
+          "assumed_all_full_group_share_of_pipeline": 0.5,
+          "conditional_pipeline_time_reduction_fraction": 0.00631760619538016,
+          "measured_prediction_bound_or_causal_fit": false
+        },
+        {
+          "assumed_all_full_group_share_of_pipeline": 0.75,
+          "conditional_pipeline_time_reduction_fraction": 0.00947640929307024,
+          "measured_prediction_bound_or_causal_fit": false
+        },
+        {
+          "assumed_all_full_group_share_of_pipeline": 1,
+          "conditional_pipeline_time_reduction_fraction": 0.01263521239076032,
+          "measured_prediction_bound_or_causal_fit": false
+        }
+      ],
+      "measured_time_weighted_replaceable_share": "UNKNOWN",
+      "separately_timed_routing_quantization_selection_sync_memory_cache": "UNKNOWN"
+    }
+  ],
+  "FAIR_model_load_seconds": 99.81026225257665,
+  "FAIR_load_is_in_each_video_pipeline_wall": false,
+  "unmeasured_remaining_scope": "Outside logged host brackets is a timing residual, not an identified component or CUDA profile.",
+  "source_observed_auxiliary_operations": [
+    "full block mask allocation",
+    "fused selection/quantization",
+    "block-map validity/selected fraction scalar host reads",
+    "output finite reduction/host decision",
+    "cache/provenance updates"
+  ],
+  "auxiliary_operation_seconds_or_causal_slowdown": "UNKNOWN",
+  "scenario_transfers_local_H0_group_cost_to_FAIR_calls": "UNMEASURED_ASSUMPTION_NOT_BOUND_OR_FIT",
+  "current_sparse_configuration_end_to_end_advantage": "NOT_ESTABLISHED",
+  "entire_sparse_direction_disproved": false,
+  "old_results_or_criteria_changed": false,
+  "input_sha256": {
+    "reports/wc_mid_full_r4_runner_20261003.json": "b9a2ac253524590bd5ef62297e39d53e54e410a113d9761eca8d6c1ee6a85ba2",
+    "reports/wc_mid_full_r4_summary_20261003.json": "eea7760c08af15e67d23ed87fab257ca80c9adc1933b8663809f34eb3a32f5a2",
+    "reports/wc_mid_full_r4_audit_20261003.json": "5003b967212c06fec6ea848189f96826aa19922f642e6e519cb9fac2831c9e80",
+    "reports/wc_h0_eval_complement_r2_runner_20261003.json": "bc9b30754ac9b3fdac06c41687366fd264558432bdf3bdd7544a6760bd70d17a",
+    "reports/wc_h0_eval_complement_r2_summary_20261003.json": "2adfdbe9f98ec54e417568cb3f1e1fe98f7a0830b58b5d401e03755bb4251c05",
+    "reports/wc_h0_eval_complement_r2_audit_20261003.json": "0a057102012a7601058fbe95aedf7a77278c5970ec31d0deacf2e594a01194ec",
+    "reports/wc_fair_cal_r1_runner_20261004.json.gz": "64792ea6b2c41bdd0a516d17fe9b048c747495f139507eb027bcddd1b0be5049",
+    "reports/wc_fair_cal_r1_summary_20261004.json": "69d56a177205d80dd4f41b8d1a8e50a8293c8adc5db4d7ed07d3c9724de34cad",
+    "reports/wc_fair_cal_r1_audit_20261004.json": "bdf619d9702fd05f69c8a6aa4c10c7193839d0b55badb21b3f1f064ae2237ad0",
+    "reports/wc_existing_fair_w1_lpips_cpu_r1_20261004.json": "fc7eb9b08fc98919581179dcd034d0ace81f01114eb587273f12ac2eb76a7141",
+    "manifests/wc_exploratory_hypotheses_r1_20261005.json": "1394d5184d45cf7c6ab8404c4bf97bbc5bc102eb3bf9107d3d9176c5140a1ae8",
+    "src/wcomr/fair_sampling.py": "0dcaf0f62188940d8b982f630b9c1493d91f7f5d41d4049b611335b1cf80fef6",
+    "src/wcomr/refresh_deployment.py": "94d272cd6a35271d251c81ec6eba1a3d3fdb7451c657109adb249dd9e9f2e7bc",
+    "src/wcomr/sparge_routed_no_pv.py": "7e895502101be1164d18fc5c04ddbc6ad4fb7aec034eb9c79a18ccbc1bb8b0b4",
+    "reports/budget.json": "f43a9ab4f9c4d7b1b94163bc6e33a5de4eaaecde6dfeb127b12bbc2657513d9a"
+  },
+  "new_GPU_seconds": 0,
+  "kernel_or_layer_search": false,
+  "budget_sha256_before": "f43a9ab4f9c4d7b1b94163bc6e33a5de4eaaecde6dfeb127b12bbc2657513d9a",
+  "analysis_code_sha256": "a9825f8a41877835e873fb100f305305465cf788efaf637068dbc024a1d14dd9",
+  "execution_manifest_sha256": "ee524e440415ea66131dc48024cfb39da9bd70a5295320aa9d6ac97ebcdc4598",
+  "CPU_wall_seconds": 0.016661208000000004
+}
