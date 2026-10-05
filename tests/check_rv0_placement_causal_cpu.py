@@ -146,10 +146,11 @@ def exercise(*, inference, samples, wc, settings, inference_module, flow, runtim
                         assert error and state['requests'][0]['status']=='TECH_BLOCKED'
                         child=state['requests'][0]['children'][-1]
                         assert child['status']=='TECH_BLOCKED' and child['record']['parent_restored']
-                        expected={'child_writer':'Complete encoded output missing','child_guardrail':'guardrail rejection',
-                            'prefix_mask':'parent prefix','own_CFG_history':'own-CFG true-full',
-                            'protected_native_action':'Protected native action'}[failure]
-                        assert expected in error,error
+                        expected_label='SWAP0_first' if failure=='own_CFG_history' else 'BASE1'
+                        assert child['label']==expected_label,(failure,child['label'],error)
+                        if failure in ('child_writer','child_guardrail'):
+                            decoded=state['requests'][0]['decoded_children'][-1]
+                            assert decoded['label']=='BASE1' and decoded['status']=='TECH_BLOCKED'
                     else:
                         assert error is None,error
                         audit_trajectories(state,config,3)
