@@ -60,6 +60,14 @@ OFF重复已匹配，C_first现已完成，D分支仍在运行，最新动作观
 
 ## 首对真实C/D同输入动作与完整后缀
 
+首场景全部六个后缀现已完成且重复匹配，以下首对动作观察保留历史身份；母轨迹与整卡验收仍待。
+
 [独立原始动作比较](../reports/wc_w3_small_cd_first_pair_action_observation_20261005.json)：C_first/D_second在call45前及当前model输入前缀相同，paid_probe均true，age均2。C实际deep0，D实际deep26；全部28CFG事件均无current-deep-truth泄漏，两个parent_restored均true，两个完整后缀均14更新/28CFG。
 
 C的full配额为8/8、D为8/7，实际control wall324.47217688988894/320.5572475194931秒。D与OFF的完整轨迹及最终状态逐项相同：此处原WorldCache已经选择full，D复现原安排，并非新调度方法取得收益。强制C导致其后自适应完整调用净增1，当前不是同配额实验。D_first重复及C_second、完整母轨视频桥与两个场景最终验收仍待；尚无C/D Native-relative评分，不产生正式RV训练标签。
+
+## 首场景全部六后缀的重复与顺序控制
+
+[独立原始重复比较](../reports/wc_w3_small_cd_first_scene_repeats_20261005.json)：OFF1/OFF2、C_first/C_second、D_first/D_second 各自的输入、输出、deep、banks、solver轨迹、最终latent与完整状态逐项相同；六后缀均14更新/28CFG，parent_restored均true。C/D同输入deep0/26再次核对通过。六control wall为318.154/320.269/324.472/320.557/319.746/322.803秒，C仍8/8、D仍8/7。
+
+三个后缀视频已安全编码。母轨迹已经恢复继续运行，但尚未到终点并生成原母轨视频，因此这里只接受单场景六后缀的重复/动作控制观察，不称母轨完整桥、两场景整卡或最终质量通过；不将六次控制当作六个独立科学样本。
