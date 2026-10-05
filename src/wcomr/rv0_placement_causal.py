@@ -76,7 +76,8 @@ def run_placement_causal_batch(inference, samples, wc, settings, *, state, save,
     state.update(planned_parent_phases=2, planned_suffix_controls=16, planned_encoded_outputs=10,
                  requests=[], source_derived_tails=tails, GPU_RV_labels=0,
                  policy='OFFLINE_FIXED_PER_CFG_QUOTA_TWO_POSITION_PLACEMENT',
-                 per_CFG_quota_matched=True, equal_runtime=False, online_policy=False, full_RV0_accepted=False, formal_RV_training_labels=False,
+                 planned_per_CFG_quota_matching=True, per_CFG_quota_matched=False,
+                 equal_runtime=False, online_policy=False, full_RV0_accepted=False, formal_RV_training_labels=False,
                  historical_bridge_required=require_historical_bridge)
     save()
     try:
@@ -202,7 +203,8 @@ def run_placement_causal_batch(inference, samples, wc, settings, *, state, save,
         if (len(state['requests']) != 2 or sum(len(r['children']) for r in state['requests']) != 16
                 or sum(1+len(r['decoded_children']) for r in state['requests']) != 10):
             raise ValueError('Placement two-parent/sixteen-suffix/ten-output coverage differs')
-        state['status'] = 'PLACEMENT_CAUSAL_CORE_COMPLETE_REQUIRES_INDEPENDENT_REAL_GPU_AUDIT'; save()
+        state.update(status='PLACEMENT_CAUSAL_CORE_COMPLETE_REQUIRES_INDEPENDENT_REAL_GPU_AUDIT',
+                     per_CFG_quota_matched=True); save()
     finally:
         initial.restore(); net.forward = original_forward
         for key in set(WC_FIELDS)-original_keys:

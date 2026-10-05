@@ -6,6 +6,8 @@ they do not stand in for the four frozen real CAL pairs or GPU feasibility.
 import copy
 from dataclasses import replace
 import importlib.util
+import json
+import os
 from pathlib import Path
 import tempfile
 
@@ -21,6 +23,8 @@ from wcomr.rv0_fixed_plan import FixedMaskPlan, cfg_full_counts, mask_sha256
 from wcomr.rv0_placement_causal import run_placement_causal_batch
 from wcomr.rv0_placement_evaluation import audit_trajectories, verify_placement_row
 from wcomr.rv0_fixed_mask import FixedMaskRouter
+
+CPU_ATTEMPTS=[]
 
 
 def load(name):
@@ -133,12 +137,16 @@ def exercise(*, inference, samples, wc, settings, inference_module, flow, runtim
                             mode_setup=mode,runtime=runtime,config=config,require_historical_bridge=False)
                     except Exception as exception:
                         error=str(exception)
+                    CPU_ATTEMPTS.append({'flow':flow,'failure':failure,'error':error,
+                        'receipt':copy.deepcopy(state),'fixture_config':copy.deepcopy(config)})
+                    if os.environ.get('WC_PLACEMENT_CPU_ATTEMPTS'):
+                        Path(os.environ['WC_PLACEMENT_CPU_ATTEMPTS']).write_text(json.dumps(CPU_ATTEMPTS,indent=2)+'\n')
                     assert (state['planned_parent_phases'],state['planned_suffix_controls'],state['planned_encoded_outputs'])==(2,16,10)
                     if failure:
                         assert error and state['requests'][0]['status']=='TECH_BLOCKED'
                         child=state['requests'][0]['children'][-1]
                         assert child['status']=='TECH_BLOCKED' and child['record']['parent_restored']
-                        expected={'child_writer':'guardrail rejection','child_guardrail':'guardrail rejection',
+                        expected={'child_writer':'Complete encoded output missing','child_guardrail':'guardrail rejection',
                             'prefix_mask':'parent prefix','own_CFG_history':'own-CFG true-full',
                             'protected_native_action':'Protected native action'}[failure]
                         assert expected in error,error
