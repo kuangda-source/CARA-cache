@@ -1,16 +1,16 @@
 # WorldCache 下一窗口：全帧保真与同配额刷新位置干预
 
-2026-10-05；计划v3.0；状态：EXPLORATORY_RESEARCH_PRINCIPLES_REGISTERED / PLACEMENT_FULL_CORE_ACTUAL_CPU_PASS / PLACEMENT_PRODUCTION_CLI_NEXT。当前入口以本文和[09队列](../research/09_NEXT_ACTIONS.md)为准。以下旧“在跑/待批准/13h余额”文字只保留历史身份。
+2026-10-05；计划v3.1；状态：EXPLORATORY_RESEARCH_PRINCIPLES_REGISTERED / PLACEMENT_PRODUCTION_ACTUAL_CPU_PASS / DISTINCT_PLACEMENT_GPU_SCOPE_PENDING。当前入口以本文和[09队列](../research/09_NEXT_ACTIONS.md)为准；以下旧“在跑/待CPU/13h余额”均保留历史身份。
 
-**本轮新执行原则**：[131](../research/131_EXPLORATORY_RESEARCH_PRINCIPLES.md)及[下一轮假设登记](../manifests/wc_exploratory_hypotheses_r1_20261005.json)依据直接用户指示生效。配置失败、证据不足与方向否定分开，综合质量、速度、成本、适用条件；负结果先查实现/监督/指标对齐，有信号优先低成本区分。原阈值只约束其原实验和主张，不改旧结果或事后放宽验收；补充解释按新版本登记。既有科学结果、B四对/2父16后缀10输出、参考/判据及24h/单卡权限保持。新增逐帧分布、目标对齐和开销条件的解释性分析尚未执行，且不成为新强制门；技术工作仍先完成B生产CLI/监督/终态/评分绑定。汇报先发现价值，必要边界集中说明，重大方向选择一起讨论。
+**继续W3，下一完整同配额位置交换B。** 两真实C/D点显示刷新位置有终点价值：Common原WC已选择较好D；Human原WC选择C，而D的全93帧Native相对LPIPS失真少2.808%，其后续full10/8→8/8。这支持低成本区分“位置”与“动作配额/后续策略”的问题，尚不是同预算新方法收益。原双场景卡超时与全部费用保留，不据它否定W3。
 
-[130完整B核心CPU](../research/130_WC_W3_PLACEMENT_FULL_CORE_CPU.md)已通过：source7f6efa8/R4实际191.474秒，两flow4父32后缀20mock、五失败恢复40损坏拒绝，597冻结/历史源/原件/账本及8日志句柄native SHA、完整行动/配额/状态/OFF与BASE编码桥通过。20范围评分拓扑拒绝实际CPU通过，四双位置汇总/11拒绝本机通过；三旧失败回执保留，禁止保护override等实质门保持。Toy不是四真实点GPU合法性或收益。下一补生产CLI/监督/终态/六全93帧评分与具体卡实际CPU绑定，不重复相同组合；B GPU未选，9600仍草案。以下既有结果和接线前计划为历史，当前入口以上v2.9为准。
+[132具体生产卡与CPU](../research/132_WC_W3_PLACEMENT_PRODUCTION_CARD_AND_CPU.md)已完整接好运行、监督/费用、终态、六全帧损失及四有符号双位置诊断。source d1fd84a/R2独立136文件，实际服务器8步骤exit0、73.266秒；36生产/11评分拒绝、真实根/源码/资产、冻结条件/视频读取/评分导入通过，CUDA未初始化。389原生SHA、25日志句柄及9CPU句柄退出独立回读；旧117核心、110 Human GPU源和根账本不变。只重验已有R4原轨迹，未重跑完整Toy采样。CPU不是四真实点GPU合法性、视频收益或结算演练。
 
-**当前决定：继续W3，先完成同配额位置交换B的生产核心与CPU接线，不进入Head训练。** [129完整结果](../research/129_WC_W3_HUMAN_APPROVED_EXECUTION_AND_RESULTS.md)与[跨卡R4](../reports/wc_w3_two_point_summary_r4_real_complete_20261005.json)已补齐两真实科学点：Common C−D=+0.0302871831（原WC本已选D），Human +0.0119268468（原WC选C）。Human D的Native相对全帧LPIPS失真降低2.808%，后续full10/8→8/8，显示改变原决策的单点机制空间；非同配额、干净E2E、CONF或训练标签。两曝光场景等权差值+0.02110701495仅描述性，重复不是额外独立样本。
+B原四对：Common CFG0 47→49、CFG1 48→50；Human CFG0 61→63、CFG1 46→48。原2父16完整后缀10新输出/2历史Native/6损失/4诊断不缩；全部OFF/OFF、BASE重复、两swap正反重复和历史桥保持。同CFG full配额不是同秒数，保护自然动作冲突则不可行并保留分母，无fallback。原scope不改，生产限时在独立execution_limits。
 
-Human唯一GPU已exit0、实费3246.492340秒；原2父卡仍超时失败、3872.257984秒全部保留。当前累计12.99974633233337/24GPUh、47jobs、无inflight、余11.000253667667h。全部重复/母轨历史桥、4新+1Native的93帧与150native SHA通过。首次CPU符号链接根检查失败保留，独立CPU source bbff172只修复expected root.resolve，原GPU stage/source8a46fcc未改；二接受/七越界拒绝和实际终态/评分通过。
+当前累计12.99974633233337/24GPUh、47jobs，无inflight；余11.000253667667h。实费重估名义7684.635秒、规划9251.562秒仍非硬界；9600总/9570child/kill5+准入规划15秒完整草案至多2.666667GPUh计入现有累计，GPU未选/UUID空/authority空/新输出不存在。旧A3900秒和Human4500秒批准已执行，不迁移到B。下一新卡具体范围确认，绑定实际生产CPU原件且源码不改，再fresh UUID/VRAM/compute/f1锁/账本/磁盘准入，唯一执行、完整费用/释放审计及CPU全93帧评分。不重复已过CPU或重提旧run。
 
-B原四对及2父/16后缀/10新输出范围不变。[完整实费重估](../reports/wc_w3_placement_cost_from_real_cd_r2_20261005.json)名义7684.635秒、20%余量+30秒退出规划9251.562秒；9600总/9570child/kill5仅新草案，非硬界、选卡或GPU许可。旧3460秒名义代理不再准入。下一接真实固定mask/SWAP/OFF/BASE控制、自己的状态合法性与全部恢复/来源/费用；复用已过固定mask接口，不重复旧toy工程检查。取得B调整空间后再冻结无训练规则、新seed或场景确认，不以A两点跳过B或直接训练。
+依据直接用户指示执行[131科研原则](../research/131_EXPLORATORY_RESEARCH_PRINCIPLES.md)与[下一轮假设登记](../manifests/wc_exploratory_hypotheses_r1_20261005.json)：配置失败、证据不足、有界假设反证、方向否定分开；联合质量/速度/成本/适用条件判断，负结果先查对应实现、目标、指标。旧阈值只约束原实验和主张，旧结果与原判据保持。逐帧分布、目标对齐、开销条件分析已登记未执行，不成为B额外强制门；新假设事前登记，已知A结果后的分析标探索性。报告先发现价值后集中必要边界，重大方向共同讨论，权限预算保持。训练/Head/LoRA/专家、稀疏扩大及非必要人评继续后置。
 
 以下接续与批准记录均为历史快照，最新执行状态以以上v2.8为准。
 
