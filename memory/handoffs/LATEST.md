@@ -1,3 +1,9 @@
+## 2026-10-05 跨卡汇总已绑定原件与失败费用，真实仍1/2点
+
+[128当前口径](../../research/128_WC_W3_CROSS_CARD_ACCOUNTING_AND_ORIGINAL_ACTIONS.md)：R3汇总保留原2/12/8分母、3872.257984秒失败费用，Human与整组均值均缺失。原FAIR检查点Common选D、Human选C，原后缀full8/7与10/8；这是历史动作，不是Human收益。独立Human若完成，科学2点而累计物理计划3/18/12、实际启动3父13后缀，原超时不追认成功。
+
+28本机CPU拒绝通过，112服务器原件/冻结109文件SHA回查通过；GPU未选、新输出不存在，12.0979429045467/24h、46jobs、无inflight不变。生产R2与4500草案不改、不重复同源CPU或评分。新Human卡直接范围确认仍等待，自动goal接续不代替确认；下一真实Human后B，目标未完成，不扩训练/人评。以下为历史快照。
+
 ## 2026-10-05 Human独立补验生产入口已完成，实际CPU通过，等待单卡范围确认
 
 [127具体卡](../../research/127_WC_W3_HUMAN_COMPLEMENT_PRODUCTION_CARD.md)：WC-W3-SMALL-HUMAN-COMPLEMENT-R1-20261005-A/wc-w3-small-human-complement-r1，只补human_199/seed0/index2/step22/call46/CFG1；完整1父6后缀4新输出，1历史Native、两全93帧LPIPS与1有符号诊断。4500总/4470child/kill5、准入另15秒；名义3221.822/压力4131.853秒均非硬界，最多1.25GPUh。GPU未选、UUID空、scope_authority=null，无预付或新GPU。

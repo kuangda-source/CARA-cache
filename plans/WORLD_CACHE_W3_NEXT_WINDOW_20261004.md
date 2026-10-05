@@ -1,6 +1,8 @@
 # WorldCache 下一窗口：全帧保真与同配额刷新位置干预
 
-2026-10-05；计划v2.3；状态：W3_SMALL_CD_BOUNDED_TIMEOUT / FIRST_POINT_FULL93_CPU_SCORED / HUMAN_PRODUCTION_ACTUAL_CPU_PASS / NEW_SINGLE_CARD_SCOPE_CONFIRMATION_PENDING。当前入口以本文和[09队列](../research/09_NEXT_ACTIONS.md)为准。旧“在跑/待批准/13h余额”文字只保留历史身份。
+2026-10-05；计划v2.4；状态：W3_SMALL_CD_BOUNDED_TIMEOUT / FIRST_POINT_FULL93_CPU_SCORED / CROSS_CARD_ACCOUNTING_BOUND / HUMAN_PRODUCTION_ACTUAL_CPU_PASS / NEW_SINGLE_CARD_SCOPE_CONFIRMATION_PENDING。当前入口以本文和[09队列](../research/09_NEXT_ACTIONS.md)为准。旧“在跑/待批准/13h余额”文字只保留历史身份。
+
+[128跨卡汇总](../research/128_WC_W3_CROSS_CARD_ACCOUNTING_AND_ORIGINAL_ACTIONS.md)已补齐：当前真实1/2点、整组均值null，原3872秒失败费用全部保留；若Human独立卡完成，累计物理计划为3父/18后缀/12视频，实际启动3父/13后缀、完成12后缀/8视频，原卡仍失败。原FAIR动作核对Common45/CFG0为D、Human46/CFG1为C，后缀原full分别8/7与10/8，Human真实干预收益仍缺。28本机CPU拒绝及112服务器原件/冻结stage SHA通过；109生产payload/4500草案与预算不改。无需重复已过CPU或评分；下一仍新Human卡范围确认及真实运行。
 
 [125实际结果](../research/125_WC_W3_SMALL_CD_APPROVAL24_AND_EXECUTION.md)：已批准唯一2父/12后缀/8输出卡在3870秒child限时exit124，实际全wall3872.258秒，未超总3900；原两点分母保留，首点完整、第二点缺失。现账本12.0979429045467/24GPUh、46jobs、无inflight，余11.9020570954533h；原句柄/锁/GPU均释放。
 
