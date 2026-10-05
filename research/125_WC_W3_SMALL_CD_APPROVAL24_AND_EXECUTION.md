@@ -38,6 +38,12 @@
 
 ## 首个真实OFF后缀与实际成本（尚未整卡验收）
 
+OFF2现已完成且与OFF1逐轨匹配，下面首个OFF观察保留历史身份；C/D及母轨比较仍待。
+
 [首个OFF原件观察](../reports/wc_w3_small_cd_first_off_observation_20261005.json)：common_sense/slot0 的OFF1完成14更新/28CFG，完整调用按两槽位为8/7，parent_restored记录true；control wall318.15352621208876秒，解码/安全检查/编码38.81982713006437秒。531,916bytes视频原件重新读取SHA与冻结历史WC完全一致。
 
 这是一个真实后缀/视频来源匹配观察；尚未完成OFF2、C/C、D/D与原母轨迹比较，不能代替整个parent历史桥或两场景因果验收。首次真实control成本明显高于名义单后缀代理，接近349.248秒压力代理；完整2父/12后缀/8输出仍可能触发单次3900秒限时。保持原任务与分母，不取消在跑工作、不延长上限、不根据预估重提。终态保存实际费用、完成/未完成矩阵，只有完整对应来源和控制通过的输出才解释评分。
+
+## 首场景OFF重复的独立原始比较
+
+[OFF1/OFF2原始重复比较](../reports/wc_w3_small_cd_first_off_repeat_20261005.json)：两个完整14更新/28CFG后缀的 inputs、outputs、deep、banks、solver_outputs、final_latent_sha256、final_state_components 逐项相同，两个parent_restored均true。实际control wall分别318.15352621208876/320.2690637977794秒，原runner仍活。当前已转入C_first；这里只确认OFF重复可恢复，不代替完整母轨原件桥、C/C与D/D、C/D因果结果及两场景最终验收。
