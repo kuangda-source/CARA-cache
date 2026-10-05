@@ -46,4 +46,12 @@ OFF2现已完成且与OFF1逐轨匹配，下面首个OFF观察保留历史身份
 
 ## 首场景OFF重复的独立原始比较
 
+OFF重复已匹配，C_first现已完成，D分支仍在运行，最新动作观察见文末。
+
 [OFF1/OFF2原始重复比较](../reports/wc_w3_small_cd_first_off_repeat_20261005.json)：两个完整14更新/28CFG后缀的 inputs、outputs、deep、banks、solver_outputs、final_latent_sha256、final_state_components 逐项相同，两个parent_restored均true。实际control wall分别318.15352621208876/320.2690637977794秒，原runner仍活。当前已转入C_first；这里只确认OFF重复可恢复，不代替完整母轨原件桥、C/C与D/D、C/D因果结果及两场景最终验收。
+
+## 首个C动作与后续成本观察
+
+[C_first原始动作观察](../reports/wc_w3_small_cd_first_c_observation_20261005.json)：call45/CFG0/solver23的native_skip=false，原启发式本会full；本次指定C实际deep=0，paid_probe=true、age=2、同槽位真实full历史17/21，全部事件current_deep_truth_used=false。完整14更新/28CFG与安全视频编码完成，parent_restored=true，control wall324.47217688988894秒。
+
+后缀完整调用按槽位为8/8（总16），OFF原安排为8/7（总15）。这个局部干预虽跳过当前一次full，后续自适应轨迹仍可能增加总完整调用；不能把首步skip当成全后缀节约。C视频与OFF不同，尚不能仅凭差异或文件大小判断质量。当前D_second正在运行，需C/D同输入、C/C与D/D、完整母轨桥及最终评分后才解释刷新收益；不称本方法已改善调度。
