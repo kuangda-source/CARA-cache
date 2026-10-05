@@ -1,3 +1,9 @@
+## 2026-10-05 Human新卡范围确认缺失，goal已标记blocked
+
+[阻塞审计](../manifests/wc_w3_human_scope_blocked_audit_20261005.json)核对三个连续goal轮次：生产R2实际CPU与原件审计、跨卡汇总、当前只读回查；前两轮有实质准备进展，但新Human4500秒执行范围确认均未到达。当前生产代码/全部必要CPU与来源准备已完成，无获准实际科学运行可继续；系统goal工具已返回blocked，目标未完成。
+
+[现场回查](../reports/wc_w3_human_scope_pending_live_20261005.json)确认新GPU未选/authority=null、授权文件和新输出不存在，旧三PIDs已退出、无inflight，累计12.0979429045467/24h、46jobs与账本SHA不变。不是在途任务等待或GPU资源不足；阻塞是新卡范围确认缺失。常识点与原超时费用保留，Human真实结果仍缺。此前确认问题已提报，不重复询问；不再重复CPU检查、重启旧卡或转向训练/稀疏/人评。直接确认后恢复目标，再fresh资源/锁/预算准入和唯一Human补验。以下为历史快照。
+
 ## 2026-10-05 跨卡汇总已绑定原件与失败费用，真实仍1/2点
 
 [128当前口径](128_WC_W3_CROSS_CARD_ACCOUNTING_AND_ORIGINAL_ACTIONS.md)：R3汇总保留原2/12/8分母、3872.257984秒失败费用，Human与整组均值均缺失。原FAIR检查点Common选D、Human选C，原后缀full8/7与10/8；这是历史动作，不是Human收益。独立Human若完成，科学2点而累计物理计划3/18/12、实际启动3父13后缀，原超时不追认成功。
