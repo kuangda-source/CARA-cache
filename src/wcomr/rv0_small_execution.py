@@ -9,10 +9,30 @@ from .rv0_small_scope import proposal, validate_scope, budget_gate
 
 INFLIGHT = 'wc_w3_small_cd_inflight'
 PROJECT = '/home/gaokuangda/data/gkd/worldcache_omr'
+AUTH24 = 'manifests/budget_authorization_20261005_wc_24gpuh.json'
+TEXT24 = '批准 WC-W3-SMALL-CD-R1-20261004-A，把累计 gpuh 限制提升到 24'
+
+
+def budget_authority(config):
+    """The frozen 13h design remains historical; direct approval overrides only cost authority."""
+    binding = config.get('execution_budget_authority')
+    if binding is None:
+        return 13, config['scope']['budget_authorization_ref']
+    expected = {'cumulative_cap_gpu_hours': 24, 'authorization_ref': AUTH24,
+                'approved_card': 'WC-W3-SMALL-CD-R1-20261004-A',
+                'usage_reset': False, 'single_run_inclusive_cap_seconds': 3900,
+                'frozen_scope_budget_fields_are_historical': True}
+    if (binding != expected or any(type(binding.get(k)) is not type(v) for k, v in expected.items())
+            or config['card'] != expected['approved_card']
+            or not digest_valid(config['payload_sha256'].get(AUTH24))
+            or not digest_valid(config.get('previous_production_cpu_receipt_sha256'))):
+        raise ValueError('Direct cumulative24 execution authority changed')
+    return 24, AUTH24
 
 
 def validate_config(config, *, selected=False):
     validate_scope(config['scope'])
+    budget_authority(config)
     for name in ('card', 'run_id', 'sample_names', 'sample_indices', 'target_calls',
                  'maximum_age_solver_steps', 'logical_copy_cap_bytes', 'workspace_reserve_bytes'):
         value = config['scope'][name]
@@ -106,6 +126,21 @@ def validate_stage(project, stage, runtime, config, *, selected=False):
             or receipt['controls']['cuda_initialized'] is not False):
         raise ValueError('Actual small CPU source/coverage receipt failed')
     records = validate_preparation(stage, config)
+    if budget_authority(config)[0] == 24:
+        prior_path = project/config['previous_production_cpu_stage']/'receipt.json'
+        if (not prior_path.resolve().is_relative_to((project/'.sync').resolve())
+                or sha(prior_path) != config['previous_production_cpu_receipt_sha256']):
+            raise ValueError('Previous actual production CPU original changed')
+        prior = json.loads(prior_path.read_text())
+        if (prior['status'] != 'SMALL_CD_PRODUCTION_ACTUAL_CPU_SOURCE_ASSETS_IMPORT_PASS_NOT_GPU'
+                or prior['exit_code'] != 0 or prior['CUDA_initialized'] is not False
+                or prior['budget_unchanged'] is not True or prior['GPU_submissions'] != 0
+                or prior['upstream_sha256'] != config['upstream_source_sha256']):
+            raise ValueError('Previous production CPU evidence differs')
+        for name, digest in prior['payload_sha256'].items():
+            if name not in {'small-config.json', 'src/wcomr/rv0_small_execution.py'}:
+                if config['payload_sha256'].get(name) != digest:
+                    raise ValueError('Unapproved change outside cumulative budget adapter: '+name)
     metric_original = project/config['lpips_resource_stage']/'receipt.json'
     if sha(metric_original) != config['lpips_resource_receipt_sha256']:
         raise ValueError('Actual isolated metric CPU original changed')
@@ -118,20 +153,40 @@ def validate_stage(project, stage, runtime, config, *, selected=False):
             if path.stat().st_size != item['bytes'] or sha(path) != item['sha256']:
                 raise ValueError('Historical reference original video changed')
     budget = json.loads((project/'reports/budget.json').read_text())
-    authorization = project/budget['budget_authorization_ref']
-    if sha(authorization) != config['payload_sha256'].get(budget['budget_authorization_ref']):
-        raise ValueError('Direct cumulative13 user budget authorization differs')
+    cap, auth_ref = budget_authority(config)
+    if budget['cap_gpu_hours'] != cap or budget['budget_authorization_ref'] != auth_ref:
+        raise ValueError('Live cumulative budget authority differs')
+    authorization = project/auth_ref
+    if sha(authorization) != config['payload_sha256'].get(auth_ref):
+        raise ValueError('Direct cumulative user budget authorization differs')
     auth = json.loads(authorization.read_text())
-    if (auth['source_user_text'] != '允许增加 GPUh' or auth['cumulative_cap_gpu_hours'] != 13
+    if (auth['source_user_text'] != (TEXT24 if cap == 24 else '允许增加 GPUh')
+            or auth['cumulative_cap_gpu_hours'] != cap
             or auth['usage_reset'] is not False):
         raise ValueError('Direct budget authorization scope differs')
+    if cap == 24 and (auth['approved_card'] != config['card']
+                     or auth['single_run_inclusive_cap_seconds'] != 3900):
+        raise ValueError('Direct small card approval or single cap differs')
     return {'status': 'SMALL_CD_REAL_ROOT_STAGE_SOURCE_CPU_AUDITS_REFERENCES_PASS_NO_TORCH',
             'audits': {k: v['status'] for k, v in records.items()}, 'budget_snapshot': budget}
 
 
 def admission_budget(budget, config):
     validate_config(config, selected=True)
-    return budget_gate(budget, config['scope'])
+    cap, auth_ref = budget_authority(config)
+    if cap == 13:
+        return budget_gate(budget, config['scope'])
+    used = budget.get('used_gpu_hours')
+    if (budget.get('cap_gpu_hours') != cap or budget.get('budget_authorization_ref') != auth_ref
+            or type(used) not in (int, float) or not math.isfinite(used) or not 0 <= used <= cap
+            or any(k.endswith('_inflight') for k in budget)):
+        raise ValueError('Authorized24 usage/reference/inflight state differs')
+    remaining = (cap-used)*3600
+    required = config['scope']['timeout_seconds']+config['scope']['admission_allowance_seconds']
+    if remaining < required:
+        raise ValueError('Complete small C/D cap and admission exceed remaining budget')
+    return {'fits': True, 'remaining_seconds': remaining, 'required_seconds': required,
+            'remaining_if_full_cap_spent': remaining-required, 'GPU_selected': True}
 
 
 def reserve_budget(budget, config, supervisor_pid):
@@ -169,7 +224,8 @@ def audit_settlement(supervisor, receipt, config, live_budget, expected_source):
             or not 0 < supervisor['wall_seconds'] <= 3900
             or (supervisor['planned_parent_phases'], supervisor['planned_suffix_controls'], supervisor['planned_encoded_outputs']) != (2, 12, 8)
             or live_budget != supervisor['budget_after'] or any(k.endswith('_inflight') for k in live_budget)
-            or live_budget['cap_gpu_hours'] != 13 or live_budget['used_gpu_hours'] > 13):
+            or live_budget['cap_gpu_hours'] != budget_authority(config)[0]
+            or live_budget['used_gpu_hours'] > budget_authority(config)[0]):
         raise ValueError('Small terminal identity, complete cap or live settlement differs')
     prepaid = reserve_budget(supervisor['budget_before'], config, supervisor['pid'])
     if settle_budget(prepaid, supervisor['budget_before'], config, supervisor['wall_seconds'], supervisor['pid']) != live_budget:

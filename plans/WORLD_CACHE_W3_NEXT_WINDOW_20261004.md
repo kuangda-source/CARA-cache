@@ -1,6 +1,8 @@
+> 2026-10-05执行更新：用户直接批准小C/D卡并提高累计上限到24 GPUh，原11.022315686839217h/45jobs保留。旧“待批准/blocked/13h余额”是当时快照；当前按[125](../research/125_WC_W3_SMALL_CD_APPROVAL24_AND_EXECUTION.md)验证预算适配后执行唯一2父/12后缀/8输出卡，单次3900秒不变。原科学顺序和收益边界保持。
+
 # WorldCache 下一窗口：全帧保真与同配额刷新位置干预
 
-2026-10-04；计划 v1.9；状态：EXISTING_VIDEO_CPU_COMPLETE / SMALL_CD_CORE_SERVER_CPU_PASS / PRODUCTION_SERVER_CPU_PASS / W3_GPU_NOT_EXECUTED。当前入口以本文和[09 队列](../research/09_NEXT_ACTIONS.md)为准，旧周次表与大样本卡保留为条件候选。首次v1.6更新轮只改文档；随后自主接续完成全帧评分及固定mask CPU接口，未生成/训练/提交新GPU。
+2026-10-04；计划 v2.0；状态：EXISTING_VIDEO_CPU_COMPLETE / SMALL_CD_CORE_SERVER_CPU_PASS / PRODUCTION_SERVER_CPU_PASS / W3_GPU_NOT_EXECUTED。当前入口以本文和[09 队列](../research/09_NEXT_ACTIONS.md)为准，旧周次表与大样本卡保留为条件候选。首次v1.6更新轮只改文档；随后自主接续完成全帧评分及固定mask CPU接口，未生成/训练/提交新GPU。
 
 依据[科研中的黑暗森林法则](chatgpt-conversation://6abf4581-4ec8-83e8-8990-3efe11053cf4)最新完整轮次 d0140e8a、消息 7d9d74ad，结合本库截至 HEAD 4146ec1 的实际回执调整。对话是研究建议，不能代替原始实验回执或执行授权；[来源清单](../manifests/plan_update_sources_w3_review_20261004.json)记录覆盖范围。对话附件未取得，本文根据完整对话增量整合，没有声称导入附件原文。
 
