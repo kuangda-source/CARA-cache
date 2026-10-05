@@ -1,5 +1,11 @@
 # W3 Human缺失点：直接批准与单次执行
 
+## 最新观察：首个OFF完成，前缀差异保留
+
+[OFF1原件](../reports/wc_w3_small_human_first_off_20261005.json)完整14更新/28CFG、full10/8，control329.272674秒、解码/guardrail/编码43.806264秒。新视频1100497字节、SHA4d0f0549dbabf04e7f217037c40f6a30f41cb240289162d6fb0fbec2dde982fb，与历史Human WC一致。重复控制、母轨桥及C/D整卡接受和评分仍待。
+
+[step22前缀核对](../reports/wc_w3_small_human_prefix22_compare_20261005.json)保留实际差异：44个输入记录的gt_frames SHA不同，其余参数相同；44预测、deep执行和22solver输出逐项相同。固定MinimalV1LVGDiT.forward首句del kwargs，gt_frames不是显式参数且函数不读取kwargs，这个额外字段不进入实际net forward。差异原因为UNKNOWN，不能报全部输入字节相同；未修改在跑源码或同状态C/D合同。完整历史视频桥继续严格要求，OFF1桥不代替母轨桥。以下部署条目为当时观察。
+
 2026-10-05。用户回复“允许”，对应此前提报的 **WC-W3-SMALL-HUMAN-COMPLEMENT-R1-20261005-A**。新卡范围确认门已解除，持续研究目标恢复active。
 
 执行完整1父/6后缀/4新视频，Human199/index2/seed0、step22/call46/CFG1，36更新/72CFG；全部OFF/CC/DD、同状态/已支付probe/过去自身锚点、历史WC编码桥、费用与释放门保持。总4500秒/child4470/kill5，最多1.25GPUh，计入现有24GPUh；不重置原12.0979429045467h/46jobs、不重跑常识点，不重提旧run。
