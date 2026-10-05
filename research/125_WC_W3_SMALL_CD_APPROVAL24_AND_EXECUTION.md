@@ -52,6 +52,14 @@ OFF重复已匹配，C_first现已完成，D分支仍在运行，最新动作观
 
 ## 首个C动作与后续成本观察
 
+首对C/D现均完成完整后缀，以下C观察保留其阶段身份；最新同输入干预见文末。
+
 [C_first原始动作观察](../reports/wc_w3_small_cd_first_c_observation_20261005.json)：call45/CFG0/solver23的native_skip=false，原启发式本会full；本次指定C实际deep=0，paid_probe=true、age=2、同槽位真实full历史17/21，全部事件current_deep_truth_used=false。完整14更新/28CFG与安全视频编码完成，parent_restored=true，control wall324.47217688988894秒。
 
 后缀完整调用按槽位为8/8（总16），OFF原安排为8/7（总15）。这个局部干预虽跳过当前一次full，后续自适应轨迹仍可能增加总完整调用；不能把首步skip当成全后缀节约。C视频与OFF不同，尚不能仅凭差异或文件大小判断质量。当前D_second正在运行，需C/D同输入、C/C与D/D、完整母轨桥及最终评分后才解释刷新收益；不称本方法已改善调度。
+
+## 首对真实C/D同输入动作与完整后缀
+
+[独立原始动作比较](../reports/wc_w3_small_cd_first_pair_action_observation_20261005.json)：C_first/D_second在call45前及当前model输入前缀相同，paid_probe均true，age均2。C实际deep0，D实际deep26；全部28CFG事件均无current-deep-truth泄漏，两个parent_restored均true，两个完整后缀均14更新/28CFG。
+
+C的full配额为8/8、D为8/7，实际control wall324.47217688988894/320.5572475194931秒。D与OFF的完整轨迹及最终状态逐项相同：此处原WorldCache已经选择full，D复现原安排，并非新调度方法取得收益。强制C导致其后自适应完整调用净增1，当前不是同配额实验。D_first重复及C_second、完整母轨视频桥与两个场景最终验收仍待；尚无C/D Native-relative评分，不产生正式RV训练标签。

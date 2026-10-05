@@ -1,0 +1,109 @@
+{
+  "status": "FIRST_REAL_CD_SAME_INPUT_DEEP0_VS26_AND_FULL_SUFFIX_ACTION_OBSERVATION_NOT_REPEATS_OR_QUALITY",
+  "observed_unix": 1791181647.675093,
+  "source_revision": "c12a3cad2cefd3559d60a5256d74d802eb151bab",
+  "runner_pid": 2856714,
+  "runner_live": true,
+  "receipt_original_sha256_at_observation": "84acfdcbde5fa03872f985e9289675474d7c4247eb1b8b943492d09113752642",
+  "scene": "common_sense_6487f37f-ef57-49ca-afdc-d898922b5191",
+  "target_call": 45,
+  "selected_CFG_slot": 0,
+  "same_input_prefix_through_target": true,
+  "branches": [
+    {
+      "label": "C_first",
+      "target_deep": 0,
+      "target_event": {
+        "call": 45,
+        "cfg_slot": 0,
+        "solver_step": 23,
+        "epoch": 0,
+        "paid_probe": true,
+        "native_skip": false,
+        "requested": "C",
+        "selected_skip": true,
+        "current_deep_truth_used": false,
+        "age_solver_steps": 2,
+        "paid_input_drift": 0.1201171875,
+        "paid_probe_drift": 0.11328125,
+        "dynamic_threshold": 0.2001953125,
+        "accumulator_before_action": 0.2109375,
+        "actual_action": "C",
+        "true_full_history": [
+          [
+            17,
+            21
+          ],
+          [
+            17,
+            21
+          ]
+        ],
+        "native_cycle_reset": false
+      },
+      "full_calls_per_CFG": [
+        8,
+        8
+      ],
+      "control_wall_seconds": 324.47217688988894,
+      "CFG_calls": 28,
+      "solver_updates": 14,
+      "parent_restored": true
+    },
+    {
+      "label": "D_second",
+      "target_deep": 26,
+      "target_event": {
+        "call": 45,
+        "cfg_slot": 0,
+        "solver_step": 23,
+        "epoch": 0,
+        "paid_probe": true,
+        "native_skip": false,
+        "requested": "D",
+        "selected_skip": false,
+        "current_deep_truth_used": false,
+        "age_solver_steps": 2,
+        "paid_input_drift": 0.1201171875,
+        "paid_probe_drift": 0.11328125,
+        "dynamic_threshold": 0.2001953125,
+        "accumulator_before_action": 0.2109375,
+        "actual_action": "D",
+        "true_full_history": [
+          [
+            21,
+            23
+          ],
+          [
+            17,
+            21
+          ]
+        ],
+        "native_cycle_reset": false
+      },
+      "full_calls_per_CFG": [
+        8,
+        7
+      ],
+      "control_wall_seconds": 320.5572475194931,
+      "CFG_calls": 28,
+      "solver_updates": 14,
+      "parent_restored": true
+    }
+  ],
+  "D_trace_equal_OFF": {
+    "inputs": true,
+    "outputs": true,
+    "deep": true,
+    "banks": true,
+    "solver_outputs": true,
+    "final_latent_sha256": true
+  },
+  "D_final_state_equal_OFF": true,
+  "C_minus_D_full_calls": 1,
+  "diagnostic_cost_not_clean_speed": true,
+  "budget_matched": false,
+  "formal_RV_labels": 0,
+  "CD_endpoint_scores": 0,
+  "full_two_scene_acceptance": false
+}
