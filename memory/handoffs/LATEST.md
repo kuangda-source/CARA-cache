@@ -1,3 +1,9 @@
+## 2026-10-05 W3小C/D限时终态，首场景完整、第二场景未完成
+
+[125实际结果](../../research/125_WC_W3_SMALL_CD_APPROVAL24_AND_EXECUTION.md)：唯一wc-w3-small-cd-r1/source c12a3cad2cefd3559d60a5256d74d802eb151bab 按3870child限时exit124/BOUNDED_TIMEOUT，实际全wall3872.2579837469384秒，小于总3900秒。账本按实费结算为12.0979429045467/24h、46jobs，无inflight；原三PIDs/f1锁/GPU均释放（24MiB/noapps）。预算不是重置，余额11.9020570954533h。
+
+首场景36更新/72CFG、六完整后缀、四新视频及历史WC/Native来源桥通过；第二场景在step22后OFF1未完成，原2父/12后缀/8视频/2科学点分母保留，整卡未通过。这是名义费用估计不足导致的技术超时，不能判W3科学失败或新方法有效。只读CPU部分结果审计/全93帧评分入口与9项拒绝控制已准备，本机通过，实际服务器及评分仍待；只纳入全部控制和历史桥完整的行，其余标缺失，绝不将子集报整卡。旧在跑条目为历史。后续GPU须具体卡/费用/来源与准入，不重提原run或扩大训练。
+
 ## 2026-10-05 W3小C/D唯一卡已启动，24h预算保留历史
 
 [125批准与执行](../../research/125_WC_W3_SMALL_CD_APPROVAL24_AND_EXECUTION.md)：预算适配actual CPU7步骤/原32+增量16拒绝控制及102原件哈希通过，58.023秒、CUDA未初始化、账本不变。唯一wc-w3-small-cd-r1/source c12a3cad2cefd3559d60a5256d74d802eb151bab 已fresh准入；supervisor2856696/timeout2856713/runner2856714真实存活，[启动现场](../../reports/wc_w3_small_cd_start_observation_20261005.json)。child截止北京时间 2026-10-05T14:53:29.487165+08:00；总cap3900秒保持。
