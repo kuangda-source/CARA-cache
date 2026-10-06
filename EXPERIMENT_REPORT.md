@@ -1,3 +1,9 @@
+## 2026-10-06 W1自身轨迹同状态核心已接线，实际CPU通过
+
+[139核心与实际CPU](research/139_WC_W1_OWN_STATE_SHADOW_CORE_AND_CPU.md)：原misc/AV51/AV28三mask及calls45/46/67/68保持；官方近似和完整teacher在实际W1状态离线对照，原scalar/warp/mask不改。R2/sourceb138422、13文件、exit0/6.138秒：八配对72调用fixture、独立official/full teacher误差、CFG实际输入拒绝、RNG/buffer/inference-mode/异常清理通过；189原生SHA与R1/R2四CPU句柄退出核验通过。R1非连续Toy布局6.966秒失败保留，仅夹具两转置补contiguous，核心和官方源不改。
+
+真实模型/视频/科学teacher标签/新GPU均0，旧五参考160文件和账本SHA保持13.504302792/24h、48jobs无inflight。CPU不是实际Cosmos网络/视频parity或新收益。下一完成W1生产生成/旧身份桥/观测绑定/监督费用/终态汇总与对应CPU，复用核心不重跑同源fixture，再形成具体可审阅卡；纸面1800不是批准。W3-B原完整9600卡仍待单独范围答复、旧问题不重问。上一轮完整W1结果与本轮核心/实际CPU均为progress；总体goal active且有必要准备可做，不沿用旧blocked计数。旧4改善/3退化及v4.1科学设计保持，不扩训练/人评。以下历史。
+
 ## 2026-10-06 W1五参考完整完成：4改善/3退化，当前进入条件诊断
 
 [138完整结果](research/138_WC_W1_APPROVED_FIVE_REFERENCE_EXECUTION_AND_RESULTS.md)：获批原五Native全接受，21视频完整93帧解码、14对CPU FP32 LPIPS及356项原生SHA/六句柄退出核验通过；原8/7/1分母保持。七可配对场景4改善/3退化，均值0.410505→0.408704，仅降低0.4388%；AV28/Common/Human/physics改善24.46/7.87/7.99/8.82%，industry/misc/AV51退化2.23/19.09/16.11%。旧两例分数完全复现，旧MUSIQ/VQA混合结果、拒绝、失败费用均保留；未证明稳定质量—速度优势，不否定整个方向。
