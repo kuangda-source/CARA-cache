@@ -1,5 +1,12 @@
 ## 2026-10-06 W1五参考完整核心实际CPU通过，下一生产入口
 
+## 2026-10-06 恢复后连续三轮范围缺失，重新满足blocked条件
+
+[新阻塞审计](../../manifests/wc_confirmation_scope_reblocked_audit_20261006.json)仅计本次恢复后的三个goal轮次，不沿用旧计数；三轮均为no progress（同一范围门槛重验），不是在途任务的verified wait。当前直接范围答复仍未到达，B/W1授权与真实输出都不存在；原R2 CPU八句柄退出，账本仍12.99974633233337/24、47jobs无inflight、SHA未变。
+
+[137必要准备](../../research/137_WC_W1_FIVE_NATIVE_REFERENCE_PRODUCTION_AND_CPU.md)已完成；没有可在原批准范围内产生新科学结果的下一项执行。结束本轮时申请goal blocked并停止重复CPU、重启、旁支与人评；目标未完成，不是方向否定或预算耗尽。B完整9600/W1五参考3600范围问题已提报、不重复问。直接确认后按已通过CPU的该卡冻结source/selected配置，fresh资源/锁/预算准入、唯一运行、实际结算/终态与全93帧CPU评分；另一卡不自动获准。以下active条目保留历史。
+
+
 ## 2026-10-06 自动恢复后的第一轮范围回查
 
 系统goal已恢复active；本次自动续接不是直接人类范围批准，旧blocked三轮计数不复用，新的阻塞审计计数为1。[服务器当前只读回查](../../reports/wc_confirmation_scope_revalidated_resume1_20261006.json)确认B/W1授权与真实输出均不存在，原R2 CPU八句柄均退出，非verified wait；预算仍12.99974633233337/24、47jobs、无inflight，SHA未变。上一轮为实质进展（生产CPU/原件/GitHub准备完成），本轮只有同一门槛的现场重验，记no progress。

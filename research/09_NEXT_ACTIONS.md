@@ -1,5 +1,12 @@
 ## 2026-10-06 W1五参考完整核心实际CPU通过，下一生产入口
 
+## 2026-10-06 恢复后连续三轮范围缺失，重新满足blocked条件
+
+[新阻塞审计](../manifests/wc_confirmation_scope_reblocked_audit_20261006.json)仅计本次恢复后的三个goal轮次，不沿用旧计数；三轮均为no progress（同一范围门槛重验），不是在途任务的verified wait。当前直接范围答复仍未到达，B/W1授权与真实输出都不存在；原R2 CPU八句柄退出，账本仍12.99974633233337/24、47jobs无inflight、SHA未变。
+
+[137必要准备](../research/137_WC_W1_FIVE_NATIVE_REFERENCE_PRODUCTION_AND_CPU.md)已完成；没有可在原批准范围内产生新科学结果的下一项执行。结束本轮时申请goal blocked并停止重复CPU、重启、旁支与人评；目标未完成，不是方向否定或预算耗尽。B完整9600/W1五参考3600范围问题已提报、不重复问。直接确认后按已通过CPU的该卡冻结source/selected配置，fresh资源/锁/预算准入、唯一运行、实际结算/终态与全93帧CPU评分；另一卡不自动获准。以下active条目保留历史。
+
+
 ## 2026-10-06 五参考生产卡实际CPU通过，具体GPU范围待确认
 
 [137最新进展](137_WC_W1_FIVE_NATIVE_REFERENCE_PRODUCTION_AND_CPU.md)：完整W1卡生成/监督费用结算/终态审计/全帧CPU评分已接齐；R2/source064e6c0、159文件、七步exit0/23.507秒，21合同拒绝、3实际CPU子进程监督/失败记账场景、真实Native/原五请求/setup仅两变更通过。独立原件766SHA/15CPU句柄退出；无真实模型/新视频/CUDA。R1 /tmp不足4GiB的夹具失败保留，只迁临时CPU目录到数据盘，生产源与磁盘门不改。
