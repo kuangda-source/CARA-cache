@@ -3,6 +3,14 @@
 遵循[131科研原则](research/131_EXPLORATORY_RESEARCH_PRINCIPLES.md)：区分具体配置失败、证据不足、有界假设被否定及方向被否定；综合质量、速度、成本和适用条件，不用单项阈值否定整个方向。负结果先核查受影响的实现、监督目标、指标对齐，复用未受影响的已通过控制。有信号时优先低成本区分实验；无信号可降优先级，不要求把负结果救成正结果。旧结果/原判据/失败费用不改，新假设在下一轮事前登记，已知结果后的解释标探索性。汇报先发现价值，必要边界集中说明；重大方向选择一起讨论。预算、执行权限和非必要不引入人评的约定保持；本指示不是新GPU/训练/付费或人力授权。常规队列继续B生产接线。
 
 
+## 2026-10-06 新GPU范围连续三轮缺失，阻塞门槛已满足
+
+[当前阻塞审计](manifests/wc_post_reference_scope_blocked_audit_20261006.json)只计新W1三场景卡提报轮及随后两个goal续接，不沿用旧blocked计数。第一轮有实际生产/CPU进展，后二轮仅状态回查无progress；三轮均缺同一直接范围答复，且当前必要准备已完成、无获准在途任务可等待。申请goal blocked，以工具返回为权威；整体科学目标未完成，停止重复CPU、旁支准备和再次提问。
+
+现场原R3 CPU回执SHA匹配，八原句柄均退出；W1诊断/W3-B授权和新输出均不存在，配置仍未选GPU/authority空。预算13.504302792/24GPUh、48jobs无inflight和根SHA保持。不是预算耗尽、资源等待或方向否定；W1旧4改善/3退化和全部失败费用/CPU成果保留。收到任一已提报具体卡的直接确认后按该卡恢复、保持通过CPU的源，fresh准入、唯一执行、实费与终态/评分；另一卡不自动获准。以下active条目为历史。
+
+
+
 ## 2026-10-06 W1自身轨迹三场景生产入口完成，实际CPU通过
 
 [140生产与CPU](research/140_WC_W1_OWN_STATE_PRODUCTION_CARD_AND_CPU.md)及[具体卡](plans/WORLD_CACHE_OWN_STATE_DIAGNOSTIC_CARD_20261006.md)：misc/AV51/AV28、原mask/scalar、calls45/46/67/68保持；完整生成/旧72输出与缓存/校准/pipeline/decoder/video/93RGB身份桥、监督费用、终态及有符号汇总接齐。R3/sourcef68bac4、181文件、七步exit0/14.969秒，完整六CPU pipeline/12模拟观测、13scope费用+9身份/异常拒绝、三真实CPU子进程监督与三个原typed请求通过；720 native SHA及14原CPU句柄退出核验通过。旧13核心与8fixture不重跑，R1依赖缺失/R2夹具source定位失败及安全拒绝本地覆盖均保留。新真实模型/视频/teacher/GPU=0，CPU不作科学收益。
