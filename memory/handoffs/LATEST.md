@@ -1,3 +1,9 @@
+## 2026-10-06 恢复后三轮同一B范围门槛，目标已blocked
+
+[本轮阻塞审计](../../manifests/wc_post_own_state_scope_blocked_audit_r2_20261006.json)：只计本次恢复后的三轮，三场景实际验收和CFG界限分析均保留progress，本轮仅回查为no progress；三轮B独立具体范围答复均缺失，现有必要准备/分析完成，无获准活任务或可继续的现有数据测量，达到门槛。goal工具实际返回blocked（1791289468），总体科学目标未完成；停止重复自动续接、CPU、旁支准备和旧问题。
+
+现场B原CPU/source d1fd84a/receipt SHA f6d978…aac保持通过，GPUselected false/authority null，B批准及output不存在；14原GPU/CPU句柄均退出，根账本SHA482b288…aa4b保持13.748764674/24h、49jobs、noinflight，余额10.251235326h。不是预算耗尽或方向被否定，当前已完成三场景卡不重启；旧结果/判据/费用完整保留。收到原WC-W3-PLACEMENT-SWAP-R1-20261004-A范围答复后，只按该卡保留通过CPU的源，fresh资源/锁/整卡预算，唯一执行、实费与完整终态/终点审计；不自动扩大至新W1/训练/人评。以下active及准备条目均为历史。
+
 ## 2026-10-06 实际CFG链路与CPU界限已核对，下一真实干预仍待B范围
 
 [142目标对齐](../../research/142_WC_W1_NATIVE_CFG_ALIGNMENT_AND_BOUNDS.md)：冻结native源码和三个实际request SHA一致，guidance7，条件/负提示词分支权重7/−6，denoise仅float cast，合成直接送UniPC。用既有两分支MSE计算保守线性合成界，六对均重叠，无法识别联合改善/恶化；不补造缺失交叉项或solver/终点标签。当前公式来自实际源，旧分支均值与三场景科学结果保持。本轮CPU分析是progress，GPU新增0、无server写入、账本SHA不变13.748764674/24h、49jobs/noinflight。
