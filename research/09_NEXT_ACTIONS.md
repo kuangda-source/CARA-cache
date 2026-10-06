@@ -1,3 +1,9 @@
+## 2026-10-06 实际CFG链路与CPU界限已核对，下一真实干预仍待B范围
+
+[142目标对齐](../research/142_WC_W1_NATIVE_CFG_ALIGNMENT_AND_BOUNDS.md)：冻结native源码和三个实际request SHA一致，guidance7，条件/负提示词分支权重7/−6，denoise仅float cast，合成直接送UniPC。用既有两分支MSE计算保守线性合成界，六对均重叠，无法识别联合改善/恶化；不补造缺失交叉项或solver/终点标签。当前公式来自实际源，旧分支均值与三场景科学结果保持。本轮CPU分析是progress，GPU新增0、无server写入、账本SHA不变13.748764674/24h、49jobs/noinflight。
+
+[恢复后范围审计](../manifests/wc_post_own_state_scope_audit_r1_20261006.json)只计本次恢复后两个连续条件轮，上一轮真实三场景/本轮CFG分析均有progress，未提前blocked。五原句柄退出，无可等待任务；现有必要分析已完成，B原9600/四交换具体范围仍待，旧问题不重复，不用本次W1批准扩B，不重复CPU或提前选依赖B的变体。以下为历史快照。
+
 ## 2026-10-06 W1自身轨迹三场景完整：局部预测改善与终点收益仍分离
 
 [141完整结果](../research/141_WC_W1_OWN_STATE_APPROVED_EXECUTION_AND_RESULTS.md)：唯一获批1800秒卡sourceaa379cb，misc/AV51/AV28三完整视频、12同状态teacher观测、旧72输出/cache/校准/pipeline/decoder/MP4/93RGB身份桥及独立终态通过。自身状态预测MSE降低5.69/49.06/9.83%，同视频旧终点LPIPS仍为−19.09/−16.11/+24.46%；不再把局部改善直接当终点收益。晚位置残差三例均恶化而预测改善，正对照早位置预测恶化仍终点改善。旧W1七接受4改善/3退化、均值LPIPS0.4388%、MUSIQ/VQA和原8/7/1保持；三个已曝光CAL、12依赖观测不是CONF。

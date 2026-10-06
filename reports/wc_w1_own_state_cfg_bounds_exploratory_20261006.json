@@ -1,0 +1,1460 @@
+{
+  "status": "PINNED_NATIVE_CFG_WEIGHTS_AND_CPU_BOUNDS_COMPLETE_NOT_DIRECT_GUIDED_MSE",
+  "sources": [
+    {
+      "path": "reports/wc_w1_own_state_runner_20261006.json",
+      "sha256": "f28eb9f56bd8b8e668e4745e0b5c04ecfea87c76413600f4e7ffa26864df188a"
+    },
+    {
+      "path": "reports/wc_w1_own_state_final_original_native_audit_20261006.json",
+      "sha256": "c3a8e894e9f4c80ab927ac65c0f7b49a8b965ef8267efd567ce94851045dfe55"
+    }
+  ],
+  "analysis_code_sha256": "6b887a8268d86c16298c54721fb85115a93e5b5f68bbb4aa60457960aee25755",
+  "native_readonly_source_receipt": {
+    "status": "READONLY_PINNED_NATIVE_CFG_SOURCE_SHA_PASS",
+    "observed_unix": 1791288931.5675683,
+    "sources": [
+      {
+        "path": "cosmos_predict2/_src/predict2/models/text2world_model_rectified_flow.py",
+        "sha256": "c6c68f297859e11c76d2921667a29cabfecef3a7b5d3ab831bf9bb54b25b7d87",
+        "matching_native_lines": [
+          {
+            "line": 436,
+            "text": "                self.net.accum_image_sample_counter += data_batch[input_key].shape[0] * self.data_parallel_size"
+          },
+          {
+            "line": 437,
+            "text": "            else:"
+          },
+          {
+            "line": 438,
+            "text": "                self.net.accum_video_sample_counter += data_batch[input_key].shape[0] * self.data_parallel_size"
+          },
+          {
+            "line": 439,
+            "text": ""
+          },
+          {
+            "line": 440,
+            "text": "    # ------------------------ Sampling ------------------------"
+          },
+          {
+            "line": 441,
+            "text": ""
+          },
+          {
+            "line": 442,
+            "text": "    def get_velocity_fn_from_batch("
+          },
+          {
+            "line": 443,
+            "text": "        self,"
+          },
+          {
+            "line": 444,
+            "text": "        data_batch: Dict,"
+          },
+          {
+            "line": 445,
+            "text": "        guidance: float = 1.5,"
+          },
+          {
+            "line": 446,
+            "text": "        is_negative_prompt: bool = False,"
+          },
+          {
+            "line": 447,
+            "text": "    ) -> Callable:"
+          },
+          {
+            "line": 448,
+            "text": "        \"\"\""
+          },
+          {
+            "line": 449,
+            "text": "        Generates a callable function `velocity_fn` based on the provided data batch and guidance factor."
+          },
+          {
+            "line": 450,
+            "text": ""
+          },
+          {
+            "line": 451,
+            "text": "        This function first processes the input data batch through a conditioning workflow (`conditioner`) to obtain conditioned and unconditioned states. It then defines a nested function `velocity_fn` which applies a denoising operation on an input `noise_x` at a given noise level `sigma` using both the conditioned and unconditioned states."
+          },
+          {
+            "line": 452,
+            "text": ""
+          },
+          {
+            "line": 453,
+            "text": "        Args:"
+          },
+          {
+            "line": 454,
+            "text": "        - data_batch (Dict): A batch of data used for conditioning. The format and content of this dictionary should align with the expectations of the `self.conditioner`"
+          },
+          {
+            "line": 455,
+            "text": "        - guidance (float, optional): A scalar value that modulates the influence of the conditioned state relative to the unconditioned state in the output. Defaults to 1.5."
+          },
+          {
+            "line": 456,
+            "text": "        - is_negative_prompt (bool): use negative prompt t5 in uncondition if true"
+          },
+          {
+            "line": 457,
+            "text": ""
+          },
+          {
+            "line": 458,
+            "text": "        Returns:"
+          },
+          {
+            "line": 459,
+            "text": "        - Callable: A function `velocity_fn(noise_x, sigma)` that takes two arguments, `noise_x` and `sigma`, and return velocity predictoin"
+          },
+          {
+            "line": 460,
+            "text": ""
+          },
+          {
+            "line": 461,
+            "text": "        The returned function is suitable for use in scenarios where a denoised state is required based on both conditioned and unconditioned inputs, with an adjustable level of guidance influence."
+          },
+          {
+            "line": 462,
+            "text": "        \"\"\""
+          },
+          {
+            "line": 463,
+            "text": "        _, x0, _ = self.get_data_and_condition(data_batch)  # we need always process the data batch first."
+          },
+          {
+            "line": 464,
+            "text": "        is_image_batch = self.is_image_batch(data_batch)"
+          },
+          {
+            "line": 465,
+            "text": ""
+          },
+          {
+            "line": 466,
+            "text": "        if is_negative_prompt:"
+          },
+          {
+            "line": 467,
+            "text": "            condition, uncondition = self.conditioner.get_condition_with_negative_prompt(data_batch)"
+          },
+          {
+            "line": 468,
+            "text": "        else:"
+          },
+          {
+            "line": 478,
+            "text": "            pass"
+          },
+          {
+            "line": 479,
+            "text": "        else:"
+          },
+          {
+            "line": 480,
+            "text": "            assert not self.net.is_context_parallel_enabled, ("
+          },
+          {
+            "line": 481,
+            "text": "                \"parallel_state is not initialized, context parallel should be turned off.\""
+          },
+          {
+            "line": 482,
+            "text": "            )"
+          },
+          {
+            "line": 483,
+            "text": ""
+          },
+          {
+            "line": 484,
+            "text": "        def velocity_fn(noise: torch.Tensor, noise_x: torch.Tensor, timestep: torch.Tensor) -> torch.Tensor:"
+          },
+          {
+            "line": 485,
+            "text": "            cond_v = self.denoise(noise, noise_x, timestep, condition)"
+          },
+          {
+            "line": 486,
+            "text": "            uncond_v = self.denoise(noise, noise_x, timestep, uncondition)"
+          },
+          {
+            "line": 487,
+            "text": "            velocity_pred = uncond_v + guidance * (cond_v - uncond_v)"
+          },
+          {
+            "line": 488,
+            "text": "            return velocity_pred"
+          },
+          {
+            "line": 489,
+            "text": ""
+          },
+          {
+            "line": 490,
+            "text": "        return velocity_fn"
+          },
+          {
+            "line": 491,
+            "text": ""
+          },
+          {
+            "line": 492,
+            "text": "    @torch.no_grad()"
+          },
+          {
+            "line": 493,
+            "text": "    def generate_samples_from_batch("
+          },
+          {
+            "line": 494,
+            "text": "        self,"
+          },
+          {
+            "line": 495,
+            "text": "        data_batch: Dict,"
+          },
+          {
+            "line": 496,
+            "text": "        guidance: float = 1.5,"
+          },
+          {
+            "line": 497,
+            "text": "        seed: int = 1,"
+          },
+          {
+            "line": 498,
+            "text": "        state_shape: Tuple | None = None,"
+          },
+          {
+            "line": 499,
+            "text": "        n_sample: int | None = None,"
+          },
+          {
+            "line": 500,
+            "text": "        is_negative_prompt: bool = False,"
+          },
+          {
+            "line": 501,
+            "text": "        num_steps: int = 35,"
+          },
+          {
+            "line": 502,
+            "text": "        shift: float = 5.0,"
+          },
+          {
+            "line": 503,
+            "text": "        **kwargs,"
+          },
+          {
+            "line": 504,
+            "text": "    ) -> torch.Tensor:"
+          },
+          {
+            "line": 505,
+            "text": "        \"\"\""
+          },
+          {
+            "line": 506,
+            "text": "        Generate samples from the batch. Based on given batch, it will automatically determine whether to generate image or video samples."
+          },
+          {
+            "line": 507,
+            "text": "        Args:"
+          },
+          {
+            "line": 508,
+            "text": "            data_batch (dict): raw data batch draw from the training data loader."
+          },
+          {
+            "line": 509,
+            "text": "            iteration (int): Current iteration number."
+          },
+          {
+            "line": 510,
+            "text": "            guidance (float): guidance weights"
+          },
+          {
+            "line": 511,
+            "text": "            seed (int): random seed"
+          },
+          {
+            "line": 512,
+            "text": "            state_shape (tuple): shape of the state, default to data batch if not provided"
+          },
+          {
+            "line": 513,
+            "text": "            n_sample (int): number of samples to generate"
+          },
+          {
+            "line": 514,
+            "text": "            is_negative_prompt (bool): use negative prompt t5 in uncondition if true"
+          },
+          {
+            "line": 515,
+            "text": "            num_steps (int): number of steps for the diffusion process"
+          },
+          {
+            "line": 516,
+            "text": "        \"\"\""
+          },
+          {
+            "line": 517,
+            "text": "        self._normalize_video_databatch_inplace(data_batch)"
+          },
+          {
+            "line": 545,
+            "text": "            shift=shift,"
+          },
+          {
+            "line": 546,
+            "text": "            use_kerras_sigma=self.config.use_kerras_sigma_at_inference,"
+          },
+          {
+            "line": 547,
+            "text": "        )"
+          },
+          {
+            "line": 548,
+            "text": ""
+          },
+          {
+            "line": 549,
+            "text": "        timesteps = self.sample_scheduler.timesteps"
+          },
+          {
+            "line": 550,
+            "text": ""
+          },
+          {
+            "line": 551,
+            "text": "        velocity_fn = self.get_velocity_fn_from_batch(data_batch, guidance, is_negative_prompt=is_negative_prompt)"
+          },
+          {
+            "line": 552,
+            "text": "        use_spatial_split = False"
+          },
+          {
+            "line": 553,
+            "text": "        if self.net.is_context_parallel_enabled:"
+          },
+          {
+            "line": 554,
+            "text": "            cp_size = len(torch.distributed.get_process_group_ranks(self.get_context_parallel_group()))"
+          },
+          {
+            "line": 555,
+            "text": "            n_views = noise.shape[2] // self.get_num_video_latent_frames()"
+          },
+          {
+            "line": 556,
+            "text": "            # Perform spatial split only when it's required, i.e. temporal split is not enough."
+          },
+          {
+            "line": 557,
+            "text": "            # Refer to \"find_split\" definition for more details."
+          },
+          {
+            "line": 558,
+            "text": "            state_t = noise.shape[2] // n_views"
+          },
+          {
+            "line": 575,
+            "text": "        for _, t in enumerate(timesteps_iter):"
+          },
+          {
+            "line": 576,
+            "text": "            latent_model_input = latents"
+          },
+          {
+            "line": 577,
+            "text": "            timestep = [t]"
+          },
+          {
+            "line": 578,
+            "text": ""
+          },
+          {
+            "line": 579,
+            "text": "            timestep = torch.stack(timestep)"
+          },
+          {
+            "line": 580,
+            "text": ""
+          },
+          {
+            "line": 581,
+            "text": "            velocity_pred = velocity_fn(noise, latent_model_input, timestep.unsqueeze(0))"
+          },
+          {
+            "line": 582,
+            "text": "            temp_x0 = self.sample_scheduler.step("
+          },
+          {
+            "line": 583,
+            "text": "                velocity_pred.unsqueeze(0), t, latents.unsqueeze(0), return_dict=False, generator=seed_g"
+          },
+          {
+            "line": 584,
+            "text": "            )[0]"
+          },
+          {
+            "line": 585,
+            "text": "            latents = temp_x0.squeeze(0)"
+          },
+          {
+            "line": 586,
+            "text": ""
+          },
+          {
+            "line": 587,
+            "text": "        if self.net.is_context_parallel_enabled:"
+          },
+          {
+            "line": 588,
+            "text": "            if use_spatial_split:"
+          },
+          {
+            "line": 594,
+            "text": "        return latents"
+          },
+          {
+            "line": 595,
+            "text": ""
+          },
+          {
+            "line": 596,
+            "text": "    @torch.no_grad()"
+          },
+          {
+            "line": 597,
+            "text": "    def generate_samples_from_batch_lora("
+          },
+          {
+            "line": 598,
+            "text": "        self,"
+          },
+          {
+            "line": 599,
+            "text": "        data_batch: Dict,"
+          },
+          {
+            "line": 600,
+            "text": "        guidance: float = 1.5,"
+          },
+          {
+            "line": 601,
+            "text": "        seed: int = 1,"
+          },
+          {
+            "line": 602,
+            "text": "        state_shape: Tuple | None = None,"
+          },
+          {
+            "line": 603,
+            "text": "        n_sample: int | None = None,"
+          },
+          {
+            "line": 604,
+            "text": "        is_negative_prompt: bool = False,"
+          },
+          {
+            "line": 605,
+            "text": "        num_steps: int = 35,"
+          },
+          {
+            "line": 606,
+            "text": "        shift: float = 5.0,"
+          },
+          {
+            "line": 607,
+            "text": "        disable_lora_at_low_t: bool = False,"
+          },
+          {
+            "line": 611,
+            "text": "    ) -> torch.Tensor:"
+          },
+          {
+            "line": 612,
+            "text": "        \"\"\""
+          },
+          {
+            "line": 613,
+            "text": "        Generate samples from the batch. Based on given batch, it will automatically determine whether to generate image or video samples."
+          },
+          {
+            "line": 614,
+            "text": "        Args:"
+          },
+          {
+            "line": 615,
+            "text": "            data_batch (dict): raw data batch draw from the training data loader."
+          },
+          {
+            "line": 616,
+            "text": "            iteration (int): Current iteration number."
+          },
+          {
+            "line": 617,
+            "text": "            guidance (float): guidance weights"
+          },
+          {
+            "line": 618,
+            "text": "            seed (int): random seed"
+          },
+          {
+            "line": 619,
+            "text": "            state_shape (tuple): shape of the state, default to data batch if not provided"
+          },
+          {
+            "line": 620,
+            "text": "            n_sample (int): number of samples to generate"
+          },
+          {
+            "line": 621,
+            "text": "            is_negative_prompt (bool): use negative prompt t5 in uncondition if true"
+          },
+          {
+            "line": 622,
+            "text": "            num_steps (int): number of steps for the diffusion process"
+          },
+          {
+            "line": 623,
+            "text": "            disable_lora_at_low_t (bool): if True, disable LoRA modules when timestep < lora_disable_threshold_step"
+          },
+          {
+            "line": 624,
+            "text": "            lora_disable_threshold_step (int): step below which LoRA modules are disabled (default: 900)"
+          },
+          {
+            "line": 655,
+            "text": "            shift=shift,"
+          },
+          {
+            "line": 656,
+            "text": "            use_kerras_sigma=self.config.use_kerras_sigma_at_inference,"
+          },
+          {
+            "line": 657,
+            "text": "        )"
+          },
+          {
+            "line": 658,
+            "text": ""
+          },
+          {
+            "line": 659,
+            "text": "        timesteps = self.sample_scheduler.timesteps"
+          },
+          {
+            "line": 660,
+            "text": ""
+          },
+          {
+            "line": 661,
+            "text": "        velocity_fn = self.get_velocity_fn_from_batch(data_batch, guidance, is_negative_prompt=is_negative_prompt)"
+          },
+          {
+            "line": 662,
+            "text": "        use_spatial_split = False"
+          },
+          {
+            "line": 663,
+            "text": "        if self.net.is_context_parallel_enabled:"
+          },
+          {
+            "line": 664,
+            "text": "            cp_size = len(torch.distributed.get_process_group_ranks(self.get_context_parallel_group()))"
+          },
+          {
+            "line": 665,
+            "text": "            n_views = noise.shape[2] // self.get_num_video_latent_frames()"
+          },
+          {
+            "line": 666,
+            "text": "            # Perform spatial split only when it's required, i.e. temporal split is not enough."
+          },
+          {
+            "line": 667,
+            "text": "            # Refer to \"find_split\" definition for more details."
+          },
+          {
+            "line": 668,
+            "text": "            state_t = noise.shape[2] // n_views"
+          },
+          {
+            "line": 701,
+            "text": ""
+          },
+          {
+            "line": 702,
+            "text": "            latent_model_input = latents"
+          },
+          {
+            "line": 703,
+            "text": "            timestep = [t]"
+          },
+          {
+            "line": 704,
+            "text": ""
+          },
+          {
+            "line": 705,
+            "text": "            timestep = torch.stack(timestep)"
+          },
+          {
+            "line": 706,
+            "text": ""
+          },
+          {
+            "line": 707,
+            "text": "            velocity_pred = velocity_fn(noise, latent_model_input, timestep.unsqueeze(0))"
+          },
+          {
+            "line": 708,
+            "text": "            temp_x0 = self.sample_scheduler.step("
+          },
+          {
+            "line": 709,
+            "text": "                velocity_pred.unsqueeze(0), t, latents.unsqueeze(0), return_dict=False, generator=seed_g"
+          },
+          {
+            "line": 710,
+            "text": "            )[0]"
+          },
+          {
+            "line": 711,
+            "text": "            latents = temp_x0.squeeze(0)"
+          },
+          {
+            "line": 712,
+            "text": ""
+          },
+          {
+            "line": 713,
+            "text": "        # Re-enable LoRA if it was disabled"
+          },
+          {
+            "line": 714,
+            "text": "        if lora_disabled:"
+          }
+        ]
+      },
+      {
+        "path": "cosmos_predict2/_src/predict2/inference/video2world.py",
+        "sha256": "59aa9e236a5e7e26490f5cfcb94ab95ce911d9c38eba61dd8aef7d067e458a95",
+        "matching_native_lines": [
+          {
+            "line": 492,
+            "text": "        return data_batch"
+          },
+          {
+            "line": 493,
+            "text": ""
+          },
+          {
+            "line": 494,
+            "text": "    def generate_vid2world("
+          },
+          {
+            "line": 495,
+            "text": "        self,"
+          },
+          {
+            "line": 496,
+            "text": "        prompt: str,"
+          },
+          {
+            "line": 497,
+            "text": "        input_path: str | torch.Tensor | None,"
+          },
+          {
+            "line": 498,
+            "text": "        guidance: int = 7,"
+          },
+          {
+            "line": 499,
+            "text": "        num_video_frames: int = 77,"
+          },
+          {
+            "line": 500,
+            "text": "        num_latent_conditional_frames: int = 1,"
+          },
+          {
+            "line": 501,
+            "text": "        num_input_video: int = 1,"
+          },
+          {
+            "line": 502,
+            "text": "        num_output_video: int = 1,"
+          },
+          {
+            "line": 503,
+            "text": "        resolution: str = \"192,320\","
+          },
+          {
+            "line": 504,
+            "text": "        seed: int = 1,"
+          },
+          {
+            "line": 505,
+            "text": "        negative_prompt: str = _DEFAULT_NEGATIVE_PROMPT,"
+          },
+          {
+            "line": 513,
+            "text": "        Processes the input, prepares the data batch, runs the diffusion"
+          },
+          {
+            "line": 514,
+            "text": "        model sampling, and decodes the result into a video tensor."
+          },
+          {
+            "line": 515,
+            "text": ""
+          },
+          {
+            "line": 516,
+            "text": "        Args:"
+          },
+          {
+            "line": 517,
+            "text": "            prompt: The text prompt describing the desired video content/style."
+          },
+          {
+            "line": 518,
+            "text": "            input_path: Path to the input image or video file or a torch.Tensor."
+          },
+          {
+            "line": 519,
+            "text": "            guidance: Classifier-free guidance scale. Defaults to 7."
+          },
+          {
+            "line": 520,
+            "text": "            num_video_frames: Number of video frames to generate. Defaults to 77."
+          },
+          {
+            "line": 521,
+            "text": "            num_latent_conditional_frames : Number of latent conditional frames. Defaults to 1."
+          },
+          {
+            "line": 522,
+            "text": "            resolution: Target video resolution in \"H,W\" format. Defaults to \"192,320\"."
+          },
+          {
+            "line": 523,
+            "text": "            seed: Random seed for reproducibility. Defaults to 1."
+          },
+          {
+            "line": 524,
+            "text": "            negative_prompt: Custom negative prompt. Defaults to the predefined default negative prompt."
+          },
+          {
+            "line": 525,
+            "text": "            camera: Target camera extrinsics and intrinsics for the K output videos. Must be provided if model is camera conditioned."
+          },
+          {
+            "line": 526,
+            "text": "            action: Target robot action for the K output videos. Must be provided if model is action conditioned."
+          },
+          {
+            "line": 670,
+            "text": "        method_name = \"WorldCache\" if self.worldcache_enabled else \"Baseline\""
+          },
+          {
+            "line": 671,
+            "text": "        log.info(f\"Running inference with {method_name} ({num_steps} steps)...\")"
+          },
+          {
+            "line": 672,
+            "text": "        "
+          },
+          {
+            "line": 673,
+            "text": "        sample = generate_samples("
+          },
+          {
+            "line": 674,
+            "text": "            data_batch,"
+          },
+          {
+            "line": 675,
+            "text": "            n_sample=1,  # Generate one sample"
+          },
+          {
+            "line": 676,
+            "text": "            guidance=guidance,"
+          },
+          {
+            "line": 677,
+            "text": "            seed=seed,  # Fixed seed for reproducibility"
+          },
+          {
+            "line": 678,
+            "text": "            is_negative_prompt=True,  # Use classifier-free guidance"
+          },
+          {
+            "line": 679,
+            "text": "            num_steps=num_steps,"
+          },
+          {
+            "line": 680,
+            "text": "            **extra_kwargs,"
+          },
+          {
+            "line": 681,
+            "text": "        )"
+          },
+          {
+            "line": 682,
+            "text": ""
+          },
+          {
+            "line": 683,
+            "text": "        # Memory Optimization Step 4: Offload Diffusion Network"
+          },
+          {
+            "line": 684,
+            "text": "        # Offload diffusion network after sampling to make room for decoder"
+          },
+          {
+            "line": 685,
+            "text": "        if self.offload_diffusion_model:"
+          },
+          {
+            "line": 735,
+            "text": "        self,"
+          },
+          {
+            "line": 736,
+            "text": "        prompt: str,"
+          },
+          {
+            "line": 737,
+            "text": "        input_path: str | torch.Tensor | None,"
+          },
+          {
+            "line": 738,
+            "text": "        num_output_frames: int,"
+          },
+          {
+            "line": 739,
+            "text": "        chunk_size: int,"
+          },
+          {
+            "line": 740,
+            "text": "        chunk_overlap: int,"
+          },
+          {
+            "line": 741,
+            "text": "        guidance: int = 7,"
+          },
+          {
+            "line": 742,
+            "text": "        num_latent_conditional_frames: int = 1,"
+          },
+          {
+            "line": 743,
+            "text": "        resolution: str = \"192,320\","
+          },
+          {
+            "line": 744,
+            "text": "        seed: int = 1,"
+          },
+          {
+            "line": 745,
+            "text": "        negative_prompt: str = _DEFAULT_NEGATIVE_PROMPT,"
+          },
+          {
+            "line": 746,
+            "text": "        camera: torch.Tensor | None = None,"
+          },
+          {
+            "line": 747,
+            "text": "        action: torch.Tensor | None = None,"
+          },
+          {
+            "line": 748,
+            "text": "        num_steps: int = 35,"
+          },
+          {
+            "line": 753,
+            "text": "        Args:"
+          },
+          {
+            "line": 754,
+            "text": "            prompt: The text prompt describing the desired video content/style."
+          },
+          {
+            "line": 755,
+            "text": "            input_path: Path to the input image or video file or a torch.Tensor."
+          },
+          {
+            "line": 756,
+            "text": "            num_output_frames: Total number of frames to generate in the final output."
+          },
+          {
+            "line": 757,
+            "text": "            chunk_size: Number of frames per chunk (model's native capacity)."
+          },
+          {
+            "line": 758,
+            "text": "            chunk_overlap: Number of overlapping frames between chunks."
+          },
+          {
+            "line": 759,
+            "text": "            guidance: Classifier-free guidance scale."
+          },
+          {
+            "line": 760,
+            "text": "            num_latent_conditional_frames: Number of latent conditional frames."
+          },
+          {
+            "line": 761,
+            "text": "            resolution: Target video resolution in \"H,W\" format."
+          },
+          {
+            "line": 762,
+            "text": "            seed: Random seed for reproducibility."
+          },
+          {
+            "line": 763,
+            "text": "            negative_prompt: Custom negative prompt."
+          },
+          {
+            "line": 764,
+            "text": "            camera: Target camera extrinsics and intrinsics for the K output videos."
+          },
+          {
+            "line": 765,
+            "text": "            action: Target robot action for the K output videos."
+          },
+          {
+            "line": 766,
+            "text": "            num_steps: Number of generation steps."
+          },
+          {
+            "line": 911,
+            "text": "                chunk_num_conditional = chunk_overlap"
+          },
+          {
+            "line": 912,
+            "text": ""
+          },
+          {
+            "line": 913,
+            "text": "            # Generate chunk"
+          },
+          {
+            "line": 914,
+            "text": "            chunk_video = self.generate_vid2world("
+          },
+          {
+            "line": 915,
+            "text": "                prompt=prompt,"
+          },
+          {
+            "line": 916,
+            "text": "                input_path=chunk_input,"
+          },
+          {
+            "line": 917,
+            "text": "                guidance=guidance,"
+          },
+          {
+            "line": 918,
+            "text": "                num_video_frames=model_required_frames,"
+          },
+          {
+            "line": 919,
+            "text": "                num_latent_conditional_frames=chunk_num_conditional,"
+          },
+          {
+            "line": 920,
+            "text": "                resolution=resolution,"
+          },
+          {
+            "line": 921,
+            "text": "                seed=seed + chunk_idx,"
+          },
+          {
+            "line": 922,
+            "text": "                negative_prompt=negative_prompt,"
+          },
+          {
+            "line": 923,
+            "text": "                camera=camera,"
+          },
+          {
+            "line": 924,
+            "text": "                action=action,"
+          }
+        ]
+      },
+      {
+        "path": "cosmos_predict2/_src/predict2/models/fm_solvers_unipc.py",
+        "sha256": "f6a06c75f059693ade6c802e99f6058575969b6a71ef18ab05e7ed46701053d3",
+        "matching_native_lines": [
+          {
+            "line": 43,
+            "text": "            otherwise."
+          },
+          {
+            "line": 44,
+            "text": "        lower_order_final (`bool`, default `True`):"
+          },
+          {
+            "line": 45,
+            "text": "            Whether to use lower-order solvers in the final steps. Only valid for < 15 inference steps. This can"
+          },
+          {
+            "line": 46,
+            "text": "            stabilize the sampling of DPMSolver for steps < 15, especially for steps <= 10."
+          },
+          {
+            "line": 47,
+            "text": "        disable_corrector (`list`, default `[]`):"
+          },
+          {
+            "line": 48,
+            "text": "            Decides which step to disable the corrector to mitigate the misalignment between `epsilon_theta(x_t, c)`"
+          },
+          {
+            "line": 49,
+            "text": "            and `epsilon_theta(x_t^c, c)` which can influence convergence for a large guidance scale. Corrector is"
+          },
+          {
+            "line": 50,
+            "text": "            usually disabled during the first few steps."
+          },
+          {
+            "line": 51,
+            "text": "        solver_p (`SchedulerMixin`, default `None`):"
+          },
+          {
+            "line": 52,
+            "text": "            Any other scheduler that if specified, the algorithm becomes `solver_p + UniC`."
+          },
+          {
+            "line": 53,
+            "text": "        use_karras_sigmas (`bool`, *optional*, defaults to `False`):"
+          },
+          {
+            "line": 54,
+            "text": "            Whether to use Karras sigmas for step sizes in the noise schedule during the sampling process. If `True`,"
+          },
+          {
+            "line": 55,
+            "text": "            the sigmas are determined according to a sequence of noise levels {\u03c3i}."
+          },
+          {
+            "line": 56,
+            "text": "        use_exponential_sigmas (`bool`, *optional*, defaults to `False`):"
+          },
+          {
+            "line": 222,
+            "text": "    def _threshold_sample(self, sample: torch.Tensor) -> torch.Tensor:"
+          },
+          {
+            "line": 223,
+            "text": "        \"\"\""
+          },
+          {
+            "line": 224,
+            "text": "        \"Dynamic thresholding: At each sampling step we set s to a certain percentile absolute pixel value in xt0 (the"
+          },
+          {
+            "line": 225,
+            "text": "        prediction of x_0 at timestep t), and if s > 1, then we threshold xt0 to the range [-s, s] and then divide by"
+          },
+          {
+            "line": 226,
+            "text": "        s. Dynamic thresholding pushes saturated pixels (those near -1 and 1) inwards, thereby actively preventing"
+          },
+          {
+            "line": 227,
+            "text": "        pixels from saturation at each step. We find that dynamic thresholding results in significantly better"
+          },
+          {
+            "line": 228,
+            "text": "        photorealism as well as better image-text alignment, especially when using very large guidance weights.\""
+          },
+          {
+            "line": 229,
+            "text": ""
+          },
+          {
+            "line": 230,
+            "text": "        https://arxiv.org/abs/2205.11487"
+          },
+          {
+            "line": 231,
+            "text": "        \"\"\""
+          },
+          {
+            "line": 232,
+            "text": "        dtype = sample.dtype"
+          },
+          {
+            "line": 233,
+            "text": "        batch_size, channels, *remaining_dims = sample.shape"
+          },
+          {
+            "line": 234,
+            "text": ""
+          },
+          {
+            "line": 235,
+            "text": "        if dtype not in (torch.float32, torch.float64):"
+          }
+        ]
+      }
+    ],
+    "budget_sha256": "482b28890839937c6eeae76d9a508882ff1f05aa287cae3ee4c7eadf9233aa4b",
+    "remote_writes": 0,
+    "GPU_submissions": 0,
+    "Torch_imported": false
+  },
+  "native_readonly_denoise_and_actual_request_receipt": {
+    "status": "READONLY_ORIGINAL_CFG_DENOISE_REQUEST_SOURCE_PASS",
+    "sources": [
+      {
+        "name": "denoise",
+        "line": 956,
+        "source": "def denoise(\n        self,\n        noise: torch.Tensor,\n        xt_B_C_T_H_W: torch.Tensor,\n        timesteps_B_T: torch.Tensor,\n        condition: Text2WorldCondition,\n    ) -> torch.Tensor:\n        \"\"\"\n        Performs denoising on the input noise data, noise level, and condition\n\n        Args:\n            xt (torch.Tensor): The input noise data.\n            timesteps_B_T (torch.Tensor): The timestep.\n            condition (Text2WorldCondition): conditional information, generated from self.conditioner\n\n        Returns:\n            velocity prediction\n        \"\"\"\n        del noise\n\n        net_output_B_C_T_H_W = self.net(\n            x_B_C_T_H_W=(xt_B_C_T_H_W).to(**self.tensor_kwargs),  # Eq. 7 of https://arxiv.org/pdf/2206.00364.pdf\n            timesteps_B_T=timesteps_B_T,  # Eq. 7 of https://arxiv.org/pdf/2206.00364.pdf\n            **condition.to_dict(),\n        ).float()\n\n        return net_output_B_C_T_H_W"
+      },
+      {
+        "name": "velocity_fn",
+        "line": 484,
+        "source": "def velocity_fn(noise: torch.Tensor, noise_x: torch.Tensor, timestep: torch.Tensor) -> torch.Tensor:\n            cond_v = self.denoise(noise, noise_x, timestep, condition)\n            uncond_v = self.denoise(noise, noise_x, timestep, uncondition)\n            velocity_pred = uncond_v + guidance * (cond_v - uncond_v)\n            return velocity_pred"
+      }
+    ],
+    "native_source_sha256": "c6c68f297859e11c76d2921667a29cabfecef3a7b5d3ab831bf9bb54b25b7d87",
+    "actual_requests": [
+      {
+        "name": "misc_13398218_3840_2160_60fps",
+        "path": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-w1-own-state-shadow-r1/diagnostic/artifacts/misc_13398218_3840_2160_60fps/misc_13398218_3840_2160_60fps.json",
+        "sha256": "8bd9cfe6fd9e4d0a867ff55e5e5df0dea3f1909fb3b2aa15387c972182630bb5",
+        "guidance": 7,
+        "fields": [
+          "name",
+          "prompt_path",
+          "prompt",
+          "negative_prompt",
+          "seed",
+          "guidance",
+          "inference_type",
+          "input_path",
+          "resolution",
+          "num_output_frames",
+          "num_steps",
+          "enable_autoregressive",
+          "chunk_size",
+          "chunk_overlap"
+        ]
+      },
+      {
+        "name": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+        "path": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-w1-own-state-shadow-r1/diagnostic/artifacts/av_51b45829-502e-4143-9c32-c026bd6ab191/av_51b45829-502e-4143-9c32-c026bd6ab191.json",
+        "sha256": "cabd24f995f2ee97464c9edf2897996007996cc298e5b8b2182d3dfb0459acb4",
+        "guidance": 7,
+        "fields": [
+          "name",
+          "prompt_path",
+          "prompt",
+          "negative_prompt",
+          "seed",
+          "guidance",
+          "inference_type",
+          "input_path",
+          "resolution",
+          "num_output_frames",
+          "num_steps",
+          "enable_autoregressive",
+          "chunk_size",
+          "chunk_overlap"
+        ]
+      },
+      {
+        "name": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+        "path": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-w1-own-state-shadow-r1/diagnostic/artifacts/av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632/av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632.json",
+        "sha256": "2304b9acb36c6e8a9034490dd647840ba4cee4e0cf18443e32deeb6819206737",
+        "guidance": 7,
+        "fields": [
+          "name",
+          "prompt_path",
+          "prompt",
+          "negative_prompt",
+          "seed",
+          "guidance",
+          "inference_type",
+          "input_path",
+          "resolution",
+          "num_output_frames",
+          "num_steps",
+          "enable_autoregressive",
+          "chunk_size",
+          "chunk_overlap"
+        ]
+      }
+    ],
+    "budget_sha256": "482b28890839937c6eeae76d9a508882ff1f05aa287cae3ee4c7eadf9233aa4b",
+    "GPU_submissions": 0,
+    "remote_writes": 0
+  },
+  "native_guidance_formula": "uncond + guidance * (cond - uncond)",
+  "actual_guidance": 7,
+  "weights_condition_negative_prompt": [
+    7,
+    -6
+  ],
+  "native_net_to_denoise_transform": "float cast only; no extra output rescaling in denoise",
+  "bound_formula": "(|alpha0|*sqrt(MSE0) - |alpha1|*sqrt(MSE1))^2 <= MSE_linear_mix <= (|alpha0|*sqrt(MSE0) + |alpha1|*sqrt(MSE1))^2",
+  "bound_scope": "Conservative real-arithmetic linear mixture using recorded FP32-reduced branch MSE; not a bitwise floating-point or solver rollout certificate",
+  "actual_CFG_combined_MSE": null,
+  "solver_update_MSE": null,
+  "new_teacher_observations": 0,
+  "pair_count": 6,
+  "identified_better_pairs": 0,
+  "identified_worse_pairs": 0,
+  "unidentified_pairs": 6,
+  "rows": [
+    {
+      "scene": "misc_13398218_3840_2160_60fps",
+      "calls": [
+        45,
+        46
+      ],
+      "same_solver_input": true,
+      "branch_weights": [
+        7,
+        -6
+      ],
+      "bounds": {
+        "official": {
+          "branch_MSE": [
+            0.01874499022960663,
+            0.021901074796915054
+          ],
+          "branch_equal_mean_MSE": 0.02032303251326084,
+          "linear_mix_MSE_lower": 0.004962598346405681,
+          "linear_mix_MSE_upper": 3.4089238295329274,
+          "error_cross_inner_product": null
+        },
+        "scalar": {
+          "branch_MSE": [
+            0.019561894237995148,
+            0.020676450803875923
+          ],
+          "branch_equal_mean_MSE": 0.020119172520935535,
+          "linear_mix_MSE_lower": 0.013522990275625627,
+          "linear_mix_MSE_upper": 3.3922471029269645,
+          "error_cross_inner_product": null
+        }
+      },
+      "scalar_improvement_identified_without_cross_term": false,
+      "scalar_degradation_identified_without_cross_term": false,
+      "comparison": "UNIDENTIFIED_OVERLAPPING_BOUNDS_NOT_A_NEGATIVE_EFFECT"
+    },
+    {
+      "scene": "misc_13398218_3840_2160_60fps",
+      "calls": [
+        67,
+        68
+      ],
+      "same_solver_input": true,
+      "branch_weights": [
+        7,
+        -6
+      ],
+      "bounds": {
+        "official": {
+          "branch_MSE": [
+            0.01568887196481228,
+            0.013108668848872185
+          ],
+          "branch_equal_mean_MSE": 0.014398770406842232,
+          "linear_mix_MSE_lower": 0.03603467712288473,
+          "linear_mix_MSE_upper": 2.4452989325475163,
+          "error_cross_inner_product": null
+        },
+        "scalar": {
+          "branch_MSE": [
+            0.012796352617442608,
+            0.012458354234695435
+          ],
+          "branch_equal_mean_MSE": 0.012627353426069021,
+          "linear_mix_MSE_lower": 0.014919343362636922,
+          "linear_mix_MSE_upper": 2.1361247180448095,
+          "error_cross_inner_product": null
+        }
+      },
+      "scalar_improvement_identified_without_cross_term": false,
+      "scalar_degradation_identified_without_cross_term": false,
+      "comparison": "UNIDENTIFIED_OVERLAPPING_BOUNDS_NOT_A_NEGATIVE_EFFECT"
+    },
+    {
+      "scene": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+      "calls": [
+        45,
+        46
+      ],
+      "same_solver_input": true,
+      "branch_weights": [
+        7,
+        -6
+      ],
+      "bounds": {
+        "official": {
+          "branch_MSE": [
+            0.025970863178372383,
+            0.0347159169614315
+          ],
+          "branch_equal_mean_MSE": 0.030343390069901943,
+          "linear_mix_MSE_lower": 0.00010304259667541218,
+          "linear_mix_MSE_upper": 5.044587570106886,
+          "error_cross_inner_product": null
+        },
+        "scalar": {
+          "branch_MSE": [
+            0.013045568019151688,
+            0.014907866716384888
+          ],
+          "branch_equal_mean_MSE": 0.013976717367768288,
+          "linear_mix_MSE_lower": 0.004480123599390134,
+          "linear_mix_MSE_upper": 2.3473519458571874,
+          "error_cross_inner_product": null
+        }
+      },
+      "scalar_improvement_identified_without_cross_term": false,
+      "scalar_degradation_identified_without_cross_term": false,
+      "comparison": "UNIDENTIFIED_OVERLAPPING_BOUNDS_NOT_A_NEGATIVE_EFFECT"
+    },
+    {
+      "scene": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+      "calls": [
+        67,
+        68
+      ],
+      "same_solver_input": true,
+      "branch_weights": [
+        7,
+        -6
+      ],
+      "bounds": {
+        "official": {
+          "branch_MSE": [
+            0.03597130998969078,
+            0.029654404148459435
+          ],
+          "branch_equal_mean_MSE": 0.03281285706907511,
+          "linear_mix_MSE_lower": 0.08667137675927719,
+          "linear_mix_MSE_upper": 5.5736341009195,
+          "error_cross_inner_product": null
+        },
+        "scalar": {
+          "branch_MSE": [
+            0.018765175715088844,
+            0.017624802887439728
+          ],
+          "branch_equal_mean_MSE": 0.018194989301264286,
+          "linear_mix_MSE_lower": 0.026358063354840734,
+          "linear_mix_MSE_upper": 3.0816149646195266,
+          "error_cross_inner_product": null
+        }
+      },
+      "scalar_improvement_identified_without_cross_term": false,
+      "scalar_degradation_identified_without_cross_term": false,
+      "comparison": "UNIDENTIFIED_OVERLAPPING_BOUNDS_NOT_A_NEGATIVE_EFFECT"
+    },
+    {
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "calls": [
+        45,
+        46
+      ],
+      "same_solver_input": true,
+      "branch_weights": [
+        7,
+        -6
+      ],
+      "bounds": {
+        "official": {
+          "branch_MSE": [
+            0.012228631414473057,
+            0.014666270464658737
+          ],
+          "branch_equal_mean_MSE": 0.013447450939565897,
+          "linear_mix_MSE_lower": 0.002252046069553799,
+          "linear_mix_MSE_upper": 2.2521253060042348,
+          "error_cross_inner_product": null
+        },
+        "scalar": {
+          "branch_MSE": [
+            0.015396591275930405,
+            0.015866132453083992
+          ],
+          "branch_equal_mean_MSE": 0.0156313618645072,
+          "linear_mix_MSE_lower": 0.012727447379694007,
+          "linear_mix_MSE_upper": 2.6385000342835325,
+          "error_cross_inner_product": null
+        }
+      },
+      "scalar_improvement_identified_without_cross_term": false,
+      "scalar_degradation_identified_without_cross_term": false,
+      "comparison": "UNIDENTIFIED_OVERLAPPING_BOUNDS_NOT_A_NEGATIVE_EFFECT"
+    },
+    {
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "calls": [
+        67,
+        68
+      ],
+      "same_solver_input": true,
+      "branch_weights": [
+        7,
+        -6
+      ],
+      "bounds": {
+        "official": {
+          "branch_MSE": [
+            0.06436789035797119,
+            0.05840352177619934
+          ],
+          "branch_equal_mean_MSE": 0.061385706067085266,
+          "linear_mix_MSE_lower": 0.10624256196252216,
+          "linear_mix_MSE_upper": 10.406864261005007,
+          "error_cross_inner_product": null
+        },
+        "scalar": {
+          "branch_MSE": [
+            0.05175767093896866,
+            0.05193541571497917
+          ],
+          "branch_equal_mean_MSE": 0.051846543326973915,
+          "linear_mix_MSE_lower": 0.0506976005667463,
+          "linear_mix_MSE_upper": 8.76090408293068,
+          "error_cross_inner_product": null
+        }
+      },
+      "scalar_improvement_identified_without_cross_term": false,
+      "scalar_degradation_identified_without_cross_term": false,
+      "comparison": "UNIDENTIFIED_OVERLAPPING_BOUNDS_NOT_A_NEGATIVE_EFFECT"
+    }
+  ],
+  "new_GPU_submissions": 0,
+  "remote_writes": 0,
+  "budget_unchanged": true,
+  "cross_term_zero_not_assumed": true,
+  "no_Torch_or_generator_import": true,
+  "independent_confirmation": false,
+  "formal_refresh_training_labels": false
+}
