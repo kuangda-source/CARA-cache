@@ -1,3 +1,9 @@
+## 2026-10-06 W1三场景1800秒卡获直接批准，目标恢复active
+
+[141批准与执行](141_WC_W1_OWN_STATE_APPROVED_EXECUTION_AND_RESULTS.md)：最新human“允许”绑定最近WC-W1-OWN-STATE-SHADOW-R1-20261006-A，完整misc/AV51/AV28、原mask/scalar、calls45/46/67/68、三视频/12同状态观测；1800总/1770child/kill5计入原24h。selected182文件只配置/批准差异，R3实际CPU/原件和生产源码不改，不重跑Toy。W3-B9600范围不自动获准，旧问题不重问。
+
+当前仅批准准备：初读目标A6000 24MiB/noapps、数据盘充足、账本13.504302792/24h、48jobs无inflight，尚未GPU提交。下一selected实际CPU门与fresh资源/共享锁/账本唯一准入、真实运行、实费与独立终态/93RGB/有符号诊断。旧blocked和待批准条目均为历史，本卡不再要求重复批准；无新科学teacher或收益，不扩训练/人评。
+
 ## 2026-10-06 新GPU范围连续三轮缺失，阻塞门槛已满足
 
 [当前阻塞审计](../manifests/wc_post_reference_scope_blocked_audit_20261006.json)只计新W1三场景卡提报轮及随后两个goal续接，不沿用旧blocked计数。第一轮有实际生产/CPU进展，后二轮仅状态回查无progress；三轮均缺同一直接范围答复，且当前必要准备已完成、无获准在途任务可等待。申请goal blocked，以工具返回为权威；整体科学目标未完成，停止重复CPU、旁支准备和再次提问。
