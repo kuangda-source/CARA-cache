@@ -43,7 +43,7 @@ def main():
             'limitations':'Cross-run conditional arithmetic, hashing/RGB/flush may vary. No fresh OFF runs; old OFF is a mandatory identity bridge, not a clean speed comparison. All loading, diagnostics, failures, flush/release charged.'}
         (root/costref).write_text(json.dumps(cost,indent=2)+'\n')
     cost=read(costref);assert cost['stress_proxy_seconds']<1770
-    files=['src/wcomr/own_state_sampling.py','src/wcomr/own_state_execution.py','src/wcomr/own_state_summary.py',
+    files=['src/wcomr/replay_results.py','src/wcomr/own_state_sampling.py','src/wcomr/own_state_execution.py','src/wcomr/own_state_summary.py',
         'scripts/run_w1_own_state.py','scripts/supervise_w1_own_state.py','scripts/audit_w1_own_state_terminal.py',
         'scripts/summarize_w1_own_state.py','scripts/build_w1_own_state_production_draft.py',
         'tests/check_w1_own_state_production_cpu.py','reports/wc_w1_own_state_core_actual_cpu_r2_20261006.json',costref]
