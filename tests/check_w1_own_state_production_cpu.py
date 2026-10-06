@@ -79,7 +79,7 @@ def pipeline(stage,runtime,c):
     class DataType(Enum):VIDEO=1
     ns=dict(torch=torch,amp=torch.amp,F=torch.nn.functional,rearrange=rearrange,DataType=DataType,
         Optional=Optional,List=List,Tuple=Tuple,Union=Union,log=SimpleNamespace(info=lambda *a:None))
-    exec(compile(tree,'<pinned-own-state-CPU-functions>','exec'),ns)
+    exec(compile(tree,str(runtime/'cosmos_predict2/_src/predict2/inference/worldcache_utils.py'),'exec'),ns)
     class Block(torch.nn.Module):
         def __init__(self,f):super().__init__();self.f=f
         def forward(self,x,**kwargs):return x*self.f+.01
