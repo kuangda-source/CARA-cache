@@ -1,0 +1,109 @@
+{
+  "identity": "WC_CONFIRMATION_HYPOTHESES_R1_20261006",
+  "status": "PROSPECTIVE_INTERPRETATION_REGISTERED_BEFORE_NEW_B_OR_W1_REFERENCE_DATA_NOT_GPU_AUTHORIZATION",
+  "known_exposure": [
+    "Two CAL Native/W1 endpoints",
+    "Common and Human adaptive C/D endpoints and counts",
+    "Existing sparse and frame-distribution results"
+  ],
+  "source_sha256": {
+    "plans/WORLD_CACHE_CONFIRMATION_WINDOW_20261006.md": "c8483adebecdb0321875ddd736ee90d95e10b4bcff97375a415c01149699c1bc",
+    "research/135_WC_UPDATED_CONFIRMATION_DESIGN_AND_CPU_PROGRESS.md": "d7842c7a7add03c60dad67cb86caed2356c735db888a85ed62144a202562a6c9",
+    "configs/wc_w3_placement_production_r2_draft.json": "dcd2616558c5dd3d0d4dad3e36ea2d7b4d6c7b046abeaddac82e606ca194c691",
+    "manifests/wc_w1_native_reference_cal8_r1_draft_20261006.json": "1df12cb1420a5b564906847e158fbcd89f398bcbb29dd807f759ddf094e3e926",
+    "reports/wc_adaptive_count_scope_cpu_r1_20261006.json": "6d22588707fc234ea6b8dbc02e70356b3c359f7a7e928ab4ce39b98d5dda822b",
+    "reports/wc_next_batch_existing_native_audit_r1_20261006.json": "04aab3e436cf4027e60d822c0302c9dfa55be2dde2d11e2a1e6733201132d423"
+  },
+  "hypotheses": [
+    {
+      "id": "W3_FIXED_QUOTA_POSITION",
+      "question": "At the four already frozen swaps, can placement improve final fidelity under separately equal CFG full-call quotas?",
+      "original_card": "WC-W3-PLACEMENT-SWAP-R1-20261004-A",
+      "science_counts": [
+        2,
+        16,
+        10,
+        4
+      ],
+      "original_scope_scoring_and_execution_limits_unchanged": true,
+      "interpretation": "Report each signed endpoint and measured diagnostic cost, infeasible positions and repeat/state controls; four swaps are not four independent scenes.",
+      "all_four_must_win": false,
+      "legacy_10percent_expansion_reference_preserved": true,
+      "negative_scope": "This fixed swap configuration; not all adaptive refresh policies."
+    },
+    {
+      "id": "W1_CAL_ENDPOINT_COVERAGE",
+      "question": "Does the fixed original scalar W1 improve Native-relative full-frame fidelity over official WC on the five previously unpaired accepted CAL scenes?",
+      "new_generation": "Only five Native35 references; old WC/W1 reused after identity bridge.",
+      "original_denominator": 8,
+      "accepted": 7,
+      "rejected": 1,
+      "known_matched": 2,
+      "proposed_new_references": 5,
+      "per_video": "mean frozen CPU FP32 LPIPS over all 93 matched frames",
+      "scene_aggregation": [
+        "paired scene-equal mean difference",
+        "median",
+        "all scene signs and accepted/rejected/missing counts"
+      ],
+      "seven_of_seven_success_required": false,
+      "frames_are_independent_samples": false,
+      "old_MUSIQ_VQA_and_rejected_sample_preserved": true,
+      "development_confirmation_not_independent_CONF": true,
+      "negative_scope": "Original scalar/config and seen CAL coverage, subject to implementation and target-metric alignment."
+    },
+    {
+      "id": "W3_ADAPTIVE_QUALITY_COST",
+      "question": "Can future same-state one-action changes improve quality and actual total cost under the same subsequent adaptive policy?",
+      "new_samples_selected": false,
+      "future_calls_are_post_action_outcomes": true,
+      "labels": [
+        "Y_q=L_C-L_D",
+        "Y_t=T_C-T_D"
+      ],
+      "all_sign_quadrants_retained": true,
+      "separate_time_scopes": [
+        "diagnostic_suffix",
+        "deployment_pipeline"
+      ],
+      "lambda": "NOT_FITTED; value, units and boundary must be preregistered before new data if used",
+      "protect_original_correct_decisions": true,
+      "B_is_sole_acceptance_gate": false
+    },
+    {
+      "id": "ONE_SIMPLE_CANDIDATE_CONFIRMATION",
+      "question": "Does one frozen simple candidate retain its joint quality/cost benefit on new scenes and seeds?",
+      "candidate": "UNSELECTED",
+      "proposed_scenes": 4,
+      "seeds_per_scene": 2,
+      "parameter_freeze_before_data": true,
+      "comparators": [
+        "Native",
+        "reasonably tuned official WC",
+        "one candidate"
+      ],
+      "requires_frozen_scene_source_split_runtime_and_cost_card": true,
+      "no_automatic_GPU_execution": true
+    },
+    {
+      "id": "CLEAN_TIMING_CONFIRMATION",
+      "question": "Is the speed/cost signal retained with complete deployed pipeline costs?",
+      "proposed_fixed_scenes": 2,
+      "paired_repeats_per_scene": [
+        3,
+        5
+      ],
+      "exact_repeat_count_before_execution": true,
+      "balanced_order": true,
+      "same_GPU_load_precision_sampler": true,
+      "include_actual_router_and_probe_overhead": true,
+      "offline_score_and_label_cost_separate": true,
+      "small_sample_uncertainty_retained": true,
+      "not_infer_clean_speed_from_restored_suffix": true
+    }
+  ],
+  "new_GPU_execution_selected": false,
+  "budget_reset_or_transfer": false,
+  "new_training_or_human_review": false,
+  "prospective_registration_does_not_reclassify_known_result_analysis_as_blind": true
+}

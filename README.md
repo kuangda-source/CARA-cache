@@ -1,3 +1,13 @@
+# WorldCache 实验：2026-10-06 当前入口
+
+继续 WorldCache，当前优先 **W3 关键干预与 W1 终点确认**。新设计见[确认窗口 v4.0](plans/WORLD_CACHE_CONFIRMATION_WINDOW_20261006.md)，本轮实际进展见[135 报告](research/135_WC_UPDATED_CONFIRMATION_DESIGN_AND_CPU_PROGRESS.md)，执行队列见[下一步](research/09_NEXT_ACTIONS.md)。以下旧“在运行”和旧预算条目均为历史。
+
+已有正信号：官方缓存本地加速1.476–1.602×；W1 两个匹配开发场景全帧 LPIPS 降低7.87%/7.99%；W3 Human 刷新后失真少2.81%，后缀完整调用18→16。本轮 CPU 原件回查明确该数包含干预当次：当前多算一次、未来少三次；诊断控制耗时中位数少6.481秒。它支持继续研究，尚未证明新方法的干净部署速度和泛化。
+
+下一完整 W3-B 固定每 CFG 完整调用配额，只交换四对位置，保持2父/16后缀/10输出；实际生产 CPU 已通过，9600秒新GPU范围答复仍待。W1 另准备五份缺失原生参考，复用既有WC/W1视频，保留原8场景/7接受/1拒绝。两条 W3 证据线互补，稀疏条件结果保留，不扩大训练或引入非必要人评。
+
+本轮没有新 GPU 提交；服务器预算原件仍12.99974633233337/24GPUh，余11.00025366766663h。来源、请求、范围与旧文保留检查通过，当前目标active、尚未完成；旧blocked状态保留历史，待直接范围答复后fresh准入与唯一完整B。
+
 ## 2026-10-04 早晚缺失臂唯一提交，原三个句柄已现场确认
 
 [97执行卡与现场](research/97_WC_TIMING_FACTORIAL_SIX_OUTPUT_EXECUTION_CARD.md)：冻结sourcea86050c/deploy1全部实际门及fresh准入后，只提交wc-timing-factorial-human-r1一次。现场1791065578.144057确认原supervisor2745653/timeout2747134/runner2747136存活且命令行匹配；已加载83.400秒，第一官方D/D控制在采样，0/6视频。九门/legacy复现止步及两缺失臂实际视频仍待验证；首次launch state null由原现场句柄补证，不重提。

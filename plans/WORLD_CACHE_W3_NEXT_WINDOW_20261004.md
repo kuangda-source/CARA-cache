@@ -1,3 +1,5 @@
+> 当前设计已更新至[2026-10-06 v4.0 确认窗口](WORLD_CACHE_CONFIRMATION_WINDOW_20261006.md)。以下 v3.4 和更早内容作为历史保留；旧 blocked 不代表恢复后的当前状态。
+
 # WorldCache 下一窗口：全帧保真与同配额刷新位置干预
 
 2026-10-05；计划v3.4；状态：GOAL_BLOCKED_PENDING_DISTINCT_PLACEMENT_SCOPE / EXPLORATORY_CPU_FRAME_AND_COST_COMPLETE / PLACEMENT_PRODUCTION_ACTUAL_CPU_PASS。当前入口以本文和[09队列](../research/09_NEXT_ACTIONS.md)为准；以下旧“在跑/待CPU/13h余额”均保留历史身份。
