@@ -1,0 +1,33 @@
+{
+  "status": "OWN_STATE_SHADOW_CORE_ACTUAL_CPU_FAILURE",
+  "exit_code": 1,
+  "CPU_source_revision": "a1e792658a27c172f8fa0174aff48e585b04baf3",
+  "CPU_supervisor_PID": 2969423,
+  "CPU_child_PID": 2969424,
+  "CPU_wall_seconds": 6.96576452255249,
+  "result": null,
+  "error_tail": "Traceback (most recent call last):\n  File \"/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-w1-own-state-core-cpu-r1-20261006/scripts/check_w1_own_state_core_cpu.py\", line 172, in <module>\n    if __name__=='__main__':main()\n  File \"/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-w1-own-state-core-cpu-r1-20261006/scripts/check_w1_own_state_core_cpu.py\", line 130, in main\n    checks=[fixture(name,flow) for name in planned['scenes'] for flow in [False,True]]\n  File \"/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-w1-own-state-core-cpu-r1-20261006/scripts/check_w1_own_state_core_cpu.py\", line 130, in <listcomp>\n    checks=[fixture(name,flow) for name in planned['scenes'] for flow in [False,True]]\n  File \"/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-w1-own-state-core-cpu-r1-20261006/scripts/check_w1_own_state_core_cpu.py\", line 108, in fixture\n    v=net(x,t,torch.ones(1));velocities.append(v);output.append(v.clone())\n  File \"/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py\", line 1751, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n  File \"/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py\", line 1762, in _call_impl\n    return forward_call(*args, **kwargs)\n  File \"<w1-frozen-official-schedule>\", line 231, in worldcache_mini_train_dit_forward\n  File \"/home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/_src/predict2/inference/worldcache_utils.py\", line 189, in compute_optimal_gamma\n    dc = delta_curr.view(B, -1)\nRuntimeError: view size is not compatible with input tensor's size and stride (at least one dimension spans across two contiguous subspaces). Use .reshape(...) instead.\n",
+  "payload_sha256": {
+    "src/wcomr/__init__.py": "b9996da0a87bb746cdac0935ead475246fc34d88b37e73f63f14e5065494f311",
+    "src/wcomr/own_state_shadow.py": "f39f71eaf2a302219ddf606a2a3f29ab388b9b55e5a0fb1eb91de50c1618d7bb",
+    "src/wcomr/fixed_replay.py": "99886e805dbee5416c40e2d609faa6cfcca418291a58f87e41075806fa62340e",
+    "src/wcomr/integration.py": "234fb824b432bab4befcff5a8ad062fa7d81ae705d131fe9525b4fa888ca693b",
+    "src/wcomr/calibration.py": "f6f9ce7c5848c512b1dc0eb9a4965b3f84e799e911ddc2a591c48d865076fcbd",
+    "src/wcomr/shadow_forward.py": "8ba062940313fd39cdf4bc8fcdcbba2f93426004af286582b2d825ab729de7e4",
+    "src/wcomr/shadow_metrics.py": "59a985ff8b4f9684e77f30f6e1863288c8e5e617b04b20b1e5af313824eda1ee",
+    "src/wcomr/w1d.py": "6629fe0e65e64bbdbd77f8806e2fdf8fb43895cd228ffd34bda2df3f6d2f4bc1",
+    "src/wcomr/measurement.py": "c4181ec3220b2fd33d333dffed9ae7163303668b9e152a705d1d70213b45a4c0",
+    "scripts/check_w1_own_state_core_cpu.py": "f6bad1eaa1fde66401431933103a6f70dc729fb9d8f423c44c2021323fbdccb6",
+    "manifests/upstream.json": "38da556f69c1b23ef3db41c356490983e687c10e204a15aa58fbd7137bdf2e1a",
+    "manifests/wc_post_reference_hypotheses_r1_20261006.json": "034d92e6344659a6c1be2915d48dcf449fac2faf6adc963d0206733da3c8569e",
+    "reports/w1_replay_r1_runner.json": "45baadc9939f0286ebeb5179ab14b0113cd1d41b4368e27d5342d9900be2491d"
+  },
+  "budget_before_sha256": "8d868f727159804f2a6131ffb337c77e992de966a065367c68feed1e331fcdc9",
+  "budget_unchanged": true,
+  "original_160_GPU_source_files_unchanged": true,
+  "GPU_submissions": 0,
+  "actual_model_runs": 0,
+  "scientific_labels": 0,
+  "original_receipt_sha256": "2ac201267e8ae8302a6a3e3931b82d2d7419a57727dcf526852879923619824f",
+  "executed_transfer_wrapper_sha256": "075feae5b99e27bb9abd9a8a61b04126382b4091a5f6d2c7ec117c7ef4ca737c"
+}

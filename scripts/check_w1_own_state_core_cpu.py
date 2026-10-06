@@ -54,8 +54,8 @@ def main():
             self.t_embedder=lambda t:(t.unsqueeze(-1),None)
             self.t_embedding_norm=lambda t:t
             self.final_layer=lambda x,*a,**k:x
-        def prepare_embedded_sequence(self,x,**kwargs):return x.permute(0,2,3,4,1),None,None
-        def unpatchify(self,x):return x.permute(0,4,1,2,3)
+        def prepare_embedded_sequence(self,x,**kwargs):return x.permute(0,2,3,4,1).contiguous(),None,None
+        def unpatchify(self,x):return x.permute(0,4,1,2,3).contiguous()
     def make(flow=False):
         return namespace['apply_worldcache'](Toy(),num_steps=70,ret_ratio=.2,rel_l1_thresh=1,
             probe_depth=1,osi_enabled=True,flow_enabled=flow,flow_scale=1).eval()
