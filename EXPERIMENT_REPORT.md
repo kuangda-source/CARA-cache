@@ -1,3 +1,11 @@
+## 2026-10-06 W1自身轨迹三场景完整：局部预测改善与终点收益仍分离
+
+[141完整结果](research/141_WC_W1_OWN_STATE_APPROVED_EXECUTION_AND_RESULTS.md)：唯一获批1800秒卡sourceaa379cb，misc/AV51/AV28三完整视频、12同状态teacher观测、旧72输出/cache/校准/pipeline/decoder/MP4/93RGB身份桥及独立终态通过。自身状态预测MSE降低5.69/49.06/9.83%，同视频旧终点LPIPS仍为−19.09/−16.11/+24.46%；不再把局部改善直接当终点收益。晚位置残差三例均恶化而预测改善，正对照早位置预测恶化仍终点改善。旧W1七接受4改善/3退化、均值LPIPS0.4388%、MUSIQ/VQA和原8/7/1保持；三个已曝光CAL、12依赖观测不是CONF。
+
+实际880.062774秒=0.244461882GPUh，累计13.748764674/24h、49jobs、无inflight，余额10.251235326h；原1800预付已按实费退回差额。五原GPU/CPU句柄退出、f1锁自由、目标24MiB/noapps；CPU终态3.781秒、381 native SHA与有符号均值/旧终点连接审计通过。当前批准已完整消耗，不重启同card/run。
+
+[新v4.2安排](plans/WORLD_CACHE_POST_OWN_STATE_WINDOW_20261006.md)与[下一目标对齐登记](manifests/wc_post_own_state_hypotheses_r1_20261006.json)：继续WorldCache，原W3-B四交换/9600卡保持第一执行优先级，其单独范围仍待，旧问题不重复、本次允许不扩大。W1先对齐实际CFG组合/传播监督，再由B和本批共同选择最多一个简单变体；当前CFG交叉项缺失，旧位置misc无交集/AV51一对/AV28两对，不能编造迁移因果分解。不扩分组/Head/LoRA/专家/人评或新GPU；goal总体未完成，本轮有实际进展。以下在跑/准备/blocked均为历史快照。
+
 ## 2026-10-06 W1三场景唯一运行启动，真实诊断结果待验收
 
 [141执行](research/141_WC_W1_OWN_STATE_APPROVED_EXECUTION_AND_RESULTS.md)：已获直接批准的1800秒卡sourceaa379cb/selected182文件/CPU12.460秒门通过，原supervisor2975499/timeout2975518/runner2975520存活，当前初始化。1800总/1770child/kill5，child截止北京时间2026-10-06T20:22:17.898257+08:00；只跟踪原stage/run，不重提或更改在跑payload。

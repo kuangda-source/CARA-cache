@@ -1,0 +1,796 @@
+{
+  "status": "OWN_STATE_CALL_ALIGNED_DESCRIPTIVE_REANALYSIS_NOT_CAUSAL_STATE_DECOMPOSITION",
+  "sources": [
+    {
+      "path": "reports/w1d_cal8_r1_runner.json",
+      "sha256": "934dc2d63b79ee1cc68f765fdcb21bfea91f4f81584ad17259e9f6c55cd3eec9"
+    },
+    {
+      "path": "reports/wc_w1_own_state_runner_20261006.json",
+      "sha256": "f28eb9f56bd8b8e668e4745e0b5c04ecfea87c76413600f4e7ffa26864df188a"
+    },
+    {
+      "path": "reports/wc_w1_own_state_final_original_native_audit_20261006.json",
+      "sha256": "c3a8e894e9f4c80ab927ac65c0f7b49a8b965ef8267efd567ce94851045dfe55"
+    },
+    {
+      "path": "reports/wc_w1_native_reference_full93_lpips_cpu_r1_20261006.json",
+      "sha256": "de7416fc071fef41147d78d324799cfc142276addec3cbea34426ba300da2ba5"
+    }
+  ],
+  "analysis_code_sha256": "c37af481cd3dc5089b67a9a23100c3433c10e1bf0460de541699c884b145bf33",
+  "rows": [
+    {
+      "scene": "misc_13398218_3840_2160_60fps",
+      "old_calls": [
+        15,
+        16,
+        27,
+        28,
+        49,
+        50,
+        69,
+        70
+      ],
+      "own_calls": [
+        45,
+        46,
+        67,
+        68
+      ],
+      "matched_old_own_calls": [],
+      "unmatched_old_teacher_is_missing_not_zero": true,
+      "same_state_candidates_valid_within_each_current_point": true,
+      "pairs": [
+        {
+          "solver_update_one_based": 23,
+          "CFG_calls": [
+            45,
+            46
+          ],
+          "metrics": {
+            "prewarp_residual": {
+              "calls": [
+                45,
+                46
+              ],
+              "official_mean_MSE": 56.10544013977051,
+              "scalar_mean_MSE": 37.853919982910156,
+              "official_minus_scalar": 18.25152015686035,
+              "relative_reduction_percent": 32.53074944495927
+            },
+            "postwarp_residual": {
+              "calls": [
+                45,
+                46
+              ],
+              "official_mean_MSE": 55.13129425048828,
+              "scalar_mean_MSE": 38.19301795959473,
+              "official_minus_scalar": 16.938276290893555,
+              "relative_reduction_percent": 30.723523764805392
+            },
+            "velocity": {
+              "calls": [
+                45,
+                46
+              ],
+              "official_mean_MSE": 0.02032303251326084,
+              "scalar_mean_MSE": 0.020119172520935535,
+              "official_minus_scalar": 0.00020385999232530594,
+              "relative_reduction_percent": 1.0030982934868926
+            }
+          }
+        },
+        {
+          "solver_update_one_based": 34,
+          "CFG_calls": [
+            67,
+            68
+          ],
+          "metrics": {
+            "prewarp_residual": {
+              "calls": [
+                67,
+                68
+              ],
+              "official_mean_MSE": 4.445518493652344,
+              "scalar_mean_MSE": 8.274611949920654,
+              "official_minus_scalar": -3.8290934562683105,
+              "relative_reduction_percent": -86.13378758261354
+            },
+            "postwarp_residual": {
+              "calls": [
+                67,
+                68
+              ],
+              "official_mean_MSE": 4.923355579376221,
+              "scalar_mean_MSE": 8.781554222106934,
+              "official_minus_scalar": -3.858198642730713,
+              "relative_reduction_percent": -78.36522429727772
+            },
+            "velocity": {
+              "calls": [
+                67,
+                68
+              ],
+              "official_mean_MSE": 0.014398770406842232,
+              "scalar_mean_MSE": 0.012627353426069021,
+              "official_minus_scalar": 0.0017714169807732105,
+              "relative_reduction_percent": 12.302557306778372
+            }
+          }
+        }
+      ],
+      "descriptive_state_comparison": {
+        "prewarp_residual": {
+          "old_all_recorded_points_descriptive_only": {
+            "calls": [
+              15,
+              16,
+              27,
+              28,
+              49,
+              50,
+              69,
+              70
+            ],
+            "official_mean_MSE": 64.94367504119873,
+            "scalar_mean_MSE": 85.77418112754822,
+            "official_minus_scalar": -20.830506086349487,
+            "relative_reduction_percent": -32.07472640428048
+          },
+          "own_all_four_registered_points": {
+            "calls": [
+              45,
+              46,
+              67,
+              68
+            ],
+            "official_mean_MSE": 30.275479316711426,
+            "scalar_mean_MSE": 23.064265966415405,
+            "official_minus_scalar": 7.2112133502960205,
+            "relative_reduction_percent": 23.8186595655831
+          },
+          "old_same_calls": null,
+          "own_same_calls": null
+        },
+        "postwarp_residual": {
+          "old_all_recorded_points_descriptive_only": {
+            "calls": [
+              15,
+              16,
+              27,
+              28,
+              49,
+              50,
+              69,
+              70
+            ],
+            "official_mean_MSE": 64.32667469978333,
+            "scalar_mean_MSE": 84.60158967971802,
+            "official_minus_scalar": -20.274914979934692,
+            "relative_reduction_percent": -31.518674134111556
+          },
+          "own_all_four_registered_points": {
+            "calls": [
+              45,
+              46,
+              67,
+              68
+            ],
+            "official_mean_MSE": 30.02732491493225,
+            "scalar_mean_MSE": 23.48728609085083,
+            "official_minus_scalar": 6.540038824081421,
+            "relative_reduction_percent": 21.78029126007536
+          },
+          "old_same_calls": null,
+          "own_same_calls": null
+        },
+        "velocity": {
+          "old_all_recorded_points_descriptive_only": {
+            "calls": [
+              15,
+              16,
+              27,
+              28,
+              49,
+              50,
+              69,
+              70
+            ],
+            "official_mean_MSE": 0.049042583676055074,
+            "scalar_mean_MSE": 0.05907015816774219,
+            "official_minus_scalar": -0.010027574491687119,
+            "relative_reduction_percent": -20.44666846657808
+          },
+          "own_all_four_registered_points": {
+            "calls": [
+              45,
+              46,
+              67,
+              68
+            ],
+            "official_mean_MSE": 0.017360901460051537,
+            "scalar_mean_MSE": 0.01637326297350228,
+            "official_minus_scalar": 0.0009876384865492582,
+            "relative_reduction_percent": 5.688866380711122
+          },
+          "old_same_calls": null,
+          "own_same_calls": null
+        }
+      },
+      "existing_endpoint": {
+        "scene": "misc_13398218_3840_2160_60fps",
+        "WC_LPIPS": 0.4939930131358485,
+        "W1_LPIPS": 0.5883017259259378,
+        "WC_minus_W1": -0.09430871279008929,
+        "relative_improvement_percent": -19.091102562649873,
+        "improved_frames": 0,
+        "tied_frames": 0,
+        "degraded_frames": 93,
+        "frames_are_independent_samples": false
+      },
+      "same_video_sha256": "db32d2767686368e18b96ef9107d2bc92e9213bff46039dd4d0c745532eed5d8"
+    },
+    {
+      "scene": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+      "old_calls": [
+        15,
+        16,
+        29,
+        30,
+        45,
+        46,
+        69,
+        70
+      ],
+      "own_calls": [
+        45,
+        46,
+        67,
+        68
+      ],
+      "matched_old_own_calls": [
+        45,
+        46
+      ],
+      "unmatched_old_teacher_is_missing_not_zero": true,
+      "same_state_candidates_valid_within_each_current_point": true,
+      "pairs": [
+        {
+          "solver_update_one_based": 23,
+          "CFG_calls": [
+            45,
+            46
+          ],
+          "metrics": {
+            "prewarp_residual": {
+              "calls": [
+                45,
+                46
+              ],
+              "official_mean_MSE": 99.60552597045898,
+              "scalar_mean_MSE": 42.67778396606445,
+              "official_minus_scalar": 56.92774200439453,
+              "relative_reduction_percent": 57.15319652172528
+            },
+            "postwarp_residual": {
+              "calls": [
+                45,
+                46
+              ],
+              "official_mean_MSE": 95.71068572998047,
+              "scalar_mean_MSE": 42.5507755279541,
+              "official_minus_scalar": 53.15991020202637,
+              "relative_reduction_percent": 55.54229373301265
+            },
+            "velocity": {
+              "calls": [
+                45,
+                46
+              ],
+              "official_mean_MSE": 0.030343390069901943,
+              "scalar_mean_MSE": 0.013976717367768288,
+              "official_minus_scalar": 0.016366672702133656,
+              "relative_reduction_percent": 53.93818114729376
+            }
+          }
+        },
+        {
+          "solver_update_one_based": 34,
+          "CFG_calls": [
+            67,
+            68
+          ],
+          "metrics": {
+            "prewarp_residual": {
+              "calls": [
+                67,
+                68
+              ],
+              "official_mean_MSE": 5.510913610458374,
+              "scalar_mean_MSE": 9.584764003753662,
+              "official_minus_scalar": -4.073850393295288,
+              "relative_reduction_percent": -73.92332163516609
+            },
+            "postwarp_residual": {
+              "calls": [
+                67,
+                68
+              ],
+              "official_mean_MSE": 5.7438063621521,
+              "scalar_mean_MSE": 9.831033706665039,
+              "official_minus_scalar": -4.0872273445129395,
+              "relative_reduction_percent": -71.15886377098425
+            },
+            "velocity": {
+              "calls": [
+                67,
+                68
+              ],
+              "official_mean_MSE": 0.03281285706907511,
+              "scalar_mean_MSE": 0.018194989301264286,
+              "official_minus_scalar": 0.014617867767810822,
+              "relative_reduction_percent": 44.549207455597085
+            }
+          }
+        }
+      ],
+      "descriptive_state_comparison": {
+        "prewarp_residual": {
+          "old_all_recorded_points_descriptive_only": {
+            "calls": [
+              15,
+              16,
+              29,
+              30,
+              45,
+              46,
+              69,
+              70
+            ],
+            "official_mean_MSE": 109.71600866317749,
+            "scalar_mean_MSE": 90.85760164260864,
+            "official_minus_scalar": 18.858407020568848,
+            "relative_reduction_percent": 17.18838230659957
+          },
+          "own_all_four_registered_points": {
+            "calls": [
+              45,
+              46,
+              67,
+              68
+            ],
+            "official_mean_MSE": 52.55821979045868,
+            "scalar_mean_MSE": 26.131273984909058,
+            "official_minus_scalar": 26.42694580554962,
+            "relative_reduction_percent": 50.281280284814976
+          },
+          "old_same_calls": {
+            "calls": [
+              45,
+              46
+            ],
+            "official_mean_MSE": 142.56107330322266,
+            "scalar_mean_MSE": 75.25057411193848,
+            "official_minus_scalar": 67.31049919128418,
+            "relative_reduction_percent": 47.21520232112519
+          },
+          "own_same_calls": {
+            "calls": [
+              45,
+              46
+            ],
+            "official_mean_MSE": 99.60552597045898,
+            "scalar_mean_MSE": 42.67778396606445,
+            "official_minus_scalar": 56.92774200439453,
+            "relative_reduction_percent": 57.15319652172528
+          }
+        },
+        "postwarp_residual": {
+          "old_all_recorded_points_descriptive_only": {
+            "calls": [
+              15,
+              16,
+              29,
+              30,
+              45,
+              46,
+              69,
+              70
+            ],
+            "official_mean_MSE": 106.69676542282104,
+            "scalar_mean_MSE": 89.22681665420532,
+            "official_minus_scalar": 17.469948768615723,
+            "relative_reduction_percent": 16.37345677667481
+          },
+          "own_all_four_registered_points": {
+            "calls": [
+              45,
+              46,
+              67,
+              68
+            ],
+            "official_mean_MSE": 50.727246046066284,
+            "scalar_mean_MSE": 26.19090461730957,
+            "official_minus_scalar": 24.536341428756714,
+            "relative_reduction_percent": 48.36915728970352
+          },
+          "old_same_calls": {
+            "calls": [
+              45,
+              46
+            ],
+            "official_mean_MSE": 137.0887451171875,
+            "scalar_mean_MSE": 74.20173645019531,
+            "official_minus_scalar": 62.88700866699219,
+            "relative_reduction_percent": 45.87321053470475
+          },
+          "own_same_calls": {
+            "calls": [
+              45,
+              46
+            ],
+            "official_mean_MSE": 95.71068572998047,
+            "scalar_mean_MSE": 42.5507755279541,
+            "official_minus_scalar": 53.15991020202637,
+            "relative_reduction_percent": 55.54229373301265
+          }
+        },
+        "velocity": {
+          "old_all_recorded_points_descriptive_only": {
+            "calls": [
+              15,
+              16,
+              29,
+              30,
+              45,
+              46,
+              69,
+              70
+            ],
+            "official_mean_MSE": 0.07664134539663792,
+            "scalar_mean_MSE": 0.05850160797126591,
+            "official_minus_scalar": 0.018139737425372005,
+            "relative_reduction_percent": 23.668344196587853
+          },
+          "own_all_four_registered_points": {
+            "calls": [
+              45,
+              46,
+              67,
+              68
+            ],
+            "official_mean_MSE": 0.031578123569488525,
+            "scalar_mean_MSE": 0.016085853334516287,
+            "official_minus_scalar": 0.015492270234972239,
+            "relative_reduction_percent": 49.06013557417709
+          },
+          "old_same_calls": {
+            "calls": [
+              45,
+              46
+            ],
+            "official_mean_MSE": 0.04177776724100113,
+            "scalar_mean_MSE": 0.023345373570919037,
+            "official_minus_scalar": 0.018432393670082092,
+            "relative_reduction_percent": 44.120102359113986
+          },
+          "own_same_calls": {
+            "calls": [
+              45,
+              46
+            ],
+            "official_mean_MSE": 0.030343390069901943,
+            "scalar_mean_MSE": 0.013976717367768288,
+            "official_minus_scalar": 0.016366672702133656,
+            "relative_reduction_percent": 53.93818114729376
+          }
+        }
+      },
+      "existing_endpoint": {
+        "scene": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+        "WC_LPIPS": 0.3943252380817167,
+        "W1_LPIPS": 0.4578392117895106,
+        "WC_minus_W1": -0.06351397370779388,
+        "relative_improvement_percent": -16.10700192987185,
+        "improved_frames": 0,
+        "tied_frames": 0,
+        "degraded_frames": 93,
+        "frames_are_independent_samples": false
+      },
+      "same_video_sha256": "a19f6fead5db5fcafcbde89c8c7f74fa7cf6ed07d39ba46ba4d1eede0585dae8"
+    },
+    {
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "old_calls": [
+        15,
+        16,
+        29,
+        30,
+        45,
+        46,
+        67,
+        68
+      ],
+      "own_calls": [
+        45,
+        46,
+        67,
+        68
+      ],
+      "matched_old_own_calls": [
+        45,
+        46,
+        67,
+        68
+      ],
+      "unmatched_old_teacher_is_missing_not_zero": true,
+      "same_state_candidates_valid_within_each_current_point": true,
+      "pairs": [
+        {
+          "solver_update_one_based": 23,
+          "CFG_calls": [
+            45,
+            46
+          ],
+          "metrics": {
+            "prewarp_residual": {
+              "calls": [
+                45,
+                46
+              ],
+              "official_mean_MSE": 39.29381561279297,
+              "scalar_mean_MSE": 24.644601821899414,
+              "official_minus_scalar": 14.649213790893555,
+              "relative_reduction_percent": 37.28121986230367
+            },
+            "postwarp_residual": {
+              "calls": [
+                45,
+                46
+              ],
+              "official_mean_MSE": 38.26151466369629,
+              "scalar_mean_MSE": 24.972219467163086,
+              "official_minus_scalar": 13.289295196533203,
+              "relative_reduction_percent": 34.73279955940296
+            },
+            "velocity": {
+              "calls": [
+                45,
+                46
+              ],
+              "official_mean_MSE": 0.013447450939565897,
+              "scalar_mean_MSE": 0.0156313618645072,
+              "official_minus_scalar": -0.0021839109249413013,
+              "relative_reduction_percent": -16.240333835430974
+            }
+          }
+        },
+        {
+          "solver_update_one_based": 34,
+          "CFG_calls": [
+            67,
+            68
+          ],
+          "metrics": {
+            "prewarp_residual": {
+              "calls": [
+                67,
+                68
+              ],
+              "official_mean_MSE": 29.884708404541016,
+              "scalar_mean_MSE": 41.61396408081055,
+              "official_minus_scalar": -11.729255676269531,
+              "relative_reduction_percent": -39.248352426578336
+            },
+            "postwarp_residual": {
+              "calls": [
+                67,
+                68
+              ],
+              "official_mean_MSE": 29.273694038391113,
+              "scalar_mean_MSE": 41.3366641998291,
+              "official_minus_scalar": -12.062970161437988,
+              "relative_reduction_percent": -41.207543351440215
+            },
+            "velocity": {
+              "calls": [
+                67,
+                68
+              ],
+              "official_mean_MSE": 0.061385706067085266,
+              "scalar_mean_MSE": 0.051846543326973915,
+              "official_minus_scalar": 0.009539162740111351,
+              "relative_reduction_percent": 15.539713316462455
+            }
+          }
+        }
+      ],
+      "descriptive_state_comparison": {
+        "prewarp_residual": {
+          "old_all_recorded_points_descriptive_only": {
+            "calls": [
+              15,
+              16,
+              29,
+              30,
+              45,
+              46,
+              67,
+              68
+            ],
+            "official_mean_MSE": 64.37258768081665,
+            "scalar_mean_MSE": 50.41388654708862,
+            "official_minus_scalar": 13.958701133728027,
+            "relative_reduction_percent": 21.684231808328857
+          },
+          "own_all_four_registered_points": {
+            "calls": [
+              45,
+              46,
+              67,
+              68
+            ],
+            "official_mean_MSE": 34.58926200866699,
+            "scalar_mean_MSE": 33.12928295135498,
+            "official_minus_scalar": 1.4599790573120117,
+            "relative_reduction_percent": 4.22090259383443
+          },
+          "old_same_calls": {
+            "calls": [
+              45,
+              46,
+              67,
+              68
+            ],
+            "official_mean_MSE": 39.229159355163574,
+            "scalar_mean_MSE": 37.257638454437256,
+            "official_minus_scalar": 1.9715209007263184,
+            "relative_reduction_percent": 5.025651666091124
+          },
+          "own_same_calls": {
+            "calls": [
+              45,
+              46,
+              67,
+              68
+            ],
+            "official_mean_MSE": 34.58926200866699,
+            "scalar_mean_MSE": 33.12928295135498,
+            "official_minus_scalar": 1.4599790573120117,
+            "relative_reduction_percent": 4.22090259383443
+          }
+        },
+        "postwarp_residual": {
+          "old_all_recorded_points_descriptive_only": {
+            "calls": [
+              15,
+              16,
+              29,
+              30,
+              45,
+              46,
+              67,
+              68
+            ],
+            "official_mean_MSE": 62.63614249229431,
+            "scalar_mean_MSE": 49.61345648765564,
+            "official_minus_scalar": 13.022686004638672,
+            "relative_reduction_percent": 20.791008970963954
+          },
+          "own_all_four_registered_points": {
+            "calls": [
+              45,
+              46,
+              67,
+              68
+            ],
+            "official_mean_MSE": 33.7676043510437,
+            "scalar_mean_MSE": 33.154441833496094,
+            "official_minus_scalar": 0.6131625175476074,
+            "relative_reduction_percent": 1.8158306736043461
+          },
+          "old_same_calls": {
+            "calls": [
+              45,
+              46,
+              67,
+              68
+            ],
+            "official_mean_MSE": 38.07658243179321,
+            "scalar_mean_MSE": 36.93763780593872,
+            "official_minus_scalar": 1.1389446258544922,
+            "relative_reduction_percent": 2.991194464195124
+          },
+          "own_same_calls": {
+            "calls": [
+              45,
+              46,
+              67,
+              68
+            ],
+            "official_mean_MSE": 33.7676043510437,
+            "scalar_mean_MSE": 33.154441833496094,
+            "official_minus_scalar": 0.6131625175476074,
+            "relative_reduction_percent": 1.8158306736043461
+          }
+        },
+        "velocity": {
+          "old_all_recorded_points_descriptive_only": {
+            "calls": [
+              15,
+              16,
+              29,
+              30,
+              45,
+              46,
+              67,
+              68
+            ],
+            "official_mean_MSE": 0.04747237032279372,
+            "scalar_mean_MSE": 0.03442288178484887,
+            "official_minus_scalar": 0.013049488537944853,
+            "relative_reduction_percent": 27.488596944313905
+          },
+          "own_all_four_registered_points": {
+            "calls": [
+              45,
+              46,
+              67,
+              68
+            ],
+            "official_mean_MSE": 0.03741657850332558,
+            "scalar_mean_MSE": 0.03373895259574056,
+            "official_minus_scalar": 0.003677625907585025,
+            "relative_reduction_percent": 9.82886745579411
+          },
+          "old_same_calls": {
+            "calls": [
+              45,
+              46,
+              67,
+              68
+            ],
+            "official_mean_MSE": 0.04851845512166619,
+            "scalar_mean_MSE": 0.03270425018854439,
+            "official_minus_scalar": 0.0158142049331218,
+            "relative_reduction_percent": 32.59420542856459
+          },
+          "own_same_calls": {
+            "calls": [
+              45,
+              46,
+              67,
+              68
+            ],
+            "official_mean_MSE": 0.03741657850332558,
+            "scalar_mean_MSE": 0.03373895259574056,
+            "official_minus_scalar": 0.003677625907585025,
+            "relative_reduction_percent": 9.82886745579411
+          }
+        }
+      },
+      "existing_endpoint": {
+        "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+        "WC_LPIPS": 0.3895237147808075,
+        "W1_LPIPS": 0.2942650584123468,
+        "WC_minus_W1": 0.0952586563684607,
+        "relative_improvement_percent": 24.4551622285859,
+        "improved_frames": 93,
+        "tied_frames": 0,
+        "degraded_frames": 0,
+        "frames_are_independent_samples": false
+      },
+      "same_video_sha256": "0acb13fd17e89ae8f0b2a351972aa2bc82be600e36f73253487d30e9451e31a2"
+    }
+  ],
+  "same_call_different_state_and_history_not_single_variable_intervention": true,
+  "branch_MSE_not_actual_CFG_combined_error": true,
+  "CFG_error_cross_inner_product_missing": true,
+  "phasewise_feature_error_sign_not_endpoint_label": true,
+  "three_exposed_scenes_not_independent_confirmation": true,
+  "GPU_submissions": 0,
+  "new_teacher_observations": 0,
+  "LPIPS_rescored": false
+}
