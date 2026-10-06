@@ -1,0 +1,43 @@
+{
+  "identity": "WC_W1_FIVE_NATIVE_REFERENCE_COST_PROXY_R1_20261006",
+  "status": "COMPLETE_FIVE_REFERENCE_PROXY_NOT_HARD_BOUND_OR_GPU_AUTHORIZATION",
+  "source_archive_sha256": "64792ea6b2c41bdd0a516d17fe9b048c747495f139507eb027bcddd1b0be5049",
+  "source_path": "reports/wc_fair_cal_r1_runner_20261004.json.gz",
+  "observed_native35": [
+    {
+      "scene": "common_sense_6487f37f-ef57-49ca-afdc-d898922b5191",
+      "pipeline_wall_seconds": 321.2620124258101,
+      "solver_steps": 36,
+      "CFG_calls": 72,
+      "scope": "FAIR14 clean ordinary Native35 pipeline; seen two CAL scenes, not missing five timings"
+    },
+    {
+      "scene": "human_199",
+      "pipeline_wall_seconds": 324.248206066899,
+      "solver_steps": 36,
+      "CFG_calls": 72,
+      "scope": "FAIR14 clean ordinary Native35 pipeline; seen two CAL scenes, not missing five timings"
+    }
+  ],
+  "observed_load_seconds": 99.81026225257665,
+  "planned_new_reference_phases": 5,
+  "nominal_seconds": 1743.5858084843494,
+  "nominal_formula": "5*mean(two observed Native35 pipeline walls)+observed_load+30 flush/planning proxy",
+  "stress_seconds": 2626.5769388806075,
+  "stress_formula": "5*max(two observed walls)*1.5+observed_load*1.5+45 flush proxy",
+  "candidate_inclusive_cap_seconds": 3600,
+  "child_timeout_candidate_seconds": 3570,
+  "kill_grace_candidate_seconds": 5,
+  "nominal_headroom_seconds": 1856.4141915156506,
+  "stress_headroom_seconds": 973.4230611193925,
+  "model_asset_validation_CPU_outside_GPU_reservation": "Separate preflight; actual bound/receipt must be part of production card, no GPU context",
+  "is_upper_bound": false,
+  "new_five_scene_cost_known": false,
+  "repeat_or_bridge_extra_GPU_generation_planned": false,
+  "all_failures_flush_import_loading_counted_in_actual_GPU_charge": true,
+  "CPU_full_decode_and_LPIPS_after_GPU_release": true,
+  "cumulative_cap_gpu_hours": 24,
+  "GPU_execution_selected": false,
+  "execution_scope_authority": null,
+  "old_failed_cost_reset": false
+}

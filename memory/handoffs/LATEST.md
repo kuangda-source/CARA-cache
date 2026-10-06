@@ -1,3 +1,11 @@
+## 2026-10-06 W1五参考完整核心实际CPU通过，下一生产入口
+
+[136新进展](../../research/136_WC_W1_FIVE_NATIVE_REFERENCE_CORE_AND_CPU.md)：R2/source ddc6d48独立148文件、三个步骤exit0/29.561秒；两完整五参考CPU批次接受/拒绝5/0与3/2，九非text请求各36/72且全深层，旧cache forward从未执行、异常钩子/开关恢复通过。16scope/8生成拒绝，真实Native类及原8请求/setup仅两变更导入通过；453原件SHA与4CPU句柄退出独立核对。MockWriter非视频/codec证据，真实模型/权重/CUDA未运行，新GPU/真实视频0。
+
+R1缺guardrail_observation依赖的25.156秒失败保留；递归闭包确认另缺protocol，R2只补两旧模块，核心不改，复用R1已通过资产/scope而不重跑B。五参考费用名义1743.586/压力2626.577秒非硬界，3600总/3570child只候选；原五索引0/3/4/5/7和8/7/1保持，不重跑旧WC/W1或补拒绝robot。下一独立生产CLI/监督限时与预算/终态审计/全帧CPU评分及实际门，还有实质准备可做，goal active；GPUauthority空，不能凭核心CPU通过提交。
+
+W3-B四交换/2父16后缀10输出、9600范围答复仍待，不重复问。旧B/R1源、旧结果判据和失败费用保持；现场B授权/输出与W1真实输出不存在，预算SHA保持12.99974633233337/24GPUh、47jobs无inflight。当前设计仍[确认窗口v4.0](../../plans/WORLD_CACHE_CONFIRMATION_WINDOW_20261006.md)，以下为历史。
+
 ## 2026-10-06 当前窗口：W3 双证据线与 W1 终点补齐，目标恢复 active
 
 以[计划 v4.0](../../plans/WORLD_CACHE_CONFIRMATION_WINDOW_20261006.md)和[135 新进展](../../research/135_WC_UPDATED_CONFIRMATION_DESIGN_AND_CPU_PROGRESS.md)为当前入口，以下 blocked/旧队列条目保留历史。直接用户要求“根据最新对话和文档更新实验设计，并继续推进”；已完成完整来源读取、CPU 原件计数/诊断成本和有界 W1 参考清单，新 GPU 范围答复仍待。

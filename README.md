@@ -1,5 +1,7 @@
 # WorldCache 实验：2026-10-06 当前入口
 
+最新：[W1 五参考完整核心实际 CPU 已通过](research/136_WC_W1_FIVE_NATIVE_REFERENCE_CORE_AND_CPU.md)，148冻结文件、453原件SHA与来源/完整生成夹具核对通过；缺依赖的首轮失败保留。GPU生产入口/监督与评分接线下一步，尚无新真实参考或GPU费用。
+
 继续 WorldCache，当前优先 **W3 关键干预与 W1 终点确认**。新设计见[确认窗口 v4.0](plans/WORLD_CACHE_CONFIRMATION_WINDOW_20261006.md)，本轮实际进展见[135 报告](research/135_WC_UPDATED_CONFIRMATION_DESIGN_AND_CPU_PROGRESS.md)，执行队列见[下一步](research/09_NEXT_ACTIONS.md)。以下旧“在运行”和旧预算条目均为历史。
 
 已有正信号：官方缓存本地加速1.476–1.602×；W1 两个匹配开发场景全帧 LPIPS 降低7.87%/7.99%；W3 Human 刷新后失真少2.81%，后缀完整调用18→16。本轮 CPU 原件回查明确该数包含干预当次：当前多算一次、未来少三次；诊断控制耗时中位数少6.481秒。它支持继续研究，尚未证明新方法的干净部署速度和泛化。
