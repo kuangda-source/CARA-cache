@@ -1,5 +1,12 @@
 ## 2026-10-06 W1五参考完整核心实际CPU通过，下一生产入口
 
+## 2026-10-06 获批W1五参考唯一启动，真实结果待验收
+
+[138执行](../research/138_WC_W1_APPROVED_FIVE_REFERENCE_EXECUTION_AND_RESULTS.md)：selected实际门12.158秒/exit0、160文件/source2ae0e90与R2原件绑定通过。原supervisor2956439/timeout2956518/runner2956519现场存活，GPU实际PID2956519；当前初始化加载。3600总/3570child/kill5，child截止北京时间2026-10-06T18:51:19.386435+08:00，只跟踪原run和句柄，不改payload或重启。
+
+已预付3600秒，账本13.99974633233337/24h、第48job/inflight；旧12.99974633233337/47jobs保留，实际结算尚待。完整五参考/原8/7/1和全帧评分分母不变，未有新视频/W1收益，目标active。另一W3-B范围仍未自动获准。以下为历史。
+
+
 ## 2026-10-06 W1完整五参考卡获直接批准，唯一执行3600秒
 
 [138批准与执行](../research/138_WC_W1_APPROVED_FIVE_REFERENCE_EXECUTION_AND_RESULTS.md)：用户“允许”按最近W1五参考具体问题绑定，目标active。完整五索引0/3/4/5/7、原8/7/1和旧WC/W1/两Native保持，3600总/3570child/kill5计入原累计24。selected160文件仅配置/批准差异，R2生产CPU与全部源码保持；另一W3-B9600卡范围不自动获准。
