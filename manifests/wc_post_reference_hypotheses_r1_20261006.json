@@ -1,0 +1,161 @@
+{
+  "identity": "WC_POST_REFERENCE_NEXT_MEASUREMENT_DESIGN_R1_20261006",
+  "registered_UTC": "2026-10-06T10:35:33.563434+00:00",
+  "status": "NEXT_DIAGNOSTIC_DESIGN_PREREGISTERED_NOT_PRODUCTION_READY_OR_GPU_AUTHORIZED",
+  "known_results_before_registration": {
+    "CAL_reference_completed": [
+      5,
+      5,
+      0
+    ],
+    "original_denominator": [
+      8,
+      7,
+      1
+    ],
+    "paired_scenes": 7,
+    "improved_degraded_tied": [
+      4,
+      3,
+      0
+    ],
+    "equal_scene_mean_LPIPS_reduction_percent": 0.43876051535982746,
+    "observed_log_schedule_disagreements_misc_AV51": [
+      14,
+      16
+    ]
+  },
+  "source_files": [
+    {
+      "path": "reports/wc_w1_native_reference_full93_lpips_cpu_r1_20261006.json",
+      "sha256": "de7416fc071fef41147d78d324799cfc142276addec3cbea34426ba300da2ba5"
+    },
+    {
+      "path": "reports/wc_w1_native_reference_final_original_native_audit_20261006.json",
+      "sha256": "d3fbab1893f4a289cdbd4353f92728d9a23c8d87e64a5c3b2523fc89f9ae7771"
+    },
+    {
+      "path": "reports/wc_w1_native_reference_metric_alignment_20261006.json",
+      "sha256": "ad7685d19d339fe59364d178ee2d801c22f9d9cb6d4d2f1c028f519f512768a2"
+    },
+    {
+      "path": "reports/wc_w1_existing_replay_conditions_exploratory_20261006.json",
+      "sha256": "ea873347ab5d1dcfe59a1b334f501078671132a7e336d828049b418efade943b"
+    },
+    {
+      "path": "manifests/wc_confirmation_hypotheses_r1_20261006.json",
+      "sha256": "8b1deaa1d5a22bea0d235c5a2511beefd48f2403335c4882303206cda09ebed8"
+    },
+    {
+      "path": "plans/WORLD_CACHE_CONFIRMATION_WINDOW_20261006.md",
+      "sha256": "c8483adebecdb0321875ddd736ee90d95e10b4bcff97375a415c01149699c1bc"
+    },
+    {
+      "path": "plans/WORLD_CACHE_POST_REFERENCE_WINDOW_20261006.md",
+      "sha256": "3e43cf451b8bc4e46a77e4174a8b46f851c9894277f0b4b719479bff4d1ee8b6"
+    }
+  ],
+  "old_results_and_criteria_preserved": true,
+  "future_measurement": {
+    "name": "W1_OWN_TRAJECTORY_SAME_STATE_SHADOW_DIAGNOSIS",
+    "scenes": [
+      "misc_13398218_3840_2160_60fps",
+      "av_51b45829-502e-4143-9c32-c026bd6ab191",
+      "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632"
+    ],
+    "selection": "TWO_KNOWN_CAL_LARGE_NEGATIVES_PLUS_KNOWN_POSITIVE_CONTROL_NOT_INDEPENDENT_CONFIRMATION",
+    "seed": 0,
+    "fixed_CFG_calls": [
+      45,
+      46,
+      67,
+      68
+    ],
+    "scene_count": 3,
+    "within_scene_teacher_observations": 4,
+    "CFG_pair_rule": "BOTH_BRANCHES_SAME_ACTUAL_SOLVER_INPUT_WITHOUT_SEPARATE_SOLVER_ADVANCE",
+    "scalar_and_schedule": "ORIGINAL_FROZEN_SCALAR_PARAMETERS_AND_ORIGINAL_PER_SCENE_FIXED_MASK_UNCHANGED",
+    "compared_outputs_same_actual_candidate_state": [
+      "official_WC_approximation",
+      "W1_scalar_approximation",
+      "full_teacher"
+    ],
+    "teacher_not_written_into": [
+      "deployment_cache",
+      "calibration",
+      "latent",
+      "solver_history",
+      "future_actions"
+    ],
+    "non_interference_controls": [
+      "per_call_forward_output_hash",
+      "cache_and_calibration_end_hash",
+      "72_call_trace",
+      "video_and_pipeline_identity_against_old_shadow_OFF"
+    ],
+    "aggregation": "FIRST_WITHIN_SCENE_SIGNED_LOCAL_ERRORS_THEN_SCENE_ROWS_NOT_12_INDEPENDENT_VIDEOS",
+    "interpretation_if_own_state_local_worse": "SUPPORTS_CHECKING_CALIBRATION_TRANSFER_OR_CANDIDATE_STATE_MISMATCH_NOT_UNIQUE_PROOF",
+    "interpretation_if_own_state_local_better_endpoint_worse": "SUPPORTS_CHECKING_PROPAGATION_ERROR_DIRECTION_OR_OBJECTIVE_ALIGNMENT_NOT_UNIQUE_PROOF",
+    "all_three_required_to_improve": false,
+    "LPIPS_equals_physics_quality": false,
+    "formal_RV_training_labels": false,
+    "conditional_next_variant": "AFTER_DIAGNOSIS_AND_B_CHOOSE_AT_MOST_ONE_FIXED_ADAPTIVE_SCHEDULE_SHRINK_OR_SIMPLE_FALLBACK_VARIANT_NO_SCENE_LIST_ROUTE_FITTING",
+    "tentative_paper_cap_seconds": 1800,
+    "production_cost_scope_source_binding_complete": false,
+    "GPU_execution_authority": null
+  },
+  "W3_B": {
+    "keep_original_four_swaps_and_controls": true,
+    "separate_9600_second_card_permission_pending": true,
+    "must_not_use_W1_approval_for_B": true,
+    "A_and_B_are_complementary_not_single_direction_gate": true
+  },
+  "budget_snapshot": {
+    "batch": "F0-F1",
+    "cap_gpu_hours": 24,
+    "used_gpu_hours": 13.504302792026298,
+    "gpu_jobs_launched": 48,
+    "status": "W1_NATIVE_REFERENCE_SETTLED_REQUIRES_RESULT_AUDIT",
+    "gpu_import_probes_completed": 1,
+    "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts",
+    "budget_authorization_ref": "manifests/budget_authorization_20261005_wc_24gpuh.json",
+    "budget_authorization_history": [
+      {
+        "authorized_utc": "2026-10-02T18:03:00Z",
+        "source_thread_id": "01a0f1e6-7ad0-75df-9a02-172b60d2e00b",
+        "user_instruction": "把各个实验的 gpu 预算都设置为 12gpuh",
+        "previous_cap_gpu_hours": 4,
+        "new_cumulative_cap_gpu_hours": 12,
+        "used_gpu_hours_at_change": 3.9117525685110333,
+        "no_usage_reset_or_transfer": true
+      },
+      {
+        "authorized_utc": "2026-10-04T06:13:36Z",
+        "source_thread_id": "01a0f1e6-7ad0-75df-9a02-172b60d2e00b",
+        "user_message_id": "Sentinel_861e63a87d8c819180ec9a8bcfa6dc92",
+        "user_instruction": "允许增加 GPUh",
+        "previous_cap_gpu_hours": 12,
+        "new_cumulative_cap_gpu_hours": 13,
+        "used_gpu_hours_at_change": 11.022315686839217,
+        "gpu_jobs_launched_at_change": 45,
+        "no_usage_reset_or_transfer": true,
+        "authorization_ref": "manifests/budget_authorization_20261004_wc_13gpuh.json"
+      },
+      {
+        "authorized_on_local": "2026-10-05",
+        "user_instruction": "批准 WC-W3-SMALL-CD-R1-20261004-A，把累计 gpuh 限制提升到 24",
+        "previous_cap_gpu_hours": 13,
+        "new_cumulative_cap_gpu_hours": 24,
+        "used_gpu_hours_at_change": 11.022315686839217,
+        "gpu_jobs_launched_at_change": 45,
+        "no_usage_reset_or_transfer": true,
+        "authorization_ref": "manifests/budget_authorization_20261005_wc_24gpuh.json",
+        "approved_card": "WC-W3-SMALL-CD-R1-20261004-A",
+        "single_run_cap_seconds": 3900
+      }
+    ]
+  },
+  "GPU_submissions": 0,
+  "new_teacher_observations": 0,
+  "human_review_requested": false
+}

@@ -1,5 +1,14 @@
 # WorldCache 实验：2026-10-06 当前入口
 
+## 2026-10-06 W1五参考完整完成：4改善/3退化，当前进入条件诊断
+
+[138完整结果](research/138_WC_W1_APPROVED_FIVE_REFERENCE_EXECUTION_AND_RESULTS.md)：获批原五Native全接受，21视频完整93帧解码、14对CPU FP32 LPIPS及356项原生SHA/六句柄退出核验通过；原8/7/1分母保持。七可配对场景4改善/3退化，均值0.410505→0.408704，仅降低0.4388%；AV28/Common/Human/physics改善24.46/7.87/7.99/8.82%，industry/misc/AV51退化2.23/19.09/16.11%。旧两例分数完全复现，旧MUSIQ/VQA混合结果、拒绝、失败费用均保留；未证明稳定质量—速度优势，不否定整个方向。
+
+唯一GPU source2ae0e90/exit0，实际1816.403秒=0.50455646h；累计13.504302792/24GPUh、第48job、无inflight，GPU/PID/f1锁已释放。新CPU评分不计GPU加速。完整W1批准已执行，不重启该卡或重复同源检查。
+
+[当前v4.1计划](plans/WORLD_CACHE_POST_REFERENCE_WINDOW_20261006.md)：优先原W3-B2父/16后缀/10输出/四交换9600秒卡，实际CPU保持，具体GPU范围仍待其单独直接答复，不扩大本次W1“允许”。W1暂不直接扩CONF/分组/训练；已有日志分歧14/16仅探索性线索，[下一自身轨迹同状态shadow设计](manifests/wc_post_reference_hypotheses_r1_20261006.json)登记misc/AV51负例+AV28正对照、原参数/mask、calls45/46/67/68；实现/费用与独立执行批准尚待，新增teacher数据0。A/B互补、不用单阈值否定方向、不新增非必要人评。总体goal未完成，后续等待原B范围答复；以下条目是历史。
+
+
 ## 2026-10-06 W1完整五参考卡获直接批准，唯一执行3600秒
 
 [138批准与执行](research/138_WC_W1_APPROVED_FIVE_REFERENCE_EXECUTION_AND_RESULTS.md)：用户“允许”按最近W1五参考具体问题绑定，目标active。完整五索引0/3/4/5/7、原8/7/1和旧WC/W1/两Native保持，3600总/3570child/kill5计入原累计24。selected160文件仅配置/批准差异，R2生产CPU与全部源码保持；另一W3-B9600卡范围不自动获准。
