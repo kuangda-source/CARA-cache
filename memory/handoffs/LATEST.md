@@ -1,5 +1,11 @@
 ## 2026-10-06 W1五参考完整核心实际CPU通过，下一生产入口
 
+## 2026-10-06 自动恢复后的第一轮范围回查
+
+系统goal已恢复active；本次自动续接不是直接人类范围批准，旧blocked三轮计数不复用，新的阻塞审计计数为1。[服务器当前只读回查](../../reports/wc_confirmation_scope_revalidated_resume1_20261006.json)确认B/W1授权与真实输出均不存在，原R2 CPU八句柄均退出，非verified wait；预算仍12.99974633233337/24、47jobs、无inflight，SHA未变。上一轮为实质进展（生产CPU/原件/GitHub准备完成），本轮只有同一门槛的现场重验，记no progress。
+
+必要准备已完成，无获准新GPU任务，不重复CPU、不重启原件、不新增旁支或人评。既有B9600/W1五参考3600具体范围问题继续待答，不重复询问；答复到达后绑定该卡原CPU/source与selected配置，再fresh资源/锁/预算执行，另一卡不自动获准。以下为前轮历史。
+
 ## 2026-10-06 五参考生产卡实际CPU通过，具体GPU范围待确认
 
 [137最新进展](../../research/137_WC_W1_FIVE_NATIVE_REFERENCE_PRODUCTION_AND_CPU.md)：完整W1卡生成/监督费用结算/终态审计/全帧CPU评分已接齐；R2/source064e6c0、159文件、七步exit0/23.507秒，21合同拒绝、3实际CPU子进程监督/失败记账场景、真实Native/原五请求/setup仅两变更通过。独立原件766SHA/15CPU句柄退出；无真实模型/新视频/CUDA。R1 /tmp不足4GiB的夹具失败保留，只迁临时CPU目录到数据盘，生产源与磁盘门不改。
