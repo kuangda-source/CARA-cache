@@ -1,3 +1,9 @@
+## 2026-10-06 W1三场景唯一运行启动，真实诊断结果待验收
+
+[141执行](141_WC_W1_OWN_STATE_APPROVED_EXECUTION_AND_RESULTS.md)：已获直接批准的1800秒卡sourceaa379cb/selected182文件/CPU12.460秒门通过，原supervisor2975499/timeout2975518/runner2975520存活，当前初始化。1800总/1770child/kill5，child截止北京时间2026-10-06T20:22:17.898257+08:00；只跟踪原stage/run，不重提或更改在跑payload。
+
+已单次预付1800秒，累计暂记14.004302792/24h、第49job/inflight，非实际最终费用；旧13.504302792/48jobs保持。三个原mask/scalar、四calls和3/12分母不改，当前真实视频/teacher/收益尚待。待终态实费/原件/释放和全93RGB身份及signed诊断审计；goal active，W3-B范围未自动批准。以下为历史。
+
 ## 2026-10-06 W1三场景1800秒卡获直接批准，目标恢复active
 
 [141批准与执行](141_WC_W1_OWN_STATE_APPROVED_EXECUTION_AND_RESULTS.md)：最新human“允许”绑定最近WC-W1-OWN-STATE-SHADOW-R1-20261006-A，完整misc/AV51/AV28、原mask/scalar、calls45/46/67/68、三视频/12同状态观测；1800总/1770child/kill5计入原24h。selected182文件只配置/批准差异，R3实际CPU/原件和生产源码不改，不重跑Toy。W3-B9600范围不自动获准，旧问题不重问。

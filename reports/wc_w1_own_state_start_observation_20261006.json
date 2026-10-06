@@ -1,0 +1,91 @@
+{
+  "status": "READONLY_OBSERVATION_ORIGINAL_APPROVED_OWN_STATE_RUN",
+  "observed_unix": 1791287595.8975651,
+  "source_revision": "aa379cb14e087fbbf61e45fc45d3619e1e8dfc7b",
+  "original_pids": [
+    {
+      "pid": 2975499,
+      "exists_now": true
+    },
+    {
+      "pid": 2975518,
+      "exists_now": true
+    },
+    {
+      "pid": 2975520,
+      "exists_now": true
+    }
+  ],
+  "supervisor": {
+    "status": "GPU_W1_THREE_OWN_STATE_SCENES_RUNNING",
+    "pid": 2975499,
+    "child_pid": 2975518,
+    "child_started_unix": 1791287567.8982575
+  },
+  "runner": {
+    "pid": 2975520,
+    "started_unix": 1791287579.9517398,
+    "status": "INITIALIZING",
+    "planned_scenes": 3,
+    "planned_observations": 12,
+    "CUDA_initialized": false
+  },
+  "cases": [],
+  "budget": {
+    "batch": "F0-F1",
+    "cap_gpu_hours": 24,
+    "used_gpu_hours": 14.004302792026298,
+    "gpu_jobs_launched": 49,
+    "status": "OWN_STATE_PREPAID_NOT_ACTUAL",
+    "gpu_import_probes_completed": 1,
+    "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts",
+    "budget_authorization_ref": "manifests/budget_authorization_20261005_wc_24gpuh.json",
+    "budget_authorization_history": [
+      {
+        "authorized_utc": "2026-10-02T18:03:00Z",
+        "source_thread_id": "01a0f1e6-7ad0-75df-9a02-172b60d2e00b",
+        "user_instruction": "\u628a\u5404\u4e2a\u5b9e\u9a8c\u7684 gpu \u9884\u7b97\u90fd\u8bbe\u7f6e\u4e3a 12gpuh",
+        "previous_cap_gpu_hours": 4,
+        "new_cumulative_cap_gpu_hours": 12,
+        "used_gpu_hours_at_change": 3.9117525685110333,
+        "no_usage_reset_or_transfer": true
+      },
+      {
+        "authorized_utc": "2026-10-04T06:13:36Z",
+        "source_thread_id": "01a0f1e6-7ad0-75df-9a02-172b60d2e00b",
+        "user_message_id": "Sentinel_861e63a87d8c819180ec9a8bcfa6dc92",
+        "user_instruction": "\u5141\u8bb8\u589e\u52a0 GPUh",
+        "previous_cap_gpu_hours": 12,
+        "new_cumulative_cap_gpu_hours": 13,
+        "used_gpu_hours_at_change": 11.022315686839217,
+        "gpu_jobs_launched_at_change": 45,
+        "no_usage_reset_or_transfer": true,
+        "authorization_ref": "manifests/budget_authorization_20261004_wc_13gpuh.json"
+      },
+      {
+        "authorized_on_local": "2026-10-05",
+        "user_instruction": "\u6279\u51c6 WC-W3-SMALL-CD-R1-20261004-A\uff0c\u628a\u7d2f\u8ba1 gpuh \u9650\u5236\u63d0\u5347\u5230 24",
+        "previous_cap_gpu_hours": 13,
+        "new_cumulative_cap_gpu_hours": 24,
+        "used_gpu_hours_at_change": 11.022315686839217,
+        "gpu_jobs_launched_at_change": 45,
+        "no_usage_reset_or_transfer": true,
+        "authorization_ref": "manifests/budget_authorization_20261005_wc_24gpuh.json",
+        "approved_card": "WC-W3-SMALL-CD-R1-20261004-A",
+        "single_run_cap_seconds": 3900
+      }
+    ],
+    "wc_w1_own_state_inflight": {
+      "run_id": "wc-w1-own-state-shadow-r1",
+      "supervisor_pid": 2975499,
+      "reserved_seconds": 1800
+    }
+  },
+  "monitor_tail": ": []}\n{\"unix\": 1791287578.6440225, \"uuid\": \"GPU-cebf7119-cf03-23b9-e192-cd196332b704\", \"name\": \"NVIDIA RTX A6000\", \"memory_used_mib\": 24, \"compute_cap\": \"8.6\", \"pids\": []}\n{\"unix\": 1791287580.7809262, \"uuid\": \"GPU-cebf7119-cf03-23b9-e192-cd196332b704\", \"name\": \"NVIDIA RTX A6000\", \"memory_used_mib\": 24, \"compute_cap\": \"8.6\", \"pids\": []}\n{\"unix\": 1791287582.9449928, \"uuid\": \"GPU-cebf7119-cf03-23b9-e192-cd196332b704\", \"name\": \"NVIDIA RTX A6000\", \"memory_used_mib\": 24, \"compute_cap\": \"8.6\", \"pids\": []}\n{\"unix\": 1791287585.0568745, \"uuid\": \"GPU-cebf7119-cf03-23b9-e192-cd196332b704\", \"name\": \"NVIDIA RTX A6000\", \"memory_used_mib\": 24, \"compute_cap\": \"8.6\", \"pids\": []}\n{\"unix\": 1791287587.1882632, \"uuid\": \"GPU-cebf7119-cf03-23b9-e192-cd196332b704\", \"name\": \"NVIDIA RTX A6000\", \"memory_used_mib\": 24, \"compute_cap\": \"8.6\", \"pids\": []}\n{\"unix\": 1791287589.3442502, \"uuid\": \"GPU-cebf7119-cf03-23b9-e192-cd196332b704\", \"name\": \"NVIDIA RTX A6000\", \"memory_used_mib\": 24, \"compute_cap\": \"8.6\", \"pids\": []}\n{\"unix\": 1791287591.4745436, \"uuid\": \"GPU-cebf7119-cf03-23b9-e192-cd196332b704\", \"name\": \"NVIDIA RTX A6000\", \"memory_used_mib\": 24, \"compute_cap\": \"8.6\", \"pids\": []}\n{\"unix\": 1791287593.6089203, \"uuid\": \"GPU-cebf7119-cf03-23b9-e192-cd196332b704\", \"name\": \"NVIDIA RTX A6000\", \"memory_used_mib\": 24, \"compute_cap\": \"8.6\", \"pids\": []}\n{\"unix\": 1791287595.8019757, \"uuid\": \"GPU-cebf7119-cf03-23b9-e192-cd196332b704\", \"name\": \"NVIDIA RTX A6000\", \"memory_used_mib\": 24, \"compute_cap\": \"8.6\", \"pids\": []}\n",
+  "generation_log_tail": "[10-06 19:53:01|INFO|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/packages/cosmos-oss/cosmos_oss/init.py:96:_init_log_files] Log saved to /home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-w1-own-state-shadow-r1/diagnostic/console.log\n[10-06 19:53:06|INFO|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/_src/imaginaire/utils/checkpoint_db.py:171:path] Downloading checkpoint nvidia/Cosmos-Guardrail1(9c7b7da4-2d95-45bb-9cb8-2eed954e9736)\n[10-06 19:53:06|INFO|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/_src/imaginaire/utils/checkpoint_db.py:131:_download] Downloading checkpoint from Hugging Face with {'repo_id': 'nvidia/Cosmos-Guardrail1', 'repo_type': 'model', 'revision': 'd6d4bfa899a71454a700907664f3e88f503950cf', 'allow_patterns': ['*']}\n",
+  "supervisor_launch_log_tail": "gpu_jobs_launched_at_change\": 45, \"no_usage_reset_or_transfer\": true, \"authorization_ref\": \"manifests/budget_authorization_20261004_wc_13gpuh.json\"}, {\"authorized_on_local\": \"2026-10-05\", \"user_instruction\": \"\\u6279\\u51c6 WC-W3-SMALL-CD-R1-20261004-A\\uff0c\\u628a\\u7d2f\\u8ba1 gpuh \\u9650\\u5236\\u63d0\\u5347\\u5230 24\", \"previous_cap_gpu_hours\": 13, \"new_cumulative_cap_gpu_hours\": 24, \"used_gpu_hours_at_change\": 11.022315686839217, \"gpu_jobs_launched_at_change\": 45, \"no_usage_reset_or_transfer\": true, \"authorization_ref\": \"manifests/budget_authorization_20261005_wc_24gpuh.json\", \"approved_card\": \"WC-W3-SMALL-CD-R1-20261004-A\", \"single_run_cap_seconds\": 3900}]}, \"new_GPU_authority_verified\": true}\n",
+  "GPU_submissions": 0,
+  "remote_writes": 0,
+  "actual_gpu": "GPU-cebf7119-cf03-23b9-e192-cd196332b704, 24, 0",
+  "actual_compute_apps": []
+}

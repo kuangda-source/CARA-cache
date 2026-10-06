@@ -21,3 +21,9 @@
 本卡必须通过每场景旧W1 OFF的全部72输出、cache/校准、trace、pipeline/decoder/video/93RGB身份桥，才能将对应同状态teacher观测解释为有效诊断并复用旧终点LPIPS。保留负值/零值/缺失；不要求三个场景全改善。CPU MockWriter和小网络不是实际视频、真实28层teacher或新质量结果。
 
 实际GPU终态后先费用/三原句柄/f1锁/释放/源审计，再全93帧原件身份核对和三场景signed局部汇总。当前旧W1七场景4改善/3退化和平均LPIPS0.4388%保持；本轮真实视频、teacher、速度/质量结果尚未产生。后续结果将按原件补充本报告。
+
+## 唯一启动现场
+
+selected实际CPU门exit0/12.459729秒；source `aa379cb14e087fbbf61e45fc45d3619e1e8dfc7b`，生产182文件与R3原CPU绑定通过。[启动回读](../reports/wc_w1_own_state_start_observation_20261006.json)确认supervisor2975499、timeout2975518、runner2975520三原句柄存活，runner正在INITIALIZING。child截止北京时间 `2026-10-06T20:22:17.898257+08:00`；1800总/1770child/kill5保持，不能从观察超时重提。GPU上下文尚未初始化时不把PID存活称为已产生teacher或科学结果。
+
+已单次预付1800秒，累计暂记14.004302792/24GPUh、第49job、`wc_w1_own_state_inflight`；旧13.504302792/48jobs保持，实际结算尚待。只观察原stage/原run；没有重跑fixture、扩大新scope或使用另一GPU。
