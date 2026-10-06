@@ -118,7 +118,7 @@ def supervisor_checks(stage,config,budget):
     supervisor=load(stage/'scripts/supervise_w1_native_references.py','w1_supervisor_cpu_integration')
     real_popen=supervisor.subprocess.Popen;results=[]
     for scenario in ['ordinary_CPU_child','spawn_failure','foreign_GPU_observation_stop_own_CPU_child']:
-        with tempfile.TemporaryDirectory(prefix='w1-supervisor-CPU-') as directory:
+        with tempfile.TemporaryDirectory(prefix='w1-supervisor-CPU-',dir=stage) as directory:
             project=Path(directory);(project/'.sync').mkdir();(project/'reports').mkdir()
             (project/'runtime').mkdir();(project/'reports/budget.json').write_text(json.dumps(budget))
             selected=project/'.sync/selected';selected.mkdir();(selected/'native-prod-config.json').write_text(json.dumps(config))
@@ -148,7 +148,7 @@ def supervisor_checks(stage,config,budget):
             if (after['gpu_jobs_launched']!=budget['gpu_jobs_launched']+1
                     or any(k.endswith('_inflight') for k in after)
                     or abs(after['used_gpu_hours']-budget['used_gpu_hours']-result['wall_seconds']/3600)>1e-12):
-                raise RuntimeError('Real supervisor failed inclusive CPU failure/exit settlement')
+                raise RuntimeError('Real supervisor failed inclusive CPU failure/exit settlement: '+str(result))
             if scenario=='ordinary_CPU_child' and result['exit_code']!=0:raise RuntimeError('Ordinary CPU child failed')
             if scenario=='spawn_failure' and (result['stop_reason']!='SUPERVISOR_ERROR' or result['child_pid'] is not None):
                 raise RuntimeError('Spawn failure lost its durable state')
