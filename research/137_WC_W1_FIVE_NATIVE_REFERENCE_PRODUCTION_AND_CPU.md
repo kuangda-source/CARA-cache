@@ -1,5 +1,20 @@
 # 137｜W1 五参考完整执行、结算与全帧评分准备
 
+当前：**完整五参考卡的实际服务器 CPU 准备通过，尚无新 GPU 运行或新科研结果。**
+
+源 `064e6c0` 的 R2 独立 stage `.sync/wc-w1-native-reference-production-cpu-r2-20261006` 共159文件，七步 exit0、23.507秒：实际源/资产12.158秒、合同与监督结算0.369秒、真实Native/实际五请求和setup导入10.604秒、四生产入口help通过。[实际CPU回执](../reports/wc_w1_native_reference_production_actual_cpu_r2_20261006.json)原件SHA `ec7f5ca66d708df44598621d3dbc919792961b5b7d3bbd0f37631db175b1623d`；真实生成模型/权重张量/CUDA未执行。
+
+[独立原件审计](../reports/wc_w1_native_reference_production_cpu_audit_r2_20261006.json)从服务器标准库核对766项原生SHA，原15个CPU句柄全部退出，21合同拒绝与3监督CPU集成场景重读原log；R1失败159文件、核心148、旧B136及最早R1核心146均保持。原GPU账本仍12.99974633233337/24h、47jobs、无inflight，W1/B新授权和真实输出不存在。预算SHA未变，新GPU费0。
+
+[R1 CPU失败](../reports/wc_w1_native_reference_production_actual_cpu_r1_20261006.json)原件保留，13.279秒/exit1：先通过源/资产13.010秒，再在监督临时夹具的磁盘门退出；[只读诊断](../reports/wc_w1_native_reference_production_cpu_r1_diagnosis_20261006.json)发现 `/tmp` 余2558431232字节，不足4GiB，而真实数据盘余557978615808字节。R2只将CPU临时目录移至独立stage所在数据盘并增强失败报错，生产生成/监督/审计/评分/核心源码不改，未放宽磁盘准入。它属于CPU夹具文件系统条件不匹配，不是W1方法或真实GPU失败；旧控制未重复执行。
+
+[最新具体配置](../configs/wc_w1_native_reference_production_r2_draft_20261006.json)与[冻结清单](../manifests/wc_w1_native_reference_production_cpu_r2_20261006.json)已可审阅。拟执行完整五参考、3600秒总/3570 child/kill5，上限1GPUh计入现有累计24；CPU准入规划另30秒从纸面机动池扣，机动余量由4785.913调整为4755.913秒（1.321087h），不增加GPU预付或累计上限。CPU能力准备完成，不由CPU通过、预算余额或自动续接推定新卡批准。W3-B 9600秒具体范围答复仍待，不重复提报。
+
+已核对原始恢复请求及随后两个自动续接，共三个连续goal轮次；W3-B同一具体范围确认一直未到达。两卡必要源码/实际CPU/原件准备现已完成，[范围阻塞审计](../manifests/wc_confirmation_scope_blocked_audit_20261006.json)记录新的三轮计数，不沿用旧blocked计数。此时缺的是直接范围答复，不是预算耗尽、资源不足或方向被否定；目标未完成，准备结束后申请blocked并停止重复CPU/新增实验准备。确认任一具体卡后按该卡继续，另一卡不自动获准。
+
+以下保留源冻结时的准备记录。
+
+
 2026-10-06；生产源冻结阶段：本机 CPU 通过，实际服务器 CPU 下一步。没有新 GPU 或科研结果。
 
 按[确认窗口 v4.0](../plans/WORLD_CACHE_CONFIRMATION_WINDOW_20261006.md)，完整卡 `WC-W1-NATIVE-REFERENCE-CAL8-R1-20261006-A` 只补五个原索引0/3/4/5/7的 Native35，不重跑旧 WC/W1、不替换被拒 robot，原8/7/1分母保持；已有两匹配参考复用。3600秒总上限、3570 child、kill5，CPU前置准入规划30秒另从纸面机动余量扣，预付只3600秒；费用代理1743.586/2626.577秒不能作为硬界。加载、失败、输出与释放进入实际费用，CPU全93帧解码/LPIPS在释放后。本卡仍未获独立GPU范围批准。

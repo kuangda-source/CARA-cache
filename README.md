@@ -1,5 +1,14 @@
 # WorldCache 实验：2026-10-06 当前入口
 
+## 2026-10-06 五参考生产卡实际CPU通过，具体GPU范围待确认
+
+[137最新进展](research/137_WC_W1_FIVE_NATIVE_REFERENCE_PRODUCTION_AND_CPU.md)：完整W1卡生成/监督费用结算/终态审计/全帧CPU评分已接齐；R2/source064e6c0、159文件、七步exit0/23.507秒，21合同拒绝、3实际CPU子进程监督/失败记账场景、真实Native/原五请求/setup仅两变更通过。独立原件766SHA/15CPU句柄退出；无真实模型/新视频/CUDA。R1 /tmp不足4GiB的夹具失败保留，只迁临时CPU目录到数据盘，生产源与磁盘门不改。
+
+新W1完整五参考3600总/3570child/kill5，上限1h，原8/7/1、旧两Native/WC/W1视频复用、不补拒绝robot；最多7场景14个loss，缺失不填零、负结果保留、不要求7/7全赢。累计仍12.99974633233337/24h、47jobs无inflight；纸面CPU准入30秒从机动池扣而不提高cap。W3-B 2父16后缀10输出/四交换9600范围答复仍待，W1新卡范围也须独立确认；全部必要准备完成后不得用重复CPU或自动续接代替范围批准。以下active条目是准备阶段历史。
+
+已核对原始恢复请求及随后两个自动续接，共三个连续goal轮次；W3-B同一具体范围确认一直未到达。两卡必要源码/实际CPU/原件准备现已完成，[范围阻塞审计](manifests/wc_confirmation_scope_blocked_audit_20261006.json)记录新的三轮计数，不沿用旧blocked计数。此时缺的是直接范围答复，不是预算耗尽、资源不足或方向被否定；目标未完成，准备结束后申请blocked并停止重复CPU/新增实验准备。确认任一具体卡后按该卡继续，另一卡不自动获准。
+
+
 最新：[W1 五参考完整核心实际 CPU 已通过](research/136_WC_W1_FIVE_NATIVE_REFERENCE_CORE_AND_CPU.md)，148冻结文件、453原件SHA与来源/完整生成夹具核对通过；缺依赖的首轮失败保留。GPU生产入口/监督与评分接线下一步，尚无新真实参考或GPU费用。
 
 继续 WorldCache，当前优先 **W3 关键干预与 W1 终点确认**。新设计见[确认窗口 v4.0](plans/WORLD_CACHE_CONFIRMATION_WINDOW_20261006.md)，本轮实际进展见[135 报告](research/135_WC_UPDATED_CONFIRMATION_DESIGN_AND_CPU_PROGRESS.md)，执行队列见[下一步](research/09_NEXT_ACTIONS.md)。以下旧“在运行”和旧预算条目均为历史。
