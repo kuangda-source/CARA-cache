@@ -1,5 +1,12 @@
 ## 2026-10-06 W1五参考完整核心实际CPU通过，下一生产入口
 
+## 2026-10-06 W1完整五参考卡获直接批准，唯一执行3600秒
+
+[138批准与执行](../research/138_WC_W1_APPROVED_FIVE_REFERENCE_EXECUTION_AND_RESULTS.md)：用户“允许”按最近W1五参考具体问题绑定，目标active。完整五索引0/3/4/5/7、原8/7/1和旧WC/W1/两Native保持，3600总/3570child/kill5计入原累计24。selected160文件仅配置/批准差异，R2生产CPU与全部源码保持；另一W3-B9600卡范围不自动获准。
+
+fresh初观测既有WorldCache GPU空闲24MiB/无计算进程，数据盘充足；当前尚未GPU提交。下一selected实际CPU门与supervisor fresh资源/锁/账本一次准入、唯一完整五参考、实际结算/独立终态/全93帧CPU评分。旧blocked、旧结果判据和费用保持为历史，不重复批准或Toy。
+
+
 ## 2026-10-06 恢复后连续三轮范围缺失，重新满足blocked条件
 
 [新阻塞审计](../manifests/wc_confirmation_scope_reblocked_audit_20261006.json)仅计本次恢复后的三个goal轮次，不沿用旧计数；三轮均为no progress（同一范围门槛重验），不是在途任务的verified wait。当前直接范围答复仍未到达，B/W1授权与真实输出都不存在；原R2 CPU八句柄退出，账本仍12.99974633233337/24、47jobs无inflight、SHA未变。

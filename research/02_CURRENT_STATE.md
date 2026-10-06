@@ -1,5 +1,12 @@
 ## 2026-10-06 W1五参考完整核心实际CPU通过，下一生产入口
 
+## 2026-10-06 W1完整五参考卡获直接批准，唯一执行3600秒
+
+[138批准与执行](../research/138_WC_W1_APPROVED_FIVE_REFERENCE_EXECUTION_AND_RESULTS.md)：用户“允许”按最近W1五参考具体问题绑定，目标active。完整五索引0/3/4/5/7、原8/7/1和旧WC/W1/两Native保持，3600总/3570child/kill5计入原累计24。selected160文件仅配置/批准差异，R2生产CPU与全部源码保持；另一W3-B9600卡范围不自动获准。
+
+fresh初观测既有WorldCache GPU空闲24MiB/无计算进程，数据盘充足；当前尚未GPU提交。下一selected实际CPU门与supervisor fresh资源/锁/账本一次准入、唯一完整五参考、实际结算/独立终态/全93帧CPU评分。旧blocked、旧结果判据和费用保持为历史，不重复批准或Toy。
+
+
 ## 2026-10-06 五参考生产卡实际CPU通过，具体GPU范围待确认
 
 [137最新进展](137_WC_W1_FIVE_NATIVE_REFERENCE_PRODUCTION_AND_CPU.md)：完整W1卡生成/监督费用结算/终态审计/全帧CPU评分已接齐；R2/source064e6c0、159文件、七步exit0/23.507秒，21合同拒绝、3实际CPU子进程监督/失败记账场景、真实Native/原五请求/setup仅两变更通过。独立原件766SHA/15CPU句柄退出；无真实模型/新视频/CUDA。R1 /tmp不足4GiB的夹具失败保留，只迁临时CPU目录到数据盘，生产源与磁盘门不改。
