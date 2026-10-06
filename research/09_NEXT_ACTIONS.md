@@ -2,7 +2,7 @@
 
 [140生产与CPU](140_WC_W1_OWN_STATE_PRODUCTION_CARD_AND_CPU.md)及[具体卡](../plans/WORLD_CACHE_OWN_STATE_DIAGNOSTIC_CARD_20261006.md)：misc/AV51/AV28、原mask/scalar、calls45/46/67/68保持；完整生成/旧72输出与缓存/校准/pipeline/decoder/video/93RGB身份桥、监督费用、终态及有符号汇总接齐。R3/sourcef68bac4、181文件、七步exit0/14.969秒，完整六CPU pipeline/12模拟观测、13scope费用+9身份/异常拒绝、三真实CPU子进程监督与三个原typed请求通过；720 native SHA及14原CPU句柄退出核验通过。旧13核心与8fixture不重跑，R1依赖缺失/R2夹具source定位失败及安全拒绝本地覆盖均保留。新真实模型/视频/teacher/GPU=0，CPU不作科学收益。
 
-新卡WC-W1-OWN-STATE-SHADOW-R1-20261006-A已具体可审阅，名义946.767/压力1420.151秒非硬界，候选1800总/1770child/kill5、最大0.5h；GPU未选/authority空，须独立直接scope答复后fresh准入唯一运行。原五Native批准已完整消耗；W3-B9600范围问题待答且不重复。账本SHA保持13.504302792/24h、48jobs无inflight；W1旧4改善/3退化、原v4.1登记/判据/失败费用保持，不扩训练/人评。目标active，本轮实质进展，不把准备完成当科学完成；没有同源CPU或无关旁支可重复。以下历史。
+新卡WC-W1-OWN-STATE-SHADOW-R1-20261006-A已具体可审阅，名义946.767/压力1420.151秒非硬界，候选1800总/1770child/kill5、最大0.5h；GPU未选/authority空，须独立直接scope答复后fresh准入唯一运行。新卡独立范围问题已一次提报、答复未到不重复；原五Native批准已完整消耗，W3-B9600旧范围问题也不重复。账本SHA保持13.504302792/24h、48jobs无inflight；W1旧4改善/3退化、原v4.1登记/判据/失败费用保持，不扩训练/人评。目标active，本轮实质进展，不把准备完成当科学完成；没有同源CPU或无关旁支可重复。以下历史。
 
 ## 2026-10-06 W1自身轨迹同状态核心已接线，实际CPU通过
 
