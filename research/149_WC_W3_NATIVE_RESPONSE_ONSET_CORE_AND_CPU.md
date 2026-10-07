@@ -67,3 +67,9 @@ post-CPU3115990实际存活，冻结source/binding SHA和原3115400/3115418句�
 2026-10-07 23:20–23:22本地时区现场只读核对：原supervisor3115400/runner3115418仍在source a8dd451的独立selected-r3运行。父前缀已22更新/44CFG；OFF1完整后缀14更新/28CFG完成，原生视频guard通过并保存第一段MP4，OFF2开始。仍须父最终36更新/72CFG、其余九后缀、其余五视频、完整重复/恢复/字节桥及CPU评分，不能将首视频保存称为整批完成或新保真收益。
 
 [现场原件](../reports/wc_w3_native_response_onset_r3_live_off1_20261007.json)同时保存GPU进程/trace/预算及postCPU现场。冻结postCPU3115990、真实continue.py路径、原始driver/binding和审计/评分源SHA均一致，仍WAITING、评分步骤0；无新增GPU提交。已结算17.494939750/24GPUh、54jobs保持，第55job在途保护预留至24不代表实际花完。此前GitHub服务端临时错误已恢复，执行代码和启动/早期采样回执66eec6b已成功推送。
+
+## 两条OFF重放实际一致与历史视频字节桥
+
+2026-10-07 23:28:50现场只读捕获：OFF1/OFF2均完成14更新/28CFG。输入、输出、深层执行、缓存banks、求解器输出、最终latent、65/67/69响应边界、完整终态组件和动作报告九项原始比较全部严格相同，两个record均记载parent_restored true。OFF1实际文件SHA/大小与冻结历史官方WC相同（SHA4d0f0549…dde982fb）。原supervisor3115400/runner3115418及postCPU3115990实际命令核对存活，FIXED61_first已开始；原postCPU等待、零评分步骤。
+
+[实际只读检查](../reports/wc_w3_native_response_onset_r3_off_repeat_live_20261007.json)绑定[原字节在途快照](../reports/wc_w3_native_response_onset_r3_off_repeat_snapshot_native_20261007.json.gz)，原receipt SHAac507fca…9374de0；本地从原件重新计算九项比较，与回执逐项一致。此仅证明已完成的两个OFF重复和历史视频桥；父仍只有22更新前缀，其余8后缀/5视频、完整响应门与评分尚待。新科学收益未知，预算最近结算17.494939750/24h保持，无新增GPU或评分提交。两份终态只读取回脚本已准备，尚未产生终态结果或改在跑代码。
