@@ -53,3 +53,9 @@ actual selected CPU门12.126459秒通过，source `5143d464faebeaeffad7a9500b048
 服务器第58job在途，used=24为持锁预留剩余余额，非实际耗尽；最近已结算18.991453711h/57jobs保持，结束按全wall实际结算。goal active，只观察三个当前原句柄，不扩大训练、稀疏或人评。
 
 [实际selected门](../reports/wc_w3_d46_r3_selected_preflight_native_20261008.json) · [唯一R3提交](../reports/wc_w3_d46_fresh_seeds_r3_gpu_launch_20261008.json) · [真实PID/HF环境/GPU](../reports/wc_w3_d46_r3_gpu_start_live_20261008.json) · [CPU接续](../reports/wc_w3_d46_r3_postrun_cpu_launch_20261008.json) 。
+
+## 已通过初始化并进入真实Native采样
+
+最新原现场：模型86.212327秒加载完成，seed1 Native35已通过prompt guardrail，实际生成日志到1/36更新。原3224687/3224830存活且匹配stage/source/HF环境，目标GPU上的compute PID为原runner；CPU3225754仍只等待原GPU，零评分。真实首条父生成已开始，两个旧入口故障已解决；完整两seed卡及后缀、视频、全93帧质量/成本结论仍未完成。过程中durable Native计数只在阶段边界保存，不能把当前回执的0计数当作日志已发生采样不存在。
+
+[真实Native采样现场](../reports/wc_w3_d46_r3_actual_native_sampling_20261008.json)。仅跟踪runR3三个原句柄，保持运行源不变，继续完成后缀和自动CPU审计/评分；累计费用最终按原监督回执结算，当前第58job在途预留不是已花24h。

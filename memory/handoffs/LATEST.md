@@ -1,3 +1,7 @@
+## 2026-10-08 D46新seed复验已进入真实Native采样
+
+[151实际现场](../../research/151_WC_W3_D46_FRESH_SEEDS_APPROVED_EXECUTION_AND_RESULTS.md)：source5143d46/run wc-w3-d46-fresh-seeds-r3，模型86.212327秒加载完成，seed1 Native prompt guard通过、实际采样1/36。原supervisor3224687/runner3224830/CPU等待driver3225754保持；两个旧初始化/延迟导入失败已退出、0视频，实费0.085173945h保留。当前完整2Native+2WC父/12后缀/10视频/两signed尚未完成，无新终点收益。已结算18.991453711/24h、57jobs；第58job在途24为预留非花完，root budget为最近结算原件，结束实际结算。goal active，仅观察这三个原句柄/source/stage，自动等待GPU成功退出/释放后全93审计与评分，不重启已消耗身份，不改在跑源，不扩训练/稀疏/人评；用户本卡>2h批准保持。
+
 ## 2026-10-08 D46同一批准卡的完整依赖R3已实际运行
 
 [151执行记录](../../research/151_WC_W3_D46_FRESH_SEEDS_APPROVED_EXECUTION_AND_RESULTS.md)：R1缓存路径遗漏与R2 Native延迟导入缺依赖均采样前exit1，0视频，两次全费0.085173945h保留。缓存/实际Blocklist/Native函数延迟导入/29模块闭包的独立CPU32.152926秒通过，selected12.126459秒通过；source5143d46保持。当前run wc-w3-d46-fresh-seeds-r3，supervisor3224687/runner3224830真实CLI/正确HF环境/目标GPU确认，24514MiB加载中。CPU driver3225754仅等这两个原GPU成功结束/退出释放再全93审计评分，零评分。完整科学scope R1的2Native+2WC父/12后缀/10视频/两signed保持；已结算18.991453711/24h、57jobs，第58job在途24为预留非花完，结束实际结算。goal active，用户本卡批准有效，不重启旧R1/R2或CPU/评分、不改在跑源、不扩训练/稀疏/人评。下面blocked/旧running/修复待为历史。
