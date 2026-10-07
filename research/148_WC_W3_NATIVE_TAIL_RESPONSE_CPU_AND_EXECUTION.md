@@ -1,6 +1,36 @@
-# WC-W3 Native Tail Response：受影响CPU验证与完整执行
+# WC-W3 Native Tail Response：完整结果、费用与下一步
 
-更新于2026-10-07。**继续WorldCache/W3。上一R2已有一对固定配额位置交换的终点保真正结果；本轮已完成新接口和实际生产CPU验证，唯一GPU卡在跑，新尾部响应的科学结果仍待。**
+更新于2026-10-07。**继续WorldCache/W3。本轮完整GPU及独立CPU验收、全93帧评分均已结束：61/63的晚尾部响应有条件化保真修复，46/48多刷新没有获益。下一步区分原生响应起点，不训练Head或增加人评。** 原1父/10后缀/6视频/2比较完整执行；后文启动与部分进展均为当时快照。
+
+## 本轮发现及研究价值
+
+同Human199/seed0、同真实状态和已登记交换，只允许69/70响应原生建议。两CFG完整调用数、两个重复的控制wall和全部93帧损失如下；正数表示TAIL比FIXED更接近Native35。
+
+| 固定交换 | FIXED→TAIL平均LPIPS | 相对保真改善 | 改善/退化帧 | 全程完整调用：FIXED→TAIL | 两重复平均后缀wall：FIXED→TAIL |
+|---|---|---|---|---|---|
+| 46/48，CFG1 | 0.418610629→0.419341935 | −0.1747% | 30/63 | 20/18→21/18 | 285.051541→288.187152秒（+3.135610秒，+1.1000%） |
+| 61/63，CFG0 | 0.668307815→0.610756127 | +8.6116% | 93/0 | 20/18→21/19 | 285.432808→291.754034秒（+6.321226秒，+2.2146%） |
+
+**61/63说明尾部固定政策确实参与退化：只改变69/70的真实动作即可改善终点。它提供了可进一步区分的机制信号；不是新调度方法已优于原WorldCache。** 原WC的LPIPS为0.424745424，61/63的TAIL仍高43.7935%；只修复了FIXED相对原WC额外失真的23.6291%，未修复大部分。46/48的TAIL相对原WC仍改善1.2722%，但比同交换的FIXED稍差，新增完整计算没有自动变成保真收益。两种质量/成本取舍和全部负值保留。
+
+这一结论来自一个已曝光CAL场景、一个seed；93帧反映视频内覆盖，不是93个独立样本。LPIPS是对原生参考的保真，物理、语义、绝对质量仍未独立确认。后缀wall含诊断核查开销，不能据此给生产端到端加速结论。本轮不生成单动作RV标签，不宣称同预算、在线部署或独立CONF。
+
+## 完整验收、原件与成本
+
+唯一GPU原source9c321b5658a28502937ed28e1526ad067de48b16保持。1父36更新/72CFG、10完整后缀和6原管线视频全部完成，全部五组重复的输入/输出/deep/bank/求解器、pre69完整状态/CFG历史、最终latent/组件/动作与恢复通过；FIXED/TAIL在69前完整状态及首调用输入相同。父/OFF与官方WC、两个FIXED与R2视频真实SHA字节桥均通过。实际独立CPU核验6新+4历史视频全93帧解码、源闭包、实际费用和GPU释放。
+
+GPU exit0；CPU终态审计26.376084秒/评分52.985816秒均exit0。五个原GPU/CPU句柄3089695、3089728、3090203、3107971、3108135均退出，目标GPU24MiB/noapps、共享锁释放。评分CUDA未初始化：三组已有损失经相同候选/Native SHA、逐帧协议验证复用，只新增两个TAIL的93帧评分；五损失/两signed全部完成。原件与独立重算分别见：
+
+- [GPU原生回执及实费](../reports/wc_w3_native_tail_response_gpu_terminal_capture_20261007.json)、[完整runner原件](../reports/wc_w3_native_tail_response_runner_terminal_native_20261007.json.gz)、[轨迹与费用重建](../reports/wc_w3_native_tail_response_gpu_raw_and_cost_independent_analysis_20261007.json)。
+- [CPU终态审计](../reports/wc_w3_native_tail_response_terminal_audit_native_20261007.json)、[五损失及两signed评分](../reports/wc_w3_native_tail_response_lpips_score_native_20261007.json)、[独立有符号及修复比例重算](../reports/wc_w3_native_tail_response_independent_score_analysis_20261007.json)、[原句柄退出与CPU回执](../reports/wc_w3_native_tail_response_cpu_terminal_capture_20261007.json)。
+
+实际GPU全wall4234.404501秒=1.176223473GPUh，包括加载/执行/清理，完整范围未削减。累计17.445531256/24GPUh、52jobs、无GPU在途，余6.554468744h；服务器退回未用预留，仓库根budget已复制实际服务器原字节，SHAea3dfdf559107ea1a396ddfd9bda6c03e78e6b351343c365bd72a2fec648a853。旧失败费用与旧秒数规则历史保持，当前≤2h自主、>2h询问整卡例外的用户约定继续有效。
+
+## 结果后的低成本区分
+
+真实动作记录显示，61/63原mask为C61/D63，交换后为D61/C63，即提前刷新61而跳过63；不是延后刷新。FIXED61在65–68也记录原生建议D，但实际仍执行C；本轮只在69/70释放建议。不能把剩余退化唯一归因于初始交换或晚尾段，也不能由这些建议直接推断提前释放必然有利。
+
+下一[v5.3原生响应起点安排](../plans/WORLD_CACHE_NATIVE_RESPONSE_ONSET_WINDOW_20261007.md)与[独立H-T36登记](../manifests/wc_w3_native_response_onset_r1_preregistration_20261007.json)将比较65、67、69起点，固定共同61/63交换及64以前动作，后续计算次数允许变化并全计费。保留当前FIXED61和LATE69字节桥、原WC/Native参考、全部重复/状态/失败分母；旧H-T35及以上结果不改。原始[已曝光决策记录CPU分析](../reports/wc_w3_native_tail_response_existing_policy_trace_analysis_20261007.json)与新登记绑定；新完整规划1.911160444h≤2，新源、受影响CPU及实际生产准入尚待，下一GPU未提交。已有设计内≤2h继续自主推进，若完整估计>2h只询问该新完整卡。goal active，不复跑已完成本卡、旧CPU或旧评分；重大方向及训练仍讨论。
 
 ## 发现与本轮要区分的问题
 
