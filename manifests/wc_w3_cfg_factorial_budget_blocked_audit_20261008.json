@@ -1,0 +1,57 @@
+{
+  "status": "THIRD_CONSECUTIVE_CUMULATIVE_BUDGET_BLOCKER_AUDIT_PASSED_GOAL_BLOCKED",
+  "audited_unix": 1791415393.578032,
+  "card": "WC-W3-CFG-FACTORIAL-R1-20261008-A",
+  "run_id": "wc-w3-cfg-factorial-r1",
+  "request_ref": "manifests/wc_w3_cfg_factorial_cumulative_budget_request_20261008.json",
+  "request_sha256": "0784389d69da634665aaa503fc7ae34b5439ccac72a3f4dc4bc5397e017bb4b6",
+  "same_blocker": "Whole forecast exceeds original24GPUh remaining and no direct cumulative extension received",
+  "consecutive_turns": 3,
+  "turns": [
+    {
+      "sequence": 1,
+      "classification": "progress",
+      "evidence": "Original paired full result and independent reconstruction completed; complete factorial CPU preparation/source/score resource verification completed; concrete24to25 request first presented",
+      "request_created_unix": 1791415176.5900748
+    },
+    {
+      "sequence": 2,
+      "classification": "no_progress",
+      "live_budget_used_GPUh": 22.314242424184147,
+      "live_cap_GPUh": 24,
+      "live_jobs": 59,
+      "live_inflight": false,
+      "new_GPU_output_exists": false,
+      "five_prior_CPU_PIDs_absent": true,
+      "direct_budget_extension_received": false
+    },
+    {
+      "sequence": 3,
+      "classification": "no_progress",
+      "observed_unix": 1791415375.2685757,
+      "live_budget_used_GPUh": 22.314242424184147,
+      "live_cap_GPUh": 24,
+      "live_jobs": 59,
+      "live_inflight": false,
+      "new_GPU_output_exists": false,
+      "five_prior_CPU_PIDs_absent": true,
+      "direct_budget_extension_received": false
+    }
+  ],
+  "single_card_forecast_GPUh": 1.994372555851781,
+  "remaining_GPUh": 1.6857575758158525,
+  "required_CPU_preparation_complete": true,
+  "waiting_on_live_process": false,
+  "no_new_GPU_or_CPU_launch": true,
+  "no_criterion_or_forecast_relaxation": true,
+  "next_safe_action": "Receive explicit cumulative budget decision; then selected/source and fresh admission under complete card. Do not shrink controls or rerun consumed identities.",
+  "goal_status": "blocked",
+  "blocked_threshold": 3,
+  "blocked_threshold_satisfied": true,
+  "prior_second_audit_ref": "manifests/wc_w3_cfg_factorial_budget_pending_audit_20261008.json",
+  "prior_second_audit_sha256": "de26337dba17db5a256c077159330d68cb14bc4529d1417d0cac536d21258583",
+  "all_available_authorized_preparation_completed": true,
+  "no_new_live_handle_to_wait": true,
+  "goal_tool_updated_unix": 1791415393,
+  "goal_tool_receipt_ref": "reports/wc_w3_cfg_factorial_goal_blocked_receipt_20261008.json"
+}
