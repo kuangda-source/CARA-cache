@@ -1,3 +1,9 @@
+## 2026-10-07 原生响应起点R3已进入实际采样
+
+[149接口与执行](research/149_WC_W3_NATIVE_RESPONSE_ONSET_CORE_AND_CPU.md)：具体callable/AST/真实context接受拒绝/恢复/216源的实际CPU68.373400秒、selected12.257327秒通过。科学scope R1保持，执行独立R3，source a8dd451；supervisor3115400/runner3115418现场CLI/目标GPU确认，load75.516691秒/CUDA true、prompt guard通过，实际父采样9/36。该进度只属父，完整1父10后缀6视频两比较未完成、没有新科学结果。
+
+postCPU3115990 source/binding/原GPU句柄已现场验证，WAITING/零评分，将仅在原GPU成功结束/释放后按冻结代码完成全93视频/损失/计费审计。已结算17.494939750/24h、54jobs；新第55job在途预留余额至24非实际花完，根budget为最近结算原件，完整预测1.911160444h≤2。两失败原件和0.049408494h全费保留，不重启旧卡/CPU/评分；goal active，仅观察当前三个句柄与source，不改在跑源/增加训练/稀疏/人评。以下旧running/pending/noinflight为历史。
+
 ## 2026-10-07 独立恢复在生成前context门槛退出；修正生产绑定
 
 [149实际回执](research/149_WC_W3_NATIVE_RESPONSE_ONSET_CORE_AND_CPU.md)：R2已真实加载模型/CUDA，但执行身份误用为冻结科学上下文前缀，在采样前exit1，父/后缀/视频均0。3113526/3113545/postCPU3113976均退出；postCPU拒绝失败GPU、零评分。全wall142.003551秒保留，累计17.494939750/24h、54jobs/noinflight，目标24MiB/noapps、锁释放，旧运行不重启。已有H-T35科学结果不变，新H-T36尚无科学结果。

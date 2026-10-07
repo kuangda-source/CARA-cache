@@ -1,4 +1,4 @@
-# W3原生响应起点：新接口与受影响CPU验证
+# W3原生响应起点：接口修复、实际CPU与执行
 
 2026-10-07；接续已完成[148真实尾部响应结果](148_WC_W3_NATIVE_TAIL_RESPONSE_CPU_AND_EXECUTION.md)。上一轮完整GPU、终态审计和五终点损失均已结束，原句柄不重启。本轮依[v5.3计划](../plans/WORLD_CACHE_NATIVE_RESPONSE_ONSET_WINDOW_20261007.md)和[事前H-T36登记](../manifests/wc_w3_native_response_onset_r1_preregistration_20261007.json)比较共同61/63交换后65/67/69起点的原生响应，不扩训练、稀疏或人评。
 
@@ -55,3 +55,9 @@ R2已实际完成模型加载（90.983788秒、CUDA true），但生成前contex
 新R3技术恢复只修正生产上下文构造：执行目录runR3，科学上下文用原scope R1；六核心源不变。生产CPU新增调用真实核心至context通过后的受控停止点，分别验证接受/拒绝和完整状态恢复，两个flow接口均不调用forward/solver/生成/解码/写出；此前已完成的三组采样不重跑。原GPU两次失败计费保持，完整scope/成本/指标/历史桥不变，等待新CPU/selected及唯一资源准入。
 
 R3上下文修复的实际生产CPU sourcecf42bfb、68.373400秒/四步exit0、216源及九上游/预算不变，独立原件捕获通过。两个flow共四次实际核心早期门槛（正确上下文接受、错误上下文拒绝）及完整状态恢复通过；受控停止于apply_worldcache入口，forward/solver/生成/解码/写出均未发生，没有重跑旧CPU采样。具体入口/AST检查、16范围/计费/评分复用拒绝、source/reference/import也通过；CUDA未初始化，driver及四children退出。下一唯一R3 selected/fresh资源准入，原两次GPU失败合计0.049408494h继续保留。
+
+## 当前R3实际采样进度
+
+source a8dd451、独立selected-r3与wc-w3-native-response-onset-r3；实际selected预检12.257327秒与fresh锁/目标A6000/54jobs账本准入通过。supervisor3115400/runner3115418的原命令、source/stage及目标GPU进程现场确认，模型加载75.516691秒/CUDA true，prompt guard通过，实际父采样9/36步。此9/36只属于父进度；完整1父/10后缀/6视频/两终点比较尚未完成，尚无新科学结果。JSON请求初始保存时calls0、日志actual9/36都保留，不把旧标量INITIALIZING等同于当前未采样。
+
+post-CPU3115990实际存活，冻结source/binding SHA和原3115400/3115418句柄核对，当前WAITING、零审计/评分步骤；只有原GPU成功exit0/源/计费/释放符合才执行全6新+4参考解码、五Native损失（3同SHA协议复用+2新）/两signed及真实成本。旧R2post失败也保留。已结算17.494939750/24h、54jobs，根budget为该原件；服务器第55job预留余额至24代表在途保护、非实际花完。本卡完整规划1.911160444h，单次2GPUh/累计24保持，前两次失败全费0.049408494h不清零。
