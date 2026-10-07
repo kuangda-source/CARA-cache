@@ -66,3 +66,9 @@ OFF1经原decode/guardrail/write接受，1100497字节/SHA4d0f0549…982fb与历
 [首OFF与R2逐字段核查](../reports/wc_w3_native_tail_response_first_off_prior_R2_raw_audit_20261007.json)保留两个未相等项：28次输入只有名为gt_frames的kwarg摘要变化；终态组件只有solver._internal_dict摘要变化。输出、deep、缓存bank、全部求解器输出、最终latent、实际动作及动作报告均相等。冻结官方前向AST仅读取kwargs.get('timestep_scale')，不读取gt_frames，见[原始源读取](../reports/wc_w3_native_tail_response_cross_batch_source_read_20261007.jsonl)。旧_internal_dict未保存完整内容，具体变化原因UNKNOWN；安装的ConfigMixin以set差集生成默认值列表，仅提供顺序差异候选，不能据此宣布实际原因。
 
 此附加跨批次检查最初的全字段等同断言，以及后续错误预期“kwargs零读取”的断言均失败，原件如实保留；实际只读一次timestep_scale已定位。它们发生在附加本地/只读核查，没有停止GPU、改变冻结源或追认失败通过。历史字节桥和本轮内部十一类严格重放已各自通过；不降低本轮完整状态、输入或重复检查，也不声称跨批次全部元数据相同。
+
+## 第一组真实尾部动作响应已观察到，质量及完整验收待
+
+现场1791377033，两条46/48的first后缀及视频均完成。FIXED和TAIL在69前的1216状态组件、自身CFG历史，以及45–68的全部输入/输出/deep/bank和截至34更新的求解器输出严格相等。实际动作差别只在69：完整调用从20/18变为21/18。TAIL视频1158781字节、SHAc7bcf0fb…4d89cc已走原管线接受；固定视频保持登记R2字节桥。[真实first原件](../reports/wc_w3_native_tail_response_first_pair46_checkpoint_native_20261007.json.gz)和[逐项核查](../reports/wc_w3_native_tail_response_first_pair46_audit_20261007.json)保持。
+
+首次FIXED/TAIL后缀wall分别284.969187/288.071981秒，原解码/安全/编码wall分别22.077804/21.631558秒，全部如实记账。这里只有一个first，第二重复、全父和余下61/63对照仍待；不据这两个时间给速度结论，不提前运行终点评分。当前证据说明预登记的真实自身状态响应确实只改变了允许尾部动作，不能据视频大小或SHA变化判断质量。
