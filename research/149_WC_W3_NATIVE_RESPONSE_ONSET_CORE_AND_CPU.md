@@ -41,3 +41,5 @@ source d728afa的独立R2已exit0，driver3110803/child3110804均退出，CPU整
 R1已进入监督计费，但在模型加载前因生产GPU入口导入run_native_onset_causal_batch（实际名称为run_native_response_causal_batch）退出1。此前CPU模块导入未检查具体GPU分支调用符号，这是生产检查遗漏。没有初始化CUDA/父轨迹/后缀/视频/评分；不得算作方向或方法负结果。3112329/3112346均已退出，目标24MiB/noapps、锁释放；全wall35.867029秒=0.009963064GPUh已计入，累计17.455494320/24h、53jobs、noinflight，账本按服务器原字节同步。原失败源、原回执、日志与释放/计费独立审计保存，不重启R1或覆盖其目录。post-CPU未提交。
 
 修复仅更新三个生产文件：正确的具体函数导入及调用、CPU callable/AST绑定检查、独立恢复run身份。六份已经验收的核心源不改，不重跑其CPU采样。独立技术恢复登记绑定原失败原SHA与全费用，保留H-T36原科学scope/prereg1父10后缀6视频两比较，使用wc-w3-native-response-onset-r2执行目录；新完整成本仍约1.911160444h。需要新实际生产四步CPU/selected/fresh锁资源预算后才能执行。
+
+修复后的独立生产CPU source1a19ed9实际54.132049秒/四步骤exit0，具体函数导入与两个分支AST绑定检查、同六核心源/三旧同SHA损失、完整scope/计费/参考/资源原件核对以及独立捕获通过。215文件、CUDA未初始化/预算不变、原driver及四children退出；仅生产检查，未重复旧CPU采样。下一R2 selected与freshGPU准入，完整1父10后缀6视频两比较保持。
