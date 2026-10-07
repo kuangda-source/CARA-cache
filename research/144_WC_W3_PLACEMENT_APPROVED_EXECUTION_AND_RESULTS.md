@@ -15,3 +15,7 @@ selected实际门exit0、12.068214秒、140源闭包及直接批准核验通过�
 本卡独占期间余额10.251235326h暂时全部财务预留，因此账本used字段暂为24h、第50job/inflight，status明确是reserved而非实际花完；原已结算13.748764674h保持。结束后根据实际耗时退回未使用余额。此财务预留不是估计本卡要花10h或预算耗尽。没有旧9600秒截止；仅保留累计预算和共享资源保护。
 
 下一跟踪原PIDs/receipt/log/视频；终态后按实费、源/重复/同CFG配额/10视频完整93帧/释放核验，再执行六损失与四signed交换评分。模型正常初始化和进程健康都不是科学结果，当前尚未端点保真/速度结论。
+
+## First real generation observation
+
+Observed Unix1791354353.410098: original supervisor3026351 and runner3026368 are live and still bind the unchanged stage/source. Actual network MinimalV1LVGDiT loaded in86.682397 seconds; CUDA initialized and the original runner owns the designated GPU. First Common parent generation has started (1/36 updates shown in its log). No suffix control or new video is complete yet. This is verified live generation, not evidence of placement benefit. See [native observation](../reports/wc_w3_placement_first_generation_observation_20261007.json). Continue monitoring these original handles; do not restart after an observation timeout.
