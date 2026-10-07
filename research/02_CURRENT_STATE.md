@@ -1,6 +1,6 @@
-## 2026-10-08 D46已进入新seed完整后缀，终态归档准备
+## 2026-10-08 D46新seed1原策略已D46，保留预登记no-op继续整卡
 
-[151当前原现场](151_WC_W3_D46_FRESH_SEEDS_APPROVED_EXECUTION_AND_RESULTS.md)：原runR3/source5143d46、supervisor3224687/runner3224830真实句柄保持，CPU3225754等待原GPU。seed1 Native已保存；WC父到22更新/44调用的登记快照，OFF1首条完整后缀完成14更新/28调用，正在编码。当前1新视频，完整2seed/12后缀/10计划视频及新终点评分仍未完成。只读终态捕获器已准备，本地与远程Python语法解析通过，尚未对live运行执行；GPU和CPU全部成功退出后归档原字节/费用/源/释放，再运行既有signed汇总器。不改冻结运行或评分源，不重复GPU/旧CPU/评分。已结算18.991453711/24h、57jobs；第58job在途24为预留非实费，结束按全wall结算。用户整卡批准保持，goal active，不扩训练、稀疏或人评。以下初始化/授权阻塞条目为历史。
+[151原现场与解释](151_WC_W3_D46_FRESH_SEEDS_APPROVED_EXECUTION_AND_RESULTS.md)：seed1首条OFF1完整record的call46 paid probe原生已D（native_skip=false），后缀full8/8；REFRESH应为no-op，完整重复/编码/终点评分仍待，不能计策略成功。Native和OFF1视频已保存（当前2），OFF2进行中；原source5143d46/runR3、GPU3224687/3224830和CPU等待3225754保持。完整两seed/12后缀范围、原位置与分母不变，继续控制及seed2；若两seed均no-op，再按v5.4新登记区分，不现在换位置/强制C。终态只读捕获工具已准备但未执行，不改运行/评分源，不重复GPU。已结算18.991453711/24h、57jobs，第58job在途24为预留；用户完整卡批准和goal active保持，无新终点科学效果，不扩训练/稀疏/人评。以下初始化和旧进度为历史。
 
 ## 2026-10-08 D46新seed复验已进入真实Native采样
 

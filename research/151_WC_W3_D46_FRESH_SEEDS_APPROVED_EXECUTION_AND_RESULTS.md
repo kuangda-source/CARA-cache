@@ -83,3 +83,9 @@ python3 scripts/capture_wc_w3_d46_terminal_cpu.py --manifest manifests/wc_w3_d46
 ```
 
 捕获后用`scripts/summarize_wc_w3_d46_fresh_seeds_cpu.py`读取`*_runner_json_native.gz`、`*_CPU_score_json_native.gz`、`*_supervisor_json_native.gz`与两次失败audit，保留全部signed结果/当前与严格未来计算边界/诊断时间及费用；不重跑GPU、旧LPIPS、训练或人评。当前最近实费18.991453711h保持，58th在途24预留不作花完。
+
+## seed1原生D46条件已观察到；按登记保留no-op
+
+只读首条OFF1完整原始record表明，seed1在call46/CFG1的paid probe原生建议已是D（native_skip=false、requested=null、actual_action=D），后缀45–72完整CFG数为8/8。因此该seed的REFRESH请求按预登记应为no-op；最终严格重复、BASE/REFRESH原始与编码一致及全93评分仍待，不能凭首条OFF把整卡验收完成或报策略成功。[原事件/现场审计](../reports/wc_w3_d46_seed1_native_D46_live_20261008.json)绑定当时runner压缩原字节SHA和真实原PID，不修改在跑源。
+
+这增加了对干预适用范围的证据：同一已曝光prompt换seed后，既有call46并非必然是可改变的C点。它不否定W3，保留两个预定seed/位置/原分母，完成全部控制和seed2，不为制造效果换位置或强制C。若最终两个seed均no-op，按v5.4说明未检验eligible动作泛化，并另登记低成本区分实验；当前只知道seed1，尚不选择下一卡。
