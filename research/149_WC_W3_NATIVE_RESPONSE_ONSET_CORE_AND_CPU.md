@@ -2,7 +2,7 @@
 
 2026-10-07；接续已完成[148真实尾部响应结果](148_WC_W3_NATIVE_TAIL_RESPONSE_CPU_AND_EXECUTION.md)。上一轮完整GPU、终态审计和五终点损失均已结束，原句柄不重启。本轮依[v5.3计划](../plans/WORLD_CACHE_NATIVE_RESPONSE_ONSET_WINDOW_20261007.md)和[事前H-T36登记](../manifests/wc_w3_native_response_onset_r1_preregistration_20261007.json)比较共同61/63交换后65/67/69起点的原生响应，不扩训练、稀疏或人评。
 
-## 当前实际进展
+## 首轮实现记录（后续实际执行见文末）
 
 已实现六份独立新源：窗口控制、完整后缀执行、完整轨迹/状态审计、严格范围、CPU夹具和CPU执行入口。旧H-T35/R2代码与实际stage未修改。新范围和全部文件语法/SHA本地检查通过；**实际服务器CPU R1失败已保留，独立R2及原件审计已通过；新生产CPU配置已绑定，GPU尚未提交**。本地解析和纯范围检查不是CPU采样、真实视频或科学收益。
 
@@ -61,3 +61,9 @@ R3上下文修复的实际生产CPU sourcecf42bfb、68.373400秒/四步exit0、2
 source a8dd451、独立selected-r3与wc-w3-native-response-onset-r3；实际selected预检12.257327秒与fresh锁/目标A6000/54jobs账本准入通过。supervisor3115400/runner3115418的原命令、source/stage及目标GPU进程现场确认，模型加载75.516691秒/CUDA true，prompt guard通过，实际父采样9/36步。此9/36只属于父进度；完整1父/10后缀/6视频/两终点比较尚未完成，尚无新科学结果。JSON请求初始保存时calls0、日志actual9/36都保留，不把旧标量INITIALIZING等同于当前未采样。
 
 post-CPU3115990实际存活，冻结source/binding SHA和原3115400/3115418句柄核对，当前WAITING、零审计/评分步骤；只有原GPU成功exit0/源/计费/释放符合才执行全6新+4参考解码、五Native损失（3同SHA协议复用+2新）/两signed及真实成本。旧R2post失败也保留。已结算17.494939750/24h、54jobs，根budget为该原件；服务器第55job预留余额至24代表在途保护、非实际花完。本卡完整规划1.911160444h，单次2GPUh/累计24保持，前两次失败全费0.049408494h不清零。
+
+## R3首条完整后缀及视频已保存
+
+2026-10-07 23:20–23:22本地时区现场只读核对：原supervisor3115400/runner3115418仍在source a8dd451的独立selected-r3运行。父前缀已22更新/44CFG；OFF1完整后缀14更新/28CFG完成，原生视频guard通过并保存第一段MP4，OFF2开始。仍须父最终36更新/72CFG、其余九后缀、其余五视频、完整重复/恢复/字节桥及CPU评分，不能将首视频保存称为整批完成或新保真收益。
+
+[现场原件](../reports/wc_w3_native_response_onset_r3_live_off1_20261007.json)同时保存GPU进程/trace/预算及postCPU现场。冻结postCPU3115990、真实continue.py路径、原始driver/binding和审计/评分源SHA均一致，仍WAITING、评分步骤0；无新增GPU提交。已结算17.494939750/24GPUh、54jobs保持，第55job在途保护预留至24不代表实际花完。此前GitHub服务端临时错误已恢复，执行代码和启动/早期采样回执66eec6b已成功推送。

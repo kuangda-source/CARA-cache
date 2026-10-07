@@ -1,3 +1,9 @@
+## 2026-10-07 原生响应起点R3：首条完整后缀和视频已保存
+
+[149执行记录](149_WC_W3_NATIVE_RESPONSE_ONSET_CORE_AND_CPU.md)：source a8dd451及原supervisor3115400/runner3115418持续运行；父前缀22更新/44CFG，OFF1完整后缀14更新/28CFG已完成并通过原生video guard保存，实际MP4为1。OFF2已开始，其余重复、固定/响应分支与父完成仍待；没有新保真或速度结论，完整1父/10后缀/6视频/两主要比较不缩减。
+
+冻结postCPU3115990的实际命令、driver/binding及两评分源SHA再次核对，仍等待原GPU成功终态、审计/评分步骤为0。已结算17.494939750/24GPUh、54jobs，新第55job在途预留至24非实际花完，完整预测1.911160444h；目标active，无新增审批问题。实际代码及此前启动回执已同步GitHub66eec6b，本条进度原件随本次提交；只观察当前三个句柄，随后审计全93帧/费用/状态与两signed结果，不重启旧卡/CPU、扩训练/稀疏或人评。以下条目为历史快照。
+
 ## 2026-10-07 原生响应起点R3已进入实际采样
 
 [149接口与执行](149_WC_W3_NATIVE_RESPONSE_ONSET_CORE_AND_CPU.md)：具体callable/AST/真实context接受拒绝/恢复/216源的实际CPU68.373400秒、selected12.257327秒通过。科学scope R1保持，执行独立R3，source a8dd451；supervisor3115400/runner3115418现场CLI/目标GPU确认，load75.516691秒/CUDA true、prompt guard通过，实际父采样9/36。该进度只属父，完整1父10后缀6视频两比较未完成、没有新科学结果。
