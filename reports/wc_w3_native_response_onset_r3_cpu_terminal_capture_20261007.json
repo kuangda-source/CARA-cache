@@ -1,0 +1,185 @@
+{
+  "status": "ORIGINAL_CPU_AUDIT_AND5_LOSSES2_SIGNED_TERMINAL_EXACT_NATIVE_BYTES_CAPTURED_NO_RERUN",
+  "observed_unix": 1791390643.3872342,
+  "source_revision": "a8dd451e8f2a7b65d98a14fef4f6c75b7b222739",
+  "run_id": "wc-w3-native-response-onset-r3",
+  "original_GPU_and_CPU_pids_absent": [
+    3115400,
+    3115418,
+    3115990,
+    3149245,
+    3149456
+  ],
+  "CPU_steps": [
+    {
+      "name": "terminal_audit",
+      "started_unix": 1791390339.9924042,
+      "status": "CPU_EXITED",
+      "pid": 3149245,
+      "exit_code": 0,
+      "ended_unix": 1791390375.8750246,
+      "wall_seconds": 35.882620334625244
+    },
+    {
+      "name": "full93_lpips",
+      "started_unix": 1791390375.8762815,
+      "status": "CPU_EXITED",
+      "pid": 3149456,
+      "exit_code": 0,
+      "ended_unix": 1791390426.9989665,
+      "wall_seconds": 51.122684955596924
+    }
+  ],
+  "archives": {
+    "cpu_continuation_terminal_native_20261007.json": {
+      "source_path": "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-w3-native-response-onset-postrun-cpu-r3-20261007/continuation.json",
+      "original_bytes": 2860,
+      "original_sha256": "6a41970da9c12abc4248ea54863fcba32ce0f9c77291e94f9d6e4bf6daf37785",
+      "archive_sha256": "6a41970da9c12abc4248ea54863fcba32ce0f9c77291e94f9d6e4bf6daf37785"
+    },
+    "terminal_audit_native_20261007.json": {
+      "source_path": "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-w3-native-response-onset-postrun-cpu-r3-20261007/terminal-audit.json",
+      "original_bytes": 24550,
+      "original_sha256": "ed704a9157c13ac18417d4c93610b069b7cab3428839ae0798495ddae28bca7f",
+      "archive_sha256": "ed704a9157c13ac18417d4c93610b069b7cab3428839ae0798495ddae28bca7f"
+    },
+    "lpips_score_native_20261007.json": {
+      "source_path": "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-w3-native-response-onset-postrun-cpu-r3-20261007/lpips-score.json",
+      "original_bytes": 81786,
+      "original_sha256": "fe17da31b3dd77b3427a0c6f38fdbcf69f652b5841d579383e1100133252a431",
+      "archive_sha256": "fe17da31b3dd77b3427a0c6f38fdbcf69f652b5841d579383e1100133252a431"
+    },
+    "terminal_audit_log_native_20261007.txt.gz": {
+      "source_path": "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-w3-native-response-onset-postrun-cpu-r3-20261007/terminal_audit.log",
+      "original_bytes": 159,
+      "original_sha256": "74cdab185fb6e7ff0802f0e45da00131db393167ea1c997af4f654afc8ea2945",
+      "archive_sha256": "c1abc96085af25c482fa9737406938b22b9bb49213a318b8a2d26affc372830f"
+    },
+    "lpips_log_native_20261007.txt.gz": {
+      "source_path": "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-w3-native-response-onset-postrun-cpu-r3-20261007/full93_lpips.log",
+      "original_bytes": 1511,
+      "original_sha256": "ee6faac48edab79509796de7b3c5acf5b380ccb0bdde9f45e1396940933bce0a",
+      "archive_sha256": "dc436651ce27c9cfde6c742ff7be60ad6baed07c898b485515f3600cff65054c"
+    }
+  },
+  "CUDA_initialized": false,
+  "GPU_submissions": 0,
+  "signed_diagnostics": [
+    {
+      "scene": "human_199",
+      "response_start": 65,
+      "swap_calls": [
+        61,
+        63
+      ],
+      "LPIPS_LATE69": 0.6107561274241375,
+      "LPIPS_RESPONSE": 0.44706315058533863,
+      "LPIPS_LATE69_minus_RESPONSE": 0.1636929768387989,
+      "relative_fidelity_improvement": 0.26801692113867714,
+      "response_relative_to_BASE": -0.052543770549983285,
+      "relative_improvement_vs_FIXED61": 0.3310520385583653,
+      "fraction_FIXED61_excess_distortion_repaired": 0.9083695719263182,
+      "improved_frames_vs_LATE69": 93,
+      "worse_frames_vs_LATE69": 0,
+      "costs": {
+        "LATE69": {
+          "whole_CFG_full_counts": [
+            21,
+            19
+          ],
+          "control_wall_seconds_repeats": [
+            363.5568168051541,
+            363.55841508787125
+          ],
+          "mean_control_wall_seconds": 363.55761594651267
+        },
+        "RESP65": {
+          "whole_CFG_full_counts": [
+            22,
+            20
+          ],
+          "control_wall_seconds_repeats": [
+            369.3744338443503,
+            369.1518840473145
+          ],
+          "mean_control_wall_seconds": 369.2631589458324
+        }
+      },
+      "mean_control_wall_LATE69_minus_RESPONSE": -5.705542999319732,
+      "actual_response_action_changes": [
+        65,
+        66,
+        69,
+        70
+      ],
+      "policy_protocol": {
+        "comparison": "REGISTERED_COMMON61_63_SWAP_EARLIER_VS_LATE_NATIVE_OWN_STATE_RESPONSE",
+        "benefit": "LPIPS_LATE69_MINUS_RESPONSE_NEGATIVE_RETAINED",
+        "per_CFG_quota_matched": false,
+        "single_action_RV_training_label": false,
+        "online_policy": false,
+        "clean_speed_measurement": false,
+        "independent_CONF": false,
+        "physics_or_quality_noninferiority": false
+      },
+      "signed_negative_retained": true
+    },
+    {
+      "scene": "human_199",
+      "response_start": 67,
+      "swap_calls": [
+        61,
+        63
+      ],
+      "LPIPS_LATE69": 0.6107561274241375,
+      "LPIPS_RESPONSE": 0.5310476691492142,
+      "LPIPS_LATE69_minus_RESPONSE": 0.07970845827492334,
+      "relative_fidelity_improvement": 0.13050783233414878,
+      "response_relative_to_BASE": -0.25027284243011516,
+      "relative_improvement_vs_FIXED61": 0.20538461906202862,
+      "fraction_FIXED61_excess_distortion_repaired": 0.5635523022605794,
+      "improved_frames_vs_LATE69": 93,
+      "worse_frames_vs_LATE69": 0,
+      "costs": {
+        "LATE69": {
+          "whole_CFG_full_counts": [
+            21,
+            19
+          ],
+          "control_wall_seconds_repeats": [
+            363.5568168051541,
+            363.55841508787125
+          ],
+          "mean_control_wall_seconds": 363.55761594651267
+        },
+        "RESP67": {
+          "whole_CFG_full_counts": [
+            21,
+            19
+          ],
+          "control_wall_seconds_repeats": [
+            363.4652389874682,
+            363.67219017632306
+          ],
+          "mean_control_wall_seconds": 363.5687145818956
+        }
+      },
+      "mean_control_wall_LATE69_minus_RESPONSE": -0.011098635382950306,
+      "actual_response_action_changes": [
+        67,
+        68
+      ],
+      "policy_protocol": {
+        "comparison": "REGISTERED_COMMON61_63_SWAP_EARLIER_VS_LATE_NATIVE_OWN_STATE_RESPONSE",
+        "benefit": "LPIPS_LATE69_MINUS_RESPONSE_NEGATIVE_RETAINED",
+        "per_CFG_quota_matched": false,
+        "single_action_RV_training_label": false,
+        "online_policy": false,
+        "clean_speed_measurement": false,
+        "independent_CONF": false,
+        "physics_or_quality_noninferiority": false
+      },
+      "signed_negative_retained": true
+    }
+  ]
+}
