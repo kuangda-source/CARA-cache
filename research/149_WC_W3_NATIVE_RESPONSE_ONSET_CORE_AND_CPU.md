@@ -100,4 +100,12 @@ FIXED61与LATE69的pre65/pre67/pre69完整组件与自身CFG历史均严格一�
 
 首轮全程完整数FIXED20/18、LATE21/19、RESP65 22/20、RESP67 21/19；RESP67窗口四次均为已付probe/自身原生建议，实际只将67/68由C改D，69/70原生仍C。它与LATE首轮有相同完整数、不同刷新位置，这是事后观测到的附加条件，不改主要窗口比较或追认预先匹配配额。首轮控制wall依次359.028889/363.556817/369.374434/363.465239秒，只是单次诊断成本，不能称相同秒数或干净速度。
 
-[全起点门与RESP67真实动作](../reports/wc_w3_native_response_onset_r3_all_first_gates_and_resp67_live_20261007.json)绑定[原字节快照](../reports/wc_w3_native_response_onset_r3_all_first_gates_snapshot_native_20261007.json.gz)及[只读检查源码](../reports/wc_w3_native_response_onset_r3_all_first_gates_readonly_driver_20261007.py)。本地从原件独立重新计算三个门的36项比較及四模式计数，一致。当前6/10后缀、5/6视频，RESP67_second已开始；四个second/父最终/全部严格重复恢复及CPU终点评分仍待，没有新质量或净收益结论。全scope、现有预算/费用、原判据与负例保持，无新增GPU或评分提交。
+[全起点门与RESP67真实动作](../reports/wc_w3_native_response_onset_r3_all_first_gates_and_resp67_live_20261007.json)绑定[原字节快照](../reports/wc_w3_native_response_onset_r3_all_first_gates_snapshot_native_20261007.json.gz)及[只读检查源码](../reports/wc_w3_native_response_onset_r3_all_first_gates_readonly_driver_20261007.py)。本地从原件独立重新计算三个门的36项比较及四模式计数，一致。当前6/10后缀、5/6视频，RESP67_second已开始；四个second/父最终/全部严格重复恢复及CPU终点评分仍待，没有新质量或净收益结论。全scope、现有预算/费用、原判据与负例保持，无新增GPU或评分提交。
+
+## 2026-10-08：RESP67两次完整后缀严格一致
+
+00:06:08本地时区现场捕获，原20261007科学卡/执行runR3/source a8dd451不变。RESP67_first/second两条14更新/28CFG后缀完成；输入、输出、深层执行、banks、求解器输出、终态latent、三个响应边界、完整终态组件和动作报告九项严格相同，两个parent_restored true。两次均仅改变67/68、完整数21/19，控制wall363.465239/363.672190秒，均值363.568715秒仅作诊断成本。
+
+[实际严格重复核验](../reports/wc_w3_native_response_onset_r3_resp67_repeat_live_20261008.json)绑定[原字节在途快照](../reports/wc_w3_native_response_onset_r3_resp67_repeat_snapshot_native_20261008.json.gz)及[只读检查代码](../reports/wc_w3_native_response_onset_r3_resp67_repeat_readonly_driver_20261008.py)；本地重新计算原件九比较与回执一致。原两个GPU句柄与postCPU3115990实际命令存活、source相同，postCPU仍WAITING/零步骤。
+
+当前7/10后缀、5/6视频，RESP65_second已开始；其余三个second、父最终、完整释放/计费/全93审计及两个主要评分仍待，没有新终点质量/净收益或物理结论。预算最近结算17.494939750/24h保持、当前第55job预留非实计，全scope和旧负例/费用不变，无新增GPU或评分提交。
