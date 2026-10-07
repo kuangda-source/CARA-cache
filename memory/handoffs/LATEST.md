@@ -1,3 +1,15 @@
+## 2026-10-07 独立恢复在生成前context门槛退出；修正生产绑定
+
+[149实际回执](../../research/149_WC_W3_NATIVE_RESPONSE_ONSET_CORE_AND_CPU.md)：R2已真实加载模型/CUDA，但执行身份误用为冻结科学上下文前缀，在采样前exit1，父/后缀/视频均0。3113526/3113545/postCPU3113976均退出；postCPU拒绝失败GPU、零评分。全wall142.003551秒保留，累计17.494939750/24h、54jobs/noinflight，目标24MiB/noapps、锁释放，旧运行不重启。已有H-T35科学结果不变，新H-T36尚无科学结果。
+
+R3独立技术登记保持原科学1父10后缀6视频两比较/六核心源，生产修复用scope R1建context、runR3作执行目录；新增真实核心早期接口的CPU接受/拒绝/状态恢复检查，不重复旧采样。新实际生产CPU/selected待；完整预测1.911160444h≤2、余6.505060250h，goal active继续必要修复，预算/自主约定不变，不加训练/稀疏/人评。以下旧running为历史。
+
+## 2026-10-07 原生响应起点独立恢复已实际启动
+
+[149实际CPU与执行](../../research/149_WC_W3_NATIVE_RESPONSE_ONSET_CORE_AND_CPU.md)：修复具体入口后，实际生产CPU四步/54.132049秒和selected12.173986秒通过；核心六源/原科学1父10后缀6视频两比较不变。source f7ac858、selected-r2、执行wc-w3-native-response-onset-r2，supervisor3113526/runner3113545实际CLI及目标GPU进程确认，现场24514MiB，模型初始化中，尚无新科学结果。
+
+启动前实计17.455494320/24h、53jobs；新第54job预留全部余额至24为在途保护，非实际花完，完整规划1.911160444h≤2按既有直接自主政策执行。根budget为最近已结算原件；R1失败0.009963064h保留，两原CPU失败回执亦保留，不重启任何旧身份。goal active，仅观察当前source/两个原GPU句柄并继续终态CPU审计和全93评分，不增加训练/稀疏/人评。旧ready/noinflight为历史。
+
 ## 2026-10-07 原生响应起点首次入口失败；独立技术恢复
 
 [149实际检查与执行](../../research/149_WC_W3_NATIVE_RESPONSE_ONSET_CORE_AND_CPU.md)：核心CPU3组覆盖/60拒绝/四恢复通过，生产CPU/selected也通过；R1真实入口在模型加载前暴露具体函数名导入遗漏，未CUDA/采样/视频，exit1。失败原件/源/锁/GPU释放与实际35.867029秒费用保留，累计17.455494320/24h、53jobs/noinflight；3112329/3112346退出，不重启R1，postCPU未启动。原科学结果不变，此为入口实现问题。

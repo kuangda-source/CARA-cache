@@ -43,3 +43,13 @@ R1已进入监督计费，但在模型加载前因生产GPU入口导入run_nativ
 修复仅更新三个生产文件：正确的具体函数导入及调用、CPU callable/AST绑定检查、独立恢复run身份。六份已经验收的核心源不改，不重跑其CPU采样。独立技术恢复登记绑定原失败原SHA与全费用，保留H-T36原科学scope/prereg1父10后缀6视频两比较，使用wc-w3-native-response-onset-r2执行目录；新完整成本仍约1.911160444h。需要新实际生产四步CPU/selected/fresh锁资源预算后才能执行。
 
 修复后的独立生产CPU source1a19ed9实际54.132049秒/四步骤exit0，具体函数导入与两个分支AST绑定检查、同六核心源/三旧同SHA损失、完整scope/计费/参考/资源原件核对以及独立捕获通过。215文件、CUDA未初始化/预算不变、原driver及四children退出；仅生产检查，未重复旧CPU采样。下一R2 selected与freshGPU准入，完整1父10后缀6视频两比较保持。
+
+## 独立恢复任务已实际进入GPU初始化
+
+R2科学范围同事前H-T36，source f7ac858，独立selected-r2与wc-w3-native-response-onset-r2。selected真实预检12.173986秒通过；fresh目标A6000空闲24MiB、锁与53jobs账本通过完整1.911160444h准入。supervisor3113526/runner3113545实际命令与source/stage匹配；现场GPU进程为该runner，目标已占24514MiB，正在模型初始化，尚无父/后缀/视频/科学结果。初始runner回执CUDA字段尚未在load结束时更新，现场进程/显存另记录，不将初始false当作当前无GPU。
+
+启动前已结算17.455494320/24h；服务器第54job将剩余余额暂预留至24，非实际耗尽。根budget保留最近已结算原件，R2最终按包括加载/失败/清理的全wall实计。旧秒数截止取消；单次2GPUh与累计24约定保持，不缩拆对照。R1失败来源/35.867029秒/原目录继续保留，不重启旧任务。
+
+R2已实际完成模型加载（90.983788秒、CUDA true），但生成前context门槛因执行runR2与冻结科学scope R1的前缀不同而退出1；没有父/后缀/视频，属于恢复身份绑定错误。runner3113545/supervisor3113526及postCPU3113976已退出，postCPU正确拒绝失败GPU、零审计/评分步骤。目标24MiB/noapps、锁释放，全部142.003551秒=0.039445431GPUh计入，累计17.494939750/24h、54jobs/noinflight；原失败回执/源/加载费和CPU终态保留，不重启R2。
+
+新R3技术恢复只修正生产上下文构造：执行目录runR3，科学上下文用原scope R1；六核心源不变。生产CPU新增调用真实核心至context通过后的受控停止点，分别验证接受/拒绝和完整状态恢复，两个flow接口均不调用forward/solver/生成/解码/写出；此前已完成的三组采样不重跑。原GPU两次失败计费保持，完整scope/成本/指标/历史桥不变，等待新CPU/selected及唯一资源准入。

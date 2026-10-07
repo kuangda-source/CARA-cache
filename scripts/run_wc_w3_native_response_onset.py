@@ -17,6 +17,12 @@ def load(path, name):
     return module
 
 
+def build_contexts(config, samples, digest):
+    return [(config['scope']['run_id']+':'+s.name,
+             'Cosmos-Predict2.5-2B:'+config['f1_setup_sha256'],
+             digest(s.model_dump(mode='json'))) for s in samples]
+
+
 def validate(project, stage, runtime, output):
     sys.path.insert(0, str(stage/'src'))
     from wcomr.rv0_native_onset_execution import validate_stage
@@ -148,8 +154,7 @@ def main():
         if (settings['worldcache_num_steps'], settings['probe_depth'], settings['worldcache_rel_l1_thresh']) != (35, 2, .06):
             raise ValueError('Frozen WC settings differ')
         state['wc_settings'] = settings
-        contexts = [(config['run_id']+':'+s.name, 'Cosmos-Predict2.5-2B:'+config['f1_setup_sha256'],
-                     tree_digest(s.model_dump(mode='json'))) for s in samples]
+        contexts = build_contexts(config, samples, tree_digest)
         state['reference_contexts'] = [list(v) for v in contexts]; save()
         run_native_response_causal_batch(inference, samples, wc, settings, state=state, save=save, output=args.output,
                          inference_module=inference_module, contexts=contexts, mode_setup=state['mode_setup'],

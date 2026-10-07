@@ -26,14 +26,19 @@ def validate_config(config, *, selected=False):
     recovery = config.get('technical_recovery')
     expected_run = RUN
     if recovery is not None:
-        expected_run = 'wc-w3-native-response-onset-r2'
+        expected_run = recovery['new_run_id']
         if (recovery['original_run_id'] != RUN or recovery['new_run_id'] != expected_run
+                or expected_run not in ('wc-w3-native-response-onset-r2', 'wc-w3-native-response-onset-r3')
                 or recovery['original_source_revision'] != 'cd2d9f324d4e2d9573614b81c97c1bc043049857'
                 or recovery['failed_runner_original_sha256'] != '57a0e9b922fdf31413c075ee7e2b475507c4c00df549a385b7dc43bf66d492b8'
                 or recovery['scope_counts'] != COUNTS or recovery['method_scope_unchanged'] is not True
                 or recovery['failure_charge_retained'] is not True
                 or config['payload_sha256'].get(config['technical_recovery_ref']) != config['technical_recovery_sha256']):
             raise ValueError('Exactly registered failed-entry recovery required')
+        if expected_run.endswith('-r3') and (
+                recovery['prior_recovery_run_id'] != 'wc-w3-native-response-onset-r2'
+                or recovery['prior_recovery_runner_sha256'] != '6cf0c1a4fae9fb167335d3685ff7a2931bfa1d69871dcbb60f5de77330a5925e'):
+            raise ValueError('Specific R2 pre-generation context failure required')
     if (config['card'] != CARD or config['run_id'] != expected_run or config['sample_indices'] != [2]
             or config['sample_names'] != ['human_199'] or config['expected_project_root'] != PROJECT
             or config['execution_limits'] != LIMITS or config['logical_copy_cap_bytes'] != 6*1024**3

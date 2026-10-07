@@ -3,6 +3,9 @@ import argparse
 import ast
 import copy
 import json
+import importlib.util
+import tempfile
+from types import SimpleNamespace
 from pathlib import Path
 import sys
 
@@ -25,6 +28,46 @@ def main():
     assert len(imports) == 2 and all([a.name for a in n.names] == ['run_native_response_causal_batch'] for n in imports)
     assert sum(isinstance(n, ast.Call) and isinstance(n.func, ast.Name)
                and n.func.id == 'run_native_response_causal_batch' for n in ast.walk(tree)) == 1
+    def load_module(path, name):
+        spec=importlib.util.spec_from_file_location(name,path)
+        module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module);return module
+    runner=load_module(args.stage/'scripts/run_wc_w3_native_response_onset.py','actual_production_contexts')
+    context_checks=[]
+    # Exercise the actual core up to apply_worldcache. The controlled sentinel
+    # prevents any sampling, forward, solver, decoding or writing. The shared
+    # CPU harness supplies its two guarded flow interfaces, not a 2B model.
+    class ContextAccepted(Exception): pass
+    def exercise(**k):
+        sample=SimpleNamespace(name='human_199',num_steps=35,
+            model_dump=lambda **unused:{'CPU_CONTEXT_INTERFACE_FIXTURE':True})
+        contexts=runner.build_contexts(config,[sample],lambda value:'0'*64)
+        assert contexts[0][0]==config['scope']['run_id']+':human_199'
+        def sentinel(*a,**kw):raise ContextAccepted('Actual context gate reached without generation')
+        net=k['inference'].pipe.model.net
+        from wcomr.full_sampling import CompleteStateRoundtrip
+        state_before=CompleteStateRoundtrip(net,k['inference'].pipe.model.sample_scheduler,torch.zeros(1)).fingerprint()
+        for valid in (True,False):
+            used=copy.deepcopy(contexts)
+            if not valid:used[0]=(config['run_id']+':wrong',)+used[0][1:]
+            state={}
+            with tempfile.TemporaryDirectory() as output:
+                try:
+                    run_native_response_causal_batch(k['inference'],[sample],SimpleNamespace(apply_worldcache=sentinel),
+                        k['settings'],state=state,save=lambda:None,output=Path(output),
+                        inference_module=k['inference_module'],contexts=used,mode_setup=k['mode_setup'],
+                        runtime=Path(config['expected_project_root'])/'runtime',config=config,
+                        require_historical_bridge=True)
+                except ContextAccepted:assert valid
+                except ValueError as error:
+                    assert not valid and str(error)=='Placement independent request context differs'
+                else:raise AssertionError('Interface check reached generation')
+            assert state['requests']==[] and k['inference'].pipe.model.generation==0
+            assert CompleteStateRoundtrip(net,k['inference'].pipe.model.sample_scheduler,torch.zeros(1)).fingerprint()==state_before
+            context_checks.append({'flow':k['flow'],'valid_context':valid,'sampling_calls':0})
+        return [{'flow':k['flow'],'actual_core_context_gate_pass':True,'new_sampling_calls':0}]
+    shared=load_module(args.stage/'tests/check_full_sampling.py','context_interface_cpu')
+    shared.run(Path(config['expected_project_root'])/'runtime',exercise=exercise)
+    assert len(context_checks)==4 and not torch.cuda.is_initialized()
     validate_config(config)
     refused=[]
     changes=[('missing_suffix',lambda c:c['scope'].__setitem__('scope_counts',[1,8,6,2])),
@@ -101,7 +144,8 @@ def main():
         else:raise AssertionError('Invalid complete signed scores accepted:'+name)
     assert len(refused)==16
     print(json.dumps({'status':'NATIVE_RESPONSE_ONSET_AFFECTED_PRODUCTION_CONTRACT_ACCOUNTING_AND_REUSE_CPU_PASS_NOT_GPU',
-        'refusals':refused,'old_sampling_fixture_rerun':False,'GPU_submissions':0}))
+        'refusals':refused,'actual_context_interface_checks':context_checks,
+        'old_sampling_fixture_rerun':False,'new_sampling_calls':0,'GPU_submissions':0}))
 
 
 if __name__=='__main__':main()
