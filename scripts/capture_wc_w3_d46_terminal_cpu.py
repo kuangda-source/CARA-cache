@@ -49,7 +49,7 @@ with (root/'.sync/f1.lock').open('a+') as lock:
     accepted=sum(c['Native_outcome']=='ACCEPTED' for c in score['cases'])
     videos=score['videos'];assert len(videos)==8+accepted
     for v in videos:
-        p=pathlib.Path(v['path']);assert p.resolve().is_relative_to((out/'diagnostic').resolve())
+        p=pathlib.Path(v['path']);assert (out/'diagnostic').resolve() in p.resolve().parents
         assert v['full93_decode'] and p.stat().st_size==v['bytes'] and sha(p)==v['sha256']
     assert {p.resolve() for p in (out/'diagnostic').glob('**/*.mp4')}=={pathlib.Path(v['path']).resolve() for v in videos}
     gpu=subprocess.check_output(['nvidia-smi','-i',sup['gpu_uuid'],'--query-gpu=uuid,memory.used','--format=csv,noheader,nounits'],text=True)

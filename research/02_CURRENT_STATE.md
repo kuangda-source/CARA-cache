@@ -1,3 +1,13 @@
+## 2026-10-08 D46新seed整卡完成：固定动作反例与联合CFG条件
+
+下一整卡[联合CFG设计](../plans/WORLD_CACHE_PAIRED_CFG_REFRESH_20261008.md)及[事前登记](../manifests/wc_w3_paired_cfg_preregistration_20261008.json)已准备：`WC-W3-PAIRED-CFG-R1-20261008-A`，同seed2/同step23比较原C/C、单槽C/D、联合D/D，1新WC父/8完整后缀/5新视频/1旧匹配Native/两主要比较。完整保守预测1.660984884GPUh（含两额外最慢后缀与余量），≤2且在余2.872700413h内，按既有自主约定；CPU核心/恢复/生产入口/source与fresh准入仍待，GPU提交0。先实现并验收；不删重复、不改旧评分或已消耗身份。
+
+[151完整结果](151_WC_W3_D46_FRESH_SEEDS_APPROVED_EXECUTION_AND_RESULTS.md)：2Native+2WC父/12后缀/10视频/两signed全部完成，GPU与完整CPU审计评分exit0，原四PID退出、GPU/锁释放、全部源/原件/93帧审计及独立重算通过。seed1原D46 no-op、LPIPS0.357724721持平、全程37→37；seed2原C46刷新后0.415138287→0.427260689（失真+2.9201%、92/93帧差），当前多1/严格未来省0/全程35→36、诊断多3.315082秒。旧seed0正例保留，本次未支持固定D46规则跨seed收益，不否定W3。两个新seed原分母、no-op、负帧、费用保持，原身份不可重启。
+
+[152既有条件分析](152_WC_W3_D46_EXISTING_CONDITION_CPU_RESULTS.md)已先登记再CPU完成：seed0年龄2、CFG0本步D，seed2年龄1、CFG0本步C；D46分别形成D/D与C/D。两条件同时不同，不能因果归因或训练门控。下一项准备同seed2/同step23的C/C、C/D、D/D联合CFG区分，保留原WC基准，避免把仅修复单槽退化报净收益；先CPU登记/恢复/严格重复/生产入口与完整费用核对，不增加稀疏、训练或人评。
+
+成功7689.045155秒=2.135845876h；本卡两初始化失败0.085173945h全保留。原字节实结累计21.127299587/24h、58jobs/noinflight，余2.872700413h。GPU单整卡≤2h自主约定及>2h单独确认、累计24h保持；当前本卡已完成而整体goal active。以下旧running/待评分/blocked为历史。
+
 ## 2026-10-08 D46 seed2原生C46可干预，完整结果仍待
 
 [151实际适用条件](151_WC_W3_D46_FRESH_SEEDS_APPROVED_EXECUTION_AND_RESULTS.md)：seed1完整5视频/6后缀及全部实际/编码一致，原D46 no-op；seed2首OFF1完成14/28，原call46 paid probe建议C、完整历史两CFG[18,22]，后缀full8/7。两预定seed有1 no-op和1可干预点，能检验新seed单点刷新，但质量/未来成本和seed2完整重复/编码/终点仍待。Native2也已接受保存，原source5143d46/runR3、GPU3224687/3224830与CPU等待3225754保持，仅跟踪原句柄。两seed原分母/位置/范围不变，不训练、不扩稀疏/人评或新增GPU。已结算18.991453711/24h、57jobs，第58job在途24为预留；完整卡批准与goal active保持。以下旧进度为历史。

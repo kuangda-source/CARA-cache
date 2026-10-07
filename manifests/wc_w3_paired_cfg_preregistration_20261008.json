@@ -1,0 +1,101 @@
+{
+  "card": "WC-W3-PAIRED-CFG-R1-20261008-A",
+  "run_id": "wc-w3-paired-cfg-r1",
+  "registered_unix": 1791404945.527491,
+  "registered_after_prior_results": true,
+  "plan": "plans/WORLD_CACHE_PAIRED_CFG_REFRESH_20261008.md",
+  "plan_sha256": "ab8bd13b73d24ba58f1420cc56da3e2529a13c69fe771215bc980788f2792c0f",
+  "input_sha256": {
+    "reports/wc_w3_d46_r3_complete_20261008_runner_json_native.gz": "802bd565046296632f15a866cfcb8b4546b7f2b3a7bf579f2a609d61d0f94fa9",
+    "reports/wc_w3_d46_r3_complete_20261008_supervisor_json_native.gz": "773a60f0ec005379671a9f3e9bff7172d4337d4372f6b5535d6fca1086b302e1",
+    "reports/wc_w3_d46_r3_complete_20261008_CPU_score_json_native.gz": "01d5a35e0ec01e46cf94c909a2e4720e7687412173423fb506de8a8fcd750c60",
+    "reports/wc_w3_d46_r3_signed_summary_20261008.json": "9245829113b7917511e88dd87438f6083427d9c70495a17bf3be76b15101abbc",
+    "reports/wc_w3_d46_existing_conditions_cpu_20261008.json": "298a5adca9dd44b734d254b284afb5e2115c9d18545eaf7e6adf69dd4c2f734a",
+    "configs/wc_w3_d46_fresh_seeds_r3_selected_20261008.json": "5efe661b49d40b0a3b000616eede4bdb09e771d95208d82dfbd49bd30db6203f"
+  },
+  "same_existing_request": {
+    "inference_type": "text2world",
+    "seed": 2,
+    "guidance": 7,
+    "num_output_frames": 93,
+    "resolution": "432,768",
+    "negative_prompt": "The video captures a series of frames showing ugly scenes, static with no motion, motion blur, over-saturation, shaky footage, low resolution, grainy texture, pixelated images, poorly lit areas, underexposed and overexposed scenes, poor color balance, washed out colors, choppy sequences, jerky movements, low frame rate, artifacting, color banding, unnatural transitions, outdated special effects, fake elements, unconvincing visuals, poorly edited content, jump cuts, visual noise, and flickering. Overall, the video is of poor quality.",
+    "name": "human_199_seed2",
+    "prompt": "A wide shot captures an outdoor tennis court at the University of Barcelona, as indicated by the signage on the green portion and fence surrounding the court. The court is a standard hard surface with white boundary lines marking the playing area. Two players are present: one on the left side of the frame, dressed in a white shirt and dark shorts, holding a tennis racket and preparing to serve, while the other player is positioned on the far side of the court, ready to receive the serve. The court is enclosed by a high fence adorned with banners and flags, beyond which a row of parked cars and a building can be seen. The setting suggests a clear day with ample daylight illuminating the scene. The position of the camera remains steady, capturing the players' focused and deliberate movements as they engage in the game. The player on the left side of the court serves the ball across the net towards the opponent, who is poised to return the serve. The ball is seen in mid-air, traveling from one side of the court to the other, indicating the beginning of a rally. The players' movements are fluid and engaged, showcasing their concentration and skill. The video concludes with the ball still in play, suggesting that the rally continues beyond the frame's end.",
+    "num_steps": 35
+  },
+  "seed": 2,
+  "snapshot_step": 22,
+  "snapshot_after_call": 44,
+  "single_full_calls": [
+    46
+  ],
+  "paired_full_calls": [
+    45,
+    46
+  ],
+  "remaining_policy": "ORIGINAL_WC_ADAPTIVE_FROM_EACH_OWN_STATE",
+  "scope_counts": {
+    "WC_parents": 1,
+    "complete_suffixes": 8,
+    "new_videos": 5,
+    "existing_Native_references": 1,
+    "primary_signed_comparisons": 2
+  },
+  "suffix_order": [
+    "OFF1",
+    "OFF2",
+    "BASE_first",
+    "SINGLE_second",
+    "PAIRED_first",
+    "PAIRED_second",
+    "SINGLE_first",
+    "BASE_second"
+  ],
+  "existing_Native": {
+    "path": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-w3-d46-fresh-seeds-r3/diagnostic/human_199_seed2/Native35/human_199_seed2.mp4",
+    "bytes": 897884,
+    "sha256": "c45572e1a58d23495fcfc9695cc7bd58bebf03c7dff92d9a7756a66427f16e16"
+  },
+  "existing_BASE": {
+    "path": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-w3-d46-fresh-seeds-r3/diagnostic/human_199_seed2/WC/human_199_seed2/child_BASE_first/human_199_seed2.mp4",
+    "bytes": 991462,
+    "sha256": "2e96e1ddeba1da05ed7adb9e7db9483be294b239fb9528956894e9c01e71421f"
+  },
+  "existing_SINGLE_D46": {
+    "path": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-w3-d46-fresh-seeds-r3/diagnostic/human_199_seed2/WC/human_199_seed2/child_REFRESH_first/human_199_seed2.mp4",
+    "bytes": 1156739,
+    "sha256": "e84ac6ad6c48a39c4a461cdcf6046235cab9df10d4aca0f356b0351f0a2d1ce9"
+  },
+  "main_comparisons": [
+    "PAIRED_vs_BASE",
+    "PAIRED_vs_SINGLE"
+  ],
+  "decision": "Net gain requires comparison to original BASE; repair relative to SINGLE alone is not net method gain. Preserve cost/negative/missing.",
+  "current_same_state_boundary": "Same pre45 and call45 input; paired refresh changes pre46 cache legitimately; call46 model inputs must match",
+  "forecast": {
+    "prior_whole_card_seconds": 7689.045155293308,
+    "half_prior_whole_card_seconds": 3844.522577646654,
+    "extra_two_suffix_seconds_each": 475.16295513603836,
+    "half_model_load_extra_seconds": 43.10616366006434,
+    "preparation_seconds": 120,
+    "nominal_complete_seconds": 4957.954651578795,
+    "uncertainty_factor": 1.2,
+    "release_allowance_seconds": 30,
+    "forecast_complete_seconds": 5979.545581894554,
+    "forecast_complete_GPUh": 1.6609848838595982,
+    "conservative_prior_Native_cost_retained_in_proxy": true,
+    "proxy_not_deadline_or_bound": true
+  },
+  "budget_used_before": 21.12729958707622,
+  "cumulative_cap_GPUh": 24,
+  "remaining_GPUh": 2.8727004129237805,
+  "CPU_preparation_required": true,
+  "GPU_execution_selected": false,
+  "GPU_submissions": 0,
+  "independent_CONF": false,
+  "clean_speed_measurement": false,
+  "formal_single_action_RV_labels": false,
+  "training_sparse_or_human_review": false,
+  "permission_policy": "User authorized whole cards at most2 GPUh to proceed autonomously; this complete forecast is below2, conditional on actual CPU/source/resource/budget admission. Above2 or above24 requires original gate."
+}
