@@ -54,3 +54,15 @@ CPU核心原件SHA1dc459626747042dc6ce9cb42fc4a8dd3bfba8c6389631dbf6458deaa0dc47
 ## 启动后的实际进展检查
 
 现场1791375220：原supervisor3089695和runner3089728仍是同一stage/source/cmdline，目标GPU只有runner3089728，另一GPU342MiB不变。真实模型加载88.019036秒完成，CUDA已初始化；日志通过prompt guardrail并进入Human原生父采样，已记录4/36更新。runner JSON尚保留请求起点计数，不能把该保存检查点当成实时逐步计数；完整输出、10后缀、尾部响应和LPIPS结果仍未完成。独立CPU driver3090203的同SHA/绑定句柄现场存活，状态WAITING_ORIGINAL_GPU_TERMINAL_NOT_CPU_AUDIT_OR_SCORE，未开始终态审计/评分。[现场观察](../reports/wc_w3_native_tail_response_start_observation_20261007.json)与[服务器预留原账本](../reports/wc_w3_native_tail_response_budget_inflight_native_20261007.json)已保存。
+
+## OFF严格重放与首个固定分支历史桥
+
+现场1791376652，原supervisor3089695/runner3089728及CPU等待driver3090203存活。两个OFF均完成剩余14更新/28 CFG，完整调用20/18，父状态均恢复。十一类记录逐项严格一致：输入、输出、deep、缓存bank、求解器输出、call69前1216状态组件及自身CFG历史、最终latent、动作报告、终态组件和终态SHA。首次OFF后缀337.269208秒，第二次284.496714秒；这是重复的实际wall记录，不能选较快一次宣称方法加速。
+
+OFF1经原decode/guardrail/write接受，1100497字节/SHA4d0f0549…982fb与历史官方WC完全一致。FIXED46_first已完成和接受，1060326字节/SHAa9423dc7…e9366与登记R2 CFG1视频一致，完整调用20/18；已进入TAIL46_first。对应[OFF严格重放原件](../reports/wc_w3_native_tail_response_off_replay_checkpoint_native_20261007.json.gz)、[重放审计](../reports/wc_w3_native_tail_response_off_replay_audit_20261007.json)和[固定视频桥](../reports/wc_w3_native_tail_response_first_fixed46_byte_bridge_20261007.json)。全父、其余分支及重复、尾部效应、实费和终态评分仍待；本节不是新方法结果。
+
+### 附加跨批次原始字段检查的边界
+
+[首OFF与R2逐字段核查](../reports/wc_w3_native_tail_response_first_off_prior_R2_raw_audit_20261007.json)保留两个未相等项：28次输入只有名为gt_frames的kwarg摘要变化；终态组件只有solver._internal_dict摘要变化。输出、deep、缓存bank、全部求解器输出、最终latent、实际动作及动作报告均相等。冻结官方前向AST仅读取kwargs.get('timestep_scale')，不读取gt_frames，见[原始源读取](../reports/wc_w3_native_tail_response_cross_batch_source_read_20261007.jsonl)。旧_internal_dict未保存完整内容，具体变化原因UNKNOWN；安装的ConfigMixin以set差集生成默认值列表，仅提供顺序差异候选，不能据此宣布实际原因。
+
+此附加跨批次检查最初的全字段等同断言，以及后续错误预期“kwargs零读取”的断言均失败，原件如实保留；实际只读一次timestep_scale已定位。它们发生在附加本地/只读核查，没有停止GPU、改变冻结源或追认失败通过。历史字节桥和本轮内部十一类严格重放已各自通过；不降低本轮完整状态、输入或重复检查，也不声称跨批次全部元数据相同。
