@@ -66,6 +66,13 @@ def main():
         import torch
         def forbidden(*a,**k):raise RuntimeError('CPU production check forbids CUDA/downloads')
         torch.cuda._lazy_init=forbidden;torch.hub.download_url_to_file=forbidden
+        # Transformer Engine asks for a Triton benchmarker while importing.
+        # Match the existing CPU origin check: imports only, no kernel execution.
+        import triton
+        class ImportOnlyDriver:
+            def get_benchmarker(self):return forbidden
+            def __getattr__(self,name):raise RuntimeError('CPU check forbids Triton driver access: '+name)
+        triton.runtime.driver.active=ImportOnlyDriver()
         from cosmos_predict2.config import InferenceArguments
         from wcomr.rv0_d46_seed_portfolio import run_portfolio
         from wcomr.rv0_d46_seed_causal import run_d46_seed_batch
