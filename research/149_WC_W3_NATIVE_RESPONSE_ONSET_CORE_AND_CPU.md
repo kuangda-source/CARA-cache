@@ -33,3 +33,5 @@ source d728afa的独立R2已exit0，driver3110803/child3110804均退出，CPU整
 新生产入口绑定214文件、同一已登记1父/10后缀/6视频/两比较；官方WC/FIXED61/LATE69真实字节桥和三个响应起点完整状态门槛保持。评分复用三份同SHA同93帧协议的旧损失，仅新增RESP65/67两损失，同时报告对原WC、FIXED61和LATE69的保真及实际后缀成本。下一实际draft/contract/validate/import四步CPU和唯一selected复核，未通过前不启动GPU。
 
 生产CPU R1 source d17cd95的draft/contract已exit0（16拒绝和两signed正负/计费/旧损失复用检查）；validate由于driver误拼输出目录，与冻结run_id不符而exit1，仅0.348340秒，import尚未执行。原失败回执/三log/driver保存，预算及214源不变、driver和三children退出、GPU新增0。新独立生产CPU R2修正driver目录绑定，214源与配置不变；绑定原成功draft/contract原SHA重用，只实际执行未完成的validate/import。不得重启R1或把R1原失败称为通过。
+
+生产CPU R2实际完成，source49d1be6、67.362928秒/exit0；两未完成validate/import新执行，原两draft/contract同214源原SHA复用，完整四步覆盖/16拒绝/正负signed计费/损失复用/真实资产与源及独立回执审计通过。3111847/3111848/3111859和复用旧两PID均退出，CUDA未初始化、源/上游/账本未变。GPU仍0。CPU后完整成本以H-T35实计和最大完整后缀重核，仍6880.177599秒=1.911160444h、整卡未拆、累计可容纳；这是带余量代理，不是实际速度或时限。
