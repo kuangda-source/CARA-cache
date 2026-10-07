@@ -11,11 +11,12 @@ from .rv0_placement_evaluation import validate_frozen_scope
 PROJECT = '/home/gaokuangda/data/gkd/worldcache_omr'
 AUTH24 = 'manifests/budget_authorization_20261005_wc_24gpuh.json'
 TEXT24 = '批准 WC-W3-SMALL-CD-R1-20261004-A，把累计 gpuh 限制提升到 24'
-APPROVAL = 'manifests/wc_w3_placement_gpu_authorization_20261005.json'
+APPROVAL = 'manifests/wc_w3_placement_gt2h_authorization_20261007.json'
+POLICY = 'manifests/wc_execution_autonomy_authorization_20261007.json'
+POLICY_TEXT = '取消这些时间限制，只有单次 gpuh 超过 2h 的才停下来询问，其他直接推进即可'
 INFLIGHT = 'wc_w3_placement_swap_inflight'
-LIMITS = {'timeout_seconds': 9600, 'child_timeout_seconds': 9570,
-          'kill_grace_seconds': 5, 'admission_allowance_seconds': 15,
-          'minimum_disk_free_bytes': 12*1024**3}
+LIMITS = {'kill_grace_seconds': 5, 'monitor_interval_seconds': 2,
+          'cleanup_budget_headroom_seconds': 30, 'minimum_disk_free_bytes': 12*1024**3}
 COUNTS = [2, 16, 10, 4]
 
 
@@ -60,24 +61,35 @@ def validate_config(config, *, selected=False):
                 raise ValueError('Placement historical video identity differs')
     cost = config['cost']
     if (cost['proxies_are_hard_bounds'] is not False or cost['fixed_mask_GPU_legality_and_cost_measured'] is not False
-            or not 0 < cost['complete_nominal_proxy_seconds'] < cost['complete_planning_proxy_seconds'] < 9600
-            or cost['proposed_total_cap_seconds'] != 9600 or cost['proposed_child_cap_seconds'] != 9570):
+            or not 0 < cost['complete_nominal_proxy_seconds'] < cost['complete_planning_proxy_seconds']
+            or not math.isfinite(cost['complete_planning_proxy_seconds'])):
         raise ValueError('Placement complete cost proxy/uncertainty differs')
     if type(config.get('GPU_execution_selected')) is not bool:
         raise ValueError('Placement GPU decision must be explicit')
+    policy = config.get('execution_policy_authority', {})
+    expected_policy = {'approval_ref': POLICY, 'source_user_text': POLICY_TEXT,
+        'automatic_single_job_gpu_hours': 2, 'legacy_per_card_seconds_caps_revoked': True,
+        'cumulative_cap_gpu_hours': 24, 'usage_reset': False}
+    if (set(policy) != set(expected_policy) | {'approval_sha256'}
+            or any(type(policy.get(k)) is not type(v) or policy[k] != v for k, v in expected_policy.items())
+            or not digest_valid(policy['approval_sha256']) or payload.get(POLICY) != policy['approval_sha256']):
+        raise ValueError('Latest direct execution autonomy policy required')
     binding = config.get('execution_scope_authority')
     if binding is not None:
         approved = {'approval_ref': APPROVAL, 'approved_card': config['card'], 'run_id': config['run_id'],
-                    'single_run_inclusive_cap_seconds': 9600, 'science_counts': COUNTS, 'usage_reset': False}
+            'allow_single_job_above_2_gpu_hours': True, 'legacy_seconds_caps_revoked': True,
+            'planning_proxy_seconds': cost['complete_planning_proxy_seconds'],
+            'science_counts': COUNTS, 'usage_reset': False}
         if (set(binding) != set(approved) | {'approval_sha256', 'source_user_text'}
                 or any(type(binding.get(k)) is not type(v) or binding[k] != v for k, v in approved.items())
                 or not digest_valid(binding['approval_sha256']) or payload.get(APPROVAL) != binding['approval_sha256']
                 or type(binding['source_user_text']) is not str or not binding['source_user_text'].strip()):
-            raise ValueError('Placement distinct single-card scope authority changed')
+            raise ValueError('Above-2h complete-card exception authority changed')
     if selected:
-        if (binding is None or config['GPU_execution_selected'] is not True
+        if (config['GPU_execution_selected'] is not True
+                or (cost['complete_planning_proxy_seconds'] > 7200 and binding is None)
                 or type(config.get('gpu_uuid')) is not str or not config['gpu_uuid'].startswith('GPU-')):
-            raise ValueError('Placement needs separate direct scope approval and selected UUID')
+            raise ValueError('Forecast above 2 GPUh needs direct exception; smaller jobs proceed automatically')
         production = config.get('production_cpu_payload_sha256', {})
         if (not digest_valid(config.get('production_cpu_receipt_sha256'))
                 or type(config.get('production_cpu_stage')) is not str
@@ -85,9 +97,9 @@ def validate_config(config, *, selected=False):
                 or set(production) != (set(payload)-{APPROVAL}) | {'placement-config.json'}
                 or not all(digest_valid(d) for d in production.values())
                 or any(payload.get(n) != d for n, d in production.items() if n != 'placement-config.json')):
-            raise ValueError('Placement unchanged actual production CPU source proof required')
+            raise ValueError('Unchanged actual policy production CPU source proof required')
     elif config['GPU_execution_selected'] is False and (config.get('gpu_uuid') is not None or binding is not None):
-        raise ValueError('Unselected placement draft cannot preclaim UUID or authority')
+        raise ValueError('Unselected placement draft cannot preclaim UUID or >2h approval')
     return {'status': 'PLACEMENT_PRODUCTION_DRAFT_CONTRACT_PASS_NOT_GPU', 'scope': COUNTS,
             'Native_relative_losses': 6, 'signed_joint_swap_diagnostics': 4,
             'selected': config['GPU_execution_selected'], 'same_CFG_quota_not_seconds': True}
@@ -158,6 +170,13 @@ def validate_stage(project, stage, runtime, config, *, selected=False):
     auth = json.loads(auth_path.read_text())
     if auth['source_user_text'] != TEXT24 or auth['usage_reset'] is not False or auth['cumulative_cap_gpu_hours'] != 24:
         raise ValueError('Cumulative24 direct authority differs')
+    policy_path = stage/POLICY
+    policy = json.loads(policy_path.read_text())
+    if (sha(policy_path) != config['execution_policy_authority']['approval_sha256']
+            or policy['source_user_text'] != POLICY_TEXT or policy['automatic_single_job_gpu_hours'] != 2
+            or policy['legacy_per_card_seconds_caps_revoked'] is not True
+            or policy['cumulative_cap_gpu_hours'] != 24 or policy['usage_reset'] is not False):
+        raise ValueError('Direct policy original differs')
     if selected:
         original = project/config['production_cpu_stage']/'receipt.json'
         if not original.resolve().is_relative_to((project/'.sync').resolve()) or sha(original) != config['production_cpu_receipt_sha256']:
@@ -169,11 +188,13 @@ def validate_stage(project, stage, runtime, config, *, selected=False):
                 or production['payload_sha256'] != config['production_cpu_payload_sha256']
                 or production['upstream_sha256'] != config['upstream_source_sha256']):
             raise ValueError('Actual placement production CPU proof failed')
-        binding = config['execution_scope_authority']; path = stage/APPROVAL
-        if sha(path) != binding['approval_sha256']:
-            raise ValueError('Distinct placement GPU approval original changed')
-        if json.loads(path.read_text()) != {k: v for k, v in binding.items() if k not in {'approval_ref', 'approval_sha256'}}:
-            raise ValueError('Distinct placement GPU approval scope differs')
+        binding = config['execution_scope_authority']
+        if binding is not None:
+            path = stage/APPROVAL
+            if sha(path) != binding['approval_sha256']:
+                raise ValueError('Above-2h GPU approval original changed')
+            if json.loads(path.read_text()) != {k: v for k, v in binding.items() if k not in {'approval_ref', 'approval_sha256'}}:
+                raise ValueError('Above-2h complete GPU scope differs')
     return {'status': 'PLACEMENT_REAL_ROOT_DEPENDENCIES_CPU_SOURCE_REFERENCES_PASS_NO_TORCH',
             'audits': {k: v['status'] for k, v in records.items()},
             'base_dependency_status': dependencies['status'], 'budget_snapshot': budget,
@@ -186,21 +207,22 @@ def admission_budget(budget, config):
             or type(used) not in (int, float) or not math.isfinite(used) or not 0 <= used <= 24
             or any(k.endswith('_inflight') for k in budget)):
         raise ValueError('Authorized24 usage/reference/inflight differs')
-    remaining = (24-used)*3600; required = 9615
+    remaining = (24-used)*3600
+    required = config['cost']['complete_planning_proxy_seconds']+LIMITS['cleanup_budget_headroom_seconds']
     if remaining < required:
-        raise ValueError('Complete placement cap and admission exceed budget')
+        raise ValueError('Complete placement planning estimate exceeds remaining cumulative budget')
     return {'fits': True, 'remaining_seconds': remaining, 'required_seconds': required,
-            'remaining_if_full_cap_spent': remaining-required, 'GPU_selected': True}
+            'forecast_is_deadline': False, 'GPU_selected': True}
 
 
 def reserve_budget(budget, config, supervisor_pid):
     admission_budget(budget, config)
     if type(supervisor_pid) is not int or supervisor_pid <= 0:
         raise ValueError('Placement durable supervisor PID required')
-    result = copy.deepcopy(budget); result['used_gpu_hours'] += 9600/3600
+    result = copy.deepcopy(budget); result['used_gpu_hours'] = 24
     result['gpu_jobs_launched'] += 1
-    result['status'] = 'WC_W3_PLACEMENT_RUNNING_9600S_PREPAID_NOT_ACTUAL_SETTLED'
-    result[INFLIGHT] = {'run_id': config['run_id'], 'supervisor_pid': supervisor_pid, 'reserved_seconds': 9600}
+    result['status'] = 'WC_W3_PLACEMENT_RUNNING_REMAINING_BUDGET_RESERVED_NOT_ACTUAL_SPENT'
+    result[INFLIGHT] = {'run_id': config['run_id'], 'supervisor_pid': supervisor_pid, 'reserved_seconds': (24-budget['used_gpu_hours'])*3600}
     return result
 
 
@@ -219,8 +241,10 @@ def audit_settlement(supervisor, receipt, config, live_budget, expected_source):
     if (supervisor['status'] != 'EXITED_REQUIRES_RESULT_AUDIT' or supervisor['exit_code'] != 0
             or supervisor['source_revision'] != receipt['source_revision'] or receipt['source_revision'] != expected_source
             or supervisor['run_id'] != config['run_id'] or supervisor['config'] != config
-            or supervisor['reserved_seconds'] != 9600 or supervisor['hard_wall_cap_exceeded'] is not False
-            or not 0 < supervisor['wall_seconds'] <= 9600
+            or supervisor['reserved_seconds'] != (24-supervisor['budget_before']['used_gpu_hours'])*3600
+            or supervisor.get('cumulative_budget_exceeded') is not False
+            or not 0 < supervisor['wall_seconds'] <= supervisor['reserved_seconds']
+            or (config['execution_scope_authority'] is None and supervisor['wall_seconds'] > 7200)
             or [supervisor['planned_parent_phases'], supervisor['planned_suffix_controls'], supervisor['planned_encoded_outputs']] != COUNTS[:3]
             or live_budget != supervisor['budget_after'] or any(k.endswith('_inflight') for k in live_budget)
             or live_budget['cap_gpu_hours'] != 24 or live_budget['used_gpu_hours'] > 24):
@@ -228,7 +252,8 @@ def audit_settlement(supervisor, receipt, config, live_budget, expected_source):
     prepaid = reserve_budget(supervisor['budget_before'], config, supervisor['pid'])
     if settle_budget(prepaid, supervisor['budget_before'], config, supervisor['wall_seconds'], supervisor['pid']) != live_budget:
         raise ValueError('Placement actual-cost reconstruction differs')
-    pids = [supervisor['pid'], supervisor['child_pid'], receipt['pid']]
-    if any(type(pid) is not int or pid <= 0 for pid in pids) or len(set(pids)) != 3:
-        raise ValueError('Three distinct supervisor/timeout/runner PIDs required')
+    pids = [supervisor['pid'], supervisor['child_pid']]
+    if (any(type(pid) is not int or pid <= 0 for pid in pids) or len(set(pids)) != 2
+            or receipt['pid'] != supervisor['child_pid']):
+        raise ValueError('Direct supervised runner identity required; no timeout intermediary')
     return pids

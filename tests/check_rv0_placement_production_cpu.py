@@ -34,7 +34,9 @@ def run(config, raw, budget):
     selected['payload_sha256'][APPROVAL] = 'a'*64
     selected['execution_scope_authority'] = {'approval_ref': APPROVAL, 'approval_sha256': 'a'*64,
         'approved_card': config['card'], 'run_id': config['run_id'],
-        'single_run_inclusive_cap_seconds': 9600, 'science_counts': COUNTS, 'usage_reset': False,
+        'allow_single_job_above_2_gpu_hours': True, 'legacy_seconds_caps_revoked': True,
+        'planning_proxy_seconds': config['cost']['complete_planning_proxy_seconds'],
+        'science_counts': COUNTS, 'usage_reset': False,
         'source_user_text': 'CPU_SYNTHETIC_CONTRACT_NOT_HUMAN_AUTHORIZATION'}
     validate_config(selected, selected=True)
     mutations = [
@@ -60,12 +62,12 @@ def run(config, raw, budget):
                          ('nonfinite_usage', {'used_gpu_hours': float('nan')})]:
         broken = {**budget, **change}; reject(name, lambda: admission_budget(broken, selected))
     prepaid = reserve_budget(budget, selected, 1101)
-    assert prepaid['used_gpu_hours'] == budget['used_gpu_hours']+9600/3600
+    assert prepaid['used_gpu_hours'] == 24
     settled = settle_budget(prepaid, budget, selected, 600., 1101)
     assert settled['used_gpu_hours'] == budget['used_gpu_hours']+600/3600
     assert settled['gpu_jobs_launched'] == budget['gpu_jobs_launched']+1
     assert not any(k.endswith('_inflight') for k in settled)
-    # Even an overrun is charged in full; separate terminal acceptance rejects it.
+    # A wall beyond the former 9600s is charged, and is not itself a failure.
     assert settle_budget(prepaid, budget, selected, 9601., 1101)['used_gpu_hours'] == budget['used_gpu_hours']+9601/3600
     for wall in [0, -1, float('inf'), float('nan')]:
         reject('invalid_wall_'+str(wall), lambda: settle_budget(prepaid, budget, selected, wall, 1101))
@@ -73,15 +75,15 @@ def run(config, raw, budget):
     reject('concurrent_ledger_change', lambda: settle_budget(broken, budget, selected, 600., 1101))
     source = 'a'*40
     supervisor = {'status': 'EXITED_REQUIRES_RESULT_AUDIT', 'exit_code': 0, 'source_revision': source,
-        'run_id': selected['run_id'], 'config': selected, 'reserved_seconds': 9600,
-        'hard_wall_cap_exceeded': False, 'wall_seconds': 600., 'planned_parent_phases': 2,
+        'run_id': selected['run_id'], 'config': selected, 'reserved_seconds': (24-budget['used_gpu_hours'])*3600,
+        'cumulative_budget_exceeded': False, 'wall_seconds': 600., 'planned_parent_phases': 2,
         'planned_suffix_controls': 16, 'planned_encoded_outputs': 10, 'pid': 1101, 'child_pid': 1102,
         'budget_before': budget, 'budget_after': settled}
-    runner = {'source_revision': source, 'pid': 1103}
-    assert audit_settlement(supervisor, runner, selected, settled, source) == [1101, 1102, 1103]
+    runner = {'source_revision': source, 'pid': 1102}
+    assert audit_settlement(supervisor, runner, selected, settled, source) == [1101, 1102]
     for name, change in [('shrunk_terminal_scope', {'planned_suffix_controls': 12}),
                          ('old_cap', {'reserved_seconds': 4500}), ('same_PID', {'child_pid': 1101}),
-                         ('overrun', {'wall_seconds': 9601.}), ('failed_card', {'exit_code': 124})]:
+                         ('different_actual_wall', {'wall_seconds': 9601.}), ('failed_card', {'exit_code': 124})]:
         broken = {**supervisor, **change}
         reject(name, lambda: audit_settlement(broken, runner, selected, settled, source))
     success = [c for c in raw['checks'] if c['failure'] is None]

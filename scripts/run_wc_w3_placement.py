@@ -80,6 +80,10 @@ def main():
             or type(args.source_revision) is not str or len(args.source_revision) != 40
             or any(c not in '0123456789abcdef' for c in args.source_revision)):
         raise ValueError('Frozen source revision and independently supervised selected GPU required')
+    if (os.environ.get('WC_SUPERVISOR_PID') != str(os.getppid())
+            or not os.environ.get('WC_LOCK_FD', '').isdigit()):
+        raise ValueError('Runner must inherit the direct live supervisor and project lock')
+    os.fstat(int(os.environ['WC_LOCK_FD']))
     sys.path[:0] = [str(args.stage/'src'), str(args.runtime), str(args.runtime/'packages/cosmos-oss'),
                    str(args.runtime/'packages/cosmos-cuda')]
     args.output.mkdir(parents=True, exist_ok=False)

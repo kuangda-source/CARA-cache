@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""One complete placement batch with shared lock, bounded child and actual settlement."""
+"""One complete placement batch with shared lock, direct child and actual settlement."""
 import argparse
 import fcntl
 import json
@@ -68,7 +68,7 @@ def main():
     before = budget
     state = {'status': 'START_PENDING_INSPECT_SAME_OUTPUT', 'pid': os.getpid(), 'run_id': config['run_id'],
              'source_revision': args.source_revision, 'config': config, 'admission': admission,
-             'budget_before': before, 'reserved_seconds': config['execution_limits']['timeout_seconds'], 'child_pid': None,
+             'budget_before': before, 'reserved_seconds': (24-before['used_gpu_hours'])*3600, 'child_pid': None,
              'planned_parent_phases': 2, 'planned_suffix_controls': 16, 'planned_encoded_outputs': 10}
     started = time.monotonic()
     save(budget_path, reserve_budget(before, config, os.getpid()))
@@ -88,10 +88,9 @@ def main():
     try:
         save(args.output/'supervisor.json', state)
         with (args.output/'placement.log').open('w') as log:
-            child = subprocess.Popen(['timeout', '--kill-after='+str(config['execution_limits']['kill_grace_seconds'])+'s',
-                str(config['execution_limits']['child_timeout_seconds'])+'s']+command,
+            child = subprocess.Popen(command,
                 env=dict(os.environ, CUDA_VISIBLE_DEVICES=args.gpu_uuid, PYTHONDONTWRITEBYTECODE='1',
-                         OMP_NUM_THREADS='2', PYTHONPATH=str(args.stage/'src')+':.:packages/cosmos-oss:packages/cosmos-cuda',
+                         OMP_NUM_THREADS='2', WC_SUPERVISOR_PID=str(os.getpid()), WC_LOCK_FD=str(lock.fileno()), PYTHONPATH=str(args.stage/'src')+':.:packages/cosmos-oss:packages/cosmos-cuda',
                          HF_HUB_CACHE=str(args.project/'hfhub')),
                 stdout=log, stderr=subprocess.STDOUT, cwd=args.project/'runtime',
                 start_new_session=True, pass_fds=(lock.fileno(),))
@@ -99,8 +98,13 @@ def main():
             save(args.output/'supervisor.json', state)
             with (args.output/'gpu-monitor.jsonl').open('w') as monitor:
                 while child.poll() is None:
-                    if time.monotonic()-started >= config['execution_limits']['child_timeout_seconds']:
-                        state['stop_reason'] = 'BOUNDED_TIMEOUT'; stop(); break
+                    elapsed = time.monotonic()-started
+                    threshold = state['reserved_seconds']
+                    reason = 'CUMULATIVE_BUDGET_GUARD'
+                    if config['execution_scope_authority'] is None and 7200 < threshold:
+                        threshold, reason = 7200, 'ABOVE_2H_REQUIRES_USER_DECISION'
+                    if elapsed >= threshold-config['execution_limits']['cleanup_budget_headroom_seconds']:
+                        state['stop_reason'] = reason; stop(); break
                     observed = query(); monitor.write(json.dumps(observed)+'\n'); monitor.flush()
                     for pid in observed['pids']:
                         try: group = os.getpgid(pid)
@@ -108,7 +112,7 @@ def main():
                         if group != child.pid:
                             state['stop_reason'] = 'GPU_CONFLICT'; stop(); break
                     if state.get('stop_reason'): break
-                    try: child.wait(timeout=2)
+                    try: child.wait(timeout=config['execution_limits']['monitor_interval_seconds'])
                     except subprocess.TimeoutExpired: pass
     except BaseException as error:
         state.update(stop_reason='SUPERVISOR_ERROR', error_type=type(error).__name__, error=str(error))
@@ -117,7 +121,8 @@ def main():
         try: state['release'] = query()
         except Exception as error: state['release'] = {'status': 'UNKNOWN', 'error': str(error)}
         wall = time.monotonic()-started; state['wall_seconds'] = wall
-        state['hard_wall_cap_exceeded'] = wall > config['execution_limits']['timeout_seconds']
+        state['legacy_seconds_deadline_active'] = False
+        state['cumulative_budget_exceeded'] = wall > state['reserved_seconds']
         current = json.loads(budget_path.read_text())
         try:
             settled = settle_budget(current, before, config, wall, os.getpid())
