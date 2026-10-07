@@ -1,6 +1,6 @@
-## 2026-10-08 D46 seed1完整生成/对照已完成，seed2原生采样中
+## 2026-10-08 D46 seed2原生C46可干预，完整结果仍待
 
-[151实际阶段](../../research/151_WC_W3_D46_FRESH_SEEDS_APPROVED_EXECUTION_AND_RESULTS.md)：seed1的Native、WC父36/72、六完整后缀、5视频完成；三组严格重复、六后缀与父原始终态、Native/WC初始指纹、父/OFF/BASE/REFRESH编码字节均相同，原生D46 no-op实际成立，当前/未来/全路径完整数改变0，不计方法收益。seed2已实际Native采样，整卡及全93评分仍待。原source5143d46/runR3、GPU3224687/3224830与CPU等待3225754保持，仅跟踪原句柄；完整两seed范围/位置/分母不变，不改在跑源、不新增GPU/训练/稀疏/人评。已结算18.991453711/24h、57jobs，第58job在途24为预留；用户整卡批准与goal active保持。以下旧进度为历史。
+[151实际适用条件](../../research/151_WC_W3_D46_FRESH_SEEDS_APPROVED_EXECUTION_AND_RESULTS.md)：seed1完整5视频/6后缀及全部实际/编码一致，原D46 no-op；seed2首OFF1完成14/28，原call46 paid probe建议C、完整历史两CFG[18,22]，后缀full8/7。两预定seed有1 no-op和1可干预点，能检验新seed单点刷新，但质量/未来成本和seed2完整重复/编码/终点仍待。Native2也已接受保存，原source5143d46/runR3、GPU3224687/3224830与CPU等待3225754保持，仅跟踪原句柄。两seed原分母/位置/范围不变，不训练、不扩稀疏/人评或新增GPU。已结算18.991453711/24h、57jobs，第58job在途24为预留；完整卡批准与goal active保持。以下旧进度为历史。
 
 ## 2026-10-08 D46新seed复验已进入真实Native采样
 

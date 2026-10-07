@@ -111,3 +111,9 @@ OFF1与OFF2均完成14更新/28调用。纯标准库CPU读取当前原回执，�
 标准库CPU只读原件核对三组严格重复、BASE/REFRESH no-op实际状态、全部六后缀与原WC父尾段及终态、Native/WC初始完整指纹均相同；父/OFF1/BASE_first/REFRESH_first编码SHA也完全一致。当前call46原生已D，因此当前增加、严格未来节省和全路径净节省完整调用均为0。这是完整可用的no-op条件与实现对照，不计为新策略成功；原生相对LPIPS仍由整卡后CPU统一93帧验证。
 
 [完整seed1原件与只读核对](../reports/wc_w3_d46_seed1_complete_live_cpu_20261008.json)绑定当前runner压缩原字节及SHA，保留所有动作/计数/诊断wall。当前5新视频，第二seed的结果与整卡终态尚待；最近结算仍18.991453711/24h，第58job在途24是预留非实际花完。
+
+## seed2原生C46已观察到：预登记干预具备适用条件
+
+seed2首条OFF1完整后缀已完成14更新/28调用。call46/CFG1的paid probe原生建议C（native_skip=true、requested=null、actual_action=C），真实完整历史为两CFG各[18,22]，后缀完整数8/7，OFF1诊断wall338.279605秒。因此两预定新seed目前包含一个原生D46 no-op（seed1）和一个原生C46可干预点（seed2），未换seed/位置或强制C制造对照。这个条件意味着本卡能够实际检验新seed上的单点刷新，不意味着已经改善质量或成本。
+
+原source5143d46/runR3和原GPU3224687/3224830保持，CPU3225754等待整卡。第二seed的BASE/REFRESH成对结果、全部严格重复、父编码桥及终点评分仍待；完整两seed原分母继续保留，不追认为跨场景独立CONF，也不启动训练或新的GPU实验。[原生C46原事件/现场](../reports/wc_w3_d46_seed2_original_C46_live_20261008.json)绑定当时runner原字节与SHA。
