@@ -1,0 +1,106 @@
+{
+  "status": "PAIRED_CFG_CORE_CPU_NATIVE_AND_INDEPENDENT_RAW_SCOPE_RECONSTRUCTION_PASS_NOT_GPU",
+  "source_revision": "4565685d92e6611cf296b94dc98fa03825471b1f",
+  "observed_unix": 1791406860.153952,
+  "successful_checks": [
+    {
+      "flow": false,
+      "case": "native_CC",
+      "parent_updates": 36,
+      "suffixes": 8,
+      "mock_outputs": 5,
+      "strict_repeat_groups": 4,
+      "paired_current_actions": [
+        2,
+        2
+      ],
+      "single_current_actions": [
+        0,
+        2
+      ]
+    },
+    {
+      "flow": false,
+      "case": "native_DD_noop",
+      "parent_updates": 36,
+      "suffixes": 8,
+      "mock_outputs": 5,
+      "strict_repeat_groups": 4,
+      "paired_current_actions": [
+        2,
+        2
+      ],
+      "single_current_actions": [
+        2,
+        2
+      ]
+    },
+    {
+      "flow": true,
+      "case": "native_CC",
+      "parent_updates": 36,
+      "suffixes": 8,
+      "mock_outputs": 5,
+      "strict_repeat_groups": 4,
+      "paired_current_actions": [
+        2,
+        2
+      ],
+      "single_current_actions": [
+        0,
+        2
+      ]
+    },
+    {
+      "flow": true,
+      "case": "native_DD_noop",
+      "parent_updates": 36,
+      "suffixes": 8,
+      "mock_outputs": 5,
+      "strict_repeat_groups": 4,
+      "paired_current_actions": [
+        2,
+        2
+      ],
+      "single_current_actions": [
+        2,
+        2
+      ]
+    }
+  ],
+  "retained_failed_checks": [
+    {
+      "case": "failure_second_action",
+      "error": "C/D target lacks protected-window or same-CFG true-full history",
+      "parent_restored": true
+    },
+    {
+      "case": "failure_paired_writer",
+      "error": "Complete encoded output missing",
+      "parent_restored": true
+    },
+    {
+      "case": "failure_paired_guardrail",
+      "error": "Guardrail blocked video2world generation.",
+      "parent_restored": true
+    }
+  ],
+  "complete_successful_parents": 4,
+  "complete_successful_suffixes": 32,
+  "successful_mock_outputs": 20,
+  "mutation_refusals": 76,
+  "CPU_wall_seconds": 209.40904123336077,
+  "supervisor_CPU_wall_seconds": 212.02655162010342,
+  "CUDA_initialized": false,
+  "GPU_submissions": 0,
+  "new_payload_files": 7,
+  "unchanged_base_files": 233,
+  "budget_unchanged": true,
+  "original_PIDs_absent": [
+    3283484,
+    3283485
+  ],
+  "original_result_sha256": "bc3b471c07a62680c693b57169f9be0d2c72aa0d0dd5f81dc4d1878431cb67e4",
+  "terminal_capture_sha256": "d3a44e7d6ea49870e66b8232374fd33eb812bcb8ff2054b87e4b055bde110c4b",
+  "boundary": "Actual pinned sampler/WorldCache forward AST on CPU Toy; not real weights, real video, GPU feasibility, quality result or original Native-reference bridge"
+}

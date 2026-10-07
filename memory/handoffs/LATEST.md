@@ -1,3 +1,11 @@
+## 2026-10-08 联合CFG核心实际CPU通过，生产入口待
+
+[153核心实际CPU](../../research/153_WC_W3_PAIRED_CFG_CPU_AND_EXECUTION.md)：source4565685、实际209.409秒/exit0、4父32后缀20mock与76破坏拒绝独立原件重建通过；7新+233继承源执行前后不变，3283484/3283485已退出，CUDA false/GPU0。继续必要生产入口、源码资产/延迟导入、监督与评分绑定CPU验收，fresh资源/锁/预算后唯一GPU提交；不重跑已完成核心CPU或修改冻结核心。
+
+[152付费信号可用性更正](../../research/152_WC_W3_D46_EXISTING_CONDITION_CPU_RESULTS.md)：旧R1仅查BASE/OFF导致误报字段缺失；D臂在deep计算前记录信号，旧正例归一化累积0.9811、新负例0.5096。原R1保留，不用两个已曝光案例拟合门控。H-T38完整1父/8后缀/5新视频/1旧Native/两比较及1.660984884GPUh预测保持。
+
+累计21.127299587/24GPUh、58jobs/noinflight、余2.872700413h，goal active。以下旧CPU待、running、blocked及预算为历史。
+
 ## 2026-10-08 D46新seed整卡完成：固定动作反例与联合CFG条件
 
 下一整卡[联合CFG设计](../../plans/WORLD_CACHE_PAIRED_CFG_REFRESH_20261008.md)及[事前登记](../../manifests/wc_w3_paired_cfg_preregistration_20261008.json)已准备：`WC-W3-PAIRED-CFG-R1-20261008-A`，同seed2/同step23比较原C/C、单槽C/D、联合D/D，1新WC父/8完整后缀/5新视频/1旧匹配Native/两主要比较。完整保守预测1.660984884GPUh（含两额外最慢后缀与余量），≤2且在余2.872700413h内，按既有自主约定；CPU核心/恢复/生产入口/source与fresh准入仍待，GPU提交0。先实现并验收；不删重复、不改旧评分或已消耗身份。
