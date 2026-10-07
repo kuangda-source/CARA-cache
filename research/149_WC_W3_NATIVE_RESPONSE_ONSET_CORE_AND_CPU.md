@@ -31,3 +31,5 @@ source d728afa的独立R2已exit0，driver3110803/child3110804均退出，CPU整
 [实际回执](../reports/wc_w3_native_response_onset_core_cpu_r2_native_20261007.json) · [独立审计](../reports/wc_w3_native_response_onset_core_cpu_r2_audit_20261007.json) · [原始记录](../reports/wc_w3_native_response_onset_core_cpu_r2_attempts_native_20261007.json.gz)。此前R1整体exit1保留，不追改为通过。
 
 新生产入口绑定214文件、同一已登记1父/10后缀/6视频/两比较；官方WC/FIXED61/LATE69真实字节桥和三个响应起点完整状态门槛保持。评分复用三份同SHA同93帧协议的旧损失，仅新增RESP65/67两损失，同时报告对原WC、FIXED61和LATE69的保真及实际后缀成本。下一实际draft/contract/validate/import四步CPU和唯一selected复核，未通过前不启动GPU。
+
+生产CPU R1 source d17cd95的draft/contract已exit0（16拒绝和两signed正负/计费/旧损失复用检查）；validate由于driver误拼输出目录，与冻结run_id不符而exit1，仅0.348340秒，import尚未执行。原失败回执/三log/driver保存，预算及214源不变、driver和三children退出、GPU新增0。新独立生产CPU R2修正driver目录绑定，214源与配置不变；绑定原成功draft/contract原SHA重用，只实际执行未完成的validate/import。不得重启R1或把R1原失败称为通过。
