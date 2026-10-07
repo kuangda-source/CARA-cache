@@ -17,3 +17,11 @@
 服务器第56job在途，used=24h是持锁期间预留全部剩余余额的保护状态，非实际耗尽；最近已结算实费18.906279766h保持，结束后按全部wall实际结算。旧秒数deadline不恢复，累计24h保护仍在。goal active，仅跟踪本次原run，不修改冻结源或重启旧任务。
 
 [实际选择CPU原件](../reports/wc_w3_d46_selected_preflight_native_20261008.json) · [唯一GPU提交](../reports/wc_w3_d46_fresh_seeds_gpu_launch_20261008.json) · [PID/GPU现场](../reports/wc_w3_d46_fresh_seeds_gpu_start_live_20261008.json) · [CPU接续绑定](../reports/wc_w3_d46_postrun_cpu_launch_20261008.json)。
+
+## R1初始化失败已完整结算；同一批准卡的环境修复
+
+原source fb890da在模型初始化的Blocklist构造处exit1：监督入口漏了旧成功入口的`HF_HUB_CACHE=project/hfhub`，实际导入查找了默认缓存中不存在的`blocklist/custom`。正确项目缓存的资产原验收通过且未变；这属于入口环境实现问题，未进入任何Native/WC父轨迹或后缀，视频0。不能解释成新seed方法失败。
+
+3190813/3190976/3193255全部退出、GPU24MiB/noapps、锁释放；原日志、回执、全部费用及CPU后处理拒绝保留，未评分。[失败原件审计](../reports/wc_w3_d46_r1_failure_audit_20261008.json)：172.163342秒=0.047823151GPUh，累计18.954102917/24h、56jobs/noinflight，余5.045897083h，根budget复制原字节。旧R1不重启。
+
+必要技术恢复仍服务用户本次“好的 允许这次实验”的完整2Native+2WC父/12后缀/10视频/两signed，不另开科研卡或缩拆对照；科学scope R1保持，独立执行身份R2避免覆盖失败目录。只修缓存环境/增加实际Blocklist CPU构造核验/分离执行输出目录，四个科学core源码SHA不变；guardrails不关闭、无新权重下载或训练。完整剩余规划2.422930905h，包含已发生失败的本次规划2.470754056h，原预测不是硬deadline或清零费用。实际受影响CPU/source/assets/provenance及fresh准入通过后继续同一已批准实验，累计24h保持。

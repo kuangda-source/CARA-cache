@@ -33,6 +33,23 @@ def validate(project,stage):
     if [json.loads(x) for x in (stage/'seed-requests.jsonl').read_text().splitlines()]!=config['preregistration']['requests']:
         raise ValueError('Complete two seed requests changed')
     assets=module(base/'scripts/run_wc_s0_profile.py','d46_shared_asset_validator');assets.validate(project,base,project/'runtime')
+    execution_run=config.get('execution_run_id',config['preregistration']['run_id'])
+    if execution_run != config['preregistration']['run_id']:
+        recovery=config.get('technical_recovery')
+        if execution_run!='wc-w3-d46-fresh-seeds-r2' or not recovery:
+            raise ValueError('Unknown independent technical execution identity')
+        receipt=stage/recovery['manifest_ref']
+        if sha(receipt)!=recovery['manifest_sha256']:
+            raise ValueError('Technical recovery provenance changed')
+        restored=json.loads(receipt.read_text())
+        if (restored['scientific_card']!=config['preregistration']['card']
+                or restored['execution_run_id']!=execution_run
+                or restored['complete_scope']!=config['preregistration']['scope_counts']
+                or not restored['prior_failure_all_wall_retained']):
+            raise ValueError('Technical recovery changed approved scientific scope')
+        prior=project/restored['prior_failure_supervisor_ref']
+        if sha(prior)!=restored['prior_failure_supervisor_sha256'] or json.loads(prior.read_text())['exit_code']!=1:
+            raise ValueError('Original initialization failure provenance changed')
     return config,base
 
 
@@ -40,7 +57,9 @@ def main():
     p=argparse.ArgumentParser()
     for name in ('project','stage'):p.add_argument('--'+name,type=Path,required=True)
     p.add_argument('--cpu-check',action='store_true');p.add_argument('--source-revision');p.add_argument('--gpu-uuid')
-    args=p.parse_args();c,base=validate(args.project,args.stage)
+    args=p.parse_args()
+    os.environ['HF_HUB_CACHE']=str(args.project/'hfhub')
+    c,base=validate(args.project,args.stage)
     sys.path[:0]=[str(args.stage/'src'),str(args.project/'runtime'),str(args.project/'runtime/packages/cosmos-oss'),str(args.project/'runtime/packages/cosmos-cuda')]
     if args.cpu_check:
         os.environ.update(CUDA_VISIBLE_DEVICES='',HF_HUB_OFFLINE='1',TRANSFORMERS_OFFLINE='1')
@@ -51,6 +70,16 @@ def main():
         from wcomr.rv0_d46_seed_portfolio import run_portfolio
         from wcomr.rv0_d46_seed_causal import run_d46_seed_batch
         from wcomr.w1_native_reference_sampling import run_native_request,official_native_forward
+        from huggingface_hub import constants as hf_constants
+        from cosmos_predict2._src.imaginaire.auxiliary.guardrail.common.core import GUARDRAIL1_CHECKPOINT_DIR
+        from cosmos_predict2._src.imaginaire.auxiliary.guardrail.blocklist.blocklist import Blocklist
+        expected_cache=args.project/'hfhub'
+        expected_guard=expected_cache/'models--nvidia--Cosmos-Guardrail1/snapshots/d6d4bfa899a71454a700907664f3e88f503950cf'
+        assert Path(hf_constants.HF_HUB_CACHE).resolve()==expected_cache.resolve()
+        assert Path(GUARDRAIL1_CHECKPOINT_DIR).resolve()==expected_guard.resolve()
+        assert (expected_guard/'blocklist/custom').is_dir()
+        blocklist=Blocklist()
+        assert blocklist.blocklist_words
         parsed=InferenceArguments.from_files([args.stage/'seed-requests.jsonl'])
         assert len(parsed)==2
         for sample,request in zip(parsed,c['preregistration']['requests']):
@@ -60,7 +89,9 @@ def main():
         print(json.dumps({'status':'D46_FRESH_SEEDS_ACTUAL_PRODUCTION_SOURCE_ASSETS_PARSER_IMPORT_CPU_PASS_NOT_GPU',
             'CUDA_initialized':False,'GPU_submissions':0,'parsed_seed_names':[s.name for s in parsed],
             'native_callable':run_native_request.__name__,'causal_callable':run_d46_seed_batch.__name__,
-            'portfolio_callable':run_portfolio.__name__,'source_files':len(c['payload_sha256'])}));return
+            'portfolio_callable':run_portfolio.__name__,'source_files':len(c['payload_sha256']),
+            'project_HF_cache_and_actual_CPU_Blocklist_verified':True,
+            'execution_run_id':c.get('execution_run_id',c['preregistration']['run_id'])}));return
     authority=c.get('execution_scope_authority')
     if not authority or c.get('GPU_execution_selected') is not True:
         raise ValueError('This complete >2GPUh card needs a new direct execution exception')
@@ -79,8 +110,10 @@ def main():
     from wcomr.h0_mode import establish_shared_eval,verify_shared_eval
     from wcomr.rv0_d46_seed_portfolio import run_portfolio
     import torch
-    output=args.project/'outputs'/c['preregistration']['run_id']/'diagnostic';output.mkdir(parents=True,exist_ok=False)
+    execution_run=c.get('execution_run_id',c['preregistration']['run_id'])
+    output=args.project/'outputs'/execution_run/'diagnostic';output.mkdir(parents=True,exist_ok=False)
     state={'status':'INITIALIZING','pid':os.getpid(),'source_revision':args.source_revision,'config':c,
+        'run_id':execution_run,'scientific_run_id':c['preregistration']['run_id'],
         'started_unix':time.time(),'model_context':'Cosmos-Predict2.5-2B:'+sha(args.project/'configs/f1_setup.json'),'cases':[]}
     def save():
         tmp=output/'receipt.tmp';tmp.write_text(json.dumps(state,indent=2,allow_nan=False)+'\n');tmp.replace(output/'receipt.json')

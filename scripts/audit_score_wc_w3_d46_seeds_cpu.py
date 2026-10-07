@@ -20,7 +20,7 @@ def main():
     os.environ.update(CUDA_VISIBLE_DEVICES='',TORCH_HOME='/home/gaokuangda/.cache/torch',OMP_NUM_THREADS='2',OPENBLAS_NUM_THREADS='2')
     sys.path.insert(0,str(args.stage/'src'));sha=lambda p:hashlib.sha256(Path(p).read_bytes()).hexdigest()
     spec=importlib.util.spec_from_file_location('d46_runner_validator',args.stage/'scripts/run_wc_w3_d46_fresh_seeds.py');m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m);config,base=m.validate(args.project,args.stage)
-    run=args.project/'outputs'/config['preregistration']['run_id'];sup=json.loads((run/'supervisor.json').read_text());r=json.loads((run/'diagnostic/receipt.json').read_text());budget=json.loads((args.project/'reports/budget.json').read_text())
+    run=args.project/'outputs'/config.get('execution_run_id',config['preregistration']['run_id']);sup=json.loads((run/'supervisor.json').read_text());r=json.loads((run/'diagnostic/receipt.json').read_text());budget=json.loads((args.project/'reports/budget.json').read_text())
     assert sup['exit_code']==0 and r['status']=='D46_TWO_SEEDS_GPU_CORE_COMPLETE_AUDIT_AND_SCORE_PENDING'
     assert budget==sup['budget_after'] and math.isclose(budget['used_gpu_hours'],sup['budget_before']['used_gpu_hours']+sup['wall_seconds']/3600,abs_tol=1e-12)
     assert all(not Path('/proc/'+str(pid)).exists() for pid in [sup['pid'],sup['child_pid']])

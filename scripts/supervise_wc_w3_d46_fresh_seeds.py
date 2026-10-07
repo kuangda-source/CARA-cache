@@ -41,18 +41,21 @@ def main():
     proof=json.loads(cpu.read_text());assert proof['exit_code']==0 and proof['CUDA_initialized'] is False and proof['GPU_submissions']==0
     assert proof['new_payload_sha256']==c['production_cpu_payload_sha256']
     assert all(c['payload_sha256'].get(n)==h for n,h in proof['new_payload_sha256'].items() if n!='seed-config.json')
-    uuid=c['gpu_uuid'];budgetpath=args.project/'reports/budget.json';out=args.project/'outputs'/c['preregistration']['run_id'];assert not out.exists()
+    execution_run=c.get('execution_run_id',c['preregistration']['run_id'])
+    uuid=c['gpu_uuid'];budgetpath=args.project/'reports/budget.json';out=args.project/'outputs'/execution_run;assert not out.exists()
     lock=(args.project/'.sync/f1.lock').open('a+');fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
     before=json.loads(budgetpath.read_text());assert before['cap_gpu_hours']==24 and not any('inflight' in k for k in before)
     remaining=24-before['used_gpu_hours'];forecast=c['preregistration']['cost']['forecast_complete_GPUh'];assert 2<forecast<=remaining
     gpu=observe(uuid);assert gpu['uuid']==uuid and gpu['compute_cap']=='8.6' and not gpu['pids'] and gpu['memory_used_mib']<=1024
-    out.mkdir();state={'status':'D46_GPU_RUNNING','pid':os.getpid(),'source_revision':args.source_revision,'gpu_uuid':uuid,
+    out.mkdir();state={'status':'D46_GPU_RUNNING','pid':os.getpid(),'source_revision':args.source_revision,'gpu_uuid':uuid,'run_id':execution_run,
         'config_sha256':sha(args.stage/'seed-config.json'),'budget_before':before,'admission':gpu,'started_unix':time.time()}
     reserved=dict(before);reserved.update(used_gpu_hours=24,gpu_jobs_launched=before['gpu_jobs_launched']+1,status='D46_SEED_INFLIGHT_REMAINING_RESERVED_NOT_ACTUAL_SPENT')
-    reserved[INFLIGHT]={'run_id':c['preregistration']['run_id'],'reserved_gpu_hours':remaining,'supervisor_pid':os.getpid()};write(budgetpath,reserved);write(out/'supervisor.json',state)
+    reserved[INFLIGHT]={'run_id':execution_run,'reserved_gpu_hours':remaining,'supervisor_pid':os.getpid()};write(budgetpath,reserved);write(out/'supervisor.json',state)
     start=time.monotonic();child=None
     try:
-        env=dict(os.environ,CUDA_VISIBLE_DEVICES=uuid,WC_SUPERVISOR_PID=str(os.getpid()),WC_LOCK_FD=str(lock.fileno()),PYTHONDONTWRITEBYTECODE='1',HF_HUB_OFFLINE='1',TRANSFORMERS_OFFLINE='1')
+        env=dict(os.environ,CUDA_VISIBLE_DEVICES=uuid,WC_SUPERVISOR_PID=str(os.getpid()),WC_LOCK_FD=str(lock.fileno()),PYTHONDONTWRITEBYTECODE='1',HF_HUB_OFFLINE='1',TRANSFORMERS_OFFLINE='1',
+                 HF_HUB_CACHE=str(args.project/'hfhub'),OMP_NUM_THREADS='2',
+                 PYTHONPATH=str(args.stage/'src')+':.:packages/cosmos-oss:packages/cosmos-cuda')
         python='/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python'
         command=[python,'-u',str(args.stage/'scripts/run_wc_w3_d46_fresh_seeds.py'),'--project',str(args.project),'--stage',str(args.stage),'--gpu-uuid',uuid,'--source-revision',args.source_revision]
         with (out/'run.log').open('x') as log,(out/'gpu-monitor.jsonl').open('x') as monitor:
