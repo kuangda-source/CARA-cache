@@ -1,0 +1,110 @@
+{
+  "identity": "WC_W3_PLACEMENT_TAIL_R2_EXCEPTION_SCOPE_BLOCKED_AUDIT_20261007",
+  "previous_audit_ref": "manifests/wc_w3_placement_tail_r2_exception_scope_audit_r1_20261007.json",
+  "request_ref": "manifests/wc_w3_placement_tail_v2_gt2h_request_20261007.json",
+  "requested_card": "WC-W3-PLACEMENT-TAIL-ALIGNED-R2-20261007-A",
+  "run_id": "wc-w3-placement-tail-aligned-r2",
+  "condition": "No direct human exception answer after the complete R2 job request above the 2 GPUh automatic threshold",
+  "scope_excludes_consumed_R1_approval_and_older_blocked_periods": true,
+  "consecutive_condition_turns": [
+    {
+      "turn_id": "01a11526-b60e-7dd2-b56f-dbd0a7622f3d",
+      "condition_present": true,
+      "classification": "progress",
+      "evidence": "R1 failure audit, prospective R2 implementation, actual core and production CPU validation completed; complete-job exception question delivered"
+    },
+    {
+      "turn_id": "01a11557-9531-7d53-a5ca-1114b7605bc9",
+      "condition_present": true,
+      "classification": "no progress",
+      "evidence": "Read-only reply and terminal-handle recheck; audit bookkeeping is not experimental progress"
+    },
+    {
+      "turn_id": "01a1155f-70f0-7883-8e7d-8e5a982a22fb",
+      "condition_present": true,
+      "classification": "no progress",
+      "evidence": "Same direct-answer condition revalidated; all original handles absent; no next authorized necessary work"
+    }
+  ],
+  "current_count": 3,
+  "blocked_threshold": 3,
+  "blocked_audit_passed": true,
+  "goal_objective_complete": false,
+  "goal_status_requested": "blocked",
+  "goal_tool_result_pending": false,
+  "actual_goal_status": "blocked",
+  "goal_tool_updated_unix": 1791360152,
+  "goal_tool_result_ref": "reports/wc_w3_placement_tail_r2_blocked_goal_tool_20261007.json",
+  "thread_id": "01a0f1eb-7894-7ed0-a186-d010111e14b1",
+  "native_turn_evidence": [
+    {
+      "turn_id": "01a1155f-70f0-7883-8e7d-8e5a982a22fb",
+      "status": "inProgress",
+      "started_unix": 1791359938,
+      "completed_unix": null,
+      "user_messages": [],
+      "final_message_ids": []
+    },
+    {
+      "turn_id": "01a11557-9531-7d53-a5ca-1114b7605bc9",
+      "status": "completed",
+      "started_unix": 1791359423,
+      "completed_unix": 1791359938,
+      "user_messages": [],
+      "final_message_ids": [
+        "msg_004637e7dcf23ad9016ac5fbbd262887d0b1106d18194de07d"
+      ]
+    },
+    {
+      "turn_id": "01a11526-b60e-7dd2-b56f-dbd0a7622f3d",
+      "status": "completed",
+      "started_unix": 1791356220,
+      "completed_unix": 1791359423,
+      "user_messages": [],
+      "final_message_ids": [
+        "msg_004637e7dcf23ad9016ac5f9b8616887d0b8add6a4de580cbf"
+      ]
+    }
+  ],
+  "already_delivered_question_message_id": "msg_004637e7dcf23ad9016ac5f9b8616887d0b8add6a4de580cbf",
+  "live_observed_unix": 1791359999.6719885,
+  "production_cpu_source_revision": "e4642726754bba73b28c622856bafc3edc33508b",
+  "production_cpu_receipt_sha256": "1892b772325409a72ab5752202b89f82ee41e6b3b5d77f792f3582dbb2033567",
+  "production_cpu_exit_code": 0,
+  "original_pids_absent": [
+    3026351,
+    3026368,
+    3035292,
+    3035293,
+    3036206,
+    3036207,
+    3036208,
+    3036209,
+    3036218
+  ],
+  "live_task_to_wait_for": false,
+  "shared_lock_free": true,
+  "new_authorization_exists": false,
+  "new_output_exists": false,
+  "budget_sha256": "6336f6affa07b895712bf05b05d99b0bdbcd62390b0958ff110616c43038c707",
+  "cap_GPUh": 24,
+  "used_GPUh": 14.356340356944903,
+  "remaining_GPUh": 9.643659643055097,
+  "gpu_jobs_launched": 50,
+  "inflight": false,
+  "new_GPU_jobs_this_turn": 0,
+  "new_GPU_expense_this_turn": 0,
+  "complete_scope_counts": [
+    2,
+    16,
+    10,
+    4
+  ],
+  "complete_planning_GPUh": 2.5967097498681393,
+  "legacy_single_card_seconds_deadline": null,
+  "no_necessary_authorized_preparation_remaining": true,
+  "protected_cpu_sources_not_changed": true,
+  "unchanged_passed_CPU_not_repeated": true,
+  "scientific_status": "Original R1 controls passed and first swap ended under its original tail condition; R2 real GPU feasibility and endpoints remain untested",
+  "next": "Stop automatic continuation. On a direct R2 exception answer, retain passed e464272 source; update selected config/authorization only; fresh shared-resource/whole-job budget admission; one full R2 job; actual settlement and full signed endpoint scoring. Do not reuse R1 approval, shrink/split controls, repeat CPU, train, or add human review."
+}
