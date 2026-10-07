@@ -27,3 +27,13 @@ Unix1791354353.410098现场确认原supervisor3026351与runner3026368存活，�
 OFF1经原decoder/guardrail/writer接受并保存。[服务器原生两文件SHA审计](../reports/wc_w3_placement_off1_native_video_identity_20261007.json)确认它与历史官方WorldCache视频逐字节相同：各531916 bytes，SHA fa7f466534e7e7984136dfaa9fb47794dedf0c81444229527b9722142715c379。这是当前真实恢复路径接回历史输出的正证据，复用历史完整解码原件，不在运行期间重复解码。
 
 本进展属于执行机制与身份桥，不是新调度收益。OFF2及其余重复、BASE、四对SWAP、完整2父/16后缀/10视频终态与六损失/四signed评分尚待；原分母及失败处理保持，不凭首个对照接受整个卡，也不复跑旧CPU或重启原GPU任务。新增GPU提交0，原第50job仍在途，实际费用仍待原supervisor结算。
+
+## OFF重复与首个固定配额基线通过，进入交换分支
+
+[OFF1/OFF2真实重放核验](../reports/wc_w3_placement_off_repeat_native_observation_20261007.json)：两次完整14更新/28调用后缀的inputs、outputs、deep、banks、solver_outputs、终点latent、final_state_components和action_report八项全部一致，均恢复父状态，整条轨迹配额18/17。两个control wall分别349.396313、320.852362秒；这些是带校验开销的诊断费用，不是部署速度比较。部分原始回执以[gzip原件](../reports/wc_w3_placement_off_repeat_raw_partial_receipt_20261007.json.gz)保存，解压字节SHA保留。
+
+[BASE1真实基线核验](../reports/wc_w3_placement_base1_native_observation_20261007.json)：固定原配额后，与OFF1的五类轨迹、终点latent和终态组件七项逐项一致；全轨迹实际18/17、deep只取0/26，parent_restored=true。control wall320.856492秒，14/28完整分母保持。该[部分回执原件](../reports/wc_w3_placement_base1_raw_partial_receipt_20261007.json.gz)绑定冻结源de24070；OFF与BASE的动作报告语义不同，不强行要求整个报告相等。
+
+BASE1经原decoder/guardrail/writer接受。[三文件原生SHA核验](../reports/wc_w3_placement_base_off_historical_native_video_identity_20261007.json)确认BASE1、OFF1和历史官方WC视频逐字节相同，均531916 bytes。由此，Common当前固定配额基线接线没有改变原结果；这是后续位置比较的有效控制证据，不能扩展为Human或全部重复已通过。
+
+当前原进程已经启动Common的SWAP0_first（47/49，同CFG0内交换）。BASE2、两SWAP的重复、父轨迹余下更新与历史身份桥、Human及完整终态/评分均待。全卡2父/16后缀/10输出/四交换不变；新GPU提交0，原job继续。旧科学结果和预算预留保持，不提前生成RV训练标签或宣称新方法收益。
