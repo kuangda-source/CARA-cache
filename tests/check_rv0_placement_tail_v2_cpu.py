@@ -213,7 +213,7 @@ def exercise(*, inference, samples, wc, settings, inference_module, flow, runtim
 
 def run(runtime):
     result=load('check_full_sampling').run(Path(runtime),exercise=lambda **k:exercise(runtime=Path(runtime),**k))
-    assert len(result['checks'])==7
+    assert len(result['checks'])==8
     assert not torch.cuda.is_initialized()
     result.update(status='R2_PLACEMENT_TAIL_DELTA_COMPOSITION_CPU_PASS_NOT_GPU',CUDA_initialized=False,
         complete_successful_parents=6,complete_successful_suffixes=48,successful_mock_outputs=30,

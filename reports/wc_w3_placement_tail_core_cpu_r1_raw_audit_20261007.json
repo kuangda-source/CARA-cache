@@ -1,0 +1,175 @@
+{
+  "status": "R2_CORE_FROZEN_RAW_TRACE_CPU_AUDIT_PASS_ORIGINAL_SUMMARY_FAILURE_RETAINED",
+  "source_revision": "92aad082649c14962f881fd2b39d92866e954110",
+  "raw_cpu_original_exit_code": 1,
+  "raw_CPU_wall_seconds": 258.317280292511,
+  "CPU_audit_wall_seconds": 0.307657625,
+  "original_failure": "summary assertion expected7 after an eighth deliberately added case",
+  "corrected_fixture_difference": "only aggregate expected count 7 to 8; executed core unchanged",
+  "new_model_execution": 0,
+  "GPU_submissions": 0,
+  "original_CPU_pids_absent": true,
+  "old_stage_files_unchanged": 140,
+  "stage_files_native_sha_checked": 149,
+  "upstream_files_unchanged": 9,
+  "budget_and_original_GPU_receipts_unchanged": true,
+  "scope": {
+    "status": "R2_COMPLETE_FIXED_EXECUTED_TAIL_SCOPE_CPU_PASS_NOT_GPU",
+    "parents": 2,
+    "suffixes": 16,
+    "new_outputs": 10,
+    "science_pairs": 4
+  },
+  "successful_CPU_scenarios": [
+    {
+      "flow": false,
+      "scenario": null,
+      "parents": 2,
+      "suffixes": 16,
+      "mock_outputs": 10
+    },
+    {
+      "flow": true,
+      "scenario": null,
+      "parents": 2,
+      "suffixes": 16,
+      "mock_outputs": 10
+    },
+    {
+      "flow": true,
+      "scenario": "tail_proposal_difference",
+      "parents": 2,
+      "suffixes": 16,
+      "mock_outputs": 10
+    }
+  ],
+  "complete_CPU_parents": 6,
+  "complete_CPU_suffixes": 48,
+  "mock_outputs_not_videos": 30,
+  "tail_proposal_differences_preserve_executed_masks": [
+    {
+      "scene": "common",
+      "label": "BASE1",
+      "call": 70,
+      "native": "D",
+      "actual": "C"
+    },
+    {
+      "scene": "common",
+      "label": "SWAP0_first",
+      "call": 70,
+      "native": "D",
+      "actual": "C"
+    },
+    {
+      "scene": "common",
+      "label": "SWAP1_first",
+      "call": 70,
+      "native": "D",
+      "actual": "C"
+    },
+    {
+      "scene": "common",
+      "label": "SWAP1_second",
+      "call": 70,
+      "native": "D",
+      "actual": "C"
+    },
+    {
+      "scene": "common",
+      "label": "SWAP0_second",
+      "call": 70,
+      "native": "D",
+      "actual": "C"
+    },
+    {
+      "scene": "common",
+      "label": "BASE2",
+      "call": 70,
+      "native": "D",
+      "actual": "C"
+    },
+    {
+      "scene": "human",
+      "label": "BASE1",
+      "call": 70,
+      "native": "D",
+      "actual": "C"
+    },
+    {
+      "scene": "human",
+      "label": "SWAP0_first",
+      "call": 70,
+      "native": "D",
+      "actual": "C"
+    },
+    {
+      "scene": "human",
+      "label": "SWAP1_first",
+      "call": 70,
+      "native": "D",
+      "actual": "C"
+    },
+    {
+      "scene": "human",
+      "label": "SWAP1_second",
+      "call": 70,
+      "native": "D",
+      "actual": "C"
+    },
+    {
+      "scene": "human",
+      "label": "SWAP0_second",
+      "call": 70,
+      "native": "D",
+      "actual": "C"
+    },
+    {
+      "scene": "human",
+      "label": "BASE2",
+      "call": 70,
+      "native": "D",
+      "actual": "C"
+    }
+  ],
+  "failure_cases": [
+    {
+      "failure": "child_writer",
+      "error": "Complete encoded output missing",
+      "restored": true
+    },
+    {
+      "failure": "child_guardrail",
+      "error": "Guardrail blocked video2world generation.",
+      "restored": true
+    },
+    {
+      "failure": "prefix_mask",
+      "error": "Fixed-mask parent prefix or CFG boundary differs",
+      "restored": true
+    },
+    {
+      "failure": "own_CFG_history",
+      "error": "R2 fixed-mask C/D pair lacks own-CFG true-full cache history",
+      "restored": true
+    },
+    {
+      "failure": "protected_native_action",
+      "error": "R2 immutable armed plan changed; no tail/quota repair allowed",
+      "restored": true
+    }
+  ],
+  "failure_pending_saved_before_restore": [
+    {
+      "failure": "own_CFG_history",
+      "call": 45
+    },
+    {
+      "failure": "protected_native_action",
+      "call": 45
+    }
+  ],
+  "independent_mutation_refusals": 60,
+  "real_four_pair_GPU_feasibility": "UNKNOWN_UNTIL_NEW_R2_REAL_RUN",
+  "production_entry_or_GPU_approval": false
+}
