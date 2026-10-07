@@ -85,3 +85,11 @@ post-CPU3115990实际存活，冻结source/binding SHA和原3115400/3115418句�
 FIXED61与LATE69的pre65/pre67/pre69完整组件与自身CFG历史均严格一致，响应第69调用输入也相同；此前输出/深层执行/banks/求解器前缀一致，实际动作只在69/70变化，LATE全程完整调用21/19、固定20/18。[现场八项检查及真实文件桥](../reports/wc_w3_native_response_onset_r3_late69_history_and_pre69_bridge_live_20261007.json)绑定[原字节快照](../reports/wc_w3_native_response_onset_r3_late69_prefix_snapshot_native_20261007.json.gz)，SHA084afd3e…9de0704；本地从原件再次核对全部八比较和两动作变化。只检查已完成的这两模式，不追认RESP65/67尚未完成的四/三模式前缀门。
 
 原两个GPU进程及postCPU3115990命令现场存活、source一致，postCPU仍WAITING/零步骤；当前4/10后缀、3/6视频，RESP65_first已开始，无新终点指标或质量/速度结论。预算最近结算与全scope保持，没有新GPU/评分提交。
+
+## 首个RESP65：新动作已发生，质量与重复尚待
+
+2026-10-07 23:49:42实际只读核对：RESP65_first完成14更新/28CFG及视频保存，SHA799ba87c…0b4d9ccd。窗口65–70的六次决策均使用已付probe/自身原生建议、无当前deep真值；实际相对共同固定掩码的变化是65/66/69/70，其余67/68保持cache。因此全程CFG完整数22/20，晚响应21/19，新增两次deep完整调用，并未用事后配额修补保持相同预算。首条控制wall369.374434秒只属一次诊断成本，不是两重复均值或干净速度。
+
+[真实动作/部分前缀检查](../reports/wc_w3_native_response_onset_r3_resp65_action_live_20261007.json)绑定[原字节快照](../reports/wc_w3_native_response_onset_r3_resp65_snapshot_native_20261007.json.gz)，原receipt SHAb2ccc327…37a6f451。FIXED61/LATE69/RESP65三已完成模式的pre65完整组件/own历史及第一可变输入、此前所有输出/深层/banks/求解器前缀严格一致；本地从原件重新核对两组各六比较、实际两CFG次数和四动作变化。RESP67这一第四模式的门尚未完成，不将三模式检查称为完整四模式验收。
+
+当前5/10后缀、4/6视频，RESP67_first已开始；原supervisor3115400/runner3115418实际命令存活/source不变。新两个主要终点比较、全部五组重复、父完成/旧桥/状态恢复和CPU全93评分仍待，不能据已保存候选判断保真或质量收益。预算最近结算/当前在途及完整范围保持，没有新GPU或评分提交。
