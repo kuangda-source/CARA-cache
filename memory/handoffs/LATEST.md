@@ -4,6 +4,8 @@
 
 已结算14.356340357/24 GPUh、50jobs；第51原任务预留全部剩余9.643659643h，服务器在途used=24是预留而非花完，结束按全wall退回差额。只跟踪原run，终态/实费/原件/重复/每CFG配额/全93帧CPU评分仍待；goal active，旧待允许/blocked为历史，不重提同卡、不改在跑源、不扩训练或人评。
 
+CPU接续PID3054488已验证存活，独立目录`.sync/wc-w3-placement-tail-v2-postrun-cpu-r1-20261007`，当前WAITING；原GPU成功终态且原句柄消失后，自动依次执行冻结stage终态审计和全93帧LPIPS。不得重复dispatch；用本地`.sync/observe_wc_tail_v2_postrun_cpu.py`跟踪，原字节脚本和SHA/启动回执见147。失败保留原件，不自动重试；这次部署尚无验收/评分结果。
+
 ## 2026-10-07 下一完整W3-B R2已具备执行条件，等待单次>2h例外
 
 [146核心与生产CPU](../../research/146_WC_W3_TAIL_ALIGNMENT_CORE_AND_PRODUCTION_CPU.md)：R2仅调整69/70原生建议条件，冻结执行掩码/每CFG配额、原四对和完整2父/16后缀/10视频保持。原R1费用/规则/exit1保留。核心实际CPU的8组记录独立验收6父/48后缀、12尾段建议差异、5故障与60破坏拒绝；原7案例汇总断言失败保留，只修未来7→8计数，不重复模型fixture。
