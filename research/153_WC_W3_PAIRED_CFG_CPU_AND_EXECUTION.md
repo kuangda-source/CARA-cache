@@ -43,3 +43,9 @@ selected实际CPU绑定13.944609秒通过；冻结255源和实际生产回执不
 ### 原父已进入真实采样
 
 现场原runner模型加载110.619200秒；同一seed2提示词guardrail通过，实际原WC采样已到3/36。仍跟踪原GPU3285362/3285375及等待CPU3285718/source aa996ed；后缀干预、重复/真实历史桥、视频和终点评分尚待。父行只在检查点保存，磁盘receipt中inputs仍为空不表示没有执行；实际采样进度由原run.log确认。
+
+## 现场输入签名差异：原判据保留，完整生成继续
+
+在第22步现场原件中，44次调用只有命名参数 `gt_frames` 的hash与旧seed2不同，其余输入以及输出、deep、banks和solver轨迹均一致；[现场原字节](../reports/wc_w3_paired_cfg_parent_prefix_native_20261008.json.gz)与[严格前缀判据失败](../reports/wc_w3_paired_cfg_parent_prefix_bridge_cpu_20261008.json)保留。差异来源尚未唯一确定，不宣称编码器随机性或质量损害。
+
+冻结严格历史验证器要求全部输入相同，原GPU因此可能在完整生成后被该门拒绝，不能改在跑源或把旧失败改成功。既定1父/8后缀/5视频继续完成，GPU/PID/source、预算和范围均不变。独立[CPU下一轮登记](../manifests/wc_w3_paired_inactive_gt_cpu_preregistration_20261008.json)在联合臂终点质量尚未曝光前，检验text2world零条件帧是否使有限gt_frames失去计算作用。只有实际源码/零mask数值证明、其他全部输入及完整状态/历史编码/重复都一致后，才允许单独标记CPU条件化取证分析；任何其他差异仍拒绝，不覆盖原GPU门的失败。当前没有联合刷新收益。

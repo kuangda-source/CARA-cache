@@ -1,0 +1,72 @@
+{
+  "identity": "WC-W3-PAIRED-INACTIVE-GT-FORENSIC-CPU-R1-20261008",
+  "registered_unix": 1791409500.346653,
+  "original_card": "WC-W3-PAIRED-CFG-R1-20261008-A",
+  "original_GPU_source_revision": "aa996edf2d8fc3eb99018fac916a63034c5f53d5",
+  "GPU_run_to_finish_unchanged": "wc-w3-paired-cfg-r1",
+  "inputs": {
+    "reports/wc_w3_paired_cfg_parent_prefix_bridge_cpu_20261008.json": "0967f0a25c2b5e4ef4f0ca316ddeab2e847c639444e51598683a5266a1084fb5",
+    "reports/wc_w3_paired_cfg_parent_prefix_native_20261008.json.gz": "6cb023bee663c51fc2fb434dfc68df6af6ac2d67640a407dee3aa140bdfdabfa",
+    "manifests/wc_w3_paired_cfg_preregistration_20261008.json": "08af2bbb68c5b7a5c768468d4227d49cafdf18ae5fce45a843350a4a71c2fed3",
+    "configs/wc_w3_paired_cfg_selected_r1_20261008.json": "1b65792b1b2e71d7ea8c30031d90ef83b5e7c024111a0ec40d0c26cb3e72103b"
+  },
+  "observed_before_registration": {
+    "prefix_updates": 22,
+    "prefix_CFG_calls": 44,
+    "only_differing_named_input": "gt_frames",
+    "equal_prefix": [
+      "outputs",
+      "deep",
+      "banks",
+      "solver_outputs"
+    ],
+    "OFF1_encoded": true,
+    "PAIRED_quality_observed": false
+  },
+  "CPU_hypothesis": "Finite gt_frames can differ across text2world preparations while zero condition mask removes their effect; the WC forward does not read gt_frames from kwargs.",
+  "strict_original_history_input_gate_unchanged": true,
+  "predicted_original_raw_input_bridge_failure_retained": true,
+  "change_running_code_or_old_criteria": false,
+  "numerical_CPU_protocol": {
+    "real_frozen_denoise_AST": true,
+    "Toy_network_no_real_weights": true,
+    "dtypes": [
+      "float32",
+      "bfloat16"
+    ],
+    "conditional_timestep_branches": [
+      -1,
+      0
+    ],
+    "use_condition": [
+      false,
+      true
+    ],
+    "replace_gt": [
+      false,
+      true
+    ],
+    "finite_distinct_GT_zero_mask_outputs_and_active_network_inputs_must_match": true,
+    "nonzero_mask_positive_controls_must_change": true,
+    "real_mask_zero_hash_reconstruction_required": true
+  },
+  "conditional_forensic_future_acceptance": {
+    "only_allowed_historical_named_input_difference": "kwargs.gt_frames",
+    "all_other_raw_input_names_and_hashes_match": true,
+    "all_current_internal_arm_inputs_including_GT_strictly_match": true,
+    "parent_BASE_SINGLE_outputs_deep_banks_solver_full_final_state_and_encoded_bytes_match_old": true,
+    "all_original_four_repeat_groups_and_restores_preserved": true,
+    "actual_text2world_request_num_input_frames_zero_and_mask_hash_verified": true,
+    "any_other_difference_refuses_semantic_bridge": true,
+    "all93_cpu_original_metric_three_losses_two_signed_pairs": true,
+    "original_GPU_audit_failure_not_relabelled_success": true,
+    "classification": "EXPOSED_STATE_CPU_FORENSIC_EVIDENCE_SEPARATE_FROM_ORIGINAL_STRICT_ACCEPTANCE"
+  },
+  "GPU_submissions": 0,
+  "additional_GPU_cost": 0,
+  "new_GPU_or_scope_exception": false,
+  "independent_CONF": false,
+  "clean_speed_measurement": false,
+  "training_sparse_or_human_review": false,
+  "quality_labels_or_gate_training": false
+}
