@@ -36,7 +36,7 @@ def validate(project,stage):
     execution_run=config.get('execution_run_id',config['preregistration']['run_id'])
     if execution_run != config['preregistration']['run_id']:
         recovery=config.get('technical_recovery')
-        if execution_run!='wc-w3-d46-fresh-seeds-r2' or not recovery:
+        if execution_run not in ('wc-w3-d46-fresh-seeds-r2','wc-w3-d46-fresh-seeds-r3') or not recovery:
             raise ValueError('Unknown independent technical execution identity')
         receipt=stage/recovery['manifest_ref']
         if sha(receipt)!=recovery['manifest_sha256']:
@@ -92,12 +92,36 @@ def main():
         for sample,request in zip(parsed,c['preregistration']['requests']):
             actual=sample.model_dump(mode='json')
             assert all(actual[k]==v for k,v in request.items())
+        # Exercise the real Native function's delayed imports before its first
+        # production precondition; no model construction or generation occurs.
+        from types import SimpleNamespace
+        from wcomr.decoder_policy import backend_flags
+        empty=SimpleNamespace(pipe=SimpleNamespace(model=SimpleNamespace(net=SimpleNamespace())))
+        try:
+            run_native_request(empty,parsed[0],state={'status':'CPU_DELAYED_IMPORT_CHECK'},save=forbidden,
+                output=args.stage/'never-created-native-cpu-output',inference_module=None,
+                sampling_policy=c['sampling_protocol'],expected_flags=backend_flags(),synchronize=forbidden)
+        except ValueError as error:
+            assert str(error)=='Fresh complete35 Native reference/eval/backend identity differs'
+        else:raise AssertionError('CPU Native entry should stop before generation')
+        import ast
+        pending=['rv0_d46_seed_causal','rv0_d46_seed_portfolio','rv0_d46_seed_evaluation','w1_native_reference_sampling']
+        visited=set()
+        while pending:
+            name=pending.pop()
+            if name in visited:continue
+            visited.add(name);source=args.stage/'src/wcomr'/Path(name.replace('.','/')+'.py')
+            assert source.is_file(), 'Missing transitive staged source: '+name
+            for node in ast.walk(ast.parse(source.read_text())):
+                if isinstance(node,ast.ImportFrom) and node.level==1 and node.module:
+                    pending.append(node.module)
         assert not torch.cuda.is_initialized()
         print(json.dumps({'status':'D46_FRESH_SEEDS_ACTUAL_PRODUCTION_SOURCE_ASSETS_PARSER_IMPORT_CPU_PASS_NOT_GPU',
             'CUDA_initialized':False,'GPU_submissions':0,'parsed_seed_names':[s.name for s in parsed],
             'native_callable':run_native_request.__name__,'causal_callable':run_d46_seed_batch.__name__,
             'portfolio_callable':run_portfolio.__name__,'source_files':len(c['payload_sha256']),
             'project_HF_cache_and_actual_CPU_Blocklist_verified':True,
+            'real_Native_delayed_imports_checked':True,'transitive_local_source_count':len(visited),
             'execution_run_id':c.get('execution_run_id',c['preregistration']['run_id'])}));return
     authority=c.get('execution_scope_authority')
     if not authority or c.get('GPU_execution_selected') is not True:

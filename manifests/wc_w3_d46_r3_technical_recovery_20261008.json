@@ -1,0 +1,41 @@
+{
+  "identity": "D46_APPROVED_CARD_NATIVE_DEPLOYMENT_CLOSURE_RECOVERY_R3",
+  "scientific_card": "WC-W3-D46-FRESH-SEEDS-R1-20261008-A",
+  "scientific_run_id": "wc-w3-d46-fresh-seeds-r1",
+  "execution_run_id": "wc-w3-d46-fresh-seeds-r3",
+  "complete_scope": {
+    "Native_parents": 2,
+    "WC_parents": 2,
+    "complete_suffixes": 12,
+    "new_videos": 10,
+    "signed_policy_pairs": 2
+  },
+  "prior_failure_all_wall_retained": true,
+  "prior_failure_supervisor_ref": "outputs/wc-w3-d46-fresh-seeds-r2/supervisor.json",
+  "prior_failure_supervisor_sha256": "d252b1641c880a0eab2ff744723f177f90462d79e925f79cc81e611f25ee3b9c",
+  "prior_failure_audit_ref": "reports/wc_w3_d46_r2_failure_audit_20261008.json",
+  "prior_failure_audit_sha256": "5c23849d2c323772afe1466f59f7b796c653723ab9f3fe40dd6300850fc826ca",
+  "cause": "Native reference function delayed imports require three already-existing local source files absent from D46 deployment closure",
+  "runtime_changes": [
+    "Keep verified project HF cache binding",
+    "Add existing guardrail_observation, protocol and w1_native_reference_scope files to deployment",
+    "CPU execute actual Native delayed imports to production precondition and audit full local closure",
+    "Separate execution R3 output; same frozen scientific scope R1"
+  ],
+  "scientific_core_unchanged": {
+    "src/wcomr/rv0_d46_seed_causal.py": "91b31665c3cc9acbeaa288a37f189c307cb7e2d872059f3f8d7990a5dd1c2d2a",
+    "src/wcomr/rv0_d46_seed_evaluation.py": "7b8fc1cc1ce816536803b6d218d8bfe0eaed1f38f1dd9b1d204aea33740d7625",
+    "src/wcomr/rv0_d46_seed_scope.py": "f419d15ab30d18c09245238e207fa997c8657af2d5f8426c918b253443262388",
+    "src/wcomr/rv0_d46_seed_portfolio.py": "2accc5c77c103ef06a7ebd9d0dfd8e4bb55e6ab9cca7246308ff1e186ab64876",
+    "src/wcomr/w1_native_reference_sampling.py": "07ea78cc2958ee94e62389fe5d829681e5fc2b70169adc6a6715046266958e51"
+  },
+  "authority_ref": "manifests/wc_w3_d46_fresh_seeds_gpu_authorization_20261008.json",
+  "source_user_text": "\u597d\u7684 \u5141\u8bb8\u8fd9\u6b21\u5b9e\u9a8c",
+  "necessary_implementation_repair_within_approved_experiment": true,
+  "prior_failed_GPUh": 0.08517394468550421,
+  "forecast_complete_remaining_GPUh": 2.4229309049698835,
+  "forecast_with_actual_prior_failure_GPUh": 2.5081048496553877,
+  "cumulative_cap_GPUh": 24,
+  "used_GPUh_now": 18.991453710605857,
+  "GPU_submissions": 0
+}
