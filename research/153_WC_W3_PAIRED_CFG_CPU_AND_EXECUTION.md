@@ -57,3 +57,5 @@ source `4545d878d91fed6a1138cd39908655215b94ca4d`，独立 `.sync/wc-w3-inactive
 见[独立CPU原件重建](../reports/wc_w3_inactive_gt_semantics_cpu_r1_independent_audit_20261008.json)及[终态捕获](../reports/wc_w3_inactive_gt_semantics_cpu_r1_terminal_capture_20261008.json)。两个原CPU句柄3291534/3291535已退出，255份在跑GPU载荷未改，GPU新增0。该证明使用实际AST和Toy网络，不能替代完整GPU历史审计或质量评分。
 
 原OFF1和BASE_first视频均已接受编码，SHA与旧seed2 BASE逐字节相同。当前原GPU仍在完整后缀生成，单槽/联合输出和严格重复、终态、三损失/两比较尚待。只在所有其他历史输入、输出、状态、缓存、solver和BASE/SINGLE编码均通过时，才执行单独H-T39 CPU条件化取证评分；原严格失败原件与判据保持，不重新生成GPU，不将条件化证据改称原卡严格验收。
+
+独立[154取证入口与规则](154_WC_INACTIVE_GT_CONDITIONAL_CPU_FORENSICS.md)已实现。新规则27项破坏拒绝和“只修复单槽不胜BASE”夹具通过，不重跑旧CPU；实际评分只等待原完整生成和原拒绝终态，保持先PAIRED对BASE、后PAIRED对SINGLE的解释顺序。
