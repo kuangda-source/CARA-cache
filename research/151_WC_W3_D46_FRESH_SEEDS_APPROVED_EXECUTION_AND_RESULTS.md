@@ -89,3 +89,9 @@ python3 scripts/capture_wc_w3_d46_terminal_cpu.py --manifest manifests/wc_w3_d46
 只读首条OFF1完整原始record表明，seed1在call46/CFG1的paid probe原生建议已是D（native_skip=false、requested=null、actual_action=D），后缀45–72完整CFG数为8/8。因此该seed的REFRESH请求按预登记应为no-op；最终严格重复、BASE/REFRESH原始与编码一致及全93评分仍待，不能凭首条OFF把整卡验收完成或报策略成功。[原事件/现场审计](../reports/wc_w3_d46_seed1_native_D46_live_20261008.json)绑定当时runner压缩原字节SHA和真实原PID，不修改在跑源。
 
 这增加了对干预适用范围的证据：同一已曝光prompt换seed后，既有call46并非必然是可改变的C点。它不否定W3，保留两个预定seed/位置/原分母，完成全部控制和seed2，不为制造效果换位置或强制C。若最终两个seed均no-op，按v5.4说明未检验eligible动作泛化，并另登记低成本区分实验；当前只知道seed1，尚不选择下一卡。
+
+## 终态汇总的成本分母补齐（纯CPU报告层）
+
+既有终态汇总器补齐两个登记seed的等权诊断时间/全路径完整数及no-op耗时子集；即使某条Native参考被安全管线拒绝，已执行的BASE/REFRESH时间和完整次数仍保留，只有Native相对质量缺失。每臂两次耗时范围同时报告；原生D46的实际动作/轨迹一致时，非零诊断时间差只作条件或运行波动，不能计为节省模型计算。以上沿用冻结Δq/Δt及拒绝/no-op分母，不增加生成或修改在跑的GPU/CPU评分源。
+
+Python语法解析通过；只读旧Human原始两重复实际wall复核C=[326.503529,328.487381]、D=[321.037228,320.992239]，同一算式输出既有Δt=6.480721秒，不重跑旧GPU/LPIPS，也不当成新seed结果。新卡完整终态仍待。

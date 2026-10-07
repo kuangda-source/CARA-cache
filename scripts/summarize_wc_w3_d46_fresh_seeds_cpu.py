@@ -67,11 +67,17 @@ def main():
              'whole_full_saved':sum(base['whole_calls1_to72'])-sum(refresh['whole_calls1_to72']),
              'diagnostic_seconds':measurement['control_costs'],'score_status':measurement['score_status']}
         assert row['whole_full_saved']==row['future_full_saved']-row['current_full_added']
+        # Timing remains observable even if the Native reference is rejected.
+        for values in row['diagnostic_seconds'].values():
+            assert len(values)==2 and all(math.isfinite(x) and x>0 for x in values)
+        assert set(row['diagnostic_seconds'])=={'BASE','REFRESH'}
+        cost=mean(row['diagnostic_seconds']['BASE'])-mean(row['diagnostic_seconds']['REFRESH'])
+        row['signed_diagnostic_seconds_BASE_minus_REFRESH']=cost
+        row['repeat_diagnostic_range_seconds']={k:max(v)-min(v) for k,v in row['diagnostic_seconds'].items()}
         if measurement['Native_outcome']=='ACCEPTED':
             a,b=measurement['losses']['BASE'],measurement['losses']['REFRESH']
             assert len(a['frame_distances'])==len(b['frame_distances'])==93 and a['pts']==b['pts']
             quality=a['mean_LPIPS']-b['mean_LPIPS']
-            cost=mean(row['diagnostic_seconds']['BASE'])-mean(row['diagnostic_seconds']['REFRESH'])
             assert math.isclose(quality,measurement['signed_quality'],abs_tol=1e-12)
             assert math.isclose(cost,measurement['signed_diagnostic_seconds'],abs_tol=1e-12)
             row.update(BASE_LPIPS=a['mean_LPIPS'],REFRESH_LPIPS=b['mean_LPIPS'],
@@ -85,6 +91,7 @@ def main():
         rows.append(row)
     available=[r for r in rows if r['Native_outcome']=='ACCEPTED'];eligible=[r for r in available if r['eligible_original_C46']]
     eligible_all=[r for r in rows if r['eligible_original_C46']]
+    noops=[r for r in rows if r['original_D46_noop']]
     failures=[read(p) for p in args.failure_audit]
     result={'status':'COMPLETED_D46_FRESH_SEEDS_DESCRIPTIVE_SIGNED_SUMMARY_NOT_CONF',
         'source_revision':runner['source_revision'],'scope_counts':SCOPE,
@@ -93,8 +100,12 @@ def main():
         'original_D46_noops':sum(r['original_D46_noop'] for r in rows),'cases':rows,
         'all_available_equal_seed_mean_quality':mean([r['signed_quality_BASE_minus_REFRESH'] for r in available]),
         'all_available_equal_seed_mean_relative_improvement_percent':mean([r['relative_LPIPS_improvement_percent'] for r in available if r['relative_LPIPS_improvement_percent'] is not None]),
+        'all_registered_equal_seed_mean_diagnostic_seconds':mean([r['signed_diagnostic_seconds_BASE_minus_REFRESH'] for r in rows]),
+        'all_registered_equal_seed_mean_whole_full_saved':mean([r['whole_full_saved'] for r in rows]),
         'eligible_equal_seed_mean_quality':mean([r['signed_quality_BASE_minus_REFRESH'] for r in eligible]),
-        'eligible_equal_seed_mean_diagnostic_seconds':mean([r['signed_diagnostic_seconds_BASE_minus_REFRESH'] for r in eligible]),
+        'eligible_equal_seed_mean_diagnostic_seconds':mean([r['signed_diagnostic_seconds_BASE_minus_REFRESH'] for r in eligible_all]),
+        'original_D46_noop_mean_diagnostic_seconds':mean([r['signed_diagnostic_seconds_BASE_minus_REFRESH'] for r in noops]),
+        'noop_timing_interpretation':'Identical actual actions and trajectories; nonzero diagnostic time differences are not saved model computation',
         'new_GPU_wall_seconds':supervisor['wall_seconds'],
         'retained_prior_failure_wall_seconds':math.fsum(f['supervisor']['wall_seconds'] for f in failures),
         'budget_after':supervisor['budget_after'],'independent_CONF':False,
