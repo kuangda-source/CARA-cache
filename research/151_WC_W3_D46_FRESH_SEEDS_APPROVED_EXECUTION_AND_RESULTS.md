@@ -33,3 +33,13 @@
 原CPU两个句柄3205110/3205111退出，14项新载荷及216项基础源码前后SHA相同，预算18.954102917/24h未变，独立执行R2的GPU输出不存在。没有重跑旧核心Toy或生成。生产配置选择与fresh准入待；用户对完整本次实验的直接批准保持，仅修复必要环境实现，不另开方向或执行完整重复卡。
 
 [实际CPU原件/审核](../reports/wc_w3_d46_recovery_cpu_r3_audit_20261008.json) · [CPU导入失败原件](../reports/wc_w3_d46_recovery_cpu_r2_failure_audit_20261008.json) · [恢复绑定](../manifests/wc_w3_d46_r2_technical_recovery_20261008.json) · [独立选择配置](../configs/wc_w3_d46_fresh_seeds_r2_selected_20261008.json)。
+
+## R2加载成功但Native延迟导入缺依赖；完整闭包CPU通过
+
+R2缓存修复已生效，模型97.476849秒实际加载成功；进入seed1 Native函数后，在采样前因部署包缺少`wcomr.guardrail_observation`退出1。三个原PID3209212/3209383/3211505退出、GPU24MiB/noapps、锁释放；原件与134.462859秒=0.037350794GPUh全部保留，仍0视频/0采样。累计18.991453711/24h、57jobs/noinflight，根budget已复制服务器原字节。两次失败费用总0.085173945h，不是新seed收益的负结果。
+
+Native延迟导入的完整本地闭包检查发现三个既有文件未部署：guardrail_observation.py、protocol.py和w1_native_reference_scope.py。只补齐既有源码，不修改Native采样、缓存算法或四个D46科学core。新增CPU检查直接调用真实Native入口，执行所有延迟导入后在生产前置条件处明确停止，不构造模型或采样；递归核对29个本地模块均在stage内。缓存常量与真实Blocklist构造继续检查，CPU ImportOnlyDriver仅用于退出的CPU进程。
+
+新production CPU r4 source913b1a6实际32.152926秒exit0：Native延迟导入、29模块闭包、原失败SHA、解析seed1/2、实际缓存/安全词表和真实函数导入均通过，CUDA false、17新载荷/216基础源码SHA前后保持、两个CPU PID3222809/3222812退出、预算不变。原GPU未重启，核心Toy未重跑。独立执行R3与冻结科学scope R1分离，仍为同一用户直接批准卡的2Native+2WC父/12后缀/10视频/两signed；含已发生失败的完整预测2.508104850h，原24h累计不变。下一selected与fresh准入，不扩大方向或缩拆对照。
+
+[R2失败审计](../reports/wc_w3_d46_r2_failure_audit_20261008.json) · [实际闭包CPU](../reports/wc_w3_d46_recovery_cpu_r4_audit_20261008.json) · [R3恢复绑定](../manifests/wc_w3_d46_r3_technical_recovery_20261008.json) · [选择配置](../configs/wc_w3_d46_fresh_seeds_r3_selected_20261008.json)。
