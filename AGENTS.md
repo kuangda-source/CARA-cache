@@ -1,3 +1,9 @@
+## 2026-10-08 联合CFG五后缀完成，H-T39独立CPU绑定等待
+
+[154独立取证](research/154_WC_INACTIVE_GT_CONDITIONAL_CPU_FORENSICS.md)：新CPU source30a81a8、driver3294574已实际CLI与10载荷/255原GPU载荷/manifest和driver哈希核对，只等待原GPU3285362/3285375与原CPU3285718终态，零评分/新增GPU0。OFF1/OFF2、BASE_first、SINGLE_second、PAIRED_first五后缀已完成，PAIRED_second在跑。原1父8后缀5视频/source aa996ed不改，原GT历史严格门及预计拒绝保持；其他全部历史输入/状态/编码和完整重复通过后才做独立条件化全93三损失/两比较，不改称原GPU严格验收。新规则27项破坏拒绝与只修复SINGLE却不胜BASE夹具已通过。
+
+下一只跟踪原四句柄，不重提交/修改在跑源；原失败和实费捕获、CPU取证原件及独立重建入口已备，PAIRED对BASE先、对SINGLE后。启动前实计21.127299587/24h、第59job在途24为余额预留，root budget是最近结算原字节，goal active。以下旧状态为历史。
+
 ## 2026-10-08 联合CFG生成继续，零掩码CPU取证通过，质量仍待
 
 [153实际现场](research/153_WC_W3_PAIRED_CFG_CPU_AND_EXECUTION.md)：原source aa996ed/1父8后缀5视频范围保持，原GPU3285362/3285375和等待CPU3285718继续。只有历史kwargs.gt_frames签名不同，44调用其余输入/输出/deep/cache/solver一致；新OFF1与BASE编码均与旧BASE逐字节一致。独立H-T39 source4545d87实际CPU14.494秒/exit0，16零mask组合一致、4非零正对照有效、实际全尺寸mask hash确为零，255在跑载荷未改。原严格历史门及失败记录保留，完整生成结束后任何其他差异仍拒绝；仅准备独立CPU条件化全93取证评分，不重跑GPU或改称原严格验收。当前无联合刷新质量结论。
