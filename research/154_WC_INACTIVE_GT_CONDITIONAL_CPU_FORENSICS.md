@@ -23,3 +23,11 @@
 H-T38严格失败与H-T39条件化取证可以同时存在。即使取证通过，结果仍限于一个已曝光seed2/step23，完整重放和93帧不增加跨场景独立样本量；两次控制耗时属于诊断，完整GPUwall包含父、八后缀、编码、加载和审计。保真、未来实际计算和总费用分别报告，不作物理/语义接受或清洁端到端速度主张。
 
 没有新GPU/Native、训练、稀疏扩展、人工评审或预算追加。累计24GPUh、旧全部费用及≤2h整卡自主政策保持。原GPU和新CPU实际终态、全部原件和新科学结果待后续记录。
+
+## 原任务仍在运行，新CPU仅绑定等待
+
+CPU source `30a81a82cdfc04204df6ed808bebabb5c9993be0`，独立 `.sync/wc-w3-inactive-gt-forensic-cpu-r1-20261008`，driver3294574。实际[启动回执](../reports/wc_w3_inactive_gt_forensic_cpu_r1_launch_20261008.json)及[现场绑定](../reports/wc_w3_inactive_gt_forensic_cpu_r1_live_binding_20261008.json)验证10份新CPU载荷、255份原GPU载荷、manifest/driver原字节和实际CLI。当前只等原GPU3285362/3285375与原CPU3285718终态，零新评分、GPU提交0；已部署不等于条件化审计通过。
+
+截至本次现场核对，OFF1/OFF2、BASE_first、SINGLE_second和PAIRED_first五后缀已完成，PAIRED_second在跑；联合严格重复、SINGLE编码/历史桥、完整原拒绝和费用结算、条件化审计/评分仍待。原GT严格前缀失败保留，原GPU代码未改，根budget仍是最近结算21.127299587h；服务器24h为在途余额预留。
+
+待原件终态和条件化CPU完成后，通过[独立CPU原件捕获](../scripts/capture_wc_w3_inactive_gt_forensic_cpu.py)及独立重建验收，不重启原GPU/旧CPU或修改已部署源码。原GPU严格验收、CPU条件化可解释性和科学净收益分别记录。
