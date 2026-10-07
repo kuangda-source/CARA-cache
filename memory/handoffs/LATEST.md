@@ -1,3 +1,9 @@
+## 2026-10-08 联合刷新六后缀已完成：当前加2、未来省2、全程仍35
+
+[153真实计算信号](../../research/153_WC_W3_PAIRED_CFG_CPU_AND_EXECUTION.md)：PAIRED两重复的完整实际输入/状态/轨迹/终态/动作一致，当前45/46两个D；后续两个CFG槽完整次数7/6，原BASE为8/7，全程PAIRED与BASE均18/17合计35，SINGLE合计36。联合当前加2/未来省2是有价值信号，终点保真仍待，不追认为事前固定配额或清洁速度试验。六后缀已完，原SINGLE_first与BASE_second仍在跑，完整八控制/历史输入GT原拒绝/五视频/费用与全93评分待。
+
+原GPU3285362/3285375、原CPU3285718、新H-T39 CPU3294574均实际句柄确认，source aa996ed/30a81a8和范围不改，仅等待并捕获原终态，不重提GPU/改源/扩大训练稀疏人评。goal active，启动前实计21.127299587/24h，在途24为预留。以下是历史快照。
+
 ## 2026-10-08 联合CFG五后缀完成，H-T39独立CPU绑定等待
 
 [154独立取证](../../research/154_WC_INACTIVE_GT_CONDITIONAL_CPU_FORENSICS.md)：新CPU source30a81a8、driver3294574已实际CLI与10载荷/255原GPU载荷/manifest和driver哈希核对，只等待原GPU3285362/3285375与原CPU3285718终态，零评分/新增GPU0。OFF1/OFF2、BASE_first、SINGLE_second、PAIRED_first五后缀已完成，PAIRED_second在跑。原1父8后缀5视频/source aa996ed不改，原GT历史严格门及预计拒绝保持；其他全部历史输入/状态/编码和完整重复通过后才做独立条件化全93三损失/两比较，不改称原GPU严格验收。新规则27项破坏拒绝与只修复SINGLE却不胜BASE夹具已通过。
