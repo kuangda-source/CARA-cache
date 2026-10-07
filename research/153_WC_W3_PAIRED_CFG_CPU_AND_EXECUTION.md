@@ -31,3 +31,11 @@
 冻结评分源、LPIPS/AlexNet权重、完整93帧协议及CPU模型实例化通过，评分视频0；这属于评分准备，真实三损失与两signed比较尚未生成。255项完整载荷执行前后原字节不变，三个原CPU句柄3284697/3284698/3284930均退出，根账本SHA不变。见[实际生产CPU独立审计](../reports/wc_w3_paired_cfg_production_cpu_r1_independent_audit_20261008.json)和[原字节捕获](../reports/wc_w3_paired_cfg_production_cpu_r1_terminal_capture_20261008.json)。
 
 已写[选定配置](../configs/wc_w3_paired_cfg_selected_r1_20261008.json)，只选择目标UUID并绑定实际CPU回执；冻结科学范围、源和完整预测1.660984884GPUh不变。下一步独立selected目录/同源回执核对及fresh资源、共享锁、完整预算唯一提交。尚无联合CFG的真实GPU、历史真实状态桥或终点结果。
+
+## 真实唯一GPU已启动
+
+selected实际CPU绑定13.944609秒通过；冻结255源和实际生产回执不变。fresh目标A6000启动前24MiB/noapps、共享锁、无在途、预算余额与完整1.660984884h预测通过。source `aa996edf2d8fc3eb99018fac916a63034c5f53d5`，run `wc-w3-paired-cfg-r1`，原supervisor3285362/runner3285375已实际CLI、UUID和共享锁核对，24514MiB初始化；不是终点收益。
+
+[唯一GPU启动](../reports/wc_w3_paired_cfg_gpu_r1_launch_20261008.json)、[现场核对](../reports/wc_w3_paired_cfg_gpu_r1_live_start_20261008.json)。[CPU后处理原句柄](../reports/wc_w3_paired_cfg_post_cpu_r1_launch_20261008.json) driver3285718绑定两个原GPU PID/source/config，仅成功退出/释放后按冻结源完成六视频全93审计、三Native损失和两signed比较，当前零评分。
+
+服务器第59job在途预留余额至24h，不是全部花完；启动前已结算21.127299587/24h、58jobs，实际全wall包含加载/失败/恢复/哈希/编码/释放费用，结束退回差额。旧秒数限制不恢复；不重提本卡、不改在跑源、不增加训练、稀疏或人评；goal active。

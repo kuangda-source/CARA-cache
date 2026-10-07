@@ -1,3 +1,11 @@
+## 2026-10-08 联合CFG区分真实GPU已启动，全部结果仍待
+
+[153实际执行](153_WC_W3_PAIRED_CFG_CPU_AND_EXECUTION.md)：核心CPU209.409秒、真实生产CPU81.801秒、selected绑定13.945秒及255源/实际资产/延迟导入/CPU评分资源验收通过。source aa996ed保持，独立wc-w3-paired-cfg-r1，supervisor3285362/runner3285375实际CLI/目标GPU确认，24514MiB初始化。完整1父/8后缀/5新视频/1旧Native/两主要比较保持；无新质量或联合CFG科学结论。
+
+CPU后处理driver3285718只等待这两个原GPU成功结束并释放，再完整历史桥、全93解码、三Native损失与两signed评分，当前零评分。只跟踪原三个句柄/source/stage，不改在跑代码、不重启旧CPU/GPU/评分，不扩大训练/稀疏/人评。
+
+启动前实计21.127299587/24GPUh、58jobs。第59job在途used=24为预留全部剩余余额，非实际花完；结束按完整实际wall结算，根budget保留最近结算原字节。完整预测1.660984884GPUh≤2，原24累计/自主约定及goal active保持；以下旧CPU待/无在途/blocked为历史。
+
 ## 2026-10-08 联合CFG核心实际CPU通过，生产入口待
 
 [153核心实际CPU](153_WC_W3_PAIRED_CFG_CPU_AND_EXECUTION.md)：source4565685、实际209.409秒/exit0、4父32后缀20mock与76破坏拒绝独立原件重建通过；7新+233继承源执行前后不变，3283484/3283485已退出，CUDA false/GPU0。继续必要生产入口、源码资产/延迟导入、监督与评分绑定CPU验收，fresh资源/锁/预算后唯一GPU提交；不重跑已完成核心CPU或修改冻结核心。
