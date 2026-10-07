@@ -1,0 +1,66 @@
+{
+  "status": "CPU_TERMINAL_AUDIT_AND_COMPLETE_FULL93_SCORES_DONE_REQUIRES_RESEARCH_INTERPRETATION",
+  "pid": 3054488,
+  "run_id": "wc-w3-placement-tail-aligned-r2",
+  "source_revision": "e4642726754bba73b28c622856bafc3edc33508b",
+  "started_unix": 1791369243.500794,
+  "original_gpu_pids": [
+    3040329,
+    3040347
+  ],
+  "GPU_submissions": 0,
+  "formal_RV_labels": false,
+  "steps": [
+    {
+      "name": "terminal_audit",
+      "argv": [
+        "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python",
+        "-u",
+        "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-w3-placement-tail-approved-r1-20261007/scripts/audit_wc_w3_placement_tail_v2_terminal.py",
+        "--project",
+        "/home/gaokuangda/data/gkd/worldcache_omr",
+        "--stage",
+        "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-w3-placement-tail-approved-r1-20261007",
+        "--expected-source",
+        "e4642726754bba73b28c622856bafc3edc33508b",
+        "--output",
+        "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-w3-placement-tail-v2-postrun-cpu-r1-20261007/terminal-audit.json"
+      ],
+      "started_unix": 1791371626.0765715,
+      "status": "CPU_EXITED",
+      "pid": 3065859,
+      "exit_code": 0,
+      "ended_unix": 1791371652.018383,
+      "wall_seconds": 25.941811561584473
+    },
+    {
+      "name": "full93_lpips",
+      "argv": [
+        "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python",
+        "-u",
+        "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-w3-placement-tail-approved-r1-20261007/scripts/analyze_wc_w3_placement_tail_v2_lpips_cpu.py",
+        "--project",
+        "/home/gaokuangda/data/gkd/worldcache_omr",
+        "--stage",
+        "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-w3-placement-tail-approved-r1-20261007",
+        "--receipt",
+        "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-w3-placement-tail-aligned-r2/diagnostic/receipt.json",
+        "--terminal-audit",
+        "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-w3-placement-tail-v2-postrun-cpu-r1-20261007/terminal-audit.json",
+        "--output",
+        "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-w3-placement-tail-v2-postrun-cpu-r1-20261007/lpips-score.json"
+      ],
+      "started_unix": 1791371652.0190535,
+      "status": "CPU_EXITED",
+      "pid": 3066068,
+      "exit_code": 0,
+      "ended_unix": 1791371763.6990483,
+      "wall_seconds": 111.67999482154846
+    }
+  ],
+  "driver_sha256": "161c2e249253502be0eff2316bd9eb66a09bd90a84af45885648d54252c29e6d",
+  "GPU_terminal_observed_unix": 1791371626.0754116,
+  "score_sha256": "589511ee59cba7ff0d65d79543ca3aa501135932c7d88986ae4696f3648418e3",
+  "terminal_audit_sha256": "e7ddf0487ea7bb694f5752350e9fed97b2b6315471f461010a1508795fffa930",
+  "ended_unix": 1791371763.7044518
+}
