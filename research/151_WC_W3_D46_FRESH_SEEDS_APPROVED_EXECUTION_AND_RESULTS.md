@@ -69,3 +69,17 @@ CPU只读旧Human/seed0原始trace，将“当前”和“未来”成本拆开�
 新增纯标准库CPU结果汇总器，结束后从原runner/CPU评分/监督器原件输出两个seed逐个有符号结果、原D no-op与Native拒绝分母、等seed均值及当前/未来/全路径完整次数。已用旧真实记录核对上述18/16、17/14和全路径38/36及严格重复，不重跑GPU/旧LPIPS；当前新seed终点仍为0，不能把该分析当新生成收益。
 
 [首条Native现场](../reports/wc_w3_d46_r3_first_native_accepted_live_20261008.json) · [旧原件计数核对](../reports/wc_w3_d46_current_future_cost_boundary_cpu_20261008.json) · [最终CPU汇总器](../scripts/summarize_wc_w3_d46_fresh_seeds_cpu.py)。
+
+## seed1首条完整后缀结束；原件终态捕获准备
+
+当前原runR3已在登记快照22更新/44调用后完成OFF1的14更新/28调用，保存完整record，正在原decoder/guardrail输出流程；仍只有已保存的首条Native视频，BASE/REFRESH有符号终点未完成。原两个GPU句柄与CPU等待driver保持，source5143d46未改，未新增GPU提交。完整卡按原两seed范围继续。[首条完整后缀现场](../reports/wc_w3_d46_r3_first_suffix_complete_live_20261008.json)。
+
+新增标准库只读[终态捕获器](../scripts/capture_wc_w3_d46_terminal_cpu.py)，本地及嵌入远程源码均语法解析通过；尚未对live卡执行。它要求原GPU成功退出、CPU全93解码/LPIPS完成、原四PID退出、锁/目标GPU释放、全部新/基础/输入哈希不变、实际费用结算后才归档原JSON/日志/监视器/绑定/评分的压缩字节并复制已结算budget。Native拒绝仍保留两seed分母，实际视频数按8+接受Native数核对。捕获成功不是新的研究结论；随后从同一原件执行已有signed汇总器。
+
+结束后的唯一捕获命令（未执行）：
+
+```sh
+python3 scripts/capture_wc_w3_d46_terminal_cpu.py --manifest manifests/wc_w3_d46_fresh_seeds_selected_r3_20261008.json --launch reports/wc_w3_d46_fresh_seeds_r3_gpu_launch_20261008.json --ssh-target gkd_minchen --postrun .sync/wc-w3-d46-fresh-seeds-postrun-cpu-r3-20261008 --prefix reports/wc_w3_d46_r3_complete_20261008
+```
+
+捕获后用`scripts/summarize_wc_w3_d46_fresh_seeds_cpu.py`读取`*_runner_json_native.gz`、`*_CPU_score_json_native.gz`、`*_supervisor_json_native.gz`与两次失败audit，保留全部signed结果/当前与严格未来计算边界/诊断时间及费用；不重跑GPU、旧LPIPS、训练或人评。当前最近实费18.991453711h保持，58th在途24预留不作花完。
