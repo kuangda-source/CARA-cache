@@ -39,3 +39,7 @@ selected实际CPU绑定13.944609秒通过；冻结255源和实际生产回执不
 [唯一GPU启动](../reports/wc_w3_paired_cfg_gpu_r1_launch_20261008.json)、[现场核对](../reports/wc_w3_paired_cfg_gpu_r1_live_start_20261008.json)。[CPU后处理原句柄](../reports/wc_w3_paired_cfg_post_cpu_r1_launch_20261008.json) driver3285718绑定两个原GPU PID/source/config，仅成功退出/释放后按冻结源完成六视频全93审计、三Native损失和两signed比较，当前零评分。
 
 服务器第59job在途预留余额至24h，不是全部花完；启动前已结算21.127299587/24h、58jobs，实际全wall包含加载/失败/恢复/哈希/编码/释放费用，结束退回差额。旧秒数限制不恢复；不重提本卡、不改在跑源、不增加训练、稀疏或人评；goal active。
+
+### 原父已进入真实采样
+
+现场原runner模型加载110.619200秒；同一seed2提示词guardrail通过，实际原WC采样已到3/36。仍跟踪原GPU3285362/3285375及等待CPU3285718/source aa996ed；后缀干预、重复/真实历史桥、视频和终点评分尚待。父行只在检查点保存，磁盘receipt中inputs仍为空不表示没有执行；实际采样进度由原run.log确认。
