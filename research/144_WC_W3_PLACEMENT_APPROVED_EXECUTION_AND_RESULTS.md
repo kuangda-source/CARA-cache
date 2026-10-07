@@ -19,3 +19,11 @@ selected实际门exit0、12.068214秒、140源闭包及直接批准核验通过�
 ## 首个真实生成现场
 
 Unix1791354353.410098现场确认原supervisor3026351与runner3026368存活，仍绑定未改变的stage/source。真实网络MinimalV1LVGDiT加载86.682397秒，CUDA已初始化，指定GPU进程属于原runner。Common首个父轨迹开始生成，日志已显示1/36更新；尚无完整后缀对照或新视频。这证明真实生成已开始，不是刷新位置收益证据，见[原生现场](../reports/wc_w3_placement_first_generation_observation_20261007.json)。继续跟踪原句柄，不因一次观察超时而重启。
+
+## 首个真实后缀：配额、恢复与历史视频身份成立
+
+[OFF1配额与恢复现场](../reports/wc_w3_placement_off1_quota_restore_observation_20261007.json)和[部分原始回执](../reports/wc_w3_placement_off1_raw_partial_receipt_20261007.json)：Common前缀22更新/44 CFG调用，首个OFF1后缀14更新/28 CFG调用完整结束。两段合计实际深层完整调用为18/17，与冻结配额及action_report一致；deep只取0或26。记录parent_restored=true、counterfactual_label=false，单个对照包含校验的wall为349.396313秒。四份关键执行源与selected配置现场SHA均匹配批准闭包，原supervisor3026351/runner3026368仍活跃。
+
+OFF1经原decoder/guardrail/writer接受并保存。[服务器原生两文件SHA审计](../reports/wc_w3_placement_off1_native_video_identity_20261007.json)确认它与历史官方WorldCache视频逐字节相同：各531916 bytes，SHA fa7f466534e7e7984136dfaa9fb47794dedf0c81444229527b9722142715c379。这是当前真实恢复路径接回历史输出的正证据，复用历史完整解码原件，不在运行期间重复解码。
+
+本进展属于执行机制与身份桥，不是新调度收益。OFF2及其余重复、BASE、四对SWAP、完整2父/16后缀/10视频终态与六损失/四signed评分尚待；原分母及失败处理保持，不凭首个对照接受整个卡，也不复跑旧CPU或重启原GPU任务。新增GPU提交0，原第50job仍在途，实际费用仍待原supervisor结算。

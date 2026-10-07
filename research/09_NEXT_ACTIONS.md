@@ -1,6 +1,6 @@
 ## 2026-10-07 完整 W3-B 原进程已启动，真实结果待验收
 
-[144执行现场](144_WC_W3_PLACEMENT_APPROVED_EXECUTION_AND_RESULTS.md)：直接批准完整2父/16后缀/10视频/四交换，selected实际门12.068秒与140源闭包通过，source de24070不改。原supervisor3026351/runner3026368现场存活、正确stage/source，模型已加载并进入Common首个父轨迹生成；尚无新视频/科学结果，不能据健康报收益。只跟踪原run，不重复提交或改在跑源。
+[144执行现场](144_WC_W3_PLACEMENT_APPROVED_EXECUTION_AND_RESULTS.md)：直接批准完整2父/16后缀/10视频/四交换，selected实际门12.068秒与140源闭包通过，source de24070不改。原supervisor3026351/runner3026368现场存活、正确stage/source，Common已保存22步/44调用快照，首个OFF1后缀14步/28调用完成并恢复父状态；实测全轨迹配额18/17，OFF1接受视频与历史WC原件SHA完全相同。其余控制/交换仍在原进程执行，尚无新调度收益。只跟踪原run，不重复提交或改在跑源。
 
 旧秒数截止取消；累计24h保持，第50job/inflight期间账本24h是预留全部剩余余额，并非实际花完。原已结算13.748764674h不变，结束按实际全wall退回差额；预算/共享资源保护仍在。下一原件终态/配额/重复/全93帧及六LPIPS损失/四signed交换判读；goal active，旧pending/blocked/尚未启动均为历史。
 

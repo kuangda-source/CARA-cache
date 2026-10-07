@@ -1,0 +1,117 @@
+{
+  "observed_unix": 1791355315.0252523,
+  "raw_receipt_sha256": "ed757194af5d4d8464acf467d8ec7838d504fe74cefca72f53b47162ef8e8bf3",
+  "runner_receipt_bytes": 533367,
+  "source_revision": "de24070522000a5d17ad64ca0651ac102e9eddc3",
+  "supervisor_pid": 3026351,
+  "runner_pid": 3026368,
+  "scope": [
+    2,
+    16,
+    10,
+    4
+  ],
+  "scene": "common_sense_6487f37f-ef57-49ca-afdc-d898922b5191",
+  "prefix_updates": 22,
+  "prefix_CFG_calls": 44,
+  "suffix_updates": 14,
+  "suffix_CFG_calls": 28,
+  "actual_complete_full_CFG_counts": [
+    18,
+    17
+  ],
+  "registered_full_CFG_counts": [
+    18,
+    17
+  ],
+  "parent_restored": true,
+  "control_inclusive_wall_seconds": 349.3963131243363,
+  "capture_gate": {
+    "logical_tensor_copy_bytes": 2828989246,
+    "GPU_logical_copy_bytes": 2828989098,
+    "GPU_free_bytes": 40412774400,
+    "required_GPU_headroom_bytes": 9952945492,
+    "transient_copy_factor": 2,
+    "workspace_reserve_bytes": 4294967296,
+    "scope": "CAPTURE_ADMISSION_NOT_TOTAL_PEAK_OR_COMPLETE_COST_BOUND"
+  },
+  "snapshot_storage": {
+    "logical_tensor_bytes_by_device": {
+      "cuda:0": 2828989098,
+      "cpu": 5236,
+      "numpy": 2496
+    },
+    "unique_owned_tensor_storage_bytes_by_device": {
+      "cuda:0": 2319184538,
+      "cpu": 5236
+    },
+    "snapshot_copies_only_not_live_weights_or_peak": true
+  },
+  "decode_progress": [
+    {
+      "label": "OFF1",
+      "status": "ORIGINAL_TAIL_GUARDED_ENCODED_COMPLETE"
+    }
+  ],
+  "budget": {
+    "batch": "F0-F1",
+    "cap_gpu_hours": 24,
+    "used_gpu_hours": 24,
+    "gpu_jobs_launched": 50,
+    "status": "WC_W3_PLACEMENT_RUNNING_REMAINING_BUDGET_RESERVED_NOT_ACTUAL_SPENT",
+    "gpu_import_probes_completed": 1,
+    "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts",
+    "budget_authorization_ref": "manifests/budget_authorization_20261005_wc_24gpuh.json",
+    "budget_authorization_history": [
+      {
+        "authorized_utc": "2026-10-02T18:03:00Z",
+        "source_thread_id": "01a0f1e6-7ad0-75df-9a02-172b60d2e00b",
+        "user_instruction": "\u628a\u5404\u4e2a\u5b9e\u9a8c\u7684 gpu \u9884\u7b97\u90fd\u8bbe\u7f6e\u4e3a 12gpuh",
+        "previous_cap_gpu_hours": 4,
+        "new_cumulative_cap_gpu_hours": 12,
+        "used_gpu_hours_at_change": 3.9117525685110333,
+        "no_usage_reset_or_transfer": true
+      },
+      {
+        "authorized_utc": "2026-10-04T06:13:36Z",
+        "source_thread_id": "01a0f1e6-7ad0-75df-9a02-172b60d2e00b",
+        "user_message_id": "Sentinel_861e63a87d8c819180ec9a8bcfa6dc92",
+        "user_instruction": "\u5141\u8bb8\u589e\u52a0 GPUh",
+        "previous_cap_gpu_hours": 12,
+        "new_cumulative_cap_gpu_hours": 13,
+        "used_gpu_hours_at_change": 11.022315686839217,
+        "gpu_jobs_launched_at_change": 45,
+        "no_usage_reset_or_transfer": true,
+        "authorization_ref": "manifests/budget_authorization_20261004_wc_13gpuh.json"
+      },
+      {
+        "authorized_on_local": "2026-10-05",
+        "user_instruction": "\u6279\u51c6 WC-W3-SMALL-CD-R1-20261004-A\uff0c\u628a\u7d2f\u8ba1 gpuh \u9650\u5236\u63d0\u5347\u5230 24",
+        "previous_cap_gpu_hours": 13,
+        "new_cumulative_cap_gpu_hours": 24,
+        "used_gpu_hours_at_change": 11.022315686839217,
+        "gpu_jobs_launched_at_change": 45,
+        "no_usage_reset_or_transfer": true,
+        "authorization_ref": "manifests/budget_authorization_20261005_wc_24gpuh.json",
+        "approved_card": "WC-W3-SMALL-CD-R1-20261004-A",
+        "single_run_cap_seconds": 3900
+      }
+    ],
+    "wc_w3_placement_swap_inflight": {
+      "run_id": "wc-w3-placement-swap-r1",
+      "supervisor_pid": 3026351,
+      "reserved_seconds": 36904.44717467484
+    }
+  },
+  "selected_config_sha256": "0b51d0b8f41b39bf92a53b86b0723e3f51d06b47704f29be58fd53bb514eddc6",
+  "GPU_source_module_sha256": {
+    "src/wcomr/rv0_placement_causal.py": "e3d01ba4f2b9bbd613a6a2d5da75003518df0d72904cb0905b61a141dcf86166",
+    "src/wcomr/rv0_placement_execution.py": "659ad3f5fa7a16e9d1d98cb6e63552532459f7672b021f58a4037d61c5c05fa5",
+    "scripts/run_wc_w3_placement.py": "58d5ac28c1f4abfbd5084c8cc1da60f75e5a09bc5eaed92879bbad08c4a6759e",
+    "scripts/supervise_wc_w3_placement.py": "82a7bedb2e572ea0eb47a3a1cf4ffb3326339c8b615c15ab019e5a4dca38b1a6"
+  },
+  "status": "FIRST_REAL_OFF_SUFFIX_QUOTA_AND_RESTORE_PASS_NOT_REPEAT_OR_VIDEO_OR_QUALITY",
+  "GPU_submissions": 0,
+  "other_15_suffixes_not_accepted_yet": true,
+  "raw_snapshot_is_partial_not_terminal": true
+}
