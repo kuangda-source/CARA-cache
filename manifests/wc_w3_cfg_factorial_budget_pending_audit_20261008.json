@@ -1,0 +1,39 @@
+{
+  "status": "SAME_CUMULATIVE_BUDGET_BLOCKER_SECOND_GOAL_TURN_NOT_BLOCKED_YET",
+  "audited_unix": 1791415330.627373,
+  "card": "WC-W3-CFG-FACTORIAL-R1-20261008-A",
+  "run_id": "wc-w3-cfg-factorial-r1",
+  "request_ref": "manifests/wc_w3_cfg_factorial_cumulative_budget_request_20261008.json",
+  "request_sha256": "0784389d69da634665aaa503fc7ae34b5439ccac72a3f4dc4bc5397e017bb4b6",
+  "same_blocker": "Whole forecast exceeds original24GPUh remaining and no direct cumulative extension received",
+  "consecutive_turns": 2,
+  "turns": [
+    {
+      "sequence": 1,
+      "classification": "progress",
+      "evidence": "Original paired full result and independent reconstruction completed; complete factorial CPU preparation/source/score resource verification completed; concrete24to25 request first presented",
+      "request_created_unix": 1791415176.5900748
+    },
+    {
+      "sequence": 2,
+      "classification": "no_progress",
+      "live_budget_used_GPUh": 22.314242424184147,
+      "live_cap_GPUh": 24,
+      "live_jobs": 59,
+      "live_inflight": false,
+      "new_GPU_output_exists": false,
+      "five_prior_CPU_PIDs_absent": true,
+      "direct_budget_extension_received": false
+    }
+  ],
+  "single_card_forecast_GPUh": 1.994372555851781,
+  "remaining_GPUh": 1.6857575758158525,
+  "required_CPU_preparation_complete": true,
+  "waiting_on_live_process": false,
+  "no_new_GPU_or_CPU_launch": true,
+  "no_criterion_or_forecast_relaxation": true,
+  "next_safe_action": "Receive explicit cumulative budget decision; then selected/source and fresh admission under complete card. Do not shrink controls or rerun consumed identities.",
+  "goal_status": "active",
+  "blocked_threshold": 3,
+  "blocked_threshold_satisfied": false
+}
