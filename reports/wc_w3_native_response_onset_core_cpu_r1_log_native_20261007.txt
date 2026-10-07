@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-w3-native-response-onset-core-cpu-r1-20261007/scripts/check_wc_w3_native_onset_core_cpu.py", line 37, in <module>
+    main()
+  File "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-w3-native-response-onset-core-cpu-r1-20261007/scripts/check_wc_w3_native_onset_core_cpu.py", line 29, in main
+    result = module.run(args.runtime)
+  File "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-w3-native-response-onset-core-cpu-r1-20261007/tests/check_rv0_native_onset_cpu.py", line 221, in run
+    result=load('check_full_sampling').run(Path(runtime), exercise=lambda **k:exercise(runtime=Path(runtime), **k))
+  File "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-w3-native-response-onset-core-cpu-r1-20261007/tests/check_full_sampling.py", line 282, in run
+    checks.extend(exercise(inference=inference, samples=[Sample('common'), Sample('human')],
+  File "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-w3-native-response-onset-core-cpu-r1-20261007/tests/check_rv0_native_onset_cpu.py", line 221, in <lambda>
+    result=load('check_full_sampling').run(Path(runtime), exercise=lambda **k:exercise(runtime=Path(runtime), **k))
+  File "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-w3-native-response-onset-core-cpu-r1-20261007/tests/check_rv0_native_onset_cpu.py", line 201, in exercise
+    else: raise AssertionError('Corrupted response-onset evidence accepted: '+mutation)
+AssertionError: Corrupted response-onset evidence accepted: final_state

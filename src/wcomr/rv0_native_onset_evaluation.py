@@ -1,6 +1,7 @@
 """Complete response-onset traces, all repeats and actual prefix state gates."""
 from pathlib import Path
 
+from .mid_coverage import tree_digest
 from .rv0_fixed_plan import FixedMaskPlan, cfg_full_counts, mask_sha256
 from .rv0_native_onset import response_policy
 from .rv0_native_onset_scope import LABELS, ENCODED, CALLS, label_mode
@@ -8,6 +9,18 @@ from .rv0_placement_v2_evaluation import TRACE, PIPELINE
 
 CORE_DONE = 'NATIVE_RESPONSE_ONSET_CORE_COMPLETE_REQUIRES_INDEPENDENT_REAL_GPU_AUDIT'
 ROW_DONE = 'NATIVE_RESPONSE_ONSET_ALL10_REPEATS_STATE_GATES_AND6_BRIDGES_PASS_NOT_QUALITY'
+
+
+def verify_components(components, inventory, *, fingerprint=None, output=None):
+    """Bind a full, finite-state digest inventory, not just two equal records."""
+    if (type(components) is not dict or not components
+            or set(components) != inventory
+            or any(type(v) is not str or len(v) != 64
+                   or any(c not in '0123456789abcdef' for c in v)
+                   for v in components.values())
+            or (fingerprint is not None and tree_digest(components) != fingerprint)
+            or (output is not None and components.get('output') != output)):
+        raise ValueError('Complete state inventory, fingerprint or output binding differs')
 
 
 def verify_native_response_row(row, scene, deep_count):
@@ -21,6 +34,11 @@ def verify_native_response_row(row, scene, deep_count):
             or any(d not in (0, deep_count) for d in row['deep'])
             or tuple('C' if d == 0 else 'D' for d in row['deep']) != mask):
         raise ValueError('Response-onset complete original parent differs')
+    inventory = set(row['final_components'])
+    verify_components(row['final_components'], inventory, output=row['final_latent_sha256'])
+    if not {'output', 'cpu_rng', 'python_rng', 'numpy_rng', 'cuda_rng',
+            'explicit_generators', 'net.cnt', 'solver._step_index'} <= inventory:
+        raise ValueError('Required complete state families missing')
     by = {c['label']: c for c in row['children']}
     if list(by) != LABELS or len(row['children']) != 10:
         raise ValueError('All ten ordered complete response-onset suffixes required')
@@ -41,6 +59,11 @@ def verify_native_response_row(row, scene, deep_count):
         mode = label_mode(label); calls = [] if mode is None else CALLS[mode]
         report = child['record']['action_report']; record = child['record']
         actual = report['actual_actions']; events = report['suffix_events']
+        verify_components(record['final_state_components'], inventory,
+                          fingerprint=record['final_state_sha256'],
+                          output=child['final_latent_sha256'])
+        for boundary in child['response_boundaries'].values():
+            verify_components(boundary['components'], inventory)
         if (child['swap_calls'] != ([] if mode is None else list(swap))
                 or child['responsive_calls'] != calls
                 or child['status'] != 'COMPLETE_NATIVE_RESPONSE_SUFFIX_NOT_RV_LABEL'

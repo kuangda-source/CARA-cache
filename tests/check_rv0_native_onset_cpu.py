@@ -16,7 +16,7 @@ import torch
 from wcomr.full_sampling import CompleteStateRoundtrip
 from wcomr.h0_mode import establish_shared_eval
 from wcomr.light_sampling import Hooks
-from wcomr.mid_coverage import WC_FIELDS
+from wcomr.mid_coverage import WC_FIELDS, tree_digest
 from wcomr.prepared_input import RNGState
 from wcomr.rv0_fork import WC_CONFIGURATION
 from wcomr.rv0_fixed_plan import FixedMaskPlan, cfg_full_counts, mask_sha256
@@ -27,6 +27,7 @@ from wcomr.rv0_native_onset_scope import LABELS, ENCODED, CALLS
 
 CPU_ATTEMPTS=[]
 RESPONSE_DIFFERENCE_PROOFS=[]
+RESUME_NONFLOW = None
 
 
 def load(name):
@@ -35,7 +36,69 @@ def load(name):
     return module
 
 
+def verify_mutation_refusals(row, scene):
+    refused = []
+    for mutation in ['missing_repeat','window','count','action','pre65_input',
+        'pre65_state','pre67_state','pre69_history','native_proposal',
+        'outside_window','final_state','final_state_missing_component',
+            'final_state_digest','final_state_output','pre_state_inventory','pipeline','encoding','own_age','restore','prefix_bank']:
+        damaged = copy.deepcopy(row)
+        mode = {'pre67_state':'RESP67','pre69_history':'LATE69'}.get(mutation,'RESP65')
+        by = {c['label']:c for c in damaged['children']}
+        targets = [by[mode+'_'+repeat] for repeat in ('first','second')]
+        if mutation=='missing_repeat': damaged['children'].pop()
+        elif mutation=='pipeline': damaged['decoded_children'][0]['pipeline'].pop()
+        elif mutation=='encoding': damaged['decoded_children'][0]['artifact']['sha256']='0'*64
+        else:
+            # Change both repeats, so prefix/state/window checks must reject
+            # even when the two deliberately corrupted records still agree.
+            for child in targets:
+                report = child['record']['action_report']
+                if mutation=='window': child['responsive_calls']=[67,68,69,70]
+                elif mutation=='count': report['per_CFG_full_counts'][0]+=1
+                elif mutation=='action': child['deep'][0]=99
+                elif mutation=='pre65_input': child['inputs'][20]={'corrupted':True}
+                elif mutation=='pre65_state': child['response_boundaries']['65']['components']={'corrupted':'0'*64}
+                elif mutation=='pre67_state': child['response_boundaries']['67']['components']={'corrupted':'0'*64}
+                elif mutation=='pre69_history': child['response_boundaries']['69']['own_CFG_history']=[[],[]]
+                elif mutation=='native_proposal':
+                    e=next(e for e in report['suffix_events'] if e['call'] in child['responsive_calls'])
+                    e['native_skip']=not e['native_skip']
+                elif mutation=='outside_window': report['actual_actions'][63]='D' if report['actual_actions'][63]=='C' else 'C'
+                elif mutation=='final_state': child['record']['final_state_components']={}
+                elif mutation=='final_state_missing_component': child['record']['final_state_components'].pop('cpu_rng')
+                elif mutation=='final_state_digest': child['record']['final_state_sha256']='0'*64
+                elif mutation=='final_state_output':
+                    child['record']['final_state_components']['output']='0'*64
+                    child['record']['final_state_sha256']=tree_digest(child['record']['final_state_components'])
+                elif mutation=='pre_state_inventory': child['response_boundaries']['65']['components'].pop('cpu_rng')
+                elif mutation=='own_age': next(e for e in report['suffix_events'] if e['actual_action']=='C')['age_solver_steps']=34
+                elif mutation=='restore': child['record']['parent_restored']=False
+                elif mutation=='prefix_bank': child['banks'][19]='0'*64
+        try: verify_native_response_row(damaged, scene, 3)
+        except ValueError: refused.append(mutation)
+        else: raise AssertionError('Corrupted response-onset evidence accepted: '+mutation)
+    assert len(refused) == 20
+    return refused
+
+
+def persist_attempt(item):
+    CPU_ATTEMPTS.append(item)
+    if os.environ.get('WC_NATIVE_ONSET_CPU_ATTEMPTS'):
+        Path(os.environ['WC_NATIVE_ONSET_CPU_ATTEMPTS']).write_text(json.dumps(CPU_ATTEMPTS, indent=2)+'\n')
+
+
 def exercise(*, inference, samples, wc, settings, inference_module, flow, runtime, **unused):
+    if flow is False and RESUME_NONFLOW is not None:
+        item = copy.deepcopy(RESUME_NONFLOW)
+        assert item['flow'] is False and item['failure'] is None and item['error'] is None
+        audit_trajectories(item['receipt'], item['fixture_config'], 3)
+        row = item['receipt']['requests'][0]
+        item['audit_mutation_refusals'] = verify_mutation_refusals(row, item['fixture_config']['scope']['scenes'][0])
+        item['reused_prior_complete_sampling'] = True
+        item['new_sampling_executions'] = 0
+        persist_attempt(item)
+        return [item]
     samples = samples[-1:]
     model, net = inference.pipe.model, inference.pipe.model.net
     original_prepare = net.prepare_embedded_sequence
@@ -144,9 +207,7 @@ def exercise(*, inference, samples, wc, settings, inference_module, flow, runtim
                         error = str(exception)
                     item = {'flow':flow, 'failure':failure, 'error':error,
                             'receipt':copy.deepcopy(state), 'fixture_config':copy.deepcopy(config)}
-                    CPU_ATTEMPTS.append(item)
-                    if os.environ.get('WC_NATIVE_ONSET_CPU_ATTEMPTS'):
-                        Path(os.environ['WC_NATIVE_ONSET_CPU_ATTEMPTS']).write_text(json.dumps(CPU_ATTEMPTS, indent=2)+'\n')
+                    persist_attempt(item)
                     assert (state['planned_parent_phases'],state['planned_suffix_controls'],state['planned_encoded_outputs']) == (1,10,6)
                     if failure in fault_cases:
                         assert error and state['requests'][0]['status']=='TECH_BLOCKED', item
@@ -166,39 +227,10 @@ def exercise(*, inference, samples, wc, settings, inference_module, flow, runtim
                                 RESPONSE_DIFFERENCE_PROOFS.append({'label':child['label'],
                                     'response_events':events,
                                     'actual_counts':child['record']['action_report']['per_CFG_full_counts']})
-                        for mutation in ['missing_repeat','window','count','action','pre65_input',
-                            'pre65_state','pre67_state','pre69_history','native_proposal',
-                            'outside_window','final_state','pipeline','encoding','own_age','restore','prefix_bank']:
-                            damaged = copy.deepcopy(row)
-                            mode = {'pre67_state':'RESP67','pre69_history':'LATE69'}.get(mutation,'RESP65')
-                            by = {c['label']:c for c in damaged['children']}
-                            targets = [by[mode+'_'+repeat] for repeat in ('first','second')]
-                            if mutation=='missing_repeat': damaged['children'].pop()
-                            elif mutation=='pipeline': damaged['decoded_children'][0]['pipeline'].pop()
-                            elif mutation=='encoding': damaged['decoded_children'][0]['artifact']['sha256']='0'*64
-                            else:
-                                # Change both repeats, so prefix/state/window checks must reject
-                                # even when the two deliberately corrupted records still agree.
-                                for child in targets:
-                                    report = child['record']['action_report']
-                                    if mutation=='window': child['responsive_calls']=[67,68,69,70]
-                                    elif mutation=='count': report['per_CFG_full_counts'][0]+=1
-                                    elif mutation=='action': child['deep'][0]=99
-                                    elif mutation=='pre65_input': child['inputs'][20]={'corrupted':True}
-                                    elif mutation=='pre65_state': child['response_boundaries']['65']['components']={'corrupted':'0'*64}
-                                    elif mutation=='pre67_state': child['response_boundaries']['67']['components']={'corrupted':'0'*64}
-                                    elif mutation=='pre69_history': child['response_boundaries']['69']['own_CFG_history']=[[],[]]
-                                    elif mutation=='native_proposal':
-                                        e=next(e for e in report['suffix_events'] if e['call'] in child['responsive_calls'])
-                                        e['native_skip']=not e['native_skip']
-                                    elif mutation=='outside_window': report['actual_actions'][63]='D' if report['actual_actions'][63]=='C' else 'C'
-                                    elif mutation=='final_state': child['record']['final_state_components']={}
-                                    elif mutation=='own_age': next(e for e in report['suffix_events'] if e['actual_action']=='C')['age_solver_steps']=34
-                                    elif mutation=='restore': child['record']['parent_restored']=False
-                                    elif mutation=='prefix_bank': child['banks'][19]='0'*64
-                            try: verify_native_response_row(damaged, scenes[0], 3)
-                            except ValueError: pass
-                            else: raise AssertionError('Corrupted response-onset evidence accepted: '+mutation)
+                        item['audit_mutation_refusals'] = verify_mutation_refusals(row, scenes[0])
+                        persist_attempt_update = os.environ.get('WC_NATIVE_ONSET_CPU_ATTEMPTS')
+                        if persist_attempt_update:
+                            Path(persist_attempt_update).write_text(json.dumps(CPU_ATTEMPTS, indent=2)+'\n')
                     states.append(item)
                 assert net.forward==original_forward and not hasattr(net,'_wc_rv0_router')
                 assert all(float(b)==0 for b in net.buffers())
@@ -223,8 +255,16 @@ def run(runtime):
     assert not torch.cuda.is_initialized()
     result.update(status='NATIVE_RESPONSE_ONSET_COMPLETE_AFFECTED_CORE_CPU_PASS_NOT_PRODUCTION_OR_GPU',
         CUDA_initialized=False, complete_CPU_parents=3, complete_CPU_suffixes=30,
-        mock_outputs_not_videos=18, failures_retained=4, raw_mutation_refusals=48,
+        mock_outputs_not_videos=18, failures_retained=4, raw_mutation_refusals=sum(len(a.get('audit_mutation_refusals', [])) for a in CPU_ATTEMPTS),
+        new_complete_CPU_parents=2 if RESUME_NONFLOW is not None else 3,
+        reused_complete_CPU_parents=1 if RESUME_NONFLOW is not None else 0,
+        new_complete_CPU_suffixes=20 if RESUME_NONFLOW is not None else 30,
+        reused_complete_CPU_suffixes=10 if RESUME_NONFLOW is not None else 0,
+        new_mock_outputs_not_videos=12 if RESUME_NONFLOW is not None else 18,
+        reused_mock_outputs_not_videos=6 if RESUME_NONFLOW is not None else 0,
         deliberate_native_response_action_changes=sum(len(p['response_events']) for p in RESPONSE_DIFFERENCE_PROOFS),
         GPU_submissions=0, RV_labels=0, real_pair_feasibility='NOT_TESTED_BY_CPU_TOY')
     assert len(RESPONSE_DIFFERENCE_PROOFS)==6
+    assert result['raw_mutation_refusals'] == 60
+    assert len(CPU_ATTEMPTS) == 7
     return result
