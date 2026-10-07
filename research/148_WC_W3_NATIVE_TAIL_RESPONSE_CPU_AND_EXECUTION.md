@@ -72,3 +72,9 @@ OFF1经原decode/guardrail/write接受，1100497字节/SHA4d0f0549…982fb与历
 现场1791377033，两条46/48的first后缀及视频均完成。FIXED和TAIL在69前的1216状态组件、自身CFG历史，以及45–68的全部输入/输出/deep/bank和截至34更新的求解器输出严格相等。实际动作差别只在69：完整调用从20/18变为21/18。TAIL视频1158781字节、SHAc7bcf0fb…4d89cc已走原管线接受；固定视频保持登记R2字节桥。[真实first原件](../reports/wc_w3_native_tail_response_first_pair46_checkpoint_native_20261007.json.gz)和[逐项核查](../reports/wc_w3_native_tail_response_first_pair46_audit_20261007.json)保持。
 
 首次FIXED/TAIL后缀wall分别284.969187/288.071981秒，原解码/安全/编码wall分别22.077804/21.631558秒，全部如实记账。这里只有一个first，第二重复、全父和余下61/63对照仍待；不据这两个时间给速度结论，不提前运行终点评分。当前证据说明预登记的真实自身状态响应确实只改变了允许尾部动作，不能据视频大小或SHA变化判断质量。
+
+## 两组first完成，反向顺序重复在跑
+
+现场1791377703，61/63的FIXED/TAIL first也完成原编码管线。两臂69前1216状态组件和自身CFG历史、45–68输入/输出/deep/bank及对应求解器输出均严格相同；实际差别仅69/70，完整调用20/18→21/19。FIXED视频2107088字节/SHA742771d1…a3574与登记R2一致；TAIL视频2107535字节/SHAf013ab67…cb8fb已接受。[61/63 first原件](../reports/wc_w3_native_tail_response_first_pair61_checkpoint_native_20261007.json.gz)、[核查](../reports/wc_w3_native_tail_response_first_pair61_audit_20261007.json)保存。
+
+61/63首次FIXED/TAIL后缀wall285.689660/291.593760秒，原解码/安全/编码wall22.150715/22.017936秒。6/10条后缀完成，5个子视频写出，剩余4条反向顺序second及原父后半段/视频继续由原进程执行。两个新TAIL的全93帧损失、两有符号效应、完整重复与实费仍待。当前已经确定两个真实尾部动作响应都增加完整调用数，尚不能确定终点改善与取舍。
