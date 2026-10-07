@@ -23,3 +23,11 @@
 7项新载荷及233项继承载荷，在原目录、独立复制目录和执行前后SHA均一致；六份压缩原字节、退出句柄和费用也已验收。根账本SHA保持，累计21.127299587/24GPUh、58jobs、无在途，余额2.872700413h。见[终态原件捕获](../reports/wc_w3_paired_cfg_core_cpu_r1_20261008_terminal_capture.json)、[独立原始重建](../reports/wc_w3_paired_cfg_core_cpu_r1_independent_audit_20261008.json)和[实际启动身份](../reports/wc_w3_paired_cfg_core_cpu_r1_launch_20261008.json)。
 
 本结果证明冻结真实sampler/WorldCache AST在CPU Toy上可以执行和恢复；不证明真实权重、GPU可行性、历史真实视频桥或终点质量。下一步继续生产入口、源码资产/延迟导入、监督与评分绑定的必要CPU验收，再进行fresh GPU/锁/预算准入。已完成核心CPU身份消耗，不重跑、不改通过核心。
+
+## 真实生产入口与评分资源CPU通过
+
+生产source `aa996edf2d8fc3eb99018fac916a63034c5f53d5`，独立 `.sync/wc-w3-paired-cfg-production-cpu-r1-20261008`，两步均exit0，81.801384秒。实际项目缓存与Blocklist、原请求解析、真实联合核心的延迟导入与早期拒绝、27项同包传递依赖闭包和8项范围破坏拒绝通过。原CPU核心没有重跑或修改。
+
+冻结评分源、LPIPS/AlexNet权重、完整93帧协议及CPU模型实例化通过，评分视频0；这属于评分准备，真实三损失与两signed比较尚未生成。255项完整载荷执行前后原字节不变，三个原CPU句柄3284697/3284698/3284930均退出，根账本SHA不变。见[实际生产CPU独立审计](../reports/wc_w3_paired_cfg_production_cpu_r1_independent_audit_20261008.json)和[原字节捕获](../reports/wc_w3_paired_cfg_production_cpu_r1_terminal_capture_20261008.json)。
+
+已写[选定配置](../configs/wc_w3_paired_cfg_selected_r1_20261008.json)，只选择目标UUID并绑定实际CPU回执；冻结科学范围、源和完整预测1.660984884GPUh不变。下一步独立selected目录/同源回执核对及fresh资源、共享锁、完整预算唯一提交。尚无联合CFG的真实GPU、历史真实状态桥或终点结果。
