@@ -31,3 +31,13 @@ CPU source `30a81a82cdfc04204df6ed808bebabb5c9993be0`，独立 `.sync/wc-w3-inac
 截至本次现场核对，OFF1/OFF2、BASE_first、SINGLE_second和PAIRED_first五后缀已完成，PAIRED_second在跑；联合严格重复、SINGLE编码/历史桥、完整原拒绝和费用结算、条件化审计/评分仍待。原GT严格前缀失败保留，原GPU代码未改，根budget仍是最近结算21.127299587h；服务器24h为在途余额预留。
 
 待原件终态和条件化CPU完成后，通过[独立CPU原件捕获](../scripts/capture_wc_w3_inactive_gt_forensic_cpu.py)及独立重建验收，不重启原GPU/旧CPU或修改已部署源码。原GPU严格验收、CPU条件化可解释性和科学净收益分别记录。
+
+## 第二项差异已发现：H-T39不再满足其条件，不放宽原规则
+
+七后缀现场核对显示，BASE与SINGLE的pre46/最终组件，只有`solver._internal_dict` hash另有差异；其他组件相同。当前三个完成的严格重复组全部一致，SINGLE的预测/deep/cache/solver轨迹及编码字节也与旧REFRESH相同。见[原件诊断捕获](../reports/wc_w3_paired_cfg_seven_suffixes_diagnostic_capture_20261008.json.gz)与[组件差异原判据](../reports/wc_w3_paired_cfg_solver_metadata_difference_cpu_20261008.json)。首次严格比对因此拒绝，没有生成新质量评分。
+
+零mask-GT语义CPU结论仍成立，但H-T39“其他全部历史状态完全相同”的放行条件已被额外组件差异否定。原H-T38和H-T39的失败都保留；原GPU继续完成，不修改这两套验证器或已部署来源。
+
+实际Diffusers源码用`list(set(...))`生成`_use_default_values`，存在元数据顺序影响原始config hash的候选解释。两个历史`_internal_dict`原始值没有保存，现阶段不能宣称该解释就是确切原因。独立[下一轮CPU登记](../manifests/wc_w3_current_card_fixed_reference_cpu_preregistration_20261008.json)先于任何联合质量曝光：用实际冻结scheduler验证仅排列默认参数名字是否改变hash而保持全部36更新；真正修改solver_order作正对照。此诊断不恢复旧验收。
+
+同登记另外明确了一个独立的当前卡内固定参照诊断：三个当前分支严格共享pre45/输入/实际solver配置，完整重复和恢复；历史仅GT输入与solver._internal_dict组件差异，其他有效轨迹和BASE/SINGLE字节相同；以事前固定旧Native视频计算三损失/两signed比较。该问题不要求把历史元数据身份称为通过，跨运行完整状态验收仍为false、确切字典差异仍未知；保留所有失败、负帧与费用。当前实现/实际CPU和评分尚待，无新GPU/训练/稀疏/人力或方向切换。
