@@ -1,0 +1,113 @@
+{
+  "card": "WC-W3-CFG-FACTORIAL-R1-20261008-A",
+  "run_id": "wc-w3-cfg-factorial-r1",
+  "registered_unix": 1791414264.034889,
+  "registered_after_prior_results": true,
+  "plan": "plans/WORLD_CACHE_CFG_FACTORIAL_WINDOW_20261008.md",
+  "plan_sha256": "6f88fd8c268a4ae097094d3bad501fd2ecc4d6d2cad5d7ad4c93fcf1a2d538d3",
+  "question": "Complete missing CFG0-only cell within one new shared snapshot; separate branch-conditional total effects from repair-only benefit",
+  "same_existing_request": {
+    "inference_type": "text2world",
+    "seed": 2,
+    "guidance": 7,
+    "num_output_frames": 93,
+    "resolution": "432,768",
+    "negative_prompt": "The video captures a series of frames showing ugly scenes, static with no motion, motion blur, over-saturation, shaky footage, low resolution, grainy texture, pixelated images, poorly lit areas, underexposed and overexposed scenes, poor color balance, washed out colors, choppy sequences, jerky movements, low frame rate, artifacting, color banding, unnatural transitions, outdated special effects, fake elements, unconvincing visuals, poorly edited content, jump cuts, visual noise, and flickering. Overall, the video is of poor quality.",
+    "name": "human_199_seed2",
+    "prompt": "A wide shot captures an outdoor tennis court at the University of Barcelona, as indicated by the signage on the green portion and fence surrounding the court. The court is a standard hard surface with white boundary lines marking the playing area. Two players are present: one on the left side of the frame, dressed in a white shirt and dark shorts, holding a tennis racket and preparing to serve, while the other player is positioned on the far side of the court, ready to receive the serve. The court is enclosed by a high fence adorned with banners and flags, beyond which a row of parked cars and a building can be seen. The setting suggests a clear day with ample daylight illuminating the scene. The position of the camera remains steady, capturing the players' focused and deliberate movements as they engage in the game. The player on the left side of the court serves the ball across the net towards the opponent, who is poised to return the serve. The ball is seen in mid-air, traveling from one side of the court to the other, indicating the beginning of a rally. The players' movements are fluid and engaged, showcasing their concentration and skill. The video concludes with the ball still in play, suggesting that the rally continues beyond the frame's end.",
+    "num_steps": 35
+  },
+  "seed": 2,
+  "snapshot_step": 22,
+  "snapshot_after_call": 44,
+  "requested_full_calls": {
+    "BASE": [],
+    "CFG0": [
+      45
+    ],
+    "CFG1": [
+      46
+    ],
+    "PAIRED": [
+      45,
+      46
+    ]
+  },
+  "remaining_policy": "ORIGINAL_WC_ADAPTIVE_FROM_EACH_OWN_STATE",
+  "scope_counts": {
+    "WC_parents": 1,
+    "complete_suffixes": 10,
+    "new_videos": 6,
+    "existing_Native_references": 1,
+    "factorial_cell_losses": 4,
+    "primary_signed_comparisons": 4,
+    "interaction_contrasts": 1
+  },
+  "suffix_order": [
+    "OFF1",
+    "OFF2",
+    "BASE_first",
+    "CFG1_second",
+    "CFG0_first",
+    "PAIRED_second",
+    "PAIRED_first",
+    "CFG0_second",
+    "CFG1_first",
+    "BASE_second"
+  ],
+  "encoded_children": [
+    "OFF1",
+    "BASE_first",
+    "CFG0_first",
+    "PAIRED_first",
+    "CFG1_first"
+  ],
+  "existing_Native": {
+    "path": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-w3-d46-fresh-seeds-r3/diagnostic/human_199_seed2/Native35/human_199_seed2.mp4",
+    "bytes": 897884,
+    "sha256": "c45572e1a58d23495fcfc9695cc7bd58bebf03c7dff92d9a7756a66427f16e16"
+  },
+  "main_comparisons": [
+    "CFG0_vs_BASE",
+    "CFG1_vs_BASE",
+    "PAIRED_vs_CFG0",
+    "PAIRED_vs_BASE"
+  ],
+  "interaction": "L_CFG0+L_CFG1-L_BASE-L_PAIRED; total adaptive-system interaction, not unique attribution to intrinsic CFG/attention coupling",
+  "estimand": "CURRENT_CARD_SHARED_STATE_FIXED_REGISTERED_NATIVE_REFERENCE",
+  "historical_full_state_equality_required": false,
+  "within_card_complete_state_equality_and_restoration_required": true,
+  "native_proposals_and_noop_denominators_retained": true,
+  "prospective_raw_solver_dictionary_required": true,
+  "scope_not_shrunk_to_fit_budget": true,
+  "forecast": {
+    "retained_whole_paired_forecast_seconds": 5979.545581894554,
+    "retained_per_extra_suffix_seconds": 475.16295513603836,
+    "measured_max_existing_suffix_seconds": 362.71842375490814,
+    "extra_complete_suffixes": 2,
+    "extra_video_seconds_max_measured": 49.83710570447147,
+    "extra_videos": 1,
+    "marginal_uncertainty_factor": 1.2,
+    "forecast_complete_seconds": 7179.741201066412,
+    "forecast_complete_GPUh": 1.994372555851781,
+    "proxy_not_deadline_or_bound": true
+  },
+  "budget_used_before": 22.314242424184147,
+  "cumulative_cap_GPUh": 24,
+  "remaining_GPUh": 1.6857575758158525,
+  "forecast_exceeds_current_remaining": true,
+  "CPU_preparation_authorized_by_existing_goal": true,
+  "GPU_execution_selected": false,
+  "GPU_submissions": 0,
+  "cumulative_budget_extension_authorized": false,
+  "independent_CONF": false,
+  "clean_speed_measurement": false,
+  "formal_single_action_RV_labels": false,
+  "training_sparse_or_human_review": false,
+  "input_sha256": {
+    "manifests/wc_w3_paired_cfg_preregistration_20261008.json": "08af2bbb68c5b7a5c768468d4227d49cafdf18ae5fce45a843350a4a71c2fed3",
+    "reports/wc_w3_current_card_reference_complete_20261008_original_runner_native.gz": "fe14f6027e938538f00d93f5c7e8d522fda446508b990f75c235257fc62d826f",
+    "reports/wc_w3_current_card_reference_independent_reconstruction_cpu_20261008.json": "6418910fb0e72401e7b9cc833cf6f4633abebffefa7a4a46141cea84d0f9bb27",
+    "reports/budget.json": "d0e7ae6e2e348effabefd68517001c006ab8e95eef7eecb815aadeb0805a8c33"
+  }
+}
