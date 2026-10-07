@@ -1,3 +1,7 @@
+## 2026-10-08 D46新seed完整复验已实际启动
+
+[151执行记录](151_WC_W3_D46_FRESH_SEEDS_APPROVED_EXECUTION_AND_RESULTS.md)：直接整卡>2h批准已绑定，实际selected source/assets/CPU原件门19.415571秒通过；source fb890da保持，原supervisor3190813/runner3190976 CLI/目标GPU确认、24514MiB初始化中，尚无新结果。完整seed1/2的2Native+2WC父/12后缀/10视频/两signed保持。CPU driver3193255仅等待这两个原GPU成功结束/释放再全93评分，当前零评分。已结算18.906279766/24h、55jobs；第56job在途used=24为预留保护，非花完，结束实际结算。goal active，仅观察原三句柄、stage/source，不改在跑源，不重启旧CPU/GPU/评分、不扩训练/稀疏/人评。以下待批准/blocked/尚未提交为历史。
+
 ## 2026-10-08 D46两个新seed整卡例外已获直接批准
 
 用户“好的 允许这次实验”批准完整2Native+2WC父/12后缀/10视频/两signed的唯一D46复验，预计2.422930905GPUh；累计24h、已用18.906279766h保持。CPU通过源码保持，只新增具体授权和selected配置，下一fresh资源/共享锁/预算准入唯一提交，尚无新GPU或科学结果。[151执行记录](151_WC_W3_D46_FRESH_SEEDS_APPROVED_EXECUTION_AND_RESULTS.md)。goal当前active，旧blocked/待批准条目为历史，不重复旧CPU/GPU/评分，不扩训练/稀疏/人评。
