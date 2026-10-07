@@ -73,3 +73,7 @@ post-CPU3115990实际存活，冻结source/binding SHA和原3115400/3115418句�
 2026-10-07 23:28:50现场只读捕获：OFF1/OFF2均完成14更新/28CFG。输入、输出、深层执行、缓存banks、求解器输出、最终latent、65/67/69响应边界、完整终态组件和动作报告九项原始比较全部严格相同，两个record均记载parent_restored true。OFF1实际文件SHA/大小与冻结历史官方WC相同（SHA4d0f0549…dde982fb）。原supervisor3115400/runner3115418及postCPU3115990实际命令核对存活，FIXED61_first已开始；原postCPU等待、零评分步骤。
 
 [实际只读检查](../reports/wc_w3_native_response_onset_r3_off_repeat_live_20261007.json)绑定[原字节在途快照](../reports/wc_w3_native_response_onset_r3_off_repeat_snapshot_native_20261007.json.gz)，原receipt SHAac507fca…9374de0；本地从原件重新计算九项比较，与回执逐项一致。此仅证明已完成的两个OFF重复和历史视频桥；父仍只有22更新前缀，其余8后缀/5视频、完整响应门与评分尚待。新科学收益未知，预算最近结算17.494939750/24h保持，无新增GPU或评分提交。两份终态只读取回脚本已准备，尚未产生终态结果或改在跑代码。
+
+## 首条FIXED61与历史固定分支字节一致
+
+2026-10-07 23:34:49现场独立只读检查：FIXED61_first完成14更新/28CFG，完整逐CFG调用配额20/18、parent_restored true；保存视频的实际文件SHA742771d1…29a3574及大小2107088均与冻结历史FIXED61相同。[实际桥检查](../reports/wc_w3_native_response_onset_r3_fixed61_history_bridge_live_20261007.json)保留原路径、大小、SHA和两个原GPU进程现场存活。当前3/10后缀、2/6视频完成，LATE69_first已开始。固定桥支持后续同SHA旧损失复用，尚不代表新响应收益；完整重复/三个响应起点状态门、父桥与终点评分仍待。没有新GPU或评分提交，现有源/stage与计费政策保持。
