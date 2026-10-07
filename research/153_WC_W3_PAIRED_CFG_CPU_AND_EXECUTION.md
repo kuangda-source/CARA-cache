@@ -71,3 +71,13 @@ source `4545d878d91fed6a1138cd39908655215b94ca4d`，独立 `.sync/wc-w3-inactive
 | PAIRED_first | 1/1 | 7/6 | 18/17 | 35 |
 
 联合当前多2次、未来少2次，净全程次数和两个CFG槽各自次数均与原WC相同；单槽本步多1次而未来没回收。这是值得追踪的真实计算分配信号，最终保真尚未知。相同实际次数是自适应干预的事后结果，不追认作事前固定配额试验；控制wall含取证开销，不能作清洁端到端速度结论。原历史GT严格门及完整八后缀/五视频/终态/费用/评分仍待，原分母及负结果均保持。
+
+## 完整生成已结束，原两个历史验收拒绝保留
+
+原1父/8完整后缀/5新视频全部生成完成，当前卡内四严格重复/恢复和全部真实动作通过原冻结核心检查。原GPU最终按严格历史桥exit1（GT输入及solver._internal_dict状态hash与旧历史不同），原等待CPU按规则exit1/零评分。独立H-T39也按其原“只有GT差异”条件拒绝，原件和具体`final_components`拒绝栈保留；这两项失败没有改成功。
+
+见[原GPU及零评分终态捕获](../reports/wc_w3_paired_cfg_original_refusal_20261008_terminal_capture.json)与[两CPU终态原件](../reports/wc_w3_cpu_diagnostics_terminal_capture_20261008.json)。原GPU与CPU相关七个句柄全部退出，目标GPU/锁释放，255载荷保持。完整GPU全wall4272.994214秒=1.186942837h，包括加载、八后缀、父、编码和失败审计；实计22.314242424/24GPUh、59jobs、无在途，余1.685757576h。根budget已复制服务器结算原字节。
+
+实际scheduler CPU诊断4.975146秒/监督5.974649秒/exit0：只排列13个默认参数名字元数据，原始config hash改变，但完整36次更新逐步完全一致；实际改变solver_order的正对照在35/36更新产生差异。独立JSON原始hash重建通过，见[独立CPU诊断](../reports/wc_w3_scheduler_metadata_independent_cpu_20261008.json)。该结果证明元数据顺序可以造成指纹差异，没有恢复两个历史原始dict，因此确切历史差异来源仍未证明。
+
+在联合质量曝光前已登记[当前卡内固定参照CPU问题](../manifests/wc_w3_current_card_fixed_reference_cpu_preregistration_20261008.json)：当前三臂严格共享状态/输入/config、完整重放，历史只允许已观察GT与solver._internal_dict两差异、其他轨迹和BASE/SINGLE字节相同；用同一事前固定旧Native视频计算三损失/两signed比较。此为独立探索性诊断，保留两个历史验收false、字典差异未解释和旧判据，不把结果改称完整历史验收或独立CONF。新规则在完整实际轨迹上13项破坏拒绝及“修复但不胜BASE”算例通过；新[CPU评分入口](../scripts/audit_score_wc_w3_current_card_reference_cpu.py)待冻结绑定后执行，尚无新质量。
