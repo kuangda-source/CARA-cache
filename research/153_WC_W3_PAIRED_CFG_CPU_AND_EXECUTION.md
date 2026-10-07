@@ -59,3 +59,15 @@ source `4545d878d91fed6a1138cd39908655215b94ca4d`，独立 `.sync/wc-w3-inactive
 原OFF1和BASE_first视频均已接受编码，SHA与旧seed2 BASE逐字节相同。当前原GPU仍在完整后缀生成，单槽/联合输出和严格重复、终态、三损失/两比较尚待。只在所有其他历史输入、输出、状态、缓存、solver和BASE/SINGLE编码均通过时，才执行单独H-T39 CPU条件化取证评分；原严格失败原件与判据保持，不重新生成GPU，不将条件化证据改称原卡严格验收。
 
 独立[154取证入口与规则](154_WC_INACTIVE_GT_CONDITIONAL_CPU_FORENSICS.md)已实现。新规则27项破坏拒绝和“只修复单槽不胜BASE”夹具通过，不重跑旧CPU；实际评分只等待原完整生成和原拒绝终态，保持先PAIRED对BASE、后PAIRED对SINGLE的解释顺序。
+
+## 联合刷新真实重复与计算回收信号
+
+原六条后缀已经完成，联合PAIRED_first/second的全部输入、输出、deep、缓存、solver、pre45/pre46、完整终态和动作记录严格一致；本步两槽均实际D，pre46缓存状态按设计变化。见[现场原件](../reports/wc_w3_paired_cfg_six_suffixes_native_20261008.json.gz)与[独立CPU读取](../reports/wc_w3_paired_cfg_six_suffixes_exploratory_cpu_20261008.json)。GPU仍继续SINGLE_first和BASE_second，源/范围/PID不改。
+
+| 已完成臂 | 当前45/46完整调用 | 严格未来47–72完整调用 | 全程两个CFG槽完整调用 | 合计 |
+|---|---:|---:|---:|---:|
+| BASE_first | 0/0 | 8/7 | 18/17 | 35 |
+| SINGLE_second | 0/1 | 8/7 | 18/18 | 36 |
+| PAIRED_first | 1/1 | 7/6 | 18/17 | 35 |
+
+联合当前多2次、未来少2次，净全程次数和两个CFG槽各自次数均与原WC相同；单槽本步多1次而未来没回收。这是值得追踪的真实计算分配信号，最终保真尚未知。相同实际次数是自适应干预的事后结果，不追认作事前固定配额试验；控制wall含取证开销，不能作清洁端到端速度结论。原历史GT严格门及完整八后缀/五视频/终态/费用/评分仍待，原分母及负结果均保持。
