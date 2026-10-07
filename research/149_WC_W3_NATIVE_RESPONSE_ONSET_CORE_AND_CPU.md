@@ -53,3 +53,5 @@ R2科学范围同事前H-T36，source f7ac858，独立selected-r2与wc-w3-native
 R2已实际完成模型加载（90.983788秒、CUDA true），但生成前context门槛因执行runR2与冻结科学scope R1的前缀不同而退出1；没有父/后缀/视频，属于恢复身份绑定错误。runner3113545/supervisor3113526及postCPU3113976已退出，postCPU正确拒绝失败GPU、零审计/评分步骤。目标24MiB/noapps、锁释放，全部142.003551秒=0.039445431GPUh计入，累计17.494939750/24h、54jobs/noinflight；原失败回执/源/加载费和CPU终态保留，不重启R2。
 
 新R3技术恢复只修正生产上下文构造：执行目录runR3，科学上下文用原scope R1；六核心源不变。生产CPU新增调用真实核心至context通过后的受控停止点，分别验证接受/拒绝和完整状态恢复，两个flow接口均不调用forward/solver/生成/解码/写出；此前已完成的三组采样不重跑。原GPU两次失败计费保持，完整scope/成本/指标/历史桥不变，等待新CPU/selected及唯一资源准入。
+
+R3上下文修复的实际生产CPU sourcecf42bfb、68.373400秒/四步exit0、216源及九上游/预算不变，独立原件捕获通过。两个flow共四次实际核心早期门槛（正确上下文接受、错误上下文拒绝）及完整状态恢复通过；受控停止于apply_worldcache入口，forward/solver/生成/解码/写出均未发生，没有重跑旧CPU采样。具体入口/AST检查、16范围/计费/评分复用拒绝、source/reference/import也通过；CUDA未初始化，driver及四children退出。下一唯一R3 selected/fresh资源准入，原两次GPU失败合计0.049408494h继续保留。
