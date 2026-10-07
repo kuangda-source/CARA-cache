@@ -25,3 +25,11 @@
 3190813/3190976/3193255全部退出、GPU24MiB/noapps、锁释放；原日志、回执、全部费用及CPU后处理拒绝保留，未评分。[失败原件审计](../reports/wc_w3_d46_r1_failure_audit_20261008.json)：172.163342秒=0.047823151GPUh，累计18.954102917/24h、56jobs/noinflight，余5.045897083h，根budget复制原字节。旧R1不重启。
 
 必要技术恢复仍服务用户本次“好的 允许这次实验”的完整2Native+2WC父/12后缀/10视频/两signed，不另开科研卡或缩拆对照；科学scope R1保持，独立执行身份R2避免覆盖失败目录。只修缓存环境/增加实际Blocklist CPU构造核验/分离执行输出目录，四个科学core源码SHA不变；guardrails不关闭、无新权重下载或训练。完整剩余规划2.422930905h，包含已发生失败的本次规划2.470754056h，原预测不是硬deadline或清零费用。实际受影响CPU/source/assets/provenance及fresh准入通过后继续同一已批准实验，累计24h保持。
+
+## 缓存环境修复的实际CPU通过
+
+新增实际Blocklist CPU构造首次29.063036秒exit1，因为Transformer Engine导入阶段请求Triton benchmarker；原回执/日志保留，无GPU或账本变化。采用已有S0 CPU源检查的ImportOnlyDriver：只返回禁止执行的benchmarker，不运行kernel、不改变真实GPU路径。新的独立production CPU r3实际34.160311秒exit0，source2fcabc1，真实HF缓存常量/Guardrail1目录/Blocklist读取、seed1/2解析和全部真实Native/causal/portfolio导入、原失败SHA/同一科学scope均通过，CUDA false。
+
+原CPU两个句柄3205110/3205111退出，14项新载荷及216项基础源码前后SHA相同，预算18.954102917/24h未变，独立执行R2的GPU输出不存在。没有重跑旧核心Toy或生成。生产配置选择与fresh准入待；用户对完整本次实验的直接批准保持，仅修复必要环境实现，不另开方向或执行完整重复卡。
+
+[实际CPU原件/审核](../reports/wc_w3_d46_recovery_cpu_r3_audit_20261008.json) · [CPU导入失败原件](../reports/wc_w3_d46_recovery_cpu_r2_failure_audit_20261008.json) · [恢复绑定](../manifests/wc_w3_d46_r2_technical_recovery_20261008.json) · [独立选择配置](../configs/wc_w3_d46_fresh_seeds_r2_selected_20261008.json)。
