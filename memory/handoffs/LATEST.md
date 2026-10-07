@@ -1,3 +1,9 @@
+## 2026-10-08 联合CFG生成继续，零掩码CPU取证通过，质量仍待
+
+[153实际现场](../../research/153_WC_W3_PAIRED_CFG_CPU_AND_EXECUTION.md)：原source aa996ed/1父8后缀5视频范围保持，原GPU3285362/3285375和等待CPU3285718继续。只有历史kwargs.gt_frames签名不同，44调用其余输入/输出/deep/cache/solver一致；新OFF1与BASE编码均与旧BASE逐字节一致。独立H-T39 source4545d87实际CPU14.494秒/exit0，16零mask组合一致、4非零正对照有效、实际全尺寸mask hash确为零，255在跑载荷未改。原严格历史门及失败记录保留，完整生成结束后任何其他差异仍拒绝；仅准备独立CPU条件化全93取证评分，不重跑GPU或改称原严格验收。当前无联合刷新质量结论。
+
+启动前实计21.127299587/24GPUh、58jobs；第59job在途24为预留非实际花完，结束实费结算。goal active，≤2h整卡自主与累计24h约定保持，不训练/扩稀疏/人评。以下旧状态为历史。
+
 ## 2026-10-08 联合CFG区分真实GPU已启动，全部结果仍待
 
 [153实际执行](../../research/153_WC_W3_PAIRED_CFG_CPU_AND_EXECUTION.md)：核心CPU209.409秒、真实生产CPU81.801秒、selected绑定13.945秒及255源/实际资产/延迟导入/CPU评分资源验收通过。source aa996ed保持，独立wc-w3-paired-cfg-r1，supervisor3285362/runner3285375实际CLI/目标GPU确认，24514MiB初始化。完整1父/8后缀/5新视频/1旧Native/两主要比较保持；无新质量或联合CFG科学结论。

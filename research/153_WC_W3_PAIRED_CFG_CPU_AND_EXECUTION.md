@@ -49,3 +49,11 @@ selected实际CPU绑定13.944609秒通过；冻结255源和实际生产回执不
 在第22步现场原件中，44次调用只有命名参数 `gt_frames` 的hash与旧seed2不同，其余输入以及输出、deep、banks和solver轨迹均一致；[现场原字节](../reports/wc_w3_paired_cfg_parent_prefix_native_20261008.json.gz)与[严格前缀判据失败](../reports/wc_w3_paired_cfg_parent_prefix_bridge_cpu_20261008.json)保留。差异来源尚未唯一确定，不宣称编码器随机性或质量损害。
 
 冻结严格历史验证器要求全部输入相同，原GPU因此可能在完整生成后被该门拒绝，不能改在跑源或把旧失败改成功。既定1父/8后缀/5视频继续完成，GPU/PID/source、预算和范围均不变。独立[CPU下一轮登记](../manifests/wc_w3_paired_inactive_gt_cpu_preregistration_20261008.json)在联合臂终点质量尚未曝光前，检验text2world零条件帧是否使有限gt_frames失去计算作用。只有实际源码/零mask数值证明、其他全部输入及完整状态/历史编码/重复都一致后，才允许单独标记CPU条件化取证分析；任何其他差异仍拒绝，不覆盖原GPU门的失败。当前没有联合刷新收益。
+
+## 零掩码语义CPU已通过，基准编码一致
+
+source `4545d878d91fed6a1138cd39908655215b94ca4d`，独立 `.sync/wc-w3-inactive-gt-semantics-cpu-r1-20261008`，实际CPU14.493696秒/监督15.209570秒/exit0。冻结实际denoise和条件类AST下，16种零mask组合的预测和有效网络输入一致，4种非零mask正对照能检测到GT影响；非有限GT仍拒绝。实际记录mask的hash与全尺寸float32零张量 `[1,1,24,54,96]` 一致，T2W条件帧属性为0；冻结WorldCache forward的额外kwargs仅读取timestep_scale，没有读取gt_frames。
+
+见[独立CPU原件重建](../reports/wc_w3_inactive_gt_semantics_cpu_r1_independent_audit_20261008.json)及[终态捕获](../reports/wc_w3_inactive_gt_semantics_cpu_r1_terminal_capture_20261008.json)。两个原CPU句柄3291534/3291535已退出，255份在跑GPU载荷未改，GPU新增0。该证明使用实际AST和Toy网络，不能替代完整GPU历史审计或质量评分。
+
+原OFF1和BASE_first视频均已接受编码，SHA与旧seed2 BASE逐字节相同。当前原GPU仍在完整后缀生成，单槽/联合输出和严格重复、终态、三损失/两比较尚待。只在所有其他历史输入、输出、状态、缓存、solver和BASE/SINGLE编码均通过时，才执行单独H-T39 CPU条件化取证评分；原严格失败原件与判据保持，不重新生成GPU，不将条件化证据改称原卡严格验收。
