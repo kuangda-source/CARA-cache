@@ -17,7 +17,7 @@ seed2当前多1次完整计算、严格未来calls47–72仍为8/7、净多1；�
 
 [完整signed原件](../reports/wc_w3_d46_r3_signed_summary_20261008.json) · [原件终态/源/释放/费用捕获](../reports/wc_w3_d46_r3_complete_20261008_terminal_capture.json) · [独立逐帧/符号/费用重算](../reports/wc_w3_d46_r3_independent_reconstruction_cpu_20261008.json) · [只读归档兼容失败](../reports/wc_w3_d46_r3_capture_cpu_r1_failure_20261008.json)。
 
-随后先登记并完成[既有记录CPU条件分析](152_WC_W3_D46_EXISTING_CONDITION_CPU_RESULTS.md)：旧正例缓存年龄2、此前CFG0本步D；新负例年龄1、此前CFG0本步C。固定D46在前者形成D/D、后者形成C/D；年龄与CFG联合状态同时不同，尚不能因果归因。原配对、重复、Native参考和指标协议对齐；未记录数值probe drift。下一项只准备同seed/同状态的原C/C、单槽C/D、联合D/D区分，以检验两CFG误差组合；不训练Head/LoRA或增加稀疏、人评。
+随后先登记并完成[既有记录CPU条件分析](152_WC_W3_D46_EXISTING_CONDITION_CPU_RESULTS.md)：旧正例缓存年龄2、此前CFG0本步D；新负例年龄1、此前CFG0本步C。固定D46在前者形成D/D、后者形成C/D；年龄与CFG联合状态同时不同，尚不能因果归因。原配对、重复、Native参考和指标协议对齐；同状态D臂在动作前已记录数值probe信号，见152追加更正（原CPU R1保留）。下一项只准备同seed/同状态的原C/C、单槽C/D、联合D/D区分，以检验两CFG误差组合；不训练Head/LoRA或增加稀疏、人评。
 
 同prompt新seed仍为已曝光CAL复验；LPIPS为Native相对保真，不提供物理/语义非劣；诊断wall不是干净端到端速度。goal active，继续按实验设计准备有限区分，当前所有旧运行/CPU/评分/捕获身份均已消耗。
 

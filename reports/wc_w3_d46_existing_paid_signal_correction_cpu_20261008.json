@@ -1,0 +1,63 @@
+{
+  "status": "PRE_ACTION_PAID_SIGNAL_RAW_METADATA_CORRECTION_CPU_COMPLETE_NOT_GATE_FIT",
+  "completed_unix": 1791405340.5835361,
+  "prior_result_retained": "reports/wc_w3_d46_existing_conditions_cpu_20261008.json",
+  "prior_result_sha256": "298a5adca9dd44b734d254b284afb5e2115c9d18545eaf7e6adf69dd4c2f734a",
+  "correction": "BASE/OFF events omit numeric paid signals, but D branch records them before its current deep action. Prior result incorrectly generalized BASE field absence to all receipts. Retain original and correct availability.",
+  "cases": [
+    {
+      "seed": 0,
+      "pre_action_signals_from_same_input_D_branch": {
+        "paid_input_drift": 0.11474609375,
+        "paid_probe_drift": 0.10595703125,
+        "dynamic_threshold": 0.20703125,
+        "accumulator_before_action": 0.203125,
+        "age_solver_steps": 2,
+        "native_skip": true
+      },
+      "normalized_accumulator": 0.9811320754716981,
+      "same_inputs_and_call45_outputs": true,
+      "same_pre46_state_fingerprint": "OLD_CORE_NO_SEPARATE_PRE46_FIELD; original current inputs and prefix checked"
+    },
+    {
+      "seed": 1,
+      "pre_action_signals_from_same_input_D_branch": {
+        "paid_input_drift": 0.138671875,
+        "paid_probe_drift": 0.2158203125,
+        "dynamic_threshold": 0.197265625,
+        "accumulator_before_action": 0.2158203125,
+        "age_solver_steps": 1,
+        "native_skip": false
+      },
+      "normalized_accumulator": 1.0940594059405941,
+      "same_inputs_and_call45_outputs": true,
+      "same_pre46_state_fingerprint": true
+    },
+    {
+      "seed": 2,
+      "pre_action_signals_from_same_input_D_branch": {
+        "paid_input_drift": 0.12060546875,
+        "paid_probe_drift": 0.10400390625,
+        "dynamic_threshold": 0.2041015625,
+        "accumulator_before_action": 0.10400390625,
+        "age_solver_steps": 1,
+        "native_skip": true
+      },
+      "normalized_accumulator": 0.5095693779904307,
+      "same_inputs_and_call45_outputs": true,
+      "same_pre46_state_fingerprint": true
+    }
+  ],
+  "source_callback": "src/wcomr/rv0_actions.py:OneActionRouter.decide",
+  "source_callback_sha256": "c443a90a28ef1ccfe932b77e98409a172feff1ad1ec6fe054cea9f6da4299e6f",
+  "input_sha256": {
+    "reports/wc_w3_small_human_runner_20261005.json.gz": "19eee9895165554828b749e3f8109245721629ca432e651943d82f433187c8ec",
+    "reports/wc_w3_d46_r3_complete_20261008_runner_json_native.gz": "802bd565046296632f15a866cfcb8b4546b7f2b3a7bf579f2a609d61d0f94fa9"
+  },
+  "GPU_submissions": 0,
+  "metric_reruns": 0,
+  "formal_training_labels": false,
+  "selected_gate_threshold": null,
+  "independent_CONF": false,
+  "boundary": "Existing exposed cases; paid scalars are recorded before D computes deep features. Correlated age/peer-CFG/margin differences are not separately causal."
+}
