@@ -1,0 +1,81 @@
+{
+  "identity": "WC_W3_PLACEMENT_TAIL_R2_EXCEPTION_SCOPE_AUDIT_R1_20261007",
+  "scope": "Only the new R2 complete job above 2 GPUh; consumed R1 approval and old blocked periods are excluded",
+  "request_ref": "manifests/wc_w3_placement_tail_v2_gt2h_request_20261007.json",
+  "requested_card": "WC-W3-PLACEMENT-TAIL-ALIGNED-R2-20261007-A",
+  "run_id": "wc-w3-placement-tail-aligned-r2",
+  "source_revision": "e4642726754bba73b28c622856bafc3edc33508b",
+  "condition": "No direct human exception answer after the already delivered R2 complete-job question",
+  "consecutive_condition_turns": [
+    {
+      "turn_id": "01a11526-b60e-7dd2-b56f-dbd0a7622f3d",
+      "classification": "progress",
+      "condition_present": true,
+      "evidence": "R1 final failure audit; prospective R2 core and actual production CPU validation; concrete complete-job exception request delivered",
+      "final_question_message_id": "msg_004637e7dcf23ad9016ac5f9b8616887d0b8add6a4de580cbf"
+    },
+    {
+      "turn_id": "01a11557-9531-7d53-a5ca-1114b7605bc9",
+      "classification": "no progress",
+      "condition_present": true,
+      "evidence": "Direct-answer and original-handle read-only recheck only; audit bookkeeping is not scientific or preparation progress"
+    }
+  ],
+  "current_count": 2,
+  "blocked_threshold": 3,
+  "goal_status": "active",
+  "goal_objective_complete": false,
+  "native_thread_evidence": {
+    "thread_id": "01a0f1eb-7894-7ed0-a186-d010111e14b1",
+    "turns": [
+      {
+        "turn_id": "01a11557-9531-7d53-a5ca-1114b7605bc9",
+        "status": "inProgress",
+        "started_unix": 1791359423,
+        "completed_unix": null,
+        "user_messages": [],
+        "finals": []
+      },
+      {
+        "turn_id": "01a11526-b60e-7dd2-b56f-dbd0a7622f3d",
+        "status": "completed",
+        "started_unix": 1791356220,
+        "completed_unix": 1791359423,
+        "user_messages": [],
+        "finals": [
+          {
+            "id": "msg_004637e7dcf23ad9016ac5f9b8616887d0b8add6a4de580cbf",
+            "text": "已执行原获批卡：**恢复与固定配额基线通过**；首个交换在第70调用触发旧尾段规则，尚未得到完整终点收益。\n\n已准备 R2：固定实际动作、记录原生建议变化，保留缓存合法性和完整对照。四项服务器生产 CPU 检查及原件审计通过，[实验报告](/Users/kuangda_gao/Documents/世界模型加速实验/worldcache_omr/research/146_WC_W3_TAIL_ALIGNMENT_CORE_AND_PRODUCTION_CPU.md)已更新并推送 GitHub。累计 **14.3563/24 GPUh**，剩余 **9.6437 GPUh**。\n\n**是否允许执行完整 R2 卡 `WC-W3-PLACEMENT-TAIL-ALIGNED-R2-20261007-A`：4对交换、2父轨迹、16后缀、10视频，规划约2.60 GPUh？**\n\n此次确认依据你设定的“单次超过2 GPUh才询问”约定；原 R1 的一次批准已执行结束。\n\n"
+          }
+        ]
+      }
+    ]
+  },
+  "live_observed_unix": 1791359516.2601368,
+  "production_cpu_receipt_sha256": "1892b772325409a72ab5752202b89f82ee41e6b3b5d77f792f3582dbb2033567",
+  "original_pids_absent": [
+    3026351,
+    3026368,
+    3035292,
+    3035293,
+    3036206,
+    3036207,
+    3036208,
+    3036209,
+    3036218
+  ],
+  "live_task_to_wait_for": false,
+  "new_authorization_exists": false,
+  "new_output_exists": false,
+  "cap_GPUh": 24,
+  "used_GPUh": 14.356340356944903,
+  "remaining_GPUh": 9.643659643055097,
+  "budget_sha256": "6336f6affa07b895712bf05b05d99b0bdbcd62390b0958ff110616c43038c707",
+  "gpu_jobs_launched": 50,
+  "inflight": false,
+  "new_GPU_jobs_this_turn": 0,
+  "new_GPU_expense_this_turn": 0,
+  "complete_planning_GPUh": 2.5967097498681393,
+  "legacy_single_card_seconds_deadline": null,
+  "next": "Keep the already delivered exception question pending; no repeat CPU, altered denominator, unrelated branch, or reused consumed R1 approval. A third consecutive condition turn at an impasse requires goal blocked."
+}
