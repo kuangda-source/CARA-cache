@@ -59,3 +59,13 @@ actual selected CPU门12.126459秒通过，source `5143d464faebeaeffad7a9500b048
 最新原现场：模型86.212327秒加载完成，seed1 Native35已通过prompt guardrail，实际生成日志到1/36更新。原3224687/3224830存活且匹配stage/source/HF环境，目标GPU上的compute PID为原runner；CPU3225754仍只等待原GPU，零评分。真实首条父生成已开始，两个旧入口故障已解决；完整两seed卡及后缀、视频、全93帧质量/成本结论仍未完成。过程中durable Native计数只在阶段边界保存，不能把当前回执的0计数当作日志已发生采样不存在。
 
 [真实Native采样现场](../reports/wc_w3_d46_r3_actual_native_sampling_20261008.json)。仅跟踪runR3三个原句柄，保持运行源不变，继续完成后缀和自动CPU审计/评分；累计费用最终按原监督回执结算，当前第58job在途预留不是已花24h。
+
+## seed1原生参考已保存；旧计数边界CPU核对
+
+原runR3/source5143d46保持，seed1 Native已ACCEPTED并保存原文件，完整36更新/72 full调用；文件890682字节、SHA `5f5d6489252995d06c83cdc01d5ba02da271beb1e4eaf7132573cdae0b9daac9`。Native输出尚待整卡释放后的全93帧解码与LPIPS，保存不代表新刷新方法正结果。当前相同seed的WC父生成已实际到10/36，尚未完成任何新suffix；原supervisor3224687/runner3224830存活，CPU3225754只待原GPU终态。未重提交/修改在跑source。
+
+CPU只读旧Human/seed0原始trace，将“当前”和“未来”成本拆开：C/D快照后calls45–72完整数18→16；严格未来calls47–72为17→14（CFG由9/8→7/7），当前call46由0→1。因此当前增加1、未来节省3、全路径净省2；全路径CFG20/18→18/18。原LPIPS和科学结论未变，旧“后续18→16”更准确指包括当前附近两调用的后缀。本次新seed的事前signed终点不改，只在最终报告额外明确当前/未来/全路径边界。
+
+新增纯标准库CPU结果汇总器，结束后从原runner/CPU评分/监督器原件输出两个seed逐个有符号结果、原D no-op与Native拒绝分母、等seed均值及当前/未来/全路径完整次数。已用旧真实记录核对上述18/16、17/14和全路径38/36及严格重复，不重跑GPU/旧LPIPS；当前新seed终点仍为0，不能把该分析当新生成收益。
+
+[首条Native现场](../reports/wc_w3_d46_r3_first_native_accepted_live_20261008.json) · [旧原件计数核对](../reports/wc_w3_d46_current_future_cost_boundary_cpu_20261008.json) · [最终CPU汇总器](../scripts/summarize_wc_w3_d46_fresh_seeds_cpu.py)。

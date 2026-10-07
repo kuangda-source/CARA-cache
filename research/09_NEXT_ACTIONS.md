@@ -1,3 +1,7 @@
+## 2026-10-08 D46新seed首条Native已保存，WC父继续运行
+
+[151最新证据](151_WC_W3_D46_FRESH_SEEDS_APPROVED_EXECUTION_AND_RESULTS.md)：原runR3/source5143d46、supervisor3224687/runner3224830 live，CPU3225754等待原GPU；seed1 Native已ACCEPTED/36更新72full，890682字节/SHA5f5d6489…daac9，当前唯一1新视频，尚待全93解码；WC父日志10/36、0新suffix完成，无新刷新终点收益。旧Human原件CPU复核：当前call46增加1、严格未来47–72省3、全路径净省2；原后缀45–72为18→16，不更改旧质量结果。新标准库最终CPU汇总器保留2seed/no-op/拒绝分母和全部signed边界，不改冻结运行/评分源。已结算18.991453711/24h、57jobs，第58job在途24为预留非花完；goal active，仅跟踪原三句柄，未扩大/重复GPU，未重跑旧评分，不扩训练/稀疏/人评。以下初始化进度为历史。
+
 ## 2026-10-08 D46新seed复验已进入真实Native采样
 
 [151实际现场](151_WC_W3_D46_FRESH_SEEDS_APPROVED_EXECUTION_AND_RESULTS.md)：source5143d46/run wc-w3-d46-fresh-seeds-r3，模型86.212327秒加载完成，seed1 Native prompt guard通过、实际采样1/36。原supervisor3224687/runner3224830/CPU等待driver3225754保持；两个旧初始化/延迟导入失败已退出、0视频，实费0.085173945h保留。当前完整2Native+2WC父/12后缀/10视频/两signed尚未完成，无新终点收益。已结算18.991453711/24h、57jobs；第58job在途24为预留非花完，root budget为最近结算原件，结束实际结算。goal active，仅观察这三个原句柄/source/stage，自动等待GPU成功退出/释放后全93审计与评分，不重启已消耗身份，不改在跑源，不扩训练/稀疏/人评；用户本卡>2h批准保持。
