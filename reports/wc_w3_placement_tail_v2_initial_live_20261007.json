@@ -1,0 +1,153 @@
+{
+  "observed_unix": 1791364856.4801233,
+  "source_revision": "e4642726754bba73b28c622856bafc3edc33508b",
+  "stage": "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-w3-placement-tail-approved-r1-20261007",
+  "run_id": "wc-w3-placement-tail-aligned-r2",
+  "processes": {
+    "3040329": {
+      "exists": true,
+      "command": "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python -u /home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-w3-placement-tail-approved-r1-20261007/scripts/supervise_wc_w3_placement_tail_v2.py --project /home/gaokuangda/data/gkd/worldcache_omr --stage /home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-w3-placement-tail-approved-r1-20261007 --output /home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-w3-placement-tail-aligned-r2 --gpu-uuid GPU-cebf7119-cf03-23b9-e192-cd196332b704 --source-revision e4642726754bba73b28c622856bafc3edc33508b ",
+      "matches_stage_and_card": true
+    },
+    "3040347": {
+      "exists": true,
+      "command": "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python -u /home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-w3-placement-tail-approved-r1-20261007/scripts/run_wc_w3_placement_tail_v2.py --project /home/gaokuangda/data/gkd/worldcache_omr --stage /home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-w3-placement-tail-approved-r1-20261007 --runtime /home/gaokuangda/data/gkd/worldcache_omr/runtime --output /home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-w3-placement-tail-aligned-r2/diagnostic --gpu-uuid GPU-cebf7119-cf03-23b9-e192-cd196332b704 --source-revision e4642726754bba73b28c622856bafc3edc33508b ",
+      "matches_stage_and_card": true
+    }
+  },
+  "supervisor": {
+    "status": "GPU_W3_PLACEMENT_RUNNING",
+    "pid": 3040329,
+    "child_pid": 3040347,
+    "run_id": "wc-w3-placement-tail-aligned-r2",
+    "source_revision": "e4642726754bba73b28c622856bafc3edc33508b",
+    "reserved_seconds": 34717.17471499835,
+    "child_started_unix": 1791364722.8408332,
+    "budget_before": {
+      "batch": "F0-F1",
+      "cap_gpu_hours": 24,
+      "used_gpu_hours": 14.356340356944903,
+      "gpu_jobs_launched": 50,
+      "status": "WC_W3_PLACEMENT_SETTLED_REQUIRES_RESULT_AUDIT",
+      "gpu_import_probes_completed": 1,
+      "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts",
+      "budget_authorization_ref": "manifests/budget_authorization_20261005_wc_24gpuh.json",
+      "budget_authorization_history": [
+        {
+          "authorized_utc": "2026-10-02T18:03:00Z",
+          "source_thread_id": "01a0f1e6-7ad0-75df-9a02-172b60d2e00b",
+          "user_instruction": "\u628a\u5404\u4e2a\u5b9e\u9a8c\u7684 gpu \u9884\u7b97\u90fd\u8bbe\u7f6e\u4e3a 12gpuh",
+          "previous_cap_gpu_hours": 4,
+          "new_cumulative_cap_gpu_hours": 12,
+          "used_gpu_hours_at_change": 3.9117525685110333,
+          "no_usage_reset_or_transfer": true
+        },
+        {
+          "authorized_utc": "2026-10-04T06:13:36Z",
+          "source_thread_id": "01a0f1e6-7ad0-75df-9a02-172b60d2e00b",
+          "user_message_id": "Sentinel_861e63a87d8c819180ec9a8bcfa6dc92",
+          "user_instruction": "\u5141\u8bb8\u589e\u52a0 GPUh",
+          "previous_cap_gpu_hours": 12,
+          "new_cumulative_cap_gpu_hours": 13,
+          "used_gpu_hours_at_change": 11.022315686839217,
+          "gpu_jobs_launched_at_change": 45,
+          "no_usage_reset_or_transfer": true,
+          "authorization_ref": "manifests/budget_authorization_20261004_wc_13gpuh.json"
+        },
+        {
+          "authorized_on_local": "2026-10-05",
+          "user_instruction": "\u6279\u51c6 WC-W3-SMALL-CD-R1-20261004-A\uff0c\u628a\u7d2f\u8ba1 gpuh \u9650\u5236\u63d0\u5347\u5230 24",
+          "previous_cap_gpu_hours": 13,
+          "new_cumulative_cap_gpu_hours": 24,
+          "used_gpu_hours_at_change": 11.022315686839217,
+          "gpu_jobs_launched_at_change": 45,
+          "no_usage_reset_or_transfer": true,
+          "authorization_ref": "manifests/budget_authorization_20261005_wc_24gpuh.json",
+          "approved_card": "WC-W3-SMALL-CD-R1-20261004-A",
+          "single_run_cap_seconds": 3900
+        }
+      ]
+    }
+  },
+  "runner": {
+    "status": "INITIALIZING",
+    "pid": 3040347,
+    "source_revision": "e4642726754bba73b28c622856bafc3edc33508b",
+    "started_unix": 1791364734.917155,
+    "load_seconds": 86.66269099153578,
+    "network_class": "cosmos_predict2._src.predict2.networks.minimal_v1_lvg_dit.MinimalV1LVGDiT",
+    "planned_parent_phases": 2,
+    "planned_suffix_controls": 16,
+    "planned_encoded_outputs": 10,
+    "per_CFG_quota_matched": false,
+    "CUDA_initialized": true
+  },
+  "request_progress": [
+    {
+      "sample_name": "common_sense_6487f37f-ef57-49ca-afdc-d898922b5191",
+      "status": "STARTED",
+      "parent_updates_saved": 0,
+      "parent_CFG_calls_saved": 0,
+      "snapshot_capture_present": false,
+      "suffix_controls_started": 0,
+      "decoded_children": 0,
+      "children": [],
+      "completed_control_restore": []
+    }
+  ],
+  "budget": {
+    "batch": "F0-F1",
+    "cap_gpu_hours": 24,
+    "used_gpu_hours": 24,
+    "gpu_jobs_launched": 51,
+    "status": "WC_W3_PLACEMENT_RUNNING_REMAINING_BUDGET_RESERVED_NOT_ACTUAL_SPENT",
+    "gpu_import_probes_completed": 1,
+    "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts",
+    "budget_authorization_ref": "manifests/budget_authorization_20261005_wc_24gpuh.json",
+    "budget_authorization_history": [
+      {
+        "authorized_utc": "2026-10-02T18:03:00Z",
+        "source_thread_id": "01a0f1e6-7ad0-75df-9a02-172b60d2e00b",
+        "user_instruction": "\u628a\u5404\u4e2a\u5b9e\u9a8c\u7684 gpu \u9884\u7b97\u90fd\u8bbe\u7f6e\u4e3a 12gpuh",
+        "previous_cap_gpu_hours": 4,
+        "new_cumulative_cap_gpu_hours": 12,
+        "used_gpu_hours_at_change": 3.9117525685110333,
+        "no_usage_reset_or_transfer": true
+      },
+      {
+        "authorized_utc": "2026-10-04T06:13:36Z",
+        "source_thread_id": "01a0f1e6-7ad0-75df-9a02-172b60d2e00b",
+        "user_message_id": "Sentinel_861e63a87d8c819180ec9a8bcfa6dc92",
+        "user_instruction": "\u5141\u8bb8\u589e\u52a0 GPUh",
+        "previous_cap_gpu_hours": 12,
+        "new_cumulative_cap_gpu_hours": 13,
+        "used_gpu_hours_at_change": 11.022315686839217,
+        "gpu_jobs_launched_at_change": 45,
+        "no_usage_reset_or_transfer": true,
+        "authorization_ref": "manifests/budget_authorization_20261004_wc_13gpuh.json"
+      },
+      {
+        "authorized_on_local": "2026-10-05",
+        "user_instruction": "\u6279\u51c6 WC-W3-SMALL-CD-R1-20261004-A\uff0c\u628a\u7d2f\u8ba1 gpuh \u9650\u5236\u63d0\u5347\u5230 24",
+        "previous_cap_gpu_hours": 13,
+        "new_cumulative_cap_gpu_hours": 24,
+        "used_gpu_hours_at_change": 11.022315686839217,
+        "gpu_jobs_launched_at_change": 45,
+        "no_usage_reset_or_transfer": true,
+        "authorization_ref": "manifests/budget_authorization_20261005_wc_24gpuh.json",
+        "approved_card": "WC-W3-SMALL-CD-R1-20261004-A",
+        "single_run_cap_seconds": 3900
+      }
+    ],
+    "wc_w3_placement_tail_v2_inflight": {
+      "run_id": "wc-w3-placement-tail-aligned-r2",
+      "supervisor_pid": 3040329,
+      "reserved_seconds": 34717.17471499835
+    }
+  },
+  "gpu": "GPU-de9a5370-cd87-0f1c-a48e-288888777dd3, NVIDIA RTX A6000, 342\nGPU-cebf7119-cf03-23b9-e192-cd196332b704, NVIDIA RTX A6000, 24450\n",
+  "compute_apps": "GPU-cebf7119-cf03-23b9-e192-cd196332b704, 3040347\n",
+  "new_video_files": [],
+  "log_tail": "16: W tensorflow/compiler/xla/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer.so.7'; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/cosmos/cosmos-predict2.5/.venv/lib/python3.10/site-packages/cv2/../../lib64:\n2026-10-07 17:19:12.663132: W tensorflow/compiler/xla/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer_plugin.so.7'; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/cosmos/cosmos-predict2.5/.venv/lib/python3.10/site-packages/cv2/../../lib64:\n2026-10-07 17:19:12.663143: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.\n[10-07 17:19:14|INFO|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/_src/imaginaire/utils/checkpoint_db.py:171:path] Downloading checkpoint nvidia/Cosmos-Predict2.5-2B/base/post-trained(81edfebe-bd6a-4039-8c1d-737df1a790bf)\n[10-07 17:19:14|INFO|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/_src/imaginaire/utils/checkpoint_db.py:96:_download] Downloading checkpoint file from Hugging Face with {'repo_id': 'nvidia/Cosmos-Predict2.5-2B', 'repo_type': 'model', 'revision': '15a82a2ec231bc318692aa0456a36537c806e7d4', 'filename': 'base/post-trained/81edfebe-bd6a-4039-8c1d-737df1a790bf_ema_bf16.pt'}\n[10-07 17:19:22|INFO|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/_src/imaginaire/utils/checkpoint_db.py:171:path] Downloading checkpoint Wan2.1/vae(685afcaa-4de2-42fe-b7b9-69f7a2dee4d8)\n[10-07 17:19:22|INFO|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/_src/imaginaire/utils/checkpoint_db.py:96:_download] Downloading checkpoint file from Hugging Face with {'repo_id': 'nvidia/Cosmos-Predict2.5-2B', 'repo_type': 'model', 'revision': '6787e176dce74a101d922174a95dba29fa5f0c55', 'filename': 'tokenizer.pth'}\n[10-07 17:19:24|INFO|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/_src/imaginaire/utils/checkpoint_db.py:171:path] Downloading checkpoint Qwen/Qwen2.5-VL-7B-Instruct(7219c6c7-f878-4137-bbdb-76842ea85e70)\n[10-07 17:19:24|INFO|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/_src/imaginaire/utils/checkpoint_db.py:131:_download] Downloading checkpoint from Hugging Face with {'repo_id': 'nvidia/Cosmos-Reason1-7B', 'repo_type': 'model', 'revision': '3210bec0495fdc7a8d3dbb8d58da5711eab4b423', 'allow_patterns': ['*']}\n[10-07 17:19:26|INFO|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/_src/imaginaire/utils/checkpoint_db.py:171:path] Downloading checkpoint nvidia/Cosmos-Reason1.1-7B(cb3e3ffa-7b08-4c34-822d-61c7aa31a14f)\n[10-07 17:19:26|INFO|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/_src/imaginaire/utils/checkpoint_db.py:131:_download] Downloading checkpoint from Hugging Face with {'repo_id': 'nvidia/Cosmos-Reason1-7B', 'repo_type': 'model', 'revision': '3210bec0495fdc7a8d3dbb8d58da5711eab4b423', 'allow_patterns': ['*']}\n[10-07 17:20:20|INFO|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/inference.py:69:__init__] Saved config to /home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-w3-placement-tail-aligned-r2/diagnostic/config.yaml\n[10-07 17:20:42|INFO|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/inference.py:91:generate] Generating 1 samples: ['common_sense_6487f37f-ef57-49ca-afdc-d898922b5191']\n[10-07 17:20:42|INFO|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/inference.py:95:generate] [1/1] Processing sample common_sense_6487f37f-ef57-49ca-afdc-d898922b5191\n[10-07 17:20:42|INFO|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/inference.py:108:_generate_sample] Saved arguments to /home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-w3-placement-tail-aligned-r2/diagnostic/common_sense_6487f37f-ef57-49ca-afdc-d898922b5191/WC_ROUTER_OFF_WITH_SHADOWS/common_sense_6487f37f-ef57-49ca-afdc-d898922b5191.json\n",
+  "supervisor_launch_log_tail": "{\"status\": \"PLACEMENT_REAL_ROOT_DEPENDENCIES_CPU_SOURCE_REFERENCES_PASS_NO_TORCH\", \"audits\": {\"placement_core\": \"PLACEMENT_FULL_CORE_CPU_NATIVE_SHA_RAW_TRAJECTORIES_QUOTAS_ENCODING_PASS_NOT_GPU\", \"lpips_resource\": \"LPIPS_ISOLATED_RESOURCE_ORIGINAL_CPU_AUDIT_PASS_NOT_VIDEO_SCORE\", \"tail_core\": \"R2_CORE_FROZEN_RAW_TRACE_CPU_AUDIT_PASS_ORIGINAL_SUMMARY_FAILURE_RETAINED\"}, \"base_dependency_status\": \"SMALL_CD_REAL_ROOT_STAGE_SOURCE_CPU_AUDITS_REFERENCES_PASS_NO_TORCH\", \"budget_snapshot\": {\"batch\": \"F0-F1\", \"cap_gpu_hours\": 24, \"used_gpu_hours\": 14.356340356944903, \"gpu_jobs_launched\": 50, \"status\": \"WC_W3_PLACEMENT_SETTLED_REQUIRES_RESULT_AUDIT\", \"gpu_import_probes_completed\": 1, \"accounting\": \"Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts\", \"budget_authorization_ref\": \"manifests/budget_authorization_20261005_wc_24gpuh.json\", \"budget_authorization_history\": [{\"authorized_utc\": \"2026-10-02T18:03:00Z\", \"source_thread_id\": \"01a0f1e6-7ad0-75df-9a02-172b60d2e00b\", \"user_instruction\": \"\\u628a\\u5404\\u4e2a\\u5b9e\\u9a8c\\u7684 gpu \\u9884\\u7b97\\u90fd\\u8bbe\\u7f6e\\u4e3a 12gpuh\", \"previous_cap_gpu_hours\": 4, \"new_cumulative_cap_gpu_hours\": 12, \"used_gpu_hours_at_change\": 3.9117525685110333, \"no_usage_reset_or_transfer\": true}, {\"authorized_utc\": \"2026-10-04T06:13:36Z\", \"source_thread_id\": \"01a0f1e6-7ad0-75df-9a02-172b60d2e00b\", \"user_message_id\": \"Sentinel_861e63a87d8c819180ec9a8bcfa6dc92\", \"user_instruction\": \"\\u5141\\u8bb8\\u589e\\u52a0 GPUh\", \"previous_cap_gpu_hours\": 12, \"new_cumulative_cap_gpu_hours\": 13, \"used_gpu_hours_at_change\": 11.022315686839217, \"gpu_jobs_launched_at_change\": 45, \"no_usage_reset_or_transfer\": true, \"authorization_ref\": \"manifests/budget_authorization_20261004_wc_13gpuh.json\"}, {\"authorized_on_local\": \"2026-10-05\", \"user_instruction\": \"\\u6279\\u51c6 WC-W3-SMALL-CD-R1-20261004-A\\uff0c\\u628a\\u7d2f\\u8ba1 gpuh \\u9650\\u5236\\u63d0\\u5347\\u5230 24\", \"previous_cap_gpu_hours\": 13, \"new_cumulative_cap_gpu_hours\": 24, \"used_gpu_hours_at_change\": 11.022315686839217, \"gpu_jobs_launched_at_change\": 45, \"no_usage_reset_or_transfer\": true, \"authorization_ref\": \"manifests/budget_authorization_20261005_wc_24gpuh.json\", \"approved_card\": \"WC-W3-SMALL-CD-R1-20261004-A\", \"single_run_cap_seconds\": 3900}]}, \"new_GPU_authorization_verified\": true}\n"
+}

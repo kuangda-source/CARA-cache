@@ -1,3 +1,9 @@
+## 2026-10-07 完整W3-B尾段对齐R2已直接获批并唯一启动
+
+[147执行与结果](research/147_WC_W3_TAIL_ALIGNED_APPROVED_EXECUTION_AND_RESULTS.md)：本轮直接human允许绑定完整新R2单次>2h例外，2父/16后缀/10视频/四交换不改。执行配置实际CPU12.056880秒通过，169文件/source e464272及原生产CPU SHA保持，仅配置/新授权差异，不重跑模型fixture。supervisor3040329/runner3040347均已现场确认存活、正确stage/run/source，正在初始化；尚无新终点/速度/调度结果，不重启或修改在跑源。
+
+旧秒数deadline取消，原24 GPUh累计保持。已结算14.356340357h/50jobs；第51任务预留全部剩余9.643659643h，服务器在途used=24是预留而非实际花完，结束按全wall退回未用余额。按原句柄跟踪终态、实费/原件/配额/重复/全93帧CPU评分；goal active，旧blocked与待R2允许均为历史，不再要求重复批准，不扩训练/人评。
+
 ## 2026-10-07 新R2单次>2h例外连续三轮未到，目标已blocked
 
 [阻塞审计](manifests/wc_w3_placement_tail_r2_exception_scope_blocked_audit_20261007.json)只计此次R2提报轮及两个自动续接，不沿用已消耗R1批准或旧blocked计数。第一轮有实际准备与CPU进展，后二轮仅回查；必要准备已完成，九个原GPU/CPU句柄均退出，当前无可等待任务。goal工具实际返回blocked（1791360152），停止重复自动续接、CPU和旁支工作，科学目标未完成。
