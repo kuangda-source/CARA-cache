@@ -16,6 +16,6 @@ selected实际门exit0、12.068214秒、140源闭包及直接批准核验通过�
 
 下一跟踪原PIDs/receipt/log/视频；终态后按实费、源/重复/同CFG配额/10视频完整93帧/释放核验，再执行六损失与四signed交换评分。模型正常初始化和进程健康都不是科学结果，当前尚未端点保真/速度结论。
 
-## First real generation observation
+## 首个真实生成现场
 
-Observed Unix1791354353.410098: original supervisor3026351 and runner3026368 are live and still bind the unchanged stage/source. Actual network MinimalV1LVGDiT loaded in86.682397 seconds; CUDA initialized and the original runner owns the designated GPU. First Common parent generation has started (1/36 updates shown in its log). No suffix control or new video is complete yet. This is verified live generation, not evidence of placement benefit. See [native observation](../reports/wc_w3_placement_first_generation_observation_20261007.json). Continue monitoring these original handles; do not restart after an observation timeout.
+Unix1791354353.410098现场确认原supervisor3026351与runner3026368存活，仍绑定未改变的stage/source。真实网络MinimalV1LVGDiT加载86.682397秒，CUDA已初始化，指定GPU进程属于原runner。Common首个父轨迹开始生成，日志已显示1/36更新；尚无完整后缀对照或新视频。这证明真实生成已开始，不是刷新位置收益证据，见[原生现场](../reports/wc_w3_placement_first_generation_observation_20261007.json)。继续跟踪原句柄，不因一次观察超时而重启。
