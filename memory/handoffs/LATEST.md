@@ -1,3 +1,7 @@
+## 2026-10-08 D46同一批准卡的完整依赖R3已实际运行
+
+[151执行记录](../../research/151_WC_W3_D46_FRESH_SEEDS_APPROVED_EXECUTION_AND_RESULTS.md)：R1缓存路径遗漏与R2 Native延迟导入缺依赖均采样前exit1，0视频，两次全费0.085173945h保留。缓存/实际Blocklist/Native函数延迟导入/29模块闭包的独立CPU32.152926秒通过，selected12.126459秒通过；source5143d46保持。当前run wc-w3-d46-fresh-seeds-r3，supervisor3224687/runner3224830真实CLI/正确HF环境/目标GPU确认，24514MiB加载中。CPU driver3225754仅等这两个原GPU成功结束/退出释放再全93审计评分，零评分。完整科学scope R1的2Native+2WC父/12后缀/10视频/两signed保持；已结算18.991453711/24h、57jobs，第58job在途24为预留非花完，结束实际结算。goal active，用户本卡批准有效，不重启旧R1/R2或CPU/评分、不改在跑源、不扩训练/稀疏/人评。下面blocked/旧running/修复待为历史。
+
 ## 2026-10-08 D46 R1初始化失败，修复同一批准卡环境
 
 [151实际记录](../../research/151_WC_W3_D46_FRESH_SEEDS_APPROVED_EXECUTION_AND_RESULTS.md)：R1未生成视频，在Blocklist初始化因新监督入口遗漏project HF_HUB_CACHE而exit1；三个原PID退出、目标24MiB/noapps、锁释放，172.163342秒全部保留，累计18.954102917/24h、56jobs/noinflight。正确项目资产未缺失，未形成新科学结果，不否定方向。必要修复保持用户本次批准的2Native+2WC父/12后缀/10视频/两signed及冻结科学scope R1，独立执行R2；只绑定历史成功缓存环境、实际CPU Blocklist核验和分离输出。受影响CPU/production source及fresh准入待，完整剩余2.422930905h、含失败2.470754056h，预算/授权约定保持，不重启旧身份、不扩训练/稀疏/人评。goal active。以下RUNNING/CPU waiting为已退出R1历史。

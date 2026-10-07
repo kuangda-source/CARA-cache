@@ -43,3 +43,13 @@ Native延迟导入的完整本地闭包检查发现三个既有文件未部署�
 新production CPU r4 source913b1a6实际32.152926秒exit0：Native延迟导入、29模块闭包、原失败SHA、解析seed1/2、实际缓存/安全词表和真实函数导入均通过，CUDA false、17新载荷/216基础源码SHA前后保持、两个CPU PID3222809/3222812退出、预算不变。原GPU未重启，核心Toy未重跑。独立执行R3与冻结科学scope R1分离，仍为同一用户直接批准卡的2Native+2WC父/12后缀/10视频/两signed；含已发生失败的完整预测2.508104850h，原24h累计不变。下一selected与fresh准入，不扩大方向或缩拆对照。
 
 [R2失败审计](../reports/wc_w3_d46_r2_failure_audit_20261008.json) · [实际闭包CPU](../reports/wc_w3_d46_recovery_cpu_r4_audit_20261008.json) · [R3恢复绑定](../manifests/wc_w3_d46_r3_technical_recovery_20261008.json) · [选择配置](../configs/wc_w3_d46_fresh_seeds_r3_selected_20261008.json)。
+
+## 完整依赖修复后的独立R3已实际启动
+
+actual selected CPU门12.126459秒通过，source `5143d464faebeaeffad7a9500b048977089561ab`，与实际闭包CPU代码一致；科学scope仍为原登记R1，本次只分离失败后的执行目录R3。fresh A6000 24MiB/noapps、共享锁和18.991453711/24h账本准入后，run `wc-w3-d46-fresh-seeds-r3` 唯一提交。原supervisor **3224687** / runner **3224830** 的真实CLI/source/stage/目标GPU进程均确认，24514MiB模型加载中，实际子环境使用正确HF_HUB_CACHE、offline1和OMP2。当前尚无新科学结果。
+
+新CPU driver **3225754** 只绑定这两个原GPU句柄和17项载荷。GPU成功结束/原PID退出/释放后自动做源、实际费用、完整恢复、重复、每seed分母、10段视频全93帧解码及四组可用Native相对LPIPS/两signed比较；当前WAITING、零评分。不重启旧R1/R2/CPU或改在跑源。用户完整卡批准及原24h累计保持，两个旧失败全费保留。
+
+服务器第58job在途，used=24为持锁预留剩余余额，非实际耗尽；最近已结算18.991453711h/57jobs保持，结束按全wall实际结算。goal active，只观察三个当前原句柄，不扩大训练、稀疏或人评。
+
+[实际selected门](../reports/wc_w3_d46_r3_selected_preflight_native_20261008.json) · [唯一R3提交](../reports/wc_w3_d46_fresh_seeds_r3_gpu_launch_20261008.json) · [真实PID/HF环境/GPU](../reports/wc_w3_d46_r3_gpu_start_live_20261008.json) · [CPU接续](../reports/wc_w3_d46_r3_postrun_cpu_launch_20261008.json) 。
