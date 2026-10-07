@@ -1,0 +1,37 @@
+
+import hashlib,json,os,pathlib,subprocess,time
+stage=pathlib.Path(__file__).parent;binding=json.loads((stage/'manifest.json').read_text());root=pathlib.Path('/home/gaokuangda/data/gkd/worldcache_omr');base=root/binding['base_stage']
+sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
+state={'status':'NATIVE_RESPONSE_ONSET_AFFECTED_CORE_CPU_RUNNING_NOT_GPU','pid':os.getpid(),'source_revision':binding['source_revision'],'started_unix':time.time(),'GPU_submissions':0,'CUDA_initialized':'PENDING_ACTUAL_CHECK','payload_sha256':binding['new_payload_sha256'],'base_payload_sha256':binding['base_payload_sha256'],'upstream_sha256':binding['upstream_source_sha256'],'budget_before_sha256':sha(root/'reports/budget.json')}
+def save():
+ p=stage/'receipt.tmp';p.write_text(json.dumps(state,indent=2,allow_nan=False)+'\n');p.replace(stage/'receipt.json')
+save();started=time.monotonic()
+try:
+ for n,d in binding['base_payload_sha256'].items(): assert sha(base/n)==d,n
+ for n,d in binding['new_payload_sha256'].items():assert sha(stage/n)==d,n
+ for n,v in binding['read_only_resources'].items():assert sha(stage/n)==v['sha256'],n
+ for n,d in binding['upstream_source_sha256'].items():assert sha(root/'runtime'/n)==d,n
+ python='/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python'
+ command=[python,'-u',str(stage/'scripts/check_wc_w3_native_onset_core_cpu.py'),'--stage',str(stage),'--runtime',str(root/'runtime'),'--output',str(stage/'core-result.json'),'--reuse-nonflow-attempts',str(stage/'.resources/r1_nonflow_attempts.json'),'--reuse-nonflow-sha256',binding['read_only_resources']['.resources/r1_nonflow_attempts.json']['sha256'],'--reuse-source-revision',binding['base_source_revision']]
+ state['command']=command;save()
+ with (stage/'core.log').open('x') as log:
+  child=subprocess.Popen(command,stdout=log,stderr=subprocess.STDOUT,cwd=root/'runtime',env=dict(os.environ,CUDA_VISIBLE_DEVICES='',PYTHONDONTWRITEBYTECODE='1',OMP_NUM_THREADS='2',OPENBLAS_NUM_THREADS='2',HF_HUB_OFFLINE='1',TRANSFORMERS_OFFLINE='1',PYTHONPATH=str(stage/'src'),WC_NATIVE_ONSET_CPU_ATTEMPTS=str(stage/'attempts.json')))
+  state['child_pid']=child.pid;save();state['exit_code']=child.wait()
+ assert state['exit_code']==0,'Actual core fixture failed; retain log and partial attempts'
+ result=json.loads((stage/'core-result.json').read_text());assert result['CUDA_initialized'] is False and result['GPU_submissions']==0
+ assert [result[k] for k in ('new_complete_CPU_parents','reused_complete_CPU_parents','new_complete_CPU_suffixes','reused_complete_CPU_suffixes','new_mock_outputs_not_videos','reused_mock_outputs_not_videos')]==[2,1,20,10,12,6]
+ assert result['raw_mutation_refusals']==60 and result['deliberate_native_response_action_changes']==24
+ state.update(status='NATIVE_RESPONSE_ONSET_ACTUAL_AFFECTED_CORE_CPU_PASS_NOT_PRODUCTION_OR_GPU',CUDA_initialized=False,result_sha256=sha(stage/'core-result.json'),attempts_sha256=sha(stage/'attempts.json'),counts=[result['complete_CPU_parents'],result['complete_CPU_suffixes'],result['mock_outputs_not_videos']],failure_cases=result['failures_retained'],mutation_refusals=result['raw_mutation_refusals'],response_changes=result['deliberate_native_response_action_changes'],new_and_reused_counts={k:result[k] for k in result if k.startswith(('new_','reused_'))})
+except BaseException as error:
+ state.update(status='NATIVE_RESPONSE_ONSET_AFFECTED_CORE_CPU_TECH_BLOCKED_NOT_METHOD_FAILURE',error_type=type(error).__name__,error=str(error))
+ raise
+finally:
+ state['CPU_wall_seconds']=time.monotonic()-started;state['ended_unix']=time.time()
+ state['budget_after_sha256']=sha(root/'reports/budget.json');state['budget_unchanged']=state['budget_after_sha256']==state['budget_before_sha256']
+ state['new_payload_after_sha256']={n:sha(stage/n) for n in binding['new_payload_sha256']}
+ state['base_payload_after_sha256']={n:sha(base/n) for n in binding['base_payload_sha256']}
+ state['upstream_after_sha256']={n:sha(root/'runtime'/n) for n in binding['upstream_source_sha256']}
+ state['resources_after_sha256']={n:sha(stage/n) for n in binding['read_only_resources']}
+ if (stage/'core-result.failure.json').exists():state['CUDA_initialized']=json.loads((stage/'core-result.failure.json').read_text())['CUDA_initialized']
+ if (stage/'attempts.json').exists():state['attempts_sha256']=sha(stage/'attempts.json')
+ save()
