@@ -77,3 +77,11 @@ post-CPU3115990实际存活，冻结source/binding SHA和原3115400/3115418句�
 ## 首条FIXED61与历史固定分支字节一致
 
 2026-10-07 23:34:49现场独立只读检查：FIXED61_first完成14更新/28CFG，完整逐CFG调用配额20/18、parent_restored true；保存视频的实际文件SHA742771d1…29a3574及大小2107088均与冻结历史FIXED61相同。[实际桥检查](../reports/wc_w3_native_response_onset_r3_fixed61_history_bridge_live_20261007.json)保留原路径、大小、SHA和两个原GPU进程现场存活。当前3/10后缀、2/6视频完成，LATE69_first已开始。固定桥支持后续同SHA旧损失复用，尚不代表新响应收益；完整重复/三个响应起点状态门、父桥与终点评分仍待。没有新GPU或评分提交，现有源/stage与计费政策保持。
+
+## LATE69历史视频桥和实际响应前状态一致
+
+2026-10-07 23:43:05现场只读核对：LATE69_first完成14更新/28CFG并保存，实际视频SHAf013ab67…668cb8fb及大小2107535与冻结H-T35的TAIL61完全相同；OFF/FIXED61/LATE69三份旧损失候选的编码字节桥均已完成，最终同协议/PTS复用仍由原postCPU在完整GPU结束后验收。
+
+FIXED61与LATE69的pre65/pre67/pre69完整组件与自身CFG历史均严格一致，响应第69调用输入也相同；此前输出/深层执行/banks/求解器前缀一致，实际动作只在69/70变化，LATE全程完整调用21/19、固定20/18。[现场八项检查及真实文件桥](../reports/wc_w3_native_response_onset_r3_late69_history_and_pre69_bridge_live_20261007.json)绑定[原字节快照](../reports/wc_w3_native_response_onset_r3_late69_prefix_snapshot_native_20261007.json.gz)，SHA084afd3e…9de0704；本地从原件再次核对全部八比较和两动作变化。只检查已完成的这两模式，不追认RESP65/67尚未完成的四/三模式前缀门。
+
+原两个GPU进程及postCPU3115990命令现场存活、source一致，postCPU仍WAITING/零步骤；当前4/10后缀、3/6视频，RESP65_first已开始，无新终点指标或质量/速度结论。预算最近结算与全scope保持，没有新GPU/评分提交。
