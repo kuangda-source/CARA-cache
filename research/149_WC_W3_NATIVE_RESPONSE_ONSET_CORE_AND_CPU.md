@@ -93,3 +93,11 @@ FIXED61与LATE69的pre65/pre67/pre69完整组件与自身CFG历史均严格一�
 [真实动作/部分前缀检查](../reports/wc_w3_native_response_onset_r3_resp65_action_live_20261007.json)绑定[原字节快照](../reports/wc_w3_native_response_onset_r3_resp65_snapshot_native_20261007.json.gz)，原receipt SHAb2ccc327…37a6f451。FIXED61/LATE69/RESP65三已完成模式的pre65完整组件/own历史及第一可变输入、此前所有输出/深层/banks/求解器前缀严格一致；本地从原件重新核对两组各六比较、实际两CFG次数和四动作变化。RESP67这一第四模式的门尚未完成，不将三模式检查称为完整四模式验收。
 
 当前5/10后缀、4/6视频，RESP67_first已开始；原supervisor3115400/runner3115418实际命令存活/source不变。新两个主要终点比较、全部五组重复、父完成/旧桥/状态恢复和CPU全93评分仍待，不能据已保存候选判断保真或质量收益。预算最近结算/当前在途及完整范围保持，没有新GPU或评分提交。
+
+## 四个first完整结束，全部响应起点前状态门通过
+
+2026-10-07 23:56:54实际现场：四模式first均完成14更新/28CFG和视频编码。注册的pre65四模式、pre67三模式、pre69两模式完整状态/own-CFG历史、第一可变调用输入及所有此前输出/深层/banks/求解器更新一致；组件具备必备族、非空历史和完整64位SHA形式。两原GPU句柄及postCPU3115990命令现场存活/source一致，postCPU WAITING/零评分步骤。
+
+首轮全程完整数FIXED20/18、LATE21/19、RESP65 22/20、RESP67 21/19；RESP67窗口四次均为已付probe/自身原生建议，实际只将67/68由C改D，69/70原生仍C。它与LATE首轮有相同完整数、不同刷新位置，这是事后观测到的附加条件，不改主要窗口比较或追认预先匹配配额。首轮控制wall依次359.028889/363.556817/369.374434/363.465239秒，只是单次诊断成本，不能称相同秒数或干净速度。
+
+[全起点门与RESP67真实动作](../reports/wc_w3_native_response_onset_r3_all_first_gates_and_resp67_live_20261007.json)绑定[原字节快照](../reports/wc_w3_native_response_onset_r3_all_first_gates_snapshot_native_20261007.json.gz)及[只读检查源码](../reports/wc_w3_native_response_onset_r3_all_first_gates_readonly_driver_20261007.py)。本地从原件独立重新计算三个门的36项比較及四模式计数，一致。当前6/10后缀、5/6视频，RESP67_second已开始；四个second/父最终/全部严格重复恢复及CPU终点评分仍待，没有新质量或净收益结论。全scope、现有预算/费用、原判据与负例保持，无新增GPU或评分提交。
