@@ -67,6 +67,9 @@ def main():
         torch.cuda._lazy_init = forbidden
         from wcomr import (rv0_native_onset_causal, rv0_fork, rv0_actions, rv0_native_onset_execution,
                            rv0_native_onset_evaluation, rv0_native_onset_scores, rv0_video_reader, rv0_lpips)
+        from wcomr.rv0_native_onset_causal import run_native_response_causal_batch
+        if not callable(run_native_response_causal_batch):
+            raise ValueError('Actual production callable unavailable')
         for module in [rv0_native_onset_causal, rv0_fork, rv0_actions, rv0_native_onset_execution,
                        rv0_native_onset_evaluation, rv0_native_onset_scores, rv0_video_reader, rv0_lpips]:
             if not Path(module.__file__).resolve().is_relative_to((args.stage/'src').resolve()):
@@ -110,7 +113,7 @@ def main():
         from wcomr.runtime_config import install_core_inference_registration
         from wcomr.h0_mode import establish_shared_eval, verify_shared_eval
         from wcomr.mid_coverage import tree_digest
-        from wcomr.rv0_native_onset_causal import run_native_onset_causal_batch
+        from wcomr.rv0_native_onset_causal import run_native_response_causal_batch
         from wcomr.rv0_restore import cuda_memory_observation
         if torch.__version__ != '2.7.1+cu128' or torch.cuda.get_device_capability() != (8, 6):
             raise ValueError('Actual Torch/sm86 differs')
@@ -148,7 +151,7 @@ def main():
         contexts = [(config['run_id']+':'+s.name, 'Cosmos-Predict2.5-2B:'+config['f1_setup_sha256'],
                      tree_digest(s.model_dump(mode='json'))) for s in samples]
         state['reference_contexts'] = [list(v) for v in contexts]; save()
-        run_native_onset_causal_batch(inference, samples, wc, settings, state=state, save=save, output=args.output,
+        run_native_response_causal_batch(inference, samples, wc, settings, state=state, save=save, output=args.output,
                          inference_module=inference_module, contexts=contexts, mode_setup=state['mode_setup'],
                          runtime=args.runtime, config=config, require_historical_bridge=True)
         state['complete_video'] = True; state['memory_after_all_controls'] = cuda_memory_observation()

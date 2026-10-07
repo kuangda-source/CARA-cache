@@ -1,0 +1,18 @@
+[10-07 22:30:47|INFO|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/packages/cosmos-oss/cosmos_oss/init.py:96:_init_log_files] Log saved to /home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-w3-native-response-onset-r1/diagnostic/console.log
+[10-07 22:30:50|INFO|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/_src/imaginaire/utils/checkpoint_db.py:171:path] Downloading checkpoint nvidia/Cosmos-Guardrail1(9c7b7da4-2d95-45bb-9cb8-2eed954e9736)
+[10-07 22:30:50|INFO|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/_src/imaginaire/utils/checkpoint_db.py:131:_download] Downloading checkpoint from Hugging Face with {'repo_id': 'nvidia/Cosmos-Guardrail1', 'repo_type': 'model', 'revision': 'd6d4bfa899a71454a700907664f3e88f503950cf', 'allow_patterns': ['*']}
+2026-10-07 22:31:03.367367: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2026-10-07 22:31:04.505878: W tensorflow/compiler/xla/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer.so.7'; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/cosmos/cosmos-predict2.5/.venv/lib/python3.10/site-packages/cv2/../../lib64:
+2026-10-07 22:31:04.506010: W tensorflow/compiler/xla/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer_plugin.so.7'; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/cosmos/cosmos-predict2.5/.venv/lib/python3.10/site-packages/cv2/../../lib64:
+2026-10-07 22:31:04.506022: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+Traceback (most recent call last):
+  File "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-w3-native-response-onset-selected-r1-20261007/scripts/run_wc_w3_native_response_onset.py", line 113, in main
+    from wcomr.rv0_native_onset_causal import run_native_onset_causal_batch
+ImportError: cannot import name 'run_native_onset_causal_batch' from 'wcomr.rv0_native_onset_causal' (/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-w3-native-response-onset-selected-r1-20261007/src/wcomr/rv0_native_onset_causal.py)
+Traceback (most recent call last):
+  File "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-w3-native-response-onset-selected-r1-20261007/scripts/run_wc_w3_native_response_onset.py", line 170, in <module>
+    if __name__ == '__main__': main()
+  File "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-w3-native-response-onset-selected-r1-20261007/scripts/run_wc_w3_native_response_onset.py", line 113, in main
+    from wcomr.rv0_native_onset_causal import run_native_onset_causal_batch
+ImportError: cannot import name 'run_native_onset_causal_batch' from 'wcomr.rv0_native_onset_causal' (/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-w3-native-response-onset-selected-r1-20261007/src/wcomr/rv0_native_onset_causal.py)

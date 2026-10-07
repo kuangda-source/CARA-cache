@@ -1,5 +1,6 @@
 """Complete-card identity, accounting and old-loss reuse refusal controls."""
 import argparse
+import ast
 import copy
 import json
 from pathlib import Path
@@ -12,6 +13,18 @@ def main():
     from wcomr.rv0_native_onset_execution import validate_config, reserve_budget, settle_budget
     from wcomr.rv0_native_onset_scores import reused_losses, signed_response_diagnostics
     config=json.loads((args.stage/'onset-config.json').read_text())
+    import torch
+    assert not torch.cuda.is_initialized()
+    def forbidden(*a, **k): raise RuntimeError('No CUDA in actual production callable check')
+    torch.cuda._lazy_init = forbidden
+    from wcomr.rv0_native_onset_causal import run_native_response_causal_batch
+    assert callable(run_native_response_causal_batch)
+    tree = ast.parse((args.stage/'scripts/run_wc_w3_native_response_onset.py').read_text())
+    imports = [n for n in ast.walk(tree) if isinstance(n, ast.ImportFrom)
+               and n.module == 'wcomr.rv0_native_onset_causal']
+    assert len(imports) == 2 and all([a.name for a in n.names] == ['run_native_response_causal_batch'] for n in imports)
+    assert sum(isinstance(n, ast.Call) and isinstance(n.func, ast.Name)
+               and n.func.id == 'run_native_response_causal_batch' for n in ast.walk(tree)) == 1
     validate_config(config)
     refused=[]
     changes=[('missing_suffix',lambda c:c['scope'].__setitem__('scope_counts',[1,8,6,2])),
@@ -38,6 +51,7 @@ def main():
     reserved=reserve_budget(budget,selected,123)
     settled=settle_budget(reserved,budget,selected,3600,123)
     assert settled['used_gpu_hours']==budget['used_gpu_hours']+1 and settled['gpu_jobs_launched']==53
+    assert reserved['wc_w3_native_response_onset_inflight']['run_id'] == selected['run_id']
     assert not any(k.endswith('_inflight') for k in settled)
     bad=copy.deepcopy(reserved);bad['used_gpu_hours']=23
     try:settle_budget(bad,budget,selected,3600,123)

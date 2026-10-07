@@ -35,3 +35,9 @@ source d728afa的独立R2已exit0，driver3110803/child3110804均退出，CPU整
 生产CPU R1 source d17cd95的draft/contract已exit0（16拒绝和两signed正负/计费/旧损失复用检查）；validate由于driver误拼输出目录，与冻结run_id不符而exit1，仅0.348340秒，import尚未执行。原失败回执/三log/driver保存，预算及214源不变、driver和三children退出、GPU新增0。新独立生产CPU R2修正driver目录绑定，214源与配置不变；绑定原成功draft/contract原SHA重用，只实际执行未完成的validate/import。不得重启R1或把R1原失败称为通过。
 
 生产CPU R2实际完成，source49d1be6、67.362928秒/exit0；两未完成validate/import新执行，原两draft/contract同214源原SHA复用，完整四步覆盖/16拒绝/正负signed计费/损失复用/真实资产与源及独立回执审计通过。3111847/3111848/3111859和复用旧两PID均退出，CUDA未初始化、源/上游/账本未变。GPU仍0。CPU后完整成本以H-T35实计和最大完整后缀重核，仍6880.177599秒=1.911160444h、整卡未拆、累计可容纳；这是带余量代理，不是实际速度或时限。
+
+## 首次真实执行入口失败，独立恢复登记
+
+R1已进入监督计费，但在模型加载前因生产GPU入口导入run_native_onset_causal_batch（实际名称为run_native_response_causal_batch）退出1。此前CPU模块导入未检查具体GPU分支调用符号，这是生产检查遗漏。没有初始化CUDA/父轨迹/后缀/视频/评分；不得算作方向或方法负结果。3112329/3112346均已退出，目标24MiB/noapps、锁释放；全wall35.867029秒=0.009963064GPUh已计入，累计17.455494320/24h、53jobs、noinflight，账本按服务器原字节同步。原失败源、原回执、日志与释放/计费独立审计保存，不重启R1或覆盖其目录。post-CPU未提交。
+
+修复仅更新三个生产文件：正确的具体函数导入及调用、CPU callable/AST绑定检查、独立恢复run身份。六份已经验收的核心源不改，不重跑其CPU采样。独立技术恢复登记绑定原失败原SHA与全费用，保留H-T36原科学scope/prereg1父10后缀6视频两比较，使用wc-w3-native-response-onset-r2执行目录；新完整成本仍约1.911160444h。需要新实际生产四步CPU/selected/fresh锁资源预算后才能执行。

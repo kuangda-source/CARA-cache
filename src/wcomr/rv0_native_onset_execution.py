@@ -23,7 +23,18 @@ PRODUCTION_FILES = ['src/wcomr/rv0_native_onset_execution.py', 'src/wcomr/rv0_na
 
 def validate_config(config, *, selected=False):
     validate_scope(config['scope'], config['preregistration'])
-    if (config['card'] != CARD or config['run_id'] != RUN or config['sample_indices'] != [2]
+    recovery = config.get('technical_recovery')
+    expected_run = RUN
+    if recovery is not None:
+        expected_run = 'wc-w3-native-response-onset-r2'
+        if (recovery['original_run_id'] != RUN or recovery['new_run_id'] != expected_run
+                or recovery['original_source_revision'] != 'cd2d9f324d4e2d9573614b81c97c1bc043049857'
+                or recovery['failed_runner_original_sha256'] != '57a0e9b922fdf31413c075ee7e2b475507c4c00df549a385b7dc43bf66d492b8'
+                or recovery['scope_counts'] != COUNTS or recovery['method_scope_unchanged'] is not True
+                or recovery['failure_charge_retained'] is not True
+                or config['payload_sha256'].get(config['technical_recovery_ref']) != config['technical_recovery_sha256']):
+            raise ValueError('Exactly registered failed-entry recovery required')
+    if (config['card'] != CARD or config['run_id'] != expected_run or config['sample_indices'] != [2]
             or config['sample_names'] != ['human_199'] or config['expected_project_root'] != PROJECT
             or config['execution_limits'] != LIMITS or config['logical_copy_cap_bytes'] != 6*1024**3
             or config['workspace_reserve_bytes'] != 4*1024**3 or config['execution_scope_authority'] is not None
@@ -95,6 +106,11 @@ def validate_stage(project, stage, runtime, config, *, selected=False):
     prereg = stage/config['preregistration_ref']
     if sha(prereg) != config['preregistration_sha256'] or json.loads(prereg.read_text()) != config['preregistration']:
         raise ValueError('Prospective native-tail hypothesis changed')
+    if config.get('technical_recovery') is not None:
+        recovery = stage/config['technical_recovery_ref']
+        if (sha(recovery) != config['technical_recovery_sha256']
+                or json.loads(recovery.read_text()) != config['technical_recovery']):
+            raise ValueError('Technical recovery preregistration changed')
     cost = stage/config['cost_ref']
     if sha(cost) != config['cost_sha256'] or json.loads(cost.read_text()) != config['cost']:
         raise ValueError('Complete preregistered cost changed')
@@ -166,7 +182,7 @@ def reserve_budget(budget, config, supervisor_pid):
     result = copy.deepcopy(budget); result['used_gpu_hours'] = 24
     result['gpu_jobs_launched'] += 1
     result['status'] = 'WC_W3_NATIVE_RESPONSE_ONSET_RUNNING_RESERVED_NOT_ACTUAL_SPENT'
-    result[INFLIGHT] = {'run_id':RUN, 'supervisor_pid':supervisor_pid,
+    result[INFLIGHT] = {'run_id':config['run_id'], 'supervisor_pid':supervisor_pid,
                        'reserved_seconds':(24-budget['used_gpu_hours'])*3600}
     return result
 
@@ -185,7 +201,7 @@ def audit_settlement(supervisor, receipt, config, live_budget, expected_source):
     validate_config(config, selected=True)
     if (supervisor['status'] != 'EXITED_REQUIRES_RESULT_AUDIT' or supervisor['exit_code'] != 0
             or supervisor['source_revision'] != receipt['source_revision'] or receipt['source_revision'] != expected_source
-            or supervisor['run_id'] != RUN or supervisor['config'] != config
+            or supervisor['run_id'] != config['run_id'] or supervisor['config'] != config
             or not 0 < supervisor['wall_seconds'] <= min(7200, supervisor['reserved_seconds'])
             or supervisor['cumulative_budget_exceeded'] is not False
             or [supervisor['planned_parent_phases'],supervisor['planned_suffix_controls'],supervisor['planned_encoded_outputs']] != COUNTS[:3]
