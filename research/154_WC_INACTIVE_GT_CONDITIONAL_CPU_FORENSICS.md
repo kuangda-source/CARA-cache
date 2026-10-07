@@ -41,3 +41,9 @@ CPU source `30a81a82cdfc04204df6ed808bebabb5c9993be0`，独立 `.sync/wc-w3-inac
 实际Diffusers源码用`list(set(...))`生成`_use_default_values`，存在元数据顺序影响原始config hash的候选解释。两个历史`_internal_dict`原始值没有保存，现阶段不能宣称该解释就是确切原因。独立[下一轮CPU登记](../manifests/wc_w3_current_card_fixed_reference_cpu_preregistration_20261008.json)先于任何联合质量曝光：用实际冻结scheduler验证仅排列默认参数名字是否改变hash而保持全部36更新；真正修改solver_order作正对照。此诊断不恢复旧验收。
 
 同登记另外明确了一个独立的当前卡内固定参照诊断：三个当前分支严格共享pre45/输入/实际solver配置，完整重复和恢复；历史仅GT输入与solver._internal_dict组件差异，其他有效轨迹和BASE/SINGLE字节相同；以事前固定旧Native视频计算三损失/两signed比较。该问题不要求把历史元数据身份称为通过，跨运行完整状态验收仍为false、确切字典差异仍未知；保留所有失败、负帧与费用。当前实现/实际CPU和评分尚待，无新GPU/训练/稀疏/人力或方向切换。
+
+## 取证终态与固定参照结果
+
+原H-T39真实exit1/零评分，其`final_components`拒绝栈已归档，来源30a81a8未改。独立scheduler CPU/source844dc65实际4.975146秒/exit0，默认名字顺序只改hash而36输出相同；真实solver_order变化在35/36更新产生差异。原字典原因没有精确还原，不改旧验收。
+
+固定参照CPU/source d9b3234、74.909164秒/exit0及独立重建完成，见[155科学结果](155_WC_CURRENT_CARD_FIXED_REFERENCE_RESULTS.md)：PAIRED对BASE失真+0.452679%、实际总调用同35；对SINGLE改善2.397402%、调用36→35。新CPU分析不是原H-T38/H-T39成功，所有refusal原件/判据/费用均保持。原相关9句柄退出、GPU/锁释放、无在途，下一轮重新事前登记和CPU准备，不重启任何已消耗身份。

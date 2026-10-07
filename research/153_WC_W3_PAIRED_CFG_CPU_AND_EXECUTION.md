@@ -81,3 +81,9 @@ source `4545d878d91fed6a1138cd39908655215b94ca4d`，独立 `.sync/wc-w3-inactive
 实际scheduler CPU诊断4.975146秒/监督5.974649秒/exit0：只排列13个默认参数名字元数据，原始config hash改变，但完整36次更新逐步完全一致；实际改变solver_order的正对照在35/36更新产生差异。独立JSON原始hash重建通过，见[独立CPU诊断](../reports/wc_w3_scheduler_metadata_independent_cpu_20261008.json)。该结果证明元数据顺序可以造成指纹差异，没有恢复两个历史原始dict，因此确切历史差异来源仍未证明。
 
 在联合质量曝光前已登记[当前卡内固定参照CPU问题](../manifests/wc_w3_current_card_fixed_reference_cpu_preregistration_20261008.json)：当前三臂严格共享状态/输入/config、完整重放，历史只允许已观察GT与solver._internal_dict两差异、其他轨迹和BASE/SINGLE字节相同；用同一事前固定旧Native视频计算三损失/两signed比较。此为独立探索性诊断，保留两个历史验收false、字典差异未解释和旧判据，不把结果改称完整历史验收或独立CONF。新规则在完整实际轨迹上13项破坏拒绝及“修复但不胜BASE”算例通过；新[CPU评分入口](../scripts/audit_score_wc_w3_current_card_reference_cpu.py)待冻结绑定后执行，尚无新质量。
+
+## 固定参照CPU和独立科学结果已完成
+
+[155完整结果与边界](155_WC_CURRENT_CARD_FIXED_REFERENCE_RESULTS.md)：CPU source d9b3234、74.909164秒/exit0，六全93视频、三Native固定参照损失、两signed完成并独立原件重建。PAIRED LPIPS0.417017531，对BASE0.415138287失真+0.452679%、20改善/73退化帧，实际全程同为35次；对SINGLE0.427260689改善2.397402%、91改善/2退化帧，全程36→35。联合当前加2/未来省2信号保留，但当前点没有超越原WC。
+
+原GPU/source/范围不重启；两个历史验收均保持失败。原GPU/旧CPU/新CPU相关句柄已全部退出、255原载荷/13新载荷及原件保持、锁/GPU释放；累计22.314242424/24h、59jobs、无在途。下一仅CPU准备缺少的CFG0单独刷新四细胞区分卡，完整范围和预算未形成前不提交GPU，不缩减重复绕过余额，不训练/扩稀疏/人评。
