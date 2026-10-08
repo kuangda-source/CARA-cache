@@ -1,0 +1,81 @@
+{
+  "source_revision": "e9f47f5759a774244dba02cc436657ab36099550",
+  "run_id": "wc-w3-cfg-guided-teacher-r1",
+  "supervisor_pid": 3388748,
+  "stage": "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-cfg-guided-teacher-production-r1-20261009",
+  "config_sha256": "fb5c4e4345de42ce6c40d6772643527bf077b9da2bda9830edc4f20a0f9c7e36",
+  "planned_scope": {
+    "full_parents": 2,
+    "new_videos": 2,
+    "actual_state_origins": 5,
+    "action_cells_per_origin": 4,
+    "strict_repeats_per_cell": 2,
+    "local_CFG_velocity_pairs": 40,
+    "net_calls_in_diagnostics": 80,
+    "full_counterfactual_suffixes": 0,
+    "endpoint_labels": 0
+  },
+  "forecast_GPUh": 1.6928347082299713,
+  "budget_before": {
+    "batch": "F0-F1",
+    "cap_gpu_hours": 50,
+    "used_gpu_hours": 24.90811035403749,
+    "gpu_jobs_launched": 61,
+    "status": "CFG_BUDGET_SETTLED_AUDIT_PENDING",
+    "gpu_import_probes_completed": 1,
+    "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts",
+    "budget_authorization_ref": "manifests/budget_authorization_20261008_wc_50gpuh.json",
+    "budget_authorization_history": [
+      {
+        "authorized_utc": "2026-10-02T18:03:00Z",
+        "source_thread_id": "01a0f1e6-7ad0-75df-9a02-172b60d2e00b",
+        "user_instruction": "\u628a\u5404\u4e2a\u5b9e\u9a8c\u7684 gpu \u9884\u7b97\u90fd\u8bbe\u7f6e\u4e3a 12gpuh",
+        "previous_cap_gpu_hours": 4,
+        "new_cumulative_cap_gpu_hours": 12,
+        "used_gpu_hours_at_change": 3.9117525685110333,
+        "no_usage_reset_or_transfer": true
+      },
+      {
+        "authorized_utc": "2026-10-04T06:13:36Z",
+        "source_thread_id": "01a0f1e6-7ad0-75df-9a02-172b60d2e00b",
+        "user_message_id": "Sentinel_861e63a87d8c819180ec9a8bcfa6dc92",
+        "user_instruction": "\u5141\u8bb8\u589e\u52a0 GPUh",
+        "previous_cap_gpu_hours": 12,
+        "new_cumulative_cap_gpu_hours": 13,
+        "used_gpu_hours_at_change": 11.022315686839217,
+        "gpu_jobs_launched_at_change": 45,
+        "no_usage_reset_or_transfer": true,
+        "authorization_ref": "manifests/budget_authorization_20261004_wc_13gpuh.json"
+      },
+      {
+        "authorized_on_local": "2026-10-05",
+        "user_instruction": "\u6279\u51c6 WC-W3-SMALL-CD-R1-20261004-A\uff0c\u628a\u7d2f\u8ba1 gpuh \u9650\u5236\u63d0\u5347\u5230 24",
+        "previous_cap_gpu_hours": 13,
+        "new_cumulative_cap_gpu_hours": 24,
+        "used_gpu_hours_at_change": 11.022315686839217,
+        "gpu_jobs_launched_at_change": 45,
+        "no_usage_reset_or_transfer": true,
+        "authorization_ref": "manifests/budget_authorization_20261005_wc_24gpuh.json",
+        "approved_card": "WC-W3-SMALL-CD-R1-20261004-A",
+        "single_run_cap_seconds": 3900
+      },
+      {
+        "authorized_unix": 1791428550.530142,
+        "authorized_on_local": "2026-10-08",
+        "user_instruction": "\u6279\u51c6\u6269\u5927 gpuh\uff0c\u76f4\u63a5\u52a0\u5230 50 \u5427",
+        "previous_cap_gpu_hours": 24,
+        "new_cumulative_cap_gpu_hours": 50,
+        "used_gpu_hours_at_change": 22.314242424184147,
+        "gpu_jobs_launched_at_change": 59,
+        "no_usage_reset_or_transfer": true,
+        "authorization_ref": "manifests/budget_authorization_20261008_wc_50gpuh.json",
+        "automatic_single_job_gpu_hours": 2
+      }
+    ]
+  },
+  "GPU_submissions": 1,
+  "launched_unix": 1791492357.0357258,
+  "post_CPU_pid": 3388749,
+  "post_CPU_stage": "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-cfg-guided-teacher-post-cpu-r1-20261009",
+  "post_driver_sha256": "c9e680fcaafaec85738e9aa777c0f7a8324d52e24227849b77c36f1b9c34cc2d"
+}

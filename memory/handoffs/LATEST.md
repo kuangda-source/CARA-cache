@@ -1,3 +1,11 @@
+## 2026-10-09 同状态双CFG教师生产CPU通过，真实GPU正在执行
+
+[168执行](../../research/168_WC_CFG_GUIDED_TEACHER_PRODUCTION_CPU_AND_EXECUTION_20261009.md)：原源8b3a978生产CPU52.056秒/exit0，64载荷/实际Cosmos与原权重guardrail/HF缓存/Blocklist/请求/原视频probe、12契约拒绝及独立原字节绑定通过。选择标准库CPU12.140秒/exit0，原生产回执/源、共享锁、余额、UUID/sm8.6/空闲GPU与磁盘确认，无CUDA。完整新卡2父2视频、5×4×2=40CFG对/80net不缩，整卡保守预测1.692834708h≤2，已有50h/单次自主权限内。
+
+冻结e9f47f5/选择配置fb5c4e43的wc-w3-cfg-guided-teacher-r1原GPU3388748/3388760和释放后CPU3388749已真实CLI/在途回执确认，模型在加载。真实shape/嵌套快照显存、全部原件/重复/两视频/有符号误差仍待，无新科学结论；只跟踪三个原句柄，正常释放后自动完整CPU审计与各state评分，不重投/改在跑64源/缩范围。启动前实费24.908110354/50h，61历史jobs；第62job used50为在途余额预留，非实费耗尽，结束按实际wall结算。
+
+goal active，本轮真实CPU与GPU派发progress，整体研究未完成；不扩训练/稀疏/OMR/DRE/人评。以下旧selected=false/新GPU0/CPU待均为历史。
+
 ## 2026-10-09 双CFG教师完整collector CPU与原始张量独立重建通过
 
 [167结果](../../research/167_WC_CFG_GUIDED_TEACHER_COLLECTOR_CPU_RESULTS_20261009.md)：原源a417fa9、独立collector-cpu-r3服务器CPU308.128秒/exit0，两个缓存配置共4完整父/10起点/80CFG对/40严格重复，240原张量逐位guided与有符号能量独立重建；6类故障全部回滚并保留完整计划，10证据破坏拒绝。两次旧CPU集成失败/原件保留，不追认通过；六原PID均已终态、预算原字节不变、CUDAfalse/新GPU0。Toy权重/编码/解码/writer边界明确，不是实际模型抵消证据或1216组件/显存通过。
