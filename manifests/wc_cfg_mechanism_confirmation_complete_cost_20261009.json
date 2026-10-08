@@ -1,0 +1,31 @@
+{
+  "identity": "H_T48_WHOLE_CONFIRMATION_SAME_SCOPE_WITH_MEASUREMENT_OVERHEAD_FORECAST",
+  "registered_unix": 1791500276.948152,
+  "scope_counts": {
+    "full_parents": 2,
+    "new_videos": 2,
+    "actual_state_origins": 5,
+    "action_cells_per_origin": 4,
+    "strict_repeats_per_cell": 2,
+    "local_CFG_velocity_pairs": 40,
+    "net_calls_in_diagnostics": 80,
+    "full_counterfactual_suffixes": 0,
+    "endpoint_labels": 0
+  },
+  "old_complete_forecast_seconds_retained": 6094.204949627897,
+  "previous_actual_GPU_wall_seconds": 4935.510115386918,
+  "old_collector_CPU_seconds": 308.12807393074036,
+  "new_complete_measurement_collector_CPU_seconds": 341.7193153174594,
+  "CPU_instrumentation_multiplier": 1.1090171400424538,
+  "forecast_complete_seconds": 6758.577744068896,
+  "forecast_complete_GPUh": 1.8773827066858044,
+  "rule": "Preserve full previous conservative forecast floor including original50% whole-card reserve. Multiply the entire card by max(1,new full measurement CPU wall/old collector CPU wall), without assuming CPU and GPU timing equal. Use the higher previous forecast or actual GPU total. All2 parents/5 origins/4 actions/2 repeats/2 videos remain. Guard actual single job2h and cumulative50h; forecast is planning evidence, not measured new GPU time or a deadline.",
+  "no_scope_removed_or_split": true,
+  "new_GPU_measurement": false,
+  "source_sha256": {
+    "manifests/wc_cfg_guided_teacher_complete_cost_forecast_20261009.json": "3dc4583057b16dba8098114039bf2b7aeb5e1f8a5e8c03c3efc2f8029c26cb4e",
+    "reports/wc_cfg_guided_teacher_collector_cpu_r3_20261009_receipt_json_native.gz": "f43931129299f02bb559998a041f2b2b8b4109f2bb8edb77b45d64a4e4e49dcd",
+    "reports/wc_cfg_measurement_cpu_r1_terminal_20261009_receipt.json.native.gz": "171eeb58af2d2592a81e8f52c6cbb6802d296ce33ce07775c19e15a9eba79710",
+    "reports/wc_cfg_guided_teacher_r1_terminal_20261009_supervisor_native.gz": "27ee03fac2b1bfcdffafe3fb2a241bd354ce5c1a6addb2447bb0bf9db3eec72f"
+  }
+}
