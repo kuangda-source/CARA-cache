@@ -51,3 +51,11 @@ GPU正常终态释放后，已绑定driver自动跑原全93帧评分代码：四
 ## 部分执行进展：原首控制已结束，完整结论仍待
 
 [首OFF对照观察](../reports/wc_w3_cfg_budget_off1_partial_video_progress_20261009.json)确认OFF1完整后缀15次full并保存接受视频，OFF2第二重复在跑。只完成1/10后缀、1/6新视频，父余段/全部重复与评分未结束；该技术进展不算新方法保真或速度结果。三个原PID仍活，无重投/改源；本轮为verified wait，继续原完整scope。
+
+## 部分真实控制：首重复组和固定BASE函数桥通过
+
+[OFF1/OFF2部分原件独立重建](../reports/wc_w3_cfg_budget_partial_OFF_pair_readonly_audit_20261009.json)确认1/5严格重复组：所有轨迹、1216完整状态组件、原solver字典、pre45/pre46与最终latent哈希相同；两次实际完整掩码皆18/17。CPU只读取得原runner gzip/SHA与首视频原文件哈希，没有提前跑LPIPS、GPU新提交或替代完整审计。
+
+[OFF/BASE首后缀函数桥](../reports/wc_w3_cfg_budget_partial_OFF_BASE_bridge_readonly_audit_20261009.json)确认固定BASE与原生OFF续跑同轨迹、同状态、同终态latent、同视频SHA 2e96e1ddeba1da05ed7adb9e7db9483be294b239fb9528956894e9c01e71421f（各991462字节），实际quota18/17。当前样本已完成后缀中，固定路由没有引入基线行为差异。
+
+当前3/10完整后缀、2/6新视频完成，CFG1_second位置交换在跑。四细胞mask可行性、父余段/全部重复、七文件全93评分及科学效果都未完成；不将部分函数桥推广到其他配置、其他样本或完整卡验收。源/计划/预算权限保持，原三个PID活，无重投/改变在跑源码。

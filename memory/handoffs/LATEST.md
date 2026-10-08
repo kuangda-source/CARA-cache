@@ -1,3 +1,9 @@
+## 2026-10-09 原OFF重复和固定BASE函数一致，位置交换仍在跑
+
+[OFF1/OFF2原件独立核对](../../reports/wc_w3_cfg_budget_partial_OFF_pair_readonly_audit_20261009.json)确认两完整后缀全部轨迹、1216状态组件/原solver字典和最终latent哈希相同，实际mask均为登记18/17；只通过1/5重复组。[OFF/BASE首后缀函数桥](../../reports/wc_w3_cfg_budget_partial_OFF_BASE_bridge_readonly_audit_20261009.json)确认固定BASE轨迹/状态与OFF相同，两视频SHA亦等、实际quota18/17，说明当前样本已完成后缀中固定路由保留基线行为。
+
+共3/10后缀完成、2/6新视频已保存，CFG1_second位置交换STARTED；原GPU3368923/3368938及后CPU3369011实际仍活，无exit/错误。四交换/父余段/全部重复/七文件全93评分仍待，不能报完整卡验收、方法质量/速度或CONF。此轮是原句柄verified wait和部分原记录独立证据progress，不缩完整scope、未改在跑301源8457dfb、新GPU/停止/重启0；goal active/总体科研目标未完成。旧50在途预留非实費、单次直接例外保持，下一仅跟踪原任务并完整终态重算。以下为较早快照。
+
 ## 2026-10-09 原任务首OFF续跑及视频完成，第二重复在跑
 
 [部分原记录](../../reports/wc_w3_cfg_budget_off1_partial_video_progress_20261009.json)：OFF1完整后缀完成/15次deep-full、输出检查通过并保存首视频；OFF2第二重复STARTED。原GPU3368923/3368938及释放后CPU3369011实时均活，无exit，新增提交/终止/重启均0。当前只完成1/10后缀、1/6新视频，共同父仍暂停于22更新/44调用；全部重复/父余段/其他编码/全93评分和独立终态审计仍待，不能报完整mask可行或科学收益。
