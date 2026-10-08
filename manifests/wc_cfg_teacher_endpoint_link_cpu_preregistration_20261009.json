@@ -1,0 +1,72 @@
+{
+  "id": "WC-CFG-TEACHER-ENDPOINT-LINK-CPU-R1-20261009-A",
+  "hypothesis_id": "H-T46",
+  "registered_unix": 1791497781.049868,
+  "kind": "retrospective_exploratory_linkage_of_existing_complete_cards",
+  "exposure": "Both endpoint losses and H-T45 local signed errors are already known; trace linkage results not evaluated yet",
+  "input_sha256": {
+    "reports/wc_w3_cfg_budget_complete_r1_terminal_capture_20261009.json": "b628c6977a009c40a744fef6b3d202b183c801623955c176a44c73f2b9ea7a34",
+    "reports/wc_w3_cfg_budget_complete_r1_independent_reconstruction_20261009.json": "97ce68a157f4afc30532de255053fea79c8e287b418eab1a429a2bc366d85d01",
+    "reports/wc_w3_cfg_budget_complete_r1_20261009_runner_native.gz": "7c7ed64d3059f636dc5ec79bb5a422857faa85545cdde04a8fa05fbaebea6b38",
+    "reports/wc_cfg_guided_teacher_r1_terminal_20261009_capture.json": "4a4c74c7892fa132c95c0923d6ff0a75568ede30b6e3a872b9ba9c8a4f22cdf9",
+    "reports/wc_cfg_guided_teacher_r1_terminal_20261009_independent_CPU_audit.json": "c03b5fe3257977f7a5be189d5807ee5e4c53f351f4a5a96a93bb36645470173d",
+    "reports/wc_cfg_guided_teacher_r1_terminal_20261009_runner_native.gz": "c0ed1c8868517d8dcb9bacd75e64ec6725db5c2f22476f062205a927510bb0fc"
+  },
+  "fixed_mapping": {
+    "BASE": {
+      "S22_mode": "CC",
+      "S23_origin": "S23_after_CC",
+      "S23_mode": "DD"
+    },
+    "CFG0": {
+      "S22_mode": "DC",
+      "S23_origin": "S23_after_DC",
+      "S23_mode": "CD"
+    },
+    "CFG1": {
+      "S22_mode": "CD",
+      "S23_origin": "S23_after_CD",
+      "S23_mode": "DC"
+    },
+    "PAIRED": {
+      "S22_mode": "DD",
+      "S23_origin": "S23_after_DD",
+      "S23_mode": "CC"
+    }
+  },
+  "repeats": [
+    "first",
+    "second"
+  ],
+  "registered_denominator": {
+    "endpoint_arms": 4,
+    "strict_repeats_per_arm": 2,
+    "two_call_trace_joins": 16,
+    "S22_component_comparisons": 8,
+    "one_step_output_and_own_history_bridges": 8
+  },
+  "exact_trace_fields": [
+    "inputs",
+    "outputs",
+    "deep",
+    "banks"
+  ],
+  "S22_state_fields": [
+    "components",
+    "solver_configuration",
+    "own_history"
+  ],
+  "next_state_bridge_fields": [
+    "first_solver_output",
+    "child_origin_output_component",
+    "true_full_history_after_call46"
+  ],
+  "missing_fields": "report UNRECORDED; never infer full pre47 components from matching output or video SHA",
+  "differences": "retain every component key and field mismatch; no exclusions or repair until results are reported",
+  "claim_boundary": "matching recorded fields only; not full historical S23 state equality, not unique endpoint causal attribution, not new CONF/RV or speed/physics claim",
+  "hypothesis": "If local same-state vectors are linked to actual registered old 45-48 computations, H-T45 is directly relevant to the old fixed-quota example; if not, retain mechanism evidence but do not use it as a direct explanation of that example",
+  "CUDA_initialized": false,
+  "new_GPU_submissions": 0,
+  "training": false,
+  "human_review": false
+}

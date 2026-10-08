@@ -69,3 +69,13 @@
 [第三完整S23核对](../reports/wc_cfg_guided_teacher_third_S23_complete_partial_readonly_audit_20261009.json)和[当时原GPU回执](../reports/wc_cfg_guided_teacher_third_S23_complete_partial_native_20261009.gz)确认`S23_after_CD`的8对、四组重复全部完成。独立核对1216起止组件/指纹、同状态全部输入、条件/solver/输出/cache/动作/三张量摘要及恢复；八个实际文件大小/SHA与记录FP32形状匹配。calls47/48、C0/D26、paid probe/full历史/age重建通过，自己的历史`[[18,22],[22,23]]`与父CD事件相同，父已测速度的原一步latent桥一致，父与局部行均已恢复；该真实快照的当前free/headroom公式也核对通过。
 
 现在三个完整S23块共24对/12重复组原记录及文件证据通过；S22整块、第四个S23_after_DD与父ON后续仍待。仍未加载实际张量内容或计算误差/抵消比，没有接受24对成功子集。完整五起点40对/20重复、120张量原件重建、完整父一致性、两视频全93与最终费用在GPU释放后统一完成。原三句柄/e9f47f5/64载荷/配置/driver保持、无新提交/停止/重启；上一轮第二完整起点progress，本轮第三完整起点原件重建progress及verified wait，goal active、无重要阻碍，不扩训练/稀疏/OMR/DRE/人评。
+
+## 接续进展：第四个S23原件核对通过，五起点采集已收齐
+
+[第四完整S23核对](../reports/wc_cfg_guided_teacher_fourth_S23_complete_partial_readonly_audit_20261009.json)与[原时刻回执](../reports/wc_cfg_guided_teacher_fourth_S23_complete_partial_native_20261009.gz)确认`S23_after_DD`的8对及四重复组完整。1216组件/指纹、同起点输入与条件、动作/真实full历史/age、输出/cache/三张量摘要、恢复及八个实际文件大小/SHA均通过；自己的历史`[[22,23],[22,23]]`对应父DD动作，首速度经原求解器一步产生的latent桥一致，父DD首重复与全部局部行已恢复。该状态的实际捕获free/headroom准入也通过。
+
+该时刻原回执的S22及四个S23均为`COMPLETE_LOCAL_ORIGIN`、各8对，五起点40对已采集；四个S23的32对/16重复组已完成部分原记录与文件核对。完整20重复、120张量内容和有符号合成误差尚未统一重建，不能把部分审计作为整卡通过。父ON已从S22恢复正常剩余采样；两完整父的一致性、两个视频全93解码与实费结算仍待原GPU释放后的绑定CPU。原三个句柄与冻结64载荷保持，没有新增GPU或改动在跑源，整体研究继续active。
+
+## 终态已完成
+
+原GPU与绑定CPU均正常退出，完整取证和本地独立重建通过；真实结果、全范围/费用及下一计划见[170完整结果](170_WC_CFG_GUIDED_TEACHER_COMPLETE_RESULTS_20261009.md)。以上部分审计快照保留，不替代最终全40对、20重复、120张量和两父一致性验收。累计26.279085386/50GPUh，无在途。

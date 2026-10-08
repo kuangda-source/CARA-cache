@@ -1,0 +1,193 @@
+{
+  "status": "TEACHER_TERMINAL_LOCAL_STDLIB_SCOPE_REPEAT_ENERGY_AND_FEE_RECONSTRUCTION_PASS",
+  "capture_sha256": "4a4c74c7892fa132c95c0923d6ff0a75568ede30b6e3a872b9ba9c8a4f22cdf9",
+  "source_revision": "e9f47f5759a774244dba02cc436657ab36099550",
+  "scope": {
+    "full_parents": 2,
+    "new_videos": 2,
+    "actual_state_origins": 5,
+    "action_cells_per_origin": 4,
+    "strict_repeats_per_cell": 2,
+    "local_CFG_velocity_pairs": 40,
+    "net_calls_in_diagnostics": 80,
+    "full_counterfactual_suffixes": 0,
+    "endpoint_labels": 0
+  },
+  "tensor_hashes_verified": 120,
+  "strict_repeat_groups": 20,
+  "full_parent_parity": true,
+  "actual_GPU_wall_seconds": 4935.510115386918,
+  "settled_GPUh": 26.279085386089413,
+  "remaining_GPUh": 23.720914613910587,
+  "origins": [
+    {
+      "origin": "S22",
+      "guided_MSE": {
+        "CC": 0.11269215845013573,
+        "DC": 0.9615251001057374,
+        "CD": 1.058550897270131,
+        "DD": 0.0
+      },
+      "relative_reduction_percent": {
+        "CC": 0.0,
+        "DC": -753.2315942206353,
+        "CD": -839.3296852491479,
+        "DD": 100.0
+      },
+      "CC_error_geometry": {
+        "unweighted_conditional_MSE": 0.016539857769542254,
+        "unweighted_unconditional_MSE": 0.01962296122177386,
+        "signed_branch_error_dot_mean": 0.017030212845682593,
+        "branch_error_cosine": 0.9453049188770709,
+        "weighted_energy_sum": 2.0200759971176234,
+        "signed_cross_term": -1.9073838387164503,
+        "ideal_float64_guided_MSE": 0.11269215840117311,
+        "ideal_combined_to_independent_energy_ratio": 0.055786098424994726,
+        "actual_FP32_guided_MSE": 0.11269215845013573,
+        "FP32_combination_rounding_error_MSE": 6.264556627284034e-16
+      },
+      "measured_branch_factorization": {
+        "DC_conditional_equals_DD": true,
+        "DC_unconditional_equals_CC": true,
+        "CD_conditional_equals_CC": true,
+        "CD_unconditional_equals_DD": true
+      }
+    },
+    {
+      "origin": "S23_after_CC",
+      "guided_MSE": {
+        "CC": 0.19014972040620676,
+        "DC": 2.2221774099452625,
+        "CD": 2.323880797809033,
+        "DD": 0.0
+      },
+      "relative_reduction_percent": {
+        "CC": 0.0,
+        "DC": -1068.6461621916367,
+        "CD": -1122.1321140229131,
+        "DD": 100.0
+      },
+      "CC_error_geometry": {
+        "unweighted_conditional_MSE": 0.03631063746664028,
+        "unweighted_unconditional_MSE": 0.04535055938390355,
+        "signed_branch_error_dot_mean": 0.03889204006473487,
+        "branch_error_cosine": 0.9584124873824592,
+        "weighted_energy_sum": 4.546058207676252,
+        "signed_cross_term": -4.355908487250305,
+        "ideal_float64_guided_MSE": 0.19014972042594716,
+        "ideal_combined_to_independent_energy_ratio": 0.041827383579222464,
+        "actual_FP32_guided_MSE": 0.19014972040620676,
+        "FP32_combination_rounding_error_MSE": 9.201816214296848e-16
+      },
+      "measured_branch_factorization": {
+        "DC_conditional_equals_DD": true,
+        "DC_unconditional_equals_CC": true,
+        "CD_conditional_equals_CC": true,
+        "CD_unconditional_equals_DD": true
+      }
+    },
+    {
+      "origin": "S23_after_DC",
+      "guided_MSE": {
+        "CC": 2.5956784932471573,
+        "DC": 4.724299655660141,
+        "CD": 2.366626678848144,
+        "DD": 0.0
+      },
+      "relative_reduction_percent": {
+        "CC": 0.0,
+        "DC": -82.00634893538407,
+        "CD": 8.824352283802014,
+        "DD": 100.0
+      },
+      "CC_error_geometry": {
+        "unweighted_conditional_MSE": 0.03697854185468817,
+        "unweighted_unconditional_MSE": 0.09641427871581379,
+        "signed_branch_error_dot_mean": 0.04013614144685038,
+        "branch_error_cosine": 0.6721869075100647,
+        "weighted_energy_sum": 7.090926335774919,
+        "signed_cross_term": -4.495247842047243,
+        "ideal_float64_guided_MSE": 2.5956784937276747,
+        "ideal_combined_to_independent_energy_ratio": 0.3660563332370327,
+        "actual_FP32_guided_MSE": 2.5956784932471573,
+        "FP32_combination_rounding_error_MSE": 6.188582187987578e-15
+      },
+      "measured_branch_factorization": {
+        "DC_conditional_equals_DD": true,
+        "DC_unconditional_equals_CC": true,
+        "CD_conditional_equals_CC": true,
+        "CD_unconditional_equals_DD": true
+      }
+    },
+    {
+      "origin": "S23_after_CD",
+      "guided_MSE": {
+        "CC": 2.2223702759061843,
+        "DC": 4.042829561100878,
+        "CD": 4.037543976400547,
+        "DD": 0.0
+      },
+      "relative_reduction_percent": {
+        "CC": 0.0,
+        "DC": -81.91521030186523,
+        "CD": -81.67737483593798,
+        "DD": 100.0
+      },
+      "CC_error_geometry": {
+        "unweighted_conditional_MSE": 0.06308662463577984,
+        "unweighted_unconditional_MSE": 0.08250672572998385,
+        "signed_branch_error_dot_mean": 0.052303600553772235,
+        "branch_error_cosine": 0.7249670436806769,
+        "weighted_energy_sum": 8.080373537459119,
+        "signed_cross_term": -5.85800326202249,
+        "ideal_float64_guided_MSE": 2.222370275436627,
+        "ideal_combined_to_independent_energy_ratio": 0.2750331114191849,
+        "actual_FP32_guided_MSE": 2.2223702759061843,
+        "FP32_combination_rounding_error_MSE": 3.614447691084382e-15
+      },
+      "measured_branch_factorization": {
+        "DC_conditional_equals_DD": true,
+        "DC_unconditional_equals_CC": true,
+        "CD_conditional_equals_CC": true,
+        "CD_unconditional_equals_DD": true
+      }
+    },
+    {
+      "origin": "S23_after_DD",
+      "guided_MSE": {
+        "CC": 0.1449585304947705,
+        "DC": 1.01109806238301,
+        "CD": 1.0724933056009545,
+        "DD": 0.0
+      },
+      "relative_reduction_percent": {
+        "CC": 0.0,
+        "DC": -597.5084935891276,
+        "CD": -639.8621536382403,
+        "DD": 100.0
+      },
+      "CC_error_geometry": {
+        "unweighted_conditional_MSE": 0.016757707901579762,
+        "unweighted_unconditional_MSE": 0.020634654336766655,
+        "signed_branch_error_dot_mean": 0.01730922176601822,
+        "branch_error_cosine": 0.9308327073892939,
+        "weighted_energy_sum": 2.083591368202671,
+        "signed_cross_term": -1.9386328377940407,
+        "ideal_float64_guided_MSE": 0.14495853040863024,
+        "ideal_combined_to_independent_energy_ratio": 0.06957147769990671,
+        "actual_FP32_guided_MSE": 0.1449585304947705,
+        "FP32_combination_rounding_error_MSE": 7.871972972702146e-16
+      },
+      "measured_branch_factorization": {
+        "DC_conditional_equals_DD": true,
+        "DC_unconditional_equals_CC": true,
+        "CD_conditional_equals_CC": true,
+        "CD_unconditional_equals_DD": true
+      }
+    }
+  ],
+  "actual_tensor_reconstruction_provenance": "bound server CPU scorer, native receipt and score bytes preserved",
+  "local_actual_tensor_reconstruction": false,
+  "endpoint_or_RV_or_CONF_claim": false,
+  "GPU_submissions": 0
+}
