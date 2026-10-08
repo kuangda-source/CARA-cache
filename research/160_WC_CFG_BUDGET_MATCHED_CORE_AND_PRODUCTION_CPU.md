@@ -37,3 +37,7 @@
 ## 2026-10-09 直接批准与文档先行已完成
 
 用户本轮允许完整2.082740047GPUh例外，同时要求先用飞书CLI形成组会报告。完整报告已创建并回读验证：[飞书组会报告](https://lcnssrlun9lz.feishu.cn/docx/HTSIdK0uLofCG5xUI1IcTKaCnAh)。实际权威见[单次授权](../manifests/wc_w3_cfg_budget_single_job_authorization_20261009.json)，CPU载荷301份冻结保持。下一同源selected CPU绑定及独立审计，然后fresh资源准入与完整GPU/释放后全93评分；此刻新GPU=0。旧待答/blocked与原预测、范围不改。
+
+## 2026-10-09 原完整GPU已启动
+
+文档先行已完成，selected实际CPU16.380秒/301载荷/全部直接权威独立重建通过，source8457dfb的原GPU3368923/3368938已进入生成；释放后全93CPU3369011绑定原句柄自动执行。完整范围与各CFG18/17保持，尚无本轮科学结果，原费用底数与第61job在途预留保留。后续跟踪见[162实际执行](162_WC_CFG_BUDGET_MATCHED_AUTHORIZED_EXECUTION_20261009.md)，不重启已消费身份。

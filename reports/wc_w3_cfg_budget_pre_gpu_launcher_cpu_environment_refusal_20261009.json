@@ -1,0 +1,8 @@
+{
+  "status": "PRE_GPU_LAUNCHER_CPU_ENVIRONMENT_REFUSAL_NO_GPU_DISPATCH",
+  "cause": "New outer launcher mistakenly used server default python3 without torch for the repeated production validation. Error occurs before GPU subprocess and before ledger mutation.",
+  "error": "ModuleNotFoundError: No module named torch",
+  "original_helper_sha256": "d3719c16412749693b0b8f26df7f99365ab075f9433b2408f1f7fd76b11eba3c",
+  "repair": "Use the already verified Cosmos production venv Python for outer validation; frozen 301 payloads, selected config and complete scope unchanged.",
+  "GPU_submissions": 0
+}

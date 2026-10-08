@@ -1,3 +1,11 @@
+## 2026-10-09 飞书组会完成，原同配额GPU已进入生成
+
+[组会报告](https://lcnssrlun9lz.feishu.cn/docx/HTSIdK0uLofCG5xUI1IcTKaCnAh)经Feishu CLI创建/完整回读，无警告。文档先行要求实际已完成；[162执行](../../research/162_WC_CFG_BUDGET_MATCHED_AUTHORIZED_EXECUTION_20261009.md)记载直接单次2.082740047h例外和selected CPU16.380秒/301冻结载荷独立通过。
+
+source8457dfb，wc-w3-cfg-budget-matched-r1原GPU3368923/3368938与绑定释放后CPU3369011均活，模型已加载并进入生成，无新终点结果。1父10完整后缀6新视频/1旧Native/四比较一交互、各CFG18/17完整范围不缩。首次外层默认Python的CPU环境拒绝在GPU派发前已修正并保留，不是方法负结果；实际只新增一次GPU。
+
+第61job在途服务器used=50为余额预留，非实费耗尽；原实费底数23.702366117/50h、余26.297633883h保持，结算待。只跟踪三个原句柄与日志，正常释放后自动全93评分及独立终态重算，不复投/不改在跑源，不扩训练/稀疏/OMR/人评。goal actual active，整体科学目标未完成。以下blocked/pending/新GPU0是历史。
+
 ## 2026-10-09 组会飞书汇报完成，同配额整卡单次例外已获直接批准
 
 用户直接“允许，但是先总结……飞书 cli……然后继续实验”，批准此前完整2.082740047GPUh单次例外；[范围与原话](../../manifests/wc_w3_cfg_budget_single_job_authorization_20261009.json)精确绑定原卡/预测/1父10后缀6新视频/1旧Native/四比较一交互，各CFG18/17保持。累计50h及今后单次>2h确认规则不改，旧blocked/待答记录保留历史。本轮goal实际active。

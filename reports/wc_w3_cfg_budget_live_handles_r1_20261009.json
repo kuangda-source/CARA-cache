@@ -1,0 +1,178 @@
+{
+  "captured_unix": 1791482436.3662603,
+  "source_revision": "8457dfbb09bc7ff4890c0878bf846189f433cf47",
+  "GPU_PIDs": [
+    3368923,
+    3368938
+  ],
+  "post_CPU_PID": 3369011,
+  "supervisor": {
+    "status": "CFG_BUDGET_GPU_RUNNING",
+    "pid": 3368923,
+    "source_revision": "8457dfbb09bc7ff4890c0878bf846189f433cf47",
+    "gpu_uuid": "GPU-cebf7119-cf03-23b9-e192-cd196332b704",
+    "run_id": "wc-w3-cfg-budget-matched-r1",
+    "config_sha256": "3524d2736ff2a7894d7e9963dc70f67e1f37bbf716d7c619343c4eef3deecf7e",
+    "budget_before": {
+      "batch": "F0-F1",
+      "cap_gpu_hours": 50,
+      "used_gpu_hours": 23.7023661169283,
+      "gpu_jobs_launched": 60,
+      "status": "CFG_FACTORIAL_SETTLED_AUDIT_PENDING",
+      "gpu_import_probes_completed": 1,
+      "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts",
+      "budget_authorization_ref": "manifests/budget_authorization_20261008_wc_50gpuh.json",
+      "budget_authorization_history": [
+        {
+          "authorized_utc": "2026-10-02T18:03:00Z",
+          "source_thread_id": "01a0f1e6-7ad0-75df-9a02-172b60d2e00b",
+          "user_instruction": "\u628a\u5404\u4e2a\u5b9e\u9a8c\u7684 gpu \u9884\u7b97\u90fd\u8bbe\u7f6e\u4e3a 12gpuh",
+          "previous_cap_gpu_hours": 4,
+          "new_cumulative_cap_gpu_hours": 12,
+          "used_gpu_hours_at_change": 3.9117525685110333,
+          "no_usage_reset_or_transfer": true
+        },
+        {
+          "authorized_utc": "2026-10-04T06:13:36Z",
+          "source_thread_id": "01a0f1e6-7ad0-75df-9a02-172b60d2e00b",
+          "user_message_id": "Sentinel_861e63a87d8c819180ec9a8bcfa6dc92",
+          "user_instruction": "\u5141\u8bb8\u589e\u52a0 GPUh",
+          "previous_cap_gpu_hours": 12,
+          "new_cumulative_cap_gpu_hours": 13,
+          "used_gpu_hours_at_change": 11.022315686839217,
+          "gpu_jobs_launched_at_change": 45,
+          "no_usage_reset_or_transfer": true,
+          "authorization_ref": "manifests/budget_authorization_20261004_wc_13gpuh.json"
+        },
+        {
+          "authorized_on_local": "2026-10-05",
+          "user_instruction": "\u6279\u51c6 WC-W3-SMALL-CD-R1-20261004-A\uff0c\u628a\u7d2f\u8ba1 gpuh \u9650\u5236\u63d0\u5347\u5230 24",
+          "previous_cap_gpu_hours": 13,
+          "new_cumulative_cap_gpu_hours": 24,
+          "used_gpu_hours_at_change": 11.022315686839217,
+          "gpu_jobs_launched_at_change": 45,
+          "no_usage_reset_or_transfer": true,
+          "authorization_ref": "manifests/budget_authorization_20261005_wc_24gpuh.json",
+          "approved_card": "WC-W3-SMALL-CD-R1-20261004-A",
+          "single_run_cap_seconds": 3900
+        },
+        {
+          "authorized_unix": 1791428550.530142,
+          "authorized_on_local": "2026-10-08",
+          "user_instruction": "\u6279\u51c6\u6269\u5927 gpuh\uff0c\u76f4\u63a5\u52a0\u5230 50 \u5427",
+          "previous_cap_gpu_hours": 24,
+          "new_cumulative_cap_gpu_hours": 50,
+          "used_gpu_hours_at_change": 22.314242424184147,
+          "gpu_jobs_launched_at_change": 59,
+          "no_usage_reset_or_transfer": true,
+          "authorization_ref": "manifests/budget_authorization_20261008_wc_50gpuh.json",
+          "automatic_single_job_gpu_hours": 2
+        }
+      ]
+    },
+    "admission": {
+      "unix": 1791482390.4418516,
+      "uuid": "GPU-cebf7119-cf03-23b9-e192-cd196332b704",
+      "name": "NVIDIA RTX A6000",
+      "memory_used_mib": 24,
+      "compute_cap": "8.6",
+      "pids": []
+    },
+    "started_unix": 1791482390.4426773,
+    "child_pid": 3368938
+  },
+  "post_receipt": {
+    "status": "CFG_BUDGET_POST_CPU_WAITING_ORIGINAL_GPU_ZERO_SCORES",
+    "pid": 3369011,
+    "source_revision": "8457dfbb09bc7ff4890c0878bf846189f433cf47",
+    "bound_GPU_PIDs": [
+      3368923,
+      3368938
+    ],
+    "started_unix": 1791482395.4116683,
+    "GPU_submissions": 0,
+    "scored_videos": 0
+  },
+  "processes": {
+    "3368923": {
+      "exists": true,
+      "command": "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python -u /home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-w3-cfg-budget-selected-r1-20261008/scripts/supervise_wc_w3_cfg_budget.py --project /home/gaokuangda/data/gkd/worldcache_omr --stage /home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-w3-cfg-budget-selected-r1-20261008 --source-revision 8457dfbb09bc7ff4890c0878bf846189f433cf47 "
+    },
+    "3368938": {
+      "exists": true,
+      "command": "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python -u /home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-w3-cfg-budget-selected-r1-20261008/scripts/run_wc_w3_cfg_budget.py --project /home/gaokuangda/data/gkd/worldcache_omr --stage /home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-w3-cfg-budget-selected-r1-20261008 --gpu-uuid GPU-cebf7119-cf03-23b9-e192-cd196332b704 --source-revision 8457dfbb09bc7ff4890c0878bf846189f433cf47 "
+    },
+    "3369011": {
+      "exists": true,
+      "command": "python3 -u /home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-w3-cfg-budget-post-cpu-r1-20261009/driver.py "
+    }
+  },
+  "run_log_tail": "[10-09 02:00:08|INFO|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/_src/imaginaire/utils/checkpoint_db.py:171:path] Downloading checkpoint nvidia/Cosmos-Guardrail1(9c7b7da4-2d95-45bb-9cb8-2eed954e9736)\n[10-09 02:00:08|INFO|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/_src/imaginaire/utils/checkpoint_db.py:131:_download] Downloading checkpoint from Hugging Face with {'repo_id': 'nvidia/Cosmos-Guardrail1', 'repo_type': 'model', 'revision': 'd6d4bfa899a71454a700907664f3e88f503950cf', 'allow_patterns': ['*']}\n2026-10-09 02:00:26.771445: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F FMA\nTo enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.\n2026-10-09 02:00:28.639042: W tensorflow/compiler/xla/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer.so.7'; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/cosmos/cosmos-predict2.5/.venv/lib/python3.10/site-packages/cv2/../../lib64:\n2026-10-09 02:00:28.639209: W tensorflow/compiler/xla/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer_plugin.so.7'; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/cosmos/cosmos-predict2.5/.venv/lib/python3.10/site-packages/cv2/../../lib64:\n2026-10-09 02:00:28.639226: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.\n[10-09 02:00:31|CRITICAL|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/_src/predict2/checkpointer/dcp.py:188:<module>] for the back comptiable pytorch! New DefaultLoadPlanner class is created.\n[10-09 02:00:31|INFO|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/packages/cosmos-oss/cosmos_oss/init.py:96:_init_log_files] Log saved to /home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-w3-cfg-budget-matched-r1/diagnostic/console.log\n[10-09 02:00:31|INFO|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/_src/imaginaire/utils/checkpoint_db.py:171:path] Downloading checkpoint nvidia/Cosmos-Predict2.5-2B/base/post-trained(81edfebe-bd6a-4039-8c1d-737df1a790bf)\n[10-09 02:00:31|INFO|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/_src/imaginaire/utils/checkpoint_db.py:96:_download] Downloading checkpoint file from Hugging Face with {'repo_id': 'nvidia/Cosmos-Predict2.5-2B', 'repo_type': 'model', 'revision': '15a82a2ec231bc318692aa0456a36537c806e7d4', 'filename': 'base/post-trained/81edfebe-bd6a-4039-8c1d-737df1a790bf_ema_bf16.pt'}\n",
+  "budget": {
+    "batch": "F0-F1",
+    "cap_gpu_hours": 50,
+    "used_gpu_hours": 50,
+    "gpu_jobs_launched": 61,
+    "status": "CFG_BUDGET_INFLIGHT_REMAINING_RESERVED_NOT_ACTUAL_SPENT",
+    "gpu_import_probes_completed": 1,
+    "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts",
+    "budget_authorization_ref": "manifests/budget_authorization_20261008_wc_50gpuh.json",
+    "budget_authorization_history": [
+      {
+        "authorized_utc": "2026-10-02T18:03:00Z",
+        "source_thread_id": "01a0f1e6-7ad0-75df-9a02-172b60d2e00b",
+        "user_instruction": "\u628a\u5404\u4e2a\u5b9e\u9a8c\u7684 gpu \u9884\u7b97\u90fd\u8bbe\u7f6e\u4e3a 12gpuh",
+        "previous_cap_gpu_hours": 4,
+        "new_cumulative_cap_gpu_hours": 12,
+        "used_gpu_hours_at_change": 3.9117525685110333,
+        "no_usage_reset_or_transfer": true
+      },
+      {
+        "authorized_utc": "2026-10-04T06:13:36Z",
+        "source_thread_id": "01a0f1e6-7ad0-75df-9a02-172b60d2e00b",
+        "user_message_id": "Sentinel_861e63a87d8c819180ec9a8bcfa6dc92",
+        "user_instruction": "\u5141\u8bb8\u589e\u52a0 GPUh",
+        "previous_cap_gpu_hours": 12,
+        "new_cumulative_cap_gpu_hours": 13,
+        "used_gpu_hours_at_change": 11.022315686839217,
+        "gpu_jobs_launched_at_change": 45,
+        "no_usage_reset_or_transfer": true,
+        "authorization_ref": "manifests/budget_authorization_20261004_wc_13gpuh.json"
+      },
+      {
+        "authorized_on_local": "2026-10-05",
+        "user_instruction": "\u6279\u51c6 WC-W3-SMALL-CD-R1-20261004-A\uff0c\u628a\u7d2f\u8ba1 gpuh \u9650\u5236\u63d0\u5347\u5230 24",
+        "previous_cap_gpu_hours": 13,
+        "new_cumulative_cap_gpu_hours": 24,
+        "used_gpu_hours_at_change": 11.022315686839217,
+        "gpu_jobs_launched_at_change": 45,
+        "no_usage_reset_or_transfer": true,
+        "authorization_ref": "manifests/budget_authorization_20261005_wc_24gpuh.json",
+        "approved_card": "WC-W3-SMALL-CD-R1-20261004-A",
+        "single_run_cap_seconds": 3900
+      },
+      {
+        "authorized_unix": 1791428550.530142,
+        "authorized_on_local": "2026-10-08",
+        "user_instruction": "\u6279\u51c6\u6269\u5927 gpuh\uff0c\u76f4\u63a5\u52a0\u5230 50 \u5427",
+        "previous_cap_gpu_hours": 24,
+        "new_cumulative_cap_gpu_hours": 50,
+        "used_gpu_hours_at_change": 22.314242424184147,
+        "gpu_jobs_launched_at_change": 59,
+        "no_usage_reset_or_transfer": true,
+        "authorization_ref": "manifests/budget_authorization_20261008_wc_50gpuh.json",
+        "automatic_single_job_gpu_hours": 2
+      }
+    ],
+    "wc_w3_cfg_budget_inflight": {
+      "run_id": "wc-w3-cfg-budget-matched-r1",
+      "reserved_gpu_hours": 26.2976338830717,
+      "supervisor_pid": 3368923
+    }
+  },
+  "target_gpu": "GPU-cebf7119-cf03-23b9-e192-cd196332b704, 27, 0",
+  "compute_apps": "",
+  "frozen_301_payloads_unchanged": true,
+  "single_job_authority_sha256": "bef079ac3e178c28949cc2683168a7ec1807b0df4c7de2b2ecfa4df6ddda40e0",
+  "status": "ORIGINAL_GPU_AND_BOUND_POST_CPU_LIVE_SAME_FROZEN_SCOPE_NOT_SCIENTIFIC_RESULT"
+}
