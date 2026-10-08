@@ -1,0 +1,7 @@
+<h1 seq="auto">10月9日接续：新种子的有限机制复验已启动</h1>
+<p><b>本轮验证目标：</b>Human seed2已观察到的双CFG缓存误差抵消，能否在同场景一个尚无本项目运行记录的新种子上再次出现。选用Human seed3；当前WorldCache输出及全部45份实验receipt未发现该身份，未宣称外部或未公开运行也从未使用。该轮不是未见场景泛化测试。</p>
+<p><b>方法与完整设计：</b>保持原提示词、guidance7、Cosmos-Predict2.5-2B与实际36次UniPC/Karras更新。两条完整父轨迹、两个93帧视频检验诊断无扰动；S22及四种动作各自产生的S23，共五起点×四动作×两重复，采集40对CFG速度、120个FP32张量、20组严格重复。主假设预登记为S22存在负交叉项，且两个单槽刷新动作的合成误差均高于双槽缓存；四个相关S23单列报告全部例外。</p>
+<p><b>已完成的准备：</b>新增记录链的完整CPU验证和原始张量独立重建已通过：240个CPU张量、448个net条件见证、152个solver空间见证；原六类故障和全部重复保持。实际生产CPU与最终配置CPU也通过，新增测量区分sampler、net、post-denoise、solver原返回和下一latent，并保存gt_frames全量与实际mask有效区域摘要。准备通过不等于新模型结果，也不能补写旧实验未保存的条件信息。</p>
+<p><b>当前执行状态：</b>完整新卡已在现有服务器启动，正在加载模型。整卡预测约1.877GPUh，处于已有单次2GPUh与累计50GPUh权限内；启动前累计实际26.279GPUh、剩余23.721GPUh，本次费用待正常终态结算。当前没有新增seed3机制、质量或加速结果。旧seed2视频不作为新种子的等价参考。</p>
+<p><b>后续推进：</b>原GPU任务正常释放后，自动对全部120张量、两个视频全93帧、224个实际net条件与76个solver空间见证做CPU审计，重建实际CFG和有符号能量。若机制重现，再准备另一场景的小确认和廉价联合动作目标；若不重现，先检查缓存历史、条件和误差几何的适用差异。保留负结果与原判据，重大方向共同讨论，当前不增加训练或人工评审。</p>
+<p>资料：<a href="https://github.com/kuangda-source/worldcache-omr-experiments/blob/f62dd59/research/172_WC_CFG_MEASUREMENT_CONTRACT_CPU_20261009.md">完整记录链CPU结果</a>；<a href="https://github.com/kuangda-source/worldcache-omr-experiments/blob/19b476f/plans/WORLD_CACHE_CFG_MECHANISM_CONFIRMATION_20261009.md">新种子机制复验设计</a>；<a href="https://github.com/kuangda-source/worldcache-omr-experiments/blob/5391d6d/research/174_WC_CFG_FRESH_SEED_PRODUCTION_CPU_AND_EXECUTION_20261009.md">实际生产CPU、启动与接续</a>。</p>
