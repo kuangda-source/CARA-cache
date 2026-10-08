@@ -1,8 +1,8 @@
-## 2026-10-09 CFG教师已到真实共享起点，首嵌套采集继续
+## 2026-10-09 CFG教师首完整S23四动作重复原件核对通过，原任务继续
 
-[169接续](169_WC_CFG_GUIDED_TEACHER_TERMINAL_AUDIT_PREPARATION_20261009.md)与[原件核对](../reports/wc_cfg_guided_teacher_shared_origin_partial_readonly_audit_20261009.json)：ON前22更新/44模型调用输入、输出、deep和cache摘要与当前OFF精确相同。S22及首S23_after_CC两真实快照准入通过，free约34.5GB/required约9.95GB、owned各约2.319GB；仅这两起点，不是总峰值或全五点。首CC复用已测速度的一步与S23 latent原记录桥相符。
+[169接续](169_WC_CFG_GUIDED_TEACHER_TERMINAL_AUDIT_PREPARATION_20261009.md)及[首完整起点只读重建](../reports/wc_cfg_guided_teacher_first_S23_complete_partial_readonly_audit_20261009.json)：S23_after_CC完整8对/四重复，独立原记录1216起止组件/指纹、输入/条件/solver/输出/缓存/动作/三个张量摘要相同、均恢复；calls47/48、C0/D26、paid probe/full历史/age与原一步S23桥重建，八实际文件大小/SHA和记录形状dtype核对。仅1/5起点、4/20重复组原件证据，未加载实际张量内容或评分，不作为全卡/质量通过。
 
-已有两个张量文件的实际大小/SHA和记录shape[1,16,24,54,96]核对；首S23 CC_first完成、second在执行，S22 first仍等待嵌套完毕，未加载实际张量评分或完整重复验收。仍1/2完整父/1/2视频；五起点40对20重复120张量、完整ON一致性、全93解码和实费待。原GPU3388748/3388760/后CPU3388749仍活，冻结源e9f47f5/64载荷/配置/driver不变，无新提交/停止/重启。继续原任务，释放后绑定CPU全审计再只读取证；24.908110354/50h实费底数保持、50在途预留非实耗。上一轮首OFF核对progress，本轮共享起点与嵌套原件核对progress+verified wait，goal active/未完成，无重要阻碍、不扩训练/稀疏/OMR/DRE/人评。以下为更早快照。
+S22余格及其他三个S23、完整ON父剩余生成继续；全40对20重复120张量原始重建、有符号误差、OFF/ON最终一致性、全93及费用待释放后绑定CPU。原GPU3388748/3388760及等待CPU3388749仍活、e9f47f5/64载荷/配置/driver不变，无新提交/停止/重启。仍1/2父1/2视频；24.908110354/50h底数不变、服务器50是预留。上一轮共享起点progress，本轮首完整起点四重复原件重建progress+verified wait，goal active/未完成，无重要阻碍，不扩训练/稀疏/OMR/DRE/人评。以下为更早快照。
 
 ## 2026-10-09 同状态双CFG教师生产CPU通过，真实GPU正在执行
 
