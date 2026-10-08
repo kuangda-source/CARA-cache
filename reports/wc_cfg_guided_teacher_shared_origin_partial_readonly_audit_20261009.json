@@ -1,0 +1,219 @@
+{
+  "status": "REAL_SHARED_ORIGIN_PREFIX_AND_PARTIAL_CAPTURE_ARTIFACTS_READONLY_PASS_NOT_COMPLETE_TEACHER",
+  "observed_unix": 1791494042.471918,
+  "source_revision": "e9f47f5759a774244dba02cc436657ab36099550",
+  "run_id": "wc-w3-cfg-guided-teacher-r1",
+  "original_live_PIDs": [
+    3388748,
+    3388760,
+    3388749
+  ],
+  "OFF_ON_first22_updates_44_calls_trace_prefix": {
+    "inputs": {
+      "count": 44,
+      "exact_OFF_ON_prefix_equal": true
+    },
+    "outputs": {
+      "count": 44,
+      "exact_OFF_ON_prefix_equal": true
+    },
+    "deep": {
+      "count": 44,
+      "exact_OFF_ON_prefix_equal": true
+    },
+    "banks": {
+      "count": 44,
+      "exact_OFF_ON_prefix_equal": true
+    },
+    "solver_outputs": {
+      "count": 22,
+      "exact_OFF_ON_prefix_equal": true
+    }
+  },
+  "five_origin_scope_retained": true,
+  "origins": [
+    {
+      "label": "S22",
+      "status": "STARTED",
+      "actual_capture_gate": {
+        "logical_tensor_copy_bytes": 2828989242,
+        "GPU_logical_copy_bytes": 2828989094,
+        "GPU_free_bytes": 34534457344,
+        "required_GPU_headroom_bytes": 9952945484,
+        "transient_copy_factor": 2,
+        "workspace_reserve_bytes": 4294967296,
+        "scope": "CAPTURE_ADMISSION_NOT_TOTAL_PEAK_OR_COMPLETE_COST_BOUND"
+      },
+      "snapshot_storage": {
+        "logical_tensor_bytes_by_device": {
+          "cuda:0": 2828989094,
+          "cpu": 5236,
+          "numpy": 2496
+        },
+        "unique_owned_tensor_storage_bytes_by_device": {
+          "cuda:0": 2319184534,
+          "cpu": 5236
+        },
+        "snapshot_copies_only_not_live_weights_or_peak": true
+      },
+      "pair_statuses": [
+        {
+          "label": "CC_first",
+          "status": "STARTED"
+        }
+      ]
+    },
+    {
+      "label": "S23_after_CC",
+      "status": "STARTED",
+      "actual_capture_gate": {
+        "logical_tensor_copy_bytes": 2828989246,
+        "GPU_logical_copy_bytes": 2828989098,
+        "GPU_free_bytes": 34530263040,
+        "required_GPU_headroom_bytes": 9952945492,
+        "transient_copy_factor": 2,
+        "workspace_reserve_bytes": 4294967296,
+        "scope": "CAPTURE_ADMISSION_NOT_TOTAL_PEAK_OR_COMPLETE_COST_BOUND"
+      },
+      "snapshot_storage": {
+        "logical_tensor_bytes_by_device": {
+          "cuda:0": 2828989098,
+          "cpu": 5236,
+          "numpy": 2496
+        },
+        "unique_owned_tensor_storage_bytes_by_device": {
+          "cuda:0": 2319184538,
+          "cpu": 5236
+        },
+        "snapshot_copies_only_not_live_weights_or_peak": true
+      },
+      "pair_statuses": [
+        {
+          "label": "CC_first",
+          "status": "COMPLETE_TWO_CALL_LOCAL_TEACHER_REQUIRES_INDEPENDENT_AUDIT"
+        },
+        {
+          "label": "CC_second",
+          "status": "STARTED"
+        }
+      ]
+    },
+    {
+      "label": "S23_after_DC",
+      "status": "PENDING",
+      "actual_capture_gate": null,
+      "snapshot_storage": null,
+      "pair_statuses": []
+    },
+    {
+      "label": "S23_after_CD",
+      "status": "PENDING",
+      "actual_capture_gate": null,
+      "snapshot_storage": null,
+      "pair_statuses": []
+    },
+    {
+      "label": "S23_after_DD",
+      "status": "PENDING",
+      "actual_capture_gate": null,
+      "snapshot_storage": null,
+      "pair_statuses": []
+    }
+  ],
+  "partial_actual_files_size_SHA_and_recorded_shape": [
+    {
+      "origin": "S22",
+      "cell_repeat": "CC_first",
+      "row_status": "STARTED",
+      "parent_restored": null,
+      "file_bytes": 23890090,
+      "actual_file_SHA": "56272018d78797febc0aa31fb82db0c0ccfef012137a1075f8a0b9ca3d3211b8",
+      "recorded_shape": {
+        "conditional": [
+          1,
+          16,
+          24,
+          54,
+          96
+        ],
+        "unconditional": [
+          1,
+          16,
+          24,
+          54,
+          96
+        ],
+        "guided": [
+          1,
+          16,
+          24,
+          54,
+          96
+        ]
+      },
+      "actual_tensor_load_and_scoring": false
+    },
+    {
+      "origin": "S23_after_CC",
+      "cell_repeat": "CC_first",
+      "row_status": "COMPLETE_TWO_CALL_LOCAL_TEACHER_REQUIRES_INDEPENDENT_AUDIT",
+      "parent_restored": true,
+      "file_bytes": 23890090,
+      "actual_file_SHA": "0b346f67923fbde790ef67b0a5886ee613f00e3419a9c67e8db1a55f38aa84a1",
+      "recorded_shape": {
+        "conditional": [
+          1,
+          16,
+          24,
+          54,
+          96
+        ],
+        "unconditional": [
+          1,
+          16,
+          24,
+          54,
+          96
+        ],
+        "guided": [
+          1,
+          16,
+          24,
+          54,
+          96
+        ]
+      },
+      "actual_tensor_load_and_scoring": false
+    }
+  ],
+  "raw_artifact_files_checked": 2,
+  "all40_pairs_all20_repeats_complete": false,
+  "actual_tensor_reconstruction_and_scores": false,
+  "OFF_ON_final_parent_parity": false,
+  "complete_card_pass": false,
+  "payload64_config_and_driver_unchanged": true,
+  "planned_scope": {
+    "full_parents": 2,
+    "new_videos": 2,
+    "actual_state_origins": 5,
+    "action_cells_per_origin": 4,
+    "strict_repeats_per_cell": 2,
+    "local_CFG_velocity_pairs": 40,
+    "net_calls_in_diagnostics": 80,
+    "full_counterfactual_suffixes": 0,
+    "endpoint_labels": 0
+  },
+  "original_GPU_receipt_bytes": 1266177,
+  "original_GPU_receipt_sha256": "e13ea7247aa75cb5c545061c45069ff4fa311c700a264f1de7c3ce9dc599eeed",
+  "compressed_GPU_receipt_sha256": "af5d4db1a266aeb98a782597165c849ea638788849922b5498d1d50049f0ec29",
+  "new_GPU_submissions": 0,
+  "stops_or_restarts": 0,
+  "CPU_read_only_no_inference": true,
+  "actual_spend_before_inflight_GPUh": 24.90811035403749,
+  "final_budget_settled": false,
+  "new_endpoint_or_RV_or_quality_claim": false,
+  "local_native_path": "reports/wc_cfg_guided_teacher_shared_origin_partial_native_20261009.gz",
+  "first_CC_measured_velocity_one_update_S23_bridge_in_original_record_verified": true,
+  "local_original_record_bridge_checked_unix": 1791494141.3947861,
+  "bridge_is_not_complete_teacher_or_tensor_audit": true
+}

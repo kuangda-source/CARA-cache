@@ -29,3 +29,13 @@
 这个证据确认了当前OFF完整输出与旧BASE相同；没有追认历史跨卡全状态一致，也没有通过当前OFF/ON无扰动验收。ON已通过提示词guardrail并开始实际采样，原GPU3388748/3388760和等待CPU3388749继续存活。源e9f47f5、配置、64文件和driver仍未变化，无新增GPU、停止或重启。
 
 两条父轨迹只完成1条、两个新视频只完成1个；五状态40对/20重复、真实快照显存、局部有符号误差、ON父最终一致性、全93解码、终态实费仍待。先继续原ON轨迹，不提前给局部解释或质量结论。上一轮为工具准备progress与verified wait，本轮为首完整父原件核对progress和原活句柄verified wait，goal保持active，未满足complete/blocked条件。底数24.908110354/50GPUh和第62job在途预留保持。
+
+## 接续进展：真实共享起点与首嵌套状态已开始采集
+
+[共享起点原件核对](../reports/wc_cfg_guided_teacher_shared_origin_partial_readonly_audit_20261009.json)及[该时刻原GPU回执](../reports/wc_cfg_guided_teacher_shared_origin_partial_native_20261009.gz)确认：ON实际已到S22，前44模型调用的输入、输出、深层计数与缓存摘要及前22solver输出均与当前OFF精确相同。五起点原范围完整建立，原三个PID仍在运行，64载荷/配置/driver不变。
+
+首S22真实快照的logical copy约2.829GB，要求GPU headroom9.953GB，捕获前实际free34.534GB；owned GPU快照2.319GB。第一个`S23_after_CC`嵌套状态也通过实际捕获准入，要求9.953GB/实际free34.530GB，owned GPU快照2.319GB。这里只验证了这两个真实准入，不是所有五起点通过，也不是进程总显存峰值。原记录中首CC按原求解器一步复用已测速度、calls45/46、deep0/0，其child latent与首S23起点相同，桥的字段已在本地从保存的原回执独立核对。
+
+该时刻已写出两个局部CFG张量文件，实际文件大小/SHA与原回执相同，三个分量的记录形状均为`[1,16,24,54,96]`。首S22 `CC_first`仍因其嵌套分支在执行而标STARTED；首S23 `CC_first`完成、`CC_second`在执行。没有加载张量评分，没有把两个文件计为两组严格重复或完整40对验收。
+
+下一继续全部原5×4×2采集、父S22恢复和剩余生成，GPU释放后才运行已绑定的原始张量重建与全范围评分。当前仍1/2父、1/2视频完成，全部重复、局部抵消解释、完整ON一致性和终态实费待。本轮是实际共享起点及首嵌套采集原件核对progress和原任务verified wait；总体goal active，无重要阻碍，不增加新GPU/训练/人评。
