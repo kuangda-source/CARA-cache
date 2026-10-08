@@ -34,3 +34,7 @@
 ## 执行与汇报
 
 原运行源和GPU句柄封存，累计50GPUh/单次超过2GPUh询问保持；不为适配近邻方法直接启动一批校准或换模型。资料只读核对与文档更新新增GPU费用0。飞书组会需要明确新增这篇近邻及上述边界，保留所有旧结果、判据和日期。
+
+## 已写入组会汇报并回读
+
+[飞书组会文档](https://lcnssrlun9lz.feishu.cn/docx/HTSIdK0uLofCG5xUI1IcTKaCnAh)通过CLI局部更新顶部最新结论并追加本节的近邻/下一步说明，revision12；[核验回执](../reports/wc_group_meeting_feishu_related_work_verification_20261009.json)确认原122块仅顶部callout内容改变，其余原正文全部保留，7个新增块文字/链接全部相符，无warnings。当前18主章节、15表、4公式、34链接。既有实验目标、方法、设计、正负结果、预算与下一步均可直接在组会使用；近期重叠没有被隐去。原新种子GPU和已绑定完整CPU程序继续。
