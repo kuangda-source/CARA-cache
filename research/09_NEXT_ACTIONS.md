@@ -1,3 +1,11 @@
+## 2026-10-08 同配额完整核心/生产CPU均通过，单次>2h例外待
+
+[160完整CPU与可审阅卡](research/160_WC_CFG_BUDGET_MATCHED_CORE_AND_PRODUCTION_CPU.md)：core0001f28实际286.168秒/4父40后缀24模拟输出/5故障/104破坏拒绝及独立原始重建通过；production4ff96ed实际65.930秒/runner+metric exit0，301载荷/29依赖/9契约拒绝、真实guardrail/LPIPS资源通过。五原CPU句柄全退出，无CUDA/新GPU0，账本原字节不变。mock/资源检查不是GPU可行性或终点结果。
+
+完整1父10后缀6视频/1旧Native/4比较1交互、各CFG18/17总35不缩不拆；完整旧预测+保守CPU集成开销=2.082740047h。下一只等待这张整卡的直接>2h例外答复：[具体请求](manifests/wc_w3_cfg_budget_single_job_exception_request_20261008.json)，尚非批准。累计50h已生效，不覆盖单次>2h规则；selected=false/新GPU0。累计23.702366117/50h、60jobs/noinflight、余26.297633883h。批准后新增范围/预测精确绑定、selected实际CPU及fresh资源/锁/余额准入，再单次完整GPU和释放后全93评分。原身份不得复跑。
+
+goal active，本轮必要CPU与生产准备有进展，总体科学目标未完成；新单次授权是首轮范围待答，非方向失败或预算耗尽。不扩训练/稀疏/OMR/人评，以下pending/running均历史。
+
 ## 2026-10-08 同配额位置核心实际CPU通过，完整生产验证继续
 
 [160完整准备](research/160_WC_CFG_BUDGET_MATCHED_CORE_AND_PRODUCTION_CPU.md)：source0001f28实际CPU286.168秒/exit0，4父40后缀24模拟输出、5故障回滚、104证据破坏拒绝与独立原始重建通过，各CFG18/17总35/全部位置和五重复保持。两个原CPU句柄退出、288源/账本不变，无CUDA/新增GPU0；mock不等于真实模型可行性。
