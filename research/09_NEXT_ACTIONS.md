@@ -1,3 +1,9 @@
+## 2026-10-09 同状态CFG教师原任务生成继续，终态取证工具准备完成
+
+[169接续](169_WC_CFG_GUIDED_TEACHER_TERMINAL_AUDIT_PREPARATION_20261009.md)：原GPU3388748/3388760及释放后CPU3388749实际仍活，真实加载98.133秒，首OFF采样日志26/36；原64载荷/配置fb5c4e43/源e9f47f5及driver不变。两完整父/两视频、五起点四动作两重复保持，暂无实际局部评分或新科学结果。
+
+本地只读终态捕获与标准库重建工具已AST/compile通过，活句柄保护实际返回exit2/no capture/no submit。GPU和CPU全部终态后才核对原件、源、两视频全93、1216组件/40对20重复120张量、五state有符号能量和实费；实际张量重建由原绑定服务器CPU完成。本地新工具未部署或修改在跑源，不重投身份。24.908110354/50h结算底数保持，服务器50仍是在途预留；goal active，本轮工具准备progress及原任务verified wait，无重要阻碍，不设complete/blocked、不扩训练/稀疏/OMR/DRE/人评。以下均为更早时间快照。
+
 ## 2026-10-09 同状态双CFG教师生产CPU通过，真实GPU正在执行
 
 [168执行](168_WC_CFG_GUIDED_TEACHER_PRODUCTION_CPU_AND_EXECUTION_20261009.md)：原源8b3a978生产CPU52.056秒/exit0，64载荷/实际Cosmos与原权重guardrail/HF缓存/Blocklist/请求/原视频probe、12契约拒绝及独立原字节绑定通过。选择标准库CPU12.140秒/exit0，原生产回执/源、共享锁、余额、UUID/sm8.6/空闲GPU与磁盘确认，无CUDA。完整新卡2父2视频、5×4×2=40CFG对/80net不缩，整卡保守预测1.692834708h≤2，已有50h/单次自主权限内。
