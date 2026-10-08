@@ -1,5 +1,6 @@
 ## 2026-10-09 H-T46联结完成，跨卡条件与记录空间未完全对齐
 
+[组会飞书](https://lcnssrlun9lz.feishu.cn/docx/HTSIdK0uLofCG5xUI1IcTKaCnAh)已由CLI追加教师机制与CPU联结、更新顶部并完整回读；[核验](reports/wc_group_meeting_feishu_teacher_complete_verification_20261009.json)revision9，16章/15表/4公式/27链接、原正文保留、全部新文本链接相符/无warnings。实验已继续并完整结束，下一按已有单次/累计权限继续CPU准备。
 [171 CPU联结](research/171_WC_CFG_TEACHER_ENDPOINT_LINK_CPU_RESULTS_20261009.md)：先登记/推送后实际执行，16组net输出/deep/cache与8原一步solver输出/历史相同；全inputs0/16、全1216组件0/8，gt_frames摘要及记录空间/solver默认名称顺序差异全部保留，严格全字段联结不通过。新卡内部抵消证据保持，尚不追认旧完整条件或唯一终点归因；下一先统一sampler/net/solver测量位置及有效条件区域摘要，再有限未曝光身份确认的CPU/成本准备。累计26.279085386/50h、62jobs/noinflight不变，新GPU0，不训练/扩模块/人评，整体goal active。下面“下一CPU联结”是执行前快照。
 
 ## 2026-10-09 双CFG教师完整结束：实际误差抵消成立，下一CPU联结
