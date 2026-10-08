@@ -21,3 +21,11 @@
 实际结算底数24.908110354/50GPUh、61个历史job保持；第62job在途服务器used50是剩余额度预留，不是已用完预算。新卡完整保守预测1.692834708GPUh仍保持，不作为运行截止。
 
 继续跟踪原三个句柄；正常释放后，已绑定CPUdriver自动完成全范围审计与局部评分，再运行本轮只读取证和独立重建，依据五个状态各自的结果讨论误差抵消与后续历史。局部DD是同状态teacher，不提供终点质量、物理质量或正式RV标签。本轮有实际审计工具准备和原任务生成进度，整体研究goal继续active；不扩训练、稀疏、OMR/DRE或人评。
+
+## 接续进展：OFF完整对照已保存，ON生成继续
+
+[首条完整对照只读核对](../reports/wc_cfg_guided_teacher_OFF_complete_partial_readonly_audit_20261009.json)确认原任务OFF父轨迹已`COMPLETE_PARENT`：72输入/输出/深层计数/缓存摘要、36solver更新、1216最终组件完整记录，flags恢复，真实full按CFG为18/17。实际视频991462字节，SHA2e96e1dd与当前回执及旧BASE实际文件三方相同。完整OFF原记录以[压缩原件](../reports/wc_cfg_guided_teacher_OFF_parent_partial_native_20261009.gz)保存，其SHA和字节数已独立核对。
+
+这个证据确认了当前OFF完整输出与旧BASE相同；没有追认历史跨卡全状态一致，也没有通过当前OFF/ON无扰动验收。ON已通过提示词guardrail并开始实际采样，原GPU3388748/3388760和等待CPU3388749继续存活。源e9f47f5、配置、64文件和driver仍未变化，无新增GPU、停止或重启。
+
+两条父轨迹只完成1条、两个新视频只完成1个；五状态40对/20重复、真实快照显存、局部有符号误差、ON父最终一致性、全93解码、终态实费仍待。先继续原ON轨迹，不提前给局部解释或质量结论。上一轮为工具准备progress与verified wait，本轮为首完整父原件核对progress和原活句柄verified wait，goal保持active，未满足complete/blocked条件。底数24.908110354/50GPUh和第62job在途预留保持。

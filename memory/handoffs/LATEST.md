@@ -1,8 +1,8 @@
-## 2026-10-09 同状态CFG教师原任务生成继续，终态取证工具准备完成
+## 2026-10-09 CFG教师首完整OFF视频已保存，ON生成继续
 
-[169接续](../../research/169_WC_CFG_GUIDED_TEACHER_TERMINAL_AUDIT_PREPARATION_20261009.md)：原GPU3388748/3388760及释放后CPU3388749实际仍活，真实加载98.133秒，首OFF采样日志26/36；原64载荷/配置fb5c4e43/源e9f47f5及driver不变。两完整父/两视频、五起点四动作两重复保持，暂无实际局部评分或新科学结果。
+[169接续](../../research/169_WC_CFG_GUIDED_TEACHER_TERMINAL_AUDIT_PREPARATION_20261009.md)与[首对照原件核对](../../reports/wc_cfg_guided_teacher_OFF_complete_partial_readonly_audit_20261009.json)：OFF父完整72调用/36更新/1216最终组件、CFG full18/17和flags恢复；实际视频SHA与当前回执及旧BASE三方相同。1/2父和1/2视频完成，ON已进入实际采样，原GPU3388748/3388760及等待CPU3388749仍活，64载荷/源e9f47f5/配置/driver不变。
 
-本地只读终态捕获与标准库重建工具已AST/compile通过，活句柄保护实际返回exit2/no capture/no submit。GPU和CPU全部终态后才核对原件、源、两视频全93、1216组件/40对20重复120张量、五state有符号能量和实费；实际张量重建由原绑定服务器CPU完成。本地新工具未部署或修改在跑源，不重投身份。24.908110354/50h结算底数保持，服务器50仍是在途预留；goal active，本轮工具准备progress及原任务verified wait，无重要阻碍，不设complete/blocked、不扩训练/稀疏/OMR/DRE/人评。以下均为更早时间快照。
+当前OFF/ON无扰动验收、五状态40对20重复120张量和局部评分、全93解码及终态费用仍待，不追认历史跨卡全状态，不作新科学收益结论。只跟踪原句柄，正常释放后由原绑定CPU完整审计再只读取证，终态工具已准备；无新增GPU/停止/重启。24.908110354/50h实费底数保持，服务器50仍是在途预留。上一轮工具准备progress，本轮首完整父原件核对progress及原任务verified wait，goal active，未完成/无重要阻碍，不扩训练/稀疏/OMR/DRE/人评。以下为更早快照。
 
 ## 2026-10-09 同状态双CFG教师生产CPU通过，真实GPU正在执行
 
