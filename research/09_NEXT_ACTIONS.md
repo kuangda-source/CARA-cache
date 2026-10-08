@@ -1,3 +1,9 @@
+## 2026-10-08 单次例外连续三轮待答，goal工具已blocked
+
+[160完整CPU卡](research/160_WC_CFG_BUDGET_MATCHED_CORE_AND_PRODUCTION_CPU.md)的1父10完整后缀6新视频/1旧Native/四比较一交互、各CFG18/17总35保持，核心/生产CPU已全部通过，301生产载荷源4ff96ed冻结。完整保守预测2.082740047GPUh的直接单次>2h例外仍未答；累计50h已生效，但不覆盖该规则。新GPU/selected为零，无活进程可等待，五CPU句柄全退出，未重启已消耗身份或缩/拆对照。
+
+[三轮实际blocked回执](reports/wc_w3_cfg_budget_goal_blocked_receipt_20261008.json)：首轮完成必要CPU并发具体可审阅请求，随后两轮同条件实时核对无研究进展；goal工具实际返回blocked（1791437783），总体科学目标未完成，停止重复自动检查。累计23.702366117/50h、60jobs/noinflight、余26.297633883h/原账本SHA70ceb44d保持；是授权待答，不是预算耗尽或方向否定。待原单次例外直接答复后按同源selected CPU/fresh准入及完整GPU接续，不另发重复问题/训练/稀疏/OMR/人评。以下active/pending/running条目是历史。
+
 ## 2026-10-08 同配额完整核心/生产CPU均通过，单次>2h例外待
 
 [160完整CPU与可审阅卡](research/160_WC_CFG_BUDGET_MATCHED_CORE_AND_PRODUCTION_CPU.md)：core0001f28实际286.168秒/4父40后缀24模拟输出/5故障/104破坏拒绝及独立原始重建通过；production4ff96ed实际65.930秒/runner+metric exit0，301载荷/29依赖/9契约拒绝、真实guardrail/LPIPS资源通过。五原CPU句柄全退出，无CUDA/新GPU0，账本原字节不变。mock/资源检查不是GPU可行性或终点结果。

@@ -1,0 +1,59 @@
+{
+  "status": "COMPLETE_CFG_BUDGET_CARD_SINGLE_JOB_PERMISSION_BLOCKED_AFTER_THREE_GOAL_TURNS",
+  "observed_unix": 1791437840.910924,
+  "card": "WC-W3-CFG-BUDGET-MATCHED-R1-20261008-A",
+  "run_id": "wc-w3-cfg-budget-matched-r1",
+  "consecutive_goal_turns_with_same_blocker": 3,
+  "prior_turn_classification": "no_progress: same required single-job exception answer absent",
+  "current_turn_classification": "no_progress: same absence live revalidated; no process to wait on and necessary preparation complete",
+  "first_request_turn_completed_core_and_production_CPU": true,
+  "request_ref": "manifests/wc_w3_cfg_budget_single_job_exception_request_20261008.json",
+  "request_sha256": "5de7cbf0ab9dd6399ab005bcd4df34f9e88042fe737fbb27c8de3de46c1b469a",
+  "previous_audit_ref": "reports/wc_w3_cfg_budget_permission_gate_second_turn_20261008.json",
+  "direct_user_whole_card_exception_received": false,
+  "forecast_GPUh": 2.082740046511187,
+  "settled_used_GPUh": 23.7023661169283,
+  "cumulative_cap_GPUh": 50,
+  "remaining_GPUh": 26.2976338830717,
+  "gpu_jobs_launched": 60,
+  "budget_sha256": "70ceb44d6c4fbe2a86ba1b0531477f2598ab3c4801ff8915f857c99040afdf16",
+  "original_CPU_PIDs_absent": [
+    3329239,
+    3329240,
+    3329901,
+    3329902,
+    3330067
+  ],
+  "new_GPU_output_absent": true,
+  "selected_stage_absent": true,
+  "actual_core_and_production_CPU_pass_preserved": true,
+  "current_remote_revalidation_native_tool_result": {
+    "chunk_id": "29e288",
+    "wall_time_seconds": 0.657859333,
+    "exit_code": 0,
+    "original_token_count": 104,
+    "output": "{'observed_unix': 1791437778.106523, 'budget_sha256': '70ceb44d6c4fbe2a86ba1b0531477f2598ab3c4801ff8915f857c99040afdf16', 'cap_GPUh': 50, 'used_GPUh': 23.7023661169283, 'jobs': 60, 'inflight': [], 'original_CPU_PIDs_present': [], 'new_output_exists': False, 'selected_stage_exists': False, 'core_CPU_status': 'CFG_BUDGET_CORE_CPU_EXIT0_NOT_GPU', 'production_CPU_status': 'CFG_BUDGET_PRODUCTION_CPU_PASS_NOT_GPU'}\n"
+  },
+  "actual_goal_tool_result": {
+    "goal": {
+      "threadId": "01a0f1eb-7894-7ed0-a186-d010111e14b1",
+      "objective": "\u6309\u5b9e\u9a8c\u8bbe\u8ba1\u7ee7\u7eed\u63a8\u8fdb\uff0c\u6ca1\u6709\u91cd\u8981\u95ee\u9898\u5c31\u81ea\u884c\u8fed\u4ee3\uff0c\u6682\u505c\u65f6\u6c47\u62a5\u5f53\u524d\u8fdb\u5ea6\u548c\u9047\u5230\u7684\u95ee\u9898\uff1b\u975e\u5fc5\u8981\u4e0d\u8981\u5f15\u5165\u4eba\u5de5\u8bc4\u5ba1\u7b49\u4eba\u529b\u8d44\u6e90",
+      "status": "blocked",
+      "tokensUsed": 24882339,
+      "timeUsedSeconds": 253789,
+      "createdAt": 1790766086,
+      "updatedAt": 1791437783
+    },
+    "remainingTokens": null,
+    "completionBudgetReport": null
+  },
+  "goal_status": "blocked",
+  "objective_completed": false,
+  "new_GPU_submissions": 0,
+  "shrunk_or_split_controls": false,
+  "duplicate_permission_question_sent": false,
+  "receipt_writing_and_handoff_is_not_research_progress": true,
+  "scope_and_all_previous_fees_preserved": true,
+  "reason": "Awaiting direct user answer to the complete 2.082740047GPUh card; cumulative50 authorization remains in force but does not cancel prior single-job >2h confirmation rule. This is neither resource exhaustion nor WorldCache direction rejection.",
+  "resume_after_direct_answer": "Bind exact whole-card authorization and retained forecast; same-source selected CPU proof, fresh admission/lock/ledger, single complete GPU execution followed by full93 scoring and independent reconstruction. Never restart consumed CPU/GPU identities."
+}
