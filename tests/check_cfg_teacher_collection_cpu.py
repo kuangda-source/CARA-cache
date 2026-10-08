@@ -23,7 +23,7 @@ def load(name):
 def exercise(*,inference,samples,wc,settings,inference_module,flow,runtime,artifact_root=None,**unused):
     samples=samples[-1:];model=inference.pipe.model;net=model.net
     old=(net.prepare_embedded_sequence,model.conditioner.get_condition_with_negative_prompt,
-         model.get_velocity_fn_from_batch,model.denoise,GuidedTeacherFork.measure)
+         model.get_velocity_fn_from_batch,model.denoise,GuidedTeacherFork.measure,model.get_data_and_condition)
     config_before=dict(vars(model.config))
     net.prepare_embedded_sequence=lambda x,**kw:(x[:,:2048].movedim(1,-1).contiguous(),None,None)
     frozen,class_sha=load('check_rv0_video_actions_cpu').pinned_video_condition(runtime,
@@ -33,6 +33,9 @@ def exercise(*,inference,samples,wc,settings,inference_module,flow,runtime,artif
             fps=batch['fps'],use_video_condition=torch.tensor([True])).set_video_condition(
                 torch.zeros(1,2048,2,8,8),0,0,num_conditional_frames=1) for slot in (0,1))
     model.conditioner.get_condition_with_negative_prompt=conditions
+    # The base fixture returns RGB directly. This declared Toy encoder supplies
+    # the same latent geometry to the unchanged Video2World condition interface.
+    model.get_data_and_condition=lambda batch:(None,torch.zeros(1,2048,2,8,8),None)
     source=runtime/'cosmos_predict2/_src/predict2/models/video2world_model_rectified_flow.py'
     assert hashlib.sha256(source.read_bytes()).hexdigest()=='9b53e3f024e5cbb2cb3778819e1a6fd353923c13ad9b868d99602051640a65e8'
     tree=ast.parse(source.read_bytes());cls=next(n for n in tree.body if isinstance(n,ast.ClassDef) and n.name=='Video2WorldModelRectifiedFlow')
@@ -89,6 +92,7 @@ def exercise(*,inference,samples,wc,settings,inference_module,flow,runtime,artif
                     run_teacher_batch(inference,samples,wc,settings,state=state,save=lambda:None,output=Path(tmp),
                         inference_module=inference_module,contexts=contexts,mode_setup=mode,runtime=runtime,config=config,writer=writer)
                 except BaseException as exc:error=str(exc)
+                (Path(tmp)/'complete-scope-receipt.json').write_text(json.dumps(state,indent=2,allow_nan=False)+'\n')
                 assert (state['planned_parents'],state['planned_origins'],state['planned_CFG_pairs'],state['planned_videos'])==(2,5,40,2)
                 if scenario=='complete':
                     assert error is None,error
@@ -129,6 +133,7 @@ def exercise(*,inference,samples,wc,settings,inference_module,flow,runtime,artif
     finally:
         net.prepare_embedded_sequence=old[0];model.conditioner.get_condition_with_negative_prompt=old[1]
         model.get_velocity_fn_from_batch=old[2];model.denoise=old[3];GuidedTeacherFork.measure=old[4]
+        model.get_data_and_condition=old[5]
         vars(model.config).clear();vars(model.config).update(config_before)
 
 
