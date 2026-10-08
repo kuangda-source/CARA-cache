@@ -1,0 +1,3585 @@
+{
+  "status": "EXPOSED_CFG_TEACHER_ENDPOINT_RECORDED_FIELD_LINK_CPU_COMPLETE_NOT_MEDIATION_NOT_CONF",
+  "preregistration": "manifests/wc_cfg_teacher_endpoint_link_cpu_preregistration_20261009.json",
+  "preregistration_sha256": "541715353bb9e5b19ab67cdb562bad534194f6a281b4cfeaf229d3fcf60f22ae",
+  "script_sha256": "8c6cc1eb77a70ee39b4c023e3547a62e8625d312910661b822f136d32000e6ab",
+  "observed_unix": 1791497924.6475542,
+  "input_sha256": {
+    "reports/wc_w3_cfg_budget_complete_r1_terminal_capture_20261009.json": "b628c6977a009c40a744fef6b3d202b183c801623955c176a44c73f2b9ea7a34",
+    "reports/wc_w3_cfg_budget_complete_r1_independent_reconstruction_20261009.json": "97ce68a157f4afc30532de255053fea79c8e287b418eab1a429a2bc366d85d01",
+    "reports/wc_w3_cfg_budget_complete_r1_20261009_runner_native.gz": "7c7ed64d3059f636dc5ec79bb5a422857faa85545cdde04a8fa05fbaebea6b38",
+    "reports/wc_cfg_guided_teacher_r1_terminal_20261009_capture.json": "4a4c74c7892fa132c95c0923d6ff0a75568ede30b6e3a872b9ba9c8a4f22cdf9",
+    "reports/wc_cfg_guided_teacher_r1_terminal_20261009_independent_CPU_audit.json": "c03b5fe3257977f7a5be189d5807ee5e4c53f351f4a5a96a93bb36645470173d",
+    "reports/wc_cfg_guided_teacher_r1_terminal_20261009_runner_native.gz": "c0ed1c8868517d8dcb9bacd75e64ec6725db5c2f22476f062205a927510bb0fc"
+  },
+  "scope": {
+    "endpoint_arms": 4,
+    "strict_repeats_per_arm": 2,
+    "two_call_trace_joins": 16,
+    "S22_component_comparisons": 8,
+    "one_step_output_and_own_history_bridges": 8
+  },
+  "trace_joins": [
+    {
+      "arm": "BASE",
+      "repeat": "first",
+      "calls": [
+        45,
+        46
+      ],
+      "teacher_origin": "S22",
+      "teacher_cell": "CC",
+      "fields": {
+        "inputs": {
+          "equal": false,
+          "old": [
+            {
+              "args": [],
+              "kwargs": {
+                "condition_video_input_mask_B_C_T_H_W": "eba2a627d3afd9e290456284380366b2fe6b0727131b74acec82320d73bcf5e1",
+                "crossattn_emb": "c22631c018fd8bfeb3b83192dfbe5217aa2db2a5a3c00b721ea737dff41168f2",
+                "data_type": "9cedf5ad610d5dc555be12b0726bb6be7819ed39e134fdc4da570d982611f9d1",
+                "fps": "cd593f195818be71a4598c9b9283463f7f99c7d7ae0aa5ae4b4984fdf29ce831",
+                "gt_frames": "0ac62a79295427e36df31ce5ccd35c530c1481714f1bfe4b37cd67322af7dc5d",
+                "padding_mask": "202bf12ec9bda81a368f0e01f537a48bad62652ea021fc337cb66397260f99e3",
+                "timesteps_B_T": "d23290aea0f4a3a7d9fbd262249eca620415e35e8d8432c89f67649b11341dda",
+                "use_video_condition": "47f816d59c2ae47e93af510345e1da35231e414869c1e62affbb57920a99ea67",
+                "x_B_C_T_H_W": "d5c9816b590d74553b3860aa3fd5acc5ba479362911de5a03552491d3271c0b9"
+              }
+            },
+            {
+              "args": [],
+              "kwargs": {
+                "condition_video_input_mask_B_C_T_H_W": "eba2a627d3afd9e290456284380366b2fe6b0727131b74acec82320d73bcf5e1",
+                "crossattn_emb": "0887d6434b1e7188b2d1d15101638a4d962209ddaff177dc08f6cafbdb49b253",
+                "data_type": "9cedf5ad610d5dc555be12b0726bb6be7819ed39e134fdc4da570d982611f9d1",
+                "fps": "cd593f195818be71a4598c9b9283463f7f99c7d7ae0aa5ae4b4984fdf29ce831",
+                "gt_frames": "0ac62a79295427e36df31ce5ccd35c530c1481714f1bfe4b37cd67322af7dc5d",
+                "padding_mask": "202bf12ec9bda81a368f0e01f537a48bad62652ea021fc337cb66397260f99e3",
+                "timesteps_B_T": "d23290aea0f4a3a7d9fbd262249eca620415e35e8d8432c89f67649b11341dda",
+                "use_video_condition": "47f816d59c2ae47e93af510345e1da35231e414869c1e62affbb57920a99ea67",
+                "x_B_C_T_H_W": "d5c9816b590d74553b3860aa3fd5acc5ba479362911de5a03552491d3271c0b9"
+              }
+            }
+          ],
+          "teacher": [
+            {
+              "args": [],
+              "kwargs": {
+                "condition_video_input_mask_B_C_T_H_W": "eba2a627d3afd9e290456284380366b2fe6b0727131b74acec82320d73bcf5e1",
+                "crossattn_emb": "c22631c018fd8bfeb3b83192dfbe5217aa2db2a5a3c00b721ea737dff41168f2",
+                "data_type": "9cedf5ad610d5dc555be12b0726bb6be7819ed39e134fdc4da570d982611f9d1",
+                "fps": "cd593f195818be71a4598c9b9283463f7f99c7d7ae0aa5ae4b4984fdf29ce831",
+                "gt_frames": "48275c4c4f9f9865dd474a9ec55072f6af8b83d4e129d603ff0d40e36e665f07",
+                "padding_mask": "202bf12ec9bda81a368f0e01f537a48bad62652ea021fc337cb66397260f99e3",
+                "timesteps_B_T": "d23290aea0f4a3a7d9fbd262249eca620415e35e8d8432c89f67649b11341dda",
+                "use_video_condition": "47f816d59c2ae47e93af510345e1da35231e414869c1e62affbb57920a99ea67",
+                "x_B_C_T_H_W": "d5c9816b590d74553b3860aa3fd5acc5ba479362911de5a03552491d3271c0b9"
+              }
+            },
+            {
+              "args": [],
+              "kwargs": {
+                "condition_video_input_mask_B_C_T_H_W": "eba2a627d3afd9e290456284380366b2fe6b0727131b74acec82320d73bcf5e1",
+                "crossattn_emb": "0887d6434b1e7188b2d1d15101638a4d962209ddaff177dc08f6cafbdb49b253",
+                "data_type": "9cedf5ad610d5dc555be12b0726bb6be7819ed39e134fdc4da570d982611f9d1",
+                "fps": "cd593f195818be71a4598c9b9283463f7f99c7d7ae0aa5ae4b4984fdf29ce831",
+                "gt_frames": "48275c4c4f9f9865dd474a9ec55072f6af8b83d4e129d603ff0d40e36e665f07",
+                "padding_mask": "202bf12ec9bda81a368f0e01f537a48bad62652ea021fc337cb66397260f99e3",
+                "timesteps_B_T": "d23290aea0f4a3a7d9fbd262249eca620415e35e8d8432c89f67649b11341dda",
+                "use_video_condition": "47f816d59c2ae47e93af510345e1da35231e414869c1e62affbb57920a99ea67",
+                "x_B_C_T_H_W": "d5c9816b590d74553b3860aa3fd5acc5ba479362911de5a03552491d3271c0b9"
+              }
+            }
+          ]
+        },
+        "outputs": {
+          "equal": true,
+          "old": [
+            "5abf342d32b8c703f19c3e3221c058f7acd6dff0e1370c69a4d9fc4b9440496d",
+            "f0439050403b75c6b46a415634ba233b56c220f02a880da7b000818daff5ed6f"
+          ],
+          "teacher": [
+            "5abf342d32b8c703f19c3e3221c058f7acd6dff0e1370c69a4d9fc4b9440496d",
+            "f0439050403b75c6b46a415634ba233b56c220f02a880da7b000818daff5ed6f"
+          ]
+        },
+        "deep": {
+          "equal": true,
+          "old": [
+            0,
+            0
+          ],
+          "teacher": [
+            0,
+            0
+          ]
+        },
+        "banks": {
+          "equal": true,
+          "old": [
+            "5c9738d440166739e5c23379d1bc85fc9ed54e4e6130908e498ab939539ce503",
+            "d00605690de479b2d449fbb7dd3c879b7d0840655c1fac580c37d90003dd712f"
+          ],
+          "teacher": [
+            "5c9738d440166739e5c23379d1bc85fc9ed54e4e6130908e498ab939539ce503",
+            "d00605690de479b2d449fbb7dd3c879b7d0840655c1fac580c37d90003dd712f"
+          ]
+        }
+      },
+      "all_recorded_trace_fields_equal": false
+    },
+    {
+      "arm": "BASE",
+      "repeat": "first",
+      "calls": [
+        47,
+        48
+      ],
+      "teacher_origin": "S23_after_CC",
+      "teacher_cell": "DD",
+      "fields": {
+        "inputs": {
+          "equal": false,
+          "old": [
+            {
+              "args": [],
+              "kwargs": {
+                "condition_video_input_mask_B_C_T_H_W": "eba2a627d3afd9e290456284380366b2fe6b0727131b74acec82320d73bcf5e1",
+                "crossattn_emb": "c22631c018fd8bfeb3b83192dfbe5217aa2db2a5a3c00b721ea737dff41168f2",
+                "data_type": "9cedf5ad610d5dc555be12b0726bb6be7819ed39e134fdc4da570d982611f9d1",
+                "fps": "cd593f195818be71a4598c9b9283463f7f99c7d7ae0aa5ae4b4984fdf29ce831",
+                "gt_frames": "0ac62a79295427e36df31ce5ccd35c530c1481714f1bfe4b37cd67322af7dc5d",
+                "padding_mask": "202bf12ec9bda81a368f0e01f537a48bad62652ea021fc337cb66397260f99e3",
+                "timesteps_B_T": "9b344ca39e49b9434fceec8a858884ce3d33404a6b177acb11f09fa86879ac73",
+                "use_video_condition": "47f816d59c2ae47e93af510345e1da35231e414869c1e62affbb57920a99ea67",
+                "x_B_C_T_H_W": "f2cfba8675e951be892189e9aac613a8691ae8cae62203f6fd44149d2fa60818"
+              }
+            },
+            {
+              "args": [],
+              "kwargs": {
+                "condition_video_input_mask_B_C_T_H_W": "eba2a627d3afd9e290456284380366b2fe6b0727131b74acec82320d73bcf5e1",
+                "crossattn_emb": "0887d6434b1e7188b2d1d15101638a4d962209ddaff177dc08f6cafbdb49b253",
+                "data_type": "9cedf5ad610d5dc555be12b0726bb6be7819ed39e134fdc4da570d982611f9d1",
+                "fps": "cd593f195818be71a4598c9b9283463f7f99c7d7ae0aa5ae4b4984fdf29ce831",
+                "gt_frames": "0ac62a79295427e36df31ce5ccd35c530c1481714f1bfe4b37cd67322af7dc5d",
+                "padding_mask": "202bf12ec9bda81a368f0e01f537a48bad62652ea021fc337cb66397260f99e3",
+                "timesteps_B_T": "9b344ca39e49b9434fceec8a858884ce3d33404a6b177acb11f09fa86879ac73",
+                "use_video_condition": "47f816d59c2ae47e93af510345e1da35231e414869c1e62affbb57920a99ea67",
+                "x_B_C_T_H_W": "f2cfba8675e951be892189e9aac613a8691ae8cae62203f6fd44149d2fa60818"
+              }
+            }
+          ],
+          "teacher": [
+            {
+              "args": [],
+              "kwargs": {
+                "condition_video_input_mask_B_C_T_H_W": "eba2a627d3afd9e290456284380366b2fe6b0727131b74acec82320d73bcf5e1",
+                "crossattn_emb": "c22631c018fd8bfeb3b83192dfbe5217aa2db2a5a3c00b721ea737dff41168f2",
+                "data_type": "9cedf5ad610d5dc555be12b0726bb6be7819ed39e134fdc4da570d982611f9d1",
+                "fps": "cd593f195818be71a4598c9b9283463f7f99c7d7ae0aa5ae4b4984fdf29ce831",
+                "gt_frames": "48275c4c4f9f9865dd474a9ec55072f6af8b83d4e129d603ff0d40e36e665f07",
+                "padding_mask": "202bf12ec9bda81a368f0e01f537a48bad62652ea021fc337cb66397260f99e3",
+                "timesteps_B_T": "9b344ca39e49b9434fceec8a858884ce3d33404a6b177acb11f09fa86879ac73",
+                "use_video_condition": "47f816d59c2ae47e93af510345e1da35231e414869c1e62affbb57920a99ea67",
+                "x_B_C_T_H_W": "f2cfba8675e951be892189e9aac613a8691ae8cae62203f6fd44149d2fa60818"
+              }
+            },
+            {
+              "args": [],
+              "kwargs": {
+                "condition_video_input_mask_B_C_T_H_W": "eba2a627d3afd9e290456284380366b2fe6b0727131b74acec82320d73bcf5e1",
+                "crossattn_emb": "0887d6434b1e7188b2d1d15101638a4d962209ddaff177dc08f6cafbdb49b253",
+                "data_type": "9cedf5ad610d5dc555be12b0726bb6be7819ed39e134fdc4da570d982611f9d1",
+                "fps": "cd593f195818be71a4598c9b9283463f7f99c7d7ae0aa5ae4b4984fdf29ce831",
+                "gt_frames": "48275c4c4f9f9865dd474a9ec55072f6af8b83d4e129d603ff0d40e36e665f07",
+                "padding_mask": "202bf12ec9bda81a368f0e01f537a48bad62652ea021fc337cb66397260f99e3",
+                "timesteps_B_T": "9b344ca39e49b9434fceec8a858884ce3d33404a6b177acb11f09fa86879ac73",
+                "use_video_condition": "47f816d59c2ae47e93af510345e1da35231e414869c1e62affbb57920a99ea67",
+                "x_B_C_T_H_W": "f2cfba8675e951be892189e9aac613a8691ae8cae62203f6fd44149d2fa60818"
+              }
+            }
+          ]
+        },
+        "outputs": {
+          "equal": true,
+          "old": [
+            "2ff2b5ef7d0aef24cade1ecbfa611e128f7cbb1b4be054ecd13e750860327d4a",
+            "c914046219c5009645ce94dea48cf58aaff677cf926411df798eaf7a38e30d02"
+          ],
+          "teacher": [
+            "2ff2b5ef7d0aef24cade1ecbfa611e128f7cbb1b4be054ecd13e750860327d4a",
+            "c914046219c5009645ce94dea48cf58aaff677cf926411df798eaf7a38e30d02"
+          ]
+        },
+        "deep": {
+          "equal": true,
+          "old": [
+            26,
+            26
+          ],
+          "teacher": [
+            26,
+            26
+          ]
+        },
+        "banks": {
+          "equal": true,
+          "old": [
+            "63be3c526a0f57b713e3aa41e6eed665ce02a1d8cbfe10766428bbb91db19fba",
+            "16091cacedb66dc727802b36f6b67bc6009f6b165477d03d1b3dd5b065cbea75"
+          ],
+          "teacher": [
+            "63be3c526a0f57b713e3aa41e6eed665ce02a1d8cbfe10766428bbb91db19fba",
+            "16091cacedb66dc727802b36f6b67bc6009f6b165477d03d1b3dd5b065cbea75"
+          ]
+        }
+      },
+      "all_recorded_trace_fields_equal": false
+    },
+    {
+      "arm": "BASE",
+      "repeat": "second",
+      "calls": [
+        45,
+        46
+      ],
+      "teacher_origin": "S22",
+      "teacher_cell": "CC",
+      "fields": {
+        "inputs": {
+          "equal": false,
+          "old": [
+            {
+              "args": [],
+              "kwargs": {
+                "condition_video_input_mask_B_C_T_H_W": "eba2a627d3afd9e290456284380366b2fe6b0727131b74acec82320d73bcf5e1",
+                "crossattn_emb": "c22631c018fd8bfeb3b83192dfbe5217aa2db2a5a3c00b721ea737dff41168f2",
+                "data_type": "9cedf5ad610d5dc555be12b0726bb6be7819ed39e134fdc4da570d982611f9d1",
+                "fps": "cd593f195818be71a4598c9b9283463f7f99c7d7ae0aa5ae4b4984fdf29ce831",
+                "gt_frames": "0ac62a79295427e36df31ce5ccd35c530c1481714f1bfe4b37cd67322af7dc5d",
+                "padding_mask": "202bf12ec9bda81a368f0e01f537a48bad62652ea021fc337cb66397260f99e3",
+                "timesteps_B_T": "d23290aea0f4a3a7d9fbd262249eca620415e35e8d8432c89f67649b11341dda",
+                "use_video_condition": "47f816d59c2ae47e93af510345e1da35231e414869c1e62affbb57920a99ea67",
+                "x_B_C_T_H_W": "d5c9816b590d74553b3860aa3fd5acc5ba479362911de5a03552491d3271c0b9"
+              }
+            },
+            {
+              "args": [],
+              "kwargs": {
+                "condition_video_input_mask_B_C_T_H_W": "eba2a627d3afd9e290456284380366b2fe6b0727131b74acec82320d73bcf5e1",
+                "crossattn_emb": "0887d6434b1e7188b2d1d15101638a4d962209ddaff177dc08f6cafbdb49b253",
+                "data_type": "9cedf5ad610d5dc555be12b0726bb6be7819ed39e134fdc4da570d982611f9d1",
+                "fps": "cd593f195818be71a4598c9b9283463f7f99c7d7ae0aa5ae4b4984fdf29ce831",
+                "gt_frames": "0ac62a79295427e36df31ce5ccd35c530c1481714f1bfe4b37cd67322af7dc5d",
+                "padding_mask": "202bf12ec9bda81a368f0e01f537a48bad62652ea021fc337cb66397260f99e3",
+                "timesteps_B_T": "d23290aea0f4a3a7d9fbd262249eca620415e35e8d8432c89f67649b11341dda",
+                "use_video_condition": "47f816d59c2ae47e93af510345e1da35231e414869c1e62affbb57920a99ea67",
+                "x_B_C_T_H_W": "d5c9816b590d74553b3860aa3fd5acc5ba479362911de5a03552491d3271c0b9"
+              }
+            }
+          ],
+          "teacher": [
+            {
+              "args": [],
+              "kwargs": {
+                "condition_video_input_mask_B_C_T_H_W": "eba2a627d3afd9e290456284380366b2fe6b0727131b74acec82320d73bcf5e1",
+                "crossattn_emb": "c22631c018fd8bfeb3b83192dfbe5217aa2db2a5a3c00b721ea737dff41168f2",
+                "data_type": "9cedf5ad610d5dc555be12b0726bb6be7819ed39e134fdc4da570d982611f9d1",
+                "fps": "cd593f195818be71a4598c9b9283463f7f99c7d7ae0aa5ae4b4984fdf29ce831",
+                "gt_frames": "48275c4c4f9f9865dd474a9ec55072f6af8b83d4e129d603ff0d40e36e665f07",
+                "padding_mask": "202bf12ec9bda81a368f0e01f537a48bad62652ea021fc337cb66397260f99e3",
+                "timesteps_B_T": "d23290aea0f4a3a7d9fbd262249eca620415e35e8d8432c89f67649b11341dda",
+                "use_video_condition": "47f816d59c2ae47e93af510345e1da35231e414869c1e62affbb57920a99ea67",
+                "x_B_C_T_H_W": "d5c9816b590d74553b3860aa3fd5acc5ba479362911de5a03552491d3271c0b9"
+              }
+            },
+            {
+              "args": [],
+              "kwargs": {
+                "condition_video_input_mask_B_C_T_H_W": "eba2a627d3afd9e290456284380366b2fe6b0727131b74acec82320d73bcf5e1",
+                "crossattn_emb": "0887d6434b1e7188b2d1d15101638a4d962209ddaff177dc08f6cafbdb49b253",
+                "data_type": "9cedf5ad610d5dc555be12b0726bb6be7819ed39e134fdc4da570d982611f9d1",
+                "fps": "cd593f195818be71a4598c9b9283463f7f99c7d7ae0aa5ae4b4984fdf29ce831",
+                "gt_frames": "48275c4c4f9f9865dd474a9ec55072f6af8b83d4e129d603ff0d40e36e665f07",
+                "padding_mask": "202bf12ec9bda81a368f0e01f537a48bad62652ea021fc337cb66397260f99e3",
+                "timesteps_B_T": "d23290aea0f4a3a7d9fbd262249eca620415e35e8d8432c89f67649b11341dda",
+                "use_video_condition": "47f816d59c2ae47e93af510345e1da35231e414869c1e62affbb57920a99ea67",
+                "x_B_C_T_H_W": "d5c9816b590d74553b3860aa3fd5acc5ba479362911de5a03552491d3271c0b9"
+              }
+            }
+          ]
+        },
+        "outputs": {
+          "equal": true,
+          "old": [
+            "5abf342d32b8c703f19c3e3221c058f7acd6dff0e1370c69a4d9fc4b9440496d",
+            "f0439050403b75c6b46a415634ba233b56c220f02a880da7b000818daff5ed6f"
+          ],
+          "teacher": [
+            "5abf342d32b8c703f19c3e3221c058f7acd6dff0e1370c69a4d9fc4b9440496d",
+            "f0439050403b75c6b46a415634ba233b56c220f02a880da7b000818daff5ed6f"
+          ]
+        },
+        "deep": {
+          "equal": true,
+          "old": [
+            0,
+            0
+          ],
+          "teacher": [
+            0,
+            0
+          ]
+        },
+        "banks": {
+          "equal": true,
+          "old": [
+            "5c9738d440166739e5c23379d1bc85fc9ed54e4e6130908e498ab939539ce503",
+            "d00605690de479b2d449fbb7dd3c879b7d0840655c1fac580c37d90003dd712f"
+          ],
+          "teacher": [
+            "5c9738d440166739e5c23379d1bc85fc9ed54e4e6130908e498ab939539ce503",
+            "d00605690de479b2d449fbb7dd3c879b7d0840655c1fac580c37d90003dd712f"
+          ]
+        }
+      },
+      "all_recorded_trace_fields_equal": false
+    },
+    {
+      "arm": "BASE",
+      "repeat": "second",
+      "calls": [
+        47,
+        48
+      ],
+      "teacher_origin": "S23_after_CC",
+      "teacher_cell": "DD",
+      "fields": {
+        "inputs": {
+          "equal": false,
+          "old": [
+            {
+              "args": [],
+              "kwargs": {
+                "condition_video_input_mask_B_C_T_H_W": "eba2a627d3afd9e290456284380366b2fe6b0727131b74acec82320d73bcf5e1",
+                "crossattn_emb": "c22631c018fd8bfeb3b83192dfbe5217aa2db2a5a3c00b721ea737dff41168f2",
+                "data_type": "9cedf5ad610d5dc555be12b0726bb6be7819ed39e134fdc4da570d982611f9d1",
+                "fps": "cd593f195818be71a4598c9b9283463f7f99c7d7ae0aa5ae4b4984fdf29ce831",
+                "gt_frames": "0ac62a79295427e36df31ce5ccd35c530c1481714f1bfe4b37cd67322af7dc5d",
+                "padding_mask": "202bf12ec9bda81a368f0e01f537a48bad62652ea021fc337cb66397260f99e3",
+                "timesteps_B_T": "9b344ca39e49b9434fceec8a858884ce3d33404a6b177acb11f09fa86879ac73",
+                "use_video_condition": "47f816d59c2ae47e93af510345e1da35231e414869c1e62affbb57920a99ea67",
+                "x_B_C_T_H_W": "f2cfba8675e951be892189e9aac613a8691ae8cae62203f6fd44149d2fa60818"
+              }
+            },
+            {
+              "args": [],
+              "kwargs": {
+                "condition_video_input_mask_B_C_T_H_W": "eba2a627d3afd9e290456284380366b2fe6b0727131b74acec82320d73bcf5e1",
+                "crossattn_emb": "0887d6434b1e7188b2d1d15101638a4d962209ddaff177dc08f6cafbdb49b253",
+                "data_type": "9cedf5ad610d5dc555be12b0726bb6be7819ed39e134fdc4da570d982611f9d1",
+                "fps": "cd593f195818be71a4598c9b9283463f7f99c7d7ae0aa5ae4b4984fdf29ce831",
+                "gt_frames": "0ac62a79295427e36df31ce5ccd35c530c1481714f1bfe4b37cd67322af7dc5d",
+                "padding_mask": "202bf12ec9bda81a368f0e01f537a48bad62652ea021fc337cb66397260f99e3",
+                "timesteps_B_T": "9b344ca39e49b9434fceec8a858884ce3d33404a6b177acb11f09fa86879ac73",
+                "use_video_condition": "47f816d59c2ae47e93af510345e1da35231e414869c1e62affbb57920a99ea67",
+                "x_B_C_T_H_W": "f2cfba8675e951be892189e9aac613a8691ae8cae62203f6fd44149d2fa60818"
+              }
+            }
+          ],
+          "teacher": [
+            {
+              "args": [],
+              "kwargs": {
+                "condition_video_input_mask_B_C_T_H_W": "eba2a627d3afd9e290456284380366b2fe6b0727131b74acec82320d73bcf5e1",
+                "crossattn_emb": "c22631c018fd8bfeb3b83192dfbe5217aa2db2a5a3c00b721ea737dff41168f2",
+                "data_type": "9cedf5ad610d5dc555be12b0726bb6be7819ed39e134fdc4da570d982611f9d1",
+                "fps": "cd593f195818be71a4598c9b9283463f7f99c7d7ae0aa5ae4b4984fdf29ce831",
+                "gt_frames": "48275c4c4f9f9865dd474a9ec55072f6af8b83d4e129d603ff0d40e36e665f07",
+                "padding_mask": "202bf12ec9bda81a368f0e01f537a48bad62652ea021fc337cb66397260f99e3",
+                "timesteps_B_T": "9b344ca39e49b9434fceec8a858884ce3d33404a6b177acb11f09fa86879ac73",
+                "use_video_condition": "47f816d59c2ae47e93af510345e1da35231e414869c1e62affbb57920a99ea67",
+                "x_B_C_T_H_W": "f2cfba8675e951be892189e9aac613a8691ae8cae62203f6fd44149d2fa60818"
+              }
+            },
+            {
+              "args": [],
+              "kwargs": {
+                "condition_video_input_mask_B_C_T_H_W": "eba2a627d3afd9e290456284380366b2fe6b0727131b74acec82320d73bcf5e1",
+                "crossattn_emb": "0887d6434b1e7188b2d1d15101638a4d962209ddaff177dc08f6cafbdb49b253",
+                "data_type": "9cedf5ad610d5dc555be12b0726bb6be7819ed39e134fdc4da570d982611f9d1",
+                "fps": "cd593f195818be71a4598c9b9283463f7f99c7d7ae0aa5ae4b4984fdf29ce831",
+                "gt_frames": "48275c4c4f9f9865dd474a9ec55072f6af8b83d4e129d603ff0d40e36e665f07",
+                "padding_mask": "202bf12ec9bda81a368f0e01f537a48bad62652ea021fc337cb66397260f99e3",
+                "timesteps_B_T": "9b344ca39e49b9434fceec8a858884ce3d33404a6b177acb11f09fa86879ac73",
+                "use_video_condition": "47f816d59c2ae47e93af510345e1da35231e414869c1e62affbb57920a99ea67",
+                "x_B_C_T_H_W": "f2cfba8675e951be892189e9aac613a8691ae8cae62203f6fd44149d2fa60818"
+              }
+            }
+          ]
+        },
+        "outputs": {
+          "equal": true,
+          "old": [
+            "2ff2b5ef7d0aef24cade1ecbfa611e128f7cbb1b4be054ecd13e750860327d4a",
+            "c914046219c5009645ce94dea48cf58aaff677cf926411df798eaf7a38e30d02"
+          ],
+          "teacher": [
+            "2ff2b5ef7d0aef24cade1ecbfa611e128f7cbb1b4be054ecd13e750860327d4a",
+            "c914046219c5009645ce94dea48cf58aaff677cf926411df798eaf7a38e30d02"
+          ]
+        },
+        "deep": {
+          "equal": true,
+          "old": [
+            26,
+            26
+          ],
+          "teacher": [
+            26,
+            26
+          ]
+        },
+        "banks": {
+          "equal": true,
+          "old": [
+            "63be3c526a0f57b713e3aa41e6eed665ce02a1d8cbfe10766428bbb91db19fba",
+            "16091cacedb66dc727802b36f6b67bc6009f6b165477d03d1b3dd5b065cbea75"
+          ],
+          "teacher": [
+            "63be3c526a0f57b713e3aa41e6eed665ce02a1d8cbfe10766428bbb91db19fba",
+            "16091cacedb66dc727802b36f6b67bc6009f6b165477d03d1b3dd5b065cbea75"
+          ]
+        }
+      },
+      "all_recorded_trace_fields_equal": false
+    },
+    {
+      "arm": "CFG0",
+      "repeat": "first",
+      "calls": [
+        45,
+        46
+      ],
+      "teacher_origin": "S22",
+      "teacher_cell": "DC",
+      "fields": {
+        "inputs": {
+          "equal": false,
+          "old": [
+            {
+              "args": [],
+              "kwargs": {
+                "condition_video_input_mask_B_C_T_H_W": "eba2a627d3afd9e290456284380366b2fe6b0727131b74acec82320d73bcf5e1",
+                "crossattn_emb": "c22631c018fd8bfeb3b83192dfbe5217aa2db2a5a3c00b721ea737dff41168f2",
+                "data_type": "9cedf5ad610d5dc555be12b0726bb6be7819ed39e134fdc4da570d982611f9d1",
+                "fps": "cd593f195818be71a4598c9b9283463f7f99c7d7ae0aa5ae4b4984fdf29ce831",
+                "gt_frames": "0ac62a79295427e36df31ce5ccd35c530c1481714f1bfe4b37cd67322af7dc5d",
+                "padding_mask": "202bf12ec9bda81a368f0e01f537a48bad62652ea021fc337cb66397260f99e3",
+                "timesteps_B_T": "d23290aea0f4a3a7d9fbd262249eca620415e35e8d8432c89f67649b11341dda",
+                "use_video_condition": "47f816d59c2ae47e93af510345e1da35231e414869c1e62affbb57920a99ea67",
+                "x_B_C_T_H_W": "d5c9816b590d74553b3860aa3fd5acc5ba479362911de5a03552491d3271c0b9"
+              }
+            },
+            {
+              "args": [],
+              "kwargs": {
+                "condition_video_input_mask_B_C_T_H_W": "eba2a627d3afd9e290456284380366b2fe6b0727131b74acec82320d73bcf5e1",
+                "crossattn_emb": "0887d6434b1e7188b2d1d15101638a4d962209ddaff177dc08f6cafbdb49b253",
+                "data_type": "9cedf5ad610d5dc555be12b0726bb6be7819ed39e134fdc4da570d982611f9d1",
+                "fps": "cd593f195818be71a4598c9b9283463f7f99c7d7ae0aa5ae4b4984fdf29ce831",
+                "gt_frames": "0ac62a79295427e36df31ce5ccd35c530c1481714f1bfe4b37cd67322af7dc5d",
+                "padding_mask": "202bf12ec9bda81a368f0e01f537a48bad62652ea021fc337cb66397260f99e3",
+                "timesteps_B_T": "d23290aea0f4a3a7d9fbd262249eca620415e35e8d8432c89f67649b11341dda",
+                "use_video_condition": "47f816d59c2ae47e93af510345e1da35231e414869c1e62affbb57920a99ea67",
+                "x_B_C_T_H_W": "d5c9816b590d74553b3860aa3fd5acc5ba479362911de5a03552491d3271c0b9"
+              }
+            }
+          ],
+          "teacher": [
+            {
+              "args": [],
+              "kwargs": {
+                "condition_video_input_mask_B_C_T_H_W": "eba2a627d3afd9e290456284380366b2fe6b0727131b74acec82320d73bcf5e1",
+                "crossattn_emb": "c22631c018fd8bfeb3b83192dfbe5217aa2db2a5a3c00b721ea737dff41168f2",
+                "data_type": "9cedf5ad610d5dc555be12b0726bb6be7819ed39e134fdc4da570d982611f9d1",
+                "fps": "cd593f195818be71a4598c9b9283463f7f99c7d7ae0aa5ae4b4984fdf29ce831",
+                "gt_frames": "48275c4c4f9f9865dd474a9ec55072f6af8b83d4e129d603ff0d40e36e665f07",
+                "padding_mask": "202bf12ec9bda81a368f0e01f537a48bad62652ea021fc337cb66397260f99e3",
+                "timesteps_B_T": "d23290aea0f4a3a7d9fbd262249eca620415e35e8d8432c89f67649b11341dda",
+                "use_video_condition": "47f816d59c2ae47e93af510345e1da35231e414869c1e62affbb57920a99ea67",
+                "x_B_C_T_H_W": "d5c9816b590d74553b3860aa3fd5acc5ba479362911de5a03552491d3271c0b9"
+              }
+            },
+            {
+              "args": [],
+              "kwargs": {
+                "condition_video_input_mask_B_C_T_H_W": "eba2a627d3afd9e290456284380366b2fe6b0727131b74acec82320d73bcf5e1",
+                "crossattn_emb": "0887d6434b1e7188b2d1d15101638a4d962209ddaff177dc08f6cafbdb49b253",
+                "data_type": "9cedf5ad610d5dc555be12b0726bb6be7819ed39e134fdc4da570d982611f9d1",
+                "fps": "cd593f195818be71a4598c9b9283463f7f99c7d7ae0aa5ae4b4984fdf29ce831",
+                "gt_frames": "48275c4c4f9f9865dd474a9ec55072f6af8b83d4e129d603ff0d40e36e665f07",
+                "padding_mask": "202bf12ec9bda81a368f0e01f537a48bad62652ea021fc337cb66397260f99e3",
+                "timesteps_B_T": "d23290aea0f4a3a7d9fbd262249eca620415e35e8d8432c89f67649b11341dda",
+                "use_video_condition": "47f816d59c2ae47e93af510345e1da35231e414869c1e62affbb57920a99ea67",
+                "x_B_C_T_H_W": "d5c9816b590d74553b3860aa3fd5acc5ba479362911de5a03552491d3271c0b9"
+              }
+            }
+          ]
+        },
+        "outputs": {
+          "equal": true,
+          "old": [
+            "d1203b42f85718b8aa5f7f72d816f9c08cc269b517ac0a41e1b9018a6785bab0",
+            "f0439050403b75c6b46a415634ba233b56c220f02a880da7b000818daff5ed6f"
+          ],
+          "teacher": [
+            "d1203b42f85718b8aa5f7f72d816f9c08cc269b517ac0a41e1b9018a6785bab0",
+            "f0439050403b75c6b46a415634ba233b56c220f02a880da7b000818daff5ed6f"
+          ]
+        },
+        "deep": {
+          "equal": true,
+          "old": [
+            26,
+            0
+          ],
+          "teacher": [
+            26,
+            0
+          ]
+        },
+        "banks": {
+          "equal": true,
+          "old": [
+            "92a5287370d3f7b56cb6261c37a98e30a9b84c8e2c238ab005680b4e0abad176",
+            "332446a6bc550e4fd7c6c001e8bb8dcf8555e3ec39f2451fdda1c953c2151d4f"
+          ],
+          "teacher": [
+            "92a5287370d3f7b56cb6261c37a98e30a9b84c8e2c238ab005680b4e0abad176",
+            "332446a6bc550e4fd7c6c001e8bb8dcf8555e3ec39f2451fdda1c953c2151d4f"
+          ]
+        }
+      },
+      "all_recorded_trace_fields_equal": false
+    },
+    {
+      "arm": "CFG0",
+      "repeat": "first",
+      "calls": [
+        47,
+        48
+      ],
+      "teacher_origin": "S23_after_DC",
+      "teacher_cell": "CD",
+      "fields": {
+        "inputs": {
+          "equal": false,
+          "old": [
+            {
+              "args": [],
+              "kwargs": {
+                "condition_video_input_mask_B_C_T_H_W": "eba2a627d3afd9e290456284380366b2fe6b0727131b74acec82320d73bcf5e1",
+                "crossattn_emb": "c22631c018fd8bfeb3b83192dfbe5217aa2db2a5a3c00b721ea737dff41168f2",
+                "data_type": "9cedf5ad610d5dc555be12b0726bb6be7819ed39e134fdc4da570d982611f9d1",
+                "fps": "cd593f195818be71a4598c9b9283463f7f99c7d7ae0aa5ae4b4984fdf29ce831",
+                "gt_frames": "0ac62a79295427e36df31ce5ccd35c530c1481714f1bfe4b37cd67322af7dc5d",
+                "padding_mask": "202bf12ec9bda81a368f0e01f537a48bad62652ea021fc337cb66397260f99e3",
+                "timesteps_B_T": "9b344ca39e49b9434fceec8a858884ce3d33404a6b177acb11f09fa86879ac73",
+                "use_video_condition": "47f816d59c2ae47e93af510345e1da35231e414869c1e62affbb57920a99ea67",
+                "x_B_C_T_H_W": "da2e51a0ebf5c64da38dd6813cf985b3fd6c90d7916b8cb0f079cdf1b900c631"
+              }
+            },
+            {
+              "args": [],
+              "kwargs": {
+                "condition_video_input_mask_B_C_T_H_W": "eba2a627d3afd9e290456284380366b2fe6b0727131b74acec82320d73bcf5e1",
+                "crossattn_emb": "0887d6434b1e7188b2d1d15101638a4d962209ddaff177dc08f6cafbdb49b253",
+                "data_type": "9cedf5ad610d5dc555be12b0726bb6be7819ed39e134fdc4da570d982611f9d1",
+                "fps": "cd593f195818be71a4598c9b9283463f7f99c7d7ae0aa5ae4b4984fdf29ce831",
+                "gt_frames": "0ac62a79295427e36df31ce5ccd35c530c1481714f1bfe4b37cd67322af7dc5d",
+                "padding_mask": "202bf12ec9bda81a368f0e01f537a48bad62652ea021fc337cb66397260f99e3",
+                "timesteps_B_T": "9b344ca39e49b9434fceec8a858884ce3d33404a6b177acb11f09fa86879ac73",
+                "use_video_condition": "47f816d59c2ae47e93af510345e1da35231e414869c1e62affbb57920a99ea67",
+                "x_B_C_T_H_W": "da2e51a0ebf5c64da38dd6813cf985b3fd6c90d7916b8cb0f079cdf1b900c631"
+              }
+            }
+          ],
+          "teacher": [
+            {
+              "args": [],
+              "kwargs": {
+                "condition_video_input_mask_B_C_T_H_W": "eba2a627d3afd9e290456284380366b2fe6b0727131b74acec82320d73bcf5e1",
+                "crossattn_emb": "c22631c018fd8bfeb3b83192dfbe5217aa2db2a5a3c00b721ea737dff41168f2",
+                "data_type": "9cedf5ad610d5dc555be12b0726bb6be7819ed39e134fdc4da570d982611f9d1",
+                "fps": "cd593f195818be71a4598c9b9283463f7f99c7d7ae0aa5ae4b4984fdf29ce831",
+                "gt_frames": "48275c4c4f9f9865dd474a9ec55072f6af8b83d4e129d603ff0d40e36e665f07",
+                "padding_mask": "202bf12ec9bda81a368f0e01f537a48bad62652ea021fc337cb66397260f99e3",
+                "timesteps_B_T": "9b344ca39e49b9434fceec8a858884ce3d33404a6b177acb11f09fa86879ac73",
+                "use_video_condition": "47f816d59c2ae47e93af510345e1da35231e414869c1e62affbb57920a99ea67",
+                "x_B_C_T_H_W": "da2e51a0ebf5c64da38dd6813cf985b3fd6c90d7916b8cb0f079cdf1b900c631"
+              }
+            },
+            {
+              "args": [],
+              "kwargs": {
+                "condition_video_input_mask_B_C_T_H_W": "eba2a627d3afd9e290456284380366b2fe6b0727131b74acec82320d73bcf5e1",
+                "crossattn_emb": "0887d6434b1e7188b2d1d15101638a4d962209ddaff177dc08f6cafbdb49b253",
+                "data_type": "9cedf5ad610d5dc555be12b0726bb6be7819ed39e134fdc4da570d982611f9d1",
+                "fps": "cd593f195818be71a4598c9b9283463f7f99c7d7ae0aa5ae4b4984fdf29ce831",
+                "gt_frames": "48275c4c4f9f9865dd474a9ec55072f6af8b83d4e129d603ff0d40e36e665f07",
+                "padding_mask": "202bf12ec9bda81a368f0e01f537a48bad62652ea021fc337cb66397260f99e3",
+                "timesteps_B_T": "9b344ca39e49b9434fceec8a858884ce3d33404a6b177acb11f09fa86879ac73",
+                "use_video_condition": "47f816d59c2ae47e93af510345e1da35231e414869c1e62affbb57920a99ea67",
+                "x_B_C_T_H_W": "da2e51a0ebf5c64da38dd6813cf985b3fd6c90d7916b8cb0f079cdf1b900c631"
+              }
+            }
+          ]
+        },
+        "outputs": {
+          "equal": true,
+          "old": [
+            "8ba3ba855d6e07b6d63e27c4693ced7cbb7f7d44cb2476fa9b8ec1c198098696",
+            "c0ec33f3daaeb6b7b0874f934ee14052fb1637024d2be46b0f1145a8ad3e5daa"
+          ],
+          "teacher": [
+            "8ba3ba855d6e07b6d63e27c4693ced7cbb7f7d44cb2476fa9b8ec1c198098696",
+            "c0ec33f3daaeb6b7b0874f934ee14052fb1637024d2be46b0f1145a8ad3e5daa"
+          ]
+        },
+        "deep": {
+          "equal": true,
+          "old": [
+            0,
+            26
+          ],
+          "teacher": [
+            0,
+            26
+          ]
+        },
+        "banks": {
+          "equal": true,
+          "old": [
+            "6cf5c0810c57f6659683ffad9cbef84def7b5072a43e773ee70c7702a4e465b0",
+            "14a15383e5a963001210e3c8a2eaad4cafe8194f1cfb292e1ff13e6384e5963f"
+          ],
+          "teacher": [
+            "6cf5c0810c57f6659683ffad9cbef84def7b5072a43e773ee70c7702a4e465b0",
+            "14a15383e5a963001210e3c8a2eaad4cafe8194f1cfb292e1ff13e6384e5963f"
+          ]
+        }
+      },
+      "all_recorded_trace_fields_equal": false
+    },
+    {
+      "arm": "CFG0",
+      "repeat": "second",
+      "calls": [
+        45,
+        46
+      ],
+      "teacher_origin": "S22",
+      "teacher_cell": "DC",
+      "fields": {
+        "inputs": {
+          "equal": false,
+          "old": [
+            {
+              "args": [],
+              "kwargs": {
+                "condition_video_input_mask_B_C_T_H_W": "eba2a627d3afd9e290456284380366b2fe6b0727131b74acec82320d73bcf5e1",
+                "crossattn_emb": "c22631c018fd8bfeb3b83192dfbe5217aa2db2a5a3c00b721ea737dff41168f2",
+                "data_type": "9cedf5ad610d5dc555be12b0726bb6be7819ed39e134fdc4da570d982611f9d1",
+                "fps": "cd593f195818be71a4598c9b9283463f7f99c7d7ae0aa5ae4b4984fdf29ce831",
+                "gt_frames": "0ac62a79295427e36df31ce5ccd35c530c1481714f1bfe4b37cd67322af7dc5d",
+                "padding_mask": "202bf12ec9bda81a368f0e01f537a48bad62652ea021fc337cb66397260f99e3",
+                "timesteps_B_T": "d23290aea0f4a3a7d9fbd262249eca620415e35e8d8432c89f67649b11341dda",
+                "use_video_condition": "47f816d59c2ae47e93af510345e1da35231e414869c1e62affbb57920a99ea67",
+                "x_B_C_T_H_W": "d5c9816b590d74553b3860aa3fd5acc5ba479362911de5a03552491d3271c0b9"
+              }
+            },
+            {
+              "args": [],
+              "kwargs": {
+                "condition_video_input_mask_B_C_T_H_W": "eba2a627d3afd9e290456284380366b2fe6b0727131b74acec82320d73bcf5e1",
+                "crossattn_emb": "0887d6434b1e7188b2d1d15101638a4d962209ddaff177dc08f6cafbdb49b253",
+                "data_type": "9cedf5ad610d5dc555be12b0726bb6be7819ed39e134fdc4da570d982611f9d1",
+                "fps": "cd593f195818be71a4598c9b9283463f7f99c7d7ae0aa5ae4b4984fdf29ce831",
+                "gt_frames": "0ac62a79295427e36df31ce5ccd35c530c1481714f1bfe4b37cd67322af7dc5d",
+                "padding_mask": "202bf12ec9bda81a368f0e01f537a48bad62652ea021fc337cb66397260f99e3",
+                "timesteps_B_T": "d23290aea0f4a3a7d9fbd262249eca620415e35e8d8432c89f67649b11341dda",
+                "use_video_condition": "47f816d59c2ae47e93af510345e1da35231e414869c1e62affbb57920a99ea67",
+                "x_B_C_T_H_W": "d5c9816b590d74553b3860aa3fd5acc5ba479362911de5a03552491d3271c0b9"
+              }
+            }
+          ],
+          "teacher": [
+            {
+              "args": [],
+              "kwargs": {
+                "condition_video_input_mask_B_C_T_H_W": "eba2a627d3afd9e290456284380366b2fe6b0727131b74acec82320d73bcf5e1",
+                "crossattn_emb": "c22631c018fd8bfeb3b83192dfbe5217aa2db2a5a3c00b721ea737dff41168f2",
+                "data_type": "9cedf5ad610d5dc555be12b0726bb6be7819ed39e134fdc4da570d982611f9d1",
+                "fps": "cd593f195818be71a4598c9b9283463f7f99c7d7ae0aa5ae4b4984fdf29ce831",
+                "gt_frames": "48275c4c4f9f9865dd474a9ec55072f6af8b83d4e129d603ff0d40e36e665f07",
+                "padding_mask": "202bf12ec9bda81a368f0e01f537a48bad62652ea021fc337cb66397260f99e3",
+                "timesteps_B_T": "d23290aea0f4a3a7d9fbd262249eca620415e35e8d8432c89f67649b11341dda",
+                "use_video_condition": "47f816d59c2ae47e93af510345e1da35231e414869c1e62affbb57920a99ea67",
+                "x_B_C_T_H_W": "d5c9816b590d74553b3860aa3fd5acc5ba479362911de5a03552491d3271c0b9"
+              }
+            },
+            {
+              "args": [],
+              "kwargs": {
+                "condition_video_input_mask_B_C_T_H_W": "eba2a627d3afd9e290456284380366b2fe6b0727131b74acec82320d73bcf5e1",
+                "crossattn_emb": "0887d6434b1e7188b2d1d15101638a4d962209ddaff177dc08f6cafbdb49b253",
+                "data_type": "9cedf5ad610d5dc555be12b0726bb6be7819ed39e134fdc4da570d982611f9d1",
+                "fps": "cd593f195818be71a4598c9b9283463f7f99c7d7ae0aa5ae4b4984fdf29ce831",
+                "gt_frames": "48275c4c4f9f9865dd474a9ec55072f6af8b83d4e129d603ff0d40e36e665f07",
+                "padding_mask": "202bf12ec9bda81a368f0e01f537a48bad62652ea021fc337cb66397260f99e3",
+                "timesteps_B_T": "d23290aea0f4a3a7d9fbd262249eca620415e35e8d8432c89f67649b11341dda",
+                "use_video_condition": "47f816d59c2ae47e93af510345e1da35231e414869c1e62affbb57920a99ea67",
+                "x_B_C_T_H_W": "d5c9816b590d74553b3860aa3fd5acc5ba479362911de5a03552491d3271c0b9"
+              }
+            }
+          ]
+        },
+        "outputs": {
+          "equal": true,
+          "old": [
+            "d1203b42f85718b8aa5f7f72d816f9c08cc269b517ac0a41e1b9018a6785bab0",
+            "f0439050403b75c6b46a415634ba233b56c220f02a880da7b000818daff5ed6f"
+          ],
+          "teacher": [
+            "d1203b42f85718b8aa5f7f72d816f9c08cc269b517ac0a41e1b9018a6785bab0",
+            "f0439050403b75c6b46a415634ba233b56c220f02a880da7b000818daff5ed6f"
+          ]
+        },
+        "deep": {
+          "equal": true,
+          "old": [
+            26,
+            0
+          ],
+          "teacher": [
+            26,
+            0
+          ]
+        },
+        "banks": {
+          "equal": true,
+          "old": [
+            "92a5287370d3f7b56cb6261c37a98e30a9b84c8e2c238ab005680b4e0abad176",
+            "332446a6bc550e4fd7c6c001e8bb8dcf8555e3ec39f2451fdda1c953c2151d4f"
+          ],
+          "teacher": [
+            "92a5287370d3f7b56cb6261c37a98e30a9b84c8e2c238ab005680b4e0abad176",
+            "332446a6bc550e4fd7c6c001e8bb8dcf8555e3ec39f2451fdda1c953c2151d4f"
+          ]
+        }
+      },
+      "all_recorded_trace_fields_equal": false
+    },
+    {
+      "arm": "CFG0",
+      "repeat": "second",
+      "calls": [
+        47,
+        48
+      ],
+      "teacher_origin": "S23_after_DC",
+      "teacher_cell": "CD",
+      "fields": {
+        "inputs": {
+          "equal": false,
+          "old": [
+            {
+              "args": [],
+              "kwargs": {
+                "condition_video_input_mask_B_C_T_H_W": "eba2a627d3afd9e290456284380366b2fe6b0727131b74acec82320d73bcf5e1",
+                "crossattn_emb": "c22631c018fd8bfeb3b83192dfbe5217aa2db2a5a3c00b721ea737dff41168f2",
+                "data_type": "9cedf5ad610d5dc555be12b0726bb6be7819ed39e134fdc4da570d982611f9d1",
+                "fps": "cd593f195818be71a4598c9b9283463f7f99c7d7ae0aa5ae4b4984fdf29ce831",
+                "gt_frames": "0ac62a79295427e36df31ce5ccd35c530c1481714f1bfe4b37cd67322af7dc5d",
+                "padding_mask": "202bf12ec9bda81a368f0e01f537a48bad62652ea021fc337cb66397260f99e3",
+                "timesteps_B_T": "9b344ca39e49b9434fceec8a858884ce3d33404a6b177acb11f09fa86879ac73",
+                "use_video_condition": "47f816d59c2ae47e93af510345e1da35231e414869c1e62affbb57920a99ea67",
+                "x_B_C_T_H_W": "da2e51a0ebf5c64da38dd6813cf985b3fd6c90d7916b8cb0f079cdf1b900c631"
+              }
+            },
+            {
+              "args": [],
+              "kwargs": {
+                "condition_video_input_mask_B_C_T_H_W": "eba2a627d3afd9e290456284380366b2fe6b0727131b74acec82320d73bcf5e1",
+                "crossattn_emb": "0887d6434b1e7188b2d1d15101638a4d962209ddaff177dc08f6cafbdb49b253",
+                "data_type": "9cedf5ad610d5dc555be12b0726bb6be7819ed39e134fdc4da570d982611f9d1",
+                "fps": "cd593f195818be71a4598c9b9283463f7f99c7d7ae0aa5ae4b4984fdf29ce831",
+                "gt_frames": "0ac62a79295427e36df31ce5ccd35c530c1481714f1bfe4b37cd67322af7dc5d",
+                "padding_mask": "202bf12ec9bda81a368f0e01f537a48bad62652ea021fc337cb66397260f99e3",
+                "timesteps_B_T": "9b344ca39e49b9434fceec8a858884ce3d33404a6b177acb11f09fa86879ac73",
+                "use_video_condition": "47f816d59c2ae47e93af510345e1da35231e414869c1e62affbb57920a99ea67",
+                "x_B_C_T_H_W": "da2e51a0ebf5c64da38dd6813cf985b3fd6c90d7916b8cb0f079cdf1b900c631"
+              }
+            }
+          ],
+          "teacher": [
+            {
+              "args": [],
+              "kwargs": {
+                "condition_video_input_mask_B_C_T_H_W": "eba2a627d3afd9e290456284380366b2fe6b0727131b74acec82320d73bcf5e1",
+                "crossattn_emb": "c22631c018fd8bfeb3b83192dfbe5217aa2db2a5a3c00b721ea737dff41168f2",
+                "data_type": "9cedf5ad610d5dc555be12b0726bb6be7819ed39e134fdc4da570d982611f9d1",
+                "fps": "cd593f195818be71a4598c9b9283463f7f99c7d7ae0aa5ae4b4984fdf29ce831",
+                "gt_frames": "48275c4c4f9f9865dd474a9ec55072f6af8b83d4e129d603ff0d40e36e665f07",
+                "padding_mask": "202bf12ec9bda81a368f0e01f537a48bad62652ea021fc337cb66397260f99e3",
+                "timesteps_B_T": "9b344ca39e49b9434fceec8a858884ce3d33404a6b177acb11f09fa86879ac73",
+                "use_video_condition": "47f816d59c2ae47e93af510345e1da35231e414869c1e62affbb57920a99ea67",
+                "x_B_C_T_H_W": "da2e51a0ebf5c64da38dd6813cf985b3fd6c90d7916b8cb0f079cdf1b900c631"
+              }
+            },
+            {
+              "args": [],
+              "kwargs": {
+                "condition_video_input_mask_B_C_T_H_W": "eba2a627d3afd9e290456284380366b2fe6b0727131b74acec82320d73bcf5e1",
+                "crossattn_emb": "0887d6434b1e7188b2d1d15101638a4d962209ddaff177dc08f6cafbdb49b253",
+                "data_type": "9cedf5ad610d5dc555be12b0726bb6be7819ed39e134fdc4da570d982611f9d1",
+                "fps": "cd593f195818be71a4598c9b9283463f7f99c7d7ae0aa5ae4b4984fdf29ce831",
+                "gt_frames": "48275c4c4f9f9865dd474a9ec55072f6af8b83d4e129d603ff0d40e36e665f07",
+                "padding_mask": "202bf12ec9bda81a368f0e01f537a48bad62652ea021fc337cb66397260f99e3",
+                "timesteps_B_T": "9b344ca39e49b9434fceec8a858884ce3d33404a6b177acb11f09fa86879ac73",
+                "use_video_condition": "47f816d59c2ae47e93af510345e1da35231e414869c1e62affbb57920a99ea67",
+                "x_B_C_T_H_W": "da2e51a0ebf5c64da38dd6813cf985b3fd6c90d7916b8cb0f079cdf1b900c631"
+              }
+            }
+          ]
+        },
+        "outputs": {
+          "equal": true,
+          "old": [
+            "8ba3ba855d6e07b6d63e27c4693ced7cbb7f7d44cb2476fa9b8ec1c198098696",
+            "c0ec33f3daaeb6b7b0874f934ee14052fb1637024d2be46b0f1145a8ad3e5daa"
+          ],
+          "teacher": [
+            "8ba3ba855d6e07b6d63e27c4693ced7cbb7f7d44cb2476fa9b8ec1c198098696",
+            "c0ec33f3daaeb6b7b0874f934ee14052fb1637024d2be46b0f1145a8ad3e5daa"
+          ]
+        },
+        "deep": {
+          "equal": true,
+          "old": [
+            0,
+            26
+          ],
+          "teacher": [
+            0,
+            26
+          ]
+        },
+        "banks": {
+          "equal": true,
+          "old": [
+            "6cf5c0810c57f6659683ffad9cbef84def7b5072a43e773ee70c7702a4e465b0",
+            "14a15383e5a963001210e3c8a2eaad4cafe8194f1cfb292e1ff13e6384e5963f"
+          ],
+          "teacher": [
+            "6cf5c0810c57f6659683ffad9cbef84def7b5072a43e773ee70c7702a4e465b0",
+            "14a15383e5a963001210e3c8a2eaad4cafe8194f1cfb292e1ff13e6384e5963f"
+          ]
+        }
+      },
+      "all_recorded_trace_fields_equal": false
+    },
+    {
+      "arm": "CFG1",
+      "repeat": "first",
+      "calls": [
+        45,
+        46
+      ],
+      "teacher_origin": "S22",
+      "teacher_cell": "CD",
+      "fields": {
+        "inputs": {
+          "equal": false,
+          "old": [
+            {
+              "args": [],
+              "kwargs": {
+                "condition_video_input_mask_B_C_T_H_W": "eba2a627d3afd9e290456284380366b2fe6b0727131b74acec82320d73bcf5e1",
+                "crossattn_emb": "c22631c018fd8bfeb3b83192dfbe5217aa2db2a5a3c00b721ea737dff41168f2",
+                "data_type": "9cedf5ad610d5dc555be12b0726bb6be7819ed39e134fdc4da570d982611f9d1",
+                "fps": "cd593f195818be71a4598c9b9283463f7f99c7d7ae0aa5ae4b4984fdf29ce831",
+                "gt_frames": "0ac62a79295427e36df31ce5ccd35c530c1481714f1bfe4b37cd67322af7dc5d",
+                "padding_mask": "202bf12ec9bda81a368f0e01f537a48bad62652ea021fc337cb66397260f99e3",
+                "timesteps_B_T": "d23290aea0f4a3a7d9fbd262249eca620415e35e8d8432c89f67649b11341dda",
+                "use_video_condition": "47f816d59c2ae47e93af510345e1da35231e414869c1e62affbb57920a99ea67",
+                "x_B_C_T_H_W": "d5c9816b590d74553b3860aa3fd5acc5ba479362911de5a03552491d3271c0b9"
+              }
+            },
+            {
+              "args": [],
+              "kwargs": {
+                "condition_video_input_mask_B_C_T_H_W": "eba2a627d3afd9e290456284380366b2fe6b0727131b74acec82320d73bcf5e1",
+                "crossattn_emb": "0887d6434b1e7188b2d1d15101638a4d962209ddaff177dc08f6cafbdb49b253",
+                "data_type": "9cedf5ad610d5dc555be12b0726bb6be7819ed39e134fdc4da570d982611f9d1",
+                "fps": "cd593f195818be71a4598c9b9283463f7f99c7d7ae0aa5ae4b4984fdf29ce831",
+                "gt_frames": "0ac62a79295427e36df31ce5ccd35c530c1481714f1bfe4b37cd67322af7dc5d",
+                "padding_mask": "202bf12ec9bda81a368f0e01f537a48bad62652ea021fc337cb66397260f99e3",
+                "timesteps_B_T": "d23290aea0f4a3a7d9fbd262249eca620415e35e8d8432c89f67649b11341dda",
+                "use_video_condition": "47f816d59c2ae47e93af510345e1da35231e414869c1e62affbb57920a99ea67",
+                "x_B_C_T_H_W": "d5c9816b590d74553b3860aa3fd5acc5ba479362911de5a03552491d3271c0b9"
+              }
+            }
+          ],
+          "teacher": [
+            {
+              "args": [],
+              "kwargs": {
+                "condition_video_input_mask_B_C_T_H_W": "eba2a627d3afd9e290456284380366b2fe6b0727131b74acec82320d73bcf5e1",
+                "crossattn_emb": "c22631c018fd8bfeb3b83192dfbe5217aa2db2a5a3c00b721ea737dff41168f2",
+                "data_type": "9cedf5ad610d5dc555be12b0726bb6be7819ed39e134fdc4da570d982611f9d1",
+                "fps": "cd593f195818be71a4598c9b9283463f7f99c7d7ae0aa5ae4b4984fdf29ce831",
+                "gt_frames": "48275c4c4f9f9865dd474a9ec55072f6af8b83d4e129d603ff0d40e36e665f07",
+                "padding_mask": "202bf12ec9bda81a368f0e01f537a48bad62652ea021fc337cb66397260f99e3",
+                "timesteps_B_T": "d23290aea0f4a3a7d9fbd262249eca620415e35e8d8432c89f67649b11341dda",
+                "use_video_condition": "47f816d59c2ae47e93af510345e1da35231e414869c1e62affbb57920a99ea67",
+                "x_B_C_T_H_W": "d5c9816b590d74553b3860aa3fd5acc5ba479362911de5a03552491d3271c0b9"
+              }
+            },
+            {
+              "args": [],
+              "kwargs": {
+                "condition_video_input_mask_B_C_T_H_W": "eba2a627d3afd9e290456284380366b2fe6b0727131b74acec82320d73bcf5e1",
+                "crossattn_emb": "0887d6434b1e7188b2d1d15101638a4d962209ddaff177dc08f6cafbdb49b253",
+                "data_type": "9cedf5ad610d5dc555be12b0726bb6be7819ed39e134fdc4da570d982611f9d1",
+                "fps": "cd593f195818be71a4598c9b9283463f7f99c7d7ae0aa5ae4b4984fdf29ce831",
+                "gt_frames": "48275c4c4f9f9865dd474a9ec55072f6af8b83d4e129d603ff0d40e36e665f07",
+                "padding_mask": "202bf12ec9bda81a368f0e01f537a48bad62652ea021fc337cb66397260f99e3",
+                "timesteps_B_T": "d23290aea0f4a3a7d9fbd262249eca620415e35e8d8432c89f67649b11341dda",
+                "use_video_condition": "47f816d59c2ae47e93af510345e1da35231e414869c1e62affbb57920a99ea67",
+                "x_B_C_T_H_W": "d5c9816b590d74553b3860aa3fd5acc5ba479362911de5a03552491d3271c0b9"
+              }
+            }
+          ]
+        },
+        "outputs": {
+          "equal": true,
+          "old": [
+            "5abf342d32b8c703f19c3e3221c058f7acd6dff0e1370c69a4d9fc4b9440496d",
+            "d5b13360ad311badc7f3e1f473ab7f40206d58ee01cc74fed150ee6375cc43a3"
+          ],
+          "teacher": [
+            "5abf342d32b8c703f19c3e3221c058f7acd6dff0e1370c69a4d9fc4b9440496d",
+            "d5b13360ad311badc7f3e1f473ab7f40206d58ee01cc74fed150ee6375cc43a3"
+          ]
+        },
+        "deep": {
+          "equal": true,
+          "old": [
+            0,
+            26
+          ],
+          "teacher": [
+            0,
+            26
+          ]
+        },
+        "banks": {
+          "equal": true,
+          "old": [
+            "5c9738d440166739e5c23379d1bc85fc9ed54e4e6130908e498ab939539ce503",
+            "e326f10f774046dfc4c58756e7f2d3df3369a3042f7cffe24815e5dcc1b695c6"
+          ],
+          "teacher": [
+            "5c9738d440166739e5c23379d1bc85fc9ed54e4e6130908e498ab939539ce503",
+            "e326f10f774046dfc4c58756e7f2d3df3369a3042f7cffe24815e5dcc1b695c6"
+          ]
+        }
+      },
+      "all_recorded_trace_fields_equal": false
+    },
+    {
+      "arm": "CFG1",
+      "repeat": "first",
+      "calls": [
+        47,
+        48
+      ],
+      "teacher_origin": "S23_after_CD",
+      "teacher_cell": "DC",
+      "fields": {
+        "inputs": {
+          "equal": false,
+          "old": [
+            {
+              "args": [],
+              "kwargs": {
+                "condition_video_input_mask_B_C_T_H_W": "eba2a627d3afd9e290456284380366b2fe6b0727131b74acec82320d73bcf5e1",
+                "crossattn_emb": "c22631c018fd8bfeb3b83192dfbe5217aa2db2a5a3c00b721ea737dff41168f2",
+                "data_type": "9cedf5ad610d5dc555be12b0726bb6be7819ed39e134fdc4da570d982611f9d1",
+                "fps": "cd593f195818be71a4598c9b9283463f7f99c7d7ae0aa5ae4b4984fdf29ce831",
+                "gt_frames": "0ac62a79295427e36df31ce5ccd35c530c1481714f1bfe4b37cd67322af7dc5d",
+                "padding_mask": "202bf12ec9bda81a368f0e01f537a48bad62652ea021fc337cb66397260f99e3",
+                "timesteps_B_T": "9b344ca39e49b9434fceec8a858884ce3d33404a6b177acb11f09fa86879ac73",
+                "use_video_condition": "47f816d59c2ae47e93af510345e1da35231e414869c1e62affbb57920a99ea67",
+                "x_B_C_T_H_W": "a75a8ce341bfd679ddf37a5fd71172baad2e7ae74571107ed624acfe54dd15dd"
+              }
+            },
+            {
+              "args": [],
+              "kwargs": {
+                "condition_video_input_mask_B_C_T_H_W": "eba2a627d3afd9e290456284380366b2fe6b0727131b74acec82320d73bcf5e1",
+                "crossattn_emb": "0887d6434b1e7188b2d1d15101638a4d962209ddaff177dc08f6cafbdb49b253",
+                "data_type": "9cedf5ad610d5dc555be12b0726bb6be7819ed39e134fdc4da570d982611f9d1",
+                "fps": "cd593f195818be71a4598c9b9283463f7f99c7d7ae0aa5ae4b4984fdf29ce831",
+                "gt_frames": "0ac62a79295427e36df31ce5ccd35c530c1481714f1bfe4b37cd67322af7dc5d",
+                "padding_mask": "202bf12ec9bda81a368f0e01f537a48bad62652ea021fc337cb66397260f99e3",
+                "timesteps_B_T": "9b344ca39e49b9434fceec8a858884ce3d33404a6b177acb11f09fa86879ac73",
+                "use_video_condition": "47f816d59c2ae47e93af510345e1da35231e414869c1e62affbb57920a99ea67",
+                "x_B_C_T_H_W": "a75a8ce341bfd679ddf37a5fd71172baad2e7ae74571107ed624acfe54dd15dd"
+              }
+            }
+          ],
+          "teacher": [
+            {
+              "args": [],
+              "kwargs": {
+                "condition_video_input_mask_B_C_T_H_W": "eba2a627d3afd9e290456284380366b2fe6b0727131b74acec82320d73bcf5e1",
+                "crossattn_emb": "c22631c018fd8bfeb3b83192dfbe5217aa2db2a5a3c00b721ea737dff41168f2",
+                "data_type": "9cedf5ad610d5dc555be12b0726bb6be7819ed39e134fdc4da570d982611f9d1",
+                "fps": "cd593f195818be71a4598c9b9283463f7f99c7d7ae0aa5ae4b4984fdf29ce831",
+                "gt_frames": "48275c4c4f9f9865dd474a9ec55072f6af8b83d4e129d603ff0d40e36e665f07",
+                "padding_mask": "202bf12ec9bda81a368f0e01f537a48bad62652ea021fc337cb66397260f99e3",
+                "timesteps_B_T": "9b344ca39e49b9434fceec8a858884ce3d33404a6b177acb11f09fa86879ac73",
+                "use_video_condition": "47f816d59c2ae47e93af510345e1da35231e414869c1e62affbb57920a99ea67",
+                "x_B_C_T_H_W": "a75a8ce341bfd679ddf37a5fd71172baad2e7ae74571107ed624acfe54dd15dd"
+              }
+            },
+            {
+              "args": [],
+              "kwargs": {
+                "condition_video_input_mask_B_C_T_H_W": "eba2a627d3afd9e290456284380366b2fe6b0727131b74acec82320d73bcf5e1",
+                "crossattn_emb": "0887d6434b1e7188b2d1d15101638a4d962209ddaff177dc08f6cafbdb49b253",
+                "data_type": "9cedf5ad610d5dc555be12b0726bb6be7819ed39e134fdc4da570d982611f9d1",
+                "fps": "cd593f195818be71a4598c9b9283463f7f99c7d7ae0aa5ae4b4984fdf29ce831",
+                "gt_frames": "48275c4c4f9f9865dd474a9ec55072f6af8b83d4e129d603ff0d40e36e665f07",
+                "padding_mask": "202bf12ec9bda81a368f0e01f537a48bad62652ea021fc337cb66397260f99e3",
+                "timesteps_B_T": "9b344ca39e49b9434fceec8a858884ce3d33404a6b177acb11f09fa86879ac73",
+                "use_video_condition": "47f816d59c2ae47e93af510345e1da35231e414869c1e62affbb57920a99ea67",
+                "x_B_C_T_H_W": "a75a8ce341bfd679ddf37a5fd71172baad2e7ae74571107ed624acfe54dd15dd"
+              }
+            }
+          ]
+        },
+        "outputs": {
+          "equal": true,
+          "old": [
+            "2d73ce053ab5e0403fd555cb2fb9af8be6a83654bf60d80e9bfb9ab4ebba59e9",
+            "a6e79e0cf5e1fca4f25765dbafd92c539f8119d94ae2328f0e4b2ac5904034f2"
+          ],
+          "teacher": [
+            "2d73ce053ab5e0403fd555cb2fb9af8be6a83654bf60d80e9bfb9ab4ebba59e9",
+            "a6e79e0cf5e1fca4f25765dbafd92c539f8119d94ae2328f0e4b2ac5904034f2"
+          ]
+        },
+        "deep": {
+          "equal": true,
+          "old": [
+            26,
+            0
+          ],
+          "teacher": [
+            26,
+            0
+          ]
+        },
+        "banks": {
+          "equal": true,
+          "old": [
+            "9a442ede4ed94db6d03089bb5483ba9fd4b7133427c02bc73db6d7afe3761181",
+            "9c17d9cfabd5f96c9e588cd23f882b1dacfc770c0747b8ed4dc91393e9be394f"
+          ],
+          "teacher": [
+            "9a442ede4ed94db6d03089bb5483ba9fd4b7133427c02bc73db6d7afe3761181",
+            "9c17d9cfabd5f96c9e588cd23f882b1dacfc770c0747b8ed4dc91393e9be394f"
+          ]
+        }
+      },
+      "all_recorded_trace_fields_equal": false
+    },
+    {
+      "arm": "CFG1",
+      "repeat": "second",
+      "calls": [
+        45,
+        46
+      ],
+      "teacher_origin": "S22",
+      "teacher_cell": "CD",
+      "fields": {
+        "inputs": {
+          "equal": false,
+          "old": [
+            {
+              "args": [],
+              "kwargs": {
+                "condition_video_input_mask_B_C_T_H_W": "eba2a627d3afd9e290456284380366b2fe6b0727131b74acec82320d73bcf5e1",
+                "crossattn_emb": "c22631c018fd8bfeb3b83192dfbe5217aa2db2a5a3c00b721ea737dff41168f2",
+                "data_type": "9cedf5ad610d5dc555be12b0726bb6be7819ed39e134fdc4da570d982611f9d1",
+                "fps": "cd593f195818be71a4598c9b9283463f7f99c7d7ae0aa5ae4b4984fdf29ce831",
+                "gt_frames": "0ac62a79295427e36df31ce5ccd35c530c1481714f1bfe4b37cd67322af7dc5d",
+                "padding_mask": "202bf12ec9bda81a368f0e01f537a48bad62652ea021fc337cb66397260f99e3",
+                "timesteps_B_T": "d23290aea0f4a3a7d9fbd262249eca620415e35e8d8432c89f67649b11341dda",
+                "use_video_condition": "47f816d59c2ae47e93af510345e1da35231e414869c1e62affbb57920a99ea67",
+                "x_B_C_T_H_W": "d5c9816b590d74553b3860aa3fd5acc5ba479362911de5a03552491d3271c0b9"
+              }
+            },
+            {
+              "args": [],
+              "kwargs": {
+                "condition_video_input_mask_B_C_T_H_W": "eba2a627d3afd9e290456284380366b2fe6b0727131b74acec82320d73bcf5e1",
+                "crossattn_emb": "0887d6434b1e7188b2d1d15101638a4d962209ddaff177dc08f6cafbdb49b253",
+                "data_type": "9cedf5ad610d5dc555be12b0726bb6be7819ed39e134fdc4da570d982611f9d1",
+                "fps": "cd593f195818be71a4598c9b9283463f7f99c7d7ae0aa5ae4b4984fdf29ce831",
+                "gt_frames": "0ac62a79295427e36df31ce5ccd35c530c1481714f1bfe4b37cd67322af7dc5d",
+                "padding_mask": "202bf12ec9bda81a368f0e01f537a48bad62652ea021fc337cb66397260f99e3",
+                "timesteps_B_T": "d23290aea0f4a3a7d9fbd262249eca620415e35e8d8432c89f67649b11341dda",
+                "use_video_condition": "47f816d59c2ae47e93af510345e1da35231e414869c1e62affbb57920a99ea67",
+                "x_B_C_T_H_W": "d5c9816b590d74553b3860aa3fd5acc5ba479362911de5a03552491d3271c0b9"
+              }
+            }
+          ],
+          "teacher": [
+            {
+              "args": [],
+              "kwargs": {
+                "condition_video_input_mask_B_C_T_H_W": "eba2a627d3afd9e290456284380366b2fe6b0727131b74acec82320d73bcf5e1",
+                "crossattn_emb": "c22631c018fd8bfeb3b83192dfbe5217aa2db2a5a3c00b721ea737dff41168f2",
+                "data_type": "9cedf5ad610d5dc555be12b0726bb6be7819ed39e134fdc4da570d982611f9d1",
+                "fps": "cd593f195818be71a4598c9b9283463f7f99c7d7ae0aa5ae4b4984fdf29ce831",
+                "gt_frames": "48275c4c4f9f9865dd474a9ec55072f6af8b83d4e129d603ff0d40e36e665f07",
+                "padding_mask": "202bf12ec9bda81a368f0e01f537a48bad62652ea021fc337cb66397260f99e3",
+                "timesteps_B_T": "d23290aea0f4a3a7d9fbd262249eca620415e35e8d8432c89f67649b11341dda",
+                "use_video_condition": "47f816d59c2ae47e93af510345e1da35231e414869c1e62affbb57920a99ea67",
+                "x_B_C_T_H_W": "d5c9816b590d74553b3860aa3fd5acc5ba479362911de5a03552491d3271c0b9"
+              }
+            },
+            {
+              "args": [],
+              "kwargs": {
+                "condition_video_input_mask_B_C_T_H_W": "eba2a627d3afd9e290456284380366b2fe6b0727131b74acec82320d73bcf5e1",
+                "crossattn_emb": "0887d6434b1e7188b2d1d15101638a4d962209ddaff177dc08f6cafbdb49b253",
+                "data_type": "9cedf5ad610d5dc555be12b0726bb6be7819ed39e134fdc4da570d982611f9d1",
+                "fps": "cd593f195818be71a4598c9b9283463f7f99c7d7ae0aa5ae4b4984fdf29ce831",
+                "gt_frames": "48275c4c4f9f9865dd474a9ec55072f6af8b83d4e129d603ff0d40e36e665f07",
+                "padding_mask": "202bf12ec9bda81a368f0e01f537a48bad62652ea021fc337cb66397260f99e3",
+                "timesteps_B_T": "d23290aea0f4a3a7d9fbd262249eca620415e35e8d8432c89f67649b11341dda",
+                "use_video_condition": "47f816d59c2ae47e93af510345e1da35231e414869c1e62affbb57920a99ea67",
+                "x_B_C_T_H_W": "d5c9816b590d74553b3860aa3fd5acc5ba479362911de5a03552491d3271c0b9"
+              }
+            }
+          ]
+        },
+        "outputs": {
+          "equal": true,
+          "old": [
+            "5abf342d32b8c703f19c3e3221c058f7acd6dff0e1370c69a4d9fc4b9440496d",
+            "d5b13360ad311badc7f3e1f473ab7f40206d58ee01cc74fed150ee6375cc43a3"
+          ],
+          "teacher": [
+            "5abf342d32b8c703f19c3e3221c058f7acd6dff0e1370c69a4d9fc4b9440496d",
+            "d5b13360ad311badc7f3e1f473ab7f40206d58ee01cc74fed150ee6375cc43a3"
+          ]
+        },
+        "deep": {
+          "equal": true,
+          "old": [
+            0,
+            26
+          ],
+          "teacher": [
+            0,
+            26
+          ]
+        },
+        "banks": {
+          "equal": true,
+          "old": [
+            "5c9738d440166739e5c23379d1bc85fc9ed54e4e6130908e498ab939539ce503",
+            "e326f10f774046dfc4c58756e7f2d3df3369a3042f7cffe24815e5dcc1b695c6"
+          ],
+          "teacher": [
+            "5c9738d440166739e5c23379d1bc85fc9ed54e4e6130908e498ab939539ce503",
+            "e326f10f774046dfc4c58756e7f2d3df3369a3042f7cffe24815e5dcc1b695c6"
+          ]
+        }
+      },
+      "all_recorded_trace_fields_equal": false
+    },
+    {
+      "arm": "CFG1",
+      "repeat": "second",
+      "calls": [
+        47,
+        48
+      ],
+      "teacher_origin": "S23_after_CD",
+      "teacher_cell": "DC",
+      "fields": {
+        "inputs": {
+          "equal": false,
+          "old": [
+            {
+              "args": [],
+              "kwargs": {
+                "condition_video_input_mask_B_C_T_H_W": "eba2a627d3afd9e290456284380366b2fe6b0727131b74acec82320d73bcf5e1",
+                "crossattn_emb": "c22631c018fd8bfeb3b83192dfbe5217aa2db2a5a3c00b721ea737dff41168f2",
+                "data_type": "9cedf5ad610d5dc555be12b0726bb6be7819ed39e134fdc4da570d982611f9d1",
+                "fps": "cd593f195818be71a4598c9b9283463f7f99c7d7ae0aa5ae4b4984fdf29ce831",
+                "gt_frames": "0ac62a79295427e36df31ce5ccd35c530c1481714f1bfe4b37cd67322af7dc5d",
+                "padding_mask": "202bf12ec9bda81a368f0e01f537a48bad62652ea021fc337cb66397260f99e3",
+                "timesteps_B_T": "9b344ca39e49b9434fceec8a858884ce3d33404a6b177acb11f09fa86879ac73",
+                "use_video_condition": "47f816d59c2ae47e93af510345e1da35231e414869c1e62affbb57920a99ea67",
+                "x_B_C_T_H_W": "a75a8ce341bfd679ddf37a5fd71172baad2e7ae74571107ed624acfe54dd15dd"
+              }
+            },
+            {
+              "args": [],
+              "kwargs": {
+                "condition_video_input_mask_B_C_T_H_W": "eba2a627d3afd9e290456284380366b2fe6b0727131b74acec82320d73bcf5e1",
+                "crossattn_emb": "0887d6434b1e7188b2d1d15101638a4d962209ddaff177dc08f6cafbdb49b253",
+                "data_type": "9cedf5ad610d5dc555be12b0726bb6be7819ed39e134fdc4da570d982611f9d1",
+                "fps": "cd593f195818be71a4598c9b9283463f7f99c7d7ae0aa5ae4b4984fdf29ce831",
+                "gt_frames": "0ac62a79295427e36df31ce5ccd35c530c1481714f1bfe4b37cd67322af7dc5d",
+                "padding_mask": "202bf12ec9bda81a368f0e01f537a48bad62652ea021fc337cb66397260f99e3",
+                "timesteps_B_T": "9b344ca39e49b9434fceec8a858884ce3d33404a6b177acb11f09fa86879ac73",
+                "use_video_condition": "47f816d59c2ae47e93af510345e1da35231e414869c1e62affbb57920a99ea67",
+                "x_B_C_T_H_W": "a75a8ce341bfd679ddf37a5fd71172baad2e7ae74571107ed624acfe54dd15dd"
+              }
+            }
+          ],
+          "teacher": [
+            {
+              "args": [],
+              "kwargs": {
+                "condition_video_input_mask_B_C_T_H_W": "eba2a627d3afd9e290456284380366b2fe6b0727131b74acec82320d73bcf5e1",
+                "crossattn_emb": "c22631c018fd8bfeb3b83192dfbe5217aa2db2a5a3c00b721ea737dff41168f2",
+                "data_type": "9cedf5ad610d5dc555be12b0726bb6be7819ed39e134fdc4da570d982611f9d1",
+                "fps": "cd593f195818be71a4598c9b9283463f7f99c7d7ae0aa5ae4b4984fdf29ce831",
+                "gt_frames": "48275c4c4f9f9865dd474a9ec55072f6af8b83d4e129d603ff0d40e36e665f07",
+                "padding_mask": "202bf12ec9bda81a368f0e01f537a48bad62652ea021fc337cb66397260f99e3",
+                "timesteps_B_T": "9b344ca39e49b9434fceec8a858884ce3d33404a6b177acb11f09fa86879ac73",
+                "use_video_condition": "47f816d59c2ae47e93af510345e1da35231e414869c1e62affbb57920a99ea67",
+                "x_B_C_T_H_W": "a75a8ce341bfd679ddf37a5fd71172baad2e7ae74571107ed624acfe54dd15dd"
+              }
+            },
+            {
+              "args": [],
+              "kwargs": {
+                "condition_video_input_mask_B_C_T_H_W": "eba2a627d3afd9e290456284380366b2fe6b0727131b74acec82320d73bcf5e1",
+                "crossattn_emb": "0887d6434b1e7188b2d1d15101638a4d962209ddaff177dc08f6cafbdb49b253",
+                "data_type": "9cedf5ad610d5dc555be12b0726bb6be7819ed39e134fdc4da570d982611f9d1",
+                "fps": "cd593f195818be71a4598c9b9283463f7f99c7d7ae0aa5ae4b4984fdf29ce831",
+                "gt_frames": "48275c4c4f9f9865dd474a9ec55072f6af8b83d4e129d603ff0d40e36e665f07",
+                "padding_mask": "202bf12ec9bda81a368f0e01f537a48bad62652ea021fc337cb66397260f99e3",
+                "timesteps_B_T": "9b344ca39e49b9434fceec8a858884ce3d33404a6b177acb11f09fa86879ac73",
+                "use_video_condition": "47f816d59c2ae47e93af510345e1da35231e414869c1e62affbb57920a99ea67",
+                "x_B_C_T_H_W": "a75a8ce341bfd679ddf37a5fd71172baad2e7ae74571107ed624acfe54dd15dd"
+              }
+            }
+          ]
+        },
+        "outputs": {
+          "equal": true,
+          "old": [
+            "2d73ce053ab5e0403fd555cb2fb9af8be6a83654bf60d80e9bfb9ab4ebba59e9",
+            "a6e79e0cf5e1fca4f25765dbafd92c539f8119d94ae2328f0e4b2ac5904034f2"
+          ],
+          "teacher": [
+            "2d73ce053ab5e0403fd555cb2fb9af8be6a83654bf60d80e9bfb9ab4ebba59e9",
+            "a6e79e0cf5e1fca4f25765dbafd92c539f8119d94ae2328f0e4b2ac5904034f2"
+          ]
+        },
+        "deep": {
+          "equal": true,
+          "old": [
+            26,
+            0
+          ],
+          "teacher": [
+            26,
+            0
+          ]
+        },
+        "banks": {
+          "equal": true,
+          "old": [
+            "9a442ede4ed94db6d03089bb5483ba9fd4b7133427c02bc73db6d7afe3761181",
+            "9c17d9cfabd5f96c9e588cd23f882b1dacfc770c0747b8ed4dc91393e9be394f"
+          ],
+          "teacher": [
+            "9a442ede4ed94db6d03089bb5483ba9fd4b7133427c02bc73db6d7afe3761181",
+            "9c17d9cfabd5f96c9e588cd23f882b1dacfc770c0747b8ed4dc91393e9be394f"
+          ]
+        }
+      },
+      "all_recorded_trace_fields_equal": false
+    },
+    {
+      "arm": "PAIRED",
+      "repeat": "first",
+      "calls": [
+        45,
+        46
+      ],
+      "teacher_origin": "S22",
+      "teacher_cell": "DD",
+      "fields": {
+        "inputs": {
+          "equal": false,
+          "old": [
+            {
+              "args": [],
+              "kwargs": {
+                "condition_video_input_mask_B_C_T_H_W": "eba2a627d3afd9e290456284380366b2fe6b0727131b74acec82320d73bcf5e1",
+                "crossattn_emb": "c22631c018fd8bfeb3b83192dfbe5217aa2db2a5a3c00b721ea737dff41168f2",
+                "data_type": "9cedf5ad610d5dc555be12b0726bb6be7819ed39e134fdc4da570d982611f9d1",
+                "fps": "cd593f195818be71a4598c9b9283463f7f99c7d7ae0aa5ae4b4984fdf29ce831",
+                "gt_frames": "0ac62a79295427e36df31ce5ccd35c530c1481714f1bfe4b37cd67322af7dc5d",
+                "padding_mask": "202bf12ec9bda81a368f0e01f537a48bad62652ea021fc337cb66397260f99e3",
+                "timesteps_B_T": "d23290aea0f4a3a7d9fbd262249eca620415e35e8d8432c89f67649b11341dda",
+                "use_video_condition": "47f816d59c2ae47e93af510345e1da35231e414869c1e62affbb57920a99ea67",
+                "x_B_C_T_H_W": "d5c9816b590d74553b3860aa3fd5acc5ba479362911de5a03552491d3271c0b9"
+              }
+            },
+            {
+              "args": [],
+              "kwargs": {
+                "condition_video_input_mask_B_C_T_H_W": "eba2a627d3afd9e290456284380366b2fe6b0727131b74acec82320d73bcf5e1",
+                "crossattn_emb": "0887d6434b1e7188b2d1d15101638a4d962209ddaff177dc08f6cafbdb49b253",
+                "data_type": "9cedf5ad610d5dc555be12b0726bb6be7819ed39e134fdc4da570d982611f9d1",
+                "fps": "cd593f195818be71a4598c9b9283463f7f99c7d7ae0aa5ae4b4984fdf29ce831",
+                "gt_frames": "0ac62a79295427e36df31ce5ccd35c530c1481714f1bfe4b37cd67322af7dc5d",
+                "padding_mask": "202bf12ec9bda81a368f0e01f537a48bad62652ea021fc337cb66397260f99e3",
+                "timesteps_B_T": "d23290aea0f4a3a7d9fbd262249eca620415e35e8d8432c89f67649b11341dda",
+                "use_video_condition": "47f816d59c2ae47e93af510345e1da35231e414869c1e62affbb57920a99ea67",
+                "x_B_C_T_H_W": "d5c9816b590d74553b3860aa3fd5acc5ba479362911de5a03552491d3271c0b9"
+              }
+            }
+          ],
+          "teacher": [
+            {
+              "args": [],
+              "kwargs": {
+                "condition_video_input_mask_B_C_T_H_W": "eba2a627d3afd9e290456284380366b2fe6b0727131b74acec82320d73bcf5e1",
+                "crossattn_emb": "c22631c018fd8bfeb3b83192dfbe5217aa2db2a5a3c00b721ea737dff41168f2",
+                "data_type": "9cedf5ad610d5dc555be12b0726bb6be7819ed39e134fdc4da570d982611f9d1",
+                "fps": "cd593f195818be71a4598c9b9283463f7f99c7d7ae0aa5ae4b4984fdf29ce831",
+                "gt_frames": "48275c4c4f9f9865dd474a9ec55072f6af8b83d4e129d603ff0d40e36e665f07",
+                "padding_mask": "202bf12ec9bda81a368f0e01f537a48bad62652ea021fc337cb66397260f99e3",
+                "timesteps_B_T": "d23290aea0f4a3a7d9fbd262249eca620415e35e8d8432c89f67649b11341dda",
+                "use_video_condition": "47f816d59c2ae47e93af510345e1da35231e414869c1e62affbb57920a99ea67",
+                "x_B_C_T_H_W": "d5c9816b590d74553b3860aa3fd5acc5ba479362911de5a03552491d3271c0b9"
+              }
+            },
+            {
+              "args": [],
+              "kwargs": {
+                "condition_video_input_mask_B_C_T_H_W": "eba2a627d3afd9e290456284380366b2fe6b0727131b74acec82320d73bcf5e1",
+                "crossattn_emb": "0887d6434b1e7188b2d1d15101638a4d962209ddaff177dc08f6cafbdb49b253",
+                "data_type": "9cedf5ad610d5dc555be12b0726bb6be7819ed39e134fdc4da570d982611f9d1",
+                "fps": "cd593f195818be71a4598c9b9283463f7f99c7d7ae0aa5ae4b4984fdf29ce831",
+                "gt_frames": "48275c4c4f9f9865dd474a9ec55072f6af8b83d4e129d603ff0d40e36e665f07",
+                "padding_mask": "202bf12ec9bda81a368f0e01f537a48bad62652ea021fc337cb66397260f99e3",
+                "timesteps_B_T": "d23290aea0f4a3a7d9fbd262249eca620415e35e8d8432c89f67649b11341dda",
+                "use_video_condition": "47f816d59c2ae47e93af510345e1da35231e414869c1e62affbb57920a99ea67",
+                "x_B_C_T_H_W": "d5c9816b590d74553b3860aa3fd5acc5ba479362911de5a03552491d3271c0b9"
+              }
+            }
+          ]
+        },
+        "outputs": {
+          "equal": true,
+          "old": [
+            "d1203b42f85718b8aa5f7f72d816f9c08cc269b517ac0a41e1b9018a6785bab0",
+            "d5b13360ad311badc7f3e1f473ab7f40206d58ee01cc74fed150ee6375cc43a3"
+          ],
+          "teacher": [
+            "d1203b42f85718b8aa5f7f72d816f9c08cc269b517ac0a41e1b9018a6785bab0",
+            "d5b13360ad311badc7f3e1f473ab7f40206d58ee01cc74fed150ee6375cc43a3"
+          ]
+        },
+        "deep": {
+          "equal": true,
+          "old": [
+            26,
+            26
+          ],
+          "teacher": [
+            26,
+            26
+          ]
+        },
+        "banks": {
+          "equal": true,
+          "old": [
+            "92a5287370d3f7b56cb6261c37a98e30a9b84c8e2c238ab005680b4e0abad176",
+            "e6bf55b1102b6b070d1a29fc94507ad7e650070e2ca30bd9dd0f6234e746c309"
+          ],
+          "teacher": [
+            "92a5287370d3f7b56cb6261c37a98e30a9b84c8e2c238ab005680b4e0abad176",
+            "e6bf55b1102b6b070d1a29fc94507ad7e650070e2ca30bd9dd0f6234e746c309"
+          ]
+        }
+      },
+      "all_recorded_trace_fields_equal": false
+    },
+    {
+      "arm": "PAIRED",
+      "repeat": "first",
+      "calls": [
+        47,
+        48
+      ],
+      "teacher_origin": "S23_after_DD",
+      "teacher_cell": "CC",
+      "fields": {
+        "inputs": {
+          "equal": false,
+          "old": [
+            {
+              "args": [],
+              "kwargs": {
+                "condition_video_input_mask_B_C_T_H_W": "eba2a627d3afd9e290456284380366b2fe6b0727131b74acec82320d73bcf5e1",
+                "crossattn_emb": "c22631c018fd8bfeb3b83192dfbe5217aa2db2a5a3c00b721ea737dff41168f2",
+                "data_type": "9cedf5ad610d5dc555be12b0726bb6be7819ed39e134fdc4da570d982611f9d1",
+                "fps": "cd593f195818be71a4598c9b9283463f7f99c7d7ae0aa5ae4b4984fdf29ce831",
+                "gt_frames": "0ac62a79295427e36df31ce5ccd35c530c1481714f1bfe4b37cd67322af7dc5d",
+                "padding_mask": "202bf12ec9bda81a368f0e01f537a48bad62652ea021fc337cb66397260f99e3",
+                "timesteps_B_T": "9b344ca39e49b9434fceec8a858884ce3d33404a6b177acb11f09fa86879ac73",
+                "use_video_condition": "47f816d59c2ae47e93af510345e1da35231e414869c1e62affbb57920a99ea67",
+                "x_B_C_T_H_W": "d6e773ff6e5508d7e2cd2829fb82cec616f822c210e839e4953e4110a5fb71b0"
+              }
+            },
+            {
+              "args": [],
+              "kwargs": {
+                "condition_video_input_mask_B_C_T_H_W": "eba2a627d3afd9e290456284380366b2fe6b0727131b74acec82320d73bcf5e1",
+                "crossattn_emb": "0887d6434b1e7188b2d1d15101638a4d962209ddaff177dc08f6cafbdb49b253",
+                "data_type": "9cedf5ad610d5dc555be12b0726bb6be7819ed39e134fdc4da570d982611f9d1",
+                "fps": "cd593f195818be71a4598c9b9283463f7f99c7d7ae0aa5ae4b4984fdf29ce831",
+                "gt_frames": "0ac62a79295427e36df31ce5ccd35c530c1481714f1bfe4b37cd67322af7dc5d",
+                "padding_mask": "202bf12ec9bda81a368f0e01f537a48bad62652ea021fc337cb66397260f99e3",
+                "timesteps_B_T": "9b344ca39e49b9434fceec8a858884ce3d33404a6b177acb11f09fa86879ac73",
+                "use_video_condition": "47f816d59c2ae47e93af510345e1da35231e414869c1e62affbb57920a99ea67",
+                "x_B_C_T_H_W": "d6e773ff6e5508d7e2cd2829fb82cec616f822c210e839e4953e4110a5fb71b0"
+              }
+            }
+          ],
+          "teacher": [
+            {
+              "args": [],
+              "kwargs": {
+                "condition_video_input_mask_B_C_T_H_W": "eba2a627d3afd9e290456284380366b2fe6b0727131b74acec82320d73bcf5e1",
+                "crossattn_emb": "c22631c018fd8bfeb3b83192dfbe5217aa2db2a5a3c00b721ea737dff41168f2",
+                "data_type": "9cedf5ad610d5dc555be12b0726bb6be7819ed39e134fdc4da570d982611f9d1",
+                "fps": "cd593f195818be71a4598c9b9283463f7f99c7d7ae0aa5ae4b4984fdf29ce831",
+                "gt_frames": "48275c4c4f9f9865dd474a9ec55072f6af8b83d4e129d603ff0d40e36e665f07",
+                "padding_mask": "202bf12ec9bda81a368f0e01f537a48bad62652ea021fc337cb66397260f99e3",
+                "timesteps_B_T": "9b344ca39e49b9434fceec8a858884ce3d33404a6b177acb11f09fa86879ac73",
+                "use_video_condition": "47f816d59c2ae47e93af510345e1da35231e414869c1e62affbb57920a99ea67",
+                "x_B_C_T_H_W": "d6e773ff6e5508d7e2cd2829fb82cec616f822c210e839e4953e4110a5fb71b0"
+              }
+            },
+            {
+              "args": [],
+              "kwargs": {
+                "condition_video_input_mask_B_C_T_H_W": "eba2a627d3afd9e290456284380366b2fe6b0727131b74acec82320d73bcf5e1",
+                "crossattn_emb": "0887d6434b1e7188b2d1d15101638a4d962209ddaff177dc08f6cafbdb49b253",
+                "data_type": "9cedf5ad610d5dc555be12b0726bb6be7819ed39e134fdc4da570d982611f9d1",
+                "fps": "cd593f195818be71a4598c9b9283463f7f99c7d7ae0aa5ae4b4984fdf29ce831",
+                "gt_frames": "48275c4c4f9f9865dd474a9ec55072f6af8b83d4e129d603ff0d40e36e665f07",
+                "padding_mask": "202bf12ec9bda81a368f0e01f537a48bad62652ea021fc337cb66397260f99e3",
+                "timesteps_B_T": "9b344ca39e49b9434fceec8a858884ce3d33404a6b177acb11f09fa86879ac73",
+                "use_video_condition": "47f816d59c2ae47e93af510345e1da35231e414869c1e62affbb57920a99ea67",
+                "x_B_C_T_H_W": "d6e773ff6e5508d7e2cd2829fb82cec616f822c210e839e4953e4110a5fb71b0"
+              }
+            }
+          ]
+        },
+        "outputs": {
+          "equal": true,
+          "old": [
+            "5ff8b4d647e050b0cc17fb2aab1926b05868e6340d8ecc4fd96fba4071224876",
+            "9d2ce5367f999366b6203873196ebfd2d263c78a3f5d33b907bc043dcde81f66"
+          ],
+          "teacher": [
+            "5ff8b4d647e050b0cc17fb2aab1926b05868e6340d8ecc4fd96fba4071224876",
+            "9d2ce5367f999366b6203873196ebfd2d263c78a3f5d33b907bc043dcde81f66"
+          ]
+        },
+        "deep": {
+          "equal": true,
+          "old": [
+            0,
+            0
+          ],
+          "teacher": [
+            0,
+            0
+          ]
+        },
+        "banks": {
+          "equal": true,
+          "old": [
+            "e0d2b4bbe8121747cbc06d3b769593a4c2d833efc5771d983866bb10ac818af7",
+            "bb3ece7fbaabe9734d1b07936b3970499ab12384c5495902ff316e98c4e45618"
+          ],
+          "teacher": [
+            "e0d2b4bbe8121747cbc06d3b769593a4c2d833efc5771d983866bb10ac818af7",
+            "bb3ece7fbaabe9734d1b07936b3970499ab12384c5495902ff316e98c4e45618"
+          ]
+        }
+      },
+      "all_recorded_trace_fields_equal": false
+    },
+    {
+      "arm": "PAIRED",
+      "repeat": "second",
+      "calls": [
+        45,
+        46
+      ],
+      "teacher_origin": "S22",
+      "teacher_cell": "DD",
+      "fields": {
+        "inputs": {
+          "equal": false,
+          "old": [
+            {
+              "args": [],
+              "kwargs": {
+                "condition_video_input_mask_B_C_T_H_W": "eba2a627d3afd9e290456284380366b2fe6b0727131b74acec82320d73bcf5e1",
+                "crossattn_emb": "c22631c018fd8bfeb3b83192dfbe5217aa2db2a5a3c00b721ea737dff41168f2",
+                "data_type": "9cedf5ad610d5dc555be12b0726bb6be7819ed39e134fdc4da570d982611f9d1",
+                "fps": "cd593f195818be71a4598c9b9283463f7f99c7d7ae0aa5ae4b4984fdf29ce831",
+                "gt_frames": "0ac62a79295427e36df31ce5ccd35c530c1481714f1bfe4b37cd67322af7dc5d",
+                "padding_mask": "202bf12ec9bda81a368f0e01f537a48bad62652ea021fc337cb66397260f99e3",
+                "timesteps_B_T": "d23290aea0f4a3a7d9fbd262249eca620415e35e8d8432c89f67649b11341dda",
+                "use_video_condition": "47f816d59c2ae47e93af510345e1da35231e414869c1e62affbb57920a99ea67",
+                "x_B_C_T_H_W": "d5c9816b590d74553b3860aa3fd5acc5ba479362911de5a03552491d3271c0b9"
+              }
+            },
+            {
+              "args": [],
+              "kwargs": {
+                "condition_video_input_mask_B_C_T_H_W": "eba2a627d3afd9e290456284380366b2fe6b0727131b74acec82320d73bcf5e1",
+                "crossattn_emb": "0887d6434b1e7188b2d1d15101638a4d962209ddaff177dc08f6cafbdb49b253",
+                "data_type": "9cedf5ad610d5dc555be12b0726bb6be7819ed39e134fdc4da570d982611f9d1",
+                "fps": "cd593f195818be71a4598c9b9283463f7f99c7d7ae0aa5ae4b4984fdf29ce831",
+                "gt_frames": "0ac62a79295427e36df31ce5ccd35c530c1481714f1bfe4b37cd67322af7dc5d",
+                "padding_mask": "202bf12ec9bda81a368f0e01f537a48bad62652ea021fc337cb66397260f99e3",
+                "timesteps_B_T": "d23290aea0f4a3a7d9fbd262249eca620415e35e8d8432c89f67649b11341dda",
+                "use_video_condition": "47f816d59c2ae47e93af510345e1da35231e414869c1e62affbb57920a99ea67",
+                "x_B_C_T_H_W": "d5c9816b590d74553b3860aa3fd5acc5ba479362911de5a03552491d3271c0b9"
+              }
+            }
+          ],
+          "teacher": [
+            {
+              "args": [],
+              "kwargs": {
+                "condition_video_input_mask_B_C_T_H_W": "eba2a627d3afd9e290456284380366b2fe6b0727131b74acec82320d73bcf5e1",
+                "crossattn_emb": "c22631c018fd8bfeb3b83192dfbe5217aa2db2a5a3c00b721ea737dff41168f2",
+                "data_type": "9cedf5ad610d5dc555be12b0726bb6be7819ed39e134fdc4da570d982611f9d1",
+                "fps": "cd593f195818be71a4598c9b9283463f7f99c7d7ae0aa5ae4b4984fdf29ce831",
+                "gt_frames": "48275c4c4f9f9865dd474a9ec55072f6af8b83d4e129d603ff0d40e36e665f07",
+                "padding_mask": "202bf12ec9bda81a368f0e01f537a48bad62652ea021fc337cb66397260f99e3",
+                "timesteps_B_T": "d23290aea0f4a3a7d9fbd262249eca620415e35e8d8432c89f67649b11341dda",
+                "use_video_condition": "47f816d59c2ae47e93af510345e1da35231e414869c1e62affbb57920a99ea67",
+                "x_B_C_T_H_W": "d5c9816b590d74553b3860aa3fd5acc5ba479362911de5a03552491d3271c0b9"
+              }
+            },
+            {
+              "args": [],
+              "kwargs": {
+                "condition_video_input_mask_B_C_T_H_W": "eba2a627d3afd9e290456284380366b2fe6b0727131b74acec82320d73bcf5e1",
+                "crossattn_emb": "0887d6434b1e7188b2d1d15101638a4d962209ddaff177dc08f6cafbdb49b253",
+                "data_type": "9cedf5ad610d5dc555be12b0726bb6be7819ed39e134fdc4da570d982611f9d1",
+                "fps": "cd593f195818be71a4598c9b9283463f7f99c7d7ae0aa5ae4b4984fdf29ce831",
+                "gt_frames": "48275c4c4f9f9865dd474a9ec55072f6af8b83d4e129d603ff0d40e36e665f07",
+                "padding_mask": "202bf12ec9bda81a368f0e01f537a48bad62652ea021fc337cb66397260f99e3",
+                "timesteps_B_T": "d23290aea0f4a3a7d9fbd262249eca620415e35e8d8432c89f67649b11341dda",
+                "use_video_condition": "47f816d59c2ae47e93af510345e1da35231e414869c1e62affbb57920a99ea67",
+                "x_B_C_T_H_W": "d5c9816b590d74553b3860aa3fd5acc5ba479362911de5a03552491d3271c0b9"
+              }
+            }
+          ]
+        },
+        "outputs": {
+          "equal": true,
+          "old": [
+            "d1203b42f85718b8aa5f7f72d816f9c08cc269b517ac0a41e1b9018a6785bab0",
+            "d5b13360ad311badc7f3e1f473ab7f40206d58ee01cc74fed150ee6375cc43a3"
+          ],
+          "teacher": [
+            "d1203b42f85718b8aa5f7f72d816f9c08cc269b517ac0a41e1b9018a6785bab0",
+            "d5b13360ad311badc7f3e1f473ab7f40206d58ee01cc74fed150ee6375cc43a3"
+          ]
+        },
+        "deep": {
+          "equal": true,
+          "old": [
+            26,
+            26
+          ],
+          "teacher": [
+            26,
+            26
+          ]
+        },
+        "banks": {
+          "equal": true,
+          "old": [
+            "92a5287370d3f7b56cb6261c37a98e30a9b84c8e2c238ab005680b4e0abad176",
+            "e6bf55b1102b6b070d1a29fc94507ad7e650070e2ca30bd9dd0f6234e746c309"
+          ],
+          "teacher": [
+            "92a5287370d3f7b56cb6261c37a98e30a9b84c8e2c238ab005680b4e0abad176",
+            "e6bf55b1102b6b070d1a29fc94507ad7e650070e2ca30bd9dd0f6234e746c309"
+          ]
+        }
+      },
+      "all_recorded_trace_fields_equal": false
+    },
+    {
+      "arm": "PAIRED",
+      "repeat": "second",
+      "calls": [
+        47,
+        48
+      ],
+      "teacher_origin": "S23_after_DD",
+      "teacher_cell": "CC",
+      "fields": {
+        "inputs": {
+          "equal": false,
+          "old": [
+            {
+              "args": [],
+              "kwargs": {
+                "condition_video_input_mask_B_C_T_H_W": "eba2a627d3afd9e290456284380366b2fe6b0727131b74acec82320d73bcf5e1",
+                "crossattn_emb": "c22631c018fd8bfeb3b83192dfbe5217aa2db2a5a3c00b721ea737dff41168f2",
+                "data_type": "9cedf5ad610d5dc555be12b0726bb6be7819ed39e134fdc4da570d982611f9d1",
+                "fps": "cd593f195818be71a4598c9b9283463f7f99c7d7ae0aa5ae4b4984fdf29ce831",
+                "gt_frames": "0ac62a79295427e36df31ce5ccd35c530c1481714f1bfe4b37cd67322af7dc5d",
+                "padding_mask": "202bf12ec9bda81a368f0e01f537a48bad62652ea021fc337cb66397260f99e3",
+                "timesteps_B_T": "9b344ca39e49b9434fceec8a858884ce3d33404a6b177acb11f09fa86879ac73",
+                "use_video_condition": "47f816d59c2ae47e93af510345e1da35231e414869c1e62affbb57920a99ea67",
+                "x_B_C_T_H_W": "d6e773ff6e5508d7e2cd2829fb82cec616f822c210e839e4953e4110a5fb71b0"
+              }
+            },
+            {
+              "args": [],
+              "kwargs": {
+                "condition_video_input_mask_B_C_T_H_W": "eba2a627d3afd9e290456284380366b2fe6b0727131b74acec82320d73bcf5e1",
+                "crossattn_emb": "0887d6434b1e7188b2d1d15101638a4d962209ddaff177dc08f6cafbdb49b253",
+                "data_type": "9cedf5ad610d5dc555be12b0726bb6be7819ed39e134fdc4da570d982611f9d1",
+                "fps": "cd593f195818be71a4598c9b9283463f7f99c7d7ae0aa5ae4b4984fdf29ce831",
+                "gt_frames": "0ac62a79295427e36df31ce5ccd35c530c1481714f1bfe4b37cd67322af7dc5d",
+                "padding_mask": "202bf12ec9bda81a368f0e01f537a48bad62652ea021fc337cb66397260f99e3",
+                "timesteps_B_T": "9b344ca39e49b9434fceec8a858884ce3d33404a6b177acb11f09fa86879ac73",
+                "use_video_condition": "47f816d59c2ae47e93af510345e1da35231e414869c1e62affbb57920a99ea67",
+                "x_B_C_T_H_W": "d6e773ff6e5508d7e2cd2829fb82cec616f822c210e839e4953e4110a5fb71b0"
+              }
+            }
+          ],
+          "teacher": [
+            {
+              "args": [],
+              "kwargs": {
+                "condition_video_input_mask_B_C_T_H_W": "eba2a627d3afd9e290456284380366b2fe6b0727131b74acec82320d73bcf5e1",
+                "crossattn_emb": "c22631c018fd8bfeb3b83192dfbe5217aa2db2a5a3c00b721ea737dff41168f2",
+                "data_type": "9cedf5ad610d5dc555be12b0726bb6be7819ed39e134fdc4da570d982611f9d1",
+                "fps": "cd593f195818be71a4598c9b9283463f7f99c7d7ae0aa5ae4b4984fdf29ce831",
+                "gt_frames": "48275c4c4f9f9865dd474a9ec55072f6af8b83d4e129d603ff0d40e36e665f07",
+                "padding_mask": "202bf12ec9bda81a368f0e01f537a48bad62652ea021fc337cb66397260f99e3",
+                "timesteps_B_T": "9b344ca39e49b9434fceec8a858884ce3d33404a6b177acb11f09fa86879ac73",
+                "use_video_condition": "47f816d59c2ae47e93af510345e1da35231e414869c1e62affbb57920a99ea67",
+                "x_B_C_T_H_W": "d6e773ff6e5508d7e2cd2829fb82cec616f822c210e839e4953e4110a5fb71b0"
+              }
+            },
+            {
+              "args": [],
+              "kwargs": {
+                "condition_video_input_mask_B_C_T_H_W": "eba2a627d3afd9e290456284380366b2fe6b0727131b74acec82320d73bcf5e1",
+                "crossattn_emb": "0887d6434b1e7188b2d1d15101638a4d962209ddaff177dc08f6cafbdb49b253",
+                "data_type": "9cedf5ad610d5dc555be12b0726bb6be7819ed39e134fdc4da570d982611f9d1",
+                "fps": "cd593f195818be71a4598c9b9283463f7f99c7d7ae0aa5ae4b4984fdf29ce831",
+                "gt_frames": "48275c4c4f9f9865dd474a9ec55072f6af8b83d4e129d603ff0d40e36e665f07",
+                "padding_mask": "202bf12ec9bda81a368f0e01f537a48bad62652ea021fc337cb66397260f99e3",
+                "timesteps_B_T": "9b344ca39e49b9434fceec8a858884ce3d33404a6b177acb11f09fa86879ac73",
+                "use_video_condition": "47f816d59c2ae47e93af510345e1da35231e414869c1e62affbb57920a99ea67",
+                "x_B_C_T_H_W": "d6e773ff6e5508d7e2cd2829fb82cec616f822c210e839e4953e4110a5fb71b0"
+              }
+            }
+          ]
+        },
+        "outputs": {
+          "equal": true,
+          "old": [
+            "5ff8b4d647e050b0cc17fb2aab1926b05868e6340d8ecc4fd96fba4071224876",
+            "9d2ce5367f999366b6203873196ebfd2d263c78a3f5d33b907bc043dcde81f66"
+          ],
+          "teacher": [
+            "5ff8b4d647e050b0cc17fb2aab1926b05868e6340d8ecc4fd96fba4071224876",
+            "9d2ce5367f999366b6203873196ebfd2d263c78a3f5d33b907bc043dcde81f66"
+          ]
+        },
+        "deep": {
+          "equal": true,
+          "old": [
+            0,
+            0
+          ],
+          "teacher": [
+            0,
+            0
+          ]
+        },
+        "banks": {
+          "equal": true,
+          "old": [
+            "e0d2b4bbe8121747cbc06d3b769593a4c2d833efc5771d983866bb10ac818af7",
+            "bb3ece7fbaabe9734d1b07936b3970499ab12384c5495902ff316e98c4e45618"
+          ],
+          "teacher": [
+            "e0d2b4bbe8121747cbc06d3b769593a4c2d833efc5771d983866bb10ac818af7",
+            "bb3ece7fbaabe9734d1b07936b3970499ab12384c5495902ff316e98c4e45618"
+          ]
+        }
+      },
+      "all_recorded_trace_fields_equal": false
+    }
+  ],
+  "S22_state_comparisons": [
+    {
+      "arm": "BASE",
+      "repeat": "first",
+      "old_component_count": 1216,
+      "teacher_component_count": 1216,
+      "inventory_equal": true,
+      "different_components": {
+        "output": {
+          "equal": false,
+          "old": "d5c9816b590d74553b3860aa3fd5acc5ba479362911de5a03552491d3271c0b9",
+          "teacher": "d9d8a732cb7115362eece97b8efb8a71c8eec2878163518738c9b93931b6e8a5"
+        },
+        "solver._internal_dict": {
+          "equal": false,
+          "old": "1ffaa87a4f5a2f0852411428afe0930d05d54409af2262196ca71d7b12a528a4",
+          "teacher": "0fc1584956cd7a635793e4c6635ac993adb0d0184f97c1cb518d47daeb213938"
+        }
+      },
+      "all_recorded_components_equal": false,
+      "solver_configuration": {
+        "equal": false,
+        "old": {
+          "raw_values": {
+            "num_train_timesteps": 1000,
+            "solver_order": 2,
+            "prediction_type": "flow_prediction",
+            "shift": 1,
+            "use_dynamic_shifting": false,
+            "thresholding": false,
+            "dynamic_thresholding_ratio": 0.995,
+            "sample_max_value": 1.0,
+            "predict_x0": true,
+            "solver_type": "bh2",
+            "lower_order_final": true,
+            "disable_corrector": [],
+            "solver_p": null,
+            "timestep_spacing": "linspace",
+            "steps_offset": 0,
+            "final_sigmas_type": "zero",
+            "_use_default_values": [
+              "timestep_spacing",
+              "disable_corrector",
+              "prediction_type",
+              "thresholding",
+              "lower_order_final",
+              "steps_offset",
+              "solver_p",
+              "dynamic_thresholding_ratio",
+              "solver_type",
+              "solver_order",
+              "sample_max_value",
+              "final_sigmas_type",
+              "predict_x0"
+            ]
+          },
+          "raw_sha256": "1ffaa87a4f5a2f0852411428afe0930d05d54409af2262196ca71d7b12a528a4",
+          "numerical_values": {
+            "num_train_timesteps": 1000,
+            "solver_order": 2,
+            "prediction_type": "flow_prediction",
+            "shift": 1,
+            "use_dynamic_shifting": false,
+            "thresholding": false,
+            "dynamic_thresholding_ratio": 0.995,
+            "sample_max_value": 1.0,
+            "predict_x0": true,
+            "solver_type": "bh2",
+            "lower_order_final": true,
+            "disable_corrector": [],
+            "solver_p": null,
+            "timestep_spacing": "linspace",
+            "steps_offset": 0,
+            "final_sigmas_type": "zero"
+          },
+          "numerical_sha256": "ecd1b1aae774bf6646325acd33292e81818ac262adfcd06503fa4b1139fecbe2",
+          "default_name_metadata": [
+            "timestep_spacing",
+            "disable_corrector",
+            "prediction_type",
+            "thresholding",
+            "lower_order_final",
+            "steps_offset",
+            "solver_p",
+            "dynamic_thresholding_ratio",
+            "solver_type",
+            "solver_order",
+            "sample_max_value",
+            "final_sigmas_type",
+            "predict_x0"
+          ]
+        },
+        "teacher": {
+          "raw_values": {
+            "num_train_timesteps": 1000,
+            "solver_order": 2,
+            "prediction_type": "flow_prediction",
+            "shift": 1,
+            "use_dynamic_shifting": false,
+            "thresholding": false,
+            "dynamic_thresholding_ratio": 0.995,
+            "sample_max_value": 1.0,
+            "predict_x0": true,
+            "solver_type": "bh2",
+            "lower_order_final": true,
+            "disable_corrector": [],
+            "solver_p": null,
+            "timestep_spacing": "linspace",
+            "steps_offset": 0,
+            "final_sigmas_type": "zero",
+            "_use_default_values": [
+              "prediction_type",
+              "dynamic_thresholding_ratio",
+              "solver_type",
+              "sample_max_value",
+              "solver_order",
+              "predict_x0",
+              "disable_corrector",
+              "steps_offset",
+              "thresholding",
+              "final_sigmas_type",
+              "timestep_spacing",
+              "solver_p",
+              "lower_order_final"
+            ]
+          },
+          "raw_sha256": "0fc1584956cd7a635793e4c6635ac993adb0d0184f97c1cb518d47daeb213938",
+          "numerical_values": {
+            "num_train_timesteps": 1000,
+            "solver_order": 2,
+            "prediction_type": "flow_prediction",
+            "shift": 1,
+            "use_dynamic_shifting": false,
+            "thresholding": false,
+            "dynamic_thresholding_ratio": 0.995,
+            "sample_max_value": 1.0,
+            "predict_x0": true,
+            "solver_type": "bh2",
+            "lower_order_final": true,
+            "disable_corrector": [],
+            "solver_p": null,
+            "timestep_spacing": "linspace",
+            "steps_offset": 0,
+            "final_sigmas_type": "zero"
+          },
+          "numerical_sha256": "ecd1b1aae774bf6646325acd33292e81818ac262adfcd06503fa4b1139fecbe2",
+          "default_name_metadata": [
+            "prediction_type",
+            "dynamic_thresholding_ratio",
+            "solver_type",
+            "sample_max_value",
+            "solver_order",
+            "predict_x0",
+            "disable_corrector",
+            "steps_offset",
+            "thresholding",
+            "final_sigmas_type",
+            "timestep_spacing",
+            "solver_p",
+            "lower_order_final"
+          ]
+        }
+      },
+      "own_history": {
+        "equal": true,
+        "old": [
+          [
+            18,
+            22
+          ],
+          [
+            18,
+            22
+          ]
+        ],
+        "teacher": [
+          [
+            18,
+            22
+          ],
+          [
+            18,
+            22
+          ]
+        ]
+      }
+    },
+    {
+      "arm": "BASE",
+      "repeat": "second",
+      "old_component_count": 1216,
+      "teacher_component_count": 1216,
+      "inventory_equal": true,
+      "different_components": {
+        "output": {
+          "equal": false,
+          "old": "d5c9816b590d74553b3860aa3fd5acc5ba479362911de5a03552491d3271c0b9",
+          "teacher": "d9d8a732cb7115362eece97b8efb8a71c8eec2878163518738c9b93931b6e8a5"
+        },
+        "solver._internal_dict": {
+          "equal": false,
+          "old": "1ffaa87a4f5a2f0852411428afe0930d05d54409af2262196ca71d7b12a528a4",
+          "teacher": "0fc1584956cd7a635793e4c6635ac993adb0d0184f97c1cb518d47daeb213938"
+        }
+      },
+      "all_recorded_components_equal": false,
+      "solver_configuration": {
+        "equal": false,
+        "old": {
+          "raw_values": {
+            "num_train_timesteps": 1000,
+            "solver_order": 2,
+            "prediction_type": "flow_prediction",
+            "shift": 1,
+            "use_dynamic_shifting": false,
+            "thresholding": false,
+            "dynamic_thresholding_ratio": 0.995,
+            "sample_max_value": 1.0,
+            "predict_x0": true,
+            "solver_type": "bh2",
+            "lower_order_final": true,
+            "disable_corrector": [],
+            "solver_p": null,
+            "timestep_spacing": "linspace",
+            "steps_offset": 0,
+            "final_sigmas_type": "zero",
+            "_use_default_values": [
+              "timestep_spacing",
+              "disable_corrector",
+              "prediction_type",
+              "thresholding",
+              "lower_order_final",
+              "steps_offset",
+              "solver_p",
+              "dynamic_thresholding_ratio",
+              "solver_type",
+              "solver_order",
+              "sample_max_value",
+              "final_sigmas_type",
+              "predict_x0"
+            ]
+          },
+          "raw_sha256": "1ffaa87a4f5a2f0852411428afe0930d05d54409af2262196ca71d7b12a528a4",
+          "numerical_values": {
+            "num_train_timesteps": 1000,
+            "solver_order": 2,
+            "prediction_type": "flow_prediction",
+            "shift": 1,
+            "use_dynamic_shifting": false,
+            "thresholding": false,
+            "dynamic_thresholding_ratio": 0.995,
+            "sample_max_value": 1.0,
+            "predict_x0": true,
+            "solver_type": "bh2",
+            "lower_order_final": true,
+            "disable_corrector": [],
+            "solver_p": null,
+            "timestep_spacing": "linspace",
+            "steps_offset": 0,
+            "final_sigmas_type": "zero"
+          },
+          "numerical_sha256": "ecd1b1aae774bf6646325acd33292e81818ac262adfcd06503fa4b1139fecbe2",
+          "default_name_metadata": [
+            "timestep_spacing",
+            "disable_corrector",
+            "prediction_type",
+            "thresholding",
+            "lower_order_final",
+            "steps_offset",
+            "solver_p",
+            "dynamic_thresholding_ratio",
+            "solver_type",
+            "solver_order",
+            "sample_max_value",
+            "final_sigmas_type",
+            "predict_x0"
+          ]
+        },
+        "teacher": {
+          "raw_values": {
+            "num_train_timesteps": 1000,
+            "solver_order": 2,
+            "prediction_type": "flow_prediction",
+            "shift": 1,
+            "use_dynamic_shifting": false,
+            "thresholding": false,
+            "dynamic_thresholding_ratio": 0.995,
+            "sample_max_value": 1.0,
+            "predict_x0": true,
+            "solver_type": "bh2",
+            "lower_order_final": true,
+            "disable_corrector": [],
+            "solver_p": null,
+            "timestep_spacing": "linspace",
+            "steps_offset": 0,
+            "final_sigmas_type": "zero",
+            "_use_default_values": [
+              "prediction_type",
+              "dynamic_thresholding_ratio",
+              "solver_type",
+              "sample_max_value",
+              "solver_order",
+              "predict_x0",
+              "disable_corrector",
+              "steps_offset",
+              "thresholding",
+              "final_sigmas_type",
+              "timestep_spacing",
+              "solver_p",
+              "lower_order_final"
+            ]
+          },
+          "raw_sha256": "0fc1584956cd7a635793e4c6635ac993adb0d0184f97c1cb518d47daeb213938",
+          "numerical_values": {
+            "num_train_timesteps": 1000,
+            "solver_order": 2,
+            "prediction_type": "flow_prediction",
+            "shift": 1,
+            "use_dynamic_shifting": false,
+            "thresholding": false,
+            "dynamic_thresholding_ratio": 0.995,
+            "sample_max_value": 1.0,
+            "predict_x0": true,
+            "solver_type": "bh2",
+            "lower_order_final": true,
+            "disable_corrector": [],
+            "solver_p": null,
+            "timestep_spacing": "linspace",
+            "steps_offset": 0,
+            "final_sigmas_type": "zero"
+          },
+          "numerical_sha256": "ecd1b1aae774bf6646325acd33292e81818ac262adfcd06503fa4b1139fecbe2",
+          "default_name_metadata": [
+            "prediction_type",
+            "dynamic_thresholding_ratio",
+            "solver_type",
+            "sample_max_value",
+            "solver_order",
+            "predict_x0",
+            "disable_corrector",
+            "steps_offset",
+            "thresholding",
+            "final_sigmas_type",
+            "timestep_spacing",
+            "solver_p",
+            "lower_order_final"
+          ]
+        }
+      },
+      "own_history": {
+        "equal": true,
+        "old": [
+          [
+            18,
+            22
+          ],
+          [
+            18,
+            22
+          ]
+        ],
+        "teacher": [
+          [
+            18,
+            22
+          ],
+          [
+            18,
+            22
+          ]
+        ]
+      }
+    },
+    {
+      "arm": "CFG0",
+      "repeat": "first",
+      "old_component_count": 1216,
+      "teacher_component_count": 1216,
+      "inventory_equal": true,
+      "different_components": {
+        "output": {
+          "equal": false,
+          "old": "d5c9816b590d74553b3860aa3fd5acc5ba479362911de5a03552491d3271c0b9",
+          "teacher": "d9d8a732cb7115362eece97b8efb8a71c8eec2878163518738c9b93931b6e8a5"
+        },
+        "solver._internal_dict": {
+          "equal": false,
+          "old": "1ffaa87a4f5a2f0852411428afe0930d05d54409af2262196ca71d7b12a528a4",
+          "teacher": "0fc1584956cd7a635793e4c6635ac993adb0d0184f97c1cb518d47daeb213938"
+        }
+      },
+      "all_recorded_components_equal": false,
+      "solver_configuration": {
+        "equal": false,
+        "old": {
+          "raw_values": {
+            "num_train_timesteps": 1000,
+            "solver_order": 2,
+            "prediction_type": "flow_prediction",
+            "shift": 1,
+            "use_dynamic_shifting": false,
+            "thresholding": false,
+            "dynamic_thresholding_ratio": 0.995,
+            "sample_max_value": 1.0,
+            "predict_x0": true,
+            "solver_type": "bh2",
+            "lower_order_final": true,
+            "disable_corrector": [],
+            "solver_p": null,
+            "timestep_spacing": "linspace",
+            "steps_offset": 0,
+            "final_sigmas_type": "zero",
+            "_use_default_values": [
+              "timestep_spacing",
+              "disable_corrector",
+              "prediction_type",
+              "thresholding",
+              "lower_order_final",
+              "steps_offset",
+              "solver_p",
+              "dynamic_thresholding_ratio",
+              "solver_type",
+              "solver_order",
+              "sample_max_value",
+              "final_sigmas_type",
+              "predict_x0"
+            ]
+          },
+          "raw_sha256": "1ffaa87a4f5a2f0852411428afe0930d05d54409af2262196ca71d7b12a528a4",
+          "numerical_values": {
+            "num_train_timesteps": 1000,
+            "solver_order": 2,
+            "prediction_type": "flow_prediction",
+            "shift": 1,
+            "use_dynamic_shifting": false,
+            "thresholding": false,
+            "dynamic_thresholding_ratio": 0.995,
+            "sample_max_value": 1.0,
+            "predict_x0": true,
+            "solver_type": "bh2",
+            "lower_order_final": true,
+            "disable_corrector": [],
+            "solver_p": null,
+            "timestep_spacing": "linspace",
+            "steps_offset": 0,
+            "final_sigmas_type": "zero"
+          },
+          "numerical_sha256": "ecd1b1aae774bf6646325acd33292e81818ac262adfcd06503fa4b1139fecbe2",
+          "default_name_metadata": [
+            "timestep_spacing",
+            "disable_corrector",
+            "prediction_type",
+            "thresholding",
+            "lower_order_final",
+            "steps_offset",
+            "solver_p",
+            "dynamic_thresholding_ratio",
+            "solver_type",
+            "solver_order",
+            "sample_max_value",
+            "final_sigmas_type",
+            "predict_x0"
+          ]
+        },
+        "teacher": {
+          "raw_values": {
+            "num_train_timesteps": 1000,
+            "solver_order": 2,
+            "prediction_type": "flow_prediction",
+            "shift": 1,
+            "use_dynamic_shifting": false,
+            "thresholding": false,
+            "dynamic_thresholding_ratio": 0.995,
+            "sample_max_value": 1.0,
+            "predict_x0": true,
+            "solver_type": "bh2",
+            "lower_order_final": true,
+            "disable_corrector": [],
+            "solver_p": null,
+            "timestep_spacing": "linspace",
+            "steps_offset": 0,
+            "final_sigmas_type": "zero",
+            "_use_default_values": [
+              "prediction_type",
+              "dynamic_thresholding_ratio",
+              "solver_type",
+              "sample_max_value",
+              "solver_order",
+              "predict_x0",
+              "disable_corrector",
+              "steps_offset",
+              "thresholding",
+              "final_sigmas_type",
+              "timestep_spacing",
+              "solver_p",
+              "lower_order_final"
+            ]
+          },
+          "raw_sha256": "0fc1584956cd7a635793e4c6635ac993adb0d0184f97c1cb518d47daeb213938",
+          "numerical_values": {
+            "num_train_timesteps": 1000,
+            "solver_order": 2,
+            "prediction_type": "flow_prediction",
+            "shift": 1,
+            "use_dynamic_shifting": false,
+            "thresholding": false,
+            "dynamic_thresholding_ratio": 0.995,
+            "sample_max_value": 1.0,
+            "predict_x0": true,
+            "solver_type": "bh2",
+            "lower_order_final": true,
+            "disable_corrector": [],
+            "solver_p": null,
+            "timestep_spacing": "linspace",
+            "steps_offset": 0,
+            "final_sigmas_type": "zero"
+          },
+          "numerical_sha256": "ecd1b1aae774bf6646325acd33292e81818ac262adfcd06503fa4b1139fecbe2",
+          "default_name_metadata": [
+            "prediction_type",
+            "dynamic_thresholding_ratio",
+            "solver_type",
+            "sample_max_value",
+            "solver_order",
+            "predict_x0",
+            "disable_corrector",
+            "steps_offset",
+            "thresholding",
+            "final_sigmas_type",
+            "timestep_spacing",
+            "solver_p",
+            "lower_order_final"
+          ]
+        }
+      },
+      "own_history": {
+        "equal": true,
+        "old": [
+          [
+            18,
+            22
+          ],
+          [
+            18,
+            22
+          ]
+        ],
+        "teacher": [
+          [
+            18,
+            22
+          ],
+          [
+            18,
+            22
+          ]
+        ]
+      }
+    },
+    {
+      "arm": "CFG0",
+      "repeat": "second",
+      "old_component_count": 1216,
+      "teacher_component_count": 1216,
+      "inventory_equal": true,
+      "different_components": {
+        "output": {
+          "equal": false,
+          "old": "d5c9816b590d74553b3860aa3fd5acc5ba479362911de5a03552491d3271c0b9",
+          "teacher": "d9d8a732cb7115362eece97b8efb8a71c8eec2878163518738c9b93931b6e8a5"
+        },
+        "solver._internal_dict": {
+          "equal": false,
+          "old": "1ffaa87a4f5a2f0852411428afe0930d05d54409af2262196ca71d7b12a528a4",
+          "teacher": "0fc1584956cd7a635793e4c6635ac993adb0d0184f97c1cb518d47daeb213938"
+        }
+      },
+      "all_recorded_components_equal": false,
+      "solver_configuration": {
+        "equal": false,
+        "old": {
+          "raw_values": {
+            "num_train_timesteps": 1000,
+            "solver_order": 2,
+            "prediction_type": "flow_prediction",
+            "shift": 1,
+            "use_dynamic_shifting": false,
+            "thresholding": false,
+            "dynamic_thresholding_ratio": 0.995,
+            "sample_max_value": 1.0,
+            "predict_x0": true,
+            "solver_type": "bh2",
+            "lower_order_final": true,
+            "disable_corrector": [],
+            "solver_p": null,
+            "timestep_spacing": "linspace",
+            "steps_offset": 0,
+            "final_sigmas_type": "zero",
+            "_use_default_values": [
+              "timestep_spacing",
+              "disable_corrector",
+              "prediction_type",
+              "thresholding",
+              "lower_order_final",
+              "steps_offset",
+              "solver_p",
+              "dynamic_thresholding_ratio",
+              "solver_type",
+              "solver_order",
+              "sample_max_value",
+              "final_sigmas_type",
+              "predict_x0"
+            ]
+          },
+          "raw_sha256": "1ffaa87a4f5a2f0852411428afe0930d05d54409af2262196ca71d7b12a528a4",
+          "numerical_values": {
+            "num_train_timesteps": 1000,
+            "solver_order": 2,
+            "prediction_type": "flow_prediction",
+            "shift": 1,
+            "use_dynamic_shifting": false,
+            "thresholding": false,
+            "dynamic_thresholding_ratio": 0.995,
+            "sample_max_value": 1.0,
+            "predict_x0": true,
+            "solver_type": "bh2",
+            "lower_order_final": true,
+            "disable_corrector": [],
+            "solver_p": null,
+            "timestep_spacing": "linspace",
+            "steps_offset": 0,
+            "final_sigmas_type": "zero"
+          },
+          "numerical_sha256": "ecd1b1aae774bf6646325acd33292e81818ac262adfcd06503fa4b1139fecbe2",
+          "default_name_metadata": [
+            "timestep_spacing",
+            "disable_corrector",
+            "prediction_type",
+            "thresholding",
+            "lower_order_final",
+            "steps_offset",
+            "solver_p",
+            "dynamic_thresholding_ratio",
+            "solver_type",
+            "solver_order",
+            "sample_max_value",
+            "final_sigmas_type",
+            "predict_x0"
+          ]
+        },
+        "teacher": {
+          "raw_values": {
+            "num_train_timesteps": 1000,
+            "solver_order": 2,
+            "prediction_type": "flow_prediction",
+            "shift": 1,
+            "use_dynamic_shifting": false,
+            "thresholding": false,
+            "dynamic_thresholding_ratio": 0.995,
+            "sample_max_value": 1.0,
+            "predict_x0": true,
+            "solver_type": "bh2",
+            "lower_order_final": true,
+            "disable_corrector": [],
+            "solver_p": null,
+            "timestep_spacing": "linspace",
+            "steps_offset": 0,
+            "final_sigmas_type": "zero",
+            "_use_default_values": [
+              "prediction_type",
+              "dynamic_thresholding_ratio",
+              "solver_type",
+              "sample_max_value",
+              "solver_order",
+              "predict_x0",
+              "disable_corrector",
+              "steps_offset",
+              "thresholding",
+              "final_sigmas_type",
+              "timestep_spacing",
+              "solver_p",
+              "lower_order_final"
+            ]
+          },
+          "raw_sha256": "0fc1584956cd7a635793e4c6635ac993adb0d0184f97c1cb518d47daeb213938",
+          "numerical_values": {
+            "num_train_timesteps": 1000,
+            "solver_order": 2,
+            "prediction_type": "flow_prediction",
+            "shift": 1,
+            "use_dynamic_shifting": false,
+            "thresholding": false,
+            "dynamic_thresholding_ratio": 0.995,
+            "sample_max_value": 1.0,
+            "predict_x0": true,
+            "solver_type": "bh2",
+            "lower_order_final": true,
+            "disable_corrector": [],
+            "solver_p": null,
+            "timestep_spacing": "linspace",
+            "steps_offset": 0,
+            "final_sigmas_type": "zero"
+          },
+          "numerical_sha256": "ecd1b1aae774bf6646325acd33292e81818ac262adfcd06503fa4b1139fecbe2",
+          "default_name_metadata": [
+            "prediction_type",
+            "dynamic_thresholding_ratio",
+            "solver_type",
+            "sample_max_value",
+            "solver_order",
+            "predict_x0",
+            "disable_corrector",
+            "steps_offset",
+            "thresholding",
+            "final_sigmas_type",
+            "timestep_spacing",
+            "solver_p",
+            "lower_order_final"
+          ]
+        }
+      },
+      "own_history": {
+        "equal": true,
+        "old": [
+          [
+            18,
+            22
+          ],
+          [
+            18,
+            22
+          ]
+        ],
+        "teacher": [
+          [
+            18,
+            22
+          ],
+          [
+            18,
+            22
+          ]
+        ]
+      }
+    },
+    {
+      "arm": "CFG1",
+      "repeat": "first",
+      "old_component_count": 1216,
+      "teacher_component_count": 1216,
+      "inventory_equal": true,
+      "different_components": {
+        "output": {
+          "equal": false,
+          "old": "d5c9816b590d74553b3860aa3fd5acc5ba479362911de5a03552491d3271c0b9",
+          "teacher": "d9d8a732cb7115362eece97b8efb8a71c8eec2878163518738c9b93931b6e8a5"
+        },
+        "solver._internal_dict": {
+          "equal": false,
+          "old": "1ffaa87a4f5a2f0852411428afe0930d05d54409af2262196ca71d7b12a528a4",
+          "teacher": "0fc1584956cd7a635793e4c6635ac993adb0d0184f97c1cb518d47daeb213938"
+        }
+      },
+      "all_recorded_components_equal": false,
+      "solver_configuration": {
+        "equal": false,
+        "old": {
+          "raw_values": {
+            "num_train_timesteps": 1000,
+            "solver_order": 2,
+            "prediction_type": "flow_prediction",
+            "shift": 1,
+            "use_dynamic_shifting": false,
+            "thresholding": false,
+            "dynamic_thresholding_ratio": 0.995,
+            "sample_max_value": 1.0,
+            "predict_x0": true,
+            "solver_type": "bh2",
+            "lower_order_final": true,
+            "disable_corrector": [],
+            "solver_p": null,
+            "timestep_spacing": "linspace",
+            "steps_offset": 0,
+            "final_sigmas_type": "zero",
+            "_use_default_values": [
+              "timestep_spacing",
+              "disable_corrector",
+              "prediction_type",
+              "thresholding",
+              "lower_order_final",
+              "steps_offset",
+              "solver_p",
+              "dynamic_thresholding_ratio",
+              "solver_type",
+              "solver_order",
+              "sample_max_value",
+              "final_sigmas_type",
+              "predict_x0"
+            ]
+          },
+          "raw_sha256": "1ffaa87a4f5a2f0852411428afe0930d05d54409af2262196ca71d7b12a528a4",
+          "numerical_values": {
+            "num_train_timesteps": 1000,
+            "solver_order": 2,
+            "prediction_type": "flow_prediction",
+            "shift": 1,
+            "use_dynamic_shifting": false,
+            "thresholding": false,
+            "dynamic_thresholding_ratio": 0.995,
+            "sample_max_value": 1.0,
+            "predict_x0": true,
+            "solver_type": "bh2",
+            "lower_order_final": true,
+            "disable_corrector": [],
+            "solver_p": null,
+            "timestep_spacing": "linspace",
+            "steps_offset": 0,
+            "final_sigmas_type": "zero"
+          },
+          "numerical_sha256": "ecd1b1aae774bf6646325acd33292e81818ac262adfcd06503fa4b1139fecbe2",
+          "default_name_metadata": [
+            "timestep_spacing",
+            "disable_corrector",
+            "prediction_type",
+            "thresholding",
+            "lower_order_final",
+            "steps_offset",
+            "solver_p",
+            "dynamic_thresholding_ratio",
+            "solver_type",
+            "solver_order",
+            "sample_max_value",
+            "final_sigmas_type",
+            "predict_x0"
+          ]
+        },
+        "teacher": {
+          "raw_values": {
+            "num_train_timesteps": 1000,
+            "solver_order": 2,
+            "prediction_type": "flow_prediction",
+            "shift": 1,
+            "use_dynamic_shifting": false,
+            "thresholding": false,
+            "dynamic_thresholding_ratio": 0.995,
+            "sample_max_value": 1.0,
+            "predict_x0": true,
+            "solver_type": "bh2",
+            "lower_order_final": true,
+            "disable_corrector": [],
+            "solver_p": null,
+            "timestep_spacing": "linspace",
+            "steps_offset": 0,
+            "final_sigmas_type": "zero",
+            "_use_default_values": [
+              "prediction_type",
+              "dynamic_thresholding_ratio",
+              "solver_type",
+              "sample_max_value",
+              "solver_order",
+              "predict_x0",
+              "disable_corrector",
+              "steps_offset",
+              "thresholding",
+              "final_sigmas_type",
+              "timestep_spacing",
+              "solver_p",
+              "lower_order_final"
+            ]
+          },
+          "raw_sha256": "0fc1584956cd7a635793e4c6635ac993adb0d0184f97c1cb518d47daeb213938",
+          "numerical_values": {
+            "num_train_timesteps": 1000,
+            "solver_order": 2,
+            "prediction_type": "flow_prediction",
+            "shift": 1,
+            "use_dynamic_shifting": false,
+            "thresholding": false,
+            "dynamic_thresholding_ratio": 0.995,
+            "sample_max_value": 1.0,
+            "predict_x0": true,
+            "solver_type": "bh2",
+            "lower_order_final": true,
+            "disable_corrector": [],
+            "solver_p": null,
+            "timestep_spacing": "linspace",
+            "steps_offset": 0,
+            "final_sigmas_type": "zero"
+          },
+          "numerical_sha256": "ecd1b1aae774bf6646325acd33292e81818ac262adfcd06503fa4b1139fecbe2",
+          "default_name_metadata": [
+            "prediction_type",
+            "dynamic_thresholding_ratio",
+            "solver_type",
+            "sample_max_value",
+            "solver_order",
+            "predict_x0",
+            "disable_corrector",
+            "steps_offset",
+            "thresholding",
+            "final_sigmas_type",
+            "timestep_spacing",
+            "solver_p",
+            "lower_order_final"
+          ]
+        }
+      },
+      "own_history": {
+        "equal": true,
+        "old": [
+          [
+            18,
+            22
+          ],
+          [
+            18,
+            22
+          ]
+        ],
+        "teacher": [
+          [
+            18,
+            22
+          ],
+          [
+            18,
+            22
+          ]
+        ]
+      }
+    },
+    {
+      "arm": "CFG1",
+      "repeat": "second",
+      "old_component_count": 1216,
+      "teacher_component_count": 1216,
+      "inventory_equal": true,
+      "different_components": {
+        "output": {
+          "equal": false,
+          "old": "d5c9816b590d74553b3860aa3fd5acc5ba479362911de5a03552491d3271c0b9",
+          "teacher": "d9d8a732cb7115362eece97b8efb8a71c8eec2878163518738c9b93931b6e8a5"
+        },
+        "solver._internal_dict": {
+          "equal": false,
+          "old": "1ffaa87a4f5a2f0852411428afe0930d05d54409af2262196ca71d7b12a528a4",
+          "teacher": "0fc1584956cd7a635793e4c6635ac993adb0d0184f97c1cb518d47daeb213938"
+        }
+      },
+      "all_recorded_components_equal": false,
+      "solver_configuration": {
+        "equal": false,
+        "old": {
+          "raw_values": {
+            "num_train_timesteps": 1000,
+            "solver_order": 2,
+            "prediction_type": "flow_prediction",
+            "shift": 1,
+            "use_dynamic_shifting": false,
+            "thresholding": false,
+            "dynamic_thresholding_ratio": 0.995,
+            "sample_max_value": 1.0,
+            "predict_x0": true,
+            "solver_type": "bh2",
+            "lower_order_final": true,
+            "disable_corrector": [],
+            "solver_p": null,
+            "timestep_spacing": "linspace",
+            "steps_offset": 0,
+            "final_sigmas_type": "zero",
+            "_use_default_values": [
+              "timestep_spacing",
+              "disable_corrector",
+              "prediction_type",
+              "thresholding",
+              "lower_order_final",
+              "steps_offset",
+              "solver_p",
+              "dynamic_thresholding_ratio",
+              "solver_type",
+              "solver_order",
+              "sample_max_value",
+              "final_sigmas_type",
+              "predict_x0"
+            ]
+          },
+          "raw_sha256": "1ffaa87a4f5a2f0852411428afe0930d05d54409af2262196ca71d7b12a528a4",
+          "numerical_values": {
+            "num_train_timesteps": 1000,
+            "solver_order": 2,
+            "prediction_type": "flow_prediction",
+            "shift": 1,
+            "use_dynamic_shifting": false,
+            "thresholding": false,
+            "dynamic_thresholding_ratio": 0.995,
+            "sample_max_value": 1.0,
+            "predict_x0": true,
+            "solver_type": "bh2",
+            "lower_order_final": true,
+            "disable_corrector": [],
+            "solver_p": null,
+            "timestep_spacing": "linspace",
+            "steps_offset": 0,
+            "final_sigmas_type": "zero"
+          },
+          "numerical_sha256": "ecd1b1aae774bf6646325acd33292e81818ac262adfcd06503fa4b1139fecbe2",
+          "default_name_metadata": [
+            "timestep_spacing",
+            "disable_corrector",
+            "prediction_type",
+            "thresholding",
+            "lower_order_final",
+            "steps_offset",
+            "solver_p",
+            "dynamic_thresholding_ratio",
+            "solver_type",
+            "solver_order",
+            "sample_max_value",
+            "final_sigmas_type",
+            "predict_x0"
+          ]
+        },
+        "teacher": {
+          "raw_values": {
+            "num_train_timesteps": 1000,
+            "solver_order": 2,
+            "prediction_type": "flow_prediction",
+            "shift": 1,
+            "use_dynamic_shifting": false,
+            "thresholding": false,
+            "dynamic_thresholding_ratio": 0.995,
+            "sample_max_value": 1.0,
+            "predict_x0": true,
+            "solver_type": "bh2",
+            "lower_order_final": true,
+            "disable_corrector": [],
+            "solver_p": null,
+            "timestep_spacing": "linspace",
+            "steps_offset": 0,
+            "final_sigmas_type": "zero",
+            "_use_default_values": [
+              "prediction_type",
+              "dynamic_thresholding_ratio",
+              "solver_type",
+              "sample_max_value",
+              "solver_order",
+              "predict_x0",
+              "disable_corrector",
+              "steps_offset",
+              "thresholding",
+              "final_sigmas_type",
+              "timestep_spacing",
+              "solver_p",
+              "lower_order_final"
+            ]
+          },
+          "raw_sha256": "0fc1584956cd7a635793e4c6635ac993adb0d0184f97c1cb518d47daeb213938",
+          "numerical_values": {
+            "num_train_timesteps": 1000,
+            "solver_order": 2,
+            "prediction_type": "flow_prediction",
+            "shift": 1,
+            "use_dynamic_shifting": false,
+            "thresholding": false,
+            "dynamic_thresholding_ratio": 0.995,
+            "sample_max_value": 1.0,
+            "predict_x0": true,
+            "solver_type": "bh2",
+            "lower_order_final": true,
+            "disable_corrector": [],
+            "solver_p": null,
+            "timestep_spacing": "linspace",
+            "steps_offset": 0,
+            "final_sigmas_type": "zero"
+          },
+          "numerical_sha256": "ecd1b1aae774bf6646325acd33292e81818ac262adfcd06503fa4b1139fecbe2",
+          "default_name_metadata": [
+            "prediction_type",
+            "dynamic_thresholding_ratio",
+            "solver_type",
+            "sample_max_value",
+            "solver_order",
+            "predict_x0",
+            "disable_corrector",
+            "steps_offset",
+            "thresholding",
+            "final_sigmas_type",
+            "timestep_spacing",
+            "solver_p",
+            "lower_order_final"
+          ]
+        }
+      },
+      "own_history": {
+        "equal": true,
+        "old": [
+          [
+            18,
+            22
+          ],
+          [
+            18,
+            22
+          ]
+        ],
+        "teacher": [
+          [
+            18,
+            22
+          ],
+          [
+            18,
+            22
+          ]
+        ]
+      }
+    },
+    {
+      "arm": "PAIRED",
+      "repeat": "first",
+      "old_component_count": 1216,
+      "teacher_component_count": 1216,
+      "inventory_equal": true,
+      "different_components": {
+        "output": {
+          "equal": false,
+          "old": "d5c9816b590d74553b3860aa3fd5acc5ba479362911de5a03552491d3271c0b9",
+          "teacher": "d9d8a732cb7115362eece97b8efb8a71c8eec2878163518738c9b93931b6e8a5"
+        },
+        "solver._internal_dict": {
+          "equal": false,
+          "old": "1ffaa87a4f5a2f0852411428afe0930d05d54409af2262196ca71d7b12a528a4",
+          "teacher": "0fc1584956cd7a635793e4c6635ac993adb0d0184f97c1cb518d47daeb213938"
+        }
+      },
+      "all_recorded_components_equal": false,
+      "solver_configuration": {
+        "equal": false,
+        "old": {
+          "raw_values": {
+            "num_train_timesteps": 1000,
+            "solver_order": 2,
+            "prediction_type": "flow_prediction",
+            "shift": 1,
+            "use_dynamic_shifting": false,
+            "thresholding": false,
+            "dynamic_thresholding_ratio": 0.995,
+            "sample_max_value": 1.0,
+            "predict_x0": true,
+            "solver_type": "bh2",
+            "lower_order_final": true,
+            "disable_corrector": [],
+            "solver_p": null,
+            "timestep_spacing": "linspace",
+            "steps_offset": 0,
+            "final_sigmas_type": "zero",
+            "_use_default_values": [
+              "timestep_spacing",
+              "disable_corrector",
+              "prediction_type",
+              "thresholding",
+              "lower_order_final",
+              "steps_offset",
+              "solver_p",
+              "dynamic_thresholding_ratio",
+              "solver_type",
+              "solver_order",
+              "sample_max_value",
+              "final_sigmas_type",
+              "predict_x0"
+            ]
+          },
+          "raw_sha256": "1ffaa87a4f5a2f0852411428afe0930d05d54409af2262196ca71d7b12a528a4",
+          "numerical_values": {
+            "num_train_timesteps": 1000,
+            "solver_order": 2,
+            "prediction_type": "flow_prediction",
+            "shift": 1,
+            "use_dynamic_shifting": false,
+            "thresholding": false,
+            "dynamic_thresholding_ratio": 0.995,
+            "sample_max_value": 1.0,
+            "predict_x0": true,
+            "solver_type": "bh2",
+            "lower_order_final": true,
+            "disable_corrector": [],
+            "solver_p": null,
+            "timestep_spacing": "linspace",
+            "steps_offset": 0,
+            "final_sigmas_type": "zero"
+          },
+          "numerical_sha256": "ecd1b1aae774bf6646325acd33292e81818ac262adfcd06503fa4b1139fecbe2",
+          "default_name_metadata": [
+            "timestep_spacing",
+            "disable_corrector",
+            "prediction_type",
+            "thresholding",
+            "lower_order_final",
+            "steps_offset",
+            "solver_p",
+            "dynamic_thresholding_ratio",
+            "solver_type",
+            "solver_order",
+            "sample_max_value",
+            "final_sigmas_type",
+            "predict_x0"
+          ]
+        },
+        "teacher": {
+          "raw_values": {
+            "num_train_timesteps": 1000,
+            "solver_order": 2,
+            "prediction_type": "flow_prediction",
+            "shift": 1,
+            "use_dynamic_shifting": false,
+            "thresholding": false,
+            "dynamic_thresholding_ratio": 0.995,
+            "sample_max_value": 1.0,
+            "predict_x0": true,
+            "solver_type": "bh2",
+            "lower_order_final": true,
+            "disable_corrector": [],
+            "solver_p": null,
+            "timestep_spacing": "linspace",
+            "steps_offset": 0,
+            "final_sigmas_type": "zero",
+            "_use_default_values": [
+              "prediction_type",
+              "dynamic_thresholding_ratio",
+              "solver_type",
+              "sample_max_value",
+              "solver_order",
+              "predict_x0",
+              "disable_corrector",
+              "steps_offset",
+              "thresholding",
+              "final_sigmas_type",
+              "timestep_spacing",
+              "solver_p",
+              "lower_order_final"
+            ]
+          },
+          "raw_sha256": "0fc1584956cd7a635793e4c6635ac993adb0d0184f97c1cb518d47daeb213938",
+          "numerical_values": {
+            "num_train_timesteps": 1000,
+            "solver_order": 2,
+            "prediction_type": "flow_prediction",
+            "shift": 1,
+            "use_dynamic_shifting": false,
+            "thresholding": false,
+            "dynamic_thresholding_ratio": 0.995,
+            "sample_max_value": 1.0,
+            "predict_x0": true,
+            "solver_type": "bh2",
+            "lower_order_final": true,
+            "disable_corrector": [],
+            "solver_p": null,
+            "timestep_spacing": "linspace",
+            "steps_offset": 0,
+            "final_sigmas_type": "zero"
+          },
+          "numerical_sha256": "ecd1b1aae774bf6646325acd33292e81818ac262adfcd06503fa4b1139fecbe2",
+          "default_name_metadata": [
+            "prediction_type",
+            "dynamic_thresholding_ratio",
+            "solver_type",
+            "sample_max_value",
+            "solver_order",
+            "predict_x0",
+            "disable_corrector",
+            "steps_offset",
+            "thresholding",
+            "final_sigmas_type",
+            "timestep_spacing",
+            "solver_p",
+            "lower_order_final"
+          ]
+        }
+      },
+      "own_history": {
+        "equal": true,
+        "old": [
+          [
+            18,
+            22
+          ],
+          [
+            18,
+            22
+          ]
+        ],
+        "teacher": [
+          [
+            18,
+            22
+          ],
+          [
+            18,
+            22
+          ]
+        ]
+      }
+    },
+    {
+      "arm": "PAIRED",
+      "repeat": "second",
+      "old_component_count": 1216,
+      "teacher_component_count": 1216,
+      "inventory_equal": true,
+      "different_components": {
+        "output": {
+          "equal": false,
+          "old": "d5c9816b590d74553b3860aa3fd5acc5ba479362911de5a03552491d3271c0b9",
+          "teacher": "d9d8a732cb7115362eece97b8efb8a71c8eec2878163518738c9b93931b6e8a5"
+        },
+        "solver._internal_dict": {
+          "equal": false,
+          "old": "1ffaa87a4f5a2f0852411428afe0930d05d54409af2262196ca71d7b12a528a4",
+          "teacher": "0fc1584956cd7a635793e4c6635ac993adb0d0184f97c1cb518d47daeb213938"
+        }
+      },
+      "all_recorded_components_equal": false,
+      "solver_configuration": {
+        "equal": false,
+        "old": {
+          "raw_values": {
+            "num_train_timesteps": 1000,
+            "solver_order": 2,
+            "prediction_type": "flow_prediction",
+            "shift": 1,
+            "use_dynamic_shifting": false,
+            "thresholding": false,
+            "dynamic_thresholding_ratio": 0.995,
+            "sample_max_value": 1.0,
+            "predict_x0": true,
+            "solver_type": "bh2",
+            "lower_order_final": true,
+            "disable_corrector": [],
+            "solver_p": null,
+            "timestep_spacing": "linspace",
+            "steps_offset": 0,
+            "final_sigmas_type": "zero",
+            "_use_default_values": [
+              "timestep_spacing",
+              "disable_corrector",
+              "prediction_type",
+              "thresholding",
+              "lower_order_final",
+              "steps_offset",
+              "solver_p",
+              "dynamic_thresholding_ratio",
+              "solver_type",
+              "solver_order",
+              "sample_max_value",
+              "final_sigmas_type",
+              "predict_x0"
+            ]
+          },
+          "raw_sha256": "1ffaa87a4f5a2f0852411428afe0930d05d54409af2262196ca71d7b12a528a4",
+          "numerical_values": {
+            "num_train_timesteps": 1000,
+            "solver_order": 2,
+            "prediction_type": "flow_prediction",
+            "shift": 1,
+            "use_dynamic_shifting": false,
+            "thresholding": false,
+            "dynamic_thresholding_ratio": 0.995,
+            "sample_max_value": 1.0,
+            "predict_x0": true,
+            "solver_type": "bh2",
+            "lower_order_final": true,
+            "disable_corrector": [],
+            "solver_p": null,
+            "timestep_spacing": "linspace",
+            "steps_offset": 0,
+            "final_sigmas_type": "zero"
+          },
+          "numerical_sha256": "ecd1b1aae774bf6646325acd33292e81818ac262adfcd06503fa4b1139fecbe2",
+          "default_name_metadata": [
+            "timestep_spacing",
+            "disable_corrector",
+            "prediction_type",
+            "thresholding",
+            "lower_order_final",
+            "steps_offset",
+            "solver_p",
+            "dynamic_thresholding_ratio",
+            "solver_type",
+            "solver_order",
+            "sample_max_value",
+            "final_sigmas_type",
+            "predict_x0"
+          ]
+        },
+        "teacher": {
+          "raw_values": {
+            "num_train_timesteps": 1000,
+            "solver_order": 2,
+            "prediction_type": "flow_prediction",
+            "shift": 1,
+            "use_dynamic_shifting": false,
+            "thresholding": false,
+            "dynamic_thresholding_ratio": 0.995,
+            "sample_max_value": 1.0,
+            "predict_x0": true,
+            "solver_type": "bh2",
+            "lower_order_final": true,
+            "disable_corrector": [],
+            "solver_p": null,
+            "timestep_spacing": "linspace",
+            "steps_offset": 0,
+            "final_sigmas_type": "zero",
+            "_use_default_values": [
+              "prediction_type",
+              "dynamic_thresholding_ratio",
+              "solver_type",
+              "sample_max_value",
+              "solver_order",
+              "predict_x0",
+              "disable_corrector",
+              "steps_offset",
+              "thresholding",
+              "final_sigmas_type",
+              "timestep_spacing",
+              "solver_p",
+              "lower_order_final"
+            ]
+          },
+          "raw_sha256": "0fc1584956cd7a635793e4c6635ac993adb0d0184f97c1cb518d47daeb213938",
+          "numerical_values": {
+            "num_train_timesteps": 1000,
+            "solver_order": 2,
+            "prediction_type": "flow_prediction",
+            "shift": 1,
+            "use_dynamic_shifting": false,
+            "thresholding": false,
+            "dynamic_thresholding_ratio": 0.995,
+            "sample_max_value": 1.0,
+            "predict_x0": true,
+            "solver_type": "bh2",
+            "lower_order_final": true,
+            "disable_corrector": [],
+            "solver_p": null,
+            "timestep_spacing": "linspace",
+            "steps_offset": 0,
+            "final_sigmas_type": "zero"
+          },
+          "numerical_sha256": "ecd1b1aae774bf6646325acd33292e81818ac262adfcd06503fa4b1139fecbe2",
+          "default_name_metadata": [
+            "prediction_type",
+            "dynamic_thresholding_ratio",
+            "solver_type",
+            "sample_max_value",
+            "solver_order",
+            "predict_x0",
+            "disable_corrector",
+            "steps_offset",
+            "thresholding",
+            "final_sigmas_type",
+            "timestep_spacing",
+            "solver_p",
+            "lower_order_final"
+          ]
+        }
+      },
+      "own_history": {
+        "equal": true,
+        "old": [
+          [
+            18,
+            22
+          ],
+          [
+            18,
+            22
+          ]
+        ],
+        "teacher": [
+          [
+            18,
+            22
+          ],
+          [
+            18,
+            22
+          ]
+        ]
+      }
+    }
+  ],
+  "one_step_and_own_history_bridges": [
+    {
+      "arm": "BASE",
+      "repeat": "first",
+      "old_first_solver_output_vs_teacher_root_first_solver": {
+        "equal": true,
+        "old": "7971272ef23c4379c8eefd25d6ed9cc2d7d9313a991b705ebb25fb2560c5f808",
+        "teacher": "7971272ef23c4379c8eefd25d6ed9cc2d7d9313a991b705ebb25fb2560c5f808"
+      },
+      "old_first_solver_output_vs_child_origin_latent": {
+        "equal": false,
+        "old": "7971272ef23c4379c8eefd25d6ed9cc2d7d9313a991b705ebb25fb2560c5f808",
+        "teacher": "732661f8a5d5a6a9409cdc77b4d4de6ff70d91b339ad2204c708d925657ceba9"
+      },
+      "old_call46_history_vs_child_own_history": {
+        "equal": true,
+        "old": [
+          [
+            18,
+            22
+          ],
+          [
+            18,
+            22
+          ]
+        ],
+        "teacher": [
+          [
+            18,
+            22
+          ],
+          [
+            18,
+            22
+          ]
+        ]
+      },
+      "all_registered_bridge_fields_equal": false
+    },
+    {
+      "arm": "BASE",
+      "repeat": "second",
+      "old_first_solver_output_vs_teacher_root_first_solver": {
+        "equal": true,
+        "old": "7971272ef23c4379c8eefd25d6ed9cc2d7d9313a991b705ebb25fb2560c5f808",
+        "teacher": "7971272ef23c4379c8eefd25d6ed9cc2d7d9313a991b705ebb25fb2560c5f808"
+      },
+      "old_first_solver_output_vs_child_origin_latent": {
+        "equal": false,
+        "old": "7971272ef23c4379c8eefd25d6ed9cc2d7d9313a991b705ebb25fb2560c5f808",
+        "teacher": "732661f8a5d5a6a9409cdc77b4d4de6ff70d91b339ad2204c708d925657ceba9"
+      },
+      "old_call46_history_vs_child_own_history": {
+        "equal": true,
+        "old": [
+          [
+            18,
+            22
+          ],
+          [
+            18,
+            22
+          ]
+        ],
+        "teacher": [
+          [
+            18,
+            22
+          ],
+          [
+            18,
+            22
+          ]
+        ]
+      },
+      "all_registered_bridge_fields_equal": false
+    },
+    {
+      "arm": "CFG0",
+      "repeat": "first",
+      "old_first_solver_output_vs_teacher_root_first_solver": {
+        "equal": true,
+        "old": "d5e7a1048f0fc8195ba79d98d1d9a0912cc2d846a7331964d49e9633f0f80b52",
+        "teacher": "d5e7a1048f0fc8195ba79d98d1d9a0912cc2d846a7331964d49e9633f0f80b52"
+      },
+      "old_first_solver_output_vs_child_origin_latent": {
+        "equal": false,
+        "old": "d5e7a1048f0fc8195ba79d98d1d9a0912cc2d846a7331964d49e9633f0f80b52",
+        "teacher": "73792875a41d3a04fd6ef535b04af6977110cd76025ddfd2acfd351e1a68919c"
+      },
+      "old_call46_history_vs_child_own_history": {
+        "equal": true,
+        "old": [
+          [
+            22,
+            23
+          ],
+          [
+            18,
+            22
+          ]
+        ],
+        "teacher": [
+          [
+            22,
+            23
+          ],
+          [
+            18,
+            22
+          ]
+        ]
+      },
+      "all_registered_bridge_fields_equal": false
+    },
+    {
+      "arm": "CFG0",
+      "repeat": "second",
+      "old_first_solver_output_vs_teacher_root_first_solver": {
+        "equal": true,
+        "old": "d5e7a1048f0fc8195ba79d98d1d9a0912cc2d846a7331964d49e9633f0f80b52",
+        "teacher": "d5e7a1048f0fc8195ba79d98d1d9a0912cc2d846a7331964d49e9633f0f80b52"
+      },
+      "old_first_solver_output_vs_child_origin_latent": {
+        "equal": false,
+        "old": "d5e7a1048f0fc8195ba79d98d1d9a0912cc2d846a7331964d49e9633f0f80b52",
+        "teacher": "73792875a41d3a04fd6ef535b04af6977110cd76025ddfd2acfd351e1a68919c"
+      },
+      "old_call46_history_vs_child_own_history": {
+        "equal": true,
+        "old": [
+          [
+            22,
+            23
+          ],
+          [
+            18,
+            22
+          ]
+        ],
+        "teacher": [
+          [
+            22,
+            23
+          ],
+          [
+            18,
+            22
+          ]
+        ]
+      },
+      "all_registered_bridge_fields_equal": false
+    },
+    {
+      "arm": "CFG1",
+      "repeat": "first",
+      "old_first_solver_output_vs_teacher_root_first_solver": {
+        "equal": true,
+        "old": "9a2e0ca2669e6c4f675e26ff6ec46111a5b93bfbd08f44d928f5f18aea1e5b1a",
+        "teacher": "9a2e0ca2669e6c4f675e26ff6ec46111a5b93bfbd08f44d928f5f18aea1e5b1a"
+      },
+      "old_first_solver_output_vs_child_origin_latent": {
+        "equal": false,
+        "old": "9a2e0ca2669e6c4f675e26ff6ec46111a5b93bfbd08f44d928f5f18aea1e5b1a",
+        "teacher": "60c7a7cd9eacf47d7019518a9502f0fbaeebd0e3553d263cea038df92de0a8a1"
+      },
+      "old_call46_history_vs_child_own_history": {
+        "equal": true,
+        "old": [
+          [
+            18,
+            22
+          ],
+          [
+            22,
+            23
+          ]
+        ],
+        "teacher": [
+          [
+            18,
+            22
+          ],
+          [
+            22,
+            23
+          ]
+        ]
+      },
+      "all_registered_bridge_fields_equal": false
+    },
+    {
+      "arm": "CFG1",
+      "repeat": "second",
+      "old_first_solver_output_vs_teacher_root_first_solver": {
+        "equal": true,
+        "old": "9a2e0ca2669e6c4f675e26ff6ec46111a5b93bfbd08f44d928f5f18aea1e5b1a",
+        "teacher": "9a2e0ca2669e6c4f675e26ff6ec46111a5b93bfbd08f44d928f5f18aea1e5b1a"
+      },
+      "old_first_solver_output_vs_child_origin_latent": {
+        "equal": false,
+        "old": "9a2e0ca2669e6c4f675e26ff6ec46111a5b93bfbd08f44d928f5f18aea1e5b1a",
+        "teacher": "60c7a7cd9eacf47d7019518a9502f0fbaeebd0e3553d263cea038df92de0a8a1"
+      },
+      "old_call46_history_vs_child_own_history": {
+        "equal": true,
+        "old": [
+          [
+            18,
+            22
+          ],
+          [
+            22,
+            23
+          ]
+        ],
+        "teacher": [
+          [
+            18,
+            22
+          ],
+          [
+            22,
+            23
+          ]
+        ]
+      },
+      "all_registered_bridge_fields_equal": false
+    },
+    {
+      "arm": "PAIRED",
+      "repeat": "first",
+      "old_first_solver_output_vs_teacher_root_first_solver": {
+        "equal": true,
+        "old": "4745ac17677d51edaadaa835835c54323a7b47d2c70f4be82282778054d2355f",
+        "teacher": "4745ac17677d51edaadaa835835c54323a7b47d2c70f4be82282778054d2355f"
+      },
+      "old_first_solver_output_vs_child_origin_latent": {
+        "equal": false,
+        "old": "4745ac17677d51edaadaa835835c54323a7b47d2c70f4be82282778054d2355f",
+        "teacher": "a665eae1a2174a804660a4888eaae676b9f61d340e50919b15051bade0a4e3ce"
+      },
+      "old_call46_history_vs_child_own_history": {
+        "equal": true,
+        "old": [
+          [
+            22,
+            23
+          ],
+          [
+            22,
+            23
+          ]
+        ],
+        "teacher": [
+          [
+            22,
+            23
+          ],
+          [
+            22,
+            23
+          ]
+        ]
+      },
+      "all_registered_bridge_fields_equal": false
+    },
+    {
+      "arm": "PAIRED",
+      "repeat": "second",
+      "old_first_solver_output_vs_teacher_root_first_solver": {
+        "equal": true,
+        "old": "4745ac17677d51edaadaa835835c54323a7b47d2c70f4be82282778054d2355f",
+        "teacher": "4745ac17677d51edaadaa835835c54323a7b47d2c70f4be82282778054d2355f"
+      },
+      "old_first_solver_output_vs_child_origin_latent": {
+        "equal": false,
+        "old": "4745ac17677d51edaadaa835835c54323a7b47d2c70f4be82282778054d2355f",
+        "teacher": "a665eae1a2174a804660a4888eaae676b9f61d340e50919b15051bade0a4e3ce"
+      },
+      "old_call46_history_vs_child_own_history": {
+        "equal": true,
+        "old": [
+          [
+            22,
+            23
+          ],
+          [
+            22,
+            23
+          ]
+        ],
+        "teacher": [
+          [
+            22,
+            23
+          ],
+          [
+            22,
+            23
+          ]
+        ]
+      },
+      "all_registered_bridge_fields_equal": false
+    }
+  ],
+  "unrecorded_fields": {
+    "old_full_pre47_components": "UNRECORDED",
+    "old_post_denoise_signed_vectors": "UNRECORDED"
+  },
+  "historical_full_S23_state_acceptance": false,
+  "unique_endpoint_causal_attribution": false,
+  "independent_CONF": false,
+  "formal_RV_labels": false,
+  "new_generation_or_training": false,
+  "CUDA_initialized": false,
+  "GPU_submissions": 0,
+  "teacher_S23_origin_is_shared_first_repeat_bridge": true,
+  "summary": {
+    "trace_joins_all_equal": 0,
+    "S22_full_component_comparisons_equal": 0,
+    "one_step_and_own_history_bridges_equal": 0,
+    "S22_different_component_names": [
+      "output",
+      "solver._internal_dict"
+    ]
+  }
+}
