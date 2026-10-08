@@ -20,3 +20,10 @@
 冻结77源`00b06e61f39bf3bd7f7f2696a70994a0d2ffc0e5`，独立最终目录`.sync/wc-cfg-mechanism-confirmation-production-r1-20261009`执行一次selected实际CPU32.007931秒，原3409639/3409640退出exit0。与前一CPU静态配置绑定相同、派生seed3及12拒绝仍通过，77载荷、旧生产回执SHA与预算原字节保持。[原件核验](../reports/wc_cfg_confirmation_selected_cpu_r1_terminal_20261009_capture.json)通过，未新增GPU。
 
 下一使用此77源/最终配置和唯一run_id启动，绑定释放后CPU审计。此前GPU待执行快照保留；实际启动以原PID/运行回执为准。
+
+
+## 唯一完整GPU实际派发与原句柄
+
+同冻结77源`00b06e61f39bf3bd7f7f2696a70994a0d2ffc0e5`与最终配置SHA`7c2bb25419803231941277eb1bfe61f61f3bfa28a7af1f7d01e65c76ac0935a9`，唯一`wc-w3-cfg-mechanism-confirmation-r1`已真实启动：[启动回执](../reports/wc_cfg_mechanism_confirmation_r1_GPU_launch_20261009.json)、[首次观察](../reports/wc_cfg_mechanism_confirmation_r1_start_observation_20261009.json)。原GPU控制3409913/runner3409924及释放后CPU3409914活；实际GPU显存已24,514MiB、runner初始化/模型加载，尚无新机制或质量结果。加载日志的Downloading为既有官方缓存读取入口名称；环境保持offline，不据此声称新下载完成。
+
+启动前实际GPU24MiB/无进程、共享锁/磁盘/余额/77源与selected原回执通过。新增第63个GPU提交；服务器used50是剩余额度在途预留，实际底数仍26.279085386/50h，终态按包含加载/失败/flush的全wall结算。源目录封存不改，不重新提交该身份。继续原三个句柄；正常释放后完整120张量/20重复/两视频全93、224条件/76solver见证与有符号能量CPU独立核验。原S22及四自身S23、全部重复和失败分母保持。
