@@ -1,3 +1,7 @@
+## 2026-10-09 H-T48真实生产CPU通过，完整卡已选择，selected CPU及GPU待
+
+[174接续](research/174_WC_CFG_FRESH_SEED_PRODUCTION_CPU_AND_EXECUTION_20261009.md)：source19b476f实际CPU44.399秒/exit0，77载荷/实际资产guardrail/HF缓存/Blocklist/派生seed3及12拒绝、原件独立绑定通过；两PID3409168/3409169退出/预算原字节不变/无CUDA。完整新种子机制卡2父2视频/5×4×2=40对80net/120张量，新增224net条件/76solver记录保持；预测1.877382707h≤2、50h现有权限内已选择，下一同源selected CPU及fresh资源、唯一GPU和释放后CPU全范围审计。当前未GPU，26.279085386/50h、62提交无在途，原目录不改，不训练/扩稀疏/OMR/DRE/人评；goal active。本轮实际CPU和完整准备进展，下列未选/待CPU是历史快照。
+
 ## 2026-10-09 H-T48新种子机制复验已登记，真实生产CPU待
 
 [173完整卡](research/173_WC_CFG_FRESH_SEED_CONFIRMATION_PREPARATION_20261009.md)：Human seed3在当前45份receipt/输出无运行命中，新假设H-T48a预登记，完整两父/五起点/四动作/两重复保持；只局部教师，无新终点标签。H-T47的240原张量/448条件/152solver CPU独立通过，77新生产载荷AST/compile及正请求契约通过；完整保守预测1.877382707h保留旧整卡余量并追加CPU记录比例。下一独立生产CPU/原件核验、fresh同源selected与资源，再50h/单次2h内执行。当前未选新GPU，26.279085386/50h、62提交无在途保持，goal active，不扩训练/稀疏/OMR/DRE/人评。下列待执行快照仅对应当时阶段。
