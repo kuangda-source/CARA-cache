@@ -37,7 +37,7 @@ def verify_batch(state):
             or state['planned_CFG_pairs']!=40 or len(state['parents'])!=2):
         raise ValueError('Complete registered teacher scope required')
     off,on=state['parents']
-    parity = {k:off[k]==on[k] for k in TRACE_KEYS+('final_components','final_solver_configuration',
+    parity = {k:off[k]==on[k] for k in tuple(TRACE_KEYS)+('final_components','final_solver_configuration',
         'sample_return_sha256','final_latent_sha256','flags_before','flags_after','pipeline')}
     parity['video_bytes']=off['artifact']['sha256']==on['artifact']['sha256']
     if not all(parity.values()):
