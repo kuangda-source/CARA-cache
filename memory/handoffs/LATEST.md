@@ -1,3 +1,11 @@
+## 2026-10-09 W3同状态合成误差评分CPU通过，完整collector继续实现
+
+[166进展](../../research/166_WC_CFG_GUIDED_TEACHER_METRIC_CPU_AND_COLLECTION_DESIGN_20261009.md)：实际服务器Cosmos RF源码确认conditional/unconditional顺序、guidance7实数权重8/−7及条件帧在denoise中替换。H-T45源a43e9ed先登记/推送，独立服务器CPU2.144秒/exit0，8语义几何检查、6无效输入拒绝、原件SHA与stdlib能量重建通过；PID3384693退出、CUDAfalse/预算原字节不变。数学例子不是实际模型误差抵消证据，真实向量0、新GPU0。
+
+下一完整新诊断范围：两完整父/两视频无扰动控制，S22及四种动作产生四个实际S23，共5×4×2=40局部CFG速度对/80 net调用；同state内部teacherDD，各state单列，不跑完整反事实尾部、不生成端点标签、不缩旧卡。完整collector/真实closure/router/所有格/异常及1216状态回滚CPU、生产资源与成本预测仍待，selected=false。评分模块只在GPU释放后CPU运行，不在活CUDA进程中调用CPU-only scorer。
+
+累计24.908110354/50h、余25.091889646h/61历史jobs保持，本轮进展为源码校正+新实现+真实CPU/独立审计，goal active/总体目标未完成；继续collector无需新许可。单次最终≤2h自主/>2h具体整卡确认，不扩训练/稀疏/OMR/人评。旧同配额GPU及本CPU身份均已消耗，下面在跑/旧预算为历史。
+
 ## 2026-10-09 同配额整卡与全93评分完整结束，单槽正例未保留；CPU区分继续
 
 最新飞书已通过CLI局部更新并完整回读，revision7：[组会报告](https://lcnssrlun9lz.feishu.cn/docx/HTSIdK0uLofCG5xUI1IcTKaCnAh)，14主章节/14表/3公式/24链接。执行前主体仅改日期说明，其余正文及来源原样保留；新增顶部结论和两结果章节，全部新文本/链接与来源逐块相符、无warnings。核验reports/wc_group_meeting_feishu_completed_card_verification_20261009.json。
