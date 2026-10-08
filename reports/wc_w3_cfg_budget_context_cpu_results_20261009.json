@@ -1,0 +1,772 @@
+{
+  "status": "EXPOSED_FIXED_CFG_QUOTA_CONTEXT_CPU_DIAGNOSIS_COMPLETE_NOT_MEDIATION_NOT_CONF",
+  "preregistration_ref": "manifests/wc_w3_cfg_budget_followup_cpu_preregistration_20261009.json",
+  "input_hashes_verified": true,
+  "estimand": "total effect of registered fixed-mask position exchange at per-CFG quota 18/17",
+  "all_four_current_input_pairs_equal": true,
+  "CFG0_D45_output_equal_given_CFG1_C_or_D": true,
+  "CFG1_D46_output_equal_given_CFG0_C_or_D": true,
+  "CFG1_C46_output_equal_given_CFG0_C_or_D": true,
+  "pre46_changed_component_names_after_CFG0_D": [
+    "net.accumulated_rel_l1_distance",
+    "net.previous_output",
+    "net.probe_residual_cache",
+    "net.probe_residual_window",
+    "net.residual_cache",
+    "net.residual_window",
+    "net.resume_flag",
+    "net.worldcache_step_skipped_count"
+  ],
+  "pre46_current_latent_equal": true,
+  "pre46_solver_components_equal": true,
+  "conditional_position_exchange_effects": [
+    {
+      "context": "CFG0_given_CFG1_C",
+      "comparison": "CFG0_vs_BASE",
+      "signed_quality": -0.01668609470449468,
+      "relative_fidelity_improvement_percent": -4.019406362350237,
+      "improved_frames": 0,
+      "worse_frames": 93,
+      "three_equal31_frame_mean_changes": [
+        -0.014298360193929365,
+        -0.016462171270001318,
+        -0.01929775264955336
+      ],
+      "whole_full_saved": 0,
+      "single_action_RV_label": false
+    },
+    {
+      "context": "CFG0_given_CFG1_D",
+      "comparison": "PAIRED_vs_CFG1",
+      "signed_quality": 0.05608840238663458,
+      "relative_fidelity_improvement_percent": 11.915208660376406,
+      "improved_frames": 93,
+      "worse_frames": 0,
+      "three_equal31_frame_mean_changes": [
+        0.0544529095772774,
+        0.05533829139124963,
+        0.058474006191376715
+      ],
+      "whole_full_saved": 0,
+      "single_action_RV_label": false
+    },
+    {
+      "context": "CFG1_given_CFG0_C",
+      "comparison": "CFG1_vs_BASE",
+      "signed_quality": -0.05559121536952193,
+      "relative_fidelity_improvement_percent": -13.39101142023666,
+      "improved_frames": 0,
+      "worse_frames": 93,
+      "three_equal31_frame_mean_changes": [
+        -0.05312124952193229,
+        -0.05494614089688947,
+        -0.058706255689744025
+      ],
+      "whole_full_saved": 0,
+      "single_action_RV_label": false
+    },
+    {
+      "context": "CFG1_given_CFG0_D",
+      "comparison": "PAIRED_vs_CFG0",
+      "signed_quality": 0.01718328172160733,
+      "relative_fidelity_improvement_percent": 3.9792291647265037,
+      "improved_frames": 93,
+      "worse_frames": 0,
+      "three_equal31_frame_mean_changes": [
+        0.01563002024927447,
+        0.016854321764361475,
+        0.01906550315118605
+      ],
+      "whole_full_saved": 0,
+      "single_action_RV_label": false
+    }
+  ],
+  "recorded_routes_and_divergence": {
+    "BASE": {
+      "current_and_donor_events": [
+        {
+          "call": 45,
+          "cfg_slot": 0,
+          "solver_step": 23,
+          "epoch": 0,
+          "paid_probe": true,
+          "native_skip": true,
+          "requested": "C",
+          "selected_skip": true,
+          "current_deep_truth_used": false,
+          "age_solver_steps": 1,
+          "planned_action": "C",
+          "actual_native_override": false,
+          "tail_native_proposal_disagreement": false,
+          "protected_executed_action": false,
+          "paid_input_drift": 0.12060546875,
+          "paid_probe_drift": 0.10498046875,
+          "dynamic_threshold": 0.2001953125,
+          "accumulator_before_action": 0.10498046875,
+          "actual_action": "C",
+          "true_full_history": [
+            [
+              18,
+              22
+            ],
+            [
+              18,
+              22
+            ]
+          ],
+          "native_cycle_reset": false
+        },
+        {
+          "call": 46,
+          "cfg_slot": 1,
+          "solver_step": 23,
+          "epoch": 0,
+          "paid_probe": true,
+          "native_skip": true,
+          "requested": "C",
+          "selected_skip": true,
+          "current_deep_truth_used": false,
+          "age_solver_steps": 1,
+          "planned_action": "C",
+          "actual_native_override": false,
+          "tail_native_proposal_disagreement": false,
+          "protected_executed_action": false,
+          "paid_input_drift": 0.12060546875,
+          "paid_probe_drift": 0.10400390625,
+          "dynamic_threshold": 0.2041015625,
+          "accumulator_before_action": 0.10400390625,
+          "actual_action": "C",
+          "true_full_history": [
+            [
+              18,
+              22
+            ],
+            [
+              18,
+              22
+            ]
+          ],
+          "native_cycle_reset": false
+        },
+        {
+          "call": 47,
+          "cfg_slot": 0,
+          "solver_step": 24,
+          "epoch": 0,
+          "paid_probe": true,
+          "native_skip": false,
+          "requested": "D",
+          "selected_skip": false,
+          "current_deep_truth_used": false,
+          "planned_action": "D",
+          "actual_native_override": false,
+          "tail_native_proposal_disagreement": false,
+          "protected_executed_action": false,
+          "paid_input_drift": 0.1298828125,
+          "paid_probe_drift": 0.115234375,
+          "dynamic_threshold": 0.205078125,
+          "accumulator_before_action": 0.2197265625,
+          "actual_action": "D",
+          "true_full_history": [
+            [
+              22,
+              24
+            ],
+            [
+              18,
+              22
+            ]
+          ],
+          "native_cycle_reset": false
+        },
+        {
+          "call": 48,
+          "cfg_slot": 1,
+          "solver_step": 24,
+          "epoch": 0,
+          "paid_probe": true,
+          "native_skip": false,
+          "requested": "D",
+          "selected_skip": false,
+          "current_deep_truth_used": false,
+          "planned_action": "D",
+          "actual_native_override": false,
+          "tail_native_proposal_disagreement": false,
+          "protected_executed_action": false,
+          "paid_input_drift": 0.1298828125,
+          "paid_probe_drift": 0.1142578125,
+          "dynamic_threshold": 0.208984375,
+          "accumulator_before_action": 0.21875,
+          "actual_action": "D",
+          "true_full_history": [
+            [
+              22,
+              24
+            ],
+            [
+              22,
+              24
+            ]
+          ],
+          "native_cycle_reset": false
+        }
+      ],
+      "actual_full_calls": [
+        47,
+        48,
+        51,
+        52,
+        53,
+        54,
+        55,
+        57,
+        58,
+        59,
+        60,
+        63,
+        64,
+        71,
+        72
+      ],
+      "native_adaptive_proposal_disagreements": [],
+      "first_model_input_difference_vs_BASE": null,
+      "first_model_output_difference_vs_BASE": null,
+      "first_solver_update_difference_vs_BASE": null,
+      "pre46_own_history": [
+        [
+          18,
+          22
+        ],
+        [
+          18,
+          22
+        ]
+      ]
+    },
+    "CFG0": {
+      "current_and_donor_events": [
+        {
+          "call": 45,
+          "cfg_slot": 0,
+          "solver_step": 23,
+          "epoch": 0,
+          "paid_probe": true,
+          "native_skip": true,
+          "requested": "D",
+          "selected_skip": false,
+          "current_deep_truth_used": false,
+          "age_solver_steps": 1,
+          "planned_action": "D",
+          "actual_native_override": true,
+          "tail_native_proposal_disagreement": false,
+          "protected_executed_action": false,
+          "paid_input_drift": 0.12060546875,
+          "paid_probe_drift": 0.10498046875,
+          "dynamic_threshold": 0.2001953125,
+          "accumulator_before_action": 0.10498046875,
+          "actual_action": "D",
+          "true_full_history": [
+            [
+              22,
+              23
+            ],
+            [
+              18,
+              22
+            ]
+          ],
+          "native_cycle_reset": false
+        },
+        {
+          "call": 46,
+          "cfg_slot": 1,
+          "solver_step": 23,
+          "epoch": 0,
+          "paid_probe": true,
+          "native_skip": true,
+          "requested": "C",
+          "selected_skip": true,
+          "current_deep_truth_used": false,
+          "age_solver_steps": 1,
+          "planned_action": "C",
+          "actual_native_override": false,
+          "tail_native_proposal_disagreement": false,
+          "protected_executed_action": false,
+          "paid_input_drift": 0.12060546875,
+          "paid_probe_drift": 0.10400390625,
+          "dynamic_threshold": 0.2041015625,
+          "accumulator_before_action": 0.10400390625,
+          "actual_action": "C",
+          "true_full_history": [
+            [
+              22,
+              23
+            ],
+            [
+              18,
+              22
+            ]
+          ],
+          "native_cycle_reset": false
+        },
+        {
+          "call": 47,
+          "cfg_slot": 0,
+          "solver_step": 24,
+          "epoch": 0,
+          "paid_probe": true,
+          "native_skip": false,
+          "requested": "C",
+          "selected_skip": true,
+          "current_deep_truth_used": false,
+          "age_solver_steps": 1,
+          "planned_action": "C",
+          "actual_native_override": true,
+          "tail_native_proposal_disagreement": false,
+          "protected_executed_action": false,
+          "paid_input_drift": 0.232421875,
+          "paid_probe_drift": 0.2392578125,
+          "dynamic_threshold": 0.1748046875,
+          "accumulator_before_action": 0.2392578125,
+          "actual_action": "C",
+          "true_full_history": [
+            [
+              22,
+              23
+            ],
+            [
+              18,
+              22
+            ]
+          ],
+          "native_cycle_reset": false
+        },
+        {
+          "call": 48,
+          "cfg_slot": 1,
+          "solver_step": 24,
+          "epoch": 0,
+          "paid_probe": true,
+          "native_skip": false,
+          "requested": "D",
+          "selected_skip": false,
+          "current_deep_truth_used": false,
+          "planned_action": "D",
+          "actual_native_override": false,
+          "tail_native_proposal_disagreement": false,
+          "protected_executed_action": false,
+          "paid_input_drift": 0.232421875,
+          "paid_probe_drift": 0.2392578125,
+          "dynamic_threshold": 0.177734375,
+          "accumulator_before_action": 0.34375,
+          "actual_action": "D",
+          "true_full_history": [
+            [
+              22,
+              23
+            ],
+            [
+              22,
+              24
+            ]
+          ],
+          "native_cycle_reset": false
+        }
+      ],
+      "actual_full_calls": [
+        45,
+        48,
+        51,
+        52,
+        53,
+        54,
+        55,
+        57,
+        58,
+        59,
+        60,
+        63,
+        64,
+        71,
+        72
+      ],
+      "native_adaptive_proposal_disagreements": [
+        45,
+        47,
+        49,
+        50,
+        56,
+        69
+      ],
+      "first_model_input_difference_vs_BASE": 47,
+      "first_model_output_difference_vs_BASE": 45,
+      "first_solver_update_difference_vs_BASE": 23,
+      "pre46_own_history": [
+        [
+          22,
+          23
+        ],
+        [
+          18,
+          22
+        ]
+      ]
+    },
+    "CFG1": {
+      "current_and_donor_events": [
+        {
+          "call": 45,
+          "cfg_slot": 0,
+          "solver_step": 23,
+          "epoch": 0,
+          "paid_probe": true,
+          "native_skip": true,
+          "requested": "C",
+          "selected_skip": true,
+          "current_deep_truth_used": false,
+          "age_solver_steps": 1,
+          "planned_action": "C",
+          "actual_native_override": false,
+          "tail_native_proposal_disagreement": false,
+          "protected_executed_action": false,
+          "paid_input_drift": 0.12060546875,
+          "paid_probe_drift": 0.10498046875,
+          "dynamic_threshold": 0.2001953125,
+          "accumulator_before_action": 0.10498046875,
+          "actual_action": "C",
+          "true_full_history": [
+            [
+              18,
+              22
+            ],
+            [
+              18,
+              22
+            ]
+          ],
+          "native_cycle_reset": false
+        },
+        {
+          "call": 46,
+          "cfg_slot": 1,
+          "solver_step": 23,
+          "epoch": 0,
+          "paid_probe": true,
+          "native_skip": true,
+          "requested": "D",
+          "selected_skip": false,
+          "current_deep_truth_used": false,
+          "age_solver_steps": 1,
+          "planned_action": "D",
+          "actual_native_override": true,
+          "tail_native_proposal_disagreement": false,
+          "protected_executed_action": false,
+          "paid_input_drift": 0.12060546875,
+          "paid_probe_drift": 0.10400390625,
+          "dynamic_threshold": 0.2041015625,
+          "accumulator_before_action": 0.10400390625,
+          "actual_action": "D",
+          "true_full_history": [
+            [
+              18,
+              22
+            ],
+            [
+              22,
+              23
+            ]
+          ],
+          "native_cycle_reset": false
+        },
+        {
+          "call": 47,
+          "cfg_slot": 0,
+          "solver_step": 24,
+          "epoch": 0,
+          "paid_probe": true,
+          "native_skip": false,
+          "requested": "D",
+          "selected_skip": false,
+          "current_deep_truth_used": false,
+          "planned_action": "D",
+          "actual_native_override": false,
+          "tail_native_proposal_disagreement": false,
+          "protected_executed_action": false,
+          "paid_input_drift": 0.169921875,
+          "paid_probe_drift": 0.216796875,
+          "dynamic_threshold": 0.19140625,
+          "accumulator_before_action": 0.322265625,
+          "actual_action": "D",
+          "true_full_history": [
+            [
+              22,
+              24
+            ],
+            [
+              22,
+              23
+            ]
+          ],
+          "native_cycle_reset": false
+        },
+        {
+          "call": 48,
+          "cfg_slot": 1,
+          "solver_step": 24,
+          "epoch": 0,
+          "paid_probe": true,
+          "native_skip": false,
+          "requested": "C",
+          "selected_skip": true,
+          "current_deep_truth_used": false,
+          "age_solver_steps": 1,
+          "planned_action": "C",
+          "actual_native_override": true,
+          "tail_native_proposal_disagreement": false,
+          "protected_executed_action": false,
+          "paid_input_drift": 0.169921875,
+          "paid_probe_drift": 0.2138671875,
+          "dynamic_threshold": 0.1943359375,
+          "accumulator_before_action": 0.2138671875,
+          "actual_action": "C",
+          "true_full_history": [
+            [
+              22,
+              24
+            ],
+            [
+              22,
+              23
+            ]
+          ],
+          "native_cycle_reset": false
+        }
+      ],
+      "actual_full_calls": [
+        46,
+        47,
+        51,
+        52,
+        53,
+        54,
+        55,
+        57,
+        58,
+        59,
+        60,
+        63,
+        64,
+        71,
+        72
+      ],
+      "native_adaptive_proposal_disagreements": [
+        46,
+        48,
+        49,
+        50,
+        53,
+        54,
+        56,
+        60
+      ],
+      "first_model_input_difference_vs_BASE": 47,
+      "first_model_output_difference_vs_BASE": 46,
+      "first_solver_update_difference_vs_BASE": 23,
+      "pre46_own_history": [
+        [
+          18,
+          22
+        ],
+        [
+          18,
+          22
+        ]
+      ]
+    },
+    "PAIRED": {
+      "current_and_donor_events": [
+        {
+          "call": 45,
+          "cfg_slot": 0,
+          "solver_step": 23,
+          "epoch": 0,
+          "paid_probe": true,
+          "native_skip": true,
+          "requested": "D",
+          "selected_skip": false,
+          "current_deep_truth_used": false,
+          "age_solver_steps": 1,
+          "planned_action": "D",
+          "actual_native_override": true,
+          "tail_native_proposal_disagreement": false,
+          "protected_executed_action": false,
+          "paid_input_drift": 0.12060546875,
+          "paid_probe_drift": 0.10498046875,
+          "dynamic_threshold": 0.2001953125,
+          "accumulator_before_action": 0.10498046875,
+          "actual_action": "D",
+          "true_full_history": [
+            [
+              22,
+              23
+            ],
+            [
+              18,
+              22
+            ]
+          ],
+          "native_cycle_reset": false
+        },
+        {
+          "call": 46,
+          "cfg_slot": 1,
+          "solver_step": 23,
+          "epoch": 0,
+          "paid_probe": true,
+          "native_skip": true,
+          "requested": "D",
+          "selected_skip": false,
+          "current_deep_truth_used": false,
+          "age_solver_steps": 1,
+          "planned_action": "D",
+          "actual_native_override": true,
+          "tail_native_proposal_disagreement": false,
+          "protected_executed_action": false,
+          "paid_input_drift": 0.12060546875,
+          "paid_probe_drift": 0.10400390625,
+          "dynamic_threshold": 0.2041015625,
+          "accumulator_before_action": 0.10400390625,
+          "actual_action": "D",
+          "true_full_history": [
+            [
+              22,
+              23
+            ],
+            [
+              22,
+              23
+            ]
+          ],
+          "native_cycle_reset": false
+        },
+        {
+          "call": 47,
+          "cfg_slot": 0,
+          "solver_step": 24,
+          "epoch": 0,
+          "paid_probe": true,
+          "native_skip": true,
+          "requested": "C",
+          "selected_skip": true,
+          "current_deep_truth_used": false,
+          "age_solver_steps": 1,
+          "planned_action": "C",
+          "actual_native_override": false,
+          "tail_native_proposal_disagreement": false,
+          "protected_executed_action": false,
+          "paid_input_drift": 0.1376953125,
+          "paid_probe_drift": 0.1240234375,
+          "dynamic_threshold": 0.2021484375,
+          "accumulator_before_action": 0.1240234375,
+          "actual_action": "C",
+          "true_full_history": [
+            [
+              22,
+              23
+            ],
+            [
+              22,
+              23
+            ]
+          ],
+          "native_cycle_reset": false
+        },
+        {
+          "call": 48,
+          "cfg_slot": 1,
+          "solver_step": 24,
+          "epoch": 0,
+          "paid_probe": true,
+          "native_skip": true,
+          "requested": "C",
+          "selected_skip": true,
+          "current_deep_truth_used": false,
+          "age_solver_steps": 1,
+          "planned_action": "C",
+          "actual_native_override": false,
+          "tail_native_proposal_disagreement": false,
+          "protected_executed_action": false,
+          "paid_input_drift": 0.1376953125,
+          "paid_probe_drift": 0.123046875,
+          "dynamic_threshold": 0.205078125,
+          "accumulator_before_action": 0.123046875,
+          "actual_action": "C",
+          "true_full_history": [
+            [
+              22,
+              23
+            ],
+            [
+              22,
+              23
+            ]
+          ],
+          "native_cycle_reset": false
+        }
+      ],
+      "actual_full_calls": [
+        45,
+        46,
+        51,
+        52,
+        53,
+        54,
+        55,
+        57,
+        58,
+        59,
+        60,
+        63,
+        64,
+        71,
+        72
+      ],
+      "native_adaptive_proposal_disagreements": [
+        45,
+        46,
+        49,
+        50
+      ],
+      "first_model_input_difference_vs_BASE": 47,
+      "first_model_output_difference_vs_BASE": 45,
+      "first_solver_update_difference_vs_BASE": 23,
+      "pre46_own_history": [
+        [
+          22,
+          23
+        ],
+        [
+          18,
+          22
+        ]
+      ]
+    }
+  },
+  "shared_factorial_helper_metadata_warning": {
+    "native_helper_status": "FULL93_FOUR_CELL_TOTAL_ADAPTIVE_EFFECTS_NOT_CONF_NOT_RV_LABEL",
+    "native_interaction_interpretation": "Total current-request interaction through native adaptive continuation; no unique mechanism attribution",
+    "explanation": "Legacy adaptive wording is inherited from a pure arithmetic helper; actual current routing is fixed mask. Original bytes are retained. No adaptive continuation or single-action labels are inferred here."
+  },
+  "missing_for_guided_error_cancellation_attribution": [
+    "paired signed velocity/residual error vectors on identical actual states",
+    "guided error inner products and norms",
+    "separate donor-step intervention holding other mechanisms fixed"
+  ],
+  "vector_magnitude_or_unique_causal_mediation_inferred": false,
+  "all_four_cell_and_all93_frame_denominators_retained": true,
+  "new_comparisons_post_result_exploratory": true,
+  "formal_RV_training_labels": false,
+  "fit_or_new_generation": false,
+  "CUDA_initialized": false,
+  "GPU_submissions": 0
+}

@@ -1,3 +1,11 @@
+## 2026-10-09 同配额整卡与全93评分完整结束，单槽正例未保留；CPU区分继续
+
+[164完整结果](../../research/164_WC_CFG_BUDGET_MATCHED_COMPLETE_RESULTS_20261009.md)：1父/10完整后缀/6新视频/1旧Native、五重复、1216状态、原solver字典、全动作和七文件全93评分独立通过，各CFG18/17总35。CFG0对BASE−4.0194%/0改善93退化，CFG1−13.3910%/0/93；PAIRED+0.1198%/54改善39退化，后31帧均值退化。联合救回单槽大退化，微弱净收益不能当方法优势；旧自适应CFG0+0.5152%/35→37保持，固定配额正例未保留不否定整个W3。
+
+[165 CPU区分](../../research/165_WC_CFG_BUDGET_CONTEXT_CPU_AND_NEXT_20261009.md)按H-T44在801fe03预登记后执行：单槽被交换为C的供体原WC仍建议D，联合供体建议C/C；当前两个模型输入与相同D输出摘要一致，solver23/下一call47开始分歧。支持追踪双CFG配套动作，尚无有符号向量/唯一误差抵消归因，不拟合RV/Head。下一先同状态CFG合成误差教师诊断的设计/必要CPU及完整成本，尚未新增GPU，不扩训练/稀疏/OMR/人评。
+
+原GPU3368923/3368938和后CPU3369011/3383364均exit0并退出，目标GPU24MiB/noapps、锁释放，301冻结源8457dfb不变。实费4340.679254秒=1.205744237GPUh；服务器原字节账本已回写，累计24.908110354/50h、61jobs/noinflight，余25.091889646h，旧费/历史保留。本完整卡身份已消耗，不restart/重投；前期used50只是在途预留，现已结算。总体goal active/科研目标未完成；本轮完整GPU+CPU是真实progress，不满足blocked或complete。飞书组会已先经CLI创建回读，随后执行本卡，最新结果另追加，下面在跑/旧预算为历史时间快照。
+
 ## 2026-10-09 原OFF重复和固定BASE函数一致，位置交换仍在跑
 
 [OFF1/OFF2原件独立核对](../../reports/wc_w3_cfg_budget_partial_OFF_pair_readonly_audit_20261009.json)确认两完整后缀全部轨迹、1216状态组件/原solver字典和最终latent哈希相同，实际mask均为登记18/17；只通过1/5重复组。[OFF/BASE首后缀函数桥](../../reports/wc_w3_cfg_budget_partial_OFF_BASE_bridge_readonly_audit_20261009.json)确认固定BASE轨迹/状态与OFF相同，两视频SHA亦等、实际quota18/17，说明当前样本已完成后缀中固定路由保留基线行为。
