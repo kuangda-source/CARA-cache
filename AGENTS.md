@@ -1,8 +1,8 @@
-## 2026-10-09 CFG教师两个完整S23块原件核对通过，余范围继续
+## 2026-10-09 CFG教师三个完整S23块原件核对通过，最后范围继续
 
-[169接续](research/169_WC_CFG_GUIDED_TEACHER_TERMINAL_AUDIT_PREPARATION_20261009.md)及[第二完整S23原件重建](reports/wc_cfg_guided_teacher_second_S23_complete_partial_readonly_audit_20261009.json)：S23_after_DC完整8对/四重复，1216起止组件/指纹、同状态输入/条件/solver/输出/缓存/三张量摘要和恢复逐组相同；calls47/48、C0/D26/paid probe/full历史age重建，八实际文件大小/SHA/记录shape dtype匹配。自己的历史[[22,23],[18,22]]及父DC原一步桥一致，父也已恢复S22；首S23_after_CC完整原件核对保持。
+[169接续](research/169_WC_CFG_GUIDED_TEACHER_TERMINAL_AUDIT_PREPARATION_20261009.md)及[第三完整S23原件重建](reports/wc_cfg_guided_teacher_third_S23_complete_partial_readonly_audit_20261009.json)：S23_after_CD完整8对/四重复，1216组件/指纹、同状态输入/条件/solver/输出/cache/动作/三张量摘要及恢复一致；calls47/48/C0/D26/paid probe/full历史age、八实际文件大小SHA/记录FP32shape、原一步latent桥及live headroom公式通过。自己的历史[[18,22],[22,23]]与父CD事件相同，父和局部行均恢复。
 
-共两个S23块16对/8重复组原件核对；S22整块、另两个S23、完整ON父待。未加载张量内容/数值评分或接受成功子集，完整五起点40对20重复120张量、OFF/ON最终一致性、两视频全93和费用待释放后绑定CPU。原GPU3388748/3388760及后CPU3388749仍活、e9f47f5/64源/配置/driver不变，无新提交/停止/重启；24.908110354/50h底数保持，服务器50为在途预留。上一轮两反事实来源progress，本轮第二完整起点四重复原件重建progress+verified wait，goal active/未完成，无重要阻碍，不扩训练/稀疏/OMR/DRE/人评。以下为更早快照。
+已有三个S23块24对/12重复组原件核对；S22整块、第四S23_after_DD及父ON剩余待。未加载张量内容/评分或接受成功子集，完整五起点40对20重复120张量、父OFF/ON一致性、两视频全93及费用待释放后绑定CPU。原GPU3388748/3388760/后CPU3388749仍活，e9f47f5/64源/配置/driver不变，无新提交/停止/重启；24.908110354/50h底数保持、服务器50为在途预留。上一轮第二完整起点progress，本轮第三完整起点原件重建progress+verified wait，goal active/未完成，无重要阻碍，不扩训练/稀疏/OMR/DRE/人评。以下为更早快照。
 
 ## 2026-10-09 同状态双CFG教师生产CPU通过，真实GPU正在执行
 
