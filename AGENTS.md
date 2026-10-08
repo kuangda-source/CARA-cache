@@ -1,3 +1,9 @@
+## 2026-10-09 同配额原任务verified wait，终态独立审计准备完成
+
+[163审计准备](research/163_WC_CFG_BUDGET_TERMINAL_AUDIT_PREPARATION_20261009.md)：原GPU3368923/3368938和释放后CPU3369011实时均活，父样本已21/36更新；301在跑载荷哈希全部仍等于冻结源8457dfb，新提交/终止/重启均0，尚无终点指标。服务器50为第61job在途余额预留，原实费23.702366117h保持。
+
+新增两个只读本地捕获/独立重算工具已AST/compile和源码审查，按四交换掩码、十后缀、各CFG18/17、完整状态/solver原值/全部重复、七视频全93、四loss/四比较/交互和旧实费历史核对；未运行真实终态审计，未改或部署到在跑301载荷。下一继续三个原句柄，GPU及评分实际结束后运行这两个工具，再写科学报告。上一turn为实际文档+完整GPU派发progress，本轮为准备progress与原句柄verified wait；goal active，不满足blocked/complete，不扩训练/稀疏/OMR/人评。以下阶段进度为时间快照。
+
 ## 2026-10-09 飞书组会完成，原同配额GPU已进入生成
 
 [组会报告](https://lcnssrlun9lz.feishu.cn/docx/HTSIdK0uLofCG5xUI1IcTKaCnAh)经Feishu CLI创建/完整回读，无警告。文档先行要求实际已完成；[162执行](research/162_WC_CFG_BUDGET_MATCHED_AUTHORIZED_EXECUTION_20261009.md)记载直接单次2.082740047h例外和selected CPU16.380秒/301冻结载荷独立通过。
