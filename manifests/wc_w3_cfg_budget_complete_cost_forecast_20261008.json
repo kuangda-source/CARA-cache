@@ -1,0 +1,30 @@
+{
+  "status": "CONSERVATIVE_COMPLETE_CARD_EXECUTION_FORECAST_NOT_GPU_TIMING",
+  "retained_prior_complete_forecast_seconds": 7179.741201066412,
+  "CPU_control_timing_inputs": {
+    "reports/wc_w3_cfg_factorial_core_cpu_r1_20261008_result_json_native.gz": "a8d2c35498d0e6db925206fb7e1c11a8946d7d30c43a003319e03f1023913762",
+    "reports/wc_w3_cfg_budget_core_cpu_r1_20261008_result_json_native.gz": "a22f3cfb94d287bde18f4edb96bdfbb4f93493a37f23423a54b58c8f43c5293c"
+  },
+  "CPU_scope_timing_comparisons": [
+    {
+      "flow": false,
+      "old_complete_10_suffix_CPU_wall_seconds": 30.998270051553845,
+      "new_complete_10_suffix_CPU_wall_seconds": 31.918977071531117,
+      "ratio": 1.0297018839582346
+    },
+    {
+      "flow": true,
+      "old_complete_10_suffix_CPU_wall_seconds": 31.32407354284078,
+      "new_complete_10_suffix_CPU_wall_seconds": 32.711993652395904,
+      "ratio": 1.0443084169004047
+    }
+  ],
+  "planning_rule": "Retain previous full GPU forecast as floor; add positive maximum same-flow ten-control CPU relative overhead times that whole retained forecast. This conservative uplift is a planning proxy, not measured GPU overhead or clean speed. No controls, repeats, videos, reserve or previous fees reduced.",
+  "positive_CPU_relative_overhead": 0.04430841690040466,
+  "additional_integration_forecast_seconds": 318.12296637386265,
+  "forecast_complete_seconds": 7497.864167440274,
+  "forecast_complete_GPUh": 2.082740046511187,
+  "GPU_measurement_performed": false,
+  "whole_card_over_2GPUh": true,
+  "single_job_exception_approval": null
+}
