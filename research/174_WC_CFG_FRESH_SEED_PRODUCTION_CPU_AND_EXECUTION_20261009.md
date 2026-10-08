@@ -13,3 +13,10 @@
 [自主选择](../manifests/wc_cfg_mechanism_confirmation_autonomous_selection_20261009.json)绑定完整1.877382707GPUh预测及两父/5×4×2，已有累计50h和单次≤2h授权覆盖。未使用seed2旧视频作参考，原登记、旧费用和重复保持。资源只读核查时指定A6000/sm8.6为24MiB、无进程，共享锁可取、磁盘约553GB，余额23.720914614h；这是当时观察，启动时仍需fresh核查。
 
 下一执行同源selected实际CPU/原回执独立绑定；通过后同冻结77源和配置进入唯一GPU任务，正常释放后自动完整120张量/两视频全93及有符号能量CPU重建。终态工具已准备，未提前运行。当前尚未新GPU，账本26.279085386/50h、62提交无在途；没有新的模型科学结果，不扩训练/稀疏/OMR/DRE/人评。
+
+
+## 同源selected实际CPU通过
+
+冻结77源`00b06e61f39bf3bd7f7f2696a70994a0d2ffc0e5`，独立最终目录`.sync/wc-cfg-mechanism-confirmation-production-r1-20261009`执行一次selected实际CPU32.007931秒，原3409639/3409640退出exit0。与前一CPU静态配置绑定相同、派生seed3及12拒绝仍通过，77载荷、旧生产回执SHA与预算原字节保持。[原件核验](../reports/wc_cfg_confirmation_selected_cpu_r1_terminal_20261009_capture.json)通过，未新增GPU。
+
+下一使用此77源/最终配置和唯一run_id启动，绑定释放后CPU审计。此前GPU待执行快照保留；实际启动以原PID/运行回执为准。
