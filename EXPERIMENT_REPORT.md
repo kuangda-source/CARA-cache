@@ -1,3 +1,9 @@
+## 2026-10-09 原任务首OFF续跑及视频完成，第二重复在跑
+
+[部分原记录](reports/wc_w3_cfg_budget_off1_partial_video_progress_20261009.json)：OFF1完整后缀完成/15次deep-full、输出检查通过并保存首视频；OFF2第二重复STARTED。原GPU3368923/3368938及释放后CPU3369011实时均活，无exit，新增提交/终止/重启均0。当前只完成1/10后缀、1/6新视频，共同父仍暂停于22更新/44调用；全部重复/父余段/其他编码/全93评分和独立终态审计仍待，不能报完整mask可行或科学收益。
+
+上一goal turn为终态工具准备progress+verified wait，本轮为持续核对原活句柄的verified wait及首后缀推进；goal active，无重要阻碍，不调用blocked/complete。继续三个原句柄，原301源8457dfb/各CFG18/17/50累计/本次单次直接例外保持；账本50仍在途预留，非实际费用。以下为更早快照。
+
 ## 2026-10-09 同配额真实共享起点已到达，首个完整后缀控制在跑
 
 [实际阶段](reports/wc_w3_cfg_budget_shared_origin_first_suffix_started_20261009.json)确认原三个PID仍活、父轨迹44次CFG/22次更新记录已形成，OFF1首个后缀为STARTED；外层采样日志暂显示21/36是暂停父轨迹执行后缀的阶段，不是已停止。十后缀/父余段/六编码及全93评分均待，不声称恢复验收或新质量结果。
