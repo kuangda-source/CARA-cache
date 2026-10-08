@@ -14,3 +14,7 @@
 ## 本轮最后一次实时核对
 
 [原句柄与源核验](../reports/wc_w3_cfg_budget_original_verified_wait_and_audit_prep_20261009.json)实际确认三个原PID仍活、GPU作业无exit、父采样21/36、301源哈希全保持、CPU仍等待且评分0。新增GPU/终止/重启均0，真实终点和mask可行性仍未完成。该wait是对活进程的核对，不以旧RUNNING文件当作进程证据。
+
+## 共享起点与首个后缀已开始
+
+[下一阶段原记录](../reports/wc_w3_cfg_budget_shared_origin_first_suffix_started_20261009.json)确认父trajectory实际44调用/22更新，OFF1首后缀STARTED，三个PID仍活。父生成在此暂停以执行全部十后缀，外层日志21/36不是终止信号；父余段/控制/编码/终点评分均待。

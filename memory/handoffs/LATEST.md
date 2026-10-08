@@ -1,3 +1,9 @@
+## 2026-10-09 同配额真实共享起点已到达，首个完整后缀控制在跑
+
+[实际阶段](../../reports/wc_w3_cfg_budget_shared_origin_first_suffix_started_20261009.json)确认原三个PID仍活、父轨迹44次CFG/22次更新记录已形成，OFF1首个后缀为STARTED；外层采样日志暂显示21/36是暂停父轨迹执行后缀的阶段，不是已停止。十后缀/父余段/六编码及全93评分均待，不声称恢复验收或新质量结果。
+
+[163只读审计准备](../../research/163_WC_CFG_BUDGET_TERMINAL_AUDIT_PREPARATION_20261009.md)已存：待原GPU3368923/3368938和后CPU3369011实际终态后，运行scripts/capture_wc_w3_cfg_budget_complete_native.py及scripts/audit_wc_w3_cfg_budget_complete_cpu.py。在跑301源8457dfb不变，不新投/改源/训练/稀疏/人评；goal active、上一轮progress、本轮审计准备progress及活句柄verified wait。以下为较早时间快照。
+
 ## 2026-10-09 同配额原任务verified wait，终态独立审计准备完成
 
 [163审计准备](../../research/163_WC_CFG_BUDGET_TERMINAL_AUDIT_PREPARATION_20261009.md)：原GPU3368923/3368938和释放后CPU3369011实时均活，父样本已21/36更新；301在跑载荷哈希全部仍等于冻结源8457dfb，新提交/终止/重启均0，尚无终点指标。服务器50为第61job在途余额预留，原实费23.702366117h保持。
