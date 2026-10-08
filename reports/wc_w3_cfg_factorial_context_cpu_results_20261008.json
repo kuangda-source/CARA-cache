@@ -1,0 +1,316 @@
+{
+  "status": "EXISTING_EXPOSED_FACTORIAL_CONTEXT_AND_ROUTE_CPU_DIAGNOSIS_COMPLETE_NOT_CAUSAL_MEDIATION",
+  "preregistration_ref": "manifests/wc_w3_cfg_factorial_followup_cpu_preregistration_20261008.json",
+  "all_inputs_verified": true,
+  "current_two_model_inputs_equal_all_cells": true,
+  "CFG1_requested_D_paid_own_CFG_signals": {
+    "CFG1": {
+      "age_solver_steps": 1,
+      "paid_input_drift": 0.12060546875,
+      "paid_probe_drift": 0.10400390625,
+      "dynamic_threshold": 0.2041015625,
+      "accumulator_before_action": 0.10400390625,
+      "native_skip": true,
+      "paid_probe": true
+    },
+    "PAIRED": {
+      "age_solver_steps": 1,
+      "paid_input_drift": 0.12060546875,
+      "paid_probe_drift": 0.10400390625,
+      "dynamic_threshold": 0.2041015625,
+      "accumulator_before_action": 0.10400390625,
+      "native_skip": true,
+      "paid_probe": true
+    }
+  },
+  "CFG1_paid_signal_projection_equal": true,
+  "pre46_changed_component_names_after_CFG0_full": [
+    "net.accumulated_rel_l1_distance",
+    "net.previous_output",
+    "net.probe_residual_cache",
+    "net.probe_residual_window",
+    "net.residual_cache",
+    "net.residual_window",
+    "net.resume_flag",
+    "net.worldcache_step_skipped_count"
+  ],
+  "CFG1_full_output_at46_equal_given_CFG0_C_or_D": true,
+  "pre46_solver_components_equal": true,
+  "pre46_current_latent_equal": true,
+  "own_history_pre46": {
+    "BASE": [
+      [
+        18,
+        22
+      ],
+      [
+        18,
+        22
+      ]
+    ],
+    "CFG0": [
+      [
+        22,
+        23
+      ],
+      [
+        18,
+        22
+      ]
+    ],
+    "CFG1": [
+      [
+        18,
+        22
+      ],
+      [
+        18,
+        22
+      ]
+    ],
+    "PAIRED": [
+      [
+        22,
+        23
+      ],
+      [
+        18,
+        22
+      ]
+    ]
+  },
+  "conditional_total_effects": [
+    {
+      "context": "CFG1_given_CFG0_reuse",
+      "comparison": "CFG1_vs_BASE",
+      "signed_quality": -0.012122401947616249,
+      "relative_fidelity_improvement_percent": -2.92008767648255,
+      "whole_full_saved": -1,
+      "diagnostic_seconds_saved": -2.773197432048619,
+      "formal_RV_training_label": false
+    },
+    {
+      "context": "CFG1_given_CFG0_full",
+      "comparison": "PAIRED_vs_CFG0",
+      "signed_quality": -0.004018162206936908,
+      "relative_fidelity_improvement_percent": -0.9729221181567808,
+      "whole_full_saved": 2,
+      "diagnostic_seconds_saved": 6.4779834831133485,
+      "formal_RV_training_label": false
+    }
+  ],
+  "future_full_call_sets": {
+    "BASE": {
+      "current": [],
+      "future_by_CFG": [
+        [
+          47,
+          51,
+          53,
+          55,
+          57,
+          59,
+          63,
+          71
+        ],
+        [
+          48,
+          52,
+          54,
+          58,
+          60,
+          64,
+          72
+        ]
+      ],
+      "next_step_actual_actions": [
+        "D",
+        "D"
+      ],
+      "future_removed_vs_BASE": [
+        [],
+        []
+      ],
+      "future_added_vs_BASE": [
+        [],
+        []
+      ]
+    },
+    "CFG0": {
+      "current": [
+        45
+      ],
+      "future_by_CFG": [
+        [
+          47,
+          51,
+          53,
+          55,
+          59,
+          63,
+          69,
+          71
+        ],
+        [
+          48,
+          52,
+          54,
+          56,
+          60,
+          64,
+          70,
+          72
+        ]
+      ],
+      "next_step_actual_actions": [
+        "D",
+        "D"
+      ],
+      "future_removed_vs_BASE": [
+        [
+          57
+        ],
+        [
+          58
+        ]
+      ],
+      "future_added_vs_BASE": [
+        [
+          69
+        ],
+        [
+          56,
+          70
+        ]
+      ]
+    },
+    "CFG1": {
+      "current": [
+        46
+      ],
+      "future_by_CFG": [
+        [
+          47,
+          49,
+          53,
+          55,
+          59,
+          63,
+          69,
+          71
+        ],
+        [
+          48,
+          50,
+          54,
+          56,
+          60,
+          64,
+          72
+        ]
+      ],
+      "next_step_actual_actions": [
+        "D",
+        "D"
+      ],
+      "future_removed_vs_BASE": [
+        [
+          51,
+          57
+        ],
+        [
+          52,
+          58
+        ]
+      ],
+      "future_added_vs_BASE": [
+        [
+          49,
+          69
+        ],
+        [
+          50,
+          56
+        ]
+      ]
+    },
+    "PAIRED": {
+      "current": [
+        45,
+        46
+      ],
+      "future_by_CFG": [
+        [
+          49,
+          53,
+          55,
+          59,
+          63,
+          69,
+          71
+        ],
+        [
+          50,
+          54,
+          56,
+          60,
+          64,
+          72
+        ]
+      ],
+      "next_step_actual_actions": [
+        "C",
+        "C"
+      ],
+      "future_removed_vs_BASE": [
+        [
+          47,
+          51,
+          57
+        ],
+        [
+          48,
+          52,
+          58
+        ]
+      ],
+      "future_added_vs_BASE": [
+        [
+          49,
+          69
+        ],
+        [
+          50,
+          56
+        ]
+      ]
+    }
+  },
+  "first_divergence": {
+    "BASE": {
+      "first_model_input_difference_vs_BASE": null,
+      "first_model_output_difference_vs_BASE": null,
+      "first_solver_update_difference_vs_BASE": null
+    },
+    "CFG0": {
+      "first_model_input_difference_vs_BASE": 47,
+      "first_model_output_difference_vs_BASE": 45,
+      "first_solver_update_difference_vs_BASE": 23
+    },
+    "CFG1": {
+      "first_model_input_difference_vs_BASE": 47,
+      "first_model_output_difference_vs_BASE": 46,
+      "first_solver_update_difference_vs_BASE": 23
+    },
+    "PAIRED": {
+      "first_model_input_difference_vs_BASE": 47,
+      "first_model_output_difference_vs_BASE": 45,
+      "first_solver_update_difference_vs_BASE": 23
+    }
+  },
+  "all_four_cell_denominators_retained": true,
+  "post_result_exploratory_not_independent_confirmation": true,
+  "no_proxy_sufficiency_claim_or_gate_fit": true,
+  "CUDA_initialized": false,
+  "GPU_submissions": 0
+}

@@ -34,7 +34,7 @@ CFG0对BASE的93帧中71改善、22退化；三个连续31帧段的signed平均�
 
 冻结运行source **12bc430b54e9b1829e6d5c62b46cad1c5f05c6b7**，277份执行载荷及预算权威前后未改，CPU评分只跟随这一次原GPU句柄。五组严格重复/恢复、共享pre45与两个当前输入、BASE/CFG1及CFG0/PAIRED两个pre46桥、完整实际deep与70reset/71–72尾均通过。每条14更新/28CFG的完整后缀保留，父/OFF/BASE轨迹、最终状态和编码字节桥成立。
 
-前景求解器实际完整字典保存并绑定到状态摘要，1216组件包括缓存、求解器、latent、RNG、显式generator、buffers和module模式。全新七份文件均完整解码93帧，Native参照保持登记SHA，没有裁剪、缩放或抽帧；四个损失、四个有符号比较与全部93帧交互独立算术一致。
+事前要求记录的求解器实际完整字典保存并绑定到状态摘要，1216组件包括缓存、求解器、latent、RNG、显式generator、buffers和module模式。全新七份文件均完整解码93帧，Native参照保持登记SHA，没有裁剪、缩放或抽帧；四个损失、四个有符号比较与全部93帧交互独立算术一致。
 
 - [原始GPU/CPU终态、源和文件SHA捕获](../reports/wc_w3_cfg_factorial_complete_r1_terminal_capture_20261008.json)。
 - [独立完整重建](../reports/wc_w3_cfg_factorial_complete_r1_independent_reconstruction_20261008.json)，由[可复查脚本](../scripts/audit_wc_w3_cfg_factorial_complete_cpu.py)重建原始数据而非只读取PASS。
