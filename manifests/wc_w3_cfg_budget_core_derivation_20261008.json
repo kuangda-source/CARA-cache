@@ -1,0 +1,25 @@
+{
+  "status": "NEW_SAME_QUOTA_CFG_CORE_DERIVED_NOT_CPU_PASS_NOT_GPU",
+  "prior_sources_unchanged": {
+    "src/wcomr/rv0_cfg_factorial_actions.py": "d6dd235a50ac2bf3e800603e080b4418cbbdc6e5ecbff52f0fc3d7ee5fa8d12f",
+    "src/wcomr/rv0_cfg_factorial_causal.py": "1870298f514f285c4ddb660d4356cd393ffc702bac53bdcc799e6cc0890b1736",
+    "src/wcomr/rv0_cfg_factorial_evaluation.py": "829f81163b4bd8dfee1c545fb7222065dee3e2f39c86558585f2d09ec13e6ad1",
+    "tests/check_rv0_cfg_factorial_cpu.py": "b65403d71be3b0183daca4a0771fda299c6249d066fe972a7d68bb8d3c9afcee"
+  },
+  "new_sources": {
+    "src/wcomr/rv0_cfg_budget_plan.py": "5db307a2a32a93291b50148e70dbf8018ed5963fb1af48ae2616f54dbf606fde",
+    "src/wcomr/rv0_cfg_budget_actions.py": "e2a85031f04c381d7ba4711b25a341e952164d39ac4967528da3c2d765a5b15a",
+    "src/wcomr/rv0_cfg_budget_causal.py": "b1c4f63b23506c4f1fa71583ce414a29232b7d11a28d3907d3d09d643fc2cc16",
+    "src/wcomr/rv0_cfg_budget_evaluation.py": "0b3406a1454ec5ee6ee4187ac0476876eb3e37f58b5a59d22c308a780a8532b7",
+    "tests/check_rv0_cfg_budget_cpu.py": "d9fab580056fee01c22480676967cc720cf748512878f185eec6feb48debd259",
+    "scripts/check_wc_w3_cfg_budget_core_cpu.py": "b84849df0ac7d0984ecc19a4c2e745405569f0f5d26e3e21527003fe3ed4b72a"
+  },
+  "frozen_design_ref": "plans/WORLD_CACHE_CFG_BUDGET_MATCHED_WINDOW_20261008.md",
+  "frozen_registration_ref": "manifests/wc_w3_cfg_budget_matched_cpu_preregistration_20261008.json",
+  "delta": "Replace adaptive continuation in four cells with frozen observed BASE mask and registered 45/47,46/48 same-CFG exchanges; preserve 1 parent,10 full suffixes,6 guarded outputs,5 repeats. Original CPU model/proposals/writer remain explicit mocks; real proposals are not overridden by the fixture in production.",
+  "CPU_success_cases": 4,
+  "CPU_failure_cases_retained": 5,
+  "CPU_evidence_mutation_refusals_expected": 104,
+  "cumulative_authorization_ref": "manifests/budget_authorization_20261008_wc_50gpuh.json",
+  "GPU_submissions": 0
+}
