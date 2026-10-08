@@ -1,0 +1,111 @@
+{
+  "prior_exposure": [
+    "fixed quota endpoint cells",
+    "source-bound mathematical CPU examples",
+    "H-T45 complete real signed vectors",
+    "H-T46 linkage mismatches"
+  ],
+  "GPU_execution_selected": false,
+  "GPU_submissions": 0,
+  "full_scope": {
+    "full_parents": 2,
+    "new_videos": 2,
+    "actual_state_origins": 5,
+    "action_cells_per_origin": 4,
+    "strict_repeats_per_cell": 2,
+    "local_CFG_velocity_pairs": 40,
+    "net_calls_in_diagnostics": 80,
+    "full_counterfactual_suffixes": 0,
+    "endpoint_labels": 0
+  },
+  "CPU_cases": {
+    "full_success": [
+      "flow_OFF",
+      "flow_ON"
+    ],
+    "failures": [
+      "second_CFG",
+      "nested_writer",
+      "condition_mutation",
+      "solver_mutation",
+      "nonfinite",
+      "mode_mutation"
+    ],
+    "evidence_refusals": [
+      "missing_origin",
+      "missing_repeat",
+      "wrong_pair_output",
+      "wrong_condition",
+      "wrong_action",
+      "missing_net_measurement",
+      "wrong_active_condition_measurement",
+      "wrong_sampler_measurement"
+    ]
+  },
+  "retain_raw_CPU_tensors": true,
+  "runtime_source_sha256": {
+    "cosmos_predict2/_src/predict2/models/video2world_model_rectified_flow.py": "9b53e3f024e5cbb2cb3778819e1a6fd353923c13ad9b868d99602051640a65e8",
+    "cosmos_predict2/_src/predict2/models/text2world_model_rectified_flow.py": "c6c68f297859e11c76d2921667a29cabfecef3a7b5d3ab831bf9bb54b25b7d87",
+    "cosmos_predict2/_src/predict2/inference/worldcache_utils.py": "b485cb8fd6e262a40e5823365c34ef7db1bc036c591d7577489e04077c515903",
+    "cosmos_predict2/_src/predict2/models/fm_solvers_unipc.py": "f6a06c75f059693ade6c802e99f6058575969b6a71ef18ab05e7ed46701053d3",
+    "cosmos_predict2/_src/predict2/configs/video2world/defaults/conditioner.py": "d58f515074237843b707d67001751c0e022546061348728e6322faaaa22e837c"
+  },
+  "forecast_complete_GPUh": null,
+  "requires_after_CPU": [
+    "independent raw reconstruction",
+    "production CPU/import/resources",
+    "complete whole-card cost forecast"
+  ],
+  "identity": "H_T47_COMPLETE_MEASUREMENT_COLLECTOR_CPU_R1_20261009",
+  "registered_unix": 1791498868.560274,
+  "hypothesis_id": "H-T47",
+  "input_registration_ref": "manifests/wc_cfg_measurement_cpu_preregistration_20261009.json",
+  "CPU_boundaries": "Pinned actual sampler/denoise/CFG/frozen condition/UniPC with Toy weights/encoder/decoder/mock writer. Measurement controls are CPU only; no historical condition equality or model benefit.",
+  "payload_sha256": {
+    "plans/WORLD_CACHE_CFG_GUIDED_TEACHER_DIAGNOSTIC_20261009.md": "755f8a5a58ff8a4b3adf438cb9fac59c63f7778943b40bfe9e1135b5d73f82a0",
+    "scripts/check_wc_cfg_teacher_collection_cpu.py": "c6b4d62e64391f7bd4f826e638503e6dbf50f2e70618d0ad49d469f8cc6f53ea",
+    "src/wcomr/__init__.py": "b9996da0a87bb746cdac0935ead475246fc34d88b37e73f63f14e5065494f311",
+    "src/wcomr/cfg_teacher_collection.py": "b61d7d661a606baa7dc027971f44bc874e1832b0cced21277e252ee4c8fa43ca",
+    "src/wcomr/cfg_teacher_metrics.py": "f9603a8f40fd6715b36ed2575ba821018f7262925aaf3b04a2be2bdfbcbb542a",
+    "src/wcomr/cfg_teacher_sampling.py": "24bdd06dbb977ed1d0b58f5a5dc5d9ac743bea250a3a08584019c4d9bbc73d02",
+    "src/wcomr/decoder_policy.py": "57e1369909dfa9db5ea6ab563b275fe7376bea14d0b247dd7748e79fccf8699b",
+    "src/wcomr/fair_sampling.py": "0dcaf0f62188940d8b982f630b9c1493d91f7f5d41d4049b611335b1cf80fef6",
+    "src/wcomr/fair_workpoints.py": "713665161cd0241fe3432224876524430544530a41cb0c4024da0e920930d103",
+    "src/wcomr/full_output.py": "bce7d514bd506e8cf878747c77e318ac060bfe07718bdbd129a8975af5c5234f",
+    "src/wcomr/full_sampling.py": "d5fc455dbf8d0fe3b5b1fdc2a69d00d1a2a41dd7cc741fc6b0830b74f7b881aa",
+    "src/wcomr/h0_mode.py": "849afc06fa124c606e39205542458e7bcaa974adca28d9772f3c23730c1668b4",
+    "src/wcomr/light_sampling.py": "45e721e64e0fba0ea62f5d8f49840d3ae8638c33c7c74032a50bea7496169f94",
+    "src/wcomr/measurement.py": "c4181ec3220b2fd33d333dffed9ae7163303668b9e152a705d1d70213b45a4c0",
+    "src/wcomr/mid_coverage.py": "8e02d740b4ee794531c6263666bbed18348e32ba84c9b94b89f7c979a106fbf4",
+    "src/wcomr/mid_prefix_audit.py": "218dba5b59a76919bcb03dae0ccba4dae69dc40dc4035aac968f7f85cb14fe0e",
+    "src/wcomr/mid_scope.py": "94d02ab46cddd70a0a80e5edb62eb12e22eb2647afe66b6843e6372480bb51ac",
+    "src/wcomr/prepared_input.py": "aa2d916a56d8ac1f7afd8a551c20341d5bed86299f97b0711019517f0e0effdb",
+    "src/wcomr/refresh_deployment.py": "94d272cd6a35271d251c81ec6eba1a3d3fdb7451c657109adb249dd9e9f2e7bc",
+    "src/wcomr/rv0_actions.py": "c443a90a28ef1ccfe932b77e98409a172feff1ad1ec6fe054cea9f6da4299e6f",
+    "src/wcomr/rv0_causal.py": "9fcbb96b9c3b15cbab78d32b280900bb7c99316d2f3991538f4e366843ee3087",
+    "src/wcomr/rv0_cfg_budget_actions.py": "e2a85031f04c381d7ba4711b25a341e952164d39ac4967528da3c2d765a5b15a",
+    "src/wcomr/rv0_cfg_budget_evaluation.py": "0b3406a1454ec5ee6ee4187ac0476876eb3e37f58b5a59d22c308a780a8532b7",
+    "src/wcomr/rv0_cfg_budget_plan.py": "5db307a2a32a93291b50148e70dbf8018ed5963fb1af48ae2616f54dbf606fde",
+    "src/wcomr/rv0_cfg_factorial_evaluation.py": "829f81163b4bd8dfee1c545fb7222065dee3e2f39c86558585f2d09ec13e6ad1",
+    "src/wcomr/rv0_d46_seed_evaluation.py": "7b8fc1cc1ce816536803b6d218d8bfe0eaed1f38f1dd9b1d204aea33740d7625",
+    "src/wcomr/rv0_fork.py": "b44f11190a18e28044a3e5b9c6e71f133cb6642b48536791fd012f4e2f97424f",
+    "src/wcomr/rv0_restore.py": "c5f119ebbfa60f3143bf9bd22a36a2cdf47eda43593a22d2a25af2429ee186f1",
+    "src/wcomr/selective_refresh_policy.py": "d1b67d3ed941b2abb4f19c955df6d7627cde17cf7b5b97554f33e10300af5adb",
+    "src/wcomr/sparge_no_pv.py": "5cce08ad13cf61d62eef2781417075468d92b65c535ea2b0a8434bcf46398e6e",
+    "src/wcomr/sparge_routed_no_pv.py": "7e895502101be1164d18fc5c04ddbc6ad4fb7aec034eb9c79a18ccbc1bb8b0b4",
+    "src/wcomr/stage_refresh.py": "eee10e636abf6dd2141319ac03cf7d56540aa7a8b73146830e6e7c057c714bce",
+    "src/wcomr/stage_refresh_policy.py": "5a6d85fc2c10e2d36ef9d19e1487f3e4e64bee6c4852437956f764bc586d2908",
+    "src/wcomr/stage_witness.py": "78247cc3137d1ea032425c392aa728f35b83fcd0d748f21be4cb3c3d7995ae09",
+    "tests/check_cfg_teacher_collection_cpu.py": "e47167298b6045825262e2f768d4d1f1b78f6f99f14ceb695a12847522aeabec",
+    "tests/check_full_sampling.py": "137574672d216ebeae4d2639f381dbb2c63a51505ba37e74989e8b7e3e172cc8",
+    "tests/check_rv0_restore_cpu.py": "a33570677798853aa4d80b1a82371fe6d578f2fb8a428890050c71c4e52fd5fa",
+    "tests/check_rv0_video_actions_cpu.py": "c90bfc9bca2855ca7440056a4d154006765b1d2917223f5a54928942de5bd4ac",
+    "src/wcomr/cfg_teacher_measurement.py": "5d44d97a5b8b89b815876073f67bb71d7a6848bf4418cdeca774949bbf01582a",
+    "tests/check_cfg_measurement_cpu.py": "a3d6be0da6ec8a9f097749ecef84038ab1f4b6f85b0380c5888925d42e560cce",
+    "scripts/audit_wc_cfg_teacher_collection_cpu.py": "6e2a12ece3099195caa5e13762685ab741fe69ccf0efb1c7837a5b10d7cd09ef",
+    "plans/WORLD_CACHE_CFG_MEASUREMENT_CPU_20261009.md": "3caa99498904d466875969e62db7165b6d7f684c293b5803d489decbf92079d8",
+    "manifests/wc_cfg_measurement_cpu_preregistration_20261009.json": "5b67dee0cabb2efcb9c706157c02d7b2bf1d752a9dc0d0cba8b0fd43a09f3cb1",
+    "scripts/supervise_wc_cfg_measurement_cpu.py": "2732e8f718517cbc9e9bee35f92464a19c88a3102072a83ff0dac962def73322"
+  },
+  "core_receipt_is_not_controller_terminal": "Independent audit reads completed core receipt while controller remains live; terminal controller success still requires audit exit0."
+}

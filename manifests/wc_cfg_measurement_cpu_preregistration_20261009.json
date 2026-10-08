@@ -1,0 +1,63 @@
+{
+  "identity": "H_T47_MEASUREMENT_CONTRACT_CPU_R1_20261009",
+  "registered_unix": 1791498642.798601,
+  "prior_exposure": [
+    "Human seed2 signed CFG errors",
+    "fixed quota endpoint four cells",
+    "H-T46 complete recorded-field linkage mismatches"
+  ],
+  "GPU_execution_selected": false,
+  "GPU_submissions": 0,
+  "CUDA_initialized": false,
+  "input_sha256": {
+    "reports/wc_cfg_guided_teacher_r1_terminal_20261009_independent_CPU_audit.json": "c03b5fe3257977f7a5be189d5807ee5e4c53f351f4a5a96a93bb36645470173d",
+    "reports/wc_cfg_teacher_endpoint_link_cpu_results_20261009.json": "f40eccafb9043341eb39e997d81223b648fa14e34c22f80ecc735c72310ee23b"
+  },
+  "plan_ref": "plans/WORLD_CACHE_CFG_MEASUREMENT_CPU_20261009.md",
+  "plan_sha256": "3caa99498904d466875969e62db7165b6d7f684c293b5803d489decbf92079d8",
+  "full_scope_per_core_case": {
+    "full_parents": 2,
+    "new_mock_videos": 2,
+    "actual_state_origins": 5,
+    "action_cells_per_origin": 4,
+    "strict_repeats_per_cell": 2,
+    "local_CFG_velocity_pairs": 40,
+    "net_calls_in_diagnostics": 80,
+    "endpoint_labels": 0
+  },
+  "complete_core_cases": [
+    "flow_OFF",
+    "flow_ON"
+  ],
+  "original_failures_retained": [
+    "second_CFG",
+    "nested_writer",
+    "condition_mutation",
+    "solver_mutation",
+    "nonfinite",
+    "mode_mutation"
+  ],
+  "new_measurement_evidence_refusals": [
+    "missing_net_measurement",
+    "wrong_active_condition_measurement",
+    "wrong_sampler_measurement"
+  ],
+  "required_measurement_semantics": [
+    "separate sampler latent and actual net input",
+    "separate scheduler raw return and extracted latent",
+    "full gt_frames witness",
+    "broadcast binary mask active values witness",
+    "zero active values explicit",
+    "reject invalid or nonfinite masks",
+    "no input mutation",
+    "no RNG consumption"
+  ],
+  "CPU_boundaries": "Actual pinned Cosmos sampler/CFG/denoise/frozen condition/UniPC; Toy weights and mock encode/decode/writer. No real-model or historical-gt_frames equality claim.",
+  "forecast_complete_GPUh": null,
+  "requires_after_CPU": [
+    "independent complete raw reconstruction",
+    "unexposed identity and scope registration",
+    "production CPU binding",
+    "whole-card conservative forecast and fresh resource admission"
+  ]
+}

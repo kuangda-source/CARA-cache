@@ -6,6 +6,7 @@ import time
 import torch
 
 from .mid_coverage import tree_digest
+from .cfg_teacher_measurement import origin_witness, validate_net_binding
 from .rv0_actions import OneAction, OneActionRouter, OneActionSuffixControl
 from .rv0_cfg_budget_evaluation import solver_configuration
 
@@ -93,7 +94,9 @@ class GuidedTeacherFork(OneActionSuffixControl):
                   'origin_components':self.snapshot.components(), 'origin_fingerprint':self.parent_fingerprint,
                   'origin_solver_configuration':solver_configuration(self.scheduler),
                   'origin_own_history':copy.deepcopy(self.router.history),
+                  'origin_measurement':origin_witness(self.parent_latents,self.noise),
                   'inputs':[], 'outputs':[], 'deep':[], 'banks':[], 'solver_outputs':[],
+                  'net_measurements':[], 'solver_measurements':[], 'post_denoise_measurements':[],
                   'post_denoise_branch_sha256':[], 'denoise_arguments':[],
                   'formal_RV_label':False, 'endpoint_label':False}
         self.records.append(record); self.save()
@@ -156,7 +159,8 @@ def verify_origin(origin):
         raise ValueError('Complete four-action/two-repeat origin required')
     signature_keys = ('origin_components','origin_fingerprint','origin_solver_configuration','origin_own_history',
         'inputs','outputs','deep','banks','post_denoise_branch_sha256','denoise_arguments','action_report',
-        'pair_end_components','pair_end_fingerprint','pair_end_solver_configuration','actual_guided_sha256')
+        'pair_end_components','pair_end_fingerprint','pair_end_solver_configuration','actual_guided_sha256',
+        'origin_measurement','net_measurements','post_denoise_measurements')
     for mode in MODES:
         a,b = [r for r in rows if r['mode']==mode]
         if (a['status']!='COMPLETE_TWO_CALL_LOCAL_TEACHER_REQUIRES_INDEPENDENT_AUDIT'
@@ -168,6 +172,26 @@ def verify_origin(origin):
             raise ValueError('Incomplete local teacher row retained')
         if any(len(a[k])!=2 for k in ('inputs','outputs','deep','banks','post_denoise_branch_sha256','denoise_arguments')):
             raise ValueError('Missing one current CFG observation')
+        for record in (a,b):
+            if len(record.get('net_measurements',[]))!=2 or len(record.get('post_denoise_measurements',[]))!=2:
+                raise ValueError('Missing current CFG measurement spaces')
+            if record['origin_measurement']['sampler_latent']['tree_sha256']!=record['origin_components']['output']:
+                raise ValueError('Sampler origin witness does not bind the captured sampler space')
+            for witness,signature in zip(record['net_measurements'],record['inputs']):
+                validate_net_binding(witness,signature)
+            if [w['tree_sha256'] for w in record['post_denoise_measurements']]!=record['post_denoise_branch_sha256']:
+                raise ValueError('Post-denoise witness space differs')
+            for arguments in record['denoise_arguments']:
+                if arguments['latent']!=record['origin_measurement']['sampler_latent']['tree_sha256']:
+                    raise ValueError('Sampler latent and actual denoise argument differ')
+            advanced=bool(record.get('solver_step_reused_measured_velocity_without_net_call'))
+            if len(record['solver_measurements'])!=(1 if advanced else 0):
+                raise ValueError('Actual one-step solver witness missing or invented')
+            if advanced:
+                witness=record['solver_measurements'][0]
+                if (witness['raw_return_tree_sha256']!=record['solver_outputs'][0]
+                        or witness['next_sampler_latent']['tree_sha256']!=record['child_latent_sha256']):
+                    raise ValueError('Raw solver return or extracted child latent binding differs')
         if a['action_report']['plan']['mode']!=mode:
             raise ValueError('Wrong teacher cell action')
     reference = rows[0]

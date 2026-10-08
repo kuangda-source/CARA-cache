@@ -24,13 +24,18 @@ def main():
     spec=importlib.util.spec_from_file_location('teacher_collector_CPU',args.stage/'tests/check_cfg_teacher_collection_cpu.py')
     module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
     started=time.perf_counter()
-    try:result=module.run(args.runtime,artifact_root=args.stage/'CPU-artifacts')
+    measurement_spec=importlib.util.spec_from_file_location('measurement_CPU',args.stage/'tests/check_cfg_measurement_cpu.py')
+    measurement_module=importlib.util.module_from_spec(measurement_spec);measurement_spec.loader.exec_module(measurement_module)
+    try:
+        measurement_checks=measurement_module.run()
+        result=module.run(args.runtime,artifact_root=args.stage/'CPU-artifacts')
     except BaseException as error:
         args.output.with_suffix('.failure.json').write_text(json.dumps({'status':'COLLECTOR_CPU_FAILED_NOT_PASS','error':str(error),
             'CPU_wall_seconds':time.perf_counter()-started,'CUDA_initialized':torch.cuda.is_initialized(),'GPU_submissions':0},indent=2)+'\n')
         raise
     assert not torch.cuda.is_initialized() and not args.output.exists()
-    result.update(CPU_wall_seconds=time.perf_counter()-started,pid=os.getpid(),payload_sha256=reg['payload_sha256'])
+    result.update(CPU_wall_seconds=time.perf_counter()-started,pid=os.getpid(),payload_sha256=reg['payload_sha256'],
+                  measurement_checks=measurement_checks)
     args.output.write_text(json.dumps(result,indent=2,allow_nan=False)+'\n')
     print(json.dumps({k:result[k] for k in ('status','CPU_wall_seconds','successful_CFG_pairs','failed_attempts_retained','GPU_submissions')}))
 

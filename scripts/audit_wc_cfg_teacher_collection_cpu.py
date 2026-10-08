@@ -35,13 +35,15 @@ def mean_square(x):return float(x.double().square().mean())
 
 def audit(stage):
     assert not torch.cuda.is_initialized()
-    receipt=json.loads((stage/'receipt.json').read_text());reg=json.loads((stage/'collector-preregistration.json').read_text())
+    receipt_path=stage/'core-receipt.json' if (stage/'core-receipt.json').exists() else stage/'receipt.json'
+    receipt=json.loads(receipt_path.read_text());reg=json.loads((stage/'collector-preregistration.json').read_text())
     result=json.loads((stage/'result.json').read_text());checks=result['checks']
     assert receipt['exit_code']==0 and len(checks)==8
+    assert result['measurement_checks']['RNG_unmodified'] and result['measurement_checks']['inputs_unmodified']
     assert receipt['budget_before_sha256']==receipt['budget_after_sha256']
     assert receipt['payload_after_sha256']==reg['payload_sha256'] and receipt['runtime_after_sha256']==reg['runtime_source_sha256']
     for name,expected in reg['payload_sha256'].items():assert hashlib.sha256((stage/name).read_bytes()).hexdigest()==expected
-    complete=[];failed=[];tensor_count=0
+    complete=[];failed=[];tensor_count=0;net_witnesses=0;solver_witnesses=0
     for case in checks:
         state=case['receipt']
         assert (state['planned_parents'],state['planned_origins'],state['planned_CFG_pairs'],state['planned_videos'])==(2,5,40,2)
@@ -54,13 +56,21 @@ def audit(stage):
                 'rows_retained':sum(len(o['pairs']) for o in origins),'five_origins_retained':True})
             continue
         off,on=state['parents']
-        for k in TRACE+('final_components','final_solver_configuration','sample_return_sha256','final_latent_sha256','flags_before','flags_after','pipeline'):
+        for k in TRACE+('net_measurements','solver_measurements','final_components','final_solver_configuration','sample_return_sha256','final_latent_sha256','flags_before','flags_after','pipeline'):
             assert off[k]==on[k],k
         assert len(off['inputs'])==72 and len(off['solver_outputs'])==36
         assert off['artifact']['sha256']==on['artifact']['sha256']
         for parent in (off,on):
             p=Path(parent['artifact']['path']);assert hashlib.sha256(p.read_bytes()).hexdigest()==parent['artifact']['sha256']
             assert parent['status']=='COMPLETE_PARENT'
+            assert len(parent['net_measurements'])==72 and len(parent['solver_measurements'])==36
+            for witness,signature in zip(parent['net_measurements'],parent['inputs']):
+                assert witness['x_B_C_T_H_W']['tree_sha256']==signature['kwargs']['x_B_C_T_H_W']
+                assert witness['condition']['full_gt_frames']['tree_sha256']==signature['kwargs']['gt_frames']
+                assert witness['condition']['condition_mask']['tree_sha256']==signature['kwargs']['condition_video_input_mask_B_C_T_H_W']
+                net_witnesses+=1
+            for witness,raw_sha in zip(parent['solver_measurements'],parent['solver_outputs']):
+                assert witness['raw_return_tree_sha256']==raw_sha;solver_witnesses+=1
         assert [o['label'] for o in on['origins']]==list(ORIGINS)
         for index,origin in enumerate(on['origins']):
             assert origin['status']=='COMPLETE_LOCAL_ORIGIN' and len(origin['pairs'])==8
@@ -74,6 +84,13 @@ def audit(stage):
                 assert row['origin_components']==rows[0]['origin_components'] and row['inputs']==rows[0]['inputs']
                 assert row['origin_solver_configuration']==row['pair_end_solver_configuration']
                 for k in ('inputs','outputs','deep','banks','post_denoise_branch_sha256','denoise_arguments'):assert len(row[k])==2
+                assert len(row['net_measurements'])==len(row['post_denoise_measurements'])==2
+                assert row['origin_measurement']['sampler_latent']['tree_sha256']==row['origin_components']['output']
+                for witness,signature in zip(row['net_measurements'],row['inputs']):
+                    assert witness['x_B_C_T_H_W']['tree_sha256']==signature['kwargs']['x_B_C_T_H_W']
+                    assert witness['condition']['full_gt_frames']['tree_sha256']==signature['kwargs']['gt_frames']
+                    assert witness['condition']['condition_mask']['tree_sha256']==signature['kwargs']['condition_video_input_mask_B_C_T_H_W']
+                    net_witnesses+=1
                 expected=copy.deepcopy(row['origin_own_history']);events=row['action_report']['events']
                 assert row['action_report']['plan']['mode']==row['mode'] and len(events)==2
                 step=row['origin_completed_updates']+1
@@ -94,16 +111,23 @@ def audit(stage):
                     assert digest(tensor)==art['tensor_sha256'][name] and list(tensor.shape)==art['shape'][name]
                     tensor_count+=1
                 assert row['post_denoise_branch_sha256']==[digest(tensors[k]) for k in ('conditional','unconditional')]
+                for witness,name in zip(row['post_denoise_measurements'],('conditional','unconditional')):
+                    assert witness['tree_sha256']==digest(tensors[name]) and witness['shape']==list(tensors[name].shape)
+                    assert witness['dtype']==str(tensors[name].dtype)
                 assert row['actual_guided_sha256']==digest(tensors['guided'])
                 assert torch.equal(tensors['guided'],tensors['conditional']+7*(tensors['conditional']-tensors['unconditional']))
                 actual[row['label']]=tensors
             for mode in MODES:
                 first,second=[r for r in rows if r['mode']==mode]
-                skip={'label','wall_seconds','artifact','solver_outputs','child_latent_sha256','solver_step_reused_measured_velocity_without_net_call'}
+                skip={'label','wall_seconds','artifact','solver_outputs','solver_measurements','child_latent_sha256','solver_step_reused_measured_velocity_without_net_call'}
                 assert {k:v for k,v in first.items() if k not in skip}=={k:v for k,v in second.items() if k not in skip}
                 for name in ('conditional','unconditional','guided'):assert torch.equal(actual[mode+'_first'][name],actual[mode+'_second'][name])
                 if index==0:
                     assert first['solver_step_reused_measured_velocity_without_net_call'] and len(first['solver_outputs'])==1 and not second['solver_outputs']
+                    assert len(first['solver_measurements'])==1 and not second['solver_measurements']
+                    assert first['solver_measurements'][0]['raw_return_tree_sha256']==first['solver_outputs'][0]
+                    assert first['solver_measurements'][0]['next_sampler_latent']['tree_sha256']==first['child_latent_sha256']
+                    solver_witnesses+=1
                     child=next(o for o in on['origins'] if o['label']=='S23_after_'+mode)
                     assert all(r['origin_components']['output']==first['child_latent_sha256'] for r in child['pairs'])
                 else:assert all(not r['solver_outputs'] for r in (first,second))
@@ -119,10 +143,12 @@ def audit(stage):
             assert math.isclose(direct,reported['CC_error_geometry']['ideal_float64_guided_MSE'],rel_tol=1e-12,abs_tol=1e-12)
             complete.append({'flow':case['flow'],'origin':origin['label'],'pairs':8,'raw_tensor_SHA_and_exact_FP32_guided_verified':True,'Toy_signed_energy_reconstructed':True})
     assert len(complete)==10 and len(failed)==6 and tensor_count==240
+    assert net_witnesses==448 and solver_witnesses==152
     assert not torch.cuda.is_initialized()
     return {'status':'COLLECTOR_CPU_INDEPENDENT_RAW_TENSORS_COMPLETE_SCOPE_AND_ACTION_AUDIT_PASS_NOT_GPU',
         'complete_origins':complete,'failed_attempts_retained':failed,'raw_tensors_reconstructed':240,
         'full_parent_pairs':2,'successful_CFG_pairs':80,'strict_repeat_groups':40,'CUDA_initialized':False,
+        'separate_net_input_condition_witnesses_verified':448,'separate_solver_space_witnesses_verified':152,
         'real_model_vectors':0,'GPU_submissions':0,'result_sha256':hashlib.sha256((stage/'result.json').read_bytes()).hexdigest()}
 
 

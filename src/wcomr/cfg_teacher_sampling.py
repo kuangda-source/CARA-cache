@@ -6,6 +6,7 @@ import time
 import torch
 
 from .cfg_teacher_collection import MODES, TeacherPairRouter, GuidedTeacherFork, verify_origin
+from .cfg_teacher_measurement import net_input_witness, solver_return_witness, tensor_witness, validate_net_binding
 from .decoder_policy import backend_flags
 from .full_sampling import CompleteStateRoundtrip
 from .h0_mode import verify_shared_eval
@@ -37,7 +38,7 @@ def verify_batch(state):
             or state['planned_CFG_pairs']!=40 or len(state['parents'])!=2):
         raise ValueError('Complete registered teacher scope required')
     off,on=state['parents']
-    parity = {k:off[k]==on[k] for k in tuple(TRACE_KEYS)+('final_components','final_solver_configuration',
+    parity = {k:off[k]==on[k] for k in tuple(TRACE_KEYS)+('net_measurements','solver_measurements','final_components','final_solver_configuration',
         'sample_return_sha256','final_latent_sha256','flags_before','flags_after','pipeline')}
     parity['video_bytes']=off['artifact']['sha256']==on['artifact']['sha256']
     if not all(parity.values()):
@@ -51,6 +52,13 @@ def verify_batch(state):
     for row in (off,on):
         if len(row['inputs'])!=72 or len(row['solver_outputs'])!=36 or row['status']!='COMPLETE_PARENT':
             raise ValueError('Incomplete original full parent')
+        if len(row.get('net_measurements',[]))!=72 or len(row.get('solver_measurements',[]))!=36:
+            raise ValueError('Missing full parent actual measurement spaces')
+        for witness,signature in zip(row['net_measurements'],row['inputs']):
+            validate_net_binding(witness,signature)
+        for witness,raw_sha in zip(row['solver_measurements'],row['solver_outputs']):
+            if witness['raw_return_tree_sha256']!=raw_sha:
+                raise ValueError('Solver return measurement space binding differs')
     return {'full_parent_parity':parity,'origin_checks':origin_checks,
             'strict_repeat_groups':20,'local_CFG_pairs':40,'diagnostic_net_calls':80,
             'teacher_written_to_original_parent':False,'endpoint_labels':0,'formal_RV_labels':0}
@@ -82,7 +90,8 @@ def run_teacher_batch(inference,samples,wc,settings,*,state,save,output,inferenc
             router=TeacherPairRouter(context)
             router.install(net,wc,runtime/'cosmos_predict2/_src/predict2/inference/worldcache_utils.py')
             row={'phase':phase,'status':'STARTED',**{k:[] for k in TRACE_KEYS},'pipeline':[],
-                'origins':[],'prepare_calls':0,'flags_before':backend_flags(),'memory_before':cuda_memory_observation()}
+                'origins':[],'net_measurements':[],'solver_measurements':[],
+                'prepare_calls':0,'flags_before':backend_flags(),'memory_before':cuda_memory_observation()}
             state['parents'].append(row);save()
             hooks,handles=Hooks(),[];capture={'inside':False,'record':None,'branches':[]};count=[0]
             try:
@@ -101,6 +110,7 @@ def run_teacher_batch(inference,samples,wc,settings,*,state,save,output,inferenc
                 def after_denoise(value):
                     if capture['record'] is not None:
                         capture['record']['post_denoise_branch_sha256'].append(tree_digest(value))
+                        capture['record']['post_denoise_measurements'].append(tensor_witness(value))
                         capture['branches'].append(value.detach().cpu().clone())
                 hooks.wrap(model,'denoise',before=before_denoise,after=after_denoise)
                 for block in list(net.blocks)[settings['probe_depth']:]:
@@ -109,6 +119,7 @@ def run_teacher_batch(inference,samples,wc,settings,*,state,save,output,inferenc
                     return capture['record'] if capture['record'] is not None else row
                 def before_forward(args,kwargs):
                     destination()['inputs'].append(input_signatures(args,kwargs));count[0]=0
+                    destination()['net_measurements'].append(net_input_witness(args,kwargs))
                 def after_forward(value):
                     target=destination();target['outputs'].append(tree_digest(value));target['deep'].append(count[0])
                     target['banks'].append(tree_digest({k:getattr(net,k) for k in WC_FIELDS if hasattr(net,k)}))
@@ -142,6 +153,7 @@ def run_teacher_batch(inference,samples,wc,settings,*,state,save,output,inferenc
 
                 def after_step(value):
                     destination()['solver_outputs'].append(tree_digest(value))
+                    destination()['solver_measurements'].append(solver_return_witness(value))
                     if capture['inside']:
                         return
                     latent=value[0].squeeze(0)

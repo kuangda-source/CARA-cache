@@ -108,13 +108,17 @@ def exercise(*,inference,samples,wc,settings,inference_module,flow,runtime,artif
                         metrics.append(score_four_cells(cells,guidance=7,measurement_space=SPACE))
                     assert len(list(Path(tmp).rglob('*.pt')))==40
                     refused=[]
-                    for name in ['missing_origin','missing_repeat','wrong_pair_output','wrong_condition','wrong_action']:
+                    for name in ['missing_origin','missing_repeat','wrong_pair_output','wrong_condition','wrong_action',
+                                 'missing_net_measurement','wrong_active_condition_measurement','wrong_sampler_measurement']:
                         bad=copy.deepcopy(state)
                         if name=='missing_origin':bad['parents'][1]['origins'].pop()
                         elif name=='missing_repeat':bad['parents'][1]['origins'][0]['pairs'].pop()
                         elif name=='wrong_pair_output':bad['parents'][1]['origins'][0]['pairs'][1]['actual_guided_sha256']='0'*64
                         elif name=='wrong_condition':bad['parents'][1]['origins'][0]['pairs'][1]['denoise_arguments'][0]['condition_values']='0'*64
                         elif name=='wrong_action':bad['parents'][1]['origins'][0]['pairs'][0]['action_report']['plan']['mode']='CD'
+                        elif name=='missing_net_measurement':bad['parents'][1]['origins'][0]['pairs'][1]['net_measurements'].pop()
+                        elif name=='wrong_active_condition_measurement':bad['parents'][1]['origins'][0]['pairs'][1]['net_measurements'][0]['condition']['active_values']['tree_sha256']='0'*64
+                        elif name=='wrong_sampler_measurement':bad['parents'][1]['origins'][0]['pairs'][1]['origin_measurement']['sampler_latent']['tree_sha256']='0'*64
                         try:verify_batch(bad)
                         except ValueError:refused.append(name)
                         else:raise AssertionError('Incomplete/mutated teacher evidence accepted: '+name)

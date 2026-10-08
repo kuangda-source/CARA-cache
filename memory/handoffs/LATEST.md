@@ -1,3 +1,7 @@
+## 2026-10-09 H-T47测量记录接入，完整CPU验证待
+
+[172接续](../../research/172_WC_CFG_MEASUREMENT_CONTRACT_CPU_20261009.md)：分别记录sampler/net/post-denoise/solver返回与解出latent的dtype/shape/SHA，新增gt_frames全量/二值mask有效区域，原字段、两父/5×4×2和失败均保持；44载荷AST/compile通过，实际CPU及原始张量独立重建待，不能报新科学结果。下一独立CPU目录执行完整flow OFF/ON/原六失败/新增记录控制，240原张量、448net条件见证/152solver见证需全部重建；旧GPU终态目录不改。账本26.279085386/50h、62jobs/noinflight实际复核，原四PID退出/锁可取，新GPU0，下一真实确认卡仍未选。上一轮完整教师+联结是真实progress，本轮新实现progress，goal active，未完成/未受阻，不扩训练/稀疏/OMR/DRE/人评。
+
 ## 2026-10-09 H-T46联结完成，跨卡条件与记录空间未完全对齐
 
 [组会飞书](https://lcnssrlun9lz.feishu.cn/docx/HTSIdK0uLofCG5xUI1IcTKaCnAh)已由CLI追加教师机制与CPU联结、更新顶部并完整回读；[核验](../../reports/wc_group_meeting_feishu_teacher_complete_verification_20261009.json)revision9，16章/15表/4公式/27链接、原正文保留、全部新文本链接相符/无warnings。实验已继续并完整结束，下一按已有单次/累计权限继续CPU准备。
