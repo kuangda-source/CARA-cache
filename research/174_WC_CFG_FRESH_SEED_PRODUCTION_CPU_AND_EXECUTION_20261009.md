@@ -34,3 +34,8 @@
 [后续原句柄观察](../reports/wc_cfg_mechanism_confirmation_r1_live_progress_20261009.json)：三原PID仍活，source/77载荷/最终配置保持，模型加载83.786342秒已完成，Human seed3提示词guardrail通过，OFF父进入实际采样，日志到4/36。父结果采用完成后整体保存，当前磁盘STARTED行的0条net/solver不是终态分母；全部父、起点、重复、两个视频及释放后CPU仍待。未加载张量评分或声明机制重现。
 
 [组会飞书](https://lcnssrlun9lz.feishu.cn/docx/HTSIdK0uLofCG5xUI1IcTKaCnAh)已通过CLI追加新种子目标/设计/准备/启动/下一步，revision10；[完整回读核验](../reports/wc_group_meeting_feishu_confirmation_verification_20261009.json)确认原115块原样保留、7新增块及全部新文本/链接相符，17章/15表/4公式/30链接，无warnings。原科学正负成果保留。
+
+
+## 原任务持续运行的实际核对
+
+[同句柄verified wait](../reports/wc_cfg_mechanism_confirmation_r1_verified_wait_20261009.json)再次确认原3409913/3409924/3409914实际仍活，source00b06e6及最终配置不变；首OFF父日志已23/36，独立后CPU仍等待原GPU释放。此前一goal turn有真实CPU/派发/飞书进展，本轮是特定活句柄verified wait，未新增GPU、未改源/停止/重启，没有新的seed3科学结果或重要阻碍。原完整范围和终态审计全部保持，goal继续active，不满足blocked/complete。
