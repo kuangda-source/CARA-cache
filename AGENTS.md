@@ -1,3 +1,7 @@
+## 2026-10-09 联合风险CPU输入对齐完成，原复验进入嵌套动作对照
+
+[177实际CPU](research/177_WC_CFG_JOINT_BASELINE_CPU_READINESS_RESULTS_20261009.md)：按H-T49先登记，source d0b6745标准库CPU0.051822秒，旧完整2父/5×4×2的40对80事件导出10同状态proxy记录，无教师评分/张量或拟合，新GPU0。四动作漂移10/10实测相同；actual saliency加权不能充当官方Di复现，当前cond完成后才有uncond probe，联合接口需成对预probe及本模型rho/传播校准；3共享/2混合anchor起点单列，不强塞共享表。原Human seed3的3409913/3409924/3409914实际活、OFF完成、ON中S23_after_CC完整8对及S22已2对，其余范围待，source00b/77保持，不评分子集或改源/重投。累计实费底数26.279085386/50h、第63在途50为预留；goal active，本轮真实CPU/现场进展，不受阻或完成，不扩训练/稀疏/OMR/DRE/人评。组会飞书revision12完整成果已回读；下列21of36为历史。
+
 ## 2026-10-09 首父完成，发现RA-CFGCache近邻，原完整复验继续
 
 [175只读进展](research/175_WC_CFG_CONFIRMATION_FIRST_PARENT_READONLY_PROGRESS_20261009.md)：Human seed3首OFF父与视频已保存，72条件/36solver和空区域、零mask摘要CPU核对通过；第二ON最新日志21/36，全部动作/120张量/20重复/两全93仍待，原3409913/3409924/3409914继续，不改77源或重投，不报新机制重现。[176近邻核对](research/176_WC_RA_CFGCACHE_OVERLAP_AND_NEXT_DESIGN_20261009.md)：9月29日RA-CFGCache已覆盖联合CFG风险、传播先验及匹配刷新预算；相近机制不能单独作新贡献，后续应比较该基线和实际历史/终点收益/未来成本候选，尚未选新GPU或训练。累计实费底数26.279085386/50h，第63在途50为预留；goal active，当前真实采样/只读审计/文献进展，重要重叠已写入组会飞书revision12并全回读通过，18章/15表/4公式/34链接，原122块仅最新callout更新、其余保留及7新块相符。原假设与正负结果保留。下列加载/4of36均历史快照。
