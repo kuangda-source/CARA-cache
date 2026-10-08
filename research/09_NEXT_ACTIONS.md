@@ -1,5 +1,7 @@
 ## 2026-10-09 同配额整卡与全93评分完整结束，单槽正例未保留；CPU区分继续
 
+最新飞书已通过CLI局部更新并完整回读，revision7：[组会报告](https://lcnssrlun9lz.feishu.cn/docx/HTSIdK0uLofCG5xUI1IcTKaCnAh)，14主章节/14表/3公式/24链接。执行前主体仅改日期说明，其余正文及来源原样保留；新增顶部结论和两结果章节，全部新文本/链接与来源逐块相符、无warnings。核验reports/wc_group_meeting_feishu_completed_card_verification_20261009.json。
+
 [164完整结果](164_WC_CFG_BUDGET_MATCHED_COMPLETE_RESULTS_20261009.md)：1父/10完整后缀/6新视频/1旧Native、五重复、1216状态、原solver字典、全动作和七文件全93评分独立通过，各CFG18/17总35。CFG0对BASE−4.0194%/0改善93退化，CFG1−13.3910%/0/93；PAIRED+0.1198%/54改善39退化，后31帧均值退化。联合救回单槽大退化，微弱净收益不能当方法优势；旧自适应CFG0+0.5152%/35→37保持，固定配额正例未保留不否定整个W3。
 
 [165 CPU区分](165_WC_CFG_BUDGET_CONTEXT_CPU_AND_NEXT_20261009.md)按H-T44在801fe03预登记后执行：单槽被交换为C的供体原WC仍建议D，联合供体建议C/C；当前两个模型输入与相同D输出摘要一致，solver23/下一call47开始分歧。支持追踪双CFG配套动作，尚无有符号向量/唯一误差抵消归因，不拟合RV/Head。下一先同状态CFG合成误差教师诊断的设计/必要CPU及完整成本，尚未新增GPU，不扩训练/稀疏/OMR/人评。
