@@ -1,3 +1,7 @@
+## 2026-10-09 H-T47完整CPU及独立张量审计通过，有限新身份确认准备
+
+[172实际终态](../../research/172_WC_CFG_MEASUREMENT_CONTRACT_CPU_20261009.md)：source7dc7496/一次CPU341.719秒，4父/10起点/80对/40重复/240原张量、448net条件与152solver空间见证、16证据破坏拒绝和6故障全范围恢复通过；44载荷/5runtime/账本原字节不变，原三PID3405355/3405356/3405814退出exit0，新GPU0。Toy记录完整性不等于新模型质量或补齐旧有效条件。下一有限未曝光身份的选择/完整生产CPU/费用准备，两父/5×4×2保持，尚未选新GPU；不训练/扩稀疏/OMR/DRE/人评。累计26.279085386/50h、62提交/无在途，完整≤2h自主、>2h具体确认。组会飞书revision9已含完整科学成果。goal active，本轮真实实现/完整CPU进展，整体研究未完成；下列待执行/在跑均历史快照。
+
 ## 2026-10-09 H-T47测量记录接入，完整CPU验证待
 
 [172接续](../../research/172_WC_CFG_MEASUREMENT_CONTRACT_CPU_20261009.md)：分别记录sampler/net/post-denoise/solver返回与解出latent的dtype/shape/SHA，新增gt_frames全量/二值mask有效区域，原字段、两父/5×4×2和失败均保持；44载荷AST/compile通过，实际CPU及原始张量独立重建待，不能报新科学结果。下一独立CPU目录执行完整flow OFF/ON/原六失败/新增记录控制，240原张量、448net条件见证/152solver见证需全部重建；旧GPU终态目录不改。账本26.279085386/50h、62jobs/noinflight实际复核，原四PID退出/锁可取，新GPU0，下一真实确认卡仍未选。上一轮完整教师+联结是真实progress，本轮新实现progress，goal active，未完成/未受阻，不扩训练/稀疏/OMR/DRE/人评。
