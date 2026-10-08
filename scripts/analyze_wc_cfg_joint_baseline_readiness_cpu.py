@@ -53,7 +53,7 @@ def main():
         assert origin['status'] == 'COMPLETE_LOCAL_ORIGIN' and len(origin['pairs']) == 8
         groups = {mode: [] for mode in MODES}
         for pair in origin['pairs']:
-            assert pair['status'] == 'LOCAL_TEACHER_PAIR_COMPLETE' and pair['parent_restored']
+            assert pair['status'] == 'COMPLETE_TWO_CALL_LOCAL_TEACHER_REQUIRES_INDEPENDENT_AUDIT' and pair['parent_restored']
             assert pair['mode'] in groups and not pair['formal_RV_label'] and not pair['endpoint_label']
             events = pair['action_report']['events']
             assert len(events) == 2 and [e['cfg_slot'] for e in events] == [0, 1]
@@ -112,7 +112,7 @@ def main():
                for n in ast.walk(extract))
     router = Path('src/wcomr/rv0_actions.py').read_text()
     assert "('ori_x', 'test_x', 'delta_x', 'delta_y', 'dynamic_thresh')" in router
-    guidance = r['config']['preregistration'].get('guidance', 7)
+    guidance = r['config']['preregistration']['same_existing_request']['guidance']
     assert guidance == 7
     result = {'status': 'COMPLETE_CPU_PROXY_INPUT_EXPORT_AND_CALL_ORDER_CHECK_NOT_BASELINE_DEPLOYMENT',
         'preregistration_sha256': sha(REG), 'source_revision': subprocess.check_output(['git', 'rev-parse', 'HEAD'], text=True).strip(),
