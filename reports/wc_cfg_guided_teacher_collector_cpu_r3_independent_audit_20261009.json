@@ -1,0 +1,127 @@
+{
+  "status": "COLLECTOR_CPU_INDEPENDENT_RAW_TENSORS_COMPLETE_SCOPE_AND_ACTION_AUDIT_PASS_NOT_GPU",
+  "complete_origins": [
+    {
+      "flow": false,
+      "origin": "S22",
+      "pairs": 8,
+      "raw_tensor_SHA_and_exact_FP32_guided_verified": true,
+      "Toy_signed_energy_reconstructed": true
+    },
+    {
+      "flow": false,
+      "origin": "S23_after_CC",
+      "pairs": 8,
+      "raw_tensor_SHA_and_exact_FP32_guided_verified": true,
+      "Toy_signed_energy_reconstructed": true
+    },
+    {
+      "flow": false,
+      "origin": "S23_after_DC",
+      "pairs": 8,
+      "raw_tensor_SHA_and_exact_FP32_guided_verified": true,
+      "Toy_signed_energy_reconstructed": true
+    },
+    {
+      "flow": false,
+      "origin": "S23_after_CD",
+      "pairs": 8,
+      "raw_tensor_SHA_and_exact_FP32_guided_verified": true,
+      "Toy_signed_energy_reconstructed": true
+    },
+    {
+      "flow": false,
+      "origin": "S23_after_DD",
+      "pairs": 8,
+      "raw_tensor_SHA_and_exact_FP32_guided_verified": true,
+      "Toy_signed_energy_reconstructed": true
+    },
+    {
+      "flow": true,
+      "origin": "S22",
+      "pairs": 8,
+      "raw_tensor_SHA_and_exact_FP32_guided_verified": true,
+      "Toy_signed_energy_reconstructed": true
+    },
+    {
+      "flow": true,
+      "origin": "S23_after_CC",
+      "pairs": 8,
+      "raw_tensor_SHA_and_exact_FP32_guided_verified": true,
+      "Toy_signed_energy_reconstructed": true
+    },
+    {
+      "flow": true,
+      "origin": "S23_after_DC",
+      "pairs": 8,
+      "raw_tensor_SHA_and_exact_FP32_guided_verified": true,
+      "Toy_signed_energy_reconstructed": true
+    },
+    {
+      "flow": true,
+      "origin": "S23_after_CD",
+      "pairs": 8,
+      "raw_tensor_SHA_and_exact_FP32_guided_verified": true,
+      "Toy_signed_energy_reconstructed": true
+    },
+    {
+      "flow": true,
+      "origin": "S23_after_DD",
+      "pairs": 8,
+      "raw_tensor_SHA_and_exact_FP32_guided_verified": true,
+      "Toy_signed_energy_reconstructed": true
+    }
+  ],
+  "failed_attempts_retained": [
+    {
+      "scenario": "second_CFG",
+      "error": "CPU injected second CFG failure",
+      "planned_CFG_pairs": 40,
+      "rows_retained": 40,
+      "five_origins_retained": true
+    },
+    {
+      "scenario": "nested_writer",
+      "error": "CPU injected nested vector writer failure",
+      "planned_CFG_pairs": 40,
+      "rows_retained": 17,
+      "five_origins_retained": true
+    },
+    {
+      "scenario": "condition_mutation",
+      "error": "RV0 condition/noise/configuration closure drift",
+      "planned_CFG_pairs": 40,
+      "rows_retained": 31,
+      "five_origins_retained": true
+    },
+    {
+      "scenario": "solver_mutation",
+      "error": "Velocity-only teacher changed original solver state/configuration",
+      "planned_CFG_pairs": 40,
+      "rows_retained": 31,
+      "five_origins_retained": true
+    },
+    {
+      "scenario": "nonfinite",
+      "error": "Nonfinite state",
+      "planned_CFG_pairs": 40,
+      "rows_retained": 31,
+      "five_origins_retained": true
+    },
+    {
+      "scenario": "mode_mutation",
+      "error": "RV0 shared eval mode changed",
+      "planned_CFG_pairs": 40,
+      "rows_retained": 31,
+      "five_origins_retained": true
+    }
+  ],
+  "raw_tensors_reconstructed": 240,
+  "full_parent_pairs": 2,
+  "successful_CFG_pairs": 80,
+  "strict_repeat_groups": 40,
+  "CUDA_initialized": false,
+  "real_model_vectors": 0,
+  "GPU_submissions": 0,
+  "result_sha256": "0cb300e04c7eea2a92de998587024c3e6cbb3932bc6188b1964255c676dae9d8"
+}

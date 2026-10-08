@@ -1,3 +1,9 @@
+## 2026-10-09 双CFG教师完整collector CPU与原始张量独立重建通过
+
+[167结果](../../research/167_WC_CFG_GUIDED_TEACHER_COLLECTOR_CPU_RESULTS_20261009.md)：原源a417fa9、独立collector-cpu-r3服务器CPU308.128秒/exit0，两个缓存配置共4完整父/10起点/80CFG对/40严格重复，240原张量逐位guided与有符号能量独立重建；6类故障全部回滚并保留完整计划，10证据破坏拒绝。两次旧CPU集成失败/原件保留，不追认通过；六原PID均已终态、预算原字节不变、CUDAfalse/新GPU0。Toy权重/编码/解码/writer边界明确，不是实际模型抵消证据或1216组件/显存通过。
+
+下一真实H-T45范围保持2完整父/2视频、5×4×2=40CFG对/80net；先生产绑定CPU/资源、真实shape嵌套快照显存准入和整卡完整保守成本预测，仍selected=false/forecast待，不缩旧卡。累计24.908110354/50h、余25.091889646h；最终≤2h自主/>2h具体整卡确认。组会飞书已含完整科学结果，本CPU准备不冒充新视频收益；goal active、有真实实现+CPU进展，整体研究未完成，继续无需新许可，不扩训练/稀疏/OMR/人评。下列旧进行中或待验收是历史。
+
 ## 2026-10-09 W3同状态合成误差评分CPU通过，完整collector继续实现
 
 [166进展](../../research/166_WC_CFG_GUIDED_TEACHER_METRIC_CPU_AND_COLLECTION_DESIGN_20261009.md)：实际服务器Cosmos RF源码确认conditional/unconditional顺序、guidance7实数权重8/−7及条件帧在denoise中替换。H-T45源a43e9ed先登记/推送，独立服务器CPU2.144秒/exit0，8语义几何检查、6无效输入拒绝、原件SHA与stdlib能量重建通过；PID3384693退出、CUDAfalse/预算原字节不变。数学例子不是实际模型误差抵消证据，真实向量0、新GPU0。
