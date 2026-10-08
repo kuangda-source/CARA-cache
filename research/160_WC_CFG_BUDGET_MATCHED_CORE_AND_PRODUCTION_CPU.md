@@ -33,3 +33,7 @@
 ## 最新执行状态：实际 blocked，等待原单次例外
 
 第三连续目标轮已实时核对：没有直接新卡单次例外权威，selected/output 均不存在，五原CPU进程退出，账本23.702366117/50 GPUh不变且无在途。首轮完成必要准备并提出具体请求，后两轮只有相同等待条件，无可继续的安全研究步骤；goal工具于1791437783实际返回 **blocked**，见 `reports/wc_w3_cfg_budget_goal_blocked_receipt_20261008.json`。这是等待授权，不是预算耗尽、方法失败或目标完成。停止重复自动检查，保留全部已验收源/范围/正负结果/费用，用户直接答复原完整卡单次2.082740047h例外后接续。前文active是当时的历史状态。
+
+## 2026-10-09 直接批准与文档先行已完成
+
+用户本轮允许完整2.082740047GPUh例外，同时要求先用飞书CLI形成组会报告。完整报告已创建并回读验证：[飞书组会报告](https://lcnssrlun9lz.feishu.cn/docx/HTSIdK0uLofCG5xUI1IcTKaCnAh)。实际权威见[单次授权](../manifests/wc_w3_cfg_budget_single_job_authorization_20261009.json)，CPU载荷301份冻结保持。下一同源selected CPU绑定及独立审计，然后fresh资源准入与完整GPU/释放后全93评分；此刻新GPU=0。旧待答/blocked与原预测、范围不改。

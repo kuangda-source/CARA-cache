@@ -1,3 +1,11 @@
+## 2026-10-09 组会飞书汇报完成，同配额整卡单次例外已获直接批准
+
+用户直接“允许，但是先总结……飞书 cli……然后继续实验”，批准此前完整2.082740047GPUh单次例外；[范围与原话](../../manifests/wc_w3_cfg_budget_single_job_authorization_20261009.json)精确绑定原卡/预测/1父10后缀6新视频/1旧Native/四比较一交互，各CFG18/17保持。累计50h及今后单次>2h确认规则不改，旧blocked/待答记录保留历史。本轮goal实际active。
+
+[组会飞书汇报](https://lcnssrlun9lz.feishu.cn/docx/HTSIdK0uLofCG5xUI1IcTKaCnAh)已通过Feishu CLI创建，并回读正文、12章节/12表/3公式/21来源完整相符，无警告；[正文存档](../../research/161_WC_GROUP_MEETING_REPORT_20261009.md)、[核验回执](../../reports/wc_group_meeting_feishu_verification_20261009.json)。报告科学数据截至10月8日：W1七接受场景4正3负/均值LPIPS降0.439%；W3位置/自适应反馈有正例，但泛化与稳定端到端优势未成立。OMR/独立DRE不纳入本线。
+
+文档完成后继续原301冻结生产载荷source4ff96ed：下一同源selected实际CPU及独立绑定审计，再fresh锁/UUID/余额/磁盘，单次完整GPU和释放后全93评分。当前仅外层selected配置与直接授权新增，未新提交GPU，未改原判据/旧预测/运行源，未缩拆对照。创建前账本23.702366117/50h、60jobs/noinflight、余26.297633883h；无新增科学结果，不扩训练/稀疏/OMR/非必要人评。以下pending/blocked是历史。
+
 ## 2026-10-08 单次例外连续三轮待答，goal工具已blocked
 
 [160完整CPU卡](research/160_WC_CFG_BUDGET_MATCHED_CORE_AND_PRODUCTION_CPU.md)的1父10完整后缀6新视频/1旧Native/四比较一交互、各CFG18/17总35保持，核心/生产CPU已全部通过，301生产载荷源4ff96ed冻结。完整保守预测2.082740047GPUh的直接单次>2h例外仍未答；累计50h已生效，但不覆盖该规则。新GPU/selected为零，无活进程可等待，五CPU句柄全退出，未重启已消耗身份或缩/拆对照。
