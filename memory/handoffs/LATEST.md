@@ -1,3 +1,7 @@
+## 2026-10-10 当前：P0真实整组生产CPU通过，选定绑定待验证
+
+[226完整卡](../../research/226_WC_P0_REAL_GROUP_COMPLETE_CARD_AND_CPU_20261010.md)：source aad7b47／245绑定源实际生产32.712577秒退出0，3896046／3896047消失；真实四CAL请求／guardrail资产、模型源和27拒绝通过，GPU0、预算SHA保持。完整四CAL×两起点、八父／八视频槽、六dense／partial模式、一次warmup三重复、192双CFG整组／112分支，forecast3.171450188 GPUh≤4。选定仅绑定同源CPU／目标UUID，不改scope与payload；实际选定CPU及fresh锁／VRAM／账本待，未GPU提交。完整P0 sampler R3与两原失败、真实guided-W1224结果保持。实费33.192083029／77.895246590、48窗口余44.703163561、71提交无GPU在途；≤4自主、>4确认，goal active，非必要无人评。下方待生产CPU／旧状态为历史。
+
 ## 2026-10-10 当前：P0完整CPU通过，真实整组完整卡生产CPU准备
 
 [225完整R3](../../research/225_WC_P0_COMPLETE_GROUP_PIPELINE_CPU_PREPARATION_20261010.md)：source b3493ea原3895577／3895578退出0消失，153.933639秒完整24父／864solver／1728net、576guided／16latent／224分支重读、十变异／两截断／最后父失败恢复全量通过。原Block／GPT2全文、512／256／384真Linear行、全部来源／控制通过；声明Toy边界保持，非真实Cosmos性能，原R1／R2失败不删。
