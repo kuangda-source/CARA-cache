@@ -4,7 +4,7 @@
 
 权威实费31.418288992／77.895246590、48窗口余46.476957598GPUh，68提交／无GPU在途。完整单次≤4GPUh自主，>4具体确认；旧6.704／16卡不变未批准。下一保留六方法全路径并补两seed3匹配Native参考，共8路径／288solver／576net；参考组合CPU首轮Toy序列化API失败保留，source b901432独立R2的3859691／3859692退出0消失，306.346263秒完整32执行路径、576guided／16latent重读与30文件绑定通过，不复投。其后冻结真实表／完整成本／生产CPU与fresh准入→完整视频RA比较→guided-W1／协调稀疏部分MLP组合，goal active，无非必要人评。下方在跑／旧预算／旧2h为历史。
 
-[210八路径完整生产卡](../../research/210_WC_RA_EIGHT_PATH_PRODUCTION_CARD_PREPARATION_20261010.md)已冻结226载荷，整卡3.173496962GPUh≤4；source19d76e7已推送，原生产CPU3866274／3866275在跑，实际非Toy表／阈值函数、源资产／Native类及19拒绝待验收。组会CLI完整回读revision40、175旧块全保留；当前新增GPU0，不重复CPU提交。
+[210八路径完整生产卡](../../research/210_WC_RA_EIGHT_PATH_PRODUCTION_CARD_PREPARATION_20261010.md)已冻结226载荷，整卡3.173496962GPUh≤4；source19d76e7已推送，原生产CPU3866274／3866275退出0消失，35.243509秒实际非Toy表／阈值函数、源资产／Native类及19拒绝通过；本地选择器包导入修复保留，226生产源和CPU proof不变，完整selected配置已生成、实际选定CPU待。组会CLI完整回读revision40、175旧块全保留；当前新增GPU0，不重复CPU提交。
 
 ## 2026-10-10 当前：真实RA校准已运行；三方法完整CPU已通过
 
