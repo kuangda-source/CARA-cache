@@ -35,6 +35,13 @@ def exercise(*,inference,samples,settings,inference_module,flow,runtime,tensor_l
     saved=(net.prepare_embedded_sequence,model.get_velocity_fn_from_batch,model.denoise,model.get_data_and_condition)
     original_conditioner=model.conditioner.get_condition_with_negative_prompt
     config_before=copy.deepcopy(vars(model.config))
+    sample_class=type(samples[0])
+    previous_dump=vars(sample_class).get('model_dump')
+    sample_class.model_dump=lambda self,**kwargs:json.loads(self.model_dump_json())
+    previous_decoder=model.tokenizer.decode
+    # The Native request contract checks the real output dimensions. This is
+    # still an explicit Toy decoder, now producing actual full-size tensors.
+    model.tokenizer.decode=lambda latent:previous_decoder(latent).mean(dim=(-2,-1),keepdim=True).expand(1,3,93,432,768)
     cls,class_sha=load('check_rv0_video_actions_cpu').pinned_video_condition(runtime,wc.DataType)
     net.prepare_embedded_sequence=lambda x,**kw:(x[:,:2048].movedim(1,-1).contiguous(),None,None)
     def conditions(batch):
@@ -97,7 +104,9 @@ def exercise(*,inference,samples,settings,inference_module,flow,runtime,tensor_l
             assert state['batch']['initial_state_restored'] and state['reference_initial_state_restored'] and all(float(v)==0 for v in net.buffers())
             assert state['planned_paths']==8 and state['planned_method_paths']==6 and state['planned_reference_paths']==2
             assert len(state['batch']['requests'])==2 and all(len(r['paths'])==3 for r in state['batch']['requests'])
-            assert len(state['references'])==2
+            if scenario=='complete':
+                assert error is None,error
+            assert len(state['references'])==2,error
             if scenario=='complete':
                 assert error is None,error
                 verdict=verify_batch(state)
@@ -151,6 +160,11 @@ def exercise(*,inference,samples,settings,inference_module,flow,runtime,tensor_l
         return checks
     finally:
         type(net).forward=original_class_forward
+        model.tokenizer.decode=previous_decoder
+        if previous_dump is None:
+            delattr(sample_class,'model_dump')
+        else:
+            sample_class.model_dump=previous_dump
         net.prepare_embedded_sequence=saved[0]
         model.get_velocity_fn_from_batch,model.denoise,model.get_data_and_condition=saved[1:]
         model.conditioner.get_condition_with_negative_prompt=original_conditioner
