@@ -27,3 +27,5 @@
 单次完整任务预测≤2GPUh的原自主规则保留；>2GPUh仍须具体直接批准。此次仅更新预算，没有批准旧H-T63的6.704GPUh整卡、选择GPU、执行新算法或训练，也没有变更任何冻结实验分母。
 
 旧生产源码/配置中绑定50上限与旧授权的严格检查保持封存，不能直接拿旧stage执行或绕过检查；新执行卡须绑定本次授权、新累计上限、完整成本，重新验证受预算/授权变化影响的CPU入口。原科学核心与CPU/真实历史结果不重写，预算变化不等于新方法验证。
+
+交付回读：服务器与本地账本/授权逐字节相同，原费用、65次提交、旧授权、冻结配置和生产源码保持；10个入口旧正文与25处本地链接通过[独立核验](../reports/wc_budget_new_remaining48_independent_readback_20261009.json)。[组会飞书文档](https://lcnssrlun9lz.feishu.cn/docx/HTSIdK0uLofCG5xUI1IcTKaCnAh)由revision31更新为32，原165块完整保留，新增预算说明的文字与链接相符，见[CLI全量回读回执](../reports/wc_group_meeting_feishu_new_window48_verification_20261009.json)。本轮新增GPU提交为0。
