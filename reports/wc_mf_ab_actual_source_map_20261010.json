@@ -1,0 +1,194 @@
+{
+  "status": "ACTUAL_PINNED_RUNTIME_AST_SOURCE_MAP_ONLY_NO_FORWARD_OR_INSTALLATION",
+  "observed_unix": 1791577654.6124861,
+  "files": {
+    "cosmos_predict2/_src/predict2/networks/minimal_v1_lvg_dit.py": {
+      "sha256": "2d3ddcf94158c61223bc610f31ede475f7e4e27cc3b604ff3557b73d891e665f",
+      "classes": {
+        "MinimalV1LVGDiT": {
+          "bases": [
+            "MiniTrainDIT"
+          ],
+          "methods": {
+            "__init__": {
+              "line": 25,
+              "end_line": 29,
+              "AST_sha256": "761ce48bf586f4a736731e4cc251fdcef77ef7767ae8036ce859c689e293bcef",
+              "calls": [],
+              "gate_statements": []
+            },
+            "forward": {
+              "line": 31,
+              "end_line": 62,
+              "AST_sha256": "23cc3f83508914b42eb33d4387ca418681f3752f1c560bcd1e2a5efcf16de360",
+              "calls": [],
+              "gate_statements": []
+            }
+          }
+        }
+      },
+      "functions": []
+    },
+    "cosmos_predict2/_src/predict2/networks/minimal_v4_dit.py": {
+      "sha256": "a41a1772f694ee338e4b91f032428ea81f28e80fb90990e2db86eb7d1ce30071",
+      "classes": {
+        "GPT2FeedForward": {
+          "bases": [
+            "nn.Module"
+          ],
+          "methods": {
+            "__init__": {
+              "line": 235,
+              "end_line": 244,
+              "AST_sha256": "ba9f4fd1c596c6d8acd0024db864601c8cf1233c228e927b8a5faa12c115f892",
+              "calls": [],
+              "gate_statements": []
+            },
+            "forward": {
+              "line": 256,
+              "end_line": 261,
+              "AST_sha256": "b465bd5d3a29bd67a71fc86ca39f2050bf6ac1f22242ad7cd02ad00d83eba023",
+              "calls": [
+                "self.layer1(x)",
+                "self.activation(x)",
+                "self.layer2(x)"
+              ],
+              "gate_statements": []
+            }
+          }
+        },
+        "FinalLayer": {
+          "bases": [
+            "nn.Module"
+          ],
+          "methods": {
+            "__init__": {
+              "line": 938,
+              "end_line": 969,
+              "AST_sha256": "bcb4187eda0d7eadd4eccacfa4a04537b4951cb1dd046522e81f38f289a76dbd",
+              "calls": [],
+              "gate_statements": []
+            },
+            "forward": {
+              "line": 982,
+              "end_line": 1012,
+              "AST_sha256": "3087512f5987769ebf1b52c7bfe14cc2fe667075f6deffe14d4bcf4629c51f14",
+              "calls": [
+                "self.linear(x_B_T_H_W_D)"
+              ],
+              "gate_statements": []
+            }
+          }
+        },
+        "Block": {
+          "bases": [
+            "nn.Module"
+          ],
+          "methods": {
+            "__init__": {
+              "line": 1039,
+              "end_line": 1107,
+              "AST_sha256": "a1186059aad1dc1b8858fa5e1833cee2e7fe689ad32824338474e4452a68324f",
+              "calls": [],
+              "gate_statements": []
+            },
+            "forward": {
+              "line": 1142,
+              "end_line": 1265,
+              "AST_sha256": "a2fe5406db7e2ef941f824d096d1ccc95db3f05848b89ddc1d408bb8f9957901",
+              "calls": [
+                "self.mlp(normalized_x_B_T_H_W_D)"
+              ],
+              "gate_statements": [
+                "x_B_T_H_W_D = x_B_T_H_W_D + gate_mlp_B_T_1_1_D * result_B_T_H_W_D"
+              ]
+            }
+          }
+        }
+      },
+      "functions": []
+    },
+    "cosmos_predict2/_src/predict2/inference/worldcache_utils.py": {
+      "sha256": "b485cb8fd6e262a40e5823365c34ef7db1bc036c591d7577489e04077c515903",
+      "classes": {},
+      "functions": [
+        {
+          "name": "worldcache_mini_train_dit_forward",
+          "line": 205,
+          "end_line": 594,
+          "AST_sha256": "f5168b5a864fd862c48d1143867819697ba4dd92cdc68972bea731629cb4bdd7",
+          "head_and_deep_calls": [
+            "self.final_layer(x_B_T_H_W_D, t_embedding_B_T_D, adaln_lora_B_T_3D=adaln_lora_B_T_3D)",
+            "self.unpatchify(x_B_T_H_W_O)",
+            "block(test_x, **block_kwargs)",
+            "block(x_B_T_H_W_D, **block_kwargs)"
+          ]
+        }
+      ]
+    }
+  },
+  "Torch_imported": false,
+  "CUDA_initialized": false,
+  "GPU_submissions": 0,
+  "GPU_stage_changed": false,
+  "ledger_written": false,
+  "historical_meta_constructor_ref": "reports/wc_h0_native_mode_meta_cpu_20261003.json",
+  "historical_meta_constructor_sha256": "a5079ba55b093aea33a03aeaa16d980370a3c6e6f3baafb8639417ed8bb33ac5",
+  "historical_meta_kwargs": {
+    "adaln_lora_dim": 256,
+    "atten_backend": "minimal_a2a",
+    "concat_padding_mask": true,
+    "crossattn_emb_channels": 1024,
+    "crossattn_proj_in_channels": 100352,
+    "extra_per_block_abs_pos_emb": false,
+    "in_channels": 16,
+    "max_frames": 128,
+    "max_img_h": 240,
+    "max_img_w": 240,
+    "model_channels": 2048,
+    "num_blocks": 28,
+    "num_heads": 16,
+    "out_channels": 16,
+    "patch_spatial": 2,
+    "patch_temporal": 1,
+    "pos_emb_cls": "rope3d",
+    "pos_emb_interpolation": "crop",
+    "pos_emb_learnable": true,
+    "rope_enable_fps_modulation": false,
+    "rope_h_extrapolation_ratio": 3.0,
+    "rope_t_extrapolation_ratio": 1.0,
+    "rope_w_extrapolation_ratio": 3.0,
+    "sac_config": {
+      "mode": "predict2_2b_720_aggressive",
+      "every_n_blocks": 1
+    },
+    "timestep_scale": 0.001,
+    "use_adaln_lora": true,
+    "use_crossattn_projection": true,
+    "use_wan_fp32_strategy": true
+  },
+  "actual_source_matches_historical_meta_source": true,
+  "conditional_static_capacity_estimate": {
+    "not_actual_peak_memory_or_GPU_measurement": true,
+    "assumptions": {
+      "hidden_B_T_H_W_D": [
+        1,
+        24,
+        27,
+        48,
+        2048
+      ],
+      "cache_dtype": "BF16",
+      "four_layers_two_CFG_slots": 8,
+      "fresh_subset_fraction": [
+        0.5,
+        0.75
+      ]
+    },
+    "tokens_per_branch": 31104,
+    "one_ungated_projected_MLP_cache_bytes": 127401984,
+    "four_layers_two_CFG_cache_bytes": 1019215872,
+    "eight_layers_two_CFG_cache_bytes": 2038431744,
+    "excludes_clones_gather_scatter_selection_and_attention_workspace": true
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "identity": "WC_MF_A_GUIDED_SHARED_ALPHA_GRID_CPU_CORE_R1_20261010",
+  "registered_unix": 1791577774.938251,
+  "hypothesis": "Use already registered shared output-space alpha {0,.5,1} and direct guided moments to preserve CFG coupling; scene-equal objective prevents correlated states from changing prompt weight.",
+  "plan_ref": "plans/WORLD_CACHE_MULTI_FIDELITY_FIRST_WINDOW_20261009.md",
+  "scope": "Pure-stdlib scalar arithmetic controls; no actual teacher collection, Torch, model execution, deployment, training or GPU.",
+  "controls": [
+    "branch errors individually improve while guided error increases",
+    "shared alpha .5 removes synthetic guided error",
+    "four-to-one scene state imbalance differs from pooled fit",
+    "empty CAL and zero update retain alpha0",
+    "duplicate state, nonfinite, negative norm, impossible dot refusals"
+  ],
+  "method_choice": "Grid only, shared both branches, lambda0, ties lower alpha; no added continuous fit or per-branch parameter.",
+  "next_real_scope": "Actual same-state v0/v1 and teacher source/provenance collection must be registered separately before GPU; beta1 and original-W1 controls remain required.",
+  "payload_sha256": {
+    "src/wcomr/cfg_guided_w1_grid.py": "48042bfdf995e6ec557225016262486e7be2ef2b463299e57f1351ab774da720",
+    "tests/check_cfg_guided_w1_grid_cpu.py": "d723059f2f2aa399b943349e662c775f8945ddf7bebee240773e55e8caa4fcc3"
+  },
+  "GPU_submissions": 0,
+  "ledger_written": false,
+  "original_GPU_stage_changed": false
+}
