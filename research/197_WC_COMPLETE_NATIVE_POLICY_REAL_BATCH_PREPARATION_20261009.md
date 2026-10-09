@@ -1,5 +1,9 @@
 # H-T63：真实完整原生政策接口的实际batch准备
 
+**真实生产源资产CPU和独立验收也已完成。** 原source3f104cf／153实际载荷，3477022／3477023退出0消失，完整33.962141秒；实际checkpoint／全部guardrail／原请求及derived Common／Human seed3、源／调度／预算和延迟导入检查通过，全部15范围／请求改动拒绝；CUDA未初始化／新增GPU0，预算原SHA未变。见[生产CPU原件核验](../reports/wc_real_complete_native_policy_production_cpu_r1_terminal_20261009_capture.json)。本轮先完成可审阅整卡再请用户批准，尚未实际GPU；预算不阻塞，单次>2授权待该具体卡。
+
+权限请求范围为卡 `WC-W3-REAL-COMPLETE-NATIVE-POLICY-R1-20261009-A`／run `wc-w3-real-complete-native-policy-r1`，完整6.704055834 GPUh预测、原16全路径及全部失败／重复／视频／张量／状态／费用和GPU后CPU；不以缩范围适配2小时自主上限。批准后把直接批准绑定到该卡，做同源selected CPU与fresh UUID／锁／账本／磁盘复验，再唯一提交、跟随原句柄到终态全量审计。当前没有direct_user_authorization，也没有GPU启动或科学新收益。以下保留完整准备、CPU和原失败。
+
 真实整卡已形成具体[登记](../manifests/wc_real_complete_native_policy_r1_preregistration_20261009.json)与[生产配置](../configs/wc_real_complete_native_policy_production_r1_20261009.json)：`WC-W3-REAL-COMPLETE-NATIVE-POLICY-R1-20261009-A`，153冻结载荷，Common seed3／Human seed3×ORIGINAL／PAIRED×观察OFF／ON×两严格重复，16完整36路径／16完整93视频、576guided／16最终latent、8顺序比较。新实际batch source保持cdfb803通过版本，运行／监督／全费用记账／GPU后完整CPU与原件捕获代码已具备；未选择新GPU。
 
 完整forecast为**6.704055834 GPUh**。从4个已结束原生父／真实接口记录取最大原生完整路径925.025799秒与最大加载103.754713秒；16条路径每条另给五状态检查点180秒、全guided写出及SHA120秒，8观察ON路径36步各1秒、清理120秒，整卡乘1.2裕量。既不使用旧ON昂贵教师耗时作每路径，也不忽略新诊断／写出；是保守估计而非速度或新秒数截止。累计29.895246590／50h、剩20.104753410h足够，但超过单次2GPUh自主边界，必须在完整生产CPU与资源验收后请求这张具体整卡的直接批准，不缩拆成小卡。当前仅本地准备，生产实际CPU／独立回执仍待；以下保留完整CPU结果与失败。
