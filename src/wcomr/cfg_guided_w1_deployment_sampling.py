@@ -26,6 +26,7 @@ from .mid_coverage import tree_digest
 A_METHODS = ('W1_GLOBAL_1', 'BETA1_GLOBAL_1', 'W1_ONE_PHASE', 'BETA1_ONE_PHASE')
 METHODS = ('WC', 'JOINT_NATIVE', 'RA')+A_METHODS
 RA_METHODS = ('RA',)+A_METHODS
+vector_file = legacy.vector_file
 SOURCE_SHA = {
     'methods': '866460b1bc0865309997c983d60e6108d4a74e1053c05756f3973df32fd3deb5',
     'references': '2173c69ca176b28c32ee4732695b3593b46f1d6733caf0df34b87ca75f1586f7',
@@ -66,7 +67,9 @@ def _derive(module, source_name, function_name, replacements, *, inserts=(), glo
     class Insert(ast.NodeTransformer):
         def generic_visit(self, node):
             for index, (site, before) in enumerate(inserts):
-                if _dump(node) == _dump(_node(site)):
+                # Insert before a whole statement. Matching the inner Call of
+                # an Expr would replace its value with a list of statements.
+                if _dump(node) == _dump(ast.parse(site).body[0]):
                     insertion_counts[index] += 1
                     return [copy.deepcopy(n) for n in ast.parse(before).body]+[node]
             return super().generic_visit(node)
