@@ -1,0 +1,170 @@
+{
+  "card": "WC-RA-FULL-VIDEO-COMPARISON-R2-20261010-A",
+  "run_id": "wc-ra-full-video-comparison-r2",
+  "registered_unix": 1791579190.7166772,
+  "hypothesis": "The first RA tau yielded 24 full-branch calls and uniformly poorer Native fidelity at a distinctly faster point. Test one stricter tau to distinguish working-point aggressiveness from an ineffective joint proxy; do not use this R1 point to reject RA direction.",
+  "scope_counts": {
+    "requests": 2,
+    "complete_method_paths": 6,
+    "native_reference_slots": 2,
+    "complete_paths": 8,
+    "maximum_videos": 8,
+    "solver_updates": 288,
+    "net_calls": 576,
+    "maximum_guided_outputs": 288,
+    "maximum_final_latents": 8,
+    "maximum_fidelity_pairs": 6
+  },
+  "requests": [
+    {
+      "inference_type": "text2world",
+      "seed": 3,
+      "guidance": 7,
+      "num_output_frames": 93,
+      "resolution": "432,768",
+      "negative_prompt": "The video captures a series of frames showing ugly scenes, static with no motion, motion blur, over-saturation, shaky footage, low resolution, grainy texture, pixelated images, poorly lit areas, underexposed and overexposed scenes, poor color balance, washed out colors, choppy sequences, jerky movements, low frame rate, artifacting, color banding, unnatural transitions, outdated special effects, fake elements, unconvincing visuals, poorly edited content, jump cuts, visual noise, and flickering. Overall, the video is of poor quality.",
+      "name": "common_sense_6487f37f-ef57-49ca-afdc-d898922b5191_seed3",
+      "prompt": "A close-up shot of a beautifully plated dessert, showcasing a golden-brown eclair-like pastry with a delicate, crisp exterior dusted with powdered sugar. The pastry is split open, revealing perfectly piped mounds of rich, textured coffee-colored cream filling, each with velvety ridges and topped with finely chopped nuts. A small sprig of fresh green garnish adorns the rightmost swirl. Beneath the pastry, four glossy lines of dark brown sauce radiate outward in evenly spaced streaks. In the foreground, a rounded food item with a soft, velvety foamy texture, light beige in color, sits slightly overlapping the chocolate lines. The plate is a pristine white ceramic with a subtle textured pattern along its edges. The background remains softly blurred, with another golden-brown item briefly appearing on a plate on the top right side. The scene is captured under bright, natural lighting from a slightly elevated angle, gradually pulling back to reveal the intricate details of the dish.",
+      "num_steps": 35
+    },
+    {
+      "inference_type": "text2world",
+      "seed": 3,
+      "guidance": 7,
+      "num_output_frames": 93,
+      "resolution": "432,768",
+      "negative_prompt": "The video captures a series of frames showing ugly scenes, static with no motion, motion blur, over-saturation, shaky footage, low resolution, grainy texture, pixelated images, poorly lit areas, underexposed and overexposed scenes, poor color balance, washed out colors, choppy sequences, jerky movements, low frame rate, artifacting, color banding, unnatural transitions, outdated special effects, fake elements, unconvincing visuals, poorly edited content, jump cuts, visual noise, and flickering. Overall, the video is of poor quality.",
+      "name": "human_199_seed3",
+      "prompt": "A wide shot captures an outdoor tennis court at the University of Barcelona, as indicated by the signage on the green portion and fence surrounding the court. The court is a standard hard surface with white boundary lines marking the playing area. Two players are present: one on the left side of the frame, dressed in a white shirt and dark shorts, holding a tennis racket and preparing to serve, while the other player is positioned on the far side of the court, ready to receive the serve. The court is enclosed by a high fence adorned with banners and flags, beyond which a row of parked cars and a building can be seen. The setting suggests a clear day with ample daylight illuminating the scene. The position of the camera remains steady, capturing the players' focused and deliberate movements as they engage in the game. The player on the left side of the court serves the ball across the net towards the opponent, who is poised to return the serve. The ball is seen in mid-air, traveling from one side of the court to the other, indicating the beginning of a rally. The players' movements are fluid and engaged, showcasing their concentration and skill. The video concludes with the ball still in play, suggesting that the rally continues beyond the frame's end.",
+      "num_steps": 35
+    }
+  ],
+  "methods": [
+    "WC",
+    "JOINT_NATIVE",
+    "RA"
+  ],
+  "repetitions": [
+    "first"
+  ],
+  "branch_order": [
+    "conditional",
+    "negative_prompt"
+  ],
+  "guided_weights": [
+    8,
+    -7
+  ],
+  "state_steps": [
+    13,
+    21,
+    33,
+    35,
+    36
+  ],
+  "timesteps": [
+    995,
+    994,
+    993,
+    992,
+    990,
+    988,
+    986,
+    984,
+    981,
+    977,
+    973,
+    967,
+    960,
+    951,
+    941,
+    927,
+    910,
+    889,
+    863,
+    831,
+    791,
+    742,
+    684,
+    618,
+    543,
+    462,
+    380,
+    301,
+    228,
+    166,
+    116,
+    77,
+    49,
+    30,
+    17,
+    9
+  ],
+  "threshold_rule": "PREREGISTERED_SINGLE_HALF_OF_ORIGINAL_D6_MEDIAN_AFTER_R1_DEVELOPMENT",
+  "RA_threshold": 0.070744235098772,
+  "parent_RA_threshold": 0.141488470197544,
+  "threshold_scale": 0.5,
+  "development_design_ref": "manifests/wc_ra_conservative_half_threshold_r2_design_preregistration_20261010.json",
+  "development_design_sha256": "2571035256ef789966262904e1cfc1eb4877414cd33a118343250faaa1be79bc",
+  "development_basis_ref": "reports/wc_ra_comparison_score_cpu_r1_terminal_20261010_capture_and_independent_audit.json",
+  "development_basis_sha256": "f8b3897c144c0f66084dc2acce366f8c60a9e910ca31bdf40a6102849c6f69a7",
+  "quality_informed_development_refinement": true,
+  "parameter_choice": "Single fixed halving after completed R1 development evidence, no grid or retrospective relabel; quality-informed development refinement, not independent confirmation.",
+  "calibration_fingerprint": "9ab1d77c303560823ed2f32f43b2982318cdd9835828a46da4835a1b95ea7d7a",
+  "reference_policy": "ORDINARY_NATIVE_MATCHED_INPUT_NO_REPLACEMENT",
+  "first_working_point_not_equal_actual_time_or_dense_count": true,
+  "clean_latency_claim": false,
+  "independent_confirmation_claim": false,
+  "identity_selection": "Already exposed Common/Human seed3, development only",
+  "fidelity_protocol": "Uniform offline CPU FP32 full native-size RGB93 LPIPS; report complete frame distributions; rejection slots retained, no replacement or zero-fill.",
+  "negative_result_policy": "Distinguish this configuration, metric alignment and direction; preserve all positives/negatives, then preregister a low-cost distinguishing revision if supported.",
+  "does_not_accept_or_shrink_old_sixteen_path_card": true,
+  "forecast": {
+    "status": "FULL_RA_COMPARISON_EIGHT_PATH_COST_FORECAST_NOT_SUBMITTED",
+    "complete_scope": {
+      "method_paths": 6,
+      "native_reference_slots": 2,
+      "complete_paths": 8,
+      "solver_updates": 288,
+      "net_calls": 576
+    },
+    "actual_current_calibration_runner_ref": "reports/wc_ra_calibration_r1_terminal_20261010_runner_native.gz",
+    "actual_current_calibration_runner_sha256": "2ea9b1dec5d068c97ae8447bc284ed887ad16738381a5363e305ae3b40d4792e",
+    "actual_current_collection_OFF_parent_costs": [
+      {
+        "sample_name": "common_sense_6487f37f-ef57-49ca-afdc-d898922b5191_seed3",
+        "label": "common_sense_6487f37f-ef57-49ca-afdc-d898922b5191_seed3_COLLECT_OFF",
+        "instrumented_pipeline_seconds": 285.06999728642404
+      },
+      {
+        "sample_name": "human_199_seed3",
+        "label": "human_199_seed3_COLLECT_OFF",
+        "instrumented_pipeline_seconds": 237.19035924505442
+      }
+    ],
+    "historic_complete_cost_ref": "reports/wc_ra_calibration_r1_complete_cost_forecast_20261010.json",
+    "historic_complete_cost_sha256": "e7c218019636fb279b1c4c0446a280f31d848bab5c1872a6efca1883875cbc20",
+    "historic_complete_source_refs": [
+      "reports/wc_cfg_guided_teacher_r1_terminal_20261009_runner_native.gz",
+      "reports/wc_cfg_mechanism_confirmation_r1_terminal_20261009_runner_native.gz",
+      "reports/wc_other_scene_cfg_confirmation_r1_terminal_20261009_runner_native.gz",
+      "reports/wc_mf00_interface_r1_terminal_20261010_runner_native.gz"
+    ],
+    "conservative_per_complete_path_seconds": 925.025799295865,
+    "slow_loading_seconds": 620.2844904875383,
+    "state_roundtrip_and_new_method_bookkeeping_allowance_seconds": 900,
+    "whole_card_vector_write_allowance_seconds": 480,
+    "cleanup_allowance_seconds": 120,
+    "subtotal_seconds": 9520.490884854458,
+    "whole_scope_margin_factor": 1.2,
+    "forecast_complete_seconds": 11424.589061825349,
+    "forecast_complete_GPUh": 3.1734969616181523,
+    "empirical_forecast_not_strict_time_upper_bound": true,
+    "ordinary_Native_cost_not_assumed_zero": true,
+    "no_legacy_seconds_deadline_created": true,
+    "automatic_single_job_GPUh": 4,
+    "GPU_submissions": 0
+  },
+  "execution_policy_ref": "manifests/wc_execution_autonomy_authorization_20261010_4gpuh.json",
+  "budget_window_authorization_ref": "manifests/budget_authorization_20261009_wc_new_window_48gpuh.json"
+}
