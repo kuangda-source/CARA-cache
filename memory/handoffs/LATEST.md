@@ -1,3 +1,7 @@
+## 2026-10-10 当前：RA R2完整终点已验收，guided-W1完整采样CPU准备
+
+[219结果与接续](../../research/219_WC_RA_R2_FIDELITY_AND_GUIDED_W1_FULL_PIPELINE_NEXT_20261010.md)：R2八全视频／288guided／8latent及六配对558帧独立验收，RA平均LPIPS较首版低10.65%、仍比同批WC高10.44%，两full24→28；共同刷新两轮输出与保真正信号重复，保留负帧。跨轮输出／prepared输入相同但条件整体SHA与solver._internal_dict摘要不同，严格全条件false保留，新批预登记逐字段与raw配置，不重跑旧卡。R4 source2b6e51a的实际CPU5.056530秒、flow两种设置全36采集OFF/ON及40张量和失败恢复通过，非Cosmos CAL。新198源完整管线CPU范围24路径／864solver／1728正常net、128分支实际重读已登记，真实CPU待；之后四CAL×两CC起点／8父／8视频完整GPU卡准备，未选新GPU。实费32.674095027／77.895246590、窗口余45.221151563GPUh、70提交、无GPU在途；完整≤4自主／>4具体确认，无非必要人评，goal active。下方旧在跑／待／余额为历史。
+
 ## 2026-10-10 当前：guided-W1同状态采集核心已实现，真实CPU待
 
 [218采集与下一批](../../research/218_WC_GUIDED_W1_PINNED_STATE_COLLECTION_CORE_20261010.md)：源码内三个只读观察＋原RF给定head转换、D-only历史／原warp／当前head与guided速度保存已实现；CPU登记flow OFF/ON各采集OFF/ON四条完整36步及最后起点写出失败，本地AST通过，真实CPU待。受控Toy更新非UniPC／Cosmos CAL／视频收益。下一接四CAL×两CC状态12/30完整实际采样与ON/OFF，不补造旧标量缺失速度。原R2六方法完整36步，RA两场景full28；Common Native接受／Human Native在跑，四原句柄活，八路径全93待，不复投。预算启动前32.034264130／77.895246590、余45.860982459GPUh、70提交／一个在途；≤4自主／>4确认，无非必要人评，goal active。下方旧进度为历史。
