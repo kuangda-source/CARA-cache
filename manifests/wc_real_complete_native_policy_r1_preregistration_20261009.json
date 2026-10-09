@@ -1,0 +1,151 @@
+{
+  "card": "WC-W3-REAL-COMPLETE-NATIVE-POLICY-R1-20261009-A",
+  "run_id": "wc-w3-real-complete-native-policy-r1",
+  "registered_unix": 1791525105.087866,
+  "hypothesis": "Full real native-policy interface preserves every guided output, actual adaptive action, complete state and video across execution order/observers/strict repeats.",
+  "scope_counts": {
+    "requests": 2,
+    "complete_paths": 16,
+    "new_videos": 16,
+    "solver_updates": 576,
+    "net_calls": 1152,
+    "guided_outputs": 576,
+    "final_latents": 16,
+    "order_comparisons": 8,
+    "endpoint_labels": 0,
+    "future_cost_labels": 0
+  },
+  "requests": [
+    {
+      "inference_type": "text2world",
+      "seed": 3,
+      "guidance": 7,
+      "num_output_frames": 93,
+      "resolution": "432,768",
+      "negative_prompt": "The video captures a series of frames showing ugly scenes, static with no motion, motion blur, over-saturation, shaky footage, low resolution, grainy texture, pixelated images, poorly lit areas, underexposed and overexposed scenes, poor color balance, washed out colors, choppy sequences, jerky movements, low frame rate, artifacting, color banding, unnatural transitions, outdated special effects, fake elements, unconvincing visuals, poorly edited content, jump cuts, visual noise, and flickering. Overall, the video is of poor quality.",
+      "name": "common_sense_6487f37f-ef57-49ca-afdc-d898922b5191_seed3",
+      "prompt": "A close-up shot of a beautifully plated dessert, showcasing a golden-brown eclair-like pastry with a delicate, crisp exterior dusted with powdered sugar. The pastry is split open, revealing perfectly piped mounds of rich, textured coffee-colored cream filling, each with velvety ridges and topped with finely chopped nuts. A small sprig of fresh green garnish adorns the rightmost swirl. Beneath the pastry, four glossy lines of dark brown sauce radiate outward in evenly spaced streaks. In the foreground, a rounded food item with a soft, velvety foamy texture, light beige in color, sits slightly overlapping the chocolate lines. The plate is a pristine white ceramic with a subtle textured pattern along its edges. The background remains softly blurred, with another golden-brown item briefly appearing on a plate on the top right side. The scene is captured under bright, natural lighting from a slightly elevated angle, gradually pulling back to reveal the intricate details of the dish.",
+      "num_steps": 35
+    },
+    {
+      "inference_type": "text2world",
+      "seed": 3,
+      "guidance": 7,
+      "num_output_frames": 93,
+      "resolution": "432,768",
+      "negative_prompt": "The video captures a series of frames showing ugly scenes, static with no motion, motion blur, over-saturation, shaky footage, low resolution, grainy texture, pixelated images, poorly lit areas, underexposed and overexposed scenes, poor color balance, washed out colors, choppy sequences, jerky movements, low frame rate, artifacting, color banding, unnatural transitions, outdated special effects, fake elements, unconvincing visuals, poorly edited content, jump cuts, visual noise, and flickering. Overall, the video is of poor quality.",
+      "name": "human_199_seed3",
+      "prompt": "A wide shot captures an outdoor tennis court at the University of Barcelona, as indicated by the signage on the green portion and fence surrounding the court. The court is a standard hard surface with white boundary lines marking the playing area. Two players are present: one on the left side of the frame, dressed in a white shirt and dark shorts, holding a tennis racket and preparing to serve, while the other player is positioned on the far side of the court, ready to receive the serve. The court is enclosed by a high fence adorned with banners and flags, beyond which a row of parked cars and a building can be seen. The setting suggests a clear day with ample daylight illuminating the scene. The position of the camera remains steady, capturing the players' focused and deliberate movements as they engage in the game. The player on the left side of the court serves the ball across the net towards the opponent, who is poised to return the serve. The ball is seen in mid-air, traveling from one side of the court to the other, indicating the beginning of a rally. The players' movements are fluid and engaged, showcasing their concentration and skill. The video concludes with the ball still in play, suggesting that the rally continues beyond the frame's end.",
+      "num_steps": 35
+    }
+  ],
+  "orders": [
+    "ORIGINAL",
+    "PAIRED"
+  ],
+  "observers": [
+    "OFF",
+    "ON"
+  ],
+  "repetitions": [
+    "first",
+    "second"
+  ],
+  "state_steps": [
+    13,
+    21,
+    33,
+    35,
+    36
+  ],
+  "selector": "PER_SLOT_PAID_PROBE_NATIVE_CACHE_NO_POLICY_CHANGE",
+  "measurement_space": "POST_DENOISE_BEFORE_SOLVER",
+  "timesteps": [
+    995,
+    994,
+    993,
+    992,
+    990,
+    988,
+    986,
+    984,
+    981,
+    977,
+    973,
+    967,
+    960,
+    951,
+    941,
+    927,
+    910,
+    889,
+    863,
+    831,
+    791,
+    742,
+    684,
+    618,
+    543,
+    462,
+    380,
+    301,
+    228,
+    166,
+    116,
+    77,
+    49,
+    30,
+    17,
+    9
+  ],
+  "identity_selection": "Both already exposed seed3 identities; implementation comparison, not CONF.",
+  "new_policy_or_clean_latency_claim": false,
+  "forecast": {
+    "all_complete_prior_sources": [
+      {
+        "source": "reports/wc_cfg_guided_teacher_r1_terminal_20261009_runner_native.gz",
+        "compressed_sha256": "c0ed1c8868517d8dcb9bacd75e64ec6725db5c2f22476f062205a927510bb0fc",
+        "source_revision": "e9f47f5759a774244dba02cc436657ab36099550",
+        "complete_original_OFF_path_seconds": 859.9177641272545,
+        "load_seconds": 98.13336327206343
+      },
+      {
+        "source": "reports/wc_cfg_mechanism_confirmation_r1_terminal_20261009_runner_native.gz",
+        "compressed_sha256": "f169110d79ecdf4476fb7780c5f48e448098a4f723520cc1f8871c4f598e4ea1",
+        "source_revision": "00b06e61f39bf3bd7f7f2696a70994a0d2ffc0e5",
+        "complete_original_OFF_path_seconds": 866.3753534667194,
+        "load_seconds": 83.78634151164442
+      },
+      {
+        "source": "reports/wc_other_scene_cfg_confirmation_r1_terminal_20261009_runner_native.gz",
+        "compressed_sha256": "cc975bbad53f13a11a8bcc982c7add037df35906f72196e0d110ea472be33cb2",
+        "source_revision": "c243d303fc4085d522638d5e67c8ea1c5d745b96",
+        "complete_original_OFF_path_seconds": 925.025799295865,
+        "load_seconds": 101.15695103630424
+      },
+      {
+        "source": "reports/wc_real_paired_interface_r1_terminal_20261009_runner_native.gz",
+        "compressed_sha256": "e8a163ac678b2a36317206ccde9fe5a4caf03c07aa6dc7cfd4c5125f512d3013",
+        "source_revision": "9f01274f55bfaa95dfc0a6016ff4fafca5d82e6d",
+        "complete_original_OFF_path_seconds": 903.8169405059889,
+        "load_seconds": 103.75471285637468
+      }
+    ],
+    "max_full_original_instrumented_path_seconds": 925.025799295865,
+    "max_load_seconds": 103.75471285637468,
+    "complete_paths": 16,
+    "new_checkpoint_allowance_per_path_seconds": 180,
+    "guided_output_write_and_sha_allowance_per_path_seconds": 120,
+    "explicit_observer_allowance_seconds": 288.0,
+    "cleanup_allowance_seconds": 120,
+    "whole_scope_margin_factor": 1.2,
+    "forecast_complete_seconds": 24134.601001908257,
+    "forecast_complete_GPUh": 6.704055833863404,
+    "CPU_only_scoring_not_GPU_charged": true,
+    "estimate_not_execution_deadline_or_promised_speed": true
+  },
+  "batch_CPU_registration_ref": "manifests/wc_cfg_complete_native_policy_sampling_cpu_r2_preregistration_20261009.json",
+  "batch_CPU_registration_sha256": "694e0081fa5cfe687c3cb7fbb96b563aed345e992c8c94b41157baa53c47f5bb",
+  "batch_CPU_complete_audit_ref": "reports/wc_cfg_complete_native_policy_sampling_cpu_r2_terminal_20261009_capture_and_independent_audit.json",
+  "batch_CPU_complete_audit_sha256": "b9d293050c540e4452725b08fbb39ce34e82e1ed6c450a88cf12d32ffa166ec1"
+}
