@@ -1,3 +1,10 @@
+## 2026-10-09 新真实接口batch完整CPU通过，生产配置准备
+
+[189新批次CPU与准备](189_WC_REAL_PAIRED_INTERFACE_BATCH_CPU_AND_PREPARATION_20261009.md)：H-T58实际使用的新batch source d992f32／82载荷／8源，3444070／3444071退出0消失，driver318.278351秒／fixture290.980408秒。旧H-T57全64行重跑、新两flow完整两原父／16pair及末写出失败，共68行、成功32pair／96真实Toy张量实际重读、20证据破坏拒绝，观察／重复／原FP32和原父一致；全部失败／16计划与15文件保留，CUDA0／新GPU0／账本原SHA不变。Toy／CPU、非2B／实际视频／速度／终点收益。
+
+新wc-w3-real-paired-interface-r1登记两原父／两视频＋单S22 CC/DD×观察×二重复×原/成对16pair／48 FP32／8比较，曝光Common seed3不作CONF，不替代旧五起点或全36候选部署。生产156载荷／资产／source本地contract及compile通过，尚GPUselected=false；下一实际生产CPU、same-source selected及fresh资源后唯一GPU。整卡按全三批120计时／108非嵌套最大、两原父／加载最大，加900秒新开销余量及整体1.5，预测1.648781376h非实费／严格上界；额外prefix4GiB与原workspace4GiB、二份状态live准入。实费29.027073215／50h、余20.972926785h、64提交／无在途不变。≤2h且有余额自主，>2h具体确认，不缩拆／训练／扩稀疏／OMR／DRE／人评；旧正负与RA保持，goal active，本轮实际完整CPU与新卡实现准备进展。组会revision18科学成果保持。以下历史。
+
+
 ## 2026-10-09 同S22成对接线完整CPU通过，真实2B接口卡准备
 
 [188实际CPU](188_WC_PAIRED_S22_LOCAL_INTERFACE_CPU_RESULTS_20261009.md)：H-T57 source0f6dbac／75载荷／8源实际driver206.954659秒、fixture180.055308秒，3441993／3441994退出0消失；CUDAfalse／新GPU0／原预算SHA不变。旧H-T55全60行重跑保持，新两flow原OFF／ON四完整父、144solver／288父net、两S22×16pair＝16比较／32局部pair及四声明故障全量通过。临时解除父forward／denoise包装并精确恢复对象，服务器直接torch.equal分支／原FP32 guided、全部50组件、实际层访问、条件／RNG／generator／参数及重复／观察开关一致；两完整父72／36／五检查点与终点latent相同。Toy／CPU到latent，不是2B／decode／视频／显存／干净速度或终点／未来成本标签，非任意故障回滚。
