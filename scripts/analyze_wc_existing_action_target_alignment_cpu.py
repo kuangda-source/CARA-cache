@@ -40,6 +40,9 @@ def main():
             assert len(raw)==entry['bytes'] and hashlib.sha256(raw).hexdigest()==entry['sha256']
             values[kind]=json.loads(raw)
         runner,score=values['runner'],values['CPU_score']
+        registered=runner['config']['preregistration']
+        request=registered.get('confirmation_request',registered.get('same_existing_request'))
+        assert request['seed']==seed and request['name']=='human_199_seed'+str(seed)
         assert runner['source_revision']==score['source_revision']==independent['source_revision']==capture['source_revision']
         assert (score['local_CFG_pairs'],score['raw_tensor_count'],score['strict_repeat_groups'])==(40,120,20)
         assert score['full_parent_parity'] and not score['CUDA_initialized'] and score['GPU_submissions']==0
