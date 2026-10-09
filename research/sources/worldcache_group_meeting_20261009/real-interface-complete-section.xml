@@ -1,0 +1,15 @@
+<h1>真实成对接口对照已完成：可执行接线与下一完整调度（10月9日更新）</h1>
+<p><b>发现与价值：</b>同一真实S22、同一CC／DD动作下，两侧浅层先支付的成对接口与原顺序逐值等价。8比较／16局部pair／48实际FP32张量及1216状态、观察OFF／ON和二严格重复全量通过；完整两父与两93帧视频相同。它把共同观察接到真实模型，仍是实现等价证据，尚未产生新策略终点质量或速度优势。</p>
+<table><colgroup><col width="149"/><col width="531"/></colgroup><tbody>
+<tr><td><p><b>项目</b></p></td><td><p><b>完整设计、结果与适用条件</b></p></td></tr>
+<tr><td><p>平台与请求</p></td><td><p>Cosmos-Predict2.5-2B／A6000；曝光Common seed3；768×432、93帧、16fps、guidance7、35请求／36实际UniPC-Karras更新。固定原请求，不作为独立CONF。</p></td></tr>
+<tr><td><p>完整局部对照</p></td><td><p>S22／44同状态，CC／DD×观察OFF／ON×二严格重复×原／成对，共16局部pair、32诊断net、48FP32张量、8比较；局部不更新solver，完整恢复后原父继续。全部范围结束，未接受成功子集。</p></td></tr>
+<tr><td><p>分支、状态与父轨迹</p></td><td><p>服务器CPU实际重读全部48张量，torch.equal重建分支／原CFG表达式；完整1216组件、冻结条件／RNG／solver及绑定恢复一致。CC实际probe层各2次、深层0；DD全部28层各2次。两父全72net／36solver、所有测量、cache与最终latent一致。</p></td></tr>
+<tr><td><p>完整视频</p></td><td><p>两父各93／93帧，文件SHA和全部解码RGB SHA相同；这证明诊断无扰动，不是新策略优于原WC的质量结果。</p></td></tr>
+<tr><td><p>局部带诊断计时</p></td><td><p>观察OFF：CC原顺序／成对均值0.654472／0.654851秒，DD为6.650510／6.631648秒。观察ON：CC1.508113／1.516662秒，DD7.486764／7.490298秒。每格两重复；核心含层hook与控制，差异小，不能据此称干净加速，且不含全部clone、hash、写出和恢复。</p></td></tr>
+<tr><td><p>显存与全费用</p></td><td><p>原快照约2.635GiB；调用前free32.16GiB，二份拷贝加8GiB工作区／prefix的13.27GiB要求通过。局部PyTorch峰值allocated约11.62GiB，仅allocator范围。整GPU进程3125.424秒＝0.868173GPUh全实计；累计29.895247／50GPUh，剩20.104753GPUh，65提交／无GPU在途，锁与GPU释放。</p></td></tr>
+<tr><td><p>记录修复</p></td><td><p>首次本地捕获误将/home别名与/media实际路径直接作字符串相等比较；原失败保留，全部16真实文件逐一resolve／大小／SHA绑定后完整独立验收通过。没有重跑模型、修改原156载荷或放宽到basename比较。</p></td></tr>
+<tr><td><p>完整四动作下一步</p></td><td><p>Human seed2／seed3各1次DC，Common2次DC，OFF／ON一致；CC／DD通过不足以覆盖全36步。H-T60用三条完整原生mask＋一条四动作循环，两flow×观察×二重复＝32比较／64完整36路径，保留旧68控制及12新失败；CPU R1汇总NameError保留，只修该字段在R2独立目录完整重跑。Toy CPU通过后才准备真实完整部署，mask回放不是在线新政策。</p></td></tr>
+<tr><td><p>科研接续</p></td><td><p>完成四动作／真实全36部署后，测正确终点收益与未来真实成本，比较原WC、简单共同刷新及Cosmos校准RA。旧W1混合结果、Human单槽正例与全部负结果保留；不训练、扩大稀疏／OMR／DRE或引入人评。单次&gt;2GPUh仍按原约定具体确认，不缩拆完整对照。</p></td></tr>
+</tbody></table>
+<p>证据：<a href="https://github.com/kuangda-source/worldcache-omr-experiments/blob/8b347b0/research/193_WC_REAL_PAIRED_INTERFACE_COMPLETE_RESULTS_20261009.md">完整真实接口结果</a>；<a href="https://github.com/kuangda-source/worldcache-omr-experiments/blob/8b347b0/reports/wc_real_paired_interface_r1_complete_alias_independent_audit_20261009.json">全部原件／路径／状态独立验收</a>；<a href="https://github.com/kuangda-source/worldcache-omr-experiments/blob/8b347b0/reports/wc_real_paired_interface_r1_complete_result_summary_20261009.json">全费用与16行计时／内存</a>；<a href="https://github.com/kuangda-source/worldcache-omr-experiments/blob/8b347b0/research/192_WC_FOUR_ACTION_FULL_SAMPLER_CPU_EXECUTION_20261009.md">四动作CPU失败保留及完整重试</a>；<a href="https://github.com/kuangda-source/worldcache-omr-experiments/blob/8b347b0/research/191_WC_FULL_TRAJECTORY_CFG_ACTION_ALIGNMENT_CPU_RESULTS_20261009.md">全36步原生动作覆盖</a>。</p>
