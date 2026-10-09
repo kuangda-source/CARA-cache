@@ -7,3 +7,5 @@
 原冻结源码、运行配置、科学判据和结果不修改。旧H-T63卡预测6.704055834 GPUh仍高于新门槛，本次没有批准或运行该卡。门槛变更本身没有新增GPU提交、训练、评分或方法结果。后续已授权设计内≤4 GPUh完整卡可按新约定直接推进，不因旧文中的2 GPUh规则再次询问。
 
 [独立回读](../reports/wc_single_job4_independent_readback_20261010.json)确认服务器与本地授权/账本字节相同，原字段与预算窗口全部保持，10个入口历史正文完整保留，冻结源码、配置和导入原文未修改，82处本地链接有效。
+
+[组会飞书文档](https://lcnssrlun9lz.feishu.cn/docx/HTSIdK0uLofCG5xUI1IcTKaCnAh)已通过CLI追加现行4 GPUh规则，revision32→33；[全文回读回执](../reports/wc_single_job4_feishu_verification_20261010.json)确认原166块保留，新增说明的文字与执行约定链接相符。
