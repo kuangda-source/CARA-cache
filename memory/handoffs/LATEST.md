@@ -1,3 +1,7 @@
+## 2026-10-09 整卡授权等待复核：连续第二轮
+
+[只读复核回执](../../reports/wc_real_complete_native_policy_authorization_wait2_20261009.json)：上一轮完成实际batch／生产CPU和飞书交付，属于progress；本轮仅复核同一具体授权阻塞，不算科研进展或verified wait。目标GPU无计算进程、原CPU退出0且句柄消失、无在途／新GPU输出，账本和CPU原件SHA均不变，29.895246590／50GPUh。完整6.704055834GPUh卡未选择，未收到新直接授权，不启动／缩拆／重跑／替换实验。连续同阻塞2轮，goal仍active，未到blocked阈值；飞书revision27已交付，不重复写状态。
+
 ## 2026-10-09 完整实际batch与生产CPU通过，真实整卡具体授权待
 
 [197完整准备](research/197_WC_COMPLETE_NATIVE_POLICY_REAL_BATCH_PREPARATION_20261009.md)：新batch R1 sourcee5fd9df／123的观察事件列表时序比较失败61.629411秒保留；R2 sourcecdfb803／126载荷8源仅按相同call／phase比较内容、原事件／张量／controller保持，3462642／3462643退出0消失，206.745299秒。两个flow全64完整路径2304solver4608net、成功32路径1152guided及32latent实际重读、全部状态／动作／条件RNG／观察／重复／准备相同，24记录破坏／2实际截断／2最后写出失败全通过，原件SHA独立验收。Toy CPU非2B／真实视频或新质量速度。
