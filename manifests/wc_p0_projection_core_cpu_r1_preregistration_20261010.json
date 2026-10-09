@@ -1,0 +1,39 @@
+{
+  "identity": "WC_P0_ACTUAL_PROJECTION_CORE_CPU_R1_20261010",
+  "registered_unix": 1791584697.334265,
+  "CPU_scope": {
+    "actual_pinned_source_classes": [
+      "Block",
+      "GPT2FeedForward"
+    ],
+    "Toy_CPU_layers": 4,
+    "complete_CFG_pairs": 8,
+    "complete_branch_count": 16,
+    "independent_dense_current_gate_reference": true,
+    "both_real_Linear_row_count_hooks": true,
+    "P_fractions": [
+      0.5,
+      0.75
+    ],
+    "empty_and_all_active_controls": true,
+    "cold_and_incompatible_safe_fallbacks": 2,
+    "score_only_teacher_does_not_update_cache": true,
+    "second_branch_failure_rollback_and_poison": true,
+    "semantic_refusals": 4,
+    "GPU_submissions": 0
+  },
+  "payload_sha256": {
+    "src/wcomr/__init__.py": "b9996da0a87bb746cdac0935ead475246fc34d88b37e73f63f14e5065494f311",
+    "src/wcomr/partial_mlp.py": "acfb93b3b3ee5bd4c08d28b2f15b503900b6b9a73f2b873fcda8ffd34f91f183",
+    "tests/check_partial_mlp_cpu.py": "6c03c05f2bd59df8fbda79240e1b57209196354e6379cb8d4f5921b4a6fdec3b",
+    "scripts/check_wc_p0_projection_core_cpu_r1.py": "0f89abaf8150463fb5de52ccb7c462d270f59f24008322be6e345687a6b98bc1",
+    "scripts/deploy_wc_p0_projection_core_cpu_r1.py": "fc43fae22bcd6eec5bd027f7b7fac1f19d0acb403275e469c15c154ff4a41578"
+  },
+  "runtime_source_sha256": {
+    "cosmos_predict2/_src/predict2/networks/minimal_v4_dit.py": "a41a1772f694ee338e4b91f032428ea81f28e80fb90990e2db86eb7d1ce30071"
+  },
+  "limits": "Actual full source class bodies, CPU weights and declared Toy attention/inputs. No full Cosmos, real sparse attention or GPU/video/clean speed claim.",
+  "no_existing_GPU_stage_changes": true,
+  "no_GPU_lock_or_ledger_write": true,
+  "hypothesis": "True gathered MLP with branch-owned ungated caches preserves the current Block gate and full attention, with explicit partial provenance and rollback."
+}
