@@ -50,7 +50,7 @@ def exercise(*,inference,samples,settings,inference_module,flow,runtime,tensor_l
     old_net=(net.blocks,net.t_embedder,net.unpatchify)
     old_topology=(len(list(net.named_modules())),len(list(net.named_buffers())))
     net.blocks=pinned_blocks(runtime)
-    net.t_embedder=lambda t:(t.unsqueeze(-1).expand(*t.shape,8),None)
+    net.t_embedder=lambda t:(t.float().unsqueeze(-1).expand(*t.shape,8),None)
     net.unpatchify=lambda x:x[:,:,::2,::2,:].movedim(-1,1).contiguous().repeat(1,256,1,1,1)
     new_topology=(len(list(net.named_modules())),len(list(net.named_buffers())))
     expected_components=50+sum(new_topology)-sum(old_topology)
@@ -100,7 +100,7 @@ def exercise(*,inference,samples,settings,inference_module,flow,runtime,tensor_l
                 run_batch(inference,selected,wc,settings,state=state,save=save,output=output,inference_module=inference_module,
                     contexts=contexts,mode_setup=mode,runtime=runtime,config=config,rf_module=rf,writer=writer)
             except BaseException as exc:error=str(exc)
-            assert state['planned_parent_paths']==8 and state['planned_origins']==8 and len(state['requests'])==4
+            assert state['planned_parent_paths']==8 and state['planned_origins']==8 and len(state['requests'])==4,(error,state.get('requests'))
             assert state['initial_state_restored'] and all(float(b)==0 for b in net.buffers())
             assert not any(m.training for m in net.modules())
             if scenario=='complete':
