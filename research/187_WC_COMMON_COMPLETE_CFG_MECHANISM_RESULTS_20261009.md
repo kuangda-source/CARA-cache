@@ -72,4 +72,4 @@ Common独立加权能量4.589767938，交叉项−4.419649696，理想float64合
 - [原终态捕获](../reports/wc_other_scene_cfg_confirmation_r1_terminal_20261009_capture.json)：全部GPU／CPU回执、原配置／driver、日志／监控／预算压缩原字节与SHA。
 - [本地独立完整审计](../reports/wc_other_scene_cfg_confirmation_r1_terminal_20261009_independent_CPU_audit.json)：作用域、120摘要／20重复、五起点几何、224条件／76空间和实费。
 - [原预登记](../plans/WORLD_CACHE_OTHER_SCENE_CFG_CONFIRMATION_20261009.md)：原H-T52a、全部范围与判据，不回写原假设。
-- [飞书组会报告](https://lcnssrlun9lz.feishu.cn/docx/HTSIdK0uLofCG5xUI1IcTKaCnAh)：继续用CLI更新最新完成状态与全量结果，旧阶段正文保留。
+- [飞书组会报告](https://lcnssrlun9lz.feishu.cn/docx/HTSIdK0uLofCG5xUI1IcTKaCnAh)：已用CLI更新并完整回读至revision18，20节／19表／4公式／46链接。原139块中仅顶部最新callout文字更新，其余138块及容器保留；新增11块文字、链接、两表单元格与源XML一致，无warnings。[完整回读核验](../reports/wc_group_meeting_feishu_common_complete_verification_20261009.json)保留两次顶部写入（一次费用措辞笔误更正）、追加和全部原始fetch，未覆盖旧结果。
