@@ -1,3 +1,7 @@
+## 2026-10-10 当前：guided-W1同状态采集核心已实现，真实CPU待
+
+[218采集与下一批](218_WC_GUIDED_W1_PINNED_STATE_COLLECTION_CORE_20261010.md)：源码内三个只读观察＋原RF给定head转换、D-only历史／原warp／当前head与guided速度保存已实现；CPU登记flow OFF/ON各采集OFF/ON四条完整36步及最后起点写出失败，本地AST通过，真实CPU待。受控Toy更新非UniPC／Cosmos CAL／视频收益。下一接四CAL×两CC状态12/30完整实际采样与ON/OFF，不补造旧标量缺失速度。原R2六方法完整36步，RA两场景full28；Common Native接受／Human Native在跑，四原句柄活，八路径全93待，不复投。预算启动前32.034264130／77.895246590、余45.860982459GPUh、70提交／一个在途；≤4自主／>4确认，无非必要人评，goal active。下方旧进度为历史。
+
 ## 2026-10-10 当前：guided-W1输出核心真实CPU通过，原R2继续
 
 [217接口与进度](217_WC_GUIDED_W1_OUTPUT_INTERFACE_CPU_20261010.md)：β=1、共享α最终速度读出和direct-guided矩统计实现；source1cba0e7／5源实际CPU6.659985秒，四种原RF全文条件处理／24受控调用、七拒绝、输入版本和RNG保持，3878643／3878644退出0消失、独立原件绑定通过。小型给定张量不是Cosmos CAL／teacher／视频收益；下一四场景×两自身合法状态真实采集，不从paid标量补造速度。R2 source384f032／229不改，3876022／3876094／3876023／评分3876501现场仍活；Common WC与JOINT_NATIVE两路径完整，RA仍STARTED，完整八路径／两Native和全93终态待，不评分子集或复投。仅完整原件验收后核对跨轮不变对照和工作点；并发CPU及诊断wall不作clean速度。启动前实费32.034264130／77.895246590、余45.860982459GPUh，70提交／一个在途；≤4自主／>4确认，无非必要人评，goal active。下方阶段／余额快照为历史。
