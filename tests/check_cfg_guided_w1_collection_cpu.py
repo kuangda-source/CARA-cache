@@ -85,7 +85,9 @@ def main():
         def run(flow,enabled,fail_writer=False):
             nonlocal total_artifacts
             torch.set_rng_state(initial_rng)
-            net=Net().eval(); wc.apply_worldcache(net,num_steps=35,ret_ratio=.2,rel_l1_thresh=.08,probe_depth=2,
+            # The ordinary pipeline doubles the requested35 for two CFG calls.
+            # This direct full36 fixture must supply that actual70-call horizon.
+            net=Net().eval(); wc.apply_worldcache(net,num_steps=70,ret_ratio=.2,rel_l1_thresh=.08,probe_depth=2,
                 osi_enabled=True,flow_enabled=flow,flow_scale=1)
             model=SimpleNamespace(net=net,tensor_kwargs={'dtype':torch.float32},config=SimpleNamespace(
                 conditional_frame_timestep=.2,denoise_replace_gt_frames=True))

@@ -17,3 +17,5 @@
 CPU R1 source89a07b6／62源在导入时缺失calibration.py，6.766557秒退出1，尚未执行测试路径；[完整失败原件](../reports/wc_mf_a_collection_core_cpu_r1_terminal_20261010_capture.json)与原stage保留。这是隔离载荷遗漏，非方法负结果。新[CPU R2登记](../manifests/wc_mf_a_collection_core_cpu_r2_preregistration_20261010.json)只补完整本地import依赖闭包，不改算法、四全路径／两个起点及写出失败；新[独立R2部署](../scripts/deploy_wc_mf_a_collection_core_cpu_r2.py)和[原件捕获](../scripts/capture_wc_mf_a_collection_core_cpu_r2.py)不覆盖R1原件。
 
 CPU R2 source7c4f3e6／64源2.467762秒导入源码全局绑定失败：夹具漏提取原compute_saliency_map，尚未运行测试路径；[失败原件](../reports/wc_mf_a_collection_core_cpu_r2_terminal_20261010_capture.json)保留。新[R3登记](../manifests/wc_mf_a_collection_core_cpu_r3_preregistration_20261010.json)补原函数namespace，并绑定已有真实D6使用的native-policy成对控制器，避免把早期原型step35保护DD冒充部署路由；真实固定DD为1–7／13／19／25／31／36，两个起点不变。旧源码、stage与失败不改；没有GPU或方法负结果。
+
+CPU R3 sourcef6f4d1b／64源2.716150秒在第一对调用前拒绝：直接夹具给apply_worldcache的是35，而实际管线两CFG分支传70；[原件](../reports/wc_mf_a_collection_core_cpu_r3_terminal_20261010_capture.json)保留。新[R4登记](../manifests/wc_mf_a_collection_core_cpu_r4_preregistration_20261010.json)只将直接夹具设置为实际70-call horizon，36实际对与全部控制保持，不改模型或实际管线。真实GPU R2八路径已完整原件验收，评分仍运行，不重新生成。
