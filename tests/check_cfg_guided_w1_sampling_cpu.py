@@ -35,6 +35,15 @@ def exercise(*,inference,samples,settings,inference_module,flow,runtime,tensor_l
             .set_video_condition(torch.zeros(1,2048,2,8,8),0,0,num_conditional_frames=0) for b in (0,1))
     model.conditioner.get_condition_with_negative_prompt=conditions
     model.get_data_and_condition=lambda b:(None,torch.zeros(1,2048,2,8,8),None)
+    # The historical pipe fixture omits this batch key. The actual RF factory
+    # then defaults to one conditional frame, even when the sample says T2V.
+    # Explicitly bind the zero-frame request used by this collection control.
+    original_prepare=inference.pipe._get_data_batch_input
+    def prepare_zero_frame_request(*args,**kwargs):
+        batch=original_prepare(*args,**kwargs)
+        assert 'num_conditional_frames' not in batch
+        return {**batch,'num_conditional_frames':0}
+    inference.pipe._get_data_batch_input=prepare_zero_frame_request
     for name in ('denoise','get_velocity_fn_from_batch'):
         setattr(model,name,types.MethodType(getattr(rf.Video2WorldModelRectifiedFlow,name),model))
     model.config.conditional_frame_timestep=-1;model.config.denoise_replace_gt_frames=True
@@ -105,6 +114,7 @@ def exercise(*,inference,samples,settings,inference_module,flow,runtime,tensor_l
                     'complete_scope_retained':True,'receipt':state,'initial_full_state_restored':True})
         return results
     finally:
+        inference.pipe._get_data_batch_input=original_prepare
         net.prepare_embedded_sequence=saved[0]
         model.get_velocity_fn_from_batch,model.denoise,model.get_data_and_condition=saved[1:]
         model.conditioner.get_condition_with_negative_prompt=conditioner
