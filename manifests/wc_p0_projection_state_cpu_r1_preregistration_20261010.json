@@ -1,0 +1,51 @@
+{
+  "identity": "WC_P0_ACTUAL_ADDITIONAL_PROJECTION_STATE_CPU_R1_20261010",
+  "registered_unix": 1791585304.0861921,
+  "CPU_scope": {
+    "actual_pinned_source_classes": [
+      "Block",
+      "GPT2FeedForward"
+    ],
+    "Toy_CPU_layers": 4,
+    "complete_CFG_pairs": 8,
+    "complete_branch_count": 16,
+    "independent_dense_current_gate_reference": true,
+    "both_real_Linear_row_count_hooks": true,
+    "P_fractions": [
+      0.5,
+      0.75
+    ],
+    "empty_and_all_active_controls": true,
+    "cold_and_incompatible_safe_fallbacks": 2,
+    "score_only_teacher_does_not_update_cache": true,
+    "second_branch_failure_rollback_and_poison": true,
+    "semantic_refusals": 4,
+    "GPU_submissions": 0,
+    "complete_successful_score_only_state_pairs": 2,
+    "failed_second_branch_state_pair": 1,
+    "extra_state_refusals": 4,
+    "physical_projection_age_source_context_D_history_record_poison_restore": true,
+    "explicit_projection_logical_copy_budget_bytes": 1048576,
+    "net_solver_latent_conditions_RNG_buffers_are_separate_inventory": true
+  },
+  "payload_sha256": {
+    "src/wcomr/__init__.py": "b9996da0a87bb746cdac0935ead475246fc34d88b37e73f63f14e5065494f311",
+    "src/wcomr/partial_mlp.py": "acfb93b3b3ee5bd4c08d28b2f15b503900b6b9a73f2b873fcda8ffd34f91f183",
+    "src/wcomr/partial_mlp_state.py": "302a84e289a3be0709cc78fbd94bf036e17b13d1c033e10639add74bad4e532e",
+    "src/wcomr/mid_coverage.py": "8e02d740b4ee794531c6263666bbed18348e32ba84c9b94b89f7c979a106fbf4",
+    "src/wcomr/mid_scope.py": "94d02ab46cddd70a0a80e5edb62eb12e22eb2647afe66b6843e6372480bb51ac",
+    "tests/check_partial_mlp_cpu.py": "32782f3031f780d9404205d3b1a81c445af0764f263cc7c19198dbbbeb846411",
+    "tests/check_partial_mlp_state_cpu.py": "81cde4df729f524b91d9633012c81873bed7a7357dda45119bcf8e808b8a01c0",
+    "scripts/check_wc_p0_projection_state_cpu_r1.py": "e90a62d8d2b9a01d5c2d26ef9b6a05450a8a0505b6cfbf2c0786bd6e8ceb6b7a",
+    "scripts/deploy_wc_p0_projection_state_cpu_r1.py": "33210d5fcc4d0c5ec17614b4477fd6055cb15f0f84133c5770849b56225d45d3"
+  },
+  "runtime_source_sha256": {
+    "cosmos_predict2/_src/predict2/networks/minimal_v4_dit.py": "a41a1772f694ee338e4b91f032428ea81f28e80fb90990e2db86eb7d1ce30071"
+  },
+  "limits": "Actual full source class bodies, CPU weights and declared Toy attention/inputs. No full Cosmos, real sparse attention or GPU/video/clean speed claim.",
+  "no_existing_GPU_stage_changes": true,
+  "no_GPU_lock_or_ledger_write": true,
+  "hypothesis": "True gathered MLP with branch-owned ungated caches preserves the current Block gate and full attention, with explicit partial provenance and rollback.",
+  "complete_Cosmos_inventory_or_real_model_or_latency_claim": false,
+  "changed_controls_reason": "P0 adds physical projection, age and source tensors beyond the prior WC/solver inventory; paid score-only candidate arms require explicit additional restoration before real-group comparison."
+}

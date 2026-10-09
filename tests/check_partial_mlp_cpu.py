@@ -21,7 +21,7 @@ from wcomr.partial_mlp import PartialMLP,block_indices
 SOURCE_SHA='a41a1772f694ee338e4b91f032428ea81f28e80fb90990e2db86eb7d1ce30071'
 
 
-def run(runtime):
+def run(runtime, *, state_control=None):
     path=Path(runtime)/'cosmos_predict2/_src/predict2/networks/minimal_v4_dit.py'
     raw=path.read_bytes();assert hashlib.sha256(raw).hexdigest()==SOURCE_SHA
     tree=ast.parse(raw);classes=[v for v in tree.body if isinstance(v,ast.ClassDef) and v.name in ('GPT2FeedForward','Block')]
@@ -126,6 +126,18 @@ def run(runtime):
                 checks.append({'step':step,'action':action,'rows_per_real_Linear':rows,
                     'complete_two_branch_four_layer_outputs_verified':True,'full_attention_calls_preserved':True,
                     'current_gate_independent_dense_reference_verified':True})
+            state_result = None
+            if state_control is not None:
+                def state_arm(*, fail_second=False):
+                    with adapter.pair(step=7,action='P',context=context,indices=torch.arange(8)):
+                        for slot in (0,1):
+                            if slot==1 and fail_second:
+                                raise ValueError('Injected score-only state arm second-branch failure')
+                            with adapter.branch(slot):
+                                for b in blocks:
+                                    x,emb=inputs(7,slot);call(b,x,emb,slot)
+                    return {key: c.value.clone() for key,c in adapter.cache.items()}
+                state_result = state_control(adapter, state_arm)
             # Unregistered full teacher cannot alter projection history.
             before=dict(adapter.cache);observer.clear()
             with adapter.readonly():
@@ -174,7 +186,8 @@ def run(runtime):
             'second_branch_failure_complete_cache_rollback_and_poison_verified':True,
             'current_gate_and_own_branch_projection_cache_verified':True,
             'parameter_versions_and_values_preserved':True,'CUDA_initialized':torch.cuda.is_initialized(),
-            'GPU_submissions':0,'real_Cosmos_OR_video_OR_clean_latency_claim':False}
+            'GPU_submissions':0,'real_Cosmos_OR_video_OR_clean_latency_claim':False,
+            'additional_projection_state_control':state_result}
     finally:
         adapter.close()
         for h in handles:h.remove()
