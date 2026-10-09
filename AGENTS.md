@@ -1,3 +1,11 @@
+## 2026-10-09 完整实际batch与生产CPU通过，真实整卡具体授权待
+
+[197完整准备](research/197_WC_COMPLETE_NATIVE_POLICY_REAL_BATCH_PREPARATION_20261009.md)：新batch R1 sourcee5fd9df／123的观察事件列表时序比较失败61.629411秒保留；R2 sourcecdfb803／126载荷8源仅按相同call／phase比较内容、原事件／张量／controller保持，3462642／3462643退出0消失，206.745299秒。两个flow全64完整路径2304solver4608net、成功32路径1152guided及32latent实际重读、全部状态／动作／条件RNG／观察／重复／准备相同，24记录破坏／2实际截断／2最后写出失败全通过，原件SHA独立验收。Toy CPU非2B／真实视频或新质量速度。
+
+卡WC-W3-REAL-COMPLETE-NATIVE-POLICY-R1-20261009-A／run wc-w3-real-complete-native-policy-r1已具备完整可审阅运行／监督记账／GPU后张量视频审计／原件捕获／绑定配置，Common seed3／Human seed3×两顺序×观察×二严格重复16全36路径16视频、576guided／16latent，forecast6.704055834GPUh。source3f104cf／153实际生产CPU33.962141秒通过实际源资产／guardrail／两个请求及15范围拒绝，3477022／3477023退出0消失，本地完整核验完成。fresh目标A6000 sm8.6／24MiB／无进程、只读锁检查释放、磁盘约509GiB／账本SHA无变化。累计29.895246590／50h、余20.104753410h、65提交，无GPU／CPU在途，CPU不写账本。
+
+飞书CLI revision27全回读，原156块保留、新CPU及整卡准备／费用两链接相符，21节20表4公式58链接。当前新GPU未选择／启动、direct specific authorization false；准备完具体整卡后按用户单次>2GPUh约定询问批准，不缩拆重复／观察。批准后绑定该卡、同源selected CPU与fresh资源、唯一提交及完整终态审计；不是预算耗尽或方向否定。本轮actual CPU／真实生产代码／Feishu为progress，goal active，授权阻塞首次出现，未满足blocked阈值；不训练／扩稀疏／OMR／DRE／人评。旧科学正负／H62／H61失败／RA近邻与判据保持，之后终点及未来成本和WC/共同/校准RA仍待。以下历史。
+
 ## 2026-10-09 完整原生接口尾部修正CPU通过，组会revision26
 
 [196完整结果](research/196_WC_COMPLETE_NATIVE_POLICY_INTERFACE_20261009.md)：H-T62 source37e954b／112载荷8源，fixture98.469217／driver125.369907秒，3458243／3458244退出0消失。全16比较32完整36路径1152solver2304net、576实际guided直接相同，最终latent／动作访问／50状态与五检查点／条件RNG／step22恢复／观察及严格重复全相同；4尾部失败控制34步拒绝、poison拒绝继续、完整20行通过。新独立controller只五AST站点逆变换，counter68／69联合决策和70周期验收使默认原／新28／28、高阈值16／16、尾部CC／CC。旧H-T61差异和所有失败／真实S22／共同DD合同保留；Toy CPU不是2B全36或新策略质量速度。全部原件SHA独立验收。
