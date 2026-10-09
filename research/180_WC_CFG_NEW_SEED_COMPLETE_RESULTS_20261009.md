@@ -68,3 +68,7 @@ H-T50成对probe的CPU接口已经通过，但真实2B一致性、显存及成�
 - [原终态捕获](../reports/wc_cfg_mechanism_confirmation_r1_terminal_20261009_capture.json)：GPU／CPU原回执、配置、评分、日志、监控、预算与绑定driver的压缩原字节及SHA。
 - [本地独立CPU重建](../reports/wc_cfg_mechanism_confirmation_r1_terminal_20261009_independent_CPU_audit.json)：完整作用域、120摘要／20重复、能量、测量见证与实费。
 - [原预登记](../plans/WORLD_CACHE_CFG_MECHANISM_CONFIRMATION_20261009.md)：H-T48a及全部对照／成本／后续，不回写历史判据。
+
+## 已同步组会飞书并全回读
+
+[飞书组会文档](https://lcnssrlun9lz.feishu.cn/docx/HTSIdK0uLofCG5xUI1IcTKaCnAh)通过CLI更新顶部最新摘要并追加新种子完整结果、全部例外、原件入口、CPU补充与下一步，revision14。[核验回执](../reports/wc_group_meeting_feishu_new_seed_complete_verification_20261009.json)确认原129顶层块仅最新callout内容改变，其余原正文／资源保留，10新增块文字、链接和表格单元格全部相符，无warnings；当前19主节、17表、4公式、38链接。旧“在跑”文字保留为有日期的阶段记录，最新摘要与本节明确原任务已完成／结算／释放。
