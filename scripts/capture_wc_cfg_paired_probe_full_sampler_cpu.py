@@ -12,7 +12,7 @@ PREFIX='reports/wc_cfg_paired_probe_full_sampler_cpu_r1_terminal_20261009_'
 
 
 def main():
-    parser=argparse.ArgumentParser();parser.add_argument('--attempt',choices=('r1',),default='r1');args=parser.parse_args()
+    parser=argparse.ArgumentParser();parser.add_argument('--attempt',choices=('r1','r2'),default='r1');args=parser.parse_args()
     prefix=PREFIX.replace('_r1_','_'+args.attempt+'_')
     launch=json.loads(Path('reports/wc_cfg_paired_probe_full_sampler_cpu_'+args.attempt+'_launch_20261009.json').read_text())
     source='L='+repr(launch)+'\n'+r'''
@@ -102,7 +102,7 @@ print(json.dumps({'capture':capture,'native':items}))
         for row in refused:
             assert row['status']=='EXPECTED_REJECTION' and row['whole_fixture_copy_discarded'] and not row['arbitrary_fault_full_rollback_claim']
             assert row['planned_solver_steps']==36 and row['completed_solver_steps']==expected_steps[row['failure']]
-        path_keys=('velocity','solver_returns','checkpoints','actions','counters','condition_before','condition_after','roundtrip_step22_complete','final_latent_sha256','final_components','final_solver_sha256','generator_state_sha256','global_rng_sha256')
+        path_keys=('velocity','solver_returns','checkpoints','actions','counters','block_visits','condition_before','condition_after','roundtrip_step22_complete','final_latent_sha256','final_components','final_solver_sha256','generator_state_sha256','global_rng_sha256')
         for row in full:
             ref,new=row['original'],row['paired']
             assert row['status']=='PASS' and row['solver_updates_per_path']==36 and row['net_calls_per_path']==72
@@ -122,7 +122,8 @@ print(json.dumps({'capture':capture,'native':items}))
             assert all(v['binding'] in ('actual_module_global','builtin','explicit_compiler_helper') for v in proof['production_velocity_globals'].values())
             expected_actions=['DD' if c<4 or c>=68 else (row['schedule'] if row['schedule']!='ALTERNATING' else ('CC' if (c//2)%2==0 else 'DD')) for c in new['counters']]
             assert new['actions']==expected_actions
-        invariant=('velocity','solver_returns','checkpoints','actions','final_latent_sha256','final_components','final_solver_sha256','generator_state_sha256','global_rng_sha256')
+            assert new['block_visits']==[([2.,2.,2.,2.] if a=='DD' else [2.,2.,0.,0.]) for a in expected_actions]
+        invariant=('velocity','solver_returns','checkpoints','actions','block_visits','final_latent_sha256','final_components','final_solver_sha256','generator_state_sha256','global_rng_sha256')
         for flow in (False,True):
             for schedule in ('CC','DD','ALTERNATING'):
                 group=[r['paired'] for r in full if r['flow']==flow and r['schedule']==schedule]

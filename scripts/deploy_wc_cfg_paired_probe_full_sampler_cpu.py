@@ -11,7 +11,7 @@ import tarfile
 
 
 def main():
-    parser=argparse.ArgumentParser();parser.add_argument('--attempt',choices=('r1',),default='r1');args=parser.parse_args()
+    parser=argparse.ArgumentParser();parser.add_argument('--attempt',choices=('r1','r2'),default='r1');args=parser.parse_args()
     ref=Path('manifests/wc_cfg_paired_probe_full_sampler_cpu_'+args.attempt+'_preregistration_20261009.json')
     reg=json.loads(ref.read_text());revision=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()
     assert subprocess.check_output(['git','show',revision+':'+str(ref)])==ref.read_bytes()

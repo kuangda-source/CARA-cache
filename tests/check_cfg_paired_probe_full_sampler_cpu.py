@@ -74,7 +74,7 @@ def exercise(*, inference, flow, runtime, **unused):
             get_condition_uncondition=construct)
         m.denoise=types.MethodType(rf.Video2WorldModelRectifiedFlow.denoise,m)
         net.forward=types.MethodType(wc.worldcache_mini_train_dit_forward,net)
-        trace={'net_events':[],'velocity':[],'solver_returns':[],'checkpoints':[],
+        trace={'net_events':[],'velocity':[],'solver_returns':[],'checkpoints':[],'block_visits':[],
             'actions':[],'counters':[],'condition_before':None,'condition_after':None}
         def before(n,slot,args,kwargs):
             trace['net_events'].append({'kind':'before','call':2*len(trace['velocity'])+slot,
@@ -101,9 +101,13 @@ def exercise(*, inference, flow, runtime, **unused):
         else:
             executor=None;core=None;proof=None
             def reference_forward(*args,**kwargs):
-                slot=int(net.cnt)%2
+                counter=int(net.cnt);slot=counter%2
                 if observers:before(net,slot,args,kwargs)
-                value=refs[choice(schedule,int(net.cnt))](net,*args,**kwargs)
+                # Same joint tail protection as the paired executor, rather
+                # than silently comparing the last original CC with paired DD.
+                warmup=int(net.worldcache_num_steps*net.worldcache_ret_ratio)
+                action='DD' if counter<warmup or counter>=net.worldcache_num_steps-2 else choice(schedule,counter)
+                value=refs[action](net,*args,**kwargs)
                 if observers:after(net,slot,value)
                 return value
             net.forward=reference_forward
@@ -118,6 +122,7 @@ def exercise(*, inference, flow, runtime, **unused):
             trace['condition_before']=tree_digest([object_state(c) for c in conditions])
             def observed_velocity(*args,**kwargs):
                 counter=int(net.cnt)
+                visits=[float(block.visits) for block in net.blocks]
                 value=velocity(*args,**kwargs)
                 trace['counters'].append(counter)
                 trace['velocity'].append(tree_digest(value))
@@ -126,6 +131,9 @@ def exercise(*, inference, flow, runtime, **unused):
                 action='DD' if protected else choice(schedule,counter)
                 if paired:
                     assert executor.last['action']==action and executor.last['protected']==protected
+                delta=[float(block.visits)-before for block,before in zip(net.blocks,visits)]
+                assert delta==([2.,2.,2.,2.] if action=='DD' else [2.,2.,0.,0.])
+                trace['block_visits'].append(delta)
                 trace['actions'].append(action)
                 return value
             return observed_velocity
@@ -209,7 +217,7 @@ def exercise(*, inference, flow, runtime, **unused):
                     ref=run_path(schedule,observers,False)
                     new=run_path(schedule,observers,True)
                     assert torch.equal(ref.pop('_final_latent_tensor'),new.pop('_final_latent_tensor'))
-                    keys=('velocity','solver_returns','checkpoints','actions','counters','condition_before',
+                    keys=('velocity','solver_returns','checkpoints','actions','counters','block_visits','condition_before',
                         'condition_after','roundtrip_step22_complete','final_latent_sha256','final_components',
                         'final_solver_sha256','generator_state_sha256','global_rng_sha256')
                     assert all(ref[k]==new[k] for k in keys)
@@ -225,7 +233,7 @@ def exercise(*, inference, flow, runtime, **unused):
                         'original':ref,'paired':new,'all_complete_path_fields_equal':True,
                         'all_branch_observations_equal':True}
                     records.append(record);groups.append(record)
-            invariant=('velocity','solver_returns','checkpoints','actions','final_latent_sha256',
+            invariant=('velocity','solver_returns','checkpoints','actions','block_visits','final_latent_sha256',
                 'final_components','final_solver_sha256','generator_state_sha256','global_rng_sha256')
             assert all(all(row['paired'][k]==groups[0]['paired'][k] for k in invariant) for row in groups)
         for failure in ('selector_step23','solver_tail','net_binding','condition_construction'):
