@@ -1,0 +1,51 @@
+{
+  "identity": "WC_RA_CONSERVATIVE_HALF_THRESHOLD_R2_DESIGN_PREREGISTRATION_20261010",
+  "registered_unix": 1791578429.5492349,
+  "status": "PROSPECTIVE_HYPOTHESIS_AND_COMPLETE_SCOPE_SOURCE_CONFIG_CPU_BINDINGS_PENDING_NOT_GPU_SELECTED",
+  "basis_ref": "reports/wc_ra_comparison_score_cpu_r1_terminal_20261010_capture_and_independent_audit.json",
+  "basis_sha256": "f8b3897c144c0f66084dc2acce366f8c60a9e910ca31bdf40a6102849c6f69a7",
+  "hypothesis": "The first RA tau yielded 24 full-branch calls and uniformly poorer Native fidelity at a distinctly faster point. Test one stricter tau to distinguish working-point aggressiveness from an ineffective joint proxy; do not use this R1 point to reject RA direction.",
+  "parent_tau": 0.141488470197544,
+  "threshold_scale": 0.5,
+  "next_tau": 0.070744235098772,
+  "parameter_choice": "Single fixed halving after completed R1 development evidence, no grid or retrospective relabel; quality-informed development refinement, not independent confirmation.",
+  "complete_scope": {
+    "requests": 2,
+    "methods": [
+      "WC",
+      "JOINT_NATIVE",
+      "RA"
+    ],
+    "native_reference_slots": 2,
+    "complete_paths": 8,
+    "repetitions_per_path": 1,
+    "solver_updates": 288,
+    "net_calls": 576,
+    "maximum_videos": 8,
+    "maximum_guided_outputs": 288,
+    "maximum_final_latents": 8,
+    "maximum_Native_fidelity_pairs": 6
+  },
+  "requests": [
+    "common_sense_6487f37f-ef57-49ca-afdc-d898922b5191_seed3",
+    "human_199_seed3"
+  ],
+  "why_controls_remain": "Same staged source and same-run raw costs for the changed RA point, with complete reference/comparator slots and cross-run determinism evidence. No R1 artifact is replaced.",
+  "frozen_components": [
+    "rho and gain table fingerprint 9ab1d77c303560823ed2f32f43b2982318cdd9835828a46da4835a1b95ea7d7a",
+    "original WC settings, current protected7 DD plus terminal DD",
+    "actual paid prefix for both CFG branches",
+    "same768x432/93/16fps and seed3/noise/UniPC Karras36",
+    "offline CPU LPIPS all93 at native geometry"
+  ],
+  "interpretation": "Report both scenes and all frames, full counts and actual cost; do not require exact time/count matching or one success threshold, no isolated frame sampling unit. If tau change is unhelpful, inspect objective/age support and proceed guided-W1 and partial-refresh development rather than another unrestricted RA grid.",
+  "next_engineering": "Bind new source/parameter contract and exact previous evidence, full cost forecast, production and selected CPU plus fresh GPU/lock/ledger admission. No source modifications to either completed R1 stage.",
+  "forecast_complete_GPUh_before_binding": null,
+  "GPU_execution_selected": false,
+  "GPU_submissions": 0,
+  "ledger_written": false,
+  "new_human_review": false,
+  "budget_authorization_ref": "manifests/budget_authorization_20261009_wc_new_window_48gpuh.json",
+  "automatic_single_job_GPUh": 4,
+  "cumulative_cap_GPUh": 77.89524658965853
+}
