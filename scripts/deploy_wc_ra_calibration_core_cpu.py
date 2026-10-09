@@ -12,8 +12,7 @@ import tarfile
 
 def main():
     parser=argparse.ArgumentParser();parser.add_argument('--attempt',choices=('r1','r2'),default='r1');args=parser.parse_args()
-    assert args.attempt == 'r1'
-    ref=Path('manifests/wc_ra_calibration_core_cpu_r1_preregistration_20261010.json')
+    ref=Path('manifests/wc_ra_calibration_core_cpu_'+args.attempt+'_preregistration_20261010.json')
     reg=json.loads(ref.read_text());revision=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()
     assert subprocess.check_output(['git','show',revision+':'+str(ref)])==ref.read_bytes()
     dest=Path('reports/wc_ra_calibration_core_cpu_'+args.attempt+'_launch_20261010.json');assert not dest.exists()

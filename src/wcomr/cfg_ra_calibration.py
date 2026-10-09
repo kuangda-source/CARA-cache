@@ -102,9 +102,13 @@ class SharedSchedulePairExecutor:
         self.branches = saved['branches']
 
     def fingerprint(self):
+        def canonical(last):
+            if last is None:
+                return None
+            return {**last, 'paid_probes': [asdict(p) for p in last['paid_probes']]}
         return tree_digest({'history': self.history, 'anchor': self.anchor,
-            'forced_action': self.forced_action, 'last': self.last,
-            'base_last': self.executor.last, 'branches': self.branches})
+            'forced_action': self.forced_action, 'last': canonical(self.last),
+            'base_last': canonical(self.executor.last), 'branches': self.branches})
 
 
 class CoarseCalibrationFork(SamplerSuffixControl):

@@ -7,3 +7,7 @@
 [CPU实际源码测试](../tests/check_cfg_ra_calibration_full_sampler_cpu.py)覆盖两flow、两场景OFF／ON各全36父、12起点与24完整子后缀，共624solver／1248net。只验证本次采集与表生成的受影响行为，不重跑无变化的旧16路矩阵。完整实际执行和原件验收回执随后追加；本节初始状态为实现及语法检查完成，非CPU通过。
 
 单次完整4GPUh门槛与48GPUh窗口已经在权威执行约定中落实。下一批真实模型校准仍需完整生产batch／CPU、费用预测、源与实际资源准入；符合门槛就自主推进。
+
+首个CPU实际运行source7b9d1f6／152载荷，3692520／3692521退出1，driver234.415227秒／核心0.947386秒，完整失败范围与原件已保存。新history指纹调用既有tree_digest时未将PaidProbe dataclass规范化，第一父12步检查点报`Uncovered state type: PaidProbe`。这是新指纹实现错误，未完成采集，不是校准或方法负结果。修正只在指纹中将last／base_last的paid_probes转为asdict；动作、张量、求解器和六起点范围不改，新R2独立stage重新执行完整CPU。
+
+CPU期间账本原字节变化来自原MF-00 GPU终态结算；CPU未写账本也未新增GPU。不能把变化解释成CPU费用或CPU失败原因。
