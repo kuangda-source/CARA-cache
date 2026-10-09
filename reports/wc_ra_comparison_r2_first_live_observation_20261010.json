@@ -1,0 +1,30 @@
+{
+  "observed_unix": 1791579588.3658013,
+  "source_revision": "384f03266c357177fc2269ddfeb242234cffae17",
+  "run_id": "wc-ra-full-video-comparison-r2",
+  "live_PIDs": [
+    3876022,
+    3876094,
+    3876023
+  ],
+  "supervisor_status": "RA_COMPARISON_GPU_RUNNING",
+  "runner_status": null,
+  "post_CPU_status": "WAITING_ORIGINAL_PAIRED_GPU_NOT_NEW_SUBMISSION",
+  "budget": {
+    "cap_gpu_hours": 77.89524658965853,
+    "used_gpu_hours": 77.89524658965853,
+    "gpu_jobs_launched": 70,
+    "wc_ra_comparison_r2_inflight": {
+      "run_id": "wc-ra-full-video-comparison-r2",
+      "reserved_gpu_hours": 45.86098245945216,
+      "supervisor_pid": 3876022
+    }
+  },
+  "log_tail": "[10-10 04:59:45|INFO|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/_src/imaginaire/utils/checkpoint_db.py:171:path] Downloading checkpoint nvidia/Cosmos-Guardrail1(9c7b7da4-2d95-45bb-9cb8-2eed954e9736)\n[10-10 04:59:45|INFO|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/_src/imaginaire/utils/checkpoint_db.py:131:_download] Downloading checkpoint from Hugging Face with {'repo_id': 'nvidia/Cosmos-Guardrail1', 'repo_type': 'model', 'revision': 'd6d4bfa899a71454a700907664f3e88f503950cf', 'allow_patterns': ['*']}\n",
+  "first_observation_before_state_write_failure_preserved": {
+    "type": "FileNotFoundError",
+    "missing": "outputs/wc-ra-full-video-comparison-r2/supervisor.json",
+    "GPU_restarts": 0,
+    "repair": "Poll original handles and permit admission/source validation before first state write."
+  }
+}
