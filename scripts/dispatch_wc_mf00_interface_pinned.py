@@ -7,6 +7,7 @@ the model runner already uses this exact environment. No new GPU payload is
 created. Failed pre-admission never consumed the run identity or its budget.
 """
 import ast
+import argparse
 import hashlib
 import json
 from pathlib import Path
@@ -18,6 +19,9 @@ ORIGINAL='scripts/launch_wc_mf00_interface.py'
 
 
 def main():
+    parser=argparse.ArgumentParser()
+    parser.add_argument('--retry-after-resource-change',action='store_true')
+    args=parser.parse_args()
     launch=json.loads(Path('reports/wc_mf00_interface_selected_cpu_r1_launch_20261010.json').read_text())
     original=Path(ORIGINAL).read_text()
     assert original.encode()==subprocess.check_output(['git','show',launch['source_revision']+':'+ORIGINAL])
@@ -40,7 +44,15 @@ def main():
         'dispatcher_revision':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),
         'scope_or_runtime_payload_changed':False,'recorded_unix':time.time()}
     receipt=Path('reports/wc_mf00_interface_pinned_dispatch_source_20261010.json')
-    assert not receipt.exists()
+    if receipt.exists():
+        assert args.retry_after_resource_change, 'Existing attempt: inspect actual state before an explicit resource-change retry'
+        prior=json.loads(receipt.read_text())
+        assert all(prior[k]==proof[k] for k in ('frozen_source_sha256','effective_dispatch_source_sha256','source_revision','pinned_interpreter'))
+        proof.update(prior_dispatch_proof_ref=str(receipt),retry_after_resource_change=True)
+        attempts=list(Path('reports').glob('wc_mf00_interface_pinned_dispatch_retry_*_20261010.json'))
+        receipt=Path('reports/wc_mf00_interface_pinned_dispatch_retry_'+str(len(attempts)+1)+'_20261010.json')
+    else:
+        assert not args.retry_after_resource_change, 'No original dispatch proof exists'
     receipt.write_text(json.dumps(proof,indent=2)+'\n')
     namespace={'__name__':'mf00_pinned_dispatch','__file__':str(Path(ORIGINAL).resolve())}
     exec(compile(modified,ORIGINAL+'#pinned-dispatch-only', 'exec'),namespace)
