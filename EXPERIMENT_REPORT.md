@@ -1,3 +1,9 @@
+## 2026-10-09 四动作完整CPU R1记录错误保留，独立R2重试
+
+[192执行与修复](research/192_WC_FOUR_ACTION_FULL_SAMPLER_CPU_EXECUTION_20261009.md)：source56f7faf／92载荷／8源实际CPU331.658825秒退出1，3452912／3452913消失；新完整比较汇总字段引用内层sequence造成NameError，未接受通过子集。完整失败／原字节／SHA／112行范围保留，CUDA0／新增GPU0／不写预算；只修该字段为登记mask，R2独立目录全68旧＋32完整比较64路径2304solver4608net＋12失败，实际CPU及独立全量验收仍待，不能报2B或终点收益。
+
+原H-T58 source9f01274／156不改，3445779／3445791／3445780继续原任务；两完整父／两93帧与16pair／48张量全量后CPU待，不复投。实费29.027073215／50h底数，第65在途50仅预留；飞书revision21已CLI回读。goal active，本轮实际CPU失败定位＋必要实现进展，非方向否定／审批阻塞；>2h具体确认，不缩拆／训练／扩稀疏／OMR／DRE／人评。以下为历史快照。
+
 ## 2026-10-09 三条完整轨迹都有混合DC，原H-T58继续
 
 [191全轨迹结果](research/191_WC_FULL_TRAJECTORY_CFG_ACTION_ALIGNMENT_CPU_RESULTS_20261009.md)：H-T59 R1请求元数据KeyError退出1保留，R2只修规范request字段，source81c5d5c实际标准库CPU0.148897秒通过三卡12原件／6父／216pair／432net及原完整验收、OFF/ON全轨迹parity；独立调用位置集合重建全部行通过。Human seed2／seed3各1个DC（step28／27）、Common2个DC（step23／33），完整6父8混合、去重4位置；旧full/cache35/37、35/37、38/34保持。只接受CC/DD的当前接口不足以覆盖原生全36步；下一支持全部四动作与完整36步，不能把OR强制共同刷新称原生动作等价。冻结旧mask的OR额外1／1／2full只是算术，不预测未来真实动作／费用。

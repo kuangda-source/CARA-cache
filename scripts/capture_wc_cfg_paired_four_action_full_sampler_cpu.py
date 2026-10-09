@@ -12,7 +12,7 @@ PREFIX='reports/wc_cfg_paired_four_action_full_sampler_cpu_r1_terminal_20261009_
 
 
 def main():
-    parser=argparse.ArgumentParser();parser.add_argument('--attempt',choices=('r1',),default='r1');args=parser.parse_args()
+    parser=argparse.ArgumentParser();parser.add_argument('--attempt',choices=('r1','r2'),default='r1');args=parser.parse_args()
     prefix=PREFIX.replace('_r1_','_'+args.attempt+'_')
     launch=json.loads(Path('reports/wc_cfg_paired_four_action_full_sampler_cpu_'+args.attempt+'_launch_20261009.json').read_text())
     source='L='+repr(launch)+'\n'+r'''

@@ -253,7 +253,7 @@ def exercise(*, inference, flow, runtime, action_schedules, **unused):
                         'solver_updates_per_path':36,'net_calls_per_path':72,
                         'original':ref,'paired':new,'all_complete_path_fields_equal':True,
                         'all_branch_observations_equal':True,'all_36_guided_tensors_direct_equal':True,
-                        'full_action_sequence':sequence.copy(),'mixed_action_steps':[i+1 for i,a in enumerate(new['actions']) if a in ('DC','CD')]}
+                        'full_action_sequence':action_schedules[schedule].copy(),'mixed_action_steps':[i+1 for i,a in enumerate(new['actions']) if a in ('DC','CD')]}
                     records.append(record);groups.append(record)
             invariant=('velocity','solver_returns','checkpoints','actions','block_visits','final_latent_sha256',
                 'final_components','final_solver_sha256','generator_state_sha256','global_rng_sha256')
