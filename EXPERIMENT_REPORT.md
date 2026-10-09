@@ -1,3 +1,9 @@
+## 2026-10-09 三条完整轨迹都有混合DC，原H-T58继续
+
+[191全轨迹结果](research/191_WC_FULL_TRAJECTORY_CFG_ACTION_ALIGNMENT_CPU_RESULTS_20261009.md)：H-T59 R1请求元数据KeyError退出1保留，R2只修规范request字段，source81c5d5c实际标准库CPU0.148897秒通过三卡12原件／6父／216pair／432net及原完整验收、OFF/ON全轨迹parity；独立调用位置集合重建全部行通过。Human seed2／seed3各1个DC（step28／27）、Common2个DC（step23／33），完整6父8混合、去重4位置；旧full/cache35/37、35/37、38/34保持。只接受CC/DD的当前接口不足以覆盖原生全36步；下一支持全部四动作与完整36步，不能把OR强制共同刷新称原生动作等价。冻结旧mask的OR额外1／1／2full只是算术，不预测未来真实动作／费用。
+
+原H-T58 source9f01274／156不改，3445779／3445791／3445780最新实际活，OFF父完整、ON原日志18／36，16pair／48张量／两全93与后CPU仍待；不读子集评分／复投。启动前实费29.027073215／50h，第65在途50仅预留。本轮CPU新GPU0／不写预算／无Torch／终点或未来成本标签，旧科学正负／RA保持；goal active，上一turn是实际GPU/飞书progress，本turn是完整覆盖新证据＋verified wait，无重要阻碍。组会revision20科学成果保持，下一完整四动作CPU/部署与正确终点成本，>2h具体确认，不缩拆／训练／扩稀疏／OMR／DRE／人评。以下为历史。
+
 ## 2026-10-09 真实成对接口完整GPU已唯一启动
 
 [190执行](research/190_WC_REAL_PAIRED_INTERFACE_SELECTED_CPU_AND_EXECUTION_20261009.md)：H-T58 source9f01274／156载荷，selected实际CPU32.010701秒退出0、3445551／3445552消失，16范围拒绝／完整请求／源资产／原件binding与预算SHA通过。完整两原父／两视频＋S22 CC/DD×观察×二重复×原/成对16pair／48 FP32／8比较，forecast1.648781376h，在50h／整卡≤2h原权限内唯一GPU3445779／3445791及绑定后CPU3445780实际活。最初导入，无新2B接口科学结果。原source／载荷不改、不复投；释放后审计全部48张量／1216状态与两全93视频、全72／36。
