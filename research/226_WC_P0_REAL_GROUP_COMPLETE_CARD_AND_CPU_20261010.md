@@ -13,3 +13,7 @@
 ## 生产CPU与源绑定选择
 
 source aad7b47的245完整源实际生产CPU32.712577秒退出0，3896046／3896047消失；真实guardrail cache／Blocklist／四原CAL请求、原模型／源码／资产与完整27拒绝通过。预算SHA保持，CUDA未初始化、GPU0。选定配置只加入同源CPU回执SHA和目标GPU UUID，static config binding不变；实际选定CPU与fresh资源仍待，不把选择配置称为GPU启动。
+
+## 最终选定引用失败与独立配置R2
+
+R1最终选定CPU32.905929秒退出1，3896321／3896322消失，原回执全部保持、GPU0。配置production_cpu_stage误留旧A目录，selected验证发现目录原件SHA与P0的CPU回执SHA不匹配并拒绝。生产CPU本身通过与完整P0 sampler科学边界保持；不跳过该绑定门。独立production／selected配置R2引用新的P0生产CPU R2目录，新增五个版本化部署／捕获／选定／启动／终态工具，payload250。P0算法、真实runner／supervisor／audit源码、实验范围、GPU run R1身份与3.171450188全cost不改。重新完成同源生产／selected CPU与fresh准入后才启动GPU；R1配置与全部原件不覆盖。

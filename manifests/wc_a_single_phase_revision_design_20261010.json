@@ -1,0 +1,54 @@
+{
+  "identity": "WC_A_SINGLE_PHASE_STRENGTH_REVISION_PROSPECTIVE_DESIGN_20261010_NOT_GPU_CARD",
+  "registered_unix": 1791587602.6705978,
+  "purpose": "Evaluate a single low-complexity guided-output strength revision together with global A and strong BETA1 controls in a later full closed-loop card; retain all old global and negative results.",
+  "CAL_informed_not_independent_confirmation": true,
+  "source_sha256": {
+    "reports/wc_mf_a_collection_r1_complete_phase_analysis_20261010.json": "1c08b4840d328c8d79cb84d651a2644f5ac12bad4f4b900a7bcb8484fdd83b98",
+    "reports/wc_mf_a_collection_r1_terminal_20261010_capture_and_independent_audit.json": "c1fa3fb8c4230527075f0dc6a02a6a8b5b0480262a619257c821205a89671b34",
+    "manifests/wc_mf_a_collection_r1_preregistration_20261010.json": "5ccf4e42122ee81cb54cb8e39c6e70bc70e4a69e2fee348e6fcaad0ec5714d55"
+  },
+  "prospective_candidates": [
+    {
+      "name": "W1_GLOBAL_1",
+      "alpha_by_actual_execution_step": {
+        "all": 1
+      }
+    },
+    {
+      "name": "BETA1_GLOBAL_1",
+      "alpha_by_actual_execution_step": {
+        "all": 1
+      }
+    },
+    {
+      "name": "W1_ONE_PHASE",
+      "alpha_by_actual_execution_step": {
+        "1_to_24": 1,
+        "25_to_36": 0.5
+      }
+    },
+    {
+      "name": "BETA1_ONE_PHASE",
+      "alpha_by_actual_execution_step": {
+        "1_to_24": 1,
+        "25_to_36": 0.5
+      }
+    }
+  ],
+  "boundary_25_reason": "Existing late D6 anchor boundary; informed by observed steps12 and30 only. Not a causally isolated optimal phase boundary.",
+  "boundary_or_alpha_sweep": false,
+  "current_source_posthoc_gains_are_not_registered_endpoint_results": true,
+  "CFG_branches_share_alpha": true,
+  "alpha_fusion_coordinate": "Actual post-current-head/RF velocity per CFG branch; no hidden-space blend asserted equivalent.",
+  "nonzero_alpha_requires_past_actual_D_only_residual_anchors": true,
+  "teacher_updates_deployment": false,
+  "alpha05_cost": "Original and proposed current head/warp/RF plus actual output fusion paid; no free dense teacher.",
+  "BETA1_may_avoid_second_anchor_fit": "Only after actual implementation/cost validation; no retrospective original-result alteration.",
+  "full_next_GPU_card_must_freeze": "Every scene/control/candidate/native reference needed, actual code/CPU proofs, complete output counts and empirical whole cost; this design does not authorize a partial card.",
+  "P0_combination_requires_standalone_A_or_P0_win": false,
+  "no_nonessential_human_review": true,
+  "GPU_execution_selected": false,
+  "GPU_submissions": 0,
+  "forecast_complete_GPUh": null
+}
