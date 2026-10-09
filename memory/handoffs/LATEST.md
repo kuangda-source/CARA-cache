@@ -1,3 +1,10 @@
+## 2026-10-10 当前：RA完整batch CPU通过，完整真实校准卡冻结／生产CPU在跑
+
+[207 RA完整卡](research/207_WC_RA_CALIBRATION_BATCH_AND_REAL_CARD_20261010.md)：36bb4da／161完整batch驱动877.421189秒、核心89.648082秒退出0，16父／48子／1248solver／2496net及288guided／8latent／96子张量实际重读、16语义拒绝／2真实截断／2最后写出失败、62保留Toy原件SHA全部验收。无CUDA／GPU／账本写入。真实完整卡WC-RA-COARSE-CAL-R1为4父／4全93视频／6起点／12子／312solver／624net，预先冻结六观测中位rho＋三阶段中位传播gain及≤6年龄估计格，193载荷source75a68a3已推送；原生产CPU3767622／3767623在执行，未验收，真实表未产生。完整费用预测3.552744294GPUh；CPU通过后同源选定CPU、fresh资源和唯一完整GPU卡，≤4自主、>4具体确认，不删对照／拆卡。
+
+[206 MF-00](research/206_WC_MF00_COMPLETE_REAL_INTERFACE_RESULTS_20261010.md)完整真实4路径／4视频／144guided／4latent接口等价已验收；旧16路径／6.704055834卡保持未批准。权威账本实费30.529593763／77.895246590、48窗口余47.365652826GPUh、67提交／无GPU在途；goal active。下一真实RA完整视频及guided-W1／协调稀疏部分MLP组合，不添非必要人评。下方在跑／旧2h／50h／blocked是历史。
+
+
 ## 2026-10-10 当前：MF-00真实完整通过；RA校准核心通过，生产batch CPU在跑
 
 [206真实结果](research/206_WC_MF00_COMPLETE_REAL_INTERFACE_RESULTS_20261010.md)：R2 source92b2d1a／177载荷四全36路径、144guided／4latent直接相同，动作／五×1216组件／条件RNG及四全93视频编码与完整RGB相同；原四GPU／CPU句柄退出0消失、锁／GPU释放。GPU1531.208647秒＝0.425335735GPUh、后CPU21.879140秒。实费30.529593763／77.895246590、窗口余47.365652826GPUh、67提交、无GPU在途，非新策略质量／干净速度，不追认旧16路卡。组会CLI已完整回读revision37，171旧块保留、两新增正文与链接全相符。
