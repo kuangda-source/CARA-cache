@@ -33,3 +33,9 @@ CPU导入适配仅元数据／退出进程内使用，原helper已恢复，CUDA�
 - [生产准备配置](../configs/wc_real_paired_interface_production_r1_20261009.json)
 - [Common完整科学结果](187_WC_COMMON_COMPLETE_CFG_MECHANISM_RESULTS_20261009.md)
 - [已核验组会飞书](https://lcnssrlun9lz.feishu.cn/docx/HTSIdK0uLofCG5xUI1IcTKaCnAh)
+
+## 生产实际CPU与完整卡选择（接续快照）
+
+source **cfe8d0c38edb5819db939e73b26faebd310e9807**的156载荷实际生产CPU **34.056518秒**、3444933／3444934均退出0并消失，原模型资产／guardrail／HF缓存／完整请求／绑定与16拒绝通过，CUDA0／新GPU0、预算原SHA不变。本地捕获原字节并独立重建配置binding通过。
+
+完整卡预测1.648781376h和所有范围不变，按现有50h／完整单次≤2h权限已选择，动态四字段外配置binding完全相同。现场A6000 UUID／sm8.6／24MiB／无进程、共享锁可取、磁盘约551GB、账本29.027073215／50h／64提交／无在途均核对。[选择回执](../reports/wc_real_paired_interface_r1_selected_preparation_20261009.json)是配置和资源准备，不是GPU执行。下一同源selected实际CPU、独立回执和再次fresh资源后唯一提交；当前仍无新GPU结果。生产未选择的前节是历史快照。

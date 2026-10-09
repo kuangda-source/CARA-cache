@@ -1,3 +1,10 @@
+## 2026-10-09 真实成对接口生产CPU通过，完整卡已选择
+
+[189接续](research/189_WC_REAL_PAIRED_INTERFACE_BATCH_CPU_AND_PREPARATION_20261009.md)：H-T58 source cfe8d0c／156载荷实际生产CPU34.056518秒，3444933／3444934退出0消失；原资产／guardrail／完整Common seed3请求／16范围拒绝与原件binding通过，CUDA0／GPU0／预算SHA不变。此前新实际batch d992源／68行及96 Toy张量全量重读通过，源实现不改。两原父／两视频＋S22同CC/DD×观察×二重复×两顺序16pair／48 FP32／8比较全卡1.648781376h，按50h／完整≤2h现有权限已选择；四动态字段之外binding相同，现场UUID／sm8.6／24MiB／无进程、锁／磁盘551GB／余额核对。下一same-source selected实际CPU与独立回执、再fresh资源后唯一GPU，尚未GPU。
+
+实费29.027073215／50h、余20.972926785h、64提交／无在途保持；曝光Common实现对照，不是CONF／终点标签／新策略／干净速度，不替代全36候选验证，不缩拆旧卡。>2h具体确认，旧失败／正负／RA近邻保留，不训练／扩稀疏／OMR／DRE／人评，goal active，本轮真实生产CPU与选择进展，无重要阻碍；组会revision18完整科学成果保持。以下为历史。
+
+
 ## 2026-10-09 新真实接口batch完整CPU通过，生产配置准备
 
 [189新批次CPU与准备](research/189_WC_REAL_PAIRED_INTERFACE_BATCH_CPU_AND_PREPARATION_20261009.md)：H-T58实际使用的新batch source d992f32／82载荷／8源，3444070／3444071退出0消失，driver318.278351秒／fixture290.980408秒。旧H-T57全64行重跑、新两flow完整两原父／16pair及末写出失败，共68行、成功32pair／96真实Toy张量实际重读、20证据破坏拒绝，观察／重复／原FP32和原父一致；全部失败／16计划与15文件保留，CUDA0／新GPU0／账本原SHA不变。Toy／CPU、非2B／实际视频／速度／终点收益。
