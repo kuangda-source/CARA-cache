@@ -4,6 +4,8 @@
 
 权威实费31.418288992／77.895246590、48窗口余46.476957598GPUh，68提交／无GPU在途。完整单次≤4GPUh自主，>4具体确认；旧6.704／16卡不变未批准。下一保留六方法全路径并补两seed3匹配Native参考，共8路径／288solver／576net；参考组合CPU首轮Toy序列化API失败保留，source b901432独立R2的3859691／3859692退出0消失，306.346263秒完整32执行路径、576guided／16latent重读与30文件绑定通过，不复投。其后冻结真实表／完整成本／生产CPU与fresh准入→完整视频RA比较→guided-W1／协调稀疏部分MLP组合，goal active，无非必要人评。下方在跑／旧预算／旧2h为历史。
 
+[210八路径完整生产卡](research/210_WC_RA_EIGHT_PATH_PRODUCTION_CARD_PREPARATION_20261010.md)已冻结226载荷，整卡3.173496962GPUh≤4；source19d76e7已推送，原生产CPU3866274／3866275在跑，实际非Toy表／阈值函数、源资产／Native类及19拒绝待验收。组会CLI完整回读revision40、175旧块全保留；当前新增GPU0，不重复CPU提交。
+
 ## 2026-10-10 当前：真实RA校准已运行；三方法完整CPU已通过
 
 [208当前进展](research/208_WC_REAL_RA_CALIBRATION_AND_THREE_METHOD_CPU_PROGRESS_20261010.md)：193冻结载荷source abdef6e的完整RA校准已唯一GPU提交，原3801976／3802258及后CPU3801977仍活；Common两父和六子臂、Human OFF完整36步完成，Human ON开始，全4父／12子及真实表未验收，不复投。生产CPU824.593157秒、选定171.778119秒／19拒绝已通过。下一原WC／共同刷新／校准RA source1cceba2／172载荷完整CPU975.891748秒（核心63.346962），24执行路径／864solver／1728net、432guided／12latent实际重读、12语义拒绝／2截断／2最后写出失败、22原件SHA验收；原本地success-only字段KeyError保留，独立原件复核修复，无重跑或改源。

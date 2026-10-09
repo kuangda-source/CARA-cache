@@ -18,7 +18,7 @@ RA使用六个实际校准观测重建的表，指纹`9ab1d77c303560823ed2f32f43
 
 ## 生产实现与验证状态
 
-新生产合同、运行器、锁与计费监督、GPU后CPU全向量／视频审计、原件捕获以及选定／部署入口均已实现；[生产配置](../configs/wc_ra_comparison_production_r1_20261010.json)和[完整登记](../manifests/wc_ra_comparison_r1_preregistration_20261010.json)冻结226载荷。本地语法、整卡合同、全部载荷SHA核对通过。真实源与checkpoint／安全管线资产的服务器CPU验证、选定CPU和fresh GPU／锁／磁盘／预算准入仍待，尚未新GPU提交。
+新生产合同、运行器、锁与计费监督、GPU后CPU全向量／视频审计、原件捕获以及选定／部署入口均已实现；[生产配置](../configs/wc_ra_comparison_production_r1_20261010.json)和[完整登记](../manifests/wc_ra_comparison_r1_preregistration_20261010.json)冻结226载荷。本地语法、整卡合同、全部载荷SHA核对通过。source `19d76e79d69b49db7dc16a15902494ea1685770e`已提交并推送，226载荷同步到独立`.sync/wc-ra-comparison-production-cpu-r1-20261010`。原生产CPU监督3866274／child3866275已实际运行，尚未验收；[启动回执](../reports/wc_ra_comparison_production_cpu_r1_launch_20261010.json)保留。选定CPU和fresh GPU／锁／磁盘／预算准入仍待，尚未新GPU提交。
 
 生产CPU检查19种改变范围／请求的拒绝、实际Native类forward源位置和非Toy表／八区间阈值函数。实际GPU完成后重读全部接受路径的36个FP32guided与latent、五处1216状态及完整93帧视频，核对实际动作／paid-before-deep访问、输入噪声／条件和文件来源。终点指标随后统一CPU全帧LPIPS，保留逐场景和全部帧正负分布，原有MUSIQ／VQA结果保持。
 
