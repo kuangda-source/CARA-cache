@@ -1,3 +1,8 @@
+## 2026-10-10 当前：MF-00完整四路径GPU已唯一提交；RA首版CPU通过
+
+[202最新进展](research/202_WC_MF00_CPU_PASS_RESOURCE_WAIT_AND_RA_CONTROLLER_20261010.md)：batch703.069631秒全16Toy路径、成功288guided/8latent与全部故障控制通过；生产47.613180／selected33.461055秒及15范围拒绝通过。资源等待器3620373完成一次fresh准入后退出0，完整MF-00卡4路径/4全93视频/144guided/4latent已唯一GPU提交，预测1.707952637GPUh；[实际启动](reports/wc_mf00_interface_r1_GPU_launch_20261010.json)监督3621230／runner3621290／后CPU3621231实际活，source ab2981f／164冻结载荷不变，无终点验收或新方法质量速度结论。提交65→66，启动前实费29.895246590；原账本77.895246590为持锁预留全部余48，退出后按wall结算，不是已花完。准入后其他340MiB GPU进程须与本卡释放区分，不终止或复投。RA联合C/D数学与因果状态首版1000直接向量＋36步CPU通过，未校准Cosmos或安装模型策略。goal active，继续原句柄与RA校准准备；完整≤4GPUh自主，旧6.704卡仍未具体批准。下方旧GPU0／资源等待／blocked／2h／50h是历史。
+
+
 ## 2026-10-10 当前推进：MF-00独立必要接口CPU已派发
 
 [201实现与执行](201_WC_MF00_INTERFACE_IMPLEMENTATION_AND_CPU_20261010.md)、[MF-00完整卡](../plans/WORLD_CACHE_MF00_INTERFACE_R1_20261010.md)及[原启动回执](../reports/wc_mf00_interface_sampling_cpu_r1_launch_20261010.json)接续三模块计划：Common/Human seed3×原/成对、全OFF各一次，4完整路径/4视频/144 guided/4latent。新独立batch实际CPU已派发，3603520/3603521句柄仍活、页读取等待，无终态；没有CPU通过或GPU结果。生产运行/监督/全量原件审计代码准备，待batchCPU→生产源资产CPU→现场准入→完整卡≤4GPUh自主提交，forecast约1.71GPUh。旧16路卡/6.704GPUh与全部证据保持，不称旧卡通过。预算29.895246590/77.895246590、余48、65提交不变；本轮新GPU0，goal active、继续跟随原CPU句柄，不重复提交。下方blocked/旧2h/旧50h为历史。
