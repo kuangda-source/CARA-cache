@@ -8,6 +8,6 @@
 
 [CPU登记](../manifests/wc_p0_projection_core_cpu_r1_preregistration_20261010.json)直接编译实际固定minimal_v4原Block与GPT2FeedForward完整类体，Toy CPU权重／attention／输入明确声明。使用独立完整dense Block与当前gate补偿作参考；两Linear输入hook验证真执行16／8／12／0／16／16行，不能只靠输出接近放行full GEMM blend。六正常双CFG四层pair，加两冷／不兼容P的完整回退pair；D／全活跃逐值相同、partial输出参考、source-age／本分支缓存、当前gate、完整attention、global RNG／参数、四拒绝与第二分支失败回滚／poison均登记。
 
-本地AST／compile通过，实际服务器CPU尚待；不是Cosmos完整模型、真实attention、视频收益或GPU性能。GPU新增0，没有改动在跑的guided-W1冻结237载荷。下一完整CPU成功后，冻结实际层集合并准备已有四CAL×两阶段范围的真实正确性调试与必要干净整组计时，再尽早接BASE-R＋P0／A＋P0与来源感知组合；不重开每层搜索、不要求单模块先稳定获胜，不增加非必要人工评审。
+实际服务器CPU已完成并独立验收：[终态回执](../reports/wc_p0_projection_core_cpu_r1_terminal_20261010_capture.json)。source `cf8877656b0c5a292e599785987755f356761e5e` 的五份固定载荷实际执行7.018531秒，监督3889589／子3889590均退出0且现场消失；六正常完整双CFG四层pair、两冷／不兼容完整回退pair、两次Linear实际行数16／8／12／0／16／16、score-only只读、四拒绝及第二分支失败回滚均完整通过。GPU提交0，未拿GPU锁或写账本。CPU采用固定原Block／GPT2完整类及明确Toy attention、权重、输入；不是Cosmos完整模型、真实attention、视频收益或GPU性能。GPU新增0，没有改动在跑的guided-W1冻结237载荷。下一冻结实际层集合，并把projection／来源／年龄／实际D历史纳入只读诊断的恢复控制，准备已有四CAL×两阶段范围的真实正确性调试与必要整组计时，再尽早接BASE-R＋P0／A＋P0与来源感知组合；不重开每层搜索、不要求单模块先稳定获胜，不增加非必要人工评审。
 
-原guided-W1四CAL作业3887240／3887253与后CPU3887241仍现场活，正在第一AV28父采样，尚无完整结果。71提交、启动前结算32.674095026904／77.89524658965853，48窗口余45.22115156275453GPUh；服务器余量预留不是实费。本次CPU不获取GPU锁、不写账本。完整单次≤4自主、>4具体确认，goal active。原W1正负／稀疏局限／RA两工作点与其保真负帧保持。
+原guided-W1四CAL作业3887240／3887253与后CPU3887241在1791584949现场仍活；AV28采集OFF／ON和Human OFF均已输出，Human ON正在推进。尚无完整四场景终态、共享α或视频收益，保留原八父路径／八起点／64分支完整范围。71提交、启动前结算32.674095026904／77.89524658965853，48窗口余45.22115156275453GPUh；服务器余量预留不是实费。本次CPU不获取GPU锁、不写账本。完整单次≤4自主、>4具体确认，goal active。原W1正负／稀疏局限／RA两工作点与其保真负帧保持。
