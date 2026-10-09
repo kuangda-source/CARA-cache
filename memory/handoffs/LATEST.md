@@ -1,3 +1,7 @@
+## 2026-10-09 Common完整确认实际启动，飞书状态同步通过
+
+[182实际执行](../../research/182_WC_OTHER_SCENE_PRODUCTION_CPU_AND_EXECUTION_20261009.md)：H-T52 Common seed3的95源c243d30及最终配置1d1b7c77保持；生产44.608952秒与selected31.973067秒实际CPU均exit0、16拒绝/原请求/静态绑定及原字节核验通过。整卡预测1.877382707h、两父/五×四×二/两视频不缩，按现有50h/完整≤2h权限已唯一启动GPU3426296/3426308与绑定后CPU3426297，三原PID活、24,818MiB模型初始化，无新Common科学结果。启动前实费27.644682758/50h，第64在途used50仅余额预留，实际终态全wall结算。只跟踪原句柄、不改95源/复投，释放后全120张量/20重复/两全93及224条件76solver审计。飞书CLI revision15已全回读，其他138块保留、19节17表4公式39链接，所有旧正负/RA近邻保持。goal active，本轮实际完整CPU/派发/文档进展，无重要阻碍，>2h具体确认，不扩训练/稀疏/OMR/DRE/人评。下列pending/未GPU等均为历史快照。
+
 ## 2026-10-09 Common独立生产CPU通过，完整确认已选择
 
 [182执行](../../research/182_WC_OTHER_SCENE_PRODUCTION_CPU_AND_EXECUTION_20261009.md)：H-T52 Common seed3新独立source425b282/95载荷实际生产CPU44.608952秒exit0，3425440/3425441退出；完整原CAL请求/派生name及16身份范围拒绝、资产/guardrail/HF/Blocklist、原字节绑定通过，CUDA0/GPU0。原测量/评分循环和已验收collector不变，整卡1.877382707h及原余量保持，按50h/完整≤2h权限已选择两父/五×四×二/两视频；下一同源selected实际CPU/回执和fresh锁/GPU/预算/磁盘后唯一GPU，当前尚未新GPU。27.644682758/50h、63历史提交/noinflight，旧Human目录不改。report182保留各阶段快照，飞书revision14已含完整科学成果。goal active，本轮真实CPU/源码/选择进展，无重要阻碍；>2h具体确认，不缩拆/训练/扩稀疏/OMR/DRE/人评。以下为历史快照。

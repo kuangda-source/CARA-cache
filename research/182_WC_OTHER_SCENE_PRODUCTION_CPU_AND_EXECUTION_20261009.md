@@ -23,3 +23,17 @@ CPU全部通过后，绑定其原回执和95源做同源selected实际CPU；再�
 [成本准入](../manifests/wc_other_scene_cfg_confirmation_complete_cost_admission_20261009.json)保留1.877382707GPUh整卡预测：测量和评分循环不变，新请求／源绑定及95文件哈希启动CPU相对Human44.398860秒多0.210092秒，属于原完整余量内的启动时间变化，不把它当新GPU计时或把CPU差异套用到每次前向。原1.10901714测量开销系数、50%整卡余量及实际2h守卫保持。
 
 [自主选择](../manifests/wc_other_scene_cfg_confirmation_autonomous_selection_20261009.json)按现有累计50h／完整单次≤2h权限完成，保留两父／五×四×二／两视频。选择时A6000为24MiB无进程，锁可取、磁盘及余额通过；启动时仍必须fresh核对。下一独立selected实际CPU和原回执绑定，随后唯一GPU。此处“selected”不代表已经运行GPU；旧准备／CPU进行中段落为执行前快照。
+
+## selected CPU通过，完整GPU与绑定后CPU已启动
+
+selected冻结源`c243d303fc4085d522638d5e67c8ea1c5d745b96`，95载荷不变，最终配置SHA`1d1b7c77215046d7d41b5a7cc23d0ed05816571ca62712d51927d9d2b9cc4a66`。第二实际CPU31.973067秒exit0，3426066／3426067均退出；[原件独立核验](../reports/wc_other_scene_cfg_confirmation_selected_cpu_r1_terminal_20261009_capture.json)确认完整请求／16拒绝、首CPU回执SHA、同静态配置绑定及预算原字节，无CUDA。
+
+[唯一完整启动](../reports/wc_other_scene_cfg_confirmation_r1_GPU_launch_20261009.json)经过fresh资源、锁、磁盘、余额和新身份无输出检查；原GPU控制3426296／runner3426308、释放后CPU3426297绑定同源与全部范围。首次[实际只读观察](../reports/wc_other_scene_cfg_confirmation_r1_start_observation_20261009.json)确认三原PID仍活、95源／最终配置不改；runner在生产验证／初始化入口，尚无Common机制或视频结果。
+
+新增第64个GPU提交；服务器used50为本轮余额预留，实际启动前底数27.644682758／50h，终态包含加载／失败／flush的全wall结算。只跟踪原句柄，不改在跑95源或复投身份；正常释放后自动完整120张量／20重复／两全93视频及224条件／76solver审计。总体goal继续active，本轮实际CPU／派发是进展，不是科学方法验收。
+
+## 实际模型初始化与飞书核验
+
+[同原句柄进展](../reports/wc_other_scene_cfg_confirmation_r1_live_progress_20261009.json)确认三原PID仍活，指定GPU24,818MiB，模型／guardrail加载中，尚无新Common科学结果。日志沿用官方“Downloading”入口名称，环境offline，使用已核验原缓存，不据此声称新增模型下载。原95源／配置不改。
+
+[组会飞书](https://lcnssrlun9lz.feishu.cn/docx/HTSIdK0uLofCG5xUI1IcTKaCnAh)经Feishu CLI仅更新最新状态callout并全回读，revision15；[核验](../reports/wc_group_meeting_feishu_common_execution_verification_20261009.json)确认其余138个顶层块保留、更新文本和新链接完全相符，19节／17表／4公式／39链接。所有科学正负结果和原判据不改，当前执行／预留费用与结果待审边界明确。
