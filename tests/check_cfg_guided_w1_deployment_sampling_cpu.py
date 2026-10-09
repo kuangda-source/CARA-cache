@@ -32,6 +32,14 @@ def exercise(*,inference,samples,settings,inference_module,flow,runtime,tensor_l
     assert len(initialized['observed_intervals'])==8 and initialized['threshold']>0
     assert not initialized['endpoint_quality_used_to_choose_threshold']
     model,net=inference.pipe.model,inference.pipe.model.net
+    original_head=net.final_layer
+    # The shared historical fixture uses an identity function. A preserves
+    # actual head buffers, so expose the same numerical function through the
+    # nn.Module interface used by the real head; this adds one mode component.
+    class ToyIdentityHead(torch.nn.Module):
+        def forward(self,*args,**kwargs):
+            return original_head(*args,**kwargs)
+    net.final_layer=ToyIdentityHead()
     saved=(net.prepare_embedded_sequence,model.get_velocity_fn_from_batch,model.denoise,model.get_data_and_condition)
     original_conditioner=model.conditioner.get_condition_with_negative_prompt
     config_before=copy.deepcopy(vars(model.config))
@@ -79,7 +87,7 @@ def exercise(*,inference,samples,settings,inference_module,flow,runtime,tensor_l
     selected=[sample_class(n) for n in names]
     config={'sample_names':names,'run_id':'A_DEPLOYMENT_BATCH_CPU',
         'logical_copy_cap_bytes':6*(1<<30),'workspace_reserve_bytes':4*(1<<30),
-        'paired_prefix_reserve_bytes':4*(1<<30),'expected_components':50,'expected_shape':[1,2048,2,8,8]}
+        'paired_prefix_reserve_bytes':4*(1<<30),'expected_components':51,'expected_shape':[1,2048,2,8,8]}
     contexts=[(config['run_id']+':'+n,'Toy_actual_modules','actual_condition_'+n) for n in config['sample_names']]
     checks=[]
     try:
@@ -103,6 +111,8 @@ def exercise(*,inference,samples,settings,inference_module,flow,runtime,tensor_l
                     threshold=initialized['threshold'],sampling_policy=policy)
             except BaseException as exc:
                 error=str(exc)
+            if error and (scenario=='complete' or 'Injected last complete Native reference vector writer failure' not in error):
+                raise AssertionError('Original complete sampler failure: '+error)
             assert state['batch']['initial_state_restored'] and state['reference_initial_state_restored'] and all(float(v)==0 for v in net.buffers())
             assert state['planned_paths']==32 and state['planned_method_paths']==28 and state['planned_reference_paths']==4
             assert len(state['batch']['requests'])==4 and all(len(r['paths'])==7 for r in state['batch']['requests'])
@@ -172,6 +182,8 @@ def exercise(*,inference,samples,settings,inference_module,flow,runtime,tensor_l
                     'complete_scope_retained':True,'initial_full_state_restored':True})
         return checks
     finally:
+        del net.final_layer
+        net.final_layer=original_head
         type(net).forward=original_class_forward
         model.tokenizer.decode=previous_decoder
         if previous_dump is None:
