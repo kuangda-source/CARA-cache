@@ -1,3 +1,10 @@
+## 2026-10-10 当前：P0自身物理状态恢复CPU通过，真实整组设计已固定
+
+[223状态与接续](research/223_WC_P0_ADDITIONAL_STATE_ROUNDTRIP_PREPARATION_20261010.md)：九载荷source772805a实际CPU3.970380秒退出0，3891446／3891447消失；原八完整pair控制保持，新增两完整P试算＋第二分支故障，全部投影／年龄／来源／context／D历史／record／poison主动破坏恢复和同原点输出逐值相同、四状态拒绝均通过。只覆盖额外P0清单，WC／solver／RNG等仍需原完整恢复；非实际Cosmos视频／速度，GPU0、无锁／账本写入。前瞻固定四层4／10／16／22、共同128块和六dense／partial模式，四CAL×两阶段完整真实卡源码／成本待，不据设计称已选GPU。下一真实整组→BASE-R＋P0／A＋P0。原A冻结76516e4不变，3887240／3887253／3887241仍活，AV28/Human四父、misc OFF已完成／ON在跑，全部八父／八起点／64分支及α尚待。71提交；启动前实费32.674095027／77.895246590、窗口余45.221151563GPUh，在途预留非实费。完整≤4自主、>4具体确认，goal active，无非必要人评。下方旧CPU／父路径／余额为历史。
+
+
+Latest live receipt at 1791585584: AV28/Human/misc OFF/ON complete (6/8 parents); AV51 OFF started; original GPU/raw-CPU handles live, no full-batch result. [Native status](reports/wc_mf_a_collection_r1_p0_state_CPU_live_progress_20261010.json).
+
 ## 2026-10-10 当前：真正部分MLP核心CPU已通过，真实guided-W1继续
 
 [222实现与CPU](research/222_WC_P0_PARTIAL_MLP_CORE_IMPLEMENTATION_20261010.md)：source cf88776／五载荷、实际7.018531秒退出0、3889589／3889590消失；固定原Block与GPT2全文＋声明Toy attention／权重，六正常双CFG四层pair及两完整回退、两Linear真执行16／8／12／0／16／16行、当前gate／本槽投影／来源年龄、四拒绝、只读教师及第二分支失败回滚全量独立通过。不是实际Cosmos attention、视频或GPU性能；GPU新增0、未拿锁／写账本。下一把P0自身状态纳入诊断恢复，冻结四层，接四CAL×两阶段真实正确性／整组成本，随后BASE-R＋P0／A＋P0组合。原A source76516e4／237不动，3887240／3887253／3887241现场活，AV28 OFF/ON及Human OFF已输出、Human ON在跑；八父／八起点／64分支完整终态及α待，不复投／缩分母。71提交，启动前实费32.674095027／77.895246590、窗口余45.221151563GPUh；在途预留非实费。完整单次≤4自主、>4具体确认，goal active，无非必要人评。下方阶段状态为历史。
