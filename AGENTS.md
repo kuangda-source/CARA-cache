@@ -1,3 +1,7 @@
+## 2026-10-09 成对velocity完整36步CPU通过，原Common完整确认继续
+
+[185结果](research/185_WC_PAIRED_PROBE_COMPLETE_SAMPLER_CPU_RESULTS_20261009.md)：H-T55原RF条件构造／CFG保留，仅两denoise赋值成对化，逆AST／实际全局通过。R1 source382a91d尾部控制不同、36.894822秒失败原件保留；R2 sourceed15c5e匹配尾部DD并逐步真实层访问，170.060323秒driver／141.947319秒fixture，3436864／3436865退出0，68载荷／8源／账本字节不变、新GPU0。旧28行及新24完整比较／48父／1,728solver／3,456net和8故障均通过，原／成对最终latent实际torch.equal、全36输出／五×50组件／step22恢复继续／条件与RNG／观察开关与重复一致。Toy／CPU到latent，不是2B、decode或视频；继承limits已保留原件并明确更正，本地只改说明、不改运行逻辑，下一卡另绑定新SHA。Common三原PID3426296／3426308／3426297实际活，c243／95不改，原OFF视频保存；校正嵌套／pair状态读法后27／40已登记完成，完整两父／两全93／全教师／后CPU仍待，不评分子集／复投。实费底数27.644682758／50h、第64在途50只预留；goal active，本轮真实完整采样CPU＋verified wait，暂无重要阻碍。先原终态，再真实2B同动作／显存／成本完整准备，>2h具体确认、不缩拆／训练／扩稀疏／OMR／DRE／人评；飞书revision15科学成果保持。以下为历史。
+
 ## 2026-10-09 成对probe实际生产全局与观察CPU通过，原Common进入动作对照
 
 [184结果](research/184_WC_PAIRED_PROBE_PRODUCTION_CPU_RESULTS_20261009.md)：H-T54实际生产全局／显式观察CPU完成：R1官方Flash导入可用性断言失败原件保留（包2.6.3实际存在、CPU不可用）；R2 source006a6c6复用已审计退出进程导入适配，恢复HF／current_device后完整8主／2初始化／16失败／2源行通过，fixture4.400439秒／driver32.203525秒，3432494／3432495退出exit0，57载荷／8runtime／账本原字节不变，新GPU0。补齐forward属性包装被绕过的日志盲点，生产executor拒绝包装，分支输入输出与最终状态一致；Toy／无第二张量加载，不能报2B输出／速度／显存。原Common三PID3426296／3426308／3426297实际活、sourcec243／95不改，首OFF72／36与视频已保存，ON自身after_CC6pair、全部40对／两视频／后CPU仍待，不评分子集／复投。实费底数27.644682758／50h、第64在途50只预留。goal active，本轮真实生产接口CPU＋verified wait进展，无重要阻碍；原完整终态优先，再实际velocity／全采样同动作CPU及完整模型成本卡准备，>2h具体确认，不缩拆／训练／扩稀疏／OMR／DRE／人评。飞书revision15已含科学成果，以下为历史。

@@ -250,4 +250,14 @@ def run(runtime):
     full=load('check_full_sampling').run(runtime,
         exercise=lambda **kw:exercise(runtime=runtime,**kw))
     full['checks']=old['checks']+full['checks']
+    # The shared fixture's default limits describe its historical pipeline
+    # exercise. This card calls the complete sampler to latent only, and its
+    # velocity has the explicitly audited two-assignment transformation.
+    full['limits']=('Complete source-pinned Text2World sampler and actual UniPC; '
+        'actual WC/RF globals and denoise, with the two adjacent velocity denoise '
+        'assignments replaced by the inverse-AST-verified paired call. Toy four-block '
+        'network, attention, frozen condition-class construction, CPU noise, normalize '
+        'and broadcast; full36/72 to latent only. No decode, writer or video was '
+        'exercised by this new full-sampler card, and no real2B/CUDA/latency/quality '
+        'or policy result is claimed. Previous H-T54 controls retained.')
     return full

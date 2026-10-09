@@ -1,0 +1,13 @@
+{
+  "status": "R2_ORIGINAL_LIMITS_ERRATUM_METADATA_ONLY_CURRENT_TEST_SOURCE_NOT_RERUN",
+  "actual_executed_source_revision": "ed15c5e430227a456b8f2513eb420bb4f49656b8",
+  "actual_executed_test_sha256": "bef24cb06fc01b3a4ff61b365304d38f5496d3187151d9758db1f1dd5a656cfa",
+  "current_test_sha256": "c859a715c187ee9317fec68adfae2719b8d075f0e22b818efd56a00e62992f4e",
+  "old_result_original_sha256": "63a8b7b18c1724f6ba552b213b9a86c522134bbf7ced122fa8d2ca07658980d7",
+  "old_result_limits": "Unchanged pinned sampler/get_velocity/denoise/decode wrapper, WC, UniPC, generate_vid2world and Inference method bodies. Explicit Toy net, CPU noise/conditioner/normalize/broadcast/prepare/tokenizer/mock writer, offload disabled and CUDA telemetry adapters; equal finite threshold schedule is CPU control only. No weights, true VAE/encoded video, GPU completion, independent restart or quality result. No sparse candidate in this control.",
+  "corrected_limits": "Complete source-pinned Text2World sampler and actual UniPC; actual WC/RF globals and denoise, with the two adjacent velocity denoise assignments replaced by the inverse-AST-verified paired call. Toy four-block network, attention, frozen condition-class construction, CPU noise, normalize and broadcast; full36/72 to latent only. No decode, writer or video was exercised by this new full-sampler card, and no real2B/CUDA/latency/quality or policy result is claimed. Previous H-T54 controls retained.",
+  "inverse_AST_after_removing_only_literal_metadata_assignment_equal": true,
+  "original_native_result_rewritten": false,
+  "new_CPU_execution_or_GPU_submission": false,
+  "existing_R2_CPU_controls_prove_source_ed15c5e_not_a_new_execution_identity": true
+}
