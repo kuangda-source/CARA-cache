@@ -1,0 +1,97 @@
+{
+  "status": "BOUND_ORIGINAL_COMMON_GPU_READONLY_LIVE_OR_TERMINAL_OBSERVATION",
+  "observed_unix": 1791508915.7349474,
+  "source_revision": "c243d303fc4085d522638d5e67c8ea1c5d745b96",
+  "run_id": "wc-w3-other-scene-cfg-confirmation-r1",
+  "original_PIDs": [
+    3426296,
+    3426308,
+    3426297
+  ],
+  "original_live_PIDs": [
+    3426296,
+    3426308,
+    3426297
+  ],
+  "GPU_status": "CFG_TEACHER_GPU_RUNNING",
+  "GPU_exit_code": null,
+  "CPU_status": "WAITING_FOR_BOUND_ORIGINAL_GPU_RELEASE",
+  "runner_status": "INITIALIZING",
+  "model_load_seconds": 101.15695103630424,
+  "parents": [
+    {
+      "label": null,
+      "status": "STARTED",
+      "artifact_saved": false
+    }
+  ],
+  "GPU": "GPU-cebf7119-cf03-23b9-e192-cd196332b704, NVIDIA RTX A6000, 10010",
+  "budget": {
+    "batch": "F0-F1",
+    "cap_gpu_hours": 50,
+    "used_gpu_hours": 50,
+    "gpu_jobs_launched": 64,
+    "status": "CFG_TEACHER_INFLIGHT_REMAINING_RESERVED_NOT_ACTUAL_SPENT",
+    "gpu_import_probes_completed": 1,
+    "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts",
+    "budget_authorization_ref": "manifests/budget_authorization_20261008_wc_50gpuh.json",
+    "budget_authorization_history": [
+      {
+        "authorized_utc": "2026-10-02T18:03:00Z",
+        "source_thread_id": "01a0f1e6-7ad0-75df-9a02-172b60d2e00b",
+        "user_instruction": "\u628a\u5404\u4e2a\u5b9e\u9a8c\u7684 gpu \u9884\u7b97\u90fd\u8bbe\u7f6e\u4e3a 12gpuh",
+        "previous_cap_gpu_hours": 4,
+        "new_cumulative_cap_gpu_hours": 12,
+        "used_gpu_hours_at_change": 3.9117525685110333,
+        "no_usage_reset_or_transfer": true
+      },
+      {
+        "authorized_utc": "2026-10-04T06:13:36Z",
+        "source_thread_id": "01a0f1e6-7ad0-75df-9a02-172b60d2e00b",
+        "user_message_id": "Sentinel_861e63a87d8c819180ec9a8bcfa6dc92",
+        "user_instruction": "\u5141\u8bb8\u589e\u52a0 GPUh",
+        "previous_cap_gpu_hours": 12,
+        "new_cumulative_cap_gpu_hours": 13,
+        "used_gpu_hours_at_change": 11.022315686839217,
+        "gpu_jobs_launched_at_change": 45,
+        "no_usage_reset_or_transfer": true,
+        "authorization_ref": "manifests/budget_authorization_20261004_wc_13gpuh.json"
+      },
+      {
+        "authorized_on_local": "2026-10-05",
+        "user_instruction": "\u6279\u51c6 WC-W3-SMALL-CD-R1-20261004-A\uff0c\u628a\u7d2f\u8ba1 gpuh \u9650\u5236\u63d0\u5347\u5230 24",
+        "previous_cap_gpu_hours": 13,
+        "new_cumulative_cap_gpu_hours": 24,
+        "used_gpu_hours_at_change": 11.022315686839217,
+        "gpu_jobs_launched_at_change": 45,
+        "no_usage_reset_or_transfer": true,
+        "authorization_ref": "manifests/budget_authorization_20261005_wc_24gpuh.json",
+        "approved_card": "WC-W3-SMALL-CD-R1-20261004-A",
+        "single_run_cap_seconds": 3900
+      },
+      {
+        "authorized_unix": 1791428550.530142,
+        "authorized_on_local": "2026-10-08",
+        "user_instruction": "\u6279\u51c6\u6269\u5927 gpuh\uff0c\u76f4\u63a5\u52a0\u5230 50 \u5427",
+        "previous_cap_gpu_hours": 24,
+        "new_cumulative_cap_gpu_hours": 50,
+        "used_gpu_hours_at_change": 22.314242424184147,
+        "gpu_jobs_launched_at_change": 59,
+        "no_usage_reset_or_transfer": true,
+        "authorization_ref": "manifests/budget_authorization_20261008_wc_50gpuh.json",
+        "automatic_single_job_gpu_hours": 2
+      }
+    ],
+    "wc_cfg_teacher_inflight": {
+      "run_id": "wc-w3-other-scene-cfg-confirmation-r1",
+      "reserved_gpu_hours": 22.355317242423897,
+      "supervisor_pid": 3426296
+    }
+  },
+  "settled_before_run_GPUh": 27.644682757576103,
+  "payload_files": 95,
+  "all_source_and_config_unchanged": true,
+  "last_log": "edict2/inference.py:120:_generate_sample] Passed guardrail on prompt\n[10-09 09:10:15|INFO|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/inference.py:142:_generate_sample] Generating video with standard mode...\n\nGenerating samples:   0%|          | 0/36 [00:00<?, ?it/s]\nGenerating samples:   3%|\u258e         | 1/36 [00:17<10:14, 17.56s/it]\nGenerating samples:   6%|\u258c         | 2/36 [00:40<11:37, 20.51s/it]\nGenerating samples:   8%|\u258a         | 3/36 [01:07<12:53, 23.43s/it]\nGenerating samples:  11%|\u2588         | 4/36 [01:34<13:19, 24.97s/it]\nGenerating samples:  14%|\u2588\u258d        | 5/36 [02:01<13:21, 25.87s/it]\nGenerating samples:  17%|\u2588\u258b        | 6/36 [02:29<13:10, 26.35s/it]\nGenerating samples:  19%|\u2588\u2589        | 7/36 [02:56<12:52, 26.63s/it]\nGenerating samples:  22%|\u2588\u2588\u258f       | 8/36 [03:17<11:41, 25.05s/it]\nGenerating samples:  25%|\u2588\u2588\u258c       | 9/36 [03:39<10:43, 23.85s/it]\nGenerating samples:  28%|\u2588\u2588\u258a       | 10/36 [04:00<09:57, 22.98s/it]\nGenerating samples:  31%|\u2588\u2588\u2588       | 11/36 [04:21<09:20, 22.43s/it]\nGenerating samples:  33%|\u2588\u2588\u2588\u258e      | 12/36 [04:42<08:51, 22.13s/it]\nGenerating samples:  36%|\u2588\u2588\u2588\u258c      | 13/36 [05:10<09:05, 23.73s/it]\nGenerating samples:  39%|\u2588\u2588\u2588\u2589      | 14/36 [05:31<08:27, 23.06s/it]\nGenerating samples:  42%|\u2588\u2588\u2588\u2588\u258f     | 15/36 [05:53<07:53, 22.53s/it]\nGenerating samples:  44%|\u2588\u2588\u2588\u2588\u258d     | 16/36 [06:14<07:21, 22.09s/it]\nGenerating samples:  47%|\u2588\u2588\u2588\u2588\u258b     | 17/36 [06:34<06:49, 21.54s/it]\nGenerating samples:  50%|\u2588\u2588\u2588\u2588\u2588     | 18/36 [07:00<06:51, 22.85s/it]\nGenerating samples:  53%|\u2588\u2588\u2588\u2588\u2588\u258e    | 19/36 [07:20<06:14, 22.00s/it]\nGenerating samples:  56%|\u2588\u2588\u2588\u2588\u2588\u258c    | 20/36 [07:40<05:42, 21.43s/it]\nGenerating samples:  58%|\u2588\u2588\u2588\u2588\u2588\u258a    | 21/36 [08:06<05:41, 22.80s/it]\nGenerating samples:  61%|\u2588\u2588\u2588\u2588\u2588\u2588    | 22/36 [08:26<05:07, 21.99s/it]\nGenerating samples:  64%|\u2588\u2588\u2588\u2588\u2588\u2588\u258d   | 23/36 [08:49<04:50, 22.32s/it]\nGenerating samples:  67%|\u2588\u2588\u2588\u2588\u2588\u2588\u258b   | 24/36 [09:15<04:41, 23.44s/it]\nGenerating samples:  69%|\u2588\u2588\u2588\u2588\u2588\u2588\u2589   | 25/36 [09:41<04:26, 24.22s/it]\nGenerating samples:  72%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258f  | 26/36 [10:07<04:07, 24.76s/it]\nGenerating samples:  75%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258c  | 27/36 [10:33<03:46, 25.13s/it]\nGenerating samples:  78%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258a  | 28/36 [10:53<03:08, 23.59s/it]",
+  "new_GPU_submissions": 0,
+  "scientific_acceptance_or_subset_score": false
+}

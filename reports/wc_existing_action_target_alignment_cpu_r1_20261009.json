@@ -1,0 +1,3618 @@
+{
+  "status": "EXPOSED_HUMAN_COMPLETE_PAID_SIGNAL_LOCAL_TARGET_ALIGNMENT_NOT_ENDPOINT_OR_POLICY",
+  "source_revision": "f586fe9cfdcf8592ff3e08149440c515c82dda4e",
+  "registration_sha256": "6c96f362f42914f50a9aab18931b1e4bc9bd7870daa62126ad57552f12ef354d",
+  "input_sha256": {
+    "plans/WORLD_CACHE_EXISTING_ACTION_TARGET_ALIGNMENT_CPU_20261009.md": "65bd413642bed111358919f40b36721af526cfdefcd4959b77e36526cda2ba62",
+    "scripts/analyze_wc_existing_action_target_alignment_cpu.py": "cec67ed4baa6e6f699ea19fa00acd852852be8493532eb15cb92aa38ac70d62b",
+    "reports/wc_cfg_guided_teacher_r1_terminal_20261009_capture.json": "4a4c74c7892fa132c95c0923d6ff0a75568ede30b6e3a872b9ba9c8a4f22cdf9",
+    "reports/wc_cfg_guided_teacher_r1_terminal_20261009_independent_CPU_audit.json": "c03b5fe3257977f7a5be189d5807ee5e4c53f351f4a5a96a93bb36645470173d",
+    "reports/wc_cfg_guided_teacher_r1_terminal_20261009_runner_native.gz": "c0ed1c8868517d8dcb9bacd75e64ec6725db5c2f22476f062205a927510bb0fc",
+    "reports/wc_cfg_guided_teacher_r1_terminal_20261009_CPU_score_native.gz": "8ae7853e19b3792418a2da82b51bb090ea04e7573ee8585fdbdc2b2acc461070",
+    "reports/wc_cfg_mechanism_confirmation_r1_terminal_20261009_capture.json": "953efdd3b2bb1b8e321376af10342736c2f4398a4fd4e8c3ee6be001512e36ea",
+    "reports/wc_cfg_mechanism_confirmation_r1_terminal_20261009_independent_CPU_audit.json": "9fdaa86ec0842ad66fb662b7b698198d3f275d81128d42eb73ab32784672a266",
+    "reports/wc_cfg_mechanism_confirmation_r1_terminal_20261009_runner_native.gz": "f169110d79ecdf4476fb7780c5f48e448098a4f723520cc1f8871c4f598e4ea1",
+    "reports/wc_cfg_mechanism_confirmation_r1_terminal_20261009_CPU_score_native.gz": "fdc429cd90393afbbb3e31dd5bc837760049a22b85f1a9aa870117079ed7719c"
+  },
+  "contexts": [
+    {
+      "seed": 2,
+      "origin": "S22",
+      "same_paid_observation_across_all_cells_and_repeats": true,
+      "native_suggestion_by_cell": {
+        "CC_first": "CC",
+        "CC_second": "CC",
+        "DC_first": "CC",
+        "DC_second": "CC",
+        "CD_first": "CC",
+        "CD_second": "CC",
+        "DD_first": "CC",
+        "DD_second": "CC"
+      },
+      "common_native_two_slot_suggestion": "CC",
+      "native_suggestion_is_online_joint_decision": false,
+      "origin_own_full_history": [
+        [
+          18,
+          22
+        ],
+        [
+          18,
+          22
+        ]
+      ],
+      "latest_anchors_shared": true,
+      "action_labels": {
+        "CC": {
+          "guided_MSE": 0.11269215845013573,
+          "local_MSE_reduction_from_CC": 0.0,
+          "relative_local_MSE_reduction_percent": 0.0,
+          "current_deep_block_calls": 0,
+          "extra_deep_calls_from_CC": 0,
+          "final_video_distortion_reduction": null,
+          "future_real_time_saved_seconds": null
+        },
+        "DC": {
+          "guided_MSE": 0.9615251001057374,
+          "local_MSE_reduction_from_CC": -0.8488329416556017,
+          "relative_local_MSE_reduction_percent": -753.2315942206353,
+          "current_deep_block_calls": 26,
+          "extra_deep_calls_from_CC": 26,
+          "final_video_distortion_reduction": null,
+          "future_real_time_saved_seconds": null
+        },
+        "CD": {
+          "guided_MSE": 1.058550897270131,
+          "local_MSE_reduction_from_CC": -0.9458587388199953,
+          "relative_local_MSE_reduction_percent": -839.3296852491479,
+          "current_deep_block_calls": 26,
+          "extra_deep_calls_from_CC": 26,
+          "final_video_distortion_reduction": null,
+          "future_real_time_saved_seconds": null
+        },
+        "DD": {
+          "guided_MSE": 0.0,
+          "local_MSE_reduction_from_CC": 0.11269215845013573,
+          "relative_local_MSE_reduction_percent": 100.0,
+          "current_deep_block_calls": 52,
+          "extra_deep_calls_from_CC": 52,
+          "final_video_distortion_reduction": null,
+          "future_real_time_saved_seconds": null
+        }
+      },
+      "local_MSE_current_deep_nondominated_actions": [
+        "CC",
+        "DD"
+      ],
+      "native_suggestion_local_nondominated": true,
+      "raw_pair_wall_seconds_not_clean_speed": {
+        "CC_first": 681.9111832929775,
+        "CC_second": 60.7081652879715,
+        "DC_first": 681.9842563336715,
+        "DC_second": 63.71607123874128,
+        "CD_first": 674.067178321071,
+        "CD_second": 63.56958018336445,
+        "DD_first": 689.1241790214553,
+        "DD_second": 68.98509570024908
+      },
+      "scored_tensor_provenance": "reports/wc_cfg_guided_teacher_r1_terminal_20261009_CPU_score_native.gz"
+    },
+    {
+      "seed": 2,
+      "origin": "S23_after_CC",
+      "same_paid_observation_across_all_cells_and_repeats": true,
+      "native_suggestion_by_cell": {
+        "CC_first": "DD",
+        "CC_second": "DD",
+        "DC_first": "DD",
+        "DC_second": "DD",
+        "CD_first": "DD",
+        "CD_second": "DD",
+        "DD_first": "DD",
+        "DD_second": "DD"
+      },
+      "common_native_two_slot_suggestion": "DD",
+      "native_suggestion_is_online_joint_decision": false,
+      "origin_own_full_history": [
+        [
+          18,
+          22
+        ],
+        [
+          18,
+          22
+        ]
+      ],
+      "latest_anchors_shared": true,
+      "action_labels": {
+        "CC": {
+          "guided_MSE": 0.19014972040620676,
+          "local_MSE_reduction_from_CC": 0.0,
+          "relative_local_MSE_reduction_percent": 0.0,
+          "current_deep_block_calls": 0,
+          "extra_deep_calls_from_CC": 0,
+          "final_video_distortion_reduction": null,
+          "future_real_time_saved_seconds": null
+        },
+        "DC": {
+          "guided_MSE": 2.2221774099452625,
+          "local_MSE_reduction_from_CC": -2.032027689539056,
+          "relative_local_MSE_reduction_percent": -1068.6461621916367,
+          "current_deep_block_calls": 26,
+          "extra_deep_calls_from_CC": 26,
+          "final_video_distortion_reduction": null,
+          "future_real_time_saved_seconds": null
+        },
+        "CD": {
+          "guided_MSE": 2.323880797809033,
+          "local_MSE_reduction_from_CC": -2.1337310774028264,
+          "relative_local_MSE_reduction_percent": -1122.1321140229131,
+          "current_deep_block_calls": 26,
+          "extra_deep_calls_from_CC": 26,
+          "final_video_distortion_reduction": null,
+          "future_real_time_saved_seconds": null
+        },
+        "DD": {
+          "guided_MSE": 0.0,
+          "local_MSE_reduction_from_CC": 0.19014972040620676,
+          "relative_local_MSE_reduction_percent": 100.0,
+          "current_deep_block_calls": 52,
+          "extra_deep_calls_from_CC": 52,
+          "final_video_distortion_reduction": null,
+          "future_real_time_saved_seconds": null
+        }
+      },
+      "local_MSE_current_deep_nondominated_actions": [
+        "CC",
+        "DD"
+      ],
+      "native_suggestion_local_nondominated": true,
+      "raw_pair_wall_seconds_not_clean_speed": {
+        "CC_first": 61.04483487457037,
+        "CC_second": 62.44249310158193,
+        "DC_first": 64.62535479757935,
+        "DC_second": 66.09391211345792,
+        "CD_first": 66.43813592754304,
+        "CD_second": 66.26505526248366,
+        "DD_first": 68.28410260099918,
+        "DD_second": 68.32229048758745
+      },
+      "scored_tensor_provenance": "reports/wc_cfg_guided_teacher_r1_terminal_20261009_CPU_score_native.gz"
+    },
+    {
+      "seed": 2,
+      "origin": "S23_after_DC",
+      "same_paid_observation_across_all_cells_and_repeats": true,
+      "native_suggestion_by_cell": {
+        "CC_first": "DD",
+        "CC_second": "DD",
+        "DC_first": "DD",
+        "DC_second": "DD",
+        "CD_first": "DD",
+        "CD_second": "DD",
+        "DD_first": "DD",
+        "DD_second": "DD"
+      },
+      "common_native_two_slot_suggestion": "DD",
+      "native_suggestion_is_online_joint_decision": false,
+      "origin_own_full_history": [
+        [
+          22,
+          23
+        ],
+        [
+          18,
+          22
+        ]
+      ],
+      "latest_anchors_shared": false,
+      "action_labels": {
+        "CC": {
+          "guided_MSE": 2.5956784932471573,
+          "local_MSE_reduction_from_CC": 0.0,
+          "relative_local_MSE_reduction_percent": 0.0,
+          "current_deep_block_calls": 0,
+          "extra_deep_calls_from_CC": 0,
+          "final_video_distortion_reduction": null,
+          "future_real_time_saved_seconds": null
+        },
+        "DC": {
+          "guided_MSE": 4.724299655660141,
+          "local_MSE_reduction_from_CC": -2.1286211624129834,
+          "relative_local_MSE_reduction_percent": -82.00634893538407,
+          "current_deep_block_calls": 26,
+          "extra_deep_calls_from_CC": 26,
+          "final_video_distortion_reduction": null,
+          "future_real_time_saved_seconds": null
+        },
+        "CD": {
+          "guided_MSE": 2.366626678848144,
+          "local_MSE_reduction_from_CC": 0.22905181439901323,
+          "relative_local_MSE_reduction_percent": 8.824352283802014,
+          "current_deep_block_calls": 26,
+          "extra_deep_calls_from_CC": 26,
+          "final_video_distortion_reduction": null,
+          "future_real_time_saved_seconds": null
+        },
+        "DD": {
+          "guided_MSE": 0.0,
+          "local_MSE_reduction_from_CC": 2.5956784932471573,
+          "relative_local_MSE_reduction_percent": 100.0,
+          "current_deep_block_calls": 52,
+          "extra_deep_calls_from_CC": 52,
+          "final_video_distortion_reduction": null,
+          "future_real_time_saved_seconds": null
+        }
+      },
+      "local_MSE_current_deep_nondominated_actions": [
+        "CC",
+        "CD",
+        "DD"
+      ],
+      "native_suggestion_local_nondominated": true,
+      "raw_pair_wall_seconds_not_clean_speed": {
+        "CC_first": 60.965354456566274,
+        "CC_second": 61.974168894812465,
+        "DC_first": 65.30115929339081,
+        "DC_second": 65.65272463206202,
+        "CD_first": 64.63119511306286,
+        "CD_second": 64.09869969915599,
+        "DD_first": 68.08023503236473,
+        "DD_second": 69.01971360202879
+      },
+      "scored_tensor_provenance": "reports/wc_cfg_guided_teacher_r1_terminal_20261009_CPU_score_native.gz"
+    },
+    {
+      "seed": 2,
+      "origin": "S23_after_CD",
+      "same_paid_observation_across_all_cells_and_repeats": true,
+      "native_suggestion_by_cell": {
+        "CC_first": "DD",
+        "CC_second": "DD",
+        "DC_first": "DD",
+        "DC_second": "DD",
+        "CD_first": "DD",
+        "CD_second": "DD",
+        "DD_first": "DD",
+        "DD_second": "DD"
+      },
+      "common_native_two_slot_suggestion": "DD",
+      "native_suggestion_is_online_joint_decision": false,
+      "origin_own_full_history": [
+        [
+          18,
+          22
+        ],
+        [
+          22,
+          23
+        ]
+      ],
+      "latest_anchors_shared": false,
+      "action_labels": {
+        "CC": {
+          "guided_MSE": 2.2223702759061843,
+          "local_MSE_reduction_from_CC": 0.0,
+          "relative_local_MSE_reduction_percent": 0.0,
+          "current_deep_block_calls": 0,
+          "extra_deep_calls_from_CC": 0,
+          "final_video_distortion_reduction": null,
+          "future_real_time_saved_seconds": null
+        },
+        "DC": {
+          "guided_MSE": 4.042829561100878,
+          "local_MSE_reduction_from_CC": -1.8204592851946937,
+          "relative_local_MSE_reduction_percent": -81.91521030186523,
+          "current_deep_block_calls": 26,
+          "extra_deep_calls_from_CC": 26,
+          "final_video_distortion_reduction": null,
+          "future_real_time_saved_seconds": null
+        },
+        "CD": {
+          "guided_MSE": 4.037543976400547,
+          "local_MSE_reduction_from_CC": -1.815173700494363,
+          "relative_local_MSE_reduction_percent": -81.67737483593798,
+          "current_deep_block_calls": 26,
+          "extra_deep_calls_from_CC": 26,
+          "final_video_distortion_reduction": null,
+          "future_real_time_saved_seconds": null
+        },
+        "DD": {
+          "guided_MSE": 0.0,
+          "local_MSE_reduction_from_CC": 2.2223702759061843,
+          "relative_local_MSE_reduction_percent": 100.0,
+          "current_deep_block_calls": 52,
+          "extra_deep_calls_from_CC": 52,
+          "final_video_distortion_reduction": null,
+          "future_real_time_saved_seconds": null
+        }
+      },
+      "local_MSE_current_deep_nondominated_actions": [
+        "CC",
+        "DD"
+      ],
+      "native_suggestion_local_nondominated": true,
+      "raw_pair_wall_seconds_not_clean_speed": {
+        "CC_first": 62.29908788856119,
+        "CC_second": 63.01511937659234,
+        "DC_first": 66.0918048787862,
+        "DC_second": 63.91851313505322,
+        "CD_first": 62.167048916220665,
+        "CD_second": 62.15494888462126,
+        "DD_first": 65.46420973818749,
+        "DD_second": 65.89544078987092
+      },
+      "scored_tensor_provenance": "reports/wc_cfg_guided_teacher_r1_terminal_20261009_CPU_score_native.gz"
+    },
+    {
+      "seed": 2,
+      "origin": "S23_after_DD",
+      "same_paid_observation_across_all_cells_and_repeats": true,
+      "native_suggestion_by_cell": {
+        "CC_first": "CC",
+        "CC_second": "CC",
+        "DC_first": "CC",
+        "DC_second": "CC",
+        "CD_first": "CC",
+        "CD_second": "CC",
+        "DD_first": "CC",
+        "DD_second": "CC"
+      },
+      "common_native_two_slot_suggestion": "CC",
+      "native_suggestion_is_online_joint_decision": false,
+      "origin_own_full_history": [
+        [
+          22,
+          23
+        ],
+        [
+          22,
+          23
+        ]
+      ],
+      "latest_anchors_shared": true,
+      "action_labels": {
+        "CC": {
+          "guided_MSE": 0.1449585304947705,
+          "local_MSE_reduction_from_CC": 0.0,
+          "relative_local_MSE_reduction_percent": 0.0,
+          "current_deep_block_calls": 0,
+          "extra_deep_calls_from_CC": 0,
+          "final_video_distortion_reduction": null,
+          "future_real_time_saved_seconds": null
+        },
+        "DC": {
+          "guided_MSE": 1.01109806238301,
+          "local_MSE_reduction_from_CC": -0.8661395318882394,
+          "relative_local_MSE_reduction_percent": -597.5084935891276,
+          "current_deep_block_calls": 26,
+          "extra_deep_calls_from_CC": 26,
+          "final_video_distortion_reduction": null,
+          "future_real_time_saved_seconds": null
+        },
+        "CD": {
+          "guided_MSE": 1.0724933056009545,
+          "local_MSE_reduction_from_CC": -0.927534775106184,
+          "relative_local_MSE_reduction_percent": -639.8621536382403,
+          "current_deep_block_calls": 26,
+          "extra_deep_calls_from_CC": 26,
+          "final_video_distortion_reduction": null,
+          "future_real_time_saved_seconds": null
+        },
+        "DD": {
+          "guided_MSE": 0.0,
+          "local_MSE_reduction_from_CC": 0.1449585304947705,
+          "relative_local_MSE_reduction_percent": 100.0,
+          "current_deep_block_calls": 52,
+          "extra_deep_calls_from_CC": 52,
+          "final_video_distortion_reduction": null,
+          "future_real_time_saved_seconds": null
+        }
+      },
+      "local_MSE_current_deep_nondominated_actions": [
+        "CC",
+        "DD"
+      ],
+      "native_suggestion_local_nondominated": true,
+      "raw_pair_wall_seconds_not_clean_speed": {
+        "CC_first": 61.54868229199201,
+        "CC_second": 60.695603179745376,
+        "DC_first": 64.6377310976386,
+        "DC_second": 65.44211981538683,
+        "CD_first": 65.99309601634741,
+        "CD_second": 63.98291197884828,
+        "DD_first": 68.34660359472036,
+        "DD_second": 69.11667201016098
+      },
+      "scored_tensor_provenance": "reports/wc_cfg_guided_teacher_r1_terminal_20261009_CPU_score_native.gz"
+    },
+    {
+      "seed": 3,
+      "origin": "S22",
+      "same_paid_observation_across_all_cells_and_repeats": true,
+      "native_suggestion_by_cell": {
+        "CC_first": "CC",
+        "CC_second": "CC",
+        "DC_first": "CC",
+        "DC_second": "CC",
+        "CD_first": "CC",
+        "CD_second": "CC",
+        "DD_first": "CC",
+        "DD_second": "CC"
+      },
+      "common_native_two_slot_suggestion": "CC",
+      "native_suggestion_is_online_joint_decision": false,
+      "origin_own_full_history": [
+        [
+          17,
+          21
+        ],
+        [
+          17,
+          21
+        ]
+      ],
+      "latest_anchors_shared": true,
+      "action_labels": {
+        "CC": {
+          "guided_MSE": 0.19617661804416836,
+          "local_MSE_reduction_from_CC": 0.0,
+          "relative_local_MSE_reduction_percent": 0.0,
+          "current_deep_block_calls": 0,
+          "extra_deep_calls_from_CC": 0,
+          "final_video_distortion_reduction": null,
+          "future_real_time_saved_seconds": null
+        },
+        "DC": {
+          "guided_MSE": 2.393975118623698,
+          "local_MSE_reduction_from_CC": -2.19779850057953,
+          "relative_local_MSE_reduction_percent": -1120.316234672118,
+          "current_deep_block_calls": 26,
+          "extra_deep_calls_from_CC": 26,
+          "final_video_distortion_reduction": null,
+          "future_real_time_saved_seconds": null
+        },
+        "CD": {
+          "guided_MSE": 2.371453169490541,
+          "local_MSE_reduction_from_CC": -2.1752765514463728,
+          "relative_local_MSE_reduction_percent": -1108.8357894703936,
+          "current_deep_block_calls": 26,
+          "extra_deep_calls_from_CC": 26,
+          "final_video_distortion_reduction": null,
+          "future_real_time_saved_seconds": null
+        },
+        "DD": {
+          "guided_MSE": 0.0,
+          "local_MSE_reduction_from_CC": 0.19617661804416836,
+          "relative_local_MSE_reduction_percent": 100.0,
+          "current_deep_block_calls": 52,
+          "extra_deep_calls_from_CC": 52,
+          "final_video_distortion_reduction": null,
+          "future_real_time_saved_seconds": null
+        }
+      },
+      "local_MSE_current_deep_nondominated_actions": [
+        "CC",
+        "DD"
+      ],
+      "native_suggestion_local_nondominated": true,
+      "raw_pair_wall_seconds_not_clean_speed": {
+        "CC_first": 678.3589942259714,
+        "CC_second": 60.26095127500594,
+        "DC_first": 666.6580742159858,
+        "DC_second": 63.468719244003296,
+        "CD_first": 668.6701665483415,
+        "CD_second": 63.59677597973496,
+        "DD_first": 673.0150763941929,
+        "DD_second": 66.51889318786561
+      },
+      "scored_tensor_provenance": "reports/wc_cfg_mechanism_confirmation_r1_terminal_20261009_CPU_score_native.gz"
+    },
+    {
+      "seed": 3,
+      "origin": "S23_after_CC",
+      "same_paid_observation_across_all_cells_and_repeats": true,
+      "native_suggestion_by_cell": {
+        "CC_first": "DD",
+        "CC_second": "DD",
+        "DC_first": "DD",
+        "DC_second": "DD",
+        "CD_first": "DD",
+        "CD_second": "DD",
+        "DD_first": "DD",
+        "DD_second": "DD"
+      },
+      "common_native_two_slot_suggestion": "DD",
+      "native_suggestion_is_online_joint_decision": false,
+      "origin_own_full_history": [
+        [
+          17,
+          21
+        ],
+        [
+          17,
+          21
+        ]
+      ],
+      "latest_anchors_shared": true,
+      "action_labels": {
+        "CC": {
+          "guided_MSE": 0.26192496381555624,
+          "local_MSE_reduction_from_CC": 0.0,
+          "relative_local_MSE_reduction_percent": 0.0,
+          "current_deep_block_calls": 0,
+          "extra_deep_calls_from_CC": 0,
+          "final_video_distortion_reduction": null,
+          "future_real_time_saved_seconds": null
+        },
+        "DC": {
+          "guided_MSE": 3.6772263100757305,
+          "local_MSE_reduction_from_CC": -3.4153013462601742,
+          "relative_local_MSE_reduction_percent": -1303.9235728081192,
+          "current_deep_block_calls": 26,
+          "extra_deep_calls_from_CC": 26,
+          "final_video_distortion_reduction": null,
+          "future_real_time_saved_seconds": null
+        },
+        "CD": {
+          "guided_MSE": 3.725739589917423,
+          "local_MSE_reduction_from_CC": -3.4638146261018665,
+          "relative_local_MSE_reduction_percent": -1322.4453964384375,
+          "current_deep_block_calls": 26,
+          "extra_deep_calls_from_CC": 26,
+          "final_video_distortion_reduction": null,
+          "future_real_time_saved_seconds": null
+        },
+        "DD": {
+          "guided_MSE": 0.0,
+          "local_MSE_reduction_from_CC": 0.26192496381555624,
+          "relative_local_MSE_reduction_percent": 100.0,
+          "current_deep_block_calls": 52,
+          "extra_deep_calls_from_CC": 52,
+          "final_video_distortion_reduction": null,
+          "future_real_time_saved_seconds": null
+        }
+      },
+      "local_MSE_current_deep_nondominated_actions": [
+        "CC",
+        "DD"
+      ],
+      "native_suggestion_local_nondominated": true,
+      "raw_pair_wall_seconds_not_clean_speed": {
+        "CC_first": 63.24098108988255,
+        "CC_second": 65.15238304436207,
+        "DC_first": 66.56676655076444,
+        "DC_second": 63.59766084328294,
+        "CD_first": 63.38188065867871,
+        "CD_second": 63.375337223522365,
+        "DD_first": 66.35964157711715,
+        "DD_second": 66.34659562911838
+      },
+      "scored_tensor_provenance": "reports/wc_cfg_mechanism_confirmation_r1_terminal_20261009_CPU_score_native.gz"
+    },
+    {
+      "seed": 3,
+      "origin": "S23_after_DC",
+      "same_paid_observation_across_all_cells_and_repeats": true,
+      "native_suggestion_by_cell": {
+        "CC_first": "DD",
+        "CC_second": "DD",
+        "DC_first": "DD",
+        "DC_second": "DD",
+        "CD_first": "DD",
+        "CD_second": "DD",
+        "DD_first": "DD",
+        "DD_second": "DD"
+      },
+      "common_native_two_slot_suggestion": "DD",
+      "native_suggestion_is_online_joint_decision": false,
+      "origin_own_full_history": [
+        [
+          21,
+          23
+        ],
+        [
+          17,
+          21
+        ]
+      ],
+      "latest_anchors_shared": false,
+      "action_labels": {
+        "CC": {
+          "guided_MSE": 3.3082560175447266,
+          "local_MSE_reduction_from_CC": 0.0,
+          "relative_local_MSE_reduction_percent": 0.0,
+          "current_deep_block_calls": 0,
+          "extra_deep_calls_from_CC": 0,
+          "final_video_distortion_reduction": null,
+          "future_real_time_saved_seconds": null
+        },
+        "DC": {
+          "guided_MSE": 8.527923211513404,
+          "local_MSE_reduction_from_CC": -5.219667193968677,
+          "relative_local_MSE_reduction_percent": -157.77700293711047,
+          "current_deep_block_calls": 26,
+          "extra_deep_calls_from_CC": 26,
+          "final_video_distortion_reduction": null,
+          "future_real_time_saved_seconds": null
+        },
+        "CD": {
+          "guided_MSE": 5.149141044124949,
+          "local_MSE_reduction_from_CC": -1.8408850265802226,
+          "relative_local_MSE_reduction_percent": -55.64518032514496,
+          "current_deep_block_calls": 26,
+          "extra_deep_calls_from_CC": 26,
+          "final_video_distortion_reduction": null,
+          "future_real_time_saved_seconds": null
+        },
+        "DD": {
+          "guided_MSE": 0.0,
+          "local_MSE_reduction_from_CC": 3.3082560175447266,
+          "relative_local_MSE_reduction_percent": 100.0,
+          "current_deep_block_calls": 52,
+          "extra_deep_calls_from_CC": 52,
+          "final_video_distortion_reduction": null,
+          "future_real_time_saved_seconds": null
+        }
+      },
+      "local_MSE_current_deep_nondominated_actions": [
+        "CC",
+        "DD"
+      ],
+      "native_suggestion_local_nondominated": true,
+      "raw_pair_wall_seconds_not_clean_speed": {
+        "CC_first": 60.375755870714784,
+        "CC_second": 60.34303992241621,
+        "DC_first": 63.39912543538958,
+        "DC_second": 63.3842693567276,
+        "CD_first": 63.30935957375914,
+        "CD_second": 63.23169588390738,
+        "DD_first": 66.49228137731552,
+        "DD_second": 66.36449441034347
+      },
+      "scored_tensor_provenance": "reports/wc_cfg_mechanism_confirmation_r1_terminal_20261009_CPU_score_native.gz"
+    },
+    {
+      "seed": 3,
+      "origin": "S23_after_CD",
+      "same_paid_observation_across_all_cells_and_repeats": true,
+      "native_suggestion_by_cell": {
+        "CC_first": "DD",
+        "CC_second": "DD",
+        "DC_first": "DD",
+        "DC_second": "DD",
+        "CD_first": "DD",
+        "CD_second": "DD",
+        "DD_first": "DD",
+        "DD_second": "DD"
+      },
+      "common_native_two_slot_suggestion": "DD",
+      "native_suggestion_is_online_joint_decision": false,
+      "origin_own_full_history": [
+        [
+          17,
+          21
+        ],
+        [
+          21,
+          23
+        ]
+      ],
+      "latest_anchors_shared": false,
+      "action_labels": {
+        "CC": {
+          "guided_MSE": 2.554019155508448,
+          "local_MSE_reduction_from_CC": 0.0,
+          "relative_local_MSE_reduction_percent": 0.0,
+          "current_deep_block_calls": 0,
+          "extra_deep_calls_from_CC": 0,
+          "final_video_distortion_reduction": null,
+          "future_real_time_saved_seconds": null
+        },
+        "DC": {
+          "guided_MSE": 5.9892387410200625,
+          "local_MSE_reduction_from_CC": -3.4352195855116143,
+          "relative_local_MSE_reduction_percent": -134.50249885959602,
+          "current_deep_block_calls": 26,
+          "extra_deep_calls_from_CC": 26,
+          "final_video_distortion_reduction": null,
+          "future_real_time_saved_seconds": null
+        },
+        "CD": {
+          "guided_MSE": 5.946915319446859,
+          "local_MSE_reduction_from_CC": -3.3928961639384108,
+          "relative_local_MSE_reduction_percent": -132.8453687052696,
+          "current_deep_block_calls": 26,
+          "extra_deep_calls_from_CC": 26,
+          "final_video_distortion_reduction": null,
+          "future_real_time_saved_seconds": null
+        },
+        "DD": {
+          "guided_MSE": 0.0,
+          "local_MSE_reduction_from_CC": 2.554019155508448,
+          "relative_local_MSE_reduction_percent": 100.0,
+          "current_deep_block_calls": 52,
+          "extra_deep_calls_from_CC": 52,
+          "final_video_distortion_reduction": null,
+          "future_real_time_saved_seconds": null
+        }
+      },
+      "local_MSE_current_deep_nondominated_actions": [
+        "CC",
+        "DD"
+      ],
+      "native_suggestion_local_nondominated": true,
+      "raw_pair_wall_seconds_not_clean_speed": {
+        "CC_first": 60.44980667345226,
+        "CC_second": 60.48462712112814,
+        "DC_first": 63.457647058181465,
+        "DC_second": 63.49318411573768,
+        "CD_first": 63.45943575631827,
+        "CD_second": 63.39123986568302,
+        "DD_first": 66.40855248831213,
+        "DD_second": 66.40118868555874
+      },
+      "scored_tensor_provenance": "reports/wc_cfg_mechanism_confirmation_r1_terminal_20261009_CPU_score_native.gz"
+    },
+    {
+      "seed": 3,
+      "origin": "S23_after_DD",
+      "same_paid_observation_across_all_cells_and_repeats": true,
+      "native_suggestion_by_cell": {
+        "CC_first": "CC",
+        "CC_second": "CC",
+        "DC_first": "CC",
+        "DC_second": "CC",
+        "CD_first": "CC",
+        "CD_second": "CC",
+        "DD_first": "CC",
+        "DD_second": "CC"
+      },
+      "common_native_two_slot_suggestion": "CC",
+      "native_suggestion_is_online_joint_decision": false,
+      "origin_own_full_history": [
+        [
+          21,
+          23
+        ],
+        [
+          21,
+          23
+        ]
+      ],
+      "latest_anchors_shared": true,
+      "action_labels": {
+        "CC": {
+          "guided_MSE": 0.08433124617661103,
+          "local_MSE_reduction_from_CC": 0.0,
+          "relative_local_MSE_reduction_percent": 0.0,
+          "current_deep_block_calls": 0,
+          "extra_deep_calls_from_CC": 0,
+          "final_video_distortion_reduction": null,
+          "future_real_time_saved_seconds": null
+        },
+        "DC": {
+          "guided_MSE": 0.7649234274854745,
+          "local_MSE_reduction_from_CC": -0.6805921813088635,
+          "relative_local_MSE_reduction_percent": -807.046275449945,
+          "current_deep_block_calls": 26,
+          "extra_deep_calls_from_CC": 26,
+          "final_video_distortion_reduction": null,
+          "future_real_time_saved_seconds": null
+        },
+        "CD": {
+          "guided_MSE": 0.8468081193373128,
+          "local_MSE_reduction_from_CC": -0.7624768731607018,
+          "relative_local_MSE_reduction_percent": -904.145151091307,
+          "current_deep_block_calls": 26,
+          "extra_deep_calls_from_CC": 26,
+          "final_video_distortion_reduction": null,
+          "future_real_time_saved_seconds": null
+        },
+        "DD": {
+          "guided_MSE": 0.0,
+          "local_MSE_reduction_from_CC": 0.08433124617661103,
+          "relative_local_MSE_reduction_percent": 100.00000000000001,
+          "current_deep_block_calls": 52,
+          "extra_deep_calls_from_CC": 52,
+          "final_video_distortion_reduction": null,
+          "future_real_time_saved_seconds": null
+        }
+      },
+      "local_MSE_current_deep_nondominated_actions": [
+        "CC",
+        "DD"
+      ],
+      "native_suggestion_local_nondominated": true,
+      "raw_pair_wall_seconds_not_clean_speed": {
+        "CC_first": 60.38112841080874,
+        "CC_second": 60.48355866689235,
+        "DC_first": 63.396505592390895,
+        "DC_second": 63.40986026916653,
+        "CD_first": 63.421779399737716,
+        "CD_second": 63.41354219149798,
+        "DD_first": 66.28975925035775,
+        "DD_second": 66.33244931232184
+      },
+      "scored_tensor_provenance": "reports/wc_cfg_mechanism_confirmation_r1_terminal_20261009_CPU_score_native.gz"
+    }
+  ],
+  "proxy_records": [
+    {
+      "seed": 2,
+      "origin": "S22",
+      "repeat": "first",
+      "paid_by_cell": {
+        "CC": [
+          {
+            "call": 45,
+            "cfg_slot": 0,
+            "solver_step": 23,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": true,
+            "age_solver_steps": 1,
+            "paid_input_drift": 0.12060546875,
+            "paid_probe_drift": 0.10498046875,
+            "dynamic_threshold": 0.2001953125,
+            "accumulator_before_action": 0.10498046875,
+            "native_cycle_reset": false
+          },
+          {
+            "call": 46,
+            "cfg_slot": 1,
+            "solver_step": 23,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": true,
+            "age_solver_steps": 1,
+            "paid_input_drift": 0.12060546875,
+            "paid_probe_drift": 0.10400390625,
+            "dynamic_threshold": 0.2041015625,
+            "accumulator_before_action": 0.10400390625,
+            "native_cycle_reset": false
+          }
+        ],
+        "DC": [
+          {
+            "call": 45,
+            "cfg_slot": 0,
+            "solver_step": 23,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": true,
+            "age_solver_steps": 1,
+            "paid_input_drift": 0.12060546875,
+            "paid_probe_drift": 0.10498046875,
+            "dynamic_threshold": 0.2001953125,
+            "accumulator_before_action": 0.10498046875,
+            "native_cycle_reset": false
+          },
+          {
+            "call": 46,
+            "cfg_slot": 1,
+            "solver_step": 23,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": true,
+            "age_solver_steps": 1,
+            "paid_input_drift": 0.12060546875,
+            "paid_probe_drift": 0.10400390625,
+            "dynamic_threshold": 0.2041015625,
+            "accumulator_before_action": 0.10400390625,
+            "native_cycle_reset": false
+          }
+        ],
+        "CD": [
+          {
+            "call": 45,
+            "cfg_slot": 0,
+            "solver_step": 23,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": true,
+            "age_solver_steps": 1,
+            "paid_input_drift": 0.12060546875,
+            "paid_probe_drift": 0.10498046875,
+            "dynamic_threshold": 0.2001953125,
+            "accumulator_before_action": 0.10498046875,
+            "native_cycle_reset": false
+          },
+          {
+            "call": 46,
+            "cfg_slot": 1,
+            "solver_step": 23,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": true,
+            "age_solver_steps": 1,
+            "paid_input_drift": 0.12060546875,
+            "paid_probe_drift": 0.10400390625,
+            "dynamic_threshold": 0.2041015625,
+            "accumulator_before_action": 0.10400390625,
+            "native_cycle_reset": false
+          }
+        ],
+        "DD": [
+          {
+            "call": 45,
+            "cfg_slot": 0,
+            "solver_step": 23,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": true,
+            "age_solver_steps": 1,
+            "paid_input_drift": 0.12060546875,
+            "paid_probe_drift": 0.10498046875,
+            "dynamic_threshold": 0.2001953125,
+            "accumulator_before_action": 0.10498046875,
+            "native_cycle_reset": false
+          },
+          {
+            "call": 46,
+            "cfg_slot": 1,
+            "solver_step": 23,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": true,
+            "age_solver_steps": 1,
+            "paid_input_drift": 0.12060546875,
+            "paid_probe_drift": 0.10400390625,
+            "dynamic_threshold": 0.2041015625,
+            "accumulator_before_action": 0.10400390625,
+            "native_cycle_reset": false
+          }
+        ]
+      },
+      "origin_own_full_history": [
+        [
+          18,
+          22
+        ],
+        [
+          18,
+          22
+        ]
+      ]
+    },
+    {
+      "seed": 2,
+      "origin": "S22",
+      "repeat": "second",
+      "paid_by_cell": {
+        "CC": [
+          {
+            "call": 45,
+            "cfg_slot": 0,
+            "solver_step": 23,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": true,
+            "age_solver_steps": 1,
+            "paid_input_drift": 0.12060546875,
+            "paid_probe_drift": 0.10498046875,
+            "dynamic_threshold": 0.2001953125,
+            "accumulator_before_action": 0.10498046875,
+            "native_cycle_reset": false
+          },
+          {
+            "call": 46,
+            "cfg_slot": 1,
+            "solver_step": 23,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": true,
+            "age_solver_steps": 1,
+            "paid_input_drift": 0.12060546875,
+            "paid_probe_drift": 0.10400390625,
+            "dynamic_threshold": 0.2041015625,
+            "accumulator_before_action": 0.10400390625,
+            "native_cycle_reset": false
+          }
+        ],
+        "DC": [
+          {
+            "call": 45,
+            "cfg_slot": 0,
+            "solver_step": 23,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": true,
+            "age_solver_steps": 1,
+            "paid_input_drift": 0.12060546875,
+            "paid_probe_drift": 0.10498046875,
+            "dynamic_threshold": 0.2001953125,
+            "accumulator_before_action": 0.10498046875,
+            "native_cycle_reset": false
+          },
+          {
+            "call": 46,
+            "cfg_slot": 1,
+            "solver_step": 23,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": true,
+            "age_solver_steps": 1,
+            "paid_input_drift": 0.12060546875,
+            "paid_probe_drift": 0.10400390625,
+            "dynamic_threshold": 0.2041015625,
+            "accumulator_before_action": 0.10400390625,
+            "native_cycle_reset": false
+          }
+        ],
+        "CD": [
+          {
+            "call": 45,
+            "cfg_slot": 0,
+            "solver_step": 23,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": true,
+            "age_solver_steps": 1,
+            "paid_input_drift": 0.12060546875,
+            "paid_probe_drift": 0.10498046875,
+            "dynamic_threshold": 0.2001953125,
+            "accumulator_before_action": 0.10498046875,
+            "native_cycle_reset": false
+          },
+          {
+            "call": 46,
+            "cfg_slot": 1,
+            "solver_step": 23,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": true,
+            "age_solver_steps": 1,
+            "paid_input_drift": 0.12060546875,
+            "paid_probe_drift": 0.10400390625,
+            "dynamic_threshold": 0.2041015625,
+            "accumulator_before_action": 0.10400390625,
+            "native_cycle_reset": false
+          }
+        ],
+        "DD": [
+          {
+            "call": 45,
+            "cfg_slot": 0,
+            "solver_step": 23,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": true,
+            "age_solver_steps": 1,
+            "paid_input_drift": 0.12060546875,
+            "paid_probe_drift": 0.10498046875,
+            "dynamic_threshold": 0.2001953125,
+            "accumulator_before_action": 0.10498046875,
+            "native_cycle_reset": false
+          },
+          {
+            "call": 46,
+            "cfg_slot": 1,
+            "solver_step": 23,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": true,
+            "age_solver_steps": 1,
+            "paid_input_drift": 0.12060546875,
+            "paid_probe_drift": 0.10400390625,
+            "dynamic_threshold": 0.2041015625,
+            "accumulator_before_action": 0.10400390625,
+            "native_cycle_reset": false
+          }
+        ]
+      },
+      "origin_own_full_history": [
+        [
+          18,
+          22
+        ],
+        [
+          18,
+          22
+        ]
+      ]
+    },
+    {
+      "seed": 2,
+      "origin": "S23_after_CC",
+      "repeat": "first",
+      "paid_by_cell": {
+        "CC": [
+          {
+            "call": 47,
+            "cfg_slot": 0,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 2,
+            "paid_input_drift": 0.1298828125,
+            "paid_probe_drift": 0.115234375,
+            "dynamic_threshold": 0.205078125,
+            "accumulator_before_action": 0.2197265625,
+            "native_cycle_reset": false
+          },
+          {
+            "call": 48,
+            "cfg_slot": 1,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 2,
+            "paid_input_drift": 0.1298828125,
+            "paid_probe_drift": 0.1142578125,
+            "dynamic_threshold": 0.208984375,
+            "accumulator_before_action": 0.21875,
+            "native_cycle_reset": false
+          }
+        ],
+        "DC": [
+          {
+            "call": 47,
+            "cfg_slot": 0,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 2,
+            "paid_input_drift": 0.1298828125,
+            "paid_probe_drift": 0.115234375,
+            "dynamic_threshold": 0.205078125,
+            "accumulator_before_action": 0.2197265625,
+            "native_cycle_reset": false
+          },
+          {
+            "call": 48,
+            "cfg_slot": 1,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 2,
+            "paid_input_drift": 0.1298828125,
+            "paid_probe_drift": 0.1142578125,
+            "dynamic_threshold": 0.208984375,
+            "accumulator_before_action": 0.21875,
+            "native_cycle_reset": false
+          }
+        ],
+        "CD": [
+          {
+            "call": 47,
+            "cfg_slot": 0,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 2,
+            "paid_input_drift": 0.1298828125,
+            "paid_probe_drift": 0.115234375,
+            "dynamic_threshold": 0.205078125,
+            "accumulator_before_action": 0.2197265625,
+            "native_cycle_reset": false
+          },
+          {
+            "call": 48,
+            "cfg_slot": 1,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 2,
+            "paid_input_drift": 0.1298828125,
+            "paid_probe_drift": 0.1142578125,
+            "dynamic_threshold": 0.208984375,
+            "accumulator_before_action": 0.21875,
+            "native_cycle_reset": false
+          }
+        ],
+        "DD": [
+          {
+            "call": 47,
+            "cfg_slot": 0,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 2,
+            "paid_input_drift": 0.1298828125,
+            "paid_probe_drift": 0.115234375,
+            "dynamic_threshold": 0.205078125,
+            "accumulator_before_action": 0.2197265625,
+            "native_cycle_reset": false
+          },
+          {
+            "call": 48,
+            "cfg_slot": 1,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 2,
+            "paid_input_drift": 0.1298828125,
+            "paid_probe_drift": 0.1142578125,
+            "dynamic_threshold": 0.208984375,
+            "accumulator_before_action": 0.21875,
+            "native_cycle_reset": false
+          }
+        ]
+      },
+      "origin_own_full_history": [
+        [
+          18,
+          22
+        ],
+        [
+          18,
+          22
+        ]
+      ]
+    },
+    {
+      "seed": 2,
+      "origin": "S23_after_CC",
+      "repeat": "second",
+      "paid_by_cell": {
+        "CC": [
+          {
+            "call": 47,
+            "cfg_slot": 0,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 2,
+            "paid_input_drift": 0.1298828125,
+            "paid_probe_drift": 0.115234375,
+            "dynamic_threshold": 0.205078125,
+            "accumulator_before_action": 0.2197265625,
+            "native_cycle_reset": false
+          },
+          {
+            "call": 48,
+            "cfg_slot": 1,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 2,
+            "paid_input_drift": 0.1298828125,
+            "paid_probe_drift": 0.1142578125,
+            "dynamic_threshold": 0.208984375,
+            "accumulator_before_action": 0.21875,
+            "native_cycle_reset": false
+          }
+        ],
+        "DC": [
+          {
+            "call": 47,
+            "cfg_slot": 0,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 2,
+            "paid_input_drift": 0.1298828125,
+            "paid_probe_drift": 0.115234375,
+            "dynamic_threshold": 0.205078125,
+            "accumulator_before_action": 0.2197265625,
+            "native_cycle_reset": false
+          },
+          {
+            "call": 48,
+            "cfg_slot": 1,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 2,
+            "paid_input_drift": 0.1298828125,
+            "paid_probe_drift": 0.1142578125,
+            "dynamic_threshold": 0.208984375,
+            "accumulator_before_action": 0.21875,
+            "native_cycle_reset": false
+          }
+        ],
+        "CD": [
+          {
+            "call": 47,
+            "cfg_slot": 0,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 2,
+            "paid_input_drift": 0.1298828125,
+            "paid_probe_drift": 0.115234375,
+            "dynamic_threshold": 0.205078125,
+            "accumulator_before_action": 0.2197265625,
+            "native_cycle_reset": false
+          },
+          {
+            "call": 48,
+            "cfg_slot": 1,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 2,
+            "paid_input_drift": 0.1298828125,
+            "paid_probe_drift": 0.1142578125,
+            "dynamic_threshold": 0.208984375,
+            "accumulator_before_action": 0.21875,
+            "native_cycle_reset": false
+          }
+        ],
+        "DD": [
+          {
+            "call": 47,
+            "cfg_slot": 0,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 2,
+            "paid_input_drift": 0.1298828125,
+            "paid_probe_drift": 0.115234375,
+            "dynamic_threshold": 0.205078125,
+            "accumulator_before_action": 0.2197265625,
+            "native_cycle_reset": false
+          },
+          {
+            "call": 48,
+            "cfg_slot": 1,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 2,
+            "paid_input_drift": 0.1298828125,
+            "paid_probe_drift": 0.1142578125,
+            "dynamic_threshold": 0.208984375,
+            "accumulator_before_action": 0.21875,
+            "native_cycle_reset": false
+          }
+        ]
+      },
+      "origin_own_full_history": [
+        [
+          18,
+          22
+        ],
+        [
+          18,
+          22
+        ]
+      ]
+    },
+    {
+      "seed": 2,
+      "origin": "S23_after_DC",
+      "repeat": "first",
+      "paid_by_cell": {
+        "CC": [
+          {
+            "call": 47,
+            "cfg_slot": 0,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 1,
+            "paid_input_drift": 0.232421875,
+            "paid_probe_drift": 0.2392578125,
+            "dynamic_threshold": 0.1748046875,
+            "accumulator_before_action": 0.2392578125,
+            "native_cycle_reset": false
+          },
+          {
+            "call": 48,
+            "cfg_slot": 1,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 2,
+            "paid_input_drift": 0.232421875,
+            "paid_probe_drift": 0.2392578125,
+            "dynamic_threshold": 0.177734375,
+            "accumulator_before_action": 0.34375,
+            "native_cycle_reset": false
+          }
+        ],
+        "DC": [
+          {
+            "call": 47,
+            "cfg_slot": 0,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 1,
+            "paid_input_drift": 0.232421875,
+            "paid_probe_drift": 0.2392578125,
+            "dynamic_threshold": 0.1748046875,
+            "accumulator_before_action": 0.2392578125,
+            "native_cycle_reset": false
+          },
+          {
+            "call": 48,
+            "cfg_slot": 1,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 2,
+            "paid_input_drift": 0.232421875,
+            "paid_probe_drift": 0.2392578125,
+            "dynamic_threshold": 0.177734375,
+            "accumulator_before_action": 0.34375,
+            "native_cycle_reset": false
+          }
+        ],
+        "CD": [
+          {
+            "call": 47,
+            "cfg_slot": 0,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 1,
+            "paid_input_drift": 0.232421875,
+            "paid_probe_drift": 0.2392578125,
+            "dynamic_threshold": 0.1748046875,
+            "accumulator_before_action": 0.2392578125,
+            "native_cycle_reset": false
+          },
+          {
+            "call": 48,
+            "cfg_slot": 1,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 2,
+            "paid_input_drift": 0.232421875,
+            "paid_probe_drift": 0.2392578125,
+            "dynamic_threshold": 0.177734375,
+            "accumulator_before_action": 0.34375,
+            "native_cycle_reset": false
+          }
+        ],
+        "DD": [
+          {
+            "call": 47,
+            "cfg_slot": 0,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 1,
+            "paid_input_drift": 0.232421875,
+            "paid_probe_drift": 0.2392578125,
+            "dynamic_threshold": 0.1748046875,
+            "accumulator_before_action": 0.2392578125,
+            "native_cycle_reset": false
+          },
+          {
+            "call": 48,
+            "cfg_slot": 1,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 2,
+            "paid_input_drift": 0.232421875,
+            "paid_probe_drift": 0.2392578125,
+            "dynamic_threshold": 0.177734375,
+            "accumulator_before_action": 0.34375,
+            "native_cycle_reset": false
+          }
+        ]
+      },
+      "origin_own_full_history": [
+        [
+          22,
+          23
+        ],
+        [
+          18,
+          22
+        ]
+      ]
+    },
+    {
+      "seed": 2,
+      "origin": "S23_after_DC",
+      "repeat": "second",
+      "paid_by_cell": {
+        "CC": [
+          {
+            "call": 47,
+            "cfg_slot": 0,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 1,
+            "paid_input_drift": 0.232421875,
+            "paid_probe_drift": 0.2392578125,
+            "dynamic_threshold": 0.1748046875,
+            "accumulator_before_action": 0.2392578125,
+            "native_cycle_reset": false
+          },
+          {
+            "call": 48,
+            "cfg_slot": 1,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 2,
+            "paid_input_drift": 0.232421875,
+            "paid_probe_drift": 0.2392578125,
+            "dynamic_threshold": 0.177734375,
+            "accumulator_before_action": 0.34375,
+            "native_cycle_reset": false
+          }
+        ],
+        "DC": [
+          {
+            "call": 47,
+            "cfg_slot": 0,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 1,
+            "paid_input_drift": 0.232421875,
+            "paid_probe_drift": 0.2392578125,
+            "dynamic_threshold": 0.1748046875,
+            "accumulator_before_action": 0.2392578125,
+            "native_cycle_reset": false
+          },
+          {
+            "call": 48,
+            "cfg_slot": 1,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 2,
+            "paid_input_drift": 0.232421875,
+            "paid_probe_drift": 0.2392578125,
+            "dynamic_threshold": 0.177734375,
+            "accumulator_before_action": 0.34375,
+            "native_cycle_reset": false
+          }
+        ],
+        "CD": [
+          {
+            "call": 47,
+            "cfg_slot": 0,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 1,
+            "paid_input_drift": 0.232421875,
+            "paid_probe_drift": 0.2392578125,
+            "dynamic_threshold": 0.1748046875,
+            "accumulator_before_action": 0.2392578125,
+            "native_cycle_reset": false
+          },
+          {
+            "call": 48,
+            "cfg_slot": 1,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 2,
+            "paid_input_drift": 0.232421875,
+            "paid_probe_drift": 0.2392578125,
+            "dynamic_threshold": 0.177734375,
+            "accumulator_before_action": 0.34375,
+            "native_cycle_reset": false
+          }
+        ],
+        "DD": [
+          {
+            "call": 47,
+            "cfg_slot": 0,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 1,
+            "paid_input_drift": 0.232421875,
+            "paid_probe_drift": 0.2392578125,
+            "dynamic_threshold": 0.1748046875,
+            "accumulator_before_action": 0.2392578125,
+            "native_cycle_reset": false
+          },
+          {
+            "call": 48,
+            "cfg_slot": 1,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 2,
+            "paid_input_drift": 0.232421875,
+            "paid_probe_drift": 0.2392578125,
+            "dynamic_threshold": 0.177734375,
+            "accumulator_before_action": 0.34375,
+            "native_cycle_reset": false
+          }
+        ]
+      },
+      "origin_own_full_history": [
+        [
+          22,
+          23
+        ],
+        [
+          18,
+          22
+        ]
+      ]
+    },
+    {
+      "seed": 2,
+      "origin": "S23_after_CD",
+      "repeat": "first",
+      "paid_by_cell": {
+        "CC": [
+          {
+            "call": 47,
+            "cfg_slot": 0,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 2,
+            "paid_input_drift": 0.169921875,
+            "paid_probe_drift": 0.216796875,
+            "dynamic_threshold": 0.19140625,
+            "accumulator_before_action": 0.322265625,
+            "native_cycle_reset": false
+          },
+          {
+            "call": 48,
+            "cfg_slot": 1,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 1,
+            "paid_input_drift": 0.169921875,
+            "paid_probe_drift": 0.2138671875,
+            "dynamic_threshold": 0.1943359375,
+            "accumulator_before_action": 0.2138671875,
+            "native_cycle_reset": false
+          }
+        ],
+        "DC": [
+          {
+            "call": 47,
+            "cfg_slot": 0,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 2,
+            "paid_input_drift": 0.169921875,
+            "paid_probe_drift": 0.216796875,
+            "dynamic_threshold": 0.19140625,
+            "accumulator_before_action": 0.322265625,
+            "native_cycle_reset": false
+          },
+          {
+            "call": 48,
+            "cfg_slot": 1,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 1,
+            "paid_input_drift": 0.169921875,
+            "paid_probe_drift": 0.2138671875,
+            "dynamic_threshold": 0.1943359375,
+            "accumulator_before_action": 0.2138671875,
+            "native_cycle_reset": false
+          }
+        ],
+        "CD": [
+          {
+            "call": 47,
+            "cfg_slot": 0,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 2,
+            "paid_input_drift": 0.169921875,
+            "paid_probe_drift": 0.216796875,
+            "dynamic_threshold": 0.19140625,
+            "accumulator_before_action": 0.322265625,
+            "native_cycle_reset": false
+          },
+          {
+            "call": 48,
+            "cfg_slot": 1,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 1,
+            "paid_input_drift": 0.169921875,
+            "paid_probe_drift": 0.2138671875,
+            "dynamic_threshold": 0.1943359375,
+            "accumulator_before_action": 0.2138671875,
+            "native_cycle_reset": false
+          }
+        ],
+        "DD": [
+          {
+            "call": 47,
+            "cfg_slot": 0,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 2,
+            "paid_input_drift": 0.169921875,
+            "paid_probe_drift": 0.216796875,
+            "dynamic_threshold": 0.19140625,
+            "accumulator_before_action": 0.322265625,
+            "native_cycle_reset": false
+          },
+          {
+            "call": 48,
+            "cfg_slot": 1,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 1,
+            "paid_input_drift": 0.169921875,
+            "paid_probe_drift": 0.2138671875,
+            "dynamic_threshold": 0.1943359375,
+            "accumulator_before_action": 0.2138671875,
+            "native_cycle_reset": false
+          }
+        ]
+      },
+      "origin_own_full_history": [
+        [
+          18,
+          22
+        ],
+        [
+          22,
+          23
+        ]
+      ]
+    },
+    {
+      "seed": 2,
+      "origin": "S23_after_CD",
+      "repeat": "second",
+      "paid_by_cell": {
+        "CC": [
+          {
+            "call": 47,
+            "cfg_slot": 0,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 2,
+            "paid_input_drift": 0.169921875,
+            "paid_probe_drift": 0.216796875,
+            "dynamic_threshold": 0.19140625,
+            "accumulator_before_action": 0.322265625,
+            "native_cycle_reset": false
+          },
+          {
+            "call": 48,
+            "cfg_slot": 1,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 1,
+            "paid_input_drift": 0.169921875,
+            "paid_probe_drift": 0.2138671875,
+            "dynamic_threshold": 0.1943359375,
+            "accumulator_before_action": 0.2138671875,
+            "native_cycle_reset": false
+          }
+        ],
+        "DC": [
+          {
+            "call": 47,
+            "cfg_slot": 0,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 2,
+            "paid_input_drift": 0.169921875,
+            "paid_probe_drift": 0.216796875,
+            "dynamic_threshold": 0.19140625,
+            "accumulator_before_action": 0.322265625,
+            "native_cycle_reset": false
+          },
+          {
+            "call": 48,
+            "cfg_slot": 1,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 1,
+            "paid_input_drift": 0.169921875,
+            "paid_probe_drift": 0.2138671875,
+            "dynamic_threshold": 0.1943359375,
+            "accumulator_before_action": 0.2138671875,
+            "native_cycle_reset": false
+          }
+        ],
+        "CD": [
+          {
+            "call": 47,
+            "cfg_slot": 0,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 2,
+            "paid_input_drift": 0.169921875,
+            "paid_probe_drift": 0.216796875,
+            "dynamic_threshold": 0.19140625,
+            "accumulator_before_action": 0.322265625,
+            "native_cycle_reset": false
+          },
+          {
+            "call": 48,
+            "cfg_slot": 1,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 1,
+            "paid_input_drift": 0.169921875,
+            "paid_probe_drift": 0.2138671875,
+            "dynamic_threshold": 0.1943359375,
+            "accumulator_before_action": 0.2138671875,
+            "native_cycle_reset": false
+          }
+        ],
+        "DD": [
+          {
+            "call": 47,
+            "cfg_slot": 0,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 2,
+            "paid_input_drift": 0.169921875,
+            "paid_probe_drift": 0.216796875,
+            "dynamic_threshold": 0.19140625,
+            "accumulator_before_action": 0.322265625,
+            "native_cycle_reset": false
+          },
+          {
+            "call": 48,
+            "cfg_slot": 1,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 1,
+            "paid_input_drift": 0.169921875,
+            "paid_probe_drift": 0.2138671875,
+            "dynamic_threshold": 0.1943359375,
+            "accumulator_before_action": 0.2138671875,
+            "native_cycle_reset": false
+          }
+        ]
+      },
+      "origin_own_full_history": [
+        [
+          18,
+          22
+        ],
+        [
+          22,
+          23
+        ]
+      ]
+    },
+    {
+      "seed": 2,
+      "origin": "S23_after_DD",
+      "repeat": "first",
+      "paid_by_cell": {
+        "CC": [
+          {
+            "call": 47,
+            "cfg_slot": 0,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": true,
+            "age_solver_steps": 1,
+            "paid_input_drift": 0.1376953125,
+            "paid_probe_drift": 0.1240234375,
+            "dynamic_threshold": 0.2021484375,
+            "accumulator_before_action": 0.1240234375,
+            "native_cycle_reset": false
+          },
+          {
+            "call": 48,
+            "cfg_slot": 1,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": true,
+            "age_solver_steps": 1,
+            "paid_input_drift": 0.1376953125,
+            "paid_probe_drift": 0.123046875,
+            "dynamic_threshold": 0.205078125,
+            "accumulator_before_action": 0.123046875,
+            "native_cycle_reset": false
+          }
+        ],
+        "DC": [
+          {
+            "call": 47,
+            "cfg_slot": 0,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": true,
+            "age_solver_steps": 1,
+            "paid_input_drift": 0.1376953125,
+            "paid_probe_drift": 0.1240234375,
+            "dynamic_threshold": 0.2021484375,
+            "accumulator_before_action": 0.1240234375,
+            "native_cycle_reset": false
+          },
+          {
+            "call": 48,
+            "cfg_slot": 1,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": true,
+            "age_solver_steps": 1,
+            "paid_input_drift": 0.1376953125,
+            "paid_probe_drift": 0.123046875,
+            "dynamic_threshold": 0.205078125,
+            "accumulator_before_action": 0.123046875,
+            "native_cycle_reset": false
+          }
+        ],
+        "CD": [
+          {
+            "call": 47,
+            "cfg_slot": 0,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": true,
+            "age_solver_steps": 1,
+            "paid_input_drift": 0.1376953125,
+            "paid_probe_drift": 0.1240234375,
+            "dynamic_threshold": 0.2021484375,
+            "accumulator_before_action": 0.1240234375,
+            "native_cycle_reset": false
+          },
+          {
+            "call": 48,
+            "cfg_slot": 1,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": true,
+            "age_solver_steps": 1,
+            "paid_input_drift": 0.1376953125,
+            "paid_probe_drift": 0.123046875,
+            "dynamic_threshold": 0.205078125,
+            "accumulator_before_action": 0.123046875,
+            "native_cycle_reset": false
+          }
+        ],
+        "DD": [
+          {
+            "call": 47,
+            "cfg_slot": 0,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": true,
+            "age_solver_steps": 1,
+            "paid_input_drift": 0.1376953125,
+            "paid_probe_drift": 0.1240234375,
+            "dynamic_threshold": 0.2021484375,
+            "accumulator_before_action": 0.1240234375,
+            "native_cycle_reset": false
+          },
+          {
+            "call": 48,
+            "cfg_slot": 1,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": true,
+            "age_solver_steps": 1,
+            "paid_input_drift": 0.1376953125,
+            "paid_probe_drift": 0.123046875,
+            "dynamic_threshold": 0.205078125,
+            "accumulator_before_action": 0.123046875,
+            "native_cycle_reset": false
+          }
+        ]
+      },
+      "origin_own_full_history": [
+        [
+          22,
+          23
+        ],
+        [
+          22,
+          23
+        ]
+      ]
+    },
+    {
+      "seed": 2,
+      "origin": "S23_after_DD",
+      "repeat": "second",
+      "paid_by_cell": {
+        "CC": [
+          {
+            "call": 47,
+            "cfg_slot": 0,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": true,
+            "age_solver_steps": 1,
+            "paid_input_drift": 0.1376953125,
+            "paid_probe_drift": 0.1240234375,
+            "dynamic_threshold": 0.2021484375,
+            "accumulator_before_action": 0.1240234375,
+            "native_cycle_reset": false
+          },
+          {
+            "call": 48,
+            "cfg_slot": 1,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": true,
+            "age_solver_steps": 1,
+            "paid_input_drift": 0.1376953125,
+            "paid_probe_drift": 0.123046875,
+            "dynamic_threshold": 0.205078125,
+            "accumulator_before_action": 0.123046875,
+            "native_cycle_reset": false
+          }
+        ],
+        "DC": [
+          {
+            "call": 47,
+            "cfg_slot": 0,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": true,
+            "age_solver_steps": 1,
+            "paid_input_drift": 0.1376953125,
+            "paid_probe_drift": 0.1240234375,
+            "dynamic_threshold": 0.2021484375,
+            "accumulator_before_action": 0.1240234375,
+            "native_cycle_reset": false
+          },
+          {
+            "call": 48,
+            "cfg_slot": 1,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": true,
+            "age_solver_steps": 1,
+            "paid_input_drift": 0.1376953125,
+            "paid_probe_drift": 0.123046875,
+            "dynamic_threshold": 0.205078125,
+            "accumulator_before_action": 0.123046875,
+            "native_cycle_reset": false
+          }
+        ],
+        "CD": [
+          {
+            "call": 47,
+            "cfg_slot": 0,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": true,
+            "age_solver_steps": 1,
+            "paid_input_drift": 0.1376953125,
+            "paid_probe_drift": 0.1240234375,
+            "dynamic_threshold": 0.2021484375,
+            "accumulator_before_action": 0.1240234375,
+            "native_cycle_reset": false
+          },
+          {
+            "call": 48,
+            "cfg_slot": 1,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": true,
+            "age_solver_steps": 1,
+            "paid_input_drift": 0.1376953125,
+            "paid_probe_drift": 0.123046875,
+            "dynamic_threshold": 0.205078125,
+            "accumulator_before_action": 0.123046875,
+            "native_cycle_reset": false
+          }
+        ],
+        "DD": [
+          {
+            "call": 47,
+            "cfg_slot": 0,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": true,
+            "age_solver_steps": 1,
+            "paid_input_drift": 0.1376953125,
+            "paid_probe_drift": 0.1240234375,
+            "dynamic_threshold": 0.2021484375,
+            "accumulator_before_action": 0.1240234375,
+            "native_cycle_reset": false
+          },
+          {
+            "call": 48,
+            "cfg_slot": 1,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": true,
+            "age_solver_steps": 1,
+            "paid_input_drift": 0.1376953125,
+            "paid_probe_drift": 0.123046875,
+            "dynamic_threshold": 0.205078125,
+            "accumulator_before_action": 0.123046875,
+            "native_cycle_reset": false
+          }
+        ]
+      },
+      "origin_own_full_history": [
+        [
+          22,
+          23
+        ],
+        [
+          22,
+          23
+        ]
+      ]
+    },
+    {
+      "seed": 3,
+      "origin": "S22",
+      "repeat": "first",
+      "paid_by_cell": {
+        "CC": [
+          {
+            "call": 45,
+            "cfg_slot": 0,
+            "solver_step": 23,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": true,
+            "age_solver_steps": 2,
+            "paid_input_drift": 0.11376953125,
+            "paid_probe_drift": 0.10302734375,
+            "dynamic_threshold": 0.203125,
+            "accumulator_before_action": 0.1943359375,
+            "native_cycle_reset": false
+          },
+          {
+            "call": 46,
+            "cfg_slot": 1,
+            "solver_step": 23,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": true,
+            "age_solver_steps": 2,
+            "paid_input_drift": 0.11376953125,
+            "paid_probe_drift": 0.10302734375,
+            "dynamic_threshold": 0.20703125,
+            "accumulator_before_action": 0.1953125,
+            "native_cycle_reset": false
+          }
+        ],
+        "DC": [
+          {
+            "call": 45,
+            "cfg_slot": 0,
+            "solver_step": 23,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": true,
+            "age_solver_steps": 2,
+            "paid_input_drift": 0.11376953125,
+            "paid_probe_drift": 0.10302734375,
+            "dynamic_threshold": 0.203125,
+            "accumulator_before_action": 0.1943359375,
+            "native_cycle_reset": false
+          },
+          {
+            "call": 46,
+            "cfg_slot": 1,
+            "solver_step": 23,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": true,
+            "age_solver_steps": 2,
+            "paid_input_drift": 0.11376953125,
+            "paid_probe_drift": 0.10302734375,
+            "dynamic_threshold": 0.20703125,
+            "accumulator_before_action": 0.1953125,
+            "native_cycle_reset": false
+          }
+        ],
+        "CD": [
+          {
+            "call": 45,
+            "cfg_slot": 0,
+            "solver_step": 23,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": true,
+            "age_solver_steps": 2,
+            "paid_input_drift": 0.11376953125,
+            "paid_probe_drift": 0.10302734375,
+            "dynamic_threshold": 0.203125,
+            "accumulator_before_action": 0.1943359375,
+            "native_cycle_reset": false
+          },
+          {
+            "call": 46,
+            "cfg_slot": 1,
+            "solver_step": 23,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": true,
+            "age_solver_steps": 2,
+            "paid_input_drift": 0.11376953125,
+            "paid_probe_drift": 0.10302734375,
+            "dynamic_threshold": 0.20703125,
+            "accumulator_before_action": 0.1953125,
+            "native_cycle_reset": false
+          }
+        ],
+        "DD": [
+          {
+            "call": 45,
+            "cfg_slot": 0,
+            "solver_step": 23,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": true,
+            "age_solver_steps": 2,
+            "paid_input_drift": 0.11376953125,
+            "paid_probe_drift": 0.10302734375,
+            "dynamic_threshold": 0.203125,
+            "accumulator_before_action": 0.1943359375,
+            "native_cycle_reset": false
+          },
+          {
+            "call": 46,
+            "cfg_slot": 1,
+            "solver_step": 23,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": true,
+            "age_solver_steps": 2,
+            "paid_input_drift": 0.11376953125,
+            "paid_probe_drift": 0.10302734375,
+            "dynamic_threshold": 0.20703125,
+            "accumulator_before_action": 0.1953125,
+            "native_cycle_reset": false
+          }
+        ]
+      },
+      "origin_own_full_history": [
+        [
+          17,
+          21
+        ],
+        [
+          17,
+          21
+        ]
+      ]
+    },
+    {
+      "seed": 3,
+      "origin": "S22",
+      "repeat": "second",
+      "paid_by_cell": {
+        "CC": [
+          {
+            "call": 45,
+            "cfg_slot": 0,
+            "solver_step": 23,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": true,
+            "age_solver_steps": 2,
+            "paid_input_drift": 0.11376953125,
+            "paid_probe_drift": 0.10302734375,
+            "dynamic_threshold": 0.203125,
+            "accumulator_before_action": 0.1943359375,
+            "native_cycle_reset": false
+          },
+          {
+            "call": 46,
+            "cfg_slot": 1,
+            "solver_step": 23,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": true,
+            "age_solver_steps": 2,
+            "paid_input_drift": 0.11376953125,
+            "paid_probe_drift": 0.10302734375,
+            "dynamic_threshold": 0.20703125,
+            "accumulator_before_action": 0.1953125,
+            "native_cycle_reset": false
+          }
+        ],
+        "DC": [
+          {
+            "call": 45,
+            "cfg_slot": 0,
+            "solver_step": 23,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": true,
+            "age_solver_steps": 2,
+            "paid_input_drift": 0.11376953125,
+            "paid_probe_drift": 0.10302734375,
+            "dynamic_threshold": 0.203125,
+            "accumulator_before_action": 0.1943359375,
+            "native_cycle_reset": false
+          },
+          {
+            "call": 46,
+            "cfg_slot": 1,
+            "solver_step": 23,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": true,
+            "age_solver_steps": 2,
+            "paid_input_drift": 0.11376953125,
+            "paid_probe_drift": 0.10302734375,
+            "dynamic_threshold": 0.20703125,
+            "accumulator_before_action": 0.1953125,
+            "native_cycle_reset": false
+          }
+        ],
+        "CD": [
+          {
+            "call": 45,
+            "cfg_slot": 0,
+            "solver_step": 23,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": true,
+            "age_solver_steps": 2,
+            "paid_input_drift": 0.11376953125,
+            "paid_probe_drift": 0.10302734375,
+            "dynamic_threshold": 0.203125,
+            "accumulator_before_action": 0.1943359375,
+            "native_cycle_reset": false
+          },
+          {
+            "call": 46,
+            "cfg_slot": 1,
+            "solver_step": 23,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": true,
+            "age_solver_steps": 2,
+            "paid_input_drift": 0.11376953125,
+            "paid_probe_drift": 0.10302734375,
+            "dynamic_threshold": 0.20703125,
+            "accumulator_before_action": 0.1953125,
+            "native_cycle_reset": false
+          }
+        ],
+        "DD": [
+          {
+            "call": 45,
+            "cfg_slot": 0,
+            "solver_step": 23,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": true,
+            "age_solver_steps": 2,
+            "paid_input_drift": 0.11376953125,
+            "paid_probe_drift": 0.10302734375,
+            "dynamic_threshold": 0.203125,
+            "accumulator_before_action": 0.1943359375,
+            "native_cycle_reset": false
+          },
+          {
+            "call": 46,
+            "cfg_slot": 1,
+            "solver_step": 23,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": true,
+            "age_solver_steps": 2,
+            "paid_input_drift": 0.11376953125,
+            "paid_probe_drift": 0.10302734375,
+            "dynamic_threshold": 0.20703125,
+            "accumulator_before_action": 0.1953125,
+            "native_cycle_reset": false
+          }
+        ]
+      },
+      "origin_own_full_history": [
+        [
+          17,
+          21
+        ],
+        [
+          17,
+          21
+        ]
+      ]
+    },
+    {
+      "seed": 3,
+      "origin": "S23_after_CC",
+      "repeat": "first",
+      "paid_by_cell": {
+        "CC": [
+          {
+            "call": 47,
+            "cfg_slot": 0,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 3,
+            "paid_input_drift": 0.138671875,
+            "paid_probe_drift": 0.1318359375,
+            "dynamic_threshold": 0.201171875,
+            "accumulator_before_action": 0.328125,
+            "native_cycle_reset": false
+          },
+          {
+            "call": 48,
+            "cfg_slot": 1,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 3,
+            "paid_input_drift": 0.138671875,
+            "paid_probe_drift": 0.1337890625,
+            "dynamic_threshold": 0.2041015625,
+            "accumulator_before_action": 0.328125,
+            "native_cycle_reset": false
+          }
+        ],
+        "DC": [
+          {
+            "call": 47,
+            "cfg_slot": 0,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 3,
+            "paid_input_drift": 0.138671875,
+            "paid_probe_drift": 0.1318359375,
+            "dynamic_threshold": 0.201171875,
+            "accumulator_before_action": 0.328125,
+            "native_cycle_reset": false
+          },
+          {
+            "call": 48,
+            "cfg_slot": 1,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 3,
+            "paid_input_drift": 0.138671875,
+            "paid_probe_drift": 0.1337890625,
+            "dynamic_threshold": 0.2041015625,
+            "accumulator_before_action": 0.328125,
+            "native_cycle_reset": false
+          }
+        ],
+        "CD": [
+          {
+            "call": 47,
+            "cfg_slot": 0,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 3,
+            "paid_input_drift": 0.138671875,
+            "paid_probe_drift": 0.1318359375,
+            "dynamic_threshold": 0.201171875,
+            "accumulator_before_action": 0.328125,
+            "native_cycle_reset": false
+          },
+          {
+            "call": 48,
+            "cfg_slot": 1,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 3,
+            "paid_input_drift": 0.138671875,
+            "paid_probe_drift": 0.1337890625,
+            "dynamic_threshold": 0.2041015625,
+            "accumulator_before_action": 0.328125,
+            "native_cycle_reset": false
+          }
+        ],
+        "DD": [
+          {
+            "call": 47,
+            "cfg_slot": 0,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 3,
+            "paid_input_drift": 0.138671875,
+            "paid_probe_drift": 0.1318359375,
+            "dynamic_threshold": 0.201171875,
+            "accumulator_before_action": 0.328125,
+            "native_cycle_reset": false
+          },
+          {
+            "call": 48,
+            "cfg_slot": 1,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 3,
+            "paid_input_drift": 0.138671875,
+            "paid_probe_drift": 0.1337890625,
+            "dynamic_threshold": 0.2041015625,
+            "accumulator_before_action": 0.328125,
+            "native_cycle_reset": false
+          }
+        ]
+      },
+      "origin_own_full_history": [
+        [
+          17,
+          21
+        ],
+        [
+          17,
+          21
+        ]
+      ]
+    },
+    {
+      "seed": 3,
+      "origin": "S23_after_CC",
+      "repeat": "second",
+      "paid_by_cell": {
+        "CC": [
+          {
+            "call": 47,
+            "cfg_slot": 0,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 3,
+            "paid_input_drift": 0.138671875,
+            "paid_probe_drift": 0.1318359375,
+            "dynamic_threshold": 0.201171875,
+            "accumulator_before_action": 0.328125,
+            "native_cycle_reset": false
+          },
+          {
+            "call": 48,
+            "cfg_slot": 1,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 3,
+            "paid_input_drift": 0.138671875,
+            "paid_probe_drift": 0.1337890625,
+            "dynamic_threshold": 0.2041015625,
+            "accumulator_before_action": 0.328125,
+            "native_cycle_reset": false
+          }
+        ],
+        "DC": [
+          {
+            "call": 47,
+            "cfg_slot": 0,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 3,
+            "paid_input_drift": 0.138671875,
+            "paid_probe_drift": 0.1318359375,
+            "dynamic_threshold": 0.201171875,
+            "accumulator_before_action": 0.328125,
+            "native_cycle_reset": false
+          },
+          {
+            "call": 48,
+            "cfg_slot": 1,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 3,
+            "paid_input_drift": 0.138671875,
+            "paid_probe_drift": 0.1337890625,
+            "dynamic_threshold": 0.2041015625,
+            "accumulator_before_action": 0.328125,
+            "native_cycle_reset": false
+          }
+        ],
+        "CD": [
+          {
+            "call": 47,
+            "cfg_slot": 0,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 3,
+            "paid_input_drift": 0.138671875,
+            "paid_probe_drift": 0.1318359375,
+            "dynamic_threshold": 0.201171875,
+            "accumulator_before_action": 0.328125,
+            "native_cycle_reset": false
+          },
+          {
+            "call": 48,
+            "cfg_slot": 1,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 3,
+            "paid_input_drift": 0.138671875,
+            "paid_probe_drift": 0.1337890625,
+            "dynamic_threshold": 0.2041015625,
+            "accumulator_before_action": 0.328125,
+            "native_cycle_reset": false
+          }
+        ],
+        "DD": [
+          {
+            "call": 47,
+            "cfg_slot": 0,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 3,
+            "paid_input_drift": 0.138671875,
+            "paid_probe_drift": 0.1318359375,
+            "dynamic_threshold": 0.201171875,
+            "accumulator_before_action": 0.328125,
+            "native_cycle_reset": false
+          },
+          {
+            "call": 48,
+            "cfg_slot": 1,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 3,
+            "paid_input_drift": 0.138671875,
+            "paid_probe_drift": 0.1337890625,
+            "dynamic_threshold": 0.2041015625,
+            "accumulator_before_action": 0.328125,
+            "native_cycle_reset": false
+          }
+        ]
+      },
+      "origin_own_full_history": [
+        [
+          17,
+          21
+        ],
+        [
+          17,
+          21
+        ]
+      ]
+    },
+    {
+      "seed": 3,
+      "origin": "S23_after_DC",
+      "repeat": "first",
+      "paid_by_cell": {
+        "CC": [
+          {
+            "call": 47,
+            "cfg_slot": 0,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 1,
+            "paid_input_drift": 0.32421875,
+            "paid_probe_drift": 0.365234375,
+            "dynamic_threshold": 0.15625,
+            "accumulator_before_action": 0.365234375,
+            "native_cycle_reset": false
+          },
+          {
+            "call": 48,
+            "cfg_slot": 1,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 3,
+            "paid_input_drift": 0.32421875,
+            "paid_probe_drift": 0.37109375,
+            "dynamic_threshold": 0.158203125,
+            "accumulator_before_action": 0.56640625,
+            "native_cycle_reset": false
+          }
+        ],
+        "DC": [
+          {
+            "call": 47,
+            "cfg_slot": 0,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 1,
+            "paid_input_drift": 0.32421875,
+            "paid_probe_drift": 0.365234375,
+            "dynamic_threshold": 0.15625,
+            "accumulator_before_action": 0.365234375,
+            "native_cycle_reset": false
+          },
+          {
+            "call": 48,
+            "cfg_slot": 1,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 3,
+            "paid_input_drift": 0.32421875,
+            "paid_probe_drift": 0.37109375,
+            "dynamic_threshold": 0.158203125,
+            "accumulator_before_action": 0.56640625,
+            "native_cycle_reset": false
+          }
+        ],
+        "CD": [
+          {
+            "call": 47,
+            "cfg_slot": 0,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 1,
+            "paid_input_drift": 0.32421875,
+            "paid_probe_drift": 0.365234375,
+            "dynamic_threshold": 0.15625,
+            "accumulator_before_action": 0.365234375,
+            "native_cycle_reset": false
+          },
+          {
+            "call": 48,
+            "cfg_slot": 1,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 3,
+            "paid_input_drift": 0.32421875,
+            "paid_probe_drift": 0.37109375,
+            "dynamic_threshold": 0.158203125,
+            "accumulator_before_action": 0.56640625,
+            "native_cycle_reset": false
+          }
+        ],
+        "DD": [
+          {
+            "call": 47,
+            "cfg_slot": 0,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 1,
+            "paid_input_drift": 0.32421875,
+            "paid_probe_drift": 0.365234375,
+            "dynamic_threshold": 0.15625,
+            "accumulator_before_action": 0.365234375,
+            "native_cycle_reset": false
+          },
+          {
+            "call": 48,
+            "cfg_slot": 1,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 3,
+            "paid_input_drift": 0.32421875,
+            "paid_probe_drift": 0.37109375,
+            "dynamic_threshold": 0.158203125,
+            "accumulator_before_action": 0.56640625,
+            "native_cycle_reset": false
+          }
+        ]
+      },
+      "origin_own_full_history": [
+        [
+          21,
+          23
+        ],
+        [
+          17,
+          21
+        ]
+      ]
+    },
+    {
+      "seed": 3,
+      "origin": "S23_after_DC",
+      "repeat": "second",
+      "paid_by_cell": {
+        "CC": [
+          {
+            "call": 47,
+            "cfg_slot": 0,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 1,
+            "paid_input_drift": 0.32421875,
+            "paid_probe_drift": 0.365234375,
+            "dynamic_threshold": 0.15625,
+            "accumulator_before_action": 0.365234375,
+            "native_cycle_reset": false
+          },
+          {
+            "call": 48,
+            "cfg_slot": 1,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 3,
+            "paid_input_drift": 0.32421875,
+            "paid_probe_drift": 0.37109375,
+            "dynamic_threshold": 0.158203125,
+            "accumulator_before_action": 0.56640625,
+            "native_cycle_reset": false
+          }
+        ],
+        "DC": [
+          {
+            "call": 47,
+            "cfg_slot": 0,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 1,
+            "paid_input_drift": 0.32421875,
+            "paid_probe_drift": 0.365234375,
+            "dynamic_threshold": 0.15625,
+            "accumulator_before_action": 0.365234375,
+            "native_cycle_reset": false
+          },
+          {
+            "call": 48,
+            "cfg_slot": 1,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 3,
+            "paid_input_drift": 0.32421875,
+            "paid_probe_drift": 0.37109375,
+            "dynamic_threshold": 0.158203125,
+            "accumulator_before_action": 0.56640625,
+            "native_cycle_reset": false
+          }
+        ],
+        "CD": [
+          {
+            "call": 47,
+            "cfg_slot": 0,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 1,
+            "paid_input_drift": 0.32421875,
+            "paid_probe_drift": 0.365234375,
+            "dynamic_threshold": 0.15625,
+            "accumulator_before_action": 0.365234375,
+            "native_cycle_reset": false
+          },
+          {
+            "call": 48,
+            "cfg_slot": 1,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 3,
+            "paid_input_drift": 0.32421875,
+            "paid_probe_drift": 0.37109375,
+            "dynamic_threshold": 0.158203125,
+            "accumulator_before_action": 0.56640625,
+            "native_cycle_reset": false
+          }
+        ],
+        "DD": [
+          {
+            "call": 47,
+            "cfg_slot": 0,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 1,
+            "paid_input_drift": 0.32421875,
+            "paid_probe_drift": 0.365234375,
+            "dynamic_threshold": 0.15625,
+            "accumulator_before_action": 0.365234375,
+            "native_cycle_reset": false
+          },
+          {
+            "call": 48,
+            "cfg_slot": 1,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 3,
+            "paid_input_drift": 0.32421875,
+            "paid_probe_drift": 0.37109375,
+            "dynamic_threshold": 0.158203125,
+            "accumulator_before_action": 0.56640625,
+            "native_cycle_reset": false
+          }
+        ]
+      },
+      "origin_own_full_history": [
+        [
+          21,
+          23
+        ],
+        [
+          17,
+          21
+        ]
+      ]
+    },
+    {
+      "seed": 3,
+      "origin": "S23_after_CD",
+      "repeat": "first",
+      "paid_by_cell": {
+        "CC": [
+          {
+            "call": 47,
+            "cfg_slot": 0,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 3,
+            "paid_input_drift": 0.2099609375,
+            "paid_probe_drift": 0.3125,
+            "dynamic_threshold": 0.1806640625,
+            "accumulator_before_action": 0.5078125,
+            "native_cycle_reset": false
+          },
+          {
+            "call": 48,
+            "cfg_slot": 1,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 1,
+            "paid_input_drift": 0.2099609375,
+            "paid_probe_drift": 0.314453125,
+            "dynamic_threshold": 0.18359375,
+            "accumulator_before_action": 0.314453125,
+            "native_cycle_reset": false
+          }
+        ],
+        "DC": [
+          {
+            "call": 47,
+            "cfg_slot": 0,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 3,
+            "paid_input_drift": 0.2099609375,
+            "paid_probe_drift": 0.3125,
+            "dynamic_threshold": 0.1806640625,
+            "accumulator_before_action": 0.5078125,
+            "native_cycle_reset": false
+          },
+          {
+            "call": 48,
+            "cfg_slot": 1,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 1,
+            "paid_input_drift": 0.2099609375,
+            "paid_probe_drift": 0.314453125,
+            "dynamic_threshold": 0.18359375,
+            "accumulator_before_action": 0.314453125,
+            "native_cycle_reset": false
+          }
+        ],
+        "CD": [
+          {
+            "call": 47,
+            "cfg_slot": 0,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 3,
+            "paid_input_drift": 0.2099609375,
+            "paid_probe_drift": 0.3125,
+            "dynamic_threshold": 0.1806640625,
+            "accumulator_before_action": 0.5078125,
+            "native_cycle_reset": false
+          },
+          {
+            "call": 48,
+            "cfg_slot": 1,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 1,
+            "paid_input_drift": 0.2099609375,
+            "paid_probe_drift": 0.314453125,
+            "dynamic_threshold": 0.18359375,
+            "accumulator_before_action": 0.314453125,
+            "native_cycle_reset": false
+          }
+        ],
+        "DD": [
+          {
+            "call": 47,
+            "cfg_slot": 0,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 3,
+            "paid_input_drift": 0.2099609375,
+            "paid_probe_drift": 0.3125,
+            "dynamic_threshold": 0.1806640625,
+            "accumulator_before_action": 0.5078125,
+            "native_cycle_reset": false
+          },
+          {
+            "call": 48,
+            "cfg_slot": 1,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 1,
+            "paid_input_drift": 0.2099609375,
+            "paid_probe_drift": 0.314453125,
+            "dynamic_threshold": 0.18359375,
+            "accumulator_before_action": 0.314453125,
+            "native_cycle_reset": false
+          }
+        ]
+      },
+      "origin_own_full_history": [
+        [
+          17,
+          21
+        ],
+        [
+          21,
+          23
+        ]
+      ]
+    },
+    {
+      "seed": 3,
+      "origin": "S23_after_CD",
+      "repeat": "second",
+      "paid_by_cell": {
+        "CC": [
+          {
+            "call": 47,
+            "cfg_slot": 0,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 3,
+            "paid_input_drift": 0.2099609375,
+            "paid_probe_drift": 0.3125,
+            "dynamic_threshold": 0.1806640625,
+            "accumulator_before_action": 0.5078125,
+            "native_cycle_reset": false
+          },
+          {
+            "call": 48,
+            "cfg_slot": 1,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 1,
+            "paid_input_drift": 0.2099609375,
+            "paid_probe_drift": 0.314453125,
+            "dynamic_threshold": 0.18359375,
+            "accumulator_before_action": 0.314453125,
+            "native_cycle_reset": false
+          }
+        ],
+        "DC": [
+          {
+            "call": 47,
+            "cfg_slot": 0,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 3,
+            "paid_input_drift": 0.2099609375,
+            "paid_probe_drift": 0.3125,
+            "dynamic_threshold": 0.1806640625,
+            "accumulator_before_action": 0.5078125,
+            "native_cycle_reset": false
+          },
+          {
+            "call": 48,
+            "cfg_slot": 1,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 1,
+            "paid_input_drift": 0.2099609375,
+            "paid_probe_drift": 0.314453125,
+            "dynamic_threshold": 0.18359375,
+            "accumulator_before_action": 0.314453125,
+            "native_cycle_reset": false
+          }
+        ],
+        "CD": [
+          {
+            "call": 47,
+            "cfg_slot": 0,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 3,
+            "paid_input_drift": 0.2099609375,
+            "paid_probe_drift": 0.3125,
+            "dynamic_threshold": 0.1806640625,
+            "accumulator_before_action": 0.5078125,
+            "native_cycle_reset": false
+          },
+          {
+            "call": 48,
+            "cfg_slot": 1,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 1,
+            "paid_input_drift": 0.2099609375,
+            "paid_probe_drift": 0.314453125,
+            "dynamic_threshold": 0.18359375,
+            "accumulator_before_action": 0.314453125,
+            "native_cycle_reset": false
+          }
+        ],
+        "DD": [
+          {
+            "call": 47,
+            "cfg_slot": 0,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 3,
+            "paid_input_drift": 0.2099609375,
+            "paid_probe_drift": 0.3125,
+            "dynamic_threshold": 0.1806640625,
+            "accumulator_before_action": 0.5078125,
+            "native_cycle_reset": false
+          },
+          {
+            "call": 48,
+            "cfg_slot": 1,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": false,
+            "age_solver_steps": 1,
+            "paid_input_drift": 0.2099609375,
+            "paid_probe_drift": 0.314453125,
+            "dynamic_threshold": 0.18359375,
+            "accumulator_before_action": 0.314453125,
+            "native_cycle_reset": false
+          }
+        ]
+      },
+      "origin_own_full_history": [
+        [
+          17,
+          21
+        ],
+        [
+          21,
+          23
+        ]
+      ]
+    },
+    {
+      "seed": 3,
+      "origin": "S23_after_DD",
+      "repeat": "first",
+      "paid_by_cell": {
+        "CC": [
+          {
+            "call": 47,
+            "cfg_slot": 0,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": true,
+            "age_solver_steps": 1,
+            "paid_input_drift": 0.13671875,
+            "paid_probe_drift": 0.1279296875,
+            "dynamic_threshold": 0.2021484375,
+            "accumulator_before_action": 0.1279296875,
+            "native_cycle_reset": false
+          },
+          {
+            "call": 48,
+            "cfg_slot": 1,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": true,
+            "age_solver_steps": 1,
+            "paid_input_drift": 0.13671875,
+            "paid_probe_drift": 0.12890625,
+            "dynamic_threshold": 0.205078125,
+            "accumulator_before_action": 0.12890625,
+            "native_cycle_reset": false
+          }
+        ],
+        "DC": [
+          {
+            "call": 47,
+            "cfg_slot": 0,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": true,
+            "age_solver_steps": 1,
+            "paid_input_drift": 0.13671875,
+            "paid_probe_drift": 0.1279296875,
+            "dynamic_threshold": 0.2021484375,
+            "accumulator_before_action": 0.1279296875,
+            "native_cycle_reset": false
+          },
+          {
+            "call": 48,
+            "cfg_slot": 1,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": true,
+            "age_solver_steps": 1,
+            "paid_input_drift": 0.13671875,
+            "paid_probe_drift": 0.12890625,
+            "dynamic_threshold": 0.205078125,
+            "accumulator_before_action": 0.12890625,
+            "native_cycle_reset": false
+          }
+        ],
+        "CD": [
+          {
+            "call": 47,
+            "cfg_slot": 0,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": true,
+            "age_solver_steps": 1,
+            "paid_input_drift": 0.13671875,
+            "paid_probe_drift": 0.1279296875,
+            "dynamic_threshold": 0.2021484375,
+            "accumulator_before_action": 0.1279296875,
+            "native_cycle_reset": false
+          },
+          {
+            "call": 48,
+            "cfg_slot": 1,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": true,
+            "age_solver_steps": 1,
+            "paid_input_drift": 0.13671875,
+            "paid_probe_drift": 0.12890625,
+            "dynamic_threshold": 0.205078125,
+            "accumulator_before_action": 0.12890625,
+            "native_cycle_reset": false
+          }
+        ],
+        "DD": [
+          {
+            "call": 47,
+            "cfg_slot": 0,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": true,
+            "age_solver_steps": 1,
+            "paid_input_drift": 0.13671875,
+            "paid_probe_drift": 0.1279296875,
+            "dynamic_threshold": 0.2021484375,
+            "accumulator_before_action": 0.1279296875,
+            "native_cycle_reset": false
+          },
+          {
+            "call": 48,
+            "cfg_slot": 1,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": true,
+            "age_solver_steps": 1,
+            "paid_input_drift": 0.13671875,
+            "paid_probe_drift": 0.12890625,
+            "dynamic_threshold": 0.205078125,
+            "accumulator_before_action": 0.12890625,
+            "native_cycle_reset": false
+          }
+        ]
+      },
+      "origin_own_full_history": [
+        [
+          21,
+          23
+        ],
+        [
+          21,
+          23
+        ]
+      ]
+    },
+    {
+      "seed": 3,
+      "origin": "S23_after_DD",
+      "repeat": "second",
+      "paid_by_cell": {
+        "CC": [
+          {
+            "call": 47,
+            "cfg_slot": 0,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": true,
+            "age_solver_steps": 1,
+            "paid_input_drift": 0.13671875,
+            "paid_probe_drift": 0.1279296875,
+            "dynamic_threshold": 0.2021484375,
+            "accumulator_before_action": 0.1279296875,
+            "native_cycle_reset": false
+          },
+          {
+            "call": 48,
+            "cfg_slot": 1,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": true,
+            "age_solver_steps": 1,
+            "paid_input_drift": 0.13671875,
+            "paid_probe_drift": 0.12890625,
+            "dynamic_threshold": 0.205078125,
+            "accumulator_before_action": 0.12890625,
+            "native_cycle_reset": false
+          }
+        ],
+        "DC": [
+          {
+            "call": 47,
+            "cfg_slot": 0,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": true,
+            "age_solver_steps": 1,
+            "paid_input_drift": 0.13671875,
+            "paid_probe_drift": 0.1279296875,
+            "dynamic_threshold": 0.2021484375,
+            "accumulator_before_action": 0.1279296875,
+            "native_cycle_reset": false
+          },
+          {
+            "call": 48,
+            "cfg_slot": 1,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": true,
+            "age_solver_steps": 1,
+            "paid_input_drift": 0.13671875,
+            "paid_probe_drift": 0.12890625,
+            "dynamic_threshold": 0.205078125,
+            "accumulator_before_action": 0.12890625,
+            "native_cycle_reset": false
+          }
+        ],
+        "CD": [
+          {
+            "call": 47,
+            "cfg_slot": 0,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": true,
+            "age_solver_steps": 1,
+            "paid_input_drift": 0.13671875,
+            "paid_probe_drift": 0.1279296875,
+            "dynamic_threshold": 0.2021484375,
+            "accumulator_before_action": 0.1279296875,
+            "native_cycle_reset": false
+          },
+          {
+            "call": 48,
+            "cfg_slot": 1,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": true,
+            "age_solver_steps": 1,
+            "paid_input_drift": 0.13671875,
+            "paid_probe_drift": 0.12890625,
+            "dynamic_threshold": 0.205078125,
+            "accumulator_before_action": 0.12890625,
+            "native_cycle_reset": false
+          }
+        ],
+        "DD": [
+          {
+            "call": 47,
+            "cfg_slot": 0,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": true,
+            "age_solver_steps": 1,
+            "paid_input_drift": 0.13671875,
+            "paid_probe_drift": 0.1279296875,
+            "dynamic_threshold": 0.2021484375,
+            "accumulator_before_action": 0.1279296875,
+            "native_cycle_reset": false
+          },
+          {
+            "call": 48,
+            "cfg_slot": 1,
+            "solver_step": 24,
+            "epoch": 0,
+            "paid_probe": true,
+            "native_skip": true,
+            "age_solver_steps": 1,
+            "paid_input_drift": 0.13671875,
+            "paid_probe_drift": 0.12890625,
+            "dynamic_threshold": 0.205078125,
+            "accumulator_before_action": 0.12890625,
+            "native_cycle_reset": false
+          }
+        ]
+      },
+      "origin_own_full_history": [
+        [
+          21,
+          23
+        ],
+        [
+          21,
+          23
+        ]
+      ]
+    }
+  ],
+  "scope": {
+    "seed_identities": 2,
+    "correlated_contexts": 10,
+    "repeated_proxy_records": 20,
+    "CFG_pairs": 80,
+    "action_events": 160,
+    "strict_repeat_groups": 40
+  },
+  "summary": {
+    "same_paid_observations_contexts": 10,
+    "common_native_suggestion_counts": {
+      "CC": 4,
+      "DC": 0,
+      "CD": 0,
+      "DD": 6
+    },
+    "native_suggestion_local_nondominated_contexts": 10,
+    "mixed_action_nondominated_contexts": [
+      {
+        "seed": 2,
+        "origin": "S23_after_DC",
+        "actions": [
+          "CD"
+        ]
+      }
+    ]
+  },
+  "final_video_and_future_time_labels_missing_preserved": true,
+  "DD_zero_is_teacher_definition": true,
+  "not_independent_validation_or_predictor_fit": true,
+  "no_current_Common_partial_data_used": true,
+  "budget_before_sha256": "25e878bd258e8162f4f6ef5bab586fb45b59d982fc77d443dff9eb75f7cf9b7e",
+  "budget_after_sha256": "25e878bd258e8162f4f6ef5bab586fb45b59d982fc77d443dff9eb75f7cf9b7e",
+  "Torch_imported": false,
+  "GPU_submissions": 0,
+  "CPU_wall_seconds": 0.07590466700000001
+}
