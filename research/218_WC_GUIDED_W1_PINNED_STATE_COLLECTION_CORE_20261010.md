@@ -13,3 +13,5 @@
 [R2原实时进度](../reports/wc_ra_comparison_r2_last_native_live_progress_20261010.json)六方法路径各完整36步，RA目前两场景完整分支均28；Common Native已接受，Human Native仍在执行，原GPU／raw／评分四句柄活。这是计算进度，尚无八路径终态／全93新结果。原R1正负保留，不对子集验收或重投R2。
 
 预算启动前实费32.03426413020637／77.89524658965853，48窗口余45.86098245945216GPUh、70提交／一个R2在途；预留不是实费，原作业退出后按全wall结算。完整单次≤4自主／>4确认，无非必要人评，goal active。旧16路6.704卡仍未批准。
+
+CPU R1 source89a07b6／62源在导入时缺失calibration.py，6.766557秒退出1，尚未执行测试路径；[完整失败原件](../reports/wc_mf_a_collection_core_cpu_r1_terminal_20261010_capture.json)与原stage保留。这是隔离载荷遗漏，非方法负结果。新[CPU R2登记](../manifests/wc_mf_a_collection_core_cpu_r2_preregistration_20261010.json)只补完整本地import依赖闭包，不改算法、四全路径／两个起点及写出失败；新[独立R2部署](../scripts/deploy_wc_mf_a_collection_core_cpu_r2.py)和[原件捕获](../scripts/capture_wc_mf_a_collection_core_cpu_r2.py)不覆盖R1原件。
