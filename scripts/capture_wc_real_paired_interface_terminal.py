@@ -16,7 +16,7 @@ LAUNCH = Path('reports/wc_real_paired_interface_r1_GPU_launch_20261009.json')
 PREFIX = 'reports/wc_real_paired_interface_r1_terminal_20261009_'
 
 
-def independent_native_check(launch, objects):
+def independent_native_check(launch, objects, artifact_path_bindings=None):
     c, gpu, cpu = (objects[k] for k in ('config', 'supervisor', 'CPU_receipt'))
     budget = objects['budget']
     assert gpu['budget_before'] == launch['budget_before']
@@ -66,7 +66,14 @@ def independent_native_check(launch, objects):
             assert a['tensor_sha256']['guided'] == r['guided_sha256']
             assert [a['tensor_sha256'][k] for k in ('conditional', 'unconditional')] == r['branch_sha256']
             captured = next(x for x in result['artifacts'] if x['label'] == r['label'])
-            assert all(captured[k] == a[k] for k in ('path', 'bytes', 'sha256', 'tensor_sha256'))
+            assert all(captured[k] == a[k] for k in ('bytes', 'sha256', 'tensor_sha256'))
+            if artifact_path_bindings is None:
+                assert captured['path'] == a['path']
+            else:
+                alias = artifact_path_bindings[r['label']]
+                assert alias['recorded_path'] == a['path']
+                assert alias['resolved_path'] == captured['path']
+                assert alias['bytes'] == a['bytes'] and alias['sha256'] == a['sha256']
         for observers in (False, True):
             for repetition in ('first', 'second'):
                 old, new = [r for r in group if r['observers'] == observers and r['repetition'] == repetition]

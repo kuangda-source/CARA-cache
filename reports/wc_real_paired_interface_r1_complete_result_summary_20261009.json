@@ -1,0 +1,1254 @@
+{
+  "status": "REAL_MODEL_SAME_ACTION_INTERFACE_COMPLETE_ALL_CONTROLS_NOT_POLICY",
+  "source_revision": "9f01274f55bfaa95dfc0a6016ff4fafca5d82e6d",
+  "complete_local_pairs": 16,
+  "complete_comparisons": 8,
+  "full_state_components": 1216,
+  "actual_FP32_tensors_reconstructed": 48,
+  "full_parent_parity": {
+    "inputs": true,
+    "outputs": true,
+    "deep": true,
+    "banks": true,
+    "solver_outputs": true,
+    "net_measurements": true,
+    "solver_measurements": true,
+    "final_components": true,
+    "final_solver_configuration": true,
+    "sample_return_sha256": true,
+    "final_latent_sha256": true,
+    "flags_before": true,
+    "flags_after": true,
+    "pipeline": true,
+    "video_bytes": true
+  },
+  "complete_videos": 2,
+  "video_shapes": [
+    [
+      93,
+      432,
+      768,
+      3
+    ],
+    [
+      93,
+      432,
+      768,
+      3
+    ]
+  ],
+  "video_sha256": [
+    "cb8b06ab2e3c1af5333bcfab5628e058f83775f36fb4c25222e5263d59f0af6c",
+    "cb8b06ab2e3c1af5333bcfab5628e058f83775f36fb4c25222e5263d59f0af6c"
+  ],
+  "instrumented_cost_all16_by_action_observer": [
+    {
+      "action": "CC",
+      "observers": false,
+      "ORIGINAL": [
+        0.6541957445442677,
+        0.6547482004389167
+      ],
+      "PAIRED": [
+        0.6547590661793947,
+        0.6549427770078182
+      ],
+      "original_mean_seconds": 0.6544719724915922,
+      "paired_mean_seconds": 0.6548509215936065,
+      "paired_over_original": 1.0005790150196525
+    },
+    {
+      "action": "CC",
+      "observers": true,
+      "ORIGINAL": [
+        1.5017547607421875,
+        1.5144707774743438
+      ],
+      "PAIRED": [
+        1.5113432724028826,
+        1.521980713121593
+      ],
+      "original_mean_seconds": 1.5081127691082656,
+      "paired_mean_seconds": 1.5166619927622378,
+      "paired_over_original": 1.0056688225370753
+    },
+    {
+      "action": "DD",
+      "observers": false,
+      "ORIGINAL": [
+        6.675055184401572,
+        6.625964739359915
+      ],
+      "PAIRED": [
+        6.630663293413818,
+        6.632633217610419
+      ],
+      "original_mean_seconds": 6.6505099618807435,
+      "paired_mean_seconds": 6.631648255512118,
+      "paired_over_original": 0.997163870669056
+    },
+    {
+      "action": "DD",
+      "observers": true,
+      "ORIGINAL": [
+        7.492109325714409,
+        7.481418665498495
+      ],
+      "PAIRED": [
+        7.500845103524625,
+        7.4797503454610705
+      ],
+      "original_mean_seconds": 7.486763995606452,
+      "paired_mean_seconds": 7.490297724492848,
+      "paired_over_original": 1.0004719968318048
+    }
+  ],
+  "all16_instrumented_memory": [
+    {
+      "label": "CC_OBS_OFF_first_ORIGINAL",
+      "memory_before": {
+        "status": "EXISTING_CUDA_CONTEXT_OBSERVED",
+        "GPU_measurement": true,
+        "device": 0,
+        "free_bytes": 34532360192,
+        "total_bytes": 50908823552,
+        "allocated_bytes": 9477526528,
+        "reserved_bytes": 15940452352,
+        "max_allocated_bytes": 12475760128,
+        "max_reserved_bytes": 15940452352,
+        "scope": "PYTORCH_CONTEXT_STATS_NOT_ALL_PROCESS_ALLOCATIONS"
+      },
+      "memory_after": {
+        "status": "EXISTING_CUDA_CONTEXT_OBSERVED",
+        "GPU_measurement": true,
+        "device": 0,
+        "free_bytes": 34530263040,
+        "total_bytes": 50908823552,
+        "allocated_bytes": 9501414400,
+        "reserved_bytes": 15942549504,
+        "max_allocated_bytes": 12475760128,
+        "max_reserved_bytes": 15942549504,
+        "scope": "PYTORCH_CONTEXT_STATS_NOT_ALL_PROCESS_ALLOCATIONS"
+      }
+    },
+    {
+      "label": "CC_OBS_OFF_first_PAIRED",
+      "memory_before": {
+        "status": "EXISTING_CUDA_CONTEXT_OBSERVED",
+        "GPU_measurement": true,
+        "device": 0,
+        "free_bytes": 34530263040,
+        "total_bytes": 50908823552,
+        "allocated_bytes": 9477526528,
+        "reserved_bytes": 15942549504,
+        "max_allocated_bytes": 12475760128,
+        "max_reserved_bytes": 15942549504,
+        "scope": "PYTORCH_CONTEXT_STATS_NOT_ALL_PROCESS_ALLOCATIONS"
+      },
+      "memory_after": {
+        "status": "EXISTING_CUDA_CONTEXT_OBSERVED",
+        "GPU_measurement": true,
+        "device": 0,
+        "free_bytes": 34530263040,
+        "total_bytes": 50908823552,
+        "allocated_bytes": 9500464128,
+        "reserved_bytes": 15942549504,
+        "max_allocated_bytes": 12475760128,
+        "max_reserved_bytes": 15942549504,
+        "scope": "PYTORCH_CONTEXT_STATS_NOT_ALL_PROCESS_ALLOCATIONS"
+      }
+    },
+    {
+      "label": "CC_OBS_OFF_second_ORIGINAL",
+      "memory_before": {
+        "status": "EXISTING_CUDA_CONTEXT_OBSERVED",
+        "GPU_measurement": true,
+        "device": 0,
+        "free_bytes": 34530263040,
+        "total_bytes": 50908823552,
+        "allocated_bytes": 9477526528,
+        "reserved_bytes": 15942549504,
+        "max_allocated_bytes": 12475760128,
+        "max_reserved_bytes": 15942549504,
+        "scope": "PYTORCH_CONTEXT_STATS_NOT_ALL_PROCESS_ALLOCATIONS"
+      },
+      "memory_after": {
+        "status": "EXISTING_CUDA_CONTEXT_OBSERVED",
+        "GPU_measurement": true,
+        "device": 0,
+        "free_bytes": 34530263040,
+        "total_bytes": 50908823552,
+        "allocated_bytes": 9500464128,
+        "reserved_bytes": 15942549504,
+        "max_allocated_bytes": 12475760128,
+        "max_reserved_bytes": 15942549504,
+        "scope": "PYTORCH_CONTEXT_STATS_NOT_ALL_PROCESS_ALLOCATIONS"
+      }
+    },
+    {
+      "label": "CC_OBS_OFF_second_PAIRED",
+      "memory_before": {
+        "status": "EXISTING_CUDA_CONTEXT_OBSERVED",
+        "GPU_measurement": true,
+        "device": 0,
+        "free_bytes": 34530263040,
+        "total_bytes": 50908823552,
+        "allocated_bytes": 9478280192,
+        "reserved_bytes": 15942549504,
+        "max_allocated_bytes": 12475760128,
+        "max_reserved_bytes": 15942549504,
+        "scope": "PYTORCH_CONTEXT_STATS_NOT_ALL_PROCESS_ALLOCATIONS"
+      },
+      "memory_after": {
+        "status": "EXISTING_CUDA_CONTEXT_OBSERVED",
+        "GPU_measurement": true,
+        "device": 0,
+        "free_bytes": 34528165888,
+        "total_bytes": 50908823552,
+        "allocated_bytes": 9502168064,
+        "reserved_bytes": 15944646656,
+        "max_allocated_bytes": 12475760128,
+        "max_reserved_bytes": 15944646656,
+        "scope": "PYTORCH_CONTEXT_STATS_NOT_ALL_PROCESS_ALLOCATIONS"
+      }
+    },
+    {
+      "label": "CC_OBS_ON_first_ORIGINAL",
+      "memory_before": {
+        "status": "EXISTING_CUDA_CONTEXT_OBSERVED",
+        "GPU_measurement": true,
+        "device": 0,
+        "free_bytes": 34528165888,
+        "total_bytes": 50908823552,
+        "allocated_bytes": 9478280192,
+        "reserved_bytes": 15944646656,
+        "max_allocated_bytes": 12475760128,
+        "max_reserved_bytes": 15944646656,
+        "scope": "PYTORCH_CONTEXT_STATS_NOT_ALL_PROCESS_ALLOCATIONS"
+      },
+      "memory_after": {
+        "status": "EXISTING_CUDA_CONTEXT_OBSERVED",
+        "GPU_measurement": true,
+        "device": 0,
+        "free_bytes": 34528165888,
+        "total_bytes": 50908823552,
+        "allocated_bytes": 9501217792,
+        "reserved_bytes": 15944646656,
+        "max_allocated_bytes": 12475760128,
+        "max_reserved_bytes": 15944646656,
+        "scope": "PYTORCH_CONTEXT_STATS_NOT_ALL_PROCESS_ALLOCATIONS"
+      }
+    },
+    {
+      "label": "CC_OBS_ON_first_PAIRED",
+      "memory_before": {
+        "status": "EXISTING_CUDA_CONTEXT_OBSERVED",
+        "GPU_measurement": true,
+        "device": 0,
+        "free_bytes": 34528165888,
+        "total_bytes": 50908823552,
+        "allocated_bytes": 9477526528,
+        "reserved_bytes": 15944646656,
+        "max_allocated_bytes": 12475760128,
+        "max_reserved_bytes": 15944646656,
+        "scope": "PYTORCH_CONTEXT_STATS_NOT_ALL_PROCESS_ALLOCATIONS"
+      },
+      "memory_after": {
+        "status": "EXISTING_CUDA_CONTEXT_OBSERVED",
+        "GPU_measurement": true,
+        "device": 0,
+        "free_bytes": 34528165888,
+        "total_bytes": 50908823552,
+        "allocated_bytes": 9500464128,
+        "reserved_bytes": 15944646656,
+        "max_allocated_bytes": 12475760128,
+        "max_reserved_bytes": 15944646656,
+        "scope": "PYTORCH_CONTEXT_STATS_NOT_ALL_PROCESS_ALLOCATIONS"
+      }
+    },
+    {
+      "label": "CC_OBS_ON_second_ORIGINAL",
+      "memory_before": {
+        "status": "EXISTING_CUDA_CONTEXT_OBSERVED",
+        "GPU_measurement": true,
+        "device": 0,
+        "free_bytes": 34528165888,
+        "total_bytes": 50908823552,
+        "allocated_bytes": 9476576256,
+        "reserved_bytes": 15944646656,
+        "max_allocated_bytes": 12475760128,
+        "max_reserved_bytes": 15944646656,
+        "scope": "PYTORCH_CONTEXT_STATS_NOT_ALL_PROCESS_ALLOCATIONS"
+      },
+      "memory_after": {
+        "status": "EXISTING_CUDA_CONTEXT_OBSERVED",
+        "GPU_measurement": true,
+        "device": 0,
+        "free_bytes": 34528165888,
+        "total_bytes": 50908823552,
+        "allocated_bytes": 9501217792,
+        "reserved_bytes": 15944646656,
+        "max_allocated_bytes": 12475760128,
+        "max_reserved_bytes": 15944646656,
+        "scope": "PYTORCH_CONTEXT_STATS_NOT_ALL_PROCESS_ALLOCATIONS"
+      }
+    },
+    {
+      "label": "CC_OBS_ON_second_PAIRED",
+      "memory_before": {
+        "status": "EXISTING_CUDA_CONTEXT_OBSERVED",
+        "GPU_measurement": true,
+        "device": 0,
+        "free_bytes": 34528165888,
+        "total_bytes": 50908823552,
+        "allocated_bytes": 9478280192,
+        "reserved_bytes": 15944646656,
+        "max_allocated_bytes": 12475760128,
+        "max_reserved_bytes": 15944646656,
+        "scope": "PYTORCH_CONTEXT_STATS_NOT_ALL_PROCESS_ALLOCATIONS"
+      },
+      "memory_after": {
+        "status": "EXISTING_CUDA_CONTEXT_OBSERVED",
+        "GPU_measurement": true,
+        "device": 0,
+        "free_bytes": 34528165888,
+        "total_bytes": 50908823552,
+        "allocated_bytes": 9501217792,
+        "reserved_bytes": 15944646656,
+        "max_allocated_bytes": 12475760128,
+        "max_reserved_bytes": 15944646656,
+        "scope": "PYTORCH_CONTEXT_STATS_NOT_ALL_PROCESS_ALLOCATIONS"
+      }
+    },
+    {
+      "label": "DD_OBS_OFF_first_ORIGINAL",
+      "memory_before": {
+        "status": "EXISTING_CUDA_CONTEXT_OBSERVED",
+        "GPU_measurement": true,
+        "device": 0,
+        "free_bytes": 34528165888,
+        "total_bytes": 50908823552,
+        "allocated_bytes": 9476576256,
+        "reserved_bytes": 15944646656,
+        "max_allocated_bytes": 12475760128,
+        "max_reserved_bytes": 15944646656,
+        "scope": "PYTORCH_CONTEXT_STATS_NOT_ALL_PROCESS_ALLOCATIONS"
+      },
+      "memory_after": {
+        "status": "EXISTING_CUDA_CONTEXT_OBSERVED",
+        "GPU_measurement": true,
+        "device": 0,
+        "free_bytes": 34528165888,
+        "total_bytes": 50908823552,
+        "allocated_bytes": 9501216768,
+        "reserved_bytes": 15944646656,
+        "max_allocated_bytes": 12475760128,
+        "max_reserved_bytes": 15944646656,
+        "scope": "PYTORCH_CONTEXT_STATS_NOT_ALL_PROCESS_ALLOCATIONS"
+      }
+    },
+    {
+      "label": "DD_OBS_OFF_first_PAIRED",
+      "memory_before": {
+        "status": "EXISTING_CUDA_CONTEXT_OBSERVED",
+        "GPU_measurement": true,
+        "device": 0,
+        "free_bytes": 34528165888,
+        "total_bytes": 50908823552,
+        "allocated_bytes": 9476576256,
+        "reserved_bytes": 15944646656,
+        "max_allocated_bytes": 12475760128,
+        "max_reserved_bytes": 15944646656,
+        "scope": "PYTORCH_CONTEXT_STATS_NOT_ALL_PROCESS_ALLOCATIONS"
+      },
+      "memory_after": {
+        "status": "EXISTING_CUDA_CONTEXT_OBSERVED",
+        "GPU_measurement": true,
+        "device": 0,
+        "free_bytes": 34528165888,
+        "total_bytes": 50908823552,
+        "allocated_bytes": 9500463104,
+        "reserved_bytes": 15944646656,
+        "max_allocated_bytes": 12475760128,
+        "max_reserved_bytes": 15944646656,
+        "scope": "PYTORCH_CONTEXT_STATS_NOT_ALL_PROCESS_ALLOCATIONS"
+      }
+    },
+    {
+      "label": "DD_OBS_OFF_second_ORIGINAL",
+      "memory_before": {
+        "status": "EXISTING_CUDA_CONTEXT_OBSERVED",
+        "GPU_measurement": true,
+        "device": 0,
+        "free_bytes": 34528165888,
+        "total_bytes": 50908823552,
+        "allocated_bytes": 9476576256,
+        "reserved_bytes": 15944646656,
+        "max_allocated_bytes": 12475760128,
+        "max_reserved_bytes": 15944646656,
+        "scope": "PYTORCH_CONTEXT_STATS_NOT_ALL_PROCESS_ALLOCATIONS"
+      },
+      "memory_after": {
+        "status": "EXISTING_CUDA_CONTEXT_OBSERVED",
+        "GPU_measurement": true,
+        "device": 0,
+        "free_bytes": 34528165888,
+        "total_bytes": 50908823552,
+        "allocated_bytes": 9500463104,
+        "reserved_bytes": 15944646656,
+        "max_allocated_bytes": 12475760128,
+        "max_reserved_bytes": 15944646656,
+        "scope": "PYTORCH_CONTEXT_STATS_NOT_ALL_PROCESS_ALLOCATIONS"
+      }
+    },
+    {
+      "label": "DD_OBS_OFF_second_PAIRED",
+      "memory_before": {
+        "status": "EXISTING_CUDA_CONTEXT_OBSERVED",
+        "GPU_measurement": true,
+        "device": 0,
+        "free_bytes": 34528165888,
+        "total_bytes": 50908823552,
+        "allocated_bytes": 9476576256,
+        "reserved_bytes": 15944646656,
+        "max_allocated_bytes": 12475760128,
+        "max_reserved_bytes": 15944646656,
+        "scope": "PYTORCH_CONTEXT_STATS_NOT_ALL_PROCESS_ALLOCATIONS"
+      },
+      "memory_after": {
+        "status": "EXISTING_CUDA_CONTEXT_OBSERVED",
+        "GPU_measurement": true,
+        "device": 0,
+        "free_bytes": 34528165888,
+        "total_bytes": 50908823552,
+        "allocated_bytes": 9501413376,
+        "reserved_bytes": 15944646656,
+        "max_allocated_bytes": 12475760128,
+        "max_reserved_bytes": 15944646656,
+        "scope": "PYTORCH_CONTEXT_STATS_NOT_ALL_PROCESS_ALLOCATIONS"
+      }
+    },
+    {
+      "label": "DD_OBS_ON_first_ORIGINAL",
+      "memory_before": {
+        "status": "EXISTING_CUDA_CONTEXT_OBSERVED",
+        "GPU_measurement": true,
+        "device": 0,
+        "free_bytes": 34528165888,
+        "total_bytes": 50908823552,
+        "allocated_bytes": 9477526528,
+        "reserved_bytes": 15944646656,
+        "max_allocated_bytes": 12475760128,
+        "max_reserved_bytes": 15944646656,
+        "scope": "PYTORCH_CONTEXT_STATS_NOT_ALL_PROCESS_ALLOCATIONS"
+      },
+      "memory_after": {
+        "status": "EXISTING_CUDA_CONTEXT_OBSERVED",
+        "GPU_measurement": true,
+        "device": 0,
+        "free_bytes": 34528165888,
+        "total_bytes": 50908823552,
+        "allocated_bytes": 9500463104,
+        "reserved_bytes": 15944646656,
+        "max_allocated_bytes": 12475760128,
+        "max_reserved_bytes": 15944646656,
+        "scope": "PYTORCH_CONTEXT_STATS_NOT_ALL_PROCESS_ALLOCATIONS"
+      }
+    },
+    {
+      "label": "DD_OBS_ON_first_PAIRED",
+      "memory_before": {
+        "status": "EXISTING_CUDA_CONTEXT_OBSERVED",
+        "GPU_measurement": true,
+        "device": 0,
+        "free_bytes": 34528165888,
+        "total_bytes": 50908823552,
+        "allocated_bytes": 9478280192,
+        "reserved_bytes": 15944646656,
+        "max_allocated_bytes": 12475760128,
+        "max_reserved_bytes": 15944646656,
+        "scope": "PYTORCH_CONTEXT_STATS_NOT_ALL_PROCESS_ALLOCATIONS"
+      },
+      "memory_after": {
+        "status": "EXISTING_CUDA_CONTEXT_OBSERVED",
+        "GPU_measurement": true,
+        "device": 0,
+        "free_bytes": 34528165888,
+        "total_bytes": 50908823552,
+        "allocated_bytes": 9501216768,
+        "reserved_bytes": 15944646656,
+        "max_allocated_bytes": 12475760128,
+        "max_reserved_bytes": 15944646656,
+        "scope": "PYTORCH_CONTEXT_STATS_NOT_ALL_PROCESS_ALLOCATIONS"
+      }
+    },
+    {
+      "label": "DD_OBS_ON_second_ORIGINAL",
+      "memory_before": {
+        "status": "EXISTING_CUDA_CONTEXT_OBSERVED",
+        "GPU_measurement": true,
+        "device": 0,
+        "free_bytes": 34528165888,
+        "total_bytes": 50908823552,
+        "allocated_bytes": 9478280192,
+        "reserved_bytes": 15944646656,
+        "max_allocated_bytes": 12475760128,
+        "max_reserved_bytes": 15944646656,
+        "scope": "PYTORCH_CONTEXT_STATS_NOT_ALL_PROCESS_ALLOCATIONS"
+      },
+      "memory_after": {
+        "status": "EXISTING_CUDA_CONTEXT_OBSERVED",
+        "GPU_measurement": true,
+        "device": 0,
+        "free_bytes": 34528165888,
+        "total_bytes": 50908823552,
+        "allocated_bytes": 9502167040,
+        "reserved_bytes": 15944646656,
+        "max_allocated_bytes": 12475760128,
+        "max_reserved_bytes": 15944646656,
+        "scope": "PYTORCH_CONTEXT_STATS_NOT_ALL_PROCESS_ALLOCATIONS"
+      }
+    },
+    {
+      "label": "DD_OBS_ON_second_PAIRED",
+      "memory_before": {
+        "status": "EXISTING_CUDA_CONTEXT_OBSERVED",
+        "GPU_measurement": true,
+        "device": 0,
+        "free_bytes": 34528165888,
+        "total_bytes": 50908823552,
+        "allocated_bytes": 9478280192,
+        "reserved_bytes": 15944646656,
+        "max_allocated_bytes": 12475760128,
+        "max_reserved_bytes": 15944646656,
+        "scope": "PYTORCH_CONTEXT_STATS_NOT_ALL_PROCESS_ALLOCATIONS"
+      },
+      "memory_after": {
+        "status": "EXISTING_CUDA_CONTEXT_OBSERVED",
+        "GPU_measurement": true,
+        "device": 0,
+        "free_bytes": 34528165888,
+        "total_bytes": 50908823552,
+        "allocated_bytes": 9501216768,
+        "reserved_bytes": 15944646656,
+        "max_allocated_bytes": 12475760128,
+        "max_reserved_bytes": 15944646656,
+        "scope": "PYTORCH_CONTEXT_STATS_NOT_ALL_PROCESS_ALLOCATIONS"
+      }
+    }
+  ],
+  "capture_inventory": {
+    "logical_copy_bytes_by_device": {
+      "cuda:0": 2828989098,
+      "cpu": 148
+    },
+    "tensor_metadata": [
+      {
+        "path": "capture.WC.accumulated_rel_l1_distance.0",
+        "shape": [],
+        "dtype": "torch.bfloat16",
+        "device": "cuda:0",
+        "logical_bytes": 2
+      },
+      {
+        "path": "capture.WC.accumulated_rel_l1_distance.1",
+        "shape": [],
+        "dtype": "torch.bfloat16",
+        "device": "cuda:0",
+        "logical_bytes": 2
+      },
+      {
+        "path": "capture.WC.residual_cache.0",
+        "shape": [
+          1,
+          24,
+          27,
+          48,
+          2048
+        ],
+        "dtype": "torch.bfloat16",
+        "device": "cuda:0",
+        "logical_bytes": 127401984
+      },
+      {
+        "path": "capture.WC.residual_cache.1",
+        "shape": [
+          1,
+          24,
+          27,
+          48,
+          2048
+        ],
+        "dtype": "torch.bfloat16",
+        "device": "cuda:0",
+        "logical_bytes": 127401984
+      },
+      {
+        "path": "capture.WC.probe_residual_cache.0",
+        "shape": [
+          1,
+          24,
+          27,
+          48,
+          2048
+        ],
+        "dtype": "torch.bfloat16",
+        "device": "cuda:0",
+        "logical_bytes": 127401984
+      },
+      {
+        "path": "capture.WC.probe_residual_cache.1",
+        "shape": [
+          1,
+          24,
+          27,
+          48,
+          2048
+        ],
+        "dtype": "torch.bfloat16",
+        "device": "cuda:0",
+        "logical_bytes": 127401984
+      },
+      {
+        "path": "capture.WC.residual_window.0.0",
+        "shape": [
+          1,
+          24,
+          27,
+          48,
+          2048
+        ],
+        "dtype": "torch.bfloat16",
+        "device": "cuda:0",
+        "logical_bytes": 127401984
+      },
+      {
+        "path": "capture.WC.residual_window.0.1",
+        "shape": [
+          1,
+          24,
+          27,
+          48,
+          2048
+        ],
+        "dtype": "torch.bfloat16",
+        "device": "cuda:0",
+        "logical_bytes": 127401984
+      },
+      {
+        "path": "capture.WC.residual_window.0.2",
+        "shape": [
+          1,
+          24,
+          27,
+          48,
+          2048
+        ],
+        "dtype": "torch.bfloat16",
+        "device": "cuda:0",
+        "logical_bytes": 127401984
+      },
+      {
+        "path": "capture.WC.residual_window.1.0",
+        "shape": [
+          1,
+          24,
+          27,
+          48,
+          2048
+        ],
+        "dtype": "torch.bfloat16",
+        "device": "cuda:0",
+        "logical_bytes": 127401984
+      },
+      {
+        "path": "capture.WC.residual_window.1.1",
+        "shape": [
+          1,
+          24,
+          27,
+          48,
+          2048
+        ],
+        "dtype": "torch.bfloat16",
+        "device": "cuda:0",
+        "logical_bytes": 127401984
+      },
+      {
+        "path": "capture.WC.residual_window.1.2",
+        "shape": [
+          1,
+          24,
+          27,
+          48,
+          2048
+        ],
+        "dtype": "torch.bfloat16",
+        "device": "cuda:0",
+        "logical_bytes": 127401984
+      },
+      {
+        "path": "capture.WC.probe_residual_window.0.0",
+        "shape": [
+          1,
+          24,
+          27,
+          48,
+          2048
+        ],
+        "dtype": "torch.bfloat16",
+        "device": "cuda:0",
+        "logical_bytes": 127401984
+      },
+      {
+        "path": "capture.WC.probe_residual_window.0.1",
+        "shape": [
+          1,
+          24,
+          27,
+          48,
+          2048
+        ],
+        "dtype": "torch.bfloat16",
+        "device": "cuda:0",
+        "logical_bytes": 127401984
+      },
+      {
+        "path": "capture.WC.probe_residual_window.0.2",
+        "shape": [
+          1,
+          24,
+          27,
+          48,
+          2048
+        ],
+        "dtype": "torch.bfloat16",
+        "device": "cuda:0",
+        "logical_bytes": 127401984
+      },
+      {
+        "path": "capture.WC.probe_residual_window.1.0",
+        "shape": [
+          1,
+          24,
+          27,
+          48,
+          2048
+        ],
+        "dtype": "torch.bfloat16",
+        "device": "cuda:0",
+        "logical_bytes": 127401984
+      },
+      {
+        "path": "capture.WC.probe_residual_window.1.1",
+        "shape": [
+          1,
+          24,
+          27,
+          48,
+          2048
+        ],
+        "dtype": "torch.bfloat16",
+        "device": "cuda:0",
+        "logical_bytes": 127401984
+      },
+      {
+        "path": "capture.WC.probe_residual_window.1.2",
+        "shape": [
+          1,
+          24,
+          27,
+          48,
+          2048
+        ],
+        "dtype": "torch.bfloat16",
+        "device": "cuda:0",
+        "logical_bytes": 127401984
+      },
+      {
+        "path": "capture.WC.previous_internal_states.0",
+        "shape": [
+          1,
+          24,
+          27,
+          48,
+          2048
+        ],
+        "dtype": "torch.bfloat16",
+        "device": "cuda:0",
+        "logical_bytes": 127401984
+      },
+      {
+        "path": "capture.WC.previous_internal_states.1",
+        "shape": [
+          1,
+          24,
+          27,
+          48,
+          2048
+        ],
+        "dtype": "torch.bfloat16",
+        "device": "cuda:0",
+        "logical_bytes": 127401984
+      },
+      {
+        "path": "capture.WC.previous_input.0",
+        "shape": [
+          1,
+          24,
+          27,
+          48,
+          2048
+        ],
+        "dtype": "torch.bfloat16",
+        "device": "cuda:0",
+        "logical_bytes": 127401984
+      },
+      {
+        "path": "capture.WC.previous_input.1",
+        "shape": [
+          1,
+          24,
+          27,
+          48,
+          2048
+        ],
+        "dtype": "torch.bfloat16",
+        "device": "cuda:0",
+        "logical_bytes": 127401984
+      },
+      {
+        "path": "capture.WC.previous_output.0",
+        "shape": [
+          1,
+          16,
+          24,
+          54,
+          96
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "logical_bytes": 7962624
+      },
+      {
+        "path": "capture.WC.previous_output.1",
+        "shape": [
+          1,
+          16,
+          24,
+          54,
+          96
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "logical_bytes": 7962624
+      },
+      {
+        "path": "capture.WC.affline_scale_log_info.t_embedding_B_T_D",
+        "shape": [
+          1,
+          24,
+          2048
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "logical_bytes": 196608
+      },
+      {
+        "path": "capture.WC.affline_emb",
+        "shape": [
+          1,
+          24,
+          2048
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "logical_bytes": 196608
+      },
+      {
+        "path": "capture.WC.crossattn_emb",
+        "shape": [
+          1,
+          512,
+          1024
+        ],
+        "dtype": "torch.bfloat16",
+        "device": "cuda:0",
+        "logical_bytes": 1048576
+      },
+      {
+        "path": "capture.solver.sigmas",
+        "shape": [
+          37
+        ],
+        "dtype": "torch.float32",
+        "device": "cpu",
+        "logical_bytes": 148
+      },
+      {
+        "path": "capture.solver.timesteps",
+        "shape": [
+          36
+        ],
+        "dtype": "torch.int64",
+        "device": "cuda:0",
+        "logical_bytes": 288
+      },
+      {
+        "path": "capture.solver.model_outputs.0",
+        "shape": [
+          1,
+          1,
+          16,
+          24,
+          54,
+          96
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "logical_bytes": 7962624
+      },
+      {
+        "path": "capture.solver.model_outputs.1",
+        "shape": [
+          1,
+          1,
+          16,
+          24,
+          54,
+          96
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "logical_bytes": 7962624
+      },
+      {
+        "path": "capture.solver.timestep_list.0",
+        "shape": [],
+        "dtype": "torch.int64",
+        "device": "cuda:0",
+        "logical_bytes": 8
+      },
+      {
+        "path": "capture.solver.timestep_list.1",
+        "shape": [],
+        "dtype": "torch.int64",
+        "device": "cuda:0",
+        "logical_bytes": 8
+      },
+      {
+        "path": "capture.solver.last_sample",
+        "shape": [
+          1,
+          1,
+          16,
+          24,
+          54,
+          96
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "logical_bytes": 7962624
+      },
+      {
+        "path": "capture.output",
+        "shape": [
+          1,
+          16,
+          24,
+          54,
+          96
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "logical_bytes": 7962624
+      },
+      {
+        "path": "capture.noise",
+        "shape": [
+          1,
+          16,
+          24,
+          54,
+          96
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "logical_bytes": 7962624
+      },
+      {
+        "path": "capture.conditions.0.crossattn_emb",
+        "shape": [
+          1,
+          512,
+          100352
+        ],
+        "dtype": "torch.bfloat16",
+        "device": "cuda:0",
+        "logical_bytes": 102760448
+      },
+      {
+        "path": "capture.conditions.0.padding_mask",
+        "shape": [
+          1,
+          1,
+          432,
+          768
+        ],
+        "dtype": "torch.bfloat16",
+        "device": "cuda:0",
+        "logical_bytes": 663552
+      },
+      {
+        "path": "capture.conditions.0.fps",
+        "shape": [
+          1
+        ],
+        "dtype": "torch.bfloat16",
+        "device": "cuda:0",
+        "logical_bytes": 2
+      },
+      {
+        "path": "capture.conditions.0.use_video_condition",
+        "shape": [
+          1
+        ],
+        "dtype": "torch.bool",
+        "device": "cuda:0",
+        "logical_bytes": 1
+      },
+      {
+        "path": "capture.conditions.0.gt_frames",
+        "shape": [
+          1,
+          16,
+          24,
+          54,
+          96
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "logical_bytes": 7962624
+      },
+      {
+        "path": "capture.conditions.0.condition_video_input_mask_B_C_T_H_W",
+        "shape": [
+          1,
+          1,
+          24,
+          54,
+          96
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "logical_bytes": 497664
+      },
+      {
+        "path": "capture.conditions.1.crossattn_emb",
+        "shape": [
+          1,
+          512,
+          100352
+        ],
+        "dtype": "torch.bfloat16",
+        "device": "cuda:0",
+        "logical_bytes": 102760448
+      },
+      {
+        "path": "capture.conditions.1.padding_mask",
+        "shape": [
+          1,
+          1,
+          432,
+          768
+        ],
+        "dtype": "torch.bfloat16",
+        "device": "cuda:0",
+        "logical_bytes": 663552
+      },
+      {
+        "path": "capture.conditions.1.fps",
+        "shape": [
+          1
+        ],
+        "dtype": "torch.bfloat16",
+        "device": "cuda:0",
+        "logical_bytes": 2
+      },
+      {
+        "path": "capture.conditions.1.use_video_condition",
+        "shape": [
+          1
+        ],
+        "dtype": "torch.bool",
+        "device": "cuda:0",
+        "logical_bytes": 1
+      },
+      {
+        "path": "capture.conditions.1.gt_frames",
+        "shape": [
+          1,
+          16,
+          24,
+          54,
+          96
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "logical_bytes": 7962624
+      },
+      {
+        "path": "capture.conditions.1.condition_video_input_mask_B_C_T_H_W",
+        "shape": [
+          1,
+          1,
+          24,
+          54,
+          96
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "logical_bytes": 497664
+      },
+      {
+        "path": "capture.buffers.accum_video_sample_counter",
+        "shape": [],
+        "dtype": "torch.int64",
+        "device": "cuda:0",
+        "logical_bytes": 8
+      },
+      {
+        "path": "capture.buffers.accum_image_sample_counter",
+        "shape": [],
+        "dtype": "torch.int64",
+        "device": "cuda:0",
+        "logical_bytes": 8
+      },
+      {
+        "path": "capture.buffers.accum_iteration",
+        "shape": [],
+        "dtype": "torch.int64",
+        "device": "cuda:0",
+        "logical_bytes": 8
+      },
+      {
+        "path": "capture.buffers.accum_train_in_hours",
+        "shape": [],
+        "dtype": "torch.bfloat16",
+        "device": "cuda:0",
+        "logical_bytes": 2
+      },
+      {
+        "path": "capture.buffers.pos_embedder.seq",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.bfloat16",
+        "device": "cuda:0",
+        "logical_bytes": 256
+      },
+      {
+        "path": "capture.buffers.pos_embedder.dim_spatial_range",
+        "shape": [
+          21
+        ],
+        "dtype": "torch.bfloat16",
+        "device": "cuda:0",
+        "logical_bytes": 42
+      },
+      {
+        "path": "capture.buffers.pos_embedder.dim_temporal_range",
+        "shape": [
+          22
+        ],
+        "dtype": "torch.bfloat16",
+        "device": "cuda:0",
+        "logical_bytes": 44
+      }
+    ],
+    "aliases_not_deduplicated": true,
+    "clone_or_transfer_performed": false,
+    "weights_and_total_peak_included": false
+  },
+  "capture_gate": {
+    "logical_tensor_copy_bytes": 2828989246,
+    "GPU_logical_copy_bytes": 2828989098,
+    "GPU_free_bytes": 34534457344,
+    "required_GPU_headroom_bytes": 14247912788,
+    "transient_copy_factor": 2,
+    "workspace_reserve_bytes": 8589934592,
+    "scope": "CAPTURE_ADMISSION_NOT_TOTAL_PEAK_OR_COMPLETE_COST_BOUND"
+  },
+  "model_load_seconds": 103.75471285637468,
+  "parent_instrumented_wall_seconds": [
+    903.8169405059889,
+    2077.0982634285465
+  ],
+  "actual_GPU_wall_seconds": 3125.424149871804,
+  "actual_GPU_hours": 0.86817337496439,
+  "budget_settled": {
+    "batch": "F0-F1",
+    "cap_gpu_hours": 50,
+    "used_gpu_hours": 29.895246589658527,
+    "gpu_jobs_launched": 65,
+    "status": "CFG_TEACHER_SETTLED_AUDIT_PENDING",
+    "gpu_import_probes_completed": 1,
+    "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts",
+    "budget_authorization_ref": "manifests/budget_authorization_20261008_wc_50gpuh.json",
+    "budget_authorization_history": [
+      {
+        "authorized_utc": "2026-10-02T18:03:00Z",
+        "source_thread_id": "01a0f1e6-7ad0-75df-9a02-172b60d2e00b",
+        "user_instruction": "\u628a\u5404\u4e2a\u5b9e\u9a8c\u7684 gpu \u9884\u7b97\u90fd\u8bbe\u7f6e\u4e3a 12gpuh",
+        "previous_cap_gpu_hours": 4,
+        "new_cumulative_cap_gpu_hours": 12,
+        "used_gpu_hours_at_change": 3.9117525685110333,
+        "no_usage_reset_or_transfer": true
+      },
+      {
+        "authorized_utc": "2026-10-04T06:13:36Z",
+        "source_thread_id": "01a0f1e6-7ad0-75df-9a02-172b60d2e00b",
+        "user_message_id": "Sentinel_861e63a87d8c819180ec9a8bcfa6dc92",
+        "user_instruction": "\u5141\u8bb8\u589e\u52a0 GPUh",
+        "previous_cap_gpu_hours": 12,
+        "new_cumulative_cap_gpu_hours": 13,
+        "used_gpu_hours_at_change": 11.022315686839217,
+        "gpu_jobs_launched_at_change": 45,
+        "no_usage_reset_or_transfer": true,
+        "authorization_ref": "manifests/budget_authorization_20261004_wc_13gpuh.json"
+      },
+      {
+        "authorized_on_local": "2026-10-05",
+        "user_instruction": "\u6279\u51c6 WC-W3-SMALL-CD-R1-20261004-A\uff0c\u628a\u7d2f\u8ba1 gpuh \u9650\u5236\u63d0\u5347\u5230 24",
+        "previous_cap_gpu_hours": 13,
+        "new_cumulative_cap_gpu_hours": 24,
+        "used_gpu_hours_at_change": 11.022315686839217,
+        "gpu_jobs_launched_at_change": 45,
+        "no_usage_reset_or_transfer": true,
+        "authorization_ref": "manifests/budget_authorization_20261005_wc_24gpuh.json",
+        "approved_card": "WC-W3-SMALL-CD-R1-20261004-A",
+        "single_run_cap_seconds": 3900
+      },
+      {
+        "authorized_unix": 1791428550.530142,
+        "authorized_on_local": "2026-10-08",
+        "user_instruction": "\u6279\u51c6\u6269\u5927 gpuh\uff0c\u76f4\u63a5\u52a0\u5230 50 \u5427",
+        "previous_cap_gpu_hours": 24,
+        "new_cumulative_cap_gpu_hours": 50,
+        "used_gpu_hours_at_change": 22.314242424184147,
+        "gpu_jobs_launched_at_change": 59,
+        "no_usage_reset_or_transfer": true,
+        "authorization_ref": "manifests/budget_authorization_20261008_wc_50gpuh.json",
+        "automatic_single_job_gpu_hours": 2
+      }
+    ]
+  },
+  "core_original_handles_absent": [
+    3445779,
+    3445791,
+    3445780,
+    3455334
+  ],
+  "actual_source_file_aliases_verified": true,
+  "GPU_submissions_by_summary": 0
+}
