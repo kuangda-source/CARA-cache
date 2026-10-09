@@ -1,3 +1,9 @@
+## 2026-10-09 真实成对接口完整GPU已唯一启动
+
+[190执行](../../research/190_WC_REAL_PAIRED_INTERFACE_SELECTED_CPU_AND_EXECUTION_20261009.md)：H-T58 source9f01274／156载荷，selected实际CPU32.010701秒退出0、3445551／3445552消失，16范围拒绝／完整请求／源资产／原件binding与预算SHA通过。完整两原父／两视频＋S22 CC/DD×观察×二重复×原/成对16pair／48 FP32／8比较，forecast1.648781376h，在50h／整卡≤2h原权限内唯一GPU3445779／3445791及绑定后CPU3445780实际活。最初导入，无新2B接口科学结果。原source／载荷不改、不复投；释放后审计全部48张量／1216状态与两全93视频、全72／36。
+
+启动前实费29.027073215／50h，第65在途used50只预留，不是耗尽；终态全wall结算。Common完整科学与旧正负／RA保持；曝光接口对照不是CONF／全36候选／终点收益／干净速度。下一正确终点／未来成本与WC／简单共同刷新／校准RA对照，>2h具体确认，不缩拆／训练／扩稀疏／OMR／DRE／人评。goal active，本轮真实CPU、GPU派发与verified follow-up，无重要阻碍。以下为历史。
+
 ## 2026-10-09 真实成对接口生产CPU通过，完整卡已选择
 
 [189接续](../../research/189_WC_REAL_PAIRED_INTERFACE_BATCH_CPU_AND_PREPARATION_20261009.md)：H-T58 source cfe8d0c／156载荷实际生产CPU34.056518秒，3444933／3444934退出0消失；原资产／guardrail／完整Common seed3请求／16范围拒绝与原件binding通过，CUDA0／GPU0／预算SHA不变。此前新实际batch d992源／68行及96 Toy张量全量重读通过，源实现不改。两原父／两视频＋S22同CC/DD×观察×二重复×两顺序16pair／48 FP32／8比较全卡1.648781376h，按50h／完整≤2h现有权限已选择；四动态字段之外binding相同，现场UUID／sm8.6／24MiB／无进程、锁／磁盘551GB／余额核对。下一same-source selected实际CPU与独立回执、再fresh资源后唯一GPU，尚未GPU。
