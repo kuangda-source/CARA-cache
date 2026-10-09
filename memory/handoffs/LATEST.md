@@ -2,7 +2,7 @@
 
 [191全轨迹结果](../../research/191_WC_FULL_TRAJECTORY_CFG_ACTION_ALIGNMENT_CPU_RESULTS_20261009.md)：H-T59 R1请求元数据KeyError退出1保留，R2只修规范request字段，source81c5d5c实际标准库CPU0.148897秒通过三卡12原件／6父／216pair／432net及原完整验收、OFF/ON全轨迹parity；独立调用位置集合重建全部行通过。Human seed2／seed3各1个DC（step28／27）、Common2个DC（step23／33），完整6父8混合、去重4位置；旧full/cache35/37、35/37、38/34保持。只接受CC/DD的当前接口不足以覆盖原生全36步；下一支持全部四动作与完整36步，不能把OR强制共同刷新称原生动作等价。冻结旧mask的OR额外1／1／2full只是算术，不预测未来真实动作／费用。
 
-原H-T58 source9f01274／156不改，3445779／3445791／3445780最新实际活，OFF父完整、ON原日志18／36，16pair／48张量／两全93与后CPU仍待；不读子集评分／复投。启动前实费29.027073215／50h，第65在途50仅预留。本轮CPU新GPU0／不写预算／无Torch／终点或未来成本标签，旧科学正负／RA保持；goal active，上一turn是实际GPU/飞书progress，本turn是完整覆盖新证据＋verified wait，无重要阻碍。组会revision20科学成果保持，下一完整四动作CPU/部署与正确终点成本，>2h具体确认，不缩拆／训练／扩稀疏／OMR／DRE／人评。以下为历史。
+原H-T58 source9f01274／156不改，3445779／3445791／3445780最新实际活，OFF父完整、ON原日志18／36，16pair／48张量／两全93与后CPU仍待；不读子集评分／复投。启动前实费29.027073215／50h，第65在途50仅预留。本轮CPU新GPU0／不写预算／无Torch／终点或未来成本标签，旧科学正负／RA保持；goal active，上一turn是实际GPU/飞书progress，本turn是完整覆盖新证据＋verified wait，无重要阻碍。组会CLI revision21全回读，153其他块保留，21节20表4公式49链接；四动作独立module静态source/逆AST通过、无Torch，H-T60的32比较64全36路径及旧68控制实际CPU尚待，不能报模型通过或新GPU选择。下一完整四动作CPU/部署与正确终点成本，>2h具体确认，不缩拆／训练／扩稀疏／OMR／DRE／人评。以下为历史。
 
 ## 2026-10-09 真实成对接口完整GPU已唯一启动
 

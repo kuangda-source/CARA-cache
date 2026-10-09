@@ -39,3 +39,11 @@ RA式联合风险、简单共同刷新和原生分支独立路由仍应作为后
 当前原H-T58的3445779／3445791／3445780实际活，冻结source9f01274／156载荷不变，原OFF父已完整保存，ON父继续采样；完整16pair／48张量／两全93与绑定后CPU仍待。最新句柄与日志证据见 `reports/wc_real_paired_interface_r1_full_trajectory_alignment_live_20261009.json`；checkpoint不逐步刷新，不将未更新计数解释为停止。
 
 本轮CPU无Torch／新GPU／预算写入。实际已结算底数29.027073215／50GPUh，第65在途used50仅原任务预留，不是已耗尽。当前GPU不复投，终态整卡实wall结算。goal active：上一轮是完整CPU／GPU派发进展，本轮是216对完整旧轨迹兼容性新证据＋特定原活句柄verified wait；暂无重要阻碍，不引入人评或训练，不改变主方向与权限。
+
+## 下一实现已准备，尚未通过模型CPU或GPU
+
+新增独立 `src/wcomr/cfg_paired_probe_mixed.py`，不改当前冻结156文件或原CC／DD执行器。它保留原生产preflight、双prefix、counter／RNG、保护区与失败poison，只扩展合法动作并按每槽C／D续算；原顺序参照支持相同四种动作。实际本地标准库编译、来源SHA与精确逆AST通过，Torch未加载。证明见 `reports/wc_paired_four_action_compiler_preparation_20261009.json`；**静态编译不等于任何模型或完整采样等价**。
+
+[H-T60完整CPU准备](../plans/WORLD_CACHE_PAIRED_FOUR_ACTION_FULL_SAMPLER_CPU_20261009.md)明确下一保留三条全36步原mask，并加合法区四动作循环以覆盖CD；两flow／观察／重复，共32比较／64完整路径／2304 solver／4608 net，加全部旧68行与失败控制。完整fixture、实际生产来源与原H-T58真实结果需核对后，再准备新GPU完整费用；没有选择或执行新GPU。
+
+飞书CLI已把完整轨迹的DC边界补入原最后一段，全回读 **revision21**，154块／21节／20表／4公式／49链接。其他153块逐块保持，替换文字／链接全相符，无warnings；完整读写与验证见 `reports/wc_group_meeting_feishu_full_mask_boundary_verification_20261009.json`。没有把CPU覆盖检查或编译准备追加为视频质量成果。
