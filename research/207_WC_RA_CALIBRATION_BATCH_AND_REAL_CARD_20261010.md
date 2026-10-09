@@ -41,3 +41,5 @@ source `36bb4da08a5b01d374b3421fd484f74a98b6acbb`、161 冻结载荷；原进程
 ## 实际生产 CPU 已派发
 
 冻结源 `75a68a3e592cbf6a0ba8883eb95e144bf272dbfb` 已推 GitHub，193载荷同步到新独立stage；[启动回执](../reports/wc_ra_calibration_production_cpu_r1_launch_20261010.json)原监督3767622／子3767623仍活。该入口验证真实固定运行源、模型与guardrail资产、两请求、完整校准合同与19拒绝；尚未通过，GPU未选择／未提交，不复投。
+
+组会通过飞书CLI追加并完整回读revision38：173个原块保持，新一块正文／样式／链接相符，[回读证明](../reports/wc_ra_calibration_batch_real_card_feishu_verification_20261010.json)。该条汇报完整CPU、真实卡的目标／范围／估计规则／费用与继续顺序，未把准备写成GPU结果。
