@@ -190,4 +190,5 @@ def run(runtime, *, state_control=None):
             'additional_projection_state_control':state_result}
     finally:
         adapter.close()
+        assert all('forward' not in vars(b.mlp) for b in blocks)
         for h in handles:h.remove()

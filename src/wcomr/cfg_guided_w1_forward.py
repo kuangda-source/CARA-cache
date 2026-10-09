@@ -50,7 +50,7 @@ def compile_output_denoise(runtime, rf_module):
         'net_calls': 0, 'teacher_or_same_state_proof': False})
 
 
-def compile_collection(runtime, wc_module, rf_module, collector):
+def compile_collection(runtime, wc_module, rf_module, collector, *, dense_context=None):
     """Three read-only observation sites; one paired predicate and RF net pause."""
     _origin(wc_module, runtime, WC_PATH, WC_SHA); _origin(rf_module, runtime, RF_PATH, RF_SHA)
     original = _function(runtime, WC_PATH, WC_SHA, 'worldcache_mini_train_dit_forward')
@@ -83,8 +83,28 @@ def compile_collection(runtime, wc_module, rf_module, collector):
     node = Observe().visit(node)
     if hits != {'prewarp': 1, 'hidden': 1, 'output': 1}:
         raise ValueError('Pinned internal collection sites differ: '+str(hits))
+    dense_context_sites = 0
+    if dense_context is not None:
+        if not callable(dense_context):raise ValueError('Explicit dense-group context must be callable')
+        class Group(ast.NodeTransformer):
+            def visit_For(self,n):
+                nonlocal dense_context_sites
+                if ast.unparse(n.iter)=='enumerate(unpass_blocks)':
+                    dense_context_sites+=1
+                    wrapper=ast.parse('with _mf_p_dense_context(self, current_idx):\n    pass').body[0]
+                    wrapper.body=[n]
+                    return wrapper
+                return self.generic_visit(n)
+        node=Group().visit(node)
+        if dense_context_sites!=1:raise ValueError('Pinned complete full/deep Block group differs')
     inverse = copy.deepcopy(node)
     class Undo(ast.NodeTransformer):
+        def visit_With(self,n):
+            if (len(n.items)==1 and isinstance(n.items[0].context_expr,ast.Call)
+                    and isinstance(n.items[0].context_expr.func,ast.Name)
+                    and n.items[0].context_expr.func.id=='_mf_p_dense_context'):
+                return [self.visit(v) for v in n.body]
+            return self.generic_visit(n)
         def visit_Expr(self, n):
             if isinstance(n.value, ast.Call) and isinstance(n.value.func, ast.Name) and n.value.func.id.startswith('_mf_a_'):
                 return None
@@ -97,6 +117,7 @@ def compile_collection(runtime, wc_module, rf_module, collector):
         raise ValueError('Collection changed WC outside registered observations/predicate')
     helpers = {'_paid_probe': _packet, '_mf_a_prewarp': collector.prewarp,
                '_mf_a_hidden': collector.hidden, '_mf_a_output': collector.output}
+    if dense_context is not None:helpers['_mf_p_dense_context']=dense_context
     net = _compile(node, dict(vars(wc_module), **helpers), WC_PATH+'#guided-W1-collection')
     net_bindings = _bindings(net, vars(wc_module), helpers)
 
@@ -135,5 +156,7 @@ def compile_collection(runtime, wc_module, rf_module, collector):
     return net, denoise, MappingProxyType({'WC_source_sha256': WC_SHA, 'RF_source_sha256': RF_SHA,
         'WC_collection_inverse_AST_equal': True, 'RF_collection_inverse_AST_equal': True,
         'explicit_observation_sites': hits, 'production_WC_globals': net_bindings,
+        'additional_dense_group_context_sites':dense_context_sites,
+        'dense_group_context_inverse_AST_equal':True,
         'production_RF_globals': rf_bindings, 'RF_output_conversion': dict(conversion),
         'warp_statements_are_source_exact': True, 'real_model_teacher_or_parity_claim': False})

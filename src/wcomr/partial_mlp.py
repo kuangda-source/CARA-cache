@@ -54,7 +54,7 @@ class PartialMLP:
                 or any(type(i) is not int or not 0<=i<len(blocks) for i in layers)):
             raise ValueError('Explicit unique ordered P0 layers required')
         self.blocks=blocks;self.layers=tuple(layers);self.cache={};self.records=[]
-        self._original={};self._pair=None;self._slot=None;self._seen=set();self._readonly=0
+        self._original={};self._forward_attributes={};self._pair=None;self._slot=None;self._seen=set();self._readonly=0
         self.last_step=0;self.poisoned=False
 
     def install(self):
@@ -68,14 +68,19 @@ class PartialMLP:
                 raise ValueError('Pinned no-bias eval Linear/GELU/Linear MLP required')
         for layer in self.layers:
             mlp=self.blocks[layer].mlp;original=mlp.forward;self._original[layer]=original
+            self._forward_attributes[layer]=('forward' in vars(mlp),vars(mlp).get('forward'))
             def execute(module,x,_layer=layer):return self._execute(_layer,module,x)
             mlp.forward=types.MethodType(execute,mlp)
         return self
 
     def close(self):
         if self._pair is not None:raise ValueError('Cannot uninstall P0 during a pair')
-        for layer,original in self._original.items():self.blocks[layer].mlp.forward=original
+        for layer in self._original:
+            owned,value=self._forward_attributes[layer];mlp=self.blocks[layer].mlp
+            if owned:mlp.forward=value
+            else:delattr(mlp,'forward')
         self._original.clear()
+        self._forward_attributes.clear()
 
     @contextmanager
     def readonly(self):
