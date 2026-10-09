@@ -1,3 +1,7 @@
+## 2026-10-09 当前执行状态：等待整卡批准
+
+完整6.704055834GPUh卡WC-W3-REAL-COMPLETE-NATIVE-POLICY-R1-20261009-A准备和CPU通过；具体授权条件连续三轮后goal已blocked。无在途、新GPU0，累计29.895246590／50h；组会飞书revision27已交付。见[完整等待审计](reports/wc_real_complete_native_policy_goal_blocked_audit_20261009.json)及[goal实际回执](reports/wc_real_complete_native_policy_goal_blocked_receipt_20261009.json)，收到该卡直接批准后恢复，不缩范围或替换研究。以下历史。
+
 ## 2026-10-09 完整实际batch与生产CPU通过，真实整卡具体授权待
 
 [197完整准备](research/197_WC_COMPLETE_NATIVE_POLICY_REAL_BATCH_PREPARATION_20261009.md)：新batch R1 sourcee5fd9df／123的观察事件列表时序比较失败61.629411秒保留；R2 sourcecdfb803／126载荷8源仅按相同call／phase比较内容、原事件／张量／controller保持，3462642／3462643退出0消失，206.745299秒。两个flow全64完整路径2304solver4608net、成功32路径1152guided及32latent实际重读、全部状态／动作／条件RNG／观察／重复／准备相同，24记录破坏／2实际截断／2最后写出失败全通过，原件SHA独立验收。Toy CPU非2B／真实视频或新质量速度。

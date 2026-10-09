@@ -1,3 +1,7 @@
+## 2026-10-09 等待整卡具体授权：goal blocked
+
+同一授权条件连续三轮，第三轮[完整只读审计](../../reports/wc_real_complete_native_policy_goal_blocked_audit_20261009.json)与[实际goal回执](../../reports/wc_real_complete_native_policy_goal_blocked_receipt_20261009.json)确认blocked。完整卡WC-W3-REAL-COMPLETE-NATIVE-POLICY-R1-20261009-A／6.704055834GPUh已具备CPU通过和全部运行、记账、终态审计准备；没有具体直接批准，未选择／启动GPU，不缩拆或替换研究。现场无目标计算进程／CPU句柄／在途／新输出，原CPU与账本SHA不变，29.895246590／50h，余额20.104753410h。飞书revision27已完成；不继续重复检查或写飞书状态。收到该卡直接批准并恢复后，绑定真实授权、同源selected CPU、fresh资源，唯一完整提交和全量终态审计；旧结果／失败／范围保留，以下历史。
+
 ## 2026-10-09 整卡授权等待复核：连续第二轮
 
 [只读复核回执](../../reports/wc_real_complete_native_policy_authorization_wait2_20261009.json)：上一轮完成实际batch／生产CPU和飞书交付，属于progress；本轮仅复核同一具体授权阻塞，不算科研进展或verified wait。目标GPU无计算进程、原CPU退出0且句柄消失、无在途／新GPU输出，账本和CPU原件SHA均不变，29.895246590／50GPUh。完整6.704055834GPUh卡未选择，未收到新直接授权，不启动／缩拆／重跑／替换实验。连续同阻塞2轮，goal仍active，未到blocked阈值；飞书revision27已交付，不重复写状态。
