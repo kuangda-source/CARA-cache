@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Preserve original CPU evidence and independently compare the complete paths."""
 import base64
+import argparse
 import gzip
 import hashlib
 import json
@@ -9,8 +10,9 @@ import subprocess
 
 
 def main():
-    prefix='reports/wc_cfg_native_policy_tail_boundary_cpu_r1_terminal_20261009_'
-    launch=json.loads(Path('reports/wc_cfg_native_policy_tail_boundary_cpu_r1_launch_20261009.json').read_text())
+    parser=argparse.ArgumentParser();parser.add_argument('--attempt',choices=('r1','r2'),default='r1');args=parser.parse_args()
+    prefix='reports/wc_cfg_native_policy_tail_boundary_cpu_'+args.attempt+'_terminal_20261009_'
+    launch=json.loads(Path('reports/wc_cfg_native_policy_tail_boundary_cpu_'+args.attempt+'_launch_20261009.json').read_text())
     remote='L='+repr(launch)+'\n'+r'''
 import json,pathlib,hashlib,gzip,base64,time
 stage=pathlib.Path(L['stage']);root=stage.parent.parent;sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
@@ -77,7 +79,8 @@ print(json.dumps({'capture':capture,'native':items}))
             assert len(paired['prefix_decisions'])==27
             assert all(x['actual_prefix_visits_before_any_deep']==[2.,2.,0.,0.] for x in paired['prefix_decisions'])
             if row['profile']=='HIGH_THRESHOLD':
-                assert original['actions'][34]=='CD' and paired['actions'][34]=='DD'
+                assert row['registered_high_threshold_prediction_supported']==(
+                    original['actions'][34]=='CC' and paired['actions'][34]=='DD')
             summaries.append({k:row[k] for k in ('flow','profile','observers','repetition','different_guided_steps','different_action_steps','different_state_steps','final_latent_direct_equal')})
         for flow in (False,True):
             for profile in ('NATIVE_THRESHOLD','HIGH_THRESHOLD'):

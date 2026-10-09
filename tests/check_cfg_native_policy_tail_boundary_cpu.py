@@ -237,8 +237,6 @@ def exercise(*, inference, flow, runtime, **unused):
                     assert ref['global_rng_sha256']==new['global_rng_sha256']
                     assert ref['generator_state_sha256']==new['generator_state_sha256']
                     assert ref['roundtrip_step22_complete'] and new['roundtrip_step22_complete']
-                    if schedule=='HIGH_THRESHOLD':
-                        assert ref['actions'][34]=='CD' and new['actions'][34]=='DD'
                     record={'kind':'native_policy_boundary_full_sampler_comparison','flow':flow,
                         'profile':schedule,'observers':observers,'repetition':repetition,
                         'status':'COMPLETE_BOUNDARY_COMPARISON_NOT_POLICY_BENEFIT',
@@ -249,7 +247,9 @@ def exercise(*, inference, flow, runtime, **unused):
                         'different_guided_steps':[i+1 for i,v in enumerate(equality) if not v],
                         'different_action_steps':[i+1 for i,(x,y) in enumerate(zip(ref['actions'],new['actions'])) if x!=y],
                         'different_state_steps':[x['step'] for x,y in zip(ref['checkpoints'],new['checkpoints']) if x!=y],
-                        'observer_and_repeat_effect_not_yet_inferred':False}
+                        'observer_and_repeat_effect_not_yet_inferred':False,
+                        'registered_high_threshold_prediction_supported':
+                            (ref['actions'][34]=='CC' and new['actions'][34]=='DD') if schedule=='HIGH_THRESHOLD' else None}
                     records.append(record);groups.append(record)
             invariant=('velocity','solver_returns','checkpoints','actions','block_visits','final_latent_sha256',
                 'final_components','final_solver_sha256','generator_state_sha256','global_rng_sha256')

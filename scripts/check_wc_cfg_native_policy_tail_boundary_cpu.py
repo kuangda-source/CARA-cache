@@ -94,7 +94,8 @@ def main():
             assert path['roundtrip_step22_complete'] and path['condition_before']==path['condition_after']
             assert len(path['final_components'])==50 and path['all_modules_eval'] and path['parameter_versions_unchanged']
         if row['profile']=='HIGH_THRESHOLD':
-            assert row['original_native']['actions'][34]=='CD' and row['current_paired_native_selector']['actions'][34]=='DD'
+            assert row['registered_high_threshold_prediction_supported']==(
+                row['original_native']['actions'][34]=='CC' and row['current_paired_native_selector']['actions'][34]=='DD')
     assert not torch.cuda.is_initialized()
     result.update(status='NATIVE_POLICY_TAIL_BOUNDARY_CPU_NOT_REAL_MODEL',
         CPU_wall_seconds=time.perf_counter()-started,actual_import_only_adapter=adapter,

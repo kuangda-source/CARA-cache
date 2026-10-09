@@ -12,6 +12,8 @@
 
 共享controller、WC／RF／velocity和fixture源与H-T60完整112行通过证明逐字相同，保留并绑定该全量结果，本轮不重复未变整批，而新增原生自适应／尾部边界完整比较。原生参照保留原WC谓词；成对合法区仅逐槽返回PaidProbe.native_cache，保护区沿用现有DD。事前检验高阈值35步原生CD／当前DD；动作差异不直接推定视频质量差。
 
-实际source`2ffec0c68832f8388a337abad347ec098acd005f`，100文件／8实际runtime源码，独立`.sync/wc-cfg-native-policy-tail-boundary-cpu-r1-20261009`。原supervisor3456780已派发，CPU完整结果与独立捕获尚待。[实际启动记录](../reports/wc_cfg_native_policy_tail_boundary_cpu_r1_launch_20261009.json)保留完整范围与源／登记SHA，不复投旧身份。
+R1实际source`2ffec0c68832f8388a337abad347ec098acd005f`，100文件／8实际runtime源码，独立`.sync/wc-cfg-native-policy-tail-boundary-cpu-r1-20261009`。原supervisor／child3456780／3456781已退出1且消失，driver52.237968秒；在高阈值第一个比较的原生CD预测断言停止，未接受此前片段为通过子集。[完整失败原件](../reports/wc_cfg_native_policy_tail_boundary_cpu_r1_terminal_20261009_capture_and_independent_audit.json)及[实际启动](../reports/wc_cfg_native_policy_tail_boundary_cpu_r1_launch_20261009.json)保留，源／预算SHA前后相同、CUDA0、GPU0。
+
+原实际WC在68／69仍执行自己的阈值判断，重置发生在forward之后。R1高阈值原日志两个槽漂移均远低于阈值，原56／70跳过、成对54／70；之前将无条件槽预设为D是错误的。新[H-T61-R2计划](../plans/WORLD_CACHE_NATIVE_POLICY_TAIL_BOUNDARY_CPU_R2_20261009.md)事前预测CC／DD，并把科学预测从提前抛异常改为完整数据的支持布尔值，无论支持与否都完成原16比较／32路径；原假设失败不删除，数据／controller／旧证明不改。独立R2实际CPU尚待。
 
 无真实权重／CUDA／新GPU／视频／终点或未来成本标签，不写账本。累计29.895246590／50GPUh、剩20.104753410GPUh／65提交，无GPU在途；原2B接口和四动作CPU全部完成、飞书CLI revision24全文回读通过，旧科学结果／负例／RA近邻保持。goal active：继续CPU区分，随后完整真实部署及正确终点／未来成本；整卡>2GPUh具体确认，不缩拆／训练／扩稀疏／OMR／DRE／人评。
