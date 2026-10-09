@@ -25,6 +25,7 @@ def load(name):
 def pinned_blocks(runtime):
     import ast,hashlib,math
     from typing import Optional
+    from dataclasses import dataclass
     from einops import rearrange
     path=Path(runtime)/'cosmos_predict2/_src/predict2/networks/minimal_v4_dit.py'
     raw=path.read_bytes()
@@ -35,8 +36,13 @@ def pinned_blocks(runtime):
         def __init__(self,*args,**kwargs):super().__init__()
         def forward(self,x,context=None,**kwargs):return .07*x+(0 if context is None else .002*context.mean())
         def init_weights(self):pass
+    @dataclass
+    class VideoSize:
+        T:int
+        H:int
+        W:int
     namespace={'torch':torch,'nn':torch.nn,'math':math,'Optional':Optional,'amp':torch.amp,
-               'rearrange':rearrange,'Attention':TinyAttention,'I2VCrossAttention':TinyAttention,'VideoSize':type('ToyVideoSize',(),{})}
+               'rearrange':rearrange,'Attention':TinyAttention,'I2VCrossAttention':TinyAttention,'VideoSize':VideoSize}
     exec(compile(ast.fix_missing_locations(ast.Module(body=classes,type_ignores=[])),str(path)+'#P0_full_CPU_Block','exec'),namespace)
     return torch.nn.ModuleList([namespace['Block'](8,8,2,mlp_ratio=4,use_adaln_lora=False,
                      backend='declared_CPU_attention') for _ in range(28)]).eval()
@@ -50,7 +56,7 @@ def exercise(*,inference,samples,settings,inference_module,flow,runtime,tensor_l
     old_net=(net.blocks,net.t_embedder,net.unpatchify)
     old_topology=(len(list(net.named_modules())),len(list(net.named_buffers())))
     net.blocks=pinned_blocks(runtime)
-    net.t_embedder=lambda t:(t.float().unsqueeze(-1).expand(*t.shape,8),None)
+    net.t_embedder=lambda t:((t.float()/1000).unsqueeze(-1).expand(*t.shape,8),None)
     net.unpatchify=lambda x:x[:,:,::2,::2,:].movedim(-1,1).contiguous().repeat(1,256,1,1,1)
     new_topology=(len(list(net.named_modules())),len(list(net.named_buffers())))
     expected_components=50+sum(new_topology)-sum(old_topology)
