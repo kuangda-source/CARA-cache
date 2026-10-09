@@ -1,3 +1,7 @@
+## 2026-10-10 当前推进：MF-00独立必要接口CPU已派发
+
+[201实现与执行](../../research/201_WC_MF00_INTERFACE_IMPLEMENTATION_AND_CPU_20261010.md)、[MF-00完整卡](../../plans/WORLD_CACHE_MF00_INTERFACE_R1_20261010.md)及[原启动回执](../../reports/wc_mf00_interface_sampling_cpu_r1_launch_20261010.json)接续三模块计划：Common/Human seed3×原/成对、全OFF各一次，4完整路径/4视频/144 guided/4latent。新独立batch实际CPU已派发，3603520/3603521句柄仍活、页读取等待，无终态；没有CPU通过或GPU结果。生产运行/监督/全量原件审计代码准备，待batchCPU→生产源资产CPU→现场准入→完整卡≤4GPUh自主提交，forecast约1.71GPUh。旧16路卡/6.704GPUh与全部证据保持，不称旧卡通过。预算29.895246590/77.895246590、余48、65提交不变；本轮新GPU0，goal active、继续跟随原CPU句柄，不重复提交。下方blocked/旧2h/旧50h为历史。
+
 ## 2026-10-10 最新执行约定：单次超过4 GPUh才确认
 
 用户直接将单次确认门槛由2提高到4 GPUh：[现行执行约定](../../plans/WORLD_CACHE_EXECUTION_POLICY_20261010.md)、[直接授权](../../manifests/wc_execution_autonomy_authorization_20261010_4gpuh.json)及[200落实记录](../../research/200_WC_SINGLE_JOB4_GPUH_EXECUTION_AUTHORIZATION_20261010.md)覆盖下方历史2 GPUh表述。已授权设计和可用预算内，完整单次≤4 GPUh直接推进，>4 GPUh才具体确认；不拆卡或删对照绕过门槛。48 GPUh窗口、累计77.89524658965853上限、历史费用与结果保持。本次只改规则，无新GPU提交；旧6.704GPUh整卡仍超过4，未获具体批准。下一执行卡绑定新政策并验证受影响入口，旧冻结配置和原件保留。

@@ -1,0 +1,193 @@
+{
+  "independent_card": "WC-MF00-INTERFACE-R1-20261010-A",
+  "old_card_and_sources_unchanged": true,
+  "derivations": [
+    {
+      "original": "src/wcomr/cfg_complete_native_policy_production.py",
+      "original_sha256": "c3d600d70dbc9b9bcef8f5160c847a96e931fe2d267628849edd5f1442eeccf5",
+      "derived": "src/wcomr/cfg_mf00_interface_production.py",
+      "derived_sha256": "e4ac183b24fb935e4a7d3425ed1b45212d69c37ffac9463c1a0f3d53ed6fe934",
+      "edits": [
+        [
+          "WC-W3-REAL-COMPLETE-NATIVE-POLICY-R1-20261009-A",
+          "WC-MF00-INTERFACE-R1-20261010-A"
+        ],
+        [
+          "RUN = 'wc-w3-real-complete-native-policy-r1'",
+          "RUN = 'wc-mf00-interface-r1'"
+        ],
+        [
+          "'complete_paths':16, 'new_videos':16, 'solver_updates':576",
+          "'complete_paths':4, 'new_videos':4, 'solver_updates':144"
+        ],
+        [
+          "'net_calls':1152, 'guided_outputs':576, 'final_latents':16, 'order_comparisons':8",
+          "'net_calls':288, 'guided_outputs':144, 'final_latents':4, 'order_comparisons':2"
+        ],
+        [
+          "reg['observers']!=['OFF','ON']",
+          "reg['observers']!=['OFF']"
+        ],
+        [
+          "reg['repetitions']!=['first','second']",
+          "reg['repetitions']!=['first']"
+        ],
+        [
+          "c['cumulative_cap_GPUh']!=50 or c['automatic_single_job_GPUh']!=2",
+          "c['cumulative_cap_GPUh']!=77.89524658965853 or c['automatic_single_job_GPUh']!=4"
+        ],
+        [
+          "not 4.111225774648289<=reg['forecast']['forecast_complete_GPUh']<50",
+          "not 0<reg['forecast']['forecast_complete_GPUh']<=4"
+        ],
+        [
+          "wc_execution_autonomy_authorization_20261007.json",
+          "wc_execution_autonomy_authorization_20261010_4gpuh.json"
+        ],
+        [
+          "budget_authorization_20261008_wc_50gpuh.json",
+          "budget_authorization_20261009_wc_new_window_48gpuh.json"
+        ],
+        [
+          "policy['automatic_single_job_gpu_hours']!=2",
+          "policy['automatic_single_job_gpu_hours']!=4"
+        ],
+        [
+          "authority['new_cumulative_cap_gpu_hours']!=50",
+          "authority['new_cumulative_cap_gpu_hours']!=77.89524658965853"
+        ],
+        [
+          "or authority['automatic_single_job_gpu_hours']!=2",
+          "or authority['authorized_remaining_gpu_hours']!=48"
+        ],
+        [
+          "['cap_gpu_hours']!=50",
+          "['cap_gpu_hours']!=77.89524658965853"
+        ],
+        [
+          "receipt['status']!='COMPLETE_NATIVE_POLICY_SAMPLING_CPU_NOT_REAL_MODEL'",
+          "receipt['status']!='MF00_INTERFACE_SAMPLING_CPU_NOT_REAL_MODEL'"
+        ],
+        [
+          "audit['actual_Toy_guided_tensors_reloaded']!=1152 or audit['actual_final_latents_reloaded']!=32",
+          "audit['actual_Toy_guided_tensors_reloaded']!=288 or audit['actual_final_latents_reloaded']!=8"
+        ],
+        [
+          "audit['complete_executed_paths_including_last_writer_failures']!=64",
+          "audit['complete_executed_paths_including_last_writer_failures']!=16"
+        ],
+        [
+          "if forecast>2:",
+          "if forecast>4:"
+        ],
+        [
+          ">2GPUh needs direct specific approval",
+          ">4GPUh needs direct specific approval"
+        ],
+        [
+          "for <=2GPUh",
+          "for <=4GPUh"
+        ]
+      ]
+    },
+    {
+      "original": "scripts/run_wc_real_complete_native_policy.py",
+      "original_sha256": "69535899ed745366556ae07b202a016a2439c444575e81abea98033f941527bc",
+      "derived": "scripts/run_wc_mf00_interface.py",
+      "derived_sha256": "4eb9d1feb488ffb90cda34fe0b67a0e058787e6b0945bc8e78348b4c5fd69079",
+      "edits": [
+        [
+          "'observers':['OFF'],'repetitions':['first']",
+          "'observers':['OFF','ON'],'repetitions':['first','second']"
+        ]
+      ]
+    },
+    {
+      "original": "scripts/supervise_wc_real_complete_native_policy.py",
+      "original_sha256": "164c60e1acf6f1c58438a79c7b07f42d04476e168ff7d24d3a59589855f43a2f",
+      "derived": "scripts/supervise_wc_mf00_interface.py",
+      "derived_sha256": "a81127c70eb2ed385f7b802a6235d2a47d511b9d95da948bcce776fd5180be04",
+      "edits": [
+        [
+          "INFLIGHT='wc_cfg_teacher_inflight'",
+          "INFLIGHT='wc_mf00_interface_inflight'"
+        ],
+        [
+          "(7200-30 if forecast<=2 else float('inf'))",
+          "(14400-30 if forecast<=4 else float('inf'))"
+        ]
+      ]
+    },
+    {
+      "original": "scripts/audit_wc_real_complete_native_policy_cpu.py",
+      "original_sha256": "87c7801f111c28964db4b54cc135a2ddf2c235eb62db7820435ce7afa758660a",
+      "derived": "scripts/audit_wc_mf00_interface_cpu.py",
+      "derived_sha256": "d3c98189e80783414f4f2fb6c00332b42bc9cdc4b5e39eaa17c8b092394a1caf",
+      "edits": [
+        [
+          "assert len(group)==8",
+          "assert len(group)==2"
+        ],
+        [
+          "assert len(videos)==16",
+          "assert len(videos)==4"
+        ],
+        [
+          "all_16_full93_videos",
+          "all_4_full93_videos"
+        ]
+      ]
+    },
+    {
+      "original": "scripts/supervise_wc_real_complete_native_policy_production_cpu.py",
+      "original_sha256": "9e5c695b0a5141e65ca71e2295cb25deb2a7842f2f864152d2d4e619a1a3c280",
+      "derived": "scripts/supervise_wc_mf00_interface_production_cpu.py",
+      "derived_sha256": "7fc96f2e285f751105504fd194774396cf9f0ad2bf09056360335ecb85c92ff9",
+      "edits": []
+    },
+    {
+      "original": "scripts/supervise_wc_real_complete_native_policy_post_cpu.py",
+      "original_sha256": "8d61b1e96011b44570a7397bac130ff51135de98f4389a0308a1c32fa0573a8f",
+      "derived": "scripts/supervise_wc_mf00_interface_post_cpu.py",
+      "derived_sha256": "cc848688b61a17157b881593da857011911e8e8a0dae5058868cc720ef180638",
+      "edits": [
+        [
+          "reloaded']==576",
+          "reloaded']==144"
+        ],
+        [
+          "reloaded']==16",
+          "reloaded']==4"
+        ],
+        [
+          "all_16_full93_videos",
+          "all_4_full93_videos"
+        ]
+      ]
+    },
+    {
+      "original": "scripts/deploy_wc_real_complete_native_policy_cpu.py",
+      "original_sha256": "f72d6d08607982ae1a2fed59698dec4b8e8e8d48749a8473b00603aeb358d8dd",
+      "derived": "scripts/deploy_wc_mf00_interface_cpu.py",
+      "derived_sha256": "b584f5ae5445d7c1496c6df867ccb2bdc21b868c851be882e54fad284377c76d",
+      "edits": [
+        [
+          "r1_20261009.json",
+          "r1_20261010.json"
+        ],
+        [
+          "launch_20261009.json",
+          "launch_20261010.json"
+        ],
+        [
+          "r1-20261009",
+          "r1-20261010"
+        ],
+        [
+          "if a.selected:\n            authority=c['single_job_exception_authority']",
+          "if a.selected and c['single_job_exception_authority'] is not None:\n            authority=c['single_job_exception_authority']"
+        ]
+      ]
+    }
+  ]
+}
