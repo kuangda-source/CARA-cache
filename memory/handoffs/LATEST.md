@@ -1,3 +1,7 @@
+## 2026-10-09 成对probe实际生产全局与观察CPU通过，原Common进入动作对照
+
+[184结果](../../research/184_WC_PAIRED_PROBE_PRODUCTION_CPU_RESULTS_20261009.md)：H-T54实际生产全局／显式观察CPU完成：R1官方Flash导入可用性断言失败原件保留（包2.6.3实际存在、CPU不可用）；R2 source006a6c6复用已审计退出进程导入适配，恢复HF／current_device后完整8主／2初始化／16失败／2源行通过，fixture4.400439秒／driver32.203525秒，3432494／3432495退出exit0，57载荷／8runtime／账本原字节不变，新GPU0。补齐forward属性包装被绕过的日志盲点，生产executor拒绝包装，分支输入输出与最终状态一致；Toy／无第二张量加载，不能报2B输出／速度／显存。原Common三PID3426296／3426308／3426297实际活、sourcec243／95不改，首OFF72／36与视频已保存，ON自身after_CC6pair、全部40对／两视频／后CPU仍待，不评分子集／复投。实费底数27.644682758／50h、第64在途50只预留。goal active，本轮真实生产接口CPU＋verified wait进展，无重要阻碍；原完整终态优先，再实际velocity／全采样同动作CPU及完整模型成本卡准备，>2h具体确认，不缩拆／训练／扩稀疏／OMR／DRE／人评。飞书revision15已含科学成果，以下为历史。
+
 ## 2026-10-09 已有动作目标CPU对齐完成，原Common真实采样继续
 
 [183结果](../../research/183_WC_EXISTING_ACTION_TARGET_ALIGNMENT_CPU_RESULTS_20261009.md)：H-T53按登记sourcef586fe9实际标准库CPU0.075905秒，完整两Human seed的80对/160事件/40重复、20proxy/10相关状态及独立配额枚举核对通过；10/10浅层观察跨四动作重复实测一致，原生4CC/6DD，旧CD+8.8244%例外保留、新seed−55.6452%。10/10局部非支配不代表策略最优：CC当前最省、DD自身teacher0；全部终点/未来时间标签null，无拟合/Torch/新GPU。原Common三PID3426296/3426308/3426297实际活，sourcec243/95不改、加载101.157秒完成、首OFF采样28/36，完整2父/五×四×二/两视频及后CPU待，不评分子集/复投。实费底数27.644682758/50h，第64在途50只预留；goal active，本轮真实CPU目标对齐+verified wait，无重要阻碍；继续原完整终态及真实成对接口/成本与终点收益正确对照，>2h具体确认，不扩训练/稀疏/OMR/DRE/人评。飞书revision15完整科学成果保持，以下为历史。
