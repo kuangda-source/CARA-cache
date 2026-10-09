@@ -1,3 +1,10 @@
+## 2026-10-10 当前：完整MF-00真实验收通过；RA粗校准核心继续
+
+[206真实结果](research/206_WC_MF00_COMPLETE_REAL_INTERFACE_RESULTS_20261010.md)：原R2 source92b2d1a／177载荷四完整36步路径、144guided／4latent直接相同；五×1216组件／动作访问／条件RNG及四全93视频编码与完整RGB相同。原3659246／3660184／3659247／3696333全部退出0消失，锁／GPU释放；GPU1531.208647秒／0.425335735GPUh、后CPU21.879140秒。实费30.529593763／77.895246590、余47.365652826GPUh、67提交、无GPU在途；原件与独立分母全验收，非新策略／质量或干净速度。旧16路／6.704整卡未被追认。
+
+[205 RA粗校准](research/205_WC_RA_COARSE_CALIBRATION_CORE_IMPLEMENTATION_20261010.md)核心和生产batch实现已完成。六共同D6自身轨迹起点、CC/DD加完整dense UniPC后缀；真实卡预计4父／12子／312solver／624net，尚未GPU选定。首CPU7b9d1f6／152的PaidProbe指纹类型错误保留，234.415227秒退出1；只修指纹规范化后c94ab4a独立R2／152载荷CPU已派发3710289，范围保持8Toy父／24子／624solver／1248net，无GPU、未生成Cosmos校准表。跟踪原CPU终态，再验证生产batch／源资产／完整成本与fresh资源，符合≤4GPUh自主推进；超过4才确认。goal active。下方在跑／旧2h／50h／blocked均为历史。
+
+
 ## 2026-10-10 当前：完整MF-00 R2已唯一GPU提交；RA真实源码CPU通过
 
 [204完整进展](research/204_WC_MF00_MONITOR_FAILURE_AND_COMPLETE_R2_REPAIR_20261010.md)：R1遥测超时清理故障及缺exit_code全部保留，wall752.441178秒／0.209011438GPUh已结算，无视频或接口否定。R2只修监督/遥测/退出码与自身GPU释放；生产42.018370、selected32.811418秒及15范围拒绝通过，177冻结载荷，4路径/4全93视频/144guided/4latent完整卡预测1.880129229GPUh已唯一提交。[真实启动](reports/wc_mf00_interface_r2_GPU_launch_20261010.json)source92b2d1a，监督3659246／runner3660184／后CPU3659247实际活，当前导入，无终点验收。提交66→67，启动前实费30.104258028，余47.790988562在途预留，账本77.895246590不是花完；退出按wall结算。RA source55e10e1／145载荷实际六完整Toy路径216solver432net、DD原/成对逐张量相同及28CC浅深访问/36步历史通过，见[203](research/203_WC_RA_JOINT_EXECUTION_AND_CALIBRATION_ENTRY_20261010.md)。未校准Cosmos或报质量速度，goal active，跟踪原R2并推进RA CAL；完整≤4GPUh自主，旧6.704卡仍未具体批准。下方GPU0/资源等待/blocked/2h/50h是历史。
