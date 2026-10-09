@@ -47,7 +47,9 @@ def exercise(*, inference, wc, flow, runtime, **kwargs):
     denoise_original = rf_ns['denoise']
     references = {a: forced_reference(runtime, namespace, a) for a in ('CC', 'DD')}
     base.prepare_embedded_sequence = lambda x, **kw: (x[:, :2048].movedim(1, -1).contiguous(), None, None)
-    wc.apply_worldcache(base, num_steps=35, ret_ratio=.06, rel_l1_thresh=.08,
+    # apply_worldcache takes network calls, not requested sampler updates.
+    # Full sampling supplies 2*35=70; retain that exact two-CFG cycle here.
+    wc.apply_worldcache(base, num_steps=70, ret_ratio=.06, rel_l1_thresh=.08,
                         probe_depth=2, osi_enabled=True, flow_enabled=flow, flow_scale=1)
     base.worldcache_saliency_enabled = True
     base.worldcache_saliency_weight = 5.0

@@ -11,3 +11,5 @@ CPU范围预先固定：旧完整采样CPU fixture的flow OFF/ON，各自22更�
 固定运行源为WorldCache SHA b485cb8…及RF SHA 9b53e3f…；实际server CPU独立目录使用现有生产venv，CUDA与下载被禁止。模型权重、条件构造与attention是声明的Toy；真实函数体和冻结Video2World条件类保留。CPU Toy通过不等于2B输出、显存、成对probe成本或部署速度通过；没有本模型rho/传播校准，不能据此运行RA式完整生成。
 
 原H-T48的77文件、原三PID及完整范围不改，本卡GPU0，不训练或引入人评。先代码与登记提交、CPU全范围执行，保留所有失败；后续实际生产绑定与完整模型控制另准备卡，在现有50GPUh/单次超过2GPUh确认约定内推进。
+
+R1实际CPU在严格counter=44检查停止，9.281182秒、源与账本未变；原件已封存。测试fixture将`apply_worldcache(num_steps)`设为35，但这个参数表示网络调用周期，应为当前两CFG的70。R2只修正fixture的周期为70，22更新、8主比较、2初始化及8失败控制全部保留，独立目录和新绑定源；不是放宽计数门，也不把R1追认为接口成功。
