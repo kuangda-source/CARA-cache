@@ -49,6 +49,8 @@ def verify_batch(state):
                     or len(row['guided_sha256']) != 36 or len(row['solver_returns']) != 36
                     or row['actions'] != ['DD' if t in DENSE_STEPS else 'CC' for t in range(1, 37)]
                     or row['counters'] != list(range(0, 70, 2))+[0]
+                    or row['vector_artifact']['tensor_sha256']['guided'] != row['guided_list_sha256']
+                    or row['vector_artifact']['tensor_sha256']['final_latent'] != row['final_latent_sha256']
                     or [c['step'] for c in row['checkpoints']] != list(STATE_STEPS)
                     or row['conditions_before'] != row['conditions_after']
                     or not row['parameter_versions_unchanged'] or not row['all_modules_eval']
@@ -252,12 +254,14 @@ def audit_vectors(state,root,loader,expected_shape,*,fingerprint_context,toy=Fal
         return values
     for request in state['requests']:
         parents = [read(p['vector_artifact']) for p in request['paths']]
-        for parent in parents:
+        for parent,record in zip(parents,request['paths']):
             if set(parent) != {'guided','final_latent'} or len(parent['guided']) != 36:
                 raise ValueError('Actual complete parent tensor matrix missing')
             if any(v.dtype != torch.float32 or list(v.shape) != expected_shape
                     or not bool(torch.isfinite(v).all()) for v in parent['guided']+[parent['final_latent']]):
                 raise ValueError('Actual parent FP32 tensor geometry differs')
+            if [tree_digest(v) for v in parent['guided']] != record['guided_sha256']:
+                raise ValueError('Actual parent guided trace binding differs')
         if (not all(torch.equal(a,b) for a,b in zip(parents[0]['guided'],parents[1]['guided']))
                 or not torch.equal(parents[0]['final_latent'],parents[1]['final_latent'])):
             raise ValueError('Actual full36 collection parent tensors differ')
