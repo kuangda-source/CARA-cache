@@ -21,3 +21,7 @@ source6922b12的R1实际CPU35.990978秒退出1，3893885／3893886消失、无GP
 ## R2元数据夹具失败与R3
 
 完整R2 source1cf2915实际CPU27.203472秒退出1，3895298／3895300消失、GPU0。底层原件明确首父的声明ToyVideoSize未接受T／H／W参数；这只在完整Block执行时暴露。改为已在核心CPU使用过的三字段dataclass元数据，声明Toy浮点时间嵌入按1000归一化，避免把整数噪声时间直接冒充learned embedding数值。原Block全文、生产MLP与采集算法保持；完整R3同样24父／全场景／全部故障与输出范围，实际CPU待。原R1／R2退出和全部原件保留，不从失败截取成功子集。
+
+## 完整R3真实CPU通过
+
+source b3493ea的原R3监督3895577／子3895578全部退出0消失，driver153.933639秒、核心126.138882秒。完整24父／864 solver／1728正常net、两成功flow批576guided／16latent／224分支实际重读，十变异／两实际截断和最后父写出失败恢复独立验收；所有场景、两个起点、两dense直接等价、实际512／256／384 Linear行数、共同双CFG配额、来源年龄和每模式三次整组计时均保留。原Block／GPT2／WC／RF／UniPC执行和全部源码SHA绑定通过；声明Toy权重／attention／prepare／decode仍不是实际Cosmos性能。GPU新增0、budget SHA不变、不拿锁。原两失败全保留。下一完整真实卡source／资产CPU准备已生成，未新GPU。

@@ -1,0 +1,77 @@
+{
+  "status": "COMPLETE_P0_FOUR_CAL_EIGHT_ORIGIN_SIX_MODE_FORECAST_NOT_GPU",
+  "complete_scope": {
+    "requests": 4,
+    "complete_parent_paths": 8,
+    "new_videos": 8,
+    "parent_solver_updates": 288,
+    "normal_net_calls": 576,
+    "same_state_origins": 8,
+    "score_only_group_pairs_including_warmups_and_repeats": 192,
+    "score_only_deep_branch_calls": 384,
+    "score_only_deep_block_calls": 9984,
+    "additional_candidate_and_teacher_heads": 384,
+    "post_RF_branch_tensors": 112,
+    "parent_guided_tensors": 288,
+    "parent_latents": 8,
+    "raw_tensor_files": 16
+  },
+  "prior_forecast_ref": "reports/wc_mf_a_collection_r1_complete_cost_forecast_20261010.json",
+  "prior_forecast_sha256": "dd86d227f3d0f45f0aef75300f2b14a212326a5e5ab0d6049d07f45061dc36b5",
+  "prior_complete_sources": [
+    {
+      "source": "reports/wc_mf_a_collection_r1_terminal_20261010_runner_native.gz",
+      "compressed_sha256": "d02acd1b80cb2de13b9fe42a6ebd3557c8a6c5bdb7d7d21e611811f8fe663c8a",
+      "source_revision": "76516e49437fe7aee394488dda2c69bd3c2343d0",
+      "complete_parent_seconds": [
+        214.25886788778007,
+        216.56289069261402,
+        204.7248874437064,
+        216.5038677426055,
+        203.29187678173184,
+        216.45779988076538,
+        210.63384745735675,
+        219.91810655593872
+      ],
+      "full_deep_teacher_plus_candidate_head_host_diagnostic_seconds": [
+        3.324957770295441,
+        3.305120673030615,
+        3.3242274783551693,
+        3.3069120571017265,
+        3.3228502478450537,
+        3.306018751114607,
+        3.3244021479040384,
+        3.304142373614013
+      ],
+      "host_interval_not_strict_GPU_time_bound": true
+    }
+  ],
+  "additional_slow_load_source": {
+    "source": "reports/wc_mf00_interface_r1_terminal_20261010_runner_native.gz",
+    "compressed_sha256": "ca453e66a29fb1b7b6abbff90aca6f590fbbf8baee288a78e4c43ff182f0755a",
+    "load_seconds": 620.2844904875383
+  },
+  "cost_parts": {
+    "slow_loading_seconds": 620.2844904875383,
+    "eight_complete_instrumented_parents_plus_P0_cache_allowance_seconds": 2639.0172786712646,
+    "192_complete_deep_group_pair_warmup_and_repeated_calls_seconds": 1915.175675690174,
+    "256_full_external_and_projection_restores_and_physical_proof_allowance_seconds": 2560,
+    "whole_parent_vector_write_allowance_seconds": 480,
+    "112_branch_vector_write_allowance_seconds": 448,
+    "cleanup_allowance_seconds": 120
+  },
+  "subtotal_seconds": 8782.477444848977,
+  "whole_scope_margin_factor": 1.3,
+  "forecast_complete_seconds": 11417.22067830367,
+  "forecast_complete_GPUh": 3.1714501884176864,
+  "complete_group_pair_count": 192,
+  "complete_group_restore_count": 256,
+  "teacher_and_warmup_and_controls_and_repetition_and_write_and_cleanup_not_free": true,
+  "new_P0_per_group_cost_not_yet_measured": true,
+  "whole_group_cost_estimate": "Three times the max latest same-state pair diagnostic including true full deep Block computation and four extra heads; separate10-second allowance for every full external+projection restore. Add50 percent to complete parents for actual D cache maintenance, plus whole30 percent margin. Empirical forecast, not a strict bound. Preserve older slow-load source; all eight parents, all six modes and repeats retained.",
+  "empirical_forecast_not_strict_time_upper_bound": true,
+  "no_legacy_seconds_deadline_created": true,
+  "single_job_autonomy_GPUh": 4,
+  "GPU_submissions": 0,
+  "computed_unix": 1791587290.116108
+}

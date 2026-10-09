@@ -1,3 +1,9 @@
+## 2026-10-10 当前：P0完整CPU通过，真实整组完整卡生产CPU准备
+
+[225完整R3](research/225_WC_P0_COMPLETE_GROUP_PIPELINE_CPU_PREPARATION_20261010.md)：source b3493ea原3895577／3895578退出0消失，153.933639秒完整24父／864solver／1728net、576guided／16latent／224分支重读、十变异／两截断／最后父失败恢复全量通过。原Block／GPT2全文、512／256／384真Linear行、全部来源／控制通过；声明Toy边界保持，非真实Cosmos性能，原R1／R2失败不删。
+
+[226真实完整卡](research/226_WC_P0_REAL_GROUP_COMPLETE_CARD_AND_CPU_20261010.md)：四CAL原seed0×两起点12/30、八采集父／八视频槽、六完整dense／partial模式和同配额随机／轮换、一次warmup三重复，192双CFG整组／9984deepBlock／112分支输出；245绑定源完整forecast3.171450188 GPUh≤4，生产／选定CPU与fresh准入待，未GPU提交。guided-W1真实全量224保持，飞书revision43已完整验证。实费33.192083029／77.895246590、48窗口余44.703163561、71 GPU提交无在途；≤4自主、>4确认，旧6.704未批，goal active。下方CPU失败／待R3／旧在跑文字为历史。
+
 ## 2026-10-10 当前：P0完整CPU夹具R1原失败保留，R2完整修复待验证
 
 [225原失败与R2](research/225_WC_P0_COMPLETE_GROUP_PIPELINE_CPU_PREPARATION_20261010.md)：source6922b12实际35.990978秒退出1，3893885／3893886消失；首父Toy整数时间嵌入被原Block SiLU拒绝，原件和完整scope保持。仅修Toy嵌入浮点／错误报告，独立212载荷R2完整24执行父／864solver／1728net及224成功诊断输出重读不缩，实际CPU待；无GPU／锁／账本写入。真实guided-W1全量结果224保持，组会revision43完整六新增块与183旧块核验。实费33.192083029／77.895246590、48窗口余44.703163561，71提交无GPU在途；≤4自主、>4确认、goal active。下方待R1／旧在跑状态为历史。
