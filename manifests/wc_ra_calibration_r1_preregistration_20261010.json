@@ -1,0 +1,212 @@
+{
+  "card": "WC-RA-COARSE-CAL-R1-20261010-A",
+  "run_id": "wc-ra-coarse-cal-r1",
+  "registered_unix": 1791569536.362308,
+  "hypothesis": "Collection preserves the complete shared-D6 parent trajectory while providing actual paired branch-error correlations and full dense-suffix latent propagation measurements for a coarse local RA prior.",
+  "scope_counts": {
+    "requests": 2,
+    "complete_parent_paths": 4,
+    "new_videos": 4,
+    "same_state_origins": 6,
+    "complete_child_arms": 12,
+    "parent_solver_updates": 144,
+    "child_solver_updates": 168,
+    "solver_updates": 312,
+    "net_calls": 624,
+    "parent_guided_outputs": 144,
+    "parent_final_latents": 4,
+    "child_tensor_outputs": 48,
+    "calibration_tables": 1,
+    "video_quality_labels": 0,
+    "future_cost_labels": 0
+  },
+  "requests": [
+    {
+      "inference_type": "text2world",
+      "seed": 3,
+      "guidance": 7,
+      "num_output_frames": 93,
+      "resolution": "432,768",
+      "negative_prompt": "The video captures a series of frames showing ugly scenes, static with no motion, motion blur, over-saturation, shaky footage, low resolution, grainy texture, pixelated images, poorly lit areas, underexposed and overexposed scenes, poor color balance, washed out colors, choppy sequences, jerky movements, low frame rate, artifacting, color banding, unnatural transitions, outdated special effects, fake elements, unconvincing visuals, poorly edited content, jump cuts, visual noise, and flickering. Overall, the video is of poor quality.",
+      "name": "common_sense_6487f37f-ef57-49ca-afdc-d898922b5191_seed3",
+      "prompt": "A close-up shot of a beautifully plated dessert, showcasing a golden-brown eclair-like pastry with a delicate, crisp exterior dusted with powdered sugar. The pastry is split open, revealing perfectly piped mounds of rich, textured coffee-colored cream filling, each with velvety ridges and topped with finely chopped nuts. A small sprig of fresh green garnish adorns the rightmost swirl. Beneath the pastry, four glossy lines of dark brown sauce radiate outward in evenly spaced streaks. In the foreground, a rounded food item with a soft, velvety foamy texture, light beige in color, sits slightly overlapping the chocolate lines. The plate is a pristine white ceramic with a subtle textured pattern along its edges. The background remains softly blurred, with another golden-brown item briefly appearing on a plate on the top right side. The scene is captured under bright, natural lighting from a slightly elevated angle, gradually pulling back to reveal the intricate details of the dish.",
+      "num_steps": 35
+    },
+    {
+      "inference_type": "text2world",
+      "seed": 3,
+      "guidance": 7,
+      "num_output_frames": 93,
+      "resolution": "432,768",
+      "negative_prompt": "The video captures a series of frames showing ugly scenes, static with no motion, motion blur, over-saturation, shaky footage, low resolution, grainy texture, pixelated images, poorly lit areas, underexposed and overexposed scenes, poor color balance, washed out colors, choppy sequences, jerky movements, low frame rate, artifacting, color banding, unnatural transitions, outdated special effects, fake elements, unconvincing visuals, poorly edited content, jump cuts, visual noise, and flickering. Overall, the video is of poor quality.",
+      "name": "human_199_seed3",
+      "prompt": "A wide shot captures an outdoor tennis court at the University of Barcelona, as indicated by the signage on the green portion and fence surrounding the court. The court is a standard hard surface with white boundary lines marking the playing area. Two players are present: one on the left side of the frame, dressed in a white shirt and dark shorts, holding a tennis racket and preparing to serve, while the other player is positioned on the far side of the court, ready to receive the serve. The court is enclosed by a high fence adorned with banners and flags, beyond which a row of parked cars and a building can be seen. The setting suggests a clear day with ample daylight illuminating the scene. The position of the camera remains steady, capturing the players' focused and deliberate movements as they engage in the game. The player on the left side of the court serves the ball across the net towards the opponent, who is poised to return the serve. The ball is seen in mid-air, traveling from one side of the court to the other, indicating the beginning of a rally. The players' movements are fluid and engaged, showcasing their concentration and skill. The video concludes with the ball still in play, suggesting that the rally continues beyond the frame's end.",
+      "num_steps": 35
+    }
+  ],
+  "collection_switches": [
+    "OFF",
+    "ON"
+  ],
+  "repetitions": [
+    "first"
+  ],
+  "state_steps": [
+    12,
+    22,
+    32,
+    36
+  ],
+  "target_steps": [
+    13,
+    23,
+    33
+  ],
+  "shared_anchors": [
+    7,
+    19,
+    31
+  ],
+  "reuse_ages": [
+    6,
+    4,
+    2
+  ],
+  "dense_steps": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    13,
+    19,
+    25,
+    31,
+    36
+  ],
+  "selector": "UNIFORM_SHARED_D6_COLLECTION",
+  "suffix_selector": "CURRENT_CC_OR_DD_THEN_COMPLETE_DENSE_DD",
+  "measurement_space": "POST_RF_DENOISE_AND_FINAL_LATENT",
+  "estimator": "SIX_ORIGIN_MEDIAN_RHO_THREE_STAGE_MEDIAN_GAIN_LINEAR_TIME_MAX_AGE6",
+  "timesteps": [
+    995,
+    994,
+    993,
+    992,
+    990,
+    988,
+    986,
+    984,
+    981,
+    977,
+    973,
+    967,
+    960,
+    951,
+    941,
+    927,
+    910,
+    889,
+    863,
+    831,
+    791,
+    742,
+    684,
+    618,
+    543,
+    462,
+    380,
+    301,
+    228,
+    166,
+    116,
+    77,
+    49,
+    30,
+    17,
+    9
+  ],
+  "identity_selection": "Already exposed Common/Human seed3; calibration development, not independent CONF.",
+  "new_policy_or_clean_latency_claim": false,
+  "forecast": {
+    "status": "COARSE_RA_CAL_COMPLETE_COST_FORECAST_NOT_SELECTED_NOT_SUBMITTED",
+    "registered_scientific_proposal": "two exposed shared-D6 scenes, 4full parents, 6same-state origins, 12complete dense child suffixes",
+    "complete_scope": {
+      "parent_paths": 4,
+      "parent_solver_updates": 144,
+      "current_pair_measurements_reused": 12,
+      "additional_dense_future_pairs": 156,
+      "child_solver_updates": 168,
+      "total_solver_updates": 312,
+      "total_net_calls": 624
+    },
+    "prior_complete_sources": [
+      {
+        "source": "reports/wc_cfg_guided_teacher_r1_terminal_20261009_runner_native.gz",
+        "compressed_sha256": "c0ed1c8868517d8dcb9bacd75e64ec6725db5c2f22476f062205a927510bb0fc",
+        "source_revision": "e9f47f5759a774244dba02cc436657ab36099550",
+        "full_original_parent_seconds": 859.9177641272545,
+        "load_seconds": 98.13336327206343,
+        "nonnested_pair_count": 36,
+        "max_nonnested_pair_seconds": 69.11667201016098
+      },
+      {
+        "source": "reports/wc_cfg_mechanism_confirmation_r1_terminal_20261009_runner_native.gz",
+        "compressed_sha256": "f169110d79ecdf4476fb7780c5f48e448098a4f723520cc1f8871c4f598e4ea1",
+        "source_revision": "00b06e61f39bf3bd7f7f2696a70994a0d2ffc0e5",
+        "full_original_parent_seconds": 866.3753534667194,
+        "load_seconds": 83.78634151164442,
+        "nonnested_pair_count": 36,
+        "max_nonnested_pair_seconds": 66.56676655076444
+      },
+      {
+        "source": "reports/wc_other_scene_cfg_confirmation_r1_terminal_20261009_runner_native.gz",
+        "compressed_sha256": "cc975bbad53f13a11a8bcc982c7add037df35906f72196e0d110ea472be33cb2",
+        "source_revision": "c243d303fc4085d522638d5e67c8ea1c5d745b96",
+        "full_original_parent_seconds": 925.025799295865,
+        "load_seconds": 101.15695103630424,
+        "nonnested_pair_count": 36,
+        "max_nonnested_pair_seconds": 67.20245936419815
+      }
+    ],
+    "additional_slow_load_source": {
+      "source": "reports/wc_mf00_interface_r1_terminal_20261010_runner_native.gz",
+      "compressed_sha256": "ca453e66a29fb1b7b6abbff90aca6f590fbbf8baee288a78e4c43ff182f0755a",
+      "load_seconds": 620.2844904875383
+    },
+    "max_full_parent_seconds": 925.025799295865,
+    "max_nonnested_pair_seconds": 69.11667201016098,
+    "future_dense_pair_estimate_seconds": 25.695161091551807,
+    "future_dense_pair_estimate_role": "max instrumented full-parent time divided by36; includes unrelated overhead, empirical estimate not strict per-pair upper bound",
+    "new_origin_restore_and_bookkeeping_allowance_seconds": 900,
+    "full_parent_vector_write_allowance_seconds": 480,
+    "cleanup_allowance_seconds": 120,
+    "subtotal_seconds": 10658.232882075012,
+    "whole_scope_margin_factor": 1.2,
+    "forecast_complete_seconds": 12789.879458490013,
+    "forecast_complete_GPUh": 3.5527442940250036,
+    "actual_runtime_not_measured": true,
+    "execution_deadline_not_created": true,
+    "single_job_autonomy_GPUh": 4,
+    "within_single_job_autonomy": true,
+    "GPU_execution_selected": false,
+    "GPU_submissions": 0,
+    "computed_unix": 1791568175.959382
+  },
+  "independent_scope_reason": "Integrated plan requires a local coarse RA calibration before full-video RA and coupled approximation/partial-refresh development; old native-policy sixteen-path card remains unchanged.",
+  "does_not_accept_old_full16_card": true,
+  "undefined_labels_policy": "Retain undefined rho/gain; refuse a deployable table if all rho or any stage gain is unobserved.",
+  "estimated_cells_policy": "Global observed-median rho and time-interpolated median gain; age<=6 grid is an estimated prior, older/missing cells DD.",
+  "age_and_stage_confounded": true,
+  "paid_proxy_not_identical_to_absolute_latent_error": true,
+  "not_video_quality_or_future_cost_supervision": true,
+  "first_window_allocation_revision": "Complete forecast 3.552744294 GPUh supersedes the unregistered 2.5 GPUh MF-R calibration suggestion; use unregistered first-window allowance without reducing any paths or controls.",
+  "batch_CPU_registration_ref": "manifests/wc_ra_calibration_sampling_cpu_r1_preregistration_20261010.json",
+  "batch_CPU_registration_sha256": "cd246f4aa24fda6bb42791b4290a485519c3e68f15eca90d7602cf16c680c1e6",
+  "batch_CPU_complete_audit_ref": "reports/wc_ra_calibration_sampling_cpu_r1_terminal_20261010_capture_and_independent_audit.json",
+  "batch_CPU_complete_audit_sha256": "bf8c204d9a2aeba5cdcb30a936d0e9de45174bf1ae6f46d72529be64064abed2",
+  "execution_policy_ref": "manifests/wc_execution_autonomy_authorization_20261010_4gpuh.json",
+  "budget_window_authorization_ref": "manifests/budget_authorization_20261009_wc_new_window_48gpuh.json"
+}
