@@ -1,3 +1,7 @@
+## 2026-10-09 最新预算：从当前起48 GPUh可用
+
+用户澄清“是从当前开始 48gpuh”，[199预算更新](research/199_WC_NEW_REMAINING_48_GPUH_AUTHORIZATION_20261009.md)与[新直接授权](manifests/budget_authorization_20261009_wc_new_window_48gpuh.json)已落实到服务器/本地权威账本：以实费29.895246589658527为起点，新可用48，累计上限77.89524658965853，65提交和旧费用/授权全部保留。以下旧50上限、20.1048余额是历史快照；三模块首窗口约20GPUh仍是首批提案，其余28未注册为作业。单次完整>2GPUh具体确认保持；此预算更新不批准旧6.704整卡，不启动GPU/训练、不改变实验分母。新执行器必须绑定此窗口授权与累计上限，不能直接运行绑定旧50的冻结stage。研究设计按下方三模块入口接续。
+
 ## 2026-10-09 当前研究设计：WorldCache＋RA 三模块协同开发
 
 最新用户要求与三份原文已适配为[统一方法与数学设计](plans/WORLD_CACHE_INTEGRATED_MULTI_FIDELITY_DEVELOPMENT_20261009.md)和[首窗口实验卡](plans/WORLD_CACHE_MULTI_FIDELITY_FIRST_WINDOW_20261009.md)，[198更新记录](research/198_WC_INTEGRATED_DEVELOPMENT_DESIGN_UPDATE_20261009.md)列明差异。新优先级：必要接口控制重提案＋本地校准RA → guided目标W1／协调稀疏和部分MLP → 尽早AB-naive／来源感知ABC完整视频 → 有限修订／独立小确认。A/B不必单独稳定胜出、长期Q标签不是共同前置条件；小参数校准是候选工具，Tiny head/LoRA后续另提报。旧结果、判据、失败与冻结源保留，以下旧“当前/下一”属于历史。

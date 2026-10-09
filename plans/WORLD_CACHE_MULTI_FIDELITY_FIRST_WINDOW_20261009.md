@@ -1,6 +1,6 @@
 # 三模块协同开发：首窗口实验卡与接续
 
-2026-10-09，v1.0；配套[方法总设计](WORLD_CACHE_INTEGRATED_MULTI_FIDELITY_DEVELOPMENT_20261009.md)。**设计提报，所有新卡尚未选择/执行。** 不自动批准 GPU、训练或改变既有登记。
+2026-10-09，v1.1；配套[方法总设计](WORLD_CACHE_INTEGRATED_MULTI_FIDELITY_DEVELOPMENT_20261009.md)。**设计提报，所有新卡尚未选择/执行。** v1.1仅更新预算窗口，不自动批准GPU、训练或改变既有登记。
 
 ## 1. 首窗口交付
 
@@ -112,7 +112,7 @@
 
 ## 10. 约20 GPUh开发分配提案
 
-[本轮只读账本](../reports/wc_integrated_design_resource_snapshot_20261009.json)确认已用29.895246590／50，余20.104753410。下表是阶段上限分配，不是各卡forecast或已批准额度，不保证所有阶段能在20h内完成。
+[最新直接窗口授权](../research/199_WC_NEW_REMAINING_48_GPUH_AUTHORIZATION_20261009.md)以已用29.895246589658527为起点，授权从现在起可用48GPUh，对应累计上限77.89524658965853。下表20GPUh仍是首批开发提案，其余28未注册为作业；原50/20.1048[只读快照](../reports/wc_integrated_design_resource_snapshot_20261009.json)保留历史。阶段分配不是各卡forecast或已批准额度，不保证所有阶段能在20h内完成。
 
 | 工作 | 拟分配GPUh |
 |---|---:|
