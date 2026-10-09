@@ -1,0 +1,20 @@
+{
+  "identity": "WC_MF_A_POST_DENOISE_OUTPUT_CORE_CPU_R1_20261010",
+  "registered_unix": 1791580102.503276,
+  "scope": "Actual Torch FP32 BCTHW output fusion and guided moments, beta1 residual control, source-pinned RF full denoise four gt/time cases, seven refusals and exact endpoint/input/RNG retention. Controlled supplied tensors only; no weights, real CAL states, teacher proof, videos or speed.",
+  "payload_sha256": {
+    "src/wcomr/__init__.py": "b9996da0a87bb746cdac0935ead475246fc34d88b37e73f63f14e5065494f311",
+    "src/wcomr/cfg_guided_w1_grid.py": "48042bfdf995e6ec557225016262486e7be2ef2b463299e57f1351ab774da720",
+    "src/wcomr/cfg_guided_w1_outputs.py": "c3ddf699afef1191ed29feb63707985b6c1f21bcff8a267c9741341f6638d63a",
+    "src/wcomr/cfg_paired_probe_forward.py": "e240851429f72336038ecfcdd1fdf60614e17b2fbe2a1bd8af42d71562e9db2b",
+    "tests/check_cfg_guided_w1_outputs_cpu.py": "60de28476fa7f7a79ec000b5f3acd96ed58c878648b741cf01f26e48398ea4e9"
+  },
+  "runtime_source_sha256": {
+    "cosmos_predict2/_src/predict2/models/video2world_model_rectified_flow.py": "9b53e3f024e5cbb2cb3778819e1a6fd353923c13ad9b868d99602051640a65e8"
+  },
+  "planned_true_collection": "Four registered CAL scenes AV28/Human/misc/AV51 with two legal own-state origins each; actual post-denoise original/beta1/W1/dense and same-state/anchor provenance still required. Do not derive these vectors from scalar PaidProbe packets.",
+  "unchanged_running_R2_source_and_stage": true,
+  "no_GPU_submission_or_ledger_write_or_GPU_lock": true,
+  "new_human_review": false,
+  "local_environment": "AST/compile only; no Torch. Use existing pinned server CPU runtime."
+}
