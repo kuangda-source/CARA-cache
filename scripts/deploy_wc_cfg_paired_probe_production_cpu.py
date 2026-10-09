@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Deploy one committed complete H-T54 CPU stage; never write GPU/ledger state."""
 import base64
+import argparse
 import hashlib
 import io
 import json
@@ -10,10 +11,11 @@ import tarfile
 
 
 def main():
-    ref=Path('manifests/wc_cfg_paired_probe_production_cpu_r1_preregistration_20261009.json')
+    parser=argparse.ArgumentParser();parser.add_argument('--attempt',choices=('r1','r2'),default='r1');args=parser.parse_args()
+    ref=Path('manifests/wc_cfg_paired_probe_production_cpu_'+args.attempt+'_preregistration_20261009.json')
     reg=json.loads(ref.read_text());revision=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()
     assert subprocess.check_output(['git','show',revision+':'+str(ref)])==ref.read_bytes()
-    dest=Path('reports/wc_cfg_paired_probe_production_cpu_r1_launch_20261009.json');assert not dest.exists()
+    dest=Path('reports/wc_cfg_paired_probe_production_cpu_'+args.attempt+'_launch_20261009.json');assert not dest.exists()
     buffer=io.BytesIO()
     with tarfile.open(fileobj=buffer,mode='w:gz') as archive:
         for name,digest in reg['payload_sha256'].items():
@@ -21,11 +23,11 @@ def main():
             assert subprocess.check_output(['git','show',revision+':'+name])==raw
             info=tarfile.TarInfo(name);info.size=len(raw);archive.addfile(info,io.BytesIO(raw))
         raw=ref.read_bytes();info=tarfile.TarInfo('paired-probe-production-preregistration.json');info.size=len(raw);archive.addfile(info,io.BytesIO(raw))
-    packet={'source_revision':revision,'archive':base64.b64encode(buffer.getvalue()).decode(),
+    packet={'source_revision':revision,'attempt':args.attempt,'archive':base64.b64encode(buffer.getvalue()).decode(),
             'archive_sha256':hashlib.sha256(buffer.getvalue()).hexdigest()}
     source='P='+repr(packet)+'\n'+r'''
 import base64,hashlib,io,json,os,pathlib,subprocess,tarfile,time
-root=pathlib.Path('/home/gaokuangda/data/gkd/worldcache_omr');stage=root/'.sync/wc-cfg-paired-probe-production-cpu-r1-20261009'
+root=pathlib.Path('/home/gaokuangda/data/gkd/worldcache_omr');stage=root/('.sync/wc-cfg-paired-probe-production-cpu-'+P['attempt']+'-20261009')
 assert not stage.exists();raw=base64.b64decode(P['archive']);assert hashlib.sha256(raw).hexdigest()==P['archive_sha256']
 with tarfile.open(fileobj=io.BytesIO(raw),mode='r:gz') as archive:
  for item in archive.getmembers():

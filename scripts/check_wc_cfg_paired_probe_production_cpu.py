@@ -29,6 +29,37 @@ def main():
         def get_benchmarker(self):return forbidden
         def __getattr__(self,name):raise RuntimeError('Production CPU denies Triton execution: '+name)
     triton.runtime.driver.active=ImportOnlyDriver()
+    # Same exiting-process adapters as the previously audited actual-condition
+    # import checker. Installed FlashAttention metadata exists, but the HF
+    # helper intentionally reports false when CUDA_VISIBLE_DEVICES is empty.
+    # Restore both helpers and the unused constructor default before testing.
+    import importlib.metadata
+    import transformers.utils as hf_utils
+    from transformers.utils import import_utils
+    from packaging.version import Version
+    installed=importlib.metadata.version('flash_attn')
+    assert import_utils._is_package_available('flash_attn') and Version(installed)>=Version('2.1.0')
+    previous=(hf_utils.is_flash_attn_2_available,import_utils.is_flash_attn_2_available,torch.cuda.current_device)
+    availability_before=bool(previous[0]())
+    def metadata_only_availability():
+        assert not torch.cuda.is_initialized()
+        return True
+    hf_utils.is_flash_attn_2_available=metadata_only_availability
+    import_utils.is_flash_attn_2_available=metadata_only_availability
+    torch.cuda.current_device=lambda:0
+    torch.load=forbidden
+    try:
+        from cosmos_predict2._src.predict2.inference import worldcache_utils as actual_wc
+        from cosmos_predict2._src.predict2.models import video2world_model_rectified_flow as actual_rf
+    finally:
+        hf_utils.is_flash_attn_2_available,import_utils.is_flash_attn_2_available,torch.cuda.current_device=previous
+    assert not torch.cuda.is_initialized()
+    adapter={'installed_flash_version':installed,'installed_package_present':True,
+             'original_HF_availability':availability_before,'CUDA_hardware_availability_not_overridden':True,
+             'original_helpers_and_current_device_restored':hf_utils.is_flash_attn_2_available is previous[0]
+                 and import_utils.is_flash_attn_2_available is previous[1] and torch.cuda.current_device is previous[2],
+             'weights_load_forbidden':True,'model_instantiated_by_actual_import':False,
+             'GPU_runtime_adapter':False,'CUDA_initialized':False}
     reg = json.loads((args.stage / 'paired-probe-production-preregistration.json').read_text())
     sha = lambda path: hashlib.sha256(path.read_bytes()).hexdigest()
     assert {n: sha(args.stage / n) for n in reg['payload_sha256']} == reg['payload_sha256']
@@ -60,6 +91,7 @@ def main():
             assert proof['WC_inverse_AST_equal'] and proof['RF_inverse_AST_equal'] and proof['explicit_net_observers']
         if row['kind']=='main_pair':assert row['observer_per_branch_input_output_equal']
     result.update(status='PAIRED_PROBE_ACTUAL_GLOBALS_AND_OBSERVERS_COMPLETE_TOY_CPU_NOT_REAL_MODEL_OR_POLICY',
+        actual_import_only_adapter=adapter,
         CPU_wall_seconds=time.perf_counter() - started, pid=os.getpid(), GPU_submissions=0,
         CUDA_initialized=False, planned_scope=reg['CPU_scope'], payload_sha256=reg['payload_sha256'],
         real_model_output_or_latency_claim=False, risk_policy_or_calibration_claim=False,
