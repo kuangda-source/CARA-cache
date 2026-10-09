@@ -1,0 +1,1034 @@
+{
+  "card": "WC-W3-REAL-PAIRED-INTERFACE-R1-20261009-A",
+  "run_id": "wc-w3-real-paired-interface-r1",
+  "identity": "H_T58_REAL_LOCAL_INTERFACE_PREREGISTRATION",
+  "registered_unix": 1791515590.775064,
+  "hypotheses": [
+    "H-T58a same actual S22 CC/DD outputs and complete state across original/paired order, observer switch and strict repeats",
+    "H-T58b original full OFF/ON parents, endpoint state and video bytes identical"
+  ],
+  "scope_counts": {
+    "full_parents": 2,
+    "new_videos": 2,
+    "actual_state_origins": 1,
+    "same_action_comparisons": 8,
+    "local_CFG_velocity_pairs": 16,
+    "net_calls_in_diagnostics": 32,
+    "raw_FP32_tensors": 48,
+    "full_counterfactual_suffixes": 0,
+    "endpoint_labels": 0,
+    "future_cost_labels": 0
+  },
+  "origins": [
+    "S22"
+  ],
+  "modes": [
+    "CC",
+    "DD"
+  ],
+  "orders": [
+    "ORIGINAL",
+    "PAIRED"
+  ],
+  "observers": [
+    "OFF",
+    "ON"
+  ],
+  "repetitions": [
+    "first",
+    "second"
+  ],
+  "snapshot_completed_updates": 22,
+  "snapshot_after_net_call": 44,
+  "measurement_space": "POST_DENOISE_BEFORE_SOLVER",
+  "remaining_parent_policy": "ORIGINAL_WORLDCACHE_ADAPTIVE_RESTORED_NO_TEACHER_WRITES",
+  "original_request": {
+    "inference_type": "text2world",
+    "seed": 0,
+    "guidance": 7,
+    "num_output_frames": 93,
+    "resolution": "432,768",
+    "negative_prompt": "The video captures a series of frames showing ugly scenes, static with no motion, motion blur, over-saturation, shaky footage, low resolution, grainy texture, pixelated images, poorly lit areas, underexposed and overexposed scenes, poor color balance, washed out colors, choppy sequences, jerky movements, low frame rate, artifacting, color banding, unnatural transitions, outdated special effects, fake elements, unconvincing visuals, poorly edited content, jump cuts, visual noise, and flickering. Overall, the video is of poor quality.",
+    "name": "common_sense_6487f37f-ef57-49ca-afdc-d898922b5191",
+    "prompt": "A close-up shot of a beautifully plated dessert, showcasing a golden-brown eclair-like pastry with a delicate, crisp exterior dusted with powdered sugar. The pastry is split open, revealing perfectly piped mounds of rich, textured coffee-colored cream filling, each with velvety ridges and topped with finely chopped nuts. A small sprig of fresh green garnish adorns the rightmost swirl. Beneath the pastry, four glossy lines of dark brown sauce radiate outward in evenly spaced streaks. In the foreground, a rounded food item with a soft, velvety foamy texture, light beige in color, sits slightly overlapping the chocolate lines. The plate is a pristine white ceramic with a subtle textured pattern along its edges. The background remains softly blurred, with another golden-brown item briefly appearing on a plate on the top right side. The scene is captured under bright, natural lighting from a slightly elevated angle, gradually pulling back to reveal the intricate details of the dish.",
+    "num_steps": 35
+  },
+  "confirmation_request": {
+    "inference_type": "text2world",
+    "seed": 3,
+    "guidance": 7,
+    "num_output_frames": 93,
+    "resolution": "432,768",
+    "negative_prompt": "The video captures a series of frames showing ugly scenes, static with no motion, motion blur, over-saturation, shaky footage, low resolution, grainy texture, pixelated images, poorly lit areas, underexposed and overexposed scenes, poor color balance, washed out colors, choppy sequences, jerky movements, low frame rate, artifacting, color banding, unnatural transitions, outdated special effects, fake elements, unconvincing visuals, poorly edited content, jump cuts, visual noise, and flickering. Overall, the video is of poor quality.",
+    "name": "common_sense_6487f37f-ef57-49ca-afdc-d898922b5191_seed3",
+    "prompt": "A close-up shot of a beautifully plated dessert, showcasing a golden-brown eclair-like pastry with a delicate, crisp exterior dusted with powdered sugar. The pastry is split open, revealing perfectly piped mounds of rich, textured coffee-colored cream filling, each with velvety ridges and topped with finely chopped nuts. A small sprig of fresh green garnish adorns the rightmost swirl. Beneath the pastry, four glossy lines of dark brown sauce radiate outward in evenly spaced streaks. In the foreground, a rounded food item with a soft, velvety foamy texture, light beige in color, sits slightly overlapping the chocolate lines. The plate is a pristine white ceramic with a subtle textured pattern along its edges. The background remains softly blurred, with another golden-brown item briefly appearing on a plate on the top right side. The scene is captured under bright, natural lighting from a slightly elevated angle, gradually pulling back to reveal the intricate details of the dish.",
+    "num_steps": 35
+  },
+  "original_source": {
+    "path": "configs/cal_w1d8.jsonl",
+    "sha256": "7b99d44d9ec5aced6983dccbf1eb930344a84f053f185f423cecd12d94354d84"
+  },
+  "timesteps": [
+    995,
+    994,
+    993,
+    992,
+    990,
+    988,
+    986,
+    984,
+    981,
+    977,
+    973,
+    967,
+    960,
+    951,
+    941,
+    927,
+    910,
+    889,
+    863,
+    831,
+    791,
+    742,
+    684,
+    618,
+    543,
+    462,
+    380,
+    301,
+    228,
+    166,
+    116,
+    77,
+    49,
+    30,
+    17,
+    9
+  ],
+  "identity_selection": "Previously exposed Common seed3 reused for an implementation comparison in a fresh run; not unexposed identity or CONF.",
+  "CPU_registration_ref": "manifests/wc_cfg_paired_interface_sampling_cpu_r1_preregistration_20261009.json",
+  "input_sha256": {
+    "reports/wc_cfg_paired_local_interface_cpu_r1_terminal_20261009_result.json.native.gz": "eb059cad00c64ee25387ea7fb55cf813448e124280201458517ea37782937053",
+    "reports/wc_cfg_paired_local_interface_cpu_r1_terminal_20261009_core.log.native.gz": "accb554d091c202ba0d568bbce3667f802153f4b2a433af8c4ef93af49ea6320",
+    "reports/wc_cfg_paired_local_interface_cpu_r1_terminal_20261009_receipt.json.native.gz": "d4cb21f3878441c88a50e1d2dc19c7b04ffe89ab6f69bc06a1da523a85fd3919",
+    "reports/wc_cfg_paired_local_interface_cpu_r1_terminal_20261009_driver.log.native.gz": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64",
+    "reports/wc_cfg_paired_local_interface_cpu_r1_terminal_20261009_launch.json.native.gz": "a23e35c126bdb8b859fda415f692dd7ebb4b67b889a2818287fb38dbc64f557f",
+    "reports/wc_cfg_paired_local_interface_cpu_r1_terminal_20261009_paired-local-interface-preregistration.json.native.gz": "3316d5874657382ca45dea9633efcf8c45a8bcf94f2a5da95a7d1652ee84d997",
+    "reports/wc_cfg_paired_local_interface_cpu_r1_terminal_20261009_capture_and_independent_audit.json": "7098938fedd7edc5f8e3cdc23f30ef738900e662b96eebfe96f4aac0b1b5db70"
+  },
+  "forecast": {
+    "all_three_complete_prior_sources": [
+      {
+        "source": "reports/wc_cfg_guided_teacher_r1_terminal_20261009_runner_native.gz",
+        "compressed_SHA": "c0ed1c8868517d8dcb9bacd75e64ec6725db5c2f22476f062205a927510bb0fc",
+        "original_source_revision": "e9f47f5759a774244dba02cc436657ab36099550",
+        "all_pairs": 40,
+        "leaf_pairs": 36,
+        "max_leaf_instrumented_pair_seconds": 69.11667201016098,
+        "full_OFF_parent_wall_seconds": 859.9177641272545,
+        "load_seconds": 98.13336327206343,
+        "capture_gate": {
+          "logical_tensor_copy_bytes": 2828989242,
+          "GPU_logical_copy_bytes": 2828989094,
+          "GPU_free_bytes": 34534457344,
+          "required_GPU_headroom_bytes": 9952945484,
+          "transient_copy_factor": 2,
+          "workspace_reserve_bytes": 4294967296,
+          "scope": "CAPTURE_ADMISSION_NOT_TOTAL_PEAK_OR_COMPLETE_COST_BOUND"
+        }
+      },
+      {
+        "source": "reports/wc_cfg_mechanism_confirmation_r1_terminal_20261009_runner_native.gz",
+        "compressed_SHA": "f169110d79ecdf4476fb7780c5f48e448098a4f723520cc1f8871c4f598e4ea1",
+        "original_source_revision": "00b06e61f39bf3bd7f7f2696a70994a0d2ffc0e5",
+        "all_pairs": 40,
+        "leaf_pairs": 36,
+        "max_leaf_instrumented_pair_seconds": 66.56676655076444,
+        "full_OFF_parent_wall_seconds": 866.3753534667194,
+        "load_seconds": 83.78634151164442,
+        "capture_gate": {
+          "logical_tensor_copy_bytes": 2828989246,
+          "GPU_logical_copy_bytes": 2828989098,
+          "GPU_free_bytes": 34534457344,
+          "required_GPU_headroom_bytes": 9952945492,
+          "transient_copy_factor": 2,
+          "workspace_reserve_bytes": 4294967296,
+          "scope": "CAPTURE_ADMISSION_NOT_TOTAL_PEAK_OR_COMPLETE_COST_BOUND"
+        }
+      },
+      {
+        "source": "reports/wc_other_scene_cfg_confirmation_r1_terminal_20261009_runner_native.gz",
+        "compressed_SHA": "cc975bbad53f13a11a8bcc982c7add037df35906f72196e0d110ea472be33cb2",
+        "original_source_revision": "c243d303fc4085d522638d5e67c8ea1c5d745b96",
+        "all_pairs": 40,
+        "leaf_pairs": 36,
+        "max_leaf_instrumented_pair_seconds": 67.20245936419815,
+        "full_OFF_parent_wall_seconds": 925.025799295865,
+        "load_seconds": 101.15695103630424,
+        "capture_gate": {
+          "logical_tensor_copy_bytes": 2828989246,
+          "GPU_logical_copy_bytes": 2828989098,
+          "GPU_free_bytes": 34534457344,
+          "required_GPU_headroom_bytes": 9952945492,
+          "transient_copy_factor": 2,
+          "workspace_reserve_bytes": 4294967296,
+          "scope": "CAPTURE_ADMISSION_NOT_TOTAL_PEAK_OR_COMPLETE_COST_BOUND"
+        }
+      }
+    ],
+    "all_120_instrumented_pair_rows": [
+      {
+        "source": "reports/wc_cfg_guided_teacher_r1_terminal_20261009_runner_native.gz",
+        "origin": "S22",
+        "label": "CC_first",
+        "wall_seconds": 681.9111832929775,
+        "contains_child_measurements": true
+      },
+      {
+        "source": "reports/wc_cfg_guided_teacher_r1_terminal_20261009_runner_native.gz",
+        "origin": "S22",
+        "label": "CC_second",
+        "wall_seconds": 60.7081652879715,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_cfg_guided_teacher_r1_terminal_20261009_runner_native.gz",
+        "origin": "S22",
+        "label": "DC_first",
+        "wall_seconds": 681.9842563336715,
+        "contains_child_measurements": true
+      },
+      {
+        "source": "reports/wc_cfg_guided_teacher_r1_terminal_20261009_runner_native.gz",
+        "origin": "S22",
+        "label": "DC_second",
+        "wall_seconds": 63.71607123874128,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_cfg_guided_teacher_r1_terminal_20261009_runner_native.gz",
+        "origin": "S22",
+        "label": "CD_first",
+        "wall_seconds": 674.067178321071,
+        "contains_child_measurements": true
+      },
+      {
+        "source": "reports/wc_cfg_guided_teacher_r1_terminal_20261009_runner_native.gz",
+        "origin": "S22",
+        "label": "CD_second",
+        "wall_seconds": 63.56958018336445,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_cfg_guided_teacher_r1_terminal_20261009_runner_native.gz",
+        "origin": "S22",
+        "label": "DD_first",
+        "wall_seconds": 689.1241790214553,
+        "contains_child_measurements": true
+      },
+      {
+        "source": "reports/wc_cfg_guided_teacher_r1_terminal_20261009_runner_native.gz",
+        "origin": "S22",
+        "label": "DD_second",
+        "wall_seconds": 68.98509570024908,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_cfg_guided_teacher_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_CC",
+        "label": "CC_first",
+        "wall_seconds": 61.04483487457037,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_cfg_guided_teacher_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_CC",
+        "label": "CC_second",
+        "wall_seconds": 62.44249310158193,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_cfg_guided_teacher_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_CC",
+        "label": "DC_first",
+        "wall_seconds": 64.62535479757935,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_cfg_guided_teacher_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_CC",
+        "label": "DC_second",
+        "wall_seconds": 66.09391211345792,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_cfg_guided_teacher_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_CC",
+        "label": "CD_first",
+        "wall_seconds": 66.43813592754304,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_cfg_guided_teacher_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_CC",
+        "label": "CD_second",
+        "wall_seconds": 66.26505526248366,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_cfg_guided_teacher_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_CC",
+        "label": "DD_first",
+        "wall_seconds": 68.28410260099918,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_cfg_guided_teacher_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_CC",
+        "label": "DD_second",
+        "wall_seconds": 68.32229048758745,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_cfg_guided_teacher_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_DC",
+        "label": "CC_first",
+        "wall_seconds": 60.965354456566274,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_cfg_guided_teacher_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_DC",
+        "label": "CC_second",
+        "wall_seconds": 61.974168894812465,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_cfg_guided_teacher_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_DC",
+        "label": "DC_first",
+        "wall_seconds": 65.30115929339081,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_cfg_guided_teacher_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_DC",
+        "label": "DC_second",
+        "wall_seconds": 65.65272463206202,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_cfg_guided_teacher_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_DC",
+        "label": "CD_first",
+        "wall_seconds": 64.63119511306286,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_cfg_guided_teacher_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_DC",
+        "label": "CD_second",
+        "wall_seconds": 64.09869969915599,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_cfg_guided_teacher_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_DC",
+        "label": "DD_first",
+        "wall_seconds": 68.08023503236473,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_cfg_guided_teacher_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_DC",
+        "label": "DD_second",
+        "wall_seconds": 69.01971360202879,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_cfg_guided_teacher_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_CD",
+        "label": "CC_first",
+        "wall_seconds": 62.29908788856119,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_cfg_guided_teacher_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_CD",
+        "label": "CC_second",
+        "wall_seconds": 63.01511937659234,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_cfg_guided_teacher_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_CD",
+        "label": "DC_first",
+        "wall_seconds": 66.0918048787862,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_cfg_guided_teacher_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_CD",
+        "label": "DC_second",
+        "wall_seconds": 63.91851313505322,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_cfg_guided_teacher_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_CD",
+        "label": "CD_first",
+        "wall_seconds": 62.167048916220665,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_cfg_guided_teacher_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_CD",
+        "label": "CD_second",
+        "wall_seconds": 62.15494888462126,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_cfg_guided_teacher_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_CD",
+        "label": "DD_first",
+        "wall_seconds": 65.46420973818749,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_cfg_guided_teacher_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_CD",
+        "label": "DD_second",
+        "wall_seconds": 65.89544078987092,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_cfg_guided_teacher_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_DD",
+        "label": "CC_first",
+        "wall_seconds": 61.54868229199201,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_cfg_guided_teacher_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_DD",
+        "label": "CC_second",
+        "wall_seconds": 60.695603179745376,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_cfg_guided_teacher_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_DD",
+        "label": "DC_first",
+        "wall_seconds": 64.6377310976386,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_cfg_guided_teacher_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_DD",
+        "label": "DC_second",
+        "wall_seconds": 65.44211981538683,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_cfg_guided_teacher_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_DD",
+        "label": "CD_first",
+        "wall_seconds": 65.99309601634741,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_cfg_guided_teacher_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_DD",
+        "label": "CD_second",
+        "wall_seconds": 63.98291197884828,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_cfg_guided_teacher_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_DD",
+        "label": "DD_first",
+        "wall_seconds": 68.34660359472036,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_cfg_guided_teacher_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_DD",
+        "label": "DD_second",
+        "wall_seconds": 69.11667201016098,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_cfg_mechanism_confirmation_r1_terminal_20261009_runner_native.gz",
+        "origin": "S22",
+        "label": "CC_first",
+        "wall_seconds": 678.3589942259714,
+        "contains_child_measurements": true
+      },
+      {
+        "source": "reports/wc_cfg_mechanism_confirmation_r1_terminal_20261009_runner_native.gz",
+        "origin": "S22",
+        "label": "CC_second",
+        "wall_seconds": 60.26095127500594,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_cfg_mechanism_confirmation_r1_terminal_20261009_runner_native.gz",
+        "origin": "S22",
+        "label": "DC_first",
+        "wall_seconds": 666.6580742159858,
+        "contains_child_measurements": true
+      },
+      {
+        "source": "reports/wc_cfg_mechanism_confirmation_r1_terminal_20261009_runner_native.gz",
+        "origin": "S22",
+        "label": "DC_second",
+        "wall_seconds": 63.468719244003296,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_cfg_mechanism_confirmation_r1_terminal_20261009_runner_native.gz",
+        "origin": "S22",
+        "label": "CD_first",
+        "wall_seconds": 668.6701665483415,
+        "contains_child_measurements": true
+      },
+      {
+        "source": "reports/wc_cfg_mechanism_confirmation_r1_terminal_20261009_runner_native.gz",
+        "origin": "S22",
+        "label": "CD_second",
+        "wall_seconds": 63.59677597973496,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_cfg_mechanism_confirmation_r1_terminal_20261009_runner_native.gz",
+        "origin": "S22",
+        "label": "DD_first",
+        "wall_seconds": 673.0150763941929,
+        "contains_child_measurements": true
+      },
+      {
+        "source": "reports/wc_cfg_mechanism_confirmation_r1_terminal_20261009_runner_native.gz",
+        "origin": "S22",
+        "label": "DD_second",
+        "wall_seconds": 66.51889318786561,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_cfg_mechanism_confirmation_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_CC",
+        "label": "CC_first",
+        "wall_seconds": 63.24098108988255,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_cfg_mechanism_confirmation_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_CC",
+        "label": "CC_second",
+        "wall_seconds": 65.15238304436207,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_cfg_mechanism_confirmation_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_CC",
+        "label": "DC_first",
+        "wall_seconds": 66.56676655076444,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_cfg_mechanism_confirmation_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_CC",
+        "label": "DC_second",
+        "wall_seconds": 63.59766084328294,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_cfg_mechanism_confirmation_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_CC",
+        "label": "CD_first",
+        "wall_seconds": 63.38188065867871,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_cfg_mechanism_confirmation_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_CC",
+        "label": "CD_second",
+        "wall_seconds": 63.375337223522365,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_cfg_mechanism_confirmation_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_CC",
+        "label": "DD_first",
+        "wall_seconds": 66.35964157711715,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_cfg_mechanism_confirmation_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_CC",
+        "label": "DD_second",
+        "wall_seconds": 66.34659562911838,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_cfg_mechanism_confirmation_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_DC",
+        "label": "CC_first",
+        "wall_seconds": 60.375755870714784,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_cfg_mechanism_confirmation_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_DC",
+        "label": "CC_second",
+        "wall_seconds": 60.34303992241621,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_cfg_mechanism_confirmation_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_DC",
+        "label": "DC_first",
+        "wall_seconds": 63.39912543538958,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_cfg_mechanism_confirmation_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_DC",
+        "label": "DC_second",
+        "wall_seconds": 63.3842693567276,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_cfg_mechanism_confirmation_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_DC",
+        "label": "CD_first",
+        "wall_seconds": 63.30935957375914,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_cfg_mechanism_confirmation_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_DC",
+        "label": "CD_second",
+        "wall_seconds": 63.23169588390738,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_cfg_mechanism_confirmation_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_DC",
+        "label": "DD_first",
+        "wall_seconds": 66.49228137731552,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_cfg_mechanism_confirmation_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_DC",
+        "label": "DD_second",
+        "wall_seconds": 66.36449441034347,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_cfg_mechanism_confirmation_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_CD",
+        "label": "CC_first",
+        "wall_seconds": 60.44980667345226,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_cfg_mechanism_confirmation_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_CD",
+        "label": "CC_second",
+        "wall_seconds": 60.48462712112814,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_cfg_mechanism_confirmation_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_CD",
+        "label": "DC_first",
+        "wall_seconds": 63.457647058181465,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_cfg_mechanism_confirmation_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_CD",
+        "label": "DC_second",
+        "wall_seconds": 63.49318411573768,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_cfg_mechanism_confirmation_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_CD",
+        "label": "CD_first",
+        "wall_seconds": 63.45943575631827,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_cfg_mechanism_confirmation_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_CD",
+        "label": "CD_second",
+        "wall_seconds": 63.39123986568302,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_cfg_mechanism_confirmation_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_CD",
+        "label": "DD_first",
+        "wall_seconds": 66.40855248831213,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_cfg_mechanism_confirmation_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_CD",
+        "label": "DD_second",
+        "wall_seconds": 66.40118868555874,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_cfg_mechanism_confirmation_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_DD",
+        "label": "CC_first",
+        "wall_seconds": 60.38112841080874,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_cfg_mechanism_confirmation_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_DD",
+        "label": "CC_second",
+        "wall_seconds": 60.48355866689235,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_cfg_mechanism_confirmation_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_DD",
+        "label": "DC_first",
+        "wall_seconds": 63.396505592390895,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_cfg_mechanism_confirmation_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_DD",
+        "label": "DC_second",
+        "wall_seconds": 63.40986026916653,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_cfg_mechanism_confirmation_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_DD",
+        "label": "CD_first",
+        "wall_seconds": 63.421779399737716,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_cfg_mechanism_confirmation_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_DD",
+        "label": "CD_second",
+        "wall_seconds": 63.41354219149798,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_cfg_mechanism_confirmation_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_DD",
+        "label": "DD_first",
+        "wall_seconds": 66.28975925035775,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_cfg_mechanism_confirmation_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_DD",
+        "label": "DD_second",
+        "wall_seconds": 66.33244931232184,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_other_scene_cfg_confirmation_r1_terminal_20261009_runner_native.gz",
+        "origin": "S22",
+        "label": "CC_first",
+        "wall_seconds": 663.5932892784476,
+        "contains_child_measurements": true
+      },
+      {
+        "source": "reports/wc_other_scene_cfg_confirmation_r1_terminal_20261009_runner_native.gz",
+        "origin": "S22",
+        "label": "CC_second",
+        "wall_seconds": 60.66352188680321,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_other_scene_cfg_confirmation_r1_terminal_20261009_runner_native.gz",
+        "origin": "S22",
+        "label": "DC_first",
+        "wall_seconds": 668.0954788951203,
+        "contains_child_measurements": true
+      },
+      {
+        "source": "reports/wc_other_scene_cfg_confirmation_r1_terminal_20261009_runner_native.gz",
+        "origin": "S22",
+        "label": "DC_second",
+        "wall_seconds": 63.50270971469581,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_other_scene_cfg_confirmation_r1_terminal_20261009_runner_native.gz",
+        "origin": "S22",
+        "label": "CD_first",
+        "wall_seconds": 669.8944094823673,
+        "contains_child_measurements": true
+      },
+      {
+        "source": "reports/wc_other_scene_cfg_confirmation_r1_terminal_20261009_runner_native.gz",
+        "origin": "S22",
+        "label": "CD_second",
+        "wall_seconds": 63.35720217600465,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_other_scene_cfg_confirmation_r1_terminal_20261009_runner_native.gz",
+        "origin": "S22",
+        "label": "DD_first",
+        "wall_seconds": 672.4128826279193,
+        "contains_child_measurements": true
+      },
+      {
+        "source": "reports/wc_other_scene_cfg_confirmation_r1_terminal_20261009_runner_native.gz",
+        "origin": "S22",
+        "label": "DD_second",
+        "wall_seconds": 66.00532233063132,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_other_scene_cfg_confirmation_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_CC",
+        "label": "CC_first",
+        "wall_seconds": 60.390523673035204,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_other_scene_cfg_confirmation_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_CC",
+        "label": "CC_second",
+        "wall_seconds": 60.470529346726835,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_other_scene_cfg_confirmation_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_CC",
+        "label": "DC_first",
+        "wall_seconds": 63.14465827960521,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_other_scene_cfg_confirmation_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_CC",
+        "label": "DC_second",
+        "wall_seconds": 63.765064558014274,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_other_scene_cfg_confirmation_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_CC",
+        "label": "CD_first",
+        "wall_seconds": 63.73791889566928,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_other_scene_cfg_confirmation_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_CC",
+        "label": "CD_second",
+        "wall_seconds": 62.85635964758694,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_other_scene_cfg_confirmation_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_CC",
+        "label": "DD_first",
+        "wall_seconds": 66.05924146715552,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_other_scene_cfg_confirmation_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_CC",
+        "label": "DD_second",
+        "wall_seconds": 66.25549552310258,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_other_scene_cfg_confirmation_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_DC",
+        "label": "CC_first",
+        "wall_seconds": 59.84724923502654,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_other_scene_cfg_confirmation_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_DC",
+        "label": "CC_second",
+        "wall_seconds": 60.44924507290125,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_other_scene_cfg_confirmation_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_DC",
+        "label": "DC_first",
+        "wall_seconds": 64.09561456181109,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_other_scene_cfg_confirmation_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_DC",
+        "label": "DC_second",
+        "wall_seconds": 63.64242233335972,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_other_scene_cfg_confirmation_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_DC",
+        "label": "CD_first",
+        "wall_seconds": 63.82792929653078,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_other_scene_cfg_confirmation_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_DC",
+        "label": "CD_second",
+        "wall_seconds": 63.23417286481708,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_other_scene_cfg_confirmation_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_DC",
+        "label": "DD_first",
+        "wall_seconds": 66.22636580374092,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_other_scene_cfg_confirmation_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_DC",
+        "label": "DD_second",
+        "wall_seconds": 66.32287316489965,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_other_scene_cfg_confirmation_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_CD",
+        "label": "CC_first",
+        "wall_seconds": 60.056513459421694,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_other_scene_cfg_confirmation_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_CD",
+        "label": "CC_second",
+        "wall_seconds": 60.4526746282354,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_other_scene_cfg_confirmation_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_CD",
+        "label": "DC_first",
+        "wall_seconds": 63.121769327670336,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_other_scene_cfg_confirmation_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_CD",
+        "label": "DC_second",
+        "wall_seconds": 63.83255893923342,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_other_scene_cfg_confirmation_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_CD",
+        "label": "CD_first",
+        "wall_seconds": 63.869186552241445,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_other_scene_cfg_confirmation_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_CD",
+        "label": "CD_second",
+        "wall_seconds": 63.44244753476232,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_other_scene_cfg_confirmation_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_CD",
+        "label": "DD_first",
+        "wall_seconds": 67.20245936419815,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_other_scene_cfg_confirmation_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_CD",
+        "label": "DD_second",
+        "wall_seconds": 66.59708494599909,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_other_scene_cfg_confirmation_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_DD",
+        "label": "CC_first",
+        "wall_seconds": 60.367402700707316,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_other_scene_cfg_confirmation_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_DD",
+        "label": "CC_second",
+        "wall_seconds": 61.186724183149636,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_other_scene_cfg_confirmation_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_DD",
+        "label": "DC_first",
+        "wall_seconds": 64.54385199211538,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_other_scene_cfg_confirmation_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_DD",
+        "label": "DC_second",
+        "wall_seconds": 63.031206267885864,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_other_scene_cfg_confirmation_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_DD",
+        "label": "CD_first",
+        "wall_seconds": 62.86538621596992,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_other_scene_cfg_confirmation_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_DD",
+        "label": "CD_second",
+        "wall_seconds": 63.03045056108385,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_other_scene_cfg_confirmation_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_DD",
+        "label": "DD_first",
+        "wall_seconds": 66.23663244768977,
+        "contains_child_measurements": false
+      },
+      {
+        "source": "reports/wc_other_scene_cfg_confirmation_r1_terminal_20261009_runner_native.gz",
+        "origin": "S23_after_DD",
+        "label": "DD_second",
+        "wall_seconds": 65.96002335008234,
+        "contains_child_measurements": false
+      }
+    ],
+    "whole_scope_local_pairs": 16,
+    "whole_scope_native_parents": 2,
+    "max_leaf_pair_wall_seconds": 69.11667201016098,
+    "max_native_parent_wall_seconds": 925.025799295865,
+    "max_load_seconds": 101.15695103630424,
+    "unmeasured_compiler_paired_prefix_controller_reserve_seconds": 900,
+    "whole_card_safety_multiplier": 1.5,
+    "forecast_complete_GPUh": 1.6487813757460874,
+    "instrumented_prior_not_clean_latency": true,
+    "no_strict_upper_bound_claim": true,
+    "no_GPU_execution_selected_by_preregistration": true
+  }
+}
