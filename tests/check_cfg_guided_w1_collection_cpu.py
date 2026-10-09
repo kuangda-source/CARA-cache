@@ -12,7 +12,7 @@ from enum import Enum
 import hashlib
 import json
 from pathlib import Path
-from types import SimpleNamespace, ModuleType
+from types import SimpleNamespace, ModuleType, MethodType
 import tempfile
 
 
@@ -30,6 +30,7 @@ def main():
     from wcomr.cfg_guided_w1_forward import compile_collection,compile_output_denoise
     from wcomr.cfg_guided_w1_collection import GuidedW1Collector,CollectedSchedulePairExecutor,DENSE_STEPS,SELECTED_STEPS,tensor_sha
     from wcomr.cfg_ra_calibration import SharedSchedulePairExecutor
+    from wcomr.cfg_paired_probe_native_policy import NativePolicyPairedExecutor
     from wcomr.cfg_guided_w1_grid import select_shared_alpha
     from wcomr.cfg_guided_w1_outputs import shared_output_fusion
 
@@ -44,7 +45,7 @@ def main():
         future=ast.ImportFrom(module='__future__',names=[ast.alias(name='annotations')],level=0)
         exec(compile(ast.fix_missing_locations(ast.Module(body=[future]+nodes,type_ignores=[])),str(path),'exec'),vars(m))
         return m
-    wc=module(WC_PATH,WC_SHA,['worldcache_mini_train_dit_forward','apply_worldcache','compute_optimal_gamma','estimate_optical_flow','warp_feature'])
+    wc=module(WC_PATH,WC_SHA,['worldcache_mini_train_dit_forward','apply_worldcache','compute_optimal_gamma','estimate_optical_flow','warp_feature','compute_saliency_map'])
     rf=module(RF_PATH,RF_SHA,['denoise'])
     rf.Video2WorldModelRectifiedFlow=SimpleNamespace(denoise=rf.denoise)
     class Block(torch.nn.Module):
@@ -88,6 +89,7 @@ def main():
                 osi_enabled=True,flow_enabled=flow,flow_scale=1)
             model=SimpleNamespace(net=net,tensor_kwargs={'dtype':torch.float32},config=SimpleNamespace(
                 conditional_frame_timestep=.2,denoise_replace_gt_frames=True))
+            model.denoise=MethodType(rf.denoise,model)
             path=Path(tmp)/('flow'+str(flow)+'_on'+str(enabled)+'_failure'+str(fail_writer)); path.mkdir()
             def writer(scene,step,tensors):
                 nonlocal total_artifacts
@@ -101,7 +103,9 @@ def main():
             collector=GuidedW1Collector(model,scene='controlled',context=('CPU','own','condition'),enabled=enabled,writer=writer)
             if enabled:_,denoise,proof=compile_collection(a.runtime,wc,rf,collector)
             else:_,denoise,proof=compile_production(a.runtime,wc,rf)
-            schedule=SharedSchedulePairExecutor(PairedProbeExecutor(model,denoise,torch))
+            base=NativePolicyPairedExecutor(model,denoise,torch,
+                wc_forward=wc.worldcache_mini_train_dit_forward,rf_denoise=rf.denoise)
+            schedule=SharedSchedulePairExecutor(base)
             executor=CollectedSchedulePairExecutor(schedule,collector)
             latent=initial.clone(); outputs=[]; checks=[]; buffers=[]; condition_before=[tensor_sha(c.gt_frames) for c in conditions]
             error=None
@@ -134,8 +138,8 @@ def main():
                 assert [r['step'] for r in result['records']]==list(SELECTED_STEPS)
                 assert all(r['actual_post_RF_original_direct_equal'] and not r['teacher_updates_deployment_anchor'] for r in result['records'])
                 assert [r['past_D_history'][0]['anchor_steps'] for r in result['records']]==[[6,7],[19,25]]
-                assert result['score_only_teachers']==4 and len(result['actual_D_events'])==26
-                assert all(c['anchor_steps']==[35,36] and c['pairs']==12 for c in result['D_only_final_history'])
+                assert result['score_only_teachers']==4 and len(result['actual_D_events'])==24
+                assert all(c['anchor_steps']==[31,36] and c['pairs']==11 for c in result['D_only_final_history'])
                 for r in result['records']:
                     sample=torch.load(Path(r['artifact']['path']),map_location='cpu',weights_only=True)
                     for alpha in (0,.5,1):

@@ -16,9 +16,9 @@ from .cfg_guided_w1_outputs import unit_increment_residual, guided_velocity_mome
 
 
 SELECTED_STEPS = (12, 30)
-# Step35 is an actual protected pair before the source's 70-call reset; step36
-# starts at counter0. Neither is an optional D6 selector opportunity.
-DENSE_STEPS = tuple(range(1, 8)) + (13, 19, 25, 31, 35, 36)
+# The already validated native-policy pair controller permits step35 CC and
+# checks continuation modulo70. Step36 starts a new cycle and is protected DD.
+DENSE_STEPS = tuple(range(1, 8)) + (13, 19, 25, 31, 36)
 CACHE_FIELDS = ('cnt', 'worldcache_step_skipped_count', 'accumulated_rel_l1_distance',
     'residual_cache', 'probe_residual_cache', 'residual_window', 'probe_residual_window',
     'previous_internal_states', 'previous_input', 'previous_output', 'resume_flag',
