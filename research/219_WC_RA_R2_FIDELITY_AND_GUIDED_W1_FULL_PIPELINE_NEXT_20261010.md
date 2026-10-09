@@ -24,3 +24,5 @@ R2完整8路径、8接受视频、288 guided、8 latent、36次更新／72 CFG�
 本轮 settled32.674095026904／77.89524658965853，新增48窗口余45.22115156275453GPUh，70历史提交、无R2登记在途。窗口起点29.895246589658527保持；[单次执行约定](../plans/WORLD_CACHE_EXECUTION_POLICY_20261010.md)为完整≤4自主、>4具体确认。无非必要人评，goal active，旧16路6.704055834GPUh卡保持未批准。下面入口的旧进度均按其原日期保留为历史。
 
 完整采样CPU R1 source3e8a615／198载荷57.416700秒退出1，原3885416／3885417消失；[完整失败记录](../reports/wc_mf_a_collection_sampling_cpu_r1_terminal_20261010_capture.json)保留。flow OFF八父全36步采集OFF/ON、guided／latent／64分支实际重读与完整batch核对已执行，随后zero-mask断言失败。原Toy prepare漏传num_conditional_frames，实际RF因此默认1条件帧，每分支mask非零64；不是采集改变输出或方法负结果。独立[CPU R2](../manifests/wc_mf_a_collection_sampling_cpu_r2_preregistration_20261010.json)只在夹具显式传入T2V的0条件帧；保留全部24路径、flow两设置、十变异／两截断／最后父写出失败，不改实际采样算法或旧stage。GPU仍0。
+
+后续完整CPU R2 source5c53399／200源98.868498秒全量通过，详见[220完整CPU与真实卡](220_WC_GUIDED_W1_COMPLETE_CPU_AND_REAL_FOUR_CAL_CARD_20261010.md)。组会CLI已追加并全文核验revision42／179旧块保留及四新块文本链接相符。下方/先前“待CPU”仅为其当时阶段，不重投已完成CPU。
