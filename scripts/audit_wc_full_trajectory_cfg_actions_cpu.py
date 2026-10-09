@@ -8,8 +8,8 @@ import subprocess
 import time
 
 
-PREREG = Path('manifests/wc_full_trajectory_cfg_actions_cpu_r1_preregistration_20261009.json')
-OUTPUT = Path('reports/wc_full_trajectory_cfg_actions_cpu_r1_20261009.json')
+PREREG = Path('manifests/wc_full_trajectory_cfg_actions_cpu_r2_preregistration_20261009.json')
+OUTPUT = Path('reports/wc_full_trajectory_cfg_actions_cpu_r2_20261009.json')
 
 
 def sha(raw):
@@ -43,6 +43,8 @@ def main():
         assert score['local_CFG_pairs'] == 40 and score['raw_tensor_count'] == 120 and score['strict_repeat_groups'] == 20
         assert not score['CUDA_initialized'] and len(score['videos']) == 2
         assert runner['status'] == 'TEACHER_GPU_COMPLETE_REQUIRES_CPU_RAW_AUDIT_AND_LOCAL_SCORING'
+        request = runner['config']['preregistration'].get('confirmation_request') or runner['config']['preregistration']['same_existing_request']
+        assert Path(runner['teacher']['parents'][0]['artifact']['path']).stem == request['name']
         off, on = runner['teacher']['parents']
         assert off['phase'] == 'OFF' and on['phase'] == 'ON'
         for key in ('inputs', 'outputs', 'deep', 'banks', 'solver_outputs', 'final_latent_sha256', 'final_components', 'final_solver_configuration', 'sample_return_sha256', 'pipeline'):
@@ -58,7 +60,7 @@ def main():
                 assert all(type(x) is int and x in (0, 26) for x in deep), (source['run_id'], step, deep)
                 mode = ''.join('D' if x else 'C' for x in deep)
                 full = sum(x != 0 for x in deep)
-                row = {'run_id': source['run_id'], 'sample_name': runner['config']['sample_names'][0], 'phase': parent['phase'],
+                row = {'run_id': source['run_id'], 'sample_name': request['name'], 'phase': parent['phase'],
                        'solver_step': step, 'original_calls': [2*step-1, 2*step], 'actual_deep_blocks': deep,
                        'actual_original_mode': mode, 'actual_original_full_calls': full,
                        'CC_DD_only_executor_covers_fixed_action': mode in ('CC', 'DD'),
