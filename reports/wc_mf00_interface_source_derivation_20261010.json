@@ -1,0 +1,215 @@
+{
+  "identity": "MF00_I_INDEPENDENT_FOUR_PATH_IMPLEMENTATION",
+  "old_card_and_sources_retained": true,
+  "derivations": [
+    {
+      "source": "src/wcomr/cfg_complete_native_policy_sampling.py",
+      "source_sha256": "0ff03742295ab3d79b72b7d0673a2261bac1ecbe6a2b5ef5d694d6d71aef599b",
+      "derived": "src/wcomr/cfg_mf00_interface_sampling.py",
+      "derived_sha256": "6891dc08801d8217eea1fb3749519ad9fd57b167e92d368abd53f2c87ceece60",
+      "replacements": [
+        [
+          "Two requests, two orders, two observer settings and two strict repetitions are\ninseparable.",
+          "MF-00-I independently registers two requests and both orders, OFF once only.\nThe old sixteen-path card and its implementation remain untouched."
+        ],
+        [
+          "for obs in (False, True) for rep in ('first', 'second')",
+          "for obs in (False,) for rep in ('first',)"
+        ],
+        [
+          "state.get('planned_paths') != 16",
+          "state.get('planned_paths') != 4"
+        ],
+        [
+          "state.get('planned_videos') != 16",
+          "state.get('planned_videos') != 4"
+        ],
+        [
+          "sixteen-path scope",
+          "four-path MF-00-I scope"
+        ],
+        [
+          "if len(rows) != 8",
+          "if len(rows) != 2"
+        ],
+        [
+          "if len(prepared) != 8",
+          "if len(prepared) != 2"
+        ],
+        [
+          "'complete_paths': 16, 'complete_videos': 16, 'solver_updates': 576",
+          "'complete_paths': 4, 'complete_videos': 4, 'solver_updates': 144"
+        ],
+        [
+          "'net_calls': 1152, 'guided_outputs': 576, 'order_comparisons': 8",
+          "'net_calls': 288, 'guided_outputs': 144, 'order_comparisons': 2"
+        ],
+        [
+          "'actual_guided_tensors_reloaded': 576",
+          "'actual_guided_tensors_reloaded': 144"
+        ],
+        [
+          "'actual_final_latents_reloaded': 16",
+          "'actual_final_latents_reloaded': 4"
+        ],
+        [
+          "planned_paths=16, planned_videos=16",
+          "planned_paths=4, planned_videos=4"
+        ],
+        [
+          "for observers in (False, True):",
+          "for observers in (False,):"
+        ],
+        [
+          "for repetition in ('first', 'second'):",
+          "for repetition in ('first',):"
+        ]
+      ]
+    },
+    {
+      "source": "tests/check_cfg_complete_native_policy_sampling_cpu.py",
+      "source_sha256": "b6b078f21db7ec0d63dd7c458ea7bb423be065ddff03eeb62498d45390478cb0",
+      "derived": "tests/check_cfg_mf00_interface_sampling_cpu.py",
+      "derived_sha256": "3f70c5d76cab0392e182b2ba2aa0283a2e8b118b8b9925a31a59bfd20af26aa1",
+      "replacements": [
+        [
+          "wcomr.cfg_complete_native_policy_sampling",
+          "wcomr.cfg_mf00_interface_sampling"
+        ],
+        [
+          "H_T63_COMPLETE_CPU",
+          "MF00_INTERFACE_CPU"
+        ],
+        [
+          "human_OBS_ON_second_PAIRED.pt",
+          "human_OBS_OFF_first_PAIRED.pt"
+        ],
+        [
+          "state['planned_videos']==16",
+          "state['planned_videos']==4"
+        ],
+        [
+          "len(r['paths'])==8",
+          "len(r['paths'])==2"
+        ],
+        [
+          "reloaded']==576",
+          "reloaded']==144"
+        ],
+        [
+          "reloaded']==16",
+          "reloaded']==4"
+        ],
+        [
+          "'missing_observer_event'",
+          "'unexpected_OFF_observer_event'"
+        ],
+        [
+          "bad['requests'][0]['paths'][4]['net_events'].pop()",
+          "row['net_events'].append({'kind':'unexpected'})"
+        ],
+        [
+          "len(list(output.rglob('*.pt')))==15",
+          "len(list(output.rglob('*.pt')))==3"
+        ],
+        [
+          "len(list(output.rglob('*.mp4')))==16",
+          "len(list(output.rglob('*.mp4')))==4"
+        ]
+      ]
+    },
+    {
+      "source": "scripts/check_wc_cfg_complete_native_policy_sampling_cpu.py",
+      "source_sha256": "32b5bec895f368c5e39d8c9311087941fcc80b6e532ffe2fdcebace902d6b959",
+      "derived": "scripts/check_wc_mf00_interface_sampling_cpu.py",
+      "derived_sha256": "ca34106f3e1c73dd2b6fc137ac7cf71c4f3bf1f6261d84a860e02d455083bbd5",
+      "replacements": [
+        [
+          "check_cfg_complete_native_policy_sampling_cpu.py",
+          "check_cfg_mf00_interface_sampling_cpu.py"
+        ],
+        [
+          "complete-native-policy-sampling-preregistration.json",
+          "mf00-interface-sampling-preregistration.json"
+        ],
+        [
+          "COMPLETE_NATIVE_POLICY_SAMPLING_CPU_NOT_REAL_MODEL",
+          "MF00_INTERFACE_SAMPLING_CPU_NOT_REAL_MODEL"
+        ],
+        [
+          "reloaded']==576",
+          "reloaded']==144"
+        ],
+        [
+          "reloaded']==16",
+          "reloaded']==4"
+        ],
+        [
+          "complete_successful_paths=32,complete_executed_paths_including_last_writer_failures=64",
+          "complete_successful_paths=8,complete_executed_paths_including_last_writer_failures=16"
+        ],
+        [
+          "solver_updates=2304,net_calls=4608,actual_guided_tensors_reloaded=1152,actual_final_latents_reloaded=32",
+          "solver_updates=576,net_calls=1152,actual_guided_tensors_reloaded=288,actual_final_latents_reloaded=8"
+        ]
+      ]
+    },
+    {
+      "source": "scripts/supervise_wc_cfg_complete_native_policy_sampling_cpu.py",
+      "source_sha256": "3e9de7ab4beefb40c2606cb54ea5b84ff8c4367e86ecf9fec5164971499dd553",
+      "derived": "scripts/supervise_wc_mf00_interface_sampling_cpu.py",
+      "derived_sha256": "822f2ceafb47038e74a4eb37334ae47f260bb2432e7589614e0f8b8d02d4be24",
+      "replacements": [
+        [
+          "complete-native-policy-sampling-preregistration.json",
+          "mf00-interface-sampling-preregistration.json"
+        ],
+        [
+          "check_wc_cfg_complete_native_policy_sampling_cpu.py",
+          "check_wc_mf00_interface_sampling_cpu.py"
+        ],
+        [
+          "COMPLETE_NATIVE_POLICY_SAMPLING_CPU_NOT_REAL_MODEL",
+          "MF00_INTERFACE_SAMPLING_CPU_NOT_REAL_MODEL"
+        ]
+      ]
+    },
+    {
+      "source": "scripts/deploy_wc_cfg_complete_native_policy_sampling_cpu.py",
+      "source_sha256": "67b9e39cca8ddcc79c9011da458a8aea1a58ce79fa77d1562f3d8d36df4adc6b",
+      "derived": "scripts/deploy_wc_mf00_interface_sampling_cpu.py",
+      "derived_sha256": "1ed36de591cb7ca3fb7a11ac115778e5c46db15e492a52c21ee9b2ddd87c8991",
+      "replacements": [
+        [
+          "ref=Path('manifests/wc_cfg_complete_native_policy_sampling_cpu_'+args.attempt+'_preregistration_20261009.json')",
+          "assert args.attempt == 'r1'\n    ref=Path('manifests/wc_mf00_interface_sampling_cpu_r1_preregistration_20261010.json')"
+        ],
+        [
+          "reports/wc_cfg_complete_native_policy_sampling_cpu_",
+          "reports/wc_mf00_interface_sampling_cpu_"
+        ],
+        [
+          "_launch_20261009.json",
+          "_launch_20261010.json"
+        ],
+        [
+          "complete-native-policy-sampling-preregistration.json",
+          "mf00-interface-sampling-preregistration.json"
+        ],
+        [
+          "wc-cfg-complete-native-policy-sampling-cpu-",
+          "wc-mf00-interface-sampling-cpu-"
+        ],
+        [
+          "+'-20261009'",
+          "+'-20261010'"
+        ],
+        [
+          "supervise_wc_cfg_complete_native_policy_sampling_cpu.py",
+          "supervise_wc_mf00_interface_sampling_cpu.py"
+        ]
+      ]
+    }
+  ],
+  "new_GPU_submissions": 0
+}
