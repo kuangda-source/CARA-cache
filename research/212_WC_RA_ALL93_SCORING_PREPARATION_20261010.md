@@ -1,5 +1,15 @@
 # RA 八路径对照的统一全93帧评分准备（2026-10-10）
 
+## 当前实际派发与方法进展
+
+新独立评分source `c40c0b8ac757f284d409fc11933a016281842b00`、10载荷已唯一CPU派发，见[原启动回执](../reports/wc_ra_comparison_score_cpu_r1_launch_20261010.json)。原评分监督3869952现场1791577157.8113587实际存活，状态`WAITING_ORIGINAL_GPU_AND_RAW_CPU_HANDLES`，尚未执行或验收LPIPS；等待原GPU3866900／3866913和raw CPU3866901正常退出，不重复评分、提交GPU或改原226载荷。
+
+[同次只读现场记录](../reports/wc_ra_comparison_r1_methods_and_score_waiter_progress_20261010.json)显示Common WC／JOINT_NATIVE／RA均完整36步，实际完整分支调用38／36／24；Human WC完整36步、35完整分支调用，共同刷新开始，两Native槽仍待。Common RA中第14／21步是年龄超出当前校准格的保守DD，第26／31步是实际校准代理触发的DD；它并非仅依赖定周期回退。当前不能据调用数宣称保真或干净速度收益，也不在运行中改阈值。
+
+新增[评分终态只读捕获](../scripts/capture_wc_ra_comparison_score_cpu_r1.py)将保留原CPU回执／日志／注册／逐帧原件，绑定已独立验收的整八路径原件及实际metric资源SHA。其本地独立重建使用全部93距离、严格递增PTS、场景均值／中位数、正负帧、分位数／连续区间及八槽实际费用；不再调用模型评分、不写账本、不把失败子集验收为整卡成功。GPU整卡捕获在先、完整评分捕获在后；如本地复核代码出错，先保留原件后修复复核，不重跑GPU或评分。
+
+以下准备时刻的“派发尚待／Common RA开始”保留为历史快照。
+
 [211完整GPU卡](211_WC_RA_EIGHT_PATH_GPU_EXECUTION_20261010.md)仍跟随原3866900／3866913／3866901运行。现场1791576487.468306确认原三句柄存活，Common WC与JOINT_NATIVE各完整36更新并保存视频，Common RA开始；Human三方法与两个Native参考尚未整批验收。目标GPU26220MiB，未重复提交、改冻结226载荷或提前报告收益。
 
 ## 完整评价设计
