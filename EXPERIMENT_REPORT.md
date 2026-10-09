@@ -1,6 +1,6 @@
-## 2026-10-10 当前：MF-00遥测故障已结算、完整R2准备；RA真实源码CPU通过
+## 2026-10-10 当前：完整MF-00 R2已唯一GPU提交；RA真实源码CPU通过
 
-[204故障与修复](research/204_WC_MF00_MONITOR_FAILURE_AND_COMPLETE_R2_REPAIR_20261010.md)：R1因nvidia-smi只读查询超时被原监督清理、漏写exit_code，后CPU KeyError；完整4路径分母保留、无视频或接口不等价结论。原三PID消失、锁释放，wall752.441178秒全计0.209011438GPUh；累计30.104258028/77.895246590、余47.790988562、66提交无在途。R2仅修监督/遥测/退出码与自身GPU释放，完整4路径/4视频/144guided/4latent不减，按实测加载forecast1.880129229GPUh；生产/selected CPU与fresh准入待，≤4自主不重复确认。RA新接线source55e10e1、145载荷原3633025/3633026退出0消失，driver109.295320/core19.339928秒、两flow六完整Toy路径216solver432net：DD与原forced-DD实际guided/latent相同，28CC真实浅深访问及历史通过，见[203](research/203_WC_RA_JOINT_EXECUTION_AND_CALIBRATION_ENTRY_20261010.md)。未校准Cosmos或报质量速度，goal active，继续完整修复卡与RA CAL；旧6.704卡仍未具体批准。下方GPU运行/资源等待/blocked/2h/50h属历史。
+[204完整进展](research/204_WC_MF00_MONITOR_FAILURE_AND_COMPLETE_R2_REPAIR_20261010.md)：R1遥测超时清理故障及缺exit_code全部保留，wall752.441178秒／0.209011438GPUh已结算，无视频或接口否定。R2只修监督/遥测/退出码与自身GPU释放；生产42.018370、selected32.811418秒及15范围拒绝通过，177冻结载荷，4路径/4全93视频/144guided/4latent完整卡预测1.880129229GPUh已唯一提交。[真实启动](reports/wc_mf00_interface_r2_GPU_launch_20261010.json)source92b2d1a，监督3659246／runner3660184／后CPU3659247实际活，当前导入，无终点验收。提交66→67，启动前实费30.104258028，余47.790988562在途预留，账本77.895246590不是花完；退出按wall结算。RA source55e10e1／145载荷实际六完整Toy路径216solver432net、DD原/成对逐张量相同及28CC浅深访问/36步历史通过，见[203](research/203_WC_RA_JOINT_EXECUTION_AND_CALIBRATION_ENTRY_20261010.md)。未校准Cosmos或报质量速度，goal active，跟踪原R2并推进RA CAL；完整≤4GPUh自主，旧6.704卡仍未具体批准。下方GPU0/资源等待/blocked/2h/50h是历史。
 
 
 ## 2026-10-10 当前推进：MF-00独立必要接口CPU已派发
