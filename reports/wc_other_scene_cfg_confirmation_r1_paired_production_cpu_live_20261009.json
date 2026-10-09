@@ -1,0 +1,136 @@
+{
+  "status": "ORIGINAL_COMMON_CONFIRMATION_READONLY_PAIRED_PRODUCTION_CPU_PREPARATION_PROGRESS_NOT_COMPLETE",
+  "run_id": "wc-w3-other-scene-cfg-confirmation-r1",
+  "source_revision": "c243d303fc4085d522638d5e67c8ea1c5d745b96",
+  "original_PIDs": [
+    3426296,
+    3426308,
+    3426297
+  ],
+  "original_live_PIDs": [
+    3426296,
+    3426308,
+    3426297
+  ],
+  "GPU_status": "CFG_TEACHER_GPU_RUNNING",
+  "CPU_status": "WAITING_FOR_BOUND_ORIGINAL_GPU_RELEASE",
+  "runner_status": "INITIALIZING",
+  "model_load_seconds": 101.15695103630424,
+  "parents": [
+    {
+      "phase": "OFF",
+      "status": "COMPLETE_PARENT",
+      "net_records": 72,
+      "solver_records": 36,
+      "saved_artifact": {
+        "path": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-w3-other-scene-cfg-confirmation-r1/diagnostic/common_sense_6487f37f-ef57-49ca-afdc-d898922b5191_seed3/OFF/common_sense_6487f37f-ef57-49ca-afdc-d898922b5191_seed3.mp4",
+        "bytes": 472415,
+        "sha256": "cb8b06ab2e3c1af5333bcfab5628e058f83775f36fb4c25222e5263d59f0af6c"
+      },
+      "origins": []
+    },
+    {
+      "phase": "ON",
+      "status": "STARTED",
+      "net_records": 44,
+      "solver_records": 22,
+      "saved_artifact": null,
+      "origins": [
+        {
+          "label": "S22",
+          "status": "STARTED",
+          "complete_pairs": 0
+        },
+        {
+          "label": "S23_after_CC",
+          "status": "STARTED",
+          "complete_pairs": 6
+        },
+        {
+          "label": "S23_after_DC",
+          "status": "PENDING",
+          "complete_pairs": 0
+        },
+        {
+          "label": "S23_after_CD",
+          "status": "PENDING",
+          "complete_pairs": 0
+        },
+        {
+          "label": "S23_after_DD",
+          "status": "PENDING",
+          "complete_pairs": 0
+        }
+      ]
+    }
+  ],
+  "GPU": "GPU-cebf7119-cf03-23b9-e192-cd196332b704, NVIDIA RTX A6000, 15624",
+  "budget": {
+    "batch": "F0-F1",
+    "cap_gpu_hours": 50,
+    "used_gpu_hours": 50,
+    "gpu_jobs_launched": 64,
+    "status": "CFG_TEACHER_INFLIGHT_REMAINING_RESERVED_NOT_ACTUAL_SPENT",
+    "gpu_import_probes_completed": 1,
+    "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts",
+    "budget_authorization_ref": "manifests/budget_authorization_20261008_wc_50gpuh.json",
+    "budget_authorization_history": [
+      {
+        "authorized_utc": "2026-10-02T18:03:00Z",
+        "source_thread_id": "01a0f1e6-7ad0-75df-9a02-172b60d2e00b",
+        "user_instruction": "\u628a\u5404\u4e2a\u5b9e\u9a8c\u7684 gpu \u9884\u7b97\u90fd\u8bbe\u7f6e\u4e3a 12gpuh",
+        "previous_cap_gpu_hours": 4,
+        "new_cumulative_cap_gpu_hours": 12,
+        "used_gpu_hours_at_change": 3.9117525685110333,
+        "no_usage_reset_or_transfer": true
+      },
+      {
+        "authorized_utc": "2026-10-04T06:13:36Z",
+        "source_thread_id": "01a0f1e6-7ad0-75df-9a02-172b60d2e00b",
+        "user_message_id": "Sentinel_861e63a87d8c819180ec9a8bcfa6dc92",
+        "user_instruction": "\u5141\u8bb8\u589e\u52a0 GPUh",
+        "previous_cap_gpu_hours": 12,
+        "new_cumulative_cap_gpu_hours": 13,
+        "used_gpu_hours_at_change": 11.022315686839217,
+        "gpu_jobs_launched_at_change": 45,
+        "no_usage_reset_or_transfer": true,
+        "authorization_ref": "manifests/budget_authorization_20261004_wc_13gpuh.json"
+      },
+      {
+        "authorized_on_local": "2026-10-05",
+        "user_instruction": "\u6279\u51c6 WC-W3-SMALL-CD-R1-20261004-A\uff0c\u628a\u7d2f\u8ba1 gpuh \u9650\u5236\u63d0\u5347\u5230 24",
+        "previous_cap_gpu_hours": 13,
+        "new_cumulative_cap_gpu_hours": 24,
+        "used_gpu_hours_at_change": 11.022315686839217,
+        "gpu_jobs_launched_at_change": 45,
+        "no_usage_reset_or_transfer": true,
+        "authorization_ref": "manifests/budget_authorization_20261005_wc_24gpuh.json",
+        "approved_card": "WC-W3-SMALL-CD-R1-20261004-A",
+        "single_run_cap_seconds": 3900
+      },
+      {
+        "authorized_unix": 1791428550.530142,
+        "authorized_on_local": "2026-10-08",
+        "user_instruction": "\u6279\u51c6\u6269\u5927 gpuh\uff0c\u76f4\u63a5\u52a0\u5230 50 \u5427",
+        "previous_cap_gpu_hours": 24,
+        "new_cumulative_cap_gpu_hours": 50,
+        "used_gpu_hours_at_change": 22.314242424184147,
+        "gpu_jobs_launched_at_change": 59,
+        "no_usage_reset_or_transfer": true,
+        "authorization_ref": "manifests/budget_authorization_20261008_wc_50gpuh.json",
+        "automatic_single_job_gpu_hours": 2
+      }
+    ],
+    "wc_cfg_teacher_inflight": {
+      "run_id": "wc-w3-other-scene-cfg-confirmation-r1",
+      "reserved_gpu_hours": 22.355317242423897,
+      "supervisor_pid": 3426296
+    }
+  },
+  "settled_before_this_run_GPUh": 27.644682757576103,
+  "payload95_and_config_unchanged": true,
+  "last_log": "es:  19%|\u2588\u2589        | 7/36 [02:47<12:13, 25.29s/it]\nGenerating samples:  22%|\u2588\u2588\u258f       | 8/36 [03:07<11:00, 23.57s/it]\nGenerating samples:  25%|\u2588\u2588\u258c       | 9/36 [03:27<10:08, 22.55s/it]\nGenerating samples:  28%|\u2588\u2588\u258a       | 10/36 [03:47<09:28, 21.86s/it]\nGenerating samples:  31%|\u2588\u2588\u2588       | 11/36 [04:07<08:51, 21.28s/it]\nGenerating samples:  33%|\u2588\u2588\u2588\u258e      | 12/36 [04:27<08:20, 20.87s/it]\nGenerating samples:  36%|\u2588\u2588\u2588\u258c      | 13/36 [04:53<08:35, 22.41s/it]\nGenerating samples:  39%|\u2588\u2588\u2588\u2589      | 14/36 [05:13<07:55, 21.63s/it]\nGenerating samples:  42%|\u2588\u2588\u2588\u2588\u258f     | 15/36 [05:33<07:23, 21.10s/it]\nGenerating samples:  44%|\u2588\u2588\u2588\u2588\u258d     | 16/36 [05:53<06:54, 20.74s/it]\nGenerating samples:  47%|\u2588\u2588\u2588\u2588\u258b     | 17/36 [06:13<06:29, 20.48s/it]\nGenerating samples:  50%|\u2588\u2588\u2588\u2588\u2588     | 18/36 [06:38<06:37, 22.08s/it]\nGenerating samples:  53%|\u2588\u2588\u2588\u2588\u2588\u258e    | 19/36 [06:58<06:03, 21.40s/it]\nGenerating samples:  56%|\u2588\u2588\u2588\u2588\u2588\u258c    | 20/36 [07:18<05:34, 20.93s/it]\nGenerating samples:  58%|\u2588\u2588\u2588\u2588\u2588\u258a    | 21/36 [07:44<05:35, 22.39s/it]",
+  "GPU_submissions_by_observation": 0,
+  "subset_scoring_or_raw_tensor_loading": false,
+  "observed_unix": 1791510225.770427
+}
