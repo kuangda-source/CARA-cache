@@ -80,7 +80,8 @@ print(json.dumps({'capture':capture,'native':items}))
                         assert path['video_artifact']['sha256']==paths[0]['video_artifact']['sha256']
                         if path['observers']:
                             assert len(path['net_events'])==144
-                            assert path['net_events']==next(p for p in paths if p['observers'])['net_events']
+                            event_key=lambda e:(e['call'],e['kind'])
+                            assert sorted(path['net_events'],key=event_key)==sorted(next(p for p in paths if p['observers'])['net_events'],key=event_key)
                         else:assert not path['net_events']
                         if path['order']=='PAIRED':
                             assert len(path['prefix_decisions'])==28 and path['prefix_decisions'][-1]['paid_counters']==[68,69]

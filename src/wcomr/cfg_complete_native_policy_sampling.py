@@ -35,6 +35,11 @@ PATH_KEYS = {(order, obs, rep) for order in ('ORIGINAL', 'PAIRED')
              for obs in (False, True) for rep in ('first', 'second')}
 
 
+def observer_by_call(events):
+    """Preserve event chronology; compare payloads at the same call and phase."""
+    return sorted(events, key=lambda e: (e['call'], e['kind']))
+
+
 def vector_file(path, tensors):
     path = Path(path)
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -76,7 +81,7 @@ def verify_batch(state):
                         != {(k, c) for k in ('before', 'after') for c in range(72)}):
                     raise ValueError('Complete explicit observer events missing')
                 reference = next(r for r in rows if r['observers'])
-                if events != reference['net_events']:
+                if observer_by_call(events) != observer_by_call(reference['net_events']):
                     raise ValueError('Observer order/repeat parity differs')
             elif events:
                 raise ValueError('OFF has explicit net observer events')

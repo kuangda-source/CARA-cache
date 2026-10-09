@@ -1,5 +1,6 @@
 """The actual new full native-policy batch through the pinned ordinary pipeline."""
 import copy
+import json
 from pathlib import Path
 import types
 
@@ -50,12 +51,16 @@ def exercise(*, inference, samples, settings, inference_module, flow, runtime, t
             output = Path(artifact_root)/('flow_ON' if flow else 'flow_OFF')/scenario
             output.mkdir(parents=True, exist_ok=False)
             state = {};error = None
+            def save():
+                temporary=output/'receipt.tmp'
+                temporary.write_text(json.dumps(state,indent=2,allow_nan=False)+'\n')
+                temporary.replace(output/'receipt.json')
             def writer(path, tensors):
                 if scenario == 'last_vector_writer_failure' and path.name == 'human_OBS_ON_second_PAIRED.pt':
                     raise ValueError('Injected final complete-path tensor writer failure')
                 return vector_file(path, tensors)
             try:
-                run_batch(inference,samples,wc,settings,state=state,save=lambda:None,output=output,
+                run_batch(inference,samples,wc,settings,state=state,save=save,output=output,
                     inference_module=inference_module,contexts=contexts,mode_setup=modes,runtime=runtime,
                     config=config,rf_module=rf,writer=writer)
             except BaseException as exc:
