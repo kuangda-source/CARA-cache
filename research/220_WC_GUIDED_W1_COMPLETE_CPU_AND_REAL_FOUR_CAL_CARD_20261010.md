@@ -25,3 +25,5 @@
 [飞书组会](https://lcnssrlun9lz.feishu.cn/docx/HTSIdK0uLofCG5xUI1IcTKaCnAh)已追加R2保真与下一批，[全文核验](../reports/wc_ra_complete_video_r2_feishu_verification_20261010.json)revision42、179旧块完整保留、四新块正文与链接相符。RA第二工作点平均较首版保真改善10.65%，仍较WC失真高10.44%，共同刷新重复正信号／负帧保持，详见[219](219_WC_RA_R2_FIDELITY_AND_GUIDED_W1_FULL_PIPELINE_NEXT_20261010.md)。
 
 权威结算仍32.674095026904／77.89524658965853，新增48窗口余45.22115156275453GPUh，70提交、无GPU在途。完整≤4自主／>4具体确认，旧16路6.704卡未批准，窗口起点不重置、无非必要人工评审，goal active。
+
+后续生产CPU32.826063秒与选定CPU32.380441秒全量通过，独立原件绑定。source76516e4完整237源真实GPU卡已在≤4自主权限内唯一启动，详见[221实际执行](221_WC_GUIDED_W1_FOUR_CAL_REAL_EXECUTION_20261010.md)。本节之前尚未选定／未GPU的表述保留原阶段，不重复提交。
