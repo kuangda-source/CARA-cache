@@ -1,3 +1,9 @@
+## 2026-10-09 当前研究设计：WorldCache＋RA 三模块协同开发
+
+最新用户要求与三份原文已适配为[统一方法与数学设计](../plans/WORLD_CACHE_INTEGRATED_MULTI_FIDELITY_DEVELOPMENT_20261009.md)和[首窗口实验卡](../plans/WORLD_CACHE_MULTI_FIDELITY_FIRST_WINDOW_20261009.md)，[198更新记录](198_WC_INTEGRATED_DEVELOPMENT_DESIGN_UPDATE_20261009.md)列明差异。新优先级：必要接口控制重提案＋本地校准RA → guided目标W1／协调稀疏和部分MLP → 尽早AB-naive／来源感知ABC完整视频 → 有限修订／独立小确认。A/B不必单独稳定胜出、长期Q标签不是共同前置条件；小参数校准是候选工具，Tiny head/LoRA后续另提报。旧结果、判据、失败与冻结源保留，以下旧“当前/下一”属于历史。
+
+本次仅更新设计，无新GPU/拟合/训练/评分；只读账本29.895246590／50GPUh、余20.104753410h、65提交无在途。旧H-T63的16路/6.704055834GPUh保留未批准未执行，新4路必要控制是独立重提案，不能作旧卡通过或缩拆规避2h。GPU goal仍blocked，不因文档更新伪造解除。执行累计50、单次完整>2GPUh具体批准、冻结后不缩范围、费用全计与非必要不人评的约定保持；新方案/预算分配不是执行授权。
+
 ## 2026-10-04 当前执行：同S预算的来源位置诊断
 
 [93 CPU下界与六输出提案](93_WC_FORECAST_PLACEMENT_BOUND_CPU_AND_PROPOSAL.md)沿92的保真缺口，在固定38deep/CFG6与5次S/253算子的曝光mask上改变S位置；source-only最低cache近似读取为15（首次S匹配）/2（首次自由），旧26。实际CPU旧14/新8及当前35依赖源绑定通过，无CUDA、真实人物新视频或质量结果。位置依赖未来teacher掩码，是oracle诊断，不是可部署C/S/D路由或RV收益标签。

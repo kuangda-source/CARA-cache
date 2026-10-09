@@ -1,3 +1,9 @@
+## 2026-10-09 当前研究设计：WorldCache＋RA 三模块协同开发
+
+最新用户要求与三份原文已适配为[统一方法与数学设计](plans/WORLD_CACHE_INTEGRATED_MULTI_FIDELITY_DEVELOPMENT_20261009.md)和[首窗口实验卡](plans/WORLD_CACHE_MULTI_FIDELITY_FIRST_WINDOW_20261009.md)，[198更新记录](research/198_WC_INTEGRATED_DEVELOPMENT_DESIGN_UPDATE_20261009.md)列明差异。新优先级：必要接口控制重提案＋本地校准RA → guided目标W1／协调稀疏和部分MLP → 尽早AB-naive／来源感知ABC完整视频 → 有限修订／独立小确认。A/B不必单独稳定胜出、长期Q标签不是共同前置条件；小参数校准是候选工具，Tiny head/LoRA后续另提报。旧结果、判据、失败与冻结源保留，以下旧“当前/下一”属于历史。
+
+本次仅更新设计，无新GPU/拟合/训练/评分；只读账本29.895246590／50GPUh、余20.104753410h、65提交无在途。旧H-T63的16路/6.704055834GPUh保留未批准未执行，新4路必要控制是独立重提案，不能作旧卡通过或缩拆规避2h。GPU goal仍blocked，不因文档更新伪造解除。执行累计50、单次完整>2GPUh具体批准、冻结后不缩范围、费用全计与非必要不人评的约定保持；新方案/预算分配不是执行授权。
+
 ## 2026-10-09 当前目标blocked：完整整卡具体授权待
 
 同一授权条件连续三轮，已实际调用update_goal blocked，见[审计](reports/wc_real_complete_native_policy_goal_blocked_audit_20261009.json)／[回执](reports/wc_real_complete_native_policy_goal_blocked_receipt_20261009.json)。卡WC-W3-REAL-COMPLETE-NATIVE-POLICY-R1-20261009-A完整6.704055834GPUh未获具体批准；准备和CPU均通过、无在途、预算29.895246590／50h足够。等待直接批准并恢复后再selected CPU／fresh资源／唯一完整启动；不缩拆、重复未变测试或换研究。飞书revision27已交付，以下历史。
