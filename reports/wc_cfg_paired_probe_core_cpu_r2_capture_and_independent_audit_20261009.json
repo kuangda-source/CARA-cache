@@ -1,0 +1,62 @@
+{
+  "status": "COMPLETE_PAIRED_PROBE_CPU_RECEIPT_SOURCE_SCOPE_AND_SIGNATURE_RECONSTRUCTION_PASS_NOT_SECOND_TENSOR_LOAD",
+  "source_revision": "92075c5417d0e997caf2696174636bdb6de9d0ef",
+  "original_CPU_PIDs_absent": [
+    3421064,
+    3421065
+  ],
+  "planned_scope": {
+    "flows": [
+      "OFF",
+      "ON"
+    ],
+    "cache_building_updates_per_flow": 22,
+    "actions": [
+      "CC",
+      "DD"
+    ],
+    "strict_repeats_per_action_per_flow": 2,
+    "main_pair_comparisons": 8,
+    "protected_initialization_comparisons": 2,
+    "failure_controls_per_flow": [
+      "selector_exception",
+      "mixed_action",
+      "counter_mutation",
+      "outer_net_hook"
+    ],
+    "failure_controls": 8
+  },
+  "main_pairs_verified": 8,
+  "protected_pairs_verified": 2,
+  "failures_verified": 8,
+  "payloads_verified": 49,
+  "runtime_sources_verified": 8,
+  "actual_fixture_CPU_seconds": 5.779144985601306,
+  "driver_CPU_seconds": 8.29347498062998,
+  "budget_before_sha256": "0c2618d057e9645facd962e1464d8b2f205c39b181504054992be093ac34a991",
+  "budget_after_sha256": "0c2618d057e9645facd962e1464d8b2f205c39b181504054992be093ac34a991",
+  "native_files": {
+    "receipt.json": {
+      "local_native_gzip": "reports/wc_cfg_paired_probe_core_cpu_r2_20261009_receipt_json.gz",
+      "sha256": "0a77dc023647d31bbe2eceed3a654da9e4dcf30ddf45c4d9c742d7319711d9f0",
+      "bytes": 7598
+    },
+    "result.json": {
+      "local_native_gzip": "reports/wc_cfg_paired_probe_core_cpu_r2_20261009_result_json.gz",
+      "sha256": "25aff52c98f7cd5876f6df494712bfaec1fb2119330e13abc6d66f84a8e1c2db",
+      "bytes": 25645
+    },
+    "core.log": {
+      "local_native_gzip": "reports/wc_cfg_paired_probe_core_cpu_r2_20261009_core_log.gz",
+      "sha256": "940c750559c5801c8eb33a2315c6be5ec1b610471880858150baec7d64201f41",
+      "bytes": 138
+    },
+    "driver.log": {
+      "local_native_gzip": "reports/wc_cfg_paired_probe_core_cpu_r2_20261009_driver_log.gz",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  },
+  "GPU_submissions": 0,
+  "boundaries": "Actual server Torch equality plus independent source/receipt/signature/group reconstruction. No second tensor load, model weights, risk policy, CUDA, speed, quality or arbitrary failure rollback."
+}
