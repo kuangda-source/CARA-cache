@@ -1,5 +1,7 @@
 # RA 减半阈值 R2：完整方法区分实验与 CPU 准备
 
+更新：source7988293／229载荷原生产CPU3875385／3875386退出0且消失，54.221640秒；[原件捕获](../reports/wc_ra_comparison_production_cpu_r2_terminal_20261010_capture.json)核验注册、实际资产／表／原八区间中位与减半τ、22项拒绝、预算SHA保持及原件字节。原始阈值质量无关与新阈值质量知情字段独立核对通过。完整选定配置已绑定该CPU回执、保持3.173496962GPUh预测；选定CPU和现场GPU准入仍待。下方“服务器CPU尚待”是此前准备快照。
+
 2026-10-10。接续[214完整视频结果](214_WC_RA_COMPLETE_VIDEO_FIDELITY_AND_COST_RESULTS_20261010.md)：简单共同刷新出现5.04%／0.51%终点保真改善；首RA工作点完整调用降到24／24，但LPIPS退化23.83%／23.35%。下一轮检验工作点是否过于激进，保留三模块统一方法开发和全部旧结果。
 
 此前[有限修订登记](../manifests/wc_ra_conservative_half_threshold_r2_design_preregistration_20261010.json)已转为独立R2生产入口：[完整计划](../plans/WORLD_CACHE_RA_FULL_VIDEO_COMPARISON_R2_20261010.md)、[八路径注册](../manifests/wc_ra_comparison_r2_preregistration_20261010.json)及[229源配置](../configs/wc_ra_comparison_production_r2_20261010.json)。唯一参数变化为τ×0.5＝0.070744235098772；原校准八区间中位0.141488470197544必须实际重构，再显式缩放。新阈值利用R1视频结果选择，是开发修订，不声称质量无关校准或独立确认。
