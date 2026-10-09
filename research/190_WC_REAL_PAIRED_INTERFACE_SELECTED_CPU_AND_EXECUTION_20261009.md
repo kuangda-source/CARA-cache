@@ -35,3 +35,11 @@
 若真实接口等价，继续登记正确的终点收益与未来成本对照，比较原生 WC、简单共同刷新与校准后的 RA 联合基线；不由接口成功直接升级为算法成功，不训练／扩大稀疏／引入人评。重大方向与超 2 GPUh 整卡仍共同讨论。
 
 证据：`reports/wc_real_paired_interface_selected_cpu_r1_terminal_20261009_capture.json`、`reports/wc_real_paired_interface_r1_GPU_launch_20261009.json`、`reports/wc_real_paired_interface_r1_initial_live_20261009.json`。goal active，本轮真实完整 selected CPU、唯一 GPU 派发与跟踪是实际进展，暂无重要阻碍。
+
+## 后续只读采样现场与飞书
+
+最新只读现场 `reports/wc_real_paired_interface_r1_sampling_live_20261009.json` 确认原三个 PID 活、156 冻结载荷未变；真实模型加载 103.754713 秒、prompt guardrail 通过，日志首 OFF 父采样 **13／36**。该批 receipt 只在父起止／局部 pair 写出时保存，父起点快照 `parent_net_calls=0` 不是现场零计算；以原日志和句柄核对进度，不把未更新 checkpoint 判为停止。显存约 10,010MiB，目标唯一 compute PID 为原 child。完整两父／16 pair／48 张量／两全93与后CPU仍待，不评分子集。
+
+组会飞书已用 CLI 更新并全回读 **revision20**：[组会报告](https://lcnssrlun9lz.feishu.cn/docx/HTSIdK0uLofCG5xUI1IcTKaCnAh)。21 节／20 表／4 公式／48 链接；旧其他149块逐块保留，新4块文字、链接与表格核对相同，两次写入成功且无 warnings。完整验证与原读写回执见 `reports/wc_group_meeting_feishu_paired_interface_verification_20261009.json` 与 `research/sources/worldcache_group_meeting_20261009/paired-interface-*`。
+
+新增 `scripts/capture_wc_real_paired_interface_terminal.py` 为未加入冻结156载荷的本地只读终态捕获器：只读原句柄、全量原件／配置／预算，终态做独立JSON范围、状态／观察／artifact／视频和费用重建；不会再次派发GPU／CPU，也不会改服务器或加载第二份张量。AST与当前live返回路径已检查；其终态验证尚待原任务完整结束，不能报已经通过。
