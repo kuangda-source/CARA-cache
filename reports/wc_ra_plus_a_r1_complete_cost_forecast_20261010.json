@@ -1,0 +1,126 @@
+{
+  "status": "FULL_RA_PLUS_A_32_PATH_COST_PREPARATION_NOT_GPU_CARD_NOT_SUBMITTED",
+  "computed_unix": 1791589929.533684,
+  "complete_scope": {
+    "requests": 4,
+    "complete_method_paths": 28,
+    "native_reference_slots": 4,
+    "complete_paths": 32,
+    "solver_updates": 1152,
+    "net_calls": 2304,
+    "maximum_fidelity_pairs": 28
+  },
+  "source_refs": {
+    "reports/wc_ra_comparison_r2_terminal_20261010_capture_and_independent_audit.json": "8afaccb687c3a4f0ebfcee8ac02e749a8c7db01c85c5326479acf5bd3a41877e",
+    "reports/wc_ra_comparison_r2_terminal_20261010_runner_native.gz": "9e3f750db8ca00c67025863c93d64766dfaf62cb4a68c5cfb923653c59b9b21c",
+    "reports/wc_mf_a_collection_r1_terminal_20261010_capture_and_independent_audit.json": "c1fa3fb8c4230527075f0dc6a02a6a8b5b0480262a619257c821205a89671b34",
+    "reports/wc_mf_a_collection_r1_terminal_20261010_runner_native.gz": "d02acd1b80cb2de13b9fe42a6ebd3557c8a6c5bdb7d7d21e611811f8fe663c8a",
+    "reports/wc_mf00_interface_r1_terminal_20261010_runner_native.gz": "ca453e66a29fb1b7b6abbff90aca6f590fbbf8baee288a78e4c43ff182f0755a"
+  },
+  "actual_prior_method_pipeline_seconds": [
+    {
+      "scene": "common_sense_6487f37f-ef57-49ca-afdc-d898922b5191_seed3",
+      "method": "WC",
+      "seconds": 267.898662077263
+    },
+    {
+      "scene": "common_sense_6487f37f-ef57-49ca-afdc-d898922b5191_seed3",
+      "method": "JOINT_NATIVE",
+      "seconds": 263.93320665415376
+    },
+    {
+      "scene": "common_sense_6487f37f-ef57-49ca-afdc-d898922b5191_seed3",
+      "method": "RA",
+      "seconds": 224.04157363437116
+    },
+    {
+      "scene": "human_199_seed3",
+      "method": "WC",
+      "seconds": 249.78576111607254
+    },
+    {
+      "scene": "human_199_seed3",
+      "method": "JOINT_NATIVE",
+      "seconds": 245.22259462159127
+    },
+    {
+      "scene": "human_199_seed3",
+      "method": "RA",
+      "seconds": 221.79074069671333
+    }
+  ],
+  "actual_prior_native_pipeline_seconds": [
+    {
+      "scene": "common_sense_6487f37f-ef57-49ca-afdc-d898922b5191_seed3",
+      "seconds": 323.1268017301336
+    },
+    {
+      "scene": "human_199_seed3",
+      "seconds": 322.2784023685381
+    }
+  ],
+  "actual_same_state_diagnostic_seconds": [
+    {
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "step": 12,
+      "seconds": 3.324957770295441
+    },
+    {
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "step": 30,
+      "seconds": 3.305120673030615
+    },
+    {
+      "scene": "human_199",
+      "step": 12,
+      "seconds": 3.3242274783551693
+    },
+    {
+      "scene": "human_199",
+      "step": 30,
+      "seconds": 3.3069120571017265
+    },
+    {
+      "scene": "misc_13398218_3840_2160_60fps",
+      "step": 12,
+      "seconds": 3.3228502478450537
+    },
+    {
+      "scene": "misc_13398218_3840_2160_60fps",
+      "step": 30,
+      "seconds": 3.306018751114607
+    },
+    {
+      "scene": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+      "step": 12,
+      "seconds": 3.3244021479040384
+    },
+    {
+      "scene": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+      "step": 30,
+      "seconds": 3.304142373614013
+    }
+  ],
+  "baseline_envelope_seconds": 323.1268017301336,
+  "per_extra_readout_pair_allowance_seconds": 3.324957770295441,
+  "cost_parts": {
+    "32_complete_own_trajectory_paths_dense_reference_envelope_seconds": 10340.057655364275,
+    "16_A_paths_up_to29_cache_pairs_paid_readout_allowance_seconds": 1542.7804054170847,
+    "slow_loading_seconds": 620.2844904875383,
+    "whole_card_new_readout_bookkeeping_allowance_seconds": 900,
+    "32_complete_vectors_write_allowance_seconds": 1920,
+    "cleanup_allowance_seconds": 120
+  },
+  "subtotal_seconds": 15443.122551268898,
+  "whole_scope_margin_factor": 1.2,
+  "forecast_complete_seconds": 18531.747061522678,
+  "forecast_complete_GPUh": 5.147707517089633,
+  "automatic_single_job_GPUh": 4,
+  "complete_job_requires_specific_confirmation": true,
+  "rationale": "Use the slowest recent complete Native/method pipeline for all32 paths; do not assume transferred RA keeps28 full branch calls. Charge the measured max teacher-deep-plus-four-head diagnostic for each of at most29 A cache pairs on every16 A path, even though the actual readout has no teacher and may be cheaper. Keep original620s slow load,60s per whole36-guided-vector file,900s bookkeeping and20percent whole margin. This is an empirical complete-scope forecast, not a strict bound or a reason to shrink the matrix.",
+  "empirical_forecast_not_strict_time_upper_bound": true,
+  "GPU_submissions": 0,
+  "CUDA_initialized": false,
+  "scope_shrunk_to_fit_autonomy": false,
+  "GPU_execution_selected": false
+}
