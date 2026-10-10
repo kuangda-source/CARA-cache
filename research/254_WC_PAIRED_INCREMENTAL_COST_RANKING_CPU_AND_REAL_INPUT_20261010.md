@@ -20,4 +20,6 @@
 
 接续现场1791614552.878605：已保存25方法视频／25张量，AV28、Human和misc各七方法完成，AV51四方法完成，原生参考尚未开始。五个原句柄均存活，唯一compute仍为3929519，原账本SHA c3e4417f保持，成本等待器仍为GPU0。[只读现场回执](../reports/wc_ra_plus_a_r1_ranking_preparation_live_20261010.json)保留全部方法状态；该进度不代替终态和全93帧评分。
 
+飞书组会文档 revision55→56 已仅更新进度段，197块全文核对保持其他内容；[写入与读回验证](../reports/wc_action_cost_ranking_feishu_20261010_verification.json)保存三个完整无损原件。无消息或分享权限变更。
+
 证据：[执行前协议](../plans/WORLD_CACHE_PAIRED_INCREMENTAL_COST_RANKING_R1_20261010.md)、[CPU登记](../manifests/wc_action_cost_ranking_cpu_r1_preregistration_20261010.json)、[全部CPU结果](../reports/wc_action_cost_ranking_cpu_r1_results_20261010.json)、[成本接口](../src/wcomr/action_cost_ranking.py)、[真实数据读取器](../scripts/build_wc_action_cost_ranking_real_r1.py)。旧源与原判据保留。

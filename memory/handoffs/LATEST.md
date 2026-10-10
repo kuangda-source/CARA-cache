@@ -4,6 +4,8 @@
 
 现场1791614552.878605：原直接批准32路径sourcebeb02c9／283载荷继续，监督3929440／runner3929519、原件CPU3929441、全93帧CPU3930095及成本CPU等待器3950825均存活；25视频／25张量，AV28／Human／misc各七方法完成，AV51四方法完成，四Native尚未开始。仅原runner为compute进程，整卡与质量待；不修改在跑源或重复提交。成本完整3.334960324GPUh／271载荷、selected CPU42.034808秒通过，等待器新GPU0，完整八父／八起点／六模式／192组范围不拆。
 
+[255 CFG shared shrink](../../research/255_WC_CFG_SHARED_PHASE_SHRINK_CALIBRATION_20261010.md): one bounded shared parameter for the existing phase A, fixed ridge .1, all eight CAL origins; preregistered before CPU/real fit, not installed. Feishu revision 55 to 56 verified, all other 197-block content preserved.
+
 上次实结34.372880296／77.895246590，新48窗口起点29.895246590；当前43.522366294为原卡在途预留，非实费或耗尽。单GPU任务，完整≤4自主、严格>4具体确认，无非必要人评，goal active/progress。原32卡GPU／原件／全93帧评分完成 → 两独立捕获及完整结果提交 → 原接续回执释放已部署等待器 → fresh准入唯一成本GPU → 完整原件审计／独立捕获 → 真实排名输入；禁止再次queue或并发。下方保留历史快照。
 
 ## 2026-10-10 当前：原32路径继续，真实成本生产CPU已通过并选卡
