@@ -1,0 +1,92 @@
+{
+  "status": "EXACT_ACCEPTED_NATIVE_ARITHMETIC_NOT_NEW_VIDEO_OR_SPEED_MEASUREMENT",
+  "source_score_uncompressed_sha256": "4dece39f834b12477548ed4ffa5ec5cda6e7f22b3185c6cf86f95d89abad60bb",
+  "source_cost_uncompressed_sha256": "e726c3a7dff54013f0924a1755d7a91d71298d43e6460c5eadfe60a4e47d1f6b",
+  "inputs": {
+    "scene_equal_LPIPS": {
+      "WC": 0.4256468475345642,
+      "JOINT_NATIVE": 0.4120805312388687,
+      "RA": 0.4186103818237141,
+      "W1_GLOBAL_1": 0.390349177022775,
+      "BETA1_GLOBAL_1": 0.39153887147224076,
+      "W1_ONE_PHASE": 0.37979395511329817,
+      "BETA1_ONE_PHASE": 0.37814459292798913
+    },
+    "incremental_double_CFG_pair_cost_after_paid_probes_seconds": {
+      "C": 0.16846076643560082,
+      "A_W1_ONE_PHASE": 0.33762754185590893,
+      "A_BETA1_ONE_PHASE": 0.3381135724096869,
+      "ROTATION_050": 6.173310816792461,
+      "DENSE_REFERENCE": 6.2493820257174475,
+      "DENSE_WITH_P0": 6.25420393414485
+    },
+    "original_action_counters": {
+      "RA": {
+        "deep_CFG_branches": 112,
+        "DD_pairs": 56,
+        "updates": 144,
+        "remaining_updates_assumed_C_or_A": 88
+      },
+      "W1_ONE_PHASE": {
+        "deep_CFG_branches": 114,
+        "DD_pairs": 57,
+        "updates": 144,
+        "remaining_updates_assumed_C_or_A": 87
+      },
+      "BETA1_ONE_PHASE": {
+        "deep_CFG_branches": 110,
+        "DD_pairs": 55,
+        "updates": 144,
+        "remaining_updates_assumed_C_or_A": 89
+      }
+    }
+  },
+  "derived": {
+    "phase_w1_rel_ra": 9.272686105229552,
+    "phase_b1_rel_ra": 9.666695011106047,
+    "phase_w1_rel_full": 2.704046154261774,
+    "phase_b1_rel_full": 3.4209319993918537,
+    "phase_b1_rel_phase_w1": 0.43427815611678294,
+    "P_saves_vs_D": 0.0808931173523888,
+    "P_replace_C": 6.00485005035686,
+    "D_replace_C": 6.085743167709249,
+    "P_C_min_future_D_save": 0.9867077668046189,
+    "P_savings_percent_vs_maintenance_D": 1.2934198853151002
+  },
+  "conditional_constant_cost_model": {
+    "assumptions": [
+      "RA uses C/DD only; phase variants use A/DD only.",
+      "Each DD is two deep CFG branch calls; four videos have 144 updates.",
+      "Mean action cost treated as invariant across states.",
+      "This is not measured runtime. Probes, decoder and other costs excluded.",
+      "Use actual trace if mixed actions, fallback or variable costs occur.",
+      "Uses ordinary D for A-only paths; costs come from another same-state diagnostic batch, so do not substitute for direct timing."
+    ],
+    "cost_sums_seconds": {
+      "RA": 364.78994088650995,
+      "W1_ONE_PHASE": 385.58837160735857,
+      "BETA1_ONE_PHASE": 373.8081193589218
+    },
+    "increment_seconds_per_video_vs_RA": {
+      "RA": 0.0,
+      "W1_ONE_PHASE": 5.199607680212154,
+      "BETA1_ONE_PHASE": 2.2545446181029547
+    }
+  },
+  "rounded_review_difference_percentage_points": {
+    "phase_w1_rel_ra": 9.347724647312816e-05,
+    "phase_b1_rel_ra": 0.00017963880247151565,
+    "phase_w1_rel_full": 5.562271180270528e-05,
+    "phase_b1_rel_full": 7.226383549507887e-05,
+    "phase_b1_rel_phase_w1": 9.541494656367666e-05
+  },
+  "ideal_MLP_only_equal_layer_skipped_fraction": 0.07692307692307693,
+  "P_direct_savings_4_to_7_replacements_seconds": {
+    "4": 0.3235724694095552,
+    "5": 0.404465586761944,
+    "6": 0.4853587041143328,
+    "7": 0.5662518214667216
+  },
+  "GPU_submissions": 0,
+  "new_LPIPS_evaluations": 0
+}

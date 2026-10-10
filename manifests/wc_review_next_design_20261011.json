@@ -1,0 +1,77 @@
+{
+  "status": "NEXT_RESEARCH_DESIGN_NOT_SELECTED_EXECUTION_CARD",
+  "registered_on_local": "2026-10-11",
+  "scope": "WorldCache only; no new GPU submission or modification of frozen historical cards",
+  "fact_baseline_revision": "d357516",
+  "design": "plans/WORLD_CACHE_A_CONFIRMATION_AND_P_RECOVERY_20261011.md",
+  "input_provenance": "reports/wc_review_design_input_provenance_20261011.json",
+  "resource_snapshot": "reports/wc_review_design_readonly_resource_snapshot_20261011.json",
+  "core_methods": [
+    "Native",
+    "WC",
+    "RA",
+    "W1_ONE_PHASE",
+    "BETA1_ONE_PHASE"
+  ],
+  "co_primary_candidates": [
+    "W1_ONE_PHASE",
+    "BETA1_ONE_PHASE"
+  ],
+  "RA_threshold": 0.070744235098772,
+  "RA_calibration_fingerprint": "9ab1d77c303560823ed2f32f43b2982318cdd9835828a46da4835a1b95ea7d7a",
+  "alpha_schedule": {
+    "step_less_than_25": 1.0,
+    "other_steps": 0.5
+  },
+  "E2": {
+    "confirmation_prompts": 4,
+    "seeds_per_prompt": 2,
+    "methods_per_sample": 5,
+    "complete_confirmation_paths": 40,
+    "prompt_ids": null,
+    "seed_values": null,
+    "input_exposure_hash_check": "pending_concrete_card",
+    "timing_CAL_scenes": [
+      "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "av_51b45829-502e-4143-9c32-c026bd6ab191"
+    ],
+    "timing_methods": [
+      "WC",
+      "RA",
+      "W1_ONE_PHASE",
+      "BETA1_ONE_PHASE"
+    ],
+    "timing_rounds": 4,
+    "complete_timing_paths": 32,
+    "complete_core_paths": 72,
+    "clean_implementation_and_audit_equivalence": "pending",
+    "complete_forecast_GPUh": null,
+    "GPU_submission_selected": false,
+    "exact_above_4_GPUh_authority": null
+  },
+  "historical_full64": {
+    "original_planned_paths": 64,
+    "saved_complete_paths_not_yet_validated": 14,
+    "partial_failure": 1,
+    "unstarted": 49,
+    "original_failed_status_unchanged": true,
+    "old_approval_not_reused": true,
+    "reuse_requires_path_validation_and_pure_memory_equivalence": true
+  },
+  "proposed_GPUh_allocation": {
+    "E0": 0,
+    "E1": 3,
+    "E2": 8,
+    "E3": 8,
+    "E4": 5,
+    "E5": 7
+  },
+  "remaining_GPUh_at_readonly_snapshot": 38.71143884211235,
+  "reserve_GPUh_at_snapshot": 7.711438842112351,
+  "automatic_complete_single_job_GPUh": 4,
+  "mechanical_splitting_to_avoid_confirmation_allowed": false,
+  "mandatory_human_review_added": false,
+  "method_runtime_changed": false,
+  "new_GPU_submissions": 0,
+  "new_video_scoring": 0
+}

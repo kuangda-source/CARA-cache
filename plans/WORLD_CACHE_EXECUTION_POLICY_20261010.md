@@ -8,4 +8,4 @@
 
 旧授权、结果、失败和冻结配置原件保留。下一执行卡应绑定当前预算窗口与本次4 GPUh授权，完成受影响入口验证；旧绑定2 GPUh/50累计上限的冻结stage不能直接复用为新授权。原H-T63完整卡预测6.704055834 GPUh仍超过4 GPUh，不能把本次门槛更新当作该卡具体批准。
 
-当前研究推进顺序仍采用[统一方法设计](WORLD_CACHE_INTEGRATED_MULTI_FIDELITY_DEVELOPMENT_20261009.md)与[首窗口](WORLD_CACHE_MULTI_FIDELITY_FIRST_WINDOW_20261009.md)，重大方向选择共同讨论，非必要不增加人工评审。[更新与核验记录](../research/200_WC_SINGLE_JOB4_GPUH_EXECUTION_AUTHORIZATION_20261010.md)记录服务器和本地的落实情况。
+当前方法合同采用[统一方法设计](WORLD_CACHE_INTEGRATED_MULTI_FIDELITY_DEVELOPMENT_20261009.md)，阶段顺序更新为[2026-10-11 A确认与P恢复](WORLD_CACHE_A_CONFIRMATION_AND_P_RECOVERY_20261011.md)，原[首窗口](WORLD_CACHE_MULTI_FIDELITY_FIRST_WINDOW_20261009.md)保留历史。完整32与原64已分别完成／失败，设计更新不授权复用旧批准重投。重大方向选择共同讨论，非必要不增加人工评审。[授权核验记录](../research/200_WC_SINGLE_JOB4_GPUH_EXECUTION_AUTHORIZATION_20261010.md)保持。

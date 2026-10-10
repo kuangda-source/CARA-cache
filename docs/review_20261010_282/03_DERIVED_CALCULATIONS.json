@@ -1,0 +1,69 @@
+{
+  "source": "282_WC_PROGRESS_SINCE_LAST_SUMMARY_20261010.md",
+  "status": "derived_from_report_not_new_measurements",
+  "inputs": {
+    "lpips_means": {
+      "WC": 0.425647,
+      "joint": 0.412081,
+      "RA": 0.41861,
+      "full_W1": 0.390349,
+      "full_b1": 0.391539,
+      "phase_W1": 0.379794,
+      "phase_b1": 0.378145
+    },
+    "double_CFG_incremental_action_cost_seconds_after_two_probes": {
+      "C": 0.16846,
+      "A_W1": 0.33763,
+      "A_beta1": 0.33811,
+      "P": 6.17331,
+      "D_ordinary": 6.24938,
+      "D_with_P_maintenance": 6.2542
+    },
+    "total_updates_four_videos": 144,
+    "deep_branch_counts": {
+      "RA": 112,
+      "phase_W1": 114,
+      "phase_beta1": 110
+    }
+  },
+  "derivations": {
+    "phase_w1_rel_ra": 9.272592627983078,
+    "phase_b1_rel_ra": 9.666515372303575,
+    "phase_w1_rel_full": 2.7039905315499713,
+    "phase_b1_rel_full": 3.4208597355563586,
+    "phase_b1_rel_phase_w1": 0.43418274117021927,
+    "A_premium": 0.16917,
+    "P_saves_vs_D": 0.08089000000000013,
+    "P_replace_C": 6.00485,
+    "D_replace_C": 6.08574,
+    "P_C_min_future_D_save": 0.9867082721246717,
+    "P_A_min_future_D_save": 0.9863271180796777
+  },
+  "conditional_constant_cost_model": {
+    "assumptions": [
+      "RA uses C/DD only; phase variants use A/DD only.",
+      "Each DD is two deep CFG branch calls; four videos have 144 updates.",
+      "Mean action cost treated as invariant across states.",
+      "This is not measured runtime. Probes, decoder and other costs excluded.",
+      "Use actual trace if mixed actions, fallback or variable costs occur."
+    ],
+    "cost_sums_seconds": {
+      "RA": 364.78976,
+      "phase_W1": 385.58847000000003,
+      "phase_b1": 373.80769000000004
+    },
+    "increment_seconds_per_video_vs_RA": {
+      "RA": 0.0,
+      "phase_W1": 5.199677500000007,
+      "phase_b1": 2.254482500000009
+    }
+  },
+  "P_direct_savings_for_4_5_6_7_D_replacements_seconds": {
+    "4": 0.3235600000000005,
+    "5": 0.40445000000000064,
+    "6": 0.48534000000000077,
+    "7": 0.5662300000000009
+  },
+  "P_fraction_of_deep_MLP_ideal_skipped_if_equal_layer_costs": 0.07692307692307693,
+  "memory_scope": "official PyTorch guidance, not local root-cause diagnosis"
+}
