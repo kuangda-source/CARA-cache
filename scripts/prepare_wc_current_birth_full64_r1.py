@@ -65,6 +65,7 @@ def main():
         'src/wcomr/current_birth_real_production_r1.py','src/wcomr/native_video_compatibility_r1.py',
         'scripts/run_wc_current_birth_full64_r1.py','scripts/prepare_wc_current_birth_full64_r1.py',
         'scripts/audit_wc_current_birth_full64_r1.py',
+        'scripts/deploy_wc_current_birth_full64_production_cpu_r1.py',
         'scripts/forecast_wc_current_birth_full64_r1.py','scripts/check_wc_native_compatibility_cpu_r1.py'])
     files.update(item['local_path'] for item in audit['files'].values())
     for name in files:
