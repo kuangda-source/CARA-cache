@@ -19,3 +19,7 @@ source `beb02c95e7edf570e137bcc4131d5ee3d73fa71b` 已推送。独立选定目录
 账本提交前已结算34.37288029603066；第73项进入在途，预算系统保守预留剩余43.52236629362787。账面临时used达到上限是预留，**不是已耗尽或本卡实耗43.52h**；终态按真实wall结算。
 
 全帧CPU评分已事前登记 `manifests/wc_ra_plus_a_score_cpu_r1_preregistration_20261010.json`，十源载荷、28最大配对×93帧=2604最大距离、28场景方法摘要、十预定对照及32成本槽。配置中的已有开发曝光保持；不把逐帧当独立样本，不把LPIPS当物理或语义质量，不把带记录的wall当clean速度，但如实比较它的质量与成本信号。接续只等待原GPU／raw CPU实际退出，失败不评分子集为成功。
+
+完整评分接续已部署：source651ebfbcbaaf8f9ee6c7b31e5ad37e44bc41bd05／CPU supervisor3930095，CUDA排除，GPU提交0、账本不写；等待原GPU3929440与raw CPU3929441退出，成功后仅一次评估原卡全部可配对93帧。见 `reports/wc_ra_plus_a_score_cpu_r1_launch_20261010.json`。阶段128 CPU独立验收结果见247；不改已在跑的283载荷或post CPU。
+
+最新现场确认原GPU句柄正常进入首场景WC采样：观察1791608605.3902872时已经执行12/36更新，目标GPU10094MiB／98%且唯一compute PID为3929519，原配置哈希保持；零完成视频／张量是此早期现场状态，不能当最终产出数量。见 `reports/wc_ra_plus_a_r1_progress_observation_20261010.json`。飞书组会报告52→53只替换一个进度段，197块其他内容均保持，记录 `reports/wc_ra_plus_a_gpu_launch_feishu_20261010_verification.json`。
