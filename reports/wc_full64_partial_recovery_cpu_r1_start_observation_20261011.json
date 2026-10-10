@@ -1,0 +1,32 @@
+{
+  "observed_unix": 1791661300.5712807,
+  "receipt": {
+    "status": "E0_PARTIAL_RECOVERY_CPU_RUNNING",
+    "pid": 4039038,
+    "source_revision": "b2ce44a45761487a70d5d096b51daa0203bd05a8",
+    "started_unix": 1791661174.5707614,
+    "GPU_submissions": 0,
+    "ledger_written": false,
+    "registration_sha256": "ca31672ff4cf2c26aca929bce6d2b61cc0cb316babdf0ca69a2fd7850ad6980b",
+    "budget_before_sha256": "46a04abf59b5c0f0a5502d124d214ce3890331ec551c021864c96198efa6133b",
+    "child_pid": 4039039,
+    "command": [
+      "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python",
+      "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-full64-partial-recovery-cpu-r1-20261011/scripts/run_wc_full64_partial_recovery_cpu.py",
+      "--project",
+      "/home/gaokuangda/data/gkd/worldcache_omr",
+      "--stage",
+      "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-full64-partial-recovery-cpu-r1-20261011",
+      "--source-revision",
+      "b2ce44a45761487a70d5d096b51daa0203bd05a8"
+    ]
+  },
+  "live_PIDs": [
+    4039038,
+    4039039
+  ],
+  "result_status": "E0_PARTIAL_PATH_AUDIT_AND_SCORING_RUNNING",
+  "audited_slots": 64,
+  "scored_pairs": 1,
+  "last_log": "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.\n  warnings.warn(\n/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=AlexNet_Weights.IMAGENET1K_V1`. You can also use `weights=AlexNet_Weights.DEFAULT` to get the most up-to-date weights.\n  warnings.warn(msg)\n/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-full64-partial-recovery-cpu-r1-20261011/src/wcomr/rv0_lpips.py:21: UserWarning: The given NumPy array is not writable, and PyTorch does not support non-writable tensors. This means writing to this tensor will result in undefined behavior. You may want to copy the array to protect its data or make it writable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at /pytorch/torch/csrc/utils/tensor_numpy.cpp:203.)\n  return torch.from_numpy(np.ascontiguousarray(rgb)).permute(2, 0, 1).unsqueeze(0).float()/127.5-1.\n{\"phase\": \"score\", \"completed_pairs\": 1, \"eligible_pairs\": 8, \"method\": \"SOURCE_RA\"}\n"
+}

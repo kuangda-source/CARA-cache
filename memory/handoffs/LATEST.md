@@ -1,3 +1,11 @@
+## 2026-10-11 当前：E0实际回收通过，AV28组合终点出现新正信号
+
+[285实际结果](../../research/285_WC_E0_REAL_PARTIAL_RECOVERY_RESULTS_AND_MEMORY_NEXT_STEP_20261011.md)：新CPU源b2ce44a、监督4039038／子4039039均exit0且消失；14完整路径全部验证，518实际tensor、14视频＋4Native、六完整轨迹控制通过。AV28八数值合格配对／744全帧距离独立重建；Human六缺prepare不评分，原严格字段0／14保持。原64仍FAILED_TECH、14／1／49分母不变。
+
+AV28 CPD／阶段W1＋P／阶段β1＋P对RA的LPIPS降低12.4774%／27.7367%／24.4335%，均93／93帧；相对旧阶段A保真参照再好4.9107%／0.9393%，坏帧1／26保持。新RA与旧RA及all-D／Native文件／全评分相同。是一个DEV场景的组合正信号，DD＋PP更多，不是clean速度、P独立归因或跨场景确认。
+
+当前[E0—E5设计](../../plans/WORLD_CACHE_A_CONFIRMATION_AND_P_RECOVERY_20261011.md)保持。E1下一检查附加状态GPU deepcopy／唯一storage和独立CPU快照等价；原错误仍保护触发，尚未证明GPU根因或修复。阶段A完整72确认／计时卡继续准备，不等待P科学完成。本轮新GPU0／账本未改，累计39.183807748／77.895246590、新48余额38.711438842；≤4自主／严格>4具体确认，无人评。以下尚未执行／在跑等为历史快照。
+
 ## 2026-10-11 当前研究设计：阶段A确认与P恢复分线推进
 
 [283 评审核对与设计更新](../../research/283_WC_REVIEW_RECONCILIATION_AND_NEXT_DESIGN_20261011.md)和[当前E0—E5实验设计](../../plans/WORLD_CACHE_A_CONFIRMATION_AND_P_RECOVERY_20261011.md)是最新接续入口。完整32阶段W1／β=1的四CAL终点保真正结果保持，相对RA平均LPIPS降低9.2727%／9.6667%；优先冻结两个共同主候选，准备四新提示词×二seed×五版本40确认路径及两CAL×四方法×四轮32计时路径，完整72范围后续绑定输入、clean实现与整卡forecast。A确认不等待P科学完成，必要时仅共用基础显存修复。
