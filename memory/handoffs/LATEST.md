@@ -1,3 +1,9 @@
+## 2026-10-11 当前：E1 R2原GPU继续，E2启动包装修补已登记
+
+[307 CPU范围](../../research/307_WC_E2_REQUIRED_STARTUP_ASSET_CPU_R2_PREREGISTRATION_20261011.md)：原231方法／29执行历史字节和静态binding738361d保持，只在新execution载荷加入两启动资产及新CPU检查／部署／capture。加载前原validate_execution查哈希、四missing／changed和真实meta模式CPU先验收；sampling未改，旧152 Toy／3168guided／152final保持，不重跑无关控制。完整76／9.869732459及原具体确认保持，未新E2 GPU。
+
+E1 sourcecbaad1b、监督4050841／runner4050929／后CPU4050842按[306](../../research/306_WC_E1_DIAG8_R2_UNIQUE_GPU_EXECUTION_20261011.md)唯一原GPU继续，四模型全8／2.044575084≤8；不改在跑stage或重投。启动前实结39.234595840／77.895246590、新48余38.660650750、第77在途预留非实耗；全费终态结算。goal active，无训练或人评。下方为历史。
+
 ## 2026-10-11 当前：E1 R2完整8唯一GPU实际在跑
 
 [306实际执行](../../research/306_WC_E1_DIAG8_R2_UNIQUE_GPU_EXECUTION_20261011.md)：sourcecbaad1b／416载荷，selectedd4e71d2；监督4050841／runner4050929／后CPU4050842现场存活，compute仅原runner／24514MiB，fresh24MiB／无apps及第77提交成立。四独立模型／完整8，forecast2.044575084≤本轮8自主，正在首模型加载，尚无完整路径或容量修复／视频结论；只跟踪原句柄，不改stage、不重投。

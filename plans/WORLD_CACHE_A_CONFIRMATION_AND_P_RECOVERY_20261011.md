@@ -1,6 +1,6 @@
 # WorldCache 下一轮设计：阶段 A 确认与 P 的净收益开发
 
-2026-10-11，v1.13。当前研究入口，依据用户本轮“根据最新对话和文档更新下实验设计”。保留 WorldCache＋RA 的三模块主线，将已有方法的确认与部分刷新执行器的完善分开安排。初版更新仅设计；后续E0独立CPU已实际完成，未提交新GPU，旧卡结果保持。实际结果见[285回收报告](../research/285_WC_E0_REAL_PARTIAL_RECOVERY_RESULTS_AND_MEMORY_NEXT_STEP_20261011.md)。
+2026-10-11，v1.14。当前研究入口，依据用户本轮“根据最新对话和文档更新下实验设计”。保留 WorldCache＋RA 的三模块主线，将已有方法的确认与部分刷新执行器的完善分开安排。初版更新仅设计；后续E0独立CPU已实际完成，未提交新GPU，旧卡结果保持。实际结果见[285回收报告](../research/285_WC_E0_REAL_PARTIAL_RECOVERY_RESULTS_AND_MEMORY_NEXT_STEP_20261011.md)。
 
 ## 1. 本轮最重要的调整
 
@@ -248,3 +248,7 @@ E0已实际验收，按285保持全部分母；E1原完整CPU已独立验收，�
 ### v1.13 执行接续
 
 [306](../research/306_WC_E1_DIAG8_R2_UNIQUE_GPU_EXECUTION_20261011.md)：E1 R2完整8已fresh准入唯一运行，四独立模型及forecast2.044575084保持；sourcecbaad1b，监督4050841／runner4050929／后CPU4050842。先跟踪原句柄至终态及独立原件，不把加载或CPU过关当容量修复。原R1费用及失败不改。E2共享启动合同遗漏在新独立执行包装修补，方法231源／全76范围／9.869732459及原具体确认不变。
+
+### v1.14 E2受影响启动覆盖
+
+[307](../research/307_WC_E2_REQUIRED_STARTUP_ASSET_CPU_R2_PREREGISTRATION_20261011.md)：E2只修执行包装required文件，不改原231方法／参数／静态binding和全部76，加载前由原validate_execution拒绝missing／changed；原29字节来自原CPUstage只读复制，新独立CPU检查十真实请求／标量协议及meta共享eval。原152完整sampling结果复用，GPU卡9.869732459及原具体确认保持。E1真实R2同时只跟踪原句柄。
