@@ -1,4 +1,10 @@
-最新资源现场1791618170–1791618235：完整成本卡首AV28 OFF日志已36/36采样，父回执尚未终态；原三个PID仍存活，唯一compute为runner3969425、同UUID、23246MiB，74历史提交。服务器账本为ACTION_COST_INFLIGHT_REMAINING_RESERVED_NOT_ACTUAL_SPENT，当前全余额预留不是本卡实费／预算耗尽；最后实结36.671789542保持，终态按监督wall结算。不依据父回执尚未刷新而重投或改源。
+## 2026-10-10 当前：两个工作P规则已接完整普通采样，256路径CPU预登记
++
++[259 普通采样接入](../../research/259_WC_WORKING_EPOCH_FULL_SAMPLER_INTEGRATION_20261010.md)：工作年龄保留区间／工作年龄非零重定各保留原完整128控制，两规则共256×36／9216更新／4736成功张量独立重读、16 full-GEMM轨迹参考、1024恢复及全部原32变异／四截断／四末写出故障，另12来源查询／假P未来先验／区间归零拒绝。新owner只换controller/deployment绑定、策略安装身份与查询记录；原物理执行和旧源码保持。276载荷与原真实成本句柄已绑定，当前仅语法／派生检查，完整CPU结果待。
++
++CPU监督准备为独立stage；原成本GPU3969409／runner3969425及raw CPU3969410都exit0且PID消失后才执行重CPU，不干扰动作成本采集；GPU0、不改账本。原完整成本sourcee80f73a／271继续，1791618747已有AV28 OFF完成、ON日志29/36，父回执尚STARTED；不得根据未刷新receipt重投。当前32结果257保留阶段修正四场景保真正信号，仍待真实成本／P组合／独立确认。≤4自主、严格>4确认，goal active/progress，无非必要人评。下方历史保持。
++
++最新资源现场1791618170–1791618235：完整成本卡首AV28 OFF日志已36/36采样，父回执尚未终态；原三个PID仍存活，唯一compute为runner3969425、同UUID、23246MiB，74历史提交。服务器账本为ACTION_COST_INFLIGHT_REMAINING_RESERVED_NOT_ACTUAL_SPENT，当前全余额预留不是本卡实费／预算耗尽；最后实结36.671789542保持，终态按监督wall结算。不依据父回执尚未刷新而重投或改源。
 
 飞书组会文档已同步revision57→58，197顶层块全文核对，仅指定进度段改变；完整32正负、实费和后续成本在途状态均更新，无消息发送。回执reports/wc_ra_plus_a_complete32_feishu_20261010_verification.json。
 
