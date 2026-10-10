@@ -1,3 +1,9 @@
+## 2026-10-11 当前：E1真实冷启动独立审计控制通过，原全8继续
+
+[311接续](research/311_WC_E1_REAL_COLD_AUDITOR_CONTROL_PASS_AND_E2_R2_READY_20261011.md)：310先登记，c117e5b控制／原cbaad1b已退出ORIGINAL_COLD真实输出；独立CPU4057125读37FP32张量及重演36实际prior／cost选择和源状态全部一致，38.475934秒，noCUDA／GPU／账本写。仅验证已结束单臂的审计段，三显式读取scope站点逆变换原字节；原完整8与终态全scope不缩，无存储配对／整卡结论。
+
+原监督4050841／后CPU4050842／CPU_COLD4055807继续，已至step36物理捕获，两个prefix×三槽保持；不改stage或重投。E2修订完整ready card R2已指308启动CPU原件，原231方法／738361d binding、全76／9.869732459与原具体确认待保持，新dispatcher缺授权WAIT/noSSH，不拆卡或重复提问。实结39.234595840／77.895246590、新48余38.660650750、第77在途非实耗；goal active，无训练或人评。下方为历史。
+
 ## 2026-10-11 当前：E1原冷启动36步完成，其余原四臂继续
 
 [309实际发现](research/309_WC_E1_ORIGINAL_COLD_COMPLETION_AND_FULL8_NEXT_AUDIT_20261011.md)：sourcecbaad1b、原冷runner4050929 exit0消失，目标Humanβ1完整36及12／30／35／36检查点通过并写视频。此冷启动原GPU快照可执行，尚不能归因旧14条生命周期或称CPU修复；全8独立原件待。监督4050841／后CPU4050842／CPU_COLD4055807现场存活、compute仅原runner24912MiB，原两prefix×三槽保持，不重投／改stage。

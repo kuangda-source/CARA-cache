@@ -1,6 +1,6 @@
 # WorldCache 下一轮设计：阶段 A 确认与 P 的净收益开发
 
-2026-10-11，v1.16。当前研究入口，依据用户本轮“根据最新对话和文档更新下实验设计”。保留 WorldCache＋RA 的三模块主线，将已有方法的确认与部分刷新执行器的完善分开安排。初版更新仅设计；后续E0独立CPU已实际完成，未提交新GPU，旧卡结果保持。实际结果见[285回收报告](../research/285_WC_E0_REAL_PARTIAL_RECOVERY_RESULTS_AND_MEMORY_NEXT_STEP_20261011.md)。
+2026-10-11，v1.17。当前研究入口，依据用户本轮“根据最新对话和文档更新下实验设计”。保留 WorldCache＋RA 的三模块主线，将已有方法的确认与部分刷新执行器的完善分开安排。初版更新仅设计；后续E0独立CPU已实际完成，未提交新GPU，旧卡结果保持。实际结果见[285回收报告](../research/285_WC_E0_REAL_PARTIAL_RECOVERY_RESULTS_AND_MEMORY_NEXT_STEP_20261011.md)。
 
 ## 1. 本轮最重要的调整
 
@@ -260,3 +260,7 @@ E0已实际验收，按285保持全部分母；E1原完整CPU已独立验收，�
 ### v1.16 E1首个实际冷启动结果
 
 [309](../research/309_WC_E1_ORIGINAL_COLD_COMPLETION_AND_FULL8_NEXT_AUDIT_20261011.md)：原GPU快照Human阶段β1冷启动完整36／四检查点实际完成，runner4050929已exit0；全四臂8还在跑，CPU_COLD4055807，不改原目录／scope。冷启动通过仅说明该条件可执行，旧14路径失败原因与CPU修复效果待两种存储／前序完整对照。终态另登记只读CPU实际tensor与真实prior选择重演，不追加GPU或质量指标。E2启动包装已独立验收，完整76／9.869732459及原具体问题保持。
+
+### v1.17 实际审计器控制与R2完整卡衔接
+
+[311](../research/311_WC_E1_REAL_COLD_AUDITOR_CONTROL_PASS_AND_E2_R2_READY_20261011.md)：事前310独立读取已结束ORIGINAL_COLD实际37张量和真实prior／cost36决策、源状态全部一致，38.475934秒CPU。仅是终态审计器实际段控制，原全8继续、不替代存储配对或全卡验收。E2 R2完整ready card指308启动CPU来源，76／9.869732459及原具体确认不变；CPU_COLD与两prefix原监督继续，终态再全scope独立审计。
