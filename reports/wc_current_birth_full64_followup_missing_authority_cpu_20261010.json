@@ -1,0 +1,38 @@
+{
+  "status": "FULL64_FOLLOWUP_DEPENDENCY_GUARDS_CPU_PASS_NOT_DEPLOYED",
+  "observed_unix": 1791632233.1408021,
+  "checks": [
+    {
+      "source": "scripts/deploy_wc_current_birth_full64_selected_cpu_r1.py",
+      "exit_code": 2,
+      "observed_status": {
+        "status": "WAIT_EXACT_FULL64_AUTHORITY_AND_SELECTION_NO_DEPLOYMENT",
+        "GPU_submissions": 0
+      }
+    },
+    {
+      "source": "scripts/launch_wc_current_birth_full64_r1.py",
+      "exit_code": 2,
+      "observed_status": {
+        "status": "WAIT_EXACT_FULL64_AUTHORITY_SELECTED_CPU_NO_GPU_DISPATCH",
+        "GPU_submissions": 0
+      }
+    },
+    {
+      "source": "scripts/prepare_wc_current_birth_full64_score_cpu_r1.py",
+      "exit_code": 2,
+      "observed_status": {
+        "status": "WAIT_EXACT_FULL64_GPU_LAUNCH_NO_SCORE_CARD_WRITTEN",
+        "GPU_submissions": 0
+      }
+    }
+  ],
+  "future_launch_and_selection_artifacts_still_absent": [
+    "configs/wc_current_birth_full64_selected_r1_20261010.json",
+    "reports/wc_current_birth_full64_r1_GPU_launch_20261010.json",
+    "reports/wc_current_birth_full64_selected_cpu_r1_launch_20261010.json",
+    "manifests/wc_current_birth_full64_score_cpu_r1_preregistration_20261010.json"
+  ],
+  "GPU_submissions": 0,
+  "budget_written": false
+}
