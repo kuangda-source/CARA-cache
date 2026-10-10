@@ -43,6 +43,22 @@ A_METHODS = METHODS[2:]
 NATIVE = 'NATIVE'
 
 
+class PairedBlockCounts(BlockCounts):
+    """Both paid prefixes precede either continuation in a paired executor."""
+    def _last(self, module, args):
+        if getattr(self.cache_model, '_w1_shadow_active', False):
+            return
+        self.last += 1
+        counter = getattr(self.cache_model, 'cnt', None)
+        # Serial WC is also covered. A new prefix at counter0 after a native
+        # cycle reset belongs to the latest actual call, not an old counter0.
+        row = next((r for r in reversed(self.trace)
+                    if r['cache_counter_before'] == counter and not r['deep_executed']), None)
+        if row is None:
+            raise ValueError('Actual deep group has no matching paid prefix')
+        row['deep_executed'] = True
+
+
 def _host_stage(hooks, owner, name, label, row, *, before=None, after=None, context=None):
     """Host substage times do not synchronize; pipeline boundaries do."""
     original = getattr(owner, name)
@@ -183,7 +199,7 @@ def execute_path(inference, sample, wc, settings, *, row, save, output,
                     capture['final_CPU'] = final.cpu().clone()
 
         hooks.wrap(scheduler, 'step', after=after_step)
-        counts = BlockCounts(net.blocks, cache_model=net)
+        counts = PairedBlockCounts(net.blocks, cache_model=net)
         if method == NATIVE:
             row['method_setup_seconds'] = time.perf_counter()-setup_start
             # Native retains the accepted origin, all-block and rejection code.
