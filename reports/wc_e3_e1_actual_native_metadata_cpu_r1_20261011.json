@@ -1,0 +1,595 @@
+{
+  "status": "E3_E1_ACTUAL_NATIVE_METADATA_COMPATIBILITY_READONLY_NOT_REUSE_SELECTION",
+  "complete_E1_rows": 8,
+  "compatible_rows": 8,
+  "original_source_files_unchanged": 225,
+  "original_row_semantic_verifier_derivation": {
+    "row_loop_original_AST_sha256": "84f274c8db96d2fbf0dee3a41dc1413e8e85f7526f046cc7d1e685abfea37e78",
+    "original_per_row_checks_preserved": true,
+    "working_and_current_birth_history_loops_preserved": true,
+    "whole_card_cardinality_not_asserted": true,
+    "source_sha256": {
+      "src/wcomr/cfg_guided_w1_deployment.py": "961fe4660f1ee622adb8db497d0d250c685f3244bc94d767263758223b9fabba",
+      "src/wcomr/source_aware_current_birth_control_r1.py": "2076eb0004f21a359c16e8c09d9a349b238a8e743bf7be0b731dd332d5d2bb73",
+      "src/wcomr/source_aware_current_birth_sampling_r1.py": "8a7271de805ca2d0b823138432f31e33a3ad32e11a0c4fb42c59f3caf22b895b",
+      "src/wcomr/source_aware_partial_sampling.py": "1b9e785c3ce8e82da6d7b292566e89ad5e5ea1dc9d25f4994274d5e03e65d238",
+      "src/wcomr/source_aware_working_epoch_sampling_r1.py": "c24c371e441bbe40133232975d8686e866fbb96bd2efb14215e92f906bc2d24e"
+    }
+  },
+  "existing_E0_zero_mask_source_proof_reused": true,
+  "rows": [
+    {
+      "arm": "ORIGINAL_COLD",
+      "strategy": "WORKING_P_AGE_KEEP_INTERVAL",
+      "sample_name": "human_199",
+      "method": "A_CPD_BETA1_ONE_PHASE",
+      "actual_complete_row_semantics_pass": true,
+      "pairing": {
+        "compatible": true,
+        "checks": {
+          "complete36_guided": true,
+          "same_prepared_call_arguments": true,
+          "same_prepared_data": true,
+          "same_condition_fields_before": true,
+          "same_condition_fields_after": true,
+          "same_conditions_before": true,
+          "same_conditions_after": true,
+          "same_actual_solver_configuration": true,
+          "same_first_seven_dense_guided": true
+        },
+        "incompatible_fields": [],
+        "strict_original_verdict": {
+          "compatible": false,
+          "checks": {
+            "complete36_guided": true,
+            "same_prepared_call_arguments": true,
+            "same_prepared_data": true,
+            "same_condition_fields_before": true,
+            "same_condition_fields_after": true,
+            "same_conditions_before": true,
+            "same_conditions_after": true,
+            "same_actual_solver_configuration": false,
+            "same_first_seven_dense_guided": true
+          },
+          "incompatible_fields": [
+            "same_actual_solver_configuration"
+          ],
+          "prepared_evidence_available": true,
+          "missing_not_synthesized": false
+        },
+        "zero_mask_gt_normalization_applied": false,
+        "ignored_condition_fields": [],
+        "solver_default_name_order_only_normalized": true,
+        "prepared_evidence_available": true,
+        "missing_prepare_not_synthesized": false
+      },
+      "vector_artifact": {
+        "path": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-e1-cold-prefix-storage-diag8-r2/ORIGINAL_COLD/human_199/vectors/human_199_A_CPD_BETA1_ONE_PHASE.pt",
+        "bytes": 294629500,
+        "sha256": "b7f67e3156d18ac9b63bb490c6333e9d2d38b50662d321a1a132bd6e842ff477",
+        "tensor_sha256": {
+          "guided": "e879d5fdb5b1c5485d54ce3ccc94d3544a214392418944b4fcdc5ab83b6ff8f2",
+          "final_latent": "b3bfe956d403c462c4b84cbc1207df26631f5e0d82f9e12f892ffc6b9e340445"
+        }
+      },
+      "video_artifact": {
+        "path": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-e1-cold-prefix-storage-diag8-r2/ORIGINAL_COLD/human_199/human_199_A_CPD_BETA1_ONE_PHASE/human_199.mp4",
+        "bytes": 1139073,
+        "sha256": "5b187f2df83b868c7a2cd2a4273b1a2c7fb7a04e5a70f22d2beca8732cc4cf6e"
+      },
+      "reuse_selected": false,
+      "artifact_rehash_and_complete_E3_manifest_pending": true
+    },
+    {
+      "arm": "CPU_COLD",
+      "strategy": "WORKING_P_AGE_KEEP_INTERVAL",
+      "sample_name": "human_199",
+      "method": "A_CPD_BETA1_ONE_PHASE",
+      "actual_complete_row_semantics_pass": true,
+      "pairing": {
+        "compatible": true,
+        "checks": {
+          "complete36_guided": true,
+          "same_prepared_call_arguments": true,
+          "same_prepared_data": true,
+          "same_condition_fields_before": true,
+          "same_condition_fields_after": true,
+          "same_conditions_before": true,
+          "same_conditions_after": true,
+          "same_actual_solver_configuration": true,
+          "same_first_seven_dense_guided": true
+        },
+        "incompatible_fields": [],
+        "strict_original_verdict": {
+          "compatible": false,
+          "checks": {
+            "complete36_guided": true,
+            "same_prepared_call_arguments": true,
+            "same_prepared_data": true,
+            "same_condition_fields_before": false,
+            "same_condition_fields_after": false,
+            "same_conditions_before": false,
+            "same_conditions_after": false,
+            "same_actual_solver_configuration": false,
+            "same_first_seven_dense_guided": true
+          },
+          "incompatible_fields": [
+            "same_condition_fields_before",
+            "same_condition_fields_after",
+            "same_conditions_before",
+            "same_conditions_after",
+            "same_actual_solver_configuration"
+          ],
+          "prepared_evidence_available": true,
+          "missing_not_synthesized": false
+        },
+        "zero_mask_gt_normalization_applied": true,
+        "ignored_condition_fields": [
+          "gt_frames"
+        ],
+        "solver_default_name_order_only_normalized": true,
+        "prepared_evidence_available": true,
+        "missing_prepare_not_synthesized": false
+      },
+      "vector_artifact": {
+        "path": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-e1-cold-prefix-storage-diag8-r2/CPU_COLD/human_199/vectors/human_199_A_CPD_BETA1_ONE_PHASE.pt",
+        "bytes": 294629500,
+        "sha256": "b7f67e3156d18ac9b63bb490c6333e9d2d38b50662d321a1a132bd6e842ff477",
+        "tensor_sha256": {
+          "guided": "e879d5fdb5b1c5485d54ce3ccc94d3544a214392418944b4fcdc5ab83b6ff8f2",
+          "final_latent": "b3bfe956d403c462c4b84cbc1207df26631f5e0d82f9e12f892ffc6b9e340445"
+        }
+      },
+      "video_artifact": {
+        "path": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-e1-cold-prefix-storage-diag8-r2/CPU_COLD/human_199/human_199_A_CPD_BETA1_ONE_PHASE/human_199.mp4",
+        "bytes": 1139073,
+        "sha256": "5b187f2df83b868c7a2cd2a4273b1a2c7fb7a04e5a70f22d2beca8732cc4cf6e"
+      },
+      "reuse_selected": false,
+      "artifact_rehash_and_complete_E3_manifest_pending": true
+    },
+    {
+      "arm": "ORIGINAL_PREFIX",
+      "strategy": "WORKING_P_AGE_KEEP_INTERVAL",
+      "sample_name": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "method": "A_CPD_BETA1_ONE_PHASE",
+      "actual_complete_row_semantics_pass": true,
+      "pairing": {
+        "compatible": true,
+        "checks": {
+          "complete36_guided": true,
+          "same_prepared_call_arguments": true,
+          "same_prepared_data": true,
+          "same_condition_fields_before": true,
+          "same_condition_fields_after": true,
+          "same_conditions_before": true,
+          "same_conditions_after": true,
+          "same_actual_solver_configuration": true,
+          "same_first_seven_dense_guided": true
+        },
+        "incompatible_fields": [],
+        "strict_original_verdict": {
+          "compatible": false,
+          "checks": {
+            "complete36_guided": true,
+            "same_prepared_call_arguments": true,
+            "same_prepared_data": true,
+            "same_condition_fields_before": false,
+            "same_condition_fields_after": false,
+            "same_conditions_before": false,
+            "same_conditions_after": false,
+            "same_actual_solver_configuration": false,
+            "same_first_seven_dense_guided": true
+          },
+          "incompatible_fields": [
+            "same_condition_fields_before",
+            "same_condition_fields_after",
+            "same_conditions_before",
+            "same_conditions_after",
+            "same_actual_solver_configuration"
+          ],
+          "prepared_evidence_available": true,
+          "missing_not_synthesized": false
+        },
+        "zero_mask_gt_normalization_applied": true,
+        "ignored_condition_fields": [
+          "gt_frames"
+        ],
+        "solver_default_name_order_only_normalized": true,
+        "prepared_evidence_available": true,
+        "missing_prepare_not_synthesized": false
+      },
+      "vector_artifact": {
+        "path": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-e1-cold-prefix-storage-diag8-r2/ORIGINAL_PREFIX/av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632/vectors/av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632_A_CPD_BETA1_ONE_PHASE.pt",
+        "bytes": 294630918,
+        "sha256": "b5bbd8a98242103637fa7744b792af3727079845b9d72434573c7e81d1ec8165",
+        "tensor_sha256": {
+          "guided": "87b6e0945c8717f76852f3b165a634c43363c352f9c1d39cf53c608a173b82b1",
+          "final_latent": "a07b7a6f733ff4d14a1f0d7af4cf3db5f899364e3caf97d50db04c34e9acd2fb"
+        }
+      },
+      "video_artifact": {
+        "path": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-e1-cold-prefix-storage-diag8-r2/ORIGINAL_PREFIX/av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632/av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632_A_CPD_BETA1_ONE_PHASE/av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632.mp4",
+        "bytes": 341529,
+        "sha256": "5c4e46fc4c0c6dd5dc2054c6343a205106750b359faf8f9c871f2d95d76ada1e"
+      },
+      "reuse_selected": false,
+      "artifact_rehash_and_complete_E3_manifest_pending": true
+    },
+    {
+      "arm": "ORIGINAL_PREFIX",
+      "strategy": "WORKING_P_AGE_KEEP_INTERVAL",
+      "sample_name": "human_199",
+      "method": "A_CPD_W1_ONE_PHASE",
+      "actual_complete_row_semantics_pass": true,
+      "pairing": {
+        "compatible": true,
+        "checks": {
+          "complete36_guided": true,
+          "same_prepared_call_arguments": true,
+          "same_prepared_data": true,
+          "same_condition_fields_before": true,
+          "same_condition_fields_after": true,
+          "same_conditions_before": true,
+          "same_conditions_after": true,
+          "same_actual_solver_configuration": true,
+          "same_first_seven_dense_guided": true
+        },
+        "incompatible_fields": [],
+        "strict_original_verdict": {
+          "compatible": false,
+          "checks": {
+            "complete36_guided": true,
+            "same_prepared_call_arguments": true,
+            "same_prepared_data": true,
+            "same_condition_fields_before": false,
+            "same_condition_fields_after": false,
+            "same_conditions_before": false,
+            "same_conditions_after": false,
+            "same_actual_solver_configuration": false,
+            "same_first_seven_dense_guided": true
+          },
+          "incompatible_fields": [
+            "same_condition_fields_before",
+            "same_condition_fields_after",
+            "same_conditions_before",
+            "same_conditions_after",
+            "same_actual_solver_configuration"
+          ],
+          "prepared_evidence_available": true,
+          "missing_not_synthesized": false
+        },
+        "zero_mask_gt_normalization_applied": true,
+        "ignored_condition_fields": [
+          "gt_frames"
+        ],
+        "solver_default_name_order_only_normalized": true,
+        "prepared_evidence_available": true,
+        "missing_prepare_not_synthesized": false
+      },
+      "vector_artifact": {
+        "path": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-e1-cold-prefix-storage-diag8-r2/ORIGINAL_PREFIX/human_199/vectors/human_199_A_CPD_W1_ONE_PHASE.pt",
+        "bytes": 294629371,
+        "sha256": "3ae77683c80745b33c442d082236316762cabfea34f85baf31b5ebc550761160",
+        "tensor_sha256": {
+          "guided": "bccf525fcbb9ebc5d1603d571af9c3acb4a48bb8b0112856ddabbbc696825e28",
+          "final_latent": "095d79cecb8b92479e8afc54cf851958445ffe9c62162585db00c06c7e1d2fae"
+        }
+      },
+      "video_artifact": {
+        "path": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-e1-cold-prefix-storage-diag8-r2/ORIGINAL_PREFIX/human_199/human_199_A_CPD_W1_ONE_PHASE/human_199.mp4",
+        "bytes": 1040763,
+        "sha256": "4d649b1bfb2a9c75a7022d9c9476df68f0913b3040e6147ca916bf671def1f45"
+      },
+      "reuse_selected": false,
+      "artifact_rehash_and_complete_E3_manifest_pending": true
+    },
+    {
+      "arm": "ORIGINAL_PREFIX",
+      "strategy": "WORKING_P_AGE_KEEP_INTERVAL",
+      "sample_name": "human_199",
+      "method": "A_CPD_BETA1_ONE_PHASE",
+      "actual_complete_row_semantics_pass": true,
+      "pairing": {
+        "compatible": true,
+        "checks": {
+          "complete36_guided": true,
+          "same_prepared_call_arguments": true,
+          "same_prepared_data": true,
+          "same_condition_fields_before": true,
+          "same_condition_fields_after": true,
+          "same_conditions_before": true,
+          "same_conditions_after": true,
+          "same_actual_solver_configuration": true,
+          "same_first_seven_dense_guided": true
+        },
+        "incompatible_fields": [],
+        "strict_original_verdict": {
+          "compatible": false,
+          "checks": {
+            "complete36_guided": true,
+            "same_prepared_call_arguments": true,
+            "same_prepared_data": true,
+            "same_condition_fields_before": false,
+            "same_condition_fields_after": false,
+            "same_conditions_before": false,
+            "same_conditions_after": false,
+            "same_actual_solver_configuration": false,
+            "same_first_seven_dense_guided": true
+          },
+          "incompatible_fields": [
+            "same_condition_fields_before",
+            "same_condition_fields_after",
+            "same_conditions_before",
+            "same_conditions_after",
+            "same_actual_solver_configuration"
+          ],
+          "prepared_evidence_available": true,
+          "missing_not_synthesized": false
+        },
+        "zero_mask_gt_normalization_applied": true,
+        "ignored_condition_fields": [
+          "gt_frames"
+        ],
+        "solver_default_name_order_only_normalized": true,
+        "prepared_evidence_available": true,
+        "missing_prepare_not_synthesized": false
+      },
+      "vector_artifact": {
+        "path": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-e1-cold-prefix-storage-diag8-r2/ORIGINAL_PREFIX/human_199/vectors/human_199_A_CPD_BETA1_ONE_PHASE.pt",
+        "bytes": 294629500,
+        "sha256": "b7f67e3156d18ac9b63bb490c6333e9d2d38b50662d321a1a132bd6e842ff477",
+        "tensor_sha256": {
+          "guided": "e879d5fdb5b1c5485d54ce3ccc94d3544a214392418944b4fcdc5ab83b6ff8f2",
+          "final_latent": "b3bfe956d403c462c4b84cbc1207df26631f5e0d82f9e12f892ffc6b9e340445"
+        }
+      },
+      "video_artifact": {
+        "path": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-e1-cold-prefix-storage-diag8-r2/ORIGINAL_PREFIX/human_199/human_199_A_CPD_BETA1_ONE_PHASE/human_199.mp4",
+        "bytes": 1139073,
+        "sha256": "5b187f2df83b868c7a2cd2a4273b1a2c7fb7a04e5a70f22d2beca8732cc4cf6e"
+      },
+      "reuse_selected": false,
+      "artifact_rehash_and_complete_E3_manifest_pending": true
+    },
+    {
+      "arm": "CPU_PREFIX",
+      "strategy": "WORKING_P_AGE_KEEP_INTERVAL",
+      "sample_name": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "method": "A_CPD_BETA1_ONE_PHASE",
+      "actual_complete_row_semantics_pass": true,
+      "pairing": {
+        "compatible": true,
+        "checks": {
+          "complete36_guided": true,
+          "same_prepared_call_arguments": true,
+          "same_prepared_data": true,
+          "same_condition_fields_before": true,
+          "same_condition_fields_after": true,
+          "same_conditions_before": true,
+          "same_conditions_after": true,
+          "same_actual_solver_configuration": true,
+          "same_first_seven_dense_guided": true
+        },
+        "incompatible_fields": [],
+        "strict_original_verdict": {
+          "compatible": false,
+          "checks": {
+            "complete36_guided": true,
+            "same_prepared_call_arguments": true,
+            "same_prepared_data": true,
+            "same_condition_fields_before": false,
+            "same_condition_fields_after": false,
+            "same_conditions_before": false,
+            "same_conditions_after": false,
+            "same_actual_solver_configuration": false,
+            "same_first_seven_dense_guided": true
+          },
+          "incompatible_fields": [
+            "same_condition_fields_before",
+            "same_condition_fields_after",
+            "same_conditions_before",
+            "same_conditions_after",
+            "same_actual_solver_configuration"
+          ],
+          "prepared_evidence_available": true,
+          "missing_not_synthesized": false
+        },
+        "zero_mask_gt_normalization_applied": true,
+        "ignored_condition_fields": [
+          "gt_frames"
+        ],
+        "solver_default_name_order_only_normalized": true,
+        "prepared_evidence_available": true,
+        "missing_prepare_not_synthesized": false
+      },
+      "vector_artifact": {
+        "path": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-e1-cold-prefix-storage-diag8-r2/CPU_PREFIX/av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632/vectors/av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632_A_CPD_BETA1_ONE_PHASE.pt",
+        "bytes": 294630918,
+        "sha256": "b5bbd8a98242103637fa7744b792af3727079845b9d72434573c7e81d1ec8165",
+        "tensor_sha256": {
+          "guided": "87b6e0945c8717f76852f3b165a634c43363c352f9c1d39cf53c608a173b82b1",
+          "final_latent": "a07b7a6f733ff4d14a1f0d7af4cf3db5f899364e3caf97d50db04c34e9acd2fb"
+        }
+      },
+      "video_artifact": {
+        "path": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-e1-cold-prefix-storage-diag8-r2/CPU_PREFIX/av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632/av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632_A_CPD_BETA1_ONE_PHASE/av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632.mp4",
+        "bytes": 341529,
+        "sha256": "5c4e46fc4c0c6dd5dc2054c6343a205106750b359faf8f9c871f2d95d76ada1e"
+      },
+      "reuse_selected": false,
+      "artifact_rehash_and_complete_E3_manifest_pending": true
+    },
+    {
+      "arm": "CPU_PREFIX",
+      "strategy": "WORKING_P_AGE_KEEP_INTERVAL",
+      "sample_name": "human_199",
+      "method": "A_CPD_W1_ONE_PHASE",
+      "actual_complete_row_semantics_pass": true,
+      "pairing": {
+        "compatible": true,
+        "checks": {
+          "complete36_guided": true,
+          "same_prepared_call_arguments": true,
+          "same_prepared_data": true,
+          "same_condition_fields_before": true,
+          "same_condition_fields_after": true,
+          "same_conditions_before": true,
+          "same_conditions_after": true,
+          "same_actual_solver_configuration": true,
+          "same_first_seven_dense_guided": true
+        },
+        "incompatible_fields": [],
+        "strict_original_verdict": {
+          "compatible": false,
+          "checks": {
+            "complete36_guided": true,
+            "same_prepared_call_arguments": true,
+            "same_prepared_data": true,
+            "same_condition_fields_before": false,
+            "same_condition_fields_after": false,
+            "same_conditions_before": false,
+            "same_conditions_after": false,
+            "same_actual_solver_configuration": false,
+            "same_first_seven_dense_guided": true
+          },
+          "incompatible_fields": [
+            "same_condition_fields_before",
+            "same_condition_fields_after",
+            "same_conditions_before",
+            "same_conditions_after",
+            "same_actual_solver_configuration"
+          ],
+          "prepared_evidence_available": true,
+          "missing_not_synthesized": false
+        },
+        "zero_mask_gt_normalization_applied": true,
+        "ignored_condition_fields": [
+          "gt_frames"
+        ],
+        "solver_default_name_order_only_normalized": true,
+        "prepared_evidence_available": true,
+        "missing_prepare_not_synthesized": false
+      },
+      "vector_artifact": {
+        "path": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-e1-cold-prefix-storage-diag8-r2/CPU_PREFIX/human_199/vectors/human_199_A_CPD_W1_ONE_PHASE.pt",
+        "bytes": 294629371,
+        "sha256": "3ae77683c80745b33c442d082236316762cabfea34f85baf31b5ebc550761160",
+        "tensor_sha256": {
+          "guided": "bccf525fcbb9ebc5d1603d571af9c3acb4a48bb8b0112856ddabbbc696825e28",
+          "final_latent": "095d79cecb8b92479e8afc54cf851958445ffe9c62162585db00c06c7e1d2fae"
+        }
+      },
+      "video_artifact": {
+        "path": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-e1-cold-prefix-storage-diag8-r2/CPU_PREFIX/human_199/human_199_A_CPD_W1_ONE_PHASE/human_199.mp4",
+        "bytes": 1040763,
+        "sha256": "4d649b1bfb2a9c75a7022d9c9476df68f0913b3040e6147ca916bf671def1f45"
+      },
+      "reuse_selected": false,
+      "artifact_rehash_and_complete_E3_manifest_pending": true
+    },
+    {
+      "arm": "CPU_PREFIX",
+      "strategy": "WORKING_P_AGE_KEEP_INTERVAL",
+      "sample_name": "human_199",
+      "method": "A_CPD_BETA1_ONE_PHASE",
+      "actual_complete_row_semantics_pass": true,
+      "pairing": {
+        "compatible": true,
+        "checks": {
+          "complete36_guided": true,
+          "same_prepared_call_arguments": true,
+          "same_prepared_data": true,
+          "same_condition_fields_before": true,
+          "same_condition_fields_after": true,
+          "same_conditions_before": true,
+          "same_conditions_after": true,
+          "same_actual_solver_configuration": true,
+          "same_first_seven_dense_guided": true
+        },
+        "incompatible_fields": [],
+        "strict_original_verdict": {
+          "compatible": false,
+          "checks": {
+            "complete36_guided": true,
+            "same_prepared_call_arguments": true,
+            "same_prepared_data": true,
+            "same_condition_fields_before": false,
+            "same_condition_fields_after": false,
+            "same_conditions_before": false,
+            "same_conditions_after": false,
+            "same_actual_solver_configuration": false,
+            "same_first_seven_dense_guided": true
+          },
+          "incompatible_fields": [
+            "same_condition_fields_before",
+            "same_condition_fields_after",
+            "same_conditions_before",
+            "same_conditions_after",
+            "same_actual_solver_configuration"
+          ],
+          "prepared_evidence_available": true,
+          "missing_not_synthesized": false
+        },
+        "zero_mask_gt_normalization_applied": true,
+        "ignored_condition_fields": [
+          "gt_frames"
+        ],
+        "solver_default_name_order_only_normalized": true,
+        "prepared_evidence_available": true,
+        "missing_prepare_not_synthesized": false
+      },
+      "vector_artifact": {
+        "path": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-e1-cold-prefix-storage-diag8-r2/CPU_PREFIX/human_199/vectors/human_199_A_CPD_BETA1_ONE_PHASE.pt",
+        "bytes": 294629500,
+        "sha256": "b7f67e3156d18ac9b63bb490c6333e9d2d38b50662d321a1a132bd6e842ff477",
+        "tensor_sha256": {
+          "guided": "e879d5fdb5b1c5485d54ce3ccc94d3544a214392418944b4fcdc5ab83b6ff8f2",
+          "final_latent": "b3bfe956d403c462c4b84cbc1207df26631f5e0d82f9e12f892ffc6b9e340445"
+        }
+      },
+      "video_artifact": {
+        "path": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-e1-cold-prefix-storage-diag8-r2/CPU_PREFIX/human_199/human_199_A_CPD_BETA1_ONE_PHASE/human_199.mp4",
+        "bytes": 1139073,
+        "sha256": "5b187f2df83b868c7a2cd2a4273b1a2c7fb7a04e5a70f22d2beca8732cc4cf6e"
+      },
+      "reuse_selected": false,
+      "artifact_rehash_and_complete_E3_manifest_pending": true
+    }
+  ],
+  "additional_distinct_Human_candidates": 2,
+  "candidate_keys": [
+    {
+      "strategy": "WORKING_P_AGE_KEEP_INTERVAL",
+      "sample_name": "human_199",
+      "method": "A_CPD_W1_ONE_PHASE"
+    },
+    {
+      "strategy": "WORKING_P_AGE_KEEP_INTERVAL",
+      "sample_name": "human_199",
+      "method": "A_CPD_BETA1_ONE_PHASE"
+    }
+  ],
+  "old_Human_missing_prepare_not_synthesized": true,
+  "old_full64_failure_unchanged": true,
+  "no_video_or_tensor_rehash_in_this_stage": true,
+  "no_new_metric_or_independent_confirmation": true,
+  "E3_GPU_execution_selected": false,
+  "GPU_submissions": 0,
+  "ledger_written": false,
+  "Torch_imported": false,
+  "source_sha256": {
+    "manifests/wc_full64_partial_recovery_cpu_r1_20261011.json": "ca31672ff4cf2c26aca929bce6d2b61cc0cb316babdf0ca69a2fd7850ad6980b",
+    "reports/wc_current_birth_full64_r1_terminal_20261010_capture_and_independent_audit.json": "85e86a71d8f021d51b7a972b38cbd19d8f19b443847a676d95f000fc71f285ac",
+    "reports/wc_current_birth_full64_r1_terminal_20261010_runner_native.gz": "9ec38d5f63ea08c6681bbe4f527c313a9f89ce7fea45d71a56eb2ff7b6124d99",
+    "reports/wc_e1_diag8_gpu_r2_terminal_20261011_capture.json": "4178cfc8986a944288ea0105fa0bd7dc74c860ba12c77e35c350ec98e70d6696",
+    "reports/wc_e1_diag8_gpu_r2_terminal_20261011_native_capture_r2_CPU_COLD-receipt.native.gz": "d2526138122024bbd19c6c221e7b01ba3e54d56444978037711f0d9095e1ad32",
+    "reports/wc_e1_diag8_gpu_r2_terminal_20261011_native_capture_r2_CPU_PREFIX-receipt.native.gz": "3782ceef134d26534eda65ce70c4040986b4d337547b509a671bc043b8fa602b",
+    "reports/wc_e1_diag8_gpu_r2_terminal_20261011_native_capture_r2_ORIGINAL_COLD-receipt.native.gz": "50c18750cae1cb199694c7434367db11302c8f1f20372342bb3220c38fcd9750",
+    "reports/wc_e1_diag8_gpu_r2_terminal_20261011_native_capture_r2_ORIGINAL_PREFIX-receipt.native.gz": "af39c26d0af23e54988ab138990911478097e7caf531f8d976a97726c1c0d22f",
+    "reports/wc_e1_diag8_gpu_r2_terminal_20261011_native_capture_r2_selected-config.native.gz": "87d1e1cb4d84d5e0eed2d369bdbddf5150cd209eb32b51c75570e69b07361877",
+    "reports/wc_full64_partial_recovery_cpu_r1_terminal_20261011_capture.json": "758944efc1883dd661d5ed6b433dbcbbb4da19d70b437342c7ce31762653228c",
+    "reports/wc_full64_partial_recovery_cpu_r1_terminal_20261011_result_json_native.gz": "1eccf0020e8b05b5bf3b17f48473d490f8914ffbb5136699a9518fc5806b9047",
+    "scripts/audit_wc_e3_e1_reference_compatibility_cpu_r1.py": "5d0302fcee6b7cb10febd8a654cd40a1b4357a8f5d47c4551b13d19774061d16"
+  }
+}
