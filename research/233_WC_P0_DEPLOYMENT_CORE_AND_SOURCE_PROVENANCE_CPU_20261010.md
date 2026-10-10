@@ -22,4 +22,6 @@ P来源即使年龄0、全token重算或安全full fallback仍记录`UNKNOWN_NOT
 
 ## 原R1失败与独立R2
 
-source1076532原3913226／3913227已退出1并消失，实际5.067818577秒。首SOURCE_BASE warmup因CPU t_embedder将RF的两个逐帧timestep reshape成标量而失败，零完整路径/产物，P0方法尚未进入；原26路径与两故障分母不改。[原件捕获](../reports/wc_p0_deployment_core_cpu_r1_terminal_20261010_capture.json)保持原源码/日志/预算SHA。独立R2只将夹具`t.reshape(1,1,1)`修为`t.reshape(1,-1,1)`再expand，生产P0模块不变；新R2夹具/driver/登记保留相同68源、全部26范围及两flow第二分支故障，真实CPU待。GPU新增0。
+source1076532原3913226／3913227已退出1并消失，实际2.871005417秒。首SOURCE_BASE warmup因CPU t_embedder将RF的两个逐帧timestep reshape成标量而失败，零完整路径/产物，P0方法尚未进入；原26路径与两故障分母不改。[原件捕获](../reports/wc_p0_deployment_core_cpu_r1_terminal_20261010_capture.json)保持原源码/日志/预算SHA。独立R2只将夹具`t.reshape(1,1,1)`修为`t.reshape(1,-1,1)`再expand，生产P0模块不变；新R2夹具/driver/登记保留相同68源、全部26范围及两flow第二分支故障，真实CPU待。GPU新增0。
+
+独立R2 sourcec806eb6原3913448/3913449退出1消失、实际4.803717554秒；已完成首SOURCE_BASE full36并写一张量，报告误将整数`stat.st_size`作为函数调用，完整卡未验收。原件及该文件路径/大小/SHA保留。独立R3只修报告字段属性访问，生产P0代码和同26完整范围/两故障不变；实际CPU待，GPU0。
