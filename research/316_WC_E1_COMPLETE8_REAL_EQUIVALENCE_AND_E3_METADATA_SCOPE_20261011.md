@@ -50,4 +50,4 @@ CPU存储的四个含取证pipeline时间为460.58/433.22/456.08/440.81秒，原
 
 ## 远端候选文件只读重新绑定完成
 
-[24份原件重新hash与全64位置映射](../reports/wc_e3_complete64_candidate_rehash_cpu_r1_20261011.json)：实际服务器CPU15.096142秒，十候选各一份vector／video加四原生参考共24文件，路径在原outputs内、实际bytes／SHA全部一致，账本前后SHA未变，无Torch／CUDA／GPU或远端写入。十候选的实际方法／参考输入证据及原件均已通过，可供新E3完整manifest选用；全64映射保留，其余54位置待新生成。旧缺prepare的六文件不补造，其中W1对应的是E1新有效文件，另外四旧方法仍需合法新输出。此步不选择GPU、没有新LPIPS或独立确认，执行块CPU／生命周期与完整forecast尚待。
+[24份原件重新hash与全64位置映射](../reports/wc_e3_complete64_candidate_rehash_cpu_r1_20261011.json)：实际服务器CPU15.096142秒，十候选各一份vector／video加四原生参考共24文件，路径在原outputs内、实际bytes／SHA全部一致，账本前后SHA未变，无Torch／CUDA／GPU或远端写入。十候选的实际方法／参考输入证据及原件均已通过，可供新E3完整manifest选用；全64映射保留，其余54位置待新生成。旧缺prepare的六文件不补造，其中W1对应的是E1新有效文件，另外五个旧完整方法仍需合法新输出；β1对应原部分失败位置的E1新有效文件。此步不选择GPU、没有新LPIPS或独立确认，执行块CPU／生命周期与完整forecast尚待。
