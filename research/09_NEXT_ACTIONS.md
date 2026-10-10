@@ -1,10 +1,10 @@
-## 2026-10-10 当前：原32路径25方法输出，增量成本排序CPU通过
+## 2026-10-10 当前：原32路径27方法输出，共享修正与成本接线CPU通过
 
 [254 成本输入接续](254_WC_PAIRED_INCREMENTAL_COST_RANKING_CPU_AND_REAL_INPUT_20261010.md)：登记976922a后纯Python CPU执行0.155433秒exit0，完整36×36策略路径／1296更新，C/P/D动作、风险及恢复在相同已支付probe前缀下相同；完整48成本行／144计时和19变异拒绝保留。输入是synthetic，只接线证据。新增真实成本读取器待完整独立回执，缺数据返回WAIT且无输出／安装／GPU／账本写入；D用含投影维护的实际成本，两step统计仅描述，不能将增量成本写成完整pair或clean延迟。
 
-现场1791614552.878605：原直接批准32路径sourcebeb02c9／283载荷继续，监督3929440／runner3929519、原件CPU3929441、全93帧CPU3930095及成本CPU等待器3950825均存活；25视频／25张量，AV28／Human／misc各七方法完成，AV51四方法完成，四Native尚未开始。仅原runner为compute进程，整卡与质量待；不修改在跑源或重复提交。成本完整3.334960324GPUh／271载荷、selected CPU42.034808秒通过，等待器新GPU0，完整八父／八起点／六模式／192组范围不拆。
+现场1791615122.212929：原直接批准32路径sourcebeb02c9／283载荷继续，监督3929440／runner3929519、原件CPU3929441、全93帧CPU3930095及成本CPU等待器3950825均存活；27视频／27张量，AV28／Human／misc各七方法完成，AV51六方法完成，四Native尚未开始。仅原runner为compute进程，整卡与质量待；不修改在跑源或重复提交。成本完整3.334960324GPUh／271载荷、selected CPU42.034808秒通过，等待器新GPU0，完整八父／八起点／六模式／192组范围不拆。
 
-[255 CFG shared shrink](255_WC_CFG_SHARED_PHASE_SHRINK_CALIBRATION_20261010.md): one bounded shared parameter for the existing phase A, fixed ridge .1, all eight CAL origins; preregistered before CPU/real fit, not installed. Feishu revision 55 to 56 verified, all other 197-block content preserved.
+[255 共享修正校准](255_WC_CFG_SHARED_PHASE_SHRINK_CALIBRATION_20261010.md)：对既有阶段A只增加一个有界共享κ、固定相对正则0.1；登记d8cf564后纯Python CPU0.033129秒exit0，两个完整八起点直接CFG向量拟合／三个边界／七拒绝通过，synthetic κ不安装。真实数据缺失读取已返回WAIT且无文件／拟合／GPU；下一完整回执后才拟合。飞书55→56及56→57全文核对197块，仅原进度段更新，已同步共享修正CPU与27方法进度。
 
 上次实结34.372880296／77.895246590，新48窗口起点29.895246590；当前43.522366294为原卡在途预留，非实费或耗尽。单GPU任务，完整≤4自主、严格>4具体确认，无非必要人评，goal active/progress。原32卡GPU／原件／全93帧评分完成 → 两独立捕获及完整结果提交 → 原接续回执释放已部署等待器 → fresh准入唯一成本GPU → 完整原件审计／独立捕获 → 真实排名输入；禁止再次queue或并发。下方保留历史快照。
 
