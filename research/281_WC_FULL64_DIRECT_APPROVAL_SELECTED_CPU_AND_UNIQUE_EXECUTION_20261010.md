@@ -15,3 +15,5 @@
 前期成果保持：原完整32阶段W1／β1在四CAL均改善终点保真，相对WC的平均LPIPS下降10.7725%／11.1600%；旧混合结果、RA一正三负和全部对照保留。新64将检验阶段修正与部分刷新的闭环组合，而非继续只做机制解释。
 
 证据：[本轮直接授权](../manifests/wc_current_birth_full64_r1_direct_authorization_20261010.json)、[选定配置](../configs/wc_current_birth_full64_selected_r1_20261010.json)、[实际授权绑定CPU独立捕获](../reports/wc_current_birth_full64_selected_cpu_r1_terminal_20261010_capture.json)、[唯一GPU启动](../reports/wc_current_birth_full64_r1_GPU_launch_20261010.json)、[现场原句柄](../reports/wc_current_birth_full64_unique_launch_and_live_handles_20261010.json)、[全93帧CPU登记](../manifests/wc_current_birth_full64_score_cpu_r1_preregistration_20261010.json)、[全93帧CPU实际部署](../reports/wc_current_birth_full64_score_cpu_r1_launch_20261010.json)、[独立收尾CPU准备](280_WC_FULL64_INDEPENDENT_CAPTURE_CPU_AND_PENDING_EXACT_GATE_20261010.md)、[原32结果](257_WC_RA_PLUS_A_COMPLETE32_FIDELITY_AND_COST_RESULTS_20261010.md)。
+
+启动后只读进度：服务器观察1791636172.0211763，首条SOURCE_RA已写出视频和最终张量（1／64），第二条DYNAMIC_NO_P采样36／36、写出尚待。原GPU监督／runner和两个CPU等待器仍存活，无终态或质量判断；只读观察没有提交GPU或改账本。[进度原件](../reports/wc_current_birth_full64_first_path_progress_20261010.json)。
