@@ -23,3 +23,9 @@
 ## 独立捕获成本接续（执行前）
 
 235原完整CPU退出0，但346MB原始回执与全量张量捕获两次55秒观察超时，失败记录保留。未启动的本组合捕获事前登记线程2、600秒非阻塞观察、无损gzip level1，228绑定更新；方法、完整288路径／全部控制与费用口径不改，不改变任何原在跑／冻结源码。通过235完整独立复核后才提交本组合CPU。
+
+## R1实际import失败与相同完整范围R2
+
+[原R1捕获](../reports/wc_a_p0_sampling_cpu_r1_terminal_20261010_capture.json)：sourceec7f256／228载荷，CPU26.738873368秒退出1，3918827/3918828消失；包中漏掉既有cfg_guided_w1_deployment，ModuleNotFoundError发生在生成前，0生成／0向量，原完整288范围仍保留。原stage、绑定、日志及全部回执封存；不能称为A＋P0算法负结果。
+
+独立R2只补该已有模块和三个R2 CPU入口，算法／Toy类体／普通sampler与所有18方法／两个flow／288完整执行范围不变。232载荷，74个本地Python模块的传递相对导入闭包逐份审计，无缺依赖；[R2登记](../manifests/wc_a_p0_sampling_cpu_r2_preregistration_20261010.json)和[包审计](../reports/wc_a_p0_sampling_cpu_r2_transitive_payload_audit_20261010.json)保持原5328张量、576恢复和全部拒绝／故障控制。235完整独立验收已经通过；先新source提交，再新stage实际CPU，当前R2尚未启动。原222／283冻结绑定保持，不改算法来绕过失败。
