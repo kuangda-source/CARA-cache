@@ -25,3 +25,11 @@ CPU 步序列固定连续 P=9/10、15/16、21/22、27/28、33/34，D继续原D6�
 通过并独立重读后，新增显式语义P的A＋P0读出与来源感知选择，保持真实D校准和P风险边界。旧A按物理非skip登记D，不能直接串接P；原RA＋A283冻结载荷不修改。总窗口从29.895246590开始新增48，当前已结算34.372880296／77.895246590，窗口余43.522366294。完整单次≤4GPUh自主、严格>4需要具体批准；5.147707517GPUh完整RA＋A确认仍待，不拆卡，无非必要人工评审。
 
 本轮 CPU 验证旨在保证实际部分输出、来源状态、恢复与完整采样正确衔接。CPU mock 文件不代表真实 Cosmos 视频，CPU耗时不是质量／真实加速，保留原局部保真改善与整组小幅省时结果。
+
+## 实际执行已启动（尚非终态）
+
+提交source **138fd69a779fe194d627f4198d77d38e885abbc2**／222载荷，独立CPU监督3915957／子3915958已真实启动。[原唯一启动回执](../reports/wc_p0_deployment_sampling_cpu_r1_launch_20261010.json)与[原句柄实查](../reports/wc_p0_deployment_sampling_cpu_r1_original_progress_20261010.json)保存；后者确认两句柄当时存活，flow OFF完成45/52、AV51 RANDOM050在跑。完整208路径、两flow和故障／重读验收仍待，不能将部分成功写成完整结果；同源stage不修改、不复投。预算SHA保持 d4c7c38fa253a10dbe4513b16ba0bd603718bfb1891feef41fb004e59958443b，无本轮GPU或预算写入。
+
+显式A＋P0组合核心另见[236](236_WC_A_PLUS_P0_EXPLICIT_SEMANTIC_SOURCE_COMPOSITION_20261010.md)，只有AST准备，未使用本CPU在跑结果替代组合验证。
+
+飞书revision47→48仅指定成本／下一步段落增补完整采样CPU已启动与组合准备，197块全文规范核对保留其余内容及目标粗体前缀；[同步回执](../reports/wc_p0_ordinary_sampler_progress_feishu_r2_20261010_verification.json)。首次读操作匹配整段不符在写前拒绝，原fetch保留；后续fresh局部替换通过，未重复写入。
