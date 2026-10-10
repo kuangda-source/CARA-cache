@@ -1,0 +1,90 @@
+{
+  "status": "READ_ONLY_ATTENTION_QUERY_SOURCE_MAP_NOT_OPERATOR_OR_VIDEO_RESULT",
+  "source_records": [
+    {
+      "path": "/home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/_src/predict2/networks/minimal_v4_dit.py",
+      "sha256": "a41a1772f694ee338e4b91f032428ea81f28e80fb90990e2db86eb7d1ce30071",
+      "imports": [
+        "from cosmos_predict2._src.predict2.conditioner import DataType",
+        "from cosmos_predict2._src.predict2.modules.neighborhood_attn import NeighborhoodAttention"
+      ],
+      "attention_classes": [
+        {
+          "name": "Attention",
+          "methods": [
+            {
+              "method": "__init__",
+              "body": "def __init__(\n        self,\n        query_dim: int,\n        context_dim=None,\n        n_heads=8,\n        head_dim=64,\n        dropout=0.0,\n        qkv_format: str = \"bshd\",\n        backend: str = \"transformer_engine\",\n        use_wan_fp32_strategy: bool = False,\n    ) -> None:\n        super().__init__()\n        log.debug(\n            f\"Setting up {self.__class__.__name__}. Query dim is {query_dim}, context_dim is {context_dim} and using \"\n            f\"{n_heads} heads with a dimension of {head_dim}.\"\n        )\n        self.is_selfattn = context_dim is None  # self attention\n\n        assert backend in [\"transformer_engine\", \"torch\", \"minimal_a2a\"], f\"Invalid backend: {backend}\"\n        self.backend = backend\n\n        context_dim = query_dim if context_dim is None else context_dim\n        inner_dim = head_dim * n_heads\n\n        self.n_heads = n_heads\n        self.head_dim = head_dim\n        self.qkv_format = qkv_format\n        self.query_dim = query_dim\n        self.context_dim = context_dim\n        self.use_wan_fp32_strategy = use_wan_fp32_strategy\n\n        self.q_proj = nn.Linear(query_dim, inner_dim, bias=False)\n        self.q_norm = te.pytorch.RMSNorm(self.head_dim, eps=1e-6)\n\n        self.k_proj = nn.Linear(context_dim, inner_dim, bias=False)\n        self.k_norm = te.pytorch.RMSNorm(self.head_dim, eps=1e-6)\n\n        self.v_proj = nn.Linear(context_dim, inner_dim, bias=False)\n        self.v_norm = nn.Identity()\n\n        self.output_proj = nn.Linear(inner_dim, query_dim, bias=False)\n        self.output_dropout = nn.Dropout(dropout) if dropout > 1e-4 else nn.Identity()\n\n        if self.backend == \"transformer_engine\":\n            from transformer_engine.pytorch.attention import DotProductAttention\n\n            self.attn_op = DotProductAttention(\n                self.n_heads,\n                self.head_dim,\n                num_gqa_groups=self.n_heads,\n                attention_dropout=0,\n                qkv_format=qkv_format,\n                attn_mask_type=\"no_mask\",\n            )\n        elif self.backend == \"minimal_a2a\":\n            self.attn_op = MinimalA2AAttnOp()\n        elif self.backend == \"torch\":\n            self.attn_op = torch_attention_op\n\n        self._query_dim = query_dim\n        self._context_dim = context_dim\n        self._inner_dim = inner_dim"
+            },
+            {
+              "method": "compute_attention",
+              "body": "def compute_attention(self, q, k, v, video_size: Optional[VideoSize] = None):\n        additional_args = {}\n        if isinstance(self.attn_op, (NattenA2AAttnOp, NeighborhoodAttention)):\n            additional_args[\"video_size\"] = video_size\n\n        result = self.attn_op(q, k, v, **additional_args)  # [B, S, H, D]\n        return self.output_dropout(self.output_proj(result))"
+            },
+            {
+              "method": "forward",
+              "body": "def forward(\n        self,\n        x,\n        context: Optional[torch.Tensor] = None,\n        rope_emb: Optional[torch.Tensor] = None,\n        video_size: Optional[VideoSize] = None,\n    ):\n        \"\"\"\n        Args:\n            x (Tensor): The query tensor of shape [B, Mq, K]\n            context (Optional[Tensor]): The key tensor of shape [B, Mk, K] or use x as context [self attention] if None\n            rope_emb (Optional[Tensor]): RoPE embedding tensor, or no RoPE embeddings (i.e. in cross attention)\n            video_size(VideoSize): Shape [T, H, W]\n        \"\"\"\n        q, k, v = self.compute_qkv(x, context, rope_emb=rope_emb)\n        return self.compute_attention(q, k, v, video_size=video_size)"
+            }
+          ]
+        },
+        {
+          "name": "I2VCrossAttention",
+          "methods": [
+            {
+              "method": "__init__",
+              "body": "def __init__(self, *args, img_latent_dim: int = 1024, **kwargs):\n        super().__init__(*args, **kwargs)\n        inner_dim = self.head_dim * self.n_heads\n        self.k_img = nn.Linear(img_latent_dim, inner_dim, bias=False)\n        self.v_img = nn.Linear(img_latent_dim, inner_dim, bias=False)\n        self.k_img_norm = te.pytorch.RMSNorm(self.head_dim, eps=1e-6)"
+            },
+            {
+              "method": "compute_attention",
+              "body": "def compute_attention(self, q, k, v, k_img, v_img):\n        result = self.attn_op(q, k, v)  # [B, S, H, D]\n        result_img = self.attn_op(q, k_img, v_img)\n        return self.output_dropout(self.output_proj(result + result_img))"
+            },
+            {
+              "method": "forward",
+              "body": "def forward(\n        self,\n        x,\n        context=None,\n        rope_emb=None,\n    ):\n        q, k, v, k_img, v_img = self.compute_qkv(x, context, rope_emb)\n        return self.compute_attention(q, k, v, k_img, v_img)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/_src/predict2/networks/minimal_v4_dit.py",
+      "sha256": "a41a1772f694ee338e4b91f032428ea81f28e80fb90990e2db86eb7d1ce30071",
+      "methods": [
+        {
+          "name": "torch_attention_op",
+          "body": "def torch_attention_op(q_B_S_H_D, k_B_S_H_D, v_B_S_H_D):\n    \"\"\"Computes multi-head attention using PyTorch's native implementation.\n\n    This function provides a PyTorch backend alternative to Transformer Engine's attention operation.\n    It rearranges the input tensors to match PyTorch's expected format, computes scaled dot-product\n    attention, and rearranges the output back to the original format.\n\n    The input tensor names use the following dimension conventions:\n\n    - B: batch size\n    - S: sequence length\n    - H: number of attention heads\n    - D: head dimension\n\n    Args:\n        q_B_S_H_D: Query tensor with shape (batch, seq_len, n_heads, head_dim)\n        k_B_S_H_D: Key tensor with shape (batch, seq_len, n_heads, head_dim)\n        v_B_S_H_D: Value tensor with shape (batch, seq_len, n_heads, head_dim)\n\n    Returns:\n        Attention output tensor with shape (batch, seq_len, n_heads * head_dim)\n    \"\"\"\n    in_q_shape = q_B_S_H_D.shape\n    in_k_shape = k_B_S_H_D.shape\n    q_B_H_S_D = rearrange(q_B_S_H_D, \"b ... h k -> b h ... k\").view(in_q_shape[0], in_q_shape[-2], -1, in_q_shape[-1])\n    k_B_H_S_D = rearrange(k_B_S_H_D, \"b ... h v -> b h ... v\").view(in_k_shape[0], in_k_shape[-2], -1, in_k_shape[-1])\n    v_B_H_S_D = rearrange(v_B_S_H_D, \"b ... h v -> b h ... v\").view(in_k_shape[0], in_k_shape[-2], -1, in_k_shape[-1])\n    result_B_S_HD = rearrange(\n        torch.nn.functional.scaled_dot_product_attention(q_B_H_S_D, k_B_H_S_D, v_B_H_S_D), \"b h ... l -> b ... (h l)\"\n    )\n\n    return result_B_S_HD"
+        },
+        {
+          "name": "Attention.compute_qkv",
+          "body": "def compute_qkv(self, x, context=None, rope_emb=None) -> tuple[torch.Tensor, torch.Tensor, torch.Tensor]:\n        q = self.q_proj(x)\n        context = x if context is None else context\n        k = self.k_proj(context)\n        v = self.v_proj(context)\n        q, k, v = map(\n            lambda t: rearrange(t, \"b ... (h d) -> b ... h d\", h=self.n_heads, d=self.head_dim),\n            (q, k, v),\n        )\n\n        def apply_norm_and_rotary_pos_emb(q, k, v, rope_emb):\n            q = self.q_norm(q)\n            k = self.k_norm(k)\n            v = self.v_norm(v)\n            original_dtype = q.dtype\n            if self.is_selfattn and rope_emb is not None:  # only apply to self-attention!\n                if self.use_wan_fp32_strategy:  # wan will force q and k to fp32 before rotary pos emb\n                    q = q.to(torch.float32)\n                    k = k.to(torch.float32)\n                q = apply_rotary_pos_emb(q, rope_emb, tensor_format=self.qkv_format, fused=True)\n                k = apply_rotary_pos_emb(k, rope_emb, tensor_format=self.qkv_format, fused=True)\n                if self.use_wan_fp32_strategy:\n                    q = q.to(original_dtype)\n                    k = k.to(original_dtype)\n            return q, k, v\n\n        q, k, v = apply_norm_and_rotary_pos_emb(q, k, v, rope_emb)\n\n        return q, k, v"
+        },
+        {
+          "name": "Block.forward",
+          "body": "def forward(\n        self,\n        x_B_T_H_W_D: torch.Tensor,\n        emb_B_T_D: torch.Tensor,\n        crossattn_emb: torch.Tensor,\n        rope_emb_L_1_1_D: Optional[torch.Tensor] = None,\n        adaln_lora_B_T_3D: Optional[torch.Tensor] = None,\n        extra_per_block_pos_emb: Optional[torch.Tensor] = None,\n    ) -> torch.Tensor:\n        if extra_per_block_pos_emb is not None:\n            x_B_T_H_W_D = x_B_T_H_W_D + extra_per_block_pos_emb\n\n        with amp.autocast(\"cuda\", enabled=self.use_wan_fp32_strategy, dtype=torch.float32):\n            if self.use_adaln_lora:\n                shift_self_attn_B_T_D, scale_self_attn_B_T_D, gate_self_attn_B_T_D = (\n                    self.adaln_modulation_self_attn(emb_B_T_D) + adaln_lora_B_T_3D\n                ).chunk(3, dim=-1)\n                shift_cross_attn_B_T_D, scale_cross_attn_B_T_D, gate_cross_attn_B_T_D = (\n                    self.adaln_modulation_cross_attn(emb_B_T_D) + adaln_lora_B_T_3D\n                ).chunk(3, dim=-1)\n                shift_mlp_B_T_D, scale_mlp_B_T_D, gate_mlp_B_T_D = (\n                    self.adaln_modulation_mlp(emb_B_T_D) + adaln_lora_B_T_3D\n                ).chunk(3, dim=-1)\n            else:\n                shift_self_attn_B_T_D, scale_self_attn_B_T_D, gate_self_attn_B_T_D = self.adaln_modulation_self_attn(\n                    emb_B_T_D\n                ).chunk(3, dim=-1)\n                shift_cross_attn_B_T_D, scale_cross_attn_B_T_D, gate_cross_attn_B_T_D = (\n                    self.adaln_modulation_cross_attn(emb_B_T_D).chunk(3, dim=-1)\n                )\n                shift_mlp_B_T_D, scale_mlp_B_T_D, gate_mlp_B_T_D = self.adaln_modulation_mlp(emb_B_T_D).chunk(3, dim=-1)\n\n        # Reshape tensors from (B, T, D) to (B, T, 1, 1, D) for broadcasting\n        shift_self_attn_B_T_1_1_D = rearrange(shift_self_attn_B_T_D, \"b t d -> b t 1 1 d\").type_as(x_B_T_H_W_D)\n        scale_self_attn_B_T_1_1_D = rearrange(scale_self_attn_B_T_D, \"b t d -> b t 1 1 d\").type_as(x_B_T_H_W_D)\n        gate_self_attn_B_T_1_1_D = rearrange(gate_self_attn_B_T_D, \"b t d -> b t 1 1 d\").type_as(x_B_T_H_W_D)\n\n        shift_cross_attn_B_T_1_1_D = rearrange(shift_cross_attn_B_T_D, \"b t d -> b t 1 1 d\").type_as(x_B_T_H_W_D)\n        scale_cross_attn_B_T_1_1_D = rearrange(scale_cross_attn_B_T_D, \"b t d -> b t 1 1 d\").type_as(x_B_T_H_W_D)\n        gate_cross_attn_B_T_1_1_D = rearrange(gate_cross_attn_B_T_D, \"b t d -> b t 1 1 d\").type_as(x_B_T_H_W_D)\n\n        shift_mlp_B_T_1_1_D = rearrange(shift_mlp_B_T_D, \"b t d -> b t 1 1 d\").type_as(x_B_T_H_W_D)\n        scale_mlp_B_T_1_1_D = rearrange(scale_mlp_B_T_D, \"b t d -> b t 1 1 d\").type_as(x_B_T_H_W_D)\n        gate_mlp_B_T_1_1_D = rearrange(gate_mlp_B_T_D, \"b t d -> b t 1 1 d\").type_as(x_B_T_H_W_D)\n\n        B, T, H, W, D = x_B_T_H_W_D.shape\n\n        def _fn(_x_B_T_H_W_D, _norm_layer, _scale_B_T_1_1_D, _shift_B_T_1_1_D):\n            return _norm_layer(_x_B_T_H_W_D) * (1 + _scale_B_T_1_1_D) + _shift_B_T_1_1_D\n\n        normalized_x_B_T_H_W_D = _fn(\n            x_B_T_H_W_D,\n            self.layer_norm_self_attn,\n            scale_self_attn_B_T_1_1_D,\n            shift_self_attn_B_T_1_1_D,\n        )\n\n        video_size = VideoSize(T=T, H=H, W=W)\n\n        # (ahassani): Hack to correct `video_size` when CP is enabled.\n        # I really don't like this, but there doesn't seem to be any central\n        # piece of code that's responsible for handling CP/TP that also defines the\n        # layout of shardings. Other parts of the code (i.e. RoPE) seem to make this\n        # assumption that CP sharding is always done along T.\n        if self.cp_size is not None and self.cp_size > 1:\n            video_size = VideoSize(T=T * self.cp_size, H=H, W=W)\n\n        result_B_T_H_W_D = rearrange(\n            self.self_attn(\n                # normalized_x_B_T_HW_D,\n                rearrange(normalized_x_B_T_H_W_D, \"b t h w d -> b (t h w) d\"),\n                None,\n                rope_emb=rope_emb_L_1_1_D,\n                video_size=video_size,\n            ),\n            \"b (t h w) d -> b t h w d\",\n            t=T,\n            h=H,\n            w=W,\n        )\n        x_B_T_H_W_D = x_B_T_H_W_D + gate_self_attn_B_T_1_1_D * result_B_T_H_W_D\n\n        def _x_fn(\n            _x_B_T_H_W_D,\n            layer_norm_cross_attn,\n            _scale_cross_attn_B_T_1_1_D,\n            _shift_cross_attn_B_T_1_1_D,\n            _gate_cross_attn_B_T_1_1_D,\n        ):\n            _normalized_x_B_T_H_W_D = _fn(\n                _x_B_T_H_W_D, layer_norm_cross_attn, _scale_cross_attn_B_T_1_1_D, _shift_cross_attn_B_T_1_1_D\n            )\n            _result_B_T_H_W_D = rearrange(\n                self.cross_attn(\n                    rearrange(_normalized_x_B_T_H_W_D, \"b t h w d -> b (t h w) d\"),\n                    crossattn_emb,\n                    rope_emb=rope_emb_L_1_1_D,\n                ),\n                \"b (t h w) d -> b t h w d\",\n                t=T,\n                h=H,\n                w=W,\n            )\n            # _x_B_T_H_W_D = _x_B_T_H_W_D + _gate_cross_attn_B_T_1_1_D * _result_B_T_H_W_D\n            return _result_B_T_H_W_D\n\n        result_B_T_H_W_D = _x_fn(\n            x_B_T_H_W_D,\n            self.layer_norm_cross_attn,\n            scale_cross_attn_B_T_1_1_D,\n            shift_cross_attn_B_T_1_1_D,\n            gate_cross_attn_B_T_1_1_D,\n        )\n        x_B_T_H_W_D = result_B_T_H_W_D * gate_cross_attn_B_T_1_1_D + x_B_T_H_W_D\n\n        normalized_x_B_T_H_W_D = _fn(\n            x_B_T_H_W_D,\n            self.layer_norm_mlp,\n            scale_mlp_B_T_1_1_D,\n            shift_mlp_B_T_1_1_D,\n        )\n        result_B_T_H_W_D = self.mlp(normalized_x_B_T_H_W_D)\n        x_B_T_H_W_D = x_B_T_H_W_D + gate_mlp_B_T_1_1_D * result_B_T_H_W_D\n        return x_B_T_H_W_D"
+        }
+      ]
+    },
+    {
+      "path": "/home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/_src/predict2/networks/a2a_cp.py",
+      "sha256": "f9f6d61964437bec2950dbcc99e25911b35dd45404b823455f3d4ced2076f708",
+      "already_bound_by_running_card": false,
+      "source_methods": [
+        {
+          "name": "MinimalA2AAttnOp.__init__",
+          "body": "def __init__(self, *args, **kwargs):\n        del args, kwargs\n        super(MinimalA2AAttnOp, self).__init__(attention)"
+        },
+        {
+          "name": "MinimalA2AAttnOp.forward",
+          "body": "def forward(self, query: Tensor, key: Tensor, value: Tensor, *args: Any, **kwargs) -> Tensor:\n        results = super().forward(query, key, value, *args, **kwargs)\n        return rearrange(results, \"b ... h l -> b ... (h l)\")"
+        }
+      ],
+      "GPU_submissions": 0,
+      "remote_writes": false
+    }
+  ],
+  "actual_constructor_backend_from_existing_bound_metadata": "minimal_a2a",
+  "query_after_full_RoPE_before_attention_is_future_candidate_only": true,
+  "backend_rectangular_Q_K_support_not_executed": true,
+  "new_GPU_card_or_sampler_not_selected": true,
+  "GPU_submissions": 0,
+  "remote_writes": false
+}
