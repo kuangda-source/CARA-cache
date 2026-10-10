@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/Users/kuangda_gao/Documents/世界模型加速实验/worldcache_omr/scripts/check_wc_current_birth_real_inputs_cpu_r1.py", line 51, in <module>
+    main()
+  File "/Users/kuangda_gao/Documents/世界模型加速实验/worldcache_omr/scripts/check_wc_current_birth_real_inputs_cpu_r1.py", line 24, in main
+    calibration, specs, references, parent, evidence = load(ROOT)
+  File "/Users/kuangda_gao/Documents/世界模型加速实验/worldcache_omr/src/wcomr/current_birth_real_inputs_r1.py", line 66, in load
+    calibration, threshold = bound_prior(parent_config, stage)
+  File "/Users/kuangda_gao/Documents/世界模型加速实验/worldcache_omr/src/wcomr/cfg_guided_w1_deployment_production.py", line 83, in bound_prior
+    prior, derived = original_bound_prior(c, stage)
+  File "/Users/kuangda_gao/Documents/世界模型加速实验/worldcache_omr/src/wcomr/cfg_ra_comparison_production_r2.py", line 60, in bound_prior
+    from .cfg_ra_calibration_table import load_table
+  File "/Users/kuangda_gao/Documents/世界模型加速实验/worldcache_omr/src/wcomr/cfg_ra_calibration_table.py", line 11, in <module>
+    import torch
+ModuleNotFoundError: No module named 'torch'
