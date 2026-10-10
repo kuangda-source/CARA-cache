@@ -14,7 +14,7 @@ def main():
     c=json.loads((root/'configs/wc_e2_production_r1_20261011.json').read_text())
     proof_ref='reports/wc_e2_production_cpu_r1_terminal_20261011_capture.json'
     proof=json.loads((root/proof_ref).read_text());assert proof['exit_code']==0 and not c['GPU_execution_selected']
-    controls_ref='reports/wc_e2_full76_execution_reporting_cpu_r1_20261011.json'
+    controls_ref='reports/wc_e2_full76_execution_reporting_cpu_r2_20261011.json'
     controls=json.loads((root/controls_ref).read_text())
     assert controls['status']=='E2_COMPLETE76_EXECUTION_REPORTING_SCALAR_CPU_PASS_NOT_GPU_OR_METRIC'
     assert controls['admission_refusals']==17 and controls['scalar_refusals']==8
@@ -24,6 +24,7 @@ def main():
         'scripts/postprocess_wc_e2_full76_cpu_r1.py','scripts/supervise_wc_e2_post_cpu_r1.py',
         'scripts/check_wc_e2_execution_cpu_r1.py','scripts/deploy_wc_e2_execution_cpu_r1.py',
         'scripts/prepare_wc_e2_execution_cpu_r1.py','tests/check_e2_full76_execution_cpu_r1.py',
+        'scripts/dispatch_wc_e2_full76_r1.py','scripts/select_and_launch_wc_e2_full76_r1.py',
         'src/wcomr/lpips_resource_identity.py','src/wcomr/rv0_lpips.py',
         'manifests/wc_e2_full76_execution_design_r1_20261011.json',controls_ref,proof_ref,
         'reports/wc_ra_plus_a_r1_terminal_20261010_capture_and_independent_audit.json',

@@ -75,7 +75,9 @@ def main():
         try:summarize(rows,bad,inputs)
         except ValueError:scalar_refusals+=1
         else:raise AssertionError('Changed full E2 score scope accepted')
-    c=json.loads((args.root/'configs/wc_e2_production_r1_20261011.json').read_text())
+    config=args.root/'e2-config.json'
+    if not config.exists():config=args.root/'configs/wc_e2_production_r1_20261011.json'
+    c=json.loads(config.read_text())
     c.update(GPU_execution_selected=True,gpu_uuid=UUID,single_job_exception_authority={'ref':'FIXTURE_NOT_APPROVAL','sha256':'1'*64})
     budget={'cap_gpu_hours':77.89524658965853,'used_gpu_hours':39.183807747546176,'gpu_jobs_launched':75,'automatic_single_job_gpu_hours':4}
     gpu={'uuid':UUID,'compute_cap':'8.6','pids':[],'memory_used_mib':24}
