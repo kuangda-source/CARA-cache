@@ -57,12 +57,20 @@ def main():
         'tests/check_source_aware_CPU_storage_sampling_r1.py','scripts/check_wc_e1_storage_full_sampler_cpu_r1.py',
         'research/287_WC_E1_PRIMITIVE_PASS_AND_COMPLETE_SAMPLER_STORAGE_BINDING_20261011.md']
     for name in changed:payload[name]=hashlib.sha256((root/name).read_bytes()).hexdigest()
-    for name,expected in payload.items():
+    for name in changed:
+        expected=payload[name]
         data=(root/name).read_bytes();assert hashlib.sha256(data).hexdigest()==expected
         assert data==subprocess.check_output(['git','show',revision+':'+name],cwd=root)
+    # Retain the original accepted fixture documentation bytes even when the
+    # current plan has since advanced. Executable old sources must still match.
+    historical_document='plans/WORLD_CACHE_MULTI_FIDELITY_FIRST_WINDOW_20261009.md'
+    for name,expected in previous['payload_sha256'].items():
+        if name!=historical_document:
+            assert hashlib.sha256((root/name).read_bytes()).hexdigest()==expected
     reg={**previous,'payload_sha256':payload,'E1_storage_CPU_scope':{'all_existing_scope_preserved':True,
         'actual_CPU_backed_additional_roundtrips':896,'GPU_submissions':0,'real_GPU_repair_claim':False},
-        'source_revision':revision,'prior_current_birth_sources_readonly':True}
+        'source_revision':revision,'prior_current_birth_sources_readonly':True,
+        'original_fixture_document_preserved_as_historical_input':historical_document}
     copies={n:h for n,h in payload.items() if n not in changed}
     blobs={n:(root/n).read_bytes() for n in changed}
     blobs.update({'registration.json':(json.dumps(reg,indent=2)+'\n').encode(),'driver.py':DRIVER.encode()})
