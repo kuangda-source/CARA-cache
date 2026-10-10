@@ -43,7 +43,7 @@ for name,expected in reg['original_source_sha256'].items():
 s.mkdir()
 with tarfile.open(archive) as tar:
  for member in tar.getmembers():
-  assert member.isfile() and member.name in reg['payload_sha256'] and not member.name.startswith('/') and '..' not in pathlib.Path(member.name).parts
+  assert (member.isdir() or member.isfile() and member.name in reg['payload_sha256']) and not member.name.startswith('/') and '..' not in pathlib.Path(member.name).parts
  tar.extractall(s)
 for name,expected in reg['payload_sha256'].items():
  assert hashlib.sha256((s/name).read_bytes()).hexdigest()==expected
