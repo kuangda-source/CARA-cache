@@ -1,0 +1,26 @@
+{
+  "identity": "P0_COMPLETE_ORIGINAL_CARD_DESCRIPTIVE_ANALYSIS_20261010",
+  "registered_unix": 1791591843.9657228,
+  "source_card": "WC-MF-P0-REAL-GROUP-R1-20261010-A",
+  "source_revision": "25dc7157394b3451be785cb4f549b9225d72aabb",
+  "complete_scope": {
+    "scenes": 4,
+    "same_state_origins": 8,
+    "modes": 6,
+    "rows": 48,
+    "repeat_group_timing_values": 144
+  },
+  "analysis_source_ref": "scripts/analyze_wc_p0_real_group_r1_cpu.py",
+  "analysis_source_sha256": "c182731bcad47e6346179457939598d065faa66db8a980f3b72830d8a1ab529d",
+  "when": "Only after complete original GPU and raw CPU terminal acceptance",
+  "formula": "E_full_strength=E_C+2*guided_error_update_mean_dot+guided_update_mean_square",
+  "aggregation": "Four scenes equal weight and both registered origins equal weight; retain all3 timing values, per-origin timing mean/median/range",
+  "comparisons": "Every original six mode against same-state C error and full dense group time; rotation vs random at identical actual active-row counts; dense-P0 maintenance control",
+  "no_new_hypothesis_or_policy_selection": true,
+  "no_new_alpha_or_threshold_search": true,
+  "no_endpoint_or_clean_pipeline_speed_or_independent_confirmation_claim": true,
+  "no_GPU_or_metric_execution": true,
+  "no_human_review": true,
+  "original_partial_matrices_or_only_favorable_states_cannot_be_accepted": true,
+  "both_registered_phases": "Report step12 and step30 separately for all original modes; no fitted new phase boundary or strength"
+}
