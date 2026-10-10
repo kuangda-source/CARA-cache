@@ -1,0 +1,62 @@
+{
+  "status": "PROSPECTIVE_REAL_ACTION_COST_GPU_LIFECYCLE_NOT_SUBMITTED",
+  "card": "WC-MF-C-A-P-D-REAL-COST-R1-20261010-A",
+  "run_id": "wc-mf-c-a-p-d-real-cost-r1",
+  "model_payload_files": 271,
+  "model_production_CPU_source": "25c2bfaae908e5ef3e5480da74efa110dc343b8c",
+  "full_model_source_binding_unchanged": true,
+  "transport_lifecycle_SHA_separate_from_accepted_model_payload": true,
+  "forecast_ref": "reports/wc_action_cost_real_r1_complete_cost_forecast_20261010.json",
+  "foreseen_full_GPUh": 3.334960323553403,
+  "GPU_dispatch_waits": [
+    "original_32_path_GPU_exit0_and_settled_ledger",
+    "original_full_raw_CPU_exit0",
+    "original_available_all93_score_CPU_exit0",
+    "source_bound_independent_GPU_and_all93_capture_acceptance_before_next_reservation",
+    "all_original_GPU_raw_score_handles_absent",
+    "fresh_selected_GPU_uuid_and_lock_and_empty_compute_apps"
+  ],
+  "same_full_card_no_scene_or_repeat_split": true,
+  "automatic_single_job_GPUh": 4,
+  "GPU_submissions": 0,
+  "derivation": [
+    {
+      "original_ref": "scripts/supervise_wc_p0_real_group_r1.py",
+      "original_sha256": "55440262c0c79b54fc4cfe41955eafd79c712b9d18d5f3b3c0e4645c1ab80559",
+      "new_ref": "scripts/supervise_wc_action_cost_real_r1.py",
+      "new_sha256": "936a81c661b81bdfaf6a721ae852e8f06b071e034be491bd823ef34c61319b7d",
+      "model_algorithm_payload_unchanged": true,
+      "changes": "card and module/status/file identifiers; GPU supervisor adds separately bound lifecycle transport check"
+    },
+    {
+      "original_ref": "scripts/supervise_wc_p0_real_group_post_cpu_r1.py",
+      "original_sha256": "45241cea3b0aca5fc1fefd4cf660d18b44a30a09ad8cc65d4cf2938ec62d013b",
+      "new_ref": "scripts/supervise_wc_action_cost_real_post_cpu_r1.py",
+      "new_sha256": "9dbbca53ffcd4031cc5896aa4881c9014716083c0bdee1fc8e1a357f82e1b5b8",
+      "model_algorithm_payload_unchanged": true,
+      "changes": "card and module/status/file identifiers; GPU supervisor adds separately bound lifecycle transport check"
+    },
+    {
+      "original_ref": "scripts/select_wc_p0_real_group_r2.py",
+      "original_sha256": "b51c5434328e44c984b6d1765fcfbf4531198f5761fb7be9aa19919aeef73b40",
+      "new_ref": "scripts/select_wc_action_cost_real_r1.py",
+      "new_sha256": "cf9b3edfc57ec3acdc8d7936810b62b537c922d9b9a5e97758210cff3577edf6",
+      "model_algorithm_payload_unchanged": true,
+      "changes": "card and module/status/file identifiers; GPU supervisor adds separately bound lifecycle transport check"
+    },
+    {
+      "original_ref": "scripts/observe_wc_p0_real_group_r2.py",
+      "original_sha256": "6d5dd288e4aab06904b58a0c7d4be8710aa7729d88a25d7d4ca3f9f7e4df03ec",
+      "new_ref": "scripts/observe_wc_action_cost_real_r1.py",
+      "new_sha256": "8844d7e25988d0d01d6a61aff69fac5f3eae06cbdc0c0df0b9f48b9764b0eb60",
+      "model_algorithm_payload_unchanged": true,
+      "changes": "card and module/status/file identifiers; GPU supervisor adds separately bound lifecycle transport check"
+    }
+  ],
+  "sequential_worker_ref": "scripts/queue_wc_action_cost_real_r1.py",
+  "sequential_worker_sha256": "251b1512b2578e60f5d844b9167aeaef047f09a4a1f5495d6720f6851aded7cd",
+  "complete_terminal_capture_ref": "scripts/capture_wc_action_cost_real_terminal_r1.py",
+  "complete_terminal_capture_sha256": "7e900e18c94c5bf53b6849fb2c65eaa8859985114555d952872a09ae79e74c35",
+  "main_independent_acceptance_ref": "scripts/accept_wc_ra_plus_a_terminal_for_next_card_r1.py",
+  "main_independent_acceptance_sha256": "7ba1aacba7f0d61c33542aef31cb0e191f10c4c16a9539c2ab9d16198c3c7c20"
+}
