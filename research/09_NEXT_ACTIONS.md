@@ -1,6 +1,8 @@
 ## 2026-10-10 当前：完整真实成本验收，工作P完整256 CPU实际运行
 
-[262 完整成本与来源结果](research/262_WC_REAL_C_A_P_D_COST_AND_CREATION_PRIOR_RESULTS_20261010.md)：原e80f73a／271卡八父、八起点、六模式、192组及原件CPU均退出0，288 guided／八latent／112分支和八93帧视频独立重建通过，OFF/ON与同状态C／dense控制保持。A阶段W1／β1八起点均改善，平均MSE下降36.92%／38.43%，增量均值约0.338秒；C0.16846、固定四层50% P6.17331、部署D6.25420秒，P整组省1.29342%且八点均省，均非clean端到端速度。
+飞书 revision58->59; 197 blocks verified, only the bound progress paragraph changed. https://lcnssrlun9lz.feishu.cn/docx/HTSIdK0uLofCG5xUI1IcTKaCnAh
+
+[262 完整成本与来源结果](262_WC_REAL_C_A_P_D_COST_AND_CREATION_PRIOR_RESULTS_20261010.md)：原e80f73a／271卡八父、八起点、六模式、192组及原件CPU均退出0，288 guided／八latent／112分支和八93帧视频独立重建通过，OFF/ON与同状态C／dense控制保持。A阶段W1／β1八起点均改善，平均MSE下降36.92%／38.43%，增量均值约0.338秒；C0.16846、固定四层50% P6.17331、部署D6.25420秒，P整组省1.29342%且八点均省，均非clean端到端速度。
 
 完整48行／144计时已绑定真实排名；共享κ两提案都为1，不额外开发连续融合，原early1／late0.5保持。登记57c69c7后完整出生误差阶段映射已执行，early0.0196713／late0.1332674、global0.075166，均未安装，D漂移借用仍TRANSFER。原32四场景阶段A终点保真正结果与旧负结果保留。
 
