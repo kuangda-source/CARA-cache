@@ -59,7 +59,9 @@ def main():
         for strategy in sampler.STRATEGIES:
             try:
                 sampler.run_batch(empty,samples,None,{},state={},save=forbidden,output=args.stage/'never-created',
-                    inference_module=inference_module,contexts=[('invalid',)]*4,mode_setup={},runtime=args.project/'runtime',
+                    inference_module=inference_module,
+                    contexts=[(RUN+':'+s.name,'CPU_VALID_MODEL_CONTEXT','CPU_VALID_CONDITION_CONTEXT') for s in samples],
+                    mode_setup={},runtime=args.project/'runtime',
                     rf_module=None,config={'sample_names':[s.name for s in samples],'run_id':RUN},
                     calibration=calibration,policy_specs=specs[strategy])
             except ValueError as error:

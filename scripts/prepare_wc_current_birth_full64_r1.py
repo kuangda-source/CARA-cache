@@ -66,6 +66,10 @@ def main():
         'scripts/run_wc_current_birth_full64_r1.py','scripts/prepare_wc_current_birth_full64_r1.py',
         'scripts/audit_wc_current_birth_full64_r1.py',
         'scripts/deploy_wc_current_birth_full64_production_cpu_r1.py',
+        'scripts/capture_wc_current_birth_full64_production_cpu_r1.py',
+        'scripts/supervise_wc_current_birth_full64_r1.py',
+        'scripts/supervise_wc_current_birth_full64_post_cpu_r1.py',
+        'scripts/select_wc_current_birth_full64_r1_package.py',
         'scripts/forecast_wc_current_birth_full64_r1.py','scripts/check_wc_native_compatibility_cpu_r1.py'])
     files.update(item['local_path'] for item in audit['files'].values())
     for name in files:
