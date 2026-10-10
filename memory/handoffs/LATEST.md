@@ -1,3 +1,9 @@
+## 2026-10-11 当前：E2实际生产CPU独立验收，执行包装继续
+
+[295当前接续](../../research/295_WC_E2_ACTUAL_PRODUCTION_CPU_ACCEPTANCE_AND_EXECUTION_NEXT_STEP_20261011.md)：E2完整152 Toy CPU与独立3168 guided／152 final／八旧parity保持；新实际生产CPU source5d76a2d／231载荷、4045087及4045088已exit0且消失，42.934589秒，十真实请求／真实先验及阈值／源资产／guardrail／五入口与13合同拒绝、原件独立核对通过。不是GPU视频／质量／速度；E1完整CPU已过，GPU容量区分未执行。
+
+原40确认＋32计时＋四parity完整76、forecast9.869732459保持，严格>8不能自主提交；下一补齐GPU监督、选卡与原件／93帧评分接线、受影响检查，具体卡可审阅后才申请，不拆卡。新GPU0，累计39.183807748／77.895246590、新48余38.711438842、75历史提交，无人评。下方在跑／待CPU等保留历史。
+
 ## 2026-10-11 当前：E2完整CPU独立验收，实际生产CPU登记
 
 [294当前接续](../../research/294_WC_E2_COMPLETE_CPU_ACCEPTANCE_AND_PRODUCTION_CPU_SCOPE_20261011.md)：原E2 R3 source5152d4b／213载荷、4043674及4043675已exit0且消失，910.129098秒；152成功CPU路径／5472更新、3168 guided／152 final独立重载、八旧36步parity与32计时parity通过，八拒绝／20变异／两截断／两失败控制保持。明确Toy边界，非真实2B／视频／质量／速度。E1完整CPU与896存储恢复已验收，真实GPU容量区分待。
