@@ -55,9 +55,17 @@ def ssh(code):
 
 
 def main():
+    global REG, STEM, DRIVER
     parser = argparse.ArgumentParser(); parser.add_argument('mode', choices=('deploy', 'capture'))
+    parser.add_argument('--version', choices=('r1', 'r2'), default='r1')
     args = parser.parse_args(); root = Path(__file__).resolve().parents[1]
-    launch = root / 'reports/wc_e3_prepare_persistence_cpu_r1_launch_20261011.json'
+    if args.version == 'r2':
+        REG = REG.replace('_r1_', '_r2_')
+        STEM = STEM.replace('-r1-', '-r2-')
+        DRIVER = DRIVER.replace('check_wc_e3_prepare_persistence_cpu_r1.py',
+                                'check_wc_e3_prepare_persistence_cpu_r2.py')
+    tag = 'wc_e3_prepare_persistence_cpu_' + args.version
+    launch = root / ('reports/' + tag + '_launch_20261011.json')
     reg = json.loads((root / REG).read_text())
     if args.mode == 'deploy':
         assert not launch.exists()
@@ -119,12 +127,12 @@ print(json.dumps({'status':'E3_ORIGINAL_PREPARE_CPU_TERMINAL_CAPTURE','receipt':
 '''
     value=ssh(code)
     if 'native' not in value:print(json.dumps(value));return 2
-    target=root/'reports/wc_e3_prepare_persistence_cpu_r1_terminal_20261011_capture.json';assert not target.exists()
+    target=root/'reports'/(tag+'_terminal_20261011_capture.json');assert not target.exists()
     value['files']={}
     for n,v in value.pop('native').items():
         z=base64.b64decode(v.pop('base64'),validate=True);raw=gzip.decompress(z)
         assert hashlib.sha256(z).hexdigest()==v['compressed_sha256'] and hashlib.sha256(raw).hexdigest()==v['sha256'] and len(raw)==v['bytes']
-        p=root/'reports'/('wc_e3_prepare_persistence_cpu_r1_terminal_20261011_'+n+'.native.gz');assert not p.exists();p.write_bytes(z)
+        p=root/'reports'/(tag+'_terminal_20261011_'+n+'.native.gz');assert not p.exists();p.write_bytes(z)
         value['files'][n]={**v,'local_path':str(p.relative_to(root))}
         if n=='registration.json':assert json.loads(raw)==reg
         if n=='launch.json':assert json.loads(raw)==original
