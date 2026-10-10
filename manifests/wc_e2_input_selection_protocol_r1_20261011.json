@@ -1,0 +1,89 @@
+{
+  "identity": "WC_E2_FOUR_NEW_PROMPTS_TWO_SEEDS_SELECTION_PROTOCOL_R1_20261011",
+  "registered_unix": 1791662747.766986,
+  "categories_in_order": [
+    "av",
+    "human",
+    "misc",
+    "robot"
+  ],
+  "prompts_per_category": 1,
+  "seeds_in_order": [
+    17,
+    43
+  ],
+  "salt": "WC-E2-CONF-NEW-PROMPTS-R1-20261011",
+  "selection_rule": "SHA256(salt|base_name) order within each category, group representative min(name), excluding complete CAL24 and engineering/reference/lexical groups plus every request identity registered locally or observed in current WorldCache server outputs; no endpoint/cost/guardrail screening",
+  "local_exposure_scope": [
+    "configs/*.json",
+    "configs/*.jsonl",
+    "manifests/*.json"
+  ],
+  "remote_exposure_scope": "All existing current WorldCache outputs/**/receipt.json plus output path names; recursive request/prompt identity only, no endpoint or timing extraction",
+  "reference_and_lexical_independence_limit": "Disjoint benchmark reference/observed lexical groups; original recording/session or semantic independence not established",
+  "methods_in_order": [
+    "NATIVE",
+    "WC",
+    "RA",
+    "W1_ONE_PHASE",
+    "BETA1_ONE_PHASE"
+  ],
+  "co_primary_comparisons": [
+    [
+      "W1_ONE_PHASE",
+      "RA"
+    ],
+    [
+      "BETA1_ONE_PHASE",
+      "RA"
+    ]
+  ],
+  "confirmation_paths": 40,
+  "timing_CAL_input_names": [
+    "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+    "av_51b45829-502e-4143-9c32-c026bd6ab191"
+  ],
+  "timing_seed": 0,
+  "timing_orders": [
+    [
+      "WC",
+      "RA",
+      "BETA1_ONE_PHASE",
+      "W1_ONE_PHASE"
+    ],
+    [
+      "RA",
+      "W1_ONE_PHASE",
+      "WC",
+      "BETA1_ONE_PHASE"
+    ],
+    [
+      "W1_ONE_PHASE",
+      "BETA1_ONE_PHASE",
+      "RA",
+      "WC"
+    ],
+    [
+      "BETA1_ONE_PHASE",
+      "WC",
+      "W1_ONE_PHASE",
+      "RA"
+    ]
+  ],
+  "timing_paths": 32,
+  "complete_card_paths": 72,
+  "selected_input_names": null,
+  "frozen_sources": {
+    "manifests/cal_v1.json": "05f3b59f34e09c8528a6d521fbdd1d21c7208c7bc4db8c43b68fa2f1bab855ff",
+    "reports/dataset_inventory_20260930.json": "76fb83bd7f8633cec38ff48dda0d87b663375c01d40e79e63b993b8395d5cb00",
+    "reports/dataset_source_group_audit_20260930.json": "6f8de690f5cb4f33c3d72aacb23ae6d723f9dd37213845f0472e8b3cb77543f0",
+    "plans/WORLD_CACHE_A_CONFIRMATION_AND_P_RECOVERY_20261011.md": "39853a9b85617ddbe94d483c4146024260f121ba5ef0452ea244fea51427a6b5",
+    "manifests/wc_current_window_execution_authorization_20261011_8gpuh.json": "5192c02363063d8581514e3e01c992674e7294effecd103ec57d7471c2c580c2"
+  },
+  "do_not_replace_rejected_or_failed_candidates": true,
+  "do_not_change_seed_after_first_seed_results": true,
+  "selected_GPU_execution": false,
+  "GPU_submissions": 0,
+  "GPU_cost_forecast_not_yet_frozen": true,
+  "human_review_required": false
+}
