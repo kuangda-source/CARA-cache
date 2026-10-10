@@ -1,6 +1,6 @@
 # WorldCache 下一轮设计：阶段 A 确认与 P 的净收益开发
 
-2026-10-11，v1.11。当前研究入口，依据用户本轮“根据最新对话和文档更新下实验设计”。保留 WorldCache＋RA 的三模块主线，将已有方法的确认与部分刷新执行器的完善分开安排。初版更新仅设计；后续E0独立CPU已实际完成，未提交新GPU，旧卡结果保持。实际结果见[285回收报告](../research/285_WC_E0_REAL_PARTIAL_RECOVERY_RESULTS_AND_MEMORY_NEXT_STEP_20261011.md)。
+2026-10-11，v1.12。当前研究入口，依据用户本轮“根据最新对话和文档更新下实验设计”。保留 WorldCache＋RA 的三模块主线，将已有方法的确认与部分刷新执行器的完善分开安排。初版更新仅设计；后续E0独立CPU已实际完成，未提交新GPU，旧卡结果保持。实际结果见[285回收报告](../research/285_WC_E0_REAL_PARTIAL_RECOVERY_RESULTS_AND_MEMORY_NEXT_STEP_20261011.md)。
 
 ## 1. 本轮最重要的调整
 
@@ -239,3 +239,8 @@ E0已实际验收，按285保持全部分母；E1原完整CPU已独立验收，�
 ## v1.11：E1完整8唯一自主GPU提交
 
 [302实际执行](../research/302_WC_E1_DIAG8_UNIQUE_GPU_EXECUTION_20261011.md)记录source8a51232原GPU／后CPU句柄，398方法源、actual生产CPU独立验收后fresh准入与第76提交成立。四独立模型／全8、forecast2.044575084与原snapshot及reserve保持；尚在导入／加载、未有GPU修复或质量结论。启动前累计39.183807748／77.895246590、新48余38.711438842，预留非实费。终态自动全scope原件CPU与完整视频解码；E2完整76严格>8具体确认仍待。
+
+
+## v1.12：E1启动资产修复与E2同类覆盖补充
+
+[303原加载失败](../research/303_WC_E1_REQUIRED_STARTUP_CONTRACT_FAILURE_AND_R2_REPAIR_20261011.md)与[304完整8修订CPU登记](../research/304_WC_E1_FULL8_R2_ACTUAL_CPU_SCOPE_20261011.md)：原R1只有一次模型加载，eval合同缺失，全部8无采样／numeric0，费用0.050788092403保持。R2新416载荷加入原合同与native meta脚本、加载前缺失／hash门及四拒绝／meta拓扑验收；完整8与算法、2.044575084保持，不重跑未受影响sampling CPU。actual CPU通过后本轮≤8自主fresh原四模型完整8，源目录独立。E2同类缺文件已识别、local dispatcher拦截；原76与9.869732459及具体确认不变，补打包／actual CPU后才可执行。累计39.234595840／77.895246590、新48余38.660650750，76提交／无inflight，修复登记新GPU0。

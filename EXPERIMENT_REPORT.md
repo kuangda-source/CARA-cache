@@ -1,3 +1,9 @@
+## 2026-10-11 当前：E1 R1加载合同遗漏终止，R2完整8修复登记
+
+[304接续](research/304_WC_E1_FULL8_R2_ACTUAL_CPU_SCOPE_20261011.md)与303原失败：原4048795／4048882及后CPU4048796／4049534均退出消失，首模型加载121.563931秒后缺eval合同FileNotFoundError，未采样，0tensor／video、完整numeric0／原8。未知异常已保留其余七槽／三进程未开始，旧源／目录未改，原费用和终态独立核对通过。不是显存或方法负结果。
+
+实费0.050788092403，累计39.234595840／77.895246590、新48余38.660650750、76历史提交，24MiB／无apps／锁释放。R2416载荷加入原GPU-only合同／meta脚本，加载前required资产门／四缺失改变控制／真实meta拓扑CPU登记；算法、四臂／8与forecast2.044575084不变，actual CPU独立通过后≤8自主fresh GPU，不重复请批。E2存在同类未绑定合同，ready需补覆盖，local dispatcher加拦截；原76／9.869732459范围与具体问题保持，尚未GPU。goal active，无人评／训练。下方在跑／ready等为历史。
+
 ## 2026-10-11 当前：E1完整8已唯一GPU提交，原句柄继续
 
 [302实际执行](research/302_WC_E1_DIAG8_UNIQUE_GPU_EXECUTION_20261011.md)：source8a51232／398方法载荷，selected34af67b，监督4048795／runner4048882／后CPU4048796现场存活；首臂ORIGINAL_COLD加载真实模型，原compute仅4048882／24514MiB已核对，0完成、尚无新视频或修复结论。四独立模型／完整8原scope保持，forecast2.044575084≤本轮8自主，fresh准入／f1锁／第76提交实际成立；旧源不改，不重复投。

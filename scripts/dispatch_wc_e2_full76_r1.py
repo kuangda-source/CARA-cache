@@ -17,6 +17,9 @@ def main():
         print(json.dumps({'status':'WAIT_EXACT_COMPLETE76_ABOVE8_APPROVAL_NO_DISPATCH',
             'GPU_submissions':0,'SSH_called':False,'ledger_written':False,'new_selected_directory':False}));return 2
     c=json.loads((root/'configs/wc_e2_production_r1_20261011.json').read_text())
+    required='manifests/wc_h0_eval_mode_contract_20261003.json'
+    if c['payload_sha256'].get(required)!='a990ad5c078519bc7f284139fbd3afb72b0492f60de7ebc1e327927d613fcabd':
+        raise ValueError('E2 GPU-only mode asset is unbound; repaired actual CPU required before any SSH or GPU dispatch')
     approved=json.loads(authority.read_text())
     from sys import path;path.insert(0,str(root/'src'))
     from wcomr.e2_execution_r1 import binding,sha,UUID
