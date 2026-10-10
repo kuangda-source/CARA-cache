@@ -1,0 +1,68 @@
+{
+  "status": "COMPLETE78_CPU_HISTORY_DESCRIPTIVE_COUNTS_FROM_ORIGINAL_RESULT",
+  "captured_source": "adf128887c9d03653059390f838e365b371579f5",
+  "capture_sha256": "14821e24df32c084fed09091e7b60239ab63ffce7643f901e06e4439b4f73fa1",
+  "observed_unix": 1791595050.465276,
+  "complete_path_count": 78,
+  "actual_complete_pairs": 2808,
+  "actual_normal_net_calls": 5616,
+  "actual_tensor_reload_count": 2886,
+  "independent_tensor_reload_count": 2886,
+  "schedules": [
+    {
+      "schedule": "LEGACY_D_AFTER_P",
+      "complete_paths": 26,
+      "P_steps": [
+        12,
+        18,
+        24,
+        30
+      ],
+      "actual_P_ledger_updates": 40,
+      "P_source_reuse_C_steps_checked": 0,
+      "consecutive_P_steps_checked": 0,
+      "projection_layer_branch_updates_checked": 320,
+      "both_flow_failures_preserved": 2
+    },
+    {
+      "schedule": "P_THEN_REUSE",
+      "complete_paths": 26,
+      "P_steps": [
+        9,
+        15,
+        21,
+        27,
+        33
+      ],
+      "actual_P_ledger_updates": 50,
+      "P_source_reuse_C_steps_checked": 140,
+      "consecutive_P_steps_checked": 0,
+      "projection_layer_branch_updates_checked": 400,
+      "both_flow_failures_preserved": 2
+    },
+    {
+      "schedule": "P_CHAIN_THEN_REUSE",
+      "complete_paths": 26,
+      "P_steps": [
+        9,
+        10,
+        15,
+        16,
+        21,
+        22,
+        27,
+        28,
+        33,
+        34
+      ],
+      "actual_P_ledger_updates": 100,
+      "P_source_reuse_C_steps_checked": 90,
+      "consecutive_P_steps_checked": 50,
+      "projection_layer_branch_updates_checked": 800,
+      "both_flow_failures_preserved": 2
+    }
+  ],
+  "all26_legacy_complete_outputs_hash_equal_to_prior_R3": true,
+  "GPU_submissions": 0,
+  "scientific_endpoint_or_speed_claim": false
+}
