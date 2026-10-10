@@ -33,3 +33,9 @@ CPU 步序列固定连续 P=9/10、15/16、21/22、27/28、33/34，D继续原D6�
 显式A＋P0组合核心另见[236](236_WC_A_PLUS_P0_EXPLICIT_SEMANTIC_SOURCE_COMPOSITION_20261010.md)，只有AST准备，未使用本CPU在跑结果替代组合验证。
 
 飞书revision47→48仅指定成本／下一步段落增补完整采样CPU已启动与组合准备，197块全文规范核对保留其余内容及目标粗体前缀；[同步回执](../reports/wc_p0_ordinary_sampler_progress_feishu_r2_20261010_verification.json)。首次读操作匹配整段不符在写前拒绝，原fetch保留；后续fresh局部替换通过，未重复写入。
+
+## 原完整CPU退出0，独立验收接续
+
+原source138fd69／222载荷回执实际CPU1600.450404870秒，监督与子进程退出0且两PID消失；完整result346404403字节、SHA f2073cf935a37b0a58f7f2b4ca18b93c138f7d07c3e2360b2cbf78f7de29f424，账本前后保持d4c7c38f。该回执报告完整范围通过，最终独立源／3848张量／32参照验收尚待。
+
+原捕获与仅thread2的R2各因55秒观察窗口超时，分别保存original_capture_timeout与thread2_capture_timeout回执；不作为生成失败，不重跑原作业。新增只读R3对原捕获源码仅改审计线程2、非阻塞观察600秒与无损gzip level1，逆源码及AST保持其余完整校验；原222源和全部remote native不修改。调用以短exec/poll持续观察，观察窗口不构成GPU作业限时或新GPU批准。

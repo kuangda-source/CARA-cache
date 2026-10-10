@@ -38,6 +38,7 @@ if r['exit_code']==0:
  import os
  os.environ['CUDA_VISIBLE_DEVICES']=''
  import torch
+ torch.set_num_threads(2)
  assert not torch.cuda.is_initialized()
  torch.cuda._lazy_init=lambda *a,**k: (_ for _ in ()).throw(RuntimeError('Independent capture forbids CUDA'))
  def digest(value):
@@ -79,7 +80,7 @@ files=['receipt.json','registration.json','launch.json','driver.py','driver.log'
 files.extend(n for n in ('result.json','result.failure.json') if (stage/n).exists())
 native={}
 for n in files:
- raw=(stage/n).read_bytes();packed=gzip.compress(raw,mtime=0)
+ raw=(stage/n).read_bytes();packed=gzip.compress(raw,compresslevel=1,mtime=0)
  native[n]={'path':str(stage/n),'bytes':len(raw),'sha256':hashlib.sha256(raw).hexdigest(),
   'compressed_sha256':hashlib.sha256(packed).hexdigest(),'base64':base64.b64encode(packed).decode()}
 print(json.dumps({'capture':{'status':'FULL_SAMPLING_ORIGINAL_CPU_TERMINAL','source_revision':L['source_revision'],
@@ -87,7 +88,7 @@ print(json.dumps({'capture':{'status':'FULL_SAMPLING_ORIGINAL_CPU_TERMINAL','sou
  'GPU_submissions':0,'ledger_written':False,'independent_tensor_reload':reload_result,'actual_CPU_artifacts':artifacts,'observed_unix':time.time()},'native':native}))
 '''
     call = subprocess.run(['ssh','-o','BatchMode=yes','-o','ConnectTimeout=15','gkd_minchen','/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python -'],
-                          input=code,text=True,capture_output=True,timeout=55)
+                          input=code,text=True,capture_output=True,timeout=600)
     if call.returncode:
         raise RuntimeError(call.stderr[-3000:])
     value = json.loads(call.stdout)
