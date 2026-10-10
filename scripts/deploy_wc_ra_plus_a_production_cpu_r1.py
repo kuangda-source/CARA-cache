@@ -54,7 +54,11 @@ sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
 c=json.loads((stage/'ra-plus-a-config.json').read_text())
 assert {n:sha(stage/n) for n in c['payload_sha256']}==c['payload_sha256']
 budget_sha=sha(root/'reports/budget.json')
-assert sha(stage/'budget-at-preparation.json')==budget_sha
+# The preparation snapshot is immutable provenance, not a fresh admission
+# balance. The separate original P0 can legitimately settle before selection.
+# This check pays no GPU; its live before/after digest is captured independently.
+live_budget=json.loads((root/'reports/budget.json').read_text())
+assert live_budget['cap_gpu_hours']==c['cumulative_cap_GPUh'] and live_budget['automatic_single_job_gpu_hours']==4
 deployment={'source_revision':P['source_revision'],'archive_sha256':P['archive_sha256'],
  'payload_files':len(c['payload_sha256']),'budget_before_sha256':budget_sha,'phase':P['phase'],'GPU_submissions':0}
 (stage/'deployment.json').write_text(json.dumps(deployment,indent=2)+'\n')

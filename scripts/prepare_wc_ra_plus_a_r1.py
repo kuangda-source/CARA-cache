@@ -21,9 +21,12 @@ def main():
     phase = json.loads(Path(production.PHASE).read_text())
     cpu_ref = 'manifests/wc_a_deployment_sampling_cpu_r3_preregistration_20261010.json'
     cpu = json.loads(Path(cpu_ref).read_text())
-    audit_ref = 'reports/wc_a_deployment_sampling_cpu_r3_terminal_20261010_capture.json'
+    audit_ref = 'reports/wc_a_deployment_sampling_cpu_r3_terminal_20261010_capture_reaudit.json'
     audit = json.loads(Path(audit_ref).read_text())
     assert audit['exit_code'] == 0 and audit['independent_source_complete_results_and_actual_artifact_hashes_verified']
+    assert audit['original_native_bytes_unchanged']
+    assert sha(audit['original_failed_capture_ref'])==audit['original_failed_capture_sha256']
+    assert sha('scripts/capture_wc_a_deployment_sampling_cpu_r3.py')==audit['repair_current_capture_source_sha256']
     assert {n:sha(n) for n in cpu['payload_sha256']} == cpu['payload_sha256']
     assert [r['name'] for r in design['requests']] == production.NAMES
     cost_ref = design['whole_cost_ref']; cost = json.loads(Path(cost_ref).read_text())
@@ -64,6 +67,7 @@ def main():
     files=set(cpu['payload_sha256'])|set(old['payload_sha256'])
     files.difference_update({'profile-config.json','ra-comparison-requests.jsonl','budget-at-preparation.json'})
     files.update({cpu_ref,audit_ref,reg_ref,design_ref,production.PHASE,cost_ref,
+        audit['original_failed_capture_ref'],'scripts/capture_wc_a_deployment_sampling_cpu_r3.py',
         design['plan_ref'],'src/wcomr/cfg_guided_w1_deployment_production.py',
         'src/wcomr/cfg_ra_plus_a_scores.py',
         'tests/check_cfg_ra_plus_a_scores_cpu.py',score_controls_ref,

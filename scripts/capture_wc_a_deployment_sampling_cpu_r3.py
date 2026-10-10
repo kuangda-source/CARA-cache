@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Capture original full-sampling CPU evidence, without redispatch or GPU work."""
 import ast
+import argparse
 import base64
 import gzip
 import hashlib
@@ -10,6 +11,9 @@ import subprocess
 
 
 def main():
+    parser=argparse.ArgumentParser()
+    parser.add_argument('--audit-retained',action='store_true',help='Verify saved original bytes without rerunning the CPU batch')
+    args=parser.parse_args()
     launch_path = Path('reports/wc_a_deployment_sampling_cpu_r3_launch_20261010.json')
     launch = json.loads(launch_path.read_text())
     code = 'L=' + repr(launch) + '\n' + r'''
@@ -33,6 +37,21 @@ assert r['GPU_submissions']==0 and not r['ledger_written'] and not r['GPU_lock_a
 artifacts=[]
 for p in sorted((stage/'CPU-artifacts').rglob('*')):
  if p.is_file():artifacts.append({'path':str(p.resolve()),'bytes':p.stat().st_size,'sha256':sha(p)})
+aliases={}
+if r['exit_code']==0:
+ value=json.loads((stage/'result.json').read_text())
+ for check in value['checks']:
+  state=check['receipt']
+  for request in state['batch']['requests']:
+   for row in request['paths']:
+    art=row['vector_artifact'];path=pathlib.Path(art['path']).resolve()
+    assert (stage/'CPU-artifacts').resolve() in path.parents and path.stat().st_size==art['bytes'] and sha(path)==art['sha256']
+    aliases[art['path']]=str(path)
+  for ref in state['references']:
+   if 'vector_artifact' in ref:
+    art=ref['vector_artifact'];path=pathlib.Path(art['path']).resolve()
+    assert (stage/'CPU-artifacts').resolve() in path.parents and path.stat().st_size==art['bytes'] and sha(path)==art['sha256']
+    aliases[art['path']]=str(path)
 files=['receipt.json','registration.json','launch.json','driver.py','driver.log','test.log']
 files.extend(n for n in ('result.json','result.failure.json') if (stage/n).exists())
 native={}
@@ -42,7 +61,7 @@ for n in files:
   'compressed_sha256':hashlib.sha256(packed).hexdigest(),'base64':base64.b64encode(packed).decode()}
 print(json.dumps({'capture':{'status':'FULL_SAMPLING_ORIGINAL_CPU_TERMINAL','source_revision':L['source_revision'],
  'original_PIDs_absent':pids,'exit_code':r['exit_code'],'CPU_wall_seconds':r['CPU_wall_seconds'],
- 'GPU_submissions':0,'ledger_written':False,'actual_CPU_artifacts':artifacts,'observed_unix':time.time()},'native':native}))
+ 'GPU_submissions':0,'ledger_written':False,'actual_CPU_artifacts':artifacts,'recorded_to_resolved_tensor_paths':aliases,'observed_unix':time.time()},'native':native}))
 '''
     call = subprocess.run(['ssh','-o','BatchMode=yes','-o','ConnectTimeout=15','gkd_minchen','python3 -'],
                           input=code,text=True,capture_output=True,timeout=55)
@@ -52,16 +71,30 @@ print(json.dumps({'capture':{'status':'FULL_SAMPLING_ORIGINAL_CPU_TERMINAL','sou
     if not value['native']:
         print(json.dumps(value['capture'])); return 2
     prefix='reports/wc_a_deployment_sampling_cpu_r3_terminal_20261010_'
-    dest=Path(prefix+'capture.json'); assert not dest.exists()
+    original_dest=Path(prefix+'capture.json')
+    dest=Path(prefix+('capture_reaudit.json' if args.audit_retained else 'capture.json')); assert not dest.exists()
+    retained=json.loads(original_dest.read_text()) if args.audit_retained else None
+    if retained is not None:
+        assert retained['exit_code']==0 and retained['independent_check_error']['type']=='KeyError'
+        assert retained['actual_CPU_artifacts']==value['capture']['actual_CPU_artifacts']
     proof=value['capture']; proof['files']={}; objects={}
     for n,item in value['native'].items():
         packed=base64.b64decode(item['base64'],validate=True); raw=gzip.decompress(packed)
         assert len(raw)==item['bytes'] and hashlib.sha256(raw).hexdigest()==item['sha256']
         assert hashlib.sha256(packed).hexdigest()==item['compressed_sha256']
-        p=Path(prefix+n+'.native.gz'); assert not p.exists(); p.write_bytes(packed)
+        p=Path(prefix+n+'.native.gz')
+        if retained is None:
+            assert not p.exists(); p.write_bytes(packed)
+        else:
+            assert p.read_bytes()==packed and retained['files'][n]['sha256']==item['sha256']
         proof['files'][n]={k:v for k,v in item.items() if k!='base64'}
         proof['files'][n]['local_path']=str(p)
         if n.endswith('.json'): objects[n]=json.loads(raw)
+    if retained is not None:
+        proof['original_failed_capture_ref']=str(original_dest)
+        proof['original_failed_capture_sha256']=hashlib.sha256(original_dest.read_bytes()).hexdigest()
+        proof['original_native_bytes_unchanged']=True
+        proof['repair_current_capture_source_sha256']=hashlib.sha256(Path(__file__).read_bytes()).hexdigest()
     try:
         assert objects['launch.json']==launch
         gitreg=subprocess.check_output(['git','show',launch['source_revision']+':manifests/wc_a_deployment_sampling_cpu_r3_preregistration_20261010.json'])
@@ -129,11 +162,11 @@ print(json.dumps({'capture':{'status':'FULL_SAMPLING_ORIGINAL_CPU_TERMINAL','sou
                 assert len(last['guided_sha256'])==len(last['solver_returns'])==36 and 'vector_artifact' not in last
                 for request in state['batch']['requests']:
                     for row in request['paths']:
-                        art=row['vector_artifact'];seen.add(str(Path(art['path']).resolve()))
-                        assert actual[str(Path(art['path']).resolve())]['sha256']==art['sha256']
+                        art=row['vector_artifact'];resolved=proof['recorded_to_resolved_tensor_paths'][art['path']];seen.add(resolved)
+                        assert actual[resolved]['sha256']==art['sha256']
                 for ref in state['references'][:-1]:
-                    art=ref['vector_artifact'];seen.add(str(Path(art['path']).resolve()))
-                    assert actual[str(Path(art['path']).resolve())]['sha256']==art['sha256']
+                    art=ref['vector_artifact'];resolved=proof['recorded_to_resolved_tensor_paths'][art['path']];seen.add(resolved)
+                    assert actual[resolved]['sha256']==art['sha256']
             tensorpaths={p for p in actual if p.endswith('.pt')}
             assert len(tensorpaths)==126 and seen==tensorpaths
             assert len([p for p in actual if p.endswith('.mp4')])==128
