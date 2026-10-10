@@ -1,0 +1,39 @@
+{
+  "status": "E1_CPU_STORAGE_PRIMITIVE_TERMINAL_INDEPENDENTLY_VERIFIED",
+  "source_revision": "b77ac304f0842a70a53386e6f2701d69ae0dc9e0",
+  "checks": [
+    "storage_views_object_aliases_and_numpy_independence",
+    "overlapping_view_updates_same_complete24_step_continuation",
+    "original_deepcopy_roundtrip_equivalent_values_and_continuation",
+    "no_CPU_Python_numpy_RNG_consumption"
+  ],
+  "refusals": [
+    "poison",
+    "parameter_changed",
+    "installation_changed",
+    "logical_cap",
+    "CPU_storage_cap",
+    "grad_tensor",
+    "nonfinite_tensor",
+    "unsupported_state",
+    "sparse_tensor",
+    "cyclic_state",
+    "corrupt_saved_image"
+  ],
+  "inventory": {
+    "logical_tensor_bytes_aliases_counted": 15892,
+    "unique_tensor_objects": 13,
+    "unique_storages": 5,
+    "unique_storage_bytes": 4896,
+    "unique_GPU_storage_bytes": 0,
+    "unique_CPU_storage_bytes": 4896,
+    "tensor_alias_topology_preserved_not_autograd": true
+  },
+  "CPU_wall_seconds": 2.479312213137746,
+  "original_sources_unchanged": true,
+  "budget_unchanged": true,
+  "all_original_file_bytes_verified": true,
+  "real_GPU_repair_claim": false,
+  "full_sampler_acceptance": false,
+  "GPU_submissions": 0
+}
