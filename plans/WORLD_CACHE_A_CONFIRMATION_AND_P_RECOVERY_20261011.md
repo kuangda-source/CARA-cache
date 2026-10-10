@@ -1,6 +1,6 @@
 # WorldCache 下一轮设计：阶段 A 确认与 P 的净收益开发
 
-2026-10-11，v1.3。当前研究入口，依据用户本轮“根据最新对话和文档更新下实验设计”。保留 WorldCache＋RA 的三模块主线，将已有方法的确认与部分刷新执行器的完善分开安排。初版更新仅设计；后续E0独立CPU已实际完成，未提交新GPU，旧卡结果保持。实际结果见[285回收报告](../research/285_WC_E0_REAL_PARTIAL_RECOVERY_RESULTS_AND_MEMORY_NEXT_STEP_20261011.md)。
+2026-10-11，v1.4。当前研究入口，依据用户本轮“根据最新对话和文档更新下实验设计”。保留 WorldCache＋RA 的三模块主线，将已有方法的确认与部分刷新执行器的完善分开安排。初版更新仅设计；后续E0独立CPU已实际完成，未提交新GPU，旧卡结果保持。实际结果见[285回收报告](../research/285_WC_E0_REAL_PARTIAL_RECOVERY_RESULTS_AND_MEMORY_NEXT_STEP_20261011.md)。
 
 ## 1. 本轮最重要的调整
 
@@ -194,3 +194,13 @@ E0已实际验收，按285保持全部分母；当前先跟踪287的新完整sam
 - [输入hash与出处](../reports/wc_review_design_input_provenance_20261011.json)、[原件算术核对](../reports/wc_review_design_exact_arithmetic_20261011.json)。
 - [282阶段总结](../research/282_WC_PROGRESS_SINCE_LAST_SUMMARY_20261010.md)、257／262／273及原失败回执为事实依据，外部评审不能覆盖原件。
 - [统一方法总设计](WORLD_CACHE_INTEGRATED_MULTI_FIDELITY_DEVELOPMENT_20261009.md)继续定义三模块与来源合同；[原首窗口](WORLD_CACHE_MULTI_FIDELITY_FIRST_WINDOW_20261009.md)保留历史开发顺序，当前阶段顺序由本文更新。
+
+## 11. E2 计时实现与受影响 CPU 验证登记（v1.4）
+
+四个新提示词、seed17／43、完整40确认＋32平衡计时位置沿用289冻结身份。为真实GPU核对新计时入口，另加AV28 seed0的WC／RA／阶段W1／阶段β1四条AUDIT代表路径；共76实际路径，2736更新／5472CFG。四条是额外计费的等价检查，不替代72科学路径，也不作为新确认样本。
+
+新入口复用原WC／RF编译、RA控制、A校准及两个额外head；阶段强度、真D锚点、head缓冲和RNG隔离不变。TIMING仅去外层完整guided CPU复制、内容hash、PreparedInputReplay和研究checkpoint。保留实际首／末block观察、controller与readout内部检查；方法setup／hook清理／完成请求的A锚点释放另外计入在线总时间。pipeline统一含准备、采样、decode、guardrail和写出，边界同步；各host子阶段不单独同步，不能当独立GPU kernel时间。初始化状态恢复与纯取证另列，全GPU residency仍按账本实费。
+
+完整受影响CPU范围：flow OFF／ON，各完整76成功路径；32实际AV28 timing与AUDIT端点／动作等价；八代表路径与原已验收Toy sampler保存的36 guided＋final逐位比较。完整矩阵分母、alpha、D历史、额外head、动作／block、parity、缺失与张量截断拒绝保留。两次第四代表路径写出失败仍保留全部76位置；各流额外text／video拒绝控制不换样。CPU明确使用Toy权重／attention／Native body／16×16prepare及真实输出尺寸Toydecode／JSONwriter，不能称2B模型等价或真实视频／速度。
+
+新代码目前仅登记／syntax，实际CPU尚未执行。CPU通过后绑定完整76 GPU forecast、生产实际配置／源／资产验证和live准入；真实16次AV28 timing均须与对应AUDIT控制动作／final／视频SHA相同，才能验收clean接线。两个A共同主比较保持，依然要独立新输入与完整93帧评分。本轮≤8 GPUh授权只放宽确认门槛，不取代CPU、具体预算或真实等价要求。
