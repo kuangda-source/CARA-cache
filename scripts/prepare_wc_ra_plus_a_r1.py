@@ -29,6 +29,10 @@ def main():
     cost_ref = design['whole_cost_ref']; cost = json.loads(Path(cost_ref).read_text())
     assert sha(cost_ref) == design['whole_cost_sha256']
     assert cost['forecast_complete_GPUh'] == design['forecast_complete_GPUh']
+    score_controls_ref='reports/wc_ra_plus_a_score_summary_cpu_controls_20261010.json'
+    score_controls=json.loads(Path(score_controls_ref).read_text())
+    assert score_controls['complete_matrix_and_ten_contrasts_verified'] and score_controls['GPU_submissions']==0
+    assert all(sha(n)==v for n,v in score_controls['source_sha256'].items())
     old = json.loads(Path('configs/wc_ra_comparison_production_r2_20261010.json').read_text())
     old_reg = old['preregistration']
     reg = {**old_reg, 'card':production.CARD, 'run_id':production.RUN,
@@ -62,6 +66,7 @@ def main():
     files.update({cpu_ref,audit_ref,reg_ref,design_ref,production.PHASE,cost_ref,
         design['plan_ref'],'src/wcomr/cfg_guided_w1_deployment_production.py',
         'src/wcomr/cfg_ra_plus_a_scores.py',
+        'tests/check_cfg_ra_plus_a_scores_cpu.py',score_controls_ref,
         'reports/wc_ra_plus_a_production_runner_source_map_20261010.json'})
     files.update(x['local_path'] for x in audit['files'].values())
     files.update(str(p) for p in Path('scripts').glob('*wc_ra_plus_a*.py'))
@@ -81,6 +86,9 @@ def main():
         'complete32_scope_requires_specific_above4_confirmation':True}
     inputs=Path('.sync/ra-plus-a-inputs-r1');inputs.mkdir(exist_ok=False)
     for name,raw in generated.items():(inputs/name).write_bytes(raw)
+    for name in (design_ref,production.PHASE,production.RA_DESIGN):
+        copied=inputs/name;copied.parent.mkdir(parents=True,exist_ok=True)
+        copied.write_bytes(Path(name).read_bytes())
     target=inputs/reg_ref;target.parent.mkdir(parents=True,exist_ok=True)
     target.write_bytes(Path(reg_ref).read_bytes())
     production.validate_contract(config,inputs)

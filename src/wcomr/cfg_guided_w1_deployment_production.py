@@ -27,6 +27,7 @@ FINGERPRINT = '9ab1d77c303560823ed2f32f43b2982318cdd9835828a46da4835a1b95ea7d7a'
 THRESHOLD = 0.070744235098772
 DESIGN = 'manifests/wc_ra_plus_a_complete_development_design_20261010.json'
 PHASE = 'manifests/wc_a_single_phase_revision_design_20261010.json'
+RA_DESIGN = 'manifests/wc_ra_conservative_half_threshold_r2_design_preregistration_20261010.json'
 
 
 def validate_contract(c, stage):
@@ -38,6 +39,8 @@ def validate_contract(c, stage):
             or r['threshold_rule'] != 'PREREGISTERED_SINGLE_HALF_OF_ORIGINAL_D6_MEDIAN_AFTER_R1_DEVELOPMENT'
             or r['threshold_scale'] != .5 or r['parent_RA_threshold'] != 0.141488470197544
             or r['RA_threshold'] != THRESHOLD or r['calibration_fingerprint'] != FINGERPRINT
+            or r['development_design_ref'] != RA_DESIGN
+            or r['development_design_sha256'] != sha(stage/RA_DESIGN)
             or r['complete_development_design_ref'] != DESIGN
             or r['complete_development_design_sha256'] != sha(stage/DESIGN)
             or r['A_phase_design_ref'] != PHASE or r['A_phase_design_sha256'] != sha(stage/PHASE)
