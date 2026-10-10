@@ -1,3 +1,13 @@
+## 2026-10-11 当前接续：E0组合保真回收，E1完整sampler CPU在跑
+
+[285实际回收结果](../../research/285_WC_E0_REAL_PARTIAL_RECOVERY_RESULTS_AND_MEMORY_NEXT_STEP_20261011.md)保持：14有效／原64、AV28八配对／744距离，单场景CPD与阶段A＋P终点正信号；Human六缺prepare不评分、原卡FAILED_TECH与1／49缺失保持，不能称clean速度或跨场景确认。
+
+[287附加存储等价与新sampler](../../research/287_WC_E1_PRIMITIVE_PASS_AND_COMPLETE_SAMPLER_STORAGE_BINDING_20261011.md)：pinned CPU快照部件实际四控制／十一拒绝通过，原deepcopy恢复及24后续更新相同、别名独立／RNG不消费。原dynamic owner只换附加CPU存储与串行剩余复制准入，physical建立前两-copy gate、完整reserve、logical cap、controller／readout／执行算法保持；旧源不改。
+
+新完整CPU已唯一启动，sourced569caa／365载荷，监督4040126／子4040127现场存活，stage `.sync/wc-e1-storage-full-sampler-cpu-r1-20261011`；计划128成功＋128末写出故障路径、9216更新／4736成功tensor、1024恢复，其中896附加CPU存储恢复，全部原拒绝／截断控制保持。目前仅在跑，尚未完整验收或修复GPU失败点。早先本地preflight因旧计划文档已更新拒绝，未上传／执行；新登记保持原历史文档字节后启动，失败记录保留。
+
+只跟踪上述句柄，不改在跑源或重投。下一真实终态／原件独立核对；通过后冻结失败方法冷启动与短前序GPU区分卡，A完整72确认／计时准备继续。累计39.183807748／77.895246590、新48余38.711438842、本轮GPU0；≤4自主／严格>4整卡确认，无新增人评。以下旧状态为历史。
+
 ## 2026-10-11 当前：E0实际回收通过，AV28组合终点出现新正信号
 
 [285实际结果](../../research/285_WC_E0_REAL_PARTIAL_RECOVERY_RESULTS_AND_MEMORY_NEXT_STEP_20261011.md)：新CPU源b2ce44a、监督4039038／子4039039均exit0且消失；14完整路径全部验证，518实际tensor、14视频＋4Native、六完整轨迹控制通过。AV28八数值合格配对／744全帧距离独立重建；Human六缺prepare不评分，原严格字段0／14保持。原64仍FAILED_TECH、14／1／49分母不变。
