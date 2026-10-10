@@ -1,0 +1,40 @@
+{
+  "status": "E2_FULL76_CONSERVATIVE_PLANNING_ENVELOPE_NOT_EXECUTABLE_CARD",
+  "scientific_paths": 72,
+  "confirmation_paths": 40,
+  "balanced_timing_paths": 32,
+  "additional_parity_paths": 4,
+  "complete_actual_GPU_paths": 76,
+  "solver_updates": 2736,
+  "CFG_calls": 5472,
+  "native_all_four_pipeline_seconds": [
+    326.94904820341617,
+    330.1363228093833,
+    331.3219052357599,
+    330.5644990829751
+  ],
+  "all76_slowest_Native_pipeline_seconds": 25180.464797917753,
+  "all36_extra_reuse_increment_seconds": 925.0787341129035,
+  "observed_model_loading_seconds": 124.8541364101693,
+  "unmargined_seconds": 26230.397668440826,
+  "whole_scope_margin_multiplier": 1.35,
+  "shutdown_flush_reserve_seconds": 120.0,
+  "forecast_complete_seconds": 35531.03685239512,
+  "forecast_complete_GPUh": 9.869732458998644,
+  "scope_shrunk_to_fit_permission": false,
+  "current_window_autonomy_GPUh": 8.0,
+  "requires_specific_confirmation_after_complete_CPU_and_production_preparation": true,
+  "forecast_is_not_runtime_guarantee_or_speed_result": true,
+  "rationale": "Reuse preceding full64 35% complete-scope forecast rule with actual accepted Native and actual A action costs. Charge all76 as full Native plus every-step reuse even on Native and known CAL timing;35% covers current state/artifact/IO/hardware variation. No new timing or assumed removal saving used to lower forecast.",
+  "source_sha256": {
+    "reports/wc_ra_plus_a_r1_terminal_20261010_capture_and_independent_audit.json": "1041947a326daf77f0efa6625432c1a56d57d96fd567ea96fa46aca3a472dbb9",
+    "reports/wc_action_cost_real_r1_bound_ranking_inputs_20261010.json": "91d55f3a3eb4360335d7168f96bf139f7d7104e664a43d4f0d5945f8ec5711ed",
+    "manifests/wc_e2_confirmation_full72_inputs_r1_20261011.json": "290f101086e227aef8fe404284bd804c9f1e808bd721cebf3f6dc31cc5802d15",
+    "reports/wc_ra_plus_a_r1_terminal_20261010_runner_native.gz": "806e2a75e52bfa7733f8e409dc258d26aa119d3ebc6b6f23966e649ad9e8229a",
+    "scripts/forecast_wc_e2_full76_r1.py": "b948fbf2362ec262b8ea2e4690721b4d8207009e862b24853868c1f026f73418"
+  },
+  "GPU_execution_selected": false,
+  "GPU_submissions": 0,
+  "budget_written": false,
+  "CPU_validation_and_source_asset_admission_pending": true
+}

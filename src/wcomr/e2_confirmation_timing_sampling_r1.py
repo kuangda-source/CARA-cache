@@ -131,6 +131,14 @@ def execute_path(inference, sample, wc, settings, *, row, save, output,
     original_factory = model.get_velocity_fn_from_batch
     synchronize(); setup_start = time.perf_counter()
     try:
+        # The pinned Inference body uses this flag only at its two ordinary
+        # text/video guardrail refusals. It returns None at those sites while
+        # all unrelated exceptions still propagate. Never change a guardrail
+        # return, threshold or output to manufacture a complete video.
+        prior_keep_going = inference.setup_args.keep_going
+        hooks.stack.callback(setattr, inference.setup_args, 'keep_going', prior_keep_going)
+        inference.setup_args.keep_going = True
+        row['original_guardrail_rejections_return_none'] = True
         wc.apply_worldcache(net, **{k.removeprefix('worldcache_'): v for k, v in settings.items()})
         factory = original_factory.__func__
         if method in METHODS[1:]:

@@ -6,6 +6,7 @@ import base64
 import gzip
 import hashlib
 import json
+import re
 from pathlib import Path
 import subprocess
 
@@ -57,7 +58,7 @@ if r['exit_code']==0:
   assert len(c['receipt']['slots'])==76 and c['receipt']['initial_state_restored']
   old_result=json.loads((pathlib.Path(reg['old_A_CPU_stage'])/'result.json').read_text())
   old=next(v for v in old_result['checks'] if v['status']=='PASS' and v['flow']==c['flow'])['receipt']['batch']['requests'][0]['paths']
-  representatives={}
+  representatives={};paired_inputs={}
   for row in c['receipt']['slots']:
    art=row['vector_artifact'];p=pathlib.Path(art['path']);assert p.resolve().is_relative_to((s/'CPU-artifacts').resolve())
    assert p.stat().st_size==art['bytes'] and sha(p)==art['sha256']
@@ -68,6 +69,10 @@ if r['exit_code']==0:
    assert all(t.dtype==torch.float32 and list(t.shape)==[1,2048,2,8,8] and bool(torch.isfinite(t).all()) for t in tensors)
    assert {k:digest(v) for k,v in x.items()}==art['tensor_sha256'];final+=1
    if row['mode']=='AUDIT':
+    identity=(row['first_velocity_input_sha256'],row['condition_fields_before'],row['prepared_input_calls'][0]['prepared'],row['rng_after'])
+    if row['request_name'] in paired_inputs:assert identity==paired_inputs[row['request_name']]
+    else:paired_inputs[row['request_name']]=identity
+    assert row['condition_fields_before']==row['condition_fields_after']
     assert len(x['guided'])==36 and [digest(t) for t in x['guided']]==row['guided_sha256'];guided+=36
    if row['section']=='PARITY':
     representatives[row['method']]=(row,x)
@@ -105,7 +110,7 @@ print(json.dumps({'capture':{'status':'E2_ORIGINAL_CPU_TERMINAL','source_revisio
     for n,h in registration['payload_sha256'].items():
         if n!=registration['historical_plan_bytes_preserved']:
             assert hashlib.sha256(subprocess.check_output(['git','show',launch['source_revision']+':'+n])).hexdigest()==h
-    driver_path='scripts/deploy_wc_e2_confirmation_timing_cpu_'+('r2' if 'r2-' in launch['stage'] else 'r1')+'.py'
+    driver_path='scripts/deploy_wc_e2_confirmation_timing_cpu_'+re.search(r'cpu-(r[0-9]+)-',launch['stage']).group(1)+'.py'
     tree=ast.parse(subprocess.check_output(['git','show',launch['source_revision']+':'+driver_path]))
     driver=next(ast.literal_eval(n.value) for n in tree.body if isinstance(n,ast.Assign) and any(isinstance(t,ast.Name) and t.id=='DRIVER' for t in n.targets))
     assert hashlib.sha256(driver.encode()).hexdigest()==proof['files']['driver.py']['sha256']

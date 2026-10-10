@@ -107,7 +107,7 @@ def main():
         raise
     rows=result['checks'];good=[r for r in rows if r['status']=='PASS']
     bad=[r for r in rows if r['status']=='EXPECTED_FAILURE'];refused=[r for r in rows if r['status']=='EXPECTED_REJECTION']
-    assert len(good)==len(bad)==2 and len(refused)==4
+    assert len(good)==len(bad)==2 and len(refused)==8
     assert all(r['verdict']['accepted']==76 and r['actual_tensor_audit']['actual_guided_reloaded']==1584
         and r['actual_tensor_audit']['actual_final_latents_reloaded']==76 and len(r['unchanged_old_A_sampler_parity'])==4
         and len(r['semantic_mutation_refusals'])==10 and r['final_timing_truncation_refused'] for r in good)
@@ -118,7 +118,7 @@ def main():
         CUDA_initialized=False,GPU_submissions=0,successful_complete_paths=152,successful_solver_updates=5472,
         successful_CFG_calls=10944,actual_guided_reloaded=3168,actual_final_latents_reloaded=152,
         old_A_saved_all36_and_final_parity_paths=8,actual_AV28_timing_parity_paths=32,
-        failed_scope_original_slots_retained=152,additional_guardrail_refusals=4,semantic_mutation_refusals=20,
+        failed_scope_original_slots_retained=152,additional_guardrail_refusals=8,semantic_mutation_refusals=20,
         final_timing_truncation_refusals=2,actual_old_source_and_tensor_readonly=True,
         real_model_or_latency_or_endpoint_claim=False)
     args.output.write_text(json.dumps(result,indent=2,allow_nan=False)+'\n')

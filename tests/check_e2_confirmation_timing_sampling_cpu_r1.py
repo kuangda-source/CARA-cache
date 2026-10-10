@@ -93,6 +93,11 @@ def exercise(*,inference,samples,settings,inference_module,flow,runtime,tensor_l
             'expected_shape':[1,2048,2,8,8]}
     checks=[]
     base=Path(artifact_root)/('flow_ON' if flow else 'flow_OFF')
+    def record(check):
+        checks.append(check)
+        temporary=base/'partial_checks.tmp'
+        temporary.write_text(json.dumps(checks,indent=2,allow_nan=False)+'\n')
+        temporary.replace(base/'partial_checks.json')
     original_generate=inference.generate
     original_digest=e2.tree_digest
     active={};hash_calls={}
@@ -135,7 +140,7 @@ def exercise(*,inference,samples,settings,inference_module,flow,runtime,tensor_l
                 try:e2.verify_matrix(state,inputs)
                 except ValueError:pass
                 else:raise AssertionError('Incomplete E2 accepted')
-                checks.append({'flow':flow,'scenario':scenario,'status':'EXPECTED_FAILURE',
+                record({'flow':flow,'scenario':scenario,'status':'EXPECTED_FAILURE',
                     'receipt':state,'all76_slots_retained':True,'initial_full_state_restored':True})
                 continue
             assert error is None,error
@@ -184,7 +189,7 @@ def exercise(*,inference,samples,settings,inference_module,flow,runtime,tensor_l
                 except ValueError as exc:assert 'Actual E2 vector bytes changed' in str(exc)
                 else:raise AssertionError('Truncated E2 final timing artifact accepted')
             finally:trunc.write_bytes(original)
-            checks.append({'flow':flow,'scenario':scenario,'status':'PASS','receipt':state,
+            record({'flow':flow,'scenario':scenario,'status':'PASS','receipt':state,
                 'verdict':verdict,'actual_tensor_audit':raw,'unchanged_old_A_sampler_parity':matches,
                 'semantic_mutation_refusals':refused,'final_timing_truncation_refused':True,
                 'outer_hash_calls_inside_generate':dict(hash_calls),'condition_class_AST_SHA':class_sha})
@@ -197,19 +202,21 @@ def exercise(*,inference,samples,settings,inference_module,flow,runtime,tensor_l
         original_video=inference_module.guardrail_presets.run_video_guardrail
         try:
             active.pop('state',None)
-            for kind,method in (('TEXT_REJECTED','W1_ONE_PHASE'),('VIDEO_REJECTED','BETA1_ONE_PHASE')):
-                reset.restore();out=base/kind
-                row={'id':kind,'method':method,'status':'NOT_STARTED'};active['row']=row
+            for kind,method in (('TEXT_REJECTED','W1_ONE_PHASE'),('VIDEO_REJECTED','BETA1_ONE_PHASE'),
+                                ('TEXT_REJECTED','NATIVE'),('VIDEO_REJECTED','NATIVE')):
+                reset.restore();out=base/(kind+'_'+method)
+                row={'id':kind+'_'+method,'method':method,'status':'NOT_STARTED'};active['row']=row
                 if kind=='TEXT_REJECTED':inference_module.guardrail_presets.run_text_guardrail=lambda *a:False
                 else:inference_module.guardrail_presets.run_video_guardrail=lambda *a:None
                 e2.execute_path(inference,selected[names[-2]],wc,settings,row=row,save=lambda:None,output=out,
                     inference_module=inference_module,context=('E2_CPU:'+names[-2],'Toy_actual_modules','Toy_condition'),
                     mode_setup=modes,runtime=runtime,config=config,rf_module=rf,calibration=calibration,
-                    threshold=initialized['threshold'],sampling_policy=policy,mode='TIMING')
+                    threshold=initialized['threshold'],sampling_policy=policy,mode='AUDIT' if method=='NATIVE' else 'TIMING')
                 assert row['status']==kind and row['video_artifact'] is None
                 assert row['solver_steps']==(0 if kind=='TEXT_REJECTED' else 36)
-                assert hash_calls.get(kind,0)==0
-                checks.append({'flow':flow,'scenario':kind,'status':'EXPECTED_REJECTION','receipt':row})
+                assert inference.setup_args.keep_going is False
+                if method!='NATIVE':assert hash_calls.get(row['id'],0)==0
+                record({'flow':flow,'scenario':kind,'status':'EXPECTED_REJECTION','receipt':row})
                 inference_module.guardrail_presets.run_text_guardrail=original_text
                 inference_module.guardrail_presets.run_video_guardrail=original_video
         finally:
@@ -239,6 +246,6 @@ def run(runtime,tensor_loader,artifact_root,calibration_cpu_result,inputs,old_A_
     result=load('check_full_sampling').run(runtime,exercise=lambda **kw:exercise(
         runtime=Path(runtime),tensor_loader=tensor_loader,artifact_root=artifact_root,
         calibration_cpu_result=calibration_cpu_result,inputs=inputs,old_A_CPU_result=old_A_CPU_result,**kw))
-    assert len(result['checks'])==8
+    assert len(result['checks'])==12
     result['limits']='Actual pinned WC/RF/UniPC full76 matrix, unchanged old-A saved Toy outputs, flow OFF/ON and failure/refusal controls. Explicit Toy weights/attention/native class/16x16 prepare/93x432x768 decode/JSON writer/calibration; no real-model equivalence, real videos, quality or latency claim.'
     return result
