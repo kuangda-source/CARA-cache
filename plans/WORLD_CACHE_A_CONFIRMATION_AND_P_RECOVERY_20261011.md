@@ -1,6 +1,6 @@
 # WorldCache 下一轮设计：阶段 A 确认与 P 的净收益开发
 
-2026-10-11，v1.19。当前研究入口，依据用户本轮“根据最新对话和文档更新下实验设计”。保留 WorldCache＋RA 的三模块主线，将已有方法的确认与部分刷新执行器的完善分开安排。初版更新仅设计；后续E0独立CPU已实际完成，未提交新GPU，旧卡结果保持。实际结果见[285回收报告](../research/285_WC_E0_REAL_PARTIAL_RECOVERY_RESULTS_AND_MEMORY_NEXT_STEP_20261011.md)。
+2026-10-11，v1.20。当前研究入口，依据用户本轮“根据最新对话和文档更新下实验设计”。保留 WorldCache＋RA 的三模块主线，将已有方法的确认与部分刷新执行器的完善分开安排。初版更新仅设计；后续E0独立CPU已实际完成，未提交新GPU，旧卡结果保持。实际结果见[285回收报告](../research/285_WC_E0_REAL_PARTIAL_RECOVERY_RESULTS_AND_MEMORY_NEXT_STEP_20261011.md)。
 
 ## 1. 本轮最重要的调整
 
@@ -110,6 +110,8 @@
 **E2完整费用范围为40确认＋32计时＝72路径，外加必要加载／预热／代表等价检查／评分安排**。约8 GPUh是容量分配，下一卡必须按实测路径成本冻结完整预测；本轮真实forecast≤8 GPUh可按直接授权执行；严格>8 GPUh才针对完整范围请具体批准。不能把第一seed或计时部分拆出来规避确认。当前仍须冻结具体卡及完整forecast，尚未提交新的完整卡。
 
 ## 7. E3：保留原64科学范围的条件补齐
+
+[315只读源码核对](../research/315_WC_E3_FROZEN_METHOD_AND_STORAGE_SOURCE_BINDING_20261011.md)已完成：原225份源码不变，57内部方法图中的55原方法与两CPU存储模块均和实际E1／已验收完整CPU载荷SHA一致，batch仅替checkpoint owner，普通方法、controller与verifier继承不改。两来源规则／128成功／4736 Toy tensors的既有完整CPU证据可复用，不重跑无关测试；新E3执行接线、顺序和生命周期仍须受影响验证，真实E1全8、路径来源与完整费用未验收前不选卡。
 
 原范围为两来源规则×四CAL×八方法：`SOURCE_RA`、`DYNAMIC_NO_P`、`CPD`、`REF_CPD`、`A_CPD_OFF`、`A_CPD_W1_ONE_PHASE`、`A_CPD_BETA1_ONE_PHASE`、`DENSE_CONTROL`。保留保护步、来源floor、maxP2与所有原对照定义。[273 原设计](../research/273_WC_CURRENT_BIRTH_CAPD_FULL64_METHOD_DEVELOPMENT_20261010.md)不变。
 
