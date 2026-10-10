@@ -1,6 +1,6 @@
 # WorldCache 下一轮设计：阶段 A 确认与 P 的净收益开发
 
-2026-10-11，v1.14。当前研究入口，依据用户本轮“根据最新对话和文档更新下实验设计”。保留 WorldCache＋RA 的三模块主线，将已有方法的确认与部分刷新执行器的完善分开安排。初版更新仅设计；后续E0独立CPU已实际完成，未提交新GPU，旧卡结果保持。实际结果见[285回收报告](../research/285_WC_E0_REAL_PARTIAL_RECOVERY_RESULTS_AND_MEMORY_NEXT_STEP_20261011.md)。
+2026-10-11，v1.15。当前研究入口，依据用户本轮“根据最新对话和文档更新下实验设计”。保留 WorldCache＋RA 的三模块主线，将已有方法的确认与部分刷新执行器的完善分开安排。初版更新仅设计；后续E0独立CPU已实际完成，未提交新GPU，旧卡结果保持。实际结果见[285回收报告](../research/285_WC_E0_REAL_PARTIAL_RECOVERY_RESULTS_AND_MEMORY_NEXT_STEP_20261011.md)。
 
 ## 1. 本轮最重要的调整
 
@@ -252,3 +252,7 @@ E0已实际验收，按285保持全部分母；E1原完整CPU已独立验收，�
 ### v1.14 E2受影响启动覆盖
 
 [307](../research/307_WC_E2_REQUIRED_STARTUP_ASSET_CPU_R2_PREREGISTRATION_20261011.md)：E2只修执行包装required文件，不改原231方法／参数／静态binding和全部76，加载前由原validate_execution拒绝missing／changed；原29字节来自原CPUstage只读复制，新独立CPU检查十真实请求／标量协议及meta共享eval。原152完整sampling结果复用，GPU卡9.869732459及原具体确认保持。E1真实R2同时只跟踪原句柄。
+
+### v1.15 E2启动包装独立验收
+
+[308](../research/308_WC_E2_STARTUP_CPU_R2_ACCEPTANCE_AND_UNCHANGED_FULL76_CARD_20261011.md)：原231方法／参数和76范围不改，36执行文件／protocol a47e74e、source a5b66ef实际CPU84.579013秒exit0独立通过。加载前两启动文件四拒绝、meta原1173→0共享eval、原十实际请求／全部标量／准入控制通过，无GPU。R2dispatcher绑定新CPU证明，缺授权实际WAIT/noSSH；原全卡9.869732459问题仍待，不重复请批，不拆范围。E1唯一R2真实采样继续原句柄。

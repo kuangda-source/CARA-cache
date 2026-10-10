@@ -1,3 +1,9 @@
+## 2026-10-11 当前：E2启动包装R2独立验收，E1原GPU继续
+
+[308验收](308_WC_E2_STARTUP_CPU_R2_ACCEPTANCE_AND_UNCHANGED_FULL76_CARD_20261011.md)：sourcea5b66ef，4053789／4053819／4053942／4055201均退出消失、84.579013秒exit0；原231方法＋29包装历史不改、新36执行载荷，binding738361d／protocola47e74e。加载前两startup文件四拒绝、真实十输入／13合同／17准入／8指标／76标量位置及meta2059174912参数／1173→0训练通过、原件来源独立核对通过。无CUDA／weights／forward／GPU／账本写，不是视频或质量证据，152完整sampling CPU复用。
+
+完整E2 76／9.869732459及原具体确认待保持；新R2dispatcher缺批准实际WAIT/noSSH，批准后独立selected／原selector和fresh准入，原E1在途不创建selected或提交。不拆卡。E1 sourcecbaad1b／4050841及首runner4050929／后CPU4050842按306原GPU继续，四加载全8／2.044575084，已采样、未全scope容量结论。实结39.234595840／77.895246590、新48余38.660650750，第77在途非实耗；goal active，无训练或人评。下方为历史。
+
 ## 2026-10-11 当前：E1 R2原GPU继续，E2启动包装修补已登记
 
 [307 CPU范围](307_WC_E2_REQUIRED_STARTUP_ASSET_CPU_R2_PREREGISTRATION_20261011.md)：原231方法／29执行历史字节和静态binding738361d保持，只在新execution载荷加入两启动资产及新CPU检查／部署／capture。加载前原validate_execution查哈希、四missing／changed和真实meta模式CPU先验收；sampling未改，旧152 Toy／3168guided／152final保持，不重跑无关控制。完整76／9.869732459及原具体确认保持，未新E2 GPU。
