@@ -31,13 +31,20 @@ class PartialDeployment:
     compatible past projection layout. The MLP owner validates the current
     layout again and records any full safe fallback without relabeling P as D.
     """
-    def __init__(self, model, *, method, context, layers, block_size=128):
+    def __init__(self, model, *, method, context, layers, block_size=128,
+                 p_steps=P_STEPS):
         if (method not in METHODS or type(context) is not tuple or len(context) != 3
                 or any(type(v) is not str or not v for v in context)
                 or type(block_size) is not int or block_size <= 0):
             raise ValueError('Explicit method/request/layout and block size required')
+        if (type(p_steps) is not tuple
+                or any(type(s) is not int or not 8 <= s <= 34 for s in p_steps)
+                or tuple(sorted(set(p_steps))) != p_steps
+                or any(s in D_STEPS for s in p_steps)):
+            raise ValueError('Ordered unique registered P steps outside protected D required')
         self.model, self.net = model, model.net
         self.method, self.context, self.block_size = method, context, block_size
+        self.p_steps = p_steps
         self.core = None if method == 'OFF' else PartialMLP(self.net.blocks, layers).install()
         self.dense = [ResidualCalibrator(), ResidualCalibrator()]
         for c in self.dense:
@@ -88,7 +95,7 @@ class PartialDeployment:
             raise ValueError('Exactly one current two-paid-probe choice required')
         step = cur['step']
         action = 'D' if step in D_STEPS else 'C'
-        if self.method not in ('OFF', 'DENSE_CONTROL') and step in P_STEPS:
+        if self.method not in ('OFF', 'DENSE_CONTROL') and step in self.p_steps:
             action = 'P'
             expected = {(l, b) for l in self.core.layers for b in (0, 1)}
             if (set(self.core.cache) != expected or any(c.context != self.context
@@ -216,6 +223,7 @@ class PartialDeployment:
         if self.current is not None or self.poisoned or len(self.history) != 36:
             raise ValueError('Complete healthy full36 deployment required')
         return {'method': self.method, 'completed_pairs': 36, 'history': copy.deepcopy(self.history),
+            'fixed_P_steps': list(self.p_steps), 'fixed_D_steps': list(D_STEPS),
             'true_D_final': [c.receipt() for c in self.dense], 'teacher_calls': 0,
             'extra_candidate_heads': 0, 'source_risk_RA_policy_implemented': False,
             'Cosmos_or_UniPC_or_video_quality_or_speed_claim': False}

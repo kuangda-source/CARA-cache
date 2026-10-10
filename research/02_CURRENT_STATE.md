@@ -1,3 +1,9 @@
+## 2026-10-10 当前：P0后续复用与连续P完整CPU已预登记
+
+[234方法与范围](234_WC_P0_REUSE_AND_CONSECUTIVE_PARTIAL_HISTORY_CPU_20261010.md)：核心新增显式P步骤，原默认与全部26控制保留；另P后C、连续P后C两固定序列，两flow共78完整36步/2808pair/5616net/2886张量，24独立full-GEMM替换参照、六第二分支故障及七非法步骤拒绝，69载荷已绑定。只AST/配置通过，实际CPU待；新stage，不修改旧R3原件，尚非UniPC/Cosmos视频/RA来源策略。
+
+RA＋A283绑定保持，完整5.147707517 GPUh具体>4确认仍待，未新GPU；预算34.372880296/77.895246590、窗口余43.522366294、72提交。≤4自主、严格>4具体确认，不拆卡，无非必要人评，goal active。下方状态为历史。
+
 ## 2026-10-10 当前：P0实际C/P/D执行核心完整CPU与独立重读通过
 
 [233实际结果](233_WC_P0_DEPLOYMENT_CORE_AND_SOURCE_PROVENANCE_CPU_20261010.md)：source3b553d4/68载荷实际37.213603秒，3913682/3913684退出0消失；两flow共26完整36步/936pair/1872net，26文件/962张量独立重读、八full-GEMM替换参照、OFF/dense控制、全行P非D与两branch1故障全量通过。原R1/R2夹具失败保持，生产P0模块不变；仅Toy full Block/WC/RF核心，非UniPC/Cosmos/视频/RA来源策略。下一补P后C/连续P和来源风险，再接普通完整采样/A＋P0。
