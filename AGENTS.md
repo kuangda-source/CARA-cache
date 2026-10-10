@@ -1,3 +1,9 @@
+## 2026-10-11 当前：E1两冷启动真实逐步等价，原prefix继续
+
+[313结果](research/313_WC_E1_REAL_COLD_STORAGE_PAIR_NUMERIC_EQUIVALENCE_20261011.md)：两个已退出冷启动ORIGINAL／CPU进程各完整36，独立CPU4059120／38.770288秒实读74张量、72决策／源状态重演通过，36guided＋final **37／37逐字节相等**。d0c0d75读取器和四份原receipt／memory日志原字节独立核对通过，无CUDA／GPU／账本写；仅此冷启动条件等价，非全8、旧14生命周期修复或质量／clean速度结果。两臂第12保护都有余量；第36释放后CPU reserved少1.7871GiB，不推断全程峰值／根因。
+
+Unix1791673232.6652792原监督4050841／后CPU4050842／ORIGINAL_PREFIX4058018仍live，指定compute仅prefix17340MiB，CPU_PREFIX未开始；原两prefix×三路径和全8终态独立审计保持，不改stage或重投。E2修订完整76／9.869732459原具体确认仍待，不拆卡／重复提问。实结39.234595840／77.895246590、新48启动前余38.660650750，第77在途非实耗，全wall终态结算。≤8自主／严格>8具体确认，goal active，无训练或人评。下方为历史。
+
 ## 2026-10-11 当前：E1真实冷启动独立审计控制通过，原全8继续
 
 [311接续](research/311_WC_E1_REAL_COLD_AUDITOR_CONTROL_PASS_AND_E2_R2_READY_20261011.md)：310先登记，c117e5b控制／原cbaad1b已退出ORIGINAL_COLD真实输出；独立CPU4057125读37FP32张量及重演36实际prior／cost选择和源状态全部一致，38.475934秒，noCUDA／GPU／账本写。仅验证已结束单臂的审计段，三显式读取scope站点逆变换原字节；原完整8与终态全scope不缩，无存储配对／整卡结论。

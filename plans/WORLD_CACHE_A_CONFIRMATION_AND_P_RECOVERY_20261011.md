@@ -1,6 +1,6 @@
 # WorldCache 下一轮设计：阶段 A 确认与 P 的净收益开发
 
-2026-10-11，v1.17。当前研究入口，依据用户本轮“根据最新对话和文档更新下实验设计”。保留 WorldCache＋RA 的三模块主线，将已有方法的确认与部分刷新执行器的完善分开安排。初版更新仅设计；后续E0独立CPU已实际完成，未提交新GPU，旧卡结果保持。实际结果见[285回收报告](../research/285_WC_E0_REAL_PARTIAL_RECOVERY_RESULTS_AND_MEMORY_NEXT_STEP_20261011.md)。
+2026-10-11，v1.18。当前研究入口，依据用户本轮“根据最新对话和文档更新下实验设计”。保留 WorldCache＋RA 的三模块主线，将已有方法的确认与部分刷新执行器的完善分开安排。初版更新仅设计；后续E0独立CPU已实际完成，未提交新GPU，旧卡结果保持。实际结果见[285回收报告](../research/285_WC_E0_REAL_PARTIAL_RECOVERY_RESULTS_AND_MEMORY_NEXT_STEP_20261011.md)。
 
 ## 1. 本轮最重要的调整
 
@@ -65,6 +65,8 @@
 保持原件只读；新审计与指标结果写独立目录，并保存输入与指标资源hash。原完整卡和原全量 CPU 回执不追认为通过。E0无需新增视频或 GPU，不等待 E1。
 
 ## 5. E1：最小显存诊断与等价修复
+
+**当前已取得冷启动真实数值等价，短前序原GPU继续。** [313结果](../research/313_WC_E1_REAL_COLD_STORAGE_PAIR_NUMERIC_EQUIVALENCE_20261011.md)：原GPU deep-copy与CPU-owned两个独立冷启动完整36，实际74张量重读／72决策与源状态重演通过，36guided＋final共37项逐字节一致。第12步两臂均有余量；第36释放后reserved少1.7871GiB，但不推断总峰值／旧故障根因。原两prefix×三路径与全8审计保持；冷启动等价不是原14路径生命周期修复或质量确认，尚未解锁E3新GPU。E2完整76／9.869732459原具体批准待，不拆范围。
 
 原错误为 `Dynamic complete checkpoint GPU headroom unavailable`，发生于 Human 的 `A_CPD_BETA1_ONE_PHASE` 第12更新。它是预检查保护触发，尚未证明 CUDA OOM、碎片或泄漏。新增观察使用当前固定 Torch2.7.1+cu128 的可用接口，不照搬评审链接中的其他版本或升级运行环境。
 

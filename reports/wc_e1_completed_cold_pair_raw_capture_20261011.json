@@ -1,0 +1,80 @@
+{
+  "observed_unix": 1791673232.6652792,
+  "original_supervisor_source_revision": "cbaad1b04565eea1aa28e207022b002ce0f4c4a0",
+  "original_supervisor_pid": 4050841,
+  "status": "E1_COMPLETE_DIAG8_GPU_RUNNING",
+  "arms": [
+    {
+      "id": "ORIGINAL_COLD",
+      "status": "EXITED_RAW_AUDIT_PENDING",
+      "pid": 4050929,
+      "exit_code": 0,
+      "receipt_sha256": "6e49104b92222d23f9a070f8f1c099a78d70accddbbc96fc6fa59f9128e1b724"
+    },
+    {
+      "id": "CPU_COLD",
+      "status": "EXITED_RAW_AUDIT_PENDING",
+      "pid": 4055807,
+      "exit_code": 0,
+      "receipt_sha256": "5ef68ac230eb9e56d1c5aaa7959db78df5bb66fcc1ffa5777f0239a238c711f1"
+    },
+    {
+      "id": "ORIGINAL_PREFIX",
+      "status": "ORIGINAL_MODEL_PROCESS_RUNNING",
+      "pid": 4058018
+    },
+    {
+      "id": "CPU_PREFIX",
+      "status": "UNSTARTED_REGISTERED_SCOPE_RETAINED"
+    }
+  ],
+  "original_two_cold_PIDs_absent": [
+    4050929,
+    4055807
+  ],
+  "budget_raw_sha256": "8c6064b0758556aecc08731763fa0b617da89773447b30292c983e56f85e7308",
+  "ledger": {
+    "cap_gpu_hours": 77.89524658965853,
+    "used_gpu_hours": 77.89524658965853,
+    "gpu_jobs_launched": 77,
+    "wc_e1_diag8_inflight": {
+      "supervisor_pid": 4050841,
+      "run_id": "wc-e1-cold-prefix-storage-diag8-r2",
+      "reserved_GPUh": 38.660650749709454
+    }
+  },
+  "processes": "    PID     ELAPSED COMMAND\n4050841       30:20 /home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python /home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-e1-diag8-selected-r2-20261011/scripts/supervise_wc_e1_diag8_r2.py --project /home/gaokuangda/data/gkd/worldcache_omr --stage /home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-e1-diag8-selected-r2-20261011 --source-revision cbaad1b04565eea1aa28e207022b002ce0f4c4a0\n4050842       30:20 python3 /home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-e1-diag8-selected-r2-20261011/scripts/supervise_wc_e1_diag8_post_cpu_r2.py --project /home/gaokuangda/data/gkd/worldcache_omr --stage /home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-e1-diag8-selected-r2-20261011 --source-revision cbaad1b04565eea1aa28e207022b002ce0f4c4a0 --original-supervisor-pid 4050841\n4058018       10:51 /home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python -u /home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-e1-diag8-selected-r2-20261011/scripts/run_wc_e1_diag8_r2.py --project /home/gaokuangda/data/gkd/worldcache_omr --stage /home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-e1-diag8-selected-r2-20261011 --arm ORIGINAL_PREFIX --source-revision cbaad1b04565eea1aa28e207022b002ce0f4c4a0 --gpu-uuid GPU-cebf7119-cf03-23b9-e192-cd196332b704\n",
+  "compute_apps": "4058018, 17340 MiB\n",
+  "files": {
+    "ORIGINAL_COLD/receipt.json": {
+      "sha256": "6e49104b92222d23f9a070f8f1c099a78d70accddbbc96fc6fa59f9128e1b724",
+      "bytes": 4274727,
+      "local_ref": "reports/wc_e1_completed_cold_pair_20261011_ORIGINAL_COLD_receipt_json_native.gz",
+      "gzip_sha256": "aadfcf767cc0cc25eaf2d18e942ab5fb9c6aed42325428423124aff5708f9a98"
+    },
+    "ORIGINAL_COLD/memory-observer.jsonl": {
+      "sha256": "c221cf928ffe62ade5b5f46898eb36ffc69bc700bf04a8356d5f727f7a58c1cc",
+      "bytes": 35425,
+      "local_ref": "reports/wc_e1_completed_cold_pair_20261011_ORIGINAL_COLD_memory-observer_jsonl_native.gz",
+      "gzip_sha256": "b28d8adbba195e6783c876fc8358e6c107184c3484f74036117e1d1bef5a3365"
+    },
+    "CPU_COLD/receipt.json": {
+      "sha256": "5ef68ac230eb9e56d1c5aaa7959db78df5bb66fcc1ffa5777f0239a238c711f1",
+      "bytes": 4283941,
+      "local_ref": "reports/wc_e1_completed_cold_pair_20261011_CPU_COLD_receipt_json_native.gz",
+      "gzip_sha256": "2c7d571bcefbe720c6ee798be020cdc0dd9fdd95d3f28defc094d8ec0ef00385"
+    },
+    "CPU_COLD/memory-observer.jsonl": {
+      "sha256": "5c375bd5033932d263c0e225a8432079349fd93dbb88a866e93caa7d26ad0d86",
+      "bytes": 35366,
+      "local_ref": "reports/wc_e1_completed_cold_pair_20261011_CPU_COLD_memory-observer_jsonl_native.gz",
+      "gzip_sha256": "1afcbbc00a93c7ac3af4e98f25fcfcde4af1a1636d3ca3fbe77672af9eac4d83"
+    }
+  },
+  "readonly": true,
+  "GPU_submissions": 0,
+  "ledger_written": false,
+  "reader_source_revision": "d0c0d75c8586d6b0dbe48692be4db2eafb636a12",
+  "reader_source_and_registered_sha256_independently_verified": true,
+  "actual_result_sha256": "e4577d770e50b9c51d0991cb7af7c3f897c9472ceab12245f88dc14071ee013d"
+}
