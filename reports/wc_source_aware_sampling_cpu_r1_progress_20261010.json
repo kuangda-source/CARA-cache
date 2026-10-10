@@ -1,0 +1,107 @@
+{
+  "observed_unix": 1791602987.6040354,
+  "stage": "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-source-aware-sampling-cpu-r1-20261010",
+  "source_revision": "2bab59dff9880eaff0fd088c24bf7693d43eb879",
+  "status": "SOURCE_AWARE_SAMPLING_CPU_RUNNING_NOT_REAL_CAL",
+  "exit_code": null,
+  "child_exit_code": null,
+  "supervisor_pid": 3924503,
+  "child_pid": 3924504,
+  "PIDs_live": [
+    3924503,
+    3924504
+  ],
+  "PID_commands": {
+    "3924503": "python3 /home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-source-aware-sampling-cpu-r1-20261010/driver.py /home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-source-aware-sampling-cpu-r1-20261010 2bab59dff9880eaff0fd088c24bf7693d43eb879 ",
+    "3924504": "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python /home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-source-aware-sampling-cpu-r1-20261010/scripts/check_wc_source_aware_sampling_cpu_r1.py --stage /home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-source-aware-sampling-cpu-r1-20261010 --runtime /home/gaokuangda/data/gkd/worldcache_omr/runtime --output /home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-source-aware-sampling-cpu-r1-20261010/result.json "
+  },
+  "payload_count": 249,
+  "payloads_unchanged": true,
+  "runtime_sources_unchanged": true,
+  "CPU_scope": {
+    "Toy_named_requests": 4,
+    "flow_controls": [
+      false,
+      true
+    ],
+    "methods": [
+      "SOURCE_RA",
+      "DYNAMIC_NO_P",
+      "CPD",
+      "REF_CPD",
+      "A_CPD_OFF",
+      "A_CPD_W1_ONE_PHASE",
+      "A_CPD_BETA1_ONE_PHASE",
+      "DENSE_CONTROL"
+    ],
+    "success_complete_paths": 64,
+    "full_final_writer_failure_paths": 64,
+    "executed_full36_paths": 128,
+    "solver_updates": 4608,
+    "normal_net_calls": 9216,
+    "actual_success_tensors_reloaded": 2368,
+    "actual_success_guided_reloaded": 2304,
+    "actual_success_latents_reloaded": 64,
+    "success_owned_and_physical_checkpoint_roundtrips": 512,
+    "full_GEMM_partial_trajectory_references": 8,
+    "original_RA_full_trajectory_references": 8,
+    "A_OFF_full_trajectory_references": 8,
+    "original_RA_policy_comparisons": 288,
+    "mutation_refusals": 16,
+    "actual_file_truncation_refusals": 2,
+    "final_writer_faults": 2,
+    "state_steps": [
+      12,
+      30,
+      35,
+      36
+    ],
+    "hidden_tokens": 512,
+    "block_size": 128,
+    "layers": [
+      4,
+      10,
+      16,
+      22
+    ],
+    "actual_partial_Linear_rows": 256,
+    "reference_full_Linear_rows": 512,
+    "fixed_P_steps": [],
+    "CPU_reference_rtol": 1e-05,
+    "CPU_reference_atol": 2e-06,
+    "A_shared_phase_boundary": 25,
+    "A_phase_early_late": [
+      1,
+      0.5
+    ],
+    "explicit_synthetic_quality_and_cost_parameters": true,
+    "real_Cosmos_or_video_or_quality_or_clean_latency_claim": false
+  },
+  "accepted_A_P0_prerequisite": {
+    "capture_ref": "reports/wc_a_p0_sampling_cpu_r2_terminal_20261010_capture.json",
+    "capture_sha256": "76f63ab818c929615f58549a6910218a8e406efee8f79165028e0769f6443d24",
+    "source_revision": "bc0ad2499dcb68c106557a53fee6e23496643e59",
+    "stage": ".sync/wc-a-p0-sampling-cpu-r2-20261010",
+    "exit_code": 0,
+    "independent_success_tensors": 5328,
+    "complete_original_paths": 288
+  },
+  "budget_sha256": "d4c7c38fa253a10dbe4513b16ba0bd603718bfb1891feef41fb004e59958443b",
+  "used_gpu_hours": 34.37288029603066,
+  "cap_gpu_hours": 77.89524658965853,
+  "remaining_gpu_hours": 43.52236629362787,
+  "automatic_single_job_gpu_hours": 4,
+  "gpu_jobs_launched": 72,
+  "successful_artifact_files_observed": 0,
+  "GPU_submissions": 0,
+  "ledger_written": false,
+  "GPU_lock_acquired": false,
+  "tail_logs": {
+    "driver.log": "",
+    "test.log": " 0.0832, Alpha 5.0)\n[10-10 11:29:47|INFO|cosmos_predict2/_src/predict2/inference/worldcache_utils.py#paired-prefix:393:worldcache_mini_train_dit_forward] [WorldCache] Step 47: Drift 0.1085 / Thresh 0.0424 (Base 0.06, Vel 0.0832, Alpha 5.0)\n[10-10 11:29:47|INFO|cosmos_predict2/_src/predict2/inference/worldcache_utils.py#paired-prefix:393:worldcache_mini_train_dit_forward] [WorldCache] Step 48: Drift 0.1115 / Thresh 0.0421 (Base 0.06, Vel 0.0847, Alpha 5.0)\n[10-10 11:29:47|INFO|cosmos_predict2/_src/predict2/inference/worldcache_utils.py#paired-prefix:393:worldcache_mini_train_dit_forward] [WorldCache] Step 49: Drift 0.1115 / Thresh 0.0421 (Base 0.06, Vel 0.0847, Alpha 5.0)\n[10-10 11:29:47|INFO|cosmos_predict2/_src/predict2/inference/worldcache_utils.py#paired-prefix:393:worldcache_mini_train_dit_forward] [WorldCache] Step 50: Drift 0.1066 / Thresh 0.0425 (Base 0.06, Vel 0.0824, Alpha 5.0)\n[10-10 11:29:47|INFO|cosmos_predict2/_src/predict2/inference/worldcache_utils.py#paired-prefix:393:worldcache_mini_train_dit_forward] [WorldCache] Step 51: Drift 0.1066 / Thresh 0.0425 (Base 0.06, Vel 0.0824, Alpha 5.0)\n[10-10 11:29:47|INFO|cosmos_predict2/_src/predict2/inference/worldcache_utils.py#paired-prefix:393:worldcache_mini_train_dit_forward] [WorldCache] Step 52: Drift 0.0999 / Thresh 0.0432 (Base 0.06, Vel 0.0777, Alpha 5.0)\n[10-10 11:29:47|INFO|cosmos_predict2/_src/predict2/inference/worldcache_utils.py#paired-prefix:393:worldcache_mini_train_dit_forward] [WorldCache] Step 53: Drift 0.0999 / Thresh 0.0432 (Base 0.06, Vel 0.0777, Alpha 5.0)\n[10-10 11:29:47|INFO|cosmos_predict2/_src/predict2/inference/worldcache_utils.py#paired-prefix:393:worldcache_mini_train_dit_forward] [WorldCache] Step 54: Drift 0.0885 / Thresh 0.0444 (Base 0.06, Vel 0.0704, Alpha 5.0)\n[10-10 11:29:47|INFO|cosmos_predict2/_src/predict2/inference/worldcache_utils.py#paired-prefix:393:worldcache_mini_train_dit_forward] [WorldCache] Step 55: Drift 0.0885 / Thresh 0.0444 (Base 0.06, Vel 0.0704, Alpha 5.0)\n"
+  },
+  "GPU_uuid_memory": "GPU-de9a5370-cd87-0f1c-a48e-288888777dd3, 308 MiB\nGPU-cebf7119-cf03-23b9-e192-cd196332b704, 24 MiB",
+  "compute_apps": "",
+  "native_stdout_sha256": "bf7522d35e7f79832c786ab509ac6d8a747e5bd29f5039dc03e86956142fa784",
+  "independent_read_only_live_check": true
+}

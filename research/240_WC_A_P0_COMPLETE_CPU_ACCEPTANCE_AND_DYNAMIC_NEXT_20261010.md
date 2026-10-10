@@ -29,4 +29,8 @@ A OFF 与 P0 整条输出相同；P 不进入旧 A 的 D 观察，C 修正读取
 
 ## 动态卡传输接续
 
-第一次通过 SSH stdin 发送完整载荷，触发 55 秒客户端观察超时，独立服务器检查确认新 stage 不存在、没有匹配进程，CPU 未执行。原失败保留在 `reports/wc_source_aware_sampling_cpu_r1_transport_failure_20261010.json`。第二次改用 SCP 文件传输，仍使用同一 249 载荷、同一 driver、同一完整 128 路径范围，不改变实验源或把传输失败算成方法失败。实际执行及终态仍待。
+第一次通过 SSH stdin 发送完整载荷，触发 55 秒客户端观察超时，独立服务器检查确认新 stage 不存在、没有匹配进程，CPU 未执行。原失败保留在 `reports/wc_source_aware_sampling_cpu_r1_transport_failure_20261010.json`。第二次改用 SCP 文件传输，仍使用同一 249 载荷、同一 driver、同一完整 128 路径范围，不改变实验源或把传输失败算成方法失败。
+
+SCP 接续已成功，source `2bab59dff9880eaff0fd088c24bf7693d43eb879`，唯一监督 `3924503`、测试子进程 `3924504` 均经只读现场检查存活，249 载荷与 runtime 原件哈希保持。最新观察26个成功文件，全部两 flow、成功与完整末写出故障控制、2368 成功张量独立重读的终态仍待；不将健康进程或部分文件当作完整 CPU 通过。CPU 不取得 GPU 锁、不写 GPU 账本，本轮新增 GPU 0。
+
+飞书组会文档 revision50→51 已局部同步原完整288验收与新卡在途，197块全文核对仅指定富文本段落变化，其余内容保持：`reports/wc_a_p0_accept_source_aware_live_feishu_20261010_verification.json`。实际启动与只读原件检查分别见 `reports/wc_source_aware_sampling_cpu_r1_launch_20261010.json`、`reports/wc_source_aware_sampling_cpu_r1_progress_20261010.json`。预算及完整单次≤4／严格>4规则保持，原5.147707517 GPUh完整卡未获具体确认、未执行；下一继续同单位校准和真实视频，保持原结果与失败分母。
