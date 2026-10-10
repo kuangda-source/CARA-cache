@@ -1,3 +1,5 @@
+> 2026-10-11 本轮更新：用户直接允许当前E0—E5实验完整单次≤8 GPUh自主推进，严格>8才确认。以[本轮8 GPUh约定](WORLD_CACHE_CURRENT_WINDOW_EXECUTION_POLICY_20261011_8GPUH.md)为准；下方4 GPUh正文与旧授权作为历史保留，累计预算不变。
+
 # WorldCache 执行约定：单次4 GPUh确认门槛（2026-10-10）
 
 用户直接指示：“单次 改成超过 4h才需要确认”。[直接授权原件](../manifests/wc_execution_autonomy_authorization_20261010_4gpuh.json)覆盖旧执行约定中的2 GPUh门槛。

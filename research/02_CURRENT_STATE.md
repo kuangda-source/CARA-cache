@@ -1,3 +1,9 @@
+## 2026-10-11 本轮授权：完整单次≤8 GPUh直接推进
+
+用户本轮直接指示“这次 gpuh 8h 以内都允许”。[288授权落实](288_WC_CURRENT_WINDOW_8GPUH_DIRECT_AUTHORIZATION_20261011.md)与[本轮执行约定](../plans/WORLD_CACHE_CURRENT_WINDOW_EXECUTION_POLICY_20261011_8GPUH.md)覆盖当前E0—E5设计的4h确认门槛：完整单次真实forecast≤8自主、严格>8具体确认，全对照／重复／实费保持，不拆卡；本轮以外原4h默认保留。累计77.895246590上限、新48起点29.895246590不变，现场已用39.183807748、余额38.711438842；本次不加额度、新GPU0。
+
+E1完整CPU监督4040126／子4040127仍存活、已写15个Toy tensor文件，未完整验收；跟踪原句柄，不改在跑源。CPU通过后继续显存区分与阶段A完整72确认／计时准备，≤8卡无需再请批，>8再具体确认，无人评。以下4h门槛／其他运行状态为历史快照。
+
 ## 2026-10-11 当前接续：E0组合保真回收，E1完整sampler CPU在跑
 
 [285实际回收结果](285_WC_E0_REAL_PARTIAL_RECOVERY_RESULTS_AND_MEMORY_NEXT_STEP_20261011.md)保持：14有效／原64、AV28八配对／744距离，单场景CPD与阶段A＋P终点正信号；Human六缺prepare不评分、原卡FAILED_TECH与1／49缺失保持，不能称clean速度或跨场景确认。
