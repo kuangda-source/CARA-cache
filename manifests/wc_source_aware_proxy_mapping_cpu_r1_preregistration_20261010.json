@@ -1,0 +1,58 @@
+{
+  "identity": "WC_SOURCE_AWARE_COMPLETE_EXISTING_P0_PROXY_MAPPING_CPU_R1_20261010",
+  "registered_unix": 1791603778.021826,
+  "hypothesis": "An empirical creation-error proxy can be anchored to the existing WC paid-probe scale using complete same-state post-RF P/C error ratios, without treating P as an exact D source.",
+  "raw_runner_ref": "reports/wc_p0_real_group_r2_terminal_20261010_runner_native.gz",
+  "paid_probe_availability_ref": "reports/wc_source_aware_existing_paid_probe_availability_cpu_20261010.json",
+  "same_state_analysis_ref": "reports/wc_p0_real_group_r2_complete_mechanism_and_cost_analysis_20261010.json",
+  "RA_calibration_table_ref": "reports/wc_ra_calibration_r1_terminal_20261010_calibration_table_native.gz",
+  "RA_calibration_fingerprint": "9ab1d77c303560823ed2f32f43b2982318cdd9835828a46da4835a1b95ea7d7a",
+  "scenes": [
+    "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+    "human_199",
+    "misc_13398218_3840_2160_60fps",
+    "av_51b45829-502e-4143-9c32-c026bd6ab191"
+  ],
+  "steps": [
+    12,
+    30
+  ],
+  "true_D_anchors": {
+    "12": 7,
+    "30": 25
+  },
+  "P_modes": [
+    "ROTATION_050",
+    "RANDOM_050",
+    "ROTATION_075",
+    "RANDOM_075"
+  ],
+  "mapping": "b_P_i = guided_proxy(delta_y_c_i, delta_y_u_i, original_RA_rho(anchor_i,step_i)) * sqrt(MSE_P_i/MSE_C_i)",
+  "aggregation": "One median over all eight origins per mode; all individual and stage-specific values reported; no mode selection, phase fitting, or epsilon for undefined points.",
+  "partial_mapping_rows": 32,
+  "original_control_rows": 16,
+  "all_original_mode_rows": 48,
+  "original_timing_denominator": 144,
+  "undefined_point_rule": "Retain every point; no complete median if any registered origin is undefined; legitimate zero P error is retained.",
+  "future_P_drift_ratio_fitted": false,
+  "clean_action_costs_fitted": false,
+  "numeric_mapping_inspected_before_registration": false,
+  "current_synthetic_CPU_card_source_unchanged": true,
+  "registered_complete128_CPU_scope_unchanged": true,
+  "GPU_selected": false,
+  "GPU_submissions": 0,
+  "model_or_video_generation": false,
+  "output": "reports/wc_source_aware_proxy_mapping_cpu_r1_results_20261010.json",
+  "payload_sha256": {
+    "research/241_WC_SOURCE_AWARE_PROXY_MAPPING_PREREGISTRATION_20261010.md": "77a7d56fc50f429e1492c6a423222c87d81e237f9808d472d468885a05fde4d3",
+    "src/wcomr/source_aware_proxy_mapping.py": "afd159a31a77c6c7424791636273caf5f70adab1b6b0fcdd34a16eddbf32e782",
+    "src/wcomr/cfg_ra_joint_control.py": "010c54603bbfd885e7cd9f9df71c0eedbc019fab9b0e46aca7168e35c3f5b905",
+    "tests/check_source_aware_proxy_mapping_cpu.py": "7b74110c6feaae33c566215c463dbc6b277224d64bd5771ff0e15763adedd4a5",
+    "scripts/analyze_wc_source_aware_proxy_mapping_cpu_r1.py": "2ca0a22c039d743ab4e34ab6301cffb1aa47296fce4edd6c7d0cf0b5c2c903da",
+    "reports/wc_source_aware_existing_paid_probe_availability_cpu_20261010.json": "af15b6fe7832e093206809c778e6c0c4ff51b40511fd0be49e22a909e9f97920",
+    "reports/wc_p0_real_group_r2_terminal_20261010_runner_native.gz": "874476976ef048ba838c7e1845595ca105ce3e71e2f197e2a5b573a929bd031a",
+    "reports/wc_p0_real_group_r2_complete_mechanism_and_cost_analysis_20261010.json": "e20e5bed4fad9f7fbba6b808cc843732333a6fcc77f4598582266d5439dfe817",
+    "reports/wc_p0_real_group_r2_terminal_20261010_capture_reaudit_r3.json": "97af37369404493440d5e957b0f6d6c0df12e835f67cd8e4bcc7e6827da093e1",
+    "reports/wc_ra_calibration_r1_terminal_20261010_calibration_table_native.gz": "1f39e7a64ee0cecde304a6773360645911c051beeed066b57a2e78e2335fb372"
+  }
+}
