@@ -19,3 +19,7 @@ P来源即使年龄0、全token重算或安全full fallback仍记录`UNKNOWN_NOT
 ## 接续
 
 验收完整CPU原件、所有路径/962张量和失败后，接普通完整采样/恢复及A＋P0的来源接口；RA策略需显式接纳P非零来源模型，不调用原C/D控制器并假装P已经清风险。近似来源数值质量目前未知，真实P0八起点不能自动覆盖多次P自身轨迹。下一GPU设计仍固定全部必要控制和经验整卡费用，≤4自主，>4确认，无非必要人评。
+
+## 原R1失败与独立R2
+
+source1076532原3913226／3913227已退出1并消失，实际5.067818577秒。首SOURCE_BASE warmup因CPU t_embedder将RF的两个逐帧timestep reshape成标量而失败，零完整路径/产物，P0方法尚未进入；原26路径与两故障分母不改。[原件捕获](../reports/wc_p0_deployment_core_cpu_r1_terminal_20261010_capture.json)保持原源码/日志/预算SHA。独立R2只将夹具`t.reshape(1,1,1)`修为`t.reshape(1,-1,1)`再expand，生产P0模块不变；新R2夹具/driver/登记保留相同68源、全部26范围及两flow第二分支故障，真实CPU待。GPU新增0。
