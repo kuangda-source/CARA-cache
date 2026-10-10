@@ -1,6 +1,6 @@
 # WorldCache 下一轮设计：阶段 A 确认与 P 的净收益开发
 
-2026-10-11，v1.10。当前研究入口，依据用户本轮“根据最新对话和文档更新下实验设计”。保留 WorldCache＋RA 的三模块主线，将已有方法的确认与部分刷新执行器的完善分开安排。初版更新仅设计；后续E0独立CPU已实际完成，未提交新GPU，旧卡结果保持。实际结果见[285回收报告](../research/285_WC_E0_REAL_PARTIAL_RECOVERY_RESULTS_AND_MEMORY_NEXT_STEP_20261011.md)。
+2026-10-11，v1.11。当前研究入口，依据用户本轮“根据最新对话和文档更新下实验设计”。保留 WorldCache＋RA 的三模块主线，将已有方法的确认与部分刷新执行器的完善分开安排。初版更新仅设计；后续E0独立CPU已实际完成，未提交新GPU，旧卡结果保持。实际结果见[285回收报告](../research/285_WC_E0_REAL_PARTIAL_RECOVERY_RESULTS_AND_MEMORY_NEXT_STEP_20261011.md)。
 
 ## 1. 本轮最重要的调整
 
@@ -234,3 +234,8 @@ E0已实际验收，按285保持全部分母；E1原完整CPU已独立验收，�
 ## v1.10：E1选定范围完整CPU验收与实际入口
 
 [300独立验收](../research/300_WC_E1_DIAG8_CPU_ACCEPTANCE_AND_ACTUAL_EXECUTION_SCOPE_20261011.md)保持E1四独立模型／完整8路径事前范围与2.044575084 GPUh预测。实际16成功＋12末写出失败CPU执行通过，两flow全36输出／final、56原／56CPU快照保持；24文件／888张量／1008策略独立重演、原件来源通过。不是实际模型冷加载／GPU容量证明。新398文件真实入口只读读取原full64校准与请求，四臂guardrail拒绝／合同与资源控制待actual CPU；通过后≤8自主fresh准入完整8GPU及全scope原件CPU，不复投原64。E2完整76路径9.869732459仍待已提出的具体确认；两线共享单GPU队列。
+
+
+## v1.11：E1完整8唯一自主GPU提交
+
+[302实际执行](../research/302_WC_E1_DIAG8_UNIQUE_GPU_EXECUTION_20261011.md)记录source8a51232原GPU／后CPU句柄，398方法源、actual生产CPU独立验收后fresh准入与第76提交成立。四独立模型／全8、forecast2.044575084与原snapshot及reserve保持；尚在导入／加载、未有GPU修复或质量结论。启动前累计39.183807748／77.895246590、新48余38.711438842，预留非实费。终态自动全scope原件CPU与完整视频解码；E2完整76严格>8具体确认仍待。
