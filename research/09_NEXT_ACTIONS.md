@@ -1,3 +1,11 @@
+## 2026-10-10 当前：阶段A终点正结果保持，P创建目标修正通过实测参数回放
+
+[265 当前P结果](265_WC_CURRENT_P_BIRTH_REAL_PARAMETER_CPU_RESULTS_20261010.md)：按430e085预登记，完整64×36脚本、2304决策、256健康恢复、14变异拒绝通过，CPU0.561673秒exit0；同实测成本／阈值下P从0变为240个脚本动作，计入重复对照，不是真实P调用／视频收益。创建时只支付本次P经验floor，后续C仍支付保留floor＋借用漂移；两工作周期／真正D历史与早晚正floor保持，TRANSFER边界保留。原0动作配置及原完整256 CPU不取消。
+
+[257 完整32结果](257_WC_RA_PLUS_A_COMPLETE32_FIDELITY_AND_COST_RESULTS_20261010.md)：阶段W1／β1四CAL终点LPIPS均改善、均值之比对WC下降10.7725%／11.1600%，全部正负对照和旧负结果保留；开发保真而非物理泛化或clean速度。[262 真实成本](262_WC_REAL_C_A_P_D_COST_AND_CREATION_PRIOR_RESULTS_20261010.md)：P整组仅省1.29342%，A约0.338秒／C0.16846秒，均为已支付probe后的动作费用。
+
+修正目标新完整256普通采样CPU已预登记314载荷，原276文件哈希保持；全部9216更新／4736张量／1024恢复与原控制保留，另12创建／后续C目标变异。原4a7dfe3监督3977159／子3989547仍在运行；新独立stage仅顺序等待原成功终态后启动重CPU，尚未部署、未新增GPU。下一完整CPU独立验收→实测参数组合接入／生产CPU→具体真实视频卡，不引入人评。累计37.676066656/77.895246590、新48余40.219179934GPUh；完整≤4自主、严格>4确认，goal active/progress。下方历史保持。
+
 ## 2026-10-10 当前：完整真实成本验收，工作P完整256 CPU实际运行
 
 飞书 revision58->59; 197 blocks verified, only the bound progress paragraph changed. https://lcnssrlun9lz.feishu.cn/docx/HTSIdK0uLofCG5xUI1IcTKaCnAh
