@@ -29,3 +29,9 @@
 [原R1捕获](../reports/wc_a_p0_sampling_cpu_r1_terminal_20261010_capture.json)：sourceec7f256／228载荷，CPU26.738873368秒退出1，3918827/3918828消失；包中漏掉既有cfg_guided_w1_deployment，ModuleNotFoundError发生在生成前，0生成／0向量，原完整288范围仍保留。原stage、绑定、日志及全部回执封存；不能称为A＋P0算法负结果。
 
 独立R2只补该已有模块和三个R2 CPU入口，算法／Toy类体／普通sampler与所有18方法／两个flow／288完整执行范围不变。232载荷，74个本地Python模块的传递相对导入闭包逐份审计，无缺依赖；[R2登记](../manifests/wc_a_p0_sampling_cpu_r2_preregistration_20261010.json)和[包审计](../reports/wc_a_p0_sampling_cpu_r2_transitive_payload_audit_20261010.json)保持原5328张量、576恢复和全部拒绝／故障控制。235完整独立验收已经通过；先新source提交，再新stage实际CPU，当前R2尚未启动。原222／283冻结绑定保持，不改算法来绕过失败。
+
+## R2已唯一启动，完整终态待
+
+source **bc0ad2499dcb68c106557a53fee6e23496643e59**／232载荷，[唯一启动](../reports/wc_a_p0_sampling_cpu_r2_launch_20261010.json)与[原句柄进度](../reports/wc_a_p0_sampling_cpu_r2_progress_r2_20261010.json)已保存；监督3919183／子3919184现场存活，首flow完整范围72条中26条完成，首AV28的全部18方法完成、Human8条完成。完整两flow／288执行及5328张量独立重读仍待，不复投、不改源，不把首请求输出当作完整或视频收益。
+
+[飞书同步](../reports/wc_p0_sampler_accept_and_a_p0_r2_feishu_20261010_verification.json)：revision48→49，197块仅指定成本／下一步段落同步普通P0验收与组合R1失败／R2已启动，粗体前缀及其余全文规范核对保持。没有向他人发消息、没有新GPU或预算写入。
