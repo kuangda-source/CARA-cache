@@ -1,3 +1,11 @@
+## 2026-10-10 当前：P0实际C/P/D执行核心完整CPU与独立重读通过
+
+[233实际结果](../../research/233_WC_P0_DEPLOYMENT_CORE_AND_SOURCE_PROVENANCE_CPU_20261010.md)：source3b553d4/68载荷实际37.213603秒，3913682/3913684退出0消失；两flow共26完整36步/936pair/1872net，26文件/962张量独立重读、八full-GEMM替换参照、OFF/dense控制、全行P非D与两branch1故障全量通过。原R1/R2夹具失败保持，生产P0模块不变；仅Toy full Block/WC/RF核心，非UniPC/Cosmos/视频/RA来源策略。下一补P后C/连续P和来源风险，再接普通完整采样/A＋P0。
+
+P0真实48结果/144计时及原件232保持；已纠正旧“固定计时顺序”文字，实际按起点轮换及中间重复反转，数值不变。RA＋A283源不改，5.147707517GPUh>4具体确认待，未新GPU；累计34.372880296/77.895246590、48余43.522366294、72提交无在途。完整≤4自主、>4确认，不拆卡，goal active，无非必要人评。下方旧状态为历史。
+
+飞书revision44→46已局部同步CPU进度和计时顺序更正，197块全文核对仅两处指定文字改变；[写入核对](../../reports/wc_p0_deployment_cpu_and_timing_correction_feishu_20261010_verification.json)。283/68冻结载荷保持；当前服务器账本、≤4规则及共享锁只读核对通过，未新GPU。
+
 ## 2026-10-10 当前：P0实际轨迹与来源管理核心已实现，完整CPU准备
 
 [233接线与完整范围](../../research/233_WC_P0_DEPLOYMENT_CORE_AND_SOURCE_PROVENANCE_CPU_20261010.md)：固定C/P/D核心复用原WC/RF和实际部分MLP；P写工作缓存并返回实际post-RF速度，D-only锚点/非零P来源/周期与失败事务分离。68源CPU登记两flow共26完整36步/936pair/1872net/962张量重读，含八独立full-GEMM替换参考、全行P非D与两branch1故障；仅AST/绑定通过，真实CPU待，不称RA来源策略/UniPC/视频收益。原RA＋A283绑定不改，5.1477>4确认待，未新GPU。
