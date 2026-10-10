@@ -1,3 +1,9 @@
+## 2026-10-11 当前：E1 R2完整8唯一GPU实际在跑
+
+[306实际执行](../../research/306_WC_E1_DIAG8_R2_UNIQUE_GPU_EXECUTION_20261011.md)：sourcecbaad1b／416载荷，selectedd4e71d2；监督4050841／runner4050929／后CPU4050842现场存活，compute仅原runner／24514MiB，fresh24MiB／无apps及第77提交成立。四独立模型／完整8，forecast2.044575084≤本轮8自主，正在首模型加载，尚无完整路径或容量修复／视频结论；只跟踪原句柄，不改stage、不重投。
+
+实结39.234595840／77.895246590，新48余38.660650750；R2在途全余额预留非实费或耗尽，终态全部wall收费。原R1加载合同缺失／0采样及0.050788092403保持；CPU启动资产与native meta已独立验收，方法／快照reserve不变。E2完整76／9.869732459具体确认待，启动包装资产修补后才ready，不拆卡。goal active，无训练或新增人评。下方为历史。
+
 ## 2026-10-11 当前：E1 R2 actual＋native meta CPU独立通过
 
 [305接续](../../research/305_WC_E1_R2_NATIVE_META_AND_PRODUCTION_CPU_ACCEPTANCE_20261011.md)：sourcecbaad1b、4050209／4050210均exit0消失，74.492348秒；416来源／225原输入、四guardrail-less／13合同／8准入／八故障分类保持。两启动文件missing／changed四拒绝、原2B meta 2059174912参数／1173模块／共享eval后0训练及source pins通过，禁止CUDA／forward／权重、账本未改。888张量sampling等价保持，是CPU启动证据，非GPU容量或视频结果。
