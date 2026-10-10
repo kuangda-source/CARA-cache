@@ -31,9 +31,12 @@ class SemanticPartialReadout(GuidedW1Readout):
             raise ValueError('One explicit semantic C/P/D observation required')
         if action == 'C':
             self.warp, self.to_velocity = d.warp, d.to_velocity
+            before = copy.deepcopy([c.receipt() for c in self.calibrators])
             # The original body is correct for C on either D or P working
             # sources: its extrapolation anchors are still only actual D.
             super().hidden(net, True, branch, *values)
+            if [c.receipt() for c in self.calibrators] != before:
+                raise ValueError('Composite C fallback or readout changed actual D calibration')
             self.current['branches'][branch]['working_source_kind'] = d.working[branch]['kind']
         elif action in ('D', 'P'):
             self.current['prewarp'].pop(branch, None)
@@ -110,6 +113,7 @@ class GuidedPartialDeployment(PartialDeployment):
                 self.readout.current['branches'][slot]['past_D_steps'] = self.dense[slot].receipt()['anchor_steps']
         returned = self.readout.end(actual, row['action'])
         row['A_readout'] = copy.deepcopy(self.readout.history[-1])
+        row['extra_candidate_heads'] = row['A_readout']['extra_heads']
         row['actual_post_RF_returned_without_substitution'] = self.readout.method == 'OFF' or row['action'] != 'CC'
         row['semantic_P_bypasses_legacy_D_observer'] = True
         return returned
@@ -117,5 +121,6 @@ class GuidedPartialDeployment(PartialDeployment):
     def finish(self):
         result = super().finish()
         result['A_readout'] = self.readout.finish()
+        result['extra_candidate_heads'] = result['A_readout']['extra_candidate_heads']
         result['combined_readout_source_risk_policy_implemented'] = False
         return result
