@@ -26,3 +26,7 @@ A OFF 与 P0 整条输出相同；P 不进入旧 A 的 D 观察，C 修正读取
 预算仍34.372880296/77.895246590 GPUh，新增48窗口余43.522366294。本轮GPU0；完整单次≤4GPUh自主、严格>4GPUh具体确认。原RA＋A完整5.147707517GPUh确认未到、未选GPU，不拆卡，无非必要人评。
 
 证据：[原完整独立捕获](../reports/wc_a_p0_sampling_cpu_r2_terminal_20261010_capture.json)、[完整结果汇总](../reports/wc_a_p0_sampling_cpu_r2_complete_result_summary_20261010.json)、[新动态登记](../manifests/wc_source_aware_sampling_cpu_r1_preregistration_20261010.json)、[已有 paid-probe 资产](../reports/wc_source_aware_existing_paid_probe_availability_cpu_20261010.json)。
+
+## 动态卡传输接续
+
+第一次通过 SSH stdin 发送完整载荷，触发 55 秒客户端观察超时，独立服务器检查确认新 stage 不存在、没有匹配进程，CPU 未执行。原失败保留在 `reports/wc_source_aware_sampling_cpu_r1_transport_failure_20261010.json`。第二次改用 SCP 文件传输，仍使用同一 249 载荷、同一 driver、同一完整 128 路径范围，不改变实验源或把传输失败算成方法失败。实际执行及终态仍待。
