@@ -1,0 +1,99 @@
+{
+  "status": "E1_ORIGINAL_COLD_COMPLETE_BEFORE_ALL4_ARMS_TERMINAL",
+  "source_revision": "cbaad1b04565eea1aa28e207022b002ce0f4c4a0",
+  "original_cold_PID_absent": 4050929,
+  "planned_paths": 8,
+  "first_arm_exit_code": 0,
+  "first_arm_complete_paths": 1,
+  "guided_updates": 36,
+  "checkpoint_steps": [
+    12,
+    30,
+    35,
+    36
+  ],
+  "original_cold_load_seconds": 89.50771881453693,
+  "after_load_memory": {
+    "allocated_bytes": 21042267648,
+    "reserved_bytes": 25285361664,
+    "free_bytes": 25271336960,
+    "total_bytes": 50908823552,
+    "peak_allocated_bytes": 25150418432,
+    "peak_reserved_bytes": 25671237632
+  },
+  "whole_arm_verification": {
+    "complete_paths": 1,
+    "solver_updates": 36,
+    "normal_net_calls": 72,
+    "dynamic_outputs_enter_ordinary_full_UniPC": true,
+    "teacher_calls": 0,
+    "Cosmos_or_video_quality_or_clean_speed_claim": false,
+    "working_epoch_strategy": "WORKING_P_AGE_KEEP_INTERVAL",
+    "explicit_working_epoch_queries_verified": 36,
+    "P_source_transfer_queries_verified": 6,
+    "actual_P_future_drift_or_endpoint_quality_claim": false,
+    "current_P_birth_rule": "CURRENT_P_GAIN_TIMES_CREATION_FLOOR_C_AFTER_P_RETAINS_FLOOR_PLUS_BORROWED_DRIFT_R1",
+    "current_P_creation_scores_verified": 6,
+    "C_source_floor_and_drift_scores_verified": 18,
+    "physical_sampler_bytecode_changed": false,
+    "E1_arm": "ORIGINAL_COLD",
+    "scope_derivation": {
+      "explicit_sites": 4,
+      "inverse_bytes_and_AST_equal": true,
+      "original_function_source_sha256": "fdaa5533556fab7e6100ff88a8c3c55d6dc39c353bb6553a93547f3ca746dbec"
+    },
+    "current_birth_and_working_epoch_semantic_checks_preserved": true
+  },
+  "current_arms": [
+    {
+      "id": "ORIGINAL_COLD",
+      "status": "EXITED_RAW_AUDIT_PENDING",
+      "pid": 4050929,
+      "exit_code": 0,
+      "runner_status": "E1_ARM_COMPLETE_REQUIRES_INDEPENDENT_CPU_AUDIT"
+    },
+    {
+      "id": "CPU_COLD",
+      "status": "ORIGINAL_MODEL_PROCESS_RUNNING",
+      "pid": 4055807
+    },
+    {
+      "id": "ORIGINAL_PREFIX",
+      "status": "UNSTARTED_REGISTERED_SCOPE_RETAINED"
+    },
+    {
+      "id": "CPU_PREFIX",
+      "status": "UNSTARTED_REGISTERED_SCOPE_RETAINED"
+    }
+  ],
+  "live_original_PIDs": [
+    4050841,
+    4050842,
+    4055807
+  ],
+  "gpu": "GPU-cebf7119-cf03-23b9-e192-cd196332b704, 24912",
+  "compute_apps": "GPU-cebf7119-cf03-23b9-e192-cd196332b704, 4055807",
+  "independent_whole8_raw_audit_not_yet_complete": true,
+  "not_quality_or_clean_speed_result": true,
+  "observed_unix": 1791672129.5556495,
+  "files": {
+    "supervisor": {
+      "bytes": 7260,
+      "sha256": "a42f645c574b565258cf9e8e88b42a2b65c3a063f31aefecea6a7104414fd017",
+      "packed_sha256": "f3aa0f45d0f936bef5d1ba43097101e5f0129716c3331b1f8a25752ba7015d3d",
+      "local_path": "reports/wc_e1_diag8_r2_original_cold_live_20261011_supervisor.native.gz"
+    },
+    "ORIGINAL_COLD-receipt": {
+      "bytes": 4274727,
+      "sha256": "6e49104b92222d23f9a070f8f1c099a78d70accddbbc96fc6fa59f9128e1b724",
+      "packed_sha256": "50c18750cae1cb199694c7434367db11302c8f1f20372342bb3220c38fcd9750",
+      "local_path": "reports/wc_e1_diag8_r2_original_cold_live_20261011_ORIGINAL_COLD-receipt.native.gz"
+    },
+    "ORIGINAL_COLD-memory-observer": {
+      "bytes": 35425,
+      "sha256": "c221cf928ffe62ade5b5f46898eb36ffc69bc700bf04a8356d5f727f7a58c1cc",
+      "packed_sha256": "220e8c8b814f7d637392db93e081e5d9390f5c0fbbb7f5438c0cc1708f433d28",
+      "local_path": "reports/wc_e1_diag8_r2_original_cold_live_20261011_ORIGINAL_COLD-memory-observer.native.gz"
+    }
+  }
+}

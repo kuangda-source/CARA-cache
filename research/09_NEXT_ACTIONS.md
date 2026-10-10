@@ -1,3 +1,9 @@
+## 2026-10-11 当前：E1原冷启动36步完成，其余原四臂继续
+
+[309实际发现](309_WC_E1_ORIGINAL_COLD_COMPLETION_AND_FULL8_NEXT_AUDIT_20261011.md)：sourcecbaad1b、原冷runner4050929 exit0消失，目标Humanβ1完整36及12／30／35／36检查点通过并写视频。此冷启动原GPU快照可执行，尚不能归因旧14条生命周期或称CPU修复；全8独立原件待。监督4050841／后CPU4050842／CPU_COLD4055807现场存活、compute仅原runner24912MiB，原两prefix×三槽保持，不重投／改stage。
+
+真实终态capture只读CPU范围另登记：全实际guided／final自算hash、真实prior／cost的选择与源状态独立重演、成功臂直接36＋final相等／不同如实保存；目前live拒绝exit2，非已经验收。E2 [308](308_WC_E2_STARTUP_CPU_R2_ACCEPTANCE_AND_UNCHANGED_FULL76_CARD_20261011.md)启动包装CPU独立过，原76／9.869732459具体确认待、不拆卡。实结39.234595840／77.895246590、新48余38.660650750，第77在途预留非实耗；goal active，无训练或人评。下方为历史。
+
 ## 2026-10-11 当前：E2启动包装R2独立验收，E1原GPU继续
 
 [308验收](308_WC_E2_STARTUP_CPU_R2_ACCEPTANCE_AND_UNCHANGED_FULL76_CARD_20261011.md)：sourcea5b66ef，4053789／4053819／4053942／4055201均退出消失、84.579013秒exit0；原231方法＋29包装历史不改、新36执行载荷，binding738361d／protocola47e74e。加载前两startup文件四拒绝、真实十输入／13合同／17准入／8指标／76标量位置及meta2059174912参数／1173→0训练通过、原件来源独立核对通过。无CUDA／weights／forward／GPU／账本写，不是视频或质量证据，152完整sampling CPU复用。

@@ -55,6 +55,91 @@ for arm in c['arms']:
  for label,path in [('receipt',out/arm['id']/'receipt.json'),('memory-observer.jsonl',out/arm['id']/'memory-observer.jsonl'),
                     ('log',out/(arm['id']+'.log'))]:
   if path.exists():native_names.append((arm['id']+'-'+label,path))
+independent={}
+if raw_audit is not None and any(out.rglob('*.pt')):
+ import os,sys,dataclasses
+ os.environ.update(CUDA_VISIBLE_DEVICES='',HF_HUB_OFFLINE='1',TRANSFORMERS_OFFLINE='1',HF_HUB_CACHE=str(project/'hfhub'))
+ import torch;torch.set_num_threads(2)
+ def forbidden(*a,**k):raise RuntimeError('Independent E1 terminal audit forbids CUDA or downloads')
+ torch.cuda._lazy_init=forbidden;torch.hub.download_url_to_file=forbidden
+ import triton
+ class ImportOnlyDriver:
+  def get_benchmarker(self):return forbidden
+  def __getattr__(self,n):raise RuntimeError('Independent E1 terminal audit forbids Triton: '+n)
+ triton.runtime.driver.active=ImportOnlyDriver()
+ sys.path[:0]=[str(stage/'src'),str(project/'runtime'),str(project/'runtime/packages/cosmos-oss'),str(project/'runtime/packages/cosmos-cuda')]
+ if P['version']=='r2':
+  from wcomr.e1_diag8_production_r2 import validate
+ else:
+  from wcomr.e1_diag8_production_r1 import validate
+ _,old,inputs=validate(project,stage);calibration,specs,_,_=inputs
+ from wcomr.source_aware_current_birth_control_r1 import CurrentBirthCPDController
+ def digest(value):
+  h=hashlib.sha256()
+  def walk(x):
+   if isinstance(x,torch.Tensor):
+    assert bool(torch.isfinite(x).all());h.update(str((str(x.dtype),list(x.shape))).encode())
+    h.update(x.detach().contiguous().reshape(-1).view(torch.uint8).numpy().tobytes())
+   elif isinstance(x,dict):
+    for k in sorted(x):h.update(str(k).encode());walk(x[k])
+   elif isinstance(x,(list,tuple)):
+    h.update(type(x).__name__.encode())
+    for item in x:walk(item)
+   else:h.update(repr(x).encode())
+  walk(value);return h.hexdigest()
+ tensors=decisions=whole_paths=0;actual_files=set();loaded={};per_path=[]
+ for arm,process in zip(c['arms'],s['arms']):
+  receipt_path=out/arm['id']/'receipt.json'
+  if not receipt_path.exists():continue
+  receipt=json.loads(receipt_path.read_text());assert sha(receipt_path)==process['receipt_sha256']
+  for request in receipt['batch'].get('requests',[]):
+   for row in request['paths']:
+    key=(arm['id'],request['sample_name'],row['collect']);record={'arm':key[0],'sample_name':key[1],'method':key[2],
+     'whole_arm_exit_code':process['exit_code'],'vectors_reloaded':0,'policy_replayed':0}
+    if 'vector_artifact' in row:
+     art=row['vector_artifact'];path=pathlib.Path(art['path']).resolve()
+     assert path.is_relative_to(out.resolve()) and sha(path)==art['sha256'] and path.stat().st_size==art['bytes']
+     data=torch.load(path,map_location='cpu',weights_only=True);actual_files.add(str(path))
+     assert set(data)=={'guided','final_latent'} and len(data['guided'])==36
+     assert all(list(t.shape)==old['expected_real_shape'] and t.dtype==torch.float32 and t.device.type=='cpu' for t in data['guided']+[data['final_latent']])
+     assert {k:digest(v) for k,v in data.items()}==art['tensor_sha256']
+     assert [digest(t) for t in data['guided']]==row['guided_sha256'];tensors+=37;record['vectors_reloaded']=37
+     if process['exit_code']==0:loaded[key]=data;whole_paths+=1
+    deployment=row.get('collection_complete',{}).get('deployment')
+    if deployment is not None:
+     spec=specs[c['working_epoch_strategy']][row['collect']]
+     controller=CurrentBirthCPDController(calibration,spec['threshold'],spec['costs'],spec['partial_prior'],strategy=c['working_epoch_strategy'])
+     assert len(deployment['history'])==36
+     for entry in deployment['history']:
+      actual=entry['source_policy'];saved=actual['decision']
+      decision=controller._choice(saved['step'],tuple(tuple(v) for v in saved['packets']),saved['both_sources_ready'],
+       saved['partial_ready'],protected=saved['reason']=='actual_protected_dense')
+      expected=json.loads(json.dumps(dataclasses.asdict(dataclasses.replace(decision,owner=saved['owner']))))
+      assert expected==saved and controller.query_basis(decision)==actual['working_epoch_basis']
+      controller.commit(decision,actual_action=entry['action'][0],pair_completed=True);assert entry['action']==decision.action*2
+      for k,v in {'dense_anchor_after':controller.anchor,'working_kind_after':controller.working_kind,
+       'working_created_step_after':controller.working_step,'creation_floor_proxy_after':controller.creation_floor,
+       'accumulated_interval_proxy_after':controller.accumulated,'consecutive_P_after':controller.consecutive_P}.items():assert actual[k]==v
+      decisions+=1;record['policy_replayed']+=1
+    per_path.append(record)
+ assert actual_files=={str(v.resolve()) for v in out.rglob('*.pt')}
+ assert whole_paths==raw_audit['complete_numeric_paths']
+ comparisons=[]
+ for a,b in [('ORIGINAL_COLD','CPU_COLD'),('ORIGINAL_PREFIX','CPU_PREFIX'),('ORIGINAL_COLD','ORIGINAL_PREFIX'),('CPU_COLD','CPU_PREFIX')]:
+  for key,left in loaded.items():
+   if key[0]!=a:continue
+   right=loaded.get((b,*key[1:]))
+   if right is None:continue
+   equal=[torch.equal(x,y) for x,y in zip(left['guided']+[left['final_latent']],right['guided']+[right['final_latent']])]
+   recorded=[v for v in raw_audit['successful_storage_or_cold_prefix_comparisons'] if v['arms']==[a,b]
+    and v['sample_name']==key[1] and v['method']==key[2]]
+   assert len(recorded)==1 and recorded[0]['equal']==equal and recorded[0]['all_equal']==all(equal)
+   comparisons.append({'arms':[a,b],'sample_name':key[1],'method':key[2],'equal':equal,'all_equal':all(equal)})
+ assert not torch.cuda.is_initialized()
+ independent={'actual_vector_files':len(actual_files),'actual_tensors_reloaded':tensors,
+  'actual_complete_policy_decisions_replayed':decisions,'whole_arm_accepted_numeric_paths':whole_paths,
+  'per_path':per_path,'direct_full36_and_final_comparisons':comparisons,'CUDA_initialized':False,
+  'no_quality_or_clean_speed_claim':True}
 lock=(project/'.sync/f1.lock').open('a+');fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB);fcntl.flock(lock,fcntl.LOCK_UN);lock.close()
 u='GPU-cebf7119-cf03-23b9-e192-cd196332b704'
 gpu=subprocess.check_output(['nvidia-smi','-i',u,'--query-gpu=uuid,memory.used','--format=csv,noheader,nounits'],text=True).strip()
@@ -66,7 +151,8 @@ capture={'status':'E1_ORIGINAL_GPU_TERMINAL_ALL8_SCOPE_CAPTURED','source_revisio
  'budget_before_used_GPUh':before['used_gpu_hours'],'budget_after_used_GPUh':after['used_gpu_hours'],
  'remaining_window_GPUh':after['cap_gpu_hours']-after['used_gpu_hours'],'GPU_jobs_launched':after['gpu_jobs_launched'],
  'payload_files':len(c['payload_sha256']),'GPU_release':gpu,'compute_apps':apps,'lock_available':True,
- 'tensor_files':len(list(out.rglob('*.pt'))),'video_files':len(list(out.rglob('*.mp4'))),'observed_unix':time.time()}
+ 'tensor_files':len(list(out.rglob('*.pt'))),'video_files':len(list(out.rglob('*.mp4'))),
+ 'independent_actual_tensor_and_policy_audit':independent,'observed_unix':time.time()}
 native={}
 for key,path in native_names+[('budget',project/'reports/budget.json')]:
  raw=path.read_bytes();packed=gzip.compress(raw,compresslevel=6,mtime=0)
@@ -74,7 +160,8 @@ for key,path in native_names+[('budget',project/'reports/budget.json')]:
   'base64':base64.b64encode(packed).decode()}
 print(json.dumps({'capture':capture,'native':native}))
 '''
-    call=subprocess.run(['ssh','-o','BatchMode=yes','-o','ConnectTimeout=15','gkd_minchen','python3 -'],
+    call=subprocess.run(['ssh','-o','BatchMode=yes','-o','ConnectTimeout=15','gkd_minchen',
+        '/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python -'],
         input=code,text=True,capture_output=True)
     if call.returncode:raise RuntimeError(call.stderr[-3500:])
     value=json.loads(call.stdout)
