@@ -1,0 +1,71 @@
+#!/usr/bin/env python3
+"""Independently reconstruct timing ratios from complete captured CPU results."""
+import json,math
+from pathlib import Path
+R=Path(__file__).resolve().parents[1]
+def main():
+ capture=json.loads((R/'reports/wc_clean_speed20_live_or_terminal_capture_20261012.json').read_text());d=capture['final']
+ assert d['status']=='CLEAN_SPEED20_COMPLETE40_ALL20_TIMINGS_AND93_FRAME_SCORES_AUDITED'
+ assert not any(capture['original_processes'].values()) and all(capture['payload_verified'].values())
+ assert capture['post_exit']['exit_code']==0 and d['complete_paths']==40 and d['timed_paths']==20 and d['warmup_paths']==20
+ rows=[r for r in d['rows'] if r['section']=='TIMED'];assert len(rows)==20
+ aliases={'av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632':'AV28','human_199':'Human'}
+ labels={'NATIVE':'Native','WC':'WorldCache','RA':'RA','A_NO_P':'阶段 A（无 P）','KEEP_A_P':'KEEP＋阶段 A＋P'}
+ comparisons=[];variation=[];increments=[]
+ for r in rows:
+  matched={a['method']:a for a in rows if a['scene']==r['scene'] and a['round']==r['round']};score=r['LPIPS'];assert score['frames']==93
+  assert math.isclose(sum(score['frame_distances'])/93,score['mean_LPIPS'],rel_tol=1e-12,abs_tol=1e-12)
+  recomputed={'scene':r['scene'],'method':r['method'],'round':r['round'],'core_seconds':r['core_seconds'],
+      **{'speedup_vs_'+b:matched[m]['core_seconds']/r['core_seconds'] for b,m in [('Native','NATIVE'),('WC','WC'),('RA','RA')]},'LPIPS_mean':score['mean_LPIPS']}
+  original=next(a for a in d['comparisons_all20'] if (a['scene'],a['method'],a['round'])==(r['scene'],r['method'],r['round']))
+  assert recomputed==original;comparisons.append(recomputed)
+ for scene in aliases:
+  for method in labels:
+   rr=sorted([r for r in rows if r['scene']==scene and r['method']==method],key=lambda r:r['round']);a,b=rr
+   variation.append({'scene':scene,'method':method,'round1_seconds':a['core_seconds'],'round2_seconds':b['core_seconds'],
+      'range_seconds':abs(b['core_seconds']-a['core_seconds']),'range_percent_of_mean':100*abs(b['core_seconds']-a['core_seconds'])/((b['core_seconds']+a['core_seconds'])/2),
+      'rounds_RGB_equal':a['decoded_video']['RGB_sha256']==b['decoded_video']['RGB_sha256']})
+  for rep in (1,2):
+   a=next(r for r in rows if r['scene']==scene and r['round']==rep and r['method']=='A_NO_P');b=next(r for r in rows if r['scene']==scene and r['round']==rep and r['method']=='KEEP_A_P')
+   increments.append({'scene':scene,'round':rep,'A_NO_P_seconds':a['core_seconds'],'KEEP_A_P_seconds':b['core_seconds'],'P_speedup':a['core_seconds']/b['core_seconds'],
+       'P_seconds_saved':a['core_seconds']-b['core_seconds'],'LPIPS_NO_P':a['LPIPS']['mean_LPIPS'],'LPIPS_P':b['LPIPS']['mean_LPIPS'],
+       'LPIPS_loss_reduction':a['LPIPS']['mean_LPIPS']-b['LPIPS']['mean_LPIPS'],'P_action_count':(b['actions'] or []).count('PP')})
+ assert increments==d['P_increment_all4']
+ assert len(variation)==len(d['variation_all10'])
+ for a,b in zip(variation,d['variation_all10']):
+  for k,v in a.items():
+   if isinstance(v,float):assert math.isclose(v,b[k],rel_tol=1e-12,abs_tol=1e-12)
+   else:assert v==b[k]
+ independent={'status':'CLEAN_SPEED20_ALL20_TIMING_AND_SCORE_INDEPENDENT_RECONSTRUCTION_PASS','comparisons_all20':comparisons,'variation_all10':variation,'P_increment_all4':increments,'GPU_submissions':0,'ledger_written':False}
+ (R/'reports/wc_clean_speed20_independent_reconstruction_20261012.json').write_text(json.dumps(independent,indent=2)+'\n')
+ allpositive=all(p['P_seconds_saved']>0 for p in increments)
+ slower=all(p['P_seconds_saved']<=0 for p in increments)
+ conclusion='P 组合在两个场景、两轮均有净节时。' if allpositive else ('P 组合在两个场景、两轮均未产生净节时。' if slower else 'P 组合的净节时依赖场景或轮次，当前小测试没有一致的速度收益。')
+ sup=d['GPU_supervisor'];ledger=sup['budget_after'];remain=ledger['cap_gpu_hours']-ledger['used_gpu_hours']
+ out=['# WorldCache 小范围端到端测速结果（2026-10-12）','',conclusion+'保真结果与耗时逐项并列如下。','',
+  '固定 AV28、Human，seed=0，35 请求步／36 实际更新／72 CFG，768×432、93 帧、16fps。阶段 A 为 BETA1_ONE_PHASE：第25步前α=1，之后α=0.5；有P、无P共享A，不启用E5 FAST。保持原KEEP来源规则、校准、阈值和正的P创建误差先验；未调参。','',
+  f"完成20正式＋20完整预热、一次模型加载驻留；模型加载 {d['load_seconds']:.3f} 秒。每场景每配置预热2条，然后正序／反序各一轮。完整GPU全wall含加载／预热／失败／维护／写盘实计 {sup['wall_seconds']:.3f} 秒（{sup['wall_seconds']/3600:.6f} GPUh）；累计 {ledger['used_gpu_hours']:.6f}/{ledger['cap_gpu_hours']:.6f}，当前新增48预算余额 {remain:.6f} GPUh。GPU原PID已退出、锁与资源已释放。",'',
+  '主计时为同步的文本编码＋去噪＋VAE解码；普通guardrail保留、耗时另列。模型加载、算法安装、请求初态恢复、清理、输出核验与视频写盘在主计时外单列。算法推理中实际的缓存维护、候选head、修正、P投影、路由与刷新全部保留；关闭逐步审计张量复制／哈希／状态快照。倍数均按同场景同轮基线秒数÷候选秒数。','']
+ for scene,label in aliases.items():
+  out+=['## '+label,'','|配置|轮次|主计时秒|Native÷候选|WC÷候选|RA÷候选|全93帧LPIPS|','|---|---|---:|---:|---:|---:|---:|']
+  for method,lab in labels.items():
+   for r in comparisons:
+    if r['scene']==scene and r['method']==method:out.append(f"|{lab}|{r['round']}|{r['core_seconds']:.3f}|{r['speedup_vs_Native']:.4f}×|{r['speedup_vs_WC']:.4f}×|{r['speedup_vs_RA']:.4f}×|{r['LPIPS_mean']:.6f}|")
+  out+=['','|配置|正序秒|反序秒|两轮差秒|差值／两轮均值|','|---|---:|---:|---:|---:|']
+  for v in variation:
+   if v['scene']==scene:out.append(f"|{labels[v['method']]}|{v['round1_seconds']:.3f}|{v['round2_seconds']:.3f}|{v['range_seconds']:.3f}|{v['range_percent_of_mean']:.2f}%|")
+  out+=['']
+ out+=['## P 对同阶段 A 的净增量','','|场景|轮次|无P秒|有P秒|无P÷有P|节省秒（可负）|无P LPIPS|有P LPIPS|失真下降（可负）|P对数|','|---|---|---:|---:|---:|---:|---:|---:|---:|---:|']
+ for p in increments:out.append(f"|{aliases[p['scene']]}|{p['round']}|{p['A_NO_P_seconds']:.3f}|{p['KEEP_A_P_seconds']:.3f}|{p['P_speedup']:.4f}×|{p['P_seconds_saved']:.3f}|{p['LPIPS_NO_P']:.6f}|{p['LPIPS_P']:.6f}|{p['LPIPS_loss_reduction']:.6f}|{p['P_action_count']}|")
+ out+=['','这是KEEP＋A＋P整体运行系统对RA＋同A的实际增量，包含启用P所需的缓存、控制和维护；不能把完整系统差值只归因于P算子。','',
+ '## 分列耗时（全部正式运行）','','|场景|配置|轮次|guardrail流程不含写盘秒|写盘秒|安装秒|初态恢复秒|清理秒|终点核验秒|','|---|---|---|---:|---:|---:|---:|---:|---:|']
+ for r in rows:out.append(f"|{aliases[r['scene']]}|{labels[r['method']]}|{r['round']}|{r['guarded_pipeline_without_write_seconds']:.3f}|{r['video_write_seconds']:.3f}|{r['method_install_seconds']:.3f}|{r['cache_rng_reset_seconds']:.3f}|{r['method_cleanup_seconds']:.3f}|{r['outside_timer_endpoint_check_seconds']:.3f}|")
+ out+=['','## 预热（另计、全部保留）','','|场景|配置|预热序号|主计时秒|状态|','|---|---|---|---:|---|']
+ for r in d['rows']:
+  if r['section']=='WARMUP':out.append(f"|{aliases[r['scene']]}|{labels[r['method']]}|{r['round']}|{r['core_seconds']:.3f}|{r['status']}|")
+ out+=['','## 实际验收与边界','','两flow60路径CPU对照、真实生产入口CPU通过；真实40路径的缓存／RNG初始化独立验收，40终点与旧审计源哈希及动作匹配、40视频各93帧完整解码并与旧RGB匹配；正式20视频各93帧LPIPS，20倍数／10波动／4增量独立重构。全部重复、预热与原范围保留，未选最快结果。','',
+ '本轮回答这两个已曝光开发场景和固定seed下的实际运行成本与Native保真。两次重复提供运行波动，不能作为跨seed泛化或物理、语义、运动质量证明。单项结果用于改进该具体配置，不否定整个P或WorldCache方向。原P机制13.0600GPUh卡仍按用户要求暂缓，E2原卡保持；本轮不扩大搜索、训练或人评。','',
+ f"执行源码：`{sup['source_revision']}`。原始完整回执：`reports/wc_clean_speed20_live_or_terminal_capture_20261012.json`；独立重构：`reports/wc_clean_speed20_independent_reconstruction_20261012.json`。服务器原件：`{capture['output']}`。"]
+ (R/'research/374_WC_CLEAN_SPEED20_COMPLETE_RESULTS_20261012.md').write_text('\n'.join(out)+'\n')
+ print(json.dumps({'status':independent['status'],'P_net_conclusion':conclusion,'GPUh':sup['wall_seconds']/3600,'remaining_GPUh':remain}))
+if __name__=='__main__':main()
