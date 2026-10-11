@@ -1,3 +1,7 @@
+## 2026-10-11 当前：E5原生Meta独立通过，完整sampler复用既有CPU导入适配
+
+[343实际组件与修复](research/343_WC_E5_NATIVE_META_COMPONENT_ACCEPTANCE_AND_IMPORT_ADAPTER_REPAIR_20261011.md)：R4 Meta4094620 exit0，真实2B/head/unpatchify/7wrapper拒绝独立JSON通过；全CPU在sampler导入同名非项目包失败、0路径，426源码／账本保持、16.435890秒原失败保留。R5只复用原已验收actual-source import-only driver并恢复临时helpers，R4数值／guard／fixture不改，Meta精确复用不重跑，429载荷原24／444／888／96完整范围CPU待。原E4c继续不改，≤8完整自主／严格>8准确整卡确认，E2/E3原问题待不重问，goal active，无训练人评。以下为历史。
+
 ## 2026-10-11 当前：E5真实Meta组件通过，完整CPU进程隔离修复登记
 
 [342接续](research/342_WC_E5_META_PASS_AND_ISOLATED_COMPLETE_SAMPLER_CPU_REPAIR_20261011.md)：R3真实2B Meta/head及7wrapper拒绝组件先通过，后RF导入因真实／Toy包图冲突失败、0路径；原b136f50／4093519与4093521退出1、41.321201秒，421来源及账本保持。R4明确绑定新版fixture／history，Meta与完整sampler独立CPU进程、native context按原源提取，数值／guard不放松；原24／444／888／96＋7拒绝范围不缩，426载荷CPU待。原E4c继续不改，≤8自主／严格>8具体整卡确认，E2/E3原问题待不重问，goal active，无训练人评。以下为历史。

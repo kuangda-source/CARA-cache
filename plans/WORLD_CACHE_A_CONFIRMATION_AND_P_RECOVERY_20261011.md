@@ -1,4 +1,4 @@
-# 更新 v1.42：E5真实Meta通过与完整CPU进程隔离
+# 更新 v1.43：E5 Meta独立通过与完整采样导入接续
 
 ## 2026-10-11 当前：E4c原GPU继续，只读后处理CPU已独立通过
 
@@ -365,3 +365,7 @@ E3新增H-PREPARE-PERSIST只提前持久化每次真实成功prepare的纯签名
 ## v1.42 E5完整CPU进程隔离
 
 [342](../research/342_WC_E5_META_PASS_AND_ISOLATED_COMPLETE_SAMPLER_CPU_REPAIR_20261011.md)：R3实际Meta/head/七拒绝组件通过，full RF导入冲突、0路径；R4在两个独立CPU进程保留原完整24路径范围，明确新fixture／history绑定，不禁用可用性断言或用GPU解决CPU导入。服务器CPU待，原GPU E4c和全24終态仍优先。
+
+## v1.43 E5 Meta独立验收与完整导入接续
+
+[343](../research/343_WC_E5_NATIVE_META_COMPONENT_ACCEPTANCE_AND_IMPORT_ADAPTER_REPAIR_20261011.md)：R4实际2B Meta/原生head/七wrapper拒绝有独立exit0 JSON，精确复用不重复；sampler因缺原导入驱动取错包而失败、0路径，R5仅绑定已有通过的actual import-only适配和R4数值fixture，原完整24／444／888／96范围不缩。服务器CPU待，原E4c继续与全24终态仍优先。
