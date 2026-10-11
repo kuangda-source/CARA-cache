@@ -57,13 +57,15 @@ def main():
   out+=['']
  out+=['## P 对同阶段 A 的净增量','','|场景|轮次|无P秒|有P秒|无P÷有P|节省秒（可负）|无P LPIPS|有P LPIPS|失真下降（可负）|P对数|','|---|---|---:|---:|---:|---:|---:|---:|---:|---:|']
  for p in increments:out.append(f"|{aliases[p['scene']]}|{p['round']}|{p['A_NO_P_seconds']:.3f}|{p['KEEP_A_P_seconds']:.3f}|{p['P_speedup']:.4f}×|{p['P_seconds_saved']:.3f}|{p['LPIPS_NO_P']:.6f}|{p['LPIPS_P']:.6f}|{p['LPIPS_loss_reduction']:.6f}|{p['P_action_count']}|")
- out+=['','这是KEEP＋A＋P整体运行系统对RA＋同A的实际增量，包含启用P所需的缓存、控制和维护；不能把完整系统差值只归因于P算子。','',
+ out+=['','P 为原 ROTATION_050 部分 MLP 更新（4/10/16/22 层、128-token块、50% 活跃块），本轮未扩大层数或替换注意力。', '',
+ '这是KEEP＋A＋P整体运行系统对RA＋同A的实际增量，包含启用P所需的缓存、控制和维护；不能把完整系统差值只归因于P算子。','',
  '## 分列耗时（全部正式运行）','','|场景|配置|轮次|guardrail流程不含写盘秒|写盘秒|安装秒|初态恢复秒|清理秒|终点核验秒|','|---|---|---|---:|---:|---:|---:|---:|---:|']
  for r in rows:out.append(f"|{aliases[r['scene']]}|{labels[r['method']]}|{r['round']}|{r['guarded_pipeline_without_write_seconds']:.3f}|{r['video_write_seconds']:.3f}|{r['method_install_seconds']:.3f}|{r['cache_rng_reset_seconds']:.3f}|{r['method_cleanup_seconds']:.3f}|{r['outside_timer_endpoint_check_seconds']:.3f}|")
  out+=['','## 预热（另计、全部保留）','','|场景|配置|预热序号|主计时秒|状态|','|---|---|---|---:|---|']
  for r in d['rows']:
   if r['section']=='WARMUP':out.append(f"|{aliases[r['scene']]}|{labels[r['method']]}|{r['round']}|{r['core_seconds']:.3f}|{r['status']}|")
  out+=['','## 实际验收与边界','','两flow60路径CPU对照、真实生产入口CPU通过；真实40路径的缓存／RNG初始化独立验收，40终点与旧审计源哈希及动作匹配、40视频各93帧完整解码并与旧RGB匹配；正式20视频各93帧LPIPS，20倍数／10波动／4增量独立重构。全部重复、预热与原范围保留，未选最快结果。','',
+ '首次R1尝试在3条预热后因WC动作回执未收集而技术停止，0正式计时；3个终点均匹配旧源，两个Native视频93帧RGB已匹配。原源码、原件、CPU失败及完整范围封存，R2只补WC只读bool计数、独立重新全60CPU和真实入口门，并重新全部40路径，没有复用旧预热。R1实费0.302284958GPUh已在上述累计账本中计入；原终态为reports/wc_clean_speed20_r1_technical_attempt_terminal_20261012.json。', '',
  '本轮回答这两个已曝光开发场景和固定seed下的实际运行成本与Native保真。两次重复提供运行波动，不能作为跨seed泛化或物理、语义、运动质量证明。单项结果用于改进该具体配置，不否定整个P或WorldCache方向。原P机制13.0600GPUh卡仍按用户要求暂缓，E2原卡保持；本轮不扩大搜索、训练或人评。','',
  f"执行源码：`{sup['source_revision']}`。原始完整回执：`reports/wc_clean_speed20_live_or_terminal_capture_20261012.json`；独立重构：`reports/wc_clean_speed20_independent_reconstruction_20261012.json`。服务器原件：`{capture['output']}`。"]
  (R/'research/374_WC_CLEAN_SPEED20_COMPLETE_RESULTS_20261012.md').write_text('\n'.join(out)+'\n')
