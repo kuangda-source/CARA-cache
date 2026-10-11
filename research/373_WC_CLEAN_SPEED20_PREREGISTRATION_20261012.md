@@ -20,3 +20,7 @@
 r1部署依赖缺失，未进入采样、0GPU。原stage和失败回执封存。r2从完整原E3冻结源补齐缺失依赖、未改执行算法；两flow全60CPU路径128.570517秒通过：20审计、40clean的终点、Toy输出、动作、A history一致，缓存／求解器／RNG初态恢复。证据：`reports/wc_clean_speed20_sampling_cpu_pass_20261012.json`。
 
 实际生产入口新增完整scope拒绝控制、旧十终点动作绑定、单驻留40路径、同轮Native评分和全20比较；CPU原生产入口验收与真实GPU执行仍待。预热2条／配置／场景不追加调参；全部时间波动保留。后处理独立重读40终点与40×93帧，和旧审计视频完整解码RGB对照，再对正式20×93帧CPU LPIPS。
+
+## 实际启动更新
+
+真实生产CPU已通过，0GPU／0账本；随后的唯一原GPU监督156093、runner156262、自动CPU watcher156094已启动。sampling core 与CPU验收字节一致，完整执行source `f2bfb0774b315798a299e9415fb80e1ff36e6232`、629文件冻结。主卡单次forecast4.659511770GPUh≤8，按fresh UUID／全局kernel锁／预算准入执行第81作业，used=cap仅在途预留。实际加载、40路径和20正式评分结果仍待。

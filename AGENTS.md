@@ -1,3 +1,7 @@
+## 2026-10-12 clean speed20 real GPU admitted and original job running
+
+[373测速卡](research/373_WC_CLEAN_SPEED20_PREREGISTRATION_20261012.md)：两flow全60采样CPU及真实入口CPU均通过；source f2bfb0774b315798a299e9415fb80e1ff36e6232 已推送，629 payload 冻结、fresh A6000 UUID／无apps／24MiB／全局f1 kernel锁／无inflight／预算准入后唯一监督156093与runner156262真实运行，post watcher156094等待原GPU释放。全40路径一次驻留／20预热／20正式、固定阶段β1／KEEP、forecast4.659511770≤8保持；全20结果与93帧LPIPS尚待，不据初始化给加速倍数。实际第81提交，旧实结54.201828585／cap77.895246590、新48余23.693418005；used=cap是保守在途预留，结束按含加载预热失败的全wall实结。只跟踪原source／PID，不重投或改在途字节，P13h仍暂缓、E2原卡保持。以下为历史。
+
 ## 2026-10-12 clean speed20 sampling CPU accepted; production entry next
 
 [373测速卡](research/373_WC_CLEAN_SPEED20_PREREGISTRATION_20261012.md)：独立r2两flow全60CPU（20审计＋40clean）128.570517秒通过，20 clean/flow 的终点／Toy输出／动作／A history等价、缓存RNG初态恢复；实际CUDA未初始化、0GPU／0账本写。r1缺部署依赖失败原记录保留，独立r2补齐未改算法；新真实入口与单驻留监督／CPU全93帧评分已准备，实际生产CPU及fresh GPU准入待。全40／20正式／20预热、固定阶段β1／KEEP、forecast4.659511770≤8不变；主计时文本至VAE，加载／guardrail／写盘另列，禁止E5FAST混入，P13h暂缓/E2原卡保持。尚无测速GPU、真实等价或净加速结论；已用54.201828585／cap77.895246590、新48余23.693418005。以下为历史。
