@@ -1,3 +1,7 @@
+## 2026-10-11 当前：E4c 全24来源年龄通过，E5仅回执owner比较修复
+
+[345完整结果与接续](../../research/345_WC_E4C_COMPLETE_SOURCE_AGE_RESULTS_AND_E5_POLICY_RECEIPT_REPAIR_20261011.md)：原E4c退出0，四父／16suffix／24teacher／44文件388张量162比较与四93帧通过；12对P局部误差均高于D，Human早期age4为8.4598倍，非终点或线上寿命结论。完整费用1.594927306，累计41.908688946／77.895246590，新48余35.986557644，无在途。E5 R5退出1，12已写路径输出相等，失败只因跨对象decision.owner内存地址；各自owner／完整语义严格校验R6四拒绝通过，原数值不改、完整24／444／888／96 CPU待。5.126846GPUh真实全24费用提案非ready／非速度。≤8自主／严格>8准确整卡确认，E2/E3原批准待不重问，goal active，无训练人评。以下为历史。
+
 ## 2026-10-11 当前：E5生产head合同独立通过，完整24路径CPU实际在跑
 
 [344实际进度](../../research/344_WC_E5_PRODUCTION_HEAD_ACCEPTED_AND_COMPLETE_CPU_RUNNING_20261011.md)：真实2B Meta/head/native unpatchify/原生checkpoint及7wrapper拒绝独立通过；R5 source1185a47／4095672与4095678存活、429来源／账本保持。四固定族OFF与W1路径已写，β=1进行中，完整24／444实读／888张量／96恢复仍未全部验收；R1–R4失败保留，非真实视频／速度结论。原E4c三父完整／Human ON继续，399不改、原三句柄／锁／唯一GPUapp核对；完整24终态优先。≤8完整自主／严格>8具体确认，E2/E3原问题待不重问，goal active，无训练人评。以下为历史。
