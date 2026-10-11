@@ -1,3 +1,7 @@
+# v1.56 P same-state original method globals; complete scope retained
+
+[356原函数绑定修复](../research/356_WC_P_REFERENCE_SAME_STATE_UNWRAPPED_GLOBALS_REPAIR_20261011.md)：CPU R2/sourcecf02589在no_grad包装器globals处导入失败，30.914753秒／0父／0张量，444原来源保持。R3仅unwrap原命名空间并严格核对torch，五读出数值／两flow完整8父32suffix48点688pairs／1160张量不改；完整CPU和独立实读待。E5 live6原三句柄／456保持，AV_R1五完整路径，全24仍待；前实结41.908688946／cap77.895246590、新48余35.986557644，在途预留非实耗。≤8整卡自主／严格>8具体确认，E2/E3原问待，无训练人评，goal active。以下为历史。
+
 # v1.55 P same-state source-site repair; complete scope retained
 
 [355适配修复](../research/355_WC_P_REFERENCE_SAME_STATE_CPU_SOURCE_SITE_REPAIR_20261011.md)：同状态CPU R1/sourceff68a22在import原run_event匹配处退出，31.785763秒、0父路径、444来源与原失败保持。R2仅去缩进后源码匹配16/20空格修复，数值与两flow完整8父32suffix48点688pairs／1160张量不变；本地精确site与逆变换、全部新hash／语法通过，服务器完整CPU待，未GPU。原E5完整24／eff2b71／456和原句柄继续；前实结41.908688946／cap77.895246590、新48余35.986557644，在途预留非实耗。≤8完整自主／严格>8具体确认，E2/E3原待不重问，无训练人评，goal active。以下为历史。

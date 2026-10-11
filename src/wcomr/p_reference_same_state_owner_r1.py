@@ -179,6 +179,7 @@ _new="                if not source:\n                    branch['natural_first_
 if _source.count(_old)!=1:raise ValueError('Original natural-event observation site differs')
 _edited=_source.replace(_old,_new)
 if _edited.replace(_new,_old)!=_source:raise ValueError('Unregistered suffix implementation edit')
-_namespace=dict(MatchedSourceAgeOwner.run_event.__globals__)
+_namespace=dict(inspect.unwrap(MatchedSourceAgeOwner.run_event).__globals__)
+if _namespace.get("torch") is not torch:raise ValueError("Original unwrapped method globals differ")
 exec(compile(_edited,__file__+'#explicit-fixed-window-natural-action-observation','exec'),_namespace)
 SameStateReferenceOwner.run_event=_namespace['run_event']
