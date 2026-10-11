@@ -1,4 +1,4 @@
-# 更新 v1.37：E5早期head省算独立原型与受影响CPU
+# 更新 v1.38：E5省算原型CPU实际等价，下一生产模式与费用范围
 
 ## 2026-10-11 当前：E4c原GPU继续，只读后处理CPU已独立通过
 
@@ -344,3 +344,8 @@ E3新增H-PREPARE-PERSIST只提前持久化每次真实成功prepare的纯签名
 ## v1.37 E5独立原型与CPU
 
 [336范围](../research/336_WC_E5_EARLY_HEAD_ELISION_IMPLEMENTATION_AND_CPU_SCOPE_20261011.md)：12完整直接CPU路径，先实读等价／严格恢复／实际native head计数；只改新版本的head选择和记录状态，不改原E4c、E2、E3。CPU通过后才冻结真实GPU与费用卡，非预先速度／质量结果。H-P-W1-WORKING-REFERENCE仍等待E4c全24终态后再实施。
+
+
+## v1.38 E5实际CPU等价结果
+
+[338结果与下一范围](../research/338_WC_E5_EARLY_HEAD_CPU_EQUIVALENCE_RESULTS_AND_NEXT_REAL_SCOPE_20261011.md)：完整12路径／222输出相同，实际head97→82／100→82、24恢复与拒绝／失败保留；CPU普通head／Toy直接更新边界明确，真实生产head配置／unpatchify／记录hooks和UniPC完整等价仍待。下一在独立版本准备生产接线，随后冻结小完整真实等价与同边界费用卡。原E4c源年龄全24终态仍优先，H-P-W1-WORKING-REFERENCE等待它完成，E2／E3原整卡不改。
