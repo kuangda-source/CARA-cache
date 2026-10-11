@@ -1,3 +1,11 @@
+## 2026-10-11 当前：E4c首窗六点实际读取，E5发现早期head机会
+
+[335首窗实际误差与W1目标对齐](../../research/335_WC_E4C_FIRST_FIXED_WINDOW_TENSOR_FINDING_AND_A_TARGET_ALIGNMENT_20261011.md)：原GPU继续运行，固定首AV28 early/birth13的11已写文件独立CPU读取，22直接比较通过；两次自然策略同OFF父切片和彼此相同，六C读出同实际suffix一致。P/D自身状态age1/2/4 guided MSE比1.14350/1.26876/1.38520，仅首6/24点局部数据，剩18不作负结果；完整4父/4事件/16suffix/24点与原自动审计保持。scalar仍从真D基准外推、warp读取P工作残差，真实D统计/warp/轨迹也不同；H-P-W1-WORKING-REFERENCE登记下一CPU区分，不改本轮或E2/E3。
+
+[334早期head源核对](../../research/334_WC_EARLY_ALPHA1_HEAD_CONSUMER_FINDING_AND_NEXT_CPU_SCOPE_20261011.md)：原32卡16条A路径/576步重新计数，阶段W1/β分别108/112分支存在α=1候选；原head不用于RA/flow warp数值，但写previous_output并进入完整快照，H-EARLY-HEAD-ELISION需明确自身状态合同，不能简单删除或宣称速度收益。新GPU0，无训练人评。
+
+原4075406/4075494与CPU等待器4079033现场存活、f1锁busy，前settled40.313761639725/cap77.895246589659、新48余37.581484949934，当前为唯一在途预留待全wall结算。E4c forecast2.577578296完整248pair/496CFG不改或重投，结束后自动全CPU；E2/9.8697和E3/12.3775完整批准待、不重问/拆卡，≤8自主/严格>8完整确认，goal active。以下为历史。
+
 ## 2026-10-11 当前：E4c原GPU继续，只读后处理CPU已独立通过
 
 [333实际验收与接续](../../research/333_WC_E4C_READONLY_CPU_ACCEPTANCE_AND_TERMINAL_HANDOFF_20261011.md)：新source40b0143、4077675/4077676退出0消失，23.610747秒；复用原R3完整两flow，实读88文件/776tensor/324比较、48点及24组来源年龄汇总通过，8语义拒绝与3标量控制通过。原378/new6/回执/结果/账本SHA保持，没有采样/meta/GPU重跑。R2只读reader统一FP64归约容差，Tensor/hash/逐元素要求与原在途源码不变；完整终态44文件/388tensor/24点、四93帧视频读取入口已具体准备。
