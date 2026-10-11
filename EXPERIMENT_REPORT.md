@@ -1,3 +1,7 @@
+## 2026-10-12 repaired clean speed20 R2 real GPU running
+
+[373测速登记及修复](research/373_WC_CLEAN_SPEED20_PREREGISTRATION_20261012.md)：R1三个预热终点均逐位匹配，WC动作回执缺失触发技术停止（0正式），实费0.302284958GPUh、原CPU失败与完整40／20槽封存。R2只补WC只读深层bool计数；独立r3两flow全60CPU132.582522秒与真实生产CPU通过。source10b2a3bb5deefa123d241a7cc797b312caa101a2／629payload冻结；fresh24MiB／noapps／A6000 UUID／f1 kernel锁／预算准入后唯一监督168157、runner168439、post watcher168158实际运行。重新完整20预热＋20正式、一次驻留、五方法／两场景／同阶段β1／KEEP／forecast4.659511770≤8不改，不复用旧预热、不改在途源、不重投，真实20计时与93帧CPU评分待。第82提交，前实结54.504113543／cap77.895246590、新48余23.391133047；used=cap仅在途预留。P13h仍暂缓、E2原卡保持，技术问题非科研方向负结果。以下为历史。
+
 ## 2026-10-12 clean speed20 R2 WC action observation repair
 
 [373技术修复登记](research/373_WC_CLEAN_SPEED20_PREREGISTRATION_20261012.md)：R1执行入口漏收集WC动作（返回None，旧回执36个实际C/D），两Native预热终点逐位一致，尚0正式。R2只增加首深层block的只读bool计数，保留实际算法／A／P／缓存／RNG、无逐步Tensor复制哈希；原R1源码stage进程不改、费用和全部范围封存。独立R2保留两场景五配置正反20正式＋20完整预热一次驻留，forecast4.659511770≤8不变；重新60CPU与真实入口门后才fresh准入，不复用旧预热、不据技术失败报方法负结果。P13h仍暂缓、E2原卡保持。以下为历史。

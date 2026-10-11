@@ -1,20 +1,20 @@
 {
-  "observed_unix": 1791747754.6060266,
-  "stage": "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-clean-speed20-production-r1-20261012",
-  "output": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-clean-speed20-beta1-keep-r1",
+  "observed_unix": 1791749596.7717073,
+  "stage": "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-clean-speed20-production-r2-20261012",
+  "output": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-clean-speed20-beta1-keep-r2",
   "supervisor": {
     "status": "CLEAN_SPEED20_GPU_RUNNING",
-    "pid": 156093,
-    "run_id": "wc-clean-speed20-beta1-keep-r1",
-    "source_revision": "f2bfb0774b315798a299e9415fb80e1ff36e6232",
-    "config_sha256": "9a824ba97775bfbaa07af8e9c860f631daf23873138e5a05a42f0a4fc48f0404",
-    "production_CPU_sha256": "919b352b10b7db238f7389a3de9d155c1f4de8a44e1fa735f333147be65c85ec",
+    "pid": 168157,
+    "run_id": "wc-clean-speed20-beta1-keep-r2",
+    "source_revision": "10b2a3bb5deefa123d241a7cc797b312caa101a2",
+    "config_sha256": "10a800af51cf57b7a3c7d89030bf558c21e29b0d4f35f724dde3d7c2aa94bfb6",
+    "production_CPU_sha256": "0c1ec70a48b40182877a7eb41950aff5471927e5e9dae0ff6cb6812faf944b0b",
     "budget_before": {
       "batch": "F0-F1",
       "cap_gpu_hours": 77.89524658965853,
-      "used_gpu_hours": 54.20182858495172,
-      "gpu_jobs_launched": 80,
-      "status": "E3_COMPLETE64_SETTLED_RAW_AUDIT_PENDING",
+      "used_gpu_hours": 54.50411354269057,
+      "gpu_jobs_launched": 81,
+      "status": "CLEAN_SPEED20_SETTLED_RAW_CPU_AUDIT_PENDING",
       "gpu_import_probes_completed": 1,
       "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts",
       "budget_authorization_ref": "manifests/budget_authorization_20261009_wc_new_window_48gpuh.json",
@@ -100,40 +100,40 @@
       ]
     },
     "admission": {
-      "unix": 1791747730.7994618,
+      "unix": 1791749559.3799763,
       "uuid": "GPU-cebf7119-cf03-23b9-e192-cd196332b704",
       "name": "NVIDIA RTX A6000",
       "memory_used_mib": 24,
       "compute_cap": "8.6",
       "pids": []
     },
-    "started_unix": 1791747730.8158317,
+    "started_unix": 1791749559.3811443,
     "authorized_billed_GPUh_limit": 8.0,
     "planned_timed_runs": 20,
     "planned_warmup_runs": 20,
     "model_loads": 1,
     "legacy_seconds_deadline_active": false,
-    "child_pid": 156262,
+    "child_pid": 168439,
     "command": [
       "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python",
       "-u",
-      "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-clean-speed20-production-r1-20261012/scripts/run_wc_clean_speed20_r1.py",
+      "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-clean-speed20-production-r2-20261012/scripts/run_wc_clean_speed20_r1.py",
       "--project",
       "/home/gaokuangda/data/gkd/worldcache_omr",
       "--stage",
-      "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-clean-speed20-production-r1-20261012",
+      "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-clean-speed20-production-r2-20261012",
       "--source-revision",
-      "f2bfb0774b315798a299e9415fb80e1ff36e6232",
+      "10b2a3bb5deefa123d241a7cc797b312caa101a2",
       "--gpu-uuid",
       "GPU-cebf7119-cf03-23b9-e192-cd196332b704"
     ]
   },
-  "supervisor_sha256": "71aebe5480a82fd43b16e4bc0b8b6692b45f21b640f97102d363290cfc7817b5",
+  "supervisor_sha256": "71de52cca5736711e7542d2fbaffa3d57a278b9a276639f12161f4e2e1798700",
   "ledger": {
     "batch": "F0-F1",
     "cap_gpu_hours": 77.89524658965853,
     "used_gpu_hours": 77.89524658965853,
-    "gpu_jobs_launched": 81,
+    "gpu_jobs_launched": 82,
     "status": "CLEAN_SPEED20_INFLIGHT_REMAINING_RESERVED_NOT_ACTUAL_SPENT",
     "gpu_import_probes_completed": 1,
     "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts",
@@ -219,12 +219,12 @@
       }
     ],
     "wc_clean_speed20_inflight": {
-      "supervisor_pid": 156093,
-      "run_id": "wc-clean-speed20-beta1-keep-r1",
-      "reserved_GPUh": 23.693418004706807
+      "supervisor_pid": 168157,
+      "run_id": "wc-clean-speed20-beta1-keep-r2",
+      "reserved_GPUh": 23.39113304696796
     }
   },
-  "ledger_sha256": "a7e33a9a2a2493ba04846addaeab873e0333cfa2dee4ccf9dccb9794803edb3c",
+  "ledger_sha256": "3b8d1f9f2b61e347ef6956e76eebdc40e4a3ff5974a5c5cbaffade029f52d560",
   "payload_verified": {
     "configs/wc_paired_four_action_full_sampler_cpu_schedules_20261009.json": true,
     "manifests/budget_authorization_20261009_wc_new_window_48gpuh.json": true,
@@ -694,6 +694,7 @@
     "src/wcomr/cfg_shared_phase_shrink.py": true,
     "src/wcomr/cfg_teacher_confirmation_production.py": true,
     "src/wcomr/cfg_teacher_production.py": true,
+    "src/wcomr/clean_speed20_production_r1.py": true,
     "src/wcomr/clean_timing.py": true,
     "src/wcomr/current_birth_full64_scores_r1.py": true,
     "src/wcomr/current_birth_real_inputs_r1.py": true,
@@ -851,17 +852,16 @@
     "src/wcomr/w1d_summary.py": true,
     "src/wcomr/wc_cost_observer.py": true,
     "src/wcomr/wc_qkv_snapshot.py": true,
-    "src/wcomr/clean_speed20_production_r1.py": true,
     "scripts/run_wc_clean_speed20_r1.py": true,
     "scripts/supervise_wc_clean_speed20_r1.py": true,
     "scripts/postprocess_wc_clean_speed20_cpu_r1.py": true
   },
   "GPU": "GPU-cebf7119-cf03-23b9-e192-cd196332b704, 27",
   "original_processes": {
-    "156093": true,
-    "156262": true
+    "168157": true,
+    "168439": true
   },
   "GPU-supervisor.log_tail": "",
   "post-watcher.log_tail": "",
-  "GPU.log_tail": "[10-12 03:42:14|INFO|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/_src/imaginaire/utils/checkpoint_db.py:171:path] Downloading checkpoint nvidia/Cosmos-Guardrail1(9c7b7da4-2d95-45bb-9cb8-2eed954e9736)\n[10-12 03:42:14|INFO|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/_src/imaginaire/utils/checkpoint_db.py:131:_download] Downloading checkpoint from Hugging Face with {'repo_id': 'nvidia/Cosmos-Guardrail1', 'repo_type': 'model', 'revision': 'd6d4bfa899a71454a700907664f3e88f503950cf', 'allow_patterns': ['*']}\n2026-10-12 03:42:27.589511: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F FMA\nTo enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.\n2026-10-12 03:42:28.467162: W tensorflow/compiler/xla/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer.so.7'; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/cosmos/cosmos-predict2.5/.venv/lib/python3.10/site-packages/cv2/../../lib64:\n2026-10-12 03:42:28.467336: W tensorflow/compiler/xla/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer_plugin.so.7'; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/cosmos/cosmos-predict2.5/.venv/lib/python3.10/site-packages/cv2/../../lib64:\n2026-10-12 03:42:28.467349: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.\n[10-12 03:42:30|CRITICAL|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/_src/predict2/checkpointer/dcp.py:188:<module>] for the back comptiable pytorch! New DefaultLoadPlanner class is created.\n"
+  "GPU.log_tail": "[10-12 04:12:44|INFO|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/_src/imaginaire/utils/checkpoint_db.py:171:path] Downloading checkpoint nvidia/Cosmos-Guardrail1(9c7b7da4-2d95-45bb-9cb8-2eed954e9736)\n[10-12 04:12:44|INFO|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/_src/imaginaire/utils/checkpoint_db.py:131:_download] Downloading checkpoint from Hugging Face with {'repo_id': 'nvidia/Cosmos-Guardrail1', 'repo_type': 'model', 'revision': 'd6d4bfa899a71454a700907664f3e88f503950cf', 'allow_patterns': ['*']}\n2026-10-12 04:12:57.721171: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F FMA\nTo enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.\n2026-10-12 04:12:58.585461: W tensorflow/compiler/xla/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer.so.7'; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/cosmos/cosmos-predict2.5/.venv/lib/python3.10/site-packages/cv2/../../lib64:\n2026-10-12 04:12:58.585586: W tensorflow/compiler/xla/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer_plugin.so.7'; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/cosmos/cosmos-predict2.5/.venv/lib/python3.10/site-packages/cv2/../../lib64:\n2026-10-12 04:12:58.585599: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.\n[10-12 04:12:59|CRITICAL|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/_src/predict2/checkpointer/dcp.py:188:<module>] for the back comptiable pytorch! New DefaultLoadPlanner class is created.\n"
 }
