@@ -1,3 +1,9 @@
+## 2026-10-11 当前：E4c整卡GPU已准入，原模型进程初始化
+
+[331整卡启动与接续](research/331_WC_E4C_COMPLETE_GPU_START_AND_CONTINUATION_20261011.md)：完整E4c4父／4事件／16五步suffix／24同状态teacher，248pair／496CFG，forecast2.577578296GPUh，≤8按直接授权推进。原source6a5910c、dispatch c8abea6；supervisor4075406及唯一child4075494现场存活，指定A6000准入前24MiB/noapps，正式共享锁/预算准入后第78作业在途。真实CAL/RA/solver/模型与399来源生产CPU通过，Toy完整R3和776实读/324比较保持。初始化不是新局部误差、视频质量或寿命结论。
+
+前settled40.313761639725/77.895246589659、新48余37.581484949934；当前used=cap是唯一在途保守预留，结束真实wall含加载/失败/搬运/flush结算。只跟踪原PID与receipt、不重投或改payload，下一CPU核对44实际文件/388张量/24点和四父完整视频。E2/9.8697及E3/12.3775原完整批准待，不重问或拆取消；≤8自主/严格>8完整确认，goal active，无训练人评。以下为历史。
+
 ## 2026-10-11 当前：E4c完整物理CPU独立通过，真实入口CPU已登记
 
 [329验收与实际入口](research/329_WC_E4C_PHYSICAL_CPU_ACCEPTANCE_AND_ACTUAL_ENTRY_SCOPE_20261011.md)：原3bb5af4／4074224与4074226退出0消失、165.873274秒；两flow完整8父／8事件／32短分支／48同状态点，另次独立88文件／776张量／324直接比较通过。父OFF/ON、两次自然policy与父5步切片一致；原teacher无部署锚点污染，条件id/version/hash保持。R1导入、R2条件克隆失败保留，不称Toy执行为真实质量/寿命。
