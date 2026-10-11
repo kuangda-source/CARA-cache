@@ -1,3 +1,7 @@
+# v1.68 approved E3 full64 GPU running; complete E5 acceptance retained
+
+[366真实启动](../research/366_WC_E3_COMPLETE64_REAL_GPU_START_AND_E5_HANDOFF_20261011.md)：准确已批准E3全64／10复用／54新／20加载已唯一启动，selected CPU86.129615秒退出0，449＋16冻结保持；source2e39cd3，原GPU4163981／post4163982／首模型4164075实际存活与命令绑定，fresh A6000准入通过、目标app13074MiB。第80作业，forecast12.377456422；全卡生成／自动93帧评分／独立终态仍待，不重投或改源。E5全24／888／444新旧＋444反序／24视频已独立通过，修正head省180（20.7373%）、计时混合，实费4.168024668；前实结46.076713614／cap77.895246590，新48余31.818532976，当前used=cap是在途预留非实耗。P自身above8未授、E2原问保持，待E3实结后评估，无训练人评，goal active。以下为历史。
+
 # v1.67 E5 complete24 independently accepted; approved E3 full64 next
 
 [365完整结果](../research/365_WC_E5_COMPLETE24_REAL_HEAD_EQUIVALENCE_RESULTS_AND_E3_NEXT_20261011.md)：E5四组退出0、原GPU／自动CPU／reader全部结束；独立24文件888张量、444新旧＋444反序直接相等、24视频2232帧及策略／RNG通过，456来源保持。修正head868→688省180（20.7373%），含OFF1156→976；两顺序次数一致，计时混合，Human反序W1／beta慢21.047990／63.637346秒，尚非稳定净加速。实费4.168024668，累计46.076713614／cap77.895246590、新48余31.818532976，79提交、无GPU在途。下一已批准E3全64／10复用／54新／20加载、forecast12.377456422，原冻结实现保持、唯一selected CPU／fresh准入后执行；P自身above8未授，E2原问保持。无训练人评，goal active。以下为历史。

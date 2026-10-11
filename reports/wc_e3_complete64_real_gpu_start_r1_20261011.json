@@ -1,0 +1,443 @@
+{
+  "status": "E3_COMPLETE64_REAL_GPU_ADMISSION_AND_ORIGINAL_HANDLES_INDEPENDENTLY_OBSERVED_NOT_TERMINAL",
+  "source_revision": "2e39cd31b593540130c08a394b92d9f5b5b5db42",
+  "frozen_method_files_unchanged": 449,
+  "frozen_execution_files_unchanged": 16,
+  "selected_CPU_exit_code": 0,
+  "selected_CPU_wall_seconds": 86.12961475085467,
+  "planned_scope": {
+    "scientific_positions": 64,
+    "qualified_reused_positions": 10,
+    "fresh_complete_paths": 54,
+    "independent_model_loads": 20,
+    "maximum_paths_per_process": 3,
+    "fresh_solver_updates": 1944,
+    "fresh_CFG_calls": 3888
+  },
+  "actual_first_block": {
+    "id": "E3_BLOCK_01",
+    "planned_paths": 3,
+    "status": "ORIGINAL_MODEL_PROCESS_RUNNING",
+    "pid": 4164075,
+    "command": [
+      "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python",
+      "-u",
+      "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-e3-complete64-selected-r1-20261011/scripts/run_wc_e3_complete64_block_r1.py",
+      "--project",
+      "/home/gaokuangda/data/gkd/worldcache_omr",
+      "--stage",
+      "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-e3-complete64-selected-r1-20261011",
+      "--block",
+      "E3_BLOCK_01",
+      "--source-revision",
+      "2e39cd31b593540130c08a394b92d9f5b5b5db42",
+      "--gpu-uuid",
+      "GPU-cebf7119-cf03-23b9-e192-cd196332b704"
+    ],
+    "started_unix": 1791707394.0723386
+  },
+  "original_live_handles": [
+    {
+      "pid": 4163981,
+      "actual_command": "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python /home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-e3-complete64-selected-r1-20261011/scripts/supervise_wc_e3_complete64_r1.py --project /home/gaokuangda/data/gkd/worldcache_omr --stage /home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-e3-complete64-selected-r1-20261011 --source-revision 2e39cd31b593540130c08a394b92d9f5b5b5db42 ",
+      "live_and_stage_source_bound": true
+    },
+    {
+      "pid": 4163982,
+      "actual_command": "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python /home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-e3-complete64-selected-r1-20261011/scripts/supervise_wc_e3_complete64_post_cpu_r1.py --project /home/gaokuangda/data/gkd/worldcache_omr --stage /home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-e3-complete64-selected-r1-20261011 --source-revision 2e39cd31b593540130c08a394b92d9f5b5b5db42 --original-supervisor-pid 4163981 ",
+      "live_and_stage_source_bound": true
+    },
+    {
+      "pid": 4164075,
+      "actual_command": "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python -u /home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-e3-complete64-selected-r1-20261011/scripts/run_wc_e3_complete64_block_r1.py --project /home/gaokuangda/data/gkd/worldcache_omr --stage /home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-e3-complete64-selected-r1-20261011 --block E3_BLOCK_01 --source-revision 2e39cd31b593540130c08a394b92d9f5b5b5db42 --gpu-uuid GPU-cebf7119-cf03-23b9-e192-cd196332b704 ",
+      "live_and_stage_source_bound": true
+    }
+  ],
+  "actual_target_GPU_compute_apps": [
+    "GPU-cebf7119-cf03-23b9-e192-cd196332b704, 4164075, 13074 MiB"
+  ],
+  "GPU_supervisor_observation": {
+    "status": "E3_COMPLETE64_REUSE10_FRESH54_GPU_RUNNING",
+    "pid": 4163981,
+    "source_revision": "2e39cd31b593540130c08a394b92d9f5b5b5db42",
+    "run_id": "wc-e3-current-birth-complete64-reuse10-fresh54-r1",
+    "config_sha256": "4ae93359ff2e0ec51fdcb3aa957ecdfcca4b6724119146354883ee3e367b57ba",
+    "production_CPU_receipt_sha256": "951fae50af463db5a6c954b257b96e707cbd112dc01db8816dca92a8165c60c0",
+    "started_unix": 1791707393.9905245,
+    "budget_before": {
+      "batch": "F0-F1",
+      "cap_gpu_hours": 77.89524658965853,
+      "used_gpu_hours": 46.076713614039285,
+      "gpu_jobs_launched": 79,
+      "status": "E5_COMPLETE24_SETTLED_RAW_AUDIT_PENDING",
+      "gpu_import_probes_completed": 1,
+      "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts",
+      "budget_authorization_ref": "manifests/budget_authorization_20261009_wc_new_window_48gpuh.json",
+      "budget_authorization_history": [
+        {
+          "authorized_utc": "2026-10-02T18:03:00Z",
+          "source_thread_id": "01a0f1e6-7ad0-75df-9a02-172b60d2e00b",
+          "user_instruction": "\u628a\u5404\u4e2a\u5b9e\u9a8c\u7684 gpu \u9884\u7b97\u90fd\u8bbe\u7f6e\u4e3a 12gpuh",
+          "previous_cap_gpu_hours": 4,
+          "new_cumulative_cap_gpu_hours": 12,
+          "used_gpu_hours_at_change": 3.9117525685110333,
+          "no_usage_reset_or_transfer": true
+        },
+        {
+          "authorized_utc": "2026-10-04T06:13:36Z",
+          "source_thread_id": "01a0f1e6-7ad0-75df-9a02-172b60d2e00b",
+          "user_message_id": "Sentinel_861e63a87d8c819180ec9a8bcfa6dc92",
+          "user_instruction": "\u5141\u8bb8\u589e\u52a0 GPUh",
+          "previous_cap_gpu_hours": 12,
+          "new_cumulative_cap_gpu_hours": 13,
+          "used_gpu_hours_at_change": 11.022315686839217,
+          "gpu_jobs_launched_at_change": 45,
+          "no_usage_reset_or_transfer": true,
+          "authorization_ref": "manifests/budget_authorization_20261004_wc_13gpuh.json"
+        },
+        {
+          "authorized_on_local": "2026-10-05",
+          "user_instruction": "\u6279\u51c6 WC-W3-SMALL-CD-R1-20261004-A\uff0c\u628a\u7d2f\u8ba1 gpuh \u9650\u5236\u63d0\u5347\u5230 24",
+          "previous_cap_gpu_hours": 13,
+          "new_cumulative_cap_gpu_hours": 24,
+          "used_gpu_hours_at_change": 11.022315686839217,
+          "gpu_jobs_launched_at_change": 45,
+          "no_usage_reset_or_transfer": true,
+          "authorization_ref": "manifests/budget_authorization_20261005_wc_24gpuh.json",
+          "approved_card": "WC-W3-SMALL-CD-R1-20261004-A",
+          "single_run_cap_seconds": 3900
+        },
+        {
+          "authorized_unix": 1791428550.530142,
+          "authorized_on_local": "2026-10-08",
+          "user_instruction": "\u6279\u51c6\u6269\u5927 gpuh\uff0c\u76f4\u63a5\u52a0\u5230 50 \u5427",
+          "previous_cap_gpu_hours": 24,
+          "new_cumulative_cap_gpu_hours": 50,
+          "used_gpu_hours_at_change": 22.314242424184147,
+          "gpu_jobs_launched_at_change": 59,
+          "no_usage_reset_or_transfer": true,
+          "authorization_ref": "manifests/budget_authorization_20261008_wc_50gpuh.json",
+          "automatic_single_job_gpu_hours": 2
+        },
+        {
+          "authorized_unix": 1791560438.1859179,
+          "authorized_on_local": "2026-10-09",
+          "user_instruction": "\u662f\u4ece\u5f53\u524d\u5f00\u59cb 48gpuh",
+          "initial_user_instruction": "\u628a gpuh \u9884\u7b97\u63d0\u5230 48h",
+          "previous_cap_gpu_hours": 50,
+          "new_cumulative_cap_gpu_hours": 77.89524658965853,
+          "used_gpu_hours_at_change": 29.895246589658527,
+          "gpu_jobs_launched_at_change": 65,
+          "authorized_remaining_gpu_hours": 48,
+          "no_usage_reset_or_transfer": true,
+          "authorization_ref": "manifests/budget_authorization_20261009_wc_new_window_48gpuh.json",
+          "automatic_single_job_gpu_hours": 2
+        }
+      ],
+      "budget_authorization_window": {
+        "authorization_ref": "manifests/budget_authorization_20261009_wc_new_window_48gpuh.json",
+        "start_used_gpu_hours": 29.895246589658527,
+        "authorized_remaining_gpu_hours": 48,
+        "cumulative_cap_gpu_hours": 77.89524658965853,
+        "recorded_unix": 1791560438.1859179
+      },
+      "automatic_single_job_gpu_hours": 4,
+      "execution_policy_authorization_ref": "manifests/wc_execution_autonomy_authorization_20261010_4gpuh.json",
+      "execution_policy_authorization_history": [
+        {
+          "authorized_on_local": "2026-10-10",
+          "source_user_instruction": "\u5355\u6b21 \u6539\u6210\u8d85\u8fc7 4h\u624d\u9700\u8981\u786e\u8ba4",
+          "previous_automatic_single_job_gpu_hours": 2,
+          "automatic_single_job_gpu_hours": 4,
+          "authorization_ref": "manifests/wc_execution_autonomy_authorization_20261010_4gpuh.json",
+          "recorded_unix": 1791561847.0094812
+        }
+      ]
+    },
+    "admission": {
+      "unix": 1791707393.967956,
+      "uuid": "GPU-cebf7119-cf03-23b9-e192-cd196332b704",
+      "name": "NVIDIA RTX A6000",
+      "memory_used_mib": 24,
+      "compute_cap": "8.6",
+      "pids": []
+    },
+    "planned_scope": {
+      "scientific_positions": 64,
+      "qualified_reused_positions": 10,
+      "fresh_complete_paths": 54,
+      "independent_model_loads": 20,
+      "maximum_paths_per_process": 3,
+      "fresh_solver_updates": 1944,
+      "fresh_CFG_calls": 3888
+    },
+    "authorized_billed_GPUh_limit": 31.81853297561924,
+    "legacy_seconds_deadline_active": false,
+    "blocks": [
+      {
+        "id": "E3_BLOCK_01",
+        "planned_paths": 3,
+        "status": "ORIGINAL_MODEL_PROCESS_RUNNING",
+        "pid": 4164075,
+        "command": [
+          "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python",
+          "-u",
+          "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-e3-complete64-selected-r1-20261011/scripts/run_wc_e3_complete64_block_r1.py",
+          "--project",
+          "/home/gaokuangda/data/gkd/worldcache_omr",
+          "--stage",
+          "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-e3-complete64-selected-r1-20261011",
+          "--block",
+          "E3_BLOCK_01",
+          "--source-revision",
+          "2e39cd31b593540130c08a394b92d9f5b5b5db42",
+          "--gpu-uuid",
+          "GPU-cebf7119-cf03-23b9-e192-cd196332b704"
+        ],
+        "started_unix": 1791707394.0723386
+      },
+      {
+        "id": "E3_BLOCK_02",
+        "planned_paths": 3,
+        "status": "UNSTARTED_REGISTERED_SCOPE_RETAINED"
+      },
+      {
+        "id": "E3_BLOCK_03",
+        "planned_paths": 2,
+        "status": "UNSTARTED_REGISTERED_SCOPE_RETAINED"
+      },
+      {
+        "id": "E3_BLOCK_04",
+        "planned_paths": 3,
+        "status": "UNSTARTED_REGISTERED_SCOPE_RETAINED"
+      },
+      {
+        "id": "E3_BLOCK_05",
+        "planned_paths": 3,
+        "status": "UNSTARTED_REGISTERED_SCOPE_RETAINED"
+      },
+      {
+        "id": "E3_BLOCK_06",
+        "planned_paths": 2,
+        "status": "UNSTARTED_REGISTERED_SCOPE_RETAINED"
+      },
+      {
+        "id": "E3_BLOCK_07",
+        "planned_paths": 3,
+        "status": "UNSTARTED_REGISTERED_SCOPE_RETAINED"
+      },
+      {
+        "id": "E3_BLOCK_08",
+        "planned_paths": 3,
+        "status": "UNSTARTED_REGISTERED_SCOPE_RETAINED"
+      },
+      {
+        "id": "E3_BLOCK_09",
+        "planned_paths": 3,
+        "status": "UNSTARTED_REGISTERED_SCOPE_RETAINED"
+      },
+      {
+        "id": "E3_BLOCK_10",
+        "planned_paths": 3,
+        "status": "UNSTARTED_REGISTERED_SCOPE_RETAINED"
+      },
+      {
+        "id": "E3_BLOCK_11",
+        "planned_paths": 2,
+        "status": "UNSTARTED_REGISTERED_SCOPE_RETAINED"
+      },
+      {
+        "id": "E3_BLOCK_12",
+        "planned_paths": 3,
+        "status": "UNSTARTED_REGISTERED_SCOPE_RETAINED"
+      },
+      {
+        "id": "E3_BLOCK_13",
+        "planned_paths": 3,
+        "status": "UNSTARTED_REGISTERED_SCOPE_RETAINED"
+      },
+      {
+        "id": "E3_BLOCK_14",
+        "planned_paths": 2,
+        "status": "UNSTARTED_REGISTERED_SCOPE_RETAINED"
+      },
+      {
+        "id": "E3_BLOCK_15",
+        "planned_paths": 3,
+        "status": "UNSTARTED_REGISTERED_SCOPE_RETAINED"
+      },
+      {
+        "id": "E3_BLOCK_16",
+        "planned_paths": 3,
+        "status": "UNSTARTED_REGISTERED_SCOPE_RETAINED"
+      },
+      {
+        "id": "E3_BLOCK_17",
+        "planned_paths": 2,
+        "status": "UNSTARTED_REGISTERED_SCOPE_RETAINED"
+      },
+      {
+        "id": "E3_BLOCK_18",
+        "planned_paths": 3,
+        "status": "UNSTARTED_REGISTERED_SCOPE_RETAINED"
+      },
+      {
+        "id": "E3_BLOCK_19",
+        "planned_paths": 3,
+        "status": "UNSTARTED_REGISTERED_SCOPE_RETAINED"
+      },
+      {
+        "id": "E3_BLOCK_20",
+        "planned_paths": 2,
+        "status": "UNSTARTED_REGISTERED_SCOPE_RETAINED"
+      }
+    ]
+  },
+  "current_ledger_observation": {
+    "batch": "F0-F1",
+    "cap_gpu_hours": 77.89524658965853,
+    "used_gpu_hours": 77.89524658965853,
+    "gpu_jobs_launched": 80,
+    "status": "E3_COMPLETE64_INFLIGHT_REMAINING_RESERVED_NOT_ACTUAL_SPENT",
+    "gpu_import_probes_completed": 1,
+    "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts",
+    "budget_authorization_ref": "manifests/budget_authorization_20261009_wc_new_window_48gpuh.json",
+    "budget_authorization_history": [
+      {
+        "authorized_utc": "2026-10-02T18:03:00Z",
+        "source_thread_id": "01a0f1e6-7ad0-75df-9a02-172b60d2e00b",
+        "user_instruction": "\u628a\u5404\u4e2a\u5b9e\u9a8c\u7684 gpu \u9884\u7b97\u90fd\u8bbe\u7f6e\u4e3a 12gpuh",
+        "previous_cap_gpu_hours": 4,
+        "new_cumulative_cap_gpu_hours": 12,
+        "used_gpu_hours_at_change": 3.9117525685110333,
+        "no_usage_reset_or_transfer": true
+      },
+      {
+        "authorized_utc": "2026-10-04T06:13:36Z",
+        "source_thread_id": "01a0f1e6-7ad0-75df-9a02-172b60d2e00b",
+        "user_message_id": "Sentinel_861e63a87d8c819180ec9a8bcfa6dc92",
+        "user_instruction": "\u5141\u8bb8\u589e\u52a0 GPUh",
+        "previous_cap_gpu_hours": 12,
+        "new_cumulative_cap_gpu_hours": 13,
+        "used_gpu_hours_at_change": 11.022315686839217,
+        "gpu_jobs_launched_at_change": 45,
+        "no_usage_reset_or_transfer": true,
+        "authorization_ref": "manifests/budget_authorization_20261004_wc_13gpuh.json"
+      },
+      {
+        "authorized_on_local": "2026-10-05",
+        "user_instruction": "\u6279\u51c6 WC-W3-SMALL-CD-R1-20261004-A\uff0c\u628a\u7d2f\u8ba1 gpuh \u9650\u5236\u63d0\u5347\u5230 24",
+        "previous_cap_gpu_hours": 13,
+        "new_cumulative_cap_gpu_hours": 24,
+        "used_gpu_hours_at_change": 11.022315686839217,
+        "gpu_jobs_launched_at_change": 45,
+        "no_usage_reset_or_transfer": true,
+        "authorization_ref": "manifests/budget_authorization_20261005_wc_24gpuh.json",
+        "approved_card": "WC-W3-SMALL-CD-R1-20261004-A",
+        "single_run_cap_seconds": 3900
+      },
+      {
+        "authorized_unix": 1791428550.530142,
+        "authorized_on_local": "2026-10-08",
+        "user_instruction": "\u6279\u51c6\u6269\u5927 gpuh\uff0c\u76f4\u63a5\u52a0\u5230 50 \u5427",
+        "previous_cap_gpu_hours": 24,
+        "new_cumulative_cap_gpu_hours": 50,
+        "used_gpu_hours_at_change": 22.314242424184147,
+        "gpu_jobs_launched_at_change": 59,
+        "no_usage_reset_or_transfer": true,
+        "authorization_ref": "manifests/budget_authorization_20261008_wc_50gpuh.json",
+        "automatic_single_job_gpu_hours": 2
+      },
+      {
+        "authorized_unix": 1791560438.1859179,
+        "authorized_on_local": "2026-10-09",
+        "user_instruction": "\u662f\u4ece\u5f53\u524d\u5f00\u59cb 48gpuh",
+        "initial_user_instruction": "\u628a gpuh \u9884\u7b97\u63d0\u5230 48h",
+        "previous_cap_gpu_hours": 50,
+        "new_cumulative_cap_gpu_hours": 77.89524658965853,
+        "used_gpu_hours_at_change": 29.895246589658527,
+        "gpu_jobs_launched_at_change": 65,
+        "authorized_remaining_gpu_hours": 48,
+        "no_usage_reset_or_transfer": true,
+        "authorization_ref": "manifests/budget_authorization_20261009_wc_new_window_48gpuh.json",
+        "automatic_single_job_gpu_hours": 2
+      }
+    ],
+    "budget_authorization_window": {
+      "authorization_ref": "manifests/budget_authorization_20261009_wc_new_window_48gpuh.json",
+      "start_used_gpu_hours": 29.895246589658527,
+      "authorized_remaining_gpu_hours": 48,
+      "cumulative_cap_gpu_hours": 77.89524658965853,
+      "recorded_unix": 1791560438.1859179
+    },
+    "automatic_single_job_gpu_hours": 4,
+    "execution_policy_authorization_ref": "manifests/wc_execution_autonomy_authorization_20261010_4gpuh.json",
+    "execution_policy_authorization_history": [
+      {
+        "authorized_on_local": "2026-10-10",
+        "source_user_instruction": "\u5355\u6b21 \u6539\u6210\u8d85\u8fc7 4h\u624d\u9700\u8981\u786e\u8ba4",
+        "previous_automatic_single_job_gpu_hours": 2,
+        "automatic_single_job_gpu_hours": 4,
+        "authorization_ref": "manifests/wc_execution_autonomy_authorization_20261010_4gpuh.json",
+        "recorded_unix": 1791561847.0094812
+      }
+    ],
+    "wc_e3_complete64_inflight": {
+      "supervisor_pid": 4163981,
+      "run_id": "wc-e3-current-birth-complete64-reuse10-fresh54-r1",
+      "reserved_GPUh": 31.81853297561924
+    }
+  },
+  "last_settled_used_GPUh": 46.076713614039285,
+  "last_settled_remaining_GPUh": 31.81853297561924,
+  "inflight_reservation_not_actual_cost": true,
+  "originals": {
+    "selected_CPU": {
+      "remote_path": "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-e3-complete64-selected-r1-20261011/selected-CPU-receipt.json",
+      "bytes": 1125,
+      "sha256": "4611d0ceeb26b7c63079fd8e438aba418f1e22fe57a8703549eadfae9b0d9bbf",
+      "local_path": "reports/wc_e3_complete64_real_gpu_start_r1_20261011/selected_CPU.json.gz"
+    },
+    "GPU_launch": {
+      "remote_path": "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-e3-complete64-selected-r1-20261011/GPU-launch.json",
+      "bytes": 705,
+      "sha256": "3d04353115c7803fd5babe2c65715639a3da8ee741150dcc1811a7eb503ba3be",
+      "local_path": "reports/wc_e3_complete64_real_gpu_start_r1_20261011/GPU_launch.json.gz"
+    },
+    "GPU_supervisor_observation": {
+      "remote_path": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-e3-current-birth-complete64-reuse10-fresh54-r1/supervisor.json",
+      "bytes": 8473,
+      "sha256": "50fcde6c399bdbec2909bbbc2cb1af7624927170f77ad75f3812c929a220e5c9",
+      "local_path": "reports/wc_e3_complete64_real_gpu_start_r1_20261011/GPU_supervisor_observation.json.gz"
+    },
+    "selected_config": {
+      "remote_path": "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-e3-complete64-selected-r1-20261011/e3-complete64-config.json",
+      "bytes": 104650,
+      "sha256": "4ae93359ff2e0ec51fdcb3aa957ecdfcca4b6724119146354883ee3e367b57ba",
+      "local_path": "reports/wc_e3_complete64_real_gpu_start_r1_20261011/selected_config.json.gz"
+    },
+    "execution_protocol": {
+      "remote_path": "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-e3-complete64-selected-r1-20261011/e3-execution-protocol.json",
+      "bytes": 62826,
+      "sha256": "3ca6e941c45684e5853be9ad418dedc2194c48bb5e0ce69f000d6c7526291d72",
+      "local_path": "reports/wc_e3_complete64_real_gpu_start_r1_20261011/execution_protocol.json.gz"
+    },
+    "direct_authorization": {
+      "remote_path": "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-e3-complete64-selected-r1-20261011/manifests/wc_e3_complete64_direct_authorization_20261011.json",
+      "bytes": 2319,
+      "sha256": "a3119dd46f1005a56abbd371880189622487f914b0fe9080250ca4ddf9f4c843",
+      "local_path": "reports/wc_e3_complete64_real_gpu_start_r1_20261011/direct_authorization.json.gz"
+    },
+    "selection": {
+      "remote_path": "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-e3-complete64-selected-r1-20261011/selection.json",
+      "bytes": 467,
+      "sha256": "1ea58bb70eaf23f7e756bb9d57acf36670cf3a818c28a6102b3922c385913013",
+      "local_path": "reports/wc_e3_complete64_real_gpu_start_r1_20261011/selection.json.gz"
+    }
+  },
+  "new_GPU_submissions_by_observer": 0,
+  "ledger_written_by_observer": false,
+  "observed_unix": 1791707670.4198716,
+  "complete_card_terminal_and_scoring_pending": true,
+  "scientific_or_clean_latency_claim": false
+}
