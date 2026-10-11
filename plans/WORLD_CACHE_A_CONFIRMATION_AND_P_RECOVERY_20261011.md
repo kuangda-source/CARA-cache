@@ -1,4 +1,4 @@
-# 更新 v1.38：E5省算原型CPU实际等价，下一生产模式与费用范围
+# 更新 v1.39：E5生产head与完整UniPC受影响CPU登记
 
 ## 2026-10-11 当前：E4c原GPU继续，只读后处理CPU已独立通过
 
@@ -349,3 +349,7 @@ E3新增H-PREPARE-PERSIST只提前持久化每次真实成功prepare的纯签名
 ## v1.38 E5实际CPU等价结果
 
 [338结果与下一范围](../research/338_WC_E5_EARLY_HEAD_CPU_EQUIVALENCE_RESULTS_AND_NEXT_REAL_SCOPE_20261011.md)：完整12路径／222输出相同，实际head97→82／100→82、24恢复与拒绝／失败保留；CPU普通head／Toy直接更新边界明确，真实生产head配置／unpatchify／记录hooks和UniPC完整等价仍待。下一在独立版本准备生产接线，随后冻结小完整真实等价与同边界费用卡。原E4c源年龄全24终态仍优先，H-P-W1-WORKING-REFERENCE等待它完成，E2／E3原整卡不改。
+
+## v1.39 E5生产head和完整求解器接线
+
+[339范围](../research/339_WC_E5_PRODUCTION_HEAD_MODE_AND_COMPLETE_SAMPLER_CPU_SCOPE_20261011.md)：支持固定AdaLN/Wan原生模式，新增显式head实际记录／生产unpatchify合同，保留旧源码和在途。24完整Toy-module UniPC路径／444直接比较／888写出张量／96自身恢复和真实2B Meta合同检查，服务器CPU待；成功后冻结真实等价／费用卡，不预先报速度。E4c原全24仍优先，P工作源读出假设不提前实现，E2/E3原卡保持。

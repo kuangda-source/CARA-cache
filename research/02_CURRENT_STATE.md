@@ -1,3 +1,7 @@
+## 2026-10-11 当前：E5生产head与完整UniPC受影响CPU已登记
+
+[339具体范围](339_WC_E5_PRODUCTION_HEAD_MODE_AND_COMPLETE_SAMPLER_CPU_SCOPE_20261011.md)：固定2B原生head启用AdaLN LoRA／Wan FP32；新独立owner支持原生模式／unpatchify，head记录改在实际候选与原head选择处，旧算法和在途E4c不改。两flow×两族×三A×两版本24完整UniPC路径／444实读比较／888张量／96自身恢复与真实2B Meta合同已登记，411载荷服务器CPU待；非真实权重／GPU视频／速度证据。原E4c与唯一终态CPU继续，E2/E3准确above8批准待不重问／拆卡，≤8完整自主／严格>8具体确认，goal active，无训练人评。以下为历史。
+
 ## 2026-10-11 当前：E5 head省算CPU独立通过，原E4c继续
 
 [338具体省算结果](338_WC_E5_EARLY_HEAD_CPU_EQUIVALENCE_RESULTS_AND_NEXT_REAL_SCOPE_20261011.md)：独立CPU实读16文件／476张量、222／222完整输出比较相同；两flow下阶段W1 native head97→82、β=1 100→82，OFF72→72。24完整恢复、7动态拒绝、4paired故障保留；R1对象ID跨安装比较失败原件保留，R2按参数名称对应严格保持版本／数值／来源，406源码与账本保持，128.605243秒／exit0。previous_output记录差异显式保留，是CPU实现／调用证据，非真实视频／速度或生产ready。
