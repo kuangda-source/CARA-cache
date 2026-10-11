@@ -12,7 +12,8 @@ from .cpu_owned_state_snapshot import CPUDeploymentRoundtrip, storage_inventory
 from .e4c_offline_intervention_control_r1 import OfflineInterventionController, VERSION
 from .full_sampling import CompleteStateRoundtrip
 from .rv0_restore import capture_inventory, capture_gate
-from .rv0_fork import object_state, restore_object_state
+from .rv0_fork import object_state
+from .cfg_guided_w1_collection import signature
 from .mid_coverage import tree_digest
 from .light_sampling import synchronize
 from .cfg_guided_w1_outputs import guided_velocity_moments
@@ -39,20 +40,25 @@ class DiagnosticSnapshot:
         self.latent_sha = tree_digest(latent)
         self.physical_sha = self.physical.fingerprint()
         self.condition_objects = tuple(inspect_conditions(velocity))
-        self.condition_state = [copy.deepcopy(object_state(c)) for c in self.condition_objects]
+        self.condition_identity = signature([object_state(c) for c in self.condition_objects])
         self.condition_sha = tree_digest([object_state(c) for c in self.condition_objects])
         self.restores = []
 
     def restore(self):
         self.owner.check_healthy()
-        for c, saved in zip(self.condition_objects, self.condition_state):
-            restore_object_state(c, saved)
+        # Conditions are frozen inputs. Replacing them with equal clones would
+        # violate the original deployment's id/version contract. A mutation is
+        # a failed branch, never a license to rewrite that contract.
+        if (signature([object_state(c) for c in self.condition_objects]) != self.condition_identity
+                or tree_digest([object_state(c) for c in self.condition_objects]) != self.condition_sha):
+            raise ValueError('Frozen original condition identity/version/content changed')
         a = admit_next_copy(self.gate, self.owned_inventory, 'physical_restore')
         latent = self.physical.restore()
         b = admit_next_copy(self.gate, self.owned_inventory, 'owned_restore')
         self.owned.restore()
         if (self.physical.fingerprint() != self.physical_sha
                 or tree_digest(self.parent_latent) != self.latent_sha
+                or signature([object_state(c) for c in self.condition_objects]) != self.condition_identity
                 or tree_digest([object_state(c) for c in self.condition_objects]) != self.condition_sha):
             raise ValueError('Physical sampler, live parent latent or conditions failed restoration')
         self.restores.append([a, b])
