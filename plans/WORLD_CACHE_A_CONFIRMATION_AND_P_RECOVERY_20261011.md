@@ -1,3 +1,7 @@
+# v1.71 E3 first CPD/OFF completed-prefix control; full card continues
+
+[367原CPD/OFF完成前缀](../research/367_WC_E3_FIRST_BLOCK_AND_READONLY_TERMINAL_CAPTURE_20261011.md)：E3首个AV28/nonzero-rebase完成CPD／OFF控制：36 guided／终点／动作／solver返回记录相等，数值配置与SHA相等；raw配置仅默认字段列表顺序不同，原差异保存，既有numeric配对已规范该顺序，本轮不改判据。449＋16哈希保持，原GPU4163981／post4163982／模型4172628实际存活；此前5/54新完成，原全64／10复用／20加载继续，实际向量／视频和全卡评分待原reader。E5已有顺序／成本诊断及head省180保持，后续新成本卡未选，先完E3；前实结46.076713614／cap77.895246590、新48余31.818532976，在途预留非实耗。P自身above8未授、E2原问保持，无训练人评，goal active。以下为历史。
+
 # v1.70 E5 existing order/cost diagnostic; original E3 continues
 
 [368原计时顺序诊断](../research/368_WC_E5_EXISTING_ORDER_COST_DIAGNOSTIC_AND_E3_CONTINUATION_20261011.md)：E5已验收全24原件CPU重分析：四加载首个同模式对比4/4第一条更慢，四OFF无head省算但均较早路径更慢，所有12原耗时及head数与独立审计精确匹配，未调整／删样本。中间W1反序仍AV快5.151／4.411秒、Human慢2.959／21.048秒；顺序／启动候选和场景差异同时保留，native head设备耗时未记录，非clean速度或唯一归因。预登记H-E5-ORDER-COST-ALIGN-R1对照问题，精确新卡范围费用与CPU仍待，先完E3。E3原GPU4163981／post4163982／第二模型4172628实际存活，4/54新完成回执，全64／10复用／20加载与冻结source2e39cd3继续，终态评分待。E5全输出保持／head省180保持；前实结46.076713614／cap77.895246590、新48余31.818532976，在途预留非实耗。P自身above8未授、E2原问保持，无训练人评，goal active。以下为历史。

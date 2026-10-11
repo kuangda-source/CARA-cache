@@ -29,3 +29,11 @@
 E5 的完整输出保持正结果继续保留：24 路径、888 张量、444 新旧和 444 反序相等，修正相关 head 调用省 180／20.7373%；instrumented 时间混合，尚未建立稳定净加速。[E5 完整结果](365_WC_E5_COMPLETE24_REAL_HEAD_EQUIVALENCE_RESULTS_AND_E3_NEXT_20261011.md)。本 E3 沿自身冻结实现完成来源规则、部分刷新与 W1 的对照，不在途中接入 E5。
 
 E3 forecast 12.377456422 GPUh；前实结累计 46.076713614／77.895246590，新增 48 窗口余 31.818532976。当前账本预留为在途状态，E3 实费和最终余额尚未产生。继续原全部 20 块、自动全 64 原件读取与有效兼容视频评分，随后独立终态采集、科学解释和实结预算更新。P 完整五读出 CPU 与 13.060019179 forecast 保留，待 E3 结果后再评估其自身 above8 授权；E2 原问题保持。无新训练或人工评审，goal active。
+
+## 后续完成前缀观察：首个 CPD／OFF 控制
+
+原 E3 正常推进到第二组。已完成的 AV28、`WORKING_P_AGE_NONZERO_REBASE` 两条 CPD／`A_CPD_OFF` 路径，全部 36 guided 哈希、guided 列表哈希、终点哈希、动作及求解器返回记录直接相等；两者数值求解器配置和数值哈希也相等。这个技术控制支持首个已完成场景中关闭修正的行为保持，仍需原全卡 reader 验证实际张量和视频。
+
+两次独立模型加载的原始求解器配置记录直接比较不同：`_use_default_values`／`default_name_metadata` 中相同默认字段的列表顺序不同，导致 raw SHA 不同。差异原样保留。[既有数值配对规则](../src/wcomr/full64_partial_recovery_cpu.py) 的 `numerical_pairing` 已要求数值内容、数值 SHA 和默认字段集合同时一致，并只规范默认字段顺序；本轮未修改该规则、方法或判据，也没有把数值不一致解释为元数据差异。
+
+[原 CPD／OFF 完成前缀回执及比较](../reports/wc_e3_cpd_off_completed_prefix_control_r1_20261011_capture.json) 绑定两个观察到的原块回执和 source，449＋16 方法／执行哈希仍保持；GPU／post／第二模型命令实际存活且绑定原 stage。此次只读取完成前缀的原记录，没有重读向量文件或执行逐帧／LPIPS。全 64 位置审计、方法收益与 clean 速度均未在此验收。
