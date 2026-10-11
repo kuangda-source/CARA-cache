@@ -1,0 +1,130 @@
+{
+  "identity": "E4C_MATCHED_P_D_AGE124_COMPLETE_SCOPE_PREREGISTERED_NOT_GPU",
+  "card": "WC-E4C-MATCHED-P-D-AGE124-OFFON4-SUFFIX16-R1-20261011-A",
+  "run_id": "wc-e4c-matched-p-d-age124-offon4-suffix16-r1",
+  "source_trace_report_ref": "reports/wc_e4c_existing_trace_clocks_cpu_r1_20261011.json",
+  "source_trace_report_sha256": "40d0ceeb4d6f12ebf1d6f3dc2cdbc9d3444c3aacb83c8990094dee8677749aac",
+  "event_selection": "EARLIEST_ACTUAL_P_IN_FIXED_EARLY8_24_AND_LATE25_30_EACH_TWO_AVAILABLE_SCENES",
+  "selection_uses_quality_speed_or_candidate_error": false,
+  "sample_names": [
+    "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+    "human_199"
+  ],
+  "seed": 0,
+  "method": "A_CPD_W1_ONE_PHASE",
+  "working_epoch_strategy": "WORKING_P_AGE_KEEP_INTERVAL",
+  "events": [
+    {
+      "id": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632-early",
+      "sample_name": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "phase": "early",
+      "birth_step": 13,
+      "fork_after_update": 12,
+      "last_diagnostic_update": 17,
+      "source_inventory": "ORIGINAL64",
+      "source_arm": null,
+      "source_receipt_sha256": "51cd9e78532932fc6bc63b80a9cf3be66ec73e2e92f09aacc7a636173c7c9f9e",
+      "source_method": "A_CPD_W1_ONE_PHASE",
+      "source_strategy": "WORKING_P_AGE_KEEP_INTERVAL",
+      "original_birth_action": "PP"
+    },
+    {
+      "id": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632-late",
+      "sample_name": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "phase": "late",
+      "birth_step": 25,
+      "fork_after_update": 24,
+      "last_diagnostic_update": 29,
+      "source_inventory": "ORIGINAL64",
+      "source_arm": null,
+      "source_receipt_sha256": "51cd9e78532932fc6bc63b80a9cf3be66ec73e2e92f09aacc7a636173c7c9f9e",
+      "source_method": "A_CPD_W1_ONE_PHASE",
+      "source_strategy": "WORKING_P_AGE_KEEP_INTERVAL",
+      "original_birth_action": "PP"
+    },
+    {
+      "id": "human_199-early",
+      "sample_name": "human_199",
+      "phase": "early",
+      "birth_step": 12,
+      "fork_after_update": 11,
+      "last_diagnostic_update": 16,
+      "source_inventory": "E1_FULL8",
+      "source_arm": "CPU_PREFIX",
+      "source_receipt_sha256": "8a1201c771ae4f08456ab70e9d757af86938dc84c102c61b735fd02a2a4f09ea",
+      "source_method": "A_CPD_W1_ONE_PHASE",
+      "source_strategy": "WORKING_P_AGE_KEEP_INTERVAL",
+      "original_birth_action": "PP"
+    },
+    {
+      "id": "human_199-late",
+      "sample_name": "human_199",
+      "phase": "late",
+      "birth_step": 27,
+      "fork_after_update": 26,
+      "last_diagnostic_update": 31,
+      "source_inventory": "E1_FULL8",
+      "source_arm": "CPU_PREFIX",
+      "source_receipt_sha256": "8a1201c771ae4f08456ab70e9d757af86938dc84c102c61b735fd02a2a4f09ea",
+      "source_method": "A_CPD_W1_ONE_PHASE",
+      "source_strategy": "WORKING_P_AGE_KEEP_INTERVAL",
+      "original_birth_action": "PP"
+    }
+  ],
+  "parent_collection_modes": [
+    "OFF",
+    "ON"
+  ],
+  "suffix_arms": [
+    "POLICY_REPEAT1",
+    "POLICY_REPEAT2",
+    "P_BIRTH_C4",
+    "D_BIRTH_C4"
+  ],
+  "suffix_updates_each": 5,
+  "forced_source_births": [
+    "P",
+    "D"
+  ],
+  "forced_following_actions": [
+    "C",
+    "C",
+    "C",
+    "C"
+  ],
+  "teacher_ages": [
+    1,
+    2,
+    4
+  ],
+  "scope_counts": {
+    "full_parent_paths": 4,
+    "full_parent_updates": 144,
+    "events": 4,
+    "suffix_branches": 16,
+    "suffix_updates": 80,
+    "same_state_C_dense_teacher_points": 24,
+    "teacher_pairs": 24,
+    "total_pair_computations": 248,
+    "total_normal_and_teacher_CFG_calls": 496
+  },
+  "same_state_teacher_input": "DENSE_ON_EACH_ACTUAL_CANDIDATE_LATENT_NOT_OTHER_ARM_LATENT",
+  "teacher_updates_deployment_state": false,
+  "P_promotes_true_D_or_zeroes_creation_floor": false,
+  "missing_event_behavior": "RETAIN_REGISTERED_EVENT_AS_MISSING_NO_REPLACEMENT",
+  "physical_copy_gate_or_original_protection_bypassed": false,
+  "actual_method_required_storage_and_transport_in_cost": true,
+  "full_parent_OFF_ON_and_policy_suffix_repeat_controls": true,
+  "C4_is_OFFLINE_DIAGNOSTIC_not_online_policy": true,
+  "completed_GPU_cards_E2_E3_cancelled_or_narrowed": false,
+  "separate_E4_hypothesis_not_substitute_for_pending_E2_E3": true,
+  "GPU_queue_reason": "PREPARE_E4_WITHOUT_REPLACING_PENDING_COMPLETE_E2_E3; SELECT_QUEUE_BEFORE_ANY_GPU",
+  "GPU_forecast_status": "PENDING_IMPLEMENTATION_CPU_AND_BOUND_REAL_COST_CALCULATION",
+  "automatic_single_job_GPUh": 8,
+  "training": false,
+  "human_review": false,
+  "new_end_to_end_quality_or_speed_claim": false,
+  "GPU_execution_selected": false,
+  "GPU_submissions": 0,
+  "ledger_written": false
+}
