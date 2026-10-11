@@ -1,6 +1,6 @@
-## 2026-10-11 当前：E4c整卡GPU已准入，原模型进程初始化
+## 2026-10-11 当前：E4c整卡GPU已准入，首AV28 OFF路径采样在跑
 
-[331整卡启动与接续](research/331_WC_E4C_COMPLETE_GPU_START_AND_CONTINUATION_20261011.md)：完整E4c4父／4事件／16五步suffix／24同状态teacher，248pair／496CFG，forecast2.577578296GPUh，≤8按直接授权推进。原source6a5910c、dispatch c8abea6；supervisor4075406及唯一child4075494现场存活，指定A6000准入前24MiB/noapps，正式共享锁/预算准入后第78作业在途。真实CAL/RA/solver/模型与399来源生产CPU通过，Toy完整R3和776实读/324比较保持。初始化不是新局部误差、视频质量或寿命结论。
+[331整卡启动与接续](research/331_WC_E4C_COMPLETE_GPU_START_AND_CONTINUATION_20261011.md)：完整E4c4父／4事件／16五步suffix／24同状态teacher，248pair／496CFG，forecast2.577578296GPUh，≤8按直接授权推进。原source6a5910c、dispatch c8abea6；supervisor4075406及唯一child4075494现场存活，指定A6000准入前24MiB/noapps，正式共享锁/预算准入后第78作业在途。真实CAL/RA/solver/模型与399来源生产CPU通过，Toy完整R3和776实读/324比较保持。最新Unix1791682391.247加载78.266789秒、5964MiB／唯一app4075494，AV28 OFF prompt guardrail已过并进入标准采样；STARTED不是完整路径/局部误差或质量结论。
 
 前settled40.313761639725/77.895246589659、新48余37.581484949934；当前used=cap是唯一在途保守预留，结束真实wall含加载/失败/搬运/flush结算。只跟踪原PID与receipt、不重投或改payload，下一CPU核对44实际文件/388张量/24点和四父完整视频。E2/9.8697及E3/12.3775原完整批准待，不重问或拆取消；≤8自主/严格>8完整确认，goal active，无训练人评。以下为历史。
 

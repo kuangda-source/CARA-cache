@@ -9,3 +9,5 @@
 结算前已用40.313761639725/77.895246589659、新48余37.581484949934；账本当前used=cap是inflight保守预留全剩余，非已经花完。唯一作业实际wall含import/load/失败/状态搬运/flush计费，最长8GPUh预算保护继续生效，旧秒deadline不恢复。结束后释放锁与指定卡、按真实wall结算，并审计所有完整/部分/失败分母。
 
 后处理接续：读取原supervisor/model receipt与source399、44实际tensor文件/388张量和24同状态点，重建guided误差、sigma/β/α/source-age及自然policy同原父一致性；四父mp4全解码、OFF/ON原件一致性。teacher在candidate自身latent，C4是离线干预，不能当已有效在线策略，也不能用局部MSE单项否定方向。没有新训练或人评。E2/76/9.8697与E3/64/12.3775原具体批准问题待，不再重复问、不拆卡；目标active。
+
+最新现场Unix1791682391.2474825：原监督/child仍存活，模型实际加载78.266789秒；指定卡5964MiB、唯一compute app4075494。AV28的OFF首路径prompt guardrail通过，已进入标准生成；磁盘receipt仍STARTED，记录0完成更新/0事件，不能据此断言实际0计算或已有完整路径。当前进入采样，仍无独立验收误差点/视频结论。新观察`reports/wc_e4c_source_age_gpu_r1_follow_observation_20261011.json`。
