@@ -1,3 +1,7 @@
+## 2026-10-11 E3 first block complete; read-only terminal capture prepared
+
+[367原首组及终态采集](../../research/367_WC_E3_FIRST_BLOCK_AND_READONLY_TERMINAL_CAPTURE_20261011.md)：E3原首组4164075退出0，DYNAMIC_NO_P／CPD／REF_CPD三条完整36步回执，第二组4172628与原GPU4163981／post4163982实际存活；449＋16哈希保持，原完整64／10复用／54新／20加载继续，非终态质量结果。新增本地只读终态capture，语法／远端只读静态／真实存活WAIT通过，不改465在途源、不重跑reader／GPU，不写远端账本；释放后读原件并独立重构24对比，终态分支待实际验收。E5全24等价及head省180／20.7373%保持，计时混合；前实结46.076713614／cap77.895246590、新48余31.818532976，在途预留非实耗。P自身above8未授、E2原问保持，待E3实结后评估，无训练人评，goal active。以下为历史。
+
 ## 2026-10-11 approved E3 full64 GPU running; complete E5 acceptance retained
 
 [366真实启动](../../research/366_WC_E3_COMPLETE64_REAL_GPU_START_AND_E5_HANDOFF_20261011.md)：准确已批准E3全64／10复用／54新／20加载已唯一启动，selected CPU86.129615秒退出0，449＋16冻结保持；source2e39cd3，原GPU4163981／post4163982／首模型4164075实际存活与命令绑定，fresh A6000准入通过、目标app13074MiB。第80作业，forecast12.377456422；全卡生成／自动93帧评分／独立终态仍待，不重投或改源。E5全24／888／444新旧＋444反序／24视频已独立通过，修正head省180（20.7373%）、计时混合，实费4.168024668；前实结46.076713614／cap77.895246590，新48余31.818532976，当前used=cap是在途预留非实耗。P自身above8未授、E2原问保持，待E3实结后评估，无训练人评，goal active。以下为历史。
