@@ -1,3 +1,7 @@
+# v1.64 E5 first real block head savings; full scope and approved E3 retained
+
+[364真实head记录](../research/364_WC_E5_FIRST_REAL_BLOCK_HEAD_SAVINGS_OBSERVATION_20261011.md)：E5原AV_R1六完整／4103190退出0，回执与paid/native leaf次数一致，W1 head110→88（省22）、beta112→86（省26），guided及终点哈希记录相等；保存张量／视频实读和全24终态仍待。首轮instrumented W1省5.151351秒、beta省2.193489秒，OFF无省算却少34.506174秒，反向顺序原重复保持，非clean速度。原GPU4103103／Human4116639继续、456冻结不改。P完整CPU／ready13.060019179保持、准确above8未授；已批准E3全64／10复用／54新／20加载待E5完整验收优先执行，E2原问保持。前实结41.908688946／cap77.895246590、新48余35.986557644，在途预留非实耗，无训练人评，goal active。以下为历史。
+
 # v1.63 P complete execution CPU independently accepted; approved E3 next
 
 [363完整CPU验收](../research/363_WC_P_REFERENCE_COMPLETE_CPU_ACCEPTANCE_AND_E3_EXECUTION_PRIORITY_20261011.md)：P完整执行CPU sourcee25cfe8／4123578退出0，36.856215秒，459＋23来源保持；独立88文件1160张量／420比较／48点／240恢复／96 D相等与旧四视频372帧通过。全两flow8父32suffix688pairs1376CFG保持，完整ready forecast13.060019179，本P准确above8批准未授、未新GPU。E5原全24继续，live15已有11完整、456／原三句柄保持，终态待；已直接批准E3全64／复用10／补54／20加载在E5完整验收后优先唯一执行。前实结41.908688946／cap77.895246590、新48余35.986557644，在途预留非实耗；E2原问保持，无训练人评，goal active。以下为历史。
