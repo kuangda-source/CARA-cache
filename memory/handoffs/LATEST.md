@@ -1,3 +1,7 @@
+## 2026-10-12 clean speed20 sampling CPU accepted; production entry next
+
+[373测速卡](research/373_WC_CLEAN_SPEED20_PREREGISTRATION_20261012.md)：独立r2两flow全60CPU（20审计＋40clean）128.570517秒通过，20 clean/flow 的终点／Toy输出／动作／A history等价、缓存RNG初态恢复；实际CUDA未初始化、0GPU／0账本写。r1缺部署依赖失败原记录保留，独立r2补齐未改算法；新真实入口与单驻留监督／CPU全93帧评分已准备，实际生产CPU及fresh GPU准入待。全40／20正式／20预热、固定阶段β1／KEEP、forecast4.659511770≤8不变；主计时文本至VAE，加载／guardrail／写盘另列，禁止E5FAST混入，P13h暂缓/E2原卡保持。尚无测速GPU、真实等价或净加速结论；已用54.201828585／cap77.895246590、新48余23.693418005。以下为历史。
+
 ## 2026-10-12 speed20 preparation handoff
 
 [373完整测速登记](../../research/373_WC_CLEAN_SPEED20_PREREGISTRATION_20261012.md)：用户直接要求AV28/Human、Native/WC/RA/阶段A无P/KEEP同A＋P、正反两轮20正式计时；A提前冻结阶段β1（25步前1、之后0.5），每场景每配置两完整预热，共40路径一次驻留，预计4.659511770GPUh≤8。主计时文本编码至VAE返回，保留算法维护，逐步审计复制／哈希／快照移除，写盘及普通guardrail另列；两flow全60CPU和实际入口验证待。计时外核对旧终点／动作，全部20视频93帧CPU评分；新H-CLEAN-SPEED20-A-P-NET-R1登记，P原13h卡仍暂缓、E2原卡不改。最新实耗54.201828585、新48余23.693418005，未新GPU／账本写入。以下为历史。

@@ -43,5 +43,5 @@ receipt={'stage':str(stage),'source_revision':P['source_revision'],'CPU_pid':chi
 (stage/'CPU-launch.json').write_text(json.dumps(receipt,indent=2)+'\n');print(json.dumps(receipt))
 '''
  call=subprocess.run(['ssh','-o','BatchMode=yes','-o','ConnectTimeout=15','-o','ClearAllForwardings=yes','gkd_minchen','python3 -'],input=code,text=True,capture_output=True,check=True)
- receipt=json.loads(call.stdout);(R/'reports/wc_clean_speed20_cpu_'+args.suffix+'_launch_20261012.json').write_text(json.dumps(receipt,indent=2)+'\n');print(json.dumps(receipt))
+ receipt=json.loads(call.stdout);(R/('reports/wc_clean_speed20_cpu_'+args.suffix+'_launch_20261012.json')).write_text(json.dumps(receipt,indent=2)+'\n');print(json.dumps(receipt))
 if __name__=='__main__':main()
