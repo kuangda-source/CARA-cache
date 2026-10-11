@@ -1,3 +1,7 @@
+## 2026-10-11 P production relative-path repair; original E5 and approved E3 retained
+
+[360路径修复](research/360_WC_P_REFERENCE_PREDEPLOYMENT_RELATIVE_PATH_REPAIR_20261011.md)：P生产R1仅本地git回执绝对路径校验退出128、0SSH／0远端目录／0GPU，原sourcebc992cd／配置及失败保留；R2仅严格仓库内相对路径归一，新身份保留444原数值与两flow完整范围、forecast13.060019179，实际服务器CPU待。原E5继续；E3全64／复用10／补54／20加载已直接批准，待E5退出与独立验收优先执行；新P above8授权未授，预算cap保持、无人评训练，goal active。以下为历史。
+
 ## 2026-10-11 P two-flow actual entry CPU registered; approved E3 follows E5
 
 [359两flow实际入口登记](research/359_WC_P_REFERENCE_TWO_FLOW_ACTUAL_ENTRY_PREREGISTRATION_20261011.md)：P五读出原444数值／两flow完整8父32suffix48点688pairs1376CFG保持，新增实际两入口与包含192额外C／192额外恢复／哈希I/O的完整费用绑定，服务器生产CPU待，未GPU-ready。原E5继续；E3全64／复用10／补54／20加载已准确直接批准，待E5全24终态优先唯一执行。前实结41.908688946／cap77.895246590、新48余35.986557644，在途预留非实耗；严格>8新卡另需准确授权，不复用E3例外，无训练人评，goal active。以下为历史。
