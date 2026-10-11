@@ -10,8 +10,9 @@ import torch
 
 from wcomr import e4c_matched_source_age_sampling_r1 as sampling
 from wcomr.e4c_source_age_tensor_audit_r1 import audit
-from wcomr.ra_joint_control import Calibration, Costs
-from wcomr.source_aware_current_birth_control_r1 import CreationPhasePrior
+from wcomr.cfg_ra_joint_control import Calibration
+from wcomr.source_aware_cpd_control import Costs
+from wcomr.source_aware_phase_control import CreationPhasePrior
 
 
 def load(name):
