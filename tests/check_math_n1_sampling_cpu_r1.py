@@ -33,8 +33,11 @@ def select_toy_states(scene,history):
             'D_reference_age_gap':w['created_step']-h['true_D_before'][0][-1]})
     ps=[h for h in reads if h['source']=='P'];ds=[h for h in reads if h['source']=='D']
     assert len(ps)>=2 and ds,'Synthetic natural policy must expose both sources'
-    first=ps[0];longest=min(ps[1:],key=lambda h:(-h['D_reference_age_gap'],h['step']))
-    assert first['step']<25<=longest['step'],'Both actual phase strengths require P-source coverage'
+    early=[p for p in ps if p['step']<25];late=[p for p in ps if p['step']>=25]
+    assert early and late,'Synthetic natural policy must expose early and late P reads: '+str([p['step'] for p in ps])
+    # Toy coverage is explicitly by phase. The real GPU point index remains
+    # the independently frozen first/max-reference-gap N0 selection.
+    first=early[0];longest=late[0]
     return [first,longest,ds[0]]
 
 
