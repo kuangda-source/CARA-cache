@@ -1,5 +1,5 @@
 """Independent CPU stage, full frozen inherited source plus new speed20 files."""
-import hashlib,io,json,subprocess,tarfile
+import argparse,hashlib,io,json,subprocess,tarfile
 from pathlib import Path
 R=Path(__file__).resolve().parents[1]
 NEW=['src/wcomr/clean_speed20_r1.py','tests/check_clean_speed20_cpu_r1.py',
@@ -7,15 +7,19 @@ NEW=['src/wcomr/clean_speed20_r1.py','tests/check_clean_speed20_cpu_r1.py',
  'research/373_WC_CLEAN_SPEED20_PREREGISTRATION_20261012.md']
 sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
 def main():
+ parser=argparse.ArgumentParser();parser.add_argument('--suffix',default='r2');args=parser.parse_args()
+ prior=json.loads(subprocess.check_output(['ssh','-o','BatchMode=yes','-o','ClearAllForwardings=yes','gkd_minchen',"python3 -c \"import json;print(json.dumps(json.load(open('/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-e3-complete64-selected-r1-20261011/e3-complete64-config.json'))['payload_sha256']))\""],text=True))
+ new=NEW+[str(p.relative_to(R)) for p in sorted((R/'src/wcomr').glob('*.py')) if str(p.relative_to(R)) not in prior and str(p.relative_to(R)) not in NEW]
  rev=subprocess.check_output(['git','rev-parse','HEAD'],cwd=R,text=True).strip()
- packet={'source_revision':rev,'new_payload':{n:sha(R/n) for n in NEW}}
+ packet={'source_revision':rev,'new_payload':{n:sha(R/n) for n in new}}
  buf=io.BytesIO()
  with tarfile.open(fileobj=buf,mode='w:gz') as tar:
-  for name in NEW:tar.add(R/name,arcname=name)
+  for name in new:tar.add(R/name,arcname=name)
  archive=buf.getvalue()
+ packet['stage_name']='wc-clean-speed20-cpu-'+args.suffix+'-20261012'
  code='P='+repr(packet)+'\n'+r'''import pathlib,json,hashlib,shutil,subprocess,os
 root=pathlib.Path('/home/gaokuangda/data/gkd/worldcache_omr');old=root/'.sync/wc-e3-complete64-selected-r1-20261011'
-stage=root/'.sync/wc-clean-speed20-cpu-r1-20261012';assert not stage.exists();stage.mkdir()
+stage=root/'.sync'/P['stage_name'];assert not stage.exists();stage.mkdir()
 c=json.loads((old/'e3-complete64-config.json').read_text())
 for n,h in c['payload_sha256'].items():
  p=old/n;assert hashlib.sha256(p.read_bytes()).hexdigest()==h
@@ -39,5 +43,5 @@ receipt={'stage':str(stage),'source_revision':P['source_revision'],'CPU_pid':chi
 (stage/'CPU-launch.json').write_text(json.dumps(receipt,indent=2)+'\n');print(json.dumps(receipt))
 '''
  call=subprocess.run(['ssh','-o','BatchMode=yes','-o','ConnectTimeout=15','-o','ClearAllForwardings=yes','gkd_minchen','python3 -'],input=code,text=True,capture_output=True,check=True)
- receipt=json.loads(call.stdout);(R/'reports/wc_clean_speed20_cpu_r1_launch_20261012.json').write_text(json.dumps(receipt,indent=2)+'\n');print(json.dumps(receipt))
+ receipt=json.loads(call.stdout);(R/'reports/wc_clean_speed20_cpu_'+args.suffix+'_launch_20261012.json').write_text(json.dumps(receipt,indent=2)+'\n');print(json.dumps(receipt))
 if __name__=='__main__':main()
