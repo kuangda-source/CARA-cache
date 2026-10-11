@@ -1,4 +1,4 @@
-# 更新 v1.40：E5生产checkpoint head定位与独立R2
+# 更新 v1.41：E5严格wrapper指纹类上下文修复
 
 ## 2026-10-11 当前：E4c原GPU继续，只读后处理CPU已独立通过
 
@@ -357,3 +357,7 @@ E3新增H-PREPARE-PERSIST只提前持久化每次真实成功prepare的纯签名
 ## v1.40 E5 native wrapper接线修复
 
 [340原失败和R2](../research/340_WC_E5_NATIVE_CHECKPOINT_HEAD_FAILURE_AND_R2_REPAIR_20261011.md)：原生head被SAC CheckpointWrapper包装，R1在Meta guard停止、0采样，原失败保存。R2保留wrapper调用、原native leaf与no_grad，固定source／context／kwargs；原24完整等价范围不缩，增加7生产wrapper拒绝。服务器CPU待，E4c原作业和全24终态优先。
+
+## v1.41 E5严格指纹上下文修复
+
+[341](../research/341_WC_E5_CHECKPOINT_CLASS_CONTEXT_FINGERPRINT_REPAIR_20261011.md)：R2 Meta guard失败保留，独立证实根方法只因AST单独编译丢类名称常量；R3按原类编译后指纹严格一致，不忽略任何字段，原完整24／444／888／96和7wrapper拒绝范围保持，服务器CPU待。E4c三父完整／Human ON继续，原全24终态优先。

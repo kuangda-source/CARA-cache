@@ -1,3 +1,7 @@
+## 2026-10-11 当前：E5严格wrapper指纹需类上下文，R3完整范围保持
+
+[341指纹修复](../../research/341_WC_E5_CHECKPOINT_CLASS_CONTEXT_FINGERPRINT_REPAIR_20261011.md)：R2 a12c034／4092087与4092088退出1、10.326426秒／0采样，416来源及账本保持。实际与单独编译方法只差嵌套函数qualified name常量；按原类上下文编译已独立严格一致。R3仅修期望指纹编译，数值／wrapper／guard不放松，原24完整／444实读／888张量／96恢复＋7拒绝范围不缩，421载荷CPU待。E4c三父完整／Human ON开始、原句柄继续不改；≤8自主／严格>8具体批准，E2/E3原问题待不重问，goal active，无训练人评。以下为历史。
+
 ## 2026-10-11 当前：E5生产checkpoint head差异已定位，独立R2登记
 
 [340失败与修复](../../research/340_WC_E5_NATIVE_CHECKPOINT_HEAD_FAILURE_AND_R2_REPAIR_20261011.md)：R1 source6406680／4089583与4089585退出1、24.854265秒，411来源及账本保持，完整采样0条。真实head外层为原生NO_REENTRANT选择性checkpoint，叶子FinalLayer指纹与原型相同。R2保留实际wrapper调用并严格绑定根／叶／context／kwargs，不绕过SAC；24完整／444实读／888张量／96恢复范围保持，新增7wrapper拒绝，416载荷CPU待，非GPU／视频／速度结果。原E4c继续不改，≤8自主／严格>8准确整卡确认，E2/E3原问题待不重问，goal active，无训练人评。以下为历史。
