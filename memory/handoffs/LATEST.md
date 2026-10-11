@@ -1,3 +1,7 @@
+## 2026-10-11 P production CPU independently accepted; original E5 and approved E3 retained
+
+[361生产CPU独立验收](../../research/361_WC_P_REFERENCE_PRODUCTION_CPU_ACCEPTANCE_AND_APPROVED_E3_QUEUE_20261011.md)：P两flow真实入口source272ed22／4119490、4119491、4119822退出0，132.826839秒，全459／20合同／2guard／4资产／9准入独立通过，完整原8父32suffix／1160张量CPU复用，非新GPU或质量速度。P完整forecast13.060019179，GPU监督／终态／选卡接线与自身above8批准仍待。E3全64／10复用／54新／20加载已准确批准，现场原449＋16保持，dispatcher等待原E5无新目录／GPU。E5 live11原456／三原句柄继续，7／24完整，完整终态待；前实结41.908688946／cap77.895246590、新48余35.986557644，在途预留非实耗，goal active，无训练人评。以下为历史。
+
 ## 2026-10-11 P production relative-path repair; original E5 and approved E3 retained
 
 [360路径修复](../../research/360_WC_P_REFERENCE_PREDEPLOYMENT_RELATIVE_PATH_REPAIR_20261011.md)：P生产R1仅本地git回执绝对路径校验退出128、0SSH／0远端目录／0GPU，原sourcebc992cd／配置及失败保留；R2仅严格仓库内相对路径归一，新身份保留444原数值与两flow完整范围、forecast13.060019179，实际服务器CPU待。原E5继续；E3全64／复用10／补54／20加载已直接批准，待E5退出与独立验收优先执行；新P above8授权未授，预算cap保持、无人评训练，goal active。以下为历史。
