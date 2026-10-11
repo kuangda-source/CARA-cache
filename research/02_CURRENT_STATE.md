@@ -1,3 +1,7 @@
+## 2026-10-12 complete P queue blocked on exact approval
+
+[371三轮阻塞审计](371_WC_P_COMPLETE_CARD_APPROVAL_BLOCKED_AUDIT_20261012.md)：E3全64及370全16参考跨度CPU分析已完成并同步；待执行完整P卡13.060019179严格>8，自身准确问题已提交但无批准，E2原问保持。实际dispatcher WAIT／exit2／0SSH／0新GPU／0账本写入／无选卡目录；服务器E3终态0、原post及reader已消失，无inflight，账本SHA不变、新48余23.693418005。连续同一权限阻塞三轮，接着设置goal blocked等待批准；不标complete或用户paused，不缩／替卡、不重启E3，不引入训练人评。以下为历史。
+
 ## 2026-10-12 E3 actual reference clocks; P scope retained
 
 [370实际回执CPU分析](370_WC_E3_EXISTING_SOURCE_REFERENCE_CLOCKS_AND_P_SCOPE_BOUNDARY_20261012.md)：16条A路径／576更新完整重读，NONZERO实际P源C为W1 33／β1 37，P平均龄1.4242／1.8378步、真D参考平均多老9.4242／7.1892步，最大差22／18；全部C保留真D历史，未发现P伪造D锚点。八对跨规则最早动作及guided记录分歧同步（六P→C、两D→C），仅元数据前缀等价，不是同状态teacher或唯一因果证明。待批准完整P卡仍KEEP父策略＋强制C4／两flow8父32suffix48点，forecast13.060019179；解释迁移边界H-P-TRANSFER-NONZERO-R1登记，不静默改卡／选事件或加范围。369全64正负结果保持；P自身above8问题已提交答复待，E2原问保持，0新GPU／账本写入，新48余23.693418005，无训练人评，goal active。以下为历史。
