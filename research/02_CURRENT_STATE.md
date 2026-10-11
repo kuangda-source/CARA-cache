@@ -1,3 +1,7 @@
+## 2026-10-11 E5 AV order repeats preserve head savings; Human reverse order continues
+
+[364反序观察](364_WC_E5_FIRST_REAL_BLOCK_HEAD_SAVINGS_OBSERVATION_20261011.md)：E5三个原块18路径退出0，AV两顺序W1／beta均省22／26 head，六方法跨顺序guided／终点／动作／solver／RNG记录相等，456来源保持；保存张量／视频实读和全24仍待。AV反序W1流程少4.411480秒、beta慢33.883456秒、OFF无省算也慢6.449522秒，计时有差异，非稳定clean加速结论。原Human反序4145763／GPU4103103／自动CPU4103104继续，不改原方法／判据。P完整CPU／ready13.060019179保持、自身above8未授；已批准E3全64／10复用／54新／20加载待E5完整验收优先执行，E2原问保持。前实结41.908688946／cap77.895246590、新48余35.986557644，在途预留非实耗，无训练人评，goal active。以下为历史。
+
 ## 2026-10-11 E5 both first repetitions exited; reverse order running
 
 [364首轮两场景记录](364_WC_E5_FIRST_REAL_BLOCK_HEAD_SAVINGS_OBSERVATION_20261011.md)：E5两个首轮12路径／4103190与4116639均退出0，原AV反序4129118运行，456来源保持。AV W1/beta head省22／26，Human省20／22，两首轮guided／终点哈希记录相等；全888张量／444新旧及444反序实读仍待。首轮instrumented时间混合，Human W1/beta慢2.959087／6.740470秒，两个OFF无省算却更快，非clean速度；原全24继续。P完整CPU／ready13.060019179保持、准确above8未授；已批准E3全64／10复用／54新／20加载待E5完整验收优先执行，E2原问保持。前实结41.908688946／cap77.895246590、新48余35.986557644，在途预留非实耗，无训练人评，goal active。以下为历史。
