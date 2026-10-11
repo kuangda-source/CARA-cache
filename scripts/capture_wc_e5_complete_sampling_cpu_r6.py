@@ -13,7 +13,7 @@ def main():
 from pathlib import Path
 os.environ['CUDA_VISIBLE_DEVICES']=''
 project=Path('/home/gaokuangda/data/gkd/worldcache_omr')
-stage=project/'.sync/wc-e5-complete-sampling-cpu-r5-20261011'
+stage=project/'.sync/wc-e5-complete-sampling-cpu-r6-20261011'
 sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
 receipt=json.loads((stage/'receipt.json').read_text())
 original_pids=[receipt['pid']]+[x['pid'] for x in receipt['CPU_parts']]
