@@ -1,0 +1,615 @@
+{
+  "card": "WC-CLEAN-SPEED20-BETA1-KEEP-R1-20261012-A",
+  "run_id": "wc-clean-speed20-beta1-keep-r1",
+  "methods": [
+    "NATIVE",
+    "WC",
+    "RA",
+    "A_NO_P",
+    "KEEP_A_P"
+  ],
+  "scenes": [
+    "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+    "human_199"
+  ],
+  "requests": [
+    {
+      "inference_type": "text2world",
+      "seed": 0,
+      "guidance": 7,
+      "num_output_frames": 93,
+      "resolution": "432,768",
+      "negative_prompt": "The video captures a series of frames showing ugly scenes, static with no motion, motion blur, over-saturation, shaky footage, low resolution, grainy texture, pixelated images, poorly lit areas, underexposed and overexposed scenes, poor color balance, washed out colors, choppy sequences, jerky movements, low frame rate, artifacting, color banding, unnatural transitions, outdated special effects, fake elements, unconvincing visuals, poorly edited content, jump cuts, visual noise, and flickering. Overall, the video is of poor quality.",
+      "name": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "prompt": "The video opens with a nighttime scene captured from inside a vehicle, likely through a dashboard camera, providing a first-person perspective. The road ahead has three lanes, with clear lane markings and a mix of left-turn and right-turn indicators. The scene is dimly lit by the car's headlights and scattered streetlights, creating a moody and atmospheric setting. A semi-truck is visible in the distance, its lights glowing faintly against the dark sky. To the right, a pedestrian crossing sign is visible, and a building or structure with a lit sign suggests a gas station or convenience store. The environment feels quiet and somewhat eerie due to the darkness and limited visibility.  As the video progresses, the car continues its journey along the highway, with additional vehicles occasionally appearing and disappearing into the headlights' reach. The streetlights continue to cast their glow, reflecting off the road surface, enhancing the sense of movement and depth. By the final frame, the car approaches an intersection, where traffic lights are visible, and the road markings become clearer, indicating the direction of travel. The overall scene conveys a sense of solitude and anticipation as the vehicle navigates the quiet, dimly lit road.",
+      "num_steps": 35
+    },
+    {
+      "inference_type": "text2world",
+      "seed": 0,
+      "guidance": 7,
+      "num_output_frames": 93,
+      "resolution": "432,768",
+      "negative_prompt": "The video captures a series of frames showing ugly scenes, static with no motion, motion blur, over-saturation, shaky footage, low resolution, grainy texture, pixelated images, poorly lit areas, underexposed and overexposed scenes, poor color balance, washed out colors, choppy sequences, jerky movements, low frame rate, artifacting, color banding, unnatural transitions, outdated special effects, fake elements, unconvincing visuals, poorly edited content, jump cuts, visual noise, and flickering. Overall, the video is of poor quality.",
+      "name": "human_199",
+      "prompt": "A wide shot captures an outdoor tennis court at the University of Barcelona, as indicated by the signage on the green portion and fence surrounding the court. The court is a standard hard surface with white boundary lines marking the playing area. Two players are present: one on the left side of the frame, dressed in a white shirt and dark shorts, holding a tennis racket and preparing to serve, while the other player is positioned on the far side of the court, ready to receive the serve. The court is enclosed by a high fence adorned with banners and flags, beyond which a row of parked cars and a building can be seen. The setting suggests a clear day with ample daylight illuminating the scene. The position of the camera remains steady, capturing the players' focused and deliberate movements as they engage in the game. The player on the left side of the court serves the ball across the net towards the opponent, who is poised to return the serve. The ball is seen in mid-air, traveling from one side of the court to the other, indicating the beginning of a rally. The players' movements are fluid and engaged, showcasing their concentration and skill. The video concludes with the ball still in play, suggesting that the rally continues beyond the frame's end.",
+      "num_steps": 35
+    }
+  ],
+  "A_method": "BETA1_ONE_PHASE",
+  "A_boundary": 25,
+  "A_strength": [
+    1.0,
+    0.5
+  ],
+  "early_head_elision": false,
+  "working_epoch_strategy": "WORKING_P_AGE_KEEP_INTERVAL",
+  "timed_runs": 20,
+  "warmup_runs": 20,
+  "warmups_per_scene_method": 2,
+  "total_complete_paths": 40,
+  "model_loads": 1,
+  "round_orders": [
+    "forward",
+    "reverse"
+  ],
+  "main_timing": "Text encoding + denoising + VAE decoding, synchronized boundaries",
+  "guardrails_retained_outside_main_timer": true,
+  "video_write_outside_main_timer": true,
+  "algorithm_caches_anchors_projection_and_candidate_heads_paid": true,
+  "per_step_tensor_copies_hashes_checkpoints_files_in_clean_timer": false,
+  "old_audit_endpoint_and_action_bindings": {
+    "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:NATIVE": {
+      "final_latent_sha256": "27bdcc63d7292a4dd8185ac35f4779dc2e563827f6e74fead786916af945a2fd",
+      "vector_artifact": {
+        "path": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-ra-plus-a-full-video-r1/diagnostic/reference-vectors/av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632_NATIVE.pt",
+        "bytes": 294630145,
+        "sha256": "c5e34b054e2ad1dfecae826ab94ea1a836cbed9e84c26c04030929924e12a330",
+        "tensor_sha256": {
+          "guided": "8297b0295698f2e55f0724e45b41fe6492925d9542f6e05fc2fb7c5936f4bf19",
+          "final_latent": "27bdcc63d7292a4dd8185ac35f4779dc2e563827f6e74fead786916af945a2fd"
+        }
+      },
+      "actions": null,
+      "video_artifact": null,
+      "artifact": {
+        "path": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-ra-plus-a-full-video-r1/diagnostic/references/av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632/av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632.mp4",
+        "bytes": 354913,
+        "sha256": "f2afc8f122621ebbced0b2ff80487b3f238a28031655138193839b0f22568fa9"
+      }
+    },
+    "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:WC": {
+      "final_latent_sha256": "05816db962f7a07a8795a6b961ce871a1cc44600fd21e9716d6dbb2a8289ab13",
+      "vector_artifact": {
+        "path": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-ra-plus-a-full-video-r1/diagnostic/methods/av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632/vectors/av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632_WC.pt",
+        "bytes": 294629973,
+        "sha256": "fcf0ab7e84471e87b41110abf0e8a04663dcbb23be8fbdf93325b533dafe0ba1",
+        "tensor_sha256": {
+          "guided": "157a129bc6f834659006aa4b11a1cc1e8d9f89b84ed735793cc497b4d8aa90cb",
+          "final_latent": "05816db962f7a07a8795a6b961ce871a1cc44600fd21e9716d6dbb2a8289ab13"
+        }
+      },
+      "actions": [
+        "DD",
+        "DD",
+        "DD",
+        "DD",
+        "DD",
+        "DD",
+        "DD",
+        "CC",
+        "CC",
+        "CC",
+        "CC",
+        "CC",
+        "DD",
+        "CC",
+        "CC",
+        "CC",
+        "CC",
+        "DD",
+        "CC",
+        "CC",
+        "CC",
+        "DD",
+        "CC",
+        "DD",
+        "CC",
+        "DD",
+        "CC",
+        "DD",
+        "CC",
+        "DD",
+        "CC",
+        "DD",
+        "CC",
+        "CC",
+        "DD",
+        "DD"
+      ],
+      "video_artifact": {
+        "path": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-ra-plus-a-full-video-r1/diagnostic/methods/av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632/av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632_WC/av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632.mp4",
+        "bytes": 444939,
+        "sha256": "2913c7c4a93c09df70c6278fb0f4418786d4d31409b4d47cd4d3f77c59a404ba"
+      },
+      "artifact": null
+    },
+    "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:RA": {
+      "final_latent_sha256": "e2fbff27db483dbbdd9146cf070bee2e786bf0a9f16dc40426b9dd6074e95294",
+      "vector_artifact": {
+        "path": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-ra-plus-a-full-video-r1/diagnostic/methods/av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632/vectors/av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632_RA.pt",
+        "bytes": 294629973,
+        "sha256": "2c342616a88937515f0680f15b8185d3656f67a7f79a62c009bb1d1d7a077d04",
+        "tensor_sha256": {
+          "guided": "16abdfa795e86d7456da17a39591c722af0aa01c9ca7d33843e962cb37aaa90d",
+          "final_latent": "e2fbff27db483dbbdd9146cf070bee2e786bf0a9f16dc40426b9dd6074e95294"
+        }
+      },
+      "actions": [
+        "DD",
+        "DD",
+        "DD",
+        "DD",
+        "DD",
+        "DD",
+        "DD",
+        "CC",
+        "CC",
+        "CC",
+        "CC",
+        "CC",
+        "DD",
+        "CC",
+        "CC",
+        "CC",
+        "CC",
+        "DD",
+        "CC",
+        "CC",
+        "CC",
+        "DD",
+        "CC",
+        "CC",
+        "DD",
+        "CC",
+        "DD",
+        "CC",
+        "CC",
+        "DD",
+        "CC",
+        "CC",
+        "CC",
+        "CC",
+        "CC",
+        "DD"
+      ],
+      "video_artifact": {
+        "path": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-ra-plus-a-full-video-r1/diagnostic/methods/av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632/av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632_RA/av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632.mp4",
+        "bytes": 449001,
+        "sha256": "1be501ac45f32170bf4ef83eefd543087460a050b3d5e504725353507d10faea"
+      },
+      "artifact": null
+    },
+    "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:A_NO_P": {
+      "final_latent_sha256": "85c5c1e4553ea5d48d43cb49a67c5a028b6e824e9e53bdd32528835f2b189084",
+      "vector_artifact": {
+        "path": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-ra-plus-a-full-video-r1/diagnostic/methods/av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632/vectors/av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632_BETA1_ONE_PHASE.pt",
+        "bytes": 294630596,
+        "sha256": "a0a48ecbd1de5e9fd5ab625c11e0b953d791f2c2c3dd97feeb0f83e8033a2630",
+        "tensor_sha256": {
+          "guided": "ac4e8fc9037001c5727adcc96b4cd441a3bfa60dddfe6a58930d15a73bcd55b3",
+          "final_latent": "85c5c1e4553ea5d48d43cb49a67c5a028b6e824e9e53bdd32528835f2b189084"
+        }
+      },
+      "actions": [
+        "DD",
+        "DD",
+        "DD",
+        "DD",
+        "DD",
+        "DD",
+        "DD",
+        "CC",
+        "CC",
+        "CC",
+        "CC",
+        "CC",
+        "CC",
+        "DD",
+        "CC",
+        "CC",
+        "CC",
+        "CC",
+        "DD",
+        "CC",
+        "CC",
+        "CC",
+        "DD",
+        "CC",
+        "CC",
+        "DD",
+        "CC",
+        "CC",
+        "DD",
+        "CC",
+        "CC",
+        "CC",
+        "CC",
+        "CC",
+        "CC",
+        "DD"
+      ],
+      "video_artifact": {
+        "path": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-ra-plus-a-full-video-r1/diagnostic/methods/av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632/av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632_BETA1_ONE_PHASE/av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632.mp4",
+        "bytes": 311439,
+        "sha256": "42de85644e89311e7c6599d678b413c8d20f45209f4db078bd2b759068d9df2c"
+      },
+      "artifact": null
+    },
+    "human_199:NATIVE": {
+      "final_latent_sha256": "b5689e8ecd63fe23ffcc8a2479798efe2ae979f0ac9c9099763bcad37ed19bbb",
+      "vector_artifact": {
+        "path": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-ra-plus-a-full-video-r1/diagnostic/reference-vectors/human_199_NATIVE.pt",
+        "bytes": 294628791,
+        "sha256": "c788c680c821329f51fef49d5dfc5c2bc83532d7204a73d416023da9ed461df6",
+        "tensor_sha256": {
+          "guided": "00988204b1c506596254ff9a2c2e01428dbf5dbbe02fea92cd66a173e538527f",
+          "final_latent": "b5689e8ecd63fe23ffcc8a2479798efe2ae979f0ac9c9099763bcad37ed19bbb"
+        }
+      },
+      "actions": null,
+      "video_artifact": null,
+      "artifact": {
+        "path": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-ra-plus-a-full-video-r1/diagnostic/references/human_199/human_199.mp4",
+        "bytes": 1159588,
+        "sha256": "bce324de4bba722c2d5cea7e15fef162c66ee783d63444992e9a5fe053e91e4a"
+      }
+    },
+    "human_199:WC": {
+      "final_latent_sha256": "5381e22bd12796716a4839c1602d792cdcf0713a90fb441635ba6a4ea389bcea",
+      "vector_artifact": {
+        "path": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-ra-plus-a-full-video-r1/diagnostic/methods/human_199/vectors/human_199_WC.pt",
+        "bytes": 294628555,
+        "sha256": "f10ea91f5503f1d3c3b1ecb66cec09e7f2337169de73f55312d47327c6324d0f",
+        "tensor_sha256": {
+          "guided": "135ce6e058afae93a9cc7759261244c2a0154489ebc906c906ec0231e3183011",
+          "final_latent": "5381e22bd12796716a4839c1602d792cdcf0713a90fb441635ba6a4ea389bcea"
+        }
+      },
+      "actions": [
+        "DD",
+        "DD",
+        "DD",
+        "DD",
+        "DD",
+        "DD",
+        "DD",
+        "CC",
+        "CC",
+        "CC",
+        "CC",
+        "DD",
+        "CC",
+        "CC",
+        "CC",
+        "CC",
+        "DD",
+        "CC",
+        "CC",
+        "CC",
+        "DD",
+        "CC",
+        "DC",
+        "DD",
+        "DD",
+        "DD",
+        "DD",
+        "DC",
+        "DD",
+        "DD",
+        "CC",
+        "DD",
+        "CC",
+        "CC",
+        "CC",
+        "DD"
+      ],
+      "video_artifact": {
+        "path": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-ra-plus-a-full-video-r1/diagnostic/methods/human_199/human_199_WC/human_199.mp4",
+        "bytes": 1100497,
+        "sha256": "4d0f0549dbabf04e7f217037c40f6a30f41cb240289162d6fb0fbec2dde982fb"
+      },
+      "artifact": null
+    },
+    "human_199:RA": {
+      "final_latent_sha256": "f59ec9254efa426e0baf049927aa72917e7b4d7966214ca81df0f27e7cd1c2f4",
+      "vector_artifact": {
+        "path": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-ra-plus-a-full-video-r1/diagnostic/methods/human_199/vectors/human_199_RA.pt",
+        "bytes": 294628555,
+        "sha256": "f5f9a52798e8df47227eead1bacb0a077c9867ef359db273ce487e3c2412c5ad",
+        "tensor_sha256": {
+          "guided": "df5ed7e9633798b814c0ea6874750ec0f4979edd251840e5fe5dcb30dbb0cfeb",
+          "final_latent": "f59ec9254efa426e0baf049927aa72917e7b4d7966214ca81df0f27e7cd1c2f4"
+        }
+      },
+      "actions": [
+        "DD",
+        "DD",
+        "DD",
+        "DD",
+        "DD",
+        "DD",
+        "DD",
+        "CC",
+        "CC",
+        "CC",
+        "CC",
+        "CC",
+        "DD",
+        "CC",
+        "CC",
+        "CC",
+        "CC",
+        "DD",
+        "CC",
+        "CC",
+        "CC",
+        "DD",
+        "CC",
+        "CC",
+        "DD",
+        "CC",
+        "DD",
+        "CC",
+        "CC",
+        "DD",
+        "CC",
+        "CC",
+        "CC",
+        "CC",
+        "CC",
+        "DD"
+      ],
+      "video_artifact": {
+        "path": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-ra-plus-a-full-video-r1/diagnostic/methods/human_199/human_199_RA/human_199.mp4",
+        "bytes": 1190975,
+        "sha256": "fb5f55278c229711b0191d54648d5a12e35ec61a754553b28a9f64bdb91c2663"
+      },
+      "artifact": null
+    },
+    "human_199:A_NO_P": {
+      "final_latent_sha256": "fb25078a5f815f0e2e3305b6ff098d86bed411f8fa978aa63d3c2a37424f5af6",
+      "vector_artifact": {
+        "path": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-ra-plus-a-full-video-r1/diagnostic/methods/human_199/vectors/human_199_BETA1_ONE_PHASE.pt",
+        "bytes": 294629242,
+        "sha256": "e7566f7d909eb1f9c6c38ef8257629c9f75cec57d28dc08ea641a2f1763b1d02",
+        "tensor_sha256": {
+          "guided": "45a3aabe0604e4483a5968ebddbc328988fd1bcc08b79f1f735496b383db9ede",
+          "final_latent": "fb25078a5f815f0e2e3305b6ff098d86bed411f8fa978aa63d3c2a37424f5af6"
+        }
+      },
+      "actions": [
+        "DD",
+        "DD",
+        "DD",
+        "DD",
+        "DD",
+        "DD",
+        "DD",
+        "CC",
+        "CC",
+        "CC",
+        "CC",
+        "CC",
+        "DD",
+        "CC",
+        "CC",
+        "CC",
+        "CC",
+        "DD",
+        "CC",
+        "CC",
+        "CC",
+        "DD",
+        "CC",
+        "CC",
+        "DD",
+        "CC",
+        "DD",
+        "CC",
+        "DD",
+        "CC",
+        "CC",
+        "CC",
+        "CC",
+        "CC",
+        "CC",
+        "DD"
+      ],
+      "video_artifact": {
+        "path": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-ra-plus-a-full-video-r1/diagnostic/methods/human_199/human_199_BETA1_ONE_PHASE/human_199.mp4",
+        "bytes": 1284399,
+        "sha256": "e7860a5ac1abe7f8210e896cbdcc9d01293bb8903a7d81977ce8178f7e8b1547"
+      },
+      "artifact": null
+    },
+    "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:KEEP_A_P": {
+      "final_latent_sha256": "a07b7a6f733ff4d14a1f0d7af4cf3db5f899364e3caf97d50db04c34e9acd2fb",
+      "vector_artifact": {
+        "path": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-current-birth-capd-full64-r1/diagnostic/WORKING_P_AGE_KEEP_INTERVAL/av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632/vectors/av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632_A_CPD_BETA1_ONE_PHASE.pt",
+        "bytes": 294630918,
+        "sha256": "b5bbd8a98242103637fa7744b792af3727079845b9d72434573c7e81d1ec8165",
+        "tensor_sha256": {
+          "guided": "87b6e0945c8717f76852f3b165a634c43363c352f9c1d39cf53c608a173b82b1",
+          "final_latent": "a07b7a6f733ff4d14a1f0d7af4cf3db5f899364e3caf97d50db04c34e9acd2fb"
+        }
+      },
+      "actions": [
+        "DD",
+        "DD",
+        "DD",
+        "DD",
+        "DD",
+        "DD",
+        "DD",
+        "CC",
+        "CC",
+        "CC",
+        "CC",
+        "CC",
+        "CC",
+        "DD",
+        "CC",
+        "CC",
+        "CC",
+        "CC",
+        "PP",
+        "PP",
+        "DD",
+        "CC",
+        "CC",
+        "CC",
+        "DD",
+        "CC",
+        "CC",
+        "DD",
+        "CC",
+        "CC",
+        "CC",
+        "PP",
+        "DD",
+        "CC",
+        "CC",
+        "DD"
+      ],
+      "video_artifact": {
+        "path": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-current-birth-capd-full64-r1/diagnostic/WORKING_P_AGE_KEEP_INTERVAL/av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632/av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632_A_CPD_BETA1_ONE_PHASE/av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632.mp4",
+        "bytes": 341529,
+        "sha256": "5c4e46fc4c0c6dd5dc2054c6343a205106750b359faf8f9c871f2d95d76ada1e"
+      }
+    },
+    "human_199:KEEP_A_P": {
+      "final_latent_sha256": "b3bfe956d403c462c4b84cbc1207df26631f5e0d82f9e12f892ffc6b9e340445",
+      "vector_artifact": {
+        "path": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-e1-cold-prefix-storage-diag8-r2/CPU_PREFIX/human_199/vectors/human_199_A_CPD_BETA1_ONE_PHASE.pt",
+        "bytes": 294629500,
+        "sha256": "b7f67e3156d18ac9b63bb490c6333e9d2d38b50662d321a1a132bd6e842ff477",
+        "tensor_sha256": {
+          "guided": "e879d5fdb5b1c5485d54ce3ccc94d3544a214392418944b4fcdc5ab83b6ff8f2",
+          "final_latent": "b3bfe956d403c462c4b84cbc1207df26631f5e0d82f9e12f892ffc6b9e340445"
+        }
+      },
+      "actions": [
+        "DD",
+        "DD",
+        "DD",
+        "DD",
+        "DD",
+        "DD",
+        "DD",
+        "CC",
+        "CC",
+        "CC",
+        "CC",
+        "CC",
+        "PP",
+        "PP",
+        "DD",
+        "CC",
+        "CC",
+        "CC",
+        "CC",
+        "PP",
+        "DD",
+        "CC",
+        "CC",
+        "PP",
+        "DD",
+        "CC",
+        "PP",
+        "PP",
+        "DD",
+        "CC",
+        "CC",
+        "CC",
+        "CC",
+        "CC",
+        "CC",
+        "DD"
+      ],
+      "video_artifact": {
+        "path": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-e1-cold-prefix-storage-diag8-r2/CPU_PREFIX/human_199/human_199_A_CPD_BETA1_ONE_PHASE/human_199.mp4",
+        "bytes": 1139073,
+        "sha256": "5b187f2df83b868c7a2cd2a4273b1a2c7fb7a04e5a70f22d2beca8732cc4cf6e"
+      }
+    }
+  },
+  "all93_LPIPS_after_GPU": true,
+  "forecast_complete_GPUh": 4.659511769876505,
+  "cost_source_all10": [
+    {
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "method": "NATIVE",
+      "source_seconds": 326.94904820341617
+    },
+    {
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "method": "WC",
+      "source_seconds": 267.46934662386775
+    },
+    {
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "method": "RA",
+      "source_seconds": 222.51629079133272
+    },
+    {
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "method": "A_NO_P",
+      "source_seconds": 224.3223584536463
+    },
+    {
+      "scene": "human_199",
+      "method": "NATIVE",
+      "source_seconds": 330.1363228093833
+    },
+    {
+      "scene": "human_199",
+      "method": "WC",
+      "source_seconds": 259.3027022778988
+    },
+    {
+      "scene": "human_199",
+      "method": "RA",
+      "source_seconds": 224.67858988884836
+    },
+    {
+      "scene": "human_199",
+      "method": "A_NO_P",
+      "source_seconds": 228.152743620798
+    },
+    {
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "method": "KEEP_A_P",
+      "source_seconds": 355.3288578335196
+    },
+    {
+      "scene": "human_199",
+      "method": "KEEP_A_P",
+      "source_seconds": 440.8057340271771
+    }
+  ],
+  "prior_40_path_envelope_seconds": 11518.647978119552,
+  "whole_cost_margin_factor": 1.3,
+  "model_load_import_allowance_seconds": 600,
+  "outside_timer_io_quality_binding_allowance_seconds": 1200,
+  "automatic_single_job_GPUh": 8,
+  "cumulative_cap_GPUh": 77.89524658965853,
+  "authority_ref": "manifests/wc_current_window_execution_authorization_20261011_8gpuh.json",
+  "original_parent_stage": ".sync/wc-e3-complete64-selected-r1-20261011",
+  "user_request": "两场景、五配置、正反两轮共20计时，预热另计；固定A版本、计时外核对输出及LPIPS",
+  "P_mechanism_full_card_remains_deferred": true,
+  "E2_original_card_unchanged": true,
+  "GPU_execution_selected": false,
+  "training": false,
+  "parameter_sweep": false
+}
