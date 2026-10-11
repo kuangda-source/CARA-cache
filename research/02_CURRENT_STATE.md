@@ -1,3 +1,7 @@
+## 2026-10-11 E5 existing order/cost diagnostic; original E3 continues
+
+[368原计时顺序诊断](368_WC_E5_EXISTING_ORDER_COST_DIAGNOSTIC_AND_E3_CONTINUATION_20261011.md)：E5已验收全24原件CPU重分析：四加载首个同模式对比4/4第一条更慢，四OFF无head省算但均较早路径更慢，所有12原耗时及head数与独立审计精确匹配，未调整／删样本。中间W1反序仍AV快5.151／4.411秒、Human慢2.959／21.048秒；顺序／启动候选和场景差异同时保留，native head设备耗时未记录，非clean速度或唯一归因。预登记H-E5-ORDER-COST-ALIGN-R1对照问题，精确新卡范围费用与CPU仍待，先完E3。E3原GPU4163981／post4163982／第二模型4172628实际存活，4/54新完成回执，全64／10复用／20加载与冻结source2e39cd3继续，终态评分待。E5全输出保持／head省180保持；前实结46.076713614／cap77.895246590、新48余31.818532976，在途预留非实耗。P自身above8未授、E2原问保持，无训练人评，goal active。以下为历史。
+
 ## 2026-10-11 E3 first block complete; read-only terminal capture prepared
 
 [367原首组及终态采集](367_WC_E3_FIRST_BLOCK_AND_READONLY_TERMINAL_CAPTURE_20261011.md)：E3原首组4164075退出0，DYNAMIC_NO_P／CPD／REF_CPD三条完整36步回执，第二组4172628与原GPU4163981／post4163982实际存活；449＋16哈希保持，原完整64／10复用／54新／20加载继续，非终态质量结果。新增本地只读终态capture，语法／远端只读静态／真实存活WAIT通过，不改465在途源、不重跑reader／GPU，不写远端账本；释放后读原件并独立重构24对比，终态分支待实际验收。E5全24等价及head省180／20.7373%保持，计时混合；前实结46.076713614／cap77.895246590、新48余31.818532976，在途预留非实耗。P自身above8未授、E2原问保持，待E3实结后评估，无训练人评，goal active。以下为历史。
