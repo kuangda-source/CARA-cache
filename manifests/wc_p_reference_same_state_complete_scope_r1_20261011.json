@@ -1,0 +1,174 @@
+{
+  "identity": "P_REFERENCE_SAME_STATE_FULL_TWO_FLOW_SCOPE_PREREGISTERED_NOT_GPU",
+  "card": "WC-P-REFERENCE-SAME-STATE-TWO-FLOW8-SUFFIX32-R1-20261011-A",
+  "run_id": "wc-p-reference-same-state-two-flow8-suffix32-r1",
+  "source_trace_report_ref": "reports/wc_e4c_existing_trace_clocks_cpu_r1_20261011.json",
+  "source_trace_report_sha256": "40d0ceeb4d6f12ebf1d6f3dc2cdbc9d3444c3aacb83c8990094dee8677749aac",
+  "event_selection": "ORIGINAL_E4C_ON_REGISTERED_POSITIONS_FIXED_IN_BOTH_FLOW_MODES_NO_ERROR_BASED_RESELECTION",
+  "selection_uses_quality_speed_or_candidate_error": false,
+  "sample_names": [
+    "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+    "human_199"
+  ],
+  "seed": 0,
+  "method": "A_CPD_W1_ONE_PHASE",
+  "working_epoch_strategy": "WORKING_P_AGE_KEEP_INTERVAL",
+  "events": [
+    {
+      "id": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632-early",
+      "sample_name": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "phase": "early",
+      "birth_step": 13,
+      "fork_after_update": 12,
+      "last_diagnostic_update": 17,
+      "source_inventory": "ORIGINAL64",
+      "source_arm": null,
+      "source_receipt_sha256": "51cd9e78532932fc6bc63b80a9cf3be66ec73e2e92f09aacc7a636173c7c9f9e",
+      "source_method": "A_CPD_W1_ONE_PHASE",
+      "source_strategy": "WORKING_P_AGE_KEEP_INTERVAL",
+      "original_birth_action": "PP"
+    },
+    {
+      "id": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632-late",
+      "sample_name": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "phase": "late",
+      "birth_step": 25,
+      "fork_after_update": 24,
+      "last_diagnostic_update": 29,
+      "source_inventory": "ORIGINAL64",
+      "source_arm": null,
+      "source_receipt_sha256": "51cd9e78532932fc6bc63b80a9cf3be66ec73e2e92f09aacc7a636173c7c9f9e",
+      "source_method": "A_CPD_W1_ONE_PHASE",
+      "source_strategy": "WORKING_P_AGE_KEEP_INTERVAL",
+      "original_birth_action": "PP"
+    },
+    {
+      "id": "human_199-early",
+      "sample_name": "human_199",
+      "phase": "early",
+      "birth_step": 12,
+      "fork_after_update": 11,
+      "last_diagnostic_update": 16,
+      "source_inventory": "E1_FULL8",
+      "source_arm": "CPU_PREFIX",
+      "source_receipt_sha256": "8a1201c771ae4f08456ab70e9d757af86938dc84c102c61b735fd02a2a4f09ea",
+      "source_method": "A_CPD_W1_ONE_PHASE",
+      "source_strategy": "WORKING_P_AGE_KEEP_INTERVAL",
+      "original_birth_action": "PP"
+    },
+    {
+      "id": "human_199-late",
+      "sample_name": "human_199",
+      "phase": "late",
+      "birth_step": 27,
+      "fork_after_update": 26,
+      "last_diagnostic_update": 31,
+      "source_inventory": "E1_FULL8",
+      "source_arm": "CPU_PREFIX",
+      "source_receipt_sha256": "8a1201c771ae4f08456ab70e9d757af86938dc84c102c61b735fd02a2a4f09ea",
+      "source_method": "A_CPD_W1_ONE_PHASE",
+      "source_strategy": "WORKING_P_AGE_KEEP_INTERVAL",
+      "original_birth_action": "PP"
+    }
+  ],
+  "parent_collection_modes": [
+    "OFF",
+    "ON"
+  ],
+  "suffix_arms": [
+    "POLICY_REPEAT1",
+    "POLICY_REPEAT2",
+    "P_BIRTH_C4",
+    "D_BIRTH_C4"
+  ],
+  "suffix_updates_each": 5,
+  "forced_source_births": [
+    "P",
+    "D"
+  ],
+  "forced_following_actions": [
+    "C",
+    "C",
+    "C",
+    "C"
+  ],
+  "teacher_ages": [
+    1,
+    2,
+    4
+  ],
+  "scope_counts": {
+    "full_parent_paths": 4,
+    "full_parent_updates": 144,
+    "events": 4,
+    "suffix_branches": 16,
+    "suffix_updates": 80,
+    "same_state_C_dense_teacher_points": 24,
+    "teacher_pairs": 24,
+    "total_pair_computations": 344,
+    "total_normal_and_teacher_CFG_calls": 688,
+    "additional_same_state_C_pairs": 96
+  },
+  "same_state_teacher_input": "DENSE_ON_EACH_ACTUAL_CANDIDATE_LATENT_NOT_OTHER_ARM_LATENT",
+  "teacher_updates_deployment_state": false,
+  "P_promotes_true_D_or_zeroes_creation_floor": false,
+  "missing_event_behavior": "RETAIN_REGISTERED_EVENT_AS_MISSING_NO_REPLACEMENT",
+  "physical_copy_gate_or_original_protection_bypassed": false,
+  "actual_method_required_storage_and_transport_in_cost": true,
+  "full_parent_OFF_ON_and_policy_suffix_repeat_controls": true,
+  "C4_is_OFFLINE_DIAGNOSTIC_not_online_policy": true,
+  "completed_GPU_cards_E2_E3_cancelled_or_narrowed": false,
+  "separate_E4_hypothesis_not_substitute_for_pending_E2_E3": true,
+  "GPU_queue_reason": "PREPARE_E4_WITHOUT_REPLACING_PENDING_COMPLETE_E2_E3; SELECT_QUEUE_BEFORE_ANY_GPU",
+  "GPU_forecast_status": "PENDING_IMPLEMENTATION_CPU_AND_BOUND_REAL_COST_CALCULATION",
+  "automatic_single_job_GPUh": 8,
+  "training": false,
+  "human_review": false,
+  "new_end_to_end_quality_or_speed_claim": false,
+  "GPU_execution_selected": false,
+  "GPU_submissions": 0,
+  "ledger_written": false,
+  "flow_modes": [
+    false,
+    true
+  ],
+  "OFF_first_parent_action_may_differ_from_ON": true,
+  "candidate_variants": [
+    "OFFICIAL_C",
+    "P_REFERENCE_SCALAR",
+    "D_REFERENCE_UNIT",
+    "P_REFERENCE_UNIT",
+    "D_REFERENCE_SCALAR"
+  ],
+  "deployed_reference_after_each_scoring_point": "D_REFERENCE_SCALAR",
+  "candidate_changes_deployed_future_state": false,
+  "per_flow_scope_counts": {
+    "full_parent_paths": 4,
+    "events": 4,
+    "suffix_branches": 16,
+    "age_points": 24,
+    "same_state_candidate_pairs": 120,
+    "teacher_pairs": 24,
+    "full_parent_and_suffix_pairs": 224,
+    "total_pair_computations": 344,
+    "CFG_calls": 688,
+    "files": 44,
+    "tensors": 580
+  },
+  "whole_scope_counts": {
+    "flow_modes": 2,
+    "full_parent_paths": 8,
+    "events": 8,
+    "suffix_branches": 32,
+    "age_points": 48,
+    "same_state_candidate_pairs": 240,
+    "teacher_pairs": 48,
+    "total_pair_computations": 688,
+    "CFG_calls": 1376,
+    "files": 88,
+    "tensors": 1160
+  },
+  "target_math_component": "P_WORKING_REFERENCE_READOUT_R1",
+  "native_head_elision_combined": false,
+  "invalid_five_way_or_changed_D_source_policy": "FAIL_COMPLETE_SCOPE_KEEP_ORIGINAL_ARTIFACTS"
+}

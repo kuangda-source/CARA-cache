@@ -1,3 +1,7 @@
+# 更新 v1.54：P同状态五读出完整CPU范围登记
+
+[354完整范围](../research/354_WC_P_REFERENCE_FIVE_WAY_SAME_STATE_CPU_PREREGISTRATION_20261011.md)：P同状态五读出已接原完整恢复和独立评分，每flow4父／16suffix／24点／344pairs，两flow完整8父32suffix48点688pairs1376CFG88文件1160张量、26拒绝／2截断CPU预登记，444来源；实际CPU待，未GPU ready或误差收益。353 P读出完整CPU正结果保留，P仍非D／零风险，最后旧D-scalar继续部署。原E5全24 eff2b71／456与三原句柄继续，live5两OFF已36步、旧W1在跑，完整终态待。前实结41.908688946／cap77.895246590、新48余35.986557644，≤8完整自主／严格>8具体确认，E2/E3原待不重问，无训练人评，goal active。 以下为历史。
+
 # 更新 v1.53：P工作参考完整CPU独立通过，原E5继续
 
 [353实际验收](../research/353_WC_P_REFERENCE_COMPLETE_TWO_FLOW_CPU_ACCEPTANCE_20261011.md)：P工作参考R3/sourcea2f40f3／4108321与4108324退出0，87.007255秒／440来源保持，独立10文件370张量／40相等／40恢复／72实际P公式和native head输入通过；两flow旧/新W1与beta均100head，D统计/cache/RNG保持，是完整CPU实现正结果，非真实误差／质量／速度。R1/R2启动／夹具失败保留；下一准备同状态官方C／旧新参考／beta1及P/D来源诊断，具体GPU范围与费用仍待。原E5eff2b71／456与三原句柄继续，live4 AV_R1两OFF已36步、旧W1在跑，完整24终态待。前实结41.908688946／cap77.895246590、新48余35.986557644，在途预留非实耗；≤8完整自主／严格>8具体确认，E2/E3原待不重问，无训练人评，goal active。 以下为历史。
