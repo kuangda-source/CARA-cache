@@ -96,3 +96,5 @@ LPIPS 越低表示越接近匹配 Native。下表是四场景等权均值；“�
 - 原 CPU 张量／视频审计 361.814381 秒；93 帧指标及终态资源检查 1080.375561 秒；CPU 阶段 CUDA 未初始化、账本 SHA 未变。
 - [独立原件采集与全部 24 对比](../reports/wc_e3_complete64_terminal_r1_20261011_capture.json) · [可重算完整结果与全部逐位置成本](../reports/wc_e3_complete64_accepted_results_r1_20261012.json) · [本地 CPU 汇总代码](../scripts/analyze_wc_e3_complete64_accepted_results_r1.py)。
 - 独立 capture SHA256：`0bd83d9ba369e684109383005fb45c6c7aeead4b6271ce6f02c49fc09cfe573b`；冻结实际 GPU source：`2e39cd31b593540130c08a394b92d9f5b5b5db42`。
+
+执行状态：完整 P 卡的具体 above8 问题已提交，尚无新批准；本轮无新 GPU 提交，E2 原问题保持。

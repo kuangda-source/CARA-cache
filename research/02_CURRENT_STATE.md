@@ -1,6 +1,6 @@
 ## 2026-10-12 E3 complete64 accepted; source/readout interaction
 
-[369完整结果与下一步](369_WC_E3_COMPLETE64_RESULTS_SOURCE_READOUT_INTERACTION_AND_NEXT_20261012.md)：E3 原完整 64 位置已独立验收：10 复用＋54 新、20 模型全退出 0，64 原件／2368 张量／64×93＝5952 帧全评分、0 失败，449＋16 源保持，24 登记对比独立重构。保留原累计规则 W1／β1 相对 CPD 平均 LPIPS 下降 13.6735%／12.7233%（3/4、4/4 改善），相对 RA 的补充探索比较下降 15.3274%／14.3953%（均4/4）；misc W1 小退化保留。非零重基准 CPD 的 P 后 CC 0→50、DD51→37，但 A 组合相对同规则 CPD 上升50.9539%／18.2840%，均4/4退化；读出／来源／调度交互待区分，不否定方向。8个CPD/OFF控制全部相等、Dense全0；非独立确认／clean速度。GPU实计8.125114971，累计54.201828585／cap77.895246590、新48余23.693418005，第80作业无在途，原自动CPU也退出0。下一推荐已完整CPU验收的P五读出两flow8父32suffix／688pairs完整卡13.060019179，需自身above8批准；新H-E3-SOURCE-READOUT-INTERACTION-R1登记，E2原问题保持不重复，无训练人评，goal active。以下为历史。
+[369完整结果与下一步](369_WC_E3_COMPLETE64_RESULTS_SOURCE_READOUT_INTERACTION_AND_NEXT_20261012.md)：E3 原完整 64 位置已独立验收：10 复用＋54 新、20 模型全退出 0，64 原件／2368 张量／64×93＝5952 帧全评分、0 失败，449＋16 源保持，24 登记对比独立重构。保留原累计规则 W1／β1 相对 CPD 平均 LPIPS 下降 13.6735%／12.7233%（3/4、4/4 改善），相对 RA 的补充探索比较下降 15.3274%／14.3953%（均4/4）；misc W1 小退化保留。非零重基准 CPD 的 P 后 CC 0→50、DD51→37，但 A 组合相对同规则 CPD 上升50.9539%／18.2840%，均4/4退化；读出／来源／调度交互待区分，不否定方向。8个CPD/OFF控制全部相等、Dense全0；非独立确认／clean速度。GPU实计8.125114971，累计54.201828585／cap77.895246590、新48余23.693418005，第80作业无在途，原自动CPU也退出0。下一推荐已完整CPU验收的P五读出两flow8父32suffix／688pairs完整卡13.060019179，自身above8完整问题已提交、答复待；新H-E3-SOURCE-READOUT-INTERACTION-R1登记，E2原问题保持不重复，无训练人评，goal active。以下为历史。
 
 ## 2026-10-11 E3 first Dense/Native record control; full card continues
 
