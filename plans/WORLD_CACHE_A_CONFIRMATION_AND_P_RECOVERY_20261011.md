@@ -1,6 +1,6 @@
 # WorldCache 下一轮设计：阶段 A 确认与 P 的净收益开发
 
-2026-10-11，v1.23。当前研究入口，依据用户本轮“根据最新对话和文档更新下实验设计”。保留 WorldCache＋RA 的三模块主线，将已有方法的确认与部分刷新执行器的完善分开安排。初版更新仅设计；后续E0独立CPU已实际完成，未提交新GPU，旧卡结果保持。实际结果见[285回收报告](../research/285_WC_E0_REAL_PARTIAL_RECOVERY_RESULTS_AND_MEMORY_NEXT_STEP_20261011.md)。
+2026-10-11，v1.24。当前研究入口，依据用户本轮“根据最新对话和文档更新下实验设计”。保留 WorldCache＋RA 的三模块主线，将已有方法的确认与部分刷新执行器的完善分开安排。初版更新仅设计；后续E0独立CPU已实际完成，未提交新GPU，旧卡结果保持。实际结果见[285回收报告](../research/285_WC_E0_REAL_PARTIAL_RECOVERY_RESULTS_AND_MEMORY_NEXT_STEP_20261011.md)。
 
 ## 1. 本轮最重要的调整
 
@@ -287,3 +287,10 @@ E3新增H-PREPARE-PERSIST只提前持久化每次真实成功prepare的纯签名
 ## 30. v1.23 E3十候选原件完成重新绑定
 
 [24真实文件只读hash](../reports/wc_e3_complete64_candidate_rehash_cpu_r1_20261011.json)实际15.096142秒通过，十候选vector／video及四Native参考的bytes／SHA一致，账本SHA不变。全64清单完整；如新卡选择这十个证据齐全位置，待生成54条，原64FAILED_TECH及Human缺字段仍不覆盖。当前新执行块／有限模型生命周期／完整CPU接线与forecast待，未选GPU。将CPU存储实测耗时与所有模型加载计入保守完整预测；不得按50/64简单折扣或拆卡以低于8。
+
+
+## 31. v1.24 E3完整64位置选复用与54路径运行块登记
+
+[317完整CPU范围](../research/317_WC_E3_COMPLETE64_REUSE10_FRESH54_BLOCK_CPU_PREREGISTRATION_20261011.md)与[完整位置manifest](../manifests/wc_e3_complete64_reuse10_fresh54_blocks_r1_20261011.json)：全部两规则／四CAL／八方法64位置保留，十原件合格位置选择复用、54选择完整生成；事前轮转／交错方法块，每一模型进程最多三条，共20块。是同一完整GPU卡，不拆成20权限卡；所有加载和存储费用须统一forecast。当前无新GPU和选中执行。
+
+新module只调整普通batch范围／verify数量，实际SOURCE_RA owner保持、非RA用验收CPU存储owner，prepare签名提前保存。新旧owner与持久化方式同一Toy权重／RNG／条件直接配对：两规则×两flow×八方法×两实现64成功，加四三路径末writer故障12尝试；2736更新／5472CFG、2368成功张量重读／1184直接比较、160CPU额外恢复登记，完整卡结构十拒绝本地通过。受影响377源码／原365CPU字节只读继承；真实生产入口／启动资产／监督／逐路径评分／完整费用仍待，无训练或人评。
