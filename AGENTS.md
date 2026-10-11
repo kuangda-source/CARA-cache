@@ -1,3 +1,7 @@
+## 2026-10-11 P five-way same-state full CPU independently accepted; original E5 continues
+
+[357完整CPU独立验收](research/357_WC_P_REFERENCE_FIVE_WAY_COMPLETE_CPU_ACCEPTANCE_20261011.md)：P五读出同状态R3/source9d814d1／4114466与4114467退出0，238.967678秒；444来源、两flow8父32suffix48点、688pairs1376CFG完整通过。全88文件1160张量／420直接比较、240候选恢复／96 D来源分支相等、26合同／2截断拒绝独立通过，非真实误差／质量／速度。下一实际生产入口与全复制恢复费用待，未新GPU。E5 live7原三句柄／456保持，AV_R1五完整、FAST_BETA1进行中，全24终态待。前实结41.908688946／cap77.895246590、新48余35.986557644，在途预留非实耗；≤8完整自主／严格>8具体确认，E2/E3原问待，无训练人评，goal active。以下为历史。
+
 ## 2026-10-11 P same-state CPU R3 unwrapped original globals; E5 continues
 
 [356原函数绑定修复](research/356_WC_P_REFERENCE_SAME_STATE_UNWRAPPED_GLOBALS_REPAIR_20261011.md)：CPU R2/sourcecf02589在no_grad包装器globals处导入失败，30.914753秒／0父／0张量，444原来源保持。R3仅unwrap原命名空间并严格核对torch，五读出数值／两flow完整8父32suffix48点688pairs／1160张量不改；完整CPU和独立实读待。E5 live6原三句柄／456保持，AV_R1五完整路径，全24仍待；前实结41.908688946／cap77.895246590、新48余35.986557644，在途预留非实耗。≤8整卡自主／严格>8具体确认，E2/E3原问待，无训练人评，goal active。以下为历史。
