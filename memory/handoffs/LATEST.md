@@ -1,3 +1,7 @@
+## 2026-10-12 N1 full natural12 prepared; two-phase sampling CPU accepted
+
+[376完整首卡](../../research/376_WC_MATH_N1_NATURAL12_COMPLETE_CARD_20261012.md)：固定原NONZERO β1四自然父／12状态（8P＋4D）／180pairs360CFG／48读出评分，teacher不进父缓存，全部144原父guided＋4终点＋4×93RGB等价控制。全卡成本1.654533663≤8已冻结，待真实生产CPU／fresh唯一GPU，不重投旧P或改E2。R1两flow8CPU路径／12点27.321秒已过；R2/R3的Toy阶段选点缺失失败原源保留，R4两合成regime显式覆盖早晚P与D、全8／12在27.795秒通过；真实参数／N0选点未变，独立144Tensor重算通过后方继续。数学十项通过只是实现，不报新GPU／视频／策略收益。新48仍全额可用，已用56.971363333／cap104.971363333／82提交；P13h用户暂缓、E2原76科学范围及自己的>8问题保持。以下为历史。
+
 ## 2026-10-12 new math-scheduler development and fresh remaining48 applied
 
 [375设计／来源／实际预算](../../research/375_WC_MATH_SCHEDULER_DESIGN_AND_NEW48_AUTHORIZATION_20261012.md)：用户直接要求尝试来源一致相关误差融合与H1/H2事件调度，先前speed20全20正式＋20预热／全93已完成，不重跑。N0真实E3源码及原件重读固定四CAL八自然P读取＋四D源控制，检查点仅哈希／无可恢复序列化状态，N1须重放四原父；180pairs/360CFG与48评分完整范围独立登记，非原暂缓P缩卡。后RF融合／相关误差／H1H2纯数值十项CPU通过，真实采样CPU与GPU收益待。服务器f1锁内新预算已实际应用0GPU：保留实费56.971363333／82提交，当前新48可用、cap104.971363333；严格>8才询问，不拆卡，旧秒限制撤销。P13h仍用户暂缓／E2原76及自己的>8准确问题保持，不转OMR／训练／人评。下一同步新N1全采样CPU，门通过后冻结成本和真实GPU；原结果／在途字节不改。以下为历史。
