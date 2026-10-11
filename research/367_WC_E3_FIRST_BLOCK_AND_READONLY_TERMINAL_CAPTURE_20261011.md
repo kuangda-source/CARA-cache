@@ -37,3 +37,9 @@ E3 forecast 12.377456422 GPUh；前实结累计 46.076713614／77.895246590，�
 两次独立模型加载的原始求解器配置记录直接比较不同：`_use_default_values`／`default_name_metadata` 中相同默认字段的列表顺序不同，导致 raw SHA 不同。差异原样保留。[既有数值配对规则](../src/wcomr/full64_partial_recovery_cpu.py) 的 `numerical_pairing` 已要求数值内容、数值 SHA 和默认字段集合同时一致，并只规范默认字段顺序；本轮未修改该规则、方法或判据，也没有把数值不一致解释为元数据差异。
 
 [原 CPD／OFF 完成前缀回执及比较](../reports/wc_e3_cpd_off_completed_prefix_control_r1_20261011_capture.json) 绑定两个观察到的原块回执和 source，449＋16 方法／执行哈希仍保持；GPU／post／第二模型命令实际存活且绑定原 stage。此次只读取完成前缀的原记录，没有重读向量文件或执行逐帧／LPIPS。全 64 位置审计、方法收益与 clean 速度均未在此验收。
+
+## 后续完成前缀观察：首个完整计算／原生控制
+
+第三组原 `DENSE_CONTROL` 已完成，补生成进度为 7/54；原第三模型 `4178397` 开始 `SOURCE_RA`。AV28、nonzero-rebase 的完整计算路径实际记录了 36 个 `DD`、72 次完整 CFG 分支调用，全部 36 guided 哈希、guided 列表哈希、终点哈希及求解器返回记录与该原块绑定的已登记 Native 参考直接相等。
+
+[Dense／Native 完成记录与原块观察原件](../reports/wc_e3_first_dense_native_completed_control_r1_20261011_capture.json) 保留匹配参考、原 source `2e39cd3` 及实际存活的 GPU `4163981`、post `4163982`、第三模型 `4178397`。这是首个场景的完成记录控制；本次未重读实际向量或执行视频解码／LPIPS，不代替全 64 位置终态审计，也不宣称加速方法收益。继续原完整卡，预算和剩余待执行对照保持。

@@ -1,3 +1,7 @@
+# v1.72 E3 first Dense/Native completed record control; full card continues
+
+[367原Dense/Native完成记录](../research/367_WC_E3_FIRST_BLOCK_AND_READONLY_TERMINAL_CAPTURE_20261011.md)：E3第三组Dense完整36 DD／72 CFG记录与AV28/nonzero-rebase已绑定Native全部guided／终点／solver返回哈希相等；首个控制的实际张量／视频实读待全卡reader，未宣称方法收益。原GPU4163981／post4163982／第三模型4178397实际存活，7/54新完成回执、SOURCE_RA已开始，原全64／10复用／54新／20加载与source2e39cd3继续。此前CPD／OFF数值控制和默认字段顺序原差异保持，E5全24等价、省180head及顺序成本诊断保留；先完E3再评估新成本卡／P。前实结46.076713614／cap77.895246590、新48余31.818532976，在途预留非实耗；P自身above8未授、E2原问保持，无训练人评，goal active。以下为历史。
+
 # v1.71 E3 first CPD/OFF completed-prefix control; full card continues
 
 [367原CPD/OFF完成前缀](../research/367_WC_E3_FIRST_BLOCK_AND_READONLY_TERMINAL_CAPTURE_20261011.md)：E3首个AV28/nonzero-rebase完成CPD／OFF控制：36 guided／终点／动作／solver返回记录相等，数值配置与SHA相等；raw配置仅默认字段列表顺序不同，原差异保存，既有numeric配对已规范该顺序，本轮不改判据。449＋16哈希保持，原GPU4163981／post4163982／模型4172628实际存活；此前5/54新完成，原全64／10复用／20加载继续，实际向量／视频和全卡评分待原reader。E5已有顺序／成本诊断及head省180保持，后续新成本卡未选，先完E3；前实结46.076713614／cap77.895246590、新48余31.818532976，在途预留非实耗。P自身above8未授、E2原问保持，无训练人评，goal active。以下为历史。
