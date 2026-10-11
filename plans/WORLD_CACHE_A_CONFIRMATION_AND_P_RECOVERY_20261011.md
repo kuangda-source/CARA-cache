@@ -1,3 +1,7 @@
+# 更新 v1.52：P完整CPU请求绑定R3，E5终态capture准备
+
+[352夹具修复](../research/352_WC_P_REFERENCE_REQUEST_BINDING_FIXTURE_REPAIR_20261011.md)：P CPU R2原54.702444秒在请求合同处退出、0完整路径，440来源／原失败保持；R3仅夹具context补齐run_id:sample_name，数值不改、两flow完整10／370张量40恢复保持，实际CPU待。E5独立终态capture已补齐且需原GPU／CPU退出，原全24 eff2b71／456字节继续；未全卡GPU验收。前实结41.908688946／cap77.895246590、新48余35.986557644，在途预留非实耗；≤8完整自主／严格>8具体确认，E2/E3原问待，无训练人评，goal active。 以下为历史。
+
 # 更新 v1.51：P CPU目录比较R2，完整范围保持
 
 [351启动修复](../research/351_WC_P_REFERENCE_CPU_STARTUP_PATH_IDENTITY_REPAIR_20261011.md)：P工作参考R1/source209844e/4106620在符号链接目录比较处退出，原440来源保持、0采样／0GPU／未写账本；R2仅两边精确登记路径均resolve，数值／完整10路径两flow、370张量40恢复不变，实际CPU待。原E5全24／eff2b71／456字节和原GPU／自动CPU继续，live3首LEGACY_OFF36更新、FAST_OFF在跑。前实结41.908688946／cap77.895246590、新48余35.986557644，在途预留非实耗；≤8整卡自主／严格>8具体确认，E2/E3原问待，不重问拆卡，无训练人评，goal active。 以下为历史。
