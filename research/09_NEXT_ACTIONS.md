@@ -1,3 +1,7 @@
+## 2026-10-11 P complete execution CPU independently accepted; approved E3 next
+
+[363完整CPU验收](363_WC_P_REFERENCE_COMPLETE_CPU_ACCEPTANCE_AND_E3_EXECUTION_PRIORITY_20261011.md)：P完整执行CPU sourcee25cfe8／4123578退出0，36.856215秒，459＋23来源保持；独立88文件1160张量／420比较／48点／240恢复／96 D相等与旧四视频372帧通过。全两flow8父32suffix688pairs1376CFG保持，完整ready forecast13.060019179，本P准确above8批准未授、未新GPU。E5原全24继续，live15已有11完整、456／原三句柄保持，终态待；已直接批准E3全64／复用10／补54／20加载在E5完整验收后优先唯一执行。前实结41.908688946／cap77.895246590、新48余35.986557644，在途预留非实耗；E2原问保持，无训练人评，goal active。以下为历史。
+
 ## 2026-10-11 P complete post/selection CPU registered; original E5 and approved E3 retained
 
 [362完整post选卡CPU登记](362_WC_P_REFERENCE_COMPLETE_POST_SELECTION_CPU_PREREGISTRATION_20261011.md)：P原459方法不改，新增完整两模型监督、纯CPU五读出／部分点原件读取、全8父32suffix48点分母与准确above8选卡接线，完整88／1160／420＋48点读取及旧四视频372帧CPU待；forecast13.060019179与原688pairs保持，本P准确授权未授，不GPU-ready。E5原全24继续，live12已有8完整、原456／三句柄保持；E3全64／10复用／54新／20加载已准确批准、待原E5完整终态优先唯一执行。前实结41.908688946／cap77.895246590、新48余35.986557644，在途预留非实耗，goal active，无训练人评。以下为历史。
