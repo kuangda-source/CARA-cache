@@ -1,3 +1,7 @@
+## 2026-10-12 clean speed20 R2 WC action observation repair
+
+[373技术修复登记](research/373_WC_CLEAN_SPEED20_PREREGISTRATION_20261012.md)：R1执行入口漏收集WC动作（返回None，旧回执36个实际C/D），两Native预热终点逐位一致，尚0正式。R2只增加首深层block的只读bool计数，保留实际算法／A／P／缓存／RNG、无逐步Tensor复制哈希；原R1源码stage进程不改、费用和全部范围封存。独立R2保留两场景五配置正反20正式＋20完整预热一次驻留，forecast4.659511770≤8不变；重新60CPU与真实入口门后才fresh准入，不复用旧预热、不据技术失败报方法负结果。P13h仍暂缓、E2原卡保持。以下为历史。
+
 ## 2026-10-12 clean speed20 real GPU admitted and original job running
 
 [373测速卡](research/373_WC_CLEAN_SPEED20_PREREGISTRATION_20261012.md)：两flow全60采样CPU及真实入口CPU均通过；source f2bfb0774b315798a299e9415fb80e1ff36e6232 已推送，629 payload 冻结、fresh A6000 UUID／无apps／24MiB／全局f1 kernel锁／无inflight／预算准入后唯一监督156093与runner156262真实运行，post watcher156094等待原GPU释放。全40路径一次驻留／20预热／20正式、固定阶段β1／KEEP、forecast4.659511770≤8保持；全20结果与93帧LPIPS尚待，不据初始化给加速倍数。实际第81提交，旧实结54.201828585／cap77.895246590、新48余23.693418005；used=cap是保守在途预留，结束按含加载预热失败的全wall实结。只跟踪原source／PID，不重投或改在途字节，P13h仍暂缓、E2原卡保持。以下为历史。

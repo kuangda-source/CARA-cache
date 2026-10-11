@@ -28,8 +28,8 @@ METHODS=('NATIVE','WC','RA','A_NO_P','KEEP_A_P')
 A_METHOD='BETA1_ONE_PHASE'
 STRATEGY='WORKING_P_AGE_KEEP_INTERVAL'
 SCENES=('av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632','human_199')
-CARD='WC-CLEAN-SPEED20-BETA1-KEEP-R1-20261012-A'
-RUN='wc-clean-speed20-beta1-keep-r1'
+CARD='WC-CLEAN-SPEED20-BETA1-KEEP-R2-20261012-A'
+RUN='wc-clean-speed20-beta1-keep-r2'
 
 
 def matrix():
@@ -103,7 +103,7 @@ def execute(inference,sample,method,*,runtime,wc,rf,settings,calibration,specs,
     context=(RUN+':'+sample.name,'Cosmos-Predict2.5-2B','fixed-seed0-request')
     result={'method':method,'audit':audit,'guided_pairs':0,'solver_steps':0,
         'in_timing_guided_copies':0,'in_timing_hashes':0,'research_checkpoints':0}
-    captured={};guided=[];deferred=[]
+    captured={};guided=[];deferred=[];wc_deep=[[False,False] for _ in range(36)]
     prior_forward=net.forward
     prior_enabled=inference.pipe.worldcache_enabled
     started=time.perf_counter()
@@ -143,6 +143,13 @@ def execute(inference,sample,method,*,runtime,wc,rf,settings,calibration,specs,
     old_write=inference_module.save_img_or_video
     try:
         with contextlib.ExitStack() as stack:
+            if method=='WC':
+                def saw_deep(_module,_args):
+                    pair,slot=result['guided_pairs'],int(net.cnt)%2
+                    if pair>=36 or wc_deep[pair][slot]:raise ValueError('Duplicate WC actual deep branch')
+                    wc_deep[pair][slot]=True
+                hook=net.blocks[int(net.probe_depth)].register_forward_pre_hook(saw_deep)
+                stack.callback(hook.remove)
             stack.enter_context(patched(model,'get_velocity_fn_from_batch',types.MethodType(factory,model)))
             stack.enter_context(patched(scheduler,'step',step))
             stack.enter_context(patched(model,'decode',decode))
@@ -172,7 +179,9 @@ def execute(inference,sample,method,*,runtime,wc,rf,settings,calibration,specs,
             elif executor:
                 result['actions']=[d.action for d in executor.controller.history]
                 result['A_history']=copy.deepcopy(readout.history) if readout else None
-            else:result['actions']=None;result['A_history']=None
+            else:
+                result['actions']=[''.join('D' if v else 'C' for v in pair) for pair in wc_deep] if method=='WC' else None
+                result['A_history']=None
             result['scheduler_timesteps']=scheduler.timesteps.cpu().tolist()
             if audit:result['guided']=guided
         begin=time.perf_counter()

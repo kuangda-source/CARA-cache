@@ -24,3 +24,7 @@ r1部署依赖缺失，未进入采样、0GPU。原stage和失败回执封存。
 ## 实际启动更新
 
 真实生产CPU已通过，0GPU／0账本；随后的唯一原GPU监督156093、runner156262、自动CPU watcher156094已启动。sampling core 与CPU验收字节一致，完整执行source `f2bfb0774b315798a299e9415fb80e1ff36e6232`、629文件冻结。主卡单次forecast4.659511770GPUh≤8，按fresh UUID／全局kernel锁／预算准入执行第81作业，used=cap仅在途预留。实际加载、40路径和20正式评分结果仍待。
+
+## R2技术修复登记（不改变科学范围）
+
+R1入口WC没有controller，却使用控制器动作回执的核验要求；`execute`返回WC actions=None，而旧WC回执为36个实际双分支C/D动作。两个Native预热终点已逐位一致，WC仍在首条预热，尚无正式计时。事前发现并登记：R2仅增加WC第一个深层block的只读Python bool计数，以实际net.cnt和36个guided pair还原每步两个分支动作；无Tensor复制、哈希、保存、数学或RNG改变。原R1源码及进程不修改，首次尝试／费用／完整40和20分母封存；R2独立stage、重新60CPU／真实入口门、一次模型加载驻留和完整20预热＋20正式，不复用旧预热。A版本／五方法／两场景／seed／步数／规格／forecast4.659511770GPUh均不改，不新增调参。R2运行标识为`wc-clean-speed20-beta1-keep-r2`、卡为`WC-CLEAN-SPEED20-BETA1-KEEP-R2-20261012-A`。这属于测试入口技术修复，不是科学负结果、动作阈值放宽或P方向否定。
