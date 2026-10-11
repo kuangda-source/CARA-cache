@@ -1,4 +1,4 @@
-# 更新 v1.39：E5生产head与完整UniPC受影响CPU登记
+# 更新 v1.40：E5生产checkpoint head定位与独立R2
 
 ## 2026-10-11 当前：E4c原GPU继续，只读后处理CPU已独立通过
 
@@ -353,3 +353,7 @@ E3新增H-PREPARE-PERSIST只提前持久化每次真实成功prepare的纯签名
 ## v1.39 E5生产head和完整求解器接线
 
 [339范围](../research/339_WC_E5_PRODUCTION_HEAD_MODE_AND_COMPLETE_SAMPLER_CPU_SCOPE_20261011.md)：支持固定AdaLN/Wan原生模式，新增显式head实际记录／生产unpatchify合同，保留旧源码和在途。24完整Toy-module UniPC路径／444直接比较／888写出张量／96自身恢复和真实2B Meta合同检查，服务器CPU待；成功后冻结真实等价／费用卡，不预先报速度。E4c原全24仍优先，P工作源读出假设不提前实现，E2/E3原卡保持。
+
+## v1.40 E5 native wrapper接线修复
+
+[340原失败和R2](../research/340_WC_E5_NATIVE_CHECKPOINT_HEAD_FAILURE_AND_R2_REPAIR_20261011.md)：原生head被SAC CheckpointWrapper包装，R1在Meta guard停止、0采样，原失败保存。R2保留wrapper调用、原native leaf与no_grad，固定source／context／kwargs；原24完整等价范围不缩，增加7生产wrapper拒绝。服务器CPU待，E4c原作业和全24终态优先。

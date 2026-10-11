@@ -1,0 +1,46 @@
+{
+  "root_type": "torch.distributed.algorithms._checkpoint.checkpoint_wrapper.CheckpointWrapper",
+  "root_vars": {
+    "training": "False",
+    "checkpoint_impl": "<CheckpointImpl.NO_REENTRANT: 2>",
+    "checkpoint_fn": "functools.partial(<function checkpoint at 0x7faebf9ce4d0>, use_reentrant=False, context_fn=<function predict2_2B_720_context_fn_aggressive at 0x7faebedae050>, preserve_rng_state=False)"
+  },
+  "modules": [
+    [
+      "",
+      "torch.distributed.algorithms._checkpoint.checkpoint_wrapper.CheckpointWrapper"
+    ],
+    [
+      "_checkpoint_wrapped_module",
+      "cosmos_predict2._src.predict2.networks.minimal_v4_dit.FinalLayer"
+    ],
+    [
+      "_checkpoint_wrapped_module.layer_norm",
+      "torch.nn.modules.normalization.LayerNorm"
+    ],
+    [
+      "_checkpoint_wrapped_module.linear",
+      "torch.nn.modules.linear.Linear"
+    ],
+    [
+      "_checkpoint_wrapped_module.adaln_modulation",
+      "torch.nn.modules.container.Sequential"
+    ],
+    [
+      "_checkpoint_wrapped_module.adaln_modulation.0",
+      "torch.nn.modules.activation.SiLU"
+    ],
+    [
+      "_checkpoint_wrapped_module.adaln_modulation.1",
+      "torch.nn.modules.linear.Linear"
+    ],
+    [
+      "_checkpoint_wrapped_module.adaln_modulation.2",
+      "torch.nn.modules.linear.Linear"
+    ]
+  ],
+  "forward": "    def forward(self, *args, **kwargs):\n        # Support keyword arguments for reentrant checkpoint. Note that this\n        # only works if user has specified self.checkpoint_impl and is not\n        # using their own custom checkpoint_fn.\n        if self.checkpoint_impl == CheckpointImpl.REENTRANT and kwargs != {}:\n            # Pack the args and kwargs\n            flat_args, kwarg_keys = _pack_kwargs(*args, **kwargs)\n\n            # Function that only takes (packed) args, but can unpack them\n            # into the original args and kwargs for the checkpointed\n            # function, and runs that function.\n            def my_function(*inputs):\n                # unpack back into args and kwargs\n                unpacked_args, unpacked_kwargs = _unpack_kwargs(inputs, kwarg_keys)\n                # run original module\n                return self._checkpoint_wrapped_module(\n                    *unpacked_args, **unpacked_kwargs\n                )\n\n            # Pass the function that only takes packed args into reentrant\n            # checkpoint API.\n            return self.checkpoint_fn(  # type: ignore[misc]\n                my_function,\n                *flat_args,\n            )\n        else:\n            return self.checkpoint_fn(  # type: ignore[misc]\n                self._checkpoint_wrapped_module, *args, **kwargs\n            )\n",
+  "source_file": "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/lib/python3.10/site-packages/torch/distributed/algorithms/_checkpoint/checkpoint_wrapper.py",
+  "native_checkpoint_method": "    def enable_selective_checkpoint(self, sac_config: SACConfig, blocks: nn.ModuleList):\n        if sac_config.mode == CheckpointMode.NONE:\n            return self\n\n        log.info(\n            f\"Enable selective checkpoint with {sac_config.mode}, for every {sac_config.every_n_blocks} blocks. Total blocks: {len(blocks)}\"\n        )\n        _context_fn = sac_config.get_context_fn()\n        for block_id, block in blocks.named_children():\n            if int(block_id) % sac_config.every_n_blocks == 0:\n                log.info(f\"Enable selective checkpoint for block {block_id}\")\n                block = ptd_checkpoint_wrapper(\n                    block,\n                    context_fn=_context_fn,\n                    preserve_rng_state=False,\n                )\n                blocks.register_module(block_id, block)\n        self.register_module(\n            \"final_layer\",\n            ptd_checkpoint_wrapper(\n                self.final_layer,\n                context_fn=_context_fn,\n                preserve_rng_state=False,\n            ),\n        )\n\n        return self\n",
+  "CUDA_initialized": false
+}
