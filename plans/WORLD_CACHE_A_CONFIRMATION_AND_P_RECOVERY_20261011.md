@@ -1,3 +1,7 @@
+# v1.73 E3 complete64 accepted; P working-reference discrimination
+
+[369完整结果与下一步](../research/369_WC_E3_COMPLETE64_RESULTS_SOURCE_READOUT_INTERACTION_AND_NEXT_20261012.md)：E3 原完整 64 位置已独立验收：10 复用＋54 新、20 模型全退出 0，64 原件／2368 张量／64×93＝5952 帧全评分、0 失败，449＋16 源保持，24 登记对比独立重构。保留原累计规则 W1／β1 相对 CPD 平均 LPIPS 下降 13.6735%／12.7233%（3/4、4/4 改善），相对 RA 的补充探索比较下降 15.3274%／14.3953%（均4/4）；misc W1 小退化保留。非零重基准 CPD 的 P 后 CC 0→50、DD51→37，但 A 组合相对同规则 CPD 上升50.9539%／18.2840%，均4/4退化；读出／来源／调度交互待区分，不否定方向。8个CPD/OFF控制全部相等、Dense全0；非独立确认／clean速度。GPU实计8.125114971，累计54.201828585／cap77.895246590、新48余23.693418005，第80作业无在途，原自动CPU也退出0。下一推荐已完整CPU验收的P五读出两flow8父32suffix／688pairs完整卡13.060019179，需自身above8批准；新H-E3-SOURCE-READOUT-INTERACTION-R1登记，E2原问题保持不重复，无训练人评，goal active。以下为历史。
+
 # v1.72 E3 first Dense/Native completed record control; full card continues
 
 [367原Dense/Native完成记录](../research/367_WC_E3_FIRST_BLOCK_AND_READONLY_TERMINAL_CAPTURE_20261011.md)：E3第三组Dense完整36 DD／72 CFG记录与AV28/nonzero-rebase已绑定Native全部guided／终点／solver返回哈希相等；首个控制的实际张量／视频实读待全卡reader，未宣称方法收益。原GPU4163981／post4163982／第三模型4178397实际存活，7/54新完成回执、SOURCE_RA已开始，原全64／10复用／54新／20加载与source2e39cd3继续。此前CPD／OFF数值控制和默认字段顺序原差异保持，E5全24等价、省180head及顺序成本诊断保留；先完E3再评估新成本卡／P。前实结46.076713614／cap77.895246590、新48余31.818532976，在途预留非实耗；P自身above8未授、E2原问保持，无训练人评，goal active。以下为历史。
