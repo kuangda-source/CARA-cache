@@ -1,4 +1,4 @@
-# 更新 v1.43：E5 Meta独立通过与完整采样导入接续
+# 更新 v1.44：E5生产head通过，完整24路径CPU运行
 
 ## 2026-10-11 当前：E4c原GPU继续，只读后处理CPU已独立通过
 
@@ -369,3 +369,7 @@ E3新增H-PREPARE-PERSIST只提前持久化每次真实成功prepare的纯签名
 ## v1.43 E5 Meta独立验收与完整导入接续
 
 [343](../research/343_WC_E5_NATIVE_META_COMPONENT_ACCEPTANCE_AND_IMPORT_ADAPTER_REPAIR_20261011.md)：R4实际2B Meta/原生head/七wrapper拒绝有独立exit0 JSON，精确复用不重复；sampler因缺原导入驱动取错包而失败、0路径，R5仅绑定已有通过的actual import-only适配和R4数值fixture，原完整24／444／888／96范围不缩。服务器CPU待，原E4c继续与全24终态仍优先。
+
+## v1.44 E5生产合同通过与真实完整CPU运行
+
+[344](../research/344_WC_E5_PRODUCTION_HEAD_ACCEPTED_AND_COMPLETE_CPU_RUNNING_20261011.md)：真实Meta组件独立通过，429源R5完整数值验证实际在跑、四路径写出，原24／444／888／96全范围验收待；旧失败和来源保留。全CPU后冻结完整真实head等价与费用卡，E4c全24来源年龄终态仍优先、H-P-W1-WORKING-REFERENCE随后。单卡完整≤8GPUh自主／严格>8准确确认，现有新增48累计窗口保持。
