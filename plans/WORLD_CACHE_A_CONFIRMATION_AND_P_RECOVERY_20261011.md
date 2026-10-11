@@ -1,4 +1,4 @@
-# 更新 v1.34：E4c只读CPU验收、原GPU与完整终态接续
+# 更新 v1.35：E4c原GPU继续与E5早期head消费者发现
 
 ## 2026-10-11 当前：E4c原GPU继续，只读后处理CPU已独立通过
 
@@ -331,3 +331,7 @@ E3新增H-PREPARE-PERSIST只提前持久化每次真实成功prepare的纯签名
 ## v1.33 E4c完整卡实际准入
 
 399生产CPU/225原输入helper已验收，完整2.577578296GPUh卡正式GPU准入，原4075406/4075494在途初始化，仅跟踪不重投。全4父/16suffix/24teacher/248pair范围、8h预算保护与实际结算保持。原E2/E3待批准；下一实际24点与388张量/视频全decode，初始化与CPU不算方法结果。
+
+## v1.35 已有源码和调用中发现的省算机会
+
+[334实际只读来源核对与下一CPU范围](../research/334_WC_EARLY_ALPHA1_HEAD_CONSUMER_FINDING_AND_NEXT_CPU_SCOPE_20261011.md)：原完整32卡中16条A路径／576更新，阶段W1／β=1分别有108／112次α=1且候选已存在的分支机会。原head不参与RA或flow warp数值，但仍写入previous_output并进入完整快照，不能简单删除后声称旧物理状态完全相同。H-EARLY-HEAD-ELISION按已列E5登记独立CPU来源／状态合同与全fallback／晚期／两CFG验证，旧E2/E3/E4c不改。调用比例不是时间收益，新GPU0。
