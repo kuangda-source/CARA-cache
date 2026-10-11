@@ -1,3 +1,7 @@
+# v1.58 E3 complete64 directly approved; original E5 first
+
+[358完整E3直接批准](../research/358_WC_E3_COMPLETE64_DIRECT_APPROVAL_AND_E5_QUEUE_20261011.md)：用户准确批准E3全64／复用10／新54／20加载／forecast12.377456422，授权JSON绑定已保存，待原E5全24退出与独立CPU验收后唯一执行；E2原问保持。E5 live9原456字节不改，AV_R1六条各36完成，Human_R1原4116639继续，原GPU4103103／自动CPU4103104存活，未全24验收。前实结41.908688946／cap77.895246590、新48余35.986557644；旧问37.5815非当前余额，在途预留非实耗。P完整CPU保持，≤8自主／严格>8具体授权，本E3已满足；无训练人评，goal active。以下为历史。
+
 # v1.57 P five-way same-state complete CPU acceptance
 
 [357完整CPU独立验收](../research/357_WC_P_REFERENCE_FIVE_WAY_COMPLETE_CPU_ACCEPTANCE_20261011.md)：P五读出同状态R3/source9d814d1／4114466与4114467退出0，238.967678秒；444来源、两flow8父32suffix48点、688pairs1376CFG完整通过。全88文件1160张量／420直接比较、240候选恢复／96 D来源分支相等、26合同／2截断拒绝独立通过，非真实误差／质量／速度。下一实际生产入口与全复制恢复费用待，未新GPU。E5 live7原三句柄／456保持，AV_R1五完整、FAST_BETA1进行中，全24终态待。前实结41.908688946／cap77.895246590、新48余35.986557644，在途预留非实耗；≤8完整自主／严格>8具体确认，E2/E3原问待，无训练人评，goal active。以下为历史。
