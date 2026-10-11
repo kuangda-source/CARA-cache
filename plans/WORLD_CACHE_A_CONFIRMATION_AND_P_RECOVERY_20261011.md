@@ -1,8 +1,10 @@
 # WorldCache 下一轮设计：阶段 A 确认与 P 的净收益开发
 
-2026-10-11，v1.25。当前研究入口，依据用户本轮“根据最新对话和文档更新下实验设计”。保留 WorldCache＋RA 的三模块主线，将已有方法的确认与部分刷新执行器的完善分开安排。初版更新仅设计；后续E0独立CPU已实际完成，未提交新GPU，旧卡结果保持。实际结果见[285回收报告](../research/285_WC_E0_REAL_PARTIAL_RECOVERY_RESULTS_AND_MEMORY_NEXT_STEP_20261011.md)。
+2026-10-11，v1.26。当前研究入口，依据用户本轮“根据最新对话和文档更新下实验设计”。保留 WorldCache＋RA 的三模块主线，将已有方法的确认与部分刷新执行器的完善分开安排。初版更新仅设计；后续E0独立CPU已实际完成，未提交新GPU，旧卡结果保持。实际结果见[285回收报告](../research/285_WC_E0_REAL_PARTIAL_RECOVERY_RESULTS_AND_MEMORY_NEXT_STEP_20261011.md)。
 
 当前接续：[318 R1失败与R2修复登记](../research/318_WC_E3_BLOCK_CPU_R1_RECORDER_FAILURE_AND_R2_REPAIR_20261011.md)。E3受影响CPU R1在故障测试初始化记录器读取空请求时失败，原件及scope保持；独立R2仅修记录器并检查首save零prepare，相同64成功＋12故障范围继续，未提交GPU。E1真实全8等价保持；全64／复用10／补54／20块生产接线与完整费用待。
+
+[319当前验收与执行登记](../research/319_WC_E3_AFFECTED_CPU_ACCEPTANCE_AND_FULL20_PRODUCTION_PREREGISTRATION_20261011.md)：受影响CPU R2完整独立验收，72文件/2664张量/1184配对通过；449生产载荷与全部20入口/监督CPU待，完整预测12.377456422严格>8，终态评分及selected接线准备后确认整卡，不沿用旧已消费授权。
 
 ## 1. 本轮最重要的调整
 
