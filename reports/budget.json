@@ -1,12 +1,12 @@
 {
   "batch": "F0-F1",
-  "cap_gpu_hours": 77.89524658965853,
-  "used_gpu_hours": 41.90868894585461,
-  "gpu_jobs_launched": 78,
-  "status": "E4C_SOURCE_AGE_SETTLED_RAW_AUDIT_PENDING",
+  "cap_gpu_hours": 104.97136333301378,
+  "used_gpu_hours": 56.97136333301379,
+  "gpu_jobs_launched": 82,
+  "status": "MATH_SCHEDULER_REMAINING48_AUTHORIZED_NO_NEW_GPU",
   "gpu_import_probes_completed": 1,
   "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts",
-  "budget_authorization_ref": "manifests/budget_authorization_20261009_wc_new_window_48gpuh.json",
+  "budget_authorization_ref": "manifests/budget_authorization_20261012_wc_math_scheduler_new48gpuh.json",
   "budget_authorization_history": [
     {
       "authorized_utc": "2026-10-02T18:03:00Z",
@@ -66,17 +66,28 @@
       "no_usage_reset_or_transfer": true,
       "authorization_ref": "manifests/budget_authorization_20261009_wc_new_window_48gpuh.json",
       "automatic_single_job_gpu_hours": 2
+    },
+    {
+      "authorized_on_local": "2026-10-12",
+      "user_instruction": "\u6839\u636e\u6700\u65b0\u5bf9\u8bdd\u548c\u6587\u6863\uff0c\u66f4\u65b0\u4e00\u4e0b\u5b9e\u9a8c\u8bbe\u8ba1\uff0c\u5c1d\u8bd5\u4e00\u4e0b\u63d0\u5230\u7684\u65b0\u7684\u6838\u5fc3\u65b9\u6cd5\u662f\u5426\u6210\u7acb\u3002\u5728\u5f53\u524d\u57fa\u7840\u4e0a\u628a\u53ef\u7528 gpuh \u8bbe\u4e3a 48h\uff0c\u5355\u6b21\u5927\u4e8e 8h \u624d\u8be2\u95ee\u3002\u7b49\u8fd9\u4e2a\u7aef\u5230\u7aef\u52a0\u901f\u6d4b\u8bd5\u8dd1\u5b8c\u4e86\u5c31\u63a8\u8fdb\u3002",
+      "authorization_ref": "manifests/budget_authorization_20261012_wc_math_scheduler_new48gpuh.json",
+      "previous_cap_gpu_hours": 77.89524658965853,
+      "new_cumulative_cap_gpu_hours": 104.97136333301378,
+      "used_gpu_hours_at_change": 56.97136333301379,
+      "gpu_jobs_launched_at_change": 82,
+      "authorized_remaining_gpu_hours": 48,
+      "no_usage_reset_or_transfer": true
     }
   ],
   "budget_authorization_window": {
-    "authorization_ref": "manifests/budget_authorization_20261009_wc_new_window_48gpuh.json",
-    "start_used_gpu_hours": 29.895246589658527,
+    "authorization_ref": "manifests/budget_authorization_20261012_wc_math_scheduler_new48gpuh.json",
+    "start_used_gpu_hours": 56.97136333301379,
     "authorized_remaining_gpu_hours": 48,
-    "cumulative_cap_gpu_hours": 77.89524658965853,
-    "recorded_unix": 1791560438.1859179
+    "cumulative_cap_gpu_hours": 104.97136333301378,
+    "recorded_unix": 1791760184.7594678
   },
-  "automatic_single_job_gpu_hours": 4,
-  "execution_policy_authorization_ref": "manifests/wc_execution_autonomy_authorization_20261010_4gpuh.json",
+  "automatic_single_job_gpu_hours": 8,
+  "execution_policy_authorization_ref": "manifests/budget_authorization_20261012_wc_math_scheduler_new48gpuh.json",
   "execution_policy_authorization_history": [
     {
       "authorized_on_local": "2026-10-10",
@@ -85,6 +96,14 @@
       "automatic_single_job_gpu_hours": 4,
       "authorization_ref": "manifests/wc_execution_autonomy_authorization_20261010_4gpuh.json",
       "recorded_unix": 1791561847.0094812
+    },
+    {
+      "authorized_on_local": "2026-10-12",
+      "source_user_instruction": "\u6839\u636e\u6700\u65b0\u5bf9\u8bdd\u548c\u6587\u6863\uff0c\u66f4\u65b0\u4e00\u4e0b\u5b9e\u9a8c\u8bbe\u8ba1\uff0c\u5c1d\u8bd5\u4e00\u4e0b\u63d0\u5230\u7684\u65b0\u7684\u6838\u5fc3\u65b9\u6cd5\u662f\u5426\u6210\u7acb\u3002\u5728\u5f53\u524d\u57fa\u7840\u4e0a\u628a\u53ef\u7528 gpuh \u8bbe\u4e3a 48h\uff0c\u5355\u6b21\u5927\u4e8e 8h \u624d\u8be2\u95ee\u3002\u7b49\u8fd9\u4e2a\u7aef\u5230\u7aef\u52a0\u901f\u6d4b\u8bd5\u8dd1\u5b8c\u4e86\u5c31\u63a8\u8fdb\u3002",
+      "previous_automatic_single_job_gpu_hours": 4,
+      "automatic_single_job_gpu_hours": 8,
+      "authorization_ref": "manifests/budget_authorization_20261012_wc_math_scheduler_new48gpuh.json",
+      "complete_single_job_strictly_over8_requires_confirmation": true
     }
   ]
 }
