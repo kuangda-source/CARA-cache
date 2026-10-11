@@ -43,8 +43,8 @@ command=['/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python',s
 with (stage/'CPU.log').open('x') as log:
  child=subprocess.Popen(command,stdout=log,stderr=subprocess.STDOUT,start_new_session=True,env=dict(os.environ,CUDA_VISIBLE_DEVICES='',PYTHONDONTWRITEBYTECODE='1'))
 receipt={'stage':str(stage),'source_revision':P['source_revision'],'CPU_pid':child.pid,'command':command,'GPU_submissions':0,'ledger_written':False,'started_unix':time.time(),'payload_files':len(payload),'new_payload_sha256':P['new_payload']}
-(stage/'CPU-launch.json').write_text(json.dumps(receipt,indent=2)+'\n');print(json.dumps(receipt))
+(stage/'CPU-launch.json').write_text(json.dumps(receipt,indent=2)+'\n');print(json.dumps({k:receipt[k] for k in ('stage','source_revision','CPU_pid','GPU_submissions','payload_files')}))
 '''
  call=subprocess.run(['ssh','-o','BatchMode=yes','-o','ConnectTimeout=15','-o','ClearAllForwardings=yes','gkd_minchen','python3 -'],input=code,text=True,capture_output=True,check=True)
- receipt=json.loads(call.stdout);(R/('reports/wc_math_n1_cpu_'+args.suffix+'_launch_20261012.json')).write_text(json.dumps(receipt,indent=2)+'\n');print(json.dumps(receipt))
+ receipt=json.loads(call.stdout);(R/('reports/wc_math_n1_cpu_'+args.suffix+'_launch_20261012.json')).write_text(json.dumps(receipt,indent=2)+'\n');print(json.dumps({k:receipt[k] for k in ('stage','source_revision','CPU_pid','GPU_submissions','payload_files')}))
 if __name__=='__main__':main()

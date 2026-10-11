@@ -34,6 +34,7 @@ def select_toy_states(scene,history):
     ps=[h for h in reads if h['source']=='P'];ds=[h for h in reads if h['source']=='D']
     assert len(ps)>=2 and ds,'Synthetic natural policy must expose both sources'
     first=ps[0];longest=min(ps[1:],key=lambda h:(-h['D_reference_age_gap'],h['step']))
+    assert first['step']<25<=longest['step'],'Both actual phase strengths require P-source coverage'
     return [first,longest,ds[0]]
 
 
@@ -42,9 +43,9 @@ def body(inference,selected,wc,rf,settings,inference_module,runtime,config,flow,
     config={**config,'paired_prefix_reserve_bytes':config.get('paired_prefix_reserve_bytes',0)}
     cal=Calibration('SYNTHETIC_N1_FULL36',{(a,s):1. for a in range(1,36) for s in range(a+1,37)},
                     {s:1. for s in range(1,37)})
-    spec={'threshold':2.,'costs':Costs('SYNTHETIC_N1',1.,4.,.5),
+    spec={'threshold':.07,'costs':Costs('SYNTHETIC_N1',1.,4.,1.),
           'partial_prior':CreationPhasePrior('SYNTHETIC_N1_FLOOR',.005,.3,
-                 early_creation_floor=10.,late_creation_floor=.005),
+                 early_creation_floor=.005,late_creation_floor=.02),
           'working_epoch_strategy':'WORKING_P_AGE_NONZERO_REBASE'}
     specs={'A_CPD_BETA1_ONE_PHASE':spec}
     initial=CompleteStateRoundtrip(net,scheduler,torch.zeros(1));fp=initial.fingerprint()
