@@ -1,3 +1,7 @@
+# v1.76 P user-deferred; results and priorities for discussion
+
+[372结果讨论与暂缓](../research/372_WC_E3_RESULTS_DISCUSSION_AND_USER_DEFERRED_P_20261012.md)：用户已明确回复“暂缓该卡，先讨论结果”。完整 P 卡保持原范围与全部 CPU 验收，状态为 USER_DEFERRED_RESULTS_DISCUSSION_FIRST，13.060019179 GPUh 的具体问题已答复、未批准；不再写作答复待，不重复提问或执行。E3 全 64 已完成：KEEP W1／β1 相对 CPD 平均 LPIPS 下降 13.6735%／12.7233%（3/4、4/4），NONZERO 相对自身 CPD 上升 50.9539%／18.2840%（均4/4退化）；P 后复用出现，来源与读出交互待区分。建议先讨论正候选独立确认／真实成本与 P 机制卡的预算价值；E2 原问题保持，其无 P 候选不替换成 E3 新组合。已核验新48余额23.693418005，P约占55.1%；本轮0新GPU／0SSH／0账本写入，不改原结果／采样源、不拆缩旧卡、不引入训练人评。暂缓卡不等于暂停整个研究。以下为历史。
+
 # v1.75 complete P authority-blocked queue
 
 [371三轮阻塞审计](../research/371_WC_P_COMPLETE_CARD_APPROVAL_BLOCKED_AUDIT_20261012.md)：E3全64及370全16参考跨度CPU分析已完成并同步；待执行完整P卡13.060019179严格>8，自身准确问题已提交但无批准，E2原问保持。实际dispatcher WAIT／exit2／0SSH／0新GPU／0账本写入／无选卡目录；服务器E3终态0、原post及reader已消失，无inflight，账本SHA不变、新48余23.693418005。连续同一权限阻塞三轮，接着设置goal blocked等待批准；不标complete或用户paused，不缩／替卡、不重启E3，不引入训练人评。以下为历史。
