@@ -1,4 +1,4 @@
-# 更新 v1.36：E4c首窗实际误差与两个具体优化候选
+# 更新 v1.37：E5早期head省算独立原型与受影响CPU
 
 ## 2026-10-11 当前：E4c原GPU继续，只读后处理CPU已独立通过
 
@@ -339,3 +339,8 @@ E3新增H-PREPARE-PERSIST只提前持久化每次真实成功prepare的纯签名
 ## v1.36 首窗6点实读与W1工作参考假设
 
 [335实际读取](../research/335_WC_E4C_FIRST_FIXED_WINDOW_TENSOR_FINDING_AND_A_TARGET_ALIGNMENT_20261011.md)：原六点/11文件/22比较，P/D比1.1435/1.2688/1.3852；不是全24接受或终点质量。scalar的D基准与P工作源/Flow Warp/真D拟合历史可能错位，H-P-W1-WORKING-REFERENCE登记下一轮CPU与小同状态候选，不改在途旧版本，不以局部单阈值否定方向。原完整E4c及自动CPU审计继续，E2/E3原准确批准待。
+
+
+## v1.37 E5独立原型与CPU
+
+[336范围](../research/336_WC_E5_EARLY_HEAD_ELISION_IMPLEMENTATION_AND_CPU_SCOPE_20261011.md)：12完整直接CPU路径，先实读等价／严格恢复／实际native head计数；只改新版本的head选择和记录状态，不改原E4c、E2、E3。CPU通过后才冻结真实GPU与费用卡，非预先速度／质量结果。H-P-W1-WORKING-REFERENCE仍等待E4c全24终态后再实施。

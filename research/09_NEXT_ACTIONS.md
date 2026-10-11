@@ -1,3 +1,7 @@
+## 2026-10-11 当前：E5独立省算原型与CPU范围已登记
+
+[336原型／CPU范围](336_WC_E5_EARLY_HEAD_ELISION_IMPLEMENTATION_AND_CPU_SCOPE_20261011.md)：H-EARLY-HEAD-ELISION仅早期CC／α=1／候选可用省原head；旧方法和E4c在途399不改。新版本previous_output记录候选并显式报告差异，其余输出／D／P／条件／RNG与自身完整恢复验证。两flow×三A×两版本12完整路径／222实读比较／24恢复，7动态head与4paired故障保留。服务器CPU待，不是新视频／速度；无新GPU训练人评。原E4c和自动终态CPU继续，E2／E3准确above8批准待，≤8自主权限保持。以下为历史。
+
 ## 2026-10-11 当前：E4c首窗六点实际读取，E5发现早期head机会
 
 [335首窗实际误差与W1目标对齐](335_WC_E4C_FIRST_FIXED_WINDOW_TENSOR_FINDING_AND_A_TARGET_ALIGNMENT_20261011.md)：原GPU继续运行，固定首AV28 early/birth13的11已写文件独立CPU读取，22直接比较通过；两次自然策略同OFF父切片和彼此相同，六C读出同实际suffix一致。P/D自身状态age1/2/4 guided MSE比1.14350/1.26876/1.38520，仅首6/24点局部数据，剩18不作负结果；完整4父/4事件/16suffix/24点与原自动审计保持。scalar仍从真D基准外推、warp读取P工作残差，真实D统计/warp/轨迹也不同；H-P-W1-WORKING-REFERENCE登记下一CPU区分，不改本轮或E2/E3。
