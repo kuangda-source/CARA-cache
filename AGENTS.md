@@ -1,3 +1,7 @@
+## 2026-10-12 clean speed20 AV all ten warmups preserve original behavior; timed rounds start
+
+[373完整小测速](research/373_WC_CLEAN_SPEED20_PREREGISTRATION_20261012.md)：原R2监督168157／runner168439继续；AV28五方法各2完整预热共10/40通过，全部终点和动作与旧审计匹配，含KEEP同阶段β1＋P；第一个Native正式槽正在运行、0/20正式完成。模型仅加载一次114.578390秒，warm Native300.87/295.33、WC199.13/167.84已保留，存在波动，不能拿warm作正式加速结论。全40／20、五方法、两场景、正反顺序、来源／A版本及计时边界保持，629在途字节未改，93帧CPU评分及独立验收待；只跟踪原句柄不重投。前实结54.504113543、新48余23.391133047；used=cap为在途预留。R1技术停止和0.302284958费用完整保留、P13h暂缓／E2原卡保持。以下为历史。
+
 ## 2026-10-12 repaired clean speed20 R2 real GPU running
 
 [373测速登记及修复](research/373_WC_CLEAN_SPEED20_PREREGISTRATION_20261012.md)：R1三个预热终点均逐位匹配，WC动作回执缺失触发技术停止（0正式），实费0.302284958GPUh、原CPU失败与完整40／20槽封存。R2只补WC只读深层bool计数；独立r3两flow全60CPU132.582522秒与真实生产CPU通过。source10b2a3bb5deefa123d241a7cc797b312caa101a2／629payload冻结；fresh24MiB／noapps／A6000 UUID／f1 kernel锁／预算准入后唯一监督168157、runner168439、post watcher168158实际运行。重新完整20预热＋20正式、一次驻留、五方法／两场景／同阶段β1／KEEP／forecast4.659511770≤8不改，不复用旧预热、不改在途源、不重投，真实20计时与93帧CPU评分待。第82提交，前实结54.504113543／cap77.895246590、新48余23.391133047；used=cap仅在途预留。P13h仍暂缓、E2原卡保持，技术问题非科研方向负结果。以下为历史。
