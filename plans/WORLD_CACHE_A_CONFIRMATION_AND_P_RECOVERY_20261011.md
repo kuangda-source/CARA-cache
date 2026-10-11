@@ -1,3 +1,7 @@
+# v1.62 P complete post/selection CPU registered; approved E3 next
+
+[362完整post选卡CPU登记](../research/362_WC_P_REFERENCE_COMPLETE_POST_SELECTION_CPU_PREREGISTRATION_20261011.md)：P原459方法不改，新增完整两模型监督、纯CPU五读出／部分点原件读取、全8父32suffix48点分母与准确above8选卡接线，完整88／1160／420＋48点读取及旧四视频372帧CPU待；forecast13.060019179与原688pairs保持，本P准确授权未授，不GPU-ready。E5原全24继续，live12已有8完整、原456／三句柄保持；E3全64／10复用／54新／20加载已准确批准、待原E5完整终态优先唯一执行。前实结41.908688946／cap77.895246590、新48余35.986557644，在途预留非实耗，goal active，无训练人评。以下为历史。
+
 # v1.61 P two-flow production CPU independently accepted; approved E3 next
 
 [361生产CPU独立验收](../research/361_WC_P_REFERENCE_PRODUCTION_CPU_ACCEPTANCE_AND_APPROVED_E3_QUEUE_20261011.md)：P两flow真实入口source272ed22／4119490、4119491、4119822退出0，132.826839秒，全459／20合同／2guard／4资产／9准入独立通过，完整原8父32suffix／1160张量CPU复用，非新GPU或质量速度。P完整forecast13.060019179，GPU监督／终态／选卡接线与自身above8批准仍待。E3全64／10复用／54新／20加载已准确批准，现场原449＋16保持，dispatcher等待原E5无新目录／GPU。E5 live11原456／三原句柄继续，7／24完整，完整终态待；前实结41.908688946／cap77.895246590、新48余35.986557644，在途预留非实耗，goal active，无训练人评。以下为历史。
