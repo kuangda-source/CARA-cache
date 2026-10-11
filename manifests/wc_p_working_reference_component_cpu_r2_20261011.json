@@ -1,0 +1,36 @@
+{
+  "stage_name": "wc-p-working-reference-component-cpu-r2-20261011",
+  "hypothesis": "H-P-W1-WORKING-REFERENCE",
+  "preregistration_ref": "research/335_WC_E4C_FIRST_FIXED_WINDOW_TENSOR_FINDING_AND_A_TARGET_ALIGNMENT_20261011.md",
+  "complete_E4c_result_ref": "reports/wc_e4c_terminal_20261011_capture.json",
+  "purpose": "Pure prewarp residual math and provenance component only; no source callback, Flow Warp or complete sampler acceptance",
+  "successful_modes": [
+    "scalar_from_true_D",
+    "unit_increment"
+  ],
+  "required_fallbacks": [
+    "future_P",
+    "wrong_branch",
+    "foreign_P_context",
+    "P_as_zero_risk",
+    "wrong_geometry",
+    "missing_P",
+    "insufficient_D_fit"
+  ],
+  "foreign_D_context_refusal": true,
+  "true_D_state_and_RNG_unchanged": true,
+  "full_two_flow_sampler_gate_still_required": true,
+  "GPU_submissions": 0,
+  "ledger_written": false,
+  "payload_sha256": {
+    "src/wcomr/__init__.py": "b9996da0a87bb746cdac0935ead475246fc34d88b37e73f63f14e5065494f311",
+    "src/wcomr/calibration.py": "f6f9ce7c5848c512b1dc0eb9a4965b3f84e799e911ddc2a591c48d865076fcbd",
+    "src/wcomr/mid_coverage.py": "8e02d740b4ee794531c6263666bbed18348e32ba84c9b94b89f7c979a106fbf4",
+    "src/wcomr/mid_scope.py": "94d02ab46cddd70a0a80e5edb62eb12e22eb2647afe66b6843e6372480bb51ac",
+    "src/wcomr/partial_mlp_deployment_state.py": "c7501223a35e9276391586006602470d80a50de8ff4adcdc72aa241b3a7c6137",
+    "src/wcomr/p_working_reference_residual_r1.py": "0a0ed1153b38d3160f4fd2f627d5bfd6dd800e7f11121d0882dbea06a3ed9581",
+    "tests/check_p_working_reference_residual_cpu_r2.py": "41008e96483781afb6351c55443efcf297f5df61418f0b56ace62de78602a8fc"
+  },
+  "repair_only": "P residual synthetic offset made different from D incremental formula for both scalar and unit; R1 unit fixture coincided exactly with old D formula, retained failure. Candidate source unchanged.",
+  "retained_R1_ref": "reports/wc_p_working_reference_component_cpu_r1_20261011.json"
+}

@@ -1,0 +1,27 @@
+{
+  "receipt": {
+    "source_revision": "d44c1f4118f05dc2ce7324d93a427c8f8b1d9db1",
+    "supervisor_PID": 4099999,
+    "exit_code": 1,
+    "CPU_wall_seconds": 2.2152840988710523,
+    "payload_after_sha256": {
+      "src/wcomr/__init__.py": "b9996da0a87bb746cdac0935ead475246fc34d88b37e73f63f14e5065494f311",
+      "src/wcomr/calibration.py": "f6f9ce7c5848c512b1dc0eb9a4965b3f84e799e911ddc2a591c48d865076fcbd",
+      "src/wcomr/mid_coverage.py": "8e02d740b4ee794531c6263666bbed18348e32ba84c9b94b89f7c979a106fbf4",
+      "src/wcomr/mid_scope.py": "94d02ab46cddd70a0a80e5edb62eb12e22eb2647afe66b6843e6372480bb51ac",
+      "src/wcomr/partial_mlp_deployment_state.py": "c7501223a35e9276391586006602470d80a50de8ff4adcdc72aa241b3a7c6137",
+      "src/wcomr/p_working_reference_residual_r1.py": "0a0ed1153b38d3160f4fd2f627d5bfd6dd800e7f11121d0882dbea06a3ed9581",
+      "tests/check_p_working_reference_residual_cpu_r1.py": "ce279aae0f8c40b7267afd5ff9b62f64203b6bd5f1e4899f45f77ff5126c1f1d"
+    },
+    "budget_before_and_after_sha256": "60a32161ae560663fde88707f85e0b8a25d6a0762ddf84d319f98f0e0e641f70",
+    "GPU_submissions": 0,
+    "ledger_written": false,
+    "observed_unix": 1791689198.5580797,
+    "stage": "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-p-working-reference-component-cpu-r1-20261011",
+    "status": "COMPONENT_CPU_FAILED_RETAINED"
+  },
+  "component": {
+    "retained_original_log": "Traceback (most recent call last):\n  File \"<string>\", line 6, in <module>\n  File \"/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-p-working-reference-component-cpu-r1-20261011/tests/check_p_working_reference_residual_cpu_r1.py\", line 30, in run\n    assert not torch.equal(value,c.anchors[-1].residual+beta*(cp-c.anchors[-1].probe))\nAssertionError\n"
+  },
+  "original_log": "Traceback (most recent call last):\n  File \"<string>\", line 6, in <module>\n  File \"/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-p-working-reference-component-cpu-r1-20261011/tests/check_p_working_reference_residual_cpu_r1.py\", line 30, in run\n    assert not torch.equal(value,c.anchors[-1].residual+beta*(cp-c.anchors[-1].probe))\nAssertionError\n"
+}
