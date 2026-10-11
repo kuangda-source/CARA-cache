@@ -1,3 +1,7 @@
+## 2026-10-11 当前：E5真实Meta组件通过，完整CPU进程隔离修复登记
+
+[342接续](research/342_WC_E5_META_PASS_AND_ISOLATED_COMPLETE_SAMPLER_CPU_REPAIR_20261011.md)：R3真实2B Meta/head及7wrapper拒绝组件先通过，后RF导入因真实／Toy包图冲突失败、0路径；原b136f50／4093519与4093521退出1、41.321201秒，421来源及账本保持。R4明确绑定新版fixture／history，Meta与完整sampler独立CPU进程、native context按原源提取，数值／guard不放松；原24／444／888／96＋7拒绝范围不缩，426载荷CPU待。原E4c继续不改，≤8自主／严格>8具体整卡确认，E2/E3原问题待不重问，goal active，无训练人评。以下为历史。
+
 ## 2026-10-11 当前：E5严格wrapper指纹需类上下文，R3完整范围保持
 
 [341指纹修复](research/341_WC_E5_CHECKPOINT_CLASS_CONTEXT_FINGERPRINT_REPAIR_20261011.md)：R2 a12c034／4092087与4092088退出1、10.326426秒／0采样，416来源及账本保持。实际与单独编译方法只差嵌套函数qualified name常量；按原类上下文编译已独立严格一致。R3仅修期望指纹编译，数值／wrapper／guard不放松，原24完整／444实读／888张量／96恢复＋7拒绝范围不缩，421载荷CPU待。E4c三父完整／Human ON开始、原句柄继续不改；≤8自主／严格>8具体批准，E2/E3原问题待不重问，goal active，无训练人评。以下为历史。

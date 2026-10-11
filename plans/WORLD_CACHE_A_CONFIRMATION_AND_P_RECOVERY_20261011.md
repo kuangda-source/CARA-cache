@@ -1,4 +1,4 @@
-# 更新 v1.41：E5严格wrapper指纹类上下文修复
+# 更新 v1.42：E5真实Meta通过与完整CPU进程隔离
 
 ## 2026-10-11 当前：E4c原GPU继续，只读后处理CPU已独立通过
 
@@ -361,3 +361,7 @@ E3新增H-PREPARE-PERSIST只提前持久化每次真实成功prepare的纯签名
 ## v1.41 E5严格指纹上下文修复
 
 [341](../research/341_WC_E5_CHECKPOINT_CLASS_CONTEXT_FINGERPRINT_REPAIR_20261011.md)：R2 Meta guard失败保留，独立证实根方法只因AST单独编译丢类名称常量；R3按原类编译后指纹严格一致，不忽略任何字段，原完整24／444／888／96和7wrapper拒绝范围保持，服务器CPU待。E4c三父完整／Human ON继续，原全24终态优先。
+
+## v1.42 E5完整CPU进程隔离
+
+[342](../research/342_WC_E5_META_PASS_AND_ISOLATED_COMPLETE_SAMPLER_CPU_REPAIR_20261011.md)：R3实际Meta/head/七拒绝组件通过，full RF导入冲突、0路径；R4在两个独立CPU进程保留原完整24路径范围，明确新fixture／history绑定，不禁用可用性断言或用GPU解决CPU导入。服务器CPU待，原GPU E4c和全24終态仍优先。
