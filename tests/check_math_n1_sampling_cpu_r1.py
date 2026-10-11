@@ -22,7 +22,7 @@ def load(name):
     m=module_from_spec(s);s.loader.exec_module(m);return m
 
 
-def select_toy_states(scene,history):
+def select_toy_states(scene,history,index):
     reads=[]
     for h in history:
         if h['action']!='CC' or len(h['true_D_before'][0])!=2:continue
@@ -32,13 +32,16 @@ def select_toy_states(scene,history):
             'true_D_history':h['true_D_before'],
             'D_reference_age_gap':w['created_step']-h['true_D_before'][0][-1]})
     ps=[h for h in reads if h['source']=='P'];ds=[h for h in reads if h['source']=='D']
-    assert len(ps)>=2 and ds,'Synthetic natural policy must expose both sources'
     early=[p for p in ps if p['step']<25];late=[p for p in ps if p['step']>=25]
-    assert early and late,'Synthetic natural policy must expose early and late P reads: '+str([p['step'] for p in ps])
     # Toy coverage is explicitly by phase. The real GPU point index remains
     # the independently frozen first/max-reference-gap N0 selection.
-    first=early[0];longest=late[0]
-    return [first,longest,ds[0]]
+    if index==0:
+        assert early and late,'Declared P-heavy Toy fixture lacks phase coverage'
+        chosen=[early[0],late[0]]
+        chosen.append(next(p for p in ps if p['step'] not in {s['step'] for s in chosen}))
+        return chosen
+    assert late and len(ds)>=2,'Declared D-control Toy fixture lacks source coverage'
+    return [late[0],ds[0],ds[1]]
 
 
 def body(inference,selected,wc,rf,settings,inference_module,runtime,config,flow,artifact_root):
@@ -46,16 +49,19 @@ def body(inference,selected,wc,rf,settings,inference_module,runtime,config,flow,
     config={**config,'paired_prefix_reserve_bytes':config.get('paired_prefix_reserve_bytes',0)}
     cal=Calibration('SYNTHETIC_N1_FULL36',{(a,s):1. for a in range(1,36) for s in range(a+1,37)},
                     {s:1. for s in range(1,37)})
-    spec={'threshold':.07,'costs':Costs('SYNTHETIC_N1',1.,4.,1.),
-          'partial_prior':CreationPhasePrior('SYNTHETIC_N1_FLOOR',.005,.3,
-                 early_creation_floor=.005,late_creation_floor=.02),
-          'working_epoch_strategy':'WORKING_P_AGE_NONZERO_REBASE'}
-    specs={'A_CPD_BETA1_ONE_PHASE':spec}
     initial=CompleteStateRoundtrip(net,scheduler,torch.zeros(1));fp=initial.fingerprint()
     results=[];net0=net.forward;pipe0=inference.pipe.worldcache_enabled
     try:
         for index,sample in enumerate(selected[:2]):
             sample.name=clean.SCENES[index]
+            # Different declared synthetic regimes cover both A strengths and
+            # true-D fallback; neither regime changes any real GPU parameter.
+            spec={'threshold':100. if index==0 else 2.,
+                  'costs':Costs('SYNTHETIC_N1_'+str(index),3.,4.,1.),
+                  'partial_prior':CreationPhasePrior('SYNTHETIC_N1_FLOOR_'+str(index),.005,.3,
+                       early_creation_floor=.005 if index==0 else 10.,late_creation_floor=.005),
+                  'working_epoch_strategy':'WORKING_P_AGE_NONZERO_REBASE'}
+            specs={'A_CPD_BETA1_ONE_PHASE':spec}
             holder={};original_owner=clean.CurrentBirthSamplingOwner
             def bound(*args,**kw):
                 o=original_owner(*args,**kw);holder['original']=o;return o
@@ -66,7 +72,7 @@ def body(inference,selected,wc,rf,settings,inference_module,runtime,config,flow,
                    output=Path(artifact_root)/str(flow)/str(index)/'baseline',
                    expected_shape=config['expected_shape'])
             history=copy.deepcopy(holder['original'].history)
-            states=select_toy_states(sample.name,history)
+            states=select_toy_states(sample.name,history,index)
             initial.restore();holder={};artifacts=[]
             def writer(step,payload):
                 p=Path(artifact_root)/str(flow)/str(index)/('point_'+str(step)+'.pt')
@@ -84,7 +90,8 @@ def body(inference,selected,wc,rf,settings,inference_module,runtime,config,flow,
             assert all(len(r['serial_restores'])==3 and r['teacher_head_calls']==2
                        and r['deployed_variant']=='D_REFERENCE_UNIT' for r in owner.records)
             results.append({'flow':flow,'scene':sample.name,'complete_CPU_paths':2,
-                'natural_P_states':2,'true_D_controls':1,'full36_endpoint_and_video_equal':True,
+                'natural_P_states':sum(s['source']=='P' for s in states),
+                'true_D_controls':sum(s['source']=='D' for s in states),'full36_endpoint_and_video_equal':True,
                 'natural_actions_equal':True,'teacher_and_all_candidate_restores':True,
                 'records':owner.records})
         initial.restore();assert initial.fingerprint()==fp

@@ -37,6 +37,7 @@ def main():
     if a.cpu_check:
         hu.is_flash_attn_2_available,iu.is_flash_attn_2_available,torch.cuda.current_device=prev
     c,reg,old,inputs,index=validate(a.project,a.stage);calibration,specs,refs,evidence=inputs
+    original_guided=json.loads((a.stage/c['original_guided_bindings_ref']).read_text())['bindings']
     samples=[InferenceArguments(**r) for r in c['requests']]
     assert all(all(s.model_dump(mode='json')[k]==v for k,v in r.items()) for s,r in zip(samples,c['requests']))
     setupdata=json.loads((a.project/'configs/f1_setup.json').read_text())
@@ -107,10 +108,11 @@ def main():
                 actual_pair_computations=owner.actual_pair_computations,
                 final_latent_sha256=tree_digest(final),old_final_equal=tree_digest(final)==bind['final_latent_sha256'],
                 old_actions_equal=result['actions']==bind['actions'],
+                old_all36_guided_equal=[tree_digest(g) for g in guided]==original_guided[sample.name]['guided_sha256'],
                 parent_vectors={'path':str(path),'sha256':sha(path),'bytes':path.stat().st_size},
                 ended_unix=time.time());save()
             assert row['status']=='COMPLETE' and len(records)==3 and owner.actual_pair_computations==45
-            assert row['old_final_equal'] and row['old_actions_equal'],'Diagnostic changed original parent; retain full scope'
+            assert row['old_final_equal'] and row['old_actions_equal'] and row['old_all36_guided_equal'],'Diagnostic changed original parent; retain full scope'
             assert all(p._version==v for p,v in versions)
         initial.restore();assert initial.fingerprint()==fp
         assert sum(r['actual_pair_computations'] for r in state['runs'])==180

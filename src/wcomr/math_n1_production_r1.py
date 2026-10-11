@@ -39,6 +39,8 @@ def validate(project,stage,require_CPU=True):
     if (idx['states']!=c['states'] or idx['requests']!=c['requests']
             or sha(stage/c['state_index_ref'])!=c['state_index_sha256']):
         raise ValueError('Frozen natural selection or actual original inputs changed')
+    if sha(stage/c['original_guided_bindings_ref'])!=c['original_guided_bindings_sha256']:
+        raise ValueError('Original full36 guided record bindings changed')
     auth=json.loads((stage/c['authority_ref']).read_text())
     if (not auth['direct_user_authorization'] or auth['automatic_single_job_gpu_hours']!=8
             or auth['new_cumulative_cap_gpu_hours']!=c['cumulative_cap_GPUh'] or auth['usage_reset']):
