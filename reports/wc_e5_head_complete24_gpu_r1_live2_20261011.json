@@ -1,0 +1,211 @@
+{
+  "status": "E5_ORIGINAL_HANDLE_RESOURCE_AND_PAYLOAD_OBSERVATION_NOT_TERMINAL_ACCEPTANCE",
+  "observed_unix": 1791692087.5073607,
+  "source_revision": "eff2b71bbd888f4576a2c1c159c394d72ba62fe9",
+  "payload_files_unchanged": 456,
+  "GPU_supervisor_status": "E5_COMPLETE24_GPU_RUNNING",
+  "original_handles": [
+    {
+      "original_pid": 4103103,
+      "present": true,
+      "actual_cmdline": "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python /home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-e5-head-complete24-selected-r1-20261011/scripts/supervise_wc_e5_head_complete24_r1.py --project /home/gaokuangda/data/gkd/worldcache_omr --stage /home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-e5-head-complete24-selected-r1-20261011 --source-revision eff2b71bbd888f4576a2c1c159c394d72ba62fe9 "
+    },
+    {
+      "original_pid": 4103104,
+      "present": true,
+      "actual_cmdline": "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python /home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-e5-head-complete24-selected-r1-20261011/scripts/supervise_wc_e5_head_complete24_terminal_cpu_r1.py --project /home/gaokuangda/data/gkd/worldcache_omr --stage /home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-e5-head-complete24-selected-r1-20261011 --source-revision eff2b71bbd888f4576a2c1c159c394d72ba62fe9 --original-supervisor-pid 4103103 "
+    },
+    {
+      "original_pid": 4103190,
+      "present": true,
+      "actual_cmdline": "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python -u /home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-e5-head-complete24-selected-r1-20261011/scripts/run_wc_e5_head_complete24_r1.py --project /home/gaokuangda/data/gkd/worldcache_omr --stage /home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-e5-head-complete24-selected-r1-20261011 --source-revision eff2b71bbd888f4576a2c1c159c394d72ba62fe9 --gpu-uuid GPU-cebf7119-cf03-23b9-e192-cd196332b704 --arm AV_R1 "
+    }
+  ],
+  "original_arms": [
+    {
+      "arm": "AV_R1",
+      "original_process_entry": {
+        "id": "AV_R1",
+        "planned_paths": 6,
+        "status": "ORIGINAL_MODEL_PROCESS_RUNNING",
+        "pid": 4103190,
+        "command": [
+          "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python",
+          "-u",
+          "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-e5-head-complete24-selected-r1-20261011/scripts/run_wc_e5_head_complete24_r1.py",
+          "--project",
+          "/home/gaokuangda/data/gkd/worldcache_omr",
+          "--stage",
+          "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-e5-head-complete24-selected-r1-20261011",
+          "--source-revision",
+          "eff2b71bbd888f4576a2c1c159c394d72ba62fe9",
+          "--gpu-uuid",
+          "GPU-cebf7119-cf03-23b9-e192-cd196332b704",
+          "--arm",
+          "AV_R1"
+        ],
+        "started_unix": 1791691547.4728563
+      },
+      "runner_status": "E5_COMPLETE24_ARM_COMPLETE_SCOPE_RUNNING",
+      "original_receipt_sha256": "fa741b0655ab75f562203d682cb49fc81880b0310cde92f27f6f665493a11397",
+      "load_seconds": 92.59161290712655,
+      "paths": [
+        {
+          "method": "LEGACY_OFF",
+          "status": "STARTED",
+          "recorded_updates": 0
+        }
+      ]
+    },
+    {
+      "arm": "HUMAN_R1",
+      "original_process_entry": {
+        "id": "HUMAN_R1",
+        "planned_paths": 6,
+        "status": "UNSTARTED_REGISTERED_SCOPE_RETAINED"
+      },
+      "runner_status": null,
+      "original_receipt_sha256": null,
+      "load_seconds": null,
+      "paths": []
+    },
+    {
+      "arm": "AV_R2",
+      "original_process_entry": {
+        "id": "AV_R2",
+        "planned_paths": 6,
+        "status": "UNSTARTED_REGISTERED_SCOPE_RETAINED"
+      },
+      "runner_status": null,
+      "original_receipt_sha256": null,
+      "load_seconds": null,
+      "paths": []
+    },
+    {
+      "arm": "HUMAN_R2",
+      "original_process_entry": {
+        "id": "HUMAN_R2",
+        "planned_paths": 6,
+        "status": "UNSTARTED_REGISTERED_SCOPE_RETAINED"
+      },
+      "runner_status": null,
+      "original_receipt_sha256": null,
+      "load_seconds": null,
+      "paths": []
+    }
+  ],
+  "GPU": "GPU-cebf7119-cf03-23b9-e192-cd196332b704, NVIDIA RTX A6000, 14730, 8.6",
+  "target_compute_apps": [
+    "GPU-cebf7119-cf03-23b9-e192-cd196332b704, 4103190, 14698"
+  ],
+  "original_terminal_CPU": {
+    "status": "E5_TERMINAL_CPU_WAITING_ORIGINAL_GPU_HANDLES",
+    "pid": 4103104,
+    "source_revision": "eff2b71bbd888f4576a2c1c159c394d72ba62fe9",
+    "original_GPU_supervisor_pid": 4103103,
+    "started_unix": 1791691518.6846757,
+    "GPU_submissions": 0,
+    "ledger_written": false,
+    "audit_source_sha256": "cb7105a51750d677a8b4ccc116bcf21fedadc12250958c0761fb88f0e61b3fca"
+  },
+  "budget": {
+    "batch": "F0-F1",
+    "cap_gpu_hours": 77.89524658965853,
+    "used_gpu_hours": 77.89524658965853,
+    "gpu_jobs_launched": 79,
+    "status": "E5_COMPLETE24_INFLIGHT_REMAINING_RESERVED_NOT_ACTUAL_SPENT",
+    "gpu_import_probes_completed": 1,
+    "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts",
+    "budget_authorization_ref": "manifests/budget_authorization_20261009_wc_new_window_48gpuh.json",
+    "budget_authorization_history": [
+      {
+        "authorized_utc": "2026-10-02T18:03:00Z",
+        "source_thread_id": "01a0f1e6-7ad0-75df-9a02-172b60d2e00b",
+        "user_instruction": "\u628a\u5404\u4e2a\u5b9e\u9a8c\u7684 gpu \u9884\u7b97\u90fd\u8bbe\u7f6e\u4e3a 12gpuh",
+        "previous_cap_gpu_hours": 4,
+        "new_cumulative_cap_gpu_hours": 12,
+        "used_gpu_hours_at_change": 3.9117525685110333,
+        "no_usage_reset_or_transfer": true
+      },
+      {
+        "authorized_utc": "2026-10-04T06:13:36Z",
+        "source_thread_id": "01a0f1e6-7ad0-75df-9a02-172b60d2e00b",
+        "user_message_id": "Sentinel_861e63a87d8c819180ec9a8bcfa6dc92",
+        "user_instruction": "\u5141\u8bb8\u589e\u52a0 GPUh",
+        "previous_cap_gpu_hours": 12,
+        "new_cumulative_cap_gpu_hours": 13,
+        "used_gpu_hours_at_change": 11.022315686839217,
+        "gpu_jobs_launched_at_change": 45,
+        "no_usage_reset_or_transfer": true,
+        "authorization_ref": "manifests/budget_authorization_20261004_wc_13gpuh.json"
+      },
+      {
+        "authorized_on_local": "2026-10-05",
+        "user_instruction": "\u6279\u51c6 WC-W3-SMALL-CD-R1-20261004-A\uff0c\u628a\u7d2f\u8ba1 gpuh \u9650\u5236\u63d0\u5347\u5230 24",
+        "previous_cap_gpu_hours": 13,
+        "new_cumulative_cap_gpu_hours": 24,
+        "used_gpu_hours_at_change": 11.022315686839217,
+        "gpu_jobs_launched_at_change": 45,
+        "no_usage_reset_or_transfer": true,
+        "authorization_ref": "manifests/budget_authorization_20261005_wc_24gpuh.json",
+        "approved_card": "WC-W3-SMALL-CD-R1-20261004-A",
+        "single_run_cap_seconds": 3900
+      },
+      {
+        "authorized_unix": 1791428550.530142,
+        "authorized_on_local": "2026-10-08",
+        "user_instruction": "\u6279\u51c6\u6269\u5927 gpuh\uff0c\u76f4\u63a5\u52a0\u5230 50 \u5427",
+        "previous_cap_gpu_hours": 24,
+        "new_cumulative_cap_gpu_hours": 50,
+        "used_gpu_hours_at_change": 22.314242424184147,
+        "gpu_jobs_launched_at_change": 59,
+        "no_usage_reset_or_transfer": true,
+        "authorization_ref": "manifests/budget_authorization_20261008_wc_50gpuh.json",
+        "automatic_single_job_gpu_hours": 2
+      },
+      {
+        "authorized_unix": 1791560438.1859179,
+        "authorized_on_local": "2026-10-09",
+        "user_instruction": "\u662f\u4ece\u5f53\u524d\u5f00\u59cb 48gpuh",
+        "initial_user_instruction": "\u628a gpuh \u9884\u7b97\u63d0\u5230 48h",
+        "previous_cap_gpu_hours": 50,
+        "new_cumulative_cap_gpu_hours": 77.89524658965853,
+        "used_gpu_hours_at_change": 29.895246589658527,
+        "gpu_jobs_launched_at_change": 65,
+        "authorized_remaining_gpu_hours": 48,
+        "no_usage_reset_or_transfer": true,
+        "authorization_ref": "manifests/budget_authorization_20261009_wc_new_window_48gpuh.json",
+        "automatic_single_job_gpu_hours": 2
+      }
+    ],
+    "budget_authorization_window": {
+      "authorization_ref": "manifests/budget_authorization_20261009_wc_new_window_48gpuh.json",
+      "start_used_gpu_hours": 29.895246589658527,
+      "authorized_remaining_gpu_hours": 48,
+      "cumulative_cap_gpu_hours": 77.89524658965853,
+      "recorded_unix": 1791560438.1859179
+    },
+    "automatic_single_job_gpu_hours": 4,
+    "execution_policy_authorization_ref": "manifests/wc_execution_autonomy_authorization_20261010_4gpuh.json",
+    "execution_policy_authorization_history": [
+      {
+        "authorized_on_local": "2026-10-10",
+        "source_user_instruction": "\u5355\u6b21 \u6539\u6210\u8d85\u8fc7 4h\u624d\u9700\u8981\u786e\u8ba4",
+        "previous_automatic_single_job_gpu_hours": 2,
+        "automatic_single_job_gpu_hours": 4,
+        "authorization_ref": "manifests/wc_execution_autonomy_authorization_20261010_4gpuh.json",
+        "recorded_unix": 1791561847.0094812
+      }
+    ],
+    "wc_e5_head_complete24_inflight": {
+      "supervisor_pid": 4103103,
+      "run_id": "wc-e5-native-wrapped-head-full24-r1",
+      "reserved_GPUh": 35.98655764380392
+    }
+  },
+  "budget_sha256": "6411006c36b07503a9d9030e7ba4fed88825b80f9f9aa7c277f203b2a9904d6b",
+  "prior_settled_used_GPUh": 41.90868894585461,
+  "prior_settled_remaining_GPUh": 35.98655764380392,
+  "inflight_reservation_not_actual_spent": true,
+  "new_GPU_submissions": 0
+}
