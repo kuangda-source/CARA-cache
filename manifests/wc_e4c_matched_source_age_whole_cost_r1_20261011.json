@@ -1,0 +1,121 @@
+{
+  "identity": "E4C_WHOLE248_PAIR_BOUND_REAL_COST_PLANNING_NOT_RUNTIME_GUARANTEE_OR_GPU_SELECTION",
+  "scope_ref": "manifests/wc_e4c_matched_source_age_complete_scope_r1_20261011.json",
+  "scope_sha256": "cbb4b2e05fc9be4e4b2c6d24d7f96eb003454ab850ca85a02dd3b7d1eb6f2606",
+  "prior_cost_ref": "manifests/wc_e1_cold_prefix_memory_diag8_r2_20261011.json",
+  "prior_cost_sha256": "79cb4a5a499f4743596fe97fdc9113a7f88645c12902b56001daf2154b3d9c0e",
+  "source_terminal_ref": "reports/wc_e1_diag8_gpu_r2_terminal_20261011_capture.json",
+  "source_terminal_sha256": "4178cfc8986a944288ea0105fa0bd7dc74c860ba12c77e35c350ec98e70d6696",
+  "actual_original_receipts": [
+    {
+      "arm": "ORIGINAL_COLD",
+      "receipt_ref": "reports/wc_e1_diag8_gpu_r2_terminal_20261011_native_capture_r2_ORIGINAL_COLD-receipt.native.gz",
+      "compressed_sha256": "50c18750cae1cb199694c7434367db11302c8f1f20372342bb3220c38fcd9750",
+      "raw_sha256": "6e49104b92222d23f9a070f8f1c099a78d70accddbbc96fc6fa59f9128e1b724",
+      "load_seconds": 89.50771881453693,
+      "paths": [
+        {
+          "sample": "human_199",
+          "method": "A_CPD_BETA1_ONE_PHASE",
+          "instrumented_pipeline_seconds": 373.9271500753239
+        }
+      ]
+    },
+    {
+      "arm": "CPU_COLD",
+      "receipt_ref": "reports/wc_e1_diag8_gpu_r2_terminal_20261011_native_capture_r2_CPU_COLD-receipt.native.gz",
+      "compressed_sha256": "d2526138122024bbd19c6c221e7b01ba3e54d56444978037711f0d9095e1ad32",
+      "raw_sha256": "5ef68ac230eb9e56d1c5aaa7959db78df5bb66fcc1ffa5777f0239a238c711f1",
+      "load_seconds": 74.86423959769309,
+      "paths": [
+        {
+          "sample": "human_199",
+          "method": "A_CPD_BETA1_ONE_PHASE",
+          "instrumented_pipeline_seconds": 460.5836156476289
+        }
+      ]
+    },
+    {
+      "arm": "ORIGINAL_PREFIX",
+      "receipt_ref": "reports/wc_e1_diag8_gpu_r2_terminal_20261011_native_capture_r2_ORIGINAL_PREFIX-receipt.native.gz",
+      "compressed_sha256": "af39c26d0af23e54988ab138990911478097e7caf531f8d976a97726c1c0d22f",
+      "raw_sha256": "dbff387d93337830e98fdf717129fea4df8d1512d5291a6979c25a2d529236b9",
+      "load_seconds": 62.6900498252362,
+      "paths": [
+        {
+          "sample": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+          "method": "A_CPD_BETA1_ONE_PHASE",
+          "instrumented_pipeline_seconds": 356.8891658168286
+        },
+        {
+          "sample": "human_199",
+          "method": "A_CPD_W1_ONE_PHASE",
+          "instrumented_pipeline_seconds": 366.3244507089257
+        },
+        {
+          "sample": "human_199",
+          "method": "A_CPD_BETA1_ONE_PHASE",
+          "instrumented_pipeline_seconds": 354.07585062179714
+        }
+      ]
+    },
+    {
+      "arm": "CPU_PREFIX",
+      "receipt_ref": "reports/wc_e1_diag8_gpu_r2_terminal_20261011_native_capture_r2_CPU_PREFIX-receipt.native.gz",
+      "compressed_sha256": "3782ceef134d26534eda65ce70c4040986b4d337547b509a671bc043b8fa602b",
+      "raw_sha256": "8a1201c771ae4f08456ab70e9d757af86938dc84c102c61b735fd02a2a4f09ea",
+      "load_seconds": 63.57391854096204,
+      "paths": [
+        {
+          "sample": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+          "method": "A_CPD_BETA1_ONE_PHASE",
+          "instrumented_pipeline_seconds": 433.21807967405766
+        },
+        {
+          "sample": "human_199",
+          "method": "A_CPD_W1_ONE_PHASE",
+          "instrumented_pipeline_seconds": 456.07596545573324
+        },
+        {
+          "sample": "human_199",
+          "method": "A_CPD_BETA1_ONE_PHASE",
+          "instrumented_pipeline_seconds": 440.8057340271771
+        }
+      ]
+    }
+  ],
+  "full_parent_paths": 4,
+  "events": 4,
+  "suffixes": 16,
+  "suffix_updates": 80,
+  "same_state_teacher_pairs": 24,
+  "whole_pair_computations": 248,
+  "whole_CFG_calls": 496,
+  "independent_model_processes": 1,
+  "actual_model_loads_planned": 1,
+  "conservative_load_allowance": 2,
+  "max_observed_load_seconds": 89.50771881453693,
+  "max_observed_instrumented_full36_pipeline_seconds": 473.592537868768,
+  "additional_A_head_allowance_per36": 12.17208860674873,
+  "pair_and_load_forecast_unmargined_seconds": 3525.3939755715223,
+  "whole_pair_and_load_multiplier": 1.35,
+  "additional_four_event_serial_snapshot_reserve_seconds": 960,
+  "additional24_same_state_teacher_snapshot_restore_reserve_seconds": 2880,
+  "44_artifact_IO_observation_reserve_seconds": 440,
+  "cleanup_flush_reserve_seconds": 240,
+  "forecast_complete_seconds": 9279.281867021557,
+  "forecast_complete_GPUh": 2.577578296394877,
+  "includes_load_failure_restore_transport_copy_and_flush": true,
+  "extra_snapshot_cost_is_conservative_allowance_not_measured_new_GPU_cost": true,
+  "automatic_complete_job_GPUh": 8,
+  "cumulative_cap_GPUh": 77.89524658965853,
+  "cumulative_used_saved_GPUh": 40.31376163972491,
+  "queue_selection_status": "PENDING_FULL_PHYSICAL_CPU_AND_ACTUAL_PRODUCTION_ENTRY_NOT_E2_E3_REPLACEMENT",
+  "sampling_CPU_acceptance": "PENDING_R3",
+  "GPU_execution_selected": false,
+  "GPU_submissions": 0,
+  "ledger_written": false,
+  "training": false,
+  "human_review": false,
+  "quality_or_clean_latency_claim": false
+}

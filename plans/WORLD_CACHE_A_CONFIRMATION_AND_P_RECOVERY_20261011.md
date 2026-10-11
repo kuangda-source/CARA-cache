@@ -1,6 +1,6 @@
 # WorldCache 下一轮设计：阶段 A 确认与 P 的净收益开发
 
-2026-10-11，v1.31。当前研究入口，依据用户本轮“根据最新对话和文档更新下实验设计”。保留 WorldCache＋RA 的三模块主线，将已有方法的确认与部分刷新执行器的完善分开安排。初版更新仅设计；后续E0独立CPU已实际完成，未提交新GPU，旧卡结果保持。实际结果见[285回收报告](../research/285_WC_E0_REAL_PARTIAL_RECOVERY_RESULTS_AND_MEMORY_NEXT_STEP_20261011.md)。
+2026-10-11，v1.32。当前研究入口，依据用户本轮“根据最新对话和文档更新下实验设计”。保留 WorldCache＋RA 的三模块主线，将已有方法的确认与部分刷新执行器的完善分开安排。初版更新仅设计；后续E0独立CPU已实际完成，未提交新GPU，旧卡结果保持。实际结果见[285回收报告](../research/285_WC_E0_REAL_PARTIAL_RECOVERY_RESULTS_AND_MEMORY_NEXT_STEP_20261011.md)。
 
 当前接续：[318 R1失败与R2修复登记](../research/318_WC_E3_BLOCK_CPU_R1_RECORDER_FAILURE_AND_R2_REPAIR_20261011.md)。E3受影响CPU R1在故障测试初始化记录器读取空请求时失败，原件及scope保持；独立R2仅修记录器并检查首save零prepare，相同64成功＋12故障范围继续，未提交GPU。E1真实全8等价保持；全64／复用10／补54／20块生产接线与完整费用待。
 
@@ -315,3 +315,7 @@ E3新增H-PREPARE-PERSIST只提前持久化每次真实成功prepare的纯签名
 [317完整CPU范围](../research/317_WC_E3_COMPLETE64_REUSE10_FRESH54_BLOCK_CPU_PREREGISTRATION_20261011.md)与[完整位置manifest](../manifests/wc_e3_complete64_reuse10_fresh54_blocks_r1_20261011.json)：全部两规则／四CAL／八方法64位置保留，十原件合格位置选择复用、54选择完整生成；事前轮转／交错方法块，每一模型进程最多三条，共20块。是同一完整GPU卡，不拆成20权限卡；所有加载和存储费用须统一forecast。当前无新GPU和选中执行。
 
 新module只调整普通batch范围／verify数量，实际SOURCE_RA owner保持、非RA用验收CPU存储owner，prepare签名提前保存。新旧owner与持久化方式同一Toy权重／RNG／条件直接配对：两规则×两flow×八方法×两实现64成功，加四三路径末writer故障12尝试；2736更新／5472CFG、2368成功张量重读／1184直接比较、160CPU额外恢复登记，完整卡结构十拒绝本地通过。受影响377源码／原365CPU字节只读继承；真实生产入口／启动资产／监督／逐路径评分／完整费用仍待，无训练或人评。
+
+## v1.32 E4c同状态source-age方法与CPU通过
+
+四原事件AV13/25、Human12/27冻结保持。科学卡248pair／4完整父／16五步suffix／24teacher，实际生产399载荷与2.577578296GPUh全费用已具体化。R3全物理Toy CPU及独立776tensor/324比较通过；真实生产入口CPU待，不报GPU或质量。按原E4低成本区分继续，不替代E2/E3待准确批准。C4为离线干预；teacher在各自candidate latent，真D/positive P floor/条件身份与物理保护不放宽。当前关键科学问题仍是代理排除C是否过保守，不能凭已有0C覆盖认定P寿命失败。
