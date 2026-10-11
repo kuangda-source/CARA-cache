@@ -174,8 +174,8 @@ class SameStateReferenceOwner(MatchedSourceAgeOwner):
 # must still exactly match that mode's original parent slice. Forced births are
 # explicitly interventions, never represented as naturally selected OFF P.
 _source=dedent(inspect.getsource(MatchedSourceAgeOwner.run_event))
-_old="                    if not source and branch['actions'][0] != 'PP':\n                        raise ValueError('The registered natural parent P event was not reproduced')"
-_new="                    if not source:\n                        branch['natural_first_action'] = branch['actions'][0]"
+_old="                if not source and branch['actions'][0] != 'PP':\n                    raise ValueError('The registered natural parent P event was not reproduced')"
+_new="                if not source:\n                    branch['natural_first_action'] = branch['actions'][0]"
 if _source.count(_old)!=1:raise ValueError('Original natural-event observation site differs')
 _edited=_source.replace(_old,_new)
 if _edited.replace(_new,_old)!=_source:raise ValueError('Unregistered suffix implementation edit')

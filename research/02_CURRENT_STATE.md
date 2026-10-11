@@ -1,3 +1,7 @@
+## 2026-10-11 P same-state CPU R2 source-site repair; original E5 continues
+
+[355适配修复](../research/355_WC_P_REFERENCE_SAME_STATE_CPU_SOURCE_SITE_REPAIR_20261011.md)：同状态CPU R1/sourceff68a22在import原run_event匹配处退出，31.785763秒、0父路径、444来源与原失败保持。R2仅去缩进后源码匹配16/20空格修复，数值与两flow完整8父32suffix48点688pairs／1160张量不变；本地精确site与逆变换、全部新hash／语法通过，服务器完整CPU待，未GPU。原E5完整24／eff2b71／456和原句柄继续；前实结41.908688946／cap77.895246590、新48余35.986557644，在途预留非实耗。≤8完整自主／严格>8具体确认，E2/E3原待不重问，无训练人评，goal active。以下为历史。
+
 ## 2026-10-11 当前：P五读出同状态完整CPU登记，原E5继续
 
 [354完整范围](354_WC_P_REFERENCE_FIVE_WAY_SAME_STATE_CPU_PREREGISTRATION_20261011.md)：P同状态五读出已接原完整恢复和独立评分，每flow4父／16suffix／24点／344pairs，两flow完整8父32suffix48点688pairs1376CFG88文件1160张量、26拒绝／2截断CPU预登记，444来源；实际CPU待，未GPU ready或误差收益。353 P读出完整CPU正结果保留，P仍非D／零风险，最后旧D-scalar继续部署。原E5全24 eff2b71／456与三原句柄继续，live5两OFF已36步、旧W1在跑，完整终态待。前实结41.908688946／cap77.895246590、新48余35.986557644，≤8完整自主／严格>8具体确认，E2/E3原待不重问，无训练人评，goal active。 以下为历史。
