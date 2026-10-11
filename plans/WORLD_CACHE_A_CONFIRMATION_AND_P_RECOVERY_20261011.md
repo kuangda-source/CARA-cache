@@ -1,3 +1,11 @@
+# 更新 v1.34：E4c只读CPU验收、原GPU与完整终态接续
+
+## 2026-10-11 当前：E4c原GPU继续，只读后处理CPU已独立通过
+
+[333实际验收与接续](research/333_WC_E4C_READONLY_CPU_ACCEPTANCE_AND_TERMINAL_HANDOFF_20261011.md)：新source40b0143、4077675/4077676退出0消失，23.610747秒；复用原R3完整两flow，实读88文件/776tensor/324比较、48点及24组来源年龄汇总通过，8语义拒绝与3标量控制通过。原378/new6/回执/结果/账本SHA保持，没有采样/meta/GPU重跑。R2只读reader统一FP64归约容差，Tensor/hash/逐元素要求与原在途源码不变；完整终态44文件/388tensor/24点、四93帧视频读取入口已具体准备。
+
+原supervisor4075406/child4075494仍在跑，Unix1791683040.602指定卡17616MiB/唯一app4075494；AV28 OFF36更新/mp4已保存，ON首离线窗口中，尚无独立验收新age point/全父等价或质量结论。完整E4c248pair/496CFG/4父/16suffix/24teacher forecast2.577578296GPUh保持，不改或重投在途399。前settled40.313761639725/cap77.895246589659、新48余37.581484949934；当前used=cap为inflight预留，待真实全wall结算。E2/9.8697及E3/12.3775原准确批准待，不重问或拆卡；≤8自主/严格>8整卡确认，goal active，无训练人评。以下为历史。
+
 # WorldCache 下一轮设计：阶段 A 确认与 P 的净收益开发
 
 2026-10-11，v1.33。当前研究入口，依据用户本轮“根据最新对话和文档更新下实验设计”。保留 WorldCache＋RA 的三模块主线，将已有方法的确认与部分刷新执行器的完善分开安排。初版更新仅设计；后续E0独立CPU已实际完成，未提交新GPU，旧卡结果保持。实际结果见[285回收报告](../research/285_WC_E0_REAL_PARTIAL_RECOVERY_RESULTS_AND_MEMORY_NEXT_STEP_20261011.md)。

@@ -1,3 +1,9 @@
+## 2026-10-11 当前：E4c原GPU继续，只读后处理CPU已独立通过
+
+[333实际验收与接续](333_WC_E4C_READONLY_CPU_ACCEPTANCE_AND_TERMINAL_HANDOFF_20261011.md)：新source40b0143、4077675/4077676退出0消失，23.610747秒；复用原R3完整两flow，实读88文件/776tensor/324比较、48点及24组来源年龄汇总通过，8语义拒绝与3标量控制通过。原378/new6/回执/结果/账本SHA保持，没有采样/meta/GPU重跑。R2只读reader统一FP64归约容差，Tensor/hash/逐元素要求与原在途源码不变；完整终态44文件/388tensor/24点、四93帧视频读取入口已具体准备。
+
+原supervisor4075406/child4075494仍在跑，Unix1791683040.602指定卡17616MiB/唯一app4075494；AV28 OFF36更新/mp4已保存，ON首离线窗口中，尚无独立验收新age point/全父等价或质量结论。完整E4c248pair/496CFG/4父/16suffix/24teacher forecast2.577578296GPUh保持，不改或重投在途399。前settled40.313761639725/cap77.895246589659、新48余37.581484949934；当前used=cap为inflight预留，待真实全wall结算。E2/9.8697及E3/12.3775原准确批准待，不重问或拆卡；≤8自主/严格>8整卡确认，goal active，无训练人评。以下为历史。
+
 ## 2026-10-11 当前：E4c整卡GPU已准入，首AV28 OFF路径采样在跑
 
 [331整卡启动与接续](331_WC_E4C_COMPLETE_GPU_START_AND_CONTINUATION_20261011.md)：完整E4c4父／4事件／16五步suffix／24同状态teacher，248pair／496CFG，forecast2.577578296GPUh，≤8按直接授权推进。原source6a5910c、dispatch c8abea6；supervisor4075406及唯一child4075494现场存活，指定A6000准入前24MiB/noapps，正式共享锁/预算准入后第78作业在途。真实CAL/RA/solver/模型与399来源生产CPU通过，Toy完整R3和776实读/324比较保持。最新Unix1791682391.247加载78.266789秒、5964MiB／唯一app4075494，AV28 OFF prompt guardrail已过并进入标准采样；STARTED不是完整路径/局部误差或质量结论。
