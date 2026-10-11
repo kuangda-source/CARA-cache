@@ -1,3 +1,7 @@
+## 2026-10-11 当前：E5 CPU首轮比较失败保留，R2参数名称对应已登记
+
+[337实际失败／修复](../../research/337_WC_E5_CPU_R1_COMPARISON_FAILURE_AND_R2_PARAMETER_ID_REPAIR_20261011.md)：原4084569／4084571退出1，25.79832秒；403源码与账本保持，原两个OFF完整输出独立37／37相同，全CPU未通过。projection parameter_versions含各安装对象ID，R2仅跨安装改名字对应、保留version／数值／来源与自身严格恢复，raw差异保留，原12完整／222比较／24恢复／7拒绝／4分支故障范围不缩。R1原型字节不改，独立R2 CPU待；E4c原GPU与自动审计继续，无新GPU训练人评，≤8整卡自主／严格>8具体批准。以下为历史。
+
 ## 2026-10-11 当前：E5独立省算原型与CPU范围已登记
 
 [336原型／CPU范围](../../research/336_WC_E5_EARLY_HEAD_ELISION_IMPLEMENTATION_AND_CPU_SCOPE_20261011.md)：H-EARLY-HEAD-ELISION仅早期CC／α=1／候选可用省原head；旧方法和E4c在途399不改。新版本previous_output记录候选并显式报告差异，其余输出／D／P／条件／RNG与自身完整恢复验证。两flow×三A×两版本12完整路径／222实读比较／24恢复，7动态head与4paired故障保留。服务器CPU待，不是新视频／速度；无新GPU训练人评。原E4c和自动终态CPU继续，E2／E3准确above8批准待，≤8自主权限保持。以下为历史。
