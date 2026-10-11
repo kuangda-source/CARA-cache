@@ -17,7 +17,8 @@ def run(clocks):
             'working_source_ages':[step-v['created_step'] for v in working],
             'true_D_before':before,'true_D_after':copy.deepcopy(dense),'A_readout':a,
             'source_policy':{'creation_floor_proxy_after':.02 if working[0]['kind']=='P' else 0,
-                'accumulated_interval_proxy_after':.03},'native_cycle_reset':step==35})
+                'accumulated_interval_proxy_after':.03,'consecutive_P_after':1 if action=='PP' else 0},
+            'actual_projection_records':[],'native_cycle_reset':step==35})
         if step==35:dense=[[],[]];working=[None,None]
     row={'collect':'CPD','actions':actions,'collection_complete':{'deployment':{'history':history}},
         'instrumented_parent_pipeline_wall_seconds':123.}

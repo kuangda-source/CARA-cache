@@ -1,6 +1,6 @@
 # WorldCache 下一轮设计：阶段 A 确认与 P 的净收益开发
 
-2026-10-11，v1.29。当前研究入口，依据用户本轮“根据最新对话和文档更新下实验设计”。保留 WorldCache＋RA 的三模块主线，将已有方法的确认与部分刷新执行器的完善分开安排。初版更新仅设计；后续E0独立CPU已实际完成，未提交新GPU，旧卡结果保持。实际结果见[285回收报告](../research/285_WC_E0_REAL_PARTIAL_RECOVERY_RESULTS_AND_MEMORY_NEXT_STEP_20261011.md)。
+2026-10-11，v1.30。当前研究入口，依据用户本轮“根据最新对话和文档更新下实验设计”。保留 WorldCache＋RA 的三模块主线，将已有方法的确认与部分刷新执行器的完善分开安排。初版更新仅设计；后续E0独立CPU已实际完成，未提交新GPU，旧卡结果保持。实际结果见[285回收报告](../research/285_WC_E0_REAL_PARTIAL_RECOVERY_RESULTS_AND_MEMORY_NEXT_STEP_20261011.md)。
 
 当前接续：[318 R1失败与R2修复登记](../research/318_WC_E3_BLOCK_CPU_R1_RECORDER_FAILURE_AND_R2_REPAIR_20261011.md)。E3受影响CPU R1在故障测试初始化记录器读取空请求时失败，原件及scope保持；独立R2仅修记录器并检查首save零prepare，相同64成功＋12故障范围继续，未提交GPU。E1真实全8等价保持；全64／复用10／补54／20块生产接线与完整费用待。
 
@@ -11,6 +11,8 @@
 [321受影响接线CPU登记](../research/321_WC_E3_COMPLETE64_POST_SELECTION_CPU_PREREGISTRATION_20261011.md)：原449方法保持，新16执行字节完整64终态/全部有效93/十实际复用读取/selected接线进入服务器CPU；forecast12.377456422与准确above8门保持，无新GPU。
 
 [322实际接线验收与完整ready卡](../research/322_WC_E3_COMPLETE64_EXECUTION_CPU_ACCEPTANCE_AND_READY_CARD_20261011.md)：原79205b3/4071448 exit0、101.332237秒，真实十复用370张量/930帧及另次独立370实读通过；全64/全有效93/selected源绑定链已具体ready，完整12.377456422按严格>8准确请求；无新GPU，E2原问不重复。
+
+[323当前零GPU准备](../research/323_WC_E4C_EXISTING_TRACE_CLOCK_COVERAGE_CPU_PREREGISTRATION_20261011.md)：E2/E3完整above8问题待且不重问，独立推进已列E4c既有trace覆盖，保留原64/E1八共72位置、22完整/1部分/49未开始，不产生新视频或修改卡；行动前/后时钟与P后继及缺失字段审计登记，真实CPU读取待。
 
 ## 1. 本轮最重要的调整
 
