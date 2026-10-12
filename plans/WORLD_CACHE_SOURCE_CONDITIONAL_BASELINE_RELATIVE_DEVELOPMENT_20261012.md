@@ -133,6 +133,8 @@ g沿用已绑定传播先验，以g²乘绝对MSE做代理；多步交叉项/方
 
 ## 10. 独立确认与重复计时不再无限后置
 
+401已完成独立seed标签适配和两flow240 CPU路径（80audit/80lean/80legacy），实际seed17/43传入每次generator、C/A与D/P来源、全部36步/终态/模拟输出等价及恢复通过；仅改context种子标签与批次命名空间，原397源码不变。完整50顺序在同提示词两个seed也镜像，平均位置3。候选仍未冻结，TABLE_PHASE是CPU模板；实际费用/生产与40×93待。输入protocol/manifest仍candidate_frozen=false，不以此CPU边界变成新GPU或泛化结果。
+
 当前卡终态后，若已有来源门控/无P/新候选形成值得保留工作点，就冻结一个新候选进入确认；不必等全部校准、尾部价值和执行器都成功。
 
 新组合确认另登记：四未曝光提示词×两seed×Native/RA/A_NO_P/P_OFF/一个冻结候选，40正式位置，加10次CAL预热，完整50路径；提示词先核对暴露/保留清单，保留原E2资产和科学问题。统计以四提示词聚合两seed，帧和重复不算独立提示词。[394确认输入准备](../research/394_WC_SUFFIX_EFFECT_ANALYSIS_TIMING_CORRECTION_AND_CONFIRMATION_INPUTS_20261013.md)已固定AV46/Human125/misc2711212/robot043、seed17/43并独立重构暴露/排序/排除E2保留组；候选、实际生产CPU和完整费用尚待，未新GPU。

@@ -21,3 +21,13 @@
 实际八请求用InferenceArguments解析校核；CPU Toy空间/权重/attention/解码/写出仍为明确替身，采样fixture沿16×16/512 hidden-token几何，不能把CPU输出称新提示词真实视频、保真或速度。当前λ/γ真实参数文件不改，Toy覆盖数字仅用于接口动作，0拟合/线上teacher/当前标签。
 
 完整matrix、参数/费用/生产CPU/资产与参考、全部50原件及正式40×93评分入口继续准备；尚不启动GPU。独立确认不被teacher对照/更长H2或P执行器成熟无限后置，已有P_OFF/A_NO_P主干也须确认。预算沿原fresh48账本、≤8自主/严格>8完整卡询问；不拆缩原卡或跨卡转用批准。
+
+## 本轮CPU完成与原H1衔接
+
+[顺序矩阵回执](../reports/wc_source_conditional_confirmation_matrix_template_cpu_r1_20261013.json)已独立调用实际matrix函数，确认40正式＋10预热/1800pairs/3600CFG、五方法整体平均位置3，同提示词两个seed各方法平均位置3。候选字段仍为模板，未修改原输入protocol/候选未冻结状态。
+
+原8b845b3/651独立CPU R1已完成，426.5586秒、两flow全240路径：80新audit、80新lean、80原legacy；全部36步guided/动作/final/模拟视频等价，所有三路的每次实际generator均为对应17/43，P_OFF/主H1工作源context种子准确，C/A及D/P来源、头数/所有权/完整初态恢复通过。实际8请求InferenceArguments解析一致；0 GPU/0账本写入。见[终态回执](../reports/wc_source_conditional_confirmation_cpu_r1_receipt_20261013.json)。这是接线/数值等价，尚无CONF实际视频或泛化结果。
+
+另备独立H1全量汇总读取器，完整36原件/24×93/六warm控制/16原控制/全部九对比/释放才允许结论，按场景等权均值之比和逐场景分别计算，保留全部93帧正负、主动/保护/非优化D及实际额外候选头数。合成混合收益与不完整/在途/缺帧/错误分母/头数/均值拒绝CPU通过；当前真实H1仍在途，不运行科学汇总、不使用部分路径挑CONF候选。
+
+397现场28/36（12warm＋16正式）完成，原三handles/live及661保持、timed_2_TABLE_PHASE_H1运行中，终态全部24科学/93帧仍待。400 teacher270生产665已验证保持，等待397全量验收后的串行安排；原预算与权限不变。
