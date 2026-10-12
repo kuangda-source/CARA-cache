@@ -69,3 +69,11 @@ R3采样CPU完成两flow×四格，16完整父路径、16完整后缀；普通�
 ## 绑定文件
 
 [完整配置](../configs/wc_pi0_suffix8_full266_production_r1_20261013.json) · [完整费用](../manifests/wc_pi0_suffix8_full266_cost_r1_20261013.json) · [父路径/Native绑定](../manifests/wc_pi0_suffix8_parent_native_bindings_r1_20261013.json) · [R3采样CPU](../reports/wc_pi0_suffix8_cpu_r3_receipt_20261013.json) · [R3独立原件CPU](../reports/wc_pi0_suffix8_cpu_r3_independent_raw_20261013.json)。
+
+## 实际执行状态：2026-10-13 00:28 北京时间
+
+[实际生产CPU回执](../reports/wc_pi0_suffix8_r1_production_cpu_receipt_20261013.json)通过，CUDA/权重/下载禁止及实际child-command/source/scope拒绝通过。完整卡按≤8授权一次启动，冻结source `c9b32ce700f6513a3aabd8767cd573612ca7b691`、655 payload；唯一supervisor445447、runner445752、自动released-GPU CPU watcher445448均live，f1 kernel锁持有，A6000实际显存24514MiB。runner在初始化，0/4父、0/8后缀，尚无新终点质量/速度结果。
+
+跟踪[原进程现场回执](../reports/wc_pi0_suffix8_live_or_terminal_capture_20261013.json)，只跟原handles，不改stage或重复提交。第88提交在途，启动前实费65.810679625、余额39.160683708；账本used=cap是保守预留，不是实际已经花完。结束后按完整wall结算，CPU后处理不写GPU账本。
+
+R3的4.87MB完整采样回执继续保存在原服务器及ignored完整副本；Git索引保存全部payload/完整范围和原件hash，未删失败或控制。
