@@ -118,7 +118,7 @@ class TeacherFirstVelocityOwner(Pi0ReadoutSuffixOwner):
                 or self.active_generator is None):
             raise ValueError('One fresh teacher at the exact bound prefix required')
         p = self.point; c = p['chosen']; state = self.controller._state()
-        if (state != (c['true_D_anchor'], p['source'], c['source_birth'])
+        if (state[:3] != (c['true_D_anchor'], p['source'], c['source_birth'])
                 or step-state[2] != c['age'] or self.model.sample_scheduler._step_index != step-1):
             raise ValueError('Frozen teacher prefix source/age/solver not reproduced')
         before = DiagnosticSnapshot(self, latent, noise, self.active_velocity,
