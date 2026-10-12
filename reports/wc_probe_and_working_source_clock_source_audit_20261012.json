@@ -1,0 +1,52 @@
+{
+  "status": "PINNED_WC_AST_PROBE_REFERENCE_AND_WORKING_SOURCE_CLOCKS_DISTINCT",
+  "runtime_sha256": "b485cb8fd6e262a40e5823365c34ef7db1bc036c591d7577489e04077c515903",
+  "C_top_level_assignments": [
+    {
+      "field": "previous_internal_states",
+      "line": 457,
+      "source": "self.previous_internal_states[current_idx] = test_x"
+    },
+    {
+      "field": "previous_input",
+      "line": 458,
+      "source": "self.previous_input[current_idx] = ori_x"
+    }
+  ],
+  "D_P_top_level_assignments": [
+    {
+      "field": "residual_cache",
+      "line": 530,
+      "source": "self.residual_cache[current_idx] = residual_x"
+    },
+    {
+      "field": "probe_residual_cache",
+      "line": 532,
+      "source": "self.probe_residual_cache[current_idx] = self.previous_internal_states[current_idx] - ori_x"
+    },
+    {
+      "field": "previous_input",
+      "line": 534,
+      "source": "self.previous_input[current_idx] = ori_x"
+    },
+    {
+      "field": "previous_output",
+      "line": 535,
+      "source": "self.previous_output[current_idx] = x_B_T_H_W_D"
+    }
+  ],
+  "paid_delta_y_statement": "delta_y = (test_x - self.previous_internal_states[current_idx]).abs().mean() / self.previous_internal_states[current_idx].abs().mean()",
+  "paid_delta_y_line": 323,
+  "C_refreshes_prev_probe_and_input_every_call": true,
+  "C_does_not_refresh_working_probe_residual_or_deep_residual": true,
+  "source_deep_birth_is_D_or_P_not_last_C": true,
+  "source_age_must_not_be_used_as_delta_y_reference_age": true,
+  "paired_prefix_changes_only_skip_predicate_and_preserves_assignments": true,
+  "tail_counter70_reset_requires_separate_exception": true,
+  "GPU_submissions": 0,
+  "ledger_written": false,
+  "actual_runtime_teacher_or_shadow_trace": false,
+  "paired_prefix_derivation_source_ref": "src/wcomr/cfg_paired_probe_forward.py",
+  "paired_prefix_derivation_source_sha256": "e240851429f72336038ecfcdd1fdf60614e17b2fbe2a1bd8af42d71562e9db2b",
+  "paired_prefix_proof_kind": "SOURCE_DERIVATION_INVERSE_AST_GUARD_REUSED_NOT_NEW_RUNTIME_SHADOW"
+}

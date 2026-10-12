@@ -33,6 +33,8 @@ W1提供来源/阶段条件化的修正读出；P提供较便宜的更新执行�
 
 同时区分工作源年龄、真D参考间隔、rho支持年龄；它们不互换。已付δ的实际probe参考缓存和σ间隔也需源码/快照核对，不能因rho索引按P年龄查询，就自动宣称δ来自同一P基点；已有P漂移仍标TRANSFER。该项是校准对象核对，不是已经确认实现存在错误。A修正不是新的独立观测，P不是真D。D只消除当前算子近似误差，不恢复原生轨迹，也不清除已经进入latent/UniPC历史的偏差。
 
+[391源码核对](../research/391_WC_PAID_PROBE_REFERENCE_CLOCK_SOURCE_AUDIT_AND_NEXT_SHADOW_20261012.md)已确认：原C分支每步更新previous probe/input，而working probe/deep residual只由D/P更新。因此paid δ_y的最近probe参考与working birth不同；16点主分析口径保持，下一先CPU observer核对真实对象/σ时钟，再复用同轨迹teacher标签检验年龄或来源差分。静态核对不是当前新特征已GPU有效，也不追改在途16分析。
+
 ## 4. 数学目标与尺度
 
 当前在途版本优化g²×normalized MSE经验分数，保持原定义。它尚未校准成绝对终点误差，不能因gain平方就宣称解决了local-to-final。
