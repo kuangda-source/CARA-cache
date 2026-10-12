@@ -79,3 +79,5 @@ R3采样CPU完成两flow×四格，16完整父路径、16完整后缀；普通�
 R3的4.87MB完整采样回执继续保存在原服务器及ignored完整副本；Git索引保存全部payload/完整范围和原件hash，未删失败或控制。
 
 2026-10-13后续：[394独立分析与确认准备](394_WC_SUFFIX_EFFECT_ANALYSIS_TIMING_CORRECTION_AND_CONFIRMATION_INPUTS_20261013.md)已固定新四提示词/双seed，未选择完整GPU卡。原GPU/source/范围保持。源码发现guardrail在writer中，故上文原“采样＋VAE＋guardrail但排除写盘”的主计时不能由现字段识别；原字段/判据保持，新分析分别报告sampling＋decoder与加完整guarded writer的可观测区间，不称clean加速。全部视频与后果结论尚待。
+
+2026-10-13完整结论见[396](396_WC_PI0_SUFFIX8_COMPLETE_RESULTS_LOCAL_TARGET_AND_FUTURE_COMPUTE_20261013.md)：全部12视频/93评分与父/默认控制通过，AV28有单次A终点和未来采样正信号，其他三点轻微反例；decoder首臂四点都更慢，单次混合区间不是净速度。实费0.638021295、当前余额38.522662412、全部原进程退出、无GPU在途。原watcher错路径及仅CPU恢复记录均保留，旧stage655源码不变。

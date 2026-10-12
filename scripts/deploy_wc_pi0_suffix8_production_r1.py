@@ -61,19 +61,19 @@ stage=pathlib.Path(STAGE);root=pathlib.Path(ROOT);r=json.loads((stage/'productio
 assert r['status']=='PI0_SUFFIX8_ACTUAL_PRODUCTION_CPU_PASS_NOT_GPU' and r['exit_code']==0 and reg['source_revision']==REV
 assert r['registration_sha256']==hashlib.sha256((stage/'registration.json').read_bytes()).hexdigest()
 for n,h in reg['payload_sha256'].items():assert hashlib.sha256((stage/n).read_bytes()).hexdigest()==h
-assert not (stage/'GPU-launch.json').exists() and not (root/'outputs/wc-pi0-suffix8-full266-r1').exists()
+assert not (stage/'GPU-launch.json').exists() and not (root/'outputs/wc-pi0-readout-suffix8-full266-r1').exists()
 command=['/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python','-u',str(stage/'scripts/supervise_wc_pi0_suffix8_r1.py'),'--project',str(root),'--stage',str(stage),'--source-revision',REV]
 with (stage/'GPU-supervisor.log').open('x') as log:
  child=subprocess.Popen(command,stdout=log,stderr=subprocess.STDOUT,start_new_session=True,env=dict(os.environ,PYTHONDONTWRITEBYTECODE='1'))
 postcode="""import subprocess,sys,time,pathlib,json,os
 pid=int(sys.argv[1]);stage=pathlib.Path(sys.argv[2]);root=pathlib.Path(sys.argv[3])
 while pathlib.Path('/proc/'+str(pid)).exists():time.sleep(5)
-output=root/'outputs/wc-pi0-suffix8-full266-r1'
+output=root/'outputs/wc-pi0-readout-suffix8-full266-r1'
 if not (output/'supervisor.json').exists():raise SystemExit('GPU admission failed; no new submission')
 s=json.loads((output/'supervisor.json').read_text());assert s['status']=='PI0_SUFFIX8_GPU_EXITED_REQUIRES_RAW_CPU_AUDIT'
 with (stage/'post-CPU.log').open('x') as log:
  rc=subprocess.call([sys.executable,str(stage/'scripts/postprocess_wc_pi0_suffix8_cpu_r1.py'),'--project',str(root),'--stage',str(stage)],stdout=log,stderr=subprocess.STDOUT,env=dict(os.environ,CUDA_VISIBLE_DEVICES=''))
-(stage/'post-CPU-exit.json').write_text(json.dumps({'exit_code':rc,'GPU_submissions':0,'ledger_written':False,'ended_unix':time.time()})+'\\n')
+(stage/'post-CPU-exit.json').write_text(json.dumps({'exit_code':rc,'GPU_submissions':0,'ledger_written':False,'ended_unix':time.time()}))
 """
 with (stage/'post-watcher.log').open('x') as log:
  post=subprocess.Popen(['/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python','-u','-c',postcode,str(child.pid),str(stage),str(root)],stdout=log,stderr=subprocess.STDOUT,start_new_session=True,env=dict(os.environ,CUDA_VISIBLE_DEVICES=''))
