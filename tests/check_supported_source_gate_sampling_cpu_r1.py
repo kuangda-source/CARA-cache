@@ -22,7 +22,7 @@ def body(inference,selected,wc,rf,settings,inference_module,runtime,config,flow,
     model=inference.pipe.model;net=model.net;scheduler=model.sample_scheduler
     cal=Calibration('SYNTHETIC_SG_ACTUAL_AGE6',{(a,n):.99 for a in range(1,36)
         for n in range(a+1,min(a+6,36)+1)},{n:1. for n in range(1,37)})
-    spec={'threshold':2.,'costs':Costs('SYNTHETIC_SG',1.,4.,.8),
+    spec={'threshold':2.,'costs':Costs('SYNTHETIC_SG',1.,4.,3.5),
         'partial_prior':CreationPhasePrior('SYNTHETIC_SG',.005,.3,early_creation_floor=.005,late_creation_floor=.02),
         'working_epoch_strategy':'WORKING_P_AGE_NONZERO_REBASE'}
     specs={'SOURCE_RA':spec,'A_CPD_BETA1_ONE_PHASE':spec}

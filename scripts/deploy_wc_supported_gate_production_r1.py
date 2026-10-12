@@ -9,7 +9,7 @@ sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
 def remote(code):return subprocess.check_output(HOST+['python3 -'],input=code,text=True)
 def main():
  p=argparse.ArgumentParser();p.add_argument('--launch',action='store_true');a=p.parse_args()
- root='/home/gaokuangda/data/gkd/worldcache_omr';stage=root+'/.sync/wc-supported-gate-production-r1-20261012';cpu=root+'/.sync/wc-supported-gate-cpu-r2-20261012'
+ root='/home/gaokuangda/data/gkd/worldcache_omr';stage=root+'/.sync/wc-supported-gate-production-r1-20261012';cpu=root+'/.sync/wc-supported-gate-cpu-r3-20261012'
  rev=subprocess.check_output(['git','rev-parse','HEAD'],cwd=R,text=True).strip()
  if not a.launch:
   packet={'source_revision':rev,'new_payload':{n:sha(R/n) for n in FILES}}

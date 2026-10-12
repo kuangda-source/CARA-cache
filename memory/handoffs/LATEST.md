@@ -1,3 +1,7 @@
+## 2026-10-12 support-aware gate full144 CPU accepted
+
+[384完整卡](research/384_WC_SUPPORTED_SOURCE_GATE_FULL36_WARM18_FROZEN_CARD_20261012.md)：R3完整144实际native/RF/UniPC两flow×四请求×九方法审计/clean全部通过252.005秒，D-A与P-C实际覆盖、全36历史恢复/来源保护通过，CUDA未初始化/0费用。R1 None夹具及R2覆盖失败保留，R3只改合成P报价，真实γ/λ/source risk/费用和54范围不改。四CAL九方法36正式＋18完整预热、forecast7.173027604≤8保持，下一真实生产CPU和fresh唯一GPU，当前尚未启动。原N2/P_OFF4/4取舍正结果/60.931238336已用/余44.040124997保持，P13h暂缓/E2原76不改，≤8自主/严格>8问，不训练/OMR/新增人评。以下为历史。
+
 ## 2026-10-12 support-aware source-gate revision: full144 CPU next
 
 [383预登记](research/383_WC_SUPPORTED_SOURCE_GATE_SQUARED_RISK_REVISION_PREREG_20261012.md)与[384完整卡](research/384_WC_SUPPORTED_SOURCE_GATE_FULL36_WARM18_FROZEN_CARD_20261012.md)：以N2 P_OFF正信号继续开发，D来源固定阶段A、P来源C，支持H1/H2与可选P-A；风险使用传播幅度gain²×归一化MSE、来源A实价、未来ρ年龄6支持与真实回退一致。λ按未用终点的全21交点两级中位数冻结2280.895765425，不按场景选赢家。纯数值恢复/风险/支持/合成动作覆盖通过；完整两flow144采样CPU R2在验，R1夹具None历史失败保留，不是GPU/方法结果。四CAL九方法36正式＋18完整预热、一模型驻留，完整forecast7.173027604≤8，随后生产CPU和fresh唯一GPU；当前尚未启动此卡。N2全54/全93和P_OFF4/4取舍正结果保持，60.931238336/cap104.971363333、余44.040124997无inflight；原P13h暂缓/E276原范围不改，不训练/OMR/新增人评。以下为历史。
