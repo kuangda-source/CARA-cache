@@ -47,4 +47,12 @@
 
 [完整配置](../configs/wc_source_phase_h1_full24_production_r1_20261013.json) · [完整费用](../manifests/wc_source_phase_h1_full36_cost_r1_20261013.json) · [16旧控制绑定](../manifests/wc_source_phase_h1_four_controls_bindings_r1_20261013.json) · [95参数与CPU](395_WC_SOURCE_PHASE_ABSOLUTE_H1_METHOD_PREREG_20261013.md)。
 
+## 生产CPU R1拦截与R2准备
+
+实际生产CPU在权重/CUDA前拦住旧C报价与新plain-C报价的错误等同。只读核对确认两者同为已付probe后的范围，**不同在动作读出语义**：旧π0 `C=0.3381135724` 包含阶段A、仅用于其动作排序；新H1 `C_plain=0.1684607664`、`A_D=0.3381135724`、`A_P=0.5077663784`。P6.1733108168/D6.2542039341完全一致。
+
+旧π0报价/状态/强控制不改，新目标继续使用原先冻结的四动作报价与λ。新控制器允许已绑定原C排序价等于D源A价，分别记录原排序价与新语义价；原root累计不混入平方误差。没有事后降价、重拟合或GPU运行。原R1 source d661cf5/stage/错误保留，[核对回执](../reports/wc_source_phase_h1_production_cpu_r1_cost_boundary_failure_20261013.json)绑定实际数值。
+
+新增不同旧C/新C的纯标量测试和R4两flow完整96采样重验通过，181.1787秒，D/P源C/A、头数、状态和原控制等价保持。[R4回执](../reports/wc_source_phase_absolute_h1_cpu_r4_receipt_20261013.json)。下一独立生产R2只复制这些已测试bytes；完整36路径/费用4.805045625不变，实际生产CPU与GPU准入仍待。
+
 根据结果保留有用工作点、负例与适用条件；若完整H1不胜强锚点，检查局部目标与实际后果、支持/报价/新状态覆盖，优先已登记低成本teacher首输出或时钟特征区分，不否定W1/P整个方向。已有方法可确认时不被复杂增量无限推迟。

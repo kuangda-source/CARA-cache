@@ -43,9 +43,10 @@ class SourcePhaseH1Controller(CurrentBirthCPDController):
         super().__init__(*args,**kw);p=copy.deepcopy(table_parameters);validate_parameters(p)
         if horizon!=1 or not callable(sigma_at) or fixed_control_plan is not None:
             raise ValueError('One-step free actual action choice required; no future forecast')
-        if (self.costs.C!=p['cost_seconds']['C'] or self.costs.D!=p['cost_seconds']['D']
+        # Original pi0 C includes stage A; new H1 quotes plain C and A apart.
+        if (self.costs.C not in (p['cost_seconds']['C'],p['source_A_cost_seconds']['D']) or self.costs.D!=p['cost_seconds']['D']
                 or self.costs.P!=p['cost_seconds']['P'] or math_parameters['gamma']!=p['gamma']):
-            raise ValueError('Actual physical costs and source readout gamma differ')
+            raise ValueError('Bound pi0 stage-A ordering versus H1 semantic quotes/gamma differ')
         self.table_parameters,self.math_parameters,self.horizon,self.sigma_at=p,copy.deepcopy(math_parameters),horizon,sigma_at
 
     def predicted_actions(self,choice):
@@ -121,6 +122,9 @@ class SourcePhaseH1Controller(CurrentBirthCPDController):
             'absolute_new_P_error_not_written_to_root_floor':True,'candidate_risk_and_price':table,
             'choice_added_risk_and_accumulator_unit':'ORIGINAL_GAIN_TIMES_ROOT_PROXY_FOR_PI0_FALLBACK',
             'candidate_score_risk_unit':'AMPLITUDE_GAIN_SQUARED_ABSOLUTE_GUIDED_MSE',
+            'pi0_action_order_prices':{'legacy_C_including_stage_A':self.costs.C,'P':self.costs.P,'D':self.costs.D},
+            'H1_semantic_plain_C_price':self.table_parameters['cost_seconds']['C'],
+            'H1_source_A_price':self.table_parameters['source_A_cost_seconds'][choice.state_before[1]] if choice.state_before[1] in ('D','P') else None,
             'old_root_threshold_used_for_new_objective':False,'absolute_error_written_into_root_accumulator':False,
             'actual_online_candidate_evaluations':0,
             'actual_online_teacher_calls':0,'future_drift_forecast_used':False,'terminal_pi0_value_fitted':False,

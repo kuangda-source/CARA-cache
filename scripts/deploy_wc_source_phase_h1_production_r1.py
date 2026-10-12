@@ -5,8 +5,8 @@ from pathlib import Path
 R=Path(__file__).resolve().parents[1]
 HOST=['ssh','-o','BatchMode=yes','-o','ConnectTimeout=15','-o','ClearAllForwardings=yes','gkd_minchen']
 ROOT='/home/gaokuangda/data/gkd/worldcache_omr'
-STAGE=ROOT+'/.sync/wc-source-phase-h1-production-r1-20261013'
-CPU=ROOT+'/.sync/wc-source-phase-absolute-h1-cpu-r3-20261013'
+STAGE=ROOT+'/.sync/wc-source-phase-h1-production-r2-20261013'
+CPU=ROOT+'/.sync/wc-source-phase-absolute-h1-cpu-r4-20261013'
 CONFIG='configs/wc_source_phase_h1_full24_production_r1_20261013.json'
 sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
 
@@ -56,7 +56,7 @@ with (stage/'production-CPU.log').open('x') as log:
  child=subprocess.Popen(cmd,stdout=log,stderr=subprocess.STDOUT,start_new_session=True,env=dict(os.environ,CUDA_VISIBLE_DEVICES='',PYTHONDONTWRITEBYTECODE='1'))
 print(json.dumps({'status':'SOURCE_PHASE_H1_ACTUAL_PRODUCTION_CPU_STARTED_NOT_GPU','pid':child.pid,'command':cmd,'stage':str(stage),'source_revision':P['source_revision'],'started_unix':time.time(),'GPU_submissions':0,'ledger_written':False}))
 '''
-        r=json.loads(remote(code));(R/'reports/wc_source_phase_h1_r1_production_cpu_launch_20261013.json').write_text(json.dumps(r,indent=2)+'\n');print(json.dumps(r));return
+        r=json.loads(remote(code));(R/'reports/wc_source_phase_h1_r2_production_cpu_launch_20261013.json').write_text(json.dumps(r,indent=2)+'\n');print(json.dumps(r));return
     code='STAGE='+repr(STAGE)+'\nROOT='+repr(ROOT)+'\nREV='+repr(rev)+'\nCONFIG='+repr(CONFIG)+'\n'+r'''import pathlib,json,hashlib,subprocess,os,time
 stage=pathlib.Path(STAGE);root=pathlib.Path(ROOT);r=json.loads((stage/'production-CPU-result.json').read_text());reg=json.loads((stage/'registration.json').read_text());c=json.loads((stage/CONFIG).read_text())
 assert r['status']=='SOURCE_PHASE_H1_ACTUAL_PRODUCTION_CPU_PASS_NOT_GPU' and r['exit_code']==0 and reg['source_revision']==REV
@@ -82,7 +82,7 @@ with (stage/'post-watcher.log').open('x') as log:
 r={'status':'SOURCE_PHASE_H1_COMPLETE36_DISPATCHED_ADMISSION_PENDING','supervisor_pid':child.pid,'post_watcher_pid':post.pid,'command':command,'stage':str(stage),'source_revision':REV,'started_unix':time.time(),'post_output_uses_same_config_run_id':c['run_id']}
 (stage/'GPU-launch.json').write_text(json.dumps(r,indent=2)+'\n');print(json.dumps(r))
 '''
-    r=json.loads(remote(code));(R/'reports/wc_source_phase_h1_r1_GPU_launch_20261013.json').write_text(json.dumps(r,indent=2)+'\n');print(json.dumps(r))
+    r=json.loads(remote(code));(R/'reports/wc_source_phase_h1_r2_GPU_launch_20261013.json').write_text(json.dumps(r,indent=2)+'\n');print(json.dumps(r))
 
 
 if __name__=='__main__':main()

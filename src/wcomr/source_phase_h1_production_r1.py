@@ -71,7 +71,7 @@ def validate(project,stage):
     specs=inputs[1][STRATEGY]
     assert specs['SOURCE_RA']['threshold']==previous['original_RA_threshold']
     prices=previous['cost_seconds'];actual=specs['A_CPD_BETA1_ONE_PHASE']['costs']
-    assert (actual.C,actual.P,actual.D)==(prices['C'],prices['P'],prices['D'])
+    assert (actual.C,actual.P,actual.D)==(tables['SOURCE_PHASE']['source_A_cost_seconds']['D'],prices['P'],prices['D'])
     baseline=json.loads((stage/c['baseline_ref']).read_text())
     assert len(baseline['rows'])==16 and set(r['method'] for r in baseline['rows'])==set(METHODS[:4])
     for row in baseline['rows']:

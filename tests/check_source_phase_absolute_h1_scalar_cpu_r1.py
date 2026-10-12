@@ -15,12 +15,12 @@ def run():
             'cost_seconds':{'C':.1,'A':.5,'P':P,'D':2.},'source_A_cost_seconds':{'D':.3,'P':.5},
             'lambda_seconds_per_weighted_absolute_MSE':1.}
         p['fingerprint']=fingerprint(p);return p
-    def controller(p=None,gain=1.):
+    def controller(p=None,gain=1.,legacy_C=None):
         p=params() if p is None else p
         cal=Calibration('SYNTHETIC_SOURCE_PHASE_H1',{(a,n):.99 for a in range(1,36) for n in range(a+1,min(a+6,36)+1)},
             {n:gain for n in range(1,37)})
         def no_forecast(n):raise AssertionError('H1 consulted future sigma forecast')
-        c=SourcePhaseH1Controller(cal,.01,Costs('SYNTHETIC_PRICE_NOT_PRODUCTION',.1,2.,p['cost_seconds']['P']),
+        c=SourcePhaseH1Controller(cal,.01,Costs('SYNTHETIC_PRICE_NOT_PRODUCTION',.1 if legacy_C is None else legacy_C,2.,p['cost_seconds']['P']),
             CreationPhasePrior('SYNTHETIC_POSITIVE_ROOT_BIRTH',.01,.3,early_creation_floor=.01,late_creation_floor=.02),
             strategy='WORKING_P_AGE_NONZERO_REBASE',table_parameters=p,math_parameters={'fingerprint':'SYNTHETIC_BASE','gamma':.5},
             horizon=1,sigma_at=no_forecast)
@@ -30,11 +30,12 @@ def run():
         packets=[SimpleNamespace(slot=b,counter=(2*(n-1))%70+b,delta_y=delta) for b in (0,1)]
         return c.decide(n,packets,both_sources_ready=True,partial_ready=partial)
     c=controller();d=decision(c,8,.001);assert d.action=='C' and d.reason.endswith(':C')
-    c=controller(gain=3.);d=decision(c,8,.1);assert d.action=='C' and d.reason.endswith(':A')
+    c=controller(gain=3.,legacy_C=.3);d=decision(c,8,.1);assert d.action=='C' and d.reason.endswith(':A')
     table=c.predicted_actions(d);assert math.isclose(table['A']['gain_squared_risk'],9*table['A']['absolute_current_MSE'])
     expected_root=3*d.local_proxy;c.commit(d,actual_action='C',pair_completed=True)
     assert math.isclose(c.accumulated,expected_root) and not math.isclose(c.accumulated,table['A']['gain_squared_risk'])
     q=c.query_basis(d);assert q['source_before']=='D' and not q['absolute_error_written_into_root_accumulator']
+    assert q['pi0_action_order_prices']['legacy_C_including_stage_A']==.3 and q['H1_semantic_plain_C_price']==.1
     snapshot=c.state_dict();c.accumulated=900.;c.restore(snapshot);assert c.state_dict()==snapshot
     tampered=copy.deepcopy(snapshot);tampered['state']=tuple(99. if i==4 else v for i,v in enumerate(tampered['state']))
     try:c.restore(tampered)
