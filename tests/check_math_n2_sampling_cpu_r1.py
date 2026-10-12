@@ -15,6 +15,7 @@ from wcomr.full_sampling import CompleteStateRoundtrip
 from wcomr.math_n2_sampling_owner_r1 import MathSamplingOwner
 from wcomr.p_reference_same_state_owner_r1 import ComparisonReadout
 from wcomr.source_aware_current_birth_sampling_r2 import CurrentBirthSamplingOwner
+from wcomr.math_n2_batch_r1 import execute as production_execute,matrix
 
 METHODS=('NATIVE','RA','A_NO_P','NONZERO_CPD','P_OFF','SOURCE_FIXED','SOURCE_H1','SOURCE_H2','H2_P_TO_D')
 
@@ -45,7 +46,7 @@ def body(inference,selected,wc,rf,settings,inference_module,runtime,config,flow,
     try:
         for index,sample in enumerate(selected):
             plans={};outputs={}
-            def execute(label,factory=None):
+            def execute(label,factory=None,audit=True):
                 initial.restore();holder={}
                 def wrapped(*a,**kw):
                     owner=factory(*a,**kw);holder['owner']=owner;return owner
@@ -54,8 +55,8 @@ def body(inference,selected,wc,rf,settings,inference_module,runtime,config,flow,
                     result=clean.execute(inference,sample,method,runtime=runtime,wc=wc,rf=rf,
                        settings=settings,calibration=cal,specs=specs,inference_module=inference_module,
                        output=Path(artifact_root)/str(flow)/str(index)/label,
-                       expected_shape=config['expected_shape'],audit=True,CPU_native=native)
-                assert result['status']=='COMPLETE' and len(result['guided'])==36
+                       expected_shape=config['expected_shape'],audit=audit,CPU_native=native)
+                assert result['status']=='COMPLETE' and (not audit or len(result['guided'])==36)
                 if holder.get('owner'):plans[label]=copy.deepcopy(holder['owner'].controller.history)
                 return result
             for method in METHODS:
@@ -95,6 +96,24 @@ def body(inference,selected,wc,rf,settings,inference_module,runtime,config,flow,
                     assert c.state_dict()==snapshot
                 checks.append({'scene':sample.name,'method':method,'flow':flow,'full36':True,
                                'actions':result['actions'],'teachers':0})
+            for method in ('P_OFF','SOURCE_FIXED','SOURCE_H1','SOURCE_H2','H2_P_TO_D'):
+                options={'math_parameters':params,'source_mode':'P_OFF' if method=='P_OFF' else 'FUSION',
+                         'horizon':None if method in ('P_OFF','SOURCE_FIXED') else 1 if method=='SOURCE_H1' else 2}
+                if method=='H2_P_TO_D':
+                    mask=[d.reason.rsplit(':',1)[-1] if d.reason.startswith('MATH_EVENT_') else d.action
+                          for d in plans['SOURCE_H2']]
+                    options['fixed_control_plan']=['D' if a=='P' else a for a in mask]
+                initial.restore()
+                value,_=production_execute(inference,sample,method,parameters=params,
+                    previous_H2_plan=options.get('fixed_control_plan'),runtime=runtime,wc=wc,rf=rf,
+                    settings=settings,calibration=cal,specs=specs,inference_module=inference_module,
+                    output=Path(artifact_root)/str(flow)/str(index)/('CLEAN_'+method),
+                    expected_shape=config['expected_shape'],audit=False)
+                original=outputs[method]
+                assert value['actions']==original['actions'] and value['A_history']==original['A_history']
+                assert torch.equal(value['final_latent'],original['final_latent'])
+                assert Path(value['video_path']).read_bytes()==Path(original['video_path']).read_bytes()
+                assert value['in_timing_hashes']==value['in_timing_guided_copies']==value['research_checkpoints']==0
             # Compare the lean production implementation to both original
             # reference endpoints on their own full trajectories, not a Toy
             # copy of the new formula. Four additional full paths per scene.
@@ -116,7 +135,8 @@ def body(inference,selected,wc,rf,settings,inference_module,runtime,config,flow,
         assert net.forward==net0 and inference.pipe.worldcache_enabled==pipe0
         assert len(checks)==36 and len(controls)==8
         return [{'flow':flow,'status':'PASS','checks':checks,'endpoint_controls':controls,
-                 'complete_CPU_paths':52,'ordinary_initial_state_restored':True}]
+                 'complete_CPU_paths':72,'all20_new_clean_paths_match_audit':True,
+                 'ordinary_initial_state_restored':True}]
     finally:initial.restore();net.forward=net0;inference.pipe.worldcache_enabled=pipe0
 
 
@@ -135,7 +155,8 @@ def run(runtime,tensor_loader,artifact_root):
     value=load('check_full_sampling').run(runtime,exercise=lambda **kw:ns['exercise'](
         runtime=Path(runtime),tensor_loader=tensor_loader,artifact_root=artifact_root,**kw))
     assert {c['flow'] for c in value['checks']}=={False,True}
-    value.update(status='MATH_N2_ALL72_METHOD_PATHS32_ENDPOINT_CONTROLS_CPU_PASS_NOT_GPU',
-        actual_CPU_paths=104,complete_method_paths=72,endpoint_control_paths=32,
+    value.update(status='MATH_N2_ALL72_AUDIT40_CLEAN32_ENDPOINT_CPU_PASS_NOT_GPU',
+        actual_CPU_paths=144,complete_method_paths=72,endpoint_control_paths=32,clean_control_paths=40,
         actual_GPU_or_real_video_claim=False)
+    assert len(matrix(['a','b','c','d']))==54
     return value

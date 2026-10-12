@@ -1,3 +1,7 @@
+## 2026-10-12 N2 full104 CPU passed; actual clean bridge controls next
+
+[378](../research/378_WC_MATH_N2_SOURCE_FUSION_SIGMA_H1_H2_DESIGN_AND_CPU_20261012.md)：R2九方法/四请求/两flow共104完整CPU通过230.466943秒，γ0/1旧参考/全部36输出/final/动作/Toy视频等价及C关闭A记录/完整决策恢复通过。R3新增全部新五方法/四请求/两flow40实际production batch clean对照，总144CPU；其验收待，N2未GPU。完整36正式＋18预热，globalγ/风险表/λ保持，不调参。N1机制正信号/全部对照和47.115320073新余额保持；≤8完整自主/严格>8确认，P13h用户暂缓/E2原76保持。以下为历史。
+
 ## 2026-10-12 N1 complete positive mechanism; N2 expands one necessary control
 
 [377真实结果](../research/377_WC_MATH_N1_COMPLETE_RESULTS_RELATED_FUSION_20261012.md)：全4/12/48/180及144Tensor/144父guided/4×93RGB独立通过，γ0.7235237005554214全8P状态优于C，归一化guided平方误差相对旧D-A/C低60.0580%/29.8052%；D控制参考相等但AV51原A退化保留。只局部机制，不是新策略视频/速度。实費0.884679927，累计57.856043260/cap104.971363333、第83提交，新48余47.115320073，无GPUinflight。N2增加SOURCE_FIXED简单融合/原调度对照，全部九方法四CAL36完整路径保持，104完整CPU另验；旧R1 96CPU已通过，原源/证明保留，新R2仅C读出已选标志修正及新增完整控制。参数已据审计N1全局冻结，不逐场景调参；旧P13h暂缓/E2原76保持，≤8自主、严格>8确认，无训练/OMR/新增人评。以下为历史。

@@ -79,9 +79,9 @@ def main():
         return original_tensor_load(path,**kwargs)
     try:
         value=module.run(args.runtime,own_loader,args.stage/'CPU-artifacts')
-        assert value['status']=='MATH_N2_ALL72_METHOD_PATHS32_ENDPOINT_CONTROLS_CPU_PASS_NOT_GPU'
-        assert len(value['checks'])==2 and value['actual_CPU_paths']==104
-        assert all(c['ordinary_initial_state_restored'] and c['complete_CPU_paths']==52 for c in value['checks'])
+        assert value['status']=='MATH_N2_ALL72_AUDIT40_CLEAN32_ENDPOINT_CPU_PASS_NOT_GPU'
+        assert len(value['checks'])==2 and value['actual_CPU_paths']==144
+        assert all(c['ordinary_initial_state_restored'] and c['complete_CPU_paths']==72 and c['all20_new_clean_paths_match_audit'] for c in value['checks'])
         assert not torch.cuda.is_initialized()
         value.update(CPU_wall_seconds=time.perf_counter()-started,CUDA_initialized=False,GPU_submissions=0,
             actual_import_only_adapter=adapter,payload_sha256=reg['payload_sha256'])
