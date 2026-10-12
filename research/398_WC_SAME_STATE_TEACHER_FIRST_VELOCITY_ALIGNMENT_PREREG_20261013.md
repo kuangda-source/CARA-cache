@@ -42,3 +42,9 @@
 独立R1阶段source72a6aed/649在真实源码的Toy完整采样中被前缀校验拦住，未CUDA/权重/GPU。原因是完整九字段controller状态误与来源三字段tuple比较；修正只核对前三字段的来源身份，完整九字段恢复校验保持。原R1阶段、日志与失败回执不修改，见[原R1回执](../reports/wc_teacher_first_velocity_cpu_r1_receipt_20261013.json)。下一独立R2重验两flow全部普通/旧C/新teacher父后缀，不缩科学范围，不改变397在途bytes。
 
 R2实际首组普通/旧/新父等价、teacher取得/恢复与两后缀已执行，但测试错误地把`true_D_after`（两分支各自的完整锚点历史）当单个step比较而停止。只修正测试为两分支各自最新锚点、controller的dense_anchor_after和真实D工作源一致；C首缓存的整段历史前后不变判据保持，新增逐分支末锚点对应登记点。原R2阶段sourcee67dd24/649和[失败回执](../reports/wc_teacher_first_velocity_cpu_r2_receipt_20261013.json)保留，不是科学负结果；下一R3完整重验，0新GPU/账本写入。
+
+## R3完整两flow采样CPU通过
+
+原cb3649e/649独立R3阶段已终态，104.5043秒、CUDA未初始化、0 GPU/0账本写入，全部payload保持。完整两flow×四来源/阶段格，普通/原396接口/新teacher控制共24父路径、32完整后缀、8对共享离线teacher：全部36 guided/动作/final/模拟解码写出等价，new C_REPLAY与原C后缀逐步/终态等价；首C缓存相同，teacher仅注入首c/u返回，临时D更新不提交，原条件/缓存/solver/RNG初态恢复通过。
+
+[R3终态回执](../reports/wc_teacher_first_velocity_cpu_r3_receipt_20261013.json)独立检查两flow/八点/全部等价与teacher控制标记，绑定完整原结果与文件hash。两次开发错误、原阶段和日志保持。CPU使用原固定源码的Toy调用与解码尾部，不是实际权重、真实视频或终点收益。科学范围仍270pairs/540CFG/12真视频，完整费用、绑定原396 C/A与Native、生产CPU和唯一GPU准入待，397当前任务继续。
