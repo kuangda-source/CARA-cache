@@ -1,3 +1,7 @@
+## 2026-10-12 full N1 actual GPU running
+
+[376完整首卡](376_WC_MATH_N1_NATURAL12_COMPLETE_CARD_20261012.md)：原完整N1已实际唯一启动：source5a0e7913f4733d1532c527bacbf734c6ce9ea949／638payload冻结，监督265047／runner265147／自动CPU watcher265048；fresh A6000 UUID24MiB/noapps/内核f1锁/新48账本准入。全四父／12自然状态（8P＋4D）／180pairs360CFG／48读出，一模型驻留，forecast1.654533663≤8保持；144原guided／4终点／93RGB控制和原件CPU拟合待，不能据启动报新方法收益。采样R4两flow全8／12与144Tensor独立读取、早晚P和D控制通过，真实生产CPU R2通过；R1生产核验旧cap失败封存，R2仅输入核验迁移到当前cap，不改算法／旧资产／旧范围／638在途字节。第83提交，前实结56.971363333／cap104.971363333、新48全额可用；used=cap是保守在途预留，实费终态全wall结算。P13h用户暂缓、E2原76及其自己的>8问题保持，只跟原进程不重投。以下为历史。
+
 ## 2026-10-12 N1 full natural12 prepared; two-phase sampling CPU accepted
 
 [376完整首卡](376_WC_MATH_N1_NATURAL12_COMPLETE_CARD_20261012.md)：固定原NONZERO β1四自然父／12状态（8P＋4D）／180pairs360CFG／48读出评分，teacher不进父缓存，全部144原父guided＋4终点＋4×93RGB等价控制。全卡成本1.654533663≤8已冻结，待真实生产CPU／fresh唯一GPU，不重投旧P或改E2。R1两flow8CPU路径／12点27.321秒已过；R2/R3的Toy阶段选点缺失失败原源保留，R4两合成regime显式覆盖早晚P与D、全8／12在27.795秒通过；真实参数／N0选点未变，独立144Tensor重算通过后方继续。数学十项通过只是实现，不报新GPU／视频／策略收益。新48仍全额可用，已用56.971363333／cap104.971363333／82提交；P13h用户暂缓、E2原76科学范围及自己的>8问题保持。以下为历史。
