@@ -45,7 +45,7 @@
 
 下一实际生产CPU验证完整配置、真实child-command/hash、两表与原γ/实际cost和输入绑定、全16原参考、全部修改范围/费用/训练/teacher拒绝。新的监督/runner/post与CODE脚本均独立冻结；post watcher直接读取同一配置run_id，避免396旧入口拼接错误。GPU前fresh核对UUID、compute apps、kernel锁、真实ledger，唯一任务计全wall；释放后自动CPU全原件/评分。
 
-[完整配置](../configs/wc_source_phase_h1_full24_production_r1_20261013.json) · [完整费用](../manifests/wc_source_phase_h1_full36_cost_r1_20261013.json) · [16旧控制绑定](../manifests/wc_source_phase_h1_four_controls_bindings_r1_20261013.json) · [95参数与CPU](395_WC_SOURCE_PHASE_ABSOLUTE_H1_METHOD_PREREG_20261013.md)。
+[完整配置](../configs/wc_source_phase_h1_full24_production_r1_20261013.json) · [完整费用](../manifests/wc_source_phase_h1_full36_cost_r1_20261013.json) · [16旧控制绑定](../manifests/wc_source_phase_h1_four_controls_bindings_r1_20261013.json) · [395参数与CPU](395_WC_SOURCE_PHASE_ABSOLUTE_H1_METHOD_PREREG_20261013.md)。
 
 ## 生产CPU R1拦截与R2准备
 
@@ -54,5 +54,15 @@
 旧π0报价/状态/强控制不改，新目标继续使用原先冻结的四动作报价与λ。新控制器允许已绑定原C排序价等于D源A价，分别记录原排序价与新语义价；原root累计不混入平方误差。没有事后降价、重拟合或GPU运行。原R1 source d661cf5/stage/错误保留，[核对回执](../reports/wc_source_phase_h1_production_cpu_r1_cost_boundary_failure_20261013.json)绑定实际数值。
 
 新增不同旧C/新C的纯标量测试和R4两flow完整96采样重验通过，181.1787秒，D/P源C/A、头数、状态和原控制等价保持。[R4回执](../reports/wc_source_phase_absolute_h1_cpu_r4_receipt_20261013.json)。下一独立生产R2只复制这些已测试bytes；完整36路径/费用4.805045625不变，实际生产CPU与GPU准入仍待。
+
+## 实际生产R2通过，完整GPU已准入
+
+[生产CPU回执](../reports/wc_source_phase_h1_r2_production_cpu_receipt_20261013.json)通过实际命令/hash、完整范围/费用/模式拒绝，原四方法16控制资产与原输入绑定保持。旧R1部署和错误不修改；实际模型读取/CUDA/下载仍被CPU入口禁止。
+
+[后处理路径与矩阵回归](../reports/wc_source_phase_h1_post_watcher_matrix_cpu_validation_20261013.json)通过：watcher使用同一配置run_id、JSON退出回执可读取、错目录不评分/不提交；完整24＋12与正式平均位置3.5保持。
+
+fresh UUID/24MiB/no apps/全局kernel锁和现账本后，原source `595382e6dcfda3dfca98b4a80cf800359e6ff3db`、661 payload冻结；唯一supervisor525011、runner525101、自动CPU watcher525012均live，kernel已持有。当前0/36完成，运行入口准备中，尚无新H1视频/速度结果。
+
+跟[现场回执](../reports/wc_source_phase_h1_live_or_terminal_capture_20261013.json)及原handles，不改stage或重复提交。第89任务在途，启动前实际66.448700921、余额38.522662412；used=cap是保守预留不是已花完，结束全wall结算。完整36原件/24×93/六预热重复/16原控制与全部九对照自动CPU尚待。
 
 根据结果保留有用工作点、负例与适用条件；若完整H1不胜强锚点，检查局部目标与实际后果、支持/报价/新状态覆盖，优先已登记低成本teacher首输出或时钟特征区分，不否定W1/P整个方向。已有方法可确认时不被复杂增量无限推迟。
