@@ -38,6 +38,7 @@ def main():
     proof=json.loads((a.stage/'production-CPU-result.json').read_text())
     assert proof['status']=='TEACHER_FIRST_ACTUAL_PRODUCTION_CPU_PASS_NOT_GPU' and proof['exit_code']==0
     assert proof['registration_sha256']==sha(a.stage/'registration.json') and proof['config_sha256']==sha(a.stage/CONFIG)
+    assert proof['independent_raw_CPU_sha256']==sha(a.stage/'independent-CPU-raw-audit.json')
     assert reg['source_revision']==a.source_revision
     output=a.project/'outputs'/RUN;assert not output.exists()
     lock=(a.project/'.sync/f1.lock').open('a+');fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)

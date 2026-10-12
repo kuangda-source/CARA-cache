@@ -27,3 +27,7 @@ T改善而A退化时追踪实际A方向、外推区间与强度；T也不改善C
 R3已验24父/32完整后缀/8 teacher/两flow、104.5043秒；原cb3649e/649保持，两次开发错误保留。当前独立CPU原件读取、生产contract/真实child命令/绑定配置/拒绝变更/CPU评分入口与watcher路径仍待。核心从原R3冻结bytes复制；新生产程序单独登记。不覆盖任何已测核心。
 
 [完整配置](../configs/wc_teacher_first_velocity_full270_production_r1_20261013.json) · [原396 C/A与Native绑定](../manifests/wc_teacher_first_velocity_original396_bindings_r1_20261013.json)。完整GPU未选，不取消原E2完整76或用户暂缓P13h，不加OMR/训练/人工评审。397全量终态和自动CPU完成后，再按结果和既定优先级串行准入；不因观察超时重启原任务。
+
+## 独立CPU原件读取通过
+
+新读取器在原R3已结束/冻结阶段逐个加载24原件、374原始张量（Toy选点长度不同于真实314，不混用），校核teacher输入签名/输出、两首C缓存和计算相同、仅首次返回速度替换、原父/原C完整等价标记及完整未来π0。额外实际标量controller验证临时D严格回退、active teacher不能快照与首C后未来恢复自然决策。0 GPU/0账本写入，原649核心未改。见[独立原件回执](../reports/wc_teacher_first_velocity_cpu_r3_independent_raw_20261013.json)。下一复制这些已测bytes到独立生产阶段，验证完整270实际命令/配置/原396资产/资源/拒绝变更和watcher路径；当前生产CPU仍待。

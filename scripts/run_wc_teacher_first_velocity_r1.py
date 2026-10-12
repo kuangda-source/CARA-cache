@@ -70,10 +70,11 @@ def main():
         write(a.stage/'production-CPU-result.json',{'status':'TEACHER_FIRST_ACTUAL_PRODUCTION_CPU_PASS_NOT_GPU','exit_code':0,
             'GPU_submissions':0,'CUDA_initialized':False,'ledger_written':False,'scope_counts':COUNTS,
             'source_revision':reg['source_revision'],'config_sha256':sha(a.stage/CONFIG),'registration_sha256':sha(a.stage/'registration.json'),
-            'sampling_CPU_sha256':sha(a.stage/'sampling-CPU-result.json'),'mutations_refused':list(mutations),'input_evidence':evidence,'watcher_proof':watcher_proof})
+            'sampling_CPU_sha256':sha(a.stage/'sampling-CPU-result.json'),'independent_raw_CPU_sha256':sha(a.stage/'independent-CPU-raw-audit.json'),'mutations_refused':list(mutations),'input_evidence':evidence,'watcher_proof':watcher_proof})
         print('TEACHER_FIRST_ACTUAL_PRODUCTION_CPU_PASS_NOT_GPU');return
     proof=json.loads((a.stage/'production-CPU-result.json').read_text())
     assert proof['status']=='TEACHER_FIRST_ACTUAL_PRODUCTION_CPU_PASS_NOT_GPU' and proof['config_sha256']==sha(a.stage/CONFIG) and proof['registration_sha256']==sha(a.stage/'registration.json')
+    assert proof['independent_raw_CPU_sha256']==sha(a.stage/'independent-CPU-raw-audit.json')
     assert a.source_revision==reg['source_revision'] and os.environ['CUDA_VISIBLE_DEVICES']==a.gpu_uuid==UUID and os.environ['WC_SUPERVISOR_PID']==str(os.getppid())
     os.fstat(int(os.environ['WC_LOCK_FD']))
     from cosmos_oss.init import init_environment,init_output_dir,cleanup_environment
