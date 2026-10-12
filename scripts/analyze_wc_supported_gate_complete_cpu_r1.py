@@ -49,12 +49,24 @@ def main():
             'scene_equal_LPIPS_change_percent':100*(aLP/bLP-1),'improved_scenes':sum(v['LPIPS_change_percent']<0 for v in paired),
             'faster_scenes':sum(v['speedup']>1 for v in paired),'scenes':paired,
             'one_timed_run_per_scene_not_stable_latency':True})
+    previous=json.loads((R/'reports/wc_math_n2_live_or_terminal_capture_20261012.json').read_text())['final']['rows']
+    untouched=[]
+    for row in scored:
+        if row['method'] not in METHODS[:6]:continue
+        old=next(x for x in previous if x['section']=='TIMED' and x['scene']==row['scene'] and x['method']==row['method'])
+        equal={'final_latent':row['final_latent_sha256']==old['final_latent_sha256'],
+            'actions':row['actions']==old['actions'],
+            'all93_decoded_RGB':row['decoded_video']['RGB_sha256']==old['decoded_video']['RGB_sha256']}
+        untouched.append({'scene':row['scene'],'method':row['method'],'equal':equal})
+    assert len(untouched)==24
     output={'status':'SUPPORTED_GATE_ALL36_SCENE_ROWS_ALL9_CONTRASTS_COUNTS_FEES_INDEPENDENT_PASS',
         'input_receipt_sha256':hashlib.sha256(path.read_bytes()).hexdigest(),
         'source_revision':sup['source_revision'],'scene_rows':tables,'contrasts':contrasts,
         'full_R2_GPUh':sup['wall_seconds']/3600,'used_GPUh':r['ledger']['used_gpu_hours'],
         'remaining_GPUh':r['ledger']['cap_gpu_hours']-r['ledger']['used_gpu_hours'],
         'warming_output_repeat_controls':len(final['warm_repeat_controls']),
+        'all24_untouched_N2_baseline_controls':untouched,
+        'all24_untouched_equal':all(all(x['equal'].values()) for x in untouched),
         'new_input_confirmation':False,'physics_quality_claim':False,'GPU_submissions':0,'ledger_written':False}
     assert math.isclose(sup['budget_before']['used_gpu_hours']+output['full_R2_GPUh'],output['used_GPUh'],rel_tol=1e-12)
     dest=R/'reports/wc_supported_gate_complete_independent_reconstruction_20261012.json';assert not dest.exists()

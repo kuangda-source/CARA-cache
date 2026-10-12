@@ -1,3 +1,7 @@
+## 2026-10-12 supported source-gate full54 actual GPU running
+
+[384完整卡](research/384_WC_SUPPORTED_SOURCE_GATE_FULL36_WARM18_FROZEN_CARD_20261012.md)：完整144两flow采样CPU及实际生产CPU独立通过；f9f3fd7冻结source/649payload保持，fresh A6000 UUID/24MiB/noapps/全局kernel f1锁/账本准入后唯一监督359488、runner359584、自动CPU watcher359489在运行，模型初始化0/54终点。全四CAL九方法36正式＋18完整预热、一模型驻留，g²风险/来源实际A价/当前未来ρ支持同表/固定D-A与P-C＋可选P-A及λ2280.895765425保持，forecast7.173027604≤8。不据启动声称新策略/视频收益；全原件/93评分/独立36行九对照/24原配置等价待。第86提交启动前实费60.931238336/cap104.971363333、余44.040124997，used=cap只在途预留，终态全wall结算。仅跟原进程不改stage/重投；P13h仍用户暂缓/E276原范围不改，≤8自主/严格>8问，不训练/OMR/新增人评。以下为历史。
+
 ## 2026-10-12 support-aware gate full144 CPU accepted
 
 [384完整卡](research/384_WC_SUPPORTED_SOURCE_GATE_FULL36_WARM18_FROZEN_CARD_20261012.md)：R3完整144实际native/RF/UniPC两flow×四请求×九方法审计/clean全部通过252.005秒，D-A与P-C实际覆盖、全36历史恢复/来源保护通过，CUDA未初始化/0费用。R1 None夹具及R2覆盖失败保留，R3只改合成P报价，真实γ/λ/source risk/费用和54范围不改。四CAL九方法36正式＋18完整预热、forecast7.173027604≤8保持，下一真实生产CPU和fresh唯一GPU，当前尚未启动。原N2/P_OFF4/4取舍正结果/60.931238336已用/余44.040124997保持，P13h暂缓/E2原76不改，≤8自主/严格>8问，不训练/OMR/新增人评。以下为历史。
