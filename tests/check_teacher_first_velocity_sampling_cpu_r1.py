@@ -106,14 +106,20 @@ def body(inference, selected, wc, rf, settings, inference_module, runtime,
             assert tree_digest((teacher['noise'],teacher['actual_latent'],teacher['timestep']))==event['teacher_record']['input_sha256']
             guided_teacher=teacher['teacher_velocity'][0]+7*(teacher['teacher_velocity'][0]-teacher['teacher_velocity'][1])
             assert event['teacher_record']['history']['action']=='DD'
-            assert event['teacher_record']['history']['true_D_after']==n
+            teacher_history=event['teacher_record']['history']
+            assert len(teacher_history['true_D_after'])==2
+            assert all(anchors[-1]==n for anchors in teacher_history['true_D_after'])
+            assert teacher_history['source_policy']['dense_anchor_after']==n
+            assert all(s['kind']=='D' and s['created_step']==n for s in teacher_history['working_sources'])
             for label, branch in by.items():
                 raw=tensor_loader(Path(branch['artifact']['path']),weights_only=True,map_location='cpu')
                 assert tree_digest(raw)==branch['artifact']['tensor_sha256']
                 assert len(raw['guided'])==len(branch['actions'])==37-n
                 assert branch['actions'][0]=='CC' and branch['readout_actions'][0]=='C'
                 first=branch['source_policy_tail'][0]
-                assert first['true_D_before']==first['true_D_after']==point['chosen']['true_D_anchor']
+                assert first['true_D_before']==first['true_D_after']
+                assert len(first['true_D_after'])==2
+                assert all(anchors[-1]==point['chosen']['true_D_anchor'] for anchors in first['true_D_after'])
                 assert all(not h['source_policy']['decision']['reason'].startswith('MATH_EVENT_SUFFIX_FIRST:') for h in branch['source_policy_tail'][1:])
                 assert all(h['source_policy']['decision']['reason']!='MATH_EVENT_TEACHER_FIRST_OFFLINE:D' for h in branch['source_policy_tail'])
                 if label=='C_REPLAY':

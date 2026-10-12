@@ -40,3 +40,5 @@
 ## CPU R1保留与局部修正
 
 独立R1阶段source72a6aed/649在真实源码的Toy完整采样中被前缀校验拦住，未CUDA/权重/GPU。原因是完整九字段controller状态误与来源三字段tuple比较；修正只核对前三字段的来源身份，完整九字段恢复校验保持。原R1阶段、日志与失败回执不修改，见[原R1回执](../reports/wc_teacher_first_velocity_cpu_r1_receipt_20261013.json)。下一独立R2重验两flow全部普通/旧C/新teacher父后缀，不缩科学范围，不改变397在途bytes。
+
+R2实际首组普通/旧/新父等价、teacher取得/恢复与两后缀已执行，但测试错误地把`true_D_after`（两分支各自的完整锚点历史）当单个step比较而停止。只修正测试为两分支各自最新锚点、controller的dense_anchor_after和真实D工作源一致；C首缓存的整段历史前后不变判据保持，新增逐分支末锚点对应登记点。原R2阶段sourcee67dd24/649和[失败回执](../reports/wc_teacher_first_velocity_cpu_r2_receipt_20261013.json)保留，不是科学负结果；下一R3完整重验，0新GPU/账本写入。
