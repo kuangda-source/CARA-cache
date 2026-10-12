@@ -1,0 +1,1225 @@
+{
+  "observed_unix": 1791833217.5277307,
+  "stage": "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-teacher-first-velocity-production-r1-20261013",
+  "output": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-teacher-first-velocity-full270-r1",
+  "source_revision": "4b18478e1f414b16a0e63ad746a37afd8c776479",
+  "payload_files": 665,
+  "payload_all_verified": true,
+  "registration_sha256": "a91b5fcff3de41728f22d8369bd52972e3718e382c87497828d5ea66d6b616b4",
+  "production_CPU": {
+    "status": "TEACHER_FIRST_ACTUAL_PRODUCTION_CPU_PASS_NOT_GPU",
+    "exit_code": 0,
+    "GPU_submissions": 0,
+    "CUDA_initialized": false,
+    "ledger_written": false,
+    "scope_counts": {
+      "parents": 4,
+      "events": 4,
+      "suffixes": 8,
+      "parent_pairs": 144,
+      "suffix_pairs": 122,
+      "pairs": 270,
+      "CFG_calls": 540,
+      "videos": 12,
+      "Native_references": 4,
+      "teacher_pairs": 4,
+      "loads": 1
+    },
+    "source_revision": "4b18478e1f414b16a0e63ad746a37afd8c776479",
+    "config_sha256": "c9a76c416bdde2d9721d59390bac7bbbf5dc832aa60b5261a3ddac5df41e2aa2",
+    "registration_sha256": "a91b5fcff3de41728f22d8369bd52972e3718e382c87497828d5ea66d6b616b4",
+    "sampling_CPU_sha256": "41ad3877df27135c1b2b5c77b3dec9885e3ac46e656420bad50e839b8ea29c5c",
+    "independent_raw_CPU_sha256": "8f849cfada86d34b4d8aeb64f77e8bfa32a2d38771d7b60718c70532a9237dbf",
+    "mutations_refused": [
+      "scope_counts",
+      "states",
+      "head_elision",
+      "training",
+      "fit_in_parent",
+      "online_teachers",
+      "teacher_only_first_returned_velocity",
+      "teacher_committed_to_parent_or_suffix",
+      "first_branch_readouts",
+      "automatic_single_job_GPUh",
+      "cumulative_cap_GPUh",
+      "forecast_complete_GPUh"
+    ],
+    "input_evidence": {
+      "current_P_birth_rule": "CURRENT_P_GAIN_TIMES_CREATION_FLOOR_C_AFTER_P_RETAINS_FLOOR_PLUS_BORROWED_DRIFT_R1",
+      "methods": [
+        "SOURCE_RA",
+        "DYNAMIC_NO_P",
+        "CPD",
+        "REF_CPD",
+        "A_CPD_OFF",
+        "A_CPD_W1_ONE_PHASE",
+        "A_CPD_BETA1_ONE_PHASE",
+        "DENSE_CONTROL"
+      ],
+      "strategies": [
+        "WORKING_P_AGE_KEEP_INTERVAL",
+        "WORKING_P_AGE_NONZERO_REBASE"
+      ],
+      "parameter_bindings": [
+        {
+          "RA_calibration_fingerprint": "9ab1d77c303560823ed2f32f43b2982318cdd9835828a46da4835a1b95ea7d7a",
+          "threshold": 0.070744235098772,
+          "ranking_fingerprint": "d7b60d99e3aded059ad960f79bea199cb0ca1609da764cb37ffd032aeabbcf44",
+          "floor_source_sha256": "d50db8a57d31a7a13b77d8f0932fe1e8b5b00ee7bfd1c3c955d882654a3229e3",
+          "P_mode": "ROTATION_050",
+          "early_floor": 0.01967132867152968,
+          "late_floor": 0.1332674018840063,
+          "global_floor_control": 0.07516599085890001,
+          "phase_boundary": 25,
+          "borrowed_D_drift_ratio": 1.0,
+          "maximum_consecutive_P": 2,
+          "P_future_drift_empirically_calibrated": false,
+          "strategy": "WORKING_P_AGE_KEEP_INTERVAL",
+          "parameter_binding_fingerprint": "149b26cf07431ed414f590c5875f037d3973de24604c15fa3ee069ff6d8e03ed",
+          "all_eight_methods": {
+            "SOURCE_RA": {
+              "threshold": 0.070744235098772,
+              "costs": {
+                "fingerprint": "d20e74b80698d71bb9841560f42274d5a56ec85f13faf5ffeb6ff40bad6f93a8",
+                "C": 0.16846076643560082,
+                "D": 6.25420393414485,
+                "P": null,
+                "boundary": "POST_ALREADY_PAID_TWO_SHALLOW_PROBES_THROUGH_POST_RF_PAIR",
+                "cost_role": "ACTION_ORDER_ONLY_NOT_TOTAL_PAIR_OR_END_TO_END_TIME"
+              },
+              "partial_prior": null,
+              "working_epoch_strategy": "WORKING_P_AGE_KEEP_INTERVAL"
+            },
+            "DYNAMIC_NO_P": {
+              "threshold": 0.070744235098772,
+              "costs": {
+                "fingerprint": "d20e74b80698d71bb9841560f42274d5a56ec85f13faf5ffeb6ff40bad6f93a8",
+                "C": 0.16846076643560082,
+                "D": 6.25420393414485,
+                "P": null,
+                "boundary": "POST_ALREADY_PAID_TWO_SHALLOW_PROBES_THROUGH_POST_RF_PAIR",
+                "cost_role": "ACTION_ORDER_ONLY_NOT_TOTAL_PAIR_OR_END_TO_END_TIME"
+              },
+              "partial_prior": null,
+              "working_epoch_strategy": "WORKING_P_AGE_KEEP_INTERVAL"
+            },
+            "CPD": {
+              "threshold": 0.070744235098772,
+              "costs": {
+                "fingerprint": "feed72e443e1140a3fe9026714fe86a3e7f5cfd306ae9665f5b5e41a109104d8",
+                "C": 0.16846076643560082,
+                "D": 6.25420393414485,
+                "P": 6.173310816792461,
+                "boundary": "POST_ALREADY_PAID_TWO_SHALLOW_PROBES_THROUGH_POST_RF_PAIR",
+                "cost_role": "ACTION_ORDER_ONLY_NOT_TOTAL_PAIR_OR_END_TO_END_TIME"
+              },
+              "partial_prior": {
+                "fingerprint": "f548643a653dca3f231bbc33b5d2dfb83ce66133ed1fd02a5dd301227895ba6a",
+                "creation_floor_proxy": 0.07516599085890001,
+                "drift_ratio": 1.0,
+                "proxy_definition": "WC_PAID_DELTA_Y",
+                "maximum_consecutive_P": 2,
+                "early_creation_floor": 0.01967132867152968,
+                "late_creation_floor": 0.1332674018840063,
+                "boundary": 25
+              },
+              "working_epoch_strategy": "WORKING_P_AGE_KEEP_INTERVAL"
+            },
+            "REF_CPD": {
+              "threshold": 0.070744235098772,
+              "costs": {
+                "fingerprint": "feed72e443e1140a3fe9026714fe86a3e7f5cfd306ae9665f5b5e41a109104d8",
+                "C": 0.16846076643560082,
+                "D": 6.25420393414485,
+                "P": 6.173310816792461,
+                "boundary": "POST_ALREADY_PAID_TWO_SHALLOW_PROBES_THROUGH_POST_RF_PAIR",
+                "cost_role": "ACTION_ORDER_ONLY_NOT_TOTAL_PAIR_OR_END_TO_END_TIME"
+              },
+              "partial_prior": {
+                "fingerprint": "f548643a653dca3f231bbc33b5d2dfb83ce66133ed1fd02a5dd301227895ba6a",
+                "creation_floor_proxy": 0.07516599085890001,
+                "drift_ratio": 1.0,
+                "proxy_definition": "WC_PAID_DELTA_Y",
+                "maximum_consecutive_P": 2,
+                "early_creation_floor": 0.01967132867152968,
+                "late_creation_floor": 0.1332674018840063,
+                "boundary": 25
+              },
+              "working_epoch_strategy": "WORKING_P_AGE_KEEP_INTERVAL"
+            },
+            "A_CPD_OFF": {
+              "threshold": 0.070744235098772,
+              "costs": {
+                "fingerprint": "feed72e443e1140a3fe9026714fe86a3e7f5cfd306ae9665f5b5e41a109104d8",
+                "C": 0.16846076643560082,
+                "D": 6.25420393414485,
+                "P": 6.173310816792461,
+                "boundary": "POST_ALREADY_PAID_TWO_SHALLOW_PROBES_THROUGH_POST_RF_PAIR",
+                "cost_role": "ACTION_ORDER_ONLY_NOT_TOTAL_PAIR_OR_END_TO_END_TIME"
+              },
+              "partial_prior": {
+                "fingerprint": "f548643a653dca3f231bbc33b5d2dfb83ce66133ed1fd02a5dd301227895ba6a",
+                "creation_floor_proxy": 0.07516599085890001,
+                "drift_ratio": 1.0,
+                "proxy_definition": "WC_PAID_DELTA_Y",
+                "maximum_consecutive_P": 2,
+                "early_creation_floor": 0.01967132867152968,
+                "late_creation_floor": 0.1332674018840063,
+                "boundary": 25
+              },
+              "working_epoch_strategy": "WORKING_P_AGE_KEEP_INTERVAL"
+            },
+            "A_CPD_W1_ONE_PHASE": {
+              "threshold": 0.070744235098772,
+              "costs": {
+                "fingerprint": "a2849fe052b0c044b595ec8eae592a22be40cfd96e20b8195841cc8fbd6abd2b",
+                "C": 0.33762754185590893,
+                "D": 6.25420393414485,
+                "P": 6.173310816792461,
+                "boundary": "POST_ALREADY_PAID_TWO_SHALLOW_PROBES_THROUGH_POST_RF_PAIR",
+                "cost_role": "ACTION_ORDER_ONLY_NOT_TOTAL_PAIR_OR_END_TO_END_TIME"
+              },
+              "partial_prior": {
+                "fingerprint": "f548643a653dca3f231bbc33b5d2dfb83ce66133ed1fd02a5dd301227895ba6a",
+                "creation_floor_proxy": 0.07516599085890001,
+                "drift_ratio": 1.0,
+                "proxy_definition": "WC_PAID_DELTA_Y",
+                "maximum_consecutive_P": 2,
+                "early_creation_floor": 0.01967132867152968,
+                "late_creation_floor": 0.1332674018840063,
+                "boundary": 25
+              },
+              "working_epoch_strategy": "WORKING_P_AGE_KEEP_INTERVAL"
+            },
+            "A_CPD_BETA1_ONE_PHASE": {
+              "threshold": 0.070744235098772,
+              "costs": {
+                "fingerprint": "9b43c9ad43e84da4b34ad8682bd84a1a3ca15eaa48d6c041dbf75336073f4743",
+                "C": 0.3381135724096869,
+                "D": 6.25420393414485,
+                "P": 6.173310816792461,
+                "boundary": "POST_ALREADY_PAID_TWO_SHALLOW_PROBES_THROUGH_POST_RF_PAIR",
+                "cost_role": "ACTION_ORDER_ONLY_NOT_TOTAL_PAIR_OR_END_TO_END_TIME"
+              },
+              "partial_prior": {
+                "fingerprint": "f548643a653dca3f231bbc33b5d2dfb83ce66133ed1fd02a5dd301227895ba6a",
+                "creation_floor_proxy": 0.07516599085890001,
+                "drift_ratio": 1.0,
+                "proxy_definition": "WC_PAID_DELTA_Y",
+                "maximum_consecutive_P": 2,
+                "early_creation_floor": 0.01967132867152968,
+                "late_creation_floor": 0.1332674018840063,
+                "boundary": 25
+              },
+              "working_epoch_strategy": "WORKING_P_AGE_KEEP_INTERVAL"
+            },
+            "DENSE_CONTROL": {
+              "threshold": 0.070744235098772,
+              "costs": {
+                "fingerprint": "f83865ecf81e73da208f8e588d2a76a4532b5e6eb8be2b1775850e4664d4a756",
+                "C": 12.5084078682897,
+                "D": 6.25420393414485,
+                "P": null,
+                "boundary": "POST_ALREADY_PAID_TWO_SHALLOW_PROBES_THROUGH_POST_RF_PAIR",
+                "cost_role": "ACTION_ORDER_ONLY_NOT_TOTAL_PAIR_OR_END_TO_END_TIME"
+              },
+              "partial_prior": null,
+              "working_epoch_strategy": "WORKING_P_AGE_KEEP_INTERVAL"
+            }
+          },
+          "cost_boundary": "POST_ALREADY_PAID_TWO_SHALLOW_PROBES_THROUGH_POST_RF_PAIR",
+          "cost_role": "ACTION_ORDER_ONLY_NOT_TOTAL_PAIR_OR_END_TO_END_TIME",
+          "dense_control_ordering_override_not_measured_C_cost": true,
+          "P_or_C_updates_actual_D_calibration_anchor": false,
+          "future_P_drift_fitted": false,
+          "online_teacher_calls": 0,
+          "shared_A_phase_boundary": 25,
+          "shared_A_strength": [
+            1.0,
+            0.5
+          ],
+          "model_or_controller_installed": false,
+          "current_P_birth_rule": "CURRENT_P_GAIN_TIMES_CREATION_FLOOR_C_AFTER_P_RETAINS_FLOOR_PLUS_BORROWED_DRIFT_R1"
+        },
+        {
+          "RA_calibration_fingerprint": "9ab1d77c303560823ed2f32f43b2982318cdd9835828a46da4835a1b95ea7d7a",
+          "threshold": 0.070744235098772,
+          "ranking_fingerprint": "d7b60d99e3aded059ad960f79bea199cb0ca1609da764cb37ffd032aeabbcf44",
+          "floor_source_sha256": "d50db8a57d31a7a13b77d8f0932fe1e8b5b00ee7bfd1c3c955d882654a3229e3",
+          "P_mode": "ROTATION_050",
+          "early_floor": 0.01967132867152968,
+          "late_floor": 0.1332674018840063,
+          "global_floor_control": 0.07516599085890001,
+          "phase_boundary": 25,
+          "borrowed_D_drift_ratio": 1.0,
+          "maximum_consecutive_P": 2,
+          "P_future_drift_empirically_calibrated": false,
+          "strategy": "WORKING_P_AGE_NONZERO_REBASE",
+          "parameter_binding_fingerprint": "4421601fb3c8103734f727f54d51dcc765ad8773c669f0cf6bcdf0b6df17744a",
+          "all_eight_methods": {
+            "SOURCE_RA": {
+              "threshold": 0.070744235098772,
+              "costs": {
+                "fingerprint": "d20e74b80698d71bb9841560f42274d5a56ec85f13faf5ffeb6ff40bad6f93a8",
+                "C": 0.16846076643560082,
+                "D": 6.25420393414485,
+                "P": null,
+                "boundary": "POST_ALREADY_PAID_TWO_SHALLOW_PROBES_THROUGH_POST_RF_PAIR",
+                "cost_role": "ACTION_ORDER_ONLY_NOT_TOTAL_PAIR_OR_END_TO_END_TIME"
+              },
+              "partial_prior": null,
+              "working_epoch_strategy": "WORKING_P_AGE_NONZERO_REBASE"
+            },
+            "DYNAMIC_NO_P": {
+              "threshold": 0.070744235098772,
+              "costs": {
+                "fingerprint": "d20e74b80698d71bb9841560f42274d5a56ec85f13faf5ffeb6ff40bad6f93a8",
+                "C": 0.16846076643560082,
+                "D": 6.25420393414485,
+                "P": null,
+                "boundary": "POST_ALREADY_PAID_TWO_SHALLOW_PROBES_THROUGH_POST_RF_PAIR",
+                "cost_role": "ACTION_ORDER_ONLY_NOT_TOTAL_PAIR_OR_END_TO_END_TIME"
+              },
+              "partial_prior": null,
+              "working_epoch_strategy": "WORKING_P_AGE_NONZERO_REBASE"
+            },
+            "CPD": {
+              "threshold": 0.070744235098772,
+              "costs": {
+                "fingerprint": "feed72e443e1140a3fe9026714fe86a3e7f5cfd306ae9665f5b5e41a109104d8",
+                "C": 0.16846076643560082,
+                "D": 6.25420393414485,
+                "P": 6.173310816792461,
+                "boundary": "POST_ALREADY_PAID_TWO_SHALLOW_PROBES_THROUGH_POST_RF_PAIR",
+                "cost_role": "ACTION_ORDER_ONLY_NOT_TOTAL_PAIR_OR_END_TO_END_TIME"
+              },
+              "partial_prior": {
+                "fingerprint": "f548643a653dca3f231bbc33b5d2dfb83ce66133ed1fd02a5dd301227895ba6a",
+                "creation_floor_proxy": 0.07516599085890001,
+                "drift_ratio": 1.0,
+                "proxy_definition": "WC_PAID_DELTA_Y",
+                "maximum_consecutive_P": 2,
+                "early_creation_floor": 0.01967132867152968,
+                "late_creation_floor": 0.1332674018840063,
+                "boundary": 25
+              },
+              "working_epoch_strategy": "WORKING_P_AGE_NONZERO_REBASE"
+            },
+            "REF_CPD": {
+              "threshold": 0.070744235098772,
+              "costs": {
+                "fingerprint": "feed72e443e1140a3fe9026714fe86a3e7f5cfd306ae9665f5b5e41a109104d8",
+                "C": 0.16846076643560082,
+                "D": 6.25420393414485,
+                "P": 6.173310816792461,
+                "boundary": "POST_ALREADY_PAID_TWO_SHALLOW_PROBES_THROUGH_POST_RF_PAIR",
+                "cost_role": "ACTION_ORDER_ONLY_NOT_TOTAL_PAIR_OR_END_TO_END_TIME"
+              },
+              "partial_prior": {
+                "fingerprint": "f548643a653dca3f231bbc33b5d2dfb83ce66133ed1fd02a5dd301227895ba6a",
+                "creation_floor_proxy": 0.07516599085890001,
+                "drift_ratio": 1.0,
+                "proxy_definition": "WC_PAID_DELTA_Y",
+                "maximum_consecutive_P": 2,
+                "early_creation_floor": 0.01967132867152968,
+                "late_creation_floor": 0.1332674018840063,
+                "boundary": 25
+              },
+              "working_epoch_strategy": "WORKING_P_AGE_NONZERO_REBASE"
+            },
+            "A_CPD_OFF": {
+              "threshold": 0.070744235098772,
+              "costs": {
+                "fingerprint": "feed72e443e1140a3fe9026714fe86a3e7f5cfd306ae9665f5b5e41a109104d8",
+                "C": 0.16846076643560082,
+                "D": 6.25420393414485,
+                "P": 6.173310816792461,
+                "boundary": "POST_ALREADY_PAID_TWO_SHALLOW_PROBES_THROUGH_POST_RF_PAIR",
+                "cost_role": "ACTION_ORDER_ONLY_NOT_TOTAL_PAIR_OR_END_TO_END_TIME"
+              },
+              "partial_prior": {
+                "fingerprint": "f548643a653dca3f231bbc33b5d2dfb83ce66133ed1fd02a5dd301227895ba6a",
+                "creation_floor_proxy": 0.07516599085890001,
+                "drift_ratio": 1.0,
+                "proxy_definition": "WC_PAID_DELTA_Y",
+                "maximum_consecutive_P": 2,
+                "early_creation_floor": 0.01967132867152968,
+                "late_creation_floor": 0.1332674018840063,
+                "boundary": 25
+              },
+              "working_epoch_strategy": "WORKING_P_AGE_NONZERO_REBASE"
+            },
+            "A_CPD_W1_ONE_PHASE": {
+              "threshold": 0.070744235098772,
+              "costs": {
+                "fingerprint": "a2849fe052b0c044b595ec8eae592a22be40cfd96e20b8195841cc8fbd6abd2b",
+                "C": 0.33762754185590893,
+                "D": 6.25420393414485,
+                "P": 6.173310816792461,
+                "boundary": "POST_ALREADY_PAID_TWO_SHALLOW_PROBES_THROUGH_POST_RF_PAIR",
+                "cost_role": "ACTION_ORDER_ONLY_NOT_TOTAL_PAIR_OR_END_TO_END_TIME"
+              },
+              "partial_prior": {
+                "fingerprint": "f548643a653dca3f231bbc33b5d2dfb83ce66133ed1fd02a5dd301227895ba6a",
+                "creation_floor_proxy": 0.07516599085890001,
+                "drift_ratio": 1.0,
+                "proxy_definition": "WC_PAID_DELTA_Y",
+                "maximum_consecutive_P": 2,
+                "early_creation_floor": 0.01967132867152968,
+                "late_creation_floor": 0.1332674018840063,
+                "boundary": 25
+              },
+              "working_epoch_strategy": "WORKING_P_AGE_NONZERO_REBASE"
+            },
+            "A_CPD_BETA1_ONE_PHASE": {
+              "threshold": 0.070744235098772,
+              "costs": {
+                "fingerprint": "9b43c9ad43e84da4b34ad8682bd84a1a3ca15eaa48d6c041dbf75336073f4743",
+                "C": 0.3381135724096869,
+                "D": 6.25420393414485,
+                "P": 6.173310816792461,
+                "boundary": "POST_ALREADY_PAID_TWO_SHALLOW_PROBES_THROUGH_POST_RF_PAIR",
+                "cost_role": "ACTION_ORDER_ONLY_NOT_TOTAL_PAIR_OR_END_TO_END_TIME"
+              },
+              "partial_prior": {
+                "fingerprint": "f548643a653dca3f231bbc33b5d2dfb83ce66133ed1fd02a5dd301227895ba6a",
+                "creation_floor_proxy": 0.07516599085890001,
+                "drift_ratio": 1.0,
+                "proxy_definition": "WC_PAID_DELTA_Y",
+                "maximum_consecutive_P": 2,
+                "early_creation_floor": 0.01967132867152968,
+                "late_creation_floor": 0.1332674018840063,
+                "boundary": 25
+              },
+              "working_epoch_strategy": "WORKING_P_AGE_NONZERO_REBASE"
+            },
+            "DENSE_CONTROL": {
+              "threshold": 0.070744235098772,
+              "costs": {
+                "fingerprint": "f83865ecf81e73da208f8e588d2a76a4532b5e6eb8be2b1775850e4664d4a756",
+                "C": 12.5084078682897,
+                "D": 6.25420393414485,
+                "P": null,
+                "boundary": "POST_ALREADY_PAID_TWO_SHALLOW_PROBES_THROUGH_POST_RF_PAIR",
+                "cost_role": "ACTION_ORDER_ONLY_NOT_TOTAL_PAIR_OR_END_TO_END_TIME"
+              },
+              "partial_prior": null,
+              "working_epoch_strategy": "WORKING_P_AGE_NONZERO_REBASE"
+            }
+          },
+          "cost_boundary": "POST_ALREADY_PAID_TWO_SHALLOW_PROBES_THROUGH_POST_RF_PAIR",
+          "cost_role": "ACTION_ORDER_ONLY_NOT_TOTAL_PAIR_OR_END_TO_END_TIME",
+          "dense_control_ordering_override_not_measured_C_cost": true,
+          "P_or_C_updates_actual_D_calibration_anchor": false,
+          "future_P_drift_fitted": false,
+          "online_teacher_calls": 0,
+          "shared_A_phase_boundary": 25,
+          "shared_A_strength": [
+            1.0,
+            0.5
+          ],
+          "model_or_controller_installed": false,
+          "current_P_birth_rule": "CURRENT_P_GAIN_TIMES_CREATION_FLOOR_C_AFTER_P_RETAINS_FLOOR_PLUS_BORROWED_DRIFT_R1"
+        }
+      ],
+      "actual_threshold_reconstruction": {
+        "rule": "PREREGISTERED_SINGLE_HALF_OF_ORIGINAL_D6_MEDIAN_AFTER_R1_DEVELOPMENT",
+        "threshold": 0.070744235098772,
+        "calibration_fingerprint": "9ab1d77c303560823ed2f32f43b2982318cdd9835828a46da4835a1b95ea7d7a",
+        "threshold_scale": 0.5,
+        "original_eight_interval_threshold_reconstruction": {
+          "rule": "MEDIAN_EIGHT_COMPLETE_SHARED_D6_INTERVAL_PAID_RISKS",
+          "threshold": 0.141488470197544,
+          "calibration_fingerprint": "9ab1d77c303560823ed2f32f43b2982318cdd9835828a46da4835a1b95ea7d7a",
+          "observed_intervals": [
+            {
+              "sample_name": "common_sense_6487f37f-ef57-49ca-afdc-d898922b5191_seed3",
+              "anchor": 7,
+              "refresh_step": 13,
+              "paid_risks": [
+                {
+                  "step": 8,
+                  "paid_branch_proxies": [
+                    0.0289306640625,
+                    0.029052734375
+                  ],
+                  "guided_proxy": 0.05174016875001043,
+                  "propagation_gain": 0.22652744535783098,
+                  "added_risk": 0.011720568249322941
+                },
+                {
+                  "step": 9,
+                  "paid_branch_proxies": [
+                    0.0242919921875,
+                    0.0240478515625
+                  ],
+                  "guided_proxy": 0.04459569767860006,
+                  "propagation_gain": 0.22652744535783098,
+                  "added_risk": 0.010102149469083426
+                },
+                {
+                  "step": 10,
+                  "paid_branch_proxies": [
+                    0.029541015625,
+                    0.0299072265625
+                  ],
+                  "guided_proxy": 0.05208774276541936,
+                  "propagation_gain": 0.22652744535783098,
+                  "added_risk": 0.01179930330310629
+                },
+                {
+                  "step": 11,
+                  "paid_branch_proxies": [
+                    0.0267333984375,
+                    0.027099609375
+                  ],
+                  "guided_proxy": 0.047033764395195715,
+                  "propagation_gain": 0.22652744535783098,
+                  "added_risk": 0.010654438494005793
+                },
+                {
+                  "step": 12,
+                  "paid_branch_proxies": [
+                    0.03271484375,
+                    0.033447265625
+                  ],
+                  "guided_proxy": 0.05674492582064764,
+                  "propagation_gain": 0.22652744535783098,
+                  "added_risk": 0.012854283083170931
+                },
+                {
+                  "step": 13,
+                  "paid_branch_proxies": [
+                    0.033935546875,
+                    0.034423828125
+                  ],
+                  "guided_proxy": 0.05963588399420785,
+                  "propagation_gain": 0.22652744535783098,
+                  "added_risk": 0.013509164452863865
+                }
+              ],
+              "accumulated_risk": 0.07063990705155325
+            },
+            {
+              "sample_name": "common_sense_6487f37f-ef57-49ca-afdc-d898922b5191_seed3",
+              "anchor": 13,
+              "refresh_step": 19,
+              "paid_risks": [
+                {
+                  "step": 14,
+                  "paid_branch_proxies": [
+                    0.05078125,
+                    0.05126953125
+                  ],
+                  "guided_proxy": 0.08996575800071405,
+                  "propagation_gain": 0.2200452817780885,
+                  "added_risk": 0.019796540569646442
+                },
+                {
+                  "step": 15,
+                  "paid_branch_proxies": [
+                    0.03125,
+                    0.0322265625
+                  ],
+                  "guided_proxy": 0.053470731467266976,
+                  "propagation_gain": 0.213563118198346,
+                  "added_risk": 0.011419376144495955
+                },
+                {
+                  "step": 16,
+                  "paid_branch_proxies": [
+                    0.042236328125,
+                    0.042236328125
+                  ],
+                  "guided_proxy": 0.0761093779744432,
+                  "propagation_gain": 0.20708095461860354,
+                  "added_risk": 0.015760802646375815
+                },
+                {
+                  "step": 17,
+                  "paid_branch_proxies": [
+                    0.048095703125,
+                    0.0478515625
+                  ],
+                  "guided_proxy": 0.08747713672236994,
+                  "propagation_gain": 0.20059879103886105,
+                  "added_risk": 0.017547807870048567
+                },
+                {
+                  "step": 18,
+                  "paid_branch_proxies": [
+                    0.0546875,
+                    0.0546875
+                  ],
+                  "guided_proxy": 0.09854624662586865,
+                  "propagation_gain": 0.19411662745911856,
+                  "added_risk": 0.019129465043768164
+                },
+                {
+                  "step": 19,
+                  "paid_branch_proxies": [
+                    0.06689453125,
+                    0.06640625
+                  ],
+                  "guided_proxy": 0.12217293865919653,
+                  "propagation_gain": 0.18763446387937607,
+                  "added_risk": 0.02292385384588624
+                }
+              ],
+              "accumulated_risk": 0.1065778461202212
+            },
+            {
+              "sample_name": "common_sense_6487f37f-ef57-49ca-afdc-d898922b5191_seed3",
+              "anchor": 19,
+              "refresh_step": 25,
+              "paid_risks": [
+                {
+                  "step": 20,
+                  "paid_branch_proxies": [
+                    0.068359375,
+                    0.06884765625
+                  ],
+                  "guided_proxy": 0.12162809500799318,
+                  "propagation_gain": 0.18115230029963358,
+                  "added_risk": 0.022033209191760345
+                },
+                {
+                  "step": 21,
+                  "paid_branch_proxies": [
+                    0.07763671875,
+                    0.0771484375
+                  ],
+                  "guided_proxy": 0.1415251162229081,
+                  "propagation_gain": 0.17467013671989112,
+                  "added_risk": 0.024720211399953836
+                },
+                {
+                  "step": 22,
+                  "paid_branch_proxies": [
+                    0.09130859375,
+                    0.0908203125
+                  ],
+                  "guided_proxy": 0.1661568858296388,
+                  "propagation_gain": 0.16818797314014863,
+                  "added_risk": 0.027945589850966034
+                },
+                {
+                  "step": 23,
+                  "paid_branch_proxies": [
+                    0.11474609375,
+                    0.11572265625
+                  ],
+                  "guided_proxy": 0.20367633845737665,
+                  "propagation_gain": 0.16170580956040614,
+                  "added_risk": 0.03293564719854938
+                },
+                {
+                  "step": 24,
+                  "paid_branch_proxies": [
+                    0.1435546875,
+                    0.142578125
+                  ],
+                  "guided_proxy": 0.26193839075605757,
+                  "propagation_gain": 0.14759915071151264,
+                  "added_risk": 0.03866188401433443
+                },
+                {
+                  "step": 25,
+                  "paid_branch_proxies": [
+                    0.177734375,
+                    0.1748046875
+                  ],
+                  "guided_proxy": 0.3303280402577273,
+                  "propagation_gain": 0.13349249186261913,
+                  "added_risk": 0.04409631322609958
+                }
+              ],
+              "accumulated_risk": 0.1903928548816636
+            },
+            {
+              "sample_name": "common_sense_6487f37f-ef57-49ca-afdc-d898922b5191_seed3",
+              "anchor": 25,
+              "refresh_step": 31,
+              "paid_risks": [
+                {
+                  "step": 26,
+                  "paid_branch_proxies": [
+                    0.18359375,
+                    0.185546875
+                  ],
+                  "guided_proxy": 0.3246899926306851,
+                  "propagation_gain": 0.11938583301372563,
+                  "added_risk": 0.03876338524143478
+                },
+                {
+                  "step": 27,
+                  "paid_branch_proxies": [
+                    0.1953125,
+                    0.193359375
+                  ],
+                  "guided_proxy": 0.3585243287979781,
+                  "propagation_gain": 0.10527917416483212,
+                  "added_risk": 0.03774514525385187
+                },
+                {
+                  "step": 28,
+                  "paid_branch_proxies": [
+                    0.203125,
+                    0.2021484375
+                  ],
+                  "guided_proxy": 0.3692631044232963,
+                  "propagation_gain": 0.09117251531593862,
+                  "added_risk": 0.03366664604364402
+                },
+                {
+                  "step": 29,
+                  "paid_branch_proxies": [
+                    0.205078125,
+                    0.2041015625
+                  ],
+                  "guided_proxy": 0.372782145464291,
+                  "propagation_gain": 0.07706585646704511,
+                  "added_risk": 0.028728775315828185
+                },
+                {
+                  "step": 30,
+                  "paid_branch_proxies": [
+                    0.19921875,
+                    0.2001953125
+                  ],
+                  "guided_proxy": 0.3558566675751226,
+                  "propagation_gain": 0.06295919761815161,
+                  "added_risk": 0.022404450257599025
+                },
+                {
+                  "step": 31,
+                  "paid_branch_proxies": [
+                    0.1865234375,
+                    0.1865234375
+                  ],
+                  "guided_proxy": 0.33611309117037347,
+                  "propagation_gain": 0.0488525387692581,
+                  "added_risk": 0.016419977817255852
+                }
+              ],
+              "accumulated_risk": 0.1777283799296137
+            },
+            {
+              "sample_name": "human_199_seed3",
+              "anchor": 7,
+              "refresh_step": 13,
+              "paid_risks": [
+                {
+                  "step": 8,
+                  "paid_branch_proxies": [
+                    0.031982421875,
+                    0.031494140625
+                  ],
+                  "guided_proxy": 0.0593014515528659,
+                  "propagation_gain": 0.22652744535783098,
+                  "added_risk": 0.01343340632628189
+                },
+                {
+                  "step": 9,
+                  "paid_branch_proxies": [
+                    0.0306396484375,
+                    0.0306396484375
+                  ],
+                  "guided_proxy": 0.055212294426546946,
+                  "propagation_gain": 0.22652744535783098,
+                  "added_risk": 0.012507100008790089
+                },
+                {
+                  "step": 10,
+                  "paid_branch_proxies": [
+                    0.03173828125,
+                    0.031982421875
+                  ],
+                  "guided_proxy": 0.056416127876997305,
+                  "propagation_gain": 0.22652744535783098,
+                  "added_risk": 0.012779801324956912
+                },
+                {
+                  "step": 11,
+                  "paid_branch_proxies": [
+                    0.0283203125,
+                    0.0284423828125
+                  ],
+                  "guided_proxy": 0.05064044224168074,
+                  "propagation_gain": 0.22652744535783098,
+                  "added_risk": 0.01147145001279873
+                },
+                {
+                  "step": 12,
+                  "paid_branch_proxies": [
+                    0.03369140625,
+                    0.0341796875
+                  ],
+                  "guided_proxy": 0.05919651571454628,
+                  "propagation_gain": 0.22652744535783098,
+                  "added_risk": 0.013409635478900866
+                },
+                {
+                  "step": 13,
+                  "paid_branch_proxies": [
+                    0.033935546875,
+                    0.03369140625
+                  ],
+                  "guided_proxy": 0.0619660807172816,
+                  "propagation_gain": 0.22652744535783098,
+                  "added_risk": 0.014037017963722953
+                }
+              ],
+              "accumulated_risk": 0.07763841111545143
+            },
+            {
+              "sample_name": "human_199_seed3",
+              "anchor": 13,
+              "refresh_step": 19,
+              "paid_risks": [
+                {
+                  "step": 14,
+                  "paid_branch_proxies": [
+                    0.0419921875,
+                    0.042236328125
+                  ],
+                  "guided_proxy": 0.07488854789926463,
+                  "propagation_gain": 0.2200452817780885,
+                  "added_risk": 0.016478871624445564
+                },
+                {
+                  "step": 15,
+                  "paid_branch_proxies": [
+                    0.03125,
+                    0.0311279296875
+                  ],
+                  "guided_proxy": 0.05671526152322678,
+                  "propagation_gain": 0.213563118198346,
+                  "added_risk": 0.012112288100334986
+                },
+                {
+                  "step": 16,
+                  "paid_branch_proxies": [
+                    0.037841796875,
+                    0.0380859375
+                  ],
+                  "guided_proxy": 0.06741128575647966,
+                  "propagation_gain": 0.20708095461860354,
+                  "added_risk": 0.01395959340651928
+                },
+                {
+                  "step": 17,
+                  "paid_branch_proxies": [
+                    0.04345703125,
+                    0.04345703125
+                  ],
+                  "guided_proxy": 0.07830907097948492,
+                  "propagation_gain": 0.20059879103886105,
+                  "added_risk": 0.015708704965861034
+                },
+                {
+                  "step": 18,
+                  "paid_branch_proxies": [
+                    0.047119140625,
+                    0.047119140625
+                  ],
+                  "guided_proxy": 0.08490814999461005,
+                  "propagation_gain": 0.19411662745911856,
+                  "added_risk": 0.01648208372074668
+                },
+                {
+                  "step": 19,
+                  "paid_branch_proxies": [
+                    0.056640625,
+                    0.05810546875
+                  ],
+                  "guided_proxy": 0.0977109617019111,
+                  "propagation_gain": 0.18763446387937607,
+                  "added_risk": 0.018333943914076337
+                }
+              ],
+              "accumulated_risk": 0.09307548573198388
+            },
+            {
+              "sample_name": "human_199_seed3",
+              "anchor": 19,
+              "refresh_step": 25,
+              "paid_risks": [
+                {
+                  "step": 20,
+                  "paid_branch_proxies": [
+                    0.0654296875,
+                    0.06640625
+                  ],
+                  "guided_proxy": 0.11487825980721167,
+                  "propagation_gain": 0.18115230029963358,
+                  "added_risk": 0.020810461018495336
+                },
+                {
+                  "step": 21,
+                  "paid_branch_proxies": [
+                    0.07080078125,
+                    0.0712890625
+                  ],
+                  "guided_proxy": 0.12602616817724743,
+                  "propagation_gain": 0.17467013671989112,
+                  "added_risk": 0.0220130080258038
+                },
+                {
+                  "step": 22,
+                  "paid_branch_proxies": [
+                    0.08544921875,
+                    0.08544921875
+                  ],
+                  "guided_proxy": 0.15397851035291976,
+                  "propagation_gain": 0.16818797314014863,
+                  "added_risk": 0.025897333563396966
+                },
+                {
+                  "step": 23,
+                  "paid_branch_proxies": [
+                    0.1083984375,
+                    0.1083984375
+                  ],
+                  "guided_proxy": 0.19533273884770394,
+                  "propagation_gain": 0.16170580956040614,
+                  "added_risk": 0.03158643866901936
+                },
+                {
+                  "step": 24,
+                  "paid_branch_proxies": [
+                    0.1357421875,
+                    0.1357421875
+                  ],
+                  "guided_proxy": 0.24460586216063826,
+                  "propagation_gain": 0.14759915071151264,
+                  "added_risk": 0.03610361751396753
+                },
+                {
+                  "step": 25,
+                  "paid_branch_proxies": [
+                    0.16796875,
+                    0.1689453125
+                  ],
+                  "guided_proxy": 0.29955419159705854,
+                  "propagation_gain": 0.13349249186261913,
+                  "added_risk": 0.03998823548418379
+                }
+              ],
+              "accumulated_risk": 0.17639909427486677
+            },
+            {
+              "sample_name": "human_199_seed3",
+              "anchor": 25,
+              "refresh_step": 31,
+              "paid_risks": [
+                {
+                  "step": 26,
+                  "paid_branch_proxies": [
+                    0.1845703125,
+                    0.185546875
+                  ],
+                  "guided_proxy": 0.32946447062528605,
+                  "propagation_gain": 0.11938583301372563,
+                  "added_risk": 0.039333390274025916
+                },
+                {
+                  "step": 27,
+                  "paid_branch_proxies": [
+                    0.1943359375,
+                    0.1953125
+                  ],
+                  "guided_proxy": 0.34705919897781384,
+                  "propagation_gain": 0.10527917416483212,
+                  "added_risk": 0.03653810585469239
+                },
+                {
+                  "step": 28,
+                  "paid_branch_proxies": [
+                    0.2099609375,
+                    0.2119140625
+                  ],
+                  "guided_proxy": 0.3721745806665536,
+                  "propagation_gain": 0.09117251531593862,
+                  "added_risk": 0.03393209265602439
+                },
+                {
+                  "step": 29,
+                  "paid_branch_proxies": [
+                    0.208984375,
+                    0.20703125
+                  ],
+                  "guided_proxy": 0.3831477629812249,
+                  "propagation_gain": 0.07706585646704511,
+                  "added_risk": 0.029527610507580498
+                },
+                {
+                  "step": 30,
+                  "paid_branch_proxies": [
+                    0.205078125,
+                    0.203125
+                  ],
+                  "guided_proxy": 0.37611232063045086,
+                  "propagation_gain": 0.06295919761815161,
+                  "added_risk": 0.023679729921194156
+                },
+                {
+                  "step": 31,
+                  "paid_branch_proxies": [
+                    0.1884765625,
+                    0.1884765625
+                  ],
+                  "guided_proxy": 0.3396325999784402,
+                  "propagation_gain": 0.0488525387692581,
+                  "added_risk": 0.016591914757750677
+                }
+              ],
+              "accumulated_risk": 0.17960284397126802
+            }
+          ],
+          "endpoint_quality_used_to_choose_threshold": false,
+          "matches_actual_RA_time_or_dense_count": false,
+          "development_initial_point_not_optimized_threshold": true
+        },
+        "endpoint_quality_used_to_choose_threshold": true,
+        "development_design_ref": "manifests/wc_ra_conservative_half_threshold_r2_design_preregistration_20261010.json",
+        "development_design_sha256": "2571035256ef789966262904e1cfc1eb4877414cd33a118343250faaa1be79bc",
+        "development_basis_ref": "reports/wc_ra_comparison_score_cpu_r1_terminal_20261010_capture_and_independent_audit.json",
+        "development_basis_sha256": "f8b3897c144c0f66084dc2acce366f8c60a9e910ca31bdf40a6102849c6f69a7",
+        "independent_confirmation_claim": false
+      },
+      "ranking_fingerprint": "d7b60d99e3aded059ad960f79bea199cb0ca1609da764cb37ffd032aeabbcf44",
+      "complete_cost_rows": 48,
+      "timed_values": 144,
+      "reference_source_revision": "beb02c95e7edf570e137bcc4131d5ee3d73fa71b",
+      "reference_model_context": "Cosmos-Predict2.5-2B:ffc7fa84d38667236cda4a2f0825b57d832cee0378d637ba375d6e6ea3c60a9f",
+      "reference_project_input_sha256": {
+        "configs/f1_setup.json": "ffc7fa84d38667236cda4a2f0825b57d832cee0378d637ba375d6e6ea3c60a9f",
+        "configs/cal_w1d8.jsonl": "7b99d44d9ec5aced6983dccbf1eb930344a84f053f185f423cecd12d94354d84",
+        "manifests/f1_runtime_protocol.json": "c4f580da88c78e4e68a533b2b58b16a82c9ea4935656642faa9e5149d29a4ed7"
+      },
+      "reference_runtime_source_sha256": {
+        "cosmos_predict2/_src/predict2/models/video2world_model_rectified_flow.py": "9b53e3f024e5cbb2cb3778819e1a6fd353923c13ad9b868d99602051640a65e8",
+        "cosmos_predict2/_src/predict2/models/text2world_model_rectified_flow.py": "c6c68f297859e11c76d2921667a29cabfecef3a7b5d3ab831bf9bb54b25b7d87",
+        "cosmos_predict2/_src/predict2/inference/worldcache_utils.py": "b485cb8fd6e262a40e5823365c34ef7db1bc036c591d7577489e04077c515903",
+        "cosmos_predict2/_src/predict2/models/fm_solvers_unipc.py": "f6a06c75f059693ade6c802e99f6058575969b6a71ef18ab05e7ed46701053d3",
+        "cosmos_predict2/_src/predict2/configs/video2world/defaults/conditioner.py": "d58f515074237843b707d67001751c0e022546061348728e6322faaaa22e837c",
+        "cosmos_predict2/_src/predict2/configs/video2world/defaults/model.py": "042e4ef004f36c2f391c5234532b3feac4c7754f7469e4f998919bbee76a49e0",
+        "cosmos_predict2/inference.py": "0db96c49f0b3f18a971bc989e0727132dafc27ef621145a2d25a3da62a7a1975",
+        "cosmos_predict2/_src/predict2/inference/video2world.py": "59aa9e236a5e7e26490f5cfcb94ab95ce911d9c38eba61dd8aef7d067e458a95",
+        "cosmos_predict2/_src/predict2/conditioner.py": "47554e88f2a5d5157e30b18b1d7ad4a4ee55a99dfbaf7071f680c7acf438843a",
+        "cosmos_predict2/_src/predict2/networks/minimal_v1_lvg_dit.py": "2d3ddcf94158c61223bc610f31ede475f7e4e27cc3b604ff3557b73d891e665f"
+      },
+      "reference_sampling_protocol": {
+        "name": "public_code_unipc_karras_35_requested_36_actual",
+        "approved_by_user": "2026-09-30: \u5148\u5b8c\u6210\u5f53\u524d\u4ee3\u7801\u6280\u672f\u5bf9\u7167",
+        "scheduler_source_sha256": "f6a06c75f059693ade6c802e99f6058575969b6a71ef18ab05e7ed46701053d3",
+        "scheduler_class": "FlowUniPCMultistepScheduler",
+        "requested_steps": 35,
+        "actual_steps": 36,
+        "cfg_calls": 72,
+        "use_kerras_sigma": true,
+        "timesteps": [
+          995,
+          994,
+          993,
+          992,
+          990,
+          988,
+          986,
+          984,
+          981,
+          977,
+          973,
+          967,
+          960,
+          951,
+          941,
+          927,
+          910,
+          889,
+          863,
+          831,
+          791,
+          742,
+          684,
+          618,
+          543,
+          462,
+          380,
+          301,
+          228,
+          166,
+          116,
+          77,
+          49,
+          30,
+          17,
+          9
+        ],
+        "worldcache_horizon": 70,
+        "scope": "Current completed public-code technical comparison, not paper Euler reproduction"
+      },
+      "Native_artifacts": [
+        {
+          "path": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-ra-plus-a-full-video-r1/diagnostic/references/av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632/av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632.mp4",
+          "bytes": 354913,
+          "sha256": "f2afc8f122621ebbced0b2ff80487b3f238a28031655138193839b0f22568fa9"
+        },
+        {
+          "path": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-ra-plus-a-full-video-r1/diagnostic/references/human_199/human_199.mp4",
+          "bytes": 1159588,
+          "sha256": "bce324de4bba722c2d5cea7e15fef162c66ee783d63444992e9a5fe053e91e4a"
+        },
+        {
+          "path": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-ra-plus-a-full-video-r1/diagnostic/references/misc_13398218_3840_2160_60fps/misc_13398218_3840_2160_60fps.mp4",
+          "bytes": 1378360,
+          "sha256": "d893a79ed82ed29a7ba7e9dbe4e7f0e21b85522c104f2a075d11fd95594624fd"
+        },
+        {
+          "path": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-ra-plus-a-full-video-r1/diagnostic/references/av_51b45829-502e-4143-9c32-c026bd6ab191/av_51b45829-502e-4143-9c32-c026bd6ab191.mp4",
+          "bytes": 358917,
+          "sha256": "9e3993addce8ed5b6f1862d3babafbdddfae16dbffbe3ba84d02d0dd06be549a"
+        }
+      ],
+      "current_adaptive_trajectory_or_video_or_quality_claim": false,
+      "model_or_controller_installed": false,
+      "GPU_submissions": 0,
+      "ledger_written": false,
+      "binding_fingerprint": "6ff3902a8a6272529ad5ad558699b994be1940b7efa1de24adfd37cae0aad90e"
+    },
+    "watcher_proof": {
+      "actual_watch_config_derived_output_and_post_command": true,
+      "watch_changed_card_refused": [
+        "run_id",
+        "branch_labels",
+        "teacher_committed_to_parent_or_suffix",
+        "first_branch_readouts"
+      ],
+      "GPU_submissions": 0,
+      "ledger_written": false
+    }
+  },
+  "production_CPU_sha256": "733d28c07a313e3c12e747fb5d7cf3f0586397079fe1783ea82cb7eb2b3d1e59",
+  "original_processes": {},
+  "ledger": {
+    "batch": "F0-F1",
+    "cap_gpu_hours": 104.97136333301378,
+    "used_gpu_hours": 104.97136333301378,
+    "gpu_jobs_launched": 89,
+    "status": "SOURCE_PHASE_H1_INFLIGHT_REMAINING_RESERVED_NOT_ACTUAL_SPENT",
+    "gpu_import_probes_completed": 1,
+    "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts",
+    "budget_authorization_ref": "manifests/budget_authorization_20261012_wc_math_scheduler_new48gpuh.json",
+    "budget_authorization_history": [
+      {
+        "authorized_utc": "2026-10-02T18:03:00Z",
+        "source_thread_id": "01a0f1e6-7ad0-75df-9a02-172b60d2e00b",
+        "user_instruction": "\u628a\u5404\u4e2a\u5b9e\u9a8c\u7684 gpu \u9884\u7b97\u90fd\u8bbe\u7f6e\u4e3a 12gpuh",
+        "previous_cap_gpu_hours": 4,
+        "new_cumulative_cap_gpu_hours": 12,
+        "used_gpu_hours_at_change": 3.9117525685110333,
+        "no_usage_reset_or_transfer": true
+      },
+      {
+        "authorized_utc": "2026-10-04T06:13:36Z",
+        "source_thread_id": "01a0f1e6-7ad0-75df-9a02-172b60d2e00b",
+        "user_message_id": "Sentinel_861e63a87d8c819180ec9a8bcfa6dc92",
+        "user_instruction": "\u5141\u8bb8\u589e\u52a0 GPUh",
+        "previous_cap_gpu_hours": 12,
+        "new_cumulative_cap_gpu_hours": 13,
+        "used_gpu_hours_at_change": 11.022315686839217,
+        "gpu_jobs_launched_at_change": 45,
+        "no_usage_reset_or_transfer": true,
+        "authorization_ref": "manifests/budget_authorization_20261004_wc_13gpuh.json"
+      },
+      {
+        "authorized_on_local": "2026-10-05",
+        "user_instruction": "\u6279\u51c6 WC-W3-SMALL-CD-R1-20261004-A\uff0c\u628a\u7d2f\u8ba1 gpuh \u9650\u5236\u63d0\u5347\u5230 24",
+        "previous_cap_gpu_hours": 13,
+        "new_cumulative_cap_gpu_hours": 24,
+        "used_gpu_hours_at_change": 11.022315686839217,
+        "gpu_jobs_launched_at_change": 45,
+        "no_usage_reset_or_transfer": true,
+        "authorization_ref": "manifests/budget_authorization_20261005_wc_24gpuh.json",
+        "approved_card": "WC-W3-SMALL-CD-R1-20261004-A",
+        "single_run_cap_seconds": 3900
+      },
+      {
+        "authorized_unix": 1791428550.530142,
+        "authorized_on_local": "2026-10-08",
+        "user_instruction": "\u6279\u51c6\u6269\u5927 gpuh\uff0c\u76f4\u63a5\u52a0\u5230 50 \u5427",
+        "previous_cap_gpu_hours": 24,
+        "new_cumulative_cap_gpu_hours": 50,
+        "used_gpu_hours_at_change": 22.314242424184147,
+        "gpu_jobs_launched_at_change": 59,
+        "no_usage_reset_or_transfer": true,
+        "authorization_ref": "manifests/budget_authorization_20261008_wc_50gpuh.json",
+        "automatic_single_job_gpu_hours": 2
+      },
+      {
+        "authorized_unix": 1791560438.1859179,
+        "authorized_on_local": "2026-10-09",
+        "user_instruction": "\u662f\u4ece\u5f53\u524d\u5f00\u59cb 48gpuh",
+        "initial_user_instruction": "\u628a gpuh \u9884\u7b97\u63d0\u5230 48h",
+        "previous_cap_gpu_hours": 50,
+        "new_cumulative_cap_gpu_hours": 77.89524658965853,
+        "used_gpu_hours_at_change": 29.895246589658527,
+        "gpu_jobs_launched_at_change": 65,
+        "authorized_remaining_gpu_hours": 48,
+        "no_usage_reset_or_transfer": true,
+        "authorization_ref": "manifests/budget_authorization_20261009_wc_new_window_48gpuh.json",
+        "automatic_single_job_gpu_hours": 2
+      },
+      {
+        "authorized_on_local": "2026-10-12",
+        "user_instruction": "\u6839\u636e\u6700\u65b0\u5bf9\u8bdd\u548c\u6587\u6863\uff0c\u66f4\u65b0\u4e00\u4e0b\u5b9e\u9a8c\u8bbe\u8ba1\uff0c\u5c1d\u8bd5\u4e00\u4e0b\u63d0\u5230\u7684\u65b0\u7684\u6838\u5fc3\u65b9\u6cd5\u662f\u5426\u6210\u7acb\u3002\u5728\u5f53\u524d\u57fa\u7840\u4e0a\u628a\u53ef\u7528 gpuh \u8bbe\u4e3a 48h\uff0c\u5355\u6b21\u5927\u4e8e 8h \u624d\u8be2\u95ee\u3002\u7b49\u8fd9\u4e2a\u7aef\u5230\u7aef\u52a0\u901f\u6d4b\u8bd5\u8dd1\u5b8c\u4e86\u5c31\u63a8\u8fdb\u3002",
+        "authorization_ref": "manifests/budget_authorization_20261012_wc_math_scheduler_new48gpuh.json",
+        "previous_cap_gpu_hours": 77.89524658965853,
+        "new_cumulative_cap_gpu_hours": 104.97136333301378,
+        "used_gpu_hours_at_change": 56.97136333301379,
+        "gpu_jobs_launched_at_change": 82,
+        "authorized_remaining_gpu_hours": 48,
+        "no_usage_reset_or_transfer": true
+      }
+    ],
+    "budget_authorization_window": {
+      "authorization_ref": "manifests/budget_authorization_20261012_wc_math_scheduler_new48gpuh.json",
+      "start_used_gpu_hours": 56.97136333301379,
+      "authorized_remaining_gpu_hours": 48,
+      "cumulative_cap_gpu_hours": 104.97136333301378,
+      "recorded_unix": 1791760184.7594678
+    },
+    "automatic_single_job_gpu_hours": 8,
+    "execution_policy_authorization_ref": "manifests/budget_authorization_20261012_wc_math_scheduler_new48gpuh.json",
+    "execution_policy_authorization_history": [
+      {
+        "authorized_on_local": "2026-10-10",
+        "source_user_instruction": "\u5355\u6b21 \u6539\u6210\u8d85\u8fc7 4h\u624d\u9700\u8981\u786e\u8ba4",
+        "previous_automatic_single_job_gpu_hours": 2,
+        "automatic_single_job_gpu_hours": 4,
+        "authorization_ref": "manifests/wc_execution_autonomy_authorization_20261010_4gpuh.json",
+        "recorded_unix": 1791561847.0094812
+      },
+      {
+        "authorized_on_local": "2026-10-12",
+        "source_user_instruction": "\u6839\u636e\u6700\u65b0\u5bf9\u8bdd\u548c\u6587\u6863\uff0c\u66f4\u65b0\u4e00\u4e0b\u5b9e\u9a8c\u8bbe\u8ba1\uff0c\u5c1d\u8bd5\u4e00\u4e0b\u63d0\u5230\u7684\u65b0\u7684\u6838\u5fc3\u65b9\u6cd5\u662f\u5426\u6210\u7acb\u3002\u5728\u5f53\u524d\u57fa\u7840\u4e0a\u628a\u53ef\u7528 gpuh \u8bbe\u4e3a 48h\uff0c\u5355\u6b21\u5927\u4e8e 8h \u624d\u8be2\u95ee\u3002\u7b49\u8fd9\u4e2a\u7aef\u5230\u7aef\u52a0\u901f\u6d4b\u8bd5\u8dd1\u5b8c\u4e86\u5c31\u63a8\u8fdb\u3002",
+        "previous_automatic_single_job_gpu_hours": 4,
+        "automatic_single_job_gpu_hours": 8,
+        "authorization_ref": "manifests/budget_authorization_20261012_wc_math_scheduler_new48gpuh.json",
+        "complete_single_job_strictly_over8_requires_confirmation": true
+      }
+    ],
+    "wc_source_phase_h1_inflight": {
+      "supervisor_pid": 525011,
+      "run_id": "wc-source-phase-h1-full24-r1",
+      "reserved_GPUh": 38.52266241247635
+    }
+  },
+  "ledger_sha256": "60715e87b8c260acf246e05c435613e9273490330163d056506655b62ee7003b",
+  "GPU": "GPU-cebf7119-cf03-23b9-e192-cd196332b704, NVIDIA RTX A6000, 21388",
+  "kernel_lock_free": false,
+  "production-CPU.log_tail": "2026-10-13 03:21:37.010392: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.\n[10-13 03:21:38|CRITICAL|data/gkd/worldcache_omr/runtime/cosmos_predict2/_src/predict2/checkpointer/dcp.py:188:<module>] for the back comptiable pytorch! New DefaultLoadPlanner class is created.\n[10-13 03:22:37|INFO|data/gkd/worldcache_omr/runtime/cosmos_predict2/_src/imaginaire/utils/checkpoint_db.py:171:path] Downloading checkpoint nvidia/Cosmos-Predict2.5-2B/base/post-trained(81edfebe-bd6a-4039-8c1d-737df1a790bf)\n[10-13 03:22:37|INFO|data/gkd/worldcache_omr/runtime/cosmos_predict2/_src/imaginaire/utils/checkpoint_db.py:96:_download] Downloading checkpoint file from Hugging Face with {'repo_id': 'nvidia/Cosmos-Predict2.5-2B', 'repo_type': 'model', 'revision': '15a82a2ec231bc318692aa0456a36537c806e7d4', 'filename': 'base/post-trained/81edfebe-bd6a-4039-8c1d-737df1a790bf_ema_bf16.pt'}\nTEACHER_FIRST_ACTUAL_PRODUCTION_CPU_PASS_NOT_GPU",
+  "full_readonly_capture_ref": "/Users/kuangda_gao/Documents/\u4e16\u754c\u6a21\u578b\u52a0\u901f\u5b9e\u9a8c/worldcache_omr/.sync/wc_teacher_first_velocity_full_readonly_capture_20261013.json",
+  "full_readonly_capture_sha256": "ccdc3ee9cfcbf43f8a1635a7d4ce6b0e0289e8b0e75ffb6e27719b036efd0daa"
+}

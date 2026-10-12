@@ -31,3 +31,13 @@ R3已验24父/32完整后缀/8 teacher/两flow、104.5043秒；原cb3649e/649保
 ## 独立CPU原件读取通过
 
 新读取器在原R3已结束/冻结阶段逐个加载24原件、374原始张量（Toy选点长度不同于真实314，不混用），校核teacher输入签名/输出、两首C缓存和计算相同、仅首次返回速度替换、原父/原C完整等价标记及完整未来π0。额外实际标量controller验证临时D严格回退、active teacher不能快照与首C后未来恢复自然决策。0 GPU/0账本写入，原649核心未改。见[独立原件回执](../reports/wc_teacher_first_velocity_cpu_r3_independent_raw_20261013.json)。下一复制这些已测bytes到独立生产阶段，验证完整270实际命令/配置/原396资产/资源/拒绝变更和watcher路径；当前生产CPU仍待。
+
+## 实际生产CPU通过，等待原H1全量验收后串行推进
+
+原R3已测649核心按hash复制到独立生产R1，source4b18478/665 payload全部保持；实际生产CPU532449已结束并通过，CUDA未初始化、0 GPU/0账本写入。完整270/540/12/4teacher范围、真实child-command/hash、原396 C/A/Native和资源绑定、12类变更拒绝通过；actual watcher从同一配置run_id取得输出和CPU命令，四类错目录/分支/teacher提交变更拒绝。见[生产回执](../reports/wc_teacher_first_velocity_r1_production_cpu_receipt_20261013.json)。
+
+[只读现场回执](../reports/wc_teacher_first_velocity_live_or_terminal_capture_20261013.json)确认665文件保持、生产CPU通过、尚未选GPU/生成真实teacher或视频。397原三个handles仍live且661 bytes保持；12完整预热已结束、首条正式Native在跑，全部正式24及93帧、对照/动作/费用验收仍待。不会在397生成或自动CPU评分期间并行GPU，不因当前全局锁持有把本卡误记阻塞/失败。
+
+新只读capture跟原冻结stage与handles；launch读其已验证source而不是将后续文档commit当成算法变更，同时要求本地全部意图payload与stage匹配。费用1.811752758不变、严格≤8持续授权；本轮未新GPU，预算仍为397前实际66.448700921/剩38.522662412与其在途预留，结束以全wall实计。原E2和用户暂缓P13h不改。
+
+更新现场：397原三handles仍live/661保持，17/36已完成（12预热＋5正式），首场景timed_0_TABLE_POOLED_H1运行中；全部正式/93帧/终态结论待。上述CPU验收时的首Native状态保留时间身份，本卡未新GPU。
