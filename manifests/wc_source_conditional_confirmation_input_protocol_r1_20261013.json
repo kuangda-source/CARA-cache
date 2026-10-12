@@ -1,0 +1,42 @@
+{
+  "identity": "SOURCE_CONDITIONAL_CONFIRMATION_INPUT_PROTOCOL_R1_20261013",
+  "registered_unix": 1791823054.651558,
+  "categories_in_order": [
+    "av",
+    "human",
+    "misc",
+    "robot"
+  ],
+  "prompts_per_category": 1,
+  "seeds_in_order": [
+    17,
+    43
+  ],
+  "salt": "WC-SOURCE-CONDITIONAL-CONF-NEW-PROMPTS-R1-20261013",
+  "selection_rule": "SHA256(salt|base_name) within category; group representative min(name); exclude all CAL24, engineering/reference/lexical groups, local configs/manifests, current remote WorldCache receipt/request paths, and four original E2 reserved groups. No endpoint/cost/guardrail screening.",
+  "original_E2_inputs_ref": "manifests/wc_e2_confirmation_full72_inputs_r1_20261011.json",
+  "frozen_sources": {
+    "manifests/cal_v1.json": "05f3b59f34e09c8528a6d521fbdd1d21c7208c7bc4db8c43b68fa2f1bab855ff",
+    "reports/dataset_source_group_audit_20260930.json": "6f8de690f5cb4f33c3d72aacb23ae6d723f9dd37213845f0472e8b3cb77543f0",
+    "manifests/wc_e2_confirmation_full72_inputs_r1_20261011.json": "290f101086e227aef8fe404284bd804c9f1e808bd721cebf3f6dc31cc5802d15",
+    "scripts/prepare_wc_e2_confirmation_inputs_r1.py": "91be785454624e6050ffece26766b6d498b0e13602a71575bc4e580e95420307"
+  },
+  "methods_in_order": [
+    "NATIVE",
+    "RA",
+    "A_NO_P",
+    "P_OFF",
+    "NEW_CANDIDATE_PENDING_FREEZE"
+  ],
+  "confirmation_paths": 40,
+  "warmups_planned": 10,
+  "complete_card_paths_planned": 50,
+  "candidate_frozen": false,
+  "GPU_execution_selected": false,
+  "GPU_cost_forecast_not_yet_frozen": true,
+  "do_not_replace_failed_or_rejected_inputs": true,
+  "reference_and_lexical_independence_limit": "Disjoint registered benchmark reference and lexical groups; original recording/session or semantic independence not established. Prior unrecorded/external runs not audited.",
+  "human_review_required": false,
+  "GPU_submissions": 0,
+  "ledger_written": false
+}

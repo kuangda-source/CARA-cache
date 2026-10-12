@@ -1,0 +1,37 @@
+{
+  "source_revision": "c9b32ce700f6513a3aabd8767cd573612ca7b691",
+  "runtime": {
+    "cosmos_predict2/inference.py": {
+      "sha256": "0db96c49f0b3f18a971bc989e0727132dafc27ef621145a2d25a3da62a7a1975"
+    },
+    "cosmos_predict2/_src/predict2/inference/video2world.py": {
+      "sha256": "59aa9e236a5e7e26490f5cfcb94ab95ce911d9c38eba61dd8aef7d067e458a95"
+    }
+  },
+  "observed_unix": 1791823444.3016746,
+  "guarded_writer_calls": [
+    {
+      "name": "save_img_or_video",
+      "lineno": 179
+    },
+    {
+      "name": "run_video_guardrail",
+      "lineno": 163
+    }
+  ],
+  "decoder_guarded_writer_calls": [],
+  "runner_sha256": "e9333074e1494ece95d0883a8f22f9b7aa98164ee0adb26585b300b62078dead",
+  "status": "PI0_SUFFIX8_DECODER_GUARDED_WRITER_SOURCE_BOUNDARY_CPU_VERIFIED",
+  "original_field_actual_intervals": {
+    "VAE_and_video_guardrail_seconds": "source-derived decoder tail only; video guardrail is not included",
+    "video_write_seconds": "entire source-derived guarded writer, including frame conversions, video guardrail, encoding/save"
+  },
+  "registered_sampling_VAE_guardrail_without_encoding_save_time_identifiable": false,
+  "available_intervals": [
+    "instrumented sampling + decoder tail",
+    "instrumented sampling + decoder tail + entire guarded writer"
+  ],
+  "GPU_submissions": 0,
+  "ledger_written": false,
+  "staged_source_modified": false
+}

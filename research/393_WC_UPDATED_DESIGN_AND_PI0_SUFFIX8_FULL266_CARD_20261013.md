@@ -77,3 +77,5 @@ R3采样CPU完成两flow×四格，16完整父路径、16完整后缀；普通�
 跟踪[原进程现场回执](../reports/wc_pi0_suffix8_live_or_terminal_capture_20261013.json)，只跟原handles，不改stage或重复提交。第88提交在途，启动前实费65.810679625、余额39.160683708；账本used=cap是保守预留，不是实际已经花完。结束后按完整wall结算，CPU后处理不写GPU账本。
 
 R3的4.87MB完整采样回执继续保存在原服务器及ignored完整副本；Git索引保存全部payload/完整范围和原件hash，未删失败或控制。
+
+2026-10-13后续：[394独立分析与确认准备](394_WC_SUFFIX_EFFECT_ANALYSIS_TIMING_CORRECTION_AND_CONFIRMATION_INPUTS_20261013.md)已固定新四提示词/双seed，未选择完整GPU卡。原GPU/source/范围保持。源码发现guardrail在writer中，故上文原“采样＋VAE＋guardrail但排除写盘”的主计时不能由现字段识别；原字段/判据保持，新分析分别报告sampling＋decoder与加完整guarded writer的可观测区间，不称clean加速。全部视频与后果结论尚待。
