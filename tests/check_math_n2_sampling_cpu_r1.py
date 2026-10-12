@@ -1,4 +1,4 @@
-"""All eight method paths x four Toy requests x both actual flow modes."""
+"""All nine method paths x four Toy requests x both actual flow modes."""
 import copy
 import functools
 import inspect
@@ -16,7 +16,7 @@ from wcomr.math_n2_sampling_owner_r1 import MathSamplingOwner
 from wcomr.p_reference_same_state_owner_r1 import ComparisonReadout
 from wcomr.source_aware_current_birth_sampling_r2 import CurrentBirthSamplingOwner
 
-METHODS=('NATIVE','RA','A_NO_P','NONZERO_CPD','P_OFF','SOURCE_H1','SOURCE_H2','H2_P_TO_D')
+METHODS=('NATIVE','RA','A_NO_P','NONZERO_CPD','P_OFF','SOURCE_FIXED','SOURCE_H1','SOURCE_H2','H2_P_TO_D')
 
 def load(name):
     from importlib.util import spec_from_file_location,module_from_spec
@@ -65,7 +65,7 @@ def body(inference,selected,wc,rf,settings,inference_module,runtime,config,flow,
                         kw['method']='CPD';return CurrentBirthSamplingOwner(*a,**kw)
                 elif method not in ('NATIVE','RA','A_NO_P'):
                     options={'math_parameters':params,'source_mode':'P_OFF' if method=='P_OFF' else 'FUSION',
-                             'horizon':None if method=='P_OFF' else 1 if method=='SOURCE_H1' else 2}
+                             'horizon':None if method in ('P_OFF','SOURCE_FIXED') else 1 if method=='SOURCE_H1' else 2}
                     if method=='H2_P_TO_D':
                         mask=[d.reason.rsplit(':',1)[-1] if d.reason.startswith('MATH_EVENT_') else d.action
                               for d in plans['SOURCE_H2']]
@@ -80,6 +80,10 @@ def body(inference,selected,wc,rf,settings,inference_module,runtime,config,flow,
                     assert [d.action*2 for d in decision]==result['actions']
                     assert all(h['teacher_calls']==h['extra_deep_blocks']==0 for h in result['A_history'])
                     assert all(h['C_or_P_observation_updates_D_anchor'] is False for h in result['A_history'])
+                    for d,h in zip(decision,result['A_history']):
+                        if d.action=='C':
+                            assert h['readout_action']==('A' if d.reason.endswith(':A') else 'C')
+                            if d.reason.endswith(':C'):assert h['shared_alpha']==h['extra_heads']==0
                     # Replay full healthy histories after perturbation.
                     c=holder_control_factory(cal,spec,params,1 if method=='SOURCE_H1' else 2,
                                              lambda n:float(scheduler.sigmas[n-1]))
@@ -110,9 +114,9 @@ def body(inference,selected,wc,rf,settings,inference_module,runtime,config,flow,
                 controls.append({'scene':sample.name,'gamma':gamma,'all36_outputs_actions_final_video_equal':True})
         initial.restore();assert initial.fingerprint()==fp
         assert net.forward==net0 and inference.pipe.worldcache_enabled==pipe0
-        assert len(checks)==32 and len(controls)==8
+        assert len(checks)==36 and len(controls)==8
         return [{'flow':flow,'status':'PASS','checks':checks,'endpoint_controls':controls,
-                 'complete_CPU_paths':48,'ordinary_initial_state_restored':True}]
+                 'complete_CPU_paths':52,'ordinary_initial_state_restored':True}]
     finally:initial.restore();net.forward=net0;inference.pipe.worldcache_enabled=pipe0
 
 
@@ -131,7 +135,7 @@ def run(runtime,tensor_loader,artifact_root):
     value=load('check_full_sampling').run(runtime,exercise=lambda **kw:ns['exercise'](
         runtime=Path(runtime),tensor_loader=tensor_loader,artifact_root=artifact_root,**kw))
     assert {c['flow'] for c in value['checks']}=={False,True}
-    value.update(status='MATH_N2_ALL64_METHOD_PATHS32_ENDPOINT_CONTROLS_CPU_PASS_NOT_GPU',
-        actual_CPU_paths=96,complete_method_paths=64,endpoint_control_paths=32,
+    value.update(status='MATH_N2_ALL72_METHOD_PATHS32_ENDPOINT_CONTROLS_CPU_PASS_NOT_GPU',
+        actual_CPU_paths=104,complete_method_paths=72,endpoint_control_paths=32,
         actual_GPU_or_real_video_claim=False)
     return value

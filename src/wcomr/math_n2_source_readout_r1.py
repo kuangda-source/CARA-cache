@@ -26,12 +26,19 @@ class SourceFusionReadout(SemanticPartialReadout):
         self.gamma,self.mode=float(gamma),mode
 
     def wants_A(self):
+        if self.current is not None and 'selected_A' in self.current:
+            return self.current['selected_A']
         cur=self.deployment.current
         choice=cur.get('source_choice') if cur else None
         if choice is not None and choice.reason.startswith('MATH_EVENT_'):
-            return choice.reason.endswith(':A')
-        return not(self.mode=='P_OFF' and self.deployment.working[0]
-                   and self.deployment.working[0]['kind']=='P')
+            result=choice.reason.endswith(':A')
+        else:
+            result=not(self.mode=='P_OFF' and self.deployment.working[0]
+                       and self.deployment.working[0]['kind']=='P')
+        # PartialDeployment.commit clears its current packet before the
+        # readout's end. Preserve the already selected scalar decision only.
+        if self.current is not None:self.current['selected_A']=bool(result)
+        return result
 
     def prewarp(self,net,branch,hidden):
         # Selection has already occurred. Plain C need not clone a feature for

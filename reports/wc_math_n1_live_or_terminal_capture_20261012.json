@@ -1,9 +1,9 @@
 {
-  "observed_unix": 1791766264.01614,
+  "observed_unix": 1791766485.9249253,
   "stage": "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-math-n1-production-r2-20261012",
   "output": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-math-n1-natural-unit-r1",
   "supervisor": {
-    "status": "MATH_N1_GPU_RUNNING",
+    "status": "MATH_N1_GPU_EXITED_REQUIRES_RAW_CPU_AUDIT",
     "pid": 265047,
     "run_id": "wc-math-n1-natural-unit-r1",
     "source_revision": "5a0e7913f4733d1532c527bacbf734c6ce9ea949",
@@ -146,11 +146,133 @@
       "5a0e7913f4733d1532c527bacbf734c6ce9ea949",
       "--gpu-uuid",
       "GPU-cebf7119-cf03-23b9-e192-cd196332b704"
-    ]
+    ],
+    "child_exit_code": 0,
+    "runner_sha256": "4d60d1b155648c89946545784a3f3705f5b5018e026fba6b81c3fd7ce2278794",
+    "runner_status": "N1_COMPLETE4_PARENTS12_POINTS180_PAIRS_RAW_AUDIT_PENDING",
+    "wall_seconds": 3184.84773786366,
+    "ended_unix": 1791766426.0382953,
+    "budget_after": {
+      "batch": "F0-F1",
+      "cap_gpu_hours": 104.97136333301378,
+      "used_gpu_hours": 57.85604326019814,
+      "gpu_jobs_launched": 83,
+      "status": "MATH_N1_SETTLED_RAW_CPU_AUDIT_PENDING",
+      "gpu_import_probes_completed": 1,
+      "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts",
+      "budget_authorization_ref": "manifests/budget_authorization_20261012_wc_math_scheduler_new48gpuh.json",
+      "budget_authorization_history": [
+        {
+          "authorized_utc": "2026-10-02T18:03:00Z",
+          "source_thread_id": "01a0f1e6-7ad0-75df-9a02-172b60d2e00b",
+          "user_instruction": "\u628a\u5404\u4e2a\u5b9e\u9a8c\u7684 gpu \u9884\u7b97\u90fd\u8bbe\u7f6e\u4e3a 12gpuh",
+          "previous_cap_gpu_hours": 4,
+          "new_cumulative_cap_gpu_hours": 12,
+          "used_gpu_hours_at_change": 3.9117525685110333,
+          "no_usage_reset_or_transfer": true
+        },
+        {
+          "authorized_utc": "2026-10-04T06:13:36Z",
+          "source_thread_id": "01a0f1e6-7ad0-75df-9a02-172b60d2e00b",
+          "user_message_id": "Sentinel_861e63a87d8c819180ec9a8bcfa6dc92",
+          "user_instruction": "\u5141\u8bb8\u589e\u52a0 GPUh",
+          "previous_cap_gpu_hours": 12,
+          "new_cumulative_cap_gpu_hours": 13,
+          "used_gpu_hours_at_change": 11.022315686839217,
+          "gpu_jobs_launched_at_change": 45,
+          "no_usage_reset_or_transfer": true,
+          "authorization_ref": "manifests/budget_authorization_20261004_wc_13gpuh.json"
+        },
+        {
+          "authorized_on_local": "2026-10-05",
+          "user_instruction": "\u6279\u51c6 WC-W3-SMALL-CD-R1-20261004-A\uff0c\u628a\u7d2f\u8ba1 gpuh \u9650\u5236\u63d0\u5347\u5230 24",
+          "previous_cap_gpu_hours": 13,
+          "new_cumulative_cap_gpu_hours": 24,
+          "used_gpu_hours_at_change": 11.022315686839217,
+          "gpu_jobs_launched_at_change": 45,
+          "no_usage_reset_or_transfer": true,
+          "authorization_ref": "manifests/budget_authorization_20261005_wc_24gpuh.json",
+          "approved_card": "WC-W3-SMALL-CD-R1-20261004-A",
+          "single_run_cap_seconds": 3900
+        },
+        {
+          "authorized_unix": 1791428550.530142,
+          "authorized_on_local": "2026-10-08",
+          "user_instruction": "\u6279\u51c6\u6269\u5927 gpuh\uff0c\u76f4\u63a5\u52a0\u5230 50 \u5427",
+          "previous_cap_gpu_hours": 24,
+          "new_cumulative_cap_gpu_hours": 50,
+          "used_gpu_hours_at_change": 22.314242424184147,
+          "gpu_jobs_launched_at_change": 59,
+          "no_usage_reset_or_transfer": true,
+          "authorization_ref": "manifests/budget_authorization_20261008_wc_50gpuh.json",
+          "automatic_single_job_gpu_hours": 2
+        },
+        {
+          "authorized_unix": 1791560438.1859179,
+          "authorized_on_local": "2026-10-09",
+          "user_instruction": "\u662f\u4ece\u5f53\u524d\u5f00\u59cb 48gpuh",
+          "initial_user_instruction": "\u628a gpuh \u9884\u7b97\u63d0\u5230 48h",
+          "previous_cap_gpu_hours": 50,
+          "new_cumulative_cap_gpu_hours": 77.89524658965853,
+          "used_gpu_hours_at_change": 29.895246589658527,
+          "gpu_jobs_launched_at_change": 65,
+          "authorized_remaining_gpu_hours": 48,
+          "no_usage_reset_or_transfer": true,
+          "authorization_ref": "manifests/budget_authorization_20261009_wc_new_window_48gpuh.json",
+          "automatic_single_job_gpu_hours": 2
+        },
+        {
+          "authorized_on_local": "2026-10-12",
+          "user_instruction": "\u6839\u636e\u6700\u65b0\u5bf9\u8bdd\u548c\u6587\u6863\uff0c\u66f4\u65b0\u4e00\u4e0b\u5b9e\u9a8c\u8bbe\u8ba1\uff0c\u5c1d\u8bd5\u4e00\u4e0b\u63d0\u5230\u7684\u65b0\u7684\u6838\u5fc3\u65b9\u6cd5\u662f\u5426\u6210\u7acb\u3002\u5728\u5f53\u524d\u57fa\u7840\u4e0a\u628a\u53ef\u7528 gpuh \u8bbe\u4e3a 48h\uff0c\u5355\u6b21\u5927\u4e8e 8h \u624d\u8be2\u95ee\u3002\u7b49\u8fd9\u4e2a\u7aef\u5230\u7aef\u52a0\u901f\u6d4b\u8bd5\u8dd1\u5b8c\u4e86\u5c31\u63a8\u8fdb\u3002",
+          "authorization_ref": "manifests/budget_authorization_20261012_wc_math_scheduler_new48gpuh.json",
+          "previous_cap_gpu_hours": 77.89524658965853,
+          "new_cumulative_cap_gpu_hours": 104.97136333301378,
+          "used_gpu_hours_at_change": 56.97136333301379,
+          "gpu_jobs_launched_at_change": 82,
+          "authorized_remaining_gpu_hours": 48,
+          "no_usage_reset_or_transfer": true
+        }
+      ],
+      "budget_authorization_window": {
+        "authorization_ref": "manifests/budget_authorization_20261012_wc_math_scheduler_new48gpuh.json",
+        "start_used_gpu_hours": 56.97136333301379,
+        "authorized_remaining_gpu_hours": 48,
+        "cumulative_cap_gpu_hours": 104.97136333301378,
+        "recorded_unix": 1791760184.7594678
+      },
+      "automatic_single_job_gpu_hours": 8,
+      "execution_policy_authorization_ref": "manifests/budget_authorization_20261012_wc_math_scheduler_new48gpuh.json",
+      "execution_policy_authorization_history": [
+        {
+          "authorized_on_local": "2026-10-10",
+          "source_user_instruction": "\u5355\u6b21 \u6539\u6210\u8d85\u8fc7 4h\u624d\u9700\u8981\u786e\u8ba4",
+          "previous_automatic_single_job_gpu_hours": 2,
+          "automatic_single_job_gpu_hours": 4,
+          "authorization_ref": "manifests/wc_execution_autonomy_authorization_20261010_4gpuh.json",
+          "recorded_unix": 1791561847.0094812
+        },
+        {
+          "authorized_on_local": "2026-10-12",
+          "source_user_instruction": "\u6839\u636e\u6700\u65b0\u5bf9\u8bdd\u548c\u6587\u6863\uff0c\u66f4\u65b0\u4e00\u4e0b\u5b9e\u9a8c\u8bbe\u8ba1\uff0c\u5c1d\u8bd5\u4e00\u4e0b\u63d0\u5230\u7684\u65b0\u7684\u6838\u5fc3\u65b9\u6cd5\u662f\u5426\u6210\u7acb\u3002\u5728\u5f53\u524d\u57fa\u7840\u4e0a\u628a\u53ef\u7528 gpuh \u8bbe\u4e3a 48h\uff0c\u5355\u6b21\u5927\u4e8e 8h \u624d\u8be2\u95ee\u3002\u7b49\u8fd9\u4e2a\u7aef\u5230\u7aef\u52a0\u901f\u6d4b\u8bd5\u8dd1\u5b8c\u4e86\u5c31\u63a8\u8fdb\u3002",
+          "previous_automatic_single_job_gpu_hours": 4,
+          "automatic_single_job_gpu_hours": 8,
+          "authorization_ref": "manifests/budget_authorization_20261012_wc_math_scheduler_new48gpuh.json",
+          "complete_single_job_strictly_over8_requires_confirmation": true
+        }
+      ]
+    },
+    "release": {
+      "unix": 1791766426.1641607,
+      "uuid": "GPU-cebf7119-cf03-23b9-e192-cd196332b704",
+      "name": "NVIDIA RTX A6000",
+      "memory_used_mib": 24,
+      "compute_cap": "8.6",
+      "pids": []
+    }
   },
-  "supervisor_sha256": "a0cbc2901ce5adb8bc42a6787955fdbd8207a3df82cfb5f7c691a5369cc9605c",
+  "supervisor_sha256": "594a035f79e9e767967767381924e458c4634581f2bf6337dbafd3578551d513",
   "runner": {
-    "status": "N1_FULL4_NATURAL_PARENTS12_POINTS_RUNNING",
+    "status": "N1_COMPLETE4_PARENTS12_POINTS180_PAIRS_RAW_AUDIT_PENDING",
     "pid": 265147,
     "source_revision": "5a0e7913f4733d1532c527bacbf734c6ce9ea949",
     "config_sha256": "1f1987cc08282842c54c36d3a5b162fcb5331a060ec8e4884eb82eeefce85883",
@@ -7847,20 +7969,4035 @@
       },
       {
         "scene": "av_51b45829-502e-4143-9c32-c026bd6ab191",
-        "status": "RUNNING",
-        "started_unix": 1791765635.632519
+        "status": "COMPLETE",
+        "started_unix": 1791765635.632519,
+        "method": "KEEP_A_P",
+        "audit": true,
+        "guided_pairs": 36,
+        "solver_steps": 36,
+        "in_timing_guided_copies": 36,
+        "in_timing_hashes": 0,
+        "research_checkpoints": 0,
+        "method_install_seconds": 0.13630039431154728,
+        "core_seconds": 716.1709745423868,
+        "guarded_pipeline_without_write_seconds": 747.9988909522071,
+        "actions": [
+          "DD",
+          "DD",
+          "DD",
+          "DD",
+          "DD",
+          "DD",
+          "DD",
+          "CC",
+          "CC",
+          "CC",
+          "CC",
+          "CC",
+          "PP",
+          "CC",
+          "CC",
+          "PP",
+          "CC",
+          "CC",
+          "PP",
+          "CC",
+          "CC",
+          "DD",
+          "CC",
+          "CC",
+          "DD",
+          "CC",
+          "CC",
+          "DD",
+          "CC",
+          "CC",
+          "CC",
+          "PP",
+          "CC",
+          "CC",
+          "CC",
+          "DD"
+        ],
+        "A_history": [
+          {
+            "step": 1,
+            "action": "DD",
+            "shared_alpha": 1,
+            "branch_status": [
+              "ACTUAL_D_OBSERVED_BY_P0_OWNER",
+              "ACTUAL_D_OBSERVED_BY_P0_OWNER"
+            ],
+            "working_source_kind": [
+              "D",
+              "D"
+            ],
+            "past_D_steps": [
+              [
+                1
+              ],
+              [
+                1
+              ]
+            ],
+            "extra_heads": 0,
+            "extra_deep_blocks": 0,
+            "teacher_calls": 0,
+            "post_RF_fusion": true,
+            "C_or_P_observation_updates_D_anchor": false,
+            "P_reference": [
+              null,
+              null
+            ],
+            "P_reference_version": "P_WORKING_REFERENCE_READOUT_R1"
+          },
+          {
+            "step": 2,
+            "action": "DD",
+            "shared_alpha": 1,
+            "branch_status": [
+              "ACTUAL_D_OBSERVED_BY_P0_OWNER",
+              "ACTUAL_D_OBSERVED_BY_P0_OWNER"
+            ],
+            "working_source_kind": [
+              "D",
+              "D"
+            ],
+            "past_D_steps": [
+              [
+                1,
+                2
+              ],
+              [
+                1,
+                2
+              ]
+            ],
+            "extra_heads": 0,
+            "extra_deep_blocks": 0,
+            "teacher_calls": 0,
+            "post_RF_fusion": true,
+            "C_or_P_observation_updates_D_anchor": false,
+            "P_reference": [
+              null,
+              null
+            ],
+            "P_reference_version": "P_WORKING_REFERENCE_READOUT_R1"
+          },
+          {
+            "step": 3,
+            "action": "DD",
+            "shared_alpha": 1,
+            "branch_status": [
+              "ACTUAL_D_OBSERVED_BY_P0_OWNER",
+              "ACTUAL_D_OBSERVED_BY_P0_OWNER"
+            ],
+            "working_source_kind": [
+              "D",
+              "D"
+            ],
+            "past_D_steps": [
+              [
+                2,
+                3
+              ],
+              [
+                2,
+                3
+              ]
+            ],
+            "extra_heads": 0,
+            "extra_deep_blocks": 0,
+            "teacher_calls": 0,
+            "post_RF_fusion": true,
+            "C_or_P_observation_updates_D_anchor": false,
+            "P_reference": [
+              null,
+              null
+            ],
+            "P_reference_version": "P_WORKING_REFERENCE_READOUT_R1"
+          },
+          {
+            "step": 4,
+            "action": "DD",
+            "shared_alpha": 1,
+            "branch_status": [
+              "ACTUAL_D_OBSERVED_BY_P0_OWNER",
+              "ACTUAL_D_OBSERVED_BY_P0_OWNER"
+            ],
+            "working_source_kind": [
+              "D",
+              "D"
+            ],
+            "past_D_steps": [
+              [
+                3,
+                4
+              ],
+              [
+                3,
+                4
+              ]
+            ],
+            "extra_heads": 0,
+            "extra_deep_blocks": 0,
+            "teacher_calls": 0,
+            "post_RF_fusion": true,
+            "C_or_P_observation_updates_D_anchor": false,
+            "P_reference": [
+              null,
+              null
+            ],
+            "P_reference_version": "P_WORKING_REFERENCE_READOUT_R1"
+          },
+          {
+            "step": 5,
+            "action": "DD",
+            "shared_alpha": 1,
+            "branch_status": [
+              "ACTUAL_D_OBSERVED_BY_P0_OWNER",
+              "ACTUAL_D_OBSERVED_BY_P0_OWNER"
+            ],
+            "working_source_kind": [
+              "D",
+              "D"
+            ],
+            "past_D_steps": [
+              [
+                4,
+                5
+              ],
+              [
+                4,
+                5
+              ]
+            ],
+            "extra_heads": 0,
+            "extra_deep_blocks": 0,
+            "teacher_calls": 0,
+            "post_RF_fusion": true,
+            "C_or_P_observation_updates_D_anchor": false,
+            "P_reference": [
+              null,
+              null
+            ],
+            "P_reference_version": "P_WORKING_REFERENCE_READOUT_R1"
+          },
+          {
+            "step": 6,
+            "action": "DD",
+            "shared_alpha": 1,
+            "branch_status": [
+              "ACTUAL_D_OBSERVED_BY_P0_OWNER",
+              "ACTUAL_D_OBSERVED_BY_P0_OWNER"
+            ],
+            "working_source_kind": [
+              "D",
+              "D"
+            ],
+            "past_D_steps": [
+              [
+                5,
+                6
+              ],
+              [
+                5,
+                6
+              ]
+            ],
+            "extra_heads": 0,
+            "extra_deep_blocks": 0,
+            "teacher_calls": 0,
+            "post_RF_fusion": true,
+            "C_or_P_observation_updates_D_anchor": false,
+            "P_reference": [
+              null,
+              null
+            ],
+            "P_reference_version": "P_WORKING_REFERENCE_READOUT_R1"
+          },
+          {
+            "step": 7,
+            "action": "DD",
+            "shared_alpha": 1,
+            "branch_status": [
+              "ACTUAL_D_OBSERVED_BY_P0_OWNER",
+              "ACTUAL_D_OBSERVED_BY_P0_OWNER"
+            ],
+            "working_source_kind": [
+              "D",
+              "D"
+            ],
+            "past_D_steps": [
+              [
+                6,
+                7
+              ],
+              [
+                6,
+                7
+              ]
+            ],
+            "extra_heads": 0,
+            "extra_deep_blocks": 0,
+            "teacher_calls": 0,
+            "post_RF_fusion": true,
+            "C_or_P_observation_updates_D_anchor": false,
+            "P_reference": [
+              null,
+              null
+            ],
+            "P_reference_version": "P_WORKING_REFERENCE_READOUT_R1"
+          },
+          {
+            "step": 8,
+            "action": "CC",
+            "shared_alpha": 1,
+            "branch_status": [
+              "BETA1",
+              "BETA1"
+            ],
+            "working_source_kind": [
+              "D",
+              "D"
+            ],
+            "past_D_steps": [
+              [
+                6,
+                7
+              ],
+              [
+                6,
+                7
+              ]
+            ],
+            "extra_heads": 2,
+            "extra_deep_blocks": 0,
+            "teacher_calls": 0,
+            "post_RF_fusion": true,
+            "C_or_P_observation_updates_D_anchor": false,
+            "P_reference": [
+              null,
+              null
+            ],
+            "P_reference_version": "P_WORKING_REFERENCE_READOUT_R1"
+          },
+          {
+            "step": 9,
+            "action": "CC",
+            "shared_alpha": 1,
+            "branch_status": [
+              "BETA1",
+              "BETA1"
+            ],
+            "working_source_kind": [
+              "D",
+              "D"
+            ],
+            "past_D_steps": [
+              [
+                6,
+                7
+              ],
+              [
+                6,
+                7
+              ]
+            ],
+            "extra_heads": 2,
+            "extra_deep_blocks": 0,
+            "teacher_calls": 0,
+            "post_RF_fusion": true,
+            "C_or_P_observation_updates_D_anchor": false,
+            "P_reference": [
+              null,
+              null
+            ],
+            "P_reference_version": "P_WORKING_REFERENCE_READOUT_R1"
+          },
+          {
+            "step": 10,
+            "action": "CC",
+            "shared_alpha": 1,
+            "branch_status": [
+              "BETA1",
+              "BETA1"
+            ],
+            "working_source_kind": [
+              "D",
+              "D"
+            ],
+            "past_D_steps": [
+              [
+                6,
+                7
+              ],
+              [
+                6,
+                7
+              ]
+            ],
+            "extra_heads": 2,
+            "extra_deep_blocks": 0,
+            "teacher_calls": 0,
+            "post_RF_fusion": true,
+            "C_or_P_observation_updates_D_anchor": false,
+            "P_reference": [
+              null,
+              null
+            ],
+            "P_reference_version": "P_WORKING_REFERENCE_READOUT_R1"
+          },
+          {
+            "step": 11,
+            "action": "CC",
+            "shared_alpha": 1,
+            "branch_status": [
+              "BETA1",
+              "BETA1"
+            ],
+            "working_source_kind": [
+              "D",
+              "D"
+            ],
+            "past_D_steps": [
+              [
+                6,
+                7
+              ],
+              [
+                6,
+                7
+              ]
+            ],
+            "extra_heads": 2,
+            "extra_deep_blocks": 0,
+            "teacher_calls": 0,
+            "post_RF_fusion": true,
+            "C_or_P_observation_updates_D_anchor": false,
+            "P_reference": [
+              null,
+              null
+            ],
+            "P_reference_version": "P_WORKING_REFERENCE_READOUT_R1"
+          },
+          {
+            "step": 12,
+            "action": "CC",
+            "shared_alpha": 1,
+            "branch_status": [
+              "BETA1",
+              "BETA1"
+            ],
+            "working_source_kind": [
+              "D",
+              "D"
+            ],
+            "past_D_steps": [
+              [
+                6,
+                7
+              ],
+              [
+                6,
+                7
+              ]
+            ],
+            "extra_heads": 2,
+            "extra_deep_blocks": 0,
+            "teacher_calls": 0,
+            "post_RF_fusion": true,
+            "C_or_P_observation_updates_D_anchor": false,
+            "P_reference": [
+              null,
+              null
+            ],
+            "P_reference_version": "P_WORKING_REFERENCE_READOUT_R1"
+          },
+          {
+            "step": 13,
+            "action": "PP",
+            "shared_alpha": 1,
+            "branch_status": [
+              "P_NOT_ACTUAL_D",
+              "P_NOT_ACTUAL_D"
+            ],
+            "working_source_kind": [
+              "P",
+              "P"
+            ],
+            "past_D_steps": [
+              [
+                6,
+                7
+              ],
+              [
+                6,
+                7
+              ]
+            ],
+            "extra_heads": 0,
+            "extra_deep_blocks": 0,
+            "teacher_calls": 0,
+            "post_RF_fusion": true,
+            "C_or_P_observation_updates_D_anchor": false,
+            "P_reference": [
+              null,
+              null
+            ],
+            "P_reference_version": "P_WORKING_REFERENCE_READOUT_R1"
+          },
+          {
+            "step": 14,
+            "action": "CC",
+            "shared_alpha": 1,
+            "branch_status": [
+              "BETA1",
+              "BETA1"
+            ],
+            "working_source_kind": [
+              "P",
+              "P"
+            ],
+            "past_D_steps": [
+              [
+                6,
+                7
+              ],
+              [
+                6,
+                7
+              ]
+            ],
+            "extra_heads": 2,
+            "extra_deep_blocks": 0,
+            "teacher_calls": 0,
+            "post_RF_fusion": true,
+            "C_or_P_observation_updates_D_anchor": false,
+            "P_reference": [
+              null,
+              null
+            ],
+            "P_reference_version": "P_WORKING_REFERENCE_READOUT_R1"
+          },
+          {
+            "step": 15,
+            "action": "CC",
+            "shared_alpha": 1,
+            "branch_status": [
+              "BETA1",
+              "BETA1"
+            ],
+            "working_source_kind": [
+              "P",
+              "P"
+            ],
+            "past_D_steps": [
+              [
+                6,
+                7
+              ],
+              [
+                6,
+                7
+              ]
+            ],
+            "extra_heads": 2,
+            "extra_deep_blocks": 0,
+            "teacher_calls": 0,
+            "post_RF_fusion": true,
+            "C_or_P_observation_updates_D_anchor": false,
+            "P_reference": [
+              null,
+              null
+            ],
+            "P_reference_version": "P_WORKING_REFERENCE_READOUT_R1"
+          },
+          {
+            "step": 16,
+            "action": "PP",
+            "shared_alpha": 1,
+            "branch_status": [
+              "P_NOT_ACTUAL_D",
+              "P_NOT_ACTUAL_D"
+            ],
+            "working_source_kind": [
+              "P",
+              "P"
+            ],
+            "past_D_steps": [
+              [
+                6,
+                7
+              ],
+              [
+                6,
+                7
+              ]
+            ],
+            "extra_heads": 0,
+            "extra_deep_blocks": 0,
+            "teacher_calls": 0,
+            "post_RF_fusion": true,
+            "C_or_P_observation_updates_D_anchor": false,
+            "P_reference": [
+              null,
+              null
+            ],
+            "P_reference_version": "P_WORKING_REFERENCE_READOUT_R1"
+          },
+          {
+            "step": 17,
+            "action": "CC",
+            "shared_alpha": 1,
+            "branch_status": [
+              "BETA1",
+              "BETA1"
+            ],
+            "working_source_kind": [
+              "P",
+              "P"
+            ],
+            "past_D_steps": [
+              [
+                6,
+                7
+              ],
+              [
+                6,
+                7
+              ]
+            ],
+            "extra_heads": 2,
+            "extra_deep_blocks": 0,
+            "teacher_calls": 0,
+            "post_RF_fusion": true,
+            "C_or_P_observation_updates_D_anchor": false,
+            "P_reference": [
+              null,
+              null
+            ],
+            "P_reference_version": "P_WORKING_REFERENCE_READOUT_R1"
+          },
+          {
+            "step": 18,
+            "action": "CC",
+            "shared_alpha": 1,
+            "branch_status": [
+              "BETA1",
+              "BETA1"
+            ],
+            "working_source_kind": [
+              "P",
+              "P"
+            ],
+            "past_D_steps": [
+              [
+                6,
+                7
+              ],
+              [
+                6,
+                7
+              ]
+            ],
+            "extra_heads": 2,
+            "extra_deep_blocks": 0,
+            "teacher_calls": 0,
+            "post_RF_fusion": true,
+            "C_or_P_observation_updates_D_anchor": false,
+            "P_reference": [
+              null,
+              null
+            ],
+            "P_reference_version": "P_WORKING_REFERENCE_READOUT_R1"
+          },
+          {
+            "step": 19,
+            "action": "PP",
+            "shared_alpha": 1,
+            "branch_status": [
+              "P_NOT_ACTUAL_D",
+              "P_NOT_ACTUAL_D"
+            ],
+            "working_source_kind": [
+              "P",
+              "P"
+            ],
+            "past_D_steps": [
+              [
+                6,
+                7
+              ],
+              [
+                6,
+                7
+              ]
+            ],
+            "extra_heads": 0,
+            "extra_deep_blocks": 0,
+            "teacher_calls": 0,
+            "post_RF_fusion": true,
+            "C_or_P_observation_updates_D_anchor": false,
+            "P_reference": [
+              null,
+              null
+            ],
+            "P_reference_version": "P_WORKING_REFERENCE_READOUT_R1"
+          },
+          {
+            "step": 20,
+            "action": "CC",
+            "shared_alpha": 1,
+            "branch_status": [
+              "BETA1",
+              "BETA1"
+            ],
+            "working_source_kind": [
+              "P",
+              "P"
+            ],
+            "past_D_steps": [
+              [
+                6,
+                7
+              ],
+              [
+                6,
+                7
+              ]
+            ],
+            "extra_heads": 2,
+            "extra_deep_blocks": 0,
+            "teacher_calls": 0,
+            "post_RF_fusion": true,
+            "C_or_P_observation_updates_D_anchor": false,
+            "P_reference": [
+              null,
+              null
+            ],
+            "P_reference_version": "P_WORKING_REFERENCE_READOUT_R1"
+          },
+          {
+            "step": 21,
+            "action": "CC",
+            "shared_alpha": 1,
+            "branch_status": [
+              "BETA1",
+              "BETA1"
+            ],
+            "working_source_kind": [
+              "P",
+              "P"
+            ],
+            "past_D_steps": [
+              [
+                6,
+                7
+              ],
+              [
+                6,
+                7
+              ]
+            ],
+            "extra_heads": 2,
+            "extra_deep_blocks": 0,
+            "teacher_calls": 0,
+            "post_RF_fusion": true,
+            "C_or_P_observation_updates_D_anchor": false,
+            "P_reference": [
+              null,
+              null
+            ],
+            "P_reference_version": "P_WORKING_REFERENCE_READOUT_R1"
+          },
+          {
+            "step": 22,
+            "action": "DD",
+            "shared_alpha": 1,
+            "branch_status": [
+              "ACTUAL_D_OBSERVED_BY_P0_OWNER",
+              "ACTUAL_D_OBSERVED_BY_P0_OWNER"
+            ],
+            "working_source_kind": [
+              "D",
+              "D"
+            ],
+            "past_D_steps": [
+              [
+                7,
+                22
+              ],
+              [
+                7,
+                22
+              ]
+            ],
+            "extra_heads": 0,
+            "extra_deep_blocks": 0,
+            "teacher_calls": 0,
+            "post_RF_fusion": true,
+            "C_or_P_observation_updates_D_anchor": false,
+            "P_reference": [
+              null,
+              null
+            ],
+            "P_reference_version": "P_WORKING_REFERENCE_READOUT_R1"
+          },
+          {
+            "step": 23,
+            "action": "CC",
+            "shared_alpha": 1,
+            "branch_status": [
+              "BETA1",
+              "BETA1"
+            ],
+            "working_source_kind": [
+              "D",
+              "D"
+            ],
+            "past_D_steps": [
+              [
+                7,
+                22
+              ],
+              [
+                7,
+                22
+              ]
+            ],
+            "extra_heads": 2,
+            "extra_deep_blocks": 0,
+            "teacher_calls": 0,
+            "post_RF_fusion": true,
+            "C_or_P_observation_updates_D_anchor": false,
+            "P_reference": [
+              null,
+              null
+            ],
+            "P_reference_version": "P_WORKING_REFERENCE_READOUT_R1"
+          },
+          {
+            "step": 24,
+            "action": "CC",
+            "shared_alpha": 1,
+            "branch_status": [
+              "BETA1",
+              "BETA1"
+            ],
+            "working_source_kind": [
+              "D",
+              "D"
+            ],
+            "past_D_steps": [
+              [
+                7,
+                22
+              ],
+              [
+                7,
+                22
+              ]
+            ],
+            "extra_heads": 2,
+            "extra_deep_blocks": 0,
+            "teacher_calls": 0,
+            "post_RF_fusion": true,
+            "C_or_P_observation_updates_D_anchor": false,
+            "P_reference": [
+              null,
+              null
+            ],
+            "P_reference_version": "P_WORKING_REFERENCE_READOUT_R1"
+          },
+          {
+            "step": 25,
+            "action": "DD",
+            "shared_alpha": 0.5,
+            "branch_status": [
+              "ACTUAL_D_OBSERVED_BY_P0_OWNER",
+              "ACTUAL_D_OBSERVED_BY_P0_OWNER"
+            ],
+            "working_source_kind": [
+              "D",
+              "D"
+            ],
+            "past_D_steps": [
+              [
+                22,
+                25
+              ],
+              [
+                22,
+                25
+              ]
+            ],
+            "extra_heads": 0,
+            "extra_deep_blocks": 0,
+            "teacher_calls": 0,
+            "post_RF_fusion": true,
+            "C_or_P_observation_updates_D_anchor": false,
+            "P_reference": [
+              null,
+              null
+            ],
+            "P_reference_version": "P_WORKING_REFERENCE_READOUT_R1"
+          },
+          {
+            "step": 26,
+            "action": "CC",
+            "shared_alpha": 0.5,
+            "branch_status": [
+              "BETA1",
+              "BETA1"
+            ],
+            "working_source_kind": [
+              "D",
+              "D"
+            ],
+            "past_D_steps": [
+              [
+                22,
+                25
+              ],
+              [
+                22,
+                25
+              ]
+            ],
+            "extra_heads": 2,
+            "extra_deep_blocks": 0,
+            "teacher_calls": 0,
+            "post_RF_fusion": true,
+            "C_or_P_observation_updates_D_anchor": false,
+            "P_reference": [
+              null,
+              null
+            ],
+            "P_reference_version": "P_WORKING_REFERENCE_READOUT_R1"
+          },
+          {
+            "step": 27,
+            "action": "CC",
+            "shared_alpha": 0.5,
+            "branch_status": [
+              "BETA1",
+              "BETA1"
+            ],
+            "working_source_kind": [
+              "D",
+              "D"
+            ],
+            "past_D_steps": [
+              [
+                22,
+                25
+              ],
+              [
+                22,
+                25
+              ]
+            ],
+            "extra_heads": 2,
+            "extra_deep_blocks": 0,
+            "teacher_calls": 0,
+            "post_RF_fusion": true,
+            "C_or_P_observation_updates_D_anchor": false,
+            "P_reference": [
+              null,
+              null
+            ],
+            "P_reference_version": "P_WORKING_REFERENCE_READOUT_R1"
+          },
+          {
+            "step": 28,
+            "action": "DD",
+            "shared_alpha": 0.5,
+            "branch_status": [
+              "ACTUAL_D_OBSERVED_BY_P0_OWNER",
+              "ACTUAL_D_OBSERVED_BY_P0_OWNER"
+            ],
+            "working_source_kind": [
+              "D",
+              "D"
+            ],
+            "past_D_steps": [
+              [
+                25,
+                28
+              ],
+              [
+                25,
+                28
+              ]
+            ],
+            "extra_heads": 0,
+            "extra_deep_blocks": 0,
+            "teacher_calls": 0,
+            "post_RF_fusion": true,
+            "C_or_P_observation_updates_D_anchor": false,
+            "P_reference": [
+              null,
+              null
+            ],
+            "P_reference_version": "P_WORKING_REFERENCE_READOUT_R1"
+          },
+          {
+            "step": 29,
+            "action": "CC",
+            "shared_alpha": 0.5,
+            "branch_status": [
+              "BETA1",
+              "BETA1"
+            ],
+            "working_source_kind": [
+              "D",
+              "D"
+            ],
+            "past_D_steps": [
+              [
+                25,
+                28
+              ],
+              [
+                25,
+                28
+              ]
+            ],
+            "extra_heads": 2,
+            "extra_deep_blocks": 0,
+            "teacher_calls": 0,
+            "post_RF_fusion": true,
+            "C_or_P_observation_updates_D_anchor": false,
+            "P_reference": [
+              null,
+              null
+            ],
+            "P_reference_version": "P_WORKING_REFERENCE_READOUT_R1"
+          },
+          {
+            "step": 30,
+            "action": "CC",
+            "shared_alpha": 0.5,
+            "branch_status": [
+              "BETA1",
+              "BETA1"
+            ],
+            "working_source_kind": [
+              "D",
+              "D"
+            ],
+            "past_D_steps": [
+              [
+                25,
+                28
+              ],
+              [
+                25,
+                28
+              ]
+            ],
+            "extra_heads": 2,
+            "extra_deep_blocks": 0,
+            "teacher_calls": 0,
+            "post_RF_fusion": true,
+            "C_or_P_observation_updates_D_anchor": false,
+            "P_reference": [
+              null,
+              null
+            ],
+            "P_reference_version": "P_WORKING_REFERENCE_READOUT_R1"
+          },
+          {
+            "step": 31,
+            "action": "CC",
+            "shared_alpha": 0.5,
+            "branch_status": [
+              "BETA1",
+              "BETA1"
+            ],
+            "working_source_kind": [
+              "D",
+              "D"
+            ],
+            "past_D_steps": [
+              [
+                25,
+                28
+              ],
+              [
+                25,
+                28
+              ]
+            ],
+            "extra_heads": 2,
+            "extra_deep_blocks": 0,
+            "teacher_calls": 0,
+            "post_RF_fusion": true,
+            "C_or_P_observation_updates_D_anchor": false,
+            "P_reference": [
+              null,
+              null
+            ],
+            "P_reference_version": "P_WORKING_REFERENCE_READOUT_R1"
+          },
+          {
+            "step": 32,
+            "action": "PP",
+            "shared_alpha": 0.5,
+            "branch_status": [
+              "P_NOT_ACTUAL_D",
+              "P_NOT_ACTUAL_D"
+            ],
+            "working_source_kind": [
+              "P",
+              "P"
+            ],
+            "past_D_steps": [
+              [
+                25,
+                28
+              ],
+              [
+                25,
+                28
+              ]
+            ],
+            "extra_heads": 0,
+            "extra_deep_blocks": 0,
+            "teacher_calls": 0,
+            "post_RF_fusion": true,
+            "C_or_P_observation_updates_D_anchor": false,
+            "P_reference": [
+              null,
+              null
+            ],
+            "P_reference_version": "P_WORKING_REFERENCE_READOUT_R1"
+          },
+          {
+            "step": 33,
+            "action": "CC",
+            "shared_alpha": 0.5,
+            "branch_status": [
+              "BETA1",
+              "BETA1"
+            ],
+            "working_source_kind": [
+              "P",
+              "P"
+            ],
+            "past_D_steps": [
+              [
+                25,
+                28
+              ],
+              [
+                25,
+                28
+              ]
+            ],
+            "extra_heads": 2,
+            "extra_deep_blocks": 0,
+            "teacher_calls": 0,
+            "post_RF_fusion": true,
+            "C_or_P_observation_updates_D_anchor": false,
+            "P_reference": [
+              null,
+              null
+            ],
+            "P_reference_version": "P_WORKING_REFERENCE_READOUT_R1"
+          },
+          {
+            "step": 34,
+            "action": "CC",
+            "shared_alpha": 0.5,
+            "branch_status": [
+              "BETA1",
+              "BETA1"
+            ],
+            "working_source_kind": [
+              "P",
+              "P"
+            ],
+            "past_D_steps": [
+              [
+                25,
+                28
+              ],
+              [
+                25,
+                28
+              ]
+            ],
+            "extra_heads": 2,
+            "extra_deep_blocks": 0,
+            "teacher_calls": 0,
+            "post_RF_fusion": true,
+            "C_or_P_observation_updates_D_anchor": false,
+            "P_reference": [
+              null,
+              null
+            ],
+            "P_reference_version": "P_WORKING_REFERENCE_READOUT_R1"
+          },
+          {
+            "step": 35,
+            "action": "CC",
+            "shared_alpha": 0.5,
+            "branch_status": [
+              "BETA1",
+              "BETA1"
+            ],
+            "working_source_kind": [
+              "P",
+              "P"
+            ],
+            "past_D_steps": [
+              [
+                25,
+                28
+              ],
+              [
+                25,
+                28
+              ]
+            ],
+            "extra_heads": 2,
+            "extra_deep_blocks": 0,
+            "teacher_calls": 0,
+            "post_RF_fusion": true,
+            "C_or_P_observation_updates_D_anchor": false,
+            "P_reference": [
+              null,
+              null
+            ],
+            "P_reference_version": "P_WORKING_REFERENCE_READOUT_R1"
+          },
+          {
+            "step": 36,
+            "action": "DD",
+            "shared_alpha": 0.5,
+            "branch_status": [
+              "ACTUAL_D_OBSERVED_BY_P0_OWNER",
+              "ACTUAL_D_OBSERVED_BY_P0_OWNER"
+            ],
+            "working_source_kind": [
+              "D",
+              "D"
+            ],
+            "past_D_steps": [
+              [
+                36
+              ],
+              [
+                36
+              ]
+            ],
+            "extra_heads": 0,
+            "extra_deep_blocks": 0,
+            "teacher_calls": 0,
+            "post_RF_fusion": true,
+            "C_or_P_observation_updates_D_anchor": false,
+            "P_reference": [
+              null,
+              null
+            ],
+            "P_reference_version": "P_WORKING_REFERENCE_READOUT_R1"
+          }
+        ],
+        "scheduler_timesteps": [
+          995,
+          994,
+          993,
+          992,
+          990,
+          988,
+          986,
+          984,
+          981,
+          977,
+          973,
+          967,
+          960,
+          951,
+          941,
+          927,
+          910,
+          889,
+          863,
+          831,
+          791,
+          742,
+          684,
+          618,
+          543,
+          462,
+          380,
+          301,
+          228,
+          166,
+          116,
+          77,
+          49,
+          30,
+          17,
+          9
+        ],
+        "video_write_seconds": 6.721505739726126,
+        "video_path": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-math-n1-natural-unit-r1/3/parent/av_51b45829-502e-4143-9c32-c026bd6ab191.mp4",
+        "write_deferred_after_main_timer": true,
+        "method_cleanup_seconds": 0.002728295512497425,
+        "executed_strategy": "WORKING_P_AGE_NONZERO_REBASE",
+        "diagnostic_points": [
+          {
+            "point": {
+              "scene": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+              "step": 8,
+              "source": "D",
+              "working_created_step": 7,
+              "working_age": 1,
+              "true_D_reference_step": 7,
+              "true_D_history": [
+                [
+                  6,
+                  7
+                ],
+                [
+                  6,
+                  7
+                ]
+              ],
+              "D_reference_age_gap": 0,
+              "shared_alpha": 1,
+              "risk_query_anchor": 7,
+              "risk_local_proxy": 0.061131241598781104,
+              "risk_gain": 0.22652744535783098,
+              "risk_source_floor": 0.0,
+              "risk_added": 0.01384790399092425,
+              "readout_reference": "LAST_TRUE_D_UNIT_INCREMENT",
+              "actual_sigma_interval": "MISSING_IN_METADATA_CAPTURE_AT_RUNTIME_DIAGNOSTIC",
+              "runtime_snapshot": "NOT_SERIALIZED_CHECKPOINT_HASHES_ONLY",
+              "role": "TRUE_D_SOURCE_REFERENCE_CONTROL"
+            },
+            "step": 8,
+            "sigma_index": 7,
+            "sigma": 0.9844666123390198,
+            "input_sha256": "1ac0e45ade2b644e0d82b4531e7e1508dda87dedaca97e47d15dedee937f4a88",
+            "true_D_state_sha256": "7df8b842162694cd4e57a93e07816edf0e571f3c9e112f1b5abbe260832ae7bd",
+            "source_state_sha256": "6c9bfe61685b795af5acb88612ed29f1120811a1e17dbfd4612285e15e092cf2",
+            "teacher_seconds": 6.755272977054119,
+            "teacher_head_calls": 2,
+            "candidate_records": [
+              {
+                "variant": "OFFICIAL_C",
+                "full_pair_seconds": 0.6823997888714075,
+                "actual_head_calls": 2,
+                "A_readout": {
+                  "step": 8,
+                  "action": "CC",
+                  "shared_alpha": 0,
+                  "branch_status": [
+                    "OFF",
+                    "OFF"
+                  ],
+                  "working_source_kind": [
+                    "D",
+                    "D"
+                  ],
+                  "past_D_steps": [
+                    [],
+                    []
+                  ],
+                  "extra_heads": 0,
+                  "extra_deep_blocks": 0,
+                  "teacher_calls": 0,
+                  "post_RF_fusion": true,
+                  "C_or_P_observation_updates_D_anchor": false,
+                  "P_reference": [
+                    null,
+                    null
+                  ],
+                  "P_reference_version": "P_WORKING_REFERENCE_READOUT_R1"
+                }
+              },
+              {
+                "variant": "P_REFERENCE_UNIT",
+                "full_pair_seconds": 0.8477157829329371,
+                "actual_head_calls": 4,
+                "A_readout": {
+                  "step": 8,
+                  "action": "CC",
+                  "shared_alpha": 1,
+                  "branch_status": [
+                    "BETA1",
+                    "BETA1"
+                  ],
+                  "working_source_kind": [
+                    "D",
+                    "D"
+                  ],
+                  "past_D_steps": [
+                    [
+                      6,
+                      7
+                    ],
+                    [
+                      6,
+                      7
+                    ]
+                  ],
+                  "extra_heads": 2,
+                  "extra_deep_blocks": 0,
+                  "teacher_calls": 0,
+                  "post_RF_fusion": true,
+                  "C_or_P_observation_updates_D_anchor": false,
+                  "P_reference": [
+                    null,
+                    null
+                  ],
+                  "P_reference_version": "P_WORKING_REFERENCE_READOUT_R1"
+                }
+              },
+              {
+                "variant": "D_REFERENCE_UNIT",
+                "full_pair_seconds": 0.8454943401739001,
+                "actual_head_calls": 4,
+                "A_readout": {
+                  "step": 8,
+                  "action": "CC",
+                  "shared_alpha": 1,
+                  "branch_status": [
+                    "BETA1",
+                    "BETA1"
+                  ],
+                  "working_source_kind": [
+                    "D",
+                    "D"
+                  ],
+                  "past_D_steps": [
+                    [
+                      6,
+                      7
+                    ],
+                    [
+                      6,
+                      7
+                    ]
+                  ],
+                  "extra_heads": 2,
+                  "extra_deep_blocks": 0,
+                  "teacher_calls": 0,
+                  "post_RF_fusion": true,
+                  "C_or_P_observation_updates_D_anchor": false,
+                  "P_reference": [
+                    null,
+                    null
+                  ],
+                  "P_reference_version": "P_WORKING_REFERENCE_READOUT_R1"
+                }
+              }
+            ],
+            "fusion_arithmetic_CPU_seconds": 0.049734761007130146,
+            "artifact": {
+              "path": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-math-n1-natural-unit-r1/3/point-8.pt",
+              "sha256": "e8cd8b3a56645cbc4640ae1cd56285b455d5401b3be5b3b70a19a63584f9f0a1",
+              "bytes": 87592959,
+              "tensor_sha256": "834487d4ef1642e5c59fc99f40af7dda53bb4b27506f344edd186218f1af9ebe"
+            },
+            "serial_restores": [
+              [
+                {
+                  "next_copy_GPU_bytes": 2828989094,
+                  "workspace_reserve_bytes": 8589934592,
+                  "required_free_GPU_bytes": 11418923686,
+                  "stage": "physical_restore",
+                  "original_pre_snapshot_two_copy_gate_unchanged": true,
+                  "saved_CPU_owned_image_additional_GPU_residency_bytes": 0,
+                  "actual_observation": {
+                    "free_bytes": 29346103296,
+                    "total_bytes": 50908823552,
+                    "allocated_bytes": 14964684800,
+                    "reserved_bytes": 21126709248,
+                    "max_allocated_bytes": 18199162368,
+                    "max_reserved_bytes": 21126709248
+                  },
+                  "GPU_measurement": true
+                },
+                {
+                  "next_copy_GPU_bytes": 2039675904,
+                  "workspace_reserve_bytes": 8589934592,
+                  "required_free_GPU_bytes": 10629610496,
+                  "stage": "owned_restore",
+                  "original_pre_snapshot_two_copy_gate_unchanged": true,
+                  "saved_CPU_owned_image_additional_GPU_residency_bytes": 0,
+                  "actual_observation": {
+                    "free_bytes": 29346103296,
+                    "total_bytes": 50908823552,
+                    "allocated_bytes": 14971697664,
+                    "reserved_bytes": 21126709248,
+                    "max_allocated_bytes": 18199162368,
+                    "max_reserved_bytes": 21126709248
+                  },
+                  "GPU_measurement": true
+                }
+              ],
+              [
+                {
+                  "next_copy_GPU_bytes": 2828989094,
+                  "workspace_reserve_bytes": 8589934592,
+                  "required_free_GPU_bytes": 11418923686,
+                  "stage": "physical_restore",
+                  "original_pre_snapshot_two_copy_gate_unchanged": true,
+                  "saved_CPU_owned_image_additional_GPU_residency_bytes": 0,
+                  "actual_observation": {
+                    "free_bytes": 29346103296,
+                    "total_bytes": 50908823552,
+                    "allocated_bytes": 14979857920,
+                    "reserved_bytes": 21126709248,
+                    "max_allocated_bytes": 18199162368,
+                    "max_reserved_bytes": 21126709248
+                  },
+                  "GPU_measurement": true
+                },
+                {
+                  "next_copy_GPU_bytes": 2039675904,
+                  "workspace_reserve_bytes": 8589934592,
+                  "required_free_GPU_bytes": 10629610496,
+                  "stage": "owned_restore",
+                  "original_pre_snapshot_two_copy_gate_unchanged": true,
+                  "saved_CPU_owned_image_additional_GPU_residency_bytes": 0,
+                  "actual_observation": {
+                    "free_bytes": 29346103296,
+                    "total_bytes": 50908823552,
+                    "allocated_bytes": 14987819520,
+                    "reserved_bytes": 21126709248,
+                    "max_allocated_bytes": 18199162368,
+                    "max_reserved_bytes": 21126709248
+                  },
+                  "GPU_measurement": true
+                }
+              ],
+              [
+                {
+                  "next_copy_GPU_bytes": 2828989094,
+                  "workspace_reserve_bytes": 8589934592,
+                  "required_free_GPU_bytes": 11418923686,
+                  "stage": "physical_restore",
+                  "original_pre_snapshot_two_copy_gate_unchanged": true,
+                  "saved_CPU_owned_image_additional_GPU_residency_bytes": 0,
+                  "actual_observation": {
+                    "free_bytes": 29346103296,
+                    "total_bytes": 50908823552,
+                    "allocated_bytes": 14979857920,
+                    "reserved_bytes": 21126709248,
+                    "max_allocated_bytes": 18879010816,
+                    "max_reserved_bytes": 21126709248
+                  },
+                  "GPU_measurement": true
+                },
+                {
+                  "next_copy_GPU_bytes": 2039675904,
+                  "workspace_reserve_bytes": 8589934592,
+                  "required_free_GPU_bytes": 10629610496,
+                  "stage": "owned_restore",
+                  "original_pre_snapshot_two_copy_gate_unchanged": true,
+                  "saved_CPU_owned_image_additional_GPU_residency_bytes": 0,
+                  "actual_observation": {
+                    "free_bytes": 29346103296,
+                    "total_bytes": 50908823552,
+                    "allocated_bytes": 14987622912,
+                    "reserved_bytes": 21126709248,
+                    "max_allocated_bytes": 18879010816,
+                    "max_reserved_bytes": 21126709248
+                  },
+                  "GPU_measurement": true
+                }
+              ]
+            ],
+            "complete_gate": {
+              "logical_tensor_copy_bytes": 2828989242,
+              "GPU_logical_copy_bytes": 2828989094,
+              "GPU_free_bytes": 29348200448,
+              "required_GPU_headroom_bytes": 14247912780,
+              "transient_copy_factor": 2,
+              "workspace_reserve_bytes": 8589934592,
+              "scope": "CAPTURE_ADMISSION_NOT_TOTAL_PEAK_OR_COMPLETE_COST_BOUND"
+            },
+            "deployed_variant": "D_REFERENCE_UNIT",
+            "teacher_committed_to_parent": false,
+            "guided_moments": {
+              "OFFICIAL_C": {
+                "scene": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+                "state": "MATH_N1_NATURAL_NONZERO_UNIT_READOUT_R1:8:OFFICIAL_C",
+                "base_guided_MSE": 1.4663128426414953,
+                "guided_error_update_mean_dot": 0.0,
+                "guided_update_mean_square": 0.0,
+                "diagnostics": {
+                  "original_branch_MSE": [
+                    0.018017174778044577,
+                    0.06276752337433386
+                  ],
+                  "proposed_branch_MSE": [
+                    0.018017174778044577,
+                    0.06276752337433386
+                  ],
+                  "velocity_shape": [
+                    1,
+                    16,
+                    24,
+                    54,
+                    96
+                  ],
+                  "actual_CFG_coefficients": [
+                    8,
+                    -7
+                  ],
+                  "reduction_dtype": "torch.float64",
+                  "supplied_tensors_are_same_state_teacher_proven": false
+                }
+              },
+              "P_REFERENCE_UNIT": {
+                "scene": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+                "state": "MATH_N1_NATURAL_NONZERO_UNIT_READOUT_R1:8:P_REFERENCE_UNIT",
+                "base_guided_MSE": 2.0738874558457057,
+                "guided_error_update_mean_dot": 0.0,
+                "guided_update_mean_square": 0.0,
+                "diagnostics": {
+                  "original_branch_MSE": [
+                    0.02074275500937168,
+                    0.08964669557177395
+                  ],
+                  "proposed_branch_MSE": [
+                    0.02074275500937168,
+                    0.08964669557177395
+                  ],
+                  "velocity_shape": [
+                    1,
+                    16,
+                    24,
+                    54,
+                    96
+                  ],
+                  "actual_CFG_coefficients": [
+                    8,
+                    -7
+                  ],
+                  "reduction_dtype": "torch.float64",
+                  "supplied_tensors_are_same_state_teacher_proven": false
+                }
+              },
+              "D_REFERENCE_UNIT": {
+                "scene": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+                "state": "MATH_N1_NATURAL_NONZERO_UNIT_READOUT_R1:8:D_REFERENCE_UNIT",
+                "base_guided_MSE": 2.0738874558457057,
+                "guided_error_update_mean_dot": 0.0,
+                "guided_update_mean_square": 0.0,
+                "diagnostics": {
+                  "original_branch_MSE": [
+                    0.02074275500937168,
+                    0.08964669557177395
+                  ],
+                  "proposed_branch_MSE": [
+                    0.02074275500937168,
+                    0.08964669557177395
+                  ],
+                  "velocity_shape": [
+                    1,
+                    16,
+                    24,
+                    54,
+                    96
+                  ],
+                  "actual_CFG_coefficients": [
+                    8,
+                    -7
+                  ],
+                  "reduction_dtype": "torch.float64",
+                  "supplied_tensors_are_same_state_teacher_proven": false
+                }
+              },
+              "FUSION_HALF_UNIT": {
+                "scene": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+                "state": "MATH_N1_NATURAL_NONZERO_UNIT_READOUT_R1:8:FUSION_HALF_UNIT",
+                "base_guided_MSE": 2.0738874558457057,
+                "guided_error_update_mean_dot": 0.0,
+                "guided_update_mean_square": 0.0,
+                "diagnostics": {
+                  "original_branch_MSE": [
+                    0.02074275500937168,
+                    0.08964669557177395
+                  ],
+                  "proposed_branch_MSE": [
+                    0.02074275500937168,
+                    0.08964669557177395
+                  ],
+                  "velocity_shape": [
+                    1,
+                    16,
+                    24,
+                    54,
+                    96
+                  ],
+                  "actual_CFG_coefficients": [
+                    8,
+                    -7
+                  ],
+                  "reduction_dtype": "torch.float64",
+                  "supplied_tensors_are_same_state_teacher_proven": false
+                }
+              }
+            }
+          },
+          {
+            "point": {
+              "scene": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+              "step": 14,
+              "source": "P",
+              "working_created_step": 13,
+              "working_age": 1,
+              "true_D_reference_step": 7,
+              "true_D_history": [
+                [
+                  6,
+                  7
+                ],
+                [
+                  6,
+                  7
+                ]
+              ],
+              "D_reference_age_gap": 6,
+              "shared_alpha": 1,
+              "risk_query_anchor": 13,
+              "risk_local_proxy": 0.07786913237847658,
+              "risk_gain": 0.2200452817780885,
+              "risk_source_floor": 0.01967132867152968,
+              "risk_added": 0.021463318236513294,
+              "readout_reference": "LAST_TRUE_D_UNIT_INCREMENT",
+              "actual_sigma_interval": "MISSING_IN_METADATA_CAPTURE_AT_RUNTIME_DIAGNOSTIC",
+              "runtime_snapshot": "NOT_SERIALIZED_CHECKPOINT_HASHES_ONLY",
+              "role": "FIRST_NATURAL_P_READ"
+            },
+            "step": 14,
+            "sigma_index": 13,
+            "sigma": 0.9519975781440735,
+            "input_sha256": "ee379a2535a6071cc1794833350c704bbd36cb44f21fffe0bc54c202ec5da1d2",
+            "true_D_state_sha256": "7df8b842162694cd4e57a93e07816edf0e571f3c9e112f1b5abbe260832ae7bd",
+            "source_state_sha256": "b5c4ec101ff385659d5ea1c469a06b6f575cc0347127726e839ce3dba1912f3e",
+            "teacher_seconds": 6.693456300534308,
+            "teacher_head_calls": 2,
+            "candidate_records": [
+              {
+                "variant": "OFFICIAL_C",
+                "full_pair_seconds": 0.6771602723747492,
+                "actual_head_calls": 2,
+                "A_readout": {
+                  "step": 14,
+                  "action": "CC",
+                  "shared_alpha": 0,
+                  "branch_status": [
+                    "OFF",
+                    "OFF"
+                  ],
+                  "working_source_kind": [
+                    "P",
+                    "P"
+                  ],
+                  "past_D_steps": [
+                    [],
+                    []
+                  ],
+                  "extra_heads": 0,
+                  "extra_deep_blocks": 0,
+                  "teacher_calls": 0,
+                  "post_RF_fusion": true,
+                  "C_or_P_observation_updates_D_anchor": false,
+                  "P_reference": [
+                    null,
+                    null
+                  ],
+                  "P_reference_version": "P_WORKING_REFERENCE_READOUT_R1"
+                }
+              },
+              {
+                "variant": "P_REFERENCE_UNIT",
+                "full_pair_seconds": 8.307037457823753,
+                "actual_head_calls": 4,
+                "A_readout": {
+                  "step": 14,
+                  "action": "CC",
+                  "shared_alpha": 1,
+                  "branch_status": [
+                    "P_working_reference_unit",
+                    "P_working_reference_unit"
+                  ],
+                  "working_source_kind": [
+                    "P",
+                    "P"
+                  ],
+                  "past_D_steps": [
+                    [
+                      6,
+                      7
+                    ],
+                    [
+                      6,
+                      7
+                    ]
+                  ],
+                  "extra_heads": 2,
+                  "extra_deep_blocks": 0,
+                  "teacher_calls": 0,
+                  "post_RF_fusion": true,
+                  "C_or_P_observation_updates_D_anchor": false,
+                  "P_reference": [
+                    {
+                      "status": "P_working_reference_unit",
+                      "beta": 1.0,
+                      "working_created_step": 13,
+                      "working_age": 1,
+                      "true_D_steps": [
+                        6,
+                        7
+                      ],
+                      "P_updates_D_statistics": false,
+                      "coordinate": "PREWARP_RESIDUAL",
+                      "quality_or_full_sampler_claim": false,
+                      "version": "P_WORKING_REFERENCE_READOUT_R1",
+                      "actual_probe_cache_field": "probe_residual_cache",
+                      "actual_prewarp_residual_cache_field": "residual_cache",
+                      "true_D_full_state_before_sha256": "0ffb0aea6c777b6b6cd838b44ae554de6fe8417b2abfc027d11e89211579501a",
+                      "true_D_full_state_after_sha256": "0ffb0aea6c777b6b6cd838b44ae554de6fe8417b2abfc027d11e89211579501a"
+                    },
+                    {
+                      "status": "P_working_reference_unit",
+                      "beta": 1.0,
+                      "working_created_step": 13,
+                      "working_age": 1,
+                      "true_D_steps": [
+                        6,
+                        7
+                      ],
+                      "P_updates_D_statistics": false,
+                      "coordinate": "PREWARP_RESIDUAL",
+                      "quality_or_full_sampler_claim": false,
+                      "version": "P_WORKING_REFERENCE_READOUT_R1",
+                      "actual_probe_cache_field": "probe_residual_cache",
+                      "actual_prewarp_residual_cache_field": "residual_cache",
+                      "true_D_full_state_before_sha256": "5d451fc02604620f887381cd01b7394f62e9094180f89231ca5b99033dfe140b",
+                      "true_D_full_state_after_sha256": "5d451fc02604620f887381cd01b7394f62e9094180f89231ca5b99033dfe140b"
+                    }
+                  ],
+                  "P_reference_version": "P_WORKING_REFERENCE_READOUT_R1"
+                }
+              },
+              {
+                "variant": "D_REFERENCE_UNIT",
+                "full_pair_seconds": 0.8403774974867702,
+                "actual_head_calls": 4,
+                "A_readout": {
+                  "step": 14,
+                  "action": "CC",
+                  "shared_alpha": 1,
+                  "branch_status": [
+                    "BETA1",
+                    "BETA1"
+                  ],
+                  "working_source_kind": [
+                    "P",
+                    "P"
+                  ],
+                  "past_D_steps": [
+                    [
+                      6,
+                      7
+                    ],
+                    [
+                      6,
+                      7
+                    ]
+                  ],
+                  "extra_heads": 2,
+                  "extra_deep_blocks": 0,
+                  "teacher_calls": 0,
+                  "post_RF_fusion": true,
+                  "C_or_P_observation_updates_D_anchor": false,
+                  "P_reference": [
+                    null,
+                    null
+                  ],
+                  "P_reference_version": "P_WORKING_REFERENCE_READOUT_R1"
+                }
+              }
+            ],
+            "fusion_arithmetic_CPU_seconds": 0.03683540318161249,
+            "artifact": {
+              "path": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-math-n1-natural-unit-r1/3/point-14.pt",
+              "sha256": "629380a4fadba64de39a11f3a95880c976590178a5f42ea018485d04219dd1fd",
+              "bytes": 87593553,
+              "tensor_sha256": "b024512e256555f3b51c30c49a8f2d08a3b2df7323df2518f87ccbd532afb899"
+            },
+            "serial_restores": [
+              [
+                {
+                  "next_copy_GPU_bytes": 2828989094,
+                  "workspace_reserve_bytes": 8589934592,
+                  "required_free_GPU_bytes": 11418923686,
+                  "stage": "physical_restore",
+                  "original_pre_snapshot_two_copy_gate_unchanged": true,
+                  "saved_CPU_owned_image_additional_GPU_residency_bytes": 0,
+                  "actual_observation": {
+                    "free_bytes": 29346103296,
+                    "total_bytes": 50908823552,
+                    "allocated_bytes": 14963932160,
+                    "reserved_bytes": 21126709248,
+                    "max_allocated_bytes": 18879010816,
+                    "max_reserved_bytes": 21126709248
+                  },
+                  "GPU_measurement": true
+                },
+                {
+                  "next_copy_GPU_bytes": 2039675904,
+                  "workspace_reserve_bytes": 8589934592,
+                  "required_free_GPU_bytes": 10629610496,
+                  "stage": "owned_restore",
+                  "original_pre_snapshot_two_copy_gate_unchanged": true,
+                  "saved_CPU_owned_image_additional_GPU_residency_bytes": 0,
+                  "actual_observation": {
+                    "free_bytes": 29346103296,
+                    "total_bytes": 50908823552,
+                    "allocated_bytes": 14971895296,
+                    "reserved_bytes": 21126709248,
+                    "max_allocated_bytes": 18879010816,
+                    "max_reserved_bytes": 21126709248
+                  },
+                  "GPU_measurement": true
+                }
+              ],
+              [
+                {
+                  "next_copy_GPU_bytes": 2828989094,
+                  "workspace_reserve_bytes": 8589934592,
+                  "required_free_GPU_bytes": 11418923686,
+                  "stage": "physical_restore",
+                  "original_pre_snapshot_two_copy_gate_unchanged": true,
+                  "saved_CPU_owned_image_additional_GPU_residency_bytes": 0,
+                  "actual_observation": {
+                    "free_bytes": 29344006144,
+                    "total_bytes": 50908823552,
+                    "allocated_bytes": 14979858944,
+                    "reserved_bytes": 21128806400,
+                    "max_allocated_bytes": 18879010816,
+                    "max_reserved_bytes": 21128806400
+                  },
+                  "GPU_measurement": true
+                },
+                {
+                  "next_copy_GPU_bytes": 2039675904,
+                  "workspace_reserve_bytes": 8589934592,
+                  "required_free_GPU_bytes": 10629610496,
+                  "stage": "owned_restore",
+                  "original_pre_snapshot_two_copy_gate_unchanged": true,
+                  "saved_CPU_owned_image_additional_GPU_residency_bytes": 0,
+                  "actual_observation": {
+                    "free_bytes": 29344006144,
+                    "total_bytes": 50908823552,
+                    "allocated_bytes": 14988574208,
+                    "reserved_bytes": 21128806400,
+                    "max_allocated_bytes": 18879010816,
+                    "max_reserved_bytes": 21128806400
+                  },
+                  "GPU_measurement": true
+                }
+              ],
+              [
+                {
+                  "next_copy_GPU_bytes": 2828989094,
+                  "workspace_reserve_bytes": 8589934592,
+                  "required_free_GPU_bytes": 11418923686,
+                  "stage": "physical_restore",
+                  "original_pre_snapshot_two_copy_gate_unchanged": true,
+                  "saved_CPU_owned_image_additional_GPU_residency_bytes": 0,
+                  "actual_observation": {
+                    "free_bytes": 29344006144,
+                    "total_bytes": 50908823552,
+                    "allocated_bytes": 14979105280,
+                    "reserved_bytes": 21128806400,
+                    "max_allocated_bytes": 19007167488,
+                    "max_reserved_bytes": 21128806400
+                  },
+                  "GPU_measurement": true
+                },
+                {
+                  "next_copy_GPU_bytes": 2039675904,
+                  "workspace_reserve_bytes": 8589934592,
+                  "required_free_GPU_bytes": 10629610496,
+                  "stage": "owned_restore",
+                  "original_pre_snapshot_two_copy_gate_unchanged": true,
+                  "saved_CPU_owned_image_additional_GPU_residency_bytes": 0,
+                  "actual_observation": {
+                    "free_bytes": 29344006144,
+                    "total_bytes": 50908823552,
+                    "allocated_bytes": 14987820544,
+                    "reserved_bytes": 21128806400,
+                    "max_allocated_bytes": 19007167488,
+                    "max_reserved_bytes": 21128806400
+                  },
+                  "GPU_measurement": true
+                }
+              ]
+            ],
+            "complete_gate": {
+              "logical_tensor_copy_bytes": 2828989242,
+              "GPU_logical_copy_bytes": 2828989094,
+              "GPU_free_bytes": 29346103296,
+              "required_GPU_headroom_bytes": 14247912780,
+              "transient_copy_factor": 2,
+              "workspace_reserve_bytes": 8589934592,
+              "scope": "CAPTURE_ADMISSION_NOT_TOTAL_PEAK_OR_COMPLETE_COST_BOUND"
+            },
+            "deployed_variant": "D_REFERENCE_UNIT",
+            "teacher_committed_to_parent": false,
+            "guided_moments": {
+              "OFFICIAL_C": {
+                "scene": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+                "state": "MATH_N1_NATURAL_NONZERO_UNIT_READOUT_R1:14:OFFICIAL_C",
+                "base_guided_MSE": 0.5617653707286177,
+                "guided_error_update_mean_dot": 0.0,
+                "guided_update_mean_square": 0.0,
+                "diagnostics": {
+                  "original_branch_MSE": [
+                    0.03620029280746091,
+                    0.06708549503488014
+                  ],
+                  "proposed_branch_MSE": [
+                    0.03620029280746091,
+                    0.06708549503488014
+                  ],
+                  "velocity_shape": [
+                    1,
+                    16,
+                    24,
+                    54,
+                    96
+                  ],
+                  "actual_CFG_coefficients": [
+                    8,
+                    -7
+                  ],
+                  "reduction_dtype": "torch.float64",
+                  "supplied_tensors_are_same_state_teacher_proven": false
+                }
+              },
+              "P_REFERENCE_UNIT": {
+                "scene": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+                "state": "MATH_N1_NATURAL_NONZERO_UNIT_READOUT_R1:14:P_REFERENCE_UNIT",
+                "base_guided_MSE": 0.5372954675972634,
+                "guided_error_update_mean_dot": 0.0,
+                "guided_update_mean_square": 0.0,
+                "diagnostics": {
+                  "original_branch_MSE": [
+                    0.037404167837419344,
+                    0.06905623025428649
+                  ],
+                  "proposed_branch_MSE": [
+                    0.037404167837419344,
+                    0.06905623025428649
+                  ],
+                  "velocity_shape": [
+                    1,
+                    16,
+                    24,
+                    54,
+                    96
+                  ],
+                  "actual_CFG_coefficients": [
+                    8,
+                    -7
+                  ],
+                  "reduction_dtype": "torch.float64",
+                  "supplied_tensors_are_same_state_teacher_proven": false
+                }
+              },
+              "D_REFERENCE_UNIT": {
+                "scene": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+                "state": "MATH_N1_NATURAL_NONZERO_UNIT_READOUT_R1:14:D_REFERENCE_UNIT",
+                "base_guided_MSE": 1.0720016274405593,
+                "guided_error_update_mean_dot": 0.0,
+                "guided_update_mean_square": 0.0,
+                "diagnostics": {
+                  "original_branch_MSE": [
+                    0.16402762657452383,
+                    0.2729848509203654
+                  ],
+                  "proposed_branch_MSE": [
+                    0.16402762657452383,
+                    0.2729848509203654
+                  ],
+                  "velocity_shape": [
+                    1,
+                    16,
+                    24,
+                    54,
+                    96
+                  ],
+                  "actual_CFG_coefficients": [
+                    8,
+                    -7
+                  ],
+                  "reduction_dtype": "torch.float64",
+                  "supplied_tensors_are_same_state_teacher_proven": false
+                }
+              },
+              "FUSION_HALF_UNIT": {
+                "scene": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+                "state": "MATH_N1_NATURAL_NONZERO_UNIT_READOUT_R1:14:FUSION_HALF_UNIT",
+                "base_guided_MSE": 0.4442394332409038,
+                "guided_error_update_mean_dot": 0.0,
+                "guided_update_mean_square": 0.0,
+                "diagnostics": {
+                  "original_branch_MSE": [
+                    0.06440517740720944,
+                    0.10111503122587459
+                  ],
+                  "proposed_branch_MSE": [
+                    0.06440517740720944,
+                    0.10111503122587459
+                  ],
+                  "velocity_shape": [
+                    1,
+                    16,
+                    24,
+                    54,
+                    96
+                  ],
+                  "actual_CFG_coefficients": [
+                    8,
+                    -7
+                  ],
+                  "reduction_dtype": "torch.float64",
+                  "supplied_tensors_are_same_state_teacher_proven": false
+                }
+              }
+            }
+          },
+          {
+            "point": {
+              "scene": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+              "step": 20,
+              "source": "P",
+              "working_created_step": 19,
+              "working_age": 1,
+              "true_D_reference_step": 7,
+              "true_D_history": [
+                [
+                  6,
+                  7
+                ],
+                [
+                  6,
+                  7
+                ]
+              ],
+              "D_reference_age_gap": 12,
+              "shared_alpha": 1,
+              "risk_query_anchor": 19,
+              "risk_local_proxy": 0.11283225575399461,
+              "risk_gain": 0.18115230029963358,
+              "risk_source_floor": 0.01967132867152968,
+              "risk_added": 0.024003329116630428,
+              "readout_reference": "LAST_TRUE_D_UNIT_INCREMENT",
+              "actual_sigma_interval": "MISSING_IN_METADATA_CAPTURE_AT_RUNTIME_DIAGNOSTIC",
+              "runtime_snapshot": "NOT_SERIALIZED_CHECKPOINT_HASHES_ONLY",
+              "role": "MAX_REFERENCE_GAP_EXCLUDING_FIRST"
+            },
+            "step": 20,
+            "sigma_index": 19,
+            "sigma": 0.831115186214447,
+            "input_sha256": "08e20e8a4f853c6b58305acbd81988d96c896d01a2053d5310807dda686c4a2a",
+            "true_D_state_sha256": "7df8b842162694cd4e57a93e07816edf0e571f3c9e112f1b5abbe260832ae7bd",
+            "source_state_sha256": "2b73d45378476d2baab89c66907c5f327658f1523aa7788985244152824685e3",
+            "teacher_seconds": 6.710678330622613,
+            "teacher_head_calls": 2,
+            "candidate_records": [
+              {
+                "variant": "OFFICIAL_C",
+                "full_pair_seconds": 0.6712622474879026,
+                "actual_head_calls": 2,
+                "A_readout": {
+                  "step": 20,
+                  "action": "CC",
+                  "shared_alpha": 0,
+                  "branch_status": [
+                    "OFF",
+                    "OFF"
+                  ],
+                  "working_source_kind": [
+                    "P",
+                    "P"
+                  ],
+                  "past_D_steps": [
+                    [],
+                    []
+                  ],
+                  "extra_heads": 0,
+                  "extra_deep_blocks": 0,
+                  "teacher_calls": 0,
+                  "post_RF_fusion": true,
+                  "C_or_P_observation_updates_D_anchor": false,
+                  "P_reference": [
+                    null,
+                    null
+                  ],
+                  "P_reference_version": "P_WORKING_REFERENCE_READOUT_R1"
+                }
+              },
+              {
+                "variant": "P_REFERENCE_UNIT",
+                "full_pair_seconds": 8.58850326295942,
+                "actual_head_calls": 4,
+                "A_readout": {
+                  "step": 20,
+                  "action": "CC",
+                  "shared_alpha": 1,
+                  "branch_status": [
+                    "P_working_reference_unit",
+                    "P_working_reference_unit"
+                  ],
+                  "working_source_kind": [
+                    "P",
+                    "P"
+                  ],
+                  "past_D_steps": [
+                    [
+                      6,
+                      7
+                    ],
+                    [
+                      6,
+                      7
+                    ]
+                  ],
+                  "extra_heads": 2,
+                  "extra_deep_blocks": 0,
+                  "teacher_calls": 0,
+                  "post_RF_fusion": true,
+                  "C_or_P_observation_updates_D_anchor": false,
+                  "P_reference": [
+                    {
+                      "status": "P_working_reference_unit",
+                      "beta": 1.0,
+                      "working_created_step": 19,
+                      "working_age": 1,
+                      "true_D_steps": [
+                        6,
+                        7
+                      ],
+                      "P_updates_D_statistics": false,
+                      "coordinate": "PREWARP_RESIDUAL",
+                      "quality_or_full_sampler_claim": false,
+                      "version": "P_WORKING_REFERENCE_READOUT_R1",
+                      "actual_probe_cache_field": "probe_residual_cache",
+                      "actual_prewarp_residual_cache_field": "residual_cache",
+                      "true_D_full_state_before_sha256": "0ffb0aea6c777b6b6cd838b44ae554de6fe8417b2abfc027d11e89211579501a",
+                      "true_D_full_state_after_sha256": "0ffb0aea6c777b6b6cd838b44ae554de6fe8417b2abfc027d11e89211579501a"
+                    },
+                    {
+                      "status": "P_working_reference_unit",
+                      "beta": 1.0,
+                      "working_created_step": 19,
+                      "working_age": 1,
+                      "true_D_steps": [
+                        6,
+                        7
+                      ],
+                      "P_updates_D_statistics": false,
+                      "coordinate": "PREWARP_RESIDUAL",
+                      "quality_or_full_sampler_claim": false,
+                      "version": "P_WORKING_REFERENCE_READOUT_R1",
+                      "actual_probe_cache_field": "probe_residual_cache",
+                      "actual_prewarp_residual_cache_field": "residual_cache",
+                      "true_D_full_state_before_sha256": "5d451fc02604620f887381cd01b7394f62e9094180f89231ca5b99033dfe140b",
+                      "true_D_full_state_after_sha256": "5d451fc02604620f887381cd01b7394f62e9094180f89231ca5b99033dfe140b"
+                    }
+                  ],
+                  "P_reference_version": "P_WORKING_REFERENCE_READOUT_R1"
+                }
+              },
+              {
+                "variant": "D_REFERENCE_UNIT",
+                "full_pair_seconds": 0.8407354755327106,
+                "actual_head_calls": 4,
+                "A_readout": {
+                  "step": 20,
+                  "action": "CC",
+                  "shared_alpha": 1,
+                  "branch_status": [
+                    "BETA1",
+                    "BETA1"
+                  ],
+                  "working_source_kind": [
+                    "P",
+                    "P"
+                  ],
+                  "past_D_steps": [
+                    [
+                      6,
+                      7
+                    ],
+                    [
+                      6,
+                      7
+                    ]
+                  ],
+                  "extra_heads": 2,
+                  "extra_deep_blocks": 0,
+                  "teacher_calls": 0,
+                  "post_RF_fusion": true,
+                  "C_or_P_observation_updates_D_anchor": false,
+                  "P_reference": [
+                    null,
+                    null
+                  ],
+                  "P_reference_version": "P_WORKING_REFERENCE_READOUT_R1"
+                }
+              }
+            ],
+            "fusion_arithmetic_CPU_seconds": 0.031030979938805103,
+            "artifact": {
+              "path": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-math-n1-natural-unit-r1/3/point-20.pt",
+              "sha256": "c405da501dba2a3d25ffcb62cb462cc8019a2386f61a31bc653cc988403e7fb4",
+              "bytes": 87593553,
+              "tensor_sha256": "3d2ffe510c14d247476e8b8e0f0e344dbf0c8f1f224e0778861685baee0f6ba0"
+            },
+            "serial_restores": [
+              [
+                {
+                  "next_copy_GPU_bytes": 2828989094,
+                  "workspace_reserve_bytes": 8589934592,
+                  "required_free_GPU_bytes": 11418923686,
+                  "stage": "physical_restore",
+                  "original_pre_snapshot_two_copy_gate_unchanged": true,
+                  "saved_CPU_owned_image_additional_GPU_residency_bytes": 0,
+                  "actual_observation": {
+                    "free_bytes": 29344006144,
+                    "total_bytes": 50908823552,
+                    "allocated_bytes": 14963932160,
+                    "reserved_bytes": 21128806400,
+                    "max_allocated_bytes": 19007167488,
+                    "max_reserved_bytes": 21128806400
+                  },
+                  "GPU_measurement": true
+                },
+                {
+                  "next_copy_GPU_bytes": 2039675904,
+                  "workspace_reserve_bytes": 8589934592,
+                  "required_free_GPU_bytes": 10629610496,
+                  "stage": "owned_restore",
+                  "original_pre_snapshot_two_copy_gate_unchanged": true,
+                  "saved_CPU_owned_image_additional_GPU_residency_bytes": 0,
+                  "actual_observation": {
+                    "free_bytes": 29344006144,
+                    "total_bytes": 50908823552,
+                    "allocated_bytes": 14972648960,
+                    "reserved_bytes": 21128806400,
+                    "max_allocated_bytes": 19007167488,
+                    "max_reserved_bytes": 21128806400
+                  },
+                  "GPU_measurement": true
+                }
+              ],
+              [
+                {
+                  "next_copy_GPU_bytes": 2828989094,
+                  "workspace_reserve_bytes": 8589934592,
+                  "required_free_GPU_bytes": 11418923686,
+                  "stage": "physical_restore",
+                  "original_pre_snapshot_two_copy_gate_unchanged": true,
+                  "saved_CPU_owned_image_additional_GPU_residency_bytes": 0,
+                  "actual_observation": {
+                    "free_bytes": 29344006144,
+                    "total_bytes": 50908823552,
+                    "allocated_bytes": 14979858944,
+                    "reserved_bytes": 21128806400,
+                    "max_allocated_bytes": 19007167488,
+                    "max_reserved_bytes": 21128806400
+                  },
+                  "GPU_measurement": true
+                },
+                {
+                  "next_copy_GPU_bytes": 2039675904,
+                  "workspace_reserve_bytes": 8589934592,
+                  "required_free_GPU_bytes": 10629610496,
+                  "stage": "owned_restore",
+                  "original_pre_snapshot_two_copy_gate_unchanged": true,
+                  "saved_CPU_owned_image_additional_GPU_residency_bytes": 0,
+                  "actual_observation": {
+                    "free_bytes": 29344006144,
+                    "total_bytes": 50908823552,
+                    "allocated_bytes": 14987820544,
+                    "reserved_bytes": 21128806400,
+                    "max_allocated_bytes": 19007167488,
+                    "max_reserved_bytes": 21128806400
+                  },
+                  "GPU_measurement": true
+                }
+              ],
+              [
+                {
+                  "next_copy_GPU_bytes": 2828989094,
+                  "workspace_reserve_bytes": 8589934592,
+                  "required_free_GPU_bytes": 11418923686,
+                  "stage": "physical_restore",
+                  "original_pre_snapshot_two_copy_gate_unchanged": true,
+                  "saved_CPU_owned_image_additional_GPU_residency_bytes": 0,
+                  "actual_observation": {
+                    "free_bytes": 29344006144,
+                    "total_bytes": 50908823552,
+                    "allocated_bytes": 14979858944,
+                    "reserved_bytes": 21128806400,
+                    "max_allocated_bytes": 19007167488,
+                    "max_reserved_bytes": 21128806400
+                  },
+                  "GPU_measurement": true
+                },
+                {
+                  "next_copy_GPU_bytes": 2039675904,
+                  "workspace_reserve_bytes": 8589934592,
+                  "required_free_GPU_bytes": 10629610496,
+                  "stage": "owned_restore",
+                  "original_pre_snapshot_two_copy_gate_unchanged": true,
+                  "saved_CPU_owned_image_additional_GPU_residency_bytes": 0,
+                  "actual_observation": {
+                    "free_bytes": 29344006144,
+                    "total_bytes": 50908823552,
+                    "allocated_bytes": 14987820544,
+                    "reserved_bytes": 21128806400,
+                    "max_allocated_bytes": 19007167488,
+                    "max_reserved_bytes": 21128806400
+                  },
+                  "GPU_measurement": true
+                }
+              ]
+            ],
+            "complete_gate": {
+              "logical_tensor_copy_bytes": 2828989242,
+              "GPU_logical_copy_bytes": 2828989094,
+              "GPU_free_bytes": 29344006144,
+              "required_GPU_headroom_bytes": 14247912780,
+              "transient_copy_factor": 2,
+              "workspace_reserve_bytes": 8589934592,
+              "scope": "CAPTURE_ADMISSION_NOT_TOTAL_PEAK_OR_COMPLETE_COST_BOUND"
+            },
+            "deployed_variant": "D_REFERENCE_UNIT",
+            "teacher_committed_to_parent": false,
+            "guided_moments": {
+              "OFFICIAL_C": {
+                "scene": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+                "state": "MATH_N1_NATURAL_NONZERO_UNIT_READOUT_R1:20:OFFICIAL_C",
+                "base_guided_MSE": 0.13797179689257136,
+                "guided_error_update_mean_dot": 0.0,
+                "guided_update_mean_square": 0.0,
+                "diagnostics": {
+                  "original_branch_MSE": [
+                    0.02275143084004025,
+                    0.02868311070231463
+                  ],
+                  "proposed_branch_MSE": [
+                    0.02275143084004025,
+                    0.02868311070231463
+                  ],
+                  "velocity_shape": [
+                    1,
+                    16,
+                    24,
+                    54,
+                    96
+                  ],
+                  "actual_CFG_coefficients": [
+                    8,
+                    -7
+                  ],
+                  "reduction_dtype": "torch.float64",
+                  "supplied_tensors_are_same_state_teacher_proven": false
+                }
+              },
+              "P_REFERENCE_UNIT": {
+                "scene": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+                "state": "MATH_N1_NATURAL_NONZERO_UNIT_READOUT_R1:20:P_REFERENCE_UNIT",
+                "base_guided_MSE": 0.11251661898233552,
+                "guided_error_update_mean_dot": 0.0,
+                "guided_update_mean_square": 0.0,
+                "diagnostics": {
+                  "original_branch_MSE": [
+                    0.023301823621343025,
+                    0.030534738436131317
+                  ],
+                  "proposed_branch_MSE": [
+                    0.023301823621343025,
+                    0.030534738436131317
+                  ],
+                  "velocity_shape": [
+                    1,
+                    16,
+                    24,
+                    54,
+                    96
+                  ],
+                  "actual_CFG_coefficients": [
+                    8,
+                    -7
+                  ],
+                  "reduction_dtype": "torch.float64",
+                  "supplied_tensors_are_same_state_teacher_proven": false
+                }
+              },
+              "D_REFERENCE_UNIT": {
+                "scene": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+                "state": "MATH_N1_NATURAL_NONZERO_UNIT_READOUT_R1:20:D_REFERENCE_UNIT",
+                "base_guided_MSE": 0.5800488157429685,
+                "guided_error_update_mean_dot": 0.0,
+                "guided_update_mean_square": 0.0,
+                "diagnostics": {
+                  "original_branch_MSE": [
+                    0.44694488010074235,
+                    0.6497371783149196
+                  ],
+                  "proposed_branch_MSE": [
+                    0.44694488010074235,
+                    0.6497371783149196
+                  ],
+                  "velocity_shape": [
+                    1,
+                    16,
+                    24,
+                    54,
+                    96
+                  ],
+                  "actual_CFG_coefficients": [
+                    8,
+                    -7
+                  ],
+                  "reduction_dtype": "torch.float64",
+                  "supplied_tensors_are_same_state_teacher_proven": false
+                }
+              },
+              "FUSION_HALF_UNIT": {
+                "scene": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+                "state": "MATH_N1_NATURAL_NONZERO_UNIT_READOUT_R1:20:FUSION_HALF_UNIT",
+                "base_guided_MSE": 0.19827177620132713,
+                "guided_error_update_mean_dot": 0.0,
+                "guided_update_mean_square": 0.0,
+                "diagnostics": {
+                  "original_branch_MSE": [
+                    0.12997906596381392,
+                    0.18302050567022604
+                  ],
+                  "proposed_branch_MSE": [
+                    0.12997906596381392,
+                    0.18302050567022604
+                  ],
+                  "velocity_shape": [
+                    1,
+                    16,
+                    24,
+                    54,
+                    96
+                  ],
+                  "actual_CFG_coefficients": [
+                    8,
+                    -7
+                  ],
+                  "reduction_dtype": "torch.float64",
+                  "supplied_tensors_are_same_state_teacher_proven": false
+                }
+              }
+            }
+          }
+        ],
+        "actual_pair_computations": 45,
+        "final_latent_sha256": "eef40eed68a5cb5c3f15494f3726b81dd4870b2d8357e05bcff971f56b04558a",
+        "old_final_equal": true,
+        "old_actions_equal": true,
+        "old_all36_guided_equal": true,
+        "parent_vectors": {
+          "path": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-math-n1-natural-unit-r1/3/parent-vectors.pt",
+          "sha256": "18af9d0294e5c5d90c7e1eb9f77c89f707f7f546c3a8fe286229c80e42b9b82d",
+          "bytes": 294628641
+        },
+        "ended_unix": 1791766392.905483
       }
     ],
     "started_unix": 1791763295.4238813,
-    "load_seconds": 117.22816589754075
+    "load_seconds": 117.22816589754075,
+    "ended_unix": 1791766392.9764726
   },
-  "runner_sha256": "dfdca0505f799efedd291cb5952708f7329978d2a3a99aad4aa138d1f4254da3",
+  "runner_sha256": "4d60d1b155648c89946545784a3f3705f5b5018e026fba6b81c3fd7ce2278794",
+  "final": {
+    "status": "N1_ALL4_PARENTS12_POINTS48_READOUTS180_PAIRS_CPU_AUDITED",
+    "scope_counts": {
+      "parents": 4,
+      "points": 12,
+      "P_points": 8,
+      "D_controls": 4,
+      "pairs": 180,
+      "CFG_calls": 360,
+      "scores": 48,
+      "loads": 1
+    },
+    "parents": [
+      {
+        "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+        "all36_guided_final_actions_and93RGB_equal": true,
+        "actual_pair_computations": 45,
+        "video_RGB_sha256": "87816e89706ea727f82f44fe621ce97228a6472c65ecd7b580dbf61d4ee9445a"
+      },
+      {
+        "scene": "human_199",
+        "all36_guided_final_actions_and93RGB_equal": true,
+        "actual_pair_computations": 45,
+        "video_RGB_sha256": "ad4b75ebd82a5de5d108c2e4955da15ac8cb7099b9c1f65949d335be5244d466"
+      },
+      {
+        "scene": "misc_13398218_3840_2160_60fps",
+        "all36_guided_final_actions_and93RGB_equal": true,
+        "actual_pair_computations": 45,
+        "video_RGB_sha256": "bd8f0612d40e9891530786538b727402fb0ce28871b13ca7dbf346a6228fba23"
+      },
+      {
+        "scene": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+        "all36_guided_final_actions_and93RGB_equal": true,
+        "actual_pair_computations": 45,
+        "video_RGB_sha256": "c7aba9aaa06aa2691a805b35792afefbcfb94791c4c5feef973161bf34185eb8"
+      }
+    ],
+    "points": [
+      {
+        "selection": {
+          "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+          "step": 8,
+          "source": "D",
+          "working_created_step": 7,
+          "working_age": 1,
+          "true_D_reference_step": 7,
+          "true_D_history": [
+            [
+              6,
+              7
+            ],
+            [
+              6,
+              7
+            ]
+          ],
+          "D_reference_age_gap": 0,
+          "shared_alpha": 1,
+          "risk_query_anchor": 7,
+          "risk_local_proxy": 0.04503538575022428,
+          "risk_gain": 0.22652744535783098,
+          "risk_source_floor": 0.0,
+          "risk_added": 0.010201750884702772,
+          "readout_reference": "LAST_TRUE_D_UNIT_INCREMENT",
+          "actual_sigma_interval": "MISSING_IN_METADATA_CAPTURE_AT_RUNTIME_DIAGNOSTIC",
+          "runtime_snapshot": "NOT_SERIALIZED_CHECKPOINT_HASHES_ONLY",
+          "role": "TRUE_D_SOURCE_REFERENCE_CONTROL"
+        },
+        "sigma": 0.9844666123390198,
+        "sigma_index": 7,
+        "teacher_guided_energy": 1.703331262681366,
+        "losses": {
+          "OFFICIAL_C": {
+            "MSE": 0.2833289361204158,
+            "normalized_guided_MSE": 0.16633812948069915
+          },
+          "D_REFERENCE_UNIT": {
+            "MSE": 0.14239927793245838,
+            "normalized_guided_MSE": 0.08360046049310159
+          },
+          "P_REFERENCE_UNIT": {
+            "MSE": 0.14239927793245838,
+            "normalized_guided_MSE": 0.08360046049310159
+          },
+          "FUSION_HALF_UNIT": {
+            "MSE": 0.14239927793245838,
+            "normalized_guided_MSE": 0.08360046049310159
+          }
+        },
+        "normalized_CFG_grams": {
+          "OFFICIAL_C": [
+            0.011409727283233587,
+            0.023439796503740753,
+            0.015289593261774356
+          ],
+          "D_REFERENCE_UNIT": [
+            0.007517098157202168,
+            0.012683754779466054,
+            0.009098194694417472
+          ],
+          "P_REFERENCE_UNIT": [
+            0.007517098157202168,
+            0.012683754779466054,
+            0.009098194694417472
+          ],
+          "FUSION_HALF_UNIT": [
+            0.007517098157202168,
+            0.012683754779466054,
+            0.009098194694417472
+          ]
+        },
+        "related_error_moments": {
+          "A": 0.08360046049310159,
+          "B": 0.08360046049310159,
+          "C": 0.08360046049310159
+        },
+        "local_oracle_gain": {
+          "gamma": 0.0,
+          "status": "DEGENERATE_USE_OLD_REFERENCE",
+          "denominator": 0.0
+        },
+        "raw_artifact": {
+          "path": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-math-n1-natural-unit-r1/0/point-8.pt",
+          "sha256": "4157f07ad1803f60f359728ab2293aa6e8d62bb21f7c607a30b838a209f6f0da",
+          "bytes": 87592959,
+          "tensor_sha256": "3e0ae0b85d95f07901b4e75b74012664183ba43dee2d85a90ccf832fc76c3b9f"
+        },
+        "all_candidate_and_teacher_tensors_read": true
+      },
+      {
+        "selection": {
+          "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+          "step": 20,
+          "source": "P",
+          "working_created_step": 19,
+          "working_age": 1,
+          "true_D_reference_step": 14,
+          "true_D_history": [
+            [
+              7,
+              14
+            ],
+            [
+              7,
+              14
+            ]
+          ],
+          "D_reference_age_gap": 5,
+          "shared_alpha": 1,
+          "risk_query_anchor": 19,
+          "risk_local_proxy": 0.09919973290468612,
+          "risk_gain": 0.18115230029963358,
+          "risk_source_floor": 0.01967132867152968,
+          "risk_added": 0.02153376624359088,
+          "readout_reference": "LAST_TRUE_D_UNIT_INCREMENT",
+          "actual_sigma_interval": "MISSING_IN_METADATA_CAPTURE_AT_RUNTIME_DIAGNOSTIC",
+          "runtime_snapshot": "NOT_SERIALIZED_CHECKPOINT_HASHES_ONLY",
+          "role": "FIRST_NATURAL_P_READ"
+        },
+        "sigma": 0.831115186214447,
+        "sigma_index": 19,
+        "teacher_guided_energy": 1.6238711384909992,
+        "losses": {
+          "OFFICIAL_C": {
+            "MSE": 0.10664244306472408,
+            "normalized_guided_MSE": 0.06567173991639681
+          },
+          "D_REFERENCE_UNIT": {
+            "MSE": 0.17484345603515447,
+            "normalized_guided_MSE": 0.10767077010656755
+          },
+          "P_REFERENCE_UNIT": {
+            "MSE": 0.08156175101260643,
+            "normalized_guided_MSE": 0.050226738488867176
+          },
+          "FUSION_HALF_UNIT": {
+            "MSE": 0.08666350192326201,
+            "normalized_guided_MSE": 0.05336846001450279
+          }
+        },
+        "normalized_CFG_grams": {
+          "OFFICIAL_C": [
+            0.008058134748769801,
+            0.010135134757625862,
+            0.008452415063682812
+          ],
+          "D_REFERENCE_UNIT": [
+            0.04273725348543756,
+            0.056471745524979175,
+            0.048166330211845465
+          ],
+          "P_REFERENCE_UNIT": [
+            0.008173518916247277,
+            0.009966886926125337,
+            0.008582642245736571
+          ],
+          "FUSION_HALF_UNIT": [
+            0.01747537285995848,
+            0.021590615258769107,
+            0.018955317417047795
+          ]
+        },
+        "related_error_moments": {
+          "A": 0.10767077010656755,
+          "B": 0.050226738488867176,
+          "C": 0.027788165775646998
+        },
+        "local_oracle_gain": {
+          "gamma": 0.7807045094532061,
+          "status": "CONSTRAINED_RELATED_ERROR_MINIMUM",
+          "denominator": 0.10232117704414073
+        },
+        "raw_artifact": {
+          "path": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-math-n1-natural-unit-r1/0/point-20.pt",
+          "sha256": "add9f1e7e5ac704d5c1eab3f2a78caea0042e4146ff8cc5a573b632830b7ccf5",
+          "bytes": 87593553,
+          "tensor_sha256": "f455b195c8b73cb5114fe7eba58935f079c860e26d5c0024c7572dae2fd79ee5"
+        },
+        "all_candidate_and_teacher_tensors_read": true
+      },
+      {
+        "selection": {
+          "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+          "step": 23,
+          "source": "P",
+          "working_created_step": 22,
+          "working_age": 1,
+          "true_D_reference_step": 14,
+          "true_D_history": [
+            [
+              7,
+              14
+            ],
+            [
+              7,
+              14
+            ]
+          ],
+          "D_reference_age_gap": 8,
+          "shared_alpha": 1,
+          "risk_query_anchor": 22,
+          "risk_local_proxy": 0.16629679118115337,
+          "risk_gain": 0.16170580956040614,
+          "risk_source_floor": 0.01967132867152968,
+          "risk_added": 0.03007212537320475,
+          "readout_reference": "LAST_TRUE_D_UNIT_INCREMENT",
+          "actual_sigma_interval": "MISSING_IN_METADATA_CAPTURE_AT_RUNTIME_DIAGNOSTIC",
+          "runtime_snapshot": "NOT_SERIALIZED_CHECKPOINT_HASHES_ONLY",
+          "role": "MAX_REFERENCE_GAP_EXCLUDING_FIRST"
+        },
+        "sigma": 0.6849421262741089,
+        "sigma_index": 22,
+        "teacher_guided_energy": 1.5704735784230182,
+        "losses": {
+          "OFFICIAL_C": {
+            "MSE": 0.10065893800049955,
+            "normalized_guided_MSE": 0.06409463959373046
+          },
+          "D_REFERENCE_UNIT": {
+            "MSE": 0.156455459525148,
+            "normalized_guided_MSE": 0.0996231083889051
+          },
+          "P_REFERENCE_UNIT": {
+            "MSE": 0.05773708301878187,
+            "normalized_guided_MSE": 0.03676412249912426
+          },
+          "FUSION_HALF_UNIT": {
+            "MSE": 0.07147592669351154,
+            "normalized_guided_MSE": 0.045512339510533927
+          }
+        },
+        "normalized_CFG_grams": {
+          "OFFICIAL_C": [
+            0.009757841795040717,
+            0.011309423969283354,
+            0.009951509016022072
+          ],
+          "D_REFERENCE_UNIT": [
+            0.09673603547326068,
+            0.11936335389969374,
+            0.10660970984797928
+          ],
+          "P_REFERENCE_UNIT": [
+            0.011050990271167963,
+            0.012859117852391064,
+            0.011612464550168195
+          ],
+          "FUSION_HALF_UNIT": [
+            0.035837271921495155,
+            0.04229768182308875,
+            0.038577316721544255
+          ]
+        },
+        "related_error_moments": {
+          "A": 0.0996231083889051,
+          "B": 0.03676412249912426,
+          "C": 0.022831063754454352
+        },
+        "local_oracle_gain": {
+          "gamma": 0.8464255401677894,
+          "status": "CONSTRAINED_RELATED_ERROR_MINIMUM",
+          "denominator": 0.09072510337912067
+        },
+        "raw_artifact": {
+          "path": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-math-n1-natural-unit-r1/0/point-23.pt",
+          "sha256": "13f9b28b7248c27e81e35ec50c0960c4f9f07b5767ca268114b320eee4970e8f",
+          "bytes": 87593553,
+          "tensor_sha256": "be5281b20faa925a090ef73e41580f04e7f8b955ecb9f674bcc7c99ea34aca1e"
+        },
+        "all_candidate_and_teacher_tensors_read": true
+      },
+      {
+        "selection": {
+          "scene": "human_199",
+          "step": 8,
+          "source": "D",
+          "working_created_step": 7,
+          "working_age": 1,
+          "true_D_reference_step": 7,
+          "true_D_history": [
+            [
+              6,
+              7
+            ],
+            [
+              6,
+              7
+            ]
+          ],
+          "D_reference_age_gap": 0,
+          "shared_alpha": 1,
+          "risk_query_anchor": 7,
+          "risk_local_proxy": 0.05230750426857459,
+          "risk_gain": 0.22652744535783098,
+          "risk_source_floor": 0.0,
+          "risk_added": 0.01184908531500404,
+          "readout_reference": "LAST_TRUE_D_UNIT_INCREMENT",
+          "actual_sigma_interval": "MISSING_IN_METADATA_CAPTURE_AT_RUNTIME_DIAGNOSTIC",
+          "runtime_snapshot": "NOT_SERIALIZED_CHECKPOINT_HASHES_ONLY",
+          "role": "TRUE_D_SOURCE_REFERENCE_CONTROL"
+        },
+        "sigma": 0.9844666123390198,
+        "sigma_index": 7,
+        "teacher_guided_energy": 3.69093547469424,
+        "losses": {
+          "OFFICIAL_C": {
+            "MSE": 2.2570996055543797,
+            "normalized_guided_MSE": 0.6115250784061349
+          },
+          "D_REFERENCE_UNIT": {
+            "MSE": 2.046421832765191,
+            "normalized_guided_MSE": 0.5544453016845867
+          },
+          "P_REFERENCE_UNIT": {
+            "MSE": 2.046421832765191,
+            "normalized_guided_MSE": 0.5544453016845867
+          },
+          "FUSION_HALF_UNIT": {
+            "MSE": 2.046421832765191,
+            "normalized_guided_MSE": 0.5544453016845867
+          }
+        },
+        "normalized_CFG_grams": {
+          "OFFICIAL_C": [
+            0.011272991281281002,
+            0.031241525147127053,
+            0.014649831212819693
+          ],
+          "D_REFERENCE_UNIT": [
+            0.011215666619205249,
+            0.02833232961596064,
+            0.013853942080096222
+          ],
+          "P_REFERENCE_UNIT": [
+            0.011215666619205249,
+            0.02833232961596064,
+            0.013853942080096222
+          ],
+          "FUSION_HALF_UNIT": [
+            0.011215666619205249,
+            0.02833232961596064,
+            0.013853942080096222
+          ]
+        },
+        "related_error_moments": {
+          "A": 0.5544453016845867,
+          "B": 0.5544453016845867,
+          "C": 0.5544453016845867
+        },
+        "local_oracle_gain": {
+          "gamma": 0.0,
+          "status": "DEGENERATE_USE_OLD_REFERENCE",
+          "denominator": 0.0
+        },
+        "raw_artifact": {
+          "path": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-math-n1-natural-unit-r1/1/point-8.pt",
+          "sha256": "9b7614963d163d0be721e127457ea554867a440d2f1c557b63e9e518e9ba7761",
+          "bytes": 87592959,
+          "tensor_sha256": "f768c9e4470584c7d2354c6ac613f10d8291a1d095253e83aeb649f8e9905e08"
+        },
+        "all_candidate_and_teacher_tensors_read": true
+      },
+      {
+        "selection": {
+          "scene": "human_199",
+          "step": 14,
+          "source": "P",
+          "working_created_step": 13,
+          "working_age": 1,
+          "true_D_reference_step": 7,
+          "true_D_history": [
+            [
+              6,
+              7
+            ],
+            [
+              6,
+              7
+            ]
+          ],
+          "D_reference_age_gap": 6,
+          "shared_alpha": 1,
+          "risk_query_anchor": 13,
+          "risk_local_proxy": 0.08000875559006368,
+          "risk_gain": 0.2200452817780885,
+          "risk_source_floor": 0.01967132867152968,
+          "risk_added": 0.021934132229005913,
+          "readout_reference": "LAST_TRUE_D_UNIT_INCREMENT",
+          "actual_sigma_interval": "MISSING_IN_METADATA_CAPTURE_AT_RUNTIME_DIAGNOSTIC",
+          "runtime_snapshot": "NOT_SERIALIZED_CHECKPOINT_HASHES_ONLY",
+          "role": "FIRST_NATURAL_P_READ"
+        },
+        "sigma": 0.9519975781440735,
+        "sigma_index": 13,
+        "teacher_guided_energy": 2.057427702461199,
+        "losses": {
+          "OFFICIAL_C": {
+            "MSE": 0.8558827676165811,
+            "normalized_guided_MSE": 0.4159965215753296
+          },
+          "D_REFERENCE_UNIT": {
+            "MSE": 1.3387144796319632,
+            "normalized_guided_MSE": 0.6506738866354941
+          },
+          "P_REFERENCE_UNIT": {
+            "MSE": 0.8059671675716764,
+            "normalized_guided_MSE": 0.39173535313417707
+          },
+          "FUSION_HALF_UNIT": {
+            "MSE": 0.6504037609149129,
+            "normalized_guided_MSE": 0.3161247222135033
+          }
+        },
+        "normalized_CFG_grams": {
+          "OFFICIAL_C": [
+            0.021035899140058854,
+            0.04040480237341057,
+            0.02598336017571028
+          ],
+          "D_REFERENCE_UNIT": [
+            0.11312720672495839,
+            0.1927512001916138,
+            0.14316317993759362
+          ],
+          "P_REFERENCE_UNIT": [
+            0.020943093573417434,
+            0.04044516526099732,
+            0.02616460476278595
+          ],
+          "FUSION_HALF_UNIT": [
+            0.03894590695043403,
+            0.06463666136776268,
+            0.04771080115739328
+          ]
+        },
+        "related_error_moments": {
+          "A": 0.6506738866354941,
+          "B": 0.39173535313417707,
+          "C": 0.11104482400363329
+        },
+        "local_oracle_gain": {
+          "gamma": 0.6578278369196353,
+          "status": "CONSTRAINED_RELATED_ERROR_MINIMUM",
+          "denominator": 0.8203195917624045
+        },
+        "raw_artifact": {
+          "path": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-math-n1-natural-unit-r1/1/point-14.pt",
+          "sha256": "ac8c743af516d5c10f20d6769bbe0d0fed9c042972b1c660587d5cfe22625945",
+          "bytes": 87593553,
+          "tensor_sha256": "490c488ee0be95314c817a91dd51a2d71221a85ffaffd99e2c525b12f529b78c"
+        },
+        "all_candidate_and_teacher_tensors_read": true
+      },
+      {
+        "selection": {
+          "scene": "human_199",
+          "step": 26,
+          "source": "P",
+          "working_created_step": 25,
+          "working_age": 1,
+          "true_D_reference_step": 7,
+          "true_D_history": [
+            [
+              6,
+              7
+            ],
+            [
+              6,
+              7
+            ]
+          ],
+          "D_reference_age_gap": 18,
+          "shared_alpha": 0.5,
+          "risk_query_anchor": 25,
+          "risk_local_proxy": 0.287238530085502,
+          "risk_gain": 0.11938583301372563,
+          "risk_source_floor": 0.1332674018840063,
+          "risk_added": 0.05020245097539278,
+          "readout_reference": "LAST_TRUE_D_UNIT_INCREMENT",
+          "actual_sigma_interval": "MISSING_IN_METADATA_CAPTURE_AT_RUNTIME_DIAGNOSTIC",
+          "runtime_snapshot": "NOT_SERIALIZED_CHECKPOINT_HASHES_ONLY",
+          "role": "MAX_REFERENCE_GAP_EXCLUDING_FIRST"
+        },
+        "sigma": 0.4629429578781128,
+        "sigma_index": 25,
+        "teacher_guided_energy": 1.7460418261157569,
+        "losses": {
+          "OFFICIAL_C": {
+            "MSE": 0.0876999618262945,
+            "normalized_guided_MSE": 0.050227869982583266
+          },
+          "D_REFERENCE_UNIT": {
+            "MSE": 0.09787741193224035,
+            "normalized_guided_MSE": 0.056056739574205025
+          },
+          "P_REFERENCE_UNIT": {
+            "MSE": 0.07038442130320118,
+            "normalized_guided_MSE": 0.04031084493535776
+          },
+          "FUSION_HALF_UNIT": {
+            "MSE": 0.0697940196503908,
+            "normalized_guided_MSE": 0.03997270775904293
+          }
+        },
+        "normalized_CFG_grams": {
+          "OFFICIAL_C": [
+            0.01380155862688197,
+            0.014076643554059617,
+            0.013596673359645964
+          ],
+          "D_REFERENCE_UNIT": [
+            0.2150495712093983,
+            0.2746177530807071,
+            0.2425302296319838
+          ],
+          "P_REFERENCE_UNIT": [
+            0.016080957369708927,
+            0.017097263902686035,
+            0.01630925319602704
+          ],
+          "FUSION_HALF_UNIT": [
+            0.07430927647294469,
+            0.09105755507362187,
+            0.08194322486716832
+          ]
+        },
+        "related_error_moments": {
+          "A": 0.056056739574205025,
+          "B": 0.04031084493535776,
+          "C": 0.031761623339125064
+        },
+        "local_oracle_gain": {
+          "gamma": 0.7397048574965587,
+          "status": "CONSTRAINED_RELATED_ERROR_MINIMUM",
+          "denominator": 0.03284433783131266
+        },
+        "raw_artifact": {
+          "path": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-math-n1-natural-unit-r1/1/point-26.pt",
+          "sha256": "2254575a1f5e5a667dc50b501f1052752ea75943cd10c8eec12752702c4387c2",
+          "bytes": 87593553,
+          "tensor_sha256": "5d8820ab8d64d080344af7b2e73c6ec9557a565801c3d5b827c174ee972c650c"
+        },
+        "all_candidate_and_teacher_tensors_read": true
+      },
+      {
+        "selection": {
+          "scene": "misc_13398218_3840_2160_60fps",
+          "step": 8,
+          "source": "D",
+          "working_created_step": 7,
+          "working_age": 1,
+          "true_D_reference_step": 7,
+          "true_D_history": [
+            [
+              6,
+              7
+            ],
+            [
+              6,
+              7
+            ]
+          ],
+          "D_reference_age_gap": 0,
+          "shared_alpha": 1,
+          "risk_query_anchor": 7,
+          "risk_local_proxy": 0.05289796776199093,
+          "risk_gain": 0.22652744535783098,
+          "risk_source_floor": 0.0,
+          "risk_added": 0.011982841501744706,
+          "readout_reference": "LAST_TRUE_D_UNIT_INCREMENT",
+          "actual_sigma_interval": "MISSING_IN_METADATA_CAPTURE_AT_RUNTIME_DIAGNOSTIC",
+          "runtime_snapshot": "NOT_SERIALIZED_CHECKPOINT_HASHES_ONLY",
+          "role": "TRUE_D_SOURCE_REFERENCE_CONTROL"
+        },
+        "sigma": 0.9844666123390198,
+        "sigma_index": 7,
+        "teacher_guided_energy": 2.2605687336285825,
+        "losses": {
+          "OFFICIAL_C": {
+            "MSE": 0.8280828696060015,
+            "normalized_guided_MSE": 0.3663161651699894
+          },
+          "D_REFERENCE_UNIT": {
+            "MSE": 0.6637499977175668,
+            "normalized_guided_MSE": 0.2936207989801485
+          },
+          "P_REFERENCE_UNIT": {
+            "MSE": 0.6637499977175668,
+            "normalized_guided_MSE": 0.2936207989801485
+          },
+          "FUSION_HALF_UNIT": {
+            "MSE": 0.6637499977175668,
+            "normalized_guided_MSE": 0.2936207989801485
+          }
+        },
+        "normalized_CFG_grams": {
+          "OFFICIAL_C": [
+            0.010795329066280735,
+            0.029375408248833185,
+            0.015749820529848614
+          ],
+          "D_REFERENCE_UNIT": [
+            0.008692396245016944,
+            0.02269220036325763,
+            0.012273306951197176
+          ],
+          "P_REFERENCE_UNIT": [
+            0.008692396245016944,
+            0.02269220036325763,
+            0.012273306951197176
+          ],
+          "FUSION_HALF_UNIT": [
+            0.008692396245016944,
+            0.02269220036325763,
+            0.012273306951197176
+          ]
+        },
+        "related_error_moments": {
+          "A": 0.2936207989801485,
+          "B": 0.2936207989801485,
+          "C": 0.2936207989801485
+        },
+        "local_oracle_gain": {
+          "gamma": 0.0,
+          "status": "DEGENERATE_USE_OLD_REFERENCE",
+          "denominator": 0.0
+        },
+        "raw_artifact": {
+          "path": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-math-n1-natural-unit-r1/2/point-8.pt",
+          "sha256": "2a3afef40196ff03d263a1d1691380c318bedb05159b87e39d3f0f3a61690341",
+          "bytes": 87592959,
+          "tensor_sha256": "cd0f6e838b15a85dae82cfc9cd3f0bde0a8debd8ed13c3ee58c549eacf5486a3"
+        },
+        "all_candidate_and_teacher_tensors_read": true
+      },
+      {
+        "selection": {
+          "scene": "misc_13398218_3840_2160_60fps",
+          "step": 20,
+          "source": "P",
+          "working_created_step": 19,
+          "working_age": 1,
+          "true_D_reference_step": 14,
+          "true_D_history": [
+            [
+              7,
+              14
+            ],
+            [
+              7,
+              14
+            ]
+          ],
+          "D_reference_age_gap": 5,
+          "shared_alpha": 1,
+          "risk_query_anchor": 19,
+          "risk_local_proxy": 0.11601578593220614,
+          "risk_gain": 0.18115230029963358,
+          "risk_source_floor": 0.01967132867152968,
+          "risk_added": 0.02458003293148675,
+          "readout_reference": "LAST_TRUE_D_UNIT_INCREMENT",
+          "actual_sigma_interval": "MISSING_IN_METADATA_CAPTURE_AT_RUNTIME_DIAGNOSTIC",
+          "runtime_snapshot": "NOT_SERIALIZED_CHECKPOINT_HASHES_ONLY",
+          "role": "FIRST_NATURAL_P_READ"
+        },
+        "sigma": 0.831115186214447,
+        "sigma_index": 19,
+        "teacher_guided_energy": 1.830962647132754,
+        "losses": {
+          "OFFICIAL_C": {
+            "MSE": 0.1841578607498927,
+            "normalized_guided_MSE": 0.10057980212664619
+          },
+          "D_REFERENCE_UNIT": {
+            "MSE": 0.21422048684223852,
+            "normalized_guided_MSE": 0.11699882964718201
+          },
+          "P_REFERENCE_UNIT": {
+            "MSE": 0.133841820607057,
+            "normalized_guided_MSE": 0.07309915405245991
+          },
+          "FUSION_HALF_UNIT": {
+            "MSE": 0.11215520939530453,
+            "normalized_guided_MSE": 0.061254777409543035
+          }
+        },
+        "normalized_CFG_grams": {
+          "OFFICIAL_C": [
+            0.01063942634546397,
+            0.015029638837958083,
+            0.011757105241139463
+          ],
+          "D_REFERENCE_UNIT": [
+            0.057478831334281756,
+            0.07572147874866672,
+            0.06492856102204249
+          ],
+          "P_REFERENCE_UNIT": [
+            0.011053633109755321,
+            0.015160177426107363,
+            0.012296268382316615
+          ],
+          "FUSION_HALF_UNIT": [
+            0.023739366038252396,
+            0.03003998463357029,
+            0.026160927643855275
+          ]
+        },
+        "related_error_moments": {
+          "A": 0.11699882964718201,
+          "B": 0.07309915405245991,
+          "C": 0.0274605626546861
+        },
+        "local_oracle_gain": {
+          "gamma": 0.662378664948623,
+          "status": "CONSTRAINED_RELATED_ERROR_MINIMUM",
+          "denominator": 0.13517685839026972
+        },
+        "raw_artifact": {
+          "path": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-math-n1-natural-unit-r1/2/point-20.pt",
+          "sha256": "f49ab7144822aad98e2e0ee407eda190f0fd8d8c911b001730ae32e19d97459a",
+          "bytes": 87593553,
+          "tensor_sha256": "1aacd989b77ea42295f20e48e17e64eb8ed89973129f2362492c822cfb9458af"
+        },
+        "all_candidate_and_teacher_tensors_read": true
+      },
+      {
+        "selection": {
+          "scene": "misc_13398218_3840_2160_60fps",
+          "step": 28,
+          "source": "P",
+          "working_created_step": 27,
+          "working_age": 1,
+          "true_D_reference_step": 14,
+          "true_D_history": [
+            [
+              7,
+              14
+            ],
+            [
+              7,
+              14
+            ]
+          ],
+          "D_reference_age_gap": 13,
+          "shared_alpha": 0.5,
+          "risk_query_anchor": 27,
+          "risk_local_proxy": 0.3875280445667521,
+          "risk_gain": 0.09117251531593862,
+          "risk_source_floor": 0.1332674018840063,
+          "risk_added": 0.04748223081800286,
+          "readout_reference": "LAST_TRUE_D_UNIT_INCREMENT",
+          "actual_sigma_interval": "MISSING_IN_METADATA_CAPTURE_AT_RUNTIME_DIAGNOSTIC",
+          "runtime_snapshot": "NOT_SERIALIZED_CHECKPOINT_HASHES_ONLY",
+          "role": "MAX_REFERENCE_GAP_EXCLUDING_FIRST"
+        },
+        "sigma": 0.30132922530174255,
+        "sigma_index": 27,
+        "teacher_guided_energy": 1.6167703358229744,
+        "losses": {
+          "OFFICIAL_C": {
+            "MSE": 0.1349289042222408,
+            "normalized_guided_MSE": 0.08345582624359495
+          },
+          "D_REFERENCE_UNIT": {
+            "MSE": 0.1686678611942542,
+            "normalized_guided_MSE": 0.1043239459910045
+          },
+          "P_REFERENCE_UNIT": {
+            "MSE": 0.07871527987047285,
+            "normalized_guided_MSE": 0.048686741787852574
+          },
+          "FUSION_HALF_UNIT": {
+            "MSE": 0.10365995980849893,
+            "normalized_guided_MSE": 0.06411545134871216
+          }
+        },
+        "normalized_CFG_grams": {
+          "OFFICIAL_C": [
+            0.014179197475440676,
+            0.012971222542381661,
+            0.013032167113806373
+          ],
+          "D_REFERENCE_UNIT": [
+            0.12174344864946925,
+            0.13431061457555507,
+            0.12739711501595802
+          ],
+          "P_REFERENCE_UNIT": [
+            0.013618259613326713,
+            0.01373854779637807,
+            0.01335777424546436
+          ],
+          "FUSION_HALF_UNIT": [
+            0.047968618928641286,
+            0.051463496139535936,
+            0.04935345956201829
+          ]
+        },
+        "related_error_moments": {
+          "A": 0.1043239459910045,
+          "B": 0.048686741787852574,
+          "C": 0.05172555885425132
+        },
+        "local_oracle_gain": {
+          "gamma": 1.0,
+          "status": "CONSTRAINED_RELATED_ERROR_MINIMUM",
+          "denominator": 0.04955957007035443
+        },
+        "raw_artifact": {
+          "path": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-math-n1-natural-unit-r1/2/point-28.pt",
+          "sha256": "c3872d752b875734f438ec62f2f74565567e3346c904227ce95b9654408109b1",
+          "bytes": 87593553,
+          "tensor_sha256": "6d2f62ca1360bd50a693442b6db2a751dece0ee2fdc6ac77fefc6bbb2c3f7794"
+        },
+        "all_candidate_and_teacher_tensors_read": true
+      },
+      {
+        "selection": {
+          "scene": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+          "step": 8,
+          "source": "D",
+          "working_created_step": 7,
+          "working_age": 1,
+          "true_D_reference_step": 7,
+          "true_D_history": [
+            [
+              6,
+              7
+            ],
+            [
+              6,
+              7
+            ]
+          ],
+          "D_reference_age_gap": 0,
+          "shared_alpha": 1,
+          "risk_query_anchor": 7,
+          "risk_local_proxy": 0.061131241598781104,
+          "risk_gain": 0.22652744535783098,
+          "risk_source_floor": 0.0,
+          "risk_added": 0.01384790399092425,
+          "readout_reference": "LAST_TRUE_D_UNIT_INCREMENT",
+          "actual_sigma_interval": "MISSING_IN_METADATA_CAPTURE_AT_RUNTIME_DIAGNOSTIC",
+          "runtime_snapshot": "NOT_SERIALIZED_CHECKPOINT_HASHES_ONLY",
+          "role": "TRUE_D_SOURCE_REFERENCE_CONTROL"
+        },
+        "sigma": 0.9844666123390198,
+        "sigma_index": 7,
+        "teacher_guided_energy": 3.0027758356173404,
+        "losses": {
+          "OFFICIAL_C": {
+            "MSE": 1.4663128426414953,
+            "normalized_guided_MSE": 0.4883191163485689
+          },
+          "D_REFERENCE_UNIT": {
+            "MSE": 2.0738874558457057,
+            "normalized_guided_MSE": 0.6906567687292366
+          },
+          "P_REFERENCE_UNIT": {
+            "MSE": 2.0738874558457057,
+            "normalized_guided_MSE": 0.6906567687292366
+          },
+          "FUSION_HALF_UNIT": {
+            "MSE": 2.0738874558457057,
+            "normalized_guided_MSE": 0.6906567687292366
+          }
+        },
+        "normalized_CFG_grams": {
+          "OFFICIAL_C": [
+            0.006000173094619442,
+            0.020903166540045603,
+            0.008213813591835976
+          ],
+          "D_REFERENCE_UNIT": [
+            0.006907859975204302,
+            0.02985460802915496,
+            0.010842161277864701
+          ],
+          "P_REFERENCE_UNIT": [
+            0.006907859975204302,
+            0.02985460802915496,
+            0.010842161277864701
+          ],
+          "FUSION_HALF_UNIT": [
+            0.006907859975204302,
+            0.02985460802915496,
+            0.010842161277864701
+          ]
+        },
+        "related_error_moments": {
+          "A": 0.6906567687292366,
+          "B": 0.6906567687292366,
+          "C": 0.6906567687292366
+        },
+        "local_oracle_gain": {
+          "gamma": 0.0,
+          "status": "DEGENERATE_USE_OLD_REFERENCE",
+          "denominator": 0.0
+        },
+        "raw_artifact": {
+          "path": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-math-n1-natural-unit-r1/3/point-8.pt",
+          "sha256": "e8cd8b3a56645cbc4640ae1cd56285b455d5401b3be5b3b70a19a63584f9f0a1",
+          "bytes": 87592959,
+          "tensor_sha256": "834487d4ef1642e5c59fc99f40af7dda53bb4b27506f344edd186218f1af9ebe"
+        },
+        "all_candidate_and_teacher_tensors_read": true
+      },
+      {
+        "selection": {
+          "scene": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+          "step": 14,
+          "source": "P",
+          "working_created_step": 13,
+          "working_age": 1,
+          "true_D_reference_step": 7,
+          "true_D_history": [
+            [
+              6,
+              7
+            ],
+            [
+              6,
+              7
+            ]
+          ],
+          "D_reference_age_gap": 6,
+          "shared_alpha": 1,
+          "risk_query_anchor": 13,
+          "risk_local_proxy": 0.07786913237847658,
+          "risk_gain": 0.2200452817780885,
+          "risk_source_floor": 0.01967132867152968,
+          "risk_added": 0.021463318236513294,
+          "readout_reference": "LAST_TRUE_D_UNIT_INCREMENT",
+          "actual_sigma_interval": "MISSING_IN_METADATA_CAPTURE_AT_RUNTIME_DIAGNOSTIC",
+          "runtime_snapshot": "NOT_SERIALIZED_CHECKPOINT_HASHES_ONLY",
+          "role": "FIRST_NATURAL_P_READ"
+        },
+        "sigma": 0.9519975781440735,
+        "sigma_index": 13,
+        "teacher_guided_energy": 1.8741818301114999,
+        "losses": {
+          "OFFICIAL_C": {
+            "MSE": 0.5617653707286177,
+            "normalized_guided_MSE": 0.2997389910109185
+          },
+          "D_REFERENCE_UNIT": {
+            "MSE": 1.0720016274405593,
+            "normalized_guided_MSE": 0.571983790589189
+          },
+          "P_REFERENCE_UNIT": {
+            "MSE": 0.5372954675972634,
+            "normalized_guided_MSE": 0.28668267879072246
+          },
+          "FUSION_HALF_UNIT": {
+            "MSE": 0.4442394332409038,
+            "normalized_guided_MSE": 0.23703112798531126
+          }
+        },
+        "normalized_CFG_grams": {
+          "OFFICIAL_C": [
+            0.01931525118099521,
+            0.03579454989748196,
+            0.024021160978613457
+          ],
+          "D_REFERENCE_UNIT": [
+            0.08751959064973189,
+            0.14565547831830428,
+            0.10862846828985515
+          ],
+          "P_REFERENCE_UNIT": [
+            0.019957598156414777,
+            0.03684606751852789,
+            0.024964829567961026
+          ],
+          "FUSION_HALF_UNIT": [
+            0.03436442311650082,
+            0.0539515588089225,
+            0.041124270830915396
+          ]
+        },
+        "related_error_moments": {
+          "A": 0.571983790589189,
+          "B": 0.28668267879072246,
+          "C": 0.044729020376508714
+        },
+        "local_oracle_gain": {
+          "gamma": 0.6854511086856878,
+          "status": "CONSTRAINED_RELATED_ERROR_MINIMUM",
+          "denominator": 0.7692084286268941
+        },
+        "raw_artifact": {
+          "path": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-math-n1-natural-unit-r1/3/point-14.pt",
+          "sha256": "629380a4fadba64de39a11f3a95880c976590178a5f42ea018485d04219dd1fd",
+          "bytes": 87593553,
+          "tensor_sha256": "b024512e256555f3b51c30c49a8f2d08a3b2df7323df2518f87ccbd532afb899"
+        },
+        "all_candidate_and_teacher_tensors_read": true
+      },
+      {
+        "selection": {
+          "scene": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+          "step": 20,
+          "source": "P",
+          "working_created_step": 19,
+          "working_age": 1,
+          "true_D_reference_step": 7,
+          "true_D_history": [
+            [
+              6,
+              7
+            ],
+            [
+              6,
+              7
+            ]
+          ],
+          "D_reference_age_gap": 12,
+          "shared_alpha": 1,
+          "risk_query_anchor": 19,
+          "risk_local_proxy": 0.11283225575399461,
+          "risk_gain": 0.18115230029963358,
+          "risk_source_floor": 0.01967132867152968,
+          "risk_added": 0.024003329116630428,
+          "readout_reference": "LAST_TRUE_D_UNIT_INCREMENT",
+          "actual_sigma_interval": "MISSING_IN_METADATA_CAPTURE_AT_RUNTIME_DIAGNOSTIC",
+          "runtime_snapshot": "NOT_SERIALIZED_CHECKPOINT_HASHES_ONLY",
+          "role": "MAX_REFERENCE_GAP_EXCLUDING_FIRST"
+        },
+        "sigma": 0.831115186214447,
+        "sigma_index": 19,
+        "teacher_guided_energy": 1.7742076134998002,
+        "losses": {
+          "OFFICIAL_C": {
+            "MSE": 0.13797179689257136,
+            "normalized_guided_MSE": 0.07776530539197063
+          },
+          "D_REFERENCE_UNIT": {
+            "MSE": 0.5800488157429685,
+            "normalized_guided_MSE": 0.3269340134319257
+          },
+          "P_REFERENCE_UNIT": {
+            "MSE": 0.11251661898233552,
+            "normalized_guided_MSE": 0.06341795521911066
+          },
+          "FUSION_HALF_UNIT": {
+            "MSE": 0.19827177620132713,
+            "normalized_guided_MSE": 0.11175229702132572
+          }
+        },
+        "normalized_CFG_grams": {
+          "OFFICIAL_C": [
+            0.012823432087049159,
+            0.016166716050628572,
+            0.01370628066667438
+          ],
+          "D_REFERENCE_UNIT": [
+            0.251912389902949,
+            0.36621259731449846,
+            0.3012488947200681
+          ],
+          "P_REFERENCE_UNIT": [
+            0.013133651013580012,
+            0.017210352499783563,
+            0.01446824091199062
+          ],
+          "FUSION_HALF_UNIT": [
+            0.07326034730930804,
+            0.10315619450488096,
+            0.08599610233553724
+          ]
+        },
+        "related_error_moments": {
+          "A": 0.3269340134319257,
+          "B": 0.06341795521911066,
+          "C": 0.028328609172044418
+        },
+        "local_oracle_gain": {
+          "gamma": 0.8948459752070133,
+          "status": "CONSTRAINED_RELATED_ERROR_MINIMUM",
+          "denominator": 0.3336947503069475
+        },
+        "raw_artifact": {
+          "path": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-math-n1-natural-unit-r1/3/point-20.pt",
+          "sha256": "c405da501dba2a3d25ffcb62cb462cc8019a2386f61a31bc653cc988403e7fb4",
+          "bytes": 87593553,
+          "tensor_sha256": "3d2ffe510c14d247476e8b8e0f0e344dbf0c8f1f224e0778861685baee0f6ba0"
+        },
+        "all_candidate_and_teacher_tensors_read": true
+      }
+    ],
+    "source_revision": "5a0e7913f4733d1532c527bacbf734c6ce9ea949",
+    "GPU_supervisor": {
+      "status": "MATH_N1_GPU_EXITED_REQUIRES_RAW_CPU_AUDIT",
+      "pid": 265047,
+      "run_id": "wc-math-n1-natural-unit-r1",
+      "source_revision": "5a0e7913f4733d1532c527bacbf734c6ce9ea949",
+      "config_sha256": "1f1987cc08282842c54c36d3a5b162fcb5331a060ec8e4884eb82eeefce85883",
+      "production_CPU_sha256": "2617d8127d2d8c59dd60b8ed36fbedc5bb036f280d8cf3bdf1a959a1666eba4c",
+      "budget_before": {
+        "batch": "F0-F1",
+        "cap_gpu_hours": 104.97136333301378,
+        "used_gpu_hours": 56.97136333301379,
+        "gpu_jobs_launched": 82,
+        "status": "MATH_SCHEDULER_REMAINING48_AUTHORIZED_NO_NEW_GPU",
+        "gpu_import_probes_completed": 1,
+        "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts",
+        "budget_authorization_ref": "manifests/budget_authorization_20261012_wc_math_scheduler_new48gpuh.json",
+        "budget_authorization_history": [
+          {
+            "authorized_utc": "2026-10-02T18:03:00Z",
+            "source_thread_id": "01a0f1e6-7ad0-75df-9a02-172b60d2e00b",
+            "user_instruction": "\u628a\u5404\u4e2a\u5b9e\u9a8c\u7684 gpu \u9884\u7b97\u90fd\u8bbe\u7f6e\u4e3a 12gpuh",
+            "previous_cap_gpu_hours": 4,
+            "new_cumulative_cap_gpu_hours": 12,
+            "used_gpu_hours_at_change": 3.9117525685110333,
+            "no_usage_reset_or_transfer": true
+          },
+          {
+            "authorized_utc": "2026-10-04T06:13:36Z",
+            "source_thread_id": "01a0f1e6-7ad0-75df-9a02-172b60d2e00b",
+            "user_message_id": "Sentinel_861e63a87d8c819180ec9a8bcfa6dc92",
+            "user_instruction": "\u5141\u8bb8\u589e\u52a0 GPUh",
+            "previous_cap_gpu_hours": 12,
+            "new_cumulative_cap_gpu_hours": 13,
+            "used_gpu_hours_at_change": 11.022315686839217,
+            "gpu_jobs_launched_at_change": 45,
+            "no_usage_reset_or_transfer": true,
+            "authorization_ref": "manifests/budget_authorization_20261004_wc_13gpuh.json"
+          },
+          {
+            "authorized_on_local": "2026-10-05",
+            "user_instruction": "\u6279\u51c6 WC-W3-SMALL-CD-R1-20261004-A\uff0c\u628a\u7d2f\u8ba1 gpuh \u9650\u5236\u63d0\u5347\u5230 24",
+            "previous_cap_gpu_hours": 13,
+            "new_cumulative_cap_gpu_hours": 24,
+            "used_gpu_hours_at_change": 11.022315686839217,
+            "gpu_jobs_launched_at_change": 45,
+            "no_usage_reset_or_transfer": true,
+            "authorization_ref": "manifests/budget_authorization_20261005_wc_24gpuh.json",
+            "approved_card": "WC-W3-SMALL-CD-R1-20261004-A",
+            "single_run_cap_seconds": 3900
+          },
+          {
+            "authorized_unix": 1791428550.530142,
+            "authorized_on_local": "2026-10-08",
+            "user_instruction": "\u6279\u51c6\u6269\u5927 gpuh\uff0c\u76f4\u63a5\u52a0\u5230 50 \u5427",
+            "previous_cap_gpu_hours": 24,
+            "new_cumulative_cap_gpu_hours": 50,
+            "used_gpu_hours_at_change": 22.314242424184147,
+            "gpu_jobs_launched_at_change": 59,
+            "no_usage_reset_or_transfer": true,
+            "authorization_ref": "manifests/budget_authorization_20261008_wc_50gpuh.json",
+            "automatic_single_job_gpu_hours": 2
+          },
+          {
+            "authorized_unix": 1791560438.1859179,
+            "authorized_on_local": "2026-10-09",
+            "user_instruction": "\u662f\u4ece\u5f53\u524d\u5f00\u59cb 48gpuh",
+            "initial_user_instruction": "\u628a gpuh \u9884\u7b97\u63d0\u5230 48h",
+            "previous_cap_gpu_hours": 50,
+            "new_cumulative_cap_gpu_hours": 77.89524658965853,
+            "used_gpu_hours_at_change": 29.895246589658527,
+            "gpu_jobs_launched_at_change": 65,
+            "authorized_remaining_gpu_hours": 48,
+            "no_usage_reset_or_transfer": true,
+            "authorization_ref": "manifests/budget_authorization_20261009_wc_new_window_48gpuh.json",
+            "automatic_single_job_gpu_hours": 2
+          },
+          {
+            "authorized_on_local": "2026-10-12",
+            "user_instruction": "\u6839\u636e\u6700\u65b0\u5bf9\u8bdd\u548c\u6587\u6863\uff0c\u66f4\u65b0\u4e00\u4e0b\u5b9e\u9a8c\u8bbe\u8ba1\uff0c\u5c1d\u8bd5\u4e00\u4e0b\u63d0\u5230\u7684\u65b0\u7684\u6838\u5fc3\u65b9\u6cd5\u662f\u5426\u6210\u7acb\u3002\u5728\u5f53\u524d\u57fa\u7840\u4e0a\u628a\u53ef\u7528 gpuh \u8bbe\u4e3a 48h\uff0c\u5355\u6b21\u5927\u4e8e 8h \u624d\u8be2\u95ee\u3002\u7b49\u8fd9\u4e2a\u7aef\u5230\u7aef\u52a0\u901f\u6d4b\u8bd5\u8dd1\u5b8c\u4e86\u5c31\u63a8\u8fdb\u3002",
+            "authorization_ref": "manifests/budget_authorization_20261012_wc_math_scheduler_new48gpuh.json",
+            "previous_cap_gpu_hours": 77.89524658965853,
+            "new_cumulative_cap_gpu_hours": 104.97136333301378,
+            "used_gpu_hours_at_change": 56.97136333301379,
+            "gpu_jobs_launched_at_change": 82,
+            "authorized_remaining_gpu_hours": 48,
+            "no_usage_reset_or_transfer": true
+          }
+        ],
+        "budget_authorization_window": {
+          "authorization_ref": "manifests/budget_authorization_20261012_wc_math_scheduler_new48gpuh.json",
+          "start_used_gpu_hours": 56.97136333301379,
+          "authorized_remaining_gpu_hours": 48,
+          "cumulative_cap_gpu_hours": 104.97136333301378,
+          "recorded_unix": 1791760184.7594678
+        },
+        "automatic_single_job_gpu_hours": 8,
+        "execution_policy_authorization_ref": "manifests/budget_authorization_20261012_wc_math_scheduler_new48gpuh.json",
+        "execution_policy_authorization_history": [
+          {
+            "authorized_on_local": "2026-10-10",
+            "source_user_instruction": "\u5355\u6b21 \u6539\u6210\u8d85\u8fc7 4h\u624d\u9700\u8981\u786e\u8ba4",
+            "previous_automatic_single_job_gpu_hours": 2,
+            "automatic_single_job_gpu_hours": 4,
+            "authorization_ref": "manifests/wc_execution_autonomy_authorization_20261010_4gpuh.json",
+            "recorded_unix": 1791561847.0094812
+          },
+          {
+            "authorized_on_local": "2026-10-12",
+            "source_user_instruction": "\u6839\u636e\u6700\u65b0\u5bf9\u8bdd\u548c\u6587\u6863\uff0c\u66f4\u65b0\u4e00\u4e0b\u5b9e\u9a8c\u8bbe\u8ba1\uff0c\u5c1d\u8bd5\u4e00\u4e0b\u63d0\u5230\u7684\u65b0\u7684\u6838\u5fc3\u65b9\u6cd5\u662f\u5426\u6210\u7acb\u3002\u5728\u5f53\u524d\u57fa\u7840\u4e0a\u628a\u53ef\u7528 gpuh \u8bbe\u4e3a 48h\uff0c\u5355\u6b21\u5927\u4e8e 8h \u624d\u8be2\u95ee\u3002\u7b49\u8fd9\u4e2a\u7aef\u5230\u7aef\u52a0\u901f\u6d4b\u8bd5\u8dd1\u5b8c\u4e86\u5c31\u63a8\u8fdb\u3002",
+            "previous_automatic_single_job_gpu_hours": 4,
+            "automatic_single_job_gpu_hours": 8,
+            "authorization_ref": "manifests/budget_authorization_20261012_wc_math_scheduler_new48gpuh.json",
+            "complete_single_job_strictly_over8_requires_confirmation": true
+          }
+        ]
+      },
+      "admission": {
+        "unix": 1791763241.163093,
+        "uuid": "GPU-cebf7119-cf03-23b9-e192-cd196332b704",
+        "name": "NVIDIA RTX A6000",
+        "memory_used_mib": 24,
+        "compute_cap": "8.6",
+        "pids": []
+      },
+      "started_unix": 1791763241.1640348,
+      "authorized_billed_GPUh_limit": 8.0,
+      "planned_parents": 4,
+      "planned_diagnostic_points": 12,
+      "planned_physical_pairs": 180,
+      "model_loads": 1,
+      "legacy_seconds_deadline_active": false,
+      "child_pid": 265147,
+      "command": [
+        "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python",
+        "-u",
+        "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-math-n1-production-r2-20261012/scripts/run_wc_math_n1_r2.py",
+        "--project",
+        "/home/gaokuangda/data/gkd/worldcache_omr",
+        "--stage",
+        "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-math-n1-production-r2-20261012",
+        "--source-revision",
+        "5a0e7913f4733d1532c527bacbf734c6ce9ea949",
+        "--gpu-uuid",
+        "GPU-cebf7119-cf03-23b9-e192-cd196332b704"
+      ],
+      "child_exit_code": 0,
+      "runner_sha256": "4d60d1b155648c89946545784a3f3705f5b5018e026fba6b81c3fd7ce2278794",
+      "runner_status": "N1_COMPLETE4_PARENTS12_POINTS180_PAIRS_RAW_AUDIT_PENDING",
+      "wall_seconds": 3184.84773786366,
+      "ended_unix": 1791766426.0382953,
+      "budget_after": {
+        "batch": "F0-F1",
+        "cap_gpu_hours": 104.97136333301378,
+        "used_gpu_hours": 57.85604326019814,
+        "gpu_jobs_launched": 83,
+        "status": "MATH_N1_SETTLED_RAW_CPU_AUDIT_PENDING",
+        "gpu_import_probes_completed": 1,
+        "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts",
+        "budget_authorization_ref": "manifests/budget_authorization_20261012_wc_math_scheduler_new48gpuh.json",
+        "budget_authorization_history": [
+          {
+            "authorized_utc": "2026-10-02T18:03:00Z",
+            "source_thread_id": "01a0f1e6-7ad0-75df-9a02-172b60d2e00b",
+            "user_instruction": "\u628a\u5404\u4e2a\u5b9e\u9a8c\u7684 gpu \u9884\u7b97\u90fd\u8bbe\u7f6e\u4e3a 12gpuh",
+            "previous_cap_gpu_hours": 4,
+            "new_cumulative_cap_gpu_hours": 12,
+            "used_gpu_hours_at_change": 3.9117525685110333,
+            "no_usage_reset_or_transfer": true
+          },
+          {
+            "authorized_utc": "2026-10-04T06:13:36Z",
+            "source_thread_id": "01a0f1e6-7ad0-75df-9a02-172b60d2e00b",
+            "user_message_id": "Sentinel_861e63a87d8c819180ec9a8bcfa6dc92",
+            "user_instruction": "\u5141\u8bb8\u589e\u52a0 GPUh",
+            "previous_cap_gpu_hours": 12,
+            "new_cumulative_cap_gpu_hours": 13,
+            "used_gpu_hours_at_change": 11.022315686839217,
+            "gpu_jobs_launched_at_change": 45,
+            "no_usage_reset_or_transfer": true,
+            "authorization_ref": "manifests/budget_authorization_20261004_wc_13gpuh.json"
+          },
+          {
+            "authorized_on_local": "2026-10-05",
+            "user_instruction": "\u6279\u51c6 WC-W3-SMALL-CD-R1-20261004-A\uff0c\u628a\u7d2f\u8ba1 gpuh \u9650\u5236\u63d0\u5347\u5230 24",
+            "previous_cap_gpu_hours": 13,
+            "new_cumulative_cap_gpu_hours": 24,
+            "used_gpu_hours_at_change": 11.022315686839217,
+            "gpu_jobs_launched_at_change": 45,
+            "no_usage_reset_or_transfer": true,
+            "authorization_ref": "manifests/budget_authorization_20261005_wc_24gpuh.json",
+            "approved_card": "WC-W3-SMALL-CD-R1-20261004-A",
+            "single_run_cap_seconds": 3900
+          },
+          {
+            "authorized_unix": 1791428550.530142,
+            "authorized_on_local": "2026-10-08",
+            "user_instruction": "\u6279\u51c6\u6269\u5927 gpuh\uff0c\u76f4\u63a5\u52a0\u5230 50 \u5427",
+            "previous_cap_gpu_hours": 24,
+            "new_cumulative_cap_gpu_hours": 50,
+            "used_gpu_hours_at_change": 22.314242424184147,
+            "gpu_jobs_launched_at_change": 59,
+            "no_usage_reset_or_transfer": true,
+            "authorization_ref": "manifests/budget_authorization_20261008_wc_50gpuh.json",
+            "automatic_single_job_gpu_hours": 2
+          },
+          {
+            "authorized_unix": 1791560438.1859179,
+            "authorized_on_local": "2026-10-09",
+            "user_instruction": "\u662f\u4ece\u5f53\u524d\u5f00\u59cb 48gpuh",
+            "initial_user_instruction": "\u628a gpuh \u9884\u7b97\u63d0\u5230 48h",
+            "previous_cap_gpu_hours": 50,
+            "new_cumulative_cap_gpu_hours": 77.89524658965853,
+            "used_gpu_hours_at_change": 29.895246589658527,
+            "gpu_jobs_launched_at_change": 65,
+            "authorized_remaining_gpu_hours": 48,
+            "no_usage_reset_or_transfer": true,
+            "authorization_ref": "manifests/budget_authorization_20261009_wc_new_window_48gpuh.json",
+            "automatic_single_job_gpu_hours": 2
+          },
+          {
+            "authorized_on_local": "2026-10-12",
+            "user_instruction": "\u6839\u636e\u6700\u65b0\u5bf9\u8bdd\u548c\u6587\u6863\uff0c\u66f4\u65b0\u4e00\u4e0b\u5b9e\u9a8c\u8bbe\u8ba1\uff0c\u5c1d\u8bd5\u4e00\u4e0b\u63d0\u5230\u7684\u65b0\u7684\u6838\u5fc3\u65b9\u6cd5\u662f\u5426\u6210\u7acb\u3002\u5728\u5f53\u524d\u57fa\u7840\u4e0a\u628a\u53ef\u7528 gpuh \u8bbe\u4e3a 48h\uff0c\u5355\u6b21\u5927\u4e8e 8h \u624d\u8be2\u95ee\u3002\u7b49\u8fd9\u4e2a\u7aef\u5230\u7aef\u52a0\u901f\u6d4b\u8bd5\u8dd1\u5b8c\u4e86\u5c31\u63a8\u8fdb\u3002",
+            "authorization_ref": "manifests/budget_authorization_20261012_wc_math_scheduler_new48gpuh.json",
+            "previous_cap_gpu_hours": 77.89524658965853,
+            "new_cumulative_cap_gpu_hours": 104.97136333301378,
+            "used_gpu_hours_at_change": 56.97136333301379,
+            "gpu_jobs_launched_at_change": 82,
+            "authorized_remaining_gpu_hours": 48,
+            "no_usage_reset_or_transfer": true
+          }
+        ],
+        "budget_authorization_window": {
+          "authorization_ref": "manifests/budget_authorization_20261012_wc_math_scheduler_new48gpuh.json",
+          "start_used_gpu_hours": 56.97136333301379,
+          "authorized_remaining_gpu_hours": 48,
+          "cumulative_cap_gpu_hours": 104.97136333301378,
+          "recorded_unix": 1791760184.7594678
+        },
+        "automatic_single_job_gpu_hours": 8,
+        "execution_policy_authorization_ref": "manifests/budget_authorization_20261012_wc_math_scheduler_new48gpuh.json",
+        "execution_policy_authorization_history": [
+          {
+            "authorized_on_local": "2026-10-10",
+            "source_user_instruction": "\u5355\u6b21 \u6539\u6210\u8d85\u8fc7 4h\u624d\u9700\u8981\u786e\u8ba4",
+            "previous_automatic_single_job_gpu_hours": 2,
+            "automatic_single_job_gpu_hours": 4,
+            "authorization_ref": "manifests/wc_execution_autonomy_authorization_20261010_4gpuh.json",
+            "recorded_unix": 1791561847.0094812
+          },
+          {
+            "authorized_on_local": "2026-10-12",
+            "source_user_instruction": "\u6839\u636e\u6700\u65b0\u5bf9\u8bdd\u548c\u6587\u6863\uff0c\u66f4\u65b0\u4e00\u4e0b\u5b9e\u9a8c\u8bbe\u8ba1\uff0c\u5c1d\u8bd5\u4e00\u4e0b\u63d0\u5230\u7684\u65b0\u7684\u6838\u5fc3\u65b9\u6cd5\u662f\u5426\u6210\u7acb\u3002\u5728\u5f53\u524d\u57fa\u7840\u4e0a\u628a\u53ef\u7528 gpuh \u8bbe\u4e3a 48h\uff0c\u5355\u6b21\u5927\u4e8e 8h \u624d\u8be2\u95ee\u3002\u7b49\u8fd9\u4e2a\u7aef\u5230\u7aef\u52a0\u901f\u6d4b\u8bd5\u8dd1\u5b8c\u4e86\u5c31\u63a8\u8fdb\u3002",
+            "previous_automatic_single_job_gpu_hours": 4,
+            "automatic_single_job_gpu_hours": 8,
+            "authorization_ref": "manifests/budget_authorization_20261012_wc_math_scheduler_new48gpuh.json",
+            "complete_single_job_strictly_over8_requires_confirmation": true
+          }
+        ]
+      },
+      "release": {
+        "unix": 1791766426.1641607,
+        "uuid": "GPU-cebf7119-cf03-23b9-e192-cd196332b704",
+        "name": "NVIDIA RTX A6000",
+        "memory_used_mib": 24,
+        "compute_cap": "8.6",
+        "pids": []
+      }
+    },
+    "budget_before_sha256": "8d78df81a1dbbbb1693c1e5fee235bc760cc71561a14ea32bf72c780c770868d",
+    "GPU_submissions": 0,
+    "ledger_written": false,
+    "global_related_gain": {
+      "gamma": 0.7235237005554214,
+      "status": "CONSTRAINED_RELATED_ERROR_MINIMUM",
+      "denominator": 0.2917312271764306,
+      "target": "SCENE_EQUAL_NORMALIZED_GUIDED_OUTPUT_MSE",
+      "energy_epsilon": 1e-12,
+      "training_scenes": 4,
+      "primary_states": 8,
+      "moments": {
+        "A": 0.25428313554555915,
+        "B": 0.12386544861345898,
+        "C": 0.043208678491293784
+      },
+      "expected_old_loss": 0.25428313554555915,
+      "expected_fitted_loss": 0.1015657632849307,
+      "leave_one_scene_out": [
+        {
+          "held_scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+          "trained_on_other_scenes_gamma": 0.7155822479740267,
+          "held_old_loss": 0.10364693924773632,
+          "held_fused_loss": 0.040958783393869935
+        },
+        {
+          "held_scene": "human_199",
+          "trained_on_other_scenes_gamma": 0.7595611512342781,
+          "held_old_loss": 0.35336531310484953,
+          "held_fused_loss": 0.17113968806469596
+        },
+        {
+          "held_scene": "misc_13398218_3840_2160_60fps",
+          "trained_on_other_scenes_gamma": 0.7195799952927763,
+          "held_old_loss": 0.11066138781909327,
+          "held_fused_loss": 0.05621052853887383
+        },
+        {
+          "held_scene": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+          "trained_on_other_scenes_gamma": 0.7008715528307271,
+          "held_old_loss": 0.4494589020105574,
+          "held_fused_loss": 0.14152156370206037
+        }
+      ]
+    },
+    "CPU_wall_seconds": 30.901956335641444,
+    "CUDA_initialized": false,
+    "budget_after_sha256": "8d78df81a1dbbbb1693c1e5fee235bc760cc71561a14ea32bf72c780c770868d",
+    "method_endpoint_or_new_policy_claim": false
+  },
+  "final_sha256": "343c104bd02aaa911a9971fe5e0c38aa88dbdcab57117bdffcd4904b8301be95",
+  "post_exit": {
+    "exit_code": 0,
+    "GPU_submissions": 0,
+    "ledger_written": false,
+    "ended_unix": 1791766466.6733232
+  },
+  "post_exit_sha256": "e5911f903e7a1f5510c5ec14958c6395ff5b7e82b0d4c71ed5d4e3f297a8a093",
   "ledger": {
     "batch": "F0-F1",
     "cap_gpu_hours": 104.97136333301378,
-    "used_gpu_hours": 104.97136333301378,
+    "used_gpu_hours": 57.85604326019814,
     "gpu_jobs_launched": 83,
-    "status": "MATH_N1_INFLIGHT_REMAINING_RESERVED_NOT_ACTUAL_SPENT",
+    "status": "MATH_N1_SETTLED_RAW_CPU_AUDIT_PENDING",
     "gpu_import_probes_completed": 1,
     "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts",
     "budget_authorization_ref": "manifests/budget_authorization_20261012_wc_math_scheduler_new48gpuh.json",
@@ -7962,14 +12099,9 @@
         "authorization_ref": "manifests/budget_authorization_20261012_wc_math_scheduler_new48gpuh.json",
         "complete_single_job_strictly_over8_requires_confirmation": true
       }
-    ],
-    "wc_math_n1_inflight": {
-      "supervisor_pid": 265047,
-      "run_id": "wc-math-n1-natural-unit-r1",
-      "reserved_GPUh": 47.99999999999999
-    }
+    ]
   },
-  "ledger_sha256": "660d5a8da92f5373eb56e4b9fe838c5a9d27311e046b51416f24476808f67e11",
+  "ledger_sha256": "8d78df81a1dbbbb1693c1e5fee235bc760cc71561a14ea32bf72c780c770868d",
   "payload_verified": {
     "configs/wc_paired_four_action_full_sampler_cpu_schedules_20261009.json": true,
     "manifests/budget_authorization_20261009_wc_new_window_48gpuh.json": true,
@@ -8610,12 +12742,13 @@
     "manifests/wc_math_n1_full180_cost_r1_20261012.json": true,
     "manifests/wc_math_n1_original_guided36_bindings_r1_20261012.json": true
   },
-  "GPU": "GPU-cebf7119-cf03-23b9-e192-cd196332b704, 20566",
+  "GPU": "GPU-cebf7119-cf03-23b9-e192-cd196332b704, 24",
   "original_processes": {
-    "265047": true,
-    "265147": true
+    "265047": false,
+    "265147": false
   },
   "GPU-supervisor.log_tail": "",
+  "post-CPU.log_tail": "",
   "post-watcher.log_tail": "",
-  "GPU.log_tail": "\u2588\u258f       | 8/36 [03:49<29:08, 62.43s/it]\nGenerating samples:  25%|\u2588\u2588\u258c       | 9/36 [03:50<19:25, 43.18s/it]\nGenerating samples:  28%|\u2588\u2588\u258a       | 10/36 [03:50<13:02, 30.11s/it]\nGenerating samples:  31%|\u2588\u2588\u2588       | 11/36 [03:51<08:48, 21.15s/it]\nGenerating samples:  33%|\u2588\u2588\u2588\u258e      | 12/36 [03:52<05:59, 14.97s/it]\nGenerating samples:  36%|\u2588\u2588\u2588\u258c      | 13/36 [03:53<04:05, 10.69s/it]\nGenerating samples:  39%|\u2588\u2588\u2588\u2589      | 14/36 [04:00<03:28,  9.49s/it]\nGenerating samples:  42%|\u2588\u2588\u2588\u2588\u258f     | 15/36 [04:01<02:24,  6.89s/it]\nGenerating samples:  44%|\u2588\u2588\u2588\u2588\u258d     | 16/36 [04:01<01:41,  5.07s/it]\nGenerating samples:  47%|\u2588\u2588\u2588\u2588\u258b     | 17/36 [04:02<01:12,  3.80s/it]\nGenerating samples:  50%|\u2588\u2588\u2588\u2588\u2588     | 18/36 [04:03<00:52,  2.92s/it]\nGenerating samples:  53%|\u2588\u2588\u2588\u2588\u2588\u258e    | 19/36 [04:10<01:08,  4.05s/it]\nGenerating samples:  56%|\u2588\u2588\u2588\u2588\u2588\u258c    | 20/36 [07:12<15:19, 57.44s/it]\nGenerating samples:  58%|\u2588\u2588\u2588\u2588\u2588\u258a    | 21/36 [07:13<10:06, 40.45s/it]\nGenerating samples:  61%|\u2588\u2588\u2588\u2588\u2588\u2588    | 22/36 [07:19<07:04, 30.29s/it]\nGenerating samples:  64%|\u2588\u2588\u2588\u2588\u2588\u2588\u258d   | 23/36 [07:20<04:38, 21.45s/it]\nGenerating samples:  67%|\u2588\u2588\u2588\u2588\u2588\u2588\u258b   | 24/36 [07:27<03:24, 17.01s/it]\nGenerating samples:  69%|\u2588\u2588\u2588\u2588\u2588\u2588\u2589   | 25/36 [07:28<02:13, 12.17s/it]\nGenerating samples:  72%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258f  | 26/36 [07:34<01:45, 10.53s/it]\nGenerating samples:  75%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258c  | 27/36 [07:41<01:24,  9.39s/it]\nGenerating samples:  78%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258a  | 28/36 [10:45<08:14, 61.78s/it]\nGenerating samples:  81%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588  | 29/36 [10:52<05:16, 45.24s/it]\nGenerating samples:  83%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258e | 30/36 [10:52<03:11, 31.92s/it]\nGenerating samples:  86%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258c | 31/36 [10:53<01:53, 22.60s/it]\nGenerating samples:  89%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2589 | 32/36 [10:54<01:04, 16.08s/it]\nGenerating samples:  92%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258f| 33/36 [10:55<00:34, 11.51s/it]\nGenerating samples:  94%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258d| 34/36 [10:56<00:16,  8.31s/it]\nGenerating samples:  97%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258b| 35/36 [11:02<00:07,  7.81s/it]\nGenerating samples: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 36/36 [11:09<00:00,  7.50s/it]\nGenerating samples: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 36/36 [11:09<00:00, 18.60s/it]\n[10-12 08:40:17|INFO|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/inference.py:160:_generate_sample] Running guardrail check on video...\n[10-12 08:40:30|SUCCESS|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/inference.py:172:_generate_sample] Passed guardrail on generated video\n[10-12 08:40:30|SUCCESS|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/inference.py:180:_generate_sample] Saved video to /home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-math-n1-natural-unit-r1/2/parent/misc_13398218_3840_2160_60fps.mp4\n[10-12 08:40:35|INFO|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/inference.py:91:generate] Generating 1 samples: ['av_51b45829-502e-4143-9c32-c026bd6ab191']\n[10-12 08:40:35|INFO|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/inference.py:95:generate] [1/1] Processing sample av_51b45829-502e-4143-9c32-c026bd6ab191\n[10-12 08:40:35|INFO|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/inference.py:108:_generate_sample] Saved arguments to /home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-math-n1-natural-unit-r1/3/parent/av_51b45829-502e-4143-9c32-c026bd6ab191.json\n[10-12 08:40:53|SUCCESS|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/inference.py:120:_generate_sample] Passed guardrail on prompt\n[10-12 08:40:53|INFO|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/inference.py:142:_generate_sample] Generating video with standard mode...\n\nGenerating samples:   0%|          | 0/36 [00:00<?, ?it/s]\nGenerating samples:   3%|\u258e         | 1/36 [00:06<03:54,  6.71s/it]\nGenerating samples:   6%|\u258c         | 2/36 [00:13<03:49,  6.75s/it]\nGenerating samples:   8%|\u258a         | 3/36 [00:20<03:43,  6.78s/it]\nGenerating samples:  11%|\u2588         | 4/36 [00:27<03:37,  6.81s/it]\nGenerating samples:  14%|\u2588\u258d        | 5/36 [00:34<03:32,  6.84s/it]\nGenerating samples:  17%|\u2588\u258b        | 6/36 [00:40<03:25,  6.87s/it]\nGenerating samples:  19%|\u2588\u2589        | 7/36 [00:47<03:19,  6.89s/it]\nGenerating samples:  22%|\u2588\u2588\u258f       | 8/36 [03:51<29:27, 63.13s/it]\nGenerating samples:  25%|\u2588\u2588\u258c       | 9/36 [03:52<19:38, 43.66s/it]\nGenerating samples:  28%|\u2588\u2588\u258a       | 10/36 [03:53<13:11, 30.45s/it]\nGenerating samples:  31%|\u2588\u2588\u2588       | 11/36 [03:54<08:54, 21.39s/it]\nGenerating samples:  33%|\u2588\u2588\u2588\u258e      | 12/36 [03:54<06:03, 15.14s/it]\nGenerating samples:  36%|\u2588\u2588\u2588\u258c      | 13/36 [04:01<04:48, 12.56s/it]\nGenerating samples:  39%|\u2588\u2588\u2588\u2589      | 14/36 [07:04<23:29, 64.09s/it]\nGenerating samples:  42%|\u2588\u2588\u2588\u2588\u258f     | 15/36 [07:05<15:45, 45.02s/it]\nGenerating samples:  44%|\u2588\u2588\u2588\u2588\u258d     | 16/36 [07:12<11:09, 33.45s/it]\nGenerating samples:  47%|\u2588\u2588\u2588\u2588\u258b     | 17/36 [07:12<07:29, 23.65s/it]\nGenerating samples:  50%|\u2588\u2588\u2588\u2588\u2588     | 18/36 [07:13<05:02, 16.80s/it]\nGenerating samples:  53%|\u2588\u2588\u2588\u2588\u2588\u258e    | 19/36 [07:20<03:53, 13.76s/it]"
+  "GPU.log_tail": "07,  7.81s/it]\nGenerating samples: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 36/36 [11:09<00:00,  7.50s/it]\nGenerating samples: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 36/36 [11:09<00:00, 18.60s/it]\n[10-12 08:40:17|INFO|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/inference.py:160:_generate_sample] Running guardrail check on video...\n[10-12 08:40:30|SUCCESS|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/inference.py:172:_generate_sample] Passed guardrail on generated video\n[10-12 08:40:30|SUCCESS|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/inference.py:180:_generate_sample] Saved video to /home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-math-n1-natural-unit-r1/2/parent/misc_13398218_3840_2160_60fps.mp4\n[10-12 08:40:35|INFO|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/inference.py:91:generate] Generating 1 samples: ['av_51b45829-502e-4143-9c32-c026bd6ab191']\n[10-12 08:40:35|INFO|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/inference.py:95:generate] [1/1] Processing sample av_51b45829-502e-4143-9c32-c026bd6ab191\n[10-12 08:40:35|INFO|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/inference.py:108:_generate_sample] Saved arguments to /home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-math-n1-natural-unit-r1/3/parent/av_51b45829-502e-4143-9c32-c026bd6ab191.json\n[10-12 08:40:53|SUCCESS|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/inference.py:120:_generate_sample] Passed guardrail on prompt\n[10-12 08:40:53|INFO|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/inference.py:142:_generate_sample] Generating video with standard mode...\n\nGenerating samples:   0%|          | 0/36 [00:00<?, ?it/s]\nGenerating samples:   3%|\u258e         | 1/36 [00:06<03:54,  6.71s/it]\nGenerating samples:   6%|\u258c         | 2/36 [00:13<03:49,  6.75s/it]\nGenerating samples:   8%|\u258a         | 3/36 [00:20<03:43,  6.78s/it]\nGenerating samples:  11%|\u2588         | 4/36 [00:27<03:37,  6.81s/it]\nGenerating samples:  14%|\u2588\u258d        | 5/36 [00:34<03:32,  6.84s/it]\nGenerating samples:  17%|\u2588\u258b        | 6/36 [00:40<03:25,  6.87s/it]\nGenerating samples:  19%|\u2588\u2589        | 7/36 [00:47<03:19,  6.89s/it]\nGenerating samples:  22%|\u2588\u2588\u258f       | 8/36 [03:51<29:27, 63.13s/it]\nGenerating samples:  25%|\u2588\u2588\u258c       | 9/36 [03:52<19:38, 43.66s/it]\nGenerating samples:  28%|\u2588\u2588\u258a       | 10/36 [03:53<13:11, 30.45s/it]\nGenerating samples:  31%|\u2588\u2588\u2588       | 11/36 [03:54<08:54, 21.39s/it]\nGenerating samples:  33%|\u2588\u2588\u2588\u258e      | 12/36 [03:54<06:03, 15.14s/it]\nGenerating samples:  36%|\u2588\u2588\u2588\u258c      | 13/36 [04:01<04:48, 12.56s/it]\nGenerating samples:  39%|\u2588\u2588\u2588\u2589      | 14/36 [07:04<23:29, 64.09s/it]\nGenerating samples:  42%|\u2588\u2588\u2588\u2588\u258f     | 15/36 [07:05<15:45, 45.02s/it]\nGenerating samples:  44%|\u2588\u2588\u2588\u2588\u258d     | 16/36 [07:12<11:09, 33.45s/it]\nGenerating samples:  47%|\u2588\u2588\u2588\u2588\u258b     | 17/36 [07:12<07:29, 23.65s/it]\nGenerating samples:  50%|\u2588\u2588\u2588\u2588\u2588     | 18/36 [07:13<05:02, 16.80s/it]\nGenerating samples:  53%|\u2588\u2588\u2588\u2588\u2588\u258e    | 19/36 [07:20<03:53, 13.76s/it]\nGenerating samples:  56%|\u2588\u2588\u2588\u2588\u2588\u258c    | 20/36 [10:23<17:13, 64.61s/it]\nGenerating samples:  58%|\u2588\u2588\u2588\u2588\u2588\u258a    | 21/36 [10:24<11:21, 45.47s/it]\nGenerating samples:  61%|\u2588\u2588\u2588\u2588\u2588\u2588    | 22/36 [10:31<07:53, 33.82s/it]\nGenerating samples:  64%|\u2588\u2588\u2588\u2588\u2588\u2588\u258d   | 23/36 [10:31<05:11, 23.92s/it]\nGenerating samples:  67%|\u2588\u2588\u2588\u2588\u2588\u2588\u258b   | 24/36 [10:32<03:24, 17.00s/it]\nGenerating samples:  69%|\u2588\u2588\u2588\u2588\u2588\u2588\u2589   | 25/36 [10:39<02:33, 13.92s/it]\nGenerating samples:  72%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258f  | 26/36 [10:40<01:40, 10.00s/it]\nGenerating samples:  75%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258c  | 27/36 [10:41<01:05,  7.26s/it]\nGenerating samples:  78%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258a  | 28/36 [10:48<00:56,  7.12s/it]\nGenerating samples:  81%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588  | 29/36 [10:48<00:36,  5.24s/it]\nGenerating samples:  83%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258e | 30/36 [10:49<00:23,  3.93s/it]\nGenerating samples:  86%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258c | 31/36 [10:50<00:15,  3.01s/it]\nGenerating samples:  89%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2589 | 32/36 [10:57<00:16,  4.13s/it]\nGenerating samples:  92%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258f| 33/36 [10:58<00:09,  3.15s/it]\nGenerating samples:  94%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258d| 34/36 [10:59<00:04,  2.46s/it]\nGenerating samples:  97%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258b| 35/36 [10:59<00:01,  1.98s/it]\nGenerating samples: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 36/36 [11:06<00:00,  3.44s/it]\nGenerating samples: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 36/36 [11:06<00:00, 18.52s/it]\n[10-12 08:52:50|INFO|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/inference.py:160:_generate_sample] Running guardrail check on video...\n[10-12 08:53:03|SUCCESS|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/inference.py:172:_generate_sample] Passed guardrail on generated video\n[10-12 08:53:03|SUCCESS|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/inference.py:180:_generate_sample] Saved video to /home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-math-n1-natural-unit-r1/3/parent/av_51b45829-502e-4143-9c32-c026bd6ab191.mp4\n"
 }

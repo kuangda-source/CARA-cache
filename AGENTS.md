@@ -1,3 +1,7 @@
+## 2026-10-12 N1 complete positive mechanism; N2 expands one necessary control
+
+[377真实结果](research/377_WC_MATH_N1_COMPLETE_RESULTS_RELATED_FUSION_20261012.md)：全4/12/48/180及144Tensor/144父guided/4×93RGB独立通过，γ0.7235237005554214全8P状态优于C，归一化guided平方误差相对旧D-A/C低60.0580%/29.8052%；D控制参考相等但AV51原A退化保留。只局部机制，不是新策略视频/速度。实費0.884679927，累计57.856043260/cap104.971363333、第83提交，新48余47.115320073，无GPUinflight。N2增加SOURCE_FIXED简单融合/原调度对照，全部九方法四CAL36完整路径保持，104完整CPU另验；旧R1 96CPU已通过，原源/证明保留，新R2仅C读出已选标志修正及新增完整控制。参数已据审计N1全局冻结，不逐场景调参；旧P13h暂缓/E2原76保持，≤8自主、严格>8确认，无训练/OMR/新增人评。以下为历史。
+
 ## 2026-10-12 N2 source-fusion and sigma H1/H2 CPU preparation
 
 [378新候选](research/378_WC_MATH_N2_SOURCE_FUSION_SIGMA_H1_H2_DESIGN_AND_CPU_20261012.md)：来源一致post-RF融合、显式范数→平方误差尺度与真实费用H1/H2已实现，参数须等N1完整原件审计后冻结；独立两flow全96CPU路径准备（64八方法路径＋32γ端点旧实现控制），尚未CPU通过/N2 GPU。N1原638字节/source5a0/监督265047/runner265147不改，已3父9点、AV51继续；完整4/12/180及原件终态仍待。当前cap104.971363333、前实结56.971363333，预留非实耗；单次≤8自主，严格>8确认。原13h P暂缓、E2原76保持，不训练/OMR/新增人评。以下为历史。
