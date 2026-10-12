@@ -1,3 +1,7 @@
+## 2026-10-12 support-aware source-gate revision: full144 CPU next
+
+[383预登记](research/383_WC_SUPPORTED_SOURCE_GATE_SQUARED_RISK_REVISION_PREREG_20261012.md)与[384完整卡](research/384_WC_SUPPORTED_SOURCE_GATE_FULL36_WARM18_FROZEN_CARD_20261012.md)：以N2 P_OFF正信号继续开发，D来源固定阶段A、P来源C，支持H1/H2与可选P-A；风险使用传播幅度gain²×归一化MSE、来源A实价、未来ρ年龄6支持与真实回退一致。λ按未用终点的全21交点两级中位数冻结2280.895765425，不按场景选赢家。纯数值恢复/风险/支持/合成动作覆盖通过；完整两flow144采样CPU R2在验，R1夹具None历史失败保留，不是GPU/方法结果。四CAL九方法36正式＋18完整预热、一模型驻留，完整forecast7.173027604≤8，随后生产CPU和fresh唯一GPU；当前尚未启动此卡。N2全54/全93和P_OFF4/4取舍正结果保持，60.931238336/cap104.971363333、余44.040124997无inflight；原P13h暂缓/E276原范围不改，不训练/OMR/新增人评。以下为历史。
+
 ## 2026-10-12 N2 all54 and full93 accepted; source gating positive, A not exercised
 
 [380完整结果](../research/380_WC_MATH_N2_COMPLETE_SOURCE_GATE_POSITIVE_AND_ROUTER_A_UNUSED_RESULTS_20261012.md)：全36正式+18预热/54原件/36×93和九预热repeat控制完整验收0失败，source77f2971/644保持；GPU/post均0退出/24MiB/noapps。P_OFF四CAL LPIPS比CPD/无P阶段A低13.2368%/5.5781%（均4/4），每段多4.61–9.88秒，当前最强新质量取舍候选；非独立CONF/净节时。SOURCE_FIXED局部→终点混合，H1快RA1.039–1.091×但失真+12.3166%，H2比H1−4.3017%但仍高RA+7.4850%。HH全8实际A=0/头0，DD全部保护或ρ年龄1–6支持缺格回退，24额外D不是优化选取；不能称完整C/A/P/D组合已评。CPU全288覆盖/200风险重构、全部36行/九对照/费用独立通过。下一先风险单位/来源报价/动作覆盖/支持合同对齐，保留P_OFF与无P强锚点后冻新一轮，不依单阈值否定方向；gain幅度比与平方风险解释需对齐。R2实费3.073768049、R1 .001427027保留；新48含N1共3.959875003，余44.040124997，累计60.931238336/cap104.971363333、第85提交无inflight。P13h仍用户暂缓/E2原76不改，≤8自主/严格>8问，不训练/OMR/新增人评。以下为历史。
