@@ -1,3 +1,7 @@
+## 2026-10-12 N2 source-fusion and sigma H1/H2 CPU preparation
+
+[378新候选](research/378_WC_MATH_N2_SOURCE_FUSION_SIGMA_H1_H2_DESIGN_AND_CPU_20261012.md)：来源一致post-RF融合、显式范数→平方误差尺度与真实费用H1/H2已实现，参数须等N1完整原件审计后冻结；独立两flow全96CPU路径准备（64八方法路径＋32γ端点旧实现控制），尚未CPU通过/N2 GPU。N1原638字节/source5a0/监督265047/runner265147不改，已3父9点、AV51继续；完整4/12/180及原件终态仍待。当前cap104.971363333、前实结56.971363333，预留非实耗；单次≤8自主，严格>8确认。原13h P暂缓、E2原76保持，不训练/OMR/新增人评。以下为历史。
+
 ## 2026-10-12 full N1 actual GPU running
 
 [376完整首卡](research/376_WC_MATH_N1_NATURAL12_COMPLETE_CARD_20261012.md)：原完整N1已实际唯一启动：source5a0e7913f4733d1532c527bacbf734c6ce9ea949／638payload冻结，监督265047／runner265147／自动CPU watcher265048；fresh A6000 UUID24MiB/noapps/内核f1锁/新48账本准入。全四父／12自然状态（8P＋4D）／180pairs360CFG／48读出，一模型驻留，forecast1.654533663≤8保持；144原guided／4终点／93RGB控制和原件CPU拟合待，不能据启动报新方法收益。采样R4两flow全8／12与144Tensor独立读取、早晚P和D控制通过，真实生产CPU R2通过；R1生产核验旧cap失败封存，R2仅输入核验迁移到当前cap，不改算法／旧资产／旧范围／638在途字节。第83提交，前实结56.971363333／cap104.971363333、新48全额可用；used=cap是保守在途预留，实费终态全wall结算。P13h用户暂缓、E2原76及其自己的>8问题保持，只跟原进程不重投。以下为历史。
