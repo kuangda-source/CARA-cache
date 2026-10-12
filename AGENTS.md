@@ -1,3 +1,7 @@
+## 2026-10-12 N2 full144 CPU accepted; full36 plus18 frozen for production CPU
+
+[379完整卡](research/379_WC_MATH_N2_FULL36_WARM18_FROZEN_CARD_20261012.md)：全两flow144CPU403.170495秒通过（72九方法采样＋40全新production clean＋32旧γ端点），全部final/动作/A历史/Toy视频一致，CUDA未初始化；stageR3/source54ef607核心冻结。N2全36正式＋18预热forecast7.112394405≤8，按用户当前授权继续真实生产CPU后fresh唯一GPU。gamma0.7235237005554214/来源风险表/lambda全局冻结不调参，理论/CPU非终点收益；N1已完整真实正结果。最新57.856043260/cap104.971363333，第83提交，新余47.115320073无GPUinflight；P13h用户暂缓/E2原76保持，不训练/OMR/新人工评估。以下为历史。
+
 ## 2026-10-12 N2 full104 CPU passed; actual clean bridge controls next
 
 [378](research/378_WC_MATH_N2_SOURCE_FUSION_SIGMA_H1_H2_DESIGN_AND_CPU_20261012.md)：R2九方法/四请求/两flow共104完整CPU通过230.466943秒，γ0/1旧参考/全部36输出/final/动作/Toy视频等价及C关闭A记录/完整决策恢复通过。R3新增全部新五方法/四请求/两flow40实际production batch clean对照，总144CPU；其验收待，N2未GPU。完整36正式＋18预热，globalγ/风险表/λ保持，不调参。N1机制正信号/全部对照和47.115320073新余额保持；≤8完整自主/严格>8确认，P13h用户暂缓/E2原76保持。以下为历史。
