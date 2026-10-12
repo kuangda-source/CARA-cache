@@ -1,3 +1,7 @@
+## 2026-10-12 N2 repaired full54 actually running
+
+[379完整卡](research/379_WC_MATH_N2_FULL36_WARM18_FROZEN_CARD_20261012.md)：R2真实生产CPU含实际child_command路径/SHA/参数核验通过，source77f29718f889061aab9fd5686499420088331a50／644冻结文件保持；fresh A6000 24MiB/noapps/全局kernel f1锁/账本准入，监督296121／runner296331／post296122，模型一次驻留、全54预热/正式正在进行。九方法/36正式/18完整预热/γ0.7235237005554214/全部风险表/forecast7.112394405≤8保持，不据启动声称策略视频/速度。第85提交，前实结57.857470287/cap104.971363333，新余47.113893046；used=cap仅在途保守预留，整卡实结。R1入口失败0.001427027费用及原source/回执完整保留，N1局部正结果保持；仅跟原句柄不改源/重投，P13h暂缓/E2原76保持。以下为历史。
+
 ## 2026-10-12 N2 R1 launcher technical stop; independent same54 R2 prepared
 
 [379](research/379_WC_MATH_N2_FULL36_WARM18_FROZEN_CARD_20261012.md)：R1 source00e5d58/643保持，监督293538/child293701退出；监督错误指向不存在r2文件，0模型加载/0预热/0正式，非科学负结果。全费5.137296512秒=.001427027GPUh，累计57.857470287/cap104.971363333、第84提交，新余47.113893046；kernel/GPU已释放。独立R2改输出/config命名空间和共享child_command存在/哈希/参数核验，原采样/读出/调度全144 CPU字节及γ参数不改；完整36正式+18预热/forecast7.112394405保持，生产CPU与fresh实际GPU待，不复用原路径、不隐藏失败。P13h仍暂缓/E2原76保持，≤8自主/严格>8问。以下为历史。

@@ -1,156 +1,15 @@
 {
-  "observed_unix": 1791768158.159987,
-  "stage": "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-math-n2-production-r1-20261012",
-  "output": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-math-n2-source-sigma-full36-r1",
+  "observed_unix": 1791768940.1426945,
+  "stage": "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-math-n2-production-r2-20261012",
+  "output": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-math-n2-source-sigma-full36-r2",
   "supervisor": {
-    "status": "MATH_N2_GPU_EXITED_REQUIRES_RAW_CPU_AUDIT",
-    "pid": 293538,
-    "run_id": "wc-math-n2-source-sigma-full36-r1",
-    "source_revision": "00e5d583c9dcc857dfac8323f67ed42601270112",
-    "config_sha256": "0ce4bd7938c4a19ea7013fc584b2716b8e4938a77e9f8731c723c547fbdaedd0",
-    "production_CPU_sha256": "eb819bffd9f8b69573c1ed116e331ce0ac9579f34bd31797d8dc0dfd5d946d5f",
+    "status": "MATH_N2_GPU_RUNNING",
+    "pid": 296121,
+    "run_id": "wc-math-n2-source-sigma-full36-r2",
+    "source_revision": "77f29718f889061aab9fd5686499420088331a50",
+    "config_sha256": "8b6899174defb57f3a993bacd38da81fa8c66471c8a1354b42d07bfcc4a1fd66",
+    "production_CPU_sha256": "64d0c16bd8b683296b2ad568d71d6f1c131182f1f97a6f886b9519e8b31f7ebd",
     "budget_before": {
-      "batch": "F0-F1",
-      "cap_gpu_hours": 104.97136333301378,
-      "used_gpu_hours": 57.85604326019814,
-      "gpu_jobs_launched": 83,
-      "status": "MATH_N1_SETTLED_RAW_CPU_AUDIT_PENDING",
-      "gpu_import_probes_completed": 1,
-      "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts",
-      "budget_authorization_ref": "manifests/budget_authorization_20261012_wc_math_scheduler_new48gpuh.json",
-      "budget_authorization_history": [
-        {
-          "authorized_utc": "2026-10-02T18:03:00Z",
-          "source_thread_id": "01a0f1e6-7ad0-75df-9a02-172b60d2e00b",
-          "user_instruction": "\u628a\u5404\u4e2a\u5b9e\u9a8c\u7684 gpu \u9884\u7b97\u90fd\u8bbe\u7f6e\u4e3a 12gpuh",
-          "previous_cap_gpu_hours": 4,
-          "new_cumulative_cap_gpu_hours": 12,
-          "used_gpu_hours_at_change": 3.9117525685110333,
-          "no_usage_reset_or_transfer": true
-        },
-        {
-          "authorized_utc": "2026-10-04T06:13:36Z",
-          "source_thread_id": "01a0f1e6-7ad0-75df-9a02-172b60d2e00b",
-          "user_message_id": "Sentinel_861e63a87d8c819180ec9a8bcfa6dc92",
-          "user_instruction": "\u5141\u8bb8\u589e\u52a0 GPUh",
-          "previous_cap_gpu_hours": 12,
-          "new_cumulative_cap_gpu_hours": 13,
-          "used_gpu_hours_at_change": 11.022315686839217,
-          "gpu_jobs_launched_at_change": 45,
-          "no_usage_reset_or_transfer": true,
-          "authorization_ref": "manifests/budget_authorization_20261004_wc_13gpuh.json"
-        },
-        {
-          "authorized_on_local": "2026-10-05",
-          "user_instruction": "\u6279\u51c6 WC-W3-SMALL-CD-R1-20261004-A\uff0c\u628a\u7d2f\u8ba1 gpuh \u9650\u5236\u63d0\u5347\u5230 24",
-          "previous_cap_gpu_hours": 13,
-          "new_cumulative_cap_gpu_hours": 24,
-          "used_gpu_hours_at_change": 11.022315686839217,
-          "gpu_jobs_launched_at_change": 45,
-          "no_usage_reset_or_transfer": true,
-          "authorization_ref": "manifests/budget_authorization_20261005_wc_24gpuh.json",
-          "approved_card": "WC-W3-SMALL-CD-R1-20261004-A",
-          "single_run_cap_seconds": 3900
-        },
-        {
-          "authorized_unix": 1791428550.530142,
-          "authorized_on_local": "2026-10-08",
-          "user_instruction": "\u6279\u51c6\u6269\u5927 gpuh\uff0c\u76f4\u63a5\u52a0\u5230 50 \u5427",
-          "previous_cap_gpu_hours": 24,
-          "new_cumulative_cap_gpu_hours": 50,
-          "used_gpu_hours_at_change": 22.314242424184147,
-          "gpu_jobs_launched_at_change": 59,
-          "no_usage_reset_or_transfer": true,
-          "authorization_ref": "manifests/budget_authorization_20261008_wc_50gpuh.json",
-          "automatic_single_job_gpu_hours": 2
-        },
-        {
-          "authorized_unix": 1791560438.1859179,
-          "authorized_on_local": "2026-10-09",
-          "user_instruction": "\u662f\u4ece\u5f53\u524d\u5f00\u59cb 48gpuh",
-          "initial_user_instruction": "\u628a gpuh \u9884\u7b97\u63d0\u5230 48h",
-          "previous_cap_gpu_hours": 50,
-          "new_cumulative_cap_gpu_hours": 77.89524658965853,
-          "used_gpu_hours_at_change": 29.895246589658527,
-          "gpu_jobs_launched_at_change": 65,
-          "authorized_remaining_gpu_hours": 48,
-          "no_usage_reset_or_transfer": true,
-          "authorization_ref": "manifests/budget_authorization_20261009_wc_new_window_48gpuh.json",
-          "automatic_single_job_gpu_hours": 2
-        },
-        {
-          "authorized_on_local": "2026-10-12",
-          "user_instruction": "\u6839\u636e\u6700\u65b0\u5bf9\u8bdd\u548c\u6587\u6863\uff0c\u66f4\u65b0\u4e00\u4e0b\u5b9e\u9a8c\u8bbe\u8ba1\uff0c\u5c1d\u8bd5\u4e00\u4e0b\u63d0\u5230\u7684\u65b0\u7684\u6838\u5fc3\u65b9\u6cd5\u662f\u5426\u6210\u7acb\u3002\u5728\u5f53\u524d\u57fa\u7840\u4e0a\u628a\u53ef\u7528 gpuh \u8bbe\u4e3a 48h\uff0c\u5355\u6b21\u5927\u4e8e 8h \u624d\u8be2\u95ee\u3002\u7b49\u8fd9\u4e2a\u7aef\u5230\u7aef\u52a0\u901f\u6d4b\u8bd5\u8dd1\u5b8c\u4e86\u5c31\u63a8\u8fdb\u3002",
-          "authorization_ref": "manifests/budget_authorization_20261012_wc_math_scheduler_new48gpuh.json",
-          "previous_cap_gpu_hours": 77.89524658965853,
-          "new_cumulative_cap_gpu_hours": 104.97136333301378,
-          "used_gpu_hours_at_change": 56.97136333301379,
-          "gpu_jobs_launched_at_change": 82,
-          "authorized_remaining_gpu_hours": 48,
-          "no_usage_reset_or_transfer": true
-        }
-      ],
-      "budget_authorization_window": {
-        "authorization_ref": "manifests/budget_authorization_20261012_wc_math_scheduler_new48gpuh.json",
-        "start_used_gpu_hours": 56.97136333301379,
-        "authorized_remaining_gpu_hours": 48,
-        "cumulative_cap_gpu_hours": 104.97136333301378,
-        "recorded_unix": 1791760184.7594678
-      },
-      "automatic_single_job_gpu_hours": 8,
-      "execution_policy_authorization_ref": "manifests/budget_authorization_20261012_wc_math_scheduler_new48gpuh.json",
-      "execution_policy_authorization_history": [
-        {
-          "authorized_on_local": "2026-10-10",
-          "source_user_instruction": "\u5355\u6b21 \u6539\u6210\u8d85\u8fc7 4h\u624d\u9700\u8981\u786e\u8ba4",
-          "previous_automatic_single_job_gpu_hours": 2,
-          "automatic_single_job_gpu_hours": 4,
-          "authorization_ref": "manifests/wc_execution_autonomy_authorization_20261010_4gpuh.json",
-          "recorded_unix": 1791561847.0094812
-        },
-        {
-          "authorized_on_local": "2026-10-12",
-          "source_user_instruction": "\u6839\u636e\u6700\u65b0\u5bf9\u8bdd\u548c\u6587\u6863\uff0c\u66f4\u65b0\u4e00\u4e0b\u5b9e\u9a8c\u8bbe\u8ba1\uff0c\u5c1d\u8bd5\u4e00\u4e0b\u63d0\u5230\u7684\u65b0\u7684\u6838\u5fc3\u65b9\u6cd5\u662f\u5426\u6210\u7acb\u3002\u5728\u5f53\u524d\u57fa\u7840\u4e0a\u628a\u53ef\u7528 gpuh \u8bbe\u4e3a 48h\uff0c\u5355\u6b21\u5927\u4e8e 8h \u624d\u8be2\u95ee\u3002\u7b49\u8fd9\u4e2a\u7aef\u5230\u7aef\u52a0\u901f\u6d4b\u8bd5\u8dd1\u5b8c\u4e86\u5c31\u63a8\u8fdb\u3002",
-          "previous_automatic_single_job_gpu_hours": 4,
-          "automatic_single_job_gpu_hours": 8,
-          "authorization_ref": "manifests/budget_authorization_20261012_wc_math_scheduler_new48gpuh.json",
-          "complete_single_job_strictly_over8_requires_confirmation": true
-        }
-      ]
-    },
-    "admission": {
-      "unix": 1791768042.4963965,
-      "uuid": "GPU-cebf7119-cf03-23b9-e192-cd196332b704",
-      "name": "NVIDIA RTX A6000",
-      "memory_used_mib": 24,
-      "compute_cap": "8.6",
-      "pids": []
-    },
-    "started_unix": 1791768042.5244136,
-    "authorized_billed_GPUh_limit": 8.0,
-    "planned_scientific_paths": 36,
-    "planned_warmup_paths": 18,
-    "planned_physical_pairs": 1944,
-    "model_loads": 1,
-    "legacy_seconds_deadline_active": false,
-    "child_pid": 293701,
-    "command": [
-      "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python",
-      "-u",
-      "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-math-n2-production-r1-20261012/scripts/run_wc_math_n2_r2.py",
-      "--project",
-      "/home/gaokuangda/data/gkd/worldcache_omr",
-      "--stage",
-      "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-math-n2-production-r1-20261012",
-      "--source-revision",
-      "00e5d583c9dcc857dfac8323f67ed42601270112",
-      "--gpu-uuid",
-      "GPU-cebf7119-cf03-23b9-e192-cd196332b704"
-    ],
-    "child_exit_code": 2,
-    "wall_seconds": 5.1372965117916465,
-    "ended_unix": 1791768047.6629941,
-    "budget_after": {
       "batch": "F0-F1",
       "cap_gpu_hours": 104.97136333301378,
       "used_gpu_hours": 57.857470287006976,
@@ -259,29 +118,456 @@
         }
       ]
     },
-    "release": {
-      "unix": 1791768047.790009,
+    "admission": {
+      "unix": 1791768572.8048,
       "uuid": "GPU-cebf7119-cf03-23b9-e192-cd196332b704",
       "name": "NVIDIA RTX A6000",
       "memory_used_mib": 24,
       "compute_cap": "8.6",
       "pids": []
-    }
+    },
+    "started_unix": 1791768572.8163629,
+    "authorized_billed_GPUh_limit": 8.0,
+    "planned_scientific_paths": 36,
+    "planned_warmup_paths": 18,
+    "planned_physical_pairs": 1944,
+    "model_loads": 1,
+    "legacy_seconds_deadline_active": false,
+    "child_pid": 296331,
+    "command": [
+      "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python",
+      "-u",
+      "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-math-n2-production-r2-20261012/scripts/run_wc_math_n2_r2.py",
+      "--project",
+      "/home/gaokuangda/data/gkd/worldcache_omr",
+      "--stage",
+      "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-math-n2-production-r2-20261012",
+      "--source-revision",
+      "77f29718f889061aab9fd5686499420088331a50",
+      "--gpu-uuid",
+      "GPU-cebf7119-cf03-23b9-e192-cd196332b704"
+    ]
   },
-  "supervisor_sha256": "dd0d0be33a13c750b222f6043375a3b2d5f02759376a776afcdfd41e68898258",
-  "post_exit": {
-    "exit_code": 1,
-    "GPU_submissions": 0,
-    "ledger_written": false,
-    "ended_unix": 1791768053.1921961
+  "supervisor_sha256": "9476a35f8b437c26f6e91862a7eee72c9047653606b316c74c0d8925dc2ffebc",
+  "runner": {
+    "status": "MATH_N2_ALL54_FULL_PATHS_RUNNING",
+    "pid": 296331,
+    "source_revision": "77f29718f889061aab9fd5686499420088331a50",
+    "config_sha256": "8b6899174defb57f3a993bacd38da81fa8c66471c8a1354b42d07bfcc4a1fd66",
+    "scope_counts": {
+      "requests": 4,
+      "methods": 9,
+      "scientific_paths": 36,
+      "full_warmup_paths": 18,
+      "total_paths": 54,
+      "ordinary_pairs": 1944,
+      "ordinary_CFG_calls": 3888,
+      "loads": 1,
+      "teacher_pairs": 0,
+      "score_videos": 36
+    },
+    "matrix": [
+      {
+        "id": "warm_1_NATIVE",
+        "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+        "method": "NATIVE",
+        "section": "WARMUP",
+        "round": 1
+      },
+      {
+        "id": "warm_1_RA",
+        "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+        "method": "RA",
+        "section": "WARMUP",
+        "round": 1
+      },
+      {
+        "id": "warm_1_A_NO_P",
+        "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+        "method": "A_NO_P",
+        "section": "WARMUP",
+        "round": 1
+      },
+      {
+        "id": "warm_1_NONZERO_CPD",
+        "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+        "method": "NONZERO_CPD",
+        "section": "WARMUP",
+        "round": 1
+      },
+      {
+        "id": "warm_1_P_OFF",
+        "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+        "method": "P_OFF",
+        "section": "WARMUP",
+        "round": 1
+      },
+      {
+        "id": "warm_1_SOURCE_FIXED",
+        "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+        "method": "SOURCE_FIXED",
+        "section": "WARMUP",
+        "round": 1
+      },
+      {
+        "id": "warm_1_SOURCE_H1",
+        "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+        "method": "SOURCE_H1",
+        "section": "WARMUP",
+        "round": 1
+      },
+      {
+        "id": "warm_1_SOURCE_H2",
+        "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+        "method": "SOURCE_H2",
+        "section": "WARMUP",
+        "round": 1
+      },
+      {
+        "id": "warm_1_H2_P_TO_D",
+        "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+        "method": "H2_P_TO_D",
+        "section": "WARMUP",
+        "round": 1
+      },
+      {
+        "id": "warm_2_NATIVE",
+        "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+        "method": "NATIVE",
+        "section": "WARMUP",
+        "round": 2
+      },
+      {
+        "id": "warm_2_RA",
+        "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+        "method": "RA",
+        "section": "WARMUP",
+        "round": 2
+      },
+      {
+        "id": "warm_2_A_NO_P",
+        "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+        "method": "A_NO_P",
+        "section": "WARMUP",
+        "round": 2
+      },
+      {
+        "id": "warm_2_NONZERO_CPD",
+        "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+        "method": "NONZERO_CPD",
+        "section": "WARMUP",
+        "round": 2
+      },
+      {
+        "id": "warm_2_P_OFF",
+        "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+        "method": "P_OFF",
+        "section": "WARMUP",
+        "round": 2
+      },
+      {
+        "id": "warm_2_SOURCE_FIXED",
+        "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+        "method": "SOURCE_FIXED",
+        "section": "WARMUP",
+        "round": 2
+      },
+      {
+        "id": "warm_2_SOURCE_H1",
+        "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+        "method": "SOURCE_H1",
+        "section": "WARMUP",
+        "round": 2
+      },
+      {
+        "id": "warm_2_SOURCE_H2",
+        "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+        "method": "SOURCE_H2",
+        "section": "WARMUP",
+        "round": 2
+      },
+      {
+        "id": "warm_2_H2_P_TO_D",
+        "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+        "method": "H2_P_TO_D",
+        "section": "WARMUP",
+        "round": 2
+      },
+      {
+        "id": "timed_0_NATIVE",
+        "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+        "method": "NATIVE",
+        "section": "TIMED",
+        "round": 1
+      },
+      {
+        "id": "timed_0_RA",
+        "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+        "method": "RA",
+        "section": "TIMED",
+        "round": 1
+      },
+      {
+        "id": "timed_0_A_NO_P",
+        "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+        "method": "A_NO_P",
+        "section": "TIMED",
+        "round": 1
+      },
+      {
+        "id": "timed_0_NONZERO_CPD",
+        "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+        "method": "NONZERO_CPD",
+        "section": "TIMED",
+        "round": 1
+      },
+      {
+        "id": "timed_0_P_OFF",
+        "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+        "method": "P_OFF",
+        "section": "TIMED",
+        "round": 1
+      },
+      {
+        "id": "timed_0_SOURCE_FIXED",
+        "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+        "method": "SOURCE_FIXED",
+        "section": "TIMED",
+        "round": 1
+      },
+      {
+        "id": "timed_0_SOURCE_H1",
+        "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+        "method": "SOURCE_H1",
+        "section": "TIMED",
+        "round": 1
+      },
+      {
+        "id": "timed_0_SOURCE_H2",
+        "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+        "method": "SOURCE_H2",
+        "section": "TIMED",
+        "round": 1
+      },
+      {
+        "id": "timed_0_H2_P_TO_D",
+        "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+        "method": "H2_P_TO_D",
+        "section": "TIMED",
+        "round": 1
+      },
+      {
+        "id": "timed_1_SOURCE_H1",
+        "scene": "human_199",
+        "method": "SOURCE_H1",
+        "section": "TIMED",
+        "round": 1
+      },
+      {
+        "id": "timed_1_SOURCE_FIXED",
+        "scene": "human_199",
+        "method": "SOURCE_FIXED",
+        "section": "TIMED",
+        "round": 1
+      },
+      {
+        "id": "timed_1_P_OFF",
+        "scene": "human_199",
+        "method": "P_OFF",
+        "section": "TIMED",
+        "round": 1
+      },
+      {
+        "id": "timed_1_NONZERO_CPD",
+        "scene": "human_199",
+        "method": "NONZERO_CPD",
+        "section": "TIMED",
+        "round": 1
+      },
+      {
+        "id": "timed_1_A_NO_P",
+        "scene": "human_199",
+        "method": "A_NO_P",
+        "section": "TIMED",
+        "round": 1
+      },
+      {
+        "id": "timed_1_RA",
+        "scene": "human_199",
+        "method": "RA",
+        "section": "TIMED",
+        "round": 1
+      },
+      {
+        "id": "timed_1_NATIVE",
+        "scene": "human_199",
+        "method": "NATIVE",
+        "section": "TIMED",
+        "round": 1
+      },
+      {
+        "id": "timed_1_SOURCE_H2",
+        "scene": "human_199",
+        "method": "SOURCE_H2",
+        "section": "TIMED",
+        "round": 1
+      },
+      {
+        "id": "timed_1_H2_P_TO_D",
+        "scene": "human_199",
+        "method": "H2_P_TO_D",
+        "section": "TIMED",
+        "round": 1
+      },
+      {
+        "id": "timed_2_NATIVE",
+        "scene": "misc_13398218_3840_2160_60fps",
+        "method": "NATIVE",
+        "section": "TIMED",
+        "round": 1
+      },
+      {
+        "id": "timed_2_RA",
+        "scene": "misc_13398218_3840_2160_60fps",
+        "method": "RA",
+        "section": "TIMED",
+        "round": 1
+      },
+      {
+        "id": "timed_2_A_NO_P",
+        "scene": "misc_13398218_3840_2160_60fps",
+        "method": "A_NO_P",
+        "section": "TIMED",
+        "round": 1
+      },
+      {
+        "id": "timed_2_NONZERO_CPD",
+        "scene": "misc_13398218_3840_2160_60fps",
+        "method": "NONZERO_CPD",
+        "section": "TIMED",
+        "round": 1
+      },
+      {
+        "id": "timed_2_P_OFF",
+        "scene": "misc_13398218_3840_2160_60fps",
+        "method": "P_OFF",
+        "section": "TIMED",
+        "round": 1
+      },
+      {
+        "id": "timed_2_SOURCE_FIXED",
+        "scene": "misc_13398218_3840_2160_60fps",
+        "method": "SOURCE_FIXED",
+        "section": "TIMED",
+        "round": 1
+      },
+      {
+        "id": "timed_2_SOURCE_H1",
+        "scene": "misc_13398218_3840_2160_60fps",
+        "method": "SOURCE_H1",
+        "section": "TIMED",
+        "round": 1
+      },
+      {
+        "id": "timed_2_SOURCE_H2",
+        "scene": "misc_13398218_3840_2160_60fps",
+        "method": "SOURCE_H2",
+        "section": "TIMED",
+        "round": 1
+      },
+      {
+        "id": "timed_2_H2_P_TO_D",
+        "scene": "misc_13398218_3840_2160_60fps",
+        "method": "H2_P_TO_D",
+        "section": "TIMED",
+        "round": 1
+      },
+      {
+        "id": "timed_3_SOURCE_H1",
+        "scene": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+        "method": "SOURCE_H1",
+        "section": "TIMED",
+        "round": 1
+      },
+      {
+        "id": "timed_3_SOURCE_FIXED",
+        "scene": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+        "method": "SOURCE_FIXED",
+        "section": "TIMED",
+        "round": 1
+      },
+      {
+        "id": "timed_3_P_OFF",
+        "scene": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+        "method": "P_OFF",
+        "section": "TIMED",
+        "round": 1
+      },
+      {
+        "id": "timed_3_NONZERO_CPD",
+        "scene": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+        "method": "NONZERO_CPD",
+        "section": "TIMED",
+        "round": 1
+      },
+      {
+        "id": "timed_3_A_NO_P",
+        "scene": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+        "method": "A_NO_P",
+        "section": "TIMED",
+        "round": 1
+      },
+      {
+        "id": "timed_3_RA",
+        "scene": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+        "method": "RA",
+        "section": "TIMED",
+        "round": 1
+      },
+      {
+        "id": "timed_3_NATIVE",
+        "scene": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+        "method": "NATIVE",
+        "section": "TIMED",
+        "round": 1
+      },
+      {
+        "id": "timed_3_SOURCE_H2",
+        "scene": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+        "method": "SOURCE_H2",
+        "section": "TIMED",
+        "round": 1
+      },
+      {
+        "id": "timed_3_H2_P_TO_D",
+        "scene": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+        "method": "H2_P_TO_D",
+        "section": "TIMED",
+        "round": 1
+      }
+    ],
+    "parameters_fingerprint": "39e7f0feb3648dbabe8a98d842bd1d60fa03bd1800259513c5da7c9d976fc9c0",
+    "runs": [
+      {
+        "id": "warm_1_NATIVE",
+        "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+        "method": "NATIVE",
+        "section": "WARMUP",
+        "round": 1,
+        "status": "RUNNING",
+        "started_unix": 1791768799.3193784
+      }
+    ],
+    "started_unix": 1791768644.4781597,
+    "load_seconds": 153.70619126223028
   },
-  "post_exit_sha256": "bddc1f408c0fcdac114176aec73b4bb3c5c43c40d8384ea1b5814a0904246694",
+  "runner_sha256": "6d470d05b737ed10e83dfeded6098309b444858fb43c30c8eafea239c3278b5a",
   "ledger": {
     "batch": "F0-F1",
     "cap_gpu_hours": 104.97136333301378,
-    "used_gpu_hours": 57.857470287006976,
-    "gpu_jobs_launched": 84,
-    "status": "MATH_N2_SETTLED_RAW_CPU_AUDIT_PENDING",
+    "used_gpu_hours": 104.97136333301378,
+    "gpu_jobs_launched": 85,
+    "status": "MATH_N2_INFLIGHT_REMAINING_RESERVED_NOT_ACTUAL_SPENT",
     "gpu_import_probes_completed": 1,
     "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts",
     "budget_authorization_ref": "manifests/budget_authorization_20261012_wc_math_scheduler_new48gpuh.json",
@@ -383,9 +669,14 @@
         "authorization_ref": "manifests/budget_authorization_20261012_wc_math_scheduler_new48gpuh.json",
         "complete_single_job_strictly_over8_requires_confirmation": true
       }
-    ]
+    ],
+    "wc_math_n2_inflight": {
+      "supervisor_pid": 296121,
+      "run_id": "wc-math-n2-source-sigma-full36-r2",
+      "reserved_GPUh": 47.11389304600681
+    }
   },
-  "ledger_sha256": "0e0571df65acf92997bd85fbb91aac287d014fe97ad8d0b99d5c0e63da819c56",
+  "ledger_sha256": "01c0f91a6719fcd1935ed4fa55c3eeae3a6f5ff2f5e867ce93723639d27b3fcc",
   "payload_verified": {
     "configs/wc_paired_four_action_full_sampler_cpu_schedules_20261009.json": true,
     "manifests/budget_authorization_20261009_wc_new_window_48gpuh.json": true,
@@ -1020,10 +1311,11 @@
     "src/wcomr/w1d_summary.py": true,
     "src/wcomr/wc_cost_observer.py": true,
     "src/wcomr/wc_qkv_snapshot.py": true,
-    "scripts/run_wc_math_n2_r1.py": true,
-    "scripts/supervise_wc_math_n2_r1.py": true,
-    "scripts/postprocess_wc_math_n2_cpu_r1.py": true,
-    "configs/wc_math_n2_full36_production_r1_20261012.json": true,
+    "src/wcomr/math_n2_production_r2.py": true,
+    "scripts/run_wc_math_n2_r2.py": true,
+    "scripts/supervise_wc_math_n2_r2.py": true,
+    "scripts/postprocess_wc_math_n2_cpu_r2.py": true,
+    "configs/wc_math_n2_full36_production_r2_20261012.json": true,
     "manifests/wc_math_n2_full54_cost_r1_20261012.json": true,
     "manifests/wc_math_n2_frozen_parameters_r1_20261012.json": true,
     "manifests/budget_authorization_20261012_wc_math_scheduler_new48gpuh.json": true,
@@ -1031,13 +1323,12 @@
     "reports/wc_math_n1_complete_independent_scalar_reconstruction_20261012.json": true,
     "reports/wc_clean_speed20_live_or_terminal_capture_20261012.json": true
   },
-  "GPU": "GPU-cebf7119-cf03-23b9-e192-cd196332b704, 24",
+  "GPU": "GPU-cebf7119-cf03-23b9-e192-cd196332b704, 7916",
   "original_processes": {
-    "293538": false,
-    "293701": false
+    "296121": true,
+    "296331": true
   },
   "GPU-supervisor.log_tail": "",
-  "post-CPU.log_tail": "Traceback (most recent call last):\n  File \"/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-math-n2-production-r1-20261012/scripts/postprocess_wc_math_n2_cpu_r1.py\", line 129, in <module>\n    if __name__=='__main__':main()\n  File \"/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-math-n2-production-r1-20261012/scripts/postprocess_wc_math_n2_cpu_r1.py\", line 20, in main\n    ledger_sha=sha(a.project/'reports/budget.json');runner=json.loads((root/'runner.json').read_text())\n  File \"/home/gaokuangda/data/gkd/miniconda3/envs/cosmos/lib/python3.10/pathlib.py\", line 1134, in read_text\n    with self.open(mode='r', encoding=encoding, errors=errors) as f:\n  File \"/home/gaokuangda/data/gkd/miniconda3/envs/cosmos/lib/python3.10/pathlib.py\", line 1119, in open\n    return self._accessor.open(self, mode, buffering, encoding, errors,\nFileNotFoundError: [Errno 2] No such file or directory: '/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/outputs/wc-math-n2-source-sigma-full36-r1/runner.json'\n",
   "post-watcher.log_tail": "",
-  "GPU.log_tail": "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python: can't open file '/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-math-n2-production-r1-20261012/scripts/run_wc_math_n2_r2.py': [Errno 2] No such file or directory\n"
+  "GPU.log_tail": "are installed properly.\n[10-12 09:30:08|CRITICAL|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/_src/predict2/checkpointer/dcp.py:188:<module>] for the back comptiable pytorch! New DefaultLoadPlanner class is created.\n[10-12 09:30:44|INFO|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/_src/imaginaire/utils/checkpoint_db.py:171:path] Downloading checkpoint nvidia/Cosmos-Predict2.5-2B/base/post-trained(81edfebe-bd6a-4039-8c1d-737df1a790bf)\n[10-12 09:30:44|INFO|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/_src/imaginaire/utils/checkpoint_db.py:96:_download] Downloading checkpoint file from Hugging Face with {'repo_id': 'nvidia/Cosmos-Predict2.5-2B', 'repo_type': 'model', 'revision': '15a82a2ec231bc318692aa0456a36537c806e7d4', 'filename': 'base/post-trained/81edfebe-bd6a-4039-8c1d-737df1a790bf_ema_bf16.pt'}\n[10-12 09:30:44|INFO|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/packages/cosmos-oss/cosmos_oss/init.py:96:_init_log_files] Log saved to /home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-math-n2-source-sigma-full36-r2/console.log\n[10-12 09:30:52|INFO|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/_src/imaginaire/utils/checkpoint_db.py:171:path] Downloading checkpoint Wan2.1/vae(685afcaa-4de2-42fe-b7b9-69f7a2dee4d8)\n[10-12 09:30:52|INFO|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/_src/imaginaire/utils/checkpoint_db.py:96:_download] Downloading checkpoint file from Hugging Face with {'repo_id': 'nvidia/Cosmos-Predict2.5-2B', 'repo_type': 'model', 'revision': '6787e176dce74a101d922174a95dba29fa5f0c55', 'filename': 'tokenizer.pth'}\n[10-12 09:30:55|INFO|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/_src/imaginaire/utils/checkpoint_db.py:171:path] Downloading checkpoint Qwen/Qwen2.5-VL-7B-Instruct(7219c6c7-f878-4137-bbdb-76842ea85e70)\n[10-12 09:30:55|INFO|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/_src/imaginaire/utils/checkpoint_db.py:131:_download] Downloading checkpoint from Hugging Face with {'repo_id': 'nvidia/Cosmos-Reason1-7B', 'repo_type': 'model', 'revision': '3210bec0495fdc7a8d3dbb8d58da5711eab4b423', 'allow_patterns': ['*']}\n[10-12 09:30:56|INFO|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/_src/imaginaire/utils/checkpoint_db.py:171:path] Downloading checkpoint nvidia/Cosmos-Reason1.1-7B(cb3e3ffa-7b08-4c34-822d-61c7aa31a14f)\n[10-12 09:30:56|INFO|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/_src/imaginaire/utils/checkpoint_db.py:131:_download] Downloading checkpoint from Hugging Face with {'repo_id': 'nvidia/Cosmos-Reason1-7B', 'repo_type': 'model', 'revision': '3210bec0495fdc7a8d3dbb8d58da5711eab4b423', 'allow_patterns': ['*']}\n[10-12 09:32:03|INFO|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/inference.py:69:__init__] Saved config to /home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-math-n2-source-sigma-full36-r2/config.yaml\n[10-12 09:33:19|INFO|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/inference.py:91:generate] Generating 1 samples: ['av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632']\n[10-12 09:33:19|INFO|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/inference.py:95:generate] [1/1] Processing sample av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632\n[10-12 09:33:19|INFO|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/inference.py:108:_generate_sample] Saved arguments to /home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-math-n2-source-sigma-full36-r2/warm_1_NATIVE/av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632.json\n[10-12 09:33:43|SUCCESS|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/inference.py:120:_generate_sample] Passed guardrail on prompt\n[10-12 09:33:43|INFO|../../../../../../home/gaokuangda/data/gkd/worldcache_omr/runtime/cosmos_predict2/inference.py:142:_generate_sample] Generating video with standard mode...\n\nGenerating samples:   0%|          | 0/36 [00:00<?, ?it/s]\nGenerating samples:   3%|\u258e         | 1/36 [00:08<04:44,  8.13s/it]\nGenerating samples:   6%|\u258c         | 2/36 [00:14<04:09,  7.32s/it]\nGenerating samples:   8%|\u258a         | 3/36 [00:23<04:23,  8.00s/it]\nGenerating samples:  11%|\u2588         | 4/36 [00:30<04:00,  7.52s/it]\nGenerating samples:  14%|\u2588\u258d        | 5/36 [00:37<03:45,  7.27s/it]\nGenerating samples:  17%|\u2588\u258b        | 6/36 [00:44<03:33,  7.13s/it]\nGenerating samples:  19%|\u2588\u2589        | 7/36 [00:51<03:24,  7.05s/it]\nGenerating samples:  22%|\u2588\u2588\u258f       | 8/36 [00:57<03:15,  6.99s/it]\nGenerating samples:  25%|\u2588\u2588\u258c       | 9/36 [01:04<03:07,  6.96s/it]\nGenerating samples:  28%|\u2588\u2588\u258a       | 10/36 [01:11<03:00,  6.94s/it]\nGenerating samples:  31%|\u2588\u2588\u2588       | 11/36 [01:18<02:53,  6.92s/it]"
 }
