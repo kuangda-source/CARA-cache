@@ -1,3 +1,9 @@
+## R1入口技术停止与独立R2
+
+原stage/source00e5d58和所有643字节保持。R1监督实际fresh GPU准入，但调用了不存在的run_wc_math_n2_r2.py；子进程在导入/模型加载前exit2，预热0/18、正式0/36。全wall5.137296512秒=0.001427027GPUh已计，累计57.857470287，第84提交，余47.113893046，无inflight/进程/GPU占用。原post因缺runner拒绝审计，其exit1和日志保留；这是启动器技术错误，非方法结果。
+
+R2独立run wc-math-n2-source-sigma-full36-r2与production-r2目录；不复用任何路径/预热，不更改九方法/γ/风险表/36正式+18预热/forecast7.112394405。原batch/readout/controller和全144CPU字节保持。新监督child_command与CPU验证共享同一个实际命令构造函数，CPU检查真实目标存在/哈希/完整参数，避免只验runner而漏掉supervisor指向。R2实际生产CPU后fresh启动，来源/费用/全部失败保持。
+
 # WC-MATH-N2-SOURCE-SIGMA-FULL36-R1-20261012-A
 
 原端到端speed20已完成。N1四父/12点/180pairs真实完整审计得到来源一致全局融合正信号（8/8 P状态优于C），本卡检验其能否传到完整视频，以及H1/H2是否能在真实质量—成本上增加价值。

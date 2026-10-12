@@ -1,3 +1,7 @@
+## 2026-10-12 N2 R1 launcher technical stop; independent same54 R2 prepared
+
+[379](../research/379_WC_MATH_N2_FULL36_WARM18_FROZEN_CARD_20261012.md)：R1 source00e5d58/643保持，监督293538/child293701退出；监督错误指向不存在r2文件，0模型加载/0预热/0正式，非科学负结果。全费5.137296512秒=.001427027GPUh，累计57.857470287/cap104.971363333、第84提交，新余47.113893046；kernel/GPU已释放。独立R2改输出/config命名空间和共享child_command存在/哈希/参数核验，原采样/读出/调度全144 CPU字节及γ参数不改；完整36正式+18预热/forecast7.112394405保持，生产CPU与fresh实际GPU待，不复用原路径、不隐藏失败。P13h仍暂缓/E2原76保持，≤8自主/严格>8问。以下为历史。
+
 ## 2026-10-12 N2 full144 CPU accepted; full36 plus18 frozen for production CPU
 
 [379完整卡](../research/379_WC_MATH_N2_FULL36_WARM18_FROZEN_CARD_20261012.md)：全两flow144CPU403.170495秒通过（72九方法采样＋40全新production clean＋32旧γ端点），全部final/动作/A历史/Toy视频一致，CUDA未初始化；stageR3/source54ef607核心冻结。N2全36正式＋18预热forecast7.112394405≤8，按用户当前授权继续真实生产CPU后fresh唯一GPU。gamma0.7235237005554214/来源风险表/lambda全局冻结不调参，理论/CPU非终点收益；N1已完整真实正结果。最新57.856043260/cap104.971363333，第83提交，新余47.115320073无GPUinflight；P13h用户暂缓/E2原76保持，不训练/OMR/新人工评估。以下为历史。
