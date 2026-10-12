@@ -9,7 +9,9 @@ STAGE=ROOT+'/.sync/wc-source-phase16-production-r1-20261012'
 CPU=ROOT+'/.sync/wc-source-phase16-cpu-r2-20261012'
 CONFIG='configs/wc_source_phase16_full368_production_r1_20261012.json'
 sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
-remote=lambda code:subprocess.check_output(HOST+['python3 -'],input=code,text=True)
+def remote(code):
+    compile(code,'<cal16-remote-wrapper>','exec')
+    return subprocess.check_output(HOST+['python3 -'],input=code,text=True)
 
 
 def main():
@@ -26,7 +28,8 @@ def main():
             for n in names:t.add(R/n,arcname=n)
         raw=json.loads((R/'reports/wc_source_phase16_cpu_r2_independent_raw_20261012.json').read_text())
         code='CPU='+repr(CPU)+'\nSTAGE='+repr(STAGE)+'\nRAW='+repr(raw)+'\n'+r'''import pathlib,json,hashlib,shutil
-cpu=pathlib.Path(CPU);stage=pathlib.Path(STAGE);assert not stage.exists()+r=json.loads((cpu/'CPU-result.json').read_text());reg=json.loads((cpu/'registration.json').read_text())
+cpu=pathlib.Path(CPU);stage=pathlib.Path(STAGE);assert not stage.exists()
+r=json.loads((cpu/'CPU-result.json').read_text());reg=json.loads((cpu/'registration.json').read_text())
 assert r['status']=='SOURCE_PHASE16_TWO_FLOW_FULL16_PARENTS32_STATES_CPU_PASS_NOT_GPU' and r['actual_CPU_paths']==16 and not r['CUDA_initialized']
 assert RAW['status']=='SOURCE_PHASE16_ALL32_RAW384_CFG_RECONSTRUCTION_CPU_PASS_NOT_REAL_LABELS' and RAW['raw_tensors']==384
 assert RAW['sampling_result_sha256']==hashlib.sha256((cpu/'CPU-result.json').read_bytes()).hexdigest()
