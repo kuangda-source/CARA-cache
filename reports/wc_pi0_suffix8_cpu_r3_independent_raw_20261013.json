@@ -1,0 +1,299 @@
+{
+  "status": "PI0_SUFFIX8_ALL16_RAW_TWO_FLOW_COMPLETE_TAIL_AND_SCOPE_CPU_PASS_NOT_GPU",
+  "raw_files": 16,
+  "raw_tensors": 300,
+  "source_phase_cells": {
+    "D_EARLY": 2,
+    "D_LATE": 2,
+    "P_EARLY": 2,
+    "P_LATE": 2
+  },
+  "requests": [
+    {
+      "flow": false,
+      "selection": {
+        "scene": "AV28_CPU",
+        "source": "D",
+        "phase": "EARLY",
+        "target_age": 3,
+        "chosen": {
+          "step": 10,
+          "age": 3,
+          "source_birth": 7,
+          "true_D_anchor": 7,
+          "actual_pi0_action": "C"
+        },
+        "default_readout": "A",
+        "alternative_readout": "C"
+      },
+      "branches": [
+        {
+          "label": "DEFAULT_PI0",
+          "first_readout": "A",
+          "remaining_updates": 27,
+          "raw_sha256": "1c6c7f74e6db11952feea01d920aa6542bd6bc9950695cd17511e42a77ece2a6",
+          "video_mock_sha256": "b6433ac12180b1684149336e9bf2f3758953ff3e043c2c29dd1e7db370684fc6"
+        },
+        {
+          "label": "ALTERNATIVE",
+          "first_readout": "C",
+          "remaining_updates": 27,
+          "raw_sha256": "000250f4b1715eceb40086344225e9baa8058d9a6f127dee0d531e963f6b9b1f",
+          "video_mock_sha256": "b6433ac12180b1684149336e9bf2f3758953ff3e043c2c29dd1e7db370684fc6"
+        }
+      ],
+      "parent_and_default_original_tail_equal": true
+    },
+    {
+      "flow": false,
+      "selection": {
+        "scene": "Human_CPU",
+        "source": "D",
+        "phase": "LATE",
+        "target_age": 2,
+        "chosen": {
+          "step": 28,
+          "age": 2,
+          "source_birth": 26,
+          "true_D_anchor": 26,
+          "actual_pi0_action": "C"
+        },
+        "default_readout": "A",
+        "alternative_readout": "C"
+      },
+      "branches": [
+        {
+          "label": "ALTERNATIVE",
+          "first_readout": "C",
+          "remaining_updates": 9,
+          "raw_sha256": "d71123e304ec7638ac9395599d0609ecc5a1927fc015b1b9afa412d404e594fa",
+          "video_mock_sha256": "d5e6cd63ca0d9a4f49f78870501ca5eb93287b1b687c095e991a0ab6646f2df5"
+        },
+        {
+          "label": "DEFAULT_PI0",
+          "first_readout": "A",
+          "remaining_updates": 9,
+          "raw_sha256": "226ec7dcb047342bcac982632331b804149339e6ee8112050333e81b69c1bba4",
+          "video_mock_sha256": "b6433ac12180b1684149336e9bf2f3758953ff3e043c2c29dd1e7db370684fc6"
+        }
+      ],
+      "parent_and_default_original_tail_equal": true
+    },
+    {
+      "flow": false,
+      "selection": {
+        "scene": "misc_CPU",
+        "source": "P",
+        "phase": "EARLY",
+        "target_age": 2,
+        "chosen": {
+          "step": 14,
+          "age": 1,
+          "source_birth": 13,
+          "true_D_anchor": 7,
+          "actual_pi0_action": "C"
+        },
+        "default_readout": "C",
+        "alternative_readout": "A"
+      },
+      "branches": [
+        {
+          "label": "DEFAULT_PI0",
+          "first_readout": "C",
+          "remaining_updates": 23,
+          "raw_sha256": "1932c73ac13fb491ce3997433ebbf3bcd53a97a0f5a96d64b8ec0506dbb7077b",
+          "video_mock_sha256": "b6433ac12180b1684149336e9bf2f3758953ff3e043c2c29dd1e7db370684fc6"
+        },
+        {
+          "label": "ALTERNATIVE",
+          "first_readout": "A",
+          "remaining_updates": 23,
+          "raw_sha256": "3e8b288c31950d425cb904a874d76f9e3e34feeac97ed46fe2d13e58411bb1bb",
+          "video_mock_sha256": "9cfaab291dfc8952dc30e3dcf0bdb831e6807b096e6ca8f23f72e10d625b1d97"
+        }
+      ],
+      "parent_and_default_original_tail_equal": true
+    },
+    {
+      "flow": false,
+      "selection": {
+        "scene": "AV51_CPU",
+        "source": "P",
+        "phase": "LATE",
+        "target_age": 1,
+        "chosen": {
+          "step": 25,
+          "age": 1,
+          "source_birth": 24,
+          "true_D_anchor": 22,
+          "actual_pi0_action": "C"
+        },
+        "default_readout": "C",
+        "alternative_readout": "A"
+      },
+      "branches": [
+        {
+          "label": "ALTERNATIVE",
+          "first_readout": "A",
+          "remaining_updates": 12,
+          "raw_sha256": "79a1d78478f77530d122869e78755b65a66c76dfe18360029b058bd8f7066083",
+          "video_mock_sha256": "08e003083271cd652bccb0b0f6a8981aef56281353ab3b62596bcf919722140a"
+        },
+        {
+          "label": "DEFAULT_PI0",
+          "first_readout": "C",
+          "remaining_updates": 12,
+          "raw_sha256": "a950dc8aab25efeccce4d8c8527057c8754eabb00bbb5674d445db80820a121b",
+          "video_mock_sha256": "b6433ac12180b1684149336e9bf2f3758953ff3e043c2c29dd1e7db370684fc6"
+        }
+      ],
+      "parent_and_default_original_tail_equal": true
+    },
+    {
+      "flow": true,
+      "selection": {
+        "scene": "AV28_CPU",
+        "source": "D",
+        "phase": "EARLY",
+        "target_age": 3,
+        "chosen": {
+          "step": 10,
+          "age": 3,
+          "source_birth": 7,
+          "true_D_anchor": 7,
+          "actual_pi0_action": "C"
+        },
+        "default_readout": "A",
+        "alternative_readout": "C"
+      },
+      "branches": [
+        {
+          "label": "DEFAULT_PI0",
+          "first_readout": "A",
+          "remaining_updates": 27,
+          "raw_sha256": "b05e4f660325a6958b0f43d8c02bcb00e1bd38ad3acb5dedf9324a88b99f6719",
+          "video_mock_sha256": "ad3b83acbaa9db84a79d40d7a7bff10036255de18bba3201174a1da2a2cfd4ac"
+        },
+        {
+          "label": "ALTERNATIVE",
+          "first_readout": "C",
+          "remaining_updates": 27,
+          "raw_sha256": "0db1b8cd0caf5d2cdb7ae74e04154958d80565821850907c9c34f9328b5643d0",
+          "video_mock_sha256": "ad3b83acbaa9db84a79d40d7a7bff10036255de18bba3201174a1da2a2cfd4ac"
+        }
+      ],
+      "parent_and_default_original_tail_equal": true
+    },
+    {
+      "flow": true,
+      "selection": {
+        "scene": "Human_CPU",
+        "source": "D",
+        "phase": "LATE",
+        "target_age": 2,
+        "chosen": {
+          "step": 28,
+          "age": 2,
+          "source_birth": 26,
+          "true_D_anchor": 26,
+          "actual_pi0_action": "C"
+        },
+        "default_readout": "A",
+        "alternative_readout": "C"
+      },
+      "branches": [
+        {
+          "label": "ALTERNATIVE",
+          "first_readout": "C",
+          "remaining_updates": 9,
+          "raw_sha256": "9007956d01b977d126d2a5dcd19581499c9eb38f250a1f0c854f9e0c7b70097d",
+          "video_mock_sha256": "37afdcbd4c4de82ea3ccca0e84cd6e935b9d4764201560611013c3920956ccc9"
+        },
+        {
+          "label": "DEFAULT_PI0",
+          "first_readout": "A",
+          "remaining_updates": 9,
+          "raw_sha256": "676fa60baa14b825fa4792e1010d5ef9594ef211d48a789f39d5c48483bbb2a9",
+          "video_mock_sha256": "ad3b83acbaa9db84a79d40d7a7bff10036255de18bba3201174a1da2a2cfd4ac"
+        }
+      ],
+      "parent_and_default_original_tail_equal": true
+    },
+    {
+      "flow": true,
+      "selection": {
+        "scene": "misc_CPU",
+        "source": "P",
+        "phase": "EARLY",
+        "target_age": 2,
+        "chosen": {
+          "step": 14,
+          "age": 1,
+          "source_birth": 13,
+          "true_D_anchor": 7,
+          "actual_pi0_action": "C"
+        },
+        "default_readout": "C",
+        "alternative_readout": "A"
+      },
+      "branches": [
+        {
+          "label": "DEFAULT_PI0",
+          "first_readout": "C",
+          "remaining_updates": 23,
+          "raw_sha256": "868080ff3cf5e640922da08668c18a0ae971056d7c1ed3736abd845beda96c18",
+          "video_mock_sha256": "ad3b83acbaa9db84a79d40d7a7bff10036255de18bba3201174a1da2a2cfd4ac"
+        },
+        {
+          "label": "ALTERNATIVE",
+          "first_readout": "A",
+          "remaining_updates": 23,
+          "raw_sha256": "dcc6a2f97c1f5cb520ea45b87f27bb3812098d99f256fbfce0cbf5eca74c28b8",
+          "video_mock_sha256": "e4e72469d7727a6386d414e891be2d361e67b226948bd143ae122064bb75eb62"
+        }
+      ],
+      "parent_and_default_original_tail_equal": true
+    },
+    {
+      "flow": true,
+      "selection": {
+        "scene": "AV51_CPU",
+        "source": "P",
+        "phase": "LATE",
+        "target_age": 1,
+        "chosen": {
+          "step": 25,
+          "age": 1,
+          "source_birth": 24,
+          "true_D_anchor": 22,
+          "actual_pi0_action": "C"
+        },
+        "default_readout": "C",
+        "alternative_readout": "A"
+      },
+      "branches": [
+        {
+          "label": "ALTERNATIVE",
+          "first_readout": "A",
+          "remaining_updates": 12,
+          "raw_sha256": "406bf299262d444af0c6ef50185aadbca6f6a0847e1c1bb4415de8fbbfc4a165",
+          "video_mock_sha256": "1fad674e31629c60129662de2860f66bada443fa220518431996980f5a2f7a6d"
+        },
+        {
+          "label": "DEFAULT_PI0",
+          "first_readout": "C",
+          "remaining_updates": 12,
+          "raw_sha256": "1c325c69778adba7aeff810d6a0f6460702aaa88e869ca8c2ef8676c389f808b",
+          "video_mock_sha256": "ad3b83acbaa9db84a79d40d7a7bff10036255de18bba3201174a1da2a2cfd4ac"
+        }
+      ],
+      "parent_and_default_original_tail_equal": true
+    }
+  ],
+  "controller_one_step_future_unchanged_prefix_rollback": true,
+  "active_snapshot_P_action_nonnatural_C_refused": true,
+  "sampling_result_sha256": "4da136ddd1dee5e70c999a0ee73bd3431682a174525f8343f34b9008082516e9",
+  "GPU_submissions": 0,
+  "CUDA_initialized": false,
+  "ledger_written": false
+}

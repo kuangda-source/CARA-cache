@@ -5,7 +5,8 @@ R=Path(__file__).resolve().parents[1]
 NEW=['src/wcomr/pi0_readout_suffix8_r1.py','tests/check_pi0_readout_suffix8_sampling_cpu_r1.py','scripts/check_wc_pi0_suffix8_cpu_r1.py']
 sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
 def main():
- parser=argparse.ArgumentParser();parser.add_argument('--suffix',default='r1');args=parser.parse_args()
+ parser=argparse.ArgumentParser();parser.add_argument('--suffix',default='r1');parser.add_argument('--date',default='20261012');args=parser.parse_args()
+ assert args.date.isdigit() and len(args.date)==8
  prior=json.loads(subprocess.check_output(['ssh','-o','BatchMode=yes','-o','ClearAllForwardings=yes','gkd_minchen',"python3 -c \"import json;print(json.dumps(json.load(open('/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-e3-complete64-selected-r1-20261011/e3-complete64-config.json'))['payload_sha256']))\""],text=True))
  new=NEW+[str(p.relative_to(R)) for p in sorted((R/'src/wcomr').glob('*.py')) if str(p.relative_to(R)) not in prior and str(p.relative_to(R)) not in NEW]
  rev=subprocess.check_output(['git','rev-parse','HEAD'],cwd=R,text=True).strip()
@@ -14,7 +15,7 @@ def main():
  with tarfile.open(fileobj=buf,mode='w:gz') as tar:
   for name in new:tar.add(R/name,arcname=name)
  archive=buf.getvalue()
- packet['stage_name']='wc-pi0-suffix8-cpu-'+args.suffix+'-20261012'
+ packet['stage_name']='wc-pi0-suffix8-cpu-'+args.suffix+'-'+args.date
  code='P='+repr(packet)+'\n'+r'''import pathlib,json,hashlib,shutil,subprocess,os
 root=pathlib.Path('/home/gaokuangda/data/gkd/worldcache_omr');old=root/'.sync/wc-e3-complete64-selected-r1-20261011'
 stage=root/'.sync'/P['stage_name'];assert not stage.exists();stage.mkdir()
@@ -41,5 +42,5 @@ receipt={'stage':str(stage),'source_revision':P['source_revision'],'CPU_pid':chi
 (stage/'CPU-launch.json').write_text(json.dumps(receipt,indent=2)+'\n');print(json.dumps({k:receipt[k] for k in ('stage','source_revision','CPU_pid','GPU_submissions','payload_files')}))
 '''
  call=subprocess.run(['ssh','-o','BatchMode=yes','-o','ConnectTimeout=15','-o','ClearAllForwardings=yes','gkd_minchen','python3 -'],input=code,text=True,capture_output=True,check=True)
- receipt=json.loads(call.stdout);(R/('reports/wc_pi0_suffix8_cpu_'+args.suffix+'_launch_20261012.json')).write_text(json.dumps(receipt,indent=2)+'\n');print(json.dumps({k:receipt[k] for k in ('stage','source_revision','CPU_pid','GPU_submissions','payload_files')}))
+ receipt=json.loads(call.stdout);(R/('reports/wc_pi0_suffix8_cpu_'+args.suffix+'_launch_'+args.date+'.json')).write_text(json.dumps(receipt,indent=2)+'\n');print(json.dumps({k:receipt[k] for k in ('stage','source_revision','CPU_pid','GPU_submissions','payload_files')}))
 if __name__=='__main__':main()

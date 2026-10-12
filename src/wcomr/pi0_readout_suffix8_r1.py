@@ -60,7 +60,7 @@ class Pi0ReadoutSuffixOwner(MathSamplingOwner):
         ctor(self,*args,**kw)
         self.point,self.config,self.writer=point,config,writer;self.reverse_order=reverse_order
         self.active_branch=None;self.active_velocity=self.active_generator=None
-        self.suffix=official_suffix(self.runtime/'cosmos_predict2/_src/predict2/models/text2world_model_rectified_flow.py') if hasattr(self,'runtime') else None
+        self.suffix=None # Exact source-derived loop is supplied by installation.
         self.native_scheduler_step=None;self.event_records=[];self.actual_pair_computations=0
 
     def installation(self):
@@ -106,7 +106,9 @@ class Pi0ReadoutSuffixOwner(MathSamplingOwner):
                         or any(h['source_policy']['decision']['reason'].startswith('MATH_EVENT_SUFFIX_FIRST:') for h in self.history[step:])):
                     raise ValueError('One first readout plus complete ordinary pi0 tail required')
                 branch['source_policy_tail']=copy.deepcopy(self.history[step-1:])
+                synchronize();export_start=time.perf_counter()
                 final_cpu=final.detach().cpu().clone()
+                synchronize();branch['research_endpoint_export_seconds']=time.perf_counter()-export_start
                 branch['artifact']=self.writer(step,label,{'final_latent':final_cpu,'guided':branch['guided']})
                 branch['final_latent_sha256']=tree_digest(final_cpu)
                 branch['guided_sha256']=[tree_digest(v) for v in branch.pop('guided')]
