@@ -1,3 +1,7 @@
+## 2026-10-13 生产封口CPU已通过；实际完整60曲线仍待GPU
+
+[413完整生产与数值归因](413_WC_H1_COST_CURVE_FULL60_PRODUCTION_AND_POST_PREREG_20261013.md)现已接受R2真实生产CPU（source361ea5c/711，CPU599876结束）；完整60、40/20分母、原三lambda、MID身份及固定mask不变。四条预热记录全36 guided，全部正式干净计时。原R1遗漏三CPU验证文件的失败保留，R2只补相同字节。未提交该卡GPU；继续保护原冻结CONF到21:02查收，结束后再按7.815847555GPUh完整卡及fresh准入推进。以下原160采样CPU和规划历史保持。
+
 ## 2026-10-13 完整160 CPU已接受，GPU曲线尚未执行
 
 原CPU592697结束，source055b55755dbc0c745fd2fa2da2a69c82476f71e4／695文件一致；两flow×四Toy×十方法×audit/lean共160完整采样路径，295.821367秒，全部PASS。Native动作null、中档冻结参数、固定mask及audit/lean等价保持；GPU0、账本0。见[独立验收](../reports/wc_h1_cost_curve_cpu160_independent_acceptance_20261013.json)和[412当前执行](412_WC_FB_COMPLETE_RESULTS_AND_INDEPENDENT_CONFIRMATION_LAUNCH_20261013.md)。原完整60范围及7.815847555GPUh规划不变，尚需生产封口，未GPU。405完整50确认当前已单次运行，保护其冻结参数、输入、评分和串行结束后准入；不根据CONF改本曲线。以下CPU启动文字是保留历史。

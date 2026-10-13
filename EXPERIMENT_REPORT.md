@@ -1,3 +1,13 @@
+## 2026-10-13 同批曲线完整60生产CPU已通过；确认仍按21:02查收
+
+[413完整60生产与归因](research/413_WC_H1_COST_CURVE_FULL60_PRODUCTION_AND_POST_PREREG_20261013.md)：原十方法×四CAL，40正式＋20预热、2160pairs，一次加载；补齐实际生产/评分入口及四条预热的144个guided数值对照。正式40条保持研究逐步复制/哈希/检查点关闭；原三lambda、中档冻结参数、原固定26D序列和7.815847555GPUh完整规划不改。
+
+实际R2生产CPU599876已结束并独立接受，source361ea5c/711全文件一致，160采样proof与完整60命令/矩阵、评分/拒绝分母、Native无动作和数值对照控制均绑定，CUDA禁止/GPU0/账本0。R1只遗漏三个旧96验证文件，失败与逐份差异保留；R2原样补齐，数值算法/配置/判据没改变。原R1不覆盖或重启。
+
+该完整60尚未提交GPU。以后接受原405完整50 GPU/post/原件/全可配对93帧与费用释放后，具体命令为 `python3 scripts/deploy_wc_h1_cost_curve_production_r1.py --suffix r2 --launch`，实际stage wc-h1-cost-curve-production-r2-20261013，run wc-h1-cost-curve-static-full60-r1；仍需fresh UUID/VRAM/锁/余额准入，严格>8才询问，不拆卡。一个合法视频拒绝保留分母，不一概否定方向。
+
+本轮未查询CONF在途进度或新视频，也没改其source/参数/路径。原16:51:26唯一启动的50路径仍按next_check_not_before=2026-10-13 21:01:59.531 Asia/Shanghai查收，自动化worldcache负责；此前不持续监听或重投。F/B412完整结果继续独立。下面是保留的日期历史。
+
 ## 2026-10-13 F/B完整接受；冻结独立确认已启动，21:02查收
 
 [412完整结果与当前执行](research/412_WC_FB_COMPLETE_RESULTS_AND_INDEPENDENT_CONFIRMATION_LAUNCH_20261013.md)：原F/B完成432pairs/864CFG、8父完整等价、F16、B4×9×4、16raw352tensors及自动CPU post，原句柄/锁/GPU释放已接受。实费2.664073208GPUh，累计72.013792437/cap104.971363333，CONF前余32.957570896。F五方法三lambda的C/A选择相同；RAW子采样降低标量预测误差但决策不变，Haar/FFT无决策增量。B P0/M8/L2局部省约1%/2%/7.1%，L2四状态相对guided RMSE11.27–37.73%；不是视频加速或闭环结果，F/B继续独立不合入。

@@ -1,3 +1,9 @@
+## 当前：R2生产CPU已完整接受，完整60 GPU未启动
+
+原R2 CPU599876已结束/PASS，source361ea5c9372332299f7ca29dbffe0ab942274d0f／711文件逐份一致；原160采样与旧96完整依赖保持，实际生产60槽/40正式/20预热、四条预热数值控制、拒绝和缺失分母检查接受。CUDA初始化false、GPU0、账本0，不查询在途CONF。见[完整R2 CPU](../reports/wc_h1_cost_curve_production_r2_CPU_collection_20261013.json)、[独立接受](../reports/wc_h1_cost_curve_production_r2_CPU_independent_acceptance_20261013.json)。
+
+原R1失败保留；当前实际stage为`wc-h1-cost-curve-production-r2-20261013`。GPU尚未启动。原冻结50路径先按21:02接受全部终态与评分，再决定后续；完整60未来具体命令使用 `--suffix r2 --launch`，不得误用旧r1失败目录。完整费用规划7.815847555GPUh不变；CPU通过不是曲线或视频收益。以下原登记与失败历史保留。
+
 # H1 同批质量—成本曲线：完整60生产与数值归因登记
 
 2026-10-13。沿用411原十方法／四CAL／60完整路径，准备真实生产入口与完整后处理。**主要回答H1的高保真来自什么，以及它在实际时间—质量曲线上处于什么位置。** 新CONF仍使用原405冻结参数和50路径；本卡不读取CONF结果调参数，F/B不加入。
