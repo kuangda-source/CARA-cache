@@ -1,3 +1,9 @@
+## 2026-10-13 当前研究入口
+
+[当前主线、结果与待完成实验](research/406_WC_MAINLINE_AND_ISOLATED_EXPLORATION_MAP_20261013.md) ｜ [F/B独立探索设计](plans/WORLD_CACHE_SPECTRAL_BLOCK_ISOLATED_EXPLORATION_20261013.md) ｜ [材料与CPU/E0核对](research/407_WC_SPECTRAL_BLOCK_INTAKE_MATH_AND_E0_20261013.md)。
+
+主线继续来源一致A、实际成本H1和P0；频率特征与部分Block探索暂不并入。当前teacher原卡继续、独立确认完整50已通过最终CPU；下列旧预算/在途状态为历史，当前状态以新入口和真实回执为准。
+
 ## 2026-10-11 当前：E2完整72输入已冻结，E1原CPU继续运行
 
 [289输入冻结与接续](research/289_WC_E2_FULL72_INPUT_FREEZE_AND_E1_CPU_CONTINUATION_20261011.md)：协议c738dfa先登记后执行，418本地配置／58服务器回执曝光核对、28组成员排除；四新提示词AVcbf／human_233／misc425／robot_022×seed17／43，五版本40确认＋两CAL四方法四轮32计时位置及两共同主比较独立重建通过。只有输入身份已冻结，clean实现／受影响CPU／完整forecast仍待，不称新GPU或独立质量结果。

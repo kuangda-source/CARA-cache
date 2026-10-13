@@ -1,5 +1,7 @@
 # WorldCache 研究设计优化：来源条件化估计与基线相对调度
 
+2026-10-13最新整理见[406主线与队列](../research/406_WC_MAINLINE_AND_ISOLATED_EXPLORATION_MAP_20261013.md)。F频率特征、B部分Block更新登记为[独立探索设计](WORLD_CACHE_SPECTRAL_BLOCK_ISOLATED_EXPLORATION_20261013.md)，有效后再考虑下一版合入。原400/405冻结实验不含F/B；本文旧阶段状态与参数原样保留，当前证据以403/405/406为准。
+
 ## 2026-10-13 最新完整结果与优先级
 
 [403完整H1及下一步](../research/403_WC_ABSOLUTE_H1_COMPLETE_RESULTS_HIGH_FIDELITY_AND_NEXT_20261013.md)已验收来源×阶段H1四CAL的高保真工作点：LPIPS0.058593、223.6088秒，相对P_OFF失真下降83.5898%、平均多66.9008秒，仍比Native快1.2667×。真实26D/0P/5C/5A的动作/读出序列四场景相同，因此优先固定mask和匹配实际成本归因，并冻结候选进入已固定的新输入/seed确认。旧N2与局部/单次干预的正负证据不追改。

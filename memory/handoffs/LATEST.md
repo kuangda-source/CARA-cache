@@ -1,3 +1,9 @@
+## 2026-10-13 当前：主线整理，F/B仅登记独立探索
+
+当前统一入口为[406主线与待完成实验](../../research/406_WC_MAINLINE_AND_ISOLATED_EXPLORATION_MAP_20261013.md)；[F/B探索设计](../../plans/WORLD_CACHE_SPECTRAL_BLOCK_ISOLATED_EXPLORATION_20261013.md)暂不并入主方法，真实局部筛查、小视频对照与合法在线闭环有效后才提出下一版合入。原400在途、405已冻完整50确认卡及其source/参数/输入/评分均保持；探索不替换主线、不复用CONF调参、不重启暂缓P卡。
+
+本轮六材料原样保留，CPU代数断言通过但本地matmul警告保留；E0确认旧16点标签可复用、缺当前/来源浅层张量与完整逐层残差，不能从视频/标量逆推。无新增F/B GPU、无预算改动。约6GPUh仅探索规划，保护主线确认/计时/归因；完整单次≤8自主、严格>8具体确认，不拆已冻卡。详情见[407材料与E0](../../research/407_WC_SPECTRAL_BLOCK_INTAKE_MATH_AND_E0_20261013.md)。以下是保留的带日期历史。
+
 ## 2026-10-13 authoritative continuation: H1 complete and next full270 serial admission
 
 Latest [405 final independent confirmation CPU acceptance](../../research/405_WC_FROZEN_H1_INDEPENDENT_CONFIRMATION_FULL50_FINAL_PRODUCTION_PREREG_20261013.md): actual565611 CPU ended/PASS at frozene48ba58/684, all50 scope/eight requests/seeds17-43/frozen H1/actual command/resource and refusal checks accepted. Actual watcher and six signed comparisons preserve four prompt/two-seed denominators, wrong-reference and missing-frame/seed refusals; all50 GPU execution branch unchanged vs accepted template. No confirmation GPU selected. Exact final forecast6.561346751<=8, runwc-source-conditional-confirmation-full40-r1, stagewc-source-confirmation-production-r1-20261013 ready for serial launch only after original teacher GPU and post exit/all12 raw/full93 complete. Candidate freeze/original protocol/template unchanged. Original teacher563522/563676/563523 still live, latest2/4 parent groups complete/665 unchanged; follow same handles, no restart or overlap. Used=cap is teacher reservation, not actual spend.
