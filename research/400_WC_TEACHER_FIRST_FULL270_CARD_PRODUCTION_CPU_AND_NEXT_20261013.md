@@ -1,5 +1,7 @@
 # 同状态teacher首velocity：完整270卡与生产验证
 
+最新真实执行见[404](404_WC_H1_CANDIDATE_FREEZE_AND_TEACHER_FIRST_GPU_CONTINUATION_20261013.md)：完整单次launch已准入，原supervisor563522、post563523与runner存活，kernel持有；原4b18478/665不变，第90任务在途。全部270 pairs/12视频和全93评分未完成，无新科学结果。跟踪原进程，不重复launch；以下未提交描述保留其准备时间身份。
+
 最新串行准入条件：397现已完成全部36原件/24×93帧与独立九对比，GPU/post均退出0、原handles消失、kernel释放。见[403完整H1及下一步](403_WC_ABSOLUTE_H1_COMPLETE_RESULTS_HIGH_FIDELITY_AND_NEXT_20261013.md)。本卡冻结4b18478/665、完整CPU与1.811752758GPUh费用保持；当前准备实际单次launch，尚未取得本卡科学结果。H1后实结68.668097882/cap104.971363333、余额36.303265451，满足单次≤8持续授权；下面的“H1仍在执行”是验收当时的历史记录。
 
 2026-10-13，真实GPU执行前登记。承接398预登记与R3完整两flow采样CPU、399当前研究设计。397 H1原595382e/661、supervisor525011/runner525101/watcher525012仍在执行；本项先只准备CPU及生产，不修改在途source，不并行新GPU。
