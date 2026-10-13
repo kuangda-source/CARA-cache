@@ -13,7 +13,7 @@ ROOT=Path(__file__).resolve().parents[1]
 SERVER='/home/gaokuangda/data/gkd/worldcache_omr'
 HOST=['ssh','-o','BatchMode=yes','-o','ConnectTimeout=15','-o','ClearAllForwardings=yes','gkd_minchen']
 BASE='wc-block-velocity-suffix3-cpu-r2-20261013'
-CONFIG='configs/wc_block_saved_reference_cpu_r1_20261013.json'
+CONFIG='configs/wc_block_velocity_suffix3_cpu_r1_20261013.json'
 NEW=['src/wcomr/block_saved_reference_r1.py',
  'tests/check_block_saved_reference_cpu_r1.py',
  'scripts/check_wc_block_saved_reference_cpu_r1.py',
