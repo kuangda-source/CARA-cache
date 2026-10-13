@@ -21,3 +21,11 @@
 ## 接续
 
 先验收397全量结果和九对照；400 teacher270卡已生产CPU就绪，可串行回答目标对齐。402模板减少确认准备延迟，真正冻结后全量确认已有主干与候选。继承≤8自主/严格>8按整卡确认、现fresh48余额与单昂贵GPU任务；原E2完整76和用户暂缓P13h身份/权限保持，无预算重置。
+
+## 生产模板CPU完成
+
+原401已测651核心按hash复制，新生产模板sourcefb5ba49/671全部保持。CPU541058已结束，实际8＋CAL warmup请求解析、全50矩阵与3600CFG范围、数据/参数/费用/资源、真实child-command/hash与变更拒绝通过；未有冻结回执的模板明确拒绝GPU准入，CUDA未初始化、0 GPU/账本写入。见[实际模板回执](../reports/wc_source_confirmation_template_r1_production_cpu_receipt_20261013.json)。
+
+本通过状态专门记为`SOURCE_CONFIRMATION_TEMPLATE_PRODUCTION_CPU_PASS_CANDIDATE_UNFROZEN_NO_GPU`。它不能转为真实已选确认候选的GPU门通过；原protocol/manifest和新配置的candidate_frozen=false均保持，最终选定后另冻结准确回执/生产字节再验证。当前只减少接线和费用准备延迟，不生成确认视频。
+
+397最新现场33/36（12warm＋21正式）生成回执，原三个handleslive/661保持，最后场景A_NO_P在跑；全部原件/24×93/控制/独立科学结论仍待。400完整270生产已过保持，依397全量验收后串行安排；本轮未新GPU、现预算不重置。

@@ -1,5 +1,5 @@
 {
-  "observed_unix": 1791833217.5277307,
+  "observed_unix": 1791863238.103543,
   "stage": "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-teacher-first-velocity-production-r1-20261013",
   "output": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-teacher-first-velocity-full270-r1",
   "source_revision": "4b18478e1f414b16a0e63ad746a37afd8c776479",
@@ -1105,9 +1105,9 @@
   "ledger": {
     "batch": "F0-F1",
     "cap_gpu_hours": 104.97136333301378,
-    "used_gpu_hours": 104.97136333301378,
+    "used_gpu_hours": 68.66809788221262,
     "gpu_jobs_launched": 89,
-    "status": "SOURCE_PHASE_H1_INFLIGHT_REMAINING_RESERVED_NOT_ACTUAL_SPENT",
+    "status": "SOURCE_PHASE_H1_SETTLED_RAW_CPU_AUDIT_PENDING",
     "gpu_import_probes_completed": 1,
     "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts",
     "budget_authorization_ref": "manifests/budget_authorization_20261012_wc_math_scheduler_new48gpuh.json",
@@ -1209,17 +1209,12 @@
         "authorization_ref": "manifests/budget_authorization_20261012_wc_math_scheduler_new48gpuh.json",
         "complete_single_job_strictly_over8_requires_confirmation": true
       }
-    ],
-    "wc_source_phase_h1_inflight": {
-      "supervisor_pid": 525011,
-      "run_id": "wc-source-phase-h1-full24-r1",
-      "reserved_GPUh": 38.52266241247635
-    }
+    ]
   },
-  "ledger_sha256": "60715e87b8c260acf246e05c435613e9273490330163d056506655b62ee7003b",
-  "GPU": "GPU-cebf7119-cf03-23b9-e192-cd196332b704, NVIDIA RTX A6000, 21388",
-  "kernel_lock_free": false,
+  "ledger_sha256": "a82fba2ebb615169ebdb245e3dfa99c8b2a8e3fe2eca823045fac3ed6fd76fca",
+  "GPU": "GPU-cebf7119-cf03-23b9-e192-cd196332b704, NVIDIA RTX A6000, 24",
+  "kernel_lock_free": true,
   "production-CPU.log_tail": "2026-10-13 03:21:37.010392: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.\n[10-13 03:21:38|CRITICAL|data/gkd/worldcache_omr/runtime/cosmos_predict2/_src/predict2/checkpointer/dcp.py:188:<module>] for the back comptiable pytorch! New DefaultLoadPlanner class is created.\n[10-13 03:22:37|INFO|data/gkd/worldcache_omr/runtime/cosmos_predict2/_src/imaginaire/utils/checkpoint_db.py:171:path] Downloading checkpoint nvidia/Cosmos-Predict2.5-2B/base/post-trained(81edfebe-bd6a-4039-8c1d-737df1a790bf)\n[10-13 03:22:37|INFO|data/gkd/worldcache_omr/runtime/cosmos_predict2/_src/imaginaire/utils/checkpoint_db.py:96:_download] Downloading checkpoint file from Hugging Face with {'repo_id': 'nvidia/Cosmos-Predict2.5-2B', 'repo_type': 'model', 'revision': '15a82a2ec231bc318692aa0456a36537c806e7d4', 'filename': 'base/post-trained/81edfebe-bd6a-4039-8c1d-737df1a790bf_ema_bf16.pt'}\nTEACHER_FIRST_ACTUAL_PRODUCTION_CPU_PASS_NOT_GPU",
   "full_readonly_capture_ref": "/Users/kuangda_gao/Documents/\u4e16\u754c\u6a21\u578b\u52a0\u901f\u5b9e\u9a8c/worldcache_omr/.sync/wc_teacher_first_velocity_full_readonly_capture_20261013.json",
-  "full_readonly_capture_sha256": "ccdc3ee9cfcbf43f8a1635a7d4ce6b0e0289e8b0e75ffb6e27719b036efd0daa"
+  "full_readonly_capture_sha256": "aa9cf6d8853cba80ac4ab8fc0c550a242d2edca23ca590f4e2de4fa9113d7f35"
 }

@@ -19,7 +19,8 @@ def run():
             row={'scene':str(index),'method':method,'section':'TIMED','status':'COMPLETE',
                 'endpoint_audit':'PASS','decoded_video':{'frames':93},'core_seconds':times[method][index],
                 'in_timing_hashes':0,'in_timing_guided_copies':0,'research_checkpoints':0,
-                'LPIPS':{'mean_LPIPS':mean(frames),'frame_distances':frames},'actions':['DD']*36}
+                'LPIPS':{'mean_LPIPS':mean(frames),'frame_distances':frames},'actions':None if method=='NATIVE' else ['DD']*36,
+                'guided_pairs':36,'solver_steps':36}
             if method.startswith('TABLE_'):
                 hist=[];kind='D'
                 for step in range(1,37):

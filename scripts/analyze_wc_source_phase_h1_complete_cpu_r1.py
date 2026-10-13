@@ -34,7 +34,11 @@ def reconstruct(capture):
         assert row['in_timing_hashes']==row['in_timing_guided_copies']==row['research_checkpoints']==0
         frames=row['LPIPS']['frame_distances'];assert len(frames)==93 and all(math.isfinite(x) and x>=0 for x in frames)
         assert math.isclose(mean(frames),row['LPIPS']['mean_LPIPS'],rel_tol=1e-12,abs_tol=1e-12)
-        if row['method']=='NATIVE':assert all(x==0 for x in frames) and row['actions']==['DD']*36
+        if row['method']=='NATIVE':
+            # Native has no caching owner/trace. Actual full sampling and the
+            # unchanged original Native control prove the computation path.
+            assert all(x==0 for x in frames) and row['actions'] is None
+            assert row['guided_pairs']==row['solver_steps']==36
         if row['method'].startswith('TABLE_'):
             hist=row['compact_source_history'];assert len(hist)==36
             assert [h['action'] for h in hist]==row['actions']
