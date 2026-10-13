@@ -45,7 +45,7 @@ LPIPS表示接近匹配Native的程度；旧MUSIQ/VQA混合证据继续保留。
 |---|---|---|---|
 |已完成目标对齐控制|[410 teacher完整结果](410_WC_TEACHER_FIRST_COMPLETE_RESULTS_AND_TARGET_ALIGNMENT_20261013.md)|原4父＋8后缀＋4离线teacher pairs、270pairs/540CFG、12视频全93已接受；独立重算2正/2负场景，teacher相对C平均失真降低0.2077%，比单次A在3/4更低|当前完整teacher速度并不保证终点改善；两首C缓存相同，P点的局部速度/完整刷新状态价值需要区分|
 |F/B完整终态后，保护确认|[405冻结H1独立确认](405_WC_FROZEN_H1_INDEPENDENT_CONFIRMATION_FULL50_FINAL_PRODUCTION_PREREG_20261013.md)|四新提示词×seed17/43×Native/RA/A_NO_P/P_OFF/H1，40正式＋10预热。最终生产CPU通过，冻结e48ba58/684；预计6.56135GPUh，GPU尚未启动|新输入/seed上的保真与成本；不会把探索特征或P-v2加入这50路径|
-|必要归因|H1同mask/读出消融与匹配真实成本曲线|待具体执行卡；固定三档λ在开发集选择，确认集不调参|[409独立80路径CPU准备](409_WC_H1_FIXED_MASK_ATTRIBUTION_CPU_PREPARATION_20261013.md)完整两flow80路径CPU已通过；固定mask＋同读出复现作为等价控制；同mask＋plain C隔离A；匹配D次数仅是机制对照，仍需匹配实际时间。静态策略若已足够，也作为有价值结果保留|
+|必要归因|H1同mask/读出消融与匹配真实成本曲线|[411十方法完整60规划与160路径CPU](411_WC_H1_FULL60_COST_CURVE_AND_STATIC_CONTROL_CPU_PREPARATION_20261013.md)已准备并启动CPU，真实GPU卡尚待生产封口；三个λ沿原登记值，确认集不调参|[409独立80路径CPU准备](409_WC_H1_FIXED_MASK_ATTRIBUTION_CPU_PREPARATION_20261013.md)完整两flow80路径CPU已通过；固定mask＋同读出复现作为等价控制；同mask＋plain C隔离A；匹配D次数仅是机制对照，仍需匹配实际时间。静态策略若已足够，也作为有价值结果保留|
 |速度确认|新版候选的驻留模型平衡重复计时|待卡；原两场景五方法30正式＋10预热方案保留，最终方法名单先冻结|每场景逐轮秒数、波动、基线÷候选倍数与LPIPS；包含真实缓存/修正费用，加载与保存另列|
 |P成本开发|P0实际profile与单一覆盖轴|待；先核算完整双CFG深层与维护费用|为何单次节省小、扩大MLP覆盖是否有意义；B探索可复用这份证据，不能双重报成果/费用|
 |可选低成本研究|来源/噪声时钟、H2短时域|已有设计，未获新的终点证明|按具体信号推进，不作为确认现有强候选的额外门槛|

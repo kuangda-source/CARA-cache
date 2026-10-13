@@ -1,3 +1,11 @@
+## 2026-10-13 同批成本曲线与静态归因CPU已启动
+
+[411完整60规划与CPU](411_WC_H1_FULL60_COST_CURVE_AND_STATIC_CONTROL_CPU_PREPARATION_20261013.md)：Native/WC/RA/A_NO_P/P_OFF、既定三lambda H1、固定A/固定plain，共十方法×四CAL=40正式＋20预热，一次加载；完整预测7.815847555GPUh，未提交GPU。中lambda与405冻结H1逐字段相同，低/高只改既有lambda与fingerprint，不用CONF或F/B调参。
+
+原CPU592697在独立wc-h1-cost-curve-cpu-r1-20261013启动（055b557/695）；两flow×四Toy×十方法×audit/lean共160完整CPU路径，尚待验收，CUDA禁止/GPU0/账本0。本轮仅恢复本任务拥有的本地FRPC（当前17124），原服务器任务未重启。单连接部署保留helper错误/连接失败并拒绝重复启动，旧stage不改。
+
+F/B仍在原16:25:36查收时间接受完整432及自动post，未持续查询。届时可一并接受本CPU的原句柄/结果，409完整80已通过和410teacher结果保持；405完整50确认优先保护，后续GPU必须原F/B/post结束、实际预算/UUID/锁准入与生产门。以下为保留状态。
+
 ## 2026-10-13 已完成teacher控制：终点目标对齐发现
 
 [410完整结果](410_WC_TEACHER_FIRST_COMPLETE_RESULTS_AND_TARGET_ALIGNMENT_20261013.md)：400原270pairs/4teacher/12x93/16raw314tensors及GPU/post完整接受；由保存的全部93帧和396已有A重构。首速度teacher相对C四CAL等权失真降低0.2077%，D两点正/P两点负，vs单次A为3/4更低。两首C缓存相同；局部teacher不保证终点收益，不能由此否定真实D刷新。后续候选是同返回teacher速度下C状态与真实D完整刷新状态的区分，尚未GPU，原P13h暂缓不转用。
