@@ -26,7 +26,9 @@ def load_reference(point, project, *, tensor_loader=torch.load):
             raise ValueError('Full real CPU c/u velocity pair required')
         for repeat in (1,2,3):
             current=payload[mode+'_repeat'+str(repeat)]
-            if len(current)!=2 or any(not torch.equal(a,b) for a,b in zip(first,current)):
+            if (not isinstance(current,tuple) or len(current)!=2
+                    or any(not isinstance(b,torch.Tensor) or a.dtype!=b.dtype or a.shape!=b.shape
+                           or not torch.equal(a,b) for a,b in zip(first,current))):
                 raise ValueError('Preserved B repeats no longer equal')
         vectors[label]=tuple(v.clone() for v in first)
     return {k:point[k] for k in ('scene','step','input_sha256','source_state_sha256','true_D_state_sha256')} | dict(
