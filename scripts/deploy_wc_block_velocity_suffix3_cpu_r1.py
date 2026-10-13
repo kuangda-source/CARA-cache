@@ -16,6 +16,7 @@ BASE='wc-h1-cost-curve-production-r2-20261013'
 CONFIG='configs/wc_block_velocity_suffix3_cpu_r1_20261013.json'
 NEW=['src/wcomr/block_velocity_suffix3_r1.py',
  'tests/check_block_velocity_suffix3_sampling_cpu_r1.py',
+ 'tests/check_pi0_readout_suffix8_sampling_cpu_r1.py',
  'scripts/check_wc_block_velocity_suffix3_cpu_r1.py',
  'scripts/deploy_wc_block_velocity_suffix3_cpu_r1.py',CONFIG]
 
