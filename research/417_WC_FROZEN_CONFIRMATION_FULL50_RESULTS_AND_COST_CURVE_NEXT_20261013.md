@@ -39,3 +39,9 @@
 本卡后累计实结 **75.188689400／104.971363333 GPUh**，余 **29.782673933**。新窗口origin56.971363333不重置；严格大于8GPUh才确认、完整卡不拆、单GPU和原CPU post串行保持。原P13h暂缓、E2完整76自身权限不转用。
 
 证据：[原终态捕获](../reports/wc_source_confirmation_scheduled_collection_20261013.json) · [独立验收与全部配对](../reports/wc_source_confirmation_full50_independent_acceptance_20261013.json) · [重构程序](../scripts/analyze_wc_confirmation_full50_r1.py)。
+
+## 接续：完整60已单次启动
+
+原R2／361ea5c／711保持，21:09:50北京时间只派发一次；首次实际观察supervisor638897、runner639126、post watcher638898存在，UUID/空闲/余额准入通过、kernel持锁。此时还在初始化，没有60卡终点结果。预计4–6小时，自动化`worldcache`已改为10月14日02:20北京时间一次查收；以后仅跟踪这三个句柄和原run，不改在跑字节、不重投、不持续查询。
+
+[启动回执](../reports/wc_h1_cost_curve_production_r2_GPU_launch_20261013.json) · [首次资源观察](../reports/wc_h1_cost_curve_full60_initial_admission_20261013.json) · [定时查收回执](../reports/wc_h1_cost_curve_full60_delayed_check_receipt_20261013.json)。

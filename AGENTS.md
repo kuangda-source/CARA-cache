@@ -1,3 +1,11 @@
+## 2026-10-13 冻结确认完整接受；同批成本曲线完整60已启动
+
+[417独立确认结果](research/417_WC_FROZEN_CONFIRMATION_FULL50_RESULTS_AND_COST_CURVE_NEXT_20261013.md)：原405全部50终态/10预热/40正式接受，49视频（39正式全93评分），RA Human125 seed17视频拒绝保留，GPU/post均0退出/source684一致/原句柄和锁释放。H1新四提示词×17/43均8/8输出，LPIPS0.053036807，比同批P_OFF低84.6018%、比Native快1.2681×；A_NO_P/P_OFF相对RA各6/7可配对改善，完整RA四提示词均值不填。全部八H1仍26D/5A/5C/0P，尚不能宣称内容自适应贡献或同RA成本优势。实费3.174896963GPUh，累计75.188689400/cap104.971363333，余29.782673933（曲线前实结）。
+
+[413原完整60](research/413_WC_H1_COST_CURVE_FULL60_PRODUCTION_AND_POST_PREREG_20261013.md)于21:09:50北京时间单次派发，实际准入后supervisor638897/runner639126/post638898 live；source361ea5c/711逐份一致，stage wc-h1-cost-curve-production-r2-20261013、run wc-h1-cost-curve-static-full60-r1。十方法×四CAL，40正式＋20预热，2160pairs/一次加载，原三lambda和固定序列不变。预测7.815847555GPUh≤8；预计4–6小时，**next_check_not_before=2026-10-14 02:20:00 Asia/Shanghai（1791915600）**，自动化worldcache已更新。此前不查询在途进度/新视频，不持续监听或增加服务器计时干扰；只按原句柄查全部60原件/40兼容93帧/144guided控制/实费及释放，未完则重新估时。当前在途used=cap仅预留，不算实费耗尽。
+
+B原三臂312/16视频的730生产CPU及单次启动接线保持、尚未GPU，曲线GPU/post接受后fresh准入；F直接收益差CPU假设416已登记未执行，继续独立不合入。原P13h暂缓/E2原76自身权限/完整卡不拆/严格>8才问/无新增人评训练OMR保持。以下为保留历史。
+
 ## 2026-10-13 B真实保存参考与完整312生产入口CPU通过；未提交B GPU
 
 [415最新准备](research/415_WC_B_REAL_REFERENCE_AUDIT_AND_FULL312_PRODUCTION_PREPARATION_20261013.md)：四个原F/B Dense/L2参考CPU审计已接受（5880bc9／721文件，CPU615531结束）；实际生产入口CPU也已接受（988ace1／730文件，CPU633476结束）。完整312pairs／624CFG、4父＋12后缀／16视频，命令、真实参考与自动post路径SHA已绑定，预测2.236752758GPUh。生产CPU是入口/配置验证，未执行312次真实模型调用；数值32父／64后缀CPU证明单独保留。GPU0、账本0，没有新B端点或加速结论。

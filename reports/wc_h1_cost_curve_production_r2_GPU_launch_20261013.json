@@ -1,0 +1,31 @@
+{
+  "status": "H1_COST_CURVE_FULL60_DISPATCHED_ADMISSION_PENDING",
+  "supervisor_pid": 638897,
+  "post_watcher_pid": 638898,
+  "stage": "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-h1-cost-curve-production-r2-20261013",
+  "source_revision": "361ea5c9372332299f7ca29dbffe0ab942274d0f",
+  "command": [
+    "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python",
+    "-u",
+    "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-h1-cost-curve-production-r2-20261013/scripts/supervise_wc_h1_cost_curve_r1.py",
+    "--project",
+    "/home/gaokuangda/data/gkd/worldcache_omr",
+    "--stage",
+    "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-h1-cost-curve-production-r2-20261013",
+    "--source-revision",
+    "361ea5c9372332299f7ca29dbffe0ab942274d0f"
+  ],
+  "post_command": [
+    "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python",
+    "-u",
+    "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-h1-cost-curve-production-r2-20261013/scripts/watch_wc_h1_cost_curve_cpu_r1.py",
+    "--project",
+    "/home/gaokuangda/data/gkd/worldcache_omr",
+    "--stage",
+    "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-h1-cost-curve-production-r2-20261013",
+    "--supervisor-pid",
+    "638897"
+  ],
+  "started_unix": 1791896990.2023346,
+  "run_id": "wc-h1-cost-curve-static-full60-r1"
+}

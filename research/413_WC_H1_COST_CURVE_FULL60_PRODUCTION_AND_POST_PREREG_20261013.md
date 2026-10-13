@@ -1,4 +1,10 @@
-## 当前：R2生产CPU已完整接受，完整60 GPU未启动
+## 当前：原完整60已单次准入，10月14日02:20查收
+
+[417原CONF完整接受](417_WC_FROZEN_CONFIRMATION_FULL50_RESULTS_AND_COST_CURVE_NEXT_20261013.md)后，本卡于2026-10-13 21:09:50北京时间单次派发。supervisor638897／runner639126／post watcher638898实际存在，原361ea5c／711文件均相同，kernel持锁。实际stage为R2，原十方法/40正式＋20预热/三个lambda/固定序列与7.815847555GPUh规划保持，尚无本卡曲线结果。
+
+预计4–6小时，[定时回执](../reports/wc_h1_cost_curve_full60_delayed_check_receipt_20261013.json)安排下一次不早于2026-10-14 **02:20北京时间**（1791915600）；此前不持续查询或增加服务器计时干扰。原CONF前后完整验收、单次准入与所有原件/全40兼容93帧、四预热144guided控制和实费释放门保持；若未完成，按剩余量重新估时，不循环监听。初次准入是进程/资源证据，不是新科学结果。以下生产CPU与原登记历史保留。
+
+## 已验收的R2生产CPU
 
 原R2 CPU599876已结束/PASS，source361ea5c9372332299f7ca29dbffe0ab942274d0f／711文件逐份一致；原160采样与旧96完整依赖保持，实际生产60槽/40正式/20预热、四条预热数值控制、拒绝和缺失分母检查接受。CUDA初始化false、GPU0、账本0，不查询在途CONF。见[完整R2 CPU](../reports/wc_h1_cost_curve_production_r2_CPU_collection_20261013.json)、[独立接受](../reports/wc_h1_cost_curve_production_r2_CPU_independent_acceptance_20261013.json)。
 
