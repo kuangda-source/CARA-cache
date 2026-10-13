@@ -1,0 +1,3474 @@
+{
+  "status": "EXISTING_F16_COMMON_ERROR_AND_CA_MARGIN_DECOMPOSITION_NOT_NEW_METHOD",
+  "inputs": {
+    "reports/wc_fb_probe_scheduled_collection_20261013.json": "51ca436c520e43d78d23b77896a619cc67a46673aeb300d6cf9c9aa82ecada52",
+    "reports/wc_fb_probe_F16_independent_decision_analysis_20261013.json": "10a294b8bce574fe30efcddb4fa7b0c974e9ffb89774fc3f0bc0752444ac2429"
+  },
+  "states": 16,
+  "prompt_groups": 4,
+  "primary_lambda": 525.1463509809399,
+  "aggregates": {
+    "SOURCE_PHASE_LOPO": {
+      "common_squared": 0.49656057604794,
+      "difference_squared": 0.18379427664336814,
+      "gain_squared_difference_squared": 0.000446595402792283,
+      "total_two_target_squared": 1.085018290417564
+    },
+    "RAW_CLOCK": {
+      "common_squared": 0.512272281769052,
+      "difference_squared": 0.1826561865982888,
+      "gain_squared_difference_squared": 0.0004425519402200036,
+      "total_two_target_squared": 1.1158726568372486
+    },
+    "RAW_SUB": {
+      "common_squared": 0.3894222353193431,
+      "difference_squared": 0.1662990107707616,
+      "gain_squared_difference_squared": 0.0004093366801677697,
+      "total_two_target_squared": 0.861993976024067
+    },
+    "HAAR": {
+      "common_squared": 0.49775244153417814,
+      "difference_squared": 0.17501590721487625,
+      "gain_squared_difference_squared": 0.0004216021607831047,
+      "total_two_target_squared": 1.0830128366757943
+    },
+    "FFT": {
+      "common_squared": 0.5025214369632973,
+      "difference_squared": 0.17618940927582494,
+      "gain_squared_difference_squared": 0.0004251792647388291,
+      "total_two_target_squared": 1.0931375785645072
+    }
+  },
+  "RAW_SUB_fraction_of_two_target_squared_error_reduction_from_common_component": 0.9607772230570827,
+  "RAW_SUB_relative_difference_squared_error_reduction": 0.09518939431696305,
+  "RAW_SUB_relative_gain_squared_difference_squared_error_reduction": 0.08342836131218034,
+  "primary_locally_harmful_states": [
+    {
+      "scene": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+      "step": 30,
+      "source": "D",
+      "parent_action": "CC",
+      "actual_CA_q_improvement": 0.0981135450779263,
+      "actual_CA_lambda_breakpoint": 436.2281726297452,
+      "methods": [
+        {
+          "method": "SOURCE_PHASE_LOPO",
+          "predicted_CA_q_improvement": 0.059898292742103273,
+          "predicted_lambda_breakpoint": 714.5427777691121,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": -0.13848163093641855,
+              "true_margin": -0.11859434759100772,
+              "chosen": "C",
+              "local_CA_oracle": "C",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": -0.0449681058234159,
+              "true_margin": 0.03458102755822745,
+              "chosen": "C",
+              "local_CA_oracle": "A",
+              "regret": 0.03458102755822745
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": 0.3290859946285947,
+              "true_margin": 0.6472825281551682,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            }
+          ]
+        },
+        {
+          "method": "RAW_CLOCK",
+          "predicted_CA_q_improvement": 0.05820555501662136,
+          "predicted_lambda_breakpoint": 735.3231571685529,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": -0.1393625345735396,
+              "true_margin": -0.11859434759100772,
+              "chosen": "C",
+              "local_CA_oracle": "C",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": -0.04849172037190008,
+              "true_margin": 0.03458102755822745,
+              "chosen": "C",
+              "local_CA_oracle": "A",
+              "regret": 0.03458102755822745
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": 0.314991536434658,
+              "true_margin": 0.6472825281551682,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            }
+          ]
+        },
+        {
+          "method": "RAW_SUB",
+          "predicted_CA_q_improvement": 0.0610003767783103,
+          "predicted_lambda_breakpoint": 701.6332478586942,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": -0.13790810449975133,
+              "true_margin": -0.11859434759100772,
+              "chosen": "C",
+              "local_CA_oracle": "C",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": -0.04267400007674704,
+              "true_margin": 0.03458102755822745,
+              "chosen": "C",
+              "local_CA_oracle": "A",
+              "regret": 0.03458102755822745
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": 0.33826241761527015,
+              "true_margin": 0.6472825281551682,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            }
+          ]
+        },
+        {
+          "method": "HAAR",
+          "predicted_CA_q_improvement": 0.05943456788723847,
+          "predicted_lambda_breakpoint": 720.1178371612209,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": -0.13872295415213265,
+              "true_margin": -0.11859434759100772,
+              "chosen": "C",
+              "local_CA_oracle": "C",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": -0.04593339868627222,
+              "true_margin": 0.03458102755822745,
+              "chosen": "C",
+              "local_CA_oracle": "A",
+              "regret": 0.03458102755822745
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": 0.32522482317716944,
+              "true_margin": 0.6472825281551682,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            }
+          ]
+        },
+        {
+          "method": "FFT",
+          "predicted_CA_q_improvement": 0.05915850981462606,
+          "predicted_lambda_breakpoint": 723.4782048040752,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": -0.13886661525010435,
+              "true_margin": -0.11859434759100772,
+              "chosen": "C",
+              "local_CA_oracle": "C",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": -0.046508043078159145,
+              "true_margin": 0.03458102755822745,
+              "chosen": "C",
+              "local_CA_oracle": "A",
+              "regret": 0.03458102755822745
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": 0.32292624560962174,
+              "true_margin": 0.6472825281551682,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scene": "human_199",
+      "step": 29,
+      "source": "D",
+      "parent_action": "CC",
+      "actual_CA_q_improvement": 0.034270525527423684,
+      "actual_CA_lambda_breakpoint": 833.5204591426335,
+      "methods": [
+        {
+          "method": "SOURCE_PHASE_LOPO",
+          "predicted_CA_q_improvement": 0.10041929097272514,
+          "predicted_lambda_breakpoint": 284.45913027245047,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": -0.09135284781697116,
+              "true_margin": -0.14293104077512203,
+              "chosen": "C",
+              "local_CA_oracle": "C",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": 0.1435470266543737,
+              "true_margin": -0.0627657451782298,
+              "chosen": "A",
+              "local_CA_oracle": "C",
+              "regret": 0.0627657451782298
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": 1.0831465245397531,
+              "true_margin": 0.2578954372093391,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            }
+          ]
+        },
+        {
+          "method": "RAW_CLOCK",
+          "predicted_CA_q_improvement": 0.09492318441894959,
+          "predicted_lambda_breakpoint": 300.92947626581145,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": -0.09563832831597764,
+              "true_margin": -0.14293104077512203,
+              "chosen": "C",
+              "local_CA_oracle": "C",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": 0.12640510465834776,
+              "true_margin": -0.0627657451782298,
+              "chosen": "A",
+              "local_CA_oracle": "C",
+              "regret": 0.0627657451782298
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": 1.0145788365556494,
+              "true_margin": 0.2578954372093391,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            }
+          ]
+        },
+        {
+          "method": "RAW_SUB",
+          "predicted_CA_q_improvement": 0.0914499940963322,
+          "predicted_lambda_breakpoint": 312.3585130315848,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": -0.09834647985039251,
+              "true_margin": -0.14293104077512203,
+              "chosen": "C",
+              "local_CA_oracle": "C",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": 0.1155724985206883,
+              "true_margin": -0.0627657451782298,
+              "chosen": "A",
+              "local_CA_oracle": "C",
+              "regret": 0.0627657451782298
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": 0.9712484120050116,
+              "true_margin": 0.2578954372093391,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            }
+          ]
+        },
+        {
+          "method": "HAAR",
+          "predicted_CA_q_improvement": 0.09452036928975338,
+          "predicted_lambda_breakpoint": 302.21194000110813,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": -0.0959524154545702,
+              "true_margin": -0.14293104077512203,
+              "chosen": "C",
+              "local_CA_oracle": "C",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": 0.12514875610397752,
+              "true_margin": -0.0627657451782298,
+              "chosen": "A",
+              "local_CA_oracle": "C",
+              "regret": 0.0627657451782298
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": 1.0095534423381685,
+              "true_margin": 0.2578954372093391,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            }
+          ]
+        },
+        {
+          "method": "FFT",
+          "predicted_CA_q_improvement": 0.09419424638491472,
+          "predicted_lambda_breakpoint": 303.2582696818759,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": -0.09620670334642435,
+              "true_margin": -0.14293104077512203,
+              "chosen": "C",
+              "local_CA_oracle": "C",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": 0.12413160453656091,
+              "true_margin": -0.0627657451782298,
+              "chosen": "A",
+              "local_CA_oracle": "C",
+              "regret": 0.0627657451782298
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": 1.005484836068502,
+              "true_margin": 0.2578954372093391,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scene": "misc_13398218_3840_2160_60fps",
+      "step": 30,
+      "source": "D",
+      "parent_action": "CC",
+      "actual_CA_q_improvement": 0.08871327380275604,
+      "actual_CA_lambda_breakpoint": 482.4519561157292,
+      "methods": [
+        {
+          "method": "SOURCE_PHASE_LOPO",
+          "predicted_CA_q_improvement": 0.0762072278570313,
+          "predicted_lambda_breakpoint": 561.6251067400685,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": -0.1299944329233766,
+              "true_margin": -0.12348626500477275,
+              "chosen": "C",
+              "local_CA_oracle": "C",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": -0.011019313771248096,
+              "true_margin": 0.015013357903167324,
+              "chosen": "C",
+              "local_CA_oracle": "A",
+              "regret": 0.015013357903167324
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": 0.46488116283726594,
+              "true_margin": 0.5690118495349277,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            }
+          ]
+        },
+        {
+          "method": "RAW_CLOCK",
+          "predicted_CA_q_improvement": 0.07329620762730096,
+          "predicted_lambda_breakpoint": 583.9305178952814,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": -0.131509332880706,
+              "true_margin": -0.12348626500477275,
+              "chosen": "C",
+              "local_CA_oracle": "C",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": -0.017078913600565654,
+              "true_margin": 0.015013357903167324,
+              "chosen": "C",
+              "local_CA_oracle": "A",
+              "regret": 0.015013357903167324
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": 0.4406427635199957,
+              "true_margin": 0.5690118495349277,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            }
+          ]
+        },
+        {
+          "method": "RAW_SUB",
+          "predicted_CA_q_improvement": 0.07004359241252725,
+          "predicted_lambda_breakpoint": 611.0465069737797,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": -0.1332019994584735,
+              "true_margin": -0.12348626500477275,
+              "chosen": "C",
+              "local_CA_oracle": "C",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": -0.023849579911635665,
+              "true_margin": 0.015013357903167324,
+              "chosen": "C",
+              "local_CA_oracle": "A",
+              "regret": 0.015013357903167324
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": 0.41356009827571566,
+              "true_margin": 0.5690118495349277,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            }
+          ]
+        },
+        {
+          "method": "HAAR",
+          "predicted_CA_q_improvement": 0.07247282134166891,
+          "predicted_lambda_breakpoint": 590.5647342993908,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": -0.13193782452642883,
+              "true_margin": -0.12348626500477275,
+              "chosen": "C",
+              "local_CA_oracle": "C",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": -0.018792880183456956,
+              "true_margin": 0.015013357903167324,
+              "chosen": "C",
+              "local_CA_oracle": "A",
+              "regret": 0.015013357903167324
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": 0.4337868971884305,
+              "true_margin": 0.5690118495349277,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            }
+          ]
+        },
+        {
+          "method": "FFT",
+          "predicted_CA_q_improvement": 0.0722470317991655,
+          "predicted_lambda_breakpoint": 592.410392700234,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": -0.13205532579447585,
+              "true_margin": -0.12348626500477275,
+              "chosen": "C",
+              "local_CA_oracle": "C",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": -0.01926288525564504,
+              "true_margin": 0.015013357903167324,
+              "chosen": "C",
+              "local_CA_oracle": "A",
+              "regret": 0.015013357903167324
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": 0.43190687689967816,
+              "true_margin": 0.5690118495349277,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "all_state_margins": [
+    {
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "step": 10,
+      "source": "D",
+      "parent_action": "CC",
+      "actual_CA_q_improvement": 0.34685147785700543,
+      "actual_CA_lambda_breakpoint": 9.531820234898468,
+      "methods": [
+        {
+          "method": "SOURCE_PHASE_LOPO",
+          "predicted_CA_q_improvement": 0.9492685757866832,
+          "predicted_lambda_breakpoint": 3.4828140522843825,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": 6.225502853609061,
+              "true_margin": 2.16706121599146,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": 25.410969832358504,
+              "true_margin": 9.177203281888099,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": 102.15283774735627,
+              "true_margin": 37.217771545474655,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            }
+          ]
+        },
+        {
+          "method": "RAW_CLOCK",
+          "predicted_CA_q_improvement": 1.0057834636661809,
+          "predicted_lambda_breakpoint": 3.287115024829186,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": 6.606239680142855,
+              "true_margin": 2.16706121599146,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": 26.93391713849368,
+              "true_margin": 9.177203281888099,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": 108.24462697189698,
+              "true_margin": 37.217771545474655,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            }
+          ]
+        },
+        {
+          "method": "RAW_SUB",
+          "predicted_CA_q_improvement": 0.974874418943221,
+          "predicted_lambda_breakpoint": 3.391335202667164,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": 6.398007618812338,
+              "true_margin": 2.16706121599146,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": 26.10098889317161,
+              "true_margin": 9.177203281888099,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": 104.9129139906087,
+              "true_margin": 37.217771545474655,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            }
+          ]
+        },
+        {
+          "method": "HAAR",
+          "predicted_CA_q_improvement": 0.9944819788571644,
+          "predicted_lambda_breakpoint": 3.3244704332814212,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": 6.530102371501643,
+              "true_margin": 2.16706121599146,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": 26.62936790392883,
+              "true_margin": 9.177203281888099,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": 107.02643003363758,
+              "true_margin": 37.217771545474655,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            }
+          ]
+        },
+        {
+          "method": "FFT",
+          "predicted_CA_q_improvement": 1.0041511459617618,
+          "predicted_lambda_breakpoint": 3.2924584595034063,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": 6.595242870523404,
+              "true_margin": 2.16706121599146,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": 26.889929900015876,
+              "true_margin": 9.177203281888099,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": 108.06867801798576,
+              "true_margin": 37.217771545474655,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "step": 21,
+      "source": "P",
+      "parent_action": "CC",
+      "actual_CA_q_improvement": 0.08610183546802311,
+      "actual_CA_lambda_breakpoint": 129.16394849385927,
+      "methods": [
+        {
+          "method": "SOURCE_PHASE_LOPO",
+          "predicted_CA_q_improvement": 0.45490495116939145,
+          "predicted_lambda_breakpoint": 24.44742140754871,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": 1.482820135093995,
+              "true_margin": 0.005576040516967362,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": 6.9491973762204955,
+              "true_margin": 1.0402209979123862,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": 28.8147063407265,
+              "true_margin": 5.178800827494061,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            }
+          ]
+        },
+        {
+          "method": "RAW_CLOCK",
+          "predicted_CA_q_improvement": 0.4650802861553026,
+          "predicted_lambda_breakpoint": 23.912544506143185,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": 1.523577528072344,
+              "true_margin": 0.005576040516967362,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": 7.112226948133893,
+              "true_margin": 1.0402209979123862,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": 29.46682462838009,
+              "true_margin": 5.178800827494061,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            }
+          ]
+        },
+        {
+          "method": "RAW_SUB",
+          "predicted_CA_q_improvement": 0.4322873132506899,
+          "predicted_lambda_breakpoint": 25.726531176660043,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": 1.392224989266274,
+              "true_margin": 0.005576040516967362,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": 6.5868167929096115,
+              "true_margin": 1.0402209979123862,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": 27.365184007482963,
+              "true_margin": 5.178800827494061,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            }
+          ]
+        },
+        {
+          "method": "HAAR",
+          "predicted_CA_q_improvement": 0.48416628815488505,
+          "predicted_lambda_breakpoint": 22.969903757654407,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": 1.600026675442885,
+              "true_margin": 0.005576040516967362,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": 7.4180235376160555,
+              "true_margin": 1.0402209979123862,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": 30.69001098630874,
+              "true_margin": 5.178800827494061,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            }
+          ]
+        },
+        {
+          "method": "FFT",
+          "predicted_CA_q_improvement": 0.4821007130256624,
+          "predicted_lambda_breakpoint": 23.06831900708368,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": 1.591752996258406,
+              "true_margin": 0.005576040516967362,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": 7.38492882087814,
+              "true_margin": 1.0402209979123862,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": 30.557632119357077,
+              "true_margin": 5.178800827494061,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "step": 27,
+      "source": "D",
+      "parent_action": "CC",
+      "actual_CA_q_improvement": 0.05740003466779767,
+      "actual_CA_lambda_breakpoint": 266.66373223266754,
+      "methods": [
+        {
+          "method": "SOURCE_PHASE_LOPO",
+          "predicted_CA_q_improvement": 0.046201184947625165,
+          "predicted_lambda_breakpoint": 331.30118831695063,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": -0.10242353308529158,
+              "true_margin": -0.08612761936075025,
+              "chosen": "C",
+              "local_CA_oracle": "C",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": 0.09926428558109202,
+              "true_margin": 0.16444794047925732,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": 0.9060155602466264,
+              "true_margin": 1.1667501798392876,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            }
+          ]
+        },
+        {
+          "method": "RAW_CLOCK",
+          "predicted_CA_q_improvement": 0.043302834114014296,
+          "predicted_lambda_breakpoint": 353.4758818440873,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": -0.10664104437512498,
+              "true_margin": -0.08612761936075025,
+              "chosen": "C",
+              "local_CA_oracle": "C",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": 0.08239424042175841,
+              "true_margin": 0.16444794047925732,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": 0.838535379609292,
+              "true_margin": 1.1667501798392876,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            }
+          ]
+        },
+        {
+          "method": "RAW_SUB",
+          "predicted_CA_q_improvement": 0.042883995440886016,
+          "predicted_lambda_breakpoint": 356.9282040405698,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": -0.10725051401284191,
+              "true_margin": -0.08612761936075025,
+              "chosen": "C",
+              "local_CA_oracle": "C",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": 0.0799563618708907,
+              "true_margin": 0.16444794047925732,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": 0.828783865405821,
+              "true_margin": 1.1667501798392876,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            }
+          ]
+        },
+        {
+          "method": "HAAR",
+          "predicted_CA_q_improvement": 0.040897138890153714,
+          "predicted_lambda_breakpoint": 374.2684180404753,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": -0.1101416719212699,
+              "true_margin": -0.08612761936075025,
+              "chosen": "C",
+              "local_CA_oracle": "C",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": 0.0683917302371787,
+              "true_margin": 0.16444794047925732,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": 0.7825253388709732,
+              "true_margin": 1.1667501798392876,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            }
+          ]
+        },
+        {
+          "method": "FFT",
+          "predicted_CA_q_improvement": 0.0407727239362186,
+          "predicted_lambda_breakpoint": 375.4104704592128,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": -0.11032271331445132,
+              "true_margin": -0.08612761936075025,
+              "chosen": "C",
+              "local_CA_oracle": "C",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": 0.06766756466445303,
+              "true_margin": 0.16444794047925732,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": 0.7796286765800704,
+              "true_margin": 1.1667501798392876,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "step": 33,
+      "source": "P",
+      "parent_action": "CC",
+      "actual_CA_q_improvement": 0.03606893531214453,
+      "actual_CA_lambda_breakpoint": 22083.66314543387,
+      "methods": [
+        {
+          "method": "SOURCE_PHASE_LOPO",
+          "predicted_CA_q_improvement": 0.015863395719071,
+          "predicted_lambda_breakpoint": 50212.08772408355,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": -0.33841844955332684,
+              "true_margin": -0.3372884522178267,
+              "chosen": "C",
+              "local_CA_oracle": "C",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": -0.3357569623687907,
+              "true_margin": -0.33123697302679017,
+              "chosen": "C",
+              "local_CA_oracle": "C",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": -0.3251110136306461,
+              "true_margin": -0.30703105626264415,
+              "chosen": "C",
+              "local_CA_oracle": "C",
+              "regret": 0.0
+            }
+          ]
+        },
+        {
+          "method": "RAW_CLOCK",
+          "predicted_CA_q_improvement": 0.014683710858181778,
+          "predicted_lambda_breakpoint": 54246.11156818133,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": -0.33848442357710357,
+              "true_margin": -0.3372884522178267,
+              "chosen": "C",
+              "local_CA_oracle": "C",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": -0.3360208584638975,
+              "true_margin": -0.33123697302679017,
+              "chosen": "C",
+              "local_CA_oracle": "C",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": -0.32616659801107345,
+              "true_margin": -0.30703105626264415,
+              "chosen": "C",
+              "local_CA_oracle": "C",
+              "regret": 0.0
+            }
+          ]
+        },
+        {
+          "method": "RAW_SUB",
+          "predicted_CA_q_improvement": 0.014783628176511451,
+          "predicted_lambda_breakpoint": 53879.48127059873,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": -0.3384788356885464,
+              "true_margin": -0.3372884522178267,
+              "chosen": "C",
+              "local_CA_oracle": "C",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": -0.335998506909669,
+              "true_margin": -0.33123697302679017,
+              "chosen": "C",
+              "local_CA_oracle": "C",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": -0.3260771917941593,
+              "true_margin": -0.30703105626264415,
+              "chosen": "C",
+              "local_CA_oracle": "C",
+              "regret": 0.0
+            }
+          ]
+        },
+        {
+          "method": "HAAR",
+          "predicted_CA_q_improvement": 0.014232192764756915,
+          "predicted_lambda_breakpoint": 55967.07623440127,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": -0.3385096747830983,
+              "true_margin": -0.3372884522178267,
+              "chosen": "C",
+              "local_CA_oracle": "C",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": -0.3361218632878766,
+              "true_margin": -0.33123697302679017,
+              "chosen": "C",
+              "local_CA_oracle": "C",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": -0.3265706173069898,
+              "true_margin": -0.30703105626264415,
+              "chosen": "C",
+              "local_CA_oracle": "C",
+              "regret": 0.0
+            }
+          ]
+        },
+        {
+          "method": "FFT",
+          "predicted_CA_q_improvement": 0.014265150142198577,
+          "predicted_lambda_breakpoint": 55837.77313998048,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": -0.33850783163763204,
+              "true_margin": -0.3372884522178267,
+              "chosen": "C",
+              "local_CA_oracle": "C",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": -0.33611449070601157,
+              "true_margin": -0.33123697302679017,
+              "chosen": "C",
+              "local_CA_oracle": "C",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": -0.32654112697952975,
+              "true_margin": -0.30703105626264415,
+              "chosen": "C",
+              "local_CA_oracle": "C",
+              "regret": 0.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scene": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+      "step": 10,
+      "source": "D",
+      "parent_action": "CC",
+      "actual_CA_q_improvement": 0.5856401580257362,
+      "actual_CA_lambda_breakpoint": 5.645319723782592,
+      "methods": [
+        {
+          "method": "SOURCE_PHASE_LOPO",
+          "predicted_CA_q_improvement": 1.1545366177475276,
+          "predicted_lambda_breakpoint": 2.863595562340857,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": 7.608379221542719,
+              "true_margin": 3.7757637669633066,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": 30.942475304093133,
+              "true_margin": 15.612013485775485,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": 124.27885963429479,
+              "true_margin": 62.9570123610242,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            }
+          ]
+        },
+        {
+          "method": "RAW_CLOCK",
+          "predicted_CA_q_improvement": 1.1631748584289483,
+          "predicted_lambda_breakpoint": 2.8423292604581296,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": 7.666574441727741,
+              "true_margin": 3.7757637669633066,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": 31.175256184833223,
+              "true_margin": 15.612013485775485,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": 125.20998315725515,
+              "true_margin": 62.9570123610242,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            }
+          ]
+        },
+        {
+          "method": "RAW_SUB",
+          "predicted_CA_q_improvement": 1.3065987019797618,
+          "predicted_lambda_breakpoint": 2.530330031808842,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": 8.63281079274466,
+              "true_margin": 3.7757637669633066,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": 35.0402015889009,
+              "true_margin": 15.612013485775485,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": 140.66976477352586,
+              "true_margin": 62.9570123610242,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            }
+          ]
+        },
+        {
+          "method": "HAAR",
+          "predicted_CA_q_improvement": 1.1400554820005144,
+          "predicted_lambda_breakpoint": 2.8999693324928466,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": 7.510820828068084,
+              "true_margin": 3.7757637669633066,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": 30.552241730194595,
+              "true_margin": 15.612013485775485,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": 122.71792533870064,
+              "true_margin": 62.9570123610242,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            }
+          ]
+        },
+        {
+          "method": "FFT",
+          "predicted_CA_q_improvement": 1.1492012188310439,
+          "predicted_lambda_breakpoint": 2.8768903834828867,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": 7.572435014131652,
+              "true_margin": 3.7757637669633066,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": 30.798698474448866,
+              "true_margin": 15.612013485775485,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": 123.70375231571772,
+              "true_margin": 62.9570123610242,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scene": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+      "step": 15,
+      "source": "P",
+      "parent_action": "CC",
+      "actual_CA_q_improvement": 0.29398611349120285,
+      "actual_CA_lambda_breakpoint": 25.30531333859563,
+      "methods": [
+        {
+          "method": "SOURCE_PHASE_LOPO",
+          "predicted_CA_q_improvement": 0.09499209685233716,
+          "predicted_lambda_breakpoint": 78.3161017137584,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": 0.22949537559713318,
+              "true_margin": 1.421047061794161,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": 1.9358983382330495,
+              "true_margin": 6.702105083021161,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": 8.761510188776715,
+              "true_margin": 27.82633716792916,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            }
+          ]
+        },
+        {
+          "method": "RAW_CLOCK",
+          "predicted_CA_q_improvement": 0.09664155965685223,
+          "predicted_lambda_breakpoint": 76.97941491741379,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": 0.239372155910614,
+              "true_margin": 1.421047061794161,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": 1.9754054594869728,
+              "true_margin": 6.702105083021161,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": 8.919538673792408,
+              "true_margin": 27.82633716792916,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            }
+          ]
+        },
+        {
+          "method": "RAW_SUB",
+          "predicted_CA_q_improvement": 0.1173707313216164,
+          "predicted_lambda_breakpoint": 63.38386610802939,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": 0.36349588519561427,
+              "true_margin": 1.421047061794161,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": 2.471900376626974,
+              "true_margin": 6.702105083021161,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": 10.905518342352412,
+              "true_margin": 27.82633716792916,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            }
+          ]
+        },
+        {
+          "method": "HAAR",
+          "predicted_CA_q_improvement": 0.09942305636896762,
+          "predicted_lambda_breakpoint": 74.82580993570068,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": 0.25602741597045464,
+              "true_margin": 1.421047061794161,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": 2.0420264997263353,
+              "true_margin": 6.702105083021161,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": 9.186022834749858,
+              "true_margin": 27.82633716792916,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            }
+          ]
+        },
+        {
+          "method": "FFT",
+          "predicted_CA_q_improvement": 0.09971201336993318,
+          "predicted_lambda_breakpoint": 74.6089710523695,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": 0.25775765493720615,
+              "true_margin": 1.421047061794161,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": 2.0489474555933413,
+              "true_margin": 6.702105083021161,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": 9.213706658217882,
+              "true_margin": 27.82633716792916,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scene": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+      "step": 26,
+      "source": "P",
+      "parent_action": "PP",
+      "actual_CA_q_improvement": 0.0103754462970016,
+      "actual_CA_lambda_breakpoint": 2294.450368001048,
+      "methods": [
+        {
+          "method": "SOURCE_PHASE_LOPO",
+          "predicted_CA_q_improvement": 0.02839367740160538,
+          "predicted_lambda_breakpoint": 838.4242110528609,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": -0.28617466056552443,
+              "true_margin": -0.3198908202330245,
+              "chosen": "C",
+              "local_CA_oracle": "C",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": -0.12678180641758113,
+              "true_margin": -0.2616464450875814,
+              "chosen": "C",
+              "local_CA_oracle": "C",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": 0.5107896101741921,
+              "true_margin": -0.02866894450580887,
+              "chosen": "A",
+              "local_CA_oracle": "C",
+              "regret": 0.02866894450580887
+            }
+          ]
+        },
+        {
+          "method": "RAW_CLOCK",
+          "predicted_CA_q_improvement": 0.026825018704616538,
+          "predicted_lambda_breakpoint": 887.4531211504234,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": -0.28910997351519435,
+              "true_margin": -0.3198908202330245,
+              "chosen": "C",
+              "local_CA_oracle": "C",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": -0.13852305821626074,
+              "true_margin": -0.2616464450875814,
+              "chosen": "C",
+              "local_CA_oracle": "C",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": 0.4638246029794737,
+              "true_margin": -0.02866894450580887,
+              "chosen": "A",
+              "local_CA_oracle": "C",
+              "regret": 0.02866894450580887
+            }
+          ]
+        },
+        {
+          "method": "RAW_SUB",
+          "predicted_CA_q_improvement": 0.026493755260754218,
+          "predicted_lambda_breakpoint": 898.5493502159245,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": -0.2897298418641142,
+              "true_margin": -0.3198908202330245,
+              "chosen": "C",
+              "local_CA_oracle": "C",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": -0.14100253161194032,
+              "true_margin": -0.2616464450875814,
+              "chosen": "C",
+              "local_CA_oracle": "C",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": 0.45390670939675537,
+              "true_margin": -0.02866894450580887,
+              "chosen": "A",
+              "local_CA_oracle": "C",
+              "regret": 0.02866894450580887
+            }
+          ]
+        },
+        {
+          "method": "HAAR",
+          "predicted_CA_q_improvement": 0.027155249782783178,
+          "predicted_lambda_breakpoint": 876.66093167089,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": -0.28849203695449654,
+              "true_margin": -0.3198908202330245,
+              "chosen": "C",
+              "local_CA_oracle": "C",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": -0.1360513119734695,
+              "true_margin": -0.2616464450875814,
+              "chosen": "C",
+              "local_CA_oracle": "C",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": 0.4737115879506386,
+              "true_margin": -0.02866894450580887,
+              "chosen": "A",
+              "local_CA_oracle": "C",
+              "regret": 0.02866894450580887
+            }
+          ]
+        },
+        {
+          "method": "FFT",
+          "predicted_CA_q_improvement": 0.026994487972253137,
+          "predicted_lambda_breakpoint": 881.8817604097505,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": -0.28879285843030067,
+              "true_margin": -0.3198908202330245,
+              "chosen": "C",
+              "local_CA_oracle": "C",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": -0.13725459787668612,
+              "true_margin": -0.2616464450875814,
+              "chosen": "C",
+              "local_CA_oracle": "C",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": 0.46889844433777217,
+              "true_margin": -0.02866894450580887,
+              "chosen": "A",
+              "local_CA_oracle": "C",
+              "regret": 0.02866894450580887
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scene": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+      "step": 30,
+      "source": "D",
+      "parent_action": "CC",
+      "actual_CA_q_improvement": 0.0981135450779263,
+      "actual_CA_lambda_breakpoint": 436.2281726297452,
+      "methods": [
+        {
+          "method": "SOURCE_PHASE_LOPO",
+          "predicted_CA_q_improvement": 0.059898292742103273,
+          "predicted_lambda_breakpoint": 714.5427777691121,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": -0.13848163093641855,
+              "true_margin": -0.11859434759100772,
+              "chosen": "C",
+              "local_CA_oracle": "C",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": -0.0449681058234159,
+              "true_margin": 0.03458102755822745,
+              "chosen": "C",
+              "local_CA_oracle": "A",
+              "regret": 0.03458102755822745
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": 0.3290859946285947,
+              "true_margin": 0.6472825281551682,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            }
+          ]
+        },
+        {
+          "method": "RAW_CLOCK",
+          "predicted_CA_q_improvement": 0.05820555501662136,
+          "predicted_lambda_breakpoint": 735.3231571685529,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": -0.1393625345735396,
+              "true_margin": -0.11859434759100772,
+              "chosen": "C",
+              "local_CA_oracle": "C",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": -0.04849172037190008,
+              "true_margin": 0.03458102755822745,
+              "chosen": "C",
+              "local_CA_oracle": "A",
+              "regret": 0.03458102755822745
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": 0.314991536434658,
+              "true_margin": 0.6472825281551682,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            }
+          ]
+        },
+        {
+          "method": "RAW_SUB",
+          "predicted_CA_q_improvement": 0.0610003767783103,
+          "predicted_lambda_breakpoint": 701.6332478586942,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": -0.13790810449975133,
+              "true_margin": -0.11859434759100772,
+              "chosen": "C",
+              "local_CA_oracle": "C",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": -0.04267400007674704,
+              "true_margin": 0.03458102755822745,
+              "chosen": "C",
+              "local_CA_oracle": "A",
+              "regret": 0.03458102755822745
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": 0.33826241761527015,
+              "true_margin": 0.6472825281551682,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            }
+          ]
+        },
+        {
+          "method": "HAAR",
+          "predicted_CA_q_improvement": 0.05943456788723847,
+          "predicted_lambda_breakpoint": 720.1178371612209,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": -0.13872295415213265,
+              "true_margin": -0.11859434759100772,
+              "chosen": "C",
+              "local_CA_oracle": "C",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": -0.04593339868627222,
+              "true_margin": 0.03458102755822745,
+              "chosen": "C",
+              "local_CA_oracle": "A",
+              "regret": 0.03458102755822745
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": 0.32522482317716944,
+              "true_margin": 0.6472825281551682,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            }
+          ]
+        },
+        {
+          "method": "FFT",
+          "predicted_CA_q_improvement": 0.05915850981462606,
+          "predicted_lambda_breakpoint": 723.4782048040752,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": -0.13886661525010435,
+              "true_margin": -0.11859434759100772,
+              "chosen": "C",
+              "local_CA_oracle": "C",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": -0.046508043078159145,
+              "true_margin": 0.03458102755822745,
+              "chosen": "C",
+              "local_CA_oracle": "A",
+              "regret": 0.03458102755822745
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": 0.32292624560962174,
+              "true_margin": 0.6472825281551682,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scene": "human_199",
+      "step": 10,
+      "source": "D",
+      "parent_action": "CC",
+      "actual_CA_q_improvement": 1.8499358414077598,
+      "actual_CA_lambda_breakpoint": 1.7871570792563025,
+      "methods": [
+        {
+          "method": "SOURCE_PHASE_LOPO",
+          "predicted_CA_q_improvement": 0.5197397591524094,
+          "predicted_lambda_breakpoint": 6.361117995924471,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": 3.331797412684401,
+              "true_margin": 12.293234903376453,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": 13.836148068659863,
+              "true_margin": 49.68189803142807,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": 55.85355069256171,
+              "true_margin": 199.23655054363454,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            }
+          ]
+        },
+        {
+          "method": "RAW_CLOCK",
+          "predicted_CA_q_improvement": 0.5659914115923039,
+          "predicted_lambda_breakpoint": 5.841300534650723,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": 3.6433915435877,
+              "true_margin": 12.293234903376453,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": 15.082524592273058,
+              "true_margin": 49.68189803142807,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": 60.83905678701449,
+              "true_margin": 199.23655054363454,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            }
+          ]
+        },
+        {
+          "method": "RAW_SUB",
+          "predicted_CA_q_improvement": 0.69717337622065,
+          "predicted_lambda_breakpoint": 4.7421861590071375,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": 4.527155216932687,
+              "true_margin": 12.293234903376453,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": 18.617579285653008,
+              "true_margin": 49.68189803142807,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": 74.97927556053429,
+              "true_margin": 199.23655054363454,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            }
+          ]
+        },
+        {
+          "method": "HAAR",
+          "predicted_CA_q_improvement": 0.5980630624842924,
+          "predicted_lambda_breakpoint": 5.528055722766986,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": 3.8594560009454093,
+              "true_margin": 12.293234903376453,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": 15.946782421703896,
+              "true_margin": 49.68189803142807,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": 64.29608810473785,
+              "true_margin": 199.23655054363454,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            }
+          ]
+        },
+        {
+          "method": "FFT",
+          "predicted_CA_q_improvement": 0.5997888209821266,
+          "predicted_lambda_breakpoint": 5.512149975933552,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": 3.8710823146210216,
+              "true_margin": 12.293234903376453,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": 15.993287676406345,
+              "true_margin": 49.68189803142807,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": 64.48210912354764,
+              "true_margin": 199.23655054363454,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scene": "human_199",
+      "step": 15,
+      "source": "P",
+      "parent_action": "CC",
+      "actual_CA_q_improvement": 0.41519752826989165,
+      "actual_CA_lambda_breakpoint": 17.91776254085735,
+      "methods": [
+        {
+          "method": "SOURCE_PHASE_LOPO",
+          "predicted_CA_q_improvement": 0.07561786838125395,
+          "predicted_lambda_breakpoint": 98.3816507704559,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": 0.11348487943542679,
+              "true_margin": 2.1468460988977993,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": 1.4718563535862237,
+              "true_margin": 9.605301231435714,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": 6.9053422501894115,
+              "true_margin": 39.43912176158737,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            }
+          ]
+        },
+        {
+          "method": "RAW_CLOCK",
+          "predicted_CA_q_improvement": 0.07907844879135885,
+          "predicted_lambda_breakpoint": 94.07633600298635,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": 0.13420640912023213,
+              "true_margin": 2.1468460988977993,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": 1.554742472325445,
+              "true_margin": 9.605301231435714,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": 7.236886725146297,
+              "true_margin": 39.43912176158737,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            }
+          ]
+        },
+        {
+          "method": "RAW_SUB",
+          "predicted_CA_q_improvement": 0.08558927819462192,
+          "predicted_lambda_breakpoint": 86.91989085565494,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": 0.17319245445484388,
+              "true_margin": 2.1468460988977993,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": 1.7106866536638923,
+              "true_margin": 9.605301231435714,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": 7.860663450500085,
+              "true_margin": 39.43912176158737,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            }
+          ]
+        },
+        {
+          "method": "HAAR",
+          "predicted_CA_q_improvement": 0.08195033576946488,
+          "predicted_lambda_breakpoint": 90.77950260043704,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": 0.1514029149706556,
+              "true_margin": 2.1468460988977993,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": 1.6235284957271392,
+              "true_margin": 9.605301231435714,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": 7.512030818753073,
+              "true_margin": 39.43912176158737,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            }
+          ]
+        },
+        {
+          "method": "FFT",
+          "predicted_CA_q_improvement": 0.08203516262306823,
+          "predicted_lambda_breakpoint": 90.6856338333005,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": 0.15191084773241947,
+              "true_margin": 2.1468460988977993,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": 1.6255602267741946,
+              "true_margin": 9.605301231435714,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": 7.5201577429412945,
+              "true_margin": 39.43912176158737,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scene": "human_199",
+      "step": 26,
+      "source": "P",
+      "parent_action": "PP",
+      "actual_CA_q_improvement": 0.004663372833980023,
+      "actual_CA_lambda_breakpoint": 5104.877397077623,
+      "methods": [
+        {
+          "method": "SOURCE_PHASE_LOPO",
+          "predicted_CA_q_improvement": 0.03807925021260447,
+          "predicted_lambda_breakpoint": 625.1684694792261,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": -0.26805077717924664,
+              "true_margin": -0.3305793933672939,
+              "chosen": "C",
+              "local_CA_oracle": "C",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": -0.05428627287246984,
+              "true_margin": -0.304400737624659,
+              "chosen": "C",
+              "local_CA_oracle": "C",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": 0.8007717443546373,
+              "true_margin": -0.19968611465411953,
+              "chosen": "A",
+              "local_CA_oracle": "C",
+              "regret": 0.19968611465411953
+            }
+          ]
+        },
+        {
+          "method": "RAW_CLOCK",
+          "predicted_CA_q_improvement": 0.03137156252845848,
+          "predicted_lambda_breakpoint": 758.838408279315,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": -0.2806023682674864,
+              "true_margin": -0.3305793933672939,
+              "chosen": "C",
+              "local_CA_oracle": "C",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": -0.10449263722542906,
+              "true_margin": -0.304400737624659,
+              "chosen": "C",
+              "local_CA_oracle": "C",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": 0.5999462869428004,
+              "true_margin": -0.19968611465411953,
+              "chosen": "A",
+              "local_CA_oracle": "C",
+              "regret": 0.19968611465411953
+            }
+          ]
+        },
+        {
+          "method": "RAW_SUB",
+          "predicted_CA_q_improvement": 0.030853518764040036,
+          "predicted_lambda_breakpoint": 771.5796294222496,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": -0.28157174457165773,
+              "true_margin": -0.3305793933672939,
+              "chosen": "C",
+              "local_CA_oracle": "C",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": -0.10837014244211421,
+              "true_margin": -0.304400737624659,
+              "chosen": "C",
+              "local_CA_oracle": "C",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": 0.5844362660760598,
+              "true_margin": -0.19968611465411953,
+              "chosen": "A",
+              "local_CA_oracle": "C",
+              "regret": 0.19968611465411953
+            }
+          ]
+        },
+        {
+          "method": "HAAR",
+          "predicted_CA_q_improvement": 0.031136441315359864,
+          "predicted_lambda_breakpoint": 764.5686394670532,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": -0.28104233289642405,
+              "true_margin": -0.3305793933672939,
+              "chosen": "C",
+              "local_CA_oracle": "C",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": -0.10625249574117951,
+              "true_margin": -0.304400737624659,
+              "chosen": "C",
+              "local_CA_oracle": "C",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": 0.5929068528797986,
+              "true_margin": -0.19968611465411953,
+              "chosen": "A",
+              "local_CA_oracle": "C",
+              "regret": 0.19968611465411953
+            }
+          ]
+        },
+        {
+          "method": "FFT",
+          "predicted_CA_q_improvement": 0.031043064680767674,
+          "predicted_lambda_breakpoint": 766.868439670491,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": -0.2812170615644518,
+              "true_margin": -0.3305793933672939,
+              "chosen": "C",
+              "local_CA_oracle": "C",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": -0.10695141041329062,
+              "true_margin": -0.304400737624659,
+              "chosen": "C",
+              "local_CA_oracle": "C",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": 0.5901111941913542,
+              "true_margin": -0.19968611465411953,
+              "chosen": "A",
+              "local_CA_oracle": "C",
+              "regret": 0.19968611465411953
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scene": "human_199",
+      "step": 29,
+      "source": "D",
+      "parent_action": "CC",
+      "actual_CA_q_improvement": 0.034270525527423684,
+      "actual_CA_lambda_breakpoint": 833.5204591426335,
+      "methods": [
+        {
+          "method": "SOURCE_PHASE_LOPO",
+          "predicted_CA_q_improvement": 0.10041929097272514,
+          "predicted_lambda_breakpoint": 284.45913027245047,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": -0.09135284781697116,
+              "true_margin": -0.14293104077512203,
+              "chosen": "C",
+              "local_CA_oracle": "C",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": 0.1435470266543737,
+              "true_margin": -0.0627657451782298,
+              "chosen": "A",
+              "local_CA_oracle": "C",
+              "regret": 0.0627657451782298
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": 1.0831465245397531,
+              "true_margin": 0.2578954372093391,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            }
+          ]
+        },
+        {
+          "method": "RAW_CLOCK",
+          "predicted_CA_q_improvement": 0.09492318441894959,
+          "predicted_lambda_breakpoint": 300.92947626581145,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": -0.09563832831597764,
+              "true_margin": -0.14293104077512203,
+              "chosen": "C",
+              "local_CA_oracle": "C",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": 0.12640510465834776,
+              "true_margin": -0.0627657451782298,
+              "chosen": "A",
+              "local_CA_oracle": "C",
+              "regret": 0.0627657451782298
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": 1.0145788365556494,
+              "true_margin": 0.2578954372093391,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            }
+          ]
+        },
+        {
+          "method": "RAW_SUB",
+          "predicted_CA_q_improvement": 0.0914499940963322,
+          "predicted_lambda_breakpoint": 312.3585130315848,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": -0.09834647985039251,
+              "true_margin": -0.14293104077512203,
+              "chosen": "C",
+              "local_CA_oracle": "C",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": 0.1155724985206883,
+              "true_margin": -0.0627657451782298,
+              "chosen": "A",
+              "local_CA_oracle": "C",
+              "regret": 0.0627657451782298
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": 0.9712484120050116,
+              "true_margin": 0.2578954372093391,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            }
+          ]
+        },
+        {
+          "method": "HAAR",
+          "predicted_CA_q_improvement": 0.09452036928975338,
+          "predicted_lambda_breakpoint": 302.21194000110813,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": -0.0959524154545702,
+              "true_margin": -0.14293104077512203,
+              "chosen": "C",
+              "local_CA_oracle": "C",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": 0.12514875610397752,
+              "true_margin": -0.0627657451782298,
+              "chosen": "A",
+              "local_CA_oracle": "C",
+              "regret": 0.0627657451782298
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": 1.0095534423381685,
+              "true_margin": 0.2578954372093391,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            }
+          ]
+        },
+        {
+          "method": "FFT",
+          "predicted_CA_q_improvement": 0.09419424638491472,
+          "predicted_lambda_breakpoint": 303.2582696818759,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": -0.09620670334642435,
+              "true_margin": -0.14293104077512203,
+              "chosen": "C",
+              "local_CA_oracle": "C",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": 0.12413160453656091,
+              "true_margin": -0.0627657451782298,
+              "chosen": "A",
+              "local_CA_oracle": "C",
+              "regret": 0.0627657451782298
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": 1.005484836068502,
+              "true_margin": 0.2578954372093391,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scene": "misc_13398218_3840_2160_60fps",
+      "step": 10,
+      "source": "D",
+      "parent_action": "CC",
+      "actual_CA_q_improvement": 0.6868126813414646,
+      "actual_CA_lambda_breakpoint": 4.813722904306898,
+      "methods": [
+        {
+          "method": "SOURCE_PHASE_LOPO",
+          "predicted_CA_q_improvement": 0.868925485969561,
+          "predicted_lambda_breakpoint": 3.8048440154253433,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": 5.684237105792052,
+              "true_margin": 4.457355943909321,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": 23.245906841090466,
+              "true_margin": 18.338382193559543,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": 93.49258578228412,
+              "true_margin": 73.86248719216043,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            }
+          ]
+        },
+        {
+          "method": "RAW_CLOCK",
+          "predicted_CA_q_improvement": 0.9024131041911552,
+          "predicted_lambda_breakpoint": 3.663650183920109,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": 5.909840835503961,
+              "true_margin": 4.457355943909321,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": 24.148321759938103,
+              "true_margin": 18.338382193559543,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": 97.10224545767467,
+              "true_margin": 73.86248719216043,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            }
+          ]
+        },
+        {
+          "method": "RAW_SUB",
+          "predicted_CA_q_improvement": 0.9286525902880272,
+          "predicted_lambda_breakpoint": 3.5601321416832827,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": 6.086614408649895,
+              "true_margin": 4.457355943909321,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": 24.85541605252184,
+              "true_margin": 18.338382193559543,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": 99.93062262800962,
+              "true_margin": 73.86248719216043,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            }
+          ]
+        },
+        {
+          "method": "HAAR",
+          "predicted_CA_q_improvement": 0.8885844653431021,
+          "predicted_lambda_breakpoint": 3.7206659176348236,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": 5.816678267765775,
+              "true_margin": 4.457355943909321,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": 23.77567148898536,
+              "true_margin": 18.338382193559543,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": 95.6116443738637,
+              "true_margin": 73.86248719216043,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            }
+          ]
+        },
+        {
+          "method": "FFT",
+          "predicted_CA_q_improvement": 0.9004646173000006,
+          "predicted_lambda_breakpoint": 3.6715778406208788,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": 5.896714016300804,
+              "true_margin": 4.457355943909321,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": 24.095814483125473,
+              "true_margin": 18.338382193559543,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": 96.89221635042415,
+              "true_margin": 73.86248719216043,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scene": "misc_13398218_3840_2160_60fps",
+      "step": 21,
+      "source": "P",
+      "parent_action": "CC",
+      "actual_CA_q_improvement": 0.16458052071123103,
+      "actual_CA_lambda_breakpoint": 67.57332516362348,
+      "methods": [
+        {
+          "method": "SOURCE_PHASE_LOPO",
+          "predicted_CA_q_improvement": 0.5546448361724586,
+          "predicted_lambda_breakpoint": 20.05112518195426,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": 1.882329113846438,
+              "true_margin": 0.31992309831018895,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": 8.547233291230269,
+              "true_margin": 2.2976092290852725,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": 35.20685000076559,
+              "true_margin": 10.208353752185607,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            }
+          ]
+        },
+        {
+          "method": "RAW_CLOCK",
+          "predicted_CA_q_improvement": 0.5601999501925875,
+          "predicted_lambda_breakpoint": 19.852292092841452,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": 1.904580171474656,
+              "true_margin": 0.31992309831018895,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": 8.63623752174314,
+              "true_margin": 2.2976092290852725,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": 35.56286692281708,
+              "true_margin": 10.208353752185607,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            }
+          ]
+        },
+        {
+          "method": "RAW_SUB",
+          "predicted_CA_q_improvement": 0.4685198760449085,
+          "predicted_lambda_breakpoint": 23.736993050327897,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": 1.5373548353559991,
+              "true_margin": 0.31992309831018895,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": 7.167336177268513,
+              "true_margin": 2.2976092290852725,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": 29.68726154491857,
+              "true_margin": 10.208353752185607,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            }
+          ]
+        },
+        {
+          "method": "HAAR",
+          "predicted_CA_q_improvement": 0.5525153743340325,
+          "predicted_lambda_breakpoint": 20.128404671133982,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": 1.8737995358913828,
+              "true_margin": 0.31992309831018895,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": 8.513114979410048,
+              "true_margin": 2.2976092290852725,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": 35.07037675348471,
+              "true_margin": 10.208353752185607,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            }
+          ]
+        },
+        {
+          "method": "FFT",
+          "predicted_CA_q_improvement": 0.5488143093451638,
+          "predicted_lambda_breakpoint": 20.264145544762084,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": 1.8589748878185093,
+              "true_margin": 0.31992309831018895,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": 8.453816387118554,
+              "true_margin": 2.2976092290852725,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": 34.83318238431873,
+              "true_margin": 10.208353752185607,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scene": "misc_13398218_3840_2160_60fps",
+      "step": 25,
+      "source": "P",
+      "parent_action": "CC",
+      "actual_CA_q_improvement": 0.029821765745145723,
+      "actual_CA_lambda_breakpoint": 638.4751640034953,
+      "methods": [
+        {
+          "method": "SOURCE_PHASE_LOPO",
+          "predicted_CA_q_improvement": 0.006889260107533567,
+          "predicted_lambda_breakpoint": 2763.7883426965614,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": -0.32318778001896536,
+              "true_margin": -0.2695358252642841,
+              "chosen": "C",
+              "local_CA_oracle": "C",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": -0.27483428423134476,
+              "true_margin": -0.06022646521261965,
+              "chosen": "C",
+              "local_CA_oracle": "C",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": -0.0814203010808624,
+              "true_margin": 0.777010974994038,
+              "chosen": "C",
+              "local_CA_oracle": "A",
+              "regret": 0.777010974994038
+            }
+          ]
+        },
+        {
+          "method": "RAW_CLOCK",
+          "predicted_CA_q_improvement": 0.006261388862437732,
+          "predicted_lambda_breakpoint": 3040.931843289598,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": -0.32465672197262596,
+              "true_margin": -0.2695358252642841,
+              "chosen": "C",
+              "local_CA_oracle": "C",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": -0.28071005204598726,
+              "true_margin": -0.06022646521261965,
+              "chosen": "C",
+              "local_CA_oracle": "C",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": -0.1049233723394323,
+              "true_margin": 0.777010974994038,
+              "chosen": "C",
+              "local_CA_oracle": "A",
+              "regret": 0.777010974994038
+            }
+          ]
+        },
+        {
+          "method": "RAW_SUB",
+          "predicted_CA_q_improvement": 0.0057542502887954865,
+          "predicted_lambda_breakpoint": 3308.9378840681943,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": -0.3258432026929351,
+              "true_margin": -0.2695358252642841,
+              "chosen": "C",
+              "local_CA_oracle": "C",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": -0.28545597492722374,
+              "true_margin": -0.06022646521261965,
+              "chosen": "C",
+              "local_CA_oracle": "C",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": -0.12390706386437844,
+              "true_margin": 0.777010974994038,
+              "chosen": "C",
+              "local_CA_oracle": "A",
+              "regret": 0.777010974994038
+            }
+          ]
+        },
+        {
+          "method": "HAAR",
+          "predicted_CA_q_improvement": 0.005802528224766811,
+          "predicted_lambda_breakpoint": 3281.4070069897716,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": -0.3257302536032319,
+              "true_margin": -0.2695358252642841,
+              "chosen": "C",
+              "local_CA_oracle": "C",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": -0.28500417856841076,
+              "true_margin": -0.06022646521261965,
+              "chosen": "C",
+              "local_CA_oracle": "C",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": -0.12209987842912648,
+              "true_margin": 0.777010974994038,
+              "chosen": "C",
+              "local_CA_oracle": "A",
+              "regret": 0.777010974994038
+            }
+          ]
+        },
+        {
+          "method": "FFT",
+          "predicted_CA_q_improvement": 0.005776757637168707,
+          "predicted_lambda_breakpoint": 3296.045631635293,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": -0.32579054541877367,
+              "true_margin": -0.2695358252642841,
+              "chosen": "C",
+              "local_CA_oracle": "C",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": -0.28524534583057815,
+              "true_margin": -0.06022646521261965,
+              "chosen": "C",
+              "local_CA_oracle": "C",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": -0.12306454747779585,
+              "true_margin": 0.777010974994038,
+              "chosen": "C",
+              "local_CA_oracle": "A",
+              "regret": 0.777010974994038
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scene": "misc_13398218_3840_2160_60fps",
+      "step": 30,
+      "source": "D",
+      "parent_action": "CC",
+      "actual_CA_q_improvement": 0.08871327380275604,
+      "actual_CA_lambda_breakpoint": 482.4519561157292,
+      "methods": [
+        {
+          "method": "SOURCE_PHASE_LOPO",
+          "predicted_CA_q_improvement": 0.0762072278570313,
+          "predicted_lambda_breakpoint": 561.6251067400685,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": -0.1299944329233766,
+              "true_margin": -0.12348626500477275,
+              "chosen": "C",
+              "local_CA_oracle": "C",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": -0.011019313771248096,
+              "true_margin": 0.015013357903167324,
+              "chosen": "C",
+              "local_CA_oracle": "A",
+              "regret": 0.015013357903167324
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": 0.46488116283726594,
+              "true_margin": 0.5690118495349277,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            }
+          ]
+        },
+        {
+          "method": "RAW_CLOCK",
+          "predicted_CA_q_improvement": 0.07329620762730096,
+          "predicted_lambda_breakpoint": 583.9305178952814,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": -0.131509332880706,
+              "true_margin": -0.12348626500477275,
+              "chosen": "C",
+              "local_CA_oracle": "C",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": -0.017078913600565654,
+              "true_margin": 0.015013357903167324,
+              "chosen": "C",
+              "local_CA_oracle": "A",
+              "regret": 0.015013357903167324
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": 0.4406427635199957,
+              "true_margin": 0.5690118495349277,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            }
+          ]
+        },
+        {
+          "method": "RAW_SUB",
+          "predicted_CA_q_improvement": 0.07004359241252725,
+          "predicted_lambda_breakpoint": 611.0465069737797,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": -0.1332019994584735,
+              "true_margin": -0.12348626500477275,
+              "chosen": "C",
+              "local_CA_oracle": "C",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": -0.023849579911635665,
+              "true_margin": 0.015013357903167324,
+              "chosen": "C",
+              "local_CA_oracle": "A",
+              "regret": 0.015013357903167324
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": 0.41356009827571566,
+              "true_margin": 0.5690118495349277,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            }
+          ]
+        },
+        {
+          "method": "HAAR",
+          "predicted_CA_q_improvement": 0.07247282134166891,
+          "predicted_lambda_breakpoint": 590.5647342993908,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": -0.13193782452642883,
+              "true_margin": -0.12348626500477275,
+              "chosen": "C",
+              "local_CA_oracle": "C",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": -0.018792880183456956,
+              "true_margin": 0.015013357903167324,
+              "chosen": "C",
+              "local_CA_oracle": "A",
+              "regret": 0.015013357903167324
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": 0.4337868971884305,
+              "true_margin": 0.5690118495349277,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            }
+          ]
+        },
+        {
+          "method": "FFT",
+          "predicted_CA_q_improvement": 0.0722470317991655,
+          "predicted_lambda_breakpoint": 592.410392700234,
+          "decisions": [
+            {
+              "lambda_value": 131.28658774523498,
+              "primary": false,
+              "predicted_margin": -0.13205532579447585,
+              "true_margin": -0.12348626500477275,
+              "chosen": "C",
+              "local_CA_oracle": "C",
+              "regret": 0.0
+            },
+            {
+              "lambda_value": 525.1463509809399,
+              "primary": true,
+              "predicted_margin": -0.01926288525564504,
+              "true_margin": 0.015013357903167324,
+              "chosen": "C",
+              "local_CA_oracle": "A",
+              "regret": 0.015013357903167324
+            },
+            {
+              "lambda_value": 2100.5854039237597,
+              "primary": false,
+              "predicted_margin": 0.43190687689967816,
+              "true_margin": 0.5690118495349277,
+              "chosen": "A",
+              "local_CA_oracle": "A",
+              "regret": 0.0
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "GPU_submissions": 0,
+  "server_contacts": 0,
+  "ledger_written": false,
+  "new_regression_fitted": false,
+  "not_endpoint_quality_or_full_policy_generalization": true
+}
