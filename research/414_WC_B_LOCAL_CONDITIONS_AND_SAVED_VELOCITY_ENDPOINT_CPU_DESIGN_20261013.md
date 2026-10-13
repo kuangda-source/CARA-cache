@@ -1,4 +1,6 @@
-## 当前：独立三臂CPU已完整接受，真实B端点尚未生成
+## 当前：三臂数值、真实保存参考与生产入口CPU均已接受，B端点尚未生成
+
+[415生产准备](415_WC_B_REAL_REFERENCE_AUDIT_AND_FULL312_PRODUCTION_PREPARATION_20261013.md)补齐四个真实Dense/L2保存参考的CPU身份审计（5880bc9／721，CPU615531结束/PASS）和实际生产入口CPU（988ace1／730，CPU633476结束/PASS）。完整312pairs／624CFG／16视频的配置、命令、自动后处理路径和原件绑定已接受；完整费用预测2.236752758GPUh。当前GPU0、账本0；未生成新终点，不证明真实B刷新或在线加速。部署工具目前仅CPU，单次GPU启动仍须在主线CONF50→曲线60结束及post验收后接线和准入。以下数值CPU与原登记作为保留历史。
 
 R2原CPU610874已结束/PASS，source3f7383390d82d8bb557e3408ba45495d66b09ce7／717文件一致；两flow32完整CPU父轨迹／64后缀，170.004169秒。父轨迹与旧C、三臂首C缓存、单次保存速度注入及全部尾部/正反顺序等价通过。CPU向量是合成夹具，无B质量或加速结论。见[完整CPU结果](../reports/wc_block_velocity_suffix3_cpu_r2_second_collection_20261013.json)和[独立接受](../reports/wc_block_velocity_suffix3_cpu_r2_independent_acceptance_20261013.json)。GPU0、账本0，CONF未查询。
 

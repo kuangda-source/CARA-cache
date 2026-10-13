@@ -33,7 +33,11 @@
 
 ## 当前完成与下一步
 
-当前准备生产模型入口、完整后处理和派生监督/退出后CPU路径。完整生产CPU尚待验收，**没有新B GPU提交**。当前部署工具仅CPU，不提供GPU启动。GPU supervisor还要求先接受原完整60曲线的终态和CPU post，保护既定CONF50→曲线60→B的串行队列。
+完整生产入口CPU已接受：source `988ace1834af14c4ed535ed7b025c9619fec948e`／730份文件哈希一致，CPU633476已结束，状态为 `BLOCK_SAVED_VELOCITY_ACTUAL_PRODUCTION_CPU_PASS_NOT_GPU`。实际运行命令、完整312pairs配置、四个真实保存参考、派生监督/退出后CPU路径及其源码SHA已绑定。CUDA未初始化、GPU提交0、账本写入0。它验证实际入口与完整范围的接线；不是在CPU执行312次真实模型调用，也不是16条视频的终点验收。
+
+[生产CPU记录](../reports/wc_block_velocity_production_r1_CPU_collection_20261013.json) · [独立接受](../reports/wc_block_velocity_production_r1_CPU_independent_acceptance_20261013.json)。两flow32父／64后缀的完整数值CPU证明和真实四原件CPU审计分别保留，未用生产入口检查代替它们。
+
+**没有新B GPU提交**。当前部署工具仅CPU，不提供GPU启动；实际完整16生产、原件与93帧评分仍待执行和验收。GPU supervisor要求先接受原完整60曲线的终态和CPU post，保护既定CONF50→曲线60→B的串行队列。之后还须补齐不可变stage的单次GPU启动接线，并通过fresh UUID/锁/实际余额准入，不能把当前CPU状态当作已经启动。
 
 主线仍按21:01:59北京时间查收原CONF50；本轮不查询其进度或新视频，也不改参数/source/输出。CPU通过后仍需接受实际完整16生产与所有原件/评分结果，不依据一个局部误差线否定B方向。原P13h暂缓、E2完整76自身批准不转用；不新增人工评审、训练或OMR。
 
