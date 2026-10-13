@@ -1,3 +1,9 @@
+## 2026-10-13 等待定时查收期间：固定mask归因CPU准备
+
+[409独立CPU准备](research/409_WC_H1_FIXED_MASK_ATTRIBUTION_CPU_PREPARATION_20261013.md)：source b5e0927/689，CPU573892，stage wc-source-fixed-mask-cpu-r1-20261013；两flow×四Toy×原动态/原序列A重放/原序列plain/冻结CAL序列A/冻结CAL序列plain×audit/lean，共80完整CPU路径已启动，尚未验收。无新GPU/无账本写入，不更改405或原F/B。
+
+F/B仍按下面的16:25:36定时查收，不查询在途GPU；届时先接受本独立CPU的CPU-result.json或完整失败记录，并检查原F/B终态/自动post。主线静态GPU归因仍需具体完整卡和实际费用，CPU通过不当视频收益；原CONF只确认冻结候选、不用来调参数。以下为保留状态。
+
 ## 2026-10-13 F/B 完整432卡已启动：到16:25查收
 
 [408完整卡与实际回执](research/408_WC_FB_FULL432_PREREG_AND_DELAYED_CHECK_20261013.md)：原a95b816/686不可变字节，服务器两flow完整CPU通过（16父/32F/288B，158.075秒）与实际生产门通过；唯一GPU在13:24:22北京时间准入，supervisor571934/child572024，stage wc-fb-probe-cpu-r1-20261013，run wc-fb-probe-full432-r1。范围四普通＋四诊断父轨迹/F16/B4×9×4＝432pairs/864CFG，一次加载，预测4.922752001GPUh，费用保护8h。首次观察仅初始化，没有科学结果。

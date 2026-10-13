@@ -39,3 +39,8 @@
 独立目录`wc-source-fixed-mask-cpu-r1-20261013`，新增CPU不改GPU账本或任何在跑目录。预计CPU约5–10分钟；结果可与16:25的F/B定时查收一并接受，不为此连续监听。
 
 CPU验收后，原405完整50确认仍保留下一GPU优先位置；静态归因是后续单独卡。需按完整范围实估费用、保留原Native/RA/H1/无P锚点与所有输入，真实GPU及post串行。F/B结果依原408判断后续桥接，不自动合入405或本控制接口。
+
+
+## 实际CPU启动回执
+
+已于2026-10-13T13:42:12.650424+08:00以不可变source `b5e0927216504fd677d065b009678d6bffb81d54`、689文件启动；CPU PID `573892`，独立stage `/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-source-fixed-mask-cpu-r1-20261013`。完整80路径尚待验收，GPU提交0、账本写入0。没有检查F/B在途状态或修改其目录，405冻结卡保持。CPU回执为`reports/wc_source_fixed_mask_cpu_r1_launch_20261013.json`；16:25定时接续读本入口后可一并检查`CPU-result.json`或保留的`.failure.json`，不把PID启动当CPU通过。
