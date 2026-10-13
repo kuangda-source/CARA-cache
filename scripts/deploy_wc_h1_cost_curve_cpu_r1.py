@@ -11,7 +11,7 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 SERVER='/home/gaokuangda/data/gkd/worldcache_omr'
 HOST=['ssh','-o','BatchMode=yes','-o','ConnectTimeout=15','-o','ClearAllForwardings=yes','gkd_minchen']
-BASE='wc-h1-cost-curve-cpu-r1-20261013'
+BASE='wc-source-fixed-mask-cpu-r1-20261013'
 CONFIG='configs/wc_h1_cost_curve_cpu_r1_20261013.json'
 NEW=['src/wcomr/h1_cost_curve_batch_r1.py',
  'tests/check_h1_cost_curve_sampling_cpu_r1.py',
