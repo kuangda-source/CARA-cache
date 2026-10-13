@@ -35,3 +35,13 @@ CPU分析检验包含有益和有害提示词、ratio-of-means与mean-of-ratios�
 提交teacher前实际68.668097882/cap104.971363333/余额36.303265451；在途used=cap是预留，不是已花完。新确认尚0GPU。原模板本地测试遇到默认Python无torch，已记录为环境缺口；源码语法通过，使用既有服务器pinned Python/Torch做实际CPU，不新装依赖、不把环境问题当方法负结果。
 
 该卡不取代固定mask/匹配成本归因、稳定测速和P真实profile/单覆盖轴；这些工作继续按403保护资源。确认不是等待所有机制解释完的门槛，teacher对照也不是确认是否允许的新增科学门槛。
+
+## 5. 最终服务器CPU已通过
+
+实际生产CPU565611现已结束/PASS；独立最终stage source `e48ba58047b09507ea6f438f5077ebffb4fb2114` 的 **684文件**全部保持。实际最终supervisor构造的child命令、完整50范围/八请求/17与43/冻结fingerprint/原输入和参数/资源及变更拒绝通过，CUDA未初始化、0新GPU/0账本写入。
+
+[最终生产CPU回执](../reports/wc_source_confirmation_final_r1_production_cpu_receipt_20261013.json)同时接受实际watcher配置派生的run目录与post命令。四提示词×两seed的签名统计fixture保留正例和有害例；缺seed不输出完整主均值、错误上下文/seed/Native参考、缺帧/错误均值/在途状态均拒绝。所有50 GPU执行分支与旧已验模板逐字相同，原240数值CPU核心hash继续保持；本次统计fixture不是新的科学终点证据。
+
+[最终只读回执](../reports/wc_source_confirmation_final_r1_live_or_terminal_capture_20261013.json)确认无本卡runner/GPU-launch、原CPU已消失、所有684hash正确。**完整确认GPU仍未执行**；费用6.561346751GPUh和完整50范围不变。当前原teacher唯一GPU继续，下一按原CPU和GPU都结束的真实状态串行准入，不改冻结文件或重做已通过的CPU。
+
+最新真实teacher已完成2/4组父路径及对应后缀；原三个handles仍live、665保持、GPU18054MiB/kernel持有。全部四组/12原件/93帧与终态结算仍待，不据半卡报告方法结论。最终确认现可在满足串行条件后单次运行 `python3 scripts/deploy_wc_source_confirmation_production_r1.py --launch`，使用原e48ba58/684，而不是后续文档commit或CPU-only模板。
