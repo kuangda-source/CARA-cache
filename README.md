@@ -1,3 +1,9 @@
+## 2026-10-14 论文收束与关键补验
+
+[收束决定与正文框架](research/421_WC_PAPER_CONVERGENCE_TASKS_AND_MAIN_TEXT_FRAMEWORK_20261014.md) ｜ [关键收尾实验设计](plans/WORLD_CACHE_PAPER_CONVERGENCE_AND_FINAL_EXPERIMENTS_20261014.md) ｜ [正文最小算法与图表](paper/WORLD_CACHE_MAIN_TEXT_OUTLINE_20261014.md) ｜ [原60完整结果](research/420_WC_FULL60_COST_CURVE_COMPLETE_RESULTS_AND_CONVERGENCE_20261014.md)。
+
+主稿围绕CFG一致读出修正与实际动作校准的阶段计算分配。原60全部接受/40正式93帧评分，MID与固定A输出等价，修正归因已明确；公平强基线/少步Native、强简单规则、冻结共同测试、第二模型与部署成本为下一证据重点。F/B独立保留，原B16/312 CPU就绪未GPU，不因本稿自动合入。下列旧状态为历史，以新入口为准。
+
 ## 2026-10-13 当前研究入口
 
 [当前主线、结果与待完成实验](research/406_WC_MAINLINE_AND_ISOLATED_EXPLORATION_MAP_20261013.md) ｜ [F/B独立探索设计](plans/WORLD_CACHE_SPECTRAL_BLOCK_ISOLATED_EXPLORATION_20261013.md) ｜ [材料与CPU/E0核对](research/407_WC_SPECTRAL_BLOCK_INTAKE_MATH_AND_E0_20261013.md)。
