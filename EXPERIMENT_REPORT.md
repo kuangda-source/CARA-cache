@@ -1,3 +1,9 @@
+## 2026-10-13 已完成teacher控制：终点目标对齐发现
+
+[410完整结果](research/410_WC_TEACHER_FIRST_COMPLETE_RESULTS_AND_TARGET_ALIGNMENT_20261013.md)：400原270pairs/4teacher/12x93/16raw314tensors及GPU/post完整接受；由保存的全部93帧和396已有A重构。首速度teacher相对C四CAL等权失真降低0.2077%，D两点正/P两点负，vs单次A为3/4更低。两首C缓存相同；局部teacher不保证终点收益，不能由此否定真实D刷新。后续候选是同返回teacher速度下C状态与真实D完整刷新状态的区分，尚未GPU，原P13h暂缓不转用。
+
+[409完整80 CPU](research/409_WC_H1_FIXED_MASK_ATTRIBUTION_CPU_PREPARATION_20261013.md)现已接受：原b5e0927/689保持、CPU573892已结束，两flow/80完整路径164.231秒、动态序列numeric重放/全部audit-lean/restore与wrong-mask拒绝通过，GPU0/账本0。首次SSH观察关闭；仅重连本任务拥有的本地FRPC（2351→16244，配置不变），原服务器任务未重启，F/B GPU未查询。原F/B仍按16:25:36查收全部432和post；405冻结参数/40正式+10预热/CONF不调参保持，下一GPU串行。以下为保留状态。
+
 ## 2026-10-13 等待定时查收期间：固定mask归因CPU准备
 
 [409独立CPU准备](research/409_WC_H1_FIXED_MASK_ATTRIBUTION_CPU_PREPARATION_20261013.md)：source b5e0927/689，CPU573892，stage wc-source-fixed-mask-cpu-r1-20261013；两flow×四Toy×原动态/原序列A重放/原序列plain/冻结CAL序列A/冻结CAL序列plain×audit/lean，共80完整CPU路径已启动，尚未验收。无新GPU/无账本写入，不更改405或原F/B。

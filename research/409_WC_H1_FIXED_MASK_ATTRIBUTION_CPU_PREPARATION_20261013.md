@@ -44,3 +44,12 @@ CPU验收后，原405完整50确认仍保留下一GPU优先位置；静态归因
 ## 实际CPU启动回执
 
 已于2026-10-13T13:42:12.650424+08:00以不可变source `b5e0927216504fd677d065b009678d6bffb81d54`、689文件启动；CPU PID `573892`，独立stage `/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-source-fixed-mask-cpu-r1-20261013`。完整80路径尚待验收，GPU提交0、账本写入0。没有检查F/B在途状态或修改其目录，405冻结卡保持。CPU回执为`reports/wc_source_fixed_mask_cpu_r1_launch_20261013.json`；16:25定时接续读本入口后可一并检查`CPU-result.json`或保留的`.failure.json`，不把PID启动当CPU通过。
+
+
+## 完整服务器CPU现已验收
+
+原CPU573892已结束；不可变b5e0927/689全部SHA和原registration保持，实际CPU回执为SOURCE_PHASE_FIXED_MASK_TWO_FLOW_FULL80_CPU_PASS_NOT_GPU。两flow各40完整路径，共80，164.231230秒；八个请求/flow的原动态序列重放全部guided/终态/动作/A历史/视频字节等价，全部固定与plain对照audit/lean一致，状态恢复和错误mask拒绝通过，CUDA未初始化、GPU提交0、账本写入0。
+
+首次查收遭SSH连接关闭；仅重连本任务拥有的本地FRPC、配置不变，原服务器任务未重启。通道恢复后检查原CPU回执并接受，未查询F/B GPU。完整查收与精简接受分别见reports/wc_source_fixed_mask_cpu_r1_terminal_collection_20261013.json和reports/wc_source_fixed_mask_cpu_r1_acceptance_20261013.json。
+
+CPU使静态归因接口具备实际数值和恢复证据；GPU对照仍需独立完整范围、冻结方法/顺序/原件/计时/评分及实际费用卡。405完整50确认优先保持，F/B按原16:25查收。
