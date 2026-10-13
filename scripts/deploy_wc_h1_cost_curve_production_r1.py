@@ -20,6 +20,9 @@ NEW = [CONFIG, 'src/wcomr/h1_cost_curve_production_r1.py',
        'scripts/run_wc_h1_cost_curve_r1.py', 'scripts/supervise_wc_h1_cost_curve_r1.py',
        'scripts/postprocess_wc_h1_cost_curve_cpu_r1.py', 'scripts/watch_wc_h1_cost_curve_cpu_r1.py',
        'scripts/deploy_wc_h1_cost_curve_production_r1.py',
+       'tests/check_source_phase_absolute_h1_sampling_cpu_r1.py',
+       'tests/check_source_phase_absolute_h1_scalar_cpu_r1.py',
+       'scripts/check_wc_source_phase_absolute_h1_cpu_r1.py',
        'configs/wc_source_phase_h1_full24_production_r1_20261013.json']
 sha = lambda p: hashlib.sha256(Path(p).read_bytes()).hexdigest()
 

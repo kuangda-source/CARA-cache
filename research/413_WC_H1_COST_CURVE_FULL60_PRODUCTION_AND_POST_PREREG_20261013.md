@@ -47,3 +47,11 @@ GPU退出后，原件路径限制在本run，校验全部60槽、原文件SHA／
 GPU执行还要求原CONF GPU和自动post完整结束、所有50槽被接受或如实保留拒绝、原生产proof通过、实际余额/空闲GPU/锁重新准入。不因一次合法视频拒绝否定方向；技术停止与未完成范围须先接受和讨论必要问题。服务器8GPUh watchdog与结束后自动CPU评分保留。
 
 实现入口：`scripts/deploy_wc_h1_cost_curve_production_r1.py`默认仅CPU；`--launch`是以后具体单次GPU准入，当前不调用。独立stage `wc-h1-cost-curve-production-r1-20261013`，run `wc-h1-cost-curve-static-full60-r1`。原CPU和在跑CONF目录不覆盖。
+
+## R1 CPU绑定拒绝与R2修复
+
+R1源码48912d7／708文件、原CPU598785已结束，未生成PASS。入口检查旧96验证清单时拒绝，完整log和观察记录保留。逐份核对650旧依赖后，发现当前打包仅遗漏三个旧CPU测试/执行文件；没有已存在文件的SHA变化，也没有数值算法差异。
+
+R2只把这三个原样文件补入显式打包名单：`check_source_phase_absolute_h1_sampling_cpu_r1.py`、`check_source_phase_absolute_h1_scalar_cpu_r1.py`、`check_wc_source_phase_absolute_h1_cpu_r1.py`。本地当前字节逐份等于旧96原SHA；旧验证不放宽，配置、算法、完整60、计时和CPU160均不改。新stage使用独立`wc-h1-cost-curve-production-r2-20261013`重新验证，原R1不覆盖/不重启。此为准备阶段的技术失败，GPU提交0，不是H1或曲线的科学负结果。
+
+证据：[R1完整CPU观察](../reports/wc_h1_cost_curve_production_r1_CPU_collection_20261013.json)、[旧96逐份差异](../reports/wc_h1_cost_curve_r1_legacy96_provenance_mismatch_20261013.json)。
