@@ -1,0 +1,2509 @@
+{
+  "identity": "WC_FB_F16_EXACT_ORIGINAL_CAL16_REUSE_R1",
+  "source_capture_ref": "reports/wc_source_phase16_live_or_terminal_capture_20261012.json",
+  "source_capture_sha256": "2f7276faada5984a9a2fc73ad48a87248c107429b17249297ed537fba73003bb",
+  "source_revision": "4d51485db61a2f20541454e63254546823d8dc07",
+  "states": [
+    {
+      "selection": {
+        "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+        "source": "D",
+        "phase": "EARLY",
+        "target_age": 3,
+        "eligible_points": 11,
+        "chosen": {
+          "step": 10,
+          "age": 3,
+          "source_birth": 7,
+          "true_D_anchor": 7,
+          "actual_pi0_action": "C",
+          "partial_ready": true,
+          "state_before": [
+            7,
+            "D",
+            7,
+            0.0,
+            0.021446423800507305,
+            0,
+            9,
+            9,
+            false
+          ],
+          "local_proxy": 0.05077667994949552,
+          "gain": 0.22652744535783098
+        },
+        "selection_used_teacher_or_LPIPS": false
+      },
+      "sigma": 0.9777488112449646,
+      "sigma_index": 9,
+      "teacher_guided_energy": 1.7247436110452208,
+      "losses": {
+        "C": {
+          "absolute_guided_MSE": 0.6162335074397995,
+          "normalized_guided_MSE": 0.35728992036465795,
+          "CFG_gram_absolute": [
+            0.03837753793518717,
+            0.08051771107399759,
+            0.051654435384268414
+          ],
+          "full_pair_research_seconds": 0.67149658780545,
+          "actual_heads": 2
+        },
+        "D_REFERENCE_A": {
+          "absolute_guided_MSE": 0.2693820295827941,
+          "normalized_guided_MSE": 0.15618670964059667,
+          "CFG_gram_absolute": [
+            0.021689845193388426,
+            0.036378209192661,
+            0.025904467082450488
+          ],
+          "full_pair_research_seconds": 0.8441294524818659,
+          "actual_heads": 4
+        },
+        "FUSION_A": {
+          "absolute_guided_MSE": 0.2693820295827941,
+          "normalized_guided_MSE": 0.15618670964059667,
+          "CFG_gram_absolute": [
+            0.021689845193388426,
+            0.036378209192661,
+            0.025904467082450488
+          ],
+          "full_pair_research_seconds": 0.8520409418269992,
+          "actual_heads": 4
+        },
+        "NEW_P": {
+          "absolute_guided_MSE": 0.0599211969514812,
+          "normalized_guided_MSE": 0.034742089530146486,
+          "CFG_gram_absolute": [
+            0.0006910318587845092,
+            0.0012325948387588745,
+            0.0003991249027670735
+          ],
+          "full_pair_research_seconds": 6.567718051373959,
+          "actual_heads": 2
+        }
+      },
+      "parent_continues": "CC",
+      "raw_artifact": {
+        "path": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-source-phase16-full368-r1/0_DIAGNOSTIC/point-10.pt",
+        "sha256": "318b68bfe36e0d9af0173ed9763bc175fc4c284e846ed02b1519f9f3692ee41f",
+        "bytes": 87593553,
+        "tensor_sha256": "9ed35f725fdcb962c016e9a4a75530b4b22c9b8e880c9563949ab0b23a57484a"
+      },
+      "input_sha256": "df993bedbc65723ec6f0175b8594dc8c360072dc750dcdbc167544e06686cc84",
+      "parent_pre_action": [
+        7,
+        "D",
+        7,
+        0.0,
+        0.021446423800507305,
+        0,
+        9,
+        9,
+        false
+      ],
+      "cost_boundary": "FULL_PAIR_BOTH_PROBES_RESEARCH_INSTRUMENTED_NOT_CLEAN_VIDEO_OR_OLD_POST_PROBE_PRICE",
+      "actual_C_paid_proxy": {
+        "step": 10,
+        "action": "C",
+        "generation": 9,
+        "state_before": [
+          7,
+          "D",
+          7,
+          0.0,
+          0.021446423800507305,
+          0,
+          9,
+          9,
+          false
+        ],
+        "owner": 140356071399408,
+        "packets": [
+          [
+            0,
+            18,
+            0.0279541015625
+          ],
+          [
+            1,
+            19,
+            0.02783203125
+          ]
+        ],
+        "both_sources_ready": true,
+        "partial_ready": true,
+        "local_proxy": 0.05077667994949552,
+        "gain": 0.22652744535783098,
+        "added_risk": 0.01150231159271142,
+        "predicted_creation_floor": 0.0,
+        "candidates": [
+          [
+            "D",
+            6.25420393414485,
+            0.0,
+            0.0
+          ],
+          [
+            "C",
+            0.3381135724096869,
+            0.01150231159271142,
+            0.0
+          ],
+          [
+            "P",
+            6.173310816792461,
+            0.004456095830755874,
+            0.01967132867152968
+          ]
+        ],
+        "reason": "MATH_EVENT_CAL16_OFFLINE:C"
+      },
+      "all_candidate_and_teacher_tensors_read": true
+    },
+    {
+      "selection": {
+        "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+        "source": "P",
+        "phase": "EARLY",
+        "target_age": 2,
+        "eligible_points": 5,
+        "chosen": {
+          "step": 21,
+          "age": 2,
+          "source_birth": 19,
+          "true_D_anchor": 14,
+          "actual_pi0_action": "C",
+          "partial_ready": true,
+          "state_before": [
+            14,
+            "P",
+            19,
+            0.01967132867152968,
+            0.02522478545266835,
+            0,
+            20,
+            20,
+            false
+          ],
+          "local_proxy": 0.10931405222438069,
+          "gain": 0.17467013671989112
+        },
+        "selection_used_teacher_or_LPIPS": false
+      },
+      "sigma": 0.7911184430122375,
+      "sigma_index": 20,
+      "teacher_guided_energy": 1.619275676343425,
+      "losses": {
+        "C": {
+          "absolute_guided_MSE": 0.1607622666746903,
+          "normalized_guided_MSE": 0.0992803566578091,
+          "CFG_gram_absolute": [
+            0.02229638745936423,
+            0.030850654702313518,
+            0.02480257688516056
+          ],
+          "full_pair_research_seconds": 0.6720000170171261,
+          "actual_heads": 2
+        },
+        "D_REFERENCE_A": {
+          "absolute_guided_MSE": 0.1775635459339552,
+          "normalized_guided_MSE": 0.10965615585291885,
+          "CFG_gram_absolute": [
+            0.08756882438286138,
+            0.11119208564063573,
+            0.09710047688357433
+          ],
+          "full_pair_research_seconds": 0.8385487981140614,
+          "actual_heads": 4
+        },
+        "FUSION_A": {
+          "absolute_guided_MSE": 0.07466043120666718,
+          "normalized_guided_MSE": 0.04610730112074677,
+          "CFG_gram_absolute": [
+            0.027811867707980286,
+            0.03279944800544422,
+            0.02957564334259677
+          ],
+          "full_pair_research_seconds": 1.0187391014769673,
+          "actual_heads": 6
+        },
+        "NEW_P": {
+          "absolute_guided_MSE": 0.02242875648155972,
+          "normalized_guided_MSE": 0.01385110442232253,
+          "CFG_gram_absolute": [
+            0.0006210063928915171,
+            0.0007419468201545001,
+            0.0004792057754559632
+          ],
+          "full_pair_research_seconds": 6.557254228740931,
+          "actual_heads": 2
+        }
+      },
+      "parent_continues": "CC",
+      "raw_artifact": {
+        "path": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-source-phase16-full368-r1/0_DIAGNOSTIC/point-21.pt",
+        "sha256": "c2e475df6204dc87b3739d9f301d3a4109f15adc865de5396eee9722b0aa4bbb",
+        "bytes": 87593553,
+        "tensor_sha256": "e15be88c3b67ee4cfd07516178fd49d330dc33430f56db28cd6b3ce368d0e092"
+      },
+      "input_sha256": "320f81b764bd7ccbb97effcf50d20e40d1b6ae90e18fbb014533ecf1fc3a00fd",
+      "parent_pre_action": [
+        14,
+        "P",
+        19,
+        0.01967132867152968,
+        0.02522478545266835,
+        0,
+        20,
+        20,
+        false
+      ],
+      "cost_boundary": "FULL_PAIR_BOTH_PROBES_RESEARCH_INSTRUMENTED_NOT_CLEAN_VIDEO_OR_OLD_POST_PROBE_PRICE",
+      "actual_C_paid_proxy": {
+        "step": 21,
+        "action": "C",
+        "generation": 20,
+        "state_before": [
+          14,
+          "P",
+          19,
+          0.01967132867152968,
+          0.02522478545266835,
+          0,
+          20,
+          20,
+          false
+        ],
+        "owner": 140356071399408,
+        "packets": [
+          [
+            0,
+            40,
+            0.0615234375
+          ],
+          [
+            1,
+            41,
+            0.06201171875
+          ]
+        ],
+        "both_sources_ready": true,
+        "partial_ready": true,
+        "local_proxy": 0.10931405222438069,
+        "gain": 0.17467013671989112,
+        "added_risk": 0.0225298941159559,
+        "predicted_creation_floor": 0.01967132867152968,
+        "candidates": [
+          [
+            "D",
+            6.25420393414485,
+            0.0,
+            0.0
+          ],
+          [
+            "C",
+            0.3381135724096869,
+            0.0225298941159559,
+            0.01967132867152968
+          ],
+          [
+            "P",
+            6.173310816792461,
+            0.0034359936685180036,
+            0.01967132867152968
+          ]
+        ],
+        "reason": "MATH_EVENT_CAL16_OFFLINE:C"
+      },
+      "all_candidate_and_teacher_tensors_read": true
+    },
+    {
+      "selection": {
+        "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+        "source": "D",
+        "phase": "LATE",
+        "target_age": 2,
+        "eligible_points": 7,
+        "chosen": {
+          "step": 27,
+          "age": 2,
+          "source_birth": 25,
+          "true_D_anchor": 25,
+          "actual_pi0_action": "C",
+          "partial_ready": true,
+          "state_before": [
+            25,
+            "D",
+            25,
+            0.0,
+            0.037783077671602,
+            0,
+            26,
+            26,
+            false
+          ],
+          "local_proxy": 0.28020111261180747,
+          "gain": 0.10527917416483212
+        },
+        "selection_used_teacher_or_LPIPS": false
+      },
+      "sigma": 0.38079413771629333,
+      "sigma_index": 26,
+      "teacher_guided_energy": 1.542076742253549,
+      "losses": {
+        "C": {
+          "absolute_guided_MSE": 0.14449411112280802,
+          "normalized_guided_MSE": 0.09370098592606244,
+          "CFG_gram_absolute": [
+            0.03196197256785747,
+            0.03182495677265925,
+            0.030897276920360477
+          ],
+          "full_pair_research_seconds": 0.6691697314381599,
+          "actual_heads": 2
+        },
+        "D_REFERENCE_A": {
+          "absolute_guided_MSE": 0.08709407645501036,
+          "normalized_guided_MSE": 0.05647843201871616,
+          "CFG_gram_absolute": [
+            0.03174322214284579,
+            0.03331390646318148,
+            0.03193619247663404
+          ],
+          "full_pair_research_seconds": 0.83708715159446,
+          "actual_heads": 4
+        },
+        "FUSION_A": {
+          "absolute_guided_MSE": 0.08709407645501036,
+          "normalized_guided_MSE": 0.05647843201871616,
+          "CFG_gram_absolute": [
+            0.03174322214284579,
+            0.03331390646318148,
+            0.03193619247663404
+          ],
+          "full_pair_research_seconds": 0.837945799343288,
+          "actual_heads": 4
+        },
+        "NEW_P": {
+          "absolute_guided_MSE": 0.02282317185156313,
+          "normalized_guided_MSE": 0.014800282778540558,
+          "CFG_gram_absolute": [
+            0.0010215390059383218,
+            0.0010756024759680748,
+            0.0008505343379546887
+          ],
+          "full_pair_research_seconds": 6.552186516113579,
+          "actual_heads": 2
+        }
+      },
+      "parent_continues": "CC",
+      "raw_artifact": {
+        "path": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-source-phase16-full368-r1/0_DIAGNOSTIC/point-27.pt",
+        "sha256": "79064ef5a111f9104bf2260deabbfc9121d547b8415dff58ec04c1375c8c939b",
+        "bytes": 87593553,
+        "tensor_sha256": "bc768070f908a7832038ba2e581f1acb894bb8467cd95de960bd5208aaa188ba"
+      },
+      "input_sha256": "63c81560ba9e283236ba56eadb27ada3931eb10559c8690168c35f2b407f6b8c",
+      "parent_pre_action": [
+        25,
+        "D",
+        25,
+        0.0,
+        0.037783077671602,
+        0,
+        26,
+        26,
+        false
+      ],
+      "cost_boundary": "FULL_PAIR_BOTH_PROBES_RESEARCH_INSTRUMENTED_NOT_CLEAN_VIDEO_OR_OLD_POST_PROBE_PRICE",
+      "actual_C_paid_proxy": {
+        "step": 27,
+        "action": "C",
+        "generation": 26,
+        "state_before": [
+          25,
+          "D",
+          25,
+          0.0,
+          0.037783077671602,
+          0,
+          26,
+          26,
+          false
+        ],
+        "owner": 140356071399408,
+        "packets": [
+          [
+            0,
+            52,
+            0.1572265625
+          ],
+          [
+            1,
+            53,
+            0.158203125
+          ]
+        ],
+        "both_sources_ready": true,
+        "partial_ready": true,
+        "local_proxy": 0.28020111261180747,
+        "gain": 0.10527917416483212,
+        "added_risk": 0.02949934173583822,
+        "predicted_creation_floor": 0.0,
+        "candidates": [
+          [
+            "D",
+            6.25420393414485,
+            0.0,
+            0.0
+          ],
+          [
+            "C",
+            0.3381135724096869,
+            0.02949934173583822,
+            0.0
+          ],
+          [
+            "P",
+            6.173310816792461,
+            0.014030282013440976,
+            0.1332674018840063
+          ]
+        ],
+        "reason": "MATH_EVENT_CAL16_OFFLINE:C"
+      },
+      "all_candidate_and_teacher_tensors_read": true
+    },
+    {
+      "selection": {
+        "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+        "source": "P",
+        "phase": "LATE",
+        "target_age": 1,
+        "eligible_points": 4,
+        "chosen": {
+          "step": 33,
+          "age": 1,
+          "source_birth": 32,
+          "true_D_anchor": 28,
+          "actual_pi0_action": "C",
+          "partial_ready": true,
+          "state_before": [
+            28,
+            "P",
+            32,
+            0.1332674018840063,
+            0.004630493143160654,
+            1,
+            32,
+            32,
+            false
+          ],
+          "local_proxy": 0.2977947981154276,
+          "gain": 0.020639221071471106
+        },
+        "selection_used_teacher_or_LPIPS": false
+      },
+      "sigma": 0.04981577768921852,
+      "sigma_index": 32,
+      "teacher_guided_energy": 0.8328215668029297,
+      "losses": {
+        "C": {
+          "absolute_guided_MSE": 0.11795411184382386,
+          "normalized_guided_MSE": 0.14163191317995166,
+          "CFG_gram_absolute": [
+            0.03278194180210989,
+            0.030357491239767963,
+            0.03096077887714142
+          ],
+          "full_pair_research_seconds": 0.6682952335104346,
+          "actual_heads": 2
+        },
+        "D_REFERENCE_A": {
+          "absolute_guided_MSE": 0.11471513850846385,
+          "normalized_guided_MSE": 0.13774275676942074,
+          "CFG_gram_absolute": [
+            0.08422895349232701,
+            0.0860878249969964,
+            0.08477001169511864
+          ],
+          "full_pair_research_seconds": 0.8391788294538856,
+          "actual_heads": 4
+        },
+        "FUSION_A": {
+          "absolute_guided_MSE": 0.08188517653167933,
+          "normalized_guided_MSE": 0.09832259369317677,
+          "CFG_gram_absolute": [
+            0.029627177149846536,
+            0.029463335406221914,
+            0.029088907106815824
+          ],
+          "full_pair_research_seconds": 1.0192242236807942,
+          "actual_heads": 6
+        },
+        "NEW_P": {
+          "absolute_guided_MSE": 0.023172475967369727,
+          "normalized_guided_MSE": 0.027824058467079808,
+          "CFG_gram_absolute": [
+            0.0008406198566786205,
+            0.000814598667000074,
+            0.0006298440137773715
+          ],
+          "full_pair_research_seconds": 6.539529647678137,
+          "actual_heads": 2
+        }
+      },
+      "parent_continues": "CC",
+      "raw_artifact": {
+        "path": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-source-phase16-full368-r1/0_DIAGNOSTIC/point-33.pt",
+        "sha256": "31dfc0dc0df9948defb4e5c183c10510418f6d360568b537a2427d3c9e833445",
+        "bytes": 87593553,
+        "tensor_sha256": "3c7ebff4e38ad7fd3ec41fcc58b67528ba238182c51fc8fa7a29f620bd8d7c2c"
+      },
+      "input_sha256": "d35fe21059c580200469b1a99d146e3e08f6c5581db0bf3c6b1116a90c085f8f",
+      "parent_pre_action": [
+        28,
+        "P",
+        32,
+        0.1332674018840063,
+        0.004630493143160654,
+        1,
+        32,
+        32,
+        false
+      ],
+      "cost_boundary": "FULL_PAIR_BOTH_PROBES_RESEARCH_INSTRUMENTED_NOT_CLEAN_VIDEO_OR_OLD_POST_PROBE_PRICE",
+      "actual_C_paid_proxy": {
+        "step": 33,
+        "action": "C",
+        "generation": 32,
+        "state_before": [
+          28,
+          "P",
+          32,
+          0.1332674018840063,
+          0.004630493143160654,
+          1,
+          32,
+          32,
+          false
+        ],
+        "owner": 140356071399408,
+        "packets": [
+          [
+            0,
+            64,
+            0.1669921875
+          ],
+          [
+            1,
+            65,
+            0.16796875
+          ]
+        ],
+        "both_sources_ready": true,
+        "partial_ready": true,
+        "local_proxy": 0.2977947981154276,
+        "gain": 0.020639221071471106,
+        "added_risk": 0.008896788041343008,
+        "predicted_creation_floor": 0.1332674018840063,
+        "candidates": [
+          [
+            "D",
+            6.25420393414485,
+            0.0,
+            0.0
+          ],
+          [
+            "C",
+            0.3381135724096869,
+            0.008896788041343008,
+            0.1332674018840063
+          ],
+          [
+            "P",
+            6.173310816792461,
+            0.0027505353691045908,
+            0.1332674018840063
+          ]
+        ],
+        "reason": "MATH_EVENT_CAL16_OFFLINE:C"
+      },
+      "all_candidate_and_teacher_tensors_read": true
+    },
+    {
+      "selection": {
+        "scene": "human_199",
+        "source": "D",
+        "phase": "EARLY",
+        "target_age": 3,
+        "eligible_points": 6,
+        "chosen": {
+          "step": 10,
+          "age": 3,
+          "source_birth": 7,
+          "true_D_anchor": 7,
+          "actual_pi0_action": "C",
+          "partial_ready": true,
+          "state_before": [
+            7,
+            "D",
+            7,
+            0.0,
+            0.022795104561071318,
+            0,
+            9,
+            9,
+            false
+          ],
+          "local_proxy": 0.05183683283680261,
+          "gain": 0.22652744535783098
+        },
+        "selection_used_teacher_or_LPIPS": false
+      },
+      "sigma": 0.9777488112449646,
+      "sigma_index": 9,
+      "teacher_guided_energy": 2.7140406682041767,
+      "losses": {
+        "C": {
+          "absolute_guided_MSE": 3.86204875443727,
+          "normalized_guided_MSE": 1.4229885350217342,
+          "CFG_gram_absolute": [
+            0.099879792705745,
+            0.29673756345818897,
+            0.15241427310876493
+          ],
+          "full_pair_research_seconds": 0.6739831222221255,
+          "actual_heads": 2
+        },
+        "D_REFERENCE_A": {
+          "absolute_guided_MSE": 2.0121129130295103,
+          "normalized_guided_MSE": 0.7413716885682788,
+          "CFG_gram_absolute": [
+            0.09134175724748504,
+            0.2108647907481664,
+            0.1264833419416936
+          ],
+          "full_pair_research_seconds": 0.8422601502388716,
+          "actual_heads": 4
+        },
+        "FUSION_A": {
+          "absolute_guided_MSE": 2.0121129130295103,
+          "normalized_guided_MSE": 0.7413716885682788,
+          "CFG_gram_absolute": [
+            0.09134175724748504,
+            0.2108647907481664,
+            0.1264833419416936
+          ],
+          "full_pair_research_seconds": 0.8373629953712225,
+          "actual_heads": 4
+        },
+        "NEW_P": {
+          "absolute_guided_MSE": 0.1928293930433585,
+          "normalized_guided_MSE": 0.07104882226062943,
+          "CFG_gram_absolute": [
+            0.0018872512327311381,
+            0.0036245872395122497,
+            0.0009424951838172728
+          ],
+          "full_pair_research_seconds": 6.5668981820344925,
+          "actual_heads": 2
+        }
+      },
+      "parent_continues": "CC",
+      "raw_artifact": {
+        "path": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-source-phase16-full368-r1/1_DIAGNOSTIC/point-10.pt",
+        "sha256": "d8059779812f7101df67c28a1ed07af755fbda79a333602c5cdbdd258294e6c8",
+        "bytes": 87593553,
+        "tensor_sha256": "04bef49d212ebea23b081784c9ce4be10f8fbba9c4fe3ae97c7cba27f67a275e"
+      },
+      "input_sha256": "9f16cafc049d415d5db1209c27cbb60ef06955522b6fa06bfc8491214d34ac71",
+      "parent_pre_action": [
+        7,
+        "D",
+        7,
+        0.0,
+        0.022795104561071318,
+        0,
+        9,
+        9,
+        false
+      ],
+      "cost_boundary": "FULL_PAIR_BOTH_PROBES_RESEARCH_INSTRUMENTED_NOT_CLEAN_VIDEO_OR_OLD_POST_PROBE_PRICE",
+      "actual_C_paid_proxy": {
+        "step": 10,
+        "action": "C",
+        "generation": 9,
+        "state_before": [
+          7,
+          "D",
+          7,
+          0.0,
+          0.022795104561071318,
+          0,
+          9,
+          9,
+          false
+        ],
+        "owner": 140350942198752,
+        "packets": [
+          [
+            0,
+            18,
+            0.028076171875
+          ],
+          [
+            1,
+            19,
+            0.0277099609375
+          ]
+        ],
+        "both_sources_ready": true,
+        "partial_ready": true,
+        "local_proxy": 0.05183683283680261,
+        "gain": 0.22652744535783098,
+        "added_risk": 0.011742465317961822,
+        "predicted_creation_floor": 0.0,
+        "candidates": [
+          [
+            "D",
+            6.25420393414485,
+            0.0,
+            0.0
+          ],
+          [
+            "C",
+            0.3381135724096869,
+            0.011742465317961822,
+            0.0
+          ],
+          [
+            "P",
+            6.173310816792461,
+            0.004456095830755874,
+            0.01967132867152968
+          ]
+        ],
+        "reason": "MATH_EVENT_CAL16_OFFLINE:C"
+      },
+      "all_candidate_and_teacher_tensors_read": true
+    },
+    {
+      "selection": {
+        "scene": "human_199",
+        "source": "P",
+        "phase": "EARLY",
+        "target_age": 2,
+        "eligible_points": 11,
+        "chosen": {
+          "step": 15,
+          "age": 2,
+          "source_birth": 13,
+          "true_D_anchor": 7,
+          "actual_pi0_action": "C",
+          "partial_ready": true,
+          "state_before": [
+            7,
+            "P",
+            13,
+            0.01967132867152968,
+            0.026390228059761787,
+            0,
+            14,
+            14,
+            false
+          ],
+          "local_proxy": 0.05729569379026774,
+          "gain": 0.213563118198346
+        },
+        "selection_used_teacher_or_LPIPS": false
+      },
+      "sigma": 0.9412240386009216,
+      "sigma_index": 14,
+      "teacher_guided_energy": 2.072789538302003,
+      "losses": {
+        "C": {
+          "absolute_guided_MSE": 0.9983370815818071,
+          "normalized_guided_MSE": 0.4816393865050232,
+          "CFG_gram_absolute": [
+            0.05857947119546684,
+            0.1144603611630576,
+            0.07463666760640976
+          ],
+          "full_pair_research_seconds": 0.6719411797821522,
+          "actual_heads": 2
+        },
+        "D_REFERENCE_A": {
+          "absolute_guided_MSE": 1.2726095774659507,
+          "normalized_guided_MSE": 0.613959861312525,
+          "CFG_gram_absolute": [
+            0.26674244442165157,
+            0.4360403774425458,
+            0.3318293335732544
+          ],
+          "full_pair_research_seconds": 0.8371417326852679,
+          "actual_heads": 4
+        },
+        "FUSION_A": {
+          "absolute_guided_MSE": 0.5831395533119155,
+          "normalized_guided_MSE": 0.28133080688433726,
+          "CFG_gram_absolute": [
+            0.06478966274625107,
+            0.10553588754654314,
+            0.07798801207347113
+          ],
+          "full_pair_research_seconds": 1.0206661084666848,
+          "actual_heads": 6
+        },
+        "NEW_P": {
+          "absolute_guided_MSE": 0.12622539715851244,
+          "normalized_guided_MSE": 0.060896388574941535,
+          "CFG_gram_absolute": [
+            0.0017805896157547928,
+            0.0024997886458694996,
+            0.0009841248383696411
+          ],
+          "full_pair_research_seconds": 6.5680134780704975,
+          "actual_heads": 2
+        }
+      },
+      "parent_continues": "CC",
+      "raw_artifact": {
+        "path": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-source-phase16-full368-r1/1_DIAGNOSTIC/point-15.pt",
+        "sha256": "f602a5909b1a12c6169636eb6eb377f5bc4b64d9a63658a72169651f0e7c18c1",
+        "bytes": 87593553,
+        "tensor_sha256": "56b76c5b42eb088f6cbb92f254e2469bfa19da3d59f6edb5cb1d9cce36cddcfd"
+      },
+      "input_sha256": "e585daeb83cbbf7c74c990f8fdc8902da7442b37f8e7f374e7707bdd0c668825",
+      "parent_pre_action": [
+        7,
+        "P",
+        13,
+        0.01967132867152968,
+        0.026390228059761787,
+        0,
+        14,
+        14,
+        false
+      ],
+      "cost_boundary": "FULL_PAIR_BOTH_PROBES_RESEARCH_INSTRUMENTED_NOT_CLEAN_VIDEO_OR_OLD_POST_PROBE_PRICE",
+      "actual_C_paid_proxy": {
+        "step": 15,
+        "action": "C",
+        "generation": 14,
+        "state_before": [
+          7,
+          "P",
+          13,
+          0.01967132867152968,
+          0.026390228059761787,
+          0,
+          14,
+          14,
+          false
+        ],
+        "owner": 140350942198752,
+        "packets": [
+          [
+            0,
+            28,
+            0.0322265625
+          ],
+          [
+            1,
+            29,
+            0.032470703125
+          ]
+        ],
+        "both_sources_ready": true,
+        "partial_ready": true,
+        "local_proxy": 0.05729569379026774,
+        "gain": 0.213563118198346,
+        "added_risk": 0.016437317315383598,
+        "predicted_creation_floor": 0.01967132867152968,
+        "candidates": [
+          [
+            "D",
+            6.25420393414485,
+            0.0,
+            0.0
+          ],
+          [
+            "C",
+            0.3381135724096869,
+            0.016437317315383598,
+            0.01967132867152968
+          ],
+          [
+            "P",
+            6.173310816792461,
+            0.004201070290196406,
+            0.01967132867152968
+          ]
+        ],
+        "reason": "MATH_EVENT_CAL16_OFFLINE:C"
+      },
+      "all_candidate_and_teacher_tensors_read": true
+    },
+    {
+      "selection": {
+        "scene": "human_199",
+        "source": "P",
+        "phase": "LATE",
+        "target_age": 1,
+        "eligible_points": 3,
+        "chosen": {
+          "step": 26,
+          "age": 1,
+          "source_birth": 25,
+          "true_D_anchor": 7,
+          "actual_pi0_action": "P",
+          "partial_ready": true,
+          "state_before": [
+            7,
+            "P",
+            25,
+            0.1332674018840063,
+            0.017790197561553103,
+            1,
+            25,
+            25,
+            false
+          ],
+          "local_proxy": 0.3534275350198201,
+          "gain": 0.11938583301372563
+        },
+        "selection_used_teacher_or_LPIPS": false
+      },
+      "sigma": 0.4629429578781128,
+      "sigma_index": 25,
+      "teacher_guided_energy": 1.880958231005259,
+      "losses": {
+        "C": {
+          "absolute_guided_MSE": 0.09011905270136239,
+          "normalized_guided_MSE": 0.04791124609566645,
+          "CFG_gram_absolute": [
+            0.015539834284706783,
+            0.01565216721182786,
+            0.014923094061602114
+          ],
+          "full_pair_research_seconds": 0.6703394139185548,
+          "actual_heads": 2
+        },
+        "D_REFERENCE_A": {
+          "absolute_guided_MSE": 0.3899889090336979,
+          "normalized_guided_MSE": 0.2073352308441598,
+          "CFG_gram_absolute": [
+            0.3223602387769789,
+            0.37912315183697265,
+            0.3465901858277197
+          ],
+          "full_pair_research_seconds": 0.8415753804147243,
+          "actual_heads": 4
+        },
+        "FUSION_A": {
+          "absolute_guided_MSE": 0.08545567986738237,
+          "normalized_guided_MSE": 0.04543199229985636,
+          "CFG_gram_absolute": [
+            0.05160943078437836,
+            0.05779462628945728,
+            0.05401325516532356
+          ],
+          "full_pair_research_seconds": 1.01905944570899,
+          "actual_heads": 6
+        },
+        "NEW_P": {
+          "absolute_guided_MSE": 0.014827115438715262,
+          "normalized_guided_MSE": 0.007882745716682427,
+          "CFG_gram_absolute": [
+            0.0004757172657498734,
+            0.0004950130673539256,
+            0.0003560216952644553
+          ],
+          "full_pair_research_seconds": 6.552092512138188,
+          "actual_heads": 2
+        }
+      },
+      "parent_continues": "PP",
+      "raw_artifact": {
+        "path": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-source-phase16-full368-r1/1_DIAGNOSTIC/point-26.pt",
+        "sha256": "c5afe3dde88a88665186bbe79a849052f3d3528fdcf14b7463ea7febff586596",
+        "bytes": 87593553,
+        "tensor_sha256": "88f61fd074c51c671dda67944225a089ff9593a006346d7f8a7e95cfeb981015"
+      },
+      "input_sha256": "19dd7e51cfd6cf1a3a26b89decba4918d39319bcaa915ece448139f029d91f58",
+      "parent_pre_action": [
+        7,
+        "P",
+        25,
+        0.1332674018840063,
+        0.017790197561553103,
+        1,
+        25,
+        25,
+        false
+      ],
+      "cost_boundary": "FULL_PAIR_BOTH_PROBES_RESEARCH_INSTRUMENTED_NOT_CLEAN_VIDEO_OR_OLD_POST_PROBE_PRICE",
+      "actual_C_paid_proxy": {
+        "step": 26,
+        "action": "C",
+        "generation": 25,
+        "state_before": [
+          7,
+          "P",
+          25,
+          0.1332674018840063,
+          0.017790197561553103,
+          1,
+          25,
+          25,
+          false
+        ],
+        "owner": 140350942198752,
+        "packets": [
+          [
+            0,
+            50,
+            0.1943359375
+          ],
+          [
+            1,
+            51,
+            0.193359375
+          ]
+        ],
+        "both_sources_ready": true,
+        "partial_ready": true,
+        "local_proxy": 0.3534275350198201,
+        "gain": 0.11938583301372563,
+        "added_risk": 0.05810448046582595,
+        "predicted_creation_floor": 0.1332674018840063,
+        "candidates": [
+          [
+            "D",
+            6.25420393414485,
+            0.0,
+            0.0
+          ],
+          [
+            "P",
+            6.173310816792461,
+            0.01591023978749704,
+            0.1332674018840063
+          ]
+        ],
+        "reason": "MATH_EVENT_CAL16_OFFLINE:C"
+      },
+      "all_candidate_and_teacher_tensors_read": true
+    },
+    {
+      "selection": {
+        "scene": "human_199",
+        "source": "D",
+        "phase": "LATE",
+        "target_age": 2,
+        "eligible_points": 8,
+        "chosen": {
+          "step": 29,
+          "age": 2,
+          "source_birth": 27,
+          "true_D_anchor": 27,
+          "actual_pi0_action": "C",
+          "partial_ready": true,
+          "state_before": [
+            27,
+            "D",
+            27,
+            0.0,
+            0.0375778265924714,
+            0,
+            28,
+            28,
+            false
+          ],
+          "local_proxy": 0.3638006293428072,
+          "gain": 0.07706585646704511
+        },
+        "selection_used_teacher_or_LPIPS": false
+      },
+      "sigma": 0.22886677086353302,
+      "sigma_index": 28,
+      "teacher_guided_energy": 1.8244006502486698,
+      "losses": {
+        "C": {
+          "absolute_guided_MSE": 0.1421119150815994,
+          "normalized_guided_MSE": 0.0778951241122553,
+          "CFG_gram_absolute": [
+            0.03326856179801297,
+            0.029380977237965136,
+            0.03059592789867431
+          ],
+          "full_pair_research_seconds": 0.6694590831175447,
+          "actual_heads": 2
+        },
+        "D_REFERENCE_A": {
+          "absolute_guided_MSE": 0.10784138955417572,
+          "normalized_guided_MSE": 0.05911058491427127,
+          "CFG_gram_absolute": [
+            0.05050594926938428,
+            0.04973996729574942,
+            0.04965890858194768
+          ],
+          "full_pair_research_seconds": 0.8386347265914083,
+          "actual_heads": 4
+        },
+        "FUSION_A": {
+          "absolute_guided_MSE": 0.10784138955417572,
+          "normalized_guided_MSE": 0.05911058491427127,
+          "CFG_gram_absolute": [
+            0.05050594926938428,
+            0.04973996729574942,
+            0.04965890858194768
+          ],
+          "full_pair_research_seconds": 0.835601263679564,
+          "actual_heads": 4
+        },
+        "NEW_P": {
+          "absolute_guided_MSE": 0.02283414770646236,
+          "normalized_guided_MSE": 0.012515972137671633,
+          "CFG_gram_absolute": [
+            0.001352025093053298,
+            0.0013708589561798768,
+            0.001168460241980024
+          ],
+          "full_pair_research_seconds": 6.553763017989695,
+          "actual_heads": 2
+        }
+      },
+      "parent_continues": "CC",
+      "raw_artifact": {
+        "path": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-source-phase16-full368-r1/1_DIAGNOSTIC/point-29.pt",
+        "sha256": "10308491d336c263d32f816db7093a409dfbc20c7779028399a60c4921813188",
+        "bytes": 87593553,
+        "tensor_sha256": "525f9381c8f2bc5563b142733b42d80d2e4a98eb9e94f48e2578e61bc0efaa7c"
+      },
+      "input_sha256": "87379912ebbdbd78762ec08beb72c6c5a1e706d776d6422902808bcff9cffc0f",
+      "parent_pre_action": [
+        27,
+        "D",
+        27,
+        0.0,
+        0.0375778265924714,
+        0,
+        28,
+        28,
+        false
+      ],
+      "cost_boundary": "FULL_PAIR_BOTH_PROBES_RESEARCH_INSTRUMENTED_NOT_CLEAN_VIDEO_OR_OLD_POST_PROBE_PRICE",
+      "actual_C_paid_proxy": {
+        "step": 29,
+        "action": "C",
+        "generation": 28,
+        "state_before": [
+          27,
+          "D",
+          27,
+          0.0,
+          0.0375778265924714,
+          0,
+          28,
+          28,
+          false
+        ],
+        "owner": 140350942198752,
+        "packets": [
+          [
+            0,
+            56,
+            0.1982421875
+          ],
+          [
+            1,
+            57,
+            0.1962890625
+          ]
+        ],
+        "both_sources_ready": true,
+        "partial_ready": true,
+        "local_proxy": 0.3638006293428072,
+        "gain": 0.07706585646704511,
+        "added_risk": 0.02803660708355346,
+        "predicted_creation_floor": 0.0,
+        "candidates": [
+          [
+            "D",
+            6.25420393414485,
+            0.0,
+            0.0
+          ],
+          [
+            "C",
+            0.3381135724096869,
+            0.02803660708355346,
+            0.0
+          ],
+          [
+            "P",
+            6.173310816792461,
+            0.010270366465328846,
+            0.1332674018840063
+          ]
+        ],
+        "reason": "MATH_EVENT_CAL16_OFFLINE:C"
+      },
+      "all_candidate_and_teacher_tensors_read": true
+    },
+    {
+      "selection": {
+        "scene": "misc_13398218_3840_2160_60fps",
+        "source": "D",
+        "phase": "EARLY",
+        "target_age": 3,
+        "eligible_points": 11,
+        "chosen": {
+          "step": 10,
+          "age": 3,
+          "source_birth": 7,
+          "true_D_anchor": 7,
+          "actual_pi0_action": "C",
+          "partial_ready": true,
+          "state_before": [
+            7,
+            "D",
+            7,
+            0.0,
+            0.022638160057511906,
+            0,
+            9,
+            9,
+            false
+          ],
+          "local_proxy": 0.051300277529287786,
+          "gain": 0.22652744535783098
+        },
+        "selection_used_teacher_or_LPIPS": false
+      },
+      "sigma": 0.9777488112449646,
+      "sigma_index": 9,
+      "teacher_guided_energy": 2.09425738333356,
+      "losses": {
+        "C": {
+          "absolute_guided_MSE": 1.2845011259110641,
+          "normalized_guided_MSE": 0.6133444418691478,
+          "CFG_gram_absolute": [
+            0.061559734917062625,
+            0.1457009100025885,
+            0.08745237945453374
+          ],
+          "full_pair_research_seconds": 0.6717267921194434,
+          "actual_heads": 2
+        },
+        "D_REFERENCE_A": {
+          "absolute_guided_MSE": 0.5976884445695996,
+          "normalized_guided_MSE": 0.28539397751494217,
+          "CFG_gram_absolute": [
+            0.03497552297476586,
+            0.06933498173234598,
+            0.044983563666967576
+          ],
+          "full_pair_research_seconds": 0.8438702691346407,
+          "actual_heads": 4
+        },
+        "FUSION_A": {
+          "absolute_guided_MSE": 0.5976884445695996,
+          "normalized_guided_MSE": 0.28539397751494217,
+          "CFG_gram_absolute": [
+            0.03497552297476586,
+            0.06933498173234598,
+            0.044983563666967576
+          ],
+          "full_pair_research_seconds": 0.8400779021903872,
+          "actual_heads": 4
+        },
+        "NEW_P": {
+          "absolute_guided_MSE": 0.03905890220699844,
+          "normalized_guided_MSE": 0.0186504784549576,
+          "CFG_gram_absolute": [
+            0.0005583953682704672,
+            0.0007746719648651833,
+            0.0003092618539348701
+          ],
+          "full_pair_research_seconds": 6.5608750293031335,
+          "actual_heads": 2
+        }
+      },
+      "parent_continues": "CC",
+      "raw_artifact": {
+        "path": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-source-phase16-full368-r1/2_DIAGNOSTIC/point-10.pt",
+        "sha256": "25bfb55ebc27725413a5f7a63b0945d975bbeb8a6b68d1a99a72ab1a645c2780",
+        "bytes": 87593553,
+        "tensor_sha256": "bbdd660f985359e9e3b4e2c398f776619a1ec36ec6f92beb153166e85163ea7a"
+      },
+      "input_sha256": "80254a2e412dcc64cb5e9a23e481370fbef54f9524810ef66531e0d3da3c3e2d",
+      "parent_pre_action": [
+        7,
+        "D",
+        7,
+        0.0,
+        0.022638160057511906,
+        0,
+        9,
+        9,
+        false
+      ],
+      "cost_boundary": "FULL_PAIR_BOTH_PROBES_RESEARCH_INSTRUMENTED_NOT_CLEAN_VIDEO_OR_OLD_POST_PROBE_PRICE",
+      "actual_C_paid_proxy": {
+        "step": 10,
+        "action": "C",
+        "generation": 9,
+        "state_before": [
+          7,
+          "D",
+          7,
+          0.0,
+          0.022638160057511906,
+          0,
+          9,
+          9,
+          false
+        ],
+        "owner": 140350829349280,
+        "packets": [
+          [
+            0,
+            18,
+            0.0286865234375
+          ],
+          [
+            1,
+            19,
+            0.02880859375
+          ]
+        ],
+        "both_sources_ready": true,
+        "partial_ready": true,
+        "local_proxy": 0.051300277529287786,
+        "gain": 0.22652744535783098,
+        "added_risk": 0.011620920814857303,
+        "predicted_creation_floor": 0.0,
+        "candidates": [
+          [
+            "D",
+            6.25420393414485,
+            0.0,
+            0.0
+          ],
+          [
+            "C",
+            0.3381135724096869,
+            0.011620920814857303,
+            0.0
+          ],
+          [
+            "P",
+            6.173310816792461,
+            0.004456095830755874,
+            0.01967132867152968
+          ]
+        ],
+        "reason": "MATH_EVENT_CAL16_OFFLINE:C"
+      },
+      "all_candidate_and_teacher_tensors_read": true
+    },
+    {
+      "selection": {
+        "scene": "misc_13398218_3840_2160_60fps",
+        "source": "P",
+        "phase": "EARLY",
+        "target_age": 2,
+        "eligible_points": 5,
+        "chosen": {
+          "step": 21,
+          "age": 2,
+          "source_birth": 19,
+          "true_D_anchor": 14,
+          "actual_pi0_action": "C",
+          "partial_ready": true,
+          "state_before": [
+            14,
+            "P",
+            19,
+            0.01967132867152968,
+            0.02827105214056422,
+            0,
+            20,
+            20,
+            false
+          ],
+          "local_proxy": 0.12162809500799318,
+          "gain": 0.17467013671989112
+        },
+        "selection_used_teacher_or_LPIPS": false
+      },
+      "sigma": 0.7911184430122375,
+      "sigma_index": 20,
+      "teacher_guided_energy": 1.818911356324744,
+      "losses": {
+        "C": {
+          "absolute_guided_MSE": 0.27095053634235544,
+          "normalized_guided_MSE": 0.14896302417388424,
+          "CFG_gram_absolute": [
+            0.03418807730630436,
+            0.04959055228293025,
+            0.03881270958147059
+          ],
+          "full_pair_research_seconds": 0.671150335110724,
+          "actual_heads": 2
+        },
+        "D_REFERENCE_A": {
+          "absolute_guided_MSE": 0.2185507047920463,
+          "normalized_guided_MSE": 0.12015467605504727,
+          "CFG_gram_absolute": [
+            0.13402698872916605,
+            0.17088071755542628,
+            0.1493958190543792
+          ],
+          "full_pair_research_seconds": 0.8398927384987473,
+          "actual_heads": 4
+        },
+        "FUSION_A": {
+          "absolute_guided_MSE": 0.10637001563112443,
+          "normalized_guided_MSE": 0.058480043714749,
+          "CFG_gram_absolute": [
+            0.043977748742071915,
+            0.054544375717344155,
+            0.04804357423224412
+          ],
+          "full_pair_research_seconds": 1.019851952791214,
+          "actual_heads": 6
+        },
+        "NEW_P": {
+          "absolute_guided_MSE": 0.046287124218627775,
+          "normalized_guided_MSE": 0.025447707529934065,
+          "CFG_gram_absolute": [
+            0.0010946466521144912,
+            0.0013327890598336602,
+            0.0007953296915049022
+          ],
+          "full_pair_research_seconds": 6.563914521597326,
+          "actual_heads": 2
+        }
+      },
+      "parent_continues": "CC",
+      "raw_artifact": {
+        "path": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-source-phase16-full368-r1/2_DIAGNOSTIC/point-21.pt",
+        "sha256": "282e5b158f0736042752b518c879b65c6935538154fe444cfbc16d3c0df3d92a",
+        "bytes": 87593553,
+        "tensor_sha256": "426c6fd8d82daf12a69a568a9ef3d2b7d414678df1188f9e46e7cd6c5c6e6695"
+      },
+      "input_sha256": "b3b259106dbea748204d215b85c8c7f981fabe6ba6694254af0f7481fdc0c78c",
+      "parent_pre_action": [
+        14,
+        "P",
+        19,
+        0.01967132867152968,
+        0.02827105214056422,
+        0,
+        20,
+        20,
+        false
+      ],
+      "cost_boundary": "FULL_PAIR_BOTH_PROBES_RESEARCH_INSTRUMENTED_NOT_CLEAN_VIDEO_OR_OLD_POST_PROBE_PRICE",
+      "actual_C_paid_proxy": {
+        "step": 21,
+        "action": "C",
+        "generation": 20,
+        "state_before": [
+          14,
+          "P",
+          19,
+          0.01967132867152968,
+          0.02827105214056422,
+          0,
+          20,
+          20,
+          false
+        ],
+        "owner": 140350829349280,
+        "packets": [
+          [
+            0,
+            40,
+            0.068359375
+          ],
+          [
+            1,
+            41,
+            0.06884765625
+          ]
+        ],
+        "both_sources_ready": true,
+        "partial_ready": true,
+        "local_proxy": 0.12162809500799318,
+        "gain": 0.17467013671989112,
+        "added_risk": 0.02468078965254408,
+        "predicted_creation_floor": 0.01967132867152968,
+        "candidates": [
+          [
+            "D",
+            6.25420393414485,
+            0.0,
+            0.0
+          ],
+          [
+            "C",
+            0.3381135724096869,
+            0.02468078965254408,
+            0.01967132867152968
+          ],
+          [
+            "P",
+            6.173310816792461,
+            0.0034359936685180036,
+            0.01967132867152968
+          ]
+        ],
+        "reason": "MATH_EVENT_CAL16_OFFLINE:C"
+      },
+      "all_candidate_and_teacher_tensors_read": true
+    },
+    {
+      "selection": {
+        "scene": "misc_13398218_3840_2160_60fps",
+        "source": "P",
+        "phase": "LATE",
+        "target_age": 1,
+        "eligible_points": 8,
+        "chosen": {
+          "step": 25,
+          "age": 1,
+          "source_birth": 24,
+          "true_D_anchor": 14,
+          "actual_pi0_action": "C",
+          "partial_ready": true,
+          "state_before": [
+            14,
+            "P",
+            24,
+            0.01967132867152968,
+            0.002903471405284809,
+            1,
+            24,
+            24,
+            false
+          ],
+          "local_proxy": 0.2710021782211388,
+          "gain": 0.13349249186261913
+        },
+        "selection_used_teacher_or_LPIPS": false
+      },
+      "sigma": 0.5433000922203064,
+      "sigma_index": 24,
+      "teacher_guided_energy": 1.7931597077905477,
+      "losses": {
+        "C": {
+          "absolute_guided_MSE": 0.09093283725811357,
+          "normalized_guided_MSE": 0.05071095277405993,
+          "CFG_gram_absolute": [
+            0.015025485162945251,
+            0.01582086019946215,
+            0.014695717526285965
+          ],
+          "full_pair_research_seconds": 0.6699365694075823,
+          "actual_heads": 2
+        },
+        "D_REFERENCE_A": {
+          "absolute_guided_MSE": 0.12502726954601323,
+          "normalized_guided_MSE": 0.06972455883478797,
+          "CFG_gram_absolute": [
+            0.10929688423593839,
+            0.1224060420645361,
+            0.11489169091710993
+          ],
+          "full_pair_research_seconds": 0.837306059896946,
+          "actual_heads": 4
+        },
+        "FUSION_A": {
+          "absolute_guided_MSE": 0.06111107151296785,
+          "normalized_guided_MSE": 0.03408010521732402,
+          "CFG_gram_absolute": [
+            0.026272726496037773,
+            0.02876637132759284,
+            0.027052639457906237
+          ],
+          "full_pair_research_seconds": 1.0240053916350007,
+          "actual_heads": 6
+        },
+        "NEW_P": {
+          "absolute_guided_MSE": 0.014642385418252636,
+          "normalized_guided_MSE": 0.00816568951144588,
+          "CFG_gram_absolute": [
+            0.0004658078925897628,
+            0.0004958727137443496,
+            0.0003523846667943331
+          ],
+          "full_pair_research_seconds": 6.5566731402650476,
+          "actual_heads": 2
+        }
+      },
+      "parent_continues": "CC",
+      "raw_artifact": {
+        "path": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-source-phase16-full368-r1/2_DIAGNOSTIC/point-25.pt",
+        "sha256": "6d86dcf5981e3b7c16d0c9eb27f41ad310cd946ba9b9f58e9897b27355ddecbc",
+        "bytes": 87593553,
+        "tensor_sha256": "b3e61896f953584637c018c4bc89fe5f440e8f05c2ddf41d3349aee8900dc1d1"
+      },
+      "input_sha256": "32b13a75c3c4ec5974cec543d7c6dd254a2128971480f5737946b0dc1657661b",
+      "parent_pre_action": [
+        14,
+        "P",
+        24,
+        0.01967132867152968,
+        0.002903471405284809,
+        1,
+        24,
+        24,
+        false
+      ],
+      "cost_boundary": "FULL_PAIR_BOTH_PROBES_RESEARCH_INSTRUMENTED_NOT_CLEAN_VIDEO_OR_OLD_POST_PROBE_PRICE",
+      "actual_C_paid_proxy": {
+        "step": 25,
+        "action": "C",
+        "generation": 24,
+        "state_before": [
+          14,
+          "P",
+          24,
+          0.01967132867152968,
+          0.002903471405284809,
+          1,
+          24,
+          24,
+          false
+        ],
+        "owner": 140350829349280,
+        "packets": [
+          [
+            0,
+            48,
+            0.150390625
+          ],
+          [
+            1,
+            49,
+            0.150390625
+          ]
+        ],
+        "both_sources_ready": true,
+        "partial_ready": true,
+        "local_proxy": 0.2710021782211388,
+        "gain": 0.13349249186261913,
+        "added_risk": 0.03880273075354851,
+        "predicted_creation_floor": 0.01967132867152968,
+        "candidates": [
+          [
+            "D",
+            6.25420393414485,
+            0.0,
+            0.0
+          ],
+          [
+            "C",
+            0.3381135724096869,
+            0.03880273075354851,
+            0.01967132867152968
+          ],
+          [
+            "P",
+            6.173310816792461,
+            0.017790197561553103,
+            0.1332674018840063
+          ]
+        ],
+        "reason": "MATH_EVENT_CAL16_OFFLINE:C"
+      },
+      "all_candidate_and_teacher_tensors_read": true
+    },
+    {
+      "selection": {
+        "scene": "misc_13398218_3840_2160_60fps",
+        "source": "D",
+        "phase": "LATE",
+        "target_age": 2,
+        "eligible_points": 3,
+        "chosen": {
+          "step": 30,
+          "age": 2,
+          "source_birth": 28,
+          "true_D_anchor": 28,
+          "actual_pi0_action": "C",
+          "partial_ready": true,
+          "state_before": [
+            28,
+            "D",
+            28,
+            0.0,
+            0.035324333710564336,
+            0,
+            29,
+            29,
+            false
+          ],
+          "local_proxy": 0.3607496528268406,
+          "gain": 0.06295919761815161
+        },
+        "selection_used_teacher_or_LPIPS": false
+      },
+      "sigma": 0.16665080189704895,
+      "sigma_index": 29,
+      "teacher_guided_energy": 1.698995845642309,
+      "losses": {
+        "C": {
+          "absolute_guided_MSE": 0.23192348822081338,
+          "normalized_guided_MSE": 0.13650621266418353,
+          "CFG_gram_absolute": [
+            0.07322350567087083,
+            0.06683840606550528,
+            0.0690130604636132
+          ],
+          "full_pair_research_seconds": 0.6697576073929667,
+          "actual_heads": 2
+        },
+        "D_REFERENCE_A": {
+          "absolute_guided_MSE": 0.14321021441805734,
+          "normalized_guided_MSE": 0.08429109157940078,
+          "CFG_gram_absolute": [
+            0.06766369560782409,
+            0.06669915783039577,
+            0.06656718784082213
+          ],
+          "full_pair_research_seconds": 0.8383257202804089,
+          "actual_heads": 4
+        },
+        "FUSION_A": {
+          "absolute_guided_MSE": 0.14321021441805734,
+          "normalized_guided_MSE": 0.08429109157940078,
+          "CFG_gram_absolute": [
+            0.06766369560782409,
+            0.06669915783039577,
+            0.06656718784082213
+          ],
+          "full_pair_research_seconds": 0.8368840925395489,
+          "actual_heads": 4
+        },
+        "NEW_P": {
+          "absolute_guided_MSE": 0.02962754199541745,
+          "normalized_guided_MSE": 0.017438266297947713,
+          "CFG_gram_absolute": [
+            0.001997333569691168,
+            0.0020160534802544784,
+            0.001758825241047203
+          ],
+          "full_pair_research_seconds": 6.542717634700239,
+          "actual_heads": 2
+        }
+      },
+      "parent_continues": "CC",
+      "raw_artifact": {
+        "path": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-source-phase16-full368-r1/2_DIAGNOSTIC/point-30.pt",
+        "sha256": "377e4600d5e7f13969f96aef7c60c5acad33489cfd92d29abef21fd526c8a7d4",
+        "bytes": 87593553,
+        "tensor_sha256": "4555a05681b5ef0d90b6f5132e727c561e2296a7d8255d7e4984e6c15ef05bf4"
+      },
+      "input_sha256": "e36caa7119dbfaa6f48ceb9e894a436d728490283666227ead01fb8363798eb5",
+      "parent_pre_action": [
+        28,
+        "D",
+        28,
+        0.0,
+        0.035324333710564336,
+        0,
+        29,
+        29,
+        false
+      ],
+      "cost_boundary": "FULL_PAIR_BOTH_PROBES_RESEARCH_INSTRUMENTED_NOT_CLEAN_VIDEO_OR_OLD_POST_PROBE_PRICE",
+      "actual_C_paid_proxy": {
+        "step": 30,
+        "action": "C",
+        "generation": 29,
+        "state_before": [
+          28,
+          "D",
+          28,
+          0.0,
+          0.035324333710564336,
+          0,
+          29,
+          29,
+          false
+        ],
+        "owner": 140350829349280,
+        "packets": [
+          [
+            0,
+            58,
+            0.2001953125
+          ],
+          [
+            1,
+            59,
+            0.2001953125
+          ]
+        ],
+        "both_sources_ready": true,
+        "partial_ready": true,
+        "local_proxy": 0.3607496528268406,
+        "gain": 0.06295919761815161,
+        "added_risk": 0.022712508683004645,
+        "predicted_creation_floor": 0.0,
+        "candidates": [
+          [
+            "D",
+            6.25420393414485,
+            0.0,
+            0.0
+          ],
+          [
+            "C",
+            0.3381135724096869,
+            0.022712508683004645,
+            0.0
+          ],
+          [
+            "P",
+            6.173310816792461,
+            0.008390408691272782,
+            0.1332674018840063
+          ]
+        ],
+        "reason": "MATH_EVENT_CAL16_OFFLINE:C"
+      },
+      "all_candidate_and_teacher_tensors_read": true
+    },
+    {
+      "selection": {
+        "scene": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+        "source": "D",
+        "phase": "EARLY",
+        "target_age": 3,
+        "eligible_points": 6,
+        "chosen": {
+          "step": 10,
+          "age": 3,
+          "source_birth": 7,
+          "true_D_anchor": 7,
+          "actual_pi0_action": "C",
+          "partial_ready": true,
+          "state_before": [
+            7,
+            "D",
+            7,
+            0.0,
+            0.025051275114138086,
+            0,
+            9,
+            9,
+            false
+          ],
+          "local_proxy": 0.05623008074178185,
+          "gain": 0.22652744535783098
+        },
+        "selection_used_teacher_or_LPIPS": false
+      },
+      "sigma": 0.9777488112449646,
+      "sigma_index": 9,
+      "teacher_guided_energy": 2.757021922133728,
+      "losses": {
+        "C": {
+          "absolute_guided_MSE": 2.6014486859190002,
+          "normalized_guided_MSE": 0.9435719988420238,
+          "CFG_gram_absolute": [
+            0.05478476168585097,
+            0.16546211463894636,
+            0.0804680328507485
+          ],
+          "full_pair_research_seconds": 0.6737657599151134,
+          "actual_heads": 2
+        },
+        "D_REFERENCE_A": {
+          "absolute_guided_MSE": 2.015808527893264,
+          "normalized_guided_MSE": 0.7311543342147891,
+          "CFG_gram_absolute": [
+            0.05176946856598723,
+            0.13773440229299738,
+            0.07184306404184634
+          ],
+          "full_pair_research_seconds": 0.8416968630626798,
+          "actual_heads": 4
+        },
+        "FUSION_A": {
+          "absolute_guided_MSE": 2.015808527893264,
+          "normalized_guided_MSE": 0.7311543342147891,
+          "CFG_gram_absolute": [
+            0.05176946856598723,
+            0.13773440229299738,
+            0.07184306404184634
+          ],
+          "full_pair_research_seconds": 0.8398265866562724,
+          "actual_heads": 4
+        },
+        "NEW_P": {
+          "absolute_guided_MSE": 0.16604355931902523,
+          "normalized_guided_MSE": 0.06022569424856803,
+          "CFG_gram_absolute": [
+            0.001288398787040922,
+            0.00241008038898834,
+            0.0003081062688573431
+          ],
+          "full_pair_research_seconds": 6.569396957755089,
+          "actual_heads": 2
+        }
+      },
+      "parent_continues": "CC",
+      "raw_artifact": {
+        "path": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-source-phase16-full368-r1/3_DIAGNOSTIC/point-10.pt",
+        "sha256": "f677d42d84f9571b530ebb03d5fad18f8a33d8492db88c1cd4ffcc4f78c10c58",
+        "bytes": 87593553,
+        "tensor_sha256": "2b91e6e12c7ebf54858f54e25cc4a31ce489efcee245ca9d5e5809dbac2b6660"
+      },
+      "input_sha256": "8fd7d6df4f201e6af776d5c27e40325bae720e1a0e81bd1355ca6dc04edb92dc",
+      "parent_pre_action": [
+        7,
+        "D",
+        7,
+        0.0,
+        0.025051275114138086,
+        0,
+        9,
+        9,
+        false
+      ],
+      "cost_boundary": "FULL_PAIR_BOTH_PROBES_RESEARCH_INSTRUMENTED_NOT_CLEAN_VIDEO_OR_OLD_POST_PROBE_PRICE",
+      "actual_C_paid_proxy": {
+        "step": 10,
+        "action": "C",
+        "generation": 9,
+        "state_before": [
+          7,
+          "D",
+          7,
+          0.0,
+          0.025051275114138086,
+          0,
+          9,
+          9,
+          false
+        ],
+        "owner": 140350942864976,
+        "packets": [
+          [
+            0,
+            18,
+            0.030029296875
+          ],
+          [
+            1,
+            19,
+            0.0294189453125
+          ]
+        ],
+        "both_sources_ready": true,
+        "partial_ready": true,
+        "local_proxy": 0.05623008074178185,
+        "gain": 0.22652744535783098,
+        "added_risk": 0.012737656542700412,
+        "predicted_creation_floor": 0.0,
+        "candidates": [
+          [
+            "D",
+            6.25420393414485,
+            0.0,
+            0.0
+          ],
+          [
+            "C",
+            0.3381135724096869,
+            0.012737656542700412,
+            0.0
+          ],
+          [
+            "P",
+            6.173310816792461,
+            0.004456095830755874,
+            0.01967132867152968
+          ]
+        ],
+        "reason": "MATH_EVENT_CAL16_OFFLINE:C"
+      },
+      "all_candidate_and_teacher_tensors_read": true
+    },
+    {
+      "selection": {
+        "scene": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+        "source": "P",
+        "phase": "EARLY",
+        "target_age": 2,
+        "eligible_points": 11,
+        "chosen": {
+          "step": 15,
+          "age": 2,
+          "source_birth": 13,
+          "true_D_anchor": 7,
+          "actual_pi0_action": "C",
+          "partial_ready": true,
+          "state_before": [
+            7,
+            "P",
+            13,
+            0.01967132867152968,
+            0.025919414067269168,
+            0,
+            14,
+            14,
+            false
+          ],
+          "local_proxy": 0.058217741566122055,
+          "gain": 0.213563118198346
+        },
+        "selection_used_teacher_or_LPIPS": false
+      },
+      "sigma": 0.9412240386009216,
+      "sigma_index": 14,
+      "teacher_guided_energy": 1.8666458637586798,
+      "losses": {
+        "C": {
+          "absolute_guided_MSE": 0.6998576394510555,
+          "normalized_guided_MSE": 0.3749279137724718,
+          "CFG_gram_absolute": [
+            0.047953181133153354,
+            0.09194853723806176,
+            0.06138057390835523
+          ],
+          "full_pair_research_seconds": 0.6738560767844319,
+          "actual_heads": 2
+        },
+        "D_REFERENCE_A": {
+          "absolute_guided_MSE": 1.068488208502487,
+          "normalized_guided_MSE": 0.5724107765952874,
+          "CFG_gram_absolute": [
+            0.19355958055981823,
+            0.31267853758425473,
+            0.2378622615085211
+          ],
+          "full_pair_research_seconds": 0.8402881268411875,
+          "actual_heads": 4
+        },
+        "FUSION_A": {
+          "absolute_guided_MSE": 0.40587152595985265,
+          "normalized_guided_MSE": 0.21743359779159685,
+          "CFG_gram_absolute": [
+            0.05795407939604553,
+            0.09184127515400328,
+            0.0696733217672609
+          ],
+          "full_pair_research_seconds": 1.0191328758373857,
+          "actual_heads": 6
+        },
+        "NEW_P": {
+          "absolute_guided_MSE": 0.07091910153801632,
+          "normalized_guided_MSE": 0.03799279923145869,
+          "CFG_gram_absolute": [
+            0.0010879133208874276,
+            0.0015659602696625064,
+            0.0006735661090378738
+          ],
+          "full_pair_research_seconds": 6.572410086169839,
+          "actual_heads": 2
+        }
+      },
+      "parent_continues": "CC",
+      "raw_artifact": {
+        "path": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-source-phase16-full368-r1/3_DIAGNOSTIC/point-15.pt",
+        "sha256": "d9446475b65a1a146da953c9c7e1f8f9a7a7768d0b53e1c5b74aa0b8e60d33e8",
+        "bytes": 87593553,
+        "tensor_sha256": "6f4a3c2f1b03777176a1dbba56e7313d25acd8b9a5171c18c29b3c5b76ba2544"
+      },
+      "input_sha256": "42fa6f7a626d20f93140f48f4b1fd50d368bcda4158f1bc3399e131e1ede1741",
+      "parent_pre_action": [
+        7,
+        "P",
+        13,
+        0.01967132867152968,
+        0.025919414067269168,
+        0,
+        14,
+        14,
+        false
+      ],
+      "cost_boundary": "FULL_PAIR_BOTH_PROBES_RESEARCH_INSTRUMENTED_NOT_CLEAN_VIDEO_OR_OLD_POST_PROBE_PRICE",
+      "actual_C_paid_proxy": {
+        "step": 15,
+        "action": "C",
+        "generation": 14,
+        "state_before": [
+          7,
+          "P",
+          13,
+          0.01967132867152968,
+          0.025919414067269168,
+          0,
+          14,
+          14,
+          false
+        ],
+        "owner": 140350942864976,
+        "packets": [
+          [
+            0,
+            28,
+            0.0308837890625
+          ],
+          [
+            1,
+            29,
+            0.0301513671875
+          ]
+        ],
+        "both_sources_ready": true,
+        "partial_ready": true,
+        "local_proxy": 0.058217741566122055,
+        "gain": 0.213563118198346,
+        "added_risk": 0.016634232713522892,
+        "predicted_creation_floor": 0.01967132867152968,
+        "candidates": [
+          [
+            "D",
+            6.25420393414485,
+            0.0,
+            0.0
+          ],
+          [
+            "C",
+            0.3381135724096869,
+            0.016634232713522892,
+            0.01967132867152968
+          ],
+          [
+            "P",
+            6.173310816792461,
+            0.004201070290196406,
+            0.01967132867152968
+          ]
+        ],
+        "reason": "MATH_EVENT_CAL16_OFFLINE:C"
+      },
+      "all_candidate_and_teacher_tensors_read": true
+    },
+    {
+      "selection": {
+        "scene": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+        "source": "P",
+        "phase": "LATE",
+        "target_age": 1,
+        "eligible_points": 8,
+        "chosen": {
+          "step": 26,
+          "age": 1,
+          "source_birth": 25,
+          "true_D_anchor": 7,
+          "actual_pi0_action": "P",
+          "partial_ready": true,
+          "state_before": [
+            7,
+            "P",
+            25,
+            0.1332674018840063,
+            0.017790197561553103,
+            1,
+            25,
+            25,
+            false
+          ],
+          "local_proxy": 0.31851554713003977,
+          "gain": 0.11938583301372563
+        },
+        "selection_used_teacher_or_LPIPS": false
+      },
+      "sigma": 0.4629429578781128,
+      "sigma_index": 25,
+      "teacher_guided_energy": 1.7682112526671856,
+      "losses": {
+        "C": {
+          "absolute_guided_MSE": 0.09505396554827124,
+          "normalized_guided_MSE": 0.05375713190654736,
+          "CFG_gram_absolute": [
+            0.014104047279602815,
+            0.013999002080212162,
+            0.01333532287747058
+          ],
+          "full_pair_research_seconds": 0.6715579098090529,
+          "actual_heads": 2
+        },
+        "D_REFERENCE_A": {
+          "absolute_guided_MSE": 0.3570038475746296,
+          "normalized_guided_MSE": 0.20190112863274784,
+          "CFG_gram_absolute": [
+            0.26808909465814146,
+            0.31096727415413483,
+            0.2860544164651698
+          ],
+          "full_pair_research_seconds": 0.8368938537314534,
+          "actual_heads": 4
+        },
+        "FUSION_A": {
+          "absolute_guided_MSE": 0.08467851925126964,
+          "normalized_guided_MSE": 0.04788936792679031,
+          "CFG_gram_absolute": [
+            0.0441494356164689,
+            0.0491289486029925,
+            0.04596610572990511
+          ],
+          "full_pair_research_seconds": 1.0185114154592156,
+          "actual_heads": 6
+        },
+        "NEW_P": {
+          "absolute_guided_MSE": 0.014899778048610495,
+          "normalized_guided_MSE": 0.00842646941994942,
+          "CFG_gram_absolute": [
+            0.00039873280248141916,
+            0.0004354638546510233,
+            0.0002853290195366114
+          ],
+          "full_pair_research_seconds": 6.5527255134657025,
+          "actual_heads": 2
+        }
+      },
+      "parent_continues": "PP",
+      "raw_artifact": {
+        "path": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-source-phase16-full368-r1/3_DIAGNOSTIC/point-26.pt",
+        "sha256": "bf93ae6ed76b68a919a8a0b6f3308a14350c1cdc65e0a628495915c740e7a31b",
+        "bytes": 87593553,
+        "tensor_sha256": "1e7d1f1fa1675a959c24be2fcdf678180f5f2761a5e8d9473b6b650b4f0fd509"
+      },
+      "input_sha256": "33a1ffa67c1f6f20cdff02b04afb68872aa354d974e3c6e50d05fcc1405d1ae7",
+      "parent_pre_action": [
+        7,
+        "P",
+        25,
+        0.1332674018840063,
+        0.017790197561553103,
+        1,
+        25,
+        25,
+        false
+      ],
+      "cost_boundary": "FULL_PAIR_BOTH_PROBES_RESEARCH_INSTRUMENTED_NOT_CLEAN_VIDEO_OR_OLD_POST_PROBE_PRICE",
+      "actual_C_paid_proxy": {
+        "step": 26,
+        "action": "C",
+        "generation": 25,
+        "state_before": [
+          7,
+          "P",
+          25,
+          0.1332674018840063,
+          0.017790197561553103,
+          1,
+          25,
+          25,
+          false
+        ],
+        "owner": 140350942864976,
+        "packets": [
+          [
+            0,
+            50,
+            0.1767578125
+          ],
+          [
+            1,
+            51,
+            0.1767578125
+          ]
+        ],
+        "both_sources_ready": true,
+        "partial_ready": true,
+        "local_proxy": 0.31851554713003977,
+        "gain": 0.11938583301372563,
+        "added_risk": 0.05393648370943942,
+        "predicted_creation_floor": 0.1332674018840063,
+        "candidates": [
+          [
+            "D",
+            6.25420393414485,
+            0.0,
+            0.0
+          ],
+          [
+            "P",
+            6.173310816792461,
+            0.01591023978749704,
+            0.1332674018840063
+          ]
+        ],
+        "reason": "MATH_EVENT_CAL16_OFFLINE:C"
+      },
+      "all_candidate_and_teacher_tensors_read": true
+    },
+    {
+      "selection": {
+        "scene": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+        "source": "D",
+        "phase": "LATE",
+        "target_age": 2,
+        "eligible_points": 3,
+        "chosen": {
+          "step": 30,
+          "age": 2,
+          "source_birth": 28,
+          "true_D_anchor": 28,
+          "actual_pi0_action": "C",
+          "partial_ready": true,
+          "state_before": [
+            28,
+            "D",
+            28,
+            0.0,
+            0.03471794696153245,
+            0,
+            29,
+            29,
+            false
+          ],
+          "local_proxy": 0.33650232662968077,
+          "gain": 0.06295919761815161
+        },
+        "selection_used_teacher_or_LPIPS": false
+      },
+      "sigma": 0.16665080189704895,
+      "sigma_index": 29,
+      "teacher_guided_energy": 1.6762258899434137,
+      "losses": {
+        "C": {
+          "absolute_guided_MSE": 0.25368678454726123,
+          "normalized_guided_MSE": 0.15134403189287646,
+          "CFG_gram_absolute": [
+            0.07143908792300725,
+            0.06513196737926878,
+            0.0670525111081194
+          ],
+          "full_pair_research_seconds": 0.6714046997949481,
+          "actual_heads": 2
+        },
+        "D_REFERENCE_A": {
+          "absolute_guided_MSE": 0.15557323946933493,
+          "normalized_guided_MSE": 0.09281161948559738,
+          "CFG_gram_absolute": [
+            0.06602913559961754,
+            0.0651708475653891,
+            0.0648541336572344
+          ],
+          "full_pair_research_seconds": 0.8358176900073886,
+          "actual_heads": 4
+        },
+        "FUSION_A": {
+          "absolute_guided_MSE": 0.15557323946933493,
+          "normalized_guided_MSE": 0.09281161948559738,
+          "CFG_gram_absolute": [
+            0.06602913559961754,
+            0.0651708475653891,
+            0.0648541336572344
+          ],
+          "full_pair_research_seconds": 0.8365202406421304,
+          "actual_heads": 4
+        },
+        "NEW_P": {
+          "absolute_guided_MSE": 0.0337964213019508,
+          "normalized_guided_MSE": 0.02016221173095692,
+          "CFG_gram_absolute": [
+            0.002049584669380048,
+            0.002127297025863325,
+            0.001800129926836386
+          ],
+          "full_pair_research_seconds": 6.54758972581476,
+          "actual_heads": 2
+        }
+      },
+      "parent_continues": "CC",
+      "raw_artifact": {
+        "path": "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-source-phase16-full368-r1/3_DIAGNOSTIC/point-30.pt",
+        "sha256": "c7b4b7cb9802917863927e468f0f4b80ed11ffcd79c0357d988589b3e1408fe1",
+        "bytes": 87593553,
+        "tensor_sha256": "ae800da08fe99ef78a028b12881b923c3334cf1a9da600e4edff7dfa94eac391"
+      },
+      "input_sha256": "9dd76dc6c6dd9100c8a0d7a5b855e031052c48bb0d7cb71ecc2c6875e2342979",
+      "parent_pre_action": [
+        28,
+        "D",
+        28,
+        0.0,
+        0.03471794696153245,
+        0,
+        29,
+        29,
+        false
+      ],
+      "cost_boundary": "FULL_PAIR_BOTH_PROBES_RESEARCH_INSTRUMENTED_NOT_CLEAN_VIDEO_OR_OLD_POST_PROBE_PRICE",
+      "actual_C_paid_proxy": {
+        "step": 30,
+        "action": "C",
+        "generation": 29,
+        "state_before": [
+          28,
+          "D",
+          28,
+          0.0,
+          0.03471794696153245,
+          0,
+          29,
+          29,
+          false
+        ],
+        "owner": 140350942864976,
+        "packets": [
+          [
+            0,
+            58,
+            0.1884765625
+          ],
+          [
+            1,
+            59,
+            0.189453125
+          ]
+        ],
+        "both_sources_ready": true,
+        "partial_ready": true,
+        "local_proxy": 0.33650232662968077,
+        "gain": 0.06295919761815161,
+        "added_risk": 0.021185916481245872,
+        "predicted_creation_floor": 0.0,
+        "candidates": [
+          [
+            "D",
+            6.25420393414485,
+            0.0,
+            0.0
+          ],
+          [
+            "C",
+            0.3381135724096869,
+            0.021185916481245872,
+            0.0
+          ],
+          [
+            "P",
+            6.173310816792461,
+            0.008390408691272782,
+            0.1332674018840063
+          ]
+        ],
+        "reason": "MATH_EVENT_CAL16_OFFLINE:C"
+      },
+      "all_candidate_and_teacher_tensors_read": true
+    }
+  ],
+  "no_new_F_teacher_calls": true
+}
