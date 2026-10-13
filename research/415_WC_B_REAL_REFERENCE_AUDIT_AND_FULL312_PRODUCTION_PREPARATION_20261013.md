@@ -37,7 +37,11 @@
 
 [生产CPU记录](../reports/wc_block_velocity_production_r1_CPU_collection_20261013.json) · [独立接受](../reports/wc_block_velocity_production_r1_CPU_independent_acceptance_20261013.json)。两flow32父／64后缀的完整数值CPU证明和真实四原件CPU审计分别保留，未用生产入口检查代替它们。
 
-**没有新B GPU提交**。当前部署工具仅CPU，不提供GPU启动；实际完整16生产、原件与93帧评分仍待执行和验收。GPU supervisor要求先接受原完整60曲线的终态和CPU post，保护既定CONF50→曲线60→B的串行队列。之后还须补齐不可变stage的单次GPU启动接线，并通过fresh UUID/锁/实际余额准入，不能把当前CPU状态当作已经启动。
+**没有新B GPU提交**。单次启动接线已补齐，原CPU部署工具仍仅CPU；新启动工具直接使用原988ace1／730的已验收stage，不传新算法或覆盖原证明。完整16生产、原件与93帧评分仍待执行和验收。GPU supervisor要求先接受原完整60曲线的终态和CPU post，保护既定CONF50→曲线60→B的串行队列；之后仍须通过fresh UUID/锁/实际余额准入，不能把当前CPU状态当作已经启动。
+
+`python3 scripts/launch_wc_block_saved_velocity_full312_r1.py`默认只打印本地计划，不连接服务器。后续符合串行准入时，才执行同命令加`--launch`。该工具绑定原生产CPU、注册/config SHA和全部730文件身份；前卡须为原361ea5c完整60、GPU终态与post通过。原句柄回执存在时返回原回执，不重投；未知claim/日志/输出则拒绝重复启动。原supervisor先保存后再启动CPU watcher，watcher失败保留原PID，不能另启GPU。
+
+[启动接线CPU记录](../reports/wc_block_saved_velocity_dispatch_helper_CPU_20261013.json)覆盖8项本地控制：正常两句柄与重复调用、前卡缺位置、前卡post失败、CPU字节变化、payload变化、未知原claim、已有输出、watcher失败后不重启。使用实际dispatch函数与模拟Popen；服务器接触0、GPU0、账本0。这是操作接线验证，不取代服务器生产CPU或真实终点实验。
 
 主线仍按21:01:59北京时间查收原CONF50；本轮不查询其进度或新视频，也不改参数/source/输出。CPU通过后仍需接受实际完整16生产与所有原件/评分结果，不依据一个局部误差线否定B方向。原P13h暂缓、E2完整76自身批准不转用；不新增人工评审、训练或OMR。
 
