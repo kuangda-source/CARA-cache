@@ -69,7 +69,7 @@ flowchart TD
     X -.候选冻结与消融后再合入.-> M
 ```
 
-[F/B独立探索设计](../plans/WORLD_CACHE_SPECTRAL_BLOCK_ISOLATED_EXPLORATION_20261013.md)规定数据、完整对照、费用与合入依据。**当前主方法不启用F/B；独立首批完整432及GPU/post已接受。** [412完整结果](412_WC_FB_COMPLETE_RESULTS_AND_INDEPENDENT_CONFIRMATION_LAUNCH_20261013.md)记录F当前配置没有动作增量、B四状态局部成本—误差取舍和后续终点要求。原登记范围见[408](408_WC_FB_FULL432_PREREG_AND_DELAYED_CHECK_20261013.md)，旧材料与E0证据见[407](407_WC_SPECTRAL_BLOCK_INTAKE_MATH_AND_E0_20261013.md)。
+[F/B独立探索设计](../plans/WORLD_CACHE_SPECTRAL_BLOCK_ISOLATED_EXPLORATION_20261013.md)规定数据、完整对照、费用与合入依据。**当前主方法不启用F/B；独立首批完整432及GPU/post已接受。** [412完整结果](412_WC_FB_COMPLETE_RESULTS_AND_INDEPENDENT_CONFIRMATION_LAUNCH_20261013.md)记录F当前配置没有动作增量、B四状态局部成本—误差取舍和后续终点要求。[414三臂后缀探索](414_WC_B_LOCAL_CONDITIONS_AND_SAVED_VELOCITY_ENDPOINT_CPU_DESIGN_20261013.md)新增只改首速度的四点终点对照，32父/64后缀CPU已接受；实际B视频/刷新来源闭环未运行，继续独立。原登记范围见[408](408_WC_FB_FULL432_PREREG_AND_DELAYED_CHECK_20261013.md)，旧材料与E0证据见[407](407_WC_SPECTRAL_BLOCK_INTAKE_MATH_AND_E0_20261013.md)。
 
 F回答“已有raw/RA＋来源＋阶段信息之外，多尺度特征是否改善动作判断”；B回答“保留当前上下文，只少算部分增量能否降低实际刷新费用”。二者允许分别有效，也允许组合产生价值；不强求全部模块同时成功。
 
