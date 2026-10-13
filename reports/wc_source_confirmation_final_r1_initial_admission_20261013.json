@@ -1,0 +1,710 @@
+{
+  "observed_unix": 1791881748.5561156,
+  "supervisor": {
+    "status": "SOURCE_CONFIRMATION_GPU_RUNNING",
+    "pid": 594353,
+    "run_id": "wc-source-conditional-confirmation-full40-r1",
+    "source_revision": "e48ba58047b09507ea6f438f5077ebffb4fb2114",
+    "config_sha256": "db5fa0d263ca778949faae2382c9a48052ca14fd628db4b10b5276b915b3fd6b",
+    "production_CPU_sha256": "85b8fa47f79b4e243ae437b2fc1e3a21be52ed49624610d60fc96e51dcaa32de",
+    "budget_before": {
+      "batch": "F0-F1",
+      "cap_gpu_hours": 104.97136333301378,
+      "used_gpu_hours": 72.01379243652312,
+      "gpu_jobs_launched": 91,
+      "status": "FB_PROBE_SETTLED_RAW_CPU_AUDIT_PENDING",
+      "gpu_import_probes_completed": 1,
+      "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts",
+      "budget_authorization_ref": "manifests/budget_authorization_20261012_wc_math_scheduler_new48gpuh.json",
+      "budget_authorization_history": [
+        {
+          "authorized_utc": "2026-10-02T18:03:00Z",
+          "source_thread_id": "01a0f1e6-7ad0-75df-9a02-172b60d2e00b",
+          "user_instruction": "\u628a\u5404\u4e2a\u5b9e\u9a8c\u7684 gpu \u9884\u7b97\u90fd\u8bbe\u7f6e\u4e3a 12gpuh",
+          "previous_cap_gpu_hours": 4,
+          "new_cumulative_cap_gpu_hours": 12,
+          "used_gpu_hours_at_change": 3.9117525685110333,
+          "no_usage_reset_or_transfer": true
+        },
+        {
+          "authorized_utc": "2026-10-04T06:13:36Z",
+          "source_thread_id": "01a0f1e6-7ad0-75df-9a02-172b60d2e00b",
+          "user_message_id": "Sentinel_861e63a87d8c819180ec9a8bcfa6dc92",
+          "user_instruction": "\u5141\u8bb8\u589e\u52a0 GPUh",
+          "previous_cap_gpu_hours": 12,
+          "new_cumulative_cap_gpu_hours": 13,
+          "used_gpu_hours_at_change": 11.022315686839217,
+          "gpu_jobs_launched_at_change": 45,
+          "no_usage_reset_or_transfer": true,
+          "authorization_ref": "manifests/budget_authorization_20261004_wc_13gpuh.json"
+        },
+        {
+          "authorized_on_local": "2026-10-05",
+          "user_instruction": "\u6279\u51c6 WC-W3-SMALL-CD-R1-20261004-A\uff0c\u628a\u7d2f\u8ba1 gpuh \u9650\u5236\u63d0\u5347\u5230 24",
+          "previous_cap_gpu_hours": 13,
+          "new_cumulative_cap_gpu_hours": 24,
+          "used_gpu_hours_at_change": 11.022315686839217,
+          "gpu_jobs_launched_at_change": 45,
+          "no_usage_reset_or_transfer": true,
+          "authorization_ref": "manifests/budget_authorization_20261005_wc_24gpuh.json",
+          "approved_card": "WC-W3-SMALL-CD-R1-20261004-A",
+          "single_run_cap_seconds": 3900
+        },
+        {
+          "authorized_unix": 1791428550.530142,
+          "authorized_on_local": "2026-10-08",
+          "user_instruction": "\u6279\u51c6\u6269\u5927 gpuh\uff0c\u76f4\u63a5\u52a0\u5230 50 \u5427",
+          "previous_cap_gpu_hours": 24,
+          "new_cumulative_cap_gpu_hours": 50,
+          "used_gpu_hours_at_change": 22.314242424184147,
+          "gpu_jobs_launched_at_change": 59,
+          "no_usage_reset_or_transfer": true,
+          "authorization_ref": "manifests/budget_authorization_20261008_wc_50gpuh.json",
+          "automatic_single_job_gpu_hours": 2
+        },
+        {
+          "authorized_unix": 1791560438.1859179,
+          "authorized_on_local": "2026-10-09",
+          "user_instruction": "\u662f\u4ece\u5f53\u524d\u5f00\u59cb 48gpuh",
+          "initial_user_instruction": "\u628a gpuh \u9884\u7b97\u63d0\u5230 48h",
+          "previous_cap_gpu_hours": 50,
+          "new_cumulative_cap_gpu_hours": 77.89524658965853,
+          "used_gpu_hours_at_change": 29.895246589658527,
+          "gpu_jobs_launched_at_change": 65,
+          "authorized_remaining_gpu_hours": 48,
+          "no_usage_reset_or_transfer": true,
+          "authorization_ref": "manifests/budget_authorization_20261009_wc_new_window_48gpuh.json",
+          "automatic_single_job_gpu_hours": 2
+        },
+        {
+          "authorized_on_local": "2026-10-12",
+          "user_instruction": "\u6839\u636e\u6700\u65b0\u5bf9\u8bdd\u548c\u6587\u6863\uff0c\u66f4\u65b0\u4e00\u4e0b\u5b9e\u9a8c\u8bbe\u8ba1\uff0c\u5c1d\u8bd5\u4e00\u4e0b\u63d0\u5230\u7684\u65b0\u7684\u6838\u5fc3\u65b9\u6cd5\u662f\u5426\u6210\u7acb\u3002\u5728\u5f53\u524d\u57fa\u7840\u4e0a\u628a\u53ef\u7528 gpuh \u8bbe\u4e3a 48h\uff0c\u5355\u6b21\u5927\u4e8e 8h \u624d\u8be2\u95ee\u3002\u7b49\u8fd9\u4e2a\u7aef\u5230\u7aef\u52a0\u901f\u6d4b\u8bd5\u8dd1\u5b8c\u4e86\u5c31\u63a8\u8fdb\u3002",
+          "authorization_ref": "manifests/budget_authorization_20261012_wc_math_scheduler_new48gpuh.json",
+          "previous_cap_gpu_hours": 77.89524658965853,
+          "new_cumulative_cap_gpu_hours": 104.97136333301378,
+          "used_gpu_hours_at_change": 56.97136333301379,
+          "gpu_jobs_launched_at_change": 82,
+          "authorized_remaining_gpu_hours": 48,
+          "no_usage_reset_or_transfer": true
+        }
+      ],
+      "budget_authorization_window": {
+        "authorization_ref": "manifests/budget_authorization_20261012_wc_math_scheduler_new48gpuh.json",
+        "start_used_gpu_hours": 56.97136333301379,
+        "authorized_remaining_gpu_hours": 48,
+        "cumulative_cap_gpu_hours": 104.97136333301378,
+        "recorded_unix": 1791760184.7594678
+      },
+      "automatic_single_job_gpu_hours": 8,
+      "execution_policy_authorization_ref": "manifests/budget_authorization_20261012_wc_math_scheduler_new48gpuh.json",
+      "execution_policy_authorization_history": [
+        {
+          "authorized_on_local": "2026-10-10",
+          "source_user_instruction": "\u5355\u6b21 \u6539\u6210\u8d85\u8fc7 4h\u624d\u9700\u8981\u786e\u8ba4",
+          "previous_automatic_single_job_gpu_hours": 2,
+          "automatic_single_job_gpu_hours": 4,
+          "authorization_ref": "manifests/wc_execution_autonomy_authorization_20261010_4gpuh.json",
+          "recorded_unix": 1791561847.0094812
+        },
+        {
+          "authorized_on_local": "2026-10-12",
+          "source_user_instruction": "\u6839\u636e\u6700\u65b0\u5bf9\u8bdd\u548c\u6587\u6863\uff0c\u66f4\u65b0\u4e00\u4e0b\u5b9e\u9a8c\u8bbe\u8ba1\uff0c\u5c1d\u8bd5\u4e00\u4e0b\u63d0\u5230\u7684\u65b0\u7684\u6838\u5fc3\u65b9\u6cd5\u662f\u5426\u6210\u7acb\u3002\u5728\u5f53\u524d\u57fa\u7840\u4e0a\u628a\u53ef\u7528 gpuh \u8bbe\u4e3a 48h\uff0c\u5355\u6b21\u5927\u4e8e 8h \u624d\u8be2\u95ee\u3002\u7b49\u8fd9\u4e2a\u7aef\u5230\u7aef\u52a0\u901f\u6d4b\u8bd5\u8dd1\u5b8c\u4e86\u5c31\u63a8\u8fdb\u3002",
+          "previous_automatic_single_job_gpu_hours": 4,
+          "automatic_single_job_gpu_hours": 8,
+          "authorization_ref": "manifests/budget_authorization_20261012_wc_math_scheduler_new48gpuh.json",
+          "complete_single_job_strictly_over8_requires_confirmation": true
+        }
+      ]
+    },
+    "admission": {
+      "unix": 1791881540.7404191,
+      "uuid": "GPU-cebf7119-cf03-23b9-e192-cd196332b704",
+      "name": "NVIDIA RTX A6000",
+      "memory_used_mib": 24,
+      "compute_cap": "8.6",
+      "pids": []
+    },
+    "started_unix": 1791881540.7414641,
+    "authorized_billed_GPUh_limit": 8.0,
+    "planned_scientific_paths": 40,
+    "planned_warmup_paths": 10,
+    "planned_physical_pairs": 1800,
+    "model_loads": 1,
+    "legacy_seconds_deadline_active": false,
+    "child_pid": 594521,
+    "command": [
+      "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python",
+      "-u",
+      "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-source-confirmation-production-r1-20261013/scripts/run_wc_source_conditional_confirmation_r1.py",
+      "--project",
+      "/home/gaokuangda/data/gkd/worldcache_omr",
+      "--stage",
+      "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-source-confirmation-production-r1-20261013",
+      "--source-revision",
+      "e48ba58047b09507ea6f438f5077ebffb4fb2114",
+      "--gpu-uuid",
+      "GPU-cebf7119-cf03-23b9-e192-cd196332b704"
+    ]
+  },
+  "runner": {
+    "status": "SOURCE_CONFIRMATION_ALL50_FULL_PATHS_RUNNING",
+    "pid": 594521,
+    "source_revision": "e48ba58047b09507ea6f438f5077ebffb4fb2114",
+    "config_sha256": "db5fa0d263ca778949faae2382c9a48052ca14fd628db4b10b5276b915b3fd6b",
+    "scope_counts": {
+      "requests": 8,
+      "methods": 5,
+      "scientific_paths": 40,
+      "full_warmup_paths": 10,
+      "total_paths": 50,
+      "ordinary_pairs": 1800,
+      "ordinary_CFG_calls": 3600,
+      "loads": 1,
+      "teacher_pairs": 0,
+      "score_videos": 40
+    },
+    "matrix": [
+      {
+        "id": "warm_1_NATIVE",
+        "method": "NATIVE",
+        "section": "WARMUP",
+        "round": 1,
+        "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+        "seed": 0
+      },
+      {
+        "id": "warm_1_RA",
+        "method": "RA",
+        "section": "WARMUP",
+        "round": 1,
+        "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+        "seed": 0
+      },
+      {
+        "id": "warm_1_A_NO_P",
+        "method": "A_NO_P",
+        "section": "WARMUP",
+        "round": 1,
+        "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+        "seed": 0
+      },
+      {
+        "id": "warm_1_P_OFF",
+        "method": "P_OFF",
+        "section": "WARMUP",
+        "round": 1,
+        "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+        "seed": 0
+      },
+      {
+        "id": "warm_1_TABLE_PHASE_H1",
+        "method": "TABLE_PHASE_H1",
+        "section": "WARMUP",
+        "round": 1,
+        "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+        "seed": 0
+      },
+      {
+        "id": "warm_2_TABLE_PHASE_H1",
+        "method": "TABLE_PHASE_H1",
+        "section": "WARMUP",
+        "round": 2,
+        "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+        "seed": 0
+      },
+      {
+        "id": "warm_2_P_OFF",
+        "method": "P_OFF",
+        "section": "WARMUP",
+        "round": 2,
+        "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+        "seed": 0
+      },
+      {
+        "id": "warm_2_A_NO_P",
+        "method": "A_NO_P",
+        "section": "WARMUP",
+        "round": 2,
+        "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+        "seed": 0
+      },
+      {
+        "id": "warm_2_RA",
+        "method": "RA",
+        "section": "WARMUP",
+        "round": 2,
+        "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+        "seed": 0
+      },
+      {
+        "id": "warm_2_NATIVE",
+        "method": "NATIVE",
+        "section": "WARMUP",
+        "round": 2,
+        "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+        "seed": 0
+      },
+      {
+        "id": "timed_0_NATIVE",
+        "method": "NATIVE",
+        "section": "TIMED",
+        "round": 1,
+        "scene": "av_46fe9718-b496-4c30-b1b6-8b02028dd336_SOURCECONF_seed17",
+        "seed": 17
+      },
+      {
+        "id": "timed_0_RA",
+        "method": "RA",
+        "section": "TIMED",
+        "round": 1,
+        "scene": "av_46fe9718-b496-4c30-b1b6-8b02028dd336_SOURCECONF_seed17",
+        "seed": 17
+      },
+      {
+        "id": "timed_0_A_NO_P",
+        "method": "A_NO_P",
+        "section": "TIMED",
+        "round": 1,
+        "scene": "av_46fe9718-b496-4c30-b1b6-8b02028dd336_SOURCECONF_seed17",
+        "seed": 17
+      },
+      {
+        "id": "timed_0_P_OFF",
+        "method": "P_OFF",
+        "section": "TIMED",
+        "round": 1,
+        "scene": "av_46fe9718-b496-4c30-b1b6-8b02028dd336_SOURCECONF_seed17",
+        "seed": 17
+      },
+      {
+        "id": "timed_0_TABLE_PHASE_H1",
+        "method": "TABLE_PHASE_H1",
+        "section": "TIMED",
+        "round": 1,
+        "scene": "av_46fe9718-b496-4c30-b1b6-8b02028dd336_SOURCECONF_seed17",
+        "seed": 17
+      },
+      {
+        "id": "timed_1_TABLE_PHASE_H1",
+        "method": "TABLE_PHASE_H1",
+        "section": "TIMED",
+        "round": 1,
+        "scene": "human_125_SOURCECONF_seed17",
+        "seed": 17
+      },
+      {
+        "id": "timed_1_P_OFF",
+        "method": "P_OFF",
+        "section": "TIMED",
+        "round": 1,
+        "scene": "human_125_SOURCECONF_seed17",
+        "seed": 17
+      },
+      {
+        "id": "timed_1_A_NO_P",
+        "method": "A_NO_P",
+        "section": "TIMED",
+        "round": 1,
+        "scene": "human_125_SOURCECONF_seed17",
+        "seed": 17
+      },
+      {
+        "id": "timed_1_RA",
+        "method": "RA",
+        "section": "TIMED",
+        "round": 1,
+        "scene": "human_125_SOURCECONF_seed17",
+        "seed": 17
+      },
+      {
+        "id": "timed_1_NATIVE",
+        "method": "NATIVE",
+        "section": "TIMED",
+        "round": 1,
+        "scene": "human_125_SOURCECONF_seed17",
+        "seed": 17
+      },
+      {
+        "id": "timed_2_NATIVE",
+        "method": "NATIVE",
+        "section": "TIMED",
+        "round": 1,
+        "scene": "misc_2711212-uhd_3840_2160_24fps_SOURCECONF_seed17",
+        "seed": 17
+      },
+      {
+        "id": "timed_2_RA",
+        "method": "RA",
+        "section": "TIMED",
+        "round": 1,
+        "scene": "misc_2711212-uhd_3840_2160_24fps_SOURCECONF_seed17",
+        "seed": 17
+      },
+      {
+        "id": "timed_2_A_NO_P",
+        "method": "A_NO_P",
+        "section": "TIMED",
+        "round": 1,
+        "scene": "misc_2711212-uhd_3840_2160_24fps_SOURCECONF_seed17",
+        "seed": 17
+      },
+      {
+        "id": "timed_2_P_OFF",
+        "method": "P_OFF",
+        "section": "TIMED",
+        "round": 1,
+        "scene": "misc_2711212-uhd_3840_2160_24fps_SOURCECONF_seed17",
+        "seed": 17
+      },
+      {
+        "id": "timed_2_TABLE_PHASE_H1",
+        "method": "TABLE_PHASE_H1",
+        "section": "TIMED",
+        "round": 1,
+        "scene": "misc_2711212-uhd_3840_2160_24fps_SOURCECONF_seed17",
+        "seed": 17
+      },
+      {
+        "id": "timed_3_TABLE_PHASE_H1",
+        "method": "TABLE_PHASE_H1",
+        "section": "TIMED",
+        "round": 1,
+        "scene": "robot_043_SOURCECONF_seed17",
+        "seed": 17
+      },
+      {
+        "id": "timed_3_P_OFF",
+        "method": "P_OFF",
+        "section": "TIMED",
+        "round": 1,
+        "scene": "robot_043_SOURCECONF_seed17",
+        "seed": 17
+      },
+      {
+        "id": "timed_3_A_NO_P",
+        "method": "A_NO_P",
+        "section": "TIMED",
+        "round": 1,
+        "scene": "robot_043_SOURCECONF_seed17",
+        "seed": 17
+      },
+      {
+        "id": "timed_3_RA",
+        "method": "RA",
+        "section": "TIMED",
+        "round": 1,
+        "scene": "robot_043_SOURCECONF_seed17",
+        "seed": 17
+      },
+      {
+        "id": "timed_3_NATIVE",
+        "method": "NATIVE",
+        "section": "TIMED",
+        "round": 1,
+        "scene": "robot_043_SOURCECONF_seed17",
+        "seed": 17
+      },
+      {
+        "id": "timed_4_TABLE_PHASE_H1",
+        "method": "TABLE_PHASE_H1",
+        "section": "TIMED",
+        "round": 1,
+        "scene": "av_46fe9718-b496-4c30-b1b6-8b02028dd336_SOURCECONF_seed43",
+        "seed": 43
+      },
+      {
+        "id": "timed_4_P_OFF",
+        "method": "P_OFF",
+        "section": "TIMED",
+        "round": 1,
+        "scene": "av_46fe9718-b496-4c30-b1b6-8b02028dd336_SOURCECONF_seed43",
+        "seed": 43
+      },
+      {
+        "id": "timed_4_A_NO_P",
+        "method": "A_NO_P",
+        "section": "TIMED",
+        "round": 1,
+        "scene": "av_46fe9718-b496-4c30-b1b6-8b02028dd336_SOURCECONF_seed43",
+        "seed": 43
+      },
+      {
+        "id": "timed_4_RA",
+        "method": "RA",
+        "section": "TIMED",
+        "round": 1,
+        "scene": "av_46fe9718-b496-4c30-b1b6-8b02028dd336_SOURCECONF_seed43",
+        "seed": 43
+      },
+      {
+        "id": "timed_4_NATIVE",
+        "method": "NATIVE",
+        "section": "TIMED",
+        "round": 1,
+        "scene": "av_46fe9718-b496-4c30-b1b6-8b02028dd336_SOURCECONF_seed43",
+        "seed": 43
+      },
+      {
+        "id": "timed_5_NATIVE",
+        "method": "NATIVE",
+        "section": "TIMED",
+        "round": 1,
+        "scene": "human_125_SOURCECONF_seed43",
+        "seed": 43
+      },
+      {
+        "id": "timed_5_RA",
+        "method": "RA",
+        "section": "TIMED",
+        "round": 1,
+        "scene": "human_125_SOURCECONF_seed43",
+        "seed": 43
+      },
+      {
+        "id": "timed_5_A_NO_P",
+        "method": "A_NO_P",
+        "section": "TIMED",
+        "round": 1,
+        "scene": "human_125_SOURCECONF_seed43",
+        "seed": 43
+      },
+      {
+        "id": "timed_5_P_OFF",
+        "method": "P_OFF",
+        "section": "TIMED",
+        "round": 1,
+        "scene": "human_125_SOURCECONF_seed43",
+        "seed": 43
+      },
+      {
+        "id": "timed_5_TABLE_PHASE_H1",
+        "method": "TABLE_PHASE_H1",
+        "section": "TIMED",
+        "round": 1,
+        "scene": "human_125_SOURCECONF_seed43",
+        "seed": 43
+      },
+      {
+        "id": "timed_6_TABLE_PHASE_H1",
+        "method": "TABLE_PHASE_H1",
+        "section": "TIMED",
+        "round": 1,
+        "scene": "misc_2711212-uhd_3840_2160_24fps_SOURCECONF_seed43",
+        "seed": 43
+      },
+      {
+        "id": "timed_6_P_OFF",
+        "method": "P_OFF",
+        "section": "TIMED",
+        "round": 1,
+        "scene": "misc_2711212-uhd_3840_2160_24fps_SOURCECONF_seed43",
+        "seed": 43
+      },
+      {
+        "id": "timed_6_A_NO_P",
+        "method": "A_NO_P",
+        "section": "TIMED",
+        "round": 1,
+        "scene": "misc_2711212-uhd_3840_2160_24fps_SOURCECONF_seed43",
+        "seed": 43
+      },
+      {
+        "id": "timed_6_RA",
+        "method": "RA",
+        "section": "TIMED",
+        "round": 1,
+        "scene": "misc_2711212-uhd_3840_2160_24fps_SOURCECONF_seed43",
+        "seed": 43
+      },
+      {
+        "id": "timed_6_NATIVE",
+        "method": "NATIVE",
+        "section": "TIMED",
+        "round": 1,
+        "scene": "misc_2711212-uhd_3840_2160_24fps_SOURCECONF_seed43",
+        "seed": 43
+      },
+      {
+        "id": "timed_7_NATIVE",
+        "method": "NATIVE",
+        "section": "TIMED",
+        "round": 1,
+        "scene": "robot_043_SOURCECONF_seed43",
+        "seed": 43
+      },
+      {
+        "id": "timed_7_RA",
+        "method": "RA",
+        "section": "TIMED",
+        "round": 1,
+        "scene": "robot_043_SOURCECONF_seed43",
+        "seed": 43
+      },
+      {
+        "id": "timed_7_A_NO_P",
+        "method": "A_NO_P",
+        "section": "TIMED",
+        "round": 1,
+        "scene": "robot_043_SOURCECONF_seed43",
+        "seed": 43
+      },
+      {
+        "id": "timed_7_P_OFF",
+        "method": "P_OFF",
+        "section": "TIMED",
+        "round": 1,
+        "scene": "robot_043_SOURCECONF_seed43",
+        "seed": 43
+      },
+      {
+        "id": "timed_7_TABLE_PHASE_H1",
+        "method": "TABLE_PHASE_H1",
+        "section": "TIMED",
+        "round": 1,
+        "scene": "robot_043_SOURCECONF_seed43",
+        "seed": 43
+      }
+    ],
+    "table_fingerprints": {
+      "SOURCE_PHASE": "34ef948ed2a309e8b1cae4b72b780c14e21d63383fa1eadcdfc8803c3d5beef8",
+      "SOURCE": "0187dffab3f3c69da48cf31b05c7c64850710f0a00cd2bc6d47e86dd2ce6ed43"
+    },
+    "runs": [
+      {
+        "id": "warm_1_NATIVE",
+        "method": "NATIVE",
+        "section": "WARMUP",
+        "round": 1,
+        "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+        "seed": 0,
+        "status": "RUNNING",
+        "started_unix": 1791881703.1634028
+      }
+    ],
+    "started_unix": 1791881595.6890333,
+    "load_seconds": 106.7595465965569
+  },
+  "ledger": {
+    "batch": "F0-F1",
+    "cap_gpu_hours": 104.97136333301378,
+    "used_gpu_hours": 104.97136333301378,
+    "gpu_jobs_launched": 92,
+    "status": "SOURCE_CONFIRMATION_INFLIGHT_REMAINING_RESERVED_NOT_ACTUAL_SPENT",
+    "gpu_import_probes_completed": 1,
+    "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts",
+    "budget_authorization_ref": "manifests/budget_authorization_20261012_wc_math_scheduler_new48gpuh.json",
+    "budget_authorization_history": [
+      {
+        "authorized_utc": "2026-10-02T18:03:00Z",
+        "source_thread_id": "01a0f1e6-7ad0-75df-9a02-172b60d2e00b",
+        "user_instruction": "\u628a\u5404\u4e2a\u5b9e\u9a8c\u7684 gpu \u9884\u7b97\u90fd\u8bbe\u7f6e\u4e3a 12gpuh",
+        "previous_cap_gpu_hours": 4,
+        "new_cumulative_cap_gpu_hours": 12,
+        "used_gpu_hours_at_change": 3.9117525685110333,
+        "no_usage_reset_or_transfer": true
+      },
+      {
+        "authorized_utc": "2026-10-04T06:13:36Z",
+        "source_thread_id": "01a0f1e6-7ad0-75df-9a02-172b60d2e00b",
+        "user_message_id": "Sentinel_861e63a87d8c819180ec9a8bcfa6dc92",
+        "user_instruction": "\u5141\u8bb8\u589e\u52a0 GPUh",
+        "previous_cap_gpu_hours": 12,
+        "new_cumulative_cap_gpu_hours": 13,
+        "used_gpu_hours_at_change": 11.022315686839217,
+        "gpu_jobs_launched_at_change": 45,
+        "no_usage_reset_or_transfer": true,
+        "authorization_ref": "manifests/budget_authorization_20261004_wc_13gpuh.json"
+      },
+      {
+        "authorized_on_local": "2026-10-05",
+        "user_instruction": "\u6279\u51c6 WC-W3-SMALL-CD-R1-20261004-A\uff0c\u628a\u7d2f\u8ba1 gpuh \u9650\u5236\u63d0\u5347\u5230 24",
+        "previous_cap_gpu_hours": 13,
+        "new_cumulative_cap_gpu_hours": 24,
+        "used_gpu_hours_at_change": 11.022315686839217,
+        "gpu_jobs_launched_at_change": 45,
+        "no_usage_reset_or_transfer": true,
+        "authorization_ref": "manifests/budget_authorization_20261005_wc_24gpuh.json",
+        "approved_card": "WC-W3-SMALL-CD-R1-20261004-A",
+        "single_run_cap_seconds": 3900
+      },
+      {
+        "authorized_unix": 1791428550.530142,
+        "authorized_on_local": "2026-10-08",
+        "user_instruction": "\u6279\u51c6\u6269\u5927 gpuh\uff0c\u76f4\u63a5\u52a0\u5230 50 \u5427",
+        "previous_cap_gpu_hours": 24,
+        "new_cumulative_cap_gpu_hours": 50,
+        "used_gpu_hours_at_change": 22.314242424184147,
+        "gpu_jobs_launched_at_change": 59,
+        "no_usage_reset_or_transfer": true,
+        "authorization_ref": "manifests/budget_authorization_20261008_wc_50gpuh.json",
+        "automatic_single_job_gpu_hours": 2
+      },
+      {
+        "authorized_unix": 1791560438.1859179,
+        "authorized_on_local": "2026-10-09",
+        "user_instruction": "\u662f\u4ece\u5f53\u524d\u5f00\u59cb 48gpuh",
+        "initial_user_instruction": "\u628a gpuh \u9884\u7b97\u63d0\u5230 48h",
+        "previous_cap_gpu_hours": 50,
+        "new_cumulative_cap_gpu_hours": 77.89524658965853,
+        "used_gpu_hours_at_change": 29.895246589658527,
+        "gpu_jobs_launched_at_change": 65,
+        "authorized_remaining_gpu_hours": 48,
+        "no_usage_reset_or_transfer": true,
+        "authorization_ref": "manifests/budget_authorization_20261009_wc_new_window_48gpuh.json",
+        "automatic_single_job_gpu_hours": 2
+      },
+      {
+        "authorized_on_local": "2026-10-12",
+        "user_instruction": "\u6839\u636e\u6700\u65b0\u5bf9\u8bdd\u548c\u6587\u6863\uff0c\u66f4\u65b0\u4e00\u4e0b\u5b9e\u9a8c\u8bbe\u8ba1\uff0c\u5c1d\u8bd5\u4e00\u4e0b\u63d0\u5230\u7684\u65b0\u7684\u6838\u5fc3\u65b9\u6cd5\u662f\u5426\u6210\u7acb\u3002\u5728\u5f53\u524d\u57fa\u7840\u4e0a\u628a\u53ef\u7528 gpuh \u8bbe\u4e3a 48h\uff0c\u5355\u6b21\u5927\u4e8e 8h \u624d\u8be2\u95ee\u3002\u7b49\u8fd9\u4e2a\u7aef\u5230\u7aef\u52a0\u901f\u6d4b\u8bd5\u8dd1\u5b8c\u4e86\u5c31\u63a8\u8fdb\u3002",
+        "authorization_ref": "manifests/budget_authorization_20261012_wc_math_scheduler_new48gpuh.json",
+        "previous_cap_gpu_hours": 77.89524658965853,
+        "new_cumulative_cap_gpu_hours": 104.97136333301378,
+        "used_gpu_hours_at_change": 56.97136333301379,
+        "gpu_jobs_launched_at_change": 82,
+        "authorized_remaining_gpu_hours": 48,
+        "no_usage_reset_or_transfer": true
+      }
+    ],
+    "budget_authorization_window": {
+      "authorization_ref": "manifests/budget_authorization_20261012_wc_math_scheduler_new48gpuh.json",
+      "start_used_gpu_hours": 56.97136333301379,
+      "authorized_remaining_gpu_hours": 48,
+      "cumulative_cap_gpu_hours": 104.97136333301378,
+      "recorded_unix": 1791760184.7594678
+    },
+    "automatic_single_job_gpu_hours": 8,
+    "execution_policy_authorization_ref": "manifests/budget_authorization_20261012_wc_math_scheduler_new48gpuh.json",
+    "execution_policy_authorization_history": [
+      {
+        "authorized_on_local": "2026-10-10",
+        "source_user_instruction": "\u5355\u6b21 \u6539\u6210\u8d85\u8fc7 4h\u624d\u9700\u8981\u786e\u8ba4",
+        "previous_automatic_single_job_gpu_hours": 2,
+        "automatic_single_job_gpu_hours": 4,
+        "authorization_ref": "manifests/wc_execution_autonomy_authorization_20261010_4gpuh.json",
+        "recorded_unix": 1791561847.0094812
+      },
+      {
+        "authorized_on_local": "2026-10-12",
+        "source_user_instruction": "\u6839\u636e\u6700\u65b0\u5bf9\u8bdd\u548c\u6587\u6863\uff0c\u66f4\u65b0\u4e00\u4e0b\u5b9e\u9a8c\u8bbe\u8ba1\uff0c\u5c1d\u8bd5\u4e00\u4e0b\u63d0\u5230\u7684\u65b0\u7684\u6838\u5fc3\u65b9\u6cd5\u662f\u5426\u6210\u7acb\u3002\u5728\u5f53\u524d\u57fa\u7840\u4e0a\u628a\u53ef\u7528 gpuh \u8bbe\u4e3a 48h\uff0c\u5355\u6b21\u5927\u4e8e 8h \u624d\u8be2\u95ee\u3002\u7b49\u8fd9\u4e2a\u7aef\u5230\u7aef\u52a0\u901f\u6d4b\u8bd5\u8dd1\u5b8c\u4e86\u5c31\u63a8\u8fdb\u3002",
+        "previous_automatic_single_job_gpu_hours": 4,
+        "automatic_single_job_gpu_hours": 8,
+        "authorization_ref": "manifests/budget_authorization_20261012_wc_math_scheduler_new48gpuh.json",
+        "complete_single_job_strictly_over8_requires_confirmation": true
+      }
+    ],
+    "wc_source_confirmation_inflight": {
+      "supervisor_pid": 594353,
+      "run_id": "wc-source-conditional-confirmation-full40-r1",
+      "reserved_GPUh": 32.957570896490665
+    }
+  },
+  "original_processes": {
+    "594353": true,
+    "594354": true,
+    "594521": true
+  },
+  "source_revision": "e48ba58047b09507ea6f438f5077ebffb4fb2114",
+  "payload_files": 684,
+  "all_payload_equal": true,
+  "GPU": "GPU-cebf7119-cf03-23b9-e192-cd196332b704, 14066, 100"
+}

@@ -1,3 +1,7 @@
+## 2026-10-13 完整160 CPU已接受，GPU曲线尚未执行
+
+原CPU592697结束，source055b55755dbc0c745fd2fa2da2a69c82476f71e4／695文件一致；两flow×四Toy×十方法×audit/lean共160完整采样路径，295.821367秒，全部PASS。Native动作null、中档冻结参数、固定mask及audit/lean等价保持；GPU0、账本0。见[独立验收](../reports/wc_h1_cost_curve_cpu160_independent_acceptance_20261013.json)和[412当前执行](412_WC_FB_COMPLETE_RESULTS_AND_INDEPENDENT_CONFIRMATION_LAUNCH_20261013.md)。原完整60范围及7.815847555GPUh规划不变，尚需生产封口，未GPU。405完整50确认当前已单次运行，保护其冻结参数、输入、评分和串行结束后准入；不根据CONF改本曲线。以下CPU启动文字是保留历史。
+
 # H1 同批质量—实际成本曲线与固定序列对照：完整60规划与CPU准备
 
 推进406的必要归因和质量—时间评价。已有高保真H1工作点值得确认；本项让它面对同批强基线、固定序列与多个预登记计算工作点。F/B保持独立；405完整50确认的输入、方法和冻结参数不改。

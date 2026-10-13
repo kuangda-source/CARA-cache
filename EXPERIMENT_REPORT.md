@@ -1,3 +1,13 @@
+## 2026-10-13 F/B完整接受；冻结独立确认已启动，21:02查收
+
+[412完整结果与当前执行](research/412_WC_FB_COMPLETE_RESULTS_AND_INDEPENDENT_CONFIRMATION_LAUNCH_20261013.md)：原F/B完成432pairs/864CFG、8父完整等价、F16、B4×9×4、16raw352tensors及自动CPU post，原句柄/锁/GPU释放已接受。实费2.664073208GPUh，累计72.013792437/cap104.971363333，CONF前余32.957570896。F五方法三lambda的C/A选择相同；RAW子采样降低标量预测误差但决策不变，Haar/FFT无决策增量。B P0/M8/L2局部省约1%/2%/7.1%，L2四状态相对guided RMSE11.27–37.73%；不是视频加速或闭环结果，F/B继续独立不合入。
+
+原411 CPU592697已结束，source055b557/695不变；两flow/160完整CPU路径295.821秒全部接受，GPU0/账本0。完整60曲线仍只规划7.81585GPUh，未GPU，实际生产封口待；不以F/B或CONF调lambda。
+
+原405冻结完整50确认于16:51:26北京时间唯一准入：supervisor594353/runner594521/自动post594354，e48ba58/684全一致，stage wc-source-confirmation-production-r1-20261013、run wc-source-conditional-confirmation-full40-r1。四新提示词×17/43×五方法40正式＋10CAL预热，一次加载；H1 fingerprint34ef948e不变。完整预计6.56135GPUh≤8，预计3–4小时。当前对话自动化worldcache的next_check_not_before=2026-10-13 21:01:59.531 Asia/Shanghai（1791896519.531）；此前不持续轮询或长等待，不重启或改在跑字节。到时接受原50原件/40正式93帧/失败分母/prompt双seed聚合/实费和释放；若未完，重新估时安排一次查收。旧worldcache-f-b已停止安排。used=cap仅在途预留，不算实际预算耗尽。
+
+本轮观察KCP连接失败已封存，只把本任务拥有的本地FRPC transport切到TCP；认证/visitor和服务器任务不变，原私有文件留忽略目录。原P13h暂缓、E2完整76自身批准保持；单GPU串行/完整范围/严格>8GPUh具体问、不拆缩、不新增人工评审。以下保留旧状态与日期历史。
+
 ## 2026-10-13 同批成本曲线与静态归因CPU已启动
 
 [411完整60规划与CPU](research/411_WC_H1_FULL60_COST_CURVE_AND_STATIC_CONTROL_CPU_PREPARATION_20261013.md)：Native/WC/RA/A_NO_P/P_OFF、既定三lambda H1、固定A/固定plain，共十方法×四CAL=40正式＋20预热，一次加载；完整预测7.815847555GPUh，未提交GPU。中lambda与405冻结H1逐字段相同，低/高只改既有lambda与fingerprint，不用CONF或F/B调参。

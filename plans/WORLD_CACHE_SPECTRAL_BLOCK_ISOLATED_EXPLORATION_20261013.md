@@ -1,3 +1,7 @@
+## 2026-10-13 完整首批已结束并接受
+
+见[412完整F/B结果](../research/412_WC_FB_COMPLETE_RESULTS_AND_INDEPENDENT_CONFIRMATION_LAUNCH_20261013.md)：432pairs/864CFG、8父等价、F16和B4×9×4完整接受，实费2.664073208GPUh。F当前无动作选择增量，B有1%/2%/7.1%局部节省但误差依状态，未验证方法视频或连续闭环，仍独立不并入主线。原16:25一次查收已完成，旧查收自动化已停止安排；新冻结405确认单次运行，21:02查收。以下原设计/首次启动保留历史身份。
+
 # F/B：频率特征与部分Block刷新独立探索
 
 2026-10-13。状态：**ISOLATED_EXPLORATION_DESIGN；未并入主实验，尚无真实F/B效果或速度结果。** 用户要求先整理主线，将新想法纳入设计，有效后再合入。当前主线见[406](../research/406_WC_MAINLINE_AND_ISOLATED_EXPLORATION_MAP_20261013.md)，材料/CPU/E0见[407](../research/407_WC_SPECTRAL_BLOCK_INTAKE_MATH_AND_E0_20261013.md)。
