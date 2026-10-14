@@ -1,3 +1,9 @@
+## 2026-10-15 W3连续时钟432步CPU恢复；真实标签与新GPU许可仍待
+
+[434连续坐标](research/434_WC_W3_REAL_CONTINUOUS_CLOCK_AND_FULL432_CAUSAL_HISTORY_CPU_20261015.md)：原生固定UniPC CPU重放与12条H1/432步保存时钟全匹配，T1/T2因果前缀、未来/估计score隔离、12个D31回退接受；336paid/324支持行。Native约10.99秒、GPU/权重/新teacher/拟合/预算写0，原E0回执保持。时钟缺口已补，真实同状态CAD标签仍缺，不能用H1估计q当teacher。没有本轮后台进程。
+
+PA528原715cae7/R2/528/7.529994完整封口与已有许可询问保持，新GPU仍未批准，不重问/覆盖stage/用新W3代码改旧PA。下一安全CPU为W3真实标签完整采集scope/父等价/费用；入口 memory/handoffs/WC_W3_REAL_CLOCK_READY_LABEL_PREPARATION_20261015.md。原余24.974985961、F/B结束与论文五项补验保持。以下保留历史。
+
 ## 2026-10-15 PA528真实启动CPU完整接受；P/W3路线与具体投入待决定
 
 [433实际封口](research/433_WC_P_ACR_WHOLE528_LAUNCH_CPU_AND_NEXT_DECISION_20261015.md)：原R2/source715cae7/1574、853632已结束，实际生产/输入/资源/完整528指令与启动11/post5接受，109.25秒，账本SHA不变/权重0/GPU0；无本轮在途。04:25只读确认实结79.996377372/104.971363333、余24.974985961、锁空闲/无计算进程。不重复查旧句柄。

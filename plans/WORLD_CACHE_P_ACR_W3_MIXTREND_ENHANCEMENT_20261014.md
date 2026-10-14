@@ -1,4 +1,6 @@
 # WorldCache后续计划：P-ACR与W3-MixTrend有界增强
+
+**2026-10-15 W3最新CPU进展：**[434](../research/434_WC_W3_REAL_CONTINUOUS_CLOCK_AND_FULL432_CAUSAL_HISTORY_CPU_20261015.md)已重放原生固定UniPC连续sigma，与12条H1／432整数时钟全匹配并重构T1/T2因果前缀；未来漂移、旧H1评分隔离和D31回退检查通过。连续坐标准备缺口已补，真实同状态教师标签／新EXPL_DEV完整采集费用仍缺；0拟合／GPU／改动作。PA528许可仍待，不改原715cae7 stage，F/B结束。下列日期记录保留历史身份。
 **2026-10-15当前总路线：**以[研究路线与完整费用](WORLD_CACHE_RESEARCH_ROADMAP_20261015.md)为接续入口。旧A/H1及固定归因保持；P-ACR原语/完整父/报价数值与实际入口CPU已通过，启动层R2也已接受（433）。整卡PA528实际保守forecast7.529994GPUh，原PA1.5和整轮8是历史建议，不能作为当前完整执行费用。W3仍缺真实H1标签/连续sigma；新GPU停止、F/B结束保持。下列旧记录保留其日期身份。
 
 
