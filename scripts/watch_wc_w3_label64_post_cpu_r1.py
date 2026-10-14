@@ -20,6 +20,14 @@ def alive(pid):
     except FileNotFoundError:return False
 
 
+def released_handles(sup,pid):
+    if sup['pid']!=pid or sup['status']!='W3_LABEL64_GPU_EXITED_REQUIRES_FULL_RAW_CPU_AUDIT':
+        raise ValueError('Original released W3 supervisor identity required')
+    child=sup.get('child_pid')
+    if child is not None and alive(child):raise ValueError('Original GPU child has not exited')
+    return child is not None
+
+
 def main():
     p=argparse.ArgumentParser();p.add_argument('--supervisor-pid',type=int,required=True)
     for name in ('project','stage'):p.add_argument('--'+name,type=Path,required=True)
@@ -29,8 +37,7 @@ def main():
     if not (output/'supervisor.json').exists():
         dest.write_text(json.dumps({'status':'W3_ADMISSION_FAILED_NO_POST_OR_RESTART','GPU_submissions':0,'ended_unix':time.time()})+'\n');return
     sup=json.loads((output/'supervisor.json').read_text())
-    assert sup['pid']==a.supervisor_pid and sup['status']=='W3_LABEL64_GPU_EXITED_REQUIRES_FULL_RAW_CPU_AUDIT'
-    assert not alive(sup['child_pid'])
+    released_handles(sup,a.supervisor_pid)
     with (a.stage/'post-CPU.log').open('x') as log:
         result=subprocess.run(command,stdout=log,stderr=subprocess.STDOUT,env={**os.environ,'CUDA_VISIBLE_DEVICES':''})
     dest.write_text(json.dumps({'status':'W3_LABEL64_FULL_POST_CPU_TERMINAL','exit_code':result.returncode,

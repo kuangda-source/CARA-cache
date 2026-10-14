@@ -1,3 +1,9 @@
+## 2026-10-15 W3完整R2 CPU接受；启动失败分母修复待R3
+
+[445边界修复](research/445_WC_W3_R2_ACCEPTED_AND_STARTUP_FAILURE_FULL_DENOMINATOR_REPAIR_20261015.md)：原860020/source754fcd1在06:45单次查收接受、1627源/4+7+11控制、78.496799秒、预算不变/GPU0，旧任务结束不重查。复核补齐supervisor未创建child及child缺runner时的18父/72分母和0/UNKNOWN真实计数；本地launch12/fullpost7通过，原scope/H1/输入不变。
+
+新故障路径必须fresh生产R3实际CPU绑定后才能讨论GPU，尚未派发；不追认原R2源码。自动化已暂停。W3原11.645828/建议上限12、PA原715cae7具体询问未回/7.529994、原余24.974985961不重置，均无新GPU/标签/拟合/端点；F/B结束、主稿补验保持。以下历史保留。
+
 ## 2026-10-15 W3完整启动实际R2 CPU已派发；06:45一次查收
 
 [444完整接线](research/444_WC_W3_WHOLE_LAUNCH_PRODUCTION_R2_CPU_AND_FINAL_COLLECTION_20261015.md)：source754fcd1、fresh生产cpu-r2、原CPU860020于06:38:58单次派发，实际原H1/8输入/18父64+8/864矩阵及scope4/fullpost7/launch11完整22控制尚未验收；GPU/模型/预算写0。R1实际入口已在443接受82.555秒/1622，R3数值72/288/3456在441接受，两旧任务不再查。

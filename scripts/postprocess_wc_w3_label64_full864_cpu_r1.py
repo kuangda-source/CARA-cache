@@ -38,9 +38,20 @@ def main():
     assert counts['full_paths']==18 and counts['all_origins']==72 and counts['complete_pairs']==864
     root=(a.project/'outputs'/RUN).resolve();supervisor=json.loads((root/'supervisor.json').read_text())
     assert supervisor['status']=='W3_LABEL64_GPU_EXITED_REQUIRES_FULL_RAW_CPU_AUDIT'
-    for key in ('pid','child_pid'):assert not Path('/proc/'+str(supervisor[key])).exists()
-    runner_path=root/'runner.json';assert sha(runner_path)==supervisor['runner_sha256']
-    runner=json.loads(runner_path.read_text())
+    for key in ('pid','child_pid'):
+        if supervisor.get(key) is not None:assert not Path('/proc/'+str(supervisor[key])).exists()
+    runner_path=root/'runner.json'
+    if supervisor.get('child_pid') is None or not runner_path.exists():
+        from wcomr.w3_label64_post_r1 import full_matrix
+        assert not runner_path.exists() and supervisor.get('runner_sha256') is None
+        requests=[json.loads(line) for line in (a.stage/REQUESTS).read_text().splitlines()]
+        runner={'source_revision':reg['source_revision'],'scope_counts':counts,'runs':full_matrix(requests)}
+        if supervisor.get('child_pid') is not None:
+            for row in runner['runs']:row.update(status='TECHNICAL_FAILURE',actual_pair_computations=None,
+                failure_reason='ORIGINAL_CHILD_STARTED_BUT_RUNNER_RECEIPT_MISSING')
+    else:
+        assert sha(runner_path)==supervisor['runner_sha256']
+        runner=json.loads(runner_path.read_text())
     assert runner['source_revision']==reg['source_revision'] and runner['scope_counts']==counts
     before=sha(a.project/'reports/budget.json');start=time.perf_counter()
     def asset_path(asset):
@@ -68,6 +79,7 @@ def main():
         report=audit_all(runner['runs'],requests,clock=clock,expected_shape=expected,
             load_raw=load,read_video=video,provenance='REAL_SAME_STATE_POST_RF')
         result.update(report)
+        result['original_child_started']=supervisor.get('child_pid') is not None
     except BaseException as error:
         result.update(status='W3_FULL_RAW_CPU_TECH_FAILURE_ALL_DENOMINATORS_RETAINED',
             error_type=type(error).__name__,error=str(error),original_runner_retained=str(runner_path),

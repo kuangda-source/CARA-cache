@@ -49,6 +49,7 @@ def main():
     output.mkdir();state={'status':'W3_LABEL64_GPU_RUNNING','pid':os.getpid(),'run_id':RUN,
         'source_revision':a.source_revision,'config_sha256':sha(a.stage/CONFIG),'production_CPU_sha256':sha(a.stage/'production-CPU-result.json'),
         'budget_before':before,'admission':gpu,'started_unix':time.time(),'authorized_billed_GPUh_limit':limit,
+        'child_pid':None,'child_exit_code':None,'runner_sha256':None,
         'planned_parents':18,'planned_diagnostic_points':72,'planned_physical_pairs_maximum':864,'model_loads':1,'legacy_seconds_deadline_active':False,'launch_id':permission['launch_id'],'new_authorization_sha256':sha(a.authorization)}
     start=time.monotonic();child=None
     reserved=dict(before);reserved.update(used_gpu_hours=before['cap_gpu_hours'],gpu_jobs_launched=before['gpu_jobs_launched']+1,status='W3_LABEL64_INFLIGHT_REMAINING_RESERVED_NOT_ACTUAL_SPENT')

@@ -95,7 +95,7 @@ def main():
         verdicts={}
         try:
             for filename,count in (('test_w3_label64_production_contract_r1.py',4),('test_w3_label64_fullpost_r1.py',7),
-                    ('test_w3_label64_launch_r1.py',11)):
+                    ('test_w3_label64_launch_r1.py',12)):
                 spec=importlib.util.spec_from_file_location('W3_actual_CPU_'+filename,a.stage/'tests'/filename)
                 module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
                 result=unittest.TextTestRunner(verbosity=1).run(unittest.defaultTestLoader.loadTestsFromModule(module))

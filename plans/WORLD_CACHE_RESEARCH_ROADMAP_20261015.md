@@ -12,6 +12,8 @@
 
 [444完整接线R2](../research/444_WC_W3_WHOLE_LAUNCH_PRODUCTION_R2_CPU_AND_FINAL_COLLECTION_20261015.md)已于06:38:58派发原860020/source754fcd1，06:45一次查全部实际入口及4+7+11控制。通过后只讨论具体完整卡投入：W3 forecast11.645828、建议批准上限12；仍不自动GPU。只执行W3的规划余13.329158，P保持可选，正式补验需留预算。
 
+[445启动失败边界](../research/445_WC_W3_R2_ACCEPTED_AND_STARTUP_FAILURE_FULL_DENOMINATOR_REPAIR_20261015.md)：R2已接受22控制，复核补齐无child/无runner时全部18/72分母与UNKNOWN费用计数；本地launch12/fullpost7通过。该新源需fresh R3实际CPU再接受，不能借用R2旧SHA批准GPU；原范围/输入/H1不变。
+
 **当前建议：保住 A＋校准式计算分配的论文主干，优先加强 W3 的独立价值；P-ACR 作为有界增强，先回答真实误差—费用问题，再决定是否接闭环。** F/B 本轮已经结束。本文结合 `worldcache讨论` 最新数轮、两份 P/W3 材料及项目已接受记录更新；具体执行仍服从当前停止新 GPU 的约定。
 
 ## 1. 论文主线及已完成证据

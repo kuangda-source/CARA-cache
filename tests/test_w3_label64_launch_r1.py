@@ -154,5 +154,26 @@ class Full864Launch(unittest.TestCase):
                 original=LAUNCH.dispatch(root,launch,p,'GPU-CPU-fixture');spawn.assert_not_called()
             self.assertEqual(original['original'],receipt)
 
+    def test_supervisor_failure_before_child_creation_keeps_post_scope(self):
+        sup={'pid':101,'child_pid':None,'runner_sha256':None,
+            'status':'W3_LABEL64_GPU_EXITED_REQUIRES_FULL_RAW_CPU_AUDIT'}
+        with patch.object(POST,'alive',side_effect=AssertionError('No nonexistent child poll')):
+            self.assertFalse(POST.released_handles(sup,101))
+        with self.assertRaises(ValueError):POST.released_handles(sup,102)
+        from wcomr.w3_label64_fullpost_r1 import audit_all
+        from wcomr.w3_label64_post_r1 import full_matrix
+        scope=config();requests=[json.loads(line) for line in (ROOT/'configs/wc_w3_expl_dev8_requests_r1_20261015.jsonl').read_text().splitlines()]
+        def absent(*args):raise AssertionError('No raw/video exists before child creation')
+        report=audit_all(full_matrix(requests),requests,clock=None,expected_shape=None,
+            load_raw=absent,read_video=absent,provenance='REAL_SAME_STATE_POST_RF')
+        self.assertEqual((len(report['parents']),len(report['labels']),report['actual_pairs']),(18,72,0))
+        self.assertFalse(report['real_teacher_claim'])
+        missing=full_matrix(requests)
+        for row in missing:row.update(status='TECHNICAL_FAILURE',actual_pair_computations=None)
+        report=audit_all(missing,requests,clock=None,expected_shape=None,
+            load_raw=absent,read_video=absent,provenance='REAL_SAME_STATE_POST_RF')
+        self.assertEqual((len(report['parents']),len(report['labels'])),(18,72));self.assertIsNone(report['actual_pairs'])
+        self.assertEqual(len(report['actual_pair_count_unknown_parent_ids']),18)
+
 
 if __name__=='__main__':unittest.main()

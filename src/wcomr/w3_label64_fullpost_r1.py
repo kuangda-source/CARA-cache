@@ -186,5 +186,6 @@ def audit_all(rows,requests,*,clock,expected_shape,load_raw,read_video,provenanc
         actual_pair_count_unknown_parent_ids=[p['id'] for p,v in zip(plan,recorded_counts) if v is None],
         verified_complete_parent_pairs=actual_pairs,actual_available_labels=labels,raw_files=len(raw_ids),raw_tensors=tensor_count,
         accepted_videos=accepted_videos,scored_control_frames=accepted_videos*93,
-        full90_1242_raw_scope_audited=len(raw_ids)==90 and tensor_count==1242)
+        full90_1242_raw_scope_audited=len(raw_ids)==90 and tensor_count==1242,
+        real_teacher_claim=provenance=='REAL_SAME_STATE_POST_RF' and labels>0)
     return output
