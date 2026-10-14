@@ -20,9 +20,37 @@ from .mid_coverage import tree_digest
 from .light_sampling import synchronize
 from .cfg_guided_w1_outputs import guided_velocity_moments
 from .w3_causal_trend_r1 import CausalHistory,Observation,SameStateLabel
+from .calibration import ResidualCalibrator
 
 VERSION='W3_LABEL64_NONCOMMITTING_ORDINARY_H1_HISTORY_R1'
 STEPS=(10,16,23,25,29,30,32,35)
+
+
+def reset_dense_signature(context,parameters):
+    banks=[]
+    for values in parameters:
+        c=ResidualCalibrator(**values);c.reset(context);banks.append(vars(c))
+    return tree_digest(plain(banks))
+
+
+def exact_native_cycle_close(owner,step,history,pre_epoch,reset_dense_sha,last_output_sha):
+    """Accept only the unchanged WC 70-call clear, never a new source write."""
+    net=owner.net;d=owner.deployment
+    if (step!=35 or int(net.cnt)!=0 or history.get('native_cycle_reset') is not True
+            or d.epoch!=pre_epoch+1 or d.working!=[None,None] or d.core.cache
+            or tree_digest(plain([vars(c) for c in d.dense]))!=reset_dense_sha):return False
+    if history['action']=='CC' and tuple(owner.controller._state()[:4])!=tuple(history['joint_decision']['state_before'][:4]):
+        return False
+    if any(getattr(net,n)!=[None,None] for n in ('residual_cache','probe_residual_cache',
+            'previous_internal_states','previous_input')):return False
+    # Pinned WC clears both outputs at call70, then stores the just-returned
+    # unconditional network output. Match that exact actual output, not merely
+    # a nonempty tensor or a generally allowed mutation at step35.
+    if (net.previous_output[0] is not None or not torch.is_tensor(net.previous_output[1])
+            or last_output_sha is None or tree_digest(net.previous_output[1])!=last_output_sha):return False
+    return (net.residual_window==[[],[]] and net.probe_residual_window==[[],[]]
+        and net.accumulated_rel_l1_distance==[0.,0.] and net.resume_flag==[False,False]
+        and net.worldcache_step_skipped_count==0)
 
 
 class LabelH1Controller(SourcePhaseH1Controller):
@@ -111,19 +139,33 @@ class W3LabelOwner(SourcePhaseH1Owner):
             owned=snapshot.owned.origin;physical=snapshot.physical_sha
             D_sha=tree_digest(plain([vars(c) for c in self.deployment.dense]))
             work_sha=tree_digest((self.deployment.working,self.net.probe_residual_cache,self.net.residual_cache))
+            pre_epoch=self.deployment.epoch
+            parameters=[{key:getattr(c,key) for key in ('ridge','clip','decay','min_energy','shrinkage')}
+                for c in self.deployment.dense]
+            reset_sha=reset_dense_signature(self.context,parameters)
             work_parts_before={'ledger':tree_digest(self.deployment.working),
                 'probe':tree_digest(self.net.probe_residual_cache),'residual':tree_digest(self.net.residual_cache)}
             payload={}
             try:
                 for name in ('C','A','D'):
-                    with self.controller.action(step,name):
-                        synchronize();start=time.perf_counter();self.actual_pair_computations+=1
-                        value=SourcePhaseH1Owner.pair(self,noise,latent,timestep,conditions,choose)
-                        synchronize();seconds=time.perf_counter()-start
+                    last_output=[]
+                    def observe_cycle_output(module,args,head):
+                        if int(self.net.cnt)==69:
+                            last_output[:]=[tree_digest(self.net.unpatchify(head))]
+                    hook=self.net.final_layer.register_forward_hook(observe_cycle_output) if step==35 else None
+                    try:
+                        with self.controller.action(step,name):
+                            synchronize();start=time.perf_counter();self.actual_pair_computations+=1
+                            value=SourcePhaseH1Owner.pair(self,noise,latent,timestep,conditions,choose)
+                            synchronize();seconds=time.perf_counter()-start
+                    finally:
+                        if hook is not None:hook.remove()
                     h=copy.deepcopy(self.history[-1])
                     if h['A_readout']['readout_action']!=name:raise ValueError('Actual W3 candidate readout differs')
+                    cycle_close=exact_native_cycle_close(self,step,h,pre_epoch,reset_sha,
+                        last_output[-1] if last_output else None)
                     if name!='D' and (tree_digest(plain([vars(c) for c in self.deployment.dense]))!=D_sha
-                            or tree_digest((self.deployment.working,self.net.probe_residual_cache,self.net.residual_cache))!=work_sha):
+                            or tree_digest((self.deployment.working,self.net.probe_residual_cache,self.net.residual_cache))!=work_sha) and not cycle_close:
                         raise ValueError('C/A changed true D or working source: '+repr({'step':step,'action':name,
                             'source_before':pre_state,'true_D_changed':tree_digest(plain([vars(c) for c in self.deployment.dense]))!=D_sha,
                             'working_parts_before':work_parts_before,'working_parts_after':{
@@ -131,7 +173,8 @@ class W3LabelOwner(SourcePhaseH1Owner):
                                 'residual':tree_digest(self.net.residual_cache)}}))
                     payload[name]=tuple(v.detach().cpu().clone() for v in value)
                     trials.append({'kind':name,'actual_readout':h['A_readout']['readout_action'],
-                        'actual_action':h['action'],'full_pair_seconds':seconds})
+                        'actual_action':h['action'],'full_pair_seconds':seconds,
+                        'exact_original_70_call_cycle_clear':cycle_close})
                     snapshot.restore()
                 if (self.fingerprint()!=owned or snapshot.physical.fingerprint()!=physical
                         or self.controller._state()!=pre_state or tree_digest((noise,latent,timestep))!=input_sha):

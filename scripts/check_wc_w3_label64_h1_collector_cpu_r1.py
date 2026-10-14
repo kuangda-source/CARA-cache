@@ -27,11 +27,15 @@ def main():
     # changing the actual-import or guarded execution body.
     import sys
     output=Path(sys.argv[sys.argv.index('--output')+1]);stage=Path(sys.argv[sys.argv.index('--stage')+1])
-    spec=importlib.util.spec_from_file_location('W3_original_support_unit_CPU',stage/'tests/test_w3_label64_original_support_r1.py')
-    tests=importlib.util.module_from_spec(spec);spec.loader.exec_module(tests)
-    verdict=unittest.TextTestRunner(verbosity=1).run(unittest.defaultTestLoader.loadTestsFromModule(tests))
-    assert verdict.wasSuccessful() and verdict.testsRun==3
-    result=json.loads(output.read_text());result['original_support_guard_tests']=3
+    result=json.loads(output.read_text())
+    for module_name,filename,count,key in (
+            ('W3_original_support_unit_CPU','test_w3_label64_original_support_r1.py',3,'original_support_guard_tests'),
+            ('W3_native_cycle_unit_CPU','test_w3_label64_cycle_guard_r1.py',2,'exact_native_cycle_guard_tests')):
+        spec=importlib.util.spec_from_file_location(module_name,stage/'tests'/filename)
+        tests=importlib.util.module_from_spec(spec);spec.loader.exec_module(tests)
+        verdict=unittest.TextTestRunner(verbosity=1).run(unittest.defaultTestLoader.loadTestsFromModule(tests))
+        assert verdict.wasSuccessful() and verdict.testsRun==count
+        result[key]=count
     result['W3_sampler_science_or_real_teacher_claim']=False
     output.write_text(json.dumps(result,indent=2,allow_nan=False)+'\n')
 

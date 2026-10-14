@@ -88,6 +88,7 @@ def body(inference,selected,wc,rf,settings,inference_module,runtime,config,flow,
                     assert [r['kind'] for r in record['trials']]==['C','A','D']
                     assert record['extra_pairs']==3 and not record['candidate_or_teacher_committed_to_parent']
                     assert record['same_state_snapshot_and_parent_restore_verified']
+                    assert all(t['exact_original_70_call_cycle_clear']==(record['step']==35) for t in record['trials'])
                     assert record['label']['provenance']=='SYNTHETIC_CPU_INTERFACE'
                     feature=owner.feature_rows[record['step']-1]
                     gain=feature['observation']['gain'];q=record['label']

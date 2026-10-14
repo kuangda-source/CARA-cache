@@ -1,6 +1,6 @@
 # WorldCache 研究设计与后续路线（2026-10-15）
 
-**最新CPU执行：**[436独立采集器](../research/436_WC_W3_FULL72_COLLECTOR_CPU_PREREG_AND_LAUNCH_20261015.md)已经实现并唯一派发原R1 CPU855862/sourcebb19766；完整72CPU父／288状态／3456总pairs待验收，05:32北京时间一次查收。生产18/864与CPU范围分开；不称新标签／W3收益或GPU就绪。PA528待批准保持。
+**最新CPU状态：**[439原生周期修复](../research/439_WC_W3_NATIVE_CYCLE35_GUARD_REPAIR_AND_FULL_CPU_R3_20261015.md)保存了 R1/R2 的终态失败，并将来源检查对齐原生 step35 的70调用清空和最后输出写回。本地12项控制通过，完整72CPU父／288状态／3456总pairs须用独立R3验收；尚无真实标签、拟合或新GPU。生产18/864与CPU范围分开。PA528原源码和待批准状态保持。
 
 [437独立标签post](../research/437_WC_W3_INDEPENDENT_RAW_LABEL_AND_CAUSAL_PREFIX_POST_CPU_20261015.md)七项本地原始张量／教师与因果输入隔离控制另已通过，未改原CPU stage；实际完整生产原件与视频post仍待。
 
@@ -59,7 +59,7 @@ r_A=g_t^2q_A,\qquad \Delta r_{CA}=g_t^2(q_C-q_A),
 |T3|简单双路径时间趋势|后续条件开发；先和T1/T2比较|
 |T4|MixLinear式低秩时间频谱|仅当前述显示长期信息有效才考虑；不恢复旧空间F|
 
-**历史坐标已补齐：**[434连续时钟与因果历史](../research/434_WC_W3_REAL_CONTINUOUS_CLOCK_AND_FULL432_CAUSAL_HISTORY_CPU_20261015.md)用真实固定scheduler在CPU重放并对齐四CAL×三λ／432步，T1/T2前缀重构及未来／估计分数隔离通过；0标签、0拟合。**[435开发输入](../research/435_WC_W3_EXPL_DEV8_FROZEN_INPUTS_AND_FULL864_LABEL_SCOPE_20261015.md)已冻结8个独立参考／词汇组，各8标签位置；完整18父／最多864pairs范围已登记，完整采样CPU及费用仍待。** 首要缺口仍是实际C/A/D教师标签。原PA12只有四旧CAL，不能替代该64标签或独立泛化；没有完整CPU／forecast／明确许可不提交GPU。
+**历史坐标已补齐：**[434连续时钟与因果历史](../research/434_WC_W3_REAL_CONTINUOUS_CLOCK_AND_FULL432_CAUSAL_HISTORY_CPU_20261015.md)用真实固定scheduler在CPU重放并对齐四CAL×三λ／432步，T1/T2前缀重构及未来／估计分数隔离通过；0标签、0拟合。**[435开发输入](../research/435_WC_W3_EXPL_DEV8_FROZEN_INPUTS_AND_FULL864_LABEL_SCOPE_20261015.md)已冻结8个独立参考／词汇组，各8标签位置；完整18父／最多864pairs范围已登记。** 完整采样CPU正在修复验证；[438费用草案](../research/438_WC_W3_FULL864_PROVISIONAL_COST_AND_CPU_COLLECTION_20261015.md)保守准备值11.645828GPUh，实际入口／完整post仍待。首要缺口仍是实际C/A/D教师标签。原PA12只有四旧CAL，不能替代该64标签或独立泛化；没有完整CPU／forecast／明确许可不提交GPU。
 
 训练、标准化和超参数只在训练提示词中，验证按prompt分组；禁止同视频步骤随机拆分。优先报告合法动作regret、边界误判、实际控制开销；回归MSE仅辅助。保护1–7／36与age1–6支持保持，D31为age7回退，不通过放宽保护制造动态动作。纯CPU／标签拟合完成后，仍需闭环质量—时间证明。[标签与模型协议](../research/p_w3_e0_20261014/W3_Trend_Label_And_Baseline_Spec.md)。
 
@@ -88,6 +88,8 @@ r_A=g_t^2q_A,\qquad \Delta r_{CA}=g_t^2(q_C-q_A),
 原48窗口未重置：本轮CPU结束后04:25只读核实实结79.996377372／cap104.971363333，余约 **24.975 GPUh**；本轮CPU不扣费。具体执行准入仍须实时账本／锁／fresh GPU核对。
 
 PA528完整保守forecast **7.529994 GPUh**，约占当前余量30.15%；若按forecast执行，余量将约17.444992（纯计划值，未扣／预留）。它不是材料里初步PA1.5建议，不是已测算法耗时。原“增强整轮8”预算分配现已不适用，W3／闭环要另估完整成本后一起讨论，不能把未估项写成零或自动增加预算。
+
+W3完整18父／864上限卡费用草案 **11.645828 GPUh**，另一个粗allowance情景8.044965也超过8。PA与W3两卡草案合计约19.175822，按现余额只留约5.799164给闭环／正式补验，**因此不预设两卡必须执行**。优先做完CPU与生产范围说明，再讨论W3增强和主稿补验的资源分配。当前没有任何新GPU预留、提交或扣费。
 
 **单次严格>8GPUh才触发预算例外确认的旧规则保留；但用户随后停止新实验的指令仍生效，PA低于8也不能自行开GPU。** 本轮仅设计、代码和CPU验证。长任务以后仍在预计结束时间一次查收，未知状态不重复派发。
 
