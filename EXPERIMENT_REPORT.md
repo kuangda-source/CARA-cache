@@ -1,3 +1,9 @@
+## 2026-10-15 W3八开发输入与完整864范围锁定；采集器CPU待
+
+[435输入/范围](research/435_WC_W3_EXPL_DEV8_FROZEN_INPUTS_AND_FULL864_LABEL_SCOPE_20261015.md)：四类各2共8EXPL_DEV按预登记身份SHA规则冻结，本地/服务器88回执/1044分组审计接受，排除已用及保留36组成员；无终点/耗时/拒绝筛选。64正式+8warm状态、18父、最多864pairs/1728CFG/1load及90raw1242tensor明确；仅身份/范围CPU，不是sampler/生产CPU。当前无真实标签/拟合/GPU/账本写/后台任务。
+
+下一独立W3非提交式CAD采集器与普通36步历史/父等价CPU，再生产/post与完整forecast（当前UNKNOWN）。PA528原715cae7/R2/7.529994与许可询问保持，不改stage/重问/自动GPU。原余24.974985961、F/B结束/主线冻结/正式五项补验保持。下一入口 memory/handoffs/WC_W3_EXPL_DEV8_INPUTS_SCOPE_READY_COLLECTOR_NEXT_20261015.md。以下保留历史。
+
 ## 2026-10-15 W3连续时钟432步CPU恢复；真实标签与新GPU许可仍待
 
 [434连续坐标](research/434_WC_W3_REAL_CONTINUOUS_CLOCK_AND_FULL432_CAUSAL_HISTORY_CPU_20261015.md)：原生固定UniPC CPU重放与12条H1/432步保存时钟全匹配，T1/T2因果前缀、未来/估计score隔离、12个D31回退接受；336paid/324支持行。Native约10.99秒、GPU/权重/新teacher/拟合/预算写0，原E0回执保持。时钟缺口已补，真实同状态CAD标签仍缺，不能用H1估计q当teacher。没有本轮后台进程。
