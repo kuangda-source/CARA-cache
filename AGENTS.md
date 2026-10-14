@@ -1,3 +1,9 @@
+## 2026-10-15 ACR共享前缀80 / W3因果11 CPU完整接受
+
+[428来源修复与CPU](research/428_WC_ACR_SOURCE_BOOKKEEPING_FIX_AND_W3_CAUSAL_PREPARATION_20261015.md)：R3 source f1b0da7、550源一致，完整80单支原语/11因果检查通过，pid797604结束，43.0118秒、预算SHA不变/GPU0。两个shallow共享、仅一支deep，A/单支D/补偿和C兼容WC来源/RNG/条件/复位对照接受。修复精确post-counter previous_output；R1/R2失败封存。均Toy CPU，不是实际模型或加速。四真实H1144前缀只读复放，无σ/标签不拟合；开发系数冻结/历史DD差分对照准备好。
+
+下一入口[ACR_W3_PRIMITIVE](memory/handoffs/WC_ACR_W3_PRIMITIVE_CPU_20261015.md)：接完整H1非提交式诊断/恢复/原父36等价，再PA12真实报价与生产封口、W3真σ/标签。尚无新GPU许可/forecast/主线合入，F/B结束、旧自动化暂停、预算48窗口/余24.974985961保持，不新增人评/LoRA/OMR。该CPU全部结束，无当前在途；以下保留历史。
+
 ## 2026-10-14 P/W3 E0 CPU已完成；无新GPU
 
 [426 E0与系数结果](research/426_WC_P_W3_E0_COMPLETE_ASYMMETRIC_ORACLE_AND_COEFFICIENT_RESULTS_20261014.md)：依现有目标继续只读CPU，12条H1/432步重构与28raw/336张量（两stage652/638源）核验完成，预算SHA不变，GPU/forward/新teacher/服务器写入0。16pi0点实际A上Pc/Pu oracle失真低12.3300%/41.6523%；预登记prompt-LOPO SourcePhase Pu低37.2996%、4提示词/14点改善，两个P0早期负点保留。仅条件性局部结果，非H1主动D、真价格或视频收益，固定A此前已曝光所有CAL。
