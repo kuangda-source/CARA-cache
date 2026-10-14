@@ -1,0 +1,11 @@
+{
+  "status": "ACR_SHARED_PREFIX_CPU_FAILED_FULL_SCOPE_RETAINED",
+  "real_model_loaded": false,
+  "GPU_submissions": 0,
+  "runtime": "/Users/kuangda_gao/Documents/\u4e16\u754c\u6a21\u578b\u52a0\u901f\u5b9e\u9a8c/worldcache_omr/.sync/p-acr-cpu-runtime-r1-20261015",
+  "new_teacher_calls": 0,
+  "error_type": "AssertionError",
+  "error": "cosmos_predict2/inference.py",
+  "traceback": "Traceback (most recent call last):\n  File \"/Users/kuangda_gao/Documents/\u4e16\u754c\u6a21\u578b\u52a0\u901f\u5b9e\u9a8c/worldcache_omr/scripts/check_wc_p_acr_shared_prefix_cpu_r1.py\", line 34, in main\n    result.update(module.run(a.runtime), CUDA_initialized=torch.cuda.is_initialized())\n  File \"tests/check_p_acr_readout_shared_prefix_cpu_r1.py\", line 128, in run\n    result = load('check_full_sampling').run(runtime, exercise=lambda **kw: exercise(runtime=runtime, **kw))\n  File \"tests/check_full_sampling.py\", line 46, in run\n    assert hashlib.sha256((runtime / path).read_bytes()).hexdigest() == digest, path\nAssertionError: cosmos_predict2/inference.py\n",
+  "CPU_wall_seconds": 0.941526166
+}

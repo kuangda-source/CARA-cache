@@ -1,0 +1,40 @@
+{
+  "id": "WC-P-ACR-W3-SHARED-PREFIX-CPU-R1-20261015-A",
+  "status_at_registration": "CPU_INTERFACE_ONLY_NO_GPU_OR_MODEL_WEIGHTS",
+  "stage": ".sync/wc-p-acr-w3-shared-prefix-cpu-r1-20261015",
+  "P_scope": {
+    "flows": [false, true],
+    "steps": [12, 23, 29, 30, 35],
+    "directions": ["Pc", "Pu"],
+    "coefficients_each_direction": ["0", "1", "0.83", "CFG_CANCELLATION_8/7_OR_7/8"],
+    "cases": 80,
+    "expected_actual_shallow_passes_per_case": 2,
+    "expected_actual_deep_branches_per_case": 1,
+    "reference": "Separate unchanged pinned C/A/D CPU function bodies at identical Toy state",
+    "working_cache_reference": "C-compatible legacy WC fields, not physical computation counters or module visit buffers",
+    "trusted_D_or_working_bank_update": false,
+    "source_kind": "ACR_READOUT_NOT_REFRESH"
+  },
+  "W3_scope": {
+    "necessary_unit_checks": 11,
+    "models": ["T1_CURRENT_ONLY", "T2_CAUSAL_SCALAR_WINDOW4"],
+    "feature_dimensions": [13, 27],
+    "label_targets": ["g_squared_q_A", "g_squared_q_C_minus_q_A"],
+    "scoring": "Repair coherent nonnegative weighted risks before full CAD argmin; no second gain factor",
+    "training_provenance": "SYNTHETIC_CPU_INTERFACE",
+    "real_dataset_fit_or_decision_gain": false
+  },
+  "ordinary_H1_full_sampler_diagnostic_integration": "STILL_REQUIRED_AFTER_PRIMITIVE_CPU",
+  "actual_Cosmos_parameters_loaded": false,
+  "new_teacher_calls": 0,
+  "CUDA_initialized": false,
+  "GPU_submissions": 0,
+  "GPU_authorized": false,
+  "ledger_written": false,
+  "frozen_H1_or_F_B_modified": false,
+  "failure_receipts_preserved": [
+    "reports/wc_p_acr_shared_prefix_cpu_r1_20261015.json",
+    "reports/wc_p_acr_shared_prefix_cpu_r2_20261015.json",
+    "reports/wc_p_acr_shared_prefix_cpu_r3_20261015.json"
+  ]
+}
