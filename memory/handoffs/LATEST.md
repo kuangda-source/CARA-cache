@@ -1,3 +1,9 @@
+## 2026-10-15 P-ACR完整H1父接口CPU R3待最终验收；生产报价范围已明确
+
+[429完整父接口与报价](../../research/429_WC_P_ACR_FULL_H1_PARENT_CPU_AND_PRODUCTION_QUOTATION_NEXT_20261015.md)：源6ef228e/1532、原CPU817370，R3 .sync/wc-p-acr-full-h1-parent-cpu-r3-20261015。32全CPU路径/48固定状态/528额外pairs注册保持；R1/R2合成P22→29 age7拒绝保留，4项独立守卫通过，原H1参数/支持域不改。02:14预计时间首次查收仍运行；同次余量记录32mock文件仅为进度，未计完整通过。预算SHA不变/GPU0。新独立自动化p-acr-cpu于**02:20北京时间（1792002000）**一次查原句柄终态，完成暂停；此前不持续查询或重复派发。旧自动化/F/B保持暂停。
+
+PA生产建议8父/12点/五动作各1预热＋3正式，528真实pairs/1056CFG；完整CPU、真实报价去取证等价、forecast仍待，不套PA1.5h。W3真sigma/标签/开发提示词尚待，P/W3不合入原主线，无新GPU许可；48窗口/余24.974985961保持。下一入口 [FULL_H1_PRICE_PREP](WC_P_ACR_FULL_H1_CPU_AND_PRICE_PREPARATION_20261015.md)。以下为保留历史。
+
 ## 2026-10-15 ACR共享前缀80 / W3因果11 CPU完整接受
 
 [428来源修复与CPU](../../research/428_WC_ACR_SOURCE_BOOKKEEPING_FIX_AND_W3_CAUSAL_PREPARATION_20261015.md)：R3 source f1b0da7、550源一致，完整80单支原语/11因果检查通过，pid797604结束，43.0118秒、预算SHA不变/GPU0。两个shallow共享、仅一支deep，A/单支D/补偿和C兼容WC来源/RNG/条件/复位对照接受。修复精确post-counter previous_output；R1/R2失败封存。均Toy CPU，不是实际模型或加速。四真实H1144前缀只读复放，无σ/标签不拟合；开发系数冻结/历史DD差分对照准备好。
