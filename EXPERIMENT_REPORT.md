@@ -1,3 +1,9 @@
+## 2026-10-15 W3完整R3 CPU已单次派发；06:17一次查收
+
+[439原生周期修复](research/439_WC_W3_NATIVE_CYCLE35_GUARD_REPAIR_AND_FULL_CPU_R3_20261015.md)：本地12控制通过后，source150da32、独立stage wc-w3-label64-h1-collector-cpu-r3-20261015、CPU857865于05:51:29单次派发；两flow×D/P、72父/288点/2592ordinary+864CAD=3456pairs范围不变。尚未验收；真实teacher/权重/GPU/预算写0。R1/R2终态失败原件保留，不再查旧句柄。
+
+最早查收=2026-10-15 06:16:29.094 Asia/Shanghai（unix1792016189.0936728），自动化W3标签CPU查收06:17一次查原launch/全部source/全部父36等价/3次恢复/因果隔离/一次g²/原支持3与精确cycle2/预算SHA。此前不SSH持续监听、不重启或覆盖stage；未完按余量重估一次查收并结束。生产18/864、90raw/18视频post与11.645828费用草案仍待；PA原715cae7/7.529994许可未回，新GPU仍停止，F/B结束，原余24.974985961不重置。下一入口 memory/handoffs/WC_W3_NATIVE_CYCLE35_REPAIR_R3_CPU_20261015.md；以下历史保留。
+
 ## 2026-10-15 W3原生周期定位完成；完整R3 CPU待派发
 
 [439周期修复](research/439_WC_W3_NATIVE_CYCLE35_GUARD_REPAIR_AND_FULL_CPU_R3_20261015.md)：R1原855862和R2原857121均已终态失败，原件保留；R2定位step35/call70的原生来源清空，最后unconditional输出按原代码写回。已仅修正该精确关闭边界，本地支持3/周期2/raw-post7共12检查通过，真实H1/上游/source715cae7 PA不改，完整72父/288点/3456pairs不缩。尚无完整采样CPU接受、真实标签、拟合或新GPU。

@@ -1,6 +1,6 @@
 # WorldCache 研究设计与后续路线（2026-10-15）
 
-**最新CPU状态：**[439原生周期修复](../research/439_WC_W3_NATIVE_CYCLE35_GUARD_REPAIR_AND_FULL_CPU_R3_20261015.md)保存了 R1/R2 的终态失败，并将来源检查对齐原生 step35 的70调用清空和最后输出写回。本地12项控制通过，完整72CPU父／288状态／3456总pairs须用独立R3验收；尚无真实标签、拟合或新GPU。生产18/864与CPU范围分开。PA528原源码和待批准状态保持。
+**最新CPU状态：**[439原生周期修复](../research/439_WC_W3_NATIVE_CYCLE35_GUARD_REPAIR_AND_FULL_CPU_R3_20261015.md)保存了R1/R2终态失败，并将来源检查对齐原生step35的70调用清空和最后输出写回。本地12项控制通过；完整72CPU父／288状态／3456总pairs已于05:51:29派发独立R3，06:17仅查收一次。当前未验收，尚无真实标签、拟合或新GPU。生产18/864与CPU范围分开；PA528原源码和待批准状态保持。
 
 [437独立标签post](../research/437_WC_W3_INDEPENDENT_RAW_LABEL_AND_CAUSAL_PREFIX_POST_CPU_20261015.md)七项本地原始张量／教师与因果输入隔离控制另已通过，未改原CPU stage；实际完整生产原件与视频post仍待。
 
