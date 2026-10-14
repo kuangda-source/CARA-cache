@@ -111,6 +111,8 @@ class W3LabelOwner(SourcePhaseH1Owner):
             owned=snapshot.owned.origin;physical=snapshot.physical_sha
             D_sha=tree_digest(plain([vars(c) for c in self.deployment.dense]))
             work_sha=tree_digest((self.deployment.working,self.net.probe_residual_cache,self.net.residual_cache))
+            work_parts_before={'ledger':tree_digest(self.deployment.working),
+                'probe':tree_digest(self.net.probe_residual_cache),'residual':tree_digest(self.net.residual_cache)}
             payload={}
             try:
                 for name in ('C','A','D'):
@@ -122,7 +124,11 @@ class W3LabelOwner(SourcePhaseH1Owner):
                     if h['A_readout']['readout_action']!=name:raise ValueError('Actual W3 candidate readout differs')
                     if name!='D' and (tree_digest(plain([vars(c) for c in self.deployment.dense]))!=D_sha
                             or tree_digest((self.deployment.working,self.net.probe_residual_cache,self.net.residual_cache))!=work_sha):
-                        raise ValueError('C/A changed true D or working source')
+                        raise ValueError('C/A changed true D or working source: '+repr({'step':step,'action':name,
+                            'source_before':pre_state,'true_D_changed':tree_digest(plain([vars(c) for c in self.deployment.dense]))!=D_sha,
+                            'working_parts_before':work_parts_before,'working_parts_after':{
+                                'ledger':tree_digest(self.deployment.working),'probe':tree_digest(self.net.probe_residual_cache),
+                                'residual':tree_digest(self.net.residual_cache)}}))
                     payload[name]=tuple(v.detach().cpu().clone() for v in value)
                     trials.append({'kind':name,'actual_readout':h['A_readout']['readout_action'],
                         'actual_action':h['action'],'full_pair_seconds':seconds})

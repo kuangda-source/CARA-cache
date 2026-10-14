@@ -1,0 +1,57 @@
+{
+  "status": "W3_FULL18_864_PROVISIONAL_COMPLETE_COST_BEFORE_SAMPLER_AND_PRODUCTION_ACCEPTANCE",
+  "scope_ref": "manifests/wc_w3_label64_parent18_full864_scope_r1_20261015.json",
+  "scope_sha256": "ed3b4d7b3078d919a4718a9e583b2ca567259941179fdbcac92c41740a162cb5",
+  "cost_origin_ref": "manifests/wc_p_acr_local12_profile528_full_cost_r1_20261015.json",
+  "cost_origin_sha256": "46619fdb920fc8864a0e7a55f031f8115158ceef6c8c4e352b8d8dd18cb2e477",
+  "full_paths": 18,
+  "complete_pairs_maximum": 864,
+  "CFG_calls_maximum": 1728,
+  "one_load": true,
+  "ordinary_pairs": 648,
+  "diagnostic_pairs": 216,
+  "formal_label_denominator": 64,
+  "warmup_label_denominator": 8,
+  "snapshot_points": 72,
+  "serial_restores": 216,
+  "not_all_allowances_measured": true,
+  "contingency_multiplier": 1.5,
+  "historical_mixed_capture_restore_IO_per_origin_max_seconds": 240.02877558837645,
+  "scenarios": [
+    {
+      "name": "LEGACY_CAPTURE_AND_RESTORE30_ALLOWANCE",
+      "components": {
+        "imports_one_load_allowance_seconds": 319.1567796934396,
+        "18_original_H1_parent_allowance_seconds": 7900.758050729055,
+        "144_C_A_diagnostic_allowance_seconds": 864.0,
+        "72_D_teacher_allowance_seconds": 864.0,
+        "18_parent_raw_IO_cleanup_allowance_seconds": 720.0,
+        "capture72_restore216_and_point_IO_bundle_seconds": 8640.0
+      },
+      "forecast_complete_GPUh": 8.044964512676039
+    },
+    {
+      "name": "UNSCALED_EXISTING_CAPTURE5RESTORE_HASH_IO_BUNDLE_TRANSFER",
+      "components": {
+        "imports_one_load_allowance_seconds": 319.1567796934396,
+        "18_original_H1_parent_allowance_seconds": 7900.758050729055,
+        "144_C_A_diagnostic_allowance_seconds": 864.0,
+        "72_D_teacher_allowance_seconds": 864.0,
+        "18_parent_raw_IO_cleanup_allowance_seconds": 720.0,
+        "capture72_restore216_and_point_IO_bundle_seconds": 17282.071842363104
+      },
+      "forecast_complete_GPUh": 11.645827780327332
+    }
+  ],
+  "forecast_rule": "LARGER_COMPLETE_SCENARIO_KEEP_ALL18_AND64_CONTROLS",
+  "provisional_forecast_complete_GPUh": 11.645827780327332,
+  "under8_autonomous_limit": false,
+  "mixed_transfer_boundary": "No 3/5 discount: old package includes fixed capture/hash/CPU transfer/IO, not isolated restore time. Unscaled whole package is conservative transfer, not strict upper bound or measured current cost.",
+  "new_EXPL_DEV_has_no_real_parent_cost_yet": true,
+  "sampler_CPU_pending": true,
+  "production_CPU_pending": true,
+  "actual_GPU_cost_or_method_latency": false,
+  "budget_written": false,
+  "GPU_submissions": 0,
+  "registered_unix": 1792013372.230319
+}
