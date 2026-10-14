@@ -42,7 +42,9 @@ class ProbeH1Controller(SourcePhaseH1Controller):
         if self.offline is None:return origin
         if (self.offline[0]!=step or protected or not ready
                 or origin.local_proxy is None or origin.gain is None):
-            raise ValueError('Diagnostics cannot force through protected/missing support')
+            raise ValueError('Diagnostics cannot force through protected/missing support: '+repr({
+                'step':step,'protected':protected,'ready':ready,'origin_reason':origin.reason,
+                'source_state':origin.state_before,'local_proxy':origin.local_proxy,'gain':origin.gain}))
         name=self.offline[1];physical='C' if name=='A' else name
         floor=0. if name=='D' else self.creation_floor
         added=0. if name=='D' else origin.gain*(floor+origin.local_proxy)
