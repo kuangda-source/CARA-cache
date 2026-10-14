@@ -1,3 +1,9 @@
+## 2026-10-15 W3完整启动实际R2 CPU已派发；06:45一次查收
+
+[444完整接线](research/444_WC_W3_WHOLE_LAUNCH_PRODUCTION_R2_CPU_AND_FINAL_COLLECTION_20261015.md)：source754fcd1、fresh生产cpu-r2、原CPU860020于06:38:58单次派发，实际原H1/8输入/18父64+8/864矩阵及scope4/fullpost7/launch11完整22控制尚未验收；GPU/模型/预算写0。R1实际入口已在443接受82.555秒/1622，R3数值72/288/3456在441接受，两旧任务不再查。
+
+最早查收06:43:58.269 Asia/Shanghai（1792017838.2685785），自动化W3完整启动CPU查收06:45仅查原launch/句柄/全部源/实际入口与22控制/预算SHA一次；此前不SSH看partial、不重派或覆盖。通过后先交付具体完整W3投入讨论，不自动GPU。整卡forecast11.645828/建议上限12>8，原新GPU停止与PA715cae7许可未回保持；原余24.974985961不重置，P可选，主稿五项补验留预算。F/B结束、无新人评/训练/OMR。以下历史保留。
+
 ## 2026-10-15 W3真实入口R1 CPU接受；完整启动R2准备
 
 [443实际入口](research/443_WC_W3_ACTUAL_PRODUCTION_CPU_ACCEPTED_AND_WHOLE_LAUNCH_CONTROLS_20261015.md)：06:31一次查原859314/source227e278，1622全源、真实Setup/八请求/原H1资源/18父64+8/864矩阵、scope4/fullpost7接受，原进程终态0，82.555176秒、账本不变/GPU0。自动化已暂停，不再查R1或旧R3。
