@@ -33,13 +33,14 @@ def main():
     references+=list(coeff['inputs_sha256'])
     proof=json.loads((ROOT/config['references']['profile_CPU']['ref']).read_text())
     references += [proof['capture_ref'],'manifests/wc_p_acr_local12_production_cpu_prereg_20261015.json','manifests/wc_h0_eval_mode_contract_20261003.json',
-        'manifests/wc_source_phase_h1_four_controls_bindings_r1_20261013.json']
+        'manifests/wc_source_phase_h1_four_controls_bindings_r1_20261013.json',
+        'manifests/wc_p_acr_local12_launch_cpu_prereg_r2_20261015.json']
     names=sorted(set(names+references))
     payload={n:hashlib.sha256((ROOT/n).read_bytes()).hexdigest() for n in names}
     for name in names:
         blob=subprocess.check_output(['git','show',revision+':'+name],cwd=ROOT)
         if hashlib.sha256(blob).hexdigest()!=payload[name]:raise ValueError('CPU payload must be fully committed: '+name)
-    reg={'source_revision':revision,'payload_sha256':payload,'CPU_scopes':['ACTUAL_PA12_FULL528_PRODUCTION_ENTRY_CPU_NOT_MODEL'],'GPU_submissions':0,'shared_runtime_written':False,'stage':stage_name}
+    reg={'source_revision':revision,'payload_sha256':payload,'CPU_scopes':['ACTUAL_PA12_FULL528_PRODUCTION_AND_LAUNCH_CPU_NOT_MODEL'],'GPU_submissions':0,'shared_runtime_written':False,'stage':stage_name}
     if not a.launch_cpu:print(json.dumps({'status':'PACKET_READY_NOT_LAUNCHED','files':len(payload),'source_revision':revision,'GPU_submissions':0}));return
     buffer=io.BytesIO()
     with tarfile.open(fileobj=buffer,mode='w:gz') as tar:

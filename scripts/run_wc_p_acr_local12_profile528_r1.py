@@ -19,11 +19,15 @@ def main():
     # permission exists. An old generic budget file cannot select this run.
     sys.path.insert(0,str(a.stage/'src'))
     if not a.cpu_check:
-        from wcomr.p_acr_profile528_contract_r1 import require_new_GPU_permission
+        from wcomr.p_acr_profile528_admission_r1 import verify_permission
+        from wcomr.p_acr_profile528_production_r1 import CONFIG,sha
         if a.authorization is None:raise ValueError('New GPU stopped; explicit PA12 authorization required')
-        cfg=json.loads((a.stage/'configs/wc_p_acr_local12_profile528_production_r1_20261015.json').read_text())
+        cfg=json.loads((a.stage/CONFIG).read_text())
         production=json.loads((a.stage/'production-CPU-result.json').read_text())
-        require_new_GPU_permission(cfg,json.loads(a.authorization.read_text()),production)
+        registration=json.loads((a.stage/'registration.json').read_text())
+        verify_permission(cfg,json.loads(a.authorization.read_text()),production,registration,
+            config_sha256=sha(a.stage/CONFIG),proof_sha256=sha(a.stage/'production-CPU-result.json'))
+        assert a.source_revision==registration['source_revision']
     os.environ.update(HF_HUB_CACHE=str(a.project/'hfhub'),HF_HUB_OFFLINE='1',TRANSFORMERS_OFFLINE='1')
     if a.cpu_check:os.environ['CUDA_VISIBLE_DEVICES']=''
     sys.path[:0]=[str(a.stage/'src'),str(a.project/'runtime'),str(a.project/'runtime/packages/cosmos-oss'),str(a.project/'runtime/packages/cosmos-cuda')]
@@ -94,6 +98,11 @@ def main():
         tests=importlib.util.module_from_spec(spec);spec.loader.exec_module(tests)
         verdict=unittest.TextTestRunner(verbosity=1).run(unittest.defaultTestLoader.loadTestsFromModule(tests))
         assert verdict.wasSuccessful() and verdict.testsRun==5
+        launch_unit_path=a.stage/'tests/test_p_acr_profile528_launch_r1.py'
+        launch_spec=importlib.util.spec_from_file_location('PA_actual_whole_card_launch_CPU',launch_unit_path)
+        launch_tests=importlib.util.module_from_spec(launch_spec);launch_spec.loader.exec_module(launch_tests)
+        launch_verdict=unittest.TextTestRunner(verbosity=1).run(unittest.defaultTestLoader.loadTestsFromModule(launch_tests))
+        assert launch_verdict.wasSuccessful() and launch_verdict.testsRun==11
         post_path=a.stage/'scripts/postprocess_wc_p_acr_local12_profile528_cpu_r1.py'
         assert sha(post_path)==reg['payload_sha256']['scripts/postprocess_wc_p_acr_local12_profile528_cpu_r1.py']
         assert not torch.cuda.is_initialized() and not (a.stage/'NEVER_CREATED').exists()
@@ -106,6 +115,14 @@ def main():
             'numerical_profile_proof_ref':c['references']['profile_CPU'],
             'point_and_rejected_parent_post_unit_tests':5,'actual_post_script_sha256':sha(post_path),
             'full_video_post_GPU_not_executed':True,
+            'launch_control_unit_tests':11,'launch_controls_accepted':True,
+            'launcher_supervisor_post_paths_verified':True,'GPU_launch_permission_pending':True,
+            'whole_card_launch_scripts_sha256':{name:sha(a.stage/name) for name in (
+                'scripts/launch_wc_p_acr_local12_profile528_r1.py',
+                'scripts/supervise_wc_p_acr_local12_profile528_r1.py',
+                'scripts/watch_wc_p_acr_local12_post_cpu_r1.py',
+                'tests/test_p_acr_profile528_launch_r1.py',
+                'src/wcomr/p_acr_profile528_admission_r1.py')},
             'sampling_and_postprocessing_scope_are_separate':True})
         print(CPU_STATUS);return
     proof=json.loads((a.stage/'production-CPU-result.json').read_text())

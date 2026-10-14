@@ -35,13 +35,13 @@ def main():
             row={'name':name,'exit_code':p.returncode,'wall_seconds':time.time()-started,'command':command}
             if (a.stage/filename).exists():row.update(result_sha256=sha(a.stage/filename),result=json.loads((a.stage/filename).read_text()))
             result['jobs'].append(row);save()
-        result.update(status='PA_LOCAL12_PRODUCTION_ENTRY_CPU_ACCEPTED_NOT_GPU_LAUNCH_READY' if all(r['exit_code']==0 for r in result['jobs']) else 'PA_LOCAL12_PRODUCTION_ENTRY_CPU_FAILED_FULL_SCOPE_RETAINED',
+        result.update(status='PA_LOCAL12_PRODUCTION_AND_LAUNCH_CPU_ACCEPTED_PERMISSION_PENDING' if all(r['exit_code']==0 for r in result['jobs']) else 'PA_LOCAL12_PRODUCTION_ENTRY_CPU_FAILED_FULL_SCOPE_RETAINED',
             ended_unix=time.time(),wall_seconds=time.time()-start,budget_after_sha256=sha(a.project/'reports/budget.json'))
         if result['budget_after_sha256']!=before:raise ValueError('CPU bundle ledger changed')
         save()
     except BaseException as e:
         result.update(status='CPU_BUNDLE_TECHNICAL_FAILURE',error_type=type(e).__name__,error=str(e),ended_unix=time.time(),budget_after_sha256=sha(a.project/'reports/budget.json'));save();raise
-    if result['status']!='PA_LOCAL12_PRODUCTION_ENTRY_CPU_ACCEPTED_NOT_GPU_LAUNCH_READY':raise SystemExit(1)
+    if result['status']!='PA_LOCAL12_PRODUCTION_AND_LAUNCH_CPU_ACCEPTED_PERMISSION_PENDING':raise SystemExit(1)
 
 
 if __name__=='__main__':main()
