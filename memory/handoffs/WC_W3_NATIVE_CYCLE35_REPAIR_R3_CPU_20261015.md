@@ -9,3 +9,7 @@
 ## 当前原R3已经启动，禁止重复派发
 
 PID857865，source150da32be8973190703e9d8b32873faa96bdb1c3，原launch reports/wc_w3_label64_h1_collector_CPU_r3_launch_20261015.json。start=2026-10-15T05:51:29.093673+08:00，next_check_not_before=2026-10-15T06:16:29.093673+08:00/unix1792016189.0936728，自动化p-acr-cpu于06:17一次查收；此前不得持续SSH查partial。原72/288/3456及3+2单位守卫，Toy/真实label/GPU边界保持。
+
+## 原R3已在06:17完整接受，不再查收
+
+见441和 reports/wc_w3_label64_h1_collector_CPU_r3_independent_acceptance_20261015.json，1572/72/288/3456/3+2全部接受，638.046709秒，原PID结束/预算不变/GPU0。原R3目录不动。下一fresh真实production CPU；监督准入/真实标签/实际整卡许可仍待，原自动化已暂停。
