@@ -61,6 +61,8 @@ def exercise(*, inference, wc, flow, runtime, **kwargs):
         cs = [ResidualCalibrator(), ResidualCalibrator()]
         for c in cs: c.reset(context)
         return cs
+    def bank_digest(cs):
+        return tree_digest([{'receipt': c.receipt(), 'anchors': [vars(a) for a in c.anchors]} for c in cs])
     def reference_A(m, cs, working, step, time):
         proxy = types.SimpleNamespace(model=m, net=m.net, context=context, dense=cs, working=working,
             current={'action': 'C', 'source_choice': types.SimpleNamespace(reason='MATH_REFERENCE:A')})
@@ -91,7 +93,7 @@ def exercise(*, inference, wc, flow, runtime, **kwargs):
                         test = model(copy.deepcopy(parent.net)); test.net.forward = types.MethodType(wc.worldcache_mini_train_dit_forward, test.net)
                         count_before = [float(b.visits) for b in test.net.blocks]
                         read_cs, read_work = copy.deepcopy(cs), copy.deepcopy(working)
-                        bank_sha = tree_digest([vars(c) for c in read_cs]); work_sha = tree_digest(read_work)
+                        bank_sha = bank_digest(read_cs); work_sha = tree_digest(read_work)
                         rng = torch.get_rng_state().clone(); input_sha = tree_digest((noise, latent, time, [vars(c) for c in conditions]))
                         executor = ACRReadoutExecutor(test, runtime=runtime, wc=wc, rf=rf, context=context,
                             dense=read_cs, working=read_work, gamma=.7235237005554214,
@@ -105,7 +107,7 @@ def exercise(*, inference, wc, flow, runtime, **kwargs):
                         assert tree_digest(cache(test.net)) == tree_digest(cache(expected_cache.net)), 'Working cache not C-compatible'
                         visits = [float(b.visits) - old for b, old in zip(test.net.blocks, count_before)]
                         assert visits == [2., 2., 1., 1.], 'Probe repeated or omitted branch executed deep'
-                        assert tree_digest([vars(c) for c in read_cs]) == bank_sha and tree_digest(read_work) == work_sha
+                        assert bank_digest(read_cs) == bank_sha and tree_digest(read_work) == work_sha
                         assert torch.equal(rng, torch.get_rng_state()) and tree_digest((noise, latent, time, [vars(c) for c in conditions])) == input_sha
                         assert executor.last['paid_prefixes'] == 2 and executor.last['actual_dense_branches'] == 1
                         checks.append({'step': step, 'flow': flow, 'direction': direction, 'coefficient': coefficient,
