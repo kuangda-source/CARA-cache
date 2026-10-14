@@ -1,3 +1,5 @@
+**03:01完整CPU已独立接受，823795结束、查收自动化暂停。最新入口为 WC_P_ACR_ACTUAL12_PRODUCTION_PREPARATION_20261015.md；下文派发/查收是历史，不再查询原句柄。**
+
 # Profile20 audit/quiet完整CPU查收
 
 先读[430](../../research/430_WC_P_ACR_PROFILE20_AUDIT_QUIET_CPU_AND_PRICE_PREPARATION_20261015.md)。原CPU823795、source8f0971583b2121e214c9976a906e41adabebed7a/1538、stage `.sync/wc-p-acr-profile20-cpu-r1-20261015`、唯一launch `reports/wc_p_acr_profile20_cpu_r1_launch_20261015.json`。02:35:17提交，估计15–25分钟；首次not_before=03:00:17.199北京时间（1792004417.199），自动化p-acr-cpu已更新03:01一次查收。此前不SSH/持续监听。不重启原句柄。

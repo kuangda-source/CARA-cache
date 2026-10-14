@@ -8,7 +8,9 @@
 
 **最新完整父接口/生产范围：[429](../research/429_WC_P_ACR_FULL_H1_PARENT_CPU_AND_PRODUCTION_QUOTATION_NEXT_20261015.md)。** H1非提交式owner已实现，原R3完整CPU32/48/528已独立接受（370.94秒、原817370结束、预算SHA不变）；R1/R2合成age7支持拒绝保留，4项守卫通过，真实H1未改。02:14首次查收未结束，02:22接受全部数值/终态，`p-acr-cpu`已暂停。32个mock文件没有被单独计为通过。后续生产报价建议另登记8父/12状态/每动作1预热＋3正式，共528真实pairs/1056CFG；新增CAD重复和报价CPU/完整forecast仍待，不能与本轮CPU额外528调用混淆。PA1.5GPUh仍只是原建议，不填成实际整卡费用。W3仍缺真实sigma/标签。详见[PA12完整范围](../research/p_w3_e0_20261014/PA12_Production_Controls_And_Price_Scope_20261015.md)。
 
-**当前下一层：[430报价20 CPU](../research/430_WC_P_ACR_PROFILE20_AUDIT_QUIET_CPU_AND_PRICE_PREPARATION_20261015.md)。** 48完整CPU父/96状态/1920额外试次已独立提交，五动作各1预热3正式正反序、关闭纯观察hooks与audit数值等价，单支每次构造费用单列并计入完整动作，不先假定可摊销。新层尚未接受；03:01按预计时间一次查原823795，随后暂停查收。真实PA12生产封口/完整forecast仍待，CPU高风险夹具不是新实际质量或价格。
+**当前下一层：[430报价20 CPU](../research/430_WC_P_ACR_PROFILE20_AUDIT_QUIET_CPU_AND_PRICE_PREPARATION_20261015.md)。** 48完整CPU父/96状态/1920额外试次已独立提交，五动作各1预热3正式正反序、关闭纯观察hooks与audit数值等价，单支每次构造费用单列并计入完整动作，不先假定可摊销。新层03:01完整48/96/1920已独立接受，原823795结束，查收自动化已暂停。真实PA12生产封口/完整forecast仍待，CPU高风险夹具不是新实际质量或价格。
+
+**真实PA12最新入口：[431](../research/431_WC_P_ACR_ACTUAL12_INPUTS_AND_FULL_COST_PREPARATION_20261015.md)。** 四CAL/固定12、原H1 gamma0.7235237和开发coeff已本地绑定；完整8父528pairs/1056CFG的保守forecast **7.529994GPUh**（两情景5.879419/7.529994取较大，未隔离恢复/取证包）。这比原PA1.5建议高，原增强整轮8分配须共同重议；不削减注册对照/预热/重复，不预留、不扣费或开GPU。实际runner、生产CLI/服务器CPU及资源身份尚待，5本地合同检查不替代它们。W3/正式五项补验保持，当前余额未重置。
 
 ## 1. 研究组织与执行顺序
 

@@ -1,3 +1,9 @@
+## 2026-10-15 Profile20完整CPU48接受；真实PA12输入/整卡7.53GPUh估计准备
+
+[431真实配置与成本](431_WC_P_ACR_ACTUAL12_INPUTS_AND_FULL_COST_PREPARATION_20261015.md)：原8f09715/1538、CPU823795已结束，完整48CPU路径/96状态/1920诊断/3648pairs接受，audit/quiet/原父36与head/Linear计数通过，954.5665秒、预算SHA不变/GPU0；p-acr-cpu已暂停，不再查旧句柄。
+
+真实PA12配置绑定四CAL/seed0、原H1 fp34ef948e/gamma0.7235237、开发系数a195c629和固定12时钟；8父/528真实pairs/1056CFG、20raw/776tensor。5本地合同控制通过，**真实runner/生产CLI与服务器CPU/资源身份尚待**，不是GPU就绪。两完整成本情景5.879419/7.529994，取7.529994保守forecast（混合恢复/取证包迁移非clean价格）。比原PA1.5建议高、整轮8安排须重议；不缩scope、不预留或开GPU，余24.974985961不重置。W3真sigma/64标签与正式五项补验保持；F/B结束。下一入口 memory/handoffs/WC_P_ACR_ACTUAL12_PRODUCTION_PREPARATION_20261015.md。以下保留历史。
+
 ## 2026-10-15 完整H1 CPU32已接受；独立Profile20 CPU48已提交，03:01查收
 
 [430报价CPU](430_WC_P_ACR_PROFILE20_AUDIT_QUIET_CPU_AND_PRICE_PREPARATION_20261015.md)：source8f09715/1538个packet源，独立stage wc-p-acr-profile20-cpu-r1-20261015、原CPU823795于02:35:17唯一提交。48完整CPU路径/96状态/1920额外/3648总pairs，五动作各1预热3正式、audit/quiet全部候选与原父36等价，关闭9个纯观察hook保留算法，单次构造费用单列并计入报价。当前未验收新层，无真实权重/价格/视频结果/GPU。

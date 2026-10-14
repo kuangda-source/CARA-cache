@@ -1,6 +1,6 @@
 # P-ACR完整报价20的audit/quiet CPU准备与查收
 
-2026-10-15。**上一层完整H1父接口已经接受；本轮推进五动作的完整重复、计时顺序与关闭取证的等价控制。** 当前只有CPU单次提交，尚未验收新层，无新GPU或真实报价。原A/H1、417/420/423/424科学结果与真实H1参数保持。
+2026-10-15。**上一层完整H1父接口已经接受；本轮推进五动作的完整重复、计时顺序与关闭取证的等价控制。** **03:01原CPU823795终态与完整数值scope独立接受：48路径/96状态/1920额外试次，全程954.5665秒，预算SHA不变；p-acr-cpu已暂停。** 无新GPU或真实报价。下述派发和等待段保留历史。原A/H1、417/420/423/424科学结果与真实H1参数保持。
 
 ## 已验收的入口
 
@@ -46,3 +46,9 @@ W3继续缺真实sigma/连续pre-action观测与同H1 C/A/D标签。12个旧CAL�
 现阶段新GPU停止，F/B已结束、旧P13h暂缓/E2具体审批未取得、不新增人评/训练/OMR。原48窗口最后核验余24.974985961不重置，本轮GPU0/不扣费。严格>8GPUh确认规则不解除停止GPU的指令。
 
 证据：[CPU预登记](../manifests/wc_p_acr_profile20_cpu_prereg_20261015.json)、[唯一提交](../reports/wc_p_acr_profile20_cpu_r1_launch_20261015.json)、[上一层独立接受](../reports/wc_p_acr_full_h1_parent_cpu_r3_independent_acceptance_20261015.json)、[真实生产拟议范围](p_w3_e0_20261014/PA12_Production_Controls_And_Price_Scope_20261015.md)。
+
+## 最终接受（03:01）
+
+原source8f09715/1538文件一致，原823795已结束；两flow各24完整路径、48状态、960额外试次，合计48/96/1920/3648pairs/7296CFG。全部五动作预热/3正式正反序、20serial恢复、普通父36输出/动作/终态、audit与quiet候选payload等价通过；audit的D/P实际head与Linear计数及quiet关闭恰9个观察hook均独立核对。构造费用加计等式通过，数值925.0455秒、全bundle954.5665秒，预算SHA不变/GPU0。
+
+证据：[原终态](../reports/wc_p_acr_profile20_cpu_r1_collection_20261015_0301.json.gz)、[独立完整scope接受](../reports/wc_p_acr_profile20_cpu_r1_independent_acceptance_20261015.json)。仅Toy接口/计时控制，不代表真实PA12资源、报价或新方法端点。最新实际输入与完整费用见[431](431_WC_P_ACR_ACTUAL12_INPUTS_AND_FULL_COST_PREPARATION_20261015.md)。

@@ -46,3 +46,7 @@ CPU 原型当前只比较每位置 CAD 各1次、Pc/Pu各4次（11次）。**生
 ## 完整报价层的实现接续
 
 [430](../430_WC_P_ACR_PROFILE20_AUDIT_QUIET_CPU_AND_PRICE_PREPARATION_20261015.md)已接每动作1预热3正式正反序、audit/quiet与普通父的完整CPU等价检查，独立CPU48/96状态/1920试次提交后待验收。当前ACR每次构造/编译还未摊销，需将记录的准备费用加入charged_action_seconds；pair timer仍把恢复/哈希/I/O分列，不能默默遗漏算法初始化费用。此层通过后仍须绑定真实PA12资产、完整生产配置、CPU生产入口和实际forecast。
+
+## 真实绑定与成本修订（431）
+
+报价20完整CPU48已经接受；真实PA12绑定原H1 gamma0.7235237、四旧CAL/seed0、固定时钟和冻结系数。8父/528pairs整卡保守forecast7.529994GPUh，与原1.5建议不符，增强整轮8分配须重议，当前无新GPU许可。实测混合恢复/复制/哈希/I/O包的迁移未隔离，不当新单支价格；实际production runner/CLI/服务器CPU仍待。见[431](../431_WC_P_ACR_ACTUAL12_INPUTS_AND_FULL_COST_PREPARATION_20261015.md)。

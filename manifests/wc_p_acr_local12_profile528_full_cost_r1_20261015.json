@@ -1,0 +1,90 @@
+{
+  "identity": "WC-P-ACR-H1-BASE4-DIAG4-LOCAL12-PRICE20-FULL528-R1-20261015-A_WHOLE_COST_PROPOSAL",
+  "full_paths": 8,
+  "complete_pairs": 528,
+  "CFG_calls": 1056,
+  "loads": 1,
+  "ordinary_pairs": 288,
+  "diagnostic_pairs": 240,
+  "teacher_D_pairs_including_repeats": 48,
+  "not_all_allowances_measured": true,
+  "source_refs_sha256": {
+    "manifests/wc_math_n1_full180_cost_r1_20261012.json": "3a4502fa4decc81be42d9381464fa665f7f03bcadcb8488c76ea24401be6afda",
+    "reports/wc_source_phase16_live_or_terminal_capture_20261012.json": "2f7276faada5984a9a2fc73ad48a87248c107429b17249297ed537fba73003bb"
+  },
+  "full_capture_sha256": "b245be7b679c1354be17bb8566370157a6ce4f6732ee815a9ae3313b6139e51b",
+  "historical_source_phase16_actual_GPUh": 1.6059865288288953,
+  "historical_parent_comparisons": [
+    {
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "baseline_pipeline_seconds": 192.32043200358748,
+      "diagnostic_added_seconds": 997.1243886863813,
+      "actual_all20_trial_seconds": 62.805568255484104,
+      "unisolated_4capture20restore_and_IO_seconds": 934.3188204308972,
+      "unisolated_per_origin_capture5restore_IO_seconds": 233.5797051077243
+    },
+    {
+      "scene": "human_199",
+      "baseline_pipeline_seconds": 194.68846689444035,
+      "diagnostic_added_seconds": 1006.8913203757256,
+      "actual_all20_trial_seconds": 62.831718534231186,
+      "unisolated_4capture20restore_and_IO_seconds": 944.0596018414944,
+      "unisolated_per_origin_capture5restore_IO_seconds": 236.0149004603736
+    },
+    {
+      "scene": "misc_13398218_3840_2160_60fps",
+      "baseline_pipeline_seconds": 185.93506212811917,
+      "diagnostic_added_seconds": 1022.9263793518767,
+      "actual_all20_trial_seconds": 62.811276998370886,
+      "unisolated_4capture20restore_and_IO_seconds": 960.1151023535058,
+      "unisolated_per_origin_capture5restore_IO_seconds": 240.02877558837645
+    },
+    {
+      "scene": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+      "baseline_pipeline_seconds": 189.0123337423429,
+      "diagnostic_added_seconds": 1013.5460816146806,
+      "actual_all20_trial_seconds": 62.835027671419084,
+      "unisolated_4capture20restore_and_IO_seconds": 950.7110539432615,
+      "unisolated_per_origin_capture5restore_IO_seconds": 237.67776348581538
+    }
+  ],
+  "contingency_multiplier": 1.5,
+  "scenarios": [
+    {
+      "name": "LEGACY_EVENT30_ALLOWANCE",
+      "components": {
+        "imports_one_load_seconds": 319.1567796934396,
+        "four_baseline_parent_allowance_seconds": 1755.7240112731233,
+        "four_diagnostic_parent_allowance_seconds": 1755.7240112731233,
+        "96_C_A_pair_allowance_seconds": 576.0,
+        "48_D_pair_allowance_seconds": 576.0,
+        "96_asymmetric_pair_allowance_seconds": 1152.0,
+        "96_uncached_constructor_allowance_seconds": 96.0,
+        "all8_parent_raw_IO_and_cleanup_allowance_seconds": 320.0,
+        "capture12_and240restore_event_allowance_seconds": 7560.0
+      },
+      "forecast_complete_GPUh": 5.879418667599869
+    },
+    {
+      "name": "MEASURED_UNISOLATED_COPY_RESTORE_IO_TRANSFER",
+      "components": {
+        "imports_one_load_seconds": 319.1567796934396,
+        "four_baseline_parent_allowance_seconds": 1755.7240112731233,
+        "four_diagnostic_parent_allowance_seconds": 1755.7240112731233,
+        "96_C_A_pair_allowance_seconds": 576.0,
+        "48_D_pair_allowance_seconds": 576.0,
+        "96_asymmetric_pair_allowance_seconds": 1152.0,
+        "96_uncached_constructor_allowance_seconds": 96.0,
+        "all8_parent_raw_IO_and_cleanup_allowance_seconds": 320.0,
+        "measured_unisolated_capture_restore_IO_bundle_transfer_seconds": 11521.38122824207
+      },
+      "forecast_complete_GPUh": 7.529994179367399
+    }
+  ],
+  "forecast_rule": "LARGER_COMPLETE_SCENARIO_NO_SCOPE_REDUCTION",
+  "forecast_complete_GPUh": 7.529994179367399,
+  "mixed_transfer_boundary": "Old bundle is capture+restores+hash/CPU copies/IO/parent audit differences; not isolated per-restore cost or clean action latency. Scaling20/5 conservatively repeats capture/IO too.",
+  "method_latency_or_speedup_measurement": false,
+  "budget_written": false,
+  "GPU_submissions": 0
+}
