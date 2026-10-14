@@ -1,0 +1,27 @@
+{
+  "status": "ACTUAL_PINNED_SCHEDULER_CALLSITE_READONLY",
+  "source_revision": "715cae725423bfef8a5a243a0729b80d9c68f5cb",
+  "calls": [
+    {
+      "file": "cosmos_predict2/_src/predict2/models/text2world_model_rectified_flow.py",
+      "sha256": "c6c68f297859e11c76d2921667a29cabfecef3a7b5d3ab831bf9bb54b25b7d87",
+      "line": 142,
+      "call": "FlowUniPCMultistepScheduler(\n            num_train_timesteps=1000, shift=1, use_dynamic_shifting=False\n        )"
+    },
+    {
+      "file": "cosmos_predict2/_src/predict2/models/text2world_model_rectified_flow.py",
+      "sha256": "c6c68f297859e11c76d2921667a29cabfecef3a7b5d3ab831bf9bb54b25b7d87",
+      "line": 542,
+      "call": "self.sample_scheduler.set_timesteps(\n            num_steps,\n            device=self.tensor_kwargs[\"device\"],\n            shift=shift,\n            use_kerras_sigma=self.config.use_kerras_sigma_at_inference,\n        )"
+    },
+    {
+      "file": "cosmos_predict2/_src/predict2/models/text2world_model_rectified_flow.py",
+      "sha256": "c6c68f297859e11c76d2921667a29cabfecef3a7b5d3ab831bf9bb54b25b7d87",
+      "line": 652,
+      "call": "self.sample_scheduler.set_timesteps(\n            num_steps,\n            device=self.tensor_kwargs[\"device\"],\n            shift=shift,\n            use_kerras_sigma=self.config.use_kerras_sigma_at_inference,\n        )"
+    }
+  ],
+  "GPU_submissions": 0,
+  "model_forwards": 0,
+  "ledger_written": false
+}
