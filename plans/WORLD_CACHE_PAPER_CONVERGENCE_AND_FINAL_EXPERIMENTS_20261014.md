@@ -1,5 +1,7 @@
 # WorldCache 论文收束与关键收尾实验
 
+**最新设计接续（2026-10-14）：** 用户要求结合P/W3新讨论更新设计；新增[P-ACR/W3-MixTrend有界开发](WORLD_CACHE_P_ACR_W3_MIXTREND_ENHANCEMENT_20261014.md)，先E0、后独立探针/组合，再衔接本文件的正式五项补验。F/B已结束；旧有效方法/数据冻结，不重跑归因。此轮仅文档与素材索引，不解除GPU停止指令。下方正式卡仍是未执行模板。
+
 **2026-10-14 17:45 最终执行状态：** 原B312/16视频已完整查收、GPU/post全部退出，锁/GPU释放，详见[423](../research/423_WC_B_FULL312_COMPLETE_ENDPOINT_RESULTS_AND_READOUT_BOUNDARY_20261014.md)。按用户要求停止新增实验，进入[424本阶段收束](../research/424_WC_FINAL_EXPERIMENT_CLOSURE_AND_PAPER_EVIDENCE_20261014.md)。下列未完成证据仅供将来讨论，不执行GPU、F CPU、训练、第二模型或人评。预算余量不授权新卡。
 
 2026-10-14。依据用户最新两次讨论、两份原样保留的收束文档、419总报告及本轮已经验收的原60成本曲线。主线归因见[420](../research/420_WC_FULL60_COST_CURVE_COMPLETE_RESULTS_AND_CONVERGENCE_20261014.md)，最终B见[423](../research/423_WC_B_FULL312_COMPLETE_ENDPOINT_RESULTS_AND_READOUT_BOUNDARY_20261014.md)。本文件整理主线组织与未执行证据建议，不把建议范围当成已通过生产CPU的执行卡；预算没有重置。

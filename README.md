@@ -1,3 +1,11 @@
+## 2026-10-14 P-ACR / W3-MixTrend后续设计更新；无新实验
+
+[增强整合计划](plans/WORLD_CACHE_P_ACR_W3_MIXTREND_ENHANCEMENT_20261014.md) ｜ [具体接续](memory/handoffs/WC_P_W3_DESIGN_20261014.md) ｜ [仅设计预算/状态](manifests/wc_p_acr_w3_mixtrend_design_envelope_20261014.json)。
+
+[425新增设计与衔接](research/425_WC_P_W3_DESIGN_UPDATE_AND_NEXT_STEPS_20261014.md)：已读新对话五轮和两份新材料，已有A/H1及417/420/423/424冻结；F/B本阶段结束。新P研究单CFG分支创新量传递，新W3研究因果去噪历史的局部/长期时间域收益差；未并入主方法。顺序E0资产/边界→PA/W3小探针→合法配对闭环→合入判断→原论文五项补验。建议总8GPUh只是方案上限，无CPU数值研究/GPU/SSH/扣费或自动化启动；旧停止GPU要求保持。余额17:45快照24.974985961，未实时重查，新48不重置。
+
+下一阶段先按整合计划完成E0；实际素材/状态名单/精确scope/生产CPU/完整forecast均待核定。S1拟议H1_ORIGINAL/H1_CAD桥接及Trend/P/组合、Native，共24正式＋12预热；不能把删P0的合法集合变化归给Trend，不能把velocity当合法hidden。原E2-76具体批准未取得、P13h暂缓，不恢复F/B或旧查收自动化。下列旧接续安排是历史，以425与新接续入口为准。
+
 ## 2026-10-14 17:45 全部在途结束；本阶段收束，不新增实验
 
 **用户当前指令：停止新增实验，整理已有证据。** [423 B完整结果](research/423_WC_B_FULL312_COMPLETE_ENDPOINT_RESULTS_AND_READOUT_BOUNDARY_20261014.md)：原988ace1/730一致，4父＋12后缀/16全93帧/312pairs接受，GPU/post均0退出，710803/710917/710804结束，锁空闲、A6000 24MiB/无计算进程。B实费0.801364840GPUh；累计79.996377372/cap104.971363333，余24.974985961，无inflight。三臂首C相同；额外父复放P两点一致、D两点原父A而三臂首次C所以不同，边界保留。Dense/C均失真+0.5157%，L2/C+0.8682%，B不并入主线、不称净加速。

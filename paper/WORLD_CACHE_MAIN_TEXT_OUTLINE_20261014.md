@@ -1,5 +1,7 @@
 # WorldCache 正文思路、最小算法与图表框架
 
+**设计接续说明：** 新P-ACR/W3-MixTrend见[425](../research/425_WC_P_W3_DESIGN_UPDATE_AND_NEXT_STEPS_20261014.md)。它们尚未验证或并入，本文当前两配置、数学定义、数据与摘要数值保持冻结；只有新闭环结果支持且另作合入决定后再修改正文。
+
 2026-10-14。本阶段实验已收束，原B三臂诊断也已完成；当前只整理已有证据与论文，不新增实验。本文件不修改已交付的TCSVT `main.tex`，也不自动决定投稿渠道。最终证据范围见[424](../research/424_WC_FINAL_EXPERIMENT_CLOSURE_AND_PAPER_EVIDENCE_20261014.md)，固定归因见[420](../research/420_WC_FULL60_COST_CURVE_COMPLETE_RESULTS_AND_CONVERGENCE_20261014.md)，独立B结果见[423](../research/423_WC_B_FULL312_COMPLETE_ENDPOINT_RESULTS_AND_READOUT_BOUNDARY_20261014.md)。旧[收束设计](../plans/WORLD_CACHE_PAPER_CONVERGENCE_AND_FINAL_EXPERIMENTS_20261014.md)中的新实验范围仅作未执行建议。
 
 ## 1. 论文的中心问题和题目

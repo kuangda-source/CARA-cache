@@ -1,5 +1,7 @@
 # WorldCache 当前主线与独立探索安排
 
+**最新计划：** 既有A/H1主干冻结、F/B阶段结束；[425](425_WC_P_W3_DESIGN_UPDATE_AND_NEXT_STEPS_20261014.md)新增P-ACR与W3时间趋势的独立有界设计，E0数值审计/探针/闭环尚未执行，新GPU0。原正式补验在候选冻结后衔接，当前不是执行队列。
+
 **最终覆盖（17:45）：** 原B已完成、16视频全部评分、无运行任务；不新增实验。当前按[424](424_WC_FINAL_EXPERIMENT_CLOSURE_AND_PAPER_EVIDENCE_20261014.md)收束；原B的读出参照与完整结果见[423](423_WC_B_FULL312_COMPLETE_ENDPOINT_RESULTS_AND_READOUT_BOUNDARY_20261014.md)。下文旧队列与自主后续不执行。
 
 **最新执行覆盖（2026-10-14 15:15）：** 原B312已在运行，17:45一次验收；此后按用户要求不新开任何实验，转最终收束。下文未启动/自主后续描述是此前快照，参见[422](422_WC_B_FULL312_LAUNCH_AND_FINAL_COLLECTION_ONLY_20261014.md)。
