@@ -20,10 +20,13 @@ def main():
     sys.path.insert(0,str(a.stage/'src'))
     if not a.cpu_check:
         if a.authorization is None:raise ValueError('New GPU stopped; distinct full W3 authorization required')
-        from wcomr.w3_label64_production_contract_r1 import SCOPE,sha,require_new_permission
+        from wcomr.w3_label64_production_contract_r1 import SCOPE,sha
+        from wcomr.w3_label64_admission_r1 import verify_permission
         scope=json.loads((a.stage/SCOPE).read_text());proof=json.loads((a.stage/'production-CPU-result.json').read_text())
-        require_new_permission(scope,json.loads(a.authorization.read_text()),proof,
-            source_revision=a.source_revision,scope_sha256=sha(a.stage/SCOPE))
+        registration=json.loads((a.stage/'registration.json').read_text())
+        assert registration['source_revision']==a.source_revision
+        verify_permission(scope,json.loads(a.authorization.read_text()),proof,registration,
+            scope_sha256=sha(a.stage/SCOPE),proof_sha256=sha(a.stage/'production-CPU-result.json'))
     os.environ.update(HF_HUB_CACHE=str(a.project/'hfhub'),HF_HUB_OFFLINE='1',TRANSFORMERS_OFFLINE='1')
     if a.cpu_check:os.environ['CUDA_VISIBLE_DEVICES']=''
     sys.path[:0]=[str(a.project/'runtime'),str(a.project/'runtime/packages/cosmos-oss'),str(a.project/'runtime/packages/cosmos-cuda')]
@@ -91,14 +94,15 @@ def main():
         tempfile.TemporaryDirectory=owned_temporary;torch.load=synthetic_loader
         verdicts={}
         try:
-            for filename,count in (('test_w3_label64_production_contract_r1.py',4),('test_w3_label64_fullpost_r1.py',7)):
+            for filename,count in (('test_w3_label64_production_contract_r1.py',4),('test_w3_label64_fullpost_r1.py',7),
+                    ('test_w3_label64_launch_r1.py',11)):
                 spec=importlib.util.spec_from_file_location('W3_actual_CPU_'+filename,a.stage/'tests'/filename)
                 module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
                 result=unittest.TextTestRunner(verbosity=1).run(unittest.defaultTestLoader.loadTestsFromModule(module))
                 assert result.wasSuccessful() and result.testsRun==count;verdicts[filename]=count
         finally:tempfile.TemporaryDirectory=original_temporary;torch.load=forbidden
         assert not torch.cuda.is_initialized() and not (a.stage/'NEVER_CREATED').exists()
-        write(a.stage/'production-CPU-result.json',{'status':CPU_STATUS,'source_revision':reg['source_revision'],
+        write(a.stage/'production-CPU-result.json',{'status':CPU_STATUS,'source_revision':reg['source_revision'],'exit_code':0,
             'registration_sha256':sha(a.stage/'registration.json'),'scope_sha256':sha(a.stage/SCOPE),
             'scope_counts':counts,'matrix':plan,'GPU_submissions':0,'weights_loaded':0,'CUDA_initialized':False,
             'full72_collector_CPU_accepted':True,'collector_proof':numeric,'full90_post_CPU_controls_accepted':True,
@@ -106,7 +110,12 @@ def main():
             'actual_setup_and_eight_InferenceArguments_bound':True,'H1_fingerprint':values['H1']['fingerprint'],
             'original_H1_assets_and_inputs_preserved':True,'unit_tests':verdicts,
             'cost_status':'PROVISIONAL_COMPLETE_COST_NOT_CURRENT_MEASURED','forecast_complete_GPUh':cost['provisional_forecast_complete_GPUh'],
-            'new_GPU_permission_pending':True,'supervisor_and_fresh_admission_CPU_pending':True,
+            'new_GPU_permission_pending':True,'supervisor_and_fresh_admission_CPU_pending':False,
+            'whole_card_supervisor_CPU_accepted':True,'launch_controls_accepted':True,'launcher_supervisor_post_paths_verified':True,
+            'whole_card_launch_scripts_sha256':{name:sha(a.stage/name) for name in (
+                'scripts/launch_wc_w3_label64_full864_r1.py','scripts/supervise_wc_w3_label64_full864_r1.py',
+                'scripts/watch_wc_w3_label64_post_cpu_r1.py','scripts/postprocess_wc_w3_label64_full864_cpu_r1.py',
+                'src/wcomr/w3_label64_admission_r1.py','tests/test_w3_label64_launch_r1.py')},
             'full_parent_videos_and_real_labels_not_yet_audited':True})
         print(CPU_STATUS);return
     proof=json.loads((a.stage/'production-CPU-result.json').read_text())
@@ -114,7 +123,8 @@ def main():
         source_revision=a.source_revision,scope_sha256=sha(a.stage/SCOPE))
     assert proof['registration_sha256']==sha(a.stage/'registration.json') and a.source_revision==reg['source_revision']
     assert os.environ['CUDA_VISIBLE_DEVICES']==a.gpu_uuid and os.environ['WC_SUPERVISOR_PID']==str(os.getppid())
-    os.fstat(int(os.environ['WC_LOCK_FD']))
+    held=os.fstat(int(os.environ['WC_LOCK_FD']));actual_lock=(a.project/'.sync/f1.lock').stat()
+    assert (held.st_dev,held.st_ino)==(actual_lock.st_dev,actual_lock.st_ino)
     from cosmos_oss.init import init_environment,init_output_dir,cleanup_environment
     output=a.project/'outputs'/RUN;assert output.is_dir() and not (output/'runner.json').exists()
     state={'status':'W3_LABEL64_INITIALIZING_ONE_RESIDENT_H1','source_revision':a.source_revision,

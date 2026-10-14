@@ -8,6 +8,8 @@
 
 [442真实生产CPU](../research/442_WC_W3_ACTUAL_PRODUCTION_CPU_LAUNCH_AND_ONCE_COLLECTION_20261015.md)已于06:24:59唯一派发PID859314/source227e278，06:31一次查原终态和真实参数/资源/全矩阵；尚未接受。整卡监督准入和新GPU许可仍待，不改已接受R3/PA目录。
 
+[443实际入口接受](../research/443_WC_W3_ACTUAL_PRODUCTION_CPU_ACCEPTED_AND_WHOLE_LAUNCH_CONTROLS_20261015.md)：原R1已终态CPU通过（82.56秒、1622源、scope4/fullpost7），八真实请求与18/864矩阵已绑定。新单次启动/锁/预算/post接线本地11控制通过，下一fresh R2实际CPU；原R1/R3不重复查询，仍无GPU或真实标签。
+
 **当前建议：保住 A＋校准式计算分配的论文主干，优先加强 W3 的独立价值；P-ACR 作为有界增强，先回答真实误差—费用问题，再决定是否接闭环。** F/B 本轮已经结束。本文结合 `worldcache讨论` 最新数轮、两份 P/W3 材料及项目已接受记录更新；具体执行仍服从当前停止新 GPU 的约定。
 
 ## 1. 论文主线及已完成证据
