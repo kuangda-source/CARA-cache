@@ -1,3 +1,9 @@
+## 2026-10-15 W3完整采集器CPU唯一派发；05:32一次查收
+
+[436原CPU](436_WC_W3_FULL72_COLLECTOR_CPU_PREREG_AND_LAUNCH_20261015.md)：原bb19766独立 wc-w3-label64-h1-collector-cpu-r1-20261015、CPU855862于05:06:05唯一派发，完整72CPU父/两flow+D/P域/288状态/864extra+2592ordinary=3456pairs/6912CFG保持。新增采集器及本地3原支持控制已过；完整CPU尚未查收/接受，不称真实标签/GPU就绪。
+
+next_check_not_before=**2026-10-15 05:31:05.146 Asia/Shanghai（1792013465.146）**，自动化“W3标签CPU查收”05:32一次查原句柄与全部源/全父36等价/恢复/因果teacher隔离/一次g²/预算SHA；此前不SSH持续监听，不覆盖/重启原stage。未完按余量重新估时一次查收并结束。下一入口 memory/handoffs/WC_W3_FULL72_CPU_RUNNING_CHECK_0532_20261015.md。PA528/source715cae7/R2/7.529994许可仍待，不重问/自动GPU；F/B结束，余24.974985961旧窗口不重置。以下保留历史。
+
 ## 2026-10-15 W3八开发输入与完整864范围锁定；采集器CPU待
 
 [435输入/范围](435_WC_W3_EXPL_DEV8_FROZEN_INPUTS_AND_FULL864_LABEL_SCOPE_20261015.md)：四类各2共8EXPL_DEV按预登记身份SHA规则冻结，本地/服务器88回执/1044分组审计接受，排除已用及保留36组成员；无终点/耗时/拒绝筛选。64正式+8warm状态、18父、最多864pairs/1728CFG/1load及90raw1242tensor明确；仅身份/范围CPU，不是sampler/生产CPU。当前无真实标签/拟合/GPU/账本写/后台任务。
