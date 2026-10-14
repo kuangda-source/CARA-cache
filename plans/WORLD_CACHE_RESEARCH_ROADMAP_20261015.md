@@ -2,6 +2,8 @@
 
 **最新CPU状态：**[441完整接受](../research/441_WC_W3_FULL72_COLLECTOR_CPU_ACCEPTED_AND_PRODUCTION_NEXT_20261015.md)于06:17一次查收原R3，完整72CPU父／288状态／3456总pairs、全父36步等价、3次恢复及原支持3／周期2控制通过，638.05秒、GPU0／预算不变。R1/R2失败保留；尚无真实教师标签、拟合或新GPU。下一仅真实生产入口与90原件post CPU，生产18/864和CPU分母分开；PA528原源码和待批准状态保持。
 
+**最终入口已封口：**[447完整CPU接受](../research/447_WC_W3_COMPLETE_CPU_CLOSED_AND_WHOLE864_PERMISSION_DECISION_20261015.md)在06:56接受source047dcf1的真实生产/启动/post，1627源与scope4/fullpost7/launch12共23控制通过，71.36秒、权重/GPU0。下一仅具体W3全卡11.645828／建议上限12的投入决定；原GPU停止，PA待回复，不再派发准备CPU或查旧句柄。
+
 [437独立标签post](../research/437_WC_W3_INDEPENDENT_RAW_LABEL_AND_CAUSAL_PREFIX_POST_CPU_20261015.md)七项本地原始张量／教师与因果输入隔离控制另已通过，未改原CPU stage；实际完整生产原件与视频post仍待。
 
 [440全量post与真实入口](../research/440_WC_W3_WHOLE90_RAW_POST_AND_PRODUCTION_ENTRY_PREPARATION_20261015.md)已接全部18父／72位置，完整合成90文件1242张量与失败／孤立原件保留，新11项本地CPU控制通过。真实生产CPU、监督准入及实际原件仍待；R3先按原预计时间验收，随后仅派发fresh生产CPU，不据此开GPU。

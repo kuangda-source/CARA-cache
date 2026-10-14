@@ -2,13 +2,13 @@
 
 2026-10-15。**建议把下一次新增GPU投入优先用于W3的真实动作收益差标签。** 这张卡解决目前最关键的数据缺口：在相同实际状态，C、A相对真实D究竟造成多大误差，当前观测和去噪历史是否能据此改善动作选择。已有H1的估计风险、旧P数据和接口CPU不能提供这些标签。
 
-**当前状态：原R3完整72数值CPU、实际入口R1/R2已接受；启动失败分母修复后的实际R3 CPU按06:56待验收。没有本卡GPU批准/预留/扣费。** 完整CPU接受后才发具体许可问题。原A/H1论文主线和已接受结果保持，本卡是独立增强。
+**当前状态：原R3完整72数值CPU、实际入口R1/R2及修复后的最终R3已接受。** 06:56一次查原source047dcf1/PID860586，1627源与全部23控制接受，71.36秒、预算不变/GPU0。没有本卡GPU批准/预留/扣费。[447最终封口](../447_WC_W3_COMPLETE_CPU_CLOSED_AND_WHOLE864_PERMISSION_DECISION_20261015.md)、[具体卡](../../manifests/wc_w3_label64_full864_CPU_closed_decision_card_r1_20261015.json)。原A/H1论文主线和已接受结果保持，本卡是独立增强。
 
 ## 1. 完整身份与范围
 
 - CARD：`WC-W3-LABEL-EXPLDEV8-PARENT18-LOCAL64-FULL864-R1-20261015-A`。
 - Run：`wc-w3-label-expldev8-parent18-local64-full864-r1`。
-- 候选源：`047dcf181a3ab706002b2965e74b626e4648deea`，独立生产R3目录；该源必须通过真实CPU，不能借用旧目录或旧PA批准。
+- 已接受候选源：`047dcf181a3ab706002b2965e74b626e4648deea`，独立生产R3目录；生产CPU SHA `a330e131872a482a9f6b45f5aa5cb01134142e1efd59a5d6d7cbcea867675b5d`。不能借用旧目录或旧PA批准。
 - 模型：Cosmos-Predict2.5-2B，单A6000；768×432、93帧、16fps；请求35步，UniPC/Karras实际36更新／72CFG，guided `8v_c−7v_u`。
 - 输入：八个冻结EXPL_DEV，AV/Human/Misc/Robot各2，seed0；参考/词汇组与已曝光/保留集合隔离，不宣称语义完全独立。它们用于开发，未来正式留出测试仍不能使用。
 

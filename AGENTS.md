@@ -1,3 +1,9 @@
+## 2026-10-15 W3完整CPU已封口；具体全864卡等待人类投入决定
+
+[447最终接受](research/447_WC_W3_COMPLETE_CPU_CLOSED_AND_WHOLE864_PERMISSION_DECISION_20261015.md)：06:56单次查原860586/source047dcf1，1627全源/实际H1资源与八请求/18父64+8/864及scope4/fullpost7/launch12完整23控制接受，原进程结束，71.356431秒、预算SHA不变/模型权重GPU0。数值72/288/3456原证明也保持，所有CPU任务已终态，不再查或派发准备CPU；查收自动化暂停。
+
+下一仅[具体整卡投入说明](research/p_w3_e0_20261014/W3_Full864_Whole_Card_Decision_Spec_20261015.md)和manifest wc_w3_label64_full864_CPU_closed_decision_card_r1：8EXPL_DEV/18父/64正式+8warm/864最大pairs/1load/90raw，forecast11.645828、建议单次批准12>8，保留所有失败/未知原分母。**没有新W3许可，不得GPU。** 原停止新GPU和严格>8确认同时生效；原PA715cae7/7.529994询问未回不重问或借用，旧余24.974985961不重置、不预留。建议优先W3、P保持可选，给主稿正式补验留预算；F/B结束，无人评/训练/OMR。以下历史保留。
+
 ## 2026-10-15 W3启动失败修复实际R3 CPU已派发；06:56一次查收
 
 [446完整卡](research/446_WC_W3_STARTUP_REPAIR_PRODUCTION_R3_CPU_AND_WHOLE_CARD_DECISION_20261015.md)：source047dcf1、fresh生产cpu-r3、原CPU860586于06:49:39单次派发，实际原H1/8输入/18父64+8/864最大pairs、scope4/fullpost7/launch12完整23控制尚未验收。无child或缺runner也保留18/72分母与0/UNKNOWN计数；原输入、scope、数值物理核心不变，GPU/权重/预算写0。
