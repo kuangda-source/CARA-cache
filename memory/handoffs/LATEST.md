@@ -1,3 +1,9 @@
+## 2026-10-14 P/W3 E0 CPU已完成；无新GPU
+
+[426 E0与系数结果](../../research/426_WC_P_W3_E0_COMPLETE_ASYMMETRIC_ORACLE_AND_COEFFICIENT_RESULTS_20261014.md)：依现有目标继续只读CPU，12条H1/432步重构与28raw/336张量（两stage652/638源）核验完成，预算SHA不变，GPU/forward/新teacher/服务器写入0。16pi0点实际A上Pc/Pu oracle失真低12.3300%/41.6523%；预登记prompt-LOPO SourcePhase Pu低37.2996%、4提示词/14点改善，两个P0早期负点保留。仅条件性局部结果，非H1主动D、真价格或视频收益，固定A此前已曝光所有CAL。
+
+D31四中档均age7缺支持回退；主动D8–24，A/C最小边界0.0106976秒。新PA12状态已预选（8主动D/4边界），W3缺同H1 C/A/D标签/连续sigma/probe历史。下一入口[WC_P_W3_E0](WC_P_W3_E0_20261014.md)：先CPU真实单支ACR_READOUT与因果T1/T2标签准备，再完整scope/forecast/生产CPU；新GPU停止、F/B结束、旧自动化暂停保持。8GPUh是设计上限不是许可，余额24.974985961不重置或预留，不新增人评/训练/OMR。以下保留历史。
+
 ## 2026-10-14 P-ACR / W3-MixTrend后续设计更新；无新实验
 
 具体入口：[WC_P_W3_DESIGN](WC_P_W3_DESIGN_20261014.md)与[整合计划](../../plans/WORLD_CACHE_P_ACR_W3_MIXTREND_ENHANCEMENT_20261014.md)。
