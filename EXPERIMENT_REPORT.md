@@ -1,3 +1,9 @@
+## 2026-10-15 完整H1非提交式CPU32接受；下一为生产报价20重复/取证关闭控制
+
+[429完整接受](research/429_WC_P_ACR_FULL_H1_PARENT_CPU_AND_PRODUCTION_QUOTATION_NEXT_20261015.md)：原source6ef228e/1532、CPU817370终态接受；两flow完整32路径/48状态/528额外/1680总pairs恢复和36guided/actions/A_history/final/mock视频等价通过，370.9358秒，预算SHA不变/GPU0。R1/R2合成age7拒绝与四守卫保留；真实H1/支持域没变。p-acr-cpu已暂停，不再查旧句柄。
+
+当前安全CPU工作：完整报价版五动作每个1预热＋3正式交替，检查audit/quiet等价，只关闭8个Linear和1个head纯观察hook。P单支每次构造费用单列并计入，不先假定可摊销；算法MLP/cache/来源不改。拟议生产8父/12点/528真实pairs与W3真sigma/标签/forecast仍待，无新GPU许可、F/B仍结束，原窗口与余24.974985961保持。以下为保留历史。
+
 ## 2026-10-15 P-ACR完整H1父接口CPU R3待最终验收；生产报价范围已明确
 
 [429完整父接口与报价](research/429_WC_P_ACR_FULL_H1_PARENT_CPU_AND_PRODUCTION_QUOTATION_NEXT_20261015.md)：源6ef228e/1532、原CPU817370，R3 .sync/wc-p-acr-full-h1-parent-cpu-r3-20261015。32全CPU路径/48固定状态/528额外pairs注册保持；R1/R2合成P22→29 age7拒绝保留，4项独立守卫通过，原H1参数/支持域不改。02:14预计时间首次查收仍运行；同次余量记录32mock文件仅为进度，未计完整通过。预算SHA不变/GPU0。新独立自动化p-acr-cpu于**02:20北京时间（1792002000）**一次查原句柄终态，完成暂停；此前不持续查询或重复派发。旧自动化/F/B保持暂停。

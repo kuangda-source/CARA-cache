@@ -6,7 +6,7 @@
 
 **2026-10-15进展：**[428](../research/428_WC_ACR_SOURCE_BOOKKEEPING_FIX_AND_W3_CAUSAL_PREPARATION_20261015.md)完整共享前缀80例与W3因果11项服务器CPU已接受，source f1b0da7/550源、43.01秒、原CPU句柄结束/账本不变。只付两次shallow、深算一支的原语已经实现，来源不刷新；修复源码精确的post-counter previous_output写入，旧失败保留。下一为完整H1父接口/非提交式恢复与原父等价，尚未接受此层或实际模型。开发系数和历史差分对照已准备，GPU仍0。
 
-**最新完整父接口/生产范围：[429](../research/429_WC_P_ACR_FULL_H1_PARENT_CPU_AND_PRODUCTION_QUOTATION_NEXT_20261015.md)。** H1非提交式owner已实现，完整CPU32/48/528正在原R3验收；R1/R2合成age7支持拒绝保留，4项守卫通过，真实H1未改。02:14首次查收未结束，已有32个mock文件仅为进度；`p-acr-cpu`按02:20一次查收终态后暂停，不循环查询。后续生产报价建议另登记8父/12状态/每动作1预热＋3正式，共528真实pairs/1056CFG；新增CAD重复和报价CPU/完整forecast仍待，不能与本轮CPU额外528调用混淆。PA1.5GPUh仍只是原建议，不填成实际整卡费用。W3仍缺真实sigma/标签。详见[PA12完整范围](../research/p_w3_e0_20261014/PA12_Production_Controls_And_Price_Scope_20261015.md)。
+**最新完整父接口/生产范围：[429](../research/429_WC_P_ACR_FULL_H1_PARENT_CPU_AND_PRODUCTION_QUOTATION_NEXT_20261015.md)。** H1非提交式owner已实现，原R3完整CPU32/48/528已独立接受（370.94秒、原817370结束、预算SHA不变）；R1/R2合成age7支持拒绝保留，4项守卫通过，真实H1未改。02:14首次查收未结束，02:22接受全部数值/终态，`p-acr-cpu`已暂停。32个mock文件没有被单独计为通过。后续生产报价建议另登记8父/12状态/每动作1预热＋3正式，共528真实pairs/1056CFG；新增CAD重复和报价CPU/完整forecast仍待，不能与本轮CPU额外528调用混淆。PA1.5GPUh仍只是原建议，不填成实际整卡费用。W3仍缺真实sigma/标签。详见[PA12完整范围](../research/p_w3_e0_20261014/PA12_Production_Controls_And_Price_Scope_20261015.md)。
 
 ## 1. 研究组织与执行顺序
 

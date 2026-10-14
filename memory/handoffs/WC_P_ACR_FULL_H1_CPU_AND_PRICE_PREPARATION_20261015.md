@@ -1,6 +1,6 @@
 # P-ACR完整H1父CPU查收与生产报价接续
 
-当前只验收原CPU R3，未许可新GPU。详读[429](../../research/429_WC_P_ACR_FULL_H1_PARENT_CPU_AND_PRODUCTION_QUOTATION_NEXT_20261015.md)及[整合计划](../../plans/WORLD_CACHE_P_ACR_W3_MIXTREND_ENHANCEMENT_20261014.md)。
+**原CPU R3已完整接受（02:22）：32路径/48状态/528额外、全父输出/恢复/终态，预算SHA不变。原817370结束，p-acr-cpu已暂停，不再查旧句柄。** 当前继续生产重复和取证关闭控制的CPU准备，未许可新GPU。下述查收段为保留历史。详读[429](../../research/429_WC_P_ACR_FULL_H1_PARENT_CPU_AND_PRODUCTION_QUOTATION_NEXT_20261015.md)及[整合计划](../../plans/WORLD_CACHE_P_ACR_W3_MIXTREND_ENHANCEMENT_20261014.md)。
 
 原stage `.sync/wc-p-acr-full-h1-parent-cpu-r3-20261015`、source6ef228ecfbd3056f6aa96e998d40d9303ce1e31b、1532文件、CPU817370。唯一launch `reports/wc_p_acr_full_h1_parent_cpu_r3_launch_20261015.json`；02:14查收仍运行，32mock文件仅进度。首次5分钟估计不足，按最后父文件生成/封口余量定02:20北京时间（unix1792002000）再查一次，已创建p-acr-cpu。此前不SSH/持续监听；已有原句柄不重启。查收helper是 `scripts/capture_wc_p_acr_full_h1_parent_cpu_r1.py --launch-ref 原launch --output 新.json.gz`。
 

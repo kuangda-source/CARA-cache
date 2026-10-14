@@ -1,0 +1,59 @@
+{
+  "id": "WC-P-ACR-PROFILE20-AUDIT-QUIET-CPU-R1-20261015-A",
+  "registered_before_CPU": true,
+  "scope": {
+    "flows": [
+      false,
+      true
+    ],
+    "CPU_prompts": [
+      "AV28_CPU",
+      "Human_CPU",
+      "misc_CPU",
+      "AV51_CPU"
+    ],
+    "synthetic_source_regimes": [
+      "P_WORKING_SOURCES",
+      "D_WORKING_SOURCES"
+    ],
+    "parent_modes": [
+      "BASE",
+      "PROFILE_AUDIT",
+      "PROFILE_QUIET"
+    ],
+    "full_CPU_paths": 48,
+    "ordinary_pairs": 1728,
+    "diagnostic_origins": 96,
+    "five_actions": [
+      "C",
+      "A",
+      "D",
+      "Pc",
+      "Pu"
+    ],
+    "warmups_each_action": 1,
+    "formal_repetitions_each_action": 3,
+    "trial_pairs_each_origin": 20,
+    "warmup_pairs": 480,
+    "formal_pairs": 1440,
+    "extra_pairs": 1920,
+    "total_pairs": 3648,
+    "CFG_calls": 7296,
+    "physical_and_owned_serial_restores": 1920
+  },
+  "control": "All36 guided/actions/A history/final/mock video equal baseline; all same-state candidate payloads equal audit versus quiet; audited head/Linear counters match actual source",
+  "quiet_scope": "Mute exactly eight Linear pre-observers and one head audit observer; algorithm MLP forward, cache/mask/source/readout maintenance unchanged",
+  "action_timer": "Both probes/A heads/selected D/RF/compensation retained. Snapshot/restore/hash/IO outside pair timer; per-action executor construction separately recorded AND charged.",
+  "CPU_fixture": "Same declared C_scale1e9 P/D regimes and fixed12/23/29/30; does not change real H1 parameters or age1-6 support",
+  "runtime_source_binding": "Existing accepted source-phase H1 R4 runtime hashes and original import/weights/CUDA prohibitions",
+  "GPU_submissions": 0,
+  "GPU_authorized": false,
+  "budget_written": false,
+  "real_quality_or_speed_result": false,
+  "complete_scope_not_split": true,
+  "does_not_reopen_FB": true,
+  "estimated_CPU_wall_minutes": [
+    15,
+    25
+  ]
+}

@@ -1,6 +1,6 @@
 # P-ACR完整H1父轨迹接口与下一轮真实报价设计
 
-2026-10-15，接续428；冻结A/H1和417/420/423/424科学结果保持。本轮仅新增CPU接口验证和生产范围准备。R3完整32路径验收尚待预计时间查收；本文验收段在查收后更新，不将计划分母作为已完成数。
+2026-10-15，接续428；冻结A/H1和417/420/423/424科学结果保持。本轮仅新增CPU接口验证和生产范围准备。**02:22完成R3终态查收和独立验收，完整32路径/48状态/528诊断接受；原CPU817370结束，370.9358秒，预算SHA不变，GPU0。** 新生产重复/报价层仍待，不把本层当真实模型收益。
 
 ## 本轮要完成的能力
 
@@ -20,7 +20,7 @@ R3 source6ef228e，唯一CPU817370，独立stage wc-p-acr-full-h1-parent-cpu-r3-
 
 02:14按预计时间首次查收：原CPU817370仍运行，1532源文件一致，尚无终态结果。一次补充余量读取在02:15:46见16个普通父trace和32个mock视频文件，预算当前SHA仍一致；这只是文件/进度，不升级为32路径或恢复验收。
 
-按剩余终态检查与封口余量，重新安排**02:20:00北京时间（unix1792002000）**一次查收，自动化`p-acr-cpu`已创建，仅接受此原CPU句柄，完成后暂停。旧F/B和旧GPU自动化保持暂停。本轮结束，不持续轮询。最终仍需接受全部32路径、48来源、528试次、支持/物理与部署恢复、原父36输出/终态等价、原进程结束及预算SHA，缺失或失败如实保留。
+按剩余终态检查与封口余量，重新安排**02:20:00北京时间（unix1792002000）**一次查收，自动化`p-acr-cpu`已创建，仅接受此原CPU句柄，完成后暂停。旧F/B和旧GPU自动化保持暂停。本轮结束，不持续轮询。02:22按重估时间一次接受原终态，source6ef228e/1532源一致，两flow各16完整路径、24状态、264额外pairs，共32路径/48状态/528额外/1152普通/1680总pairs/3360CFG，全部恢复与36guided/actions/A_history/final/mock视频对照通过。数值测试341.4803秒，全bundle370.9358秒；原进程817370已结束，预算前后SHA一致。16组对照逐项独立核对，未用mock文件数替代验收。`p-acr-cpu`已暂停。
 
 ## 下一轮实际生产报价
 
@@ -41,3 +41,5 @@ Pc/Pu的0/1/抵消系数和oracle可从真实同状态分支张量离线计算�
 F/B已结束且独立归档，旧13h P卡暂缓、E2旧具体审批未取得；不恢复旧自动化，不训练生成器/LoRA或引入人评。新GPU仍停止，新增8GPUh提案不是许可。原窗口cap104.971363333、最后核验余24.974985961保持，本轮预算SHA不变不扣费。
 
 证据：[R1终态](../reports/wc_p_acr_full_h1_parent_cpu_r1_collection_20261015_0158.json.gz)、[R2终态](../reports/wc_p_acr_full_h1_parent_cpu_r2_collection_20261015_0207.json.gz)、[R3启动](../reports/wc_p_acr_full_h1_parent_cpu_r3_launch_20261015.json)、[R3首次查收](../reports/wc_p_acr_full_h1_parent_cpu_r3_collection_20261015_0214.json.gz)、[同次余量记录](../reports/wc_p_acr_full_h1_parent_cpu_r3_remaining_work_20261015_0216.json.gz)、[4项守卫](../reports/wc_p_acr_h1_probe_support_guard_cpu_20261015.json)。
+
+最终证据：[R3终态查收](../reports/wc_p_acr_full_h1_parent_cpu_r3_collection_20261015_0222.json.gz)、[独立scope验收](../reports/wc_p_acr_full_h1_parent_cpu_r3_independent_acceptance_20261015.json)。
