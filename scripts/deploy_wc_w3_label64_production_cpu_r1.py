@@ -47,16 +47,28 @@ def main():
         'manifests/wc_w3_label64_full864_provisional_cost_r1_20261015.json']
     references += list(json.loads((ROOT/w3_scope).read_text())['clock_sources'])
     references += [s['path'] for s in json.loads((ROOT/w3_inputs).read_text())['selected_sources']]
+    archive_ref='manifests/wc_w3_expl_dev8_prompt_archives_r1_20261015.json'
+    archive=json.loads((ROOT/archive_ref).read_text())
+    assert archive['input_manifest_sha256']==hashlib.sha256((ROOT/w3_inputs).read_bytes()).hexdigest()
+    prompt_archives={r['original_relative_path']:r for r in archive['rows']}
+    selected=json.loads((ROOT/w3_inputs).read_text())['selected_sources']
+    assert len(prompt_archives)==8 and set(prompt_archives)=={s['path'] for s in selected}
+    for s in selected:assert prompt_archives[s['path']]['sha256']==s['sha256']
+    references += [archive_ref]+[r['archive_ref'] for r in archive['rows']]
     names=sorted(set(names+references))
-    payload={n:hashlib.sha256((ROOT/n).read_bytes()).hexdigest() for n in names}
+    local_paths={n:ROOT/(prompt_archives[n]['archive_ref'] if n in prompt_archives else n) for n in names}
+    payload={n:hashlib.sha256(local_paths[n].read_bytes()).hexdigest() for n in names}
     for name in names:
-        blob=subprocess.check_output(['git','show',revision+':'+name],cwd=ROOT)
+        git_name=prompt_archives[name]['archive_ref'] if name in prompt_archives else name
+        blob=subprocess.check_output(['git','show',revision+':'+git_name],cwd=ROOT)
         if hashlib.sha256(blob).hexdigest()!=payload[name]:raise ValueError('CPU payload must be fully committed: '+name)
+        if name in prompt_archives and payload[name]!=prompt_archives[name]['sha256']:
+            raise ValueError('Original frozen upstream prompt archive changed: '+name)
     reg={'source_revision':revision,'payload_sha256':payload,'CPU_scopes':['ACTUAL_W3_FULL18_864_PRODUCTION_CPU_NOT_MODEL'],'GPU_submissions':0,'shared_runtime_written':False,'stage':stage_name}
     if not a.launch_cpu:print(json.dumps({'status':'PACKET_READY_NOT_LAUNCHED','files':len(payload),'source_revision':revision,'GPU_submissions':0}));return
     buffer=io.BytesIO()
     with tarfile.open(fileobj=buffer,mode='w:gz') as tar:
-        for name in names:tar.add(ROOT/name,arcname=name,recursive=False)
+        for name in names:tar.add(local_paths[name],arcname=name,recursive=False)
         raw=json.dumps(reg,indent=2).encode();entry=tarfile.TarInfo('registration.json');entry.size=len(raw);tar.addfile(entry,io.BytesIO(raw))
     code="""import pathlib,tarfile,io,sys,json,subprocess,hashlib,time,os
 root=pathlib.Path(PROJECT).resolve();stage=root/STAGE

@@ -25,3 +25,7 @@
 [本地CPU回执](../reports/wc_w3_label64_fullpost_and_actual_contract_local_CPU_20261015.json)记录新11控制及源码SHA；旧支持/周期/raw-label12控制继续保留。R3接受后先核对原完整72/288/3456与预算，再验收真实入口/完整post CPU与整卡监督接线，最后才具备讨论W3完整投入的具体材料。
 
 W3临时完整费用11.645828GPUh，PA7.529994，其具体许可仍待。原余24.974986不重置；无新GPU、训练、F/B、OMR或人工评审。费用/CPU准备不是动作收益、质量或速度结果。
+
+## 真实入口打包的准备修复
+
+原source3fd72a5首次生产CPU打包在SSH之前拒绝：八份已冻结prompt JSON来自被Git忽略的上游vendor目录，无法满足逐文件Git源码校验；未建服务器stage、未派发CPU/GPU。现已将八份JSON逐字节归档到 `research/sources/wc_w3_expl_dev8_prompts_20261015`，[身份绑定](../manifests/wc_w3_expl_dev8_prompt_archives_r1_20261015.json)核对全部原SHA和原输入manifest，打包仍使用原stage相对路径。上游文件、提示词、选择和scope没有变化。[原本地停止](../reports/wc_w3_label64_production_CPU_r1_local_packet_failure_20261015.json)保留。
