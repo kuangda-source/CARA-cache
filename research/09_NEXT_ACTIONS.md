@@ -1,3 +1,9 @@
+## 2026-10-15 完整H1 CPU32已接受；独立Profile20 CPU48已提交，03:01查收
+
+[430报价CPU](430_WC_P_ACR_PROFILE20_AUDIT_QUIET_CPU_AND_PRICE_PREPARATION_20261015.md)：source8f09715/1538个packet源，独立stage wc-p-acr-profile20-cpu-r1-20261015、原CPU823795于02:35:17唯一提交。48完整CPU路径/96状态/1920额外/3648总pairs，五动作各1预热3正式、audit/quiet全部候选与原父36等价，关闭9个纯观察hook保留算法，单次构造费用单列并计入报价。当前未验收新层，无真实权重/价格/视频结果/GPU。
+
+预计15–25分钟，next_check_not_before=**03:00:17.199北京时间（1792004417.199）**，p-acr-cpu于03:01一次查原句柄；此前不SSH/持续监听、不重启。前层429原817370已终态接受/自动化不再查询它。真实PA12生产入口/forecast与W3真sigma/标签仍待；GPU停止、F/B结束、旧窗口/余24.974985961保持。下一入口 memory/handoffs/WC_P_ACR_PROFILE20_CPU_20261015.md。以下保留历史。
+
 ## 2026-10-15 完整H1非提交式CPU32接受；下一为生产报价20重复/取证关闭控制
 
 [429完整接受](429_WC_P_ACR_FULL_H1_PARENT_CPU_AND_PRODUCTION_QUOTATION_NEXT_20261015.md)：原source6ef228e/1532、CPU817370终态接受；两flow完整32路径/48状态/528额外/1680总pairs恢复和36guided/actions/A_history/final/mock视频等价通过，370.9358秒，预算SHA不变/GPU0。R1/R2合成age7拒绝与四守卫保留；真实H1/支持域没变。p-acr-cpu已暂停，不再查旧句柄。
