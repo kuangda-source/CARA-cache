@@ -10,7 +10,9 @@
 
 **当前下一层：[430报价20 CPU](../research/430_WC_P_ACR_PROFILE20_AUDIT_QUIET_CPU_AND_PRICE_PREPARATION_20261015.md)。** 48完整CPU父/96状态/1920额外试次已独立提交，五动作各1预热3正式正反序、关闭纯观察hooks与audit数值等价，单支每次构造费用单列并计入完整动作，不先假定可摊销。新层03:01完整48/96/1920已独立接受，原823795结束，查收自动化已暂停。真实PA12生产封口/完整forecast仍待，CPU高风险夹具不是新实际质量或价格。
 
-**真实PA12最新入口：[431](../research/431_WC_P_ACR_ACTUAL12_INPUTS_AND_FULL_COST_PREPARATION_20261015.md)。** 四CAL/固定12、原H1 gamma0.7235237和开发coeff已本地绑定；完整8父528pairs/1056CFG的保守forecast **7.529994GPUh**（两情景5.879419/7.529994取较大，未隔离恢复/取证包）。这比原PA1.5建议高，原增强整轮8分配须共同重议；不削减注册对照/预热/重复，不预留、不扣费或开GPU。实际runner、生产CLI/服务器CPU及资源身份尚待，5本地合同检查不替代它们。W3/正式五项补验保持，当前余额未重置。
+**真实PA12最新入口：[431](../research/431_WC_P_ACR_ACTUAL12_INPUTS_AND_FULL_COST_PREPARATION_20261015.md)。** 四CAL/固定12、原H1 gamma0.7235237和开发coeff已本地绑定；完整8父528pairs/1056CFG的保守forecast **7.529994GPUh**（两情景5.879419/7.529994取较大，未隔离恢复/取证包）。这比原PA1.5建议高，原增强整轮8分配须共同重议；不削减注册对照/预热/重复，不预留、不扣费或开GPU。实际runner/生产CLI/服务器CPU与资源身份现已接受（432），但GPU监督/启动接线仍待；没有新GPU或完整post输出。W3/正式五项补验保持，当前余额未重置。
+
+**生产入口CPU接受：[432](../research/432_WC_P_ACR_REAL_PRODUCTION_ENTRY_CPU_AND_FULL_POST_INTERFACE_20261015.md)。** 原0dce0a0/1568、842901终态接受，真实8父528计划/参数/输入/资源/Core和post5控制通过，权重/GPU0/账本不变。runner和20raw/776tensor/93帧接口已经实现；没有实际模型/完整post。下一为fresh监督/启动与完整准入接线CPU封口，再共同讨论原7.529994GPUh卡及整轮预算，新GPU停止保持。
 
 ## 1. 研究组织与执行顺序
 

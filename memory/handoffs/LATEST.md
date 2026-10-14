@@ -1,3 +1,9 @@
+## 2026-10-15 真实PA12生产入口CPU接受；GPU监督/启动接线仍待
+
+[432实际入口/原件接口](../../research/432_WC_P_ACR_REAL_PRODUCTION_ENTRY_CPU_AND_FULL_POST_INTERFACE_20261015.md)：source0dce0a0/1568、原CPU842901已结束，真实参数/四输入/原资源及Core、完整8父/528计划、无guard/缩卡/刷新/拟合拒绝与post5控制接受，299.469秒、预算SHA不变/权重0/GPU0。仅实际CLI/资产CPU，不是528模型/20原件/新价格或视频结果。缺许可CLI在native导入前拒绝。没有本轮在途，不查旧句柄。
+
+已接完整runner及post：12点/8父20raw776tensor、拒绝全分母，全部接受父93解码/RGB/Native LPIPS接口；真实GPU输出尚无，完整post执行待。下一补fresh UUID/锁/余额/原CPU/新许可的监督启动接线，**该层尚未完成**；7.529994forecast和整轮8投入问题保持，不开GPU/缩scope/重置窗口，余24.974985961保持。W3真实标签/正式五项补验与F/B结束保持。下一入口 [ENTRY_CPU_LAUNCH_PREP](WC_P_ACR_ENTRY_CPU_ACCEPTED_LAUNCH_PREP_20261015.md)。以下保留历史。
+
 ## 2026-10-15 Profile20完整CPU48接受；真实PA12输入/整卡7.53GPUh估计准备
 
 [431真实配置与成本](../../research/431_WC_P_ACR_ACTUAL12_INPUTS_AND_FULL_COST_PREPARATION_20261015.md)：原8f09715/1538、CPU823795已结束，完整48CPU路径/96状态/1920诊断/3648pairs接受，audit/quiet/原父36与head/Linear计数通过，954.5665秒、预算SHA不变/GPU0；p-acr-cpu已暂停，不再查旧句柄。
