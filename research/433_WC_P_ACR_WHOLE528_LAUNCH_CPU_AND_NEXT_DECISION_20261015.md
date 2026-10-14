@@ -1,6 +1,6 @@
 # P-ACR 完整卡启动接线、CPU 封口与后续投入
 
-2026-10-15，接续[432 真实生产入口](432_WC_P_ACR_REAL_PRODUCTION_ENTRY_CPU_AND_FULL_POST_INTERFACE_20261015.md)。本轮完成完整 PA528 的单次启动、项目锁下的余额与设备准入、实际费用结算、原句柄保留及 CPU post 接线；**当前仅本地控制通过，服务器 R2 CPU 待验收，没有新 GPU 许可或提交。**
+2026-10-15，接续[432 真实生产入口](432_WC_P_ACR_REAL_PRODUCTION_ENTRY_CPU_AND_FULL_POST_INTERFACE_20261015.md)。本轮完成完整 PA528 的单次启动、项目锁下的余额与设备准入、实际费用结算、原句柄保留及 CPU post 接线；**本地控制及服务器R2实际入口／启动CPU已经接受，原进程结束；没有新GPU许可或提交。**
 
 ## 科学问题和固定范围
 
@@ -17,7 +17,7 @@
 
 本地 21 项控制通过：合同5、完整 post5、启动11；缺许可的实际入口在导入 native 前拒绝。测试只有假句柄和临时 CPU 夹具，没有 SSH、模型或预算写入。[本地回执](../reports/wc_p_acr_local12_launch_controls_and_early_refusal_cpu_20261015.json)。
 
-## 服务器 CPU 登记与权限
+## 服务器 CPU 登记与权限（登记内容，结果见下节）
 
 R2 独立目录 `.sync/wc-p-acr-local12-production-cpu-r2-20261015`，原 R1/0dce0a0 及所有数值证据保持。R2 只重验实际入口／资源身份与新增启动控制，CUDA／权重禁止，预计约 5 分钟后一次查收。不执行 528 次真实模型调用或 GPU post。
 
@@ -28,3 +28,13 @@ R2 独立目录 `.sync/wc-p-acr-local12-production-cpu-r2-20261015`，原 R1/0dc
 先接受本卡实际启动层 CPU，交付完整范围与投入决定。W3 缺真实连续 sigma／同 H1 C/A/D 标签，保留 T0/T1/T2/T3 的因果收益差比较；不要用当前 PA12 代替拟议8提示词×8状态的泛化标签。P 有实际局部价值之后，才登记 readout 闭环及合法 source refresh，不能把 velocity 直接当 hidden 来源。
 
 论文正式待补：调优 WC/RA 与少步 Native／修正近邻、同26D简单调度、真正冻结共同测试、重复 clean latency／质量与来源成本、第二模型。旧固定归因和冻结确认不重复；F/B 结束，新探索不自动并入。
+
+## R2一次查收结果（04:24北京时间）
+
+独立stage/source **715cae725423bfef8a5a243a0729b80d9c68f5cb**、**1574文件**逐份一致，原CPU **853632**终态／进程结束；完整实际入口与新增11启动控制、5post控制通过。实际bundle **109.252579秒**（生产109.164634），CUDA／权重／GPU为零、预算SHA前后一致。原R1与完整数值CPU结果保持。
+
+[独立接受](../reports/wc_p_acr_local12_production_launch_cpu_r2_independent_acceptance_20261015.json)、[一次原终态](../reports/wc_p_acr_local12_production_launch_cpu_r2_collection_20261015_0424.json.gz)。生产CPU SHA为`d59d68094fb7f5ca990df696f60bf97ba2daa02b823a6dec2af247efe593ada1`，绑定原configuration de64913f与registration46ed9e44；仅实际入口／资源／指令控制，不是528模型执行或全部20原件／93帧评分。
+
+04:25独立只读资源快照：账本79.99637737158223／104.97136333301378，余24.974985961431557，无inflight、项目锁空闲、无计算进程；A6000两卡显存332／24MiB。预算SHA与CPU一致。[快照](../reports/wc_p_acr_post_CPU_resource_budget_readonly_20261015_0425.json)。该快照不代替未来GPU启动的fresh准入。
+
+当前完整卡已经可以具体审查，下一是投入与恢复新GPU的共同决定。新许可必须明确PA528完整卡、源715cae7／config／CPU SHA和实际单卡额度；尚无该许可，不提交GPU。最终后续总路线见[研究路线](../plans/WORLD_CACHE_RESEARCH_ROADMAP_20261015.md)。
