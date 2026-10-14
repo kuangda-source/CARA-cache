@@ -1,0 +1,319 @@
+{
+  "observed_unix": 1791962132.9584038,
+  "launch": {
+    "status": "B_FULL312_DISPATCHED_ADMISSION_PENDING",
+    "supervisor_pid": 710803,
+    "source_revision": "988ace1834af14c4ed535ed7b025c9619fec948e",
+    "stage": "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-block-velocity-production-r1-20261013",
+    "run_id": "wc-block-saved-velocity-full312-r1",
+    "command": [
+      "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python",
+      "-u",
+      "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-block-velocity-production-r1-20261013/scripts/supervise_wc_block_velocity_r1.py",
+      "--project",
+      "/home/gaokuangda/data/gkd/worldcache_omr",
+      "--stage",
+      "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-block-velocity-production-r1-20261013",
+      "--source-revision",
+      "988ace1834af14c4ed535ed7b025c9619fec948e"
+    ],
+    "started_unix": 1791961937.093798,
+    "accepted_CPU_sha256": "f5a7faf3f3ca1083af633f30fbf0c9b03158f470d90d46c0079ed848f7b50592",
+    "predecessor_full60_sha256": "ea8aec673e74f63d33966e1055d44a66f087417a9d679e6220b3242b0a68b5c2",
+    "predecessor_post_exit_sha256": "21350947369606370f91037540422ffe8ef225f6921bc24aca27ee0e8bec5538",
+    "post_watcher_pid": 710804,
+    "post_command": [
+      "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python",
+      "-u",
+      "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-block-velocity-production-r1-20261013/scripts/watch_wc_block_velocity_cpu_r1.py",
+      "--project",
+      "/home/gaokuangda/data/gkd/worldcache_omr",
+      "--stage",
+      "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-block-velocity-production-r1-20261013",
+      "--supervisor-pid",
+      "710803"
+    ]
+  },
+  "supervisor": {
+    "status": "BLOCK_SAVED_VELOCITY_GPU_RUNNING",
+    "pid": 710803,
+    "run_id": "wc-block-saved-velocity-full312-r1",
+    "source_revision": "988ace1834af14c4ed535ed7b025c9619fec948e",
+    "config_sha256": "ebb8990157fe46878bdaef38fb26c91c597fac472bcd29e93644243a1426dbe8",
+    "production_CPU_sha256": "f5a7faf3f3ca1083af633f30fbf0c9b03158f470d90d46c0079ed848f7b50592",
+    "budget_before": {
+      "batch": "F0-F1",
+      "cap_gpu_hours": 104.97136333301378,
+      "used_gpu_hours": 79.19501253167144,
+      "gpu_jobs_launched": 93,
+      "status": "H1_COST_CURVE_SETTLED_RAW_CPU_AUDIT_PENDING",
+      "gpu_import_probes_completed": 1,
+      "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts",
+      "budget_authorization_ref": "manifests/budget_authorization_20261012_wc_math_scheduler_new48gpuh.json",
+      "budget_authorization_history": [
+        {
+          "authorized_utc": "2026-10-02T18:03:00Z",
+          "source_thread_id": "01a0f1e6-7ad0-75df-9a02-172b60d2e00b",
+          "user_instruction": "\u628a\u5404\u4e2a\u5b9e\u9a8c\u7684 gpu \u9884\u7b97\u90fd\u8bbe\u7f6e\u4e3a 12gpuh",
+          "previous_cap_gpu_hours": 4,
+          "new_cumulative_cap_gpu_hours": 12,
+          "used_gpu_hours_at_change": 3.9117525685110333,
+          "no_usage_reset_or_transfer": true
+        },
+        {
+          "authorized_utc": "2026-10-04T06:13:36Z",
+          "source_thread_id": "01a0f1e6-7ad0-75df-9a02-172b60d2e00b",
+          "user_message_id": "Sentinel_861e63a87d8c819180ec9a8bcfa6dc92",
+          "user_instruction": "\u5141\u8bb8\u589e\u52a0 GPUh",
+          "previous_cap_gpu_hours": 12,
+          "new_cumulative_cap_gpu_hours": 13,
+          "used_gpu_hours_at_change": 11.022315686839217,
+          "gpu_jobs_launched_at_change": 45,
+          "no_usage_reset_or_transfer": true,
+          "authorization_ref": "manifests/budget_authorization_20261004_wc_13gpuh.json"
+        },
+        {
+          "authorized_on_local": "2026-10-05",
+          "user_instruction": "\u6279\u51c6 WC-W3-SMALL-CD-R1-20261004-A\uff0c\u628a\u7d2f\u8ba1 gpuh \u9650\u5236\u63d0\u5347\u5230 24",
+          "previous_cap_gpu_hours": 13,
+          "new_cumulative_cap_gpu_hours": 24,
+          "used_gpu_hours_at_change": 11.022315686839217,
+          "gpu_jobs_launched_at_change": 45,
+          "no_usage_reset_or_transfer": true,
+          "authorization_ref": "manifests/budget_authorization_20261005_wc_24gpuh.json",
+          "approved_card": "WC-W3-SMALL-CD-R1-20261004-A",
+          "single_run_cap_seconds": 3900
+        },
+        {
+          "authorized_unix": 1791428550.530142,
+          "authorized_on_local": "2026-10-08",
+          "user_instruction": "\u6279\u51c6\u6269\u5927 gpuh\uff0c\u76f4\u63a5\u52a0\u5230 50 \u5427",
+          "previous_cap_gpu_hours": 24,
+          "new_cumulative_cap_gpu_hours": 50,
+          "used_gpu_hours_at_change": 22.314242424184147,
+          "gpu_jobs_launched_at_change": 59,
+          "no_usage_reset_or_transfer": true,
+          "authorization_ref": "manifests/budget_authorization_20261008_wc_50gpuh.json",
+          "automatic_single_job_gpu_hours": 2
+        },
+        {
+          "authorized_unix": 1791560438.1859179,
+          "authorized_on_local": "2026-10-09",
+          "user_instruction": "\u662f\u4ece\u5f53\u524d\u5f00\u59cb 48gpuh",
+          "initial_user_instruction": "\u628a gpuh \u9884\u7b97\u63d0\u5230 48h",
+          "previous_cap_gpu_hours": 50,
+          "new_cumulative_cap_gpu_hours": 77.89524658965853,
+          "used_gpu_hours_at_change": 29.895246589658527,
+          "gpu_jobs_launched_at_change": 65,
+          "authorized_remaining_gpu_hours": 48,
+          "no_usage_reset_or_transfer": true,
+          "authorization_ref": "manifests/budget_authorization_20261009_wc_new_window_48gpuh.json",
+          "automatic_single_job_gpu_hours": 2
+        },
+        {
+          "authorized_on_local": "2026-10-12",
+          "user_instruction": "\u6839\u636e\u6700\u65b0\u5bf9\u8bdd\u548c\u6587\u6863\uff0c\u66f4\u65b0\u4e00\u4e0b\u5b9e\u9a8c\u8bbe\u8ba1\uff0c\u5c1d\u8bd5\u4e00\u4e0b\u63d0\u5230\u7684\u65b0\u7684\u6838\u5fc3\u65b9\u6cd5\u662f\u5426\u6210\u7acb\u3002\u5728\u5f53\u524d\u57fa\u7840\u4e0a\u628a\u53ef\u7528 gpuh \u8bbe\u4e3a 48h\uff0c\u5355\u6b21\u5927\u4e8e 8h \u624d\u8be2\u95ee\u3002\u7b49\u8fd9\u4e2a\u7aef\u5230\u7aef\u52a0\u901f\u6d4b\u8bd5\u8dd1\u5b8c\u4e86\u5c31\u63a8\u8fdb\u3002",
+          "authorization_ref": "manifests/budget_authorization_20261012_wc_math_scheduler_new48gpuh.json",
+          "previous_cap_gpu_hours": 77.89524658965853,
+          "new_cumulative_cap_gpu_hours": 104.97136333301378,
+          "used_gpu_hours_at_change": 56.97136333301379,
+          "gpu_jobs_launched_at_change": 82,
+          "authorized_remaining_gpu_hours": 48,
+          "no_usage_reset_or_transfer": true
+        }
+      ],
+      "budget_authorization_window": {
+        "authorization_ref": "manifests/budget_authorization_20261012_wc_math_scheduler_new48gpuh.json",
+        "start_used_gpu_hours": 56.97136333301379,
+        "authorized_remaining_gpu_hours": 48,
+        "cumulative_cap_gpu_hours": 104.97136333301378,
+        "recorded_unix": 1791760184.7594678
+      },
+      "automatic_single_job_gpu_hours": 8,
+      "execution_policy_authorization_ref": "manifests/budget_authorization_20261012_wc_math_scheduler_new48gpuh.json",
+      "execution_policy_authorization_history": [
+        {
+          "authorized_on_local": "2026-10-10",
+          "source_user_instruction": "\u5355\u6b21 \u6539\u6210\u8d85\u8fc7 4h\u624d\u9700\u8981\u786e\u8ba4",
+          "previous_automatic_single_job_gpu_hours": 2,
+          "automatic_single_job_gpu_hours": 4,
+          "authorization_ref": "manifests/wc_execution_autonomy_authorization_20261010_4gpuh.json",
+          "recorded_unix": 1791561847.0094812
+        },
+        {
+          "authorized_on_local": "2026-10-12",
+          "source_user_instruction": "\u6839\u636e\u6700\u65b0\u5bf9\u8bdd\u548c\u6587\u6863\uff0c\u66f4\u65b0\u4e00\u4e0b\u5b9e\u9a8c\u8bbe\u8ba1\uff0c\u5c1d\u8bd5\u4e00\u4e0b\u63d0\u5230\u7684\u65b0\u7684\u6838\u5fc3\u65b9\u6cd5\u662f\u5426\u6210\u7acb\u3002\u5728\u5f53\u524d\u57fa\u7840\u4e0a\u628a\u53ef\u7528 gpuh \u8bbe\u4e3a 48h\uff0c\u5355\u6b21\u5927\u4e8e 8h \u624d\u8be2\u95ee\u3002\u7b49\u8fd9\u4e2a\u7aef\u5230\u7aef\u52a0\u901f\u6d4b\u8bd5\u8dd1\u5b8c\u4e86\u5c31\u63a8\u8fdb\u3002",
+          "previous_automatic_single_job_gpu_hours": 4,
+          "automatic_single_job_gpu_hours": 8,
+          "authorization_ref": "manifests/budget_authorization_20261012_wc_math_scheduler_new48gpuh.json",
+          "complete_single_job_strictly_over8_requires_confirmation": true
+        }
+      ]
+    },
+    "admission": {
+      "unix": 1791962010.977536,
+      "uuid": "GPU-cebf7119-cf03-23b9-e192-cd196332b704",
+      "name": "NVIDIA RTX A6000",
+      "memory_used_mib": 24,
+      "compute_cap": "8.6",
+      "pids": []
+    },
+    "started_unix": 1791962011.0013776,
+    "authorized_billed_GPUh_limit": 8.0,
+    "planned_parents": 4,
+    "planned_suffixes": 12,
+    "planned_physical_pairs": 312,
+    "planned_offline_teacher_pairs": 0,
+    "model_loads": 1,
+    "legacy_seconds_deadline_active": false,
+    "child_pid": 710917,
+    "command": [
+      "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python",
+      "-u",
+      "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-block-velocity-production-r1-20261013/scripts/run_wc_block_velocity_r1.py",
+      "--project",
+      "/home/gaokuangda/data/gkd/worldcache_omr",
+      "--stage",
+      "/home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-block-velocity-production-r1-20261013",
+      "--source-revision",
+      "988ace1834af14c4ed535ed7b025c9619fec948e",
+      "--gpu-uuid",
+      "GPU-cebf7119-cf03-23b9-e192-cd196332b704"
+    ]
+  },
+  "original_processes": {
+    "supervisor_pid": {
+      "pid": 710803,
+      "exists": true,
+      "cmdline": "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python -u /home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-block-velocity-production-r1-20261013/scripts/supervise_wc_block_velocity_r1.py --project /home/gaokuangda/data/gkd/worldcache_omr --stage /home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-block-velocity-production-r1-20261013 --source-revision 988ace1834af14c4ed535ed7b025c9619fec948e "
+    },
+    "post_watcher_pid": {
+      "pid": 710804,
+      "exists": true,
+      "cmdline": "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python -u /home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-block-velocity-production-r1-20261013/scripts/watch_wc_block_velocity_cpu_r1.py --project /home/gaokuangda/data/gkd/worldcache_omr --stage /home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-block-velocity-production-r1-20261013 --supervisor-pid 710803 "
+    },
+    "child_pid": {
+      "pid": 710917,
+      "exists": true,
+      "cmdline": "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python -u /home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-block-velocity-production-r1-20261013/scripts/run_wc_block_velocity_r1.py --project /home/gaokuangda/data/gkd/worldcache_omr --stage /home/gaokuangda/data/gkd/worldcache_omr/.sync/wc-block-velocity-production-r1-20261013 --source-revision 988ace1834af14c4ed535ed7b025c9619fec948e --gpu-uuid GPU-cebf7119-cf03-23b9-e192-cd196332b704 "
+    }
+  },
+  "ledger": {
+    "batch": "F0-F1",
+    "cap_gpu_hours": 104.97136333301378,
+    "used_gpu_hours": 104.97136333301378,
+    "gpu_jobs_launched": 94,
+    "status": "BLOCK_SAVED_VELOCITY_INFLIGHT_REMAINING_RESERVED_NOT_ACTUAL_SPENT",
+    "gpu_import_probes_completed": 1,
+    "accounting": "Conservative single-GPU process wall time including imports, loading, failure and flush; see supervisor receipts",
+    "budget_authorization_ref": "manifests/budget_authorization_20261012_wc_math_scheduler_new48gpuh.json",
+    "budget_authorization_history": [
+      {
+        "authorized_utc": "2026-10-02T18:03:00Z",
+        "source_thread_id": "01a0f1e6-7ad0-75df-9a02-172b60d2e00b",
+        "user_instruction": "\u628a\u5404\u4e2a\u5b9e\u9a8c\u7684 gpu \u9884\u7b97\u90fd\u8bbe\u7f6e\u4e3a 12gpuh",
+        "previous_cap_gpu_hours": 4,
+        "new_cumulative_cap_gpu_hours": 12,
+        "used_gpu_hours_at_change": 3.9117525685110333,
+        "no_usage_reset_or_transfer": true
+      },
+      {
+        "authorized_utc": "2026-10-04T06:13:36Z",
+        "source_thread_id": "01a0f1e6-7ad0-75df-9a02-172b60d2e00b",
+        "user_message_id": "Sentinel_861e63a87d8c819180ec9a8bcfa6dc92",
+        "user_instruction": "\u5141\u8bb8\u589e\u52a0 GPUh",
+        "previous_cap_gpu_hours": 12,
+        "new_cumulative_cap_gpu_hours": 13,
+        "used_gpu_hours_at_change": 11.022315686839217,
+        "gpu_jobs_launched_at_change": 45,
+        "no_usage_reset_or_transfer": true,
+        "authorization_ref": "manifests/budget_authorization_20261004_wc_13gpuh.json"
+      },
+      {
+        "authorized_on_local": "2026-10-05",
+        "user_instruction": "\u6279\u51c6 WC-W3-SMALL-CD-R1-20261004-A\uff0c\u628a\u7d2f\u8ba1 gpuh \u9650\u5236\u63d0\u5347\u5230 24",
+        "previous_cap_gpu_hours": 13,
+        "new_cumulative_cap_gpu_hours": 24,
+        "used_gpu_hours_at_change": 11.022315686839217,
+        "gpu_jobs_launched_at_change": 45,
+        "no_usage_reset_or_transfer": true,
+        "authorization_ref": "manifests/budget_authorization_20261005_wc_24gpuh.json",
+        "approved_card": "WC-W3-SMALL-CD-R1-20261004-A",
+        "single_run_cap_seconds": 3900
+      },
+      {
+        "authorized_unix": 1791428550.530142,
+        "authorized_on_local": "2026-10-08",
+        "user_instruction": "\u6279\u51c6\u6269\u5927 gpuh\uff0c\u76f4\u63a5\u52a0\u5230 50 \u5427",
+        "previous_cap_gpu_hours": 24,
+        "new_cumulative_cap_gpu_hours": 50,
+        "used_gpu_hours_at_change": 22.314242424184147,
+        "gpu_jobs_launched_at_change": 59,
+        "no_usage_reset_or_transfer": true,
+        "authorization_ref": "manifests/budget_authorization_20261008_wc_50gpuh.json",
+        "automatic_single_job_gpu_hours": 2
+      },
+      {
+        "authorized_unix": 1791560438.1859179,
+        "authorized_on_local": "2026-10-09",
+        "user_instruction": "\u662f\u4ece\u5f53\u524d\u5f00\u59cb 48gpuh",
+        "initial_user_instruction": "\u628a gpuh \u9884\u7b97\u63d0\u5230 48h",
+        "previous_cap_gpu_hours": 50,
+        "new_cumulative_cap_gpu_hours": 77.89524658965853,
+        "used_gpu_hours_at_change": 29.895246589658527,
+        "gpu_jobs_launched_at_change": 65,
+        "authorized_remaining_gpu_hours": 48,
+        "no_usage_reset_or_transfer": true,
+        "authorization_ref": "manifests/budget_authorization_20261009_wc_new_window_48gpuh.json",
+        "automatic_single_job_gpu_hours": 2
+      },
+      {
+        "authorized_on_local": "2026-10-12",
+        "user_instruction": "\u6839\u636e\u6700\u65b0\u5bf9\u8bdd\u548c\u6587\u6863\uff0c\u66f4\u65b0\u4e00\u4e0b\u5b9e\u9a8c\u8bbe\u8ba1\uff0c\u5c1d\u8bd5\u4e00\u4e0b\u63d0\u5230\u7684\u65b0\u7684\u6838\u5fc3\u65b9\u6cd5\u662f\u5426\u6210\u7acb\u3002\u5728\u5f53\u524d\u57fa\u7840\u4e0a\u628a\u53ef\u7528 gpuh \u8bbe\u4e3a 48h\uff0c\u5355\u6b21\u5927\u4e8e 8h \u624d\u8be2\u95ee\u3002\u7b49\u8fd9\u4e2a\u7aef\u5230\u7aef\u52a0\u901f\u6d4b\u8bd5\u8dd1\u5b8c\u4e86\u5c31\u63a8\u8fdb\u3002",
+        "authorization_ref": "manifests/budget_authorization_20261012_wc_math_scheduler_new48gpuh.json",
+        "previous_cap_gpu_hours": 77.89524658965853,
+        "new_cumulative_cap_gpu_hours": 104.97136333301378,
+        "used_gpu_hours_at_change": 56.97136333301379,
+        "gpu_jobs_launched_at_change": 82,
+        "authorized_remaining_gpu_hours": 48,
+        "no_usage_reset_or_transfer": true
+      }
+    ],
+    "budget_authorization_window": {
+      "authorization_ref": "manifests/budget_authorization_20261012_wc_math_scheduler_new48gpuh.json",
+      "start_used_gpu_hours": 56.97136333301379,
+      "authorized_remaining_gpu_hours": 48,
+      "cumulative_cap_gpu_hours": 104.97136333301378,
+      "recorded_unix": 1791760184.7594678
+    },
+    "automatic_single_job_gpu_hours": 8,
+    "execution_policy_authorization_ref": "manifests/budget_authorization_20261012_wc_math_scheduler_new48gpuh.json",
+    "execution_policy_authorization_history": [
+      {
+        "authorized_on_local": "2026-10-10",
+        "source_user_instruction": "\u5355\u6b21 \u6539\u6210\u8d85\u8fc7 4h\u624d\u9700\u8981\u786e\u8ba4",
+        "previous_automatic_single_job_gpu_hours": 2,
+        "automatic_single_job_gpu_hours": 4,
+        "authorization_ref": "manifests/wc_execution_autonomy_authorization_20261010_4gpuh.json",
+        "recorded_unix": 1791561847.0094812
+      },
+      {
+        "authorized_on_local": "2026-10-12",
+        "source_user_instruction": "\u6839\u636e\u6700\u65b0\u5bf9\u8bdd\u548c\u6587\u6863\uff0c\u66f4\u65b0\u4e00\u4e0b\u5b9e\u9a8c\u8bbe\u8ba1\uff0c\u5c1d\u8bd5\u4e00\u4e0b\u63d0\u5230\u7684\u65b0\u7684\u6838\u5fc3\u65b9\u6cd5\u662f\u5426\u6210\u7acb\u3002\u5728\u5f53\u524d\u57fa\u7840\u4e0a\u628a\u53ef\u7528 gpuh \u8bbe\u4e3a 48h\uff0c\u5355\u6b21\u5927\u4e8e 8h \u624d\u8be2\u95ee\u3002\u7b49\u8fd9\u4e2a\u7aef\u5230\u7aef\u52a0\u901f\u6d4b\u8bd5\u8dd1\u5b8c\u4e86\u5c31\u63a8\u8fdb\u3002",
+        "previous_automatic_single_job_gpu_hours": 4,
+        "automatic_single_job_gpu_hours": 8,
+        "authorization_ref": "manifests/budget_authorization_20261012_wc_math_scheduler_new48gpuh.json",
+        "complete_single_job_strictly_over8_requires_confirmation": true
+      }
+    ],
+    "wc_block_saved_velocity_inflight": {
+      "supervisor_pid": 710803,
+      "run_id": "wc-block-saved-velocity-full312-r1",
+      "reserved_GPUh": 25.776350801342346
+    }
+  },
+  "kernel_lock_free": false,
+  "GPU": "GPU-cebf7119-cf03-23b9-e192-cd196332b704, NVIDIA RTX A6000, 24514",
+  "compute_apps": "GPU-cebf7119-cf03-23b9-e192-cd196332b704, 710917",
+  "supervisor_log_tail": ""
+}

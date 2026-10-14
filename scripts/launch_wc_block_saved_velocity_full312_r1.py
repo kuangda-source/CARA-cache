@@ -23,6 +23,11 @@ HOST = ['ssh', '-o', 'BatchMode=yes', '-o', 'ConnectTimeout=15',
         '-o', 'ClearAllForwardings=yes', 'gkd_minchen']
 
 
+def remote_dispatch_command(packet):
+    # The system Python can predate pathlib.is_relative_to; use the accepted runtime.
+    return HOST + [packet['python'] + ' -']
+
+
 def accepted_packet():
     acceptance_path = ROOT/'reports/wc_block_velocity_production_r1_CPU_independent_acceptance_20261013.json'
     accepted = json.loads(acceptance_path.read_text())
@@ -135,7 +140,7 @@ def main():
             + repr(SERVER) + ',' + repr(STAGE) + ',' + repr(packet) + ')))\n')
     compile(code, 'B-full312-single-dispatch', 'exec')
     # A timeout means unknown observation, never a reason to start another supervisor.
-    receipt = json.loads(subprocess.check_output(HOST+['python3 -'], input=code, text=True, timeout=120))
+    receipt = json.loads(subprocess.check_output(remote_dispatch_command(packet), input=code, text=True, timeout=120))
     target = ROOT/'reports/wc_block_saved_velocity_full312_r1_GPU_launch_20261013.json'
     if target.exists():
         assert json.loads(target.read_text()) == receipt

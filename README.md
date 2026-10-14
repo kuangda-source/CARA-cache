@@ -1,3 +1,7 @@
+## 2026-10-14 15:15 当前只验收在跑 B，之后收束
+
+**用户最新要求：不再开启新实验。** [422原B运行与最终查收](research/422_WC_B_FULL312_LAUNCH_AND_FINAL_COLLECTION_ONLY_20261014.md)：原988ace1/730于15:12:17唯一派发、15:13:30准入，supervisor710803/runner710917/post710804现场存活，A6000为本任务使用。四状态、4父＋12后缀/16输出、312pairs不变；预测2.236752758GPUh，准入前实结79.195012532/cap104.971363333，余25.776350801；在途预留不算实费。**2026-10-14 17:45 Asia/Shanghai（1791971100）一次查收**，不持续监听；旧worldcache自动化已暂停，新b-worldcache只验收原B并收束。验收后不续开GPU卡、F收益差CPU、F/B实验、训练或人评；待补实验仅列建议。B/F仍独立，原60已完整接受不重复查询。下面保留历史。
+
 ## 2026-10-14 论文收束与关键补验
 
 [收束决定与正文框架](research/421_WC_PAPER_CONVERGENCE_TASKS_AND_MAIN_TEXT_FRAMEWORK_20261014.md) ｜ [关键收尾实验设计](plans/WORLD_CACHE_PAPER_CONVERGENCE_AND_FINAL_EXPERIMENTS_20261014.md) ｜ [正文最小算法与图表](paper/WORLD_CACHE_MAIN_TEXT_OUTLINE_20261014.md) ｜ [原60完整结果](research/420_WC_FULL60_COST_CURVE_COMPLETE_RESULTS_AND_CONVERGENCE_20261014.md)。

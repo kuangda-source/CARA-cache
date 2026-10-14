@@ -91,7 +91,11 @@ def main():
             cases.append(kind)
     actual=m.accepted_packet()
     assert actual['payload_files']==730 and actual['source_revision']==m.SOURCE
-    print(json.dumps(dict(status='B_FULL312_ACTUAL_DISPATCH_HELPER_CPU_EIGHT_CASES_PASS_NOT_GPU',
+    remote=m.remote_dispatch_command(actual)
+    assert remote[:-1]==m.HOST and remote[-1]==m.PYTHON+' -'
+    assert 'python3 -' not in remote
+    cases.append('accepted_production_interpreter_for_remote_dispatch')
+    print(json.dumps(dict(status='B_FULL312_ACTUAL_DISPATCH_HELPER_CPU_NINE_CASES_PASS_NOT_GPU',
                           cases=cases, accepted_actual_CPU_source_bound=True,
                           GPU_submissions=0, server_contacts=0, ledger_written=False)))
 
