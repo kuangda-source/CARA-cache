@@ -43,10 +43,11 @@ def body(inference,selected,wc,rf,settings,inference_module,runtime,config,flow,
                 'partial_prior':CreationPhasePrior('SYNTHETIC_PA',.005,.3,early_creation_floor=.005,late_creation_floor=.02),
                 'working_epoch_strategy':'WORKING_P_AGE_NONZERO_REBASE'}
             specs={'SOURCE_RA':spec,'A_CPD_BETA1_ONE_PHASE':spec}
-            # D fixture uses a declared large synthetic scale, keeping the
+            # Both fixtures use a declared large synthetic scale, keeping the
             # original age1-6 support at every fixed diagnostic position.
-            # The real frozen H1 parameters and P-source fixture stay intact.
-            cells={key:{'status':'FIT','C_scale':1e9 if regime=='D_WORKING_SOURCES' else (1. if key.startswith('P') else 100.),'A_ratios':{'FUSION_A':.02},
+            # Real frozen H1 parameters stay intact. Positive cheap/expensive
+            # synthetic P birth costs distinguish the two source regimes.
+            cells={key:{'status':'FIT','C_scale':1e9,'A_ratios':{'FUSION_A':.02},
                 'actual_NEW_P_birth_mean':.0001 if regime=='P_WORKING_SOURCES' else 1e6} for key in ('D_EARLY','D_LATE','P_EARLY','P_LATE')}
             table={'version':VERSION,'gamma':.5,'table_model':{'grouping':'SOURCE_PHASE','target':'absolute_guided_MSE',
                 'current_teacher_energy_is_online_feature':False,'cells':cells},

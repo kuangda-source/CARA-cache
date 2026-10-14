@@ -29,7 +29,7 @@ CPU 原型当前只比较每位置 CAD 各1次、Pc/Pu各4次（11次）。**生
 
 历史差分对照只读此前普通 DD；当前 shadow D 或 Pc/Pu 不更新它。标 FC_STYLE_HISTORY_DIFF，属于简化对照；其离线误差可以比较，但未独立执行/计时就不提供 clean latency。所有候选/teacher 与部署历史分库存储。
 
-报价包括两个已付 probe、实际 A heads/RF、单支 deep/head、补偿和必要维护。安装/编译分列；恢复、复制、哈希和写盘分列。输出误差只使用同状态绝对 guided MSE，不混用相对 RMSE。需要关闭的纯诊断 hook 及保留的算法维护必须通过等价控制，当前诊断 timer 暂只报 instrumented full-pair time。
+报价包括两个已付 probe、实际 A heads/RF、单支 deep/head、补偿和必要维护。安装/编译分列；恢复、复制、哈希和写盘分列。输出误差只使用同状态绝对 guided MSE，不混用相对 RMSE。需要关闭的纯诊断 hook 及保留的算法维护必须通过等价控制，当前诊断 timer 暂只报 instrumented full-pair time。原融合路径的 D 来源 A 为4次head、旧P来源A为6次；单支ACR还需所选D的1次head。不能把来源混合后的均值当每种动作的固定价格，具体新执行计数以CPU/真实回执为准。
 
 ## 费用与执行边界
 
