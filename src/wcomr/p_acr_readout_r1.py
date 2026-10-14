@@ -82,6 +82,13 @@ def _cached_compiler(runtime, wc, rf, collector):
     if not isinstance(flag.body[-1], ast.If) or ast.unparse(flag.body[-1].test) != 'self.cnt >= self.worldcache_num_steps':
         raise ValueError('Pinned native70 reset block differs')
     finish_cached = _compile(flag, vars(wc), WC_PATH + '#acr-cache-counter')
+    final_store = [n for n in original.body if isinstance(n, ast.If)
+                   and ast.unparse(n.test) == 'current_idx < len(self.previous_output)']
+    if len(final_store) != 1:
+        raise ValueError('Pinned post-counter previous_output write differs')
+    output_store = ast.parse('def record_cached_output(self,current_idx,x_B_C_Tt_Hp_Wp):\n    pass').body[0]
+    output_store.body = copy.deepcopy(final_store)
+    record_cached_output = _compile(output_store, vars(wc), WC_PATH + '#acr-post-counter-output')
     flows = [n for n in ast.walk(cache_if) if isinstance(n, ast.If) and ast.unparse(n.test) == "getattr(self, 'worldcache_flow_enabled', False) and self.previous_input[current_idx] is not None"]
     if len(flows) != 1:
         raise ValueError('Pinned flow body differs')
@@ -89,10 +96,10 @@ def _cached_compiler(runtime, wc, rf, collector):
     warp.body.insert(1, copy.deepcopy(flows[0]))
     collector.warp = _compile(warp, vars(wc), WC_PATH + '#acr-exact-warp')
     collector.to_velocity, conversion = compile_output_denoise(runtime, rf)
-    return cached_head, finish_cached, {
+    return cached_head, finish_cached, record_cached_output, {
         'WC_source_sha256': WC_SHA, 'RF_source_sha256': RF_SHA,
         'cached_branch_statements_source_exact': True, 'flow_and_head_statements_source_exact': True,
-        'native_counter_reset_statements_source_exact': True, 'helper_deep_blocks': 0,
+        'native_counter_reset_statements_source_exact': True, 'post_counter_output_store_source_exact': True, 'helper_deep_blocks': 0,
         'RF_conversion': dict(conversion), 'not_actual_model_or_speed_proof': True,
     }
 
@@ -169,14 +176,14 @@ class ACRReadoutExecutor(NativePolicyPairedExecutor):
             raise ValueError('ACR rejects cold/protected/future sources before any model execution')
         self.direction, self.coefficient, self.step = direction, float(coefficient), step
         self.side = 0 if direction == 'Pc' else 1
-        self.prefix, self.cached_v = {}, {}
+        self.prefix, self.cached_v, self.cached_heads = {}, {}, {}
         self.reference = SimpleNamespace(model=model, net=model.net, context=context, dense=dense,
             working=working, current={'action': 'C', 'source_choice': SimpleNamespace(reason='MATH_ACR:A')},
             warp=None, to_velocity=None)
         self.readout = SourceFusionReadout(self.reference, method='BETA1_ONE_PHASE', gamma=gamma, mode='FUSION')
         self.readout.completed = step - 1
         self.reference.readout = self.readout
-        self.cached_head, self.finish_cached, self.cached_proof = _cached_compiler(runtime, wc, rf, self.reference)
+        self.cached_head, self.finish_cached, self.record_cached_output, self.cached_proof = _cached_compiler(runtime, wc, rf, self.reference)
         self.readout.warp, self.readout.to_velocity = self.reference.warp, self.reference.to_velocity
         denoise, self.prefix_proof = _prefix_compiler(runtime, wc, rf, self._observe_prefix)
         super().__init__(model, denoise, torch, wc_forward=wc.worldcache_mini_train_dit_forward,
@@ -196,6 +203,7 @@ class ACRReadoutExecutor(NativePolicyPairedExecutor):
         for slot in (0, 1):
             self.net.cnt = count + slot
             head = self.cached_head(*self.prefix[slot])
+            self.cached_heads[slot] = head
             cur = self.readout.current
             self.cached_v[slot] = self.reference.to_velocity(self.model, cur['noise'], cur['latent'], cur['timestep'],
                 cur['conditions'][slot], _supplied_net_output=head)
@@ -208,6 +216,7 @@ class ACRReadoutExecutor(NativePolicyPairedExecutor):
             gen.close()
             value = self.cached_v[slot]
             self.finish_cached(self.net, slot)
+            self.record_cached_output(self.net, slot, self.cached_heads[slot])
             return value
         # The normal dense branch replaces cache fields/windows. Retain the
         # current C-compatible bookkeeping and strictly old working source.
@@ -219,6 +228,7 @@ class ACRReadoutExecutor(NativePolicyPairedExecutor):
             self.net.resume_flag[slot] = False
             for field, (container, entries) in windows.items():
                 container[:] = entries; getattr(self.net, field)[slot] = container
+        self.record_cached_output(self.net, slot, self.cached_heads[slot])
         return value
 
     @torch.no_grad()
