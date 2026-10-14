@@ -1,5 +1,7 @@
 ## 2026-10-15 W3完整采集器CPU唯一派发；05:32一次查收
 
+**查收前独立进展：**[437原始标签post](437_WC_W3_INDEPENDENT_RAW_LABEL_AND_CAUSAL_PREFIX_POST_CPU_20261015.md)已实现，七项本地raw/Gram/g²/状态/恢复/未来输入/UNKNOWN分母控制通过；仅合成CPU，不是90文件/18视频完整post。原bb19766采集器及715cae7 PA代码均未改，原05:32一次查收不提前；新GPU仍停止。
+
 [436原CPU](436_WC_W3_FULL72_COLLECTOR_CPU_PREREG_AND_LAUNCH_20261015.md)：原bb19766独立 wc-w3-label64-h1-collector-cpu-r1-20261015、CPU855862于05:06:05唯一派发，完整72CPU父/两flow+D/P域/288状态/864extra+2592ordinary=3456pairs/6912CFG保持。新增采集器及本地3原支持控制已过；完整CPU尚未查收/接受，不称真实标签/GPU就绪。
 
 next_check_not_before=**2026-10-15 05:31:05.146 Asia/Shanghai（1792013465.146）**，自动化“W3标签CPU查收”05:32一次查原句柄与全部源/全父36等价/恢复/因果teacher隔离/一次g²/预算SHA；此前不SSH持续监听，不覆盖/重启原stage。未完按余量重新估时一次查收并结束。下一入口 memory/handoffs/WC_W3_FULL72_CPU_RUNNING_CHECK_0532_20261015.md。PA528/source715cae7/R2/7.529994许可仍待，不重问/自动GPU；F/B结束，余24.974985961旧窗口不重置。以下保留历史。

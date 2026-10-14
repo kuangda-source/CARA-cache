@@ -2,6 +2,8 @@
 
 **最新CPU执行：**[436独立采集器](../research/436_WC_W3_FULL72_COLLECTOR_CPU_PREREG_AND_LAUNCH_20261015.md)已经实现并唯一派发原R1 CPU855862/sourcebb19766；完整72CPU父／288状态／3456总pairs待验收，05:32北京时间一次查收。生产18/864与CPU范围分开；不称新标签／W3收益或GPU就绪。PA528待批准保持。
 
+[437独立标签post](../research/437_WC_W3_INDEPENDENT_RAW_LABEL_AND_CAUSAL_PREFIX_POST_CPU_20261015.md)七项本地原始张量／教师与因果输入隔离控制另已通过，未改原CPU stage；实际完整生产原件与视频post仍待。
+
 **当前建议：保住 A＋校准式计算分配的论文主干，优先加强 W3 的独立价值；P-ACR 作为有界增强，先回答真实误差—费用问题，再决定是否接闭环。** F/B 本轮已经结束。本文结合 `worldcache讨论` 最新数轮、两份 P/W3 材料及项目已接受记录更新；具体执行仍服从当前停止新 GPU 的约定。
 
 ## 1. 论文主线及已完成证据

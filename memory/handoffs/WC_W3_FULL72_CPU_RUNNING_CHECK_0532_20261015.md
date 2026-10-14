@@ -1,5 +1,7 @@
 # W3完整采集器CPU唯一提交；05:32一次查收
 
+查收前另完成[437独立post](../../research/437_WC_W3_INDEPENDENT_RAW_LABEL_AND_CAUSAL_PREFIX_POST_CPU_20261015.md)及7本地控制；新文件没加入原bb stage，当前Core/test/harness字节与bb19766完全一致。原CPU采集结果不能自动称post7也在服务器接受，90真实原件/18视频/生产入口与费用仍待。
+
 先读[436](../../research/436_WC_W3_FULL72_COLLECTOR_CPU_PREREG_AND_LAUNCH_20261015.md)与[435输入scope](../../research/435_WC_W3_EXPL_DEV8_FROZEN_INPUTS_AND_FULL864_LABEL_SCOPE_20261015.md)。
 
 原R1 CPU855862/sourcebb1976605812971ec4852a1a7846a02f10caa3c1，stage .sync/wc-w3-label64-h1-collector-cpu-r1-20261015，05:06:05唯一派发。完整72CPU父／两flow与D/P域、288状态/864extra/2592ordinary/3456pairs/6912CFG保持；合成gamma0.5及高CScale只接口，真实H1不改。当前未查收／未验收。
