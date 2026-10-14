@@ -1,3 +1,9 @@
+## 2026-10-15 W3启动失败修复实际R3 CPU已派发；06:56一次查收
+
+[446完整卡](../../research/446_WC_W3_STARTUP_REPAIR_PRODUCTION_R3_CPU_AND_WHOLE_CARD_DECISION_20261015.md)：source047dcf1、fresh生产cpu-r3、原CPU860586于06:49:39单次派发，实际原H1/8输入/18父64+8/864最大pairs、scope4/fullpost7/launch12完整23控制尚未验收。无child或缺runner也保留18/72分母与0/UNKNOWN计数；原输入、scope、数值物理核心不变，GPU/权重/预算写0。
+
+最早查收06:54:39.831 Asia/Shanghai（1792018479.831499），自动化W3整卡CPU最终查收06:56仅查原launch/句柄/完整源/实际结果/23控制/预算SHA一次，不提前SSH/持续看partial、不重投或改stage。R2在445已接受1627/22/78.50秒，R1/R3数值也已接受，不重查旧任务。具体W3全卡投入说明已完成，待R3通过后供人决定11.645828forecast/上限12>8；新GPU停止、PA原715cae7询问未回、余24.974985961不重置，P可选/主稿补验留预算。F/B结束，无新人评/训练/OMR。以下历史保留。
+
 ## 2026-10-15 W3完整R2 CPU接受；启动失败分母修复待R3
 
 [445边界修复](../../research/445_WC_W3_R2_ACCEPTED_AND_STARTUP_FAILURE_FULL_DENOMINATOR_REPAIR_20261015.md)：原860020/source754fcd1在06:45单次查收接受、1627源/4+7+11控制、78.496799秒、预算不变/GPU0，旧任务结束不重查。复核补齐supervisor未创建child及child缺runner时的18父/72分母和0/UNKNOWN真实计数；本地launch12/fullpost7通过，原scope/H1/输入不变。
