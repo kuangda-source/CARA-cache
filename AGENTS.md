@@ -1,3 +1,9 @@
+## 2026-10-15 W3真实生产CPU已派发；06:31一次查收
+
+[442实际入口](research/442_WC_W3_ACTUAL_PRODUCTION_CPU_LAUNCH_AND_ONCE_COLLECTION_20261015.md)：source227e278、fresh wc-w3-label64-production-cpu-r1-20261015、CPU859314于06:24:59单次派发，真实Setup/八请求/原H1资源/完整18父64+8位置864最大pairs、scope4/fullpost7与90合成原件接口CPU尚未验收。原vendor八prompt已字节一致归档，输入/SHA/scope未改；原本地包停止在SSH前、无旧服务器任务。
+
+最早查收06:29:59.295 Asia/Shanghai（1792016999.2946737），自动化W3生产CPU查收06:31仅查原launch/PID/完整source/实际入口结果/预算SHA一次；此前不SSH持续查partial，不重派或覆盖原stage。原R3 441已完整接受72/288/3456，源150da32/857865已结束，不再查。整卡监督CPU/真实标签/许可尚待，新GPU仍停止，PA原715cae7/7.529994询问未回、W3草案11.645828、原余24.974985961不重置。F/B结束、旧A/H1与论文补验保持。以下历史保留。
+
 ## 2026-10-15 W3完整72采样CPU接受；真实生产CPU下一步
 
 [441完整接受](research/441_WC_W3_FULL72_COLLECTOR_CPU_ACCEPTED_AND_PRODUCTION_NEXT_20261015.md)：06:17一次查原R3/source150da32/PID857865，1572文件一致、原句柄终态0；完整72父/288状态/2592ordinary+864CAD=3456pairs/6912CFG，全36父输出/动作/A历史/终态/mock视频与三次恢复、支持3/周期2通过，638.046709秒，预算SHA不变/GPU0。R1/R2失败保留，不重复查旧任务，查收自动化已暂停。

@@ -6,6 +6,8 @@
 
 [440全量post与真实入口](../research/440_WC_W3_WHOLE90_RAW_POST_AND_PRODUCTION_ENTRY_PREPARATION_20261015.md)已接全部18父／72位置，完整合成90文件1242张量与失败／孤立原件保留，新11项本地CPU控制通过。真实生产CPU、监督准入及实际原件仍待；R3先按原预计时间验收，随后仅派发fresh生产CPU，不据此开GPU。
 
+[442真实生产CPU](../research/442_WC_W3_ACTUAL_PRODUCTION_CPU_LAUNCH_AND_ONCE_COLLECTION_20261015.md)已于06:24:59唯一派发PID859314/source227e278，06:31一次查原终态和真实参数/资源/全矩阵；尚未接受。整卡监督准入和新GPU许可仍待，不改已接受R3/PA目录。
+
 **当前建议：保住 A＋校准式计算分配的论文主干，优先加强 W3 的独立价值；P-ACR 作为有界增强，先回答真实误差—费用问题，再决定是否接闭环。** F/B 本轮已经结束。本文结合 `worldcache讨论` 最新数轮、两份 P/W3 材料及项目已接受记录更新；具体执行仍服从当前停止新 GPU 的约定。
 
 ## 1. 论文主线及已完成证据
