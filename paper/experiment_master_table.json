@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "updated_local_date": "2026-10-15",
-  "snapshot_basis": "local accepted reports and latest launch receipt; no early SSH/GPU status query",
+  "snapshot_basis": "local accepted reports, original launch, and one user-requested read-only device/process/budget snapshot; no intermediate scientific outputs queried",
   "git_snapshot_before_inventory": "f5dbd194f4c85a1fcb75184fa8938c71f32fb409",
   "mapping_ref": "paper/internal_to_paper_mapping.json",
   "scope": "scientific experiment families and complete cards, not each engineering retry; reused artifacts must not be summed as independent samples",
@@ -963,7 +963,8 @@
     "448": "research/448_WC_W3_FULL864_APPROVED_GPU_LAUNCH_AND_UNDER12_AUTONOMY_20261015.md",
     "roadmap": "plans/WORLD_CACHE_RESEARCH_ROADMAP_20261015.md",
     "closure_plan": "plans/WORLD_CACHE_PAPER_CONVERGENCE_AND_FINAL_EXPERIMENTS_20261014.md",
-    "trend_spec": "research/p_w3_e0_20261014/W3_Trend_Label_And_Baseline_Spec.md"
+    "trend_spec": "research/p_w3_e0_20261014/W3_Trend_Label_And_Baseline_Spec.md",
+    "449": "research/449_WC_TWO_GPU_OCCUPANCY_AND_SAFE_MAINLINE_PARALLELISM_20261015.md"
   },
   "source_bindings": {
     "11": {
@@ -1077,6 +1078,10 @@
     "trend_spec": {
       "path": "research/p_w3_e0_20261014/W3_Trend_Label_And_Baseline_Spec.md",
       "sha256": "8e5a1f5e6ba02a58875498d55b3404dcc52de955f6c16d1b9a5ae3ba8f86bb5c"
+    },
+    "449": {
+      "path": "research/449_WC_TWO_GPU_OCCUPANCY_AND_SAFE_MAINLINE_PARALLELISM_20261015.md",
+      "sha256": "efc9c9b54c1cf26be81d2d4eb71ec093a2eb8ed9550fa0c2fd2d59d7c5e6d70b"
     }
   },
   "operation_policy": {
@@ -1092,7 +1097,18 @@
     "actual_running_card_spend_unknown": true,
     "budget_window_not_reset": true,
     "planned_templates_are_not_CPU_accepted_selected_cards": true,
-    "closed_F_B_not_reopened": true
+    "closed_F_B_not_reopened": true,
+    "last_user_requested_resource_check": {
+      "unix": 1792050070.945652,
+      "report": "research/449_WC_TWO_GPU_OCCUPANCY_AND_SAFE_MAINLINE_PARALLELISM_20261015.md",
+      "receipt": "reports/wc_two_gpu_parallel_resource_readonly_20261015_154110.json",
+      "active_experiment_GPUs": 1,
+      "W3_gpu_index_at_check": 1,
+      "idle_gpu_index_at_check": 0,
+      "direct_concurrent_submission_supported_by_current_supervisor": false,
+      "intermediate_scientific_outputs_read": false,
+      "second_GPU_job_launched": false
+    }
   },
   "mapping_sha256_at_inventory": "4f3cd6988de2a1b290001f661d3e6dae40ec52906eccb0a9bf6191165a250aee"
 }

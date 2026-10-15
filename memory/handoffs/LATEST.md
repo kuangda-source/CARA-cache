@@ -1,5 +1,7 @@
 ## 2026-10-15 W3完整864已获批并运行；后续严格少于12GPUh自主
 
+15:41按用户资源询问一次只读核对：[449双卡资源与并行安排](../../research/449_WC_TWO_GPU_OCCUPANCY_AND_SAFE_MAINLINE_PARALLELISM_20261015.md)。W3仅GPU1/876879，GPU0无compute；原f1排他锁/全余额临时预留及快照覆盖式结算不支持直接并发。N06同26D简单规则适合作为独立主线候选；须先有双卡账本兼容/CPU和具体整卡，不绕锁或修改在途监督器。本轮无第二GPU提交、未读科学partial，01:00查收保持。
+
 论文写作映射已整理：[内部到论文表述](../../paper/INTERNAL_TO_PAPER_MAPPING.md)、[机器索引](../../paper/internal_to_paper_mapping.json)。暂定CARA-Cache＝GCR＋CPA；原ID/SHA不改，P_OFF仍含P0、旧新H1分版本、新P为compensated readout。当前运行／01:00一次查收保持，未提前查partial。
 
 新增[论文实验总表](../../paper/EXPERIMENT_MASTER_TABLE.md)与[机器索引](../../paper/experiment_master_table.json)：32项含已完成、原W3在途、待补及关闭/暂缓，映射C1/C2/C3与P/W3增强，列依赖与优先级。此轮仅本地文档核对，无SSH/新实验；原W3查收及<12GPUh自主、原累计预算保持。

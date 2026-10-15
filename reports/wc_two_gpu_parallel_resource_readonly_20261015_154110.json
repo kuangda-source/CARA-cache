@@ -1,0 +1,46 @@
+{
+  "observed_unix": 1792050070.945652,
+  "gpu_csv": "0, GPU-de9a5370-cd87-0f1c-a48e-288888777dd3, NVIDIA RTX A6000, 413, 49140, 1\n1, GPU-cebf7119-cf03-23b9-e192-cd196332b704, NVIDIA RTX A6000, 20566, 49140, 0\n",
+  "compute_apps_csv": "GPU-cebf7119-cf03-23b9-e192-cd196332b704, 876879, /home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python, 20534\n",
+  "own_processes": [
+    {
+      "pid": 876730,
+      "state": "S",
+      "command": "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python -u /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/.sync/wc-w3-label64-production-cpu-r3-20261015/scripts/supervise_wc_w3_label64_full864_r1.py --project /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr --stage /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/.sync/wc-w3-label64-production-cpu-r3-20261015 --source-revision 047dcf181a3ab706002b2965e74b626e4648deea --gpu-uuid GPU-cebf7119-cf03-23b9-e192-cd196332b704 --authorization /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/.sync/wc-w3-label64-production-cpu-r3-20261015/new-W3-GPU-authorization.json "
+    },
+    {
+      "pid": 876879,
+      "state": "R",
+      "command": "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python -u /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/.sync/wc-w3-label64-production-cpu-r3-20261015/scripts/run_wc_w3_label64_full864_r1.py --project /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr --stage /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/.sync/wc-w3-label64-production-cpu-r3-20261015 --source-revision 047dcf181a3ab706002b2965e74b626e4648deea --gpu-uuid GPU-cebf7119-cf03-23b9-e192-cd196332b704 --authorization /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/.sync/wc-w3-label64-production-cpu-r3-20261015/new-W3-GPU-authorization.json "
+    },
+    {
+      "pid": 876731,
+      "state": "S",
+      "command": "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/.sync/wc-w3-label64-production-cpu-r3-20261015/scripts/watch_wc_w3_label64_post_cpu_r1.py --project /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr --stage /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/.sync/wc-w3-label64-production-cpu-r3-20261015 --supervisor-pid 876730 "
+    }
+  ],
+  "supervisor_status": "W3_LABEL64_GPU_RUNNING",
+  "started_unix": 1792038442.3830454,
+  "authorized_billed_GPUh_limit": 12.0,
+  "budget_before": {
+    "cap_gpu_hours": 104.97136333301378,
+    "used_gpu_hours": 79.99637737158223,
+    "gpu_jobs_launched": 94
+  },
+  "budget_current": {
+    "cap_gpu_hours": 104.97136333301378,
+    "used_gpu_hours": 104.97136333301378,
+    "gpu_jobs_launched": 95,
+    "status": "W3_LABEL64_INFLIGHT_REMAINING_RESERVED_NOT_ACTUAL_SPENT"
+  },
+  "inflight": {
+    "wc_w3_label64_inflight": {
+      "supervisor_pid": 876730,
+      "run_id": "wc-w3-label-expldev8-parent18-local64-full864-r1",
+      "reserved_GPUh": 24.974985961431557,
+      "launch_id": "97569941-5818-465e-b797-e220c57d57c0"
+    }
+  },
+  "project_global_lock_free": false,
+  "scientific_progress_or_output_metrics_read": false
+}
