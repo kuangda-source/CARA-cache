@@ -1,3 +1,9 @@
+## 2026-10-15 23:00同26D卡OOM终态；部分证据接受、整卡未接受
+
+[451](research/451_WC_SIMPLE26D_PARTIAL_RESULTS_OOM_TERMINAL_AND_PAPER_IMPLICATIONS_20261015.md)：仅一次查原909867/910056/909868，1644源一致，三进程已结束、自身GPU0锁释放。原36位置保留：12warm＋16正式完成、misc前密A一条OOM（raw仍RUNNING，派生终态TECH_FAILED_CUDA_OOM）、7未到达，无拒绝。16正式×93=1488帧分数独立重算，六旧420 fixed终态/动作/RGB和六组warm全36guided重复通过。原严格整卡分析器拒绝child exit1；新增部分原件审计及九个CPU负控制通过，不放宽原判据。三场景原阶段胜均匀、均匀内A改善；粗阶段两例混合，四场景均值空缺。
+
+本卡实费2.292842043GPUh，v2累计86.864053599/cap104.971363333，预留0、余18.107309734，按两卡原账单加法核对。原W3仅财务已结，科学验收仍10-16 01:00，不提前读原件。worldcache-26d本次收束暂停，不再查旧句柄或自动重跑/新增GPU；下一只列显存生命周期定位及完整收尾待讨论，mask/alpha与旧原件不改，F/B关闭。以下保留历史。
+
 ## 2026-10-15 双卡机制验收、同26D主线完整卡已启动
 
 最新[450](research/450_WC_DUAL_GPU_SIMPLE26D_RUNNING_AND_ACCOUNTING_ACCEPTANCE_20261015.md)和[双卡约定](plans/WORLD_CACHE_DUAL_GPU_EXECUTION_20261015.md)覆盖旧单GPU技术限制。用户明确授权兼容改造后用空闲卡推进N06。source36f5583、1644源/完整96采样/实际生产CPU通过，GPU0在16:18:09以fresh UUID/资源和v2余额准入，909867/910056/post909868，24正式＋12完整预热/1296pairs/1load，预测5.766055、完整上限8GPUh。今晚23:00由worldcache-26d一次查收，不提前看partial或持续监听；结果尚未接受。

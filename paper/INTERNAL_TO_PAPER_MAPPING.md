@@ -287,7 +287,7 @@ P_u=(v_c^A+\zeta(v_u^D-v_u^A),\ v_u^D).
 
 ## 11. 给另一个写作对话的接续提示词
 
-**2026-10-15补充：同26D简单规则卡已在途，名称映射如下；结果尚未接受。** 命名空间为 `SIMPLE26D_FULL36`，source36f5583，六方法×四原CAL=24正式＋12完整预热，详见[450](../research/450_WC_DUAL_GPU_SIMPLE26D_RUNNING_AND_ACCOUNTING_ACCEPTANCE_20261015.md)和总表N06。
+**2026-10-15 23:00补充：同26D简单规则卡已因OOM终态；12warm及16正式通过部分原件审计，整卡未接受。** 名称映射如下，命名空间 `SIMPLE26D_FULL36`、source36f5583，原24正式＋12完整预热分母不变；1失败＋7未到达。三个输入完成fixed/uniform配对、两个完成front配对，不填四场景均值。详见[451](../research/451_WC_SIMPLE26D_PARTIAL_RESULTS_OOM_TERMINAL_AND_PAPER_IMPLICATIONS_20261015.md)和总表N06。
 
 | 内部方法 | 论文表述 | 执行身份 |
 |---|---|---|

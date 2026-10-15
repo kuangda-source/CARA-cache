@@ -1,5 +1,7 @@
 # 双卡兼容与主线同26D接续
 
+**23:00本卡已一次收终态，禁止再运行launch或持续查旧进程。** [451](../../research/451_WC_SIMPLE26D_PARTIAL_RESULTS_OOM_TERMINAL_AND_PAPER_IMPLICATIONS_20261015.md)：36分母保留，12warm/16正式完成并评分、1 OOM/7未到达，整卡未接受；九CPU负控制及部分原件审计通过。新卡2.292842043GPUh、GPU0锁释放，新池实际86.864053599/104.971363333、预留0余18.107309734。原W3科学验收仍01:00，财务条目不当科学完成。worldcache-26d暂停，无补样或新卡；显存定位和完整收尾仅待讨论。下面在途/CPU段落保留历史。
+
 **最新：完整CPU已接受，新卡GPU已准入。** source36f5583于16:18:09取得GPU0 UUID-de9a...锁和8GPUh完整预留；supervisor909867、runner910056、post909868、bridge909859。全部1644源/两flow96采样/真实生产通过，60个非D计划步真实calibration支持也已核对。原W3 source047dcf1/876730/876879/876731和GPU1不变，旧账本SHA未变。
 
 按[450](../../research/450_WC_DUAL_GPU_SIMPLE26D_RUNNING_AND_ACCOUNTING_ACCEPTANCE_20261015.md)于**10-15 23:00**一次查收，自动化`worldcache-26d`；原W3`p-acr-cpu`仍10-16 01:00。新账本实结起点79.996377372、总预留20、可准入4.974985961，cap104.971363333不变。新卡并发秒数只诊断，不作clean加速。结果尚待，不继续SSH看partial，不自动重派/追加卡。下面CPU启动安排保留历史，不能再执行一次launch。
