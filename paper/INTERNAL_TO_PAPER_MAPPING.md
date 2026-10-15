@@ -23,7 +23,7 @@
 
 `CARA-Cache`、`GCR`、`CPA`来自对话中的命名建议，本次没有开展名称查重，不能写“已确认不存在同名工作”。备选 `SARA-Cache` 不与主显示名混用。定稿只改显示映射，不重命名实验原件。
 
-最短阅读路径：本文件 → [当前正文框架](WORLD_CACHE_MAIN_TEXT_OUTLINE_20261014.md) → [420同批结果](../research/420_WC_FULL60_COST_CURVE_COMPLETE_RESULTS_AND_CONVERGENCE_20261014.md) → [417冻结确认](../research/417_WC_FROZEN_CONFIRMATION_FULL50_RESULTS_AND_COST_CURVE_NEXT_20261013.md)。新探索当前状态见[455](../research/455_WC_W3_RAW_COHORT_ACCEPTANCE_GROUPED_T1_T2_RESULTS_AND_PHASE_ATTRIBUTION_20261016.md)，旧448启动身份保留。
+最短阅读路径：本文件 → [当前正文框架](WORLD_CACHE_MAIN_TEXT_OUTLINE_20261014.md) → [420同批结果](../research/420_WC_FULL60_COST_CURVE_COMPLETE_RESULTS_AND_CONVERGENCE_20261014.md) → [417冻结确认](../research/417_WC_FROZEN_CONFIRMATION_FULL50_RESULTS_AND_COST_CURVE_NEXT_20261013.md)。新探索456已完成简单阶段CPU对照，当前状态见[455](../research/455_WC_W3_RAW_COHORT_ACCEPTANCE_GROUPED_T1_T2_RESULTS_AND_PHASE_ATTRIBUTION_20261016.md)，旧448启动身份保留。
 
 ## 2. 计算动作：保留数学符号，明确执行语义
 
@@ -116,14 +116,15 @@ CPA中的precision指计算动作的近似保真等级，不表示已经实施�
 |建议的`SBR`|Single-Branch Refresh (reserved)|为以后具有合法来源写回的版本保留名称；当前不是已完成模块|真正实现并验证缓存来源更新后再用|
 |`W3_LABEL64`／`FULL864`|Same-State C/A/D Supervision Collection|455验收80原件/1104张量/64真实标签，主6prompt/48点、raw敏感性7/56；1坏视频/2文本拒绝保留|已接受有缺口监督子集；不等于新策略端点或整卡全成功|
 |`T0`|Source-and-Phase Table Baseline|冻结旧H1标定表|新预测器的参考，不重新命名成新方法|
-|`T1`（当前执行规范）|Current-Observation Risk Estimator|13维Ridge1/window4，prompt LOPO局部regret下降64.83%，6/6改善；参数离线冻结|收益几乎均为step23 D→A；待时间/简单规则与闭环对照，未并入主方法|
-|`T2`（当前执行规范）|Causal Short-History Risk Estimator|27维Ridge1/window4，主组regret上升24.56%；保留负风险截断的大代价反例|当前历史配置未显示平均增量，下一仅便宜回退区分，不扩频谱/网络|
+|`T1`（当前执行规范）|Current-Observation Risk Estimator|13维Ridge1/window4，prompt LOPO局部regret下降64.83%，6/6改善；参数离线冻结|456仅时间/第23步规则已解释几乎全部局部收益；内容自适应增量未确认，闭环待讨论，未并入主方法|
+|`T2`（当前执行规范）|Causal Short-History Risk Estimator|27维Ridge1/window4，主组regret上升24.56%；保留负风险截断的大代价反例|原clip配置保留；456固定负值回退修复大反例，但两组未一致胜过简单规则，不扩频谱/网络|
+|`T_TIME / T_STEP_TABLE / STEP23_A_ONLY_POSTHOC`|Phase-Only Allocation Controls|仅时间、训练折内逐步表、事后固定第23步规则；456完成6/48主组和7/56敏感性CPU评价|解释T1几乎全部局部收益；第23步仅开发候选，尚无闭环、速度或统计等价主张|
 |`W3-MixTrend`|Trend-Aware Allocation (exploratory umbrella)|研究方向名，不表示已移植或验证MixLinear网络|冻结实际实现后给出具体结构与消融|
 |`T3`长期低秩；`T4`频谱|Proposed Long-History Extension / Inactive Spectral Extension|T3为后备，T4本轮不执行；不重启F/B|不列为已有贡献或已有表格行|
 
 对话最初曾把T1写成“含局部趋势”，T2写成“MixLinear双路径”；**以当前仓库规范为准：T1当前观察，T2因果短历史，长期分支为后备T3。** 见[W3标签与基线规范](../research/p_w3_e0_20261014/W3_Trend_Label_And_Baseline_Spec.md)。
 
-本文件不提前查正在运行的GPU。当前状态引用448的启动回执；原卡计划于2026-10-16 01:00北京时间查收。以后更新本文时先读取完整新报告，再改变状态。
+原W3已在455接受有缺口监督子集并完成CPU分组评价；456完成简单阶段对照。当前无新W3策略视频。原同26D显存修复R2仍按04:55一次验收，本轮未查其partial或改变任务。
 
 ## 6. 数学符号到代码：可直接用于Method的定义
 
@@ -312,3 +313,5 @@ P_OFF仍含P0，新P-ACR当前为单分支补偿读出，不能写成已经实�
 新W3标签和P增强尚未合入主线，不把运行、CPU通过或局部oracle写成视频／速度收益。
 若有更新的完整结果报告，先核对后更新映射状态，不从在跑任务的partial推断结论。
 ```
+
+**456更新：**[T1与简单阶段对照](../research/456_WC_T1_VS_SIMPLE_PHASE_CPU_RESULTS_AND_VIDEO_DECISION_20261016.md)：主组T1/时间-only/仅23步regret为0.339971/0.340532/0.337549，敏感性为0.329269/0.332689/0.330417。新增表述用“Phase-Only Allocation Controls / Post-hoc Step-23 Override”；不把本批结果写成新策略端点或已证明内容自适应。后续优先讨论简单阶段完整视频确认，原主方法及04:55同26D验收保持。

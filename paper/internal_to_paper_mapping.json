@@ -807,7 +807,7 @@
       "experiment_namespaces": [
         "W3_TREND"
       ],
-      "evidence_status": "PROMPT_LOPO_LOCAL_ACTION_POSITIVE_PHASE_CONCENTRATED_NOT_DEPLOYED",
+      "evidence_status": "CURRENT_LOCAL_GAIN_EXPLAINED_BY_PHASE_CONTROLS_STATE_INCREMENT_UNCONFIRMED_NOT_DEPLOYED",
       "paper_role": "independent_optional_enhancement",
       "implementation_paths": [
         "src/wcomr/w3_causal_trend_r1.py",
@@ -815,7 +815,8 @@
       ],
       "evidence_ids": [
         "w3_launch",
-        "w3_grouped_455"
+        "w3_grouped_455",
+        "w3_phase_456"
       ],
       "feature_dimensions": 13,
       "estimator": "Ridge",
@@ -831,7 +832,8 @@
       "primary_regret_change_percent": -64.8263156608831,
       "raw_sensitivity_regret_change_percent": -65.85048158517228,
       "mainline_integrated": false,
-      "closed_loop_result": false
+      "closed_loop_result": false,
+      "phase_controls_explain_nearly_all_local_gain": true
     },
     {
       "id": "explore.trend_t2",
@@ -853,7 +855,8 @@
       ],
       "evidence_ids": [
         "w3_launch",
-        "w3_grouped_455"
+        "w3_grouped_455",
+        "w3_phase_456"
       ],
       "feature_dimensions": 27,
       "estimator": "Ridge_with_causal_prefix_statistics",
@@ -870,7 +873,9 @@
       "primary_regret_change_percent": 24.556424094314,
       "raw_sensitivity_regret_change_percent": 0.31840952978163806,
       "mainline_integrated": false,
-      "closed_loop_result": false
+      "closed_loop_result": false,
+      "negative_risk_fallback_primary_regret_change_percent": -58.80889835873023,
+      "negative_risk_fallback_sensitivity_regret_change_percent": -71.3118128082509
     },
     {
       "id": "closed.f",
@@ -1299,6 +1304,32 @@
       ],
       "requires_source_rule": false,
       "note": "Original24 formal+12warm scope retained.12warm/16formal completed,1OOM/7not reached.No four-scene mean or clean speed claim."
+    },
+    {
+      "id": "explore.w3_phase_controls",
+      "kind": "exploration",
+      "paper_name_en": "Phase-Only Allocation Controls",
+      "paper_name_zh": "仅阶段信息的计算分配对照",
+      "name_status": "descriptive",
+      "internal_aliases": [
+        "T_TIME",
+        "T_STEP_TABLE",
+        "STEP23_A_ONLY_POSTHOC"
+      ],
+      "experiment_namespaces": [
+        "W3_PHASE_VS_STATE_CPU"
+      ],
+      "evidence_status": "OFFLINE_LOCAL_T1_GAIN_EXPLAINED_BY_SIMPLE_PHASE_RULES",
+      "paper_role": "development_ablation_not_endpoint_or_content_adaptivity",
+      "implementation_paths": [
+        "src/wcomr/w3_phase_vs_state_cpu_r1.py"
+      ],
+      "evidence_ids": [
+        "w3_phase_456"
+      ],
+      "step23_rule_posthoc": true,
+      "mainline_integrated": false,
+      "closed_loop_result": false
     }
   ],
   "experiment_configs": {
@@ -1586,7 +1617,8 @@
     "simple26d_prereg": "research/449_WC_DUAL_GPU_ACCOUNTING_AND_SIMPLE26D_COMPLETE36_PREREG_20261015.md",
     "simple26d_running": "research/450_WC_DUAL_GPU_SIMPLE26D_RUNNING_AND_ACCOUNTING_ACCEPTANCE_20261015.md",
     "simple26d_partial": "research/451_WC_SIMPLE26D_PARTIAL_RESULTS_OOM_TERMINAL_AND_PAPER_IMPLICATIONS_20261015.md",
-    "w3_grouped_455": "research/455_WC_W3_RAW_COHORT_ACCEPTANCE_GROUPED_T1_T2_RESULTS_AND_PHASE_ATTRIBUTION_20261016.md"
+    "w3_grouped_455": "research/455_WC_W3_RAW_COHORT_ACCEPTANCE_GROUPED_T1_T2_RESULTS_AND_PHASE_ATTRIBUTION_20261016.md",
+    "w3_phase_456": "research/456_WC_T1_VS_SIMPLE_PHASE_CPU_RESULTS_AND_VIDEO_DECISION_20261016.md"
   },
   "evidence_batches": {
     "curve60": {
@@ -1751,6 +1783,19 @@
       "raw_sensitivity_prompt_groups": 7,
       "analysis_ref": "reports/wc_w3_grouped_T0_T1_T2_primary_and_raw_sensitivity_accepted_r2_20261016.json",
       "verification_ref": "reports/wc_w3_grouped_independent_verification_and_step_attribution_20261016.json"
+    },
+    "w3_phase_456": {
+      "report_id": "w3_phase_456",
+      "status": "LOCAL_CPU_PHASE_COMPARISON_INDEPENDENTLY_VERIFIED",
+      "scope": "SAME_EXPOSED_DEVELOPMENT_STATES_NO_POLICY_ROLLOUT",
+      "primary_points": 48,
+      "primary_prompt_groups": 6,
+      "raw_sensitivity_points": 56,
+      "raw_sensitivity_prompt_groups": 7,
+      "analysis_ref": "reports/wc_w3_phase_vs_state_CPU_primary_and_sensitivity_r1_20261016.json",
+      "verification_ref": "reports/wc_w3_phase_vs_state_independent_scalar_acceptance_r1_20261016.json",
+      "posthoc_step23_rule": true,
+      "GPU_submissions": 0
     }
   },
   "statistical_rules": {
@@ -2020,6 +2065,42 @@
     "src/wcomr/w3_grouped_action_eval_r1.py": {
       "sha256": "c7848bf9445df9e1949f5a37905448b8479fb9cf5296b1b2498624399f70b325",
       "bytes": 18720
+    },
+    "research/456_WC_T1_VS_SIMPLE_PHASE_CPU_RESULTS_AND_VIDEO_DECISION_20261016.md": {
+      "sha256": "42c0cba82fc6e1da745887f07b88d7a87ff1a6d0ca638147f444f9c8160eeadf",
+      "bytes": 8095
+    },
+    "reports/wc_w3_phase_vs_state_CPU_primary_and_sensitivity_r1_20261016.json": {
+      "sha256": "eb36ba2cd2303c805d908f4e4f085e83024ba9bcbf68ae80e30b8770dfcfcb2a",
+      "bytes": 1081611
+    },
+    "reports/wc_w3_phase_vs_state_independent_scalar_acceptance_r1_20261016.json": {
+      "sha256": "05c88f7aae5620d760321593d3b8deaf1cf77f7544256c3a5c6bd7e7f26d998f",
+      "bytes": 1242
+    },
+    "manifests/wc_w3_phase_control_CPU_execution_binding_r1_20261016.json": {
+      "sha256": "547706786884594e358d24f1deb63c6a4d2f7ab6b01f87c2815dd8f6d43fb6a4",
+      "bytes": 1395
+    },
+    "manifests/wc_w3_step23_only_A_override_candidate_r1_20261016.json": {
+      "sha256": "6d0d05e7f260803e0d387be96cfdee12356fa865210776fb83dd42d6f88487dd",
+      "bytes": 1038
+    },
+    "src/wcomr/w3_phase_vs_state_cpu_r1.py": {
+      "sha256": "abd653b4e008a23b4cb45940db02a5be7a26b49cba19212d299d06f0e39a187f",
+      "bytes": 9362
+    },
+    "scripts/evaluate_wc_w3_phase_vs_state_cpu_r1.py": {
+      "sha256": "6db7562963699754e04b4a4fe3f7d12299fc2b3de469d93876edac62f649e33f",
+      "bytes": 2334
+    },
+    "scripts/verify_wc_w3_phase_vs_state_cpu_r1.py": {
+      "sha256": "27941be457c3c68d5db9abcca296d8e4fa54dc134db2aac80cf062c0317477d8",
+      "bytes": 8723
+    },
+    "tests/test_w3_phase_vs_state_cpu_r1.py": {
+      "sha256": "1fe5ed13f11c5da20bc3beca5af19f533fa7784afbc094ef70a7ea9418342cb7",
+      "bytes": 3280
     }
   },
   "math_notation": [

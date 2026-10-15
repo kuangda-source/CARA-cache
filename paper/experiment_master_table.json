@@ -563,15 +563,15 @@
       "forecast_GPUh": 11.645827780327332,
       "authorized_billed_limit_GPUh": 12,
       "collection_not_before_unix": 1792083600,
-      "actual_result_collected": false,
+      "actual_result_collected": true,
       "contribution_ids": [
         "C2",
         "E-W3"
       ],
-      "claim_relation": "AWAITING_SCHEDULED_SCIENTIFIC_ACCEPTANCE",
-      "paper_placement": "后续证据，结果未填",
+      "claim_relation": "ACCEPTED_BOUNDED_SUPERVISION_SUBSETS_WITH_ORIGINAL_FAILURES",
+      "paper_placement": "监督协议与有效性附录；非新策略端点性能",
       "actual_GPUh_financial_ledger_only": 4.574834184318574,
-      "scientific_outputs_read_this_collection": false,
+      "scientific_outputs_read_this_collection": true,
       "original_GPU_ended": true,
       "original_CPU_post_accepted": false,
       "raw_scientific_acceptance": true,
@@ -580,30 +580,36 @@
       "readonly_repair_report": "research/454_WC_W3_FULL864_TERMINAL_CAPTURE_VIDEO_AUDIT_FAILURE_AND_READONLY_REPAIR_20261016.md",
       "raw_scientific_acceptance_scope": "RAW_COHORT_SUBSETS_WITH_ORIGINAL_VIDEO_FAILURE_AND_TEXT_REJECTIONS",
       "whole_original_card_all_success": false,
-      "readonly_repair_terminal": true
+      "readonly_repair_terminal": true,
+      "readonly_repair_accepted_scope": "AVAILABLE_RAW_MODEL_AND_VALID_RGB_CONTROLS_WITH_FAILURES_RETAINED"
     },
     {
       "id": "N01",
       "state": "已完成｜开发性CPU决策评价",
-      "paper_experiment_name": "Grouped Action-Value Evaluation",
+      "paper_experiment_name": "Grouped Action-Value and Phase-Only Controls",
       "internal_ids": [
         "W3_T0",
         "T1_13D",
-        "T2_27D"
+        "T2_27D",
+        "T_TIME",
+        "T_STEP_TABLE",
+        "STEP23_A_ONLY_POSTHOC"
       ],
       "contribution_relation": "E-W3→C2是否值得增强",
-      "evidence_or_planned_scope": "Prompt LOPO,ridge1/window4:T1 primary regret-64.8263%,6/6prompts improve;raw sensitivity-65.8505%.T2+24.5564%/+0.3184%.",
-      "gap_and_next_action": "Nearly all T1 net gain is step23 D->A;T2 has a high-regret negative-risk clipping failure.Next preregistered0GPU time/step/fallback comparisons before complete closed loop;no endpoint/speed claim.",
-      "priority": "P1-C - frozen offline candidate,followup CPU discrimination",
+      "evidence_or_planned_scope": "456主组T1/时间-only/仅23步regret0.339971/0.340532/0.337549；敏感性0.329269/0.332689/0.330417；三CPU隔离与独立标量复算通过。",
+      "gap_and_next_action": "仅阶段规则解释几乎全部当前局部收益；无新策略端点或内容自适应增量确认。先收同26D，再讨论原H1/简单23步/T1与Native完整卡；当前不GPU。",
+      "priority": "P1-C - CPU discrimination complete; phase video decision after N06",
       "evidence_refs": [
         "trend_spec",
         "448",
-        "w3_grouped_455"
+        "w3_grouped_455",
+        "w3_phase_456"
       ],
       "method_mapping_ids": [
         "explore.trend_t0",
         "explore.trend_t1",
-        "explore.trend_t2"
+        "explore.trend_t2",
+        "explore.w3_phase_controls"
       ],
       "depends_on": [
         "R01"
@@ -613,32 +619,37 @@
         "E-W3",
         "C2"
       ],
-      "claim_relation": "COMPLETED_LOCAL_SURROGATE_DECISION_SIGNAL_PHASE_CONCENTRATED_NOT_DEPLOYED",
-      "paper_placement": "后续证据，结果未填",
+      "claim_relation": "COMPLETED_LOCAL_PHASE_ATTRIBUTION_NO_NEW_POLICY_ENDPOINT",
+      "paper_placement": "开发性调度消融/附录；非端点性能表",
       "analysis_ref": "reports/wc_w3_grouped_T0_T1_T2_primary_and_raw_sensitivity_accepted_r2_20261016.json",
       "frozen_T1_ref": "manifests/wc_w3_T1_primary6_ridge1_window4_frozen_candidate_20261016.json",
       "next_CPU_protocol": "plans/WC_W3_T1_PHASE_VS_STATE_AND_NEGATIVE_RISK_CPU_NEXT_20261016.md",
-      "next_CPU_executed": false
+      "next_CPU_executed": true,
+      "phase_analysis_ref": "reports/wc_w3_phase_vs_state_CPU_primary_and_sensitivity_r1_20261016.json",
+      "phase_verification_ref": "reports/wc_w3_phase_vs_state_independent_scalar_acceptance_r1_20261016.json",
+      "posthoc_step23_candidate_ref": "manifests/wc_w3_step23_only_A_override_candidate_r1_20261016.json"
     },
     {
       "id": "N02",
       "state": "待补｜条件闭环",
-      "paper_experiment_name": "Trend-Aware Allocation Closed Loop",
+      "paper_experiment_name": "Phase-Revision versus Learned Allocation Closed Loop",
       "internal_ids": [
         "W3_FROZEN_PREDICTOR_CLOSED_LOOP"
       ],
       "contribution_relation": "拟增强C2动态分配；C3端点",
       "evidence_or_planned_scope": "有决策增量后冻结预测器、λ/报价/回退，登记独立完整Native/H1/新候选配对卡，范围/费用待定。",
-      "gap_and_next_action": "要把更少误选转为同保真更快或相近时间更准；动作变化/局部regret本身不是最终收益。",
+      "gap_and_next_action": "456显示简单23步规则几乎解释T1全部局部收益；先收同26D再决定完整视频。至少保留原H1/简单规则/T1与匹配Native，完整范围/生产CPU/费用未选定；不自动启动。",
       "priority": "P1-C·有信号再选卡",
       "evidence_refs": [
         "trend_spec",
         "roadmap",
-        "448"
+        "448",
+        "w3_phase_456"
       ],
       "method_mapping_ids": [
         "explore.trend_t1",
-        "explore.trend_t2"
+        "explore.trend_t2",
+        "explore.w3_phase_controls"
       ],
       "depends_on": [
         "N01"
@@ -1020,7 +1031,8 @@
     "simple26d_prereg": "research/449_WC_DUAL_GPU_ACCOUNTING_AND_SIMPLE26D_COMPLETE36_PREREG_20261015.md",
     "simple26d_running": "research/450_WC_DUAL_GPU_SIMPLE26D_RUNNING_AND_ACCOUNTING_ACCEPTANCE_20261015.md",
     "simple26d_partial": "research/451_WC_SIMPLE26D_PARTIAL_RESULTS_OOM_TERMINAL_AND_PAPER_IMPLICATIONS_20261015.md",
-    "w3_grouped_455": "research/455_WC_W3_RAW_COHORT_ACCEPTANCE_GROUPED_T1_T2_RESULTS_AND_PHASE_ATTRIBUTION_20261016.md"
+    "w3_grouped_455": "research/455_WC_W3_RAW_COHORT_ACCEPTANCE_GROUPED_T1_T2_RESULTS_AND_PHASE_ATTRIBUTION_20261016.md",
+    "w3_phase_456": "research/456_WC_T1_VS_SIMPLE_PHASE_CPU_RESULTS_AND_VIDEO_DECISION_20261016.md"
   },
   "source_bindings": {
     "11": {
@@ -1154,11 +1166,15 @@
     "w3_grouped_455": {
       "path": "research/455_WC_W3_RAW_COHORT_ACCEPTANCE_GROUPED_T1_T2_RESULTS_AND_PHASE_ATTRIBUTION_20261016.md",
       "sha256": "4c3c49f434a2a61a2607765f0f436f4b46b2c39de1adfb3bf8f5a9485a6a2e59"
+    },
+    "w3_phase_456": {
+      "path": "research/456_WC_T1_VS_SIMPLE_PHASE_CPU_RESULTS_AND_VIDEO_DECISION_20261016.md",
+      "sha256": "42c0cba82fc6e1da745887f07b88d7a87ff1a6d0ca638147f444f9c8160eeadf"
     }
   },
   "operation_policy": {
     "current_running_card": null,
-    "scheduled_collection_local": "2026-10-16T01:00:00+08:00",
+    "scheduled_collection_local": "2026-10-16T04:55:00+08:00",
     "no_continuous_monitoring": true,
     "new_GPU_jobs_started_by_this_inventory": 0,
     "automatic_single_complete_job_estimate_exclusive_GPUh_upper_bound": 12,
@@ -1170,14 +1186,16 @@
     "budget_window_not_reset": true,
     "planned_templates_are_not_CPU_accepted_selected_cards": true,
     "closed_F_B_not_reopened": true,
-    "current_running_cards": [],
+    "current_running_cards": [
+      "WC-SIMPLE26D-MEMORY-CAL4-SIXMETHOD-FULL36-R2-20261015-A"
+    ],
     "authoritative_budget": "reports/gpu-budget-v2.json",
     "original_W3_unchanged": true,
-    "whole_running_job_reservations_GPUh": 0.0,
-    "available_after_whole_reservations_GPUh": 18.107309734125636,
+    "whole_running_job_reservations_GPUh": 8.0,
+    "available_after_whole_reservations_GPUh": 10.107309734125636,
     "per_UUID_lock_protocol": "plans/WORLD_CACHE_DUAL_GPU_EXECUTION_20261015.md",
     "scheduled_collections_local": {
-      "W3": "2026-10-16T01:00:00+08:00"
+      "SIMPLE26D_MEMORY_R2": "2026-10-16T04:55:00+08:00"
     },
     "running_forecasts_GPUh": {},
     "resource_check_history": [
@@ -1235,7 +1253,14 @@
     "current_admissible_GPUh": 10.107309734125636,
     "W3_scientific_acceptance_scope": "RAW_SUPERVISION_SUBSETS_WITH_ORIGINAL_FAILURES",
     "W3_full_card_all_success": false,
-    "W3_T0_T1_T2_CPU_evaluation_complete": true
+    "W3_T0_T1_T2_CPU_evaluation_complete": true,
+    "W3_phase_CPU_controls_complete": true,
+    "new_W3_GPU_card_selected": false,
+    "current_running_cards_basis": "LAST_ADMISSION_SNAPSHOT_NOT_FRESH_LIVE_OR_SCIENTIFIC_QUERY",
+    "historical_scheduled_collections_local": {
+      "W3": "2026-10-16T01:00:00+08:00"
+    },
+    "budget_values_asof": "W3_READONLY_COLLECTION_2026-10-16_0119_NOT_REQUERIED_THIS_CPU_TURN"
   },
-  "mapping_sha256_at_inventory": "0c85fca31e601e50ce964fd1f2691de2ee53e69a703b200ee18371121cdcf647"
+  "mapping_sha256_at_inventory": "16f7db265456fdb5d65616e3e582a88e1c77710a29e159f0b749079687fc4aa9"
 }

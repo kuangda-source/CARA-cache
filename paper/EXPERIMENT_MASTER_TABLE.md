@@ -2,9 +2,9 @@
 
 更新：2026-10-16。与[内部实现→论文表述映射](INTERNAL_TO_PAPER_MAPPING.md)一起使用；[机器索引](experiment_master_table.json)保存相同条目、依赖和证据SHA。本表按科学问题／完整卡汇总，不逐个罗列CPU修复重试；旧原件复用与多个报告引用同一实验，不增加独立样本数。
 
-**当前最强主干：GCR廉价修正已有终点归因，CPA已有校准导出的高保真阶段部署；新W3监督子集与分组CPU评价完成，T1有阶段集中正信号。** 同26D对照新增了三场景的刷新位置与修正作用信号，完整四场景卡因OOM中断，原分母保留。写作可使用已有两个工作点和固定消融；强基线与N06完整收尾仍是关键补证。
+**当前最强主干：GCR廉价修正已有终点归因，CPA已有校准导出的高保真阶段部署；新W3监督子集与CPU阶段对照完成，简单阶段规则解释T1几乎全部局部收益。** 同26D对照新增了三场景的刷新位置与修正作用信号，完整四场景卡因OOM中断，原分母保留。写作可使用已有两个工作点和固定消融；强基线与N06完整收尾仍是关键补证。
 
-**最新执行状态：** 144完整CPU与实际入口已独立接受；修复R2于23:54:49在GPU0准入，1040857/1040918/post1040858。完整36重跑，旧28仅作等价控制，原失败卡保留；新卡科学结果待10-16 04:55一次验收。预测5.766055/上限8 GPUh；v2实结86.864054，预留8，可准入10.107310。原W3仍01:00另验。见[453](../research/453_WC_SIMPLE26D_MEMORY_FULL144_ACCEPTED_AND_COMPLETE36_GPU_R2_LAUNCH_20261015.md).
+**最新执行状态：** 144完整CPU与实际入口已独立接受；修复R2于23:54:49在GPU0准入，1040857/1040918/post1040858。完整36重跑，旧28仅作等价控制，原失败卡保留；新卡科学结果待10-16 04:55一次验收。预测5.766055/上限8 GPUh；v2实结86.864054，预留8，可准入10.107310。原W3已完成455监督验收与456阶段CPU对照。见[453](../research/453_WC_SIMPLE26D_MEMORY_FULL144_ACCEPTED_AND_COMPLETE36_GPU_R2_LAUNCH_20261015.md).
 
 **23:00一次查收更新（历史）：**N06已因OOM终态，12预热＋16正式完成、1失败＋7未到达，16正式全93帧评分通过；整卡未接受，不自动重跑。[451](../research/451_WC_SIMPLE26D_PARTIAL_RESULTS_OOM_TERMINAL_AND_PAPER_IMPLICATIONS_20261015.md)保留全部36/24分母与逐场景结果。R01原W3财务条目已结，科学原件仍于2026-10-16 01:00另验，本轮未提前查看。
 
@@ -44,8 +44,8 @@
 |D18 · 已完成｜CPU准备|`PA528_CPU_R2` → P-ACR Production CPU Validation|完整PA528的原语、父恢复、真实入口和启动/post CPU接受；模型/权重/GPU为0。|E-P执行准备，不是性能证据|CPU通过不等于真实528执行；P-ACR当前不更新来源，GPU卡未选定。|R·无需重做CPU|[433](../research/433_WC_P_ACR_WHOLE528_LAUNCH_CPU_AND_NEXT_DECISION_20261015.md)|
 |D19 · 已完成｜CPU准备|`W3_CLOCK432 / W3_FULL72_CPU / W3_PRODUCTION_CPU_R3` → Causal Clock and W3 Collector Validation|真实scheduler CPU重放对齐旧432步；完整模拟采集/父恢复/因果隔离及生产23控制接受。|E-W3/C2监督工具；不是新风险模型收益|模拟72父/3456pairs不是真实W3标签；真实18父卡为R01。无需再派准备CPU。|R·准备封口|[434](../research/434_WC_W3_REAL_CONTINUOUS_CLOCK_AND_FULL432_CAUSAL_HISTORY_CPU_20261015.md) · [441](../research/441_WC_W3_FULL72_COLLECTOR_CPU_ACCEPTED_AND_PRODUCTION_NEXT_20261015.md) · [447](../research/447_WC_W3_COMPLETE_CPU_CLOSED_AND_WHOLE864_PERMISSION_DECISION_20261015.md)|
 |R01 · 已完成｜有缺口监督接受|`W3_LABEL64 / FULL864` → Same-State C/A/D Label Collection|80原件/1104张量/64标签通过；15视频1395帧，8组完整模型非提交等价/7组RGB等价；原18/72分母保留。|C2/E-W3真实监督，非新策略端点|1坏视频及2文本拒绝保留；主6prompt/48点、raw敏感性7/56、warm8不拟合，原整卡非全成功。|R·监督子集接受|[455](../research/455_WC_W3_RAW_COHORT_ACCEPTANCE_GROUPED_T1_T2_RESULTS_AND_PHASE_ATTRIBUTION_20261016.md)|
-|N01 · 已完成｜开发性CPU决策评价|`W3_T0 / T1_13D / T2_27D` → Grouped Action-Value Evaluation|固定ridge1/window4、prompt LOPO：T1主组regret −64.83%且6/6改善；敏感性−65.85%；T2+24.56%/+0.32%。|E-W3→C2校准候选；未并入主线|T1收益几乎全来自step23 D→A；T2负预测投影造成大代价误选。下一0GPUh区分时间/逐步规则与回退，再闭环。|P1-C·候选冻结未部署|[455](../research/455_WC_W3_RAW_COHORT_ACCEPTANCE_GROUPED_T1_T2_RESULTS_AND_PHASE_ATTRIBUTION_20261016.md)|
-|N02 · 待补｜条件闭环|`W3_FROZEN_PREDICTOR_CLOSED_LOOP` → Trend-Aware Allocation Closed Loop|有决策增量后冻结预测器、λ/报价/回退，登记独立完整Native/H1/新候选配对卡，范围/费用待定。|拟增强C2动态分配；C3端点|要把更少误选转为同保真更快或相近时间更准；动作变化/局部regret本身不是最终收益。|P1-C·有信号再选卡|[trend_spec](../research/p_w3_e0_20261014/W3_Trend_Label_And_Baseline_Spec.md) · [roadmap](../plans/WORLD_CACHE_RESEARCH_ROADMAP_20261015.md) · [448](../research/448_WC_W3_FULL864_APPROVED_GPU_LAUNCH_AND_UNDER12_AUTONOMY_20261015.md)|
+|N01 · 已完成｜开发性CPU决策评价|`T0/T1/T2/T_TIME/T_STEP_TABLE/STEP23` → Grouped Action-Value and Phase-Only Controls|主组T1/时间-only/仅23步regret为0.339971/0.340532/0.337549；敏感性0.329269/0.332689/0.330417。|E-W3→C2阶段校准；未并入主线|简单阶段解释几乎全部局部收益；第23步为事后候选，无新策略视频或速度。先收同26D，再讨论原H1/简单规则/T1完整视频卡。|P1-C·CPU区分完成，闭环待决定|[456](../research/456_WC_T1_VS_SIMPLE_PHASE_CPU_RESULTS_AND_VIDEO_DECISION_20261016.md)|
+|N02 · 待补｜条件闭环|`W3_FROZEN_PREDICTOR_CLOSED_LOOP` → Phase-Revision versus Learned Allocation|保留原H1、简单第23步规则、冻结T1及匹配Native；具体完整范围/费用待决定。|C2阶段修订或状态增量；C3端点|456局部收益已由简单规则解释；先收同26D再决定是否做视频，不提前把局部收益当终点。|P1-C·同26D收尾后讨论|[456](../research/456_WC_T1_VS_SIMPLE_PHASE_CPU_RESULTS_AND_VIDEO_DECISION_20261016.md)|
 |N03 · 待补｜可选整卡|`PA528` → Single-Branch Readout: Real Error and Price|原完整8父/12状态/C,A,D,Pc,Pu各1warm+3正式，共528pairs/1056CFG；预计7.529994GPUh。|E-P费用/精度候选；不作为主稿前置|需要实际单支报价、误差下包络与恢复/视频控制；不默认为必须执行，先保护主稿补验余额。|P2-C·条件可选|[433](../research/433_WC_P_ACR_WHOLE528_LAUNCH_CPU_AND_NEXT_DECISION_20261015.md) · [roadmap](../plans/WORLD_CACHE_RESEARCH_ROADMAP_20261015.md) · [448](../research/448_WC_W3_FULL864_APPROVED_GPU_LAUNCH_AND_UNDER12_AUTONOMY_20261015.md)|
 |N04 · 待补｜条件组合|`S1_SIX_CONFIGURATION_TEMPLATE` → P-ACR / Trend Readout Bridge and Combination|既有模板：4开发prompt×6配置=24正式＋12预热；含H1原集/CAD桥接、Trend、ACR及组合。|拟增强E-P/C2；不提前计主贡献|先有值得追踪的误差—费用或交互信号，再冻结完整范围；只做读出闭环，合法来源refresh须另设计。|P2-C·有信号/余额才做|[roadmap](../plans/WORLD_CACHE_RESEARCH_ROADMAP_20261015.md)|
 |N05 · 待补｜正式开发|`PAPER_E1_TUNED_BASELINES` → Fair Tuned-Baseline Frontier|拟议12配置×4CAL=48正式＋24预热：Native完整/少步、WC/RA有限调优、两工作点、一个忠实修正近邻。|C1/C2实用增量；C3公平性|需先固定可比规格/计时/资源与点选择；约149/223秒两区域公平比较；完整卡费用/CPU尚未登记。|P1·论文关键补验|[closure_plan](../plans/WORLD_CACHE_PAPER_CONVERGENCE_AND_FINAL_EXPERIMENTS_20261014.md) · [roadmap](../plans/WORLD_CACHE_RESEARCH_ROADMAP_20261015.md)|
@@ -60,12 +60,12 @@
 
 ## 接下来的顺序与论文用法
 
-1. **R01→N01已完成：**T1有真实同状态局部动作正信号，收益几乎均为step23 D→A。先用已登记0GPUh简单时间/逐步对照和负风险回退区分，再结合N06收尾与余额具体化N02；当前尚无新W3视频或加速结果。
+1. **R01→N01已完成：**455真实监督与456阶段区分均完成。仅时间与第23步规则解释T1几乎全部局部收益；建议简单阶段修订优先、T1作完整视频对照，先收完N06再决定整卡。目前没有新W3视频、内容自适应或加速结论。
 2. **主稿N06有部分开发证据，完整收尾与N05仍待：**先诊断OOM，保持原六配置四场景及必要复验的事前登记；修复R2已完整启动，04:55验收。N06回答位置分配，N05回答强对手公平性。D14 fixed等价与本批三场景不能充当完整四场景优越性；并发时间不替代N08独占重复测速。D13/D14主结果继续保留，可同步写作。
 3. **最终候选冻结后做N07–N10：**共同测试、重复测速、最小费用和相关自动质量分开承担证据职责。已有D07测速、D13确认保留，不重写成没做过；新测试不能重用已曝光输入冒称未见。
 4. **P与组合保留选择权：**N03/04若有可购买的信号再投入，不强制P成功才允许论文收束；也不把“单模块必须先显著有效”设为组合的硬门槛。F/B不恢复。
 
-资源上，448启动前实结79.996377372／cap104.971363333，余24.974985961GPUh；在途卡forecast11.645827780，按forecast规划剩约13.329158181，而非已结算余额。PA528若也执行，另占约7.529994GPUh，会与正式补验竞争预算。**不能把所有模板默认塞进现有余额，也不承诺所有卡都执行。** 单次整卡预计严格<12GPUh按已定范围自主；>=12具体确认。本次W3单独批准的12GPUh计费上限保持。所有未来卡仍需完整范围、源码/配置/CPU与fresh资源/实际余额核对。
+资源快照以01:19原件为准：v2实结86.864053599／cap104.971363333，同26D R2完整预留8，可准入10.107309734 GPUh；本轮CPU没有新扣费、服务器查询或预算写。严格<12 GPUh的完整卡可按授权和fresh资源/余额准入推进，达到12需具体确认；本次没有选新视频卡，不能把待补模板视为已准入。
 
 写作时，把D13/D14放主性能与修正消融，D09放来源机制，D07补计时说明；旧开发、CPU准备、F/B放复现材料或相关附录。若N02没有形成新工作点，C2仍可准确表述为“calibration-derived phase deployment”，不据此否定C1与已有两配置价值。若N05/N06尚未完成，保留现有实测比较，不提前写完整强基线前沿或同预算调度优越性。
 
@@ -86,3 +86,5 @@
 ```
 
 **W3 01:18收尾：**原只读CPU与本轮分组评价均已结束，不再查旧句柄或自动续GPU；同26D R2仍04:55验收。T1冻结参数只是离线候选，CARA/GCR/CPA现有主方法范围保持。
+
+**456 CPU收尾：**简单阶段与T1对照已完成，三个隔离控制和独立折内拟合/指标复算通过；原同26D行、任务、04:55验收不变。新视频验证目前是建议，不是已启动任务。
