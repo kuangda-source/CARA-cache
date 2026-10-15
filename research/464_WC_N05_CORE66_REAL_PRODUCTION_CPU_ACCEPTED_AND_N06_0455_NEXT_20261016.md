@@ -60,3 +60,10 @@ GPU完成后自动CPU post检查全部原件和来源，保留拒绝/失败/未�
 接续为：**N06位置/读出归因 → N05公平强基线 → N07最终共同冻结测试 → N08最终重复clean测速**，N09部署费用/N10自动质量复用最终输出配套。N05这轮每格一次正式计时，不能提前替代N08的最终速度稳定性证据。
 
 直接修正近邻Cosmos适配仍是显式缺口；当前完整11配置不称已完成全部N05对手。P/T1保持可选后排，F/B关闭，不引入新训练、人评或OMR。本轮0GPUh，没有新的端点质量或速度结论。
+
+
+## 5. 接续时的一次准入身份检查
+
+本地新增`capture_wc_paper_N05_admission_once_r1.py --launch-ref 新GPU_launch.json --output 新准入回执.json`。只读新N05的supervisor、原句柄/启动ticks、注册身份、UUID锁与v2加法余额，不读runner或科学partial，不等待循环、不重复派发。绑定已接受R2 stage；该本地collector不改变服务器15d77ac源。
+
+`reports/wc_paper_N05_admission_once_CPU_controls_20261016.json`保留1个合法合成记录与8个拒绝控制：PID复用、child终态、错误设备、缺活动预留、错误整卡费用、锁未持有、错误post归属和账本重算不一致。0SSH/0GPU；它仅检验准入回执边界，不是新实验科学结果。原N06仍04:55按完整原件独立验收。

@@ -1,0 +1,113 @@
+{
+  "status": "N05_ADMISSION_ONCE_CPU_GUARDS_ACCEPTED_NOT_GPU",
+  "valid_fixture_accepted": true,
+  "negative_controls_rejected": [
+    "reused_child_PID",
+    "dead_child",
+    "wrong_UUID",
+    "missing_active_reservation",
+    "wrong_full_bill",
+    "unlocked_device",
+    "wrong_post_owner",
+    "accounting_mismatch"
+  ],
+  "source_sha256": "c7401111a38d56c9d8f5ff67168b10c6eb855e2ff6610f54346c5f2643e0e5aa",
+  "SSH_calls": 0,
+  "GPU_submissions": 0,
+  "scientific_progress_read": false,
+  "fixture": {
+    "launch": {
+      "run_id": "wc-paper-n05-core11-cal4-full66-r1",
+      "supervisor_pid": 101,
+      "post_watcher_pid": 103,
+      "supervisor_identity": {
+        "pid": 101,
+        "start_ticks": 100001
+      },
+      "source_revision": "source-fixture",
+      "launch_id": "fixture-uuid",
+      "gpu_uuid": "GPU-fixture",
+      "registration_sha256": "registration-fixture",
+      "scope_counts": {
+        "requests": 4,
+        "methods": 11,
+        "scientific_paths": 44,
+        "full_warmup_paths": 22,
+        "total_paths": 66,
+        "ordinary_pairs": 2220,
+        "ordinary_CFG_calls": 4440,
+        "loads": 1,
+        "teacher_pairs": 0,
+        "score_videos": 44
+      },
+      "billed_limit_GPUh": 9.5,
+      "next_check_not_before_unix": 1792123200
+    },
+    "supervisor": {
+      "status": "N05_CORE66_GPU_RUNNING",
+      "source_revision": "source-fixture",
+      "launch_id": "fixture-uuid",
+      "run_id": "wc-paper-n05-core11-cal4-full66-r1",
+      "gpu_uuid": "GPU-fixture",
+      "pid": 101,
+      "child_pid": 102,
+      "child_identity": {
+        "pid": 102,
+        "start_ticks": 100002
+      },
+      "scope_counts": {
+        "requests": 4,
+        "methods": 11,
+        "scientific_paths": 44,
+        "full_warmup_paths": 22,
+        "total_paths": 66,
+        "ordinary_pairs": 2220,
+        "ordinary_CFG_calls": 4440,
+        "loads": 1,
+        "teacher_pairs": 0,
+        "score_videos": 44
+      }
+    },
+    "registration_sha256": "registration-fixture",
+    "processes": {
+      "supervisor": {
+        "pid": 101,
+        "start_ticks": 100001,
+        "state": "S",
+        "command": "supervise"
+      },
+      "child": {
+        "pid": 102,
+        "start_ticks": 100002,
+        "state": "R",
+        "command": "run_wc_paper_N05_core66_r1.py"
+      },
+      "post": {
+        "pid": 103,
+        "start_ticks": 100003,
+        "state": "S",
+        "command": "watch_wc_paper_N05_post_cpu_r1.py --supervisor-pid 101 --supervisor-start-ticks 100001"
+      }
+    },
+    "own_UUID_lock_busy": true,
+    "scientific_runner_or_partial_outputs_read": false,
+    "pool_accounting_independently_equal": true,
+    "pool": {
+      "jobs": {
+        "wc-paper-n05-core11-cal4-full66-r1": {
+          "status": "RESERVED_OR_RUNNING",
+          "source_revision": "source-fixture",
+          "launch_id": "fixture-uuid",
+          "gpu_uuid": "GPU-fixture",
+          "billed_limit_GPUh": 9.5,
+          "supervisor_pid": 101
+        }
+      },
+      "cap_gpu_hours": 104.97136333301378,
+      "origin_used_gpu_hours": 79.99637737158223,
+      "available_gpu_hours": 5,
+      "reserved_gpu_hours": 9.5,
+      "used_gpu_hours": 90.47136333301378
+    }
+  }
+}
