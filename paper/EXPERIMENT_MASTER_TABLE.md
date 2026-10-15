@@ -4,9 +4,9 @@
 
 **当前最强主干：GCR廉价修正已有终点归因，CPA已有校准导出的高保真阶段部署；新W3正在补真实动作监督。** 写作现在即可使用两个已验工作点和固定刷新消融；强基线与同配额简单规则是下一步最关键的论文补证。
 
-运行状态以448的最近启动回执登记，统一于**2026-10-16 01:00北京时间**查收后更新。本次只读本地记录，没有提前SSH查partial、没有启动新GPU任务；历史文档中的停止新GPU／>8询问文字由448及最新人类授权覆盖。
+**当前有两张在途卡：**R01原W3在GPU1，仍于2026-10-16 01:00查收；N06同26D简单规则已在GPU0完整启动，2026-10-15 23:00查收。最新实现、CPU与锁内准入见[450](../research/450_WC_DUAL_GPU_SIMPLE26D_RUNNING_AND_ACCOUNTING_ACCEPTANCE_20261015.md)。运行、CPU通过和资源准入不表示终点结果已接受。
 
-**15:41资源补充：** 用户询问后一次只读核实W3仅GPU1、GPU0无计算进程；原项目锁/快照账本不支持直接并发。N06可作独立并行主线候选，尚未选卡或启动；具体兼容与计时安排见[449](../research/449_WC_TWO_GPU_OCCUPANCY_AND_SAFE_MAINLINE_PARALLELISM_20261015.md)。没有读取中间科学结果，原01:00查收保持。
+15:41资源核对保留在[原449](../research/449_WC_TWO_GPU_OCCUPANCY_AND_SAFE_MAINLINE_PARALLELISM_20261015.md)。此后用户明确授权双卡兼容，已实现逐UUID锁与v2原子记账，旧W3源/句柄/目录和查收不改。原cap104.971363333不变，W3预留12＋N06预留8，预留后可准入4.974985961GPUh；不把预留当实费。并发秒数标为诊断，不作正式clean加速证据；没有读取中间科学结果。
 
 ## 阅读图例
 
@@ -47,7 +47,7 @@
 |N03 · 待补｜可选整卡|`PA528` → Single-Branch Readout: Real Error and Price|原完整8父/12状态/C,A,D,Pc,Pu各1warm+3正式，共528pairs/1056CFG；预计7.529994GPUh。|E-P费用/精度候选；不作为主稿前置|需要实际单支报价、误差下包络与恢复/视频控制；不默认为必须执行，先保护主稿补验余额。|P2-C·条件可选|[433](../research/433_WC_P_ACR_WHOLE528_LAUNCH_CPU_AND_NEXT_DECISION_20261015.md) · [roadmap](../plans/WORLD_CACHE_RESEARCH_ROADMAP_20261015.md) · [448](../research/448_WC_W3_FULL864_APPROVED_GPU_LAUNCH_AND_UNDER12_AUTONOMY_20261015.md)|
 |N04 · 待补｜条件组合|`S1_SIX_CONFIGURATION_TEMPLATE` → P-ACR / Trend Readout Bridge and Combination|既有模板：4开发prompt×6配置=24正式＋12预热；含H1原集/CAD桥接、Trend、ACR及组合。|拟增强E-P/C2；不提前计主贡献|先有值得追踪的误差—费用或交互信号，再冻结完整范围；只做读出闭环，合法来源refresh须另设计。|P2-C·有信号/余额才做|[roadmap](../plans/WORLD_CACHE_RESEARCH_ROADMAP_20261015.md)|
 |N05 · 待补｜正式开发|`PAPER_E1_TUNED_BASELINES` → Fair Tuned-Baseline Frontier|拟议12配置×4CAL=48正式＋24预热：Native完整/少步、WC/RA有限调优、两工作点、一个忠实修正近邻。|C1/C2实用增量；C3公平性|需先固定可比规格/计时/资源与点选择；约149/223秒两区域公平比较；完整卡费用/CPU尚未登记。|P1·论文关键补验|[closure_plan](../plans/WORLD_CACHE_PAPER_CONVERGENCE_AND_FINAL_EXPERIMENTS_20261014.md) · [roadmap](../plans/WORLD_CACHE_RESEARCH_ROADMAP_20261015.md)|
-|N06 · 待补｜正式归因|`PAPER_E2_STATIC_26D` → Simple Schedules at Matched Dense Budget|均匀/粗前密后疏各配C/同一种A：16正式＋8预热；若同批原控制则24正式＋12预热。|C2分配独立价值；C1跨位置作用|预先冻结合法36步mask/age回退/实际配额与费用；不能拿D14 fixed等价充当规则优越性。|P1·论文关键补验|[closure_plan](../plans/WORLD_CACHE_PAPER_CONVERGENCE_AND_FINAL_EXPERIMENTS_20261014.md) · [roadmap](../plans/WORLD_CACHE_RESEARCH_ROADMAP_20261015.md)|
+|N06 · 正在运行｜主线补验|`PAPER_E2_STATIC_26D / SIMPLE26D_FULL36` → Simple Schedules at Matched Dense Budget|原fixed A/plain＋uniform/frontdense各A/C，共24正式＋12完整预热/1296pairs/1load；source36f5583，GPU0独立运行。|C2分配独立价值；C1跨位置作用|今晚23:00验全部36及兼容正式93帧评分；所有26D，但A次数5/10/0，非同总成本。并发时间只作诊断；结果尚待。|P1·在途关键归因|[预登记](../research/449_WC_DUAL_GPU_ACCOUNTING_AND_SIMPLE26D_COMPLETE36_PREREG_20261015.md) · [450](../research/450_WC_DUAL_GPU_SIMPLE26D_RUNNING_AND_ACCOUNTING_ACCEPTANCE_20261015.md)|
 |N07 · 待补｜最终共同测试|`PAPER_E3_FROZEN_SHARED_TEST` → Common Frozen Evaluation Matrix|原模板8新prompt×2seed×10最终配置=160正式＋20预热；规模以完整费用事前登记。|C1/C2最终版本确认；C3覆盖|先冻结最终候选与强基线；417和R01输入已曝光，不重称下一版未见；拒绝/缺失保留。|P2·N05/N06后冻结|[closure_plan](../plans/WORLD_CACHE_PAPER_CONVERGENCE_AND_FINAL_EXPERIMENTS_20261014.md) · [roadmap](../plans/WORLD_CACHE_RESEARCH_ROADMAP_20261015.md)|
 |N08 · 待补｜最终重复测速|`PAPER_E4_REPEAT_SPEED` → Balanced Repeated Clean Latency|两场景×五最终配置×三平衡轮=30正式＋10预热；同轮倍数/波动/质量并列。|C3稳定费用；C1/C2工作点复验|D07已完成但不是最终高保真重复；模型驻留、初始化和算法维护口径固定。|P2·最终版本冻结后|[closure_plan](../plans/WORLD_CACHE_PAPER_CONVERGENCE_AND_FINAL_EXPERIMENTS_20261014.md) · [roadmap](../plans/WORLD_CACHE_RESEARCH_ROADMAP_20261015.md)|
 |N09 · 待补｜部署证据|`PAPER_E5_COST_PROFILE` → Calibration and Minimal Deployment Profile|拆必要离线标定、probe/warp/head/RF、选择/缓存维护、显存；已有报价有转移成分。|C3部署开销；C2费用一致|不能用历史全部GPUh当最小标定费，不能以D05 head次数当延迟；回本量须同保真真实净省时。|P2·最终实现后|[closure_plan](../plans/WORLD_CACHE_PAPER_CONVERGENCE_AND_FINAL_EXPERIMENTS_20261014.md) · [roadmap](../plans/WORLD_CACHE_RESEARCH_ROADMAP_20261015.md)|
@@ -59,7 +59,7 @@
 ## 接下来的顺序与论文用法
 
 1. **先完成R01→N01：**按ETA接受当前W3原件，再做按prompt分组的T0/T1/T2评价。原H1只是父策略，新标签采集不是新调度终点。若实际动作选择出现值得追踪的信号，再具体化N02完整闭环，不要求先解释完所有反例。
-2. **主稿优先补N05、N06：**它们分别回答“对手合理调参后是否仍有实用增量”和“分配是否优于普通同配额安排”。D14已完成的fixed A/plain不能替代N06。当前方法与D13/D14主结果可以同步写，不必等P增强。
+2. **主稿N06已独立运行，N05仍待：**两者分别回答“分配是否优于普通同配额安排”和“对手合理调参后是否仍有实用增量”。D14已完成的fixed A/plain不能替代N06；本卡并发时间不替代N08独占重复测速。当前方法与D13/D14主结果可以同步写，不必等P增强。
 3. **最终候选冻结后做N07–N10：**共同测试、重复测速、最小费用和相关自动质量分开承担证据职责。已有D07测速、D13确认保留，不重写成没做过；新测试不能重用已曝光输入冒称未见。
 4. **P与组合保留选择权：**N03/04若有可购买的信号再投入，不强制P成功才允许论文收束；也不把“单模块必须先显著有效”设为组合的硬门槛。F/B不恢复。
 

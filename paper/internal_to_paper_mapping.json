@@ -1166,6 +1166,106 @@
         "WORKING_P_AGE_KEEP_INTERVAL",
         "WORKING_P_AGE_NONZERO_REBASE"
       ]
+    },
+    {
+      "id": "ablation.uniform_a",
+      "kind": "configuration",
+      "paper_name_en": "Uniform 26D + Corrected Reuse",
+      "paper_name_zh": "Uniform 26D + Corrected Reuse",
+      "name_status": "descriptive",
+      "internal_aliases": [
+        "UNIFORM_A"
+      ],
+      "experiment_namespaces": [
+        "SIMPLE26D_FULL36"
+      ],
+      "evidence_status": "running_not_accepted",
+      "paper_role": "matched_dense_quota_control",
+      "implementation_paths": [
+        "src/wcomr/simple26d_r1.py",
+        "src/wcomr/source_phase_fixed_mask_r1.py"
+      ],
+      "evidence_ids": [
+        "simple26d_prereg",
+        "simple26d_running"
+      ],
+      "requires_source_rule": false,
+      "note": "Exactly26D. A has10 corrected reuses; fixed_A has5. Concurrent latency is diagnostic, not clean net acceleration."
+    },
+    {
+      "id": "ablation.uniform_c",
+      "kind": "configuration",
+      "paper_name_en": "Uniform 26D + Direct Reuse",
+      "paper_name_zh": "Uniform 26D + Direct Reuse",
+      "name_status": "descriptive",
+      "internal_aliases": [
+        "UNIFORM_C"
+      ],
+      "experiment_namespaces": [
+        "SIMPLE26D_FULL36"
+      ],
+      "evidence_status": "running_not_accepted",
+      "paper_role": "matched_dense_quota_control",
+      "implementation_paths": [
+        "src/wcomr/simple26d_r1.py",
+        "src/wcomr/source_phase_fixed_mask_r1.py"
+      ],
+      "evidence_ids": [
+        "simple26d_prereg",
+        "simple26d_running"
+      ],
+      "requires_source_rule": false,
+      "note": "Exactly26D. A has10 corrected reuses; fixed_A has5. Concurrent latency is diagnostic, not clean net acceleration."
+    },
+    {
+      "id": "ablation.front_dense_a",
+      "kind": "configuration",
+      "paper_name_en": "Front-Dense 26D + Corrected Reuse",
+      "paper_name_zh": "Front-Dense 26D + Corrected Reuse",
+      "name_status": "descriptive",
+      "internal_aliases": [
+        "FRONT_DENSE_A"
+      ],
+      "experiment_namespaces": [
+        "SIMPLE26D_FULL36"
+      ],
+      "evidence_status": "running_not_accepted",
+      "paper_role": "matched_dense_quota_control",
+      "implementation_paths": [
+        "src/wcomr/simple26d_r1.py",
+        "src/wcomr/source_phase_fixed_mask_r1.py"
+      ],
+      "evidence_ids": [
+        "simple26d_prereg",
+        "simple26d_running"
+      ],
+      "requires_source_rule": false,
+      "note": "Exactly26D. A has10 corrected reuses; fixed_A has5. Concurrent latency is diagnostic, not clean net acceleration."
+    },
+    {
+      "id": "ablation.front_dense_c",
+      "kind": "configuration",
+      "paper_name_en": "Front-Dense 26D + Direct Reuse",
+      "paper_name_zh": "Front-Dense 26D + Direct Reuse",
+      "name_status": "descriptive",
+      "internal_aliases": [
+        "FRONT_DENSE_C"
+      ],
+      "experiment_namespaces": [
+        "SIMPLE26D_FULL36"
+      ],
+      "evidence_status": "running_not_accepted",
+      "paper_role": "matched_dense_quota_control",
+      "implementation_paths": [
+        "src/wcomr/simple26d_r1.py",
+        "src/wcomr/source_phase_fixed_mask_r1.py"
+      ],
+      "evidence_ids": [
+        "simple26d_prereg",
+        "simple26d_running"
+      ],
+      "requires_source_rule": false,
+      "note": "Exactly26D. A has10 corrected reuses; fixed_A has5. Concurrent latency is diagnostic, not clean net acceleration."
     }
   ],
   "experiment_configs": {
@@ -1403,6 +1503,33 @@
       },
       "status": "CPU_ready_not_selected_or_launched",
       "sha256": "de64913f8a02301377b897009b8a4f1612516aed07c02d71bc4a2168209c80f7"
+    },
+    "SIMPLE26D_FULL36": {
+      "path": "configs/wc_simple26d_full36_r1_20261015.json",
+      "card": "WC-SIMPLE26D-CAL4-SIXMETHOD-FULL36-R1-20261015-A",
+      "run_id": "wc-simple26d-cal4-full36-r1",
+      "methods": [
+        "FIXED_A",
+        "FIXED_PLAIN",
+        "UNIFORM_A",
+        "UNIFORM_C",
+        "FRONT_DENSE_A",
+        "FRONT_DENSE_C"
+      ],
+      "scope_counts": {
+        "requests": 4,
+        "methods": 6,
+        "scientific_paths": 24,
+        "full_warmup_paths": 12,
+        "total_paths": 36,
+        "ordinary_pairs": 1296,
+        "ordinary_CFG_calls": 2592,
+        "loads": 1,
+        "teacher_pairs": 0,
+        "score_videos": 24
+      },
+      "sha256": "c489a9ab9d85a1e63f8aafaee1c0cf53b8e00aa874e23ec2bd9d92ddc1bdd0d4",
+      "source_revision": "36f5583f321b70778129c8231a849ef7e370827d"
     }
   },
   "evidence_reports": {
@@ -1417,7 +1544,9 @@
     "e0": "research/426_WC_P_W3_E0_COMPLETE_ASYMMETRIC_ORACLE_AND_COEFFICIENT_RESULTS_20261014.md",
     "cpu_full72": "research/441_WC_W3_FULL72_COLLECTOR_CPU_ACCEPTED_AND_PRODUCTION_NEXT_20261015.md",
     "cpu_production": "research/447_WC_W3_COMPLETE_CPU_CLOSED_AND_WHOLE864_PERMISSION_DECISION_20261015.md",
-    "w3_launch": "research/448_WC_W3_FULL864_APPROVED_GPU_LAUNCH_AND_UNDER12_AUTONOMY_20261015.md"
+    "w3_launch": "research/448_WC_W3_FULL864_APPROVED_GPU_LAUNCH_AND_UNDER12_AUTONOMY_20261015.md",
+    "simple26d_prereg": "research/449_WC_DUAL_GPU_ACCOUNTING_AND_SIMPLE26D_COMPLETE36_PREREG_20261015.md",
+    "simple26d_running": "research/450_WC_DUAL_GPU_SIMPLE26D_RUNNING_AND_ACCOUNTING_ACCEPTANCE_20261015.md"
   },
   "evidence_batches": {
     "curve60": {
@@ -1789,6 +1918,22 @@
     "configs/wc_p_acr_local12_profile528_production_r1_20261015.json": {
       "sha256": "de64913f8a02301377b897009b8a4f1612516aed07c02d71bc4a2168209c80f7",
       "bytes": 17557
+    },
+    "configs/wc_simple26d_full36_r1_20261015.json": {
+      "sha256": "c489a9ab9d85a1e63f8aafaee1c0cf53b8e00aa874e23ec2bd9d92ddc1bdd0d4",
+      "bytes": 12500
+    },
+    "src/wcomr/simple26d_r1.py": {
+      "sha256": "7cf7cb6b321a9541f01e560cdde070e42dfd267612661078fc1df681ce4cb8a7",
+      "bytes": 6911
+    },
+    "src/wcomr/gpu_budget_pool_v2.py": {
+      "sha256": "4203547121c30119ce637d6cd0d6d8d02810e6bf388fe9a6a7b9cd9b1b658754",
+      "bytes": 12752
+    },
+    "research/450_WC_DUAL_GPU_SIMPLE26D_RUNNING_AND_ACCOUNTING_ACCEPTANCE_20261015.md": {
+      "sha256": "2b7db139599225bd4ce3d0ae6e12785d6e0d3b490a6a1044ac16f829d9f7dc72",
+      "bytes": 6020
     }
   },
   "math_notation": [
@@ -2099,6 +2244,36 @@
       "mapping_id": "e3.dense",
       "config_sha256": "ebc3622e9d9453649a04279e192790aa6cfd2f56544a59d791c3a9ce96e1ecf7",
       "requires_source_rule": true
+    },
+    "SIMPLE26D_FULL36::FIXED_A": {
+      "mapping_id": "ablation.fixed_a",
+      "config_sha256": "c489a9ab9d85a1e63f8aafaee1c0cf53b8e00aa874e23ec2bd9d92ddc1bdd0d4",
+      "requires_source_rule": false
+    },
+    "SIMPLE26D_FULL36::FIXED_PLAIN": {
+      "mapping_id": "ablation.fixed_plain",
+      "config_sha256": "c489a9ab9d85a1e63f8aafaee1c0cf53b8e00aa874e23ec2bd9d92ddc1bdd0d4",
+      "requires_source_rule": false
+    },
+    "SIMPLE26D_FULL36::UNIFORM_A": {
+      "mapping_id": "ablation.uniform_a",
+      "config_sha256": "c489a9ab9d85a1e63f8aafaee1c0cf53b8e00aa874e23ec2bd9d92ddc1bdd0d4",
+      "requires_source_rule": false
+    },
+    "SIMPLE26D_FULL36::UNIFORM_C": {
+      "mapping_id": "ablation.uniform_c",
+      "config_sha256": "c489a9ab9d85a1e63f8aafaee1c0cf53b8e00aa874e23ec2bd9d92ddc1bdd0d4",
+      "requires_source_rule": false
+    },
+    "SIMPLE26D_FULL36::FRONT_DENSE_A": {
+      "mapping_id": "ablation.front_dense_a",
+      "config_sha256": "c489a9ab9d85a1e63f8aafaee1c0cf53b8e00aa874e23ec2bd9d92ddc1bdd0d4",
+      "requires_source_rule": false
+    },
+    "SIMPLE26D_FULL36::FRONT_DENSE_C": {
+      "mapping_id": "ablation.front_dense_c",
+      "config_sha256": "c489a9ab9d85a1e63f8aafaee1c0cf53b8e00aa874e23ec2bd9d92ddc1bdd0d4",
+      "requires_source_rule": false
     }
   },
   "report_shorthands": {

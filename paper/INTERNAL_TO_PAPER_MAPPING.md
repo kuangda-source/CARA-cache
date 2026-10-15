@@ -287,6 +287,19 @@ P_u=(v_c^A+\zeta(v_u^D-v_u^A),\ v_u^D).
 
 ## 11. 给另一个写作对话的接续提示词
 
+**2026-10-15补充：同26D简单规则卡已在途，名称映射如下；结果尚未接受。** 命名空间为 `SIMPLE26D_FULL36`，source36f5583，六方法×四原CAL=24正式＋12完整预热，详见[450](../research/450_WC_DUAL_GPU_SIMPLE26D_RUNNING_AND_ACCOUNTING_ACCEPTANCE_20261015.md)和总表N06。
+
+| 内部方法 | 论文表述 | 执行身份 |
+|---|---|---|
+| `FIXED_A` | Calibrated Phase Schedule + Corrected Reuse | 原420固定26D/5A/5C |
+| `FIXED_PLAIN` | Calibrated Phase Schedule + Direct Reuse | 同原D位置，26D/10C |
+| `UNIFORM_A` | Uniform 26D + Corrected Reuse | 预先均匀D位置，26D/10A |
+| `UNIFORM_C` | Uniform 26D + Direct Reuse | 同uniform D位置，26D/10C |
+| `FRONT_DENSE_A` | Front-Dense 26D + Corrected Reuse | 粗前密后疏D位置，26D/10A |
+| `FRONT_DENSE_C` | Front-Dense 26D + Direct Reuse | 同front D位置，26D/10C |
+
+这是**相同完整刷新配额的简单调度对照**，A次数和总成本没有强行写成相同。所有A使用同一冻结的阶段读出。与W3并发期间的时间统一为 `CONCURRENT_DIAGNOSTIC_NOT_CLEAN_LATENCY`，只用于诊断，不作为正式净加速主张。名称映射不代表均匀或前密规则已优于/劣于当前工作点。
+
 ```text
 请先读取：
 /Users/kuangda_gao/Documents/世界模型加速实验/worldcache_omr/paper/INTERNAL_TO_PAPER_MAPPING.md

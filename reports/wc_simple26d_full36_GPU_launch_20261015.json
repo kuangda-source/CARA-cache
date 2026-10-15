@@ -1,0 +1,62 @@
+{
+  "transport_exit_code": 0,
+  "stderr": "",
+  "dispatch": {
+    "status": "SIMPLE26D_COMPLETE36_V2_DISPATCHED_ADMISSION_PENDING",
+    "source_revision": "36f5583f321b70778129c8231a849ef7e370827d",
+    "launch_id": "230cecd9-8c95-408b-84b7-19e309fb13fb",
+    "supervisor_pid": 909867,
+    "post_watcher_pid": 909868,
+    "bridge_pid": 909859,
+    "command": [
+      "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python",
+      "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/.sync/wc-simple26d-production-r1-20261015/scripts/supervise_wc_simple26d_full36_r1.py",
+      "--project",
+      "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr",
+      "--stage",
+      "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/.sync/wc-simple26d-production-r1-20261015",
+      "--source-revision",
+      "36f5583f321b70778129c8231a849ef7e370827d",
+      "--gpu-uuid",
+      "GPU-de9a5370-cd87-0f1c-a48e-288888777dd3",
+      "--authorization",
+      "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/.sync/wc-simple26d-production-r1-20261015/new-GPU-authorization.json"
+    ],
+    "post_command": [
+      "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python",
+      "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/.sync/wc-simple26d-production-r1-20261015/scripts/watch_wc_simple26d_post_cpu_r1.py",
+      "--project",
+      "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr",
+      "--stage",
+      "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/.sync/wc-simple26d-production-r1-20261015",
+      "--supervisor-pid",
+      "909867"
+    ],
+    "gpu_uuid": "GPU-de9a5370-cd87-0f1c-a48e-288888777dd3",
+    "stage": "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/.sync/wc-simple26d-production-r1-20261015",
+    "run_id": "wc-simple26d-cal4-full36-r1",
+    "started_unix": 1792052252.158467,
+    "forecast_complete_GPUh": 5.766054749472921,
+    "billed_limit_GPUh": 8,
+    "scope_counts": {
+      "requests": 4,
+      "methods": 6,
+      "scientific_paths": 24,
+      "full_warmup_paths": 12,
+      "total_paths": 36,
+      "ordinary_pairs": 1296,
+      "ordinary_CFG_calls": 2592,
+      "loads": 1,
+      "teacher_pairs": 0,
+      "score_videos": 24
+    },
+    "registration_sha256": "8e237ce4e706660445ac96988ca0f4146c0841180464537fef45c3fe0c48b5df",
+    "production_CPU_sha256": "eda5013ee9f79e4161c074107b908f4a57bbb10c1281d56993f3fe5332e7cf09",
+    "authorization_sha256": "1bc3739586e531e5287b5ddd7ae5b836548c834920731df929794157ab6d84f5",
+    "old_ledger_before_bridge_sha256": "410925d15266329320b0a5e4f5aa2e63e14230fa5dc92c4cdea2afeafe944a45",
+    "old_ledger_after_bridge_sha256": "410925d15266329320b0a5e4f5aa2e63e14230fa5dc92c4cdea2afeafe944a45",
+    "next_check_not_before_unix": 1792075652.158467,
+    "original_W3_unchanged": true,
+    "timing_claim": "CONCURRENT_DIAGNOSTIC_NOT_CLEAN_LATENCY"
+  }
+}

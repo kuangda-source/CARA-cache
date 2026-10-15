@@ -1,3 +1,9 @@
+## 2026-10-15 双卡已兼容，同26D主线完整卡在途
+
+先读[450](../../research/450_WC_DUAL_GPU_SIMPLE26D_RUNNING_AND_ACCOUNTING_ACCEPTANCE_20261015.md)、[双卡执行约定](../../plans/WORLD_CACHE_DUAL_GPU_EXECUTION_20261015.md)和[专用接续](WC_DUAL_GPU_SIMPLE26D_20261015.md)。用户已授权空闲卡推进N06。新source36f5583、1644源/96完整CPU/实际生产通过，16:18:09锁内准入，supervisor909867/child910056/post909868，GPU0 UUID-de9a...；六配置×四原CAL=24正式+12warm/1296pairs/1load，完整预计5.766055、上限8。今晚23:00 worldcache-26d一次查收，不持续监听，不读partial；结果尚待。
+
+原W3 047dcf1/876730/876879/876731、GPU1/原stage及10-16 01:00 p-acr-cpu查收不变。新账本reports/gpu-budget-v2.json权威，逐UUID锁、短事务预留/实际加法结算；bridge909859只读旧W3终态后导入原实费，原CPU post结束前不写旧ledger。原cap104.971363333/origin79.996377372/94jobs不变，W312+N068=20预留，可准入4.974985961。只按各自句柄/卡验收，不因另卡在途判失败；新卡并发计时不是clean证据。后续走v2，不重置48窗口，严格<12自主。F/B结束，不开其他新卡；以下历史保留。
+
 ## 2026-10-15 W3完整864已获批并运行；后续严格少于12GPUh自主
 
 15:41按用户资源询问一次只读核对：[449双卡资源与并行安排](../../research/449_WC_TWO_GPU_OCCUPANCY_AND_SAFE_MAINLINE_PARALLELISM_20261015.md)。W3仅GPU1/876879，GPU0无compute；原f1排他锁/全余额临时预留及快照覆盖式结算不支持直接并发。N06同26D简单规则适合作为独立主线候选；须先有双卡账本兼容/CPU和具体整卡，不绕锁或修改在途监督器。本轮无第二GPU提交、未读科学partial，01:00查收保持。

@@ -1,3 +1,9 @@
+## 2026-10-15 双卡机制验收、同26D主线完整卡已启动
+
+最新[450](research/450_WC_DUAL_GPU_SIMPLE26D_RUNNING_AND_ACCOUNTING_ACCEPTANCE_20261015.md)和[双卡约定](plans/WORLD_CACHE_DUAL_GPU_EXECUTION_20261015.md)覆盖旧单GPU技术限制。用户明确授权兼容改造后用空闲卡推进N06。source36f5583、1644源/完整96采样/实际生产CPU通过，GPU0在16:18:09以fresh UUID/资源和v2余额准入，909867/910056/post909868，24正式＋12完整预热/1296pairs/1load，预测5.766055、完整上限8GPUh。今晚23:00由worldcache-26d一次查收，不提前看partial或持续监听；结果尚未接受。
+
+原W3 source047dcf1、876730/876879/post876731、GPU1及原stage/原01:00查收不改。新权威账本reports/gpu-budget-v2.json，逐UUID锁与短事务结算；bridge909859只读旧W3原账单并导入v2，旧CPU post终态前绝不改旧budget。原cap104.971363333、原实结起点79.996377372保持；两完整上限12+8=20预留，可准入4.974985961，不是实费。后续准入必须用v2，旧单锁启动器不能误用镜像。单次严格少于12GPUh自主；另一GPU在途不是本卡释放失败。N06并发秒数不是clean加速，A次数5/10/0如实报。F/B结束，无训练/OMR/新人评。以下保留历史。
+
 ## 2026-10-15 W3完整864已获批并运行；后续严格少于12GPUh自主
 
 论文命名／写作入口：[paper/INTERNAL_TO_PAPER_MAPPING.md](paper/INTERNAL_TO_PAPER_MAPPING.md)及同目录机器索引。CARA-Cache／GCR／CPA为暂定显示名；内部配置／实验ID／原件不改名，旧／新H1、P_OFF含P0、新P-ACR读出身份分开；整理文档不改变当前GPU卡或查收时间。

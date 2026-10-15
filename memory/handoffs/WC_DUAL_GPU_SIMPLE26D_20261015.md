@@ -1,5 +1,9 @@
 # 双卡兼容与主线同26D接续
 
+**最新：完整CPU已接受，新卡GPU已准入。** source36f5583于16:18:09取得GPU0 UUID-de9a...锁和8GPUh完整预留；supervisor909867、runner910056、post909868、bridge909859。全部1644源/两flow96采样/真实生产通过，60个非D计划步真实calibration支持也已核对。原W3 source047dcf1/876730/876879/876731和GPU1不变，旧账本SHA未变。
+
+按[450](../../research/450_WC_DUAL_GPU_SIMPLE26D_RUNNING_AND_ACCOUNTING_ACCEPTANCE_20261015.md)于**10-15 23:00**一次查收，自动化`worldcache-26d`；原W3`p-acr-cpu`仍10-16 01:00。新账本实结起点79.996377372、总预留20、可准入4.974985961，cap104.971363333不变。新卡并发秒数只诊断，不作clean加速。结果尚待，不继续SSH看partial，不自动重派/追加卡。下面CPU启动安排保留历史，不能再执行一次launch。
+
 用户明确授权：兼容原W3，空闲卡推进同26D简单规则；原cap104.971363333、<12GPUh自主、长任务ETA一次查收不变。
 
 先读 [449预登记](../../research/449_WC_DUAL_GPU_ACCOUNTING_AND_SIMPLE26D_COMPLETE36_PREREG_20261015.md)。完整新卡六方法×四原CAL，24正式＋12完整预热，36路径/1296pairs/1load；5.766055预测、8GPUh上限，所有26D。原fixed A/plain与uniform/frontdense A/C；A次数5/10/0必须实报，不声称同总成本。
