@@ -1,3 +1,7 @@
+## 2026-10-16 N09原CPU兼容性失败保留，完整R2已派发
+
+[477记录器修复](../research/477_WC_N09_PROFILE_R1_STATIC_BOUND_METHOD_FAILURE_R2_REPAIR_AND_FULL102_RELAUNCH_20261016.md)：原10329/source65f91ee按ETA一次查收终态1，首profile装载WeakMethod不支持静态Toy namespace；1原mock/0profile，不算102通过。只修静态绑定方法引用，动态owner仍强制弱引用，七标量通过。独立source1829c0f/PID10482于06:22:43.680890派完整102/3516pairs/7032CFG，不拼接旧结果；06:26一次本地收（最早06:25:43.680890）。原失败/source全保留，N05原15d77ac/句柄/12:05不变，0SSH/0GPU/0预算写，F/B关闭。以下历史保留。
+
 ## 2026-10-16 N09组件记录器标量接受，完整102本地CPU在途
 
 [476部署记录器](../research/476_WC_N09_COMPONENT_OBSERVER_SCALAR_ACCEPTED_FULL102_CPU_LAUNCH_20261016.md)：逐请求peak reset与结束后读取事件、弱引用恢复等六CPU控制通过；新source65f91ee/PID10329于06:17:30派完整102/3516pairs/7032CFG，两flow×17配置×原audit/profile audit/profile lean。06:21一次本地查收（最早06:20:30.298712），不读partial；CPU非实际CUDA/动作价/速度结果。952旧CPU不重查；N05原15d77ac/1078249/1078290/post1078250仍12:05，0SSH/0GPU/0预算写，原窗口/权限与F/B关闭保持。以下历史保留。
