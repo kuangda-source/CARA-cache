@@ -1,3 +1,7 @@
+## 2026-10-16 N07终态审计与93帧评分CPU准备完成，N05仍12:05验收
+
+[483完整后处理](research/483_WC_N07_FULL180_POST_AND_93FRAME_SCORE_CPU_PREPARATION_20261016.md)：原180/160分母、Native19/27/36预热、同case/seed Native35参考、坏容器/拒绝/缺失和提示词双seed统计已接线；八CPU控制通过，真实小型张量/显式mock视频与metric，非新视频或真实LPIPS。原99数值依赖SHA保持，未重复952；真实最终方法/八输入/配置/生产CPU/费用未选，监督/派发/收集仍待。0SSH/0GPUh/0预算写，原N05 source15d77ac/句柄/今天12:05不变。以下历史保留。
+
 ## 2026-10-16 N07运行脚本与完整180调度CPU准备完成
 
 [482驻留运行入口](research/482_WC_N07_RESIDENT_RUNNER_AND_FULL180_FAILURE_PRESERVING_BATCH_CPU_READY_20261016.md)：实际CLI代码已写并语法通过；完整180排程/拒绝继续/失败前缀与全分母/Native19/27/36及原合同共10CPU控制通过，全部synthetic callback，未加载模型。运行代码安排一次驻留、缓存/RNG逐路径恢复和原件归档；实际生产CPU、post/收集、最终scope/费用仍待N05后。原99数值依赖/481记账扩展未变；0SSH/0GPU/0预算写，N05原15d77ac/句柄/今天12:05不变。以下历史保留。

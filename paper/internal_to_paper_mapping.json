@@ -1643,7 +1643,8 @@
     "N10_input_sampling_statistics_CPU": "research/479_WC_N10_IDENTITY_INPUT_SAMPLING_AND_GROUPED_METRICS_CPU_READY_20261016.md",
     "N07_source_input_binding_CPU": "research/480_WC_N07_ORIGINAL1044_BYTES_AND_PRODUCTION_ARGUMENT_BINDING_CPU_READY_20261016.md",
     "N07_production_contract_CPU": "research/481_WC_N07_COMPLETE_SCOPE_CONTRACT_NUMERIC_REUSE_AND_APPROVED_LARGE_CARD_POOL_CPU_READY_20261016.md",
-    "N07_resident_runner_CPU": "research/482_WC_N07_RESIDENT_RUNNER_AND_FULL180_FAILURE_PRESERVING_BATCH_CPU_READY_20261016.md"
+    "N07_resident_runner_CPU": "research/482_WC_N07_RESIDENT_RUNNER_AND_FULL180_FAILURE_PRESERVING_BATCH_CPU_READY_20261016.md",
+    "N07_full180_post_CPU": "research/483_WC_N07_FULL180_POST_AND_93FRAME_SCORE_CPU_PREPARATION_20261016.md"
   },
   "evidence_batches": {
     "curve60": {
@@ -1924,6 +1925,16 @@
       "actual_Cosmos_CPU_or_GPU_accepted": false,
       "real_quality_or_speed_evidence": false,
       "acceptance_ref": "reports/wc_paper_N07_batch_runner_CPU_controls_20261016.json"
+    },
+    "N07_FULL180_POST_CPU_PREPARATION": {
+      "status": "N07_FULL180_CPU_POST_AND_SCORE_INTEGRATION_CONTROLS_ACCEPTED_NOT_PRODUCTION",
+      "CPU_controls": 8,
+      "synthetic_complete_positions": 180,
+      "synthetic_formal_positions": 160,
+      "real_tensor_file_controls": true,
+      "real_ffmpeg_or_LPIPS_scores": false,
+      "actual_production_CPU_accepted": false,
+      "acceptance_ref": "reports/wc_paper_N07_post_and_score_CPU_acceptance_20261016.json"
     }
   },
   "statistical_rules": {
@@ -2411,6 +2422,31 @@
       "exists": true,
       "bytes": 1639,
       "sha256": "547cfdd75a27fc907534d4fdd83f9f5c29371e9998b82cbd23e27fc9ae8e736a"
+    },
+    "research/483_WC_N07_FULL180_POST_AND_93FRAME_SCORE_CPU_PREPARATION_20261016.md": {
+      "exists": true,
+      "bytes": 5239,
+      "sha256": "b38b2bbe8e8b0cbe91750648ae3d1eeefe8f4b7c52e02e441f40cb81b0b605f6"
+    },
+    "reports/wc_paper_N07_post_and_score_CPU_acceptance_20261016.json": {
+      "exists": true,
+      "bytes": 2650,
+      "sha256": "a66cdc115a90869bab19e9612f7dd263cef2dd3c62ada619ea8356ac1889e4be"
+    },
+    "src/wcomr/frozen_shared_post_r1.py": {
+      "exists": true,
+      "bytes": 13338,
+      "sha256": "c4be8a2a652b87561ffda1e1cbae23b53cc3c06baaf92150ff23f625eb5fa326"
+    },
+    "scripts/postprocess_wc_paper_N07_frozen_shared180_r1.py": {
+      "exists": true,
+      "bytes": 6134,
+      "sha256": "9a7632d4abea48371e152f6e0437ce782dc9337a23e78c4a2e1ebcf871198d15"
+    },
+    "tests/test_frozen_shared_post_r1.py": {
+      "exists": true,
+      "bytes": 11553,
+      "sha256": "b4cfebf66d5cbf7453468948562111502e5944eb0db2ff4b626571dcdc0c039f"
     }
   },
   "math_notation": [

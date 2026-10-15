@@ -335,3 +335,5 @@ N07原始1044文本请求字节与参数绑定已做CPU准备，见[480](../rese
 N07完整范围/来源/费用绑定与具体批准大卡的独立准入接口CPU准备见[481](../research/481_WC_N07_COMPLETE_SCOPE_CONTRACT_NUMERIC_REUSE_AND_APPROVED_LARGE_CARD_POOL_CPU_READY_20261016.md)；99份数值依赖未变，真实生产CPU、最终scope和GPU未接受。
 
 N07驻留运行器与完整180调度CPU准备见[482](../research/482_WC_N07_RESIDENT_RUNNER_AND_FULL180_FAILURE_PRESERVING_BATCH_CPU_READY_20261016.md)；10项检查使用synthetic callback，实际模型/生产CPU与结果仍待。
+
+N07完整180终态审计/配对93帧评分与N10身份接线CPU准备见[483](../research/483_WC_N07_FULL180_POST_AND_93FRAME_SCORE_CPU_PREPARATION_20261016.md)；八控制为合成输入/度量及小型CPU张量，不是实际视频或LPIPS结果。最终方法/输入/实际生产CPU仍待N05接受后冻结。

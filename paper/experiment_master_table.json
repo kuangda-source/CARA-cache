@@ -885,7 +885,7 @@
         "PAPER_E3_FROZEN_SHARED_TEST"
       ],
       "contribution_relation": "C1/C2最终版本确认；C3覆盖",
-      "evidence_or_planned_scope": "完整952本地CPU已独立接受：408 audit/lean、136旧seed0完整轨迹、真实17/43 seed、72Native计数和mask/owner均通过；输入/统计/选择核已准备，真实180范围未选卡。 480核对全1044原始JSON/0gap，四CPU控制接受输入绑定，完整160参数/180排程仅合成示例，真实选择未做。 481补完整scope/权限合同与99数值依赖复用；独立已批准大卡v2入口合成CPU通过，真实生产入口尚待。 482增加驻留CLI与180位置调度，10合成CPU控制通过；模型未加载。",
+      "evidence_or_planned_scope": "完整952本地CPU已独立接受：408 audit/lean、136旧seed0完整轨迹、真实17/43 seed、72Native计数和mask/owner均通过；输入/统计/选择核已准备，真实180范围未选卡。 480核对全1044原始JSON/0gap，四CPU控制接受输入绑定，完整160参数/180排程仅合成示例，真实选择未做。 481补完整scope/权限合同与99数值依赖复用；独立已批准大卡v2入口合成CPU通过，真实生产入口尚待。 482增加驻留CLI与180位置调度，10合成CPU控制通过；模型未加载。 483补完整180终态CPU审计与93帧配对评分接线，八控制通过，真实视频/LPIPS未做。",
       "gap_and_next_action": "N05/N06后冻结最终方法/对手，fresh服务器身份审计后再选择8新prompt/16请求；真实完整采样/生产CPU/费用/GPU尚待，未选择或缩减模板。 N06已接受，前密C/A为已观察到的强简单对照，应在方法/对手冻结时保留；N05未完成前不定最终版本。 474确定性选择核三组合成控制通过，未选真实输入/方法，仍需后续fresh身份审计/物理SHA/生产CPU。",
       "priority": "P2·N05/N06后冻结",
       "evidence_refs": [
@@ -904,7 +904,8 @@
         "475",
         "480",
         "481",
-        "482"
+        "482",
+        "483"
       ],
       "method_mapping_ids": [
         "config.efficient",
@@ -938,7 +939,10 @@
       "input_argument_adapter_CPU_accepted": true,
       "production_contract_synthetic_CPU_accepted": true,
       "actual_production_runner_implemented": true,
-      "actual_production_runner_CPU_accepted": false
+      "actual_production_runner_CPU_accepted": false,
+      "CPU_post_and_score_entry_implemented": true,
+      "CPU_post_and_score_synthetic_controls_accepted": true,
+      "actual_final_video_or_LPIPS_results_available": false
     },
     {
       "id": "N08",
@@ -1216,7 +1220,9 @@
     "N07_contract_pool_CPU": "reports/wc_paper_N07_contract_and_approved_pool_CPU_controls_20261016.json",
     "N07_numeric99_reuse": "reports/wc_paper_N07_numeric99_dependencies_reuse_CPU_20261016.json",
     "482": "research/482_WC_N07_RESIDENT_RUNNER_AND_FULL180_FAILURE_PRESERVING_BATCH_CPU_READY_20261016.md",
-    "N07_resident_runner_CPU": "reports/wc_paper_N07_batch_runner_CPU_controls_20261016.json"
+    "N07_resident_runner_CPU": "reports/wc_paper_N07_batch_runner_CPU_controls_20261016.json",
+    "483": "research/483_WC_N07_FULL180_POST_AND_93FRAME_SCORE_CPU_PREPARATION_20261016.md",
+    "N07_full180_post_CPU": "reports/wc_paper_N07_post_and_score_CPU_acceptance_20261016.json"
   },
   "source_bindings": {
     "11": {
@@ -1646,6 +1652,14 @@
     "N07_resident_runner_CPU": {
       "path": "reports/wc_paper_N07_batch_runner_CPU_controls_20261016.json",
       "sha256": "547cfdd75a27fc907534d4fdd83f9f5c29371e9998b82cbd23e27fc9ae8e736a"
+    },
+    "483": {
+      "path": "research/483_WC_N07_FULL180_POST_AND_93FRAME_SCORE_CPU_PREPARATION_20261016.md",
+      "sha256": "b38b2bbe8e8b0cbe91750648ae3d1eeefe8f4b7c52e02e441f40cb81b0b605f6"
+    },
+    "N07_full180_post_CPU": {
+      "path": "reports/wc_paper_N07_post_and_score_CPU_acceptance_20261016.json",
+      "sha256": "a66cdc115a90869bab19e9612f7dd263cef2dd3c62ada619ea8356ac1889e4be"
     }
   },
   "operation_policy": {
@@ -1893,5 +1907,5 @@
     "specific_approved_large_card_admission_extension_prepared": true,
     "specific_approved_large_card_admission_extension_deployed_to_server": false
   },
-  "mapping_sha256_at_inventory": "1036f61c6eacf260243f5cfcf72e9e40db892f38d594980be95377d030fef53f"
+  "mapping_sha256_at_inventory": "9a614b46f478ecbb3dde94387d56d7d2fe39cd5eefc6cf49c33c52bceb7dcc95"
 }

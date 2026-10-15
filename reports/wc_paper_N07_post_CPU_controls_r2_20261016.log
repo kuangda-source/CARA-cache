@@ -1,0 +1,33 @@
+.F......                                                                 [100%]
+=================================== FAILURES ===================================
+___ FinalPostControls.test_all93_RGB_hash_metadata_with_explicit_mock_reader ___
+
+self = <test_frozen_shared_post_r1.FinalPostControls testMethod=test_all93_RGB_hash_metadata_with_explicit_mock_reader>
+
+    def test_all93_RGB_hash_metadata_with_explicit_mock_reader(self):
+        import numpy as np
+        rgb = np.zeros((432, 768, 3), dtype=np.uint8)
+        metadata = dict(frames=93, HWC=[432, 768, 3], fps=16, pts=list(range(93)), time_base='1/16')
+        @contextmanager
+        def source(path):
+            yield iter((rgb, i, '1/16') for i in range(93))
+        @contextmanager
+        def truncated(path):
+            yield iter((rgb, i, '1/16') for i in range(92))
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory); video = root / 'SYNTHETIC_NOT_REAL_VIDEO.mp4'
+            video.write_bytes(b'SYNTHETIC_READER_METADATA_CONTROL_ONLY')
+            with patch('wcomr.rv0_video_reader.probe_video', return_value=metadata):
+                with patch('wcomr.rv0_video_reader.decoded_video', source):
+                    result = inspect_video(root, dict(video_path=str(video)))
+                self.assertEqual(len(result['video_artifact']['decoded_rgb_sha256']), 93)
+                self.assertEqual(result['video_artifact']['sha256'], sha(video))
+                with patch('wcomr.rv0_video_reader.decoded_video', truncated):
+                    with self.assertRaises(ValueError): inspect_video(root, dict(video_path=str(video)))
+>           row['warm_guided_artifact'] = save(guide, 'guided', [torch.ones(2)] * 36)
+E           NameError: name 'save' is not defined
+
+tests/test_frozen_shared_post_r1.py:200: NameError
+=========================== short test summary info ============================
+FAILED tests/test_frozen_shared_post_r1.py::FinalPostControls::test_all93_RGB_hash_metadata_with_explicit_mock_reader
+1 failed, 7 passed in 2.02s

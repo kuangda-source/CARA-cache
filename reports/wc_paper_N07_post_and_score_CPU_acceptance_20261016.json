@@ -1,0 +1,61 @@
+{
+  "status": "N07_FULL180_CPU_POST_AND_SCORE_INTEGRATION_CONTROLS_ACCEPTED_NOT_PRODUCTION",
+  "observed_unix": 1792107465.6581,
+  "command": ".venv/bin/python -m pytest -q tests/test_frozen_shared_post_r1.py",
+  "exit_code": 0,
+  "observed_test_result": "........                                                                 [100%]\n8 passed in 1.76s",
+  "CPU_controls": 8,
+  "synthetic_original_positions": 180,
+  "synthetic_formal_positions": 160,
+  "synthetic_full_warm_positions": 20,
+  "synthetic_Native_actual_update_domains": [
+    19,
+    27,
+    36
+  ],
+  "synthetic_all_compatible_scored_positions": 160,
+  "synthetic_one_container_failure_scored_positions": 159,
+  "synthetic_broken_full_Native_scored_positions": 150,
+  "synthetic_quality_input_positions": 320,
+  "real_small_CPU_tensor_byte_SHA_and_finiteness_checks": true,
+  "real_ffmpeg_video_decode_performed": false,
+  "real_LPIPS_model_or_scores": false,
+  "model_weights_loaded": 0,
+  "actual_production_CPU_accepted": false,
+  "actual_final_inputs_or_methods_selected": false,
+  "unchanged_numeric_proof": {
+    "status": "ACCEPTED_FULL952_NUMERICAL_DEPENDENCIES_REUSED",
+    "checked_source_files": 99
+  },
+  "earlier_control_failures_retained": [
+    {
+      "revision": "R1",
+      "passed": 6,
+      "failed": 1,
+      "cause": "Synthetic nonfinite fixture attempted to compute a forbidden digest before auditor call; keep original finite digest instead"
+    },
+    {
+      "revision": "R2",
+      "passed": 7,
+      "failed": 1,
+      "cause": "Three synthetic count-refusal lines placed in the new reader test; moved back to original tensor test",
+      "log_ref": "reports/wc_paper_N07_post_CPU_controls_r2_20261016.log",
+      "log_sha256": "f008eac196274d9244aef7d5e54af9881ad803cb6a310cb37c1fe2987aa45606"
+    }
+  ],
+  "accepted_log_ref": "reports/wc_paper_N07_post_CPU_controls_r3_20261016.log",
+  "accepted_log_sha256": "c37f27a8e134d749e98018afaf911f170025a8a1905246cf06b331a2f68508b4",
+  "source_sha256": {
+    "src/wcomr/frozen_shared_post_r1.py": "c4be8a2a652b87561ffda1e1cbae23b53cc3c06baaf92150ff23f625eb5fa326",
+    "scripts/postprocess_wc_paper_N07_frozen_shared180_r1.py": "9a7632d4abea48371e152f6e0437ce782dc9337a23e78c4a2e1ebcf871198d15",
+    "tests/test_frozen_shared_post_r1.py": "b4cfebf66d5cbf7453468948562111502e5944eb0db2ff4b626571dcdc0c039f"
+  },
+  "syntax_check": {
+    "command": ".venv/bin/python -m py_compile src/wcomr/frozen_shared_post_r1.py scripts/postprocess_wc_paper_N07_frozen_shared180_r1.py",
+    "exit_code": 0
+  },
+  "GPU_submissions": 0,
+  "SSH_queries": 0,
+  "ledger_written": false,
+  "N05_source_or_handles_changed": false
+}
