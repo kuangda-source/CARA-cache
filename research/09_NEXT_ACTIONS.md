@@ -1,3 +1,7 @@
+## 2026-10-16 N07确定性输入选择核CPU准备完成
+
+[474输入选择核](../research/474_WC_N07_DETERMINISTIC_INPUT_SELECTION_KERNEL_CPU_PREPARED_NO_TEST_FREEZE_20261016.md)：三组合成控制通过，按原salt/类别/完整组确定性排序、整组曝光排除与seed17/43保持；必须先有完整N05/N06接受、开发冻结工作点和后续身份审计。未对真实1044记录选输入、未写最终manifest、十方法/参数未冻，原180模板保持。0SSH/0GPUh，不读在途结果。原952 R3 9817/616caef仍06:02一次收，N05原1078249/1078290/post1078250/15d77ac仍12:05；原预算和F/B关闭保持。以下历史保留。
+
 ## 2026-10-16 共享952 CPU原R2夹具失败保留，R3已派发
 
 [473修复接续](../research/473_WC_SHARED952_R2_DECORATOR_NAMESPACE_FAILURE_R3_REPAIR_AND_RELAUNCH_20261016.md)：本地Git状态意外出现exit/failure后，一次核对原9614已终态/exit1，KeyError misc发生在首条采样前；只修Torch装饰器命名空间观察，六标量通过，原失败和952分母保留。fresh source616caef/PID9817于05:48:48.865855单次启动，完整952/32816pairs/65632CFG不缩；**06:02一次本地验收**（最早06:00:48.865855），旧05:49查收已暂停、不再查R2。此CPU非生产/质量结果，N07原180模板和最终输入/方法未选。服务器N05原15d77ac/1078249/1078290/post1078250、12:05安排与预算保持，0SSH/0GPUh，F/B关闭。以下历史保留。
