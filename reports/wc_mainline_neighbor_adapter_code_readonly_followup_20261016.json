@@ -1,0 +1,58 @@
+{
+  "status": "PINNED_SOURCE_COMPATIBILITY_FOLLOWUP_NOT_EXECUTED_BASELINE",
+  "commit": "cc468521527ab2c3610ede8ee0315b469c0570f5",
+  "sources": [
+    {
+      "path": "xfuser/model_executor/cache/diffusers_adapters/flux.py",
+      "url": "https://raw.githubusercontent.com/NoakLiu/FastCache-xDiT/cc468521527ab2c3610ede8ee0315b469c0570f5/xfuser/model_executor/cache/diffusers_adapters/flux.py",
+      "sha256": "aafc01a13cb99bd71ff586f7eb3ed8b121d730842a2c2af9f782d5a6ba4644ab",
+      "bytes": 4683
+    },
+    {
+      "path": "xfuser/model_executor/cache/utils.py",
+      "url": "https://raw.githubusercontent.com/NoakLiu/FastCache-xDiT/cc468521527ab2c3610ede8ee0315b469c0570f5/xfuser/model_executor/cache/utils.py",
+      "sha256": "e0b2de550cc1e33460875a8c588744e7d1097a6ca989f87511ec160d00ad8c14",
+      "bytes": 60801
+    }
+  ],
+  "paper_reference": "https://arxiv.org/html/2602.13357v1",
+  "adapter_required_attributes": [
+    "single_transformer_blocks",
+    "transformer_blocks"
+  ],
+  "implementation_observations": [
+    {
+      "file": "xfuser/model_executor/cache/utils.py",
+      "lines": [
+        324,
+        328
+      ],
+      "fact": "Constructs new per-block torch.nn.Linear projections"
+    },
+    {
+      "file": "xfuser/model_executor/cache/utils.py",
+      "lines": [
+        1162,
+        1186
+      ],
+      "fact": "Blend path calls both a projection and the fresh block; refresh cost must include both"
+    },
+    {
+      "file": "xfuser/model_executor/cache/diffusers_adapters/flux.py",
+      "lines": [
+        24,
+        25
+      ],
+      "fact": "Adapter wraps Flux transformer_blocks and single_transformer_blocks"
+    }
+  ],
+  "inference": "Cosmos support is not a name-only registry insertion; tensor/conditioning/branch contracts and projection provenance need a faithful adaptation before performance comparison.",
+  "paper_method_disproved": false,
+  "upstream_full_model_run": false,
+  "upstream_code_executed": false,
+  "weights_downloaded": false,
+  "GPU_submissions": 0,
+  "server_SSH_queries": 0,
+  "remains_open_N05_gap": true,
+  "core66_not_changed": true
+}

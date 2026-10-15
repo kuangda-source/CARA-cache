@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "updated_local_date": "2026-10-16",
-  "snapshot_basis": "Original production CPU R1 terminal failure retained: all1668 sources+14 short tests passed but missing transferred manifest blocked actual entry; R2 complete reference closure repaired; N06 unchanged.",
+  "snapshot_basis": "Complete N05 production R2 CPU independently accepted03:56; original R1 failure preserved; original N06 still04:55;no new GPU.",
   "git_snapshot_before_inventory": "f8a5d45853ec69b45c572c7939903c5d5aab68ef",
   "mapping_ref": "paper/internal_to_paper_mapping.json",
   "scope": "scientific experiment families and complete cards, not each engineering retry; reused artifacts must not be summed as independent samples",
@@ -25,7 +25,8 @@
   "status_counts": {
     "已完成": 19,
     "已完成并关闭": 2,
-    "待补": 9,
+    "待补": 8,
+    "待运行": 1,
     "在运行": 1,
     "暂缓/未执行": 1
   },
@@ -738,14 +739,14 @@
     },
     {
       "id": "N05",
-      "state": "待补｜本地CPU接受，生产R2打包修复",
+      "state": "待运行｜完整生产CPU已接受",
       "paper_experiment_name": "Fair Tuned-Baseline Frontier",
       "internal_ids": [
         "PAPER_E1_TUNED_BASELINES"
       ],
       "contribution_relation": "C1/C2实用增量；C3公平性",
-      "evidence_or_planned_scope": "完整CORE66 11配置四CAL/44正式+22warm/2220pairs/4440CFG/1load；本地216 Toy CPU、88audit/lean、40旧默认全36桥接与阈值/Native计数/生命周期全部接受。",
-      "gap_and_next_action": "原生产CPU1073942已终态，前三组14控制通过但实际入口manifest漏传失败；原件保留。R2配置全部7引用/SHA闭包已修，下一fresh目录完整生产CPU；原N06仍04:55，全部接受后启动完整66/forecast8.568548038/计费上限9.5<12。近邻Cosmos缺口保留。",
+      "evidence_or_planned_scope": "完整11配置四CAL44正式+22warm/2220pairs/4440CFG；216 Toy CPU、真实R2生产CPU1671源/四命令/44请求/三Native网格/官方forward/10变异拒绝均接受。",
+      "gap_and_next_action": "原N06仍04:55一次完整独立验收，通过后使用R2 GPU启动器和R2 CPU launch，按fresh v2/UUID直接推进完整66，forecast8.568548038/上限9.5<12。真实GPU结果/93帧评分及近邻Cosmos适配仍待。",
       "priority": "P1·N06接受后首张主线卡",
       "evidence_refs": [
         "closure_plan",
@@ -761,7 +762,10 @@
         "N05_core66_cost",
         "N05_core66_production",
         "N05_production_CPU_462",
-        "N05_production_CPU_repair_463"
+        "N05_production_CPU_repair_463",
+        "N05_production_CPU_464",
+        "N05_production_CPU_R2_accepted",
+        "N05_neighbor_code_compatibility"
       ],
       "method_mapping_ids": [
         "baseline.native",
@@ -782,7 +786,7 @@
       "paper_placement": "后续证据，结果未填",
       "finite_complete_scientific_scope_selected": true,
       "local_sampling_CPU_accepted": true,
-      "server_production_CPU_accepted": false
+      "server_production_CPU_accepted": true
     },
     {
       "id": "N06",
@@ -1080,7 +1084,10 @@
     "N05_core66_cost": "manifests/wc_paper_N05_core66_full_cost_r1_20261016.json",
     "N05_core66_production": "configs/wc_paper_N05_core66_production_r1_20261016.json",
     "N05_production_CPU_462": "research/462_WC_N05_CORE66_ACTUAL_PRODUCTION_CPU_DISPATCH_20261016.md",
-    "N05_production_CPU_repair_463": "research/463_WC_N05_PRODUCTION_CPU_R1_MISSING_MANIFEST_AND_R2_PACKAGING_REPAIR_20261016.md"
+    "N05_production_CPU_repair_463": "research/463_WC_N05_PRODUCTION_CPU_R1_MISSING_MANIFEST_AND_R2_PACKAGING_REPAIR_20261016.md",
+    "N05_production_CPU_464": "research/464_WC_N05_CORE66_REAL_PRODUCTION_CPU_ACCEPTED_AND_N06_0455_NEXT_20261016.md",
+    "N05_production_CPU_R2_accepted": "reports/wc_paper_N05_core66_production_CPU_R2_independent_acceptance_20261016.json",
+    "N05_neighbor_code_compatibility": "reports/wc_mainline_neighbor_adapter_code_readonly_followup_20261016.json"
   },
   "source_bindings": {
     "11": {
@@ -1233,7 +1240,7 @@
     },
     "mainline_queue_20261016": {
       "path": "plans/WORLD_CACHE_MAINLINE_PRIORITY_QUEUE_20261016.md",
-      "sha256": "2f3c1c487531c08e0bf5f660fbe3229c3db1863ab39666979c157f0028b8fc7b"
+      "sha256": "eea8f9ad13ca1b5cec3f3b55446e4dd8983b7ee02aefe13e1961dbfb4293edbc"
     },
     "baseline_grid_prereg_20261016": {
       "path": "manifests/wc_paper_N05_bounded_baseline_grid_preregistration_draft_20261016.json",
@@ -1277,7 +1284,19 @@
     },
     "N05_production_CPU_repair_463": {
       "path": "research/463_WC_N05_PRODUCTION_CPU_R1_MISSING_MANIFEST_AND_R2_PACKAGING_REPAIR_20261016.md",
-      "sha256": "7256b6cd6b3972a091badcd1259d72d2171c4b305f5c9181220b1595bc174521"
+      "sha256": "9cae93bd314ac25af49bcb176880f894b8ad6a7961a9ffef9fd02cd18413af27"
+    },
+    "N05_production_CPU_464": {
+      "path": "research/464_WC_N05_CORE66_REAL_PRODUCTION_CPU_ACCEPTED_AND_N06_0455_NEXT_20261016.md",
+      "sha256": "bd259d566269a10f5bcd6625b962a4a7316a2d0edb78a0ac9a02acbb559e3ebc"
+    },
+    "N05_production_CPU_R2_accepted": {
+      "path": "reports/wc_paper_N05_core66_production_CPU_R2_independent_acceptance_20261016.json",
+      "sha256": "5fc2e51fab934aa1382696d66630181a6c20b0568732de9fb8c494ba484f7541"
+    },
+    "N05_neighbor_code_compatibility": {
+      "path": "reports/wc_mainline_neighbor_adapter_code_readonly_followup_20261016.json",
+      "sha256": "db9c8058432dd85f0afdc84d1955f79b395fd50ba7af08b81f57d33a175e049e"
     }
   },
   "operation_policy": {

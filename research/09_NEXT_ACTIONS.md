@@ -1,3 +1,11 @@
+## 2026-10-16 N05真实生产CPU完整接受，原N06 04:55后接续
+
+[464完整接受与启动入口](../research/464_WC_N05_CORE66_REAL_PRODUCTION_CPU_ACCEPTED_AND_N06_0455_NEXT_20261016.md)：03:56一次查R2原1074441/source15d77ac，1671源一致、四CPU命令exit0/70.921407秒、44实际请求与三Native网格/官方forward/10变异拒绝完整接受；原失败R1保留不再查。完整11配置四CAL44正式+22warm/66/2220pairs/4440CFG/1load，forecast8.568548038/上限9.5<12保持，GPU尚未提交。原N060795a00/1040857/1040918/post1040858仍04:55一次验收，不看partial；N06全接受后用launch_wc_paper_N05_core66_r2.py和production_CPU_R2_launch按fresh v2/UUID直接执行完整66，原cap/窗口不变。 p-acr-cpu已暂停不再查旧CPU；近邻适配仍待、F/B关闭、P/T1后排。以下保留历史。
+
+## 2026-10-16 N05独立R2生产CPU已派发
+
+[463修复与新派发](../research/463_WC_N05_PRODUCTION_CPU_R1_MISSING_MANIFEST_AND_R2_PACKAGING_REPAIR_20261016.md)：独立R2 source15d77ac/CPU1074441于03:51:59.288462单次派发，完整四命令/66/44/2220，03:56一次收（最早03:54:59.288462）；用production_CPU_R2_launch配capture/accept r1通用脚本。原R1已终态失败保留，不重查；原216数值证据、费用与算法不变。原N06/04:55不变，未看partial。R2全通过后且N06已接受才能以launch_wc_paper_N05_core66_r2.py启动完整66；原<12授权/v2/fresh UUID/cap保持。 以下保留历史。
+
 ## 2026-10-16 N05生产R1文件漏传，独立R2修复
 
 [463定位与修复](../research/463_WC_N05_PRODUCTION_CPU_R1_MISSING_MANIFEST_AND_R2_PACKAGING_REPAIR_20261016.md)：03:50一次查原1073942/source2a43047，1668源一致，三组14控制通过，实际入口因已存授权manifest漏传退出1、121.017730秒，失败原件保留不重查。R2只修打包闭包，全部7个冻结配置引用/SHA与33overlay本地通过，数值216证据/完整66/费用保持；下一源提交后fresh wc-paper-n05-core66-production-cpu-r2-20261016单次派CPU四命令，GPU仍未提交。R2 GPU启动用launch_wc_paper_N05_core66_r2.py；原N06/04:55/预算保持，未看partial。 以下保留历史。
