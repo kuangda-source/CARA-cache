@@ -1,5 +1,5 @@
 {
-  "status": "W3_FULL864_CPU_COMPLETE_NEW_HUMAN_CARD_PERMISSION_PENDING",
+  "status": "W3_FULL864_SPECIFIC_HUMAN_APPROVED_ORIGINAL_GPU_RUNNING_RESULTS_PENDING",
   "card": "WC-W3-LABEL-EXPLDEV8-PARENT18-LOCAL64-FULL864-R1-20261015-A",
   "source_revision": "047dcf181a3ab706002b2965e74b626e4648deea",
   "CPU_stage": ".sync/wc-w3-label64-production-cpu-r3-20261015",
@@ -45,10 +45,10 @@
   "last_verified_used_GPUh": 79.99637737158223,
   "last_verified_remaining_GPUh": 24.974985961431557,
   "last_budget_sha256": "a3e8d93ffa0b0b6fa85b54f1fba825642807dfe469a281d2acfa1b0e03417b21",
-  "production_GPU_execution_selected": false,
-  "GPU_submissions": 0,
+  "production_GPU_execution_selected": true,
+  "GPU_submissions": 1,
   "whole_scope_not_split": true,
-  "GPU_permission_requirement": "NEW_HUMAN_SPECIFIC_W3_CARD_AND_STRICT_OVER8_EXCEPTION",
+  "GPU_permission_requirement": "SPECIFIC_FULL864_APPROVAL_RECEIVED_AND_RECORDED",
   "default_GPU_Launch_command_requires_authorization_and_fresh_UUID": true,
   "command_template": [
     ".venv/bin/python",
@@ -66,7 +66,19 @@
     "<FRESH_RECEIPT>"
   ],
   "PA528_715cae7_stage_and_pending_question_untouched": true,
-  "budget_reserved_or_written": false,
+  "budget_reserved_or_written": true,
   "specific_human_card_question_asked_unix": 1792018804.252355,
-  "specific_human_card_reply_received": false
+  "specific_human_card_reply_received": true,
+  "specific_human_card_reply_quote": "批准，以后少于 12gpuh 时的都不用问了，直接启动",
+  "specific_human_authority_ref": "manifests/wc_w3_label64_full864_direct_human_approval_20261015.json",
+  "authorized_single_job_GPUh": 12.0,
+  "original_GPU_launch_ref": "reports/wc_w3_label64_full864_GPU_launch_20261015.json",
+  "supervisor_pid": 876730,
+  "child_pid": 876879,
+  "post_watcher_pid": 876731,
+  "original_GPU_started_unix": 1792038442.3830454,
+  "planned_collection_not_before_unix": 1792083600.0,
+  "execution_policy_ref": "manifests/wc_execution_autonomy_authorization_20261015_under12gpuh.json",
+  "future_autonomy_exclusive_GPUh_upper_bound": 12.0,
+  "provisional_reservation_is_not_actual_spend": true
 }
