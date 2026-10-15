@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "updated_local_date": "2026-10-16",
-  "snapshot_basis": "N06 complete accepted and N05 complete66 in flight; direct-neighbor source/CPU audit completed without reading running N05;12:05 collection unchanged.",
+  "snapshot_basis": "N05 GPU unchanged/in flight with12:05 ETA; local shared execution registry952 CPU9614 launched once and05:49 ETA; no final test selection or new GPU.",
   "git_snapshot_before_inventory": "121b65949d6073a3b9f017b8f7e8e9fcbbd4bf0c",
   "mapping_ref": "paper/internal_to_paper_mapping.json",
   "scope": "scientific experiment families and complete cards, not each engineering retry; reused artifacts must not be summed as independent samples",
@@ -856,13 +856,13 @@
     },
     {
       "id": "N07",
-      "state": "待补｜本地隔离/统计CPU已准备",
+      "state": "待补｜共享执行CPU在途",
       "paper_experiment_name": "Common Frozen Evaluation Matrix",
       "internal_ids": [
         "PAPER_E3_FROZEN_SHARED_TEST"
       ],
       "contribution_relation": "C1/C2最终版本确认；C3覆盖",
-      "evidence_or_planned_scope": "579配置/1044记录本地隔离、44排除成员独立复算；固定8prompt/两seed17/43的prompt分组bootstrap与总耗时比统计5CPU控制通过。原160正式+20warm模板保持。",
+      "evidence_or_planned_scope": "输入/统计CPU已准备；5个seed/context/180排程控制通过，完整952本地注册表CPU9614/source89381c1在途，05:49一次收。非最终生产CPU，原180模板未选方法/输入。",
       "gap_and_next_action": "N05/N06后冻结最终方法/对手，fresh服务器身份审计后再选择8新prompt/16请求；真实完整采样/生产CPU/费用/GPU尚待，未选择或缩减模板。 N06已接受，前密C/A为已观察到的强简单对照，应在方法/对手冻结时保留；N05未完成前不定最终版本。",
       "priority": "P2·N05/N06后冻结",
       "evidence_refs": [
@@ -874,7 +874,8 @@
         "N07_group_stats_protocol",
         "N07_local_input_inventory",
         "N07_local_input_audit",
-        "N07_group_stats_CPU"
+        "N07_group_stats_CPU",
+        "472"
       ],
       "method_mapping_ids": [
         "config.efficient",
@@ -1140,7 +1141,11 @@
     "N06_frame_coverage": "reports/wc_simple26d_memory_frame_coverage_exploratory_20261016.json",
     "471": "research/471_WC_DIRECT_CORRECTION_NEIGHBOR_AUTHOR_SOURCE_CPU_FIDELITY_AND_MAINLINE_BOUNDARY_20261016.md",
     "direct_neighbor_deep_source": "reports/wc_mainline_direct_neighbor_deep_source_CPU_inventory_20261016.json",
-    "direct_neighbor_method_CPU": "reports/wc_adacorrection_author_method_CPU_characterization_r2_20261016.json"
+    "direct_neighbor_method_CPU": "reports/wc_adacorrection_author_method_CPU_characterization_r2_20261016.json",
+    "472": "research/472_WC_SHARED_SEED_EXECUTION_BRIDGE_SCALAR_ACCEPTED_FULL952_LOCAL_CPU_LAUNCH_20261016.md",
+    "shared_registry_CPU_prereg": "manifests/wc_paper_shared_registry952_local_CPU_preregistration_r1_20261016.json",
+    "shared_registry_CPU_launch": "reports/wc_paper_shared_registry952_local_CPU_R2_launch_20261016.json",
+    "shared_registry_analysis_CPU": "reports/wc_paper_shared_registry952_analysis_synthetic_CPU_controls_20261016.json"
   },
   "source_bindings": {
     "11": {
@@ -1450,6 +1455,22 @@
     "direct_neighbor_method_CPU": {
       "path": "reports/wc_adacorrection_author_method_CPU_characterization_r2_20261016.json",
       "sha256": "c9bc1af2547ede785db92125f3815f0142c1d68b957088c08a9a1eae3ac64cc8"
+    },
+    "472": {
+      "path": "research/472_WC_SHARED_SEED_EXECUTION_BRIDGE_SCALAR_ACCEPTED_FULL952_LOCAL_CPU_LAUNCH_20261016.md",
+      "sha256": "e74111e68b020e6ce8567afdb3427f1b39b8efd3dd38d8ce2f347ec7f3f24d2f"
+    },
+    "shared_registry_CPU_prereg": {
+      "path": "manifests/wc_paper_shared_registry952_local_CPU_preregistration_r1_20261016.json",
+      "sha256": "98fc365f1a95495181709b822f4a0bfa2ab319508fbfd947ff68daf896721052"
+    },
+    "shared_registry_CPU_launch": {
+      "path": "reports/wc_paper_shared_registry952_local_CPU_R2_launch_20261016.json",
+      "sha256": "af1eaea09987113265cd7679bb3b109e8409dcf1d2358553b3244d8acd7b93c8"
+    },
+    "shared_registry_analysis_CPU": {
+      "path": "reports/wc_paper_shared_registry952_analysis_synthetic_CPU_controls_20261016.json",
+      "sha256": "9ad39c5d15233a7caeab02b7b4334265b0083ed0790d25c4d203d9e28e53a459"
     }
   },
   "operation_policy": {
@@ -1526,7 +1547,19 @@
     },
     "W3_original_terminal_collection_performed": true,
     "SIMPLE26D_R1_collection_closed": true,
-    "current_CPU_task": null,
+    "current_CPU_task": {
+      "type": "LOCAL_SHARED_EXECUTION_REGISTRY952_R2",
+      "pid": 9614,
+      "source_revision": "89381c1df7603bc9ba3e28913b043ff0dfec3e42",
+      "launch_ref": "reports/wc_paper_shared_registry952_local_CPU_R2_launch_20261016.json",
+      "expected_paths": 952,
+      "expected_pairs": 32816,
+      "expected_CFG_calls": 65632,
+      "not_new_GPU": true,
+      "collected": false,
+      "first_collection_not_before_unix": 1792100862.0625741,
+      "scheduled_collection_local": "2026-10-16T05:49:00+08:00"
+    },
     "next_W3_CPU_collection": null,
     "SIMPLE26D_R2_next_collection": null,
     "current_reserved_GPUh": 9.5,

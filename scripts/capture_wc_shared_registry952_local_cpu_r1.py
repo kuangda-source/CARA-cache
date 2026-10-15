@@ -42,8 +42,14 @@ def main():
     for ref in (launch['result_ref'], launch['exit_ref'],
                 str(Path(launch['result_ref']).with_suffix('.failure.json'))):
         path = ROOT / ref
+        data, error = None, None
+        if path.exists():
+            try:
+                data = json.loads(path.read_text())
+            except ValueError as problem:
+                error = str(problem)
         files[ref] = dict(exists=path.exists(), sha256=sha(path) if path.exists() else None,
-                          data=json.loads(path.read_text()) if path.exists() else None)
+                          data=data, parse_error=error)
     outputs = []
     for path in sorted((ROOT / launch['artifacts_ref']).rglob('*.mp4')):
         try:
@@ -56,7 +62,8 @@ def main():
     result = dict(status='SHARED_REGISTRY952_ORIGINAL_LOCAL_CPU_ONCE_CAPTURE',
         at_unix=now, launch=launch, launch_ref=str(args.launch_ref), launch_sha256=sha(args.launch_ref),
         original_handle_confirmed_live_now=alive, PID_identity_matches=same, process_stdout=process.stdout,
-        payload_verified={name: sha(source / name) == digest for name, digest in launch['payload_sha256'].items()},
+        payload_verified={name: (source / name).is_file() and sha(source / name) == digest
+                          for name, digest in launch['payload_sha256'].items()},
         registration_sha256=sha(ROOT / launch['registration_ref']), files=files,
         mock_outputs=outputs, log_tail=log.read_text(errors='replace')[-18000:] if log.exists() else None,
         GPU_submissions=0, SSH_queries=0, ledger_written=False)
