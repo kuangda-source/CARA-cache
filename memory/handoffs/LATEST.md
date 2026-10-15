@@ -1,3 +1,7 @@
+## 2026-10-16 N09组件记录器标量接受，完整102本地CPU在途
+
+[476部署记录器](../../research/476_WC_N09_COMPONENT_OBSERVER_SCALAR_ACCEPTED_FULL102_CPU_LAUNCH_20261016.md)：逐请求peak reset与结束后读取事件、弱引用恢复等六CPU控制通过；新source65f91ee/PID10329于06:17:30派完整102/3516pairs/7032CFG，两flow×17配置×原audit/profile audit/profile lean。06:21一次本地查收（最早06:20:30.298712），不读partial；CPU非实际CUDA/动作价/速度结果。952旧CPU不重查；N05原15d77ac/1078249/1078290/post1078250仍12:05，0SSH/0GPU/0预算写，原窗口/权限与F/B关闭保持。以下历史保留。
+
 ## 2026-10-16 共享执行完整952本地CPU已独立接受
 
 [475完整接受](../../research/475_WC_SHARED_REGISTRY952_LOCAL_CPU_ACCEPTED_SEED_PARITY_AND_N05_NEXT_20261016.md)：06:02按ETA一次查原9817/source616caef，终态0；全payload/runtime一致、952/952、32816pairs/65632CFG、408audit/lean、136旧seed0完整guided/终态/actions/Ahistory/sourcehistory/mock、72Native计数与实际seed/12噪声组全通过，507.754656秒。R1打包/R2装饰器错误保留，不再查旧CPU；本地查收自动化暂停。此为Toy执行注册表接受，非真实Native/生产CPU/质量/速度；最终180模板的真实输入/方法未冻，474仅选择核合成通过。原N05 15d77ac/1078249/1078290/post1078250仍12:05一次收，未查服务器/partial，原v2/cap/<12规则保持；0GPUh/SSH，F/B关闭。以下历史保留。
