@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "updated_local_date": "2026-10-16",
-  "snapshot_basis": "N05 unchanged/in flight12:05; local shared952 R2 terminal fixture namespace error preserved, R3 source616caef/9817 launched once06:02 ETA; no shared scientific result.",
+  "snapshot_basis": "Local shared registry952 R3 fully independently accepted at06:02; N05 GPU unchanged/in flight with12:05 ETA; actual final inputs/methods/productionCPU still pending.",
   "git_snapshot_before_inventory": "121b65949d6073a3b9f017b8f7e8e9fcbbd4bf0c",
   "mapping_ref": "paper/internal_to_paper_mapping.json",
   "scope": "scientific experiment families and complete cards, not each engineering retry; reused artifacts must not be summed as independent samples",
@@ -777,7 +777,7 @@
       ],
       "depends_on": [],
       "template_only": false,
-      "new_GPU_card_selected": false,
+      "new_GPU_card_selected": true,
       "contribution_ids": [
         "C1",
         "C2",
@@ -828,21 +828,21 @@
       ],
       "claim_relation": "COMPLETED_PRIMARY_EXPERIMENT",
       "paper_placement": "刷新位置与修正读出消融",
-      "scientific_status": "PARTIAL_VALID_TECHNICAL_STOP",
-      "whole_card_accepted": false,
+      "scientific_status": "SIMPLE26D_FULL36_INDEPENDENT_TERMINAL_ACCEPTED",
+      "whole_card_accepted": true,
       "partial_originals_audited": true,
       "original_total_paths": 36,
       "original_formal_paths": 24,
       "completed_warmups": 12,
-      "scored_formal_paths": 16,
-      "failed_formal_paths": 1,
-      "not_reached_formal_paths": 7,
-      "actual_GPUh": 2.2928420429873384,
+      "scored_formal_paths": 24,
+      "failed_formal_paths": 0,
+      "not_reached_formal_paths": 0,
+      "actual_GPUh": 2.622040618907712,
       "run_state": "TERMINAL",
-      "capture_ref": "reports/wc_simple26d_full36_terminal_collection_20261015_2301.json.gz",
-      "independent_audit_ref": "reports/wc_simple26d_full36_partial_terminal_independent_audit_20261015.json",
+      "capture_ref": "reports/wc_simple26d_memory_full36_collection_20261016_0455.json.gz",
+      "independent_audit_ref": "reports/wc_simple26d_memory_full36_independent_acceptance_20261016.json",
       "automatic_rerun": false,
-      "repair_execution_state": "FULL144_CPU_ACCEPTED_FULL36_GPU_ADMITTED_SOURCE0795A00",
+      "repair_execution_state": "FULL36_R2_INDEPENDENTLY_ACCEPTED",
       "repair_preregistration": "research/452_WC_SIMPLE26D_MEMORY_LIFECYCLE_REPAIR_FULL36_PREREG_20261015.md",
       "repair_report": "research/453_WC_SIMPLE26D_MEMORY_FULL144_ACCEPTED_AND_COMPLETE36_GPU_R2_LAUNCH_20261015.md",
       "repair_run_id": "wc-simple26d-memory-cal4-full36-r2",
@@ -850,19 +850,42 @@
       "repair_supervisor_pid": 1040857,
       "repair_runner_pid": 1040918,
       "repair_CPU_post_pid": 1040858,
-      "repair_GPU_result_accepted": false,
-      "repair_scientific_progress_read": false,
-      "repair_next_check_local": "2026-10-16 04:55:00 Asia/Shanghai"
+      "repair_GPU_result_accepted": true,
+      "repair_scientific_progress_read": true,
+      "repair_next_check_local": null,
+      "historical_attempts": [
+        {
+          "scientific_status": "PARTIAL_VALID_TECHNICAL_STOP",
+          "whole_card_accepted": false,
+          "partial_originals_audited": true,
+          "original_total_paths": 36,
+          "original_formal_paths": 24,
+          "completed_warmups": 12,
+          "scored_formal_paths": 16,
+          "failed_formal_paths": 1,
+          "not_reached_formal_paths": 7,
+          "actual_GPUh": 2.2928420429873384,
+          "run_state": "TERMINAL",
+          "capture_ref": "reports/wc_simple26d_full36_terminal_collection_20261015_2301.json.gz",
+          "independent_audit_ref": "reports/wc_simple26d_full36_partial_terminal_independent_audit_20261015.json",
+          "automatic_rerun": false,
+          "attempt": "R1",
+          "preserved_original_failure": true
+        }
+      ],
+      "scored_formal_frames": 2232,
+      "current_accepted_attempt": "R2",
+      "timing_claim": "CONCURRENT_DIAGNOSTIC_NOT_CLEAN_LATENCY"
     },
     {
       "id": "N07",
-      "state": "待补｜共享执行CPU在途",
+      "state": "待补｜完整共享执行CPU已接受",
       "paper_experiment_name": "Common Frozen Evaluation Matrix",
       "internal_ids": [
         "PAPER_E3_FROZEN_SHARED_TEST"
       ],
       "contribution_relation": "C1/C2最终版本确认；C3覆盖",
-      "evidence_or_planned_scope": "输入/统计CPU已准备；R2首采样前夹具KeyError保留，六标量通过；fresh R3完整952本地CPU9817/source616caef在途，06:02一次收。非最终生产CPU，原180模板/输入/方法未冻。",
+      "evidence_or_planned_scope": "完整952本地CPU已独立接受：408 audit/lean、136旧seed0完整轨迹、真实17/43 seed、72Native计数和mask/owner均通过；输入/统计/选择核已准备，真实180范围未选卡。",
       "gap_and_next_action": "N05/N06后冻结最终方法/对手，fresh服务器身份审计后再选择8新prompt/16请求；真实完整采样/生产CPU/费用/GPU尚待，未选择或缩减模板。 N06已接受，前密C/A为已观察到的强简单对照，应在方法/对手冻结时保留；N05未完成前不定最终版本。 474确定性选择核三组合成控制通过，未选真实输入/方法，仍需后续fresh身份审计/物理SHA/生产CPU。",
       "priority": "P2·N05/N06后冻结",
       "evidence_refs": [
@@ -877,7 +900,8 @@
         "N07_group_stats_CPU",
         "472",
         "473",
-        "474"
+        "474",
+        "475"
       ],
       "method_mapping_ids": [
         "config.efficient",
@@ -903,7 +927,10 @@
       "local_input_inventory_accepted": true,
       "grouped_statistics_CPU_accepted": true,
       "final_test_inputs_selected": false,
-      "final_methods_selected": false
+      "final_methods_selected": false,
+      "shared_execution_registry_local_CPU_accepted": true,
+      "shared_execution_registry_acceptance_ref": "reports/wc_paper_shared_registry952_local_CPU_R3_independent_acceptance_20261016.json",
+      "actual_final_production_CPU_accepted": false
     },
     {
       "id": "N08",
@@ -1153,7 +1180,10 @@
     "shared_registry_R3_CPU_launch": "reports/wc_paper_shared_registry952_local_CPU_R3_launch_20261016.json",
     "shared_registry_R2_terminal_failure": "reports/wc_paper_shared_registry952_R2_terminal_failure_incident_20261016.json",
     "474": "research/474_WC_N07_DETERMINISTIC_INPUT_SELECTION_KERNEL_CPU_PREPARED_NO_TEST_FREEZE_20261016.md",
-    "N07_input_selection_kernel_CPU": "reports/wc_paper_N07_input_selection_kernel_synthetic_CPU_controls_20261016.json"
+    "N07_input_selection_kernel_CPU": "reports/wc_paper_N07_input_selection_kernel_synthetic_CPU_controls_20261016.json",
+    "475": "research/475_WC_SHARED_REGISTRY952_LOCAL_CPU_ACCEPTED_SEED_PARITY_AND_N05_NEXT_20261016.md",
+    "shared_registry_R3_independent_acceptance": "reports/wc_paper_shared_registry952_local_CPU_R3_independent_acceptance_20261016.json",
+    "shared_registry_R3_original_capture": "reports/wc_paper_shared_registry952_local_CPU_R3_collection_20261016_0602.json.gz"
   },
   "source_bindings": {
     "11": {
@@ -1503,6 +1533,18 @@
     "N07_input_selection_kernel_CPU": {
       "path": "reports/wc_paper_N07_input_selection_kernel_synthetic_CPU_controls_20261016.json",
       "sha256": "7584f07b62677620d84efac256b56d12527da35b75f180ae808918664378e7f2"
+    },
+    "475": {
+      "path": "research/475_WC_SHARED_REGISTRY952_LOCAL_CPU_ACCEPTED_SEED_PARITY_AND_N05_NEXT_20261016.md",
+      "sha256": "8273e24fa6a6d330b98d379b9ab8630ac92c1a0b8f7607f35a1d5396c7d9d1c6"
+    },
+    "shared_registry_R3_independent_acceptance": {
+      "path": "reports/wc_paper_shared_registry952_local_CPU_R3_independent_acceptance_20261016.json",
+      "sha256": "aaa101f99ad1b1bc672ec2a27f7e053223ebf83a0f9b73bba6d03642d40bf4da"
+    },
+    "shared_registry_R3_original_capture": {
+      "path": "reports/wc_paper_shared_registry952_local_CPU_R3_collection_20261016_0602.json.gz",
+      "sha256": "ab4f02b3df8c2e9139f3803490fb40c0aa095bdef09dd1179651b8473c1dbb23"
     }
   },
   "operation_policy": {
@@ -1579,19 +1621,7 @@
     },
     "W3_original_terminal_collection_performed": true,
     "SIMPLE26D_R1_collection_closed": true,
-    "current_CPU_task": {
-      "type": "LOCAL_SHARED_EXECUTION_REGISTRY952_R3",
-      "pid": 9817,
-      "source_revision": "616caef408285a0d8374692b879ee1d5b5b880f4",
-      "launch_ref": "reports/wc_paper_shared_registry952_local_CPU_R3_launch_20261016.json",
-      "expected_paths": 952,
-      "expected_pairs": 32816,
-      "expected_CFG_calls": 65632,
-      "not_new_GPU": true,
-      "collected": false,
-      "first_collection_not_before_unix": 1792101648.865855,
-      "scheduled_collection_local": "2026-10-16T06:02:00+08:00"
-    },
+    "current_CPU_task": null,
     "next_W3_CPU_collection": null,
     "SIMPLE26D_R2_next_collection": null,
     "current_reserved_GPUh": 9.5,
@@ -1608,12 +1638,19 @@
     },
     "budget_values_asof": "N05_ADMISSION_ONCE_CAPTURE_20261016_0457",
     "last_CPU_task": {
-      "type": "N05_CORE66_ACTUAL_PRODUCTION_CPU_R2",
-      "pid": 1074441,
-      "source_revision": "15d77ac55de7f5715a76901c47e407663d41c9d3",
+      "type": "LOCAL_SHARED_EXECUTION_REGISTRY952_R3",
+      "pid": 9817,
+      "source_revision": "616caef408285a0d8374692b879ee1d5b5b880f4",
+      "launch_ref": "reports/wc_paper_shared_registry952_local_CPU_R3_launch_20261016.json",
+      "expected_paths": 952,
+      "expected_pairs": 32816,
+      "expected_CFG_calls": 65632,
+      "not_new_GPU": true,
       "collected": true,
-      "status": "N05_CORE66_REAL_PRODUCTION_CPU_INDEPENDENTLY_ACCEPTED_NOT_GPU",
-      "acceptance_ref": "reports/wc_paper_N05_core66_production_CPU_R2_independent_acceptance_20261016.json"
+      "first_collection_not_before_unix": 1792101648.865855,
+      "scheduled_collection_local": "2026-10-16T06:02:00+08:00",
+      "status": "FROZEN_SHARED_REGISTRY952_SEED_CONTEXT_AND_LEGACY_PARITY_INDEPENDENTLY_ACCEPTED_NOT_PRODUCTION",
+      "acceptance_ref": "reports/wc_paper_shared_registry952_local_CPU_R3_independent_acceptance_20261016.json"
     },
     "mainline_continuation_authorized_by_latest_human": true,
     "mainline_priority_queue": [
@@ -1658,6 +1695,21 @@
         "incident_ref": "reports/wc_paper_shared_registry952_R2_terminal_failure_incident_20261016.json",
         "collected": true,
         "complete_denominator_retained": 952
+      },
+      {
+        "type": "LOCAL_SHARED_EXECUTION_REGISTRY952_R3",
+        "pid": 9817,
+        "source_revision": "616caef408285a0d8374692b879ee1d5b5b880f4",
+        "launch_ref": "reports/wc_paper_shared_registry952_local_CPU_R3_launch_20261016.json",
+        "expected_paths": 952,
+        "expected_pairs": 32816,
+        "expected_CFG_calls": 65632,
+        "not_new_GPU": true,
+        "collected": true,
+        "first_collection_not_before_unix": 1792101648.865855,
+        "scheduled_collection_local": "2026-10-16T06:02:00+08:00",
+        "status": "FROZEN_SHARED_REGISTRY952_SEED_CONTEXT_AND_LEGACY_PARITY_INDEPENDENTLY_ACCEPTED_NOT_PRODUCTION",
+        "acceptance_ref": "reports/wc_paper_shared_registry952_local_CPU_R3_independent_acceptance_20261016.json"
       }
     ],
     "N05_production_CPU_accepted": true,
@@ -1692,7 +1744,10 @@
       "launch_ref": "reports/wc_paper_N05_core66_GPU_launch_20261016.json",
       "admission_ref": "reports/wc_paper_N05_core66_admission_once_20261016.json",
       "observed_once_unix": 1792097832.6502905
-    }
+    },
+    "shared_registry952_CPU_accepted": true,
+    "shared_registry952_CPU_next_collection": null,
+    "N07_actual_final_input_or_method_freeze_selected": false
   },
-  "mapping_sha256_at_inventory": "011d02ea04e2b5d8d2690ca56e3990ede58b42ab02999b91e9a7e02237e7dea6"
+  "mapping_sha256_at_inventory": "b581915b8b114a26be56439ac38dc78a1759d0b510665ceba3dce4b77aa12727"
 }

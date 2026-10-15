@@ -10,6 +10,8 @@
 
 **近邻身份补充：**[471](../research/471_WC_DIRECT_CORRECTION_NEIGHBOR_AUTHOR_SOURCE_CPU_FIDELITY_AND_MAINLINE_BOUNDARY_20261016.md)仅为作者源码/CPU调用核查；AdaCorrection不得标成已接受Cosmos对手，GP-Refiner仍是公开资源缺口。当前N05仅完整11配置。
 
+**共享执行接口更新：**[475](../research/475_WC_SHARED_REGISTRY952_LOCAL_CPU_ACCEPTED_SEED_PARITY_AND_N05_NEXT_20261016.md)完整952本地CPU接受，seed17/43与旧seed0逐步等价桥接成立；这是执行准备，不是最终共同测试、真实Native或新的方法效果。N05仍12:05验收，最终输入/方法未冻。
+
 ## 1. 写作入口：先统一这几件事
 
 论文当前主干是 **CFG一致的缓存读出修正＋校准式计算分配**。两个已完成工作点分别展示效率和保真，不拼接成一个配置的“又快又准”数字。

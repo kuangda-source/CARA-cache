@@ -1,3 +1,7 @@
+## 2026-10-16 共享执行完整952本地CPU已独立接受
+
+[475完整接受](../../research/475_WC_SHARED_REGISTRY952_LOCAL_CPU_ACCEPTED_SEED_PARITY_AND_N05_NEXT_20261016.md)：06:02按ETA一次查原9817/source616caef，终态0；全payload/runtime一致、952/952、32816pairs/65632CFG、408audit/lean、136旧seed0完整guided/终态/actions/Ahistory/sourcehistory/mock、72Native计数与实际seed/12噪声组全通过，507.754656秒。R1打包/R2装饰器错误保留，不再查旧CPU；本地查收自动化暂停。此为Toy执行注册表接受，非真实Native/生产CPU/质量/速度；最终180模板的真实输入/方法未冻，474仅选择核合成通过。原N05 15d77ac/1078249/1078290/post1078250仍12:05一次收，未查服务器/partial，原v2/cap/<12规则保持；0GPUh/SSH，F/B关闭。以下历史保留。
+
 ## 2026-10-16 N07确定性输入选择核CPU准备完成
 
 [474输入选择核](../../research/474_WC_N07_DETERMINISTIC_INPUT_SELECTION_KERNEL_CPU_PREPARED_NO_TEST_FREEZE_20261016.md)：三组合成控制通过，按原salt/类别/完整组确定性排序、整组曝光排除与seed17/43保持；必须先有完整N05/N06接受、开发冻结工作点和后续身份审计。未对真实1044记录选输入、未写最终manifest、十方法/参数未冻，原180模板保持。0SSH/0GPUh，不读在途结果。原952 R3 9817/616caef仍06:02一次收，N05原1078249/1078290/post1078250/15d77ac仍12:05；原预算和F/B关闭保持。以下历史保留。
