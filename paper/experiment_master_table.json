@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "updated_local_date": "2026-10-16",
-  "snapshot_basis": "N05 full216 local CPU accepted; actual production CPU1073942/source2a43047 dispatched03:46, collection03:50; N06 original04:55 unchanged;no new GPU.",
+  "snapshot_basis": "Original production CPU R1 terminal failure retained: all1668 sources+14 short tests passed but missing transferred manifest blocked actual entry; R2 complete reference closure repaired; N06 unchanged.",
   "git_snapshot_before_inventory": "f8a5d45853ec69b45c572c7939903c5d5aab68ef",
   "mapping_ref": "paper/internal_to_paper_mapping.json",
   "scope": "scientific experiment families and complete cards, not each engineering retry; reused artifacts must not be summed as independent samples",
@@ -738,14 +738,14 @@
     },
     {
       "id": "N05",
-      "state": "待补｜本地CPU接受，服务器生产CPU在途",
+      "state": "待补｜本地CPU接受，生产R2打包修复",
       "paper_experiment_name": "Fair Tuned-Baseline Frontier",
       "internal_ids": [
         "PAPER_E1_TUNED_BASELINES"
       ],
       "contribution_relation": "C1/C2实用增量；C3公平性",
       "evidence_or_planned_scope": "完整CORE66 11配置四CAL/44正式+22warm/2220pairs/4440CFG/1load；本地216 Toy CPU、88audit/lean、40旧默认全36桥接与阈值/Native计数/生命周期全部接受。",
-      "gap_and_next_action": "生产CPU1073942/source2a43047于03:46:12单次启动，03:50一次收；新GPU尚未派发。原N06仍04:55独立接受后按fresh v2/UUID直接推进完整66，费用8.568548038/计费上限9.5<12；近邻Cosmos适配仍待。",
+      "gap_and_next_action": "原生产CPU1073942已终态，前三组14控制通过但实际入口manifest漏传失败；原件保留。R2配置全部7引用/SHA闭包已修，下一fresh目录完整生产CPU；原N06仍04:55，全部接受后启动完整66/forecast8.568548038/计费上限9.5<12。近邻Cosmos缺口保留。",
       "priority": "P1·N06接受后首张主线卡",
       "evidence_refs": [
         "closure_plan",
@@ -760,7 +760,8 @@
         "N05_local_CPU_independent",
         "N05_core66_cost",
         "N05_core66_production",
-        "N05_production_CPU_462"
+        "N05_production_CPU_462",
+        "N05_production_CPU_repair_463"
       ],
       "method_mapping_ids": [
         "baseline.native",
@@ -1078,7 +1079,8 @@
     "N05_local_CPU_independent": "reports/wc_paper_N05_core216_local_CPU_independent_acceptance_20261016.json",
     "N05_core66_cost": "manifests/wc_paper_N05_core66_full_cost_r1_20261016.json",
     "N05_core66_production": "configs/wc_paper_N05_core66_production_r1_20261016.json",
-    "N05_production_CPU_462": "research/462_WC_N05_CORE66_ACTUAL_PRODUCTION_CPU_DISPATCH_20261016.md"
+    "N05_production_CPU_462": "research/462_WC_N05_CORE66_ACTUAL_PRODUCTION_CPU_DISPATCH_20261016.md",
+    "N05_production_CPU_repair_463": "research/463_WC_N05_PRODUCTION_CPU_R1_MISSING_MANIFEST_AND_R2_PACKAGING_REPAIR_20261016.md"
   },
   "source_bindings": {
     "11": {
@@ -1272,6 +1274,10 @@
     "N05_production_CPU_462": {
       "path": "research/462_WC_N05_CORE66_ACTUAL_PRODUCTION_CPU_DISPATCH_20261016.md",
       "sha256": "b3acf34867bd72104ee184ae7316ad600165da93327e1bc870107470d310b5d4"
+    },
+    "N05_production_CPU_repair_463": {
+      "path": "research/463_WC_N05_PRODUCTION_CPU_R1_MISSING_MANIFEST_AND_R2_PACKAGING_REPAIR_20261016.md",
+      "sha256": "7256b6cd6b3972a091badcd1259d72d2171c4b305f5c9181220b1595bc174521"
     }
   },
   "operation_policy": {

@@ -1,3 +1,7 @@
+## 2026-10-16 N05生产R1文件漏传，独立R2修复
+
+[463定位与修复](research/463_WC_N05_PRODUCTION_CPU_R1_MISSING_MANIFEST_AND_R2_PACKAGING_REPAIR_20261016.md)：03:50一次查原1073942/source2a43047，1668源一致，三组14控制通过，实际入口因已存授权manifest漏传退出1、121.017730秒，失败原件保留不重查。R2只修打包闭包，全部7个冻结配置引用/SHA与33overlay本地通过，数值216证据/完整66/费用保持；下一源提交后fresh wc-paper-n05-core66-production-cpu-r2-20261016单次派CPU四命令，GPU仍未提交。R2 GPU启动用launch_wc_paper_N05_core66_r2.py；原N06/04:55/预算保持，未看partial。 以下保留历史。
+
 ## 2026-10-16 N05真实生产CPU在途，03:50一次查收
 
 [462派发与接续](research/462_WC_N05_CORE66_ACTUAL_PRODUCTION_CPU_DISPATCH_20261016.md)：N05独立生产CPU1073942/source2a43047于03:46:12单次派发，fresh stage wc-paper-n05-core66-production-cpu-r1-20261016；完整66/44/2220四命令尚待，03:50一次收（最早03:49:12）。原216 Toy CPU已接受，旧6663不再查。本CPU零GPU/权重/预算写，不读仍运行N06原R2。原N06 04:55验收不变；全部接受后再按原授权、forecast8.568548038/上限9.5及fresh v2/UUID推进完整N05。 F/B关闭、主线优先不变。以下保留历史。
