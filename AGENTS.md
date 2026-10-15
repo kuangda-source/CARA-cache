@@ -1,3 +1,7 @@
+## 2026-10-16 N08完整40排程与统计CPU准备
+
+[467排程与汇总](research/467_WC_N08_BALANCED_REPEAT40_MATRIX_AND_STATISTICS_CPU_PREPARED_20261016.md)：N08纯CPU排程/统计已准备，完整两旧CAL×五逻辑方法×三轮30正式+10warm/40/1440pairs保持；每场景每配置三轮均序位2，5项CPU控制通过。方法绑定/真实sampler和生产CPU/费用仍未冻，未开新GPU，不把CPU检查作新速度。原N06仍04:55一次验，后按464 R2直接续N05完整66；原cap/v2/严格<12规则保持。 未看运行partial、无账本写；F/B关闭。以下保留历史。
+
 ## 2026-10-16 N07本地隔离与分组统计CPU准备
 
 [466输入与统计](research/466_WC_N07_LOCAL_INPUT_ISOLATION_AND_GROUPED_STATISTICS_CPU_READY_20261016.md)：N07仅本地输入/统计准备完成：579配置清单/1044记录、44排除成员、四池109/290/85/165已独立复算，JSON键8身份覆盖。最终8新prompt与方法均未选，fresh远端身份审计仍待N05/N06后。固定两seed17/43、prompt分组bootstrap4096、总耗时比、完整/可用分母与零参考百分比规则已登记；5项CPU合成控制通过，无模型结果。原180路径模板未变/未选卡，0GPU/0SSH/0预算写。原N06仍04:55一次验，接受后按464用R2启动N05完整66，不提前看partial。 原cap/v2/严格<12授权保持；F/B关闭。以下保留历史。

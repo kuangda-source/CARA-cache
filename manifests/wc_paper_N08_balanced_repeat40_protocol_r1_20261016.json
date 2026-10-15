@@ -1,0 +1,498 @@
+{
+  "status": "N08_COMPLETE40_ORDER_AND_ANALYSIS_PROTOCOL_NOT_FROZEN_PRODUCTION_OR_GPU_CARD",
+  "registered_unix": 1792096210.941212,
+  "scope_counts": {
+    "requests": 2,
+    "methods": 5,
+    "scientific_paths": 30,
+    "full_warmup_paths": 10,
+    "total_paths": 40,
+    "ordinary_pairs": 1440,
+    "CFG_calls": 2880,
+    "loads": 1,
+    "teacher_pairs": 0
+  },
+  "method_slots": [
+    "FULL_NATIVE",
+    "WORLD_CACHE",
+    "RA_CFG_CACHE",
+    "GCR_EFFICIENT",
+    "CPA_HIGH_FIDELITY"
+  ],
+  "actual_frozen_method_bindings": null,
+  "requests": [
+    {
+      "inference_type": "text2world",
+      "seed": 0,
+      "guidance": 7,
+      "num_output_frames": 93,
+      "resolution": "432,768",
+      "negative_prompt": "The video captures a series of frames showing ugly scenes, static with no motion, motion blur, over-saturation, shaky footage, low resolution, grainy texture, pixelated images, poorly lit areas, underexposed and overexposed scenes, poor color balance, washed out colors, choppy sequences, jerky movements, low frame rate, artifacting, color banding, unnatural transitions, outdated special effects, fake elements, unconvincing visuals, poorly edited content, jump cuts, visual noise, and flickering. Overall, the video is of poor quality.",
+      "name": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "prompt": "The video opens with a nighttime scene captured from inside a vehicle, likely through a dashboard camera, providing a first-person perspective. The road ahead has three lanes, with clear lane markings and a mix of left-turn and right-turn indicators. The scene is dimly lit by the car's headlights and scattered streetlights, creating a moody and atmospheric setting. A semi-truck is visible in the distance, its lights glowing faintly against the dark sky. To the right, a pedestrian crossing sign is visible, and a building or structure with a lit sign suggests a gas station or convenience store. The environment feels quiet and somewhat eerie due to the darkness and limited visibility.  As the video progresses, the car continues its journey along the highway, with additional vehicles occasionally appearing and disappearing into the headlights' reach. The streetlights continue to cast their glow, reflecting off the road surface, enhancing the sense of movement and depth. By the final frame, the car approaches an intersection, where traffic lights are visible, and the road markings become clearer, indicating the direction of travel. The overall scene conveys a sense of solitude and anticipation as the vehicle navigates the quiet, dimly lit road.",
+      "num_steps": 35
+    },
+    {
+      "inference_type": "text2world",
+      "seed": 0,
+      "guidance": 7,
+      "num_output_frames": 93,
+      "resolution": "432,768",
+      "negative_prompt": "The video captures a series of frames showing ugly scenes, static with no motion, motion blur, over-saturation, shaky footage, low resolution, grainy texture, pixelated images, poorly lit areas, underexposed and overexposed scenes, poor color balance, washed out colors, choppy sequences, jerky movements, low frame rate, artifacting, color banding, unnatural transitions, outdated special effects, fake elements, unconvincing visuals, poorly edited content, jump cuts, visual noise, and flickering. Overall, the video is of poor quality.",
+      "name": "human_199",
+      "prompt": "A wide shot captures an outdoor tennis court at the University of Barcelona, as indicated by the signage on the green portion and fence surrounding the court. The court is a standard hard surface with white boundary lines marking the playing area. Two players are present: one on the left side of the frame, dressed in a white shirt and dark shorts, holding a tennis racket and preparing to serve, while the other player is positioned on the far side of the court, ready to receive the serve. The court is enclosed by a high fence adorned with banners and flags, beyond which a row of parked cars and a building can be seen. The setting suggests a clear day with ample daylight illuminating the scene. The position of the camera remains steady, capturing the players' focused and deliberate movements as they engage in the game. The player on the left side of the court serves the ball across the net towards the opponent, who is poised to return the serve. The ball is seen in mid-air, traveling from one side of the court to the other, indicating the beginning of a rally. The players' movements are fluid and engaged, showcasing their concentration and skill. The video concludes with the ball still in play, suggesting that the rally continues beyond the frame's end.",
+      "num_steps": 35
+    }
+  ],
+  "scenes_are_old_exposed_CAL_not_new_input_test": true,
+  "warmup": "One full path per method per scene, before that scene formal rounds; two full warm paths per method over the complete card. These10 warm paths do not enter timing means.",
+  "complete_matrix": [
+    {
+      "id": "warm_0_CPA_HIGH_FIDELITY",
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "seed": 0,
+      "slot": "CPA_HIGH_FIDELITY",
+      "section": "WARMUP",
+      "round": 0,
+      "position": 0
+    },
+    {
+      "id": "warm_0_RA_CFG_CACHE",
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "seed": 0,
+      "slot": "RA_CFG_CACHE",
+      "section": "WARMUP",
+      "round": 0,
+      "position": 1
+    },
+    {
+      "id": "warm_0_FULL_NATIVE",
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "seed": 0,
+      "slot": "FULL_NATIVE",
+      "section": "WARMUP",
+      "round": 0,
+      "position": 2
+    },
+    {
+      "id": "warm_0_GCR_EFFICIENT",
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "seed": 0,
+      "slot": "GCR_EFFICIENT",
+      "section": "WARMUP",
+      "round": 0,
+      "position": 3
+    },
+    {
+      "id": "warm_0_WORLD_CACHE",
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "seed": 0,
+      "slot": "WORLD_CACHE",
+      "section": "WARMUP",
+      "round": 0,
+      "position": 4
+    },
+    {
+      "id": "timed_0_r1_FULL_NATIVE",
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "seed": 0,
+      "slot": "FULL_NATIVE",
+      "section": "TIMED",
+      "round": 1,
+      "position": 0
+    },
+    {
+      "id": "timed_0_r1_WORLD_CACHE",
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "seed": 0,
+      "slot": "WORLD_CACHE",
+      "section": "TIMED",
+      "round": 1,
+      "position": 1
+    },
+    {
+      "id": "timed_0_r1_RA_CFG_CACHE",
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "seed": 0,
+      "slot": "RA_CFG_CACHE",
+      "section": "TIMED",
+      "round": 1,
+      "position": 2
+    },
+    {
+      "id": "timed_0_r1_GCR_EFFICIENT",
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "seed": 0,
+      "slot": "GCR_EFFICIENT",
+      "section": "TIMED",
+      "round": 1,
+      "position": 3
+    },
+    {
+      "id": "timed_0_r1_CPA_HIGH_FIDELITY",
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "seed": 0,
+      "slot": "CPA_HIGH_FIDELITY",
+      "section": "TIMED",
+      "round": 1,
+      "position": 4
+    },
+    {
+      "id": "timed_0_r2_CPA_HIGH_FIDELITY",
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "seed": 0,
+      "slot": "CPA_HIGH_FIDELITY",
+      "section": "TIMED",
+      "round": 2,
+      "position": 0
+    },
+    {
+      "id": "timed_0_r2_RA_CFG_CACHE",
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "seed": 0,
+      "slot": "RA_CFG_CACHE",
+      "section": "TIMED",
+      "round": 2,
+      "position": 1
+    },
+    {
+      "id": "timed_0_r2_FULL_NATIVE",
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "seed": 0,
+      "slot": "FULL_NATIVE",
+      "section": "TIMED",
+      "round": 2,
+      "position": 2
+    },
+    {
+      "id": "timed_0_r2_GCR_EFFICIENT",
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "seed": 0,
+      "slot": "GCR_EFFICIENT",
+      "section": "TIMED",
+      "round": 2,
+      "position": 3
+    },
+    {
+      "id": "timed_0_r2_WORLD_CACHE",
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "seed": 0,
+      "slot": "WORLD_CACHE",
+      "section": "TIMED",
+      "round": 2,
+      "position": 4
+    },
+    {
+      "id": "timed_0_r3_GCR_EFFICIENT",
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "seed": 0,
+      "slot": "GCR_EFFICIENT",
+      "section": "TIMED",
+      "round": 3,
+      "position": 0
+    },
+    {
+      "id": "timed_0_r3_WORLD_CACHE",
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "seed": 0,
+      "slot": "WORLD_CACHE",
+      "section": "TIMED",
+      "round": 3,
+      "position": 1
+    },
+    {
+      "id": "timed_0_r3_CPA_HIGH_FIDELITY",
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "seed": 0,
+      "slot": "CPA_HIGH_FIDELITY",
+      "section": "TIMED",
+      "round": 3,
+      "position": 2
+    },
+    {
+      "id": "timed_0_r3_RA_CFG_CACHE",
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "seed": 0,
+      "slot": "RA_CFG_CACHE",
+      "section": "TIMED",
+      "round": 3,
+      "position": 3
+    },
+    {
+      "id": "timed_0_r3_FULL_NATIVE",
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "seed": 0,
+      "slot": "FULL_NATIVE",
+      "section": "TIMED",
+      "round": 3,
+      "position": 4
+    },
+    {
+      "id": "warm_1_WORLD_CACHE",
+      "scene": "human_199",
+      "seed": 0,
+      "slot": "WORLD_CACHE",
+      "section": "WARMUP",
+      "round": 0,
+      "position": 0
+    },
+    {
+      "id": "warm_1_CPA_HIGH_FIDELITY",
+      "scene": "human_199",
+      "seed": 0,
+      "slot": "CPA_HIGH_FIDELITY",
+      "section": "WARMUP",
+      "round": 0,
+      "position": 1
+    },
+    {
+      "id": "warm_1_RA_CFG_CACHE",
+      "scene": "human_199",
+      "seed": 0,
+      "slot": "RA_CFG_CACHE",
+      "section": "WARMUP",
+      "round": 0,
+      "position": 2
+    },
+    {
+      "id": "warm_1_FULL_NATIVE",
+      "scene": "human_199",
+      "seed": 0,
+      "slot": "FULL_NATIVE",
+      "section": "WARMUP",
+      "round": 0,
+      "position": 3
+    },
+    {
+      "id": "warm_1_GCR_EFFICIENT",
+      "scene": "human_199",
+      "seed": 0,
+      "slot": "GCR_EFFICIENT",
+      "section": "WARMUP",
+      "round": 0,
+      "position": 4
+    },
+    {
+      "id": "timed_1_r1_RA_CFG_CACHE",
+      "scene": "human_199",
+      "seed": 0,
+      "slot": "RA_CFG_CACHE",
+      "section": "TIMED",
+      "round": 1,
+      "position": 0
+    },
+    {
+      "id": "timed_1_r1_GCR_EFFICIENT",
+      "scene": "human_199",
+      "seed": 0,
+      "slot": "GCR_EFFICIENT",
+      "section": "TIMED",
+      "round": 1,
+      "position": 1
+    },
+    {
+      "id": "timed_1_r1_CPA_HIGH_FIDELITY",
+      "scene": "human_199",
+      "seed": 0,
+      "slot": "CPA_HIGH_FIDELITY",
+      "section": "TIMED",
+      "round": 1,
+      "position": 2
+    },
+    {
+      "id": "timed_1_r1_FULL_NATIVE",
+      "scene": "human_199",
+      "seed": 0,
+      "slot": "FULL_NATIVE",
+      "section": "TIMED",
+      "round": 1,
+      "position": 3
+    },
+    {
+      "id": "timed_1_r1_WORLD_CACHE",
+      "scene": "human_199",
+      "seed": 0,
+      "slot": "WORLD_CACHE",
+      "section": "TIMED",
+      "round": 1,
+      "position": 4
+    },
+    {
+      "id": "timed_1_r2_WORLD_CACHE",
+      "scene": "human_199",
+      "seed": 0,
+      "slot": "WORLD_CACHE",
+      "section": "TIMED",
+      "round": 2,
+      "position": 0
+    },
+    {
+      "id": "timed_1_r2_CPA_HIGH_FIDELITY",
+      "scene": "human_199",
+      "seed": 0,
+      "slot": "CPA_HIGH_FIDELITY",
+      "section": "TIMED",
+      "round": 2,
+      "position": 1
+    },
+    {
+      "id": "timed_1_r2_RA_CFG_CACHE",
+      "scene": "human_199",
+      "seed": 0,
+      "slot": "RA_CFG_CACHE",
+      "section": "TIMED",
+      "round": 2,
+      "position": 2
+    },
+    {
+      "id": "timed_1_r2_FULL_NATIVE",
+      "scene": "human_199",
+      "seed": 0,
+      "slot": "FULL_NATIVE",
+      "section": "TIMED",
+      "round": 2,
+      "position": 3
+    },
+    {
+      "id": "timed_1_r2_GCR_EFFICIENT",
+      "scene": "human_199",
+      "seed": 0,
+      "slot": "GCR_EFFICIENT",
+      "section": "TIMED",
+      "round": 2,
+      "position": 4
+    },
+    {
+      "id": "timed_1_r3_FULL_NATIVE",
+      "scene": "human_199",
+      "seed": 0,
+      "slot": "FULL_NATIVE",
+      "section": "TIMED",
+      "round": 3,
+      "position": 0
+    },
+    {
+      "id": "timed_1_r3_GCR_EFFICIENT",
+      "scene": "human_199",
+      "seed": 0,
+      "slot": "GCR_EFFICIENT",
+      "section": "TIMED",
+      "round": 3,
+      "position": 1
+    },
+    {
+      "id": "timed_1_r3_WORLD_CACHE",
+      "scene": "human_199",
+      "seed": 0,
+      "slot": "WORLD_CACHE",
+      "section": "TIMED",
+      "round": 3,
+      "position": 2
+    },
+    {
+      "id": "timed_1_r3_CPA_HIGH_FIDELITY",
+      "scene": "human_199",
+      "seed": 0,
+      "slot": "CPA_HIGH_FIDELITY",
+      "section": "TIMED",
+      "round": 3,
+      "position": 3
+    },
+    {
+      "id": "timed_1_r3_RA_CFG_CACHE",
+      "scene": "human_199",
+      "seed": 0,
+      "slot": "RA_CFG_CACHE",
+      "section": "TIMED",
+      "round": 3,
+      "position": 4
+    }
+  ],
+  "formal_orders": {
+    "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632": [
+      [
+        "FULL_NATIVE",
+        "WORLD_CACHE",
+        "RA_CFG_CACHE",
+        "GCR_EFFICIENT",
+        "CPA_HIGH_FIDELITY"
+      ],
+      [
+        "CPA_HIGH_FIDELITY",
+        "RA_CFG_CACHE",
+        "FULL_NATIVE",
+        "GCR_EFFICIENT",
+        "WORLD_CACHE"
+      ],
+      [
+        "GCR_EFFICIENT",
+        "WORLD_CACHE",
+        "CPA_HIGH_FIDELITY",
+        "RA_CFG_CACHE",
+        "FULL_NATIVE"
+      ]
+    ],
+    "human_199": [
+      [
+        "RA_CFG_CACHE",
+        "GCR_EFFICIENT",
+        "CPA_HIGH_FIDELITY",
+        "FULL_NATIVE",
+        "WORLD_CACHE"
+      ],
+      [
+        "WORLD_CACHE",
+        "CPA_HIGH_FIDELITY",
+        "RA_CFG_CACHE",
+        "FULL_NATIVE",
+        "GCR_EFFICIENT"
+      ],
+      [
+        "FULL_NATIVE",
+        "GCR_EFFICIENT",
+        "WORLD_CACHE",
+        "CPA_HIGH_FIDELITY",
+        "RA_CFG_CACHE"
+      ]
+    ]
+  },
+  "formal_mean_position_zero_based": 2,
+  "linear_order_drift_balancing_not_all_nonlinear_drift_elimination": true,
+  "main_clock": "SYNCHRONIZED_TEXT_ENCODING_DENOISING_VAE_DECODING",
+  "separate_timers": [
+    "loading",
+    "method_install",
+    "guarded_pipeline",
+    "method_cleanup",
+    "request_boundary_GC",
+    "video_write"
+  ],
+  "in_formal_clock_research_tensor_copies_hashes_or_file_writes": false,
+  "algorithm_cache_correction_refresh_cost_in_main_clock": true,
+  "repeated_endpoint_control": "Every accepted same-case method formal endpoint/actions/A_history/RGB must equal its full warm reference; source history units audited separately, no owner-address equality requirement.",
+  "fidelity": "All compatible30 formal videos get complete93-frame scoring against the same-case same-round fresh Native; rejected/failed positions retained.",
+  "speed": "Report all3 observed times, min/max/sample std and same-round baseline/candidate ratios per scene; global point is sum-baseline/sum-candidate over the identical registered6 pairs.",
+  "missing_data": "Complete registered repeat means remain null on a missing formal repetition; available paired subsets separately named, never zero-imputed.",
+  "resource_rule": "After final method freeze; model resident once; fresh v2 and per-UUID admission; no concurrent WorldCache GPU experiment or CPU metric job during clean timing; do not stop another owner task.",
+  "N09_additional_profile_paths_are_part_of_whole_card_if_selected": true,
+  "extra_profile_paths_selected": 0,
+  "source_sha256": {
+    "src/wcomr/balanced_repeat_timing_r1.py": "513a5dce723f9adb93cc2fd1620b0230b735cb8115abf6ffa1e1753c013928aa",
+    "tests/test_balanced_repeat_timing_r1.py": "295cdfb2655a4ebca6473ad70df95fbd0fbf17e6984be42a7761bc4f264cd59d"
+  },
+  "CPU_control_ref": "reports/wc_paper_N08_balanced_repeat_statistics_CPU_r1_20261016.json",
+  "CPU_control_sha256": "cb76d04eb409d162795cfa143c4e9c1f2a82f02de64769bbc2697aa8fd1c3a3c",
+  "scalar_order_and_statistics_CPU_passed": true,
+  "full_sampling_or_actual_production_CPU_accepted": false,
+  "methods_pending_N05_N06_freeze": true,
+  "exact_whole_GPU_card_selected": false,
+  "full_GPU_forecast": null,
+  "legacy_E2_full76_reopened": false,
+  "prior_clean20_completed_evidence_preserved": true,
+  "current_cumulative_cap_GPUh": 104.97136333301378,
+  "strictly_less_than_12_GPUh_autonomy_preserved": true,
+  "GPU_submissions": 0,
+  "SSH_queries": 0,
+  "ledger_written": false,
+  "human_review_required": false
+}

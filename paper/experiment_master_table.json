@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "updated_local_date": "2026-10-16",
-  "snapshot_basis": "N05 real production CPU and N09 local cost inventory accepted; N07 local exclusion/statistics prepared before final selection; original N06 still04:55.",
+  "snapshot_basis": "N05 production accepted, N07 input/statistics and N09 source inventory ready; N08 whole40 schedule/statistics CPU prepared but final methods/production remain pending; original N06 still04:55.",
   "git_snapshot_before_inventory": "f8a5d45853ec69b45c572c7939903c5d5aab68ef",
   "mapping_ref": "paper/internal_to_paper_mapping.json",
   "scope": "scientific experiment families and complete cards, not each engineering retry; reused artifacts must not be summed as independent samples",
@@ -902,19 +902,22 @@
     },
     {
       "id": "N08",
-      "state": "待补｜最终重复测速",
+      "state": "待补｜排程/统计CPU已准备",
       "paper_experiment_name": "Balanced Repeated Clean Latency",
       "internal_ids": [
         "PAPER_E4_REPEAT_SPEED"
       ],
       "contribution_relation": "C3稳定费用；C1/C2工作点复验",
-      "evidence_or_planned_scope": "两场景×五最终配置×三平衡轮=30正式＋10预热；同轮倍数/波动/质量并列。",
-      "gap_and_next_action": "D07已完成但不是最终高保真重复；模型驻留、初始化和算法维护口径固定。",
+      "evidence_or_planned_scope": "完整40路径/30正式+10warm/两旧CAL五逻辑配置三平衡轮；位置均值2、逐轮秒数/倍数、拒绝保持、无计时内取证与重复endpoint检查5CPU控制通过。",
+      "gap_and_next_action": "实际方法阈值与版本、完整sampler/真实生产CPU和费用待N05/N06后冻结；尚无新GPU或速度结果。所有额外N09profile若合并须显式计入完整卡。",
       "priority": "P2·最终版本冻结后",
       "evidence_refs": [
         "closure_plan",
         "roadmap",
-        "mainline_queue_20261016"
+        "mainline_queue_20261016",
+        "N08_repeat_CPU_467",
+        "N08_repeat_protocol",
+        "N08_repeat_CPU"
       ],
       "method_mapping_ids": [
         "config.efficient",
@@ -935,7 +938,10 @@
       "conditional_depends_on_if_variant_selected": [
         "N02",
         "N04"
-      ]
+      ],
+      "schedule_and_statistics_CPU_accepted": true,
+      "actual_frozen_method_bindings": null,
+      "production_CPU_accepted": false
     },
     {
       "id": "N09",
@@ -1109,7 +1115,10 @@
     "N07_group_stats_protocol": "manifests/wc_paper_N07_grouped_statistics_preregistration_r1_20261016.json",
     "N07_local_input_inventory": "reports/wc_paper_N07_local_input_exclusion_inventory_r1_20261016.json",
     "N07_local_input_audit": "reports/wc_paper_N07_local_input_exclusion_reproducible_acceptance_20261016.json",
-    "N07_group_stats_CPU": "reports/wc_paper_N07_grouped_statistics_CPU_controls_r1_20261016.json"
+    "N07_group_stats_CPU": "reports/wc_paper_N07_grouped_statistics_CPU_controls_r1_20261016.json",
+    "N08_repeat_CPU_467": "research/467_WC_N08_BALANCED_REPEAT40_MATRIX_AND_STATISTICS_CPU_PREPARED_20261016.md",
+    "N08_repeat_protocol": "manifests/wc_paper_N08_balanced_repeat40_protocol_r1_20261016.json",
+    "N08_repeat_CPU": "reports/wc_paper_N08_balanced_repeat_statistics_CPU_r1_20261016.json"
   },
   "source_bindings": {
     "11": {
@@ -1351,6 +1360,18 @@
     "N07_group_stats_CPU": {
       "path": "reports/wc_paper_N07_grouped_statistics_CPU_controls_r1_20261016.json",
       "sha256": "fd032a0c4c92b2e23ef993ad7b94267a85970eb24b689cf3da482936ad7d3d27"
+    },
+    "N08_repeat_CPU_467": {
+      "path": "research/467_WC_N08_BALANCED_REPEAT40_MATRIX_AND_STATISTICS_CPU_PREPARED_20261016.md",
+      "sha256": "aca81870650db819be2775294668d79ea918ca136bc022104ce48d9acefdc554"
+    },
+    "N08_repeat_protocol": {
+      "path": "manifests/wc_paper_N08_balanced_repeat40_protocol_r1_20261016.json",
+      "sha256": "704e14632ca8c25f8d58066874cef6cd47f36d6f6aca1b591d57125c0f33a20d"
+    },
+    "N08_repeat_CPU": {
+      "path": "reports/wc_paper_N08_balanced_repeat_statistics_CPU_r1_20261016.json",
+      "sha256": "cb76d04eb409d162795cfa143c4e9c1f2a82f02de64769bbc2697aa8fd1c3a3c"
     }
   },
   "operation_policy": {
