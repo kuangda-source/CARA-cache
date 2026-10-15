@@ -10,6 +10,7 @@ import hashlib
 import json
 import math
 from pathlib import Path
+import time
 
 from .frozen_shared_inputs_r1 import bind_selected
 
@@ -220,3 +221,113 @@ def validate(project, stage):
         if sha(project / 'runtime' / name) != digest:
             raise ValueError('Runtime differs from accepted numerical executor: ' + name)
     return config, registration, old, inputs, tables, previous, bound, shared
+
+
+def audit_row(row, planned, bound):
+    from .frozen_shared_execution_r1 import point
+    from .simple26d_r1 import plans
+    if any(row.get(k) != v for k, v in planned.items()):
+        raise ValueError('Final input/method/order identity changed')
+    case = next(c for c in bound['cases'] if c['id'] == planned['case_id'])
+    if row['status'] == 'TEXT_REJECTED':
+        if row.get('solver_steps') != 0 or row.get('guided_pairs') != 0 or row.get('final_artifact'):
+            raise ValueError('Text rejection cannot contain a generated model path')
+        return
+    if row['status'] not in ('COMPLETE', 'VIDEO_REJECTED'):
+        raise ValueError('Keep only explicit original generation outcomes in the running batch')
+    selected = point(planned['method'])
+    n, warm = selected['actual_updates'], planned['section'] == 'WARMUP'
+    if (row['frozen_execution_point'] != selected
+            or row['solver_steps'] != n or row['guided_pairs'] != n
+            or len(row['scheduler_timesteps']) != n
+            or row['in_timing_guided_copies'] != (n if warm else 0)
+            or row['in_timing_hashes'] or row['research_checkpoints']
+            or row['audit'] != warm or not row['write_deferred_after_main_timer']
+            or not number(row['core_seconds']) or row['core_seconds'] <= 0
+            or row['frozen_request_cleanup']['components_alive_after'] != 0):
+        raise ValueError('Final actual counts, deferred observations or request lifetime differ')
+    identity = row['frozen_input_identity']
+    if (identity['name'] != case['id'] or identity['actual_sample_seed'] != case['seed']
+            or identity['requested_steps'] != selected['requested_steps']
+            or not identity['installed_contexts']
+            or any(c[2] != 'frozen-input-seed' + str(case['seed']) for c in identity['installed_contexts'])):
+        raise ValueError('Actual cache/input seed identity differs from the frozen case')
+    if warm and row.get('warm_guided_outputs') != n:
+        raise ValueError('All actual warm guided outputs required, including reduced-step Native')
+    if selected['family'] == 'NATIVE':
+        if (row['actions'] is not None or len(row['native_block_CFG_counts']) != 28
+                or set(row['native_block_CFG_counts'].values()) != {2 * n}
+                or not row['native_count_adaptation']['inverse_bytes_and_AST_equal']):
+            raise ValueError('Native must execute all actual dense blocks in both branches')
+    else:
+        if len(row['actions']) != 36 or any(a not in ('CC', 'CD', 'DC', 'DD', 'PP') for a in row['actions']):
+            raise ValueError('All original branch action positions required')
+        if selected['family'] == 'WC' and row['installed_thresholds'][0]['net_WC_threshold'] != selected['threshold']:
+            raise ValueError('Installed WorldCache workpoint changed')
+        if selected['family'] == 'RA' and row['installed_thresholds'][0]['controller_RA_threshold'] != selected['threshold']:
+            raise ValueError('Installed RA workpoint changed')
+        if selected['family'] == 'FIXED26':
+            if row['semantic_plan'] != list(plans()[planned['method']]) or row['actions'].count('DD') != 26:
+                raise ValueError('Strong simple comparator mask or dense quota changed')
+            if [h['A_readout']['readout_action'] for h in row['source_history']] != row['semantic_plan']:
+                raise ValueError('Actual fixed-mask readout differs from the frozen semantic actions')
+    if planned['method'] == 'TABLE_PHASE_H1' or selected['family'] == 'FIXED26':
+        history = row['source_history']
+        if len(history) != 36 or [h['action'] for h in history] != row['actions']:
+            raise ValueError('Full H1 source history required')
+        for item in history:
+            if item['teacher_calls'] or item['P_updates_true_D_or_zero_risk_RA_anchor']:
+                raise ValueError('No online teacher or false true-D source is permitted')
+            if item['action'] != 'DD' and item['true_D_before'] != item['true_D_after']:
+                raise ValueError('Approximate action cannot update actual dense history')
+            if item['action'] == 'PP' and (item['source_policy']['creation_floor_proxy_after'] <= 0
+                    or any(s['kind'] != 'P' or s['RA_zero_risk_reset_allowed'] for s in item['working_sources'])):
+                raise ValueError('Existing P0 must keep its approximate source and nonzero birth error')
+
+
+def run_registered_batch(config, bound, samples, run_one, *, save=lambda state: None):
+    """The callback owns actual inference/artifacts; this loop owns every slot."""
+    plan = validate_contract(config, bound)
+    expected = {(r['case_id'], r['method']) for r in plan}
+    if set(samples) != expected:
+        raise ValueError('All160 frozen typed request variants required')
+    state = dict(status='N07_SHARED180_RUNNING', scope_counts=config['scope_counts'], runs=[])
+    save(state)
+    for planned in plan:
+        row = {**planned, 'status': 'RUNNING', 'started_unix': time.time()}
+        state['runs'].append(row)
+        save(state)
+        try:
+            value = run_one(planned, samples[(planned['case_id'], planned['method'])])
+            row.update(value, ended_unix=time.time())
+            audit_row(row, planned, bound)
+            save(state)
+        except BaseException as error:
+            row.update(original_returned_status=row['status'], status='TECH_FAILED',
+                       error_type=type(error).__name__, error=str(error), ended_unix=time.time())
+            state.update(status='N07_SHARED180_TECHNICAL_FAILURE_FULL_SCOPE_RETAINED',
+                         error_type=type(error).__name__, error=str(error))
+            save(state)
+            raise
+    state['status'] = 'N07_SHARED180_GPU_COMPLETE_CPU_AUDIT_PENDING'
+    save(state)
+    return state
+
+
+def full_rows(runs, plan):
+    """Retain all warm/formal positions after any original terminal failure."""
+    if (len({r['id'] for r in runs}) != len(runs)
+            or [r['id'] for r in runs] != [r['id'] for r in plan[:len(runs)]]
+            or len(runs) > len(plan)):
+        raise ValueError('Original ordered execution prefix required')
+    for row, planned in zip(runs, plan):
+        if any(row.get(k) != v for k, v in planned.items()):
+            raise ValueError('Foreign final input or method in the original prefix')
+    indexed = {r['id']: r for r in runs}
+    values = []
+    for planned in plan:
+        row = dict(indexed.get(planned['id'], {**planned, 'status': 'NOT_REACHED'}))
+        if row['status'] == 'RUNNING':
+            row.update(original_runner_status='RUNNING', status='TECH_FAILED')
+        values.append(row)
+    return values

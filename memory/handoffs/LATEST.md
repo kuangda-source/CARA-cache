@@ -1,3 +1,7 @@
+## 2026-10-16 N07运行脚本与完整180调度CPU准备完成
+
+[482驻留运行入口](../../research/482_WC_N07_RESIDENT_RUNNER_AND_FULL180_FAILURE_PRESERVING_BATCH_CPU_READY_20261016.md)：实际CLI代码已写并语法通过；完整180排程/拒绝继续/失败前缀与全分母/Native19/27/36及原合同共10CPU控制通过，全部synthetic callback，未加载模型。运行代码安排一次驻留、缓存/RNG逐路径恢复和原件归档；实际生产CPU、post/收集、最终scope/费用仍待N05后。原99数值依赖/481记账扩展未变；0SSH/0GPU/0预算写，N05原15d77ac/句柄/今天12:05不变。以下历史保留。
+
 ## 2026-10-16 N07整卡合同与大卡准入扩展CPU准备完成
 
 [481整卡绑定/预算接口](../../research/481_WC_N07_COMPLETE_SCOPE_CONTRACT_NUMERIC_REUSE_AND_APPROVED_LARGE_CARD_POOL_CPU_READY_20261016.md)：99份数值源码依赖与原952证明全SHA一致可复用；完整180合同/参数与授权绑定、原v2独立大卡入口共12CPU控制通过。原reserve硬限<12导致具体批准大卡仍无法准入，现新扩展只给真实具体批准>=12使用；原v2源/服务器/预算未改，全部测试账本与授权均synthetic。实际运行脚本/生产CPU、最终输入/方法/费用未选，N05原15d77ac/句柄/今天12:05不变，0SSH/0GPU。以下历史保留。
