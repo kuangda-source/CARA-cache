@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "updated_local_date": "2026-10-16",
-  "snapshot_basis": "N05 production accepted, N07 input/statistics and N09 source inventory ready; N08 whole40 schedule/statistics CPU prepared but final methods/production remain pending; original N06 still04:55.",
+  "snapshot_basis": "N05 production accepted; N07/N08/N09 CPU preparation and N10 static source/resource scope ready; no new GPU; N06 still04:55.",
   "git_snapshot_before_inventory": "f8a5d45853ec69b45c572c7939903c5d5aab68ef",
   "mapping_ref": "paper/internal_to_paper_mapping.json",
   "scope": "scientific experiment families and complete cards, not each engineering retry; reused artifacts must not be summed as independent samples",
@@ -979,20 +979,23 @@
     },
     {
       "id": "N10",
-      "state": "待补｜最终质量维度",
+      "state": "待补｜源码/静态资源已盘点",
       "paper_experiment_name": "Automatic Video Quality on Final Outputs",
       "internal_ids": [
         "PAPER_E5_AUTOMATIC_QUALITY"
       ],
       "contribution_relation": "C3生成质量范围；补充保真主指标",
-      "evidence_or_planned_scope": "旧MUSIQ/抽帧VQA已做；最终共同视频的语义/一致性/闪烁/动态维度尚未统一。",
-      "gap_and_next_action": "优先复用输出、冻结少量相关自动指标；不能把更静当更好，或子集评分称完整官方总分；不增人评。",
+      "evidence_or_planned_scope": "固定官方VBench fd18b3d0源码9文件；生成env VBench0.1.5、13缓存metadata已核，DINO/AMT/RAFT/MUSIQ可见，静态flicker前提与显式prompt映射已登记。",
+      "gap_and_next_action": "ViCLIP标准路径未见；实际源版本选择、权重SHA、CPU接线和全评分费用待。复用最终所有视频，不把采样8帧称全93语义，不把子集称官方总分或物理正确性。",
       "priority": "P2·复用最终视频",
       "evidence_refs": [
         "28",
         "closure_plan",
         "roadmap",
-        "mainline_queue_20261016"
+        "mainline_queue_20261016",
+        "N10_resource_scope_468",
+        "N10_protocol_draft",
+        "N10_resource_inventory"
       ],
       "method_mapping_ids": [],
       "depends_on": [
@@ -1004,7 +1007,10 @@
         "C3"
       ],
       "claim_relation": "INTENDED_SUPPORT_UNCOMPLETED",
-      "paper_placement": "后续证据，结果未填"
+      "paper_placement": "后续证据，结果未填",
+      "static_source_and_resource_inventory_complete": true,
+      "metric_model_CPU_accepted": false,
+      "scoring_GPU_card_selected": false
     },
     {
       "id": "N11",
@@ -1118,7 +1124,10 @@
     "N07_group_stats_CPU": "reports/wc_paper_N07_grouped_statistics_CPU_controls_r1_20261016.json",
     "N08_repeat_CPU_467": "research/467_WC_N08_BALANCED_REPEAT40_MATRIX_AND_STATISTICS_CPU_PREPARED_20261016.md",
     "N08_repeat_protocol": "manifests/wc_paper_N08_balanced_repeat40_protocol_r1_20261016.json",
-    "N08_repeat_CPU": "reports/wc_paper_N08_balanced_repeat_statistics_CPU_r1_20261016.json"
+    "N08_repeat_CPU": "reports/wc_paper_N08_balanced_repeat_statistics_CPU_r1_20261016.json",
+    "N10_resource_scope_468": "research/468_WC_N10_AUTOMATIC_QUALITY_SOURCE_RESOURCE_AND_SCOPE_PREPARATION_20261016.md",
+    "N10_protocol_draft": "manifests/wc_paper_N10_automatic_quality_protocol_draft_r1_20261016.json",
+    "N10_resource_inventory": "reports/wc_paper_N10_source_and_resource_readiness_inventory_20261016.json"
   },
   "source_bindings": {
     "11": {
@@ -1372,6 +1381,18 @@
     "N08_repeat_CPU": {
       "path": "reports/wc_paper_N08_balanced_repeat_statistics_CPU_r1_20261016.json",
       "sha256": "cb76d04eb409d162795cfa143c4e9c1f2a82f02de64769bbc2697aa8fd1c3a3c"
+    },
+    "N10_resource_scope_468": {
+      "path": "research/468_WC_N10_AUTOMATIC_QUALITY_SOURCE_RESOURCE_AND_SCOPE_PREPARATION_20261016.md",
+      "sha256": "7f99c522ae54dab6f2afcd436bd10d687677963471cd1c3b240efada385639dd"
+    },
+    "N10_protocol_draft": {
+      "path": "manifests/wc_paper_N10_automatic_quality_protocol_draft_r1_20261016.json",
+      "sha256": "bf46cbfa68b9667622e45b9e5fff418ed9518bb6fec626c05291f349fdaf12a6"
+    },
+    "N10_resource_inventory": {
+      "path": "reports/wc_paper_N10_source_and_resource_readiness_inventory_20261016.json",
+      "sha256": "23e6509f2f903133d53292977f6ff515ab1f6558640a0f8932566838aefa74e3"
     }
   },
   "operation_policy": {

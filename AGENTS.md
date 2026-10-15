@@ -1,3 +1,7 @@
+## 2026-10-16 N10自动质量源码与静态资源盘点
+
+[468指标与资源](research/468_WC_N10_AUTOMATIC_QUALITY_SOURCE_RESOURCE_AND_SCOPE_PREPARATION_20261016.md)：N10仅源码/静态资源准备：官方VBench固定fd18b3d0、9文件，原生成env Torch2.7.1/VBench0.1.5及13缓存文件metadata已核；DINO/AMT/RAFT/MUSIQ有候选，ViCLIP标准路径未见，未hash权重/加载模型/执行评分。系统Python空包快照保留并纠正，clip发行metadata空不等于模块缺失。安装源码与新pin三文件有差异，真实CPU/完整费用待做。静态前提的flicker不当任意运动视频通用质量；原prompt显式绑定，指标采样与93帧完整审计分开。0GPU、3次静态SSH无任务/账本/stage读取或改动。原N06仍04:55，后续N05优先保持。 原cap/v2/严格<12授权不变，无新评分卡。以下保留历史。
+
 ## 2026-10-16 N08完整40排程与统计CPU准备
 
 [467排程与汇总](research/467_WC_N08_BALANCED_REPEAT40_MATRIX_AND_STATISTICS_CPU_PREPARED_20261016.md)：N08纯CPU排程/统计已准备，完整两旧CAL×五逻辑方法×三轮30正式+10warm/40/1440pairs保持；每场景每配置三轮均序位2，5项CPU控制通过。方法绑定/真实sampler和生产CPU/费用仍未冻，未开新GPU，不把CPU检查作新速度。原N06仍04:55一次验，后按464 R2直接续N05完整66；原cap/v2/严格<12规则保持。 未看运行partial、无账本写；F/B关闭。以下保留历史。
