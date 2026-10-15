@@ -1,3 +1,9 @@
+## 2026-10-16 同26D完整接受，N05完整强基线已启动
+
+[469同26D结果](../../research/469_WC_SIMPLE26D_COMPLETE_RESULTS_POSITION_READOUT_AND_STRONG_SIMPLE_BASELINE_20261016.md)：36/36完整、24视频2232帧、旧28全等价/全36owner回收，2.622040619GPUh；原R1失败保留。A在原阶段/均匀/前密均值失真降低3.5196%/5.9817%/3.2925%；前密A比原阶段A低3.9297%（3/4），前密C也是强简单对照，原H1不宣称优于所有简单阶段。并发诊断秒数不称clean。
+
+[470 N05启动](../../research/470_WC_N05_CORE66_GPU_ADMITTED_AFTER_COMPLETE_N06_AND_1205_COLLECTION_20261016.md)：已按授权单次派完整11配置四CAL44正式+22warm/66/2220pairs/1load，04:56:48 fresh准入，source15d77ac、1078249/1078290/post1078250、GPU0/原R2 stage。实际89.486094218/原cap104.971363333，完整预留9.5、可准入5.985269115，预留非实费；forecast8.568548038<12。原N06不再查，**今天12:05一次验收N05**（最早11:56:09.585764），不看partial/持续监听。全部通过后按主线冻结N07共同测试，再N08重复clean、N09/10费用质量；>=12或余额不足问完整卡，不拆缩/重置窗口。近邻适配仍缺，P/T1后排、F/B关闭，无新训练/人评/OMR。以下保留历史。
+
 ## 2026-10-16 N10自动质量源码与静态资源盘点
 
 [468指标与资源](../../research/468_WC_N10_AUTOMATIC_QUALITY_SOURCE_RESOURCE_AND_SCOPE_PREPARATION_20261016.md)：N10仅源码/静态资源准备：官方VBench固定fd18b3d0、9文件，原生成env Torch2.7.1/VBench0.1.5及13缓存文件metadata已核；DINO/AMT/RAFT/MUSIQ有候选，ViCLIP标准路径未见，未hash权重/加载模型/执行评分。系统Python空包快照保留并纠正，clip发行metadata空不等于模块缺失。安装源码与新pin三文件有差异，真实CPU/完整费用待做。静态前提的flicker不当任意运动视频通用质量；原prompt显式绑定，指标采样与93帧完整审计分开。0GPU、3次静态SSH无任务/账本/stage读取或改动。原N06仍04:55，后续N05优先保持。 原cap/v2/严格<12授权不变，无新评分卡。以下保留历史。
