@@ -8,6 +8,8 @@
 
 **2026-10-16 04:57当前证据更新：**[同26D完整36已接受](../research/469_WC_SIMPLE26D_COMPLETE_RESULTS_POSITION_READOUT_AND_STRONG_SIMPLE_BASELINE_20261016.md)，24正式视频/2232帧、全28旧等价和显存回收通过。原阶段plain优于均匀C，前密C/A也是强对照；原H1不宣称优于所有简单规则。N05完整66已于04:56:48准入，[470](../research/470_WC_N05_CORE66_GPU_ADMITTED_AFTER_COMPLETE_N06_AND_1205_COLLECTION_20261016.md)，今天12:05一次查收；N05尚无新质量/速度。下文旧运行/待验语句按各自历史批次读取，实验当前状态以总表为准。
 
+**近邻身份补充：**[471](../research/471_WC_DIRECT_CORRECTION_NEIGHBOR_AUTHOR_SOURCE_CPU_FIDELITY_AND_MAINLINE_BOUNDARY_20261016.md)仅为作者源码/CPU调用核查；AdaCorrection不得标成已接受Cosmos对手，GP-Refiner仍是公开资源缺口。当前N05仅完整11配置。
+
 ## 1. 写作入口：先统一这几件事
 
 论文当前主干是 **CFG一致的缓存读出修正＋校准式计算分配**。两个已完成工作点分别展示效率和保真，不拼接成一个配置的“又快又准”数字。

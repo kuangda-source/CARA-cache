@@ -1,3 +1,7 @@
+## 2026-10-16 直接修正近邻源码与CPU核查完成
+
+[471近邻实施核查](../research/471_WC_DIRECT_CORRECTION_NEIGHBOR_AUTHOR_SOURCE_CPU_FIDELITY_AND_MAINLINE_BOUNDARY_20261016.md)：固定作者完整源码201文本/156Python，AdaCorrection分数/融合核及调用路径已本地CPU复核；Cosmos类名被原接口原样返回，fresh混合路径完整执行Block，最小连续cache重现未初始化残差TypeError。原失败和有效残差fixture分开，不宣称完整Cosmos适配/质量/速度。GP-Refiner公开仓库本次仍409 empty。属于具体资源/移植差异，不是否定方向或冒充第12项；0SSH/0GPU，不动N05。当前1078249/1078290/post1078250、原15d77ac/完整66和今天12:05一次收保持，未看partial。原v2/cap/<12规则不变，主线N07/N08/N09/10继续，F/B关闭。以下历史保留。
+
 ## 2026-10-16 同26D完整接受，N05完整强基线已启动
 
 [469同26D结果](../research/469_WC_SIMPLE26D_COMPLETE_RESULTS_POSITION_READOUT_AND_STRONG_SIMPLE_BASELINE_20261016.md)：36/36完整、24视频2232帧、旧28全等价/全36owner回收，2.622040619GPUh；原R1失败保留。A在原阶段/均匀/前密均值失真降低3.5196%/5.9817%/3.2925%；前密A比原阶段A低3.9297%（3/4），前密C也是强简单对照，原H1不宣称优于所有简单阶段。并发诊断秒数不称clean。

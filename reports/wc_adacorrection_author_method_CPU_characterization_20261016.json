@@ -1,0 +1,181 @@
+{
+  "status": "ADACORRECTION_PINNED_AUTHOR_METHOD_CPU_CHARACTERIZATION_NOT_COSMOS_ADAPTER",
+  "revision": "cc468521527ab2c3610ede8ee0315b469c0570f5",
+  "source_file": "xfuser/model_executor/cache/utils.py",
+  "source_sha256": "e0b2de550cc1e33460875a8c588744e7d1097a6ca989f87511ec160d00ad8c14",
+  "method_bindings": [
+    {
+      "owner": "CachedTransformerBlocks",
+      "method": "forward",
+      "first_line": 150,
+      "last_line": 170
+    },
+    {
+      "owner": "FastCachedTransformerBlocks",
+      "method": "compute_adacorr_offset_score",
+      "first_line": 479,
+      "last_line": 516
+    },
+    {
+      "owner": "FastCachedTransformerBlocks",
+      "method": "blend_with_adacorrection",
+      "first_line": 518,
+      "last_line": 524
+    },
+    {
+      "owner": "FastCachedTransformerBlocks",
+      "method": "spectral_error_feedback_residual",
+      "first_line": 539,
+      "last_line": 548
+    },
+    {
+      "owner": "FastCachedTransformerBlocks",
+      "method": "get_start_idx",
+      "first_line": 999,
+      "last_line": 1000
+    },
+    {
+      "owner": "FastCachedTransformerBlocks",
+      "method": "get_adaptive_threshold",
+      "first_line": 1002,
+      "last_line": 1011
+    },
+    {
+      "owner": "FastCachedTransformerBlocks",
+      "method": "are_two_tensor_similar",
+      "first_line": 1013,
+      "last_line": 1056
+    },
+    {
+      "owner": "FastCachedTransformerBlocks",
+      "method": "compute_motion_saliency",
+      "first_line": 1058,
+      "last_line": 1075
+    },
+    {
+      "owner": "FastCachedTransformerBlocks",
+      "method": "get_modulated_inputs",
+      "first_line": 1077,
+      "last_line": 1096
+    },
+    {
+      "owner": "FastCachedTransformerBlocks",
+      "method": "process_blocks",
+      "first_line": 1098,
+      "last_line": 1154
+    },
+    {
+      "owner": "FastCachedTransformerBlocks",
+      "method": "process_transformer_blocks",
+      "first_line": 1156,
+      "last_line": 1214
+    }
+  ],
+  "kernel_arithmetic": {
+    "code_squared_temporal_score": 0.03530951323690902,
+    "paper_v3_unsquared_score": 0.11900495780983789,
+    "version_difference_observed": true,
+    "clipped_blend_controls": [
+      {
+        "score": -1.0,
+        "expected_weight": 0.0,
+        "output_mean": 1.0
+      },
+      {
+        "score": 0.25,
+        "expected_weight": 0.25,
+        "output_mean": 1.5
+      },
+      {
+        "score": 2.0,
+        "expected_weight": 1.0,
+        "output_mean": 3.0
+      }
+    ]
+  },
+  "blend_path_cost_controls": [
+    {
+      "gamma": 0.0,
+      "first_weight": 0.0,
+      "all_weights": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "dense_block_calls": [
+        1,
+        1,
+        1
+      ],
+      "fresh_computation_skipped_by_weight": false
+    },
+    {
+      "gamma": 1.0,
+      "first_weight": 0.5000009536743164,
+      "all_weights": [
+        0.5000009536743164,
+        9.999999974752427e-07,
+        9.999999974752427e-07
+      ],
+      "dense_block_calls": [
+        1,
+        1,
+        1
+      ],
+      "fresh_computation_skipped_by_weight": false
+    },
+    {
+      "gamma": 1.0,
+      "first_weight": 1.0,
+      "all_weights": [
+        1.0,
+        9.999999974752427e-07,
+        9.999999974752427e-07
+      ],
+      "dense_block_calls": [
+        1,
+        1,
+        1
+      ],
+      "fresh_computation_skipped_by_weight": false
+    }
+  ],
+  "ordinary_forward_reuse": {
+    "first_call_dense_block_calls": [
+      1,
+      1,
+      1
+    ],
+    "residual_buffers_initialized_by_first_call": false,
+    "second_identical_call_use_cache": true,
+    "original_failure": {
+      "type": "TypeError",
+      "message": "unsupported operand type(s) for +: 'Tensor' and 'NoneType'"
+    }
+  },
+  "valid_residual_cache_hit_fixture": {
+    "dense_block_calls": 0,
+    "correction_score_calls": 0,
+    "fixture_residuals_injected": true
+  },
+  "boundaries": {
+    "full_upstream_constructor_imported": false,
+    "full_upstream_pipeline_executed": false,
+    "projections": "IDENTITY_CPU_FIXTURE_NOT_PRETRAINED_WEIGHTS",
+    "CPU_shapes": [
+      1,
+      3,
+      4
+    ],
+    "Cosmos_adapter_implemented": false,
+    "spectral_token_merge_or_block_exploration_reopened": false,
+    "GPU_submissions": 0,
+    "SSH_calls": 0,
+    "model_weights_downloaded": 0,
+    "scientific_quality_or_runtime_result": false,
+    "CUDA_initialized": false
+  },
+  "source_archive_sha256": "d5330ab574344c5f2b12aef58bf9252e2b51cd5c70b4576ea99fbee0ccf83082",
+  "source_inventory_files": 201,
+  "audit_script_sha256": "a88136a2bd26e7110c23c4be04b8606ac4ed7372f998fa9ef1f456f8d908db57"
+}

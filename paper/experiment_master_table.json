@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "updated_local_date": "2026-10-16",
-  "snapshot_basis": "N06 complete36 independently accepted; N05 complete66 admitted and original handles confirmed once; next collection12:05; no N05 scientific partial read.",
+  "snapshot_basis": "N06 complete accepted and N05 complete66 in flight; direct-neighbor source/CPU audit completed without reading running N05;12:05 collection unchanged.",
   "git_snapshot_before_inventory": "121b65949d6073a3b9f017b8f7e8e9fcbbd4bf0c",
   "mapping_ref": "paper/internal_to_paper_mapping.json",
   "scope": "scientific experiment families and complete cards, not each engineering retry; reused artifacts must not be summed as independent samples",
@@ -745,7 +745,7 @@
       ],
       "contribution_relation": "C1/C2实用增量；C3公平性",
       "evidence_or_planned_scope": "11配置×四CAL，44正式＋22warm=66/2220pairs/4440CFG/1load；04:56:48 fresh准入，原1078249/1078290/post1078250；12:05一次验收。",
-      "gap_and_next_action": "全部66/44原件、93帧、旧20/预热/费用独立接受仍待；近邻Cosmos适配显式缺口；不改当前冻结工作点。",
+      "gap_and_next_action": "全部66/44原件、93帧、旧20/预热/费用独立接受仍待；近邻Cosmos适配显式缺口；不改当前冻结工作点。 471已本地核查作者分发/状态/实际dense路径，Cosmos接口仍未接受；保持11核心卡与近邻显式缺口。",
       "priority": "P0·原卡按ETA验收",
       "evidence_refs": [
         "closure_plan",
@@ -765,7 +765,8 @@
         "N05_production_CPU_464",
         "N05_production_CPU_R2_accepted",
         "N05_neighbor_code_compatibility",
-        "470"
+        "470",
+        "471"
       ],
       "method_mapping_ids": [
         "baseline.native",
@@ -1136,7 +1137,10 @@
     "N05_GPU_launch": "reports/wc_paper_N05_core66_GPU_launch_20261016.json",
     "N05_admission_once": "reports/wc_paper_N05_core66_admission_once_20261016.json",
     "N05_tradeoff_CPU": "reports/wc_paper_N05_tradeoff_description_CPU_controls_20261016.json",
-    "N06_frame_coverage": "reports/wc_simple26d_memory_frame_coverage_exploratory_20261016.json"
+    "N06_frame_coverage": "reports/wc_simple26d_memory_frame_coverage_exploratory_20261016.json",
+    "471": "research/471_WC_DIRECT_CORRECTION_NEIGHBOR_AUTHOR_SOURCE_CPU_FIDELITY_AND_MAINLINE_BOUNDARY_20261016.md",
+    "direct_neighbor_deep_source": "reports/wc_mainline_direct_neighbor_deep_source_CPU_inventory_20261016.json",
+    "direct_neighbor_method_CPU": "reports/wc_adacorrection_author_method_CPU_characterization_r2_20261016.json"
   },
   "source_bindings": {
     "11": {
@@ -1434,6 +1438,18 @@
     "N06_frame_coverage": {
       "path": "reports/wc_simple26d_memory_frame_coverage_exploratory_20261016.json",
       "sha256": "803d89cb793ff066e96e0bae56010679e7ae91117c23c99516f48d89616372a7"
+    },
+    "471": {
+      "path": "research/471_WC_DIRECT_CORRECTION_NEIGHBOR_AUTHOR_SOURCE_CPU_FIDELITY_AND_MAINLINE_BOUNDARY_20261016.md",
+      "sha256": "b1faf035efa5b61fc80209cc1a413e2a0103b819d0103fde6b53961ad59a8bd7"
+    },
+    "direct_neighbor_deep_source": {
+      "path": "reports/wc_mainline_direct_neighbor_deep_source_CPU_inventory_20261016.json",
+      "sha256": "65559bb9aac44bb87901659c42f76bf9bf46b29f596c809bd27d1ebe0d013dd9"
+    },
+    "direct_neighbor_method_CPU": {
+      "path": "reports/wc_adacorrection_author_method_CPU_characterization_r2_20261016.json",
+      "sha256": "c9bc1af2547ede785db92125f3815f0142c1d68b957088c08a9a1eae3ac64cc8"
     }
   },
   "operation_policy": {
@@ -1604,5 +1620,5 @@
       "observed_once_unix": 1792097832.6502905
     }
   },
-  "mapping_sha256_at_inventory": "aba4ff3fed55d0a7b70f92d4e7024aec049ee8de522464fc380edc0ece81f34f"
+  "mapping_sha256_at_inventory": "011d02ea04e2b5d8d2690ca56e3990ede58b42ab02999b91e9a7e02237e7dea6"
 }
