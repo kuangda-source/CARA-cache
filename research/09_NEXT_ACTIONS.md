@@ -1,3 +1,7 @@
+## 2026-10-16 N05真实生产CPU在途，03:50一次查收
+
+[462派发与接续](../research/462_WC_N05_CORE66_ACTUAL_PRODUCTION_CPU_DISPATCH_20261016.md)：N05独立生产CPU1073942/source2a43047于03:46:12单次派发，fresh stage wc-paper-n05-core66-production-cpu-r1-20261016；完整66/44/2220四命令尚待，03:50一次收（最早03:49:12）。原216 Toy CPU已接受，旧6663不再查。本CPU零GPU/权重/预算写，不读仍运行N06原R2。原N06 04:55验收不变；全部接受后再按原授权、forecast8.568548038/上限9.5及fresh v2/UUID推进完整N05。 F/B关闭、主线优先不变。以下保留历史。
+
 ## 2026-10-16 N05完整CPU216接受，下一强基线生产准备
 
 [461完整接受与接线](../research/461_WC_N05_FULL216_CPU_ACCEPTED_CORE66_PRODUCTION_AND_POST_READY_20261016.md)：完整本地CPU216已独立接受：216路径/7360pairs/14720CFG、88audit/lean、40旧默认全36轨迹、24个Native三网格控制及生命周期通过；原6663已终态，不再查。完整N05_CORE66的44正式+22warm/2220pairs/1load已冻结，费用8.568548038/计费上限9.5<12；真实生产入口、完整post和单次启动本地检查已完成，服务器实际CPU尚待。本轮尚无新GPU/质量/速度。原同26D0795a00/1040857/1040918/post1040858仍04:55一次验收，不看partial或改任务；N06接受后按v2/fresh UUID直接推进N05，原总cap与窗口保持。 F/B关闭，P/T1可选后排。以下保留历史。
