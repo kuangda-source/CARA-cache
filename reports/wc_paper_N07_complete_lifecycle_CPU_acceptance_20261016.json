@@ -1,0 +1,73 @@
+{
+  "status": "N07_COMPLETE180_LIFECYCLE_NATIVE_RECEIPT_SCHEMA_AND_OFFLINE_ACCEPTANCE_CPU_READY_NOT_PRODUCTION",
+  "observed_unix": 1792108607.3790588,
+  "command": ".venv/bin/python -m pytest -q tests/test_frozen_shared_production_r1.py tests/test_frozen_shared_batch_r1.py tests/test_frozen_shared_post_r1.py tests/test_frozen_shared_acceptance_r1.py tests/test_frozen_shared_dispatch_r1.py",
+  "exit_code": 0,
+  "observed_test_result": "...............................                                          [100%]\n31 passed in 6.41s",
+  "controls": {
+    "contract": 6,
+    "batch": 5,
+    "post": 8,
+    "independent_acceptance": 8,
+    "dispatch_and_transport": 4,
+    "total": 31
+  },
+  "original_Native_counter_schema_controls": 72,
+  "Native_counter_fields": [
+    "first_block_CFG",
+    "last_block_CFG"
+  ],
+  "real28_block_native_class_pin_separate": true,
+  "original_mismatch_ref": "reports/wc_paper_N07_native_receipt_schema_mismatch_20261016.json",
+  "original_mismatch_sha256": "f834dff319faab7c070a6c43a60a8818e9fa9329006e66290bed533c02757b0e",
+  "whole_scope_template": {
+    "formal": 160,
+    "warm": 20,
+    "total": 180,
+    "prompt_groups": 8,
+    "seeds": [
+      17,
+      43
+    ],
+    "methods": 10
+  },
+  "source_sha256": {
+    "scripts/run_wc_paper_N07_frozen_shared180_r1.py": "8eb96d4b181dccec31ccf81ef4de87666cc3e6d1e4c8369d86e7e21dbffc1fb9",
+    "scripts/supervise_wc_paper_N07_frozen_shared180_r1.py": "f80c9f4717f0dfc50497868b117abb46a4366f222adb99669495d785207504e1",
+    "scripts/watch_wc_paper_N07_post_cpu_r1.py": "7a64d15608ecc756f14ed74f9cfb8da394b23574afbda24141798f04d016d600",
+    "scripts/launch_wc_paper_N07_frozen_shared180_r1.py": "49490c7515575c9760da68515194df5c951265ec3e693860ffcbfa0db92bdadf",
+    "scripts/capture_wc_paper_N07_frozen_shared180_r1.py": "556f7b37f6124f84332559cd62dd8c08afd7d0572d8c82b44c917991a5cf5bd0",
+    "scripts/analyze_wc_paper_N07_frozen_shared180_r1.py": "b7ba383e639d63aa4fb57597baa4690aaa65106d38daac0dcd87c2d514d537bf",
+    "src/wcomr/frozen_shared_acceptance_r1.py": "7c4c42534983ffe796d59d386ed12162a1d1af3faed2208cfbfc7c994001b5b2",
+    "src/wcomr/frozen_shared_production_r1.py": "1ede2ae228c219c7784ae68702e70fb2cd6ab32f23b28b81e27083eb66576a92",
+    "tests/test_frozen_shared_acceptance_r1.py": "623cd40ebefe7a1284df015aadd8e4bffe5d67055cf27d98a6c03dd4f4760baf",
+    "tests/test_frozen_shared_dispatch_r1.py": "2230034b6dadd48d5cf681692724307824a4d1082d94042d5c7086558edc0bf6",
+    "tests/test_frozen_shared_batch_r1.py": "d466a2eb068a8915fc04520958c74f169a545dd2111ae1ec7fc8f16dfe8607c8"
+  },
+  "original_numeric_sources_reused": 99,
+  "original_numeric_CPU_reexecuted": false,
+  "subprocess_handles": "EXPLICIT_FAKE_POPEN_TWO_CHILD_HANDLES_ONLY",
+  "actual_server_supervision_or_accounting_exercised": false,
+  "actual_neural_sampling_or_LPIPS": false,
+  "real_model_load_count_measured": null,
+  "actual_final_production_CPU_accepted": false,
+  "actual_final_inputs_or_methods_selected": false,
+  "original_N05_unchanged": true,
+  "N05_collection_local": "2026-10-16T12:05:00+08:00",
+  "GPU_submissions": 0,
+  "SSH_queries": 0,
+  "ledger_written": false,
+  "syntax_check": {
+    "exit_code": 0,
+    "scripts": 6,
+    "real_GPU_execution": false,
+    "Python_modules": 2,
+    "total_compiled_paths": 8
+  },
+  "log_bindings": {
+    "reports/wc_paper_N07_terminal_acceptance_CPU_r1_20261016.log": "6ba9d895a555e06e4c27c1bec8756ee15a7561eeef6ad3dbcc58770533e7ec41",
+    "reports/wc_paper_N07_dispatch_CPU_r1_20261016.log": "dd4ccc6f57ed271ea7dcd04fb431b5d5ba086b2835f083dc3e6ce87fab04655b",
+    "reports/wc_paper_N07_lifecycle_CPU_r2_20261016.log": "959a04e104b63fe407fd2f094f6a81ef7c20d45807a74d56da6673598ef5f660",
+    "reports/wc_paper_N07_lifecycle_and_native_schema_CPU_r3_20261016.log": "3222d1fdb6b270a0c452a82fc6bc1f5864831e5c97dec81de65122b5649b014c"
+  }
+}

@@ -35,7 +35,7 @@ def fake_result(planned, sample):
         actions=None if p['family'] == 'NATIVE' else ['DD'] * 36)
     if warm: result['warm_guided_outputs'] = n
     if p['family'] == 'NATIVE':
-        result.update(native_block_CFG_counts={str(i): 2 * n for i in range(28)},
+        result.update(native_block_CFG_counts={'first_block_CFG': 2 * n, 'last_block_CFG': 2 * n},
                       native_count_adaptation=dict(inverse_bytes_and_AST_equal=True))
     elif p['family'] in ('WC', 'RA'):
         result['installed_thresholds'] = [dict(net_WC_threshold=p['threshold'], controller_RA_threshold=p['threshold'])]
@@ -107,6 +107,24 @@ class SharedBatchControls(unittest.TestCase):
         row = {**fixed, **fake_result(fixed, samples[(fixed['case_id'], fixed['method'])])}
         row['source_history'][0]['A_readout']['readout_action'] = 'C'
         with self.assertRaises(ValueError): audit_row(row, fixed, bound)
+
+    def test_native_metadata_matches_all72_original_accepted_numeric_receipts(self):
+        import json
+        path = Path(__file__).resolve().parents[1] / 'reports/wc_paper_shared_registry952_local_CPU_R3_result_20261016.json'
+        actual = json.loads(path.read_text())
+        config, bound, samples = fixture(); plan = validate_contract(config, bound); checked = 0
+        for flow in actual['checks']:
+            for prior in flow['audit_lean_checks']:
+                if not prior['method'].startswith('NATIVE'): continue
+                planned = next(p for p in plan if p['method'] == prior['method'])
+                row = {**planned, **fake_result(planned, samples[(planned['case_id'], planned['method'])])}
+                # Reuse original observed count fields only. Other final-case
+                # fields remain an explicit synthetic fixture, not new inference.
+                row['native_block_CFG_counts'] = copy.deepcopy(prior['native_block_CFG_counts'])
+                audit_row(row, planned, bound); checked += 1
+                row['native_block_CFG_counts']['last_block_CFG'] -= 1
+                with self.assertRaises(ValueError): audit_row(row, planned, bound)
+        self.assertEqual(checked, 72)
 
 
 if __name__ == '__main__':

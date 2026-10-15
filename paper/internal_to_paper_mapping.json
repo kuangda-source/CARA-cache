@@ -1644,7 +1644,8 @@
     "N07_source_input_binding_CPU": "research/480_WC_N07_ORIGINAL1044_BYTES_AND_PRODUCTION_ARGUMENT_BINDING_CPU_READY_20261016.md",
     "N07_production_contract_CPU": "research/481_WC_N07_COMPLETE_SCOPE_CONTRACT_NUMERIC_REUSE_AND_APPROVED_LARGE_CARD_POOL_CPU_READY_20261016.md",
     "N07_resident_runner_CPU": "research/482_WC_N07_RESIDENT_RUNNER_AND_FULL180_FAILURE_PRESERVING_BATCH_CPU_READY_20261016.md",
-    "N07_full180_post_CPU": "research/483_WC_N07_FULL180_POST_AND_93FRAME_SCORE_CPU_PREPARATION_20261016.md"
+    "N07_full180_post_CPU": "research/483_WC_N07_FULL180_POST_AND_93FRAME_SCORE_CPU_PREPARATION_20261016.md",
+    "N07_lifecycle_CPU": "research/484_WC_N07_LIFECYCLE_NATIVE_RECEIPT_ALIGNMENT_AND_INDEPENDENT_ACCEPTANCE_CPU_READY_20261016.md"
   },
   "evidence_batches": {
     "curve60": {
@@ -1935,6 +1936,16 @@
       "real_ffmpeg_or_LPIPS_scores": false,
       "actual_production_CPU_accepted": false,
       "acceptance_ref": "reports/wc_paper_N07_post_and_score_CPU_acceptance_20261016.json"
+    },
+    "N07_COMPLETE_LIFECYCLE_AND_NATIVE_SCHEMA_CPU": {
+      "status": "N07_COMPLETE180_LIFECYCLE_NATIVE_RECEIPT_SCHEMA_AND_OFFLINE_ACCEPTANCE_CPU_READY_NOT_PRODUCTION",
+      "CPU_controls": 31,
+      "old_native_endpoint_counter_receipts": 72,
+      "whole_scope_positions": 180,
+      "actual_server_CPU_or_GPU_accepted": false,
+      "real_quality_or_speed": false,
+      "acceptance_ref": "reports/wc_paper_N07_complete_lifecycle_CPU_acceptance_20261016.json",
+      "schema_replay_ref": "reports/wc_paper_N07_native_receipt_schema_mismatch_20261016.json"
     }
   },
   "statistical_rules": {
@@ -2447,6 +2458,76 @@
       "exists": true,
       "bytes": 11553,
       "sha256": "b4cfebf66d5cbf7453468948562111502e5944eb0db2ff4b626571dcdc0c039f"
+    },
+    "research/484_WC_N07_LIFECYCLE_NATIVE_RECEIPT_ALIGNMENT_AND_INDEPENDENT_ACCEPTANCE_CPU_READY_20261016.md": {
+      "exists": true,
+      "bytes": 6393,
+      "sha256": "88a84b5d04813d5aaaef8971a73141533058176f74359f17c0ea71294583d124"
+    },
+    "reports/wc_paper_N07_complete_lifecycle_CPU_acceptance_20261016.json": {
+      "exists": true,
+      "bytes": 3856,
+      "sha256": "122d09c39c665f3b87de46c0c4b8ff1d1c6c214ea90f2fda5d6fd8f827b4cc15"
+    },
+    "reports/wc_paper_N07_native_receipt_schema_mismatch_20261016.json": {
+      "exists": true,
+      "bytes": 1207,
+      "sha256": "f834dff319faab7c070a6c43a60a8818e9fa9329006e66290bed533c02757b0e"
+    },
+    "scripts/run_wc_paper_N07_frozen_shared180_r1.py": {
+      "exists": true,
+      "bytes": 12119,
+      "sha256": "8eb96d4b181dccec31ccf81ef4de87666cc3e6d1e4c8369d86e7e21dbffc1fb9"
+    },
+    "scripts/supervise_wc_paper_N07_frozen_shared180_r1.py": {
+      "exists": true,
+      "bytes": 8457,
+      "sha256": "f80c9f4717f0dfc50497868b117abb46a4366f222adb99669495d785207504e1"
+    },
+    "scripts/watch_wc_paper_N07_post_cpu_r1.py": {
+      "exists": true,
+      "bytes": 2738,
+      "sha256": "7a64d15608ecc756f14ed74f9cfb8da394b23574afbda24141798f04d016d600"
+    },
+    "scripts/launch_wc_paper_N07_frozen_shared180_r1.py": {
+      "exists": true,
+      "bytes": 6719,
+      "sha256": "49490c7515575c9760da68515194df5c951265ec3e693860ffcbfa0db92bdadf"
+    },
+    "scripts/capture_wc_paper_N07_frozen_shared180_r1.py": {
+      "exists": true,
+      "bytes": 5190,
+      "sha256": "556f7b37f6124f84332559cd62dd8c08afd7d0572d8c82b44c917991a5cf5bd0"
+    },
+    "scripts/analyze_wc_paper_N07_frozen_shared180_r1.py": {
+      "exists": true,
+      "bytes": 1270,
+      "sha256": "b7ba383e639d63aa4fb57597baa4690aaa65106d38daac0dcd87c2d514d537bf"
+    },
+    "src/wcomr/frozen_shared_acceptance_r1.py": {
+      "exists": true,
+      "bytes": 15946,
+      "sha256": "7c4c42534983ffe796d59d386ed12162a1d1af3faed2208cfbfc7c994001b5b2"
+    },
+    "src/wcomr/frozen_shared_production_r1.py": {
+      "exists": true,
+      "bytes": 18860,
+      "sha256": "1ede2ae228c219c7784ae68702e70fb2cd6ab32f23b28b81e27083eb66576a92"
+    },
+    "tests/test_frozen_shared_acceptance_r1.py": {
+      "exists": true,
+      "bytes": 13204,
+      "sha256": "623cd40ebefe7a1284df015aadd8e4bffe5d67055cf27d98a6c03dd4f4760baf"
+    },
+    "tests/test_frozen_shared_dispatch_r1.py": {
+      "exists": true,
+      "bytes": 8480,
+      "sha256": "2230034b6dadd48d5cf681692724307824a4d1082d94042d5c7086558edc0bf6"
+    },
+    "tests/test_frozen_shared_batch_r1.py": {
+      "exists": true,
+      "bytes": 7667,
+      "sha256": "d466a2eb068a8915fc04520958c74f169a545dd2111ae1ec7fc8f16dfe8607c8"
     }
   },
   "math_notation": [

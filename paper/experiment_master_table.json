@@ -885,7 +885,7 @@
         "PAPER_E3_FROZEN_SHARED_TEST"
       ],
       "contribution_relation": "C1/C2最终版本确认；C3覆盖",
-      "evidence_or_planned_scope": "完整952本地CPU已独立接受：408 audit/lean、136旧seed0完整轨迹、真实17/43 seed、72Native计数和mask/owner均通过；输入/统计/选择核已准备，真实180范围未选卡。 480核对全1044原始JSON/0gap，四CPU控制接受输入绑定，完整160参数/180排程仅合成示例，真实选择未做。 481补完整scope/权限合同与99数值依赖复用；独立已批准大卡v2入口合成CPU通过，真实生产入口尚待。 482增加驻留CLI与180位置调度，10合成CPU控制通过；模型未加载。 483补完整180终态CPU审计与93帧配对评分接线，八控制通过，真实视频/LPIPS未做。",
+      "evidence_or_planned_scope": "完整952本地CPU已独立接受：408 audit/lean、136旧seed0完整轨迹、真实17/43 seed、72Native计数和mask/owner均通过；输入/统计/选择核已准备，真实180范围未选卡。 480核对全1044原始JSON/0gap，四CPU控制接受输入绑定，完整160参数/180排程仅合成示例，真实选择未做。 481补完整scope/权限合同与99数值依赖复用；独立已批准大卡v2入口合成CPU通过，真实生产入口尚待。 482增加驻留CLI与180位置调度，10合成CPU控制通过；模型未加载。 483补完整180终态CPU审计与93帧配对评分接线，八控制通过，真实视频/LPIPS未做。 484补单次执行/按ETA查收/独立汇总，修正Native原首末计数字段，31CPU与72原字段控制通过；尚无真实服务器生产或视频结果。",
       "gap_and_next_action": "N05/N06后冻结最终方法/对手，fresh服务器身份审计后再选择8新prompt/16请求；真实完整采样/生产CPU/费用/GPU尚待，未选择或缩减模板。 N06已接受，前密C/A为已观察到的强简单对照，应在方法/对手冻结时保留；N05未完成前不定最终版本。 474确定性选择核三组合成控制通过，未选真实输入/方法，仍需后续fresh身份审计/物理SHA/生产CPU。",
       "priority": "P2·N05/N06后冻结",
       "evidence_refs": [
@@ -905,7 +905,8 @@
         "480",
         "481",
         "482",
-        "483"
+        "483",
+        "484"
       ],
       "method_mapping_ids": [
         "config.efficient",
@@ -942,7 +943,10 @@
       "actual_production_runner_CPU_accepted": false,
       "CPU_post_and_score_entry_implemented": true,
       "CPU_post_and_score_synthetic_controls_accepted": true,
-      "actual_final_video_or_LPIPS_results_available": false
+      "actual_final_video_or_LPIPS_results_available": false,
+      "lifecycle_and_offline_acceptor_implemented": true,
+      "lifecycle_synthetic_CPU_accepted": true,
+      "native_counter_receipt_schema_aligned": true
     },
     {
       "id": "N08",
@@ -1222,7 +1226,10 @@
     "482": "research/482_WC_N07_RESIDENT_RUNNER_AND_FULL180_FAILURE_PRESERVING_BATCH_CPU_READY_20261016.md",
     "N07_resident_runner_CPU": "reports/wc_paper_N07_batch_runner_CPU_controls_20261016.json",
     "483": "research/483_WC_N07_FULL180_POST_AND_93FRAME_SCORE_CPU_PREPARATION_20261016.md",
-    "N07_full180_post_CPU": "reports/wc_paper_N07_post_and_score_CPU_acceptance_20261016.json"
+    "N07_full180_post_CPU": "reports/wc_paper_N07_post_and_score_CPU_acceptance_20261016.json",
+    "484": "research/484_WC_N07_LIFECYCLE_NATIVE_RECEIPT_ALIGNMENT_AND_INDEPENDENT_ACCEPTANCE_CPU_READY_20261016.md",
+    "N07_complete_lifecycle_CPU": "reports/wc_paper_N07_complete_lifecycle_CPU_acceptance_20261016.json",
+    "N07_native_schema_replay": "reports/wc_paper_N07_native_receipt_schema_mismatch_20261016.json"
   },
   "source_bindings": {
     "11": {
@@ -1660,6 +1667,18 @@
     "N07_full180_post_CPU": {
       "path": "reports/wc_paper_N07_post_and_score_CPU_acceptance_20261016.json",
       "sha256": "a66cdc115a90869bab19e9612f7dd263cef2dd3c62ada619ea8356ac1889e4be"
+    },
+    "484": {
+      "path": "research/484_WC_N07_LIFECYCLE_NATIVE_RECEIPT_ALIGNMENT_AND_INDEPENDENT_ACCEPTANCE_CPU_READY_20261016.md",
+      "sha256": "88a84b5d04813d5aaaef8971a73141533058176f74359f17c0ea71294583d124"
+    },
+    "N07_complete_lifecycle_CPU": {
+      "path": "reports/wc_paper_N07_complete_lifecycle_CPU_acceptance_20261016.json",
+      "sha256": "122d09c39c665f3b87de46c0c4b8ff1d1c6c214ea90f2fda5d6fd8f827b4cc15"
+    },
+    "N07_native_schema_replay": {
+      "path": "reports/wc_paper_N07_native_receipt_schema_mismatch_20261016.json",
+      "sha256": "f834dff319faab7c070a6c43a60a8818e9fa9329006e66290bed533c02757b0e"
     }
   },
   "operation_policy": {
@@ -1905,7 +1924,14 @@
       "server_N05_unchanged": true
     },
     "specific_approved_large_card_admission_extension_prepared": true,
-    "specific_approved_large_card_admission_extension_deployed_to_server": false
+    "specific_approved_large_card_admission_extension_deployed_to_server": false,
+    "last_short_CPU_preparation": {
+      "ref": "reports/wc_paper_N07_complete_lifecycle_CPU_acceptance_20261016.json",
+      "controls": 31,
+      "GPU_submissions": 0,
+      "SSH_queries": 0,
+      "current_running_card_changed": false
+    }
   },
-  "mapping_sha256_at_inventory": "9a614b46f478ecbb3dde94387d56d7d2fe39cd5eefc6cf49c33c52bceb7dcc95"
+  "mapping_sha256_at_inventory": "d6b8791cb973fb657e430caf598d1896364420ba7a6e5c6a6c6cf8fbfc8c82b5"
 }

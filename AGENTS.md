@@ -1,3 +1,7 @@
+## 2026-10-16 N07执行/独立验收CPU接线完成；Native计数字段修正
+
+[484完整生命周期](research/484_WC_N07_LIFECYCLE_NATIVE_RECEIPT_ALIGNMENT_AND_INDEPENDENT_ACCEPTANCE_CPU_READY_20261016.md)：新N07错误要求28计数项，原已接受Native实际只有first/last两个端点；按原字段/双CFG次数修正，28层类与源码仍独立绑定，原错误Git重放保留。全部72原Native计数字段复核，合同/batch/post/独立汇总/派发共31CPU通过；fake进程/临时目录，0SSH/0GPU/0预算写。单次fence、超时不重派、ETA前拒绝查询及原v2结算接线已准备；真实最终方法/输入/生产CPU/费用未选，原99数值依赖未变，不重跑952。N05原15d77ac/句柄和今天12:05验收完全不变。以下历史保留。
+
 ## 2026-10-16 N07终态审计与93帧评分CPU准备完成，N05仍12:05验收
 
 [483完整后处理](research/483_WC_N07_FULL180_POST_AND_93FRAME_SCORE_CPU_PREPARATION_20261016.md)：原180/160分母、Native19/27/36预热、同case/seed Native35参考、坏容器/拒绝/缺失和提示词双seed统计已接线；八CPU控制通过，真实小型张量/显式mock视频与metric，非新视频或真实LPIPS。原99数值依赖SHA保持，未重复952；真实最终方法/八输入/配置/生产CPU/费用未选，监督/派发/收集仍待。0SSH/0GPUh/0预算写，原N05 source15d77ac/句柄/今天12:05不变。以下历史保留。

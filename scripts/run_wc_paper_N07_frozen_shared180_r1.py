@@ -131,13 +131,16 @@ def main():
         source_revision=args.source_revision, config_sha256=sha(args.stage / CONFIG),
         scope_counts=config['scope_counts'], matrix=plan, cases=bound['cases'],
         methods=config['method_ids'], runs=[], started_unix=time.time(),
+        model_load_calls=0, model_loads_completed=0,
         native_forward_identity=native_identity, bound_input_fingerprint=fingerprint(bound),
         timing_claim='SINGLE_REQUEST_CORE_TIMERS_NOT_REPEATED_CLEAN_SPEED')
     def save(): write(output / 'runner.json', state)
     save(); init_environment(); init_output_dir(output, profile=False)
     try:
         install_core_inference_registration(setup.model, setup.experiment)
-        start = time.perf_counter(); inference = im.Inference(setup); torch.cuda.synchronize()
+        start = time.perf_counter(); state['model_load_calls'] += 1; save()
+        inference = im.Inference(setup); torch.cuda.synchronize()
+        state['model_loads_completed'] += 1
         state['load_seconds'] = time.perf_counter() - start
         model, net = inference.pipe.model, inference.pipe.model.net
         scheduler = model.sample_scheduler

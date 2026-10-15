@@ -255,10 +255,14 @@ def audit_row(row, planned, bound):
     if warm and row.get('warm_guided_outputs') != n:
         raise ValueError('All actual warm guided outputs required, including reduced-step Native')
     if selected['family'] == 'NATIVE':
-        if (row['actions'] is not None or len(row['native_block_CFG_counts']) != 28
+        # The accepted executor observes the first/last block endpoints. The
+        # pinned native class and production28-block check are separate from
+        # this two-counter receipt; do not invent 28 per-layer measurements.
+        if (row['actions'] is not None
+                or set(row['native_block_CFG_counts']) != {'first_block_CFG', 'last_block_CFG'}
                 or set(row['native_block_CFG_counts'].values()) != {2 * n}
                 or not row['native_count_adaptation']['inverse_bytes_and_AST_equal']):
-            raise ValueError('Native must execute all actual dense blocks in both branches')
+            raise ValueError('Native first/last dense endpoints must match both actual CFG branches')
     else:
         if len(row['actions']) != 36 or any(a not in ('CC', 'CD', 'DC', 'DD', 'PP') for a in row['actions']):
             raise ValueError('All original branch action positions required')
