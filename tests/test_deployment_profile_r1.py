@@ -89,6 +89,21 @@ class ProfilerControls(unittest.TestCase):
                 profile.bind(owner, 'call', 'invalid_dynamic', require_weak=True)
         self.assertIs(owner.call, original)
 
+    def test_static_namespace_bound_method(self):
+        owner = types.SimpleNamespace()
+        def decode(bound, value):
+            self.assertIs(bound, owner)
+            return value
+        owner.decode = types.MethodType(decode, owner)
+        original = owner.decode
+        value = object()
+        with RequestProfile() as profile:
+            profile.bind(owner, 'decode', 'static_bound_method')
+            self.assertIs(owner.decode(value), value)
+            with self.assertRaises(ValueError):
+                profile.bind(owner, 'decode', 'invalid_dynamic', require_weak=True)
+        self.assertIs(owner.decode, original)
+
     def test_does_not_keep_ephemeral_owner_alive(self):
         class Owner:
             def call(self): return 1

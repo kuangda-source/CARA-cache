@@ -89,7 +89,6 @@ class RequestProfile:
         if not callable(original):
             return False
         owned = name in vars(owner)
-        previous = weakref.WeakMethod(original) if inspect.ismethod(original) else weakref.ref(original)
         try:
             owner_ref = weakref.ref(owner)
         except TypeError:
@@ -97,6 +96,13 @@ class RequestProfile:
                 raise ValueError('Dynamic algorithm components require weak restoration entries')
             # Static fixture namespaces/pipe boundaries live for the whole request.
             owner_ref = lambda: owner
+        try:
+            previous = weakref.WeakMethod(original) if inspect.ismethod(original) else weakref.ref(original)
+        except TypeError:
+            if require_weak:
+                raise ValueError('Dynamic algorithm callables require weak restoration entries')
+            # A method bound to a static, non-weakrefable fixture namespace.
+            previous = lambda: original
 
         @wraps(original)
         def measured(*args, **kwargs):

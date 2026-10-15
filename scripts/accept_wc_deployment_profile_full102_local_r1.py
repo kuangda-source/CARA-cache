@@ -156,9 +156,10 @@ def main():
     else:
         capture = json.loads(gzip.decompress(args.capture.read_bytes()))
     if capture['status'] != 'ORIGINAL_CPU_TERMINAL_CAPTURE' or 'result' not in capture:
+        failure = (capture.get('failure') or {}).get('value', {})
         print(json.dumps(dict(status='FULL102_NOT_ACCEPTED', original_state=capture.get('status'),
-                              failure=capture.get('failure'))))
-        return
+                              failure_type=failure.get('error_type'), failure=failure.get('error'))))
+        raise SystemExit(2 if capture['status'] == 'ORIGINAL_CPU_TERMINAL_CAPTURE' else 3)
     accepted = accept(capture)
     accepted.update(capture_ref=str(args.capture), capture_sha256=sha(args.capture.read_bytes()))
     args.output.write_text(json.dumps(accepted, indent=2) + '\n')
