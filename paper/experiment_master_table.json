@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "updated_local_date": "2026-10-15",
-  "snapshot_basis": "One original ETA terminal capture, independent partial-raw/frame/cost reconstruction and9negative CPU controls; no new GPU and no W3 scientific outputs read.",
+  "snapshot_basis": "Full144 CPU/source/actual-entry acceptance and one fresh GPU0 UUID/v2 admission; complete36 R2 running, original R1 partial retained, no new scientific partial or W3 outputs read.",
   "git_snapshot_before_inventory": "f5dbd194f4c85a1fcb75184fa8938c71f32fb409",
   "mapping_ref": "paper/internal_to_paper_mapping.json",
   "scope": "scientific experiment families and complete cards, not each engineering retry; reused artifacts must not be summed as independent samples",
@@ -27,7 +27,7 @@
     "已完成并关闭": 2,
     "待验收": 1,
     "待补": 10,
-    "技术中断": 1,
+    "在运行": 1,
     "暂缓/未执行": 1
   },
   "rows": [
@@ -733,7 +733,7 @@
     },
     {
       "id": "N06",
-      "state": "技术中断｜部分原件已审计",
+      "state": "在运行｜原中断证据保留",
       "paper_experiment_name": "Simple Schedules at Matched Dense Budget",
       "internal_ids": [
         "PAPER_E2_STATIC_26D",
@@ -742,8 +742,8 @@
       ],
       "contribution_relation": "C2分配独立价值；C1跨位置作用",
       "evidence_or_planned_scope": "Original36/24 formal denominator preserved:12warm+16formal complete,1CUDA OOM at misc FRONT_DENSE_A,7not reached.1488 formal frames independently reconstructed;6 old fixed and6 warm guided controls passed.",
-      "gap_and_next_action": "原R1未完整接受。新授权先144 CPU及实际入口，后GPU0完整36重跑；旧28等价控制，原六配置四CAL与26D/alpha不变。预测5.766055，上限8<12。",
-      "priority": "P1 - CPU acceptance then complete36 GPU execution",
+      "gap_and_next_action": "144 CPU/实际入口通过后修复R2完整36已准入。04:55核对全36、旧28/原420/warm控制、逐请求显存、全部兼容93帧评分和费用释放；当前无新科学结论。",
+      "priority": "P0 - once-only collection 2026-10-16 04:55 Asia/Shanghai",
       "evidence_refs": [
         "closure_plan",
         "roadmap",
@@ -783,8 +783,17 @@
       "capture_ref": "reports/wc_simple26d_full36_terminal_collection_20261015_2301.json.gz",
       "independent_audit_ref": "reports/wc_simple26d_full36_partial_terminal_independent_audit_20261015.json",
       "automatic_rerun": false,
-      "repair_execution_state": "FULL144_CPU_RUNNING_SOURCE0795A00_1037920",
-      "repair_preregistration": "research/452_WC_SIMPLE26D_MEMORY_LIFECYCLE_REPAIR_FULL36_PREREG_20261015.md"
+      "repair_execution_state": "FULL144_CPU_ACCEPTED_FULL36_GPU_ADMITTED_SOURCE0795A00",
+      "repair_preregistration": "research/452_WC_SIMPLE26D_MEMORY_LIFECYCLE_REPAIR_FULL36_PREREG_20261015.md",
+      "repair_report": "research/453_WC_SIMPLE26D_MEMORY_FULL144_ACCEPTED_AND_COMPLETE36_GPU_R2_LAUNCH_20261015.md",
+      "repair_run_id": "wc-simple26d-memory-cal4-full36-r2",
+      "repair_source_revision": "0795a008bc94401bcc30a5fb456a2620aae0f2ea",
+      "repair_supervisor_pid": 1040857,
+      "repair_runner_pid": 1040918,
+      "repair_CPU_post_pid": 1040858,
+      "repair_GPU_result_accepted": false,
+      "repair_scientific_progress_read": false,
+      "repair_next_check_local": "2026-10-16 04:55:00 Asia/Shanghai"
     },
     {
       "id": "N07",
