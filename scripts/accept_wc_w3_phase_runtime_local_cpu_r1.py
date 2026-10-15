@@ -50,7 +50,8 @@ def accept(c):
     # These are JSON mock writer files, not real decoded videos.
     for r in mock:
         assert r['error'] is None and r['data']['CPU_MOCK_WRITER_NOT_VIDEO'] is True
-        assert r['data']['value']['shape']==[1,3,93,16,16]
+        # Pinned inference removes batch dimension before the guarded writer.
+        assert r['data']['value']['shape']==[3,93,16,16]
         assert sha(ROOT/r['path'])==r['sha256']
     artifacts=Path(launch['runtime_ref']).parent/'artifacts'
     pairs=0;old_pairs=0
