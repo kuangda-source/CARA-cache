@@ -1,0 +1,1046 @@
+{
+  "status": "DEPLOYMENT_COST_SOURCE_INVENTORY_AND_CPU_FIT_MEASURED_NOT_FINAL_GPU_PROFILE",
+  "source_bindings": {
+    "accepted40_capture": {
+      "path": "reports/wc_h1_cost_curve_full60_collection_20261014_0245.json.gz",
+      "sha256": "3e6b061e836aed1a88bd5f8e860c189829f4511b363d35f6628b517470c3ba47",
+      "stored_bytes": 1482626
+    },
+    "accepted40_independent": {
+      "path": "reports/wc_h1_cost_curve_full60_independent_acceptance_20261014.json",
+      "sha256": "a85b5ad9b90902d95fa7f29094e6412ec129f6aed7632ef18ea239853a2f276c",
+      "stored_bytes": 22520
+    },
+    "H1": {
+      "path": "manifests/wc_source_phase_absolute_h1_parameters_r1_20261013.json",
+      "sha256": "59789ff5b2c87e1f9db8087689b7a91dfb8e4513fa7ad87da7a2fdee7fd6b6cd",
+      "stored_bytes": 4417
+    },
+    "math_parameters": {
+      "path": "manifests/wc_math_n2_frozen_parameters_r1_20261012.json",
+      "sha256": "918bdc43c15d26adb5b8b59199860b542ff42c5f21b68a47c8d80b1c44c68f57",
+      "stored_bytes": 2447
+    },
+    "RA_table": {
+      "path": "reports/wc_ra_calibration_r1_terminal_20261010_calibration_table_native.gz",
+      "sha256": "1f39e7a64ee0cecde304a6773360645911c051beeed066b57a2e78e2335fb372",
+      "stored_bytes": 4353
+    },
+    "RA_calibration": {
+      "path": "reports/wc_ra_calibration_r1_terminal_20261010_capture_and_independent_audit.json",
+      "sha256": "1a3bad8163397d850bdd38f8b15354068bcb3ffd8df35b464515874027ffd9bc",
+      "stored_bytes": 48777
+    },
+    "action_profile": {
+      "path": "reports/wc_action_cost_real_r1_terminal_20261010_capture_and_independent_audit.json",
+      "sha256": "86db00fbaedf5e57ac0ef5262b2429b1d15b1ab9cd192e573231bc0cfd0ee1df",
+      "stored_bytes": 61193
+    },
+    "source16": {
+      "path": "reports/wc_source_phase16_live_or_terminal_capture_20261012.json",
+      "sha256": "2f7276faada5984a9a2fc73ad48a87248c107429b17249297ed537fba73003bb",
+      "stored_bytes": 237189
+    },
+    "source16_independent": {
+      "path": "reports/wc_source_phase16_complete_scalar_and_cell_analysis_20261012.json",
+      "sha256": "e5f87915d5a609d2343be5aafea0f423daf17ef4930810fa89cab66413ca099a",
+      "stored_bytes": 208390
+    },
+    "N1": {
+      "path": "reports/wc_math_n1_live_or_terminal_capture_20261012.json",
+      "sha256": "cbf59d5082a878b95188479618c489cc1b15fcdec95d7f88db18ca459ed40614",
+      "stored_bytes": 457370
+    },
+    "N1_independent": {
+      "path": "reports/wc_math_n1_complete_independent_scalar_reconstruction_20261012.json",
+      "sha256": "0ad1582b840b028c0044126953e4b6eb61095d5f2b073e91a9290819cbfaf154",
+      "stored_bytes": 7375
+    },
+    "old_prices": {
+      "path": "reports/wc_action_cost_real_r1_bound_ranking_inputs_20261010.json",
+      "sha256": "91d55f3a3eb4360335d7168f96bf139f7d7104e664a43d4f0d5945f8ec5711ed",
+      "stored_bytes": 13934
+    },
+    "readout_source": {
+      "path": "src/wcomr/cfg_guided_w1_deployment.py",
+      "sha256": "961fe4660f1ee622adb8db497d0d250c685f3244bc94d767263758223b9fabba",
+      "stored_bytes": 10751
+    },
+    "H1_controller_source": {
+      "path": "src/wcomr/source_phase_absolute_h1_control_r1.py",
+      "sha256": "e4beea9b6c6c1c9e0e4af722480af2f6d7c00efc706f4d0fdf417e3eadea221f",
+      "stored_bytes": 9793
+    },
+    "table_fit_source": {
+      "path": "src/wcomr/source_phase_table_fit_r1.py",
+      "sha256": "f2e0bda199471b87fab2bd920a3e5ef06d1be5f77f3fdbade5580eb80e7a69f7",
+      "stored_bytes": 8656
+    },
+    "memory_source": {
+      "path": "src/wcomr/simple26d_memory_r2.py",
+      "sha256": "b40b43284e5382551ce11e6ad3dcce9afa26e2cc27022bdb9622697105f4e583",
+      "stored_bytes": 3562
+    },
+    "grid_source": {
+      "path": "src/wcomr/paper_baseline_grid_r1.py",
+      "sha256": "65e001e5b31cede8c21ac997b19f36d3c31b17a0899dc5002cfd849d03da298b",
+      "stored_bytes": 9553
+    }
+  },
+  "old_accepted_formal_paths": 40,
+  "old_scored_frames": 3720,
+  "old_batch_per_scene": [
+    {
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "method": "NATIVE",
+      "method_install_seconds": 0.0011672982946038246,
+      "core_seconds": 283.791327720508,
+      "guarded_pipeline_without_write_seconds": 313.1186222899705,
+      "method_cleanup_seconds": 0.0004991339519619942,
+      "video_write_seconds": 3.4442846244201064,
+      "recorded_guardrails_and_outer_pipeline_seconds": 29.327294569462538,
+      "recorded_install_guarded_cleanup_seconds": 313.1202887222171,
+      "LPIPS": 0.0,
+      "GPU_peak_allocated_bytes": null,
+      "current_memory_repair_boundary_seconds": null,
+      "fixed_source_version_not_final_profile": true
+    },
+    {
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "method": "WC",
+      "method_install_seconds": 0.0013047046959400177,
+      "core_seconds": 164.8754783058539,
+      "guarded_pipeline_without_write_seconds": 193.626807869412,
+      "method_cleanup_seconds": 0.00048107095062732697,
+      "video_write_seconds": 3.4255014648661017,
+      "recorded_guardrails_and_outer_pipeline_seconds": 28.7513295635581,
+      "recorded_install_guarded_cleanup_seconds": 193.62859364505857,
+      "LPIPS": 0.3895237144603524,
+      "GPU_peak_allocated_bytes": null,
+      "current_memory_repair_boundary_seconds": null,
+      "fixed_source_version_not_final_profile": true
+    },
+    {
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "method": "RA",
+      "method_install_seconds": 0.11626898590475321,
+      "core_seconds": 147.1123966043815,
+      "guarded_pipeline_without_write_seconds": 176.00144811719656,
+      "method_cleanup_seconds": 0.00066389050334692,
+      "video_write_seconds": 3.867237855680287,
+      "recorded_guardrails_and_outer_pipeline_seconds": 28.88905151281506,
+      "recorded_install_guarded_cleanup_seconds": 176.11838099360466,
+      "LPIPS": 0.3950274109199483,
+      "GPU_peak_allocated_bytes": null,
+      "current_memory_repair_boundary_seconds": null,
+      "fixed_source_version_not_final_profile": true
+    },
+    {
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "method": "A_NO_P",
+      "method_install_seconds": 0.11862234212458134,
+      "core_seconds": 144.8378298720345,
+      "guarded_pipeline_without_write_seconds": 173.75036310218275,
+      "method_cleanup_seconds": 0.0007847575470805168,
+      "video_write_seconds": 3.8834339091554284,
+      "recorded_guardrails_and_outer_pipeline_seconds": 28.912533230148256,
+      "recorded_install_guarded_cleanup_seconds": 173.8697702018544,
+      "LPIPS": 0.30133904372492143,
+      "GPU_peak_allocated_bytes": null,
+      "current_memory_repair_boundary_seconds": null,
+      "fixed_source_version_not_final_profile": true
+    },
+    {
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "method": "P_OFF",
+      "method_install_seconds": 0.12302828673273325,
+      "core_seconds": 149.86193742137402,
+      "guarded_pipeline_without_write_seconds": 178.88043230678886,
+      "method_cleanup_seconds": 0.001308497041463852,
+      "video_write_seconds": 3.884405151940882,
+      "recorded_guardrails_and_outer_pipeline_seconds": 29.01849488541484,
+      "recorded_install_guarded_cleanup_seconds": 179.00476909056306,
+      "LPIPS": 0.28956605477999614,
+      "GPU_peak_allocated_bytes": null,
+      "current_memory_repair_boundary_seconds": null,
+      "fixed_source_version_not_final_profile": true
+    },
+    {
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "method": "H1_LOW",
+      "method_install_seconds": 0.1267634555697441,
+      "core_seconds": 222.71962100546807,
+      "guarded_pipeline_without_write_seconds": 252.2919001886621,
+      "method_cleanup_seconds": 0.001285727135837078,
+      "video_write_seconds": 3.9597240053117275,
+      "recorded_guardrails_and_outer_pipeline_seconds": 29.57227918319404,
+      "recorded_install_guarded_cleanup_seconds": 252.4199493713677,
+      "LPIPS": 0.06478438542414737,
+      "GPU_peak_allocated_bytes": null,
+      "current_memory_repair_boundary_seconds": null,
+      "fixed_source_version_not_final_profile": true
+    },
+    {
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "method": "H1_MID",
+      "method_install_seconds": 0.12284439615905285,
+      "core_seconds": 223.47499555442482,
+      "guarded_pipeline_without_write_seconds": 252.71017937827855,
+      "method_cleanup_seconds": 0.0012131407856941223,
+      "video_write_seconds": 3.8375845281407237,
+      "recorded_guardrails_and_outer_pipeline_seconds": 29.23518382385373,
+      "recorded_install_guarded_cleanup_seconds": 252.8342369152233,
+      "LPIPS": 0.061048373019182554,
+      "GPU_peak_allocated_bytes": null,
+      "current_memory_repair_boundary_seconds": null,
+      "fixed_source_version_not_final_profile": true
+    },
+    {
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "method": "H1_HIGH",
+      "method_install_seconds": 0.12323793582618237,
+      "core_seconds": 223.51776299718767,
+      "guarded_pipeline_without_write_seconds": 252.7090551974252,
+      "method_cleanup_seconds": 0.0012531187385320663,
+      "video_write_seconds": 3.6447053821757436,
+      "recorded_guardrails_and_outer_pipeline_seconds": 29.191292200237513,
+      "recorded_install_guarded_cleanup_seconds": 252.8335462519899,
+      "LPIPS": 0.06997759087431815,
+      "GPU_peak_allocated_bytes": null,
+      "current_memory_repair_boundary_seconds": null,
+      "fixed_source_version_not_final_profile": true
+    },
+    {
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "method": "FIXED_A",
+      "method_install_seconds": 0.12960036098957062,
+      "core_seconds": 223.0402813423425,
+      "guarded_pipeline_without_write_seconds": 252.05629837233573,
+      "method_cleanup_seconds": 0.001335502602159977,
+      "video_write_seconds": 3.5576556408777833,
+      "recorded_guardrails_and_outer_pipeline_seconds": 29.016017029993236,
+      "recorded_install_guarded_cleanup_seconds": 252.18723423592746,
+      "LPIPS": 0.061048373019182554,
+      "GPU_peak_allocated_bytes": null,
+      "current_memory_repair_boundary_seconds": null,
+      "fixed_source_version_not_final_profile": true
+    },
+    {
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "method": "FIXED_PLAIN",
+      "method_install_seconds": 0.12275298591703176,
+      "core_seconds": 221.74242453929037,
+      "guarded_pipeline_without_write_seconds": 250.63458376098424,
+      "method_cleanup_seconds": 0.0012307735159993172,
+      "video_write_seconds": 4.109705350361764,
+      "recorded_guardrails_and_outer_pipeline_seconds": 28.892159221693873,
+      "recorded_install_guarded_cleanup_seconds": 250.75856752041727,
+      "LPIPS": 0.06478438542414737,
+      "GPU_peak_allocated_bytes": null,
+      "current_memory_repair_boundary_seconds": null,
+      "fixed_source_version_not_final_profile": true
+    },
+    {
+      "scene": "human_199",
+      "method": "FIXED_PLAIN",
+      "method_install_seconds": 0.12315201200544834,
+      "core_seconds": 222.09842161275446,
+      "guarded_pipeline_without_write_seconds": 251.72157753724605,
+      "method_cleanup_seconds": 0.0017859814688563347,
+      "video_write_seconds": 4.08261928986758,
+      "recorded_guardrails_and_outer_pipeline_seconds": 29.623155924491584,
+      "recorded_install_guarded_cleanup_seconds": 251.84651553072035,
+      "LPIPS": 0.047255205651444775,
+      "GPU_peak_allocated_bytes": null,
+      "current_memory_repair_boundary_seconds": null,
+      "fixed_source_version_not_final_profile": true
+    },
+    {
+      "scene": "human_199",
+      "method": "FIXED_A",
+      "method_install_seconds": 0.12673193402588367,
+      "core_seconds": 222.8951986944303,
+      "guarded_pipeline_without_write_seconds": 252.88601027801633,
+      "method_cleanup_seconds": 0.0011999867856502533,
+      "video_write_seconds": 3.80695141851902,
+      "recorded_guardrails_and_outer_pipeline_seconds": 29.990811583586037,
+      "recorded_install_guarded_cleanup_seconds": 253.01394219882786,
+      "LPIPS": 0.04864811532760179,
+      "GPU_peak_allocated_bytes": null,
+      "current_memory_repair_boundary_seconds": null,
+      "fixed_source_version_not_final_profile": true
+    },
+    {
+      "scene": "human_199",
+      "method": "H1_HIGH",
+      "method_install_seconds": 0.12994782626628876,
+      "core_seconds": 222.81412317138165,
+      "guarded_pipeline_without_write_seconds": 252.37577635142952,
+      "method_cleanup_seconds": 0.0012938771396875381,
+      "video_write_seconds": 4.151454497128725,
+      "recorded_guardrails_and_outer_pipeline_seconds": 29.56165318004787,
+      "recorded_install_guarded_cleanup_seconds": 252.5070180548355,
+      "LPIPS": 0.05956152325836561,
+      "GPU_peak_allocated_bytes": null,
+      "current_memory_repair_boundary_seconds": null,
+      "fixed_source_version_not_final_profile": true
+    },
+    {
+      "scene": "human_199",
+      "method": "H1_MID",
+      "method_install_seconds": 0.12220428604632616,
+      "core_seconds": 222.65929215122014,
+      "guarded_pipeline_without_write_seconds": 252.18111489061266,
+      "method_cleanup_seconds": 0.0012927735224366188,
+      "video_write_seconds": 4.187905116006732,
+      "recorded_guardrails_and_outer_pipeline_seconds": 29.52182273939252,
+      "recorded_install_guarded_cleanup_seconds": 252.30461195018142,
+      "LPIPS": 0.04864811532760179,
+      "GPU_peak_allocated_bytes": null,
+      "current_memory_repair_boundary_seconds": null,
+      "fixed_source_version_not_final_profile": true
+    },
+    {
+      "scene": "human_199",
+      "method": "H1_LOW",
+      "method_install_seconds": 0.1290250439196825,
+      "core_seconds": 221.29527170676738,
+      "guarded_pipeline_without_write_seconds": 250.71721513941884,
+      "method_cleanup_seconds": 0.0012443875893950462,
+      "video_write_seconds": 4.207632186822593,
+      "recorded_guardrails_and_outer_pipeline_seconds": 29.42194343265146,
+      "recorded_install_guarded_cleanup_seconds": 250.84748457092792,
+      "LPIPS": 0.047255205651444775,
+      "GPU_peak_allocated_bytes": null,
+      "current_memory_repair_boundary_seconds": null,
+      "fixed_source_version_not_final_profile": true
+    },
+    {
+      "scene": "human_199",
+      "method": "P_OFF",
+      "method_install_seconds": 0.12284697871655226,
+      "core_seconds": 160.44758767727762,
+      "guarded_pipeline_without_write_seconds": 189.6830050284043,
+      "method_cleanup_seconds": 0.0012266160920262337,
+      "video_write_seconds": 4.314614455215633,
+      "recorded_guardrails_and_outer_pipeline_seconds": 29.23541735112667,
+      "recorded_install_guarded_cleanup_seconds": 189.80707862321287,
+      "LPIPS": 0.36577301961119457,
+      "GPU_peak_allocated_bytes": null,
+      "current_memory_repair_boundary_seconds": null,
+      "fixed_source_version_not_final_profile": true
+    },
+    {
+      "scene": "human_199",
+      "method": "A_NO_P",
+      "method_install_seconds": 0.1169368689879775,
+      "core_seconds": 150.0932864723727,
+      "guarded_pipeline_without_write_seconds": 179.5742517001927,
+      "method_cleanup_seconds": 0.0008093332871794701,
+      "video_write_seconds": 4.343198347836733,
+      "recorded_guardrails_and_outer_pipeline_seconds": 29.48096522781998,
+      "recorded_install_guarded_cleanup_seconds": 179.69199790246785,
+      "LPIPS": 0.3919769743437408,
+      "GPU_peak_allocated_bytes": null,
+      "current_memory_repair_boundary_seconds": null,
+      "fixed_source_version_not_final_profile": true
+    },
+    {
+      "scene": "human_199",
+      "method": "RA",
+      "method_install_seconds": 0.09721278958022594,
+      "core_seconds": 147.61323144566268,
+      "guarded_pipeline_without_write_seconds": 177.55371835734695,
+      "method_cleanup_seconds": 0.0004934798926115036,
+      "video_write_seconds": 4.308953003026545,
+      "recorded_guardrails_and_outer_pipeline_seconds": 29.940486911684275,
+      "recorded_install_guarded_cleanup_seconds": 177.6514246268198,
+      "LPIPS": 0.43090276019547574,
+      "GPU_peak_allocated_bytes": null,
+      "current_memory_repair_boundary_seconds": null,
+      "fixed_source_version_not_final_profile": true
+    },
+    {
+      "scene": "human_199",
+      "method": "WC",
+      "method_install_seconds": 0.0012739673256874084,
+      "core_seconds": 177.37813933659345,
+      "guarded_pipeline_without_write_seconds": 207.14521775767207,
+      "method_cleanup_seconds": 0.0005112206563353539,
+      "video_write_seconds": 4.349922844208777,
+      "recorded_guardrails_and_outer_pipeline_seconds": 29.767078421078622,
+      "recorded_install_guarded_cleanup_seconds": 207.1470029456541,
+      "LPIPS": 0.4247454244603393,
+      "GPU_peak_allocated_bytes": null,
+      "current_memory_repair_boundary_seconds": null,
+      "fixed_source_version_not_final_profile": true
+    },
+    {
+      "scene": "human_199",
+      "method": "NATIVE",
+      "method_install_seconds": 0.0012160511687397957,
+      "core_seconds": 282.07529745902866,
+      "guarded_pipeline_without_write_seconds": 311.789074649103,
+      "method_cleanup_seconds": 0.0004890486598014832,
+      "video_write_seconds": 4.166913785040379,
+      "recorded_guardrails_and_outer_pipeline_seconds": 29.713777190074325,
+      "recorded_install_guarded_cleanup_seconds": 311.7907797489315,
+      "LPIPS": 0.0,
+      "GPU_peak_allocated_bytes": null,
+      "current_memory_repair_boundary_seconds": null,
+      "fixed_source_version_not_final_profile": true
+    },
+    {
+      "scene": "misc_13398218_3840_2160_60fps",
+      "method": "NATIVE",
+      "method_install_seconds": 0.0012138951569795609,
+      "core_seconds": 282.2196254041046,
+      "guarded_pipeline_without_write_seconds": 311.97161449864507,
+      "method_cleanup_seconds": 0.0005134334787726402,
+      "video_write_seconds": 4.254694566130638,
+      "recorded_guardrails_and_outer_pipeline_seconds": 29.751989094540477,
+      "recorded_install_guarded_cleanup_seconds": 311.9733418272808,
+      "LPIPS": 0.0,
+      "GPU_peak_allocated_bytes": null,
+      "current_memory_repair_boundary_seconds": null,
+      "fixed_source_version_not_final_profile": true
+    },
+    {
+      "scene": "misc_13398218_3840_2160_60fps",
+      "method": "WC",
+      "method_install_seconds": 0.0013013575226068497,
+      "core_seconds": 183.78906263038516,
+      "guarded_pipeline_without_write_seconds": 213.2733682980761,
+      "method_cleanup_seconds": 0.0004973961040377617,
+      "video_write_seconds": 4.2268862295895815,
+      "recorded_guardrails_and_outer_pipeline_seconds": 29.484305667690933,
+      "recorded_install_guarded_cleanup_seconds": 213.27516705170274,
+      "LPIPS": 0.4939930131358485,
+      "GPU_peak_allocated_bytes": null,
+      "current_memory_repair_boundary_seconds": null,
+      "fixed_source_version_not_final_profile": true
+    },
+    {
+      "scene": "misc_13398218_3840_2160_60fps",
+      "method": "RA",
+      "method_install_seconds": 0.0940065635368228,
+      "core_seconds": 146.27561577036977,
+      "guarded_pipeline_without_write_seconds": 175.23530703689903,
+      "method_cleanup_seconds": 0.0006858250126242638,
+      "video_write_seconds": 4.231003379449248,
+      "recorded_guardrails_and_outer_pipeline_seconds": 28.959691266529262,
+      "recorded_install_guarded_cleanup_seconds": 175.32999942544848,
+      "LPIPS": 0.4503311367445095,
+      "GPU_peak_allocated_bytes": null,
+      "current_memory_repair_boundary_seconds": null,
+      "fixed_source_version_not_final_profile": true
+    },
+    {
+      "scene": "misc_13398218_3840_2160_60fps",
+      "method": "A_NO_P",
+      "method_install_seconds": 0.11877669300884008,
+      "core_seconds": 150.35659485775977,
+      "guarded_pipeline_without_write_seconds": 180.193021860905,
+      "method_cleanup_seconds": 0.0008057961240410805,
+      "video_write_seconds": 4.344500549137592,
+      "recorded_guardrails_and_outer_pipeline_seconds": 29.836427003145218,
+      "recorded_install_guarded_cleanup_seconds": 180.31260435003787,
+      "LPIPS": 0.4314685640155628,
+      "GPU_peak_allocated_bytes": null,
+      "current_memory_repair_boundary_seconds": null,
+      "fixed_source_version_not_final_profile": true
+    },
+    {
+      "scene": "misc_13398218_3840_2160_60fps",
+      "method": "P_OFF",
+      "method_install_seconds": 0.12449786812067032,
+      "core_seconds": 156.32549792714417,
+      "guarded_pipeline_without_write_seconds": 186.26381908822805,
+      "method_cleanup_seconds": 0.0012461896985769272,
+      "video_write_seconds": 4.2352911457419395,
+      "recorded_guardrails_and_outer_pipeline_seconds": 29.938321161083877,
+      "recorded_install_guarded_cleanup_seconds": 186.3895631460473,
+      "LPIPS": 0.41134101280602076,
+      "GPU_peak_allocated_bytes": null,
+      "current_memory_repair_boundary_seconds": null,
+      "fixed_source_version_not_final_profile": true
+    },
+    {
+      "scene": "misc_13398218_3840_2160_60fps",
+      "method": "H1_LOW",
+      "method_install_seconds": 0.12436926551163197,
+      "core_seconds": 222.12825356144458,
+      "guarded_pipeline_without_write_seconds": 252.0518812313676,
+      "method_cleanup_seconds": 0.0013244012370705605,
+      "video_write_seconds": 4.415042873471975,
+      "recorded_guardrails_and_outer_pipeline_seconds": 29.923627669923007,
+      "recorded_install_guarded_cleanup_seconds": 252.1775748981163,
+      "LPIPS": 0.07830238109955223,
+      "GPU_peak_allocated_bytes": null,
+      "current_memory_repair_boundary_seconds": null,
+      "fixed_source_version_not_final_profile": true
+    },
+    {
+      "scene": "misc_13398218_3840_2160_60fps",
+      "method": "H1_MID",
+      "method_install_seconds": 1.2997651118785143,
+      "core_seconds": 222.8489608289674,
+      "guarded_pipeline_without_write_seconds": 252.4578580064699,
+      "method_cleanup_seconds": 0.0012437645345926285,
+      "video_write_seconds": 4.160268948413432,
+      "recorded_guardrails_and_outer_pipeline_seconds": 29.608897177502513,
+      "recorded_install_guarded_cleanup_seconds": 253.758866882883,
+      "LPIPS": 0.07496289964965595,
+      "GPU_peak_allocated_bytes": null,
+      "current_memory_repair_boundary_seconds": null,
+      "fixed_source_version_not_final_profile": true
+    },
+    {
+      "scene": "misc_13398218_3840_2160_60fps",
+      "method": "H1_HIGH",
+      "method_install_seconds": 0.1256723776459694,
+      "core_seconds": 222.88765198085457,
+      "guarded_pipeline_without_write_seconds": 252.5899036899209,
+      "method_cleanup_seconds": 0.0013490943238139153,
+      "video_write_seconds": 4.461250842548907,
+      "recorded_guardrails_and_outer_pipeline_seconds": 29.70225170906633,
+      "recorded_install_guarded_cleanup_seconds": 252.71692516189069,
+      "LPIPS": 0.0852172169634091,
+      "GPU_peak_allocated_bytes": null,
+      "current_memory_repair_boundary_seconds": null,
+      "fixed_source_version_not_final_profile": true
+    },
+    {
+      "scene": "misc_13398218_3840_2160_60fps",
+      "method": "FIXED_A",
+      "method_install_seconds": 0.12472260370850563,
+      "core_seconds": 223.06896707136184,
+      "guarded_pipeline_without_write_seconds": 254.1824133321643,
+      "method_cleanup_seconds": 0.0013340851292014122,
+      "video_write_seconds": 4.099249441176653,
+      "recorded_guardrails_and_outer_pipeline_seconds": 31.113446260802448,
+      "recorded_install_guarded_cleanup_seconds": 254.308470021002,
+      "LPIPS": 0.07496289964965595,
+      "GPU_peak_allocated_bytes": null,
+      "current_memory_repair_boundary_seconds": null,
+      "fixed_source_version_not_final_profile": true
+    },
+    {
+      "scene": "misc_13398218_3840_2160_60fps",
+      "method": "FIXED_PLAIN",
+      "method_install_seconds": 0.12766227964311838,
+      "core_seconds": 221.89284913614392,
+      "guarded_pipeline_without_write_seconds": 251.7763854553923,
+      "method_cleanup_seconds": 0.0013649119064211845,
+      "video_write_seconds": 4.169003537856042,
+      "recorded_guardrails_and_outer_pipeline_seconds": 29.88353631924838,
+      "recorded_install_guarded_cleanup_seconds": 251.90541264694184,
+      "LPIPS": 0.07830238109955223,
+      "GPU_peak_allocated_bytes": null,
+      "current_memory_repair_boundary_seconds": null,
+      "fixed_source_version_not_final_profile": true
+    },
+    {
+      "scene": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+      "method": "FIXED_PLAIN",
+      "method_install_seconds": 0.12680669035762548,
+      "core_seconds": 222.32128477934748,
+      "guarded_pipeline_without_write_seconds": 251.5535678723827,
+      "method_cleanup_seconds": 0.0012651020660996437,
+      "video_write_seconds": 3.628533967770636,
+      "recorded_guardrails_and_outer_pipeline_seconds": 29.23228309303522,
+      "recorded_install_guarded_cleanup_seconds": 251.68163966480643,
+      "LPIPS": 0.05257892624665332,
+      "GPU_peak_allocated_bytes": null,
+      "current_memory_repair_boundary_seconds": null,
+      "fixed_source_version_not_final_profile": true
+    },
+    {
+      "scene": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+      "method": "FIXED_A",
+      "method_install_seconds": 0.16297961492091417,
+      "core_seconds": 222.5554601540789,
+      "guarded_pipeline_without_write_seconds": 251.99958755634725,
+      "method_cleanup_seconds": 0.0012200456112623215,
+      "video_write_seconds": 3.651985359378159,
+      "recorded_guardrails_and_outer_pipeline_seconds": 29.44412740226835,
+      "recorded_install_guarded_cleanup_seconds": 252.16378721687943,
+      "LPIPS": 0.04971162069548843,
+      "GPU_peak_allocated_bytes": null,
+      "current_memory_repair_boundary_seconds": null,
+      "fixed_source_version_not_final_profile": true
+    },
+    {
+      "scene": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+      "method": "H1_HIGH",
+      "method_install_seconds": 0.12496365793049335,
+      "core_seconds": 222.74491481576115,
+      "guarded_pipeline_without_write_seconds": 252.025428885594,
+      "method_cleanup_seconds": 0.0014072451740503311,
+      "video_write_seconds": 3.986228324472904,
+      "recorded_guardrails_and_outer_pipeline_seconds": 29.28051406983286,
+      "recorded_install_guarded_cleanup_seconds": 252.15179978869855,
+      "LPIPS": 0.05838598162736944,
+      "GPU_peak_allocated_bytes": null,
+      "current_memory_repair_boundary_seconds": null,
+      "fixed_source_version_not_final_profile": true
+    },
+    {
+      "scene": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+      "method": "H1_MID",
+      "method_install_seconds": 0.12579239159822464,
+      "core_seconds": 222.64006619900465,
+      "guarded_pipeline_without_write_seconds": 251.91078433394432,
+      "method_cleanup_seconds": 0.0012254975736141205,
+      "video_write_seconds": 3.9348277281969786,
+      "recorded_guardrails_and_outer_pipeline_seconds": 29.27071813493967,
+      "recorded_install_guarded_cleanup_seconds": 252.03780222311616,
+      "LPIPS": 0.04971162069548843,
+      "GPU_peak_allocated_bytes": null,
+      "current_memory_repair_boundary_seconds": null,
+      "fixed_source_version_not_final_profile": true
+    },
+    {
+      "scene": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+      "method": "H1_LOW",
+      "method_install_seconds": 0.12580254208296537,
+      "core_seconds": 221.63558922614902,
+      "guarded_pipeline_without_write_seconds": 251.0765727153048,
+      "method_cleanup_seconds": 0.0012820577248930931,
+      "video_write_seconds": 4.171439124271274,
+      "recorded_guardrails_and_outer_pipeline_seconds": 29.44098348915577,
+      "recorded_install_guarded_cleanup_seconds": 251.20365731511265,
+      "LPIPS": 0.05257892624665332,
+      "GPU_peak_allocated_bytes": null,
+      "current_memory_repair_boundary_seconds": null,
+      "fixed_source_version_not_final_profile": true
+    },
+    {
+      "scene": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+      "method": "P_OFF",
+      "method_install_seconds": 0.12378742452710867,
+      "core_seconds": 160.24217049963772,
+      "guarded_pipeline_without_write_seconds": 189.66827673651278,
+      "method_cleanup_seconds": 0.0013103531673550606,
+      "video_write_seconds": 4.054433772340417,
+      "recorded_guardrails_and_outer_pipeline_seconds": 29.426106236875057,
+      "recorded_install_guarded_cleanup_seconds": 189.79337451420724,
+      "LPIPS": 0.3615251231578089,
+      "GPU_peak_allocated_bytes": null,
+      "current_memory_repair_boundary_seconds": null,
+      "fixed_source_version_not_final_profile": true
+    },
+    {
+      "scene": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+      "method": "A_NO_P",
+      "method_install_seconds": 0.12145158648490906,
+      "core_seconds": 150.29594366811216,
+      "guarded_pipeline_without_write_seconds": 179.56752901431173,
+      "method_cleanup_seconds": 0.0007933517917990685,
+      "video_write_seconds": 4.274630440399051,
+      "recorded_guardrails_and_outer_pipeline_seconds": 29.271585346199572,
+      "recorded_install_guarded_cleanup_seconds": 179.68977395258844,
+      "LPIPS": 0.3877937896277315,
+      "GPU_peak_allocated_bytes": null,
+      "current_memory_repair_boundary_seconds": null,
+      "fixed_source_version_not_final_profile": true
+    },
+    {
+      "scene": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+      "method": "RA",
+      "method_install_seconds": 0.09766032546758652,
+      "core_seconds": 146.22135777585208,
+      "guarded_pipeline_without_write_seconds": 175.70707072596997,
+      "method_cleanup_seconds": 0.0006539002060890198,
+      "video_write_seconds": 4.081448244862258,
+      "recorded_guardrails_and_outer_pipeline_seconds": 29.485712950117886,
+      "recorded_install_guarded_cleanup_seconds": 175.80538495164365,
+      "LPIPS": 0.39818021943492277,
+      "GPU_peak_allocated_bytes": null,
+      "current_memory_repair_boundary_seconds": null,
+      "fixed_source_version_not_final_profile": true
+    },
+    {
+      "scene": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+      "method": "WC",
+      "method_install_seconds": 0.0013417890295386314,
+      "core_seconds": 164.26161139458418,
+      "guarded_pipeline_without_write_seconds": 193.33783121220767,
+      "method_cleanup_seconds": 0.000500919297337532,
+      "video_write_seconds": 4.2146891029551625,
+      "recorded_guardrails_and_outer_pipeline_seconds": 29.076219817623496,
+      "recorded_install_guarded_cleanup_seconds": 193.33967392053455,
+      "LPIPS": 0.3943252380817167,
+      "GPU_peak_allocated_bytes": null,
+      "current_memory_repair_boundary_seconds": null,
+      "fixed_source_version_not_final_profile": true
+    },
+    {
+      "scene": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+      "method": "NATIVE",
+      "method_install_seconds": 0.0011681485921144485,
+      "core_seconds": 281.98122223000973,
+      "guarded_pipeline_without_write_seconds": 310.5761108286679,
+      "method_cleanup_seconds": 0.0005032280460000038,
+      "video_write_seconds": 4.415991136804223,
+      "recorded_guardrails_and_outer_pipeline_seconds": 28.594888598658144,
+      "recorded_install_guarded_cleanup_seconds": 310.577782205306,
+      "LPIPS": 0.0,
+      "GPU_peak_allocated_bytes": null,
+      "current_memory_repair_boundary_seconds": null,
+      "fixed_source_version_not_final_profile": true
+    }
+  ],
+  "old_batch_method_aggregates": [
+    {
+      "method": "A_NO_P",
+      "denominator": 4,
+      "means": {
+        "method_install_seconds": 0.118946872651577,
+        "core_seconds": 148.89591371756978,
+        "guarded_pipeline_without_write_seconds": 178.27129141939804,
+        "method_cleanup_seconds": 0.000798309687525034,
+        "video_write_seconds": 4.211440811632201,
+        "recorded_guardrails_and_outer_pipeline_seconds": 29.375377701828256,
+        "recorded_install_guarded_cleanup_seconds": 178.39103660173714
+      },
+      "mean_LPIPS": 0.37814459292798913
+    },
+    {
+      "method": "FIXED_A",
+      "denominator": 4,
+      "means": {
+        "method_install_seconds": 0.13600862841121852,
+        "core_seconds": 222.88997681555338,
+        "guarded_pipeline_without_write_seconds": 252.7810773847159,
+        "method_cleanup_seconds": 0.001272405032068491,
+        "video_write_seconds": 3.778960464987904,
+        "recorded_guardrails_and_outer_pipeline_seconds": 29.891100569162518,
+        "recorded_install_guarded_cleanup_seconds": 252.9183584181592
+      },
+      "mean_LPIPS": 0.05859275217298218
+    },
+    {
+      "method": "FIXED_PLAIN",
+      "denominator": 4,
+      "means": {
+        "method_install_seconds": 0.125093491980806,
+        "core_seconds": 222.01374501688406,
+        "guarded_pipeline_without_write_seconds": 251.42152865650132,
+        "method_cleanup_seconds": 0.00141169223934412,
+        "video_write_seconds": 3.9974655364640057,
+        "recorded_guardrails_and_outer_pipeline_seconds": 29.407783639617264,
+        "recorded_install_guarded_cleanup_seconds": 251.54803384072147
+      },
+      "mean_LPIPS": 0.060730224605449426
+    },
+    {
+      "method": "H1_HIGH",
+      "denominator": 4,
+      "means": {
+        "method_install_seconds": 0.12595544941723347,
+        "core_seconds": 222.99111324129626,
+        "guarded_pipeline_without_write_seconds": 252.4250410310924,
+        "method_cleanup_seconds": 0.0013258338440209627,
+        "video_write_seconds": 4.06090976158157,
+        "recorded_guardrails_and_outer_pipeline_seconds": 29.433927789796144,
+        "recorded_install_guarded_cleanup_seconds": 252.55232231435366
+      },
+      "mean_LPIPS": 0.06828557818086557
+    },
+    {
+      "method": "H1_LOW",
+      "denominator": 4,
+      "means": {
+        "method_install_seconds": 0.126490076771006,
+        "core_seconds": 221.94468387495726,
+        "guarded_pipeline_without_write_seconds": 251.53439231868833,
+        "method_cleanup_seconds": 0.0012841434217989445,
+        "video_write_seconds": 4.188459547469392,
+        "recorded_guardrails_and_outer_pipeline_seconds": 29.58970844373107,
+        "recorded_install_guarded_cleanup_seconds": 251.66216653888114
+      },
+      "mean_LPIPS": 0.060730224605449426
+    },
+    {
+      "method": "H1_MID",
+      "denominator": 4,
+      "means": {
+        "method_install_seconds": 0.4176515464205295,
+        "core_seconds": 222.90582868340425,
+        "guarded_pipeline_without_write_seconds": 252.31498415232636,
+        "method_cleanup_seconds": 0.0012437941040843725,
+        "video_write_seconds": 4.0301465801894665,
+        "recorded_guardrails_and_outer_pipeline_seconds": 29.40915546892211,
+        "recorded_install_guarded_cleanup_seconds": 252.73387949285097
+      },
+      "mean_LPIPS": 0.05859275217298218
+    },
+    {
+      "method": "NATIVE",
+      "denominator": 4,
+      "means": {
+        "method_install_seconds": 0.0011913483031094074,
+        "core_seconds": 282.51686820341274,
+        "guarded_pipeline_without_write_seconds": 311.8638555665966,
+        "method_cleanup_seconds": 0.0005012110341340303,
+        "video_write_seconds": 4.0704710280988365,
+        "recorded_guardrails_and_outer_pipeline_seconds": 29.34698736318387,
+        "recorded_install_guarded_cleanup_seconds": 311.86554812593386
+      },
+      "mean_LPIPS": 0.0
+    },
+    {
+      "method": "P_OFF",
+      "denominator": 4,
+      "means": {
+        "method_install_seconds": 0.12354013952426612,
+        "core_seconds": 156.71929838135839,
+        "guarded_pipeline_without_write_seconds": 186.1238832899835,
+        "method_cleanup_seconds": 0.0012729139998555183,
+        "video_write_seconds": 4.122186131309718,
+        "recorded_guardrails_and_outer_pipeline_seconds": 29.40458490862511,
+        "recorded_install_guarded_cleanup_seconds": 186.24869634350762
+      },
+      "mean_LPIPS": 0.35705130258875506
+    },
+    {
+      "method": "RA",
+      "denominator": 4,
+      "means": {
+        "method_install_seconds": 0.10128716612234712,
+        "core_seconds": 146.8056503990665,
+        "guarded_pipeline_without_write_seconds": 176.12438605935313,
+        "method_cleanup_seconds": 0.0006242739036679268,
+        "video_write_seconds": 4.122160620754585,
+        "recorded_guardrails_and_outer_pipeline_seconds": 29.31873566028662,
+        "recorded_install_guarded_cleanup_seconds": 176.22629749937914
+      },
+      "mean_LPIPS": 0.4186103818237141
+    },
+    {
+      "method": "WC",
+      "denominator": 4,
+      "means": {
+        "method_install_seconds": 0.0013054546434432268,
+        "core_seconds": 172.57607291685417,
+        "guarded_pipeline_without_write_seconds": 201.84580628434196,
+        "method_cleanup_seconds": 0.0004976517520844936,
+        "video_write_seconds": 4.054249910404906,
+        "recorded_guardrails_and_outer_pipeline_seconds": 29.269733367487788,
+        "recorded_install_guarded_cleanup_seconds": 201.8476093907375
+      },
+      "mean_LPIPS": 0.4256468475345642
+    }
+  ],
+  "method_dependencies": {
+    "A_NO_P": {
+      "paper_name": "GCR efficient workpoint",
+      "beta": 1.0,
+      "shared_alpha": {
+        "steps_1_to_24": 1.0,
+        "steps_25_to_36": 0.5
+      },
+      "selector": "Frozen RA prior",
+      "RA_table_fingerprint": "9ab1d77c303560823ed2f32f43b2982318cdd9835828a46da4835a1b95ea7d7a",
+      "actual_D_history_only": true,
+      "learned_generator_parameters": 0,
+      "online_teacher_calls": 0,
+      "offline_GCR_residual_regression_required": false
+    },
+    "TABLE_PHASE_H1": {
+      "paper_name": "Calibrated phase allocation high-fidelity workpoint",
+      "H1_fingerprint": "34ef948ed2a309e8b1cae4b72b780c14e21d63383fa1eadcdfc8803c3d5beef8",
+      "math_fingerprint": "39e7f0feb3648dbabe8a98d842bd1d60fa03bd1800259513c5da7c9d976fc9c0",
+      "cells": {
+        "D_EARLY": {
+          "training_points": 4,
+          "C_scale": 756.3370299597299,
+          "A_ratios": {
+            "D_REFERENCE_A": 0.5852290888081068,
+            "FUSION_A": 0.5852290888081068
+          },
+          "actual_NEW_P_birth_mean": 0.11446326288021584
+        },
+        "P_EARLY": {
+          "training_points": 4,
+          "C_scale": 43.83122322866114,
+          "A_ratios": {
+            "D_REFERENCE_A": 1.2851318687722988,
+            "FUSION_A": 0.5493391205477253
+          },
+          "actual_NEW_P_birth_mean": 0.06646509484917906
+        },
+        "D_LATE": {
+          "training_points": 4,
+          "C_scale": 1.7000269181291754,
+          "A_ratios": {
+            "D_REFERENCE_A": 0.6393531456840852,
+            "FUSION_A": 0.6393531456840852
+          },
+          "actual_NEW_P_birth_mean": 0.027270320713848432
+        },
+        "P_LATE": {
+          "training_points": 4,
+          "C_scale": 0.5540109646036894,
+          "A_ratios": {
+            "D_REFERENCE_A": 2.504022855441346,
+            "FUSION_A": 0.7946263845774811
+          },
+          "actual_NEW_P_birth_mean": 0.01688543871823703
+        }
+      },
+      "fitted_cell_scalars_used_for_C_A_P_risk": 12,
+      "model_specific_RA_prior_retained": true,
+      "old_action_price_scope": "OLD_COMPLETE_CFG_PAIR_AFTER_PAID_PROBE_WITH_HEAD_TRANSFER_NOT_NEW_CLEAN_PROFILE",
+      "online_teacher_calls": 0,
+      "learned_generator_parameters": 0
+    }
+  },
+  "CPU_statistical_table_fit": {
+    "host": "macOS-26.6.2-arm64-arm-64bit",
+    "python": "3.9.6",
+    "labels": 16,
+    "cells": 4,
+    "identical_to_frozen_table": true,
+    "one_untimed_verification_then_five_measured_fits": [
+      {
+        "wall_seconds": 0.00021333400000000946,
+        "CPU_process_seconds": 0.00021199999999998997
+      },
+      {
+        "wall_seconds": 0.0001990829999999888,
+        "CPU_process_seconds": 0.00019700000000000273
+      },
+      {
+        "wall_seconds": 0.00019687500000004077,
+        "CPU_process_seconds": 0.00019399999999997197
+      },
+      {
+        "wall_seconds": 0.00019466699999998172,
+        "CPU_process_seconds": 0.00019399999999997197
+      },
+      {
+        "wall_seconds": 0.0001967500000000233,
+        "CPU_process_seconds": 0.00019299999999999873
+      }
+    ],
+    "average_wall_seconds": 0.00020014180000000882,
+    "label_generation_or_GPU_cost_included": false
+  },
+  "historical_related_collection_jobs": [
+    {
+      "role": "RA joint-error and propagation prior",
+      "ref": "reports/wc_ra_calibration_r1_terminal_20261010_capture_and_independent_audit.json",
+      "wall_seconds": 3199.302822738886,
+      "actual_GPUh": 0.8886952285385794,
+      "scope": {
+        "requests": 2,
+        "complete_parent_paths": 4,
+        "new_videos": 4,
+        "same_state_origins": 6,
+        "complete_child_arms": 12,
+        "parent_solver_updates": 144,
+        "child_solver_updates": 168,
+        "solver_updates": 312,
+        "net_calls": 624,
+        "parent_guided_outputs": 144,
+        "parent_final_latents": 4,
+        "child_tensor_outputs": 48,
+        "calibration_tables": 1,
+        "video_quality_labels": 0,
+        "future_cost_labels": 0
+      },
+      "includes_controls_loads_outputs_or_research_capture": true,
+      "minimum_deployment_calibration_cost": false
+    },
+    {
+      "role": "Old post-probe action prices",
+      "ref": "reports/wc_action_cost_real_r1_terminal_20261010_capture_and_independent_audit.json",
+      "wall_seconds": 3615.3976119402796,
+      "actual_GPUh": 1.0042771144278555,
+      "scope": {
+        "requests": 4,
+        "complete_parent_paths": 8,
+        "new_videos": 8,
+        "parent_solver_updates": 288,
+        "normal_net_calls": 576,
+        "same_state_origins": 8,
+        "score_only_group_pairs_including_warmups_and_repeats": 192,
+        "actual_C_or_A_group_pairs": 96,
+        "actual_deep_P_or_D_group_pairs": 96,
+        "score_only_deep_branch_calls": 192,
+        "score_only_deep_block_calls": 4992,
+        "ordinary_action_heads": 384,
+        "maximum_additional_A_heads": 128,
+        "post_RF_branch_tensors": 112,
+        "parent_guided_tensors": 288,
+        "parent_latents": 8,
+        "raw_tensor_files": 16
+      },
+      "includes_controls_loads_outputs_or_research_capture": true,
+      "minimum_deployment_calibration_cost": false
+    },
+    {
+      "role": "Source fusion coefficient and development diagnostics",
+      "ref": "reports/wc_math_n1_live_or_terminal_capture_20261012.json",
+      "wall_seconds": 3184.84773786366,
+      "actual_GPUh": 0.88467992718435,
+      "scope": {
+        "parents": 4,
+        "points": 12,
+        "P_points": 8,
+        "D_controls": 4,
+        "pairs": 180,
+        "CFG_calls": 360,
+        "scores": 48,
+        "loads": 1
+      },
+      "includes_controls_loads_outputs_or_research_capture": true,
+      "minimum_deployment_calibration_cost": false
+    },
+    {
+      "role": "Four source-phase error cells and controls",
+      "ref": "reports/wc_source_phase16_live_or_terminal_capture_20261012.json",
+      "wall_seconds": 5781.551503784023,
+      "actual_GPUh": 1.6059865288288953,
+      "scope": {
+        "baseline_parents": 4,
+        "diagnostic_parents": 4,
+        "full_paths": 8,
+        "points": 16,
+        "ordinary_pairs": 288,
+        "offline_pairs": 80,
+        "pairs": 368,
+        "CFG_calls": 736,
+        "candidate_scores": 64,
+        "teachers": 16,
+        "raw_files": 16,
+        "raw_tensors": 192,
+        "loads": 1
+      },
+      "includes_controls_loads_outputs_or_research_capture": true,
+      "minimum_deployment_calibration_cost": false
+    }
+  ],
+  "historical_related_jobs_total_GPUh": 4.38363879897968,
+  "historical_total_is_minimum_deployment_cost": false,
+  "final_minimum_calibration_GPUh": null,
+  "final_request_GPU_peak_allocated_bytes": null,
+  "missing_final_measurements": [
+    "Minimum necessary label acquisition workload, separately from controls and prior exploration",
+    "Matched final-code C/A/D prices after the same paid two-probe prefix",
+    "Final request init/cleanup and boundary GC alongside primary text-denoise-VAE time",
+    "Per-request CUDA allocated/reserved peaks with an explicit reset boundary",
+    "Probe/warp/head/RF/controller/cache-maintenance split with paired output/action parity"
+  ],
+  "current_peak_counter_semantics": "Existing max_memory_allocated is process-cumulative without per-request reset; not a per-method peak comparison",
+  "break_even_request_count": null,
+  "break_even_requires_matching_quality_and_measured_calibration_cost": true,
+  "new_video_or_final_latency_claim": false,
+  "active_N06_or_N05_stage_changed": false,
+  "GPU_submissions": 0,
+  "SSH_queries": 0,
+  "ledger_written": false,
+  "script_sha256": "08ecb466255a7c9ed452ce7beb71078752c4b958e1034b4726a7ef750768ca07"
+}

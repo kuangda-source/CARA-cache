@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "updated_local_date": "2026-10-16",
-  "snapshot_basis": "Complete N05 production R2 CPU independently accepted03:56; original R1 failure preserved; original N06 still04:55;no new GPU.",
+  "snapshot_basis": "N05 full production CPU accepted; N09 local accepted-source cost inventory/16-label table fit completed without new GPU; original N06 still04:55.",
   "git_snapshot_before_inventory": "f8a5d45853ec69b45c572c7939903c5d5aab68ef",
   "mapping_ref": "paper/internal_to_paper_mapping.json",
   "scope": "scientific experiment families and complete cards, not each engineering retry; reused artifacts must not be summed as independent samples",
@@ -929,19 +929,21 @@
     },
     {
       "id": "N09",
-      "state": "待补｜部署证据",
+      "state": "待补｜本地成本盘点完成",
       "paper_experiment_name": "Calibration and Minimal Deployment Profile",
       "internal_ids": [
         "PAPER_E5_COST_PROFILE"
       ],
       "contribution_relation": "C3部署开销；C2费用一致",
-      "evidence_or_planned_scope": "拆必要离线标定、probe/warp/head/RF、选择/缓存维护、显存；已有报价有转移成分。",
-      "gap_and_next_action": "不能用历史全部GPUh当最小标定费，不能以D05 head次数当延迟；回本量须同保真真实净省时。",
+      "evidence_or_planned_scope": "全40旧正式计时与3720帧复核，四格表由原16标签精确重建；五次CPU拟合平均0.200142ms。四相关历史采集原实费合计4.383638799GPUh，非最小标定费。",
+      "gap_and_next_action": "最终动作（P0保留合法则含P0）、组件/请求初始化与GC、逐请求CUDA peak及最小必要标定采集仍待实测；不以旧累计peak比较方法，也不把CPU拟合毫秒当标签获取费。",
       "priority": "P2·最终实现后",
       "evidence_refs": [
         "closure_plan",
         "roadmap",
-        "mainline_queue_20261016"
+        "mainline_queue_20261016",
+        "deployment_inventory_465",
+        "deployment_inventory_CPU"
       ],
       "method_mapping_ids": [
         "module.gcr",
@@ -955,7 +957,9 @@
         "C2"
       ],
       "claim_relation": "INTENDED_SUPPORT_UNCOMPLETED",
-      "paper_placement": "后续证据，结果未填"
+      "paper_placement": "后续证据，结果未填",
+      "local_inventory_accepted": true,
+      "final_GPU_deployment_profile_complete": false
     },
     {
       "id": "N10",
@@ -1087,7 +1091,9 @@
     "N05_production_CPU_repair_463": "research/463_WC_N05_PRODUCTION_CPU_R1_MISSING_MANIFEST_AND_R2_PACKAGING_REPAIR_20261016.md",
     "N05_production_CPU_464": "research/464_WC_N05_CORE66_REAL_PRODUCTION_CPU_ACCEPTED_AND_N06_0455_NEXT_20261016.md",
     "N05_production_CPU_R2_accepted": "reports/wc_paper_N05_core66_production_CPU_R2_independent_acceptance_20261016.json",
-    "N05_neighbor_code_compatibility": "reports/wc_mainline_neighbor_adapter_code_readonly_followup_20261016.json"
+    "N05_neighbor_code_compatibility": "reports/wc_mainline_neighbor_adapter_code_readonly_followup_20261016.json",
+    "deployment_inventory_465": "research/465_WC_DEPLOYMENT_COST_SOURCE_INVENTORY_AND_PROFILE_NEXT_20261016.md",
+    "deployment_inventory_CPU": "reports/wc_deployment_cost_source_inventory_r1_20261016.json"
   },
   "source_bindings": {
     "11": {
@@ -1297,6 +1303,14 @@
     "N05_neighbor_code_compatibility": {
       "path": "reports/wc_mainline_neighbor_adapter_code_readonly_followup_20261016.json",
       "sha256": "db9c8058432dd85f0afdc84d1955f79b395fd50ba7af08b81f57d33a175e049e"
+    },
+    "deployment_inventory_465": {
+      "path": "research/465_WC_DEPLOYMENT_COST_SOURCE_INVENTORY_AND_PROFILE_NEXT_20261016.md",
+      "sha256": "30a28a913fa58ec82f6f215e31d61a857220b72658dec1c5b1790b27804ed0df"
+    },
+    "deployment_inventory_CPU": {
+      "path": "reports/wc_deployment_cost_source_inventory_r1_20261016.json",
+      "sha256": "1c9c793b0c5833c25a267163240830cb9ef6297f4819db6a56ec095b01aa3462"
     }
   },
   "operation_policy": {

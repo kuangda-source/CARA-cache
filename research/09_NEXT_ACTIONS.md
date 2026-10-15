@@ -1,3 +1,7 @@
+## 2026-10-16 N09部署依赖与CPU拟合盘点完成
+
+[465成本盘点](../research/465_WC_DEPLOYMENT_COST_SOURCE_INVENTORY_AND_PROFILE_NEXT_20261016.md)：仅本地CPU完成N09成本依赖盘点：复核已接受420的全40正式/3720帧、十方法完整计时字段；16旧标签重建四格H1表与冻结值全等，五次CPU拟合均值0.200142ms。相关四采集卡原账单合计4.383638799GPUh，明确不是最低标定费；最终单动作/GC/逐请求peak/最小采集仍待实测，未填0。原max_memory_allocated是累计峰值；H1保留P0合法时同价口径也须覆盖P0。0GPU/0SSH/0预算写、无新GPU卡；不改N05或原N06，04:55先验N06再N05。 N05真实R2 CPU已在464接受，启动入口与原预算/顺序保持。以下保留历史。
+
 ## 2026-10-16 N05真实生产CPU完整接受，原N06 04:55后接续
 
 [464完整接受与启动入口](../research/464_WC_N05_CORE66_REAL_PRODUCTION_CPU_ACCEPTED_AND_N06_0455_NEXT_20261016.md)：03:56一次查R2原1074441/source15d77ac，1671源一致、四CPU命令exit0/70.921407秒、44实际请求与三Native网格/官方forward/10变异拒绝完整接受；原失败R1保留不再查。完整11配置四CAL44正式+22warm/66/2220pairs/4440CFG/1load，forecast8.568548038/上限9.5<12保持，GPU尚未提交。原N060795a00/1040857/1040918/post1040858仍04:55一次验收，不看partial；N06全接受后用launch_wc_paper_N05_core66_r2.py和production_CPU_R2_launch按fresh v2/UUID直接执行完整66，原cap/窗口不变。 p-acr-cpu已暂停不再查旧CPU；近邻适配仍待、F/B关闭、P/T1后排。以下保留历史。
