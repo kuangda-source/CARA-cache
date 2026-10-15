@@ -18,9 +18,18 @@ import pathlib,json,sys,os,time,subprocess,hashlib
 root=pathlib.Path('/home/gaokuangda/data/gkd/worldcache_omr').resolve()
 stage=root/'.sync/wc-simple26d-production-r1-20261015'
 sys.path.insert(0,str(stage/'src'))
-from wcomr.simple26d_r1 import validate,CONFIG,RUN,PRODUCTION_CPU_STATUS,sha,write,COUNTS
+from wcomr.simple26d_r1 import validate,CONFIG,RUN,PRODUCTION_CPU_STATUS,sha,write,COUNTS,plans
 from wcomr.gpu_budget_pool_v2 import process_identity
-c,reg,*_=validate(root,stage);proof=json.loads((stage/'production-CPU-result.json').read_text())
+c,reg,old,inputs,tables,previous=validate(root,stage);proof=json.loads((stage/'production-CPU-result.json').read_text())
+calibration=inputs[0];support=[]
+for method,plan in plans().items():
+ anchor=None
+ for step,action in enumerate(plan,1):
+  if action=='D':anchor=step
+  else:
+   assert (anchor,step) in calibration.rho_at and step in calibration.gains,(method,anchor,step)
+   support.append(dict(method=method,anchor=anchor,step=step))
+write(stage/'actual-calibration-mask-support.json',dict(status='ALL60_NON_D_REAL_CALIBRATION_CELLS_SUPPORTED',rows=support))
 bundle=json.loads((stage/'CPU-bundle-result.json').read_text())
 assert reg['source_revision']==REV and proof['status']==PRODUCTION_CPU_STATUS and bundle['status']=='SIMPLE26D_COMPLETE_CPU_ACCEPTED_NOT_GPU'
 assert proof['registration_sha256']==sha(stage/'registration.json') and proof['config_sha256']==sha(stage/CONFIG)
