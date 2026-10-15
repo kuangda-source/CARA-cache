@@ -1,0 +1,78 @@
+{
+  "status": "SHARED_EXECUTION_LOCAL_REGISTRY952_CPU_R3_FIXTURE_REPAIR_PREREGISTRATION_NOT_GPU_CARD",
+  "registered_unix": 1792099604.7267041,
+  "numerical_scope": {
+    "flows": [
+      false,
+      true
+    ],
+    "Toy_inputs": 4,
+    "available_existing_method_count": 17,
+    "seeds": [
+      0,
+      17,
+      43
+    ],
+    "audit_and_lean_paths": 816,
+    "legacy_seed0_control_paths": 136,
+    "total_paths": 952,
+    "audit_lean_pair_comparisons": 408,
+    "legacy_seed0_whole_trajectory_comparisons": 136,
+    "ordinary_pairs": 32816,
+    "CFG_calls": 65632
+  },
+  "required_checks": [
+    "actual_pinned_sampler_seed",
+    "initial_noise_matches_same_seed_across_methods",
+    "initial_noise_differs_between_registered_seeds",
+    "audit_lean_final_actions_Ahistory_sourcehistory_mock_equal",
+    "seed0_all_guided_equal_to_accepted_executors",
+    "same26D_masks_and_A_counts",
+    "all_components_released",
+    "source_and_runtime_unchanged",
+    "ordinary_guardrails_kept"
+  ],
+  "CPU_boundaries": [
+    "Toy_weights_attention_head_prepare_and_mock_video",
+    "Native_dense_WC_stand_in_not_real_Cosmos_forward",
+    "no_final_input_selection",
+    "no_final_method_workpoint_selection",
+    "not_actual_N07_production_CPU",
+    "not_video_quality_or_speed"
+  ],
+  "source_sha256": {
+    "src/wcomr/frozen_shared_execution_r1.py": "431cd8a3d86208a4ef6fb6665ad6d72dacf5fb3cfe0e5a3a628a932163ba8c68",
+    "tests/test_frozen_shared_execution_r1.py": "beae85fdda9b518592d04a9b848f0b528ac4c90679be5e2b3b3605b7510b2c22",
+    "tests/check_frozen_shared_execution_sampling_cpu_r1.py": "1aabf7881d1975d51cb9890ef82a901d76a73fc95efc8f57c4491b9e83e2d04a",
+    "scripts/check_wc_frozen_shared_registry952_local_cpu_r1.py": "8b397efae354a0b79080321e5d14379c8b7c97973eafff58e07297703e10dd55"
+  },
+  "scalar_CPU_ref": "reports/wc_paper_shared_execution_scalar_CPU_R3_controls_20261016.json",
+  "estimated_local_minutes": [
+    7,
+    12
+  ],
+  "first_collection_after_launch_minutes": 12,
+  "final_N07_template_unchanged": {
+    "prompts": 8,
+    "seeds": 2,
+    "methods": 10,
+    "formal_paths": 160,
+    "full_warmup_paths": 20,
+    "total_paths": 180,
+    "selected": false
+  },
+  "N05_original_source": "15d77ac55de7f5715a76901c47e407663d41c9d3",
+  "N05_1205_collection_unchanged": true,
+  "current_N05_partial_queries": 0,
+  "GPU_submissions": 0,
+  "SSH_queries": 0,
+  "ledger_written": false,
+  "training": false,
+  "F_B_reopened": false,
+  "revised_unix": 1792100882.389971,
+  "original_full_scope_ref": "manifests/wc_paper_shared_registry952_local_CPU_preregistration_r1_20261016.json",
+  "original_full_scope_sha256": "98fc365f1a95495181709b822f4a0bfa2ab319508fbfd947ff68daf896721052",
+  "fixture_repair": "Unwrap the torch.inference_mode sampler to find its original misc namespace and verify original pinned sampler path; numerical executor and full952 scope unchanged",
+  "prior_CPU_failure_ref": "reports/wc_paper_shared_registry952_R2_terminal_failure_incident_20261016.json",
+  "scalar_control_count": 6
+}

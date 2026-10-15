@@ -1,7 +1,9 @@
 """Seed identity, immutable legacy source and complete shared-template controls."""
 import copy
+import inspect
 from types import SimpleNamespace
 import unittest
+import torch
 
 from wcomr import clean_speed20_r1 as clean
 from wcomr.frozen_shared_execution_r1 import (
@@ -11,6 +13,17 @@ from wcomr.paper_baseline_grid_r1 import RA_THRESHOLD
 
 
 class FrozenExecution(unittest.TestCase):
+    def test_sampler_observer_unwraps_the_original_namespace(self):
+        sentinel = object()
+        namespace = {'torch': torch, 'misc': sentinel}
+        exec(compile('@torch.inference_mode()\ndef sampler():\n    return misc\n',
+                     'declared-sampler-source.py', 'exec'), namespace)
+        decorated = namespace['sampler']
+        self.assertNotIn('misc', decorated.__globals__)
+        original = inspect.unwrap(decorated)
+        self.assertIs(original.__globals__['misc'], sentinel)
+        self.assertEqual(original.__code__.co_filename, 'declared-sampler-source.py')
+
     def test_whole180_template_has_all_original_seed_method_positions(self):
         cases = [dict(id=f'p{i}_seed{s}', prompt_id=f'p{i}', seed=s)
                  for i in range(8) for s in (17, 43)]

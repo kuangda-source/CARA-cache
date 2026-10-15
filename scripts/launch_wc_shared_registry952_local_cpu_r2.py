@@ -10,6 +10,7 @@ import time
 
 ROOT = Path(__file__).resolve().parents[1]
 STAGE = '.sync/wc-paper-shared-registry952-local-cpu-r2-20261016'
+GENERATION = 'R2'
 
 
 def main():
@@ -56,8 +57,8 @@ def main():
         GPU_submissions=0, SSH_queries=0, ledger_written=False)
     regpath = stage / 'registration.json'
     regpath.write_text(json.dumps(registration, indent=2) + '\n')
-    result = ROOT / 'reports/wc_paper_shared_registry952_local_CPU_R2_result_20261016.json'
-    exitpath = ROOT / 'reports/wc_paper_shared_registry952_local_CPU_R2_exit_20261016.json'
+    result = ROOT / f'reports/wc_paper_shared_registry952_local_CPU_{GENERATION}_result_20261016.json'
+    exitpath = ROOT / f'reports/wc_paper_shared_registry952_local_CPU_{GENERATION}_exit_20261016.json'
     artifacts = stage / 'artifacts'
     runtime = ROOT / '.sync/wc-paper-n05-core216-local-cpu-r1-20261016/runtime'
     log = stage / 'full952.log'

@@ -69,7 +69,10 @@ def body(inference, selected, wc, rf, settings, inference_module, runtime, confi
         table_parameters={'SOURCE_PHASE': params}, previous_parameters=old)
     # Observe the seed and initial noise at the real pinned sampler boundary.
     # Keeping the CPU tensor reference avoids an extra in-timer clone/hash.
-    misc = model.generate_samples_from_batch.__func__.__globals__['misc']
+    sampler_body = inspect.unwrap(model.generate_samples_from_batch.__func__)
+    sampler_path = Path(runtime) / 'cosmos_predict2/_src/predict2/models/text2world_model_rectified_flow.py'
+    assert Path(sampler_body.__code__.co_filename).resolve() == sampler_path.resolve()
+    misc = sampler_body.__globals__['misc']
     original_noise = misc.arch_invariant_rand
     noise_events = []
 
