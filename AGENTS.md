@@ -1,3 +1,7 @@
+## 2026-10-16 N07整卡合同与大卡准入扩展CPU准备完成
+
+[481整卡绑定/预算接口](research/481_WC_N07_COMPLETE_SCOPE_CONTRACT_NUMERIC_REUSE_AND_APPROVED_LARGE_CARD_POOL_CPU_READY_20261016.md)：99份数值源码依赖与原952证明全SHA一致可复用；完整180合同/参数与授权绑定、原v2独立大卡入口共12CPU控制通过。原reserve硬限<12导致具体批准大卡仍无法准入，现新扩展只给真实具体批准>=12使用；原v2源/服务器/预算未改，全部测试账本与授权均synthetic。实际运行脚本/生产CPU、最终输入/方法/费用未选，N05原15d77ac/句柄/今天12:05不变，0SSH/0GPU。以下历史保留。
+
 ## 2026-10-16 N07原始1044输入与生产参数适配CPU准备完成
 
 [480输入绑定](research/480_WC_N07_ORIGINAL1044_BYTES_AND_PRODUCTION_ARGUMENT_BINDING_CPU_READY_20261016.md)：1044原始请求文件/提示词SHA与固定header全通过、0gap；输入适配四CPU控制接受，合成16案例×10方法形成160参数/180排程，仅改name/seed/steps、保持原prompt/negative/guidance/几何。未选最终八来源/方法/卡，fresh远端曝光、实际InferenceArguments/生产CPU/费用仍待N05后，不把1044文件审计当视频实验。0SSH/0GPUh/0预算写，N05原15d77ac/句柄/今天12:05不变。以下历史保留。
