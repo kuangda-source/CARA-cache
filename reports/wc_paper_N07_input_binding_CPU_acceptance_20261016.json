@@ -1,0 +1,38 @@
+{
+  "status": "N07_ORIGINAL_INPUT_BINDING_CPU_PREPARATION_ACCEPTED_NOT_FINAL_PRODUCTION",
+  "command": ".venv/bin/python -m pytest -q tests/test_frozen_shared_inputs_r1.py",
+  "exit_code": 0,
+  "observed_test_result": "4 passed in 5.62s",
+  "controls": [
+    "all160 argument variants preserve original text/negative and header except name/seed/steps",
+    "source identity prompt/guidance/geometry/seed mismatch rejected",
+    "missing source bytes or changed two-seed/full method scope rejected",
+    "extra image conditioning or basename traversal rejected"
+  ],
+  "synthetic_binding_template": {
+    "prompt_groups": 8,
+    "seed_cases": 16,
+    "methods": 10,
+    "argument_variants": 160,
+    "schedule_slots": 180,
+    "planned_pairs_for_synthetic_example_only": 6012
+  },
+  "real_original_files_audited": 1044,
+  "real_source_gaps": 0,
+  "original_input_inventory_ref": "reports/wc_paper_N07_all1044_original_input_bytes_CPU_inventory_20261016.json",
+  "original_input_inventory_sha256": "a2e5aaf63b84fb42458878986d5f6884ab5fd882512a844f2de22229bdb2ee33",
+  "actual_final_inputs_selected": false,
+  "actual_final_methods_selected": false,
+  "actual_InferenceArguments_CPU_accepted": false,
+  "actual_sampler_or_model_run": false,
+  "GPU_card_selected": false,
+  "complete_GPUh_forecast": null,
+  "GPU_submissions": 0,
+  "SSH_queries": 0,
+  "ledger_written": false,
+  "source_sha256": {
+    "src/wcomr/frozen_shared_inputs_r1.py": "799ba144ecdedaa01d1d474425cc31ea29dabf6cf529b70552e1c230f34fd09d",
+    "tests/test_frozen_shared_inputs_r1.py": "b83c387b892401c92b998a4123259fe0b2c6e303e39ff7f004741305751043c3",
+    "scripts/audit_wc_N07_original_input_bytes_cpu_r1.py": "2400dab02ddfeead46bf6de6657b21692892ecc257c2ddc402d8d0ec03849933"
+  }
+}

@@ -1,3 +1,7 @@
+## 2026-10-16 N07原始1044输入与生产参数适配CPU准备完成
+
+[480输入绑定](../research/480_WC_N07_ORIGINAL1044_BYTES_AND_PRODUCTION_ARGUMENT_BINDING_CPU_READY_20261016.md)：1044原始请求文件/提示词SHA与固定header全通过、0gap；输入适配四CPU控制接受，合成16案例×10方法形成160参数/180排程，仅改name/seed/steps、保持原prompt/negative/guidance/几何。未选最终八来源/方法/卡，fresh远端曝光、实际InferenceArguments/生产CPU/费用仍待N05后，不把1044文件审计当视频实验。0SSH/0GPUh/0预算写，N05原15d77ac/句柄/今天12:05不变。以下历史保留。
+
 ## 2026-10-16 N10输入/采样/分组汇总CPU准备完成
 
 [479自动质量接线](../research/479_WC_N10_IDENTITY_INPUT_SAMPLING_AND_GROUPED_METRICS_CPU_READY_20261016.md)：原视频/提示词SHA、完整160位置、两seed提示词统计与缺失/静态范围等8CPU控制通过；固定VBench九源码SHA和纯采样/原parser五维实际对照通过，全部合成位置960。模型/权重SHA/完整评分CPU/费用及最终维度仍待，未生成真实质量分数或选输入；辅助int64序列化失败保留并等值修正。0SSH/0GPU/0预算写，原N05 source15d77ac/句柄/今天12:05不变。以下历史保留。

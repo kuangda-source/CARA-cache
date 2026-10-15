@@ -329,3 +329,5 @@ P_OFF仍含P0，新P-ACR当前为单分支补偿读出，不能写成已经实�
 N09记录接口完整102 Toy CPU已在[478](../research/478_WC_N09_FULL102_CPU_PARITY_ACCEPTED_COMPONENT_PEAK_PROFILE_READY_20261016.md)接受；对应实现准备，不是论文新质量/速度或真实CUDA峰值证据。
 
 N10的视频/原提示词身份、采样规则和双seed提示词统计已做CPU准备，见[479](../research/479_WC_N10_IDENTITY_INPUT_SAMPLING_AND_GROUPED_METRICS_CPU_READY_20261016.md)；真实指标模型、资源与最终评分尚待，不把合成分数作为论文结果。
+
+N07原始1044文本请求字节与参数绑定已做CPU准备，见[480](../research/480_WC_N07_ORIGINAL1044_BYTES_AND_PRODUCTION_ARGUMENT_BINDING_CPU_READY_20261016.md)；最终选择、实际生产CPU和GPU卡未完成，不是泛化结果。
