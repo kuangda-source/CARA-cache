@@ -58,7 +58,10 @@ except BlockingIOError:lock_free=False
 receipts={str(p.relative_to(project)):read(p) for p in (
  stage/'GPU-launch.json',stage/'new-W3-GPU-authorization.json',
  stage/'production-CPU-result.json',stage/'CPU-final-results.json',
- stage/'post-CPU-exit.json',root/'runner.json',root/'supervisor.json',project/'reports/budget.json')}
+ stage/'post-CPU-exit.json',root/'runner.json',root/'supervisor.json',project/'reports/budget.json',
+ project/'reports/gpu-budget-v2.json',
+ project/'.sync/wc-simple26d-production-r1-20261015/legacy-bridge.json',
+ project/'.sync/wc-simple26d-production-r1-20261015/legacy-W3-billing.json')}
 logs={str(p.relative_to(project)):p.read_text(errors='replace')[-6000:]
       for p in (stage/'GPU-supervisor.log',stage/'post-watcher.log',stage/'post-CPU.log',root/'GPU.log') if p.exists()}
 gpu=subprocess.run(['nvidia-smi','--query-compute-apps=gpu_uuid,pid','--format=csv,noheader,nounits'],capture_output=True,text=True,timeout=15)
