@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "updated_local_date": "2026-10-16",
-  "snapshot_basis": "N05 full production CPU accepted; N09 local accepted-source cost inventory/16-label table fit completed without new GPU; original N06 still04:55.",
+  "snapshot_basis": "N05 real production CPU and N09 local cost inventory accepted; N07 local exclusion/statistics prepared before final selection; original N06 still04:55.",
   "git_snapshot_before_inventory": "f8a5d45853ec69b45c572c7939903c5d5aab68ef",
   "mapping_ref": "paper/internal_to_paper_mapping.json",
   "scope": "scientific experiment families and complete cards, not each engineering retry; reused artifacts must not be summed as independent samples",
@@ -854,19 +854,25 @@
     },
     {
       "id": "N07",
-      "state": "待补｜最终共同测试",
+      "state": "待补｜本地隔离/统计CPU已准备",
       "paper_experiment_name": "Common Frozen Evaluation Matrix",
       "internal_ids": [
         "PAPER_E3_FROZEN_SHARED_TEST"
       ],
       "contribution_relation": "C1/C2最终版本确认；C3覆盖",
-      "evidence_or_planned_scope": "原模板8新prompt×2seed×10最终配置=160正式＋20预热；规模以完整费用事前登记。",
-      "gap_and_next_action": "先冻结最终候选与强基线；417和R01输入已曝光，不重称下一版未见；拒绝/缺失保留。",
+      "evidence_or_planned_scope": "579配置/1044记录本地隔离、44排除成员独立复算；固定8prompt/两seed17/43的prompt分组bootstrap与总耗时比统计5CPU控制通过。原160正式+20warm模板保持。",
+      "gap_and_next_action": "N05/N06后冻结最终方法/对手，fresh服务器身份审计后再选择8新prompt/16请求；真实完整采样/生产CPU/费用/GPU尚待，未选择或缩减模板。",
       "priority": "P2·N05/N06后冻结",
       "evidence_refs": [
         "closure_plan",
         "roadmap",
-        "mainline_queue_20261016"
+        "mainline_queue_20261016",
+        "N07_input_stats_466",
+        "N07_input_protocol",
+        "N07_group_stats_protocol",
+        "N07_local_input_inventory",
+        "N07_local_input_audit",
+        "N07_group_stats_CPU"
       ],
       "method_mapping_ids": [
         "config.efficient",
@@ -888,7 +894,11 @@
       "conditional_depends_on_if_variant_selected": [
         "N02",
         "N04"
-      ]
+      ],
+      "local_input_inventory_accepted": true,
+      "grouped_statistics_CPU_accepted": true,
+      "final_test_inputs_selected": false,
+      "final_methods_selected": false
     },
     {
       "id": "N08",
@@ -1093,7 +1103,13 @@
     "N05_production_CPU_R2_accepted": "reports/wc_paper_N05_core66_production_CPU_R2_independent_acceptance_20261016.json",
     "N05_neighbor_code_compatibility": "reports/wc_mainline_neighbor_adapter_code_readonly_followup_20261016.json",
     "deployment_inventory_465": "research/465_WC_DEPLOYMENT_COST_SOURCE_INVENTORY_AND_PROFILE_NEXT_20261016.md",
-    "deployment_inventory_CPU": "reports/wc_deployment_cost_source_inventory_r1_20261016.json"
+    "deployment_inventory_CPU": "reports/wc_deployment_cost_source_inventory_r1_20261016.json",
+    "N07_input_stats_466": "research/466_WC_N07_LOCAL_INPUT_ISOLATION_AND_GROUPED_STATISTICS_CPU_READY_20261016.md",
+    "N07_input_protocol": "manifests/wc_paper_N07_common_input_protocol_r1_20261016.json",
+    "N07_group_stats_protocol": "manifests/wc_paper_N07_grouped_statistics_preregistration_r1_20261016.json",
+    "N07_local_input_inventory": "reports/wc_paper_N07_local_input_exclusion_inventory_r1_20261016.json",
+    "N07_local_input_audit": "reports/wc_paper_N07_local_input_exclusion_reproducible_acceptance_20261016.json",
+    "N07_group_stats_CPU": "reports/wc_paper_N07_grouped_statistics_CPU_controls_r1_20261016.json"
   },
   "source_bindings": {
     "11": {
@@ -1311,6 +1327,30 @@
     "deployment_inventory_CPU": {
       "path": "reports/wc_deployment_cost_source_inventory_r1_20261016.json",
       "sha256": "1c9c793b0c5833c25a267163240830cb9ef6297f4819db6a56ec095b01aa3462"
+    },
+    "N07_input_stats_466": {
+      "path": "research/466_WC_N07_LOCAL_INPUT_ISOLATION_AND_GROUPED_STATISTICS_CPU_READY_20261016.md",
+      "sha256": "4e4b5440b3ffd775ba0f302752a1a6d21817c4c7e6eaa5f00b96d17fd7c59795"
+    },
+    "N07_input_protocol": {
+      "path": "manifests/wc_paper_N07_common_input_protocol_r1_20261016.json",
+      "sha256": "1a8a4f8d6051048999851d998838c38bd1134f2af9918a3de1295bcb663e9ec5"
+    },
+    "N07_group_stats_protocol": {
+      "path": "manifests/wc_paper_N07_grouped_statistics_preregistration_r1_20261016.json",
+      "sha256": "868d411223204929d3d0482103c07863edeacc2c931bab48de4a3d6e4b638c32"
+    },
+    "N07_local_input_inventory": {
+      "path": "reports/wc_paper_N07_local_input_exclusion_inventory_r1_20261016.json",
+      "sha256": "5a57cae666c5946dffb9f6e47f8091de7eed9e9c9451293065743fef693d89d5"
+    },
+    "N07_local_input_audit": {
+      "path": "reports/wc_paper_N07_local_input_exclusion_reproducible_acceptance_20261016.json",
+      "sha256": "c465cfe86f2fe8df2f4a3b5d426a9617243f43d6d85b0b98069da1fe19d4cc95"
+    },
+    "N07_group_stats_CPU": {
+      "path": "reports/wc_paper_N07_grouped_statistics_CPU_controls_r1_20261016.json",
+      "sha256": "fd032a0c4c92b2e23ef993ad7b94267a85970eb24b689cf3da482936ad7d3d27"
     }
   },
   "operation_policy": {

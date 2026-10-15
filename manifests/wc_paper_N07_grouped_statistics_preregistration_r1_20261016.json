@@ -1,0 +1,38 @@
+{
+  "status": "N07_STATISTICAL_PROTOCOL_PREREGISTERED_BEFORE_TEST_SELECTION_OR_EXECUTION",
+  "registered_unix": 1792095499.1650171,
+  "input_protocol_ref": "manifests/wc_paper_N07_common_input_protocol_r1_20261016.json",
+  "input_protocol_sha256": "1a8a4f8d6051048999851d998838c38bd1134f2af9918a3de1295bcb663e9ec5",
+  "statistical_unit": "PROMPT_GROUP_WITH_BOTH_REGISTERED_SEEDS",
+  "prompt_groups": 8,
+  "seeds_in_order": [
+    17,
+    43
+  ],
+  "frames_per_video": 93,
+  "fidelity_aggregation": "93 frame distances to a video mean; both seeds to a prompt mean; prompts equally weighted. Complete registered means remain null when a prompt is missing.",
+  "speed_aggregation": "SUM_BASELINE_SECONDS_DIVIDED_BY_SUM_CANDIDATE_SECONDS on identical paired complete two-seed prompt groups; report all per-seed values and group membership.",
+  "bootstrap": {
+    "repetitions": 4096,
+    "seed": 20261016,
+    "interval": "95_PERCENTILE",
+    "resampling_unit": "PROMPT_GROUP_KEEPING_BOTH_SEEDS",
+    "resample_frames_or_seeds_as_independent": false
+  },
+  "comparison_choices": "Freeze from N05/N06 development before final outputs; no per-test prompt winner or method tuning.",
+  "comparison_pairs_pending_method_freeze": true,
+  "missing_data": "Preserve every original status; complete registered and available paired cohorts are separate; never zero-impute or replace a rejected seed.",
+  "zero_reference_LPIPS": "Absolute difference retained, relative percentage and its CI undefined; no epsilon floor.",
+  "interval_interpretation": "Descriptive prompt-grouped uncertainty, not evidence of recording/session independence or a multiple-comparison-corrected significance claim.",
+  "source_sha256": {
+    "src/wcomr/frozen_shared_statistics_r1.py": "b8b99a2a49363b2669f58b3ef8927c86a2ec0cc7bff610f702e7173d863e49e0",
+    "tests/test_frozen_shared_statistics_r1.py": "ea98328086f47d38b6613f9157ef2410c7c3548cfa1f491e10d9faeda0220ba2"
+  },
+  "CPU_control_ref": "reports/wc_paper_N07_grouped_statistics_CPU_controls_r1_20261016.json",
+  "CPU_control_sha256": "fd032a0c4c92b2e23ef993ad7b94267a85970eb24b689cf3da482936ad7d3d27",
+  "final_test_inputs_frozen": false,
+  "final_method_or_GPU_card_selected": false,
+  "GPU_submissions": 0,
+  "SSH_queries": 0,
+  "human_review_required": false
+}
