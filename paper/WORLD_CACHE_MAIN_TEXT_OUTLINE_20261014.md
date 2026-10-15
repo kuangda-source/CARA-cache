@@ -1,5 +1,7 @@
 # WorldCache 正文思路、最小算法与图表框架
 
+**实验编排入口：**[实验总表](EXPERIMENT_MASTER_TABLE.md)逐项给出已完成／在途／待补、C1/C2/C3支撑、缺口及优先级；[机器索引](experiment_master_table.json)与命名映射一起读取。正式强基线与同26D简单规则尚未完成，不能由现有fixed归因替代。
+
 **2026-10-15写作命名入口：** 请先读[内部实现到论文表述映射](INTERNAL_TO_PAPER_MAPPING.md)及[机器索引](internal_to_paper_mapping.json)。暂定CARA-Cache＝GCR＋CPA；效率与高保真分开报告，历史H1重名、P_OFF语义及新P-ACR读出身份按映射核对。新W3已按448启动标签采集，旧“不开新实验”只保留当时状态，尚无新探索闭环结果；本次命名不改下文已验收算法或主结果。
 
 **设计接续说明：** 新P-ACR/W3-MixTrend见[425](../research/425_WC_P_W3_DESIGN_UPDATE_AND_NEXT_STEPS_20261014.md)。它们尚未验证或并入，本文当前两配置、数学定义、数据与摘要数值保持冻结；只有新闭环结果支持且另作合入决定后再修改正文。

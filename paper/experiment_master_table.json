@@ -1,0 +1,1098 @@
+{
+  "schema_version": 1,
+  "updated_local_date": "2026-10-15",
+  "snapshot_basis": "local accepted reports and latest launch receipt; no early SSH/GPU status query",
+  "git_snapshot_before_inventory": "f5dbd194f4c85a1fcb75184fa8938c71f32fb409",
+  "mapping_ref": "paper/internal_to_paper_mapping.json",
+  "scope": "scientific experiment families and complete cards, not each engineering retry; reused artifacts must not be summed as independent samples",
+  "contributions": {
+    "C1": "Guided Cache Readout: CFG-aligned low-cost correction",
+    "C2": "Cost-Calibrated Precision Allocation: current calibrated phase deployment; dynamic value is an open enhancement",
+    "C3": "System evidence for fidelity-runtime operating points, confirmation and deployment; not a third new algorithm",
+    "E-P": "Optional single-branch compensated readout enhancement, not yet in mainline",
+    "E-W3": "Optional causal action-value/risk estimation enhancement, not yet in mainline"
+  },
+  "priority_definitions": {
+    "R": "retain accepted result; do not rerun by default",
+    "P0": "collect the running card and evaluate labels on CPU",
+    "P1": "core paper gap; complete concrete scope/CPU/cost before execution",
+    "P1-C": "conditional W3 closed loop if label decisions justify it",
+    "P2": "frozen final evaluation, repeated timing and deployment/quality evidence",
+    "P2-C": "optional P/combination only when informative and affordable; standalone significant module result not mandatory before composition",
+    "P3-C": "required only for the corresponding cross-backbone claim",
+    "X": "closed or explicitly deferred; not in the active queue"
+  },
+  "status_counts": {
+    "已完成": 17,
+    "已完成并关闭": 2,
+    "正在运行": 1,
+    "待补": 11,
+    "暂缓/未执行": 1
+  },
+  "rows": [
+    {
+      "id": "D01",
+      "state": "已完成｜基线",
+      "paper_experiment_name": "Full Inference / WorldCache技术复现",
+      "internal_ids": [
+        "F1_R3",
+        "NATIVE",
+        "WC"
+      ],
+      "contribution_relation": "C3基础；非本文新算法",
+      "evidence_or_planned_scope": "初始3个接受配对场景，WorldCache加速1.476–1.602×；后续420另有同批WC/RA/Native结果。",
+      "gap_and_next_action": "初始样本不是官方论文全部质量复现；原视频保留，公平调优比较见N05。",
+      "priority": "R·保留，不重跑",
+      "evidence_refs": [
+        "11",
+        "420"
+      ],
+      "method_mapping_ids": [
+        "baseline.native",
+        "baseline.wc"
+      ],
+      "contribution_ids": [
+        "C3"
+      ],
+      "claim_relation": "COMPLETED_MECHANISM_OR_FOUNDATION",
+      "paper_placement": "复现/机制/附录或准备记录"
+    },
+    {
+      "id": "D02",
+      "state": "已完成｜历史开发",
+      "paper_experiment_name": "Scalar Incremental Calibration",
+      "internal_ids": [
+        "W1_CAL8",
+        "SCALAR",
+        "SHRINK"
+      ],
+      "contribution_relation": "C1设计线索；不替代当前GCR主结果",
+      "evidence_or_planned_scope": "8开发场景中7/8内部预测与残差误差改善，预测MSE均值降低24.08%；后续视频评价混合。",
+      "gap_and_next_action": "保留局部与终点差异；当前正文使用CFG共享阶段修正，不再扩展旧逐支W1。",
+      "priority": "R·历史机制",
+      "evidence_refs": [
+        "21",
+        "28",
+        "424"
+      ],
+      "method_mapping_ids": [
+        "module.gcr"
+      ],
+      "contribution_ids": [
+        "C1"
+      ],
+      "claim_relation": "COMPLETED_MECHANISM_OR_FOUNDATION",
+      "paper_placement": "复现/机制/附录或准备记录"
+    },
+    {
+      "id": "D03",
+      "state": "已完成｜早期干预",
+      "paper_experiment_name": "Refresh Intervention",
+      "internal_ids": [
+        "WC_W3_SMALL_HUMAN"
+      ],
+      "contribution_relation": "C2机制线索；非在线调度结论",
+      "evidence_or_planned_scope": "Human单点强制D使LPIPS降低2.8080%，后续两CFG完整调用合计18→16。",
+      "gap_and_next_action": "次数变化是干预后果；并非固定配额或clean端到端优势。新W3不复用该单点充泛化。",
+      "priority": "R·机制/附录",
+      "evidence_refs": [
+        "129"
+      ],
+      "method_mapping_ids": [
+        "module.cpa"
+      ],
+      "contribution_ids": [
+        "C2"
+      ],
+      "claim_relation": "COMPLETED_MECHANISM_OR_FOUNDATION",
+      "paper_placement": "复现/机制/附录或准备记录"
+    },
+    {
+      "id": "D04",
+      "state": "已完成｜开发终点",
+      "paper_experiment_name": "CFG-Aligned Corrected Reuse",
+      "internal_ids": [
+        "RA_PLUS_A_FULL32",
+        "W1_ONE_PHASE",
+        "BETA1_ONE_PHASE"
+      ],
+      "contribution_relation": "C1直接终点证据",
+      "evidence_or_planned_scope": "四CAL×七候选＋四Native，共32路径；阶段β=1相对WC均值LPIPS低11.1600%，4/4改善。",
+      "gap_and_next_action": "旧wall含取证，不作为clean延迟；速度引用D07/D13的同口径结果。",
+      "priority": "R·主干开发证据",
+      "evidence_refs": [
+        "257",
+        "420"
+      ],
+      "method_mapping_ids": [
+        "module.gcr",
+        "config.efficient"
+      ],
+      "contribution_ids": [
+        "C1"
+      ],
+      "claim_relation": "COMPLETED_PRIMARY_EXPERIMENT",
+      "paper_placement": "主性能/归因"
+    },
+    {
+      "id": "D05",
+      "state": "已完成｜工程等价",
+      "paper_experiment_name": "Equivalent Head Execution",
+      "internal_ids": [
+        "E5_FULL24",
+        "LEGACY",
+        "FAST"
+      ],
+      "contribution_relation": "C3工程支持；非新加速主结果",
+      "evidence_or_planned_scope": "24路径，所测输出/动作/RNG等价；修正配对head次数868→688，少20.7373%。",
+      "gap_and_next_action": "次数不等于时间；已验clean主配置未自动启用该FAST，不能把比例加到1.8974×。",
+      "priority": "R·工程/附录",
+      "evidence_refs": [
+        "365",
+        "374",
+        "420"
+      ],
+      "method_mapping_ids": [
+        "module.gcr"
+      ],
+      "contribution_ids": [
+        "C3"
+      ],
+      "claim_relation": "COMPLETED_ENGINEERING_EQUIVALENCE",
+      "paper_placement": "复现/机制/附录或准备记录"
+    },
+    {
+      "id": "D06",
+      "state": "已完成｜组合开发",
+      "paper_experiment_name": "Source-Rule × Readout Interaction",
+      "internal_ids": [
+        "E3_COMPLETE64",
+        "KEEP",
+        "NONZERO"
+      ],
+      "contribution_relation": "C1来源机制；E-P旧P0组合条件",
+      "evidence_or_planned_scope": "两规则×四CAL×八方法，64视频/5952帧；KEEP阶段W1/β1较同规则CPD失真低13.6735%/12.7233%；NONZERO组合反转。",
+      "gap_and_next_action": "不能算P独立收益，不能以含取证/复用的时间作净加速；不再重跑全矩阵。",
+      "priority": "R·机制与条件",
+      "evidence_refs": [
+        "369"
+      ],
+      "method_mapping_ids": [
+        "source.keep",
+        "source.nonzero",
+        "e3.scalar",
+        "e3.unit"
+      ],
+      "contribution_ids": [
+        "C1",
+        "E-P"
+      ],
+      "claim_relation": "COMPLETED_MECHANISM_OR_FOUNDATION",
+      "paper_placement": "主机制或设计分析"
+    },
+    {
+      "id": "D07",
+      "state": "已完成｜重复测速",
+      "paper_experiment_name": "Forward–Reverse Clean Timing",
+      "internal_ids": [
+        "CLEAN_SPEED20",
+        "KEEP_A_P",
+        "A_NO_P"
+      ],
+      "contribution_relation": "C1效率工作点；C3计时证据",
+      "evidence_or_planned_scope": "两场景×五配置×正反两轮=20正式＋20预热；A无P在两个场景的两轮均快于WC且LPIPS更低。",
+      "gap_and_next_action": "重复范围限两场景旧五配置；未覆盖最终高保真版本，最终重复计时见N08。",
+      "priority": "R·计时证据",
+      "evidence_refs": [
+        "374"
+      ],
+      "method_mapping_ids": [
+        "config.efficient",
+        "legacy.keep_a_p"
+      ],
+      "contribution_ids": [
+        "C1",
+        "C3"
+      ],
+      "claim_relation": "COMPLETED_PRIMARY_EXPERIMENT",
+      "paper_placement": "主性能/归因"
+    },
+    {
+      "id": "D08",
+      "state": "已完成｜旧控制开发",
+      "paper_experiment_name": "Normalized-Risk Controllers",
+      "internal_ids": [
+        "N2_SOURCE_H1",
+        "SOURCE_H2",
+        "H2_P_TO_D"
+      ],
+      "contribution_relation": "C2设计分析；不是新absolute H1",
+      "evidence_or_planned_scope": "36正式＋18预热；来源门控P_OFF有质量工作点，旧H1/H2没有执行A。",
+      "gap_and_next_action": "与D12的新TABLE_PHASE_H1分版本；不再把旧H1/H2当待完成主模块。",
+      "priority": "R·设计/附录",
+      "evidence_refs": [
+        "380"
+      ],
+      "method_mapping_ids": [
+        "legacy.n2_h1",
+        "legacy.n2_h2",
+        "config.source_gated"
+      ],
+      "contribution_ids": [
+        "C2"
+      ],
+      "claim_relation": "COMPLETED_MECHANISM_OR_FOUNDATION",
+      "paper_placement": "复现/机制/附录或准备记录"
+    },
+    {
+      "id": "D09",
+      "state": "已完成｜同状态机制",
+      "paper_experiment_name": "Source-Consistent Readout and Calibration",
+      "internal_ids": [
+        "SOURCE_PHASE16",
+        "FULL368"
+      ],
+      "contribution_relation": "C1直接局部机制；C2标定依据",
+      "evidence_or_planned_scope": "四CAL×D/P×早晚16状态；来源一致A为16/16优于C；P来源旧D参考2/8、融合8/8改善。",
+      "gap_and_next_action": "16状态不是16独立视频；旧gamma使用过CAL；局部regret不等于端点，桥接见D10。",
+      "priority": "R·机制主证据",
+      "evidence_refs": [
+        "392"
+      ],
+      "method_mapping_ids": [
+        "module.gcr",
+        "module.cpa",
+        "config.source_fixed"
+      ],
+      "contribution_ids": [
+        "C1",
+        "C2"
+      ],
+      "claim_relation": "COMPLETED_MECHANISM_OR_FOUNDATION",
+      "paper_placement": "主机制或设计分析"
+    },
+    {
+      "id": "D10",
+      "state": "已完成｜后果干预",
+      "paper_experiment_name": "Single-Readout Suffix Consequences",
+      "internal_ids": [
+        "PI0_SUFFIX8",
+        "FULL266"
+      ],
+      "contribution_relation": "C1/C2交互机制",
+      "evidence_or_planned_scope": "4父＋8后缀/12视频；AV28一次A让LPIPS低0.9812%、后续D+P由8→7；另外三点有小幅反例。",
+      "gap_and_next_action": "确认局部更准并不保证终点更好；取证/解码顺序影响不作为clean收益。保留全四点。",
+      "priority": "R·因果机制",
+      "evidence_refs": [
+        "396"
+      ],
+      "method_mapping_ids": [
+        "module.gcr",
+        "module.cpa"
+      ],
+      "contribution_ids": [
+        "C1",
+        "C2"
+      ],
+      "claim_relation": "COMPLETED_MECHANISM_OR_FOUNDATION",
+      "paper_placement": "主机制或设计分析"
+    },
+    {
+      "id": "D11",
+      "state": "已完成｜工程筛查/归档",
+      "paper_experiment_name": "Sparse Attention Feasibility",
+      "internal_ids": [
+        "R4_FULL104",
+        "SPARSE_FAIR"
+      ],
+      "contribution_relation": "不作为当前CARA核心模块",
+      "evidence_or_planned_scope": "104 QKV输入/312算子案例，中位1.218931×；旧两视频全流程少0.2916%/1.4070%。",
+      "gap_and_next_action": "算子与视频成本层级不同、覆盖率有限；当前不继续稀疏搜索，不拿微收益否定整个方向。",
+      "priority": "X·归档，不续开",
+      "evidence_refs": [
+        "75",
+        "134",
+        "424"
+      ],
+      "method_mapping_ids": [],
+      "contribution_ids": [],
+      "claim_relation": "ARCHIVED_NOT_MAINLINE",
+      "paper_placement": "复现/机制/附录或准备记录"
+    },
+    {
+      "id": "D12",
+      "state": "已完成｜主方法开发",
+      "paper_experiment_name": "Absolute Source-and-Phase Allocation",
+      "internal_ids": [
+        "TABLE_PHASE_H1",
+        "TABLE_POOLED_H1",
+        "ABS_H1_CAL24"
+      ],
+      "contribution_relation": "C2已实现标定与工作点；C1读出",
+      "evidence_or_planned_scope": "六方法×四CAL=24正式＋12预热；absolute guided MSE/g²/源分价下A真正被选择，高保真轨迹26D/5A/5C。",
+      "gap_and_next_action": "更多D和阶段位置共同影响终点；已有固定归因D14，仍缺简单同配额对照N06。",
+      "priority": "R·主干开发证据",
+      "evidence_refs": [
+        "403"
+      ],
+      "method_mapping_ids": [
+        "config.high_fidelity",
+        "ablation.source_only"
+      ],
+      "contribution_ids": [
+        "C2",
+        "C1"
+      ],
+      "claim_relation": "COMPLETED_PRIMARY_EXPERIMENT",
+      "paper_placement": "主性能/归因"
+    },
+    {
+      "id": "D13",
+      "state": "已完成｜冻结确认",
+      "paper_experiment_name": "Frozen New-Prompt Confirmation",
+      "internal_ids": [
+        "FROZEN_CONFIRM50",
+        "TABLE_PHASE_H1",
+        "A_NO_P",
+        "P_OFF"
+      ],
+      "contribution_relation": "C1/C2工作点确认；C3有限新输入",
+      "evidence_or_planned_scope": "四新prompt×seed17/43，40正式＋10预热；39兼容视频，RA拒绝1；高保真LPIPS0.0530368、Native加速1.2681×。",
+      "gap_and_next_action": "RA完整八视频质量均值缺失；当前输入已曝光；更广的全部对手共同冻结测试见N07。",
+      "priority": "R·主结果确认",
+      "evidence_refs": [
+        "417"
+      ],
+      "method_mapping_ids": [
+        "config.efficient",
+        "config.high_fidelity",
+        "config.source_gated"
+      ],
+      "contribution_ids": [
+        "C1",
+        "C2",
+        "C3"
+      ],
+      "claim_relation": "COMPLETED_PRIMARY_EXPERIMENT",
+      "paper_placement": "主性能/归因"
+    },
+    {
+      "id": "D14",
+      "state": "已完成｜主比较与归因",
+      "paper_experiment_name": "Common-Batch Trade-off and Matched-Refresh Ablation",
+      "internal_ids": [
+        "COST_CURVE60",
+        "H1_LOW/MID/HIGH",
+        "FIXED_A",
+        "FIXED_PLAIN"
+      ],
+      "contribution_relation": "C1修正独立归因；C2阶段部署；C3同批比较",
+      "evidence_or_planned_scope": "40正式＋20预热；Efficient比WC时间少13.72%、失真低11.1600%；同26D的A/plain失真低3.5196%、多0.8762秒；MID=fixed。",
+      "gap_and_next_action": "三λ都26D，不是宽连续前沿；每格一次计时；fixed等价不证明优于均匀/粗阶段规则。",
+      "priority": "R·主表/消融",
+      "evidence_refs": [
+        "420"
+      ],
+      "method_mapping_ids": [
+        "config.efficient",
+        "config.high_fidelity",
+        "ablation.fixed_a",
+        "ablation.fixed_plain",
+        "sensitivity.low",
+        "sensitivity.high"
+      ],
+      "contribution_ids": [
+        "C1",
+        "C2",
+        "C3"
+      ],
+      "claim_relation": "COMPLETED_PRIMARY_EXPERIMENT",
+      "paper_placement": "主性能/归因"
+    },
+    {
+      "id": "D15",
+      "state": "已完成并关闭｜探索",
+      "paper_experiment_name": "Spectral Risk-Feature Probe",
+      "internal_ids": [
+        "F",
+        "RAW",
+        "Haar",
+        "FFT"
+      ],
+      "contribution_relation": "不合入主线；独立附录",
+      "evidence_or_planned_scope": "F真实局部实验及分组分析已完成；RAW改善预测但动作未变，Haar/FFT未产生当前决策增量。",
+      "gap_and_next_action": "F新差值假设未做但已随方向关闭，不记为活跃待补或自动追加训练。",
+      "priority": "X·关闭",
+      "evidence_refs": [
+        "412",
+        "424"
+      ],
+      "method_mapping_ids": [
+        "closed.f"
+      ],
+      "contribution_ids": [],
+      "claim_relation": "ARCHIVED_NOT_MAINLINE",
+      "paper_placement": "复现/机制/附录或准备记录"
+    },
+    {
+      "id": "D16",
+      "state": "已完成并关闭｜探索",
+      "paper_experiment_name": "Block-Reuse Endpoint Diagnostic",
+      "internal_ids": [
+        "B_FULL312",
+        "C_REPLAY",
+        "DENSE_VELOCITY",
+        "L2_VELOCITY"
+      ],
+      "contribution_relation": "不合入主线；独立附录",
+      "evidence_or_planned_scope": "4状态/16视频/1488帧；C/Dense/L2均值LPIPS 0.3272410/0.3289287/0.3300823，端点混合。",
+      "gap_and_next_action": "首返回保存速度、实际C缓存，不是在线B刷新或净加速；保留父C/A差异解释，不再扩展。",
+      "priority": "X·关闭",
+      "evidence_refs": [
+        "423",
+        "424"
+      ],
+      "method_mapping_ids": [
+        "closed.b"
+      ],
+      "contribution_ids": [],
+      "claim_relation": "ARCHIVED_NOT_MAINLINE",
+      "paper_placement": "复现/机制/附录或准备记录"
+    },
+    {
+      "id": "D17",
+      "state": "已完成｜离线增强机制",
+      "paper_experiment_name": "Single-Branch Compensation E0",
+      "internal_ids": [
+        "P_ACR_E0",
+        "Pc",
+        "Pu"
+      ],
+      "contribution_relation": "E-P局部可行性；未成为主贡献",
+      "evidence_or_planned_scope": "旧16真实状态；按prompt留出的SourcePhase Pu系数相对A的guided MSE低37.2996%，14/16点、4/4提示词改善。",
+      "gap_and_next_action": "只隔离系数留出，A已用过CAL；没有新单支实际价/新来源/闭环结果。下一可选N03。",
+      "priority": "R·增强机制",
+      "evidence_refs": [
+        "426"
+      ],
+      "method_mapping_ids": [
+        "explore.acr"
+      ],
+      "contribution_ids": [
+        "E-P"
+      ],
+      "claim_relation": "COMPLETED_MECHANISM_OR_FOUNDATION",
+      "paper_placement": "复现/机制/附录或准备记录"
+    },
+    {
+      "id": "D18",
+      "state": "已完成｜CPU准备",
+      "paper_experiment_name": "P-ACR Production CPU Validation",
+      "internal_ids": [
+        "PA528_CPU_R2"
+      ],
+      "contribution_relation": "E-P执行准备，不是性能证据",
+      "evidence_or_planned_scope": "完整PA528的原语、父恢复、真实入口和启动/post CPU接受；模型/权重/GPU为0。",
+      "gap_and_next_action": "CPU通过不等于真实528执行；P-ACR当前不更新来源，GPU卡未选定。",
+      "priority": "R·无需重做CPU",
+      "evidence_refs": [
+        "433"
+      ],
+      "method_mapping_ids": [
+        "explore.acr"
+      ],
+      "contribution_ids": [
+        "E-P"
+      ],
+      "claim_relation": "PREPARATION_ONLY",
+      "paper_placement": "复现/机制/附录或准备记录"
+    },
+    {
+      "id": "D19",
+      "state": "已完成｜CPU准备",
+      "paper_experiment_name": "Causal Clock and W3 Collector Validation",
+      "internal_ids": [
+        "W3_CLOCK432",
+        "W3_FULL72_CPU",
+        "W3_PRODUCTION_CPU_R3"
+      ],
+      "contribution_relation": "E-W3/C2监督工具；不是新风险模型收益",
+      "evidence_or_planned_scope": "真实scheduler CPU重放对齐旧432步；完整模拟采集/父恢复/因果隔离及生产23控制接受。",
+      "gap_and_next_action": "模拟72父/3456pairs不是真实W3标签；真实18父卡为R01。无需再派准备CPU。",
+      "priority": "R·准备封口",
+      "evidence_refs": [
+        "434",
+        "441",
+        "447"
+      ],
+      "method_mapping_ids": [
+        "explore.w3_labels",
+        "explore.trend_t1",
+        "explore.trend_t2"
+      ],
+      "contribution_ids": [
+        "E-W3",
+        "C2"
+      ],
+      "claim_relation": "PREPARATION_ONLY",
+      "paper_placement": "复现/机制/附录或准备记录"
+    },
+    {
+      "id": "R01",
+      "state": "正在运行｜待按ETA验收",
+      "paper_experiment_name": "Same-State C/A/D Label Collection",
+      "internal_ids": [
+        "W3_LABEL64",
+        "FULL864"
+      ],
+      "contribution_relation": "拟支撑C2/E-W3；当前是采集",
+      "evidence_or_planned_scope": "原source047dcf1，18父/64正式＋8warm状态/最多864pairs/1728CFG/1load；12:27:22启动；计划10-16 01:00查收。",
+      "gap_and_next_action": "先验收全分母/真实标签/父非提交等价/原件与CPU-post/实费释放；无新Native，不产生新策略LPIPS。",
+      "priority": "P0·先收原卡",
+      "evidence_refs": [
+        "448"
+      ],
+      "method_mapping_ids": [
+        "explore.w3_labels"
+      ],
+      "depends_on": [
+        "D19"
+      ],
+      "forecast_GPUh": 11.645827780327332,
+      "authorized_billed_limit_GPUh": 12,
+      "collection_not_before_unix": 1792083600,
+      "actual_result_collected": false,
+      "contribution_ids": [
+        "C2",
+        "E-W3"
+      ],
+      "claim_relation": "INFLIGHT_SUPERVISION_COLLECTION",
+      "paper_placement": "后续证据，结果未填"
+    },
+    {
+      "id": "N01",
+      "state": "待补｜等R01标签",
+      "paper_experiment_name": "Grouped Action-Value Evaluation",
+      "internal_ids": [
+        "W3_T0",
+        "T1_13D",
+        "T2_27D"
+      ],
+      "contribution_relation": "E-W3→C2是否值得增强",
+      "evidence_or_planned_scope": "T0冻结表、T1当前观察Ridge、T2因果短历史；按prompt分组、同λ/费用/合法域比较。",
+      "gap_and_next_action": "真实标签尚待；训练/标准化只在训练prompt；主看动作regret/边界误排，MSE辅助。",
+      "priority": "P0·R01后CPU",
+      "evidence_refs": [
+        "trend_spec",
+        "448"
+      ],
+      "method_mapping_ids": [
+        "explore.trend_t0",
+        "explore.trend_t1",
+        "explore.trend_t2"
+      ],
+      "depends_on": [
+        "R01"
+      ],
+      "new_GPU_card_selected": false,
+      "contribution_ids": [
+        "E-W3",
+        "C2"
+      ],
+      "claim_relation": "INTENDED_SUPPORT_UNCOMPLETED",
+      "paper_placement": "后续证据，结果未填"
+    },
+    {
+      "id": "N02",
+      "state": "待补｜条件闭环",
+      "paper_experiment_name": "Trend-Aware Allocation Closed Loop",
+      "internal_ids": [
+        "W3_FROZEN_PREDICTOR_CLOSED_LOOP"
+      ],
+      "contribution_relation": "拟增强C2动态分配；C3端点",
+      "evidence_or_planned_scope": "有决策增量后冻结预测器、λ/报价/回退，登记独立完整Native/H1/新候选配对卡，范围/费用待定。",
+      "gap_and_next_action": "要把更少误选转为同保真更快或相近时间更准；动作变化/局部regret本身不是最终收益。",
+      "priority": "P1-C·有信号再选卡",
+      "evidence_refs": [
+        "trend_spec",
+        "roadmap",
+        "448"
+      ],
+      "method_mapping_ids": [
+        "explore.trend_t1",
+        "explore.trend_t2"
+      ],
+      "depends_on": [
+        "N01"
+      ],
+      "new_GPU_card_selected": false,
+      "contribution_ids": [
+        "C2",
+        "C3"
+      ],
+      "claim_relation": "INTENDED_SUPPORT_UNCOMPLETED",
+      "paper_placement": "后续证据，结果未填"
+    },
+    {
+      "id": "N03",
+      "state": "待补｜可选整卡",
+      "paper_experiment_name": "Single-Branch Readout: Real Error and Price",
+      "internal_ids": [
+        "PA528"
+      ],
+      "contribution_relation": "E-P费用/精度候选；不作为主稿前置",
+      "evidence_or_planned_scope": "原完整8父/12状态/C,A,D,Pc,Pu各1warm+3正式，共528pairs/1056CFG；预计7.529994GPUh。",
+      "gap_and_next_action": "需要实际单支报价、误差下包络与恢复/视频控制；不默认为必须执行，先保护主稿补验余额。",
+      "priority": "P2-C·条件可选",
+      "evidence_refs": [
+        "433",
+        "roadmap",
+        "448"
+      ],
+      "method_mapping_ids": [
+        "explore.acr"
+      ],
+      "depends_on": [
+        "D17",
+        "D18"
+      ],
+      "forecast_GPUh": 7.529994179,
+      "new_GPU_card_selected": false,
+      "contribution_ids": [
+        "E-P"
+      ],
+      "claim_relation": "INTENDED_SUPPORT_UNCOMPLETED",
+      "paper_placement": "后续证据，结果未填"
+    },
+    {
+      "id": "N04",
+      "state": "待补｜条件组合",
+      "paper_experiment_name": "P-ACR / Trend Readout Bridge and Combination",
+      "internal_ids": [
+        "S1_SIX_CONFIGURATION_TEMPLATE"
+      ],
+      "contribution_relation": "拟增强E-P/C2；不提前计主贡献",
+      "evidence_or_planned_scope": "既有模板：4开发prompt×6配置=24正式＋12预热；含H1原集/CAD桥接、Trend、ACR及组合。",
+      "gap_and_next_action": "先有值得追踪的误差—费用或交互信号，再冻结完整范围；只做读出闭环，合法来源refresh须另设计。",
+      "priority": "P2-C·有信号/余额才做",
+      "evidence_refs": [
+        "roadmap"
+      ],
+      "method_mapping_ids": [
+        "explore.acr",
+        "explore.trend_t2"
+      ],
+      "depends_on": [
+        "N01",
+        "N03"
+      ],
+      "new_GPU_card_selected": false,
+      "contribution_ids": [
+        "E-P",
+        "C2"
+      ],
+      "claim_relation": "INTENDED_SUPPORT_UNCOMPLETED",
+      "paper_placement": "后续证据，结果未填"
+    },
+    {
+      "id": "N05",
+      "state": "待补｜正式开发",
+      "paper_experiment_name": "Fair Tuned-Baseline Frontier",
+      "internal_ids": [
+        "PAPER_E1_TUNED_BASELINES"
+      ],
+      "contribution_relation": "C1/C2实用增量；C3公平性",
+      "evidence_or_planned_scope": "拟议12配置×4CAL=48正式＋24预热：Native完整/少步、WC/RA有限调优、两工作点、一个忠实修正近邻。",
+      "gap_and_next_action": "需先固定可比规格/计时/资源与点选择；约149/223秒两区域公平比较；完整卡费用/CPU尚未登记。",
+      "priority": "P1·论文关键补验",
+      "evidence_refs": [
+        "closure_plan",
+        "roadmap"
+      ],
+      "method_mapping_ids": [
+        "baseline.native",
+        "baseline.wc",
+        "baseline.ra",
+        "config.efficient",
+        "config.high_fidelity"
+      ],
+      "depends_on": [],
+      "template_only": true,
+      "new_GPU_card_selected": false,
+      "contribution_ids": [
+        "C1",
+        "C2",
+        "C3"
+      ],
+      "claim_relation": "INTENDED_SUPPORT_UNCOMPLETED",
+      "paper_placement": "后续证据，结果未填"
+    },
+    {
+      "id": "N06",
+      "state": "待补｜正式归因",
+      "paper_experiment_name": "Simple Schedules at Matched Dense Budget",
+      "internal_ids": [
+        "PAPER_E2_STATIC_26D"
+      ],
+      "contribution_relation": "C2分配独立价值；C1跨位置作用",
+      "evidence_or_planned_scope": "均匀/粗前密后疏各配C/同一种A：16正式＋8预热；若同批原控制则24正式＋12预热。",
+      "gap_and_next_action": "预先冻结合法36步mask/age回退/实际配额与费用；不能拿D14 fixed等价充当规则优越性。",
+      "priority": "P1·论文关键补验",
+      "evidence_refs": [
+        "closure_plan",
+        "roadmap"
+      ],
+      "method_mapping_ids": [
+        "module.cpa",
+        "ablation.fixed_a",
+        "ablation.fixed_plain"
+      ],
+      "depends_on": [],
+      "template_only": true,
+      "new_GPU_card_selected": false,
+      "contribution_ids": [
+        "C2",
+        "C1"
+      ],
+      "claim_relation": "INTENDED_SUPPORT_UNCOMPLETED",
+      "paper_placement": "后续证据，结果未填"
+    },
+    {
+      "id": "N07",
+      "state": "待补｜最终共同测试",
+      "paper_experiment_name": "Common Frozen Evaluation Matrix",
+      "internal_ids": [
+        "PAPER_E3_FROZEN_SHARED_TEST"
+      ],
+      "contribution_relation": "C1/C2最终版本确认；C3覆盖",
+      "evidence_or_planned_scope": "原模板8新prompt×2seed×10最终配置=160正式＋20预热；规模以完整费用事前登记。",
+      "gap_and_next_action": "先冻结最终候选与强基线；417和R01输入已曝光，不重称下一版未见；拒绝/缺失保留。",
+      "priority": "P2·N05/N06后冻结",
+      "evidence_refs": [
+        "closure_plan",
+        "roadmap"
+      ],
+      "method_mapping_ids": [
+        "config.efficient",
+        "config.high_fidelity"
+      ],
+      "depends_on": [
+        "N05",
+        "N06"
+      ],
+      "template_only": true,
+      "new_GPU_card_selected": false,
+      "contribution_ids": [
+        "C1",
+        "C2",
+        "C3"
+      ],
+      "claim_relation": "INTENDED_SUPPORT_UNCOMPLETED",
+      "paper_placement": "后续证据，结果未填",
+      "conditional_depends_on_if_variant_selected": [
+        "N02",
+        "N04"
+      ]
+    },
+    {
+      "id": "N08",
+      "state": "待补｜最终重复测速",
+      "paper_experiment_name": "Balanced Repeated Clean Latency",
+      "internal_ids": [
+        "PAPER_E4_REPEAT_SPEED"
+      ],
+      "contribution_relation": "C3稳定费用；C1/C2工作点复验",
+      "evidence_or_planned_scope": "两场景×五最终配置×三平衡轮=30正式＋10预热；同轮倍数/波动/质量并列。",
+      "gap_and_next_action": "D07已完成但不是最终高保真重复；模型驻留、初始化和算法维护口径固定。",
+      "priority": "P2·最终版本冻结后",
+      "evidence_refs": [
+        "closure_plan",
+        "roadmap"
+      ],
+      "method_mapping_ids": [
+        "config.efficient",
+        "config.high_fidelity"
+      ],
+      "depends_on": [
+        "N05"
+      ],
+      "template_only": true,
+      "new_GPU_card_selected": false,
+      "contribution_ids": [
+        "C3",
+        "C1",
+        "C2"
+      ],
+      "claim_relation": "INTENDED_SUPPORT_UNCOMPLETED",
+      "paper_placement": "后续证据，结果未填",
+      "conditional_depends_on_if_variant_selected": [
+        "N02",
+        "N04"
+      ]
+    },
+    {
+      "id": "N09",
+      "state": "待补｜部署证据",
+      "paper_experiment_name": "Calibration and Minimal Deployment Profile",
+      "internal_ids": [
+        "PAPER_E5_COST_PROFILE"
+      ],
+      "contribution_relation": "C3部署开销；C2费用一致",
+      "evidence_or_planned_scope": "拆必要离线标定、probe/warp/head/RF、选择/缓存维护、显存；已有报价有转移成分。",
+      "gap_and_next_action": "不能用历史全部GPUh当最小标定费，不能以D05 head次数当延迟；回本量须同保真真实净省时。",
+      "priority": "P2·最终实现后",
+      "evidence_refs": [
+        "closure_plan",
+        "roadmap"
+      ],
+      "method_mapping_ids": [
+        "module.gcr",
+        "module.cpa"
+      ],
+      "depends_on": [],
+      "template_only": true,
+      "new_GPU_card_selected": false,
+      "contribution_ids": [
+        "C3",
+        "C2"
+      ],
+      "claim_relation": "INTENDED_SUPPORT_UNCOMPLETED",
+      "paper_placement": "后续证据，结果未填"
+    },
+    {
+      "id": "N10",
+      "state": "待补｜最终质量维度",
+      "paper_experiment_name": "Automatic Video Quality on Final Outputs",
+      "internal_ids": [
+        "PAPER_E5_AUTOMATIC_QUALITY"
+      ],
+      "contribution_relation": "C3生成质量范围；补充保真主指标",
+      "evidence_or_planned_scope": "旧MUSIQ/抽帧VQA已做；最终共同视频的语义/一致性/闪烁/动态维度尚未统一。",
+      "gap_and_next_action": "优先复用输出、冻结少量相关自动指标；不能把更静当更好，或子集评分称完整官方总分；不增人评。",
+      "priority": "P2·复用最终视频",
+      "evidence_refs": [
+        "28",
+        "closure_plan",
+        "roadmap"
+      ],
+      "method_mapping_ids": [],
+      "depends_on": [
+        "N07"
+      ],
+      "template_only": true,
+      "new_GPU_card_selected": false,
+      "contribution_ids": [
+        "C3"
+      ],
+      "claim_relation": "INTENDED_SUPPORT_UNCOMPLETED",
+      "paper_placement": "后续证据，结果未填"
+    },
+    {
+      "id": "N11",
+      "state": "待补｜主张条件",
+      "paper_experiment_name": "Second-Backbone Transfer",
+      "internal_ids": [
+        "SECOND_MODEL_TRANSFER"
+      ],
+      "contribution_relation": "C3跨骨干；若不做则限定Cosmos",
+      "evidence_or_planned_scope": "模型内接线pilot→必要q/g/费用标定→冻结共同测试；尚无本项目迁移结果。",
+      "gap_and_next_action": "原8/−7权重、36更新、step25不原样当新模型真值；模型/范围/费用待定。",
+      "priority": "P3-C·主张跨骨干时必补",
+      "evidence_refs": [
+        "closure_plan",
+        "roadmap"
+      ],
+      "method_mapping_ids": [],
+      "depends_on": [],
+      "template_only": true,
+      "new_GPU_card_selected": false,
+      "contribution_ids": [
+        "C3"
+      ],
+      "claim_relation": "INTENDED_SUPPORT_UNCOMPLETED",
+      "paper_placement": "后续证据，结果未填"
+    },
+    {
+      "id": "Z01",
+      "state": "暂缓/未执行｜旧卡",
+      "paper_experiment_name": "Legacy Deferred Cards",
+      "internal_ids": [
+        "OLD_E2_FULL76",
+        "OLD_P_REFERENCE_13H"
+      ],
+      "contribution_relation": "不算当前待执行承诺",
+      "evidence_or_planned_scope": "旧E2完整76、P参考双flow13.0600GPUh等历史卡保留。",
+      "gap_and_next_action": "不由新文档重启、缩卡或借用授权；新P/W3及正式补验用各自完整登记。",
+      "priority": "X·暂缓，不恢复",
+      "evidence_refs": [
+        "369",
+        "424",
+        "roadmap"
+      ],
+      "method_mapping_ids": [],
+      "contribution_ids": [],
+      "claim_relation": "ARCHIVED_NOT_MAINLINE",
+      "paper_placement": "复现/机制/附录或准备记录"
+    }
+  ],
+  "source_refs": {
+    "11": "research/11_F1_R3_TECHNICAL_RESULTS.md",
+    "21": "research/21_W1D_CAL8_RESULTS.md",
+    "28": "research/28_W1_DEVELOPMENT_VQA_RESULTS.md",
+    "75": "research/75_WC_FULL104_R4_CARD_AND_RESULTS.md",
+    "129": "research/129_WC_W3_HUMAN_APPROVED_EXECUTION_AND_RESULTS.md",
+    "134": "research/134_WC_SPARSE_COST_CONDITIONS_EXPLORATORY_RESULTS.md",
+    "257": "research/257_WC_RA_PLUS_A_COMPLETE32_FIDELITY_AND_COST_RESULTS_20261010.md",
+    "365": "research/365_WC_E5_COMPLETE24_REAL_HEAD_EQUIVALENCE_RESULTS_AND_E3_NEXT_20261011.md",
+    "369": "research/369_WC_E3_COMPLETE64_RESULTS_SOURCE_READOUT_INTERACTION_AND_NEXT_20261012.md",
+    "374": "research/374_WC_CLEAN_SPEED20_COMPLETE_RESULTS_20261012.md",
+    "380": "research/380_WC_MATH_N2_COMPLETE_SOURCE_GATE_POSITIVE_AND_ROUTER_A_UNUSED_RESULTS_20261012.md",
+    "392": "research/392_WC_SOURCE_PHASE16_COMPLETE_POSITIVE_RESULTS_AND_CONSEQUENCE_NEXT_20261012.md",
+    "396": "research/396_WC_PI0_SUFFIX8_COMPLETE_RESULTS_LOCAL_TARGET_AND_FUTURE_COMPUTE_20261013.md",
+    "403": "research/403_WC_ABSOLUTE_H1_COMPLETE_RESULTS_HIGH_FIDELITY_AND_NEXT_20261013.md",
+    "412": "research/412_WC_FB_COMPLETE_RESULTS_AND_INDEPENDENT_CONFIRMATION_LAUNCH_20261013.md",
+    "417": "research/417_WC_FROZEN_CONFIRMATION_FULL50_RESULTS_AND_COST_CURVE_NEXT_20261013.md",
+    "420": "research/420_WC_FULL60_COST_CURVE_COMPLETE_RESULTS_AND_CONVERGENCE_20261014.md",
+    "423": "research/423_WC_B_FULL312_COMPLETE_ENDPOINT_RESULTS_AND_READOUT_BOUNDARY_20261014.md",
+    "424": "research/424_WC_FINAL_EXPERIMENT_CLOSURE_AND_PAPER_EVIDENCE_20261014.md",
+    "426": "research/426_WC_P_W3_E0_COMPLETE_ASYMMETRIC_ORACLE_AND_COEFFICIENT_RESULTS_20261014.md",
+    "433": "research/433_WC_P_ACR_WHOLE528_LAUNCH_CPU_AND_NEXT_DECISION_20261015.md",
+    "434": "research/434_WC_W3_REAL_CONTINUOUS_CLOCK_AND_FULL432_CAUSAL_HISTORY_CPU_20261015.md",
+    "441": "research/441_WC_W3_FULL72_COLLECTOR_CPU_ACCEPTED_AND_PRODUCTION_NEXT_20261015.md",
+    "447": "research/447_WC_W3_COMPLETE_CPU_CLOSED_AND_WHOLE864_PERMISSION_DECISION_20261015.md",
+    "448": "research/448_WC_W3_FULL864_APPROVED_GPU_LAUNCH_AND_UNDER12_AUTONOMY_20261015.md",
+    "roadmap": "plans/WORLD_CACHE_RESEARCH_ROADMAP_20261015.md",
+    "closure_plan": "plans/WORLD_CACHE_PAPER_CONVERGENCE_AND_FINAL_EXPERIMENTS_20261014.md",
+    "trend_spec": "research/p_w3_e0_20261014/W3_Trend_Label_And_Baseline_Spec.md"
+  },
+  "source_bindings": {
+    "11": {
+      "path": "research/11_F1_R3_TECHNICAL_RESULTS.md",
+      "sha256": "8c992f5024e01f5ffb3f02e252742230f36dec9e5f2f8443a589a8c6e0b967cd"
+    },
+    "21": {
+      "path": "research/21_W1D_CAL8_RESULTS.md",
+      "sha256": "9763ff9039dbbf245765318956c1aaaa1516dc09f74fc817e9991fc183467331"
+    },
+    "28": {
+      "path": "research/28_W1_DEVELOPMENT_VQA_RESULTS.md",
+      "sha256": "2dcf0089561c3686077109c160a383001e5fc27c0570923c90bf664752c332d7"
+    },
+    "75": {
+      "path": "research/75_WC_FULL104_R4_CARD_AND_RESULTS.md",
+      "sha256": "9aab5f16bdbc5117f641464a055a56e90ffebd6f5b7fa3bf0b15cc722882331d"
+    },
+    "129": {
+      "path": "research/129_WC_W3_HUMAN_APPROVED_EXECUTION_AND_RESULTS.md",
+      "sha256": "369da8d489133a128975477e017076e395ab317d8f3f6502da23a98188ea3d96"
+    },
+    "134": {
+      "path": "research/134_WC_SPARSE_COST_CONDITIONS_EXPLORATORY_RESULTS.md",
+      "sha256": "6320bd1c2e41f0ed583fd292474f887045767f6ccfdf4f9c89ae508116fb1fcd"
+    },
+    "257": {
+      "path": "research/257_WC_RA_PLUS_A_COMPLETE32_FIDELITY_AND_COST_RESULTS_20261010.md",
+      "sha256": "6712afc392b2bd4271c87901b83d79fced301594a45d8c937b8ba4b8a2d5f6d3"
+    },
+    "365": {
+      "path": "research/365_WC_E5_COMPLETE24_REAL_HEAD_EQUIVALENCE_RESULTS_AND_E3_NEXT_20261011.md",
+      "sha256": "349f3e284f8666e34f6ec1e1a76d01d2d6bb39ee1a2cc707eec3aea9300908c0"
+    },
+    "369": {
+      "path": "research/369_WC_E3_COMPLETE64_RESULTS_SOURCE_READOUT_INTERACTION_AND_NEXT_20261012.md",
+      "sha256": "9fb0f8dfa017f9abe12e898a749759810aecf7bececcc983c452b1d1b7d824b8"
+    },
+    "374": {
+      "path": "research/374_WC_CLEAN_SPEED20_COMPLETE_RESULTS_20261012.md",
+      "sha256": "a74167688466fc2fb91103e559d90d2a11122e520eb8e3eb834d6339ac09dabc"
+    },
+    "380": {
+      "path": "research/380_WC_MATH_N2_COMPLETE_SOURCE_GATE_POSITIVE_AND_ROUTER_A_UNUSED_RESULTS_20261012.md",
+      "sha256": "3000bd28bba4181991c17d41d931c4378fed5ba91e68f6c7e5e1ca6f376813f7"
+    },
+    "392": {
+      "path": "research/392_WC_SOURCE_PHASE16_COMPLETE_POSITIVE_RESULTS_AND_CONSEQUENCE_NEXT_20261012.md",
+      "sha256": "b133c0876064a6105c119d553ea52532372f325bdd1afc62c56331cc5b53d534"
+    },
+    "396": {
+      "path": "research/396_WC_PI0_SUFFIX8_COMPLETE_RESULTS_LOCAL_TARGET_AND_FUTURE_COMPUTE_20261013.md",
+      "sha256": "a1a0a70b6cc1e20e14b5e40712e5294476088b6a26923ba05d8edddffa42108c"
+    },
+    "403": {
+      "path": "research/403_WC_ABSOLUTE_H1_COMPLETE_RESULTS_HIGH_FIDELITY_AND_NEXT_20261013.md",
+      "sha256": "4b41d544b2724435f91783697e6ef84605e5850b74f1ca01f91c17a9b68a5a53"
+    },
+    "412": {
+      "path": "research/412_WC_FB_COMPLETE_RESULTS_AND_INDEPENDENT_CONFIRMATION_LAUNCH_20261013.md",
+      "sha256": "7de522129c04a9b9cd9ae9309b4f9207007a3b128819192d1d908a9df77baa05"
+    },
+    "417": {
+      "path": "research/417_WC_FROZEN_CONFIRMATION_FULL50_RESULTS_AND_COST_CURVE_NEXT_20261013.md",
+      "sha256": "043a87ea4300a38542e3be895f01cc7de15f674f5bc7dc211e35c939736f92d6"
+    },
+    "420": {
+      "path": "research/420_WC_FULL60_COST_CURVE_COMPLETE_RESULTS_AND_CONVERGENCE_20261014.md",
+      "sha256": "b06d95c0ec00118051559fcec53ee76697348aa24c15941da472712bf73f6d05"
+    },
+    "423": {
+      "path": "research/423_WC_B_FULL312_COMPLETE_ENDPOINT_RESULTS_AND_READOUT_BOUNDARY_20261014.md",
+      "sha256": "bebca2c13525447f1487681d38c3fbf56714a794623a5a131afce14a1555e8d5"
+    },
+    "424": {
+      "path": "research/424_WC_FINAL_EXPERIMENT_CLOSURE_AND_PAPER_EVIDENCE_20261014.md",
+      "sha256": "b60962f479114329d2ea445f7564b8483ffd522d5955fdf56e03433290c94d6b"
+    },
+    "426": {
+      "path": "research/426_WC_P_W3_E0_COMPLETE_ASYMMETRIC_ORACLE_AND_COEFFICIENT_RESULTS_20261014.md",
+      "sha256": "b97b6ccdf2ada2f1dbbf96946b261aef313a12b6520335af767f847a9b67f1d1"
+    },
+    "433": {
+      "path": "research/433_WC_P_ACR_WHOLE528_LAUNCH_CPU_AND_NEXT_DECISION_20261015.md",
+      "sha256": "719a33da52c4ce71cfacf298fbbd8359724758ee386f447f440bc6837f0e7b17"
+    },
+    "434": {
+      "path": "research/434_WC_W3_REAL_CONTINUOUS_CLOCK_AND_FULL432_CAUSAL_HISTORY_CPU_20261015.md",
+      "sha256": "8dd28750b9b000022030bdaa2d6afd8a7068cc495b3fa26b370b86806f10008f"
+    },
+    "441": {
+      "path": "research/441_WC_W3_FULL72_COLLECTOR_CPU_ACCEPTED_AND_PRODUCTION_NEXT_20261015.md",
+      "sha256": "25b78cca3fa1b70fd6211ebd45c41e085df40ea7f6841cbe48351c2d239955b7"
+    },
+    "447": {
+      "path": "research/447_WC_W3_COMPLETE_CPU_CLOSED_AND_WHOLE864_PERMISSION_DECISION_20261015.md",
+      "sha256": "a1827cf042cccbb567a231e849a1e2cb5482a0692caa2a4dc8d15f47a5616735"
+    },
+    "448": {
+      "path": "research/448_WC_W3_FULL864_APPROVED_GPU_LAUNCH_AND_UNDER12_AUTONOMY_20261015.md",
+      "sha256": "be9cf29ebe0885957ba6fdf7c81e419079fbb2e2ce53f7c2df2548c2ec7b817e"
+    },
+    "roadmap": {
+      "path": "plans/WORLD_CACHE_RESEARCH_ROADMAP_20261015.md",
+      "sha256": "b0403bc26fdc725ea736ad54ef6904d86bb7cf0e2fb55e9428d1acdbfd7202b6"
+    },
+    "closure_plan": {
+      "path": "plans/WORLD_CACHE_PAPER_CONVERGENCE_AND_FINAL_EXPERIMENTS_20261014.md",
+      "sha256": "ebc69c4336ebabaf3b7dc667ec8bcdea05990ef11c5096a54df291bf7c5687f4"
+    },
+    "trend_spec": {
+      "path": "research/p_w3_e0_20261014/W3_Trend_Label_And_Baseline_Spec.md",
+      "sha256": "8e5a1f5e6ba02a58875498d55b3404dcc52de955f6c16d1b9a5ae3ba8f86bb5c"
+    }
+  },
+  "operation_policy": {
+    "current_running_card": "WC-W3-LABEL-EXPLDEV8-PARENT18-LOCAL64-FULL864-R1-20261015-A",
+    "scheduled_collection_local": "2026-10-16T01:00:00+08:00",
+    "no_continuous_monitoring": true,
+    "new_GPU_jobs_started_by_this_inventory": 0,
+    "automatic_single_complete_job_estimate_exclusive_GPUh_upper_bound": 12,
+    "cumulative_cap_GPUh_unchanged": 104.97136333301378,
+    "last_settled_used_GPUh_before_running_card": 79.99637737158223,
+    "remaining_before_running_card_GPUh": 24.974985961431557,
+    "running_card_forecast_GPUh": 11.645827780327332,
+    "actual_running_card_spend_unknown": true,
+    "budget_window_not_reset": true,
+    "planned_templates_are_not_CPU_accepted_selected_cards": true,
+    "closed_F_B_not_reopened": true
+  },
+  "mapping_sha256_at_inventory": "4f3cd6988de2a1b290001f661d3e6dae40ec52906eccb0a9bf6191165a250aee"
+}

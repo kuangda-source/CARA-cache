@@ -2,6 +2,8 @@
 
 论文写作映射已整理：[内部到论文表述](../../paper/INTERNAL_TO_PAPER_MAPPING.md)、[机器索引](../../paper/internal_to_paper_mapping.json)。暂定CARA-Cache＝GCR＋CPA；原ID/SHA不改，P_OFF仍含P0、旧新H1分版本、新P为compensated readout。当前运行／01:00一次查收保持，未提前查partial。
 
+新增[论文实验总表](../../paper/EXPERIMENT_MASTER_TABLE.md)与[机器索引](../../paper/experiment_master_table.json)：32项含已完成、原W3在途、待补及关闭/暂缓，映射C1/C2/C3与P/W3增强，列依赖与优先级。此轮仅本地文档核对，无SSH/新实验；原W3查收及<12GPUh自主、原累计预算保持。
+
 用户明确“批准，以后少于 12gpuh 时的都不用问了，直接启动”。[448启动与新规则](../../research/448_WC_W3_FULL864_APPROVED_GPU_LAUNCH_AND_UNDER12_AUTONOMY_20261015.md)：source047dcf1原CPU stage不变，876730/876879/876731在12:27:22通过锁内fresh资源/原余额准入，18父/64+8状态/最多864pairs/1load整卡单次运行，批准计费上限12，forecast11.645828。原cap104.971363333/实结79.996377372不变，运行预留不是实费。后续整卡预计**<12GPUh直接执行，>=12具体确认**；本卡12上限已单独批准。不再沿用下面历史等待许可/停止新GPU文字；F/B结束，PA仍可选未选定，原A/H1冻结、无需人评/训练/OMR。
 
 预计8—12小时加CPU审计，**2026-10-16 01:00 Asia/Shanghai（1792083600）一次查收**，此前不SSH看partial/持续监听、不改stage或重派。原句柄CPU-final/post-exit与全18/72原分母、原件/93帧RGB/费用释放接受后做W3 CPU分组评价；只有真实决策/端点增量才合入。以下保留历史。
