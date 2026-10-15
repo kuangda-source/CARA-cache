@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_local_date": "2026-10-15",
+  "updated_local_date": "2026-10-16",
   "repository": "kuangda-source/worldcache-omr-experiments",
   "repository_absolute_path": "/Users/kuangda_gao/Documents/世界模型加速实验/worldcache_omr",
   "snapshot_git_commit_before_mapping": "d13ea296d19bc560f692a22f0b96421507184ac5",
@@ -737,7 +737,7 @@
       "experiment_namespaces": [
         "W3_LABEL864"
       ],
-      "evidence_status": "GPU_launched_results_not_collected_as_of_snapshot",
+      "evidence_status": "RAW_SUPERVISION_SUBSETS_ACCEPTED_WITH_VIDEO_FAILURE_AND_TEXT_REJECTIONS",
       "paper_role": "allocation_development_not_method_endpoint",
       "implementation_paths": [
         "src/wcomr/w3_label64_production_contract_r1.py"
@@ -745,7 +745,8 @@
       "evidence_ids": [
         "w3_launch",
         "cpu_full72",
-        "cpu_production"
+        "cpu_production",
+        "w3_grouped_455"
       ],
       "source_revision": "047dcf181a3ab706002b2965e74b626e4648deea",
       "counts": {
@@ -764,7 +765,15 @@
         "A",
         "D"
       ],
-      "scheduled_collection_local": "2026-10-16T01:00:00+08:00"
+      "scheduled_collection_local": "2026-10-16T01:00:00+08:00",
+      "actual_pairs": 768,
+      "actual_audited_labels": 64,
+      "primary_formal_labels": 48,
+      "primary_prompt_groups": 6,
+      "raw_sensitivity_formal_labels": 56,
+      "raw_sensitivity_groups": 7,
+      "original_whole_card_all_success": false,
+      "original_bad_video_retained": true
     },
     {
       "id": "explore.trend_t0",
@@ -798,13 +807,15 @@
       "experiment_namespaces": [
         "W3_TREND"
       ],
-      "evidence_status": "CPU_interface_prepared_real_fit_and_grouped_evaluation_pending",
+      "evidence_status": "PROMPT_LOPO_LOCAL_ACTION_POSITIVE_PHASE_CONCENTRATED_NOT_DEPLOYED",
       "paper_role": "independent_optional_enhancement",
       "implementation_paths": [
-        "src/wcomr/w3_causal_trend_r1.py"
+        "src/wcomr/w3_causal_trend_r1.py",
+        "src/wcomr/w3_grouped_action_eval_r1.py"
       ],
       "evidence_ids": [
-        "w3_launch"
+        "w3_launch",
+        "w3_grouped_455"
       ],
       "feature_dimensions": 13,
       "estimator": "Ridge",
@@ -812,7 +823,15 @@
         "g_squared_q_A",
         "g_squared_times_q_C_minus_q_A"
       ],
-      "teacher_or_future_in_features": false
+      "teacher_or_future_in_features": false,
+      "ridge": 1.0,
+      "window": 4,
+      "primary_prompt_groups": 6,
+      "primary_points": 48,
+      "primary_regret_change_percent": -64.8263156608831,
+      "raw_sensitivity_regret_change_percent": -65.85048158517228,
+      "mainline_integrated": false,
+      "closed_loop_result": false
     },
     {
       "id": "explore.trend_t2",
@@ -826,13 +845,15 @@
       "experiment_namespaces": [
         "W3_TREND"
       ],
-      "evidence_status": "CPU_interface_prepared_real_fit_and_grouped_evaluation_pending",
+      "evidence_status": "PROMPT_LOPO_HISTORY_CONFIG_MIXED_NO_MEAN_REGRET_GAIN",
       "paper_role": "independent_optional_enhancement",
       "implementation_paths": [
-        "src/wcomr/w3_causal_trend_r1.py"
+        "src/wcomr/w3_causal_trend_r1.py",
+        "src/wcomr/w3_grouped_action_eval_r1.py"
       ],
       "evidence_ids": [
-        "w3_launch"
+        "w3_launch",
+        "w3_grouped_455"
       ],
       "feature_dimensions": 27,
       "estimator": "Ridge_with_causal_prefix_statistics",
@@ -841,7 +862,15 @@
       "scope_note": "W3-MixTrend is an exploratory umbrella; T2 is the current short-history implementation, not all proposed long/spectral branches.",
       "related_design_names": [
         "W3-MixTrend"
-      ]
+      ],
+      "ridge": 1.0,
+      "window": 4,
+      "primary_prompt_groups": 6,
+      "primary_points": 48,
+      "primary_regret_change_percent": 24.556424094314,
+      "raw_sensitivity_regret_change_percent": 0.31840952978163806,
+      "mainline_integrated": false,
+      "closed_loop_result": false
     },
     {
       "id": "closed.f",
@@ -1556,7 +1585,8 @@
     "w3_launch": "research/448_WC_W3_FULL864_APPROVED_GPU_LAUNCH_AND_UNDER12_AUTONOMY_20261015.md",
     "simple26d_prereg": "research/449_WC_DUAL_GPU_ACCOUNTING_AND_SIMPLE26D_COMPLETE36_PREREG_20261015.md",
     "simple26d_running": "research/450_WC_DUAL_GPU_SIMPLE26D_RUNNING_AND_ACCOUNTING_ACCEPTANCE_20261015.md",
-    "simple26d_partial": "research/451_WC_SIMPLE26D_PARTIAL_RESULTS_OOM_TERMINAL_AND_PAPER_IMPLICATIONS_20261015.md"
+    "simple26d_partial": "research/451_WC_SIMPLE26D_PARTIAL_RESULTS_OOM_TERMINAL_AND_PAPER_IMPLICATIONS_20261015.md",
+    "w3_grouped_455": "research/455_WC_W3_RAW_COHORT_ACCEPTANCE_GROUPED_T1_T2_RESULTS_AND_PHASE_ATTRIBUTION_20261016.md"
   },
   "evidence_batches": {
     "curve60": {
@@ -1707,6 +1737,20 @@
       "status": "launched_not_collected_as_of_snapshot",
       "new_policy_endpoint_claim": false,
       "new_Native_paths": 0
+    },
+    "w3_grouped_455": {
+      "report_id": "w3_grouped_455",
+      "status": "RAW_COHORTS_AND_FIXED_CPU_PROMPT_LOPO_ACCEPTED_WITH_ORIGINAL_FAILURES",
+      "original_GPU_source": "047dcf181a3ab706002b2965e74b626e4648deea",
+      "reader_source": "5b7ef102f0aac80842904d750326ad83345fbf7e",
+      "scope": "DEVELOPMENT_LOCAL_ACTION_REGRET_NOT_VIDEO_OR_SPEED",
+      "formal_position_denominator": 64,
+      "primary_points": 48,
+      "primary_prompt_groups": 6,
+      "raw_sensitivity_points": 56,
+      "raw_sensitivity_prompt_groups": 7,
+      "analysis_ref": "reports/wc_w3_grouped_T0_T1_T2_primary_and_raw_sensitivity_accepted_r2_20261016.json",
+      "verification_ref": "reports/wc_w3_grouped_independent_verification_and_step_attribution_20261016.json"
     }
   },
   "statistical_rules": {
@@ -1956,6 +2000,26 @@
     "scripts/analyze_wc_simple26d_partial_terminal_r1.py": {
       "sha256": "746a6040cbf70c92bda1b7730dcb8789096ccd860fc8680d69fcaf9146e3c096",
       "bytes": 7964
+    },
+    "research/455_WC_W3_RAW_COHORT_ACCEPTANCE_GROUPED_T1_T2_RESULTS_AND_PHASE_ATTRIBUTION_20261016.md": {
+      "sha256": "4c3c49f434a2a61a2607765f0f436f4b46b2c39de1adfb3bf8f5a9485a6a2e59",
+      "bytes": 8051
+    },
+    "reports/wc_w3_grouped_T0_T1_T2_primary_and_raw_sensitivity_accepted_r2_20261016.json": {
+      "sha256": "04776ea741238d36943b46b4332dbf683ccea81f63e848a3d62d844bfd460b0f",
+      "bytes": 689137
+    },
+    "reports/wc_w3_grouped_independent_verification_and_step_attribution_20261016.json": {
+      "sha256": "8b8d97513cd1528d57eb1c96ae6e122e03d3783d98e4efa0e13e8b2618a6a871",
+      "bytes": 39105
+    },
+    "manifests/wc_w3_T1_primary6_ridge1_window4_frozen_candidate_20261016.json": {
+      "sha256": "a5f0709863daa3bf4a6be50a9227d7b1d52ff9a26d78d229dd64188ec3d39d05",
+      "bytes": 2997
+    },
+    "src/wcomr/w3_grouped_action_eval_r1.py": {
+      "sha256": "c7848bf9445df9e1949f5a37905448b8479fb9cf5296b1b2498624399f70b325",
+      "bytes": 18720
     }
   },
   "math_notation": [

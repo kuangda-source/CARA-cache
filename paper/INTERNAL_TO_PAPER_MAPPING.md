@@ -23,7 +23,7 @@
 
 `CARA-Cache`、`GCR`、`CPA`来自对话中的命名建议，本次没有开展名称查重，不能写“已确认不存在同名工作”。备选 `SARA-Cache` 不与主显示名混用。定稿只改显示映射，不重命名实验原件。
 
-最短阅读路径：本文件 → [当前正文框架](WORLD_CACHE_MAIN_TEXT_OUTLINE_20261014.md) → [420同批结果](../research/420_WC_FULL60_COST_CURVE_COMPLETE_RESULTS_AND_CONVERGENCE_20261014.md) → [417冻结确认](../research/417_WC_FROZEN_CONFIRMATION_FULL50_RESULTS_AND_COST_CURVE_NEXT_20261013.md)。新探索当前状态见[448](../research/448_WC_W3_FULL864_APPROVED_GPU_LAUNCH_AND_UNDER12_AUTONOMY_20261015.md)。
+最短阅读路径：本文件 → [当前正文框架](WORLD_CACHE_MAIN_TEXT_OUTLINE_20261014.md) → [420同批结果](../research/420_WC_FULL60_COST_CURVE_COMPLETE_RESULTS_AND_CONVERGENCE_20261014.md) → [417冻结确认](../research/417_WC_FROZEN_CONFIRMATION_FULL50_RESULTS_AND_COST_CURVE_NEXT_20261013.md)。新探索当前状态见[455](../research/455_WC_W3_RAW_COHORT_ACCEPTANCE_GROUPED_T1_T2_RESULTS_AND_PHASE_ATTRIBUTION_20261016.md)，旧448启动身份保留。
 
 ## 2. 计算动作：保留数学符号，明确执行语义
 
@@ -114,10 +114,10 @@ CPA中的precision指计算动作的近似保真等级，不表示已经实施�
 |P/W3 `E0`，426|Offline Single-Branch Compensation Analysis|旧16状态；来源×阶段Pu系数按prompt留出，guided MSE均值下降37.2996%，14/16点、4/4提示词改善|可作局部机制，不当作单分支真实费用、闭环LPIPS或新来源寿命证据|
 |`P-ACR`／`Pc/Pu`|Single-Branch Compensated Readout (exploratory)|执行器和CPU已准备；PA528尚未选定启动；不更新来源|真实误差—费用和闭环验证后再决定纳入|
 |建议的`SBR`|Single-Branch Refresh (reserved)|为以后具有合法来源写回的版本保留名称；当前不是已完成模块|真正实现并验证缓存来源更新后再用|
-|`W3_LABEL64`／`FULL864`|Same-State C/A/D Supervision Collection|448记录已批准、单次启动；8EXPL_DEV、18父、64正式＋8warm、最多864pairs；尚未到计划查收|标签与父等价验收后用于开发，不直接变为方法终点|
+|`W3_LABEL64`／`FULL864`|Same-State C/A/D Supervision Collection|455验收80原件/1104张量/64真实标签，主6prompt/48点、raw敏感性7/56；1坏视频/2文本拒绝保留|已接受有缺口监督子集；不等于新策略端点或整卡全成功|
 |`T0`|Source-and-Phase Table Baseline|冻结旧H1标定表|新预测器的参考，不重新命名成新方法|
-|`T1`（当前执行规范）|Current-Observation Risk Estimator|13维当前因果特征＋小Ridge；等待真实标签拟合／分组评价|先看跨prompt动作regret／边界误排，再看闭环|
-|`T2`（当前执行规范）|Causal Short-History Risk Estimator|T1＋前缀均值／趋势／波动等27维特征；等待真实标签|检验历史相对T1的增量，不能只报回归MSE|
+|`T1`（当前执行规范）|Current-Observation Risk Estimator|13维Ridge1/window4，prompt LOPO局部regret下降64.83%，6/6改善；参数离线冻结|收益几乎均为step23 D→A；待时间/简单规则与闭环对照，未并入主方法|
+|`T2`（当前执行规范）|Causal Short-History Risk Estimator|27维Ridge1/window4，主组regret上升24.56%；保留负风险截断的大代价反例|当前历史配置未显示平均增量，下一仅便宜回退区分，不扩频谱/网络|
 |`W3-MixTrend`|Trend-Aware Allocation (exploratory umbrella)|研究方向名，不表示已移植或验证MixLinear网络|冻结实际实现后给出具体结构与消融|
 |`T3`长期低秩；`T4`频谱|Proposed Long-History Extension / Inactive Spectral Extension|T3为后备，T4本轮不执行；不重启F/B|不列为已有贡献或已有表格行|
 

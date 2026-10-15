@@ -15,9 +15,14 @@ stage=pathlib.Path(LAUNCH['stage']);root=stage.parents[1]
 sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
 assert sha(stage/'registration.json')==LAUNCH['registration_sha256']
 reg=json.loads((stage/'registration.json').read_text());assert reg['source_revision']==LAUNCH['source_revision']
-sys.path.insert(0,str(pathlib.Path(LAUNCH['original_stage'])/'src'))
-from wcomr.gpu_budget_pool_v2 import process_identity,BudgetPool
-v=dict(observed_unix=time.time(),launch=LAUNCH,registration=reg,payload_verified={n:sha(stage/n)==h for n,h in reg['payload_sha256'].items()},original_registration_unchanged=sha(pathlib.Path(LAUNCH['original_stage'])/'registration.json')==reg['original_registration_sha256'],process=process_identity(LAUNCH['pid']),pool=BudgetPool(root).read())
+# The original W3 stage predates v2; capture uses stdlib only.
+def process_identity(pid):
+ p=pathlib.Path('/proc')/str(pid)
+ try:
+  rest=(p/'stat').read_text().split(') ',1)[1].split()
+  return dict(pid=pid,state=rest[0],start_ticks=int(rest[19]),command=(p/'cmdline').read_bytes().replace(bytes([0]),b' ').decode())
+ except FileNotFoundError:return dict(pid=pid,state=None,start_ticks=None,command=None)
+v=dict(observed_unix=time.time(),launch=LAUNCH,registration=reg,payload_verified={n:sha(stage/n)==h for n,h in reg['payload_sha256'].items()},original_registration_unchanged=sha(pathlib.Path(LAUNCH['original_stage'])/'registration.json')==reg['original_registration_sha256'],process=process_identity(LAUNCH['pid']),pool=json.loads((root/'reports/gpu-budget-v2.json').read_text()))
 for key,name in [('exit','CPU-exit.json'),('result','CPU-final-results.json')]:
  p=stage/name
  if p.exists():v[key]=json.loads(p.read_text());v[key+'_sha256']=sha(p)
