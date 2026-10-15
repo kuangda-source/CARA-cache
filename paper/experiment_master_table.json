@@ -2,7 +2,7 @@
   "schema_version": 1,
   "updated_local_date": "2026-10-16",
   "snapshot_basis": "N05 production accepted; N07/N08/N09 CPU preparation and N10 static source/resource scope ready; no new GPU; N06 still04:55.",
-  "git_snapshot_before_inventory": "f8a5d45853ec69b45c572c7939903c5d5aab68ef",
+  "git_snapshot_before_inventory": "121b65949d6073a3b9f017b8f7e8e9fcbbd4bf0c",
   "mapping_ref": "paper/internal_to_paper_mapping.json",
   "scope": "scientific experiment families and complete cards, not each engineering retry; reused artifacts must not be summed as independent samples",
   "contributions": {
@@ -1471,17 +1471,7 @@
     },
     "W3_original_terminal_collection_performed": true,
     "SIMPLE26D_R1_collection_closed": true,
-    "current_CPU_task": {
-      "type": "N05_FINITE_GRID_CORE216_LOCAL_TOY_CPU",
-      "pid": 6663,
-      "source_revision": "762aeb4e010e3b297b23fd8e2f2f91feedd2abc7",
-      "launch_ref": "reports/wc_paper_N05_core216_local_CPU_launch_20261016.json",
-      "expected_paths": 216,
-      "expected_pairs": 7360,
-      "expected_CFG_calls": 14720,
-      "not_new_GPU": true,
-      "collected": false
-    },
+    "current_CPU_task": null,
     "next_W3_CPU_collection": null,
     "SIMPLE26D_R2_next_collection": "2026-10-16 04:55:00 Asia/Shanghai",
     "current_reserved_GPUh": 8.0,
@@ -1497,12 +1487,12 @@
     },
     "budget_values_asof": "W3_READONLY_COLLECTION_2026-10-16_0119_NOT_REQUERIED_THIS_CPU_TURN",
     "last_CPU_task": {
-      "type": "LOCAL_FROZEN_PHASE_FULL72_PREPARATION_R2",
-      "pid": 5826,
-      "source_revision": "c3742059b136310ed73efacb6c838a3efbe5ccab",
+      "type": "N05_CORE66_ACTUAL_PRODUCTION_CPU_R2",
+      "pid": 1074441,
+      "source_revision": "15d77ac55de7f5715a76901c47e407663d41c9d3",
       "collected": true,
-      "status": "ALL72_LOCAL_CPU_ACCEPTED_NOT_PRODUCTION",
-      "acceptance_ref": "reports/wc_w3_phase_runtime_local_full72_CPU_R2_independent_acceptance_20261016.json"
+      "status": "N05_CORE66_REAL_PRODUCTION_CPU_INDEPENDENTLY_ACCEPTED_NOT_GPU",
+      "acceptance_ref": "reports/wc_paper_N05_core66_production_CPU_R2_independent_acceptance_20261016.json"
     },
     "mainline_continuation_authorized_by_latest_human": true,
     "mainline_priority_queue": [
@@ -1520,12 +1510,40 @@
       "N04"
     ],
     "latest_budget_origin_fields_before_running_card_refer_to_historical_W3": true,
-    "next_N05_CPU_collection": "2026-10-16T03:12:00+08:00",
+    "next_N05_CPU_collection": null,
     "N05_scientific_core66_scope_selected": true,
-    "N05_production_CPU_or_GPU_selected": false,
+    "N05_production_CPU_or_GPU_selected": true,
     "N05_corrected_neighbor_gap_retained": true,
     "budget_snapshot_asof": "2026-10-16T01:19:00+08:00",
-    "new_CPU_preparation_is_not_GPU_or_quality_result": true
+    "new_CPU_preparation_is_not_GPU_or_quality_result": true,
+    "historical_CPU_tasks": [
+      {
+        "type": "N05_FINITE_GRID_CORE216_LOCAL_TOY_CPU",
+        "pid": 6663,
+        "source_revision": "762aeb4e010e3b297b23fd8e2f2f91feedd2abc7",
+        "launch_ref": "reports/wc_paper_N05_core216_local_CPU_launch_20261016.json",
+        "expected_paths": 216,
+        "expected_pairs": 7360,
+        "expected_CFG_calls": 14720,
+        "not_new_GPU": true,
+        "collected": true,
+        "status": "N05_CORE216_FULL_LOCAL_CPU_INDEPENDENTLY_ACCEPTED_NOT_PRODUCTION",
+        "acceptance_ref": "reports/wc_paper_N05_core216_local_CPU_independent_acceptance_20261016.json"
+      }
+    ],
+    "N05_production_CPU_accepted": true,
+    "N05_GPU_dispatched": false,
+    "N05_complete_scope": {
+      "formal": 44,
+      "warm": 22,
+      "total": 66,
+      "pairs": 2220,
+      "CFG": 4440,
+      "model_loads": 1
+    },
+    "N05_forecast_GPUh": 8.5685480376961,
+    "N05_billed_limit_GPUh": 9.5,
+    "N05_next_after_N06_acceptance": "scripts/launch_wc_paper_N05_core66_r2.py"
   },
   "mapping_sha256_at_inventory": "942061a61d8b5ad39752ef5d2944ea915e9b947740289cb7adf793f122ef68f5"
 }

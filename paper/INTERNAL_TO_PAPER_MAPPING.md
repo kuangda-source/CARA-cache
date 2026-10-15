@@ -1,6 +1,6 @@
 # 内部实现到论文表述的映射
 
-更新：2026-10-15。用途：供写作对话直接读取、生成方法描述、图例和实验表格。配套机器索引：[internal_to_paper_mapping.json](internal_to_paper_mapping.json)。
+更新：2026-10-16。用途：供写作对话直接读取、生成方法描述、图例和实验表格。配套机器索引：[internal_to_paper_mapping.json](internal_to_paper_mapping.json)。
 
 实验是否已完成、目前在途还是待补，以及每项支撑的贡献和优先级，统一读取[实验总表](EXPERIMENT_MASTER_TABLE.md)及[总表机器索引](experiment_master_table.json)。本文件负责名称和实现身份，总表负责实验状态与证据任务。
 

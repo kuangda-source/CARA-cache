@@ -2,7 +2,7 @@
 
 更新：2026-10-16。与[内部实现→论文表述映射](INTERNAL_TO_PAPER_MAPPING.md)一起使用；[机器索引](experiment_master_table.json)保存相同条目、依赖和证据SHA。本表按科学问题／完整卡汇总，不逐个罗列CPU修复重试；旧原件复用与多个报告引用同一实验，不增加独立样本数。
 
-**当前N05准备：**完整CORE66科学范围已事前冻结，真实Native三网格CPU接受；216条本地Toy检查已单次启动，03:12一次收。尚非生产CPU/GPU或新质量/速度。见[460](../research/460_WC_N05_CORE66_FROZEN_GRID_AND_FULL216_LOCAL_CPU_LAUNCH_20261016.md)。
+**当前N05准备：**完整CORE66已冻结：44正式＋22预热、2220pairs/4440CFG/一次加载；216本地数值CPU与1671源的真实R2生产CPU均已独立接受。N05 GPU尚未提交；原N06于04:55完整验收后，使用已接受R2入口按fresh v2/UUID直接推进。forecast8.568548038、计费上限9.5GPUh，严格<12。见[464](../research/464_WC_N05_CORE66_REAL_PRODUCTION_CPU_ACCEPTED_AND_N06_0455_NEXT_20261016.md)。
 
 **当前接续：**459本地阶段/T1完整72 CPU已接受，04:55同26D验收不变；最新用户已授权之后按主线优先级推进。下一优先N05强基线有限调优，随后N07/N08与费用/自动质量；P/T1增强后排。见[当前队列](../plans/WORLD_CACHE_MAINLINE_PRIORITY_QUEUE_20261016.md)。
 
