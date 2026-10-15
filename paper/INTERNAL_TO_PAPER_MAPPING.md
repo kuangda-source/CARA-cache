@@ -315,3 +315,5 @@ P_OFF仍含P0，新P-ACR当前为单分支补偿读出，不能写成已经实�
 ```
 
 **456更新：**[T1与简单阶段对照](../research/456_WC_T1_VS_SIMPLE_PHASE_CPU_RESULTS_AND_VIDEO_DECISION_20261016.md)：主组T1/时间-only/仅23步regret为0.339971/0.340532/0.337549，敏感性为0.329269/0.332689/0.330417。新增表述用“Phase-Only Allocation Controls / Post-hoc Step-23 Override”；不把本批结果写成新策略端点或已证明内容自适应。后续优先讨论简单阶段完整视频确认，原主方法及04:55同26D验收保持。
+
+**457执行准备：**第23步规则与冻结T1已通过独立owner/controller接口接入既有执行器，六标量控制通过；四配置完整72路径本地Toy CPU已派发，02:28一次查收。仅标为执行准备，不记生产CPU或新视频结果；原同26D04:55验收不变。入口：[457](../research/457_WC_PHASE_RUNTIME_SCALAR_ACCEPTED_FULL72_LOCAL_CPU_LAUNCH_20261016.md)。

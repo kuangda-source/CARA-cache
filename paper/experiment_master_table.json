@@ -631,7 +631,7 @@
     },
     {
       "id": "N02",
-      "state": "待补｜条件闭环",
+      "state": "待补｜本地CPU准备在途",
       "paper_experiment_name": "Phase-Revision versus Learned Allocation Closed Loop",
       "internal_ids": [
         "W3_FROZEN_PREDICTOR_CLOSED_LOOP"
@@ -644,7 +644,8 @@
         "trend_spec",
         "roadmap",
         "448",
-        "w3_phase_456"
+        "w3_phase_456",
+        "w3_runtime_457"
       ],
       "method_mapping_ids": [
         "explore.trend_t1",
@@ -660,7 +661,14 @@
         "C3"
       ],
       "claim_relation": "INTENDED_SUPPORT_UNCOMPLETED",
-      "paper_placement": "后续证据，结果未填"
+      "paper_placement": "后续证据，结果未填",
+      "runtime_adapter_source": "814b5d00b404aaa8f151bf5fa20ae3d5e67da648",
+      "local_CPU_six_scalar_controls_accepted": true,
+      "local_full72_CPU_state": "RUNNING_AT_ADMISSION_NOT_PARTIAL_SCIENCE",
+      "local_CPU_launch_ref": "reports/wc_w3_phase_runtime_local_full72_CPU_launch_20261016.json",
+      "local_CPU_pid": 5392,
+      "local_CPU_collection": "2026-10-16T02:28:00+08:00",
+      "server_production_CPU_accepted": false
     },
     {
       "id": "N03",
@@ -1032,7 +1040,8 @@
     "simple26d_running": "research/450_WC_DUAL_GPU_SIMPLE26D_RUNNING_AND_ACCOUNTING_ACCEPTANCE_20261015.md",
     "simple26d_partial": "research/451_WC_SIMPLE26D_PARTIAL_RESULTS_OOM_TERMINAL_AND_PAPER_IMPLICATIONS_20261015.md",
     "w3_grouped_455": "research/455_WC_W3_RAW_COHORT_ACCEPTANCE_GROUPED_T1_T2_RESULTS_AND_PHASE_ATTRIBUTION_20261016.md",
-    "w3_phase_456": "research/456_WC_T1_VS_SIMPLE_PHASE_CPU_RESULTS_AND_VIDEO_DECISION_20261016.md"
+    "w3_phase_456": "research/456_WC_T1_VS_SIMPLE_PHASE_CPU_RESULTS_AND_VIDEO_DECISION_20261016.md",
+    "w3_runtime_457": "research/457_WC_PHASE_RUNTIME_SCALAR_ACCEPTED_FULL72_LOCAL_CPU_LAUNCH_20261016.md"
   },
   "source_bindings": {
     "11": {
@@ -1170,6 +1179,10 @@
     "w3_phase_456": {
       "path": "research/456_WC_T1_VS_SIMPLE_PHASE_CPU_RESULTS_AND_VIDEO_DECISION_20261016.md",
       "sha256": "42c0cba82fc6e1da745887f07b88d7a87ff1a6d0ca638147f444f9c8160eeadf"
+    },
+    "w3_runtime_457": {
+      "path": "research/457_WC_PHASE_RUNTIME_SCALAR_ACCEPTED_FULL72_LOCAL_CPU_LAUNCH_20261016.md",
+      "sha256": "0ee75afaf75d601c7eadcae3c23f95ede43ccb538f6194dc8757a91865e50648"
     }
   },
   "operation_policy": {
@@ -1246,8 +1259,16 @@
     },
     "W3_original_terminal_collection_performed": true,
     "SIMPLE26D_R1_collection_closed": true,
-    "current_CPU_task": null,
-    "next_W3_CPU_collection": null,
+    "current_CPU_task": {
+      "type": "LOCAL_FROZEN_PHASE_FULL72_PREPARATION",
+      "pid": 5392,
+      "source_revision": "814b5d00b404aaa8f151bf5fa20ae3d5e67da648",
+      "launch_ref": "reports/wc_w3_phase_runtime_local_full72_CPU_launch_20261016.json",
+      "expected_paths": 72,
+      "not_new_GPU": true,
+      "collected": false
+    },
+    "next_W3_CPU_collection": "2026-10-16T02:28:00+08:00",
     "SIMPLE26D_R2_next_collection": "2026-10-16 04:55:00 Asia/Shanghai",
     "current_reserved_GPUh": 8.0,
     "current_admissible_GPUh": 10.107309734125636,
@@ -1262,5 +1283,5 @@
     },
     "budget_values_asof": "W3_READONLY_COLLECTION_2026-10-16_0119_NOT_REQUERIED_THIS_CPU_TURN"
   },
-  "mapping_sha256_at_inventory": "16f7db265456fdb5d65616e3e582a88e1c77710a29e159f0b749079687fc4aa9"
+  "mapping_sha256_at_inventory": "493c4818f7171e88782eb69cb4696c2881daac554e8597efe79a3ba28ed29ae2"
 }
