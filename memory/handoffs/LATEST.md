@@ -1,3 +1,7 @@
+## 2026-10-15 显存修复与同26D完整R2 CPU在途
+
+用户已明确授权修复并在验证后继续完整同26D。旧“待讨论、不自动重跑”为历史。[452完整修复预登记](../../research/452_WC_SIMPLE26D_MEMORY_LIFECYCLE_REPAIR_FULL36_PREREG_20261015.md)：故障在36步/VAE后的视频安全encoder移入GPU。新source0795a00、独立stage wc-simple26d-memory-production-r2-20261015，CPU1037920于23:36:27派发；原W3源/stage/01:00科学查收不改。请求边界GC及owner弱引用检查的本地4控制通过，完整144 CPU与实际生产入口待验；23:52一次收原CPU。通过后沿v2/GPU0 fresh准入完整36重跑，24正式+12warm/1296pairs/1load，预测5.766055、上限8<12。旧28全作等价控制、不拼接；原失败36分母保持。实结86.864053599/cap104.971363333、预留0/余18.107309734未重置。新GPU预计3至5小时，启动后5小时另约一次收，不持续监听。F/B保持关闭。
+
 ## 2026-10-15 23:00同26D终态：OOM/部分原件审计；不追加GPU
 
 先读[451](../../research/451_WC_SIMPLE26D_PARTIAL_RESULTS_OOM_TERMINAL_AND_PAPER_IMPLICATIONS_20261015.md)与[独立部分审计](../../reports/wc_simple26d_full36_partial_terminal_independent_audit_20261015.json)。一次查原source36f5583、909867/910056/909868已退出，自身锁释放；36原位置=12warm＋16正式完成、1 OOM（misc前密A）＋7未到达，1488正式帧评分/六旧fixed/六组warm36guided控制接受。整卡严格接受拒绝，四场景均值空缺，部分审计与九CPU负控制不冒充完整成功。
