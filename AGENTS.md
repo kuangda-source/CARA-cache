@@ -1,3 +1,7 @@
+## 2026-10-16 共享952 CPU原R2夹具失败保留，R3已派发
+
+[473修复接续](research/473_WC_SHARED952_R2_DECORATOR_NAMESPACE_FAILURE_R3_REPAIR_AND_RELAUNCH_20261016.md)：本地Git状态意外出现exit/failure后，一次核对原9614已终态/exit1，KeyError misc发生在首条采样前；只修Torch装饰器命名空间观察，六标量通过，原失败和952分母保留。fresh source616caef/PID9817于05:48:48.865855单次启动，完整952/32816pairs/65632CFG不缩；**06:02一次本地验收**（最早06:00:48.865855），旧05:49查收已暂停、不再查R2。此CPU非生产/质量结果，N07原180模板和最终输入/方法未选。服务器N05原15d77ac/1078249/1078290/post1078250、12:05安排与预算保持，0SSH/0GPUh，F/B关闭。以下历史保留。
+
 ## 2026-10-16 最终共享seed接口：标量接受，完整本地952 CPU在途
 
 [472共享接口](research/472_WC_SHARED_SEED_EXECUTION_BRIDGE_SCALAR_ACCEPTED_FULL952_LOCAL_CPU_LAUNCH_20261016.md)：原N05/N06执行器seed0门槛已在独立模块可逆扩展到0/17/43，按seed绑定缓存身份；五标量控制通过。完整两flow×四Toy×17旧配置×三seed audit/lean816＋旧seed0桥接136＝952/32816pairs/65632CFG，source89381c1/PID9614于05:35:42单次启动；**05:49一次本地查收**（最早05:47:42.062574）。首全仓归档在CPU派发前中断保留，R2按精确Git blob封存执行源码/配置，不缩952。新CPU无科学结果/非真实Native类，不选N07输入或方法，原180模板保持。N05原1078249/1078290/post1078250/15d77ac与今天12:05验收完全不变，未查服务器/partial；0GPUh/SSH/预算写，F/B关闭。以下历史保留。

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "updated_local_date": "2026-10-16",
-  "snapshot_basis": "N05 GPU unchanged/in flight with12:05 ETA; local shared execution registry952 CPU9614 launched once and05:49 ETA; no final test selection or new GPU.",
+  "snapshot_basis": "N05 unchanged/in flight12:05; local shared952 R2 terminal fixture namespace error preserved, R3 source616caef/9817 launched once06:02 ETA; no shared scientific result.",
   "git_snapshot_before_inventory": "121b65949d6073a3b9f017b8f7e8e9fcbbd4bf0c",
   "mapping_ref": "paper/internal_to_paper_mapping.json",
   "scope": "scientific experiment families and complete cards, not each engineering retry; reused artifacts must not be summed as independent samples",
@@ -862,7 +862,7 @@
         "PAPER_E3_FROZEN_SHARED_TEST"
       ],
       "contribution_relation": "C1/C2最终版本确认；C3覆盖",
-      "evidence_or_planned_scope": "输入/统计CPU已准备；5个seed/context/180排程控制通过，完整952本地注册表CPU9614/source89381c1在途，05:49一次收。非最终生产CPU，原180模板未选方法/输入。",
+      "evidence_or_planned_scope": "输入/统计CPU已准备；R2首采样前夹具KeyError保留，六标量通过；fresh R3完整952本地CPU9817/source616caef在途，06:02一次收。非最终生产CPU，原180模板/输入/方法未冻。",
       "gap_and_next_action": "N05/N06后冻结最终方法/对手，fresh服务器身份审计后再选择8新prompt/16请求；真实完整采样/生产CPU/费用/GPU尚待，未选择或缩减模板。 N06已接受，前密C/A为已观察到的强简单对照，应在方法/对手冻结时保留；N05未完成前不定最终版本。",
       "priority": "P2·N05/N06后冻结",
       "evidence_refs": [
@@ -875,7 +875,8 @@
         "N07_local_input_inventory",
         "N07_local_input_audit",
         "N07_group_stats_CPU",
-        "472"
+        "472",
+        "473"
       ],
       "method_mapping_ids": [
         "config.efficient",
@@ -1145,7 +1146,11 @@
     "472": "research/472_WC_SHARED_SEED_EXECUTION_BRIDGE_SCALAR_ACCEPTED_FULL952_LOCAL_CPU_LAUNCH_20261016.md",
     "shared_registry_CPU_prereg": "manifests/wc_paper_shared_registry952_local_CPU_preregistration_r1_20261016.json",
     "shared_registry_CPU_launch": "reports/wc_paper_shared_registry952_local_CPU_R2_launch_20261016.json",
-    "shared_registry_analysis_CPU": "reports/wc_paper_shared_registry952_analysis_synthetic_CPU_controls_20261016.json"
+    "shared_registry_analysis_CPU": "reports/wc_paper_shared_registry952_analysis_synthetic_CPU_controls_20261016.json",
+    "473": "research/473_WC_SHARED952_R2_DECORATOR_NAMESPACE_FAILURE_R3_REPAIR_AND_RELAUNCH_20261016.md",
+    "shared_registry_R3_CPU_prereg": "manifests/wc_paper_shared_registry952_local_CPU_R3_preregistration_20261016.json",
+    "shared_registry_R3_CPU_launch": "reports/wc_paper_shared_registry952_local_CPU_R3_launch_20261016.json",
+    "shared_registry_R2_terminal_failure": "reports/wc_paper_shared_registry952_R2_terminal_failure_incident_20261016.json"
   },
   "source_bindings": {
     "11": {
@@ -1471,6 +1476,22 @@
     "shared_registry_analysis_CPU": {
       "path": "reports/wc_paper_shared_registry952_analysis_synthetic_CPU_controls_20261016.json",
       "sha256": "9ad39c5d15233a7caeab02b7b4334265b0083ed0790d25c4d203d9e28e53a459"
+    },
+    "473": {
+      "path": "research/473_WC_SHARED952_R2_DECORATOR_NAMESPACE_FAILURE_R3_REPAIR_AND_RELAUNCH_20261016.md",
+      "sha256": "7110f05b2ff119f8605d9100baa273a6bd6e75ff2bf60bae2b99f8b37448def4"
+    },
+    "shared_registry_R3_CPU_prereg": {
+      "path": "manifests/wc_paper_shared_registry952_local_CPU_R3_preregistration_20261016.json",
+      "sha256": "df1613f68a91128450aa8aedf5bac79e0180782cf8fd369f52a1d877f4711c13"
+    },
+    "shared_registry_R3_CPU_launch": {
+      "path": "reports/wc_paper_shared_registry952_local_CPU_R3_launch_20261016.json",
+      "sha256": "d427a70235f191bdd34d1f691af64e48cfeeec453d617744fdac6cb00a80588d"
+    },
+    "shared_registry_R2_terminal_failure": {
+      "path": "reports/wc_paper_shared_registry952_R2_terminal_failure_incident_20261016.json",
+      "sha256": "385691043ab2225776bca4277465a0e0d162706adf0ddabb2fbaf72c5fb817c4"
     }
   },
   "operation_policy": {
@@ -1548,17 +1569,17 @@
     "W3_original_terminal_collection_performed": true,
     "SIMPLE26D_R1_collection_closed": true,
     "current_CPU_task": {
-      "type": "LOCAL_SHARED_EXECUTION_REGISTRY952_R2",
-      "pid": 9614,
-      "source_revision": "89381c1df7603bc9ba3e28913b043ff0dfec3e42",
-      "launch_ref": "reports/wc_paper_shared_registry952_local_CPU_R2_launch_20261016.json",
+      "type": "LOCAL_SHARED_EXECUTION_REGISTRY952_R3",
+      "pid": 9817,
+      "source_revision": "616caef408285a0d8374692b879ee1d5b5b880f4",
+      "launch_ref": "reports/wc_paper_shared_registry952_local_CPU_R3_launch_20261016.json",
       "expected_paths": 952,
       "expected_pairs": 32816,
       "expected_CFG_calls": 65632,
       "not_new_GPU": true,
       "collected": false,
-      "first_collection_not_before_unix": 1792100862.0625741,
-      "scheduled_collection_local": "2026-10-16T05:49:00+08:00"
+      "first_collection_not_before_unix": 1792101648.865855,
+      "scheduled_collection_local": "2026-10-16T06:02:00+08:00"
     },
     "next_W3_CPU_collection": null,
     "SIMPLE26D_R2_next_collection": null,
@@ -1617,6 +1638,15 @@
         "collected": true,
         "status": "N05_CORE216_FULL_LOCAL_CPU_INDEPENDENTLY_ACCEPTED_NOT_PRODUCTION",
         "acceptance_ref": "reports/wc_paper_N05_core216_local_CPU_independent_acceptance_20261016.json"
+      },
+      {
+        "type": "LOCAL_SHARED_EXECUTION_REGISTRY952_R2",
+        "pid": 9614,
+        "source_revision": "89381c1df7603bc9ba3e28913b043ff0dfec3e42",
+        "status": "TERMINAL_FIXTURE_NAMESPACE_FAILURE_BEFORE_FIRST_SAMPLE",
+        "incident_ref": "reports/wc_paper_shared_registry952_R2_terminal_failure_incident_20261016.json",
+        "collected": true,
+        "complete_denominator_retained": 952
       }
     ],
     "N05_production_CPU_accepted": true,
