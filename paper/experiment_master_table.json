@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "updated_local_date": "2026-10-16",
-  "snapshot_basis": "N09 R1 observer-only failure retained; repaired seven scalar controls accepted, full102 R2 live with06:26 ETA; N05 original66/12:05 unchanged.",
+  "snapshot_basis": "N09 full102 isolated CPU independently accepted at06:26; N05 original66 unchanged/in flight with12:05 ETA; final N07 methods/real inputs and real N09 GPU measurements pending.",
   "git_snapshot_before_inventory": "121b65949d6073a3b9f017b8f7e8e9fcbbd4bf0c",
   "mapping_ref": "paper/internal_to_paper_mapping.json",
   "scope": "scientific experiment families and complete cards, not each engineering retry; reused artifacts must not be summed as independent samples",
@@ -977,14 +977,14 @@
     },
     {
       "id": "N09",
-      "state": "待补｜记录器R2完整CPU在途",
+      "state": "待补｜组件记录器CPU已接受",
       "paper_experiment_name": "Calibration and Minimal Deployment Profile",
       "internal_ids": [
         "PAPER_E5_COST_PROFILE"
       ],
       "contribution_relation": "C3部署开销；C2费用一致",
-      "evidence_or_planned_scope": "全40旧正式计时与3720帧复核，四格表由原16标签精确重建；五次CPU拟合平均0.200142ms。四相关历史采集原实费合计4.383638799GPUh，非最小标定费。 逐请求peak reset/组件事件与弱恢复记录器R2七CPU控制通过，完整102本地CPU已重新派发，尚无CUDA profiling。",
-      "gap_and_next_action": "最终动作（P0保留合法则含P0）、组件/请求初始化与GC、逐请求CUDA peak及最小必要标定采集仍待实测；不以旧累计peak比较方法，也不把CPU拟合毫秒当标签获取费。 477保留R1静态WeakMethod失败，R2七标量/完整102重新验证，GPU部署测量尚待。",
+      "evidence_or_planned_scope": "四格表由16旧标签精确重建，五次CPU拟合0.200142ms，相关历史4.383638799GPUh非最低费；组件/逐请求peak记录器完整102 CPU已接受，34guided/34audit-lean/68profile/102mock及释放通过。",
+      "gap_and_next_action": "最终实际CUDA峰值/组件价格、同状态双probe后C/A/D及合法P0动作价、安装/GC与最低必要标签采集仍待完整真实测量；inclusive区间不相加作纯成本，CPU准备不作视频/速度结果。原R1静态绑定方法失败完整保留，R2独立接受。",
       "priority": "P2·最终实现后",
       "evidence_refs": [
         "closure_plan",
@@ -993,7 +993,8 @@
         "deployment_inventory_465",
         "deployment_inventory_CPU",
         "476",
-        "477"
+        "477",
+        "478"
       ],
       "method_mapping_ids": [
         "module.gcr",
@@ -1009,7 +1010,9 @@
       "claim_relation": "INTENDED_SUPPORT_UNCOMPLETED",
       "paper_placement": "后续证据，结果未填",
       "local_inventory_accepted": true,
-      "final_GPU_deployment_profile_complete": false
+      "final_GPU_deployment_profile_complete": false,
+      "component_observer_full_CPU_accepted": true,
+      "component_observer_acceptance_ref": "reports/wc_deployment_profile_full102_local_CPU_R2_independent_acceptance_20261016.json"
     },
     {
       "id": "N10",
@@ -1188,7 +1191,10 @@
     "shared_registry_R3_original_capture": "reports/wc_paper_shared_registry952_local_CPU_R3_collection_20261016_0602.json.gz",
     "476": "research/476_WC_N09_COMPONENT_OBSERVER_SCALAR_ACCEPTED_FULL102_CPU_LAUNCH_20261016.md",
     "N09_profile_scalar_CPU": "reports/wc_deployment_profile_scalar_CPU_controls_20261016.json",
-    "477": "research/477_WC_N09_PROFILE_R1_STATIC_BOUND_METHOD_FAILURE_R2_REPAIR_AND_FULL102_RELAUNCH_20261016.md"
+    "477": "research/477_WC_N09_PROFILE_R1_STATIC_BOUND_METHOD_FAILURE_R2_REPAIR_AND_FULL102_RELAUNCH_20261016.md",
+    "478": "research/478_WC_N09_FULL102_CPU_PARITY_ACCEPTED_COMPONENT_PEAK_PROFILE_READY_20261016.md",
+    "N09_profile_CPU_acceptance": "reports/wc_deployment_profile_full102_local_CPU_R2_independent_acceptance_20261016.json",
+    "N09_profile_CPU_capture": "reports/wc_deployment_profile_full102_local_CPU_R2_collection_20261016_0626.json.gz"
   },
   "source_bindings": {
     "11": {
@@ -1562,6 +1568,18 @@
     "477": {
       "path": "research/477_WC_N09_PROFILE_R1_STATIC_BOUND_METHOD_FAILURE_R2_REPAIR_AND_FULL102_RELAUNCH_20261016.md",
       "sha256": "332c5aa5b5ccf00a958d0b9b0ccef0c12090d8823c3a069f620287af899409b0"
+    },
+    "478": {
+      "path": "research/478_WC_N09_FULL102_CPU_PARITY_ACCEPTED_COMPONENT_PEAK_PROFILE_READY_20261016.md",
+      "sha256": "488d9f98020e53713126bfb95dbab21155b15381e91ebfebb3a0549ed5281e82"
+    },
+    "N09_profile_CPU_acceptance": {
+      "path": "reports/wc_deployment_profile_full102_local_CPU_R2_independent_acceptance_20261016.json",
+      "sha256": "cf71a380462346f457bb29a372a688cc9440dcaf60bfcd3b118c6fec80546483"
+    },
+    "N09_profile_CPU_capture": {
+      "path": "reports/wc_deployment_profile_full102_local_CPU_R2_collection_20261016_0626.json.gz",
+      "sha256": "3afd247a867f51e87ccddb4bea3d92c4d1710051838abc9bc4bd62ac31e2c96b"
     }
   },
   "operation_policy": {
@@ -1638,19 +1656,7 @@
     },
     "W3_original_terminal_collection_performed": true,
     "SIMPLE26D_R1_collection_closed": true,
-    "current_CPU_task": {
-      "type": "DEPLOYMENT_PROFILE_FULL102_LOCAL_CPU_R2",
-      "pid": 10482,
-      "source_revision": "1829c0f23c39f2e9e830d82d4ad5336e9fd95de9",
-      "launch_ref": "reports/wc_deployment_profile_full102_local_CPU_R2_launch_20261016.json",
-      "expected_paths": 102,
-      "expected_pairs": 3516,
-      "expected_CFG_calls": 7032,
-      "first_collection_not_before_unix": 1792103143.68089,
-      "scheduled_collection_local": "2026-10-16T06:26:00+08:00",
-      "not_new_GPU": true,
-      "collected": false
-    },
+    "current_CPU_task": null,
     "next_W3_CPU_collection": null,
     "SIMPLE26D_R2_next_collection": null,
     "current_reserved_GPUh": 9.5,
@@ -1667,19 +1673,19 @@
     },
     "budget_values_asof": "N05_ADMISSION_ONCE_CAPTURE_20261016_0457",
     "last_CPU_task": {
-      "type": "LOCAL_SHARED_EXECUTION_REGISTRY952_R3",
-      "pid": 9817,
-      "source_revision": "616caef408285a0d8374692b879ee1d5b5b880f4",
-      "launch_ref": "reports/wc_paper_shared_registry952_local_CPU_R3_launch_20261016.json",
-      "expected_paths": 952,
-      "expected_pairs": 32816,
-      "expected_CFG_calls": 65632,
+      "type": "DEPLOYMENT_PROFILE_FULL102_LOCAL_CPU_R2",
+      "pid": 10482,
+      "source_revision": "1829c0f23c39f2e9e830d82d4ad5336e9fd95de9",
+      "launch_ref": "reports/wc_deployment_profile_full102_local_CPU_R2_launch_20261016.json",
+      "expected_paths": 102,
+      "expected_pairs": 3516,
+      "expected_CFG_calls": 7032,
+      "first_collection_not_before_unix": 1792103143.68089,
+      "scheduled_collection_local": "2026-10-16T06:26:00+08:00",
       "not_new_GPU": true,
       "collected": true,
-      "first_collection_not_before_unix": 1792101648.865855,
-      "scheduled_collection_local": "2026-10-16T06:02:00+08:00",
-      "status": "FROZEN_SHARED_REGISTRY952_SEED_CONTEXT_AND_LEGACY_PARITY_INDEPENDENTLY_ACCEPTED_NOT_PRODUCTION",
-      "acceptance_ref": "reports/wc_paper_shared_registry952_local_CPU_R3_independent_acceptance_20261016.json"
+      "status": "DEPLOYMENT_PROFILE_FULL102_CPU_INDEPENDENTLY_ACCEPTED_NOT_GPU_PROFILE",
+      "acceptance_ref": "reports/wc_deployment_profile_full102_local_CPU_R2_independent_acceptance_20261016.json"
     },
     "mainline_continuation_authorized_by_latest_human": true,
     "mainline_priority_queue": [
@@ -1755,6 +1761,21 @@
         "status": "FULL102_R1_ORIGINAL_TERMINAL_OBSERVER_BINDING_FAILURE_PRESERVED",
         "incident_ref": "reports/wc_deployment_profile_full102_R1_terminal_failure_preserved_20261016.json",
         "complete_scope_not_shrunk": true
+      },
+      {
+        "type": "DEPLOYMENT_PROFILE_FULL102_LOCAL_CPU_R2",
+        "pid": 10482,
+        "source_revision": "1829c0f23c39f2e9e830d82d4ad5336e9fd95de9",
+        "launch_ref": "reports/wc_deployment_profile_full102_local_CPU_R2_launch_20261016.json",
+        "expected_paths": 102,
+        "expected_pairs": 3516,
+        "expected_CFG_calls": 7032,
+        "first_collection_not_before_unix": 1792103143.68089,
+        "scheduled_collection_local": "2026-10-16T06:26:00+08:00",
+        "not_new_GPU": true,
+        "collected": true,
+        "status": "DEPLOYMENT_PROFILE_FULL102_CPU_INDEPENDENTLY_ACCEPTED_NOT_GPU_PROFILE",
+        "acceptance_ref": "reports/wc_deployment_profile_full102_local_CPU_R2_independent_acceptance_20261016.json"
       }
     ],
     "N05_production_CPU_accepted": true,
@@ -1792,7 +1813,9 @@
     },
     "shared_registry952_CPU_accepted": true,
     "shared_registry952_CPU_next_collection": null,
-    "N07_actual_final_input_or_method_freeze_selected": false
+    "N07_actual_final_input_or_method_freeze_selected": false,
+    "N09_profile_full102_CPU_accepted": true,
+    "N09_profile_CPU_next_collection": null
   },
-  "mapping_sha256_at_inventory": "b581915b8b114a26be56439ac38dc78a1759d0b510665ceba3dce4b77aa12727"
+  "mapping_sha256_at_inventory": "8a717e3bb6cad338a4934f2f647bcc89a714ca4c0f28d06692a4096d5aa6bd68"
 }
