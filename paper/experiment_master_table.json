@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "updated_local_date": "2026-10-16",
-  "snapshot_basis": "Local phase/T1 full72 CPU R2 accepted after scheduled once capture;existing N06 full36 awaiting original04:55 collection;latest human authorizes prioritized mainline continuation;N05 first after N06;no new GPU/SSH/budget change this turn.",
+  "snapshot_basis": "N05 finite core66 scope selected;actual three Native grids accepted;local full216 Toy sampler CPU started and first ETA03:12;N06 original04:55 unchanged;no server/GPU/budget mutation.",
   "git_snapshot_before_inventory": "b5e46b4fa524b5b635f56a33389e813e7467c3fb",
   "mapping_ref": "paper/internal_to_paper_mapping.json",
   "scope": "scientific experiment families and complete cards, not each engineering retry; reused artifacts must not be summed as independent samples",
@@ -738,21 +738,24 @@
     },
     {
       "id": "N05",
-      "state": "待补｜正式开发",
+      "state": "待补｜完整本地CPU216在途",
       "paper_experiment_name": "Fair Tuned-Baseline Frontier",
       "internal_ids": [
         "PAPER_E1_TUNED_BASELINES"
       ],
       "contribution_relation": "C1/C2实用增量；C3公平性",
-      "evidence_or_planned_scope": "有限开发网格已预登记：Native35/26/18、WC/RA各0.5/1/2阈值、冻结A/H1；11核心完整66路径或另含忠实近邻的12配置完整72路径，生产选卡前明确。",
-      "gap_and_next_action": "当前优先准备实际scheduler/受影响采样CPU、计时隔离、生命周期与生产入口；近邻已核查资源但Cosmos适配未验。N06完整接受后，封完整范围/实际费用并按原<12自主与fresh v2/UUID直接推进，不以阈值删对照。",
+      "evidence_or_planned_scope": "CORE66完整11配置四CAL范围冻结，44正式+22warm/2220pairs/4440CFG/1load；原UniPC核定35/26/18为36/27/19更新。本地完整216 Toy CPU source762aeb4/PID6663已启动，03:12一次收。",
+      "gap_and_next_action": "先收216本地全部范围/阈值/默认桥接/Native计数；尚缺真实生产CPU/post/费用和GPU准入，直接近邻Cosmos适配仍待补。不改原N06，04:55接受后N05主线优先GPU。",
       "priority": "P1·N06接受后首张主线卡",
       "evidence_refs": [
         "closure_plan",
         "roadmap",
         "mainline_queue_20261016",
         "baseline_grid_prereg_20261016",
-        "neighbor_resources_20261016"
+        "neighbor_resources_20261016",
+        "N05_core66_scope",
+        "N05_scheduler_CPU",
+        "N05_CPU_launch_460"
       ],
       "method_mapping_ids": [
         "baseline.native",
@@ -1059,7 +1062,10 @@
     "phase_runtime_459": "research/459_WC_PHASE_FULL72_LOCAL_CPU_ACCEPTED_AND_MAINLINE_PRIORITY_20261016.md",
     "mainline_queue_20261016": "plans/WORLD_CACHE_MAINLINE_PRIORITY_QUEUE_20261016.md",
     "baseline_grid_prereg_20261016": "manifests/wc_paper_N05_bounded_baseline_grid_preregistration_draft_20261016.json",
-    "neighbor_resources_20261016": "reports/wc_mainline_neighbor_resource_inventory_20261016.json"
+    "neighbor_resources_20261016": "reports/wc_mainline_neighbor_resource_inventory_20261016.json",
+    "N05_core66_scope": "manifests/wc_paper_N05_core66_preregistration_r1_20261016.json",
+    "N05_scheduler_CPU": "reports/wc_paper_N05_actual_native_scheduler_grid_CPU_20261016.json",
+    "N05_CPU_launch_460": "research/460_WC_N05_CORE66_FROZEN_GRID_AND_FULL216_LOCAL_CPU_LAUNCH_20261016.md"
   },
   "source_bindings": {
     "11": {
@@ -1212,7 +1218,7 @@
     },
     "mainline_queue_20261016": {
       "path": "plans/WORLD_CACHE_MAINLINE_PRIORITY_QUEUE_20261016.md",
-      "sha256": "c0dd43f1bc5195fb0eab57c0249acbc35353b712e7592105d1733c31cb0b98a5"
+      "sha256": "2f3c1c487531c08e0bf5f660fbe3229c3db1863ab39666979c157f0028b8fc7b"
     },
     "baseline_grid_prereg_20261016": {
       "path": "manifests/wc_paper_N05_bounded_baseline_grid_preregistration_draft_20261016.json",
@@ -1221,6 +1227,18 @@
     "neighbor_resources_20261016": {
       "path": "reports/wc_mainline_neighbor_resource_inventory_20261016.json",
       "sha256": "e7b29427c0161b38efbec6bf0418c8be3ec2e139a4207a11bf870a826192416d"
+    },
+    "N05_core66_scope": {
+      "path": "manifests/wc_paper_N05_core66_preregistration_r1_20261016.json",
+      "sha256": "3dd17984283b1b8e779a06c5283973933a779d90156703d45b952284fcebc5d7"
+    },
+    "N05_scheduler_CPU": {
+      "path": "reports/wc_paper_N05_actual_native_scheduler_grid_CPU_20261016.json",
+      "sha256": "ea15688df4e93f9936dc7e29126da9e16a38776d3a4aa42cdc7e372712a0376f"
+    },
+    "N05_CPU_launch_460": {
+      "path": "research/460_WC_N05_CORE66_FROZEN_GRID_AND_FULL216_LOCAL_CPU_LAUNCH_20261016.md",
+      "sha256": "267f313edfa064c7cc99ebf1f7db34a93ae417823f66fecc7dd7021d29cc6150"
     }
   },
   "operation_policy": {
@@ -1299,7 +1317,17 @@
     },
     "W3_original_terminal_collection_performed": true,
     "SIMPLE26D_R1_collection_closed": true,
-    "current_CPU_task": null,
+    "current_CPU_task": {
+      "type": "N05_FINITE_GRID_CORE216_LOCAL_TOY_CPU",
+      "pid": 6663,
+      "source_revision": "762aeb4e010e3b297b23fd8e2f2f91feedd2abc7",
+      "launch_ref": "reports/wc_paper_N05_core216_local_CPU_launch_20261016.json",
+      "expected_paths": 216,
+      "expected_pairs": 7360,
+      "expected_CFG_calls": 14720,
+      "not_new_GPU": true,
+      "collected": false
+    },
     "next_W3_CPU_collection": null,
     "SIMPLE26D_R2_next_collection": "2026-10-16 04:55:00 Asia/Shanghai",
     "current_reserved_GPUh": 8.0,
@@ -1337,7 +1365,11 @@
       "N03",
       "N04"
     ],
-    "latest_budget_origin_fields_before_running_card_refer_to_historical_W3": true
+    "latest_budget_origin_fields_before_running_card_refer_to_historical_W3": true,
+    "next_N05_CPU_collection": "2026-10-16T03:12:00+08:00",
+    "N05_scientific_core66_scope_selected": true,
+    "N05_production_CPU_or_GPU_selected": false,
+    "N05_corrected_neighbor_gap_retained": true
   },
   "mapping_sha256_at_inventory": "942061a61d8b5ad39752ef5d2944ea915e9b947740289cb7adf793f122ef68f5"
 }

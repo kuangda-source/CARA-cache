@@ -1,3 +1,9 @@
+## 2026-10-16 N05有限基线执行器与完整本地CPU216在途
+
+[460接线与范围](../../research/460_WC_N05_CORE66_FROZEN_GRID_AND_FULL216_LOCAL_CPU_LAUNCH_20261016.md)：原UniPC/Karras实际CPU已核定Native35/26/18分别36/27/19更新、72/54/38CFG；新独立入口可逆适配计时末步捕获，原WC/RA/A/H1数值执行器保持。三个标量/范围控制通过。CPU完整两flow×四Toy×11配置×audit/lean176＋40旧默认控制=216路径/7360pairs/14720CFG，source762aeb4、本地PID6663于03:04:48.784847单次启动确认live，独立目录wc-paper-n05-core216-local-cpu-r1-20261016；预计3—6分钟，最早03:10:48.785，本次**03:12一次查收**。此前不看partial，captured一次后仅离线accept88audit/lean、40旧默认full36、216mock/安装阈值/Native计数/owner释放，失败保留，新源修复。p-acr-cpu承担该一次CPU查收，旧5392/5826不再查。
+
+下一完整GPU核心比较选择11配置×四原CAL=44正式+22warm/66路径/2220pairs/4440CFG/1load，N05_CORE66科学范围事前冻结；近邻Cosmos忠实适配缺口仍保留，不冒称全部N05已完成。CPU使用明确Toy Native/dense stand-in，不是实际生产CPU/视频；0SSH/0GPU/0teacher/0预算写。原同26D0795a00/1040857/1040918/post1040858及04:55验收完全不变，未看其partial；本CPU接受后继续真实生产接线，N06接受后再依v2/fresh UUID/完整费用推进N05 GPU，严格<12自主/原总cap保持。F/B关闭，P/T1增强后排。以下保留历史。
+
 ## 2026-10-16 最新主线接续授权与CPU72验收
 
 用户明确“看看还有什么没跑的主线实验，当前这个验收完后按重要程度推进”。[主线优先队列](plans/WORLD_CACHE_MAINLINE_PRIORITY_QUEUE_20261016.md)现为接续入口，覆盖历史“查收后不自动续主线”文字：先04:55完整验收原同26D0795a00/1040857/1040918/post1040858，不提前看partial或改任务；通过后优先N05有限调优强基线，再冻结N07共同测试、N08最终重复测速与N09/10费用/自动质量。常规主线完整预计严格<12GPUh且CPU/fresh v2余额/UUID通过直接执行，>=12具体确认；原cap104.971363333和窗口不变。不是自动开放P/旧卡/F/B/训练/OMR/人评。
