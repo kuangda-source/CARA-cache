@@ -1,0 +1,2109 @@
+{
+  "schema_version": 1,
+  "updated_local_date": "2026-10-15",
+  "repository": "kuangda-source/worldcache-omr-experiments",
+  "repository_absolute_path": "/Users/kuangda_gao/Documents/世界模型加速实验/worldcache_omr",
+  "snapshot_git_commit_before_mapping": "d13ea296d19bc560f692a22f0b96421507184ac5",
+  "human_reference_conversation": {
+    "id": "6abf4581-4ec8-83e8-8990-3efe11053cf4",
+    "title": "worldcache讨论",
+    "purpose": "naming proposal checked against implementation and accepted local evidence"
+  },
+  "naming_policy": {
+    "display_names_only": true,
+    "rename_code_configs_results_or_raw_artifacts": false,
+    "stable_lookup_key": [
+      "experiment_namespace",
+      "internal_id",
+      "config_sha256",
+      "parameter_fingerprint_when_present",
+      "source_rule_when_present",
+      "source_revision"
+    ],
+    "unqualified_H1_or_P_resolution_allowed": false,
+    "method_name_finalized": false,
+    "name_collision_check_performed": false,
+    "provisional_method_name": "CARA-Cache",
+    "provisional_modules": [
+      "GCR",
+      "CPA"
+    ],
+    "phase_schedule_not_claimed_as_proven_content_adaptive_advantage": true,
+    "new_exploration_in_mainline": false,
+    "precision_means_approximation_fidelity_not_numeric_bitwidth": true
+  },
+  "entries": [
+    {
+      "id": "framework.cara",
+      "kind": "framework",
+      "paper_name_en": "CARA-Cache",
+      "paper_name_zh": "CFG对齐缓存读出与成本感知计算分配",
+      "name_status": "provisional",
+      "internal_aliases": [],
+      "experiment_namespaces": [],
+      "evidence_status": "provisional_name_for_completed_operating_points",
+      "paper_role": "main_method",
+      "implementation_paths": [],
+      "evidence_ids": [],
+      "full_name": "CFG-Aligned Readout and Cost-Aware Allocation for Video Diffusion",
+      "components": [
+        "module.gcr",
+        "module.cpa"
+      ],
+      "primary_operating_points": [
+        "config.efficient",
+        "config.high_fidelity"
+      ],
+      "name_collision_check_performed": false
+    },
+    {
+      "id": "module.gcr",
+      "kind": "module",
+      "paper_name_en": "Guided Cache Readout (GCR)",
+      "paper_name_zh": "面向CFG的缓存读出修正",
+      "name_status": "provisional",
+      "internal_aliases": [
+        "W1",
+        "GCR"
+      ],
+      "experiment_namespaces": [],
+      "evidence_status": "completed_development_and_confirmation",
+      "paper_role": "main_method",
+      "implementation_paths": [
+        "src/wcomr/cfg_guided_w1_deployment.py",
+        "src/wcomr/cfg_guided_w1_outputs.py"
+      ],
+      "evidence_ids": [
+        "curve60",
+        "confirm50"
+      ],
+      "scope_note": "Current unit-gain phase-scaled readout; historical scalar/shrink variants are not aliases of this deployed implementation."
+    },
+    {
+      "id": "module.cpa",
+      "kind": "module",
+      "paper_name_en": "Cost-Calibrated Precision Allocation (CPA)",
+      "paper_name_zh": "成本校准的精度分配",
+      "name_status": "provisional",
+      "internal_aliases": [
+        "W3",
+        "CPA"
+      ],
+      "experiment_namespaces": [],
+      "evidence_status": "completed_table_policy_and_phase_deployment_new_trend_pending",
+      "paper_role": "main_method",
+      "implementation_paths": [
+        "src/wcomr/source_phase_absolute_h1_control_r1.py",
+        "src/wcomr/source_phase_fixed_mask_r1.py"
+      ],
+      "evidence_ids": [
+        "abs_h1_cal24",
+        "curve60",
+        "confirm50"
+      ],
+      "scope_note": "Current high-fidelity evidence supports calibration-derived phase deployment; new W3 trend allocation remains exploratory."
+    },
+    {
+      "id": "action.c",
+      "kind": "action",
+      "paper_name_en": "Direct Cache Reuse",
+      "paper_name_zh": "直接缓存复用",
+      "name_status": "descriptive",
+      "internal_aliases": [
+        "C"
+      ],
+      "experiment_namespaces": [],
+      "evidence_status": "completed_development",
+      "paper_role": "algorithm_action",
+      "implementation_paths": [
+        "src/wcomr/cfg_guided_w1_deployment.py"
+      ],
+      "evidence_ids": [],
+      "scope_note": "Original WC continuation with probe/window/warp/head/RF; physical CC also implements semantic A."
+    },
+    {
+      "id": "action.a",
+      "kind": "action",
+      "paper_name_en": "Corrected Cache Reuse",
+      "paper_name_zh": "修正缓存复用",
+      "name_status": "descriptive",
+      "internal_aliases": [
+        "A"
+      ],
+      "experiment_namespaces": [],
+      "evidence_status": "completed_development",
+      "paper_role": "algorithm_action",
+      "implementation_paths": [
+        "src/wcomr/cfg_guided_w1_deployment.py",
+        "src/wcomr/cfg_guided_w1_outputs.py"
+      ],
+      "evidence_ids": [
+        "curve60"
+      ],
+      "shared_alpha": true,
+      "fusion_space": "POST_RF_BRANCH_VELOCITY",
+      "trusted_D_history_updated": false
+    },
+    {
+      "id": "action.d",
+      "kind": "action",
+      "paper_name_en": "Dense Refresh",
+      "paper_name_zh": "完整刷新",
+      "name_status": "descriptive",
+      "internal_aliases": [
+        "D",
+        "DD"
+      ],
+      "experiment_namespaces": [],
+      "evidence_status": "completed_development",
+      "paper_role": "algorithm_action",
+      "implementation_paths": [
+        "src/wcomr/cfg_guided_w1_deployment.py"
+      ],
+      "evidence_ids": [],
+      "scope_note": "Both CFG branches full deep continuation; only actual true D updates trusted D history. Does not reset accumulated trajectory error."
+    },
+    {
+      "id": "action.p_family",
+      "kind": "action_family",
+      "paper_name_en": "Partial Refresh",
+      "paper_name_zh": "部分刷新",
+      "name_status": "descriptive",
+      "internal_aliases": [
+        "P"
+      ],
+      "experiment_namespaces": [],
+      "evidence_status": "executor_specific",
+      "paper_role": "generic_not_global_executor_alias",
+      "implementation_paths": [],
+      "evidence_ids": [],
+      "scope_note": "Resolve P by namespace/executor. Legacy PP is partial-MLP P0; new P-ACR readout is not a source refresh."
+    },
+    {
+      "id": "action.p0",
+      "kind": "action",
+      "paper_name_en": "Partial-MLP Refresh",
+      "paper_name_zh": "部分MLP刷新",
+      "name_status": "descriptive",
+      "internal_aliases": [
+        "P0",
+        "PP"
+      ],
+      "experiment_namespaces": [],
+      "evidence_status": "completed_development",
+      "paper_role": "optional_source_extension",
+      "implementation_paths": [
+        "src/wcomr/partial_mlp.py",
+        "src/wcomr/partial_mlp_guided_readout.py",
+        "src/wcomr/partial_mlp_deployment_sampling.py"
+      ],
+      "evidence_ids": [
+        "e3_64",
+        "n2_legacy"
+      ],
+      "layer_index_convention": "zero-based net.blocks indices; bind the production configuration",
+      "example_layer_indices": [
+        4,
+        10,
+        16,
+        22
+      ],
+      "attention_dense": true,
+      "working_source_updated": true,
+      "counts_as_true_D": false
+    },
+    {
+      "id": "baseline.native",
+      "kind": "configuration",
+      "paper_name_en": "Full Inference",
+      "paper_name_zh": "完整原生推理",
+      "name_status": "descriptive",
+      "internal_aliases": [
+        "NATIVE",
+        "Native"
+      ],
+      "experiment_namespaces": [
+        "CLEAN_SPEED20",
+        "N2_LEGACY",
+        "ABS_H1_CAL24",
+        "FROZEN_CONFIRM50",
+        "COST_CURVE60"
+      ],
+      "evidence_status": "completed_development",
+      "paper_role": "reference",
+      "implementation_paths": [
+        "src/wcomr/clean_speed20_r1.py"
+      ],
+      "evidence_ids": [
+        "clean20",
+        "confirm50",
+        "curve60"
+      ],
+      "cache_actions": null
+    },
+    {
+      "id": "baseline.wc",
+      "kind": "configuration",
+      "paper_name_en": "WorldCache",
+      "paper_name_zh": "WorldCache本地同协议实现",
+      "name_status": "descriptive",
+      "internal_aliases": [
+        "WC",
+        "WorldCache"
+      ],
+      "experiment_namespaces": [
+        "CLEAN_SPEED20",
+        "COST_CURVE60"
+      ],
+      "evidence_status": "completed_development",
+      "paper_role": "baseline",
+      "implementation_paths": [
+        "src/wcomr/clean_speed20_r1.py"
+      ],
+      "evidence_ids": [
+        "clean20",
+        "curve60"
+      ],
+      "scope_note": "Local Cosmos UniPC/Karras reevaluation, not complete paper-original Euler replication."
+    },
+    {
+      "id": "baseline.ra",
+      "kind": "configuration",
+      "paper_name_en": "RA-CFGCache (local port on WorldCache)",
+      "paper_name_zh": "WorldCache上的RA本地移植",
+      "name_status": "descriptive",
+      "internal_aliases": [
+        "RA"
+      ],
+      "experiment_namespaces": [
+        "CLEAN_SPEED20",
+        "N2_LEGACY",
+        "ABS_H1_CAL24",
+        "FROZEN_CONFIRM50",
+        "COST_CURVE60"
+      ],
+      "evidence_status": "completed_development",
+      "paper_role": "baseline",
+      "implementation_paths": [
+        "src/wcomr/cfg_ra_joint_control.py",
+        "src/wcomr/clean_speed20_r1.py"
+      ],
+      "evidence_ids": [
+        "curve60",
+        "confirm50"
+      ],
+      "scope_note": "RA-style joint controller with local calibration. SOURCE_RA in E3 must resolve with its own binding, not global substitution."
+    },
+    {
+      "id": "config.efficient",
+      "kind": "configuration",
+      "paper_name_en": "CARA-Cache (Efficient)",
+      "paper_name_zh": "低费用工作点",
+      "name_status": "provisional",
+      "internal_aliases": [
+        "A_NO_P"
+      ],
+      "experiment_namespaces": [
+        "CLEAN_SPEED20",
+        "N2_LEGACY",
+        "ABS_H1_CAL24",
+        "FROZEN_CONFIRM50",
+        "COST_CURVE60"
+      ],
+      "evidence_status": "completed_development_and_confirmation",
+      "paper_role": "main_operating_point",
+      "implementation_paths": [
+        "src/wcomr/clean_speed20_r1.py"
+      ],
+      "evidence_ids": [
+        "clean20",
+        "curve60",
+        "confirm50"
+      ],
+      "controller": "RA_style_joint_CD",
+      "readout": "BETA1_ONE_PHASE",
+      "partial_refresh_enabled": false,
+      "not_same_lambda_family_as_high_fidelity": true
+    },
+    {
+      "id": "config.high_fidelity",
+      "kind": "configuration",
+      "paper_name_en": "CARA-Cache (High-Fidelity)",
+      "paper_name_zh": "高保真工作点",
+      "name_status": "provisional",
+      "internal_aliases": [
+        "TABLE_PHASE_H1",
+        "H1_MID"
+      ],
+      "experiment_namespaces": [
+        "ABS_H1_CAL24",
+        "FROZEN_CONFIRM50",
+        "COST_CURVE60"
+      ],
+      "evidence_status": "completed_development_and_confirmation",
+      "paper_role": "main_operating_point",
+      "implementation_paths": [
+        "src/wcomr/source_phase_absolute_h1_control_r1.py",
+        "src/wcomr/source_phase_absolute_h1_batch_r1.py"
+      ],
+      "evidence_ids": [
+        "abs_h1_cal24",
+        "confirm50",
+        "curve60"
+      ],
+      "lambda_value": 525.1463509809399,
+      "base_parameter_fingerprint": "34ef948ed2a309e8b1cae4b72b780c14e21d63383fa1eadcdfc8803c3d5beef8",
+      "legal_actions": [
+        "C",
+        "A",
+        "P0",
+        "D"
+      ],
+      "observed_equivalence_to_fixed_A_scope": "COST_CURVE60 four CALs, two warm comparisons; do not generalize to new EXPL_DEV inputs",
+      "observed_actions_confirm50": {
+        "D": 26,
+        "P0": 0,
+        "A": 5,
+        "C": 5
+      }
+    },
+    {
+      "id": "ablation.fixed_a",
+      "kind": "configuration",
+      "paper_name_en": "Fixed-Schedule Corrected Reuse",
+      "paper_name_zh": "固定刷新位置的修正读出",
+      "name_status": "descriptive",
+      "internal_aliases": [
+        "FIXED_A"
+      ],
+      "experiment_namespaces": [
+        "COST_CURVE60"
+      ],
+      "evidence_status": "completed_development",
+      "paper_role": "matched_dense_refresh_ablation_and_deployment_control",
+      "implementation_paths": [
+        "src/wcomr/source_phase_fixed_mask_r1.py",
+        "src/wcomr/h1_cost_curve_batch_r1.py"
+      ],
+      "evidence_ids": [
+        "curve60"
+      ],
+      "schedule": "D1-24,A25-29,C30,D31,C32-35,D36",
+      "same_dense_positions_as": "ablation.fixed_plain",
+      "skip_table_score_and_argmin": true,
+      "probe_and_legality_costs_retained": true,
+      "not_an_independent_H1_confirmation_sample": true
+    },
+    {
+      "id": "ablation.fixed_plain",
+      "kind": "configuration",
+      "paper_name_en": "Fixed-Schedule Direct Reuse (matched dense refreshes)",
+      "paper_name_zh": "同完整刷新位置的直接复用",
+      "name_status": "descriptive",
+      "internal_aliases": [
+        "FIXED_PLAIN"
+      ],
+      "experiment_namespaces": [
+        "COST_CURVE60"
+      ],
+      "evidence_status": "completed_development",
+      "paper_role": "readout_ablation",
+      "implementation_paths": [
+        "src/wcomr/source_phase_fixed_mask_r1.py",
+        "src/wcomr/h1_cost_curve_batch_r1.py"
+      ],
+      "evidence_ids": [
+        "curve60"
+      ],
+      "schedule": "D1-24,C25-30,D31,C32-35,D36",
+      "dense_count": 26,
+      "corrected_reuse_count": 0
+    },
+    {
+      "id": "ablation.source_only",
+      "kind": "configuration",
+      "paper_name_en": "Source-Only Calibration",
+      "paper_name_zh": "仅来源标定",
+      "name_status": "descriptive",
+      "internal_aliases": [
+        "TABLE_POOLED_H1"
+      ],
+      "experiment_namespaces": [
+        "ABS_H1_CAL24"
+      ],
+      "evidence_status": "completed_development",
+      "paper_role": "phase_grouping_comparison",
+      "implementation_paths": [
+        "src/wcomr/source_phase_absolute_h1_batch_r1.py",
+        "src/wcomr/source_phase_table_fit_r1.py"
+      ],
+      "evidence_ids": [
+        "abs_h1_cal24"
+      ],
+      "scope_note": "Pools calibration phases; does not remove readout alpha phase scaling. H1_SOURCE_ONLY is a proposed label, not the registered internal ID."
+    },
+    {
+      "id": "sensitivity.low",
+      "kind": "configuration",
+      "paper_name_en": "CPA (lambda/4)",
+      "paper_name_zh": "低lambda配置",
+      "name_status": "descriptive",
+      "internal_aliases": [
+        "H1_LOW"
+      ],
+      "experiment_namespaces": [
+        "COST_CURVE60"
+      ],
+      "evidence_status": "completed_development",
+      "paper_role": "parameter_sensitivity",
+      "implementation_paths": [
+        "src/wcomr/h1_cost_curve_batch_r1.py"
+      ],
+      "evidence_ids": [
+        "curve60"
+      ],
+      "lambda_value": 131.28658774523498,
+      "observed_actions": {
+        "D": 26,
+        "P0": 0,
+        "A": 0,
+        "C": 10
+      }
+    },
+    {
+      "id": "sensitivity.high",
+      "kind": "configuration",
+      "paper_name_en": "CPA (4lambda)",
+      "paper_name_zh": "高lambda配置",
+      "name_status": "descriptive",
+      "internal_aliases": [
+        "H1_HIGH"
+      ],
+      "experiment_namespaces": [
+        "COST_CURVE60"
+      ],
+      "evidence_status": "completed_development",
+      "paper_role": "parameter_sensitivity",
+      "implementation_paths": [
+        "src/wcomr/h1_cost_curve_batch_r1.py"
+      ],
+      "evidence_ids": [
+        "curve60"
+      ],
+      "lambda_value": 2100.5854039237597,
+      "observed_actions": {
+        "D": 26,
+        "P0": 0,
+        "A": 7,
+        "C": 3
+      },
+      "scope_note": "HIGH means higher lambda, not higher quality. H1_MID resolves to config.high_fidelity."
+    },
+    {
+      "id": "config.source_gated",
+      "kind": "configuration",
+      "paper_name_en": "Source-Gated Correction (P0 enabled)",
+      "paper_name_zh": "P0保留的来源门控修正",
+      "name_status": "descriptive",
+      "internal_aliases": [
+        "P_OFF"
+      ],
+      "experiment_namespaces": [
+        "N2_LEGACY",
+        "ABS_H1_CAL24",
+        "FROZEN_CONFIRM50",
+        "COST_CURVE60"
+      ],
+      "evidence_status": "completed_development",
+      "paper_role": "optional_quality_operating_point_and_source_control",
+      "implementation_paths": [
+        "src/wcomr/math_n2_source_readout_r1.py",
+        "src/wcomr/math_n2_batch_r1.py"
+      ],
+      "evidence_ids": [
+        "n2_legacy",
+        "curve60",
+        "confirm50"
+      ],
+      "partial_refresh_enabled": true,
+      "correction_enabled_for_D_source": true,
+      "correction_enabled_for_P_source": false,
+      "forbidden_label": "without P"
+    },
+    {
+      "id": "config.source_fixed",
+      "kind": "configuration",
+      "paper_name_en": "Fixed Source-Consistent Readout Fusion",
+      "paper_name_zh": "固定来源一致融合",
+      "name_status": "descriptive",
+      "internal_aliases": [
+        "SOURCE_FIXED"
+      ],
+      "experiment_namespaces": [
+        "N2_LEGACY"
+      ],
+      "evidence_status": "completed_development",
+      "paper_role": "source_readout_analysis",
+      "implementation_paths": [
+        "src/wcomr/math_n2_source_readout_r1.py",
+        "src/wcomr/math_source_fusion_r1.py"
+      ],
+      "evidence_ids": [
+        "n2_legacy"
+      ],
+      "scope_note": "Original source controller, fixed gamma fusion; not the later absolute H1 optimizer."
+    },
+    {
+      "id": "legacy.n2_h1",
+      "kind": "configuration",
+      "paper_name_en": "One-Step Normalized-Error Controller (legacy)",
+      "paper_name_zh": "旧一步归一化误差控制",
+      "name_status": "descriptive",
+      "internal_aliases": [
+        "SOURCE_H1"
+      ],
+      "experiment_namespaces": [
+        "N2_LEGACY"
+      ],
+      "evidence_status": "completed_legacy",
+      "paper_role": "design_analysis",
+      "implementation_paths": [
+        "src/wcomr/math_n2_event_control_r1.py",
+        "src/wcomr/math_n2_batch_r1.py"
+      ],
+      "evidence_ids": [
+        "n2_legacy"
+      ],
+      "horizon": 1,
+      "observed_A_count": 0,
+      "not_alias_of": "config.high_fidelity"
+    },
+    {
+      "id": "legacy.n2_h2",
+      "kind": "configuration",
+      "paper_name_en": "Two-Step Proxy Lookahead Controller (legacy)",
+      "paper_name_zh": "旧两步代理前瞻控制",
+      "name_status": "descriptive",
+      "internal_aliases": [
+        "SOURCE_H2"
+      ],
+      "experiment_namespaces": [
+        "N2_LEGACY"
+      ],
+      "evidence_status": "completed_legacy",
+      "paper_role": "design_analysis",
+      "implementation_paths": [
+        "src/wcomr/math_n2_event_control_r1.py",
+        "src/wcomr/math_n2_batch_r1.py"
+      ],
+      "evidence_ids": [
+        "n2_legacy"
+      ],
+      "horizon": 2,
+      "observed_A_count": 0,
+      "real_future_rollout": false
+    },
+    {
+      "id": "legacy.h2_dense_replacement",
+      "kind": "configuration",
+      "paper_name_en": "P-to-D Replacement Control",
+      "paper_name_zh": "P位置替换D的控制",
+      "name_status": "descriptive",
+      "internal_aliases": [
+        "H2_P_TO_D"
+      ],
+      "experiment_namespaces": [
+        "N2_LEGACY"
+      ],
+      "evidence_status": "completed_legacy",
+      "paper_role": "replacement_control",
+      "implementation_paths": [
+        "src/wcomr/math_n2_batch_r1.py"
+      ],
+      "evidence_ids": [
+        "n2_legacy"
+      ]
+    },
+    {
+      "id": "legacy.keep_a_p",
+      "kind": "configuration",
+      "paper_name_en": "Guided Correction with Partial Refresh (retained accumulation)",
+      "paper_name_zh": "保留累计规则的修正加部分刷新",
+      "name_status": "descriptive",
+      "internal_aliases": [
+        "KEEP_A_P"
+      ],
+      "experiment_namespaces": [
+        "CLEAN_SPEED20"
+      ],
+      "evidence_status": "completed_development",
+      "paper_role": "timing_bridge",
+      "implementation_paths": [
+        "src/wcomr/clean_speed20_r1.py"
+      ],
+      "evidence_ids": [
+        "clean20"
+      ],
+      "source_rule": "WORKING_P_AGE_KEEP_INTERVAL",
+      "not_alias_of": "config.source_gated"
+    },
+    {
+      "id": "source.keep",
+      "kind": "source_rule",
+      "paper_name_en": "Retained-Accumulation Source Rule",
+      "paper_name_zh": "保留累计的来源规则",
+      "name_status": "descriptive",
+      "internal_aliases": [
+        "KEEP",
+        "WORKING_P_AGE_KEEP_INTERVAL"
+      ],
+      "experiment_namespaces": [
+        "E3_COMPLETE64",
+        "CLEAN_SPEED20"
+      ],
+      "evidence_status": "completed_development",
+      "paper_role": "source_semantics",
+      "implementation_paths": [],
+      "evidence_ids": [
+        "e3_64",
+        "clean20"
+      ]
+    },
+    {
+      "id": "source.nonzero",
+      "kind": "source_rule",
+      "paper_name_en": "Nonzero Source-Risk Rebaselining",
+      "paper_name_zh": "非零来源风险重基准",
+      "name_status": "descriptive",
+      "internal_aliases": [
+        "NONZERO",
+        "WORKING_P_AGE_NONZERO_REBASE"
+      ],
+      "experiment_namespaces": [
+        "E3_COMPLETE64",
+        "N2_LEGACY",
+        "ABS_H1_CAL24"
+      ],
+      "evidence_status": "completed_development",
+      "paper_role": "source_semantics",
+      "implementation_paths": [],
+      "evidence_ids": [
+        "e3_64",
+        "n2_legacy"
+      ],
+      "P_birth_error_assumed_zero": false
+    },
+    {
+      "id": "explore.acr",
+      "kind": "exploration",
+      "paper_name_en": "Single-Branch Compensated Readout",
+      "paper_name_zh": "单分支补偿读出",
+      "name_status": "descriptive",
+      "internal_aliases": [
+        "P-ACR",
+        "Pc",
+        "Pu",
+        "ACR_READOUT"
+      ],
+      "experiment_namespaces": [
+        "P_ACR_E0",
+        "PA528"
+      ],
+      "evidence_status": "offline_signal_and_CPU_prepared_GPU_price_and_endpoint_pending",
+      "paper_role": "independent_optional_enhancement",
+      "implementation_paths": [
+        "src/wcomr/p_acr_readout_r1.py"
+      ],
+      "evidence_ids": [
+        "e0",
+        "w3_launch"
+      ],
+      "working_source_updated": false,
+      "trusted_D_updated": false,
+      "implementation_source_kind": "ACR_READOUT_NOT_REFRESH",
+      "reserved_future_refresh_name": "Single-Branch Refresh (SBR)",
+      "price_measured_on_new_executor": false
+    },
+    {
+      "id": "explore.w3_labels",
+      "kind": "exploration",
+      "paper_name_en": "Same-State C/A/D Supervision Collection",
+      "paper_name_zh": "同状态C/A/D监督采集",
+      "name_status": "descriptive",
+      "internal_aliases": [
+        "W3_LABEL64",
+        "FULL864"
+      ],
+      "experiment_namespaces": [
+        "W3_LABEL864"
+      ],
+      "evidence_status": "GPU_launched_results_not_collected_as_of_snapshot",
+      "paper_role": "allocation_development_not_method_endpoint",
+      "implementation_paths": [
+        "src/wcomr/w3_label64_production_contract_r1.py"
+      ],
+      "evidence_ids": [
+        "w3_launch",
+        "cpu_full72",
+        "cpu_production"
+      ],
+      "source_revision": "047dcf181a3ab706002b2965e74b626e4648deea",
+      "counts": {
+        "formal_inputs": 8,
+        "parents": 18,
+        "formal_origins": 64,
+        "warmup_origins": 8,
+        "maximum_pairs": 864,
+        "maximum_CFG_calls": 1728,
+        "loads": 1,
+        "new_Native_references": 0
+      },
+      "ordinary_parent_legal_actions_include_P0": true,
+      "diagnostic_actions": [
+        "C",
+        "A",
+        "D"
+      ],
+      "scheduled_collection_local": "2026-10-16T01:00:00+08:00"
+    },
+    {
+      "id": "explore.trend_t0",
+      "kind": "exploration",
+      "paper_name_en": "Source-and-Phase Table Baseline",
+      "paper_name_zh": "来源乘阶段表参考",
+      "name_status": "descriptive",
+      "internal_aliases": [
+        "T0"
+      ],
+      "experiment_namespaces": [
+        "W3_TREND"
+      ],
+      "evidence_status": "frozen_baseline",
+      "paper_role": "reference",
+      "implementation_paths": [],
+      "evidence_ids": [
+        "w3_launch"
+      ],
+      "maps_to": "config.high_fidelity"
+    },
+    {
+      "id": "explore.trend_t1",
+      "kind": "exploration",
+      "paper_name_en": "Current-Observation Risk Estimator",
+      "paper_name_zh": "当前观测风险估计器",
+      "name_status": "descriptive",
+      "internal_aliases": [
+        "T1"
+      ],
+      "experiment_namespaces": [
+        "W3_TREND"
+      ],
+      "evidence_status": "CPU_interface_prepared_real_fit_and_grouped_evaluation_pending",
+      "paper_role": "independent_optional_enhancement",
+      "implementation_paths": [
+        "src/wcomr/w3_causal_trend_r1.py"
+      ],
+      "evidence_ids": [
+        "w3_launch"
+      ],
+      "feature_dimensions": 13,
+      "estimator": "Ridge",
+      "targets": [
+        "g_squared_q_A",
+        "g_squared_times_q_C_minus_q_A"
+      ],
+      "teacher_or_future_in_features": false
+    },
+    {
+      "id": "explore.trend_t2",
+      "kind": "exploration",
+      "paper_name_en": "Causal Short-History Risk Estimator",
+      "paper_name_zh": "因果短历史风险估计器",
+      "name_status": "descriptive",
+      "internal_aliases": [
+        "T2"
+      ],
+      "experiment_namespaces": [
+        "W3_TREND"
+      ],
+      "evidence_status": "CPU_interface_prepared_real_fit_and_grouped_evaluation_pending",
+      "paper_role": "independent_optional_enhancement",
+      "implementation_paths": [
+        "src/wcomr/w3_causal_trend_r1.py"
+      ],
+      "evidence_ids": [
+        "w3_launch"
+      ],
+      "feature_dimensions": 27,
+      "estimator": "Ridge_with_causal_prefix_statistics",
+      "implemented_MixLinear_spectral_network": false,
+      "teacher_or_future_in_features": false,
+      "scope_note": "W3-MixTrend is an exploratory umbrella; T2 is the current short-history implementation, not all proposed long/spectral branches.",
+      "related_design_names": [
+        "W3-MixTrend"
+      ]
+    },
+    {
+      "id": "closed.f",
+      "kind": "exploration",
+      "paper_name_en": "Spectral Risk-Feature Probe (archived)",
+      "paper_name_zh": "频谱风险特征探索（归档）",
+      "name_status": "descriptive",
+      "internal_aliases": [
+        "F",
+        "RAW",
+        "Haar",
+        "FFT"
+      ],
+      "experiment_namespaces": [
+        "ISOLATED_FB"
+      ],
+      "evidence_status": "closed_not_in_mainline",
+      "paper_role": "archive_or_appendix",
+      "implementation_paths": [],
+      "evidence_ids": [
+        "closure"
+      ],
+      "scope_note": "Prediction accuracy improvement did not establish allocation/endpoint benefit; do not reopen under a new name."
+    },
+    {
+      "id": "closed.b",
+      "kind": "exploration",
+      "paper_name_en": "Block-Reuse Diagnostic (archived)",
+      "paper_name_zh": "Block复用诊断（归档）",
+      "name_status": "descriptive",
+      "internal_aliases": [
+        "B",
+        "L2",
+        "L2_VELOCITY"
+      ],
+      "experiment_namespaces": [
+        "ISOLATED_FB",
+        "B_FULL312"
+      ],
+      "evidence_status": "closed_not_in_mainline",
+      "paper_role": "archive_or_appendix",
+      "implementation_paths": [],
+      "evidence_ids": [
+        "b_closed",
+        "closure"
+      ],
+      "scope_note": "Endpoint card injected saved velocity with actual C cache; zero new B executor calls. Local timing is not E2E speedup."
+    },
+    {
+      "id": "explore.trend_umbrella",
+      "kind": "exploration_family",
+      "paper_name_en": "Trend-Aware Allocation (exploratory umbrella)",
+      "paper_name_zh": "趋势感知分配探索总称",
+      "name_status": "descriptive",
+      "internal_aliases": [
+        "W3-MixTrend"
+      ],
+      "experiment_namespaces": [
+        "W3_TREND"
+      ],
+      "evidence_status": "exploratory_design_not_deployed_result",
+      "paper_role": "optional_enhancement_family",
+      "implementation_paths": [],
+      "evidence_ids": [
+        "w3_launch"
+      ],
+      "current_children": [
+        "explore.trend_t1",
+        "explore.trend_t2"
+      ],
+      "future_T3_long_history_is_not_T2": true,
+      "spectral_T4_inactive": true
+    },
+    {
+      "id": "legacy.nonzero_cpd",
+      "kind": "configuration",
+      "paper_name_en": "Reuse–Partial–Dense Baseline (nonzero rebasing)",
+      "paper_name_zh": "非零重基准C/P0/D基线",
+      "name_status": "descriptive",
+      "internal_aliases": [
+        "NONZERO_CPD"
+      ],
+      "experiment_namespaces": [
+        "N2_LEGACY"
+      ],
+      "evidence_status": "completed_development",
+      "paper_role": "historical_control",
+      "implementation_paths": [
+        "src/wcomr/math_n2_batch_r1.py"
+      ],
+      "evidence_ids": [
+        "n2_legacy"
+      ],
+      "source_rule": "WORKING_P_AGE_NONZERO_REBASE",
+      "semantic_actions": [
+        "C",
+        "P0",
+        "D"
+      ],
+      "correction_enabled": false
+    },
+    {
+      "id": "e3.ra",
+      "kind": "configuration",
+      "paper_name_en": "RA-CFGCache (E3 local reference)",
+      "paper_name_zh": "E3本地RA参考",
+      "name_status": "descriptive",
+      "internal_aliases": [
+        "SOURCE_RA"
+      ],
+      "experiment_namespaces": [
+        "E3_COMPLETE64"
+      ],
+      "evidence_status": "completed_development",
+      "paper_role": "historical_control",
+      "implementation_paths": [
+        "src/wcomr/source_aware_partial_sampling.py",
+        "src/wcomr/real_working_epoch_parameters_r1.py",
+        "src/wcomr/e3_complete64_block_scope_r1.py"
+      ],
+      "evidence_ids": [
+        "e3_64"
+      ],
+      "requires_source_rule": true,
+      "source_rules": [
+        "WORKING_P_AGE_KEEP_INTERVAL",
+        "WORKING_P_AGE_NONZERO_REBASE"
+      ]
+    },
+    {
+      "id": "e3.no_p",
+      "kind": "configuration",
+      "paper_name_en": "No-Partial-Refresh Controller Control",
+      "paper_name_zh": "禁用P0的控制路径",
+      "name_status": "descriptive",
+      "internal_aliases": [
+        "DYNAMIC_NO_P"
+      ],
+      "experiment_namespaces": [
+        "E3_COMPLETE64"
+      ],
+      "evidence_status": "completed_development",
+      "paper_role": "historical_control",
+      "implementation_paths": [
+        "src/wcomr/source_aware_partial_sampling.py",
+        "src/wcomr/real_working_epoch_parameters_r1.py",
+        "src/wcomr/e3_complete64_block_scope_r1.py"
+      ],
+      "evidence_ids": [
+        "e3_64"
+      ],
+      "requires_source_rule": true,
+      "source_rules": [
+        "WORKING_P_AGE_KEEP_INTERVAL",
+        "WORKING_P_AGE_NONZERO_REBASE"
+      ]
+    },
+    {
+      "id": "e3.cpd",
+      "kind": "configuration",
+      "paper_name_en": "Reuse–Partial–Dense Baseline",
+      "paper_name_zh": "C/P0/D基线",
+      "name_status": "descriptive",
+      "internal_aliases": [
+        "CPD"
+      ],
+      "experiment_namespaces": [
+        "E3_COMPLETE64"
+      ],
+      "evidence_status": "completed_development",
+      "paper_role": "historical_control",
+      "implementation_paths": [
+        "src/wcomr/source_aware_partial_sampling.py",
+        "src/wcomr/real_working_epoch_parameters_r1.py",
+        "src/wcomr/e3_complete64_block_scope_r1.py"
+      ],
+      "evidence_ids": [
+        "e3_64"
+      ],
+      "requires_source_rule": true,
+      "source_rules": [
+        "WORKING_P_AGE_KEEP_INTERVAL",
+        "WORKING_P_AGE_NONZERO_REBASE"
+      ]
+    },
+    {
+      "id": "e3.reference",
+      "kind": "configuration",
+      "paper_name_en": "Reference Partial-Refresh Execution Control",
+      "paper_name_zh": "P0参考执行控制",
+      "name_status": "descriptive",
+      "internal_aliases": [
+        "REF_CPD"
+      ],
+      "experiment_namespaces": [
+        "E3_COMPLETE64"
+      ],
+      "evidence_status": "completed_development",
+      "paper_role": "historical_control",
+      "implementation_paths": [
+        "src/wcomr/source_aware_partial_sampling.py",
+        "src/wcomr/real_working_epoch_parameters_r1.py",
+        "src/wcomr/e3_complete64_block_scope_r1.py"
+      ],
+      "evidence_ids": [
+        "e3_64"
+      ],
+      "requires_source_rule": true,
+      "source_rules": [
+        "WORKING_P_AGE_KEEP_INTERVAL",
+        "WORKING_P_AGE_NONZERO_REBASE"
+      ]
+    },
+    {
+      "id": "e3.off",
+      "kind": "configuration",
+      "paper_name_en": "Correction-Disabled Wrapper Control",
+      "paper_name_zh": "关闭修正的包装控制",
+      "name_status": "descriptive",
+      "internal_aliases": [
+        "A_CPD_OFF"
+      ],
+      "experiment_namespaces": [
+        "E3_COMPLETE64"
+      ],
+      "evidence_status": "completed_development",
+      "paper_role": "historical_control",
+      "implementation_paths": [
+        "src/wcomr/source_aware_partial_sampling.py",
+        "src/wcomr/real_working_epoch_parameters_r1.py",
+        "src/wcomr/e3_complete64_block_scope_r1.py"
+      ],
+      "evidence_ids": [
+        "e3_64"
+      ],
+      "requires_source_rule": true,
+      "source_rules": [
+        "WORKING_P_AGE_KEEP_INTERVAL",
+        "WORKING_P_AGE_NONZERO_REBASE"
+      ]
+    },
+    {
+      "id": "e3.scalar",
+      "kind": "configuration",
+      "paper_name_en": "Partial Refresh + Scalar Incremental Correction",
+      "paper_name_zh": "P0加标量增量修正",
+      "name_status": "descriptive",
+      "internal_aliases": [
+        "A_CPD_W1_ONE_PHASE"
+      ],
+      "experiment_namespaces": [
+        "E3_COMPLETE64"
+      ],
+      "evidence_status": "completed_development",
+      "paper_role": "historical_control",
+      "implementation_paths": [
+        "src/wcomr/source_aware_partial_sampling.py",
+        "src/wcomr/real_working_epoch_parameters_r1.py",
+        "src/wcomr/e3_complete64_block_scope_r1.py"
+      ],
+      "evidence_ids": [
+        "e3_64"
+      ],
+      "requires_source_rule": true,
+      "source_rules": [
+        "WORKING_P_AGE_KEEP_INTERVAL",
+        "WORKING_P_AGE_NONZERO_REBASE"
+      ]
+    },
+    {
+      "id": "e3.unit",
+      "kind": "configuration",
+      "paper_name_en": "Partial Refresh + Unit-Gain Correction",
+      "paper_name_zh": "P0加单位增益修正",
+      "name_status": "descriptive",
+      "internal_aliases": [
+        "A_CPD_BETA1_ONE_PHASE"
+      ],
+      "experiment_namespaces": [
+        "E3_COMPLETE64"
+      ],
+      "evidence_status": "completed_development",
+      "paper_role": "historical_control",
+      "implementation_paths": [
+        "src/wcomr/source_aware_partial_sampling.py",
+        "src/wcomr/real_working_epoch_parameters_r1.py",
+        "src/wcomr/e3_complete64_block_scope_r1.py"
+      ],
+      "evidence_ids": [
+        "e3_64"
+      ],
+      "requires_source_rule": true,
+      "source_rules": [
+        "WORKING_P_AGE_KEEP_INTERVAL",
+        "WORKING_P_AGE_NONZERO_REBASE"
+      ]
+    },
+    {
+      "id": "e3.dense",
+      "kind": "configuration",
+      "paper_name_en": "All-D Execution Control",
+      "paper_name_zh": "全D执行控制",
+      "name_status": "descriptive",
+      "internal_aliases": [
+        "DENSE_CONTROL"
+      ],
+      "experiment_namespaces": [
+        "E3_COMPLETE64"
+      ],
+      "evidence_status": "completed_development",
+      "paper_role": "historical_control",
+      "implementation_paths": [
+        "src/wcomr/source_aware_partial_sampling.py",
+        "src/wcomr/real_working_epoch_parameters_r1.py",
+        "src/wcomr/e3_complete64_block_scope_r1.py"
+      ],
+      "evidence_ids": [
+        "e3_64"
+      ],
+      "requires_source_rule": true,
+      "source_rules": [
+        "WORKING_P_AGE_KEEP_INTERVAL",
+        "WORKING_P_AGE_NONZERO_REBASE"
+      ]
+    }
+  ],
+  "experiment_configs": {
+    "CLEAN_SPEED20": {
+      "path": "configs/wc_clean_speed20_r1_20261012.json",
+      "card": "WC-CLEAN-SPEED20-BETA1-KEEP-R2-20261012-A",
+      "run_id": "wc-clean-speed20-beta1-keep-r2",
+      "methods": [
+        "NATIVE",
+        "WC",
+        "RA",
+        "A_NO_P",
+        "KEEP_A_P"
+      ],
+      "scope_counts": null,
+      "sha256": "10a800af51cf57b7a3c7d89030bf558c21e29b0d4f35f724dde3d7c2aa94bfb6"
+    },
+    "N2_LEGACY": {
+      "path": "configs/wc_math_n2_full36_production_r2_20261012.json",
+      "card": "WC-MATH-N2-SOURCE-SIGMA-FULL36-R1-20261012-A",
+      "run_id": "wc-math-n2-source-sigma-full36-r2",
+      "methods": [
+        "NATIVE",
+        "RA",
+        "A_NO_P",
+        "NONZERO_CPD",
+        "P_OFF",
+        "SOURCE_FIXED",
+        "SOURCE_H1",
+        "SOURCE_H2",
+        "H2_P_TO_D"
+      ],
+      "scope_counts": {
+        "requests": 4,
+        "methods": 9,
+        "scientific_paths": 36,
+        "full_warmup_paths": 18,
+        "total_paths": 54,
+        "ordinary_pairs": 1944,
+        "ordinary_CFG_calls": 3888,
+        "loads": 1,
+        "teacher_pairs": 0,
+        "score_videos": 36
+      },
+      "sha256": "8b6899174defb57f3a993bacd38da81fa8c66471c8a1354b42d07bfcc4a1fd66"
+    },
+    "ABS_H1_CAL24": {
+      "path": "configs/wc_source_phase_h1_full24_production_r1_20261013.json",
+      "card": "WC-SOURCE-PHASE-ABSOLUTE-H1-FULL24-WARM12-R1-20261013-A",
+      "run_id": "wc-source-phase-h1-full24-r1",
+      "methods": [
+        "NATIVE",
+        "RA",
+        "A_NO_P",
+        "P_OFF",
+        "TABLE_PHASE_H1",
+        "TABLE_POOLED_H1"
+      ],
+      "scope_counts": {
+        "requests": 4,
+        "methods": 6,
+        "scientific_paths": 24,
+        "full_warmup_paths": 12,
+        "total_paths": 36,
+        "ordinary_pairs": 1296,
+        "ordinary_CFG_calls": 2592,
+        "loads": 1,
+        "teacher_pairs": 0,
+        "score_videos": 24
+      },
+      "sha256": "bb6643a09f77d64eefa710bba4ca3a272334e693f46440d4981e52c8402ece15"
+    },
+    "FROZEN_CONFIRM50": {
+      "path": "configs/wc_source_conditional_confirmation_full50_production_r1_20261013.json",
+      "card": "WC-SOURCE-CONDITIONAL-CONF40-WARM10-R1-20261013-A",
+      "run_id": "wc-source-conditional-confirmation-full40-r1",
+      "methods": [
+        "NATIVE",
+        "RA",
+        "A_NO_P",
+        "P_OFF",
+        "TABLE_PHASE_H1"
+      ],
+      "scope_counts": {
+        "requests": 8,
+        "methods": 5,
+        "scientific_paths": 40,
+        "full_warmup_paths": 10,
+        "total_paths": 50,
+        "ordinary_pairs": 1800,
+        "ordinary_CFG_calls": 3600,
+        "loads": 1,
+        "teacher_pairs": 0,
+        "score_videos": 40
+      },
+      "sha256": "db5fa0d263ca778949faae2382c9a48052ca14fd628db4b10b5276b915b3fd6b"
+    },
+    "COST_CURVE60": {
+      "path": "configs/wc_h1_cost_curve_full60_production_r1_20261013.json",
+      "card": "WC-H1-CAL-COST-CURVE-STATIC-FULL60-R1-20261013-A",
+      "run_id": "wc-h1-cost-curve-static-full60-r1",
+      "methods": [
+        "NATIVE",
+        "WC",
+        "RA",
+        "A_NO_P",
+        "P_OFF",
+        "H1_LOW",
+        "H1_MID",
+        "H1_HIGH",
+        "FIXED_A",
+        "FIXED_PLAIN"
+      ],
+      "scope_counts": {
+        "requests": 4,
+        "methods": 10,
+        "scientific_paths": 40,
+        "full_warmup_paths": 20,
+        "total_paths": 60,
+        "ordinary_pairs": 2160,
+        "ordinary_CFG_calls": 4320,
+        "loads": 1,
+        "teacher_pairs": 0,
+        "score_videos": 40,
+        "warm_guided_control_paths": 4,
+        "warm_guided_control_outputs": 144
+      },
+      "sha256": "0d1c7bdf9687b2934c3fd1e2bf2f1acc47eeb26d1292a4dabc3e9ea44d3a3526"
+    },
+    "W3_LABEL864": {
+      "path": "manifests/wc_w3_label64_parent18_full864_scope_r1_20261015.json",
+      "card": "WC-W3-LABEL-EXPLDEV8-PARENT18-LOCAL64-FULL864-R1-20261015-A",
+      "run_id": null,
+      "methods": null,
+      "scope_counts": {
+        "formal_requests": 8,
+        "warmup_requests_reused": 1,
+        "formal_baseline_parents": 8,
+        "formal_diagnostic_parents": 8,
+        "warmup_baseline_parents": 1,
+        "warmup_diagnostic_parents": 1,
+        "full_paths": 18,
+        "updates_each_path": 36,
+        "ordinary_pairs": 648,
+        "formal_origins": 64,
+        "warmup_origins": 8,
+        "all_origins": 72,
+        "candidate_actions_each_origin": 3,
+        "diagnostic_pairs": 216,
+        "complete_pairs": 864,
+        "CFG_calls": 1728,
+        "loads": 1,
+        "raw_point_files": 72,
+        "tensors_per_point": 8,
+        "raw_point_tensors": 576,
+        "parent_vector_files": 18,
+        "tensors_per_parent": 37,
+        "parent_vector_tensors": 666,
+        "raw_files": 90,
+        "all_raw_tensors": 1242,
+        "formal_video_positions": 16,
+        "warmup_video_positions": 2,
+        "frames_per_accepted_video": 93,
+        "new_Native_reference_paths": 0
+      },
+      "sha256": "ed3b4d7b3078d919a4718a9e583b2ca567259941179fdbcac92c41740a162cb5"
+    },
+    "E3_COMPLETE64": {
+      "path": "configs/wc_e3_complete64_production_r1_20261011.json",
+      "card": "WC-E3-CURRENT-BIRTH-COMPLETE64-REUSE10-FRESH54-R1-20261011-A",
+      "run_id": "wc-e3-current-birth-complete64-reuse10-fresh54-r1",
+      "methods": [
+        "SOURCE_RA",
+        "DYNAMIC_NO_P",
+        "CPD",
+        "REF_CPD",
+        "A_CPD_OFF",
+        "A_CPD_W1_ONE_PHASE",
+        "A_CPD_BETA1_ONE_PHASE",
+        "DENSE_CONTROL"
+      ],
+      "strategies": [
+        "WORKING_P_AGE_KEEP_INTERVAL",
+        "WORKING_P_AGE_NONZERO_REBASE"
+      ],
+      "scope_counts": {
+        "scientific_positions": 64,
+        "qualified_reused_positions": 10,
+        "fresh_complete_paths": 54,
+        "independent_model_loads": 20,
+        "maximum_paths_per_process": 3,
+        "fresh_solver_updates": 1944,
+        "fresh_CFG_calls": 3888
+      },
+      "scope_ref": "manifests/wc_e3_complete64_reuse10_fresh54_blocks_r1_20261011.json",
+      "sha256": "ebc3622e9d9453649a04279e192790aa6cfd2f56544a59d791c3a9ce96e1ecf7"
+    },
+    "PA528": {
+      "path": "configs/wc_p_acr_local12_profile528_production_r1_20261015.json",
+      "card": "WC-P-ACR-H1-BASE4-DIAG4-LOCAL12-PRICE20-FULL528-R1-20261015-A",
+      "run_id": "wc-p-acr-h1-local12-price20-full528-r1",
+      "methods": null,
+      "diagnostic_actions": [
+        "C",
+        "A",
+        "D",
+        "Pc",
+        "Pu"
+      ],
+      "scope_counts": {
+        "requests": 4,
+        "baseline_parents": 4,
+        "diagnostic_parents": 4,
+        "full_paths": 8,
+        "ordinary_pairs": 288,
+        "origins": 12,
+        "active_D_primary": 8,
+        "A_boundary": 2,
+        "C_boundary": 2,
+        "actions": 5,
+        "warmups_each_action": 1,
+        "formal_repetitions_each_action": 3,
+        "diagnostic_pairs": 240,
+        "warmup_pairs": 60,
+        "formal_pairs": 180,
+        "pairs": 528,
+        "CFG_calls": 1056,
+        "raw_point_files": 12,
+        "raw_point_tensors": 480,
+        "parent_vector_files": 8,
+        "parent_vector_tensors": 296,
+        "all_raw_files": 20,
+        "all_raw_tensors": 776,
+        "loads": 1
+      },
+      "status": "CPU_ready_not_selected_or_launched",
+      "sha256": "de64913f8a02301377b897009b8a4f1612516aed07c02d71bc4a2168209c80f7"
+    }
+  },
+  "evidence_reports": {
+    "clean20": "research/374_WC_CLEAN_SPEED20_COMPLETE_RESULTS_20261012.md",
+    "e3_64": "research/369_WC_E3_COMPLETE64_RESULTS_SOURCE_READOUT_INTERACTION_AND_NEXT_20261012.md",
+    "n2_legacy": "research/380_WC_MATH_N2_COMPLETE_SOURCE_GATE_POSITIVE_AND_ROUTER_A_UNUSED_RESULTS_20261012.md",
+    "abs_h1_cal24": "research/403_WC_ABSOLUTE_H1_COMPLETE_RESULTS_HIGH_FIDELITY_AND_NEXT_20261013.md",
+    "confirm50": "research/417_WC_FROZEN_CONFIRMATION_FULL50_RESULTS_AND_COST_CURVE_NEXT_20261013.md",
+    "curve60": "research/420_WC_FULL60_COST_CURVE_COMPLETE_RESULTS_AND_CONVERGENCE_20261014.md",
+    "b_closed": "research/423_WC_B_FULL312_COMPLETE_ENDPOINT_RESULTS_AND_READOUT_BOUNDARY_20261014.md",
+    "closure": "research/424_WC_FINAL_EXPERIMENT_CLOSURE_AND_PAPER_EVIDENCE_20261014.md",
+    "e0": "research/426_WC_P_W3_E0_COMPLETE_ASYMMETRIC_ORACLE_AND_COEFFICIENT_RESULTS_20261014.md",
+    "cpu_full72": "research/441_WC_W3_FULL72_COLLECTOR_CPU_ACCEPTED_AND_PRODUCTION_NEXT_20261015.md",
+    "cpu_production": "research/447_WC_W3_COMPLETE_CPU_CLOSED_AND_WHOLE864_PERMISSION_DECISION_20261015.md",
+    "w3_launch": "research/448_WC_W3_FULL864_APPROVED_GPU_LAUNCH_AND_UNDER12_AUTONOMY_20261015.md"
+  },
+  "evidence_batches": {
+    "curve60": {
+      "source_revision": "361ea5c9372332299f7ca29dbffe0ab942274d0f",
+      "namespace": "COST_CURVE60",
+      "report_id": "curve60",
+      "status": "accepted_complete_development",
+      "scene_count": 4,
+      "seeds": [
+        0
+      ],
+      "formal_paths": 40,
+      "warmup_paths": 20,
+      "formal_scored_videos": 40,
+      "frames_per_video": 93,
+      "timed_repetitions_per_method_scene": 1,
+      "LPIPS_aggregation": "equal_scene_means",
+      "speedup_aggregation": "sum_matching_Native_main_seconds / sum_candidate_main_seconds",
+      "rows_reported_rounded": [
+        {
+          "internal_id": "NATIVE",
+          "mapping_id": "baseline.native",
+          "mean_main_seconds": 282.5169,
+          "mean_LPIPS": 0,
+          "speedup_vs_Native": 1
+        },
+        {
+          "internal_id": "WC",
+          "mapping_id": "baseline.wc",
+          "mean_main_seconds": 172.5761,
+          "mean_LPIPS": 0.4256468,
+          "speedup_vs_Native": 1.6371
+        },
+        {
+          "internal_id": "RA",
+          "mapping_id": "baseline.ra",
+          "mean_main_seconds": 146.8057,
+          "mean_LPIPS": 0.4186104,
+          "speedup_vs_Native": 1.9244
+        },
+        {
+          "internal_id": "A_NO_P",
+          "mapping_id": "config.efficient",
+          "mean_main_seconds": 148.8959,
+          "mean_LPIPS": 0.3781446,
+          "speedup_vs_Native": 1.8974
+        },
+        {
+          "internal_id": "P_OFF",
+          "mapping_id": "config.source_gated",
+          "mean_main_seconds": 156.7193,
+          "mean_LPIPS": 0.3570513,
+          "speedup_vs_Native": 1.8027
+        },
+        {
+          "internal_id": "H1_LOW",
+          "mapping_id": "sensitivity.low",
+          "mean_main_seconds": 221.9447,
+          "mean_LPIPS": 0.0607302,
+          "speedup_vs_Native": 1.2729
+        },
+        {
+          "internal_id": "H1_MID",
+          "mapping_id": "config.high_fidelity",
+          "mean_main_seconds": 222.9058,
+          "mean_LPIPS": 0.0585928,
+          "speedup_vs_Native": 1.2674
+        },
+        {
+          "internal_id": "H1_HIGH",
+          "mapping_id": "sensitivity.high",
+          "mean_main_seconds": 222.9911,
+          "mean_LPIPS": 0.0682856,
+          "speedup_vs_Native": 1.2669
+        },
+        {
+          "internal_id": "FIXED_A",
+          "mapping_id": "ablation.fixed_a",
+          "mean_main_seconds": 222.89,
+          "mean_LPIPS": 0.0585928,
+          "speedup_vs_Native": 1.2675
+        },
+        {
+          "internal_id": "FIXED_PLAIN",
+          "mapping_id": "ablation.fixed_plain",
+          "mean_main_seconds": 222.0137,
+          "mean_LPIPS": 0.0607302,
+          "speedup_vs_Native": 1.2725
+        }
+      ]
+    },
+    "confirm50": {
+      "source_revision": "e48ba58047b09507ea6f438f5077ebffb4fb2114",
+      "namespace": "FROZEN_CONFIRM50",
+      "report_id": "confirm50",
+      "status": "accepted_complete_with_one_RA_refusal_retained",
+      "prompts": 4,
+      "seeds": [
+        17,
+        43
+      ],
+      "formal_paths": 40,
+      "warmup_paths": 10,
+      "formal_scored_videos": 39,
+      "LPIPS_aggregation": "mean_seeds_within_prompt_then_equal_prompt_means",
+      "RA": {
+        "accepted_videos": 7,
+        "planned_videos": 8,
+        "mean_main_seconds_all_eight_runs": 149.5848,
+        "complete_eight_video_LPIPS": null,
+        "refusal_retained": true
+      },
+      "A_NO_P": {
+        "accepted_videos": 8,
+        "mean_main_seconds": 149.6402,
+        "mean_LPIPS": 0.3490875
+      },
+      "P_OFF": {
+        "accepted_videos": 8,
+        "mean_main_seconds": 157.4421,
+        "mean_LPIPS": 0.3444344
+      },
+      "Native": {
+        "accepted_videos": 8,
+        "mean_main_seconds": 283.5403,
+        "mean_LPIPS": 0
+      },
+      "TABLE_PHASE_H1": {
+        "mapping_id": "config.high_fidelity",
+        "accepted_videos": 8,
+        "mean_main_seconds": 223.5968,
+        "mean_LPIPS": 0.0530368,
+        "speedup_vs_Native": 1.2681,
+        "internal_id": "TABLE_PHASE_H1",
+        "report_shorthand": "H1"
+      }
+    },
+    "abs_h1_cal24": {
+      "source_revision": "595382e6dcfda3dfca98b4a80cf800359e6ff3db",
+      "namespace": "ABS_H1_CAL24",
+      "report_id": "abs_h1_cal24",
+      "status": "accepted_complete_development"
+    },
+    "w3_label864": {
+      "source_revision": "047dcf181a3ab706002b2965e74b626e4648deea",
+      "namespace": "W3_LABEL864",
+      "report_id": "w3_launch",
+      "status": "launched_not_collected_as_of_snapshot",
+      "new_policy_endpoint_claim": false,
+      "new_Native_paths": 0
+    }
+  },
+  "statistical_rules": {
+    "LPIPS_lower_means_closer_to_matched_Native_not_absolute_physics_quality": true,
+    "frame_count_is_not_independent_sample_size": true,
+    "percent_distortion_reduction": "100*(1-mean_candidate_LPIPS/mean_baseline_LPIPS)",
+    "do_not_average_per_scene_speedup_for_pooled_speedup": true,
+    "do_not_mix_batches_or_operating_points": true,
+    "missing_or_refused_scores_not_zero_filled": true,
+    "main_timer": "model-resident text encoding + denoising + VAE + actual algorithm maintenance/readout/refresh costs",
+    "experiment_GPUh": "supervisor full billed wall, not per-video latency"
+  },
+  "proposed_unrun_ablation_labels": [
+    "w/o Phase Scaling",
+    "w/o Source-Aware Readout",
+    "w/o CFG-Coordinated Scaling"
+  ],
+  "pending_paper_evidence": [
+    "fair_tuned_WC_RA_and_low_step_Native",
+    "simple_schedules_at_matched_dense_budget",
+    "common_final_frozen_test",
+    "repeated_clean_timing_beyond_development_checks",
+    "minimal_deployment_cost_and_automatic_quality",
+    "second_backbone_transfer"
+  ],
+  "file_bindings": {
+    "configs/wc_clean_speed20_r1_20261012.json": {
+      "sha256": "10a800af51cf57b7a3c7d89030bf558c21e29b0d4f35f724dde3d7c2aa94bfb6",
+      "bytes": 22229
+    },
+    "configs/wc_h1_cost_curve_full60_production_r1_20261013.json": {
+      "sha256": "0d1c7bdf9687b2934c3fd1e2bf2f1acc47eeb26d1292a4dabc3e9ea44d3a3526",
+      "bytes": 12016
+    },
+    "configs/wc_math_n2_full36_production_r2_20261012.json": {
+      "sha256": "8b6899174defb57f3a993bacd38da81fa8c66471c8a1354b42d07bfcc4a1fd66",
+      "bytes": 9992
+    },
+    "configs/wc_source_conditional_confirmation_full50_production_r1_20261013.json": {
+      "sha256": "db5fa0d263ca778949faae2382c9a48052ca14fd628db4b10b5276b915b3fd6b",
+      "bytes": 19644
+    },
+    "configs/wc_source_phase_h1_full24_production_r1_20261013.json": {
+      "sha256": "bb6643a09f77d64eefa710bba4ca3a272334e693f46440d4981e52c8402ece15",
+      "bytes": 10496
+    },
+    "manifests/wc_math_n2_frozen_parameters_r1_20261012.json": {
+      "sha256": "918bdc43c15d26adb5b8b59199860b542ff42c5f21b68a47c8d80b1c44c68f57",
+      "bytes": 2447
+    },
+    "manifests/wc_source_phase_absolute_h1_parameters_r1_20261013.json": {
+      "sha256": "59789ff5b2c87e1f9db8087689b7a91dfb8e4513fa7ad87da7a2fdee7fd6b6cd",
+      "bytes": 4417
+    },
+    "manifests/wc_source_pooled_absolute_h1_parameters_r1_20261013.json": {
+      "sha256": "dd845dbf14f482b3a64a799bbf0ff784c792ea1749858dc72447b9a73f6bef95",
+      "bytes": 2889
+    },
+    "manifests/wc_w3_label64_parent18_full864_scope_r1_20261015.json": {
+      "sha256": "ed3b4d7b3078d919a4718a9e583b2ca567259941179fdbcac92c41740a162cb5",
+      "bytes": 3647
+    },
+    "research/369_WC_E3_COMPLETE64_RESULTS_SOURCE_READOUT_INTERACTION_AND_NEXT_20261012.md": {
+      "sha256": "9fb0f8dfa017f9abe12e898a749759810aecf7bececcc983c452b1d1b7d824b8",
+      "bytes": 11321
+    },
+    "research/374_WC_CLEAN_SPEED20_COMPLETE_RESULTS_20261012.md": {
+      "sha256": "a74167688466fc2fb91103e559d90d2a11122e520eb8e3eb834d6339ac09dabc",
+      "bytes": 10208
+    },
+    "research/380_WC_MATH_N2_COMPLETE_SOURCE_GATE_POSITIVE_AND_ROUTER_A_UNUSED_RESULTS_20261012.md": {
+      "sha256": "3000bd28bba4181991c17d41d931c4378fed5ba91e68f6c7e5e1ca6f376813f7",
+      "bytes": 8700
+    },
+    "research/403_WC_ABSOLUTE_H1_COMPLETE_RESULTS_HIGH_FIDELITY_AND_NEXT_20261013.md": {
+      "sha256": "4b41d544b2724435f91783697e6ef84605e5850b74f1ca01f91c17a9b68a5a53",
+      "bytes": 11787
+    },
+    "research/417_WC_FROZEN_CONFIRMATION_FULL50_RESULTS_AND_COST_CURVE_NEXT_20261013.md": {
+      "sha256": "043a87ea4300a38542e3be895f01cc7de15f674f5bc7dc211e35c939736f92d6",
+      "bytes": 5273
+    },
+    "research/420_WC_FULL60_COST_CURVE_COMPLETE_RESULTS_AND_CONVERGENCE_20261014.md": {
+      "sha256": "b06d95c0ec00118051559fcec53ee76697348aa24c15941da472712bf73f6d05",
+      "bytes": 8308
+    },
+    "research/423_WC_B_FULL312_COMPLETE_ENDPOINT_RESULTS_AND_READOUT_BOUNDARY_20261014.md": {
+      "sha256": "bebca2c13525447f1487681d38c3fbf56714a794623a5a131afce14a1555e8d5",
+      "bytes": 5645
+    },
+    "research/424_WC_FINAL_EXPERIMENT_CLOSURE_AND_PAPER_EVIDENCE_20261014.md": {
+      "sha256": "b60962f479114329d2ea445f7564b8483ffd522d5955fdf56e03433290c94d6b",
+      "bytes": 9264
+    },
+    "research/426_WC_P_W3_E0_COMPLETE_ASYMMETRIC_ORACLE_AND_COEFFICIENT_RESULTS_20261014.md": {
+      "sha256": "b97b6ccdf2ada2f1dbbf96946b261aef313a12b6520335af767f847a9b67f1d1",
+      "bytes": 5302
+    },
+    "research/441_WC_W3_FULL72_COLLECTOR_CPU_ACCEPTED_AND_PRODUCTION_NEXT_20261015.md": {
+      "sha256": "25b78cca3fa1b70fd6211ebd45c41e085df40ea7f6841cbe48351c2d239955b7",
+      "bytes": 2398
+    },
+    "research/447_WC_W3_COMPLETE_CPU_CLOSED_AND_WHOLE864_PERMISSION_DECISION_20261015.md": {
+      "sha256": "a1827cf042cccbb567a231e849a1e2cb5482a0692caa2a4dc8d15f47a5616735",
+      "bytes": 3449
+    },
+    "research/448_WC_W3_FULL864_APPROVED_GPU_LAUNCH_AND_UNDER12_AUTONOMY_20261015.md": {
+      "sha256": "be9cf29ebe0885957ba6fdf7c81e419079fbb2e2ce53f7c2df2548c2ec7b817e",
+      "bytes": 6493
+    },
+    "research/p_w3_e0_20261014/W3_Trend_Label_And_Baseline_Spec.md": {
+      "sha256": "8e5a1f5e6ba02a58875498d55b3404dcc52de955f6c16d1b9a5ae3ba8f86bb5c",
+      "bytes": 8729
+    },
+    "src/wcomr/cfg_guided_w1_deployment.py": {
+      "sha256": "961fe4660f1ee622adb8db497d0d250c685f3244bc94d767263758223b9fabba",
+      "bytes": 10751
+    },
+    "src/wcomr/cfg_guided_w1_outputs.py": {
+      "sha256": "c3ddf699afef1191ed29feb63707985b6c1f21bcff8a267c9741341f6638d63a",
+      "bytes": 4685
+    },
+    "src/wcomr/cfg_ra_calibration_table.py": {
+      "sha256": "177c24d4f747be09fb69255fde0827f5afb825420a31e8ccf8b130cf41e6d761",
+      "bytes": 6577
+    },
+    "src/wcomr/cfg_ra_joint_control.py": {
+      "sha256": "010c54603bbfd885e7cd9f9df71c0eedbc019fab9b0e46aca7168e35c3f5b905",
+      "bytes": 7088
+    },
+    "src/wcomr/clean_speed20_r1.py": {
+      "sha256": "49ebb32a6f9afce64f223c435b2fd87090229de9c40708f8852999c35628637c",
+      "bytes": 10205
+    },
+    "src/wcomr/h1_cost_curve_batch_r1.py": {
+      "sha256": "3e75b24c706b92f5623e99a60780400dfcf761890ed48e45157f84eab1dc92e4",
+      "bytes": 3696
+    },
+    "src/wcomr/math_n2_batch_r1.py": {
+      "sha256": "e492218b4b52c6f3e64c6878292311c976e37e816fde0f797b20024a3df144b7",
+      "bytes": 3122
+    },
+    "src/wcomr/math_n2_event_control_r1.py": {
+      "sha256": "80e1bdcc1a10dd15da0406854b88f247e4e7f4f296ca6ac6a2a2d3bf1789d416",
+      "bytes": 7701
+    },
+    "src/wcomr/math_n2_source_readout_r1.py": {
+      "sha256": "54d39cad7a85a191d92c5024ce6539e29b7cb952cc7f5375ed13cf56bfdd3a0c",
+      "bytes": 8476
+    },
+    "src/wcomr/math_source_fusion_r1.py": {
+      "sha256": "889fe6f7b6e9fd16a57951011e4613d15def655a9c292bed690eea88fd8fc4da",
+      "bytes": 4427
+    },
+    "src/wcomr/p_acr_readout_r1.py": {
+      "sha256": "d4634c6ab6449d3c5ae7e6209a39bee1c9df57248c388d15712ec60064a687f1",
+      "bytes": 16573
+    },
+    "src/wcomr/partial_mlp.py": {
+      "sha256": "8661e1904f5abf4313a70906233d301282152081a59026e5a874154696eb19ec",
+      "bytes": 9993
+    },
+    "src/wcomr/partial_mlp_deployment_sampling.py": {
+      "sha256": "246dfbc0973997ae7363c501d5eb3c0fb06c5903fee2065e8499cc98de2c6800",
+      "bytes": 20678
+    },
+    "src/wcomr/partial_mlp_guided_readout.py": {
+      "sha256": "5196f0e85c471d576569a08cd81886976198ecc15cbae3dbff2dd576c2ebbc77",
+      "bytes": 6463
+    },
+    "src/wcomr/source_phase_absolute_h1_batch_r1.py": {
+      "sha256": "8c8d5a82f211f304f079614a914b05f2c31509ad6afd34d0b81635beebbfb77d",
+      "bytes": 1399
+    },
+    "src/wcomr/source_phase_absolute_h1_control_r1.py": {
+      "sha256": "e4beea9b6c6c1c9e0e4af722480af2f6d7c00efc706f4d0fdf417e3eadea221f",
+      "bytes": 9793
+    },
+    "src/wcomr/source_phase_fixed_mask_r1.py": {
+      "sha256": "ae3765032744f2a8527a7b37e1283d52fb6f1407007a1c290968f4b0b8726e4b",
+      "bytes": 6812
+    },
+    "src/wcomr/source_phase_table_fit_r1.py": {
+      "sha256": "f2e0bda199471b87fab2bd920a3e5ef06d1be5f77f3fdbade5580eb80e7a69f7",
+      "bytes": 8656
+    },
+    "src/wcomr/w3_causal_trend_r1.py": {
+      "sha256": "0733915398fafe448b563146b80f03cc2767821a1c191a19b185090b51e7ee1c",
+      "bytes": 11439
+    },
+    "src/wcomr/w3_label64_production_contract_r1.py": {
+      "sha256": "445478608a147687ea859885359275dfbed67349e8dba94ea5de40069c9c558e",
+      "bytes": 5385
+    },
+    "src/wcomr/real_working_epoch_parameters_r1.py": {
+      "sha256": "bfcf21383a295142f82d0a0f74d9c2efe0277d75039872ce65ab9bb27e5c2311",
+      "bytes": 6127
+    },
+    "src/wcomr/calibration.py": {
+      "sha256": "f6f9ce7c5848c512b1dc0eb9a4965b3f84e799e911ddc2a591c48d865076fcbd",
+      "bytes": 5170
+    },
+    "src/wcomr/e3_complete64_block_scope_r1.py": {
+      "sha256": "7168da7a56725e4bb42f06b056c547752b0a444e45324ec5262251a178f42773",
+      "bytes": 3865
+    },
+    "manifests/wc_e3_complete64_reuse10_fresh54_blocks_r1_20261011.json": {
+      "sha256": "051e6207603372cda9253ad623d392b1718575dd07a2ea766721bdc10a580eee",
+      "bytes": 51516
+    },
+    "src/wcomr/source_aware_partial_sampling.py": {
+      "sha256": "1b9e785c3ce8e82da6d7b292566e89ad5e5ea1dc9d25f4994274d5e03e65d238",
+      "bytes": 16455
+    },
+    "configs/wc_e3_complete64_production_r1_20261011.json": {
+      "sha256": "ebc3622e9d9453649a04279e192790aa6cfd2f56544a59d791c3a9ce96e1ecf7",
+      "bytes": 104393
+    },
+    "configs/wc_p_acr_local12_profile528_production_r1_20261015.json": {
+      "sha256": "de64913f8a02301377b897009b8a4f1612516aed07c02d71bc4a2168209c80f7",
+      "bytes": 17557
+    }
+  },
+  "math_notation": [
+    {
+      "symbol": "alpha_t",
+      "name": "shared phase correction strength",
+      "current_value": "1 for t<25, 0.5 otherwise",
+      "implementation": "src/wcomr/cfg_guided_w1_deployment.py",
+      "fusion_space": "POST_RF_BRANCH_VELOCITY"
+    },
+    {
+      "symbol": "beta_b",
+      "name": "branch residual increment coefficient",
+      "current_main_value": 1,
+      "shared_between_branches_in_general": false,
+      "implementation": "src/wcomr/calibration.py"
+    },
+    {
+      "symbol": "gamma_src",
+      "name": "source-reference fusion coefficient",
+      "current_value": 0.7235237005554214,
+      "implementation": "src/wcomr/math_source_fusion_r1.py",
+      "not_propagation_gain": true
+    },
+    {
+      "symbol": "g_t",
+      "name": "empirical amplitude propagation gain",
+      "implementation": "src/wcomr/cfg_ra_calibration_table.py",
+      "MSE_weight": "g_t squared",
+      "strict_Jacobian_bound": false
+    },
+    {
+      "symbol": "s_CFG",
+      "name": "configured guidance",
+      "current_value": 7,
+      "actual_guided_velocity": "8*v_c - 7*v_negative",
+      "implementation": "src/wcomr/cfg_ra_joint_control.py"
+    },
+    {
+      "symbol": "q_a",
+      "name": "absolute guided velocity MSE in frozen absolute H1",
+      "not_terminal_LPIPS": true
+    },
+    {
+      "symbol": "lambda",
+      "name": "cost-distortion tradeoff weight",
+      "main_value": 525.1463509809399,
+      "low_value": 131.28658774523498,
+      "high_value": 2100.5854039237597
+    },
+    {
+      "symbol": "c_a",
+      "name": "incremental action seconds after both paid shallow probes",
+      "not_whole_video_latency": true
+    },
+    {
+      "symbol": "r_A, delta_r",
+      "name": "already propagation-weighted W3 regression targets",
+      "definition": [
+        "g_t^2*q_A",
+        "g_t^2*(q_C-q_A)"
+      ],
+      "apply_g_squared_again": false
+    }
+  ],
+  "scoped_output_equivalences": [
+    {
+      "namespace": "COST_CURVE60",
+      "left": "H1_MID",
+      "right": "FIXED_A",
+      "scope": "four formal CALs RGB/terminal/actions; two complete warm comparisons with 144 guided outputs",
+      "allows_global_alias_merge": false
+    },
+    {
+      "namespace": "COST_CURVE60",
+      "left": "H1_LOW",
+      "right": "FIXED_PLAIN",
+      "scope": "four CALs output/terminal/actions",
+      "allows_global_alias_merge": false
+    },
+    {
+      "namespace": "E3_COMPLETE64",
+      "left": "DYNAMIC_NO_P",
+      "right": "SOURCE_RA",
+      "scope": "eight source-rule by scene comparisons",
+      "allows_global_alias_merge": false
+    },
+    {
+      "namespace": "E3_COMPLETE64",
+      "left": "A_CPD_OFF",
+      "right": "CPD",
+      "scope": "eight source-rule by scene wrapper comparisons",
+      "allows_global_alias_merge": false
+    }
+  ],
+  "qualified_method_index": {
+    "CLEAN_SPEED20::NATIVE": {
+      "mapping_id": "baseline.native",
+      "config_sha256": "10a800af51cf57b7a3c7d89030bf558c21e29b0d4f35f724dde3d7c2aa94bfb6",
+      "requires_source_rule": false
+    },
+    "CLEAN_SPEED20::WC": {
+      "mapping_id": "baseline.wc",
+      "config_sha256": "10a800af51cf57b7a3c7d89030bf558c21e29b0d4f35f724dde3d7c2aa94bfb6",
+      "requires_source_rule": false
+    },
+    "CLEAN_SPEED20::RA": {
+      "mapping_id": "baseline.ra",
+      "config_sha256": "10a800af51cf57b7a3c7d89030bf558c21e29b0d4f35f724dde3d7c2aa94bfb6",
+      "requires_source_rule": false
+    },
+    "CLEAN_SPEED20::A_NO_P": {
+      "mapping_id": "config.efficient",
+      "config_sha256": "10a800af51cf57b7a3c7d89030bf558c21e29b0d4f35f724dde3d7c2aa94bfb6",
+      "requires_source_rule": false
+    },
+    "CLEAN_SPEED20::KEEP_A_P": {
+      "mapping_id": "legacy.keep_a_p",
+      "config_sha256": "10a800af51cf57b7a3c7d89030bf558c21e29b0d4f35f724dde3d7c2aa94bfb6",
+      "requires_source_rule": false
+    },
+    "N2_LEGACY::NATIVE": {
+      "mapping_id": "baseline.native",
+      "config_sha256": "8b6899174defb57f3a993bacd38da81fa8c66471c8a1354b42d07bfcc4a1fd66",
+      "requires_source_rule": false
+    },
+    "N2_LEGACY::RA": {
+      "mapping_id": "baseline.ra",
+      "config_sha256": "8b6899174defb57f3a993bacd38da81fa8c66471c8a1354b42d07bfcc4a1fd66",
+      "requires_source_rule": false
+    },
+    "N2_LEGACY::A_NO_P": {
+      "mapping_id": "config.efficient",
+      "config_sha256": "8b6899174defb57f3a993bacd38da81fa8c66471c8a1354b42d07bfcc4a1fd66",
+      "requires_source_rule": false
+    },
+    "N2_LEGACY::NONZERO_CPD": {
+      "mapping_id": "legacy.nonzero_cpd",
+      "config_sha256": "8b6899174defb57f3a993bacd38da81fa8c66471c8a1354b42d07bfcc4a1fd66",
+      "requires_source_rule": false
+    },
+    "N2_LEGACY::P_OFF": {
+      "mapping_id": "config.source_gated",
+      "config_sha256": "8b6899174defb57f3a993bacd38da81fa8c66471c8a1354b42d07bfcc4a1fd66",
+      "requires_source_rule": false
+    },
+    "N2_LEGACY::SOURCE_FIXED": {
+      "mapping_id": "config.source_fixed",
+      "config_sha256": "8b6899174defb57f3a993bacd38da81fa8c66471c8a1354b42d07bfcc4a1fd66",
+      "requires_source_rule": false
+    },
+    "N2_LEGACY::SOURCE_H1": {
+      "mapping_id": "legacy.n2_h1",
+      "config_sha256": "8b6899174defb57f3a993bacd38da81fa8c66471c8a1354b42d07bfcc4a1fd66",
+      "requires_source_rule": false
+    },
+    "N2_LEGACY::SOURCE_H2": {
+      "mapping_id": "legacy.n2_h2",
+      "config_sha256": "8b6899174defb57f3a993bacd38da81fa8c66471c8a1354b42d07bfcc4a1fd66",
+      "requires_source_rule": false
+    },
+    "N2_LEGACY::H2_P_TO_D": {
+      "mapping_id": "legacy.h2_dense_replacement",
+      "config_sha256": "8b6899174defb57f3a993bacd38da81fa8c66471c8a1354b42d07bfcc4a1fd66",
+      "requires_source_rule": false
+    },
+    "ABS_H1_CAL24::NATIVE": {
+      "mapping_id": "baseline.native",
+      "config_sha256": "bb6643a09f77d64eefa710bba4ca3a272334e693f46440d4981e52c8402ece15",
+      "requires_source_rule": false
+    },
+    "ABS_H1_CAL24::RA": {
+      "mapping_id": "baseline.ra",
+      "config_sha256": "bb6643a09f77d64eefa710bba4ca3a272334e693f46440d4981e52c8402ece15",
+      "requires_source_rule": false
+    },
+    "ABS_H1_CAL24::A_NO_P": {
+      "mapping_id": "config.efficient",
+      "config_sha256": "bb6643a09f77d64eefa710bba4ca3a272334e693f46440d4981e52c8402ece15",
+      "requires_source_rule": false
+    },
+    "ABS_H1_CAL24::P_OFF": {
+      "mapping_id": "config.source_gated",
+      "config_sha256": "bb6643a09f77d64eefa710bba4ca3a272334e693f46440d4981e52c8402ece15",
+      "requires_source_rule": false
+    },
+    "ABS_H1_CAL24::TABLE_PHASE_H1": {
+      "mapping_id": "config.high_fidelity",
+      "config_sha256": "bb6643a09f77d64eefa710bba4ca3a272334e693f46440d4981e52c8402ece15",
+      "requires_source_rule": false
+    },
+    "ABS_H1_CAL24::TABLE_POOLED_H1": {
+      "mapping_id": "ablation.source_only",
+      "config_sha256": "bb6643a09f77d64eefa710bba4ca3a272334e693f46440d4981e52c8402ece15",
+      "requires_source_rule": false
+    },
+    "FROZEN_CONFIRM50::NATIVE": {
+      "mapping_id": "baseline.native",
+      "config_sha256": "db5fa0d263ca778949faae2382c9a48052ca14fd628db4b10b5276b915b3fd6b",
+      "requires_source_rule": false
+    },
+    "FROZEN_CONFIRM50::RA": {
+      "mapping_id": "baseline.ra",
+      "config_sha256": "db5fa0d263ca778949faae2382c9a48052ca14fd628db4b10b5276b915b3fd6b",
+      "requires_source_rule": false
+    },
+    "FROZEN_CONFIRM50::A_NO_P": {
+      "mapping_id": "config.efficient",
+      "config_sha256": "db5fa0d263ca778949faae2382c9a48052ca14fd628db4b10b5276b915b3fd6b",
+      "requires_source_rule": false
+    },
+    "FROZEN_CONFIRM50::P_OFF": {
+      "mapping_id": "config.source_gated",
+      "config_sha256": "db5fa0d263ca778949faae2382c9a48052ca14fd628db4b10b5276b915b3fd6b",
+      "requires_source_rule": false
+    },
+    "FROZEN_CONFIRM50::TABLE_PHASE_H1": {
+      "mapping_id": "config.high_fidelity",
+      "config_sha256": "db5fa0d263ca778949faae2382c9a48052ca14fd628db4b10b5276b915b3fd6b",
+      "requires_source_rule": false
+    },
+    "COST_CURVE60::NATIVE": {
+      "mapping_id": "baseline.native",
+      "config_sha256": "0d1c7bdf9687b2934c3fd1e2bf2f1acc47eeb26d1292a4dabc3e9ea44d3a3526",
+      "requires_source_rule": false
+    },
+    "COST_CURVE60::WC": {
+      "mapping_id": "baseline.wc",
+      "config_sha256": "0d1c7bdf9687b2934c3fd1e2bf2f1acc47eeb26d1292a4dabc3e9ea44d3a3526",
+      "requires_source_rule": false
+    },
+    "COST_CURVE60::RA": {
+      "mapping_id": "baseline.ra",
+      "config_sha256": "0d1c7bdf9687b2934c3fd1e2bf2f1acc47eeb26d1292a4dabc3e9ea44d3a3526",
+      "requires_source_rule": false
+    },
+    "COST_CURVE60::A_NO_P": {
+      "mapping_id": "config.efficient",
+      "config_sha256": "0d1c7bdf9687b2934c3fd1e2bf2f1acc47eeb26d1292a4dabc3e9ea44d3a3526",
+      "requires_source_rule": false
+    },
+    "COST_CURVE60::P_OFF": {
+      "mapping_id": "config.source_gated",
+      "config_sha256": "0d1c7bdf9687b2934c3fd1e2bf2f1acc47eeb26d1292a4dabc3e9ea44d3a3526",
+      "requires_source_rule": false
+    },
+    "COST_CURVE60::H1_LOW": {
+      "mapping_id": "sensitivity.low",
+      "config_sha256": "0d1c7bdf9687b2934c3fd1e2bf2f1acc47eeb26d1292a4dabc3e9ea44d3a3526",
+      "requires_source_rule": false
+    },
+    "COST_CURVE60::H1_MID": {
+      "mapping_id": "config.high_fidelity",
+      "config_sha256": "0d1c7bdf9687b2934c3fd1e2bf2f1acc47eeb26d1292a4dabc3e9ea44d3a3526",
+      "requires_source_rule": false
+    },
+    "COST_CURVE60::H1_HIGH": {
+      "mapping_id": "sensitivity.high",
+      "config_sha256": "0d1c7bdf9687b2934c3fd1e2bf2f1acc47eeb26d1292a4dabc3e9ea44d3a3526",
+      "requires_source_rule": false
+    },
+    "COST_CURVE60::FIXED_A": {
+      "mapping_id": "ablation.fixed_a",
+      "config_sha256": "0d1c7bdf9687b2934c3fd1e2bf2f1acc47eeb26d1292a4dabc3e9ea44d3a3526",
+      "requires_source_rule": false
+    },
+    "COST_CURVE60::FIXED_PLAIN": {
+      "mapping_id": "ablation.fixed_plain",
+      "config_sha256": "0d1c7bdf9687b2934c3fd1e2bf2f1acc47eeb26d1292a4dabc3e9ea44d3a3526",
+      "requires_source_rule": false
+    },
+    "E3_COMPLETE64::SOURCE_RA": {
+      "mapping_id": "e3.ra",
+      "config_sha256": "ebc3622e9d9453649a04279e192790aa6cfd2f56544a59d791c3a9ce96e1ecf7",
+      "requires_source_rule": true
+    },
+    "E3_COMPLETE64::DYNAMIC_NO_P": {
+      "mapping_id": "e3.no_p",
+      "config_sha256": "ebc3622e9d9453649a04279e192790aa6cfd2f56544a59d791c3a9ce96e1ecf7",
+      "requires_source_rule": true
+    },
+    "E3_COMPLETE64::CPD": {
+      "mapping_id": "e3.cpd",
+      "config_sha256": "ebc3622e9d9453649a04279e192790aa6cfd2f56544a59d791c3a9ce96e1ecf7",
+      "requires_source_rule": true
+    },
+    "E3_COMPLETE64::REF_CPD": {
+      "mapping_id": "e3.reference",
+      "config_sha256": "ebc3622e9d9453649a04279e192790aa6cfd2f56544a59d791c3a9ce96e1ecf7",
+      "requires_source_rule": true
+    },
+    "E3_COMPLETE64::A_CPD_OFF": {
+      "mapping_id": "e3.off",
+      "config_sha256": "ebc3622e9d9453649a04279e192790aa6cfd2f56544a59d791c3a9ce96e1ecf7",
+      "requires_source_rule": true
+    },
+    "E3_COMPLETE64::A_CPD_W1_ONE_PHASE": {
+      "mapping_id": "e3.scalar",
+      "config_sha256": "ebc3622e9d9453649a04279e192790aa6cfd2f56544a59d791c3a9ce96e1ecf7",
+      "requires_source_rule": true
+    },
+    "E3_COMPLETE64::A_CPD_BETA1_ONE_PHASE": {
+      "mapping_id": "e3.unit",
+      "config_sha256": "ebc3622e9d9453649a04279e192790aa6cfd2f56544a59d791c3a9ce96e1ecf7",
+      "requires_source_rule": true
+    },
+    "E3_COMPLETE64::DENSE_CONTROL": {
+      "mapping_id": "e3.dense",
+      "config_sha256": "ebc3622e9d9453649a04279e192790aa6cfd2f56544a59d791c3a9ce96e1ecf7",
+      "requires_source_rule": true
+    }
+  },
+  "report_shorthands": {
+    "FROZEN_CONFIRM50::H1": "config.high_fidelity",
+    "COST_CURVE60::MID": "config.high_fidelity",
+    "ABS_H1_CAL24::H1_SOURCE_ONLY_proposed_label": "ablation.source_only"
+  }
+}
