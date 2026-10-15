@@ -818,7 +818,8 @@
         "w3_launch",
         "w3_grouped_455",
         "w3_phase_456",
-        "w3_runtime_457"
+        "w3_runtime_457",
+        "w3_runtime_458"
       ],
       "feature_dimensions": 13,
       "estimator": "Ridge",
@@ -838,7 +839,8 @@
       "phase_controls_explain_nearly_all_local_gain": true,
       "isolated_runtime_adapter_implemented": true,
       "local_full_sampling_CPU_accepted": false,
-      "server_production_CPU_accepted": false
+      "server_production_CPU_accepted": false,
+      "local_CPU_R1_technical_failure_retained": true
     },
     {
       "id": "explore.trend_t2",
@@ -1332,14 +1334,16 @@
       ],
       "evidence_ids": [
         "w3_phase_456",
-        "w3_runtime_457"
+        "w3_runtime_457",
+        "w3_runtime_458"
       ],
       "step23_rule_posthoc": true,
       "mainline_integrated": false,
       "closed_loop_result": false,
       "isolated_runtime_adapter_implemented": true,
       "local_full_sampling_CPU_accepted": false,
-      "server_production_CPU_accepted": false
+      "server_production_CPU_accepted": false,
+      "local_CPU_R1_technical_failure_retained": true
     }
   ],
   "experiment_configs": {
@@ -1629,7 +1633,8 @@
     "simple26d_partial": "research/451_WC_SIMPLE26D_PARTIAL_RESULTS_OOM_TERMINAL_AND_PAPER_IMPLICATIONS_20261015.md",
     "w3_grouped_455": "research/455_WC_W3_RAW_COHORT_ACCEPTANCE_GROUPED_T1_T2_RESULTS_AND_PHASE_ATTRIBUTION_20261016.md",
     "w3_phase_456": "research/456_WC_T1_VS_SIMPLE_PHASE_CPU_RESULTS_AND_VIDEO_DECISION_20261016.md",
-    "w3_runtime_457": "research/457_WC_PHASE_RUNTIME_SCALAR_ACCEPTED_FULL72_LOCAL_CPU_LAUNCH_20261016.md"
+    "w3_runtime_457": "research/457_WC_PHASE_RUNTIME_SCALAR_ACCEPTED_FULL72_LOCAL_CPU_LAUNCH_20261016.md",
+    "w3_runtime_458": "research/458_WC_LOCAL_FULL72_R1_NAMESPACE_FAILURE_R2_REPAIR_AND_RELAUNCH_20261016.md"
   },
   "evidence_batches": {
     "curve60": {
@@ -1819,6 +1824,18 @@
       "planned_pairs": 2592,
       "GPU_submissions": 0,
       "server_production_CPU_accepted": false
+    },
+    "w3_runtime_458": {
+      "report_id": "w3_runtime_458",
+      "status": "LOCAL_R1_MODULE_NAMESPACE_FAILURE_RETAINED_FULL72_R2_RUNNING_AT_ADMISSION",
+      "original_source": "814b5d00b404aaa8f151bf5fa20ae3d5e67da648",
+      "R2_source": "c3742059b136310ed73efacb6c838a3efbe5ccab",
+      "R2_pid": 5826,
+      "launch_ref": "reports/wc_w3_phase_runtime_local_full72_CPU_R2_launch_20261016.json",
+      "planned_CPU_paths": 72,
+      "full_CPU_accepted": false,
+      "server_production_CPU_accepted": false,
+      "GPU_submissions": 0
     }
   },
   "statistical_rules": {
@@ -2168,6 +2185,42 @@
     "reports/wc_w3_local_CPU_mock_shape_reader_alignment_20261016.json": {
       "sha256": "dbd54598244d1313c32e66a304bd62091edbd1b9734862f7e4057ea401820552",
       "bytes": 779
+    },
+    "research/458_WC_LOCAL_FULL72_R1_NAMESPACE_FAILURE_R2_REPAIR_AND_RELAUNCH_20261016.md": {
+      "sha256": "d06880569c69e02cbcf1640f972413e4b50c54590e9d4a6b51ff6a5cf2cf6855",
+      "bytes": 5046
+    },
+    "reports/wc_w3_phase_runtime_local_full72_CPU_R2_launch_20261016.json": {
+      "sha256": "e2d127d742d7b53c7ee8901af68d99339ef1a06707bd28ddcc689fa9f62ba36b",
+      "bytes": 3445
+    },
+    "reports/wc_w3_phase_runtime_local_R1_terminal_failure_acceptance_20261016.json": {
+      "sha256": "2832c801adf979d5fa621f2c42e7799dcee2af033fca6bf2a5e6090b07c63709",
+      "bytes": 882
+    },
+    "reports/wc_w3_local_full72_R2_metadata_derivation_20261016.json": {
+      "sha256": "469fe7a9ecb352098f7ea371283e184fcd66b25752664d40ec77c4e716ecb667",
+      "bytes": 831
+    },
+    "reports/wc_w3_local_R2_origins_and_velocity_compile_control_20261016.json": {
+      "sha256": "805aace61bfc97445db0bd035014cf65a35f54bbd9cead3fd745aec485a49521",
+      "bytes": 6723
+    },
+    "tests/check_w3_phase_allocation_sampling_cpu_r2.py": {
+      "sha256": "2a0a7a8233a0c4fa94a08a7d7c78883b9f3fbdd8de9d871420f5e1161563cade",
+      "bytes": 8215
+    },
+    "scripts/check_wc_w3_phase_runtime_local_cpu_r2.py": {
+      "sha256": "736b0d12e90ca0ae5c343dfba667345a167dbb7145f5d3a671e6a84ba1a96ce9",
+      "bytes": 4130
+    },
+    "tests/check_w3_phase_local_origins_cpu_r2.py": {
+      "sha256": "06eae50b4ce77be0b535e9cee57d37f06f65c0e07213dcc0806eb45de9ca974b",
+      "bytes": 3508
+    },
+    "scripts/check_wc_w3_phase_local_origins_cpu_r2.py": {
+      "sha256": "92551ef2cd49b8f8dfa300d9bd3ecc3bdfc44e030e167546d4ea73fa01e55e63",
+      "bytes": 795
     }
   },
   "math_notation": [
