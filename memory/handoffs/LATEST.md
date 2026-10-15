@@ -1,3 +1,7 @@
+## 2026-10-16 N05完整CPU216接受，下一强基线生产准备
+
+[461完整接受与接线](../../research/461_WC_N05_FULL216_CPU_ACCEPTED_CORE66_PRODUCTION_AND_POST_READY_20261016.md)：完整本地CPU216已独立接受：216路径/7360pairs/14720CFG、88audit/lean、40旧默认全36轨迹、24个Native三网格控制及生命周期通过；原6663已终态，不再查。完整N05_CORE66的44正式+22warm/2220pairs/1load已冻结，费用8.568548038/计费上限9.5<12；真实生产入口、完整post和单次启动本地检查已完成，服务器实际CPU尚待。本轮尚无新GPU/质量/速度。原同26D0795a00/1040857/1040918/post1040858仍04:55一次验收，不看partial或改任务；N06接受后按v2/fresh UUID直接推进N05，原总cap与窗口保持。 F/B关闭，P/T1可选后排。以下保留历史。
+
 ## 2026-10-16 N05有限基线执行器与完整本地CPU216在途
 
 [460接线与范围](../../research/460_WC_N05_CORE66_FROZEN_GRID_AND_FULL216_LOCAL_CPU_LAUNCH_20261016.md)：原UniPC/Karras实际CPU已核定Native35/26/18分别36/27/19更新、72/54/38CFG；新独立入口可逆适配计时末步捕获，原WC/RA/A/H1数值执行器保持。三个标量/范围控制通过。CPU完整两flow×四Toy×11配置×audit/lean176＋40旧默认控制=216路径/7360pairs/14720CFG，source762aeb4、本地PID6663于03:04:48.784847单次启动确认live，独立目录wc-paper-n05-core216-local-cpu-r1-20261016；预计3—6分钟，最早03:10:48.785，本次**03:12一次查收**。此前不看partial，captured一次后仅离线accept88audit/lean、40旧默认full36、216mock/安装阈值/Native计数/owner释放，失败保留，新源修复。p-acr-cpu承担该一次CPU查收，旧5392/5826不再查。

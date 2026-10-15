@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "updated_local_date": "2026-10-16",
-  "snapshot_basis": "N05 finite core66 scope selected;actual three Native grids accepted;local full216 Toy sampler CPU started and first ETA03:12;N06 original04:55 unchanged;no server/GPU/budget mutation.",
-  "git_snapshot_before_inventory": "b5e46b4fa524b5b635f56a33389e813e7467c3fb",
+  "snapshot_basis": "N05 complete216 local CPU independently accepted; complete66 production/post/launch glue locally verified; actual production CPU next; N06 original04:55 unchanged and no early collection.",
+  "git_snapshot_before_inventory": "f8a5d45853ec69b45c572c7939903c5d5aab68ef",
   "mapping_ref": "paper/internal_to_paper_mapping.json",
   "scope": "scientific experiment families and complete cards, not each engineering retry; reused artifacts must not be summed as independent samples",
   "contributions": {
@@ -738,14 +738,14 @@
     },
     {
       "id": "N05",
-      "state": "待补｜完整本地CPU216在途",
+      "state": "待补｜完整本地CPU216已接受",
       "paper_experiment_name": "Fair Tuned-Baseline Frontier",
       "internal_ids": [
         "PAPER_E1_TUNED_BASELINES"
       ],
       "contribution_relation": "C1/C2实用增量；C3公平性",
-      "evidence_or_planned_scope": "CORE66完整11配置四CAL范围冻结，44正式+22warm/2220pairs/4440CFG/1load；原UniPC核定35/26/18为36/27/19更新。本地完整216 Toy CPU source762aeb4/PID6663已启动，03:12一次收。",
-      "gap_and_next_action": "先收216本地全部范围/阈值/默认桥接/Native计数；尚缺真实生产CPU/post/费用和GPU准入，直接近邻Cosmos适配仍待补。不改原N06，04:55接受后N05主线优先GPU。",
+      "evidence_or_planned_scope": "完整CORE66 11配置四CAL/44正式+22warm/2220pairs/4440CFG/1load；本地216 Toy CPU、88audit/lean、40旧默认全36桥接与阈值/Native计数/生命周期全部接受。",
+      "gap_and_next_action": "服务器实际生产CPU和GPU待验；完整forecast8.568548038/计费上限9.5<12。原N06 04:55独立接受后按fresh v2/UUID直接推进；近邻Cosmos适配仍为显式待补。",
       "priority": "P1·N06接受后首张主线卡",
       "evidence_refs": [
         "closure_plan",
@@ -755,7 +755,11 @@
         "neighbor_resources_20261016",
         "N05_core66_scope",
         "N05_scheduler_CPU",
-        "N05_CPU_launch_460"
+        "N05_CPU_launch_460",
+        "N05_local_CPU_461",
+        "N05_local_CPU_independent",
+        "N05_core66_cost",
+        "N05_core66_production"
       ],
       "method_mapping_ids": [
         "baseline.native",
@@ -765,7 +769,7 @@
         "config.high_fidelity"
       ],
       "depends_on": [],
-      "template_only": true,
+      "template_only": false,
       "new_GPU_card_selected": false,
       "contribution_ids": [
         "C1",
@@ -773,7 +777,10 @@
         "C3"
       ],
       "claim_relation": "INTENDED_SUPPORT_UNCOMPLETED",
-      "paper_placement": "后续证据，结果未填"
+      "paper_placement": "后续证据，结果未填",
+      "finite_complete_scientific_scope_selected": true,
+      "local_sampling_CPU_accepted": true,
+      "server_production_CPU_accepted": false
     },
     {
       "id": "N06",
@@ -1065,7 +1072,11 @@
     "neighbor_resources_20261016": "reports/wc_mainline_neighbor_resource_inventory_20261016.json",
     "N05_core66_scope": "manifests/wc_paper_N05_core66_preregistration_r1_20261016.json",
     "N05_scheduler_CPU": "reports/wc_paper_N05_actual_native_scheduler_grid_CPU_20261016.json",
-    "N05_CPU_launch_460": "research/460_WC_N05_CORE66_FROZEN_GRID_AND_FULL216_LOCAL_CPU_LAUNCH_20261016.md"
+    "N05_CPU_launch_460": "research/460_WC_N05_CORE66_FROZEN_GRID_AND_FULL216_LOCAL_CPU_LAUNCH_20261016.md",
+    "N05_local_CPU_461": "research/461_WC_N05_FULL216_CPU_ACCEPTED_CORE66_PRODUCTION_AND_POST_READY_20261016.md",
+    "N05_local_CPU_independent": "reports/wc_paper_N05_core216_local_CPU_independent_acceptance_20261016.json",
+    "N05_core66_cost": "manifests/wc_paper_N05_core66_full_cost_r1_20261016.json",
+    "N05_core66_production": "configs/wc_paper_N05_core66_production_r1_20261016.json"
   },
   "source_bindings": {
     "11": {
@@ -1239,18 +1250,34 @@
     "N05_CPU_launch_460": {
       "path": "research/460_WC_N05_CORE66_FROZEN_GRID_AND_FULL216_LOCAL_CPU_LAUNCH_20261016.md",
       "sha256": "267f313edfa064c7cc99ebf1f7db34a93ae417823f66fecc7dd7021d29cc6150"
+    },
+    "N05_local_CPU_461": {
+      "path": "research/461_WC_N05_FULL216_CPU_ACCEPTED_CORE66_PRODUCTION_AND_POST_READY_20261016.md",
+      "sha256": "c3421cf4cfb976131c4c4b7c7f33b869efb21ade4d0832beee1daeebcac02c7f"
+    },
+    "N05_local_CPU_independent": {
+      "path": "reports/wc_paper_N05_core216_local_CPU_independent_acceptance_20261016.json",
+      "sha256": "45736cda3f0e8d0e70fe2fde1128d43e31f04e6edfe55b00c6ea1cf83837736a"
+    },
+    "N05_core66_cost": {
+      "path": "manifests/wc_paper_N05_core66_full_cost_r1_20261016.json",
+      "sha256": "0fd887cba0fc7309a6defdc4f543b4f98e3b7e09f9a2c225fd81a94e70ea66b5"
+    },
+    "N05_core66_production": {
+      "path": "configs/wc_paper_N05_core66_production_r1_20261016.json",
+      "sha256": "92204711959b3d1d41ce7599be62220d36366b44686291ed2e8ee19b6a1b78a8"
     }
   },
   "operation_policy": {
-    "current_running_card": null,
+    "current_running_card": "WC-SIMPLE26D-MEMORY-CAL4-SIXMETHOD-FULL36-R2-20261015-A",
     "scheduled_collection_local": "2026-10-16T04:55:00+08:00",
     "no_continuous_monitoring": true,
     "new_GPU_jobs_started_by_this_inventory": 0,
     "automatic_single_complete_job_estimate_exclusive_GPUh_upper_bound": 12,
     "cumulative_cap_GPUh_unchanged": 104.97136333301378,
-    "last_settled_used_GPUh_before_running_card": 79.99637737158223,
-    "remaining_before_running_card_GPUh": 24.974985961431557,
-    "running_card_forecast_GPUh": 11.645827780327332,
+    "last_settled_used_GPUh_before_running_card": 86.86405359888815,
+    "remaining_before_running_card_GPUh": 18.10730973412563,
+    "running_card_forecast_GPUh": 5.766054749472921,
     "actual_running_card_spend_unknown": true,
     "budget_window_not_reset": true,
     "planned_templates_are_not_CPU_accepted_selected_cards": true,
@@ -1369,7 +1396,9 @@
     "next_N05_CPU_collection": "2026-10-16T03:12:00+08:00",
     "N05_scientific_core66_scope_selected": true,
     "N05_production_CPU_or_GPU_selected": false,
-    "N05_corrected_neighbor_gap_retained": true
+    "N05_corrected_neighbor_gap_retained": true,
+    "budget_snapshot_asof": "2026-10-16T01:19:00+08:00",
+    "new_CPU_preparation_is_not_GPU_or_quality_result": true
   },
   "mapping_sha256_at_inventory": "942061a61d8b5ad39752ef5d2944ea915e9b947740289cb7adf793f122ef68f5"
 }
