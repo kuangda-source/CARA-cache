@@ -327,3 +327,5 @@ P_OFF仍含P0，新P-ACR当前为单分支补偿读出，不能写成已经实�
 **458技术更新：**本地完整CPU R1因缺模块源码元信息/辅助函数绑定在首采样前退出；两处装载修复和严格编译检查通过，完整R2已于02:32派发，02:44收。原方法和冻结参数不变，不据此写新方法失败或CPU72已通过。见[458](../research/458_WC_LOCAL_FULL72_R1_NAMESPACE_FAILURE_R2_REPAIR_AND_RELAUNCH_20261016.md)。
 
 N09记录接口完整102 Toy CPU已在[478](../research/478_WC_N09_FULL102_CPU_PARITY_ACCEPTED_COMPONENT_PEAK_PROFILE_READY_20261016.md)接受；对应实现准备，不是论文新质量/速度或真实CUDA峰值证据。
+
+N10的视频/原提示词身份、采样规则和双seed提示词统计已做CPU准备，见[479](../research/479_WC_N10_IDENTITY_INPUT_SAMPLING_AND_GROUPED_METRICS_CPU_READY_20261016.md)；真实指标模型、资源与最终评分尚待，不把合成分数作为论文结果。

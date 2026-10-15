@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "updated_local_date": "2026-10-16",
-  "snapshot_basis": "N09 full102 isolated CPU independently accepted at06:26; N05 original66 unchanged/in flight with12:05 ETA; final N07 methods/real inputs and real N09 GPU measurements pending.",
+  "snapshot_basis": "N10 identity/sampling/grouped-statistics CPU prepared without real metric scores; N09 full102 and shared952 accepted; N05 original66 unchanged with12:05 ETA.",
   "git_snapshot_before_inventory": "121b65949d6073a3b9f017b8f7e8e9fcbbd4bf0c",
   "mapping_ref": "paper/internal_to_paper_mapping.json",
   "scope": "scientific experiment families and complete cards, not each engineering retry; reused artifacts must not be summed as independent samples",
@@ -1016,14 +1016,14 @@
     },
     {
       "id": "N10",
-      "state": "待补｜源码/静态资源已盘点",
+      "state": "待补｜输入采样/汇总CPU已准备",
       "paper_experiment_name": "Automatic Video Quality on Final Outputs",
       "internal_ids": [
         "PAPER_E5_AUTOMATIC_QUALITY"
       ],
       "contribution_relation": "C3生成质量范围；补充保真主指标",
-      "evidence_or_planned_scope": "固定官方VBench fd18b3d0源码9文件；生成env VBench0.1.5、13缓存metadata已核，DINO/AMT/RAFT/MUSIQ可见，静态flicker前提与显式prompt映射已登记。",
-      "gap_and_next_action": "ViCLIP标准路径未见；实际源版本选择、权重SHA、CPU接线和全评分费用待。复用最终所有视频，不把采样8帧称全93语义，不把子集称官方总分或物理正确性。",
+      "evidence_or_planned_scope": "固定九源码/静态资源盘点保留；原视频SHA与原prompt、全160位置、两seed提示词统计等8CPU控制通过；作者纯采样与五维元数据parser实测一致，仅合成输入/分数。",
+      "gap_and_next_action": "完整源码版本、实际权重SHA/ViCLIP依赖与模型CPU、实际采样/逐视频评分入口和费用待；最终维度/卡未选。复用最终所有位置，动态程度为描述，闪烁限预登记静态范围，不作完整VBench总分/物理真值。",
       "priority": "P2·复用最终视频",
       "evidence_refs": [
         "28",
@@ -1032,7 +1032,8 @@
         "mainline_queue_20261016",
         "N10_resource_scope_468",
         "N10_protocol_draft",
-        "N10_resource_inventory"
+        "N10_resource_inventory",
+        "479"
       ],
       "method_mapping_ids": [],
       "depends_on": [
@@ -1047,7 +1048,9 @@
       "paper_placement": "后续证据，结果未填",
       "static_source_and_resource_inventory_complete": true,
       "metric_model_CPU_accepted": false,
-      "scoring_GPU_card_selected": false
+      "scoring_GPU_card_selected": false,
+      "input_identity_and_statistics_CPU_accepted": true,
+      "author_pure_sampling_and_metadata_CPU_accepted": true
     },
     {
       "id": "N11",
@@ -1194,7 +1197,10 @@
     "477": "research/477_WC_N09_PROFILE_R1_STATIC_BOUND_METHOD_FAILURE_R2_REPAIR_AND_FULL102_RELAUNCH_20261016.md",
     "478": "research/478_WC_N09_FULL102_CPU_PARITY_ACCEPTED_COMPONENT_PEAK_PROFILE_READY_20261016.md",
     "N09_profile_CPU_acceptance": "reports/wc_deployment_profile_full102_local_CPU_R2_independent_acceptance_20261016.json",
-    "N09_profile_CPU_capture": "reports/wc_deployment_profile_full102_local_CPU_R2_collection_20261016_0626.json.gz"
+    "N09_profile_CPU_capture": "reports/wc_deployment_profile_full102_local_CPU_R2_collection_20261016_0626.json.gz",
+    "479": "research/479_WC_N10_IDENTITY_INPUT_SAMPLING_AND_GROUPED_METRICS_CPU_READY_20261016.md",
+    "N10_input_statistics_CPU": "reports/wc_paper_N10_input_statistics_CPU_acceptance_20261016.json",
+    "N10_author_sampling_CPU": "reports/wc_paper_N10_source_sampling_and_prompt_metadata_CPU_r3_20261016.json"
   },
   "source_bindings": {
     "11": {
@@ -1580,6 +1586,18 @@
     "N09_profile_CPU_capture": {
       "path": "reports/wc_deployment_profile_full102_local_CPU_R2_collection_20261016_0626.json.gz",
       "sha256": "3afd247a867f51e87ccddb4bea3d92c4d1710051838abc9bc4bd62ac31e2c96b"
+    },
+    "479": {
+      "path": "research/479_WC_N10_IDENTITY_INPUT_SAMPLING_AND_GROUPED_METRICS_CPU_READY_20261016.md",
+      "sha256": "9c8d7700343e0ca6159b4bd9353b2ea026c28f5e74a8f666f551f173c9350ccb"
+    },
+    "N10_input_statistics_CPU": {
+      "path": "reports/wc_paper_N10_input_statistics_CPU_acceptance_20261016.json",
+      "sha256": "d695f8a7bf1ae655d107b566923a25f0cf12d2aa04b12267659e3f92a5cf0f03"
+    },
+    "N10_author_sampling_CPU": {
+      "path": "reports/wc_paper_N10_source_sampling_and_prompt_metadata_CPU_r3_20261016.json",
+      "sha256": "56fc493e1fb1a9bd1a0ddcf969b7f7f95ee6a0dc9b3bce05804a24e472e06404"
     }
   },
   "operation_policy": {
@@ -1815,7 +1833,14 @@
     "shared_registry952_CPU_next_collection": null,
     "N07_actual_final_input_or_method_freeze_selected": false,
     "N09_profile_full102_CPU_accepted": true,
-    "N09_profile_CPU_next_collection": null
+    "N09_profile_CPU_next_collection": null,
+    "last_short_local_CPU_preparation": {
+      "type": "N10_INPUT_SAMPLING_AND_PROMPT_STATISTICS",
+      "acceptance_ref": "reports/wc_paper_N10_input_statistics_CPU_acceptance_20261016.json",
+      "models_loaded": 0,
+      "GPU_submissions": 0,
+      "server_N05_unchanged": true
+    }
   },
-  "mapping_sha256_at_inventory": "8a717e3bb6cad338a4934f2f647bcc89a714ca4c0f28d06692a4096d5aa6bd68"
+  "mapping_sha256_at_inventory": "85ae711b1c4ebb33ea33547649da0d29fa2c52d5d56cca736b88e098403329b7"
 }

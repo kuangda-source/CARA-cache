@@ -1,3 +1,7 @@
+## 2026-10-16 N10输入/采样/分组汇总CPU准备完成
+
+[479自动质量接线](research/479_WC_N10_IDENTITY_INPUT_SAMPLING_AND_GROUPED_METRICS_CPU_READY_20261016.md)：原视频/提示词SHA、完整160位置、两seed提示词统计与缺失/静态范围等8CPU控制通过；固定VBench九源码SHA和纯采样/原parser五维实际对照通过，全部合成位置960。模型/权重SHA/完整评分CPU/费用及最终维度仍待，未生成真实质量分数或选输入；辅助int64序列化失败保留并等值修正。0SSH/0GPU/0预算写，原N05 source15d77ac/句柄/今天12:05不变。以下历史保留。
+
 ## 2026-10-16 N09完整102 CPU已独立接受
 
 [478记录器完整接受](research/478_WC_N09_FULL102_CPU_PARITY_ACCEPTED_COMPONENT_PEAK_PROFILE_READY_20261016.md)：06:26按ETA一次收原10482/source1829c0f，终态0；2283payload/9runtime、全102/3516pairs/7032CFG、34guided、34profile audit/lean、68profile/112356标量区间、102mock与组件全释放接受，57.674823秒，八损坏副本拒绝。原R1失败保留，不再查R1/R2；本地CPU自动化暂停。仅Toy观察器准备，实际CUDA峰值/组件/动作价/最小标定费未测，不充作新视频或速度。N05原15d77ac/句柄/今天12:05不变，0SSH/0GPUh/0预算写。以下历史保留。
