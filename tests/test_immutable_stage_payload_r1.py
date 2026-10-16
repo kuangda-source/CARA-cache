@@ -97,6 +97,21 @@ class ImmutablePayloadControls(unittest.TestCase):
                 extra_files=[], base_registration_sha256=value['base_registration_sha256'],
                 base_source_revision=value['base_source_revision'], numeric_sources={'src/wcomr/b.py': '0' * 64})
 
+    def test_N08_cpu_scope_explicit_and_original_N07_default_preserved(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root, base, value, revision = fixture(Path(directory)); raw = git_archive(root, value, revision)
+            before = {str(p.relative_to(base)): p.read_bytes() for p in base.rglob('*') if p.is_file()}
+            first = install(base, base.parent / 'original-n07-default', raw, value, source_revision=revision)
+            second = install(base, base.parent / 'explicit-n08', raw, value, source_revision=revision,
+                cpu_scope='FROZEN_N08_PRODUCTION_CPU_PREPARATION_NO_GPU')
+            self.assertEqual(first['CPU_scope'], 'FROZEN_N07_PRODUCTION_CPU_PREPARATION_NO_GPU')
+            self.assertEqual(second['CPU_scope'], 'FROZEN_N08_PRODUCTION_CPU_PREPARATION_NO_GPU')
+            self.assertEqual(first['payload_sha256'], second['payload_sha256'])
+            with self.assertRaises(ValueError): install(base, base.parent / 'bad-scope', raw, value,
+                source_revision=revision, cpu_scope='SYNTHETIC_GPU_OR_UNBOUND')
+            self.assertFalse((base.parent / 'bad-scope').exists())
+            self.assertEqual({str(p.relative_to(base)): p.read_bytes() for p in base.rglob('*') if p.is_file()}, before)
+
     def test_uncommitted_bytes_and_missing_git_blob_refused(self):
         with tempfile.TemporaryDirectory() as directory:
             root, _, value, revision = fixture(Path(directory))

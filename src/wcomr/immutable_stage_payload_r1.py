@@ -159,10 +159,14 @@ def overlay_bytes(archive_raw, value):
     return found
 
 
-def install(base, stage, archive_raw, value, *, source_revision):
+def install(base, stage, archive_raw, value, *, source_revision,
+            cpu_scope='FROZEN_N07_PRODUCTION_CPU_PREPARATION_NO_GPU'):
     """Copy registered base bytes read-only into one fresh independent stage."""
     base, original_stage = Path(base).resolve(), Path(stage)
     stage = original_stage.resolve()
+    if cpu_scope not in ('FROZEN_N07_PRODUCTION_CPU_PREPARATION_NO_GPU',
+                         'FROZEN_N08_PRODUCTION_CPU_PREPARATION_NO_GPU'):
+        raise ValueError('Explicit supported no-GPU CPU stage scope required')
     if (original_stage.is_symlink() or stage.exists() or stage.parent != base.parent
             or stage.is_relative_to(base) or base.is_relative_to(stage)):
         raise ValueError('Fresh independent sibling stage required; never overwrite an old stage')
@@ -190,7 +194,7 @@ def install(base, stage, archive_raw, value, *, source_revision):
     new = copy.deepcopy(registration)
     new.update(source_revision=source_revision, stage=str(stage), base_stage=str(base),
         read_only_base_registration_sha256=value['base_registration_sha256'],
-        payload_sha256=combined, CPU_scope='FROZEN_N07_PRODUCTION_CPU_PREPARATION_NO_GPU',
+        payload_sha256=combined, CPU_scope=cpu_scope,
         overlay_plan=value, GPU_submissions_by_installer=0, shared_runtime_written=False)
     with (stage / 'registration.json').open('x') as handle:
         json.dump(new, handle, indent=2, allow_nan=False); handle.write('\n')

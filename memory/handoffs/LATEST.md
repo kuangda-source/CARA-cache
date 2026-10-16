@@ -1,3 +1,7 @@
+## 2026-10-16 N08生产CPU部署与按ETA查收准备
+
+[492生产CPU部署准备](../../research/492_WC_N08_PRODUCTION_CPU_DEPLOYMENT_AND_ONCE_COLLECTION_PREPARATION_20261016.md)：N08独立Git绑定stage、九命令CPU单次派发、ETA后一次查收与离线接受入口已补齐；21本地顶层控制通过，其中隔离目录复跑原八组53控制，发现并补入动态夹具。12显式夹具/143静态源码闭合，原99数值SHA不变；真实最终配置/生产CPU/部署/GPU仍未执行。0SSH/0GPU/0服务器预算写，N05原15d77ac/句柄/今天12:05不动。以下历史保留。
+
 ## 2026-10-16 N08独立完整验收CPU准备，N07查收注册SHA修复
 
 [491独立验收](../../research/491_WC_N08_FULL40_INDEPENDENT_ACCEPTANCE_AND_N07_CAPTURE_REGISTRATION_REPAIR_CPU_READY_20261016.md)：N08全40/30逐轮/93帧/原件/费用与登记资源区间独立重建已写，23本地CPU通过；纯标准库查收体在禁用site-packages的独立Python通过。原N07查收漏registration_sha256已用原代码重现并只补字段，失败保留；N07未部署/N05不受影响。N08未来CPU bundle纳入新验收/查收控制现为9命令，实际CPU仍0。原99数值源码保持，真实配置/部署/费用/视频未完成，0SSH/0GPU/0服务器预算写；N05原15d77ac/句柄/12:05不改。以下历史保留。

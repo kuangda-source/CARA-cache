@@ -1652,7 +1652,8 @@
     "N08_resident_production_CPU": "research/488_WC_N08_RESIDENT_FULL40_PRODUCTION_ENTRY_AND_WARM_INTERFACE_REPAIR_CPU_READY_20261016.md",
     "N08_post_full40_CPU": "research/489_WC_N08_FULL40_CPU_POST_REPEAT_PARITY_SAME_ROUND_FIDELITY_AND_FAILURE_ISOLATION_READY_20261016.md",
     "N08_CPU_gate_supervision_dispatch": "research/490_WC_N08_SEVEN_COMMAND_CPU_GATE_SINGLE_DISPATCH_AND_UUID_SETTLEMENT_READY_20261016.md",
-    "N08_independent_capture_acceptance_CPU": "research/491_WC_N08_FULL40_INDEPENDENT_ACCEPTANCE_AND_N07_CAPTURE_REGISTRATION_REPAIR_CPU_READY_20261016.md"
+    "N08_independent_capture_acceptance_CPU": "research/491_WC_N08_FULL40_INDEPENDENT_ACCEPTANCE_AND_N07_CAPTURE_REGISTRATION_REPAIR_CPU_READY_20261016.md",
+    "N08_production_CPU_deployment": "research/492_WC_N08_PRODUCTION_CPU_DEPLOYMENT_AND_ONCE_COLLECTION_PREPARATION_20261016.md"
   },
   "evidence_batches": {
     "curve60": {
@@ -2016,6 +2017,18 @@
       "CPU_bundle_future_commands": 9,
       "acceptance_ref": "reports/wc_paper_N08_independent_capture_acceptance_CPU_acceptance_20261016.json",
       "N07_original_missing_registration_field_failure_ref": "reports/wc_paper_N07_capture_registration_R1_failure_20261016.json"
+    },
+    "N08_PRODUCTION_CPU_DEPLOYMENT_AND_ONCE_COLLECTION_PREPARATION": {
+      "status": "N08_CPU_DEPLOY_CAPTURE_LOCAL_ACCEPTED_NOT_PRODUCTION_CPU",
+      "controls": 21,
+      "isolated_reexecuted_control_commands": 8,
+      "isolated_reexecuted_existing_controls": 53,
+      "actual_production_CPU_entry_executed": false,
+      "actual_server_CPU_or_GPU": false,
+      "actual_quality_or_speed_result": false,
+      "declared_fixture_files": 12,
+      "static_source_and_fixture_files": 143,
+      "acceptance_ref": "reports/wc_paper_N08_CPU_deploy_capture_local_acceptance_20261016.json"
     }
   },
   "statistical_rules": {
@@ -2428,7 +2441,7 @@
     },
     "research/475_WC_SHARED_REGISTRY952_LOCAL_CPU_ACCEPTED_SEED_PARITY_AND_N05_NEXT_20261016.md": {
       "sha256": "8273e24fa6a6d330b98d379b9ab8630ac92c1a0b8f7607f35a1d5396c7d9d1c6",
-      "bytes": 4321
+      "bytes": 4640
     },
     "reports/wc_paper_shared_registry952_local_CPU_R3_independent_acceptance_20261016.json": {
       "sha256": "aaa101f99ad1b1bc672ec2a27f7e053223ebf83a0f9b73bba6d03642d40bf4da",
@@ -2631,8 +2644,8 @@
     },
     "src/wcomr/immutable_stage_payload_r1.py": {
       "exists": true,
-      "bytes": 10749,
-      "sha256": "92466d2e6996d14fc162cba299041f25424d284d5a2ea0a064f80c364ab4584e"
+      "bytes": 11008,
+      "sha256": "2114468028435683492162d43d47864c2dbc2c7715eebdf4f184584314e5808c"
     },
     "src/wcomr/frozen_shared_cpu_acceptance_r1.py": {
       "exists": true,
@@ -2661,8 +2674,8 @@
     },
     "tests/test_immutable_stage_payload_r1.py": {
       "exists": true,
-      "bytes": 9102,
-      "sha256": "d9e5575feb08f138d8f329b9be05ab952e2720c88ce5cc7b58c644fb6ad03f71"
+      "bytes": 10382,
+      "sha256": "5cd1d32e2979621dcbdadec1394a1e9fcdacd78fabe1ba9f15e41df1097f14bc"
     },
     "tests/test_frozen_shared_cpu_acceptance_r1.py": {
       "exists": true,
@@ -2903,6 +2916,41 @@
       "exists": true,
       "bytes": 1381,
       "sha256": "5332b8533bae8c51a219a125ca72c922258434774a537deadd2b412239a48ace"
+    },
+    "research/492_WC_N08_PRODUCTION_CPU_DEPLOYMENT_AND_ONCE_COLLECTION_PREPARATION_20261016.md": {
+      "exists": true,
+      "bytes": 3692,
+      "sha256": "940d667d898381eb8144ea2426d78e6f835737811919fb6a1ae98eaef1a5ef95"
+    },
+    "reports/wc_paper_N08_CPU_deploy_capture_local_acceptance_20261016.json": {
+      "exists": true,
+      "bytes": 11925,
+      "sha256": "d8e0d8db2af0dd77b9dc68cfe76e1871f7862afc6422dde0a2b547dea2c18090"
+    },
+    "reports/wc_paper_N08_CPU_deploy_capture_local_controls_20261016.log": {
+      "exists": true,
+      "bytes": 2983,
+      "sha256": "6ec152957d657b43992a33de3ec7a6c048568ef61de1ad646b8144f1cd1594ae"
+    },
+    "scripts/deploy_wc_paper_N08_production_cpu_r1.py": {
+      "exists": true,
+      "bytes": 10842,
+      "sha256": "96af961a93d627c9d4346845abb98ac24f8cd8b1ab90a0380c542dff4fec362a"
+    },
+    "scripts/capture_wc_paper_N08_production_cpu_r1.py": {
+      "exists": true,
+      "bytes": 3419,
+      "sha256": "37f76ba206589942ffdb7ee9c8f717b6ec719a187398bdf24a3c03b7380a0e7c"
+    },
+    "scripts/accept_wc_paper_N08_production_cpu_r1.py": {
+      "exists": true,
+      "bytes": 934,
+      "sha256": "b5f47baee20cbafcd6a092d97d91ec32d017141c8e13d5fe450d4da721000f5b"
+    },
+    "tests/test_balanced_repeat_packaging_r1.py": {
+      "exists": true,
+      "bytes": 13205,
+      "sha256": "96e88a31597e12c41961f0c99616a6720b376c8dee2b5e3c97de6fa7f6c9123b"
     }
   },
   "math_notation": [

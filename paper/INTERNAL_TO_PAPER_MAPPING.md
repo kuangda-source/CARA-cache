@@ -1,5 +1,7 @@
 # 内部实现到论文表述的映射
 
+**N08部署准备更新（492）：** 独立Git绑定CPU stage、九命令单次派发与ETA后只读查收工具已补齐，21本地顶层控制通过；实际最终配置、服务器生产CPU和真实测速均未执行，映射中的空结果保持。见[492](../research/492_WC_N08_PRODUCTION_CPU_DEPLOYMENT_AND_ONCE_COLLECTION_PREPARATION_20261016.md)。
+
 更新：2026-10-16。用途：供写作对话直接读取、生成方法描述、图例和实验表格。配套机器索引：[internal_to_paper_mapping.json](internal_to_paper_mapping.json)。
 
 实验是否已完成、目前在途还是待补，以及每项支撑的贡献和优先级，统一读取[实验总表](EXPERIMENT_MASTER_TABLE.md)及[总表机器索引](experiment_master_table.json)。本文件负责名称和实现身份，总表负责实验状态与证据任务。
