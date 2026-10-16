@@ -1,0 +1,100 @@
+{
+  "status": "N10_BOUNDED_HEAD_TRANSPORT_DIAGNOSIS_NO_RESOURCE_RELAUNCH",
+  "observed_unix": 1792166430.864962,
+  "observed_local": "2026-10-17T00:00:30.864325+08:00",
+  "original_resource_R3_retained": true,
+  "requests": [
+    {
+      "name": "official_root_proxy",
+      "url": "https://huggingface.co/",
+      "proxy": "http://127.0.0.1:7897",
+      "curl_exit": 0,
+      "wall_seconds": 1.2925457954406738,
+      "HTTP_status_lines": [
+        "HTTP/1.1 200 Connection established",
+        "HTTP/2 200 "
+      ],
+      "redirect_hosts": [],
+      "final_HTTP_code": "200",
+      "TLS_verify_result": "0",
+      "final_host": "huggingface.co",
+      "stderr": "",
+      "body_bytes_requested": 0,
+      "HTTPS_certificate_verification_disabled": false
+    },
+    {
+      "name": "pinned_HEAD_proxy",
+      "url": "https://huggingface.co/OpenGVLab/VBench_Used_Models/resolve/83290ee59b4e2c0a4d198857edbc79dd186b8d44/ViClip-InternVid-10M-FLT.pth",
+      "proxy": "http://127.0.0.1:7897",
+      "curl_exit": 0,
+      "wall_seconds": 3.174884080886841,
+      "HTTP_status_lines": [
+        "HTTP/1.1 200 Connection established",
+        "HTTP/2 302 ",
+        "HTTP/1.1 200 Connection established",
+        "HTTP/2 200 "
+      ],
+      "redirect_hosts": [
+        {
+          "scheme": "https",
+          "host": "us.aws.cdn.hf.co"
+        }
+      ],
+      "final_HTTP_code": "200",
+      "TLS_verify_result": "0",
+      "final_host": "us.aws.cdn.hf.co",
+      "stderr": "",
+      "body_bytes_requested": 0,
+      "HTTPS_certificate_verification_disabled": false
+    },
+    {
+      "name": "control_github_proxy",
+      "url": "https://github.com/",
+      "proxy": "http://127.0.0.1:7897",
+      "curl_exit": 0,
+      "wall_seconds": 0.8672120571136475,
+      "HTTP_status_lines": [
+        "HTTP/1.1 200 Connection established",
+        "HTTP/2 200 "
+      ],
+      "redirect_hosts": [],
+      "final_HTTP_code": "200",
+      "TLS_verify_result": "0",
+      "final_host": "github.com",
+      "stderr": "",
+      "body_bytes_requested": 0,
+      "HTTPS_certificate_verification_disabled": false
+    },
+    {
+      "name": "pinned_HEAD_direct",
+      "url": "https://huggingface.co/OpenGVLab/VBench_Used_Models/resolve/83290ee59b4e2c0a4d198857edbc79dd186b8d44/ViClip-InternVid-10M-FLT.pth",
+      "proxy": "DIRECT",
+      "curl_exit": 0,
+      "wall_seconds": 3.6180920600891113,
+      "HTTP_status_lines": [
+        "HTTP/2 302 ",
+        "HTTP/2 200 "
+      ],
+      "redirect_hosts": [
+        {
+          "scheme": "https",
+          "host": "us.aws.cdn.hf.co"
+        }
+      ],
+      "final_HTTP_code": "200",
+      "TLS_verify_result": "0",
+      "final_host": "us.aws.cdn.hf.co",
+      "stderr": "",
+      "body_bytes_requested": 0,
+      "HTTPS_certificate_verification_disabled": false
+    }
+  ],
+  "maximum_HEAD_requests": 4,
+  "whole_resource_downloads": 0,
+  "GPU_submissions": 0,
+  "SSH_queries": 0,
+  "models_loaded": 0,
+  "global_proxy_settings_modified": false,
+  "ledger_written": false,
+  "wall_seconds": 3.621007204055786
+}

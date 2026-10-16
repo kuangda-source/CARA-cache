@@ -20,6 +20,18 @@ def sha(path):
     return value.hexdigest()
 
 
+def worker_identity(stage,launch,reg):
+    name=launch.get('worker_file','fetch_wc_N10_viclip_resource_r1.py')
+    assert name in ('fetch_wc_N10_viclip_resource_r1.py','fetch_wc_N10_viclip_ranges_r1.py',
+                    'fetch_wc_N10_viclip_direct_r2.py')
+    assert sha(stage/name)==launch['worker_sha256']==reg['worker_sha256']
+    if name=='fetch_wc_N10_viclip_direct_r2.py':
+        expected='abed3996e5552680aefb1c63f179c3c394ea4b2abb4fb0e0a1812c3be611dee4'
+        assert sha(stage/'fetch_wc_N10_viclip_ranges_r1.py')==reg['original_range_worker_sha256']==expected
+        assert reg['transport_policy']==launch['transport_policy']=='DIRECT_HTTPS_NO_ENV_PROXY'
+    return name
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--launch-ref', type=Path, required=True)
@@ -37,9 +49,7 @@ def main():
     reg = json.loads(registration.read_text())
     assert reg['source_revision'] == launch['source_revision']
     assert reg['expected_weight'] == launch['expected_weight']
-    worker_name = launch.get('worker_file', 'fetch_wc_N10_viclip_resource_r1.py')
-    assert worker_name in ('fetch_wc_N10_viclip_resource_r1.py', 'fetch_wc_N10_viclip_ranges_r1.py')
-    assert sha(stage / worker_name) == launch['worker_sha256'] == reg['worker_sha256']
+    worker_name = worker_identity(stage,launch,reg)
     process = subprocess.run(['ps', '-p', str(launch['pid']), '-o', 'pid=,lstart=,stat=,command='],
                              capture_output=True, text=True, timeout=10)
     same, alive = None, False

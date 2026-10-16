@@ -1,0 +1,60 @@
+{
+  "status": "N10_TWO_BOUNDED_GET_ROUTE_AND_RANGE_DIAGNOSIS_NOT_RESOURCE_RELAUNCH",
+  "observed_unix": 1792166652.273767,
+  "canonical_public_url": "https://huggingface.co/OpenGVLab/VBench_Used_Models/resolve/83290ee59b4e2c0a4d198857edbc79dd186b8d44/ViClip-InternVid-10M-FLT.pth",
+  "expected_ETag": "\"2774a6ae2fc6dd8f7ff069a79cab415fafce30d8ab9207a708654f0c73894529\"",
+  "original_connect_timeout_restored_seconds": 15,
+  "maximum_requests": 2,
+  "maximum_bytes_requested": 1048577,
+  "requests": [
+    {
+      "name": "failed_offset_direct",
+      "route": "DIRECT",
+      "requested_range": [
+        117440512,
+        118489087
+      ],
+      "curl_exit": 0,
+      "stdout": "206\n1048576\n",
+      "stderr": "",
+      "wall_seconds": 6.0850279331207275,
+      "response_status": 206,
+      "response_headers": {
+        "etag": "\"2774a6ae2fc6dd8f7ff069a79cab415fafce30d8ab9207a708654f0c73894529\"",
+        "content-length": "1048576",
+        "content-range": "bytes 117440512-118489087/1710545812"
+      },
+      "body_bytes": 1048576,
+      "body_sha256": "9d0004c062deb9a56d77a2b32ee0d24bf4b7e69f17c9d1a5ead774e9cd7261db",
+      "accepted": true
+    },
+    {
+      "name": "first_byte_proxy_control",
+      "route": "http://127.0.0.1:7897",
+      "requested_range": [
+        0,
+        0
+      ],
+      "curl_exit": 56,
+      "stdout": "302\n0\n",
+      "stderr": "curl: (56) Maximum file size exceeded\n",
+      "wall_seconds": 1.291975975036621,
+      "response_status": 302,
+      "response_headers": {
+        "content-length": "1092"
+      },
+      "body_bytes": 0,
+      "body_sha256": null,
+      "accepted": false
+    }
+  ],
+  "local_stage": ".sync/wc-N10-paired-data-path-probe-20261017_000406",
+  "whole_downloads_started": 0,
+  "old_R3_written": false,
+  "GPU_submissions": 0,
+  "SSH_queries": 0,
+  "models_loaded": 0,
+  "ledger_written": false,
+  "global_proxy_modified": false,
+  "HTTPS_verification_disabled": false
+}

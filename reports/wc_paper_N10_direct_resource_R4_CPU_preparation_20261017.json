@@ -1,0 +1,47 @@
+{
+  "status": "N10_SAME_PINNED_COMPLETE204_DIRECT_ROUTE_CPU_PREPARED_NOT_LAUNCHED",
+  "worktree_base_revision": "083eef51df435c6be16148bb0ac7813a998c836e",
+  "source_sha256": {
+    "scripts/fetch_wc_N10_viclip_direct_r2.py": "2049b6694fbef6bbe9b0815b612d7c936a86b32cd1207a0342f8a0f6091ef6e7",
+    "scripts/launch_wc_N10_viclip_direct_r2.py": "efe77599f8c6116a7dd9c607f14c439535e2134c80da27e6e70f4521642811bf",
+    "scripts/capture_wc_N10_viclip_local_proxy_r2.py": "9554ba2f3c2fe065e23556f3e960e3e54bcbcd04c6fd59329adb151c576372fa",
+    "tests/test_N10_direct_resource_r2.py": "fe7bd8124f9b8bb46098026b21024f6d312b8a69348253163897afda2f5cb1b9"
+  },
+  "transport_derivation": {
+    "original_range_source_sha256": "abed3996e5552680aefb1c63f179c3c394ea4b2abb4fb0e0a1812c3be611dee4",
+    "inverse_bytes_and_AST_equal": true,
+    "declared_transport_replacements": 2,
+    "full_scope_and_range_ETag_and_whole_SHA_unchanged": true,
+    "TLS_verification_disabled": false
+  },
+  "local_CPU_tests": 35,
+  "tests_log_text": "test_changed_original_helper_or_unregistered_route_refuses (test_N10_direct_resource_r2.DirectResourceControls) ... ok\ntest_collector_explicitly_binds_both_direct_and_original_source_bytes (test_N10_direct_resource_r2.DirectResourceControls) ... ok\ntest_complete_ordered_bytes_and_whole_digest_before_publication (test_N10_direct_resource_r2.DirectResourceControls) ... ok\ntest_correct_http_headers_still_require_whole_checkpoint_sha (test_N10_direct_resource_r2.DirectResourceControls) ... ok\ntest_exact_direct_route_preserves_TLS_range_and_whole_object_logic (test_N10_direct_resource_r2.DirectResourceControls) ... ok\ntest_header_parser_uses_final_response_after_proxy_and_redirect (test_N10_direct_resource_r2.DirectResourceControls) ... ok\ntest_http200_range_ignored_is_not_accepted (test_N10_direct_resource_r2.DirectResourceControls) ... ok\ntest_launcher_uses_actual_successful_direct_nonzero_bytes_not_HEAD_only (test_N10_direct_resource_r2.DirectResourceControls) ... ok\ntest_original_stage_cannot_be_redispatched (test_N10_direct_resource_r2.DirectResourceControls) ... ok\ntest_short_response_then_retry_does_not_duplicate_or_skip_prefix (test_N10_direct_resource_r2.DirectResourceControls) ... ok\ntest_wrong_object_etag_exhausts_known_requests_without_publication (test_N10_direct_resource_r2.DirectResourceControls) ... ok\ntest_wrong_offset_response_is_not_committed_even_when_length_matches (test_N10_direct_resource_r2.DirectResourceControls) ... ok\ntest_wrong_worker_source_refuses_before_any_curl_or_new_partial (test_N10_direct_resource_r2.DirectResourceControls) ... ok\ntest_complete_ordered_bytes_and_whole_digest_before_publication (test_N10_resource_ranges_r1.RangeResourceControls) ... ok\ntest_correct_http_headers_still_require_whole_checkpoint_sha (test_N10_resource_ranges_r1.RangeResourceControls) ... ok\ntest_header_parser_uses_final_response_after_proxy_and_redirect (test_N10_resource_ranges_r1.RangeResourceControls) ... ok\ntest_http200_range_ignored_is_not_accepted (test_N10_resource_ranges_r1.RangeResourceControls) ... ok\ntest_original_stage_cannot_be_redispatched (test_N10_resource_ranges_r1.RangeResourceControls) ... ok\ntest_short_response_then_retry_does_not_duplicate_or_skip_prefix (test_N10_resource_ranges_r1.RangeResourceControls) ... ok\ntest_wrong_object_etag_exhausts_known_requests_without_publication (test_N10_resource_ranges_r1.RangeResourceControls) ... ok\ntest_wrong_offset_response_is_not_committed_even_when_length_matches (test_N10_resource_ranges_r1.RangeResourceControls) ... ok\ntest_wrong_worker_source_refuses_before_any_curl_or_new_partial (test_N10_resource_ranges_r1.RangeResourceControls) ... ok\ntest_before_original_eta_refuses_without_any_process_query (test_N10_local_resource_capture_r1.LocalResourceCaptureControls) ... ok\ntest_foreign_worker_name_refuses_before_process_query (test_N10_local_resource_capture_r1.LocalResourceCaptureControls) ... ok\ntest_new_range_and_original_legacy_worker_both_keep_independent_full_sha (test_N10_local_resource_capture_r1.LocalResourceCaptureControls) ... ok\ntest_original_nice_exec_identity_is_live_and_blocks_resource_acceptance (test_N10_local_resource_capture_r1.LocalResourceCaptureControls) ... ok\ntest_collection_before_eta_does_not_query_pid_files_or_ssh (test_N10_resource_relay_r1.ResourceRelayControls) ... ok\ntest_failed_scp_is_preserved_and_original_worker_cannot_redispatch (test_N10_resource_relay_r1.ResourceRelayControls) ... ok\ntest_fresh_registered_prepare_does_not_touch_existing_project_files (test_N10_resource_relay_r1.ResourceRelayControls) ... ok\ntest_independent_capture_hashes_terminal_target_but_not_active_transfer (test_N10_resource_relay_r1.ResourceRelayControls) ... ok\ntest_local_target_change_after_capture_is_refused (test_N10_resource_relay_r1.ResourceRelayControls) ... ok\ntest_mac_identity_survives_nice_exec_but_not_pid_reuse (test_N10_resource_relay_r1.ResourceRelayControls) ... ok\ntest_original_remote_stage_cannot_be_overwritten (test_N10_resource_relay_r1.ResourceRelayControls) ... ok\ntest_unaccepted_local_resource_is_refused_before_any_git_ssh_or_dispatch (test_N10_resource_relay_r1.ResourceRelayControls) ... ok\ntest_whole_remote_bytes_required_before_rename_and_result (test_N10_resource_relay_r1.ResourceRelayControls) ... ok\n\n----------------------------------------------------------------------\nRan 35 tests in 0.141s\n\nOK\n",
+  "cold_CLI_ref": "reports/wc_paper_N10_direct_resource_cold_CLI_20261017.json",
+  "head_probe_ref": "reports/wc_paper_N10_bounded_HEAD_transport_diagnosis_20261017_000030.json",
+  "initial_proxy_offset_failure_ref": "reports/wc_paper_N10_failed_offset_one_MiB_probe_20261017_000204.json",
+  "actual_direct_nonzero_probe_ref": "reports/wc_paper_N10_paired_GET_transport_diagnosis_20261017_000406.json",
+  "full_bytes": 1710545812,
+  "full_SHA256": "7a4d6ad6eac6632db3693f4b97f9f8f6445b65b1e139a6fc6686150522238c56",
+  "full_range_count": 204,
+  "chunk_bytes": 8388608,
+  "attempts_per_range": 6,
+  "planned_stage": ".sync/wc-N10-viclip-direct-r4-20261017",
+  "planned_estimated_minutes": [
+    60,
+    90
+  ],
+  "planned_midpoint_minutes": 45,
+  "planned_final_minutes": 90,
+  "original_R3_preserved": true,
+  "old_partial_reused": false,
+  "full_resource_accepted": false,
+  "real_models_loaded": 0,
+  "new_quality_scores": 0,
+  "GPU_submissions": 0,
+  "SSH_queries": 0,
+  "ledger_written": false,
+  "global_proxy_modified": false,
+  "HTTPS_verification_disabled": false,
+  "new_resource_task_launched": false,
+  "original_N07_0530_untouched": true
+}
