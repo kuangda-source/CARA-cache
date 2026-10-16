@@ -1112,14 +1112,14 @@
     },
     {
       "id": "N09",
-      "state": "待补｜运行开销40范围登记，动作报价/标定费待补",
+      "state": "待补｜完整40运行入口本地CPU通过",
       "paper_experiment_name": "Calibration and Minimal Deployment Profile",
       "internal_ids": [
         "PAPER_E5_COST_PROFILE"
       ],
       "contribution_relation": "C3部署开销；C2费用一致",
-      "evidence_or_planned_scope": "原102组件观察CPU已接受；五冻结角色×两旧CAL×三诊断模式=30正式+10warm/40路径/1440pairs范围已登记，四当前源码与原102精确一致，未新跑采样。",
-      "gap_and_next_action": "N07/N08后补真实运行开销40的生产配置/CPU与整卡费用；同状态C/A/P0/D报价、可复现部署标定采集费仍须完整具体化；inclusive区间不相加冒称纯kernel成本。",
+      "evidence_or_planned_scope": "原102组件观察CPU已接受；五冻结角色×两旧CAL×三诊断模式=30正式+10warm/40路径/1440pairs范围已登记，四当前源码与原102精确一致，未新跑采样。 519完整40/三模式/取证归档/驻留worker/原CPU与UUID整卡授权接线26本地CPU通过，原四核心SHA保持；真实生产CPU/费用/GPU仍待。",
+      "gap_and_next_action": "N07/N08后做实际Cosmos生产CPU、完整报价/部署、原完整40的guided/RGB/显存/owner及费用接受；同状态C/A/P0/D报价、可复现标定采集费用仍独立待项。Profile区间inclusive，不合成clean速度或纯kernel总和。",
       "priority": "P2·最终实现后",
       "evidence_refs": [
         "closure_plan",
@@ -1133,13 +1133,26 @@
         "509",
         "N09_runtime40_declarative_scope",
         "N09_runtime40_scope_inventory",
-        "N09_profile40_original102_reuse"
+        "N09_profile40_original102_reuse",
+        "519",
+        "N09_runtime40_execution_adapter",
+        "N09_runtime40_production_contract",
+        "N09_runtime40_resident_worker",
+        "N09_runtime40_execution_tests",
+        "N09_runtime40_production_tests",
+        "N09_runtime40_execution_CPU_R1",
+        "N09_runtime40_entry_related_CPU_R2",
+        "N09_runtime40_entry_related_CPU_R3",
+        "N09_runtime40_entry_related_CPU_R4"
       ],
       "method_mapping_ids": [
         "module.gcr",
         "module.cpa"
       ],
-      "depends_on": [],
+      "depends_on": [
+        "N07",
+        "N08"
+      ],
       "template_only": true,
       "new_GPU_card_selected": false,
       "contribution_ids": [
@@ -1160,7 +1173,15 @@
       "actual_runtime_profile40_production_CPU_accepted": false,
       "actual_runtime_profile40_GPU_card_selected": false,
       "actual_post_paid_probe_C_A_P0_D_costs_measured": false,
-      "actual_minimal_calibration_collection_cost_measured": false
+      "actual_minimal_calibration_collection_cost_measured": false,
+      "runtime_profile40_execution_adapter_implemented": true,
+      "runtime_profile40_production_contract_implemented": true,
+      "runtime_profile40_resident_worker_implemented": true,
+      "runtime_profile40_execution_CPU_controls_accepted": 8,
+      "runtime_profile40_production_contract_CPU_controls_accepted": 5,
+      "runtime_profile40_related_CPU_controls_accepted": 26,
+      "actual_GPU_component_or_request_memory_measured": false,
+      "runtime_profile40_latest_local_CPU_ref": "reports/wc_paper_N09_runtime40_production_entry_related_CPU_R4_20261016.json"
     },
     {
       "id": "N10",
@@ -1648,7 +1669,17 @@
     "N10_TLS12_HTTP11_probe": "reports/wc_paper_N10_tls12_http11_transport_probe_20261016.json",
     "N10_full960_supervisor": "scripts/supervise_wc_paper_N10_full960_r1.py",
     "N10_full960_supervisor_tests": "tests/test_N10_supervisor_r1.py",
-    "N10_full960_supervisor_CPU_R1": "reports/wc_paper_N10_full960_supervisor_CPU_R1_20261016.json"
+    "N10_full960_supervisor_CPU_R1": "reports/wc_paper_N10_full960_supervisor_CPU_R1_20261016.json",
+    "519": "research/519_WC_N09_RUNTIME40_RESIDENT_ENTRY_AND_FROZEN_EXECUTION_CPU_PREPARATION_20261016.md",
+    "N09_runtime40_execution_adapter": "src/wcomr/runtime_profile40_execution_r1.py",
+    "N09_runtime40_production_contract": "src/wcomr/runtime_profile40_production_r1.py",
+    "N09_runtime40_resident_worker": "scripts/run_wc_paper_N09_runtime_profile40_r1.py",
+    "N09_runtime40_execution_tests": "tests/test_runtime_profile40_execution_r1.py",
+    "N09_runtime40_production_tests": "tests/test_runtime_profile40_production_r1.py",
+    "N09_runtime40_execution_CPU_R1": "reports/wc_paper_N09_runtime40_execution_CPU_R1_20261016.json",
+    "N09_runtime40_entry_related_CPU_R2": "reports/wc_paper_N09_runtime40_production_entry_related_CPU_R2_20261016.json",
+    "N09_runtime40_entry_related_CPU_R3": "reports/wc_paper_N09_runtime40_production_entry_related_CPU_R3_20261016.json",
+    "N09_runtime40_entry_related_CPU_R4": "reports/wc_paper_N09_runtime40_production_entry_related_CPU_R4_20261016.json"
   },
   "source_bindings": {
     "11": {
@@ -1801,7 +1832,7 @@
     },
     "mainline_queue_20261016": {
       "path": "plans/WORLD_CACHE_MAINLINE_PRIORITY_QUEUE_20261016.md",
-      "sha256": "e906be03a1ed5b43004a016e233727933fa69da0ca79ecdeb96466bac01f47fa"
+      "sha256": "9b76080e537dea2aa84b145e39faf0ad7fcaaffbdd125d49ee921e3ee3711a42"
     },
     "baseline_grid_prereg_20261016": {
       "path": "manifests/wc_paper_N05_bounded_baseline_grid_preregistration_draft_20261016.json",
@@ -2698,6 +2729,46 @@
     "N10_full960_supervisor_CPU_R1": {
       "path": "reports/wc_paper_N10_full960_supervisor_CPU_R1_20261016.json",
       "sha256": "8414e5a7d0b78828929766ca9745e4a355f2345850e323deb05b19d6937ce467"
+    },
+    "519": {
+      "path": "research/519_WC_N09_RUNTIME40_RESIDENT_ENTRY_AND_FROZEN_EXECUTION_CPU_PREPARATION_20261016.md",
+      "sha256": "f70091d649760fa813e68eb584a3ef773af358d8ee31988a82e575836ec75939"
+    },
+    "N09_runtime40_execution_adapter": {
+      "path": "src/wcomr/runtime_profile40_execution_r1.py",
+      "sha256": "52d94959aa73210e1433abbed72913d918087d779316c90829d7e79995f8e6cc"
+    },
+    "N09_runtime40_production_contract": {
+      "path": "src/wcomr/runtime_profile40_production_r1.py",
+      "sha256": "dc01143f637787603e1b09b731959a69772c15b0c8104a7fdb480b8e958cfc82"
+    },
+    "N09_runtime40_resident_worker": {
+      "path": "scripts/run_wc_paper_N09_runtime_profile40_r1.py",
+      "sha256": "2a4cf863834722768c0190ed76203c0c6467cf0b556a499d063e4c46f1bc8443"
+    },
+    "N09_runtime40_execution_tests": {
+      "path": "tests/test_runtime_profile40_execution_r1.py",
+      "sha256": "6104269d97f2d535553ca6314810ebe57c500eab80c9c318154238cb3ab2708b"
+    },
+    "N09_runtime40_production_tests": {
+      "path": "tests/test_runtime_profile40_production_r1.py",
+      "sha256": "cb73a7ff5004e5eede77c0503682e146e8c138519204f71985e8464ee212d433"
+    },
+    "N09_runtime40_execution_CPU_R1": {
+      "path": "reports/wc_paper_N09_runtime40_execution_CPU_R1_20261016.json",
+      "sha256": "b309220f90344c02fcd1e603b2bf257e520a1f7390ec3ba9ff94d2665c53311c"
+    },
+    "N09_runtime40_entry_related_CPU_R2": {
+      "path": "reports/wc_paper_N09_runtime40_production_entry_related_CPU_R2_20261016.json",
+      "sha256": "3b517d7c52ce80d942c4615258c447f3174cd3345c036c727d490d88b357a33c"
+    },
+    "N09_runtime40_entry_related_CPU_R3": {
+      "path": "reports/wc_paper_N09_runtime40_production_entry_related_CPU_R3_20261016.json",
+      "sha256": "dc78a561a5e26aa3718bcae61dc88d096f636fa9ff572a3a43e11ef5901a3660"
+    },
+    "N09_runtime40_entry_related_CPU_R4": {
+      "path": "reports/wc_paper_N09_runtime40_production_entry_related_CPU_R4_20261016.json",
+      "sha256": "7cc17a591526bf759fd64a1a49a30758a409094dd6d32738cb3b944a98e31808"
     }
   },
   "operation_policy": {
@@ -3011,5 +3082,5 @@
     "N10_new_range_CPU_ready": true,
     "N10_new_range_dispatched": true
   },
-  "mapping_sha256_at_inventory": "d0ed61bb25dd0eb74855dc59e9b7f2b055f85a474a7f086fe45f039d52b89807"
+  "mapping_sha256_at_inventory": "3dae585f124f9dee0b4478a1fdf2d5d4a7eb44e4ea01d1aa7f49e96a1bff5a69"
 }

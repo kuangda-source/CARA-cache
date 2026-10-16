@@ -1,3 +1,7 @@
+## 2026-10-16 N09完整40运行接线本地CPU通过
+
+[519部署测量入口](519_WC_N09_RUNTIME40_RESIDENT_ENTRY_AND_FROZEN_EXECUTION_CPU_PREPARATION_20261016.md)：N09完整五角色×两旧CAL×三模式/30正式+10warm/40路径运行入口已写，26项本地CPU通过；原102观察器/数值四源码SHA保持，未重跑102/952。原取证与轻量/组件观察分别记录、全40分母/36guided取证/逐请求显存和原CPU/UUID/整卡授权已接线；实际Cosmos CPU、整卡报价/部署/终态及动作报价/标定采集费仍待，0真实GPU测量。本轮0SSH/新GPU/服务器账本写；原N07今天21:30半程/明早05:30、N07→N08→N09/10和cap113保持。517权重TLS缺口与资源自动化暂停保持。 以下为历史。
+
 ## 2026-10-16 固定资源R3失败保留，评分监督准备通过
 
 [517](517_WC_N10_RESOURCE_R3_TERMINAL_TLS_FAILURE_AND_SCOPED_TRANSPORT_DIAGNOSIS_20261016.md) · [518](518_WC_N10_FULL960_SUPERVISOR_AND_ACTUAL_COST_CPU_PREPARATION_20261016.md)：15:50已一次收原R3/PID19489：终态exit1，14/204段、117440512bytes，TLS连接失败；14段及原prefix独立逐字节/SHA核对通过，仍非完整权重。四种小范围传输探测仍TLS失败，未派SCP，原资源自动化已暂停。完整960评分监督/实际wall结算与原CPU/整卡授权接线13本地CPU通过；实际原模型/质量/GPU仍0。原N07/source140d0a6今天21:30半程/明早05:30验收、N07→N08→N09/10及cap113保持，本轮0SSH/服务器账本写。 以下为历史。
