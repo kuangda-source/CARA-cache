@@ -1,0 +1,56 @@
+{
+  "status": "N09_ACTION12_READONLY_POST_FULL24_RAW1528_LOCAL_CPU_PREPARED_NOT_PRODUCTION",
+  "recorded_unix": 1792154791.5129879,
+  "source_sha256": {
+    "src/wcomr/action_price12_post_r1.py": "8e30bf17566545cb9548d4798422a8029a24ac609db77d223d7bd0c1a92e7f85",
+    "scripts/postprocess_wc_paper_N09_action12_r1.py": "1a279d7d8c8de4f35a40f8475c3aaaf3a960c5c167f75dc219973fa12910e253",
+    "tests/test_action_price12_post_r1.py": "db41e7700609297254d1e5627a25b35f5bcb910b0930f3c95fd934e32dda9e08",
+    "scripts/check_wc_paper_N09_action12_post_local_CPU_r1.py": "9fce46b85677cc9ddff043dd14e092065c8db4869baf50e7d10c1f9c85a9525d"
+  },
+  "local_controls_passed": 6,
+  "local_control_log": "/tmp/wc_n09_action12_post_controls_CPU_R2_20261016.log",
+  "local_control_log_sha256": "f7b11ae073d44b27e7a7b7093daba6eb9c654bce6ce1b70da45f67f83fa2d987",
+  "local_control_output": "test_all12_files_full_guided_and_all512_intervals_modes_remain_separate (test_action_price12_post_r1.ActionPrice12PostControls) ... ok\ntest_bad_video_retains_all_valid_raw_prices_but_never_full_acceptance (test_action_price12_post_r1.ActionPrice12PostControls) ... ok\ntest_corrupt_point_file_and_missing_round_keep_full_scope_and_other_scene_prices (test_action_price12_post_r1.ActionPrice12PostControls) ... ok\ntest_original_partial_prefix_is_not_completed_or_filled_with_zero_prices (test_action_price12_post_r1.ActionPrice12PostControls) ... ok\ntest_text_and_video_rejections_remain_distinct_and_raw_video_rejection_prices_survive (test_action_price12_post_r1.ActionPrice12PostControls) ... ok\ntest_trial_source_substitution_and_asset_alias_are_rejected (test_action_price12_post_r1.ActionPrice12PostControls) ... ok\n\n----------------------------------------------------------------------\nRan 6 tests in 4.635s\n\nOK\n",
+  "complete_original_CPU_post_ref": "reports/wc_paper_N09_action12_post_full24_raw1528_local_CPU_R1_20261016.json.gz",
+  "complete_original_CPU_post_sha256": "46ecac9ae7fdb368e4aa8c9eefffaecaae09b8270e7585704ff2b1c6415edc51",
+  "full_local_registered_parent_paths": 24,
+  "raw_original_files_reloaded": 112,
+  "raw_tensors_reloaded": 1528,
+  "formal_trial_intervals_recomputed": 768,
+  "total_trial_intervals_checked": 1024,
+  "CPU_post_wall_seconds": 4.478129792,
+  "cold_CLI_checks": [
+    {
+      "script": "scripts/postprocess_wc_paper_N09_action12_r1.py",
+      "exit_code": 0,
+      "stdout": "usage: postprocess_wc_paper_N09_action12_r1.py [-h] --project PROJECT --stage\n                                               STAGE\n\nRead-only CPU audit of all12 original action-price parent positions.\n\noptional arguments:\n  -h, --help         show this help message and exit\n  --project PROJECT\n  --stage STAGE\n"
+    },
+    {
+      "script": "scripts/check_wc_paper_N09_action12_post_local_CPU_r1.py",
+      "exit_code": 0,
+      "stdout": "usage: check_wc_paper_N09_action12_post_local_CPU_r1.py [-h] --capture CAPTURE\n                                                        --accepted ACCEPTED\n                                                        --output OUTPUT\n\nRun the new post auditor over every existing local32 registered artifact.\nOriginal sampling tensors are real CPU files. Toy video bytes stand in for\ndecoded RGB, and historical endpoints are Toy controls, never GPU evidence.\n\noptional arguments:\n  -h, --help           show this help message and exit\n  --capture CAPTURE\n  --accepted ACCEPTED\n  --output OUTPUT\n"
+    }
+  ],
+  "original_R1_control_failure": {
+    "log_path": "/tmp/wc_n09_action12_post_controls_CPU_R1_20261016.log",
+    "sha256": "20464e99803271e932ad913fe805bf6507600870ab228b285646d36005b0132f",
+    "error_type": "KeyError",
+    "missing_field": "online_teacher_calls",
+    "reason": "Diagnostic paths expose all36 per-step teacher counters rather than the baseline-only aggregate",
+    "repair": "Independently sum all36 nonnegative integer counters and compare any existing aggregate; never default missing counts to zero",
+    "sampler_or_scope_changed": false
+  },
+  "original99_numeric_sources_unchanged": true,
+  "natural16_and_full12_944_scope_unchanged": true,
+  "new_sampler_paths_run": 0,
+  "actual_RGB_decoding": false,
+  "Toy_video_callbacks": true,
+  "real_historical_model_endpoint_verified": false,
+  "actual_Cosmos_production_CPU": false,
+  "actual_GPU_prices_or_video_results": false,
+  "actual_production_post_executed": false,
+  "actual_production_supervisor_or_CPU_bundle_ready": false,
+  "SSH_queries": 0,
+  "GPU_submissions": 0,
+  "ledger_written": false
+}
