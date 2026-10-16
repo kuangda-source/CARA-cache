@@ -1,0 +1,15 @@
+{
+  "status": "LOCAL_CPU_TEST_FIXTURE_FAILURE_RETAINED_NOT_PRODUCTION",
+  "command": "PYTHONPATH=src:tests OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 .venv/bin/python -m unittest -v test_runtime_profile40_post_r1",
+  "tests_run": 10,
+  "failures": 0,
+  "errors": 1,
+  "wall_test_seconds": 1.219,
+  "failing_test": "test_actual_nonfinite_tensor_failure_keeps_other39_and_full_denominator",
+  "error_type": "ValueError",
+  "error": "Nonfinite state",
+  "location": "tree_digest(value[final_latent]) in test fixture before audit",
+  "GPU_submissions": 0,
+  "SSH_queries": 0,
+  "ledger_written": false
+}
