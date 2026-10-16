@@ -42,6 +42,7 @@ def referenced_contract(stage):
     from .frozen_shared_production_r1 import CONFIG as SHARED_CONFIG
     from .frozen_shared_acceptance_r1 import accept as accept_shared
     from .balanced_repeat_acceptance_r1 import accept as accept_repeated
+    from .completed_shared_repair_binding_r2 import is_repair_capture, accepted_repair_identity
     stage=Path(stage);config=json.loads((stage/CONFIG).read_text());refs=config['references']
     names={'shared_config','method_freeze','timing_protocol','runtime_scope','profile_CPU_acceptance',
            'profile_CPU_capture','N07_acceptance','N08_acceptance','N07_capture','N08_capture'}
@@ -62,14 +63,20 @@ def referenced_contract(stage):
             or a8.get('original_runner_paths')!=40 or a8.get('original_CPU_post_exit_code')!=0):
         raise ValueError('Collect and accept the original complete N07/N08 before the independent diagnostic')
     c7,c8=data['N07_capture'],data['N08_capture']
-    if (c7['config_sha256']!=refs['shared_config']['sha256']
+    repaired=is_repair_capture(c7)
+    if ((not repaired and c7['config_sha256']!=refs['shared_config']['sha256'])
             or c8['shared_config_sha256']!=refs['shared_config']['sha256'] or c8['shared_config']!=shared
             or c8['timing_protocol']!=data['timing_protocol'] or c8['method_freeze']!=freeze
             or a7['capture_sha256']!=refs['N07_capture']['sha256']
             or a7['source_revision']!=c7['launch']['source_revision']
             or a8['source_revision']!=c8['launch']['source_revision']):
         raise ValueError('The completed mainline evidence belongs to another shared config, freeze or timing scope')
-    for accepted,recomputed in ((a7,accept_shared(c7,c7['launch'])),(a8,accept_repeated(c8,c8['launch']))):
+    completed_repair = (accepted_repair_identity(a7,c7,capture_sha256=refs['N07_capture']['sha256'],
+        original_shared_config=shared,original_shared_config_sha256=refs['shared_config']['sha256'])
+        if repaired else None)
+    originals=[(a8,accept_repeated(c8,c8['launch']))]
+    if not repaired:originals.append((a7,accept_shared(c7,c7['launch'])))
+    for accepted,recomputed in originals:
         if any(accepted.get(k)!=v for k,v in recomputed.items()):
             raise ValueError('Recompute the original saved mainline acceptance before profile execution')
     accepted=data['profile_CPU_acceptance'];capture=data['profile_CPU_capture']
@@ -86,6 +93,7 @@ def referenced_contract(stage):
             raise ValueError('An actual original102 observer/numerical source changed: '+name)
         sources[name]=digest
     reused=dict(original_full102_CPU_paths=102,source_sha256=sources,new_full102_paths_run=0)
+    if completed_repair is not None:reused['completed_N07_repair']=completed_repair
     return config,data,bound,reused
 
 

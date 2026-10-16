@@ -25,8 +25,15 @@ TESTS = ['tests/' + name for name in (
     'test_frozen_shared_inputs_r1.py')]
 
 
-def accepted_common_identity(acceptance, capture, *, capture_sha256, shared_config_sha256):
-    """Read only completion/config identities; never select from final scores."""
+def accepted_common_identity(acceptance, capture, *, capture_sha256, shared_config_sha256,
+                             shared_config=None):
+    """Bind completed prior evidence without selecting methods from final scores."""
+    from wcomr.completed_shared_repair_binding_r2 import is_repair_capture, accepted_repair_identity
+    if is_repair_capture(capture):
+        if shared_config is None:
+            raise ValueError('The original shared method context is required for a repaired N07')
+        return accepted_repair_identity(acceptance, capture, capture_sha256=capture_sha256,
+            original_shared_config=shared_config, original_shared_config_sha256=shared_config_sha256)
     counts = acceptance.get('original_status_counts', {})
     if (acceptance.get('terminal_receipt_audit_accepted') is not True
             or acceptance.get('scientific_available_cohorts_with_registered_missingness') is not True
@@ -38,6 +45,10 @@ def accepted_common_identity(acceptance, capture, *, capture_sha256, shared_conf
             or acceptance['source_revision'] != capture['launch']['source_revision']
             or capture['config_sha256'] != shared_config_sha256):
         raise ValueError('Finish and accept the original whole N07 before deploying repeated timing CPU')
+    return dict(status='ORIGINAL_N07_COMPLETION_IDENTITY_BOUND',
+        actual_run_id=capture['launch'].get('run_id'), actual_source_revision=acceptance['source_revision'],
+        actual_config_sha256=capture['config_sha256'], original_capture_sha256=capture_sha256,
+        original_identity_relabelled=False)
 
 
 BOOTSTRAP = r'''
@@ -71,6 +82,7 @@ receipt=dict(status='N08_FULL40_ACTUAL_PRODUCTION_CPU_SINGLE_DISPATCH',pid=child
  registration_sha256=hashlib.sha256((stage/'registration.json').read_bytes()).hexdigest(),
  payload_files=len(registration['payload_sha256']),overlay_files=len(meta['plan']['overlay_sha256']),
  expected_CPU_commands=9,first_collection_not_before_unix=now+300,
+ completed_N07=meta.get('completed_N07'),
  shared_runtime_written=False,original_base_stage_written=False,GPU_submissions=0,ledger_written=False)
 with (stage/'N08-CPU-launch.json').open('x') as handle:json.dump(receipt,handle,indent=2)
 print(json.dumps(receipt,allow_nan=False))
@@ -98,8 +110,8 @@ def main():
     assert config['references']['shared_config']['ref'] == SHARED_CONFIG
     assert config['references']['method_freeze'] == shared['references']['method_freeze']
     completed = json.loads(gzip.decompress(args.N07_capture.read_bytes()))
-    accepted_common_identity(json.loads(args.N07_acceptance.read_text()), completed,
-        capture_sha256=sha(args.N07_capture), shared_config_sha256=sha(ROOT / SHARED_CONFIG))
+    common_identity = accepted_common_identity(json.loads(args.N07_acceptance.read_text()), completed,
+        capture_sha256=sha(args.N07_capture), shared_config_sha256=sha(ROOT / SHARED_CONFIG), shared_config=shared)
     shared_refs = {name: read_reference(ROOT, binding) for name, binding in shared['references'].items()}
     assert shared_refs['development']['N05'] == shared_refs['N05_acceptance']
     assert shared_refs['development']['N06'] == shared_refs['N06_acceptance']
@@ -124,7 +136,7 @@ def main():
     archive = git_archive(ROOT, overlay, revision)
     base_ref = registered_base_reference(base['registration']['stage'], base['launch']['stage'])
     metadata = dict(base=base_ref['project_relative'], base_original_absolute=base_ref['original_absolute'],
-                    stage=args.stage, source_revision=revision, plan=overlay)
+                    stage=args.stage, source_revision=revision, plan=overlay, completed_N07=common_identity)
     envelope = json.dumps(metadata, ensure_ascii=False, allow_nan=False).encode() + b'\n' + archive
     try:
         call = subprocess.run(['ssh', '-o', 'BatchMode=yes', '-o', 'ConnectTimeout=15', '-o', 'ClearAllForwardings=yes',
@@ -135,7 +147,7 @@ def main():
             retry_authorized=False, task_terminal=False, GPU_submissions=0)
         args.output.write_text(json.dumps(value, indent=2) + '\n'); print(json.dumps(value)); raise
     value = dict(transport_exit_code=call.returncode, stderr=call.stderr.decode(errors='replace'), source_revision=revision,
-                 overlay_plan=overlay, GPU_retry_authorized=False)
+                 overlay_plan=overlay, completed_N07=common_identity, GPU_retry_authorized=False)
     try: value['launch'] = json.loads(call.stdout)
     except (json.JSONDecodeError, UnicodeDecodeError):
         value.update(status='N08_CPU_RESPONSE_UNKNOWN_NO_RETRY', stdout=call.stdout.decode(errors='replace'),
