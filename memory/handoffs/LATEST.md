@@ -1,3 +1,9 @@
+## 2026-10-16 N07完整180已批准并运行，累计cap113
+
+用户已明确批准完整180卡及同一累计cap113。[506完整共同GPU准入](../../research/506_WC_N07_FULL180_HUMAN_APPROVED_CAP113_GPU_ADMITTED_AND_0530_COLLECTION_20261016.md)：原source140d0a6、1725源/六命令CPU保持，13:26:43在GPU0单次准入，1115797/1115898/post1115798；8新prompt×seed17/43×十方法，160正式+20warm/6318pairs不缩。实结93.581824657/cap113、预留15.055555556、可准入4.362619787，原origin与历史不变。**10月17日05:30一次查收**，不提前看partial/持续监听；适用完整接受后按N08→N09/10接续。
+
+[505五模型CPU链](../../research/505_WC_N10_COMPLETE_FIVE_MODEL_CPU_BATCH_STAGING_AND_INDEPENDENT_ACCEPTANCE_READY_20261016.md)完整bundle/部署/独立验收15控制已准备，真实模型0。[507固定评分资源](../../research/507_WC_N10_SERVER_RESOURCE_TIMEOUT_RETAINED_LOCAL_PROXY_DOWNLOAD_AND_MAINLINE_PRIORITY_20261016.md)：服务器R1已终态0字节超时保留；本机同URL HEAD200后复用原worker/source5d7ef36，PID18318于13:28:28经既有代理单次下载同一权重，**今天14:00一次收**。只资源准备，不占GPU/运行模型；重CPU模型避开N07及之后clean测速。下方旧在途/待回复文字保留为历史。
+
 ## 2026-10-16 N10五模型CPU入口与导入前边界准备
 
 [504模型CPU入口准备](research/504_WC_N10_FIVE_MODEL_CPU_ENTRY_PREIMPORT_RESOURCE_CONTROLS_PREPARED_20261016.md)：原DINO/AMT/RAFT/ViCLIP/MUSIQ五角色实际调用入口已写，5项资源/词表/源路径/网络边界CPU通过；checkpoint为小夹具，未import Torch或执行真实模型。四现存SHA及指定ViCLIP期望绑定保持，完整bundle/部署/实际五模型CPU仍待。原下载3c7767f/1113019仍13:17一次收，N07整卡/cap113仍待原一次人类回复；0新GPU/0服务器写，冻结方法/输入/源CPU不变。 以下历史保留。
