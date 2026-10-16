@@ -1,3 +1,5 @@
+**动作测量准备（527）：**[527完整动作测量](../research/527_WC_N09_CURRENT_ACTION_PRICES_FULL16_TWO_MODE_SCOPE_AND_FULL24_CPU_READY_20261016.md)：N09当前C/A/P0/D同状态报价入口已写，保留16旧自然状态、audit/lean和完整三轮；拟议12父/944pairs范围已登记。两flow完整24条CPU/1888pairs及64原件640张量独立重读通过，另3时钟与7负例通过；Tiny权重/codec，非实际GPU价格。真实报价/生产CPU/GPU及最小标定采集费仍待。N07今晚21:30半程/明早05:30、主线顺序/cap113与<12保持，本轮0SSH/新GPU/服务器账本写。 以下为历史。
+
 **查收与独立接受准备（526）：**[526完整工具](../research/526_WC_N09_MIDPOINT_TERMINAL_COLLECTION_AND_INDEPENDENT_ACCEPTANCE_CPU_READY_20261016.md)：N09半程/终态一次查收与离线独立接受已准备，157份隔离包九组72项、5打包控制与两冷CLI通过；原36步/93帧/组件原区间/显存/自身实费独立核对，失败与超额保留。真实配置/生产CPU/GPU仍待N07/N08后完成。原N07今天21:30半程、明早05:30完整验收，cap113/<12及F/B关闭保持；本轮0SSH/新GPU/服务器账本写。
 
 **单次派发入口准备（525）：**[525原CPU绑定与时点](../research/525_WC_N09_SINGLE_GPU_DISPATCH_CPU_BINDING_AND_CHECK_TIMES_READY_20261016.md)：N09完整40单次GPU派发入口已绑定独立CPU原件SHA/完整授权，fence与原sup/post句柄保留，回执写半程及最终时点；25相关本地CPU/冷CLI通过，更新152份隔离包七组62项及5打包控制通过。GPU实际准入仍由fresh UUID/v2监督执行；本轮0SSH/实际派发/GPU/自动化新增/服务器账本写。真实N09配置/CPU与GPU终态接受仍待，原N07今天21:30半程/明早05:30、cap113/<12规则及F/B关闭保持。
