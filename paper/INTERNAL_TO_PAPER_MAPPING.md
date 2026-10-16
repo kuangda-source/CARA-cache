@@ -1,5 +1,7 @@
 # 内部实现到论文表述的映射
 
+**完整费用准备（520）：**[520完整40报价](../research/520_WC_N09_FULL40_HISTORICAL_WHOLE_COST_PREVIEW_AND_N10_LOCAL_CACHE_INVENTORY_20261016.md)：完整40部署诊断报价已按真实N05/N06接受原件独立复算为4.245833333GPUh：30trace与20profile余量、一次load、整卡余项和20%规划余量均计入；13本地报价控制通过，预估不当实费/组件测量，未选新GPU卡。N09实际配置/生产CPU/部署和原件接受仍待N07/N08后fresh准入，动作报价/标定费继续独立。本机四已知缓存无ViCLIP候选，517资源缺口保持。本轮0服务器SSH/资源HTTP/新GPU/账本写；N07原今天21:30半程/明早05:30、cap113及原origin保持。
+
 **部署入口准备（519）：**[519完整40测量](../research/519_WC_N09_RUNTIME40_RESIDENT_ENTRY_AND_FROZEN_EXECUTION_CPU_PREPARATION_20261016.md)：N09完整五角色×两旧CAL×三模式/30正式+10warm/40路径运行入口已写，26项本地CPU通过；原102观察器/数值四源码SHA保持，未重跑102/952。原取证与轻量/组件观察分别记录、全40分母/36guided取证/逐请求显存和原CPU/UUID/整卡授权已接线；实际Cosmos CPU、整卡报价/部署/终态及动作报价/标定采集费仍待，0真实GPU测量。本轮0SSH/新GPU/服务器账本写；原N07今天21:30半程/明早05:30、N07→N08→N09/10和cap113保持。517权重TLS缺口与资源自动化暂停保持。
 
 **资源终态与监督（517/518）：**[517](../research/517_WC_N10_RESOURCE_R3_TERMINAL_TLS_FAILURE_AND_SCOPED_TRANSPORT_DIAGNOSIS_20261016.md) · [518](../research/518_WC_N10_FULL960_SUPERVISOR_AND_ACTUAL_COST_CPU_PREPARATION_20261016.md)：15:50已一次收原R3/PID19489：终态exit1，14/204段、117440512bytes，TLS连接失败；14段及原prefix独立逐字节/SHA核对通过，仍非完整权重。四种小范围传输探测仍TLS失败，未派SCP，原资源自动化已暂停。完整960评分监督/实际wall结算与原CPU/整卡授权接线13本地CPU通过；实际原模型/质量/GPU仍0。原N07/source140d0a6今天21:30半程/明早05:30验收、N07→N08→N09/10及cap113保持，本轮0SSH/服务器账本写。
