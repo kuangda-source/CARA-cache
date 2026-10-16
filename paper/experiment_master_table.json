@@ -2,7 +2,7 @@
   "schema_version": 1,
   "updated_local_date": "2026-10-16",
   "snapshot_basis": "N07 resident runner source and180-slot orchestration CPU prepared; final methods/inputs/productionCPU and GPU remain pending N05 original66/12:05.",
-  "git_snapshot_before_inventory": "04404912fdd268654efe7797b3689a31c9b37fc2",
+  "git_snapshot_before_inventory": "703225920df76d7433902c18220eb02c6a81bb98",
   "mapping_ref": "paper/internal_to_paper_mapping.json",
   "scope": "scientific experiment families and complete cards, not each engineering retry; reused artifacts must not be summed as independent samples",
   "contributions": {
@@ -1074,7 +1074,7 @@
         "PAPER_E5_AUTOMATIC_QUALITY"
       ],
       "contribution_relation": "C3生成质量范围；补充保真主指标",
-      "evidence_or_planned_scope": "固定九源码/静态资源盘点保留；原视频SHA与原prompt、全160位置、两seed提示词统计等8CPU控制通过；作者纯采样与五维元数据parser实测一致，仅合成输入/分数。 493核对216代码/配置和真实BPE，9组ViCLIP/CLIP原分词逐项一致；六维960测量位置与source pin在共同测试前登记，非实际模型/视频结果。",
+      "evidence_or_planned_scope": "固定九源码/静态资源盘点保留；原视频SHA与原prompt、全160位置、两seed提示词统计等8CPU控制通过；作者纯采样与五维元数据parser实测一致，仅合成输入/分数。 493核对216代码/配置和真实BPE，9组ViCLIP/CLIP原分词逐项一致；六维960测量位置与source pin在共同测试前登记，非实际模型/视频结果。 494原N07完整180回执到160正式/960指标输入桥和CLI已准备，8本地CPU通过；拒绝/缺资源/空静态资格保留，非真实最终数据或模型。",
       "gap_and_next_action": "实际缓存权重SHA/ViCLIP完整checkpoint、隔离依赖/完整模型CPU、逐视频评分与费用待；六维及代码事前登记，不按最终结果挑维度。静态资格随N07原输入冻结，无权威标注为不适用；完整160生成/960指标位置和缺失保留。",
       "priority": "P2·复用最终视频",
       "evidence_refs": [
@@ -1088,7 +1088,9 @@
         "479",
         "493",
         "N10_measurement_prereg",
-        "N10_real_tokenizer_CPU"
+        "N10_real_tokenizer_CPU",
+        "494",
+        "N10_accepted_common_input_bridge_CPU"
       ],
       "method_mapping_ids": [],
       "depends_on": [
@@ -1110,7 +1112,11 @@
       "real_tokenizer_CPU_parity_accepted": true,
       "whole_metric_model_CPU_accepted": false,
       "measurement_preregistered_before_final_common_outputs": true,
-      "measurement_protocol_ref": "manifests/wc_paper_N10_automatic_quality_measurement_prereg_r1_20261016.json"
+      "measurement_protocol_ref": "manifests/wc_paper_N10_automatic_quality_measurement_prereg_r1_20261016.json",
+      "accepted_common_output_input_bridge_implemented": true,
+      "accepted_common_input_bridge_CPU_controls_accepted": true,
+      "actual_final_N07_output_binding_done": false,
+      "metadata_omission_original_Git_readonly_recovery_prepared": true
     },
     {
       "id": "N11",
@@ -1296,7 +1302,9 @@
     "N10_constructor_boundary_CPU": "reports/wc_paper_N10_pinned_constructor_source_CPU_acceptance_20261016.json",
     "N10_tokenizer_checkpoint_identity": "reports/wc_paper_N10_official_tokenizer_and_ViCLIP_checkpoint_identity_20261016.json",
     "N10_real_tokenizer_CPU": "reports/wc_paper_N10_real_tokenizer_CPU_parity_20261016.json",
-    "N10_official_CLIP_tokenizer_source_identity": "reports/wc_paper_N10_official_CLIP_tokenizer_source_identity_20261016.json"
+    "N10_official_CLIP_tokenizer_source_identity": "reports/wc_paper_N10_official_CLIP_tokenizer_source_identity_20261016.json",
+    "494": "research/494_WC_N10_ACCEPTED_COMMON_OUTPUT_INPUT_BRIDGE_CPU_READY_20261016.md",
+    "N10_accepted_common_input_bridge_CPU": "reports/wc_paper_N10_accepted_common_input_bridge_CPU_acceptance_20261016.json"
   },
   "source_bindings": {
     "11": {
@@ -1449,7 +1457,7 @@
     },
     "mainline_queue_20261016": {
       "path": "plans/WORLD_CACHE_MAINLINE_PRIORITY_QUEUE_20261016.md",
-      "sha256": "aa4b57a244723209eeb00f268553ca11ec8be684d0a1cde4a5fab63be7230777"
+      "sha256": "1139715652f172597b7c9c1afcd80addbe329d4806907493af2132bbb208954c"
     },
     "baseline_grid_prereg_20261016": {
       "path": "manifests/wc_paper_N05_bounded_baseline_grid_preregistration_draft_20261016.json",
@@ -1838,6 +1846,14 @@
     "N10_official_CLIP_tokenizer_source_identity": {
       "path": "reports/wc_paper_N10_official_CLIP_tokenizer_source_identity_20261016.json",
       "sha256": "4ebc363788537870235659d5e1ec10dff71edb859c568a28c59739300059dc26"
+    },
+    "494": {
+      "path": "research/494_WC_N10_ACCEPTED_COMMON_OUTPUT_INPUT_BRIDGE_CPU_READY_20261016.md",
+      "sha256": "b7fc62a9fd120513539e36eebfe194d50098b8c37aef291bae627bb19624d4f1"
+    },
+    "N10_accepted_common_input_bridge_CPU": {
+      "path": "reports/wc_paper_N10_accepted_common_input_bridge_CPU_acceptance_20261016.json",
+      "sha256": "52545bc2813f38e9d987240b5eeec88e43ade915dee00e9ff8b889d0dc4ad606"
     }
   },
   "operation_policy": {
@@ -2085,16 +2101,16 @@
     "specific_approved_large_card_admission_extension_prepared": true,
     "specific_approved_large_card_admission_extension_deployed_to_server": false,
     "last_short_CPU_preparation": {
-      "type": "N10_PINNED_CODE_AND_REAL_TOKENIZER_PREPARATION",
-      "ref": "reports/wc_paper_N10_real_tokenizer_CPU_parity_20261016.json",
-      "source_files_verified": 216,
-      "synthetic_text_controls": 9,
-      "metric_model_CPU_accepted": false,
+      "type": "N10_ACCEPTED_COMMON_OUTPUT_INPUT_BRIDGE",
+      "ref": "reports/wc_paper_N10_accepted_common_input_bridge_CPU_acceptance_20261016.json",
+      "controls": 8,
+      "all_input_data_synthetic": true,
+      "actual_metric_model_CPU_accepted": false,
       "SSH_queries": 0,
       "GPU_submissions": 0,
       "current_running_card_changed": false
     },
     "N07_method_freeze_must_include_N08_bindings": true
   },
-  "mapping_sha256_at_inventory": "3e6b389fee3f0d51fe324078d1717d3e6cd1a1a860c2e54fa677f8e31bb504a4"
+  "mapping_sha256_at_inventory": "259fb6e67929aaddd525ac205d661e2bd039766c9210a3dcae98e2d9e04d364e"
 }

@@ -6,6 +6,8 @@
 
 ## 当前执行更新：N06已接受，N05已准入
 
+[494最终质量输入接线](../research/494_WC_N10_ACCEPTED_COMMON_OUTPUT_INPUT_BRIDGE_CPU_READY_20261016.md)：原N07完整180回执到160正式/960指标位置的身份桥与CLI已准备，8本地CPU通过；原拒绝/资源缺失/空静态组保留，冷标准库实际产出六份元数据。只读原Git blob可补追溯协议部署引用，不据此重跑GPU。全部为合成N07原件，真实最终输入/模型CPU/评分仍待；原99数值/N05句柄/今天12:05不改，0SSH/0GPU/0服务器写。以下历史保留。
+
 [493质量测量准备](../research/493_WC_N10_PINNED_CODE_TOKENIZER_RESOURCE_AND_MEASUREMENT_PREREG_20261016.md)：N10同一pin的216代码/配置Git blob与SHA通过、175Python解析，原九文件一致；真实BPE资源校验和9组原ViCLIP/CLIP分词CPU逐项一致。原定义重现tokenizer导入前下载边界，未执行下载进程。六维/160生成/960指标测量与源码事前登记；模型权重只核元数据、未加载，实际模型CPU/评分/费用仍待。0SSH/0GPU/0服务器修改；原99数值SHA/N05原句柄/今天12:05保持，F/B关闭。以下历史保留。
 
 [492生产CPU部署准备](../research/492_WC_N08_PRODUCTION_CPU_DEPLOYMENT_AND_ONCE_COLLECTION_PREPARATION_20261016.md)：N08独立Git绑定stage、九命令CPU单次派发、ETA后一次查收与离线接受入口已补齐；21本地顶层控制通过，其中隔离目录复跑原八组53控制，发现并补入动态夹具。12显式夹具/143静态源码闭合，原99数值SHA不变；真实最终配置/生产CPU/部署/GPU仍未执行。0SSH/0GPU/0服务器预算写，N05原15d77ac/句柄/今天12:05不动。以下历史保留。
@@ -94,3 +96,7 @@ N03 PA528、N04组合继续作为可选增强；不自动执行7.53h PA卡或13h
 论文写作直接使用已接受的GCR读出归因、两个工作点、固定阶段等价与已有确认，依[总表](../paper/EXPERIMENT_MASTER_TABLE.md)添加N05/N06等新结果。N05回答强对手公平性，N06回答位置/读出作用，N07–N10承担最终覆盖与部署证据；无需为了保留“动态调度”措辞继续堆历史网络。
 
 执行入口：本文件→`memory/handoffs/LATEST.md`→原N06 launch/capture/analyzer→N05完整范围/受影响CPU/费用/准入。主线接续已经获人类授权，常规实现和验证不再次请求许可；重要科学发现、方向变化或整卡费用例外仍简要告知。
+
+### N10输入接续（494）
+
+N07配置冻结时优先加入`references.quality_measurement_protocol`，绑定493测量manifest的原字节/SHA；原打包器支持额外manifest引用，不改99数值执行器。N07完整接受后，用`prepare_wc_paper_N10_accepted_common_inputs_r1.py`从保存原件准备全部160/960位置；无需搬回视频、改名或人工评审。若仅漏部署引用，先以原source Git blob只读追溯，不据此重跑生成。原八字段请求无静态标注，当前闪烁位置为N/A；仍待真实资源/模型CPU和全评分费用，不能把输入准备当N10已完成。
