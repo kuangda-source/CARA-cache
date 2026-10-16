@@ -29,6 +29,7 @@ def load_script(name):
 def fixture(root, *, limit=4.5):
     config, _, _, _, _, bound = contract_fixture()
     config['billed_limit_GPUh'] = limit
+    config['first_collection_delay_seconds'] = 1200.  # Synthetic metadata, never a real ETA.
     stage = root / '.sync/SYNTHETIC_N09'; stage.mkdir(parents=True)
     (root / 'outputs').mkdir(); (root / 'runtime').mkdir()
     write(stage / CONFIG, config)

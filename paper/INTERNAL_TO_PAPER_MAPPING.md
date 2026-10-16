@@ -1,3 +1,5 @@
+**单次派发入口准备（525）：**[525原CPU绑定与时点](../research/525_WC_N09_SINGLE_GPU_DISPATCH_CPU_BINDING_AND_CHECK_TIMES_READY_20261016.md)：N09完整40单次GPU派发入口已绑定独立CPU原件SHA/完整授权，fence与原sup/post句柄保留，回执写半程及最终时点；25相关本地CPU/冷CLI通过，更新152份隔离包七组62项及5打包控制通过。GPU实际准入仍由fresh UUID/v2监督执行；本轮0SSH/实际派发/GPU/自动化新增/服务器账本写。真实N09配置/CPU与GPU终态接受仍待，原N07今天21:30半程/明早05:30、cap113/<12规则及F/B关闭保持。
+
 **独立源码包准备（524）：**[524打包/隔离验证](../research/524_WC_N09_IMMUTABLE_CPU_SOURCE_PACKET_AND_ISOLATED_VALIDATION_READY_20261016.md)：N09独立源码包与一次CPU部署入口已写，19顶层CPU/冷CLI通过；151份当前源码/数据隔离跑完七组58项。原N08 base只读、Git字节绑定/新目录一次派发，缺实际配置不SSH；Mac路径别名夹具失败保留并修复，原四数值源码保持。真实N09配置/Git生产包/服务器CPU与GPU仍待N07/N08后完成。本轮0SSH/资源HTTP/GPU/服务器账本写，原N07今天21:30半程/明早05:30、cap113与<12规则、F/B关闭及N10资源缺口保持。
 
 **完整CPU验收入口准备（523）：**[523 CPU包与独立接受](../research/523_WC_N09_FULL_CPU_BUNDLE_ONCE_CAPTURE_INDEPENDENT_ACCEPTANCE_READY_20261016.md)：N09七组控制＋真实Cosmos无权重入口的完整CPU命令包、一次查收与离线独立接受已写；七组当前本地58项/四冷CLI通过，真实Cosmos CPU仍0。CPU身份R/S误拒绝已先重现保留原失败，再改用PID/start_ticks，源码/退出/完整范围规则不变；监督已验证完整bundle。实际配置/源码包/生产CPU部署/派发和GPU终态接受仍待N07/N08后完成。本轮0SSH/资源HTTP/新GPU/服务器账本写；N07今天21:30半程/明早05:30、cap113与<12规则保持，F/B关闭。

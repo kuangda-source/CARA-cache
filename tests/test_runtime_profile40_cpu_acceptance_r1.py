@@ -65,6 +65,40 @@ def fixture():
         GPU_submissions=0, ledger_written=False)
 
 
+def GPU_dispatch_fixture(root):
+    """Temporary files and explicitly synthetic whole-card/CPU authority."""
+    import json
+    from test_runtime_profile40_supervision_r1 import fixture as supervision_fixture
+    values = supervision_fixture(root); config, bound, stage, registration, authority, pool = values
+    launch = json.loads((stage / 'N09-production-CPU-launch.json').read_text())
+    accepted = dict(status=cpu.ACCEPTED_STATUS,CPU_accepted=True,source_revision=registration['source_revision'],
+        registration_sha256=sha(stage / 'registration.json'),config_sha256=sha(stage / CONFIG),
+        production_CPU_sha256=sha(stage / CPU_RESULT),production_CPU_bundle_sha256=sha(stage / 'N09-CPU-bundle-result.json'),
+        bound_profile_fingerprint=fingerprint(bound),scope_counts=COUNTS,CPU_commands=len(cpu.PATTERNS)+1,
+        actual_sample_argument_variants=10,original_CPU_identity=launch['identity'],capture_sha256='b' * 64)
+    text = json.dumps(accepted)
+    authority = dict(authority,independent_CPU_acceptance_sha256=hashlib.sha256(text.encode()).hexdigest())
+    (stage / 'N09-launch-authorization.json').unlink()  # Fresh dispatcher creates it exactly once.
+    return values,authority,text
+
+
+def dispatch_context(module, root, values, *, alive_CPU=False, post_error=None):
+    from contextlib import ExitStack
+    from types import SimpleNamespace
+    config,bound,stage,registration,_,_ = values
+    stack = ExitStack()
+    stack.enter_context(patch('wcomr.runtime_profile40_production_r1.validate',
+        return_value=(config,registration,None,None,None,None,bound,None)))
+    stack.enter_context(patch('wcomr.gpu_budget_pool_v2.same_live_process',return_value=alive_CPU))
+    def identity(pid):
+        name = 'supervise_wc_paper_N09_runtime_profile40_r1.py' if pid==12345 else 'watch_wc_paper_N09_post_cpu_r1.py'
+        return dict(pid=pid,start_ticks=pid*10,state='R',command='SYNTHETIC_ONLY ' + name)
+    stack.enter_context(patch('wcomr.gpu_budget_pool_v2.process_identity',side_effect=identity))
+    spawned = stack.enter_context(patch.object(module.subprocess,'Popen',side_effect=[
+        SimpleNamespace(pid=12345),post_error if post_error else SimpleNamespace(pid=12346)]))
+    return stack,spawned
+
+
 class RuntimeProfile40CPUAcceptanceControls(unittest.TestCase):
     def test_complete_same_source_eight_commands_accept_only_CPU_not_GPU(self):
         value = fixture(); original = copy.deepcopy(value); accepted = cpu.accept(value)
@@ -224,6 +258,86 @@ class RuntimeProfile40CPUAcceptanceControls(unittest.TestCase):
                 with self.assertRaises(OSError):module.main()
                 self.assertEqual(ssh.call_count,1)
             self.assertEqual(output.read_bytes(),b'SYNTHETIC_INVALID_GZIP')
+
+    def test_GPU_dispatch_once_binds_full40_independent_CPU_and_both_check_times(self):
+        from test_runtime_profile40_supervision_r1 import load_script
+        import contextlib,io,json
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder); values,authority,text = GPU_dispatch_fixture(root)
+            module = load_script('launch_wc_paper_N09_runtime_profile40_r1'); stage = values[2]
+            code = module.remote_code(str(stage.relative_to(root)),authority,text).replace(
+                "'/home/gaokuangda/data/gkd/worldcache_omr'",repr(str(root)))
+            before = values[-1].read()
+            stack,spawned = dispatch_context(module,root,values)
+            with stack,contextlib.redirect_stdout(io.StringIO()):
+                exec(compile(code,'SYNTHETIC_GPU_DISPATCH_NO_REAL_CHILD','exec'),{})
+                self.assertEqual(spawned.call_count,2)
+                old = (stage / 'N09-GPU-launch.json').read_bytes()
+                with self.assertRaises(FileExistsError):exec(compile(code,'SYNTHETIC_DUPLICATE_REFUSED','exec'),{})
+                self.assertEqual(spawned.call_count,2)
+            receipt = json.loads(old)
+            self.assertEqual(receipt['scope_counts'],COUNTS)
+            self.assertEqual(receipt['midpoint_health_not_before_unix']-receipt['started_unix'],600.)
+            self.assertEqual(receipt['next_check_not_before_unix']-receipt['started_unix'],1200.)
+            self.assertEqual(receipt['supervisor_identity']['pid'],12345)
+            self.assertEqual(receipt['post_watcher_identity']['pid'],12346)
+            self.assertEqual(receipt['independent_CPU_acceptance_sha256'],hashlib.sha256(text.encode()).hexdigest())
+            self.assertEqual((stage / 'N09-GPU-launch.json').read_bytes(),old)
+            self.assertEqual(values[-1].read(),before)  # Only actual supervisor can admit/charge GPU.
+            self.assertFalse(receipt['actual_GPU_admission_accepted_by_dispatch'])
+
+    def test_GPU_dispatch_wrong_CPU_live_CPU_or_bad_ETA_refuses_before_fence(self):
+        from test_runtime_profile40_supervision_r1 import load_script
+        import contextlib,io,json
+        for mode in ('CPU_result','live_CPU','ETA'):
+            with self.subTest(mode=mode),tempfile.TemporaryDirectory() as folder:
+                root = Path(folder); values,authority,text = GPU_dispatch_fixture(root)
+                module = load_script('launch_wc_paper_N09_runtime_profile40_r1'); stage = values[2]
+                if mode=='CPU_result':
+                    value = json.loads(text); value['CPU_accepted']=False; text=json.dumps(value)
+                    authority['independent_CPU_acceptance_sha256']=hashlib.sha256(text.encode()).hexdigest()
+                elif mode=='ETA':values[0]['first_collection_delay_seconds']=0.
+                code = module.remote_code(str(stage.relative_to(root)),authority,text).replace(
+                    "'/home/gaokuangda/data/gkd/worldcache_omr'",repr(str(root)))
+                stack,spawned = dispatch_context(module,root,values,alive_CPU=mode=='live_CPU')
+                with stack,contextlib.redirect_stdout(io.StringIO()),self.assertRaises(AssertionError):
+                    exec(compile(code,'SYNTHETIC_GPU_GATE_REFUSAL','exec'),{})
+                spawned.assert_not_called();self.assertFalse((stage / 'N09-GPU-launch-request.json').exists())
+
+    def test_GPU_post_watcher_dispatch_failure_keeps_original_supervisor_receipt(self):
+        from test_runtime_profile40_supervision_r1 import load_script
+        import contextlib,io,json
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder); values,authority,text = GPU_dispatch_fixture(root)
+            module = load_script('launch_wc_paper_N09_runtime_profile40_r1'); stage = values[2]
+            code = module.remote_code(str(stage.relative_to(root)),authority,text).replace(
+                "'/home/gaokuangda/data/gkd/worldcache_omr'",repr(str(root)))
+            stack,spawned = dispatch_context(module,root,values,post_error=OSError('SYNTHETIC_POST_SPAWN_FAILURE'))
+            with stack,contextlib.redirect_stdout(io.StringIO()),self.assertRaises(OSError):
+                exec(compile(code,'SYNTHETIC_POST_FAILURE_KEEP_ORIGINAL_GPU','exec'),{})
+            receipt=json.loads((stage / 'N09-GPU-launch.json').read_text())
+            self.assertEqual(receipt['supervisor_pid'],12345);self.assertIsNone(receipt['post_watcher_pid'])
+            self.assertEqual(receipt['post_dispatch_error_type'],'OSError');self.assertEqual(spawned.call_count,2)
+
+    def test_GPU_transport_unknown_or_bad_response_never_authorizes_relaunch(self):
+        from test_runtime_profile40_supervision_r1 import load_script
+        from types import SimpleNamespace
+        import contextlib,io,json,subprocess,sys
+        for mode in ('timeout','malformed'):
+            with self.subTest(mode=mode),tempfile.TemporaryDirectory() as folder:
+                root=Path(folder);values,authority,text=GPU_dispatch_fixture(root)
+                module=load_script('launch_wc_paper_N09_runtime_profile40_r1')
+                a=root/'authority.json';b=root/'accepted.json';o=root/'launch.json';write(a,authority);b.write_text(text)
+                args=['SYNTHETIC','--stage','.sync/SYNTHETIC_N09','--authorization',str(a),
+                    '--CPU-acceptance',str(b),'--output',str(o)]
+                kw={'side_effect':subprocess.TimeoutExpired('SYNTHETIC_SSH',1)} if mode=='timeout' else {
+                    'return_value':SimpleNamespace(returncode=0,stdout=b'SYNTHETIC_MALFORMED_REPLY',stderr=b'')}
+                expected=subprocess.TimeoutExpired if mode=='timeout' else SystemExit
+                with patch.object(sys,'argv',args),patch.object(module.subprocess,'run',**kw) as ssh, \
+                        contextlib.redirect_stdout(io.StringIO()),self.assertRaises(expected):module.main()
+                self.assertEqual(ssh.call_count,1)
+                result=json.loads(o.read_text());self.assertFalse(result['GPU_retry_authorized'])
+                self.assertFalse(result['original_task_terminal'])
 
 
 if __name__ == '__main__':unittest.main()

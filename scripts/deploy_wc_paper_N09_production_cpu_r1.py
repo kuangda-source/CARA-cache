@@ -15,6 +15,7 @@ ENTRIES = ['scripts/' + n for n in (
     'watch_wc_paper_N09_post_cpu_r1.py', 'postprocess_wc_paper_N09_runtime_profile40_r1.py',
     'run_wc_paper_N09_production_cpu_bundle_r1.py', 'deploy_wc_paper_N09_production_cpu_r1.py',
     'capture_wc_paper_N09_production_cpu_r1.py', 'accept_wc_paper_N09_production_cpu_r1.py',
+    'launch_wc_paper_N09_runtime_profile40_r1.py',
     'estimate_wc_paper_N09_runtime40_complete_cost_r1.py')]
 TESTS = ['tests/' + n for n in (
     'test_runtime_profile40_execution_r1.py', 'test_runtime_profile40_production_r1.py',

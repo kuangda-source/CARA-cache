@@ -1,0 +1,43 @@
+{
+  "status": "N09_SINGLE_GPU_DISPATCH_LOCAL_CPU_PASS_NOT_REAL_ADMISSION",
+  "command": [
+    "/Users/kuangda_gao/Documents/世界模型加速实验/worldcache_omr/.venv/bin/python",
+    "-m",
+    "unittest",
+    "-v",
+    "test_runtime_profile40_cpu_acceptance_r1",
+    "test_runtime_profile40_supervision_r1"
+  ],
+  "exit_code": 0,
+  "stdout": "",
+  "stderr": "test_CPU_transient_state_change_keeps_same_PID_start_identity (test_runtime_profile40_cpu_acceptance_r1.RuntimeProfile40CPUAcceptanceControls) ... ok\ntest_GPU_dispatch_once_binds_full40_independent_CPU_and_both_check_times (test_runtime_profile40_cpu_acceptance_r1.RuntimeProfile40CPUAcceptanceControls) ... ok\ntest_GPU_dispatch_wrong_CPU_live_CPU_or_bad_ETA_refuses_before_fence (test_runtime_profile40_cpu_acceptance_r1.RuntimeProfile40CPUAcceptanceControls) ... ok\ntest_GPU_post_watcher_dispatch_failure_keeps_original_supervisor_receipt (test_runtime_profile40_cpu_acceptance_r1.RuntimeProfile40CPUAcceptanceControls) ... ok\ntest_GPU_transport_unknown_or_bad_response_never_authorizes_relaunch (test_runtime_profile40_cpu_acceptance_r1.RuntimeProfile40CPUAcceptanceControls) ... ok\ntest_actual_bundle_driver_runs_all_eight_declared_mocked_children_and_preserves_once (test_runtime_profile40_cpu_acceptance_r1.RuntimeProfile40CPUAcceptanceControls) ... ok\ntest_before_ETA_does_not_query_and_transport_timeout_is_not_terminal (test_runtime_profile40_cpu_acceptance_r1.RuntimeProfile40CPUAcceptanceControls) ... ok\ntest_bundle_failure_keeps_original_commands_and_does_not_start_actual_entry (test_runtime_profile40_cpu_acceptance_r1.RuntimeProfile40CPUAcceptanceControls) ... ok\ntest_complete_same_source_eight_commands_accept_only_CPU_not_GPU (test_runtime_profile40_cpu_acceptance_r1.RuntimeProfile40CPUAcceptanceControls) ... ok\ntest_early_partial_payload_and_changed_reference_are_rejected (test_runtime_profile40_cpu_acceptance_r1.RuntimeProfile40CPUAcceptanceControls) ... ok\ntest_failed_missing_or_wrong_original_CPU_exit_never_accepts (test_runtime_profile40_cpu_acceptance_r1.RuntimeProfile40CPUAcceptanceControls) ... ok\ntest_malformed_return_is_retained_before_parse_error_and_remote_code_is_stdlib_syntax (test_runtime_profile40_cpu_acceptance_r1.RuntimeProfile40CPUAcceptanceControls) ... ok\ntest_no_skipped_entry_changed_command_source_or_stage_can_pass_bundle (test_runtime_profile40_cpu_acceptance_r1.RuntimeProfile40CPUAcceptanceControls) ... ok\ntest_once_capture_saves_original_compressed_bytes_and_offline_CLI_accepts_without_SSH (test_runtime_profile40_cpu_acceptance_r1.RuntimeProfile40CPUAcceptanceControls) ... ok\ntest_original_live_process_waits_and_reused_PID_does_not_get_restarted (test_runtime_profile40_cpu_acceptance_r1.RuntimeProfile40CPUAcceptanceControls) ... ok\ntest_scope_guard_native_GPU_and_reused102_99_source_controls (test_runtime_profile40_cpu_acceptance_r1.RuntimeProfile40CPUAcceptanceControls) ... ok\ntest_CPU_transient_process_state_does_not_change_original_identity (test_runtime_profile40_supervision_r1.RuntimeProfile40SupervisionControls) ... ok\ntest_actual_CPU_process_or_failed_exit_refuses_GPU (test_runtime_profile40_supervision_r1.RuntimeProfile40SupervisionControls) ... ok\ntest_child_exit_race_preserves_settlement_stop_boundary (test_runtime_profile40_supervision_r1.RuntimeProfile40SupervisionControls) ... ok\ntest_complete40_single_child_additive_actual_bill_and_own_UUID_release (test_runtime_profile40_supervision_r1.RuntimeProfile40SupervisionControls) ... ok\ntest_foreign_occupied_UUID_and_actual_balance_refuse_without_child (test_runtime_profile40_supervision_r1.RuntimeProfile40SupervisionControls) ... ok\ntest_other_job_is_preserved_and_prevents_start (test_runtime_profile40_supervision_r1.RuntimeProfile40SupervisionControls) ... ok\ntest_same_card_at_exact12_needs_specific_whole_card_authority (test_runtime_profile40_supervision_r1.RuntimeProfile40SupervisionControls) ... ok\ntest_spawn_and_output_failures_still_bill_original_whole_wall_once (test_runtime_profile40_supervision_r1.RuntimeProfile40SupervisionControls) ... ok\ntest_whole_billed_limit_stops_only_own_child_and_still_settles (test_runtime_profile40_supervision_r1.RuntimeProfile40SupervisionControls) ... ok\n\n----------------------------------------------------------------------\nRan 25 tests in 2.051s\n\nOK\n",
+  "CPU_wall_seconds": 3.806898355484009,
+  "cold_stdlib_CLI_help": {
+    "exit_code": 0,
+    "stdout": "usage: launch_wc_paper_N09_runtime_profile40_r1.py [-h] --stage STAGE\n                                                   --authorization\n                                                   AUTHORIZATION\n                                                   --CPU-acceptance\n                                                   CPU_ACCEPTANCE --output\n                                                   OUTPUT\n\nSingle dispatch of the original full40 after independent CPU acceptance.\n\noptional arguments:\n  -h, --help            show this help message and exit\n  --stage STAGE\n  --authorization AUTHORIZATION\n  --CPU-acceptance CPU_ACCEPTANCE\n  --output OUTPUT\n",
+    "stderr": ""
+  },
+  "source_bindings": {
+    "scripts/launch_wc_paper_N09_runtime_profile40_r1.py": {
+      "bytes": 9363,
+      "sha256": "36eb6899ee92934b7cb9e267bee70ad4238a9c168f998653e736a6f7c39369cb"
+    },
+    "scripts/deploy_wc_paper_N09_production_cpu_r1.py": {
+      "bytes": 9095,
+      "sha256": "92394f134eb3010f03eb6b5c0be3ccd52946fe851bb09d0de15b06ec8b21fe14"
+    },
+    "tests/test_runtime_profile40_cpu_acceptance_r1.py": {
+      "bytes": 25242,
+      "sha256": "a526c02a6f3d0f0050bd42ba237ba74147f5fcb47018a4cd51a3bc98064fefc1"
+    },
+    "tests/test_runtime_profile40_supervision_r1.py": {
+      "bytes": 15830,
+      "sha256": "085eb97fd123ec5457c1063dd40608b72d3476138dcca074ec160ea876a6ef0b"
+    }
+  },
+  "GPU_and_transport_mocked": true,
+  "actual_server_or_GPU": false,
+  "SSH_queries": 0,
+  "GPU_submissions": 0,
+  "ledger_written": false
+}

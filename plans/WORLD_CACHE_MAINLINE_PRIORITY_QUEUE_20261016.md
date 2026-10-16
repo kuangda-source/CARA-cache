@@ -1,3 +1,7 @@
+## 2026-10-16 N09单次派发与查收时点入口准备通过
+
+[525派发/时点准备](../research/525_WC_N09_SINGLE_GPU_DISPATCH_CPU_BINDING_AND_CHECK_TIMES_READY_20261016.md)：N09完整40单次GPU派发入口已绑定独立CPU原件SHA/完整授权，fence与原sup/post句柄保留，回执写半程及最终时点；25相关本地CPU/冷CLI通过，更新152份隔离包七组62项及5打包控制通过。GPU实际准入仍由fresh UUID/v2监督执行；本轮0SSH/实际派发/GPU/自动化新增/服务器账本写。真实N09配置/CPU与GPU终态接受仍待，原N07今天21:30半程/明早05:30、cap113/<12规则及F/B关闭保持。 以下为历史。
+
 ## 2026-10-16 N09独立CPU源码包与隔离验证通过
 
 [524打包与隔离验证](../research/524_WC_N09_IMMUTABLE_CPU_SOURCE_PACKET_AND_ISOLATED_VALIDATION_READY_20261016.md)：N09独立源码包与一次CPU部署入口已写，19顶层CPU/冷CLI通过；151份当前源码/数据隔离跑完七组58项。原N08 base只读、Git字节绑定/新目录一次派发，缺实际配置不SSH；Mac路径别名夹具失败保留并修复，原四数值源码保持。真实N09配置/Git生产包/服务器CPU与GPU仍待N07/N08后完成。本轮0SSH/资源HTTP/GPU/服务器账本写，原N07今天21:30半程/明早05:30、cap113与<12规则、F/B关闭及N10资源缺口保持。 以下为历史。
