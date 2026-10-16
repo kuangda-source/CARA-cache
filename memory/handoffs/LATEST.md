@@ -1,3 +1,7 @@
+## 2026-10-17 原N07 R1完整失败验收归档，R2保持09:24／17:24
+
+[543首卡收尾](../../research/543_WC_N07_R1_FAILED_FULL180_FINAL_ARCHIVE_AND_TASK_SCOPED_UUID_REUSE_ACCEPTANCE_20261017.md)：原source140d0a6于05:30窗口一次收全180分母，20warm＋20正式完成／8文本拒绝／1技术失败／131未到达；20正式93帧视频和10warm控制通过，原件审计0失败，整卡科学接受仍false。原费用2.697147250GPUh已结不重记；本地仅设备归属条件作可逆替换，13CPU通过，原错误和原capture保留。worldcache-26d已暂停；获批R2/source6e10aa3原任务和09:24／17:24不改，不提前读其科学partial，N08待R2完整接受。N10本地权重已接受、评分仍待，F/B关闭。以下为历史。
+
 ## 2026-10-17 N10完整ViCLIP本地权重接受，资源自动化暂停
 
 [542资源验收](../../research/542_WC_N10_VICLIP_DIRECT_R4_COMPLETE_RESOURCE_ACCEPTED_AND_SCORING_HANDOFF_20261017.md)：原R4在01:54按时一次查收，1710545812字节／固定官方全SHA／204段全部一致，实际获取2596.804秒、HTTP失败0，p-acr-cpu已暂停。完整资源接受仅限本机；SCP／服务器SHA／五模型CPU／正式评分仍待，0新质量分数。本轮0GPU／SSH／模型／账本写，旧partial保持；原N07失败R1的05:30与修复R2的09:24／17:24查收不改，未查询它们的服务器进度。重CPU避开GPU／clean测速，F/B关闭。以下为历史。

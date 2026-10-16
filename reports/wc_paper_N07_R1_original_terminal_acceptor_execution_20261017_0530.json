@@ -1,0 +1,21 @@
+{
+  "command": [
+    ".venv/bin/python",
+    "scripts/analyze_wc_paper_N07_frozen_shared180_r1.py",
+    "--launch-ref",
+    "reports/wc_paper_N07_frozen_shared180_GPU_launch_20261016.json",
+    "--capture",
+    "reports/wc_paper_N07_frozen_shared180_R1_terminal_collection_20261017_0530.json.gz",
+    "--output",
+    "reports/wc_paper_N07_frozen_shared180_R1_original_terminal_acceptance_20261017.json"
+  ],
+  "exit_code": 1,
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/Users/kuangda_gao/Documents/世界模型加速实验/worldcache_omr/scripts/analyze_wc_paper_N07_frozen_shared180_r1.py\", line 29, in <module>\n    if __name__ == '__main__': main()\n  File \"/Users/kuangda_gao/Documents/世界模型加速实验/worldcache_omr/scripts/analyze_wc_paper_N07_frozen_shared180_r1.py\", line 22, in main\n    result = accept(value, launch)\n  File \"/Users/kuangda_gao/Documents/世界模型加速实验/worldcache_omr/src/wcomr/frozen_shared_acceptance_r1.py\", line 121, in accept\n    raise ValueError('Own UUID must be released; other GPUs are independent')\nValueError: Own UUID must be released; other GPUs are independent\n",
+  "started_unix": 1792186455.658558,
+  "wall_seconds": 1.872589111328125,
+  "original_acceptor_source_SHA256": "b93600daff82f236ec99a377f6eb762a0d4df297266785f1f486ae87a4f63997",
+  "new_GPU_submissions": 0,
+  "new_SSH_queries": 0,
+  "original_source_written": false
+}

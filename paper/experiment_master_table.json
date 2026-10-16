@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "updated_local_date": "2026-10-17",
-  "snapshot_basis": "N10 R4 whole local pinned resource independently accepted; no server/model/quality results added; N07 original schedules and GPU reservation retained.",
-  "git_snapshot_before_inventory": "ae67c65",
+  "snapshot_basis": "Old N07 R1 complete failure archive independently recomputed without promoting partial outputs; newer approved R2 remains the current common-test card.",
+  "git_snapshot_before_inventory": "fbb2971",
   "mapping_ref": "paper/internal_to_paper_mapping.json",
   "scope": "scientific experiment families and complete cards, not each engineering retry; reused artifacts must not be summed as independent samples",
   "contributions": {
@@ -894,8 +894,8 @@
         "PAPER_E3_FROZEN_SHARED_TEST"
       ],
       "contribution_relation": "C1/C2最终版本确认；C3覆盖",
-      "evidence_or_planned_scope": "用户具体批准后，独立R2/source6e10aa3保留原8prompt×双seed×10方法、160正式+20warm；1750源SHA、原三句柄／自身UUID锁及完整15.055555556GPUh预留已独立接受。正式科学结果仍待。",
-      "gap_and_next_action": "10月17日09:24半程技术／17:24完整验收；原R1 05:30保持。全180拒绝失败缺失、93帧有效视频／LPIPS、双seed提示词等权统计、真实费用及自身释放待验；之后N08→N09/10。",
+      "evidence_or_planned_scope": "原R1完整失败验收已归档：180分母／40完成（20warm+20正式）／8拒绝／1技术失败／131未到达，20正式93帧与10warm控制接受，整卡不完整且不并入R2。获批R2/source6e10aa3完整160正式+20warm已准入，正式共同结果待17:24验收。",
+      "gap_and_next_action": "原R1已收尾并暂停原自动化；R2仍09:24半程／17:24完整验收，保持全部180和冻结角色。N08仅在R2完整适用原件接受后接续，不用R1局部结果挑赢家或替代完整共同测试。",
       "priority": "P1·已启动，按时验收",
       "evidence_refs": [
         "closure_plan",
@@ -1012,7 +1012,16 @@
         "N07_repair_R2_final_automation_verification",
         "N07_repair_R2_running_catalog_audit",
         "N07_repair_R2_initial_observation_fence",
-        "N07_repair_R2_ready_observation_fence"
+        "N07_repair_R2_ready_observation_fence",
+        "543",
+        "N07_R1_final_original_capture",
+        "N07_R1_final_independent_acceptance",
+        "N07_R1_original_device_gate_failure",
+        "N07_R1_reused_device_acceptance_core",
+        "N07_R1_reused_device_acceptance_CLI",
+        "N07_R1_reused_device_acceptance_controls",
+        "N07_R1_reused_device_local_CPU",
+        "N07_R1_terminal_automation_pause"
       ],
       "method_mapping_ids": [
         "config.efficient",
@@ -1119,7 +1128,7 @@
         "TECH_FAILED": 1,
         "NOT_REACHED": 131
       },
-      "original_final_scientific_readout_performed": false,
+      "original_final_scientific_readout_performed": true,
       "refusal_boundary_local_CPU_paths": 520,
       "refusal_boundary_extra_original_failure_reproductions": 4,
       "refusal_boundary_local_CPU_accepted": true,
@@ -1190,7 +1199,28 @@
       "repair_GPU_midpoint_scheduled_local": "2026-10-17T09:24:00+08:00",
       "repair_GPU_final_scheduled_local": "2026-10-17T17:24:00+08:00",
       "repair_GPU_automation_id": "worldcache-180",
-      "repair_GPU_scientific_results_available": false
+      "repair_GPU_scientific_results_available": false,
+      "original_R1_terminal_receipt_audit_accepted": true,
+      "original_R1_full_scientific_scope_accepted": false,
+      "original_R1_terminal_capture_ref": "reports/wc_paper_N07_frozen_shared180_R1_terminal_collection_20261017_0530.json.gz",
+      "original_R1_independent_terminal_acceptance_ref": "reports/wc_paper_N07_frozen_shared180_R1_terminal_independent_acceptance_20261017.json",
+      "original_R1_terminal_closed": true,
+      "original_R1_original_acceptor_failure_retained": "reports/wc_paper_N07_R1_original_terminal_acceptor_execution_20261017_0530.json",
+      "original_R1_available_partial_formal_videos": 20,
+      "original_R1_available_partial_formal_prompt_groups": 1,
+      "original_R1_available_partial_formal_seeds": [
+        17,
+        43
+      ],
+      "original_R1_pretrained_video_score_frames": 93,
+      "original_R1_usable_warm_controls": 10,
+      "original_R1_raw_model_pass_paths": 40,
+      "original_R1_payload_files_verified": 1725,
+      "original_R1_audit_failures": 0,
+      "original_R1_superseded_device_gate_local_CPU_tests": 13,
+      "original_R1_partial_not_pooled_with_R2": true,
+      "original_R1_final_automation_status": "PAUSED",
+      "original_R1_physical_UUID_currently_idle": false
     },
     {
       "id": "N08",
@@ -2330,7 +2360,16 @@
     "542": "research/542_WC_N10_VICLIP_DIRECT_R4_COMPLETE_RESOURCE_ACCEPTED_AND_SCORING_HANDOFF_20261017.md",
     "N10_direct_R4_terminal_capture": "reports/wc_paper_N10_direct_R4_collection_20261017_0154.json",
     "N10_direct_R4_local_complete_acceptance": "reports/wc_paper_N10_direct_R4_independent_resource_acceptance_20261017.json",
-    "N10_direct_R4_terminal_automation_pause": "reports/wc_paper_N10_direct_R4_terminal_automation_pause_20261017.json"
+    "N10_direct_R4_terminal_automation_pause": "reports/wc_paper_N10_direct_R4_terminal_automation_pause_20261017.json",
+    "543": "research/543_WC_N07_R1_FAILED_FULL180_FINAL_ARCHIVE_AND_TASK_SCOPED_UUID_REUSE_ACCEPTANCE_20261017.md",
+    "N07_R1_final_original_capture": "reports/wc_paper_N07_frozen_shared180_R1_terminal_collection_20261017_0530.json.gz",
+    "N07_R1_final_independent_acceptance": "reports/wc_paper_N07_frozen_shared180_R1_terminal_independent_acceptance_20261017.json",
+    "N07_R1_original_device_gate_failure": "reports/wc_paper_N07_R1_original_terminal_acceptor_execution_20261017_0530.json",
+    "N07_R1_reused_device_acceptance_core": "src/wcomr/frozen_shared_reused_device_acceptance_r1.py",
+    "N07_R1_reused_device_acceptance_CLI": "scripts/analyze_wc_paper_N07_prior_request_terminal_r1.py",
+    "N07_R1_reused_device_acceptance_controls": "tests/test_frozen_shared_reused_device_acceptance_r1.py",
+    "N07_R1_reused_device_local_CPU": "reports/wc_paper_N07_R1_reused_UUID_terminal_acceptance_local_CPU_20261017.json",
+    "N07_R1_terminal_automation_pause": "reports/wc_paper_N07_R1_terminal_automation_pause_and_R2_preservation_20261017.json"
   },
   "source_bindings": {
     "11": {
@@ -2483,7 +2522,7 @@
     },
     "mainline_queue_20261016": {
       "path": "plans/WORLD_CACHE_MAINLINE_PRIORITY_QUEUE_20261016.md",
-      "sha256": "ea2b0bae6a62aaee0dd78c02b7fb924b9a03d13faacd56143b4b03cff0259394"
+      "sha256": "4461a2b00e3e21b282e10f93ae27bfe6191b1574d88dc24168c8cf4774d9eaeb"
     },
     "baseline_grid_prereg_20261016": {
       "path": "manifests/wc_paper_N05_bounded_baseline_grid_preregistration_draft_20261016.json",
@@ -4232,6 +4271,42 @@
     "N10_direct_R4_terminal_automation_pause": {
       "path": "reports/wc_paper_N10_direct_R4_terminal_automation_pause_20261017.json",
       "sha256": "db02bd392b3d32449501d52a05ea4d7bedc09340efb579b2b098532fcbd29a73"
+    },
+    "543": {
+      "path": "research/543_WC_N07_R1_FAILED_FULL180_FINAL_ARCHIVE_AND_TASK_SCOPED_UUID_REUSE_ACCEPTANCE_20261017.md",
+      "sha256": "d1c1b91490d965f08c7d9140d426663588585bef7a9a76921ba072febb12585f"
+    },
+    "N07_R1_final_original_capture": {
+      "path": "reports/wc_paper_N07_frozen_shared180_R1_terminal_collection_20261017_0530.json.gz",
+      "sha256": "19831db575e844f5c11f3bc9acb91b712bfd423fae2019abcee147188a7a0b72"
+    },
+    "N07_R1_final_independent_acceptance": {
+      "path": "reports/wc_paper_N07_frozen_shared180_R1_terminal_independent_acceptance_20261017.json",
+      "sha256": "7b3068e7c8613b8718f289f6674cc909738c838718280e4118f48aa1e9ea7edb"
+    },
+    "N07_R1_original_device_gate_failure": {
+      "path": "reports/wc_paper_N07_R1_original_terminal_acceptor_execution_20261017_0530.json",
+      "sha256": "856fcb96a3c77e07a0ea7a3f6b1213d14f6b35ed3185d546908e9a935a26841e"
+    },
+    "N07_R1_reused_device_acceptance_core": {
+      "path": "src/wcomr/frozen_shared_reused_device_acceptance_r1.py",
+      "sha256": "85f927b1a295edae677b59ce3200ace5f5eda4f02614b6db4e255310ec2b1f14"
+    },
+    "N07_R1_reused_device_acceptance_CLI": {
+      "path": "scripts/analyze_wc_paper_N07_prior_request_terminal_r1.py",
+      "sha256": "798cbd1de457a27ddaa42be483af3dd7f00406d0612fb2733f309935da1ba95f"
+    },
+    "N07_R1_reused_device_acceptance_controls": {
+      "path": "tests/test_frozen_shared_reused_device_acceptance_r1.py",
+      "sha256": "f69dbe3f45ea52af59e53d30338d2e2bc711bb8bdaca81c6f5d42eb8147af262"
+    },
+    "N07_R1_reused_device_local_CPU": {
+      "path": "reports/wc_paper_N07_R1_reused_UUID_terminal_acceptance_local_CPU_20261017.json",
+      "sha256": "992555f699d2b9298465a10a93e6b4854daf3e42f3b58b493965b20dbf7c3d3b"
+    },
+    "N07_R1_terminal_automation_pause": {
+      "path": "reports/wc_paper_N07_R1_terminal_automation_pause_and_R2_preservation_20261017.json",
+      "sha256": "3ce56206dc5877ce22b0819e9044d8a96111d48837cd241913f8263900db0aae"
     }
   },
   "operation_policy": {
@@ -4256,8 +4331,6 @@
     "available_after_whole_reservations_GPUh": 1.6654725367192658,
     "per_UUID_lock_protocol": "plans/WORLD_CACHE_DUAL_GPU_EXECUTION_20261015.md",
     "scheduled_collections_local": {
-      "N07_SHARED180": "2026-10-17T05:30:00+08:00",
-      "N07_MIDPOINT_HEALTH": "2026-10-16T21:30:00+08:00",
       "N07_REPAIR180_R2_MIDPOINT": "2026-10-17T09:24:00+08:00",
       "N07_REPAIR180_R2_FINAL": "2026-10-17T17:24:00+08:00"
     },
@@ -4304,7 +4377,6 @@
       "SIMPLE26D_FULL36": 5.766054749472921
     },
     "current_pending_scientific_acceptance_cards": [
-      "N07_SHARED180",
       "N07_REPAIR180_R2"
     ],
     "latest_total_settled_GPUh": 96.27897190772518,
@@ -4337,9 +4409,11 @@
       "N10_LOCAL_R2_COMPLETED": "2026-10-16T14:00:00+08:00",
       "N10_LOCAL_RANGES_R3": "2026-10-16T15:50:00+08:00",
       "N10_DIRECT_R4_MIDPOINT": "2026-10-17T01:09:00+08:00",
-      "N10_DIRECT_R4_FINAL": "2026-10-17T01:54:00+08:00"
+      "N10_DIRECT_R4_FINAL": "2026-10-17T01:54:00+08:00",
+      "N07_SHARED180": "2026-10-17T05:30:00+08:00",
+      "N07_MIDPOINT_HEALTH": "2026-10-16T21:30:00+08:00"
     },
-    "budget_values_asof": "2026-10-17T01:26:49.929454+08:00",
+    "budget_values_asof": "2026-10-17T05:33:28.034299+08:00",
     "last_CPU_task": {
       "kind": "N07_REPAIR180_ACTUAL_PRODUCTION_CPU_COMPLETE_ACCEPTED",
       "source": "6e10aa31197b4c137705b9117090c3a4e538e863",
@@ -4370,7 +4444,7 @@
     "N05_scientific_core66_scope_selected": true,
     "N05_production_CPU_or_GPU_selected": true,
     "N05_corrected_neighbor_gap_retained": true,
-    "budget_snapshot_asof": "2026-10-17T01:26:49.929454+08:00",
+    "budget_snapshot_asof": "2026-10-17T05:33:28.034299+08:00",
     "new_CPU_preparation_is_not_GPU_or_quality_result": true,
     "historical_CPU_tasks": [
       {
@@ -4656,7 +4730,18 @@
     "N10_local_full_ViCLIP_acceptance_ref": "reports/wc_paper_N10_direct_R4_independent_resource_acceptance_20261017.json",
     "N10_actual_server_resource_transfer_dispatched": false,
     "N07_timers_remain_active": true,
-    "N10_resource_timer_active": false
+    "N10_resource_timer_active": false,
+    "N07_R1_terminal_collection_performed": true,
+    "N07_R1_terminal_receipt_audit_accepted": true,
+    "N07_R1_terminal_closed": true,
+    "N07_R1_scientific_full_scope_accepted": false,
+    "N07_R1_terminal_capture_ref": "reports/wc_paper_N07_frozen_shared180_R1_terminal_collection_20261017_0530.json.gz",
+    "N07_R1_terminal_acceptance_ref": "reports/wc_paper_N07_frozen_shared180_R1_terminal_independent_acceptance_20261017.json",
+    "N07_R1_original_automation_status": "PAUSED",
+    "N07_R1_actual_fee_already_counted_GPUh": 2.697147250265504,
+    "N07_R1_fee_counted_again": false,
+    "N07_R1_original_request_released": true,
+    "N07_R1_UUID_reused_by_approved_R2": true
   },
-  "mapping_sha256_at_inventory": "cf0e7cf85bc40f7a5fa45599c44ea2516783b74c43e92ca14d622f16c4b3b80c"
+  "mapping_sha256_at_inventory": "c342c1e537f59606c73047be23a741981ce998ea8b6c614be7c0929ab6454aae"
 }
