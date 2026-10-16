@@ -1,3 +1,7 @@
+## 2026-10-16 N09部署运行开销完整40范围登记
+
+[509部署开销完整范围](../../research/509_WC_N09_FROZEN_RUNTIME_PROFILE40_SCOPE_AND_REMAINING_ACTION_CALIBRATION_COSTS_20261016.md)登记五个原冻结角色×两旧CAL×原audit/profile-audit/profile-lean，30正式+10warm/40路径/1440pairs；独立矩阵检查和原102四源码全SHA复用通过，未跑新采样/生产CPU或GPU。同状态C/A/P0/D报价与可复现标定采集费用仍待，真实整卡配置/CPU/费用未选。N07原完整180/source140d0a6和明早05:30、本机资源18318今天14:00保持，本轮无SSH/预算写或partial查询。以下为运行和准备历史。
+
 ## 2026-10-16 固定评分权重SSH接入CPU准备完成
 
 [508固定权重接入准备](../../research/508_WC_N10_ORIGINAL_SCP_PINNED_RESOURCE_RELAY_CPU_READY_NO_GPU_INTERFERENCE_20261016.md)：原SCP单次传输/完整SHA/独立服务器资源查收入口已准备，九项小文件与Mac句柄控制、五模型227payload接口检查通过，实际传输/模型/新质量分数仍0。本轮未查N07或资源partial、未SSH/改账；原N07完整180/source140d0a6及明天05:30验收保持。原本机18318今天14:00收，完整接受后用独立R3经既有SSH传同一权重，按实际ETA一次收；重模型CPU避开主线。下方为原运行与准备历史。

@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "updated_local_date": "2026-10-16",
-  "snapshot_basis": "N07 approved full180 GPU original running with cap113 and tomorrow05:30 ETA unchanged. N10 original local resource awaits today14:00; original SCP/remote SHA and full five-model packet schema are CPU prepared, no actual transfer or models from this preparation.",
-  "git_snapshot_before_inventory": "8f0b0f559ac20b7383c4170e75e181f71700a0ec",
+  "snapshot_basis": "N07 approved original full180 continues under existing source/ETA/cap113. N10 local resource pending today14:00 with fixed SCP preparation ready. N09 separate full40 runtime-profile scope and original102 source identity checked locally; no new sampling, GPU cost or model results.",
+  "git_snapshot_before_inventory": "ab5f28bb33a6d9be66859671311a11070fbfc180",
   "mapping_ref": "paper/internal_to_paper_mapping.json",
   "scope": "scientific experiment families and complete cards, not each engineering retry; reused artifacts must not be summed as independent samples",
   "contributions": {
@@ -1107,14 +1107,14 @@
     },
     {
       "id": "N09",
-      "state": "待补｜组件记录器CPU已接受",
+      "state": "待补｜运行开销40范围登记，动作报价/标定费待补",
       "paper_experiment_name": "Calibration and Minimal Deployment Profile",
       "internal_ids": [
         "PAPER_E5_COST_PROFILE"
       ],
       "contribution_relation": "C3部署开销；C2费用一致",
-      "evidence_or_planned_scope": "四格表由16旧标签精确重建，五次CPU拟合0.200142ms，相关历史4.383638799GPUh非最低费；组件/逐请求peak记录器完整102 CPU已接受，34guided/34audit-lean/68profile/102mock及释放通过。",
-      "gap_and_next_action": "最终实际CUDA峰值/组件价格、同状态双probe后C/A/D及合法P0动作价、安装/GC与最低必要标签采集仍待完整真实测量；inclusive区间不相加作纯成本，CPU准备不作视频/速度结果。原R1静态绑定方法失败完整保留，R2独立接受。",
+      "evidence_or_planned_scope": "原102组件观察CPU已接受；五冻结角色×两旧CAL×三诊断模式=30正式+10warm/40路径/1440pairs范围已登记，四当前源码与原102精确一致，未新跑采样。",
+      "gap_and_next_action": "N07/N08后补真实运行开销40的生产配置/CPU与整卡费用；同状态C/A/P0/D报价、可复现部署标定采集费仍须完整具体化；inclusive区间不相加冒称纯kernel成本。",
       "priority": "P2·最终实现后",
       "evidence_refs": [
         "closure_plan",
@@ -1124,7 +1124,11 @@
         "deployment_inventory_CPU",
         "476",
         "477",
-        "478"
+        "478",
+        "509",
+        "N09_runtime40_declarative_scope",
+        "N09_runtime40_scope_inventory",
+        "N09_profile40_original102_reuse"
       ],
       "method_mapping_ids": [
         "module.gcr",
@@ -1142,7 +1146,16 @@
       "local_inventory_accepted": true,
       "final_GPU_deployment_profile_complete": false,
       "component_observer_full_CPU_accepted": true,
-      "component_observer_acceptance_ref": "reports/wc_deployment_profile_full102_local_CPU_R2_independent_acceptance_20261016.json"
+      "component_observer_acceptance_ref": "reports/wc_deployment_profile_full102_local_CPU_R2_independent_acceptance_20261016.json",
+      "runtime_profile40_scope_registered": true,
+      "runtime_profile40_scope_ref": "manifests/wc_paper_N09_runtime_profile40_scope_r1_20261016.json",
+      "runtime_profile40_declarative_matrix_checked": true,
+      "original102_observer_reused_source_files": 4,
+      "original102_source_reuse_ref": "reports/wc_paper_N09_profile40_unchanged_observer_reuse_20261016.json",
+      "actual_runtime_profile40_production_CPU_accepted": false,
+      "actual_runtime_profile40_GPU_card_selected": false,
+      "actual_post_paid_probe_C_A_P0_D_costs_measured": false,
+      "actual_minimal_calibration_collection_cost_measured": false
     },
     {
       "id": "N10",
@@ -1481,7 +1494,11 @@
     "N10_resource_relay_control_R2": "reports/wc_paper_N10_resource_relay_local_CPU_R2_preparation_20261016.json",
     "N10_relay_five_model_packet_schema": "reports/wc_paper_N10_relay_to_five_model_packet_schema_CPU_20261016.json",
     "N10_original_resource_relay_tool": "scripts/relay_wc_N10_viclip_resource_r1.py",
-    "N10_original_resource_relay_tests": "tests/test_N10_resource_relay_r1.py"
+    "N10_original_resource_relay_tests": "tests/test_N10_resource_relay_r1.py",
+    "509": "research/509_WC_N09_FROZEN_RUNTIME_PROFILE40_SCOPE_AND_REMAINING_ACTION_CALIBRATION_COSTS_20261016.md",
+    "N09_runtime40_declarative_scope": "manifests/wc_paper_N09_runtime_profile40_scope_r1_20261016.json",
+    "N09_runtime40_scope_inventory": "reports/wc_paper_N09_runtime40_scope_inventory_20261016.json",
+    "N09_profile40_original102_reuse": "reports/wc_paper_N09_profile40_unchanged_observer_reuse_20261016.json"
   },
   "source_bindings": {
     "11": {
@@ -1634,7 +1651,7 @@
     },
     "mainline_queue_20261016": {
       "path": "plans/WORLD_CACHE_MAINLINE_PRIORITY_QUEUE_20261016.md",
-      "sha256": "23893e1f9cf97788e1f9b95f9c9c288e1d492f9846076066acec3080f5dd603c"
+      "sha256": "7a9ec810640333ef4def91e0d4fc073edd6b28a92a65527bb782973f50a813ee"
     },
     "baseline_grid_prereg_20261016": {
       "path": "manifests/wc_paper_N05_bounded_baseline_grid_preregistration_draft_20261016.json",
@@ -2287,6 +2304,22 @@
     "N10_original_resource_relay_tests": {
       "path": "tests/test_N10_resource_relay_r1.py",
       "sha256": "1511f7b69fb68d92d41af0716051ff251d96543530ba6cd538f7a6ae81c5a23a"
+    },
+    "509": {
+      "path": "research/509_WC_N09_FROZEN_RUNTIME_PROFILE40_SCOPE_AND_REMAINING_ACTION_CALIBRATION_COSTS_20261016.md",
+      "sha256": "1ee7a2ba96760a8f1bf3825cd7ba3111cbb16fd840942336d49f90205b3d9d87"
+    },
+    "N09_runtime40_declarative_scope": {
+      "path": "manifests/wc_paper_N09_runtime_profile40_scope_r1_20261016.json",
+      "sha256": "ef251c2c32ae1709dbb57b163c25c59abe5c89c13eb6c27077f0a96c73feb0d3"
+    },
+    "N09_runtime40_scope_inventory": {
+      "path": "reports/wc_paper_N09_runtime40_scope_inventory_20261016.json",
+      "sha256": "2d2dc0969b9a7cbac55b3bd059e88e29aec532bc63705c4d592635b4b06a193f"
+    },
+    "N09_profile40_original102_reuse": {
+      "path": "reports/wc_paper_N09_profile40_unchanged_observer_reuse_20261016.json",
+      "sha256": "a7e0e9f13475df1b01e0566a8fa2294569df94730699aee9df19b22e9acf69cd"
     }
   },
   "operation_policy": {
@@ -2531,11 +2564,11 @@
     "N09_profile_full102_CPU_accepted": true,
     "N09_profile_CPU_next_collection": null,
     "last_short_local_CPU_preparation": {
-      "kind": "N10_ORIGINAL_SCP_RESOURCE_RELAY_AND_FIVE_MODEL_PACKET_SCHEMA",
-      "controls": 9,
+      "kind": "N09_DECLARATIVE40_MATRIX_AND_ORIGINAL102_SOURCE_REUSE",
+      "new_sampling_paths": 0,
+      "unchanged_source_files": 4,
       "actual_GPU": 0,
-      "SSH_queries": 0,
-      "actual_models": 0
+      "SSH_queries": 0
     },
     "specific_approved_large_card_admission_extension_prepared": true,
     "specific_approved_large_card_admission_extension_deployed_to_server": true,
@@ -2587,7 +2620,14 @@
       "post": 1115798
     },
     "heavy_model_CPU_deferred_while_N07_or_N08_running": true,
-    "N10_resource_SCP_preparation_ref": "research/508_WC_N10_ORIGINAL_SCP_PINNED_RESOURCE_RELAY_CPU_READY_NO_GPU_INTERFERENCE_20261016.md"
+    "N10_resource_SCP_preparation_ref": "research/508_WC_N10_ORIGINAL_SCP_PINNED_RESOURCE_RELAY_CPU_READY_NO_GPU_INTERFERENCE_20261016.md",
+    "N09_runtime_profile40_scope_registered": true,
+    "N09_runtime_profile40_actual_GPU_selected": false,
+    "N09_actual_remaining_cost_questions": [
+      "runtime_component_and_request_memory",
+      "same_state_post_paid_probe_C_A_P0_D_prices",
+      "reproducible_deployment_calibration_collection_cost"
+    ]
   },
-  "mapping_sha256_at_inventory": "fb9c3f7e30c6c4d8219fc501881779a16f43a3881b5bcfa51a614890a61ac903"
+  "mapping_sha256_at_inventory": "353dbe3948ee052d17a3aa20799c1152e654c4ca3f04108c9905a1a90d421a40"
 }
