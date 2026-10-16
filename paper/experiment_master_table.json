@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "updated_local_date": "2026-10-16",
-  "snapshot_basis": "532: observed original N07 technical failure and actual fee; complete local refusal-boundary CPU proof, no early scientific final readout or replacement GPU.",
-  "git_snapshot_before_inventory": "b46026e",
+  "snapshot_basis": "533: independent complete180 repair contract and reversible production entries locally checked; original failed N07 remains pending its original final collection, no new server CPU/GPU.",
+  "git_snapshot_before_inventory": "688bd83",
   "mapping_ref": "paper/internal_to_paper_mapping.json",
   "scope": "scientific experiment families and complete cards, not each engineering retry; reused artifacts must not be summed as independent samples",
   "contributions": {
@@ -888,14 +888,14 @@
     },
     {
       "id": "N07",
-      "state": "待补｜原180技术停止，拒绝边界本地CPU已修复",
+      "state": "待补｜原180技术停止，R2生产接线本地CPU通过",
       "paper_experiment_name": "Common Frozen Evaluation Matrix",
       "internal_ids": [
         "PAPER_E3_FROZEN_SHARED_TEST"
       ],
       "contribution_relation": "C1/C2最终版本确认；C3覆盖",
-      "evidence_or_planned_scope": "原完整180保留：20warm完成，正式20完成/8文本拒绝/1技术失败/131未到达；原mask文本拒绝路径错误。4控制与两flow完整520本地CPU通过；新生产CPU/GPU未完成。",
-      "gap_and_next_action": "保留05:30原失败完整验收；优先接入独立完整修复版本生产CPU/报价，达到12GPUh须具体整卡批准，不覆盖R1或改变输入/方法。",
+      "evidence_or_planned_scope": "原180分母全部保留，拒绝边界520CPU通过；R2完整原矩阵/15.0556报价配置和四生产入口已接线，八组46控制及五冷CLI通过。服务器九命令和新GPU未完成。",
+      "gap_and_next_action": "保留05:30原失败验收；R2独立源码包/九命令实际生产CPU、单次派发及科学终态绑定待完成，之后具体新整卡批准与fresh准入。N08/N09接续原件引用也须明确更新。",
       "priority": "P1·技术修复与原失败验收",
       "evidence_refs": [
         "closure_plan",
@@ -950,7 +950,20 @@
         "N07_refusal_boundary_full520_CPU",
         "N07_refusal_boundary_CPU_exit",
         "N07_refusal_boundary_receipt_acceptance",
-        "N07_midpoint_failure_CPU_preparation"
+        "N07_midpoint_failure_CPU_preparation",
+        "533",
+        "N07_repair180_full_config",
+        "N07_repair180_contract",
+        "N07_repair180_entry_derivation",
+        "N07_repair180_CPU_acceptance",
+        "N07_repair180_worker",
+        "N07_repair180_supervisor",
+        "N07_repair180_watcher",
+        "N07_repair180_post",
+        "N07_repair180_CPU_bundle",
+        "N07_repair180_contract_controls",
+        "N07_repair180_CPU_acceptance_controls",
+        "N07_repair180_local_binding_CPU"
       ],
       "method_mapping_ids": [
         "config.efficient",
@@ -1063,7 +1076,19 @@
       "refusal_boundary_local_CPU_accepted": true,
       "repaired_actual_production_CPU_accepted": false,
       "replacement_GPU_card_selected": false,
-      "replacement_GPU_dispatched": false
+      "replacement_GPU_dispatched": false,
+      "repair_production_contract_and_config_prepared": true,
+      "repair_production_config_ref": "configs/wc_paper_N07_refusal_repair180_r2_20261016.json",
+      "repair_lifecycle_metadata_entries_implemented": true,
+      "repair_production_local_control_groups": 8,
+      "repair_production_local_control_tests": 46,
+      "repair_production_cold_CLI_checks": 5,
+      "repair_actual_production_CPU_commands": 9,
+      "repair_actual_server_CPU_dispatched": false,
+      "repair_CPU_once_capture_and_deployment_tools_implemented": false,
+      "repair_GPU_once_dispatch_and_terminal_tools_implemented": false,
+      "repair_complete_scope_forecast_GPUh": 15.055555555555555,
+      "repair_specific_whole_card_approval_not_requested_yet": true
     },
     {
       "id": "N08",
@@ -2034,7 +2059,20 @@
     "N07_refusal_boundary_full520_CPU": "reports/wc_paper_N07_refusal_boundary_full520_local_CPU_R1_20261016.json",
     "N07_refusal_boundary_CPU_exit": "reports/wc_paper_N07_refusal_boundary_full520_local_CPU_R1_exit_20261016.json",
     "N07_refusal_boundary_receipt_acceptance": "reports/wc_paper_N07_refusal_boundary_full520_local_receipt_acceptance_20261016.json",
-    "N07_midpoint_failure_CPU_preparation": "reports/wc_paper_N07_midpoint_failure_and_refusal_boundary_CPU_preparation_20261016.json"
+    "N07_midpoint_failure_CPU_preparation": "reports/wc_paper_N07_midpoint_failure_and_refusal_boundary_CPU_preparation_20261016.json",
+    "533": "research/533_WC_N07_REFUSAL_REPAIR180_PRODUCTION_BINDINGS_AND_COMPLETE_CPU_CONTRACT_20261016.md",
+    "N07_repair180_full_config": "configs/wc_paper_N07_refusal_repair180_r2_20261016.json",
+    "N07_repair180_contract": "src/wcomr/frozen_repair180_r2.py",
+    "N07_repair180_entry_derivation": "src/wcomr/frozen_repair_entry_r2.py",
+    "N07_repair180_CPU_acceptance": "src/wcomr/frozen_repair_cpu_acceptance_r2.py",
+    "N07_repair180_worker": "scripts/run_wc_paper_N07_refusal_repair180_r2.py",
+    "N07_repair180_supervisor": "scripts/supervise_wc_paper_N07_refusal_repair180_r2.py",
+    "N07_repair180_watcher": "scripts/watch_wc_paper_N07_refusal_repair180_r2.py",
+    "N07_repair180_post": "scripts/postprocess_wc_paper_N07_refusal_repair180_r2.py",
+    "N07_repair180_CPU_bundle": "scripts/run_wc_paper_N07_repair_production_cpu_bundle_r2.py",
+    "N07_repair180_contract_controls": "tests/test_frozen_repair180_r2.py",
+    "N07_repair180_CPU_acceptance_controls": "tests/test_frozen_repair_cpu_acceptance_r2.py",
+    "N07_repair180_local_binding_CPU": "reports/wc_paper_N07_repair180_production_binding_local_CPU_R1_20261016.json"
   },
   "source_bindings": {
     "11": {
@@ -2187,7 +2225,7 @@
     },
     "mainline_queue_20261016": {
       "path": "plans/WORLD_CACHE_MAINLINE_PRIORITY_QUEUE_20261016.md",
-      "sha256": "6a41471732aed64789b67162f632fae09cc9be6bfe0c37397ea748ff907a36ce"
+      "sha256": "b1bb7f72dd3cb68d425f3a843181474e8342704889b87b398494467797c42483"
     },
     "baseline_grid_prereg_20261016": {
       "path": "manifests/wc_paper_N05_bounded_baseline_grid_preregistration_draft_20261016.json",
@@ -3580,6 +3618,58 @@
     "N07_midpoint_failure_CPU_preparation": {
       "path": "reports/wc_paper_N07_midpoint_failure_and_refusal_boundary_CPU_preparation_20261016.json",
       "sha256": "a80a993d8ec2a40d3e627992ad14f6756abf32aecef14530f1e203a3aa97b6e7"
+    },
+    "533": {
+      "path": "research/533_WC_N07_REFUSAL_REPAIR180_PRODUCTION_BINDINGS_AND_COMPLETE_CPU_CONTRACT_20261016.md",
+      "sha256": "62ab8c9b332b5000ec2dfb0a7aedcc253566183db047ce4c53f8e1a6210b69be"
+    },
+    "N07_repair180_full_config": {
+      "path": "configs/wc_paper_N07_refusal_repair180_r2_20261016.json",
+      "sha256": "5531dadd5d2544d9e8696e640097469e3a92e56e514651d3c27d6f7449f8fb63"
+    },
+    "N07_repair180_contract": {
+      "path": "src/wcomr/frozen_repair180_r2.py",
+      "sha256": "ee27fa7077b749ef5d1f4b072146d3ff51bd8bf004bc65312fa934b2f7cf617a"
+    },
+    "N07_repair180_entry_derivation": {
+      "path": "src/wcomr/frozen_repair_entry_r2.py",
+      "sha256": "50e19aeedf9801a5a23ac275c76b5a7707f4b984ffbad1b6ba5c6afac1d64583"
+    },
+    "N07_repair180_CPU_acceptance": {
+      "path": "src/wcomr/frozen_repair_cpu_acceptance_r2.py",
+      "sha256": "5ba1eacd31df5783f202f4e425c6327d88b74d28b373dead1d89248564ce1dbc"
+    },
+    "N07_repair180_worker": {
+      "path": "scripts/run_wc_paper_N07_refusal_repair180_r2.py",
+      "sha256": "16ea465ee1ff62484c1b6e8cb6b0c6f1d6e1981c12ea5649f31de15dbf0aaf86"
+    },
+    "N07_repair180_supervisor": {
+      "path": "scripts/supervise_wc_paper_N07_refusal_repair180_r2.py",
+      "sha256": "df5b42adcc60574105838e147e8d470a1f7782366451d3a304cc63b79c5ed9a8"
+    },
+    "N07_repair180_watcher": {
+      "path": "scripts/watch_wc_paper_N07_refusal_repair180_r2.py",
+      "sha256": "408c6759d3516c828a89c9794dca1050ae52a698b2a9326723632c20b84612a3"
+    },
+    "N07_repair180_post": {
+      "path": "scripts/postprocess_wc_paper_N07_refusal_repair180_r2.py",
+      "sha256": "f7cba302f5169aaf4762c9d8d184ae10fc0bb1be74a807f724f7bbfd797d46a1"
+    },
+    "N07_repair180_CPU_bundle": {
+      "path": "scripts/run_wc_paper_N07_repair_production_cpu_bundle_r2.py",
+      "sha256": "55a65b641d1b48126c3f8f0052d3ad93e160b5e9a8791abda627fd64cf1ae70a"
+    },
+    "N07_repair180_contract_controls": {
+      "path": "tests/test_frozen_repair180_r2.py",
+      "sha256": "2cf0ba1cbf8b324c71329f245b07b4e469b1b511443ba913a0c160db3fd1eca1"
+    },
+    "N07_repair180_CPU_acceptance_controls": {
+      "path": "tests/test_frozen_repair_cpu_acceptance_r2.py",
+      "sha256": "35031a77785ab656391361e04b1a44d5df1af5855a84d41316755767814dafc6"
+    },
+    "N07_repair180_local_binding_CPU": {
+      "path": "reports/wc_paper_N07_repair180_production_binding_local_CPU_R1_20261016.json",
+      "sha256": "05999eb510f7d3486bb9831a64d3204fb7059a5242d89f8c90a2ae967289a3a9"
     }
   },
   "operation_policy": {
@@ -3933,7 +4023,10 @@
     "latest_inventory_GPU_submissions": 0,
     "N07_original_failed_stage_unchanged": true,
     "N07_replacement_CPU_preparation_only": true,
-    "next_GPU_submission_requires_new_complete_scope_and_CPU": true
+    "next_GPU_submission_requires_new_complete_scope_and_CPU": true,
+    "N07_retry_production_local_CPU_ref": "reports/wc_paper_N07_repair180_production_binding_local_CPU_R1_20261016.json",
+    "N07_retry_approval_required_after_production_CPU": true,
+    "latest_local_CPU_preparation_only": "N07_REPAIR180_EIGHT_GROUPS_46_CONTROLS_FIVE_COLD_CLI"
   },
-  "mapping_sha256_at_inventory": "c522d4a9450f5781a9d5fae25fd4b17ee69bebc649293de9ce1960f8c1258422"
+  "mapping_sha256_at_inventory": "5f7df5fd1f20940caed9cb77aab3134a5499eb678b2814cc1c0be4172999b90e"
 }
