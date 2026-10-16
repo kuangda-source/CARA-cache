@@ -38,6 +38,7 @@ def run(project, stage, revision, uuid):
         CONFIG, RUN, CPU_RESULT, validate, validate_authority, clean_registered_jobs,
     )
     from wcomr.runtime_profile40_post_r1 import GPU_TERMINAL_STATUS
+    from wcomr.runtime_profile40_cpu_acceptance_r1 import validate_bundle, validate_proof
     from wcomr.frozen_shared_production_r1 import sha, write, fingerprint
     from wcomr.gpu_budget_approved_card_v2 import ApprovedCardBudgetPool
     from wcomr.gpu_budget_pool_v2 import DeviceLease, process_identity, same_live_process
@@ -45,6 +46,12 @@ def run(project, stage, revision, uuid):
     if not all(sha(stage / n) == h for n, h in registration['payload_sha256'].items()):
         raise ValueError('Original full40 payload differs from the registered source')
     proof_path = stage / CPU_RESULT; proof = json.loads(proof_path.read_text())
+    bundle_path = stage / 'N09-CPU-bundle-result.json'
+    validate_bundle(json.loads(bundle_path.read_text()), registration['source_revision'],
+        registration_sha256=sha(stage / 'registration.json'), config_sha256=sha(stage / CONFIG),
+        proof_sha256=sha(proof_path), payload_sha256=registration['payload_sha256'])
+    validate_proof(proof, config, bound, registration, registration_sha256=sha(stage / 'registration.json'),
+                   config_sha256=sha(stage / CONFIG))
     authority_path = stage / 'N09-launch-authorization.json'
     authority = json.loads(authority_path.read_text())
     validate_authority(config, bound, registration, proof, authority, revision=revision, gpu_uuid=uuid,
@@ -57,7 +64,11 @@ def run(project, stage, revision, uuid):
     if (cpu['source_revision'] != revision or cpu['registration_sha256'] != sha(stage / 'registration.json')
             or same_live_process(cpu['identity']) or cpu_exit['exit_code'] != 0
             or cpu_exit['source_revision'] != revision
-            or cpu_exit['registration_sha256'] != sha(stage / 'registration.json')):
+            or cpu_exit['registration_sha256'] != sha(stage / 'registration.json')
+            or any(cpu_exit['original_CPU_identity'].get(k) != cpu['identity'].get(k)
+                   for k in ('pid', 'start_ticks'))
+            or cpu_exit['production_CPU_sha256'] != sha(proof_path)
+            or cpu_exit['bundle_result_sha256'] != sha(bundle_path)):
         raise ValueError('The original production CPU process must terminate successfully before GPU admission')
     pool = ApprovedCardBudgetPool(project); before = pool.read()
     if (before['cap_gpu_hours'] != config['cumulative_cap_GPUh']

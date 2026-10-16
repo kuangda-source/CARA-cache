@@ -14,6 +14,8 @@ from wcomr.frozen_shared_production_r1 import fingerprint, sha, write
 from wcomr.gpu_budget_approved_card_v2 import ApprovedCardBudgetPool
 from wcomr.gpu_budget_pool_v2 import DeviceLease
 from wcomr.runtime_profile40_post_r1 import GPU_TERMINAL_STATUS
+from wcomr.runtime_profile40_cpu_acceptance_r1 import PATTERNS, BUNDLE_WORKER
+from wcomr.runtime_profile40_production_r1 import PROFILE_SOURCES
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -34,18 +36,33 @@ def fixture(root, *, limit=4.5):
     worker.parent.mkdir(); worker.write_text('# EXPLICIT_SYNTHETIC_NEVER_EXECUTED\n')
     registration = dict(source_revision='1' * 40,
         payload_sha256={CONFIG: sha(stage / CONFIG), str(worker.relative_to(stage)): sha(worker)})
+    numeric = {}; observer = {}
+    for name in ['src/SYNTHETIC_NUMERIC_' + str(i) + '.py' for i in range(99)] + list(PROFILE_SOURCES) + [BUNDLE_WORKER] + ['tests/' + n for n in PATTERNS]:
+        path = stage / name; path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text('# SYNTHETIC_PLACEHOLDER_NEVER_IMPORTED\n')
+        registration['payload_sha256'][name] = sha(path)
+        if name.startswith('src/SYNTHETIC_NUMERIC_'):numeric[name] = sha(path)
+        if name in PROFILE_SOURCES:observer[name] = sha(path)
     write(stage / 'registration.json', registration)
     proof = dict(status=CPU_STATUS, exit_code=0, source_revision=registration['source_revision'],
         registration_sha256=sha(stage / 'registration.json'), config_sha256=sha(stage / CONFIG),
         runner_source_sha256=sha(worker), bound_profile_fingerprint=fingerprint(bound), scope_counts=COUNTS,
         CUDA_initialized=False, GPU_submissions=0, model_weights_loaded=0, ledger_written=False,
         actual_sample_argument_variants=10, matrix=bound['execution_plan'],
+        native_forward_identity=dict(qualified_name='cosmos_predict2._src.predict2.networks.minimal_v1_lvg_dit.MinimalV1LVGDiT.forward', sha256='b' * 64),
+        unchanged_profile_and_numeric_CPU_reuse=dict(original_full102_CPU_paths=102, new_full102_paths_run=0,
+            source_sha256=observer, shared_numeric_reuse=dict(status='ACCEPTED_FULL952_NUMERICAL_DEPENDENCIES_REUSED',
+                checked_source_files=99, source_sha256=numeric)),
         guardrail_checks=[dict(scene=r['name'], unguarded_execution_refused=True) for r in bound['requests']])
     write(stage / CPU_RESULT, proof)
+    from test_runtime_profile40_cpu_acceptance_r1 import bundle
+    write(stage / 'N09-CPU-bundle-result.json', bundle(registration['source_revision'], str(stage), str(root),
+        sha(stage / 'registration.json'), sha(stage / CONFIG), sha(stage / CPU_RESULT), registration['payload_sha256']))
     cpu = dict(source_revision=registration['source_revision'], registration_sha256=sha(stage / 'registration.json'),
                identity=dict(pid=9999, start_ticks=99990))
     write(stage / 'N09-production-CPU-launch.json', cpu)
-    write(stage / 'N09-production-CPU-exit.json', dict(cpu, exit_code=0))
+    write(stage / 'N09-production-CPU-exit.json', dict(cpu, exit_code=0, original_CPU_identity=cpu['identity'],
+        production_CPU_sha256=sha(stage / CPU_RESULT), bundle_result_sha256=sha(stage / 'N09-CPU-bundle-result.json')))
     authority = dict(source_revision=registration['source_revision'], launch_id='SYNTHETIC_N09_NOT_REAL_APPROVAL',
         config_sha256=sha(stage / CONFIG), production_CPU_sha256=sha(stage / CPU_RESULT),
         bound_input_fingerprint=fingerprint(bound), scope_counts=COUNTS, whole_card_run=RUN,
@@ -171,6 +188,18 @@ class RuntimeProfile40SupervisionControls(unittest.TestCase):
                 with self.assertRaisesRegex(ValueError, 'production CPU'):
                     run_supervisor(root, values, alive_cpu=mode == 'alive')
                 self.assertNotIn(RUN, values[-1].read()['jobs'])
+
+    def test_CPU_transient_process_state_does_not_change_original_identity(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder); values = fixture(root); stage = values[2]
+            import json
+            launch_path = stage / 'N09-production-CPU-launch.json'; launch = json.loads(launch_path.read_text())
+            launch['identity'].update(state='S', command='SYNTHETIC_CPU_COMMAND'); write(launch_path, launch)
+            exit_path = stage / 'N09-production-CPU-exit.json'; exit = json.loads(exit_path.read_text())
+            exit['original_CPU_identity'] = dict(exit['original_CPU_identity'], state='R', command='SYNTHETIC_CPU_COMMAND')
+            write(exit_path, exit)
+            state, spawned, _ = run_supervisor(root, values)
+            self.assertEqual(spawned.call_count, 1); self.assertEqual(state['status'], GPU_TERMINAL_STATUS)
 
     def test_foreign_occupied_UUID_and_actual_balance_refuse_without_child(self):
         for mode in ('occupied', 'wrong_uuid', 'balance'):

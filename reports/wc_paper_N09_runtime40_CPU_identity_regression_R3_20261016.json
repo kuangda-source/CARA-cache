@@ -1,0 +1,37 @@
+{
+  "status": "CPU_TRANSIENT_PROCESS_FIELD_REGRESSION_REPRODUCED_NOT_SERVER_FAILURE",
+  "command": [
+    "/Users/kuangda_gao/Documents/世界模型加速实验/worldcache_omr/.venv/bin/python",
+    "-m",
+    "unittest",
+    "-v",
+    "test_runtime_profile40_cpu_acceptance_r1.RuntimeProfile40CPUAcceptanceControls.test_CPU_transient_state_change_keeps_same_PID_start_identity",
+    "test_runtime_profile40_supervision_r1.RuntimeProfile40SupervisionControls.test_CPU_transient_process_state_does_not_change_original_identity"
+  ],
+  "exit_code": 1,
+  "stdout": "",
+  "stderr": "test_CPU_transient_state_change_keeps_same_PID_start_identity (test_runtime_profile40_cpu_acceptance_r1.RuntimeProfile40CPUAcceptanceControls) ... ERROR\ntest_CPU_transient_process_state_does_not_change_original_identity (test_runtime_profile40_supervision_r1.RuntimeProfile40SupervisionControls) ... ERROR\n\n======================================================================\nERROR: test_CPU_transient_state_change_keeps_same_PID_start_identity (test_runtime_profile40_cpu_acceptance_r1.RuntimeProfile40CPUAcceptanceControls)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/Users/kuangda_gao/Documents/世界模型加速实验/worldcache_omr/tests/test_runtime_profile40_cpu_acceptance_r1.py\", line 87, in test_CPU_transient_state_change_keeps_same_PID_start_identity\n    self.assertTrue(cpu.accept(value)['CPU_accepted'])\n  File \"/Users/kuangda_gao/Documents/世界模型加速实验/worldcache_omr/src/wcomr/runtime_profile40_cpu_acceptance_r1.py\", line 108, in accept\n    raise ValueError('The same original CPU process must finish with its bound bundle and proof')\nValueError: The same original CPU process must finish with its bound bundle and proof\n\n======================================================================\nERROR: test_CPU_transient_process_state_does_not_change_original_identity (test_runtime_profile40_supervision_r1.RuntimeProfile40SupervisionControls)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/Users/kuangda_gao/Documents/世界模型加速实验/worldcache_omr/tests/test_runtime_profile40_supervision_r1.py\", line 201, in test_CPU_transient_process_state_does_not_change_original_identity\n    state, spawned, _ = run_supervisor(root, values)\n  File \"/Users/kuangda_gao/Documents/世界模型加速实验/worldcache_omr/tests/test_runtime_profile40_supervision_r1.py\", line 117, in run_supervisor\n    state = module.run(root, stage, registration['source_revision'], authority['gpu_uuid'])\n  File \"/Users/kuangda_gao/Documents/世界模型加速实验/worldcache_omr/scripts/supervise_wc_paper_N09_runtime_profile40_r1.py\", line 71, in run\n    raise ValueError('The original production CPU process must terminate successfully before GPU admission')\nValueError: The original production CPU process must terminate successfully before GPU admission\n\n----------------------------------------------------------------------\nRan 2 tests in 0.028s\n\nFAILED (errors=2)\n",
+  "CPU_wall_seconds": 1.3985395431518555,
+  "source_bindings": {
+    "src/wcomr/runtime_profile40_cpu_acceptance_r1.py": {
+      "bytes": 9066,
+      "sha256": "08be3cefcf3e9a7007b5f98162295439a7d5a96603cdeb0794bbf1dfc28256ef"
+    },
+    "scripts/supervise_wc_paper_N09_runtime_profile40_r1.py": {
+      "bytes": 10275,
+      "sha256": "04901db505dae5c6a3c4e46daf313ec128b7e40559258581de07d47f41fe41be"
+    },
+    "tests/test_runtime_profile40_cpu_acceptance_r1.py": {
+      "bytes": 16876,
+      "sha256": "805dc77f9be1249f29cf37616004ea9a73f87dcfed484340b5047348b60b48ce"
+    },
+    "tests/test_runtime_profile40_supervision_r1.py": {
+      "bytes": 15736,
+      "sha256": "6e0fe086cbd10eb5698fd3678243e035db661466c42b5d4a3b9d6dfede9c719f"
+    }
+  },
+  "actual_server_or_GPU": false,
+  "SSH_queries": 0,
+  "GPU_submissions": 0,
+  "ledger_written": false
+}
