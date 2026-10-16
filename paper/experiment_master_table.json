@@ -1170,7 +1170,7 @@
         "PAPER_E5_AUTOMATIC_QUALITY"
       ],
       "contribution_relation": "C3生成质量范围；补充保真主指标",
-      "evidence_or_planned_scope": "216固定代码/真实BPE及采样/输入桥保持；原五模型CPU入口和完整bundle/部署/独立接受链准备完成，15链路控制通过；四权重全SHA已核，ViCLIP服务器R1超时保留、本机R2获取同一pin。 512逐视频原入口/真实采样观察与AMT原生接口修复准备通过，相关48CPU；模型与codec均为显式替身，真实评分0。 513完整960批处理/中断日志核心11CPU通过，生产模型工厂和GPU驱动待。 515五模型共用构造与工厂/960接线相关54CPU通过，实际五模型与生产GPU仍待。",
+      "evidence_or_planned_scope": "216固定代码/真实BPE及采样/输入桥保持；原五模型CPU入口和完整bundle/部署/独立接受链准备完成，15链路控制通过；四权重全SHA已核，ViCLIP服务器R1超时保留、本机R2获取同一pin。 512逐视频原入口/真实采样观察与AMT原生接口修复准备通过，相关48CPU；模型与codec均为显式替身，真实评分0。 513完整960批处理/中断日志核心11CPU通过，生产模型工厂和GPU驱动待。 515五模型共用构造与工厂/960接线相关54CPU通过，实际五模型与生产GPU仍待。 516完整960生产worker与原任务准入接线相关45CPU通过，实际监督/部署/费用与原模型仍待。",
       "gap_and_next_action": "今天15:50一次收source129577b/原Mac19489/204范围；完整SHA接受后独立SCP接入服务器，重模型CPU与最终160/960评分仍待主线空档及实费。",
       "priority": "P2·复用最终视频",
       "evidence_refs": [
@@ -1235,7 +1235,15 @@
         "N10_shared_factory_CPU_R1_failure",
         "N10_shared_factory_related_CPU_R2",
         "N10_shared_factory_related_CPU_R3",
-        "N10_shared_constructor_packet_cold_CPU"
+        "N10_shared_constructor_packet_cold_CPU",
+        "516",
+        "N10_full960_production_contract",
+        "N10_full960_scoring_worker",
+        "N10_full960_entry_tests",
+        "N10_full960_entry_CPU_R1",
+        "N10_full960_entry_related_CPU_R2",
+        "N10_full960_entry_CPU_R3",
+        "N10_full960_entry_related_CPU_R4"
       ],
       "method_mapping_ids": [],
       "depends_on": [
@@ -1302,7 +1310,12 @@
       "shared_factory_related_CPU_controls_accepted": 54,
       "full960_factory_core_synthetic_integration_accepted": true,
       "shared_constructor_CPU_packet_files": 232,
-      "shared_constructor_isolated_cold_import_accepted": true
+      "shared_constructor_isolated_cold_import_accepted": true,
+      "full960_production_contract_implemented": true,
+      "full960_scoring_worker_implemented": true,
+      "full960_production_entry_CPU_controls_accepted": 8,
+      "full960_entry_related_CPU_controls_accepted": 45,
+      "full960_scoring_supervisor_implemented": false
     },
     {
       "id": "N11",
@@ -1595,7 +1608,15 @@
     "N10_shared_factory_CPU_R1_failure": "reports/wc_paper_N10_shared_constructor_factory_CPU_R1_20261016.json",
     "N10_shared_factory_related_CPU_R2": "reports/wc_paper_N10_shared_constructor_factory_related_CPU_R2_20261016.json",
     "N10_shared_factory_related_CPU_R3": "reports/wc_paper_N10_shared_constructor_factory_related_CPU_R3_20261016.json",
-    "N10_shared_constructor_packet_cold_CPU": "reports/wc_paper_N10_shared_constructor_packet_and_cold_import_CPU_20261016.json"
+    "N10_shared_constructor_packet_cold_CPU": "reports/wc_paper_N10_shared_constructor_packet_and_cold_import_CPU_20261016.json",
+    "516": "research/516_WC_N10_COMPLETE960_SCORING_WORKER_AND_ORIGINAL_ADMISSION_CPU_PREPARATION_20261016.md",
+    "N10_full960_production_contract": "src/wcomr/automatic_quality_production_r1.py",
+    "N10_full960_scoring_worker": "scripts/score_wc_paper_N10_full960_r1.py",
+    "N10_full960_entry_tests": "tests/test_N10_production_entry_r1.py",
+    "N10_full960_entry_CPU_R1": "reports/wc_paper_N10_full960_production_entry_CPU_R1_20261016.json",
+    "N10_full960_entry_related_CPU_R2": "reports/wc_paper_N10_full960_production_entry_related_CPU_R2_20261016.json",
+    "N10_full960_entry_CPU_R3": "reports/wc_paper_N10_full960_production_entry_CPU_R3_20261016.json",
+    "N10_full960_entry_related_CPU_R4": "reports/wc_paper_N10_full960_production_entry_related_CPU_R4_20261016.json"
   },
   "source_bindings": {
     "11": {
@@ -1748,7 +1769,7 @@
     },
     "mainline_queue_20261016": {
       "path": "plans/WORLD_CACHE_MAINLINE_PRIORITY_QUEUE_20261016.md",
-      "sha256": "c9e823fb2f6c17de24ab807490bd68d0a977f8543c9559c8d2aa9fafd560881b"
+      "sha256": "83be5c46d4ba9f2358fda8280a8f7399421f7360eb94b1c24e8a927baf236517"
     },
     "baseline_grid_prereg_20261016": {
       "path": "manifests/wc_paper_N05_bounded_baseline_grid_preregistration_draft_20261016.json",
@@ -2565,6 +2586,38 @@
     "N10_shared_constructor_packet_cold_CPU": {
       "path": "reports/wc_paper_N10_shared_constructor_packet_and_cold_import_CPU_20261016.json",
       "sha256": "da007b6f14d237a2e73470284b472979307e1da329146224387111f902e89c93"
+    },
+    "516": {
+      "path": "research/516_WC_N10_COMPLETE960_SCORING_WORKER_AND_ORIGINAL_ADMISSION_CPU_PREPARATION_20261016.md",
+      "sha256": "c3db70fd6f7175dbebb12786df47f4ca26797d821921285e4417f2f315d3b577"
+    },
+    "N10_full960_production_contract": {
+      "path": "src/wcomr/automatic_quality_production_r1.py",
+      "sha256": "875ae27c97638df43c0c7bcd87e8771f6fc18d2c576763c9c5cf31ef8abbc37f"
+    },
+    "N10_full960_scoring_worker": {
+      "path": "scripts/score_wc_paper_N10_full960_r1.py",
+      "sha256": "271afd32aad56cc176a52a3f7bb8b10960dcea1d41f34cfc36665288a96e0e7e"
+    },
+    "N10_full960_entry_tests": {
+      "path": "tests/test_N10_production_entry_r1.py",
+      "sha256": "83f4bda3af13d30fa917f683010892adac85e5ffdd95853e2b5d9e26277cc76c"
+    },
+    "N10_full960_entry_CPU_R1": {
+      "path": "reports/wc_paper_N10_full960_production_entry_CPU_R1_20261016.json",
+      "sha256": "008bc9364d3da079287f260fbbc5c0d98dc37a405784baef9c98a1b16c078281"
+    },
+    "N10_full960_entry_related_CPU_R2": {
+      "path": "reports/wc_paper_N10_full960_production_entry_related_CPU_R2_20261016.json",
+      "sha256": "06a68d55fba786881e4dded75ca211868cdb17d42cddf3df66d2ae20a97564a7"
+    },
+    "N10_full960_entry_CPU_R3": {
+      "path": "reports/wc_paper_N10_full960_production_entry_CPU_R3_20261016.json",
+      "sha256": "ce3aac1b3e3f71fb21635339a87f0f41c00e006832c5e8f5d804e464611f3640"
+    },
+    "N10_full960_entry_related_CPU_R4": {
+      "path": "reports/wc_paper_N10_full960_production_entry_related_CPU_R4_20261016.json",
+      "sha256": "8797ba2a6194da4abce0654dc6efcb4e44750e1e596da1b6e9fcac9c803eb244"
     }
   },
   "operation_policy": {
@@ -2878,5 +2931,5 @@
     "N10_new_range_CPU_ready": true,
     "N10_new_range_dispatched": true
   },
-  "mapping_sha256_at_inventory": "b2146512b73cb5ac83b4ea2d921e4e402917f455fd600db1844da7781885922c"
+  "mapping_sha256_at_inventory": "401e52b03939455b932ba3edee19556fc866bb57116722513f8bb92b27affa77"
 }
