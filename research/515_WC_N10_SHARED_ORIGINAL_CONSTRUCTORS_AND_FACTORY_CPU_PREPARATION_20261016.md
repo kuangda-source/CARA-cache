@@ -25,10 +25,16 @@
 
 这些测试使用微型Torch参数/合成检查点和显式模块、评分器替身，未运行原指标模型前向、真实视频或codec。54项不是五个真实模型的CPU接受，更不是质量或加速结果。原真实五模型CPU、生产评分驱动/完整费用和GPU卡仍未完成。
 
+## 提交后的打包复核
+
+在构造代码提交`420b003`后，实际构造并展开232份本地CPU部署payload，逐份SHA与Git绑定复核通过，其中12份项目源码、216份固定官方代码以及原词表、资源元数据和引用。另12份DINO服务器缓存源码仍由原部署入口按既有SHA复制，未在本轮远程执行。
+
+在独立临时目录、禁用site-packages的Python中，仅使用展开包导入新工厂/评分入口/原接受器成功，Torch和NumPy均未导入。该检查的资源回执是显式合成元数据，只验证包接口和依赖闭合，不证明真实ViCLIP已收到；没有调用SSH或派发CPU模型。
+
 ## 当前接续
 
 N10资源仍按原source`129577b`/PID19489，**今天15:50一次收**；本轮未提前查看。原N07/source`140d0a6`完整180不变，**今天21:30半程技术检查、明早05:30完整验收**。主线N07→N08→N09/10，重模型CPU避开主线生成/重复clean测速。
 
 本轮0SSH、0新GPU、0服务器/账本写入；同一累计cap113与原origin保持，F/B关闭，无训练、OMR或人评。新增工厂不授予GPU权限；正式评分仍须完整生产CPU、整卡费用、预算余额和UUID锁准入。
 
-原件：[54项CPU](../reports/wc_paper_N10_shared_constructor_factory_related_CPU_R3_20261016.json)、[R2的51项](../reports/wc_paper_N10_shared_constructor_factory_related_CPU_R2_20261016.json)、[原夹具别名失败](../reports/wc_paper_N10_shared_constructor_factory_CPU_R1_20261016.json)、[514两次检查安排](514_WC_N07_MIDPOINT_HEALTH_CHECK_AND_FINAL_COLLECTION_SCHEDULE_20261016.md)、[513完整批处理](513_WC_N10_COMPLETE960_BATCH_CORE_AND_INTERRUPTION_JOURNAL_CPU_READY_20261016.md)。
+原件：[232包与隔离冷导入](../reports/wc_paper_N10_shared_constructor_packet_and_cold_import_CPU_20261016.json)、[54项CPU](../reports/wc_paper_N10_shared_constructor_factory_related_CPU_R3_20261016.json)、[R2的51项](../reports/wc_paper_N10_shared_constructor_factory_related_CPU_R2_20261016.json)、[原夹具别名失败](../reports/wc_paper_N10_shared_constructor_factory_CPU_R1_20261016.json)、[514两次检查安排](514_WC_N07_MIDPOINT_HEALTH_CHECK_AND_FINAL_COLLECTION_SCHEDULE_20261016.md)、[513完整批处理](513_WC_N10_COMPLETE960_BATCH_CORE_AND_INTERRUPTION_JOURNAL_CPU_READY_20261016.md)。

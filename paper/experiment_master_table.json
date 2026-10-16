@@ -1234,7 +1234,8 @@
         "N10_original_model_factory_tests",
         "N10_shared_factory_CPU_R1_failure",
         "N10_shared_factory_related_CPU_R2",
-        "N10_shared_factory_related_CPU_R3"
+        "N10_shared_factory_related_CPU_R3",
+        "N10_shared_constructor_packet_cold_CPU"
       ],
       "method_mapping_ids": [],
       "depends_on": [
@@ -1299,7 +1300,9 @@
       "CPU_scoring_same_constructor_required": true,
       "original_model_factory_implemented": true,
       "shared_factory_related_CPU_controls_accepted": 54,
-      "full960_factory_core_synthetic_integration_accepted": true
+      "full960_factory_core_synthetic_integration_accepted": true,
+      "shared_constructor_CPU_packet_files": 232,
+      "shared_constructor_isolated_cold_import_accepted": true
     },
     {
       "id": "N11",
@@ -1591,7 +1594,8 @@
     "N10_original_model_factory_tests": "tests/test_N10_original_model_factory_r1.py",
     "N10_shared_factory_CPU_R1_failure": "reports/wc_paper_N10_shared_constructor_factory_CPU_R1_20261016.json",
     "N10_shared_factory_related_CPU_R2": "reports/wc_paper_N10_shared_constructor_factory_related_CPU_R2_20261016.json",
-    "N10_shared_factory_related_CPU_R3": "reports/wc_paper_N10_shared_constructor_factory_related_CPU_R3_20261016.json"
+    "N10_shared_factory_related_CPU_R3": "reports/wc_paper_N10_shared_constructor_factory_related_CPU_R3_20261016.json",
+    "N10_shared_constructor_packet_cold_CPU": "reports/wc_paper_N10_shared_constructor_packet_and_cold_import_CPU_20261016.json"
   },
   "source_bindings": {
     "11": {
@@ -1744,7 +1748,7 @@
     },
     "mainline_queue_20261016": {
       "path": "plans/WORLD_CACHE_MAINLINE_PRIORITY_QUEUE_20261016.md",
-      "sha256": "5920945195e1027b74c3b9cc392357188888391c6ba52d3ade15e9c1a27c46fb"
+      "sha256": "c9e823fb2f6c17de24ab807490bd68d0a977f8543c9559c8d2aa9fafd560881b"
     },
     "baseline_grid_prereg_20261016": {
       "path": "manifests/wc_paper_N05_bounded_baseline_grid_preregistration_draft_20261016.json",
@@ -2536,7 +2540,7 @@
     },
     "515": {
       "path": "research/515_WC_N10_SHARED_ORIGINAL_CONSTRUCTORS_AND_FACTORY_CPU_PREPARATION_20261016.md",
-      "sha256": "c3e91e96b35f8b7fcfa1074ac2d13c266a4691c5a89bc577cf826db52fc22ed7"
+      "sha256": "d5e3a383c92a328cba74ce04dac1b34f8f2263d8cca032f910ffb540aaf243f5"
     },
     "N10_shared_model_constructors": {
       "path": "src/wcomr/automatic_quality_models_r1.py",
@@ -2557,6 +2561,10 @@
     "N10_shared_factory_related_CPU_R3": {
       "path": "reports/wc_paper_N10_shared_constructor_factory_related_CPU_R3_20261016.json",
       "sha256": "18ad6f5bfff1a75e3d69c2a570b1e6d8c6b768433140824927b8e0d4ad457457"
+    },
+    "N10_shared_constructor_packet_cold_CPU": {
+      "path": "reports/wc_paper_N10_shared_constructor_packet_and_cold_import_CPU_20261016.json",
+      "sha256": "da007b6f14d237a2e73470284b472979307e1da329146224387111f902e89c93"
     }
   },
   "operation_policy": {
@@ -2870,5 +2878,5 @@
     "N10_new_range_CPU_ready": true,
     "N10_new_range_dispatched": true
   },
-  "mapping_sha256_at_inventory": "8eea488a82e0635313b5be1a85dd870c0ef835bb8426db528287115dcb7762e9"
+  "mapping_sha256_at_inventory": "b2146512b73cb5ac83b4ea2d921e4e402917f455fd600db1844da7781885922c"
 }
