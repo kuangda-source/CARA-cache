@@ -894,7 +894,7 @@
         "PAPER_E3_FROZEN_SHARED_TEST"
       ],
       "contribution_relation": "C1/C2最终版本确认；C3覆盖",
-      "evidence_or_planned_scope": "8新prompt×seed17/43×十方法，160正式+20warm/6318pairs；1725源/六命令真实CPU通过，完整GPU单次准入。",
+      "evidence_or_planned_scope": "8新prompt×seed17/43×十方法，160正式+20warm/6318pairs；1725源/六命令真实CPU通过，完整GPU单次准入。 531半程独立技术入口6标准库CPU与冷CLI已准备，原PID/source与21:30/05:30保持，尚未实际健康查收或读取科学结果。",
       "gap_and_next_action": "10月17日05:30按原句柄一次查收全部180分母、适用93帧/预热/终态/费用与资源释放；不读科学partial或按新测试改方法。",
       "priority": "P1·原完整卡运行与验收",
       "evidence_refs": [
@@ -932,7 +932,12 @@
         "N07_full180_GPU_launch",
         "N07_full180_independent_admission",
         "514",
-        "N07_midpoint_final_schedule"
+        "N07_midpoint_final_schedule",
+        "531",
+        "N07_midpoint_technical_core",
+        "N07_midpoint_once_CLI",
+        "N07_midpoint_local_controls",
+        "N07_midpoint_entry_CPU_preparation"
       ],
       "method_mapping_ids": [
         "config.efficient",
@@ -1020,7 +1025,11 @@
       "next_collection_local": "2026-10-17T05:30:00+08:00",
       "midpoint_health_check_local": "2026-10-16T21:30:00+08:00",
       "final_collection_local": "2026-10-17T05:30:00+08:00",
-      "midpoint_health_runtime_checked": false
+      "midpoint_health_runtime_checked": false,
+      "midpoint_technical_entry_implemented": true,
+      "midpoint_entry_local_CPU_controls": 6,
+      "midpoint_entry_CPU_ref": "reports/wc_paper_N07_midpoint_health_entry_local_CPU_20261016.json",
+      "actual_midpoint_runtime_health_checked": false
     },
     {
       "id": "N08",
@@ -1973,7 +1982,12 @@
     "N09_action12_readonly_post_tests": "tests/test_action_price12_post_r1.py",
     "N09_action12_post_raw_CPU_driver": "scripts/check_wc_paper_N09_action12_post_local_CPU_r1.py",
     "N09_action12_post_current_CPU_preparation": "reports/wc_paper_N09_action12_readonly_post_local_CPU_preparation_20261016.json",
-    "N09_action12_post_complete_CPU_raw": "reports/wc_paper_N09_action12_post_full24_raw1528_local_CPU_R1_20261016.json.gz"
+    "N09_action12_post_complete_CPU_raw": "reports/wc_paper_N09_action12_post_full24_raw1528_local_CPU_R1_20261016.json.gz",
+    "531": "research/531_WC_N07_ONCE_MIDPOINT_TECHNICAL_ENTRY_CPU_PREPARED_20261016.md",
+    "N07_midpoint_technical_core": "src/wcomr/frozen_shared_health_r1.py",
+    "N07_midpoint_once_CLI": "scripts/capture_wc_paper_N07_midpoint_health_r1.py",
+    "N07_midpoint_local_controls": "tests/test_frozen_shared_midpoint_health_r1.py",
+    "N07_midpoint_entry_CPU_preparation": "reports/wc_paper_N07_midpoint_health_entry_local_CPU_20261016.json"
   },
   "source_bindings": {
     "11": {
@@ -2126,7 +2140,7 @@
     },
     "mainline_queue_20261016": {
       "path": "plans/WORLD_CACHE_MAINLINE_PRIORITY_QUEUE_20261016.md",
-      "sha256": "bde7db592280e636b14a69fe48b88bdf507202ef21301c9c347bd71a710c06cf"
+      "sha256": "f5c7fec2b6132304b53f1c05e14a01dd353c57d698ad9ddc6ba24288b9f0fd0d"
     },
     "baseline_grid_prereg_20261016": {
       "path": "manifests/wc_paper_N05_bounded_baseline_grid_preregistration_draft_20261016.json",
@@ -3447,6 +3461,26 @@
     "N09_action12_post_complete_CPU_raw": {
       "path": "reports/wc_paper_N09_action12_post_full24_raw1528_local_CPU_R1_20261016.json.gz",
       "sha256": "46ecac9ae7fdb368e4aa8c9eefffaecaae09b8270e7585704ff2b1c6415edc51"
+    },
+    "531": {
+      "path": "research/531_WC_N07_ONCE_MIDPOINT_TECHNICAL_ENTRY_CPU_PREPARED_20261016.md",
+      "sha256": "1ed70b84b237c1f200b87d47b6da107c9b453ca66484b4c7072d9ad5f1e56805"
+    },
+    "N07_midpoint_technical_core": {
+      "path": "src/wcomr/frozen_shared_health_r1.py",
+      "sha256": "a1690331e1e4cffa6a77fa751ad34cfe36f4c67b810984d3069d4ad525735a0f"
+    },
+    "N07_midpoint_once_CLI": {
+      "path": "scripts/capture_wc_paper_N07_midpoint_health_r1.py",
+      "sha256": "e42a94748bf758aa8b7871d6aae59f24027ddc6e1725616df870636c73fb4d5e"
+    },
+    "N07_midpoint_local_controls": {
+      "path": "tests/test_frozen_shared_midpoint_health_r1.py",
+      "sha256": "51cf963d4d892538824e6912c2b930c0d60c41521c56315342a7bb5132f5f86b"
+    },
+    "N07_midpoint_entry_CPU_preparation": {
+      "path": "reports/wc_paper_N07_midpoint_health_entry_local_CPU_20261016.json",
+      "sha256": "1d66c3c6f68304430daf03198df391b64c9ea3e4e567eca73477fc782fd372a1"
     }
   },
   "operation_policy": {
@@ -3787,7 +3821,17 @@
       "invalid_video_not_automatically_raw_teacher_failure": true,
       "complete_scope_not_relaxed": true,
       "N07_collection_times_unchanged": true
+    },
+    "N07_midpoint_technical_entry": {
+      "report": "research/531_WC_N07_ONCE_MIDPOINT_TECHNICAL_ENTRY_CPU_PREPARED_20261016.md",
+      "command": ".venv/bin/python scripts/capture_wc_paper_N07_midpoint_health_r1.py --output reports/wc_paper_N07_midpoint_health_20261016_2130.json",
+      "health_not_before_unix": 1792157400.0,
+      "original_final_not_before_unix": 1792185964.2521062,
+      "no_continuous_monitoring": true,
+      "duplicate_observation_blocked": true,
+      "actual_runtime_health_checked": false,
+      "no_original_task_relaunch": true
     }
   },
-  "mapping_sha256_at_inventory": "adee747d946e961691e61532917b10b16cdb0da9a6f18d4f5b5692277265ca39"
+  "mapping_sha256_at_inventory": "cf92d0dd6c68726693af1764d20fbf5b848901de23d2eb5c70b240abbce06e2e"
 }

@@ -1,0 +1,74 @@
+{
+  "status": "N07_MIDPOINT_TECHNICAL_ENTRY_LOCAL_CPU_READY_NOT_RUNTIME_HEALTH",
+  "recorded_unix": 1792156489.610018,
+  "source_sha256": {
+    "src/wcomr/frozen_shared_health_r1.py": "a1690331e1e4cffa6a77fa751ad34cfe36f4c67b810984d3069d4ad525735a0f",
+    "scripts/capture_wc_paper_N07_midpoint_health_r1.py": "e42a94748bf758aa8b7871d6aae59f24027ddc6e1725616df870636c73fb4d5e",
+    "tests/test_frozen_shared_midpoint_health_r1.py": "51cf963d4d892538824e6912c2b930c0d60c41521c56315342a7bb5132f5f86b"
+  },
+  "local_controls_passed": 6,
+  "local_log": "/tmp/wc_n07_midpoint_health_local_CPU_R3_20261016.log",
+  "local_log_sha256": "9073c1d3d4c4ec09a33261fdf905ccc1430382e20a7382efdf47468d2a1e42cd",
+  "local_log_output": "test_before_midpoint_and_after_final_never_SSH_or_create_attempt (test_frozen_shared_midpoint_health_r1.MidpointHealthControls) ... ok\ntest_one_observation_and_cached_receipt_never_duplicate_query (test_frozen_shared_midpoint_health_r1.MidpointHealthControls) ... ok\ntest_original_handle_missing_reused_and_post_failure_are_distinct (test_frozen_shared_midpoint_health_r1.MidpointHealthControls) ... ok\ntest_progress_counts_running_separately_and_never_returns_private_science_fields (test_frozen_shared_midpoint_health_r1.MidpointHealthControls) ... ok\ntest_real_original_process_binding_and_unchanged_two_times (test_frozen_shared_midpoint_health_r1.MidpointHealthControls) ... ok\ntest_transport_timeout_is_unknown_not_task_terminal_and_fence_prevents_race (test_frozen_shared_midpoint_health_r1.MidpointHealthControls) ... ok\n\n----------------------------------------------------------------------\nRan 6 tests in 0.017s\n\nOK\n",
+  "cold_CLI_help": {
+    "exit_code": 0,
+    "stdout": "usage: capture_wc_paper_N07_midpoint_health_r1.py [-h] [--project PROJECT]\n                                                  [--output OUTPUT]\n\nOne schedule-bound N07 health observation; no preliminary scientific data.\n\noptional arguments:\n  -h, --help         show this help message and exit\n  --project PROJECT\n  --output OUTPUT\n"
+  },
+  "expected_binding": {
+    "project": "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr",
+    "stage": "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/.sync/wc-paper-n07-production-cpu-r2-20261016",
+    "run_id": "wc-paper-n07-frozen-shared180-r1",
+    "source_revision": "140d0a6af7d5be16d1b191ab3a8e68ffe83d0007",
+    "launch_id": "798d9047-62e7-4a25-8112-5ab8910226fa",
+    "gpu_uuid": "GPU-de9a5370-cd87-0f1c-a48e-288888777dd3",
+    "config_sha256": "9de3e5b9c2ce0377888e1244aa77043b42d4f92f0d9cea498c13c59e3aeafd0c",
+    "registration_sha256": "ebf9703a7babd41d4a8b6cf473427e2a66c5a5a689ff92fd094048c496f304f4",
+    "scope_counts": {
+      "prompt_groups": 8,
+      "requests": 16,
+      "methods": 10,
+      "scientific_paths": 160,
+      "full_warmup_paths": 20,
+      "total_paths": 180,
+      "ordinary_pairs": 6318,
+      "loads": 1,
+      "teacher_pairs": 0,
+      "score_videos": 160,
+      "ordinary_CFG_calls": 12636
+    },
+    "processes": {
+      "supervisor": {
+        "pid": 1115797,
+        "start_ticks": 542326777
+      },
+      "runner": {
+        "pid": 1115898,
+        "start_ticks": 542330755
+      },
+      "CPU_post": {
+        "pid": 1115798,
+        "start_ticks": 542326783
+      }
+    },
+    "health_not_before_unix": 1792157400.0,
+    "final_not_before_unix": 1792185964.2521062
+  },
+  "original_terminal_collector": {
+    "path": "scripts/capture_wc_paper_N07_frozen_shared180_r1.py",
+    "sha256": "0f66689c42ec0f42d4d1987842107c485a17cd8a0a47060ae4942f6788d17d15",
+    "matches_original_registered_source": true
+  },
+  "canonical_health_receipt": "reports/wc_paper_N07_midpoint_health_20261016_2130.json",
+  "canonical_health_receipt_exists": false,
+  "early_and_late_gates_refuse_SSH": true,
+  "duplicate_or_in_progress_attempt_refuses_SSH": true,
+  "transport_unknown_never_task_terminal": true,
+  "partial_scientific_fields_filtered": true,
+  "original_full_final_collector_or_times_changed": false,
+  "runtime_health_checked": false,
+  "final_scientific_results_read": false,
+  "SSH_queries": 0,
+  "GPU_submissions": 0,
+  "ledger_written": false,
+  "server_stage_modified": false
+}

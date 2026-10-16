@@ -1,3 +1,7 @@
+## 2026-10-16 N07半程一次技术查收入口准备
+
+[531技术入口](research/531_WC_N07_ONCE_MIDPOINT_TECHNICAL_ENTRY_CPU_PREPARED_20261016.md)：N07半程独立只读入口已写，6标准库CPU控制和冷CLI通过，原三个PID/start_ticks、180分母/21:30半程及明早05:30原终态保持。到半程优先执行 `.venv/bin/python scripts/capture_wc_paper_N07_midpoint_health_r1.py --output reports/wc_paper_N07_midpoint_health_20261016_2130.json`；已有同launch回执只离线读取，不重复SSH。仅技术状态/资源/错误标签，不取科学partial；半程后不暂停原最终自动化。本轮0SSH/新GPU/账本写，尚未运行健康查收。 以下为历史。
+
 ## 2026-10-16 N09动作12只读后处理完整CPU准备
 
 [530完整后处理](research/530_WC_N09_ACTION12_READONLY_POST_FULL24_RAW1528_CPU_PREPARED_20261016.md)：N09动作12只读原件/36步/RGB/三轮计时审计已写，6本地控制与2冷CLI通过，原24注册路径112文件1528张量/768正式区间重读通过，未重跑采样。修复仅诊断路径教师汇总字段误判，旧失败保留；视频为Toy回调，真实生产CPU/GPU与终态接受仍待。原12/944/10.045规划、N07今晚21:30/明早05:30、cap113与严格<12保持，本轮0SSH/新GPU/账本写。 以下为历史。
