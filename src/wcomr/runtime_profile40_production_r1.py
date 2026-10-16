@@ -37,8 +37,9 @@ def validate_contract(config,scope,protocol,freeze,shared):
     return bound
 
 
-def validate(project,stage):
-    from .frozen_shared_production_r1 import CONFIG as SHARED_CONFIG,validate as shared_validate
+def referenced_contract(stage):
+    """Bind saved completed-mainline evidence without loading physical runtime inputs."""
+    from .frozen_shared_production_r1 import CONFIG as SHARED_CONFIG
     from .frozen_shared_acceptance_r1 import accept as accept_shared
     from .balanced_repeat_acceptance_r1 import accept as accept_repeated
     stage=Path(stage);config=json.loads((stage/CONFIG).read_text());refs=config['references']
@@ -84,11 +85,17 @@ def validate(project,stage):
                 or capture['payload_actual_sha256'].get(name)!=digest):
             raise ValueError('An actual original102 observer/numerical source changed: '+name)
         sources[name]=digest
+    reused=dict(original_full102_CPU_paths=102,source_sha256=sources,new_full102_paths_run=0)
+    return config,data,bound,reused
+
+
+def validate(project,stage):
+    from .frozen_shared_production_r1 import validate as shared_validate
+    config,data,bound,reused=referenced_contract(stage)
     actual,registration,old,inputs,tables,previous,shared_bound,numeric=shared_validate(project,stage)
-    if actual!=shared or shared_bound['method_ids']!=bound['final_shared_method_ids']:
+    if actual!=data['shared_config'] or shared_bound['method_ids']!=bound['final_shared_method_ids']:
         raise ValueError('The current shared inference binding differs from the original freeze')
-    reused=dict(original_full102_CPU_paths=102,source_sha256=sources,
-        new_full102_paths_run=0,shared_numeric_reuse=numeric)
+    reused['shared_numeric_reuse']=numeric
     return config,registration,old,inputs,tables,previous,bound,reused
 
 
