@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "updated_local_date": "2026-10-16",
-  "snapshot_basis": "N07 original full180/ETA/cap113 unchanged. N10 original localR2 terminal 78,094,879byte truncation preserved; exact206 range transport and13 CPU controls prepared, new range task not yet dispatched. No new GPU/model/quality result.",
-  "git_snapshot_before_inventory": "8c0591e8155c73273ade7ef94111002d990ce7d3",
+  "snapshot_basis": "N07 original full180 source/ETA/cap113 unchanged. N10 known-terminal R1/R2 failures preserved; new exact204-range localR3 source129577b/PID19489 dispatched, next15:50. Still no complete resource/model/quality result; no new GPU/ledger write.",
+  "git_snapshot_before_inventory": "129577b94a5a91b38cf2b67baaa53de5a7963116",
   "mapping_ref": "paper/internal_to_paper_mapping.json",
   "scope": "scientific experiment families and complete cards, not each engineering retry; reused artifacts must not be summed as independent samples",
   "contributions": {
@@ -1159,14 +1159,14 @@
     },
     {
       "id": "N10",
-      "state": "待补｜本机截断保留，分段入口CPU通过",
+      "state": "待补｜固定权重分段R3在途，15:50收",
       "paper_experiment_name": "Automatic Video Quality on Final Outputs",
       "internal_ids": [
         "PAPER_E5_AUTOMATIC_QUALITY"
       ],
       "contribution_relation": "C3生成质量范围；补充保真主指标",
       "evidence_or_planned_scope": "216固定代码/真实BPE及采样/输入桥保持；原五模型CPU入口和完整bundle/部署/独立接受链准备完成，15链路控制通过；四权重全SHA已核，ViCLIP服务器R1超时保留、本机R2获取同一pin。",
-      "gap_and_next_action": "原R1/R2都终态保留；新精确8MiB范围下载通过13CPU，提交后单次派R3、启动90分钟后一次收；完整SHA通过才传服务器，重模型CPU避开N07/N08。",
+      "gap_and_next_action": "今天15:50一次收source129577b/原Mac19489/204范围；完整SHA接受后独立SCP接入服务器，重模型CPU与最终160/960评分仍待主线空档及实费。",
       "priority": "P2·复用最终视频",
       "evidence_refs": [
         "28",
@@ -1206,7 +1206,9 @@
         "N10_range_download_worker",
         "N10_range_download_launcher",
         "N10_range_download_tests",
-        "N10_local_resource_capture_tests"
+        "N10_local_resource_capture_tests",
+        "511",
+        "N10_exact_ranges204_R3_launch"
       ],
       "method_mapping_ids": [],
       "depends_on": [
@@ -1237,9 +1239,9 @@
       "actual_metric_models_loaded": 0,
       "actual_metric_model_CPU_accepted": false,
       "actual_quality_scores": 0,
-      "ViCLIP_resource_acquisition_dispatched": false,
-      "ViCLIP_resource_launch_ref": "reports/wc_paper_N10_ViCLIP_local_proxy_R2_launch_20261016.json",
-      "ViCLIP_resource_next_collection_local": null,
+      "ViCLIP_resource_acquisition_dispatched": true,
+      "ViCLIP_resource_launch_ref": "reports/wc_paper_N10_ViCLIP_local_ranges_R3_launch_20261016.json",
+      "ViCLIP_resource_next_collection_local": "2026-10-16T15:50:00+08:00",
       "single_model_CPU_worker_implemented": true,
       "model_CPU_preimport_boundary_controls_accepted": 5,
       "whole_metric_model_CPU_bundle_implemented": true,
@@ -1247,8 +1249,8 @@
       "whole_metric_model_CPU_raw_acceptor_implemented": true,
       "whole_metric_model_CPU_chain_controls_accepted": 15,
       "ViCLIP_R1_terminal_failure_preserved": true,
-      "ViCLIP_resource_execution_origin": "LOCAL_MAC_EXISTING_PROXY_SAME_PINNED_RESOURCE",
-      "ViCLIP_resource_local_pid": null,
+      "ViCLIP_resource_execution_origin": "LOCAL_MACOS_ORIGINAL_CURL_EXACT_206_RANGES",
+      "ViCLIP_resource_local_pid": 19489,
       "ViCLIP_resource_full_bytes_accepted": false,
       "resource_SCP_relay_tool_prepared": true,
       "resource_SCP_relay_CPU_controls_accepted": 9,
@@ -1257,7 +1259,7 @@
       "ViCLIP_R2_terminal_truncation_preserved": true,
       "ViCLIP_R2_received_bytes": 78094879,
       "ViCLIP_exact_range_CPU_controls_accepted": 13,
-      "ViCLIP_exact_range_download_dispatched": false
+      "ViCLIP_exact_range_download_dispatched": true
     },
     {
       "id": "N11",
@@ -1524,7 +1526,9 @@
     "N10_range_download_worker": "scripts/fetch_wc_N10_viclip_ranges_r1.py",
     "N10_range_download_launcher": "scripts/launch_wc_N10_viclip_ranges_r1.py",
     "N10_range_download_tests": "tests/test_N10_resource_ranges_r1.py",
-    "N10_local_resource_capture_tests": "tests/test_N10_local_resource_capture_r1.py"
+    "N10_local_resource_capture_tests": "tests/test_N10_local_resource_capture_r1.py",
+    "511": "research/511_WC_N10_EXACT_RANGE204_LOCAL_R3_SINGLE_LAUNCH_AND_1550_COLLECTION_20261016.md",
+    "N10_exact_ranges204_R3_launch": "reports/wc_paper_N10_ViCLIP_local_ranges_R3_launch_20261016.json"
   },
   "source_bindings": {
     "11": {
@@ -1677,7 +1681,7 @@
     },
     "mainline_queue_20261016": {
       "path": "plans/WORLD_CACHE_MAINLINE_PRIORITY_QUEUE_20261016.md",
-      "sha256": "5a7333ce1a0bfeda8824babdec96cd4ed58e7153a0e5646b1f9d7aeaa18834ee"
+      "sha256": "b266419b6b4444ba86d87fdff471561899b681b2aaefe85bcac1b258689f6236"
     },
     "baseline_grid_prereg_20261016": {
       "path": "manifests/wc_paper_N05_bounded_baseline_grid_preregistration_draft_20261016.json",
@@ -2390,6 +2394,14 @@
     "N10_local_resource_capture_tests": {
       "path": "tests/test_N10_local_resource_capture_r1.py",
       "sha256": "65242da5bb03261b98cade9ddce234e3e7f528885a93bb655ca9f3c4a658ef88"
+    },
+    "511": {
+      "path": "research/511_WC_N10_EXACT_RANGE204_LOCAL_R3_SINGLE_LAUNCH_AND_1550_COLLECTION_20261016.md",
+      "sha256": "cc4776c5da64916f8b6c04db7fd2fcb97a6710b9255c0992602c3db6debb4588"
+    },
+    "N10_exact_ranges204_R3_launch": {
+      "path": "reports/wc_paper_N10_ViCLIP_local_ranges_R3_launch_20261016.json",
+      "sha256": "c3437d369a602c279a38ebceeea5fa38dcad985f5c3de0975da05f1b18cb544b"
     }
   },
   "operation_policy": {
@@ -2414,7 +2426,8 @@
     "available_after_whole_reservations_GPUh": 4.362619786984768,
     "per_UUID_lock_protocol": "plans/WORLD_CACHE_DUAL_GPU_EXECUTION_20261015.md",
     "scheduled_collections_local": {
-      "N07_SHARED180": "2026-10-17T05:30:00+08:00"
+      "N07_SHARED180": "2026-10-17T05:30:00+08:00",
+      "N10_LOCAL_RANGES_R3": "2026-10-16T15:50:00+08:00"
     },
     "running_forecasts_GPUh": {
       "wc-paper-n07-frozen-shared180-r1": 15.055555555555555
@@ -2465,7 +2478,14 @@
     },
     "W3_original_terminal_collection_performed": true,
     "SIMPLE26D_R1_collection_closed": true,
-    "current_CPU_task": null,
+    "current_CPU_task": {
+      "kind": "PINNED_PUBLIC_CHECKPOINT_ORIGINAL_LOCAL_RANGE_FETCH",
+      "source": "129577b94a5a91b38cf2b67baaa53de5a7963116",
+      "pid": 19489,
+      "stage": ".sync/wc-N10-viclip-local-ranges-r3-20261016",
+      "launch_ref": "reports/wc_paper_N10_ViCLIP_local_ranges_R3_launch_20261016.json",
+      "next_collection": "2026-10-16T15:50:00+08:00"
+    },
     "next_W3_CPU_collection": null,
     "SIMPLE26D_R2_next_collection": null,
     "current_reserved_GPUh": 15.055555555555555,
@@ -2665,8 +2685,8 @@
     "N07_CPU_R2_terminal_accepted": true,
     "budget_snapshot_observed_unix": 1792128410.4587996,
     "N08_same_window_extended_cap_CPU_ready": true,
-    "N10_resource_next_collection_local": null,
-    "N10_resource_first_collection_not_before_unix": 1792130308.3730319,
+    "N10_resource_next_collection_local": "2026-10-16T15:50:00+08:00",
+    "N10_resource_first_collection_not_before_unix": 1792136726.652263,
     "N10_resource_GPU_submissions": 0,
     "previous_cumulative_cap_GPUh": 104.97136333301378,
     "cumulative_cap_GPUh": 113.0,
@@ -2693,7 +2713,7 @@
     ],
     "N10_local_R2_terminal_failure_preserved": true,
     "N10_new_range_CPU_ready": true,
-    "N10_new_range_dispatched": false
+    "N10_new_range_dispatched": true
   },
-  "mapping_sha256_at_inventory": "fd0e0206b631bc52e3b40b5a1b539041d697161e683a5e6938a0c72a2b2a8890"
+  "mapping_sha256_at_inventory": "0013f233fa98763d820f7d2b41cd04cc9949e13b92ef3f782a886fa35173a096"
 }

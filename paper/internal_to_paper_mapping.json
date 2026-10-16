@@ -3,7 +3,7 @@
   "updated_local_date": "2026-10-16",
   "repository": "kuangda-source/worldcache-omr-experiments",
   "repository_absolute_path": "/Users/kuangda_gao/Documents/世界模型加速实验/worldcache_omr",
-  "snapshot_git_commit_before_mapping": "8c0591e8155c73273ade7ef94111002d990ce7d3",
+  "snapshot_git_commit_before_mapping": "129577b94a5a91b38cf2b67baaa53de5a7963116",
   "human_reference_conversation": {
     "id": "6abf4581-4ec8-83e8-8990-3efe11053cf4",
     "title": "worldcache讨论",
@@ -1704,7 +1704,8 @@
     "N10_resource_transport_R2_507": "research/507_WC_N10_SERVER_RESOURCE_TIMEOUT_RETAINED_LOCAL_PROXY_DOWNLOAD_AND_MAINLINE_PRIORITY_20261016.md",
     "N10_resource_SCP_ready_508": "research/508_WC_N10_ORIGINAL_SCP_PINNED_RESOURCE_RELAY_CPU_READY_NO_GPU_INTERFERENCE_20261016.md",
     "N09_runtime_scope40_509": "research/509_WC_N09_FROZEN_RUNTIME_PROFILE40_SCOPE_AND_REMAINING_ACTION_CALIBRATION_COSTS_20261016.md",
-    "N10_local_range_repair_510": "research/510_WC_N10_LOCAL_TRUNCATION_RETAINED_EXACT_HTTP_RANGES_CPU_REPAIR_20261016.md"
+    "N10_local_range_repair_510": "research/510_WC_N10_LOCAL_TRUNCATION_RETAINED_EXACT_HTTP_RANGES_CPU_REPAIR_20261016.md",
+    "N10_exact_ranges204_launch_511": "research/511_WC_N10_EXACT_RANGE204_LOCAL_R3_SINGLE_LAUNCH_AND_1550_COLLECTION_20261016.md"
   },
   "evidence_batches": {
     "curve60": {
@@ -2906,6 +2907,26 @@
       "CPU_receipt_ref": "reports/wc_paper_N10_range_download_and_capture_CPU_preparation_20261016.json",
       "GPU_submissions": 0,
       "SSH_queries": 0
+    },
+    "N10_exact_ranges204_local_R3": {
+      "status": "ORIGINAL_EXACT_RANGE_RESOURCE_SINGLE_DISPATCHED_NOT_RESOURCE_OR_MODEL_ACCEPTANCE",
+      "source_revision": "129577b94a5a91b38cf2b67baaa53de5a7963116",
+      "local_pid": 19489,
+      "expected_weight": {
+        "url": "https://huggingface.co/OpenGVLab/VBench_Used_Models/resolve/83290ee59b4e2c0a4d198857edbc79dd186b8d44/ViClip-InternVid-10M-FLT.pth",
+        "sha256": "7a4d6ad6eac6632db3693f4b97f9f8f6445b65b1e139a6fc6686150522238c56",
+        "bytes": 1710545812,
+        "name": "ViClip-InternVid-10M-FLT.pth"
+      },
+      "planned_ranges": 204,
+      "chunk_bytes": 8388608,
+      "first_collection_not_before_unix": 1792136726.652263,
+      "scheduled_collection_local": "2026-10-16T15:50:00+08:00",
+      "previous_R1_R2_failure_retained": true,
+      "actual_metric_models": 0,
+      "quality_scores": 0,
+      "GPU_submissions": 0,
+      "launch_ref": "reports/wc_paper_N10_ViCLIP_local_ranges_R3_launch_20261016.json"
     }
   },
   "statistical_rules": {
@@ -4365,6 +4386,14 @@
     "tests/test_N10_local_resource_capture_r1.py": {
       "sha256": "65242da5bb03261b98cade9ddce234e3e7f528885a93bb655ca9f3c4a658ef88",
       "bytes": 4776
+    },
+    "research/511_WC_N10_EXACT_RANGE204_LOCAL_R3_SINGLE_LAUNCH_AND_1550_COLLECTION_20261016.md": {
+      "sha256": "cc4776c5da64916f8b6c04db7fd2fcb97a6710b9255c0992602c3db6debb4588",
+      "bytes": 2631
+    },
+    "reports/wc_paper_N10_ViCLIP_local_ranges_R3_launch_20261016.json": {
+      "sha256": "c3437d369a602c279a38ebceeea5fa38dcad985f5c3de0975da05f1b18cb544b",
+      "bytes": 2367
     }
   },
   "math_notation": [
