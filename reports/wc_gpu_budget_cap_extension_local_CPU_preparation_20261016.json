@@ -1,0 +1,22 @@
+{
+  "status": "EXPLICIT_CAP_EXTENSION_SYNTHETIC_LOCAL_CPU_CONTROLS_ACCEPTED_NOT_REAL_APPROVAL_OR_SERVER_WRITE",
+  "observed_unix": 1792124761.82404,
+  "command": "PYTHONPATH=src .venv/bin/python -m unittest discover -s tests -p test_gpu_budget_cap_extension_v2.py -v",
+  "controls": 5,
+  "passed_tests": [
+    "preserve_all_jobs_actual_origin_and_active_reservation",
+    "same_approval_idempotent_and_changed_approval_refused",
+    "proposals_missing_permission_and_wrong_window_refused",
+    "stored_accounting_mismatch_not_silently_repaired",
+    "foreign_approval_and_new_window_refused"
+  ],
+  "source_sha256": {
+    "src/wcomr/gpu_budget_cap_extension_v2.py": "1cf503186270b790c92aa924f4d2cfd612fb4e66c0d95f63371598b0e02cbb74",
+    "tests/test_gpu_budget_cap_extension_v2.py": "761b601201ef5856ef59652387ca397131514f98499f130b7b7a07caa9cc5303"
+  },
+  "fixtures_only": true,
+  "actual_human_approval_issued": false,
+  "actual_server_budget_written": false,
+  "new_GPU_submissions": 0,
+  "unchanged_numeric_sources_reverified": 99
+}

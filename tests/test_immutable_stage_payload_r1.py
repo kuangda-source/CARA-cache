@@ -4,6 +4,7 @@ import io
 import json
 from pathlib import Path
 import subprocess
+import sys
 import tarfile
 import tempfile
 import unittest
@@ -54,6 +55,32 @@ def fixture(parent):
 
 
 class ImmutablePayloadControls(unittest.TestCase):
+    def test_extra_executed_cpu_fixture_imports_exist_in_isolated_git_stage(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root, base, original, _ = fixture(Path(directory))
+            write(root, 'src/wcomr/only_test_dependency.py', b'VALUE = 17\n')
+            write(root, 'tests/cpu_fixture.py',
+                  b'from wcomr.only_test_dependency import VALUE\nassert VALUE == 17\n')
+            subprocess.run(['git', 'add', '.'], cwd=root, check=True, capture_output=True)
+            subprocess.run(['git', '-c', 'user.name=Synthetic CPU Control',
+                            '-c', 'user.email=synthetic@invalid', 'commit', '-qm',
+                            'Synthetic executed test dependency'], cwd=root, check=True, capture_output=True)
+            revision = subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=root, text=True).strip()
+            value = plan(root, config_roots=['configs/final.json'],
+                python_entrypoints=['scripts/entry.py'], extra_files=['tests/cpu_fixture.py'],
+                base_registration_sha256=original['base_registration_sha256'],
+                base_source_revision=original['base_source_revision'],
+                numeric_sources={'src/wcomr/b.py': digest((root/'src/wcomr/b.py').read_bytes())})
+            self.assertIn('src/wcomr/only_test_dependency.py', value['overlay_sha256'])
+            stage = base.parent/'with-executed-test-imports'
+            install(base, stage, git_archive(root, value, revision), value, source_revision=revision)
+            command = ('import sys; from pathlib import Path; '
+                       'sys.path.insert(0, ' + repr(str(stage/'src')) + '); '
+                       'exec(compile(Path(' + repr(str(stage/'tests/cpu_fixture.py')) +
+                       ').read_bytes(), "ISOLATED_TEST_ONLY", "exec"))')
+            subprocess.run([sys.executable, '-I', '-c', command], cwd=stage,
+                           check=True, capture_output=True)
+
     def test_remote_base_alias_uses_registered_relative_identity(self):
         canonical = '/media/SYNTHETIC_MOUNT/gkd/worldcache_omr/.sync/base-r2'
         logical = '/home/SYNTHETIC_USER/data/gkd/worldcache_omr/.sync/base-r2'

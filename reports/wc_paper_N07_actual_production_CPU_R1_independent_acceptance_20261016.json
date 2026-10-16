@@ -1,0 +1,66 @@
+{
+  "status": "N07_ORIGINAL_PRODUCTION_CPU_FAILED_RESULT_RETAINED",
+  "CPU_accepted": false,
+  "original_bundle": {
+    "status": "N07_SHARED180_ACTUAL_PRODUCTION_CPU_FAILED_NOT_GPU",
+    "source_revision": "3138e03a088b03a8381f9df609cbd59b76433a05",
+    "commands": [
+      {
+        "command": [
+          "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/.sync/wc-paper-n07-production-cpu-r1-20261016/tests",
+          "-p",
+          "test_frozen_shared_production_r1.py",
+          "-v"
+        ],
+        "exit_code": 0
+      },
+      {
+        "command": [
+          "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/.sync/wc-paper-n07-production-cpu-r1-20261016/tests",
+          "-p",
+          "test_frozen_shared_batch_r1.py",
+          "-v"
+        ],
+        "exit_code": 0
+      },
+      {
+        "command": [
+          "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/.sync/wc-paper-n07-production-cpu-r1-20261016/tests",
+          "-p",
+          "test_frozen_shared_post_r1.py",
+          "-v"
+        ],
+        "exit_code": 1
+      }
+    ],
+    "started_unix": 1792124476.587212,
+    "GPU_submissions": 0,
+    "model_weights_loaded": 0,
+    "ledger_written": false,
+    "shared_runtime_written": false,
+    "original_base_stage_written": false,
+    "exit_code": 1,
+    "error_type": "RuntimeError",
+    "error": "Original N07 production CPU command failed: 1",
+    "wall_seconds": 21.436405420303345
+  },
+  "no_GPU_launch_authorized": true,
+  "GPU_submissions": 0,
+  "capture_ref": "reports/wc_paper_N07_actual_production_CPU_R1_collection_20261016_1227.json.gz",
+  "capture_sha256": "6c83b588d03543c1667956627da387723af4d80425653904dae8e8ae39fe73d0"
+}

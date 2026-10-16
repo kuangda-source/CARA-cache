@@ -105,7 +105,11 @@ def configuration_closure(root, config_roots):
 
 def plan(root, *, config_roots, python_entrypoints, extra_files, base_registration_sha256,
          base_source_revision, numeric_sources):
-    found = local_python_closure(root, python_entrypoints)
+    # CPU test files are executed too. Copying their own bytes without their
+    # imports can pass in the workspace and fail in an isolated source stage.
+    extra_files = list(extra_files)
+    python_extra_roots = [relative(n) for n in extra_files if n.endswith('.py')]
+    found = local_python_closure(root, list(python_entrypoints) + python_extra_roots)
     found.update(configuration_closure(root, config_roots))
     for name in extra_files:
         name = relative(name); found[name] = digest(source_bytes(root, name))
@@ -119,6 +123,7 @@ def plan(root, *, config_roots, python_entrypoints, extra_files, base_registrati
     return dict(status='IMMUTABLE_STAGE_OVERLAY_PLAN_NOT_DEPLOYED', overlay_sha256=dict(sorted(found.items())),
         base_registration_sha256=base_registration_sha256, base_source_revision=base_source_revision,
         config_roots=list(config_roots), python_entrypoints=list(python_entrypoints),
+        python_extra_dependency_roots=python_extra_roots,
         numerical_sources_verified=len(numeric_sources),
         GPU_submissions=0, shared_runtime_written=False, final_input_or_method_selection=False)
 
