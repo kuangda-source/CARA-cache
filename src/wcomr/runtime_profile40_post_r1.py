@@ -87,13 +87,17 @@ def audit_memory(row, *, expected_device='cuda:0'):
 
 
 def audit_profile(row, planned, root, *, expected_device='cuda:0', probe_depth=2):
+    value = (json.loads(artifact_path(root, row['component_profile_artifact']).read_text())
+             if planned['component_profile'] else None)
+    return audit_profile_value(row, planned, value, expected_device=expected_device, probe_depth=probe_depth)
+
+
+def audit_profile_value(row, planned, value, *, expected_device='cuda:0', probe_depth=2):
     """Recompute every component count/sum from the original scalar intervals."""
     if not planned['component_profile']:
         if any(k in row for k in ('component_profile_artifact', 'profile_components')):
             raise ValueError('Original audit controls must not contain component observations')
         return None
-    path = artifact_path(root, row['component_profile_artifact'])
-    value = json.loads(path.read_text())
     memory = audit_memory(row, expected_device=expected_device)
     if (set(value) != {'status', 'device', 'request_profile_wall_seconds', 'memory_before',
             'memory_after', 'peak_reset_before_request', 'components', 'intervals',

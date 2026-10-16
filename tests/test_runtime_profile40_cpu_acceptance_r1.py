@@ -100,9 +100,9 @@ def dispatch_context(module, root, values, *, alive_CPU=False, post_error=None):
 
 
 class RuntimeProfile40CPUAcceptanceControls(unittest.TestCase):
-    def test_complete_same_source_eight_commands_accept_only_CPU_not_GPU(self):
+    def test_complete_same_source_declared_commands_accept_only_CPU_not_GPU(self):
         value = fixture(); original = copy.deepcopy(value); accepted = cpu.accept(value)
-        self.assertTrue(accepted['CPU_accepted']); self.assertEqual(accepted['CPU_commands'], 8)
+        self.assertTrue(accepted['CPU_accepted']); self.assertEqual(accepted['CPU_commands'], len(cpu.PATTERNS)+1)
         self.assertEqual(accepted['scope_counts']['total_paths'], 40)
         self.assertFalse(accepted['whole_GPU_card_selected']); self.assertFalse(accepted['real_video_or_speed_result'])
         self.assertEqual(value, original)
@@ -177,7 +177,7 @@ class RuntimeProfile40CPUAcceptanceControls(unittest.TestCase):
             with patch.object(driver.subprocess, 'call', side_effect=call) as invoked, \
                     patch('wcomr.gpu_budget_pool_v2.process_identity', side_effect=process):
                 result = driver.run(root, stage)
-            self.assertEqual(invoked.call_count, 8); self.assertEqual(result['status'], cpu.BUNDLE_STATUS)
+            self.assertEqual(invoked.call_count, len(cpu.PATTERNS)+1); self.assertEqual(result['status'], cpu.BUNDLE_STATUS)
             cpu.validate_bundle(result, values[3]['source_revision'], registration_sha256=sha(stage / 'registration.json'),
                 config_sha256=sha(stage / CONFIG), proof_sha256=sha(stage / CPU_RESULT), payload_sha256=values[3]['payload_sha256'])
             old = (stage / 'N09-CPU-bundle-result.json').read_bytes()

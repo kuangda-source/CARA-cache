@@ -26,21 +26,26 @@ def load_script(name):
     return value
 
 
-def fixture(root, *, limit=4.5):
+def fixture(root, *, limit=4.5, with_references=False):
     config, _, _, _, _, bound = contract_fixture()
+    stage = root / '.sync/SYNTHETIC_N09'; stage.mkdir(parents=True)
+    if with_references:
+        from test_runtime_profile40_production_r1 import stage_fixture
+        config, bound, _ = stage_fixture(stage)
     config['billed_limit_GPUh'] = limit
     config['first_collection_delay_seconds'] = 1200.  # Synthetic metadata, never a real ETA.
-    stage = root / '.sync/SYNTHETIC_N09'; stage.mkdir(parents=True)
     (root / 'outputs').mkdir(); (root / 'runtime').mkdir()
     write(stage / CONFIG, config)
     worker = stage / 'scripts/run_wc_paper_N09_runtime_profile40_r1.py'
     worker.parent.mkdir(); worker.write_text('# EXPLICIT_SYNTHETIC_NEVER_EXECUTED\n')
     registration = dict(source_revision='1' * 40,
         payload_sha256={CONFIG: sha(stage / CONFIG), str(worker.relative_to(stage)): sha(worker)})
+    for ref in config.get('references', {}).values():
+        registration['payload_sha256'][ref['ref']] = sha(stage / ref['ref'])
     numeric = {}; observer = {}
     for name in ['src/SYNTHETIC_NUMERIC_' + str(i) + '.py' for i in range(99)] + list(PROFILE_SOURCES) + [BUNDLE_WORKER] + ['tests/' + n for n in PATTERNS]:
         path = stage / name; path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_text('# SYNTHETIC_PLACEHOLDER_NEVER_IMPORTED\n')
+        if not path.exists():path.write_text('# SYNTHETIC_PLACEHOLDER_NEVER_IMPORTED\n')
         registration['payload_sha256'][name] = sha(path)
         if name.startswith('src/SYNTHETIC_NUMERIC_'):numeric[name] = sha(path)
         if name in PROFILE_SOURCES:observer[name] = sha(path)

@@ -6,7 +6,8 @@ from .runtime_profile40_production_r1 import CPU_STATUS, COUNTS, PROFILE_SOURCES
 PATTERNS = ('test_runtime_profile40_execution_r1.py', 'test_runtime_profile40_production_r1.py',
     'test_runtime_profile40_post_r1.py', 'test_runtime_profile40_cost_r1.py',
     'test_runtime_profile40_supervision_r1.py', 'test_runtime_profile40_post_watcher_r1.py',
-    'test_runtime_profile40_cpu_acceptance_r1.py')
+    'test_runtime_profile40_cpu_acceptance_r1.py', 'test_runtime_profile40_acceptance_r1.py',
+    'test_runtime_profile40_capture_r1.py')
 WORKER = 'scripts/run_wc_paper_N09_runtime_profile40_r1.py'
 BUNDLE_WORKER = 'scripts/run_wc_paper_N09_production_cpu_bundle_r1.py'
 BUNDLE_STATUS = 'N09_FULL40_ACTUAL_PRODUCTION_CPU_COMPLETE_PASS_NOT_GPU'
@@ -31,7 +32,7 @@ def validate_bundle(bundle, revision, *, registration_sha256, config_sha256, pro
             or not number(bundle['wall_seconds']) or bundle['wall_seconds'] < 0
             or any(bundle[k] for k in ('GPU_submissions', 'model_weights_loaded', 'ledger_written',
                                       'shared_runtime_written', 'original_base_stage_written'))):
-        raise ValueError('All seven same-source control groups and actual full40 CPU entry must pass')
+        raise ValueError('All declared same-source control groups and actual full40 CPU entry must pass')
 
 
 def validate_proof(proof, config, bound, registration, *, registration_sha256, config_sha256):

@@ -1,0 +1,120 @@
+{
+  "status": "N09_FULL40_HEALTH_TERMINAL_AND_INDEPENDENT_ACCEPTANCE_LOCAL_CPU_PASS_NOT_DEPLOYED",
+  "command": [
+    "/Users/kuangda_gao/Documents/世界模型加速实验/worldcache_omr/.venv/bin/python",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-p",
+    "test_runtime_profile40_packaging_r1.py",
+    "-v"
+  ],
+  "exit_code": 0,
+  "original_combined_log": "test_actual_Git_installer_dispatches_one_CPU_child_and_preserves_original_base (test_runtime_profile40_packaging_r1.RuntimeProfile40PackagingControls) ... ok\ntest_actual_readonly_capture_body_runs_stdlib_only_on_original_files (test_runtime_profile40_packaging_r1.RuntimeProfile40PackagingControls) ... ok\ntest_complete_current_source_packet_runs_all_declared_groups_without_workspace_imports (test_runtime_profile40_packaging_r1.RuntimeProfile40PackagingControls) ... ok\ntest_missing_real_config_refuses_before_network_and_base_must_match_original_N08 (test_runtime_profile40_packaging_r1.RuntimeProfile40PackagingControls) ... ok\ntest_reference_only_gate_reuses_same_contract_without_physical_loader (test_runtime_profile40_packaging_r1.RuntimeProfile40PackagingControls) ... ok\n\n----------------------------------------------------------------------\nRan 5 tests in 24.194s\n\nOK\nISOLATED_N09_CURRENT_PACKET files=157 groups=9 tests=72 actual_Cosmos_entry=0\n",
+  "top_level_packaging_controls": 5,
+  "isolated_files": 157,
+  "isolated_control_groups": [
+    "test_runtime_profile40_execution_r1.py",
+    "test_runtime_profile40_production_r1.py",
+    "test_runtime_profile40_post_r1.py",
+    "test_runtime_profile40_cost_r1.py",
+    "test_runtime_profile40_supervision_r1.py",
+    "test_runtime_profile40_post_watcher_r1.py",
+    "test_runtime_profile40_cpu_acceptance_r1.py",
+    "test_runtime_profile40_acceptance_r1.py",
+    "test_runtime_profile40_capture_r1.py"
+  ],
+  "isolated_control_groups_count": 9,
+  "isolated_controls_count": 72,
+  "actual_Cosmos_entry": 0,
+  "cold_CLI_controls": [
+    {
+      "command": [
+        "/Users/kuangda_gao/Documents/世界模型加速实验/worldcache_omr/.venv/bin/python",
+        "-S",
+        "scripts/capture_wc_paper_N09_runtime_profile40_r1.py",
+        "--help"
+      ],
+      "exit_code": 0,
+      "stdout": "usage: capture_wc_paper_N09_runtime_profile40_r1.py [-h] --launch-ref\n                                                    LAUNCH_REF --output OUTPUT\n                                                    [--mode {admission,health,terminal}]\n\nOne original N09 snapshot: admission, half-time health, or full post-ETA\ncollection.\n\noptional arguments:\n  -h, --help            show this help message and exit\n  --launch-ref LAUNCH_REF\n  --output OUTPUT\n  --mode {admission,health,terminal}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/kuangda_gao/Documents/世界模型加速实验/worldcache_omr/.venv/bin/python",
+        "-S",
+        "scripts/analyze_wc_paper_N09_runtime_profile40_r1.py",
+        "--help"
+      ],
+      "exit_code": 0,
+      "stdout": "usage: analyze_wc_paper_N09_runtime_profile40_r1.py [-h] --capture CAPTURE\n                                                    --launch-ref LAUNCH_REF\n                                                    --output OUTPUT\n\nOffline reconstruction from one saved N09 terminal capture, never another SSH.\n\noptional arguments:\n  -h, --help            show this help message and exit\n  --capture CAPTURE\n  --launch-ref LAUNCH_REF\n  --output OUTPUT\n",
+      "stderr": ""
+    }
+  ],
+  "initial_failure_ref": "reports/wc_paper_N09_runtime40_collection_R1_fixture_failure_20261016.json",
+  "source_bindings": {
+    "scripts/capture_wc_paper_N09_runtime_profile40_r1.py": {
+      "bytes": 8960,
+      "sha256": "e5b3a84d226c8bf73773c4cefd690b4f4992c54099acc7c6e4cb0bf5022d19ff"
+    },
+    "scripts/analyze_wc_paper_N09_runtime_profile40_r1.py": {
+      "bytes": 1286,
+      "sha256": "29599c0c497a79b2066f56e356dfcfd2da8342a29e0ae7bcd44ddaa44690e458"
+    },
+    "src/wcomr/runtime_profile40_acceptance_r1.py": {
+      "bytes": 17772,
+      "sha256": "9d5de68477518880b2087a557b699a93ca73e8ab06a058e2c54059997af45116"
+    },
+    "src/wcomr/runtime_profile40_post_r1.py": {
+      "bytes": 19569,
+      "sha256": "2ea0466df96558816e6f303eadf9503e245cbc906981b4c5277cfc607acc6b11"
+    },
+    "src/wcomr/runtime_profile40_cpu_acceptance_r1.py": {
+      "bytes": 9226,
+      "sha256": "9a855129b4c5b79d7e35d1105d117a79a33066b24ce1e954a49b77b294c561e0"
+    },
+    "scripts/deploy_wc_paper_N09_production_cpu_r1.py": {
+      "bytes": 9454,
+      "sha256": "2296168dd7ea2bc98d2b6a5bb570670849b80d5485d967d7116c05b96297352a"
+    },
+    "tests/test_runtime_profile40_acceptance_r1.py": {
+      "bytes": 12779,
+      "sha256": "39d618eedb58e77cb4d6a2ad772ba20fada3ce6966212b5c12f2d222e3f794e0"
+    },
+    "tests/test_runtime_profile40_capture_r1.py": {
+      "bytes": 6428,
+      "sha256": "40cba26bb42f450c8afdd075ef9e594ebd92639fd0424d61e5e8583ba1b17491"
+    },
+    "tests/test_runtime_profile40_cpu_acceptance_r1.py": {
+      "bytes": 25281,
+      "sha256": "275c21f8f75b5b7fab87dd07ec16f56756cf8ccade7ec6b11014c477ddd4c55d"
+    },
+    "tests/test_runtime_profile40_supervision_r1.py": {
+      "bytes": 16148,
+      "sha256": "b8cc14224fb25b146a7c2b05f398d92d8a0e39c156ebed74717b278c151b20a7"
+    },
+    "tests/test_runtime_profile40_packaging_r1.py": {
+      "bytes": 10792,
+      "sha256": "6103927cf261ff1b9e71031562d4e1e88e7e211bc78ba020cf49655f468e4b6c"
+    }
+  },
+  "unchanged_numeric_source_files": 99,
+  "unchanged_original_profile_sources": {
+    "src/wcomr/deployment_profile_r1.py": "28009ee042ad9aac2f17c6d35fddcc3b1a987b6f08a7fbbb48f942a2c3739291",
+    "src/wcomr/frozen_shared_execution_r1.py": "431cd8a3d86208a4ef6fb6665ad6d72dacf5fb3cfe0e5a3a628a932163ba8c68",
+    "src/wcomr/paper_baseline_grid_r1.py": "65e001e5b31cede8c21ac997b19f36d3c31b17a0899dc5002cfd849d03da298b",
+    "src/wcomr/simple26d_memory_r2.py": "b40b43284e5382551ce11e6ad3dcce9afa26e2cc27022bdb9622697105f4e583"
+  },
+  "N07_config_sha256": "9de3e5b9c2ce0377888e1244aa77043b42d4f92f0d9cea498c13c59e3aeafd0c",
+  "real_codec": false,
+  "real_CUDA_events": false,
+  "real_GPU": false,
+  "SSH_queries": 0,
+  "GPU_submissions": 0,
+  "server_ledger_written": false,
+  "actual_N09_production_CPU": false,
+  "actual_N09_dispatch": false,
+  "real_speed_or_quality_result": false
+}

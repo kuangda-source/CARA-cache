@@ -102,7 +102,7 @@ class RuntimeProfile40PackagingControls(unittest.TestCase):
                 base_source_revision=old['base_source_revision'],numeric_sources={})
             archive = git_archive(root,value,revision)
             metadata = dict(base='.sync/base',base_original_absolute=str(base),stage='.sync/wc-paper-n09-SYNTHETIC',
-                source_revision=revision,plan=value,expected_CPU_commands=8)
+                source_revision=revision,plan=value,expected_CPU_commands=10)
             envelope = json.dumps(metadata).encode() + b'\n' + archive
             before = {str(p.relative_to(base)):p.read_bytes() for p in base.rglob('*') if p.is_file()}
             code = module.BOOTSTRAP.replace("'/home/gaokuangda/data/gkd/worldcache_omr'",repr(str(root)))
@@ -119,13 +119,13 @@ class RuntimeProfile40PackagingControls(unittest.TestCase):
             registration = json.loads((stage / 'registration.json').read_text())
             launch = json.loads((stage / 'N09-production-CPU-launch.json').read_text())
             self.assertEqual(registration['CPU_scope'],'FROZEN_N09_PRODUCTION_CPU_PREPARATION_NO_GPU')
-            self.assertEqual(Path(launch['project']).resolve(),root.resolve()); self.assertEqual(launch['expected_CPU_commands'],8)
+            self.assertEqual(Path(launch['project']).resolve(),root.resolve()); self.assertEqual(launch['expected_CPU_commands'],10)
             self.assertEqual(launch['first_collection_not_before_unix'] - launch['launched_unix'],300.)
             self.assertEqual(spawned.call_args.kwargs['env']['CUDA_VISIBLE_DEVICES'],'')
             self.assertFalse((root / 'reports/gpu-budget-v2.json').exists())
             self.assertEqual({str(p.relative_to(base)):p.read_bytes() for p in base.rglob('*') if p.is_file()},before)
 
-    def test_complete_current_source_packet_runs_all_seven_groups_without_workspace_imports(self):
+    def test_complete_current_source_packet_runs_all_declared_groups_without_workspace_imports(self):
         module = script('deploy_wc_paper_N09_production_cpu_r1')
         from wcomr.runtime_profile40_cpu_acceptance_r1 import PATTERNS
         files = local_python_closure(ROOT,module.ENTRIES + module.TESTS)
@@ -146,7 +146,8 @@ class RuntimeProfile40PackagingControls(unittest.TestCase):
                 self.assertEqual(child.returncode,0,pattern + '\n' + child.stdout + child.stderr)
                 match = re.search(r'Ran (\d+) tests?',child.stderr); self.assertIsNotNone(match)
                 total += int(match.group(1))
-            print('ISOLATED_N09_CURRENT_PACKET files=' + str(len(files)) + ' groups=7 tests=' + str(total) + ' actual_Cosmos_entry=0')
+            print('ISOLATED_N09_CURRENT_PACKET files=' + str(len(files)) + ' groups=' + str(len(PATTERNS))
+                + ' tests=' + str(total) + ' actual_Cosmos_entry=0')
 
 
 if __name__ == '__main__':unittest.main()

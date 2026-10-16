@@ -16,12 +16,14 @@ ENTRIES = ['scripts/' + n for n in (
     'run_wc_paper_N09_production_cpu_bundle_r1.py', 'deploy_wc_paper_N09_production_cpu_r1.py',
     'capture_wc_paper_N09_production_cpu_r1.py', 'accept_wc_paper_N09_production_cpu_r1.py',
     'launch_wc_paper_N09_runtime_profile40_r1.py',
+    'capture_wc_paper_N09_runtime_profile40_r1.py', 'analyze_wc_paper_N09_runtime_profile40_r1.py',
     'estimate_wc_paper_N09_runtime40_complete_cost_r1.py')]
 TESTS = ['tests/' + n for n in (
     'test_runtime_profile40_execution_r1.py', 'test_runtime_profile40_production_r1.py',
     'test_runtime_profile40_post_r1.py', 'test_runtime_profile40_cost_r1.py',
     'test_runtime_profile40_supervision_r1.py', 'test_runtime_profile40_post_watcher_r1.py',
-    'test_runtime_profile40_cpu_acceptance_r1.py', 'test_balanced_repeat_execution_r1.py',
+    'test_runtime_profile40_cpu_acceptance_r1.py', 'test_runtime_profile40_acceptance_r1.py',
+    'test_runtime_profile40_capture_r1.py', 'test_balanced_repeat_execution_r1.py',
     'test_frozen_shared_batch_r1.py', 'test_frozen_shared_production_r1.py',
     'test_frozen_shared_inputs_r1.py', 'test_frozen_card_cost_r1.py')]
 TEST_DATA = (
@@ -60,7 +62,8 @@ registration=namespace['install'](base,stage,archive,meta['plan'],source_revisio
  cpu_scope='FROZEN_N09_PRODUCTION_CPU_PREPARATION_NO_GPU')
 sys.path.insert(0,str(stage/'src'))
 from wcomr.gpu_budget_pool_v2 import process_identity
-assert meta['expected_CPU_commands']==8
+from wcomr.runtime_profile40_cpu_acceptance_r1 import PATTERNS
+assert meta['expected_CPU_commands']==len(PATTERNS)+1
 with (stage/'N09-production-CPU-launch-request.json').open('x') as h:
  json.dump(dict(source_revision=meta['source_revision'],requested_unix=time.time()),h);h.flush();os.fsync(h.fileno())
 command=[sys.executable,str(stage/'scripts/run_wc_paper_N09_production_cpu_bundle_r1.py'),
@@ -76,7 +79,7 @@ receipt=dict(status='N09_FULL40_ACTUAL_PRODUCTION_CPU_SINGLE_DISPATCH',pid=child
  project=str(root),stage=str(stage),source_revision=meta['source_revision'],command=command,launched_unix=now,
  registration_sha256=hashlib.sha256((stage/'registration.json').read_bytes()).hexdigest(),
  payload_files=len(registration['payload_sha256']),overlay_files=len(meta['plan']['overlay_sha256']),
- expected_CPU_commands=8,first_collection_not_before_unix=now+300,
+ expected_CPU_commands=len(PATTERNS)+1,first_collection_not_before_unix=now+300,
  shared_runtime_written=False,original_base_stage_written=False,GPU_submissions=0,ledger_written=False)
 with (stage/'N09-production-CPU-launch.json').open('x') as h:
  json.dump(receipt,h,indent=2);h.flush();os.fsync(h.fileno())
@@ -92,6 +95,7 @@ def main():
     if args.output.exists():raise FileExistsError('Preserve the original N09 CPU dispatch receipt')
     sys.path.insert(0, str(ROOT / 'src'))
     from wcomr.runtime_profile40_production_r1 import CONFIG, referenced_contract, read_reference
+    from wcomr.runtime_profile40_cpu_acceptance_r1 import PATTERNS
     from wcomr.frozen_shared_production_r1 import verify_sampling_sources
     from wcomr.immutable_stage_payload_r1 import configuration_closure, git_archive, plan, relative, registered_base_reference
     relative(args.stage)
@@ -110,7 +114,7 @@ def main():
     archive = git_archive(ROOT, value, revision)
     base_ref = registered_base_reference(base['registration']['stage'], base['launch']['stage'])
     metadata = dict(base=base_ref['project_relative'], base_original_absolute=base_ref['original_absolute'],
-        stage=args.stage, source_revision=revision, plan=value, expected_CPU_commands=8)
+        stage=args.stage, source_revision=revision, plan=value, expected_CPU_commands=len(PATTERNS)+1)
     envelope = json.dumps(metadata, ensure_ascii=False, allow_nan=False).encode() + b'\n' + archive
     try:
         call = subprocess.run(['ssh', '-o', 'BatchMode=yes', '-o', 'ConnectTimeout=15', '-o', 'ClearAllForwardings=yes',
