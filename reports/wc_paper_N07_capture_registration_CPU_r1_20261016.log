@@ -1,0 +1,18 @@
+test_admission_capture_resolves_project_and_output_aliases_without_science_reads (test_frozen_shared_dispatch_r1.DispatchControls) ... ERROR
+test_before_ETA_terminal_capture_never_calls_SSH (test_frozen_shared_dispatch_r1.DispatchControls) ... ok
+test_invalid_CPU_scope_authority_or_ETA_fail_before_fence_and_process (test_frozen_shared_dispatch_r1.DispatchControls) ... ok
+test_one_original_dispatch_and_post_fence_refuse_lost_reply_retry (test_frozen_shared_dispatch_r1.DispatchControls) ... ok
+test_transport_timeout_preserves_original_identity_without_retry (test_frozen_shared_dispatch_r1.DispatchControls) ... ok
+
+======================================================================
+ERROR: test_admission_capture_resolves_project_and_output_aliases_without_science_reads (test_frozen_shared_dispatch_r1.DispatchControls)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/kuangda_gao/Documents/世界模型加速实验/worldcache_omr/tests/test_frozen_shared_dispatch_r1.py", line 163, in test_admission_capture_resolves_project_and_output_aliases_without_science_reads
+    self.assertEqual(captured['registration_sha256'], sha(stage / 'registration.json'))
+KeyError: 'registration_sha256'
+
+----------------------------------------------------------------------
+Ran 5 tests in 1.721s
+
+FAILED (errors=1)

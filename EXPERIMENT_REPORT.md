@@ -1,3 +1,7 @@
+## 2026-10-16 N08独立完整验收CPU准备，N07查收注册SHA修复
+
+[491独立验收](research/491_WC_N08_FULL40_INDEPENDENT_ACCEPTANCE_AND_N07_CAPTURE_REGISTRATION_REPAIR_CPU_READY_20261016.md)：N08全40/30逐轮/93帧/原件/费用与登记资源区间独立重建已写，23本地CPU通过；纯标准库查收体在禁用site-packages的独立Python通过。原N07查收漏registration_sha256已用原代码重现并只补字段，失败保留；N07未部署/N05不受影响。N08未来CPU bundle纳入新验收/查收控制现为9命令，实际CPU仍0。原99数值源码保持，真实配置/部署/费用/视频未完成，0SSH/0GPU/0服务器预算写；N05原15d77ac/句柄/12:05不改。以下历史保留。
+
 ## 2026-10-16 N08整卡CPU准入/单次派发/UUID结算准备完成
 
 [490整卡执行准备](research/490_WC_N08_SEVEN_COMMAND_CPU_GATE_SINGLE_DISPATCH_AND_UUID_SETTLEMENT_READY_20261016.md)：N08七命令CPU bundle/原回执独立接受器、单次fence派发、UUID监督与CPU post watcher已实现；26本地CPU通过。临时真实锁/原v2实现配合mock显卡和子进程，验证加法结算/幂等/失败fallback/退出竞态/断线不重派；14上限和批准均synthetic，不是真实授权。测速指纹与通用账本指纹显式同值，原v2/大卡扩展及99数值源码不变。实际配置/生产CPU部署与GPU收集独立接受仍待，未派新任务/SSH/写服务器预算；N05原15d77ac/句柄/12:05不变。以下历史保留。

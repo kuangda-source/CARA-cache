@@ -351,3 +351,5 @@ N08完整40驻留入口/生产合同与预热接口修复见[488](../research/48
 N08完整40原件/预热等价性、同轮Native的93帧评分和失败隔离见[489](../research/489_WC_N08_FULL40_CPU_POST_REPEAT_PARITY_SAME_ROUND_FIDELITY_AND_FAILURE_ISOLATION_READY_20261016.md)；15本地CPU控制通过。合成视频/指标不填论文速度质量结果，实际生产CPU/监督/独立验收与最终clean计时仍未完成。
 
 N08七命令生产CPU准入、单次派发与原v2结算接线见[490](../research/490_WC_N08_SEVEN_COMMAND_CPU_GATE_SINGLE_DISPATCH_AND_UUID_SETTLEMENT_READY_20261016.md)；26本地CPU控制使用临时账本/mock进程，不是真实服务器CPU或GPU结果。原窗口、真实最终配置和GPU收集/完整独立接受缺口保留。
+
+N08完整40独立接受与N07注册SHA查收字段修复见[491](../research/491_WC_N08_FULL40_INDEPENDENT_ACCEPTANCE_AND_N07_CAPTURE_REGISTRATION_REPAIR_CPU_READY_20261016.md)；23本地控制通过（合成回执，含标准库独立解释器）。真实CPU部署/最终方法/视频/速度未接受，N08未来实际CPU入口现9命令。

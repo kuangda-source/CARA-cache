@@ -1651,7 +1651,8 @@
     "N07_fresh_identity_CPU": "research/487_WC_N07_FRESH_IDENTITY_AUDIT_CPU_READY_AND_MAINLINE_ORDER_20261016.md",
     "N08_resident_production_CPU": "research/488_WC_N08_RESIDENT_FULL40_PRODUCTION_ENTRY_AND_WARM_INTERFACE_REPAIR_CPU_READY_20261016.md",
     "N08_post_full40_CPU": "research/489_WC_N08_FULL40_CPU_POST_REPEAT_PARITY_SAME_ROUND_FIDELITY_AND_FAILURE_ISOLATION_READY_20261016.md",
-    "N08_CPU_gate_supervision_dispatch": "research/490_WC_N08_SEVEN_COMMAND_CPU_GATE_SINGLE_DISPATCH_AND_UUID_SETTLEMENT_READY_20261016.md"
+    "N08_CPU_gate_supervision_dispatch": "research/490_WC_N08_SEVEN_COMMAND_CPU_GATE_SINGLE_DISPATCH_AND_UUID_SETTLEMENT_READY_20261016.md",
+    "N08_independent_capture_acceptance_CPU": "research/491_WC_N08_FULL40_INDEPENDENT_ACCEPTANCE_AND_N07_CAPTURE_REGISTRATION_REPAIR_CPU_READY_20261016.md"
   },
   "evidence_batches": {
     "curve60": {
@@ -2006,6 +2007,15 @@
       "actual_CPU_or_GPU_dispatched": false,
       "approval_scope": "SYNTHETIC_ONLY_NO_ACTUAL_LARGE_CARD_AUTHORIZATION",
       "acceptance_ref": "reports/wc_paper_N08_CPU_gate_supervision_dispatch_acceptance_20261016.json"
+    },
+    "N08_INDEPENDENT_FULL40_ACCEPTANCE_AND_N07_CAPTURE_PREPARATION": {
+      "status": "N08_FULL40_INDEPENDENT_CAPTURE_ACCEPTANCE_AND_N07_METADATA_REPAIR_CPU_READY_NOT_DEPLOYED",
+      "controls": 23,
+      "actual_remote_CPU_or_GPU": false,
+      "actual_video_or_speed_result": false,
+      "CPU_bundle_future_commands": 9,
+      "acceptance_ref": "reports/wc_paper_N08_independent_capture_acceptance_CPU_acceptance_20261016.json",
+      "N07_original_missing_registration_field_failure_ref": "reports/wc_paper_N07_capture_registration_R1_failure_20261016.json"
     }
   },
   "statistical_rules": {
@@ -2556,8 +2566,8 @@
     },
     "scripts/capture_wc_paper_N07_frozen_shared180_r1.py": {
       "exists": true,
-      "bytes": 5334,
-      "sha256": "982831ab79a488eed6290b4b3a826017aae7e3f6604a7b8cb3f4e0308109f8aa"
+      "bytes": 5385,
+      "sha256": "0f66689c42ec0f42d4d1987842107c485a17cd8a0a47060ae4942f6788d17d15"
     },
     "scripts/analyze_wc_paper_N07_frozen_shared180_r1.py": {
       "exists": true,
@@ -2581,8 +2591,8 @@
     },
     "tests/test_frozen_shared_dispatch_r1.py": {
       "exists": true,
-      "bytes": 11238,
-      "sha256": "e0b79f54bb4a0f64d1adba322bcae190da2d726f41f1ed0cb17ed6e323ab90b2"
+      "bytes": 11334,
+      "sha256": "9a559919e1bc078cd4a668a1998c29e08f2bd2c6fffab72b9843b14957390abc"
     },
     "tests/test_frozen_shared_batch_r1.py": {
       "exists": true,
@@ -2781,8 +2791,8 @@
     },
     "src/wcomr/balanced_repeat_cpu_acceptance_r1.py": {
       "exists": true,
-      "bytes": 6843,
-      "sha256": "b9cda1e70acbcd4b133def173b6ea39da09705b761ec4bab65b6feb32af1b944"
+      "bytes": 6936,
+      "sha256": "939dd0fc7b912d3901a9628b6273f70b51f05cf93f9f2d5b0e9a821961653613"
     },
     "scripts/run_wc_paper_N08_production_cpu_bundle_r1.py": {
       "exists": true,
@@ -2806,8 +2816,8 @@
     },
     "tests/test_balanced_repeat_cpu_acceptance_r1.py": {
       "exists": true,
-      "bytes": 7180,
-      "sha256": "e0090f90fdc063830ac043e3e2bd540e2a5a0725ce15d06fb05c354e56bab2ee"
+      "bytes": 7179,
+      "sha256": "fe21a5ae4814727f5bcd855d4f064eab0f8c2c387f5e38dd8382252f1af1347b"
     },
     "tests/test_balanced_repeat_supervision_r1.py": {
       "exists": true,
@@ -2838,6 +2848,61 @@
       "exists": true,
       "bytes": 2987,
       "sha256": "7145a1b94629764954c4278ddabf13b6c6f8c2556e6877b63b0eb86ee976c011"
+    },
+    "src/wcomr/balanced_repeat_acceptance_r1.py": {
+      "exists": true,
+      "bytes": 15538,
+      "sha256": "cab6b0e3dae2dd3d35f489715dc410967a8e66245722ad3afc43b268174034a4"
+    },
+    "scripts/capture_wc_paper_N08_balanced_full40_r1.py": {
+      "exists": true,
+      "bytes": 5504,
+      "sha256": "e9f7d60c850fa1c2fb158843e1ee91fa4bf3808318837165c48a93bfeba47369"
+    },
+    "scripts/analyze_wc_paper_N08_balanced_full40_r1.py": {
+      "exists": true,
+      "bytes": 1092,
+      "sha256": "d78422c59fedafc01084cd75eb43d7efc377aa73eadee3147becbfbd81d63c57"
+    },
+    "tests/test_balanced_repeat_acceptance_r1.py": {
+      "exists": true,
+      "bytes": 13464,
+      "sha256": "a63d9c8f842da2c46c055aaf992ce8f12175d909b8ffb92200e39e6274af1aa5"
+    },
+    "tests/test_balanced_repeat_capture_r1.py": {
+      "exists": true,
+      "bytes": 7311,
+      "sha256": "bcdf9cea51884df6f00c7d550a6c0836ee987da3597affba75875ffbe23805b2"
+    },
+    "research/491_WC_N08_FULL40_INDEPENDENT_ACCEPTANCE_AND_N07_CAPTURE_REGISTRATION_REPAIR_CPU_READY_20261016.md": {
+      "exists": true,
+      "bytes": 3859,
+      "sha256": "26c6e234fdda0d40cfd7b6dbe3e7494734ffe39d419377bb56ce7794a03cf14a"
+    },
+    "reports/wc_paper_N08_independent_capture_acceptance_CPU_acceptance_20261016.json": {
+      "exists": true,
+      "bytes": 2870,
+      "sha256": "24a1cbd7707d57db54a41cc20b27f4e2954af1d29532509b2e0546cff29382fd"
+    },
+    "reports/wc_paper_N08_independent_capture_acceptance_CPU_r2_20261016.log": {
+      "exists": true,
+      "bytes": 3149,
+      "sha256": "66b019964128ff4705dcc0bbd201fbcd0ab964327ce3816cc7384697076308ca"
+    },
+    "reports/wc_paper_N08_independent_capture_acceptance_CPU_r1_20261016.log": {
+      "exists": true,
+      "bytes": 2206,
+      "sha256": "39baf31637ff400d73e8dadddc939e205098c2bbdcb36acc211f1e51aefaead5"
+    },
+    "reports/wc_paper_N07_capture_registration_R1_failure_20261016.json": {
+      "exists": true,
+      "bytes": 886,
+      "sha256": "7d3a4abd4d36e4fec462d34bb949ee2706ffeae45d37b1d59830361e6a284038"
+    },
+    "reports/wc_paper_N07_capture_registration_CPU_r1_20261016.log": {
+      "exists": true,
+      "bytes": 1381,
+      "sha256": "5332b8533bae8c51a219a125ca72c922258434774a537deadd2b412239a48ace"
     }
   },
   "math_notation": [

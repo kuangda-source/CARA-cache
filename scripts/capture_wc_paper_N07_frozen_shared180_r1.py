@@ -21,7 +21,7 @@ from wcomr.gpu_budget_pool_v2 import BudgetPool,process_identity
 registration=json.loads((stage/'registration.json').read_text())
 assert registration['source_revision']==LAUNCH['source_revision'] and sha(stage/'registration.json')==LAUNCH['registration_sha256']
 value=dict(status='N07_SHARED180_ORIGINAL_ONCE_CAPTURE',mode=MODE,observed_unix=time.time(),
- launch=LAUNCH,registration=registration,output_root=str(out),
+ launch=LAUNCH,registration=registration,registration_sha256=sha(stage/'registration.json'),output_root=str(out),
  payload_verified={n:sha(stage/n)==digest for n,digest in registration['payload_sha256'].items()},
  pool=BudgetPool(root).read(),original_processes={})
 paths=[('supervisor',out/'supervisor.json'),('authorization',stage/'launch-authorization.json'),

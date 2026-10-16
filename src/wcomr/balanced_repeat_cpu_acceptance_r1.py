@@ -6,7 +6,8 @@ from .frozen_shared_production_r1 import fingerprint
 
 PATTERNS = ('test_balanced_repeat_timing_r1.py', 'test_balanced_repeat_execution_r1.py',
             'test_balanced_repeat_production_r1.py', 'test_balanced_repeat_post_r1.py',
-            'test_balanced_repeat_supervision_r1.py', 'test_balanced_repeat_dispatch_r1.py')
+            'test_balanced_repeat_supervision_r1.py', 'test_balanced_repeat_dispatch_r1.py',
+            'test_balanced_repeat_acceptance_r1.py', 'test_balanced_repeat_capture_r1.py')
 BUNDLE_STATUS = 'N08_FULL40_ACTUAL_PRODUCTION_CPU_COMPLETE_PASS_NOT_GPU'
 ACCEPTED_STATUS = 'N08_FULL40_REAL_PRODUCTION_CPU_INDEPENDENTLY_ACCEPTED_NOT_GPU'
 
@@ -21,7 +22,7 @@ def validate_bundle(bundle, revision):
             or commands[-1]['command'][-1] != '--cpu-check'
             or any(bundle[k] for k in ('GPU_submissions', 'model_weights_loaded', 'ledger_written',
                                       'shared_runtime_written', 'original_base_stage_written'))):
-        raise ValueError('All six declared controls and the actual full40 no-weights entry must pass')
+        raise ValueError('All eight declared controls and the actual full40 no-weights entry must pass')
 
 
 def validate_proof(proof, config, bound, registration, *, registration_sha256, config_sha256):

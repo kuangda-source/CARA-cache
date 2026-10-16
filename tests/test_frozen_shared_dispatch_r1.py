@@ -160,6 +160,7 @@ class DispatchControls(unittest.TestCase):
                 exec(compile(code, 'SYNTHETIC_ALIAS_CAPTURE_NO_NETWORK', 'exec'), {})
             captured = json.loads(gzip.decompress(output.getvalue()))
             self.assertEqual(captured['output_root'], str((storage / 'SYNTHETIC_RUN').resolve()))
+            self.assertEqual(captured['registration_sha256'], sha(stage / 'registration.json'))
             self.assertNotIn('runner', captured); self.assertNotIn('final', captured)
             self.assertTrue(all(captured['payload_verified'].values()))
 

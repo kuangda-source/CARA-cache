@@ -51,11 +51,11 @@ def fixture():
 
 
 class CPUAcceptanceControls(unittest.TestCase):
-    def test_complete_original_seven_commands_accept_no_GPU_or_speed(self):
+    def test_complete_original_nine_commands_accept_no_GPU_or_speed(self):
         value = fixture(); original = copy.deepcopy(value); result = cpu.accept(value)
         self.assertEqual(value, original)
         self.assertTrue(result['CPU_accepted'])
-        self.assertEqual(result['CPU_commands'], 7)
+        self.assertEqual(result['CPU_commands'], 9)
         self.assertEqual(result['actual_sample_argument_variants'], 10)
         self.assertFalse(result['whole_GPU_card_selected']); self.assertFalse(result['real_video_or_speed_result'])
 
