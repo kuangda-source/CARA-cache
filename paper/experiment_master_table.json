@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "updated_local_date": "2026-10-16",
-  "snapshot_basis": "533: independent complete180 repair contract and reversible production entries locally checked; original failed N07 remains pending its original final collection, no new server CPU/GPU.",
-  "git_snapshot_before_inventory": "688bd83",
+  "snapshot_basis": "534: independent repair CPU staging and source closure locally checked, actual Git isolation and server CPU pending.",
+  "git_snapshot_before_inventory": "fef3119",
   "mapping_ref": "paper/internal_to_paper_mapping.json",
   "scope": "scientific experiment families and complete cards, not each engineering retry; reused artifacts must not be summed as independent samples",
   "contributions": {
@@ -895,7 +895,7 @@
       ],
       "contribution_relation": "C1/C2最终版本确认；C3覆盖",
       "evidence_or_planned_scope": "原180分母全部保留，拒绝边界520CPU通过；R2完整原矩阵/15.0556报价配置和四生产入口已接线，八组46控制及五冷CLI通过。服务器九命令和新GPU未完成。",
-      "gap_and_next_action": "保留05:30原失败验收；R2独立源码包/九命令实际生产CPU、单次派发及科学终态绑定待完成，之后具体新整卡批准与fresh准入。N08/N09接续原件引用也须明确更新。",
+      "gap_and_next_action": "按Git树归档并完成本地隔离包验证，再独立部署服务器九命令生产CPU；原R1在05:30失败验收。R2 GPU/科学终态及N08/N09接续仍待，原15.0556整卡需具体批准。",
       "priority": "P1·技术修复与原失败验收",
       "evidence_refs": [
         "closure_plan",
@@ -963,7 +963,14 @@
         "N07_repair180_CPU_bundle",
         "N07_repair180_contract_controls",
         "N07_repair180_CPU_acceptance_controls",
-        "N07_repair180_local_binding_CPU"
+        "N07_repair180_local_binding_CPU",
+        "534",
+        "N07_repair_CPU_staging_core",
+        "N07_repair_CPU_deploy",
+        "N07_repair_CPU_capture",
+        "N07_repair_CPU_accept",
+        "N07_repair_CPU_staging_controls",
+        "N07_repair_CPU_staging_local_preparation"
       ],
       "method_mapping_ids": [
         "config.efficient",
@@ -1085,10 +1092,14 @@
       "repair_production_cold_CLI_checks": 5,
       "repair_actual_production_CPU_commands": 9,
       "repair_actual_server_CPU_dispatched": false,
-      "repair_CPU_once_capture_and_deployment_tools_implemented": false,
+      "repair_CPU_once_capture_and_deployment_tools_implemented": true,
       "repair_GPU_once_dispatch_and_terminal_tools_implemented": false,
       "repair_complete_scope_forecast_GPUh": 15.055555555555555,
-      "repair_specific_whole_card_approval_not_requested_yet": true
+      "repair_specific_whole_card_approval_not_requested_yet": true,
+      "repair_CPU_staging_local_controls": 12,
+      "repair_CPU_staging_cold_CLI": 3,
+      "repair_CPU_overlay_files": 183,
+      "repair_Git_packet_isolation_complete": false
     },
     {
       "id": "N08",
@@ -2072,7 +2083,14 @@
     "N07_repair180_CPU_bundle": "scripts/run_wc_paper_N07_repair_production_cpu_bundle_r2.py",
     "N07_repair180_contract_controls": "tests/test_frozen_repair180_r2.py",
     "N07_repair180_CPU_acceptance_controls": "tests/test_frozen_repair_cpu_acceptance_r2.py",
-    "N07_repair180_local_binding_CPU": "reports/wc_paper_N07_repair180_production_binding_local_CPU_R1_20261016.json"
+    "N07_repair180_local_binding_CPU": "reports/wc_paper_N07_repair180_production_binding_local_CPU_R1_20261016.json",
+    "534": "research/534_WC_N07_REPAIR_CPU_IMMUTABLE_DEPLOYMENT_CAPTURE_AND_LOCAL_PACKET_READY_20261016.md",
+    "N07_repair_CPU_staging_core": "src/wcomr/frozen_repair_cpu_staging_r2.py",
+    "N07_repair_CPU_deploy": "scripts/deploy_wc_paper_N07_repair_production_cpu_r2.py",
+    "N07_repair_CPU_capture": "scripts/capture_wc_paper_N07_repair_production_cpu_r2.py",
+    "N07_repair_CPU_accept": "scripts/accept_wc_paper_N07_repair_production_cpu_r2.py",
+    "N07_repair_CPU_staging_controls": "tests/test_frozen_repair_cpu_staging_r2.py",
+    "N07_repair_CPU_staging_local_preparation": "reports/wc_paper_N07_repair180_CPU_staging_local_preparation_20261016.json"
   },
   "source_bindings": {
     "11": {
@@ -2225,7 +2243,7 @@
     },
     "mainline_queue_20261016": {
       "path": "plans/WORLD_CACHE_MAINLINE_PRIORITY_QUEUE_20261016.md",
-      "sha256": "b1bb7f72dd3cb68d425f3a843181474e8342704889b87b398494467797c42483"
+      "sha256": "09affbd0bcafc2808a5935d928c6818432d05040f8c02f2bb22d18459c9128de"
     },
     "baseline_grid_prereg_20261016": {
       "path": "manifests/wc_paper_N05_bounded_baseline_grid_preregistration_draft_20261016.json",
@@ -3670,6 +3688,34 @@
     "N07_repair180_local_binding_CPU": {
       "path": "reports/wc_paper_N07_repair180_production_binding_local_CPU_R1_20261016.json",
       "sha256": "05999eb510f7d3486bb9831a64d3204fb7059a5242d89f8c90a2ae967289a3a9"
+    },
+    "534": {
+      "path": "research/534_WC_N07_REPAIR_CPU_IMMUTABLE_DEPLOYMENT_CAPTURE_AND_LOCAL_PACKET_READY_20261016.md",
+      "sha256": "a7ee7409694c137597f05938154c17342b579a50a64c7e69e77c925925ddcd97"
+    },
+    "N07_repair_CPU_staging_core": {
+      "path": "src/wcomr/frozen_repair_cpu_staging_r2.py",
+      "sha256": "0c5ece81fe49a8961d87822758084ed897ced75c7309a92b1fad589d032b8373"
+    },
+    "N07_repair_CPU_deploy": {
+      "path": "scripts/deploy_wc_paper_N07_repair_production_cpu_r2.py",
+      "sha256": "ce36f42bac7833acc5b9010a7d89bdabd4cb5e85b88e46de6f64f92b0f363227"
+    },
+    "N07_repair_CPU_capture": {
+      "path": "scripts/capture_wc_paper_N07_repair_production_cpu_r2.py",
+      "sha256": "bfa9ea862474284a89e0b188e330cd719b168764ffbfe1934bc9e5d7bf6b8424"
+    },
+    "N07_repair_CPU_accept": {
+      "path": "scripts/accept_wc_paper_N07_repair_production_cpu_r2.py",
+      "sha256": "41932f4c054569514d2bb84d1005bbf6a31b16feaa05677d6c3110f929e6d265"
+    },
+    "N07_repair_CPU_staging_controls": {
+      "path": "tests/test_frozen_repair_cpu_staging_r2.py",
+      "sha256": "7874bfee0264f4d873cbb8abbfa5264b1c95cba82e3cefd41c47caadb3038be8"
+    },
+    "N07_repair_CPU_staging_local_preparation": {
+      "path": "reports/wc_paper_N07_repair180_CPU_staging_local_preparation_20261016.json",
+      "sha256": "a0d9bd8a88ac3bad79985367a0aa86990b1b7b7f1bfe2f322799fa2b3eb5f6a6"
     }
   },
   "operation_policy": {
@@ -4028,5 +4074,5 @@
     "N07_retry_approval_required_after_production_CPU": true,
     "latest_local_CPU_preparation_only": "N07_REPAIR180_EIGHT_GROUPS_46_CONTROLS_FIVE_COLD_CLI"
   },
-  "mapping_sha256_at_inventory": "5f7df5fd1f20940caed9cb77aab3134a5499eb678b2814cc1c0be4172999b90e"
+  "mapping_sha256_at_inventory": "bba8a2b9d2cda745d22892e46bb0e087be999df4b1be9cc111c1713f07d95356"
 }

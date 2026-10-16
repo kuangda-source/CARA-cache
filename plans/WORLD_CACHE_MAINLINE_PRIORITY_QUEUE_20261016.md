@@ -1,3 +1,7 @@
+## 2026-10-16 N07修复CPU独立部署与源码包准备
+
+[534 CPU部署准备](../research/534_WC_N07_REPAIR_CPU_IMMUTABLE_DEPLOYMENT_CAPTURE_AND_LOCAL_PACKET_READY_20261016.md)：R2独立部署/一次查收/离线接受工具已写，3新+9不可变打包CPU及3冷CLI通过；183份overlay闭合99数值/修复/执行测试依赖。Git提交后实际归档隔离验证及服务器九命令CPU尚待，0SSH/新GPU/账本写。原R1/05:30失败验收、完整180/15.0556/cap113与严格<12保持。以下为历史。
+
 ## 2026-10-16 N07独立修复完整生产接线本地CPU通过
 
 [533生产接线](../research/533_WC_N07_REFUSAL_REPAIR180_PRODUCTION_BINDINGS_AND_COMPLETE_CPU_CONTRACT_20261016.md)：独立R2完整180配置及worker/supervisor/post/watcher接好，原四入口SHA和数值/输入/参数保持；八组本地46控制、五冷CLI通过。服务器九命令生产CPU、派发/科学终态绑定仍待，0SSH/新GPU/账本写。原R1/05:30完整失败验收保持；新完整报价沿用15.055555556，生产准备好后另询具体整卡，未挪用旧批准。以下为历史。
