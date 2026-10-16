@@ -37,7 +37,9 @@ def main():
     reg = json.loads(registration.read_text())
     assert reg['source_revision'] == launch['source_revision']
     assert reg['expected_weight'] == launch['expected_weight']
-    assert sha(stage / 'fetch_wc_N10_viclip_resource_r1.py') == launch['worker_sha256'] == reg['worker_sha256']
+    worker_name = launch.get('worker_file', 'fetch_wc_N10_viclip_resource_r1.py')
+    assert worker_name in ('fetch_wc_N10_viclip_resource_r1.py', 'fetch_wc_N10_viclip_ranges_r1.py')
+    assert sha(stage / worker_name) == launch['worker_sha256'] == reg['worker_sha256']
     process = subprocess.run(['ps', '-p', str(launch['pid']), '-o', 'pid=,lstart=,stat=,command='],
                              capture_output=True, text=True, timeout=10)
     same, alive = None, False
@@ -46,7 +48,10 @@ def main():
         before = re.match(r'^\d+\s+(' + date + r')\s+(.*)$', launch['process_at_admission'])
         actual = re.match(r'^\s*\d+\s+(' + date + r')\s+(\S+)\s+(.*)$', process.stdout.strip())
         assert before and actual
-        same = (' '.join(before[1].split()) == ' '.join(actual[1].split()) and before[2] == actual[3])
+        marker = str(stage/worker_name)
+        same = (' '.join(before[1].split()) == ' '.join(actual[1].split())
+                and marker in before[2] and marker in actual[3]
+                and before[2].split(marker, 1)[1] == actual[3].split(marker, 1)[1])
         alive = bool(same and actual[2][0] not in ('Z', 'X'))
     result_path = stage / 'resource-result.json'
     data, parse_error = None, None
@@ -55,6 +60,8 @@ def main():
             data = json.loads(result_path.read_text())
         except (ValueError, UnicodeError) as error:
             parse_error = str(error)
+    progress_path = stage/'range-progress.json'
+    progress = json.loads(progress_path.read_text()) if progress_path.is_file() else None
     expected = launch['expected_weight']
     target = stage / expected['name']
     partial = stage / (expected['name'] + '.part')
@@ -72,6 +79,7 @@ def main():
         original_process_alive=alive, PID_identity_matches=same, process_stdout=process.stdout,
         registration_sha256=sha(registration), result=data, result_parse_error=parse_error,
         result_sha256=sha(result_path) if result_path.is_file() else None,
+        range_progress=progress,
         local_resource_bytes_independently_accepted=accepted,
         target_exists=target.is_file(), independent_target_bytes=count,
         independent_target_sha256=digest, partial_bytes=partial.stat().st_size if partial.is_file() else None,

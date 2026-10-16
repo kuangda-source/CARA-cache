@@ -1,3 +1,7 @@
+## 2026-10-16 本机资源截断保留，精确分段修复CPU通过
+
+[510固定资源分段修复](510_WC_N10_LOCAL_TRUNCATION_RETAINED_EXACT_HTTP_RANGES_CPU_REPAIR_20261016.md)：14:00一次收本机18318已终态，78094879字节截断/166.582秒，完整验收拒绝，原partial/SHA保持。真实起始与非零HTTP206探测通过，中间TLS错误保留；系统curl按8MiB精确Range新入口/查收13CPU通过，新R3须本提交后单次派发、启动90分钟后收。当前0完整权重/0模型/0新质量分数，不查询N07或写GPU账；原180/source140d0a6/明早05:30/cap113保持。以下原14:00在途说明均为历史。
+
 ## 2026-10-16 N09部署运行开销完整40范围登记
 
 [509部署开销完整范围](509_WC_N09_FROZEN_RUNTIME_PROFILE40_SCOPE_AND_REMAINING_ACTION_CALIBRATION_COSTS_20261016.md)登记五个原冻结角色×两旧CAL×原audit/profile-audit/profile-lean，30正式+10warm/40路径/1440pairs；独立矩阵检查和原102四源码全SHA复用通过，未跑新采样/生产CPU或GPU。同状态C/A/P0/D报价与可复现标定采集费用仍待，真实整卡配置/CPU/费用未选。N07原完整180/source140d0a6和明早05:30、本机资源18318今天14:00保持，本轮无SSH/预算写或partial查询。以下为运行和准备历史。

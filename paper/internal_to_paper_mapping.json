@@ -3,7 +3,7 @@
   "updated_local_date": "2026-10-16",
   "repository": "kuangda-source/worldcache-omr-experiments",
   "repository_absolute_path": "/Users/kuangda_gao/Documents/世界模型加速实验/worldcache_omr",
-  "snapshot_git_commit_before_mapping": "ab5f28bb33a6d9be66859671311a11070fbfc180",
+  "snapshot_git_commit_before_mapping": "8c0591e8155c73273ade7ef94111002d990ce7d3",
   "human_reference_conversation": {
     "id": "6abf4581-4ec8-83e8-8990-3efe11053cf4",
     "title": "worldcache讨论",
@@ -1703,7 +1703,8 @@
     "N07_full180_approved_GPU_506": "research/506_WC_N07_FULL180_HUMAN_APPROVED_CAP113_GPU_ADMITTED_AND_0530_COLLECTION_20261016.md",
     "N10_resource_transport_R2_507": "research/507_WC_N10_SERVER_RESOURCE_TIMEOUT_RETAINED_LOCAL_PROXY_DOWNLOAD_AND_MAINLINE_PRIORITY_20261016.md",
     "N10_resource_SCP_ready_508": "research/508_WC_N10_ORIGINAL_SCP_PINNED_RESOURCE_RELAY_CPU_READY_NO_GPU_INTERFERENCE_20261016.md",
-    "N09_runtime_scope40_509": "research/509_WC_N09_FROZEN_RUNTIME_PROFILE40_SCOPE_AND_REMAINING_ACTION_CALIBRATION_COSTS_20261016.md"
+    "N09_runtime_scope40_509": "research/509_WC_N09_FROZEN_RUNTIME_PROFILE40_SCOPE_AND_REMAINING_ACTION_CALIBRATION_COSTS_20261016.md",
+    "N10_local_range_repair_510": "research/510_WC_N10_LOCAL_TRUNCATION_RETAINED_EXACT_HTTP_RANGES_CPU_REPAIR_20261016.md"
   },
   "evidence_batches": {
     "curve60": {
@@ -2887,6 +2888,22 @@
       "minimal_calibration_cost_measured": false,
       "scope_ref": "manifests/wc_paper_N09_runtime_profile40_scope_r1_20261016.json",
       "reuse_ref": "reports/wc_paper_N09_profile40_unchanged_observer_reuse_20261016.json",
+      "GPU_submissions": 0,
+      "SSH_queries": 0
+    },
+    "N10_local_R2_terminal_truncation_and_range_preparation": {
+      "status": "LOCAL_R2_TRUNCATED_RETAINED_RANGE_CPU_READY_NOT_COMPLETE_RESOURCE",
+      "original_R2_received_bytes": 78094879,
+      "original_R2_wall_seconds": 166.58207368850708,
+      "original_R2_full_resource_accepted": false,
+      "two_exact_real_HTTP206_probes_accepted": true,
+      "one_TLS_error_preserved": true,
+      "range_and_collector_controls": 13,
+      "actual_new_range_task_started": false,
+      "actual_models": 0,
+      "actual_quality_scores": 0,
+      "original_R2_capture_ref": "reports/wc_paper_N10_ViCLIP_local_proxy_R2_collection_20261016_1400.json",
+      "CPU_receipt_ref": "reports/wc_paper_N10_range_download_and_capture_CPU_preparation_20261016.json",
       "GPU_submissions": 0,
       "SSH_queries": 0
     }
@@ -4227,8 +4244,8 @@
       "bytes": 297
     },
     "scripts/capture_wc_N10_viclip_local_proxy_r2.py": {
-      "sha256": "479450664e27d9bcb0f205afb30594fbb8f5d68bfa9d3b0db04cc3fdc8c5aa37",
-      "bytes": 4462
+      "sha256": "1453fcd63877c6760b717ac8b05d878d378db0ad7224404cb2c6dcae2fc7e1e5",
+      "bytes": 4951
     },
     "scripts/evaluate_wc_N10_models_cpu_bundle_r1.py": {
       "exists": true,
@@ -4304,6 +4321,50 @@
     "reports/wc_paper_N09_profile40_unchanged_observer_reuse_20261016.json": {
       "sha256": "a7e0e9f13475df1b01e0566a8fa2294569df94730699aee9df19b22e9acf69cd",
       "bytes": 1711
+    },
+    "research/510_WC_N10_LOCAL_TRUNCATION_RETAINED_EXACT_HTTP_RANGES_CPU_REPAIR_20261016.md": {
+      "sha256": "7ba0d2fba867c55063f5a5cd7f27dded9f5fcdbb732377bd50aaebf040364856",
+      "bytes": 4429
+    },
+    "reports/wc_paper_N10_ViCLIP_local_proxy_R2_collection_20261016_1400.json": {
+      "sha256": "fd10c9fee5467191f0f991d97967349a8c3fe582358674234b84c2bb6b8d0e30",
+      "bytes": 4614
+    },
+    "reports/wc_paper_N10_same_pin_HTTP_range_probe_20261016.json": {
+      "sha256": "d21af48cd2746fcd51fd33e308e19bc284098766144654359e5bef80a4ea5c81",
+      "bytes": 986
+    },
+    "reports/wc_paper_N10_same_pin_HTTP_nonzero_range_probe_20261016.json": {
+      "sha256": "a33995cc3c43c510bea5ac8a1f7678ab1989d5801155a9673272aae710c0f8b0",
+      "bytes": 510
+    },
+    "reports/wc_paper_N10_curl_nonzero_range_transport_probe_20261016.json": {
+      "sha256": "3cedfd1522aba2137c8d0fa8be17076288644fb869f39bb9d2a7617d4aeaffe7",
+      "bytes": 1208
+    },
+    "reports/wc_paper_N10_range_download_and_capture_CPU_preparation_20261016.json": {
+      "sha256": "14ebfd424d6f2e84f0715565ca1ab7860973a2b64f939025d18857abf099e4c6",
+      "bytes": 3707
+    },
+    "reports/wc_paper_N10_range_collector_fixture_R1_failure_20261016.json": {
+      "sha256": "8890dc447c2c88245b7b0254d90e957264d6f5db5426c237f86b21029aa57ec3",
+      "bytes": 580
+    },
+    "scripts/fetch_wc_N10_viclip_ranges_r1.py": {
+      "sha256": "abed3996e5552680aefb1c63f179c3c394ea4b2abb4fb0e0a1812c3be611dee4",
+      "bytes": 9137
+    },
+    "scripts/launch_wc_N10_viclip_ranges_r1.py": {
+      "sha256": "2b2357cad4820206a2ab0f744da09d2b813a5a1a204b9bd2c70433e756f9e1d2",
+      "bytes": 5039
+    },
+    "tests/test_N10_resource_ranges_r1.py": {
+      "sha256": "fbcae6e7f1e593fce20f439a43cb5ec09b0c7ebfd4d05c1bcbc8344b84af736c",
+      "bytes": 8039
+    },
+    "tests/test_N10_local_resource_capture_r1.py": {
+      "sha256": "65242da5bb03261b98cade9ddce234e3e7f528885a93bb655ca9f3c4a658ef88",
+      "bytes": 4776
     }
   },
   "math_notation": [

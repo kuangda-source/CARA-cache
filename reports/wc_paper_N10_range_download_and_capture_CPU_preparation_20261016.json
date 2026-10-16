@@ -1,0 +1,57 @@
+{
+  "status": "EXACT_RANGE_DOWNLOAD_AND_LOCAL_COLLECTION_CPU_PREPARED_NOT_REAL_DOWNLOAD",
+  "controls": 13,
+  "commands": [
+    {
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_N10_resource_ranges_r1.py",
+        "-v"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "test_complete_ordered_bytes_and_whole_digest_before_publication (test_N10_resource_ranges_r1.RangeResourceControls) ... ok\ntest_correct_http_headers_still_require_whole_checkpoint_sha (test_N10_resource_ranges_r1.RangeResourceControls) ... ok\ntest_header_parser_uses_final_response_after_proxy_and_redirect (test_N10_resource_ranges_r1.RangeResourceControls) ... ok\ntest_http200_range_ignored_is_not_accepted (test_N10_resource_ranges_r1.RangeResourceControls) ... ok\ntest_original_stage_cannot_be_redispatched (test_N10_resource_ranges_r1.RangeResourceControls) ... ok\ntest_short_response_then_retry_does_not_duplicate_or_skip_prefix (test_N10_resource_ranges_r1.RangeResourceControls) ... ok\ntest_wrong_object_etag_exhausts_known_requests_without_publication (test_N10_resource_ranges_r1.RangeResourceControls) ... ok\ntest_wrong_offset_response_is_not_committed_even_when_length_matches (test_N10_resource_ranges_r1.RangeResourceControls) ... ok\ntest_wrong_worker_source_refuses_before_any_curl_or_new_partial (test_N10_resource_ranges_r1.RangeResourceControls) ... ok\n\n----------------------------------------------------------------------\nRan 9 tests in 0.023s\n\nOK\n",
+      "wall_seconds": 0.08794498443603516
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_N10_local_resource_capture_r1.py",
+        "-v"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "test_before_original_eta_refuses_without_any_process_query (test_N10_local_resource_capture_r1.LocalResourceCaptureControls) ... ok\ntest_foreign_worker_name_refuses_before_process_query (test_N10_local_resource_capture_r1.LocalResourceCaptureControls) ... ok\ntest_new_range_and_original_legacy_worker_both_keep_independent_full_sha (test_N10_local_resource_capture_r1.LocalResourceCaptureControls) ... ok\ntest_original_nice_exec_identity_is_live_and_blocks_resource_acceptance (test_N10_local_resource_capture_r1.LocalResourceCaptureControls) ... ok\n\n----------------------------------------------------------------------\nRan 4 tests in 0.008s\n\nOK\n",
+      "wall_seconds": 0.058405160903930664
+    }
+  ],
+  "source_sha256": {
+    "scripts/fetch_wc_N10_viclip_ranges_r1.py": "abed3996e5552680aefb1c63f179c3c394ea4b2abb4fb0e0a1812c3be611dee4",
+    "scripts/launch_wc_N10_viclip_ranges_r1.py": "2b2357cad4820206a2ab0f744da09d2b813a5a1a204b9bd2c70433e756f9e1d2",
+    "scripts/capture_wc_N10_viclip_local_proxy_r2.py": "1453fcd63877c6760b717ac8b05d878d378db0ad7224404cb2c6dcae2fc7e1e5",
+    "tests/test_N10_resource_ranges_r1.py": "fbcae6e7f1e593fce20f439a43cb5ec09b0c7ebfd4d05c1bcbc8344b84af736c",
+    "tests/test_N10_local_resource_capture_r1.py": "65242da5bb03261b98cade9ddce234e3e7f528885a93bb655ca9f3c4a658ef88"
+  },
+  "scope": "SMALL_SYNTHETIC_BYTES_AND_MOCKED_CURL_PS_NO_ACTUAL_NETWORK_OR_MODEL",
+  "original_fixture_failure_preserved": "reports/wc_paper_N10_range_collector_fixture_R1_failure_20261016.json",
+  "old_R1_and_R2_original_artifacts_preserved": true,
+  "actual_new_resource_download_launched": false,
+  "actual_models_executed": 0,
+  "actual_quality_scores": 0,
+  "GPU_submissions": 0,
+  "SSH_queries": 0,
+  "server_files_written": false,
+  "ledger_written": false
+}

@@ -1,5 +1,7 @@
 # 内部实现到论文表述的映射
 
+**资源修复（510）：**[510固定资源分段修复](../research/510_WC_N10_LOCAL_TRUNCATION_RETAINED_EXACT_HTTP_RANGES_CPU_REPAIR_20261016.md)：14:00一次收本机18318已终态，78094879字节截断/166.582秒，完整验收拒绝，原partial/SHA保持。真实起始与非零HTTP206探测通过，中间TLS错误保留；系统curl按8MiB精确Range新入口/查收13CPU通过，新R3须本提交后单次派发、启动90分钟后收。当前0完整权重/0模型/0新质量分数，不查询N07或写GPU账；原180/source140d0a6/明早05:30/cap113保持。以下原14:00在途说明均为历史。
+
 **部署测量范围（509）：**[509部署开销完整范围](../research/509_WC_N09_FROZEN_RUNTIME_PROFILE40_SCOPE_AND_REMAINING_ACTION_CALIBRATION_COSTS_20261016.md)登记五个原冻结角色×两旧CAL×原audit/profile-audit/profile-lean，30正式+10warm/40路径/1440pairs；独立矩阵检查和原102四源码全SHA复用通过，未跑新采样/生产CPU或GPU。同状态C/A/P0/D报价与可复现标定采集费用仍待，真实整卡配置/CPU/费用未选。N07原完整180/source140d0a6和明早05:30、本机资源18318今天14:00保持，本轮无SSH/预算写或partial查询。以下为运行和准备历史。
 
 **资源接入准备（508）：**[508固定权重接入准备](../research/508_WC_N10_ORIGINAL_SCP_PINNED_RESOURCE_RELAY_CPU_READY_NO_GPU_INTERFERENCE_20261016.md)：原SCP单次传输/完整SHA/独立服务器资源查收入口已准备，九项小文件与Mac句柄控制、五模型227payload接口检查通过，实际传输/模型/新质量分数仍0。本轮未查N07或资源partial、未SSH/改账；原N07完整180/source140d0a6及明天05:30验收保持。原本机18318今天14:00收，完整接受后用独立R3经既有SSH传同一权重，按实际ETA一次收；重模型CPU避开主线。下方为原运行与准备历史。
