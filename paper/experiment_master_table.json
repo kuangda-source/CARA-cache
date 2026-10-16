@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "updated_local_date": "2026-10-16",
-  "snapshot_basis": "N05/N06 accepted; final full180 input/method/cost freeze unchanged; originalCPU R1 missing test dependency retained; source140d0a6 fresh R2 actual six-command CPU1111913 in flight, no GPU or budget mutation.",
+  "snapshot_basis": "N05/N06 complete; real N07 full180 productionCPU R2 independently accepted; exact full15.055555556GPUh card and proposed cumulativecap113 waiting human; fresh pool unchanged, no newGPU.",
   "git_snapshot_before_inventory": "7359a973ec562db393bdf3047877d0cef86c3544",
   "mapping_ref": "paper/internal_to_paper_mapping.json",
   "scope": "scientific experiment families and complete cards, not each engineering retry; reused artifacts must not be summed as independent samples",
@@ -887,15 +887,15 @@
     },
     {
       "id": "N07",
-      "state": "待补｜修复版完整180生产CPU R2在途",
+      "state": "待补｜真实生产CPU已接受，整卡/预算待回复",
       "paper_experiment_name": "Common Frozen Evaluation Matrix",
       "internal_ids": [
         "PAPER_E3_FROZEN_SHARED_TEST"
       ],
       "contribution_relation": "C1/C2最终版本确认；C3覆盖",
-      "evidence_or_planned_scope": "8新prompt×seed17/43×十方法，160正式+20warm/6318pairs；fresh身份审计与原字节输入通过，完整报价15.055555556GPUh。",
-      "gap_and_next_action": "12:35一次收原R2/六命令/全1725 SHA/160typed。原R1测试漏传失败保留；接受后问完整15.055555556GPUh卡与拟议cap113，当前服务器原预算不改。",
-      "priority": "P1·下一完整主线",
+      "evidence_or_planned_scope": "8新prompt×双seed×十方法，160正式+20warm/6318pairs完整绑定；真实六命令/1725 SHA/160typed CPU已接受；预计15.055555556GPUh。",
+      "gap_and_next_action": "已一次询问具体完整180卡与累计cap113；未获直接回复不执行。原服务器cap104.971363333、余11.389538676、预留0；R1失败保持。",
+      "priority": "P1·等待整卡与预算具体回复",
       "evidence_refs": [
         "closure_plan",
         "roadmap",
@@ -924,7 +924,8 @@
         "497",
         "498",
         "499",
-        "500"
+        "500",
+        "501"
       ],
       "method_mapping_ids": [
         "config.efficient",
@@ -953,12 +954,12 @@
       "final_methods_selected": true,
       "shared_execution_registry_local_CPU_accepted": true,
       "shared_execution_registry_acceptance_ref": "reports/wc_paper_shared_registry952_local_CPU_R3_independent_acceptance_20261016.json",
-      "actual_final_production_CPU_accepted": false,
+      "actual_final_production_CPU_accepted": true,
       "original_input_bytes_inventory_complete": true,
       "input_argument_adapter_CPU_accepted": true,
       "production_contract_synthetic_CPU_accepted": true,
       "actual_production_runner_implemented": true,
-      "actual_production_runner_CPU_accepted": false,
+      "actual_production_runner_CPU_accepted": true,
       "CPU_post_and_score_entry_implemented": true,
       "CPU_post_and_score_synthetic_controls_accepted": true,
       "actual_final_video_or_LPIPS_results_available": false,
@@ -980,12 +981,12 @@
       "proposed_cumulative_cap_pending_human": 113.0,
       "actual_production_CPU_or_GPU_selected": true,
       "actual_production_CPU_dispatched": true,
-      "actual_production_CPU_accepted": false,
+      "actual_production_CPU_accepted": true,
       "actual_GPU_dispatched": false,
       "production_CPU_launch_ref": "reports/wc_paper_N07_actual_production_CPU_R2_launch_20261016.json",
       "production_CPU_source_revision": "140d0a6af7d5be16d1b191ab3a8e68ffe83d0007",
       "production_CPU_pid": 1111913,
-      "production_CPU_next_collection_local": "2026-10-16T12:35:00+08:00",
+      "production_CPU_next_collection_local": null,
       "production_CPU_historical_failures": [
         {
           "attempt": "R1",
@@ -994,7 +995,11 @@
           "capture_ref": "reports/wc_paper_N07_actual_production_CPU_R1_collection_20261016_1227.json.gz",
           "CPU_accepted": false
         }
-      ]
+      ],
+      "server_production_CPU_accepted": true,
+      "production_CPU_acceptance_ref": "reports/wc_paper_N07_actual_production_CPU_R2_independent_acceptance_20261016.json",
+      "whole_complete_card_prepared": true,
+      "specific_whole_card_approval_pending": true
     },
     {
       "id": "N08",
@@ -1023,7 +1028,8 @@
         "495",
         "N07_N08_complete_cost_CPU",
         "496",
-        "497"
+        "497",
+        "501"
       ],
       "method_mapping_ids": [
         "config.efficient",
@@ -1079,7 +1085,8 @@
       "cost_planner_CPU_controls_accepted": true,
       "actual_complete_forecast_selected": true,
       "method_freeze_ref": "manifests/wc_paper_N07_N08_method_freeze_r1_20261016.json",
-      "whole_card_forecast_GPUh": 3.6275
+      "whole_card_forecast_GPUh": 3.6275,
+      "same_origin_cap_extension_compatibility_CPU_accepted": true
     },
     {
       "id": "N09",
@@ -1384,7 +1391,14 @@
     "N07_CPU_R1_original_independent_failure": "reports/wc_paper_N07_actual_production_CPU_R1_independent_acceptance_20261016.json",
     "N07_CPU_R2_repair_source_plan": "reports/wc_paper_N07_actual_packaging_R2_repair_and_unchanged_scope_20261016.json",
     "N07_actual_production_CPU_R2_launch": "reports/wc_paper_N07_actual_production_CPU_R2_launch_20261016.json",
-    "explicit_cap_extension_CPU_only": "reports/wc_gpu_budget_cap_extension_local_CPU_preparation_20261016.json"
+    "explicit_cap_extension_CPU_only": "reports/wc_gpu_budget_cap_extension_local_CPU_preparation_20261016.json",
+    "501": "research/501_WC_N07_FULL180_REAL_PRODUCTION_CPU_ACCEPTED_COMPLETE_CARD_AND_BUDGET_DECISION_20261016.md",
+    "N07_actual_production_CPU_R2_capture": "reports/wc_paper_N07_actual_production_CPU_R2_collection_20261016_1235.json.gz",
+    "N07_actual_production_CPU_R2_acceptance": "reports/wc_paper_N07_actual_production_CPU_R2_independent_acceptance_20261016.json",
+    "N07_preapproval_fresh_budget": "reports/wc_paper_N07_preapproval_fresh_budget_20261016_1236.json",
+    "N07_complete_card_approval_review": "reports/wc_paper_N07_full180_complete_CPU_and_budget_approval_review_20261016.json",
+    "N08_fixed_cap_R1_probe": "reports/wc_paper_N08_fixed_cap_contract_R1_probe_20261016.json",
+    "N08_same_origin_cap_CPU": "reports/wc_paper_N08_same_window_cap_contract_CPU_repair_20261016.json"
   },
   "source_bindings": {
     "11": {
@@ -1537,7 +1551,7 @@
     },
     "mainline_queue_20261016": {
       "path": "plans/WORLD_CACHE_MAINLINE_PRIORITY_QUEUE_20261016.md",
-      "sha256": "4d66c4873830b34c1713ab5ecb478db608eba1c6bdaea9feded077a665c3f635"
+      "sha256": "1c13204806b82c6579a93d1d50dc9fa9e2d7b2239af0269bc9176cf603a2dd8e"
     },
     "baseline_grid_prereg_20261016": {
       "path": "manifests/wc_paper_N05_bounded_baseline_grid_preregistration_draft_20261016.json",
@@ -2038,6 +2052,34 @@
     "explicit_cap_extension_CPU_only": {
       "path": "reports/wc_gpu_budget_cap_extension_local_CPU_preparation_20261016.json",
       "sha256": "9b98c4907772156ac47891dd9b05789b43039d5817261a24349eeed467f41f55"
+    },
+    "501": {
+      "path": "research/501_WC_N07_FULL180_REAL_PRODUCTION_CPU_ACCEPTED_COMPLETE_CARD_AND_BUDGET_DECISION_20261016.md",
+      "sha256": "86ecf8bfa966d56c1fa190ae2a5c67458372dc8e46e64242254cfb30d6a382f8"
+    },
+    "N07_actual_production_CPU_R2_capture": {
+      "path": "reports/wc_paper_N07_actual_production_CPU_R2_collection_20261016_1235.json.gz",
+      "sha256": "e49b5a0141d4f240da6dbe7314fe6d187c971d6324cd8b38bca35daf933eeecf"
+    },
+    "N07_actual_production_CPU_R2_acceptance": {
+      "path": "reports/wc_paper_N07_actual_production_CPU_R2_independent_acceptance_20261016.json",
+      "sha256": "cfb40010e4c902649597488504adeb7e4799eef9081e06c19f5f9b0d3bf784e9"
+    },
+    "N07_preapproval_fresh_budget": {
+      "path": "reports/wc_paper_N07_preapproval_fresh_budget_20261016_1236.json",
+      "sha256": "fb395945620b7c61114d66542d922ff0ff2c023b8293abbb68dd6dd95e4ad2ea"
+    },
+    "N07_complete_card_approval_review": {
+      "path": "reports/wc_paper_N07_full180_complete_CPU_and_budget_approval_review_20261016.json",
+      "sha256": "5209b91124b9931d5b4374b70a225e8861a378a433a14979532cbd49bbbaa09c"
+    },
+    "N08_fixed_cap_R1_probe": {
+      "path": "reports/wc_paper_N08_fixed_cap_contract_R1_probe_20261016.json",
+      "sha256": "c75be93fde6cffe580240292be0d3a3d752f53124513790691f19699d1d49835"
+    },
+    "N08_same_origin_cap_CPU": {
+      "path": "reports/wc_paper_N08_same_window_cap_contract_CPU_repair_20261016.json",
+      "sha256": "aa7b5270f10e1419e167d6a305efcca4a9bd59b5addc5c3c0df62c90d01528f5"
     }
   },
   "operation_policy": {
@@ -2112,14 +2154,7 @@
     },
     "W3_original_terminal_collection_performed": true,
     "SIMPLE26D_R1_collection_closed": true,
-    "current_CPU_task": {
-      "kind": "N07_REAL_PRODUCTION_CPU_R2",
-      "pid": 1111913,
-      "start_ticks": 541989964,
-      "source_revision": "140d0a6af7d5be16d1b191ab3a8e68ffe83d0007",
-      "stage": "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/.sync/wc-paper-n07-production-cpu-r2-20261016",
-      "launch_ref": "reports/wc_paper_N07_actual_production_CPU_R2_launch_20261016.json"
-    },
+    "current_CPU_task": null,
     "next_W3_CPU_collection": null,
     "SIMPLE26D_R2_next_collection": null,
     "current_reserved_GPUh": 0,
@@ -2134,7 +2169,7 @@
       "W3": "2026-10-16T01:00:00+08:00",
       "SIMPLE26D_MEMORY_R2": "2026-10-16T04:55:00+08:00"
     },
-    "budget_values_asof": "N05_ORIGINAL_TERMINAL_COLLECTION_20261016_1205",
+    "budget_values_asof": "PREAPPROVAL_FRESH_V2_READ_ONLY_20261016_1236",
     "last_CPU_task": {
       "type": "DEPLOYMENT_PROFILE_FULL102_LOCAL_CPU_R2",
       "pid": 10482,
@@ -2169,7 +2204,7 @@
     "N05_scientific_core66_scope_selected": true,
     "N05_production_CPU_or_GPU_selected": true,
     "N05_corrected_neighbor_gap_retained": true,
-    "budget_snapshot_asof": "2026-10-16T12:05:00+08:00",
+    "budget_snapshot_asof": "2026-10-16T12:36:08+08:00",
     "new_CPU_preparation_is_not_GPU_or_quality_result": true,
     "historical_CPU_tasks": [
       {
@@ -2306,14 +2341,19 @@
     "N07_actual_complete_forecast_GPUh": 15.055555555555555,
     "N07_specific_whole_card_approval_pending": true,
     "N07_proposed_cap_pending_human": 113.0,
-    "N07_actual_production_CPU_accepted": false,
+    "N07_actual_production_CPU_accepted": true,
     "N07_actual_GPU_dispatched": false,
     "N08_actual_whole_forecast_GPUh": 3.6275,
-    "N07_production_CPU_next_collection_local": "2026-10-16T12:35:00+08:00",
-    "N07_production_CPU_first_collection_not_before_unix": 1792125236.128427,
+    "N07_production_CPU_next_collection_local": null,
+    "N07_production_CPU_first_collection_not_before_unix": null,
     "N07_actual_server_cap_unchanged": 104.97136333301378,
     "explicit_cap_extension_prepared_not_applied": true,
-    "N07_CPU_R1_terminal_failure_preserved": true
+    "N07_CPU_R1_terminal_failure_preserved": true,
+    "N07_approval_request_sent": true,
+    "N07_approval_review_ref": "reports/wc_paper_N07_full180_complete_CPU_and_budget_approval_review_20261016.json",
+    "N07_CPU_R2_terminal_accepted": true,
+    "budget_snapshot_observed_unix": 1792125368.124118,
+    "N08_same_window_extended_cap_CPU_ready": true
   },
-  "mapping_sha256_at_inventory": "a75f5a09ccf6e2ad4e59a5614cd6028d684f79de03a049563b73cebfb61fe475"
+  "mapping_sha256_at_inventory": "67ed7f8a9f8d6d772880de2496ab3ae27968e23270c157a2bd2d550175f1eae0"
 }

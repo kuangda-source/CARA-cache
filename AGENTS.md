@@ -1,3 +1,7 @@
+## 2026-10-16 最终共同真实CPU接受，具体整卡/预算待回复
+
+[501真实生产CPU接受](research/501_WC_N07_FULL180_REAL_PRODUCTION_CPU_ACCEPTED_COMPLETE_CARD_AND_BUDGET_DECISION_20261016.md)：12:35一次收R2/source140d0a6/1111913终态，1725 SHA/六命令/160typed/原180全通过，148.735906秒，原R1失败保留499。12:36 fresh池实结93.581824657/cap104.971363333、预留0余11.389538676；完整N07预计15.055555556与拟议cap113已一次询问人类，未获回复前0GPU/0cap写。自动化暂停，不重查旧CPU；N08同origin增量兼容12CPU通过、原99数值不改。 以下历史保留。
+
 ## 2026-10-16 完整共同CPU R1失败保留，R2修复在途
 
 [500完整生产CPU R2在途](research/500_WC_N07_COMPLETE180_PRODUCTION_CPU_R2_LAUNCH_AFTER_IMPORT_CLOSURE_REPAIR_20261016.md)：R1于12:27一次收，第三组漏传automatic_quality，原失败保留499。Python extra依赖闭合修复9项/受影响N08打包7项通过，99数值原SHA不变。新source140d0a6/stage R2/CPU1111913/start541989964于12:29:56单次启动，1725payload/158overlay/原六命令；12:35一次收（最早12:33:56.128427）。完整180/输入/报价不改，0新GPU/0服务器cap写；通过后才问整卡15.055555556及拟议cap113。 以下历史保留。

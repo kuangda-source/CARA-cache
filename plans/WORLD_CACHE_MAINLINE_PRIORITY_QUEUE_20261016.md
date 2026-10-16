@@ -6,6 +6,8 @@
 
 ## 当前执行更新：N05/N06已完整接受，N07/N08方法已冻结
 
+[501真实生产CPU接受](../research/501_WC_N07_FULL180_REAL_PRODUCTION_CPU_ACCEPTED_COMPLETE_CARD_AND_BUDGET_DECISION_20261016.md)：12:35一次收R2/source140d0a6/1111913终态，1725 SHA/六命令/160typed/原180全通过，148.735906秒，原R1失败保留499。12:36 fresh池实结93.581824657/cap104.971363333、预留0余11.389538676；完整N07预计15.055555556与拟议cap113已一次询问人类，未获回复前0GPU/0cap写。自动化暂停，不重查旧CPU；N08同origin增量兼容12CPU通过、原99数值不改。
+
 [500完整生产CPU R2在途](../research/500_WC_N07_COMPLETE180_PRODUCTION_CPU_R2_LAUNCH_AFTER_IMPORT_CLOSURE_REPAIR_20261016.md)：R1于12:27一次收，第三组漏传automatic_quality，原失败保留499。Python extra依赖闭合修复9项/受影响N08打包7项通过，99数值原SHA不变。新source140d0a6/stage R2/CPU1111913/start541989964于12:29:56单次启动，1725payload/158overlay/原六命令；12:35一次收（最早12:33:56.128427）。完整180/输入/报价不改，0新GPU/0服务器cap写；通过后才问整卡15.055555556及拟议cap113。
 
 [498生产CPU在途](../research/498_WC_N07_FULL180_REAL_PRODUCTION_CPU_RUNNING_AND_COST_APPROVAL_NEXT_20261016.md)：source3138e03/独立N07 stage、CPU1111360/start541937992于12:21:16单次派发，1724payload/157overlay、六命令；12:27一次收（最早12:25:16.3995705），不持续监听。完整180/160正式/6318pairs不变；CPU未验收、0新GPU/0账本写。完整N07预计15.055555556，CPU通过后询问具体整卡及拟议cap113；实际原cap104.971363333/余额11.389538676未改。

@@ -36,6 +36,22 @@ def fixture():
 
 
 class ProductionControls(unittest.TestCase):
+    def test_same_window_extended_cap_preparation_requires_exact_shared_binding(self):
+        config, protocol, shared, freeze, expected, _ = fixture()
+        config['cumulative_cap_GPUh'] = shared['cumulative_cap_GPUh'] = 113.
+        self.assertEqual(production.validate_contract(config, protocol, shared, freeze), expected)
+        config['cumulative_cap_GPUh'] = 114.
+        with self.assertRaises(ValueError):
+            production.validate_contract(config, protocol, shared, freeze)
+        for bad in (100., float('nan'), float('inf'), True):
+            config['cumulative_cap_GPUh'] = shared['cumulative_cap_GPUh'] = bad
+            with self.subTest(cap=bad), self.assertRaises(ValueError):
+                production.validate_contract(config, protocol, shared, freeze)
+        config['cumulative_cap_GPUh'] = shared['cumulative_cap_GPUh'] = 113.
+        config['budget_origin_used_GPUh'] = shared['budget_origin_used_GPUh'] = 0.
+        with self.assertRaises(ValueError):
+            production.validate_contract(config, protocol, shared, freeze)
+
     def test_complete_contract_reuses_exact_protocol_and_frozen_roles(self):
         config, protocol, shared, freeze, expected, _ = fixture()
         original = copy.deepcopy((config, protocol, shared, freeze))

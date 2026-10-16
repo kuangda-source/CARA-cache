@@ -41,7 +41,11 @@ def validate_contract(config, protocol, shared_config, method_freeze):
     if (not all(number(v) for v in (cost, limit)) or not 0 < cost <= limit
             or config['cumulative_cap_GPUh'] != shared_config['cumulative_cap_GPUh']
             or config['budget_origin_used_GPUh'] != shared_config['budget_origin_used_GPUh']
-            or config['cumulative_cap_GPUh'] != 104.97136333301378
+            # The original accounting origin stays fixed when the human
+            # explicitly increases the cap. Actual launch still requires an
+            # exact match to the authoritative ledger and bound authority.
+            or not number(config['cumulative_cap_GPUh'])
+            or config['cumulative_cap_GPUh'] < 104.97136333301378
             or config['budget_origin_used_GPUh'] != 79.99637737158223):
         raise ValueError('Complete full40 cost and unchanged cumulative budget window required')
     return bound

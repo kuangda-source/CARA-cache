@@ -1694,7 +1694,8 @@
     "N07_frozen_actual_497": "research/497_WC_N07_FROZEN_NEW_INPUTS_FULL180_ACTUAL_COST_AND_PRODUCTION_CPU_PREREG_20261016.md",
     "N07_production_CPU_running_498": "research/498_WC_N07_FULL180_REAL_PRODUCTION_CPU_RUNNING_AND_COST_APPROVAL_NEXT_20261016.md",
     "N07_CPU_failure_repair_499": "research/499_WC_N07_R1_CPU_TEST_DEPENDENCY_FAILURE_R2_PACKAGING_REPAIR_20261016.md",
-    "N07_CPU_R2_running_500": "research/500_WC_N07_COMPLETE180_PRODUCTION_CPU_R2_LAUNCH_AFTER_IMPORT_CLOSURE_REPAIR_20261016.md"
+    "N07_CPU_R2_running_500": "research/500_WC_N07_COMPLETE180_PRODUCTION_CPU_R2_LAUNCH_AFTER_IMPORT_CLOSURE_REPAIR_20261016.md",
+    "N07_CPU_complete_501": "research/501_WC_N07_FULL180_REAL_PRODUCTION_CPU_ACCEPTED_COMPLETE_CARD_AND_BUDGET_DECISION_20261016.md"
   },
   "evidence_batches": {
     "curve60": {
@@ -2701,13 +2702,16 @@
       "ordinary_pairs": 6318,
       "CFG_calls": 12636,
       "forecast_complete_GPUh": 15.055555555555555,
-      "production_CPU_accepted": false,
+      "production_CPU_accepted": true,
       "specific_whole_card_approval_required": true,
       "proposed_cap_only": 113.0,
       "actual_cap_unchanged": 104.97136333301378,
       "config_ref": "configs/wc_paper_N07_frozen_shared_production_r1_20261016.json",
       "selection_ref": "manifests/wc_paper_N07_actual_selected_unexposed_inputs_r1_20261016.json",
-      "real_quality_or_speed": false
+      "real_quality_or_speed": false,
+      "actual_GPU_dispatched": false,
+      "actual_final_video_or_LPIPS_available": false,
+      "approval_review_ref": "reports/wc_paper_N07_full180_complete_CPU_and_budget_approval_review_20261016.json"
     },
     "N07_actual_production_CPU_R1": {
       "status": "N07_ORIGINAL_PRODUCTION_CPU_FAILED_RESULT_RETAINED",
@@ -2728,18 +2732,31 @@
       "original_stage_preserved": true
     },
     "N07_actual_production_CPU_R2": {
-      "status": "N07_SHARED180_ACTUAL_PRODUCTION_CPU_SINGLE_DISPATCH",
+      "status": "N07_SHARED180_REAL_PRODUCTION_CPU_INDEPENDENTLY_ACCEPTED_NOT_GPU",
       "source_revision": "140d0a6af7d5be16d1b191ab3a8e68ffe83d0007",
       "pid": 1111913,
       "start_ticks": 541989964,
       "payload_files": 1725,
       "expected_CPU_commands": 6,
       "first_collection_not_before_unix": 1792125236.128427,
-      "scheduled_collection_local": "2026-10-16T12:35:00+08:00",
+      "scheduled_collection_local": null,
       "launch_ref": "reports/wc_paper_N07_actual_production_CPU_R2_launch_20261016.json",
-      "production_CPU_accepted": false,
+      "production_CPU_accepted": true,
       "GPU_submissions": 0,
-      "ledger_written": false
+      "ledger_written": false,
+      "capture_ref": "reports/wc_paper_N07_actual_production_CPU_R2_collection_20261016_1235.json.gz",
+      "acceptance_ref": "reports/wc_paper_N07_actual_production_CPU_R2_independent_acceptance_20261016.json",
+      "wall_seconds": 148.735906124115,
+      "CPU_commands": 6,
+      "actual_sample_argument_variants": 160,
+      "original_process_terminal": true
+    },
+    "N08_same_origin_cap_compatibility_CPU": {
+      "status": "CPU_READY_NOT_REAL_PRODUCTION",
+      "controls": 12,
+      "receipt": "reports/wc_paper_N08_same_window_cap_contract_CPU_repair_20261016.json",
+      "original_shared_config_match_required": true,
+      "server_budget_written": false
     }
   },
   "statistical_rules": {
@@ -3431,9 +3448,8 @@
       "sha256": "81a146389a6cd9e3d3e0fdb004a250f5ffc74f3f728c1d0149c74a58bfb75a2c"
     },
     "src/wcomr/balanced_repeat_production_r1.py": {
-      "exists": true,
-      "bytes": 9662,
-      "sha256": "650e4b954a0c5b3f74f908e9109e179ce93fa01caa621aba5fb672118612c411"
+      "sha256": "ad75526e2fa512014d89789bbbe72f32c424244a7b2100226b43190e27d63535",
+      "bytes": 9941
     },
     "scripts/run_wc_paper_N08_balanced_full40_r1.py": {
       "exists": true,
@@ -3441,9 +3457,8 @@
       "sha256": "6fd40d1a67be3b264fe36db6b7b9ec91f8a29f940a3187b141e59f9efcdd4883"
     },
     "tests/test_balanced_repeat_production_r1.py": {
-      "exists": true,
-      "bytes": 12252,
-      "sha256": "9012e928a0b5ab3fb7596ca959c6d98f90159478db3069e8265122aefa5356d0"
+      "sha256": "0e71e682ee3e50cd3fe6e7bc9ee5f9a4b2a32370d52e9d263725a068a8c1a36b",
+      "bytes": 13316
     },
     "research/488_WC_N08_RESIDENT_FULL40_PRODUCTION_ENTRY_AND_WARM_INTERFACE_REPAIR_CPU_READY_20261016.md": {
       "exists": true,
@@ -3926,6 +3941,34 @@
     "tests/test_gpu_budget_cap_extension_v2.py": {
       "sha256": "761b601201ef5856ef59652387ca397131514f98499f130b7b7a07caa9cc5303",
       "bytes": 4856
+    },
+    "research/501_WC_N07_FULL180_REAL_PRODUCTION_CPU_ACCEPTED_COMPLETE_CARD_AND_BUDGET_DECISION_20261016.md": {
+      "sha256": "86ecf8bfa966d56c1fa190ae2a5c67458372dc8e46e64242254cfb30d6a382f8",
+      "bytes": 5760
+    },
+    "reports/wc_paper_N07_actual_production_CPU_R2_collection_20261016_1235.json.gz": {
+      "sha256": "e49b5a0141d4f240da6dbe7314fe6d187c971d6324cd8b38bca35daf933eeecf",
+      "bytes": 130040
+    },
+    "reports/wc_paper_N07_actual_production_CPU_R2_independent_acceptance_20261016.json": {
+      "sha256": "cfb40010e4c902649597488504adeb7e4799eef9081e06c19f5f9b0d3bf784e9",
+      "bytes": 2321
+    },
+    "reports/wc_paper_N07_preapproval_fresh_budget_20261016_1236.json": {
+      "sha256": "fb395945620b7c61114d66542d922ff0ff2c023b8293abbb68dd6dd95e4ad2ea",
+      "bytes": 7169
+    },
+    "reports/wc_paper_N07_full180_complete_CPU_and_budget_approval_review_20261016.json": {
+      "sha256": "5209b91124b9931d5b4374b70a225e8861a378a433a14979532cbd49bbbaa09c",
+      "bytes": 2506
+    },
+    "reports/wc_paper_N08_fixed_cap_contract_R1_probe_20261016.json": {
+      "sha256": "c75be93fde6cffe580240292be0d3a3d752f53124513790691f19699d1d49835",
+      "bytes": 596
+    },
+    "reports/wc_paper_N08_same_window_cap_contract_CPU_repair_20261016.json": {
+      "sha256": "aa7b5270f10e1419e167d6a305efcca4a9bd59b5addc5c3c0df62c90d01528f5",
+      "bytes": 1130
     }
   },
   "math_notation": [
