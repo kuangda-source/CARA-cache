@@ -1,0 +1,157 @@
+{
+  "card": "WC-PAPER-N07-FROZEN-SHARED180-R1",
+  "run_id": "wc-paper-n07-frozen-shared180-r1",
+  "strategy": "WORKING_P_AGE_NONZERO_REBASE",
+  "main_timing": "SYNCHRONIZED_TEXT_ENCODING_DENOISING_VAE_DECODING",
+  "memory_policy": "REQUEST_BOUNDARY_GC_ONLY",
+  "autonomy_exclusive_upper_GPUh": 12,
+  "reference_method": "NATIVE35",
+  "method_ids": [
+    "NATIVE35",
+    "NATIVE26",
+    "WC_HALF",
+    "RA_HALF",
+    "RA_DEFAULT",
+    "RA_DOUBLE",
+    "A_NO_P",
+    "TABLE_PHASE_H1",
+    "FRONT_DENSE_C",
+    "FRONT_DENSE_A"
+  ],
+  "bound_input_fingerprint": "ca6057af17f795fa1e6c2964715ff80922f1decc4da30d29cf9a6436b07b63ca",
+  "scope_counts": {
+    "prompt_groups": 8,
+    "requests": 16,
+    "methods": 10,
+    "scientific_paths": 160,
+    "full_warmup_paths": 20,
+    "total_paths": 180,
+    "ordinary_pairs": 6318,
+    "loads": 1,
+    "teacher_pairs": 0,
+    "score_videos": 160,
+    "ordinary_CFG_calls": 12636
+  },
+  "warm_trace_policy": "ALL20_FULL_TRACE_BOTH_REPEATS",
+  "guardrails_enabled": true,
+  "neighbor_gap_retained": true,
+  "forecast_complete_GPUh": 15.055555555555555,
+  "billed_limit_GPUh": 15.055555555555555,
+  "cumulative_cap_GPUh": 113.0,
+  "budget_origin_used_GPUh": 79.99637737158223,
+  "references": {
+    "development": {
+      "ref": "reports/wc_paper_N07_development_acceptance_bundle_r1_20261016.json",
+      "sha256": "e09e0160097ed3e3ef437e0c41f92f1084ec836b9b8c5ee8a4ebae78f3a6fb73"
+    },
+    "N05_acceptance": {
+      "ref": "reports/wc_paper_N05_core66_independent_acceptance_20261016_1205.json",
+      "sha256": "4524ac61a8b3e98225a35ea62d56080d7c9e0131e3dd12318e77238b3120671c"
+    },
+    "N06_acceptance": {
+      "ref": "reports/wc_simple26d_memory_full36_independent_acceptance_20261016.json",
+      "sha256": "9668fd0ccf7b961027554ddd79bd57d80441f50ff8efdc714784fd2f6ca97751"
+    },
+    "dataset_catalog": {
+      "ref": "reports/dataset_source_group_audit_20260930.json",
+      "sha256": "6f8de690f5cb4f33c3d72aacb23ae6d723f9dd37213845f0472e8b3cb77543f0"
+    },
+    "local_input_inventory": {
+      "ref": "reports/wc_paper_N07_local_input_exclusion_inventory_r1_20261016.json",
+      "sha256": "5a57cae666c5946dffb9f6e47f8091de7eed9e9c9451293065743fef693d89d5"
+    },
+    "input_protocol": {
+      "ref": "manifests/wc_paper_N07_common_input_protocol_r1_20261016.json",
+      "sha256": "1a8a4f8d6051048999851d998838c38bd1134f2af9918a3de1295bcb663e9ec5"
+    },
+    "grouped_statistics_protocol": {
+      "ref": "manifests/wc_paper_N07_grouped_statistics_preregistration_r1_20261016.json",
+      "sha256": "868d411223204929d3d0482103c07863edeacc2c931bab48de4a3d6e4b638c32"
+    },
+    "method_freeze": {
+      "ref": "manifests/wc_paper_N07_N08_method_freeze_r1_20261016.json",
+      "sha256": "b8d24be55ee722b6b7a2601ea18ff5ac3e686621a110de8128878ebb42fc400c"
+    },
+    "remote_identity_audit": {
+      "ref": "reports/wc_paper_N07_actual_fresh_identity_20261016_1225.json",
+      "sha256": "e3d5bc36b37df3d205e8f086dcfe89d86036fba067cc7d0840bc275b58f4a9c5"
+    },
+    "selection": {
+      "ref": "manifests/wc_paper_N07_actual_selected_unexposed_inputs_r1_20261016.json",
+      "sha256": "7eb74a957b571c07e1634b9315daa56a920766f2e9fd94c9f266fa3cca656e66"
+    },
+    "bound_inputs": {
+      "ref": "manifests/wc_paper_N07_actual_bound_inputs_r1_20261016.json",
+      "sha256": "6271100396e10afb521f07bae19de9fc837b2fa0649bfd7d4e5f4c1276489f33"
+    },
+    "shared_CPU_raw": {
+      "ref": "reports/wc_paper_shared_registry952_local_CPU_R3_result_20261016.json",
+      "sha256": "7509a9fb4594e6f41094e0bf9cf3e3967e4f3541c1fe44a411b25e5fc98eb437"
+    },
+    "shared_CPU_acceptance": {
+      "ref": "reports/wc_paper_shared_registry952_local_CPU_R3_independent_acceptance_20261016.json",
+      "sha256": "aaa101f99ad1b1bc672ec2a27f7e053223ebf83a0f9b73bba6d03642d40bf4da"
+    },
+    "shared_CPU_capture": {
+      "ref": "reports/wc_paper_shared_registry952_local_CPU_R3_collection_20261016_0602.json.gz",
+      "sha256": "ab4f02b3df8c2e9139f3803490fb40c0aa095bdef09dd1179651b8473c1dbb23"
+    },
+    "quality_measurement_protocol": {
+      "ref": "manifests/wc_paper_N10_automatic_quality_measurement_prereg_r1_20261016.json",
+      "sha256": "9755122b22349d9cd5b1cfe43460e73044360e240d941df11d6ca4150b817734"
+    },
+    "complete_cost": {
+      "ref": "reports/wc_paper_N07_N08_actual_complete_cost_r1_20261016.json",
+      "sha256": "7bb6d09b30047702a5107314e3db74a89c776a52c53e5b5b15850cdb1a1d953e"
+    }
+  },
+  "input_files": {
+    "av_5f567f79-4dd0-413d-a81a-2607684decf2": {
+      "ref": "inputs/N07/av_5f567f79-4dd0-413d-a81a-2607684decf2.json",
+      "sha256": "a0f86427dffdf7797c3625ba8f979d2f59ddda4768aa91898d021adbafbd28ba"
+    },
+    "av_3f748a97-5a86-4311-a099-c2d1bd1e5fb1": {
+      "ref": "inputs/N07/av_3f748a97-5a86-4311-a099-c2d1bd1e5fb1.json",
+      "sha256": "86067fad595afd5ca5ce4d4d40ee5c29d4cc12fb9d427f74e3867fe2f75cac95"
+    },
+    "human_186": {
+      "ref": "inputs/N07/human_186.json",
+      "sha256": "355162df39b0a2584332c8ea53c6d2543a7eedfd403d0774ca2730d6467d881c"
+    },
+    "human_212": {
+      "ref": "inputs/N07/human_212.json",
+      "sha256": "1ec36096e3a56005c27c64815eb672c31467d5dc3f31bd01fad3e4faa2b0c9a9"
+    },
+    "misc_4707906-uhd_3840_2160_30fps": {
+      "ref": "inputs/N07/misc_4707906-uhd_3840_2160_30fps.json",
+      "sha256": "2bffc38d1f3e033771174e6bb54b52573c594f339f84dda64925b230f8689faa"
+    },
+    "misc_4761738-uhd_4096_2160_25fps": {
+      "ref": "inputs/N07/misc_4761738-uhd_4096_2160_25fps.json",
+      "sha256": "a69cb2d82c22cbf6d292dd0ebe1fce1a1f20ea8c39493fa5d31783cc89e0773e"
+    },
+    "robot_110": {
+      "ref": "inputs/N07/robot_110.json",
+      "sha256": "52e160e9cbfa420b4d658976d347ec5307f61057ea2a421099f8f91d944554d9"
+    },
+    "robot_060": {
+      "ref": "inputs/N07/robot_060.json",
+      "sha256": "be85fbd47780425daf480fadab101b29cef0a542d8d206f616f0eafc855a1f84"
+    }
+  },
+  "training": false,
+  "online_teachers": false,
+  "F_B_enabled": false,
+  "P_ACR": false,
+  "T1": false,
+  "head_elision": false,
+  "deployment_profiling": false,
+  "GPU_execution_selected": false,
+  "actual_production_CPU_accepted": false,
+  "launch_permission_pending_specific_complete_card": true,
+  "original_budget_window_not_reset": true,
+  "first_collection_delay_seconds": 57600,
+  "current_cumulative_cap_GPUh_before_requested_extension": 104.97136333301378,
+  "cumulative_cap_is_proposed_pending_direct_human_approval": true,
+  "server_budget_modified": false
+}
