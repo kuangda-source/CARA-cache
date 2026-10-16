@@ -1,5 +1,7 @@
 # 内部实现到论文表述的映射
 
+**当前实际CPU（500）：**[500完整生产CPU R2在途](../research/500_WC_N07_COMPLETE180_PRODUCTION_CPU_R2_LAUNCH_AFTER_IMPORT_CLOSURE_REPAIR_20261016.md)：R1于12:27一次收，第三组漏传automatic_quality，原失败保留499。Python extra依赖闭合修复9项/受影响N08打包7项通过，99数值原SHA不变。新source140d0a6/stage R2/CPU1111913/start541989964于12:29:56单次启动，1725payload/158overlay/原六命令；12:35一次收（最早12:33:56.128427）。完整180/输入/报价不改，0新GPU/0服务器cap写；通过后才问整卡15.055555556及拟议cap113。
+
 **真实生产CPU（498）：**[498生产CPU在途](../research/498_WC_N07_FULL180_REAL_PRODUCTION_CPU_RUNNING_AND_COST_APPROVAL_NEXT_20261016.md)：source3138e03/独立N07 stage、CPU1111360/start541937992于12:21:16单次派发，1724payload/157overlay、六命令；12:27一次收（最早12:25:16.3995705），不持续监听。完整180/160正式/6318pairs不变；CPU未验收、0新GPU/0账本写。完整N07预计15.055555556，CPU通过后询问具体整卡及拟议cap113；实际原cap104.971363333/余额11.389538676未改。
 
 **最终输入/费用（497）：**[497最终共同冻结](../research/497_WC_N07_FROZEN_NEW_INPUTS_FULL180_ACTUAL_COST_AND_PRODUCTION_CPU_PREREG_20261016.md)：十方法后fresh身份审计928文档/0错误，按原salt选8新prompt×seed17/43，160正式+20warm/6318pairs完整绑定；原99数值不变。N07实据报价15.055555556、N08完整40为3.6275GPUh，两卡缺7.293516880GPUh；配置内cap113仅拟议待批准，服务器原cap104.971363333/账本未改、0新GPU。先做真实六命令CPU，再询问具体整卡与预算，不拆缩。
