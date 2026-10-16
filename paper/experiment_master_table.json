@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "updated_local_date": "2026-10-16",
-  "snapshot_basis": "N07 whole180 explicitly human approved; cumulative cap113 applied preserving original usage and origin; GPU admitted, first final collection 2026-10-17 05:30. N10 resource original timeout retained and local fixed resource download launched, full CPU chain prepared but actual metric models/scores0.",
-  "git_snapshot_before_inventory": "5d7ef36ab58579ee6e8100d3d822e2c5426cffb7",
+  "snapshot_basis": "N07 approved full180 GPU original running with cap113 and tomorrow05:30 ETA unchanged. N10 original local resource awaits today14:00; original SCP/remote SHA and full five-model packet schema are CPU prepared, no actual transfer or models from this preparation.",
+  "git_snapshot_before_inventory": "8f0b0f559ac20b7383c4170e75e181f71700a0ec",
   "mapping_ref": "paper/internal_to_paper_mapping.json",
   "scope": "scientific experiment families and complete cards, not each engineering retry; reused artifacts must not be summed as independent samples",
   "contributions": {
@@ -1153,7 +1153,7 @@
       ],
       "contribution_relation": "C3生成质量范围；补充保真主指标",
       "evidence_or_planned_scope": "216固定代码/真实BPE及采样/输入桥保持；原五模型CPU入口和完整bundle/部署/独立接受链准备完成，15链路控制通过；四权重全SHA已核，ViCLIP服务器R1超时保留、本机R2获取同一pin。",
-      "gap_and_next_action": "今天14:00一次收本机原PID/完整SHA；完整接受后独立服务器资源传输；重模型CPU避开N07/N08，随后复用全部最终160视频/960位置并单独测完整评分费用。",
+      "gap_and_next_action": "今天14:00一次收本机18318/完整SHA；接受后按508单次派R3原SCP并按ETA收服务器原件，重模型CPU避开N07/N08，再执行最终160视频/960位置和完整评分费用。",
       "priority": "P2·复用最终视频",
       "evidence_refs": [
         "28",
@@ -1176,7 +1176,13 @@
         "507",
         "N10_complete_five_model_CPU_chain_preparation",
         "N10_resource_R1_terminal_failure",
-        "N10_local_proxy_R2_launch"
+        "N10_local_proxy_R2_launch",
+        "508",
+        "N10_resource_relay_control_R1",
+        "N10_resource_relay_control_R2",
+        "N10_relay_five_model_packet_schema",
+        "N10_original_resource_relay_tool",
+        "N10_original_resource_relay_tests"
       ],
       "method_mapping_ids": [],
       "depends_on": [
@@ -1219,7 +1225,11 @@
       "ViCLIP_R1_terminal_failure_preserved": true,
       "ViCLIP_resource_execution_origin": "LOCAL_MAC_EXISTING_PROXY_SAME_PINNED_RESOURCE",
       "ViCLIP_resource_local_pid": 18318,
-      "ViCLIP_resource_full_bytes_accepted": false
+      "ViCLIP_resource_full_bytes_accepted": false,
+      "resource_SCP_relay_tool_prepared": true,
+      "resource_SCP_relay_CPU_controls_accepted": 9,
+      "resource_SCP_capture_to_model_packet_schema_accepted": true,
+      "actual_resource_SCP_relay_dispatched": false
     },
     {
       "id": "N11",
@@ -1465,7 +1475,13 @@
     "N10_local_HEAD_route": "reports/wc_paper_N10_local_ViCLIP_HEAD_route_probe_20261016.json",
     "N10_local_proxy_R2_launch": "reports/wc_paper_N10_ViCLIP_local_proxy_R2_launch_20261016.json",
     "N10_local_proxy_collector_ETA_control": "reports/wc_paper_N10_local_proxy_R2_collector_preETA_boundary_20261016.json",
-    "N10_local_proxy_collector": "scripts/capture_wc_N10_viclip_local_proxy_r2.py"
+    "N10_local_proxy_collector": "scripts/capture_wc_N10_viclip_local_proxy_r2.py",
+    "508": "research/508_WC_N10_ORIGINAL_SCP_PINNED_RESOURCE_RELAY_CPU_READY_NO_GPU_INTERFERENCE_20261016.md",
+    "N10_resource_relay_control_R1": "reports/wc_paper_N10_resource_relay_local_CPU_preparation_20261016.json",
+    "N10_resource_relay_control_R2": "reports/wc_paper_N10_resource_relay_local_CPU_R2_preparation_20261016.json",
+    "N10_relay_five_model_packet_schema": "reports/wc_paper_N10_relay_to_five_model_packet_schema_CPU_20261016.json",
+    "N10_original_resource_relay_tool": "scripts/relay_wc_N10_viclip_resource_r1.py",
+    "N10_original_resource_relay_tests": "tests/test_N10_resource_relay_r1.py"
   },
   "source_bindings": {
     "11": {
@@ -1618,7 +1634,7 @@
     },
     "mainline_queue_20261016": {
       "path": "plans/WORLD_CACHE_MAINLINE_PRIORITY_QUEUE_20261016.md",
-      "sha256": "a32d4564a1afb218c5d5fe49f9fc3400511c650abf47b4ae321d8c11003ad305"
+      "sha256": "23893e1f9cf97788e1f9b95f9c9c288e1d492f9846076066acec3080f5dd603c"
     },
     "baseline_grid_prereg_20261016": {
       "path": "manifests/wc_paper_N05_bounded_baseline_grid_preregistration_draft_20261016.json",
@@ -2247,6 +2263,30 @@
     "N10_local_proxy_collector": {
       "path": "scripts/capture_wc_N10_viclip_local_proxy_r2.py",
       "sha256": "479450664e27d9bcb0f205afb30594fbb8f5d68bfa9d3b0db04cc3fdc8c5aa37"
+    },
+    "508": {
+      "path": "research/508_WC_N10_ORIGINAL_SCP_PINNED_RESOURCE_RELAY_CPU_READY_NO_GPU_INTERFERENCE_20261016.md",
+      "sha256": "3959c6814ac56a30ba3adb8e3b1c9a240194c31c1691a9e630cb72d20083ebd9"
+    },
+    "N10_resource_relay_control_R1": {
+      "path": "reports/wc_paper_N10_resource_relay_local_CPU_preparation_20261016.json",
+      "sha256": "f7ce43dfcb0fb3edf33fd88baa057f2d7497d63d0e414d4f2c3f69cdab1af24a"
+    },
+    "N10_resource_relay_control_R2": {
+      "path": "reports/wc_paper_N10_resource_relay_local_CPU_R2_preparation_20261016.json",
+      "sha256": "02d4da655658b5112b19794d4ed591569f15962b72f37a7d05db6a9f02273b85"
+    },
+    "N10_relay_five_model_packet_schema": {
+      "path": "reports/wc_paper_N10_relay_to_five_model_packet_schema_CPU_20261016.json",
+      "sha256": "4de3e37ced0463a4222c6623e8d25f922cc158a6a5f84aa5443170ce566509b0"
+    },
+    "N10_original_resource_relay_tool": {
+      "path": "scripts/relay_wc_N10_viclip_resource_r1.py",
+      "sha256": "76c9e79e5c4d4c15eaffa0835c390e12c4b8dd65fa1287a1300a82345bae3643"
+    },
+    "N10_original_resource_relay_tests": {
+      "path": "tests/test_N10_resource_relay_r1.py",
+      "sha256": "1511f7b69fb68d92d41af0716051ff251d96543530ba6cd538f7a6ae81c5a23a"
     }
   },
   "operation_policy": {
@@ -2491,12 +2531,11 @@
     "N09_profile_full102_CPU_accepted": true,
     "N09_profile_CPU_next_collection": null,
     "last_short_local_CPU_preparation": {
-      "type": "N07_RESIDENT_RUNNER_AND_FULL180_ORCHESTRATION",
-      "acceptance_ref": "reports/wc_paper_N07_batch_runner_CPU_controls_20261016.json",
-      "synthetic_positions": 180,
-      "actual_Cosmos_CPU_or_GPU_accepted": false,
-      "GPU_submissions": 0,
-      "server_N05_unchanged": true
+      "kind": "N10_ORIGINAL_SCP_RESOURCE_RELAY_AND_FIVE_MODEL_PACKET_SCHEMA",
+      "controls": 9,
+      "actual_GPU": 0,
+      "SSH_queries": 0,
+      "actual_models": 0
     },
     "specific_approved_large_card_admission_extension_prepared": true,
     "specific_approved_large_card_admission_extension_deployed_to_server": true,
@@ -2547,7 +2586,8 @@
       "runner": 1115898,
       "post": 1115798
     },
-    "heavy_model_CPU_deferred_while_N07_or_N08_running": true
+    "heavy_model_CPU_deferred_while_N07_or_N08_running": true,
+    "N10_resource_SCP_preparation_ref": "research/508_WC_N10_ORIGINAL_SCP_PINNED_RESOURCE_RELAY_CPU_READY_NO_GPU_INTERFERENCE_20261016.md"
   },
-  "mapping_sha256_at_inventory": "7c1da243f717c22a09c3373affc754f8219d0aa8913722fa59ba1517d273753a"
+  "mapping_sha256_at_inventory": "fb9c3f7e30c6c4d8219fc501881779a16f43a3881b5bcfa51a614890a61ac903"
 }

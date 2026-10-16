@@ -6,6 +6,8 @@
 
 ## 当前执行：N07完整180在运行，之后N08重复测速
 
+[508固定权重接入准备](../research/508_WC_N10_ORIGINAL_SCP_PINNED_RESOURCE_RELAY_CPU_READY_NO_GPU_INTERFERENCE_20261016.md)：原SCP单次传输/完整SHA/独立服务器资源查收入口已准备，九项小文件与Mac句柄控制、五模型227payload接口检查通过，实际传输/模型/新质量分数仍0。本轮未查N07或资源partial、未SSH/改账；原N07完整180/source140d0a6及明天05:30验收保持。原本机18318今天14:00收，完整接受后用独立R3经既有SSH传同一权重，按实际ETA一次收；重模型CPU避开主线。下方为原运行与准备历史。
+
 用户已明确批准完整180卡及同一累计cap113。[506完整共同GPU准入](../research/506_WC_N07_FULL180_HUMAN_APPROVED_CAP113_GPU_ADMITTED_AND_0530_COLLECTION_20261016.md)：原source140d0a6、1725源/六命令CPU保持，13:26:43在GPU0单次准入，1115797/1115898/post1115798；8新prompt×seed17/43×十方法，160正式+20warm/6318pairs不缩。实结93.581824657/cap113、预留15.055555556、可准入4.362619787，原origin与历史不变。**10月17日05:30一次查收**，不提前看partial/持续监听；适用完整接受后按N08→N09/10接续。
 
 [505五模型CPU链](../research/505_WC_N10_COMPLETE_FIVE_MODEL_CPU_BATCH_STAGING_AND_INDEPENDENT_ACCEPTANCE_READY_20261016.md)完整bundle/部署/独立验收15控制已准备，真实模型0。[507固定评分资源](../research/507_WC_N10_SERVER_RESOURCE_TIMEOUT_RETAINED_LOCAL_PROXY_DOWNLOAD_AND_MAINLINE_PRIORITY_20261016.md)：服务器R1已终态0字节超时保留；本机同URL HEAD200后复用原worker/source5d7ef36，PID18318于13:28:28经既有代理单次下载同一权重，**今天14:00一次收**。只资源准备，不占GPU/运行模型；重CPU模型避开N07及之后clean测速。下方旧在途/待回复文字保留为历史。

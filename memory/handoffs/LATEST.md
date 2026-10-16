@@ -1,3 +1,7 @@
+## 2026-10-16 固定评分权重SSH接入CPU准备完成
+
+[508固定权重接入准备](../../research/508_WC_N10_ORIGINAL_SCP_PINNED_RESOURCE_RELAY_CPU_READY_NO_GPU_INTERFERENCE_20261016.md)：原SCP单次传输/完整SHA/独立服务器资源查收入口已准备，九项小文件与Mac句柄控制、五模型227payload接口检查通过，实际传输/模型/新质量分数仍0。本轮未查N07或资源partial、未SSH/改账；原N07完整180/source140d0a6及明天05:30验收保持。原本机18318今天14:00收，完整接受后用独立R3经既有SSH传同一权重，按实际ETA一次收；重模型CPU避开主线。下方为原运行与准备历史。
+
 ## 2026-10-16 N07完整180已批准并运行，累计cap113
 
 用户已明确批准完整180卡及同一累计cap113。[506完整共同GPU准入](../../research/506_WC_N07_FULL180_HUMAN_APPROVED_CAP113_GPU_ADMITTED_AND_0530_COLLECTION_20261016.md)：原source140d0a6、1725源/六命令CPU保持，13:26:43在GPU0单次准入，1115797/1115898/post1115798；8新prompt×seed17/43×十方法，160正式+20warm/6318pairs不缩。实结93.581824657/cap113、预留15.055555556、可准入4.362619787，原origin与历史不变。**10月17日05:30一次查收**，不提前看partial/持续监听；适用完整接受后按N08→N09/10接续。
