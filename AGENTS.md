@@ -1,3 +1,7 @@
+## 2026-10-16 N08全40终态/逐轮保真后处理CPU准备完成
+
+[489测速后处理](research/489_WC_N08_FULL40_CPU_POST_REPEAT_PARITY_SAME_ROUND_FIDELITY_AND_FAILURE_ISOLATION_READY_20261016.md)：原完整40/30/10原件审计、10预热36guided、30正式对warm终态/actions/来源/RGB、同轮Native的93帧评分与全三轮汇总已接线；15本地CPU通过。新R1派生统计参考失效传播错误已保留并修复，原始观测/分数不重写；v2完整时间区间可检出边界间短GPU重叠，非整个资源区间独占证明。仅合成视频/评分与小型真实CPU张量，无实际生产/质量/速度；原99数值源码保持。0SSH/0GPU/0账本写，N05原15d77ac/句柄/12:05不动。以下历史保留。
+
 ## 2026-10-16 N08驻留入口CPU准备与预热接口修复
 
 [488重复测速入口](research/488_WC_N08_RESIDENT_FULL40_PRODUCTION_ENTRY_AND_WARM_INTERFACE_REPAIR_CPU_READY_20261016.md)：原两CAL五角色/三轮完整40驻留CLI与独立CPU/费用/授权合同已写，22本地CPU通过。新增实际返回形态检查重现485预热计数先后顺序缺陷，原失败保留；修复只在计时外由真实36列表计数，原99数值源码保持。N07方法冻结必须同时写N08五角色repeat_timing_bindings，不能看新测试再选测速对手；真实绑定/配置/生产CPU/监督post/费用仍待。0SSH/0GPU/0账本写，N05原15d77ac/句柄/今天12:05不改。以下历史保留。

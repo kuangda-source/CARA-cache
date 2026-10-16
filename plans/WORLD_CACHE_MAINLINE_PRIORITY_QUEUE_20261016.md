@@ -6,6 +6,8 @@
 
 ## 当前执行更新：N06已接受，N05已准入
 
+[489](../research/489_WC_N08_FULL40_CPU_POST_REPEAT_PARITY_SAME_ROUND_FIDELITY_AND_FAILURE_ISOLATION_READY_20261016.md)补N08完整40后处理与15本地CPU控制：同轮参考、预热/正式行为与原始/派生统计分开，坏容器和缺失不抹掉其他有效观测。实际生产CPU/监督/独立验收与速度仍待，N05按原12:05不提前查。
+
 [488](../research/488_WC_N08_RESIDENT_FULL40_PRODUCTION_ENTRY_AND_WARM_INTERFACE_REPAIR_CPU_READY_20261016.md)补齐N08完整40驻留CLI与22本地CPU控制；真实生产CPU/最终配置/监督post待做。**N05后冻结N07十方法时，同一method_freeze还需写repeat_timing_bindings五角色，均来自开发选择，之后不凭共同测试改选测速对手。** 原N05/12:05不动。
 
 [487](../research/487_WC_N07_FRESH_IDENTITY_AUDIT_CPU_READY_AND_MAINLINE_ORDER_20261016.md)补齐N07 fresh身份审计工具与13本地CPU控制；只认输出/运行身份，目录清单不误当曝光。真正服务器审计仍待N05接受和方法冻结后，最终输入/配置未选，不提前查询当前GPU。

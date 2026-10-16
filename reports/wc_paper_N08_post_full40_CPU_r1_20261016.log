@@ -1,0 +1,29 @@
+test_actual_tiny_CPU_artifacts_use_seed0_mapped_audit_and_finite36_guides (test_balanced_repeat_post_r1.Full40PostControls) ... ok
+test_all40_raw_controls_30_same_round_scores_and_all_reported_rounds (test_balanced_repeat_post_r1.Full40PostControls) ... ok
+test_missing_round_native_never_borrows_warm_or_other_round_reference (test_balanced_repeat_post_r1.Full40PostControls) ... ok
+test_native_repeat_failure_does_not_crash_other_scored_rows (test_balanced_repeat_post_r1.Full40PostControls) ... ERROR
+test_numeric_source_change_keeps_actual_scores_but_not_certified_primary_repeat (test_balanced_repeat_post_r1.Full40PostControls) ... ok
+test_one_broken_container_keeps_raw_clock_and_other29_scores (test_balanced_repeat_post_r1.Full40PostControls) ... ok
+test_owner_address_only_changes_are_ignored_but_RGB_change_is_not (test_balanced_repeat_post_r1.Full40PostControls) ... ok
+test_text_rejection_and_technical_prefix_keep_all40_positions (test_balanced_repeat_post_r1.Full40PostControls) ... ok
+test_whole_v2_intervals_detect_transient_overlap_missed_by_boundaries (test_balanced_repeat_post_r1.Full40PostControls) ... ok
+test_wrong_round_score_identity_is_retained_as_metric_failure (test_balanced_repeat_post_r1.Full40PostControls) ... ok
+
+======================================================================
+ERROR: test_native_repeat_failure_does_not_crash_other_scored_rows (test_balanced_repeat_post_r1.Full40PostControls)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/kuangda_gao/Documents/世界模型加速实验/worldcache_omr/tests/test_balanced_repeat_post_r1.py", line 138, in test_native_repeat_failure_does_not_crash_other_scored_rows
+    result = evaluate(bound, rows)
+  File "/Users/kuangda_gao/Documents/世界模型加速实验/worldcache_omr/tests/test_balanced_repeat_post_r1.py", line 63, in evaluate
+    result.update(post.summarize(result, bound, observed_paths=len(rows), child_exit_code=child_exit_code))
+  File "/Users/kuangda_gao/Documents/世界模型加速实验/worldcache_omr/src/wcomr/balanced_repeat_post_r1.py", line 162, in summarize
+    statistics = summaries(statistics_inputs(rows, result['formal_to_warm_controls']))
+  File "/Users/kuangda_gao/Documents/世界模型加速实验/worldcache_omr/src/wcomr/balanced_repeat_timing_r1.py", line 60, in summaries
+    raise ValueError('All93-frame fidelity needs its registered same-round Native')
+ValueError: All93-frame fidelity needs its registered same-round Native
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.146s
+
+FAILED (errors=1)

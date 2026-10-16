@@ -963,7 +963,7 @@
         "PAPER_E4_REPEAT_SPEED"
       ],
       "contribution_relation": "C3稳定费用；C1/C2工作点复验",
-      "evidence_or_planned_scope": "完整40路径/30正式+10warm/两旧CAL五逻辑配置三平衡轮；位置均值2、逐轮秒数/倍数、拒绝保持、无计时内取证与重复endpoint检查5CPU控制通过。 485新增角色绑定、单路径状态恢复/seed0审计、计时分列与全40 batch；新6项＋受影响11项CPU合计17通过，synthetic响应和时间，真实绑定仍null。 488准备完整40驻留CLI与独立生产合同，22本地CPU通过；预热真实返回形态缺陷保留R1并修正计时外计数。",
+      "evidence_or_planned_scope": "完整40路径/30正式+10warm/两旧CAL五逻辑配置三平衡轮；位置均值2、逐轮秒数/倍数、拒绝保持、无计时内取证与重复endpoint检查5CPU控制通过。 485新增角色绑定、单路径状态恢复/seed0审计、计时分列与全40 batch；新6项＋受影响11项CPU合计17通过，synthetic响应和时间，真实绑定仍null。 488准备完整40驻留CLI与独立生产合同，22本地CPU通过；预热真实返回形态缺陷保留R1并修正计时外计数。 489补原40/30/10的CPU原件/预热/逐轮评分与失败保留，15本地CPU通过；新增R1派生参考传播错误保留后修复，不改原始分数。",
       "gap_and_next_action": "实际方法阈值与版本、完整sampler/真实生产CPU和费用待N05/N06后冻结；尚无新GPU或速度结果。所有额外N09profile若合并须显式计入完整卡。 五测速角色须写入N07同一开发method_freeze；真实配置/生产CPU/监督/后处理与整段clean资源仍未完成。",
       "priority": "P2·最终版本冻结后",
       "evidence_refs": [
@@ -974,7 +974,8 @@
         "N08_repeat_protocol",
         "N08_repeat_CPU",
         "485",
-        "488"
+        "488",
+        "489"
       ],
       "method_mapping_ids": [
         "config.efficient",
@@ -1005,7 +1006,11 @@
       "resident_production_synthetic_CPU_accepted": true,
       "actual_production_CPU_accepted": false,
       "actual_speed_or_quality_results_from_N08": false,
-      "timing_bindings_must_share_original_common_method_freeze": true
+      "timing_bindings_must_share_original_common_method_freeze": true,
+      "CPU_post_entry_implemented": true,
+      "CPU_post_controls_accepted": true,
+      "actual_full40_scoring_done": false,
+      "registered_GPU_interval_reconstruction_prepared": true
     },
     {
       "id": "N09",
@@ -1253,7 +1258,9 @@
     "487": "research/487_WC_N07_FRESH_IDENTITY_AUDIT_CPU_READY_AND_MAINLINE_ORDER_20261016.md",
     "N07_fresh_identity_CPU": "reports/wc_paper_N07_fresh_identity_CPU_acceptance_20261016.json",
     "488": "research/488_WC_N08_RESIDENT_FULL40_PRODUCTION_ENTRY_AND_WARM_INTERFACE_REPAIR_CPU_READY_20261016.md",
-    "N08_resident_production_CPU": "reports/wc_paper_N08_resident_production_CPU_acceptance_20261016.json"
+    "N08_resident_production_CPU": "reports/wc_paper_N08_resident_production_CPU_acceptance_20261016.json",
+    "489": "research/489_WC_N08_FULL40_CPU_POST_REPEAT_PARITY_SAME_ROUND_FIDELITY_AND_FAILURE_ISOLATION_READY_20261016.md",
+    "N08_post_full40_CPU": "reports/wc_paper_N08_post_full40_CPU_acceptance_20261016.json"
   },
   "source_bindings": {
     "11": {
@@ -1406,7 +1413,7 @@
     },
     "mainline_queue_20261016": {
       "path": "plans/WORLD_CACHE_MAINLINE_PRIORITY_QUEUE_20261016.md",
-      "sha256": "1353567da8d3e0d0e0d29e75008466b12e06a98e9d906fd375ce3fb083b9f548"
+      "sha256": "1afa434ee5fd5f92a2fcd9f8ae4a2dc6216ccc81eaf62f792826a1cd6ef07f9c"
     },
     "baseline_grid_prereg_20261016": {
       "path": "manifests/wc_paper_N05_bounded_baseline_grid_preregistration_draft_20261016.json",
@@ -1735,6 +1742,14 @@
     "N08_resident_production_CPU": {
       "path": "reports/wc_paper_N08_resident_production_CPU_acceptance_20261016.json",
       "sha256": "bbc757a730c8179fc2c7b744b183c722c44a3d0742b46101844aafbc4501749e"
+    },
+    "489": {
+      "path": "research/489_WC_N08_FULL40_CPU_POST_REPEAT_PARITY_SAME_ROUND_FIDELITY_AND_FAILURE_ISOLATION_READY_20261016.md",
+      "sha256": "cc6dbeda3cf1ddc4a6bce7eb0c9a946b6c295803a80733d3e9780769fa81a6a6"
+    },
+    "N08_post_full40_CPU": {
+      "path": "reports/wc_paper_N08_post_full40_CPU_acceptance_20261016.json",
+      "sha256": "fd159c77e748be5fc296e908819ea3ee0a8d583b2af765b1042603b9ddfcd4c7"
     }
   },
   "operation_policy": {
@@ -1982,13 +1997,13 @@
     "specific_approved_large_card_admission_extension_prepared": true,
     "specific_approved_large_card_admission_extension_deployed_to_server": false,
     "last_short_CPU_preparation": {
-      "ref": "reports/wc_paper_N08_resident_production_CPU_acceptance_20261016.json",
-      "controls": 22,
+      "ref": "reports/wc_paper_N08_post_full40_CPU_acceptance_20261016.json",
+      "controls": 15,
       "GPU_submissions": 0,
       "SSH_queries": 0,
       "current_running_card_changed": false
     },
     "N07_method_freeze_must_include_N08_bindings": true
   },
-  "mapping_sha256_at_inventory": "1650c0ef1624c8acde8af8c7ff00178e7f733e6c5ce41070ece6362fbc5a670e"
+  "mapping_sha256_at_inventory": "16e74c2e0111f5f6dd3e19628dda909120062ad9f3520773bd75e634b2fea972"
 }

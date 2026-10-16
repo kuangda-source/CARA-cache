@@ -1649,7 +1649,8 @@
     "N08_execution_binding_CPU": "research/485_WC_N08_FULL40_EXECUTION_BINDING_AND_OBSERVED_TIMER_CPU_READY_20261016.md",
     "N07_production_packaging_CPU": "research/486_WC_N07_GIT_BOUND_CPU_PACKAGING_AND_CANONICAL_PATH_PREPARATION_20261016.md",
     "N07_fresh_identity_CPU": "research/487_WC_N07_FRESH_IDENTITY_AUDIT_CPU_READY_AND_MAINLINE_ORDER_20261016.md",
-    "N08_resident_production_CPU": "research/488_WC_N08_RESIDENT_FULL40_PRODUCTION_ENTRY_AND_WARM_INTERFACE_REPAIR_CPU_READY_20261016.md"
+    "N08_resident_production_CPU": "research/488_WC_N08_RESIDENT_FULL40_PRODUCTION_ENTRY_AND_WARM_INTERFACE_REPAIR_CPU_READY_20261016.md",
+    "N08_post_full40_CPU": "research/489_WC_N08_FULL40_CPU_POST_REPEAT_PARITY_SAME_ROUND_FIDELITY_AND_FAILURE_ISOLATION_READY_20261016.md"
   },
   "evidence_batches": {
     "curve60": {
@@ -1987,6 +1988,14 @@
       "actual_production_CPU_accepted": false,
       "actual_CPU_or_GPU_dispatched": false,
       "acceptance_ref": "reports/wc_paper_N08_resident_production_CPU_acceptance_20261016.json"
+    },
+    "N08_FULL40_POST_PARITY_AND_FIDELITY_PREPARATION": {
+      "status": "N08_FULL40_CPU_POST_REPEAT_PARITY_AND_SAME_ROUND_FIDELITY_CONTROLS_READY_NOT_ACTUAL_SCORE",
+      "controls": 15,
+      "actual_video_or_score_results": false,
+      "actual_CPU_or_GPU_dispatched": false,
+      "acceptance_ref": "reports/wc_paper_N08_post_full40_CPU_acceptance_20261016.json",
+      "preserved_failure_ref": "reports/wc_paper_N08_post_full40_CPU_R1_failure_20261016.json"
     }
   },
   "statistical_rules": {
@@ -2719,6 +2728,46 @@
       "exists": true,
       "bytes": 2586,
       "sha256": "75c54f8e272ce1d719cfc9330af35386400684fdec89238792a27f302d041048"
+    },
+    "src/wcomr/balanced_repeat_post_r1.py": {
+      "exists": true,
+      "bytes": 13109,
+      "sha256": "41c22ebea38e8086e547db09d24ccb582d26148dcad4e9b3b218a304c8f8b9c5"
+    },
+    "scripts/postprocess_wc_paper_N08_balanced_full40_r1.py": {
+      "exists": true,
+      "bytes": 6265,
+      "sha256": "8c866f65a83d50cc859ee4d6df590d5f2ad9104f2cc9afa31a25646774554aa8"
+    },
+    "tests/test_balanced_repeat_post_r1.py": {
+      "exists": true,
+      "bytes": 11822,
+      "sha256": "1d3823eecf480574d1e080a67cef0453e38ad1e058a6024a7c5be557f02d80cb"
+    },
+    "research/489_WC_N08_FULL40_CPU_POST_REPEAT_PARITY_SAME_ROUND_FIDELITY_AND_FAILURE_ISOLATION_READY_20261016.md": {
+      "exists": true,
+      "bytes": 3921,
+      "sha256": "cc6dbeda3cf1ddc4a6bce7eb0c9a946b6c295803a80733d3e9780769fa81a6a6"
+    },
+    "reports/wc_paper_N08_post_full40_CPU_acceptance_20261016.json": {
+      "exists": true,
+      "bytes": 2282,
+      "sha256": "fd159c77e748be5fc296e908819ea3ee0a8d583b2af765b1042603b9ddfcd4c7"
+    },
+    "reports/wc_paper_N08_post_full40_CPU_r2_20261016.log": {
+      "exists": true,
+      "bytes": 1932,
+      "sha256": "9ff18c56d3a5d895cec4abf6217fc0423d318fdf6d06f561d64e683d756d0845"
+    },
+    "reports/wc_paper_N08_post_full40_CPU_R1_failure_20261016.json": {
+      "exists": true,
+      "bytes": 1100,
+      "sha256": "a9d8ca3ab3d92cb89ebbb558633d0de8754ac4619a1d1b07339934d261f5b58c"
+    },
+    "reports/wc_paper_N08_post_full40_CPU_r1_20261016.log": {
+      "exists": true,
+      "bytes": 2649,
+      "sha256": "9f189482c4126e279932b550e2ab29973bcf918e7cd6bd5445c573ce725a6424"
     }
   },
   "math_notation": [
