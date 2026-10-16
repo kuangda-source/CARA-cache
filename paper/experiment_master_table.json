@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "updated_local_date": "2026-10-16",
-  "snapshot_basis": "N07 resident runner source and180-slot orchestration CPU prepared; final methods/inputs/productionCPU and GPU remain pending N05 original66/12:05.",
-  "git_snapshot_before_inventory": "f10fb9a807a404e92b64f30532d91ffbeea598b5",
+  "snapshot_basis": "N05 all66/44/4092 accepted; N05/N06 development-only ten methods and N08 five roles frozen before final identity audit and common inputs.",
+  "git_snapshot_before_inventory": "7359a973ec562db393bdf3047877d0cef86c3544",
   "mapping_ref": "paper/internal_to_paper_mapping.json",
   "scope": "scientific experiment families and complete cards, not each engineering retry; reused artifacts must not be summed as independent samples",
   "contributions": {
@@ -23,10 +23,9 @@
     "X": "closed or explicitly deferred; not in the active queue"
   },
   "status_counts": {
-    "已完成": 20,
+    "已完成": 21,
     "已完成并关闭": 2,
     "待补": 8,
-    "在运行": 1,
     "暂缓/未执行": 1
   },
   "rows": [
@@ -738,15 +737,15 @@
     },
     {
       "id": "N05",
-      "state": "在运行｜完整强基线卡",
+      "state": "已完成｜有限强基线前沿",
       "paper_experiment_name": "Fair Tuned-Baseline Frontier",
       "internal_ids": [
         "PAPER_E1_TUNED_BASELINES"
       ],
       "contribution_relation": "C1/C2实用增量；C3公平性",
-      "evidence_or_planned_scope": "11配置×四CAL，44正式＋22warm=66/2220pairs/4440CFG/1load；04:56:48 fresh准入，原1078249/1078290/post1078250；12:05一次验收。",
-      "gap_and_next_action": "全部66/44原件、93帧、旧20/预热/费用独立接受仍待；近邻Cosmos适配显式缺口；不改当前冻结工作点。 471已本地核查作者分发/状态/实际dense路径，Cosmos接口仍未接受；保持11核心卡与近邻显式缺口。",
-      "priority": "P0·原卡按ETA验收",
+      "evidence_or_planned_scope": "完整66/44视频4092帧全部接受；A比RA默认失真低9.6667%、时间高1.0809%；两个候选均在本批观测前沿。",
+      "gap_and_next_action": "四旧CAL/seed0/每格一次；N07新输入双seed确认、N08重复clean测速待做；直接近邻Cosmos适配缺口保留。",
+      "priority": "R·主结果开发基线",
       "evidence_refs": [
         "closure_plan",
         "roadmap",
@@ -766,7 +765,8 @@
         "N05_production_CPU_R2_accepted",
         "N05_neighbor_code_compatibility",
         "470",
-        "471"
+        "471",
+        "496"
       ],
       "method_mapping_ids": [
         "baseline.native",
@@ -783,11 +783,19 @@
         "C2",
         "C3"
       ],
-      "claim_relation": "INTENDED_SUPPORT_UNCOMPLETED",
-      "paper_placement": "后续证据，结果未填",
+      "claim_relation": "COMPLETED_PRIMARY_DEVELOPMENT_EXPERIMENT",
+      "paper_placement": "有限调优强对手与质量—时间工作点",
       "finite_complete_scientific_scope_selected": true,
       "local_sampling_CPU_accepted": true,
-      "server_production_CPU_accepted": true
+      "server_production_CPU_accepted": true,
+      "scientific_status": "N05_CORE66_INDEPENDENTLY_ACCEPTED",
+      "whole_card_accepted": true,
+      "run_state": "TERMINAL",
+      "actual_GPUh": 4.095730439663813,
+      "scored_formal_paths": 44,
+      "scored_formal_frames": 4092,
+      "capture_ref": "reports/wc_paper_N05_core66_collection_20261016_1205.json.gz",
+      "independent_audit_ref": "reports/wc_paper_N05_core66_independent_acceptance_20261016_1205.json"
     },
     {
       "id": "N06",
@@ -879,15 +887,15 @@
     },
     {
       "id": "N07",
-      "state": "待补｜完整共享执行CPU已接受",
+      "state": "待补｜十方法已冻结，输入与生产待做",
       "paper_experiment_name": "Common Frozen Evaluation Matrix",
       "internal_ids": [
         "PAPER_E3_FROZEN_SHARED_TEST"
       ],
       "contribution_relation": "C1/C2最终版本确认；C3覆盖",
       "evidence_or_planned_scope": "完整952本地CPU已独立接受：408 audit/lean、136旧seed0完整轨迹、真实17/43 seed、72Native计数和mask/owner均通过；输入/统计/选择核已准备，真实180范围未选卡。 480核对全1044原始JSON/0gap，四CPU控制接受输入绑定，完整160参数/180排程仅合成示例，真实选择未做。 481补完整scope/权限合同与99数值依赖复用；独立已批准大卡v2入口合成CPU通过，真实生产入口尚待。 482增加驻留CLI与180位置调度，10合成CPU控制通过；模型未加载。 483补完整180终态CPU审计与93帧配对评分接线，八控制通过，真实视频/LPIPS未做。 484补单次执行/按ETA查收/独立汇总，修正Native原首末计数字段，31CPU与72原字段控制通过；尚无真实服务器生产或视频结果。 486补Git闭合打包、实际CPU六命令/单次查收工具和远端路径别名修正，25本地控制与133源码库存通过；未选择真实配置或派发。 487补fresh身份审计入口与13本地CPU控制，1044原始名/SHA索引通过；没有实际远端审计或最终选择。 491修复原查收器遗漏registration_sha256字段，原代码体4/5通过+1缺项已重现保留；修复后受影响五项通过。 495完整180/40整卡费用工具7CPU通过，源N05仅合成、真实新卡费用未选。",
-      "gap_and_next_action": "N05/N06后冻结最终方法/对手，fresh服务器身份审计后再选择8新prompt/16请求；真实完整采样/生产CPU/费用/GPU尚待，未选择或缩减模板。 N06已接受，前密C/A为已观察到的强简单对照，应在方法/对手冻结时保留；N05未完成前不定最终版本。 474确定性选择核三组合成控制通过，未选真实输入/方法，仍需后续fresh身份审计/物理SHA/生产CPU。",
-      "priority": "P2·N05/N06后冻结",
+      "gap_and_next_action": "方法先冻结；fresh身份审计后按原salt选择8新prompt/16seed案例，保留完整180。真实配置、生产CPU、整卡费用/GPU待做。",
+      "priority": "P1·下一完整主线",
       "evidence_refs": [
         "closure_plan",
         "roadmap",
@@ -911,7 +919,8 @@
         "487",
         "491",
         "495",
-        "N07_N08_complete_cost_CPU"
+        "N07_N08_complete_cost_CPU",
+        "496"
       ],
       "method_mapping_ids": [
         "config.efficient",
@@ -937,7 +946,7 @@
       "local_input_inventory_accepted": true,
       "grouped_statistics_CPU_accepted": true,
       "final_test_inputs_selected": false,
-      "final_methods_selected": false,
+      "final_methods_selected": true,
       "shared_execution_registry_local_CPU_accepted": true,
       "shared_execution_registry_acceptance_ref": "reports/wc_paper_shared_registry952_local_CPU_R3_independent_acceptance_20261016.json",
       "actual_final_production_CPU_accepted": false,
@@ -960,18 +969,19 @@
       "GPU_capture_registration_SHA_export_aligned": true,
       "complete_cost_planner_implemented": true,
       "cost_planner_CPU_controls_accepted": true,
-      "actual_complete_forecast_selected": false
+      "actual_complete_forecast_selected": false,
+      "method_freeze_ref": "manifests/wc_paper_N07_N08_method_freeze_r1_20261016.json"
     },
     {
       "id": "N08",
-      "state": "待补｜驻留入口CPU已准备",
+      "state": "待补｜五测速角色已同次冻结",
       "paper_experiment_name": "Balanced Repeated Clean Latency",
       "internal_ids": [
         "PAPER_E4_REPEAT_SPEED"
       ],
       "contribution_relation": "C3稳定费用；C1/C2工作点复验",
       "evidence_or_planned_scope": "完整40路径/30正式+10warm/两旧CAL五逻辑配置三平衡轮；位置均值2、逐轮秒数/倍数、拒绝保持、无计时内取证与重复endpoint检查5CPU控制通过。 485新增角色绑定、单路径状态恢复/seed0审计、计时分列与全40 batch；新6项＋受影响11项CPU合计17通过，synthetic响应和时间，真实绑定仍null。 488准备完整40驻留CLI与独立生产合同，22本地CPU通过；预热真实返回形态缺陷保留R1并修正计时外计数。 489补原40/30/10的CPU原件/预热/逐轮评分与失败保留，15本地CPU通过；新增R1派生参考传播错误保留后修复，不改原始分数。 490补七命令CPU bundle/独立接受、单次派发/UUID监督/费用结算，26本地CPU通过；不是真实生产或大卡许可。 491实现全40独立逐轮/原件/费用/资源接受与标准库收集，23本地CPU通过；真实数据未跑。 492补独立CPU部署/九命令单次派发和ETA一次查收，21顶层控制通过，其中隔离目录复跑原八组53控制；真实最终配置/生产CPU未执行。 495完整180/40整卡费用工具7CPU通过，源N05仅合成、真实新卡费用未选。",
-      "gap_and_next_action": "N05/N06后与N07同次冻结最终角色和费用；完成N07原完整共同测试与评分后，以492入口做N08真实生产CPU，再执行原完整40。当前工具准备完成，实际生产及视频/速度仍待；不根据共同测试改选测速对手。",
+      "gap_and_next_action": "保留原40/30正式/10warm，N07后做真实生产CPU和整卡GPU；不按新测试结果换测速对手。",
       "priority": "P2·最终版本冻结后",
       "evidence_refs": [
         "closure_plan",
@@ -987,7 +997,8 @@
         "491",
         "492",
         "495",
-        "N07_N08_complete_cost_CPU"
+        "N07_N08_complete_cost_CPU",
+        "496"
       ],
       "method_mapping_ids": [
         "config.efficient",
@@ -1010,7 +1021,13 @@
         "N04"
       ],
       "schedule_and_statistics_CPU_accepted": true,
-      "actual_frozen_method_bindings": null,
+      "actual_frozen_method_bindings": {
+        "FULL_NATIVE": "NATIVE35",
+        "WORLD_CACHE": "WC_HALF",
+        "RA_CFG_CACHE": "RA_DEFAULT",
+        "GCR_EFFICIENT": "A_NO_P",
+        "CPA_HIGH_FIDELITY": "TABLE_PHASE_H1"
+      },
       "production_CPU_accepted": false,
       "execution_binding_and_batch_CPU_accepted": true,
       "resident_GPU_entry_implemented": false,
@@ -1035,7 +1052,8 @@
       "CPU_deployer_local_controls_accepted": true,
       "complete_cost_planner_implemented": true,
       "cost_planner_CPU_controls_accepted": true,
-      "actual_complete_forecast_selected": false
+      "actual_complete_forecast_selected": false,
+      "method_freeze_ref": "manifests/wc_paper_N07_N08_method_freeze_r1_20261016.json"
     },
     {
       "id": "N09",
@@ -1317,7 +1335,14 @@
     "N10_accepted_common_input_bridge_CPU": "reports/wc_paper_N10_accepted_common_input_bridge_CPU_acceptance_20261016.json",
     "495": "research/495_WC_N07_N08_COMPLETE_CARD_COST_PLANNING_CPU_READY_20261016.md",
     "N07_N08_complete_cost_CPU": "reports/wc_paper_N07_N08_whole_cost_CPU_acceptance_r2_20261016.json",
-    "N06_historical_full_request_cost": "reports/wc_paper_N06_historical_whole_request_cost_reconciliation_20261016.json"
+    "N06_historical_full_request_cost": "reports/wc_paper_N06_historical_whole_request_cost_reconciliation_20261016.json",
+    "496": "research/496_WC_N05_CORE66_COMPLETE_STRONG_BASELINES_AND_N07_N08_METHOD_FREEZE_20261016.md",
+    "N05_core66_complete_capture": "reports/wc_paper_N05_core66_collection_20261016_1205.json.gz",
+    "N05_core66_complete_acceptance": "reports/wc_paper_N05_core66_independent_acceptance_20261016_1205.json",
+    "N05_core66_observed_tradeoff": "reports/wc_paper_N05_core66_observed_tradeoff_20261016_1205.json",
+    "N05_core66_frame_comparisons": "reports/wc_paper_N05_core66_derived_comparisons_20261016_1205.json",
+    "N07_N08_method_freeze": "manifests/wc_paper_N07_N08_method_freeze_r1_20261016.json",
+    "N07_development_bundle": "reports/wc_paper_N07_development_acceptance_bundle_r1_20261016.json"
   },
   "source_bindings": {
     "11": {
@@ -1470,7 +1495,7 @@
     },
     "mainline_queue_20261016": {
       "path": "plans/WORLD_CACHE_MAINLINE_PRIORITY_QUEUE_20261016.md",
-      "sha256": "2b9f4d99a8f2ad4acf4e8e1f0343d86b2a071161d9a5173b16e36dc2e16cb445"
+      "sha256": "f841875cd6db662391590ab39766dd21aa9396a3484a659964139762ab7d22c0"
     },
     "baseline_grid_prereg_20261016": {
       "path": "manifests/wc_paper_N05_bounded_baseline_grid_preregistration_draft_20261016.json",
@@ -1879,11 +1904,39 @@
     "N06_historical_full_request_cost": {
       "path": "reports/wc_paper_N06_historical_whole_request_cost_reconciliation_20261016.json",
       "sha256": "0fa0cae58f83c82a8e8b27ac5a4f58a7ed271d5dc1cd4d5d8ac83eb13018016f"
+    },
+    "496": {
+      "path": "research/496_WC_N05_CORE66_COMPLETE_STRONG_BASELINES_AND_N07_N08_METHOD_FREEZE_20261016.md",
+      "sha256": "aa6842abdab2357909f708b3704400136603d045d65681aa7c7c1a1ad7198b6c"
+    },
+    "N05_core66_complete_capture": {
+      "path": "reports/wc_paper_N05_core66_collection_20261016_1205.json.gz",
+      "sha256": "c4822b21be3320927be883e34363a8f7f5d35ef8d97fc8be8ef850d6016da319"
+    },
+    "N05_core66_complete_acceptance": {
+      "path": "reports/wc_paper_N05_core66_independent_acceptance_20261016_1205.json",
+      "sha256": "4524ac61a8b3e98225a35ea62d56080d7c9e0131e3dd12318e77238b3120671c"
+    },
+    "N05_core66_observed_tradeoff": {
+      "path": "reports/wc_paper_N05_core66_observed_tradeoff_20261016_1205.json",
+      "sha256": "0b7149c2478d5b9c7cd7e910a97126f3465d8700d6983c4dc9c3541810665ceb"
+    },
+    "N05_core66_frame_comparisons": {
+      "path": "reports/wc_paper_N05_core66_derived_comparisons_20261016_1205.json",
+      "sha256": "be499b395217820da29394a87d8aa8283d7c3b4f76dcaf6a195ddfd9c1c7f7c4"
+    },
+    "N07_N08_method_freeze": {
+      "path": "manifests/wc_paper_N07_N08_method_freeze_r1_20261016.json",
+      "sha256": "b8d24be55ee722b6b7a2601ea18ff5ac3e686621a110de8128878ebb42fc400c"
+    },
+    "N07_development_bundle": {
+      "path": "reports/wc_paper_N07_development_acceptance_bundle_r1_20261016.json",
+      "sha256": "e09e0160097ed3e3ef437e0c41f92f1084ec836b9b8c5ee8a4ebae78f3a6fb73"
     }
   },
   "operation_policy": {
-    "current_running_card": "wc-paper-n05-core11-cal4-full66-r1",
-    "scheduled_collection_local": "2026-10-16T12:05:00+08:00",
+    "current_running_card": null,
+    "scheduled_collection_local": null,
     "no_continuous_monitoring": true,
     "new_GPU_jobs_started_by_this_inventory": 1,
     "automatic_single_complete_job_estimate_exclusive_GPUh_upper_bound": 12,
@@ -1891,17 +1944,15 @@
     "last_settled_used_GPUh_before_running_card": 89.48609421779587,
     "remaining_before_running_card_GPUh": 15.485269115217918,
     "running_card_forecast_GPUh": 8.5685480376961,
-    "actual_running_card_spend_unknown": true,
+    "actual_running_card_spend_unknown": false,
     "budget_window_not_reset": true,
     "planned_templates_are_not_CPU_accepted_selected_cards": true,
     "closed_F_B_not_reopened": true,
-    "current_running_cards": [
-      "wc-paper-n05-core11-cal4-full66-r1"
-    ],
+    "current_running_cards": [],
     "authoritative_budget": "reports/gpu-budget-v2.json",
     "original_W3_unchanged": true,
-    "whole_running_job_reservations_GPUh": 9.5,
-    "available_after_whole_reservations_GPUh": 5.985269115217918,
+    "whole_running_job_reservations_GPUh": 0,
+    "available_after_whole_reservations_GPUh": 11.389538675554107,
     "per_UUID_lock_protocol": "plans/WORLD_CACHE_DUAL_GPU_EXECUTION_20261015.md",
     "scheduled_collections_local": {
       "N05_CORE66": "2026-10-16T12:05:00+08:00"
@@ -1942,7 +1993,7 @@
     "current_pending_scientific_acceptance_cards": [
       "wc-paper-n05-core11-cal4-full66-r1"
     ],
-    "latest_total_settled_GPUh": 89.48609421779587,
+    "latest_total_settled_GPUh": 93.58182465745968,
     "SIMPLE26D_collection_closed": true,
     "SIMPLE26D_rerun_selected": true,
     "W3_scientific_acceptance_performed": true,
@@ -1958,19 +2009,19 @@
     "current_CPU_task": null,
     "next_W3_CPU_collection": null,
     "SIMPLE26D_R2_next_collection": null,
-    "current_reserved_GPUh": 9.5,
-    "current_admissible_GPUh": 5.985269115217918,
+    "current_reserved_GPUh": 0,
+    "current_admissible_GPUh": 11.389538675554107,
     "W3_scientific_acceptance_scope": "RAW_SUPERVISION_SUBSETS_WITH_ORIGINAL_FAILURES",
     "W3_full_card_all_success": false,
     "W3_T0_T1_T2_CPU_evaluation_complete": true,
     "W3_phase_CPU_controls_complete": true,
     "new_W3_GPU_card_selected": false,
-    "current_running_cards_basis": "N05_ORIGINAL_SUPERVISOR_CHILD_POST_LIVE_IDENTITY_OBSERVED_ONCE_0457",
+    "current_running_cards_basis": "N05_ORIGINAL_ALL_HANDLES_TERMINAL_AND_OWN_GPU_UUID_RELEASED",
     "historical_scheduled_collections_local": {
       "W3": "2026-10-16T01:00:00+08:00",
       "SIMPLE26D_MEMORY_R2": "2026-10-16T04:55:00+08:00"
     },
-    "budget_values_asof": "N05_ADMISSION_ONCE_CAPTURE_20261016_0457",
+    "budget_values_asof": "N05_ORIGINAL_TERMINAL_COLLECTION_20261016_1205",
     "last_CPU_task": {
       "type": "DEPLOYMENT_PROFILE_FULL102_LOCAL_CPU_R2",
       "pid": 10482,
@@ -2005,7 +2056,7 @@
     "N05_scientific_core66_scope_selected": true,
     "N05_production_CPU_or_GPU_selected": true,
     "N05_corrected_neighbor_gap_retained": true,
-    "budget_snapshot_asof": "2026-10-16T04:57:00+08:00",
+    "budget_snapshot_asof": "2026-10-16T12:05:00+08:00",
     "new_CPU_preparation_is_not_GPU_or_quality_result": true,
     "historical_CPU_tasks": [
       {
@@ -2093,13 +2144,13 @@
     "SIMPLE26D_R2_scientific_accepted": true,
     "N05_GPU_admitted": true,
     "latest_completed_card": {
-      "id": "N06",
-      "status": "SIMPLE26D_FULL36_INDEPENDENT_TERMINAL_ACCEPTED",
-      "actual_GPUh": 2.622040618907712,
-      "acceptance_ref": "reports/wc_simple26d_memory_full36_independent_acceptance_20261016.json"
+      "id": "N05",
+      "status": "N05_CORE66_INDEPENDENTLY_ACCEPTED",
+      "actual_GPUh": 4.095730439663813,
+      "acceptance_ref": "reports/wc_paper_N05_core66_independent_acceptance_20261016_1205.json"
     },
-    "N05_next_collection_not_before_unix": 1792122969.5857637,
-    "N05_scheduled_collection": "2026-10-16T12:05:00+08:00",
+    "N05_next_collection_not_before_unix": null,
+    "N05_scheduled_collection": null,
     "SIMPLE26D_R2_actual_GPUh": 2.622040618907712,
     "N05_current_original_handles": {
       "supervisor": 1078249,
@@ -2112,7 +2163,7 @@
     },
     "shared_registry952_CPU_accepted": true,
     "shared_registry952_CPU_next_collection": null,
-    "N07_actual_final_input_or_method_freeze_selected": false,
+    "N07_actual_final_input_or_method_freeze_selected": true,
     "N09_profile_full102_CPU_accepted": true,
     "N09_profile_CPU_next_collection": null,
     "last_short_local_CPU_preparation": {
@@ -2126,16 +2177,19 @@
     "specific_approved_large_card_admission_extension_prepared": true,
     "specific_approved_large_card_admission_extension_deployed_to_server": false,
     "last_short_CPU_preparation": {
-      "type": "N07_N08_COMPLETE_REQUEST_COST_PLANNING",
-      "ref": "reports/wc_paper_N07_N08_whole_cost_CPU_acceptance_r2_20261016.json",
-      "controls": 7,
-      "current_N05_queried": false,
+      "type": "N05_COMPLETE_ACCEPTANCE_AND_DEVELOPMENT_ONLY_METHOD_FREEZE",
+      "ref": "manifests/wc_paper_N07_N08_method_freeze_r1_20261016.json",
       "actual_N07_or_N08_forecast_selected": false,
-      "SSH_queries": 0,
-      "GPU_submissions": 0,
-      "current_running_card_changed": false
+      "new_GPU_submissions": 0,
+      "real_N05_result": true
     },
-    "N07_method_freeze_must_include_N08_bindings": true
+    "N07_method_freeze_must_include_N08_bindings": true,
+    "N05_GPU_terminal_accepted": true,
+    "N05_actual_GPUh": 4.095730439663813,
+    "N05_actual_complete_acceptance_ref": "reports/wc_paper_N05_core66_independent_acceptance_20261016_1205.json",
+    "N07_methods_selected": true,
+    "N07_final_inputs_selected": false,
+    "N08_roles_selected": true
   },
-  "mapping_sha256_at_inventory": "096df528fadc6d52da76ea737e4edfb75acf8a710be71ce0e1c4270c8af3cc02"
+  "mapping_sha256_at_inventory": "f00f98d68e30b3319e3190fa3affe673f04096fcdf0c6fb7af1228dd51dee910"
 }

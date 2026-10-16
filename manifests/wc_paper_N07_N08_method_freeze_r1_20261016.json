@@ -1,0 +1,131 @@
+{
+  "status": "N07_N08_DEVELOPMENT_METHODS_FROZEN_BEFORE_COMMON_INPUT_SELECTION",
+  "freeze_unix": 1792123941.021577,
+  "parameters_frozen_from": "DEVELOPMENT_ONLY",
+  "final_test_outputs_seen": false,
+  "method_ids": [
+    "NATIVE35",
+    "NATIVE26",
+    "WC_HALF",
+    "RA_HALF",
+    "RA_DEFAULT",
+    "RA_DOUBLE",
+    "A_NO_P",
+    "TABLE_PHASE_H1",
+    "FRONT_DENSE_C",
+    "FRONT_DENSE_A"
+  ],
+  "repeat_timing_bindings": {
+    "FULL_NATIVE": "NATIVE35",
+    "WORLD_CACHE": "WC_HALF",
+    "RA_CFG_CACHE": "RA_DEFAULT",
+    "GCR_EFFICIENT": "A_NO_P",
+    "CPA_HIGH_FIDELITY": "TABLE_PHASE_H1"
+  },
+  "frozen_points": [
+    {
+      "method": "NATIVE35",
+      "family": "NATIVE",
+      "requested_steps": 35,
+      "actual_updates": 36,
+      "threshold": null
+    },
+    {
+      "method": "NATIVE26",
+      "family": "NATIVE",
+      "requested_steps": 26,
+      "actual_updates": 27,
+      "threshold": null
+    },
+    {
+      "method": "WC_HALF",
+      "family": "WC",
+      "requested_steps": 35,
+      "actual_updates": 36,
+      "threshold": 0.03
+    },
+    {
+      "method": "RA_HALF",
+      "family": "RA",
+      "requested_steps": 35,
+      "actual_updates": 36,
+      "threshold": 0.035372117549386
+    },
+    {
+      "method": "RA_DEFAULT",
+      "family": "RA",
+      "requested_steps": 35,
+      "actual_updates": 36,
+      "threshold": 0.070744235098772
+    },
+    {
+      "method": "RA_DOUBLE",
+      "family": "RA",
+      "requested_steps": 35,
+      "actual_updates": 36,
+      "threshold": 0.141488470197544
+    },
+    {
+      "method": "A_NO_P",
+      "family": "A",
+      "requested_steps": 35,
+      "actual_updates": 36,
+      "threshold": null
+    },
+    {
+      "method": "TABLE_PHASE_H1",
+      "family": "TABLE",
+      "requested_steps": 35,
+      "actual_updates": 36,
+      "threshold": null
+    },
+    {
+      "method": "FRONT_DENSE_C",
+      "family": "FIXED26",
+      "requested_steps": 35,
+      "actual_updates": 36,
+      "threshold": null,
+      "dense_quota": 26,
+      "corrected_reuses": 0,
+      "plain_reuses": 10
+    },
+    {
+      "method": "FRONT_DENSE_A",
+      "family": "FIXED26",
+      "requested_steps": 35,
+      "actual_updates": 36,
+      "threshold": null,
+      "dense_quota": 26,
+      "corrected_reuses": 10,
+      "plain_reuses": 0
+    }
+  ],
+  "rationale": {
+    "all_seven_N05_observed_frontier_points_retained": [
+      "NATIVE35",
+      "WC_HALF",
+      "RA_HALF",
+      "RA_DEFAULT",
+      "RA_DOUBLE",
+      "A_NO_P",
+      "TABLE_PHASE_H1"
+    ],
+    "strong_N06_simple_comparators": [
+      "FRONT_DENSE_C",
+      "FRONT_DENSE_A"
+    ],
+    "reduced_step_native_closest_in_measured_time_to_high_fidelity": "NATIVE26",
+    "no_per_scene_winner_selection": true,
+    "N08_WC": "Only observed WorldCache family frontier point; tuned threshold0.03",
+    "N08_RA": "RA point closest to Efficient cost; all three RA points remain in final common test"
+  },
+  "development_ref": "reports/wc_paper_N07_development_acceptance_bundle_r1_20261016.json",
+  "development_sha256": "e09e0160097ed3e3ef437e0c41f92f1084ec836b9b8c5ee8a4ebae78f3a6fb73",
+  "N05_frontier_ref": "reports/wc_paper_N05_core66_observed_tradeoff_20261016_1205.json",
+  "N05_frontier_sha256": "0b7149c2478d5b9c7cd7e910a97126f3465d8700d6983c4dc9c3541810665ceb",
+  "quality_measurement_protocol_ref": "manifests/wc_paper_N10_automatic_quality_measurement_prereg_r1_20261016.json",
+  "quality_measurement_protocol_sha256": "9755122b22349d9cd5b1cfe43460e73044360e240d941df11d6ca4150b817734",
+  "actual_final_inputs_selected": false,
+  "actual_new_card_scope_or_price_frozen": false,
+  "GPU_submissions": 0
+}
