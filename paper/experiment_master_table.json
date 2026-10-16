@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "updated_local_date": "2026-10-17",
-  "snapshot_basis": "540：本机完整固定权重直连R4单次启动与初次身份接受；已约01:09/01:54，0新GPU/模型/质量，原N07与预算保持",
-  "git_snapshot_before_inventory": "8fd3a3a",
+  "snapshot_basis": "Specific human-approved complete N07 repair180 R2 admitted; original R1 failures and scheduled final retained; resource half is not full resource acceptance.",
+  "git_snapshot_before_inventory": "80151e1",
   "mapping_ref": "paper/internal_to_paper_mapping.json",
   "scope": "scientific experiment families and complete cards, not each engineering retry; reused artifacts must not be summed as independent samples",
   "contributions": {
@@ -25,8 +25,8 @@
   "status_counts": {
     "已完成": 21,
     "已完成并关闭": 2,
-    "待补": 8,
-    "正在运行": 0,
+    "待补": 7,
+    "正在运行": 1,
     "暂缓/未执行": 1
   },
   "rows": [
@@ -888,15 +888,15 @@
     },
     {
       "id": "N07",
-      "state": "待补｜R2完整卡已准备，GPU待具体批准",
+      "state": "正在运行｜R2完整180已准入",
       "paper_experiment_name": "Common Frozen Evaluation Matrix",
       "internal_ids": [
         "PAPER_E3_FROZEN_SHARED_TEST"
       ],
       "contribution_relation": "C1/C2最终版本确认；C3覆盖",
-      "evidence_or_planned_scope": "原R1完整180失败/拒绝/缺失保留；R2/source6e10aa3真实服务器九命令全部通过，1750源SHA/160变体/99数值/8 guard接受；单次派发、半程与完整科学接受46本地工具控制通过，完整180新卡15.0556GPUh待具体批准。无新GPU或终点结果。",
-      "gap_and_next_action": "原R1按05:30验收；R2完整15.0556GPUh待原具体回复，获批后fresh准入及实际启动后8h/16h两次查收；N08/N09显式身份接续31本地CPU通过，真实下游生产仍待。",
-      "priority": "P1·完整修复卡批准与执行",
+      "evidence_or_planned_scope": "用户具体批准后，独立R2/source6e10aa3保留原8prompt×双seed×10方法、160正式+20warm；1750源SHA、原三句柄／自身UUID锁及完整15.055555556GPUh预留已独立接受。正式科学结果仍待。",
+      "gap_and_next_action": "10月17日09:24半程技术／17:24完整验收；原R1 05:30保持。全180拒绝失败缺失、93帧有效视频／LPIPS、双seed提示词等权统计、真实费用及自身释放待验；之后N08→N09/10。",
+      "priority": "P1·已启动，按时验收",
       "evidence_refs": [
         "closure_plan",
         "roadmap",
@@ -997,7 +997,22 @@
         "N07_repair_N09_actual_contract_bridge",
         "N07_repair_downstream_identity_controls",
         "N07_repair_downstream_identity_CPU",
-        "mainline_specific_card_approval_gate_20261017"
+        "mainline_specific_card_approval_gate_20261017",
+        "541",
+        "N07_repair_R2_human_authority",
+        "N07_repair_R2_approved_preflight",
+        "N07_repair_R2_fresh_resources",
+        "N07_repair_R2_GPU_launch",
+        "N07_repair_R2_initial_admission",
+        "N07_repair_R2_initial_acceptance",
+        "N07_repair_R2_ready_admission",
+        "N07_repair_R2_ready_acceptance",
+        "N07_repair_R2_admission_and_schedule",
+        "N07_repair_R2_initial_automation_verification",
+        "N07_repair_R2_final_automation_verification",
+        "N07_repair_R2_running_catalog_audit",
+        "N07_repair_R2_initial_observation_fence",
+        "N07_repair_R2_ready_observation_fence"
       ],
       "method_mapping_ids": [
         "config.efficient",
@@ -1015,7 +1030,7 @@
         "C3"
       ],
       "claim_relation": "INTENDED_SUPPORT_UNCOMPLETED",
-      "paper_placement": "共同测试仍待真实GPU完整修复与验收；正式终点结果不填，CPU与工具准备不当质量结果",
+      "paper_placement": "共同测试完整R2正在运行；正式终点结果待原件接受，原失败R1不并作成功结果。",
       "conditional_depends_on_if_variant_selected": [
         "N02",
         "N04"
@@ -1109,8 +1124,8 @@
       "refusal_boundary_extra_original_failure_reproductions": 4,
       "refusal_boundary_local_CPU_accepted": true,
       "repaired_actual_production_CPU_accepted": true,
-      "replacement_GPU_card_selected": false,
-      "replacement_GPU_dispatched": false,
+      "replacement_GPU_card_selected": true,
+      "replacement_GPU_dispatched": true,
       "repair_production_contract_and_config_prepared": true,
       "repair_production_config_ref": "configs/wc_paper_N07_refusal_repair180_r2_20261016.json",
       "repair_lifecycle_metadata_entries_implemented": true,
@@ -1155,14 +1170,27 @@
       "repair_GPU_tools_cold_CLI": 3,
       "repair_full_card_manifest_ref": "manifests/wc_paper_N07_refusal_repair180_full_card_r2_20261016.json",
       "repair_specific_whole_card_approval_required": true,
-      "repair_specific_whole_card_approval_received": false,
+      "repair_specific_whole_card_approval_received": true,
       "repair_full_card_prepared": true,
       "repair_GPU_midpoint_delay_seconds": 28800,
       "repair_GPU_final_delay_seconds": 57600,
       "repaired_N07_downstream_identity_CPU_ready": true,
       "repaired_N07_downstream_identity_local_tests": 31,
       "repaired_N07_actual_identity_relabelled": false,
-      "repaired_N07_downstream_real_server_CPU_executed": false
+      "repaired_N07_downstream_real_server_CPU_executed": false,
+      "repair_specific_whole_card_approval_ref": "reports/wc_paper_N07_refusal_repair180_R2_direct_human_authority_20261017.json",
+      "repair_GPU_admitted": true,
+      "repair_GPU_launch_ref": "reports/wc_paper_N07_refusal_repair180_R2_GPU_launch_20261017.json",
+      "repair_GPU_admission_acceptance_ref": "reports/wc_paper_N07_refusal_repair180_R2_ready_admission_acceptance_20261017.json",
+      "repair_GPU_uuid": "GPU-de9a5370-cd87-0f1c-a48e-288888777dd3",
+      "repair_GPU_supervisor_pid": 1212464,
+      "repair_GPU_runner_pid": 1212599,
+      "repair_GPU_post_pid": 1212465,
+      "repair_GPU_actual_started_local": "2026-10-17T01:23:40.791354+08:00",
+      "repair_GPU_midpoint_scheduled_local": "2026-10-17T09:24:00+08:00",
+      "repair_GPU_final_scheduled_local": "2026-10-17T17:24:00+08:00",
+      "repair_GPU_automation_id": "worldcache-180",
+      "repair_GPU_scientific_results_available": false
     },
     {
       "id": "N08",
@@ -1663,7 +1691,8 @@
         "540",
         "N10_direct_R4_actual_launch",
         "N10_direct_R4_initial_identity",
-        "N10_direct_R4_two_collection_times"
+        "N10_direct_R4_two_collection_times",
+        "N10_direct_R4_midpoint_health"
       ],
       "method_mapping_ids": [],
       "depends_on": [
@@ -1757,7 +1786,10 @@
       "direct_R4_initial_identity_accepted": true,
       "direct_R4_initial_observed_unix": 1792167895.888959,
       "direct_R4_midpoint_local": "2026-10-17T01:09:00+08:00",
-      "direct_R4_final_collection_local": "2026-10-17T01:54:00+08:00"
+      "direct_R4_final_collection_local": "2026-10-17T01:54:00+08:00",
+      "local_resource_midpoint_collected": true,
+      "local_resource_midpoint_ref": "reports/wc_paper_N10_direct_R4_midpoint_health_20261017.json",
+      "local_resource_full_independent_acceptance": false
     },
     {
       "id": "N11",
@@ -2263,7 +2295,23 @@
     "N10_direct_R4_actual_launch": "reports/wc_paper_N10_ViCLIP_direct_R4_launch_20261017.json",
     "N10_direct_R4_initial_identity": "reports/wc_paper_N10_direct_R4_initial_identity_20261017.json",
     "N10_direct_R4_two_collection_times": "reports/wc_paper_N10_direct_R4_midpoint_and_final_schedule_20261017.json",
-    "mainline_specific_card_approval_gate_20261017": "reports/wc_mainline_specific_card_approval_gate_audit_20261017.json"
+    "mainline_specific_card_approval_gate_20261017": "reports/wc_mainline_specific_card_approval_gate_audit_20261017.json",
+    "541": "research/541_WC_N07_REPAIR180_HUMAN_APPROVED_SINGLE_GPU_LAUNCH_AND_0924_1724_COLLECTION_20261017.md",
+    "N07_repair_R2_human_authority": "reports/wc_paper_N07_refusal_repair180_R2_direct_human_authority_20261017.json",
+    "N07_repair_R2_approved_preflight": "reports/wc_paper_N07_refusal_repair180_R2_approved_local_preflight_20261017.json",
+    "N07_repair_R2_fresh_resources": "reports/wc_paper_N07_repair180_fresh_resource_and_budget_20261017_0123.json",
+    "N07_repair_R2_GPU_launch": "reports/wc_paper_N07_refusal_repair180_R2_GPU_launch_20261017.json",
+    "N07_repair_R2_initial_admission": "reports/wc_paper_N07_refusal_repair180_R2_admission_capture_20261017.json.gz",
+    "N07_repair_R2_initial_acceptance": "reports/wc_paper_N07_refusal_repair180_R2_admission_acceptance_20261017.json",
+    "N07_repair_R2_ready_admission": "reports/wc_paper_N07_refusal_repair180_R2_ready_admission_capture_20261017.json.gz",
+    "N07_repair_R2_ready_acceptance": "reports/wc_paper_N07_refusal_repair180_R2_ready_admission_acceptance_20261017.json",
+    "N07_repair_R2_admission_and_schedule": "reports/wc_paper_N07_refusal_repair180_R2_admission_followup_and_two_collection_times_20261017.json",
+    "N07_repair_R2_initial_automation_verification": "reports/wc_paper_N07_repair180_R2_actual_automations_verification_20261017.json",
+    "N07_repair_R2_final_automation_verification": "reports/wc_paper_N07_repair180_R2_admitted_automations_verification_20261017.json",
+    "N10_direct_R4_midpoint_health": "reports/wc_paper_N10_direct_R4_midpoint_health_20261017.json",
+    "N07_repair_R2_running_catalog_audit": "reports/wc_paper_N07_repair180_R2_running_catalog_acceptance_20261017.json",
+    "N07_repair_R2_initial_observation_fence": "reports/wc_paper_N07_refusal_repair180_R2_admission_capture_20261017.json.gz.attempt",
+    "N07_repair_R2_ready_observation_fence": "reports/wc_paper_N07_refusal_repair180_R2_ready_admission_capture_20261017.json.gz.attempt"
   },
   "source_bindings": {
     "11": {
@@ -2416,7 +2464,7 @@
     },
     "mainline_queue_20261016": {
       "path": "plans/WORLD_CACHE_MAINLINE_PRIORITY_QUEUE_20261016.md",
-      "sha256": "1935ba9c6b45f3f13dc0315fbcbd24b5429d7cd419c57bfe73bfb13481ae2135"
+      "sha256": "0230b569a4927da23e470db2964c583dcc586fdc86e0d223c48766d28ee048fb"
     },
     "baseline_grid_prereg_20261016": {
       "path": "manifests/wc_paper_N05_bounded_baseline_grid_preregistration_draft_20261016.json",
@@ -4085,34 +4133,104 @@
     "mainline_specific_card_approval_gate_20261017": {
       "path": "reports/wc_mainline_specific_card_approval_gate_audit_20261017.json",
       "sha256": "c9d0ddf6c80f7e8d3407d0b66bf4e30511e3678007b25088e0ed36bc382069a7"
+    },
+    "541": {
+      "path": "research/541_WC_N07_REPAIR180_HUMAN_APPROVED_SINGLE_GPU_LAUNCH_AND_0924_1724_COLLECTION_20261017.md",
+      "sha256": "50fc9cab47a4be115e4cf607d12375148469973fe0cae98f56af4879f774fb34"
+    },
+    "N07_repair_R2_human_authority": {
+      "path": "reports/wc_paper_N07_refusal_repair180_R2_direct_human_authority_20261017.json",
+      "sha256": "0f2ca249481b8b084a3957222d4b05c2b2c591d3111e335257b09f05f8fb97c9"
+    },
+    "N07_repair_R2_approved_preflight": {
+      "path": "reports/wc_paper_N07_refusal_repair180_R2_approved_local_preflight_20261017.json",
+      "sha256": "09bfefc42a74c65baad1c91ce7b155b4abc686d731070238002d1d72c9396def"
+    },
+    "N07_repair_R2_fresh_resources": {
+      "path": "reports/wc_paper_N07_repair180_fresh_resource_and_budget_20261017_0123.json",
+      "sha256": "d0797f360be3636dba9c776e3f9093ef284b23bbb0335cf8155c95c6bbe1ede4"
+    },
+    "N07_repair_R2_GPU_launch": {
+      "path": "reports/wc_paper_N07_refusal_repair180_R2_GPU_launch_20261017.json",
+      "sha256": "56f4dca57f4e9f124d8fe69b36ae28a60f85bc39dc8286b0f5ba05ff174ebb7b"
+    },
+    "N07_repair_R2_initial_admission": {
+      "path": "reports/wc_paper_N07_refusal_repair180_R2_admission_capture_20261017.json.gz",
+      "sha256": "7a0f4671a5f64dbda752883457cdc218c9ea2d829de922a324da001a0c7ccec3"
+    },
+    "N07_repair_R2_initial_acceptance": {
+      "path": "reports/wc_paper_N07_refusal_repair180_R2_admission_acceptance_20261017.json",
+      "sha256": "76ef095440cc2c3dc54e1962aec1dd9f6643230ab6b2046e3d884aa43fe3e1d9"
+    },
+    "N07_repair_R2_ready_admission": {
+      "path": "reports/wc_paper_N07_refusal_repair180_R2_ready_admission_capture_20261017.json.gz",
+      "sha256": "f02832dc16a64e29a2f3ca3f16955a3bd42d383209b5d37598b4ebd9cc6fc0fc"
+    },
+    "N07_repair_R2_ready_acceptance": {
+      "path": "reports/wc_paper_N07_refusal_repair180_R2_ready_admission_acceptance_20261017.json",
+      "sha256": "0d9f58fb5f9921829eda0d22018225b40da003061a95fbacd5f4f68d63403dc0"
+    },
+    "N07_repair_R2_admission_and_schedule": {
+      "path": "reports/wc_paper_N07_refusal_repair180_R2_admission_followup_and_two_collection_times_20261017.json",
+      "sha256": "9cdd23e516777cbdb79b9c94bc83b66a389cb8af58f652c9caa21f0424554d36"
+    },
+    "N07_repair_R2_initial_automation_verification": {
+      "path": "reports/wc_paper_N07_repair180_R2_actual_automations_verification_20261017.json",
+      "sha256": "51b05a7b1897f7500a0410c74376d2d7aecf3399462304497b02e0cf24e9b63e"
+    },
+    "N07_repair_R2_final_automation_verification": {
+      "path": "reports/wc_paper_N07_repair180_R2_admitted_automations_verification_20261017.json",
+      "sha256": "b5dba5e5b9f69b89a4b6790eafd2f2354a07df8c256d35a91ddf60a2a340d5f1"
+    },
+    "N10_direct_R4_midpoint_health": {
+      "path": "reports/wc_paper_N10_direct_R4_midpoint_health_20261017.json",
+      "sha256": "1c86fce25f3cafe9d9d94cbede6885332f434d09bb7df9e4a2dad7a75b1358ec"
+    },
+    "N07_repair_R2_running_catalog_audit": {
+      "path": "reports/wc_paper_N07_repair180_R2_running_catalog_acceptance_20261017.json",
+      "sha256": "5e9cc7585d3e243a8ef458c9bc27376bcec3aafc4e27980f41e42fe9ceac6fee"
+    },
+    "N07_repair_R2_initial_observation_fence": {
+      "path": "reports/wc_paper_N07_refusal_repair180_R2_admission_capture_20261017.json.gz.attempt",
+      "sha256": "ed53ffcd5be6c16d6fc8c6d2fea16af869e3aa3ec541b76d15ce5e5444fa5fd7"
+    },
+    "N07_repair_R2_ready_observation_fence": {
+      "path": "reports/wc_paper_N07_refusal_repair180_R2_ready_admission_capture_20261017.json.gz.attempt",
+      "sha256": "d096ab62644722922a38c9317417ca26cb44c3b3f7507c80f710e42a60ababc8"
     }
   },
   "operation_policy": {
-    "current_running_card": null,
-    "scheduled_collection_local": "2026-10-17T05:30:00+08:00",
+    "current_running_card": "N07_REPAIR180_R2",
+    "scheduled_collection_local": "2026-10-17T09:24:00+08:00",
     "no_continuous_monitoring": true,
-    "new_GPU_jobs_started_by_this_inventory": 1,
+    "new_GPU_jobs_started_by_this_inventory": 2,
     "automatic_single_complete_job_estimate_exclusive_GPUh_upper_bound": 12,
-    "last_settled_used_GPUh_before_running_card": 93.58182465745968,
-    "remaining_before_running_card_GPUh": 19.418175342540323,
+    "last_settled_used_GPUh_before_running_card": 96.27897190772518,
+    "remaining_before_running_card_GPUh": 16.72102809227482,
     "running_card_forecast_GPUh": 15.055555555555555,
-    "actual_running_card_spend_unknown": false,
+    "actual_running_card_spend_unknown": true,
     "budget_window_not_reset": true,
     "planned_templates_are_not_CPU_accepted_selected_cards": true,
     "closed_F_B_not_reopened": true,
-    "current_running_cards": [],
+    "current_running_cards": [
+      "N07_REPAIR180_R2"
+    ],
     "authoritative_budget": "reports/gpu-budget-v2.json",
     "original_W3_unchanged": true,
-    "whole_running_job_reservations_GPUh": 0.0,
-    "available_after_whole_reservations_GPUh": 16.72102809227482,
+    "whole_running_job_reservations_GPUh": 15.055555555555555,
+    "available_after_whole_reservations_GPUh": 1.6654725367192658,
     "per_UUID_lock_protocol": "plans/WORLD_CACHE_DUAL_GPU_EXECUTION_20261015.md",
     "scheduled_collections_local": {
       "N07_SHARED180": "2026-10-17T05:30:00+08:00",
       "N07_MIDPOINT_HEALTH": "2026-10-16T21:30:00+08:00",
       "N10_DIRECT_R4_MIDPOINT": "2026-10-17T01:09:00+08:00",
-      "N10_DIRECT_R4_FINAL": "2026-10-17T01:54:00+08:00"
+      "N10_DIRECT_R4_FINAL": "2026-10-17T01:54:00+08:00",
+      "N07_REPAIR180_R2_MIDPOINT": "2026-10-17T09:24:00+08:00",
+      "N07_REPAIR180_R2_FINAL": "2026-10-17T17:24:00+08:00"
     },
-    "running_forecasts_GPUh": {},
+    "running_forecasts_GPUh": {
+      "N07_REPAIR180_R2": 15.055555555555555
+    },
     "resource_check_history": [
       {
         "unix": 1792050070.945652,
@@ -4153,7 +4271,8 @@
       "SIMPLE26D_FULL36": 5.766054749472921
     },
     "current_pending_scientific_acceptance_cards": [
-      "N07_SHARED180"
+      "N07_SHARED180",
+      "N07_REPAIR180_R2"
     ],
     "latest_total_settled_GPUh": 96.27897190772518,
     "SIMPLE26D_collection_closed": true,
@@ -4175,30 +4294,32 @@
       "stage": "/Users/kuangda_gao/Documents/世界模型加速实验/worldcache_omr/.sync/wc-N10-viclip-direct-r4-20261017",
       "launch_ref": "reports/wc_paper_N10_ViCLIP_direct_R4_launch_20261017.json",
       "initial_identity_ref": "reports/wc_paper_N10_direct_R4_initial_identity_20261017.json",
-      "next_collection": "2026-10-17T01:09:00+08:00",
+      "next_collection": "2026-10-17T01:54:00+08:00",
       "final_collection": "2026-10-17T01:54:00+08:00",
-      "status": "LIVE_AT_RECORDED_INITIAL_IDENTITY_CHECK",
-      "last_observed_unix": 1792167895.888959,
+      "status": "WORKER_REPORTED_ALL204_BYTES_AWAITING_INDEPENDENT_FINAL_SHA",
+      "last_observed_unix": 1792171368.5094059,
       "GPU_submissions": 0,
-      "models_loaded": 0
+      "models_loaded": 0,
+      "midpoint_health_ref": "reports/wc_paper_N10_direct_R4_midpoint_health_20261017.json",
+      "full_resource_independently_accepted": false
     },
     "next_W3_CPU_collection": null,
     "SIMPLE26D_R2_next_collection": null,
-    "current_reserved_GPUh": 0.0,
-    "current_admissible_GPUh": 16.72102809227482,
+    "current_reserved_GPUh": 15.055555555555555,
+    "current_admissible_GPUh": 1.6654725367192658,
     "W3_scientific_acceptance_scope": "RAW_SUPERVISION_SUBSETS_WITH_ORIGINAL_FAILURES",
     "W3_full_card_all_success": false,
     "W3_T0_T1_T2_CPU_evaluation_complete": true,
     "W3_phase_CPU_controls_complete": true,
     "new_W3_GPU_card_selected": false,
-    "current_running_cards_basis": "reports/wc_paper_N07_midpoint_health_20261016_2130.json",
+    "current_running_cards_basis": "reports/wc_paper_N07_refusal_repair180_R2_ready_admission_acceptance_20261017.json",
     "historical_scheduled_collections_local": {
       "W3": "2026-10-16T01:00:00+08:00",
       "SIMPLE26D_MEMORY_R2": "2026-10-16T04:55:00+08:00",
       "N10_LOCAL_R2_COMPLETED": "2026-10-16T14:00:00+08:00",
       "N10_LOCAL_RANGES_R3": "2026-10-16T15:50:00+08:00"
     },
-    "budget_values_asof": "2026-10-16T23:07:57.768039+08:00",
+    "budget_values_asof": "2026-10-17T01:26:49.929454+08:00",
     "last_CPU_task": {
       "kind": "N07_REPAIR180_ACTUAL_PRODUCTION_CPU_COMPLETE_ACCEPTED",
       "source": "6e10aa31197b4c137705b9117090c3a4e538e863",
@@ -4229,7 +4350,7 @@
     "N05_scientific_core66_scope_selected": true,
     "N05_production_CPU_or_GPU_selected": true,
     "N05_corrected_neighbor_gap_retained": true,
-    "budget_snapshot_asof": "2026-10-16T23:07:57.768039+08:00",
+    "budget_snapshot_asof": "2026-10-17T01:26:49.929454+08:00",
     "new_CPU_preparation_is_not_GPU_or_quality_result": true,
     "historical_CPU_tasks": [
       {
@@ -4465,13 +4586,13 @@
     "N07_replacement_CPU_preparation_only": true,
     "next_GPU_submission_requires_new_complete_scope_and_CPU": true,
     "N07_retry_production_local_CPU_ref": "reports/wc_paper_N07_repair180_production_binding_local_CPU_R1_20261016.json",
-    "N07_retry_approval_required_after_production_CPU": true,
+    "N07_retry_approval_required_after_production_CPU": false,
     "latest_local_CPU_preparation_only": "N07_REPAIR_ACTUAL_SERVER_CPU_ACCEPTED_GPU_TOOLS_PENDING",
     "N07_retry_actual_CPU_accepted": true,
     "N07_repair_complete_card_manifest": "manifests/wc_paper_N07_refusal_repair180_full_card_r2_20261016.json",
     "N07_repair_GPU_tools_prepared": true,
     "N07_repair_new_GPU_submitted": false,
-    "N07_repair_specific_whole_card_approval_pending": true,
+    "N07_repair_specific_whole_card_approval_pending": false,
     "N07_repair_old_approval_reused": false,
     "N07_repair_new_checks_derive_from_actual_start": true,
     "N07_repair_downstream_binding_local_CPU_accepted": true,
@@ -4485,9 +4606,13 @@
     "N10_direct_R4_transport_probe_ref": "reports/wc_paper_N10_paired_GET_transport_diagnosis_20261017_000406.json",
     "N10_direct_R4_automation": "p-acr-cpu",
     "N10_direct_R4_resource_full_SHA_accepted": false,
-    "mainline_GPU_waiting_specific_authorization": true,
+    "mainline_GPU_waiting_specific_authorization": false,
     "mainline_approval_gate_audit_ref": "reports/wc_mainline_specific_card_approval_gate_audit_20261017.json",
-    "resource_and_original_N07_timers_remain_active": true
+    "resource_and_original_N07_timers_remain_active": true,
+    "N07_repair_human_approval_received": true,
+    "N07_repair_human_approval_quote": "批准完整180修复卡",
+    "N07_repair_human_approval_ref": "reports/wc_paper_N07_refusal_repair180_R2_direct_human_authority_20261017.json",
+    "N07_repair_specific_approval_gate_resolved_by_latest_user": true
   },
-  "mapping_sha256_at_inventory": "f5e7c0f4ed58c460540a8af52e527bc677cad9be691f1939c0c308c66709a0dc"
+  "mapping_sha256_at_inventory": "19c2b5c9979cab2ae62b48e1d8e2bbf100559a64f1431d57437e15cd1c93285e"
 }

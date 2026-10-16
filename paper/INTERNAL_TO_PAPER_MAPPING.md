@@ -1,3 +1,7 @@
+## 2026-10-17 N07完整修复180已批准并在GPU0准入，09:24／17:24查收
+
+[541批准与运行](../research/541_WC_N07_REPAIR180_HUMAN_APPROVED_SINGLE_GPU_LAUNCH_AND_0924_1724_COLLECTION_20261017.md)：用户“批准完整180修复卡”已独立绑定；source6e10aa3的完整160正式+20warm单次派发，supervisor1212464／runner1212599／post1212465与1750源SHA、v2完整预留／自身UUID锁接受。实际01:23:40启动，新worldcache-180于09:24半程、17:24完整收；不持续监听、不报科学partial。实结96.278971908/113，完整预留15.055555556，可新准入1.665472537，预留非实费。原R1的05:30验收不变；N10资源半程204段记录已齐，仍待01:54独立完整SHA。N07完整接受后N08→N09/10，重CPU避开GPU／clean测速，F/B关闭。以下为历史。
+
 ## 2026-10-17 N10完整固定权重直连R4在途，01:09/01:54查收
 
 [540资源单次启动](../research/540_WC_N10_DIRECT_R4_SINGLE_LAUNCH_AND_TWO_COLLECTION_TIMES_20261017.md)：source8fd3a3a/PID40655于00:23:18在本机独立stage单次派完整204段/1.71GB，初次原PID/lstart/command及两worker SHA接受。p-acr-cpu已约01:09半程技术、01:54完整大小/SHA验收，不持续监听；旧R3/112MiB保持。当前完整权重/模型/质量仍0，0GPU/SSH/账本写。原N07 worldcache-26d 的05:30验收及R2完整15.0556GPUh原具体确认独立保持，cap113与F/B关闭不变。以下为历史。
