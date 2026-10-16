@@ -1,0 +1,21 @@
+{
+  "status": "N10_PINNED_RESOURCE_DOWNLOAD_TINY_BYTE_CONTROLS_ACCEPTED_NOT_ACQUISITION",
+  "observed_unix": 1792125915.774949,
+  "test_command": ".venv/bin/python -m unittest discover -s tests -p test_N10_resource_download_r1.py -v",
+  "controls": 4,
+  "fixtures_only": true,
+  "checks": [
+    "only_exact_registered_whole_bytes_rename_to_target",
+    "short_or_bad_SHA_preserve_partial_no_success",
+    "oversized_response_rejected",
+    "existing_result_target_not_replaced"
+  ],
+  "source_sha256": {
+    "scripts/fetch_wc_N10_viclip_resource_r1.py": "d8602f2174d46035e838ba38101671b79c20ab9d04e7cc70fd3be7fb0de13ac4",
+    "tests/test_N10_resource_download_r1.py": "3fb872b320c29f0cca904ccc8d84b8c2e3fd5692cd0a2d3c38779662fcfd4480"
+  },
+  "network_requests_executed": 0,
+  "models_loaded": 0,
+  "GPU_submissions": 0,
+  "server_files_written": false
+}
