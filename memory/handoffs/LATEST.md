@@ -1,3 +1,7 @@
+## 2026-10-16 N07半程技术失败与拒绝边界CPU修复
+
+[532半程与修复](../../research/532_WC_N07_MIDPOINT_TECHNICAL_FAILURE_ZERO_STEP_REFUSAL_AND_FULL520_CPU_REPAIR_20261016.md)：21:30一次健康查收确认原N07已技术停止：20warm完成，正式20完成/8文本拒绝/1技术失败/131未到达。固定mask对零步文本拒绝仍验36步导致错误，独立边界修复4控制及两flow完整520本地CPU通过，原源码/参数保持；生产接线/真实CPU与新卡仍待。原费用2.697147250GPUh，实结96.278971908/113、预留0、余16.721028092。原R1不重启，05:30完整失败原件验收保留，不读科学partial；先修复N07再N08→N09/10，>=12新整卡需具体批准。以下为历史。
+
 ## 2026-10-16 N07半程一次技术查收入口准备
 
 [531技术入口](../../research/531_WC_N07_ONCE_MIDPOINT_TECHNICAL_ENTRY_CPU_PREPARED_20261016.md)：N07半程独立只读入口已写，6标准库CPU控制和冷CLI通过，原三个PID/start_ticks、180分母/21:30半程及明早05:30原终态保持。到半程优先执行 `.venv/bin/python scripts/capture_wc_paper_N07_midpoint_health_r1.py --output reports/wc_paper_N07_midpoint_health_20261016_2130.json`；已有同launch回执只离线读取，不重复SSH。仅技术状态/资源/错误标签，不取科学partial；半程后不暂停原最终自动化。本轮0SSH/新GPU/账本写，尚未运行健康查收。 以下为历史。

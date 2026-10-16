@@ -1,0 +1,236 @@
+{
+  "status": "N07_MIDPOINT_TECHNICAL_FAILURE_READONLY_DIAGNOSIS",
+  "observed_unix": 1792157467.7113156,
+  "expected": {
+    "project": "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr",
+    "stage": "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/.sync/wc-paper-n07-production-cpu-r2-20261016",
+    "run_id": "wc-paper-n07-frozen-shared180-r1",
+    "source_revision": "140d0a6af7d5be16d1b191ab3a8e68ffe83d0007",
+    "launch_id": "798d9047-62e7-4a25-8112-5ab8910226fa",
+    "gpu_uuid": "GPU-de9a5370-cd87-0f1c-a48e-288888777dd3",
+    "config_sha256": "9de3e5b9c2ce0377888e1244aa77043b42d4f92f0d9cea498c13c59e3aeafd0c",
+    "registration_sha256": "ebf9703a7babd41d4a8b6cf473427e2a66c5a5a689ff92fd094048c496f304f4",
+    "scope_counts": {
+      "prompt_groups": 8,
+      "requests": 16,
+      "methods": 10,
+      "scientific_paths": 160,
+      "full_warmup_paths": 20,
+      "total_paths": 180,
+      "ordinary_pairs": 6318,
+      "loads": 1,
+      "teacher_pairs": 0,
+      "score_videos": 160,
+      "ordinary_CFG_calls": 12636
+    },
+    "processes": {
+      "supervisor": {
+        "pid": 1115797,
+        "start_ticks": 542326777
+      },
+      "runner": {
+        "pid": 1115898,
+        "start_ticks": 542330755
+      },
+      "CPU_post": {
+        "pid": 1115798,
+        "start_ticks": 542326783
+      }
+    },
+    "health_not_before_unix": 1792157400.0,
+    "final_not_before_unix": 1792185964.2521062
+  },
+  "original_handles_confirmed_missing_by": "reports/wc_paper_N07_midpoint_health_20261016_2130.json",
+  "runner_metadata": {
+    "bytes": 8850516,
+    "sha256": "e798ffdc244e64d80c6dbde76df833d8979c29d33db6f42cdc5932307e69abeb"
+  },
+  "runner_available_keys": [
+    "status",
+    "pid",
+    "source_revision",
+    "config_sha256",
+    "scope_counts",
+    "matrix",
+    "cases",
+    "methods",
+    "runs",
+    "started_unix",
+    "model_load_calls",
+    "model_loads_completed",
+    "native_forward_identity",
+    "bound_input_fingerprint",
+    "timing_claim",
+    "load_seconds",
+    "error_type",
+    "error",
+    "ended_unix"
+  ],
+  "runner_technical_error": {
+    "error_type": "ValueError",
+    "error": "Actual semantic readouts do not equal full frozen mask"
+  },
+  "failed_requests": [
+    {
+      "method": "FRONT_DENSE_C",
+      "section": "TIMED",
+      "status": "TECH_FAILED",
+      "error_type": "ValueError",
+      "error": "Actual semantic readouts do not equal full frozen mask",
+      "available_keys": [
+        "id",
+        "case_id",
+        "method",
+        "section",
+        "round",
+        "status",
+        "started_unix",
+        "original_returned_status",
+        "error_type",
+        "error",
+        "ended_unix"
+      ]
+    }
+  ],
+  "bounded_traceback": "Traceback (most recent call last):\n  File \"/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/.sync/wc-paper-n07-production-cpu-r2-20261016/scripts/run_wc_paper_N07_frozen_shared180_r1.py\", line 195, in <module>\n    main()\n  File \"/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/.sync/wc-paper-n07-production-cpu-r2-20261016/scripts/run_wc_paper_N07_frozen_shared180_r1.py\", line 184, in main\n    run_registered_batch(config, bound, samples, run_one, save=save_progress)\n  File \"/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/.sync/wc-paper-n07-production-cpu-r2-20261016/src/wcomr/frozen_shared_production_r1.py\", line 309, in run_registered_batch\n    value = run_one(planned, samples[(planned['case_id'], planned['method'])])\n  File \"/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/.sync/wc-paper-n07-production-cpu-r2-20261016/scripts/run_wc_paper_N07_frozen_shared180_r1.py\", line 161, in run_one\n    result = execute(inference, sample, planned['method'], table_parameters=tables,\n  File \"/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/.sync/wc-paper-n07-production-cpu-r2-20261016/src/wcomr/frozen_shared_execution_r1.py\", line 126, in execute\n    result = memory.execute(inference, sample, method, **common)\n  File \"/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/.sync/wc-paper-n07-production-cpu-r2-20261016/src/wcomr/simple26d_memory_r2.py\", line 47, in execute\n    result=legacy.execute(*args,**kwargs)\n  File \"/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/.sync/wc-paper-n07-production-cpu-r2-20261016/src/wcomr/simple26d_r1.py#frozen-registered-seeds-r1\", line 4, in execute\n    from .source_phase_fixed_mask_r1 import CAL_MASK_A,CAL_MASK_C,mask_fingerprint\n  File \"/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/.sync/wc-paper-n07-production-cpu-r2-20261016/src/wcomr/source_phase_fixed_mask_r1.py\", line 135, in execute_fixed\n    raise ValueError('Actual semantic readouts do not equal full frozen mask')\nValueError: Actual semantic readouts do not equal full frozen mask\n",
+  "supervisor_metadata": {
+    "bytes": 31275,
+    "sha256": "c4eafa055c791a5758dada644f330a6973f3f7e92018207fa97d4d3ee6e40716"
+  },
+  "supervisor_technical_fields": {
+    "status": "N07_SHARED180_GPU_EXITED_REQUIRES_RAW_CPU_AUDIT",
+    "child_exit_code": 1,
+    "started_unix": 1792128403.9564104,
+    "wall_seconds": 9709.730100955814,
+    "actual_GPUh": 2.697147250265504,
+    "ended_unix": 1792138113.9473848
+  },
+  "original_billing": {
+    "status": "N07_SHARED180_ACTUAL_GPU_BILL",
+    "run_id": "wc-paper-n07-frozen-shared180-r1",
+    "launch_id": "798d9047-62e7-4a25-8112-5ab8910226fa",
+    "source_revision": "140d0a6af7d5be16d1b191ab3a8e68ffe83d0007",
+    "gpu_uuid": "GPU-de9a5370-cd87-0f1c-a48e-288888777dd3",
+    "config_sha256": "9de3e5b9c2ce0377888e1244aa77043b42d4f92f0d9cea498c13c59e3aeafd0c",
+    "scope_counts": {
+      "prompt_groups": 8,
+      "requests": 16,
+      "methods": 10,
+      "scientific_paths": 160,
+      "full_warmup_paths": 20,
+      "total_paths": 180,
+      "ordinary_pairs": 6318,
+      "loads": 1,
+      "teacher_pairs": 0,
+      "score_videos": 160,
+      "ordinary_CFG_calls": 12636
+    },
+    "wall_seconds": 9709.730100955814,
+    "actual_GPUh": 2.697147250265504,
+    "billed_limit_GPUh": 15.055555555555555,
+    "original_output_root_available": true,
+    "ended_unix": 1792138113.7334044
+  },
+  "original_billing_metadata": {
+    "bytes": 850,
+    "sha256": "85172038954f0b7419e3d435e90a63b6120a662cf1840e4501afc17f3a8f03d7"
+  },
+  "pool_metadata": {
+    "bytes": 9515,
+    "sha256": "d0ac561a24a306a34d234e10151965a900354cde88acf09e518977768cb2ce39"
+  },
+  "pool_summary": {
+    "schema": "WC_GPU_BUDGET_POOL_V2",
+    "cap_gpu_hours": 113.0,
+    "origin_used_gpu_hours": 79.99637737158223,
+    "origin_gpu_jobs_launched": 94,
+    "legacy_job_id": "wc-w3-label-expldev8-parent18-local64-full864-r1",
+    "authorization": {
+      "direct_user_authorization": true,
+      "user_reply_quote": "那就先把双卡锁和记账机制改好，不影响正在跑的 W3，再用空闲卡推进同26D的简单调度对照。预算和少于12 GPUh直接执行的规则保持不变，长任务按预计时间查收。",
+      "cumulative_cap_GPUh": 104.97136333301378,
+      "autonomy_exclusive_upper_GPUh": 12
+    },
+    "events": [
+      {
+        "sequence": 1,
+        "unix": 1792052250.4741874,
+        "type": "IMPORT_LEGACY_W3_LIMIT_NO_OLD_LEDGER_WRITE"
+      },
+      {
+        "sequence": 2,
+        "unix": 1792052289.2414656,
+        "type": "RESERVE_WHOLE_JOB",
+        "job_id": "wc-simple26d-cal4-full36-r1"
+      },
+      {
+        "sequence": 3,
+        "unix": 1792054922.8929472,
+        "type": "SETTLE_ACTUAL_ADDITIVELY",
+        "job_id": "wc-w3-label-expldev8-parent18-local64-full864-r1"
+      },
+      {
+        "sequence": 4,
+        "unix": 1792060543.6728387,
+        "type": "SETTLE_ACTUAL_ADDITIVELY",
+        "job_id": "wc-simple26d-cal4-full36-r1"
+      },
+      {
+        "sequence": 5,
+        "unix": 1792079689.6505442,
+        "type": "RESERVE_WHOLE_JOB",
+        "job_id": "wc-simple26d-memory-cal4-full36-r2"
+      },
+      {
+        "sequence": 6,
+        "unix": 1792089129.221075,
+        "type": "SETTLE_ACTUAL_ADDITIVELY",
+        "job_id": "wc-simple26d-memory-cal4-full36-r2"
+      },
+      {
+        "sequence": 7,
+        "unix": 1792097808.6496177,
+        "type": "RESERVE_WHOLE_JOB",
+        "job_id": "wc-paper-n05-core11-cal4-full66-r1"
+      },
+      {
+        "sequence": 8,
+        "unix": 1792112553.4759643,
+        "type": "SETTLE_ACTUAL_ADDITIVELY",
+        "job_id": "wc-paper-n05-core11-cal4-full66-r1"
+      },
+      {
+        "sequence": 9,
+        "unix": 1792128319.6075656,
+        "type": "EXTEND_CUMULATIVE_CAP_PRESERVE_ORIGIN_AND_ALL_JOBS",
+        "approval_id": "WC-N07-FULL180-CAP113-HUMAN-20261016-A",
+        "authorization_ref": "reports/wc_paper_N07_cap113_direct_human_approval_20261016.json",
+        "authorization_sha256": "9b5399542ada2e071ebf15867c2da0b228155d6801bed645c1bad1cb7dcad506",
+        "previous_cap_GPUh": 104.97136333301378,
+        "new_cap_GPUh": 113.0
+      },
+      {
+        "sequence": 10,
+        "unix": 1792128403.8777282,
+        "type": "RESERVE_SPECIFICALLY_APPROVED_WHOLE_JOB",
+        "job_id": "wc-paper-n07-frozen-shared180-r1",
+        "authorization_sha256": "b2cfbf352b87ad756af2531ad3c67e7a6ae2fa2d09be05b91ddaca8ee782c7f8"
+      },
+      {
+        "sequence": 11,
+        "unix": 1792138113.8420734,
+        "type": "SETTLE_ACTUAL_ADDITIVELY",
+        "job_id": "wc-paper-n07-frozen-shared180-r1"
+      }
+    ],
+    "used_gpu_hours": 96.27897190772518,
+    "reserved_gpu_hours": 0.0,
+    "available_gpu_hours": 16.72102809227482,
+    "gpu_jobs_launched": 99
+  },
+  "active_jobs": {},
+  "final_scientific_results_read": false,
+  "method_quality_or_latency_readout": false,
+  "server_written": false,
+  "GPU_submissions": 0
+}
