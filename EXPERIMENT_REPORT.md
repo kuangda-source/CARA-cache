@@ -1,3 +1,7 @@
+## 2026-10-16 N10五模型CPU入口与导入前边界准备
+
+[504模型CPU入口准备](research/504_WC_N10_FIVE_MODEL_CPU_ENTRY_PREIMPORT_RESOURCE_CONTROLS_PREPARED_20261016.md)：原DINO/AMT/RAFT/ViCLIP/MUSIQ五角色实际调用入口已写，5项资源/词表/源路径/网络边界CPU通过；checkpoint为小夹具，未import Torch或执行真实模型。四现存SHA及指定ViCLIP期望绑定保持，完整bundle/部署/实际五模型CPU仍待。原下载3c7767f/1113019仍13:17一次收，N07整卡/cap113仍待原一次人类回复；0新GPU/0服务器写，冻结方法/输入/源CPU不变。 以下历史保留。
+
 ## 2026-10-16 N07审批待回复，N10原评分资源CPU准备在途
 
 [503质量资源CPU派发](research/503_WC_N10_PINNED_VICLIP_RESOURCE_CPU_DISPATCH_AND_MAINLINE_APPROVAL_WAIT_20261016.md)：502已只读核DINO/AMT/RAFT/MUSIQ四实际SHA与MUSIQ旧协议一致、0模型评分。固定1.71GB ViCLIP资源source3c7767f/独立stage/1113019-start542082643于12:45:22单次派发；13:17一次收（最早13:15:22.916501），不持续监听，终态独立全SHA才接受资源。0新GPU/0预算写；N07完整CPU已接受501，15.055555556及拟议cap113仍待此前一次人类回复，不重复提问或擅自执行。 以下历史保留。

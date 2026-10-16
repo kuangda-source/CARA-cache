@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "updated_local_date": "2026-10-16",
-  "snapshot_basis": "N07 real productionCPU accepted, full15.055555556GPUh/cap113 approval unanswered; independent CPU resource preparation advances original N10 only, four existing weights hashed and fixed ViCLIP file acquiring in isolated stage, no new GPU.",
+  "snapshot_basis": "N07 actual productionCPU accepted with specific whole-card/cap request pending; N10 original resource download awaits ETA, five-model CPU entry/preimport controls prepared, no model execution or new GPU.",
   "git_snapshot_before_inventory": "7359a973ec562db393bdf3047877d0cef86c3544",
   "mapping_ref": "paper/internal_to_paper_mapping.json",
   "scope": "scientific experiment families and complete cards, not each engineering retry; reused artifacts must not be summed as independent samples",
@@ -1153,7 +1153,8 @@
         "494",
         "N10_accepted_common_input_bridge_CPU",
         "502",
-        "503"
+        "503",
+        "504"
       ],
       "method_mapping_ids": [],
       "depends_on": [
@@ -1186,7 +1187,10 @@
       "actual_quality_scores": 0,
       "ViCLIP_resource_acquisition_dispatched": true,
       "ViCLIP_resource_launch_ref": "reports/wc_paper_N10_ViCLIP_resource_R1_launch_20261016.json",
-      "ViCLIP_resource_next_collection_local": "2026-10-16T13:17:00+08:00"
+      "ViCLIP_resource_next_collection_local": "2026-10-16T13:17:00+08:00",
+      "single_model_CPU_worker_implemented": true,
+      "model_CPU_preimport_boundary_controls_accepted": 5,
+      "whole_metric_model_CPU_bundle_implemented": false
     },
     {
       "id": "N11",
@@ -1412,7 +1416,9 @@
     "503": "research/503_WC_N10_PINNED_VICLIP_RESOURCE_CPU_DISPATCH_AND_MAINLINE_APPROVAL_WAIT_20261016.md",
     "N10_existing_weight_hashes": "reports/wc_paper_N10_existing_resource_hashes_scoped_20261016.json",
     "N10_resource_fetch_CPU_controls": "reports/wc_paper_N10_resource_fetch_worker_CPU_controls_20261016.json",
-    "N10_ViCLIP_resource_R1_launch": "reports/wc_paper_N10_ViCLIP_resource_R1_launch_20261016.json"
+    "N10_ViCLIP_resource_R1_launch": "reports/wc_paper_N10_ViCLIP_resource_R1_launch_20261016.json",
+    "504": "research/504_WC_N10_FIVE_MODEL_CPU_ENTRY_PREIMPORT_RESOURCE_CONTROLS_PREPARED_20261016.md",
+    "N10_model_CPU_entry_local_preparation": "reports/wc_paper_N10_metric_model_worker_local_CPU_preparation_20261016.json"
   },
   "source_bindings": {
     "11": {
@@ -1565,7 +1571,7 @@
     },
     "mainline_queue_20261016": {
       "path": "plans/WORLD_CACHE_MAINLINE_PRIORITY_QUEUE_20261016.md",
-      "sha256": "e761b810d1acc34dae34ce1a8c6c33aba3ff68ec2603e43622c51f65cb630119"
+      "sha256": "c2f2c8ea15602eb6ee5e26065e3e8fd8b1cec7a02c28f1ea1b7a8e04543fee2f"
     },
     "baseline_grid_prereg_20261016": {
       "path": "manifests/wc_paper_N05_bounded_baseline_grid_preregistration_draft_20261016.json",
@@ -2114,6 +2120,14 @@
     "N10_ViCLIP_resource_R1_launch": {
       "path": "reports/wc_paper_N10_ViCLIP_resource_R1_launch_20261016.json",
       "sha256": "5f4aac10746cf7fabd840b2dc27052185e99ecef06bd72de10f2203e6e677961"
+    },
+    "504": {
+      "path": "research/504_WC_N10_FIVE_MODEL_CPU_ENTRY_PREIMPORT_RESOURCE_CONTROLS_PREPARED_20261016.md",
+      "sha256": "13bc2996c40de69b119324284589f2003680133364731cb3a9711e50f5fa264f"
+    },
+    "N10_model_CPU_entry_local_preparation": {
+      "path": "reports/wc_paper_N10_metric_model_worker_local_CPU_preparation_20261016.json",
+      "sha256": "a44d0125608c8a32fbc6ca19ccba74a1967a9a54874f476c9a3ab77d30181413"
     }
   },
   "operation_policy": {
@@ -2400,5 +2414,5 @@
     "N10_resource_first_collection_not_before_unix": 1792127722.9165008,
     "N10_resource_GPU_submissions": 0
   },
-  "mapping_sha256_at_inventory": "314de89d128475f97e84b67daa0e2e79de622d8f35096a3949bad5620a37a592"
+  "mapping_sha256_at_inventory": "a5c681fa3c66ee87f90db6ce1d51ee986d83a90b6f30a706a3d863fed942471d"
 }
