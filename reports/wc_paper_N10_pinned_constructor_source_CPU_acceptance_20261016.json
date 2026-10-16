@@ -1,0 +1,63 @@
+{
+  "status": "N10_PINNED_SOURCE_AND_CONSTRUCTOR_BOUNDARY_CPU_ACCEPTED_NOT_MODEL_RUNTIME",
+  "official_commit": "fd18b3d055cb0fc6f066ca90fe2c3c8cbb698490",
+  "pack_ref": "reports/wc_paper_N10_complete_pinned_code_resource_pack_20261016.json",
+  "pack_sha256": "e73c8a0549f47f9fe7ba92fdea6a59a8a16bfe008887ffca0d9cc99c92b5de4f",
+  "pinned_code_files_verified": 216,
+  "original_nine_source_identities_preserved": true,
+  "compiled_python_sources": 175,
+  "tokenizer_definition_probe": {
+    "source_definition_nodes": [
+      "default_bpe",
+      "SimpleTokenizer"
+    ],
+    "observations": [
+      {
+        "synthetic_existence_fixture": false,
+        "definition_time_download_requests": 1,
+        "request_executed": false,
+        "tokenizer_instance_constructed": false,
+        "actual_vocabulary_validated": false
+      },
+      {
+        "synthetic_existence_fixture": true,
+        "definition_time_download_requests": 0,
+        "request_executed": false,
+        "tokenizer_instance_constructed": false,
+        "actual_vocabulary_validated": false
+      }
+    ],
+    "full_upstream_module_imported": false,
+    "conclusion": "The original constructor default calls default_bpe while defining the class; preload and verify resources before importing this module, not only before scoring."
+  },
+  "AMT_dynamic_builder_probe": {
+    "network_name": "networks.AMT-S.Model",
+    "config_ref": ".sync/wc-N10-vbench-codepack-fd18b3d0-r1-20261016/vbench/third_party/amt/cfgs/AMT-S.yaml",
+    "config_sha256": "a77746791b1d02c839f40791fb82adb28c5058cf3735b2657a4a965a789ce0a8",
+    "builder_ref": ".sync/wc-N10-vbench-codepack-fd18b3d0-r1-20261016/vbench/third_party/amt/utils/build_utils.py",
+    "builder_sha256": "10cb0a2bb264b9155c2c5b5a0a10b9acb9780859699a7b359baabac3cdb416bd",
+    "resolved_source_ref": ".sync/wc-N10-vbench-codepack-fd18b3d0-r1-20261016/vbench/third_party/amt/networks/AMT-S.py",
+    "resolved_source_sha256": "4f43e4aa0c4feeaa481587f441d924ee4267d7e722dc19bfda8ab15b3c917879",
+    "original_import_request": "networks.AMT-S",
+    "actual_model_constructed": false,
+    "declared_constructor_stand_in": true
+  },
+  "actual_server_cached_resource_SHA_verified": false,
+  "actual_metric_model_CPU_accepted": false,
+  "upstream_full_package_imported": false,
+  "real_quality_scores_generated": false,
+  "source_pack_suffices_for_all_external_runtime_dependencies": false,
+  "Torch_imported": false,
+  "weights_loaded": 0,
+  "weights_downloaded": 0,
+  "real_download_subprocesses": 0,
+  "implementation_sha256": {
+    "scripts/check_wc_N10_pinned_constructor_sources_cpu_r1.py": "6271204e7003d3b9df1e4be996a4466a026510fe480c1cacb728aebff6df625f"
+  },
+  "CPU_wall_seconds": 0.1093900203704834,
+  "original_N05_queried": false,
+  "SSH_queries": 0,
+  "GPU_submissions": 0,
+  "server_environment_changed": false,
+  "server_ledger_written": false
+}

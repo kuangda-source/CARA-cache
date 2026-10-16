@@ -1653,7 +1653,8 @@
     "N08_post_full40_CPU": "research/489_WC_N08_FULL40_CPU_POST_REPEAT_PARITY_SAME_ROUND_FIDELITY_AND_FAILURE_ISOLATION_READY_20261016.md",
     "N08_CPU_gate_supervision_dispatch": "research/490_WC_N08_SEVEN_COMMAND_CPU_GATE_SINGLE_DISPATCH_AND_UUID_SETTLEMENT_READY_20261016.md",
     "N08_independent_capture_acceptance_CPU": "research/491_WC_N08_FULL40_INDEPENDENT_ACCEPTANCE_AND_N07_CAPTURE_REGISTRATION_REPAIR_CPU_READY_20261016.md",
-    "N08_production_CPU_deployment": "research/492_WC_N08_PRODUCTION_CPU_DEPLOYMENT_AND_ONCE_COLLECTION_PREPARATION_20261016.md"
+    "N08_production_CPU_deployment": "research/492_WC_N08_PRODUCTION_CPU_DEPLOYMENT_AND_ONCE_COLLECTION_PREPARATION_20261016.md",
+    "N10_pinned_code_and_real_tokenizer_CPU": "research/493_WC_N10_PINNED_CODE_TOKENIZER_RESOURCE_AND_MEASUREMENT_PREREG_20261016.md"
   },
   "evidence_batches": {
     "curve60": {
@@ -2029,6 +2030,20 @@
       "declared_fixture_files": 12,
       "static_source_and_fixture_files": 143,
       "acceptance_ref": "reports/wc_paper_N08_CPU_deploy_capture_local_acceptance_20261016.json"
+    },
+    "N10_PINNED_CODE_REAL_TOKENIZER_AND_MEASUREMENT_PREREG": {
+      "status": "CODE_AND_MEASUREMENT_PREREGISTERED_REAL_BPE_PREPROCESSING_CPU_ONLY",
+      "verified_code_files": 216,
+      "parsed_python_files": 175,
+      "real_BPE_bytes": 1356917,
+      "synthetic_text_parity_cases": 9,
+      "whole_metric_model_CPU_accepted": false,
+      "real_quality_results": false,
+      "actual_scoring_GPU_selected": false,
+      "code_pack_ref": "reports/wc_paper_N10_complete_pinned_code_resource_pack_20261016.json",
+      "constructor_boundary_ref": "reports/wc_paper_N10_pinned_constructor_source_CPU_acceptance_20261016.json",
+      "real_tokenizer_CPU_ref": "reports/wc_paper_N10_real_tokenizer_CPU_parity_20261016.json",
+      "measurement_prereg_ref": "manifests/wc_paper_N10_automatic_quality_measurement_prereg_r1_20261016.json"
     }
   },
   "statistical_rules": {
@@ -2951,6 +2966,56 @@
       "exists": true,
       "bytes": 13205,
       "sha256": "96e88a31597e12c41961f0c99616a6720b376c8dee2b5e3c97de6fa7f6c9123b"
+    },
+    "research/493_WC_N10_PINNED_CODE_TOKENIZER_RESOURCE_AND_MEASUREMENT_PREREG_20261016.md": {
+      "exists": true,
+      "bytes": 6176,
+      "sha256": "8086d33e66ffd5c961c77b42b543d3253c7c5ce8269fe05683968684bebad428"
+    },
+    "manifests/wc_paper_N10_automatic_quality_measurement_prereg_r1_20261016.json": {
+      "exists": true,
+      "bytes": 11611,
+      "sha256": "9755122b22349d9cd5b1cfe43460e73044360e240d941df11d6ca4150b817734"
+    },
+    "reports/wc_paper_N10_complete_pinned_code_resource_pack_20261016.json": {
+      "exists": true,
+      "bytes": 122005,
+      "sha256": "e73c8a0549f47f9fe7ba92fdea6a59a8a16bfe008887ffca0d9cc99c92b5de4f"
+    },
+    "reports/wc_paper_N10_pinned_constructor_source_CPU_acceptance_20261016.json": {
+      "exists": true,
+      "bytes": 2871,
+      "sha256": "a65caa9321ee88f99a5710fbec0150748bd7419433505d051cbf024c20a11f9a"
+    },
+    "reports/wc_paper_N10_official_tokenizer_and_ViCLIP_checkpoint_identity_20261016.json": {
+      "exists": true,
+      "bytes": 1586,
+      "sha256": "e622507c613ec5befbaa6faf1f05baf8ab36c41d102abdf0221a9f626383001e"
+    },
+    "reports/wc_paper_N10_real_tokenizer_CPU_parity_20261016.json": {
+      "exists": true,
+      "bytes": 5694,
+      "sha256": "77136eeedfbe7c543d25bf2e6ff7798382e3cbb4900dfe95c45eb427e7c94045"
+    },
+    "reports/wc_paper_N10_official_CLIP_tokenizer_source_identity_20261016.json": {
+      "exists": true,
+      "bytes": 856,
+      "sha256": "4ebc363788537870235659d5e1ec10dff71edb859c568a28c59739300059dc26"
+    },
+    "scripts/fetch_wc_N10_pinned_code_r1.py": {
+      "exists": true,
+      "bytes": 4063,
+      "sha256": "533f0b9f4a3144d859229a541ed006a41109cfe8b9f51ae92156876aa9577ace"
+    },
+    "scripts/check_wc_N10_pinned_constructor_sources_cpu_r1.py": {
+      "exists": true,
+      "bytes": 7549,
+      "sha256": "6271204e7003d3b9df1e4be996a4466a026510fe480c1cacb728aebff6df625f"
+    },
+    "scripts/check_wc_N10_real_tokenizer_cpu_r1.py": {
+      "exists": true,
+      "bytes": 5698,
+      "sha256": "185330ce3c5dcce7772cdb0c485a3a297b0e67ea7d609fadf0fc0bdfd91fc516"
     }
   },
   "math_notation": [

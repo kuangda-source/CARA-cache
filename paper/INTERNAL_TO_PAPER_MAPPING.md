@@ -1,5 +1,7 @@
 # 内部实现到论文表述的映射
 
+**N10资源更新（493）：** 已登记固定VBench代码版本与原六维测量，216文件校对/真实分词9文本CPU通过；实际模型/视频质量评分未执行，结果槽保持空。见[493](../research/493_WC_N10_PINNED_CODE_TOKENIZER_RESOURCE_AND_MEASUREMENT_PREREG_20261016.md)。
+
 **N08部署准备更新（492）：** 独立Git绑定CPU stage、九命令单次派发与ETA后只读查收工具已补齐，21本地顶层控制通过；实际最终配置、服务器生产CPU和真实测速均未执行，映射中的空结果保持。见[492](../research/492_WC_N08_PRODUCTION_CPU_DEPLOYMENT_AND_ONCE_COLLECTION_PREPARATION_20261016.md)。
 
 更新：2026-10-16。用途：供写作对话直接读取、生成方法描述、图例和实验表格。配套机器索引：[internal_to_paper_mapping.json](internal_to_paper_mapping.json)。

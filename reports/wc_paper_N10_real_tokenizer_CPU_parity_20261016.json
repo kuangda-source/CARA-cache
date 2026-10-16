@@ -1,0 +1,189 @@
+{
+  "status": "N10_REAL_BPE_TOKENIZER_CPU_PARITY_ACCEPTED_NOT_VICLIP_MODEL",
+  "vbench_source_ref": ".sync/wc-N10-vbench-codepack-fd18b3d0-r1-20261016/vbench/third_party/ViCLIP/simple_tokenizer.py",
+  "vbench_source_sha256": "4b5ac7e201ec4b4bd592b4666b61b4c54319b6957ce6d82e9f6832a83b4dfa7c",
+  "official_CLIP_source_ref": ".sync/wc-N10-official-tokenizer-pinned-r1-20261016/clip/simple_tokenizer.py",
+  "official_CLIP_source_sha256": "d1b09f10ed3d1e2c343619cb98cbfacb92363dd8607526a43aa7fe2d60d15bad",
+  "official_CLIP_commit": "d05afc436d78f1c48dc0dbf8e5980a9d471f35f6",
+  "actual_verified_BPE_sha256": "924691ac288e54409236115652ad4aa250f48203de50a9e4722a6ecd48d6804a",
+  "tokenizer_vocab_size": 49408,
+  "synthetic_text_controls": [
+    {
+      "id": "SYNTHETIC_TEXT_0",
+      "text": "",
+      "token_ids": [],
+      "decoded": "",
+      "original_CLIP_equal": true
+    },
+    {
+      "id": "SYNTHETIC_TEXT_1",
+      "text": "A robot pushes a blue block.",
+      "token_ids": [
+        320,
+        8797,
+        23828,
+        320,
+        1746,
+        4593,
+        269
+      ],
+      "decoded": "a robot pushes a blue block . ",
+      "original_CLIP_equal": true
+    },
+    {
+      "id": "SYNTHETIC_TEXT_2",
+      "text": "  A ROBOT\n pushes\t a blue block.  ",
+      "token_ids": [
+        320,
+        8797,
+        23828,
+        320,
+        1746,
+        4593,
+        269
+      ],
+      "decoded": "a robot pushes a blue block . ",
+      "original_CLIP_equal": true
+    },
+    {
+      "id": "SYNTHETIC_TEXT_3",
+      "text": "A person turns left, then right!",
+      "token_ids": [
+        320,
+        2533,
+        3185,
+        1823,
+        267,
+        1594,
+        1155,
+        256
+      ],
+      "decoded": "a person turns left , then right ! ",
+      "original_CLIP_equal": true
+    },
+    {
+      "id": "SYNTHETIC_TEXT_4",
+      "text": "Two objects: red & blue.",
+      "token_ids": [
+        1237,
+        13770,
+        281,
+        736,
+        261,
+        1746,
+        269
+      ],
+      "decoded": "two objects : red & blue . ",
+      "original_CLIP_equal": true
+    },
+    {
+      "id": "SYNTHETIC_TEXT_5",
+      "text": "Café naïve façade",
+      "token_ids": [
+        15304,
+        1097,
+        35689,
+        563,
+        778,
+        10067,
+        1928
+      ],
+      "decoded": "café naïve façade ",
+      "original_CLIP_equal": true
+    },
+    {
+      "id": "SYNTHETIC_TEXT_6",
+      "text": "实体在桌面上移动。",
+      "token_ids": [
+        27047,
+        252,
+        47466,
+        241,
+        37746,
+        101,
+        162,
+        94,
+        234,
+        165,
+        251,
+        95,
+        19759,
+        232,
+        163,
+        100,
+        119,
+        161,
+        232,
+        357,
+        38000
+      ],
+      "decoded": "实体在桌面上移动 。 ",
+      "original_CLIP_equal": true
+    },
+    {
+      "id": "SYNTHETIC_TEXT_7",
+      "text": "Video motion: ↔️ 👋",
+      "token_ids": [
+        1455,
+        7860,
+        281,
+        6059,
+        7443,
+        17686
+      ],
+      "decoded": "video motion : ↔️ 👋 ",
+      "original_CLIP_equal": true
+    },
+    {
+      "id": "SYNTHETIC_TEXT_8",
+      "text": "&amp; <test>",
+      "token_ids": [
+        261,
+        283,
+        1628,
+        285
+      ],
+      "decoded": "& < test > ",
+      "original_CLIP_equal": true
+    }
+  ],
+  "dependencies": {
+    "ftfy": "6.3.1",
+    "wcwidth": "0.2.13",
+    "regex": "2026.1.15",
+    "isolated_target": ".sync/wc-N10-tokenizer-local-cpu-r1-20261016/packages",
+    "source_sha256": {
+      "wcwidth/wcwidth.py": "4cbcf21f56a17440c33ce20c72a54ee14d20c8ac12c9977302c4a010fb951466",
+      "wcwidth/table_zero.py": "e197a284b6431fca1b82bc00e9cb7ebeeda5c5ce2dfc3b1fca207da7d3afc5ba",
+      "wcwidth/__init__.py": "79c671dd456892d66e02f6ad1ba35eb41c9516010d90a97d86d9a4d196ac4e60",
+      "wcwidth/table_vs16.py": "84f6eea05c66c6b19fb8169ea2178c4c01a6801d9ae04b9d87162c62890b7faa",
+      "wcwidth/table_wide.py": "bd41e310eb91c35586c94708c362fd1b2999b18bc2d88ddd73ce7c9a56324d83",
+      "wcwidth/unicode_versions.py": "ee74a181e458aef645906a5111dafe3e451e5e7b8cf96c5e3a61988fa40d69a1",
+      "ftfy/fixes.py": "1bc5d02b332572cc3868f851ad081cc0031cc6a6ad7fb10398d68eaec63e0ba5",
+      "ftfy/badness.py": "8ce47eb9c01f5fa2d38e650fe047474bde5537beba5971b722ca6b4079df6fd3",
+      "ftfy/chardata.py": "b405eaad7d98df306c9406688fab45072f989feffe530175baccef28dedc55c9",
+      "ftfy/__init__.py": "7a45fa65b2674775319a05b0a4cdbfd04a22ce7f36ba4098411bf9ec1b22cb3c",
+      "ftfy/formatting.py": "a5b981ba76327603ecddbc4c8425c5b5a4ccd3fdea4ffca9e9eb19be3bce2999",
+      "ftfy/cli.py": "abd0cd8b82ee84a1ab95ea07fd9dda07a274a124f7e1ad9659ab5aa7b39dafbb",
+      "ftfy/bad_codecs/__init__.py": "b0f29669ef7be2f8dcdc978eb06859f1914d5283d3212c7df3ccc16f127b4884",
+      "ftfy/bad_codecs/sloppy.py": "6f3828640408af3454c5bfaa2660d55fafc4876975e3722ab2d7451456b24c82",
+      "ftfy/bad_codecs/utf8_variants.py": "5a5c8c6ceb5415fb5e3c48ff4a9c434d78ab3c08fc1dcbb1559d5a498029561d"
+    }
+  },
+  "original_source_functions_and_classes_AST_only": true,
+  "whole_upstream_package_imported": false,
+  "actual_metric_model_CPU_accepted": false,
+  "actual_semantic_video_metric_ready": false,
+  "real_quality_scores_generated": false,
+  "model_checkpoint_downloaded": false,
+  "model_weights_loaded": 0,
+  "Torch_imported": false,
+  "source_and_assets_existed_before_definition": true,
+  "implicit_download_requests": 0,
+  "shared_project_or_server_environment_changed": false,
+  "original_N05_queried": false,
+  "CPU_wall_seconds": 0.14086604118347168,
+  "SSH_queries": 0,
+  "GPU_submissions": 0,
+  "server_ledger_written": false
+}
