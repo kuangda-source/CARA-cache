@@ -343,3 +343,5 @@ N07单次运行/查收/独立汇总代码及Native原字段对齐见[484](../res
 N08完整40执行适配/计时分列CPU准备见[485](../research/485_WC_N08_FULL40_EXECUTION_BINDING_AND_OBSERVED_TIMER_CPU_READY_20261016.md)；新增6项执行控制，连同受影响共17通过，实际绑定仍null。主计时与原协议不改，真实驻留生产CPU、干净资源与速度尚待。
 
 N07 Git绑定打包、生产CPU六命令查收和远端路径别名接线见[486](../research/486_WC_N07_GIT_BOUND_CPU_PACKAGING_AND_CANONICAL_PATH_PREPARATION_20261016.md)；25本地控制通过，133源码仅静态核对。真实配置、实际CPU与新视频结果仍未完成，原N05不改。
+
+N07 fresh身份审计工具与13本地CPU控制见[487](../research/487_WC_N07_FRESH_IDENTITY_AUDIT_CPU_READY_AND_MAINLINE_ORDER_20261016.md)；实际远端曝光审计、最终八输入/十方法冻结仍待N05完整接受，未产生新泛化或速度结果。

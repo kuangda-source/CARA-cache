@@ -1,3 +1,7 @@
+## 2026-10-16 主线接续保持，N07身份审计CPU准备完成
+
+[487输入隔离准备](research/487_WC_N07_FRESH_IDENTITY_AUDIT_CPU_READY_AND_MAINLINE_ORDER_20261016.md): 单次fresh身份审计入口与十项新CPU控制准备完成，连同选择核共13通过；原1044名/SHA索引核对，目录元数据不误算曝光，错误与原PID身份保留。仅本地临时项目验证，未SSH/选真实八输入或方法/派CPU或GPU/写预算；原99数值依赖保持。当前N05原15d77ac/句柄与今天12:05一次查收不改；之后N07→N08→N09/10，前密C/A保留为强对照。以下历史保留。
+
 ## 2026-10-16 N07生产CPU打包/单次查收准备完成，路径别名已对齐
 
 [486生产CPU链](research/486_WC_N07_GIT_BOUND_CPU_PACKAGING_AND_CANONICAL_PATH_PREPARATION_20261016.md)：Git blob与配置ref/input闭合、独立同级stage只读复制、六命令CPU bundle与按PID/ETA查收已接线；25CPU通过，133静态源码/原99数值依赖核对。03:56保存回执显示/home逻辑根实际为/media，修正未部署的新入口路径比较与原件归档，原N05不动。真实配置仍不存在，未打包实际输入/SSH/派CPU或GPU/写预算；候选冻结与真实生产CPU均待N05后。GPU入口要求六命令通过且原CPU终态。原15d77ac/句柄及今天12:05不变。以下历史保留。
