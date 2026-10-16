@@ -1,0 +1,75 @@
+......FF..F............                                                  [100%]
+=================================== FAILURES ===================================
+_ ProductionCPUAcceptanceControls.test_complete6_command_160_types_full180_and99_dependencies _
+
+self = <test_frozen_shared_cpu_acceptance_r1.ProductionCPUAcceptanceControls testMethod=test_complete6_command_160_types_full180_and99_dependencies>
+
+    def test_complete6_command_160_types_full180_and99_dependencies(self):
+>       value = fixture(); result = accept(value)
+
+tests/test_frozen_shared_cpu_acceptance_r1.py:43: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/wcomr/frozen_shared_cpu_acceptance_r1.py:61: in accept
+    or any(proof[k] for k in ('CUDA_initialized', 'GPU_submissions', 'model_weights_loaded', 'ledger_written'))):
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+.0 = <tuple_iterator object at 0x10c8bc910>
+
+>   or any(proof[k] for k in ('CUDA_initialized', 'GPU_submissions', 'model_weights_loaded', 'ledger_written'))):
+E   KeyError: 'GPU_submissions'
+
+src/wcomr/frozen_shared_cpu_acceptance_r1.py:61: KeyError
+_ ProductionCPUAcceptanceControls.test_live_handle_wait_and_reused_PID_is_not_the_original_CPU_job _
+
+self = <test_frozen_shared_cpu_acceptance_r1.ProductionCPUAcceptanceControls testMethod=test_live_handle_wait_and_reused_PID_is_not_the_original_CPU_job>
+
+    def test_live_handle_wait_and_reused_PID_is_not_the_original_CPU_job(self):
+        value = fixture(); value['process'].update(state='R', start_ticks=20010)
+        self.assertFalse(accept(value)['CPU_accepted'])
+        value['process']['start_ticks'] = 99999
+>       self.assertTrue(accept(value)['CPU_accepted'])
+
+tests/test_frozen_shared_cpu_acceptance_r1.py:54: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/wcomr/frozen_shared_cpu_acceptance_r1.py:61: in accept
+    or any(proof[k] for k in ('CUDA_initialized', 'GPU_submissions', 'model_weights_loaded', 'ledger_written'))):
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+.0 = <tuple_iterator object at 0x10ca05250>
+
+>   or any(proof[k] for k in ('CUDA_initialized', 'GPU_submissions', 'model_weights_loaded', 'ledger_written'))):
+E   KeyError: 'GPU_submissions'
+
+src/wcomr/frozen_shared_cpu_acceptance_r1.py:61: KeyError
+_ ProductionCPUAcceptanceControls.test_short_commands_wrong_source_scope_weights_or_numeric_field_rejected _
+
+self = <test_frozen_shared_cpu_acceptance_r1.ProductionCPUAcceptanceControls testMethod=test_short_commands_wrong_source_scope_weights_or_numeric_field_rejected>
+
+    def test_short_commands_wrong_source_scope_weights_or_numeric_field_rejected(self):
+        original = fixture()
+        for kind in ('commands', 'source', 'scope', 'weights', 'numeric', 'guard'):
+            value = copy.deepcopy(original); bundle = value['files']['bundle']['data']; proof = value['files']['proof']['data']
+            if kind == 'commands': bundle['commands'].pop()
+            elif kind == 'source': proof['source_revision'] = 'OTHER'
+            elif kind == 'scope': proof['scope_counts'] = {**proof['scope_counts'], 'total_paths': 179}
+            elif kind == 'weights': proof['model_weights_loaded'] = 1
+            elif kind == 'numeric': proof['unchanged_numeric_CPU_reuse']['source_sha256'][
+                next(iter(proof['unchanged_numeric_CPU_reuse']['source_sha256']))] = '0' * 64
+            else: proof['guardrail_checks'].pop()
+>           with self.assertRaises(ValueError): accept(value)
+
+tests/test_frozen_shared_cpu_acceptance_r1.py:75: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/wcomr/frozen_shared_cpu_acceptance_r1.py:61: in accept
+    or any(proof[k] for k in ('CUDA_initialized', 'GPU_submissions', 'model_weights_loaded', 'ledger_written'))):
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+>   or any(proof[k] for k in ('CUDA_initialized', 'GPU_submissions', 'model_weights_loaded', 'ledger_written'))):
+E   KeyError: 'GPU_submissions'
+
+src/wcomr/frozen_shared_cpu_acceptance_r1.py:61: KeyError
+=========================== short test summary info ============================
+FAILED tests/test_frozen_shared_cpu_acceptance_r1.py::ProductionCPUAcceptanceControls::test_complete6_command_160_types_full180_and99_dependencies
+FAILED tests/test_frozen_shared_cpu_acceptance_r1.py::ProductionCPUAcceptanceControls::test_live_handle_wait_and_reused_PID_is_not_the_original_CPU_job
+FAILED tests/test_frozen_shared_cpu_acceptance_r1.py::ProductionCPUAcceptanceControls::test_short_commands_wrong_source_scope_weights_or_numeric_field_rejected
+3 failed, 20 passed in 4.67s

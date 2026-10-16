@@ -2,6 +2,7 @@
 from contextlib import redirect_stdout
 import importlib.util
 import io
+import gzip
 import json
 from pathlib import Path
 from types import SimpleNamespace
@@ -38,6 +39,10 @@ def fixture(root, *, limit=10., delay=120):
         actual_sample_argument_variants=160, matrix=bound['execution_plan'],
         runner_source_sha256=sha(stage / scripts[0]))
     write(stage / 'production-CPU-result.json', proof)
+    fixture_module = load(Path(__file__).with_name('test_frozen_shared_acceptance_r1.py'))
+    write(stage / 'CPU-bundle-result.json', fixture_module.synthetic_CPU_bundle(registration['source_revision']))
+    write(stage / 'CPU-launch.json', dict(source_revision=registration['source_revision'],
+        identity=dict(pid=9999, start_ticks=99990)))
     authority = dict(source_revision=registration['source_revision'], config_sha256=sha(stage / CONFIG),
         production_CPU_sha256=sha(stage / 'production-CPU-result.json'), bound_input_fingerprint=fingerprint(bound),
         scope_counts=config['scope_counts'], whole_card_run=config['run_id'], gpu_uuid='GPU-SYNTHETIC-NO-DEVICE',
@@ -56,6 +61,7 @@ def execute_code(code, root, config, bound, registration, popen):
     if code.count(literal) != 1: raise AssertionError('Synthetic root replacement must be exact')
     code = code.replace(literal, repr(str(root)))
     def process(pid):
+        if pid == 9999: return dict(pid=pid, start_ticks=None, state=None, command=None)
         command = 'supervise_wc_paper_N07_frozen_shared180_r1.py' if pid == 1001 else 'watch_wc_paper_N07_post_cpu_r1.py'
         return dict(pid=pid, start_ticks=pid * 10, state='R', command=command)
     with patch('wcomr.frozen_shared_production_r1.validate',
@@ -128,6 +134,34 @@ class DispatchControls(unittest.TestCase):
             self.assertFalse(value['GPU_retry_authorized'])
             self.assertFalse(value['original_task_terminal'])
             self.assertEqual(value['launch_id'], authority['launch_id'])
+
+    def test_admission_capture_resolves_project_and_output_aliases_without_science_reads(self):
+        script = load(Path(__file__).resolve().parents[1] / 'scripts/capture_wc_paper_N07_frozen_shared180_r1.py')
+        with tempfile.TemporaryDirectory() as directory:
+            parent = Path(directory); physical = parent / 'physical'; physical.mkdir()
+            alias = parent / 'logical'; alias.symlink_to(physical, target_is_directory=True)
+            storage = parent / 'storage'; storage.mkdir()
+            (physical / 'outputs').symlink_to(storage, target_is_directory=True)
+            stage = physical / '.sync/SYNTHETIC_CAPTURE'; stage.mkdir(parents=True)
+            source = stage / 'src/control.py'; source.parent.mkdir(parents=True); source.write_text('# synthetic\n')
+            registration = dict(source_revision='SYNTHETIC_NO_TASK', payload_sha256={'src/control.py': sha(source)})
+            write(stage / 'registration.json', registration)
+            launch = dict(project=str(alias), stage=str(stage), run_id='SYNTHETIC_RUN', gpu_uuid='GPU-SYNTHETIC',
+                source_revision=registration['source_revision'], registration_sha256=sha(stage / 'registration.json'))
+            code = script.remote_code(launch, 'admission')
+            literal = "'/home/gaokuangda/data/gkd/worldcache_omr'"
+            self.assertEqual(code.count(literal), 1); code = code.replace(literal, repr(str(alias)))
+            output = io.BytesIO()
+            def telemetry(command, **kwargs):
+                return 'GPU-SYNTHETIC, NVIDIA RTX A6000, 24' if '-i' in command else ''
+            with patch('wcomr.gpu_budget_pool_v2.BudgetPool.read', return_value={'synthetic': True}), \
+                 patch('subprocess.check_output', side_effect=telemetry), \
+                 patch.object(sys, 'path', list(sys.path)), patch.object(sys, 'stdout', SimpleNamespace(buffer=output)):
+                exec(compile(code, 'SYNTHETIC_ALIAS_CAPTURE_NO_NETWORK', 'exec'), {})
+            captured = json.loads(gzip.decompress(output.getvalue()))
+            self.assertEqual(captured['output_root'], str((storage / 'SYNTHETIC_RUN').resolve()))
+            self.assertNotIn('runner', captured); self.assertNotIn('final', captured)
+            self.assertTrue(all(captured['payload_verified'].values()))
 
 
 if __name__ == '__main__': unittest.main()

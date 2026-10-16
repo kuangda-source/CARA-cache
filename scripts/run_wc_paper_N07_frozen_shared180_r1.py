@@ -168,12 +168,14 @@ def main():
                 assert planned['section'] == 'WARMUP' and len(guided) == n
                 path = directory / 'warm-guided.pt'; assert not path.exists(); torch.save({'guided': guided}, path)
                 result.update(warm_guided_outputs=n, warm_guided_tree_sha256=tree_digest(guided),
-                    warm_guided_artifact=dict(path=str(path), sha256=sha(path), bytes=path.stat().st_size))
+                    warm_guided_artifact=dict(path=str(path.resolve()), sha256=sha(path), bytes=path.stat().st_size))
             final = result.pop('final_latent', None)
             if final is not None:
                 path = directory / 'final-latent.pt'; assert not path.exists(); torch.save({'final_latent': final}, path)
                 result.update(final_latent_sha256=tree_digest(final),
-                    final_artifact=dict(path=str(path), sha256=sha(path), bytes=path.stat().st_size))
+                    final_artifact=dict(path=str(path.resolve()), sha256=sha(path), bytes=path.stat().st_size))
+            if result.get('video_path'):
+                result['video_path'] = str(Path(result['video_path']).resolve())
             assert all(p._version == version for p, version in versions)
             return result
 

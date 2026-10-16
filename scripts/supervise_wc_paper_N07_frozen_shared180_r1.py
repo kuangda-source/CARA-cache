@@ -43,11 +43,16 @@ def main():
     )
     from wcomr.frozen_shared_post_r1 import GPU_TERMINAL_STATUS
     from wcomr.gpu_budget_approved_card_v2 import ApprovedCardBudgetPool
-    from wcomr.gpu_budget_pool_v2 import DeviceLease, process_identity
+    from wcomr.gpu_budget_pool_v2 import DeviceLease, process_identity, same_live_process
+    from wcomr.frozen_shared_cpu_acceptance_r1 import validate_bundle
     config, registration, _old, _inputs, _tables, _previous, bound, _shared = validate(args.project, args.stage)
     assert all(sha(args.stage / name) == digest for name, digest in registration['payload_sha256'].items())
     proof_path = args.stage / 'production-CPU-result.json'
     proof = json.loads(proof_path.read_text())
+    validate_bundle(json.loads((args.stage / 'CPU-bundle-result.json').read_text()), registration['source_revision'])
+    cpu_launch = json.loads((args.stage / 'CPU-launch.json').read_text())
+    assert cpu_launch['source_revision'] == registration['source_revision']
+    assert not same_live_process(cpu_launch['identity'])
     authority = json.loads(args.authorization.read_text())
     assert args.authorization.resolve() == (args.stage / 'launch-authorization.json').resolve()
     validate_launch_authority(config, bound, registration, proof, authority,

@@ -18,9 +18,14 @@ relative=pathlib.PurePosixPath(STAGE)
 assert not relative.is_absolute() and '..' not in relative.parts and relative.parts[0]=='.sync'
 stage=root/STAGE;sys.path.insert(0,str(stage/'src'))
 from wcomr.frozen_shared_production_r1 import CONFIG,RUN,sha,write,validate,validate_launch_authority
-from wcomr.gpu_budget_pool_v2 import process_identity
+from wcomr.gpu_budget_pool_v2 import process_identity,same_live_process
+from wcomr.frozen_shared_cpu_acceptance_r1 import validate_bundle
 config,registration,_old,_inputs,_tables,_previous,bound,_shared=validate(root,stage)
 proofpath=stage/'production-CPU-result.json';proof=json.loads(proofpath.read_text())
+bundle=json.loads((stage/'CPU-bundle-result.json').read_text())
+validate_bundle(bundle,registration['source_revision'])
+cpu_launch=json.loads((stage/'CPU-launch.json').read_text())
+assert cpu_launch['source_revision']==registration['source_revision'] and not same_live_process(cpu_launch['identity'])
 assert all(sha(stage/name)==digest for name,digest in registration['payload_sha256'].items())
 validate_launch_authority(config,bound,registration,proof,AUTHORITY,
  revision=AUTHORITY['source_revision'],gpu_uuid=AUTHORITY['gpu_uuid'],

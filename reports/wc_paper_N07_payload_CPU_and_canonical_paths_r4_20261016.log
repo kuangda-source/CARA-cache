@@ -1,0 +1,40 @@
+....................F....                                                [100%]
+=================================== FAILURES ===================================
+_ DispatchControls.test_admission_capture_resolves_project_and_output_aliases_without_science_reads _
+
+self = <test_frozen_shared_dispatch_r1.DispatchControls testMethod=test_admission_capture_resolves_project_and_output_aliases_without_science_reads>
+
+    def test_admission_capture_resolves_project_and_output_aliases_without_science_reads(self):
+        script = load(Path(__file__).resolve().parents[1] / 'scripts/capture_wc_paper_N07_frozen_shared180_r1.py')
+        with tempfile.TemporaryDirectory() as directory:
+            parent = Path(directory); physical = parent / 'physical'; physical.mkdir()
+            alias = parent / 'logical'; alias.symlink_to(physical, target_is_directory=True)
+            storage = parent / 'storage'; storage.mkdir()
+            (physical / 'outputs').symlink_to(storage, target_is_directory=True)
+            stage = physical / '.sync/SYNTHETIC_CAPTURE'; stage.mkdir(parents=True)
+            source = stage / 'src/control.py'; source.parent.mkdir(parents=True); source.write_text('# synthetic\n')
+            registration = dict(source_revision='SYNTHETIC_NO_TASK', payload_sha256={'src/control.py': sha(source)})
+            write(stage / 'registration.json', registration)
+            launch = dict(project=str(alias), stage=str(stage), run_id='SYNTHETIC_RUN', gpu_uuid='GPU-SYNTHETIC',
+                source_revision=registration['source_revision'], registration_sha256=sha(stage / 'registration.json'))
+            code = script.remote_code(launch, 'admission')
+            literal = "'/home/gaokuangda/data/gkd/worldcache_omr'"
+            self.assertEqual(code.count(literal), 1); code = code.replace(literal, repr(str(alias)))
+            output = io.BytesIO()
+            def telemetry(command, **kwargs):
+                return 'GPU-SYNTHETIC, NVIDIA RTX A6000, 24' if '-i' in command else ''
+            with patch('wcomr.gpu_budget_pool_v2.BudgetPool.read', return_value={'synthetic': True}), \
+                 patch('subprocess.check_output', side_effect=telemetry), \
+                 patch.object(sys, 'path', list(sys.path)), patch.object(sys, 'stdout', SimpleNamespace(buffer=output)):
+                exec(compile(code, 'SYNTHETIC_ALIAS_CAPTURE_NO_NETWORK', 'exec'), {})
+            captured = json.loads(gzip.decompress(output.getvalue()))
+>           self.assertEqual(captured['output_root'], str(storage / 'SYNTHETIC_RUN'))
+E           AssertionError: '/private/var/folders/zn/gcrv4pr17zx5mmh_02[44 chars]_RUN' != '/var/folders/zn/gcrv4pr17zx5mmh_0208vp6800[36 chars]_RUN'
+E           - /private/var/folders/zn/gcrv4pr17zx5mmh_0208vp680000gn/T/tmp8_jbn8k8/storage/SYNTHETIC_RUN
+E           ? --------
+E           + /var/folders/zn/gcrv4pr17zx5mmh_0208vp680000gn/T/tmp8_jbn8k8/storage/SYNTHETIC_RUN
+
+tests/test_frozen_shared_dispatch_r1.py:162: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_frozen_shared_dispatch_r1.py::DispatchControls::test_admission_capture_resolves_project_and_output_aliases_without_science_reads
+1 failed, 24 passed in 4.92s

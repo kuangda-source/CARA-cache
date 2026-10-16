@@ -1,3 +1,7 @@
+## 2026-10-16 N07生产CPU打包/单次查收准备完成，路径别名已对齐
+
+[486生产CPU链](../research/486_WC_N07_GIT_BOUND_CPU_PACKAGING_AND_CANONICAL_PATH_PREPARATION_20261016.md)：Git blob与配置ref/input闭合、独立同级stage只读复制、六命令CPU bundle与按PID/ETA查收已接线；25CPU通过，133静态源码/原99数值依赖核对。03:56保存回执显示/home逻辑根实际为/media，修正未部署的新入口路径比较与原件归档，原N05不动。真实配置仍不存在，未打包实际输入/SSH/派CPU或GPU/写预算；候选冻结与真实生产CPU均待N05后。GPU入口要求六命令通过且原CPU终态。原15d77ac/句柄及今天12:05不变。以下历史保留。
+
 ## 2026-10-16 N08完整40执行接线CPU准备完成
 
 [485重复测速接线](../research/485_WC_N08_FULL40_EXECUTION_BINDING_AND_OBSERVED_TIMER_CPU_READY_20261016.md)：原40/30/10与主计时/三平衡轮保持；五逻辑角色只接最终共同冻结方法，真实绑定仍null。单路径恢复原状态/随机状态/eval、seed0旧上下文、全部安装/guarded/清理/GC/写盘分列、拒绝与失败前缀保持已接线；六新控制＋受影响N07十一控制共17通过，明确synthetic响应/计时，非实际采样/速度。原99数值依赖未变，N07整卡仍17/43；真实N08驻留主程序/生产CPU/费用待冻。0SSH/0GPU/0预算写，N05原15d77ac/句柄/今天12:05不变。以下历史保留。

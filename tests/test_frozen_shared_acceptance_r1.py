@@ -17,6 +17,18 @@ def module(name):
     return value
 
 
+def synthetic_CPU_bundle(revision):
+    patterns = ('test_frozen_shared_production_r1.py', 'test_frozen_shared_batch_r1.py',
+                'test_frozen_shared_post_r1.py', 'test_frozen_shared_acceptance_r1.py',
+                'test_frozen_shared_dispatch_r1.py')
+    return dict(status='N07_SHARED180_ACTUAL_PRODUCTION_CPU_COMPLETE_PASS_NOT_GPU', exit_code=0,
+        source_revision=revision, commands=[dict(command=['SYNTHETIC_PYTHON', '-p', p, '-v'], exit_code=0)
+            for p in patterns] + [dict(command=['SYNTHETIC_PYTHON',
+                '/SYNTHETIC_STAGE/scripts/run_wc_paper_N07_frozen_shared180_r1.py', '--cpu-check'], exit_code=0)],
+        GPU_submissions=0, model_weights_loaded=0, ledger_written=False,
+        shared_runtime_written=False, original_base_stage_written=False, wall_seconds=1.)
+
+
 def fixture():
     post = module('test_frozen_shared_post_r1')
     config, bound, plan, runs = post.fixture()
@@ -84,6 +96,7 @@ def fixture():
         payload_verified={k: True for k in registration['payload_sha256']},
         config=config, config_sha256=args['config_sha256'], bound_inputs=bound, bound_inputs_sha256='3' * 64,
         production_CPU=proof, production_CPU_sha256=args['proof_sha256'],
+        production_CPU_bundle=synthetic_CPU_bundle(args['revision']),
         authorization=authority, authorization_sha256='8' * 64, supervisor=supervisor, runner=runner, runner_sha256='a' * 64,
         original_processes={k: dict(pid=p['pid'], start_ticks=None, state=None) for k, p in (
             ('supervisor_pid', own), ('child_pid', child), ('post_watcher_pid', watcher))},

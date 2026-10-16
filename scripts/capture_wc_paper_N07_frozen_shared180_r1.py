@@ -12,8 +12,9 @@ import time
 def remote_code(launch, mode):
     return 'LAUNCH=' + repr(launch) + '\nMODE=' + repr(mode) + '\n' + r'''
 import fcntl,gzip,json,pathlib,subprocess,sys,time
-root=pathlib.Path(LAUNCH['project']);stage=pathlib.Path(LAUNCH['stage']);out=root/'outputs'/LAUNCH['run_id']
-assert root==pathlib.Path('/home/gaokuangda/data/gkd/worldcache_omr') and stage.is_relative_to(root/'.sync')
+root=pathlib.Path(LAUNCH['project']).resolve();stage=pathlib.Path(LAUNCH['stage']).resolve()
+assert root==pathlib.Path('/home/gaokuangda/data/gkd/worldcache_omr').resolve() and stage.parent==root/'.sync'
+out=(root/'outputs'/LAUNCH['run_id']).resolve()
 sys.path.insert(0,str(stage/'src'))
 from wcomr.frozen_shared_production_r1 import CONFIG,sha
 from wcomr.gpu_budget_pool_v2 import BudgetPool,process_identity
@@ -28,7 +29,8 @@ paths=[('supervisor',out/'supervisor.json'),('authorization',stage/'launch-autho
 if MODE=='terminal':
  paths += [('config',stage/CONFIG),('runner',out/'runner.json'),('billing',out/'billing.json'),
   ('final',stage/'CPU-final-results.json'),('post_exit',stage/'post-CPU-exit.json'),
-  ('production_CPU',stage/'production-CPU-result.json')]
+  ('production_CPU',stage/'production-CPU-result.json'),
+  ('production_CPU_bundle',stage/'CPU-bundle-result.json'),('production_CPU_launch',stage/'CPU-launch.json')]
 for key,path in paths:
  if path.exists():value[key]=json.loads(path.read_text());value[key+'_sha256']=sha(path)
 if MODE=='terminal' and value.get('config'):

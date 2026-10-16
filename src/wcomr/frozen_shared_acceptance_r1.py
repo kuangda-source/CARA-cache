@@ -64,6 +64,8 @@ def accept(value, launch, *, bootstrap_repetitions=4096):
             original_fallback_supervisor=value.get('supervisor_fallback'),
             no_GPU_relaunch_authorized=True, GPU_submissions=0, SSH_queries=0)
     config, bound, proof, authority = (value[k] for k in ('config', 'bound_inputs', 'production_CPU', 'authorization'))
+    from .frozen_shared_cpu_acceptance_r1 import validate_bundle
+    validate_bundle(value['production_CPU_bundle'], launch['source_revision'])
     plan = validate_contract(config, bound)
     if (value['config_sha256'] != launch['config_sha256']
             or value['bound_inputs_sha256'] != config['references']['bound_inputs']['sha256']
