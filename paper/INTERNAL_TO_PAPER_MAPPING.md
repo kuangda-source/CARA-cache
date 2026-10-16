@@ -1,5 +1,7 @@
 # 内部实现到论文表述的映射
 
+**费用接续（495）：** N07原180/N08原40的整卡费用估计已准备并经7CPU控制；仅历史费用规划，不是净速度或真实新卡报价。见[495](../research/495_WC_N07_N08_COMPLETE_CARD_COST_PLANNING_CPU_READY_20261016.md)。
+
 **N10输入接线（494）：** 从接受的原N07回执保留全部160正式/960指标位置，8项本地CPU通过；真实最终输入/模型和评分仍未运行。见[494](../research/494_WC_N10_ACCEPTED_COMMON_OUTPUT_INPUT_BRIDGE_CPU_READY_20261016.md)。
 
 **N10资源更新（493）：** 已登记固定VBench代码版本与原六维测量，216文件校对/真实分词9文本CPU通过；实际模型/视频质量评分未执行，结果槽保持空。见[493](../research/493_WC_N10_PINNED_CODE_TOKENIZER_RESOURCE_AND_MEASUREMENT_PREREG_20261016.md)。

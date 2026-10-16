@@ -6,6 +6,8 @@
 
 ## 当前执行更新：N06已接受，N05已准入
 
+[495整卡费用准备](../research/495_WC_N07_N08_COMPLETE_CARD_COST_PLANNING_CPU_READY_20261016.md)：180共同/40测速整卡费用工具与7CPU控制通过，N08全部scope与原合同一致。按成功请求完整wall/加载/原账单余项报价，快速拒绝不当廉价成功；无Native完整计时则未知。真实N06旧账分解一致，测试N05明确合成；当前N05未读、真实工作点/报价未选，0SSH/0GPU/0服务器写。原99数值/预算窗口与今天12:05原卡查收保持。以下历史保留。
+
 [494最终质量输入接线](../research/494_WC_N10_ACCEPTED_COMMON_OUTPUT_INPUT_BRIDGE_CPU_READY_20261016.md)：原N07完整180回执到160正式/960指标位置的身份桥与CLI已准备，8本地CPU通过；原拒绝/资源缺失/空静态组保留，冷标准库实际产出六份元数据。只读原Git blob可补追溯协议部署引用，不据此重跑GPU。全部为合成N07原件，真实最终输入/模型CPU/评分仍待；原99数值/N05句柄/今天12:05不改，0SSH/0GPU/0服务器写。以下历史保留。
 
 [493质量测量准备](../research/493_WC_N10_PINNED_CODE_TOKENIZER_RESOURCE_AND_MEASUREMENT_PREREG_20261016.md)：N10同一pin的216代码/配置Git blob与SHA通过、175Python解析，原九文件一致；真实BPE资源校验和9组原ViCLIP/CLIP分词CPU逐项一致。原定义重现tokenizer导入前下载边界，未执行下载进程。六维/160生成/960指标测量与源码事前登记；模型权重只核元数据、未加载，实际模型CPU/评分/费用仍待。0SSH/0GPU/0服务器修改；原99数值SHA/N05原句柄/今天12:05保持，F/B关闭。以下历史保留。
@@ -100,3 +102,7 @@ N03 PA528、N04组合继续作为可选增强；不自动执行7.53h PA卡或13h
 ### N10输入接续（494）
 
 N07配置冻结时优先加入`references.quality_measurement_protocol`，绑定493测量manifest的原字节/SHA；原打包器支持额外manifest引用，不改99数值执行器。N07完整接受后，用`prepare_wc_paper_N10_accepted_common_inputs_r1.py`从保存原件准备全部160/960位置；无需搬回视频、改名或人工评审。若仅漏部署引用，先以原source Git blob只读追溯，不据此重跑生成。原八字段请求无静态标注，当前闪烁位置为N/A；仍待真实资源/模型CPU和全评分费用，不能把输入准备当N10已完成。
+
+### N07/N08完整报价接续（495）
+
+N05真实原件独立接受后，与原N06接受/查收一起输入`estimate_wc_paper_N07_N08_complete_cost_r1.py`；先冻结十方法、共同bound输入和同一五测速角色。保持原180/40，不凭合成测试报价，也不只按core_seconds计GPUh。价格参数为逐方法/阶段成功请求最大wall、一次load、账单余项按位置比例、每full warm60秒/卡设置300秒及20%规划余量，非严格上界。输出完整估计后写实际配置并做真实生产CPU；达到12或余额不足时，把完整范围/实际CPU/费用交给用户决定，不拆缩或重置窗口。费用工具不选择工作点/输入、不替代fresh v2/UUID/权限。
