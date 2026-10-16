@@ -1,5 +1,7 @@
 # 内部实现到论文表述的映射
 
+**资源终态与监督（517/518）：**[517](../research/517_WC_N10_RESOURCE_R3_TERMINAL_TLS_FAILURE_AND_SCOPED_TRANSPORT_DIAGNOSIS_20261016.md) · [518](../research/518_WC_N10_FULL960_SUPERVISOR_AND_ACTUAL_COST_CPU_PREPARATION_20261016.md)：15:50已一次收原R3/PID19489：终态exit1，14/204段、117440512bytes，TLS连接失败；14段及原prefix独立逐字节/SHA核对通过，仍非完整权重。四种小范围传输探测仍TLS失败，未派SCP，原资源自动化已暂停。完整960评分监督/实际wall结算与原CPU/整卡授权接线13本地CPU通过；实际原模型/质量/GPU仍0。原N07/source140d0a6今天21:30半程/明早05:30验收、N07→N08→N09/10及cap113保持，本轮0SSH/服务器账本写。
+
 **完整评分入口（516）：**[516完整960 worker](../research/516_WC_N10_COMPLETE960_SCORING_WORKER_AND_ORIGINAL_ADMISSION_CPU_PREPARATION_20261016.md)：完整160×六维960评分worker已接原五模型工厂、原UUID父监督与v2预留，入口/相关45本地CPU通过；原日志可独立重建、失败和静态不适用保留。实际五模型/最终输入/监督部署/报价和正式质量仍待，模型与新质量分数0。原N07/source140d0a6今天21:30健康检查/明早05:30完整验收、资源129577b今天15:50和cap113保持；本轮0SSH/新GPU/服务器账本写。
 
 **评分模型接线（515）：**[515共用构造与工厂](../research/515_WC_N10_SHARED_ORIGINAL_CONSTRUCTORS_AND_FACTORY_CPU_PREPARATION_20261016.md)：五模型CPU探针与评分工厂已共用原构造入口，实际构造SHA由逐角色独立接受传递；工厂/完整960接线及相关54CPU、232份源码包和隔离冷导入通过，原Mac夹具别名失败保留。微型参数/检查点与评分替身，真实原模型/质量分数仍0；生产GPU驱动/费用和实际五模型CPU待。原180/source140d0a6今天21:30健康检查、明早05:30完整验收及资源129577b今天15:50保持；本轮0SSH/0新GPU/0服务器账本写，cap113不变。

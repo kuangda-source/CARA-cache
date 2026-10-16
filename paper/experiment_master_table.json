@@ -1164,14 +1164,14 @@
     },
     {
       "id": "N10",
-      "state": "待补｜固定权重分段R3在途，15:50收",
+      "state": "待补｜固定权重R3终态TLS失败，模型/质量未执行",
       "paper_experiment_name": "Automatic Video Quality on Final Outputs",
       "internal_ids": [
         "PAPER_E5_AUTOMATIC_QUALITY"
       ],
       "contribution_relation": "C3生成质量范围；补充保真主指标",
-      "evidence_or_planned_scope": "216固定代码/真实BPE及采样/输入桥保持；原五模型CPU入口和完整bundle/部署/独立接受链准备完成，15链路控制通过；四权重全SHA已核，ViCLIP服务器R1超时保留、本机R2获取同一pin。 512逐视频原入口/真实采样观察与AMT原生接口修复准备通过，相关48CPU；模型与codec均为显式替身，真实评分0。 513完整960批处理/中断日志核心11CPU通过，生产模型工厂和GPU驱动待。 515五模型共用构造与工厂/960接线相关54CPU通过，实际五模型与生产GPU仍待。 516完整960生产worker与原任务准入接线相关45CPU通过，实际监督/部署/费用与原模型仍待。",
-      "gap_and_next_action": "今天15:50一次收source129577b/原Mac19489/204范围；完整SHA接受后独立SCP接入服务器，重模型CPU与最终160/960评分仍待主线空档及实费。",
+      "evidence_or_planned_scope": "216固定代码/真实BPE及采样/输入桥保持；原五模型CPU入口和完整bundle/部署/独立接受链准备完成，15链路控制通过；四权重全SHA已核，ViCLIP服务器R1超时保留、本机R2获取同一pin。 512逐视频原入口/真实采样观察与AMT原生接口修复准备通过，相关48CPU；模型与codec均为显式替身，真实评分0。 513完整960批处理/中断日志核心11CPU通过，生产模型工厂和GPU驱动待。 515五模型共用构造与工厂/960接线相关54CPU通过，实际五模型与生产GPU仍待。 516完整960生产worker与原任务准入接线相关45CPU通过，实际监督/部署/费用与原模型仍待。 517原R3已终态失败保留14/204段112MiB，四种小范围连接仍失败；独立prefix审计通过，仍非权重。518完整960监督/实费及原CPU授权13控制通过，尚无实际模型或评分。",
+      "gap_and_next_action": "原R3已于15:50完整查收且资源自动化暂停，不重查旧句柄；需先有可用小范围传输再另立资源修复版本。保持固定原权重，完整SHA接受后独立SCP；实际五模型CPU、最终160/960完整评分与费用仍待主线空档。",
       "priority": "P2·复用最终视频",
       "evidence_refs": [
         "28",
@@ -1243,7 +1243,19 @@
         "N10_full960_entry_CPU_R1",
         "N10_full960_entry_related_CPU_R2",
         "N10_full960_entry_CPU_R3",
-        "N10_full960_entry_related_CPU_R4"
+        "N10_full960_entry_related_CPU_R4",
+        "517",
+        "518",
+        "N10_R3_terminal_capture",
+        "N10_R3_prefix_independent_audit",
+        "N10_R3_terminal_automation_pause",
+        "N10_OpenSSL_failed_offset_probe",
+        "N10_official_direct_probe",
+        "N10_mirror_direct_probe",
+        "N10_TLS12_HTTP11_probe",
+        "N10_full960_supervisor",
+        "N10_full960_supervisor_tests",
+        "N10_full960_supervisor_CPU_R1"
       ],
       "method_mapping_ids": [],
       "depends_on": [
@@ -1276,7 +1288,7 @@
       "actual_quality_scores": 0,
       "ViCLIP_resource_acquisition_dispatched": true,
       "ViCLIP_resource_launch_ref": "reports/wc_paper_N10_ViCLIP_local_ranges_R3_launch_20261016.json",
-      "ViCLIP_resource_next_collection_local": "2026-10-16T15:50:00+08:00",
+      "ViCLIP_resource_next_collection_local": null,
       "single_model_CPU_worker_implemented": true,
       "model_CPU_preimport_boundary_controls_accepted": 5,
       "whole_metric_model_CPU_bundle_implemented": true,
@@ -1315,7 +1327,15 @@
       "full960_scoring_worker_implemented": true,
       "full960_production_entry_CPU_controls_accepted": 8,
       "full960_entry_related_CPU_controls_accepted": 45,
-      "full960_scoring_supervisor_implemented": false
+      "full960_scoring_supervisor_implemented": true,
+      "ViCLIP_R3_terminal_failure_preserved": true,
+      "ViCLIP_R3_completed_ranges": 14,
+      "ViCLIP_R3_received_bytes": 117440512,
+      "ViCLIP_R3_original_prefix_independently_audited": true,
+      "ViCLIP_resource_current_process_running": false,
+      "ViCLIP_resource_automation_paused": true,
+      "full960_supervisor_CPU_controls_accepted": 5,
+      "full960_supervisor_and_entry_CPU_controls_accepted": 13
     },
     {
       "id": "N11",
@@ -1616,7 +1636,19 @@
     "N10_full960_entry_CPU_R1": "reports/wc_paper_N10_full960_production_entry_CPU_R1_20261016.json",
     "N10_full960_entry_related_CPU_R2": "reports/wc_paper_N10_full960_production_entry_related_CPU_R2_20261016.json",
     "N10_full960_entry_CPU_R3": "reports/wc_paper_N10_full960_production_entry_CPU_R3_20261016.json",
-    "N10_full960_entry_related_CPU_R4": "reports/wc_paper_N10_full960_production_entry_related_CPU_R4_20261016.json"
+    "N10_full960_entry_related_CPU_R4": "reports/wc_paper_N10_full960_production_entry_related_CPU_R4_20261016.json",
+    "517": "research/517_WC_N10_RESOURCE_R3_TERMINAL_TLS_FAILURE_AND_SCOPED_TRANSPORT_DIAGNOSIS_20261016.md",
+    "518": "research/518_WC_N10_FULL960_SUPERVISOR_AND_ACTUAL_COST_CPU_PREPARATION_20261016.md",
+    "N10_R3_terminal_capture": "reports/wc_paper_N10_ViCLIP_local_ranges_R3_collection_20261016_1550.json",
+    "N10_R3_prefix_independent_audit": "reports/wc_paper_N10_R3_original_prefix_independent_audit_20261016.json",
+    "N10_R3_terminal_automation_pause": "reports/wc_paper_N10_R3_terminal_resource_automation_paused_20261016.json",
+    "N10_OpenSSL_failed_offset_probe": "reports/wc_paper_N10_OpenSSL_failed_offset_probe_20261016.json",
+    "N10_official_direct_probe": "reports/wc_paper_N10_transport_official_direct_probe_20261016.json",
+    "N10_mirror_direct_probe": "reports/wc_paper_N10_transport_mirror_direct_probe_20261016.json",
+    "N10_TLS12_HTTP11_probe": "reports/wc_paper_N10_tls12_http11_transport_probe_20261016.json",
+    "N10_full960_supervisor": "scripts/supervise_wc_paper_N10_full960_r1.py",
+    "N10_full960_supervisor_tests": "tests/test_N10_supervisor_r1.py",
+    "N10_full960_supervisor_CPU_R1": "reports/wc_paper_N10_full960_supervisor_CPU_R1_20261016.json"
   },
   "source_bindings": {
     "11": {
@@ -1769,7 +1801,7 @@
     },
     "mainline_queue_20261016": {
       "path": "plans/WORLD_CACHE_MAINLINE_PRIORITY_QUEUE_20261016.md",
-      "sha256": "83be5c46d4ba9f2358fda8280a8f7399421f7360eb94b1c24e8a927baf236517"
+      "sha256": "e906be03a1ed5b43004a016e233727933fa69da0ca79ecdeb96466bac01f47fa"
     },
     "baseline_grid_prereg_20261016": {
       "path": "manifests/wc_paper_N05_bounded_baseline_grid_preregistration_draft_20261016.json",
@@ -2593,11 +2625,11 @@
     },
     "N10_full960_production_contract": {
       "path": "src/wcomr/automatic_quality_production_r1.py",
-      "sha256": "875ae27c97638df43c0c7bcd87e8771f6fc18d2c576763c9c5cf31ef8abbc37f"
+      "sha256": "5b22bcc61ad680082dbd0fb52f55db528f3597e10544f5b1325755318e128a2a"
     },
     "N10_full960_scoring_worker": {
       "path": "scripts/score_wc_paper_N10_full960_r1.py",
-      "sha256": "271afd32aad56cc176a52a3f7bb8b10960dcea1d41f34cfc36665288a96e0e7e"
+      "sha256": "4ba0d0e2ba697b035a860ada7705980c42750cf534761c2689320633b09b6cc3"
     },
     "N10_full960_entry_tests": {
       "path": "tests/test_N10_production_entry_r1.py",
@@ -2618,6 +2650,54 @@
     "N10_full960_entry_related_CPU_R4": {
       "path": "reports/wc_paper_N10_full960_production_entry_related_CPU_R4_20261016.json",
       "sha256": "8797ba2a6194da4abce0654dc6efcb4e44750e1e596da1b6e9fcac9c803eb244"
+    },
+    "517": {
+      "path": "research/517_WC_N10_RESOURCE_R3_TERMINAL_TLS_FAILURE_AND_SCOPED_TRANSPORT_DIAGNOSIS_20261016.md",
+      "sha256": "896f07b33549da924f5b527f23119183add9c43858bda69557ebd29b294ff0a5"
+    },
+    "518": {
+      "path": "research/518_WC_N10_FULL960_SUPERVISOR_AND_ACTUAL_COST_CPU_PREPARATION_20261016.md",
+      "sha256": "21eedfa7670defd6351affff20e494e63e4b3a55593a6af4af837ce7e9cf8aed"
+    },
+    "N10_R3_terminal_capture": {
+      "path": "reports/wc_paper_N10_ViCLIP_local_ranges_R3_collection_20261016_1550.json",
+      "sha256": "4f674e3aa2c299a179c391111acbcb45130bd64f0bcc65f1c68460388976e115"
+    },
+    "N10_R3_prefix_independent_audit": {
+      "path": "reports/wc_paper_N10_R3_original_prefix_independent_audit_20261016.json",
+      "sha256": "78114b53e1aca9cce34ecc5b3852638972255efa0ef39270a24ef388cb320dfe"
+    },
+    "N10_R3_terminal_automation_pause": {
+      "path": "reports/wc_paper_N10_R3_terminal_resource_automation_paused_20261016.json",
+      "sha256": "c02e6e1e61e9a744f103fb649127c523c28671fbb0cd4d54191234eb5584aea8"
+    },
+    "N10_OpenSSL_failed_offset_probe": {
+      "path": "reports/wc_paper_N10_OpenSSL_failed_offset_probe_20261016.json",
+      "sha256": "0c8152ed027d277bdd2c59ec1b6f552bb222056db607c48916c2fb0629fae161"
+    },
+    "N10_official_direct_probe": {
+      "path": "reports/wc_paper_N10_transport_official_direct_probe_20261016.json",
+      "sha256": "4718772c6c191819532d2e0559faa82912a2d0662be6e602c1e9fe734717c08c"
+    },
+    "N10_mirror_direct_probe": {
+      "path": "reports/wc_paper_N10_transport_mirror_direct_probe_20261016.json",
+      "sha256": "a805e1a9cc74dff2597b642b9f966aefd0cb6715dbcaa68f0f50f61b6dbd7582"
+    },
+    "N10_TLS12_HTTP11_probe": {
+      "path": "reports/wc_paper_N10_tls12_http11_transport_probe_20261016.json",
+      "sha256": "d711f9d743c7831e05cfab23c9b9cf817a033228ef7008ed07c909ba523db56f"
+    },
+    "N10_full960_supervisor": {
+      "path": "scripts/supervise_wc_paper_N10_full960_r1.py",
+      "sha256": "16002e0c959546c95d7615b3f96e3b3d6cb11186a67dbb5509f886484dece6ce"
+    },
+    "N10_full960_supervisor_tests": {
+      "path": "tests/test_N10_supervisor_r1.py",
+      "sha256": "c07d9b6d640452fc8e82fb70fb305f52045f737eb3e57689e5b3b24ceee6a477"
+    },
+    "N10_full960_supervisor_CPU_R1": {
+      "path": "reports/wc_paper_N10_full960_supervisor_CPU_R1_20261016.json",
+      "sha256": "8414e5a7d0b78828929766ca9745e4a355f2345850e323deb05b19d6937ce467"
     }
   },
   "operation_policy": {
@@ -2931,5 +3011,5 @@
     "N10_new_range_CPU_ready": true,
     "N10_new_range_dispatched": true
   },
-  "mapping_sha256_at_inventory": "401e52b03939455b932ba3edee19556fc866bb57116722513f8bb92b27affa77"
+  "mapping_sha256_at_inventory": "d0ed61bb25dd0eb74855dc59e9b7f2b055f85a474a7f086fe45f039d52b89807"
 }

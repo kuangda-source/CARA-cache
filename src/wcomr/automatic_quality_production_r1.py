@@ -16,6 +16,7 @@ from .automatic_quality_r1 import DIMENSIONS
 CONFIG = 'N10-production-config.json'
 PURPOSE = 'N10_COMPLETE160_SIX_DIMENSION960_ORIGINAL_METRIC_SCORING'
 FILES = ('accepted_inputs', 'model_CPU_acceptance', 'model_CPU_registration', 'model_resources')
+CPU_STATUS = 'N10_FULL960_PRODUCTION_CONTRACT_CPU_ACCEPTED_NOT_MODEL_OR_QUALITY'
 
 
 def read(path):
@@ -119,6 +120,32 @@ def admitted_job(config, *, pool, source_revision, config_sha256, gpu_uuid, auth
         raise ValueError('Match the live original supervisor and its already-admitted whole-card reservation')
     return dict(run_id=config['run_id'], launch_id=job['launch_id'], gpu_uuid=gpu_uuid,
                 reservation_limit_GPUh=job['billed_limit_GPUh'], ledger_written=False)
+
+
+def validate_authority(config, registration, bundle, proof, authority, *, revision, gpu_uuid,
+                       config_sha256, registration_sha256, proof_sha256, worker_sha256):
+    """Original contract CPU and a complete quoted card, before UUID reservation."""
+    if (registration['source_revision'] != revision or proof['source_revision'] != revision
+            or proof['status'] != CPU_STATUS or proof.get('exit_code') != 0
+            or proof['registration_sha256'] != registration_sha256
+            or proof['config_sha256'] != config_sha256 or proof['runner_source_sha256'] != worker_sha256
+            or proof['input_bundle_fingerprint'] != bundle['fingerprint']
+            or proof['scope_counts'] != config['scope_counts'] or proof['metric_positions'] != 960
+            or proof['neural_framework_imported'] or proof['GPU_submissions'] or proof['ledger_written']
+            or authority.get('direct_user_authorization') is not True or not authority.get('user_reply_quote')
+            or not authority.get('launch_id')):
+        raise ValueError('Original production contract CPU, exact worker and whole-card authority required')
+    pairs = dict(source_revision=revision, config_sha256=config_sha256,
+        production_CPU_sha256=proof_sha256, bound_input_fingerprint=bundle['fingerprint'],
+        scope_counts=config['scope_counts'], whole_card_run=config['run_id'], gpu_uuid=gpu_uuid,
+        forecast_complete_GPUh=config['forecast_GPUh'], billed_limit_GPUh=config['billed_limit_GPUh'],
+        cumulative_cap_GPUh=config['cumulative_cap_GPUh'], budget_origin_used_GPUh=config['budget_origin_used_GPUh'])
+    if any(authority.get(key) != value for key, value in pairs.items()):
+        raise ValueError('The approved source/CPU/full960/whole price differs from this card')
+    allowed = ('STANDING_STRICT_UNDER12', 'SPECIFIC_WHOLE_CARD_APPROVAL') if config['billed_limit_GPUh'] < 12 else (
+        'SPECIFIC_WHOLE_CARD_APPROVAL',)
+    if authority.get('kind') not in allowed:
+        raise ValueError('A complete card at or above12GPUh needs its specific human approval')
 
 
 def score_complete(bundle, comparisons, factory, output, *, bootstrap_repetitions=4096):

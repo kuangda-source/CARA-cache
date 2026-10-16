@@ -22,7 +22,9 @@ def main():
     args = parser.parse_args(); stage = args.stage.resolve()
     sys.dont_write_bytecode = True
     sys.path.insert(0, str(stage / 'src'))
-    from wcomr.automatic_quality_production_r1 import CONFIG, admitted_job, load, read, score_complete
+    from wcomr.automatic_quality_production_r1 import (
+        CONFIG, CPU_STATUS, admitted_job, load, read, score_complete, validate_authority,
+    )
     from wcomr.automatic_quality_models_r1 import OriginalMetricFactory, sha
     from wcomr.gpu_budget_pool_v2 import BudgetPool, atomic_json, process_identity
     config, registration, bundle, accepted, CPU_registration, resources = load(stage)
@@ -31,10 +33,11 @@ def main():
         path = stage / 'CPU-scoring-entry-result.json'
         if path.exists(): raise FileExistsError(path)
         with path.open('x') as handle:
-            json.dump(dict(status='N10_FULL960_PRODUCTION_CONTRACT_CPU_ACCEPTED_NOT_MODEL_OR_QUALITY',
+            json.dump(dict(status=CPU_STATUS, exit_code=0,
                 source_revision=registration['source_revision'], config_sha256=sha(stage / CONFIG),
                 registration_sha256=sha(stage / 'registration.json'),
                 input_bundle_fingerprint=bundle['fingerprint'], scope_counts=config['scope_counts'],
+                runner_source_sha256=sha(Path(__file__)),
                 metric_positions=960, neural_framework_imported=False, GPU_submissions=0,
                 ledger_written=False), handle, indent=2, allow_nan=False)
         return
@@ -50,6 +53,11 @@ def main():
         raise ValueError('Original inherited UUID lease required')
     os.fstat(descriptor)
     authority = read(stage / 'N10-launch-authorization.json')
+    proof_path = stage / 'CPU-scoring-entry-result.json'
+    validate_authority(config, registration, bundle, read(proof_path), authority,
+        revision=args.source_revision, gpu_uuid=args.gpu_uuid, config_sha256=sha(stage / CONFIG),
+        registration_sha256=sha(stage / 'registration.json'), proof_sha256=sha(proof_path),
+        worker_sha256=sha(Path(__file__)))
     observed = admitted_job(config, pool=BudgetPool(args.project).read(),
         source_revision=args.source_revision, config_sha256=sha(stage / CONFIG),
         gpu_uuid=args.gpu_uuid, authority=authority, parent=process_identity(os.getppid()))

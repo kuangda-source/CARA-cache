@@ -1,3 +1,7 @@
+## 2026-10-16 固定资源R3失败保留，评分监督准备通过
+
+[517](../../research/517_WC_N10_RESOURCE_R3_TERMINAL_TLS_FAILURE_AND_SCOPED_TRANSPORT_DIAGNOSIS_20261016.md) · [518](../../research/518_WC_N10_FULL960_SUPERVISOR_AND_ACTUAL_COST_CPU_PREPARATION_20261016.md)：15:50已一次收原R3/PID19489：终态exit1，14/204段、117440512bytes，TLS连接失败；14段及原prefix独立逐字节/SHA核对通过，仍非完整权重。四种小范围传输探测仍TLS失败，未派SCP，原资源自动化已暂停。完整960评分监督/实际wall结算与原CPU/整卡授权接线13本地CPU通过；实际原模型/质量/GPU仍0。原N07/source140d0a6今天21:30半程/明早05:30验收、N07→N08→N09/10及cap113保持，本轮0SSH/服务器账本写。 以下为历史。
+
 ## 2026-10-16 完整960评分worker准备通过，实际评分仍待
 
 [516完整评分入口](../../research/516_WC_N10_COMPLETE960_SCORING_WORKER_AND_ORIGINAL_ADMISSION_CPU_PREPARATION_20261016.md)：完整160×六维960评分worker已接原五模型工厂、原UUID父监督与v2预留，入口/相关45本地CPU通过；原日志可独立重建、失败和静态不适用保留。实际五模型/最终输入/监督部署/报价和正式质量仍待，模型与新质量分数0。原N07/source140d0a6今天21:30健康检查/明早05:30完整验收、资源129577b今天15:50和cap113保持；本轮0SSH/新GPU/服务器账本写。 以下为历史。
