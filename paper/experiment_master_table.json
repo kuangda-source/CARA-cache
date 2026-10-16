@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "updated_local_date": "2026-10-16",
-  "snapshot_basis": "535: original repair server CPU nine commands independently accepted; one post-ETA capture, local read-only observer schema fixes, no replacement GPU.",
-  "git_snapshot_before_inventory": "6e10aa3",
+  "snapshot_basis": "536：R2完整GPU工具与整卡准备；实际九命令CPU接受，GPU/新批准尚无；原R1最终验收时间保持",
+  "git_snapshot_before_inventory": "65caaab",
   "mapping_ref": "paper/internal_to_paper_mapping.json",
   "scope": "scientific experiment families and complete cards, not each engineering retry; reused artifacts must not be summed as independent samples",
   "contributions": {
@@ -888,15 +888,15 @@
     },
     {
       "id": "N07",
-      "state": "待补｜R2真实生产CPU通过，GPU接续准备中",
+      "state": "待补｜R2完整卡已准备，GPU待具体批准",
       "paper_experiment_name": "Common Frozen Evaluation Matrix",
       "internal_ids": [
         "PAPER_E3_FROZEN_SHARED_TEST"
       ],
       "contribution_relation": "C1/C2最终版本确认；C3覆盖",
-      "evidence_or_planned_scope": "原R1完整180失败/拒绝/缺失保留；独立R2/source6e10aa3真实服务器九命令全部通过，1750源SHA/160参数变体/99数值依赖/8 guard检查接受。无新GPU或终点结果。",
-      "gap_and_next_action": "按原05:30收R1完整原件；R2单次GPU派发/半程终态/独立科学接受及N08/N09接续绑定待完成，之后按15.0556完整报价具体确认与fresh准入。",
-      "priority": "P1·R2完整GPU接续",
+      "evidence_or_planned_scope": "原R1完整180失败/拒绝/缺失保留；R2/source6e10aa3真实服务器九命令全部通过，1750源SHA/160变体/99数值/8 guard接受；单次派发、半程与完整科学接受46本地工具控制通过，完整180新卡15.0556GPUh待具体批准。无新GPU或终点结果。",
+      "gap_and_next_action": "原R1按05:30验收；R2完整卡待具体批准后fresh UUID/v2准入，按真实启动后8h半程/16h终态各一次验收；N08/N09对R2原件接续仍待，不能当已完成。",
+      "priority": "P1·完整修复卡批准与执行",
       "evidence_refs": [
         "closure_plan",
         "roadmap",
@@ -978,7 +978,19 @@
         "N07_repair_actual_CPU_accepted",
         "N07_repair_local_collector_stdlib_CPU",
         "N07_repair_CPU_acceptor_schema_failure",
-        "N07_repair_CPU_readonly_fixes_acceptance"
+        "N07_repair_CPU_readonly_fixes_acceptance",
+        "536",
+        "N07_repair_GPU_once_core",
+        "N07_repair_GPU_terminal_acceptor",
+        "N07_repair_GPU_launcher",
+        "N07_repair_GPU_collector",
+        "N07_repair_GPU_analyzer",
+        "N07_repair_GPU_controls",
+        "N07_repair_GPU_terminal_controls",
+        "N07_repair_GPU_synthetic_fixture",
+        "N07_repair_GPU_tools_CPU_preparation",
+        "N07_repair_full180_card_manifest",
+        "N07_repair_fresh_resources_2310"
       ],
       "method_mapping_ids": [
         "config.efficient",
@@ -996,7 +1008,7 @@
         "C3"
       ],
       "claim_relation": "INTENDED_SUPPORT_UNCOMPLETED",
-      "paper_placement": "共同测试仍待完整修复与验收，正式结果不填；当前只有技术失败和本地修复证据",
+      "paper_placement": "共同测试仍待真实GPU完整修复与验收；正式终点结果不填，CPU与工具准备不当质量结果",
       "conditional_depends_on_if_variant_selected": [
         "N02",
         "N04"
@@ -1101,9 +1113,8 @@
       "repair_actual_production_CPU_commands": 9,
       "repair_actual_server_CPU_dispatched": true,
       "repair_CPU_once_capture_and_deployment_tools_implemented": true,
-      "repair_GPU_once_dispatch_and_terminal_tools_implemented": false,
+      "repair_GPU_once_dispatch_and_terminal_tools_implemented": true,
       "repair_complete_scope_forecast_GPUh": 15.055555555555555,
-      "repair_specific_whole_card_approval_not_requested_yet": true,
       "repair_CPU_staging_local_controls": 12,
       "repair_CPU_staging_cold_CLI": 3,
       "repair_CPU_overlay_files": 183,
@@ -1132,7 +1143,15 @@
       "repair_current_local_readonly_control_tests": 9,
       "repair_staged_source_modified_by_local_reader_fixes": false,
       "repair_ninth_actual_production_CPU_pending": false,
-      "repair_next_CPU_collection_local": null
+      "repair_next_CPU_collection_local": null,
+      "repair_GPU_tools_local_CPU_tests": 46,
+      "repair_GPU_tools_cold_CLI": 3,
+      "repair_full_card_manifest_ref": "manifests/wc_paper_N07_refusal_repair180_full_card_r2_20261016.json",
+      "repair_specific_whole_card_approval_required": true,
+      "repair_specific_whole_card_approval_received": false,
+      "repair_full_card_prepared": true,
+      "repair_GPU_midpoint_delay_seconds": 28800,
+      "repair_GPU_final_delay_seconds": 57600
     },
     {
       "id": "N08",
@@ -2131,7 +2150,19 @@
     "N07_repair_actual_CPU_accepted": "reports/wc_paper_N07_refusal_repair180_actual_production_CPU_R1_independent_acceptance_20261016.json",
     "N07_repair_local_collector_stdlib_CPU": "reports/wc_paper_N07_repair_CPU_collector_stdlib_local_R3_20261016.json",
     "N07_repair_CPU_acceptor_schema_failure": "reports/wc_paper_N07_repair_actual_CPU_independent_acceptance_R1_local_schema_failure_20261016.json",
-    "N07_repair_CPU_readonly_fixes_acceptance": "reports/wc_paper_N07_repair_actual_CPU_readonly_acceptor_fixes_acceptance_20261016.json"
+    "N07_repair_CPU_readonly_fixes_acceptance": "reports/wc_paper_N07_repair_actual_CPU_readonly_acceptor_fixes_acceptance_20261016.json",
+    "536": "research/536_WC_N07_REPAIR180_GPU_TOOLS_READY_COMPLETE_CARD_AND_MIDPOINT_FINAL_CHECKS_20261016.md",
+    "N07_repair_GPU_once_core": "src/wcomr/frozen_repair_gpu_r2.py",
+    "N07_repair_GPU_terminal_acceptor": "src/wcomr/frozen_repair_acceptance_r2.py",
+    "N07_repair_GPU_launcher": "scripts/launch_wc_paper_N07_refusal_repair180_r2.py",
+    "N07_repair_GPU_collector": "scripts/capture_wc_paper_N07_refusal_repair180_r2.py",
+    "N07_repair_GPU_analyzer": "scripts/analyze_wc_paper_N07_refusal_repair180_r2.py",
+    "N07_repair_GPU_controls": "tests/test_frozen_repair_gpu_r2.py",
+    "N07_repair_GPU_terminal_controls": "tests/test_frozen_repair_acceptance_r2.py",
+    "N07_repair_GPU_synthetic_fixture": "tests/repair_gpu_fixture_r2.py",
+    "N07_repair_GPU_tools_CPU_preparation": "reports/wc_paper_N07_repair180_GPU_tools_local_CPU_preparation_20261016.json",
+    "N07_repair_full180_card_manifest": "manifests/wc_paper_N07_refusal_repair180_full_card_r2_20261016.json",
+    "N07_repair_fresh_resources_2310": "reports/wc_paper_N07_repair180_fresh_resource_and_budget_20261016_2310.json"
   },
   "source_bindings": {
     "11": {
@@ -2284,7 +2315,7 @@
     },
     "mainline_queue_20261016": {
       "path": "plans/WORLD_CACHE_MAINLINE_PRIORITY_QUEUE_20261016.md",
-      "sha256": "927576b3684711f5c155b14e1c27aff31e18c93fcdae926306784815b25c0952"
+      "sha256": "0344aee5854c442d4827fb9ef7d3b502b21bd6e05d331b2a1e5e555ca0a77c71"
     },
     "baseline_grid_prereg_20261016": {
       "path": "manifests/wc_paper_N05_bounded_baseline_grid_preregistration_draft_20261016.json",
@@ -3789,6 +3820,54 @@
     "N07_repair_CPU_readonly_fixes_acceptance": {
       "path": "reports/wc_paper_N07_repair_actual_CPU_readonly_acceptor_fixes_acceptance_20261016.json",
       "sha256": "5619b711a1eab13d6aae0b77eca85ef42a921c4ac9f766a7cb6921eccf70b6f5"
+    },
+    "536": {
+      "path": "research/536_WC_N07_REPAIR180_GPU_TOOLS_READY_COMPLETE_CARD_AND_MIDPOINT_FINAL_CHECKS_20261016.md",
+      "sha256": "a6128a9a9c9a00252ff4cbf8b7e770164a6da0e1f60b15ae8808f1632bb9decf"
+    },
+    "N07_repair_GPU_once_core": {
+      "path": "src/wcomr/frozen_repair_gpu_r2.py",
+      "sha256": "876e3143f17142d33226c2f97f8f6c8fa7cc359a9d42d5ea8086df61c0c2b7cb"
+    },
+    "N07_repair_GPU_terminal_acceptor": {
+      "path": "src/wcomr/frozen_repair_acceptance_r2.py",
+      "sha256": "580ea01bd525b1335b62e8b2681ec33112b781b6fdcef2e07743abe341ec46c4"
+    },
+    "N07_repair_GPU_launcher": {
+      "path": "scripts/launch_wc_paper_N07_refusal_repair180_r2.py",
+      "sha256": "68d937308169e7163f6299fd47a4eb7719677e2505068b6c0d8da26b452ef320"
+    },
+    "N07_repair_GPU_collector": {
+      "path": "scripts/capture_wc_paper_N07_refusal_repair180_r2.py",
+      "sha256": "a71048f19cd5e12ccae905345cf1f284c1c80d53d597e863f0a1e97764bc0090"
+    },
+    "N07_repair_GPU_analyzer": {
+      "path": "scripts/analyze_wc_paper_N07_refusal_repair180_r2.py",
+      "sha256": "a16ccd3317a12afe67ddb7b57f3dc6fefd5ca1e7fd8f2253a3f020d01f97ca5e"
+    },
+    "N07_repair_GPU_controls": {
+      "path": "tests/test_frozen_repair_gpu_r2.py",
+      "sha256": "1edcd6b7644bfcfa996656bf7e5edfb0885ca83ae84ec14701b55bb9811b2ea2"
+    },
+    "N07_repair_GPU_terminal_controls": {
+      "path": "tests/test_frozen_repair_acceptance_r2.py",
+      "sha256": "943b2b1e230179ed5dff4a94e8a70c79f9ab142455331a6cba1b035f76afe39c"
+    },
+    "N07_repair_GPU_synthetic_fixture": {
+      "path": "tests/repair_gpu_fixture_r2.py",
+      "sha256": "a8a23836f47306ceb556e3c99742c65101185592cf8d77da7ddca600a9d1f1c8"
+    },
+    "N07_repair_GPU_tools_CPU_preparation": {
+      "path": "reports/wc_paper_N07_repair180_GPU_tools_local_CPU_preparation_20261016.json",
+      "sha256": "3bdf269b2eae0a947810c871eb1828125d69bc32b6d000a554932fd50ee0f247"
+    },
+    "N07_repair_full180_card_manifest": {
+      "path": "manifests/wc_paper_N07_refusal_repair180_full_card_r2_20261016.json",
+      "sha256": "f2f24f7aecc787e45fddfcebfcbe5c5ff4a7fb471ea499562144afcbc86ba3a8"
+    },
+    "N07_repair_fresh_resources_2310": {
+      "path": "reports/wc_paper_N07_repair180_fresh_resource_and_budget_20261016_2310.json",
+      "sha256": "8cf89e076ee3dc5298c593e419c987f256376a92b32842be3e2d95f4730f3257"
     }
   },
   "operation_policy": {
@@ -3838,6 +3917,15 @@
         "per_UUID_locks_owned": 2,
         "old_ledger_SHA_unchanged": true,
         "intermediate_scientific_outputs_read": false
+      },
+      {
+        "unix": 1792163277.7680392,
+        "receipt": "reports/wc_paper_N07_repair180_fresh_resource_and_budget_20261016_2310.json",
+        "report": "research/536_WC_N07_REPAIR180_GPU_TOOLS_READY_COMPLETE_CARD_AND_MIDPOINT_FINAL_CHECKS_20261016.md",
+        "active_experiment_GPUs": 0,
+        "both_UUID_locks_free": true,
+        "scientific_results_read": false,
+        "ledger_written": false
       }
     ],
     "legacy_single_current_card_field_refers_to_W3_only": false,
@@ -3878,7 +3966,7 @@
       "N10_LOCAL_R2_COMPLETED": "2026-10-16T14:00:00+08:00",
       "N10_LOCAL_RANGES_R3": "2026-10-16T15:50:00+08:00"
     },
-    "budget_values_asof": "2026-10-16T21:32:00+08:00",
+    "budget_values_asof": "2026-10-16T23:07:57.768039+08:00",
     "last_CPU_task": {
       "kind": "N07_REPAIR180_ACTUAL_PRODUCTION_CPU_COMPLETE_ACCEPTED",
       "source": "6e10aa31197b4c137705b9117090c3a4e538e863",
@@ -3909,7 +3997,7 @@
     "N05_scientific_core66_scope_selected": true,
     "N05_production_CPU_or_GPU_selected": true,
     "N05_corrected_neighbor_gap_retained": true,
-    "budget_snapshot_asof": "2026-10-16T21:32:00+08:00",
+    "budget_snapshot_asof": "2026-10-16T23:07:57.768039+08:00",
     "new_CPU_preparation_is_not_GPU_or_quality_result": true,
     "historical_CPU_tasks": [
       {
@@ -4147,7 +4235,13 @@
     "N07_retry_production_local_CPU_ref": "reports/wc_paper_N07_repair180_production_binding_local_CPU_R1_20261016.json",
     "N07_retry_approval_required_after_production_CPU": true,
     "latest_local_CPU_preparation_only": "N07_REPAIR_ACTUAL_SERVER_CPU_ACCEPTED_GPU_TOOLS_PENDING",
-    "N07_retry_actual_CPU_accepted": true
+    "N07_retry_actual_CPU_accepted": true,
+    "N07_repair_complete_card_manifest": "manifests/wc_paper_N07_refusal_repair180_full_card_r2_20261016.json",
+    "N07_repair_GPU_tools_prepared": true,
+    "N07_repair_new_GPU_submitted": false,
+    "N07_repair_specific_whole_card_approval_pending": true,
+    "N07_repair_old_approval_reused": false,
+    "N07_repair_new_checks_derive_from_actual_start": true
   },
-  "mapping_sha256_at_inventory": "63bb4644bb4f3665a0f6701e9b1984bea4a6cd7d23668e6d25dee49f27d0699c"
+  "mapping_sha256_at_inventory": "47adcbf70438e4b276d6c10aa77e4f4da8b8dbe8ed51f9b964f2f0bc331260e0"
 }

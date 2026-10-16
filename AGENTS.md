@@ -1,3 +1,7 @@
+## 2026-10-16 N07完整修复GPU工具已准备，具体整卡待批准
+
+[536完整卡与两次查收](research/536_WC_N07_REPAIR180_GPU_TOOLS_READY_COMPLETE_CARD_AND_MIDPOINT_FINAL_CHECKS_20261016.md)：R2原source6e10aa3／九命令实际CPU接受保持；单次GPU派发、半程技术检查、完整180科学接受工具新增46本地控制及3冷CLI通过。完整160正式+20warm／15.0556GPUh已成卡，超过严格<12规则，未获新批准／未GPU派发。23:07只读v2实结96.279/113、预留0余16.721；实际准入仍fresh核对。原R1/05:30验收保留，新卡启动后8h半程与16h终态各一次；N08/N09接续待补，不恢复F/B。以下为历史。
+
 ## 2026-10-16 N07修复完整真实服务器CPU已接受
 
 [535真实CPU接受](research/535_WC_N07_REPAIR180_ACTUAL_SERVER_CPU_ACCEPTED_AND_READONLY_COLLECTOR_REPAIRS_20261016.md)：独立R2/source6e10aa3的服务器九命令全部0退出，1750源SHA/160变体/99数值依赖/8 guard检查接受，包耗时147.991秒。原stage不改；只读collector标准库依赖及接受器launch字段两处本地修正通过，未重派CPU。原R1/05:30失败验收保持；R2 GPU派发/科学接受与N08/N09接续待完成，15.0556完整卡届时具体确认。本轮0新GPU/账本写。以下为历史。
