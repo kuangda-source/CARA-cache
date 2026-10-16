@@ -1,3 +1,7 @@
+## 2026-10-17 N10完整固定权重直连R4在途，01:09/01:54查收
+
+[540资源单次启动](research/540_WC_N10_DIRECT_R4_SINGLE_LAUNCH_AND_TWO_COLLECTION_TIMES_20261017.md)：source8fd3a3a/PID40655于00:23:18在本机独立stage单次派完整204段/1.71GB，初次原PID/lstart/command及两worker SHA接受。p-acr-cpu已约01:09半程技术、01:54完整大小/SHA验收，不持续监听；旧R3/112MiB保持。当前完整权重/模型/质量仍0，0GPU/SSH/账本写。原N07 worldcache-26d 的05:30验收及R2完整15.0556GPUh原具体确认独立保持，cap113与F/B关闭不变。以下为历史。
+
 ## 2026-10-17 N10直连非零数据通过，完整204段R4准备
 
 [539资源恢复准备](research/539_WC_N10_VERIFIED_DIRECT_TRANSFER_AND_FULL204_RESOURCE_R4_CPU_PREPARED_20261017.md)：固定权重原失败偏移1MiB直连实收通过206/范围/原ETag；代理6秒超时与首字节重定向大小限制失败均保留。原完整1.71GB/204段不缩，新直连执行器35本地CPU/3冷CLI通过，旧112MiB及旧stage不改；新完整R4尚未启动，完整权重/模型/质量仍0。同步后一次派发，按实际启动45min技术/90min完整收；0SSH/GPU/账本写。N07完整修复待原具体回复、原05:30验收与cap113保持，F/B关闭。以下为历史。
