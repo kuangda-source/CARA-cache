@@ -1165,7 +1165,7 @@
         "PAPER_E5_AUTOMATIC_QUALITY"
       ],
       "contribution_relation": "C3生成质量范围；补充保真主指标",
-      "evidence_or_planned_scope": "216固定代码/真实BPE及采样/输入桥保持；原五模型CPU入口和完整bundle/部署/独立接受链准备完成，15链路控制通过；四权重全SHA已核，ViCLIP服务器R1超时保留、本机R2获取同一pin。 512逐视频原入口/真实采样观察与AMT原生接口修复准备通过，相关48CPU；模型与codec均为显式替身，真实评分0。",
+      "evidence_or_planned_scope": "216固定代码/真实BPE及采样/输入桥保持；原五模型CPU入口和完整bundle/部署/独立接受链准备完成，15链路控制通过；四权重全SHA已核，ViCLIP服务器R1超时保留、本机R2获取同一pin。 512逐视频原入口/真实采样观察与AMT原生接口修复准备通过，相关48CPU；模型与codec均为显式替身，真实评分0。 513完整960批处理/中断日志核心11CPU通过，生产模型工厂和GPU驱动待。",
       "gap_and_next_action": "今天15:50一次收source129577b/原Mac19489/204范围；完整SHA接受后独立SCP接入服务器，重模型CPU与最终160/960评分仍待主线空档及实费。",
       "priority": "P2·复用最终视频",
       "evidence_refs": [
@@ -1215,7 +1215,15 @@
         "N10_per_video_fixture_original_failure",
         "N10_per_video_metric_entry",
         "N10_per_video_metric_controls",
-        "N10_native_utility_controls"
+        "N10_native_utility_controls",
+        "513",
+        "N10_complete960_batch_core",
+        "N10_complete960_batch_core_tests",
+        "N10_complete960_batch_core_CPU_R1",
+        "N10_complete960_batch_core_CPU_R2",
+        "N10_DINO_two_sources_readonly",
+        "N10_complete960_batch_core_CPU_R3",
+        "N10_loaded_scorer_identity_R2_failure"
       ],
       "method_mapping_ids": [],
       "depends_on": [
@@ -1272,7 +1280,10 @@
       "native_metric_utility_CPU_controls_accepted": 4,
       "per_video_related_CPU_controls_accepted": 48,
       "AMT_original_single_unpad_probe_repaired": true,
-      "full960_scoring_driver_implemented": false
+      "full960_scoring_driver_implemented": false,
+      "full960_batch_core_implemented": true,
+      "full960_batch_core_CPU_controls_accepted": 11,
+      "original_scoring_journal_readonly_reconstruction_prepared": true
     },
     {
       "id": "N11",
@@ -1548,7 +1559,15 @@
     "N10_per_video_fixture_original_failure": "reports/wc_paper_N10_per_video_fixture_R1_failure_20261016.json",
     "N10_per_video_metric_entry": "src/wcomr/automatic_quality_metric_r1.py",
     "N10_per_video_metric_controls": "tests/test_N10_per_video_metric_r1.py",
-    "N10_native_utility_controls": "tests/test_N10_native_metric_utilities_r1.py"
+    "N10_native_utility_controls": "tests/test_N10_native_metric_utilities_r1.py",
+    "513": "research/513_WC_N10_COMPLETE960_BATCH_CORE_AND_INTERRUPTION_JOURNAL_CPU_READY_20261016.md",
+    "N10_complete960_batch_core": "src/wcomr/automatic_quality_batch_r1.py",
+    "N10_complete960_batch_core_tests": "tests/test_N10_complete_batch_r1.py",
+    "N10_complete960_batch_core_CPU_R1": "reports/wc_paper_N10_complete960_batch_core_CPU_R1_20261016.json",
+    "N10_complete960_batch_core_CPU_R2": "reports/wc_paper_N10_complete960_batch_core_CPU_R2_20261016.json",
+    "N10_DINO_two_sources_readonly": "reports/wc_paper_N10_DINO_original_two_source_readonly_capture_20261016.json",
+    "N10_complete960_batch_core_CPU_R3": "reports/wc_paper_N10_complete960_batch_core_CPU_R3_20261016.json",
+    "N10_loaded_scorer_identity_R2_failure": "reports/wc_paper_N10_loaded_scorer_identity_R2_failure_20261016.json"
   },
   "source_bindings": {
     "11": {
@@ -1701,7 +1720,7 @@
     },
     "mainline_queue_20261016": {
       "path": "plans/WORLD_CACHE_MAINLINE_PRIORITY_QUEUE_20261016.md",
-      "sha256": "1c8e99c9b47fae2982f205182644cb7cdf17ce18d80fbe7b3460098354194814"
+      "sha256": "b622fad9dfe7a6d4c5029eba5b6d2df9e72fb274ca344d7cc2e17f60ad7a408d"
     },
     "baseline_grid_prereg_20261016": {
       "path": "manifests/wc_paper_N05_bounded_baseline_grid_preregistration_draft_20261016.json",
@@ -2450,6 +2469,38 @@
     "N10_native_utility_controls": {
       "path": "tests/test_N10_native_metric_utilities_r1.py",
       "sha256": "c93e867a1ab4453a73c5e51e195d0a4d00f24081e801bef3acf442962fbf8b02"
+    },
+    "513": {
+      "path": "research/513_WC_N10_COMPLETE960_BATCH_CORE_AND_INTERRUPTION_JOURNAL_CPU_READY_20261016.md",
+      "sha256": "03f60a8f31ef3ff9779981273c8b55db240730fb47f4047663ce193c075f2acf"
+    },
+    "N10_complete960_batch_core": {
+      "path": "src/wcomr/automatic_quality_batch_r1.py",
+      "sha256": "68c892b2244b28de53a25ddc5e41a9f657a6d1a4d2154b602b076f0e64f01e15"
+    },
+    "N10_complete960_batch_core_tests": {
+      "path": "tests/test_N10_complete_batch_r1.py",
+      "sha256": "0101918f3fb1e77b481d380fe1e1dd24f4e63d03e2314edbda7dc7ec7fe7a699"
+    },
+    "N10_complete960_batch_core_CPU_R1": {
+      "path": "reports/wc_paper_N10_complete960_batch_core_CPU_R1_20261016.json",
+      "sha256": "84b287fe268d818f59dbb435caf9c372efe179f250fd71468859e7c112928afb"
+    },
+    "N10_complete960_batch_core_CPU_R2": {
+      "path": "reports/wc_paper_N10_complete960_batch_core_CPU_R2_20261016.json",
+      "sha256": "6be60b1521c04729d0bfd7f8eec1facba88b468bf645344b9ceecc0a8dfb9b2d"
+    },
+    "N10_DINO_two_sources_readonly": {
+      "path": "reports/wc_paper_N10_DINO_original_two_source_readonly_capture_20261016.json",
+      "sha256": "e527af8b46c6448bd68dd28584999e4d8e4658ea1ab35950acc44a6f3a39cbed"
+    },
+    "N10_complete960_batch_core_CPU_R3": {
+      "path": "reports/wc_paper_N10_complete960_batch_core_CPU_R3_20261016.json",
+      "sha256": "65a832ac969f29fce1e607821efb6a9e4e5e4f58632dd86e5d16329eae32d5b4"
+    },
+    "N10_loaded_scorer_identity_R2_failure": {
+      "path": "reports/wc_paper_N10_loaded_scorer_identity_R2_failure_20261016.json",
+      "sha256": "b26e590d02a263c1afa2c8de4e1715784bdd6cd259cacc9fa26da1525d70f06a"
     }
   },
   "operation_policy": {
@@ -2763,5 +2814,5 @@
     "N10_new_range_CPU_ready": true,
     "N10_new_range_dispatched": true
   },
-  "mapping_sha256_at_inventory": "6f7f357af66c4502abe2562fcba756121dda4cb6a8ada08d0f0bde1615410c44"
+  "mapping_sha256_at_inventory": "92263a62d85921ac18ecd114fd660f632e6db1d91009ee510f1d36bfadf833bb"
 }
