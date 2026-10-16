@@ -1170,7 +1170,7 @@
         "PAPER_E5_AUTOMATIC_QUALITY"
       ],
       "contribution_relation": "C3生成质量范围；补充保真主指标",
-      "evidence_or_planned_scope": "216固定代码/真实BPE及采样/输入桥保持；原五模型CPU入口和完整bundle/部署/独立接受链准备完成，15链路控制通过；四权重全SHA已核，ViCLIP服务器R1超时保留、本机R2获取同一pin。 512逐视频原入口/真实采样观察与AMT原生接口修复准备通过，相关48CPU；模型与codec均为显式替身，真实评分0。 513完整960批处理/中断日志核心11CPU通过，生产模型工厂和GPU驱动待。",
+      "evidence_or_planned_scope": "216固定代码/真实BPE及采样/输入桥保持；原五模型CPU入口和完整bundle/部署/独立接受链准备完成，15链路控制通过；四权重全SHA已核，ViCLIP服务器R1超时保留、本机R2获取同一pin。 512逐视频原入口/真实采样观察与AMT原生接口修复准备通过，相关48CPU；模型与codec均为显式替身，真实评分0。 513完整960批处理/中断日志核心11CPU通过，生产模型工厂和GPU驱动待。 515五模型共用构造与工厂/960接线相关54CPU通过，实际五模型与生产GPU仍待。",
       "gap_and_next_action": "今天15:50一次收source129577b/原Mac19489/204范围；完整SHA接受后独立SCP接入服务器，重模型CPU与最终160/960评分仍待主线空档及实费。",
       "priority": "P2·复用最终视频",
       "evidence_refs": [
@@ -1228,7 +1228,13 @@
         "N10_complete960_batch_core_CPU_R2",
         "N10_DINO_two_sources_readonly",
         "N10_complete960_batch_core_CPU_R3",
-        "N10_loaded_scorer_identity_R2_failure"
+        "N10_loaded_scorer_identity_R2_failure",
+        "515",
+        "N10_shared_model_constructors",
+        "N10_original_model_factory_tests",
+        "N10_shared_factory_CPU_R1_failure",
+        "N10_shared_factory_related_CPU_R2",
+        "N10_shared_factory_related_CPU_R3"
       ],
       "method_mapping_ids": [],
       "depends_on": [
@@ -1288,7 +1294,12 @@
       "full960_scoring_driver_implemented": false,
       "full960_batch_core_implemented": true,
       "full960_batch_core_CPU_controls_accepted": 11,
-      "original_scoring_journal_readonly_reconstruction_prepared": true
+      "original_scoring_journal_readonly_reconstruction_prepared": true,
+      "shared_original_model_constructor_implemented": true,
+      "CPU_scoring_same_constructor_required": true,
+      "original_model_factory_implemented": true,
+      "shared_factory_related_CPU_controls_accepted": 54,
+      "full960_factory_core_synthetic_integration_accepted": true
     },
     {
       "id": "N11",
@@ -1574,7 +1585,13 @@
     "N10_complete960_batch_core_CPU_R3": "reports/wc_paper_N10_complete960_batch_core_CPU_R3_20261016.json",
     "N10_loaded_scorer_identity_R2_failure": "reports/wc_paper_N10_loaded_scorer_identity_R2_failure_20261016.json",
     "514": "research/514_WC_N07_MIDPOINT_HEALTH_CHECK_AND_FINAL_COLLECTION_SCHEDULE_20261016.md",
-    "N07_midpoint_final_schedule": "reports/wc_paper_N07_midpoint_and_final_schedule_20261016.json"
+    "N07_midpoint_final_schedule": "reports/wc_paper_N07_midpoint_and_final_schedule_20261016.json",
+    "515": "research/515_WC_N10_SHARED_ORIGINAL_CONSTRUCTORS_AND_FACTORY_CPU_PREPARATION_20261016.md",
+    "N10_shared_model_constructors": "src/wcomr/automatic_quality_models_r1.py",
+    "N10_original_model_factory_tests": "tests/test_N10_original_model_factory_r1.py",
+    "N10_shared_factory_CPU_R1_failure": "reports/wc_paper_N10_shared_constructor_factory_CPU_R1_20261016.json",
+    "N10_shared_factory_related_CPU_R2": "reports/wc_paper_N10_shared_constructor_factory_related_CPU_R2_20261016.json",
+    "N10_shared_factory_related_CPU_R3": "reports/wc_paper_N10_shared_constructor_factory_related_CPU_R3_20261016.json"
   },
   "source_bindings": {
     "11": {
@@ -1727,7 +1744,7 @@
     },
     "mainline_queue_20261016": {
       "path": "plans/WORLD_CACHE_MAINLINE_PRIORITY_QUEUE_20261016.md",
-      "sha256": "819a1c95d2163ca3384751b73ff551f7d426388fbba886e99efeeaf6939593b3"
+      "sha256": "5920945195e1027b74c3b9cc392357188888391c6ba52d3ade15e9c1a27c46fb"
     },
     "baseline_grid_prereg_20261016": {
       "path": "manifests/wc_paper_N05_bounded_baseline_grid_preregistration_draft_20261016.json",
@@ -2516,6 +2533,30 @@
     "N07_midpoint_final_schedule": {
       "path": "reports/wc_paper_N07_midpoint_and_final_schedule_20261016.json",
       "sha256": "98e6b50b8441edc26a2dde9cff0a53eecd7227e62c79baf6b279d2f337737405"
+    },
+    "515": {
+      "path": "research/515_WC_N10_SHARED_ORIGINAL_CONSTRUCTORS_AND_FACTORY_CPU_PREPARATION_20261016.md",
+      "sha256": "c3e91e96b35f8b7fcfa1074ac2d13c266a4691c5a89bc577cf826db52fc22ed7"
+    },
+    "N10_shared_model_constructors": {
+      "path": "src/wcomr/automatic_quality_models_r1.py",
+      "sha256": "3f6c515de1f8f818a20614747c3751a532ef096a7fd397266380e89e16f8b788"
+    },
+    "N10_original_model_factory_tests": {
+      "path": "tests/test_N10_original_model_factory_r1.py",
+      "sha256": "28144172f1a4f7f662da23ea514959aa87e268c40b9af43d88da56e754a4b546"
+    },
+    "N10_shared_factory_CPU_R1_failure": {
+      "path": "reports/wc_paper_N10_shared_constructor_factory_CPU_R1_20261016.json",
+      "sha256": "1b926ecbd945d223c97dbad9c545fb23cab8cf1b4447f473d4ef38255f309387"
+    },
+    "N10_shared_factory_related_CPU_R2": {
+      "path": "reports/wc_paper_N10_shared_constructor_factory_related_CPU_R2_20261016.json",
+      "sha256": "f6418680d41d2149841a82dc74fe11cd9dfdb7deef1752c51807a78abcee7693"
+    },
+    "N10_shared_factory_related_CPU_R3": {
+      "path": "reports/wc_paper_N10_shared_constructor_factory_related_CPU_R3_20261016.json",
+      "sha256": "18ad6f5bfff1a75e3d69c2a570b1e6d8c6b768433140824927b8e0d4ad457457"
     }
   },
   "operation_policy": {
@@ -2829,5 +2870,5 @@
     "N10_new_range_CPU_ready": true,
     "N10_new_range_dispatched": true
   },
-  "mapping_sha256_at_inventory": "99ddffcacf3b6fa5a076395f89c43efe573fa9ff6309b91c79a69801ca41f853"
+  "mapping_sha256_at_inventory": "8eea488a82e0635313b5be1a85dd870c0ef835bb8426db528287115dcb7762e9"
 }

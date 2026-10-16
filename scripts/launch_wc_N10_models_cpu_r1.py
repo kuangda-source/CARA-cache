@@ -14,7 +14,10 @@ ROOT=Path(__file__).resolve().parents[1]
 PYTHON='/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python'
 GIT_FILES=('scripts/evaluate_wc_N10_metric_model_cpu_r1.py','scripts/evaluate_wc_N10_models_cpu_bundle_r1.py',
  'scripts/launch_wc_N10_models_cpu_r1.py','scripts/capture_wc_N10_models_cpu_r1.py',
- 'scripts/accept_wc_N10_models_cpu_r1.py','src/wcomr/__init__.py','src/wcomr/imaging_quality.py')
+ 'scripts/accept_wc_N10_models_cpu_r1.py','src/wcomr/__init__.py','src/wcomr/imaging_quality.py',
+ 'src/wcomr/automatic_quality_models_r1.py','src/wcomr/automatic_quality_metric_r1.py',
+ 'src/wcomr/automatic_quality_r1.py','src/wcomr/rv0_video_reader.py',
+ 'src/wcomr/frozen_shared_statistics_r1.py')
 BOOT=r'''
 import hashlib,io,json,os,pathlib,subprocess,sys,tarfile,time
 meta=json.loads(sys.stdin.buffer.readline());archive=sys.stdin.buffer.read()

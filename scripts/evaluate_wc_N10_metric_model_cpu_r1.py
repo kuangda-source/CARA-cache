@@ -101,23 +101,18 @@ def tensor_receipt(tensor,torch):
 def probe(role,stage,resource,torch):
     import numpy as np
     from vbench.utils import clip_transform,dino_transform
+    from wcomr.automatic_quality_models_r1 import construct
     generator=torch.Generator(device='cpu').manual_seed(0)
     images=torch.randint(0,256,(2,3,432,768),generator=generator,dtype=torch.uint8)
-    extra={}
+    extra={};loaded=construct(role,stage,resource,torch,'cpu');model=loaded.model
     if role=='DINO':
-        torch.hub.set_dir(str(resource.parent.parent))
-        model=torch.hub.load(repo_or_dir=str(stage/'external/dino'),model='dino_vitb16',
-                             source='local',path=str(resource),read_frame=False)
-        model=model.float().cpu().eval().requires_grad_(False)
         prepared=dino_transform(224)(images)
         outputs={'features':model(prepared)}
         if tuple(outputs['features'].shape)!=(2,768):raise ValueError('DINO interface shape differs')
         extra.update(actual_model_input_shape=list(prepared.shape),synthetic_source_frames=2)
     elif role=='AMT_S':
-        from vbench.motion_smoothness import MotionSmoothness,InputPadder,img2tensor
-        wrapper=MotionSmoothness(str(stage/'upstream/vbench/third_party/amt/cfgs/AMT-S.yaml'),
-                                 str(resource),'cpu')
-        model=wrapper.model.float().cpu().eval().requires_grad_(False)
+        from vbench.motion_smoothness import InputPadder,img2tensor
+        wrapper=loaded.wrapper
         inputs=[img2tensor(image.permute(1,2,0).numpy()).cpu() for image in images]
         padder=InputPadder(inputs[0].shape,16);left,right=padder.pad(*inputs)
         prediction=model(left,right,wrapper.embt,scale_factor=1.,eval=True)['imgt_pred']
@@ -127,10 +122,7 @@ def probe(role,stage,resource,torch):
         extra.update(synthetic_frame_pairs=1,interpolation_iterations=wrapper.niters,
                      scale_factor=1.,actual_model_input_shape=list(left.shape))
     elif role=='RAFT_THINGS':
-        from easydict import EasyDict
-        from vbench.dynamic_degree import DynamicDegree,InputPadder
-        args=EasyDict(model=str(resource),small=False,mixed_precision=False,alternate_corr=False)
-        wrapper=DynamicDegree(args,'cpu');model=wrapper.model.float().cpu().eval().requires_grad_(False)
+        from vbench.dynamic_degree import InputPadder
         padder=InputPadder((1,3,432,768));left,right=padder.pad(*[image.unsqueeze(0).float() for image in images])
         coarse,full=model(left,right,iters=20,test_mode=True)
         outputs={'coarse_flow':coarse,'full_flow':padder.unpad(full)}
@@ -139,10 +131,7 @@ def probe(role,stage,resource,torch):
                      actual_model_input_shape=list(left.shape))
     elif role=='ViCLIP':
         from vbench.overall_consistency import get_vid_features,get_text_features
-        from vbench.third_party.ViCLIP.simple_tokenizer import SimpleTokenizer
-        from vbench.third_party.ViCLIP.viclip import ViCLIP
-        tokenizer=SimpleTokenizer(str(stage/'cache/ViCLIP/bpe_simple_vocab_16e6.txt.gz'))
-        model=ViCLIP(tokenizer=tokenizer,pretrain=str(resource)).float().cpu().eval().requires_grad_(False)
+        tokenizer=loaded.tokenizer
         frames=torch.randint(0,256,(8,3,432,768),generator=generator,dtype=torch.uint8)
         prepared=clip_transform(224)(frames).unsqueeze(0)
         outputs={'video_features':get_vid_features(model,prepared),
@@ -151,12 +140,7 @@ def probe(role,stage,resource,torch):
         extra.update(synthetic_source_frames=8,actual_model_input_shape=list(prepared.shape),
                      text_context_length=model.max_txt_l,real_tokenizer_vocab_size=len(tokenizer.encoder))
     else:
-        if importlib.metadata.version('pyiqa')!='0.1.10':raise ValueError('Frozen PyIQA version changed')
-        import pyiqa.archs.musiq_arch as architecture
         from wcomr.imaging_quality import prepare_frame
-        if sha(inspect.getfile(architecture))!=MUSIQ_SOURCE_SHA:
-            raise ValueError('Installed MUSIQ architecture differs from the frozen original protocol')
-        model=architecture.MUSIQ(pretrained_model_path=str(resource)).float().cpu().eval().requires_grad_(False)
         prepared=prepare_frame(images[0].permute(1,2,0).numpy())
         outputs={'synthetic_scalar_output':model(prepared)}
         if outputs['synthetic_scalar_output'].numel()!=1:raise ValueError('MUSIQ interface is not scalar')
@@ -167,6 +151,7 @@ def probe(role,stage,resource,torch):
     source=Path(inspect.getfile(type(model)))
     return dict(role=role,model_class=type(model).__module__+'.'+type(model).__qualname__,
         model_source=str(source),model_source_sha256=sha(source),parameter_count=sum(p.numel() for p in model.parameters()),
+        constructor_source_sha256=sha(inspect.getfile(construct)),
         outputs={key:tensor_receipt(value,torch) for key,value in outputs.items()},
         model_eval=True,all_parameters_CPU_FP32=True,**extra)
 

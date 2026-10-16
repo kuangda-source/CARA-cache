@@ -45,6 +45,10 @@ def accept_role(role,value,registration,registration_sha256,resources):
             or not states or any(r['missing_keys'] or r['unexpected_keys'] or r['state_keys']<=0 for r in states)):
         raise ValueError('Actual declared checkpoint and complete compatible state must be loaded: '+role)
     actual=value['actual']
+    constructor_ref='src/wcomr/automatic_quality_models_r1.py'
+    if (constructor_ref in registration['payload_sha256']
+            and actual.get('constructor_source_sha256')!=registration['payload_sha256'][constructor_ref]):
+        raise ValueError('Actual model CPU must use the same frozen original constructor: '+role)
     if (actual['role']!=role or actual['model_class']!=CLASSES[role]
             or type(actual['parameter_count']) is not int or actual['parameter_count']<=0
             or actual['model_eval'] is not True or actual['all_parameters_CPU_FP32'] is not True
@@ -80,7 +84,8 @@ def accept_role(role,value,registration,registration_sha256,resources):
     if role=='ViCLIP' and (actual['text_context_length']!=32 or actual['real_tokenizer_vocab_size']!=49408):
         raise ValueError('Original ViCLIP tokenizer/text interface differs')
     return dict(role=role,status='REAL_MODEL_CPU_ROLE_ACCEPTED_NOT_QUALITY',
-        parameter_count=actual['parameter_count'],wall_seconds=value['wall_seconds'])
+        parameter_count=actual['parameter_count'],wall_seconds=value['wall_seconds'],
+        constructor_source_sha256=actual.get('constructor_source_sha256'))
 
 
 def drive(registration,registration_sha256,resources,callback):

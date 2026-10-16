@@ -43,6 +43,19 @@ def fixture():
 
 
 class WholeMetricModelCPUControls(unittest.TestCase):
+    def test_shared_constructor_proof_must_match_each_original_CPU_role(self):
+        reg,resources,values=fixture();ref='src/wcomr/automatic_quality_models_r1.py'
+        reg['payload_sha256'][ref]='e'*64
+        for value in values.values():value['actual']['constructor_source_sha256']='e'*64
+        callback=lambda role:dict(exit_code=0,data=copy.deepcopy(values[role]))
+        result=M.drive(reg,'d'*64,resources,callback)
+        self.assertEqual(result['accepted_roles'],5)
+        self.assertTrue(all(row['acceptance']['constructor_source_sha256']=='e'*64 for row in result['rows']))
+        values['AMT_S']['actual']['constructor_source_sha256']='f'*64
+        result=M.drive(reg,'d'*64,resources,callback)
+        self.assertEqual(result['accepted_roles'],4);self.assertEqual(len(result['rows']),5)
+        self.assertIn('same frozen original constructor',result['rows'][1]['error'])
+
     def test_all_five_ordered_roles_and_zero_quality_claim(self):
         reg,resources,values=fixture();calls=[]
         def callback(role):

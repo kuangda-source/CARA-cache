@@ -1,0 +1,19 @@
+{
+  "status": "N10_SHARED_CONSTRUCTOR_FACTORY_CPU_FAILURE_RETAINED",
+  "tests": 7,
+  "failures": 1,
+  "errors": 0,
+  "output": "test_CPU_worker_and_factory_keep_original_resource_identities_and_shared_entry (test_N10_original_model_factory_r1.OriginalMetricFactoryControls) ... ok\ntest_DINO_explicit_checkpoint_is_loaded_strictly_before_inference (test_N10_original_model_factory_r1.OriginalMetricFactoryControls) ... ok\ntest_all_five_shared_constructors_and_sequential_reference_cleanup (test_N10_original_model_factory_r1.OriginalMetricFactoryControls) ... FAIL\ntest_incomplete_or_other_constructor_CPU_proof_refuses_before_loading (test_N10_original_model_factory_r1.OriginalMetricFactoryControls) ... ok\ntest_missing_later_resource_refuses_whole_factory_before_loading (test_N10_original_model_factory_r1.OriginalMetricFactoryControls) ... ok\ntest_source_or_checkpoint_change_between_contexts_refuses_before_model_load (test_N10_original_model_factory_r1.OriginalMetricFactoryControls) ... ok\ntest_wrong_actual_parameter_count_is_released_without_yielding_scorer (test_N10_original_model_factory_r1.OriginalMetricFactoryControls) ... ok\n\n======================================================================\nFAIL: test_all_five_shared_constructors_and_sequential_reference_cleanup (test_N10_original_model_factory_r1.OriginalMetricFactoryControls)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/Users/kuangda_gao/Documents/世界模型加速实验/worldcache_omr/tests/test_N10_original_model_factory_r1.py\", line 126, in test_all_five_shared_constructors_and_sequential_reference_cleanup\n    self.assertEqual(dino,dict(repo_or_dir=str(f.stage/'external/dino'),model='dino_vitb16',source='local',pretrained=False))\nAssertionError: {'repo_or_dir': '/private/var/folders/zn/gcrv4pr17zx5mmh_02[107 chars]alse} != {'repo_or_dir': '/var/folders/zn/gcrv4pr17zx5mmh_0208vp6800[99 chars]alse}\n  {'model': 'dino_vitb16',\n   'pretrained': False,\n-  'repo_or_dir': '/private/var/folders/zn/gcrv4pr17zx5mmh_0208vp680000gn/T/tmpqci2u84b/stage/external/dino',\n?                  --------\n\n+  'repo_or_dir': '/var/folders/zn/gcrv4pr17zx5mmh_0208vp680000gn/T/tmpqci2u84b/stage/external/dino',\n   'source': 'local'}\n\n----------------------------------------------------------------------\nRan 7 tests in 0.281s\n\nFAILED (failures=1)\n",
+  "elapsed_seconds": 1.0704419612884521,
+  "source_sha256": {
+    "src/wcomr/automatic_quality_models_r1.py": "7a3c0d99bf198c167594917ab032ee0345cb79ddbf2da2f137099953ed20e65d",
+    "tests/test_N10_original_model_factory_r1.py": "7285b21bec357127d34cd84f5f3bab072d1757b4e06c348137300b98b0d8c4ed",
+    "scripts/evaluate_wc_N10_metric_model_cpu_r1.py": "93270d61fd4d57d14ce6f49540a0cba0ff68e3149d810924fa3821730cd6d016"
+  },
+  "actual_original_models": 0,
+  "checkpoints": "TINY_SYNTHETIC_TORCH_STATE_ONLY_NOT_ORIGINAL_CHECKPOINTS",
+  "metric_calls": "MOCKED_NO_FORWARD_OR_CODEC",
+  "SSH_queries": 0,
+  "GPU_submissions": 0,
+  "ledger_written": false
+}
