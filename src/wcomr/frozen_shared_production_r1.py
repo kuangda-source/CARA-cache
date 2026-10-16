@@ -247,10 +247,14 @@ def audit_row(row, planned, bound):
             or row['frozen_request_cleanup']['components_alive_after'] != 0):
         raise ValueError('Final actual counts, deferred observations or request lifetime differ')
     identity = row['frozen_input_identity']
+    # The final N07 contract binds only17/43. The same per-path metadata audit
+    # is also reused by separately scoped N08, whose original input seed is0.
+    context_token = ('fixed-seed0-request' if case['seed'] == 0 else
+                     'frozen-input-seed' + str(case['seed']))
     if (identity['name'] != case['id'] or identity['actual_sample_seed'] != case['seed']
             or identity['requested_steps'] != selected['requested_steps']
             or not identity['installed_contexts']
-            or any(c[2] != 'frozen-input-seed' + str(case['seed']) for c in identity['installed_contexts'])):
+            or any(c[2] != context_token for c in identity['installed_contexts'])):
         raise ValueError('Actual cache/input seed identity differs from the frozen case')
     if warm and row.get('warm_guided_outputs') != n:
         raise ValueError('All actual warm guided outputs required, including reduced-step Native')

@@ -339,3 +339,5 @@ N07驻留运行器与完整180调度CPU准备见[482](../research/482_WC_N07_RES
 N07完整180终态审计/配对93帧评分与N10身份接线CPU准备见[483](../research/483_WC_N07_FULL180_POST_AND_93FRAME_SCORE_CPU_PREPARATION_20261016.md)；八控制为合成输入/度量及小型CPU张量，不是实际视频或LPIPS结果。最终方法/输入/实际生产CPU仍待N05接受后冻结。
 
 N07单次运行/查收/独立汇总代码及Native原字段对齐见[484](../research/484_WC_N07_LIFECYCLE_NATIVE_RECEIPT_ALIGNMENT_AND_INDEPENDENT_ACCEPTANCE_CPU_READY_20261016.md)；31CPU控制含72份旧Native计数字段。该字段修正只涉及未部署的N07元数据检查，不改变算法或原N05；真实新输入/生产CPU/质量速度仍未验。
+
+N08完整40执行适配/计时分列CPU准备见[485](../research/485_WC_N08_FULL40_EXECUTION_BINDING_AND_OBSERVED_TIMER_CPU_READY_20261016.md)；新增6项执行控制，连同受影响共17通过，实际绑定仍null。主计时与原协议不改，真实驻留生产CPU、干净资源与速度尚待。

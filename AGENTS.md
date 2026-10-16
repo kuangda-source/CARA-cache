@@ -1,3 +1,7 @@
+## 2026-10-16 N08完整40执行接线CPU准备完成
+
+[485重复测速接线](research/485_WC_N08_FULL40_EXECUTION_BINDING_AND_OBSERVED_TIMER_CPU_READY_20261016.md)：原40/30/10与主计时/三平衡轮保持；五逻辑角色只接最终共同冻结方法，真实绑定仍null。单路径恢复原状态/随机状态/eval、seed0旧上下文、全部安装/guarded/清理/GC/写盘分列、拒绝与失败前缀保持已接线；六新控制＋受影响N07十一控制共17通过，明确synthetic响应/计时，非实际采样/速度。原99数值依赖未变，N07整卡仍17/43；真实N08驻留主程序/生产CPU/费用待冻。0SSH/0GPU/0预算写，N05原15d77ac/句柄/今天12:05不变。以下历史保留。
+
 ## 2026-10-16 N07执行/独立验收CPU接线完成；Native计数字段修正
 
 [484完整生命周期](research/484_WC_N07_LIFECYCLE_NATIVE_RECEIPT_ALIGNMENT_AND_INDEPENDENT_ACCEPTANCE_CPU_READY_20261016.md)：新N07错误要求28计数项，原已接受Native实际只有first/last两个端点；按原字段/双CFG次数修正，28层类与源码仍独立绑定，原错误Git重放保留。全部72原Native计数字段复核，合同/batch/post/独立汇总/派发共31CPU通过；fake进程/临时目录，0SSH/0GPU/0预算写。单次fence、超时不重派、ETA前拒绝查询及原v2结算接线已准备；真实最终方法/输入/生产CPU/费用未选，原99数值依赖未变，不重跑952。N05原15d77ac/句柄和今天12:05验收完全不变。以下历史保留。
