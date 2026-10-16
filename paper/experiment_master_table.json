@@ -930,7 +930,9 @@
         "506",
         "N07_human_full180",
         "N07_full180_GPU_launch",
-        "N07_full180_independent_admission"
+        "N07_full180_independent_admission",
+        "514",
+        "N07_midpoint_final_schedule"
       ],
       "method_mapping_ids": [
         "config.efficient",
@@ -1015,7 +1017,10 @@
       "GPU_supervisor_pid": 1115797,
       "GPU_runner_pid": 1115898,
       "GPU_post_pid": 1115798,
-      "next_collection_local": "2026-10-17T05:30:00+08:00"
+      "next_collection_local": "2026-10-17T05:30:00+08:00",
+      "midpoint_health_check_local": "2026-10-16T21:30:00+08:00",
+      "final_collection_local": "2026-10-17T05:30:00+08:00",
+      "midpoint_health_runtime_checked": false
     },
     {
       "id": "N08",
@@ -1567,7 +1572,9 @@
     "N10_complete960_batch_core_CPU_R2": "reports/wc_paper_N10_complete960_batch_core_CPU_R2_20261016.json",
     "N10_DINO_two_sources_readonly": "reports/wc_paper_N10_DINO_original_two_source_readonly_capture_20261016.json",
     "N10_complete960_batch_core_CPU_R3": "reports/wc_paper_N10_complete960_batch_core_CPU_R3_20261016.json",
-    "N10_loaded_scorer_identity_R2_failure": "reports/wc_paper_N10_loaded_scorer_identity_R2_failure_20261016.json"
+    "N10_loaded_scorer_identity_R2_failure": "reports/wc_paper_N10_loaded_scorer_identity_R2_failure_20261016.json",
+    "514": "research/514_WC_N07_MIDPOINT_HEALTH_CHECK_AND_FINAL_COLLECTION_SCHEDULE_20261016.md",
+    "N07_midpoint_final_schedule": "reports/wc_paper_N07_midpoint_and_final_schedule_20261016.json"
   },
   "source_bindings": {
     "11": {
@@ -1720,7 +1727,7 @@
     },
     "mainline_queue_20261016": {
       "path": "plans/WORLD_CACHE_MAINLINE_PRIORITY_QUEUE_20261016.md",
-      "sha256": "b622fad9dfe7a6d4c5029eba5b6d2df9e72fb274ca344d7cc2e17f60ad7a408d"
+      "sha256": "819a1c95d2163ca3384751b73ff551f7d426388fbba886e99efeeaf6939593b3"
     },
     "baseline_grid_prereg_20261016": {
       "path": "manifests/wc_paper_N05_bounded_baseline_grid_preregistration_draft_20261016.json",
@@ -2501,6 +2508,14 @@
     "N10_loaded_scorer_identity_R2_failure": {
       "path": "reports/wc_paper_N10_loaded_scorer_identity_R2_failure_20261016.json",
       "sha256": "b26e590d02a263c1afa2c8de4e1715784bdd6cd259cacc9fa26da1525d70f06a"
+    },
+    "514": {
+      "path": "research/514_WC_N07_MIDPOINT_HEALTH_CHECK_AND_FINAL_COLLECTION_SCHEDULE_20261016.md",
+      "sha256": "88a01589396f434f43c3c22b62690e28e192b41f4a8e631ec5c44b6e975e82a9"
+    },
+    "N07_midpoint_final_schedule": {
+      "path": "reports/wc_paper_N07_midpoint_and_final_schedule_20261016.json",
+      "sha256": "98e6b50b8441edc26a2dde9cff0a53eecd7227e62c79baf6b279d2f337737405"
     }
   },
   "operation_policy": {
@@ -2814,5 +2829,5 @@
     "N10_new_range_CPU_ready": true,
     "N10_new_range_dispatched": true
   },
-  "mapping_sha256_at_inventory": "92263a62d85921ac18ecd114fd660f632e6db1d91009ee510f1d36bfadf833bb"
+  "mapping_sha256_at_inventory": "99ddffcacf3b6fa5a076395f89c43efe573fa9ff6309b91c79a69801ca41f853"
 }
