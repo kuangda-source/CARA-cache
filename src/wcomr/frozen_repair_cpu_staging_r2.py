@@ -53,7 +53,10 @@ def derive(stage, kind):
             ('expected_CPU_commands=6','expected_CPU_commands=9',1),
             ('N07_SHARED180_ACTUAL_PRODUCTION_CPU_SINGLE_DISPATCH','N07_REPAIR180_ACTUAL_PRODUCTION_CPU_SINGLE_DISPATCH',1)]
     elif kind=='capture':
-        edits=[('from wcomr.frozen_shared_production_r1 import CONFIG','from wcomr.frozen_repair180_r2 import CONFIG',1),
+        # The remote observer uses system python3, not the model environment.
+        # Keep it stdlib-only: the production module also imports Torch owners.
+        edits=[('from wcomr.frozen_shared_production_r1 import CONFIG',
+                "CONFIG = 'configs/wc_paper_N07_refusal_repair180_r2_20261016.json'",1),
             ('N07_PRODUCTION_CPU_ORIGINAL_ONCE_CAPTURE','N07_REPAIR_PRODUCTION_CPU_ORIGINAL_ONCE_CAPTURE',1)]
     else:
         edits=[('from wcomr.frozen_shared_cpu_acceptance_r1 import accept','from wcomr.frozen_repair_cpu_acceptance_r2 import accept',1)]

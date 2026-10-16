@@ -36,7 +36,7 @@ def fixture():
 
 
 def bundle_fixture(registration):
-    python='/synthetic/python';stage='/synthetic/stage';project='/synthetic/project'
+    python='/synthetic/python';stage='/synthetic/project/.sync/stage';project='/synthetic/project'
     commands=[[python,'-m','unittest','discover','-s',stage+'/tests','-p',p,'-v'] for p in PATTERNS]
     commands.append([python,stage+'/'+WORKER,'--project',project,'--stage',stage,'--cpu-check'])
     return dict(status=CPU_BUNDLE_STATUS,exit_code=0,stage=stage,project=project,python_executable=python,
@@ -76,7 +76,7 @@ class RepairCPUControls(unittest.TestCase):
         config,bound,reg,proof=fixture();bundle=bundle_fixture(reg)
         launch=dict(source_revision=reg['source_revision'],registration_sha256='a'*64,
             identity=dict(pid=101,start_ticks=200),first_collection_not_before_unix=1000,
-            stage=bundle['stage'],project=bundle['project'])
+            stage=bundle['stage'])
         capture=dict(status='N07_REPAIR_PRODUCTION_CPU_ORIGINAL_ONCE_CAPTURE',launch=launch,
             registration=reg,registration_sha256='a'*64,observed_unix=1001,
             payload_verified={n:True for n in reg['payload_sha256']},
@@ -95,6 +95,10 @@ class RepairCPUControls(unittest.TestCase):
         self.assertIn('MISSING_RESULTS',accept(missing)['status'])
         early=copy.deepcopy(capture);early['observed_unix']=999
         with self.assertRaises(ValueError):accept(early)
+        bad=copy.deepcopy(capture);bad['files']['bundle']['data']['project']='/another/project'
+        with self.assertRaises(ValueError):accept(bad)
+        bad=copy.deepcopy(capture);bad['launch']['project']='/another/project'
+        with self.assertRaises(ValueError):accept(bad)
 
     def test_original_card_approval_and_standing_under12_do_not_authorize_retry(self):
         config,bound,reg,proof=fixture();kwargs=dict(revision=reg['source_revision'],gpu_uuid='GPU-SYNTHETIC',

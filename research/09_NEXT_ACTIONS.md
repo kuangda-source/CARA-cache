@@ -1,3 +1,7 @@
+## 2026-10-16 N07修复完整真实服务器CPU已接受
+
+[535真实CPU接受](535_WC_N07_REPAIR180_ACTUAL_SERVER_CPU_ACCEPTED_AND_READONLY_COLLECTOR_REPAIRS_20261016.md)：独立R2/source6e10aa3的服务器九命令全部0退出，1750源SHA/160变体/99数值依赖/8 guard检查接受，包耗时147.991秒。原stage不改；只读collector标准库依赖及接受器launch字段两处本地修正通过，未重派CPU。原R1/05:30失败验收保持；R2 GPU派发/科学接受与N08/N09接续待完成，15.0556完整卡届时具体确认。本轮0新GPU/账本写。以下为历史。
+
 ## 2026-10-16 N07修复CPU独立部署与源码包准备
 
 [534 CPU部署准备](534_WC_N07_REPAIR_CPU_IMMUTABLE_DEPLOYMENT_CAPTURE_AND_LOCAL_PACKET_READY_20261016.md)：R2独立部署/一次查收/离线接受工具已写，3新+9不可变打包CPU及3冷CLI通过；183份overlay闭合99数值/修复/执行测试依赖。Git提交后实际归档隔离验证及服务器九命令CPU尚待，0SSH/新GPU/账本写。原R1/05:30失败验收、完整180/15.0556/cap113与严格<12保持。以下为历史。

@@ -1,0 +1,30 @@
+{
+  "status": "N07_REPAIR_ACTUAL_CPU_ACCEPTED_WITH_LOCAL_READONLY_OBSERVER_SCHEMA_FIXES",
+  "actual_CPU_acceptance_ref": "reports/wc_paper_N07_refusal_repair180_actual_production_CPU_R1_independent_acceptance_20261016.json",
+  "actual_CPU_acceptance_sha256": "b233c3a5c5f8e88ee2c866b3ec858a00dccdb1a214db361c92e2c033a0ea35ac",
+  "original_server_source": "6e10aa31197b4c137705b9117090c3a4e538e863",
+  "unchanged_production_GPU_validator_AST": {
+    "validate_bundle": true,
+    "validate_proof": true
+  },
+  "local_fixes": [
+    "Remote CPU capture uses a scalar CONFIG path under system python3, avoiding Torch owners.",
+    "Independent CPU acceptor derives project from the original absolute .sync stage; no fabricated launch.project field."
+  ],
+  "local_fix_controls": {
+    "staging_and_cold_reader": 4,
+    "CPU_acceptance": 5
+  },
+  "local_source_sha256": {
+    "src/wcomr/frozen_repair_cpu_acceptance_r2.py": "cb440bfb0d991ad32de9d6754af6128ceeb7cf3d8555305faeff9563b9fdc0cf",
+    "src/wcomr/frozen_repair_cpu_staging_r2.py": "46cb519d60794b07c9cfedb53d708625efc0fe863113d77e7e1a538464e8b6f5",
+    "tests/test_frozen_repair_cpu_staging_r2.py": "1d44d5b7912b16c60b6c36e4386172057b94da3519088d5471506d6fd7f710e1",
+    "tests/test_frozen_repair_cpu_acceptance_r2.py": "a673ef908a3acdcde3662412d09a6f153a62037eeb78bb94a88a57ec97ed8e7b"
+  },
+  "saved_original_failure": "reports/wc_paper_N07_repair_actual_CPU_independent_acceptance_R1_local_schema_failure_20261016.json",
+  "staged_source_or_original_GPU_modified": false,
+  "second_SSH_capture_used": false,
+  "GPU_submissions": 0,
+  "ledger_written": false,
+  "recorded_unix": 1792160841.999416
+}

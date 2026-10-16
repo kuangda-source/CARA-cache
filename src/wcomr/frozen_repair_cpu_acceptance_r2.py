@@ -1,4 +1,6 @@
 """Independently bind the full180 repair CPU process, source and actual entry."""
+from pathlib import PurePosixPath
+
 from .frozen_shared_acceptance_r1 import digest, original_alive
 from .frozen_repair180_r2 import PRODUCTION_CPU_STATUS, fingerprint, validate_contract
 from .frozen_shared_execution_r1 import point
@@ -93,8 +95,15 @@ def accept(value):
     validate_bundle(bundle, launch['source_revision'],payload=registration['payload_sha256'])
     validate_proof(proof,config,bound,registration,registration_sha256=value['registration_sha256'],
         config_sha256=f['config']['sha256'])
+    # The original producer records the resolved stage, not a project field.
+    # Derive that root from its independent .sync sibling-stage contract.
+    stage=PurePosixPath(launch['stage'])
+    if not stage.is_absolute() or '..' in stage.parts or stage.parent.name!='.sync':
+        raise ValueError('The original CPU stage must be an absolute independent .sync child')
+    project=str(stage.parent.parent)
     if (f['bound_inputs']['sha256'] != config['references']['bound_inputs']['sha256']
-            or bundle['stage'] != launch['stage'] or bundle['project'] != launch['project']):
+            or bundle['stage'] != launch['stage'] or bundle['project'] != project
+            or launch.get('project',project)!=project):
         raise ValueError('The original CPU process must bind the complete original conditioning and stage')
     return dict(status=CPU_ACCEPTED_STATUS,CPU_accepted=True,source_revision=launch['source_revision'],
         original_CPU_identity=launch['identity'],registration_sha256=value['registration_sha256'],

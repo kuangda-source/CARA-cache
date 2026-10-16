@@ -1,0 +1,24 @@
+{
+  "status": "N07_REPAIR_CPU_READONLY_COLLECTOR_STDLIB_BOUNDARY_LOCAL_PASS",
+  "source_sha256": {
+    "src/wcomr/frozen_repair_cpu_staging_r2.py": "46cb519d60794b07c9cfedb53d708625efc0fe863113d77e7e1a538464e8b6f5",
+    "tests/test_frozen_repair_cpu_staging_r2.py": "1d44d5b7912b16c60b6c36e4386172057b94da3519088d5471506d6fd7f710e1",
+    "scripts/capture_wc_paper_N07_repair_production_cpu_r2.py": "bfa9ea862474284a89e0b188e330cd719b168764ffbfe1934bc9e5d7bf6b8424"
+  },
+  "new_staging_unit_controls": 4,
+  "original_Torch_import_reproduced_under_cold_python": true,
+  "original_failure_log": "/tmp/wc_N07_repair_cold_metadata_import_R1_20261016.log",
+  "repair": "Remote CONFIG scalar literal instead of importing Torch-dependent production module",
+  "original_server_CPU_source": "6e10aa31197b4c137705b9117090c3a4e538e863",
+  "original_running_CPU_stage_modified": false,
+  "collector_local_only": true,
+  "SSH_queries": 0,
+  "GPU_submissions": 0,
+  "ledger_written": false,
+  "original_full_Git_isolation_proof_applies_to_original_6e10aa3_stage": true,
+  "actual_production_CPU_accepted": false,
+  "recorded_unix": 1792160506.7146828,
+  "original_failure_stderr": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n  File \"/Users/kuangda_gao/Documents/世界模型加速实验/worldcache_omr/src/wcomr/frozen_repair180_r2.py\", line 11, in <module>\n    from .source_aware_phase_sampling import bind_globals\n  File \"/Users/kuangda_gao/Documents/世界模型加速实验/worldcache_omr/src/wcomr/source_aware_phase_sampling.py\", line 10, in <module>\n    from . import source_aware_partial_sampling as base\n  File \"/Users/kuangda_gao/Documents/世界模型加速实验/worldcache_omr/src/wcomr/source_aware_partial_sampling.py\", line 14, in <module>\n    import torch\nModuleNotFoundError: No module named 'torch'\n",
+  "original_failure_kind": "LOCAL_COLD_IMPORT_DEPENDENCY_REPRODUCTION_NOT_SERVER_CPU_FAILURE",
+  "original_failure_exit_code": 1
+}
