@@ -6,6 +6,8 @@
 
 ## 当前执行：N07完整180在运行，之后N08重复测速
 
+[512逐视频评分入口](../research/512_WC_N10_PER_VIDEO_METRIC_OBSERVER_AND_AMT_NATIVE_CPU_REPAIR_20261016.md)：逐视频评分入口与原生工具CPU准备完成：观察六维原内部采样、保留逐视频原分数，修复尚未部署的AMT探针单输入unpad误删batch维度；48项相关CPU控制通过，首版夹具失败保留。解码/神经模型为显式替身，实际模型/最终质量分数仍0，完整960驱动与费用待补。原N07/source140d0a6/明早05:30、资源R3/source129577b/今天15:50一次查收及cap113保持，本轮0SSH/0新GPU/0服务器账本写。
+
 [511固定资源R3分段在途](../research/511_WC_N10_EXACT_RANGE204_LOCAL_R3_SINGLE_LAUNCH_AND_1550_COLLECTION_20261016.md)：原R1超时/R2截断保持，source129577b/PID19489-lstart14:15:26在fresh本机目录单次派204个8MiB范围；原最早15:45:26.652263，**今天15:50一次查收**，不持续监听。13CPU与真实两范围探测已过，尚非完整资源/模型/质量结果；通过全SHA后才独立SCP。原N07完整180/source140d0a6和明早05:30、cap113及账本保持，0新GPU/SSH/服务器写。以下旧14:00在途/修复待派文字为历史。
 
 [510固定资源分段修复](../research/510_WC_N10_LOCAL_TRUNCATION_RETAINED_EXACT_HTTP_RANGES_CPU_REPAIR_20261016.md)：14:00一次收本机18318已终态，78094879字节截断/166.582秒，完整验收拒绝，原partial/SHA保持。真实起始与非零HTTP206探测通过，中间TLS错误保留；系统curl按8MiB精确Range新入口/查收13CPU通过，新R3须本提交后单次派发、启动90分钟后收。当前0完整权重/0模型/0新质量分数，不查询N07或写GPU账；原180/source140d0a6/明早05:30/cap113保持。以下原14:00在途说明均为历史。

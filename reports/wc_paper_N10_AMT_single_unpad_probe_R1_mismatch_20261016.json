@@ -1,0 +1,24 @@
+{
+  "status": "N10_AMT_CPU_PROBE_NATIVE_SINGLE_UNPAD_BATCH_DIMENSION_MISMATCH_REPRODUCED",
+  "probe_source_sha256": "944e80c6f78f22cfddcb89d6e830704b238b03ea08a7fe7bd1edb80b4bae4d81",
+  "original_AMT_utility_sha256": "4ad8dab6ef649d30a22567b1018abca372010821e9c3df1d45b21dc73f36a465",
+  "original_expression": "padder.unpad(prediction)[0]",
+  "observed_shape": [
+    3,
+    432,
+    768
+  ],
+  "required_native_shape": [
+    1,
+    3,
+    432,
+    768
+  ],
+  "underlying_single_unpad_return_type": "torch.Tensor_preserves_batch",
+  "original_error_is_probe_indexing_not_checkpoint_or_generator": true,
+  "actual_metric_models_loaded": 0,
+  "real_videos_read": false,
+  "GPU_submissions": 0,
+  "SSH_queries": 0,
+  "ledger_written": false
+}

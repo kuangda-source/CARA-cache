@@ -121,7 +121,7 @@ def probe(role,stage,resource,torch):
         inputs=[img2tensor(image.permute(1,2,0).numpy()).cpu() for image in images]
         padder=InputPadder(inputs[0].shape,16);left,right=padder.pad(*inputs)
         prediction=model(left,right,wrapper.embt,scale_factor=1.,eval=True)['imgt_pred']
-        prediction=padder.unpad(prediction)[0]
+        prediction=padder.unpad(prediction)
         outputs={'interpolated_frame':prediction}
         if tuple(prediction.shape)!=(1,3,432,768):raise ValueError('AMT output geometry differs')
         extra.update(synthetic_frame_pairs=1,interpolation_iterations=wrapper.niters,

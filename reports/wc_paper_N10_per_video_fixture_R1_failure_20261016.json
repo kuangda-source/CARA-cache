@@ -1,0 +1,17 @@
+{
+  "status": "ORIGINAL_FIXTURE_REPLAY_BEFORE_NAMESPACE_REPAIR",
+  "exit_code": 1,
+  "elapsed_seconds": 1.6153600215911865,
+  "raw_log": ".sync/wc_N10_per_video_fixture_R1_failure_20261016.txt",
+  "raw_log_sha256": "bcbe61a3093079fd52668d7fec9f83cbdf587c231c94f8c251221604c1bca778",
+  "raw_log_bytes": 9294,
+  "source_sha256": {
+    "tests/test_N10_per_video_metric_r1.py": "4d1ba88358999d8f32dbbb253e5be6aab72c31da1f3c088fe21b88df3472e784",
+    "src/wcomr/automatic_quality_metric_r1.py": "0dbc497f4dc54ca29a63e5127313cb8c637253a19d7053802b216320d7b3b268"
+  },
+  "tail": "ls)\n----------------------------------------------------------------------\nValueError: Observe the complete original93/16fps source and reader release\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/Users/kuangda_gao/Documents/世界模型加速实验/worldcache_omr/tests/test_N10_per_video_metric_r1.py\", line 172, in test_bad_geometry_releases_original_decoder_and_restores_module\n    with self.assertRaisesRegex(ValueError,'geometry'):scorer.score(p)\nAssertionError: \"geometry\" does not match \"Observe the complete original93/16fps source and reader release\"\n\n======================================================================\nFAIL: test_wrong_actual_frame_selection_is_refused_and_hooks_restored (test_N10_per_video_metric_r1.PerVideoMetricControls)\n----------------------------------------------------------------------\nValueError: Observe the complete original93/16fps source and reader release\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/Users/kuangda_gao/Documents/世界模型加速实验/worldcache_omr/tests/test_N10_per_video_metric_r1.py\", line 165, in test_wrong_actual_frame_selection_is_refused_and_hooks_restored\n    scorer.score(p)\nAssertionError: \"source selection\" does not match \"Observe the complete original93/16fps source and reader release\"\n\n----------------------------------------------------------------------\nRan 7 tests in 0.922s\n\nFAILED (failures=2, errors=6)\n",
+  "actual_models_loaded": 0,
+  "real_videos": false,
+  "SSH_queries": 0,
+  "GPU_submissions": 0
+}

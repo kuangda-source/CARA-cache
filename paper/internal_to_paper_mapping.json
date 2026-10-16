@@ -1705,7 +1705,8 @@
     "N10_resource_SCP_ready_508": "research/508_WC_N10_ORIGINAL_SCP_PINNED_RESOURCE_RELAY_CPU_READY_NO_GPU_INTERFERENCE_20261016.md",
     "N09_runtime_scope40_509": "research/509_WC_N09_FROZEN_RUNTIME_PROFILE40_SCOPE_AND_REMAINING_ACTION_CALIBRATION_COSTS_20261016.md",
     "N10_local_range_repair_510": "research/510_WC_N10_LOCAL_TRUNCATION_RETAINED_EXACT_HTTP_RANGES_CPU_REPAIR_20261016.md",
-    "N10_exact_ranges204_launch_511": "research/511_WC_N10_EXACT_RANGE204_LOCAL_R3_SINGLE_LAUNCH_AND_1550_COLLECTION_20261016.md"
+    "N10_exact_ranges204_launch_511": "research/511_WC_N10_EXACT_RANGE204_LOCAL_R3_SINGLE_LAUNCH_AND_1550_COLLECTION_20261016.md",
+    "N10_per_video_entry_native_CPU_512": "research/512_WC_N10_PER_VIDEO_METRIC_OBSERVER_AND_AMT_NATIVE_CPU_REPAIR_20261016.md"
   },
   "evidence_batches": {
     "curve60": {
@@ -2927,6 +2928,23 @@
       "quality_scores": 0,
       "GPU_submissions": 0,
       "launch_ref": "reports/wc_paper_N10_ViCLIP_local_ranges_R3_launch_20261016.json"
+    },
+    "N10_per_video_entry_and_native_utility_CPU": {
+      "status": "PER_VIDEO_ENTRY_CPU_PREPARED_NOT_REAL_MODEL_OR_QUALITY",
+      "tests": 48,
+      "per_video_controls": 8,
+      "native_utility_controls": 4,
+      "actual_metric_models": 0,
+      "actual_quality_scores": 0,
+      "original_AMT_single_unpad_probe_index_repaired": true,
+      "original_fixture_failure_preserved": true,
+      "decoders_and_models": "EXPLICIT_SYNTHETIC_DOUBLES",
+      "DINO_ViCLIP_transforms": "IDENTITY_TEST_DOUBLES",
+      "full960_scoring_driver_implemented": false,
+      "CPU_receipt_ref": "reports/wc_paper_N10_per_video_and_native_utilities_CPU_20261016.json",
+      "GPU_submissions": 0,
+      "SSH_queries": 0,
+      "server_ledger_written": false
     }
   },
   "statistical_rules": {
@@ -4189,8 +4207,8 @@
       "bytes": 1242
     },
     "scripts/evaluate_wc_N10_metric_model_cpu_r1.py": {
-      "sha256": "944e80c6f78f22cfddcb89d6e830704b238b03ea08a7fe7bd1edb80b4bae4d81",
-      "bytes": 15166
+      "sha256": "b5bc70028cd958ce5572f01d410239cdaf8632d3bdd4b9eb0adc98bdd4e2e3c4",
+      "bytes": 15163
     },
     "tests/test_N10_metric_model_cpu_r1.py": {
       "sha256": "b56872f254b84d8b3879b835b1c4fe596028d8f246456423499876d6ef12d5ee",
@@ -4394,6 +4412,34 @@
     "reports/wc_paper_N10_ViCLIP_local_ranges_R3_launch_20261016.json": {
       "sha256": "c3437d369a602c279a38ebceeea5fa38dcad985f5c3de0975da05f1b18cb544b",
       "bytes": 2367
+    },
+    "research/512_WC_N10_PER_VIDEO_METRIC_OBSERVER_AND_AMT_NATIVE_CPU_REPAIR_20261016.md": {
+      "sha256": "97d38bfc838d542d4ff563d6dd5f42056c9e063c40d90e7f86c1d11edd38c8f8",
+      "bytes": 4493
+    },
+    "reports/wc_paper_N10_per_video_and_native_utilities_CPU_20261016.json": {
+      "sha256": "7d151867cff4d1ba99e89f367f9ad696f8e09d09c7b6b97658dddf2ce34d7d01",
+      "bytes": 8478
+    },
+    "reports/wc_paper_N10_AMT_single_unpad_probe_R1_mismatch_20261016.json": {
+      "sha256": "413985aabaa9c0e3a50bf95d0b37887300729e6e9e435fb30607cd05be6110ac",
+      "bytes": 739
+    },
+    "reports/wc_paper_N10_per_video_fixture_R1_failure_20261016.json": {
+      "sha256": "6878a411a41779d8500d8db144c110024b8ea28b127e141d930c926217bf83a6",
+      "bytes": 2245
+    },
+    "src/wcomr/automatic_quality_metric_r1.py": {
+      "sha256": "de377b5aa331ef6febac59de95817d08d222ec23b2c7649accc760f9a370a4be",
+      "bytes": 14935
+    },
+    "tests/test_N10_per_video_metric_r1.py": {
+      "sha256": "e512ff16709575c57aeb858674e67c217f142c7c2fa9e91db3a3b2f6d41a3165",
+      "bytes": 12980
+    },
+    "tests/test_N10_native_metric_utilities_r1.py": {
+      "sha256": "c93e867a1ab4453a73c5e51e195d0a4d00f24081e801bef3acf442962fbf8b02",
+      "bytes": 3211
     }
   },
   "math_notation": [
