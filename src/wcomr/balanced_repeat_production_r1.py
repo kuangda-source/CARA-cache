@@ -89,6 +89,7 @@ def validate_launch_authority(config, bound, registration, proof, authority, *, 
             or authority['production_CPU_sha256'] != proof_sha256
             or proof['bound_timing_fingerprint'] != fingerprint(bound)
             or authority['bound_timing_fingerprint'] != fingerprint(bound)
+            or authority.get('bound_input_fingerprint') != fingerprint(bound)
             or authority['scope_counts'] != COUNTS or proof['scope_counts'] != COUNTS
             or authority['whole_card_run'] != RUN or authority['gpu_uuid'] != gpu_uuid
             or authority['forecast_complete_GPUh'] != config['forecast_complete_GPUh']

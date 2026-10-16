@@ -6,6 +6,8 @@
 
 ## 当前执行更新：N06已接受，N05已准入
 
+[490](../research/490_WC_N08_SEVEN_COMMAND_CPU_GATE_SINGLE_DISPATCH_AND_UUID_SETTLEMENT_READY_20261016.md)准备N08独立七命令CPU准入、单次派发与v2/UUID监督，26本地控制通过。真实CPU部署、按ETA收集及完整GPU独立接受仍待；不能把已写入口当现成可提交卡，不改N05原范围/12:05。
+
 [489](../research/489_WC_N08_FULL40_CPU_POST_REPEAT_PARITY_SAME_ROUND_FIDELITY_AND_FAILURE_ISOLATION_READY_20261016.md)补N08完整40后处理与15本地CPU控制：同轮参考、预热/正式行为与原始/派生统计分开，坏容器和缺失不抹掉其他有效观测。实际生产CPU/监督/独立验收与速度仍待，N05按原12:05不提前查。
 
 [488](../research/488_WC_N08_RESIDENT_FULL40_PRODUCTION_ENTRY_AND_WARM_INTERFACE_REPAIR_CPU_READY_20261016.md)补齐N08完整40驻留CLI与22本地CPU控制；真实生产CPU/最终配置/监督post待做。**N05后冻结N07十方法时，同一method_freeze还需写repeat_timing_bindings五角色，均来自开发选择，之后不凭共同测试改选测速对手。** 原N05/12:05不动。

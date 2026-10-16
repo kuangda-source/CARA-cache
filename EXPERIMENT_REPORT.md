@@ -1,3 +1,7 @@
+## 2026-10-16 N08整卡CPU准入/单次派发/UUID结算准备完成
+
+[490整卡执行准备](research/490_WC_N08_SEVEN_COMMAND_CPU_GATE_SINGLE_DISPATCH_AND_UUID_SETTLEMENT_READY_20261016.md)：N08七命令CPU bundle/原回执独立接受器、单次fence派发、UUID监督与CPU post watcher已实现；26本地CPU通过。临时真实锁/原v2实现配合mock显卡和子进程，验证加法结算/幂等/失败fallback/退出竞态/断线不重派；14上限和批准均synthetic，不是真实授权。测速指纹与通用账本指纹显式同值，原v2/大卡扩展及99数值源码不变。实际配置/生产CPU部署与GPU收集独立接受仍待，未派新任务/SSH/写服务器预算；N05原15d77ac/句柄/12:05不变。以下历史保留。
+
 ## 2026-10-16 N08全40终态/逐轮保真后处理CPU准备完成
 
 [489测速后处理](research/489_WC_N08_FULL40_CPU_POST_REPEAT_PARITY_SAME_ROUND_FIDELITY_AND_FAILURE_ISOLATION_READY_20261016.md)：原完整40/30/10原件审计、10预热36guided、30正式对warm终态/actions/来源/RGB、同轮Native的93帧评分与全三轮汇总已接线；15本地CPU通过。新R1派生统计参考失效传播错误已保留并修复，原始观测/分数不重写；v2完整时间区间可检出边界间短GPU重叠，非整个资源区间独占证明。仅合成视频/评分与小型真实CPU张量，无实际生产/质量/速度；原99数值源码保持。0SSH/0GPU/0账本写，N05原15d77ac/句柄/12:05不动。以下历史保留。

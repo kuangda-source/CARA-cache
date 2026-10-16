@@ -82,7 +82,7 @@ class ProductionControls(unittest.TestCase):
             registration_sha256='1' * 64, config_sha256='2' * 64,
             bound_timing_fingerprint=fingerprint(bound), scope_counts=execution.COUNTS.copy())
         authority = dict(source_revision='a' * 40, config_sha256='2' * 64, production_CPU_sha256='3' * 64,
-            bound_timing_fingerprint=fingerprint(bound), scope_counts=execution.COUNTS.copy(),
+            bound_timing_fingerprint=fingerprint(bound), bound_input_fingerprint=fingerprint(bound), scope_counts=execution.COUNTS.copy(),
             whole_card_run=production.RUN, gpu_uuid='GPU-SYNTHETIC', forecast_complete_GPUh=2.,
             billed_limit_GPUh=3., cumulative_cap_GPUh=config['cumulative_cap_GPUh'],
             budget_origin_used_GPUh=config['budget_origin_used_GPUh'], direct_user_authorization=True,

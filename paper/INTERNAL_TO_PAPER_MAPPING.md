@@ -349,3 +349,5 @@ N07 fresh身份审计工具与13本地CPU控制见[487](../research/487_WC_N07_F
 N08完整40驻留入口/生产合同与预热接口修复见[488](../research/488_WC_N08_RESIDENT_FULL40_PRODUCTION_ENTRY_AND_WARM_INTERFACE_REPAIR_CPU_READY_20261016.md)：22本地CPU通过，原R1失败保存；五角色随N07方法在开发阶段一并冻结。真实模型/生产CPU/干净资源/视频与速度尚未接受，不升级任何论文结果。
 
 N08完整40原件/预热等价性、同轮Native的93帧评分和失败隔离见[489](../research/489_WC_N08_FULL40_CPU_POST_REPEAT_PARITY_SAME_ROUND_FIDELITY_AND_FAILURE_ISOLATION_READY_20261016.md)；15本地CPU控制通过。合成视频/指标不填论文速度质量结果，实际生产CPU/监督/独立验收与最终clean计时仍未完成。
+
+N08七命令生产CPU准入、单次派发与原v2结算接线见[490](../research/490_WC_N08_SEVEN_COMMAND_CPU_GATE_SINGLE_DISPATCH_AND_UUID_SETTLEMENT_READY_20261016.md)；26本地CPU控制使用临时账本/mock进程，不是真实服务器CPU或GPU结果。原窗口、真实最终配置和GPU收集/完整独立接受缺口保留。
