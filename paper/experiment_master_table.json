@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "updated_local_date": "2026-10-16",
-  "snapshot_basis": "N05/N06 complete; real N07 full180 productionCPU R2 independently accepted; exact full15.055555556GPUh card and proposed cumulativecap113 waiting human; fresh pool unchanged, no newGPU.",
+  "snapshot_basis": "N07 real productionCPU accepted, full15.055555556GPUh/cap113 approval unanswered; independent CPU resource preparation advances original N10 only, four existing weights hashed and fixed ViCLIP file acquiring in isolated stage, no new GPU.",
   "git_snapshot_before_inventory": "7359a973ec562db393bdf3047877d0cef86c3544",
   "mapping_ref": "paper/internal_to_paper_mapping.json",
   "scope": "scientific experiment families and complete cards, not each engineering retry; reused artifacts must not be summed as independent samples",
@@ -1129,14 +1129,14 @@
     },
     {
       "id": "N10",
-      "state": "待补｜代码/分词CPU已准备",
+      "state": "待补｜四权重已核哈希，ViCLIP资源在途",
       "paper_experiment_name": "Automatic Video Quality on Final Outputs",
       "internal_ids": [
         "PAPER_E5_AUTOMATIC_QUALITY"
       ],
       "contribution_relation": "C3生成质量范围；补充保真主指标",
       "evidence_or_planned_scope": "固定九源码/静态资源盘点保留；原视频SHA与原prompt、全160位置、两seed提示词统计等8CPU控制通过；作者纯采样与五维元数据parser实测一致，仅合成输入/分数。 493核对216代码/配置和真实BPE，9组ViCLIP/CLIP原分词逐项一致；六维960测量位置与source pin在共同测试前登记，非实际模型/视频结果。 494原N07完整180回执到160正式/960指标输入桥和CLI已准备，8本地CPU通过；拒绝/缺资源/空静态资格保留，非真实最终数据或模型。",
-      "gap_and_next_action": "实际缓存权重SHA/ViCLIP完整checkpoint、隔离依赖/完整模型CPU、逐视频评分与费用待；六维及代码事前登记，不按最终结果挑维度。静态资格随N07原输入冻结，无权威标注为不适用；完整160生成/960指标位置和缺失保留。",
+      "gap_and_next_action": "13:17一次收原固定ViCLIP资源并独立全SHA；再补原固定模型/依赖CPU、全160视频评分与完整费用，资源不充作质量结果，不占GPU。",
       "priority": "P2·复用最终视频",
       "evidence_refs": [
         "28",
@@ -1151,7 +1151,9 @@
         "N10_measurement_prereg",
         "N10_real_tokenizer_CPU",
         "494",
-        "N10_accepted_common_input_bridge_CPU"
+        "N10_accepted_common_input_bridge_CPU",
+        "502",
+        "503"
       ],
       "method_mapping_ids": [],
       "depends_on": [
@@ -1177,7 +1179,14 @@
       "accepted_common_output_input_bridge_implemented": true,
       "accepted_common_input_bridge_CPU_controls_accepted": true,
       "actual_final_N07_output_binding_done": false,
-      "metadata_omission_original_Git_readonly_recovery_prepared": true
+      "metadata_omission_original_Git_readonly_recovery_prepared": true,
+      "existing_model_weights_actual_SHA_audited": 4,
+      "actual_metric_models_loaded": 0,
+      "actual_metric_model_CPU_accepted": false,
+      "actual_quality_scores": 0,
+      "ViCLIP_resource_acquisition_dispatched": true,
+      "ViCLIP_resource_launch_ref": "reports/wc_paper_N10_ViCLIP_resource_R1_launch_20261016.json",
+      "ViCLIP_resource_next_collection_local": "2026-10-16T13:17:00+08:00"
     },
     {
       "id": "N11",
@@ -1398,7 +1407,12 @@
     "N07_preapproval_fresh_budget": "reports/wc_paper_N07_preapproval_fresh_budget_20261016_1236.json",
     "N07_complete_card_approval_review": "reports/wc_paper_N07_full180_complete_CPU_and_budget_approval_review_20261016.json",
     "N08_fixed_cap_R1_probe": "reports/wc_paper_N08_fixed_cap_contract_R1_probe_20261016.json",
-    "N08_same_origin_cap_CPU": "reports/wc_paper_N08_same_window_cap_contract_CPU_repair_20261016.json"
+    "N08_same_origin_cap_CPU": "reports/wc_paper_N08_same_window_cap_contract_CPU_repair_20261016.json",
+    "502": "research/502_WC_N10_EXISTING_FOUR_WEIGHT_HASHES_AND_PINNED_VICLIP_RESOURCE_PREPARATION_20261016.md",
+    "503": "research/503_WC_N10_PINNED_VICLIP_RESOURCE_CPU_DISPATCH_AND_MAINLINE_APPROVAL_WAIT_20261016.md",
+    "N10_existing_weight_hashes": "reports/wc_paper_N10_existing_resource_hashes_scoped_20261016.json",
+    "N10_resource_fetch_CPU_controls": "reports/wc_paper_N10_resource_fetch_worker_CPU_controls_20261016.json",
+    "N10_ViCLIP_resource_R1_launch": "reports/wc_paper_N10_ViCLIP_resource_R1_launch_20261016.json"
   },
   "source_bindings": {
     "11": {
@@ -1551,7 +1565,7 @@
     },
     "mainline_queue_20261016": {
       "path": "plans/WORLD_CACHE_MAINLINE_PRIORITY_QUEUE_20261016.md",
-      "sha256": "1c13204806b82c6579a93d1d50dc9fa9e2d7b2239af0269bc9176cf603a2dd8e"
+      "sha256": "e761b810d1acc34dae34ce1a8c6c33aba3ff68ec2603e43622c51f65cb630119"
     },
     "baseline_grid_prereg_20261016": {
       "path": "manifests/wc_paper_N05_bounded_baseline_grid_preregistration_draft_20261016.json",
@@ -2080,6 +2094,26 @@
     "N08_same_origin_cap_CPU": {
       "path": "reports/wc_paper_N08_same_window_cap_contract_CPU_repair_20261016.json",
       "sha256": "aa7b5270f10e1419e167d6a305efcca4a9bd59b5addc5c3c0df62c90d01528f5"
+    },
+    "502": {
+      "path": "research/502_WC_N10_EXISTING_FOUR_WEIGHT_HASHES_AND_PINNED_VICLIP_RESOURCE_PREPARATION_20261016.md",
+      "sha256": "9b277b26a97bc4d038a210c079787261c9eff22ac54149d98e927f678bf7bd81"
+    },
+    "503": {
+      "path": "research/503_WC_N10_PINNED_VICLIP_RESOURCE_CPU_DISPATCH_AND_MAINLINE_APPROVAL_WAIT_20261016.md",
+      "sha256": "c65ab9bfc6258e698bd83dc3fe830077507f547c5b63b06e83c5e2c73c9f8978"
+    },
+    "N10_existing_weight_hashes": {
+      "path": "reports/wc_paper_N10_existing_resource_hashes_scoped_20261016.json",
+      "sha256": "9e946faf1298ac487fb19c167fc16a80c26df67e756cf6b5963c1e44151dd8df"
+    },
+    "N10_resource_fetch_CPU_controls": {
+      "path": "reports/wc_paper_N10_resource_fetch_worker_CPU_controls_20261016.json",
+      "sha256": "163b650da83d6b0f9cfca6c9cade52f9bb2e2b3aef1698db3a94d299349d1a5e"
+    },
+    "N10_ViCLIP_resource_R1_launch": {
+      "path": "reports/wc_paper_N10_ViCLIP_resource_R1_launch_20261016.json",
+      "sha256": "5f4aac10746cf7fabd840b2dc27052185e99ecef06bd72de10f2203e6e677961"
     }
   },
   "operation_policy": {
@@ -2154,7 +2188,15 @@
     },
     "W3_original_terminal_collection_performed": true,
     "SIMPLE26D_R1_collection_closed": true,
-    "current_CPU_task": null,
+    "current_CPU_task": {
+      "kind": "N10_PINNED_PUBLIC_RESOURCE_DOWNLOAD",
+      "pid": 1113019,
+      "start_ticks": 542082643,
+      "source_revision": "3c7767fbc48d47a5e3bba3cf46f93a5f519f56d4",
+      "stage": "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/.sync/wc-N10-viclip-resource-r1-20261016",
+      "launch_ref": "reports/wc_paper_N10_ViCLIP_resource_R1_launch_20261016.json",
+      "not_a_GPU_or_metric_job": true
+    },
     "next_W3_CPU_collection": null,
     "SIMPLE26D_R2_next_collection": null,
     "current_reserved_GPUh": 0,
@@ -2353,7 +2395,10 @@
     "N07_approval_review_ref": "reports/wc_paper_N07_full180_complete_CPU_and_budget_approval_review_20261016.json",
     "N07_CPU_R2_terminal_accepted": true,
     "budget_snapshot_observed_unix": 1792125368.124118,
-    "N08_same_window_extended_cap_CPU_ready": true
+    "N08_same_window_extended_cap_CPU_ready": true,
+    "N10_resource_next_collection_local": "2026-10-16T13:17:00+08:00",
+    "N10_resource_first_collection_not_before_unix": 1792127722.9165008,
+    "N10_resource_GPU_submissions": 0
   },
-  "mapping_sha256_at_inventory": "67ed7f8a9f8d6d772880de2496ab3ae27968e23270c157a2bd2d550175f1eae0"
+  "mapping_sha256_at_inventory": "314de89d128475f97e84b67daa0e2e79de622d8f35096a3949bad5620a37a592"
 }
