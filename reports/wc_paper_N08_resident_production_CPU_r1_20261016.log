@@ -1,0 +1,28 @@
+test_actual_executor_shaped_warm_result_needs_no_preinvented_count (test_balanced_repeat_production_r1.ProductionControls) ... ERROR
+test_archive_tiny_actual_CPU_warm_tensors_and_formal_without_guided_copy (test_balanced_repeat_production_r1.ProductionControls) ... ok
+test_cannot_select_timing_roles_after_final_outputs_or_from_another_freeze (test_balanced_repeat_production_r1.ProductionControls) ... ok
+test_changed_scope_teacher_clock_budget_or_binding_rejected (test_balanced_repeat_production_r1.ProductionControls) ... ok
+test_complete_contract_reuses_exact_protocol_and_frozen_roles (test_balanced_repeat_production_r1.ProductionControls) ... ok
+test_incomplete_warm_formal_copy_nonfinite_or_foreign_output_refused (test_balanced_repeat_production_r1.ProductionControls) ... ok
+test_other_registered_GPU_job_is_not_clean_capacity (test_balanced_repeat_production_r1.ProductionControls) ... ok
+test_separate_launch_authority_cannot_borrow_N07_or_under12_for_large_card (test_balanced_repeat_production_r1.ProductionControls) ... ok
+test_stage_local_reference_hash_required (test_balanced_repeat_production_r1.ProductionControls) ... ok
+
+======================================================================
+ERROR: test_actual_executor_shaped_warm_result_needs_no_preinvented_count (test_balanced_repeat_production_r1.ProductionControls)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/kuangda_gao/Documents/世界模型加速实验/worldcache_omr/tests/test_balanced_repeat_production_r1.py", line 148, in test_actual_executor_shaped_warm_result_needs_no_preinvented_count
+    row = execution.execute_one(object(), sample, planned, bound, restore_request_state=lambda: dict(
+  File "/Users/kuangda_gao/Documents/世界模型加速实验/worldcache_omr/src/wcomr/balanced_repeat_execution_r1.py", line 108, in execute_one
+    timers = audit_row(row, planned, bound)
+  File "/Users/kuangda_gao/Documents/世界模型加速实验/worldcache_omr/src/wcomr/balanced_repeat_execution_r1.py", line 89, in audit_row
+    execution_audit({**row, 'case_id': row['scene']}, mapped,
+  File "/Users/kuangda_gao/Documents/世界模型加速实验/worldcache_omr/src/wcomr/frozen_shared_production_r1.py", line 260, in audit_row
+    raise ValueError('All actual warm guided outputs required, including reduced-step Native')
+ValueError: All actual warm guided outputs required, including reduced-step Native
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.042s
+
+FAILED (errors=1)

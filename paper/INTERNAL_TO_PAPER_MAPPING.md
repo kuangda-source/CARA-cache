@@ -345,3 +345,5 @@ N08完整40执行适配/计时分列CPU准备见[485](../research/485_WC_N08_FUL
 N07 Git绑定打包、生产CPU六命令查收和远端路径别名接线见[486](../research/486_WC_N07_GIT_BOUND_CPU_PACKAGING_AND_CANONICAL_PATH_PREPARATION_20261016.md)；25本地控制通过，133源码仅静态核对。真实配置、实际CPU与新视频结果仍未完成，原N05不改。
 
 N07 fresh身份审计工具与13本地CPU控制见[487](../research/487_WC_N07_FRESH_IDENTITY_AUDIT_CPU_READY_AND_MAINLINE_ORDER_20261016.md)；实际远端曝光审计、最终八输入/十方法冻结仍待N05完整接受，未产生新泛化或速度结果。
+
+N08完整40驻留入口/生产合同与预热接口修复见[488](../research/488_WC_N08_RESIDENT_FULL40_PRODUCTION_ENTRY_AND_WARM_INTERFACE_REPAIR_CPU_READY_20261016.md)：22本地CPU通过，原R1失败保存；五角色随N07方法在开发阶段一并冻结。真实模型/生产CPU/干净资源/视频与速度尚未接受，不升级任何论文结果。

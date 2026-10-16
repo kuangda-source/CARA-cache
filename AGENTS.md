@@ -1,3 +1,7 @@
+## 2026-10-16 N08驻留入口CPU准备与预热接口修复
+
+[488重复测速入口](research/488_WC_N08_RESIDENT_FULL40_PRODUCTION_ENTRY_AND_WARM_INTERFACE_REPAIR_CPU_READY_20261016.md)：原两CAL五角色/三轮完整40驻留CLI与独立CPU/费用/授权合同已写，22本地CPU通过。新增实际返回形态检查重现485预热计数先后顺序缺陷，原失败保留；修复只在计时外由真实36列表计数，原99数值源码保持。N07方法冻结必须同时写N08五角色repeat_timing_bindings，不能看新测试再选测速对手；真实绑定/配置/生产CPU/监督post/费用仍待。0SSH/0GPU/0账本写，N05原15d77ac/句柄/今天12:05不改。以下历史保留。
+
 ## 2026-10-16 主线接续保持，N07身份审计CPU准备完成
 
 [487输入隔离准备](research/487_WC_N07_FRESH_IDENTITY_AUDIT_CPU_READY_AND_MAINLINE_ORDER_20261016.md): 单次fresh身份审计入口与十项新CPU控制准备完成，连同选择核共13通过；原1044名/SHA索引核对，目录元数据不误算曝光，错误与原PID身份保留。仅本地临时项目验证，未SSH/选真实八输入或方法/派CPU或GPU/写预算；原99数值依赖保持。当前N05原15d77ac/句柄与今天12:05一次查收不改；之后N07→N08→N09/10，前密C/A保留为强对照。以下历史保留。

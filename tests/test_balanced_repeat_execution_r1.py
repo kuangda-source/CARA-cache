@@ -36,6 +36,8 @@ def response(planned, sample):
         method_cleanup_seconds=.2, video_write_seconds=.3,
         request_memory_lifecycle=dict(before=dict(seconds=.01), after=dict(seconds=.02)))
     row['frozen_request_cleanup']['collection'] = dict(seconds=.03)
+    if planned['section'] == 'WARMUP':
+        row['guided'] = [None] * 36  # Scalar stand-ins, never treated as tensor artifacts.
     return row
 
 

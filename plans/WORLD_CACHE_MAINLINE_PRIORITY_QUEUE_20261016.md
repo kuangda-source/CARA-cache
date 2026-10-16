@@ -6,6 +6,8 @@
 
 ## 当前执行更新：N06已接受，N05已准入
 
+[488](../research/488_WC_N08_RESIDENT_FULL40_PRODUCTION_ENTRY_AND_WARM_INTERFACE_REPAIR_CPU_READY_20261016.md)补齐N08完整40驻留CLI与22本地CPU控制；真实生产CPU/最终配置/监督post待做。**N05后冻结N07十方法时，同一method_freeze还需写repeat_timing_bindings五角色，均来自开发选择，之后不凭共同测试改选测速对手。** 原N05/12:05不动。
+
 [487](../research/487_WC_N07_FRESH_IDENTITY_AUDIT_CPU_READY_AND_MAINLINE_ORDER_20261016.md)补齐N07 fresh身份审计工具与13本地CPU控制；只认输出/运行身份，目录清单不误当曝光。真正服务器审计仍待N05接受和方法冻结后，最终输入/配置未选，不提前查询当前GPU。
 
 [469](../research/469_WC_SIMPLE26D_COMPLETE_RESULTS_POSITION_READOUT_AND_STRONG_SIMPLE_BASELINE_20261016.md)已接受全36/24/2232帧，A读出作用、位置作用与前密C/A强简单对照均保留。原失败R1不删、不拼接。原阶段/H1不能宣称优于所有简单规则；前密C/A进入N07冻结筛选，当前N05原参数与完整范围不改。

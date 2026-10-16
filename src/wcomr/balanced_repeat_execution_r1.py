@@ -104,6 +104,18 @@ def execute_one(inference, sample, planned, bound, *, restore_request_state, **k
             or restored['restored_state_sha256'] != original or restored['shared_eval_verified'] is not True):
         raise ValueError('Restore the original model/scheduler/RNG state and shared eval before every request')
     result = execute(inference, sample, planned['method'], audit=planned['section'] == 'WARMUP', **kwargs)
+    if result['status'] in ('COMPLETE', 'VIDEO_REJECTED'):
+        guided = result.get('guided')
+        if planned['section'] == 'WARMUP':
+            expected = point(planned['method'])['actual_updates']
+            if (not isinstance(guided, list) or len(guided) != expected
+                    or result.get('warm_guided_outputs', expected) != expected):
+                raise ValueError('Count every actual warm guided tensor before the metadata audit')
+            # Sampling returns actual tensors; the later archive adds file
+            # hashes. Count them here, outside the already-ended core clock.
+            result['warm_guided_outputs'] = len(guided)
+        elif guided is not None:
+            raise ValueError('Formal timing cannot retain research guided copies')
     row = {**planned, **result}
     timers = audit_row(row, planned, bound)
     return dict(result, timing_intervals=timers, pre_request_state_identity=restored,
