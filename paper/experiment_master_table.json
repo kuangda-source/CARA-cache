@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "updated_local_date": "2026-10-16",
-  "snapshot_basis": "537：N07 R2接续N08/N09的31本地CPU通过；GPU具体批准待原回复，原R1最终验收时间保持",
-  "git_snapshot_before_inventory": "3adcdea",
+  "snapshot_basis": "538：N08实际启动半程工具/34本地CPU准备；真实N07新GPU/新批准与N08配置/生产仍待，原R1最终验收保持",
+  "git_snapshot_before_inventory": "021a2c7",
   "mapping_ref": "paper/internal_to_paper_mapping.json",
   "scope": "scientific experiment families and complete cards, not each engineering retry; reused artifacts must not be summed as independent samples",
   "contributions": {
@@ -1165,14 +1165,14 @@
     },
     {
       "id": "N08",
-      "state": "待补｜R2接续CPU通过，真实生产待N07验收",
+      "state": "待补｜半程/接续CPU就绪，待真实前序与生产",
       "paper_experiment_name": "Balanced Repeated Clean Latency",
       "internal_ids": [
         "PAPER_E4_REPEAT_SPEED"
       ],
       "contribution_relation": "C3稳定费用；C1/C2工作点复验",
-      "evidence_or_planned_scope": "原完整40：两旧CAL×五冻结角色×三平衡轮=30正式+10warm，原报价3.6275GPUh保持；N08部署对R2实际run/source/config的接续和N09前序桥接31本地CPU通过。真实九命令CPU/GPU未做。",
-      "gap_and_next_action": "真实R2完整接受后，以当前显式来源代码构造独立N08源码包、九命令实际生产CPU；fresh v2余额/UUID后推进完整40，保持独占clean计时，不从最终结果改选五角色。",
+      "evidence_or_planned_scope": "原完整40/五角色/两旧CAL/三平衡轮/3.6275GPUh报价保持；R2来源接续31本地CPU通过，实际启动半程与一次只读查收34相关本地CPU/3冷CLI通过。配置/九命令服务器CPU/GPU未做。",
+      "gap_and_next_action": "真实N07 R2完整接受后选择独立N08配置与源码包、九命令实际CPU，fresh余额/UUID后启动完整40；按真实启动半程/最终各查一次，保持独占clean计时，不从最终结果改选五角色。",
       "priority": "P1-NEXT·N07完整验收后",
       "evidence_refs": [
         "closure_plan",
@@ -1198,7 +1198,15 @@
         "N07_repair_N08_actual_deployment_bridge",
         "N07_repair_N09_actual_contract_bridge",
         "N07_repair_downstream_identity_controls",
-        "N07_repair_downstream_identity_CPU"
+        "N07_repair_downstream_identity_CPU",
+        "538",
+        "N08_midpoint_health_core",
+        "N08_midpoint_health_CLI",
+        "N08_actual_start_midpoint_launcher",
+        "N08_midpoint_declared_CPU_pack",
+        "N08_midpoint_capture_controls",
+        "N08_actual_start_midpoint_controls",
+        "N08_midpoint_local_CPU_preparation"
       ],
       "method_mapping_ids": [
         "config.efficient",
@@ -1259,7 +1267,14 @@
       "repaired_N07_downstream_identity_CPU_ready": true,
       "repaired_N07_downstream_identity_local_tests": 31,
       "repaired_N07_actual_identity_relabelled": false,
-      "repaired_N07_downstream_real_server_CPU_executed": false
+      "repaired_N07_downstream_real_server_CPU_executed": false,
+      "midpoint_health_entry_implemented": true,
+      "midpoint_health_local_CPU_tests": 34,
+      "midpoint_health_cold_CLI": 3,
+      "midpoint_times_derive_from_actual_launch": true,
+      "midpoint_actual_absolute_time_selected": false,
+      "midpoint_automation_added": false,
+      "actual_production_config_selected": false
     },
     {
       "id": "N09",
@@ -2198,7 +2213,15 @@
     "N07_repair_N08_actual_deployment_bridge": "scripts/deploy_wc_paper_N08_production_cpu_r1.py",
     "N07_repair_N09_actual_contract_bridge": "src/wcomr/runtime_profile40_production_r1.py",
     "N07_repair_downstream_identity_controls": "tests/test_completed_shared_repair_binding_r2.py",
-    "N07_repair_downstream_identity_CPU": "reports/wc_paper_N07_repair_downstream_N08_N09_CPU_preparation_20261016.json"
+    "N07_repair_downstream_identity_CPU": "reports/wc_paper_N07_repair_downstream_N08_N09_CPU_preparation_20261016.json",
+    "538": "research/538_WC_N08_ACTUAL_START_HALFWAY_TECHNICAL_COLLECTION_CPU_READY_20261016.md",
+    "N08_midpoint_health_core": "src/wcomr/balanced_repeat_health_r1.py",
+    "N08_midpoint_health_CLI": "scripts/capture_wc_paper_N08_midpoint_health_r1.py",
+    "N08_actual_start_midpoint_launcher": "scripts/launch_wc_paper_N08_balanced_full40_r1.py",
+    "N08_midpoint_declared_CPU_pack": "scripts/deploy_wc_paper_N08_production_cpu_r1.py",
+    "N08_midpoint_capture_controls": "tests/test_balanced_repeat_capture_r1.py",
+    "N08_actual_start_midpoint_controls": "tests/test_balanced_repeat_dispatch_r1.py",
+    "N08_midpoint_local_CPU_preparation": "reports/wc_paper_N08_midpoint_health_tools_local_CPU_20261016.json"
   },
   "source_bindings": {
     "11": {
@@ -2351,7 +2374,7 @@
     },
     "mainline_queue_20261016": {
       "path": "plans/WORLD_CACHE_MAINLINE_PRIORITY_QUEUE_20261016.md",
-      "sha256": "67408ea4abb83740eb30650612abefac64d896f71ff56f26645f639df2cb82b6"
+      "sha256": "5f4c5240025351f2f826ad1a4134f6ac478c8cb0c87abaaf0a5cac260dc04aa0"
     },
     "baseline_grid_prereg_20261016": {
       "path": "manifests/wc_paper_N05_bounded_baseline_grid_preregistration_draft_20261016.json",
@@ -3915,7 +3938,7 @@
     },
     "N07_repair_N08_actual_deployment_bridge": {
       "path": "scripts/deploy_wc_paper_N08_production_cpu_r1.py",
-      "sha256": "1bcd99b5739fbfdbaf268442ea752e4b070a9bcd6653eb538a5bfda928f9f808"
+      "sha256": "56233c27900ae94ece17b0fa21a7aa6d8ee94d0e57d6676a1a531075bd568224"
     },
     "N07_repair_N09_actual_contract_bridge": {
       "path": "src/wcomr/runtime_profile40_production_r1.py",
@@ -3928,6 +3951,38 @@
     "N07_repair_downstream_identity_CPU": {
       "path": "reports/wc_paper_N07_repair_downstream_N08_N09_CPU_preparation_20261016.json",
       "sha256": "e5b46e0f9e01c169168a9e6abceb21f85026e0a0a5200e011e07b09326110501"
+    },
+    "538": {
+      "path": "research/538_WC_N08_ACTUAL_START_HALFWAY_TECHNICAL_COLLECTION_CPU_READY_20261016.md",
+      "sha256": "68c77d7008946ce0d3d2db7b8d3d913a22b542da59545779ef4372e83648d06d"
+    },
+    "N08_midpoint_health_core": {
+      "path": "src/wcomr/balanced_repeat_health_r1.py",
+      "sha256": "1d777b8a0350189d93f1c092632544bd26db55f9967570c0cd84cac39db4d2e0"
+    },
+    "N08_midpoint_health_CLI": {
+      "path": "scripts/capture_wc_paper_N08_midpoint_health_r1.py",
+      "sha256": "855ebdf7e19547a875924bf19f317a87b05a9badbb89ee6c365f241697820bd1"
+    },
+    "N08_actual_start_midpoint_launcher": {
+      "path": "scripts/launch_wc_paper_N08_balanced_full40_r1.py",
+      "sha256": "ccc4fcb480f2e0e6bbea6066a640c3e669c949b5d98d84b91d2d1e28f86dc6f8"
+    },
+    "N08_midpoint_declared_CPU_pack": {
+      "path": "scripts/deploy_wc_paper_N08_production_cpu_r1.py",
+      "sha256": "56233c27900ae94ece17b0fa21a7aa6d8ee94d0e57d6676a1a531075bd568224"
+    },
+    "N08_midpoint_capture_controls": {
+      "path": "tests/test_balanced_repeat_capture_r1.py",
+      "sha256": "ec925f1aadfaa21281243f5f40eadafc38d3c19e06c36b12a1a9e37688d9912a"
+    },
+    "N08_actual_start_midpoint_controls": {
+      "path": "tests/test_balanced_repeat_dispatch_r1.py",
+      "sha256": "e6e4a22214a0628baa1b495655ac4c90fbda17f258316e2ec64145b00c8e4f78"
+    },
+    "N08_midpoint_local_CPU_preparation": {
+      "path": "reports/wc_paper_N08_midpoint_health_tools_local_CPU_20261016.json",
+      "sha256": "296b4446d233cdc5d546cbf137f524197ff55452225ba771700ccc830a36000c"
     }
   },
   "operation_policy": {
@@ -4304,7 +4359,10 @@
     "N07_repair_new_checks_derive_from_actual_start": true,
     "N07_repair_downstream_binding_local_CPU_accepted": true,
     "N07_repair_downstream_binding_ref": "research/537_WC_N07_REPAIR_DOWNSTREAM_N08_N09_SOURCE_IDENTITY_BRIDGE_CPU_READY_20261016.md",
-    "N07_repair_downstream_production_CPU_actual": false
+    "N07_repair_downstream_production_CPU_actual": false,
+    "N08_halfway_technical_tools_ready": true,
+    "N08_halfway_local_CPU_ref": "reports/wc_paper_N08_midpoint_health_tools_local_CPU_20261016.json",
+    "N08_new_midpoint_automation_selected": false
   },
-  "mapping_sha256_at_inventory": "52fe93ea6c2b27183c7c46e4d0639368ed7203119998990cbc7cefb470abd6fe"
+  "mapping_sha256_at_inventory": "a5134f3fff8ae9ed2c51a7c9f8aa6e4e3cadc5c232a01e82ff62089de142f25e"
 }

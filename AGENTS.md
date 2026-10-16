@@ -1,3 +1,7 @@
+## 2026-10-16 N08半程一次技术查收本地CPU通过
+
+[538半程接线](research/538_WC_N08_ACTUAL_START_HALFWAY_TECHNICAL_COLLECTION_CPU_READY_20261016.md)：N08启动回执新增实际窗口一半的时点，原句柄/只读/去重/UNKNOWN与最终时间保持；34本地CPU及3冷CLI通过，新控制已并入原capture组/仍九命令生产CPU。实际配置/服务器CPU/GPU仍待N07，未虚构新绝对时间或创建自动化。本轮0SSH/新GPU/账本写，未改99数值源码或原N07半程工具；原R1/05:30和R2完整15.0556GPUh待原具体回复保持，F/B关闭。以下为历史。
+
 ## 2026-10-16 N07修复版到N08/N09接续本地CPU通过
 
 [537显式来源接续](research/537_WC_N07_REPAIR_DOWNSTREAM_N08_N09_SOURCE_IDENTITY_BRIDGE_CPU_READY_20261016.md)：R2实际run/source/config保留，以原冻结配置核对方法；N08部署和N09合同已接完整180独立重验，31本地CPU/2冷入口通过，10合法文本拒绝保留完整分母。未改99数值源码；0SSH/实际服务器CPU/新GPU/账本写，不追认6e10aa3已有CPU覆盖新下游代码。原R1/05:30与R2完整15.0556GPUh待原具体回复保持；真实N08九命令CPU/完整40及N09测量待前序验收，F/B关闭。以下为历史。

@@ -64,6 +64,7 @@ class DispatchControls(unittest.TestCase):
             self.assertEqual(len(calls), 2); self.assertEqual(result['scope_counts']['total_paths'], 40)
             self.assertEqual(result['supervisor_pid'], 1001); self.assertEqual(result['post_watcher_pid'], 1002)
             self.assertAlmostEqual(result['next_check_not_before_unix'] - result['started_unix'], 120.)
+            self.assertAlmostEqual(result['midpoint_health_not_before_unix'] - result['started_unix'], 60.)
             self.assertEqual(sha(stage / 'GPU-launch-request.json'), old)
             with self.assertRaises(FileExistsError): execute(code, root, config, bound, registration, popen)
             self.assertEqual(len(calls), 2)

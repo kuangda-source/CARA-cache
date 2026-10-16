@@ -53,7 +53,7 @@ receipt=dict(status='N08_FULL40_DISPATCHED_FRESH_ADMISSION_PENDING',stage=str(st
  authorization_sha256=sha(authoritypath),production_CPU_sha256=sha(proofpath),
  supervisor_pid=job.pid,supervisor_identity=identity,post_watcher_pid=None,post_watcher_identity=None,
  command=command,started_unix=now,forecast_complete_GPUh=config['forecast_complete_GPUh'],billed_limit_GPUh=config['billed_limit_GPUh'],
- next_check_not_before_unix=now+delay)
+ next_check_not_before_unix=now+delay,midpoint_health_not_before_unix=now+delay/2)
 write(stage/'N08-GPU-launch.json',receipt)
 postcommand=[sys.executable,str(stage/'scripts/watch_wc_paper_N08_post_cpu_r1.py'),
  '--project',str(root),'--stage',str(stage),'--supervisor-pid',str(job.pid),'--supervisor-start-ticks',str(identity['start_ticks'])]

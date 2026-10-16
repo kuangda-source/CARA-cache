@@ -1,0 +1,44 @@
+{
+  "status": "N08_ACTUAL_START_HALFWAY_AND_ONCE_TECHNICAL_HEALTH_LOCAL_CPU_READY_NOT_RUNNING",
+  "base_revision": "021a2c778e4a92c568c84592c26e224a74b1c0fc",
+  "source_sha256": {
+    "src/wcomr/balanced_repeat_health_r1.py": "1d777b8a0350189d93f1c092632544bd26db55f9967570c0cd84cac39db4d2e0",
+    "scripts/capture_wc_paper_N08_midpoint_health_r1.py": "855ebdf7e19547a875924bf19f317a87b05a9badbb89ee6c365f241697820bd1",
+    "scripts/launch_wc_paper_N08_balanced_full40_r1.py": "ccc4fcb480f2e0e6bbea6066a640c3e669c949b5d98d84b91d2d1e28f86dc6f8",
+    "scripts/deploy_wc_paper_N08_production_cpu_r1.py": "56233c27900ae94ece17b0fa21a7aa6d8ee94d0e57d6676a1a531075bd568224",
+    "tests/test_balanced_repeat_capture_r1.py": "ec925f1aadfaa21281243f5f40eadafc38d3c19e06c36b12a1a9e37688d9912a",
+    "tests/test_balanced_repeat_dispatch_r1.py": "e6e4a22214a0628baa1b495655ac4c90fbda17f258316e2ec64145b00c8e4f78"
+  },
+  "original_observer_sources": {
+    "src/wcomr/frozen_shared_health_r1.py": "a1690331e1e4cffa6a77fa751ad34cfe36f4c67b810984d3069d4ad525735a0f",
+    "scripts/capture_wc_paper_N07_midpoint_health_r1.py": "e42a94748bf758aa8b7871d6aae59f24027ddc6e1725616df870636c73fb4d5e"
+  },
+  "current_local_tests": 34,
+  "new_halfway_tests": 6,
+  "cold_CLI_checks": 3,
+  "cold_CLI_outputs": {
+    "halfway": "usage: capture_wc_paper_N08_midpoint_health_r1.py [-h] --launch-ref LAUNCH_REF\n                                                  --admission-ref\n                                                  ADMISSION_REF --output\n                                                  OUTPUT\n\nOne original N08 halfway technical check from its saved live admission.\n\noptional arguments:\n  -h, --help            show this help message and exit\n  --launch-ref LAUNCH_REF\n  --admission-ref ADMISSION_REF\n  --output OUTPUT\n",
+    "launch": "usage: launch_wc_paper_N08_balanced_full40_r1.py [-h] --stage STAGE\n                                                 --authorization AUTHORIZATION\n                                                 --output OUTPUT\n\nSingle dispatch of an already frozen, CPU-accepted whole40 authority.\n\noptional arguments:\n  -h, --help            show this help message and exit\n  --stage STAGE\n  --authorization AUTHORIZATION\n  --output OUTPUT\n",
+    "CPU_deploy": "usage: deploy_wc_paper_N08_production_cpu_r1.py [-h] --base-CPU-capture\n                                                BASE_CPU_CAPTURE --N07-capture\n                                                N07_CAPTURE --N07-acceptance\n                                                N07_ACCEPTANCE --stage STAGE\n                                                --output OUTPUT\n\nGit-bound independent full40 CPU stage after accepted common testing.\n\noptional arguments:\n  -h, --help            show this help message and exit\n  --base-CPU-capture BASE_CPU_CAPTURE\n  --N07-capture N07_CAPTURE\n  --N07-acceptance N07_ACCEPTANCE\n  --stage STAGE\n  --output OUTPUT\n"
+  },
+  "tests_log_text": "test_actual_halfway_body_cold_stdlib_never_opens_final_or_exports_quality (test_balanced_repeat_capture_r1.HalfwayTechnicalControls) ... ok\ntest_before_halfway_and_after_final_never_query_or_create_attempt (test_balanced_repeat_capture_r1.HalfwayTechnicalControls) ... ok\ntest_full40_progress_retains_missing_running_refusal_and_excess_without_science (test_balanced_repeat_capture_r1.HalfwayTechnicalControls) ... ok\ntest_halfway_binds_full40_and_all_original_admitted_processes (test_balanced_repeat_capture_r1.HalfwayTechnicalControls) ... ok\ntest_halfway_timeout_or_bad_reply_is_unknown_never_permission_to_restart (test_balanced_repeat_capture_r1.HalfwayTechnicalControls) ... ok\ntest_one_halfway_observation_cache_and_attempt_fence (test_balanced_repeat_capture_r1.HalfwayTechnicalControls) ... ok\ntest_admission_aliases_original_registration_and_no_numeric_or_scientific_import (test_balanced_repeat_capture_r1.OnceCaptureControls) ... ok\ntest_before_original_ETA_never_calls_SSH (test_balanced_repeat_capture_r1.OnceCaptureControls) ... ok\ntest_cold_interpreter_without_site_packages_reads_only_stdlib_metadata (test_balanced_repeat_capture_r1.OnceCaptureControls) ... ok\ntest_terminal_reads_exact_SHA_bound_references_without_numeric_import (test_balanced_repeat_capture_r1.OnceCaptureControls) ... ok\ntest_CPU_authority_ETA_or_live_original_CPU_fail_before_any_dispatch_fence (test_balanced_repeat_dispatch_r1.DispatchControls) ... ok\ntest_single_sup_and_CPU_post_dispatch_and_original_fence_survives_retry (test_balanced_repeat_dispatch_r1.DispatchControls) ... ok\ntest_transport_timeout_keeps_original_identity_and_never_retries (test_balanced_repeat_dispatch_r1.DispatchControls) ... ok\ntest_unparseable_success_transport_is_unknown_not_success_or_GPU_relaunch (test_balanced_repeat_dispatch_r1.DispatchControls) ... ok\ntest_before_midpoint_and_after_final_never_SSH_or_create_attempt (test_frozen_shared_midpoint_health_r1.MidpointHealthControls) ... ok\ntest_one_observation_and_cached_receipt_never_duplicate_query (test_frozen_shared_midpoint_health_r1.MidpointHealthControls) ... ok\ntest_original_handle_missing_reused_and_post_failure_are_distinct (test_frozen_shared_midpoint_health_r1.MidpointHealthControls) ... ok\ntest_progress_counts_running_separately_and_never_returns_private_science_fields (test_frozen_shared_midpoint_health_r1.MidpointHealthControls) ... ok\ntest_real_original_process_binding_and_unchanged_two_times (test_frozen_shared_midpoint_health_r1.MidpointHealthControls) ... ok\ntest_transport_timeout_is_unknown_not_task_terminal_and_fence_prevents_race (test_frozen_shared_midpoint_health_r1.MidpointHealthControls) ... ok\ntest_actual_bootstrap_installs_one_fresh_CPU_only_stage_and_never_overwrites_base (test_balanced_repeat_packaging_r1.ProductionCPUPackagingControls) ... ok\ntest_actual_metadata_body_under_cold_stdlib_interpreter (test_balanced_repeat_packaging_r1.ProductionCPUPackagingControls) ... ok\ntest_before_CPU_ETA_never_calls_SSH (test_balanced_repeat_packaging_r1.ProductionCPUPackagingControls) ... ok\ntest_declared_fixture_pack_runs_all_eight_commands_in_isolated_local_stage (test_balanced_repeat_packaging_r1.ProductionCPUPackagingControls)\nActual copied current source and original test files, no fake path imports. ... ok\ntest_missing_real_final_config_refuses_before_network (test_balanced_repeat_packaging_r1.ProductionCPUPackagingControls) ... ok\ntest_one_observation_bytes_survive_local_parse_failure_without_second_network (test_balanced_repeat_packaging_r1.ProductionCPUPackagingControls) ... ok\ntest_original_common_completion_gate_retains_valid_rejections_not_test_scores (test_balanced_repeat_packaging_r1.ProductionCPUPackagingControls) ... ok\ntest_N08_actual_completion_entry_binds_repair_without_any_network (test_completed_shared_repair_binding_r2.CompletedRepairBindingControls) ... ok\ntest_N09_actual_contract_recomputes_repair_and_retains_N08_independent_gate (test_completed_shared_repair_binding_r2.CompletedRepairBindingControls) ... ok\ntest_both_actual_deployment_source_closures_include_repaired_full_acceptance (test_completed_shared_repair_binding_r2.CompletedRepairBindingControls) ... ok\ntest_foreign_source_capture_config_scope_or_context_cannot_be_substituted (test_completed_shared_repair_binding_r2.CompletedRepairBindingControls) ... ok\ntest_full180_actual_repair_identity_and_original_methods_remain_distinct (test_completed_shared_repair_binding_r2.CompletedRepairBindingControls) ... ok\ntest_registered_text_rejections_keep180_denominator_and_allow_accepted_available_cohorts (test_completed_shared_repair_binding_r2.CompletedRepairBindingControls) ... ok\ntest_saved_success_live_process_missing_post_or_wrong_guard_proof_never_suffices (test_completed_shared_repair_binding_r2.CompletedRepairBindingControls) ... ok\n\n----------------------------------------------------------------------\nRan 34 tests in 22.025s\n\nOK\n",
+  "registered_total_paths": 40,
+  "registered_formal_paths": 30,
+  "registered_full_warmup_paths": 10,
+  "production_CPU_commands_unchanged": 9,
+  "midpoint_absolute_time_selected": false,
+  "times_derive_from_actual_launch": true,
+  "full_final_acceptance_unchanged": true,
+  "original_N07_numeric_files": 99,
+  "modified_N07_numeric_files": [],
+  "actual_N08_config_selected": false,
+  "actual_server_CPU_runs": 0,
+  "SSH_queries": 0,
+  "GPU_submissions": 0,
+  "ledger_written": false,
+  "actual_automations_added": 0,
+  "original_R1_final_collection_local": "2026-10-17T05:30:00+08:00",
+  "original_R1_schedule_modified": false,
+  "original_server_stage_modified": false,
+  "original_R2_whole_card_approval_pending": true
+}

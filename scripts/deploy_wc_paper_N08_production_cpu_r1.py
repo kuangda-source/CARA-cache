@@ -16,7 +16,8 @@ ENTRIES = ['scripts/' + name for name in (
     'launch_wc_paper_N08_balanced_full40_r1.py', 'capture_wc_paper_N08_balanced_full40_r1.py',
     'analyze_wc_paper_N08_balanced_full40_r1.py', 'run_wc_paper_N08_production_cpu_bundle_r1.py',
     'deploy_wc_paper_N08_production_cpu_r1.py', 'capture_wc_paper_N08_production_cpu_r1.py',
-    'accept_wc_paper_N08_production_cpu_r1.py')]
+    'accept_wc_paper_N08_production_cpu_r1.py', 'capture_wc_paper_N08_midpoint_health_r1.py',
+    'capture_wc_paper_N07_midpoint_health_r1.py')]
 TESTS = ['tests/' + name for name in (
     'test_balanced_repeat_timing_r1.py', 'test_balanced_repeat_execution_r1.py', 'test_balanced_repeat_production_r1.py',
     'test_balanced_repeat_post_r1.py', 'test_balanced_repeat_cpu_acceptance_r1.py', 'test_balanced_repeat_supervision_r1.py',
