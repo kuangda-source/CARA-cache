@@ -1,3 +1,5 @@
+**动作生产入口准备（529）：**[529](../research/529_WC_N09_ACTION12_PRODUCTION_CONTRACT_AND_RESIDENT_ENTRY_CPU_PREPARED_20261016.md)：N09动作12生产合同与单次驻留worker已接线，五项本地控制及两个冷入口通过，原32路径与99数值源码复用；实际配置/服务器CPU/监督及完整后处理仍待。原12父/944pairs与10.045GPUh规划不变，N07/N08后才准入。本轮0SSH/新GPU/账本写，N07今晚21:30半程/明早05:30、cap113和严格<12保持。
+
 **完整报价与执行器准备（528）：**[528](../research/528_WC_N09_ACTION12_WHOLE_COST_AND_FULL32_CPU_ADAPTER_ACCEPTED_20261016.md)：N09完整动作12/944pairs整卡规划10.045GPUh，执行器两flow完整32CPU及112原件1528张量独立接受，另13控制通过；原数值/范围保持，失败保留。Tiny CPU准备不当真实GPU价格，生产CPU/实际测量与最小标定费仍待。N07今晚21:30半程/明早05:30、N07→N08→N09/10及cap113/严格<12保持，本轮0SSH/新GPU/账本写。
 
 **动作测量准备（527）：**[527完整动作测量](../research/527_WC_N09_CURRENT_ACTION_PRICES_FULL16_TWO_MODE_SCOPE_AND_FULL24_CPU_READY_20261016.md)：N09当前C/A/P0/D同状态报价入口已写，保留16旧自然状态、audit/lean和完整三轮；拟议12父/944pairs范围已登记。两flow完整24条CPU/1888pairs及64原件640张量独立重读通过，另3时钟与7负例通过；Tiny权重/codec，非实际GPU价格。真实报价/生产CPU/GPU及最小标定采集费仍待。N07今晚21:30半程/明早05:30、主线顺序/cap113与<12保持，本轮0SSH/新GPU/服务器账本写。 以下为历史。

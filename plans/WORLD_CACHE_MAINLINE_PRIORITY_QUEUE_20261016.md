@@ -1,3 +1,7 @@
+## 2026-10-16 N09动作12生产入口本地CPU准备
+
+[529生产合同与入口](../research/529_WC_N09_ACTION12_PRODUCTION_CONTRACT_AND_RESIDENT_ENTRY_CPU_PREPARED_20261016.md)：N09动作12生产合同与单次驻留worker已接线，五项本地控制及两个冷入口通过，原32路径与99数值源码复用；实际配置/服务器CPU/监督及完整后处理仍待。原12父/944pairs与10.045GPUh规划不变，N07/N08后才准入。本轮0SSH/新GPU/账本写，N07今晚21:30半程/明早05:30、cap113和严格<12保持。 以下为历史。
+
 ## 2026-10-16 N09完整报价与12父执行器CPU接受
 
 [528完整报价与CPU](../research/528_WC_N09_ACTION12_WHOLE_COST_AND_FULL32_CPU_ADAPTER_ACCEPTED_20261016.md)：N09完整动作12/944pairs整卡规划10.045GPUh，执行器两flow完整32CPU及112原件1528张量独立接受，另13控制通过；原数值/范围保持，失败保留。Tiny CPU准备不当真实GPU价格，生产CPU/实际测量与最小标定费仍待。N07今晚21:30半程/明早05:30、N07→N08→N09/10及cap113/严格<12保持，本轮0SSH/新GPU/账本写。 以下为历史。
