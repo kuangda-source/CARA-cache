@@ -2028,7 +2028,9 @@
     "N10_midpoint_technical_terminal_572": "research/572_WC_N10_CPU_MIDPOINT_TERMINAL_TWO_ERRORS_FINAL_PENDING_20261018.md",
     "N10_failures_and_actual88_573": "research/573_WC_N10_FULL_CPU_FAILURE_DIAGNOSIS_AND_WINDOW88_ACTUAL_CPU_RUNNING_20261018.md",
     "N10_metadata_git_repairs_574": "research/574_WC_N10_ACTUAL_CPU_METADATA_AND_LOCAL_GIT_VERSION_REPAIRS_20261018.md",
-    "N10_R2_and_window88_midpoint_575": "research/575_WC_N10_REPAIRED_FULL_FIVE_CPU_R2_RUNNING_AND_WINDOW88_HALFWAY_20261018.md"
+    "N10_R2_and_window88_midpoint_575": "research/575_WC_N10_REPAIRED_FULL_FIVE_CPU_R2_RUNNING_AND_WINDOW88_HALFWAY_20261018.md",
+    "window88_accepted_and_full24_next_576": "research/576_WC_CORRECTION_WINDOW_FULL88_CPU_ACCEPTED_AND_FULL24_PRODUCTION_NEXT_20261018.md",
+    "GPU_two_hour_and_N10_R2_halfway_577": "research/577_WC_TWO_HOURLY_GPU_RESOURCE_CHECK_AND_N10_R2_MIDPOINT_20261018.md"
   },
   "evidence_batches": {
     "curve60": {
@@ -3647,7 +3649,7 @@
     },
     "drop1_window24_preparation": {
       "namespace": "DROP1_WINDOW24",
-      "status": "original_full88_CPU_technical_terminal_pending_full_acceptance",
+      "status": "complete88_numerical_CPU_accepted_real_production_pending",
       "formal_paths": 16,
       "warmup_paths": 8,
       "CPU_numerical_paths": 88,
@@ -3658,14 +3660,17 @@
       "report_id": "window88_and_SCP_halfway_569",
       "immutable_CPU_chain_prepared": true,
       "CPU_source_gates_ref": "reports/wc_drop1_window88_source_and_collection_gates_local_20261018.json",
-      "actual88_executed": "IN_PROGRESS_NOT_ACCEPTED",
+      "actual88_executed": true,
       "CPU_launch_ref": "reports/wc_drop1_window88_actual_CPU_R1_launch_20261018.json",
       "CPU_source_revision": "57b4c19fc475795ccfbd90590c4d8d569949df75",
       "CPU_pid": 1685865,
-      "numerical_CPU_accepted": false,
+      "numerical_CPU_accepted": true,
       "production_CPU_accepted": false,
       "GPU_submissions": 0,
-      "CPU_midpoint_capture_ref": "reports/wc_drop1_window88_actual_CPU_R1_midpoint_20261018_0214.json.gz"
+      "CPU_midpoint_capture_ref": "reports/wc_drop1_window88_actual_CPU_R1_midpoint_20261018_0214.json.gz",
+      "CPU_acceptance_ref": "reports/wc_drop1_window88_actual_CPU_R1_independent_acceptance_20261018.json",
+      "CPU_wall_seconds": 332.79266929626465,
+      "new_quality_scores": 0
     },
     "N10_server_original_SCP_R1": {
       "status": "all_bytes_server_and_local_independent_SHA_accepted_not_models_or_quality",
@@ -3704,7 +3709,7 @@
       "independent_acceptance_ref": "reports/wc_paper_N10_full_five_model_CPU_R1_independent_acceptance_20261018.json"
     },
     "N10_five_model_CPU_R2": {
-      "status": "complete_five_roles_repaired_actual_CPU_dispatched_pending_acceptance",
+      "status": "technical_terminal_all_five_exit0_pending_full_raw_acceptance",
       "source_revision": "fb89a755118257b520446e2e029f6231bc7ad191",
       "launch_ref": "reports/wc_paper_N10_full_five_model_CPU_R2_launch_20261018.json",
       "pid": 1688791,
@@ -3718,7 +3723,8 @@
       "model_CPU_accepted": false,
       "new_quality_scores": 0,
       "actual_GPUh": 0,
-      "local_repair_controls": 58
+      "local_repair_controls": 58,
+      "midpoint_ref": "reports/wc_paper_N10_full_five_model_CPU_R2_midpoint_20261018_0222.json"
     }
   },
   "statistical_rules": {
@@ -7119,6 +7125,34 @@
     "research/575_WC_N10_REPAIRED_FULL_FIVE_CPU_R2_RUNNING_AND_WINDOW88_HALFWAY_20261018.md": {
       "sha256": "b63c38d9fca265265936f410dcc9d4f41d47d2420ac2b742ece1dec422a10d5a",
       "bytes": 2781
+    },
+    "reports/wc_drop1_window88_actual_CPU_R1_collection_20261018_0220.json.gz": {
+      "sha256": "d00f40cec63c7e1d314a8c388fc5075e87c1e452ab61783fbafaed85b1390394",
+      "bytes": 173701
+    },
+    "reports/wc_drop1_window88_actual_CPU_R1_independent_acceptance_20261018.json": {
+      "sha256": "fecb3a664b38df3253007dc5090608e74aced5589ac0b0bcb49413032f34fa60",
+      "bytes": 682
+    },
+    "research/576_WC_CORRECTION_WINDOW_FULL88_CPU_ACCEPTED_AND_FULL24_PRODUCTION_NEXT_20261018.md": {
+      "sha256": "7487e7c7c27f54c19da706b21792fe805b039e5203ff7ce75f2c4d902ee6e353",
+      "bytes": 3457
+    },
+    "reports/wc_paper_N10_full_five_model_CPU_R2_midpoint_20261018_0222.json": {
+      "sha256": "71fdd3fa127ea704d49079e99f4da345c9d0ee858119e0731d206a1b14c896e8",
+      "bytes": 2335
+    },
+    "reports/wc_paper_N10_full_five_model_CPU_R2_midpoint_independent_20261018.json": {
+      "sha256": "ab39ad2e2d26304cdf134cd5ecec850068b51e8194b0af160e482919854613eb",
+      "bytes": 678
+    },
+    "reports/wc_GPU_resource_every_two_hours_human_rule_20261018.json": {
+      "sha256": "4571f9d03fea19eec343dcf81f3046310e6fb312e731b89e103b3559e87b142b",
+      "bytes": 525
+    },
+    "research/577_WC_TWO_HOURLY_GPU_RESOURCE_CHECK_AND_N10_R2_MIDPOINT_20261018.md": {
+      "sha256": "8d2109c65db82c382c679e3568cefa6452ee82394c9967e1e957bc5fd23e7148",
+      "bytes": 2315
     }
   },
   "math_notation": [

@@ -1,3 +1,9 @@
+## 2026-10-18 当前：完整88数值CPU已接受；五模型R2待02:30原件，GPU两小时一次
+
+[577最新安排](../../research/577_WC_TWO_HOURLY_GPU_RESOURCE_CHECK_AND_N10_R2_MIDPOINT_20261018.md)：用户不知道GPU释放时间，已创建worldcache-gpu每两小时一次轻量资源查看，占用不变安静，不再反复问释放时间；原N09完整40优先，fresh v2／UUID／真实CPU／完整报价准入及原失败fence不改。
+
+连续修正88／88及三命令已完整独立接受（576），source57b4c19／1686源和runtime一致，bundle332.7927秒、0CUDA／GPU／视频；两个查收自动化删除。下一步接完整24真实生产／旧12端点及四warm控制／报价，A3结果空。N10修复R2半程原sourcefb89a755／五分母／worker身份核对，原PID已终态且五角色均记录exit0；完整模型证明仍待02:30一次原件和独立接受，半程自动化删除、worldcache-n10-cpu-2保留，当前0质量分数／本项目GPU或CPU进程在途。cap226／最近实结110.869061155／预留0余115.130938845、origin历史与strict<12保持，GPU测速不并发重CPU，F/B关闭。以下为历史。
+
 ## 2026-10-18 当前：五模型修复R2在途；88原CPU半程已收，02:20完整验收
 
 [575当前任务](../../research/575_WC_N10_REPAIRED_FULL_FIVE_CPU_R2_RUNNING_AND_WINDOW88_HALFWAY_20261018.md)：N10 R1完整五原件只1/5独立接受保持；DINO宽高比描述、AMT规范路径及GitPython精确本地git version误拦截已限定修复，58本地控制通过。新完整五CPU sourcefb89a755／PID1688791/start555576034／244源已于02:14:16.819221单次派发，02:22半程、02:30完整接受各一次；原五权重／官方源／预处理不变，网络下载仍拒绝，0正式质量分数。
