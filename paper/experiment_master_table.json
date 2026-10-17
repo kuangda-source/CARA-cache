@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "updated_local_date": "2026-10-18",
-  "snapshot_basis": "Window24 run/post/contract source and eight local controls prepared; real N09 intervals, production config/CPU, and new A3 endpoints remain absent.",
-  "git_snapshot_before_inventory": "70ee578129dffc37b0f42e1ac30f62fe356dd5f5",
+  "snapshot_basis": "Whole24 immutable CPU deployment/acceptance and per-UUID supervision source prepared; nine local synthetic controls, no real CPU/GPU or quote.",
+  "git_snapshot_before_inventory": "3c9483e18c7e8109fb265bcfd1a8f6aa5e24846e",
   "mapping_ref": "paper/internal_to_paper_mapping.json",
   "scope": "scientific experiment families and complete cards, not each engineering retry; reused artifacts must not be summed as independent samples",
   "contributions": {
@@ -2373,7 +2373,18 @@
         "window24_all16_post_entry",
         "window24_N09_bound_config_builder",
         "window24_production_contract_controls",
-        "window24_entry_local_preparation"
+        "window24_entry_local_preparation",
+        "window24_CPU_and_supervision_source_582",
+        "window24_CPU_installer",
+        "window24_CPU_bundle",
+        "window24_CPU_once_collector",
+        "window24_CPU_independent_acceptor",
+        "window24_GPU_authority_binding",
+        "window24_GPU_supervisor",
+        "window24_original_supervisor_CPU_post",
+        "window24_lifecycle_control_tests",
+        "window24_lifecycle_local_preparation",
+        "window24_initial_local_output_parent_failure"
       ],
       "method_mapping_ids": [
         "module.gcr",
@@ -2630,7 +2641,18 @@
         "production_entry_local_preparation_ref": "reports/wc_drop1_window24_production_entry_local_preparation_20261018.json",
         "actual_N09_readout_intervals_available": false,
         "actual_production_config_generated": false,
-        "full_GPU_execution_envelope_ready": false
+        "full_GPU_execution_envelope_ready": false,
+        "CPU_deploy_and_collect_source_prepared": true,
+        "CPU_deploy_ref": "scripts/deploy_wc_drop1_window24_cpu_r1.py",
+        "CPU_collector_ref": "scripts/capture_wc_drop1_window24_cpu_r1.py",
+        "GPU_supervisor_and_postwatcher_source_prepared": true,
+        "GPU_supervisor_ref": "scripts/supervise_wc_drop1_window24_r1.py",
+        "lifecycle_local_controls_passed": 9,
+        "lifecycle_local_preparation_ref": "reports/wc_drop1_window24_lifecycle_source_local_preparation_20261018.json",
+        "current_Python_closure_files": 152,
+        "old88_payload_overwrites": 0,
+        "actual_new_CPU_stage_dispatched": false,
+        "client_GPU_launcher_and_final_acceptor_complete": false
       }
     }
   ],
@@ -3369,7 +3391,18 @@
     "window24_all16_post_entry": "scripts/postprocess_wc_drop1_window24_r1.py",
     "window24_N09_bound_config_builder": "scripts/prepare_wc_drop1_window24_production_config_r1.py",
     "window24_production_contract_controls": "tests/test_drop1_window24_production_r1.py",
-    "window24_entry_local_preparation": "reports/wc_drop1_window24_production_entry_local_preparation_20261018.json"
+    "window24_entry_local_preparation": "reports/wc_drop1_window24_production_entry_local_preparation_20261018.json",
+    "window24_CPU_and_supervision_source_582": "research/582_WC_WINDOW24_CPU_STAGING_ACCEPTANCE_AND_GPU_SUPERVISION_SOURCE_20261018.md",
+    "window24_CPU_installer": "scripts/deploy_wc_drop1_window24_cpu_r1.py",
+    "window24_CPU_bundle": "scripts/run_wc_drop1_window24_cpu_bundle_r1.py",
+    "window24_CPU_once_collector": "scripts/capture_wc_drop1_window24_cpu_r1.py",
+    "window24_CPU_independent_acceptor": "src/wcomr/drop1_window24_cpu_acceptance_r1.py",
+    "window24_GPU_authority_binding": "src/wcomr/drop1_window24_execution_envelope_r1.py",
+    "window24_GPU_supervisor": "scripts/supervise_wc_drop1_window24_r1.py",
+    "window24_original_supervisor_CPU_post": "scripts/watch_wc_drop1_window24_post_cpu_r1.py",
+    "window24_lifecycle_control_tests": "tests/test_drop1_window24_execution_envelope_r1.py",
+    "window24_lifecycle_local_preparation": "reports/wc_drop1_window24_lifecycle_source_local_preparation_20261018.json",
+    "window24_initial_local_output_parent_failure": "reports/wc_drop1_window24_envelope_local_R1_output_parent_failure_20261018.json"
   },
   "source_bindings": {
     "11": {
@@ -6311,6 +6344,50 @@
     "window24_entry_local_preparation": {
       "path": "reports/wc_drop1_window24_production_entry_local_preparation_20261018.json",
       "sha256": "2623a3f705cb7ec5cab04fc71920bcf7946566b5ce7fa9fee5fa3e1cc1f0fc3b"
+    },
+    "window24_CPU_and_supervision_source_582": {
+      "path": "research/582_WC_WINDOW24_CPU_STAGING_ACCEPTANCE_AND_GPU_SUPERVISION_SOURCE_20261018.md",
+      "sha256": "282dcce7ce7ce86f8f4a3c3b1088a744f4e524cd68b67a89482f3a4ec9f8e035"
+    },
+    "window24_CPU_installer": {
+      "path": "scripts/deploy_wc_drop1_window24_cpu_r1.py",
+      "sha256": "55e98c69cd850e69f00cd8f385cb1f8580065e67011524dac1e750e9d53967a8"
+    },
+    "window24_CPU_bundle": {
+      "path": "scripts/run_wc_drop1_window24_cpu_bundle_r1.py",
+      "sha256": "ded8ab1dfa54b1d205f54161426e3e9e6241715ae86028dca53ddc638046e741"
+    },
+    "window24_CPU_once_collector": {
+      "path": "scripts/capture_wc_drop1_window24_cpu_r1.py",
+      "sha256": "12ced8a6094b15fce7114531c2ddb7522bf183bf53dad38388a0c1337fc69b58"
+    },
+    "window24_CPU_independent_acceptor": {
+      "path": "src/wcomr/drop1_window24_cpu_acceptance_r1.py",
+      "sha256": "84312c678813aeac35f3e98ec19a7c4b199d996df2b000c52f73cf570554d991"
+    },
+    "window24_GPU_authority_binding": {
+      "path": "src/wcomr/drop1_window24_execution_envelope_r1.py",
+      "sha256": "9db0ba650758875a1f4d15712f10c100db8ed924f789ad438d9999b8e00f9b5c"
+    },
+    "window24_GPU_supervisor": {
+      "path": "scripts/supervise_wc_drop1_window24_r1.py",
+      "sha256": "32bf09564b9c030c59627cd9a1fc3d98ddd3419e105026f91cfa51184976f5f6"
+    },
+    "window24_original_supervisor_CPU_post": {
+      "path": "scripts/watch_wc_drop1_window24_post_cpu_r1.py",
+      "sha256": "5de5741722b5844eb6b99993c80c433b35a6dba33dcb8863db1457c53429720a"
+    },
+    "window24_lifecycle_control_tests": {
+      "path": "tests/test_drop1_window24_execution_envelope_r1.py",
+      "sha256": "4c5938a71196ec1e7e315c9212d97970b2085ed9104d003400eaed6e53f4e9c7"
+    },
+    "window24_lifecycle_local_preparation": {
+      "path": "reports/wc_drop1_window24_lifecycle_source_local_preparation_20261018.json",
+      "sha256": "b2e394356872d7bb1a2d973ed34da68952aee7a59f18dda778d4f303f0d843b1"
+    },
+    "window24_initial_local_output_parent_failure": {
+      "path": "reports/wc_drop1_window24_envelope_local_R1_output_parent_failure_20261018.json",
+      "sha256": "5e2a936bbe9a5b8f9af1b5eaaefa79964c922323e748bdc5d46c4b4399244f1b"
     }
   },
   "operation_policy": {
@@ -6964,13 +7041,14 @@
     "N09_fresh_CPU_R3_acceptance_ref": "reports/wc_paper_N09_actual40_production_CPU_R3_independent_acceptance_20261018.json",
     "N09_fresh_CPU_R3_ready_for_resource_admission": true,
     "current_local_source_preparation": {
-      "kind": "WINDOW24_RUN_POST_AND_UNSELECTED_PRICING",
-      "ref": "reports/wc_drop1_window24_production_entry_local_preparation_20261018.json",
-      "local_controls_passed": 8,
+      "kind": "WINDOW24_CPU_AND_GPU_LIFECYCLE_SOURCE",
+      "ref": "reports/wc_drop1_window24_lifecycle_source_local_preparation_20261018.json",
+      "local_controls_passed": 9,
       "actual_production_CPU_accepted": false,
-      "whole_quote_GPUh": null,
+      "complete_quote_GPUh": null,
+      "actual_new_CPU_stage_dispatched": false,
       "GPU_submissions": 0
     }
   },
-  "mapping_sha256_at_inventory": "9a30f10d905795931a551ebb7abee862cae5d943ef2ff02a873f5189f7c406e2"
+  "mapping_sha256_at_inventory": "7f7af1f23516c875ae2c38531835b564dbfd26e20d8da6971a2c6f1792334764"
 }
