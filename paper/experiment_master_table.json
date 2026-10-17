@@ -2106,7 +2106,7 @@
     },
     {
       "id": "N12",
-      "state": "正在运行｜登记在途/完整18 GPU0已准入，按时查收待验",
+      "state": "正在运行｜22:46原句柄技术检查通过，14完成/1执行/3未到达",
       "paper_experiment_name": "Correction-Paid Dense-Budget Reduction",
       "internal_ids": [
         "WC-DROP1-CAL4-THREEARM-FULL18-R1-20261017-A",
@@ -2143,7 +2143,10 @@
         "drop1_admission_CPU_crosscheck",
         "drop1_fresh_resources",
         "drop1_automations",
-        "drop1_acceptor_controls"
+        "drop1_acceptor_controls",
+        "N12_halfway_report_559",
+        "N12_halfway_original_2246",
+        "N12_halfway_independent_accepted"
       ],
       "method_mapping_ids": [
         "module.gcr",
@@ -2172,8 +2175,24 @@
       "GPU_admission_ref": "reports/wc_drop1_full18_independent_admission_acceptance_20261017.json",
       "actual_production_CPU_ref": "reports/wc_drop1_full56_actual18_CPU_independent_acceptance_20261017.json",
       "production_source_revision": "e76b4f8b934bb07bf045e6083f36eddb4711640d",
-      "current_liveness_basis_ref": "reports/wc_drop1_full18_independent_admission_acceptance_20261017.json",
-      "liveness_requeried_by_local_catalog_update": false
+      "current_liveness_basis_ref": "reports/wc_drop1_full18_halfway_health_20261017_2246.json.gz",
+      "liveness_requeried_by_local_catalog_update": false,
+      "latest_live_observed_unix": 1792248398.8291333,
+      "halfway_technical_check_accepted": true,
+      "halfway_independent_acceptance_ref": "reports/wc_drop1_full18_halfway_independent_technical_acceptance_20261017.json",
+      "halfway_technical_progress": {
+        "supervisor_status": "DROP1_GPU_RUNNING",
+        "runner_status": "DROP1_ALL18_FULL_PATHS_RUNNING",
+        "planned_slots": 18,
+        "states": {
+          "COMPLETE": 14,
+          "RUNNING": 1
+        },
+        "not_reached": 3,
+        "source_revision": "e76b4f8b934bb07bf045e6083f36eddb4711640d",
+        "config_sha256": "8c2a0d512f8ccc4f8a7a57a237949fcee56f4cb8dde9bfd94cd032369669b4ba"
+      },
+      "scientific_partial_read": false
     }
   ],
   "source_refs": {
@@ -2772,7 +2791,10 @@
     "N09_registered_N08_bridge": "src/wcomr/balanced_repeat_roundoff_acceptance_r1.py",
     "N09_actual40_194_source_dry_plan": "reports/wc_paper_N09_actual40_source_packet_dry_plan_20261017.json",
     "N09_actual40_complete_Git_packet_accepted": "reports/wc_paper_N09_complete194_Git_packet_local_acceptance_20261017.json",
-    "current_catalog_alias_alignment": "reports/wc_paper_current_catalog_alias_alignment_20261017.json"
+    "current_catalog_alias_alignment": "reports/wc_paper_current_catalog_alias_alignment_20261017.json",
+    "N12_halfway_report_559": "research/559_WC_DROP1_FULL18_ONCE_HALFWAY_HEALTH_AND_FINAL_PENDING_20261017.md",
+    "N12_halfway_original_2246": "reports/wc_drop1_full18_halfway_health_20261017_2246.json.gz",
+    "N12_halfway_independent_accepted": "reports/wc_drop1_full18_halfway_independent_technical_acceptance_20261017.json"
   },
   "source_bindings": {
     "11": {
@@ -2925,7 +2947,7 @@
     },
     "mainline_queue_20261016": {
       "path": "plans/WORLD_CACHE_MAINLINE_PRIORITY_QUEUE_20261016.md",
-      "sha256": "4e61ddefa481762d604b85e1a03906831938e385ca077cdf9168cb8075dc290e"
+      "sha256": "db89ff497c5d662889e5da665c234ce6c7384e73432764f5cb7021ab52268d1a"
     },
     "baseline_grid_prereg_20261016": {
       "path": "manifests/wc_paper_N05_bounded_baseline_grid_preregistration_draft_20261016.json",
@@ -5158,6 +5180,18 @@
     "current_catalog_alias_alignment": {
       "path": "reports/wc_paper_current_catalog_alias_alignment_20261017.json",
       "sha256": "4d01eccaa5baac79c7cc02f8fa15be9103fbb258df07f807e0c25ab1026c2876"
+    },
+    "N12_halfway_report_559": {
+      "path": "research/559_WC_DROP1_FULL18_ONCE_HALFWAY_HEALTH_AND_FINAL_PENDING_20261017.md",
+      "sha256": "78b2b15c1d2e25eec789c7b43eb314bae1a6e52499623f38e1e6240603dc057c"
+    },
+    "N12_halfway_original_2246": {
+      "path": "reports/wc_drop1_full18_halfway_health_20261017_2246.json.gz",
+      "sha256": "7fdd82ff54a6380d895431ca4ac780fe5bfb51db6a77ce5c10f5681cc13f91be"
+    },
+    "N12_halfway_independent_accepted": {
+      "path": "reports/wc_drop1_full18_halfway_independent_technical_acceptance_20261017.json",
+      "sha256": "20e40f76bf795239fc9195b36761bf7016dfe6e75c270ddbc856b1b01ed788d2"
     }
   },
   "operation_policy": {
@@ -5194,7 +5228,9 @@
           "loads": 1,
           "teacher_pairs": 0,
           "score_videos": 12
-        }
+        },
+        "last_live_observation_ref": "reports/wc_drop1_full18_halfway_health_20261017_2246.json.gz",
+        "last_live_observed_unix": 1792248398.8291333
       }
     ],
     "authoritative_budget": "reports/gpu-budget-v2.json",
@@ -5203,7 +5239,6 @@
     "available_after_whole_reservations_GPUh": 114.35520187614715,
     "per_UUID_lock_protocol": "plans/WORLD_CACHE_DUAL_GPU_EXECUTION_20261015.md",
     "scheduled_collections_local": {
-      "N12_HALFWAY": "2026-10-17T22:46:00+08:00",
       "N12_FINAL": "2026-10-18T00:01:00+08:00"
     },
     "running_forecasts_GPUh": {
@@ -5275,7 +5310,7 @@
     "W3_T0_T1_T2_CPU_evaluation_complete": true,
     "W3_phase_CPU_controls_complete": true,
     "new_W3_GPU_card_selected": false,
-    "current_running_cards_basis": "reports/wc_drop1_full18_independent_admission_acceptance_20261017.json",
+    "current_running_cards_basis": "reports/wc_drop1_full18_halfway_health_20261017_2246.json.gz",
     "historical_scheduled_collections_local": {
       "W3": "2026-10-16T01:00:00+08:00",
       "SIMPLE26D_MEMORY_R2": "2026-10-16T04:55:00+08:00",
@@ -5286,9 +5321,10 @@
       "N07_SHARED180": "2026-10-17T05:30:00+08:00",
       "N07_MIDPOINT_HEALTH": "2026-10-16T21:30:00+08:00",
       "N07_REPAIR180_R2_MIDPOINT": "2026-10-17T09:24:00+08:00",
-      "N07_REPAIR180_R2_ORIGINAL_FINAL_SUPERSEDED_BY_HUMAN": "2026-10-17T17:24:00+08:00"
+      "N07_REPAIR180_R2_ORIGINAL_FINAL_SUPERSEDED_BY_HUMAN": "2026-10-17T17:24:00+08:00",
+      "N12_HALFWAY_COMPLETED": "2026-10-17T22:46:00+08:00"
     },
-    "budget_values_asof": "2026-10-17T21:33:12.757866+08:00",
+    "budget_values_asof": "2026-10-17T22:46:38.829133+08:00",
     "last_CPU_task": {
       "kind": "N08_FULL40_ACTUAL_PRODUCTION_CPU",
       "source_revision": "8bdebc340737599a6923c01a31a4734b04bc3f4b",
@@ -5318,7 +5354,7 @@
     "N05_scientific_core66_scope_selected": true,
     "N05_production_CPU_or_GPU_selected": true,
     "N05_corrected_neighbor_gap_retained": true,
-    "budget_snapshot_asof": "2026-10-17T13:33:16.401109+08:00",
+    "budget_snapshot_asof": "2026-10-17T22:46:38.829133+08:00",
     "new_CPU_preparation_is_not_GPU_or_quality_result": true,
     "historical_CPU_tasks": [
       {
@@ -5647,7 +5683,9 @@
           "loads": 1,
           "teacher_pairs": 0,
           "score_videos": 12
-        }
+        },
+        "last_live_observation_ref": "reports/wc_drop1_full18_halfway_health_20261017_2246.json.gz",
+        "last_live_observed_unix": 1792248398.8291333
       }
     ],
     "active_experiment_GPU_count_observed": 1,
@@ -5660,7 +5698,7 @@
     "N07_R2_observed_job_actual_GPUh": 10.443678323069795,
     "N07_R2_own_job_reservation_GPUh": 0,
     "full_v2_pool_independent_terminal_acceptance_pending": true,
-    "current_budget_aggregate_freshness": "N12 accepted admission snapshot 2026-10-17T21:33:12.757866+08:00",
+    "current_budget_aggregate_freshness": "Original single halfway snapshot 2026-10-17T22:46:38.829133+08:00",
     "current_GPU_actual_bill_acceptance_ref": "reports/wc_paper_N08_balanced_full40_terminal_independent_acceptance_roundoff_r1_20261017.json",
     "N07_R2_terminal_scientific_available_cohorts_accepted": true,
     "N07_R2_all160_success": false,
@@ -5685,7 +5723,7 @@
     "paper_claims_revised_from_R2": true,
     "N07_now_exposed_for_subsequent_method_selection": true,
     "N08_original_checks_unchanged_by_design_update": true,
-    "active_experiment_count_observation_basis": "reports/wc_drop1_full18_independent_admission_acceptance_20261017.json; admitted snapshot, no new server observation",
+    "active_experiment_count_observation_basis": "reports/wc_drop1_full18_halfway_health_20261017_2246.json.gz",
     "N08_terminal_accepted": true,
     "N08_terminal_ref": "reports/wc_paper_N08_balanced_full40_terminal_independent_acceptance_roundoff_r1_20261017.json",
     "no_new_experiment_started_in_status_request": false,
@@ -5715,8 +5753,8 @@
     "N10_local_resource_materialized_and_hash_reaccepted": true,
     "N10_server_resource_relay_started": false,
     "N10_new_GPU_card_selected": false,
-    "last_goal_turn_classification": "PROGRESS_ACCEPTED_N07_N08_PAPER_DATA_AND_FIGURE_EXPORT",
-    "current_goal_turn_classification": "PROGRESS_N09_ACTUAL_PRIOR_REACCEPTANCE_SOURCE_ARCHIVE_AND_CATALOG_ALIGNMENT",
+    "last_goal_turn_classification": "PROGRESS_N09_ACTUAL_PRIOR_REACCEPTANCE_SOURCE_ARCHIVE_AND_CATALOG_ALIGNMENT",
+    "current_goal_turn_classification": "PROGRESS_CATALOG_ALIGNMENT_AND_VERIFIED_ORIGINAL_ONCE_HALFWAY_WAIT",
     "last_local_preparation_source_refs": [
       "N10_R2_actual_input_556",
       "N10_R2_all160_full960_inputs",
@@ -5734,11 +5772,28 @@
     "N07_all_method_scatter_is_secondary_availability_cohort": true,
     "N08_all30_repeat_observations_exported": true,
     "new_GPU_jobs_started_by_paper_export": 0,
-    "current_running_cards_current_liveness_requeried": false,
+    "current_running_cards_current_liveness_requeried": true,
     "budget_origin_used_GPUh": 79.99637737158223,
     "full_v2_pending_terminal_run_ids": [
       "wc-drop1-cal4-three-arm-full18-r1"
-    ]
+    ],
+    "N12_halfway_original_collected": true,
+    "N12_halfway_ref": "reports/wc_drop1_full18_halfway_health_20261017_2246.json.gz",
+    "N12_halfway_independent_ref": "reports/wc_drop1_full18_halfway_independent_technical_acceptance_20261017.json",
+    "N12_halfway_automation_status": "DELETED_AFTER_SINGLE_COMPLETED_CHECK",
+    "N12_final_automation_id": "worldcache-180",
+    "N12_halfway_technical_progress": {
+      "supervisor_status": "DROP1_GPU_RUNNING",
+      "runner_status": "DROP1_ALL18_FULL_PATHS_RUNNING",
+      "planned_slots": 18,
+      "states": {
+        "COMPLETE": 14,
+        "RUNNING": 1
+      },
+      "not_reached": 3,
+      "source_revision": "e76b4f8b934bb07bf045e6083f36eddb4711640d",
+      "config_sha256": "8c2a0d512f8ccc4f8a7a57a237949fcee56f4cb8dde9bfd94cd032369669b4ba"
+    }
   },
-  "mapping_sha256_at_inventory": "e459e8136f40f513046d2b863663899a59414549c381afef8d77f1f372e76693"
+  "mapping_sha256_at_inventory": "bf77a09a37da8c5a8cdfe8a06f37f777db9b0ba9acb66ab5bfca39fb1b131fce"
 }

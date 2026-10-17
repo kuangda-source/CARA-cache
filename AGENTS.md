@@ -1,5 +1,7 @@
 ## 2026-10-17 当前：E0完成，少一次D完整18卡已在GPU0准入
 
+**22:46半程已查收（559）：**原18总路径14完成/1执行/3未到达，三个原句柄及source/config/registration匹配，登记错误为空，GPU0原runner和UUID锁仍持有。仅技术快照，无科学partial或新质量/速度结果；完整验收仍10月18日00:01。快照实结109.394798124/cap226、预留2.25、可准入114.355201876，预留非实费。半程一次性自动化已删除，最终自动化保留；不继续轮询或新GPU。见[559](research/559_WC_DROP1_FULL18_ONCE_HALFWAY_HEALTH_AND_FINAL_PENDING_20261017.md)。
+
 E0剩余逐seed/布局/去step23 CPU及独立原件复算完成（553）；1674源、两flow56完整数值路径/36步旧前密与audit/lean/history/RGB控制、四命令实际服务器CPU均接受（358.104秒）。完整S26-C/S25-C/S25-A，四原CAL/seed0、12正式+6warm/18路径648pairs，一次加载、零新教师/Native，只删除实际更新21并在同位置比较C/A；没有新终点或速度结果。
 
 原source e76b4f8、stage wc-drop1-production-r1-20261017，21:31:29 GPU0锁内准入；supervisor1515148/runner1515544/post1515149。整卡预计1.758860873、计费上限2.25GPUh；累计cap226/origin79.996377372/所有历史账不变，实结109.394798124、预留2.25、可新准入114.355201876。已登记今晚22:46技术半程、10月18日00:01完整验收，各一次，不持续监听；不要重复派发或改原stage。见[555](research/555_WC_DROP1_FULL18_CPU_ACCEPTED_GPU_ADMISSION_AND_TWO_COLLECTIONS_20261017.md)。F/B关闭，P/历史增强后置；本卡之后先总结结果，不自动新GPU。以下为历史。
