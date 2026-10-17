@@ -3,7 +3,7 @@
   "updated_local_date": "2026-10-18",
   "repository": "kuangda-source/worldcache-omr-experiments",
   "repository_absolute_path": "/Users/kuangda_gao/Documents/世界模型加速实验/worldcache_omr",
-  "snapshot_git_commit_before_mapping": "941ea29fb6edef6a9534e24967c1443146afebc4",
+  "snapshot_git_commit_before_mapping": "e5949395118476d2dc63bccade7c84ce33193e90",
   "human_reference_conversation": {
     "id": "6abf4581-4ec8-83e8-8990-3efe11053cf4",
     "title": "worldcache讨论",
@@ -2123,7 +2123,11 @@
     "N10_full960_GPU_collector": "scripts/capture_wc_N10_full960_r1.py",
     "N10_full960_terminal_module": "src/wcomr/automatic_quality_terminal_r1.py",
     "N10_full960_offline_verifier": "scripts/analyze_wc_N10_full960_r1.py",
-    "N10_full960_terminal_control_tests": "tests/test_N10_full960_terminal_r1.py"
+    "N10_full960_terminal_control_tests": "tests/test_N10_full960_terminal_r1.py",
+    "N09_client_known_busy_preflight_589": "research/589_WC_N09_CLIENT_BUSY_RESOURCE_PREFLIGHT_PRESERVES_FRESH_STAGE_20261018.md",
+    "N09_client_known_busy_preflight_local_CPU": "reports/wc_paper_N09_client_busy_resource_guard_local_CPU_20261018.json",
+    "N09_runtime40_single_GPU_dispatcher": "scripts/launch_wc_paper_N09_runtime_profile40_r1.py",
+    "N09_runtime40_CPU_acceptance_tests": "tests/test_runtime_profile40_cpu_acceptance_r1.py"
   },
   "evidence_batches": {
     "curve60": {
@@ -3988,6 +3992,34 @@
       "local_terminal_controls": 11,
       "CLI_help_checks": 3,
       "preparation_ref": "reports/wc_paper_N10_full960_GPU_lifecycle_source_local_preparation_20261018.json"
+    },
+    "N09_client_pre_fence_known_busy_gate": {
+      "preparation_ref": "reports/wc_paper_N09_client_busy_resource_guard_local_CPU_20261018.json",
+      "client_orchestration_only": true,
+      "local_controls": 18,
+      "original_actual_CPU_proof_reaccepted": true,
+      "original_server_stage_modified": false,
+      "GPU_submissions": 0,
+      "original_fresh_R3_source": "1de07673a13f0fe441745e94316a0dd81e00348d",
+      "original_stage_scope": {
+        "requests": 2,
+        "methods": 5,
+        "formal_profile_control_paths": 30,
+        "full_warmup_paths": 10,
+        "total_paths": 40,
+        "ordinary_pairs": 1440,
+        "ordinary_CFG_calls": 2880,
+        "loads": 1,
+        "online_teacher_pairs": 0,
+        "profiled_paths": 20,
+        "original_full_audit_formal_paths": 10,
+        "profile_full_audit_formal_paths": 10,
+        "profile_lean_formal_paths": 10,
+        "all_guided_parity_pairs": 10,
+        "profile_audit_lean_endpoint_parity_pairs": 10,
+        "accepted_video_expected_frames": 93
+      },
+      "normal_busy_consumes_dispatch_fence": false
     }
   },
   "statistical_rules": {
@@ -5774,8 +5806,8 @@
       "bytes": 1057
     },
     "tests/test_runtime_profile40_cpu_acceptance_r1.py": {
-      "sha256": "2c686ea74da00404fa643a35759ca08ccac972540658f91b1333fe6372e2e326",
-      "bytes": 25391
+      "sha256": "e554a3aa0c62fec82c1d9f6283235e6d09e1c94c0ba77356a3c387ea79b036d0",
+      "bytes": 28589
     },
     "reports/wc_paper_N09_runtime40_CPU_bundle_and_acceptor_R1_20261016.json": {
       "sha256": "b3cd1a58f158f63c03b3c94e8062aa51305bf9147f6bf2356c7e1ad220acfddb",
@@ -5822,8 +5854,8 @@
       "bytes": 3717
     },
     "scripts/launch_wc_paper_N09_runtime_profile40_r1.py": {
-      "sha256": "36eb6899ee92934b7cb9e267bee70ad4238a9c168f998653e736a6f7c39369cb",
-      "bytes": 9363
+      "sha256": "fa7ebe028beab72735a0cc46e88e933882afbc629c76825789ce0eac11a6cbb4",
+      "bytes": 11544
     },
     "reports/wc_paper_N09_single_GPU_dispatch_local_CPU_R1_20261016.json": {
       "sha256": "33bc61b41daebe6041435bb6c7eb91a1ace914b67b0dc7300a64385f273de009",
@@ -5838,28 +5870,28 @@
       "bytes": 8960
     },
     "memory/handoffs/LATEST.md": {
-      "sha256": "af6933c226fb1c6d46100e240bb499c58d81fc15e1b7c25d116d808429ed4706",
-      "bytes": 685550
+      "sha256": "fe2a0766d435af5106ed7dddf49cee81fb3e038fc19e9e3ffbaf8eb5f2c318c9",
+      "bytes": 686559
     },
     "src/wcomr/runtime_profile40_acceptance_r1.py": {
       "sha256": "9d5de68477518880b2087a557b699a93ca73e8ab06a058e2c54059997af45116",
       "bytes": 17772
     },
     "research/09_NEXT_ACTIONS.md": {
-      "sha256": "9b7ce7e1f16844233be0f28aed50539c5ad9ef5e2c9cbf6bb6f9de95b4f56da8",
-      "bytes": 620700
+      "sha256": "82853ac4978a949c8b8bbe98f503badc9e56ef43a9546d9a784aee199f8a899e",
+      "bytes": 621694
     },
     "reports/wc_paper_N09_runtime40_collection_R1_fixture_failure_20261016.json": {
       "sha256": "1b03ddcd9982149e9fe2254c9770eb85b0f9b69e5f1f81958be66df55d1bb247",
       "bytes": 2169
     },
     "paper/EXPERIMENT_MASTER_TABLE.md": {
-      "sha256": "ba8994a77711aeb021547bf69b92b19bdd689f07d48f6ee731d77003471779e6",
-      "bytes": 90385
+      "sha256": "cb9eeabafab0e7e9b292b4598d558bdb95894c4e9afd90bc7ffbe791f4f0a9d7",
+      "bytes": 91391
     },
     "research/02_CURRENT_STATE.md": {
-      "sha256": "f42e2eea97d121d7439b6ef09fecc6862dec36d265a9594c7763ce7c26e3d419",
-      "bytes": 593386
+      "sha256": "f4058b07c34e0e1ad9cda184e7de67853f697f0d727b7643de2007d477d6d570",
+      "bytes": 594380
     },
     "tests/test_runtime_profile40_capture_r1.py": {
       "sha256": "40cba26bb42f450c8afdd075ef9e594ebd92639fd0424d61e5e8583ba1b17491",
@@ -5882,20 +5914,20 @@
       "bytes": 3368
     },
     "plans/WORLD_CACHE_MAINLINE_PRIORITY_QUEUE_20261016.md": {
-      "sha256": "1dc0c7d7cc298a94d1d2fc00cf9696d5e5e347834939fc46ff69168c6c1b0500",
-      "bytes": 78978
+      "sha256": "38d147ba3d605caec2305e9a3000d0cbef843be717e6db30740edcd2e8ec0302",
+      "bytes": 79984
     },
     "EXPERIMENT_REPORT.md": {
-      "sha256": "0b0ad669c0a632345fdf83366f59afcb48dc408d6dfd88956d164fd994667fda",
-      "bytes": 646698
+      "sha256": "9b959df64a01854e257a9573d81e05463c2ef1eba6e42ed70a00769a161e21ec",
+      "bytes": 647701
     },
     "paper/INTERNAL_TO_PAPER_MAPPING.md": {
-      "sha256": "964760661adce8070001a62285f94d0b258bb251df1ce9118de651d9add9d127",
-      "bytes": 98250
+      "sha256": "466cf1460073b45fe16e330b86380b30cb45e9a3618886f7b271e2d70d013fbb",
+      "bytes": 99256
     },
     "AGENTS.md": {
-      "sha256": "ce39c90a589913573aec6d782324946adbc0997d02089a24159f2b64a2bf85b6",
-      "bytes": 597341
+      "sha256": "006949b967bbd933eb03774ac731d037b3a1b174ecd5dcba88cf00231fd9d8bb",
+      "bytes": 598344
     },
     "scripts/prepare_wc_paper_N09_action16_scope_r1.py": {
       "sha256": "29ebbd44644f2711c31027d69de4b4d2347e8514a808551665007ba89ac6a15e",
@@ -6930,8 +6962,8 @@
       "bytes": 4803
     },
     "paper/README.md": {
-      "sha256": "70f3bc7d887c56fd56acc5156c9006276af1bc00ecfca89e97d8043b9cc70143",
-      "bytes": 23323
+      "sha256": "bea9a762463ae11ed7a5f0be4f93cc456b36b2edc537ab0a3cb269f1f6eedcb6",
+      "bytes": 24329
     },
     "reports/wc_paper_accepted_N07_N08_export_acceptance_20261017.json": {
       "sha256": "b12e1a39cd9d5ae2a52f6bf0af2ab2c0ce41a99694073a0d8389698a7a8ebc42",
@@ -7792,6 +7824,14 @@
     "scripts/analyze_wc_N10_full960_r1.py": {
       "sha256": "4fb1bc080b53dbf812b1b475af8e585438656e6a574a1be0584db640b2c6b005",
       "bytes": 1550
+    },
+    "research/589_WC_N09_CLIENT_BUSY_RESOURCE_PREFLIGHT_PRESERVES_FRESH_STAGE_20261018.md": {
+      "sha256": "459a6491d9c2ee7c36118041bf4c312af607a6a00d0e7f0ec798134c8d00b210",
+      "bytes": 3867
+    },
+    "reports/wc_paper_N09_client_busy_resource_guard_local_CPU_20261018.json": {
+      "sha256": "ebfb85a5d5130c269971b45942ea75bf4a92e6868acf565b6477f21302faeebb",
+      "bytes": 6511
     }
   },
   "math_notation": [
@@ -8180,7 +8220,8 @@
     "580": "research/580_WC_N09_FRESH_CPU_ACCEPTED_ALL12_WINDOW_CONTROLS_READY_AND_GPU_QUEUE_20261018.md",
     "581": "research/581_WC_WINDOW24_RUN_POST_AND_PRICING_ENTRY_PREPARATION_20261018.md",
     "582": "research/582_WC_WINDOW24_CPU_STAGING_ACCEPTANCE_AND_GPU_SUPERVISION_SOURCE_20261018.md",
-    "588": "research/588_WC_N10_FULL960_GPU_CLIENT_AND_INDEPENDENT_TERMINAL_SOURCE_READY_20261018.md"
+    "588": "research/588_WC_N10_FULL960_GPU_CLIENT_AND_INDEPENDENT_TERMINAL_SOURCE_READY_20261018.md",
+    "589": "research/589_WC_N09_CLIENT_BUSY_RESOURCE_PREFLIGHT_PRESERVES_FRESH_STAGE_20261018.md"
   },
   "experiment_inventory_ref": "paper/experiment_master_table.json",
   "experiment_inventory_table": "paper/EXPERIMENT_MASTER_TABLE.md",

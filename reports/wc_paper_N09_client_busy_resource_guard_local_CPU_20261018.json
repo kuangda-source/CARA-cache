@@ -1,0 +1,76 @@
+{
+  "status": "N09_CLIENT_KNOWN_BUSY_PREFLIGHT_BEFORE_DISPATCH_FENCE_LOCAL_CONTROLS_ACCEPTED",
+  "prepared_local": "2026-10-18T04:58:05.339654+08:00",
+  "git_snapshot_before_preparation": "e5949395118476d2dc63bccade7c84ce33193e90",
+  "changed_client_files": {
+    "scripts/launch_wc_paper_N09_runtime_profile40_r1.py": {
+      "sha256": "fa7ebe028beab72735a0cc46e88e933882afbc629c76825789ce0eac11a6cbb4",
+      "bytes": 11544
+    },
+    "tests/test_runtime_profile40_cpu_acceptance_r1.py": {
+      "sha256": "e554a3aa0c62fec82c1d9f6283235e6d09e1c94c0ba77356a3c387ea79b036d0",
+      "bytes": 28589
+    }
+  },
+  "tests": {
+    "command": "PYTHONPATH=src .venv/bin/python -m unittest discover -s tests -p 'test_runtime_profile40_cpu_acceptance_r1.py' -v",
+    "exit_code": 0,
+    "cases": 18,
+    "wall_seconds": 2.141,
+    "stdout_stderr": "test_CPU_transient_state_change_keeps_same_PID_start_identity (test_runtime_profile40_cpu_acceptance_r1.RuntimeProfile40CPUAcceptanceControls) ... ok\ntest_GPU_busy_fresh_check_does_not_consume_dispatch_fence_or_CPU_authority (test_runtime_profile40_cpu_acceptance_r1.RuntimeProfile40CPUAcceptanceControls) ... ok\ntest_GPU_dispatch_once_binds_full40_independent_CPU_and_both_check_times (test_runtime_profile40_cpu_acceptance_r1.RuntimeProfile40CPUAcceptanceControls) ... ok\ntest_GPU_dispatch_wrong_CPU_live_CPU_or_bad_ETA_refuses_before_fence (test_runtime_profile40_cpu_acceptance_r1.RuntimeProfile40CPUAcceptanceControls) ... ok\ntest_GPU_post_watcher_dispatch_failure_keeps_original_supervisor_receipt (test_runtime_profile40_cpu_acceptance_r1.RuntimeProfile40CPUAcceptanceControls) ... ok\ntest_GPU_resource_parser_refuses_unknown_and_accepts_only_other_UUID_activity (test_runtime_profile40_cpu_acceptance_r1.RuntimeProfile40CPUAcceptanceControls) ... ok\ntest_GPU_transport_unknown_or_bad_response_never_authorizes_relaunch (test_runtime_profile40_cpu_acceptance_r1.RuntimeProfile40CPUAcceptanceControls) ... ok\ntest_actual_bundle_driver_runs_all_eight_declared_mocked_children_and_preserves_once (test_runtime_profile40_cpu_acceptance_r1.RuntimeProfile40CPUAcceptanceControls) ... ok\ntest_before_ETA_does_not_query_and_transport_timeout_is_not_terminal (test_runtime_profile40_cpu_acceptance_r1.RuntimeProfile40CPUAcceptanceControls) ... ok\ntest_bundle_failure_keeps_original_commands_and_does_not_start_actual_entry (test_runtime_profile40_cpu_acceptance_r1.RuntimeProfile40CPUAcceptanceControls) ... ok\ntest_complete_same_source_declared_commands_accept_only_CPU_not_GPU (test_runtime_profile40_cpu_acceptance_r1.RuntimeProfile40CPUAcceptanceControls) ... ok\ntest_early_partial_payload_and_changed_reference_are_rejected (test_runtime_profile40_cpu_acceptance_r1.RuntimeProfile40CPUAcceptanceControls) ... ok\ntest_failed_missing_or_wrong_original_CPU_exit_never_accepts (test_runtime_profile40_cpu_acceptance_r1.RuntimeProfile40CPUAcceptanceControls) ... ok\ntest_malformed_return_is_retained_before_parse_error_and_remote_code_is_stdlib_syntax (test_runtime_profile40_cpu_acceptance_r1.RuntimeProfile40CPUAcceptanceControls) ... ok\ntest_no_skipped_entry_changed_command_source_or_stage_can_pass_bundle (test_runtime_profile40_cpu_acceptance_r1.RuntimeProfile40CPUAcceptanceControls) ... ok\ntest_once_capture_saves_original_compressed_bytes_and_offline_CLI_accepts_without_SSH (test_runtime_profile40_cpu_acceptance_r1.RuntimeProfile40CPUAcceptanceControls) ... ok\ntest_original_live_process_waits_and_reused_PID_does_not_get_restarted (test_runtime_profile40_cpu_acceptance_r1.RuntimeProfile40CPUAcceptanceControls) ... ok\ntest_scope_guard_native_GPU_and_reused102_99_source_controls (test_runtime_profile40_cpu_acceptance_r1.RuntimeProfile40CPUAcceptanceControls) ... ok\n\n----------------------------------------------------------------------\nRan 18 tests in 2.141s\n\nOK\n"
+  },
+  "CLI_help_exit_code": 0,
+  "actual_production_CPU_original_reaccepted_locally": true,
+  "original_production_CPU_capture_ref": "reports/wc_paper_N09_actual40_production_CPU_R3_collection_20261018_0246.json.gz",
+  "original_production_CPU_capture_sha256": "35b5547219cbb283223d18b2a75f59994931d411480d2a0c520f4e933e51e146",
+  "original_production_CPU_acceptance_ref": "reports/wc_paper_N09_actual40_production_CPU_R3_independent_acceptance_20261018.json",
+  "original_production_CPU_acceptance_sha256": "838bcba14f3a931dea94e434b40aeaad85eeaa47a625d15b1a191a816fade50f",
+  "server_source_revision": "1de07673a13f0fe441745e94316a0dd81e00348d",
+  "server_payload_files": 1787,
+  "server_registration_sha256": "4eea447ab29e28c43f2e70d89f718a40108808f32040f4d5cef753541645c7ae",
+  "original_production_CPU_sha256": "50859e37c40b9bc45d4e80bef2faa801ad19477d3e5d7724b23c83026f0650cc",
+  "numeric_and_observer_source_sha256": {
+    "src/wcomr/deployment_profile_r1.py": "28009ee042ad9aac2f17c6d35fddcc3b1a987b6f08a7fbbb48f942a2c3739291",
+    "src/wcomr/frozen_shared_execution_r1.py": "431cd8a3d86208a4ef6fb6665ad6d72dacf5fb3cfe0e5a3a628a932163ba8c68",
+    "src/wcomr/paper_baseline_grid_r1.py": "65e001e5b31cede8c21ac997b19f36d3c31b17a0899dc5002cfd849d03da298b",
+    "src/wcomr/simple26d_memory_r2.py": "b40b43284e5382551ce11e6ad3dcce9afa26e2cc27022bdb9622697105f4e583"
+  },
+  "server_supervisor_worker_post_and_contract_unchanged": true,
+  "immutable_server_stage_written": false,
+  "full_scope": {
+    "requests": 2,
+    "methods": 5,
+    "formal_profile_control_paths": 30,
+    "full_warmup_paths": 10,
+    "total_paths": 40,
+    "ordinary_pairs": 1440,
+    "ordinary_CFG_calls": 2880,
+    "loads": 1,
+    "online_teacher_pairs": 0,
+    "profiled_paths": 20,
+    "original_full_audit_formal_paths": 10,
+    "profile_full_audit_formal_paths": 10,
+    "profile_lean_formal_paths": 10,
+    "all_guided_parity_pairs": 10,
+    "profile_audit_lean_endpoint_parity_pairs": 10,
+    "accepted_video_expected_frames": 93
+  },
+  "forecast_GPUh": 4.245833333333334,
+  "billed_limit_GPUh": 5.0,
+  "known_busy_has_no_fence_or_children": true,
+  "unknown_observation_never_grants_replay": true,
+  "final_atomic_admission_remains_original_supervisor": true,
+  "real_GPU_submissions": 0,
+  "SSH_queries": 0,
+  "real_ledger_written": false,
+  "actual_new_component_prices": 0,
+  "actual_new_video_or_quality_result": false,
+  "resource_check_next_not_before_unix": 1792275720,
+  "resource_monitor_updated": {
+    "id": "worldcache-gpu",
+    "status": "ACTIVE",
+    "interval_hours": 2,
+    "next_not_before_unix": 1792275720,
+    "known_busy_receipt_not_a_dispatched_task": true
+  }
+}

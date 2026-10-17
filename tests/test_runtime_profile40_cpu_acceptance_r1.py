@@ -82,7 +82,7 @@ def GPU_dispatch_fixture(root):
     return values,authority,text
 
 
-def dispatch_context(module, root, values, *, alive_CPU=False, post_error=None):
+def dispatch_context(module, root, values, *, alive_CPU=False, post_error=None, gpu_text=None, apps_text=''):
     from contextlib import ExitStack
     from types import SimpleNamespace
     config,bound,stage,registration,_,_ = values
@@ -94,6 +94,12 @@ def dispatch_context(module, root, values, *, alive_CPU=False, post_error=None):
         name = 'supervise_wc_paper_N09_runtime_profile40_r1.py' if pid==12345 else 'watch_wc_paper_N09_post_cpu_r1.py'
         return dict(pid=pid,start_ticks=pid*10,state='R',command='SYNTHETIC_ONLY ' + name)
     stack.enter_context(patch('wcomr.gpu_budget_pool_v2.process_identity',side_effect=identity))
+    def telemetry(command,**kwargs):
+        if '--query-gpu=uuid,name,memory.used,compute_cap' in command:
+            return gpu_text if gpu_text is not None else values[4]['gpu_uuid']+', NVIDIA RTX A6000, 0, 8.6'
+        if '--query-compute-apps=gpu_uuid,pid' in command:return apps_text
+        raise AssertionError('Unexpected synthetic telemetry command: '+repr(command))
+    stack.enter_context(patch.object(module.subprocess,'check_output',side_effect=telemetry))
     spawned = stack.enter_context(patch.object(module.subprocess,'Popen',side_effect=[
         SimpleNamespace(pid=12345),post_error if post_error else SimpleNamespace(pid=12346)]))
     return stack,spawned
@@ -305,6 +311,40 @@ class RuntimeProfile40CPUAcceptanceControls(unittest.TestCase):
                 with stack,contextlib.redirect_stdout(io.StringIO()),self.assertRaises(AssertionError):
                     exec(compile(code,'SYNTHETIC_GPU_GATE_REFUSAL','exec'),{})
                 spawned.assert_not_called();self.assertFalse((stage / 'N09-GPU-launch-request.json').exists())
+
+    def test_GPU_busy_fresh_check_does_not_consume_dispatch_fence_or_CPU_authority(self):
+        from test_runtime_profile40_supervision_r1 import load_script
+        import contextlib,io,json
+        for mode in ('memory','own_process'):
+            with self.subTest(mode=mode),tempfile.TemporaryDirectory() as folder:
+                root=Path(folder);values,authority,text=GPU_dispatch_fixture(root);stage=values[2]
+                module=load_script('launch_wc_paper_N09_runtime_profile40_r1')
+                gpu=authority['gpu_uuid']+', NVIDIA RTX A6000, '+('48189' if mode=='memory' else '0')+', 8.6'
+                apps=authority['gpu_uuid']+', 999888' if mode=='own_process' else ''
+                code=module.remote_code(str(stage.relative_to(root)),authority,text).replace(
+                    "'/home/gaokuangda/data/gkd/worldcache_omr'",repr(str(root)))
+                before=values[-1].read();stack,spawned=dispatch_context(module,root,values,gpu_text=gpu,apps_text=apps)
+                stdout=io.StringIO()
+                with stack,contextlib.redirect_stdout(stdout),self.assertRaises(SystemExit) as stopped:
+                    exec(compile(code,'SYNTHETIC_BUSY_NO_FENCE_OR_CHILD','exec'),{})
+                self.assertEqual(stopped.exception.code,0);spawned.assert_not_called()
+                result=json.loads(stdout.getvalue());self.assertEqual(result['status'],'N09_RESOURCE_BUSY_NOT_DISPATCHED_NO_FENCE')
+                self.assertEqual(result['GPU_submissions'],0);self.assertFalse(result['dispatch_fence_written'])
+                for name in ('N09-GPU-launch-request.json','N09-launch-authorization.json','N09-production-CPU-independent-acceptance.json','N09-GPU-launch.json'):
+                    self.assertFalse((stage/name).exists(),name)
+                self.assertEqual(values[-1].read(),before)
+
+    def test_GPU_resource_parser_refuses_unknown_and_accepts_only_other_UUID_activity(self):
+        from test_runtime_profile40_supervision_r1 import load_script
+        m=load_script('launch_wc_paper_N09_runtime_profile40_r1');gpu='GPU-SYNTHETIC-N09'
+        self.assertTrue(m.resource_ready_before_fence(gpu,gpu+', NVIDIA RTX A6000, 0, 8.6','GPU-OTHER, 999888'))
+        for line,apps in [('GPU-WRONG, NVIDIA RTX A6000, 0, 8.6',''),
+                          (gpu+', NVIDIA RTX A6000, -1, 8.6',''),
+                          (gpu+', NVIDIA RTX A6000, N/A, 8.6',''),
+                          (gpu+', NVIDIA RTX A6000, 0, 8.6','UNKNOWN'),
+                          (gpu+', NVIDIA RTX A6000, 0, 8.6',gpu+', N/A')]:
+            with self.subTest(gpu=line,apps=apps),self.assertRaises(ValueError):
+                m.resource_ready_before_fence(gpu,line,apps)
 
     def test_GPU_post_watcher_dispatch_failure_keeps_original_supervisor_receipt(self):
         from test_runtime_profile40_supervision_r1 import load_script

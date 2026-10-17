@@ -2,6 +2,7 @@
 """Single dispatch of the original full40 after independent CPU acceptance."""
 import argparse
 import hashlib
+import inspect
 import json
 from pathlib import Path
 import shlex
@@ -10,8 +11,29 @@ import subprocess
 PYTHON = '/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python'
 
 
+def resource_ready_before_fence(gpu_uuid, gpu_text, apps_text):
+    """Read-only hint; the original supervisor still owns final atomic admission."""
+    fields = [x.strip() for x in gpu_text.strip().split(',')]
+    if (len(fields) != 4 or fields[0] != gpu_uuid or 'A6000' not in fields[1]
+            or fields[3] != '8.6'):
+        raise ValueError('Observe the exact original A6000 UUID before dispatch')
+    used = int(fields[2])
+    if used < 0: raise ValueError('Unknown GPU memory usage cannot authorize dispatch')
+    own_pids = []
+    for line in apps_text.splitlines():
+        if not line.strip(): continue
+        values = [x.strip() for x in line.split(',')]
+        if len(values) != 2 or int(values[1]) <= 0:
+            raise ValueError('Unknown GPU process observation cannot authorize dispatch')
+        if values[0] == gpu_uuid: own_pids.append(int(values[1]))
+    return used <= 1024 and not own_pids
+
+
 def remote_code(stage, authority, accepted_text):
-    return 'STAGE=' + repr(stage) + '\nAUTHORITY=' + repr(authority) + '\nCPU_ACCEPTED_TEXT=' + repr(accepted_text) + '\n' + r'''
+    header = ('STAGE=' + repr(stage) + '\nAUTHORITY=' + repr(authority)
+              + '\nCPU_ACCEPTED_TEXT=' + repr(accepted_text)
+              + '\nCLIENT_SHA=' + repr(hashlib.sha256(Path(__file__).read_bytes()).hexdigest()) + '\n')
+    return header + inspect.getsource(resource_ready_before_fence) + r'''
 import hashlib,json,math,os,pathlib,subprocess,sys,time
 root=pathlib.Path('/home/gaokuangda/data/gkd/worldcache_omr').resolve()
 relative=pathlib.PurePosixPath(STAGE)
@@ -53,6 +75,18 @@ assert not (root/'outputs'/RUN).exists()
 delay=config['first_collection_delay_seconds'];half=config.get('midpoint_health_delay_seconds',delay/2)
 assert all(isinstance(x,(int,float)) and not isinstance(x,bool) and math.isfinite(x) for x in (delay,half))
 assert delay>=60 and 0<half<delay
+gpu=subprocess.check_output(['nvidia-smi','-i',AUTHORITY['gpu_uuid'],
+ '--query-gpu=uuid,name,memory.used,compute_cap','--format=csv,noheader,nounits'],text=True,timeout=15).strip()
+apps=subprocess.check_output(['nvidia-smi','--query-compute-apps=gpu_uuid,pid',
+ '--format=csv,noheader,nounits'],text=True,timeout=15).strip()
+resource_check=dict(observed_unix=time.time(),gpu=gpu,compute_apps=apps,read_only=True,
+ final_atomic_admission_is_original_supervisor=True)
+if not resource_ready_before_fence(AUTHORITY['gpu_uuid'],gpu,apps):
+ print(json.dumps(dict(status='N09_RESOURCE_BUSY_NOT_DISPATCHED_NO_FENCE',source_revision=AUTHORITY['source_revision'],
+  stage=str(stage),run_id=RUN,launch_id=AUTHORITY['launch_id'],gpu_uuid=AUTHORITY['gpu_uuid'],
+  resource_check=resource_check,client_orchestrator_source_sha256=CLIENT_SHA,
+  GPU_submissions=0,ledger_written=False,dispatch_fence_written=False,
+  future_fresh_attempt_requires_new_resource_snapshot=True)));sys.exit(0)
 with (stage/'N09-GPU-launch-request.json').open('x') as h:
  json.dump(dict(launch_id=AUTHORITY['launch_id'],source_revision=AUTHORITY['source_revision']),h);h.flush();os.fsync(h.fileno())
 authoritypath=stage/'N09-launch-authorization.json';assert not authoritypath.exists();write(authoritypath,AUTHORITY)
@@ -75,6 +109,7 @@ receipt=dict(status='N09_FULL40_DISPATCHED_FRESH_ADMISSION_PENDING',project=str(
  post_watcher_pid=None,post_watcher_identity=None,command=command,started_unix=now,
  forecast_complete_GPUh=config['forecast_complete_GPUh'],billed_limit_GPUh=config['billed_limit_GPUh'],
  midpoint_health_not_before_unix=now+half,next_check_not_before_unix=now+delay,
+ resource_check_before_fence=resource_check,client_orchestrator_source_sha256=CLIENT_SHA,
  actual_GPU_admission_accepted_by_dispatch=False,clean_repeated_latency_claim=False)
 write(stage/'N09-GPU-launch.json',receipt)
 postcommand=[sys.executable,str(stage/'scripts/watch_wc_paper_N09_post_cpu_r1.py'),
