@@ -1,5 +1,6 @@
 """N09 whole40 production contract; actual config/quote are selected after N08."""
 import json
+import math
 from pathlib import Path
 
 from .balanced_repeat_production_r1 import read_reference, clean_registered_jobs
@@ -13,6 +14,55 @@ CPU_RESULT='N09-production-CPU-result.json'
 CPU_STATUS='N09_FULL40_ACTUAL_PRODUCTION_ENTRY_CPU_PASS_NOT_GPU'
 PROFILE_SOURCES=('src/wcomr/deployment_profile_r1.py','src/wcomr/frozen_shared_execution_r1.py',
                  'src/wcomr/paper_baseline_grid_r1.py','src/wcomr/simple26d_memory_r2.py')
+
+
+def saved_N08_metadata_matches(accepted, recomputed, capture):
+    """Preserve the registered std-only ULP rule across CPU platforms.
+
+    The bridge's diagnostic differences list depends on which platform recomputed
+    the std. Validate each list against the immutable original final, then compare
+    all semantic metadata using that same existing std-only rule. No new tolerance.
+    """
+    if all(accepted.get(k) == v for k, v in recomputed.items()):
+        return True
+    from .balanced_repeat_roundoff_acceptance_r1 import VERSION, ORIGINAL_SHA256, _equal
+    try:
+        left, right = (v['offline_roundoff_bridge'] for v in (accepted, recomputed))
+        keys = {'version', 'original_acceptor_sha256', 'original_strict_failure_retained',
+                'raw_observations_or_source_modified', 'derived_statistic_differences',
+                'numerical_tolerance_scope', 'all_other_original_gates_preserved'}
+        for metadata, bridge in ((accepted, left), (recomputed, right)):
+            if (set(bridge) != keys or bridge['version'] != VERSION
+                    or bridge['original_acceptor_sha256'] != ORIGINAL_SHA256
+                    or bridge['original_strict_failure_retained'] is not True
+                    or bridge['raw_observations_or_source_modified'] is not False
+                    or bridge['all_other_original_gates_preserved'] is not True
+                    or bridge['numerical_tolerance_scope'] != 'ONLY_SCENE_SAMPLE_STD_AT_MOST_ONE_ULP'):
+                return False
+            original_rows = capture['final']['timing_statistics']['scene_methods']
+            rows = metadata['timing_statistics']['scene_methods']
+            if len(rows) != len(original_rows):
+                return False
+            differences = []
+            for i, (original, row) in enumerate(zip(original_rows, rows)):
+                before, after = (v['complete_repeat_sample_std_seconds'] for v in (original, row))
+                if before == after:
+                    continue
+                if (type(before) is not float or type(after) is not float
+                        or not math.isfinite(before) or not math.isfinite(after)
+                        or min(before, after) < 0 or abs(before-after) > max(math.ulp(before), math.ulp(after))):
+                    return False
+                differences.append(dict(path=f'timing_statistics/scene_methods/{i}/complete_repeat_sample_std_seconds',
+                    original=before, independently_recomputed=after, absolute_difference=abs(before-after), maximum_allowed_ULP=1))
+            if bridge['derived_statistic_differences'] != differences:
+                return False
+        if ({k: v for k, v in left.items() if k != 'derived_statistic_differences'}
+                != {k: v for k, v in right.items() if k != 'derived_statistic_differences'}):
+            return False
+        return all(_equal(accepted.get(k), v, (k,), []) for k, v in recomputed.items()
+                   if k != 'offline_roundoff_bridge')
+    except (KeyError, TypeError, ValueError):
+        return False
 
 
 def collection_delays(config):
@@ -96,7 +146,9 @@ def referenced_contract(stage):
         repeated_recomputed=accept_registered_bridge(c8,c8['launch'])
     else:
         repeated_recomputed=accept_repeated(c8,c8['launch'])
-    originals=[(a8,repeated_recomputed)]
+    if not saved_N08_metadata_matches(a8,repeated_recomputed,c8):
+        raise ValueError('Recompute the original saved mainline acceptance before profile execution')
+    originals=[]
     if not repaired:originals.append((a7,accept_shared(c7,c7['launch'])))
     for accepted,recomputed in originals:
         if any(accepted.get(k)!=v for k,v in recomputed.items()):

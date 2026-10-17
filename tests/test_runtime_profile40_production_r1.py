@@ -7,6 +7,7 @@ import copy
 from contextlib import ExitStack
 import gzip
 import json
+import math
 from pathlib import Path
 import shutil
 import tempfile
@@ -85,6 +86,52 @@ def accepted_doubles(stage):
 
 
 class RuntimeProfileProductionControls(unittest.TestCase):
+    def platform_metadata(self):
+        from wcomr.balanced_repeat_roundoff_acceptance_r1 import VERSION, ORIGINAL_SHA256
+        x = .5
+        y = math.nextafter(x, math.inf)
+        bridge = dict(version=VERSION, original_acceptor_sha256=ORIGINAL_SHA256,
+            original_strict_failure_retained=True, raw_observations_or_source_modified=False,
+            derived_statistic_differences=[], numerical_tolerance_scope='ONLY_SCENE_SAMPLE_STD_AT_MOST_ONE_ULP',
+            all_other_original_gates_preserved=True)
+        fresh = dict(status='SYNTHETIC_ACCEPTED_N08', source_revision='1'*40,
+            timing_statistics=dict(scene_methods=[dict(scene='SYNTHETIC', method='SYNTHETIC',
+                complete_repeat_sample_std_seconds=y, complete_repeat_mean_seconds=100.)]),
+            offline_roundoff_bridge=bridge, LPIPS=.1)
+        saved = copy.deepcopy(fresh)
+        saved['timing_statistics']['scene_methods'][0]['complete_repeat_sample_std_seconds']=x
+        saved['offline_roundoff_bridge']['derived_statistic_differences']=[dict(
+            path='timing_statistics/scene_methods/0/complete_repeat_sample_std_seconds', original=y,
+            independently_recomputed=x, absolute_difference=y-x, maximum_allowed_ULP=1)]
+        return saved, fresh, dict(final=dict(timing_statistics=copy.deepcopy(fresh['timing_statistics'])))
+
+    def test_registered_std_only_roundoff_and_platform_diagnostic_list_can_differ(self):
+        saved,fresh,capture=self.platform_metadata(); before=copy.deepcopy((saved,fresh,capture))
+        self.assertTrue(P.saved_N08_metadata_matches(saved,fresh,capture))
+        self.assertTrue(P.saved_N08_metadata_matches(fresh,saved,capture))
+        self.assertEqual((saved,fresh,capture),before)
+
+    def test_platform_metadata_never_tolerates_other_values_or_invalid_diagnostics(self):
+        modes=('two_ULP','mean','LPIPS','source','raw_std','missing_diagnostic','forged_diagnostic',
+               'wrong_scope','unknown_version','source_hash','false_gate','missing_bridge','unknown_field')
+        for mode in modes:
+            with self.subTest(mode=mode):
+                saved,fresh,capture=self.platform_metadata()
+                if mode=='two_ULP':fresh['timing_statistics']['scene_methods'][0]['complete_repeat_sample_std_seconds']=math.nextafter(fresh['timing_statistics']['scene_methods'][0]['complete_repeat_sample_std_seconds'],math.inf)
+                elif mode=='mean':fresh['timing_statistics']['scene_methods'][0]['complete_repeat_mean_seconds']=math.nextafter(100.,math.inf)
+                elif mode=='LPIPS':fresh['LPIPS']=math.nextafter(.1,math.inf)
+                elif mode=='source':fresh['source_revision']='2'*40
+                elif mode=='raw_std':capture['final']['timing_statistics']['scene_methods'][0]['complete_repeat_sample_std_seconds']=2.
+                elif mode=='missing_diagnostic':saved['offline_roundoff_bridge']['derived_statistic_differences']=[]
+                elif mode=='forged_diagnostic':saved['offline_roundoff_bridge']['derived_statistic_differences'][0]['maximum_allowed_ULP']=2
+                elif mode=='wrong_scope':fresh['offline_roundoff_bridge']['numerical_tolerance_scope']='ANY_FLOAT'
+                elif mode=='unknown_version':fresh['offline_roundoff_bridge']['version']='UNREGISTERED'
+                elif mode=='source_hash':fresh['offline_roundoff_bridge']['original_acceptor_sha256']='0'*64
+                elif mode=='false_gate':fresh['offline_roundoff_bridge']['all_other_original_gates_preserved']=False
+                elif mode=='missing_bridge':fresh.pop('offline_roundoff_bridge')
+                else:fresh['offline_roundoff_bridge']['unexpected']=True
+                self.assertFalse(P.saved_N08_metadata_matches(saved,fresh,capture))
+
     def test_original40_scope_contract_separate_from_clean_timing_and_original_budget(self):
         config,scope,protocol,freeze,shared,bound=fixture()
         self.assertEqual(P.validate_contract(config,scope,protocol,freeze,shared),bound)
