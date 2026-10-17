@@ -3,7 +3,7 @@
   "updated_local_date": "2026-10-18",
   "repository": "kuangda-source/worldcache-omr-experiments",
   "repository_absolute_path": "/Users/kuangda_gao/Documents/世界模型加速实验/worldcache_omr",
-  "snapshot_git_commit_before_mapping": "475b45aa42478cf1e7b859266b80c9256aca4da2",
+  "snapshot_git_commit_before_mapping": "70ee578129dffc37b0f42e1ac30f62fe356dd5f5",
   "human_reference_conversation": {
     "id": "6abf4581-4ec8-83e8-8990-3efe11053cf4",
     "title": "worldcache讨论",
@@ -2057,7 +2057,16 @@
     "window24_all12_guard_tests": "reports/wc_drop1_window24_all12_controls_guard_tests_20261018.json",
     "window24_all12_control_core": "src/wcomr/drop1_window_original_controls_r1.py",
     "window24_all12_control_builder": "scripts/prepare_wc_drop1_window24_original_controls_r1.py",
-    "window24_all12_control_tests": "tests/test_drop1_window_original_controls_r1.py"
+    "window24_all12_control_tests": "tests/test_drop1_window_original_controls_r1.py",
+    "window24_source_entry_preparation_581": "research/581_WC_WINDOW24_RUN_POST_AND_PRICING_ENTRY_PREPARATION_20261018.md",
+    "window24_pricing_and_acceptance_prereg": "plans/WC_DROP1_WINDOW24_PRODUCTION_PRICING_AND_ACCEPTANCE_20261018.md",
+    "window24_production_module": "src/wcomr/drop1_window24_production_r1.py",
+    "window24_reversible_entry_adapter": "src/wcomr/drop1_window24_entry_adapter_r1.py",
+    "window24_actual_runner_entry": "scripts/run_wc_drop1_window24_r1.py",
+    "window24_all16_post_entry": "scripts/postprocess_wc_drop1_window24_r1.py",
+    "window24_N09_bound_config_builder": "scripts/prepare_wc_drop1_window24_production_config_r1.py",
+    "window24_production_contract_controls": "tests/test_drop1_window24_production_r1.py",
+    "window24_entry_local_preparation": "reports/wc_drop1_window24_production_entry_local_preparation_20261018.json"
   },
   "evidence_batches": {
     "curve60": {
@@ -3703,7 +3712,16 @@
       "all12_controls_independent_ref": "reports/wc_drop1_window24_all12_original_controls_independent_20261018.json",
       "all12_guard_tests_passed": 8,
       "fresh_remote_artifacts_reaudited": false,
-      "actual_production_CPU_accepted": false
+      "actual_production_CPU_accepted": false,
+      "production_runner_and_full16_post_source_prepared": true,
+      "pricing_config_builder_prepared": true,
+      "pricing_prereg_ref": "plans/WC_DROP1_WINDOW24_PRODUCTION_PRICING_AND_ACCEPTANCE_20261018.md",
+      "production_entry_local_controls_passed": 8,
+      "production_entry_local_preparation_ref": "reports/wc_drop1_window24_production_entry_local_preparation_20261018.json",
+      "real_N09_prices_available": false,
+      "actual_production_config_generated": false,
+      "full_GPU_envelope_ready": false,
+      "new_A3_quality_or_speed": null
     },
     "N10_server_original_SCP_R1": {
       "status": "all_bytes_server_and_local_independent_SHA_accepted_not_models_or_quality",
@@ -7348,6 +7366,42 @@
     "tests/test_drop1_window_original_controls_r1.py": {
       "sha256": "f89e5f89d2e08dd21970245187cd7d776b41c3c09b0d547a6d37eb96f3c5cc4a",
       "bytes": 3764
+    },
+    "research/581_WC_WINDOW24_RUN_POST_AND_PRICING_ENTRY_PREPARATION_20261018.md": {
+      "sha256": "dbddf12b65c98a36f4557a6655e4b5f08817a3c08bbaa34167572b6b979f37d1",
+      "bytes": 3688
+    },
+    "plans/WC_DROP1_WINDOW24_PRODUCTION_PRICING_AND_ACCEPTANCE_20261018.md": {
+      "sha256": "a08144c4349fc85f98bdcdd22cbd3c29044bd8766218503b230e3130acf6b955",
+      "bytes": 4224
+    },
+    "src/wcomr/drop1_window24_production_r1.py": {
+      "sha256": "8cea09e5d0b0e4b84f2f04fa62d58c972fcc5dbdb5e7e1d80afe1ae2698886f8",
+      "bytes": 14596
+    },
+    "src/wcomr/drop1_window24_entry_adapter_r1.py": {
+      "sha256": "d476dbbeb711cd042c17e0cc264d176064169aa6375a82bd010fcace6ae18291",
+      "bytes": 4289
+    },
+    "scripts/run_wc_drop1_window24_r1.py": {
+      "sha256": "847ce541bd2dfa3f4dc9384fa9faefe2970306892e553d3176e141575ae82a80",
+      "bytes": 614
+    },
+    "scripts/postprocess_wc_drop1_window24_r1.py": {
+      "sha256": "ea9f2c1a9dc877fbf4955a78050703dee80bfb6f91ea8e4a34a1a8573d1b64ab",
+      "bytes": 629
+    },
+    "scripts/prepare_wc_drop1_window24_production_config_r1.py": {
+      "sha256": "67d318368ebbbf050bd6308d55d5254905c5290391b7bce3c8915c45753602d9",
+      "bytes": 5169
+    },
+    "tests/test_drop1_window24_production_r1.py": {
+      "sha256": "8a7cdc4434347ad3f747f42e7b2516dbe67b37180e6c2aaa8b584bb0278cc2af",
+      "bytes": 8762
+    },
+    "reports/wc_drop1_window24_production_entry_local_preparation_20261018.json": {
+      "sha256": "2623a3f705cb7ec5cab04fc71920bcf7946566b5ce7fa9fee5fa3e1cc1f0fc3b",
+      "bytes": 3080
     }
   },
   "math_notation": [
@@ -7733,7 +7787,8 @@
     "568": "research/568_WC_N10_ORIGINAL_SCP_RESOURCE_RUNNING_AND_CPU_NEXT_20261018.md",
     "578": "research/578_WC_N10_ALL_FIVE_REAL_CPU_ACCEPTED_AND_ACTUAL_SCORER_FULL960_BOUND_20261018.md",
     "579": "research/579_WC_N09_FRESH_FULL40_CPU_R3_RUNNING_WHILE_TWO_HOURLY_GPU_CHECK_20261018.md",
-    "580": "research/580_WC_N09_FRESH_CPU_ACCEPTED_ALL12_WINDOW_CONTROLS_READY_AND_GPU_QUEUE_20261018.md"
+    "580": "research/580_WC_N09_FRESH_CPU_ACCEPTED_ALL12_WINDOW_CONTROLS_READY_AND_GPU_QUEUE_20261018.md",
+    "581": "research/581_WC_WINDOW24_RUN_POST_AND_PRICING_ENTRY_PREPARATION_20261018.md"
   },
   "experiment_inventory_ref": "paper/experiment_master_table.json",
   "experiment_inventory_table": "paper/EXPERIMENT_MASTER_TABLE.md",

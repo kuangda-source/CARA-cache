@@ -1,0 +1,40 @@
+{
+  "status": "WINDOW24_PRODUCTION_ENTRY_AND_PRICING_SOURCE_PREPARATION_ACCEPTED_NOT_ACTUAL_CPU_OR_GPU",
+  "unit_controls_passed": 8,
+  "unit_controls_reported_wall_seconds": 0.609,
+  "unit_prices_are_synthetic": true,
+  "actual_N09_admission_failure_refused_before_any_config_or_quote_write": true,
+  "negative_real_receipt_command": [
+    ".venv/bin/python",
+    "scripts/prepare_wc_drop1_window24_production_config_r1.py",
+    "--N09-capture",
+    "reports/wc_paper_N09_actual40_original_admission_collection_20261018.json.gz",
+    "--N09-acceptance",
+    "reports/wc_paper_N09_actual40_no_GPU_child_admission_independent_20261018.json",
+    "--quote-output",
+    "/Users/kuangda_gao/Documents/\u4e16\u754c\u6a21\u578b\u52a0\u901f\u5b9e\u9a8c/worldcache_omr/manifests/wc_window24_invalid_N09_gate_test_must_not_exist.json",
+    "--output",
+    "/Users/kuangda_gao/Documents/\u4e16\u754c\u6a21\u578b\u52a0\u901f\u5b9e\u9a8c/worldcache_omr/reports/wc_window24_invalid_N09_gate_test_must_not_exist.json"
+  ],
+  "negative_exit_code": 1,
+  "negative_stderr": "Traceback (most recent call last):\n  File \"/Users/kuangda_gao/Documents/\u4e16\u754c\u6a21\u578b\u52a0\u901f\u5b9e\u9a8c/worldcache_omr/scripts/prepare_wc_drop1_window24_production_config_r1.py\", line 88, in <module>\n    main()\n  File \"/Users/kuangda_gao/Documents/\u4e16\u754c\u6a21\u578b\u52a0\u901f\u5b9e\u9a8c/worldcache_omr/scripts/prepare_wc_drop1_window24_production_config_r1.py\", line 37, in main\n    N09 = read(a.N09_capture); accepted = accept(N09, N09['launch'])\n  File \"/Users/kuangda_gao/Documents/\u4e16\u754c\u6a21\u578b\u52a0\u901f\u5b9e\u9a8c/worldcache_omr/src/wcomr/runtime_profile40_acceptance_r1.py\", line 79, in accept\n    raise ValueError('Original full source and post-ETA terminal snapshot required; health is not acceptance')\nValueError: Original full source and post-ETA terminal snapshot required; health is not acceptance\n",
+  "negative_CPU_wall_seconds": 2.923985004425049,
+  "cold_CLI_help_paths": 3,
+  "source_sha256": {
+    "src/wcomr/drop1_window24_production_r1.py": "8cea09e5d0b0e4b84f2f04fa62d58c972fcc5dbdb5e7e1d80afe1ae2698886f8",
+    "src/wcomr/drop1_window24_entry_adapter_r1.py": "d476dbbeb711cd042c17e0cc264d176064169aa6375a82bd010fcace6ae18291",
+    "scripts/run_wc_drop1_window24_r1.py": "847ce541bd2dfa3f4dc9384fa9faefe2970306892e553d3176e141575ae82a80",
+    "scripts/postprocess_wc_drop1_window24_r1.py": "ea9f2c1a9dc877fbf4955a78050703dee80bfb6f91ea8e4a34a1a8573d1b64ab",
+    "scripts/prepare_wc_drop1_window24_production_config_r1.py": "67d318368ebbbf050bd6308d55d5254905c5290391b7bce3c8915c45753602d9",
+    "tests/test_drop1_window24_production_r1.py": "8a7cdc4434347ad3f747f42e7b2516dbe67b37180e6c2aaa8b584bb0278cc2af"
+  },
+  "existing_original_whole88_numerical_files_changed": false,
+  "full24_scope_preserved": true,
+  "actual_N09_prices_available": false,
+  "complete_quote_GPUh": null,
+  "actual_full24_production_CPU_accepted": false,
+  "new_A3_video_or_quality_results": null,
+  "SSH_queries": 0,
+  "GPU_submissions": 0,
+  "ledger_written": false
+}

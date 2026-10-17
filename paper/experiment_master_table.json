@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "updated_local_date": "2026-10-18",
-  "snapshot_basis": "Fresh full40 N09 production CPU independently accepted plus all12 original correction-window controls bound; no new GPU or scores.",
-  "git_snapshot_before_inventory": "475b45aa42478cf1e7b859266b80c9256aca4da2",
+  "snapshot_basis": "Window24 run/post/contract source and eight local controls prepared; real N09 intervals, production config/CPU, and new A3 endpoints remain absent.",
+  "git_snapshot_before_inventory": "70ee578129dffc37b0f42e1ac30f62fe356dd5f5",
   "mapping_ref": "paper/internal_to_paper_mapping.json",
   "scope": "scientific experiment families and complete cards, not each engineering retry; reused artifacts must not be summed as independent samples",
   "contributions": {
@@ -2364,7 +2364,16 @@
         "window24_all12_guard_tests",
         "window24_all12_control_core",
         "window24_all12_control_builder",
-        "window24_all12_control_tests"
+        "window24_all12_control_tests",
+        "window24_source_entry_preparation_581",
+        "window24_pricing_and_acceptance_prereg",
+        "window24_production_module",
+        "window24_reversible_entry_adapter",
+        "window24_actual_runner_entry",
+        "window24_all16_post_entry",
+        "window24_N09_bound_config_builder",
+        "window24_production_contract_controls",
+        "window24_entry_local_preparation"
       ],
       "method_mapping_ids": [
         "module.gcr",
@@ -2580,7 +2589,7 @@
         "card": "WC-DROP1-WINDOW-CAL4-FOURARM-FULL24-R1-20261018-A",
         "plan_ref": "plans/WC_DROP1_CORRECTION_WINDOW_FULL24_20261018.md",
         "static_scope_ref": "manifests/wc_drop1_correction_window_full24_static_scope_20261018.json",
-        "status": "COMPLETE88_NUMERICAL_CPU_ACCEPTED_REAL_PRODUCTION_AND_FULL24_GPU_PENDING",
+        "status": "COMPLETE88_AND_OLD12_ACCEPTED_RUN_POST_PRICING_SOURCE_PREPARED_REAL_PRODUCTION_PENDING",
         "GPU_submissions": 0,
         "quality_results": null,
         "timing_results": null,
@@ -2612,7 +2621,16 @@
         "all12_old_endpoint_controls_ref": "manifests/wc_drop1_window24_all12_original_controls_20261018.json",
         "all12_old_endpoint_controls_independent_ref": "reports/wc_drop1_window24_all12_original_controls_independent_20261018.json",
         "all12_control_tests_passed": 8,
-        "fresh_remote_old_artifacts_reaudited": false
+        "fresh_remote_old_artifacts_reaudited": false,
+        "production_entry_source_prepared": true,
+        "production_entry_ref": "scripts/run_wc_drop1_window24_r1.py",
+        "production_post_ref": "scripts/postprocess_wc_drop1_window24_r1.py",
+        "pricing_prereg_ref": "plans/WC_DROP1_WINDOW24_PRODUCTION_PRICING_AND_ACCEPTANCE_20261018.md",
+        "production_entry_local_controls_passed": 8,
+        "production_entry_local_preparation_ref": "reports/wc_drop1_window24_production_entry_local_preparation_20261018.json",
+        "actual_N09_readout_intervals_available": false,
+        "actual_production_config_generated": false,
+        "full_GPU_execution_envelope_ready": false
       }
     }
   ],
@@ -3342,7 +3360,16 @@
     "window24_all12_guard_tests": "reports/wc_drop1_window24_all12_controls_guard_tests_20261018.json",
     "window24_all12_control_core": "src/wcomr/drop1_window_original_controls_r1.py",
     "window24_all12_control_builder": "scripts/prepare_wc_drop1_window24_original_controls_r1.py",
-    "window24_all12_control_tests": "tests/test_drop1_window_original_controls_r1.py"
+    "window24_all12_control_tests": "tests/test_drop1_window_original_controls_r1.py",
+    "window24_source_entry_preparation_581": "research/581_WC_WINDOW24_RUN_POST_AND_PRICING_ENTRY_PREPARATION_20261018.md",
+    "window24_pricing_and_acceptance_prereg": "plans/WC_DROP1_WINDOW24_PRODUCTION_PRICING_AND_ACCEPTANCE_20261018.md",
+    "window24_production_module": "src/wcomr/drop1_window24_production_r1.py",
+    "window24_reversible_entry_adapter": "src/wcomr/drop1_window24_entry_adapter_r1.py",
+    "window24_actual_runner_entry": "scripts/run_wc_drop1_window24_r1.py",
+    "window24_all16_post_entry": "scripts/postprocess_wc_drop1_window24_r1.py",
+    "window24_N09_bound_config_builder": "scripts/prepare_wc_drop1_window24_production_config_r1.py",
+    "window24_production_contract_controls": "tests/test_drop1_window24_production_r1.py",
+    "window24_entry_local_preparation": "reports/wc_drop1_window24_production_entry_local_preparation_20261018.json"
   },
   "source_bindings": {
     "11": {
@@ -6248,6 +6275,42 @@
     "window24_all12_control_tests": {
       "path": "tests/test_drop1_window_original_controls_r1.py",
       "sha256": "f89e5f89d2e08dd21970245187cd7d776b41c3c09b0d547a6d37eb96f3c5cc4a"
+    },
+    "window24_source_entry_preparation_581": {
+      "path": "research/581_WC_WINDOW24_RUN_POST_AND_PRICING_ENTRY_PREPARATION_20261018.md",
+      "sha256": "dbddf12b65c98a36f4557a6655e4b5f08817a3c08bbaa34167572b6b979f37d1"
+    },
+    "window24_pricing_and_acceptance_prereg": {
+      "path": "plans/WC_DROP1_WINDOW24_PRODUCTION_PRICING_AND_ACCEPTANCE_20261018.md",
+      "sha256": "a08144c4349fc85f98bdcdd22cbd3c29044bd8766218503b230e3130acf6b955"
+    },
+    "window24_production_module": {
+      "path": "src/wcomr/drop1_window24_production_r1.py",
+      "sha256": "8cea09e5d0b0e4b84f2f04fa62d58c972fcc5dbdb5e7e1d80afe1ae2698886f8"
+    },
+    "window24_reversible_entry_adapter": {
+      "path": "src/wcomr/drop1_window24_entry_adapter_r1.py",
+      "sha256": "d476dbbeb711cd042c17e0cc264d176064169aa6375a82bd010fcace6ae18291"
+    },
+    "window24_actual_runner_entry": {
+      "path": "scripts/run_wc_drop1_window24_r1.py",
+      "sha256": "847ce541bd2dfa3f4dc9384fa9faefe2970306892e553d3176e141575ae82a80"
+    },
+    "window24_all16_post_entry": {
+      "path": "scripts/postprocess_wc_drop1_window24_r1.py",
+      "sha256": "ea9f2c1a9dc877fbf4955a78050703dee80bfb6f91ea8e4a34a1a8573d1b64ab"
+    },
+    "window24_N09_bound_config_builder": {
+      "path": "scripts/prepare_wc_drop1_window24_production_config_r1.py",
+      "sha256": "67d318368ebbbf050bd6308d55d5254905c5290391b7bce3c8915c45753602d9"
+    },
+    "window24_production_contract_controls": {
+      "path": "tests/test_drop1_window24_production_r1.py",
+      "sha256": "8a7cdc4434347ad3f747f42e7b2516dbe67b37180e6c2aaa8b584bb0278cc2af"
+    },
+    "window24_entry_local_preparation": {
+      "path": "reports/wc_drop1_window24_production_entry_local_preparation_20261018.json",
+      "sha256": "2623a3f705cb7ec5cab04fc71920bcf7946566b5ce7fa9fee5fa3e1cc1f0fc3b"
     }
   },
   "operation_policy": {
@@ -6899,7 +6962,15 @@
     "N10_production_scoring_CPU_accepted": false,
     "N09_fresh_CPU_R3_accepted": true,
     "N09_fresh_CPU_R3_acceptance_ref": "reports/wc_paper_N09_actual40_production_CPU_R3_independent_acceptance_20261018.json",
-    "N09_fresh_CPU_R3_ready_for_resource_admission": true
+    "N09_fresh_CPU_R3_ready_for_resource_admission": true,
+    "current_local_source_preparation": {
+      "kind": "WINDOW24_RUN_POST_AND_UNSELECTED_PRICING",
+      "ref": "reports/wc_drop1_window24_production_entry_local_preparation_20261018.json",
+      "local_controls_passed": 8,
+      "actual_production_CPU_accepted": false,
+      "whole_quote_GPUh": null,
+      "GPU_submissions": 0
+    }
   },
-  "mapping_sha256_at_inventory": "fe49fd66fb683e6a287257652bb0e67341079d5de5c1280ed5a0df55564fedc5"
+  "mapping_sha256_at_inventory": "9a30f10d905795931a551ebb7abee862cae5d943ef2ff02a873f5189f7c406e2"
 }
