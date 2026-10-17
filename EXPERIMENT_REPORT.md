@@ -1,3 +1,9 @@
+## 2026-10-18 当前：N09 fresh完整生产CPU R3在途；GPU每两小时查看
+
+[579当前原任务](research/579_WC_N09_FRESH_FULL40_CPU_R3_RUNNING_WHILE_TWO_HOURLY_GPU_CHECK_20261018.md)：source1de07673／新stage wc-paper-n09-production-cpu-r3-20261018／PID1699795/start555732410／1787源／194 overlay及10完整CPU命令已于02:40:20.584985单次派发。02:43一次技术半程、02:46一次完整原件接受，worldcache-n09-r3-cpu／worldcache-n09-r3-cpu-2；原N09 R2 GPU未准入的fence和0费用保持，fresh R3未GPU派发、不提前查CPU进度或GPU占用。
+
+N10五模型R2全5真实CPU及原160／960实际输入已独立接受，0质量分数；完整评分报价／生产CPU／GPU待。连续修正88数值CPU已接受，完整24生产／旧12端点与四warm控制／N09价格报价待，A3结果空。worldcache-gpu继续每两小时一次只读资源查看，占用不变安静；资源可用且fresh CPU／v2／UUID通过后完整N09优先，正式GPU测速不并发重CPU。cap226／最近实结110.869061155／预留0余115.130938845及origin历史保持，strict<12和长任务半程／预计结束各一次不变，F/B关闭。以下为历史。
+
 ## 2026-10-18 当前：五模型真实CPU全部接受；完整960实际输入就绪，GPU每两小时检查
 
 [578完整接受](research/578_WC_N10_ALL_FIVE_REAL_CPU_ACCEPTED_AND_ACTUAL_SCORER_FULL960_BOUND_20261018.md)：DINO／AMT_S／RAFT_THINGS／ViCLIP／MUSIQ_SPAQ真实CPU R2全5独立通过，原sourcefb89a755／244源／固定权重与构造器均已核对，bundle93.7842秒。原160正式／960指标位置已绑定该实际证明并独立逐格接受：645待评分、155视频不可用、160静态范围N/A；四项重新指纹的语义破坏均拒绝。当前质量分数仍0；完整报价／实际评分生产CPU／GPU待，原R1失败保留。
