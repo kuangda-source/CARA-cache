@@ -1,0 +1,241 @@
+{
+  "schema_version": 1,
+  "status": "DESIGN_ONLY_STATIC_MASKS_CHECKED_NOT_PRODUCTION_CPU_OR_GPU",
+  "report_ref": "research/551_WC_ENDPOINT_BUDGET_SCHEDULE_REDESIGN_AND_MINIMUM_D_REPLACEMENT_20261017.md",
+  "design_source": "LATEST_TWO_REFERENCE_TURNS_PLUS_R2_COMPLETE_RECEIPTS",
+  "proposed_card_id": "WC-ENDPOINT-DROP1-CAL4-THREEARM-FULL18-DRAFT",
+  "new_GPU_card_selected": false,
+  "production_CPU_accepted": false,
+  "GPU_submissions": 0,
+  "actual_GPUh": null,
+  "actual_quality": null,
+  "complete_forecast_GPUh": null,
+  "rough_target_GPUh": [
+    1.5,
+    2.0
+  ],
+  "rough_target_is_admission_quote": false,
+  "base_config": {
+    "path": "configs/wc_simple26d_memory_full36_r2_20261015.json",
+    "sha256": "885f0a554d34554c5ebedbc3036de062bec09e6702e63e141eed93ec956861c5"
+  },
+  "mask_source": {
+    "path": "src/wcomr/simple26d_r1.py",
+    "sha256": "7cf7cb6b321a9541f01e560cdde070e42dfd267612661078fc1df681ce4cb8a7"
+  },
+  "indexing": "ACTUAL_UNIPC_GUIDED_UPDATE_ONE_BASED_NOT_VIDEO_FRAME_OR_CFG_CALL",
+  "deleted_D_update": 21,
+  "selection_rule": "LAST_D_OF_INITIAL_CONTIGUOUS_D_PREFIX_IN_FROZEN_FRONT_PLAN",
+  "step23_already_reuse_in_front_plan": true,
+  "protected_steps": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    36
+  ],
+  "static_age_support": [
+    1,
+    6
+  ],
+  "plans": {
+    "S26-C": [
+      "D",
+      "D",
+      "D",
+      "D",
+      "D",
+      "D",
+      "D",
+      "D",
+      "D",
+      "D",
+      "D",
+      "D",
+      "D",
+      "D",
+      "D",
+      "D",
+      "D",
+      "D",
+      "D",
+      "D",
+      "D",
+      "C",
+      "C",
+      "D",
+      "C",
+      "C",
+      "D",
+      "C",
+      "C",
+      "D",
+      "C",
+      "C",
+      "D",
+      "C",
+      "C",
+      "D"
+    ],
+    "S25-C": [
+      "D",
+      "D",
+      "D",
+      "D",
+      "D",
+      "D",
+      "D",
+      "D",
+      "D",
+      "D",
+      "D",
+      "D",
+      "D",
+      "D",
+      "D",
+      "D",
+      "D",
+      "D",
+      "D",
+      "D",
+      "C",
+      "C",
+      "C",
+      "D",
+      "C",
+      "C",
+      "D",
+      "C",
+      "C",
+      "D",
+      "C",
+      "C",
+      "D",
+      "C",
+      "C",
+      "D"
+    ],
+    "S25-A": [
+      "D",
+      "D",
+      "D",
+      "D",
+      "D",
+      "D",
+      "D",
+      "D",
+      "D",
+      "D",
+      "D",
+      "D",
+      "D",
+      "D",
+      "D",
+      "D",
+      "D",
+      "D",
+      "D",
+      "D",
+      "A",
+      "C",
+      "C",
+      "D",
+      "C",
+      "C",
+      "D",
+      "C",
+      "C",
+      "D",
+      "C",
+      "C",
+      "D",
+      "C",
+      "C",
+      "D"
+    ]
+  },
+  "static_checks": {
+    "S26-C": {
+      "counts": {
+        "D": 26,
+        "A": 0,
+        "C": 10
+      },
+      "maximum_static_source_age": 2
+    },
+    "S25-C": {
+      "counts": {
+        "D": 25,
+        "A": 0,
+        "C": 11
+      },
+      "maximum_static_source_age": 3
+    },
+    "S25-A": {
+      "counts": {
+        "D": 25,
+        "A": 1,
+        "C": 10
+      },
+      "maximum_static_source_age": 3
+    }
+  },
+  "readout": {
+    "method": "BETA1_ONE_PHASE",
+    "shared_alpha_before25": 1.0,
+    "shared_alpha_from25": 0.5,
+    "true_D_updated_by_C_or_A": false
+  },
+  "scope": {
+    "CAL_inputs": [
+      "AV28",
+      "Human199",
+      "misc",
+      "AV51"
+    ],
+    "seed": 0,
+    "methods": 3,
+    "formal_paths": 12,
+    "full_warmup_paths": 6,
+    "total_paths": 18,
+    "guided_updates": 648,
+    "CFG_calls": 1296,
+    "model_loads": 1,
+    "new_teacher_pairs": 0,
+    "new_Native_paths": 0,
+    "score_frames_per_compatible_formal": 93,
+    "CAL_request_config_ref": "configs/wc_simple26d_memory_full36_r2_20261015.json"
+  },
+  "comparisons": [
+    [
+      "S25-A",
+      "S25-C"
+    ],
+    [
+      "S25-A",
+      "S26-C"
+    ],
+    [
+      "S25-C",
+      "S26-C"
+    ]
+  ],
+  "N08_modified": false,
+  "support_or_protection_relaxed": false,
+  "actual_source_readiness_accepted": false,
+  "failed_or_rejected_rows_preserved": true,
+  "noninferiority_margin": null,
+  "result_slots_unrun_are_null": true,
+  "downstream": {
+    "shared_plan_optimizer": "CONDITIONAL_NOT_IMPLEMENTED",
+    "step23_closed_loop": "OPTIONAL_EXISTING_N02_NOT_EXECUTED",
+    "fixed_quota_swap": "OPTIONAL_NOT_SELECTED",
+    "interval_DP": "CANDIDATE_GENERATOR_ONLY_NOT_TRUE_GLOBAL_OPTIMUM",
+    "MixTrend": "DEFERRED_PENDING_RESIDUAL_VALUE",
+    "P_ACR": "OPTIONAL_NOT_PREREQUISITE",
+    "F_B": "CLOSED"
+  }
+}

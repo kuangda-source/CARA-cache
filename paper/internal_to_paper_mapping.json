@@ -67,7 +67,7 @@
         "GCR"
       ],
       "experiment_namespaces": [],
-      "evidence_status": "completed_development_and_confirmation",
+      "evidence_status": "development_positive_N07_conditional_readout_transfer_mixed",
       "paper_role": "main_method",
       "implementation_paths": [
         "src/wcomr/cfg_guided_w1_deployment.py",
@@ -77,7 +77,7 @@
         "curve60",
         "confirm50"
       ],
-      "scope_note": "Current unit-gain phase-scaled readout; historical scalar/shrink variants are not aliases of this deployed implementation."
+      "scope_note": "Current unit-gain phase-scaled readout; historical scalar/shrink variants are not aliases of this deployed implementation. N07 A_NO_P does not establish stable superiority over RA; fixed-front A/C provides conditional evidence. Dense-budget replacement is proposed, not accepted."
     },
     {
       "id": "module.cpa",
@@ -90,7 +90,7 @@
         "CPA"
       ],
       "experiment_namespaces": [],
-      "evidence_status": "completed_table_policy_and_phase_deployment_new_trend_pending",
+      "evidence_status": "phase_operating_point_confirmed_independent_frontdense_advantage_unproven",
       "paper_role": "main_method",
       "implementation_paths": [
         "src/wcomr/source_phase_absolute_h1_control_r1.py",
@@ -101,7 +101,7 @@
         "curve60",
         "confirm50"
       ],
-      "scope_note": "Current high-fidelity evidence supports calibration-derived phase deployment; new W3 trend allocation remains exploratory."
+      "scope_note": "Current high-fidelity evidence supports calibration-derived phase deployment; new W3 trend allocation remains exploratory. N07 strong front-dense controls remain mandatory; endpoint-budget optimization is a proposed successor, not a relabel of H1."
     },
     {
       "id": "action.c",
@@ -323,7 +323,8 @@
       "controller": "RA_style_joint_CD",
       "readout": "BETA1_ONE_PHASE",
       "partial_refresh_enabled": false,
-      "not_same_lambda_family_as_high_fidelity": true
+      "not_same_lambda_family_as_high_fidelity": true,
+      "scope_note": " Efficient is an operating-point label; N07 vs RA_DEFAULT paired LPIPS +2.039%, not a universal Pareto advantage."
     },
     {
       "id": "config.high_fidelity",
@@ -365,7 +366,8 @@
         "P0": 0,
         "A": 5,
         "C": 5
-      }
+      },
+      "scope_note": " N07 confirms high reference fidelity; does not establish independent adaptive advantage over FRONT_DENSE_C/A."
     },
     {
       "id": "ablation.fixed_a",
@@ -1344,6 +1346,23 @@
       "local_full_sampling_CPU_accepted": false,
       "server_production_CPU_accepted": false,
       "local_CPU_R1_technical_failure_retained": true
+    },
+    {
+      "id": "proposed.endpoint_budget_plan",
+      "kind": "proposed_method",
+      "paper_name_en": "Endpoint-Calibrated Budgeted Schedule (proposed)",
+      "paper_name_zh": "终点校准的预算化共享计划（待验证）",
+      "name_status": "descriptive_not_frozen",
+      "internal_aliases": [
+        "ENDPOINT_DROP1_THREEARM_FULL18_DRAFT"
+      ],
+      "evidence_status": "DESIGN_ONLY_STATIC_MASKS_NO_PRODUCTION_CPU_OR_GPU",
+      "paper_role": "conditional_future_method_not_current_completed_contribution",
+      "implementation_paths": [],
+      "evidence_ids": [
+        "endpoint_budget_design_551"
+      ],
+      "scope_note": "Do not equate a one-site edit or current H1 with an implemented optimized schedule."
     }
   ],
   "experiment_configs": {
@@ -1739,7 +1758,11 @@
     "N07_R2_complete_results_547": "research/547_WC_N07_R2_COMPLETE_RESULTS_FIDELITY_COST_SIMPLE_CONTROLS_AND_N08_NEXT_20261017.md",
     "N08_selected_complete40_548": "research/548_WC_N08_COMPLETE40_FROZEN_REPEAT_TIMING_SELECTED_AND_PRODUCTION_CPU_PREREG_20261017.md",
     "N08_full40_actual_production_CPU_running_549": "research/549_WC_N08_FULL40_ACTUAL_PRODUCTION_CPU_RUNNING_AFTER_R2_COMPLETE_20261017.md",
-    "N08_full40_GPU_running_two_collections_550": "research/550_WC_N08_COMPLETE40_CPU_ACCEPTED_GPU_RUNNING_AND_1532_1732_COLLECTION_20261017.md"
+    "N08_full40_GPU_running_two_collections_550": "research/550_WC_N08_COMPLETE40_CPU_ACCEPTED_GPU_RUNNING_AND_1532_1732_COLLECTION_20261017.md",
+    "endpoint_budget_design_551": "research/551_WC_ENDPOINT_BUDGET_SCHEDULE_REDESIGN_AND_MINIMUM_D_REPLACEMENT_20261017.md",
+    "endpoint_budget_drop1_manifest": "manifests/wc_endpoint_budget_D_replacement_design_r1_20261017.json",
+    "endpoint_budget_design_inputs": "reports/wc_scheduler_n07_design_inputs_20261017.json",
+    "endpoint_budget_design_local_validation": "reports/wc_scheduler_design_local_consistency_acceptance_20261017.json"
   },
   "evidence_batches": {
     "curve60": {
@@ -3282,6 +3305,18 @@
       "new_result_available": false,
       "midpoint": "2026-10-17T15:32:00+08:00",
       "final": "2026-10-17T17:32:00+08:00"
+    },
+    "endpoint_budget_redesign_551": {
+      "report": "research/551_WC_ENDPOINT_BUDGET_SCHEDULE_REDESIGN_AND_MINIMUM_D_REPLACEMENT_20261017.md",
+      "design_only": true,
+      "GPU_submissions": 0,
+      "N08_modified": false,
+      "registered_mask_update": 21,
+      "step23_already_C_in_front_plan": true,
+      "actual_production_CPU": false,
+      "actual_quality": null,
+      "actual_GPUh": null,
+      "scope_manifest": "manifests/wc_endpoint_budget_D_replacement_design_r1_20261017.json"
     }
   },
   "statistical_rules": {
@@ -3300,11 +3335,14 @@
     "w/o CFG-Coordinated Scaling"
   ],
   "pending_paper_evidence": [
-    "common_final_frozen_test",
     "repeated_clean_timing_beyond_development_checks",
     "minimal_deployment_cost_and_automatic_quality",
     "second_backbone_transfer",
-    "direct_corrected_neighbor_Cosmos_adapter"
+    "direct_corrected_neighbor_Cosmos_adapter",
+    "post_R2_readout_condition_and_tail_analysis",
+    "endpoint_budget_drop1_distinguishing_card",
+    "strong_simple_schedule_repeat_timing_if_claimed",
+    "new_holdout_after_new_method_freeze"
   ],
   "file_bindings": {
     "configs/wc_clean_speed20_r1_20261012.json": {
@@ -5131,28 +5169,28 @@
       "bytes": 8960
     },
     "memory/handoffs/LATEST.md": {
-      "sha256": "06ed81060b279a3325055119e4177f24836adc946559f7781ad4391048c6aeab",
-      "bytes": 653147
+      "sha256": "967f5a3144d7e38f37d475bc263253f83c4828db4d88133c2970c6c0d853fe18",
+      "bytes": 654134
     },
     "src/wcomr/runtime_profile40_acceptance_r1.py": {
       "sha256": "9d5de68477518880b2087a557b699a93ca73e8ab06a058e2c54059997af45116",
       "bytes": 17772
     },
     "research/09_NEXT_ACTIONS.md": {
-      "sha256": "27e728d969457dc1547c54bfff56c2da149f7b738e863e590abdf335a44bd6fb",
-      "bytes": 589376
+      "sha256": "7954bd5a48e5d7ccfb4f030d5908f76610bbcc7bdd0e5fd691cb2d7c312becfd",
+      "bytes": 590348
     },
     "reports/wc_paper_N09_runtime40_collection_R1_fixture_failure_20261016.json": {
       "sha256": "1b03ddcd9982149e9fe2254c9770eb85b0f9b69e5f1f81958be66df55d1bb247",
       "bytes": 2169
     },
     "paper/EXPERIMENT_MASTER_TABLE.md": {
-      "sha256": "1a90c528fe4dd4079ec7c5d52c44b07d0ca5ba11419e891b9f4c12a55290afd3",
-      "bytes": 59041
+      "sha256": "3ee521a60c7b7869067b8e478df651e98d780427b7e69515dc8668181ab44501",
+      "bytes": 60924
     },
     "research/02_CURRENT_STATE.md": {
-      "sha256": "c627f3627e7ee5fbe7e3ecd50b73099564954395550d635724bec3faf08908ba",
-      "bytes": 564411
+      "sha256": "17214670b9dad5856976d25fbf4895d6e11a855a9039f849cd03f29261ba694b",
+      "bytes": 565383
     },
     "tests/test_runtime_profile40_capture_r1.py": {
       "sha256": "40cba26bb42f450c8afdd075ef9e594ebd92639fd0424d61e5e8583ba1b17491",
@@ -5175,20 +5213,20 @@
       "bytes": 3368
     },
     "plans/WORLD_CACHE_MAINLINE_PRIORITY_QUEUE_20261016.md": {
-      "sha256": "54f1d95c1086139098d3b8c1b53d202870db4b14fdd32ee37bec47e84dcac924",
-      "bytes": 49338
+      "sha256": "82007612e98b1b6fa3c116c79a7b996a06ee3398936c7a81d53ee2763500e8e4",
+      "bytes": 50380
     },
     "EXPERIMENT_REPORT.md": {
-      "sha256": "d0305a8bbaf8f6196ffc881c2f8c99906a27b3346e94de70d72bba6114f71bfc",
-      "bytes": 617621
+      "sha256": "8617eb5c32c2efe8d37d1c85c483c06fdab589b742746d5dd19e61ba34473436",
+      "bytes": 618602
     },
     "paper/INTERNAL_TO_PAPER_MAPPING.md": {
-      "sha256": "81254462bef616588b5db008c76dc6f6309c8dfbafa9fc735bd7aa93ddc38394",
-      "bytes": 67755
+      "sha256": "ee8e74a4cc3af5e6371ec9a5fade09170d07d2ad3f9971e4d00df11fa611aef1",
+      "bytes": 69014
     },
     "AGENTS.md": {
-      "sha256": "7b1970bcfb85f36cf678b3679395591e6ecaa0fdbf3f84772512d3737e953068",
-      "bytes": 565503
+      "sha256": "4178b741b44f66a9da689205372ae59d5ae02dbb8514e3f90786fe969e7ed029",
+      "bytes": 566484
     },
     "scripts/prepare_wc_paper_N09_action16_scope_r1.py": {
       "sha256": "29ebbd44644f2711c31027d69de4b4d2347e8514a808551665007ba89ac6a15e",
@@ -6001,6 +6039,38 @@
     "reports/wc_paper_N08_halfway_and_final_automation_confirmation_20261017.json": {
       "sha256": "c55f9425c8f5a33b8454f94a84934c4166fa0b39e0b16d854b10f2549c21a7c0",
       "bytes": 928
+    },
+    "research/551_WC_ENDPOINT_BUDGET_SCHEDULE_REDESIGN_AND_MINIMUM_D_REPLACEMENT_20261017.md": {
+      "sha256": "6ef94206b7f67df9867c8bb9e7238115f5de9952090d0b5bfdf1a5ba28aea037",
+      "bytes": 17021
+    },
+    "manifests/wc_endpoint_budget_D_replacement_design_r1_20261017.json": {
+      "sha256": "0b1dbee7f9efd7b8f4e7ed3be9cd774ee3cc560dfeaac74567d97a7300ffe04c",
+      "bytes": 4384
+    },
+    "reports/wc_scheduler_n07_design_inputs_20261017.json": {
+      "sha256": "8ca5b1a8843e9a82fe518d454de9d1ba63f69ad8e3b5449391089958a36407c1",
+      "bytes": 2450
+    },
+    "plans/reviews/scheduler_n07_20261017/01_ANALYSIS_AND_RESEARCH.md": {
+      "sha256": "bc0a2e3ee130e0aea2e7eafe2059c39915db62e8bd0ecb303c724187857f21b0",
+      "bytes": 14828
+    },
+    "plans/reviews/scheduler_n07_20261017/02_MINIMUM_EXPERIMENTS_AND_HANDOFF.md": {
+      "sha256": "78f1fc645e8abed236e92c1c937dc916b3c24af310ceda17253bd866065c9154",
+      "bytes": 8407
+    },
+    "plans/reviews/scheduler_n07_20261017/WorldCache_N07_Independent_Assessment_and_Next_Steps.md": {
+      "sha256": "0989962edbe6fd24c0fd1654fa132cfcd207a8d456a929d83b458ebbead3c1a8",
+      "bytes": 17345
+    },
+    "plans/reviews/scheduler_n07_20261017/README.md": {
+      "sha256": "d721430756c2fb6cbb0bcc16d95ebd7910f4b8e6ca62d7cee2312f94acdc7718",
+      "bytes": 580
+    },
+    "reports/wc_scheduler_design_local_consistency_acceptance_20261017.json": {
+      "sha256": "8ccec9b023151fb51088ae01c1ae9abdb8a4f1048402a1da300d0751652659a8",
+      "bytes": 1569
     }
   },
   "math_notation": [
@@ -6355,7 +6425,8 @@
     "547": "research/547_WC_N07_R2_COMPLETE_RESULTS_FIDELITY_COST_SIMPLE_CONTROLS_AND_N08_NEXT_20261017.md",
     "548": "research/548_WC_N08_COMPLETE40_FROZEN_REPEAT_TIMING_SELECTED_AND_PRODUCTION_CPU_PREREG_20261017.md",
     "549": "research/549_WC_N08_FULL40_ACTUAL_PRODUCTION_CPU_RUNNING_AFTER_R2_COMPLETE_20261017.md",
-    "550": "research/550_WC_N08_COMPLETE40_CPU_ACCEPTED_GPU_RUNNING_AND_1532_1732_COLLECTION_20261017.md"
+    "550": "research/550_WC_N08_COMPLETE40_CPU_ACCEPTED_GPU_RUNNING_AND_1532_1732_COLLECTION_20261017.md",
+    "551": "research/551_WC_ENDPOINT_BUDGET_SCHEDULE_REDESIGN_AND_MINIMUM_D_REPLACEMENT_20261017.md"
   },
   "experiment_inventory_ref": "paper/experiment_master_table.json",
   "experiment_inventory_table": "paper/EXPERIMENT_MASTER_TABLE.md"
