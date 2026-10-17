@@ -1,0 +1,103 @@
+{
+  "status": "N10_WHOLE960_ENGINEERING_GPU_BUDGET_NOT_MEASURED_MODEL_PRICE",
+  "pricing_version": "N10_FULL960_STATIC_WORKLOAD_ENGINEERING_ALLOWANCES_R1",
+  "input_bundle_fingerprint": "760fa0600a1c67d7a970c23a0963d253ff7fec0f91b247be94e3a09af33dde28",
+  "scorer_fingerprint": "d27c6b1d644a9dd5fd6cb8fcb7bfd9e6cd383578d9d5b9e78c16c37d17193ffd",
+  "scope_counts": {
+    "generation_positions": 160,
+    "metric_positions": 960,
+    "prompt_groups": 8,
+    "seeds": [
+      17,
+      43
+    ],
+    "methods": 10,
+    "new_generation_paths": 0
+  },
+  "positions": [
+    {
+      "dimension": "subject_consistency",
+      "model_role": "DINO",
+      "registered_positions": 160,
+      "ready_video_metric_invocations": 129,
+      "model_contexts": 1,
+      "planned_model_load_and_validation_seconds": 120.0,
+      "planned_per_video_allowance_seconds": 15.0,
+      "planned_video_scoring_seconds": 1935.0,
+      "observed_GPU_seconds": null
+    },
+    {
+      "dimension": "motion_smoothness",
+      "model_role": "AMT_S",
+      "registered_positions": 160,
+      "ready_video_metric_invocations": 129,
+      "model_contexts": 1,
+      "planned_model_load_and_validation_seconds": 120.0,
+      "planned_per_video_allowance_seconds": 30.0,
+      "planned_video_scoring_seconds": 3870.0,
+      "observed_GPU_seconds": null
+    },
+    {
+      "dimension": "overall_consistency",
+      "model_role": "ViCLIP",
+      "registered_positions": 160,
+      "ready_video_metric_invocations": 129,
+      "model_contexts": 1,
+      "planned_model_load_and_validation_seconds": 120.0,
+      "planned_per_video_allowance_seconds": 15.0,
+      "planned_video_scoring_seconds": 1935.0,
+      "observed_GPU_seconds": null
+    },
+    {
+      "dimension": "dynamic_degree",
+      "model_role": "RAFT_THINGS",
+      "registered_positions": 160,
+      "ready_video_metric_invocations": 129,
+      "model_contexts": 1,
+      "planned_model_load_and_validation_seconds": 120.0,
+      "planned_per_video_allowance_seconds": 30.0,
+      "planned_video_scoring_seconds": 3870.0,
+      "observed_GPU_seconds": null
+    },
+    {
+      "dimension": "MUSIQ_LONGER512",
+      "model_role": "MUSIQ_SPAQ",
+      "registered_positions": 160,
+      "ready_video_metric_invocations": 129,
+      "model_contexts": 1,
+      "planned_model_load_and_validation_seconds": 120.0,
+      "planned_per_video_allowance_seconds": 15.0,
+      "planned_video_scoring_seconds": 1935.0,
+      "observed_GPU_seconds": null
+    },
+    {
+      "dimension": "temporal_flickering",
+      "model_role": null,
+      "registered_positions": 160,
+      "ready_video_metric_invocations": 0,
+      "model_contexts": 0,
+      "planned_model_load_and_validation_seconds": 0.0,
+      "planned_per_video_allowance_seconds": 0.0,
+      "planned_video_scoring_seconds": 0.0,
+      "observed_GPU_seconds": null
+    }
+  ],
+  "total_ready_video_metric_invocations": 645,
+  "total_registered_metric_positions": 960,
+  "full_model_contexts": 5,
+  "extra_warmup_paths": 0,
+  "first_video_cold_start_in_scoring": true,
+  "aggregate_failure_recording_and_release_allowance_seconds": 600.0,
+  "whole_card_margin": 1.2,
+  "before_margin_seconds": 14745.0,
+  "forecast_GPUh": 4.915,
+  "billed_limit_GPUh": 6.25,
+  "assumption_scope": "All source verification, official decoding/preprocessing, inference, observation and per-row journal inside each allowance; fixed context load and final whole-card work added.",
+  "engineering_allowances_not_empirical_throughput": true,
+  "CPU_wall_used_as_GPU_rate": false,
+  "measured_GPU_model_rates": null,
+  "runtime_upper_bound_guarantee": false,
+  "generation_latency_claim": false,
+  "new_quality_scores": 0,
+  "complete_card_selection_requires_actual_production_CPU": true
+}

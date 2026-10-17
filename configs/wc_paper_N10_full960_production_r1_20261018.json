@@ -1,0 +1,155 @@
+{
+  "purpose": "N10_COMPLETE160_SIX_DIMENSION960_ORIGINAL_METRIC_SCORING",
+  "run_id": "wc-paper-n10-accepted160-full960-r1",
+  "input_bundle_fingerprint": "760fa0600a1c67d7a970c23a0963d253ff7fec0f91b247be94e3a09af33dde28",
+  "measurement_protocol_sha256": "9755122b22349d9cd5b1cfe43460e73044360e240d941df11d6ca4150b817734",
+  "scorer_fingerprint": "d27c6b1d644a9dd5fd6cb8fcb7bfd9e6cd383578d9d5b9e78c16c37d17193ffd",
+  "methods": [
+    "NATIVE35",
+    "NATIVE26",
+    "WC_HALF",
+    "RA_HALF",
+    "RA_DEFAULT",
+    "RA_DOUBLE",
+    "A_NO_P",
+    "TABLE_PHASE_H1",
+    "FRONT_DENSE_C",
+    "FRONT_DENSE_A"
+  ],
+  "dimensions": [
+    "subject_consistency",
+    "motion_smoothness",
+    "overall_consistency",
+    "dynamic_degree",
+    "MUSIQ_LONGER512",
+    "temporal_flickering"
+  ],
+  "scope_counts": {
+    "generation_positions": 160,
+    "metric_positions": 960,
+    "prompt_groups": 8,
+    "seeds": [
+      17,
+      43
+    ],
+    "methods": 10,
+    "new_generation_paths": 0
+  },
+  "bootstrap_repetitions": 4096,
+  "comparisons": [
+    [
+      "A_NO_P",
+      "NATIVE35"
+    ],
+    [
+      "A_NO_P",
+      "NATIVE26"
+    ],
+    [
+      "A_NO_P",
+      "WC_HALF"
+    ],
+    [
+      "A_NO_P",
+      "RA_HALF"
+    ],
+    [
+      "A_NO_P",
+      "RA_DEFAULT"
+    ],
+    [
+      "A_NO_P",
+      "RA_DOUBLE"
+    ],
+    [
+      "A_NO_P",
+      "TABLE_PHASE_H1"
+    ],
+    [
+      "A_NO_P",
+      "FRONT_DENSE_C"
+    ],
+    [
+      "A_NO_P",
+      "FRONT_DENSE_A"
+    ],
+    [
+      "TABLE_PHASE_H1",
+      "NATIVE35"
+    ],
+    [
+      "TABLE_PHASE_H1",
+      "NATIVE26"
+    ],
+    [
+      "TABLE_PHASE_H1",
+      "WC_HALF"
+    ],
+    [
+      "TABLE_PHASE_H1",
+      "RA_HALF"
+    ],
+    [
+      "TABLE_PHASE_H1",
+      "RA_DEFAULT"
+    ],
+    [
+      "TABLE_PHASE_H1",
+      "RA_DOUBLE"
+    ],
+    [
+      "TABLE_PHASE_H1",
+      "A_NO_P"
+    ],
+    [
+      "TABLE_PHASE_H1",
+      "FRONT_DENSE_C"
+    ],
+    [
+      "TABLE_PHASE_H1",
+      "FRONT_DENSE_A"
+    ],
+    [
+      "FRONT_DENSE_A",
+      "FRONT_DENSE_C"
+    ]
+  ],
+  "forecast_GPUh": 4.915,
+  "billed_limit_GPUh": 6.25,
+  "cumulative_cap_GPUh": 226,
+  "budget_origin_used_GPUh": 79.99637737158223,
+  "whole_card_cost_includes_load_warm_scoring_and_release": true,
+  "generation_latency_claim": false,
+  "weighted_quality_total": null,
+  "references": {
+    "accepted_inputs": {
+      "ref": "reports/wc_paper_N10_actual_model_CPU_full960_inputs_20261018.json.gz",
+      "sha256": "0f29b24ad32567b610c3088977ecd2e1681fb66b29d8ea7d61839dffcb25de25",
+      "bytes": 60626
+    },
+    "model_CPU_acceptance": {
+      "ref": "manifests/wc_paper_N10_actual_model_CPU_full960_20261018/model-CPU-acceptance.json",
+      "sha256": "c4f6e9cb9d84b6eb9c542b66b419e0f31df1d8b2cbc9bf347d9125c3b51a0bbb",
+      "bytes": 2660
+    },
+    "model_CPU_registration": {
+      "ref": "manifests/wc_paper_N10_actual_model_CPU_full960_20261018/model-CPU-registration.json",
+      "sha256": "28dbb0633aa763de1c998eb974fed978c0fda28841de62422a6b6af59ccd8b67",
+      "bytes": 33075
+    },
+    "model_resources": {
+      "ref": "manifests/wc_paper_N10_actual_model_CPU_full960_20261018/model-resources.json",
+      "sha256": "12b4a27b09ef141ec57b4939acb487ea29bbacf37b8c72df5016bf3730280d15",
+      "bytes": 1174
+    },
+    "unpriced_scope": {
+      "ref": "manifests/wc_paper_N10_unpriced_full960_production_scope_20261018.json",
+      "sha256": "f8555b10752e0b457c7d243a585637db793ac3e7ad149ac44e788655d8e20be6"
+    },
+    "whole_card_cost": {
+      "ref": "reports/wc_paper_N10_full960_engineering_cost_R1_20261018.json",
+      "sha256": "ea10facf149a9153a7b93a1da43af2a846c4b71293367cc031bdfae9057f253c"
+    }
+  },
+  "engineering_cost_policy": "N10_FULL960_STATIC_WORKLOAD_ENGINEERING_ALLOWANCES_R1"
+}

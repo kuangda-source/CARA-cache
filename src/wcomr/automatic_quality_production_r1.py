@@ -104,6 +104,18 @@ def load(stage):
             raise ValueError('Original scoring reference is not bound to this source stage')
         values.append(read(path))
     bundle = validate(config, registration, *values)
+    if config.get('engineering_cost_policy') is not None:
+        selected = {}
+        for name in ('unpriced_scope', 'whole_card_cost'):
+            ref = config['references'][name]; path = stage / ref['ref']
+            if (Path(ref['ref']).is_absolute() or '..' in Path(ref['ref']).parts
+                    or path.is_symlink() or not path.resolve().is_relative_to(stage)
+                    or registration['payload_sha256'].get(ref['ref']) != ref['sha256']
+                    or sha(path) != ref['sha256']):
+                raise ValueError('Selected full960 engineering quote/source reference changed')
+            selected[name] = read(path)
+        from .automatic_quality_quote_r1 import validate_selected
+        validate_selected(config, selected['unpriced_scope'], selected['whole_card_cost'])
     return config, registration, bundle, values[1], values[2], values[3]
 
 
