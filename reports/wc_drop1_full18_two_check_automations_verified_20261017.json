@@ -1,0 +1,28 @@
+{
+  "status": "DROP1_TWO_SEPARATE_ONE_SHOT_HEARTBEATS_REGISTERED",
+  "launch_id": "1d847560-a411-4272-8e4c-0b07844a664c",
+  "source_revision": "e76b4f8b934bb07bf045e6083f36eddb4711640d",
+  "halfway_not_before_unix": 1792248348.890315,
+  "final_not_before_unix": 1792252848.890315,
+  "halfway_scheduled_local": "2026-10-17T22:46:00+08:00",
+  "final_scheduled_local": "2026-10-18T00:01:00+08:00",
+  "no_continuous_observation": true,
+  "automations": [
+    {
+      "id": "worldcache-26d",
+      "name": "WorldCache 少一次D三臂半程检查",
+      "status": "ACTIVE",
+      "rrule": "RRULE:FREQ=DAILY;BYHOUR=22;BYMINUTE=46;BYSECOND=0;COUNT=1",
+      "target_thread_id": "01a0f1eb-7894-7ed0-a186-d010111e14b1",
+      "prompt_sha256": "f5c2b202c10495b25178d48b87eab4ac90083a31355f5452656f45f9f8f32deb"
+    },
+    {
+      "id": "worldcache-180",
+      "name": "WorldCache 少一次D三臂完整验收",
+      "status": "ACTIVE",
+      "rrule": "RRULE:FREQ=DAILY;BYHOUR=0;BYMINUTE=1;BYSECOND=0;COUNT=1",
+      "target_thread_id": "01a0f1eb-7894-7ed0-a186-d010111e14b1",
+      "prompt_sha256": "46969a6d80461c4290fa9b6abe58ef3b9824f9e6e32152698d70ee487a7fd799"
+    }
+  ]
+}

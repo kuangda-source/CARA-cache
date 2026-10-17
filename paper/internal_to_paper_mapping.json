@@ -1356,13 +1356,70 @@
       "internal_aliases": [
         "ENDPOINT_DROP1_THREEARM_FULL18_DRAFT"
       ],
-      "evidence_status": "DESIGN_ONLY_STATIC_MASKS_NO_PRODUCTION_CPU_OR_GPU",
+      "evidence_status": "WHOLE18_ONE_SITE_DISTINGUISHING_PROBE_RUNNING_FULL_SCHEDULE_OPTIMIZER_NOT_IMPLEMENTED",
       "paper_role": "conditional_future_method_not_current_completed_contribution",
-      "implementation_paths": [],
-      "evidence_ids": [
-        "endpoint_budget_design_551"
+      "implementation_paths": [
+        "src/wcomr/drop1_full18_r1.py"
       ],
-      "scope_note": "Do not equate a one-site edit or current H1 with an implemented optimized schedule."
+      "evidence_ids": [
+        "endpoint_budget_design_551",
+        "drop1_running_555"
+      ],
+      "scope_note": "The implemented object is one frozen D-to-C/A edit with three controls; it is not yet an optimized complete schedule or an accepted endpoint improvement."
+    },
+    {
+      "id": "ablation.drop1_front26",
+      "kind": "ablation_control",
+      "paper_name_en": "Front-Dense (26D, direct reuse)",
+      "paper_name_zh": "原强前密26D10C",
+      "internal_aliases": [
+        "S26-C"
+      ],
+      "namespace": "DROP1_FULL18",
+      "evidence_status": "RUNNING_NO_ENDPOINT_RESULT",
+      "paper_role": "distinguish_correction_from_schedule_redundancy",
+      "implementation_paths": [
+        "src/wcomr/drop1_full18_r1.py"
+      ],
+      "evidence_ids": [
+        "drop1_running_555"
+      ]
+    },
+    {
+      "id": "ablation.drop1_front25_c",
+      "kind": "ablation_control",
+      "paper_name_en": "Front-Dense minus one refresh",
+      "paper_name_zh": "第21次更新改C，25D11C",
+      "internal_aliases": [
+        "S25-C"
+      ],
+      "namespace": "DROP1_FULL18",
+      "evidence_status": "RUNNING_NO_ENDPOINT_RESULT",
+      "paper_role": "distinguish_correction_from_schedule_redundancy",
+      "implementation_paths": [
+        "src/wcomr/drop1_full18_r1.py"
+      ],
+      "evidence_ids": [
+        "drop1_running_555"
+      ]
+    },
+    {
+      "id": "ablation.drop1_front25_a",
+      "kind": "ablation_control",
+      "paper_name_en": "Front-Dense minus one refresh + GCR",
+      "paper_name_zh": "同一位置改A，25D1A10C",
+      "internal_aliases": [
+        "S25-A"
+      ],
+      "namespace": "DROP1_FULL18",
+      "evidence_status": "RUNNING_NO_ENDPOINT_RESULT",
+      "paper_role": "distinguish_correction_from_schedule_redundancy",
+      "implementation_paths": [
+        "src/wcomr/drop1_full18_r1.py"
+      ],
+      "evidence_ids": [
+        "drop1_running_555"
+      ]
     }
   ],
   "experiment_configs": {
@@ -1665,6 +1722,29 @@
       "sha256": "9de3e5b9c2ce0377888e1244aa77043b42d4f92f0d9cea498c13c59e3aeafd0c",
       "GPU_execution_selected": false,
       "proposed_cap_pending_direct_human_approval": 113.0
+    },
+    "DROP1_FULL18": {
+      "path": "configs/wc_drop1_cal4_three_arm_full18_r1_20261017.json",
+      "card": "WC-DROP1-CAL4-THREEARM-FULL18-R1-20261017-A",
+      "run_id": "wc-drop1-cal4-three-arm-full18-r1",
+      "methods": [
+        "S26-C",
+        "S25-C",
+        "S25-A"
+      ],
+      "scope_counts": {
+        "requests": 4,
+        "methods": 3,
+        "scientific_paths": 12,
+        "full_warmup_paths": 6,
+        "total_paths": 18,
+        "ordinary_pairs": 648,
+        "ordinary_CFG_calls": 1296,
+        "loads": 1,
+        "teacher_pairs": 0,
+        "score_videos": 12
+      },
+      "sha256": "8c2a0d512f8ccc4f8a7a57a237949fcee56f4cb8dde9bfd94cd032369669b4ba"
     }
   },
   "evidence_reports": {
@@ -1780,7 +1860,19 @@
     "drop1_full18_config": "configs/wc_drop1_cal4_three_arm_full18_r1_20261017.json",
     "drop1_whole18_cost": "manifests/wc_drop1_full18_whole_cost_r1_20261017.json",
     "drop1_front26_controls": "manifests/wc_drop1_front26_original_controls_r1_20261017.json",
-    "drop1_numerical_module": "src/wcomr/drop1_full18_r1.py"
+    "drop1_numerical_module": "src/wcomr/drop1_full18_r1.py",
+    "drop1_CPU_launch_554": "research/554_WC_DROP1_FULL56_CPU_SINGLE_LAUNCH_AND_COMPLETE18_NEXT_20261017.md",
+    "drop1_running_555": "research/555_WC_DROP1_FULL18_CPU_ACCEPTED_GPU_ADMISSION_AND_TWO_COLLECTIONS_20261017.md",
+    "drop1_CPU_original_launch": "reports/wc_drop1_full56_actual18_CPU_launch_20261017.json",
+    "drop1_CPU_terminal": "reports/wc_drop1_full56_actual18_CPU_collection_20261017_2129.json.gz",
+    "drop1_CPU_independent": "reports/wc_drop1_full56_actual18_CPU_independent_acceptance_20261017.json",
+    "drop1_GPU_launch": "reports/wc_drop1_full18_GPU_launch_20261017.json",
+    "drop1_original_admission": "reports/wc_drop1_full18_original_admission_20261017_ready.json.gz",
+    "drop1_independent_admission": "reports/wc_drop1_full18_independent_admission_acceptance_20261017.json",
+    "drop1_admission_CPU_crosscheck": "reports/wc_drop1_full18_admission_CPU_binding_crosscheck_20261017.json",
+    "drop1_fresh_resources": "reports/wc_drop1_full18_fresh_resource_and_budget_20261017.json.gz",
+    "drop1_automations": "reports/wc_drop1_full18_two_check_automations_verified_20261017.json",
+    "drop1_acceptor_controls": "reports/wc_drop1_local_acceptor_controls_v2_20261017.json"
   },
   "evidence_batches": {
     "curve60": {
@@ -3357,6 +3449,24 @@
       "recorded_resource_controls_accepted": true,
       "independent_new_input_generalization": false,
       "derived_one_ULP_bridge_explicit": true
+    },
+    "drop1_full18": {
+      "source_revision": "e76b4f8b934bb07bf045e6083f36eddb4711640d",
+      "namespace": "DROP1_FULL18",
+      "status": "running_no_endpoint_result",
+      "report_id": "drop1_running_555",
+      "scene_count": 4,
+      "seeds": [
+        0
+      ],
+      "formal_paths": 12,
+      "warmup_paths": 6,
+      "formal_scored_videos": null,
+      "frames_per_video": 93,
+      "timed_repetitions_per_method_scene": 1,
+      "actual_GPUh": null,
+      "rows_reported_rounded": null,
+      "independent_final_test": false
     }
   },
   "statistical_rules": {
@@ -5208,28 +5318,28 @@
       "bytes": 8960
     },
     "memory/handoffs/LATEST.md": {
-      "sha256": "de305aa3b2fef8514613a1d33da32fc7a9d4b14123c97cde35cae144cc1f99b5",
-      "bytes": 655905
+      "sha256": "36ffb9a303da6653036a21d8e808b2dbad5523eaacbe34f973f3ca5b4b9c51ed",
+      "bytes": 657035
     },
     "src/wcomr/runtime_profile40_acceptance_r1.py": {
       "sha256": "9d5de68477518880b2087a557b699a93ca73e8ab06a058e2c54059997af45116",
       "bytes": 17772
     },
     "research/09_NEXT_ACTIONS.md": {
-      "sha256": "65760cd734c542e99b257803b75ff8a4f83fdd73726139028b58edde61ddcd9b",
-      "bytes": 592101
+      "sha256": "f79c36e99b8d32241febef1266a36f3294abd80edfdbaab7bc096eb3c1b4c9dc",
+      "bytes": 593228
     },
     "reports/wc_paper_N09_runtime40_collection_R1_fixture_failure_20261016.json": {
       "sha256": "1b03ddcd9982149e9fe2254c9770eb85b0f9b69e5f1f81958be66df55d1bb247",
       "bytes": 2169
     },
     "paper/EXPERIMENT_MASTER_TABLE.md": {
-      "sha256": "0c6d3f01b87827015741c94620e0051b1c8c944b3f05fbfd961ee058fd025314",
-      "bytes": 62603
+      "sha256": "58d5bc490024b037595b876840764e9fd56fff78d5c730ac4aa0cc457d4711ac",
+      "bytes": 64398
     },
     "research/02_CURRENT_STATE.md": {
-      "sha256": "d411f6448aa4a2093447bc086468ee578ce7fcf9aa5bb4344eb76a0a85e0219b",
-      "bytes": 567136
+      "sha256": "b3d905534db7ec8905b7d80451b6fa9e90c7d8b3eac3166145ffe0a61f85df47",
+      "bytes": 568263
     },
     "tests/test_runtime_profile40_capture_r1.py": {
       "sha256": "40cba26bb42f450c8afdd075ef9e594ebd92639fd0424d61e5e8583ba1b17491",
@@ -5252,20 +5362,20 @@
       "bytes": 3368
     },
     "plans/WORLD_CACHE_MAINLINE_PRIORITY_QUEUE_20261016.md": {
-      "sha256": "0bf0818ab5b9f95cb8d5f32da5539c034f7721bf913a97856bb1812233f0c040",
-      "bytes": 52145
+      "sha256": "c794e7f0bbf85a88e74062243005ac784440c137bffc29450c6b0159b5d8e904",
+      "bytes": 53272
     },
     "EXPERIMENT_REPORT.md": {
-      "sha256": "cc0b02c474f017d4b151103b7bc15d7b06c10b624dbe08b46020fef0269e8e35",
-      "bytes": 620361
+      "sha256": "7503c4c27940f9ebc2735ed8726b164bb3a0dd8ac1ccb2e6b5a4d490681d418d",
+      "bytes": 621485
     },
     "paper/INTERNAL_TO_PAPER_MAPPING.md": {
-      "sha256": "db2fb2182ef83d3fa69699bec327d245c51cf176caf8a78fc9d8d44fb8cc040c",
-      "bytes": 70779
+      "sha256": "88865c867c455c9a12c2e21170fa7b6e2c31054a044d3033cdfb9b1606545c77",
+      "bytes": 72535
     },
     "AGENTS.md": {
-      "sha256": "e85a879f375e84f16c230d057b9437fdae3d5a644d0934943afb91b24eff10e2",
-      "bytes": 568243
+      "sha256": "a1cc5efe1aa387ed8ebca94ae65d09d97e7cb0523e70085c7daff5e06d4f86af",
+      "bytes": 569367
     },
     "scripts/prepare_wc_paper_N09_action16_scope_r1.py": {
       "sha256": "29ebbd44644f2711c31027d69de4b4d2347e8514a808551665007ba89ac6a15e",
@@ -6168,8 +6278,8 @@
       "bytes": 1012673
     },
     "research/553_WC_E0_CPU_COMPLETE_CAP226_AND_DROP1_FULL18_PREREG_20261017.md": {
-      "sha256": "a2b28eb9716fc30d753e07ac1f0a742335889d2252bbdb95587e679f768009f4",
-      "bytes": 6585
+      "sha256": "bb928ad50c35c8b0ba0c2ca7fddef96f15f50eae856839f3f68916f0ec37e434",
+      "bytes": 7172
     },
     "manifests/wc_drop1_full18_whole_cost_r1_20261017.json": {
       "sha256": "efd1d5fb1ddc5b66b2751871174eb6966aa4480ca69d5b2a641d4ecdafa5af9f",
@@ -6182,6 +6292,54 @@
     "manifests/wc_e0_drop1_cap226_direct_human_authorization_20261017.json": {
       "sha256": "75ed720faaac0db14a904e83ebd03175c4356eff0f4937dad3bcd312094a830e",
       "bytes": 1087
+    },
+    "research/554_WC_DROP1_FULL56_CPU_SINGLE_LAUNCH_AND_COMPLETE18_NEXT_20261017.md": {
+      "sha256": "b3a2ca820e6ec1c7ae9a2afde8036b8f6dc42b807e5f41d19aaa500c8cf87b45",
+      "bytes": 1653
+    },
+    "reports/wc_drop1_full18_GPU_launch_20261017.json": {
+      "sha256": "67ba655b0ffdbcce2102a83574c881d5393cfdd9ce76661e7a8fccb0535a5fe9",
+      "bytes": 4505
+    },
+    "reports/wc_drop1_local_acceptor_controls_v2_20261017.json": {
+      "sha256": "58d95a52e4c0ba57ae43268fba65acbf1cf112c140ca37560590b3987016b1b9",
+      "bytes": 397
+    },
+    "reports/wc_drop1_full18_two_check_automations_verified_20261017.json": {
+      "sha256": "f46c8c5a6fe54da03be6b10d2c669ec76af07a313718248837058d57b35e1f02",
+      "bytes": 1170
+    },
+    "reports/wc_drop1_full56_actual18_CPU_launch_20261017.json": {
+      "sha256": "97c9ae5eff4f3a818d5e53c51080dd978912a0f8d62a507eb8dd66d23b2f8bfc",
+      "bytes": 1092
+    },
+    "reports/wc_drop1_full18_independent_admission_acceptance_20261017.json": {
+      "sha256": "28e8200aebcfbc8b50fff4fe19331f018d9abae0d3164d7917b9964826f4fb42",
+      "bytes": 3503
+    },
+    "reports/wc_drop1_full56_actual18_CPU_independent_acceptance_20261017.json": {
+      "sha256": "30822033cd9065a87283a1cfa40be3635bae65c5abe384cbf622a91ddeac1a3b",
+      "bytes": 918
+    },
+    "reports/wc_drop1_full56_actual18_CPU_collection_20261017_2129.json.gz": {
+      "sha256": "4fb1ead8b3dc4467a99d1efcce99a0190bbd74997c18b0cf9fb78c8a0fbd0328",
+      "bytes": 180337
+    },
+    "reports/wc_drop1_full18_admission_CPU_binding_crosscheck_20261017.json": {
+      "sha256": "aad4d92cb8721605a431da8a10069d5954ead8f8e7ecc5fb5f0d670bad72a2e1",
+      "bytes": 774
+    },
+    "reports/wc_drop1_full18_fresh_resource_and_budget_20261017.json.gz": {
+      "sha256": "6f870ca8df8a4907fbd5c031b3593b50ceff20df8dcca2aecd6e9dd1d0c07281",
+      "bytes": 4021
+    },
+    "reports/wc_drop1_full18_original_admission_20261017_ready.json.gz": {
+      "sha256": "dc9eb9b659ac7bfdde2240010615f7751bc98f3f81623cedb535e68efbcae3b3",
+      "bytes": 185806
+    },
+    "research/555_WC_DROP1_FULL18_CPU_ACCEPTED_GPU_ADMISSION_AND_TWO_COLLECTIONS_20261017.md": {
+      "sha256": "137dadbe87c4764b63e989d4df54ef31d1ba63ba31300eaedd513970a3cbad20",
+      "bytes": 5633
     }
   },
   "math_notation": [
@@ -6521,6 +6679,21 @@
     "SIMPLE26D_FULL36::FRONT_DENSE_C": {
       "mapping_id": "ablation.front_dense_c",
       "config_sha256": "c489a9ab9d85a1e63f8aafaee1c0cf53b8e00aa874e23ec2bd9d92ddc1bdd0d4",
+      "requires_source_rule": false
+    },
+    "DROP1_FULL18::S26-C": {
+      "mapping_id": "ablation.drop1_front26",
+      "config_sha256": "8c2a0d512f8ccc4f8a7a57a237949fcee56f4cb8dde9bfd94cd032369669b4ba",
+      "requires_source_rule": false
+    },
+    "DROP1_FULL18::S25-C": {
+      "mapping_id": "ablation.drop1_front25_c",
+      "config_sha256": "8c2a0d512f8ccc4f8a7a57a237949fcee56f4cb8dde9bfd94cd032369669b4ba",
+      "requires_source_rule": false
+    },
+    "DROP1_FULL18::S25-A": {
+      "mapping_id": "ablation.drop1_front25_a",
+      "config_sha256": "8c2a0d512f8ccc4f8a7a57a237949fcee56f4cb8dde9bfd94cd032369669b4ba",
       "requires_source_rule": false
     }
   },

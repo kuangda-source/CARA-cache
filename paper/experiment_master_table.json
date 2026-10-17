@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "updated_local_date": "2026-10-17",
-  "snapshot_basis": "553 E0 remaining saved-receipt CPU and independent arithmetic complete; cumulative cap226 accepted; whole18 one-D-replacement selected, server CPU/GPU pending.",
+  "snapshot_basis": "555 E0 saved-receipt analysis and whole56 actual server CPU accepted; new one-D-replacement whole18 admitted GPU0. No new endpoint/latency result. Cap226 preserves origin and all actual bills.",
   "git_snapshot_before_inventory": "51a69b8",
   "mapping_ref": "paper/internal_to_paper_mapping.json",
   "scope": "scientific experiment families and complete cards, not each engineering retry; reused artifacts must not be summed as independent samples",
@@ -25,9 +25,9 @@
   "status_counts": {
     "已完成": 23,
     "已完成并关闭": 2,
-    "待补": 7,
-    "正在运行": 0,
-    "暂缓/未执行": 1
+    "待补": 6,
+    "暂缓/未执行": 1,
+    "正在运行": 1
   },
   "rows": [
     {
@@ -2041,18 +2041,18 @@
     },
     {
       "id": "N12",
-      "state": "待补｜完整18已选，真实服务器CPU待验",
+      "state": "正在运行｜完整18 GPU0已准入，终态待验",
       "paper_experiment_name": "Correction-Paid Dense-Budget Reduction",
       "internal_ids": [
-        "ENDPOINT_DROP1_THREEARM_FULL18_DRAFT",
+        "WC-DROP1-CAL4-THREEARM-FULL18-R1-20261017-A",
         "S26-C",
         "S25-C",
         "S25-A"
       ],
       "contribution_relation": "C1修正能否替代D；C2完整预算计划的判别开发；C3真实质量时间",
-      "evidence_or_planned_scope": "四旧CAL/seed0，26D10C、实际更新21改C的25D11C、同位置A的25D1A10C；12正式+6完整warm/18路径648pairs；原数值核心和边界GC复用。",
-      "gap_and_next_action": "56完整数值CPU（两flow含旧前密8控制）+真实生产入口CPU后，fresh v2/UUID/余额准入；半程及预计结束各一次。不调新预测器。",
-      "priority": "P0·当前直接授权",
+      "evidence_or_planned_scope": "完整56服务器数值CPU/实际18生产入口通过；四旧CAL/seed0，26D10C、25D11C、同位置21的25D1A10C；12正式+6完整warm/18路径648pairs/一次加载。GPU0原三句柄和完整预留独立接受。",
+      "gap_and_next_action": "今晚22:46技术半程；10月18日00:01原18路径/全部适用正式93帧/四旧前密控制/实际费用完整验收。每格一次开发时间，不当未见泛化或重复clean。",
+      "priority": "P0·原卡验收",
       "evidence_refs": [
         "endpoint_budget_design_551",
         "endpoint_budget_drop1_manifest",
@@ -2066,7 +2066,19 @@
         "drop1_full18_config",
         "drop1_whole18_cost",
         "drop1_front26_controls",
-        "drop1_numerical_module"
+        "drop1_numerical_module",
+        "drop1_CPU_launch_554",
+        "drop1_running_555",
+        "drop1_CPU_original_launch",
+        "drop1_CPU_terminal",
+        "drop1_CPU_independent",
+        "drop1_GPU_launch",
+        "drop1_original_admission",
+        "drop1_independent_admission",
+        "drop1_admission_CPU_crosscheck",
+        "drop1_fresh_resources",
+        "drop1_automations",
+        "drop1_acceptor_controls"
       ],
       "method_mapping_ids": [
         "module.gcr",
@@ -2084,13 +2096,17 @@
         "C2",
         "C3"
       ],
-      "claim_relation": "SELECTED_DISTINGUISHING_EXPERIMENT_ENDPOINT_UNRUN",
+      "claim_relation": "RUNNING_DISTINGUISHING_EXPERIMENT_NO_ENDPOINT_RESULT",
       "paper_placement": "有结果才进入方法消融，未完成数值留空",
       "actual_GPUh": null,
       "actual_quality": null,
-      "production_CPU_accepted": false,
+      "production_CPU_accepted": true,
       "whole_forecast_GPUh": 1.7588608728072916,
-      "billed_limit_GPUh": 2.25
+      "billed_limit_GPUh": 2.25,
+      "GPU_launch_ref": "reports/wc_drop1_full18_GPU_launch_20261017.json",
+      "GPU_admission_ref": "reports/wc_drop1_full18_independent_admission_acceptance_20261017.json",
+      "actual_production_CPU_ref": "reports/wc_drop1_full56_actual18_CPU_independent_acceptance_20261017.json",
+      "production_source_revision": "e76b4f8b934bb07bf045e6083f36eddb4711640d"
     }
   ],
   "source_refs": {
@@ -2650,7 +2666,19 @@
     "drop1_full18_config": "configs/wc_drop1_cal4_three_arm_full18_r1_20261017.json",
     "drop1_whole18_cost": "manifests/wc_drop1_full18_whole_cost_r1_20261017.json",
     "drop1_front26_controls": "manifests/wc_drop1_front26_original_controls_r1_20261017.json",
-    "drop1_numerical_module": "src/wcomr/drop1_full18_r1.py"
+    "drop1_numerical_module": "src/wcomr/drop1_full18_r1.py",
+    "drop1_CPU_launch_554": "research/554_WC_DROP1_FULL56_CPU_SINGLE_LAUNCH_AND_COMPLETE18_NEXT_20261017.md",
+    "drop1_running_555": "research/555_WC_DROP1_FULL18_CPU_ACCEPTED_GPU_ADMISSION_AND_TWO_COLLECTIONS_20261017.md",
+    "drop1_CPU_original_launch": "reports/wc_drop1_full56_actual18_CPU_launch_20261017.json",
+    "drop1_CPU_terminal": "reports/wc_drop1_full56_actual18_CPU_collection_20261017_2129.json.gz",
+    "drop1_CPU_independent": "reports/wc_drop1_full56_actual18_CPU_independent_acceptance_20261017.json",
+    "drop1_GPU_launch": "reports/wc_drop1_full18_GPU_launch_20261017.json",
+    "drop1_original_admission": "reports/wc_drop1_full18_original_admission_20261017_ready.json.gz",
+    "drop1_independent_admission": "reports/wc_drop1_full18_independent_admission_acceptance_20261017.json",
+    "drop1_admission_CPU_crosscheck": "reports/wc_drop1_full18_admission_CPU_binding_crosscheck_20261017.json",
+    "drop1_fresh_resources": "reports/wc_drop1_full18_fresh_resource_and_budget_20261017.json.gz",
+    "drop1_automations": "reports/wc_drop1_full18_two_check_automations_verified_20261017.json",
+    "drop1_acceptor_controls": "reports/wc_drop1_local_acceptor_controls_v2_20261017.json"
   },
   "source_bindings": {
     "11": {
@@ -4847,7 +4875,7 @@
     },
     "E0_remaining_553": {
       "path": "research/553_WC_E0_CPU_COMPLETE_CAP226_AND_DROP1_FULL18_PREREG_20261017.md",
-      "sha256": "a2b28eb9716fc30d753e07ac1f0a742335889d2252bbdb95587e679f768009f4"
+      "sha256": "bb928ad50c35c8b0ba0c2ca7fddef96f15f50eae856839f3f68916f0ec37e434"
     },
     "E0_remaining_CPU": {
       "path": "reports/wc_E0_remaining_seed_layout_phase_CPU_complete_20261017.json",
@@ -4880,30 +4908,104 @@
     "drop1_numerical_module": {
       "path": "src/wcomr/drop1_full18_r1.py",
       "sha256": "387a3dd9ccdef8738e3383bdb5d89177ed6360499d9da0c3de24e401bbfc4d0c"
+    },
+    "drop1_CPU_launch_554": {
+      "path": "research/554_WC_DROP1_FULL56_CPU_SINGLE_LAUNCH_AND_COMPLETE18_NEXT_20261017.md",
+      "sha256": "b3a2ca820e6ec1c7ae9a2afde8036b8f6dc42b807e5f41d19aaa500c8cf87b45"
+    },
+    "drop1_running_555": {
+      "path": "research/555_WC_DROP1_FULL18_CPU_ACCEPTED_GPU_ADMISSION_AND_TWO_COLLECTIONS_20261017.md",
+      "sha256": "137dadbe87c4764b63e989d4df54ef31d1ba63ba31300eaedd513970a3cbad20"
+    },
+    "drop1_CPU_original_launch": {
+      "path": "reports/wc_drop1_full56_actual18_CPU_launch_20261017.json",
+      "sha256": "97c9ae5eff4f3a818d5e53c51080dd978912a0f8d62a507eb8dd66d23b2f8bfc"
+    },
+    "drop1_CPU_terminal": {
+      "path": "reports/wc_drop1_full56_actual18_CPU_collection_20261017_2129.json.gz",
+      "sha256": "4fb1ead8b3dc4467a99d1efcce99a0190bbd74997c18b0cf9fb78c8a0fbd0328"
+    },
+    "drop1_CPU_independent": {
+      "path": "reports/wc_drop1_full56_actual18_CPU_independent_acceptance_20261017.json",
+      "sha256": "30822033cd9065a87283a1cfa40be3635bae65c5abe384cbf622a91ddeac1a3b"
+    },
+    "drop1_GPU_launch": {
+      "path": "reports/wc_drop1_full18_GPU_launch_20261017.json",
+      "sha256": "67ba655b0ffdbcce2102a83574c881d5393cfdd9ce76661e7a8fccb0535a5fe9"
+    },
+    "drop1_original_admission": {
+      "path": "reports/wc_drop1_full18_original_admission_20261017_ready.json.gz",
+      "sha256": "dc9eb9b659ac7bfdde2240010615f7751bc98f3f81623cedb535e68efbcae3b3"
+    },
+    "drop1_independent_admission": {
+      "path": "reports/wc_drop1_full18_independent_admission_acceptance_20261017.json",
+      "sha256": "28e8200aebcfbc8b50fff4fe19331f018d9abae0d3164d7917b9964826f4fb42"
+    },
+    "drop1_admission_CPU_crosscheck": {
+      "path": "reports/wc_drop1_full18_admission_CPU_binding_crosscheck_20261017.json",
+      "sha256": "aad4d92cb8721605a431da8a10069d5954ead8f8e7ecc5fb5f0d670bad72a2e1"
+    },
+    "drop1_fresh_resources": {
+      "path": "reports/wc_drop1_full18_fresh_resource_and_budget_20261017.json.gz",
+      "sha256": "6f870ca8df8a4907fbd5c031b3593b50ceff20df8dcca2aecd6e9dd1d0c07281"
+    },
+    "drop1_automations": {
+      "path": "reports/wc_drop1_full18_two_check_automations_verified_20261017.json",
+      "sha256": "f46c8c5a6fe54da03be6b10d2c669ec76af07a313718248837058d57b35e1f02"
+    },
+    "drop1_acceptor_controls": {
+      "path": "reports/wc_drop1_local_acceptor_controls_v2_20261017.json",
+      "sha256": "58d95a52e4c0ba57ae43268fba65acbf1cf112c140ca37560590b3987016b1b9"
     }
   },
   "operation_policy": {
-    "current_running_card": null,
-    "scheduled_collection_local": null,
+    "current_running_card": "WC-DROP1-CAL4-THREEARM-FULL18-R1-20261017-A",
+    "scheduled_collection_local": "2026-10-18T00:01:00+08:00",
     "no_continuous_monitoring": true,
     "new_GPU_jobs_started_by_this_inventory": 2,
     "automatic_single_complete_job_estimate_exclusive_GPUh_upper_bound": 12,
-    "last_settled_used_GPUh_before_running_card": 106.72265023079497,
-    "remaining_before_running_card_GPUh": 6.277349769205031,
-    "running_card_forecast_GPUh": null,
-    "actual_running_card_spend_unknown": false,
+    "last_settled_used_GPUh_before_running_card": 109.39479812385285,
+    "remaining_before_running_card_GPUh": 116.60520187614715,
+    "running_card_forecast_GPUh": 1.7588608728072916,
+    "actual_running_card_spend_unknown": true,
     "budget_window_not_reset": true,
     "planned_templates_are_not_CPU_accepted_selected_cards": true,
     "closed_F_B_not_reopened": true,
-    "current_running_cards": [],
+    "current_running_cards": [
+      {
+        "family": "N12",
+        "run_id": "wc-drop1-cal4-three-arm-full18-r1",
+        "source_revision": "e76b4f8b934bb07bf045e6083f36eddb4711640d",
+        "GPU_uuid": "GPU-de9a5370-cd87-0f1c-a48e-288888777dd3",
+        "launch_id": "1d847560-a411-4272-8e4c-0b07844a664c",
+        "supervisor_pid": 1515148,
+        "runner_pid": 1515544,
+        "post_watcher_pid": 1515149,
+        "scope": {
+          "requests": 4,
+          "methods": 3,
+          "scientific_paths": 12,
+          "full_warmup_paths": 6,
+          "total_paths": 18,
+          "ordinary_pairs": 648,
+          "ordinary_CFG_calls": 1296,
+          "loads": 1,
+          "teacher_pairs": 0,
+          "score_videos": 12
+        }
+      }
+    ],
     "authoritative_budget": "reports/gpu-budget-v2.json",
     "original_W3_unchanged": true,
-    "whole_running_job_reservations_GPUh": 0.0,
-    "available_after_whole_reservations_GPUh": 116.60520187614715,
+    "whole_running_job_reservations_GPUh": 2.25,
+    "available_after_whole_reservations_GPUh": 114.35520187614715,
     "per_UUID_lock_protocol": "plans/WORLD_CACHE_DUAL_GPU_EXECUTION_20261015.md",
-    "scheduled_collections_local": {},
+    "scheduled_collections_local": {
+      "N12_HALFWAY": "2026-10-17T22:46:00+08:00",
+      "N12_FINAL": "2026-10-18T00:01:00+08:00"
+    },
     "running_forecasts_GPUh": {
-      "N08_FULL40": 3.6275
+      "N12_FULL18": 1.7588608728072916
     },
     "resource_check_history": [
       {
@@ -4944,7 +5046,9 @@
       "W3": 11.645827780327332,
       "SIMPLE26D_FULL36": 5.766054749472921
     },
-    "current_pending_scientific_acceptance_cards": [],
+    "current_pending_scientific_acceptance_cards": [
+      "N12_FULL18"
+    ],
     "latest_total_settled_GPUh": 109.39479812385285,
     "SIMPLE26D_collection_closed": true,
     "SIMPLE26D_rerun_selected": true,
@@ -4962,14 +5066,14 @@
     "current_CPU_task": null,
     "next_W3_CPU_collection": null,
     "SIMPLE26D_R2_next_collection": null,
-    "current_reserved_GPUh": 0.0,
-    "current_admissible_GPUh": 116.60520187614715,
+    "current_reserved_GPUh": 2.25,
+    "current_admissible_GPUh": 114.35520187614715,
     "W3_scientific_acceptance_scope": "RAW_SUPERVISION_SUBSETS_WITH_ORIGINAL_FAILURES",
     "W3_full_card_all_success": false,
     "W3_T0_T1_T2_CPU_evaluation_complete": true,
     "W3_phase_CPU_controls_complete": true,
     "new_W3_GPU_card_selected": false,
-    "current_running_cards_basis": "reports/wc_paper_N08_balanced_full40_independent_admission_acceptance_20261017.json",
+    "current_running_cards_basis": "reports/wc_drop1_full18_independent_admission_acceptance_20261017.json",
     "historical_scheduled_collections_local": {
       "W3": "2026-10-16T01:00:00+08:00",
       "SIMPLE26D_MEMORY_R2": "2026-10-16T04:55:00+08:00",
@@ -4982,7 +5086,7 @@
       "N07_REPAIR180_R2_MIDPOINT": "2026-10-17T09:24:00+08:00",
       "N07_REPAIR180_R2_ORIGINAL_FINAL_SUPERSEDED_BY_HUMAN": "2026-10-17T17:24:00+08:00"
     },
-    "budget_values_asof": "2026-10-17T13:33:16.401109+08:00",
+    "budget_values_asof": "2026-10-17T21:33:12.757866+08:00",
     "last_CPU_task": {
       "kind": "N08_FULL40_ACTUAL_PRODUCTION_CPU",
       "source_revision": "8bdebc340737599a6923c01a31a4734b04bc3f4b",
@@ -4998,10 +5102,9 @@
     },
     "mainline_continuation_authorized_by_latest_human": true,
     "mainline_priority_queue": [
-      "N12",
-      "N09",
-      "N10",
-      "N11"
+      "N12_TERMINAL_ACCEPTANCE_AND_INTERPRETATION",
+      "N09_DISCUSS_FULL_SCOPE",
+      "N10_DISCUSS_REUSED_VIDEO_QUALITY"
     ],
     "optional_enhancements_do_not_precede_N05": [
       "N02",
@@ -5363,8 +5466,12 @@
     "no_new_experiment_started_in_status_request": false,
     "budget_cap_extension_ref": "reports/wc_cap226_cumulative_extension_server_receipt_20261017.json.gz",
     "latest_direct_human_authority_ref": "manifests/wc_e0_drop1_cap226_direct_human_authorization_20261017.json",
-    "next_selected_complete_card": "WC-DROP1-CAL4-THREEARM-FULL18-R1-20261017-A",
-    "E0_remaining_CPU_complete": true
+    "next_selected_complete_card": null,
+    "E0_remaining_CPU_complete": true,
+    "latest_GPU_launch_ref": "reports/wc_drop1_full18_GPU_launch_20261017.json",
+    "latest_GPU_admission_ref": "reports/wc_drop1_full18_independent_admission_acceptance_20261017.json",
+    "latest_actual_CPU_acceptance_ref": "reports/wc_drop1_full56_actual18_CPU_independent_acceptance_20261017.json",
+    "followup_new_GPU_not_automatic_in_current_collection": true
   },
-  "mapping_sha256_at_inventory": "9165b92b3caf727ec61c8663fdec19c75dba0aed2b47ec6790e7609c70b23246"
+  "mapping_sha256_at_inventory": "c61eb4d98881d71f8cb91a16840d044e2688e9e2da1ca3897c2d89c5739e296c"
 }
