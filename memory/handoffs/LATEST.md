@@ -1,3 +1,9 @@
+## 2026-10-18 当前：五模型真实CPU全部接受；完整960实际输入就绪，GPU每两小时检查
+
+[578完整接受](../../research/578_WC_N10_ALL_FIVE_REAL_CPU_ACCEPTED_AND_ACTUAL_SCORER_FULL960_BOUND_20261018.md)：DINO／AMT_S／RAFT_THINGS／ViCLIP／MUSIQ_SPAQ真实CPU R2全5独立通过，原sourcefb89a755／244源／固定权重与构造器均已核对，bundle93.7842秒。原160正式／960指标位置已绑定该实际证明并独立逐格接受：645待评分、155视频不可用、160静态范围N/A；四项重新指纹的语义破坏均拒绝。当前质量分数仍0；完整报价／实际评分生产CPU／GPU待，原R1失败保留。
+
+连续修正88数值CPU已接受，完整24生产／旧12端点与四warm控制／N09价格报价待，A3终点结果留空。所有旧CPU原件已终态收完、查收自动化删除；只保留worldcache-gpu每两小时一次轻量资源查看，占用不变安静。N09完整40优先，旧未准入stage的fence保留，fresh stage／真实CPU／v2和UUID准入后推进；实际GPU测速不并发重CPU。cap226／最近实结110.869061155／预留0余115.130938845及origin历史不变，strict<12与长任务半程／预计结束各一次保持，F/B关闭。以下为历史。
+
 ## 2026-10-18 当前：完整88数值CPU已接受；五模型R2待02:30原件，GPU两小时一次
 
 [577最新安排](../../research/577_WC_TWO_HOURLY_GPU_RESOURCE_CHECK_AND_N10_R2_MIDPOINT_20261018.md)：用户不知道GPU释放时间，已创建worldcache-gpu每两小时一次轻量资源查看，占用不变安静，不再反复问释放时间；原N09完整40优先，fresh v2／UUID／真实CPU／完整报价准入及原失败fence不改。

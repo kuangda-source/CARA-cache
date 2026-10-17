@@ -1,0 +1,49 @@
+{
+  "vbench_commit": "fd18b3d055cb0fc6f066ca90fe2c3c8cbb698490",
+  "measurement_protocol_sha256": "9755122b22349d9cd5b1cfe43460e73044360e240d941df11d6ca4150b817734",
+  "identity_role": "ACTUAL_FULL_FIVE_MODEL_CPU_BOUND_SCORER_NOT_EXECUTION_AUTHORITY",
+  "constructor_ref": "src/wcomr/automatic_quality_models_r1.py",
+  "constructor_source_sha256": "3f6c515de1f8f818a20614747c3751a532ef096a7fd397266380e89e16f8b788",
+  "roles": [
+    "DINO",
+    "AMT_S",
+    "RAFT_THINGS",
+    "ViCLIP",
+    "MUSIQ_SPAQ"
+  ],
+  "expected_weights": {
+    "DINO": {
+      "bytes": 343242485,
+      "sha256": "bf34ad0f424b9029b593e8dc3ed553bf26e88bcba0d32bf3e62a6209cb64c85e",
+      "model_class": "vision_transformer.VisionTransformer"
+    },
+    "AMT_S": {
+      "bytes": 12038359,
+      "sha256": "07e7e03405c213fe4405678db9b42d05671e48c56faf6a441b99bb0047d3cf77",
+      "model_class": "networks.AMT-S.Model"
+    },
+    "RAFT_THINGS": {
+      "bytes": 21108000,
+      "sha256": "fcfa4125d6418f4de95d84aec20a3c5f4e205101715a79f193243c186ac9a7e1",
+      "model_class": "vbench.third_party.RAFT.core.raft.RAFT"
+    },
+    "ViCLIP": {
+      "bytes": 1710545812,
+      "sha256": "7a4d6ad6eac6632db3693f4b97f9f8f6445b65b1e139a6fc6686150522238c56",
+      "model_class": "vbench.third_party.ViCLIP.viclip.ViCLIP"
+    },
+    "MUSIQ_SPAQ": {
+      "bytes": 108610983,
+      "sha256": "358bb6af275e28ea56821d44fb55c6cb83645db11f394d3ad65b2d149965ab50",
+      "model_class": "pyiqa.archs.musiq_arch.MUSIQ"
+    }
+  },
+  "real_model_CPU_proof_ref": "manifests/wc_paper_N10_actual_model_CPU_full960_20261018/model-CPU-acceptance.json",
+  "production_eligible": false,
+  "rebuild_final_scorer_identity_after_actual_model_CPU": false,
+  "real_model_CPU_proof_sha256": "c4f6e9cb9d84b6eb9c542b66b419e0f31df1d8b2cbc9bf347d9125c3b51a0bbb",
+  "model_CPU_registration_sha256": "28dbb0633aa763de1c998eb974fed978c0fda28841de62422a6b6af59ccd8b67",
+  "model_CPU_source_revision": "fb89a755118257b520446e2e029f6231bc7ad191",
+  "model_constructor_CPU_accepted": true,
+  "whole960_production_CPU_and_cost_required": true
+}
