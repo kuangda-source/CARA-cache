@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "updated_local_date": "2026-10-18",
-  "snapshot_basis": "N10 actual full960/five-model inputs connected to unpriced production contract; 18 local controls, workload/predata 19 comparisons; no selected quote, real production CPU or new quality/GPU.",
+  "snapshot_basis": "N10 full960 actual server production CPU independently accepted; complete engineering budget 4.915/6.25; scheduled two-hour resource check still busy; no own GPU or new quality.",
   "git_snapshot_before_inventory": "3c9483e18c7e8109fb265bcfd1a8f6aa5e24846e",
   "mapping_ref": "paper/internal_to_paper_mapping.json",
   "scope": "scientific experiment families and complete cards, not each engineering retry; reused artifacts must not be summed as independent samples",
@@ -1927,7 +1927,8 @@
       "current_GPU_admitted": false,
       "actual_new_GPUh": 0,
       "latest_production_CPU_acceptance_ref": "reports/wc_paper_N09_actual40_production_CPU_R3_independent_acceptance_20261018.json",
-      "latest_production_CPU_wall_seconds": 182.22571063041687
+      "latest_production_CPU_wall_seconds": 182.22571063041687,
+      "latest_actual_GPU_resource_receipt_ref": "reports/wc_two_gpu_resource_readonly_20261018_0422.json"
     },
     {
       "id": "N10",
@@ -1938,7 +1939,7 @@
       ],
       "contribution_relation": "C3生成质量范围；补充保真主指标",
       "evidence_or_planned_scope": "五模型真实CPU R2全5接受，原160正式/六维960输入绑定实际模型身份；645待评分、155视频不可用、160静态N/A，未缩分母。",
-      "gap_and_next_action": "实际五模型CPU、全部960原输入和未报价生产数据检查已接通；五角色工作量/19对比/16依赖无覆盖冲突，18本地控制通过。待完整费用依据及报价、新stage真实生产CPU与GPU评分，0新质量；不以CPU证明秒数冒充GPU价。",
+      "gap_and_next_action": "完整960真实生产CPU已接受（271源/五命令/原五模型/4.915工程预测与6.25上限，31.1677秒）；待客户端GPU单次派发和完整逐项/财务终态工具，再接N09之后的正式评分，当前0新质量。",
       "priority": "P1·完整多维自动质量评价前置条件",
       "evidence_refs": [
         "28",
@@ -2080,7 +2081,14 @@
         "research/584_WC_N10_FULL960_UNPRICED_PRODUCTION_INPUTS_WORKLOAD_AND_NEXT_20261018.md",
         "manifests/wc_paper_N10_unpriced_full960_production_scope_20261018.json",
         "reports/wc_paper_N10_unpriced_full960_source_local_preparation_20261018.json",
-        "plans/WC_N10_FULL960_PRODUCTION_SCOPE_AND_COST_COMPLETION_20261018.md"
+        "plans/WC_N10_FULL960_PRODUCTION_SCOPE_AND_COST_COMPLETION_20261018.md",
+        "research/587_WC_N10_FULL960_ACTUAL_PRODUCTION_CPU_ACCEPTED_AND_TWO_HOURLY_GPU_QUEUE_20261018.md",
+        "research/585_WC_N10_WHOLE960_ENGINEERING_BUDGET_AND_PRODUCTION_CPU_READY_20261018.md",
+        "research/586_WC_N10_QUOTED_FULL960_ACTUAL_PRODUCTION_CPU_RUNNING_20261018.md",
+        "reports/wc_paper_N10_full960_production_CPU_R1_launch_20261018.json",
+        "reports/wc_paper_N10_full960_production_CPU_R1_collection_20261018_042130.json.gz",
+        "reports/wc_paper_N10_full960_production_CPU_R1_independent_acceptance_20261018.json",
+        "plans/WC_N10_FULL960_ENGINEERING_BUDGET_PREREG_R1_20261018.md"
       ],
       "method_mapping_ids": [],
       "depends_on": [
@@ -2249,16 +2257,32 @@
       "actual_scorer_full960_preparation_ref": "reports/wc_paper_N10_actual_model_CPU_full960_inputs_20261018.json.gz",
       "actual_scorer_full960_independent_ref": "reports/wc_paper_N10_actual_model_CPU_full960_input_independent_acceptance_R2_20261018.json",
       "actual_scorer_identity_ref": "manifests/wc_paper_N10_actual_model_CPU_full960_20261018/evaluator-identity.json",
-      "full960_production_CPU_accepted": false,
+      "full960_production_CPU_accepted": true,
       "full960_unpriced_production_input_contract_prepared": true,
       "full960_unpriced_production_scope_ref": "manifests/wc_paper_N10_unpriced_full960_production_scope_20261018.json",
       "full960_unpriced_production_source_preparation_ref": "reports/wc_paper_N10_unpriced_full960_source_local_preparation_20261018.json",
       "full960_source_preparation_local_controls_passed": 18,
       "full960_workload_ready_video_metric_invocations": 645,
       "full960_registered_comparisons": 19,
-      "full960_actual_whole_GPUh_forecast": null,
-      "full960_actual_billed_limit_GPUh": null,
-      "full960_unpriced_template_is_production_config": false
+      "full960_actual_whole_GPUh_forecast": 4.915,
+      "full960_actual_billed_limit_GPUh": 6.25,
+      "full960_unpriced_template_is_production_config": false,
+      "full960_priced_config_selected": true,
+      "full960_priced_config_ref": "configs/wc_paper_N10_full960_production_r1_20261018.json",
+      "full960_cost_is_engineering_budget_not_measured_GPU_price": true,
+      "full960_production_CPU_dispatched": true,
+      "full960_production_CPU_launch_ref": "reports/wc_paper_N10_full960_production_CPU_R1_launch_20261018.json",
+      "full960_production_CPU_capture_ref": "reports/wc_paper_N10_full960_production_CPU_R1_collection_20261018_042130.json.gz",
+      "full960_production_CPU_acceptance_ref": "reports/wc_paper_N10_full960_production_CPU_R1_independent_acceptance_20261018.json",
+      "full960_production_CPU_source": "d10e992614a1249dc61668f7791f4e5144e50480",
+      "full960_production_CPU_pid": 1740470,
+      "full960_production_CPU_start_ticks": 556323483,
+      "full960_production_CPU_wall_seconds": 31.16768187750131,
+      "full960_production_CPU_payload_files": 271,
+      "full960_actual_CPU_commands_accepted": 5,
+      "full960_production_CPU_current_running": false,
+      "full960_GPU_client_and_terminal_acceptance_tools_complete": false,
+      "full960_GPU_dispatched": false
     },
     {
       "id": "N11",
@@ -3445,7 +3469,28 @@
     "N10_unpriced_full960_local_preparation": "reports/wc_paper_N10_unpriced_full960_source_local_preparation_20261018.json",
     "N10_unpriced_full960_producer": "scripts/prepare_wc_N10_unpriced_production_scope_r1.py",
     "N10_unpriced_input_workload_contract": "src/wcomr/automatic_quality_preparation_r1.py",
-    "N10_unpriced_preparation_controls": "tests/test_N10_full960_preparation_r1.py"
+    "N10_unpriced_preparation_controls": "tests/test_N10_full960_preparation_r1.py",
+    "N10_actual_production_CPU_accepted_587": "research/587_WC_N10_FULL960_ACTUAL_PRODUCTION_CPU_ACCEPTED_AND_TWO_HOURLY_GPU_QUEUE_20261018.md",
+    "N10_quoted_production_ready_585": "research/585_WC_N10_WHOLE960_ENGINEERING_BUDGET_AND_PRODUCTION_CPU_READY_20261018.md",
+    "N10_actual_production_CPU_launch_586": "research/586_WC_N10_QUOTED_FULL960_ACTUAL_PRODUCTION_CPU_RUNNING_20261018.md",
+    "N10_engineering_budget_prereg": "plans/WC_N10_FULL960_ENGINEERING_BUDGET_PREREG_R1_20261018.md",
+    "N10_actual_full960_engineering_cost": "reports/wc_paper_N10_full960_engineering_cost_R1_20261018.json",
+    "N10_actual_full960_priced_config": "configs/wc_paper_N10_full960_production_r1_20261018.json",
+    "N10_priced_config_preparation": "reports/wc_paper_N10_full960_priced_config_preparation_R1_20261018.json",
+    "N10_priced_CPU_staging_source_preparation": "reports/wc_paper_N10_priced_full960_CPU_staging_local_preparation_20261018.json",
+    "N10_full960_production_CPU_launch": "reports/wc_paper_N10_full960_production_CPU_R1_launch_20261018.json",
+    "N10_full960_production_CPU_midpoint": "reports/wc_paper_N10_full960_production_CPU_R1_midpoint_20261018_042030.json.gz",
+    "N10_full960_production_CPU_terminal": "reports/wc_paper_N10_full960_production_CPU_R1_collection_20261018_042130.json.gz",
+    "N10_full960_production_CPU_independent": "reports/wc_paper_N10_full960_production_CPU_R1_independent_acceptance_20261018.json",
+    "N10_actual960_quote_core": "src/wcomr/automatic_quality_quote_r1.py",
+    "N10_actual960_config_builder": "scripts/prepare_wc_N10_priced_full960_config_r1.py",
+    "N10_actual960_CPU_deployer": "scripts/deploy_wc_N10_full960_production_cpu_r1.py",
+    "N10_actual960_CPU_bundle_worker": "scripts/run_wc_N10_production_cpu_bundle_r1.py",
+    "N10_actual960_CPU_collector": "scripts/capture_wc_N10_production_cpu_r1.py",
+    "N10_actual960_CPU_acceptor": "src/wcomr/automatic_quality_production_cpu_r1.py",
+    "N10_actual960_quote_tests": "tests/test_N10_whole_quote_r1.py",
+    "N10_actual960_CPU_acceptance_tests": "tests/test_N10_production_cpu_acceptance_r1.py",
+    "latest_two_hourly_GPU_resource_snapshot_0422": "reports/wc_two_gpu_resource_readonly_20261018_0422.json"
   },
   "source_bindings": {
     "11": {
@@ -4422,7 +4467,7 @@
     },
     "N10_full960_production_contract": {
       "path": "src/wcomr/automatic_quality_production_r1.py",
-      "sha256": "64d5b6d9fb1ac987ee48ebaa734ffe7b473da5aff67322b16eca0a9aaf7a8712"
+      "sha256": "2c6e8550a4cd760daf3eaa5492fd063cec104cbb074e16c105f0199f22bd0138"
     },
     "N10_full960_scoring_worker": {
       "path": "scripts/score_wc_paper_N10_full960_r1.py",
@@ -4686,11 +4731,11 @@
     },
     "N09_CPU_immutable_installer": {
       "path": "src/wcomr/immutable_stage_payload_r1.py",
-      "sha256": "897c9ccc3419db2cae5fc7ea029b7e4ba45319ff419eee6a7f6bbaa51b1023fa"
+      "sha256": "10ce88850457c09ccdf9efa7a90a19e3240e90ba2dbdb213c64e50fca035cb06"
     },
     "N09_CPU_installer_scope_controls": {
       "path": "tests/test_immutable_stage_payload_r1.py",
-      "sha256": "2c5827721e8affe55c858290efcaa909f140e431ef88742cb301d85928038aa4"
+      "sha256": "b20080ba919c54d61e9aa3b7777e875b348aa097698a425a8b7faa83325e28a2"
     },
     "525": {
       "path": "research/525_WC_N09_SINGLE_GPU_DISPATCH_CPU_BINDING_AND_CHECK_TIMES_READY_20261016.md",
@@ -6470,11 +6515,11 @@
     },
     "immutable_stage_installer_full24_scope": {
       "path": "src/wcomr/immutable_stage_payload_r1.py",
-      "sha256": "897c9ccc3419db2cae5fc7ea029b7e4ba45319ff419eee6a7f6bbaa51b1023fa"
+      "sha256": "10ce88850457c09ccdf9efa7a90a19e3240e90ba2dbdb213c64e50fca035cb06"
     },
     "immutable_stage_full24_scope_tests": {
       "path": "tests/test_immutable_stage_payload_r1.py",
-      "sha256": "2c5827721e8affe55c858290efcaa909f140e431ef88742cb301d85928038aa4"
+      "sha256": "b20080ba919c54d61e9aa3b7777e875b348aa097698a425a8b7faa83325e28a2"
     },
     "N10_unpriced_production_report_584": {
       "path": "research/584_WC_N10_FULL960_UNPRICED_PRODUCTION_INPUTS_WORKLOAD_AND_NEXT_20261018.md",
@@ -6503,6 +6548,90 @@
     "N10_unpriced_preparation_controls": {
       "path": "tests/test_N10_full960_preparation_r1.py",
       "sha256": "92ab27024f4b6620ee933fcdcbd13563de625c3f7e0583055f0e402aed0adb17"
+    },
+    "N10_actual_production_CPU_accepted_587": {
+      "path": "research/587_WC_N10_FULL960_ACTUAL_PRODUCTION_CPU_ACCEPTED_AND_TWO_HOURLY_GPU_QUEUE_20261018.md",
+      "sha256": "3dffa317ba22a22f1c06f8590caa11597aaef653c4c95102f7d361aab79d0b18"
+    },
+    "N10_quoted_production_ready_585": {
+      "path": "research/585_WC_N10_WHOLE960_ENGINEERING_BUDGET_AND_PRODUCTION_CPU_READY_20261018.md",
+      "sha256": "9d6e54bf6a566372e1878b61bc1e211c21a891dbe43eb1863d9da102c475003e"
+    },
+    "N10_actual_production_CPU_launch_586": {
+      "path": "research/586_WC_N10_QUOTED_FULL960_ACTUAL_PRODUCTION_CPU_RUNNING_20261018.md",
+      "sha256": "58696c82355ad6945f94bde40fcb3070822799ba4de2726d98024d85293f6cbd"
+    },
+    "N10_engineering_budget_prereg": {
+      "path": "plans/WC_N10_FULL960_ENGINEERING_BUDGET_PREREG_R1_20261018.md",
+      "sha256": "2e08baeb9ba8e0c63c5c4ff5f8d545cf99c6d5de6fca3a5c195331d0922b0aee"
+    },
+    "N10_actual_full960_engineering_cost": {
+      "path": "reports/wc_paper_N10_full960_engineering_cost_R1_20261018.json",
+      "sha256": "ea10facf149a9153a7b93a1da43af2a846c4b71293367cc031bdfae9057f253c"
+    },
+    "N10_actual_full960_priced_config": {
+      "path": "configs/wc_paper_N10_full960_production_r1_20261018.json",
+      "sha256": "d383cdb345d3137446f5dc537b614e08961da4c56475e74c3d5d1354b2b422bd"
+    },
+    "N10_priced_config_preparation": {
+      "path": "reports/wc_paper_N10_full960_priced_config_preparation_R1_20261018.json",
+      "sha256": "eb42ecdcf91b7ac6d08b1f87457c45db5843b83c5309e1f8027e7cad5a266f25"
+    },
+    "N10_priced_CPU_staging_source_preparation": {
+      "path": "reports/wc_paper_N10_priced_full960_CPU_staging_local_preparation_20261018.json",
+      "sha256": "1c1713e30adcca8b2a9a46175aa347002b01f9029e9260ea6a2696381481f415"
+    },
+    "N10_full960_production_CPU_launch": {
+      "path": "reports/wc_paper_N10_full960_production_CPU_R1_launch_20261018.json",
+      "sha256": "723f03607a1071caf8287ac944942b7a51c42496e3fddc7fb6181c2f2b7ff74c"
+    },
+    "N10_full960_production_CPU_midpoint": {
+      "path": "reports/wc_paper_N10_full960_production_CPU_R1_midpoint_20261018_042030.json.gz",
+      "sha256": "12f98eb7da2c5fe554d0b9a7f3cf9e5a5413ff3418a23f53176f70ea9b182f4a"
+    },
+    "N10_full960_production_CPU_terminal": {
+      "path": "reports/wc_paper_N10_full960_production_CPU_R1_collection_20261018_042130.json.gz",
+      "sha256": "517ea9b36b6a28073bb166370ef4935ebc3cfc19e56c7768afa01d78e836afaa"
+    },
+    "N10_full960_production_CPU_independent": {
+      "path": "reports/wc_paper_N10_full960_production_CPU_R1_independent_acceptance_20261018.json",
+      "sha256": "84891b0a1517edf10a00fba52c4aba4fd9823af83b9023d253fe27de114fbb43"
+    },
+    "N10_actual960_quote_core": {
+      "path": "src/wcomr/automatic_quality_quote_r1.py",
+      "sha256": "3af73cf9005a82039814f27f7106af95c94e8be26a34c05e047d915326bd60b9"
+    },
+    "N10_actual960_config_builder": {
+      "path": "scripts/prepare_wc_N10_priced_full960_config_r1.py",
+      "sha256": "9b18da9312c1423bc1c295f63163ef2aad4dd86a0c87ad98a80f9da6248296f7"
+    },
+    "N10_actual960_CPU_deployer": {
+      "path": "scripts/deploy_wc_N10_full960_production_cpu_r1.py",
+      "sha256": "9b46d321b1952fd8744bb324322377f8af4d0f09d60d8768ebcc96277700ebc3"
+    },
+    "N10_actual960_CPU_bundle_worker": {
+      "path": "scripts/run_wc_N10_production_cpu_bundle_r1.py",
+      "sha256": "c715bbae82b41f8528b622577ed3ad86a7bba31b7f7e8d0b7b1c1690a628b7f5"
+    },
+    "N10_actual960_CPU_collector": {
+      "path": "scripts/capture_wc_N10_production_cpu_r1.py",
+      "sha256": "96eb2ec553ab1891e2deb3cbfe921d7c599abed8f3c20d1b3fd623b4f355ed76"
+    },
+    "N10_actual960_CPU_acceptor": {
+      "path": "src/wcomr/automatic_quality_production_cpu_r1.py",
+      "sha256": "8f490d6dd9ae8dfbb79a3cd91ec3b5ee819daaf7e1231377e84d86cf22d253f2"
+    },
+    "N10_actual960_quote_tests": {
+      "path": "tests/test_N10_whole_quote_r1.py",
+      "sha256": "b4047c6916d08efabb58f6fcf904c795146cac23ed13c8c9117473f9e177a1ce"
+    },
+    "N10_actual960_CPU_acceptance_tests": {
+      "path": "tests/test_N10_production_cpu_acceptance_r1.py",
+      "sha256": "25b22e7f8db819775352d5ec1bfd8d1efa3d78b9c8459fcc86174aab21d65465"
+    },
+    "latest_two_hourly_GPU_resource_snapshot_0422": {
+      "path": "reports/wc_two_gpu_resource_readonly_20261018_0422.json",
+      "sha256": "b68d5a6e9eaa7cc4bc82f86c2faf6ba8b8082dfe59cc0bf84a13a501a8ffed0a"
     }
   },
   "operation_policy": {
@@ -6558,6 +6687,15 @@
         "both_UUID_locks_free": true,
         "scientific_results_read": false,
         "ledger_written": false
+      },
+      {
+        "unix": 1792268589.619185,
+        "receipt": "reports/wc_two_gpu_resource_readonly_20261018_0422.json",
+        "active_experiment_GPUs": 0,
+        "both_UUID_locks_free": true,
+        "both_UUIDs_other_process_memory_full": true,
+        "scientific_results_read": false,
+        "ledger_written": false
       }
     ],
     "legacy_single_current_card_field_refers_to_W3_only": false,
@@ -6583,7 +6721,7 @@
     "current_CPU_task": null,
     "next_W3_CPU_collection": null,
     "SIMPLE26D_R2_next_collection": null,
-    "current_reserved_GPUh": 0,
+    "current_reserved_GPUh": 0.0,
     "current_admissible_GPUh": 115.13093884546745,
     "W3_scientific_acceptance_scope": "RAW_SUPERVISION_SUBSETS_WITH_ORIGINAL_FAILURES",
     "W3_full_card_all_success": false,
@@ -6620,25 +6758,20 @@
     },
     "budget_values_asof": "2026-10-18T00:47:40.326639+08:00",
     "last_CPU_task": {
-      "kind": "N09_FRESH_FULL40_PRODUCTION_CPU_R3",
-      "source_revision": "1de07673a13f0fe441745e94316a0dd81e00348d",
-      "stage": "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/.sync/wc-paper-n09-production-cpu-r3-20261018",
-      "pid": 1699795,
-      "start_ticks": 555732410,
-      "launch_ref": "reports/wc_paper_N09_actual40_production_CPU_R3_launch_20261018.json",
-      "launched_unix": 1792262420.584985,
-      "first_collection_not_before_unix": 1792262720.584985,
-      "next_collection": "2026-10-18T02:46:00+08:00",
-      "GPU_submissions": 0,
+      "kind": "N10_FULL960_QUOTED_PRODUCTION_CPU_R1",
+      "source_revision": "d10e992614a1249dc61668f7791f4e5144e50480",
+      "pid": 1740470,
+      "start_ticks": 556323483,
+      "launch_ref": "reports/wc_paper_N10_full960_production_CPU_R1_launch_20261018.json",
+      "acceptance_ref": "reports/wc_paper_N10_full960_production_CPU_R1_independent_acceptance_20261018.json",
       "CPU_accepted": true,
-      "status": "N09_FULL40_REAL_PRODUCTION_CPU_INDEPENDENTLY_ACCEPTED_NOT_GPU",
-      "acceptance_ref": "reports/wc_paper_N09_actual40_production_CPU_R3_independent_acceptance_20261018.json",
-      "CPU_wall_seconds": 182.22571063041687
+      "CPU_wall_seconds": 31.16768187750131,
+      "GPU_submissions": 0
     },
     "mainline_continuation_authorized_by_latest_human": true,
     "mainline_priority_queue": [
       "N09_READY_FRESH_R3_FULL40_GPU_WHEN_TWO_HOURLY_RESOURCE_CHECK_ADMITS",
-      "N10_WHOLE960_PRODUCTION_CPU_AND_FULL_QUOTE",
+      "N10_ACTUAL_CPU_ACCEPTED_COMPLETE960_GPU_CLIENT_AND_TERMINAL_TOOLS_THEN_SCORING",
       "DROP1_WINDOW24_REAL_PRODUCTION_AND_N09_PRICE_BASED_QUOTE"
     ],
     "optional_enhancements_do_not_precede_N05": [
@@ -6651,7 +6784,7 @@
     "N05_scientific_core66_scope_selected": true,
     "N05_production_CPU_or_GPU_selected": true,
     "N05_corrected_neighbor_gap_retained": true,
-    "budget_snapshot_asof": "2026-10-18T00:47:40.326639+08:00",
+    "budget_snapshot_asof": "2026-10-18T04:23:09.619185+08:00",
     "new_CPU_preparation_is_not_GPU_or_quality_result": true,
     "historical_CPU_tasks": [
       {
@@ -7163,7 +7296,13 @@
       "complete_quote_GPUh": null,
       "actual_new_CPU_stage_dispatched": false,
       "GPU_submissions": 0
-    }
+    },
+    "scheduled_CPU_collections_local": {},
+    "latest_GPU_resource_receipt_ref": "reports/wc_two_gpu_resource_readonly_20261018_0422.json",
+    "next_resource_check_not_before_unix": 1792275720,
+    "next_resource_check_local": "2026-10-18T06:22:00+08:00",
+    "resource_monitor_automation": "worldcache-gpu",
+    "N10_production_CPU_complete": true
   },
-  "mapping_sha256_at_inventory": "ce5229f1aed02e12e0080e09a2c56fcb73c369787a01f3b899efc2c37e9c4c60"
+  "mapping_sha256_at_inventory": "6a55ef75d3ecee560091b8308d0165ff92ab6caa60687e2efbbe51de2d228546"
 }
