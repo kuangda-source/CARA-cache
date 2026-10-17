@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "updated_local_date": "2026-10-17",
-  "snapshot_basis": "Complete original R2 terminal acceptance and full result summary; original N08 full40 selected under standing<12 rule, actual server CPU and GPU pending.",
+  "snapshot_basis": "R2 complete available-cohort results summarized; N08 complete40 actual production CPU single dispatch, no new GPU or reservation.",
   "git_snapshot_before_inventory": "51a69b8",
   "mapping_ref": "paper/internal_to_paper_mapping.json",
   "scope": "scientific experiment families and complete cards, not each engineering retry; reused artifacts must not be summed as independent samples",
@@ -25,8 +25,8 @@
   "status_counts": {
     "已完成": 22,
     "已完成并关闭": 2,
-    "待补": 7,
-    "正在运行": 0,
+    "待补": 6,
+    "正在运行": 1,
     "暂缓/未执行": 1
   },
   "rows": [
@@ -1309,14 +1309,14 @@
     },
     {
       "id": "N08",
-      "state": "待补｜完整40配置已选，待真实服务器CPU",
+      "state": "正在运行｜实际生产CPU在途，GPU未启动",
       "paper_experiment_name": "Balanced Repeated Clean Latency",
       "internal_ids": [
         "PAPER_E4_REPEAT_SPEED"
       ],
       "contribution_relation": "C3稳定费用；C1/C2工作点复验",
       "evidence_or_planned_scope": "R2已完成适用验收与完整总结；沿用事前五角色/AV28与Human199 seed0/三平衡轮30正式+10warm/一次加载1440pairs，完整预计及计费上限3.6275GPUh。",
-      "gap_and_next_action": "当前立即冻结Git和独立stage、执行原九命令实际CPU。通过后fresh v2/UUID/显存/锁/全程clean资源准入唯一派发；真实启动后2h半程/4h终态各一次，不依R2调参或替换角色。",
+      "gap_and_next_action": "13:28一次收原CPU1263883全部1747SHA/九命令/真实入口；独立接受后fresh v2/UUID/clean准入原完整40，3.6275GPUh<12可直接执行。实际GPU启动后半程和最终各查一次。",
       "priority": "P0·直接接续真实CPU与GPU",
       "evidence_refs": [
         "closure_plan",
@@ -1357,7 +1357,13 @@
         "N08_actual_selected40_config",
         "N08_actual_selected40_bound_quote",
         "N07_R2_original_downstream_regression_log",
-        "N07_R2_original_downstream_regression_CPU"
+        "N07_R2_original_downstream_regression_CPU",
+        "549",
+        "N08_full40_actual_CPU_R1_launch",
+        "N08_local_source_import_failure",
+        "N08_local_source_materialization",
+        "N08_local_committed_object_materialization",
+        "N08_auxiliary_full_metadata_fetch_stopped"
       ],
       "method_mapping_ids": [
         "config.efficient",
@@ -1428,7 +1434,12 @@
       "actual_production_config_selected": false,
       "actual_selected_config_ref": "configs/wc_paper_N08_balanced_full40_production_r1_20261016.json",
       "actual_complete_forecast_GPUh": 3.6275,
-      "actual_GPU_launched": false
+      "actual_GPU_launched": false,
+      "actual_production_CPU_launched": true,
+      "actual_CPU_source_revision": "8bdebc340737599a6923c01a31a4734b04bc3f4b",
+      "actual_CPU_pid": 1263883,
+      "actual_CPU_stage": "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/.sync/wc-paper-n08-production-cpu-r1-20261017",
+      "actual_CPU_launch_ref": "reports/wc_paper_N08_full40_actual_production_CPU_R1_launch_20261017.json"
     },
     {
       "id": "N09",
@@ -2498,7 +2509,13 @@
     "N08_actual_selected40_config": "configs/wc_paper_N08_balanced_full40_production_r1_20261016.json",
     "N08_actual_selected40_bound_quote": "reports/wc_paper_N08_complete40_selected_bound_and_quote_20261017.json",
     "N07_R2_original_downstream_regression_log": "reports/wc_paper_N07_R2_original_downstream_controls_20261017.log",
-    "N07_R2_original_downstream_regression_CPU": "reports/wc_paper_N07_R2_downstream_regression_CPU_20261017.json"
+    "N07_R2_original_downstream_regression_CPU": "reports/wc_paper_N07_R2_downstream_regression_CPU_20261017.json",
+    "549": "research/549_WC_N08_FULL40_ACTUAL_PRODUCTION_CPU_RUNNING_AFTER_R2_COMPLETE_20261017.md",
+    "N08_full40_actual_CPU_R1_launch": "reports/wc_paper_N08_full40_actual_production_CPU_R1_launch_20261017.json",
+    "N08_local_source_import_failure": "reports/wc_paper_N08_local_source_import_failure_before_dispatch_20261017.json",
+    "N08_local_source_materialization": "reports/wc_paper_N08_targeted_local_source_materialization_20261017.json",
+    "N08_local_committed_object_materialization": "reports/wc_paper_N08_targeted_git_objects_materialization_20261017.json",
+    "N08_auxiliary_full_metadata_fetch_stopped": "reports/wc_paper_N08_auxiliary_full_metadata_fetch_stopped_targeted_packet_retained_20261017.json"
   },
   "source_bindings": {
     "11": {
@@ -2651,7 +2668,7 @@
     },
     "mainline_queue_20261016": {
       "path": "plans/WORLD_CACHE_MAINLINE_PRIORITY_QUEUE_20261016.md",
-      "sha256": "cd5bddc307d55b67921f30729fe8da09beb395377857dfec1e491bb2bf4fc552"
+      "sha256": "60f27e72b0f1083be6692b0fbca877aaeebed05cf7e8074b594d27a980c79720"
     },
     "baseline_grid_prereg_20261016": {
       "path": "manifests/wc_paper_N05_bounded_baseline_grid_preregistration_draft_20261016.json",
@@ -4572,11 +4589,35 @@
     "N07_R2_original_downstream_regression_CPU": {
       "path": "reports/wc_paper_N07_R2_downstream_regression_CPU_20261017.json",
       "sha256": "f23a198e9eb22bd7ace31c6e4f6f288e244e3338b145a26b85a8660978266822"
+    },
+    "549": {
+      "path": "research/549_WC_N08_FULL40_ACTUAL_PRODUCTION_CPU_RUNNING_AFTER_R2_COMPLETE_20261017.md",
+      "sha256": "36d684197bd68396c4baceedb816fdc674e4fd02ce339d7724013a9366dea80f"
+    },
+    "N08_full40_actual_CPU_R1_launch": {
+      "path": "reports/wc_paper_N08_full40_actual_production_CPU_R1_launch_20261017.json",
+      "sha256": "45d81efaef1146a60c6918d5236b4b7c34ca951290faf47484407c0c0f689599"
+    },
+    "N08_local_source_import_failure": {
+      "path": "reports/wc_paper_N08_local_source_import_failure_before_dispatch_20261017.json",
+      "sha256": "9941a70d72ef932905bbe73749abb73cf3426b7d4cd6913706c4adc3114f519d"
+    },
+    "N08_local_source_materialization": {
+      "path": "reports/wc_paper_N08_targeted_local_source_materialization_20261017.json",
+      "sha256": "70b426f71825c1bf8e221569552de2fd42dd96f6cc5d0f7b0637b1c0e120fc59"
+    },
+    "N08_local_committed_object_materialization": {
+      "path": "reports/wc_paper_N08_targeted_git_objects_materialization_20261017.json",
+      "sha256": "3c547b8a2dfadc44b7bea09eca3f5d43c9c26ecf9e7fbd8cd849e33423a6f60e"
+    },
+    "N08_auxiliary_full_metadata_fetch_stopped": {
+      "path": "reports/wc_paper_N08_auxiliary_full_metadata_fetch_stopped_targeted_packet_retained_20261017.json",
+      "sha256": "59748b67c9378f488fdb0aaee55fb246e4642241ea79a18549f6a926f685bbc7"
     }
   },
   "operation_policy": {
     "current_running_card": null,
-    "scheduled_collection_local": null,
+    "scheduled_collection_local": "2026-10-17T13:28:00+08:00",
     "no_continuous_monitoring": true,
     "new_GPU_jobs_started_by_this_inventory": 2,
     "automatic_single_complete_job_estimate_exclusive_GPUh_upper_bound": 12,
@@ -4593,7 +4634,9 @@
     "whole_running_job_reservations_GPUh": 0.0,
     "available_after_whole_reservations_GPUh": 6.277349769205031,
     "per_UUID_lock_protocol": "plans/WORLD_CACHE_DUAL_GPU_EXECUTION_20261015.md",
-    "scheduled_collections_local": {},
+    "scheduled_collections_local": {
+      "N08_CPU": "2026-10-17T13:28:00+08:00"
+    },
     "running_forecasts_GPUh": {},
     "resource_check_history": [
       {
@@ -4649,7 +4692,17 @@
     },
     "W3_original_terminal_collection_performed": true,
     "SIMPLE26D_R1_collection_closed": true,
-    "current_CPU_task": null,
+    "current_CPU_task": {
+      "kind": "N08_FULL40_ACTUAL_PRODUCTION_CPU",
+      "source_revision": "8bdebc340737599a6923c01a31a4734b04bc3f4b",
+      "pid": 1263883,
+      "start_ticks": 550947856,
+      "stage": "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/.sync/wc-paper-n08-production-cpu-r1-20261017",
+      "launch_ref": "reports/wc_paper_N08_full40_actual_production_CPU_R1_launch_20261017.json",
+      "first_collection_not_before_unix": 1792214875.0464437,
+      "next_collection": "2026-10-17T13:28:00+08:00",
+      "GPU_submissions": 0
+    },
     "next_W3_CPU_collection": null,
     "SIMPLE26D_R2_next_collection": null,
     "current_reserved_GPUh": 0.0,
@@ -5029,9 +5082,10 @@
     "next_selected_card": "N08_FULL40",
     "N08_actual_configuration_selected": true,
     "N08_actual_forecast_GPUh": 3.6275,
-    "N08_server_CPU_launched": false,
+    "N08_server_CPU_launched": true,
     "N08_GPU_launched": false,
-    "N08_halfway_and_final_required": true
+    "N08_halfway_and_final_required": true,
+    "N08_server_CPU_accepted": false
   },
-  "mapping_sha256_at_inventory": "e11d77776e0e9a497772b04a35711baa89bd043e8c9415a2d64e30dcac99b6f9"
+  "mapping_sha256_at_inventory": "86fbd9d65138df98c5d3cb19af0afcfd05eb4b4a626cbb57c2e70bcd07546bf8"
 }

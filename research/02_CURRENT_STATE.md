@@ -1,3 +1,7 @@
+## 2026-10-17 N08完整40实际服务器CPU已单次启动
+
+[549当前CPU与接续](549_WC_N08_FULL40_ACTUAL_PRODUCTION_CPU_RUNNING_AFTER_R2_COMPLETE_20261017.md)：R2完整结果已验收并总结547/推送8bdebc3；N08 source8bdebc3的独立stage已于13:22:55单次启动实际CPU1263883/start550947856，1747payload/180overlay/原九命令、完整40范围，13:28一次查收（最早13:27:55）。CPU/GPU结果仍待，当前0新GPU/预算写。通过后fresh v2/UUID/clean资源准入原3.6275GPUh完整40，不重复确认；实际启动后2h半程/4h终态各一次。当前实结106.722650231/113、余6.277349769、预留0。F/B关闭；原R2/旧卡不重查。以下为历史。
+
 ## 2026-10-17 R2完整结果接受，接续原五角色N08完整40
 
 [547完整结果](547_WC_N07_R2_COMPLETE_RESULTS_FIDELITY_COST_SIMPLE_CONTROLS_AND_N08_NEXT_20261017.md) · [548测速卡](548_WC_N08_COMPLETE40_FROZEN_REPEAT_TIMING_SELECTED_AND_PRODUCTION_CPU_PREREG_20261017.md)：R2原180完整处理、CPU post退出0，1750源/10warm控制/全部适用原件接受，129正式视频/126兼容93帧（11718帧）评分、0审计失败；31拒绝与3参考缺失保留，非160全部成功。H1对WC失真−84.48%（6prompt）、计时+5.55%（7prompt），对简单前密A失真+3.53%；A_NO_P对RA默认失真+2.04%、计时+1.02%。全8均值仍空，不以旧单点替代。实结106.722650231/113、余6.277349769，R2及旧查收暂停。按用户先完整总结再直接推进N08，原五角色完整40/3.6275GPUh配置已选，实际九命令CPU与fresh准入待做；实际启动后2h半程/4h终态各一次。0新增GPU，F/B关闭。以下为历史。
