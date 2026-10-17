@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "updated_local_date": "2026-10-17",
-  "snapshot_basis": "Old N07 R1 complete failure archive independently recomputed without promoting partial outputs; newer approved R2 remains the current common-test card.",
-  "git_snapshot_before_inventory": "fbb2971",
+  "snapshot_basis": "Descriptive analysis of already accepted old R1 available20 cohort only; full final-test results and R2 scheduled acceptance remain unchanged.",
+  "git_snapshot_before_inventory": "0e7a3f0",
   "mapping_ref": "paper/internal_to_paper_mapping.json",
   "scope": "scientific experiment families and complete cards, not each engineering retry; reused artifacts must not be summed as independent samples",
   "contributions": {
@@ -1021,7 +1021,9 @@
         "N07_R1_reused_device_acceptance_CLI",
         "N07_R1_reused_device_acceptance_controls",
         "N07_R1_reused_device_local_CPU",
-        "N07_R1_terminal_automation_pause"
+        "N07_R1_terminal_automation_pause",
+        "544",
+        "N07_R1_available20_quality_cost_analysis"
       ],
       "method_mapping_ids": [
         "config.efficient",
@@ -1220,7 +1222,27 @@
       "original_R1_superseded_device_gate_local_CPU_tests": 13,
       "original_R1_partial_not_pooled_with_R2": true,
       "original_R1_final_automation_status": "PAUSED",
-      "original_R1_physical_UUID_currently_idle": false
+      "original_R1_physical_UUID_currently_idle": false,
+      "original_R1_available20_descriptive_analysis_performed": true,
+      "original_R1_available20_analysis_ref": "reports/wc_paper_N07_R1_available20_quality_cost_analysis_20261017.json",
+      "original_R1_available20_analysis_report": "research/544_WC_N07_R1_AVAILABLE20_FIDELITY_SPEED_SIGNALS_AND_SIMPLE_RULE_COMPARISON_20261017.md",
+      "original_R1_available20_scope": {
+        "prompt_groups": 1,
+        "seeds": [
+          17,
+          43
+        ],
+        "methods": 10,
+        "videos": 20
+      },
+      "original_R1_available20_not_all8_prompt_results": true,
+      "original_R1_partial_used_for_retuning": false,
+      "original_R1_A_vs_RA_default_LPIPS_reduction_pct": 6.758685468925951,
+      "original_R1_A_vs_RA_default_time_increase_pct": 2.7705061064856817,
+      "original_R1_H1_vs_WC_HALF_LPIPS_reduction_pct": 80.42332535687284,
+      "original_R1_H1_vs_WC_HALF_time_increase_pct": 4.861635241794882,
+      "original_R1_simple_front_A_competes_with_H1": true,
+      "original_R1_fixed_front_readout_A_exploratory_LPIPS_reduction_pct": 7.486434049426494
     },
     {
       "id": "N08",
@@ -2369,7 +2391,9 @@
     "N07_R1_reused_device_acceptance_CLI": "scripts/analyze_wc_paper_N07_prior_request_terminal_r1.py",
     "N07_R1_reused_device_acceptance_controls": "tests/test_frozen_shared_reused_device_acceptance_r1.py",
     "N07_R1_reused_device_local_CPU": "reports/wc_paper_N07_R1_reused_UUID_terminal_acceptance_local_CPU_20261017.json",
-    "N07_R1_terminal_automation_pause": "reports/wc_paper_N07_R1_terminal_automation_pause_and_R2_preservation_20261017.json"
+    "N07_R1_terminal_automation_pause": "reports/wc_paper_N07_R1_terminal_automation_pause_and_R2_preservation_20261017.json",
+    "544": "research/544_WC_N07_R1_AVAILABLE20_FIDELITY_SPEED_SIGNALS_AND_SIMPLE_RULE_COMPARISON_20261017.md",
+    "N07_R1_available20_quality_cost_analysis": "reports/wc_paper_N07_R1_available20_quality_cost_analysis_20261017.json"
   },
   "source_bindings": {
     "11": {
@@ -2522,7 +2546,7 @@
     },
     "mainline_queue_20261016": {
       "path": "plans/WORLD_CACHE_MAINLINE_PRIORITY_QUEUE_20261016.md",
-      "sha256": "4461a2b00e3e21b282e10f93ae27bfe6191b1574d88dc24168c8cf4774d9eaeb"
+      "sha256": "dcfbce5f3b846ac847e13a1e2fcfc3e5540c298c498098b94fa89565ea3cc739"
     },
     "baseline_grid_prereg_20261016": {
       "path": "manifests/wc_paper_N05_bounded_baseline_grid_preregistration_draft_20261016.json",
@@ -4307,6 +4331,14 @@
     "N07_R1_terminal_automation_pause": {
       "path": "reports/wc_paper_N07_R1_terminal_automation_pause_and_R2_preservation_20261017.json",
       "sha256": "3ce56206dc5877ce22b0819e9044d8a96111d48837cd241913f8263900db0aae"
+    },
+    "544": {
+      "path": "research/544_WC_N07_R1_AVAILABLE20_FIDELITY_SPEED_SIGNALS_AND_SIMPLE_RULE_COMPARISON_20261017.md",
+      "sha256": "1cf439489f86363e9b3a54e7fef05229d5dd92d8dad70ef42a50554fc97d597e"
+    },
+    "N07_R1_available20_quality_cost_analysis": {
+      "path": "reports/wc_paper_N07_R1_available20_quality_cost_analysis_20261017.json",
+      "sha256": "67e56a2e4df9f1dbca942ee89b640f8b250109bf9096f7e2a64016e7cbd35dd4"
     }
   },
   "operation_policy": {
@@ -4741,7 +4773,9 @@
     "N07_R1_actual_fee_already_counted_GPUh": 2.697147250265504,
     "N07_R1_fee_counted_again": false,
     "N07_R1_original_request_released": true,
-    "N07_R1_UUID_reused_by_approved_R2": true
+    "N07_R1_UUID_reused_by_approved_R2": true,
+    "N07_R1_available20_analysis_is_local_only": true,
+    "N07_R1_available20_analysis_changed_no_R2_method_scope_or_schedule": true
   },
-  "mapping_sha256_at_inventory": "c342c1e537f59606c73047be23a741981ce998ea8b6c614be7c0929ab6454aae"
+  "mapping_sha256_at_inventory": "88cc9f149db897b54ae0b53c6fce57ca8204fbadef9263f3380435408c764a2c"
 }

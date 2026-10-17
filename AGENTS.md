@@ -1,3 +1,7 @@
+## 2026-10-17 R1可用20视频离线分析：修正与高保真正信号，R2不改
+
+[544已有结果](research/544_WC_N07_R1_AVAILABLE20_FIDELITY_SPEED_SIGNALS_AND_SIMPLE_RULE_COMPARISON_20261017.md)：1个AV×双seed×十方法离线复算；A_NO_P相对RA默认LPIPS低6.7587%、主计时高2.7705%，H1相对WC_HALF低80.4233%、主计时高4.8616%。固定前密D序列的A相对C保真再改善7.4864%、时间高0.7952%；H1未优于近似费用的简单前密＋A（LPIPS高5.5154%）。只作原R1已审计可用子集解释，全8prompt均值仍空；0SSH／GPU／新评分，未选赢家或改方法。R2原09:24／17:24和全部冻结矩阵保持，N08待原验收。以下为历史。
+
 ## 2026-10-17 原N07 R1完整失败验收归档，R2保持09:24／17:24
 
 [543首卡收尾](research/543_WC_N07_R1_FAILED_FULL180_FINAL_ARCHIVE_AND_TASK_SCOPED_UUID_REUSE_ACCEPTANCE_20261017.md)：原source140d0a6于05:30窗口一次收全180分母，20warm＋20正式完成／8文本拒绝／1技术失败／131未到达；20正式93帧视频和10warm控制通过，原件审计0失败，整卡科学接受仍false。原费用2.697147250GPUh已结不重记；本地仅设备归属条件作可逆替换，13CPU通过，原错误和原capture保留。worldcache-26d已暂停；获批R2/source6e10aa3原任务和09:24／17:24不改，不提前读其科学partial，N08待R2完整接受。N10本地权重已接受、评分仍待，F/B关闭。以下为历史。
