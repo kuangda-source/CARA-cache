@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "updated_local_date": "2026-10-18",
-  "snapshot_basis": "Full24 GPU client/collector/offline acceptance source prepared, 37 local controls; pre-data pricing-scope amendment; no real quote/production/GPU or A3 endpoint.",
+  "snapshot_basis": "N10 actual full960/five-model inputs connected to unpriced production contract; 18 local controls, workload/predata 19 comparisons; no selected quote, real production CPU or new quality/GPU.",
   "git_snapshot_before_inventory": "3c9483e18c7e8109fb265bcfd1a8f6aa5e24846e",
   "mapping_ref": "paper/internal_to_paper_mapping.json",
   "scope": "scientific experiment families and complete cards, not each engineering retry; reused artifacts must not be summed as independent samples",
@@ -1938,7 +1938,7 @@
       ],
       "contribution_relation": "C3生成质量范围；补充保真主指标",
       "evidence_or_planned_scope": "五模型真实CPU R2全5接受，原160正式/六维960输入绑定实际模型身份；645待评分、155视频不可用、160静态N/A，未缩分母。",
-      "gap_and_next_action": "真实五模型CPU和实际960输入已独立接受；完整报价、评分生产CPU与GPU执行待，0新质量分数。",
+      "gap_and_next_action": "实际五模型CPU、全部960原输入和未报价生产数据检查已接通；五角色工作量/19对比/16依赖无覆盖冲突，18本地控制通过。待完整费用依据及报价、新stage真实生产CPU与GPU评分，0新质量；不以CPU证明秒数冒充GPU价。",
       "priority": "P1·完整多维自动质量评价前置条件",
       "evidence_refs": [
         "28",
@@ -2076,7 +2076,11 @@
         "N10_actual_model_CPU_full960_four_negative_controls",
         "N10_actual_scorer_input_builder",
         "N10_actual_scorer_input_checker",
-        "N10_actual_scorer_identity"
+        "N10_actual_scorer_identity",
+        "research/584_WC_N10_FULL960_UNPRICED_PRODUCTION_INPUTS_WORKLOAD_AND_NEXT_20261018.md",
+        "manifests/wc_paper_N10_unpriced_full960_production_scope_20261018.json",
+        "reports/wc_paper_N10_unpriced_full960_source_local_preparation_20261018.json",
+        "plans/WC_N10_FULL960_PRODUCTION_SCOPE_AND_COST_COMPLETION_20261018.md"
       ],
       "method_mapping_ids": [],
       "depends_on": [
@@ -2245,7 +2249,16 @@
       "actual_scorer_full960_preparation_ref": "reports/wc_paper_N10_actual_model_CPU_full960_inputs_20261018.json.gz",
       "actual_scorer_full960_independent_ref": "reports/wc_paper_N10_actual_model_CPU_full960_input_independent_acceptance_R2_20261018.json",
       "actual_scorer_identity_ref": "manifests/wc_paper_N10_actual_model_CPU_full960_20261018/evaluator-identity.json",
-      "full960_production_CPU_accepted": false
+      "full960_production_CPU_accepted": false,
+      "full960_unpriced_production_input_contract_prepared": true,
+      "full960_unpriced_production_scope_ref": "manifests/wc_paper_N10_unpriced_full960_production_scope_20261018.json",
+      "full960_unpriced_production_source_preparation_ref": "reports/wc_paper_N10_unpriced_full960_source_local_preparation_20261018.json",
+      "full960_source_preparation_local_controls_passed": 18,
+      "full960_workload_ready_video_metric_invocations": 645,
+      "full960_registered_comparisons": 19,
+      "full960_actual_whole_GPUh_forecast": null,
+      "full960_actual_billed_limit_GPUh": null,
+      "full960_unpriced_template_is_production_config": false
     },
     {
       "id": "N11",
@@ -3425,7 +3438,14 @@
     "window24_pricing_scope_amendment_R2": "plans/WC_DROP1_WINDOW24_PRICING_SCOPE_AMENDMENT_R2_20261018.md",
     "window24_local_installer_scope_failure": "reports/wc_drop1_window24_installer_scope_local_R1_failure_20261018.json",
     "immutable_stage_installer_full24_scope": "src/wcomr/immutable_stage_payload_r1.py",
-    "immutable_stage_full24_scope_tests": "tests/test_immutable_stage_payload_r1.py"
+    "immutable_stage_full24_scope_tests": "tests/test_immutable_stage_payload_r1.py",
+    "N10_unpriced_production_report_584": "research/584_WC_N10_FULL960_UNPRICED_PRODUCTION_INPUTS_WORKLOAD_AND_NEXT_20261018.md",
+    "N10_full960_production_cost_completion_plan": "plans/WC_N10_FULL960_PRODUCTION_SCOPE_AND_COST_COMPLETION_20261018.md",
+    "N10_unpriced_full960_production_scope": "manifests/wc_paper_N10_unpriced_full960_production_scope_20261018.json",
+    "N10_unpriced_full960_local_preparation": "reports/wc_paper_N10_unpriced_full960_source_local_preparation_20261018.json",
+    "N10_unpriced_full960_producer": "scripts/prepare_wc_N10_unpriced_production_scope_r1.py",
+    "N10_unpriced_input_workload_contract": "src/wcomr/automatic_quality_preparation_r1.py",
+    "N10_unpriced_preparation_controls": "tests/test_N10_full960_preparation_r1.py"
   },
   "source_bindings": {
     "11": {
@@ -4402,7 +4422,7 @@
     },
     "N10_full960_production_contract": {
       "path": "src/wcomr/automatic_quality_production_r1.py",
-      "sha256": "5b22bcc61ad680082dbd0fb52f55db528f3597e10544f5b1325755318e128a2a"
+      "sha256": "64d5b6d9fb1ac987ee48ebaa734ffe7b473da5aff67322b16eca0a9aaf7a8712"
     },
     "N10_full960_scoring_worker": {
       "path": "scripts/score_wc_paper_N10_full960_r1.py",
@@ -6455,6 +6475,34 @@
     "immutable_stage_full24_scope_tests": {
       "path": "tests/test_immutable_stage_payload_r1.py",
       "sha256": "2c5827721e8affe55c858290efcaa909f140e431ef88742cb301d85928038aa4"
+    },
+    "N10_unpriced_production_report_584": {
+      "path": "research/584_WC_N10_FULL960_UNPRICED_PRODUCTION_INPUTS_WORKLOAD_AND_NEXT_20261018.md",
+      "sha256": "5ed87099a1b195df1a92243910e2c667810cef4bd8cc59d16d5f034dd29959ea"
+    },
+    "N10_full960_production_cost_completion_plan": {
+      "path": "plans/WC_N10_FULL960_PRODUCTION_SCOPE_AND_COST_COMPLETION_20261018.md",
+      "sha256": "2d6661dba56848fb30e46dd26d5e38d5e8236b2bab3b04a4b9dbd7e0c08142e1"
+    },
+    "N10_unpriced_full960_production_scope": {
+      "path": "manifests/wc_paper_N10_unpriced_full960_production_scope_20261018.json",
+      "sha256": "f8555b10752e0b457c7d243a585637db793ac3e7ad149ac44e788655d8e20be6"
+    },
+    "N10_unpriced_full960_local_preparation": {
+      "path": "reports/wc_paper_N10_unpriced_full960_source_local_preparation_20261018.json",
+      "sha256": "1e4e77ef1a50324167219f607360e76d912a43d03d99a077c5252ed9c23cf7d7"
+    },
+    "N10_unpriced_full960_producer": {
+      "path": "scripts/prepare_wc_N10_unpriced_production_scope_r1.py",
+      "sha256": "10aa9eb35479539a9e91f660f6cd442c44e58f6e0d8a3029e07fc0cae09d08c5"
+    },
+    "N10_unpriced_input_workload_contract": {
+      "path": "src/wcomr/automatic_quality_preparation_r1.py",
+      "sha256": "af10c4a6cad25af91c7ecdac35075f21c906f32803083d410482dc635785d768"
+    },
+    "N10_unpriced_preparation_controls": {
+      "path": "tests/test_N10_full960_preparation_r1.py",
+      "sha256": "92ab27024f4b6620ee933fcdcbd13563de625c3f7e0583055f0e402aed0adb17"
     }
   },
   "operation_policy": {
@@ -7117,5 +7165,5 @@
       "GPU_submissions": 0
     }
   },
-  "mapping_sha256_at_inventory": "e8e5b373cfb69c931f2da6c786bb14bbb4a3c9f4116a906e163e3b38da2551ed"
+  "mapping_sha256_at_inventory": "ce5229f1aed02e12e0080e09a2c56fcb73c369787a01f3b899efc2c37e9c4c60"
 }

@@ -24,8 +24,8 @@ def read(path):
     return json.loads(gzip.decompress(raw) if Path(path).suffix == '.gz' else raw)
 
 
-def validate(config, registration, inputs, CPU, CPU_registration, resources):
-    """Bind the complete accepted input cohort, five-role CPU proof and price."""
+def validate_inputs(config, registration, inputs, CPU, CPU_registration, resources):
+    """Bind the entire cohort and real five-role proof; grant no priced execution."""
     bundle = inputs['input_bundle']
     initial_rows(bundle)
     if (config['purpose'] != PURPOSE or registration['purpose'] != PURPOSE
@@ -65,6 +65,12 @@ def validate(config, registration, inputs, CPU, CPU_registration, resources):
             or any((record['bytes'], record['sha256']) != WEIGHTS[role]
                 for role, record in resources['resources'].items())):
         raise ValueError('Complete independent CPU proof of the same original five model constructors required')
+    return bundle
+
+
+def validate(config, registration, inputs, CPU, CPU_registration, resources):
+    """Require both complete accepted inputs and the explicitly selected price."""
+    bundle = validate_inputs(config, registration, inputs, CPU, CPU_registration, resources)
     forecast, limit = config['forecast_GPUh'], config['billed_limit_GPUh']
     if (any(isinstance(v, bool) or not isinstance(v, (int, float)) or not math.isfinite(v)
                 for v in (forecast, limit, config['cumulative_cap_GPUh'], config['budget_origin_used_GPUh']))

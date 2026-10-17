@@ -1,0 +1,417 @@
+{
+  "status": "N10_UNPRICED_COMPLETE160_FULL960_SOURCE_PREPARATION_NOT_PRODUCTION",
+  "unpriced_config_template": {
+    "purpose": "N10_COMPLETE160_SIX_DIMENSION960_ORIGINAL_METRIC_SCORING",
+    "run_id": "wc-paper-n10-accepted160-full960-r1",
+    "input_bundle_fingerprint": "760fa0600a1c67d7a970c23a0963d253ff7fec0f91b247be94e3a09af33dde28",
+    "measurement_protocol_sha256": "9755122b22349d9cd5b1cfe43460e73044360e240d941df11d6ca4150b817734",
+    "scorer_fingerprint": "d27c6b1d644a9dd5fd6cb8fcb7bfd9e6cd383578d9d5b9e78c16c37d17193ffd",
+    "methods": [
+      "NATIVE35",
+      "NATIVE26",
+      "WC_HALF",
+      "RA_HALF",
+      "RA_DEFAULT",
+      "RA_DOUBLE",
+      "A_NO_P",
+      "TABLE_PHASE_H1",
+      "FRONT_DENSE_C",
+      "FRONT_DENSE_A"
+    ],
+    "dimensions": [
+      "subject_consistency",
+      "motion_smoothness",
+      "overall_consistency",
+      "dynamic_degree",
+      "MUSIQ_LONGER512",
+      "temporal_flickering"
+    ],
+    "scope_counts": {
+      "generation_positions": 160,
+      "metric_positions": 960,
+      "prompt_groups": 8,
+      "seeds": [
+        17,
+        43
+      ],
+      "methods": 10,
+      "new_generation_paths": 0
+    },
+    "bootstrap_repetitions": 4096,
+    "comparisons": [
+      [
+        "A_NO_P",
+        "NATIVE35"
+      ],
+      [
+        "A_NO_P",
+        "NATIVE26"
+      ],
+      [
+        "A_NO_P",
+        "WC_HALF"
+      ],
+      [
+        "A_NO_P",
+        "RA_HALF"
+      ],
+      [
+        "A_NO_P",
+        "RA_DEFAULT"
+      ],
+      [
+        "A_NO_P",
+        "RA_DOUBLE"
+      ],
+      [
+        "A_NO_P",
+        "TABLE_PHASE_H1"
+      ],
+      [
+        "A_NO_P",
+        "FRONT_DENSE_C"
+      ],
+      [
+        "A_NO_P",
+        "FRONT_DENSE_A"
+      ],
+      [
+        "TABLE_PHASE_H1",
+        "NATIVE35"
+      ],
+      [
+        "TABLE_PHASE_H1",
+        "NATIVE26"
+      ],
+      [
+        "TABLE_PHASE_H1",
+        "WC_HALF"
+      ],
+      [
+        "TABLE_PHASE_H1",
+        "RA_HALF"
+      ],
+      [
+        "TABLE_PHASE_H1",
+        "RA_DEFAULT"
+      ],
+      [
+        "TABLE_PHASE_H1",
+        "RA_DOUBLE"
+      ],
+      [
+        "TABLE_PHASE_H1",
+        "A_NO_P"
+      ],
+      [
+        "TABLE_PHASE_H1",
+        "FRONT_DENSE_C"
+      ],
+      [
+        "TABLE_PHASE_H1",
+        "FRONT_DENSE_A"
+      ],
+      [
+        "FRONT_DENSE_A",
+        "FRONT_DENSE_C"
+      ]
+    ],
+    "forecast_GPUh": null,
+    "billed_limit_GPUh": null,
+    "cumulative_cap_GPUh": 226,
+    "budget_origin_used_GPUh": 79.99637737158223,
+    "whole_card_cost_includes_load_warm_scoring_and_release": true,
+    "generation_latency_claim": false,
+    "weighted_quality_total": null,
+    "references": {
+      "accepted_inputs": {
+        "ref": "reports/wc_paper_N10_actual_model_CPU_full960_inputs_20261018.json.gz",
+        "sha256": "0f29b24ad32567b610c3088977ecd2e1681fb66b29d8ea7d61839dffcb25de25",
+        "bytes": 60626
+      },
+      "model_CPU_acceptance": {
+        "ref": "manifests/wc_paper_N10_actual_model_CPU_full960_20261018/model-CPU-acceptance.json",
+        "sha256": "c4f6e9cb9d84b6eb9c542b66b419e0f31df1d8b2cbc9bf347d9125c3b51a0bbb",
+        "bytes": 2660
+      },
+      "model_CPU_registration": {
+        "ref": "manifests/wc_paper_N10_actual_model_CPU_full960_20261018/model-CPU-registration.json",
+        "sha256": "28dbb0633aa763de1c998eb974fed978c0fda28841de62422a6b6af59ccd8b67",
+        "bytes": 33075
+      },
+      "model_resources": {
+        "ref": "manifests/wc_paper_N10_actual_model_CPU_full960_20261018/model-resources.json",
+        "sha256": "12b4a27b09ef141ec57b4939acb487ea29bbacf37b8c72df5016bf3730280d15",
+        "bytes": 1174
+      }
+    }
+  },
+  "validation_registration_preview": {
+    "purpose": "N10_COMPLETE160_SIX_DIMENSION960_ORIGINAL_METRIC_SCORING",
+    "source_revision": "85e3e6df4be7edb9bbfb513265c3ca622de09f9d"
+  },
+  "original_input_status_counts": {
+    "READY_TO_SCORE": 645,
+    "NOT_APPLICABLE_STATIC_SCOPE": 160,
+    "VIDEO_UNAVAILABLE": 155
+  },
+  "dimension_workload": [
+    {
+      "dimension": "subject_consistency",
+      "role": "DINO",
+      "registered_positions": 160,
+      "original_input_status_counts": {
+        "READY_TO_SCORE": 129,
+        "VIDEO_UNAVAILABLE": 31
+      },
+      "ready_video_invocations": 129,
+      "selected_source_positions_per_ready_video": 93,
+      "target_positions_per_ready_video": 0,
+      "planned_selected_source_positions": 11997,
+      "planned_target_positions": 0,
+      "sampling_policy": "ALL93",
+      "original_model_entries": 1,
+      "actual_model_forward_calls": null,
+      "actual_GPU_seconds": null
+    },
+    {
+      "dimension": "motion_smoothness",
+      "role": "AMT_S",
+      "registered_positions": 160,
+      "original_input_status_counts": {
+        "READY_TO_SCORE": 129,
+        "VIDEO_UNAVAILABLE": 31
+      },
+      "ready_video_invocations": 129,
+      "selected_source_positions_per_ready_video": 47,
+      "target_positions_per_ready_video": 46,
+      "planned_selected_source_positions": 6063,
+      "planned_target_positions": 5934,
+      "sampling_policy": "AMT_EVEN47_INTERPOLATE_ODD46_ONE_ITERATION",
+      "original_model_entries": 1,
+      "actual_model_forward_calls": null,
+      "actual_GPU_seconds": null
+    },
+    {
+      "dimension": "overall_consistency",
+      "role": "ViCLIP",
+      "registered_positions": 160,
+      "original_input_status_counts": {
+        "READY_TO_SCORE": 129,
+        "VIDEO_UNAVAILABLE": 31
+      },
+      "ready_video_invocations": 129,
+      "selected_source_positions_per_ready_video": 8,
+      "target_positions_per_ready_video": 0,
+      "planned_selected_source_positions": 1032,
+      "planned_target_positions": 0,
+      "sampling_policy": "VBENCH_MIDDLE8",
+      "original_model_entries": 1,
+      "actual_model_forward_calls": null,
+      "actual_GPU_seconds": null
+    },
+    {
+      "dimension": "dynamic_degree",
+      "role": "RAFT_THINGS",
+      "registered_positions": 160,
+      "original_input_status_counts": {
+        "READY_TO_SCORE": 129,
+        "VIDEO_UNAVAILABLE": 31
+      },
+      "ready_video_invocations": 129,
+      "selected_source_positions_per_ready_video": 47,
+      "target_positions_per_ready_video": 0,
+      "planned_selected_source_positions": 6063,
+      "planned_target_positions": 0,
+      "sampling_policy": "VBENCH_MAX1_ROUND_FPS_OVER8",
+      "original_model_entries": 1,
+      "actual_model_forward_calls": null,
+      "actual_GPU_seconds": null
+    },
+    {
+      "dimension": "MUSIQ_LONGER512",
+      "role": "MUSIQ_SPAQ",
+      "registered_positions": 160,
+      "original_input_status_counts": {
+        "READY_TO_SCORE": 129,
+        "VIDEO_UNAVAILABLE": 31
+      },
+      "ready_video_invocations": 129,
+      "selected_source_positions_per_ready_video": 93,
+      "target_positions_per_ready_video": 0,
+      "planned_selected_source_positions": 11997,
+      "planned_target_positions": 0,
+      "sampling_policy": "ALL93_LONGER512_BILINEAR_NO_ANTIALIAS",
+      "original_model_entries": 1,
+      "actual_model_forward_calls": null,
+      "actual_GPU_seconds": null
+    },
+    {
+      "dimension": "temporal_flickering",
+      "role": null,
+      "registered_positions": 160,
+      "original_input_status_counts": {
+        "NOT_APPLICABLE_STATIC_SCOPE": 160
+      },
+      "ready_video_invocations": 0,
+      "selected_source_positions_per_ready_video": 93,
+      "target_positions_per_ready_video": 0,
+      "planned_selected_source_positions": 0,
+      "planned_target_positions": 0,
+      "sampling_policy": "ALL93",
+      "original_model_entries": 0,
+      "actual_model_forward_calls": null,
+      "actual_GPU_seconds": null
+    }
+  ],
+  "source_frame_positions_are_not_executed_model_calls": true,
+  "input_and_complete_model_proof_validated": true,
+  "complete_production_validation_refused_for_missing_price": true,
+  "original_five_model_CPU_runtime_relabelled_as_GPU_price": false,
+  "extra_warmup_video_paths": 0,
+  "first_original_video_includes_cold_start": true,
+  "actual_whole_card_quote_GPUh": null,
+  "actual_production_CPU_accepted": false,
+  "production_config_generated": false,
+  "real_quality_scores": 0,
+  "GPU_submissions": 0,
+  "SSH_queries": 0,
+  "ledger_written": false,
+  "source_revision_before_preparation_commit": "85e3e6df4be7edb9bbfb513265c3ca622de09f9d",
+  "complete_original960_independent_check_reexecuted": true,
+  "complete_actual_five_model_CPU_acceptance_reexecuted": true,
+  "original_primary_comparisons": [
+    [
+      "A_NO_P",
+      "NATIVE35"
+    ],
+    [
+      "A_NO_P",
+      "NATIVE26"
+    ],
+    [
+      "A_NO_P",
+      "WC_HALF"
+    ],
+    [
+      "A_NO_P",
+      "RA_HALF"
+    ],
+    [
+      "A_NO_P",
+      "RA_DEFAULT"
+    ],
+    [
+      "A_NO_P",
+      "RA_DOUBLE"
+    ],
+    [
+      "A_NO_P",
+      "TABLE_PHASE_H1"
+    ],
+    [
+      "A_NO_P",
+      "FRONT_DENSE_C"
+    ],
+    [
+      "A_NO_P",
+      "FRONT_DENSE_A"
+    ],
+    [
+      "TABLE_PHASE_H1",
+      "NATIVE35"
+    ],
+    [
+      "TABLE_PHASE_H1",
+      "NATIVE26"
+    ],
+    [
+      "TABLE_PHASE_H1",
+      "WC_HALF"
+    ],
+    [
+      "TABLE_PHASE_H1",
+      "RA_HALF"
+    ],
+    [
+      "TABLE_PHASE_H1",
+      "RA_DEFAULT"
+    ],
+    [
+      "TABLE_PHASE_H1",
+      "RA_DOUBLE"
+    ],
+    [
+      "TABLE_PHASE_H1",
+      "A_NO_P"
+    ],
+    [
+      "TABLE_PHASE_H1",
+      "FRONT_DENSE_C"
+    ],
+    [
+      "TABLE_PHASE_H1",
+      "FRONT_DENSE_A"
+    ]
+  ],
+  "additional_fixed_front_readout_comparison": [
+    "FRONT_DENSE_A",
+    "FRONT_DENSE_C"
+  ],
+  "secondary_comparison_registered_before_N10_scoring": true,
+  "comparison_source": {
+    "ref": "src/wcomr/frozen_shared_post_r1.py",
+    "sha256": "c4be8a2a652b87561ffda1e1cbae23b53cc3c06baaf92150ff23f625eb5fa326",
+    "bytes": 13338
+  },
+  "source_evidence": {
+    "actual_inputs": {
+      "ref": "reports/wc_paper_N10_actual_model_CPU_full960_inputs_20261018.json.gz",
+      "sha256": "0f29b24ad32567b610c3088977ecd2e1681fb66b29d8ea7d61839dffcb25de25",
+      "bytes": 60626
+    },
+    "actual_model_capture": {
+      "ref": "reports/wc_paper_N10_full_five_model_CPU_R2_collection_20261018_0230.json.gz",
+      "sha256": "748c509464a3894f2643f39881401349564d92445c989f768bba0c9fa3a3e43c",
+      "bytes": 17955
+    },
+    "actual_model_acceptance": {
+      "ref": "reports/wc_paper_N10_full_five_model_CPU_R2_independent_acceptance_20261018.json",
+      "sha256": "c4f6e9cb9d84b6eb9c542b66b419e0f31df1d8b2cbc9bf347d9125c3b51a0bbb",
+      "bytes": 2660
+    },
+    "original_generation_capture": {
+      "ref": "reports/wc_paper_N07_refusal_repair180_R2_terminal_collection_20261017_1250.json.gz",
+      "sha256": "93033bf6b621a414b358955b73708412eadbbfc18b165d0693d6665bbb38fc72",
+      "bytes": 2185954
+    },
+    "measurement_protocol": {
+      "ref": "manifests/wc_paper_N10_automatic_quality_measurement_prereg_r1_20261016.json",
+      "sha256": "9755122b22349d9cd5b1cfe43460e73044360e240d941df11d6ca4150b817734",
+      "bytes": 11611
+    }
+  },
+  "preserved_actual_model_payload_files": 244,
+  "original_model_registration_sha256": "28dbb0633aa763de1c998eb974fed978c0fda28841de62422a6b6af59ccd8b67",
+  "original_model_payload_overwrites": [],
+  "prepared_Python_source_sha256": {
+    "src/wcomr/__init__.py": "b9996da0a87bb746cdac0935ead475246fc34d88b37e73f63f14e5065494f311",
+    "scripts/accept_wc_N10_models_cpu_r1.py": "0baee35bfc3fb626e517def5c23a68e2353912bed2ea2a97efa9e6ec48990c70",
+    "scripts/check_wc_N10_actual_scorer_inputs_r1.py": "3cb93f12eee98491a7a5812db132d8c97474155bf8b67d68f2bbd0c516e6e122",
+    "scripts/supervise_wc_paper_N10_full960_r1.py": "16002e0c959546c95d7615b3f96e3b3d6cb11186a67dbb5509f886484dece6ce",
+    "src/wcomr/gpu_budget_pool_v2.py": "4203547121c30119ce637d6cd0d6d8d02810e6bf388fe9a6a7b9cd9b1b658754",
+    "src/wcomr/gpu_budget_approved_card_v2.py": "53f1cbc0af83f3d63201f11b65167b61be7381b52857cc267eba3aa0f205c0ae",
+    "src/wcomr/automatic_quality_models_r1.py": "3f6c515de1f8f818a20614747c3751a532ef096a7fd397266380e89e16f8b788",
+    "src/wcomr/automatic_quality_metric_r1.py": "de377b5aa331ef6febac59de95817d08d222ec23b2c7649accc760f9a370a4be",
+    "src/wcomr/automatic_quality_r1.py": "2a8c00004e77747fa15e8a74a399d6d27ac8643cd2266dbbc2ca260078f66cd5",
+    "src/wcomr/frozen_shared_statistics_r1.py": "b8b99a2a49363b2669f58b3ef8927c86a2ec0cc7bff610f702e7173d863e49e0",
+    "src/wcomr/automatic_quality_production_r1.py": "64d5b6d9fb1ac987ee48ebaa734ffe7b473da5aff67322b16eca0a9aaf7a8712",
+    "src/wcomr/automatic_quality_batch_r1.py": "68c892b2244b28de53a25ddc5e41a9f657a6d1a4d2154b602b076f0e64f01e15",
+    "scripts/score_wc_paper_N10_full960_r1.py": "4ba0d0e2ba697b035a860ada7705980c42750cf534761c2689320633b09b6cc3",
+    "scripts/prepare_wc_N10_unpriced_production_scope_r1.py": "10aa9eb35479539a9e91f660f6cd442c44e58f6e0d8a3029e07fc0cae09d08c5",
+    "src/wcomr/immutable_stage_payload_r1.py": "897c9ccc3419db2cae5fc7ea029b7e4ba45319ff419eee6a7f6bbaa51b1023fa",
+    "src/wcomr/automatic_quality_preparation_r1.py": "af10c4a6cad25af91c7ecdac35075f21c906f32803083d410482dc635785d768"
+  },
+  "payload_installation_or_CPU_launch_performed": false,
+  "neural_framework_imported": false
+}

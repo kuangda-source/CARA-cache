@@ -2088,7 +2088,14 @@
     "window24_pricing_scope_amendment_R2": "plans/WC_DROP1_WINDOW24_PRICING_SCOPE_AMENDMENT_R2_20261018.md",
     "window24_local_installer_scope_failure": "reports/wc_drop1_window24_installer_scope_local_R1_failure_20261018.json",
     "immutable_stage_installer_full24_scope": "src/wcomr/immutable_stage_payload_r1.py",
-    "immutable_stage_full24_scope_tests": "tests/test_immutable_stage_payload_r1.py"
+    "immutable_stage_full24_scope_tests": "tests/test_immutable_stage_payload_r1.py",
+    "N10_unpriced_production_report_584": "research/584_WC_N10_FULL960_UNPRICED_PRODUCTION_INPUTS_WORKLOAD_AND_NEXT_20261018.md",
+    "N10_full960_production_cost_completion_plan": "plans/WC_N10_FULL960_PRODUCTION_SCOPE_AND_COST_COMPLETION_20261018.md",
+    "N10_unpriced_full960_production_scope": "manifests/wc_paper_N10_unpriced_full960_production_scope_20261018.json",
+    "N10_unpriced_full960_local_preparation": "reports/wc_paper_N10_unpriced_full960_source_local_preparation_20261018.json",
+    "N10_unpriced_full960_producer": "scripts/prepare_wc_N10_unpriced_production_scope_r1.py",
+    "N10_unpriced_input_workload_contract": "src/wcomr/automatic_quality_preparation_r1.py",
+    "N10_unpriced_preparation_controls": "tests/test_N10_full960_preparation_r1.py"
   },
   "evidence_batches": {
     "curve60": {
@@ -3855,6 +3862,31 @@
       "capture_ref": "reports/wc_paper_N09_actual40_production_CPU_R3_collection_20261018_0246.json.gz",
       "CPU_wall_seconds": 182.22571063041687,
       "original_process_alive": false
+    },
+    "N10_unpriced_full960_production_scope": {
+      "status": "N10_UNPRICED_COMPLETE160_FULL960_SOURCE_PREPARATION_NOT_PRODUCTION",
+      "scope_ref": "manifests/wc_paper_N10_unpriced_full960_production_scope_20261018.json",
+      "source_preparation_ref": "reports/wc_paper_N10_unpriced_full960_source_local_preparation_20261018.json",
+      "input_status_counts": {
+        "READY_TO_SCORE": 645,
+        "NOT_APPLICABLE_STATIC_SCOPE": 160,
+        "VIDEO_UNAVAILABLE": 155
+      },
+      "actual_original_input_and_five_model_CPU_proof_revalidated": true,
+      "complete_registered_metric_positions": 960,
+      "ready_positions": 645,
+      "unavailable_positions": 155,
+      "static_NA_positions": 160,
+      "comparisons": 19,
+      "unpriced_preparation_controls_passed": 5,
+      "related_local_controls_passed": 18,
+      "production_Python_dependencies": 16,
+      "old_model_CPU_payload_preserved": 244,
+      "old_model_payload_overwrites": 0,
+      "actual_whole_quote_GPUh": null,
+      "actual_production_CPU_accepted": false,
+      "actual_quality_scores": 0,
+      "GPU_submissions": 0
     }
   },
   "statistical_rules": {
@@ -5425,8 +5457,8 @@
       "bytes": 3797
     },
     "src/wcomr/automatic_quality_production_r1.py": {
-      "sha256": "5b22bcc61ad680082dbd0fb52f55db528f3597e10544f5b1325755318e128a2a",
-      "bytes": 11108
+      "sha256": "64d5b6d9fb1ac987ee48ebaa734ffe7b473da5aff67322b16eca0a9aaf7a8712",
+      "bytes": 11393
     },
     "scripts/score_wc_paper_N10_full960_r1.py": {
       "sha256": "4ba0d0e2ba697b035a860ada7705980c42750cf534761c2689320633b09b6cc3",
@@ -7519,6 +7551,34 @@
     "scripts/analyze_wc_drop1_window24_r1.py": {
       "sha256": "cd01cd1c1289dd0a338752fd24752d5f8897f0d8fb8b52f1ffab23a3cbec5b35",
       "bytes": 1191
+    },
+    "tests/test_N10_full960_preparation_r1.py": {
+      "sha256": "92ab27024f4b6620ee933fcdcbd13563de625c3f7e0583055f0e402aed0adb17",
+      "bytes": 4331
+    },
+    "plans/WC_N10_FULL960_PRODUCTION_SCOPE_AND_COST_COMPLETION_20261018.md": {
+      "sha256": "2d6661dba56848fb30e46dd26d5e38d5e8236b2bab3b04a4b9dbd7e0c08142e1",
+      "bytes": 3998
+    },
+    "scripts/prepare_wc_N10_unpriced_production_scope_r1.py": {
+      "sha256": "10aa9eb35479539a9e91f660f6cd442c44e58f6e0d8a3029e07fc0cae09d08c5",
+      "bytes": 5557
+    },
+    "manifests/wc_paper_N10_unpriced_full960_production_scope_20261018.json": {
+      "sha256": "f8555b10752e0b457c7d243a585637db793ac3e7ad149ac44e788655d8e20be6",
+      "bytes": 13120
+    },
+    "src/wcomr/automatic_quality_preparation_r1.py": {
+      "sha256": "af10c4a6cad25af91c7ecdac35075f21c906f32803083d410482dc635785d768",
+      "bytes": 4006
+    },
+    "reports/wc_paper_N10_unpriced_full960_source_local_preparation_20261018.json": {
+      "sha256": "1e4e77ef1a50324167219f607360e76d912a43d03d99a077c5252ed9c23cf7d7",
+      "bytes": 2243
+    },
+    "research/584_WC_N10_FULL960_UNPRICED_PRODUCTION_INPUTS_WORKLOAD_AND_NEXT_20261018.md": {
+      "sha256": "5ed87099a1b195df1a92243910e2c667810cef4bd8cc59d16d5f034dd29959ea",
+      "bytes": 3818
     }
   },
   "math_notation": [
