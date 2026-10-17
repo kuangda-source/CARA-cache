@@ -21,7 +21,7 @@
 
 实际配置相对Git `7ebe21c` 版本只新增三项：首查收时延、半程时延和其登记依据。方法、全部40路径／1440pairs／一次加载、五冻结角色、参考原件、4.245833333预测／5GPUh上限、cap226／原origin和输入指纹均保持。原四份观察／数值源码与99数值依赖仍与既有证明逐字节一致，未重跑952或102路径。
 
-当前配置SHA：`afea36a3e9487556438c4f70dc95c7143b7c39559e13368a7c4cca40fe974adc`。完整源码dry plan仍为194文件；旧34393配置和7ebe21c归档接受保留为历史，不能冒充当前配置的实际服务器CPU或GPU证明。当前Git归档接受回执在提交后补齐；实际服务器十命令CPU和资源／预算准入仍待N12验收后接续。
+当前配置SHA：`afea36a3e9487556438c4f70dc95c7143b7c39559e13368a7c4cca40fe974adc`。完整源码dry plan仍为194文件；旧34393配置和7ebe21c归档接受保留为历史，不能冒充当前配置的实际服务器CPU或GPU证明。当前194文件已从Git `7ab9a39ac672a7d02a5c2695147d387efca17223` 归档并逐字节接受；实际服务器十命令CPU和资源／预算准入仍待N12验收后接续。
 
 ## 原件
 
@@ -29,6 +29,7 @@
 - [首轮夹具失败保留](../reports/wc_paper_N09_timing_contract_local_CPU_failure_retained_r2_20261017.json)
 - [74项及实际合同接受](../reports/wc_paper_N09_actual40_dispatch_timing_local_CPU_acceptance_r3_20261017.json)
 - [当前194文件dry plan及仅时间字段变更核对](../reports/wc_paper_N09_actual40_source_packet_dry_plan_r2_20261017.json)
+- [当前194文件Git归档接受](../reports/wc_paper_N09_complete194_Git_packet_local_acceptance_r2_20261017.json)
 - [实际配置](../configs/wc_paper_N09_runtime_profile40_production_r1_20261016.json)
 
 本轮0SSH、0GPU、0模型权重、0账本写。N12原source/stage及10月18日00:01验收保持，未提前读科学partial；N10五模型和质量评分仍待，F/B保持关闭。
