@@ -2026,7 +2026,9 @@
     "N10_server_resource_and_CPU_570": "research/570_WC_N10_SERVER_RESOURCE_ACCEPTED_AND_FULL_FIVE_MODEL_CPU_RUNNING_20261018.md",
     "window88_CPU_chain_prepared_571": "research/571_WC_CORRECTION_WINDOW88_IMMUTABLE_CPU_CHAIN_READY_NOT_EXECUTED_20261018.md",
     "N10_midpoint_technical_terminal_572": "research/572_WC_N10_CPU_MIDPOINT_TERMINAL_TWO_ERRORS_FINAL_PENDING_20261018.md",
-    "N10_failures_and_actual88_573": "research/573_WC_N10_FULL_CPU_FAILURE_DIAGNOSIS_AND_WINDOW88_ACTUAL_CPU_RUNNING_20261018.md"
+    "N10_failures_and_actual88_573": "research/573_WC_N10_FULL_CPU_FAILURE_DIAGNOSIS_AND_WINDOW88_ACTUAL_CPU_RUNNING_20261018.md",
+    "N10_metadata_git_repairs_574": "research/574_WC_N10_ACTUAL_CPU_METADATA_AND_LOCAL_GIT_VERSION_REPAIRS_20261018.md",
+    "N10_R2_and_window88_midpoint_575": "research/575_WC_N10_REPAIRED_FULL_FIVE_CPU_R2_RUNNING_AND_WINDOW88_HALFWAY_20261018.md"
   },
   "evidence_batches": {
     "curve60": {
@@ -3645,7 +3647,7 @@
     },
     "drop1_window24_preparation": {
       "namespace": "DROP1_WINDOW24",
-      "status": "actual_complete88_numerical_CPU_single_dispatch_pending_acceptance",
+      "status": "original_full88_CPU_technical_terminal_pending_full_acceptance",
       "formal_paths": 16,
       "warmup_paths": 8,
       "CPU_numerical_paths": 88,
@@ -3662,7 +3664,8 @@
       "CPU_pid": 1685865,
       "numerical_CPU_accepted": false,
       "production_CPU_accepted": false,
-      "GPU_submissions": 0
+      "GPU_submissions": 0,
+      "CPU_midpoint_capture_ref": "reports/wc_drop1_window88_actual_CPU_R1_midpoint_20261018_0214.json.gz"
     },
     "N10_server_original_SCP_R1": {
       "status": "all_bytes_server_and_local_independent_SHA_accepted_not_models_or_quality",
@@ -3699,6 +3702,23 @@
       "registered_roles": 5,
       "CPU_wall_seconds": 131.4854016304016,
       "independent_acceptance_ref": "reports/wc_paper_N10_full_five_model_CPU_R1_independent_acceptance_20261018.json"
+    },
+    "N10_five_model_CPU_R2": {
+      "status": "complete_five_roles_repaired_actual_CPU_dispatched_pending_acceptance",
+      "source_revision": "fb89a755118257b520446e2e029f6231bc7ad191",
+      "launch_ref": "reports/wc_paper_N10_full_five_model_CPU_R2_launch_20261018.json",
+      "pid": 1688791,
+      "roles": [
+        "DINO",
+        "AMT_S",
+        "RAFT_THINGS",
+        "ViCLIP",
+        "MUSIQ_SPAQ"
+      ],
+      "model_CPU_accepted": false,
+      "new_quality_scores": 0,
+      "actual_GPUh": 0,
+      "local_repair_controls": 58
     }
   },
   "statistical_rules": {
@@ -4963,8 +4983,8 @@
       "bytes": 1242
     },
     "scripts/evaluate_wc_N10_metric_model_cpu_r1.py": {
-      "sha256": "93270d61fd4d57d14ce6f49540a0cba0ff68e3149d810924fa3821730cd6d016",
-      "bytes": 13867
+      "sha256": "e4cffdba274a247c1b447d1d737839d9b7d8b84b471d7e25bf8be1626f89ba4e",
+      "bytes": 14990
     },
     "tests/test_N10_metric_model_cpu_r1.py": {
       "sha256": "b56872f254b84d8b3879b835b1c4fe596028d8f246456423499876d6ef12d5ee",
@@ -5043,9 +5063,8 @@
       "bytes": 5422
     },
     "scripts/evaluate_wc_N10_models_cpu_bundle_r1.py": {
-      "exists": true,
-      "bytes": 9171,
-      "sha256": "eb0d5c94a8cd8ae0f5c43ecd4ab7e8bfe1bf373c32c88bed666e44f3aba89450"
+      "sha256": "5ce7ccf3624b66a585af3afc10ddf78105098742d79eef3e7b4a2820a6b463aa",
+      "bytes": 9191
     },
     "scripts/launch_wc_N10_models_cpu_r1.py": {
       "exists": true,
@@ -7068,6 +7087,38 @@
     "research/573_WC_N10_FULL_CPU_FAILURE_DIAGNOSIS_AND_WINDOW88_ACTUAL_CPU_RUNNING_20261018.md": {
       "sha256": "9492a1aab0aa3e0945cad1e1a149e201fa9a38e99835c24c1880018297663a95",
       "bytes": 3931
+    },
+    "research/574_WC_N10_ACTUAL_CPU_METADATA_AND_LOCAL_GIT_VERSION_REPAIRS_20261018.md": {
+      "sha256": "f22386ce3b652482cf12c42f911ece86a6f92dec886ee1d393821a83c31314a2",
+      "bytes": 2933
+    },
+    "reports/wc_N10_dependency_import_network_event_diagnostic_20261018.json": {
+      "sha256": "c42927ad1943b0b3e3a73bf974f1b72cf50ddc91ad001fb9fae2b3e770520770",
+      "bytes": 17981
+    },
+    "reports/wc_N10_actual_CPU_R1_scoped_repairs_local58_20261018.json": {
+      "sha256": "73a8d44ffb5cbc5ef44d35ed5b9b2022f31429a7be34a98ae64bb94948cd68ff",
+      "bytes": 8777
+    },
+    "tests/test_N10_actual_CPU_repairs_r2.py": {
+      "sha256": "3629891eb9028a98c7a271809cbb9680e7b9fcecda242b4ce152ffdcac4c53c6",
+      "bytes": 4227
+    },
+    "reports/wc_paper_N10_full_five_model_CPU_R2_launch_20261018.json": {
+      "sha256": "12eeab86c5adadca49d97ebbc493e1a7ad34090371b0d8fdef0fecce444df5b7",
+      "bytes": 35484
+    },
+    "reports/wc_drop1_window88_actual_CPU_R1_midpoint_20261018_0214.json.gz": {
+      "sha256": "2242d43fbb24b587f7d2969d88edec62909ab5b32e6dc2f9a5ba9278056814e5",
+      "bytes": 717
+    },
+    "reports/wc_drop1_window88_actual_CPU_R1_midpoint_independent_20261018.json": {
+      "sha256": "b9dfcfd9b4b9283297fc82745188d6507277d324f771d99e300a59f7e2d52b85",
+      "bytes": 546
+    },
+    "research/575_WC_N10_REPAIRED_FULL_FIVE_CPU_R2_RUNNING_AND_WINDOW88_HALFWAY_20261018.md": {
+      "sha256": "b63c38d9fca265265936f410dcc9d4f41d47d2420ac2b742ece1dec422a10d5a",
+      "bytes": 2781
     }
   },
   "math_notation": [
