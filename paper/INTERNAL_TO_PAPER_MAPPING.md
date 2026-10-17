@@ -1,3 +1,9 @@
+## 2026-10-18 当前：N10固定资源SCP在途；N09 CPU已接受、GPU资源等待
+
+[568资源实际启动](../research/568_WC_N10_ORIGINAL_SCP_RESOURCE_RUNNING_AND_CPU_NEXT_20261018.md)：原ViCLIP 1,710,545,812字节/固定7a4d6ad6 SHA已本机重新接受；sourcef06ca5a、独立stage wc-N10-viclip-relay-r1-20261018、原Mac worker81517/lstart01:01:29，初始身份仍活跃且server-prepared存在。预计10–30分钟，已安排01:17技术半程/01:32完整独立服务端SHA各一次；worldcache-n10-scp与worldcache-n10-scp-2，完成后删除，不持续监听或重复SCP。资源/五模型CPU/质量评分分开，当前新分数0。
+
+原N09修复R2十命令真实CPU通过（198.8012秒），原完整40 GPU派发因其他账号两GPU满显存未准入，0生成/0预留/0GPU费；原两个查收自动化已删除，不停止其他账号进程或重派旧fence。v2快照110.869061155/cap226，预留0余115.130938845，原origin保持。资源接受后接完整五模型CPU，实际N09 GPU测量时不并发重模型；连续A完整24仅静态设计，88数值CPU/生产/报价待。F/B关闭，无训练/人评/OMR。以下为历史。
+
 ## 2026-10-18 当前：N09真实CPU完整接受，外部GPU占用导致未准入
 
 [567实际状态](../research/567_WC_N09_REAL_CPU_ACCEPTED_EXTERNAL_GPU_OCCUPANCY_AND_NO_CHARGE_20261018.md)：修复R2 source8c353ba、1787源/194overlay/十命令实际CPU全部通过（198.8012秒），原R1失败保留，原N08严格验收器/桥接不改。完整40/五冻结角色/4.245833预测及5GPUh上限保持。派发1636878/1636879在生成前因其他账号两GPU满显存退出；原句柄消失、无GPU子进程、无N09预算job、预留0/本轮GPU费0，自身锁释放。原两查收自动化已删除，不循环重派或停止其他账号任务。
