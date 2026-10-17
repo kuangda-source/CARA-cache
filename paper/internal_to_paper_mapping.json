@@ -1762,7 +1762,16 @@
     "endpoint_budget_design_551": "research/551_WC_ENDPOINT_BUDGET_SCHEDULE_REDESIGN_AND_MINIMUM_D_REPLACEMENT_20261017.md",
     "endpoint_budget_drop1_manifest": "manifests/wc_endpoint_budget_D_replacement_design_r1_20261017.json",
     "endpoint_budget_design_inputs": "reports/wc_scheduler_n07_design_inputs_20261017.json",
-    "endpoint_budget_design_local_validation": "reports/wc_scheduler_design_local_consistency_acceptance_20261017.json"
+    "endpoint_budget_design_local_validation": "reports/wc_scheduler_design_local_consistency_acceptance_20261017.json",
+    "N08_terminal_552": "research/552_WC_N08_FULL40_ACCEPTED_REPEATED_TIMING_AND_PENDING_TASK_CLOSURE_20261017.md",
+    "N08_terminal_original_capture": "reports/wc_paper_N08_balanced_full40_terminal_collection_user_status_20261017.json.gz",
+    "N08_terminal_independent_roundoff_acceptance": "reports/wc_paper_N08_balanced_full40_terminal_independent_acceptance_roundoff_r1_20261017.json",
+    "N08_roundoff_diagnosis": "reports/wc_paper_N08_independent_statistics_difference_diagnosis_20261017.json",
+    "N08_roundoff_bridge": "src/wcomr/balanced_repeat_roundoff_acceptance_r1.py",
+    "N08_roundoff_CLI": "scripts/analyze_wc_paper_N08_roundoff_acceptance_r1.py",
+    "N08_roundoff_tests": "tests/test_balanced_repeat_roundoff_acceptance_r1.py",
+    "N08_roundoff_real_controls": "reports/wc_paper_N08_roundoff_bridge_local_controls_20261017.json",
+    "N08_terminal_automation_pause": "reports/wc_paper_N08_terminal_automation_pause_verified_20261017.json"
   },
   "evidence_batches": {
     "curve60": {
@@ -3317,6 +3326,28 @@
       "actual_quality": null,
       "actual_GPUh": null,
       "scope_manifest": "manifests/wc_endpoint_budget_D_replacement_design_r1_20261017.json"
+    },
+    "N08_full40_terminal_accepted": {
+      "report": "research/552_WC_N08_FULL40_ACCEPTED_REPEATED_TIMING_AND_PENDING_TASK_CLOSURE_20261017.md",
+      "capture_ref": "reports/wc_paper_N08_balanced_full40_terminal_collection_user_status_20261017.json.gz",
+      "independent_acceptance_ref": "reports/wc_paper_N08_balanced_full40_terminal_independent_acceptance_roundoff_r1_20261017.json",
+      "status": "N08_FULL40_RAW_FIDELITY_AND_REPEATED_LATENCY_INDEPENDENTLY_ACCEPTED",
+      "source_revision": "8bdebc340737599a6923c01a31a4734b04bc3f4b",
+      "scope_counts": {
+        "requests": 2,
+        "methods": 5,
+        "scientific_paths": 30,
+        "full_warmup_paths": 10,
+        "total_paths": 40,
+        "ordinary_pairs": 1440,
+        "CFG_calls": 2880,
+        "loads": 1,
+        "teacher_pairs": 0
+      },
+      "actual_GPUh": 2.6721478930578773,
+      "recorded_resource_controls_accepted": true,
+      "independent_new_input_generalization": false,
+      "derived_one_ULP_bridge_explicit": true
     }
   },
   "statistical_rules": {
@@ -3335,7 +3366,6 @@
     "w/o CFG-Coordinated Scaling"
   ],
   "pending_paper_evidence": [
-    "repeated_clean_timing_beyond_development_checks",
     "minimal_deployment_cost_and_automatic_quality",
     "second_backbone_transfer",
     "direct_corrected_neighbor_Cosmos_adapter",
@@ -5169,28 +5199,28 @@
       "bytes": 8960
     },
     "memory/handoffs/LATEST.md": {
-      "sha256": "967f5a3144d7e38f37d475bc263253f83c4828db4d88133c2970c6c0d853fe18",
-      "bytes": 654134
+      "sha256": "91f68c5627a1a519cf4f6c82cf5b4a7862d06f2e4c7434736c0cbcc6d9e48765",
+      "bytes": 654961
     },
     "src/wcomr/runtime_profile40_acceptance_r1.py": {
       "sha256": "9d5de68477518880b2087a557b699a93ca73e8ab06a058e2c54059997af45116",
       "bytes": 17772
     },
     "research/09_NEXT_ACTIONS.md": {
-      "sha256": "7954bd5a48e5d7ccfb4f030d5908f76610bbcc7bdd0e5fd691cb2d7c312becfd",
-      "bytes": 590348
+      "sha256": "11fa3e8764bffbf0f02cea3ac21567acb775c53e956901577f0e5be2942c89fb",
+      "bytes": 591160
     },
     "reports/wc_paper_N09_runtime40_collection_R1_fixture_failure_20261016.json": {
       "sha256": "1b03ddcd9982149e9fe2254c9770eb85b0f9b69e5f1f81958be66df55d1bb247",
       "bytes": 2169
     },
     "paper/EXPERIMENT_MASTER_TABLE.md": {
-      "sha256": "3ee521a60c7b7869067b8e478df651e98d780427b7e69515dc8668181ab44501",
-      "bytes": 60924
+      "sha256": "d4d31604089a522cfc3a89c9e47219f8d31f86ca46452baa7d14516d89ea07ee",
+      "bytes": 61662
     },
     "research/02_CURRENT_STATE.md": {
-      "sha256": "17214670b9dad5856976d25fbf4895d6e11a855a9039f849cd03f29261ba694b",
-      "bytes": 565383
+      "sha256": "f5c3f27cbf34d667f3dfbaf848d05bf64b65c1553b6cab0f29a31e3450c0a37f",
+      "bytes": 566195
     },
     "tests/test_runtime_profile40_capture_r1.py": {
       "sha256": "40cba26bb42f450c8afdd075ef9e594ebd92639fd0424d61e5e8583ba1b17491",
@@ -5213,20 +5243,20 @@
       "bytes": 3368
     },
     "plans/WORLD_CACHE_MAINLINE_PRIORITY_QUEUE_20261016.md": {
-      "sha256": "82007612e98b1b6fa3c116c79a7b996a06ee3398936c7a81d53ee2763500e8e4",
-      "bytes": 50380
+      "sha256": "11e0477cfc7ffb0ab9c45b5fe16646d1b943917cc5cc70e69ed71692a6220d75",
+      "bytes": 51204
     },
     "EXPERIMENT_REPORT.md": {
-      "sha256": "8617eb5c32c2efe8d37d1c85c483c06fdab589b742746d5dd19e61ba34473436",
-      "bytes": 618602
+      "sha256": "3f5b6701b38058a42ae007f69fc44101a8f2d9e2356bd5762915a13ce810dbe6",
+      "bytes": 619423
     },
     "paper/INTERNAL_TO_PAPER_MAPPING.md": {
-      "sha256": "ee8e74a4cc3af5e6371ec9a5fade09170d07d2ad3f9971e4d00df11fa611aef1",
-      "bytes": 69014
+      "sha256": "f1d1ea8b890e658f96a9505b21172327ab4d3f1499c3e99bf28726fc01f35bd9",
+      "bytes": 69838
     },
     "AGENTS.md": {
-      "sha256": "4178b741b44f66a9da689205372ae59d5ae02dbb8514e3f90786fe969e7ed029",
-      "bytes": 566484
+      "sha256": "f1c217ace7f4df4fe2d36028a17483089900d69f27814e6ae42d982504b55133",
+      "bytes": 567305
     },
     "scripts/prepare_wc_paper_N09_action16_scope_r1.py": {
       "sha256": "29ebbd44644f2711c31027d69de4b4d2347e8514a808551665007ba89ac6a15e",
@@ -6071,6 +6101,42 @@
     "reports/wc_scheduler_design_local_consistency_acceptance_20261017.json": {
       "sha256": "8ccec9b023151fb51088ae01c1ae9abdb8a4f1048402a1da300d0751652659a8",
       "bytes": 1569
+    },
+    "research/552_WC_N08_FULL40_ACCEPTED_REPEATED_TIMING_AND_PENDING_TASK_CLOSURE_20261017.md": {
+      "sha256": "71aa6bccc04245493bbb81bd85ad4f2fc18bc9b76c4ef8650831c4c6a35da281",
+      "bytes": 4798
+    },
+    "reports/wc_paper_N08_balanced_full40_terminal_collection_user_status_20261017.json.gz": {
+      "sha256": "d21cfc8d702dff744647a19958ca8b0ac9073b1b297563cfcbf5208bfde3eea9",
+      "bytes": 621069
+    },
+    "reports/wc_paper_N08_balanced_full40_terminal_independent_acceptance_roundoff_r1_20261017.json": {
+      "sha256": "2ba47b448b96183b05d1483ed421b2cdb17f3cd77b06bf3d279a56021c6b4c11",
+      "bytes": 324293
+    },
+    "reports/wc_paper_N08_independent_statistics_difference_diagnosis_20261017.json": {
+      "sha256": "408d1df6d39618372825a8f2e9b12603708bd03fcfbbb6e474883ca2266b152e",
+      "bytes": 711
+    },
+    "src/wcomr/balanced_repeat_roundoff_acceptance_r1.py": {
+      "sha256": "8511fa9b83f439905b24c98dc71e849b32acf222272f016498d00b338361d264",
+      "bytes": 3316
+    },
+    "scripts/analyze_wc_paper_N08_roundoff_acceptance_r1.py": {
+      "sha256": "1432dad2b40a742d4a63ae592a8920d81acb4c2b378673c751f0a1073db9d569",
+      "bytes": 1544
+    },
+    "tests/test_balanced_repeat_roundoff_acceptance_r1.py": {
+      "sha256": "dfb04b2125ddf419376ebb69a4a93e607a9a96d27468d1464802c00f775685c5",
+      "bytes": 3686
+    },
+    "reports/wc_paper_N08_roundoff_bridge_local_controls_20261017.json": {
+      "sha256": "dbe3e74ca1892e8ce2cb8c4d7fbac558ff119b630612b9208ce23014f9e7a203",
+      "bytes": 297
+    },
+    "reports/wc_paper_N08_terminal_automation_pause_verified_20261017.json": {
+      "sha256": "81139176efa13331147d75809a0b9536d687490ab84f584bdb47719cbac5305a",
+      "bytes": 331
     }
   },
   "math_notation": [
@@ -6426,7 +6492,8 @@
     "548": "research/548_WC_N08_COMPLETE40_FROZEN_REPEAT_TIMING_SELECTED_AND_PRODUCTION_CPU_PREREG_20261017.md",
     "549": "research/549_WC_N08_FULL40_ACTUAL_PRODUCTION_CPU_RUNNING_AFTER_R2_COMPLETE_20261017.md",
     "550": "research/550_WC_N08_COMPLETE40_CPU_ACCEPTED_GPU_RUNNING_AND_1532_1732_COLLECTION_20261017.md",
-    "551": "research/551_WC_ENDPOINT_BUDGET_SCHEDULE_REDESIGN_AND_MINIMUM_D_REPLACEMENT_20261017.md"
+    "551": "research/551_WC_ENDPOINT_BUDGET_SCHEDULE_REDESIGN_AND_MINIMUM_D_REPLACEMENT_20261017.md",
+    "552": "research/552_WC_N08_FULL40_ACCEPTED_REPEATED_TIMING_AND_PENDING_TASK_CLOSURE_20261017.md"
   },
   "experiment_inventory_ref": "paper/experiment_master_table.json",
   "experiment_inventory_table": "paper/EXPERIMENT_MASTER_TABLE.md"

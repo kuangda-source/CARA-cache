@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "updated_local_date": "2026-10-17",
-  "snapshot_basis": "551 latest-two-turn redesign on complete R2 evidence; N08 original40 remains running with frozen source and original checks; new18path design only, no new GPU/SSH or budget change.",
+  "snapshot_basis": "552 N08 original full40 terminal accepted, one-ULP derived-statistic bridge explicit. No project job running or unaccepted; N09/N10/N12 are unexecuted plans.",
   "git_snapshot_before_inventory": "51a69b8",
   "mapping_ref": "paper/internal_to_paper_mapping.json",
   "scope": "scientific experiment families and complete cards, not each engineering retry; reused artifacts must not be summed as independent samples",
@@ -23,10 +23,10 @@
     "X": "closed or explicitly deferred; not in the active queue"
   },
   "status_counts": {
-    "已完成": 22,
+    "已完成": 23,
     "已完成并关闭": 2,
     "待补": 7,
-    "正在运行": 1,
+    "正在运行": 0,
     "暂缓/未执行": 1
   },
   "rows": [
@@ -1309,15 +1309,15 @@
     },
     {
       "id": "N08",
-      "state": "正在运行｜原完整40已在GPU0准入，待半程/最终",
+      "state": "已完成｜原完整40独立接受，自动化暂停",
       "paper_experiment_name": "Balanced Repeated Clean Latency",
       "internal_ids": [
         "PAPER_E4_REPEAT_SPEED"
       ],
       "contribution_relation": "C3稳定费用；C1/C2工作点复验",
-      "evidence_or_planned_scope": "原冻结AV28/Human199 seed0×五角色×三平衡轮30正式+10完整warm/1440pairs/1load。1747源/九实际CPU命令0退出/10typed独立接受后，13:31:23在GPU0唯一准入，整卡3.6275GPUh预留；科学结果未读取。",
-      "gap_and_next_action": "15:32一次半程技术核对原3PID/40完整分母与资源错误，17:32一次全部原件/重复计时/93帧/费用/释放接受。保持独占测量、原五角色与全部拒绝失败，不从R2挑选或调参。",
-      "priority": "P0·原卡在跑，按两时点查收",
+      "evidence_or_planned_scope": "40/40完成，30正式2790帧、10warm及30完整控制接受，82登记资源边界及v2区间通过；原派生std1ULP失败保留，限定只读修复与12CPU通过。",
+      "gap_and_next_action": "不重查或重跑；仅两旧CAL重复时间，不当新输入泛化。N09/N10与551新三臂仍待执行，不自动开新卡。",
+      "priority": "R·重复时间已接受",
       "evidence_refs": [
         "closure_plan",
         "roadmap",
@@ -1372,7 +1372,16 @@
         "N08_full40_actual_GPU_launch",
         "N08_full40_original_admission",
         "N08_full40_independent_admission",
-        "N08_halfway_final_automation_confirmation"
+        "N08_halfway_final_automation_confirmation",
+        "N08_terminal_552",
+        "N08_terminal_original_capture",
+        "N08_terminal_independent_roundoff_acceptance",
+        "N08_roundoff_diagnosis",
+        "N08_roundoff_bridge",
+        "N08_roundoff_CLI",
+        "N08_roundoff_tests",
+        "N08_roundoff_real_controls",
+        "N08_terminal_automation_pause"
       ],
       "method_mapping_ids": [
         "config.efficient",
@@ -1388,8 +1397,8 @@
         "C1",
         "C2"
       ],
-      "claim_relation": "INTENDED_SUPPORT_UNCOMPLETED",
-      "paper_placement": "后续证据，结果未填",
+      "claim_relation": "COMPLETED_REPEATED_LATENCY_AND_FIDELITY",
+      "paper_placement": "重复时间证据；N07新输入与强前密比较分别呈现",
       "conditional_depends_on_if_variant_selected": [
         "N02",
         "N04"
@@ -1408,11 +1417,11 @@
       "resident_production_runner_implemented": true,
       "resident_production_synthetic_CPU_accepted": true,
       "actual_production_CPU_accepted": true,
-      "actual_speed_or_quality_results_from_N08": false,
+      "actual_speed_or_quality_results_from_N08": true,
       "timing_bindings_must_share_original_common_method_freeze": true,
       "CPU_post_entry_implemented": true,
       "CPU_post_controls_accepted": true,
-      "actual_full40_scoring_done": false,
+      "actual_full40_scoring_done": true,
       "registered_GPU_interval_reconstruction_prepared": true,
       "CPU_bundle_expected_commands": 9,
       "CPU_acceptor_synthetic_controls_accepted": true,
@@ -1421,7 +1430,7 @@
       "actual_N08_deployment_done": false,
       "GPU_terminal_acceptor_CPU_controls_accepted": true,
       "GPU_capture_stdlib_cold_interpreter_accepted": true,
-      "actual_GPU_collection_or_speed_result": false,
+      "actual_GPU_collection_or_speed_result": true,
       "CPU_stage_deployer_and_once_capture_implemented": true,
       "CPU_deployer_local_controls_accepted": true,
       "complete_cost_planner_implemented": true,
@@ -1462,10 +1471,20 @@
       "actual_GPU_runner_pid": 1265137,
       "actual_CPU_post_pid": 1265105,
       "actual_GPU_started_local": "2026-10-17T13:31:23.219007+08:00",
-      "halfway_check_local": "2026-10-17T15:32:00+08:00",
-      "terminal_check_local": "2026-10-17T17:32:00+08:00",
-      "actual_GPUh": null,
-      "new_quality_or_acceleration_result": false
+      "halfway_check_local": null,
+      "terminal_check_local": null,
+      "actual_GPUh": 2.6721478930578773,
+      "new_quality_or_acceleration_result": true,
+      "scientific_full_scope_accepted": true,
+      "stable_repeated_clean_speed_claim": true,
+      "current_running": false,
+      "next_collection_local": null,
+      "actual_late_terminal_collection_local": "2026-10-17T20:17:57.602289+08:00",
+      "terminal_capture_ref": "reports/wc_paper_N08_balanced_full40_terminal_collection_user_status_20261017.json.gz",
+      "terminal_independent_acceptance_ref": "reports/wc_paper_N08_balanced_full40_terminal_independent_acceptance_roundoff_r1_20261017.json",
+      "automation_status": "PAUSED",
+      "original_midpoint_receipt_found": false,
+      "original_scheduled_terminal_receipt_found": false
     },
     {
       "id": "N09",
@@ -2598,7 +2617,17 @@
     "endpoint_budget_drop1_manifest": "manifests/wc_endpoint_budget_D_replacement_design_r1_20261017.json",
     "endpoint_budget_design_inputs": "reports/wc_scheduler_n07_design_inputs_20261017.json",
     "551": "research/551_WC_ENDPOINT_BUDGET_SCHEDULE_REDESIGN_AND_MINIMUM_D_REPLACEMENT_20261017.md",
-    "endpoint_budget_design_local_validation": "reports/wc_scheduler_design_local_consistency_acceptance_20261017.json"
+    "endpoint_budget_design_local_validation": "reports/wc_scheduler_design_local_consistency_acceptance_20261017.json",
+    "N08_terminal_552": "research/552_WC_N08_FULL40_ACCEPTED_REPEATED_TIMING_AND_PENDING_TASK_CLOSURE_20261017.md",
+    "N08_terminal_original_capture": "reports/wc_paper_N08_balanced_full40_terminal_collection_user_status_20261017.json.gz",
+    "N08_terminal_independent_roundoff_acceptance": "reports/wc_paper_N08_balanced_full40_terminal_independent_acceptance_roundoff_r1_20261017.json",
+    "N08_roundoff_diagnosis": "reports/wc_paper_N08_independent_statistics_difference_diagnosis_20261017.json",
+    "N08_roundoff_bridge": "src/wcomr/balanced_repeat_roundoff_acceptance_r1.py",
+    "N08_roundoff_CLI": "scripts/analyze_wc_paper_N08_roundoff_acceptance_r1.py",
+    "N08_roundoff_tests": "tests/test_balanced_repeat_roundoff_acceptance_r1.py",
+    "N08_roundoff_real_controls": "reports/wc_paper_N08_roundoff_bridge_local_controls_20261017.json",
+    "N08_terminal_automation_pause": "reports/wc_paper_N08_terminal_automation_pause_verified_20261017.json",
+    "552": "research/552_WC_N08_FULL40_ACCEPTED_REPEATED_TIMING_AND_PENDING_TASK_CLOSURE_20261017.md"
   },
   "source_bindings": {
     "11": {
@@ -2751,7 +2780,7 @@
     },
     "mainline_queue_20261016": {
       "path": "plans/WORLD_CACHE_MAINLINE_PRIORITY_QUEUE_20261016.md",
-      "sha256": "82007612e98b1b6fa3c116c79a7b996a06ee3398936c7a81d53ee2763500e8e4"
+      "sha256": "11e0477cfc7ffb0ab9c45b5fe16646d1b943917cc5cc70e69ed71692a6220d75"
     },
     "baseline_grid_prereg_20261016": {
       "path": "manifests/wc_paper_N05_bounded_baseline_grid_preregistration_draft_20261016.json",
@@ -4752,33 +4781,68 @@
     "endpoint_budget_design_local_validation": {
       "path": "reports/wc_scheduler_design_local_consistency_acceptance_20261017.json",
       "sha256": "8ccec9b023151fb51088ae01c1ae9abdb8a4f1048402a1da300d0751652659a8"
+    },
+    "N08_terminal_552": {
+      "path": "research/552_WC_N08_FULL40_ACCEPTED_REPEATED_TIMING_AND_PENDING_TASK_CLOSURE_20261017.md",
+      "sha256": "71aa6bccc04245493bbb81bd85ad4f2fc18bc9b76c4ef8650831c4c6a35da281"
+    },
+    "N08_terminal_original_capture": {
+      "path": "reports/wc_paper_N08_balanced_full40_terminal_collection_user_status_20261017.json.gz",
+      "sha256": "d21cfc8d702dff744647a19958ca8b0ac9073b1b297563cfcbf5208bfde3eea9"
+    },
+    "N08_terminal_independent_roundoff_acceptance": {
+      "path": "reports/wc_paper_N08_balanced_full40_terminal_independent_acceptance_roundoff_r1_20261017.json",
+      "sha256": "2ba47b448b96183b05d1483ed421b2cdb17f3cd77b06bf3d279a56021c6b4c11"
+    },
+    "N08_roundoff_diagnosis": {
+      "path": "reports/wc_paper_N08_independent_statistics_difference_diagnosis_20261017.json",
+      "sha256": "408d1df6d39618372825a8f2e9b12603708bd03fcfbbb6e474883ca2266b152e"
+    },
+    "N08_roundoff_bridge": {
+      "path": "src/wcomr/balanced_repeat_roundoff_acceptance_r1.py",
+      "sha256": "8511fa9b83f439905b24c98dc71e849b32acf222272f016498d00b338361d264"
+    },
+    "N08_roundoff_CLI": {
+      "path": "scripts/analyze_wc_paper_N08_roundoff_acceptance_r1.py",
+      "sha256": "1432dad2b40a742d4a63ae592a8920d81acb4c2b378673c751f0a1073db9d569"
+    },
+    "N08_roundoff_tests": {
+      "path": "tests/test_balanced_repeat_roundoff_acceptance_r1.py",
+      "sha256": "dfb04b2125ddf419376ebb69a4a93e607a9a96d27468d1464802c00f775685c5"
+    },
+    "N08_roundoff_real_controls": {
+      "path": "reports/wc_paper_N08_roundoff_bridge_local_controls_20261017.json",
+      "sha256": "dbe3e74ca1892e8ce2cb8c4d7fbac558ff119b630612b9208ce23014f9e7a203"
+    },
+    "N08_terminal_automation_pause": {
+      "path": "reports/wc_paper_N08_terminal_automation_pause_verified_20261017.json",
+      "sha256": "81139176efa13331147d75809a0b9536d687490ab84f584bdb47719cbac5305a"
+    },
+    "552": {
+      "path": "research/552_WC_N08_FULL40_ACCEPTED_REPEATED_TIMING_AND_PENDING_TASK_CLOSURE_20261017.md",
+      "sha256": "71aa6bccc04245493bbb81bd85ad4f2fc18bc9b76c4ef8650831c4c6a35da281"
     }
   },
   "operation_policy": {
-    "current_running_card": "N08_FULL40",
-    "scheduled_collection_local": "2026-10-17T15:32:00+08:00",
+    "current_running_card": null,
+    "scheduled_collection_local": null,
     "no_continuous_monitoring": true,
     "new_GPU_jobs_started_by_this_inventory": 2,
     "automatic_single_complete_job_estimate_exclusive_GPUh_upper_bound": 12,
     "last_settled_used_GPUh_before_running_card": 106.72265023079497,
     "remaining_before_running_card_GPUh": 6.277349769205031,
-    "running_card_forecast_GPUh": 3.6275,
-    "actual_running_card_spend_unknown": true,
+    "running_card_forecast_GPUh": null,
+    "actual_running_card_spend_unknown": false,
     "budget_window_not_reset": true,
     "planned_templates_are_not_CPU_accepted_selected_cards": true,
     "closed_F_B_not_reopened": true,
-    "current_running_cards": [
-      "N08_FULL40"
-    ],
+    "current_running_cards": [],
     "authoritative_budget": "reports/gpu-budget-v2.json",
     "original_W3_unchanged": true,
-    "whole_running_job_reservations_GPUh": 3.6275,
-    "available_after_whole_reservations_GPUh": 2.6498497692050313,
+    "whole_running_job_reservations_GPUh": 0.0,
+    "available_after_whole_reservations_GPUh": 3.6052018761471487,
     "per_UUID_lock_protocol": "plans/WORLD_CACHE_DUAL_GPU_EXECUTION_20261015.md",
-    "scheduled_collections_local": {
-      "N08_MIDPOINT": "2026-10-17T15:32:00+08:00",
-      "N08_FINAL": "2026-10-17T17:32:00+08:00"
-    },
+    "scheduled_collections_local": {},
     "running_forecasts_GPUh": {
       "N08_FULL40": 3.6275
     },
@@ -4821,10 +4885,8 @@
       "W3": 11.645827780327332,
       "SIMPLE26D_FULL36": 5.766054749472921
     },
-    "current_pending_scientific_acceptance_cards": [
-      "N08_FULL40"
-    ],
-    "latest_total_settled_GPUh": 106.72265023079497,
+    "current_pending_scientific_acceptance_cards": [],
+    "latest_total_settled_GPUh": 109.39479812385285,
     "SIMPLE26D_collection_closed": true,
     "SIMPLE26D_rerun_selected": true,
     "W3_scientific_acceptance_performed": true,
@@ -4838,19 +4900,11 @@
     },
     "W3_original_terminal_collection_performed": true,
     "SIMPLE26D_R1_collection_closed": true,
-    "current_CPU_task": {
-      "kind": "N08_CPU_POST_WATCHER_WAITING_FOR_ORIGINAL_GPU",
-      "source_revision": "8bdebc340737599a6923c01a31a4734b04bc3f4b",
-      "pid": 1265105,
-      "start_ticks": 550998683,
-      "stage": "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/.sync/wc-paper-n08-production-cpu-r1-20261017",
-      "status": "WAITING_ORIGINAL_SUPERVISOR_NO_METRIC_MODEL_STARTED",
-      "GPU_submissions": 0
-    },
+    "current_CPU_task": null,
     "next_W3_CPU_collection": null,
     "SIMPLE26D_R2_next_collection": null,
-    "current_reserved_GPUh": 3.6275,
-    "current_admissible_GPUh": 2.6498497692050313,
+    "current_reserved_GPUh": 0.0,
+    "current_admissible_GPUh": 3.6052018761471487,
     "W3_scientific_acceptance_scope": "RAW_SUPERVISION_SUBSETS_WITH_ORIGINAL_FAILURES",
     "W3_full_card_all_success": false,
     "W3_T0_T1_T2_CPU_evaluation_complete": true,
@@ -5128,7 +5182,7 @@
       "actual_runtime_health_checked": false,
       "no_original_task_relaunch": true
     },
-    "latest_authoritative_budget_observation_ref": "reports/wc_paper_N07_midpoint_technical_failure_diagnosis_20261016_2132.json",
+    "latest_authoritative_budget_observation_ref": "reports/wc_paper_N08_balanced_full40_terminal_collection_user_status_20261017.json.gz",
     "latest_technical_health_ref": "reports/wc_paper_N07_midpoint_health_20261016_2130.json",
     "latest_technical_health_checked": true,
     "latest_inventory_GPU_submissions": 0,
@@ -5208,10 +5262,8 @@
       "available_after_whole_reservations_GPUh": 1.6654725367192658,
       "budget_snapshot_asof": "2026-10-17T05:33:28.034299+08:00"
     },
-    "current_running_GPU_cards": [
-      "N08_FULL40"
-    ],
-    "active_experiment_GPU_count_observed": 1,
+    "current_running_GPU_cards": [],
+    "active_experiment_GPU_count_observed": 0,
     "N07_R2_GPU_stage_finished": true,
     "N07_R2_GPU_child_exit_code": 0,
     "N07_R2_late_health_ref": "reports/wc_paper_N07_refusal_repair180_R2_midpoint_health_late_20261017.json.gz",
@@ -5221,13 +5273,13 @@
     "N07_R2_observed_job_actual_GPUh": 10.443678323069795,
     "N07_R2_own_job_reservation_GPUh": 0,
     "full_v2_pool_independent_terminal_acceptance_pending": true,
-    "current_budget_aggregate_freshness": "Complete original N08 admitted v2 pool, additive actual106.722650231 plus whole3.6275 reservation; reservation is not cost",
-    "current_GPU_actual_bill_acceptance_ref": null,
+    "current_budget_aggregate_freshness": "Original complete additive pool 2026-10-17T20:17:57.602289+08:00",
+    "current_GPU_actual_bill_acceptance_ref": "reports/wc_paper_N08_balanced_full40_terminal_independent_acceptance_roundoff_r1_20261017.json",
     "N07_R2_terminal_scientific_available_cohorts_accepted": true,
     "N07_R2_all160_success": false,
     "N07_R2_original_capture": "reports/wc_paper_N07_refusal_repair180_R2_terminal_collection_20261017_1250.json.gz",
     "N07_R2_independent_acceptance": "reports/wc_paper_N07_refusal_repair180_R2_terminal_canonical_independent_acceptance_20261017.json",
-    "next_selected_card": "N08_FULL40",
+    "next_selected_card": null,
     "N08_actual_configuration_selected": true,
     "N08_actual_forecast_GPUh": 3.6275,
     "N08_server_CPU_launched": true,
@@ -5238,7 +5290,7 @@
     "N08_GPU_actual_launch_ref": "reports/wc_paper_N08_balanced_full40_GPU_launch_20261017.json",
     "N08_GPU_admission_acceptance_ref": "reports/wc_paper_N08_balanced_full40_independent_admission_acceptance_20261017.json",
     "N08_current_automation_id": "worldcache-180",
-    "N08_halfway_and_final_automation_active": true,
+    "N08_halfway_and_final_automation_active": false,
     "research_design_update_ref": "research/551_WC_ENDPOINT_BUDGET_SCHEDULE_REDESIGN_AND_MINIMUM_D_REPLACEMENT_20261017.md",
     "next_method_development_design_not_selected": "N12_DROP1_THREEARM_FULL18_DRAFT",
     "new_GPU_submission_in_design_update": false,
@@ -5246,7 +5298,10 @@
     "paper_claims_revised_from_R2": true,
     "N07_now_exposed_for_subsequent_method_selection": true,
     "N08_original_checks_unchanged_by_design_update": true,
-    "active_experiment_count_observation_basis": "N08 original startup acceptance at 2026-10-17 13:31; not a fresh design-update server check"
+    "active_experiment_count_observation_basis": "Original terminal capture 2026-10-17T20:17:57.602289+08:00",
+    "N08_terminal_accepted": true,
+    "N08_terminal_ref": "reports/wc_paper_N08_balanced_full40_terminal_independent_acceptance_roundoff_r1_20261017.json",
+    "no_new_experiment_started_in_status_request": true
   },
-  "mapping_sha256_at_inventory": "e1babfa94c8b65c620a5fa357e29c10f09b9f1dd8d25b18070bd441907d23a5e"
+  "mapping_sha256_at_inventory": "d4586b55f803ae07d6bc2558808e30674db99194f0f527c6ee53929e1938ca96"
 }
