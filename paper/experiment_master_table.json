@@ -1899,7 +1899,7 @@
       ],
       "contribution_relation": "C3生成质量范围；补充保真主指标",
       "evidence_or_planned_scope": "真实R2全160正式/六维960位置已原件绑定：645待评分、155视频不可用、160静态N/A；六metadata与8负例通过。原本机ViCLIP实体已恢复并重核完整SHA，原relay本地入口通过。",
-      "gap_and_next_action": "原SCP半程一次已接受（实际01:20、44.34%）；最终已从01:32重估为01:50，仅一次查原件和全SHA。资源接受后完整五模型CPU；当前0质量分数。",
+      "gap_and_next_action": "原SCP完整服务端SHA已接受并结束；sourcecd88370/PID1679058完整五模型CPU在途，01:59:30半程/02:07完整查收，各一次。当前0质量分数。",
       "priority": "P1·完整多维自动质量评价前置条件",
       "evidence_refs": [
         "28",
@@ -2022,7 +2022,13 @@
         "N10_original_SCP_R1_two_checks",
         "reports/wc_paper_N10_original_SCP_R1_midpoint_20261018_0117.json",
         "reports/wc_paper_N10_original_SCP_R1_midpoint_independent_20261018.json",
-        "reports/wc_paper_N10_original_SCP_R1_final_reestimated_from_midpoint_20261018.json"
+        "reports/wc_paper_N10_original_SCP_R1_final_reestimated_from_midpoint_20261018.json",
+        "reports/wc_paper_N10_original_SCP_R1_collection_20261018_0150.json",
+        "reports/wc_paper_N10_original_SCP_R1_independent_acceptance_20261018.json",
+        "reports/wc_paper_N10_full_five_model_CPU_R1_launch_20261018.json",
+        "scripts/capture_wc_N10_models_cpu_health_r1.py",
+        "reports/wc_N10_models_cpu_midpoint_local_safety_controls_20261018.json",
+        "research/570_WC_N10_SERVER_RESOURCE_ACCEPTED_AND_FULL_FIVE_MODEL_CPU_RUNNING_20261018.md"
       ],
       "method_mapping_ids": [],
       "depends_on": [
@@ -2120,7 +2126,7 @@
       "local_resource_midpoint_collected": true,
       "local_resource_midpoint_ref": "reports/wc_paper_N10_direct_R4_midpoint_health_20261017.json",
       "local_resource_full_independent_acceptance": true,
-      "ViCLIP_resource_acceptance_location": "LOCAL_MACOS_COMPLETE_BYTES_ONLY",
+      "ViCLIP_resource_acceptance_location": "LOCAL_AND_SERVER_INDEPENDENT_FULL_SHA_ACCEPTED",
       "direct_R4_resource_terminal_collected": true,
       "direct_R4_resource_capture_ref": "reports/wc_paper_N10_direct_R4_collection_20261017_0154.json",
       "direct_R4_resource_acceptance_ref": "reports/wc_paper_N10_direct_R4_independent_resource_acceptance_20261017.json",
@@ -2129,8 +2135,8 @@
       "direct_R4_failed_HTTP_attempts": 0,
       "direct_R4_actual_accepted_bytes": 1710545812,
       "direct_R4_full_SHA": "7a4d6ad6eac6632db3693f4b97f9f8f6445b65b1e139a6fc6686150522238c56",
-      "ViCLIP_server_resource_transferred": false,
-      "ViCLIP_server_full_SHA_accepted": false,
+      "ViCLIP_server_resource_transferred": true,
+      "ViCLIP_server_full_SHA_accepted": true,
       "actual_quality": null,
       "actual_R2_input_prepared": true,
       "input_generation_positions": 160,
@@ -2150,16 +2156,21 @@
       "original_SCP_source_revision": "f06ca5a5ce31c87579f09e1c602a4bb0d847fcf0",
       "original_SCP_launch_ref": "reports/wc_paper_N10_ViCLIP_original_SCP_R1_launch_20261018.json",
       "original_SCP_initial_identity_ref": "reports/wc_paper_N10_original_SCP_R1_initial_local_identity_20261018.json",
-      "original_SCP_accepted": false,
+      "original_SCP_accepted": true,
       "original_SCP_halfway_local": "2026-10-18T01:17:00+08:00",
-      "original_SCP_final_local": "2026-10-18T01:50:00+08:00",
+      "original_SCP_final_local": null,
       "all_five_model_CPU_accepted": false,
       "automatic_quality_new_scores": 0,
       "original_SCP_halfway_collected": true,
       "original_SCP_halfway_actual_local": "2026-10-18T01:20:12.111124+08:00",
       "original_SCP_halfway_received_bytes": 758484992,
       "original_SCP_halfway_fraction": 0.4434169413522846,
-      "original_SCP_halfway_ref": "reports/wc_paper_N10_original_SCP_R1_midpoint_20261018_0117.json"
+      "original_SCP_halfway_ref": "reports/wc_paper_N10_original_SCP_R1_midpoint_20261018_0117.json",
+      "original_SCP_final_collected": true,
+      "actual_model_CPU_dispatched": true,
+      "actual_model_CPU_launch_ref": "reports/wc_paper_N10_full_five_model_CPU_R1_launch_20261018.json",
+      "actual_model_CPU_pid": 1679058,
+      "actual_model_CPU_source": "cd8837082d7cfc43ad889019b1c06587aed06a0d"
     },
     {
       "id": "N11",
@@ -3167,7 +3178,13 @@
     "N10_SCP_halfway": "reports/wc_paper_N10_original_SCP_R1_midpoint_20261018_0117.json",
     "N10_SCP_halfway_independent": "reports/wc_paper_N10_original_SCP_R1_midpoint_independent_20261018.json",
     "N10_SCP_final_reestimated": "reports/wc_paper_N10_original_SCP_R1_final_reestimated_from_midpoint_20261018.json",
-    "window88_and_SCP_halfway_569": "research/569_WC_N10_MIDPOINT_REESTIMATE_AND_CORRECTION_WINDOW88_LOCAL_PREPARATION_20261018.md"
+    "window88_and_SCP_halfway_569": "research/569_WC_N10_MIDPOINT_REESTIMATE_AND_CORRECTION_WINDOW88_LOCAL_PREPARATION_20261018.md",
+    "N10_server_SCP_final": "reports/wc_paper_N10_original_SCP_R1_collection_20261018_0150.json",
+    "N10_server_SCP_independent": "reports/wc_paper_N10_original_SCP_R1_independent_acceptance_20261018.json",
+    "N10_five_model_CPU_R1_launch": "reports/wc_paper_N10_full_five_model_CPU_R1_launch_20261018.json",
+    "N10_model_CPU_midpoint_entry": "scripts/capture_wc_N10_models_cpu_health_r1.py",
+    "N10_model_CPU_midpoint_controls": "reports/wc_N10_models_cpu_midpoint_local_safety_controls_20261018.json",
+    "N10_server_resource_and_CPU_570": "research/570_WC_N10_SERVER_RESOURCE_ACCEPTED_AND_FULL_FIVE_MODEL_CPU_RUNNING_20261018.md"
   },
   "source_bindings": {
     "11": {
@@ -5837,11 +5854,35 @@
     "window88_and_SCP_halfway_569": {
       "path": "research/569_WC_N10_MIDPOINT_REESTIMATE_AND_CORRECTION_WINDOW88_LOCAL_PREPARATION_20261018.md",
       "sha256": "738c337e00a1f929239cda5600159c2b50f10423c00872b3fb821852f4936376"
+    },
+    "N10_server_SCP_final": {
+      "path": "reports/wc_paper_N10_original_SCP_R1_collection_20261018_0150.json",
+      "sha256": "fe82182f6a855b58eee23719aec46bbe90d2d32a0bdde6fc803660647a9369e5"
+    },
+    "N10_server_SCP_independent": {
+      "path": "reports/wc_paper_N10_original_SCP_R1_independent_acceptance_20261018.json",
+      "sha256": "667adf3b188579ebc323aa60dde36e34904b6abd851936aacb74c05a93cfe3e1"
+    },
+    "N10_five_model_CPU_R1_launch": {
+      "path": "reports/wc_paper_N10_full_five_model_CPU_R1_launch_20261018.json",
+      "sha256": "6697bc4c65cede05672428b5a128c7a91e233d9e5e5b97e7c3d59e851b2021dd"
+    },
+    "N10_model_CPU_midpoint_entry": {
+      "path": "scripts/capture_wc_N10_models_cpu_health_r1.py",
+      "sha256": "dfe0aaf7e68ea66d110592fe9a8e1a0107ccfd63df960f0ad2903d6aba295db0"
+    },
+    "N10_model_CPU_midpoint_controls": {
+      "path": "reports/wc_N10_models_cpu_midpoint_local_safety_controls_20261018.json",
+      "sha256": "55b917a872add81cdfeb307e240376f2e30d28fdf8cb2d8ec6f6c5bc4a4a2c00"
+    },
+    "N10_server_resource_and_CPU_570": {
+      "path": "research/570_WC_N10_SERVER_RESOURCE_ACCEPTED_AND_FULL_FIVE_MODEL_CPU_RUNNING_20261018.md",
+      "sha256": "c741b46ff1ecba8f96e1be65f28c4fd5312795ec44551d06d07816f4807c646a"
     }
   },
   "operation_policy": {
     "current_running_card": null,
-    "scheduled_collection_local": "2026-10-18T01:50:00+08:00",
+    "scheduled_collection_local": "2026-10-18T01:59:30+08:00",
     "no_continuous_monitoring": true,
     "new_GPU_jobs_started_by_this_inventory": 2,
     "automatic_single_complete_job_estimate_exclusive_GPUh_upper_bound": 12,
@@ -5859,7 +5900,8 @@
     "available_after_whole_reservations_GPUh": 115.13093884546745,
     "per_UUID_lock_protocol": "plans/WORLD_CACHE_DUAL_GPU_EXECUTION_20261015.md",
     "scheduled_collections_local": {
-      "N10_SCP_FINAL": "2026-10-18T01:50:00+08:00"
+      "N10_MODEL_CPU_HALFWAY": "2026-10-18T01:59:30+08:00",
+      "N10_MODEL_CPU_FINAL": "2026-10-18T02:07:00+08:00"
     },
     "running_forecasts_GPUh": {},
     "resource_check_history": [
@@ -5916,7 +5958,36 @@
     },
     "W3_original_terminal_collection_performed": true,
     "SIMPLE26D_R1_collection_closed": true,
-    "current_CPU_task": null,
+    "current_CPU_task": {
+      "status": "N10_FULL_FIVE_METRIC_MODEL_CPU_SINGLE_DISPATCHED",
+      "pid": 1679058,
+      "start_ticks": 555441328,
+      "process_state": "R",
+      "command": [
+        "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python",
+        "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/.sync/wc-N10-models-cpu-r1-20261018/scripts/evaluate_wc_N10_models_cpu_bundle_r1.py",
+        "--stage",
+        "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/.sync/wc-N10-models-cpu-r1-20261018"
+      ],
+      "stage": "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/.sync/wc-N10-models-cpu-r1-20261018",
+      "source_revision": "cd8837082d7cfc43ad889019b1c06587aed06a0d",
+      "roles": [
+        "DINO",
+        "AMT_S",
+        "RAFT_THINGS",
+        "ViCLIP",
+        "MUSIQ_SPAQ"
+      ],
+      "registration_sha256": "261802e05507bb5691c3bc5fa15dd3956395132a48352510cfef7ab26dc6fa56",
+      "payload_files": 244,
+      "started_unix": 1792259509.7619598,
+      "first_collection_not_before_unix": 1792260409.7619598,
+      "GPU_submissions": 0,
+      "ledger_written": false,
+      "paper_quality_scores_generated": false,
+      "launch_ref": "reports/wc_paper_N10_full_five_model_CPU_R1_launch_20261018.json",
+      "kind": "N10_COMPLETE_FIVE_MODEL_CPU_NOT_QUALITY"
+    },
     "next_W3_CPU_collection": null,
     "SIMPLE26D_R2_next_collection": null,
     "current_reserved_GPUh": 0,
@@ -5943,7 +6014,8 @@
       "N09_NO_ADMISSION_CANCELLED_MIDPOINT": "2026-10-18T02:56:00+08:00",
       "N09_NO_ADMISSION_CANCELLED_FINAL": "2026-10-18T05:31:00+08:00",
       "N10_SCP_HALFWAY_COMPLETED_ACTUAL": "2026-10-18T01:20:12.111124+08:00",
-      "N10_SCP_FINAL_0132_SUPERSEDED": "2026-10-18T01:32:00+08:00"
+      "N10_SCP_FINAL_0132_SUPERSEDED": "2026-10-18T01:32:00+08:00",
+      "N10_SCP_FINAL_COMPLETED": "2026-10-18T01:50:00+08:00"
     },
     "budget_values_asof": "2026-10-18T00:47:40.326639+08:00",
     "last_CPU_task": {
@@ -6425,22 +6497,21 @@
     "N09_actual_runtime40_obsolete_automations_deleted": true,
     "N09_external_GPU_occupancy_ref": "reports/wc_paper_N09_other_GPU_owners_readonly_observation_20261018.json",
     "latest_own_GPU_submissions_this_continuation": 0,
-    "current_resource_task": {
-      "family": "N10_ORIGINAL_SCP",
-      "platform": "LOCAL_MACOS",
-      "pid": 81517,
-      "process_at_admission": "81517 Sun Oct 18 01:01:29 2026     /Users/kuangda_gao/Documents/世界模型加速实验/worldcache_omr/.venv/bin/python /Users/kuangda_gao/Documents/世界模型加速实验/worldcache_omr/.sync/wc-N10-viclip-relay-r1-20261018/relay_wc_N10_viclip_resource_r1.py run --stage /Users/kuangda_gao/Documents/世界模型加速实验/worldcache_omr/.sync/wc-N10-viclip-relay-r1-20261018",
-      "source_revision": "f06ca5a5ce31c87579f09e1c602a4bb0d847fcf0",
-      "launch_ref": "reports/wc_paper_N10_ViCLIP_original_SCP_R1_launch_20261018.json",
-      "initial_identity_ref": "reports/wc_paper_N10_original_SCP_R1_initial_local_identity_20261018.json",
-      "GPU_submissions": 0
-    },
+    "current_resource_task": null,
     "N10_original_SCP_R1_dispatched": true,
     "N10_original_SCP_R1_accepted": false,
     "N10_models_CPU_actual_dispatched": false,
     "N10_all_five_models_CPU_accepted": false,
     "N10_resource_final_collection_local": "2026-10-18T01:32:00+08:00",
-    "N10_original_SCP_automation_receipt": "reports/wc_paper_N10_original_SCP_R1_two_checks_20261018.json"
+    "N10_original_SCP_automation_receipt": "reports/wc_paper_N10_original_SCP_R1_two_checks_20261018.json",
+    "N10_resource_automations_deleted": [
+      "worldcache-n10-scp",
+      "worldcache-n10-scp-2"
+    ],
+    "current_CPU_automations": [
+      "worldcache-n10-cpu",
+      "worldcache-n10-cpu-2"
+    ]
   },
-  "mapping_sha256_at_inventory": "566ff45554d390b3a28eb50589e98578858b664751189143105ae1fab6b5f489"
+  "mapping_sha256_at_inventory": "b00a057120bc24d78f78151f3a7daa79f4356ba05428b2412e4f73f1a4eb4840"
 }

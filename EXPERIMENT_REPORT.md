@@ -1,3 +1,9 @@
+## 2026-10-18 当前：原资源完整SHA接受；完整五模型CPU已单次运行
+
+[570资源收尾与CPU实际启动](research/570_WC_N10_SERVER_RESOURCE_ACCEPTED_AND_FULL_FIVE_MODEL_CPU_RUNNING_20261018.md)：原SCP终态独立接受，服务器1,710,545,812字节／7a4d6ad6全SHA一致；原两个资源查收自动化已删除。完整DINO／AMT_S／RAFT_THINGS／ViCLIP／MUSIQ_SPAQ CPU现运行，sourcecd88370、PID1679058/start555441328、244payload，实际启动01:51:49.761960。已安排01:59:30技术半程、02:07完整独立接受，各一次；worldcache-n10-cpu／worldcache-n10-cpu-2。不提前查进度，不用合成CPU接口当正式质量，当前新质量分数0。
+
+连续修正完整24适配器及88入口、本地12准备保持，实际88／生产／报价／GPU待。N09 CPU已接受但外部两GPU满显存未准入，0生成／0费用，不重放旧fence或干预他人；实际N09 GPU测量不并发重CPU。cap226／实结110.869061155／预留0余115.130938845最近快照，origin与历史不变；严格<12整卡自主，F/B关闭，无训练／人评／OMR。以下为历史。
+
 ## 2026-10-18 当前：连续修正四臂本地12项通过；N10半程已收、最终01:50
 
 [569当前准备与半程](research/569_WC_N10_MIDPOINT_REESTIMATE_AND_CORRECTION_WINDOW88_LOCAL_PREPARATION_20261018.md)：完整24四臂适配器和88条数值CPU入口已实现，本地8新＋4原回归全部通过；实际88、真实生产、整卡报价和GPU仍待，新A3质量／时间为空。原N12三臂已完成结果保持，不用旧端点填新臂。
