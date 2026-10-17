@@ -74,7 +74,14 @@ def referenced_contract(stage):
     completed_repair = (accepted_repair_identity(a7,c7,capture_sha256=refs['N07_capture']['sha256'],
         original_shared_config=shared,original_shared_config_sha256=refs['shared_config']['sha256'])
         if repaired else None)
-    originals=[(a8,accept_repeated(c8,c8['launch']))]
+    if a8.get('offline_roundoff_bridge') is not None:
+        from .balanced_repeat_roundoff_acceptance_r1 import VERSION, accept as accept_registered_bridge
+        if a8['offline_roundoff_bridge'].get('version')!=VERSION:
+            raise ValueError('Only the registered source-bound N08 derived-statistic bridge is supported')
+        repeated_recomputed=accept_registered_bridge(c8,c8['launch'])
+    else:
+        repeated_recomputed=accept_repeated(c8,c8['launch'])
+    originals=[(a8,repeated_recomputed)]
     if not repaired:originals.append((a7,accept_shared(c7,c7['launch'])))
     for accepted,recomputed in originals:
         if any(accepted.get(k)!=v for k,v in recomputed.items()):

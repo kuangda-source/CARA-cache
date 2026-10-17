@@ -144,6 +144,30 @@ class RuntimeProfileProductionControls(unittest.TestCase):
         with self.assertRaises(ValueError):check()
         authority['kind']='SPECIFIC_WHOLE_CARD_APPROVAL';check()
 
+    def test_registered_N08_bridge_is_recomputed_and_metadata_must_match(self):
+        from wcomr.balanced_repeat_roundoff_acceptance_r1 import VERSION
+        for mode in ('registered','unknown','recomputed_difference'):
+            with self.subTest(mode=mode),tempfile.TemporaryDirectory() as folder:
+                stage=Path(folder);config,bound,returned=stage_fixture(stage)
+                role='N08_acceptance';path=stage/config['references'][role]['ref']
+                value=json.loads(path.read_text())
+                value['offline_roundoff_bridge']=dict(version=VERSION if mode!='unknown' else 'UNREGISTERED')
+                path.write_text(json.dumps(value));config['references'][role]['sha256']=sha(path)
+                (stage/P.CONFIG).write_text(json.dumps(config))
+                recomputed=copy.deepcopy(value)
+                if mode=='recomputed_difference':recomputed['offline_roundoff_bridge']['unexpected']=True
+                with accepted_doubles(stage),patch('wcomr.balanced_repeat_acceptance_r1.accept') as strict,\
+                        patch('wcomr.balanced_repeat_roundoff_acceptance_r1.accept',return_value=recomputed) as bridge,\
+                        patch.object(shared_module,'validate',return_value=returned) as physical:
+                    if mode=='registered':
+                        observed=P.validate(stage,stage);self.assertEqual(observed[6],bound)
+                        bridge.assert_called_once();physical.assert_called_once()
+                    else:
+                        with self.assertRaisesRegex(ValueError,'registered|Recompute'):P.validate(stage,stage)
+                        physical.assert_not_called()
+                        if mode=='unknown':bridge.assert_not_called()
+                    strict.assert_not_called()
+
     def test_prior_capture_scope_and_raw_recomputed_acceptance_cannot_be_transplanted(self):
         for mode in ('capture_scope','source','raw_recompute'):
             with self.subTest(mode=mode),tempfile.TemporaryDirectory() as folder:

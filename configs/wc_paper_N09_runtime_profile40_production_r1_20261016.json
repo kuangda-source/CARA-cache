@@ -1,0 +1,92 @@
+{
+  "card": "WC-PAPER-N09-RUNTIME-PROFILE40-R1",
+  "run_id": "wc-paper-n09-runtime-profile40-r1",
+  "scope_counts": {
+    "requests": 2,
+    "methods": 5,
+    "formal_profile_control_paths": 30,
+    "full_warmup_paths": 10,
+    "total_paths": 40,
+    "ordinary_pairs": 1440,
+    "ordinary_CFG_calls": 2880,
+    "loads": 1,
+    "online_teacher_pairs": 0,
+    "profiled_paths": 20,
+    "original_full_audit_formal_paths": 10,
+    "profile_full_audit_formal_paths": 10,
+    "profile_lean_formal_paths": 10,
+    "all_guided_parity_pairs": 10,
+    "profile_audit_lean_endpoint_parity_pairs": 10,
+    "accepted_video_expected_frames": 93
+  },
+  "main_timing": "SYNCHRONIZED_TEXT_ENCODING_DENOISING_VAE_DECODING",
+  "strategy": "WORKING_P_AGE_NONZERO_REBASE",
+  "memory_policy": "REQUEST_BOUNDARY_GC_ONLY",
+  "deployment_profiling": true,
+  "guardrails_enabled": true,
+  "clean_repeated_latency_claim": false,
+  "autonomy_exclusive_upper_GPUh": 12,
+  "training": false,
+  "online_teachers": false,
+  "F_B_enabled": false,
+  "P_ACR": false,
+  "T1": false,
+  "head_elision": false,
+  "bound_profile_fingerprint": "59bca7720899bda87c20e784cf3635b64f50bd12020cc3af40e6f6afb66c9583",
+  "forecast_complete_GPUh": 4.245833333333334,
+  "billed_limit_GPUh": 5.0,
+  "cumulative_cap_GPUh": 226.0,
+  "budget_origin_used_GPUh": 79.99637737158223,
+  "references": {
+    "shared_config": {
+      "ref": "configs/wc_paper_N07_frozen_shared_production_r1_20261016.json",
+      "sha256": "9de3e5b9c2ce0377888e1244aa77043b42d4f92f0d9cea498c13c59e3aeafd0c"
+    },
+    "method_freeze": {
+      "ref": "manifests/wc_paper_N07_N08_method_freeze_r1_20261016.json",
+      "sha256": "b8d24be55ee722b6b7a2601ea18ff5ac3e686621a110de8128878ebb42fc400c"
+    },
+    "timing_protocol": {
+      "ref": "manifests/wc_paper_N08_balanced_repeat40_protocol_r1_20261016.json",
+      "sha256": "704e14632ca8c25f8d58066874cef6cd47f36d6f6aca1b591d57125c0f33a20d"
+    },
+    "runtime_scope": {
+      "ref": "manifests/wc_paper_N09_runtime_profile40_scope_r1_20261016.json",
+      "sha256": "ef251c2c32ae1709dbb57b163c25c59abe5c89c13eb6c27077f0a96c73feb0d3"
+    },
+    "profile_CPU_acceptance": {
+      "ref": "reports/wc_deployment_profile_full102_local_CPU_R2_independent_acceptance_20261016.json",
+      "sha256": "cf71a380462346f457bb29a372a688cc9440dcaf60bfcd3b118c6fec80546483"
+    },
+    "profile_CPU_capture": {
+      "ref": "reports/wc_deployment_profile_full102_local_CPU_R2_collection_20261016_0626.json.gz",
+      "sha256": "3afd247a867f51e87ccddb4bea3d92c4d1710051838abc9bc4bd62ac31e2c96b"
+    },
+    "N07_acceptance": {
+      "ref": "reports/wc_paper_N07_refusal_repair180_R2_terminal_canonical_independent_acceptance_20261017.json",
+      "sha256": "0e167fce6458a4b328c8dc23be05b18fcb6664c138a7dde3c9b09c6175e685a2"
+    },
+    "N07_capture": {
+      "ref": "reports/wc_paper_N07_refusal_repair180_R2_terminal_collection_20261017_1250.json.gz",
+      "sha256": "93033bf6b621a414b358955b73708412eadbbfc18b165d0693d6665bbb38fc72"
+    },
+    "N08_acceptance": {
+      "ref": "reports/wc_paper_N08_balanced_full40_terminal_independent_acceptance_roundoff_r1_20261017.json",
+      "sha256": "2ba47b448b96183b05d1483ed421b2cdb17f3cd77b06bf3d279a56021c6b4c11"
+    },
+    "N08_capture": {
+      "ref": "reports/wc_paper_N08_balanced_full40_terminal_collection_user_status_20261017.json.gz",
+      "sha256": "d21cfc8d702dff744647a19958ca8b0ac9073b1b297563cfcbf5208bfde3eea9"
+    }
+  },
+  "selection_status": "N09_ORIGINAL_COMPLETE40_SELECTED_AFTER_N08_ACTUAL_PRODUCTION_CPU_AND_GPU_PENDING",
+  "selected_unix": 1792247046.2918642,
+  "cost_evidence": {
+    "ref": "reports/wc_paper_N09_runtime40_accepted_source_whole_cost_preview_R1_20261016.json",
+    "sha256": "205e832279d03d983f9452024c5a8293d2f475ca450e8132a80117014bcedc72",
+    "billed_headroom_above_forecast_GPUh": 0.7541666666666664,
+    "forecast_is_historical_planning_not_measured_components": true
+  },
+  "wait_for_original_N12_terminal_interpretation_before_GPU": true,
+  "halfway_technical_and_after_ETA_terminal_checks_required": true
+}

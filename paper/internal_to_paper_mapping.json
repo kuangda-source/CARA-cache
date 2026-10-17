@@ -1745,6 +1745,33 @@
         "score_videos": 12
       },
       "sha256": "8c2a0d512f8ccc4f8a7a57a237949fcee56f4cb8dde9bfd94cd032369669b4ba"
+    },
+    "N09_RUNTIME40_ACTUAL": {
+      "path": "configs/wc_paper_N09_runtime_profile40_production_r1_20261016.json",
+      "card": "WC-PAPER-N09-RUNTIME-PROFILE40-R1",
+      "run_id": "wc-paper-n09-runtime-profile40-r1",
+      "scope_counts": {
+        "requests": 2,
+        "methods": 5,
+        "formal_profile_control_paths": 30,
+        "full_warmup_paths": 10,
+        "total_paths": 40,
+        "ordinary_pairs": 1440,
+        "ordinary_CFG_calls": 2880,
+        "loads": 1,
+        "online_teacher_pairs": 0,
+        "profiled_paths": 20,
+        "original_full_audit_formal_paths": 10,
+        "profile_full_audit_formal_paths": 10,
+        "profile_lean_formal_paths": 10,
+        "all_guided_parity_pairs": 10,
+        "profile_audit_lean_endpoint_parity_pairs": 10,
+        "accepted_video_expected_frames": 93
+      },
+      "sha256": "34393ea9ed14826540307051739095274dc33241bb9f6941a494c508f3968ef2",
+      "server_production_CPU_accepted": false,
+      "GPU_dispatched": false,
+      "component_measurements": null
     }
   },
   "evidence_reports": {
@@ -1891,7 +1918,15 @@
     "accepted_N07_joint_table": "paper/results/accepted_n07_n08_20261017/N07_paired_results.md",
     "accepted_N08_repeated_table": "paper/results/accepted_n07_n08_20261017/N08_repeated_results.md",
     "accepted_N07_joint_svg": "paper/results/accepted_n07_n08_20261017/N07_common_cohort_quality_time.svg",
-    "accepted_N08_repeated_svg": "paper/results/accepted_n07_n08_20261017/N08_repeated_quality_time.svg"
+    "accepted_N08_repeated_svg": "paper/results/accepted_n07_n08_20261017/N08_repeated_quality_time.svg",
+    "N09_actual40_report_558": "research/558_WC_N09_ACTUAL40_PRIOR_ACCEPTANCE_BRIDGE_AND_LOCAL_CONFIGURATION_20261017.md",
+    "N09_actual40_selected_config": "configs/wc_paper_N09_runtime_profile40_production_r1_20261016.json",
+    "N09_actual40_prior_failure_retained": "reports/wc_paper_N09_actual_N08_roundoff_contract_failure_reproduction_20261017.json",
+    "N09_actual40_prior_CPU_accepted": "reports/wc_paper_N09_actual_N07_N08_bridge_local_CPU_acceptance_20261017.json",
+    "N09_runtime40_production_contract": "src/wcomr/runtime_profile40_production_r1.py",
+    "N09_runtime40_production_tests": "tests/test_runtime_profile40_production_r1.py",
+    "N09_registered_N08_bridge": "src/wcomr/balanced_repeat_roundoff_acceptance_r1.py",
+    "N09_actual40_194_source_dry_plan": "reports/wc_paper_N09_actual40_source_packet_dry_plan_20261017.json"
   },
   "evidence_batches": {
     "curve60": {
@@ -5162,8 +5197,8 @@
       "bytes": 11243
     },
     "src/wcomr/runtime_profile40_production_r1.py": {
-      "sha256": "9694de5029d3bbcff8a82a3e61e383c96d984ceb0c9ce315998ad151d81fabea",
-      "bytes": 9303
+      "sha256": "3d0cef2e801b0c586256960c7d281644033eaf97a8fc45fb619ccac851ba8c2c",
+      "bytes": 9762
     },
     "scripts/run_wc_paper_N09_runtime_profile40_r1.py": {
       "sha256": "2a4cf863834722768c0190ed76203c0c6467cf0b556a499d063e4c46f1bc8443",
@@ -5174,8 +5209,8 @@
       "bytes": 10444
     },
     "tests/test_runtime_profile40_production_r1.py": {
-      "sha256": "cb73a7ff5004e5eede77c0503682e146e8c138519204f71985e8464ee212d433",
-      "bytes": 11260
+      "sha256": "4a580e75d887b0bab2549b6aabf969e6d4d6b481a4da56aee0abb52572621be8",
+      "bytes": 13057
     },
     "reports/wc_paper_N09_runtime40_execution_CPU_R1_20261016.json": {
       "sha256": "b309220f90344c02fcd1e603b2bf257e520a1f7390ec3ba9ff94d2665c53311c",
@@ -5358,28 +5393,28 @@
       "bytes": 8960
     },
     "memory/handoffs/LATEST.md": {
-      "sha256": "25e2b539ed41ddc5908558936130140511b90e7894a1c8ac1a222fec8dbb47fe",
-      "bytes": 658240
+      "sha256": "9114064ab8edc1467b4f9fc4b8b6a65833dc8c58e4bfeb2c92c190458b982a8a",
+      "bytes": 658846
     },
     "src/wcomr/runtime_profile40_acceptance_r1.py": {
       "sha256": "9d5de68477518880b2087a557b699a93ca73e8ab06a058e2c54059997af45116",
       "bytes": 17772
     },
     "research/09_NEXT_ACTIONS.md": {
-      "sha256": "4d8e04174be715c26f9bd3f00fbc5bbc2d533547f57c5c077cf43951eb7674e8",
-      "bytes": 594427
+      "sha256": "8dbc447f4193b6d97a9655101e95c81e54f84b8331f30b25570ae6947252268f",
+      "bytes": 595018
     },
     "reports/wc_paper_N09_runtime40_collection_R1_fixture_failure_20261016.json": {
       "sha256": "1b03ddcd9982149e9fe2254c9770eb85b0f9b69e5f1f81958be66df55d1bb247",
       "bytes": 2169
     },
     "paper/EXPERIMENT_MASTER_TABLE.md": {
-      "sha256": "6e8f6a32a42fead055d744ee5f3b3c7d3ec6de998d71a4c97c131dd579aabed0",
-      "bytes": 65597
+      "sha256": "f3f0e371a26c4e784a45d48cedbe94a2a716e2d3e242b16bafbf9fc0dab143a6",
+      "bytes": 66239
     },
     "research/02_CURRENT_STATE.md": {
-      "sha256": "fb976a5b89639e926ddacb3ce8fe04d580472af4d9ba595c22a6d15c3e2d269d",
-      "bytes": 569462
+      "sha256": "977f08c6f2b52c818143682bd77fdf19290f1506e92c5a1a72e9c263c77bbfad",
+      "bytes": 570053
     },
     "tests/test_runtime_profile40_capture_r1.py": {
       "sha256": "40cba26bb42f450c8afdd075ef9e594ebd92639fd0424d61e5e8583ba1b17491",
@@ -5402,20 +5437,20 @@
       "bytes": 3368
     },
     "plans/WORLD_CACHE_MAINLINE_PRIORITY_QUEUE_20261016.md": {
-      "sha256": "18c5724e19b2bc9937b26053d1c612340f0cd0bc714130ff8445f7c25f717150",
-      "bytes": 54471
+      "sha256": "4e61ddefa481762d604b85e1a03906831938e385ca077cdf9168cb8075dc290e",
+      "bytes": 55074
     },
     "EXPERIMENT_REPORT.md": {
-      "sha256": "ef59b85743d6957c5ae62f733523da4a92ff39fab4df31b4af0c07a1f8a28627",
-      "bytes": 622678
+      "sha256": "76c14328c140bae5ed52cea188fc3b512fe8a7838c42337fbaff2717e8be5405",
+      "bytes": 623278
     },
     "paper/INTERNAL_TO_PAPER_MAPPING.md": {
-      "sha256": "99fc26b3f2c4be5ad3fee1859623a67ffe3893a302a6375bdda6b8f446328339",
-      "bytes": 73734
+      "sha256": "74861d5b8a6123a7eda27822e9b84260a08e12731b40c852838191bf81a6c9df",
+      "bytes": 74337
     },
     "AGENTS.md": {
-      "sha256": "04eaf1165f9f2038a47cbc1f93f665dd1f2c1ce8bcb5773dcc29fd81199fa9b2",
-      "bytes": 570560
+      "sha256": "6c1e7e0775065cf8b38976a35f268e8888d7a79a3b60aa8464e0d6b4a00a8a4d",
+      "bytes": 571160
     },
     "scripts/prepare_wc_paper_N09_action16_scope_r1.py": {
       "sha256": "29ebbd44644f2711c31027d69de4b4d2347e8514a808551665007ba89ac6a15e",
@@ -6492,6 +6527,26 @@
     "paper/results/accepted_n07_n08_20261017/N08_repeated_quality_time.png": {
       "sha256": "3775a0665e94f4ca3fa8550d0f76a0ff749faac22a65a49ccae3a85ef044bfad",
       "bytes": 99374
+    },
+    "research/558_WC_N09_ACTUAL40_PRIOR_ACCEPTANCE_BRIDGE_AND_LOCAL_CONFIGURATION_20261017.md": {
+      "sha256": "2ff5fed5196d8bf7f6a65de74a93fc62c8b59f6644a7a35269bb4d4b70a2e632",
+      "bytes": 4649
+    },
+    "configs/wc_paper_N09_runtime_profile40_production_r1_20261016.json": {
+      "sha256": "34393ea9ed14826540307051739095274dc33241bb9f6941a494c508f3968ef2",
+      "bytes": 4059
+    },
+    "reports/wc_paper_N09_actual_N08_roundoff_contract_failure_reproduction_20261017.json": {
+      "sha256": "27006ee3d81589d53de6b2999f0b48b88f90f2e2aa55482ada24a5ff257194b6",
+      "bytes": 1219
+    },
+    "reports/wc_paper_N09_actual_N07_N08_bridge_local_CPU_acceptance_20261017.json": {
+      "sha256": "8d7b3a7a1adb6bf71a4fd53f5ff6738d408333c0750064c118deef7a3b6e55d4",
+      "bytes": 11546
+    },
+    "reports/wc_paper_N09_actual40_source_packet_dry_plan_20261017.json": {
+      "sha256": "72f22b9a8b384fd300aedf9897a1e68ef1f56d285efa112a23054477cbc1b98c",
+      "bytes": 39897
     }
   },
   "math_notation": [
@@ -6863,7 +6918,8 @@
     "549": "research/549_WC_N08_FULL40_ACTUAL_PRODUCTION_CPU_RUNNING_AFTER_R2_COMPLETE_20261017.md",
     "550": "research/550_WC_N08_COMPLETE40_CPU_ACCEPTED_GPU_RUNNING_AND_1532_1732_COLLECTION_20261017.md",
     "551": "research/551_WC_ENDPOINT_BUDGET_SCHEDULE_REDESIGN_AND_MINIMUM_D_REPLACEMENT_20261017.md",
-    "552": "research/552_WC_N08_FULL40_ACCEPTED_REPEATED_TIMING_AND_PENDING_TASK_CLOSURE_20261017.md"
+    "552": "research/552_WC_N08_FULL40_ACCEPTED_REPEATED_TIMING_AND_PENDING_TASK_CLOSURE_20261017.md",
+    "558": "research/558_WC_N09_ACTUAL40_PRIOR_ACCEPTANCE_BRIDGE_AND_LOCAL_CONFIGURATION_20261017.md"
   },
   "experiment_inventory_ref": "paper/experiment_master_table.json",
   "experiment_inventory_table": "paper/EXPERIMENT_MASTER_TABLE.md",
