@@ -1,3 +1,9 @@
+## 2026-10-18 当前：五模型CPU半程已收，原任务终态两项错误；02:07完整验收
+
+[572半程技术状态](../research/572_WC_N10_CPU_MIDPOINT_TERMINAL_TWO_ERRORS_FINAL_PENDING_20261018.md)：原sourcecd88370／PID1679058五模型CPU于01:59:35一次核对，五角色均有记录、原进程已结束；3项记录exit0，ViCLIP／MUSIQ各ValueError。完整模型证明／traceback尚未查收，不据半程独立接受前三项。半程自动化已删除，worldcache-n10-cpu-2保留02:07收完整五原件及离线接受，随后定位修复，不缩成子集。当前0新质量分数／本项目GPU／CPU在途。
+
+原ViCLIP服务端1.71GB全SHA已接受；N09真实CPU已接受、两GPU仍被原其他账号任务满显存占用，0准入／0费用，不重放旧fence或干预他人。连续修正完整24／88执行链和12文件身份已准备，实际88／生产／报价／GPU仍待，待原N10终态完整查收且无N09实际GPU时接CPU。N12结果保持；cap226／实结110.869061155／预留0余115.130938845最近快照、origin及历史不变，strict<12及半程／预计结束各一次保持，F/B关闭。以下为历史。
+
 ## 2026-10-18 当前：原资源完整SHA接受；完整五模型CPU已单次运行
 
 [570资源收尾与CPU实际启动](../research/570_WC_N10_SERVER_RESOURCE_ACCEPTED_AND_FULL_FIVE_MODEL_CPU_RUNNING_20261018.md)：原SCP终态独立接受，服务器1,710,545,812字节／7a4d6ad6全SHA一致；原两个资源查收自动化已删除。完整DINO／AMT_S／RAFT_THINGS／ViCLIP／MUSIQ_SPAQ CPU现运行，sourcecd88370、PID1679058/start555441328、244payload，实际启动01:51:49.761960。已安排01:59:30技术半程、02:07完整独立接受，各一次；worldcache-n10-cpu／worldcache-n10-cpu-2。不提前查进度，不用合成CPU接口当正式质量，当前新质量分数0。
