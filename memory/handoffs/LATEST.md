@@ -14,6 +14,8 @@ E0剩余逐seed/布局/去step23 CPU及独立原件复算完成（553）；1674�
 
 **已有N08外围区间复算（560）：**30正式原件的核心/guarded、安装/清理/写盘及三个GC调用已逐项导出；Efficient相对Native/WC的guarded倍数1.7674/1.3478，核心倍数1.9097/1.4112保持。两旧CAL/三轮，未拼新端到端时间；原五次标量拟合证据沿用，最低教师采集费、N09动作价格与独立显存仍待。0新GPU/SSH/模型，N12 00:01不改。见[560](../../research/560_WC_ACCEPTED_N08_SEPARATE_REQUEST_INTERVALS_AND_N09_REMAINING_20261017.md)。
 
+**N10静态资源就绪（561）：**213个iCloud占位恢复后，12项目源码+216固定上游文件+BPE共229文件/2,940,075字节已按实际大小、SHA与Git身份核对；未执行上游代码或模型。服务器ViCLIP relay、DINO12源码fresh核对、完整五模型CPU及评分仍待，0新质量/SSH/GPU。N12原00:01验收不改。见[561](../../research/561_WC_N10_LOCAL_STATIC229_MATERIALIZED_AND_FIVE_MODEL_CPU_NEXT_20261017.md)。
+
 ## 2026-10-17 当前：E0剩余CPU完成，少一次D三臂已选定
 
 E0逐帧/动作/分组目标独立复算通过：6提示词双seed中固定前密A有3双正/2双负/1反转；RA/A_NO_P的14条完整轨迹有12条D位置不同。去step23后T1无主组增量，有相同负风险回退的T2保留局部线索，但不冒充终点收益。新完整卡S26-C/S25-C/S25-A只改实际更新21，四旧CAL/seed0、12正式+6完整warm/18路径，预计1.758860873GPUh、计费上限2.25；实际56数值CPU和生产入口CPU/GPU尚待。

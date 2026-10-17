@@ -1832,7 +1832,7 @@
     },
     {
       "id": "N10",
-      "state": "待补｜R2全160/960输入已接受，真实模型/评分待做",
+      "state": "待补｜R2全部160/960及229静态文件就绪，五模型CPU/评分待做",
       "paper_experiment_name": "Automatic Video Quality on Final Outputs",
       "internal_ids": [
         "PAPER_E5_AUTOMATIC_QUALITY"
@@ -1952,7 +1952,10 @@
         "N10_local_R4_materialization",
         "N10_original_relay_input_ready",
         "N10_actual_input_checker",
-        "N10_actual_input_controls"
+        "N10_actual_input_controls",
+        "N10_static229_report_561",
+        "N10_static229_materialization",
+        "N10_static229_checker"
       ],
       "method_mapping_ids": [],
       "depends_on": [
@@ -2072,7 +2075,11 @@
       "actual_model_CPU_accepted": false,
       "final_scorer_identity_production_eligible": false,
       "input_preparation_ref": "reports/wc_paper_N10_R2_accepted160_full960_input_preparation_20261017.json.gz",
-      "input_acceptance_ref": "reports/wc_paper_N10_R2_actual160_metadata_independent_acceptance_v2_20261017.json"
+      "input_acceptance_ref": "reports/wc_paper_N10_R2_actual160_metadata_independent_acceptance_v2_20261017.json",
+      "local_static_payload_materialized_files": 229,
+      "local_static_initially_placeholder_files": 213,
+      "local_static_materialization_ref": "reports/wc_N10_local_static_payload_materialization_20261017.json",
+      "local_static_materialization_is_model_CPU_acceptance": false
     },
     {
       "id": "N11",
@@ -2818,7 +2825,10 @@
     "N08_separate_interval_README": "paper/results/accepted_N08_separate_intervals_20261017/README.md",
     "N08_separate_interval_data": "paper/results/accepted_N08_separate_intervals_20261017/data.json",
     "N08_separate_interval_provenance": "paper/results/accepted_N08_separate_intervals_20261017/provenance.json",
-    "N08_separate_interval_independent": "reports/wc_N08_separate_intervals_independent_acceptance_20261017.json"
+    "N08_separate_interval_independent": "reports/wc_N08_separate_intervals_independent_acceptance_20261017.json",
+    "N10_static229_report_561": "research/561_WC_N10_LOCAL_STATIC229_MATERIALIZED_AND_FIVE_MODEL_CPU_NEXT_20261017.md",
+    "N10_static229_materialization": "reports/wc_N10_local_static_payload_materialization_20261017.json",
+    "N10_static229_checker": "scripts/check_wc_N10_local_static_payload_r1.py"
   },
   "source_bindings": {
     "11": {
@@ -2971,7 +2981,7 @@
     },
     "mainline_queue_20261016": {
       "path": "plans/WORLD_CACHE_MAINLINE_PRIORITY_QUEUE_20261016.md",
-      "sha256": "320a28e324a79596021ff9a797f055477da800cfd7e8930c6c030864bbae5175"
+      "sha256": "871e7b5039a7b359e66cc51cd71ab10795c062147bb17c0e5f7cb99a78a640fb"
     },
     "baseline_grid_prereg_20261016": {
       "path": "manifests/wc_paper_N05_bounded_baseline_grid_preregistration_draft_20261016.json",
@@ -5240,6 +5250,18 @@
     "N08_separate_interval_independent": {
       "path": "reports/wc_N08_separate_intervals_independent_acceptance_20261017.json",
       "sha256": "3c051b6f9151f624b474416ed62e0deff01c3427c4515178ec23a33318ed5f25"
+    },
+    "N10_static229_report_561": {
+      "path": "research/561_WC_N10_LOCAL_STATIC229_MATERIALIZED_AND_FIVE_MODEL_CPU_NEXT_20261017.md",
+      "sha256": "8ba41ab884b6c00fd1bb4e71bf0e9f230f12ae9950171780ff14534bee99c4ec"
+    },
+    "N10_static229_materialization": {
+      "path": "reports/wc_N10_local_static_payload_materialization_20261017.json",
+      "sha256": "bd4b1c15e3bc53d59af9f961baddce9c61eb463891ace224f26aa6ad306699f0"
+    },
+    "N10_static229_checker": {
+      "path": "scripts/check_wc_N10_local_static_payload_r1.py",
+      "sha256": "0db6f26ad7e3d8da128fbf19da5d40df0046de3f64e10918f3f17b173bd15d76"
     }
   },
   "operation_policy": {
@@ -5801,8 +5823,8 @@
     "N10_local_resource_materialized_and_hash_reaccepted": true,
     "N10_server_resource_relay_started": false,
     "N10_new_GPU_card_selected": false,
-    "last_goal_turn_classification": "PROGRESS_CATALOG_ALIGNMENT_AND_VERIFIED_ORIGINAL_ONCE_HALFWAY_WAIT",
-    "current_goal_turn_classification": "PROGRESS_ACCEPTED_N08_ALL30_SEPARATE_OPERATIONAL_INTERVALS",
+    "last_goal_turn_classification": "PROGRESS_ACCEPTED_N08_ALL30_SEPARATE_OPERATIONAL_INTERVALS",
+    "current_goal_turn_classification": "PROGRESS_N10_ACTUAL_229_STATIC_RESOURCE_MATERIALIZATION",
     "last_local_preparation_source_refs": [
       "N10_R2_actual_input_556",
       "N10_R2_all160_full960_inputs",
@@ -5842,7 +5864,9 @@
       "source_revision": "e76b4f8b934bb07bf045e6083f36eddb4711640d",
       "config_sha256": "8c2a0d512f8ccc4f8a7a57a237949fcee56f4cb8dde9bfd94cd032369669b4ba"
     },
-    "accepted_N08_separate_intervals_ref": "paper/results/accepted_N08_separate_intervals_20261017/data.json"
+    "accepted_N08_separate_intervals_ref": "paper/results/accepted_N08_separate_intervals_20261017/data.json",
+    "N10_local_static_229_accepted": true,
+    "N10_local_static_229_ref": "reports/wc_N10_local_static_payload_materialization_20261017.json"
   },
-  "mapping_sha256_at_inventory": "1311e2fad01e8abab52e3c619d9afa80b666167f3e5da97341d991ad5841f783"
+  "mapping_sha256_at_inventory": "cb1224df2efdcd5c69979ce1b9b697ca4b011d775c5fab5065dda51ceb78347f"
 }
