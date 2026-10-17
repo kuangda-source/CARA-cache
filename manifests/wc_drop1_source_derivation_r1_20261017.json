@@ -1,0 +1,147 @@
+{
+  "status": "SEPARATE_NEW_FILES_REUSE_ACCEPTED_NUMERICAL_SOURCE",
+  "base_source_revision": "0795a008bc94401bcc30a5fb456a2620aae0f2ea",
+  "derivations": [
+    {
+      "base": "scripts/run_wc_simple26d_memory_full36_r2.py",
+      "base_sha256": "79e3017d706799407bc6c7bca5818486da6805f61d4d50b429ab38a097104c4b",
+      "derived": "scripts/run_wc_drop1_full18_r1.py",
+      "derived_sha256": "3a4aa59bc8559a82e43717bc7d04592a8a346e2812f209bd8f98243045a63b4c",
+      "exact_replacements": [
+        {
+          "old": "wcomr.simple26d_memory_r2",
+          "new": "wcomr.drop1_full18_r1"
+        },
+        {
+          "old": "SIMPLE26D",
+          "new": "DROP1"
+        },
+        {
+          "old": "One resident model; all twenty warmups and full40 science paths.",
+          "new": "One resident model; six complete warmups and twelve science paths."
+        },
+        {
+          "old": "'FIXED_A'",
+          "new": "'S26-C'"
+        },
+        {
+          "old": "'scientific_paths':23",
+          "new": "'scientific_paths':11"
+        },
+        {
+          "old": "'UNIFORM_A':['D']*36",
+          "new": "'S26-C':['D']*36"
+        },
+        {
+          "old": "simple26d-memory-sampling-CPU-result.json",
+          "new": "drop1-sampling-CPU-result.json"
+        },
+        {
+          "old": "len(state['runs'])==36",
+          "new": "len(state['runs'])==18"
+        },
+        {
+          "old": "ALL36",
+          "new": "ALL18"
+        },
+        {
+          "old": "FULL24",
+          "new": "FULL12"
+        }
+      ],
+      "original_numerical_source_changed": false
+    },
+    {
+      "base": "scripts/supervise_wc_simple26d_memory_full36_r2.py",
+      "base_sha256": "55ff137a880d0532e7b49f198549fb76cfdcfc190734d0d3938c67db21e09002",
+      "derived": "scripts/supervise_wc_drop1_full18_r1.py",
+      "derived_sha256": "77afa350cf88e276d20acb577cae75cda5bf73010c4678277007ff4bd1f2cd2f",
+      "exact_replacements": [
+        {
+          "old": "wcomr.simple26d_memory_r2",
+          "new": "wcomr.drop1_full18_r1"
+        },
+        {
+          "old": "SIMPLE26D",
+          "new": "DROP1"
+        },
+        {
+          "old": "run_wc_simple26d_memory_full36_r2.py",
+          "new": "run_wc_drop1_full18_r1.py"
+        }
+      ],
+      "original_numerical_source_changed": false
+    },
+    {
+      "base": "scripts/watch_wc_simple26d_memory_post_cpu_r2.py",
+      "base_sha256": "531d42893cf4f263c7caacd111e159d30286347c3d6924d227b4562cce00a84f",
+      "derived": "scripts/watch_wc_drop1_post_cpu_r1.py",
+      "derived_sha256": "796e75a8f32424c8a469b7e7766368a51246ecceeab518c534b9bf05249c62a3",
+      "exact_replacements": [
+        {
+          "old": "wcomr.simple26d_memory_r2",
+          "new": "wcomr.drop1_full18_r1"
+        },
+        {
+          "old": "SIMPLE26D",
+          "new": "DROP1"
+        },
+        {
+          "old": "postprocess_wc_simple26d_memory_full36_r2.py",
+          "new": "postprocess_wc_drop1_full18_r1.py"
+        }
+      ],
+      "original_numerical_source_changed": false
+    },
+    {
+      "base": "scripts/postprocess_wc_simple26d_memory_full36_r2.py",
+      "base_sha256": "f3f2dc895262c62b065ff23468751923df7db1480b25c7b47fdddd88c3ed52e2",
+      "derived": "scripts/postprocess_wc_drop1_full18_r1.py",
+      "derived_sha256": "c2b9feb6efd2a37584665488a70a8942f3bb0c99400febbf1a9c4fca9b727936",
+      "changes": [
+        "Import current18 module",
+        "Four original front26 controls replace old eight fixed endpoints and old28 controls",
+        "Complete18/12/6 scope",
+        "Numerical sampling, LPIPS, decode and artifact identity functions unchanged",
+        "Preserve ALL36 guided count label, distinct from18 paths"
+      ]
+    },
+    {
+      "base": "scripts/check_wc_simple26d_memory_cpu_r2.py",
+      "base_sha256": "9ada248a21fbff0f1b394cfce4a451ffa93e26ff6e3708de5289326fa028d350",
+      "derived": "scripts/check_wc_drop1_full18_cpu_r1.py",
+      "derived_sha256": "cdd6c1099227a195070f533136deab568b45b5097c3e5c17ef1368b99c70ec39",
+      "exact_replacements": [
+        {
+          "old": "wcomr.simple26d_memory_r2",
+          "new": "wcomr.drop1_full18_r1"
+        },
+        {
+          "old": "complete six-method math candidate",
+          "new": "complete three-arm one-D-replacement candidate"
+        },
+        {
+          "old": "==36\n    spec=",
+          "new": "==18\n    spec="
+        },
+        {
+          "old": "check_simple26d_memory_sampling_cpu_r2.py",
+          "new": "check_drop1_full18_sampling_cpu_r1.py"
+        },
+        {
+          "old": "CPU-memory-artifacts",
+          "new": "CPU-drop1-artifacts"
+        },
+        {
+          "old": "value['actual_CPU_paths']==144",
+          "new": "value['actual_CPU_paths']==56"
+        },
+        {
+          "old": "c['complete_CPU_paths']==72",
+          "new": "c['complete_CPU_paths']==28"
+        }
+      ],
+      "original_numerical_source_changed": false
+    }
+  ]
+}
