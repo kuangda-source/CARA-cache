@@ -11,6 +11,8 @@
 - [一次查收和离线验收器](../scripts/capture_wc_drop1_window88_cpu_r1.py)绑定原PID/start、source／注册／全部payload／运行时；完整88、两flow各44、四输入四方法、真实配额及原36guided等价缺一不可。全部三命令通过才接受数值CPU。失败和原日志保存，不自动重派。
 - [本地源与时间门槛](../reports/wc_drop1_window88_source_and_collection_gates_local_20261018.json)检查远程脚本AST、两个边界及五种不合规输入；无SSH、模型、数值88或GPU执行。它补充原[12项适配器控制](../reports/wc_drop1_correction_window24_adapter_full88_entry_local_CPU_r2_20261018.json)，不替代真实数值检查。
 
+提交后[完整12文件身份干跑](../reports/wc_drop1_window88_actual_CPU_payload_dry_identity_20261018.json)确认拟派发overlay全部与 `4f7f22e` Git源码和大小／SHA一致，包含两入口、适配器、完整夹具、静态计划和旧原件证据；无SSH或实际派发。
+
 ## 顺序与剩余
 
 [执行顺序补充](../plans/WC_DROP1_WINDOW88_CPU_RESOURCE_WAIT_ORDER_20261018.md)已在实际运行前登记：原N09未准入、0GPU在途时，N10原完整CPU终态查收后可以先执行完整88数值CPU。原完整40的实际GPU测量仍优先于新的24卡，不并发重CPU影响测量。
