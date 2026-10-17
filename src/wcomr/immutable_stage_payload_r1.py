@@ -171,7 +171,8 @@ def install(base, stage, archive_raw, value, *, source_revision,
     stage = original_stage.resolve()
     if cpu_scope not in ('FROZEN_N07_PRODUCTION_CPU_PREPARATION_NO_GPU',
                          'FROZEN_N08_PRODUCTION_CPU_PREPARATION_NO_GPU',
-                         'FROZEN_N09_PRODUCTION_CPU_PREPARATION_NO_GPU'):
+                         'FROZEN_N09_PRODUCTION_CPU_PREPARATION_NO_GPU',
+                         'FULL24_REAL_PRODUCTION_WITH_UNCHANGED_COMPLETE88'):
         raise ValueError('Explicit supported no-GPU CPU stage scope required')
     if (original_stage.is_symlink() or stage.exists() or stage.parent != base.parent
             or stage.is_relative_to(base) or base.is_relative_to(stage)):

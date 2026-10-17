@@ -35,6 +35,8 @@ def price_fixture():
     for planned in scope['complete_matrix']:
         row = copy.deepcopy(planned)
         row['component_profile_audit'] = 'PASS'
+        row['raw_model_audit'] = 'PASS'
+        row['status'] = 'COMPLETE'
         if row['method'] == 'A_NO_P' and row['component_profile']:
             path = '/SYNTHETIC_UNIT_ONLY/' + row['id']
             row['component_profile_artifact'] = dict(path=path, sha256='c'*64)
@@ -43,7 +45,12 @@ def price_fixture():
             scalars[path] = dict(sha256='c'*64, matches_original_row_identity=True,
                                  data=dict(intervals=spans))
         rows.append(row)
-    return old, dict(final=dict(rows=rows), profile_scalar_originals=scalars), dict(
+    return old, dict(final=dict(rows=rows), profile_scalar_originals=scalars,
+        runner=dict(runs=copy.deepcopy(rows)), supervisor=dict(child_exit_code=0)), dict(
+        terminal_receipt_audit_accepted=True,
+        original_finance_status='ORIGINAL_ACTUAL_BILL_AND_ADDITIVE_SETTLEMENT_MATCH',
+        own_GPU_finance_released=True, original_CPU_post_exit_code=0,
+        original_runner_paths=40, registered_total_paths=40,
         full_runtime_profile_scope_accepted=True, action_unit_prices_measured=False)
 
 
@@ -78,7 +85,7 @@ class Whole24ProductionPreparation(unittest.TestCase):
     def test_unknown_or_nonfinite_readout_price_is_not_zero(self):
         for case in ('no_N09', 'missing_component', 'missing_mode', 'nonfinite', 'rejection_source'):
             old, n09, accepted = price_fixture()
-            if case == 'no_N09': accepted['full_runtime_profile_scope_accepted'] = False
+            if case == 'no_N09': accepted['terminal_receipt_audit_accepted'] = False
             elif case == 'missing_component':
                 for value in n09['profile_scalar_originals'].values(): value['data']['intervals'].pop()
             elif case == 'missing_mode':
@@ -87,6 +94,28 @@ class Whole24ProductionPreparation(unittest.TestCase):
             else: old['runner']['runs'][0]['status'] = 'TEXT_REJECTED'
             with self.subTest(case=case), self.assertRaises(ValueError):
                 production.estimate_whole24(old, n09, accepted, [r['name'] for r in contract()['requests']])
+
+    def test_unrelated_legitimate_refusal_preserves_valid_four_price_sources(self):
+        old, n09, accepted = price_fixture()
+        accepted['full_runtime_profile_scope_accepted'] = False
+        native = next(r for r in n09['runner']['runs'] if r['method'] == 'NATIVE35')
+        native['status'] = 'VIDEO_REJECTED'
+        quote = production.estimate_whole24(old, n09, accepted, [r['name'] for r in contract()['requests']])
+        self.assertEqual(len(quote['positions']), 24)
+        self.assertEqual(len(quote['N09_source_rows']), 4)
+        self.assertFalse(quote['N09_original_full_runtime_scope_accepted'])
+        self.assertEqual(quote['N09_whole40_terminal_outcomes']['VIDEO_REJECTED'], 1)
+
+    def test_partial_N09_technical_failure_or_missing_source_component_cannot_price(self):
+        for mode in ('prefix', 'technical', 'finance', 'source_component'):
+            with self.subTest(mode=mode):
+                old, n09, accepted = price_fixture()
+                if mode == 'prefix': n09['runner']['runs'].pop()
+                elif mode == 'technical': n09['runner']['runs'][0]['status'] = 'CUDA_OOM'
+                elif mode == 'finance': accepted['own_GPU_finance_released'] = False
+                else: next(iter(n09['profile_scalar_originals'].values()))['data']['intervals'].pop()
+                with self.assertRaises(ValueError):
+                    production.estimate_whole24(old, n09, accepted, [r['name'] for r in contract()['requests']])
 
     def test_full_quote_crossing12_retains_full_card(self):
         old, n09, accepted = price_fixture(); old['runner']['load_seconds'] += 12*3600

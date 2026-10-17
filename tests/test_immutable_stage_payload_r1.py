@@ -133,11 +133,15 @@ class ImmutablePayloadControls(unittest.TestCase):
                 cpu_scope='FROZEN_N08_PRODUCTION_CPU_PREPARATION_NO_GPU')
             third = install(base, base.parent / 'explicit-n09', raw, value, source_revision=revision,
                 cpu_scope='FROZEN_N09_PRODUCTION_CPU_PREPARATION_NO_GPU')
+            fourth = install(base, base.parent / 'explicit-window24', raw, value, source_revision=revision,
+                cpu_scope='FULL24_REAL_PRODUCTION_WITH_UNCHANGED_COMPLETE88')
             self.assertEqual(first['CPU_scope'], 'FROZEN_N07_PRODUCTION_CPU_PREPARATION_NO_GPU')
             self.assertEqual(second['CPU_scope'], 'FROZEN_N08_PRODUCTION_CPU_PREPARATION_NO_GPU')
             self.assertEqual(third['CPU_scope'], 'FROZEN_N09_PRODUCTION_CPU_PREPARATION_NO_GPU')
+            self.assertEqual(fourth['CPU_scope'], 'FULL24_REAL_PRODUCTION_WITH_UNCHANGED_COMPLETE88')
             self.assertEqual(first['payload_sha256'], second['payload_sha256'])
             self.assertEqual(first['payload_sha256'], third['payload_sha256'])
+            self.assertEqual(first['payload_sha256'], fourth['payload_sha256'])
             with self.assertRaises(ValueError): install(base, base.parent / 'bad-scope', raw, value,
                 source_revision=revision, cpu_scope='SYNTHETIC_GPU_OR_UNBOUND')
             self.assertFalse((base.parent / 'bad-scope').exists())

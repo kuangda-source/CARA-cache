@@ -31,7 +31,7 @@ FIXED_REFERENCES = dict(
     old_controls='manifests/wc_drop1_window24_all12_original_controls_20261018.json',
     baseline='manifests/wc_simple26d_prior420_bindings_r1_20261015.json',
 )
-PRICE_VERSION = 'N09_INCLUSIVE_READOUT_INTERVAL_PLANNING_R1_NOT_ACTION_UNIT_PRICE'
+PRICE_VERSION = 'N09_FULL40_RECEIPT_VALID_READOUT_SCOPE_PLANNING_R2_NOT_ACTION_UNIT_PRICE'
 
 
 def _positive(x):
@@ -96,9 +96,18 @@ def accept_numerical_reuse(stage, registration, capture, saved_acceptance):
 def estimate_whole24(old_capture, N09_capture, N09_accepted, scenes):
     """Full-scope planning; no synthetic price or zero when N09 is unavailable."""
     plan = matrix(scenes)
-    if (not N09_accepted.get('full_runtime_profile_scope_accepted')
+    whole_rows = N09_capture.get('runner', {}).get('runs', [])
+    if (N09_accepted.get('terminal_receipt_audit_accepted') is not True
+            or N09_accepted.get('original_finance_status') != 'ORIGINAL_ACTUAL_BILL_AND_ADDITIVE_SETTLEMENT_MATCH'
+            or N09_accepted.get('own_GPU_finance_released') is not True
+            or N09_accepted.get('original_CPU_post_exit_code') != 0
+            or N09_accepted.get('original_runner_paths') != 40
+            or N09_accepted.get('registered_total_paths') != 40
+            or N09_capture.get('supervisor', {}).get('child_exit_code') != 0
+            or len(whole_rows) != 40
+            or any(r.get('status') not in ('COMPLETE', 'VIDEO_REJECTED', 'TEXT_REJECTED') for r in whole_rows)
             or N09_accepted.get('action_unit_prices_measured') is not False):
-        raise ValueError('Accepted complete N09 real intervals required; no action-unit-price relabelling')
+        raise ValueError('Audited whole40 N09 with actual settlement required; no technical prefix or action-unit-price relabelling')
     old_rows = old_capture['runner']['runs']; bill = old_capture['billing']
     load = old_capture['runner']['load_seconds']
     if (len(old_rows) != 18 or any(r['status'] != 'COMPLETE' for r in old_rows)
@@ -116,7 +125,9 @@ def estimate_whole24(old_capture, N09_capture, N09_accepted, scenes):
     source_rows = []
     for row in N09_capture['final']['rows']:
         if (row['method'] != 'A_NO_P' or row.get('mode') not in ('PROFILE_AUDIT', 'PROFILE_LEAN')
-                or row.get('component_profile_audit') != 'PASS'):
+                or row.get('component_profile_audit') != 'PASS'
+                or row.get('raw_model_audit') != 'PASS'
+                or row.get('status') not in ('COMPLETE', 'VIDEO_REJECTED')):
             continue
         asset = row['component_profile_artifact']
         original = N09_capture['profile_scalar_originals'][asset['path']]
@@ -130,8 +141,16 @@ def estimate_whole24(old_capture, N09_capture, N09_accepted, scenes):
                     raise ValueError('Finite original CPU/current-stream CUDA intervals required')
                 value = max(cpu, gpu); maxima[span['component']].append(value)
                 selected.append(dict(interval_id=span['id'], component=span['component'], seconds=value))
-        source_rows.append(dict(row_id=row['id'], artifact_sha256=asset['sha256'], intervals=selected))
-    if len(source_rows) != 4 or any(not maxima[k] for k in components):
+        if {s['component'] for s in selected} != set(components):
+            raise ValueError('Every valid A_NO_P source needs all three original readout components')
+        source_rows.append(dict(row_id=row['id'], scene=row['scene'], mode=row['mode'],
+                                artifact_sha256=asset['sha256'], intervals=selected))
+    source_scenes = {r['scene'] for r in source_rows}
+    if (len(source_rows) != 4 or len({r['row_id'] for r in source_rows}) != 4
+            or len(source_scenes) != 2
+            or {(r['scene'], r['mode']) for r in source_rows} !=
+                {(s, m) for s in source_scenes for m in ('PROFILE_AUDIT', 'PROFILE_LEAN')}
+            or any(not maxima[k] for k in components)):
         raise ValueError('Both original scenes/modes and all three readout components required; unknown is not zero')
     maxima = {k: max(v) for k, v in maxima.items()}
     # Two CFG branches; nested spans may overlap. The sum is deliberately an
@@ -153,6 +172,9 @@ def estimate_whole24(old_capture, N09_capture, N09_accepted, scenes):
         original_load_seconds=load, original_whole_request_max_seconds=max(durations),
         original_unattributed_seconds=residual, projected_unattributed_seconds=max(0., residual)/18*24,
         original_N09_readout_component_max_seconds=maxima, N09_source_rows=source_rows,
+        N09_original_full_runtime_scope_accepted=N09_accepted.get('full_runtime_profile_scope_accepted') is True,
+        N09_whole40_terminal_outcomes={s: sum(r['status'] == s for r in whole_rows)
+            for s in ('COMPLETE', 'VIDEO_REJECTED', 'TEXT_REJECTED')},
         extra_A_readouts=12, per_extra_A_planning_proxy_seconds=per_extra_A,
         additional_setup_allowance_seconds=300., margin=1.2,
         forecast_complete_GPUh=forecast, billed_limit_GPUh=math.ceil(forecast*1.25*4)/4,

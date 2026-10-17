@@ -17,12 +17,15 @@ ENTRYPOINTS = (
     'scripts/run_wc_drop1_window24_r1.py', 'scripts/postprocess_wc_drop1_window24_r1.py',
     'scripts/supervise_wc_drop1_window24_r1.py', 'scripts/watch_wc_drop1_window24_post_cpu_r1.py',
     'scripts/capture_wc_drop1_window24_cpu_r1.py', 'src/wcomr/drop1_window24_production_r1.py',
+    'scripts/launch_wc_drop1_window24_r1.py', 'scripts/capture_wc_drop1_window24_r1.py',
+    'scripts/analyze_wc_drop1_window24_r1.py',
 )
 EXTRA = (
     'scripts/run_wc_drop1_full18_r1.py', 'scripts/postprocess_wc_drop1_full18_r1.py',
     'scripts/capture_wc_drop1_window88_cpu_r1.py',
     'manifests/wc_paper_N09_runtime_profile40_scope_r1_20261016.json',
     'plans/WC_DROP1_WINDOW24_PRODUCTION_PRICING_AND_ACCEPTANCE_20261018.md',
+    'plans/WC_DROP1_WINDOW24_PRICING_SCOPE_AMENDMENT_R2_20261018.md',
 )
 
 

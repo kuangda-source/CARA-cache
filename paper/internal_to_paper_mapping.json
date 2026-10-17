@@ -2077,7 +2077,18 @@
     "window24_original_supervisor_CPU_post": "scripts/watch_wc_drop1_window24_post_cpu_r1.py",
     "window24_lifecycle_control_tests": "tests/test_drop1_window24_execution_envelope_r1.py",
     "window24_lifecycle_local_preparation": "reports/wc_drop1_window24_lifecycle_source_local_preparation_20261018.json",
-    "window24_initial_local_output_parent_failure": "reports/wc_drop1_window24_envelope_local_R1_output_parent_failure_20261018.json"
+    "window24_initial_local_output_parent_failure": "reports/wc_drop1_window24_envelope_local_R1_output_parent_failure_20261018.json",
+    "window24_GPU_client_final_source_report_583": "research/583_WC_WINDOW24_GPU_CLIENT_FINAL_ACCEPTANCE_AND_PRICING_SCOPE_R2_20261018.md",
+    "window24_GPU_client_final_source_preparation": "reports/wc_drop1_window24_client_and_final_source_local_preparation_20261018.json",
+    "window24_GPU_client_launcher": "scripts/launch_wc_drop1_window24_r1.py",
+    "window24_GPU_once_collector": "scripts/capture_wc_drop1_window24_r1.py",
+    "window24_GPU_offline_analyzer": "scripts/analyze_wc_drop1_window24_r1.py",
+    "window24_GPU_independent_acceptance": "src/wcomr/drop1_window24_acceptance_r1.py",
+    "window24_GPU_final_control_tests": "tests/test_drop1_window24_final_acceptance_r1.py",
+    "window24_pricing_scope_amendment_R2": "plans/WC_DROP1_WINDOW24_PRICING_SCOPE_AMENDMENT_R2_20261018.md",
+    "window24_local_installer_scope_failure": "reports/wc_drop1_window24_installer_scope_local_R1_failure_20261018.json",
+    "immutable_stage_installer_full24_scope": "src/wcomr/immutable_stage_payload_r1.py",
+    "immutable_stage_full24_scope_tests": "tests/test_immutable_stage_payload_r1.py"
   },
   "evidence_batches": {
     "curve60": {
@@ -3696,7 +3707,7 @@
     },
     "drop1_window24_preparation": {
       "namespace": "DROP1_WINDOW24",
-      "status": "complete88_numerical_CPU_accepted_real_production_pending",
+      "status": "COMPLETE88_OLD12_ACCEPTED_FULL24_EXECUTION_SOURCE_PREPARED_REAL_QUOTE_PRODUCTION_PENDING",
       "formal_paths": 16,
       "warmup_paths": 8,
       "CPU_numerical_paths": 88,
@@ -3727,7 +3738,7 @@
       "production_runner_and_full16_post_source_prepared": true,
       "pricing_config_builder_prepared": true,
       "pricing_prereg_ref": "plans/WC_DROP1_WINDOW24_PRODUCTION_PRICING_AND_ACCEPTANCE_20261018.md",
-      "production_entry_local_controls_passed": 8,
+      "production_entry_local_controls_passed": 10,
       "production_entry_local_preparation_ref": "reports/wc_drop1_window24_production_entry_local_preparation_20261018.json",
       "real_N09_prices_available": false,
       "actual_production_config_generated": false,
@@ -3737,9 +3748,17 @@
       "GPU_supervisor_and_postwatcher_source_prepared": true,
       "lifecycle_local_controls_passed": 9,
       "lifecycle_local_preparation_ref": "reports/wc_drop1_window24_lifecycle_source_local_preparation_20261018.json",
-      "source_closure_files": 152,
+      "source_closure_files": 156,
       "original88_payload_overwrites": 0,
-      "actual_new_CPU_stage_dispatched": false
+      "actual_new_CPU_stage_dispatched": false,
+      "complete_GPU_client_and_final_acceptor_source_prepared": true,
+      "client_GPU_launcher_and_final_acceptor_complete": true,
+      "final_acceptance_local_controls_passed": 9,
+      "installer_local_controls_passed": 9,
+      "combined_current_local_controls_passed": 37,
+      "current_source_preparation_ref": "reports/wc_drop1_window24_client_and_final_source_local_preparation_20261018.json",
+      "pricing_scope_amendment_ref": "plans/WC_DROP1_WINDOW24_PRICING_SCOPE_AMENDMENT_R2_20261018.md",
+      "pricing_amendment_before_N09_GPU_observation": true
     },
     "N10_server_original_SCP_R1": {
       "status": "all_bytes_server_and_local_independent_SHA_accepted_not_models_or_quality",
@@ -4451,8 +4470,8 @@
       "sha256": "84fcf9c514514dc975283fca330f59aa369b7a1b97f43c65b8c5ef8fc9d3d992"
     },
     "src/wcomr/immutable_stage_payload_r1.py": {
-      "sha256": "a2d4abc68ab6c56921e708e3dc688c0af4f173abdad938cdce4fb1a3c1eb59cf",
-      "bytes": 11438
+      "sha256": "897c9ccc3419db2cae5fc7ea029b7e4ba45319ff419eee6a7f6bbaa51b1023fa",
+      "bytes": 11515
     },
     "src/wcomr/frozen_shared_cpu_acceptance_r1.py": {
       "exists": true,
@@ -4480,8 +4499,8 @@
       "sha256": "f68a241e3111daad62600ad5f93ce2bae2571221c966a574c286f8648fb1bd7f"
     },
     "tests/test_immutable_stage_payload_r1.py": {
-      "sha256": "813620c94df7f3be5e8bb7967dc362cb568a9aa310fb7d7c371c667a3d564828",
-      "bytes": 12732
+      "sha256": "2c5827721e8affe55c858290efcaa909f140e431ef88742cb301d85928038aa4",
+      "bytes": 13100
     },
     "tests/test_frozen_shared_cpu_acceptance_r1.py": {
       "exists": true,
@@ -7394,8 +7413,8 @@
       "bytes": 4224
     },
     "src/wcomr/drop1_window24_production_r1.py": {
-      "sha256": "8cea09e5d0b0e4b84f2f04fa62d58c972fcc5dbdb5e7e1d80afe1ae2698886f8",
-      "bytes": 14596
+      "sha256": "9ae531f6e08df760511140b854957c660df06a6f63fe05cad1551db7d8460d28",
+      "bytes": 16253
     },
     "src/wcomr/drop1_window24_entry_adapter_r1.py": {
       "sha256": "d476dbbeb711cd042c17e0cc264d176064169aa6375a82bd010fcace6ae18291",
@@ -7410,12 +7429,12 @@
       "bytes": 629
     },
     "scripts/prepare_wc_drop1_window24_production_config_r1.py": {
-      "sha256": "67d318368ebbbf050bd6308d55d5254905c5290391b7bce3c8915c45753602d9",
-      "bytes": 5169
+      "sha256": "a6b1def2bdee31bc8461ee8e02d5d67ec02801a1e81bb929ee486d35ae6ec926",
+      "bytes": 5160
     },
     "tests/test_drop1_window24_production_r1.py": {
-      "sha256": "8a7cdc4434347ad3f747f42e7b2516dbe67b37180e6c2aaa8b584bb0278cc2af",
-      "bytes": 8762
+      "sha256": "77838b2b453339cbc7b70272de35f1e47f01da2fa2dbd5d091f89f6149a3bda3",
+      "bytes": 10656
     },
     "reports/wc_drop1_window24_production_entry_local_preparation_20261018.json": {
       "sha256": "2623a3f705cb7ec5cab04fc71920bcf7946566b5ce7fa9fee5fa3e1cc1f0fc3b",
@@ -7426,8 +7445,8 @@
       "bytes": 4444
     },
     "scripts/deploy_wc_drop1_window24_cpu_r1.py": {
-      "sha256": "55e98c69cd850e69f00cd8f385cb1f8580065e67011524dac1e750e9d53967a8",
-      "bytes": 7839
+      "sha256": "1b5940dfd1cffff347b19b12f6994ad3a461ad1b45375f55543a15b22a13f3e1",
+      "bytes": 8045
     },
     "scripts/run_wc_drop1_window24_cpu_bundle_r1.py": {
       "sha256": "ded8ab1dfa54b1d205f54161426e3e9e6241715ae86028dca53ddc638046e741",
@@ -7464,6 +7483,42 @@
     "reports/wc_drop1_window24_envelope_local_R1_output_parent_failure_20261018.json": {
       "sha256": "5e2a936bbe9a5b8f9af1b5eaaefa79964c922323e748bdc5d46c4b4399244f1b",
       "bytes": 620
+    },
+    "research/583_WC_WINDOW24_GPU_CLIENT_FINAL_ACCEPTANCE_AND_PRICING_SCOPE_R2_20261018.md": {
+      "sha256": "08fd143e2ab6377caa907328fb7689a3c01a20894bdf132c98bcf8266087f2c6",
+      "bytes": 5132
+    },
+    "plans/WC_DROP1_WINDOW24_PRICING_SCOPE_AMENDMENT_R2_20261018.md": {
+      "sha256": "74363c103ca9abdb5107d63867cd24ca9e9e961cb1ec087f5f9db86f631e15f2",
+      "bytes": 3220
+    },
+    "reports/wc_drop1_window24_client_and_final_source_local_preparation_20261018.json": {
+      "sha256": "30f7c145292467c76653d3daeaeff0594500bedc1f29b153fa02761c2b37ebfb",
+      "bytes": 20842
+    },
+    "src/wcomr/drop1_window24_acceptance_r1.py": {
+      "sha256": "b5555f76e6ded837c87974fd97804900c87713249bf15b50a9b91dd115dc07c4",
+      "bytes": 18817
+    },
+    "tests/test_drop1_window24_final_acceptance_r1.py": {
+      "sha256": "afdbd1c4ba8253d1bfddaafdd38ee156c6583433028267d31a1b7387fb1a9d42",
+      "bytes": 12928
+    },
+    "reports/wc_drop1_window24_installer_scope_local_R1_failure_20261018.json": {
+      "sha256": "0022af93adf8cc2a987bab0211f28de6df92c3cc91fb6e6890fab02245d78511",
+      "bytes": 465
+    },
+    "scripts/launch_wc_drop1_window24_r1.py": {
+      "sha256": "25b6f184b3c9d42e00f8ef24e61c54ebb451524e5fc0388f3ea5d6b57502fe70",
+      "bytes": 10360
+    },
+    "scripts/capture_wc_drop1_window24_r1.py": {
+      "sha256": "2232ae53a71a6f5717aff2aa01a7ed8451c93593858da9620f5fa575b81fb0f9",
+      "bytes": 7093
+    },
+    "scripts/analyze_wc_drop1_window24_r1.py": {
+      "sha256": "cd01cd1c1289dd0a338752fd24752d5f8897f0d8fb8b52f1ffab23a3cbec5b35",
+      "bytes": 1191
     }
   },
   "math_notation": [

@@ -36,10 +36,10 @@ def main():
 
     N09 = read(a.N09_capture); accepted = accept(N09, N09['launch'])
     saved = read(a.N09_acceptance)
-    if (not accepted['full_runtime_profile_scope_accepted']
+    if (not accepted['terminal_receipt_audit_accepted']
             or any(saved.get(k) != v for k, v in accepted.items())
             or saved.get('capture_sha256') != binding(a.N09_capture)['sha256']):
-        raise ValueError('Complete original N09 GPU/post/scalar/financial independent acceptance required')
+        raise ValueError('Complete original N09 terminal receipt and independent acceptance required')
     files = {k: ROOT / v for k, v in production.FIXED_REFERENCES.items()}
     values = {k: read(v) for k, v in files.items()}
     spec = importlib.util.spec_from_file_location('original18_source_acceptor', ROOT / 'scripts/analyze_wc_drop1_full18_r1.py')
