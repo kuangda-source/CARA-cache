@@ -1,3 +1,9 @@
+## 2026-10-18 当前：E0与少一次D完整三臂已接受
+
+[563完整结果](../research/563_WC_DROP1_FULL18_RESULTS_FIXED25D_CORRECTION_VALUE_AND_REMAINING_20261018.md)：18/18完成，12正式视频全部93帧/1116帧接受，三方法完整36guided重复和四旧前密终态/actions/A历史/93RGB通过，零拒绝/失败/缺失。固定25D时A相对C平均LPIPS低8.5560%，四场景均93/93帧改善；相对26D仍高31.7739%，仅恢复删D新增失真的27.9558%。核心均时221.060/215.939/215.895秒（26C/25C/25A），每格一次开发计时，不当稳定净加速或未见泛化。
+
+原N12 GPU/post已结束、自身锁释放；半程和终态各查收一次，两个一次性自动化完成后删除，没有在途GPU卡。实费1.474263031，累计110.869061155/cap226，预留0余115.130938845GPUh；origin及历史账保持，严格<12规则不变。当前先做已登记6条预热/一个AV28输入的第21步零GPU解释性CPU；数学核5项通过，真实张量结果仍空。本轮不自动新GPU；N09实际服务器CPU/完整40及N10服务器资源/五模型CPU/评分待补，F/B关闭。以下为历史。
+
 ## 2026-10-17 当前：E0完成，少一次D完整18卡已在GPU0准入
 
 **22:46半程已查收（559）：**原18总路径14完成/1执行/3未到达，三个原句柄及source/config/registration匹配，登记错误为空，GPU0原runner和UUID锁仍持有。仅技术快照，无科学partial或新质量/速度结果；完整验收仍10月18日00:01。快照实结109.394798124/cap226、预留2.25、可准入114.355201876，预留非实费。半程一次性自动化已删除，最终自动化保留；不继续轮询或新GPU。见[559](../research/559_WC_DROP1_FULL18_ONCE_HALFWAY_HEALTH_AND_FINAL_PENDING_20261017.md)。
@@ -9,7 +15,7 @@ E0剩余逐seed/布局/去step23 CPU及独立原件复算完成（553）；1674�
 | 当前项 | 状态 | 支撑与缺口 | 优先级 |
 |---|---|---|---|
 | E0剩余CPU | 已完成/独立复算通过 | A有条件，12/14刷新布局不同；有回退T2仅局部线索 | 保留证据 |
-| N12少一次D三臂18路径 | 22:46技术检查通过，终态待验 | C1修正承接D、C2完整预算安排、C3实际质量时间；正式结果全部为空 | P0/本卡验收 |
+| N12少一次D三臂18路径 | 已完成：全部18路径/12正式93帧接受 | 同25D时A四场景均改善，均值LPIPS−8.5560%；相对26D仍+31.7739%，暂未保持保真 | 已接受·固定预算修正消融 |
 | N09部署与价格 | 原完整40已选/本地合同通过，待实际生产CPU/GPU | 原完整范围保持，不从准备推实测费用 | 待本卡结果后讨论 |
 | N10完整自动质量 | 本机固定权重已接受，服务器接入/五模型CPU/评分待补 | 运动/语义等质量证据缺口保持 | 待本卡结果后讨论 |
 
@@ -230,7 +236,7 @@ E0逐帧/动作/分组目标独立复算通过：6提示词双seed中固定前�
 |N09 · 待补｜完整费用/执行器CPU已准备|Calibration and Minimal Deployment Profile|运行40及动作12完整报价分别4.245833/10.045GPUh；动作执行器两flow完整32CPU、112原件1528张量独立接受。原范围/控制保持，真实GPU价格/组件/显存未测。 529生产合同/驻留worker与5本地控制、2冷入口已准备，真实服务器CPU仍待。 530只读后处理6控制、原112文件1528张量重读通过，视频回调为Toy，仍无真实新测量。|C3部署开销；C2费用一致|按551先复用已有字段盘点核心时间/显存/维护/校准采集与拟合成本；原runtime40和action12完整卡保持未执行，不为余额删控制。若需聚焦部署问题另登记完整卡/CPU/报价，不能把拟合快当采集便宜。|P2·最小部署账先整理，旧完整卡不自动派发|[526](../research/526_WC_N09_MIDPOINT_TERMINAL_COLLECTION_AND_INDEPENDENT_ACCEPTANCE_CPU_READY_20261016.md) · [527](../research/527_WC_N09_CURRENT_ACTION_PRICES_FULL16_TWO_MODE_SCOPE_AND_FULL24_CPU_READY_20261016.md) · [528](../research/528_WC_N09_ACTION12_WHOLE_COST_AND_FULL32_CPU_ADAPTER_ACCEPTED_20261016.md) · [529](../research/529_WC_N09_ACTION12_PRODUCTION_CONTRACT_AND_RESIDENT_ENTRY_CPU_PREPARED_20261016.md) · [530](../research/530_WC_N09_ACTION12_READONLY_POST_FULL24_RAW1528_CPU_PREPARED_20261016.md) · [537](../research/537_WC_N07_REPAIR_DOWNSTREAM_N08_N09_SOURCE_IDENTITY_BRIDGE_CPU_READY_20261016.md)|
 |N10 · 待补｜完整本地权重已接受，待接入与评分|Automatic Video Quality on Final Outputs|R4完整1710545812字节／官方SHA／204段独立接受，约43分17秒；资源自动化已暂停，实际五模型和质量分数仍0。|C3生成质量范围|本地固定完整权重接受不等于评分。N08独占测速后SCP/服务器SHA/原五模型CPU/完整160×六维960位置报价与评分；缺失拒绝不补0，不用四模型替代完整合同。|P1·N08后复用既有视频补质量|[542](../research/542_WC_N10_VICLIP_DIRECT_R4_COMPLETE_RESOURCE_ACCEPTED_AND_SCORING_HANDOFF_20261017.md) · [资源接受](../reports/wc_paper_N10_direct_R4_independent_resource_acceptance_20261017.json)|
 |N11 · 待补｜主张条件|`SECOND_MODEL_TRANSFER` → Second-Backbone Transfer|模型内接线pilot→必要q/g/费用标定→冻结共同测试；尚无本项目迁移结果。|C3跨骨干；若不做则限定Cosmos|原8/−7权重、36更新、step25不原样当新模型真值；模型/范围/费用待定。|P3-C·主张跨骨干时必补|[closure_plan](../plans/WORLD_CACHE_PAPER_CONVERGENCE_AND_FINAL_EXPERIMENTS_20261014.md) · [roadmap](../plans/WORLD_CACHE_RESEARCH_ROADMAP_20261015.md)|
-|N12 · 待补｜静态mask已登记|Correction-Paid Dense-Budget Reduction|4CAL×3臂，12正式+6warm，实际更新21处D→C/A；无生产CPU/GPU。|C1修正替代D；C2终点预算计划|E0后冻完整18/CPU/报价；保留保护与支持，零新结果。|P1·N08后方法补强首选|[551](../research/551_WC_ENDPOINT_BUDGET_SCHEDULE_REDESIGN_AND_MINIMUM_D_REPLACEMENT_20261017.md)|
+|N12 · 已完成｜完整18路径接受|Correction-Paid Dense-Budget Reduction|4CAL×3臂，12正式1116帧，实际更新21处D→C/A；全部原件/控制通过，实费1.474263GPUh。|C1同25D修正保真作用；C2终点预算计划的适用条件；C3开发成本|同25D失真−8.5560%，恢复删除D损失27.9558%；相对26D仍+31.7739%。已有6warm同状态CPU解释待做；不自动新GPU。|已接受·修正消融|[563](../research/563_WC_DROP1_FULL18_RESULTS_FIXED25D_CORRECTION_VALUE_AND_REMAINING_20261018.md)|
 |Z01 · 暂缓/未执行｜旧卡|`OLD_E2_FULL76 / OLD_P_REFERENCE_13H` → Legacy Deferred Cards|旧E2完整76、P参考双flow13.0600GPUh等历史卡保留。|不算当前待执行承诺|不由新文档重启、缩卡或借用授权；新P/W3及正式补验用各自完整登记。|X·暂缓，不恢复|[369](../research/369_WC_E3_COMPLETE64_RESULTS_SOURCE_READOUT_INTERACTION_AND_NEXT_20261012.md) · [424](../research/424_WC_FINAL_EXPERIMENT_CLOSURE_AND_PAPER_EVIDENCE_20261014.md) · [roadmap](../plans/WORLD_CACHE_RESEARCH_ROADMAP_20261015.md)|
 
 
