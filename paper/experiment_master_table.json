@@ -2157,7 +2157,7 @@
       ],
       "contribution_relation": "C1修正能否替代D；C2完整预算计划的判别开发；C3真实质量时间",
       "evidence_or_planned_scope": "全部18完成/12正式1116帧；三种36guided重复、四旧前密终态/actions/A历史/93RGB控制均通过。四场景/seed0同25D仅第21步C/A不同。",
-      "gap_and_next_action": "先读取已有6warm的同状态第21步误差；四旧CAL/单seed、每格一次开发计时，不是未见泛化或重复clean；相对26D保真保持尚未成立。",
+      "gap_and_next_action": "已有六warm/一个AV28第21步局部MSE降低52.9048%，两重复一致；同25D终点作用成立，原位置仍未保持26D质量。后续删除位置/刷新间隔假设待下一轮登记，N09/N10仍待；本轮无新GPU。",
       "priority": "已接受·固定预算修正消融",
       "evidence_refs": [
         "endpoint_budget_design_551",
@@ -2197,7 +2197,12 @@
         "N12_terminal_independent",
         "N12_endpoint_results_analysis",
         "N12_results_563",
-        "N12_endpoint_results_analyzer"
+        "N12_endpoint_results_analyzer",
+        "N12_saved_warm21_real_CPU_564",
+        "N12_saved_warm21_real_CPU_original",
+        "N12_saved_warm21_real_CPU_independent",
+        "N12_saved_warm21_real_CPU_worker",
+        "N12_saved_warm21_real_CPU_reader"
       ],
       "method_mapping_ids": [
         "module.gcr",
@@ -2262,16 +2267,153 @@
       "scientific_partial_read": false,
       "saved_warm21_CPU_explanatory_analysis_registered": true,
       "saved_warm21_CPU_plan_ref": "plans/WC_N12_SAVED_WARM_STEP21_CPU_ANALYSIS_20261017.md",
-      "saved_warm21_CPU_executed": false,
-      "saved_warm21_CPU_results": null,
+      "saved_warm21_CPU_executed": true,
+      "saved_warm21_CPU_results": [
+        {
+          "round": 1,
+          "actual_solver_update": 21,
+          "zero_based_guided_index": 20,
+          "prefix_guided_equal": {
+            "S25-C": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "S25-A": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ]
+          },
+          "same_state_verified": true,
+          "reasons": [],
+          "reference": "S26-C_FULL_D_AT_UPDATE21",
+          "absolute_guided_MSE_C": 0.10917248180003428,
+          "absolute_guided_MSE_A": 0.05141502810448311,
+          "reference_energy": 1.6048979097630807,
+          "relative_guided_MSE_C": 0.0680245647625964,
+          "relative_guided_MSE_A": 0.03203632317776097,
+          "A_over_C_when_C_positive": 0.4709522698096891,
+          "local_MSE_reduction_fraction": 0.5290477301903109,
+          "CFG_or_propagation_gain_applied_again": false,
+          "local_error_is_terminal_video_loss": false,
+          "independent_scene_count": 1,
+          "status": "SAME_REPLAY_PREFIX_UPDATE21_GUIDED_ERRORS_COMPUTED",
+          "zero_reference_energy": false,
+          "zero_C_error": false
+        },
+        {
+          "round": 2,
+          "actual_solver_update": 21,
+          "zero_based_guided_index": 20,
+          "prefix_guided_equal": {
+            "S25-C": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "S25-A": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ]
+          },
+          "same_state_verified": true,
+          "reasons": [],
+          "reference": "S26-C_FULL_D_AT_UPDATE21",
+          "absolute_guided_MSE_C": 0.10917248180003428,
+          "absolute_guided_MSE_A": 0.05141502810448311,
+          "reference_energy": 1.6048979097630807,
+          "relative_guided_MSE_C": 0.0680245647625964,
+          "relative_guided_MSE_A": 0.03203632317776097,
+          "A_over_C_when_C_positive": 0.4709522698096891,
+          "local_MSE_reduction_fraction": 0.5290477301903109,
+          "CFG_or_propagation_gain_applied_again": false,
+          "local_error_is_terminal_video_loss": false,
+          "independent_scene_count": 1,
+          "status": "SAME_REPLAY_PREFIX_UPDATE21_GUIDED_ERRORS_COMPUTED",
+          "zero_reference_energy": false,
+          "zero_C_error": false
+        }
+      ],
       "saved_warm21_CPU_is_original_GPU_preregistration": false,
       "saved_warm21_math_core_implemented": true,
       "saved_warm21_math_core_Tiny_CPU_tests_passed": 5,
-      "saved_warm21_raw_reader_implemented": false,
+      "saved_warm21_raw_reader_implemented": true,
       "terminal_GPU_and_post_accepted": true,
       "terminal_independent_acceptance_ref": "reports/wc_drop1_full18_independent_acceptance_20261018.json",
       "endpoint_results_ref": "reports/wc_drop1_complete_results_analysis_20261018.json",
-      "stable_repeated_clean_speed_claim": false
+      "stable_repeated_clean_speed_claim": false,
+      "saved_warm21_CPU_result_ref": "reports/wc_drop1_saved_warm21_actual_CPU_once_20261018.json",
+      "saved_warm21_CPU_independent_ref": "reports/wc_drop1_saved_warm21_actual_CPU_independent_acceptance_20261018.json"
     }
   ],
   "source_refs": {
@@ -2901,7 +3043,12 @@
     "N12_terminal_independent": "reports/wc_drop1_full18_independent_acceptance_20261018.json",
     "N12_endpoint_results_analysis": "reports/wc_drop1_complete_results_analysis_20261018.json",
     "N12_results_563": "research/563_WC_DROP1_FULL18_RESULTS_FIXED25D_CORRECTION_VALUE_AND_REMAINING_20261018.md",
-    "N12_endpoint_results_analyzer": "scripts/analyze_wc_drop1_results_r1.py"
+    "N12_endpoint_results_analyzer": "scripts/analyze_wc_drop1_results_r1.py",
+    "N12_saved_warm21_real_CPU_564": "research/564_WC_DROP1_SAVED_WARM21_REAL_CPU_MECHANISM_AND_NEXT_20261018.md",
+    "N12_saved_warm21_real_CPU_original": "reports/wc_drop1_saved_warm21_actual_CPU_once_20261018.json",
+    "N12_saved_warm21_real_CPU_independent": "reports/wc_drop1_saved_warm21_actual_CPU_independent_acceptance_20261018.json",
+    "N12_saved_warm21_real_CPU_worker": "scripts/analyze_wc_drop1_saved_warm21_cpu_r1.py",
+    "N12_saved_warm21_real_CPU_reader": "scripts/read_wc_drop1_saved_warm21_r1.py"
   },
   "source_bindings": {
     "11": {
@@ -5406,11 +5553,31 @@
     },
     "N12_results_563": {
       "path": "research/563_WC_DROP1_FULL18_RESULTS_FIXED25D_CORRECTION_VALUE_AND_REMAINING_20261018.md",
-      "sha256": "f9e19c974b6d3602f66ad4ad04232317e3ae5059363849d5bf66833a8ce01695"
+      "sha256": "016d9b041123e2d89865ea30f913a1f750eae2957f67a1d7761130f0d0754570"
     },
     "N12_endpoint_results_analyzer": {
       "path": "scripts/analyze_wc_drop1_results_r1.py",
       "sha256": "aee1d16271ce69e69444e1027f8e8dfced8061ba53ec5ac079e1a3d74d83d502"
+    },
+    "N12_saved_warm21_real_CPU_564": {
+      "path": "research/564_WC_DROP1_SAVED_WARM21_REAL_CPU_MECHANISM_AND_NEXT_20261018.md",
+      "sha256": "a5763b5353aa861608422f568040a16438c410392a632fa91be86d633854a09d"
+    },
+    "N12_saved_warm21_real_CPU_original": {
+      "path": "reports/wc_drop1_saved_warm21_actual_CPU_once_20261018.json",
+      "sha256": "19de942ba7b2732d67bd1788c89a8624ac9055705ebf6b754fbd31526f4d1d81"
+    },
+    "N12_saved_warm21_real_CPU_independent": {
+      "path": "reports/wc_drop1_saved_warm21_actual_CPU_independent_acceptance_20261018.json",
+      "sha256": "6d8eeb5311807b4f68bcd4c984f7862baf2a21f8219a0d10f1cb0c41ec9efa55"
+    },
+    "N12_saved_warm21_real_CPU_worker": {
+      "path": "scripts/analyze_wc_drop1_saved_warm21_cpu_r1.py",
+      "sha256": "c275a538de5e38f1bdc14c38c0534e353422771d1625cf6c7e7f27ddab0e31fb"
+    },
+    "N12_saved_warm21_real_CPU_reader": {
+      "path": "scripts/read_wc_drop1_saved_warm21_r1.py",
+      "sha256": "28c6ce273b1910a626109eea78b3b66ce7fbabb3a27fdb9e85d6fa03be886e45"
     }
   },
   "operation_policy": {
@@ -5623,6 +5790,15 @@
         "next_collection": "2026-10-16T15:50:00+08:00",
         "status": "ORIGINAL_TERMINAL_TLS_FAILURE_ALREADY_COLLECTED",
         "terminal_capture_ref": "reports/wc_paper_N10_ViCLIP_local_ranges_R3_collection_20261016_1550.json"
+      },
+      {
+        "family": "N12_SAVED_WARM21",
+        "status": "COMPLETE_ACCEPTED_READONLY",
+        "result_ref": "reports/wc_drop1_saved_warm21_actual_CPU_once_20261018.json",
+        "actual_CPU_wall_seconds": 82.36863660812378,
+        "new_GPUh": 0,
+        "original_stage_written": false,
+        "ledger_written": false
       }
     ],
     "N05_production_CPU_accepted": true,
@@ -5972,7 +6148,10 @@
     "N12_terminal_independent_ref": "reports/wc_drop1_full18_independent_acceptance_20261018.json",
     "N12_actual_GPUh": 1.4742630306796896,
     "N12_complete_scientific_accepted": true,
-    "N12_saved_warm21_actual_CPU_executed": false
+    "N12_saved_warm21_actual_CPU_executed": true,
+    "N12_saved_warm21_actual_CPU_result_ref": "reports/wc_drop1_saved_warm21_actual_CPU_once_20261018.json",
+    "N12_saved_warm21_actual_CPU_independent_ref": "reports/wc_drop1_saved_warm21_actual_CPU_independent_acceptance_20261018.json",
+    "N12_saved_warm21_new_GPUh": 0
   },
-  "mapping_sha256_at_inventory": "3558db7483b00ef1280577e62dadd9c5d84c6aef59a5254903df9cd56e9eaf71"
+  "mapping_sha256_at_inventory": "546fcd7db57359734fa2eb2e9ae0d8192b98b498cedbb0e56c87452a225b1faf"
 }
