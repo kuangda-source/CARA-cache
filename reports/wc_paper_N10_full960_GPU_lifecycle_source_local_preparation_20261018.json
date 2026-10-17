@@ -1,0 +1,102 @@
+{
+  "status": "N10_FULL960_LOCAL_GPU_CLIENT_AND_TERMINAL_SOURCE_PREPARED_NOT_ACTUAL_SCORING",
+  "prepared_local": "2026-10-18T04:50:50.134968+08:00",
+  "git_snapshot_before_preparation": "941ea29fb6edef6a9534e24967c1443146afebc4",
+  "source_bindings": {
+    "scripts/launch_wc_N10_full960_r1.py": {
+      "sha256": "58af47f36a2d2a76c4085e017f91eec596c04ebb29e91ff1c4d51440b087bb11",
+      "bytes": 12147
+    },
+    "scripts/capture_wc_N10_full960_r1.py": {
+      "sha256": "6e8654de80754f47e3e24c4d0fcceacdda8e4f8a93d950649443ecb482704f53",
+      "bytes": 8600
+    },
+    "scripts/analyze_wc_N10_full960_r1.py": {
+      "sha256": "4fb1bc080b53dbf812b1b475af8e585438656e6a574a1be0584db640b2c6b005",
+      "bytes": 1550
+    },
+    "src/wcomr/automatic_quality_terminal_r1.py": {
+      "sha256": "7a1d2b808eb0a529442ff5a4e7d6ba8e3708f92fb84a3eabcac4cbd99cd48f1f",
+      "bytes": 24630
+    },
+    "tests/test_N10_full960_terminal_r1.py": {
+      "sha256": "e6fb1b92bacd384314e7422bb7ebb99b0e786904cc9c19dcb0556287eb206813",
+      "bytes": 18239
+    }
+  },
+  "immutable_server_source": "d10e992614a1249dc61668f7791f4e5144e50480",
+  "immutable_server_payload_files": 271,
+  "actual_production_CPU_acceptance_ref": "reports/wc_paper_N10_full960_production_CPU_R1_independent_acceptance_20261018.json",
+  "actual_production_CPU_acceptance_sha256": "84891b0a1517edf10a00fba52c4aba4fd9823af83b9023d253fe27de114fbb43",
+  "actual_production_CPU_sha256": "6aeb1bec2d49d86dfa890de35e2ef6c3c975572a16c76fb1503ca69953d046b7",
+  "server_stage_modified": false,
+  "tests": {
+    "command": "PYTHONPATH=src .venv/bin/python -m unittest discover -s tests -p 'test_N10_full960_terminal_r1.py' -v",
+    "exit_code": 0,
+    "cases": 11,
+    "wall_seconds": 18.107,
+    "stdout_stderr": "test_N09_legitimate_refusals_keep_whole40_ordering_eligibility (test_N10_full960_terminal_r1.OriginalFull960TerminalControls) ... ok\ntest_N09_ordering_and_real_CPU_hash_are_required_before_dispatch (test_N10_full960_terminal_r1.OriginalFull960TerminalControls) ... ok\ntest_client_remote_programs_compile_and_preETA_never_connects (test_N10_full960_terminal_r1.OriginalFull960TerminalControls) ... ok\ntest_cold_offline_acceptor_imports_without_neural_framework (test_N10_full960_terminal_r1.OriginalFull960TerminalControls) ... ok\ntest_interrupted_prefix_keeps_partial_rows_and_trailing_bytes (test_N10_full960_terminal_r1.OriginalFull960TerminalControls) ... ok\ntest_live_original_and_before_ETA_do_not_become_terminal (test_N10_full960_terminal_r1.OriginalFull960TerminalControls) ... ok\ntest_one_metric_failure_retains_644_valid_scores_and_original_denominator (test_N10_full960_terminal_r1.OriginalFull960TerminalControls) ... ok\ntest_other_account_after_release_does_not_invalidate_own_release (test_N10_full960_terminal_r1.OriginalFull960TerminalControls) ... ok\ntest_raw_sha_changed_decoder_or_omitted_MUSIQ_frame_cannot_pass (test_N10_full960_terminal_r1.OriginalFull960TerminalControls) ... ok\ntest_whole960_all645_and_independent_prompt_means_with_negative_method_result (test_N10_full960_terminal_r1.OriginalFull960TerminalControls) ... ok\ntest_wrong_bill_preserves_valid_science_but_not_protocol (test_N10_full960_terminal_r1.OriginalFull960TerminalControls) ... ok\n\n----------------------------------------------------------------------\nRan 11 tests in 18.107s\n\nOK\n",
+    "synthetic_metric_values_only": true,
+    "actual_model_or_video_opened": false
+  },
+  "CLI_help_checks": {
+    "commands": [
+      [
+        ".venv/bin/python",
+        "scripts/launch_wc_N10_full960_r1.py",
+        "--help"
+      ],
+      [
+        ".venv/bin/python",
+        "scripts/capture_wc_N10_full960_r1.py",
+        "--help"
+      ],
+      [
+        ".venv/bin/python",
+        "scripts/analyze_wc_N10_full960_r1.py",
+        "--help"
+      ]
+    ],
+    "exit_codes": [
+      0,
+      0,
+      0
+    ]
+  },
+  "remote_program_syntax_accepted": true,
+  "preETA_SSH_calls": 0,
+  "original_N09_whole40_terminal_dependency_enforced": true,
+  "original_N09_legitimate_refusals_preserved": true,
+  "registered_generation_positions": 160,
+  "registered_metric_positions": 960,
+  "expected_ready_scores": 645,
+  "video_unavailable_positions": 155,
+  "static_NA_positions": 160,
+  "registered_comparisons": 19,
+  "prompt_bootstrap_repetitions": 4096,
+  "forecast_GPUh": 4.915,
+  "billed_limit_GPUh": 6.25,
+  "cost_basis": "PREREGISTERED_ENGINEERING_ALLOWANCE_NOT_MEASURED_GPU_MODEL_PRICE",
+  "latest_resource_receipt_ref": "reports/wc_two_gpu_resource_readonly_20261018_0422.json",
+  "latest_resource_observed_unix": 1792268589.619185,
+  "next_resource_check_not_before_unix": 1792275720,
+  "next_resource_check_local": "2026-10-18T06:22:00+08:00",
+  "actual_GPUh": null,
+  "actual_quality_scores": 0,
+  "GPU_submissions": 0,
+  "SSH_queries": 0,
+  "real_ledger_written": false,
+  "complete_quote_reused": true,
+  "whole_scope_shrunk": false,
+  "N09_remains_first": true,
+  "F_B_reopened": false,
+  "resource_monitor_update": {
+    "automation_id": "worldcache-gpu",
+    "status": "ACTIVE",
+    "interval_hours": 2,
+    "next_check_not_before_unix": 1792275720,
+    "N09_priority": true,
+    "N10_after_original_N09_terminal_acceptance": true,
+    "unchanged_occupancy_notifications": false
+  }
+}
