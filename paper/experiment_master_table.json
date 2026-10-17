@@ -1665,8 +1665,8 @@
         "N07",
         "N08"
       ],
-      "template_only": true,
-      "new_GPU_card_selected": false,
+      "template_only": false,
+      "new_GPU_card_selected": true,
       "contribution_ids": [
         "C3",
         "C2"
@@ -1809,7 +1809,8 @@
       "runtime_profile40_actual_source_dry_plan_accepted": true,
       "runtime_profile40_actual_selected_Git_packet_accepted": true,
       "runtime_profile40_actual_selected_Git_packet_ref": "reports/wc_paper_N09_complete194_Git_packet_local_acceptance_20261017.json",
-      "runtime_profile40_actual_selected_Git_packet_revision": "7ebe21c9d9ed0c0a9a1c179f34f398b0e0f1c538"
+      "runtime_profile40_actual_selected_Git_packet_revision": "7ebe21c9d9ed0c0a9a1c179f34f398b0e0f1c538",
+      "selected_card_means_config_only_not_CPU_or_dispatch": true
     },
     {
       "id": "N10",
@@ -2105,7 +2106,7 @@
     },
     {
       "id": "N12",
-      "state": "正在运行｜完整18 GPU0已准入，终态待验",
+      "state": "正在运行｜登记在途/完整18 GPU0已准入，按时查收待验",
       "paper_experiment_name": "Correction-Paid Dense-Budget Reduction",
       "internal_ids": [
         "WC-DROP1-CAL4-THREEARM-FULL18-R1-20261017-A",
@@ -2170,7 +2171,9 @@
       "GPU_launch_ref": "reports/wc_drop1_full18_GPU_launch_20261017.json",
       "GPU_admission_ref": "reports/wc_drop1_full18_independent_admission_acceptance_20261017.json",
       "actual_production_CPU_ref": "reports/wc_drop1_full56_actual18_CPU_independent_acceptance_20261017.json",
-      "production_source_revision": "e76b4f8b934bb07bf045e6083f36eddb4711640d"
+      "production_source_revision": "e76b4f8b934bb07bf045e6083f36eddb4711640d",
+      "current_liveness_basis_ref": "reports/wc_drop1_full18_independent_admission_acceptance_20261017.json",
+      "liveness_requeried_by_local_catalog_update": false
     }
   ],
   "source_refs": {
@@ -2768,7 +2771,8 @@
     "N09_actual40_prior_CPU_accepted": "reports/wc_paper_N09_actual_N07_N08_bridge_local_CPU_acceptance_20261017.json",
     "N09_registered_N08_bridge": "src/wcomr/balanced_repeat_roundoff_acceptance_r1.py",
     "N09_actual40_194_source_dry_plan": "reports/wc_paper_N09_actual40_source_packet_dry_plan_20261017.json",
-    "N09_actual40_complete_Git_packet_accepted": "reports/wc_paper_N09_complete194_Git_packet_local_acceptance_20261017.json"
+    "N09_actual40_complete_Git_packet_accepted": "reports/wc_paper_N09_complete194_Git_packet_local_acceptance_20261017.json",
+    "current_catalog_alias_alignment": "reports/wc_paper_current_catalog_alias_alignment_20261017.json"
   },
   "source_bindings": {
     "11": {
@@ -5125,7 +5129,7 @@
     },
     "N09_actual40_report_558": {
       "path": "research/558_WC_N09_ACTUAL40_PRIOR_ACCEPTANCE_BRIDGE_AND_LOCAL_CONFIGURATION_20261017.md",
-      "sha256": "2efe5713a4a6cb4aa97a5ca3bbd173246a763035e9c66e64f6e9a4704775af47"
+      "sha256": "36df14d01e116fe6758d22475d8ab7e6b9fe1099ae6db1e62ae7d2a487795d79"
     },
     "N09_actual40_selected_config": {
       "path": "configs/wc_paper_N09_runtime_profile40_production_r1_20261016.json",
@@ -5150,6 +5154,10 @@
     "N09_actual40_complete_Git_packet_accepted": {
       "path": "reports/wc_paper_N09_complete194_Git_packet_local_acceptance_20261017.json",
       "sha256": "1749b546984cedd75c25fc544727867565b2d7432227aa9f81e5d5018463da07"
+    },
+    "current_catalog_alias_alignment": {
+      "path": "reports/wc_paper_current_catalog_alias_alignment_20261017.json",
+      "sha256": "4d01eccaa5baac79c7cc02f8fa15be9103fbb258df07f807e0c25ab1026c2876"
     }
   },
   "operation_policy": {
@@ -5297,8 +5305,8 @@
     "mainline_continuation_authorized_by_latest_human": true,
     "mainline_priority_queue": [
       "N12_TERMINAL_ACCEPTANCE_AND_INTERPRETATION",
-      "N09_DISCUSS_FULL_SCOPE",
-      "N10_DISCUSS_REUSED_VIDEO_QUALITY"
+      "N09_RUNTIME40_PRODUCTION_CPU_AFTER_N12",
+      "N10_RESOURCE_AND_MODEL_CPU_AFTER_N12"
     ],
     "optional_enhancements_do_not_precede_N05": [
       "N02",
@@ -5477,11 +5485,11 @@
     "N10_resource_next_collection_local": null,
     "N10_resource_first_collection_not_before_unix": null,
     "N10_resource_GPU_submissions": 0,
-    "previous_cumulative_cap_GPUh": 104.97136333301378,
+    "previous_cumulative_cap_GPUh": 113,
     "cumulative_cap_GPUh": 226,
     "explicit_cap_extension_human_approved": true,
-    "cap_extension_approval_ref": "reports/wc_paper_N07_cap113_direct_human_approval_20261016.json",
-    "cap_extension_applied_ref": "reports/wc_paper_N07_cap113_server_extension_R2_receipt_20261016.json",
+    "cap_extension_approval_ref": "manifests/wc_e0_drop1_cap226_direct_human_authorization_20261017.json",
+    "cap_extension_applied_ref": "reports/wc_cap226_cumulative_extension_server_receipt_20261017.json.gz",
     "N07_actual_GPU_admitted": true,
     "N07_human_approval_received": true,
     "N07_human_approval_quote": "批准完整180卡，累计上限提高到113 GPUh",
@@ -5595,7 +5603,7 @@
     "N10_direct_R4_resource_automation_status": "PAUSED",
     "N10_local_full_ViCLIP_acceptance_ref": "reports/wc_paper_N10_direct_R4_independent_resource_acceptance_20261017.json",
     "N10_actual_server_resource_transfer_dispatched": false,
-    "N07_timers_remain_active": true,
+    "N07_timers_remain_active": false,
     "N10_resource_timer_active": false,
     "N07_R1_terminal_collection_performed": true,
     "N07_R1_terminal_receipt_audit_accepted": true,
@@ -5618,8 +5626,31 @@
       "available_after_whole_reservations_GPUh": 1.6654725367192658,
       "budget_snapshot_asof": "2026-10-17T05:33:28.034299+08:00"
     },
-    "current_running_GPU_cards": [],
-    "active_experiment_GPU_count_observed": 0,
+    "current_running_GPU_cards": [
+      {
+        "family": "N12",
+        "run_id": "wc-drop1-cal4-three-arm-full18-r1",
+        "source_revision": "e76b4f8b934bb07bf045e6083f36eddb4711640d",
+        "GPU_uuid": "GPU-de9a5370-cd87-0f1c-a48e-288888777dd3",
+        "launch_id": "1d847560-a411-4272-8e4c-0b07844a664c",
+        "supervisor_pid": 1515148,
+        "runner_pid": 1515544,
+        "post_watcher_pid": 1515149,
+        "scope": {
+          "requests": 4,
+          "methods": 3,
+          "scientific_paths": 12,
+          "full_warmup_paths": 6,
+          "total_paths": 18,
+          "ordinary_pairs": 648,
+          "ordinary_CFG_calls": 1296,
+          "loads": 1,
+          "teacher_pairs": 0,
+          "score_videos": 12
+        }
+      }
+    ],
+    "active_experiment_GPU_count_observed": 1,
     "N07_R2_GPU_stage_finished": true,
     "N07_R2_GPU_child_exit_code": 0,
     "N07_R2_late_health_ref": "reports/wc_paper_N07_refusal_repair180_R2_midpoint_health_late_20261017.json.gz",
@@ -5629,7 +5660,7 @@
     "N07_R2_observed_job_actual_GPUh": 10.443678323069795,
     "N07_R2_own_job_reservation_GPUh": 0,
     "full_v2_pool_independent_terminal_acceptance_pending": true,
-    "current_budget_aggregate_freshness": "Original complete additive pool 2026-10-17T20:17:57.602289+08:00",
+    "current_budget_aggregate_freshness": "N12 accepted admission snapshot 2026-10-17T21:33:12.757866+08:00",
     "current_GPU_actual_bill_acceptance_ref": "reports/wc_paper_N08_balanced_full40_terminal_independent_acceptance_roundoff_r1_20261017.json",
     "N07_R2_terminal_scientific_available_cohorts_accepted": true,
     "N07_R2_all160_success": false,
@@ -5654,13 +5685,22 @@
     "paper_claims_revised_from_R2": true,
     "N07_now_exposed_for_subsequent_method_selection": true,
     "N08_original_checks_unchanged_by_design_update": true,
-    "active_experiment_count_observation_basis": "Original terminal capture 2026-10-17T20:17:57.602289+08:00",
+    "active_experiment_count_observation_basis": "reports/wc_drop1_full18_independent_admission_acceptance_20261017.json; admitted snapshot, no new server observation",
     "N08_terminal_accepted": true,
     "N08_terminal_ref": "reports/wc_paper_N08_balanced_full40_terminal_independent_acceptance_roundoff_r1_20261017.json",
     "no_new_experiment_started_in_status_request": false,
     "budget_cap_extension_ref": "reports/wc_cap226_cumulative_extension_server_receipt_20261017.json.gz",
     "latest_direct_human_authority_ref": "manifests/wc_e0_drop1_cap226_direct_human_authorization_20261017.json",
-    "next_selected_complete_card": null,
+    "next_selected_complete_card": {
+      "family": "N09",
+      "config_ref": "configs/wc_paper_N09_runtime_profile40_production_r1_20261016.json",
+      "source_packet_local_accepted": true,
+      "production_CPU_accepted": false,
+      "GPU_dispatched": false,
+      "wait_for_N12_terminal_interpretation": true,
+      "forecast_GPUh": 4.245833333333334,
+      "billed_limit_GPUh": 5.0
+    },
     "E0_remaining_CPU_complete": true,
     "latest_GPU_launch_ref": "reports/wc_drop1_full18_GPU_launch_20261017.json",
     "latest_GPU_admission_ref": "reports/wc_drop1_full18_independent_admission_acceptance_20261017.json",
@@ -5675,8 +5715,8 @@
     "N10_local_resource_materialized_and_hash_reaccepted": true,
     "N10_server_resource_relay_started": false,
     "N10_new_GPU_card_selected": false,
-    "last_goal_turn_classification": "PROGRESS_E0_CPU_GPU_ADMISSION_AND_SCHEDULE",
-    "current_goal_turn_classification": "PROGRESS_ACCEPTED_N07_N08_PAPER_DATA_AND_FIGURE_EXPORT",
+    "last_goal_turn_classification": "PROGRESS_ACCEPTED_N07_N08_PAPER_DATA_AND_FIGURE_EXPORT",
+    "current_goal_turn_classification": "PROGRESS_N09_ACTUAL_PRIOR_REACCEPTANCE_SOURCE_ARCHIVE_AND_CATALOG_ALIGNMENT",
     "last_local_preparation_source_refs": [
       "N10_R2_actual_input_556",
       "N10_R2_all160_full960_inputs",
@@ -5693,7 +5733,12 @@
     "publication_source_scopes_kept_separate": true,
     "N07_all_method_scatter_is_secondary_availability_cohort": true,
     "N08_all30_repeat_observations_exported": true,
-    "new_GPU_jobs_started_by_paper_export": 0
+    "new_GPU_jobs_started_by_paper_export": 0,
+    "current_running_cards_current_liveness_requeried": false,
+    "budget_origin_used_GPUh": 79.99637737158223,
+    "full_v2_pending_terminal_run_ids": [
+      "wc-drop1-cal4-three-arm-full18-r1"
+    ]
   },
-  "mapping_sha256_at_inventory": "2d5bbfcf227b20eb7df0d9e7c57218e856fe36bf8e4efb57ae532babd2a15dd2"
+  "mapping_sha256_at_inventory": "e459e8136f40f513046d2b863663899a59414549c381afef8d77f1f372e76693"
 }
