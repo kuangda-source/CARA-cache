@@ -1,0 +1,53 @@
+{
+  "status": "N10_ORIGINAL_MODEL_CPU_FAILURES_RETAINED_ALL_FIVE",
+  "CPU_accepted": false,
+  "source_revision": "cd8837082d7cfc43ad889019b1c06587aed06a0d",
+  "registration_sha256": "261802e05507bb5691c3bc5fa15dd3956395132a48352510cfef7ab26dc6fa56",
+  "registered_model_denominator": 5,
+  "accepted_models": 1,
+  "rows": [
+    {
+      "role": "DINO",
+      "status": "CPU_ROLE_NOT_ACCEPTED",
+      "error_type": "ValueError",
+      "error": "Actual model class, input geometry or eval precision differs: DINO"
+    },
+    {
+      "role": "AMT_S",
+      "status": "CPU_ROLE_NOT_ACCEPTED",
+      "error_type": "ValueError",
+      "error": "Actual model implementation does not match the frozen payload"
+    },
+    {
+      "role": "RAFT_THINGS",
+      "status": "CPU_ROLE_ACCEPTED",
+      "proof": {
+        "role": "RAFT_THINGS",
+        "status": "REAL_MODEL_CPU_ROLE_ACCEPTED_NOT_QUALITY",
+        "parameter_count": 5257536,
+        "wall_seconds": 13.5772545337677,
+        "constructor_source_sha256": "3f6c515de1f8f818a20614747c3751a532ef096a7fd397266380e89e16f8b788"
+      }
+    },
+    {
+      "role": "ViCLIP",
+      "status": "CPU_ROLE_NOT_ACCEPTED",
+      "error_type": "ValueError",
+      "error": "Original independent per-model file or process failed"
+    },
+    {
+      "role": "MUSIQ_SPAQ",
+      "status": "CPU_ROLE_NOT_ACCEPTED",
+      "error_type": "ValueError",
+      "error": "Original independent per-model file or process failed"
+    }
+  ],
+  "CPU_wall_seconds": 131.4854016304016,
+  "paper_quality_scores_generated": false,
+  "final_videos_read": false,
+  "GPU_submissions": 0,
+  "ledger_written": false,
+  "capture_ref": "reports/wc_paper_N10_full_five_model_CPU_R1_collection_20261018_0207.json.gz",
+  "capture_sha256": "b1e1c56869c61b06bcf2c71ab74da8063fbfe53d3e7fce63eb39069271081f0b",
+  "independent_acceptor_source_sha256": "0baee35bfc3fb626e517def5c23a68e2353912bed2ea2a97efa9e6ec48990c70"
+}
