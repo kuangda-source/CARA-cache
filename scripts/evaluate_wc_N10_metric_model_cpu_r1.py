@@ -68,24 +68,36 @@ def preflight(stage,role):
     return registration,manifest,current
 
 
-def deny_external_access(events):
+def read_only_git_version(command, *, shell=False, executable=None):
+    """GitPython's local version query, with no other Git action permitted."""
+    return (not shell and isinstance(command, (list, tuple)) and len(command) == 2
+        and str(command[0]) in ('git', '/usr/bin/git', '/bin/git')
+        and command[1] in ('version', '--version')
+        and executable in (None, command[0]))
+
+
+def deny_external_access(events, allowed_process_probes=None):
     """Process-local guards; do not change another job's environment."""
     def blocked(*args,**kwargs):
-        events.append(dict(kind='NETWORK_OR_DOWNLOAD_BLOCKED'))
+        events.append(dict(kind='NETWORK_OR_DOWNLOAD_BLOCKED', guard_stack=traceback.format_stack(limit=24)))
         raise RuntimeError('Metric CPU validation forbids network access or implicit downloads')
     socket.create_connection=blocked
     socket.socket.connect=blocked
     socket.socket.connect_ex=blocked
     urllib.request.urlopen=blocked
     original_run,original_popen=subprocess.run,subprocess.Popen
-    def inspect_command(command):
+    def inspect_command(command, kwargs):
         first=(command.split()[0] if isinstance(command,str) else str(command[0]))
+        if read_only_git_version(command,shell=kwargs.get('shell',False),executable=kwargs.get('executable')):
+            if allowed_process_probes is not None:
+                allowed_process_probes.append(dict(kind='LOCAL_READ_ONLY_GIT_VERSION',argv=list(command)))
+            return
         if Path(first).name in ('wget','curl','git','pip','pip3'):
             blocked()
     def run(command,*args,**kwargs):
-        inspect_command(command);return original_run(command,*args,**kwargs)
+        inspect_command(command,kwargs);return original_run(command,*args,**kwargs)
     def popen(command,*args,**kwargs):
-        inspect_command(command);return original_popen(command,*args,**kwargs)
+        inspect_command(command,kwargs);return original_popen(command,*args,**kwargs)
     subprocess.run,subprocess.Popen=run,popen
     return blocked
 
@@ -148,7 +160,7 @@ def probe(role,stage,resource,torch):
                      preprocessing='ORIGINAL_LONGER512_BILINEAR_NO_ANTIALIAS')
     if model.training or any(p.device.type!='cpu' or p.dtype!=torch.float32 for p in model.parameters()):
         raise ValueError('All actual model parameters must be FP32 CPU in eval mode')
-    source=Path(inspect.getfile(type(model)))
+    source=Path(inspect.getfile(type(model))).resolve()
     return dict(role=role,model_class=type(model).__module__+'.'+type(model).__qualname__,
         model_source=str(source),model_source_sha256=sha(source),parameter_count=sum(p.numel() for p in model.parameters()),
         constructor_source_sha256=sha(inspect.getfile(construct)),
@@ -162,7 +174,7 @@ def main():
     args=parser.parse_args();stage=args.stage.resolve();result=stage/('CPU-model-'+args.role+'.json')
     assert not result.exists()
     sys.dont_write_bytecode=True
-    started=time.time();events=[];torch=None;exit_code=1
+    started=time.time();events=[];allowed_process_probes=[];loads=[];state_loads=[];torch=None;exit_code=1
     observation=dict(status='N10_METRIC_MODEL_CPU_RUNNING',role=args.role,
         synthetic_inputs_only=True,paper_quality_scores_generated=False,final_videos_read=False,
         GPU_submissions=0,server_ledger_written=False)
@@ -175,7 +187,7 @@ def main():
         if os.environ.get('CUDA_VISIBLE_DEVICES')!='':raise ValueError('Explicit CPU-only visibility required')
         os.environ.update(VBENCH_CACHE_DIR=str(stage/'cache'),HF_HUB_OFFLINE='1',TRANSFORMERS_OFFLINE='1',
                           PYTHONDONTWRITEBYTECODE='1')
-        blocked=deny_external_access(events)
+        blocked=deny_external_access(events,allowed_process_probes)
         sys.path[:0]=[str(stage/'upstream'),str(stage/'src')]
         import torch as torch_module
         torch=torch_module;torch.set_num_threads(2);torch.set_default_dtype(torch.float32)
@@ -189,7 +201,7 @@ def main():
             events.append(dict(kind='CUDA_INITIALIZATION_BLOCKED'))
             raise RuntimeError('Metric model validation is CPU only')
         torch.cuda._lazy_init=no_cuda;torch.hub.download_url_to_file=blocked
-        original_load=torch.load;loads=[];state_loads=[]
+        original_load=torch.load
         original_state_load=torch.nn.Module.load_state_dict
         def checked_state_load(module,state,*positional,**kwargs):
             answer=original_state_load(module,state,*positional,**kwargs)
@@ -206,6 +218,7 @@ def main():
         torch.load=checked_load
         torch.nn.Module.load_state_dict=checked_state_load
         with torch.inference_mode():actual=probe(args.role,stage,resource,torch)
+        observation.update(actual=actual,real_checkpoint_loads=loads,actual_state_dict_loads=state_loads)
         if (not loads or not state_loads or any(r['missing_keys'] or r['unexpected_keys'] for r in state_loads)
                 or torch.cuda.is_initialized() or events):
             raise ValueError('Missing real weight load or forbidden CUDA/network activity')
@@ -227,6 +240,8 @@ def main():
             error=str(error),traceback=traceback.format_exc(),forbidden_events=events,exit_code=1,
             CUDA_initialized=torch.cuda.is_initialized() if torch is not None else False)
     finally:
+        observation.update(real_checkpoint_loads=loads,actual_state_dict_loads=state_loads,
+                           allowed_read_only_process_probes=allowed_process_probes)
         observation['wall_seconds']=time.time()-started
         with result.open('x') as handle:json.dump(observation,handle,indent=2,allow_nan=False)
         gc.collect()

@@ -17,7 +17,7 @@ from evaluate_wc_N10_metric_model_cpu_r1 import ROLES,WEIGHTS,MUSIQ_SOURCE_SHA,s
 CLASSES=dict(DINO='vision_transformer.VisionTransformer',AMT_S='networks.AMT-S.Model',
     RAFT_THINGS='vbench.third_party.RAFT.core.raft.RAFT',ViCLIP='vbench.third_party.ViCLIP.viclip.ViCLIP',
     MUSIQ_SPAQ='pyiqa.archs.musiq_arch.MUSIQ')
-INPUTS=dict(DINO=[2,3,224,224],AMT_S=[1,3,432,768],RAFT_THINGS=[1,3,432,768],
+INPUTS=dict(DINO=[2,3,224,398],AMT_S=[1,3,432,768],RAFT_THINGS=[1,3,432,768],
             ViCLIP=[1,8,3,224,224],MUSIQ_SPAQ=[1,3,288,512])
 OUTPUTS=dict(DINO={'features':[2,768]},AMT_S={'interpolated_frame':[1,3,432,768]},
     RAFT_THINGS={'coarse_flow':[1,2,54,96],'full_flow':[1,2,432,768]},
@@ -61,8 +61,8 @@ def accept_role(role,value,registration,registration_sha256,resources):
                 or (expected is not None and tensor['shape']!=expected)
                 or (expected is None and math.prod(tensor['shape'])!=1)):
             raise ValueError('Actual finite CPU output interface differs: '+role+'/'+name)
-    root=Path(registration['stage'])
-    source=Path(actual['model_source'])
+    root=Path(registration['stage']).resolve()
+    source=Path(actual['model_source']).resolve()
     if role=='MUSIQ_SPAQ':
         if actual['model_source_sha256']!=MUSIQ_SOURCE_SHA or value['dependency_versions']['pyiqa']!='0.1.10':
             raise ValueError('Original MUSIQ implementation changed')
