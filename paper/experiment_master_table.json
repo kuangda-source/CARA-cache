@@ -2190,7 +2190,10 @@
         "N12_halfway_original_2246",
         "N12_halfway_independent_accepted",
         "N12_saved_warm21_CPU_plan",
-        "N12_saved_warm21_CPU_registration"
+        "N12_saved_warm21_CPU_registration",
+        "N12_warm21_math_core",
+        "N12_warm21_math_controls",
+        "N12_warm21_math_Tiny_CPU_preparation"
       ],
       "method_mapping_ids": [
         "module.gcr",
@@ -2241,7 +2244,10 @@
       "saved_warm21_CPU_plan_ref": "plans/WC_N12_SAVED_WARM_STEP21_CPU_ANALYSIS_20261017.md",
       "saved_warm21_CPU_executed": false,
       "saved_warm21_CPU_results": null,
-      "saved_warm21_CPU_is_original_GPU_preregistration": false
+      "saved_warm21_CPU_is_original_GPU_preregistration": false,
+      "saved_warm21_math_core_implemented": true,
+      "saved_warm21_math_core_Tiny_CPU_tests_passed": 5,
+      "saved_warm21_raw_reader_implemented": false
     }
   ],
   "source_refs": {
@@ -2863,7 +2869,10 @@
     "N09_timing_CPU_dispatch_controls": "tests/test_runtime_profile40_cpu_acceptance_r1.py",
     "N09_timing_current194_Git_packet": "reports/wc_paper_N09_complete194_Git_packet_local_acceptance_r2_20261017.json",
     "N12_saved_warm21_CPU_plan": "plans/WC_N12_SAVED_WARM_STEP21_CPU_ANALYSIS_20261017.md",
-    "N12_saved_warm21_CPU_registration": "manifests/wc_drop1_saved_warm_step21_CPU_plan_20261017.json"
+    "N12_saved_warm21_CPU_registration": "manifests/wc_drop1_saved_warm_step21_CPU_plan_20261017.json",
+    "N12_warm21_math_core": "src/wcomr/drop1_warm21_analysis_r1.py",
+    "N12_warm21_math_controls": "tests/test_drop1_warm21_analysis_r1.py",
+    "N12_warm21_math_Tiny_CPU_preparation": "reports/wc_drop1_saved_warm21_math_local_CPU_preparation_20261017.json"
   },
   "source_bindings": {
     "11": {
@@ -5341,6 +5350,18 @@
     "N12_saved_warm21_CPU_registration": {
       "path": "manifests/wc_drop1_saved_warm_step21_CPU_plan_20261017.json",
       "sha256": "bf7f63a3eb64efc83d8b3d248e577a8b8537481fb7e87fca3c456c53541dce11"
+    },
+    "N12_warm21_math_core": {
+      "path": "src/wcomr/drop1_warm21_analysis_r1.py",
+      "sha256": "a617bc0aee3fa93dce226fd267eda877a0584a833e908ff6bf64f80aa6e40de3"
+    },
+    "N12_warm21_math_controls": {
+      "path": "tests/test_drop1_warm21_analysis_r1.py",
+      "sha256": "238ae5eca31a568f3ae1ec382f191243161bd418080ccb7599cae49af3c1d43e"
+    },
+    "N12_warm21_math_Tiny_CPU_preparation": {
+      "path": "reports/wc_drop1_saved_warm21_math_local_CPU_preparation_20261017.json",
+      "sha256": "4142ff22d06b349eff4e1e7da45c1ed929ab754df4982b0d7ad457b5277d57eb"
     }
   },
   "operation_policy": {
@@ -5902,8 +5923,8 @@
     "N10_local_resource_materialized_and_hash_reaccepted": true,
     "N10_server_resource_relay_started": false,
     "N10_new_GPU_card_selected": false,
-    "last_goal_turn_classification": "PROGRESS_N10_ACTUAL_229_STATIC_RESOURCE_MATERIALIZATION",
-    "current_goal_turn_classification": "PROGRESS_N09_REAL_DISPATCH_KEY_FAILURE_FIXED_FULL74_CPU_CURRENT194",
+    "last_goal_turn_classification": "PROGRESS_N09_REAL_DISPATCH_KEY_FAILURE_FIXED_FULL74_CPU_CURRENT194",
+    "current_goal_turn_classification": "PROGRESS_SAVED_WARM21_MATH_ONLY_CPU_PREPARATION_NO_REAL_DATA",
     "last_local_preparation_source_refs": [
       "N10_R2_actual_input_556",
       "N10_R2_all160_full960_inputs",
@@ -5953,5 +5974,5 @@
     "N09_current_config_sha256": "afea36a3e9487556438c4f70dc95c7143b7c39559e13368a7c4cca40fe974adc",
     "N09_server_CPU_dispatched": false
   },
-  "mapping_sha256_at_inventory": "8efb6fbfc14d07ee5470d3e64c97d2cced695784d5e6752c02218a4a7654c5b4"
+  "mapping_sha256_at_inventory": "3dbb40842f20a433b8675c3e8aed4fe71788cca3235f804b204ea0947cd2e79c"
 }
