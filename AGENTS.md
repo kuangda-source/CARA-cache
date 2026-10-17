@@ -1,3 +1,9 @@
+## 2026-10-18 当前：N09 fresh生产CPU已接受，完整40等待GPU；连续修正旧12对照已绑定
+
+[580完整接受与接续](research/580_WC_N09_FRESH_CPU_ACCEPTED_ALL12_WINDOW_CONTROLS_READY_AND_GPU_QUEUE_20261018.md)：source1de07673／R3新目录／1787源／九组控制及真实完整40入口共10命令已独立接受，bundle182.2257秒，原PID1699795终态。02:43半程及02:46完整原件各一次完成，两个CPU自动化已删除；原R2未准入fence保留，fresh R3未GPU派发。worldcache-gpu每两小时查看一次，资源可用时直接接R3证明、原40范围／forecast4.245833333／计费上限5，经fresh授权／v2／UUID准入推进，不重复CPU。
+
+连续修正完整24的全部12旧端点已从原18原件重验并绑定，八项语义控制全过；仅是准备，原服务器文件未重审，仍需真实生产／12旧端点与四warm控制／N09价格报价，A3结果空。88数值源不变。N10五模型R2和原160／960实际输入已接受，0质量分数，评分生产／报价／GPU待。目前无本项目CPU／GPU在途；最近账本cap226／实结110.869061155／预留0余115.130938845及origin历史不变，strict<12和长任务半程／ETA各一次保持。N09正式GPU测量不并发重CPU，F/B关闭。以下为历史。
+
 ## 2026-10-18 当前：N09 fresh完整生产CPU R3在途；GPU每两小时查看
 
 [579当前原任务](research/579_WC_N09_FRESH_FULL40_CPU_R3_RUNNING_WHILE_TWO_HOURLY_GPU_CHECK_20261018.md)：source1de07673／新stage wc-paper-n09-production-cpu-r3-20261018／PID1699795/start555732410／1787源／194 overlay及10完整CPU命令已于02:40:20.584985单次派发。02:43一次技术半程、02:46一次完整原件接受，worldcache-n09-r3-cpu／worldcache-n09-r3-cpu-2；原N09 R2 GPU未准入的fence和0费用保持，fresh R3未GPU派发、不提前查CPU进度或GPU占用。
