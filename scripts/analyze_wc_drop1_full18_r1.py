@@ -12,14 +12,29 @@ def analyze(v,c):
         if not ok:errors.append(label)
     check(v['mode']=='terminal','Terminal raw capture required')
     check(all(v['payload_verified'].values()) and all(v['runtime_verified'].values()),'All immutable payload/runtime sources')
+    check(bool(v['payload_verified']) and bool(v['runtime_verified']),'Nonempty complete source denominators')
     check(v['registration_sha256']==launch['registration_sha256'],'Original registration')
     sup,runner,post=v.get('supervisor',{}),v.get('runner',{}),v.get('post_exit',{})
+    proof=v.get('production_CPU',{});numeric=v.get('numeric_CPU',{});bundle=v.get('CPU_bundle',{})
+    check(proof.get('status')=='DROP1_FULL18_ACTUAL_PRODUCTION_CPU_PASS_NOT_GPU'
+        and proof.get('config_sha256')==launch['config_sha256']
+        and proof.get('registration_sha256')==launch['registration_sha256']
+        and proof.get('source_revision')==launch['source_revision'],'Actual production CPU binding')
+    check(numeric.get('status')=='DROP1_FULL56_TWO_FLOW_NUMERICAL_CPU_PASS_NOT_GPU'
+        and numeric.get('actual_CPU_paths')==56 and numeric.get('new_complete_paths')==48
+        and numeric.get('old_control_paths')==8 and numeric.get('GPU_submissions')==0
+        and not numeric.get('CUDA_initialized'),'Complete numeric56 proof')
+    check(numeric.get('payload_sha256')==v.get('registration',{}).get('payload_sha256'),'Sampling-tested exact source set')
+    check(bundle.get('status')=='DROP1_COMPLETE_CPU_ACCEPTED_NOT_GPU'
+        and len(bundle.get('commands',[]))==4 and all(q['exit_code']==0 for q in bundle.get('commands',[])),'All four actual CPU commands')
     check(sup.get('source_revision')==runner.get('source_revision')==launch['source_revision'],'Original source identities')
     check(sup.get('child_exit_code')==0 and post.get('exit_code')==0,'Original GPU and CPU terminal success')
     check(all(q['state'] in (None,'Z','X') for q in v['original_processes'].values()),'Original owned processes terminal')
-    check(v['own_UUID_lock_free'],'Own UUID lock released')
     own_apps=[s for s in v['compute_apps'].splitlines() if s.split(',')[0].strip()==launch['gpu_uuid']]
-    check(not own_apps,'Own UUID compute released')
+    own_pids={launch['supervisor_pid'],sup.get('child_pid')}
+    check(not any(int(s.split(',')[1]) in own_pids for s in own_apps),'Own original compute processes released')
+    reuse=[q for k,q in v['pool']['jobs'].items() if k!=launch['run_id'] and q['status']=='RESERVED_OR_RUNNING' and q['gpu_uuid']==launch['gpu_uuid']]
+    check(v['own_UUID_lock_free'] or bool(reuse),'Original UUID release or documented later legal reuse')
     bill=v.get('billing',{});job=v['pool']['jobs'].get(launch['run_id'],{})
     check(bill.get('run_id')==job.get('job_id')==launch['run_id'],'Original billed job')
     actual=bill.get('actual_GPUh')
@@ -29,6 +44,15 @@ def analyze(v,c):
     final=v.get('final',{});rows=final.get('rows',[]);runs=runner.get('runs',[])
     check(len(rows)==len(runs)==18,'Original all18 positions')
     ids=[q['id'] for q in rows];check(len(ids)==len(set(ids)),'Unique original path IDs')
+    scenes=[q['name'] for q in c['requests']];expected=[]
+    for repeat in (1,2):
+        for method in METHODS if repeat==1 else METHODS[::-1]:
+            expected.append(dict(id=f'warm_{repeat}_{method}',scene=scenes[0],method=method,section='WARMUP',round=repeat))
+    for i,scene in enumerate(scenes):
+        for method in METHODS if i%2==0 else METHODS[::-1]:
+            expected.append(dict(id=f'timed_{i}_{method}',scene=scene,method=method,section='TIMED',round=1))
+    check([{k:r.get(k) for k in p} for r,p in zip(rows,expected)]==expected,'All original18 scenes/methods/order')
+    check([q['id'] for q in runs]==ids,'GPU and post original denominator order')
     check(final.get('scope_counts')==c['scope_counts']==launch['scope_counts'],'Complete bound scope')
     check(final.get('status')=='DROP1_FULL12_SCIENCE_ALL18_AUDITED_93FRAME_SCORED','All applicable raw/scoring controls')
     for q in final.get('original_baseline_controls',[]):check(q['status'].startswith('PASS'),'Original front26 control '+q['scene'])
@@ -59,7 +83,8 @@ def analyze(v,c):
             check(all(math.isfinite(t) and t>=0 for t in frames),row['id']+' finite LPIPS')
             quality=statistics.mean(frames);check(math.isclose(quality,score['mean_LPIPS'],abs_tol=1e-12),row['id']+' independent mean')
             formal[(row['scene'],row['method'])]=dict(LPIPS=quality,seconds=row['core_seconds'],counts=row['counts'],frames=frames)
-    scenes=[q['name'] for q in c['requests']];contrasts=[]
+    check(len(formal)==12 and all((s,m) in formal for s in scenes for m in METHODS),'All twelve compatible formal endpoints')
+    contrasts=[]
     for candidate,baseline in [('S25-A','S25-C'),('S25-A','S26-C'),('S25-C','S26-C')]:
         pairs=[]
         for scene in scenes:
