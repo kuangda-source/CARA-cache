@@ -1,3 +1,7 @@
+## 2026-10-17 N08原完整40已在GPU0运行，15:32/17:32查收
+
+[550实际准入与两次查收](../research/550_WC_N08_COMPLETE40_CPU_ACCEPTED_GPU_RUNNING_AND_1532_1732_COLLECTION_20261017.md)：R2完整结果547已总结并推送，原N08完整40于13:31:23在GPU0单次准入，source8bdebc3、stage wc-paper-n08-production-cpu-r1-20261017，supervisor1265104/runner1265137/post1265105及原start_ticks独立接受。1747源/九命令实际CPU全部0退出（148.614s）、三进程/原UUID锁和完整预留通过；原五角色/2旧CAL/30正式+10warm/1440pairs/1load不变。已启用worldcache-180的新N08查收：15:32半程/17:32最终各一次，不持续监听。实结106.722650231/113，预留3.6275，可新准入2.649849769，预留非实费。0新方法结果，不并行GPU或重CPU指标；F/B关闭，旧R2等不重查。以下为历史。
+
 ## 2026-10-17 N08完整40实际服务器CPU已单次启动
 
 [549当前CPU与接续](../research/549_WC_N08_FULL40_ACTUAL_PRODUCTION_CPU_RUNNING_AFTER_R2_COMPLETE_20261017.md)：R2完整结果已验收并总结547/推送8bdebc3；N08 source8bdebc3的独立stage已于13:22:55单次启动实际CPU1263883/start550947856，1747payload/180overlay/原九命令、完整40范围，13:28一次查收（最早13:27:55）。CPU/GPU结果仍待，当前0新GPU/预算写。通过后fresh v2/UUID/clean资源准入原3.6275GPUh完整40，不重复确认；实际启动后2h半程/4h终态各一次。当前实结106.722650231/113、余6.277349769、预留0。F/B关闭；原R2/旧卡不重查。以下为历史。
