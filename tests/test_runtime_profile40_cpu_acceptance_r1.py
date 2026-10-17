@@ -277,8 +277,10 @@ class RuntimeProfile40CPUAcceptanceControls(unittest.TestCase):
                 self.assertEqual(spawned.call_count,2)
             receipt = json.loads(old)
             self.assertEqual(receipt['scope_counts'],COUNTS)
-            self.assertEqual(receipt['midpoint_health_not_before_unix']-receipt['started_unix'],600.)
-            self.assertEqual(receipt['next_check_not_before_unix']-receipt['started_unix'],1200.)
+            self.assertEqual(receipt['midpoint_health_not_before_unix']-receipt['started_unix'],
+                values[0]['midpoint_health_delay_seconds'])
+            self.assertEqual(receipt['next_check_not_before_unix']-receipt['started_unix'],
+                values[0]['first_collection_delay_seconds'])
             self.assertEqual(receipt['supervisor_identity']['pid'],12345)
             self.assertEqual(receipt['post_watcher_identity']['pid'],12346)
             self.assertEqual(receipt['independent_CPU_acceptance_sha256'],hashlib.sha256(text.encode()).hexdigest())

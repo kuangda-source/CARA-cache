@@ -1,0 +1,17 @@
+{
+  "status": "N09_REAL_SELECTED_CONFIG_ORIGINAL_GPU_TIMING_BLOCK_REPRODUCTION",
+  "config_ref": "configs/wc_paper_N09_runtime_profile40_production_r1_20261016.json",
+  "config_sha256": "34393ea9ed14826540307051739095274dc33241bb9f6941a494c508f3968ef2",
+  "launcher_ref": "scripts/launch_wc_paper_N09_runtime_profile40_r1.py",
+  "launcher_sha256": "36eb6899ee92934b7cb9e267bee70ad4238a9c168f998653e736a6f7c39369cb",
+  "exact_extracted_source": "delay = config['first_collection_delay_seconds']\nhalf = config.get('midpoint_health_delay_seconds', delay / 2)\nassert all((isinstance(x, (int, float)) and (not isinstance(x, bool)) and math.isfinite(x) for x in (delay, half)))\nassert delay >= 60 and 0 < half < delay",
+  "only_original_four_timing_statements_executed": true,
+  "remote_code_executed": false,
+  "stage_or_launch_fence_created": false,
+  "GPU_submissions": 0,
+  "SSH_queries": 0,
+  "ledger_written": false,
+  "timing_block_accepted": false,
+  "error_type": "KeyError",
+  "error": "'first_collection_delay_seconds'"
+}

@@ -15,6 +15,20 @@ PROFILE_SOURCES=('src/wcomr/deployment_profile_r1.py','src/wcomr/frozen_shared_e
                  'src/wcomr/paper_baseline_grid_r1.py','src/wcomr/simple26d_memory_r2.py')
 
 
+def collection_delays(config):
+    """Validate the actual dispatch keys before a production CPU can pass."""
+    try:
+        delay=config['first_collection_delay_seconds']
+        half=config.get('midpoint_health_delay_seconds',delay/2)
+        forecast=config['forecast_complete_GPUh']
+    except (KeyError,TypeError) as error:
+        raise ValueError('Explicit valid midpoint and final collection delays required') from error
+    if (any(not number(v) for v in (delay,half,forecast)) or forecast<=0
+            or delay<max(60,forecast*3600) or not 0<half<delay):
+        raise ValueError('Midpoint must precede final collection, after the forecast for final acceptance')
+    return delay,half
+
+
 def validate_contract(config,scope,protocol,freeze,shared):
     if (config['card']!=CARD or config['run_id']!=RUN or config['scope_counts']!=COUNTS
             or config['main_timing']!='SYNCHRONIZED_TEXT_ENCODING_DENOISING_VAE_DECODING'
@@ -34,6 +48,7 @@ def validate_contract(config,scope,protocol,freeze,shared):
     if (not all(number(v) for v in (cost,limit,cap,origin)) or not 0<cost<=limit
             or cap<shared['cumulative_cap_GPUh'] or origin!=shared['budget_origin_used_GPUh']):
         raise ValueError('Explicit whole diagnostic cost and the unchanged cumulative budget origin required')
+    collection_delays(config)
     return bound
 
 

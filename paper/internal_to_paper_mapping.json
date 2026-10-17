@@ -1768,10 +1768,12 @@
         "profile_audit_lean_endpoint_parity_pairs": 10,
         "accepted_video_expected_frames": 93
       },
-      "sha256": "34393ea9ed14826540307051739095274dc33241bb9f6941a494c508f3968ef2",
+      "sha256": "afea36a3e9487556438c4f70dc95c7143b7c39559e13368a7c4cca40fe974adc",
       "server_production_CPU_accepted": false,
       "GPU_dispatched": false,
-      "component_measurements": null
+      "component_measurements": null,
+      "first_collection_delay_seconds": 17100,
+      "midpoint_health_delay_seconds": 7800
     }
   },
   "evidence_reports": {
@@ -1940,7 +1942,15 @@
     "N08_separate_interval_independent": "reports/wc_N08_separate_intervals_independent_acceptance_20261017.json",
     "N10_static229_report_561": "research/561_WC_N10_LOCAL_STATIC229_MATERIALIZED_AND_FIVE_MODEL_CPU_NEXT_20261017.md",
     "N10_static229_materialization": "reports/wc_N10_local_static_payload_materialization_20261017.json",
-    "N10_static229_checker": "scripts/check_wc_N10_local_static_payload_r1.py"
+    "N10_static229_checker": "scripts/check_wc_N10_local_static_payload_r1.py",
+    "N09_timing_report_562": "research/562_WC_N09_DISPATCH_TIMING_KEYS_REPAIRED_FULL74_CPU_AND_CURRENT194_20261017.md",
+    "N09_timing_original_missing_key": "reports/wc_paper_N09_actual_config_missing_dispatch_timing_reproduction_20261017.json",
+    "N09_timing_original_fixture_failures": "reports/wc_paper_N09_timing_contract_local_CPU_failure_retained_r2_20261017.json",
+    "N09_timing_complete74_CPU": "reports/wc_paper_N09_actual40_dispatch_timing_local_CPU_acceptance_r3_20261017.json",
+    "N09_timing_current194_dry_plan": "reports/wc_paper_N09_actual40_source_packet_dry_plan_r2_20261017.json",
+    "N09_timing_contract_current": "src/wcomr/runtime_profile40_production_r1.py",
+    "N09_timing_supervisor_fixture": "tests/test_runtime_profile40_supervision_r1.py",
+    "N09_timing_CPU_dispatch_controls": "tests/test_runtime_profile40_cpu_acceptance_r1.py"
   },
   "evidence_batches": {
     "curve60": {
@@ -5211,8 +5221,8 @@
       "bytes": 11243
     },
     "src/wcomr/runtime_profile40_production_r1.py": {
-      "sha256": "3d0cef2e801b0c586256960c7d281644033eaf97a8fc45fb619ccac851ba8c2c",
-      "bytes": 9762
+      "sha256": "6d9a32be717c62d0a61832a669161b902ca3ed5ccb350bd2dd908b2f8cabefd4",
+      "bytes": 10492
     },
     "scripts/run_wc_paper_N09_runtime_profile40_r1.py": {
       "sha256": "2a4cf863834722768c0190ed76203c0c6467cf0b556a499d063e4c46f1bc8443",
@@ -5223,8 +5233,8 @@
       "bytes": 10444
     },
     "tests/test_runtime_profile40_production_r1.py": {
-      "sha256": "4a580e75d887b0bab2549b6aabf969e6d4d6b481a4da56aee0abb52572621be8",
-      "bytes": 13057
+      "sha256": "a6a103c11772aad100ca90be7aa08ede955856b0aaf7a6ee0cec0798810f2f01",
+      "bytes": 14138
     },
     "reports/wc_paper_N09_runtime40_execution_CPU_R1_20261016.json": {
       "sha256": "b309220f90344c02fcd1e603b2bf257e520a1f7390ec3ba9ff94d2665c53311c",
@@ -5311,8 +5321,8 @@
       "bytes": 4608
     },
     "tests/test_runtime_profile40_supervision_r1.py": {
-      "sha256": "b8cc14224fb25b146a7c2b05f398d92d8a0e39c156ebed74717b278c151b20a7",
-      "bytes": 16148
+      "sha256": "db701b141e6ab2ff0b9ee08bcf11c013d4840ed5f58bd52e9b9d0bd6fb0d33ca",
+      "bytes": 16212
     },
     "tests/test_runtime_profile40_post_watcher_r1.py": {
       "sha256": "b8b1f87729705f5d792eb09f233dcfc2d60cc68f3be48456f6f16511b215b3b7",
@@ -5343,8 +5353,8 @@
       "bytes": 1057
     },
     "tests/test_runtime_profile40_cpu_acceptance_r1.py": {
-      "sha256": "275c21f8f75b5b7fab87dd07ec16f56756cf8ccade7ec6b11014c477ddd4c55d",
-      "bytes": 25281
+      "sha256": "2c686ea74da00404fa643a35759ca08ccac972540658f91b1333fe6372e2e326",
+      "bytes": 25391
     },
     "reports/wc_paper_N09_runtime40_CPU_bundle_and_acceptor_R1_20261016.json": {
       "sha256": "b3cd1a58f158f63c03b3c94e8062aa51305bf9147f6bf2356c7e1ad220acfddb",
@@ -5407,28 +5417,28 @@
       "bytes": 8960
     },
     "memory/handoffs/LATEST.md": {
-      "sha256": "3e35d2f933c166e7c6154243a5d4ed7518ed762957c3dc55c268a71850660f60",
-      "bytes": 660370
+      "sha256": "5fd0eb7b2b2acbd7e49ededcc3f9ca5ae419338c760d9fb2f0114d5d03f15fed",
+      "bytes": 660943
     },
     "src/wcomr/runtime_profile40_acceptance_r1.py": {
       "sha256": "9d5de68477518880b2087a557b699a93ca73e8ab06a058e2c54059997af45116",
       "bytes": 17772
     },
     "research/09_NEXT_ACTIONS.md": {
-      "sha256": "61f75da32bcef332dcd00955914146210f32f86b3c2c3c7772939b1b09e5073f",
-      "bytes": 596497
+      "sha256": "325ec6690f8e37063e432728104561e3b56c3c773efc45ccec66616ce1c8e1ce",
+      "bytes": 597055
     },
     "reports/wc_paper_N09_runtime40_collection_R1_fixture_failure_20261016.json": {
       "sha256": "1b03ddcd9982149e9fe2254c9770eb85b0f9b69e5f1f81958be66df55d1bb247",
       "bytes": 2169
     },
     "paper/EXPERIMENT_MASTER_TABLE.md": {
-      "sha256": "3707be3cbdbd0b4804b2a6f69c15b08d6571297991c6839ecb7dfde365af4aea",
-      "bytes": 67769
+      "sha256": "67be337ec5b1e1ec7cb06d50e8c63cbf5c6242b5f12b964d185f395e838007f9",
+      "bytes": 68339
     },
     "research/02_CURRENT_STATE.md": {
-      "sha256": "b5af1d48c07ae9eb4f13b7b19bb9cc98f43f12d00d56af27b3133eb210baf11b",
-      "bytes": 571532
+      "sha256": "e84a6d32658b459f3efbdb4a573d21096ddea7c4cb23cf9753ad839492ec0dc7",
+      "bytes": 572090
     },
     "tests/test_runtime_profile40_capture_r1.py": {
       "sha256": "40cba26bb42f450c8afdd075ef9e594ebd92639fd0424d61e5e8583ba1b17491",
@@ -5451,20 +5461,20 @@
       "bytes": 3368
     },
     "plans/WORLD_CACHE_MAINLINE_PRIORITY_QUEUE_20261016.md": {
-      "sha256": "871e7b5039a7b359e66cc51cd71ab10795c062147bb17c0e5f7cb99a78a640fb",
-      "bytes": 56589
+      "sha256": "978b0000927107444d78f20f255e666d92dbb64b0ed1956ccb5b8c4c88ccc232",
+      "bytes": 57159
     },
     "EXPERIMENT_REPORT.md": {
-      "sha256": "7eb47f6e708e0a587ba15a3e3a6bcd053bf7bc4c2cc956173df25faa055aee1c",
-      "bytes": 624784
+      "sha256": "caee1c07770063db23087903efd02a62958d7e899d205aaca42a0c9874c3a7a9",
+      "bytes": 625351
     },
     "paper/INTERNAL_TO_PAPER_MAPPING.md": {
-      "sha256": "9d8d62d4256a16592b57c4c33d9c83b2551a085229018af4e333b8e3fb7b6b37",
-      "bytes": 75852
+      "sha256": "b4fe3c387b40394c59110e3e37a46b7520fa5c27e805fbb6a949022494449f40",
+      "bytes": 76422
     },
     "AGENTS.md": {
-      "sha256": "b68e5f87fd20a1f5f5ac3eafe86b9cd5645caf564b0097ce9ecd50a6e04dca37",
-      "bytes": 572666
+      "sha256": "b4a72be8d8ff0f58ec0fac0ff05bfe3bc4199c447a01865d51984a86997ac8f3",
+      "bytes": 573233
     },
     "scripts/prepare_wc_paper_N09_action16_scope_r1.py": {
       "sha256": "29ebbd44644f2711c31027d69de4b4d2347e8514a808551665007ba89ac6a15e",
@@ -6547,8 +6557,8 @@
       "bytes": 5333
     },
     "configs/wc_paper_N09_runtime_profile40_production_r1_20261016.json": {
-      "sha256": "34393ea9ed14826540307051739095274dc33241bb9f6941a494c508f3968ef2",
-      "bytes": 4059
+      "sha256": "afea36a3e9487556438c4f70dc95c7143b7c39559e13368a7c4cca40fe974adc",
+      "bytes": 4589
     },
     "reports/wc_paper_N09_actual_N08_roundoff_contract_failure_reproduction_20261017.json": {
       "sha256": "27006ee3d81589d53de6b2999f0b48b88f90f2e2aa55482ada24a5ff257194b6",
@@ -6617,6 +6627,26 @@
     "scripts/check_wc_N10_local_static_payload_r1.py": {
       "sha256": "0db6f26ad7e3d8da128fbf19da5d40df0046de3f64e10918f3f17b173bd15d76",
       "bytes": 7018
+    },
+    "reports/wc_paper_N09_actual40_dispatch_timing_local_CPU_acceptance_r3_20261017.json": {
+      "sha256": "a8eeb85333bdbf999d342c15b2423c6cc8a87461228a09f530e5e07a2867c237",
+      "bytes": 15734
+    },
+    "reports/wc_paper_N09_actual40_source_packet_dry_plan_r2_20261017.json": {
+      "sha256": "3e606da11cf05222aa1c7b8380d8df8ff4567b37537815d868aa9aef9aeb016c",
+      "bytes": 40690
+    },
+    "reports/wc_paper_N09_actual_config_missing_dispatch_timing_reproduction_20261017.json": {
+      "sha256": "d675a75cbb3d4fdf44bebf2616c99eda3bd7b297879b7432337e4c562893cad6",
+      "bytes": 1030
+    },
+    "research/562_WC_N09_DISPATCH_TIMING_KEYS_REPAIRED_FULL74_CPU_AND_CURRENT194_20261017.md": {
+      "sha256": "3a8dce60683b8e9e009ece8e94e590fad0fa121bd0a0108b23c4c919b29a8cbb",
+      "bytes": 2966
+    },
+    "reports/wc_paper_N09_timing_contract_local_CPU_failure_retained_r2_20261017.json": {
+      "sha256": "1f9a1cb4f73f1eab769bfc10afd412b2d0a45087c3b9adb214f3f2a771312667",
+      "bytes": 19804
     }
   },
   "math_notation": [
@@ -6992,7 +7022,8 @@
     "558": "research/558_WC_N09_ACTUAL40_PRIOR_ACCEPTANCE_BRIDGE_AND_LOCAL_CONFIGURATION_20261017.md",
     "559": "research/559_WC_DROP1_FULL18_ONCE_HALFWAY_HEALTH_AND_FINAL_PENDING_20261017.md",
     "560": "research/560_WC_ACCEPTED_N08_SEPARATE_REQUEST_INTERVALS_AND_N09_REMAINING_20261017.md",
-    "561": "research/561_WC_N10_LOCAL_STATIC229_MATERIALIZED_AND_FIVE_MODEL_CPU_NEXT_20261017.md"
+    "561": "research/561_WC_N10_LOCAL_STATIC229_MATERIALIZED_AND_FIVE_MODEL_CPU_NEXT_20261017.md",
+    "562": "research/562_WC_N09_DISPATCH_TIMING_KEYS_REPAIRED_FULL74_CPU_AND_CURRENT194_20261017.md"
   },
   "experiment_inventory_ref": "paper/experiment_master_table.json",
   "experiment_inventory_table": "paper/EXPERIMENT_MASTER_TABLE.md",

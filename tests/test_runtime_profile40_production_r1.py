@@ -32,7 +32,8 @@ def fixture():
         autonomy_exclusive_upper_GPUh=12,training=False,online_teachers=False,F_B_enabled=False,
         P_ACR=False,T1=False,head_elision=False,bound_profile_fingerprint=fingerprint(bound),
         forecast_complete_GPUh=4.1,billed_limit_GPUh=4.5,cumulative_cap_GPUh=113.,
-        budget_origin_used_GPUh=shared['budget_origin_used_GPUh'])
+        budget_origin_used_GPUh=shared['budget_origin_used_GPUh'],
+        first_collection_delay_seconds=18000,midpoint_health_delay_seconds=9000)
     return config,scope,protocol,freeze,shared,bound
 
 
@@ -167,6 +168,20 @@ class RuntimeProfileProductionControls(unittest.TestCase):
                         physical.assert_not_called()
                         if mode=='unknown':bridge.assert_not_called()
                     strict.assert_not_called()
+
+    def test_actual_dispatch_collection_keys_are_checked_in_the_CPU_contract(self):
+        config,scope,protocol,freeze,shared,bound=fixture()
+        self.assertEqual(P.collection_delays(config),(18000,9000))
+        changes=[('first_collection_delay_seconds',None),('first_collection_delay_seconds',True),
+            ('first_collection_delay_seconds',30),('first_collection_delay_seconds',4.1*3600-1),
+            ('midpoint_health_delay_seconds',0),('midpoint_health_delay_seconds',18000),
+            ('midpoint_health_delay_seconds',float('nan'))]
+        for key,value in changes:
+            with self.subTest(key=key,value=value):
+                candidate=copy.deepcopy(config);candidate[key]=value
+                with self.assertRaises(ValueError):P.validate_contract(candidate,scope,protocol,freeze,shared)
+        del config['first_collection_delay_seconds']
+        with self.assertRaisesRegex(ValueError,'collection delays'):P.validate_contract(config,scope,protocol,freeze,shared)
 
     def test_prior_capture_scope_and_raw_recomputed_acceptance_cannot_be_transplanted(self):
         for mode in ('capture_scope','source','raw_recompute'):

@@ -33,7 +33,8 @@ def fixture(root, *, limit=4.5, with_references=False):
         from test_runtime_profile40_production_r1 import stage_fixture
         config, bound, _ = stage_fixture(stage)
     config['billed_limit_GPUh'] = limit
-    config['first_collection_delay_seconds'] = 1200.  # Synthetic metadata, never a real ETA.
+    # Keep the contract fixture's coherent forecast/midpoint/final metadata.
+    # Children and clocks below remain synthetic; this does not wait for an ETA.
     (root / 'outputs').mkdir(); (root / 'runtime').mkdir()
     write(stage / CONFIG, config)
     worker = stage / 'scripts/run_wc_paper_N09_runtime_profile40_r1.py'
