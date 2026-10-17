@@ -23,9 +23,11 @@ N09 已绑定到真正接受的 N07 R2 与 N08 完整原件，并选定原完整
 - [N09合同](../src/wcomr/runtime_profile40_production_r1.py)
 - [既定1 ULP桥接](../src/wcomr/balanced_repeat_roundoff_acceptance_r1.py)
 
-完整源码overlay的本地dry plan亦已通过：194份源码／数据、原952数值证明的99依赖、接受后的N08实际生产CPU base均核对；新桥接明确包含在独立包内。Git归档最终冻结和实际服务器CPU仍待。
+完整源码overlay的本地dry plan亦已通过：194份源码／数据、原952数值证明的99依赖、接受后的N08实际生产CPU base均核对；新桥接明确包含在独立包内。194文件已进一步从 Git `7ebe21c9d9ed0c0a9a1c179f34f398b0e0f1c538` 归档并逐字节复核通过（7,236,632字节）；实际服务器CPU仍待。
 
 - [实际完整194文件源码包dry plan](../reports/wc_paper_N09_actual40_source_packet_dry_plan_20261017.json)
+
+- [完整Git归档独立接受](../reports/wc_paper_N09_complete194_Git_packet_local_acceptance_20261017.json)
 
 ## 3. 完整40路径范围和报价
 
@@ -46,7 +48,7 @@ N09 已绑定到真正接受的 N07 R2 与 N08 完整原件，并选定原完整
 ## 4. 接下来的顺序
 
 1. 按原两时点收 N12，先解释 S26-C／S25-C／S25-A 的保真与成本变化，不提前读取科学partial。
-2. N09 本地源码包最终Git冻结核对后，使用新独立stage完成实际服务器完整生产CPU。原N12 stage不变。
+2. N09 本地源码包已完成Git冻结核对；后续使用新独立stage完成实际服务器完整生产CPU。原N12 stage不变。
 3. 生产CPU及资源／预算通过后再执行原完整40，按实际启动安排一次半程和预计结束后的完整验收。
 4. 组件／显存／请求维护成本填入论文部署表；N09独立的完整动作12价格卡保持原范围，尚未选定派发。
 
