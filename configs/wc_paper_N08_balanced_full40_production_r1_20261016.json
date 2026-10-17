@@ -1,0 +1,63 @@
+{
+  "card": "WC-PAPER-N08-BALANCED-FULL40-R1",
+  "run_id": "wc-paper-n08-balanced-full40-r1",
+  "scope_counts": {
+    "requests": 2,
+    "methods": 5,
+    "scientific_paths": 30,
+    "full_warmup_paths": 10,
+    "total_paths": 40,
+    "ordinary_pairs": 1440,
+    "CFG_calls": 2880,
+    "loads": 1,
+    "teacher_pairs": 0
+  },
+  "strategy": "WORKING_P_AGE_NONZERO_REBASE",
+  "main_timing": "SYNCHRONIZED_TEXT_ENCODING_DENOISING_VAE_DECODING",
+  "memory_policy": "REQUEST_BOUNDARY_GC_ONLY",
+  "reference_method": "NATIVE35",
+  "warm_trace_policy": "ALL10_FULL36_GUIDED_TRACE",
+  "clean_resource_requirement": "NO_CONCURRENT_WORLD_CACHE_GPU_OR_CPU_METRICS",
+  "autonomy_exclusive_upper_GPUh": 12,
+  "guardrails_enabled": true,
+  "resource_boundary_audit": true,
+  "same_round_native_reference": true,
+  "bindings": {
+    "FULL_NATIVE": "NATIVE35",
+    "WORLD_CACHE": "WC_HALF",
+    "RA_CFG_CACHE": "RA_DEFAULT",
+    "GCR_EFFICIENT": "A_NO_P",
+    "CPA_HIGH_FIDELITY": "TABLE_PHASE_H1"
+  },
+  "bound_timing_fingerprint": "afb0ac1645f1b62fd65d7c87b6c5811a2a655ed45a499e6e70fa2c6e26d710a3",
+  "forecast_complete_GPUh": 3.6275,
+  "billed_limit_GPUh": 3.6275,
+  "cumulative_cap_GPUh": 113.0,
+  "budget_origin_used_GPUh": 79.99637737158223,
+  "first_collection_delay_seconds": 14400,
+  "forecast_source_ref": "reports/wc_paper_N07_N08_actual_complete_cost_r1_20261016.json",
+  "forecast_source_sha256": "7bb6d09b30047702a5107314e3db74a89c776a52c53e5b5b15850cdb1a1d953e",
+  "completed_N07_canonical_acceptance_ref": "reports/wc_paper_N07_refusal_repair180_R2_terminal_canonical_independent_acceptance_20261017.json",
+  "methods_selected_from_R2_results": false,
+  "training": false,
+  "online_teachers": false,
+  "F_B_enabled": false,
+  "P_ACR": false,
+  "T1": false,
+  "head_elision": false,
+  "deployment_profiling": false,
+  "references": {
+    "shared_config": {
+      "ref": "configs/wc_paper_N07_frozen_shared_production_r1_20261016.json",
+      "sha256": "9de3e5b9c2ce0377888e1244aa77043b42d4f92f0d9cea498c13c59e3aeafd0c"
+    },
+    "method_freeze": {
+      "ref": "manifests/wc_paper_N07_N08_method_freeze_r1_20261016.json",
+      "sha256": "b8d24be55ee722b6b7a2601ea18ff5ac3e686621a110de8128878ebb42fc400c"
+    },
+    "timing_protocol": {
+      "ref": "manifests/wc_paper_N08_balanced_repeat40_protocol_r1_20261016.json",
+      "sha256": "704e14632ca8c25f8d58066874cef6cd47f36d6f6aca1b591d57125c0f33a20d"
+    }
+  }
+}

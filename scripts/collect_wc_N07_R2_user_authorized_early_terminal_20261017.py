@@ -16,8 +16,6 @@ from textwrap import dedent
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'src'))
 from wcomr import frozen_repair_gpu_r2 as gpu
-from wcomr import frozen_shared_acceptance_r1 as original
-from wcomr.frozen_repair_acceptance_r2 import derived_acceptor
 
 LAUNCH = ROOT / 'reports/wc_paper_N07_refusal_repair180_R2_GPU_launch_20261017.json'
 CPU = ROOT / 'reports/wc_paper_N07_refusal_repair180_actual_production_CPU_R1_independent_acceptance_20261016.json'
@@ -93,17 +91,8 @@ def main():
         if (value.get('production_CPU_bundle_sha256') != accepted['production_CPU_bundle_sha256']
                 or value.get('production_CPU_launch') != raw['launch']):
             raise ValueError('Original independently accepted CPU handle/bundle differs')
-        base, proof = derived_acceptor()
-        acceptor = replace_exact(dedent(inspect.getsource(original.accept)), [
-            ('from .frozen_shared_cpu_acceptance_r1 import validate_bundle',
-             'from .frozen_repair_cpu_acceptance_r2 import validate_bundle'),
-            ('scripts/run_wc_paper_N07_frozen_shared180_r1.py',
-             'scripts/run_wc_paper_N07_refusal_repair180_r2.py'),
-            ("if value['observed_unix'] < launch['next_check_not_before_unix']:",
-             "if value['observed_unix'] < launch['next_check_not_before_unix'] and not early_authorized(value['observed_unix']):")
-        ], {**base.__globals__, 'early_authorized': allow}, 'accept')
-        result = acceptor(value, launch)
-        result['repair_terminal_acceptor_derivation'] = proof
+        from wcomr.frozen_repair_acceptance_r2 import accept_after_human_wait_override
+        result = accept_after_human_wait_override(value, launch, authority)
     result.update(capture_ref=str(args.output), capture_sha256=gpu.sha(args.output),
         launch_ref=str(LAUNCH), launch_sha256=gpu.sha(LAUNCH),
         immediate_collection_authority_ref=str(AUTHORITY), immediate_collection_authority_sha256=gpu.sha(AUTHORITY),

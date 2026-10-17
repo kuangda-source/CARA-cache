@@ -31,7 +31,12 @@ def accepted_repair_identity(accepted, capture, *, capture_sha256,
 
     # Re-run the full180 raw/frame/statistical/cost acceptor. A saved success
     # boolean or CPU-only preparation cannot authorize a downstream GPU run.
-    recomputed = accept(capture, launch)
+    if capture['observed_unix'] < launch['next_check_not_before_unix']:
+        from .frozen_repair_acceptance_r2 import accept_after_human_wait_override
+        recomputed = accept_after_human_wait_override(capture, launch,
+            accepted.get('direct_human_waiting_override', {}))
+    else:
+        recomputed = accept(capture, launch)
     if any(accepted.get(k) != v for k, v in recomputed.items()):
         raise ValueError('Recompute the original full repaired N07 acceptance before downstream execution')
     counts = recomputed.get('original_status_counts', {})
