@@ -2021,7 +2021,8 @@
     "N10_original_SCP_running_568": "research/568_WC_N10_ORIGINAL_SCP_RESOURCE_RUNNING_AND_CPU_NEXT_20261018.md",
     "N10_original_SCP_R1_launch": "reports/wc_paper_N10_ViCLIP_original_SCP_R1_launch_20261018.json",
     "N10_original_SCP_R1_initial_identity": "reports/wc_paper_N10_original_SCP_R1_initial_local_identity_20261018.json",
-    "N10_original_SCP_R1_two_checks": "reports/wc_paper_N10_original_SCP_R1_two_checks_20261018.json"
+    "N10_original_SCP_R1_two_checks": "reports/wc_paper_N10_original_SCP_R1_two_checks_20261018.json",
+    "window88_and_SCP_halfway_569": "research/569_WC_N10_MIDPOINT_REESTIMATE_AND_CORRECTION_WINDOW88_LOCAL_PREPARATION_20261018.md"
   },
   "evidence_batches": {
     "curve60": {
@@ -3602,18 +3603,18 @@
     "drop1_full18": {
       "source_revision": "e76b4f8b934bb07bf045e6083f36eddb4711640d",
       "namespace": "DROP1_FULL18",
-      "status": "running_no_endpoint_result",
-      "report_id": "drop1_running_555",
+      "status": "accepted_complete_old_CAL_development",
+      "report_id": "drop1_complete_563",
       "scene_count": 4,
       "seeds": [
         0
       ],
       "formal_paths": 12,
       "warmup_paths": 6,
-      "formal_scored_videos": null,
+      "formal_scored_videos": 12,
       "frames_per_video": 93,
       "timed_repetitions_per_method_scene": 1,
-      "actual_GPUh": null,
+      "actual_GPUh": 1.4742630306796896,
       "rows_reported_rounded": null,
       "independent_final_test": false
     },
@@ -3637,6 +3638,18 @@
       "actual_GPUh": null,
       "production_eligible": false,
       "report_id": "N10_R2_actual_input_556"
+    },
+    "drop1_window24_preparation": {
+      "namespace": "DROP1_WINDOW24",
+      "status": "adapter_and_full88_entry_local12_ready_not_actual88_or_production",
+      "formal_paths": 16,
+      "warmup_paths": 8,
+      "CPU_numerical_paths": 88,
+      "local_controls_passed": 12,
+      "whole_quote_GPUh": null,
+      "actual_GPUh": null,
+      "actual_quality": null,
+      "report_id": "window88_and_SCP_halfway_569"
     }
   },
   "statistical_rules": {
@@ -6882,6 +6895,46 @@
     "reports/wc_paper_N10_original_SCP_R1_two_checks_20261018.json": {
       "sha256": "c885a3662720ebc4958ff1f868ba6c0e326fb826a3a109d4399d5ee75120f418",
       "bytes": 951
+    },
+    "src/wcomr/drop1_correction_window24_r1.py": {
+      "sha256": "0b0d2ad49421a300284432d57bd41edaae9fc77bc11f8d5de05101216b44895a",
+      "bytes": 11200
+    },
+    "tests/test_drop1_correction_window24_r1.py": {
+      "sha256": "5fb7ce8a99663553c99a473a2239d344d583ce05147bcff4e82c3e55c5d1229a",
+      "bytes": 8942
+    },
+    "tests/check_drop1_correction_window88_sampling_cpu_r1.py": {
+      "sha256": "f9aaa713237b2b052838a5227c9ae5598ef9688aa1fe58a4ce428a32ab0aaed5",
+      "bytes": 7738
+    },
+    "scripts/check_wc_drop1_correction_window88_cpu_r1.py": {
+      "sha256": "2c1187e3e6768a90ef575cffc72d155248db60f6715f62504c611e333d70bafa",
+      "bytes": 3490
+    },
+    "reports/wc_drop1_correction_window24_adapter_local_CPU_20261018.json": {
+      "sha256": "eb82092384037131c09a764f71d0278788d108b67b0da9f2b3aa6fb42e22c4e9",
+      "bytes": 1737
+    },
+    "reports/wc_drop1_correction_window24_adapter_full88_entry_local_CPU_r2_20261018.json": {
+      "sha256": "a89b802d1c8b13160e6eacf412a4628f4f283a84c0eef48b1ad69c5359a09ccb",
+      "bytes": 2691
+    },
+    "reports/wc_paper_N10_original_SCP_R1_midpoint_20261018_0117.json": {
+      "sha256": "4cedff587551eafa8dc51d39c13053cc919aba95ab7b05263a7f1f6be356ae2f",
+      "bytes": 3312
+    },
+    "reports/wc_paper_N10_original_SCP_R1_midpoint_independent_20261018.json": {
+      "sha256": "b6589299fe81ce5819a275bd0d7d8e1b13381d826f7ff3880b03f0ceb6c0be2c",
+      "bytes": 1215
+    },
+    "reports/wc_paper_N10_original_SCP_R1_final_reestimated_from_midpoint_20261018.json": {
+      "sha256": "8ae3e99fdcedeefc9aa99ae1f2bda6067088afdce928dadc95be6271c6f8757f",
+      "bytes": 677
+    },
+    "research/569_WC_N10_MIDPOINT_REESTIMATE_AND_CORRECTION_WINDOW88_LOCAL_PREPARATION_20261018.md": {
+      "sha256": "738c337e00a1f929239cda5600159c2b50f10423c00872b3fb821852f4936376",
+      "bytes": 5546
     }
   },
   "math_notation": [

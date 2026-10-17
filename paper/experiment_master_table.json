@@ -1899,7 +1899,7 @@
       ],
       "contribution_relation": "C3生成质量范围；补充保真主指标",
       "evidence_or_planned_scope": "真实R2全160正式/六维960位置已原件绑定：645待评分、155视频不可用、160静态N/A；六metadata与8负例通过。原本机ViCLIP实体已恢复并重核完整SHA，原relay本地入口通过。",
-      "gap_and_next_action": "01:17一次技术半程、01:32原件服务端独立大小/SHA；资源接受后完整五模型CPU，不缩子集；实际生产评分身份/报价仍待。",
+      "gap_and_next_action": "原SCP半程一次已接受（实际01:20、44.34%）；最终已从01:32重估为01:50，仅一次查原件和全SHA。资源接受后完整五模型CPU；当前0质量分数。",
       "priority": "P1·完整多维自动质量评价前置条件",
       "evidence_refs": [
         "28",
@@ -2019,7 +2019,10 @@
         "N10_original_SCP_running_568",
         "N10_original_SCP_R1_launch",
         "N10_original_SCP_R1_initial_identity",
-        "N10_original_SCP_R1_two_checks"
+        "N10_original_SCP_R1_two_checks",
+        "reports/wc_paper_N10_original_SCP_R1_midpoint_20261018_0117.json",
+        "reports/wc_paper_N10_original_SCP_R1_midpoint_independent_20261018.json",
+        "reports/wc_paper_N10_original_SCP_R1_final_reestimated_from_midpoint_20261018.json"
       ],
       "method_mapping_ids": [],
       "depends_on": [
@@ -2052,7 +2055,7 @@
       "actual_quality_scores": 0,
       "ViCLIP_resource_acquisition_dispatched": true,
       "ViCLIP_resource_launch_ref": "reports/wc_paper_N10_ViCLIP_direct_R4_launch_20261017.json",
-      "ViCLIP_resource_next_collection_local": null,
+      "ViCLIP_resource_next_collection_local": "2026-10-18T01:50:00+08:00",
       "single_model_CPU_worker_implemented": true,
       "model_CPU_preimport_boundary_controls_accepted": 5,
       "whole_metric_model_CPU_bundle_implemented": true,
@@ -2149,9 +2152,14 @@
       "original_SCP_initial_identity_ref": "reports/wc_paper_N10_original_SCP_R1_initial_local_identity_20261018.json",
       "original_SCP_accepted": false,
       "original_SCP_halfway_local": "2026-10-18T01:17:00+08:00",
-      "original_SCP_final_local": "2026-10-18T01:32:00+08:00",
+      "original_SCP_final_local": "2026-10-18T01:50:00+08:00",
       "all_five_model_CPU_accepted": false,
-      "automatic_quality_new_scores": 0
+      "automatic_quality_new_scores": 0,
+      "original_SCP_halfway_collected": true,
+      "original_SCP_halfway_actual_local": "2026-10-18T01:20:12.111124+08:00",
+      "original_SCP_halfway_received_bytes": 758484992,
+      "original_SCP_halfway_fraction": 0.4434169413522846,
+      "original_SCP_halfway_ref": "reports/wc_paper_N10_original_SCP_R1_midpoint_20261018_0117.json"
     },
     {
       "id": "N11",
@@ -2476,13 +2484,19 @@
         "card": "WC-DROP1-WINDOW-CAL4-FOURARM-FULL24-R1-20261018-A",
         "plan_ref": "plans/WC_DROP1_CORRECTION_WINDOW_FULL24_20261018.md",
         "static_scope_ref": "manifests/wc_drop1_correction_window_full24_static_scope_20261018.json",
-        "status": "PLANNED_STATIC_ONLY_NOT_IMPLEMENTED",
+        "status": "ADAPTER_AND_FULL88_ENTRY_LOCAL12_READY_NOT_ACTUAL_NUMERICAL_OR_PRODUCTION",
         "GPU_submissions": 0,
         "quality_results": null,
         "timing_results": null,
         "CPU_accepted": false,
         "whole_quote_GPUh": null,
-        "after_N09_terminal": true
+        "after_N09_terminal": true,
+        "algorithm_adapter_implemented": true,
+        "local_CPU_controls": 12,
+        "local_CPU_ref": "reports/wc_drop1_correction_window24_adapter_full88_entry_local_CPU_r2_20261018.json",
+        "full88_entry_prepared": true,
+        "full88_numerical_executed": false,
+        "production_CPU_accepted": false
       }
     }
   ],
@@ -3143,7 +3157,17 @@
     "N10_original_SCP_running_568": "research/568_WC_N10_ORIGINAL_SCP_RESOURCE_RUNNING_AND_CPU_NEXT_20261018.md",
     "N10_original_SCP_R1_launch": "reports/wc_paper_N10_ViCLIP_original_SCP_R1_launch_20261018.json",
     "N10_original_SCP_R1_initial_identity": "reports/wc_paper_N10_original_SCP_R1_initial_local_identity_20261018.json",
-    "N10_original_SCP_R1_two_checks": "reports/wc_paper_N10_original_SCP_R1_two_checks_20261018.json"
+    "N10_original_SCP_R1_two_checks": "reports/wc_paper_N10_original_SCP_R1_two_checks_20261018.json",
+    "window24_adapter": "src/wcomr/drop1_correction_window24_r1.py",
+    "window24_adapter_tests": "tests/test_drop1_correction_window24_r1.py",
+    "window88_numerical_fixture": "tests/check_drop1_correction_window88_sampling_cpu_r1.py",
+    "window88_CPU_entry": "scripts/check_wc_drop1_correction_window88_cpu_r1.py",
+    "window24_local11_historical": "reports/wc_drop1_correction_window24_adapter_local_CPU_20261018.json",
+    "window24_local12_current": "reports/wc_drop1_correction_window24_adapter_full88_entry_local_CPU_r2_20261018.json",
+    "N10_SCP_halfway": "reports/wc_paper_N10_original_SCP_R1_midpoint_20261018_0117.json",
+    "N10_SCP_halfway_independent": "reports/wc_paper_N10_original_SCP_R1_midpoint_independent_20261018.json",
+    "N10_SCP_final_reestimated": "reports/wc_paper_N10_original_SCP_R1_final_reestimated_from_midpoint_20261018.json",
+    "window88_and_SCP_halfway_569": "research/569_WC_N10_MIDPOINT_REESTIMATE_AND_CORRECTION_WINDOW88_LOCAL_PREPARATION_20261018.md"
   },
   "source_bindings": {
     "11": {
@@ -5773,11 +5797,51 @@
     "N10_original_SCP_R1_two_checks": {
       "path": "reports/wc_paper_N10_original_SCP_R1_two_checks_20261018.json",
       "sha256": "c885a3662720ebc4958ff1f868ba6c0e326fb826a3a109d4399d5ee75120f418"
+    },
+    "window24_adapter": {
+      "path": "src/wcomr/drop1_correction_window24_r1.py",
+      "sha256": "0b0d2ad49421a300284432d57bd41edaae9fc77bc11f8d5de05101216b44895a"
+    },
+    "window24_adapter_tests": {
+      "path": "tests/test_drop1_correction_window24_r1.py",
+      "sha256": "5fb7ce8a99663553c99a473a2239d344d583ce05147bcff4e82c3e55c5d1229a"
+    },
+    "window88_numerical_fixture": {
+      "path": "tests/check_drop1_correction_window88_sampling_cpu_r1.py",
+      "sha256": "f9aaa713237b2b052838a5227c9ae5598ef9688aa1fe58a4ce428a32ab0aaed5"
+    },
+    "window88_CPU_entry": {
+      "path": "scripts/check_wc_drop1_correction_window88_cpu_r1.py",
+      "sha256": "2c1187e3e6768a90ef575cffc72d155248db60f6715f62504c611e333d70bafa"
+    },
+    "window24_local11_historical": {
+      "path": "reports/wc_drop1_correction_window24_adapter_local_CPU_20261018.json",
+      "sha256": "eb82092384037131c09a764f71d0278788d108b67b0da9f2b3aa6fb42e22c4e9"
+    },
+    "window24_local12_current": {
+      "path": "reports/wc_drop1_correction_window24_adapter_full88_entry_local_CPU_r2_20261018.json",
+      "sha256": "a89b802d1c8b13160e6eacf412a4628f4f283a84c0eef48b1ad69c5359a09ccb"
+    },
+    "N10_SCP_halfway": {
+      "path": "reports/wc_paper_N10_original_SCP_R1_midpoint_20261018_0117.json",
+      "sha256": "4cedff587551eafa8dc51d39c13053cc919aba95ab7b05263a7f1f6be356ae2f"
+    },
+    "N10_SCP_halfway_independent": {
+      "path": "reports/wc_paper_N10_original_SCP_R1_midpoint_independent_20261018.json",
+      "sha256": "b6589299fe81ce5819a275bd0d7d8e1b13381d826f7ff3880b03f0ceb6c0be2c"
+    },
+    "N10_SCP_final_reestimated": {
+      "path": "reports/wc_paper_N10_original_SCP_R1_final_reestimated_from_midpoint_20261018.json",
+      "sha256": "8ae3e99fdcedeefc9aa99ae1f2bda6067088afdce928dadc95be6271c6f8757f"
+    },
+    "window88_and_SCP_halfway_569": {
+      "path": "research/569_WC_N10_MIDPOINT_REESTIMATE_AND_CORRECTION_WINDOW88_LOCAL_PREPARATION_20261018.md",
+      "sha256": "738c337e00a1f929239cda5600159c2b50f10423c00872b3fb821852f4936376"
     }
   },
   "operation_policy": {
     "current_running_card": null,
-    "scheduled_collection_local": "2026-10-18T01:17:00+08:00",
+    "scheduled_collection_local": "2026-10-18T01:50:00+08:00",
     "no_continuous_monitoring": true,
     "new_GPU_jobs_started_by_this_inventory": 2,
     "automatic_single_complete_job_estimate_exclusive_GPUh_upper_bound": 12,
@@ -5795,8 +5859,7 @@
     "available_after_whole_reservations_GPUh": 115.13093884546745,
     "per_UUID_lock_protocol": "plans/WORLD_CACHE_DUAL_GPU_EXECUTION_20261015.md",
     "scheduled_collections_local": {
-      "N10_SCP_HALFWAY": "2026-10-18T01:17:00+08:00",
-      "N10_SCP_FINAL": "2026-10-18T01:32:00+08:00"
+      "N10_SCP_FINAL": "2026-10-18T01:50:00+08:00"
     },
     "running_forecasts_GPUh": {},
     "resource_check_history": [
@@ -5878,7 +5941,9 @@
       "N12_HALFWAY_COMPLETED": "2026-10-17T22:46:00+08:00",
       "N12_FINAL_COMPLETED": "2026-10-18T00:01:00+08:00",
       "N09_NO_ADMISSION_CANCELLED_MIDPOINT": "2026-10-18T02:56:00+08:00",
-      "N09_NO_ADMISSION_CANCELLED_FINAL": "2026-10-18T05:31:00+08:00"
+      "N09_NO_ADMISSION_CANCELLED_FINAL": "2026-10-18T05:31:00+08:00",
+      "N10_SCP_HALFWAY_COMPLETED_ACTUAL": "2026-10-18T01:20:12.111124+08:00",
+      "N10_SCP_FINAL_0132_SUPERSEDED": "2026-10-18T01:32:00+08:00"
     },
     "budget_values_asof": "2026-10-18T00:47:40.326639+08:00",
     "last_CPU_task": {
@@ -6040,16 +6105,12 @@
     "N09_profile_full102_CPU_accepted": true,
     "N09_profile_CPU_next_collection": null,
     "last_short_local_CPU_preparation": {
-      "kind": "N09_CURRENT_ACTION_PRICE16_COMPLETE_LOCAL_FULL24",
-      "actual_local_full_paths": 24,
-      "actual_local_pairs": 1888,
-      "trial_pairs": 1024,
-      "independently_reloaded_raw_tensors": 640,
-      "clock_controls": 3,
-      "negative_refusals": 7,
-      "CPU_ref": "reports/wc_paper_N09_action16_full24_local_CPU_preparation_20261016.json",
-      "actual_server_or_GPU": false,
-      "SSH_queries": 0
+      "kind": "DROP1_WINDOW24_ADAPTER_AND_FULL88_ENTRY",
+      "controls_passed": 12,
+      "actual_full88_executed": false,
+      "production_CPU_accepted": false,
+      "receipt": "reports/wc_drop1_correction_window24_adapter_full88_entry_local_CPU_r2_20261018.json",
+      "new_GPUh": 0
     },
     "specific_approved_large_card_admission_extension_prepared": true,
     "specific_approved_large_card_admission_extension_deployed_to_server": true,
@@ -6381,5 +6442,5 @@
     "N10_resource_final_collection_local": "2026-10-18T01:32:00+08:00",
     "N10_original_SCP_automation_receipt": "reports/wc_paper_N10_original_SCP_R1_two_checks_20261018.json"
   },
-  "mapping_sha256_at_inventory": "4225de0d821c00e4a6ca61c8d85cf5d811d5d49f12422a898dddf4d896bc0660"
+  "mapping_sha256_at_inventory": "566ff45554d390b3a28eb50589e98578858b664751189143105ae1fab6b5f489"
 }
