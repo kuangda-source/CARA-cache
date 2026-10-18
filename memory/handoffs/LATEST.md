@@ -1,3 +1,9 @@
+## 2026-10-18 探索248数值CPU已单次启动，原24生产CPU已接受
+
+[596实际启动与执行顺序](../../research/596_WC_SCOUT_NUMERIC248_SINGLE_CPU_LAUNCH_AND_ORDERED_GPU_QUEUE_20261018.md)：原24 source a350ea98的1749源／五命令生产CPU已接受，N10原22:43收完后直接复用原证明启动完整24（预测3.064166667／上限4），不重复CPU。新增探索source bbc63109／1758源／PID2202370-start562419905于21:14:55单次启动完整248数值Toy路径，尚未接受，不是生产CPU或视频。worldcache-248-cpu半程21:30、worldcache-248-cpu-2完整21:45已实际创建，各一次；不持续监听。
+
+GPU顺序N10原22:43终态→原24→CAL12→BANK24；新卡仍需实际生产适配／CPU、完整报价与fresh DEV6身份审计。严格<12／cap226／历史保持，当前新增GPU0／预留0／A3结果空，F/B结束，探索未并入主稿。[具体接续](../../plans/WC_SCOUT_PRODUCTION_AND_GPU_CONTINUATION_RUNBOOK_20261018.md)。以下为历史。
+
 ## 2026-10-18 原连续24生产CPU已接受，按最新授权顺序执行
 
 [595实际生产接受与接续](../../research/595_WC_WINDOW24_PRODUCTION_CPU_ACCEPTED_AND_SCOUT_ORDERED_EXECUTION_20261018.md)：source a350ea98／stage wc-drop1-window24-production-cpu-r1-20261018／PID2184695已结束，完整1749源／五命令全0，153.492秒。原88数值与旧12控制保持，CPU接受原件reports/wc_drop1_window24_actual_production_CPU_R1_independent_acceptance_20261018.json。N10原22:43完整验收后直接复用此证明，以fresh v2／UUID启动原完整24（预测3.064166667／上限4），不重复CPU、不换source或缩卡；启动后半程和ETA各一次。N10原自动化时刻不变，已补入现有CPU接受与直接启动指令。
