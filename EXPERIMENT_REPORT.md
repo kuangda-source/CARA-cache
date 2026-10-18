@@ -1,3 +1,7 @@
+## 2026-10-18 22:10 R2数值CPU原句柄结束，22:25完整收件保持
+
+[597半程记录](research/597_WC_SCOUT_R1_NUMERIC_ACCEPTED_REFUSAL_BOUNDARY_R2_AND_PRODUCTION_NEXT_20261018.md)：2230226原句柄已不存在，worker SHA一致、三证明存在、错误线索为空；未读证明内容，不判断248＋10已通过。worldcache-cpu半程已删除；worldcache-cpu-2仍22:25逐项接受并接生产入口CPU，N10原22:43及原24直接接续不变。0新GPU／账本写，不循环监听。以下为历史。
+
 ## 2026-10-18 探索R1数值248接受，拒绝边界R2已单次启动
 
 [597接受／修复与生产接续](research/597_WC_SCOUT_R1_NUMERIC_ACCEPTED_REFUSAL_BOUNDARY_R2_AND_PRODUCTION_NEXT_20261018.md)：R1完整248已独立接受950.578805秒，原件保留。生产适配发现TEXT_REJECTED空历史被误判动作不一致；只修该拒绝边界，R2 source db1de113／PID2230226-start562657668／1759源于21:54:33单次启动，仍保留80＋168完整36采样，另加10拒绝控制。worldcache-cpu约22:10半程、worldcache-cpu-2约22:25完整收件，各一次；R1原完整收件自动化已删除。不提前查R2，不判新版本通过。

@@ -35,3 +35,7 @@ R2已单次启动：
 实际CLI和后续约定见[生产接续入口](../plans/WC_SCOUT_PRODUCTION_AND_GPU_CONTINUATION_RUNBOOK_20261018.md)。原24 source a350ea98／五命令CPU接受始终有效，N10原22:43接受后直接启动原24，不能重复CPU、提前派发探索卡或干扰N10。GPU顺序仍为原24→CAL12→BANK24，X-R共享银行；单次严格少于12GPUh自主、cap226／origin和历史保持，无新GPU、预留或费用。
 
 新探索首轮信号不自动并入冻结主稿，F/B保持关闭，无训练、人评、付费VLM或OMR。
+
+## 22:10 R2半程：原句柄结束，保留22:25逐项接受
+
+[一次半程原件](../reports/wc_scout_numeric248_actual_CPU_R2_midpoint_20261018.json.gz)与[离线技术核对](../reports/wc_scout_numeric248_R2_midpoint_independent_technical_acceptance_20261018.json)确认原PID2230226已不存在，worker SHA一致，CAL12／BANK24／bundle三文件存在，有界日志未见错误线索。此处未读三证明内容，不判断新248＋10通过；原22:25完整收件、N10原22:43均保持。半程自动化worldcache-cpu已删除，不重复查收或启动新GPU。
