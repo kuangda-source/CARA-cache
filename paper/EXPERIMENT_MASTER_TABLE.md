@@ -1,3 +1,9 @@
+## 2026-10-18 R2完整248＋10接受，两张真实入口CPU已启动
+
+[598实际接受／启动](../research/598_WC_SCOUT_R2_NUMERICAL_ACCEPTED_AND_TWO_REAL_ENTRY_CPU_LAUNCHES_20261018.md)：R2 source db1de113完整248采样＋10拒绝控制已独立接受927.946723秒，原R1保留。两张实际配置与完整报价已冻结：CAL12预测1.876666667／上限2.5，BANK24预测3.407222222／上限4.5，包含全部warm／Native／加载与观察余量，规划非实费。
+
+共同source c1c95ce0／每stage1772源；CAL12入口CPU2245370-start562857758于22:27:54单次启动，BANK24 2245680-start562861304于22:28:29单次启动，各两命令未验收。worldcache-cpu新半程22:32、worldcache-cpu-2新完整22:35已实际创建，ID为应用删除旧数值任务后的复用，不重查旧任务。生产入口接受仍不覆盖未实现的GPU监督／post／原件链，GPU_dispatch_ready=false。N10原22:43及其后原24直接启动不改；新GPU仍原24→CAL12→BANK24。当前0新GPU／账本写，cap226／strict<12／历史保持，F/B关闭。以下为历史。
+
 ## 2026-10-18 22:10 R2数值CPU原句柄结束，22:25完整收件保持
 
 [597半程记录](../research/597_WC_SCOUT_R1_NUMERIC_ACCEPTED_REFUSAL_BOUNDARY_R2_AND_PRODUCTION_NEXT_20261018.md)：2230226原句柄已不存在，worker SHA一致、三证明存在、错误线索为空；未读证明内容，不判断248＋10已通过。worldcache-cpu半程已删除；worldcache-cpu-2仍22:25逐项接受并接生产入口CPU，N10原22:43及原24直接接续不变。0新GPU／账本写，不循环监听。以下为历史。

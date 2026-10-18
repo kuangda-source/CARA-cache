@@ -4375,7 +4375,7 @@
       "guard_refusal_controls": 0
     },
     "scout_guard_refusal_R2_and_entry_preparation": {
-      "status": "R2_MIDPOINT_HANDLE_GONE_PROOFS_PRESENT_NOT_FINAL_ACCEPTED",
+      "status": "R2_FULL248_PLUS10_NUMERICALLY_ACCEPTED_ENTRY_CPU_RUNNING",
       "source_revision": "db1de113daa1bf8f719f09566f3db3625c254b83",
       "refs": {
         "scout_numeric_R1_accepted_597": "research/597_WC_SCOUT_R1_NUMERIC_ACCEPTED_REFUSAL_BOUNDARY_R2_AND_PRODUCTION_NEXT_20261018.md",
@@ -4394,7 +4394,19 @@
         "scout_production_entry_tests": "tests/test_scout_production_entry_r1.py",
         "scout_ordered_production_runbook": "plans/WC_SCOUT_PRODUCTION_AND_GPU_CONTINUATION_RUNBOOK_20261018.md",
         "scout_R2_midpoint": "reports/wc_scout_numeric248_actual_CPU_R2_midpoint_20261018.json.gz",
-        "scout_R2_midpoint_technical": "reports/wc_scout_numeric248_R2_midpoint_independent_technical_acceptance_20261018.json"
+        "scout_R2_midpoint_technical": "reports/wc_scout_numeric248_R2_midpoint_independent_technical_acceptance_20261018.json",
+        "scout_two_entry_CPU_running_598": "research/598_WC_SCOUT_R2_NUMERICAL_ACCEPTED_AND_TWO_REAL_ENTRY_CPU_LAUNCHES_20261018.md",
+        "scout_numeric248_R2_terminal": "reports/wc_scout_numeric248_actual_CPU_R2_collection_20261018.json.gz",
+        "scout_numeric248_R2_accepted": "reports/wc_scout_numeric248_actual_CPU_R2_independent_acceptance_20261018.json",
+        "scout_CAL12_selected_entry_config": "configs/wc_scout_cal12_production_entry_r1_20261018.json",
+        "scout_BANK24_selected_entry_config": "configs/wc_scout_bank24_production_entry_r1_20261018.json",
+        "scout_CAL12_actual_whole_quote": "reports/wc_scout_CAL12_whole_quote_R1_20261018.json",
+        "scout_BANK24_actual_whole_quote": "reports/wc_scout_BANK24_whole_quote_R1_20261018.json",
+        "scout_CAL12_config_preparation": "reports/wc_scout_CAL12_production_entry_config_preparation_R1_20261018.json",
+        "scout_BANK24_config_preparation": "reports/wc_scout_BANK24_production_entry_config_preparation_R1_20261018.json",
+        "scout_CAL12_actual_entry_CPU_launch": "reports/wc_scout_CAL12_real_entry_CPU_R1_launch_20261018.json",
+        "scout_BANK24_actual_entry_CPU_launch": "reports/wc_scout_BANK24_real_entry_CPU_R1_launch_20261018.json",
+        "scout_entry_CPU_half_final_automations": "reports/wc_scout_two_real_entry_CPU_once_automations_20261018.json"
       },
       "guard_refusal_controls_required": 10,
       "registered_full36_paths": 248,
@@ -4404,7 +4416,45 @@
       "exposure_project_output_scope_accepted": true,
       "independent_new_video_results": null,
       "halfway_local": "2026-10-18 22:10 Asia/Shanghai",
-      "final_local": "2026-10-18 22:25 Asia/Shanghai"
+      "final_local": "2026-10-18 22:25 Asia/Shanghai",
+      "numerical_CPU_accepted": true,
+      "guard_refusal_controls": 10,
+      "CPU_wall_seconds": 927.9467225074768
+    },
+    "scout_real_entry_CPU_two_cards_R1": {
+      "status": "TWO_REAL_ENTRY_CPU_SINGLE_DISPATCHED_NOT_ACCEPTED_NOT_GPU_LIFECYCLE",
+      "refs": {
+        "scout_two_entry_CPU_running_598": "research/598_WC_SCOUT_R2_NUMERICAL_ACCEPTED_AND_TWO_REAL_ENTRY_CPU_LAUNCHES_20261018.md",
+        "scout_numeric248_R2_terminal": "reports/wc_scout_numeric248_actual_CPU_R2_collection_20261018.json.gz",
+        "scout_numeric248_R2_accepted": "reports/wc_scout_numeric248_actual_CPU_R2_independent_acceptance_20261018.json",
+        "scout_CAL12_selected_entry_config": "configs/wc_scout_cal12_production_entry_r1_20261018.json",
+        "scout_BANK24_selected_entry_config": "configs/wc_scout_bank24_production_entry_r1_20261018.json",
+        "scout_CAL12_actual_whole_quote": "reports/wc_scout_CAL12_whole_quote_R1_20261018.json",
+        "scout_BANK24_actual_whole_quote": "reports/wc_scout_BANK24_whole_quote_R1_20261018.json",
+        "scout_CAL12_config_preparation": "reports/wc_scout_CAL12_production_entry_config_preparation_R1_20261018.json",
+        "scout_BANK24_config_preparation": "reports/wc_scout_BANK24_production_entry_config_preparation_R1_20261018.json",
+        "scout_CAL12_actual_entry_CPU_launch": "reports/wc_scout_CAL12_real_entry_CPU_R1_launch_20261018.json",
+        "scout_BANK24_actual_entry_CPU_launch": "reports/wc_scout_BANK24_real_entry_CPU_R1_launch_20261018.json",
+        "scout_entry_CPU_half_final_automations": "reports/wc_scout_two_real_entry_CPU_once_automations_20261018.json"
+      },
+      "source_revision": "c1c95ce0c598fb7839b0b89f4a69bd45c8aef7c9",
+      "payload_files_each": 1772,
+      "CAL12": {
+        "forecast_complete_GPUh": 1.8766666666666667,
+        "billed_limit_GPUh": 2.5,
+        "registered_paths": 12
+      },
+      "BANK24": {
+        "forecast_complete_GPUh": 3.4072222222222224,
+        "billed_limit_GPUh": 4.5,
+        "registered_paths": 24
+      },
+      "production_entry_CPU_accepted": false,
+      "GPU_dispatch_ready": false,
+      "new_GPU_submissions": 0,
+      "new_quality_results": null,
+      "halfway_local": "2026-10-18 22:32 Asia/Shanghai",
+      "final_local": "2026-10-18 22:35 Asia/Shanghai"
     }
   },
   "statistical_rules": {
@@ -6256,8 +6306,8 @@
       "bytes": 8960
     },
     "memory/handoffs/LATEST.md": {
-      "sha256": "c4f72032ecdbb74b5d4f143f09febb58aa10c9b5e9095912f2de6b0aac867d7d",
-      "bytes": 698696
+      "sha256": "9a042930baf94017d0676b6a6f58323f41b1556e57b75ad2f524d0765ffecedf",
+      "bytes": 699784
     },
     "src/wcomr/runtime_profile40_acceptance_r1.py": {
       "sha256": "9d5de68477518880b2087a557b699a93ca73e8ab06a058e2c54059997af45116",
@@ -6272,8 +6322,8 @@
       "bytes": 2169
     },
     "paper/EXPERIMENT_MASTER_TABLE.md": {
-      "sha256": "68fcb86c3c092d6ef3222499c46e5bef3a03e3f7952f7eb0f1f979228348a9ea",
-      "bytes": 101539
+      "sha256": "1fb7da4f58a938880ed1daef37af632e4bef94cfd7d649d00006c55c7cd41758",
+      "bytes": 102624
     },
     "research/02_CURRENT_STATE.md": {
       "sha256": "a0c461c59179f9f8e50a0831da71ad38f02b811091db04bd74a7e977ee7f2eb5",
@@ -6304,8 +6354,8 @@
       "bytes": 81279
     },
     "EXPERIMENT_REPORT.md": {
-      "sha256": "56a3756336b7af7ea238b1701fce22afa2d9bfd90d88689be6e497419b507bc8",
-      "bytes": 659029
+      "sha256": "4acecc4e6d7e62b20d87e3ccff8227c9392aca2f3f52eaa6c5c59754c25a9d80",
+      "bytes": 660111
     },
     "paper/INTERNAL_TO_PAPER_MAPPING.md": {
       "sha256": "ef1f17af15bbdc980b93b1c15ec69b112b330977399ca768f6e7b3923935a8ff",
@@ -8510,6 +8560,54 @@
     "reports/wc_scout_numeric248_R2_midpoint_independent_technical_acceptance_20261018.json": {
       "sha256": "6aea4fdc8fd99a22301cd862d2e99872c64dabcf7d5aec0862d2017d79813a8a",
       "bytes": 781
+    },
+    "research/598_WC_SCOUT_R2_NUMERICAL_ACCEPTED_AND_TWO_REAL_ENTRY_CPU_LAUNCHES_20261018.md": {
+      "sha256": "3011f5ba46133d0f8c53e795ab36c32eeae051f6b3b9ba4bddbbd664558ff684",
+      "bytes": 4622
+    },
+    "reports/wc_scout_numeric248_actual_CPU_R2_collection_20261018.json.gz": {
+      "sha256": "5ee48894dc28c65c5a75108126430d231fd2addf43cb6b2271f3f7f1b3569400",
+      "bytes": 342654
+    },
+    "reports/wc_scout_numeric248_actual_CPU_R2_independent_acceptance_20261018.json": {
+      "sha256": "f5b51ead801fa2fb2a89383c08f990090ecd7ba62a7abba330e1e37bf359d391",
+      "bytes": 748
+    },
+    "configs/wc_scout_cal12_production_entry_r1_20261018.json": {
+      "sha256": "9f76a04f8fa52b59d72c5693bf9ddfea4996559d7bf338a1f576be6a5d67d8cd",
+      "bytes": 11800
+    },
+    "configs/wc_scout_bank24_production_entry_r1_20261018.json": {
+      "sha256": "2d8fcbd21e0f25da60111a840d2cc3905a71c08f4e0a84a20bf4162599c80947",
+      "bytes": 15942
+    },
+    "reports/wc_scout_CAL12_whole_quote_R1_20261018.json": {
+      "sha256": "d7f5620cf789ef7e6f2950e47624aa0d61994360b7254f111285a5a73c9ccba5",
+      "bytes": 3426
+    },
+    "reports/wc_scout_BANK24_whole_quote_R1_20261018.json": {
+      "sha256": "63ad0ca3a315040696ce6df096e5a85bb9e81569a045efc7c96c116530271c7e",
+      "bytes": 5737
+    },
+    "reports/wc_scout_CAL12_production_entry_config_preparation_R1_20261018.json": {
+      "sha256": "7f7621ee40064c159f33048fecce579e54f1c1df0cacd7279331c1772c5e9931",
+      "bytes": 854
+    },
+    "reports/wc_scout_BANK24_production_entry_config_preparation_R1_20261018.json": {
+      "sha256": "58f96679facbb4b10951402b3fa09fc2f4936d15c313eba773356d88b2d417e1",
+      "bytes": 859
+    },
+    "reports/wc_scout_CAL12_real_entry_CPU_R1_launch_20261018.json": {
+      "sha256": "8a28608498a55ca323dcee8a94617ba9477f579b00eebcc25f6aa0519fd235d1",
+      "bytes": 2196
+    },
+    "reports/wc_scout_BANK24_real_entry_CPU_R1_launch_20261018.json": {
+      "sha256": "938657650c6a691cadabb5a63a20c0da58a4b4305300e8fffaf0802a4f91192a",
+      "bytes": 2206
+    },
+    "reports/wc_scout_two_real_entry_CPU_once_automations_20261018.json": {
+      "sha256": "2959e4465b27b235df56f0520ad17edcd65963a8d9c4248d97af4dd508dd0acb",
+      "bytes": 6472
     }
   },
   "math_notation": [
@@ -8907,7 +9005,8 @@
     "594": "research/594_WC_THREE_SCOUTS_E0_REAL_CPU_AND_DEDUPLICATED_NEXT_CARDS_20261018.md",
     "595": "research/595_WC_WINDOW24_PRODUCTION_CPU_ACCEPTED_AND_SCOUT_ORDERED_EXECUTION_20261018.md",
     "scouts_596": "research/596_WC_SCOUT_NUMERIC248_SINGLE_CPU_LAUNCH_AND_ORDERED_GPU_QUEUE_20261018.md",
-    "scouts_597": "research/597_WC_SCOUT_R1_NUMERIC_ACCEPTED_REFUSAL_BOUNDARY_R2_AND_PRODUCTION_NEXT_20261018.md"
+    "scouts_597": "research/597_WC_SCOUT_R1_NUMERIC_ACCEPTED_REFUSAL_BOUNDARY_R2_AND_PRODUCTION_NEXT_20261018.md",
+    "scouts_598": "research/598_WC_SCOUT_R2_NUMERICAL_ACCEPTED_AND_TWO_REAL_ENTRY_CPU_LAUNCHES_20261018.md"
   },
   "experiment_inventory_ref": "paper/experiment_master_table.json",
   "experiment_inventory_table": "paper/EXPERIMENT_MASTER_TABLE.md",

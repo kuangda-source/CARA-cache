@@ -1,0 +1,38 @@
+{
+  "status": "SCOUT_REAL_ENTRY_CPU_HALF_AND_FINAL_AUTOMATIONS_CREATED",
+  "creations": {
+    "half": {
+      "content": [
+        {
+          "type": "text",
+          "text": "Created automation in the app."
+        },
+        {
+          "type": "text",
+          "text": "{\"automationId\":\"worldcache-cpu\",\"mode\":\"create\",\"status\":\"ACTIVE\"}"
+        }
+      ],
+      "isError": false
+    },
+    "final": {
+      "content": [
+        {
+          "type": "text",
+          "text": "Created automation in the app."
+        },
+        {
+          "type": "text",
+          "text": "{\"automationId\":\"worldcache-cpu-2\",\"mode\":\"create\",\"status\":\"ACTIVE\"}"
+        }
+      ],
+      "isError": false
+    }
+  },
+  "prompts": {
+    "half": "项目 /Users/kuangda_gao/Documents/世界模型加速实验/worldcache_omr；先读research/598_WC_SCOUT_R2_NUMERICAL_ACCEPTED_AND_TWO_REAL_ENTRY_CPU_LAUNCHES_20261018.md、memory/handoffs/LATEST.md和真实时钟。只查已各单次启动的CAL12/BANK24真实生产入口CPU。共同source c1c95ce0c598fb7839b0b89f4a69bd45c8aef7c9，每stage1772源；CAL12 stage .sync/wc-scout-cal12-production-entry-cpu-r1-20261018、PID2245370/start562857758、registration245d20ba553aafb5730167ade3fbee2d6a03827edc93db3e3a0ce23efa4544d4，launch reports/wc_scout_CAL12_real_entry_CPU_R1_launch_20261018.json；BANK24 stage .sync/wc-scout-bank24-production-entry-cpu-r1-20261018、PID2245680/start562861304、registration2bc0db0e6747595fd439838155337139ffea76373d3245420871c60801d7e8bd，launch reports/wc_scout_BANK24_real_entry_CPU_R1_launch_20261018.json。原R2全248+10已接受927.946723秒，source db1de113；不重跑数值。两卡分别保留12/24路径请求矩阵、CPU每卡两命令，0CUDA/权重/GPU/账本；此为ENTRY_ONLY，不覆盖未实现的新GPU监督/post/完整收件链。预测CAL12=1.876666667、上限2.5；BANK24=3.407222222、上限4.5，为完整规划非实费。N10原22:43及其后原24 GPU启动不改，不读N10科学partial，不抢新GPU。未知连接仅查自己FRPC，不当原任务终态、不重派或改stage。\n本次一次半程：两张最晚not-before unix1792333889.5290928（22:31:29.529北京时间），约22:32。早于此不SSH不等待，另约一次后结束。对CAL12、BANK24依次检查 reports/wc_scout_<KIND>_real_entry_CPU_R1_midpoint_20261018.json.gz；已同launch存在只离线读，否则每卡仅运行 .venv/bin/python scripts/capture_wc_scout_production_entry_cpu_r1.py --mode halfway --launch-ref reports/wc_scout_<KIND>_real_entry_CPU_R1_launch_20261018.json --output 该kind新的半程回执。只读原PID/start/source/各proof存在性与技术错误，不提前最终接受。正常无变化静默，重要异常/终态变化通知。保留22:35完整收件及N10，完成后删除本触发automation_id，不开GPU、循环监听或重派。",
+    "final": "项目 /Users/kuangda_gao/Documents/世界模型加速实验/worldcache_omr；先读research/598_WC_SCOUT_R2_NUMERICAL_ACCEPTED_AND_TWO_REAL_ENTRY_CPU_LAUNCHES_20261018.md、memory/handoffs/LATEST.md和真实时钟。只查已各单次启动的CAL12/BANK24真实生产入口CPU。共同source c1c95ce0c598fb7839b0b89f4a69bd45c8aef7c9，每stage1772源；CAL12 stage .sync/wc-scout-cal12-production-entry-cpu-r1-20261018、PID2245370/start562857758、registration245d20ba553aafb5730167ade3fbee2d6a03827edc93db3e3a0ce23efa4544d4，launch reports/wc_scout_CAL12_real_entry_CPU_R1_launch_20261018.json；BANK24 stage .sync/wc-scout-bank24-production-entry-cpu-r1-20261018、PID2245680/start562861304、registration2bc0db0e6747595fd439838155337139ffea76373d3245420871c60801d7e8bd，launch reports/wc_scout_BANK24_real_entry_CPU_R1_launch_20261018.json。原R2全248+10已接受927.946723秒，source db1de113；不重跑数值。两卡分别保留12/24路径请求矩阵、CPU每卡两命令，0CUDA/权重/GPU/账本；此为ENTRY_ONLY，不覆盖未实现的新GPU监督/post/完整收件链。预测CAL12=1.876666667、上限2.5；BANK24=3.407222222、上限4.5，为完整规划非实费。N10原22:43及其后原24 GPU启动不改，不读N10科学partial，不抢新GPU。未知连接仅查自己FRPC，不当原任务终态、不重派或改stage。\n本次一次完整查收：两卡最晚not-before unix1792334069.5290928（22:34:29.529北京时间），约22:35。早于此不SSH不等待，另约一次后结束。每kind已存在同launch完整回执只离线读，否则每卡一次 .venv/bin/python scripts/capture_wc_scout_production_entry_cpu_r1.py --mode terminal --launch-ref reports/wc_scout_<KIND>_real_entry_CPU_R1_launch_20261018.json --output reports/wc_scout_<KIND>_real_entry_CPU_R1_collection_20261018.json.gz；保存后同脚本 --mode accept --capture 该回执 --output reports/wc_scout_<KIND>_real_entry_CPU_R1_independent_acceptance_20261018.json。核对原1772源/runtime/registration/原句柄、两命令全0、真实Cosmos请求和完整矩阵/guardrails拒绝/冻结配置/整卡报价/原R2数值闭包/原件绑定。接受只能称production_entry_CPU_accepted=true，GPU_dispatch_ready=false是既定边界而非失败。若原CPU仍跑，按剩余命令约一次即结束，不循环。技术失败保留，依据保存日志只修新version，不修改原stage、不能重派旧任务；本地解析错误只离线修复。\n完成后更新report598/稳定报告/总表/机器索引/LATEST并推送，删除本触发automation_id。N10原22:43最终自动化负责完整接受与原24单次GPU启动，不能让本次新入口工作延误或提前代收N10；原24已有完整a350ea98实际CPU不必等探索。新卡GPU监督/单次派发/post/完整原件接受仍待实现和验证，按runbook继续；复用未变已验数值/入口依赖，不重复258路径或改冻结主线。若临近22:43，先提交本次原件与接受，结束本轮让N10按原时点验收，再为23:00约一次独立本地生命周期工具开发接续，不能因当前轮结束将后续授权遗忘。后续新GPU仍原24终态→CAL12→固定CAL门控参数→BANK24，X-R共享；全链CPU和fresh v2/UUID完整准入后strict<12直接执行，cap226/origin79.99637737158223和历史不改，>=12或余额不足问具体整卡，不拆缩。只在重要发现/完成/失败通知；F/B关闭，无训练/人评/付费VLM/OMR。"
+  },
+  "N10_original_time_preserved": "2026-10-18 22:43 Asia/Shanghai",
+  "GPU_submissions": 0,
+  "ledger_written": false
+}
