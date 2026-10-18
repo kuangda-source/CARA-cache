@@ -1,3 +1,9 @@
+## 2026-10-18 23:47新生命周期CPU半程报错，23:48原件收件保持
+
+[600半程异常](../../research/600_WC_SCOUT_DISTINCT_GPU_LIFECYCLE_LOCAL_CONTROLS_AND_PRODUCTION_CPU_20261018.md)：原23:45心跳延迟至23:46:38送达，实际23:47:01各一次半程回执确认原2276574／2277001已结束，bundle存在、CPU proof不存在，日志均有RuntimeError: Scout lifecycle CPU command failed。完整错误上下文和bundle尚未读取，不诊断根因、不判通过。原件reports/wc_scout_<KIND>_GPU_lifecycle_CPU_R1_midpoint_20261018.json.gz，离线核对wc_scout_two_lifecycle_CPU_midpoint_technical_20261018.json。
+
+worldcache-cpu本半程收完删除；worldcache-cpu-2原23:48完整收件保持，届时逐原件接受／定位，只修新版本不改旧stage或重派。0新GPU／账本，GPU_dispatch_ready=false。原已验248＋10与c1真实入口CPU不重跑，原Window24由worldcache-gpu 00:51资源任务优先，不提前查资源或双派发。以下为历史。
+
 ## 2026-10-18 新探索生命周期CPU已单次启动，23:45／23:48各一次
 
 先读[600实际工具／原件](../../research/600_WC_SCOUT_DISTINCT_GPU_LIFECYCLE_LOCAL_CONTROLS_AND_PRODUCTION_CPU_20261018.md)及runbook当前首段。source59be59807d36c976163df67cf14e85738d4f30e7，每新stage1787源；CAL12 stage wc-scout-cal12-gpu-lifecycle-cpu-r1-20261018，2276574/start563294450，reg3a3fcb8dcf7039d9cc478f83a1104af4762fc071170a8693fa373027a0e70c14；BANK24 stage wc-scout-bank24-gpu-lifecycle-cpu-r1-20261018，2277001/start563299672，reg2212f023a2f6d0591d2d9f48ceb4394c935463f8a914e4db0faf612eda646696。原launch reports/wc_scout_<KIND>_GPU_lifecycle_CPU_R1_launch_20261018.json。新两命令CPU=20生命周期控制＋原实际入口／请求矩阵／完整source/runtime绑定，未收件／未通过；不重跑已验248＋10和c1c95ce0入口CPU，原1772依赖字节不变。

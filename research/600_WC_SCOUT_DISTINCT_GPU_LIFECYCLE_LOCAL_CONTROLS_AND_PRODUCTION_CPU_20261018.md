@@ -53,3 +53,9 @@ GPU依次原24→CAL12→固定CAL gate→BANK24，X-R共享银行；原24启动
 原启动回执`reports/wc_scout_<KIND>_GPU_lifecycle_CPU_R1_launch_20261018.json`。实际CPU尚未收件，不能判断通过。`worldcache-cpu`在23:45一次技术半程，`worldcache-cpu-2`在23:48一次完整收件；两卡共同最早时刻分别unix1792338273.2059183／1792338453.2059183。原件见[自动化实际回执](../reports/wc_scout_two_GPU_lifecycle_CPU_once_automations_20261018.json)。旧原入口两分钟CPU不重复，原248＋10不重复。
 
 `worldcache-gpu`原两小时资源任务已更新新工具接续，但00:51时刻及原24优先顺序不变。完成本地开发的单次`worldcache-gpu-2`在本轮结束时删除；新CPU由上述两任务查收，不循环查询原进度。当前新增GPU派发、预留和实际费用均为0，论文结果空白保持。
+
+## 6. 23:47一次半程：两个原句柄结束，CPU错误保留
+
+原23:45心跳实际23:46:38送达；23:47:01各一次只读查收，两份回执均绑定原source／registration和原launch。2276574与2277001均已不存在；bundle存在、CPU proof不存在，有界日志均出现`RuntimeError: Scout lifecycle CPU command failed`。这构成技术异常，不能判CPU通过，也不据此评价算法。
+
+本次只保存半程原件与[离线技术核对](../reports/wc_scout_two_lifecycle_CPU_midpoint_technical_20261018.json)，没有读取完整bundle或错误栈上下文，没有提前运行终态collector。23:48完整收件保持，届时从原件定位原因；若需修复使用新版本／stage，不改原stage或重派原CPU。原已验数值和真实入口仍保留。未启动新GPU，原24资源任务不受影响；本半程自动化收完删除。

@@ -54,7 +54,7 @@
     "待补｜主张条件": 1,
     "暂缓/未执行｜旧卡": 1,
     "已完成｜完整18路径与12正式93帧接受，同25D修正改善，未补平26D保真": 1,
-    "NUMERICAL_AND_REAL_ENTRY_CPU_ACCEPTED_NEW_LIFECYCLE_CPU_RUNNING": 4
+    "LIFECYCLE_CPU_ERROR_LINES_ORIGINAL_TERMINAL_CAPTURE_PENDING": 4
   },
   "rows": [
     {
@@ -2832,7 +2832,7 @@
     },
     {
       "id": "X-A",
-      "state": "NUMERICAL_AND_REAL_ENTRY_CPU_ACCEPTED_NEW_LIFECYCLE_CPU_RUNNING",
+      "state": "LIFECYCLE_CPU_ERROR_LINES_ORIGINAL_TERMINAL_CAPTURE_PENDING",
       "paper_experiment_name": "Exploratory Continued Readout",
       "internal_ids": [
         "X-A"
@@ -2906,7 +2906,8 @@
         "scout_CAL12_lifecycle_dependency",
         "scout_CAL12_lifecycle_CPU_launch",
         "scout_BANK24_lifecycle_dependency",
-        "scout_BANK24_lifecycle_CPU_launch"
+        "scout_BANK24_lifecycle_CPU_launch",
+        "scout_lifecycle_midpoint_technical"
       ],
       "method_mapping_ids": [],
       "contribution_ids": [],
@@ -2935,7 +2936,7 @@
     },
     {
       "id": "X-S-CURV",
-      "state": "NUMERICAL_AND_REAL_ENTRY_CPU_ACCEPTED_NEW_LIFECYCLE_CPU_RUNNING",
+      "state": "LIFECYCLE_CPU_ERROR_LINES_ORIGINAL_TERMINAL_CAPTURE_PENDING",
       "paper_experiment_name": "Exploratory Variation-Prior Shared Schedule",
       "internal_ids": [
         "X-S-CURV"
@@ -3009,7 +3010,8 @@
         "scout_CAL12_lifecycle_dependency",
         "scout_CAL12_lifecycle_CPU_launch",
         "scout_BANK24_lifecycle_dependency",
-        "scout_BANK24_lifecycle_CPU_launch"
+        "scout_BANK24_lifecycle_CPU_launch",
+        "scout_lifecycle_midpoint_technical"
       ],
       "method_mapping_ids": [],
       "contribution_ids": [],
@@ -3038,7 +3040,7 @@
     },
     {
       "id": "X-S-GATE",
-      "state": "NUMERICAL_AND_REAL_ENTRY_CPU_ACCEPTED_NEW_LIFECYCLE_CPU_RUNNING",
+      "state": "LIFECYCLE_CPU_ERROR_LINES_ORIGINAL_TERMINAL_CAPTURE_PENDING",
       "paper_experiment_name": "Exploratory Single-Decision Gate",
       "internal_ids": [
         "X-S-GATE"
@@ -3112,7 +3114,8 @@
         "scout_CAL12_lifecycle_dependency",
         "scout_CAL12_lifecycle_CPU_launch",
         "scout_BANK24_lifecycle_dependency",
-        "scout_BANK24_lifecycle_CPU_launch"
+        "scout_BANK24_lifecycle_CPU_launch",
+        "scout_lifecycle_midpoint_technical"
       ],
       "method_mapping_ids": [],
       "contribution_ids": [],
@@ -3141,7 +3144,7 @@
     },
     {
       "id": "X-R",
-      "state": "NUMERICAL_AND_REAL_ENTRY_CPU_ACCEPTED_NEW_LIFECYCLE_CPU_RUNNING",
+      "state": "LIFECYCLE_CPU_ERROR_LINES_ORIGINAL_TERMINAL_CAPTURE_PENDING",
       "paper_experiment_name": "Exploratory Directional and Edge Risk",
       "internal_ids": [
         "X-R"
@@ -3215,7 +3218,8 @@
         "scout_CAL12_lifecycle_dependency",
         "scout_CAL12_lifecycle_CPU_launch",
         "scout_BANK24_lifecycle_dependency",
-        "scout_BANK24_lifecycle_CPU_launch"
+        "scout_BANK24_lifecycle_CPU_launch",
+        "scout_lifecycle_midpoint_technical"
       ],
       "method_mapping_ids": [],
       "contribution_ids": [],
@@ -4145,7 +4149,8 @@
     "scout_CAL12_lifecycle_dependency": "manifests/scout_cal12_lifecycle_dependency_r1_20261018.json",
     "scout_CAL12_lifecycle_CPU_launch": "reports/wc_scout_CAL12_GPU_lifecycle_CPU_R1_launch_20261018.json",
     "scout_BANK24_lifecycle_dependency": "manifests/scout_bank24_lifecycle_dependency_r1_20261018.json",
-    "scout_BANK24_lifecycle_CPU_launch": "reports/wc_scout_BANK24_GPU_lifecycle_CPU_R1_launch_20261018.json"
+    "scout_BANK24_lifecycle_CPU_launch": "reports/wc_scout_BANK24_GPU_lifecycle_CPU_R1_launch_20261018.json",
+    "scout_lifecycle_midpoint_technical": "reports/wc_scout_two_lifecycle_CPU_midpoint_technical_20261018.json"
   },
   "source_bindings": {
     "11": {
@@ -7755,6 +7760,10 @@
     "scout_BANK24_lifecycle_CPU_launch": {
       "path": "reports/wc_scout_BANK24_GPU_lifecycle_CPU_R1_launch_20261018.json",
       "sha256": "991aa822b2dbc55677a1dbdd4db5c5c5419317d85ac068650ad3562a468138bc"
+    },
+    "scout_lifecycle_midpoint_technical": {
+      "path": "reports/wc_scout_two_lifecycle_CPU_midpoint_technical_20261018.json",
+      "sha256": "6d588de2c242a435ef2eecd3ae7155cc03ec286a78716b7992daee7babfb3632"
     }
   },
   "operation_policy": {
@@ -7843,7 +7852,7 @@
     },
     "W3_original_terminal_collection_performed": true,
     "SIMPLE26D_R1_collection_closed": true,
-    "current_CPU_task": "TWO_SCOUT_LIFECYCLE_CPU_JOBS_RUNNING_NOT_MODEL_OR_NUMERICAL_REEXECUTION",
+    "current_CPU_task": "ORIGINAL_SCOUT_LIFECYCLE_CPU_HANDLES_ENDED_ERRORS_FINAL_CAPTURE_PENDING",
     "next_W3_CPU_collection": null,
     "SIMPLE26D_R2_next_collection": null,
     "current_reserved_GPUh": 0,
@@ -8395,7 +8404,6 @@
       "worldcache-n10-scp-2"
     ],
     "current_CPU_automations": [
-      "worldcache-cpu",
       "worldcache-cpu-2"
     ],
     "last_model_CPU_task": {
@@ -8534,7 +8542,8 @@
     "scout_GPU_lifecycle_tools_implemented": true,
     "scout_GPU_lifecycle_CPU_accepted": false,
     "scout_GPU_lifecycle_local_continuation_completed": true,
-    "new_GPU_jobs_started_by_lifecycle_preparation": 0
+    "new_GPU_jobs_started_by_lifecycle_preparation": 0,
+    "scout_lifecycle_midpoint_errors_ref": "reports/wc_scout_two_lifecycle_CPU_midpoint_technical_20261018.json"
   },
-  "mapping_sha256_at_inventory": "f1867e23db0d391e587405568c4539a7048999257a75d5eed163dbe8e7e76a34"
+  "mapping_sha256_at_inventory": "aede0e7123f62aa23c2918650e42ed93eec2569f1da7d8758f0a3ccbf041bc02"
 }
