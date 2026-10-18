@@ -80,8 +80,15 @@ def deploy(a):
     assert not stage.is_absolute() and len(stage.parts)==2 and stage.parts[0]=='.sync' and stage.name.startswith('wc-scout-numeric248-cpu-')
     meta=dict(project=PROJECT,base=launch['stage'],base_sha=launch['registration_sha256'],stage=str(stage),revision=rev,overlay=overlay)
     code='M='+repr(meta)+'\n'+BOOT
-    call=subprocess.run(['ssh','-o','BatchMode=yes','-o','ConnectTimeout=15','-o','ClearAllForwardings=yes','gkd_minchen',PY+' -c '+shlex.quote(code)],
-        input=stream.getvalue(),capture_output=True,timeout=150)
+    try:
+        call=subprocess.run(['ssh','-o','BatchMode=yes','-o','ConnectTimeout=15','-o','ClearAllForwardings=yes','gkd_minchen',PY+' -c '+shlex.quote(code)],
+            input=stream.getvalue(),capture_output=True,timeout=150)
+    except (OSError,subprocess.TimeoutExpired) as e:
+        unknown=dict(status='SCOUT248_CPU_DISPATCH_UNKNOWN_NO_AUTOMATIC_REPLAY',stage=str(stage),source_revision=rev,
+            error_type=type(e).__name__,error=str(e),original_task_terminal=False,
+            original_recovery_ref=str(stage)+'/CPU-scout248-launch.json',GPU_submissions=0,ledger_written=False)
+        with a.output.open('x') as h:json.dump(unknown,h,indent=2);h.write('\n')
+        raise
     result=dict(status='SCOUT_NUMERICAL_CPU_DISPATCH_RESPONSE',source_revision=rev,stage=str(stage),
         exit_code=call.returncode,stdout=call.stdout.decode(),stderr=call.stderr.decode(),GPU_submissions=0,ledger_written=False)
     try:result['launch']=json.loads(call.stdout)

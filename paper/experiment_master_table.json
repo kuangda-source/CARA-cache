@@ -2420,7 +2420,7 @@
       ],
       "contribution_relation": "C1修正能否替代D；C2完整预算计划的判别开发；C3真实质量时间",
       "evidence_or_planned_scope": "全部18完成/12正式1116帧；三种36guided重复、四旧前密终态/actions/A历史/93RGB控制均通过。四场景/seed0同25D仅第21步C/A不同。",
-      "gap_and_next_action": "原18与同25D修正结果已接受；完整24的88数值/旧12及N09实际报价已准备（预测3.064166667/上限4），新stage真实生产CPU和A3端点待。探索G11只复用该卡，G01另补；不改原卡或借探索重跑。",
+      "gap_and_next_action": "原完整24五命令真实生产CPU已接受（1749源/153.492秒），N10原22:43收完后沿原source a350ea98直接启动，预测3.064166667/上限4；A3端点待。探索G11复用原24，不改原四臂。",
       "priority": "已接受·固定预算修正消融",
       "evidence_refs": [
         "endpoint_budget_design_551",
@@ -2502,7 +2502,13 @@
         "reports/wc_drop1_window24_client_and_final_source_local_preparation_20261018.json",
         "plans/WC_DROP1_WINDOW24_PRICING_SCOPE_AMENDMENT_R2_20261018.md",
         "scouts_594",
-        "scouts_assets"
+        "scouts_assets",
+        "window24_production_CPU_595",
+        "window24_actual_production_CPU_launch",
+        "window24_actual_production_CPU_terminal",
+        "window24_actual_production_CPU_accepted",
+        "scout_execution_human_authority",
+        "scout_sampling248_prereg"
       ],
       "method_mapping_ids": [
         "module.gcr",
@@ -2718,7 +2724,7 @@
         "card": "WC-DROP1-WINDOW-CAL4-FOURARM-FULL24-R1-20261018-A",
         "plan_ref": "plans/WC_DROP1_CORRECTION_WINDOW_FULL24_20261018.md",
         "static_scope_ref": "manifests/wc_drop1_correction_window_full24_static_scope_20261018.json",
-        "status": "REAL_N09_QUOTE_READY_ACTUAL_PRODUCTION_CPU_AND_GPU_PENDING",
+        "status": "ACTUAL_PRODUCTION_CPU_ACCEPTED_WAITING_ORIGINAL_N10_FINAL_THEN_GPU",
         "GPU_submissions": 0,
         "quality_results": null,
         "timing_results": null,
@@ -2730,7 +2736,7 @@
         "local_CPU_ref": "reports/wc_drop1_correction_window24_adapter_full88_entry_local_CPU_r2_20261018.json",
         "full88_entry_prepared": true,
         "full88_numerical_executed": true,
-        "production_CPU_accepted": false,
+        "production_CPU_accepted": true,
         "immutable_actual88_CPU_chain_prepared": true,
         "source_gates_CPU_ref": "reports/wc_drop1_window88_source_and_collection_gates_local_20261018.json",
         "CPU_only_order_amendment_ref": "plans/WC_DROP1_WINDOW88_CPU_RESOURCE_WAIT_ORDER_20261018.md",
@@ -2769,7 +2775,7 @@
         "lifecycle_local_preparation_ref": "reports/wc_drop1_window24_lifecycle_source_local_preparation_20261018.json",
         "current_Python_closure_files": 156,
         "old88_payload_overwrites": 0,
-        "actual_new_CPU_stage_dispatched": false,
+        "actual_new_CPU_stage_dispatched": true,
         "client_GPU_launcher_and_final_acceptor_complete": true,
         "full_GPU_execution_envelope_source_prepared": true,
         "GPU_client_ref": "scripts/launch_wc_drop1_window24_r1.py",
@@ -2788,7 +2794,9 @@
           "G11": "S25-A3",
           "G01": "scout CAL12 only"
         },
-        "original_card_modified_by_scouts": false
+        "original_card_modified_by_scouts": false,
+        "production_CPU_source_revision": "a350ea9822e3443c3cd8f4c601673fc064d49684",
+        "actual_production_CPU_acceptance_ref": "reports/wc_drop1_window24_actual_production_CPU_R1_independent_acceptance_20261018.json"
       }
     },
     {
@@ -3758,7 +3766,13 @@
     "scouts_BANK24_design": "plans/scouts_20261018/SCOUT_DEV6_BANK24_CARD.json",
     "scouts_DEV6_inputs": "plans/scouts_20261018/SCOUT_EXPL_DEV6_INPUTS.json",
     "scouts_DEV6_local_proof": "reports/wc_scout_DEV6_local_input_selection_verification_20261018.json",
-    "scouts_design_QA": "reports/wc_scout_design_and_index_local_acceptance_20261018.json"
+    "scouts_design_QA": "reports/wc_scout_design_and_index_local_acceptance_20261018.json",
+    "window24_production_CPU_595": "research/595_WC_WINDOW24_PRODUCTION_CPU_ACCEPTED_AND_SCOUT_ORDERED_EXECUTION_20261018.md",
+    "window24_actual_production_CPU_launch": "reports/wc_drop1_window24_actual_production_CPU_R1_launch_20261018.json",
+    "window24_actual_production_CPU_terminal": "reports/wc_drop1_window24_actual_production_CPU_R1_collection_20261018.json.gz",
+    "window24_actual_production_CPU_accepted": "reports/wc_drop1_window24_actual_production_CPU_R1_independent_acceptance_20261018.json",
+    "scout_execution_human_authority": "manifests/wc_scout_full_execution_human_authority_20261018.json",
+    "scout_sampling248_prereg": "plans/WC_SCOUT_NUMERIC248_AND_PRODUCTION_ORDER_20261018.md"
   },
   "source_bindings": {
     "11": {
@@ -7080,6 +7094,30 @@
     "scouts_design_QA": {
       "path": "reports/wc_scout_design_and_index_local_acceptance_20261018.json",
       "sha256": "ca22e3f69349713d07fbbcb4d039816b48992c8365e1d2efa965d80b73a56504"
+    },
+    "window24_production_CPU_595": {
+      "path": "research/595_WC_WINDOW24_PRODUCTION_CPU_ACCEPTED_AND_SCOUT_ORDERED_EXECUTION_20261018.md",
+      "sha256": "53b207018d81238fbb502ce66613b7918a09dded97c1db8375e75f459c2dfb37"
+    },
+    "window24_actual_production_CPU_launch": {
+      "path": "reports/wc_drop1_window24_actual_production_CPU_R1_launch_20261018.json",
+      "sha256": "70c2d1faf18fe8413d440035745605400e62c76c4f14c87bce5a03d2eead716e"
+    },
+    "window24_actual_production_CPU_terminal": {
+      "path": "reports/wc_drop1_window24_actual_production_CPU_R1_collection_20261018.json.gz",
+      "sha256": "9c19b71a0a589d11eb87e9f40f7d04e129151319609a2e2145c67187e9d8d025"
+    },
+    "window24_actual_production_CPU_accepted": {
+      "path": "reports/wc_drop1_window24_actual_production_CPU_R1_independent_acceptance_20261018.json",
+      "sha256": "9f28aa65318bad9c94b94aa44042613a7bd678f0e2bce1bb2c0913a806a4e9ea"
+    },
+    "scout_execution_human_authority": {
+      "path": "manifests/wc_scout_full_execution_human_authority_20261018.json",
+      "sha256": "d643b1e22ae216b413286f0b3d53e8eb33acce59ea04edc67c82d9d5134e788b"
+    },
+    "scout_sampling248_prereg": {
+      "path": "plans/WC_SCOUT_NUMERIC248_AND_PRODUCTION_ORDER_20261018.md",
+      "sha256": "e6ce99cc886522c1846805085cfa6d09e20077616a29f02da70bd334da041034"
     }
   },
   "operation_policy": {
@@ -7833,5 +7871,5 @@
       "original_check_times_unchanged": true
     }
   },
-  "mapping_sha256_at_inventory": "d1199bcaee292f5ad35f6b11c596be62c87a551c4111b826ee09d366e9221fb0"
+  "mapping_sha256_at_inventory": "4b572a836a3d386e945f349f01676cc3349d18a71747e0e5f54efadcea356fe4"
 }

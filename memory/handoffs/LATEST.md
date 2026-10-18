@@ -1,3 +1,9 @@
+## 2026-10-18 原连续24生产CPU已接受，按最新授权顺序执行
+
+[595实际生产接受与接续](../../research/595_WC_WINDOW24_PRODUCTION_CPU_ACCEPTED_AND_SCOUT_ORDERED_EXECUTION_20261018.md)：source a350ea98／stage wc-drop1-window24-production-cpu-r1-20261018／PID2184695已结束，完整1749源／五命令全0，153.492秒。原88数值与旧12控制保持，CPU接受原件reports/wc_drop1_window24_actual_production_CPU_R1_independent_acceptance_20261018.json。N10原22:43完整验收后直接复用此证明，以fresh v2／UUID启动原完整24（预测3.064166667／上限4），不重复CPU、不换source或缩卡；启动后半程和ETA各一次。N10原自动化时刻不变，已补入现有CPU接受与直接启动指令。
+
+新增CAL12／BANK24观察器和完整数值248入口已准备，尚未执行；数值与生产接受分开。后续继续原24→CAL12→银行，X-R共享，严格<12／cap226历史、F/B结束保持。本段写入时无新GPU派发或预留，A3结果仍空。以下为历史。
+
 ## 2026-10-18 三条小成本探索：E0真实CPU已完成，GPU卡独立排队
 
 [594安排与实际CPU](../../research/594_WC_THREE_SCOUTS_E0_REAL_CPU_AND_DEDUPLICATED_NEXT_CARDS_20261018.md)：五旧文件实际读取，0新GPU。AV28 step21在预设α∈[0,1]内以α=1最优，本轮不扫shrink；两Native轨迹产生一个26D新计划（−D33/+D22），仅为合法候选。X-R一状态分解不充预测收益，z仍缺probe。原N10 22:43验收与原完整24顺序保持；G11复用原24，新增CAL12只补G01和一个共享计划，DEV6银行含六Native参考，X-R共享，不恢复F/B。
