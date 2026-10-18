@@ -69,12 +69,16 @@ def deploy(a):
         'scripts/capture_wc_scout_gpu_lifecycle_cpu_r1.py']
     dep=read(ROOT/DEPENDENCIES[a.kind])
     assert dep['entry_registration_sha256']==base['registration_sha256'] and dep['entry_stage']==reg['stage']
-    packet=plan(ROOT,config_roots=[dep['config_ref']],python_entrypoints=entrypoints,
+    # The shared lifecycle controls exercise both scopes. Package both frozen
+    # configuration closures, even though only this kind may execute a GPU job.
+    fixture_configs=['configs/wc_scout_'+k+'_production_entry_r1_20261018.json' for k in ('cal12','bank24')]
+    packet=plan(ROOT,config_roots=fixture_configs,python_entrypoints=entrypoints,
         extra_files=[DEPENDENCIES[a.kind],launchref,capref,acceptedref,'tests/test_scout_gpu_lifecycle_r1.py',
             'scripts/capture_wc_scout_production_entry_cpu_r1.py'],
         base_registration_sha256=base['registration_sha256'],base_source_revision=reg['source_revision'],numeric_sources={})
     changed=[n for n,h in packet['overlay_sha256'].items() if n in reg['payload_sha256'] and reg['payload_sha256'][n]!=h]
     assert not changed,'Accepted execution/entry bytes cannot change: '+str(changed)
+    assert all(n in packet['overlay_sha256'] for n in fixture_configs), 'Every shared-test configuration must be registered'
     rev=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip();archive=git_archive(ROOT,packet,rev)
     stage=Path(a.stage);assert not stage.is_absolute() and len(stage.parts)==2 and stage.parts[0]=='.sync'
     assert stage.name.startswith('wc-scout-'+a.kind.lower()+'-gpu-lifecycle-cpu-')

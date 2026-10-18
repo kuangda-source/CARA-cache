@@ -1,0 +1,47 @@
+{
+  "status": "SCOUT_LIFECYCLE_R1_BOTH_FAILURES_PINPOINTED_SHARED_TEST_CONFIG_PACKAGING_GAP",
+  "rows": [
+    {
+      "kind": "CAL12",
+      "original_source": "59be59807d36c976163df67cf14e85738d4f30e7",
+      "payload_files": 1787,
+      "complete_payload_and_runtime_identity_accepted": true,
+      "CPU_commands_reached": 1,
+      "first_command_exit_code": 1,
+      "second_command_not_reached": true,
+      "CPU_wall_seconds": 4.4568986892700195,
+      "missing_config": "configs/wc_scout_bank24_production_entry_r1_20261018.json",
+      "missing_config_in_original_payload": false,
+      "log_test_summary": [
+        "Ran 20 tests in 0.061s",
+        "FAILED (errors=7)"
+      ],
+      "capture_sha256": "5ee6f46664fdd9a7bb38f96851690f00cd10b6eb8ce9f1426373ffef8e5e121b"
+    },
+    {
+      "kind": "BANK24",
+      "original_source": "59be59807d36c976163df67cf14e85738d4f30e7",
+      "payload_files": 1787,
+      "complete_payload_and_runtime_identity_accepted": true,
+      "CPU_commands_reached": 1,
+      "first_command_exit_code": 1,
+      "second_command_not_reached": true,
+      "CPU_wall_seconds": 4.142946004867554,
+      "missing_config": "configs/wc_scout_cal12_production_entry_r1_20261018.json",
+      "missing_config_in_original_payload": false,
+      "log_test_summary": [
+        "Ran 20 tests in 0.047s",
+        "FAILED (errors=10)"
+      ],
+      "capture_sha256": "fc86b450c5f48749d92bcbadfa027866660359648f876c2d321d62c627f861a8"
+    }
+  ],
+  "source_revision": "59be59807d36c976163df67cf14e85738d4f30e7",
+  "repair": "Package both immutable scout configuration closures in each new lifecycle stage",
+  "execution_algorithm_changed": false,
+  "numerical_paths_to_repeat": 0,
+  "real_entry_CPU_to_repeat": false,
+  "GPU_submissions": 0,
+  "ledger_written": false,
+  "originals_preserved": true
+}

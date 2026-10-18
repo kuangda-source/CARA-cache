@@ -59,3 +59,7 @@ GPU依次原24→CAL12→固定CAL gate→BANK24，X-R共享银行；原24启动
 原23:45心跳实际23:46:38送达；23:47:01各一次只读查收，两份回执均绑定原source／registration和原launch。2276574与2277001均已不存在；bundle存在、CPU proof不存在，有界日志均出现`RuntimeError: Scout lifecycle CPU command failed`。这构成技术异常，不能判CPU通过，也不据此评价算法。
 
 本次只保存半程原件与[离线技术核对](../reports/wc_scout_two_lifecycle_CPU_midpoint_technical_20261018.json)，没有读取完整bundle或错误栈上下文，没有提前运行终态collector。23:48完整收件保持，届时从原件定位原因；若需修复使用新版本／stage，不改原stage或重派原CPU。原已验数值和真实入口仍保留。未启动新GPU，原24资源任务不受影响；本半程自动化收完删除。
+
+## 7. 完整查收确认打包遗漏；接续601
+
+两张R1完整1787源／runtime均一致，但首组20控制分别7／10个FileNotFoundError，全部来自缺另一kind的冻结配置；第2命令未到达，CPU proof未生成，独立接受false。原件／失败保留；[601修复](601_WC_SCOUT_LIFECYCLE_R1_PACKAGE_FAILURE_AND_R2_ISOLATED_REPAIR_20261018.md)仅将两份冻结配置闭包都注册，每卡新stage1789源，原1772依赖不改。两份实际overlay本地隔离20项控制均通过，服务器R2实际CPU待新launch；不能把修复准备写成已接受。

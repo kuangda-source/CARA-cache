@@ -1,5 +1,9 @@
 # 本轮CPU收件后的直接执行入口
 
+## 最新：生命周期R1打包失败，改用R2独立stage
+
+[601原件与修复](../research/601_WC_SCOUT_LIFECYCLE_R1_PACKAGE_FAILURE_AND_R2_ISOLATED_REPAIR_20261018.md)：R1完整source/runtime一致，首组共用测试缺另一kind的配置，未执行第2命令／未接受；原失败保留。R2只将两份现有配置闭包都打入每卡新1789源stage，原1772执行依赖不改，两份overlay独立20项本地控制已通过。下面生命周期R1的stage／回执用于历史；新部署使用`wc-scout-<kind>-gpu-lifecycle-cpu-r2-20261018`与`reports/wc_scout_<KIND>_GPU_lifecycle_CPU_R2_launch_20261018.json`。其他CLI、接受边界和上游顺序保持；严格按R2真实launch分别安排半程／ETA，不重放R1，也不重跑已验数值／原入口。
+
 ## 23:00接续：原入口已接受，新生命周期使用独立证明
 
 [600新工具和控制](../research/600_WC_SCOUT_DISTINCT_GPU_LIFECYCLE_LOCAL_CONTROLS_AND_PRODUCTION_CPU_20261018.md)：R2数值248＋10与两个真实入口CPU都已接受，以下旧待验／待开发段落为历史，不能重新执行它们。新生命周期代码已实现并通过20本地控制；每kind新stage复用原1772个文件，新增生命周期实际CPU两命令待验。
