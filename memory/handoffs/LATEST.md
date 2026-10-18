@@ -1,3 +1,11 @@
+## 2026-10-18 新探索生命周期CPU已单次启动，23:45／23:48各一次
+
+先读[600实际工具／原件](../../research/600_WC_SCOUT_DISTINCT_GPU_LIFECYCLE_LOCAL_CONTROLS_AND_PRODUCTION_CPU_20261018.md)及runbook当前首段。source59be59807d36c976163df67cf14e85738d4f30e7，每新stage1787源；CAL12 stage wc-scout-cal12-gpu-lifecycle-cpu-r1-20261018，2276574/start563294450，reg3a3fcb8dcf7039d9cc478f83a1104af4762fc071170a8693fa373027a0e70c14；BANK24 stage wc-scout-bank24-gpu-lifecycle-cpu-r1-20261018，2277001/start563299672，reg2212f023a2f6d0591d2d9f48ceb4394c935463f8a914e4db0faf612eda646696。原launch reports/wc_scout_<KIND>_GPU_lifecycle_CPU_R1_launch_20261018.json。新两命令CPU=20生命周期控制＋原实际入口／请求矩阵／完整source/runtime绑定，未收件／未通过；不重跑已验248＋10和c1c95ce0入口CPU，原1772依赖字节不变。
+
+worldcache-cpu 23:45半程、worldcache-cpu-2 23:48完整各一次，共同not-before unix1792338273.2059183／1792338453.2059183。使用capture_wc_scout_gpu_lifecycle_cpu_r1.py --mode halfway/terminal，保存后--mode accept；不能把启动或本地控制当真实CPU通过。原件与完整接受后更新资源任务的原24未来终态接CAL12 CLI，详见runbook。当前0新GPU／预留／费用、GPU_dispatch_ready=false。
+
+原N10已全部接受599，不再查；原Window24仍未派发，worldcache-gpu资源任务00:51不变，不能提前查资源或重复派发。GPU原24完整接受→CAL12→四CAL冻结μ／中位阈值→BANK24，X-R共享。cap226／origin及历史不变，strict<12自主、F/B关闭。当前本地工具接续worldcache-gpu-2完成后删除，仅保留两CPU检查和原资源任务。以下为历史。
+
 ## 2026-10-18 N10完整960／645评分及费用接受，原24等待外部GPU释放
 
 [599完整结果与资源队列](../../research/599_WC_N10_FULL960_ACCEPTED_DIMENSIONWISE_RESULTS_AND_WINDOW24_RESOURCE_QUEUE_20261018.md)：原source d10e9926全部645适用评分成功，155视频不可用／160静态N/A不填0；原960、五模型、19对比／4096 prompt bootstrap、实际0.386506105GPUh及原UUID释放均独立接受，原N10终态自动化已删除，不重查或重评。原件reports/wc_paper_N10_full960_terminal_collection_20261018.json.gz与terminal_independent_acceptance_20261018.json；逐维／prompt派生分析见wc_paper_N10_dimensionwise_accepted_analysis_20261018.json。H1相对RA主体／平滑／MUSIQ正向，强前密仍有取舍，不改旧保真／速度边界。

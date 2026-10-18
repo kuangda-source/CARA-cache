@@ -1,3 +1,9 @@
+## 2026-10-18 探索生命周期实际CPU在途；不新增论文结果
+
+[600新工具与CPU](../research/600_WC_SCOUT_DISTINCT_GPU_LIFECYCLE_LOCAL_CONTROLS_AND_PRODUCTION_CPU_20261018.md)：两新stage1787源／source59be5980已分别单次启动，20本地控制与6条CLI通过；23:45半程／23:48完整收件。R2数值及真实入口CPU已验并直接复用，独立生命周期CPU仍待接受，GPU_dispatch_ready=false。X-A／X-S-CURV／X-S-GATE／X-R保持探索、结果空白，未并入主稿。
+
+原Window24仍优先等待资源任务00:51，未派发；随后CAL12完整接受、四CAL冻结gate，再BANK24，X-R共享。0新GPU／预留／费用；N10全645评分已接受不重查，cap226和strict<12规则不变。以下为历史。
+
 ## 2026-10-18 N10自动质量完整接受，原24已验CPU等待资源
 
 [599结果／统计／接续](../research/599_WC_N10_FULL960_ACCEPTED_DIMENSIONWISE_RESULTS_AND_WINDOW24_RESOURCE_QUEUE_20261018.md)：645适用评分全部成功，原960含155视频不可用／160静态N/A完整保留；五模型／19对比／4096 prompt bootstrap和0.386506105GPUh接受。N10自动质量表现在可以填写已验分数，按完整双seed提示词同队列比较；不填加权总分、不充新独立输入或生成速度。H1相对RA有主体／平滑／MUSIQ正向，强前密对照仍有取舍。N10原终态自动化已删除。

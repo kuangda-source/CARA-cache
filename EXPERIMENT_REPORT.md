@@ -1,3 +1,9 @@
+## 2026-10-18 新探索独立GPU生命周期已实现，实际CPU待23:48接受
+
+[600工具与原启动](research/600_WC_SCOUT_DISTINCT_GPU_LIFECYCLE_LOCAL_CONTROLS_AND_PRODUCTION_CPU_20261018.md)：source59be5980，20本地控制／6条CLI通过；CAL12 PID2276574／BANK24 PID2277001各新1787源stage已经单次启动生命周期CPU。原数值248＋10与c1c95ce0真实Cosmos入口CPU直接复用，原1772依赖字节不改，未重跑。新监督与原生成source分别明确绑定，不借原24通过标记。
+
+worldcache-cpu于23:45一次半程，worldcache-cpu-2于23:48一次完整查收；当前GPU_dispatch_ready仍false、0新视频／GPU／费用。原Window24仍由资源任务00:51等真正空闲GPU，不在本轮提前查询或双派发。顺序原24完整接受→CAL12→四CAL冻结gate→BANK24，X-R共享，cap226／strict<12及F/B关闭保持。以下为历史。
+
 ## 2026-10-18 N10全部645适用评分接受，原24因外部GPU占用排队
 
 [599完整结果与资源接续](research/599_WC_N10_FULL960_ACCEPTED_DIMENSIONWISE_RESULTS_AND_WINDOW24_RESOURCE_QUEUE_20261018.md)：原960分母完整接受，645评分全成功、155视频不可用、160静态N/A保留；五模型、19对比、4096提示词分组bootstrap及实际0.386506105GPUh均独立核对。H1相对RA的主体一致性、平滑度及MUSIQ正向，A_NO_P前两项正向；相对强前密仍有取舍，不改N07保真／N08速度结论。
