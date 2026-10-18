@@ -1,0 +1,54 @@
+# Exploration-only registry template. Placeholder entries are NOT scientific results.
+project: WorldCache
+created_date: '2026-10-18'
+status: PROPOSED_NOT_RUN
+scope: isolated_scouts_no_mainline_changes
+backbone: Cosmos-Predict2.5-2B
+sampling:
+  requested_steps: 35
+  actual_guided_updates: 36
+  cfg: '8*c - 7*u'
+  frames_per_video: 93
+reference: Native35_same_prompt_seed
+sources:
+  N12: 'S26-C, S25-C, S25-A: 4 exposed CAL prompts, seed0'
+  W3_E0: 'only existing valid same-state labels'
+  N07: 'already inspected; development feedback, not held-out test'
+experiments:
+  - id: X-A
+    hypothesis: 'Bridge one removed D with continued A across actual valid non-D interval'
+    existing_arms: [G00_S25_C, G10_S25_A]
+    proposed_new_arms: [G01_later_A, G11_step21_and_later_A]
+    max_new_formal_videos: 8
+    estimated_gpu_h_cap: 1.0
+    status: PROPOSED_NOT_RUN
+  - id: X-S-GATE
+    hypothesis: 'Causal normalized probe change ranks the true endpoint cost of D21->A21'
+    proposed_new_prompts: 6
+    arms_per_prompt: [D21, A21]
+    max_new_formal_videos: 12
+    estimated_gpu_h_cap: 1.3
+    status: PROPOSED_NOT_RUN
+  - id: X-S-CURV
+    hypothesis: 'Native-trajectory variation score produces a legal 26D schedule better than front-dense'
+    max_new_formal_videos: 4
+    estimated_gpu_h_cap: 0.45
+    status: PROPOSED_NOT_RUN
+  - id: X-R
+    hypothesis: 'Error direction/region adds endpoint-risk signal beyond same-state MSE'
+    shares_data_with: X-S-GATE
+    estimated_gpu_h_cap: 0.0
+    status: PROPOSED_NOT_RUN
+contingency_gpu_h_cap: 0.6
+total_proposed_gpu_h_cap: 3.35
+permissions:
+  automatic_gpu_launch: false
+  mainline_mutations_allowed: false
+  resume_stopped_F_or_B: false
+  resume_deferred_old_P_card: false
+required_cpu_first:
+  - verified_N12_D_mask_and_next_actual_D
+  - existing_24_path_continuous_correction_card_status
+  - same_state_tensor_manifest
+  - frozen_prompts_and_rejection_protocol
+  - per_card_real_GPU_hour_quote_and_latest_remaining_budget
