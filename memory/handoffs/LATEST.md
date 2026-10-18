@@ -1,3 +1,7 @@
+## 2026-10-18 12:57 用户询问状态：N09仍在途，已完成旧卡无待验收积压
+
+[一次应询技术快照](../../reports/wc_paper_N09_R3_user_status_20261018_1255.json)确认原N09 R3三个句柄PID/start_ticks仍匹配；40分母中3 COMPLETE、1 RUNNING，其余未到达，原GPU子进程与post均未终态。仅技术状态，无质量／组件／时间比较，不当半程或终态验收。N07 R2、N08、N12及E0已完整收尾；N10生产CPU已接受但正式评分未执行，连续修正完整24未生成。原14:48半程／17:23完整验收和两小时资源规则不变，未新开GPU或改账本。以下为原接续。
+
 ## 2026-10-18 当前：N09 fresh R3完整40已在GPU0准入；14:48半程／17:23完整验收
 
 [590原任务与查收](../../research/590_WC_N09_FRESH_R3_SINGLE_GPU_DISPATCH_AND_TWO_COLLECTION_TIMES_20261018.md)：07:19两卡空闲；R3已于12:37:23单次派发，12:41:52原件及独立接受确认1787源／原CPU、supervisor1947245/start559314698、runner1947617/start559319208、post1947246/start559314707、GPU0锁及完整5预留。原source1de07673／stage wc-paper-n09-production-cpu-r3-20261018／完整40/10warm+30正式/1440pairs不变，forecast4.245833333／上限5；初始27秒pending回执保留，不重派。

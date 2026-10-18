@@ -623,7 +623,7 @@
       ],
       "contribution_relation": "E-W3→C2是否值得增强",
       "evidence_or_planned_scope": "456主组T1/时间-only/仅23步regret0.339971/0.340532/0.337549；敏感性0.329269/0.332689/0.330417；三CPU隔离与独立标量复算通过。",
-      "gap_and_next_action": "553已完成去step23/统一回退及状态oracle分解；T1无主组额外收益，有回退T2保留局部线索。下一步不扩大预测器，先N12完整三臂。",
+      "gap_and_next_action": "553已完成去step23/统一回退及状态oracle分解；T1无主组额外收益，有回退T2保留局部线索。N12完整18已接受，同25D读出改善但未补平26D质量；后续完整24待N09价格，不扩大预测器。",
       "priority": "R·CPU区分完成",
       "evidence_refs": [
         "trend_spec",
@@ -668,7 +668,7 @@
       ],
       "contribution_relation": "拟增强C2动态分配；C3端点",
       "evidence_or_planned_scope": "459完整72 Toy路径、32audit/lean配对、8旧H1全36guided/mock控制、owner释放及8/8第23步实际D→A通过；服务器生产CPU和真实视频未做。",
-      "gap_and_next_action": "旧459完整Toy控制保留；H1第23步完整终点仍未做。551先做强前密少一次D的三臂，两个实际mask不同，不将旧CPU等价转用新卡。",
+      "gap_and_next_action": "旧459完整Toy控制保留，H1第23步完整终点仍未做；N12完整三臂已接受，当前优先连续修正完整24。两种实际mask不同，旧CPU等价不转用新卡。",
       "priority": "P2-C·E1后有价值才做",
       "evidence_refs": [
         "trend_spec",
@@ -775,7 +775,7 @@
       ],
       "contribution_relation": "C1/C2实用增量；C3公平性",
       "evidence_or_planned_scope": "完整66/44视频4092帧全部接受；A比RA默认失真低9.6667%、时间高1.0809%；两个候选均在本批观测前沿。",
-      "gap_and_next_action": "旧CAL开发结果保留；N07新输入已完整接受可用共同队列，A_NO_P未稳定胜RA；N08在途，直接修正近邻Cosmos适配仍缺。",
+      "gap_and_next_action": "旧CAL开发结果保留；N07新输入和N08重复测速均已接受，A_NO_P未稳定胜RA。当前N09在途、N10正式评分和连续修正完整24待执行；直接修正近邻Cosmos适配仍缺。",
       "priority": "R·主结果开发基线",
       "evidence_refs": [
         "closure_plan",
@@ -1358,7 +1358,7 @@
       ],
       "contribution_relation": "C3稳定费用；C1/C2工作点复验",
       "evidence_or_planned_scope": "40/40完成，30正式2790帧、10warm及30完整控制接受，82登记资源边界及v2区间通过；原派生std1ULP失败保留，限定只读修复与12CPU通过。",
-      "gap_and_next_action": "不重查或重跑；仅两旧CAL重复时间，不当新输入泛化。N09/N10与551新三臂仍待执行，不自动开新卡。",
+      "gap_and_next_action": "不重查或重跑；仅两旧CAL三轮重复时间，不当新输入泛化。N12原完整18已接受；当前N09在途，N10与连续修正完整24按原依赖接续。",
       "priority": "R·重复时间已接受",
       "evidence_refs": [
         "closure_plan",
@@ -3545,7 +3545,8 @@
     "N09_R3_original_admission_after_prevalidation": "reports/wc_paper_N09_actual40_R3_admission_after_prevalidation_20261018.json.gz",
     "N09_R3_independent_admission": "reports/wc_paper_N09_actual40_R3_independent_admission_acceptance_20261018.json",
     "N09_R3_two_once_checks": "reports/wc_paper_N09_actual40_R3_two_collection_automations_20261018.json",
-    "two_GPU_resource_20261018_0718": "reports/wc_two_gpu_resource_readonly_20261018_0718.json"
+    "two_GPU_resource_20261018_0718": "reports/wc_two_gpu_resource_readonly_20261018_0718.json",
+    "N09_R3_user_requested_technical_status_1257": "reports/wc_paper_N09_R3_user_status_20261018_1255.json"
   },
   "source_bindings": {
     "11": {
@@ -6759,6 +6760,10 @@
     "two_GPU_resource_20261018_0718": {
       "path": "reports/wc_two_gpu_resource_readonly_20261018_0718.json",
       "sha256": "f935d3f641521ccaef0de1510b12d795fb75ec16b3d4687546ffbe858d74141e"
+    },
+    "N09_R3_user_requested_technical_status_1257": {
+      "path": "reports/wc_paper_N09_R3_user_status_20261018_1255.json",
+      "sha256": "f01b2fe48fc695dcd50442f679850cc73b58b22d13b69c5a6a7da67c2f23aaa8"
     }
   },
   "operation_policy": {
@@ -7495,7 +7500,22 @@
     "N09_two_once_automations_ref": "reports/wc_paper_N09_actual40_R3_two_collection_automations_20261018.json",
     "N09_actual_runtime40_GPU_launch_ref": "reports/wc_paper_N09_actual40_R3_GPU_launch_20261018_123616.json",
     "resource_monitor_skip_if_original_check_within_minutes": 15,
-    "heavy_model_CPU_or_N10_deferred_during_N09_measurement": true
+    "heavy_model_CPU_or_N10_deferred_during_N09_measurement": true,
+    "last_user_requested_technical_status": {
+      "ref": "reports/wc_paper_N09_R3_user_status_20261018_1255.json",
+      "observed_unix": 1792299420.089459,
+      "observed_local": "2026-10-18T12:57:00.089459+08:00",
+      "original_run": "wc-paper-n09-runtime-profile40-r1",
+      "original_runner_rows": 4,
+      "registered_total_paths": 40,
+      "technical_status_counts": {
+        "COMPLETE": 3,
+        "RUNNING": 1
+      },
+      "original_GPU_or_post_terminal": false,
+      "not_midpoint_or_terminal_acceptance": true,
+      "original_check_times_unchanged": true
+    }
   },
-  "mapping_sha256_at_inventory": "311893bdc51af48f207fa2fc5abf28b553751745a4be77222c247603209add7b"
+  "mapping_sha256_at_inventory": "5d5058537edca2972f47f8eac851495b7c442469e18f20b6f12d4bbea033f8df"
 }
