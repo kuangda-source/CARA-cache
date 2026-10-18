@@ -1,3 +1,7 @@
+## 2026-10-18 两张入口CPU半程已收，完整证明待接续接受
+
+[598半程记录](research/598_WC_SCOUT_R2_NUMERICAL_ACCEPTED_AND_TWO_REAL_ENTRY_CPU_LAUNCHES_20261018.md)：原约22:32心跳延迟至22:34:37送达，实际22:35:05／06一次核对CAL12／BANK24原PID均结束、三证明存在、错误线索为空；未读证明内容或查全源，不判通过。worldcache-cpu半程已删除，原22:35终态任务与N10原22:43／随后原24单次启动均保持，不在半程重复终态收件。0新GPU／账本写，以下为历史。
+
 ## 2026-10-18 R2完整248＋10接受，两张真实入口CPU已启动
 
 [598实际接受／启动](research/598_WC_SCOUT_R2_NUMERICAL_ACCEPTED_AND_TWO_REAL_ENTRY_CPU_LAUNCHES_20261018.md)：R2 source db1de113完整248采样＋10拒绝控制已独立接受927.946723秒，原R1保留。两张实际配置与完整报价已冻结：CAL12预测1.876666667／上限2.5，BANK24预测3.407222222／上限4.5，包含全部warm／Native／加载与观察余量，规划非实费。
