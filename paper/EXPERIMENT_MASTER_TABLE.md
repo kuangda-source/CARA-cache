@@ -1,3 +1,9 @@
+## 2026-10-19 探索生产CPU已全部就绪，科学结果保持待执行
+
+[601实际CPU接受](../research/601_WC_SCOUT_LIFECYCLE_R1_PACKAGE_FAILURE_AND_R2_ISOLATED_REPAIR_20261018.md)：CAL12／BANK24 source2bd41dc8，每卡全部1789源/runtime和两命令接受，原数值／实际Cosmos入口CPU直接复用；原R1失败保留。GPU_dispatch_ready=true仅表示工具前置条件就绪，原24上游／fresh资源／实际GPU准入仍需完成。X-A／X-S-CURV／X-S-GATE／X-R仍是独立探索，新增结果与GPU费用0，不支撑新增论文贡献。
+
+原24资源任务00:51保持；其完整接受后按[就绪CLI](../plans/WC_SCOUT_GPU_READY_CONTINUATION_20261019.md)直接接CAL12，再四CAL冻结gate／BANK24，X-R共享。CPU查收任务已完成删除，原N10已验结果不重查，cap226和strict<12保持。以下为历史。
+
 ## 2026-10-18 探索R1打包失败保留；R2新CPU待查收
 
 [601原件／修复](../research/601_WC_SCOUT_LIFECYCLE_R1_PACKAGE_FAILURE_AND_R2_ISOLATED_REPAIR_20261018.md)：R1因共用测试缺另一kind配置而未通过，不构成方法负结果；原件保留。新source2bd41dc8只补配置闭包，两个1789源stage已各单次派发，新半程10-19 00:00／完整00:03。原数值及真实入口接受不变，GPU_dispatch_ready=false，新增科学结果／GPU费用0。

@@ -1,3 +1,9 @@
+## 2026-10-19 两张新探索生命周期CPU完整接受，等待原24上游
+
+[601实际完整接受](research/601_WC_SCOUT_LIFECYCLE_R1_PACKAGE_FAILURE_AND_R2_ISOLATED_REPAIR_20261018.md)：source2bd41dc8、两卡各1789源/runtime、每卡20控制＋实际入口依赖两命令全0，CPU77.617048／65.231004秒。原R1打包失败保留；原数值248＋10与真实c1入口CPU直接复用，执行代码和报价不改。现在lifecycle_CPU_accepted／GPU_dispatch_ready=true，尚无新GPU或视频结果。
+
+[直接接续手册](plans/WC_SCOUT_GPU_READY_CONTINUATION_20261019.md)已给出实际R2三件套和全部CLI。原24仍由00:51资源任务优先，完整接受后CAL12→四CAL冻结gate→BANK24，X-R共享。当前CPU查收任务已结束并删除，资源任务更新后保留；本轮新增GPU／费用0，cap226／strict<12及F/B关闭不变。以下为历史。
+
 ## 2026-10-18 生命周期CPU打包遗漏已修，R2实际验证已启动
 
 [601失败与修复](research/601_WC_SCOUT_LIFECYCLE_R1_PACKAGE_FAILURE_AND_R2_ISOLATED_REPAIR_20261018.md)：原两张R1首组共用测试缺另一kind配置，完整1787源/runtime一致、原失败保留，CPU未接受。部署器现同时注册两份已冻配置闭包；每卡新1789源、原1772执行依赖不变，两份overlay本地隔离20项控制均通过。数值248＋10和c1真实入口CPU无需重跑。

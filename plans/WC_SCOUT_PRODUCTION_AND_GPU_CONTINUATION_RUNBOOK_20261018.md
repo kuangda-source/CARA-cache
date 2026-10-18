@@ -1,5 +1,9 @@
 # 本轮CPU收件后的直接执行入口
 
+## 10-19最新：R2生命周期CPU两卡已接受
+
+请先用[已验CPU直接接续手册](WC_SCOUT_GPU_READY_CONTINUATION_20261019.md)。两卡source2bd41dc8／每1789源／两命令均接受，CPU77.617048／65.231004秒；实际R2三件套与全部GPU CLI已写明。原24仍00:51优先资源检查，完整接受后才接CAL12；四CAL冻结gate后BANK24。以下R1失败及R2待查文字保留历史，不重跑已验数值／入口／生命周期CPU，不将工具就绪当新视频或实际GPU接受。
+
 ## 最新：生命周期R1打包失败，改用R2独立stage
 
 [601原件与修复](../research/601_WC_SCOUT_LIFECYCLE_R1_PACKAGE_FAILURE_AND_R2_ISOLATED_REPAIR_20261018.md)：R1完整source/runtime一致，首组共用测试缺另一kind的配置，未执行第2命令／未接受；原失败保留。R2只将两份现有配置闭包都打入每卡新1789源stage，原1772执行依赖不改，两份overlay独立20项本地控制已通过。下面生命周期R1的stage／回执用于历史；新部署使用`wc-scout-<kind>-gpu-lifecycle-cpu-r2-20261018`与`reports/wc_scout_<KIND>_GPU_lifecycle_CPU_R2_launch_20261018.json`。其他CLI、接受边界和上游顺序保持；严格按R2真实launch分别安排半程／ETA，不重放R1，也不重跑已验数值／原入口。

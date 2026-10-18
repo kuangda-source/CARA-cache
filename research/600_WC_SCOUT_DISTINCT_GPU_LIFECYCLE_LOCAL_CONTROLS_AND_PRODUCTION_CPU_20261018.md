@@ -63,3 +63,7 @@ GPU依次原24→CAL12→固定CAL gate→BANK24，X-R共享银行；原24启动
 ## 7. 完整查收确认打包遗漏；接续601
 
 两张R1完整1787源／runtime均一致，但首组20控制分别7／10个FileNotFoundError，全部来自缺另一kind的冻结配置；第2命令未到达，CPU proof未生成，独立接受false。原件／失败保留；[601修复](601_WC_SCOUT_LIFECYCLE_R1_PACKAGE_FAILURE_AND_R2_ISOLATED_REPAIR_20261018.md)仅将两份冻结配置闭包都注册，每卡新stage1789源，原1772依赖不改。两份实际overlay本地隔离20项控制均通过，服务器R2实际CPU待新launch；不能把修复准备写成已接受。
+
+## 8. 最新接受在601：R2两卡CPU已全部通过
+
+10-19完整查收已独立接受R2 source2bd41dc8／每1789源，两命令全0，CPU wall77.617048／65.231004秒。原R1失败及本报告的R1历史保留；新实际CPU证明、capture和接续CLI以[601第6节](601_WC_SCOUT_LIFECYCLE_R1_PACKAGE_FAILURE_AND_R2_ISOLATED_REPAIR_20261018.md)和[就绪手册](../plans/WC_SCOUT_GPU_READY_CONTINUATION_20261019.md)为准。当前仅工具就绪，尚无新GPU或视频结果，原24优先不变。

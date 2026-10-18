@@ -1,3 +1,13 @@
+## 2026-10-19 两张R2生命周期CPU完整接受，原24仍00:51优先等资源
+
+先读[601第6节接受](../../research/601_WC_SCOUT_LIFECYCLE_R1_PACKAGE_FAILURE_AND_R2_ISOLATED_REPAIR_20261018.md)与[实际就绪接续CLI](../../plans/WC_SCOUT_GPU_READY_CONTINUATION_20261019.md)。source2bd41dc8fa19f42353e03a7c78b7264b4b2695c6，两卡全部1789源/runtime一致、20控制＋实际原入口依赖两命令全0，CPU wall CAL12=77.617048025／BANK24=65.231003761秒，lifecycle_CPU_accepted/GPU_dispatch_ready=true。真生成仍使用已验c1c95ce0入口stage，原1772执行依赖／数值248＋10及真实入口CPU未重跑、原stage未写。原R1失败完整保留，不当新方法失败。
+
+原件三件套reports/wc_scout_<KIND>_GPU_lifecycle_CPU_R2_launch_20261018.json、collection_20261019.json.gz、independent_acceptance_20261019.json；两卡合并逐项核对wc_scout_two_lifecycle_CPU_R2_full_independent_acceptance_20261019.json。CAL12新CPU proof4249f5362698815ec1dfc871d9b648f0a39e0413dbc557660c222d64071efbb8，BANK24为6c43c6570f7818c8f77c9566b822e2b6a11483bf6c513335aa0ab3e0ea67b696。CPU已完整接受，无需再查原句柄或重复验证。
+
+worldcache-r2-cpu-2完整任务本轮完成后删除，当前仅worldcache-gpu资源任务保留；其prompt已重写为实际已验R2三件套与完整接续，原24下一00:51／not-before1792342202.0373387不变，不在本轮提前查GPU或派卡。原24完整原件／费用接受后，直接按ready手册派CAL12（完整12、预测1.876666667／上限2.5）；其完整接受后四CAL冻结gate，再派BANK24（完整24、六Native、预测3.407222222／上限4.5），X-R共享。每实际GPU launch再约半程／ETA各一次，不持续监听。
+
+当前只工具CPU就绪，新增GPU／视频／质量结果／费用均0，探索不并入主稿。原N10全部960已接受599不重查；cap226／origin及历史、strict<12、F/B关闭保持。以下为历史。
+
 ## 2026-10-19 R2半程无错误线索，00:03完整接受保持
 
 [601半程原件](../../research/601_WC_SCOUT_LIFECYCLE_R1_PACKAGE_FAILURE_AND_R2_ISOLATED_REPAIR_20261018.md)：原00:00心跳延迟到00:01:38，实际各一次核对原2283145／2283744均结束、bundle/proof/config/dependency均存在、有界错误线索空。未读完整证明／未执行最终collector，不判通过；GPU_dispatch_ready仍false。原件reports/wc_scout_<KIND>_GPU_lifecycle_CPU_R2_midpoint_20261019.json.gz，离线技术核对wc_scout_two_lifecycle_CPU_R2_midpoint_technical_20261019.json。

@@ -54,3 +54,16 @@ source **2bd41dc8fa19f42353e03a7c78b7264b4b2695c6**；两stage各1789源，新CP
 原00:00心跳于00:01:38送达，各一次检查原2283145／2283744均已结束，bundle、CPU proof、配置和dependency四文件均存在，有界错误线索为空。仅核对句柄／原source和文件存在性，没有读取证明内容或提前执行最终collector；不能判CPU已经通过。[离线技术核对](../reports/wc_scout_two_lifecycle_CPU_R2_midpoint_technical_20261019.json)与两kind半程原件均保留。
 
 本半程自动化worldcache-r2-cpu已删除，worldcache-r2-cpu-2原00:03完整接受保持。未查GPU资源、未派新GPU、未改任何原stage或账本。
+
+## 6. 10-19完整查收：两张R2生命周期CPU均独立接受
+
+原00:03心跳于00:04:38送达，按原句柄各一次保存完整capture，再仅从保存原件离线接受。两卡全部1789源及runtime一致，两命令均exit0；每卡原20控制和实际原c1入口／完整请求矩阵／原数值闭包验证全部通过。
+
+| kind | 实际CPU wall | 新生命周期CPU proof SHA | GPU_dispatch_ready |
+|---|---:|---|---|
+| CAL12 | 77.617048秒 | 4249f5362698815ec1dfc871d9b648f0a39e0413dbc557660c222d64071efbb8 | true |
+| BANK24 | 65.231004秒 | 6c43c6570f7818c8f77c9566b822e2b6a11483bf6c513335aa0ab3e0ea67b696 | true |
+
+[逐项独立接受](../reports/wc_scout_two_lifecycle_CPU_R2_full_independent_acceptance_20261019.json)明确`lifecycle_CPU_accepted=true / GPU_dispatch_ready=true / actual_GPU_or_video_result=false`。原入口stage未写、CUDA未初始化、模型权重未加载、数值／入口CPU未重跑、GPU提交与账本写入均0。原R1两失败不覆盖、保留未接受。
+
+新[直接接续手册](../plans/WC_SCOUT_GPU_READY_CONTINUATION_20261019.md)列明实际R2三件套、原24→CAL12→四CAL冻结gate→BANK24的完整CLI。原24的00:51资源任务将承接，当前不提前查GPU或派卡；工具就绪不能替代上游完整接受和fresh资源／余额准入。当前生命周期CPU查收自动化完成后删除，资源任务保留，实际GPU启动后再按其真实时间分别约半程／ETA。

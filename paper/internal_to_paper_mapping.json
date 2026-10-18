@@ -4535,7 +4535,7 @@
       "terminal_local": "2026-10-18 23:48 Asia/Shanghai"
     },
     "scout_lifecycle_R2_packaging_repair_601": {
-      "status": "R2_BOTH_1789_SOURCE_CPU_DISPATCHED_AWAITING_ACTUAL_COLLECTION",
+      "status": "BOTH_R2_LIFECYCLE_CPU_ACCEPTED_GPU_READY_UPSTREAM_WINDOW24_REQUIRED",
       "refs": {
         "scout_lifecycle_R1_failure_R2_repair_601": "research/601_WC_SCOUT_LIFECYCLE_R1_PACKAGE_FAILURE_AND_R2_ISOLATED_REPAIR_20261018.md",
         "scout_lifecycle_R1_exact_packaging_diagnosis": "reports/wc_scout_lifecycle_R1_terminal_failure_and_R2_packaging_diagnosis_20261018.json",
@@ -4551,15 +4551,22 @@
         "scout_BANK24_lifecycle_R2_launch": "reports/wc_scout_BANK24_GPU_lifecycle_CPU_R2_launch_20261018.json",
         "scout_R2_lifecycle_midpoint_technical": "reports/wc_scout_two_lifecycle_CPU_R2_midpoint_technical_20261019.json",
         "scout_CAL12_R2_lifecycle_midpoint": "reports/wc_scout_CAL12_GPU_lifecycle_CPU_R2_midpoint_20261019.json.gz",
-        "scout_BANK24_R2_lifecycle_midpoint": "reports/wc_scout_BANK24_GPU_lifecycle_CPU_R2_midpoint_20261019.json.gz"
+        "scout_BANK24_R2_lifecycle_midpoint": "reports/wc_scout_BANK24_GPU_lifecycle_CPU_R2_midpoint_20261019.json.gz",
+        "scout_R2_both_lifecycle_full_acceptance": "reports/wc_scout_two_lifecycle_CPU_R2_full_independent_acceptance_20261019.json",
+        "scout_GPU_ready_continuation_runbook": "plans/WC_SCOUT_GPU_READY_CONTINUATION_20261019.md",
+        "scout_R2_accepted_resource_continuation": "reports/wc_scout_R2_CPU_accepted_ready_resource_continuation_20261019.json",
+        "scout_CAL12_R2_lifecycle_full_capture": "reports/wc_scout_CAL12_GPU_lifecycle_CPU_R2_collection_20261019.json.gz",
+        "scout_CAL12_R2_lifecycle_accepted": "reports/wc_scout_CAL12_GPU_lifecycle_CPU_R2_independent_acceptance_20261019.json",
+        "scout_BANK24_R2_lifecycle_full_capture": "reports/wc_scout_BANK24_GPU_lifecycle_CPU_R2_collection_20261019.json.gz",
+        "scout_BANK24_R2_lifecycle_accepted": "reports/wc_scout_BANK24_GPU_lifecycle_CPU_R2_independent_acceptance_20261019.json"
       },
       "source_revision": "2bd41dc8fa19f42353e03a7c78b7264b4b2695c6",
       "execution_source_revision": "c1c95ce0c598fb7839b0b89f4a69bd45c8aef7c9",
       "payload_files_each": 1789,
       "original_1772_execution_payload_changed": false,
       "registered_overlay_local_controls_each": 20,
-      "lifecycle_CPU_accepted": false,
-      "GPU_dispatch_ready": false,
+      "lifecycle_CPU_accepted": true,
+      "GPU_dispatch_ready": true,
       "halfway_local": "2026-10-19 00:00 Asia/Shanghai",
       "terminal_local": "2026-10-19 00:03 Asia/Shanghai",
       "new_GPU_submissions": 0,
@@ -4567,7 +4574,14 @@
       "midpoint_collected": true,
       "midpoint_no_bounded_error_lines": true,
       "midpoint_proof_files_present_both": true,
-      "final_acceptance_pending": true
+      "final_acceptance_pending": false,
+      "CPU_commands_each": 2,
+      "CPU_wall_seconds": {
+        "CAL12": 77.61704802513123,
+        "BANK24": 65.2310037612915
+      },
+      "actual_GPU_protocol_accepted": false,
+      "actual_video_or_quality_result": false
     }
   },
   "statistical_rules": {
@@ -6419,8 +6433,8 @@
       "bytes": 8960
     },
     "memory/handoffs/LATEST.md": {
-      "sha256": "48cf981d337976d9f8b4d967b4e86d17cf9fcd58b1d8078c538306406be1d45a",
-      "bytes": 708739
+      "sha256": "31e7559fb7982a35f5b354132b3c34f503389583cce1d84bd7f06d46fb44d33e",
+      "bytes": 710689
     },
     "src/wcomr/runtime_profile40_acceptance_r1.py": {
       "sha256": "9d5de68477518880b2087a557b699a93ca73e8ab06a058e2c54059997af45116",
@@ -6435,8 +6449,8 @@
       "bytes": 2169
     },
     "paper/EXPERIMENT_MASTER_TABLE.md": {
-      "sha256": "4d2d894644bb0ca1dfea8b37542d2774570e5c25490aae58986b1140fa29cd87",
-      "bytes": 106727
+      "sha256": "c53bc6df134152b8c08070a650491017ffd33d056560509cd3a418d541293ce8",
+      "bytes": 107580
     },
     "research/02_CURRENT_STATE.md": {
       "sha256": "a0c461c59179f9f8e50a0831da71ad38f02b811091db04bd74a7e977ee7f2eb5",
@@ -6467,8 +6481,8 @@
       "bytes": 81279
     },
     "EXPERIMENT_REPORT.md": {
-      "sha256": "fd11ef3aa9cde7950609ca53e0d119d01280229289538a5985c6d311b2181f8f",
-      "bytes": 664494
+      "sha256": "edfa8bea450903106b16e4b776cfe8c2ee92b0ff342d6c476b7758c931c1c2ff",
+      "bytes": 665378
     },
     "paper/INTERNAL_TO_PAPER_MAPPING.md": {
       "sha256": "ef1f17af15bbdc980b93b1c15ec69b112b330977399ca768f6e7b3923935a8ff",
@@ -8579,8 +8593,8 @@
       "bytes": 5278
     },
     "plans/WC_SCOUT_PRODUCTION_AND_GPU_CONTINUATION_RUNBOOK_20261018.md": {
-      "sha256": "e5407d75fbb6374cdedb421f3e54f6785d64467d92a5f194a172c0216b1bb6be",
-      "bytes": 12499
+      "sha256": "5318be4833932a3e0771cbbd0ad6ae47ffb56c581ee8ef6cd71c13f2016e89ee",
+      "bytes": 13009
     },
     "scripts/audit_wc_scout_DEV6_exposure_r1.py": {
       "sha256": "dcf4b3a3cd8a8cb451c849e94d4c4a118d6113b27580fb0a958240b6fc7d819d",
@@ -8835,8 +8849,8 @@
       "bytes": 8482
     },
     "research/600_WC_SCOUT_DISTINCT_GPU_LIFECYCLE_LOCAL_CONTROLS_AND_PRODUCTION_CPU_20261018.md": {
-      "sha256": "1f719d5b47d106f94acfe2697fc4a078fca9972434d29586f4eedc9e6e41ca79",
-      "bytes": 7662
+      "sha256": "afd14ca4bd109b649f8d4c1167b1f732076fac4866e601457827db634028348b",
+      "bytes": 8165
     },
     "reports/wc_scout_two_lifecycle_CPU_midpoint_technical_20261018.json": {
       "sha256": "6d588de2c242a435ef2eecd3ae7155cc03ec286a78716b7992daee7babfb3632",
@@ -8863,8 +8877,8 @@
       "bytes": 2162
     },
     "research/601_WC_SCOUT_LIFECYCLE_R1_PACKAGE_FAILURE_AND_R2_ISOLATED_REPAIR_20261018.md": {
-      "sha256": "0453aff25c0d894cf3b7a068b4d08e04b94264389c70dd65e3e42c72b3c32297",
-      "bytes": 5705
+      "sha256": "7237eaf5600c1fcd980057a1e9020330ada3fd9c94e8b711ae08c0775c3500e8",
+      "bytes": 7157
     },
     "reports/wc_scout_lifecycle_R2_isolated_package_controls_20261018.json": {
       "sha256": "558484b97d90e56af22cce0db574d37565deeea969a4e7718863aa8534a10b8a",
@@ -8901,6 +8915,34 @@
     "reports/wc_scout_two_lifecycle_CPU_R2_midpoint_technical_20261019.json": {
       "sha256": "fceeabfba6da442ad3c853cec768afa32e99f1bedb3fcf24c6d762d95df09575",
       "bytes": 2509
+    },
+    "reports/wc_scout_BANK24_GPU_lifecycle_CPU_R2_collection_20261019.json.gz": {
+      "sha256": "802485365985e736ad5778cf00f9be17f0332669aeb35be81a371a102f6c00f4",
+      "bytes": 182060
+    },
+    "reports/wc_scout_CAL12_GPU_lifecycle_CPU_R2_independent_acceptance_20261019.json": {
+      "sha256": "13ed845ae320c708177d2f61fb2c6f4661e7d795399e5e97060b02878ab542ee",
+      "bytes": 1991
+    },
+    "reports/wc_scout_two_lifecycle_CPU_R2_full_independent_acceptance_20261019.json": {
+      "sha256": "22d1363f75cc8ffa7eec131862b71b5f415c54c319cb74afa461e5939d2676f7",
+      "bytes": 3380
+    },
+    "reports/wc_scout_R2_CPU_accepted_ready_resource_continuation_20261019.json": {
+      "sha256": "e9063e86159eee1ed5e8a9792945c927f570f5e7aa2c12b8fdc85c1cd163a11e",
+      "bytes": 650
+    },
+    "plans/WC_SCOUT_GPU_READY_CONTINUATION_20261019.md": {
+      "sha256": "cd35f3c1132b57dd11cc8008c0333586ffdefb87dc5327b81c61790b24c6c518",
+      "bytes": 7012
+    },
+    "reports/wc_scout_BANK24_GPU_lifecycle_CPU_R2_independent_acceptance_20261019.json": {
+      "sha256": "d5038e7e6fb1de7e6b5ea666ce0b0501e611176a0f5c9ba1773770b86503cdce",
+      "bytes": 1997
+    },
+    "reports/wc_scout_CAL12_GPU_lifecycle_CPU_R2_collection_20261019.json.gz": {
+      "sha256": "63b8fe3fa69d3a230311eb9ce41c7cace3a665e762f71690ab828249b89203db",
+      "bytes": 181267
     }
   },
   "math_notation": [
