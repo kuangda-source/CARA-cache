@@ -1,3 +1,9 @@
+## 2026-10-19 00:57两GPU仍有其他compute任务，原24未派发；下一02:58
+
+原00:51资源心跳00:55:38送达，实际00:57:22.144仅一次fresh只读检查。原件reports/wc_window24_fresh_resource_and_single_dispatch_preflight_20261019_0051.json，独立核对wc_window24_resource_slot_0051_independent_busy_acceptance_20261019.json。GPU0／1显存29357／28988MiB、利用率均100%，compute PID2280686／2282147，无可准入UUID；自身两锁free不代表GPU空闲。原Window24全部fence/launch/admission_failure仍不存在，原输出不存在，未尝试派发／0新费用。本项目0GPU任务／0预留，v2实结114.02498439084846/cap226、余111.97501560915154，原origin和历史保持。
+
+worldcache-gpu保持ACTIVE，每两小时一次，下一不早于unix1792349842.1446834（02:57:22.144），安排02:58；原58分偶数小时RRULE已实际更新，busy不变安静、不问释放时间、不循环等待。没有启动新GPU或重跑CPU。原24仍第一位，空闲后沿原a350ea98实际证明完整24一次派发，未知不重放；其完整接受后按ready手册接已验CAL12→四CAL冻结gate→BANK24，X-R共享。两卡R2 CPU均已接受，无需再查，原N10也不重查。以下为历史。
+
 ## 2026-10-19 两张R2生命周期CPU完整接受，原24仍00:51优先等资源
 
 先读[601第6节接受](../../research/601_WC_SCOUT_LIFECYCLE_R1_PACKAGE_FAILURE_AND_R2_ISOLATED_REPAIR_20261018.md)与[实际就绪接续CLI](../../plans/WC_SCOUT_GPU_READY_CONTINUATION_20261019.md)。source2bd41dc8fa19f42353e03a7c78b7264b4b2695c6，两卡全部1789源/runtime一致、20控制＋实际原入口依赖两命令全0，CPU wall CAL12=77.617048025／BANK24=65.231003761秒，lifecycle_CPU_accepted/GPU_dispatch_ready=true。真生成仍使用已验c1c95ce0入口stage，原1772执行依赖／数值248＋10及真实入口CPU未重跑、原stage未写。原R1失败完整保留，不当新方法失败。

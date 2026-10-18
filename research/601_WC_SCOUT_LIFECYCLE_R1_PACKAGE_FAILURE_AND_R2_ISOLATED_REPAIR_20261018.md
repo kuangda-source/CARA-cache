@@ -67,3 +67,7 @@ source **2bd41dc8fa19f42353e03a7c78b7264b4b2695c6**；两stage各1789源，新CP
 [逐项独立接受](../reports/wc_scout_two_lifecycle_CPU_R2_full_independent_acceptance_20261019.json)明确`lifecycle_CPU_accepted=true / GPU_dispatch_ready=true / actual_GPU_or_video_result=false`。原入口stage未写、CUDA未初始化、模型权重未加载、数值／入口CPU未重跑、GPU提交与账本写入均0。原R1两失败不覆盖、保留未接受。
 
 新[直接接续手册](../plans/WC_SCOUT_GPU_READY_CONTINUATION_20261019.md)列明实际R2三件套、原24→CAL12→四CAL冻结gate→BANK24的完整CLI。原24的00:51资源任务将承接，当前不提前查GPU或派卡；工具就绪不能替代上游完整接受和fresh资源／余额准入。当前生命周期CPU查收自动化完成后删除，资源任务保留，实际GPU启动后再按其真实时间分别约半程／ETA。
+
+## 7. 00:57资源接续：保持排队，无新增实验
+
+原00:51心跳延迟送达，实际00:57:22.144一次fresh资源回执显示两GPU仍被其他compute任务使用，显存29357／28988MiB、利用率均100%、PID2280686／2282147。原24标记及输出仍不存在，本项目0GPU任务／预留；没有派发或费用。原R2 CPU就绪保持，资源任务下一02:58（最早unix1792349842.1446834）再查，完整卡顺序和全部证明不改。

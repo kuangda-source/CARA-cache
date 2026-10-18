@@ -13,7 +13,7 @@ CPU证明的`GPU_dispatch_ready=true`表示工具前置条件就绪；上游接�
 
 ## 1. 原Window24保持第一位
 
-原source a350ea98／stage wc-drop1-window24-production-cpu-r1-20261018与已验五命令CPU不改；四CAL×四臂16正式＋8完整预热／864pairs／一次加载，预测3.064166667／上限4。由`worldcache-gpu`下一次10-19 00:51资源检查处理，最早unix1792342202.0373387，不提前SSH查GPU。
+原source a350ea98／stage wc-drop1-window24-production-cpu-r1-20261018与已验五命令CPU不改；四CAL×四臂16正式＋8完整预热／864pairs／一次加载，预测3.064166667／上限4。原00:51资源检查于00:57实际查收，两卡仍有其他compute任务，未派发；由`worldcache-gpu`下一次10-19 02:58检查处理，最早unix1792349842.1446834，不提前SSH查GPU。实际后续时点以LATEST与原资源回执为准。
 
 原24启动后必须按实际launch安排一次半程和ETA查收。终态只捕获原任务一次，离线`analyze_wc_drop1_window24_r1.py`；完整原件、全部适用93帧、旧12端点、36guided／前21步控制及实际墙钟费用接受后，才执行下一节。原24自身失败／拒绝／缺失保留，不能借其他scope通过或缩样本。
 
