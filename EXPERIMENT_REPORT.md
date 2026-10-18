@@ -1,3 +1,7 @@
+## 2026-10-18 14:48 N09半程已执行：31完成／1在跑，17:23完整验收保持
+
+[一次半程原件](reports/wc_paper_N09_actual40_R3_midpoint_health_20261018.json.gz)于14:48:34实际取得；[独立技术核对](reports/wc_paper_N09_actual40_R3_midpoint_independent_technical_acceptance_20261018.json)确认原source／1787源／三个PID与start_ticks一致，原GPU0锁及runner仍活跃。完整40中10预热＋21正式完成、1正式在跑、8未到达，有界技术日志无错误线索。此为健康检查，不是完整视频／质量／速度验收，未提取科学partial。v2仍实结110.869061155/cap226、完整预留5，实际本卡费未知。原17:23完整验收与后续N10／连续修正24顺序不变；本轮未开新GPU、改原任务或写账本。半程单次自动化完成后删除。以下为历史。
+
 ## 2026-10-18 当前：N09 fresh R3完整40已在GPU0准入；14:48半程／17:23完整验收
 
 [590原任务与查收](research/590_WC_N09_FRESH_R3_SINGLE_GPU_DISPATCH_AND_TWO_COLLECTION_TIMES_20261018.md)：07:19两卡空闲；R3已于12:37:23单次派发，12:41:52原件及独立接受确认1787源／原CPU、supervisor1947245/start559314698、runner1947617/start559319208、post1947246/start559314707、GPU0锁及完整5预留。原source1de07673／stage wc-paper-n09-production-cpu-r3-20261018／完整40/10warm+30正式/1440pairs不变，forecast4.245833333／上限5；初始27秒pending回执保留，不重派。
