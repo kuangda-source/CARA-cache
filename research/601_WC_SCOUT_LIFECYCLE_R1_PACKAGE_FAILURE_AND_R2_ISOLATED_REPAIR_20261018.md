@@ -48,3 +48,9 @@ source **2bd41dc8fa19f42353e03a7c78b7264b4b2695c6**；两stage各1789源，新CP
 原回执`reports/wc_scout_<KIND>_GPU_lifecycle_CPU_R2_launch_20261018.json`；新半程`worldcache-r2-cpu`安排10-19 00:00，最早共同unix1792339166.6063173；新完整`worldcache-r2-cpu-2`安排00:03，最早共同unix1792339346.6063173。收件文件日期使用20261019、启动回执仍20261018，不能错读R1。
 
 [新自动化原件](../reports/wc_scout_two_GPU_lifecycle_CPU_R2_once_automations_20261018.json)已创建，[资源接续更新](../reports/wc_scout_R2_CPU_running_resource_continuation_update_20261018.json)保留原24优先和00:51节奏。R1原完整收件自动化worldcache-cpu-2已删除；上述R2任务独立保留，不持续监听。下一步只按R2原句柄及全源／两命令实际原件接受，不把已修复或已启动当通过；新增GPU仍0。
+
+## 5. 10-19 00:02半程原件：证明文件存在，完整接受仍待
+
+原00:00心跳于00:01:38送达，各一次检查原2283145／2283744均已结束，bundle、CPU proof、配置和dependency四文件均存在，有界错误线索为空。仅核对句柄／原source和文件存在性，没有读取证明内容或提前执行最终collector；不能判CPU已经通过。[离线技术核对](../reports/wc_scout_two_lifecycle_CPU_R2_midpoint_technical_20261019.json)与两kind半程原件均保留。
+
+本半程自动化worldcache-r2-cpu已删除，worldcache-r2-cpu-2原00:03完整接受保持。未查GPU资源、未派新GPU、未改任何原stage或账本。

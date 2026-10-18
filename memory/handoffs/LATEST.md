@@ -1,3 +1,9 @@
+## 2026-10-19 R2半程无错误线索，00:03完整接受保持
+
+[601半程原件](../../research/601_WC_SCOUT_LIFECYCLE_R1_PACKAGE_FAILURE_AND_R2_ISOLATED_REPAIR_20261018.md)：原00:00心跳延迟到00:01:38，实际各一次核对原2283145／2283744均结束、bundle/proof/config/dependency均存在、有界错误线索空。未读完整证明／未执行最终collector，不判通过；GPU_dispatch_ready仍false。原件reports/wc_scout_<KIND>_GPU_lifecycle_CPU_R2_midpoint_20261019.json.gz，离线技术核对wc_scout_two_lifecycle_CPU_R2_midpoint_technical_20261019.json。
+
+worldcache-r2-cpu半程已删除；worldcache-r2-cpu-2原00:03终态保留，仍从原R2 source2bd41dc8／全部1789源／两命令／实际旧入口绑定逐项接受，不能省略。原Window24资源任务00:51不变，未查GPU或派发、未改stage／账本，原已验数值／入口不重跑。以下为历史。
+
 ## 2026-10-18 生命周期R1打包失败已定位；R2已启动，00:00／00:03查收
 
 先读[601原失败／最小修复／实际新句柄](../../research/601_WC_SCOUT_LIFECYCLE_R1_PACKAGE_FAILURE_AND_R2_ISOLATED_REPAIR_20261018.md)。两张R1全1787源/runtime一致，但共用控制包漏另一kind配置，首命令分别7／10个FileNotFoundError，第2未到达／CPU未接受；原完整capture／acceptance保留，worldcache-cpu-2已删除不重查。只修部署配置闭包，原1772执行依赖及真实c1入口／数值248＋10不改、不重跑；两份实际overlay独立本地20控制各通过。
