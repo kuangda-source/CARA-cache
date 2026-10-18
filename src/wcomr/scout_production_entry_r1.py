@@ -24,10 +24,11 @@ CPU_RESULT='scout-entry-production-CPU-result.json'
 PRODUCTION_CPU_STATUS='SCOUT_'+KIND+'_REAL_PRODUCTION_ENTRY_CPU_PASS_NOT_GPU_LIFECYCLE'
 TIMING=sampling.TIMING
 REFERENCES=dict(window_config=previous.CONFIG,blueprint=BLUEPRINT,
-    numeric_capture='reports/wc_scout_numeric248_actual_CPU_R1_collection_20261018.json.gz',
-    numeric_acceptance='reports/wc_scout_numeric248_actual_CPU_R1_independent_acceptance_20261018.json',
+    numeric_capture='reports/wc_scout_numeric248_actual_CPU_R2_collection_20261018.json.gz',
+    numeric_acceptance='reports/wc_scout_numeric248_actual_CPU_R2_independent_acceptance_20261018.json',
     exposure_R1='reports/wc_scout_DEV6_fresh_project_exposure_R1_20261018.json',
-    exposure_R2='reports/wc_scout_DEV6_fresh_project_exposure_R2_completion_20261018.json')
+    exposure_R2='reports/wc_scout_DEV6_fresh_project_exposure_R2_completion_20261018.json',
+    DEV6_inputs='plans/scouts_20261018/SCOUT_EXPL_DEV6_INPUTS.json')
 
 
 def plans():return sampling.plans(KIND)
@@ -67,7 +68,7 @@ def quote(stage,window_config,blueprint):
         raise ValueError('All40 actual whole requests are required for scout planning')
     rows=matrix([r['name'] for r in blueprint['requests']])
     observed=sum(r['observer'] for r in rows)
-    extra=sum(max(0,plans()[r['method']].count('A')-1) for r in rows)
+    extra=sum(plans()[r['method']].count('A') for r in rows)
     terms=dict(load=base['original_load_seconds'],whole_requests=len(rows)*max(times),
         projected_unattributed=max(0.,base['original_unattributed_seconds'])/18*len(rows),
         full_warm_trace=COUNTS['full_warmup_paths']*60.,setup=300.,
@@ -89,17 +90,21 @@ def validate(project,stage):
     v={k:read(stage,c,k) for k in c['references']}
     if c['requests']!=v['blueprint']['requests'] or c['card']!=v['blueprint']['id']:
         raise ValueError('Frozen original scout input/seed/guardrail requests must survive')
+    if c['requests']!=(v['DEV6_inputs']['requests'] if KIND=='BANK24' else v['window_config']['requests']):
+        raise ValueError('Exact registered exploratory or original CAL request bytes required')
     spec=importlib.util.spec_from_file_location('registered_scout248_acceptor',stage/'scripts/capture_wc_scout_numeric248_cpu_r1.py')
     module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
     accepted=module.accept(v['numeric_capture'])
-    if (any(v['numeric_acceptance'].get(k)!=x for k,x in accepted.items())
+    if (accepted.get('guard_refusal_controls')!=10
+        or any(v['numeric_acceptance'].get(k)!=x for k,x in accepted.items())
         or any(reg['payload_sha256'].get(n)!=h for n,h in v['numeric_capture']['registration']['payload_sha256'].items())
         or reg['runtime_source_sha256']!=v['numeric_capture']['registration']['runtime_source_sha256']):
         raise ValueError('Reuse only the unchanged accepted full248 numerical closure')
     exposure=v['exposure_R2']
     if (exposure['project_output_scope_accepted'] is not True
         or exposure['R1_sha256']!=c['references']['exposure_R1']['sha256']
-        or exposure['input_manifest_sha256']!=v['exposure_R1']['result']['input_manifest_sha256']):
+        or exposure['input_manifest_sha256']!=v['exposure_R1']['result']['input_manifest_sha256']
+        or exposure['input_manifest_sha256']!=c['references']['DEV6_inputs']['sha256']):
         raise ValueError('All project identity files, including retained oversized gaps, required')
     expected=quote(stage,v['window_config'],v['blueprint'])
     if v['cost']!=expected or any(c[k]!=expected[k] for k in ('forecast_complete_GPUh','billed_limit_GPUh')):

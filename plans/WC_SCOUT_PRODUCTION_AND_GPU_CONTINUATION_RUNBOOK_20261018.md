@@ -1,5 +1,35 @@
 # 本轮CPU收件后的直接执行入口
 
+## 当前补充：R1接受，R2拒绝边界重验与可执行的生产入口CPU
+
+先读[597](../research/597_WC_SCOUT_R1_NUMERIC_ACCEPTED_REFUSAL_BOUNDARY_R2_AND_PRODUCTION_NEXT_20261018.md)。原R1完整248接受；R2保留全部248并补10拒绝边界，22:10／22:25各一次，尚未接受。六DEV项目输出身份审计已由R1＋R2补齐，无命中，外部曝光不作保证。以下旧“待审计／尚未执行”均为历史。
+
+R2数值全部接受后，依次生成配置和完整报价，保留旧设计估算：
+
+```
+.venv/bin/python scripts/prepare_wc_scout_production_entry_r1.py --kind CAL12 --quote-output reports/wc_scout_CAL12_whole_quote_R1_20261018.json --output reports/wc_scout_CAL12_production_entry_config_preparation_R1_20261018.json
+.venv/bin/python scripts/prepare_wc_scout_production_entry_r1.py --kind BANK24 --quote-output reports/wc_scout_BANK24_whole_quote_R1_20261018.json --output reports/wc_scout_BANK24_production_entry_config_preparation_R1_20261018.json
+```
+
+将两份新configs、两份报价与两份preparation及R2实际接受原件明确提交到Git，再单次部署各独立入口CPUstage（不要拷贝修改在跑stage）：
+
+```
+.venv/bin/python scripts/wc_scout_production_entry_cpu_r1.py deploy --kind CAL12 --stage .sync/wc-scout-cal12-production-entry-cpu-r1-20261018 --output reports/wc_scout_CAL12_real_entry_CPU_R1_launch_20261018.json
+.venv/bin/python scripts/wc_scout_production_entry_cpu_r1.py deploy --kind BANK24 --stage .sync/wc-scout-bank24-production-entry-cpu-r1-20261018 --output reports/wc_scout_BANK24_real_entry_CPU_R1_launch_20261018.json
+```
+
+每个stage两命令：完整配置／可逆入口／固定计划控制组，以及真实Cosmos生产入口`--cpu-check`。数值依赖复用未变R2的248＋10，不再跑第三遍。部署器核对完整源闭包不覆盖任何已验数值文件，禁止CUDA、权重与下载，不碰N10原stage。入口CPU证明不覆盖尚未实现的GPU监督／post／收件链，接受字段明确`production_entry_CPU_accepted=true / GPU_dispatch_ready=false`，不能直接转GPU准入。
+
+按每份launch的halfway_not_before_unix（+180秒）／final_not_before_unix（+360秒）各约一次，不持续监听。收件CLI：
+
+```
+.venv/bin/python scripts/capture_wc_scout_production_entry_cpu_r1.py --mode halfway --launch-ref <原kind启动回执> --output <新的半程.json.gz>
+.venv/bin/python scripts/capture_wc_scout_production_entry_cpu_r1.py --mode terminal --launch-ref <原kind启动回执> --output <新的完整.json.gz>
+.venv/bin/python scripts/capture_wc_scout_production_entry_cpu_r1.py --mode accept --capture <已存完整回执> --output <新的独立入口接受.json>
+```
+
+若部署未知，只恢复同stage原句柄不重放。失败或不完整均保留，原24与N10不受影响。入口接受后继续实现／验证新scope的GPU监督、一次派发、post与逐原件接受，不能把入口组件通过写成全生命周期通过。完整CPU接受、上游原24终态接受且fresh资源／v2准入后按原授权启动CAL12，然后固定CAL gate参数、推进BANK24。
+
 用户已直接批准原顺序、生产CPU通过后直接启动；无需再就严格<12GPUh的完整卡问确认。累计cap226与origin79.99637737158223及全部历史保持。不能改变N10原22:43时点、原stage或质量范围。
 
 ## 1. 原连续24现在已经具备生产证明

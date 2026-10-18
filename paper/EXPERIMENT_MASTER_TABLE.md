@@ -1,3 +1,9 @@
+## 2026-10-18 探索R1数值248接受，拒绝边界R2已单次启动
+
+[597接受／修复与生产接续](../research/597_WC_SCOUT_R1_NUMERIC_ACCEPTED_REFUSAL_BOUNDARY_R2_AND_PRODUCTION_NEXT_20261018.md)：R1完整248已独立接受950.578805秒，原件保留。生产适配发现TEXT_REJECTED空历史被误判动作不一致；只修该拒绝边界，R2 source db1de113／PID2230226-start562657668／1759源于21:54:33单次启动，仍保留80＋168完整36采样，另加10拒绝控制。worldcache-cpu约22:10半程、worldcache-cpu-2约22:25完整收件，各一次；R1原完整收件自动化已删除。不提前查R2，不判新版本通过。
+
+六DEV身份审计R1无命中但两大文件读取缺口保留；R2流式补齐两文件后项目输出范围无命中／无错误，不称全球未曝光。新生产入口、配置／报价及独立入口CPU工具已准备，实际生产CPU尚未执行、GPU生命周期监督/post仍待，不充视频或加速结果。R2接受后依[runbook](../plans/WC_SCOUT_PRODUCTION_AND_GPU_CONTINUATION_RUNBOOK_20261018.md)直接生成配置、提交冻结、部署入口CPU并安排半程／ETA；入口接受不等于完整GPU准入。N10原22:43不改，收完沿已接受a350ea98直接启原24（预测3.064166667／上限4），GPU随后CAL12→BANK24。cap226／严格<12／原历史保持，新GPU0、F/B关闭。以下为历史。
+
 ## 2026-10-18 21:31 探索248半程技术终态，21:45完整收件保持
 
 [596半程记录](../research/596_WC_SCOUT_NUMERIC248_SINGLE_CPU_LAUNCH_AND_ORDERED_GPU_QUEUE_20261018.md)：原PID2202370已消失，worker SHA一致，CAL12／BANK24／bundle三文件存在，有界错误线索为空；未读证明内容，不判CPU通过。worldcache-248-cpu半程已删除，worldcache-248-cpu-2仍21:45完整收件，N10原22:43与其后原24顺序不改。无新GPU／账本写，不重复派发或持续监听。以下为历史。
