@@ -1,3 +1,11 @@
+## 2026-10-18 当前：N09完整40接受，N10完整960已准入，20:01／22:43两次查收
+
+[591 N09结果](research/591_WC_N09_FULL40_ACCEPTED_DEPLOYMENT_PROFILE_AND_N10_NEXT_20261018.md)已独立接受并推送21da18ed，实费2.769417131GPUh；原40/全部原件及财务通过。原N09终态自动化已删除，不重查旧任务。
+
+[592 N10真实派发](research/592_WC_N10_FULL960_GPU_ADMITTED_AFTER_N09_AND_TWO_COLLECTION_TIMES_20261018.md)：source d10e9926／原stage wc-paper-n10-full960-production-cpu-r1-20261018／run wc-paper-n10-accepted160-full960-r1／launch_id be35c872-a1b6-4b74-8de3-a3aa62b2bc22，17:32:48单次派发、17:33:24独立准入接受。GPU0／supervisor2077516/start561087236、child2077521/start561087296，原271源及五命令真实CPU不改。完整960／645待评／155不可用／160静态N/A／五模型／19对比／4096 prompt bootstrap，0新视频，新质量分数尚未验收。
+
+20:01一次技术半程worldcache-n10-960（最早1792324815.8404052），22:43一次完整查收worldcache-n10-960-2（最早1792334562.8404052）；实际自动化均ACTIVE/COUNT=1，不提前读partial或持续监听。原资源自动化目前PAUSED，本轮未改。实结113.638478286/cap226，预留6.25、可准入106.111521714；预留非实费，原origin／历史保持。连续修正完整24已实际报价3.064166667／上限4，仍待真实新stage生产CPU，A3结果为空。N10验收后沿已登记主线接续，strict<12、半程／ETA各一次及F/B关闭保持。以下为历史。
+
 ## 2026-10-18 17:23 N09完整40已接受：实费2.769417131，N10按原计划接续
 
 [591完整结果](research/591_WC_N09_FULL40_ACCEPTED_DEPLOYMENT_PROFILE_AND_N10_NEXT_20261018.md)：1787源／十命令生产CPU及40全部原模型、93 RGB、内存／20组件原件和三组各10等价控制通过，零拒绝／技术失败／缺失；GPU及post exit0、GPU0锁释放。30正式逐帧与原N08已评分像素完全一致，已明确绑定复用2790距离，0新LPIPS模型／独立输入。三模式是诊断，不充N08 clean重复速度；独立动作价格和最小校准采集成本仍未测。实结113.638478286/cap226，预留0、可用112.361521714；origin与历史不变。
