@@ -125,7 +125,8 @@ def execute(inference, sample, method, *, kind, table_parameters, previous_param
             result.update(source_history=copy.deepcopy(owner.deployment.history),
                 semantic_plan=list(candidates[method]),mask_sha256=mask_fingerprint(candidates[method]),
                 input_adaptive_action_selection=False,online_teacher_calls=0)
-            if [h['A_readout']['readout_action'] for h in result['source_history']]!=list(candidates[method]):
+            if (result['status']!='TEXT_REJECTED'
+                and [h['A_readout']['readout_action'] for h in result['source_history']]!=list(candidates[method])):
                 raise ValueError('The executed semantic actions differ from the frozen scout plan')
             del owner
         hook=holder.get('observer')

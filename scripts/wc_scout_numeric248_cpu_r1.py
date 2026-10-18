@@ -21,7 +21,8 @@ FILES=('scripts/wc_scout_numeric248_cpu_r1.py','scripts/check_wc_scout_sampling_
        'scripts/capture_wc_scout_numeric248_cpu_r1.py','src/wcomr/scout_sampling_r1.py',
        'src/wcomr/scout_numeric_contract_r1.py','tests/check_scout_full_sampling_cpu_r1.py',
        'plans/scouts_20261018/SCOUT_CAL12_CARD.json','plans/scouts_20261018/SCOUT_DEV6_BANK24_CARD.json',
-       'plans/WC_SCOUT_NUMERIC248_AND_PRODUCTION_ORDER_20261018.md')
+       'plans/WC_SCOUT_NUMERIC248_AND_PRODUCTION_ORDER_20261018.md',
+       'plans/WC_SCOUT_TEXT_REFUSAL_BOUNDARY_R2_PREREG_20261018.md')
 
 BOOT=r'''
 import hashlib,io,json,os,pathlib,shutil,subprocess,sys,tarfile,time
@@ -46,6 +47,7 @@ with tarfile.open(fileobj=io.BytesIO(sys.stdin.buffer.read()),mode='r:gz') as ar
   dst=stage/member.name;dst.parent.mkdir(parents=True,exist_ok=True);dst.write_bytes(raw);seen.add(member.name)
 assert seen==set(M['overlay'])
 reg.update(source_revision=M['revision'],stage=str(stage),read_only_base_stage=str(base),
+ guard_refusal_controls_required=10,
  read_only_base_registration_sha256=M['base_sha'],CPU_scope='SCOUT_COMPLETE248_NUMERICAL_NOT_PRODUCTION')
 reg['payload_sha256'].update(M['overlay'])
 raw=(json.dumps(reg,indent=2)+'\n').encode();(stage/'registration.json').write_bytes(raw)
@@ -113,6 +115,7 @@ def worker(a):
             if call.returncode:raise RuntimeError('Scout numerical CPU command failed')
         proofs=[json.loads((stage/('scout-'+k+'-sampling-CPU-result.json')).read_text()) for k in ('CAL12','BANK24')]
         assert [x['actual_CPU_paths'] for x in proofs]==[80,168]
+        assert [sum(len(c['guard_refusal_controls']) for c in p['checks']) for p in proofs]==[4,6]
         result.update(status='SCOUT_COMPLETE248_NUMERICAL_CPU_PASS_NOT_PRODUCTION',exit_code=0,actual_CPU_paths=248,
             result_sha256={k:sha(stage/('scout-'+k+'-sampling-CPU-result.json')) for k in ('CAL12','BANK24')})
     except BaseException as e:

@@ -57,9 +57,16 @@ def accept(v):
         assert r['payload_sha256']==reg['payload_sha256'] and r['GPU_submissions']==0 and r['CUDA_initialized'] is False
         assert {a['flow'] for a in r['checks']}=={False,True}
         assert all(a['complete_CPU_paths']==count//2 and a['full36_output_and_owner_controls'] for a in r['checks'])
+        if reg.get('guard_refusal_controls_required')==10:
+            methods={'G01_LATE_A','VARIATION26_C'} if kind=='CAL12' else {'D21','A21','NATIVE35'}
+            for flow in r['checks']:
+                guards=flow['guard_refusal_controls']
+                assert {g['method'] for g in guards}==methods and len(guards)==len(methods)
+                assert all(g['declared_guard_refusal_retained'] and g['zero_updates'] and g['owner_released'] for g in guards)
     return dict(status='SCOUT_COMPLETE248_NUMERICAL_CPU_INDEPENDENTLY_ACCEPTED_NOT_PRODUCTION',numerical_CPU_accepted=True,
         source_revision=reg['source_revision'],registration_sha256=v['registration_sha256'],actual_CPU_paths=248,
         CAL12_paths=80,BANK24_paths=168,all36_observer_OFF_ON_controls=True,production_CPU_accepted=False,
+        guard_refusal_controls=reg.get('guard_refusal_controls_required',0),
         CPU_wall_seconds=bundle['wall_seconds'],GPU_submissions=0,new_GPUh=0,ledger_written=False)
 
 

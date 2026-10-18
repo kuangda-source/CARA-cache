@@ -92,7 +92,22 @@ def body(inference,selected,wc,rf,settings,inference_module,runtime,config,flow,
                 assert c['scout_observation']['pre_action_input_sha256']==d['scout_observation']['pre_action_input_sha256']
         expected=40 if kind=='CAL12' else 84
         assert count==expected and len(checks)==n*len(plans(kind))
+        # A declared guardrail refusal is an ordinary retained result. The
+        # empty trajectory must not be mistaken for a wrong semantic plan.
+        guard_controls=[]
+        for method in plans(kind):
+            from wcomr.clean_speed20_r1 import patched
+            with patched(inference,'generate',lambda *args,**kwargs:[]):
+                rejected=run(samples[0],method,False,True,
+                    Path(artifact_root)/str(flow)/('guard_refusal_'+method))
+            assert rejected['status']=='TEXT_REJECTED'
+            assert rejected['solver_steps']==rejected['guided_pairs']==0
+            assert rejected['request_memory_lifecycle']['owners_alive_after']==0
+            assert rejected['scout_observation']['probe_copies']==rejected['scout_observation']['velocity_copies']==0
+            guard_controls.append(dict(method=method,declared_guard_refusal_retained=True,
+                zero_updates=True,owner_released=True))
         return [dict(flow=flow,status='PASS',complete_CPU_paths=count,checks=checks,
+            guard_refusal_controls=guard_controls,
             full36_output_and_owner_controls=True,ordinary_initial_state_restored=True,
             CPU_video_payload_is_not_real_93frame_video=True)]
     finally:
