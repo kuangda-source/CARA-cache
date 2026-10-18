@@ -1,3 +1,9 @@
+## 2026-10-18 当前：N09 fresh R3完整40已在GPU0准入；14:48半程／17:23完整验收
+
+[590原任务与查收](../../research/590_WC_N09_FRESH_R3_SINGLE_GPU_DISPATCH_AND_TWO_COLLECTION_TIMES_20261018.md)：07:19两卡空闲；R3已于12:37:23单次派发，12:41:52原件及独立接受确认1787源／原CPU、supervisor1947245/start559314698、runner1947617/start559319208、post1947246/start559314707、GPU0锁及完整5预留。原source1de07673／stage wc-paper-n09-production-cpu-r3-20261018／完整40/10warm+30正式/1440pairs不变，forecast4.245833333／上限5；初始27秒pending回执保留，不重派。
+
+原launch reports/wc_paper_N09_actual40_R3_GPU_launch_20261018_123616.json。半程最早unix1792306043.4642522、worldcache-n09-r3已约14:48；终态最早1792315343.4642522、worldcache-n09-r3-2已约17:23，各一次，不持续监听。v2实结110.869061155/cap226、完整预留5、可准入110.130938845，实际本卡费待结算。另一GPU不并发N10/重模型CPU。N09原件及费用完整接受后接已备N10完整960；连续修正完整24还待真实N09观测/报价/生产CPU。资源每两小时保留，下次不早于14:41:52，约14:45，距固定检查15分钟内复用该检查。strict<12／origin历史及F/B关闭保持。以下为历史。
+
 ## 2026-10-18 当前：N09忙卡预检不消耗原派发标记；06:22资源检查保持
 
 [589客户端补充](../../research/589_WC_N09_CLIENT_BUSY_RESOURCE_PREFLIGHT_PRESERVES_FRESH_STAGE_20261018.md)：N09写fence前只读重查本UUID显存／进程，明确忙卡返回N09_RESOURCE_BUSY_NOT_DISPATCHED_NO_FENCE，0子进程／授权／预留／费。18本地控制及CLI通过；原1787源／R3真实十命令CPU证明、本地数值和四观察源／监督／worker／post／合同重验保持，不改服务器stage。预检非原子准入，原监督v2/UUID最终判断不变。未知通信仍不重放。
