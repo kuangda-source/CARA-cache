@@ -1,0 +1,41 @@
+{
+  "status": "SCOUT_DISTINCT_LIFECYCLE_OVER_UNCHANGED_ACCEPTED_REAL_ENTRY",
+  "kind": "CAL12",
+  "entry_stage": "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/.sync/wc-scout-cal12-production-entry-cpu-r1-20261018",
+  "entry_source_revision": "c1c95ce0c598fb7839b0b89f4a69bd45c8aef7c9",
+  "entry_registration_sha256": "245d20ba553aafb5730167ade3fbee2d6a03827edc93db3e3a0ce23efa4544d4",
+  "config_ref": "configs/wc_scout_cal12_production_entry_r1_20261018.json",
+  "evidence": {
+    "launch": {
+      "ref": "reports/wc_scout_CAL12_real_entry_CPU_R1_launch_20261018.json",
+      "sha256": "8a28608498a55ca323dcee8a94617ba9477f579b00eebcc25f6aa0519fd235d1"
+    },
+    "capture": {
+      "ref": "reports/wc_scout_CAL12_real_entry_CPU_R1_collection_20261018.json.gz",
+      "sha256": "7d392a0dc58ea61fafcf19e178e25f639fdb13879dba2de6495e55f8d5c77712"
+    },
+    "accepted": {
+      "ref": "reports/wc_scout_CAL12_real_entry_CPU_R1_independent_acceptance_20261018.json",
+      "sha256": "c688aee7470c2c30fa7c19f60ab16db65d251be4b0d6ac8e3829cc5ea16a9cf3"
+    }
+  },
+  "lifecycle_entrypoints": [
+    "scripts/wc_scout_gpu_lifecycle_cpu_r1.py",
+    "scripts/check_wc_scout_gpu_lifecycle_r1.py",
+    "scripts/launch_wc_scout_gpu_r1.py",
+    "scripts/supervise_wc_scout_gpu_r1.py",
+    "scripts/watch_wc_scout_post_cpu_r1.py",
+    "scripts/postprocess_wc_scout_gpu_r1.py",
+    "scripts/capture_wc_scout_gpu_r1.py",
+    "scripts/analyze_wc_scout_gpu_r1.py",
+    "scripts/capture_wc_scout_gpu_lifecycle_cpu_r1.py"
+  ],
+  "reuse_numerical_CPU": true,
+  "reuse_real_entry_CPU": true,
+  "execution_stage_written": false,
+  "algorithm_or_request_changed": false,
+  "lifecycle_planning_cost_increment_GPUh": 0,
+  "GPU_submissions": 0,
+  "CPU_post_outside_GPU_bill": true,
+  "original_request_observer_allowance_kept": true
+}

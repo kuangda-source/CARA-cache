@@ -1,5 +1,28 @@
 # 本轮CPU收件后的直接执行入口
 
+## 23:00接续：原入口已接受，新生命周期使用独立证明
+
+[600新工具和控制](../research/600_WC_SCOUT_DISTINCT_GPU_LIFECYCLE_LOCAL_CONTROLS_AND_PRODUCTION_CPU_20261018.md)：R2数值248＋10与两个真实入口CPU都已接受，以下旧待验／待开发段落为历史，不能重新执行它们。新生命周期代码已实现并通过20本地控制；每kind新stage复用原1772个文件，新增生命周期实际CPU两命令待验。
+
+新stage的监督／post使用自己的source；真正生成始终调用原c1c95ce0入口stage，保持CPU证明对应原registration。每次完整准入重验二者，不能把新registration塞给旧入口CPU证明。
+
+```sh
+.venv/bin/python scripts/wc_scout_gpu_lifecycle_cpu_r1.py deploy --kind CAL12 --stage .sync/wc-scout-cal12-gpu-lifecycle-cpu-r1-20261018 --output reports/wc_scout_CAL12_GPU_lifecycle_CPU_R1_launch_20261018.json
+.venv/bin/python scripts/wc_scout_gpu_lifecycle_cpu_r1.py deploy --kind BANK24 --stage .sync/wc-scout-bank24-gpu-lifecycle-cpu-r1-20261018 --output reports/wc_scout_BANK24_GPU_lifecycle_CPU_R1_launch_20261018.json
+```
+
+每launch的+180秒／+360秒分别一次半程／终态，不持续监听。用`capture_wc_scout_gpu_lifecycle_cpu_r1.py --mode halfway/terminal --launch-ref <原启动> --output <新回执>`，然后`--mode accept --capture <已存终态> --output <新独立接受>`。接受前不称GPU_dispatch_ready。
+
+生命周期CPU及原Window24完整终态接受后，以原CPU三件套、原Window24实际完整capture／acceptance和fresh UUID执行：
+
+```sh
+.venv/bin/python scripts/launch_wc_scout_gpu_r1.py --CPU-launch-ref <CAL12生命周期原launch> --CPU-capture <CAL12生命周期完整capture> --CPU-acceptance <CAL12生命周期独立接受> --upstream-capture <原Window24实际完整capture> --upstream-acceptance <原Window24独立接受> --gpu-uuid <fresh UUID> --output <新GPU回执>
+```
+
+先一次`capture_wc_scout_gpu_r1.py --mode admission`核对真实准入。长卡按launch的`halfway_check_not_before_unix`与`next_check_not_before_unix`各另约一次；终态capture后只离线`analyze_wc_scout_gpu_r1.py`，CAL12另加`--gate-output <新的四CAL门控.json>`，完整接受后才固定四CAL的μ／中位阈值。BANK24使用同一启动CLI、自己的生命周期CPU三件套、CAL12完整capture／acceptance及`--frozen-gate <事前四CAL门控.json>`。不先跑DEV再拟合门控，不将X-R另开GPU。
+
+原Window24由`worldcache-gpu`两小时资源任务承接，下一次00:51，不在本工具开发任务双派发。生命周期CPU完成后将其真实证明补入原24未来终态查收接续，GPU顺序保持原24→CAL12→BANK24。busy无派发与未知通信分别保留，不能清fence重试。
+
 ## 当前补充：R1接受，R2拒绝边界重验与可执行的生产入口CPU
 
 先读[597](../research/597_WC_SCOUT_R1_NUMERIC_ACCEPTED_REFUSAL_BOUNDARY_R2_AND_PRODUCTION_NEXT_20261018.md)。原R1完整248接受；R2保留全部248并补10拒绝边界，22:10／22:25各一次，尚未接受。六DEV项目输出身份审计已由R1＋R2补齐，无命中，外部曝光不作保证。以下旧“待审计／尚未执行”均为历史。

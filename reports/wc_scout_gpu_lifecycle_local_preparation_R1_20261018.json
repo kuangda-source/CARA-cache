@@ -1,0 +1,103 @@
+{
+  "status": "SCOUT_NEW_LIFECYCLE_LOCAL_CONTROLS_PASS_NOT_SERVER_CPU",
+  "local_unittests": 20,
+  "CLI_commands": 6,
+  "commands": [
+    {
+      "command": [
+        "/Users/kuangda_gao/Documents/\u4e16\u754c\u6a21\u578b\u52a0\u901f\u5b9e\u9a8c/worldcache_omr/.venv/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_scout_gpu_lifecycle_r1.py",
+        "-v"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "test_PID_reuse_not_original_alive (test_scout_gpu_lifecycle_r1.ScoutLifecycle) ... ok\ntest_actual_owner_leak_refused (test_scout_gpu_lifecycle_r1.ScoutLifecycle) ... ok\ntest_all_new_production_sources_parse_and_entry_stage_retained (test_scout_gpu_lifecycle_r1.ScoutLifecycle) ... ok\ntest_authority_exact_quote_scope_and_under12 (test_scout_gpu_lifecycle_r1.ScoutLifecycle) ... ok\ntest_cal_gate_fit_uses_exact_four_CAL_only (test_scout_gpu_lifecycle_r1.ScoutLifecycle) ... ok\ntest_cannot_add_current_teacher_or_C_head (test_scout_gpu_lifecycle_r1.ScoutLifecycle) ... ok\ntest_deferred_remote_programs_compile (test_scout_gpu_lifecycle_r1.ScoutLifecycle) ... ok\ntest_formal_A_history_not_ignored (test_scout_gpu_lifecycle_r1.ScoutLifecycle) ... ok\ntest_native_cannot_inherit_cache_owner (test_scout_gpu_lifecycle_r1.ScoutLifecycle) ... ok\ntest_observer_changed_one_guided_step_refused (test_scout_gpu_lifecycle_r1.ScoutLifecycle) ... ok\ntest_refused_and_not_reached_positions_remain (test_scout_gpu_lifecycle_r1.ScoutLifecycle) ... ok\ntest_same_state_requires_input_and_all_four_probes (test_scout_gpu_lifecycle_r1.ScoutLifecycle) ... ok\ntest_scalar_terminal_fixtures_accept_both_complete_scopes (test_scout_gpu_lifecycle_r1.ScoutLifecycle) ... ok\ntest_scope_missing_duplicate_and_reorder_refused (test_scout_gpu_lifecycle_r1.ScoutLifecycle) ... ok\ntest_terminal_cost_and_current_UUID_release_not_summary_flags (test_scout_gpu_lifecycle_r1.ScoutLifecycle) ... ok\ntest_terminal_frame_mean_not_trusted (test_scout_gpu_lifecycle_r1.ScoutLifecycle) ... ok\ntest_terminal_reject_missing_original_bytes (test_scout_gpu_lifecycle_r1.ScoutLifecycle) ... ok\ntest_v2_UUID_lease_collision_and_release (test_scout_gpu_lifecycle_r1.ScoutLifecycle) ... ok\ntest_v2_accounting_is_additive_not_reservations_as_expense (test_scout_gpu_lifecycle_r1.ScoutLifecycle) ... ok\ntest_whole_two_scopes_and_native_ownership (test_scout_gpu_lifecycle_r1.ScoutLifecycle) ... ok\n\n----------------------------------------------------------------------\nRan 20 tests in 0.044s\n\nOK\n"
+    },
+    {
+      "command": [
+        "/Users/kuangda_gao/Documents/\u4e16\u754c\u6a21\u578b\u52a0\u901f\u5b9e\u9a8c/worldcache_omr/.venv/bin/python",
+        "scripts/wc_scout_gpu_lifecycle_cpu_r1.py",
+        "--help"
+      ],
+      "exit_code": 0,
+      "stdout": "usage: wc_scout_gpu_lifecycle_cpu_r1.py [-h] {deploy,worker} ...\n\npositional arguments:\n  {deploy,worker}\n\noptional arguments:\n  -h, --help       show this help message and exit\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/kuangda_gao/Documents/\u4e16\u754c\u6a21\u578b\u52a0\u901f\u5b9e\u9a8c/worldcache_omr/.venv/bin/python",
+        "scripts/capture_wc_scout_gpu_lifecycle_cpu_r1.py",
+        "--help"
+      ],
+      "exit_code": 0,
+      "stdout": "usage: capture_wc_scout_gpu_lifecycle_cpu_r1.py [-h] --mode\n                                                {halfway,terminal,accept}\n                                                [--launch-ref LAUNCH_REF]\n                                                [--capture CAPTURE] --output\n                                                OUTPUT\n\noptional arguments:\n  -h, --help            show this help message and exit\n  --mode {halfway,terminal,accept}\n  --launch-ref LAUNCH_REF\n  --capture CAPTURE\n  --output OUTPUT\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/kuangda_gao/Documents/\u4e16\u754c\u6a21\u578b\u52a0\u901f\u5b9e\u9a8c/worldcache_omr/.venv/bin/python",
+        "scripts/launch_wc_scout_gpu_r1.py",
+        "--help"
+      ],
+      "exit_code": 0,
+      "stdout": "usage: launch_wc_scout_gpu_r1.py [-h] --CPU-launch-ref CPU_LAUNCH_REF\n                                 --CPU-capture CPU_CAPTURE --CPU-acceptance\n                                 CPU_ACCEPTANCE --upstream-capture\n                                 UPSTREAM_CAPTURE --upstream-acceptance\n                                 UPSTREAM_ACCEPTANCE --output OUTPUT\n                                 --gpu-uuid GPU_UUID\n                                 [--frozen-gate FROZEN_GATE]\n\nOne scout launch, bound to its own CPU proof and accepted upstream originals.\n\noptional arguments:\n  -h, --help            show this help message and exit\n  --CPU-launch-ref CPU_LAUNCH_REF\n  --CPU-capture CPU_CAPTURE\n  --CPU-acceptance CPU_ACCEPTANCE\n  --upstream-capture UPSTREAM_CAPTURE\n  --upstream-acceptance UPSTREAM_ACCEPTANCE\n  --output OUTPUT\n  --gpu-uuid GPU_UUID\n  --frozen-gate FROZEN_GATE\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/kuangda_gao/Documents/\u4e16\u754c\u6a21\u578b\u52a0\u901f\u5b9e\u9a8c/worldcache_omr/.venv/bin/python",
+        "scripts/capture_wc_scout_gpu_r1.py",
+        "--help"
+      ],
+      "exit_code": 0,
+      "stdout": "usage: capture_wc_scout_gpu_r1.py [-h] --launch-ref LAUNCH_REF --mode\n                                  {admission,halfway,terminal} --output OUTPUT\n\nOne original-task admission/health/final observation, no new execution.\n\noptional arguments:\n  -h, --help            show this help message and exit\n  --launch-ref LAUNCH_REF\n  --mode {admission,halfway,terminal}\n  --output OUTPUT\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/kuangda_gao/Documents/\u4e16\u754c\u6a21\u578b\u52a0\u901f\u5b9e\u9a8c/worldcache_omr/.venv/bin/python",
+        "scripts/analyze_wc_scout_gpu_r1.py",
+        "--help"
+      ],
+      "exit_code": 0,
+      "stdout": "usage: analyze_wc_scout_gpu_r1.py [-h] --launch-ref LAUNCH_REF --capture\n                                  CAPTURE --output OUTPUT\n\nOffline whole scout frame/statistic/finance acceptance, never another SSH.\n\noptional arguments:\n  -h, --help            show this help message and exit\n  --launch-ref LAUNCH_REF\n  --capture CAPTURE\n  --output OUTPUT\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/kuangda_gao/Documents/\u4e16\u754c\u6a21\u578b\u52a0\u901f\u5b9e\u9a8c/worldcache_omr/.venv/bin/python",
+        "scripts/postprocess_wc_scout_gpu_r1.py",
+        "--help"
+      ],
+      "exit_code": 0,
+      "stdout": "usage: postprocess_wc_scout_gpu_r1.py [-h] --project PROJECT --stage STAGE\n\nCPU-only audit of every scout original, with refusals and failures retained.\n\noptional arguments:\n  -h, --help         show this help message and exit\n  --project PROJECT\n  --stage STAGE\n",
+      "stderr": ""
+    }
+  ],
+  "source_sha256": {
+    "scripts/analyze_wc_scout_gpu_r1.py": "a948d6519bb5c42b8543c31fcd8e13de9cc4769b5419be0eb0de26cbe22adccd",
+    "scripts/capture_wc_scout_gpu_lifecycle_cpu_r1.py": "760b5349203f59dbe67aeadf4ac58c234b7167c32ee952dd87415dfb285138ac",
+    "scripts/capture_wc_scout_gpu_r1.py": "4e38731499a3378aaff45f1dbac9ab57f24954578fc4e0359290ae1653df49d9",
+    "scripts/check_wc_scout_gpu_lifecycle_r1.py": "f1243d552b85740587677418e0a13ddf280f3ffc3040d9d43573a2c253e09787",
+    "scripts/launch_wc_scout_gpu_r1.py": "f4955f17afe799f3684cef0d94a6681e329c858b4af8a8d92588ab0c4364cae2",
+    "scripts/postprocess_wc_scout_gpu_r1.py": "1d1702122efcc295b377529a6d8f959d54988dfc4fae6ccbddca551ebc30a320",
+    "scripts/prepare_wc_scout_gpu_lifecycle_r1.py": "2f644d8662d95d471cd7d0be91b39362ddfa6bfa5abf123ac572b6d76dc7a355",
+    "scripts/supervise_wc_scout_gpu_r1.py": "f5d957e2443507c2439c9ebb783311c25122631857abc6a8d8164b58bfdd3035",
+    "scripts/wc_scout_gpu_lifecycle_cpu_r1.py": "952df2ea12f8734642ebf83137d62c6d7abf6cb34f605d0c3ffea09c85bf5670",
+    "src/wcomr/scout_gpu_lifecycle_r1.py": "c302d5c68b50219b7bdfbdd89e1b08ed32ec2b18bf288e8bfb17c06a374e9f84",
+    "tests/test_scout_gpu_lifecycle_r1.py": "01ca5d552e870948090d9c2303ea1b80731ae26fa7d02ea53c44d31814911ae1"
+  },
+  "GPU_submissions": 0,
+  "ledger_written": false,
+  "real_entry_CPU_reexecuted": false,
+  "numerical_paths_reexecuted": 0,
+  "source_scope_changed": false,
+  "synthetic_metadata_fixture_not_research_result": true,
+  "observed_unix": 1792337728.9348202
+}
