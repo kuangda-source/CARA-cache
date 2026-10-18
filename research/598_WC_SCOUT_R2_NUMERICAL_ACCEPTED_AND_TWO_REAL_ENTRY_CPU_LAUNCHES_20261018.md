@@ -42,3 +42,9 @@
 ## 延后送达的半程于22:35:05／06完成，原完整收件保持
 
 半程心跳原约22:32、实际22:34:37送达；CAL12／BANK24各一次只读快照实际于22:35:05／06取得，原PID2245370／2245680均已不存在，bundle／proof／config均存在，有界日志错误线索为空。原launch／registration绑定保持，完整payload／runtime与证明内容留给终态逐项核对；此处不称入口CPU通过。半程自动化worldcache-cpu已删除，原22:35完整收件任务保持，不在半程另跑终态collector，N10原22:43不变。原件与离线技术核对见对应reports，无新GPU或账本写。
+
+## 22:39 full collection: both real entry CPUs independently accepted
+
+CAL12 and BANK24 each passed both commands, all1772 source files/runtime, original registration/handle, actual Cosmos request matrix, whole quote, and unchanged R2 numerical dependency checks. CPU wall:143.263445/111.329267 seconds. Original captures and independent acceptances are reports/wc_scout_<KIND>_real_entry_CPU_R1_collection_20261018.json.gz and reports/wc_scout_<KIND>_real_entry_CPU_R1_independent_acceptance_20261018.json. This accepts production_entry_CPU only: GPU_dispatch_ready remains false until the new lifecycle supervisor/post/raw acceptance chain is implemented and validated.
+
+The entry final automation worldcache-cpu-2 has been deleted. A single local continuation worldcache-gpu-2 is scheduled at23:00. End this turn now to preserve the original N10 final at22:43 and its original Window24 GPU continuation. No new GPU dispatch, reservation or cost; cap226 and strict-under12 whole-card authority remain unchanged. The initial local report updater had an stdin encoding error before execution; the experiment sources and accepted captures were unaffected and the failure receipt is retained.

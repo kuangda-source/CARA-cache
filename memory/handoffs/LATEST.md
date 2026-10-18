@@ -1,3 +1,9 @@
+## 2026-10-18 Both real scout entry CPUs accepted; N10 at22:43 preserved
+
+[598 accepted entries](../../research/598_WC_SCOUT_R2_NUMERICAL_ACCEPTED_AND_TWO_REAL_ENTRY_CPU_LAUNCHES_20261018.md): source c1c95ce0, all1772 source files/runtime and both commands per kind independently accepted. CPU wall CAL12=143.263445s, BANK24=111.329267s. Exact accepted files: reports/wc_scout_<KIND>_real_entry_CPU_R1_independent_acceptance_20261018.json. production_entry_CPU_accepted=true; GPU_dispatch_ready=false. No video or acceleration result is implied.
+
+Original entry final automation deleted; new local lifecycle tooling continuation worldcache-gpu-2 scheduled once at23:00. N10 original22:43 final and its direct original Window24 launch stay first. GPU order: Window24 terminal acceptance -> CAL12 -> freeze CAL gate -> BANK24. No new GPU/reservation/cost. cap226, strict-under12 authority, historical accounting and F/B closure preserved. Earlier entries below are historical.
+
 ## 2026-10-18 两张入口CPU半程已收，完整证明待接续接受
 
 [598半程记录](../../research/598_WC_SCOUT_R2_NUMERICAL_ACCEPTED_AND_TWO_REAL_ENTRY_CPU_LAUNCHES_20261018.md)：原约22:32心跳延迟至22:34:37送达，实际22:35:05／06一次核对CAL12／BANK24原PID均结束、三证明存在、错误线索为空；未读证明内容或查全源，不判通过。worldcache-cpu半程已删除，原22:35终态任务与N10原22:43／随后原24单次启动均保持，不在半程重复终态收件。0新GPU／账本写，以下为历史。
