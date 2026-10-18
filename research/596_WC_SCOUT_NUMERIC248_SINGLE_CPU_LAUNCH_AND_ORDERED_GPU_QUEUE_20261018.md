@@ -33,3 +33,7 @@ CAL12为8正式＋4完整预热；BANK24为18正式＋6完整预热、包含六�
 具体生产待项及CLI见[接续执行入口](../plans/WC_SCOUT_PRODUCTION_AND_GPU_CONTINUATION_RUNBOOK_20261018.md)。新卡完整CPU接受、上游原件接受后，按fresh UUID／显存／进程／v2余额直接准入。累计cap226、origin79.99637737158223与历史不重置；预留非实费，严格少于12自主，达到12或余额不足才问具体完整卡，禁止拆缩。
 
 本报告阶段新增GPU提交0、预留0、GPUh0。N10费用仍待原时间独立验收。F/B关闭，探索不自动合入冻结主线，无训练、人评或OMR。
+
+## 21:31一次半程：原句柄已消失，三份证明存在，保留21:45完整验收
+
+[半程原件](../reports/wc_scout_numeric248_actual_CPU_R1_midpoint_20261018.json.gz)与[离线技术核对](../reports/wc_scout_numeric248_midpoint_independent_technical_acceptance_20261018.json)：21:31:59实际快照核对原launch／worker源码SHA；PID2202370已不存在，CAL12／BANK24／bundle三文件均存在，有界日志错误线索为空。未读取终态证明内容、未逐项接受248，不能仅凭文件存在认定通过；原21:45完整收件保持。半程自动化worldcache-248-cpu已删除，最终worldcache-248-cpu-2与N10原22:43不改，无新GPU或账本写。

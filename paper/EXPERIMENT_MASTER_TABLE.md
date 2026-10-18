@@ -1,3 +1,7 @@
+## 2026-10-18 21:31 探索248半程技术终态，21:45完整收件保持
+
+[596半程记录](../research/596_WC_SCOUT_NUMERIC248_SINGLE_CPU_LAUNCH_AND_ORDERED_GPU_QUEUE_20261018.md)：原PID2202370已消失，worker SHA一致，CAL12／BANK24／bundle三文件存在，有界错误线索为空；未读证明内容，不判CPU通过。worldcache-248-cpu半程已删除，worldcache-248-cpu-2仍21:45完整收件，N10原22:43与其后原24顺序不改。无新GPU／账本写，不重复派发或持续监听。以下为历史。
+
 ## 2026-10-18 探索248数值CPU已单次启动，原24生产CPU已接受
 
 [596实际启动与执行顺序](../research/596_WC_SCOUT_NUMERIC248_SINGLE_CPU_LAUNCH_AND_ORDERED_GPU_QUEUE_20261018.md)：原24 source a350ea98的1749源／五命令生产CPU已接受，N10原22:43收完后直接复用原证明启动完整24（预测3.064166667／上限4），不重复CPU。新增探索source bbc63109／1758源／PID2202370-start562419905于21:14:55单次启动完整248数值Toy路径，尚未接受，不是生产CPU或视频。worldcache-248-cpu半程21:30、worldcache-248-cpu-2完整21:45已实际创建，各一次；不持续监听。
