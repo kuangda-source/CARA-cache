@@ -1,3 +1,9 @@
+## 2026-10-18 生命周期CPU打包遗漏已修，R2实际验证已启动
+
+[601失败与修复](research/601_WC_SCOUT_LIFECYCLE_R1_PACKAGE_FAILURE_AND_R2_ISOLATED_REPAIR_20261018.md)：原两张R1首组共用测试缺另一kind配置，完整1787源/runtime一致、原失败保留，CPU未接受。部署器现同时注册两份已冻配置闭包；每卡新1789源、原1772执行依赖不变，两份overlay本地隔离20项控制均通过。数值248＋10和c1真实入口CPU无需重跑。
+
+source2bd41dc8的新CAL12 PID2283145／BANK24 PID2283744已分别单次派发，待10-19 00:00半程／00:03完整查收；GPU_dispatch_ready仍false，新增视频／GPU／费用0。原24资源任务00:51与N10已验结果不变。R1原终态自动化已删除，新R2两检查保留；顺序原24→CAL12→固定CAL gate→BANK24，X-R共享、探索未并入正文。以下为历史。
+
 ## 2026-10-18 新探索独立GPU生命周期已实现，实际CPU待23:48接受
 
 [600工具与原启动](research/600_WC_SCOUT_DISTINCT_GPU_LIFECYCLE_LOCAL_CONTROLS_AND_PRODUCTION_CPU_20261018.md)：source59be5980，20本地控制／6条CLI通过；CAL12 PID2276574／BANK24 PID2277001各新1787源stage已经单次启动生命周期CPU。原数值248＋10与c1c95ce0真实Cosmos入口CPU直接复用，原1772依赖字节不改，未重跑。新监督与原生成source分别明确绑定，不借原24通过标记。

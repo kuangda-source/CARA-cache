@@ -35,3 +35,16 @@
 仍为完整20控制＋实际原入口／全部矩阵／完整依赖核对两命令，未运行前不判通过。复用数值248＋10及原入口两命令，不再次采样；source、registration、原句柄和+180／+360秒检查时刻由真实launch追加。未知派发不重放；长任务半程和ETA各一次，不持续监听。
 
 原N10已接受不再查；原Window24资源任务00:51和原source／完整四臂不改，当前不提前查询资源。GPU仍原24完整接受→CAL12→四CAL冻结gate→BANK24，X-R共享。新卡预测／完整计费上限仍1.876666667／2.5和3.407222222／4.5，当前新增GPU／预留／费用均0。cap226／origin及历史、strict<12直接执行、F/B关闭均保持。
+
+## 4. R2实际单次启动和两次查收
+
+source **2bd41dc8fa19f42353e03a7c78b7264b4b2695c6**；两stage各1789源，新CPU尚未接受：
+
+| kind | 原PID／start_ticks | registration SHA | 启动北京时间 |
+|---|---|---|---|
+| CAL12 | 2283145／563382589 | bc3ac7e60d81677722ce5d3960e9e8dd61733d27b2b42e24c067930285b0461a | 10-18 23:55:22.378 |
+| BANK24 | 2283744／563389012 | 49706186eb5e1686a6f55c4cdc7def30e72f3053e726331a8910616805ca31eb | 10-18 23:56:26.606 |
+
+原回执`reports/wc_scout_<KIND>_GPU_lifecycle_CPU_R2_launch_20261018.json`；新半程`worldcache-r2-cpu`安排10-19 00:00，最早共同unix1792339166.6063173；新完整`worldcache-r2-cpu-2`安排00:03，最早共同unix1792339346.6063173。收件文件日期使用20261019、启动回执仍20261018，不能错读R1。
+
+[新自动化原件](../reports/wc_scout_two_GPU_lifecycle_CPU_R2_once_automations_20261018.json)已创建，[资源接续更新](../reports/wc_scout_R2_CPU_running_resource_continuation_update_20261018.json)保留原24优先和00:51节奏。R1原完整收件自动化worldcache-cpu-2已删除；上述R2任务独立保留，不持续监听。下一步只按R2原句柄及全源／两命令实际原件接受，不把已修复或已启动当通过；新增GPU仍0。

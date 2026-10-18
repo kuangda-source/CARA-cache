@@ -1,3 +1,13 @@
+## 2026-10-18 生命周期R1打包失败已定位；R2已启动，00:00／00:03查收
+
+先读[601原失败／最小修复／实际新句柄](../../research/601_WC_SCOUT_LIFECYCLE_R1_PACKAGE_FAILURE_AND_R2_ISOLATED_REPAIR_20261018.md)。两张R1全1787源/runtime一致，但共用控制包漏另一kind配置，首命令分别7／10个FileNotFoundError，第2未到达／CPU未接受；原完整capture／acceptance保留，worldcache-cpu-2已删除不重查。只修部署配置闭包，原1772执行依赖及真实c1入口／数值248＋10不改、不重跑；两份实际overlay独立本地20控制各通过。
+
+新source2bd41dc8fa19f42353e03a7c78b7264b4b2695c6，两stage各1789源。CAL12 .sync/wc-scout-cal12-gpu-lifecycle-cpu-r2-20261018，2283145/start563382589，regbc3ac7e60d81677722ce5d3960e9e8dd61733d27b2b42e24c067930285b0461a；BANK24 .sync/wc-scout-bank24-gpu-lifecycle-cpu-r2-20261018，2283744/start563389012，reg49706186eb5e1686a6f55c4cdc7def30e72f3053e726331a8910616805ca31eb。launch reports/wc_scout_<KIND>_GPU_lifecycle_CPU_R2_launch_20261018.json。待实际查收，GPU_dispatch_ready=false。
+
+新worldcache-r2-cpu 10-19 00:00半程（共同not-before1792339166.6063173），worldcache-r2-cpu-2 00:03完整（共同not-before1792339346.6063173），各一次。capture_wc_scout_gpu_lifecycle_cpu_r1.py --mode halfway/terminal；保存后--mode accept。新collection／independent_acceptance文件日期20261019，不混R1。完整接受后更新资源任务已验R2三件套和原24未来collector接CAL12 CLI；当前不启动GPU。
+
+原N10全960已接受599不重查；原Window24仍由worldcache-gpu 00:51两小时资源任务优先，不能提前查GPU或双派发。顺序原24完整接受→CAL12→四CAL冻结μ／中位阈值→BANK24，X-R共享。cap226／origin历史／strict<12／F/B关闭保持，本轮新增GPU／预留／费用0。以下为历史。
+
 ## 2026-10-18 23:47新生命周期CPU半程报错，23:48原件收件保持
 
 [600半程异常](../../research/600_WC_SCOUT_DISTINCT_GPU_LIFECYCLE_LOCAL_CONTROLS_AND_PRODUCTION_CPU_20261018.md)：原23:45心跳延迟至23:46:38送达，实际23:47:01各一次半程回执确认原2276574／2277001已结束，bundle存在、CPU proof不存在，日志均有RuntimeError: Scout lifecycle CPU command failed。完整错误上下文和bundle尚未读取，不诊断根因、不判通过。原件reports/wc_scout_<KIND>_GPU_lifecycle_CPU_R1_midpoint_20261018.json.gz，离线核对wc_scout_two_lifecycle_CPU_midpoint_technical_20261018.json。

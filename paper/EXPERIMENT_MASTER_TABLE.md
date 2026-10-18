@@ -1,3 +1,9 @@
+## 2026-10-18 探索R1打包失败保留；R2新CPU待查收
+
+[601原件／修复](../research/601_WC_SCOUT_LIFECYCLE_R1_PACKAGE_FAILURE_AND_R2_ISOLATED_REPAIR_20261018.md)：R1因共用测试缺另一kind配置而未通过，不构成方法负结果；原件保留。新source2bd41dc8只补配置闭包，两个1789源stage已各单次派发，新半程10-19 00:00／完整00:03。原数值及真实入口接受不变，GPU_dispatch_ready=false，新增科学结果／GPU费用0。
+
+X-A／X-S-CURV／X-S-GATE／X-R继续作为独立探索；原24由00:51资源任务优先，随后CAL12→四CAL冻结gate→BANK24。cap226／strict<12／F/B关闭保持。以下为历史。
+
 ## 2026-10-18 探索生命周期实际CPU在途；不新增论文结果
 
 [600新工具与CPU](../research/600_WC_SCOUT_DISTINCT_GPU_LIFECYCLE_LOCAL_CONTROLS_AND_PRODUCTION_CPU_20261018.md)：两新stage1787源／source59be5980已分别单次启动，20本地控制与6条CLI通过；23:45半程／23:48完整收件。R2数值及真实入口CPU已验并直接复用，独立生命周期CPU仍待接受，GPU_dispatch_ready=false。X-A／X-S-CURV／X-S-GATE／X-R保持探索、结果空白，未并入主稿。
