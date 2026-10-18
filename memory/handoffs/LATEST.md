@@ -1,3 +1,9 @@
+## 2026-10-19 03:02两GPU占用未变，原24未派发；下一05:03
+
+原02:58资源心跳02:59:09送达，实际03:02:09.803仅一次fresh只读检查。原件reports/wc_window24_fresh_resource_and_single_dispatch_preflight_20261019_0258.json，独立核对wc_window24_resource_slot_0258_independent_busy_acceptance_20261019.json。两GPU显存仍29357／28988MiB、利用率均100%、compute PID2280686／2282147；自身两锁free，仍无空闲UUID。原Window24全部fence／launch／admission_failure和输出仍不存在，未尝试派发，0本项目GPU任务／0预留／0新费用。v2实结114.02498439084846／cap226，余111.97501560915154；原origin和历史不变。
+
+worldcache-gpu继续ACTIVE，两小时间隔按实际观察计算：下一不早于unix1792357329.8031793（05:02:09.803），安排05:03，RRULE改为奇数小时03分。占用未变安静结束，不询问释放时间、不循环等待。原24仍第一位，沿原a350ea98已验CPU和完整24直接准入；原24完整接受后按ready手册接已验CAL12→四CAL冻结gate→BANK24，X-R共享。新CPU／N10均不重查，不重跑准备。以下为历史。
+
 ## 2026-10-19 00:57两GPU仍有其他compute任务，原24未派发；下一02:58
 
 原00:51资源心跳00:55:38送达，实际00:57:22.144仅一次fresh只读检查。原件reports/wc_window24_fresh_resource_and_single_dispatch_preflight_20261019_0051.json，独立核对wc_window24_resource_slot_0051_independent_busy_acceptance_20261019.json。GPU0／1显存29357／28988MiB、利用率均100%，compute PID2280686／2282147，无可准入UUID；自身两锁free不代表GPU空闲。原Window24全部fence/launch/admission_failure仍不存在，原输出不存在，未尝试派发／0新费用。本项目0GPU任务／0预留，v2实结114.02498439084846/cap226、余111.97501560915154，原origin和历史保持。
