@@ -1,3 +1,9 @@
+## 2026-10-18 N10全部645适用评分接受，原24因外部GPU占用排队
+
+[599完整结果与资源接续](research/599_WC_N10_FULL960_ACCEPTED_DIMENSIONWISE_RESULTS_AND_WINDOW24_RESOURCE_QUEUE_20261018.md)：原960分母完整接受，645评分全成功、155视频不可用、160静态N/A保留；五模型、19对比、4096提示词分组bootstrap及实际0.386506105GPUh均独立核对。H1相对RA的主体一致性、平滑度及MUSIQ正向，A_NO_P前两项正向；相对强前密仍有取舍，不改N07保真／N08速度结论。
+
+原24五命令CPU已接受，但22:50:02两A6000被他人PID2203088／2203089占满显存，原stage无fence／launch／输出，未尝试派发、0预留。v2实结114.024984391／cap226，余111.975015609；资源巡检worldcache-gpu已恢复，每两小时一次，下次不早于10-19 00:50:02、约00:51，占用不变安静。空闲后依原a350ea98证明直接启原完整24。N10终态自动化已删除，23:00本地探索工具接续保持；GPU顺序原24→CAL12→BANK24、strict<12及F/B关闭不变。以下为历史。
+
 ## 2026-10-18 Both real scout entry CPUs accepted; N10 at22:43 preserved
 
 [598 accepted entries](research/598_WC_SCOUT_R2_NUMERICAL_ACCEPTED_AND_TWO_REAL_ENTRY_CPU_LAUNCHES_20261018.md): source c1c95ce0, all1772 source files/runtime and both commands per kind independently accepted. CPU wall CAL12=143.263445s, BANK24=111.329267s. Exact accepted files: reports/wc_scout_<KIND>_real_entry_CPU_R1_independent_acceptance_20261018.json. production_entry_CPU_accepted=true; GPU_dispatch_ready=false. No video or acceleration result is implied.

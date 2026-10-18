@@ -1,3 +1,9 @@
+## 2026-10-18 N10自动质量完整接受，原24已验CPU等待资源
+
+[599结果／统计／接续](../research/599_WC_N10_FULL960_ACCEPTED_DIMENSIONWISE_RESULTS_AND_WINDOW24_RESOURCE_QUEUE_20261018.md)：645适用评分全部成功，原960含155视频不可用／160静态N/A完整保留；五模型／19对比／4096 prompt bootstrap和0.386506105GPUh接受。N10自动质量表现在可以填写已验分数，按完整双seed提示词同队列比较；不填加权总分、不充新独立输入或生成速度。H1相对RA有主体／平滑／MUSIQ正向，强前密对照仍有取舍。N10原终态自动化已删除。
+
+原Window24真实五命令CPU已接受，22:50资源检查发现两卡被他人占满显存，因此未尝试派发／0新费用。worldcache-gpu恢复两小时检查，下次10-19 00:51，不早于00:50:02；空闲后依原a350ea98证明直接启完整24。新增探索两入口CPU亦接受，生命周期链待23:00本地接续；不抢原24、不增加原冻结scope。当前本项目0GPU任务／0预留，v2实结114.024984391／cap226、余111.975015609；strict<12及F/B关闭保持。以下为历史。
+
 ## 2026-10-18 Both real scout entry CPUs accepted; N10 at22:43 preserved
 
 [598 accepted entries](../research/598_WC_SCOUT_R2_NUMERICAL_ACCEPTED_AND_TWO_REAL_ENTRY_CPU_LAUNCHES_20261018.md): source c1c95ce0, all1772 source files/runtime and both commands per kind independently accepted. CPU wall CAL12=143.263445s, BANK24=111.329267s. Exact accepted files: reports/wc_scout_<KIND>_real_entry_CPU_R1_independent_acceptance_20261018.json. production_entry_CPU_accepted=true; GPU_dispatch_ready=false. No video or acceleration result is implied.

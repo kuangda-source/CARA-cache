@@ -1,3 +1,11 @@
+## 2026-10-18 N10完整960／645评分及费用接受，原24等待外部GPU释放
+
+[599完整结果与资源队列](../../research/599_WC_N10_FULL960_ACCEPTED_DIMENSIONWISE_RESULTS_AND_WINDOW24_RESOURCE_QUEUE_20261018.md)：原source d10e9926全部645适用评分成功，155视频不可用／160静态N/A不填0；原960、五模型、19对比／4096 prompt bootstrap、实际0.386506105GPUh及原UUID释放均独立接受，原N10终态自动化已删除，不重查或重评。原件reports/wc_paper_N10_full960_terminal_collection_20261018.json.gz与terminal_independent_acceptance_20261018.json；逐维／prompt派生分析见wc_paper_N10_dimensionwise_accepted_analysis_20261018.json。H1相对RA主体／平滑／MUSIQ正向，强前密仍有取舍，不改旧保真／速度边界。
+
+22:50:02 fresh回执reports/wc_window24_fresh_resource_and_single_dispatch_preflight_20261018.json：两GPU被他人PID2203088／2203089各占47770MiB，利用率0不算空闲；原Window24无fence／launch／admission_failure／输出，未派发、0费用／预留。原a350ea98／1749源五命令CPU仍接受，不重跑；预测3.064166667／上限4。v2实结114.02498439084846／226，预留0余111.97501560915154。worldcache-gpu已恢复每两小时一次，下一次不早于unix1792342202.0373387（10-19 00:50:02北京时间），约00:51，busy不变安静、不询问释放时间；空闲后按原证明fresh v2/UUID直接启动，未知不重放／不清fence。
+
+23:00 worldcache-gpu-2继续独立本地新探索GPU生命周期工具开发，原R2数值及两真实入口CPU已接受、无需重跑；先读598与runbook。当前0本项目GPU在途，队列原24→CAL12→固定CAL gate→BANK24，X-R共享；原24准入由资源监控承接，禁止双派发。cap226／origin历史／strict<12、半程和ETA各一次及F/B关闭保持。以下为历史。
+
 ## 2026-10-18 Both real scout entry CPUs accepted; N10 at22:43 preserved
 
 [598 accepted entries](../../research/598_WC_SCOUT_R2_NUMERICAL_ACCEPTED_AND_TWO_REAL_ENTRY_CPU_LAUNCHES_20261018.md): source c1c95ce0, all1772 source files/runtime and both commands per kind independently accepted. CPU wall CAL12=143.263445s, BANK24=111.329267s. Exact accepted files: reports/wc_scout_<KIND>_real_entry_CPU_R1_independent_acceptance_20261018.json. production_entry_CPU_accepted=true; GPU_dispatch_ready=false. No video or acceleration result is implied.
