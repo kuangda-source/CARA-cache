@@ -1,3 +1,9 @@
+## 2026-10-18 20:02 N10半程确认技术终态，22:43完整验收保持
+
+[593半程原件与解释](../../research/593_WC_N10_MIDPOINT_TECHNICAL_TERMINAL_AND_FINAL_ACCEPTANCE_RETAINED_20261018.md)：原source／registration／CPU绑定及2077516/start561087236、2077521/start561087296原句柄一致，现均已结束，child exit0，原GPU0和锁释放；错误标签为空。仅一次只读SSH、无科学partial读取。runner的FINISHED_FAILURES_RETAINED是固定正常完成状态名，不据此判断有评分失败；全645是否成功／实际失败计数均未读取。
+
+v2已记录本卡0.386506105GPUh结算，累计114.024984391/cap226、预留0余111.975015609；这只是账本技术观察，原bill／完整960质量尚未独立验收。半程自动化worldcache-n10-960已删除，原worldcache-n10-960-2仍ACTIVE，今晚22:43（最早1792334562.8404052）一次完整收件不变。本轮不启动连续24或重评分；其报价3.064166667／上限4和真实生产CPU待办保持。F/B关闭，以下为历史。
+
 ## 2026-10-18 当前：N09完整40接受，N10完整960已准入，20:01／22:43两次查收
 
 [591 N09结果](../../research/591_WC_N09_FULL40_ACCEPTED_DEPLOYMENT_PROFILE_AND_N10_NEXT_20261018.md)已独立接受并推送21da18ed，实费2.769417131GPUh；原40/全部原件及财务通过。原N09终态自动化已删除，不重查旧任务。
