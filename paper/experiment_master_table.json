@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "updated_local_date": "2026-10-18",
-  "snapshot_basis": "N10 original midpoint observes technical terminal exit0 and own GPU/UUID release; no quality journal/results read, whole960 and bill acceptance retained at22:43. Fixed FINISHED_FAILURES_RETAINED label is not a metric-failure count.",
+  "snapshot_basis": "Accepted original receipts plus isolated scout E0; N10 original22:43 science acceptance pending; no new GPU dispatch",
   "git_snapshot_before_inventory": "4cb9fa2640b838dab0d1f913f4bb57e230b9edbd",
   "mapping_ref": "paper/internal_to_paper_mapping.json",
   "scope": "scientific experiment families and complete cards, not each engineering retry; reused artifacts must not be summed as independent samples",
@@ -53,7 +53,8 @@
     "GPU技术终态｜待全960质量与原账单完整验收": 1,
     "待补｜主张条件": 1,
     "暂缓/未执行｜旧卡": 1,
-    "已完成｜完整18路径与12正式93帧接受，同25D修正改善，未补平26D保真": 1
+    "已完成｜完整18路径与12正式93帧接受，同25D修正改善，未补平26D保真": 1,
+    "探索E0已完成｜GPU设计待生产验证": 4
   },
   "rows": [
     {
@@ -2419,7 +2420,7 @@
       ],
       "contribution_relation": "C1修正能否替代D；C2完整预算计划的判别开发；C3真实质量时间",
       "evidence_or_planned_scope": "全部18完成/12正式1116帧；三种36guided重复、四旧前密终态/actions/A历史/93RGB控制均通过。四场景/seed0同25D仅第21步C/A不同。",
-      "gap_and_next_action": "原完整18同25D修正作用已接受，尚未补平26D质量；完整24/88数值与旧12绑定完成，派发/收件/逐帧/费用代码已准备。待N09真实终态与四源区间生成完整报价、新stage生产CPU及A3完整视频；不得将本地控制当新方法终点。",
+      "gap_and_next_action": "原18与同25D修正结果已接受；完整24的88数值/旧12及N09实际报价已准备（预测3.064166667/上限4），新stage真实生产CPU和A3端点待。探索G11只复用该卡，G01另补；不改原卡或借探索重跑。",
       "priority": "已接受·固定预算修正消融",
       "evidence_refs": [
         "endpoint_budget_design_551",
@@ -2499,7 +2500,9 @@
         "window24_initial_local_output_parent_failure",
         "research/583_WC_WINDOW24_GPU_CLIENT_FINAL_ACCEPTANCE_AND_PRICING_SCOPE_R2_20261018.md",
         "reports/wc_drop1_window24_client_and_final_source_local_preparation_20261018.json",
-        "plans/WC_DROP1_WINDOW24_PRICING_SCOPE_AMENDMENT_R2_20261018.md"
+        "plans/WC_DROP1_WINDOW24_PRICING_SCOPE_AMENDMENT_R2_20261018.md",
+        "scouts_594",
+        "scouts_assets"
       ],
       "method_mapping_ids": [
         "module.gcr",
@@ -2715,12 +2718,12 @@
         "card": "WC-DROP1-WINDOW-CAL4-FOURARM-FULL24-R1-20261018-A",
         "plan_ref": "plans/WC_DROP1_CORRECTION_WINDOW_FULL24_20261018.md",
         "static_scope_ref": "manifests/wc_drop1_correction_window_full24_static_scope_20261018.json",
-        "status": "COMPLETE88_OLD12_ACCEPTED_FULL24_EXECUTION_SOURCE_PREPARED_REAL_QUOTE_PRODUCTION_PENDING",
+        "status": "REAL_N09_QUOTE_READY_ACTUAL_PRODUCTION_CPU_AND_GPU_PENDING",
         "GPU_submissions": 0,
         "quality_results": null,
         "timing_results": null,
         "CPU_accepted": true,
-        "whole_quote_GPUh": null,
+        "whole_quote_GPUh": 3.0641666666666665,
         "after_N09_terminal": true,
         "algorithm_adapter_implemented": true,
         "local_CPU_controls": 12,
@@ -2754,8 +2757,8 @@
         "pricing_prereg_ref": "plans/WC_DROP1_WINDOW24_PRODUCTION_PRICING_AND_ACCEPTANCE_20261018.md",
         "production_entry_local_controls_passed": 10,
         "production_entry_local_preparation_ref": "reports/wc_drop1_window24_production_entry_local_preparation_20261018.json",
-        "actual_N09_readout_intervals_available": false,
-        "actual_production_config_generated": false,
+        "actual_N09_readout_intervals_available": true,
+        "actual_production_config_generated": true,
         "full_GPU_execution_envelope_ready": false,
         "CPU_deploy_and_collect_source_prepared": true,
         "CPU_deploy_ref": "scripts/deploy_wc_drop1_window24_cpu_r1.py",
@@ -2776,8 +2779,153 @@
         "installer_local_controls_passed": 9,
         "combined_current_local_controls_passed": 37,
         "client_final_local_preparation_ref": "reports/wc_drop1_window24_client_and_final_source_local_preparation_20261018.json",
-        "pricing_scope_amendment_ref": "plans/WC_DROP1_WINDOW24_PRICING_SCOPE_AMENDMENT_R2_20261018.md"
+        "pricing_scope_amendment_ref": "plans/WC_DROP1_WINDOW24_PRICING_SCOPE_AMENDMENT_R2_20261018.md",
+        "pricing_preparation_ref": "reports/wc_drop1_window24_real_N09_quote_and_config_preparation_20261018.json",
+        "billed_limit_GPUh": 4.0,
+        "exploration_factorial_mapping": {
+          "G00": "S25-C",
+          "G10": "S25-A1",
+          "G11": "S25-A3",
+          "G01": "scout CAL12 only"
+        },
+        "original_card_modified_by_scouts": false
       }
+    },
+    {
+      "id": "X-A",
+      "state": "探索E0已完成｜GPU设计待生产验证",
+      "paper_experiment_name": "Exploratory Continued Readout",
+      "internal_ids": [
+        "X-A"
+      ],
+      "contribution_relation": "探索潜在修正/分配证据，尚不支撑冻结主稿新贡献",
+      "evidence_or_planned_scope": "AV28 step21五α真张量扫描；单状态α=1最佳。原连续24包含G11，G01缺。",
+      "gap_and_next_action": "先收原24；CAL12补G01并采CAL probe，不跑新shrink。",
+      "priority": "探索P1·复用原24",
+      "evidence_refs": [
+        "scouts_594",
+        "scouts_entry",
+        "scouts_registry",
+        "scouts_assets",
+        "scouts_CPU_results",
+        "scouts_GPU_cards",
+        "scouts_real_CPU",
+        "scouts_real_CPU_accepted",
+        "scouts_CAL12_design",
+        "scouts_BANK24_design",
+        "scouts_DEV6_inputs",
+        "scouts_DEV6_local_proof"
+      ],
+      "method_mapping_ids": [],
+      "contribution_ids": [],
+      "claim_relation": "HYPOTHESIS_AND_CPU_DIAGNOSTIC_ONLY_NOT_PAPER_CLAIM",
+      "paper_placement": "EXPLORATION_ONLY",
+      "GPU_dispatch_ready": false,
+      "new_GPU_submissions": 0,
+      "independent_new_video_results": null,
+      "merged_into_mainline": false
+    },
+    {
+      "id": "X-S-CURV",
+      "state": "探索E0已完成｜GPU设计待生产验证",
+      "paper_experiment_name": "Exploratory Variation-Prior Shared Schedule",
+      "internal_ids": [
+        "X-S-CURV"
+      ],
+      "contribution_relation": "探索潜在修正/分配证据，尚不支撑冻结主稿新贡献",
+      "evidence_or_planned_scope": "两旧CAL Native完整36速度；g²主候选−33/+22，合法26D。",
+      "gap_and_next_action": "CAL12四场景端点；不把变化分数当调度收益。",
+      "priority": "探索P2·单候选",
+      "evidence_refs": [
+        "scouts_594",
+        "scouts_entry",
+        "scouts_registry",
+        "scouts_assets",
+        "scouts_CPU_results",
+        "scouts_GPU_cards",
+        "scouts_real_CPU",
+        "scouts_real_CPU_accepted",
+        "scouts_CAL12_design",
+        "scouts_BANK24_design",
+        "scouts_DEV6_inputs",
+        "scouts_DEV6_local_proof"
+      ],
+      "method_mapping_ids": [],
+      "contribution_ids": [],
+      "claim_relation": "HYPOTHESIS_AND_CPU_DIAGNOSTIC_ONLY_NOT_PAPER_CLAIM",
+      "paper_placement": "EXPLORATION_ONLY",
+      "GPU_dispatch_ready": false,
+      "new_GPU_submissions": 0,
+      "independent_new_video_results": null,
+      "merged_into_mainline": false
+    },
+    {
+      "id": "X-S-GATE",
+      "state": "探索E0已完成｜GPU设计待生产验证",
+      "paper_experiment_name": "Exploratory Single-Decision Gate",
+      "internal_ids": [
+        "X-S-GATE"
+      ],
+      "contribution_relation": "探索潜在修正/分配证据，尚不支撑冻结主稿新贡献",
+      "evidence_or_planned_scope": "四旧CAL D/A完整端点已有；z缺，六DEV本地身份冻结。",
+      "gap_and_next_action": "CAL12 probe校准；DEV6银行含六Native，真实生产CPU/fresh曝光待。",
+      "priority": "探索P2·共享银行",
+      "evidence_refs": [
+        "scouts_594",
+        "scouts_entry",
+        "scouts_registry",
+        "scouts_assets",
+        "scouts_CPU_results",
+        "scouts_GPU_cards",
+        "scouts_real_CPU",
+        "scouts_real_CPU_accepted",
+        "scouts_CAL12_design",
+        "scouts_BANK24_design",
+        "scouts_DEV6_inputs",
+        "scouts_DEV6_local_proof"
+      ],
+      "method_mapping_ids": [],
+      "contribution_ids": [],
+      "claim_relation": "HYPOTHESIS_AND_CPU_DIAGNOSTIC_ONLY_NOT_PAPER_CLAIM",
+      "paper_placement": "EXPLORATION_ONLY",
+      "GPU_dispatch_ready": false,
+      "new_GPU_submissions": 0,
+      "independent_new_video_results": null,
+      "merged_into_mainline": false
+    },
+    {
+      "id": "X-R",
+      "state": "探索E0已完成｜GPU设计待生产验证",
+      "paper_experiment_name": "Exploratory Directional and Edge Risk",
+      "internal_ids": [
+        "X-R"
+      ],
+      "contribution_relation": "探索潜在修正/分配证据，尚不支撑冻结主稿新贡献",
+      "evidence_or_planned_scope": "单状态方向/边缘分解已算，无跨输入端点排序证据。",
+      "gap_and_next_action": "共享银行离线比较，teacher风险不当线上特征；0独立GPU。",
+      "priority": "探索P3·零额外GPU",
+      "evidence_refs": [
+        "scouts_594",
+        "scouts_entry",
+        "scouts_registry",
+        "scouts_assets",
+        "scouts_CPU_results",
+        "scouts_GPU_cards",
+        "scouts_real_CPU",
+        "scouts_real_CPU_accepted",
+        "scouts_CAL12_design",
+        "scouts_BANK24_design",
+        "scouts_DEV6_inputs",
+        "scouts_DEV6_local_proof"
+      ],
+      "method_mapping_ids": [],
+      "contribution_ids": [],
+      "claim_relation": "HYPOTHESIS_AND_CPU_DIAGNOSTIC_ONLY_NOT_PAPER_CLAIM",
+      "paper_placement": "EXPLORATION_ONLY",
+      "GPU_dispatch_ready": false,
+      "new_GPU_submissions": 0,
+      "independent_new_video_results": null,
+      "merged_into_mainline": false
     }
   ],
   "source_refs": {
@@ -3597,7 +3745,20 @@
     "N10_full960_two_checks": "reports/wc_paper_N10_full960_two_collection_automations_20261018.json",
     "593": "research/593_WC_N10_MIDPOINT_TECHNICAL_TERMINAL_AND_FINAL_ACCEPTANCE_RETAINED_20261018.md",
     "N10_full960_midpoint_health": "reports/wc_paper_N10_full960_midpoint_health_20261018.json.gz",
-    "N10_full960_midpoint_technical": "reports/wc_paper_N10_full960_midpoint_independent_technical_check_20261018.json"
+    "N10_full960_midpoint_technical": "reports/wc_paper_N10_full960_midpoint_independent_technical_check_20261018.json",
+    "scouts_594": "research/594_WC_THREE_SCOUTS_E0_REAL_CPU_AND_DEDUPLICATED_NEXT_CARDS_20261018.md",
+    "scouts_entry": "plans/scouts_20261018/README.md",
+    "scouts_registry": "plans/scouts_20261018/SCOUT_REGISTRY.yaml",
+    "scouts_assets": "plans/scouts_20261018/SCOUT_E0_ASSET_MANIFEST.json",
+    "scouts_CPU_results": "plans/scouts_20261018/SCOUT_CPU_RESULTS.md",
+    "scouts_GPU_cards": "plans/scouts_20261018/SCOUT_GPU_CARDS.md",
+    "scouts_real_CPU": "reports/wc_scout_saved_assets_actual_CPU_r1_20261018.json",
+    "scouts_real_CPU_accepted": "reports/wc_scout_saved_assets_actual_CPU_independent_acceptance_20261018.json",
+    "scouts_CAL12_design": "plans/scouts_20261018/SCOUT_CAL12_CARD.json",
+    "scouts_BANK24_design": "plans/scouts_20261018/SCOUT_DEV6_BANK24_CARD.json",
+    "scouts_DEV6_inputs": "plans/scouts_20261018/SCOUT_EXPL_DEV6_INPUTS.json",
+    "scouts_DEV6_local_proof": "reports/wc_scout_DEV6_local_input_selection_verification_20261018.json",
+    "scouts_design_QA": "reports/wc_scout_design_and_index_local_acceptance_20261018.json"
   },
   "source_bindings": {
     "11": {
@@ -6867,6 +7028,58 @@
     "N10_full960_midpoint_technical": {
       "path": "reports/wc_paper_N10_full960_midpoint_independent_technical_check_20261018.json",
       "sha256": "52eea9dcccbdf172a97bc049a7282000ec664dbbce7070b0f79f9fdce752a35e"
+    },
+    "scouts_594": {
+      "path": "research/594_WC_THREE_SCOUTS_E0_REAL_CPU_AND_DEDUPLICATED_NEXT_CARDS_20261018.md",
+      "sha256": "ad43c082d2edfb6675d392cbe2caa69f46e782fdd0b0b33184f5d4d552c6ce95"
+    },
+    "scouts_entry": {
+      "path": "plans/scouts_20261018/README.md",
+      "sha256": "620b275e44c9c293ea4e56633ff7ef54890f6893d2f941526dcc45d6cd164cfe"
+    },
+    "scouts_registry": {
+      "path": "plans/scouts_20261018/SCOUT_REGISTRY.yaml",
+      "sha256": "d2ab3e03dafffe4d1f57639b672eccf6ae59d24e85fd5080a640ef8869fbbf24"
+    },
+    "scouts_assets": {
+      "path": "plans/scouts_20261018/SCOUT_E0_ASSET_MANIFEST.json",
+      "sha256": "c62863239f5eea8bbf9ff7398f9b158011bb907caa92d032f20ccc52d591aaad"
+    },
+    "scouts_CPU_results": {
+      "path": "plans/scouts_20261018/SCOUT_CPU_RESULTS.md",
+      "sha256": "072f80bf7523ca0457558388a0099c8f569298e8ae090aa49e909cc6abeca265"
+    },
+    "scouts_GPU_cards": {
+      "path": "plans/scouts_20261018/SCOUT_GPU_CARDS.md",
+      "sha256": "a23f1938f0984038f4bd02caff3f8f3a59c810a888e468880653917037a26025"
+    },
+    "scouts_real_CPU": {
+      "path": "reports/wc_scout_saved_assets_actual_CPU_r1_20261018.json",
+      "sha256": "00290ce81a963d5b2edfd6b52c87cf2e7fffd4568b4ac8897545d119ad7426e5"
+    },
+    "scouts_real_CPU_accepted": {
+      "path": "reports/wc_scout_saved_assets_actual_CPU_independent_acceptance_20261018.json",
+      "sha256": "1d91b4788a94d68f7499b9dffe3536d01bd606d90024074d237ab25cfe21f4ba"
+    },
+    "scouts_CAL12_design": {
+      "path": "plans/scouts_20261018/SCOUT_CAL12_CARD.json",
+      "sha256": "58f63be804a61ee90fc3b36908d97ccbfd7cdc93c0a298fa7f899efdfe7b55d1"
+    },
+    "scouts_BANK24_design": {
+      "path": "plans/scouts_20261018/SCOUT_DEV6_BANK24_CARD.json",
+      "sha256": "3163e9b68569e0a5c15dfa451dca777e71720d7b1e126915fc19d00606ecb659"
+    },
+    "scouts_DEV6_inputs": {
+      "path": "plans/scouts_20261018/SCOUT_EXPL_DEV6_INPUTS.json",
+      "sha256": "b597eee5ad97b808901227c93eb593c0606b51a0058a0093305b25fc0a183d6e"
+    },
+    "scouts_DEV6_local_proof": {
+      "path": "reports/wc_scout_DEV6_local_input_selection_verification_20261018.json",
+      "sha256": "ae99a40e57cb7b3df35e6532af31bec23c063eecd9b985304f6186a01edf2a7a"
+    },
+    "scouts_design_QA": {
+      "path": "reports/wc_scout_design_and_index_local_acceptance_20261018.json",
+      "sha256": "ca22e3f69349713d07fbbcb4d039816b48992c8365e1d2efa965d80b73a56504"
     }
   },
   "operation_policy": {
@@ -7620,5 +7833,5 @@
       "original_check_times_unchanged": true
     }
   },
-  "mapping_sha256_at_inventory": "0aa55251f6ecc507e1a06154783d10e121f57e53ff136ca36b26d3e3554109d7"
+  "mapping_sha256_at_inventory": "d1199bcaee292f5ad35f6b11c596be62c87a551c4111b826ee09d366e9221fb0"
 }

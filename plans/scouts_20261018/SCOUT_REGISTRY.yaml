@@ -1,0 +1,58 @@
+project: WorldCache
+created_date: '2026-10-18'
+status: E0_REAL_CPU_ACCEPTED_GPU_CARDS_DESIGNED_NOT_DISPATCHED
+scope: independent scouts; no frozen mainline changes
+prior_input_draft_gpu_h: 3.35
+price_amendment: Six new Native35 references, full warmups and whole request costs
+  added; no shrink or duplicate G11
+current_new_scout_forecast_GPUh: 4.643488465162714
+provisional_new_scout_billed_limits_GPUh: 6.25
+original_window24_forecast_GPUh: 3.0641666666666665
+original_window24_billed_limit_GPUh: 4.0
+cumulative_cap_GPUh: 226
+autonomy_exclusive_upper_GPUh: 12
+actual_new_GPUh: 0
+GPU_submissions: 0
+current_stage: Only E0 completed; real production CPU and fresh admission still required
+  for both new cards
+queue:
+- N10 original22:43 acceptance
+- original complete24 production CPU and GPU
+- SCOUT-CAL12
+- SCOUT-DEV6-BANK24 and shared XR CPU
+experiments:
+- id: X-A
+  decision: CONTINUE
+  current_evidence: AV28 step21 alpha1 minimizes preregistered [0,1] grid; continuation
+    still untested
+  GPU_next: reuse original24 G11; add only G01 in CAL12
+  amplitude_extra_GPU: false
+  algorithm_revision_count: 0
+- id: X-S-CURV
+  decision: CONTINUE
+  current_evidence: two Native traces produce legal one-exchange plan; no endpoint
+    result
+  selected_remove_D: 33
+  selected_add_D: 22
+  secondary_unweighted_candidate: CPU control only, no GPU card
+  GPU_next: CAL12
+  algorithm_revision_count: 0
+- id: X-S-GATE
+  decision: CONTINUE
+  current_evidence: four old paired endpoints exist; probe z missing
+  GPU_next: CAL12 probes, then DEV6 bank including six Native35
+  DEV_is_final_test: false
+  algorithm_revision_count: 0
+- id: X-R
+  decision: CONTINUE_SHARED_DIAGNOSTIC_ONLY
+  current_evidence: one-state decomposition accepted; no ranking evidence
+  GPU_next: shared DEV6 bank; zero standalone GPU
+  online_teacher_scores_allowed: false
+  algorithm_revision_count: 0
+failure_policy: retain every original registered refusal/failure/missing; one reasoned
+  new revision only
+entry_to_mainline: discuss only after real endpoint signal, frozen independent confirmation,
+  strong simple controls and complete cost
+input_manifest: SCOUT_EXPL_DEV6_INPUTS.json
+original_F_B_stopped: true
+N10_schedule_unchanged: true

@@ -1,3 +1,9 @@
+## 2026-10-18 三条小成本探索：E0真实CPU已完成，GPU卡独立排队
+
+[594安排与实际CPU](research/594_WC_THREE_SCOUTS_E0_REAL_CPU_AND_DEDUPLICATED_NEXT_CARDS_20261018.md)：五旧文件实际读取，0新GPU。AV28 step21在预设α∈[0,1]内以α=1最优，本轮不扫shrink；两Native轨迹产生一个26D新计划（−D33/+D22），仅为合法候选。X-R一状态分解不充预测收益，z仍缺probe。原N10 22:43验收与原完整24顺序保持；G11复用原24，新增CAL12只补G01和一个共享计划，DEV6银行含六Native参考，X-R共享，不恢复F/B。
+
+新探索26正式＋10预热／两次加载，设计预测4.643488GPUh、拟议计费上限合计6.25；原3.35粗估漏了新参考／完整加载等费用，旧估算和判据保留。新卡真实生产适配／CPU／fresh输入与v2/UUID准入尚待，0派发／0预留／0实费。原连续24预测3.064167／上限4另计，不缩四臂或重复G11。六DEV本地身份已登记，fresh服务器曝光审计待，均不称最终未见测试。[独立探索入口](plans/scouts_20261018/README.md)。以下为历史。
+
 ## 2026-10-18 20:02 N10半程确认技术终态，22:43完整验收保持
 
 [593半程原件与解释](research/593_WC_N10_MIDPOINT_TECHNICAL_TERMINAL_AND_FINAL_ACCEPTANCE_RETAINED_20261018.md)：原source／registration／CPU绑定及2077516/start561087236、2077521/start561087296原句柄一致，现均已结束，child exit0，原GPU0和锁释放；错误标签为空。仅一次只读SSH、无科学partial读取。runner的FINISHED_FAILURES_RETAINED是固定正常完成状态名，不据此判断有评分失败；全645是否成功／实际失败计数均未读取。

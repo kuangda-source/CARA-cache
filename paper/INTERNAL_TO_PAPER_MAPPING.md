@@ -1,3 +1,9 @@
+## 2026-10-18 三条小成本探索：E0真实CPU已完成，GPU卡独立排队
+
+[594安排与实际CPU](../research/594_WC_THREE_SCOUTS_E0_REAL_CPU_AND_DEDUPLICATED_NEXT_CARDS_20261018.md)：五旧文件实际读取，0新GPU。AV28 step21在预设α∈[0,1]内以α=1最优，本轮不扫shrink；两Native轨迹产生一个26D新计划（−D33/+D22），仅为合法候选。X-R一状态分解不充预测收益，z仍缺probe。原N10 22:43验收与原完整24顺序保持；G11复用原24，新增CAL12只补G01和一个共享计划，DEV6银行含六Native参考，X-R共享，不恢复F/B。
+
+新探索26正式＋10预热／两次加载，设计预测4.643488GPUh、拟议计费上限合计6.25；原3.35粗估漏了新参考／完整加载等费用，旧估算和判据保留。新卡真实生产适配／CPU／fresh输入与v2/UUID准入尚待，0派发／0预留／0实费。原连续24预测3.064167／上限4另计，不缩四臂或重复G11。六DEV本地身份已登记，fresh服务器曝光审计待，均不称最终未见测试。[独立探索入口](../plans/scouts_20261018/README.md)。以下为历史。
+
 ## 2026-10-18 当前：N09 fresh R3完整40已在GPU0准入；14:48半程／17:23完整验收
 
 [590原任务与查收](../research/590_WC_N09_FRESH_R3_SINGLE_GPU_DISPATCH_AND_TWO_COLLECTION_TIMES_20261018.md)：07:19两卡空闲；R3已于12:37:23单次派发，12:41:52原件及独立接受确认1787源／原CPU、supervisor1947245/start559314698、runner1947617/start559319208、post1947246/start559314707、GPU0锁及完整5预留。原source1de07673／stage wc-paper-n09-production-cpu-r3-20261018／完整40/10warm+30正式/1440pairs不变，forecast4.245833333／上限5；初始27秒pending回执保留，不重派。
