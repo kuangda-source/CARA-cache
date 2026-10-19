@@ -3740,7 +3740,7 @@
       ],
       "contribution_relation": "探索潜在修正/分配证据，尚不支撑冻结主稿新贡献",
       "evidence_or_planned_scope": "四旧CAL D/A完整端点已有；z缺，六DEV本地身份冻结。",
-      "gap_and_next_action": "自身R2 CPU、CAL12上游/gate和存储迁移均已验；两GPU被其他任务占用，下一21:27后按两小时规则，只fresh准入一次完整BANK24，X-R共享。",
+      "gap_and_next_action": "自身R2 CPU、CAL12上游/gate及存储均已验；21:27两GPU仍被其他任务占用，下一23:28按两小时规则fresh准入一次完整BANK24，X-R共享。",
       "priority": "探索P2·共享银行",
       "evidence_refs": [
         "scouts_594",
@@ -3857,7 +3857,9 @@
         "reports/wc_user_storage_maintenance_independent_acceptance_20261019.json",
         "reports/wc_scout_BANK24_storage_accepted_fresh_resource_20261019_1926.json",
         "research/608_WC_STORAGE_FULLY_ACCEPTED_BANK24_READY_BUT_GPU_BUSY_20261019.md",
-        "reports/wc_storage_complete_BANK24_busy_ordered_continuation_20261019.json"
+        "reports/wc_storage_complete_BANK24_busy_ordered_continuation_20261019.json",
+        "reports/wc_scout_BANK24_fresh_resource_20261019_2127.json",
+        "reports/wc_scout_BANK24_resource_slot_2127_independent_busy_acceptance_20261019.json"
       ],
       "method_mapping_ids": [],
       "contribution_ids": [],
@@ -3899,7 +3901,7 @@
       "storage_acceptance_verified": true,
       "storage_acceptance_ref": "reports/wc_user_storage_maintenance_independent_acceptance_20261019.json",
       "resource_queue_automation": "worldcache-bank24",
-      "next_resource_check_local": "2026-10-19T21:27:00+08:00"
+      "next_resource_check_local": "2026-10-19T23:28:00+08:00"
     },
     {
       "id": "X-R",
@@ -3910,7 +3912,7 @@
       ],
       "contribution_relation": "探索潜在修正/分配证据，尚不支撑冻结主稿新贡献",
       "evidence_or_planned_scope": "单状态方向/边缘分解已算，无跨输入端点排序证据。",
-      "gap_and_next_action": "自身R2 CPU、CAL12上游/gate和存储迁移均已验；两GPU被其他任务占用，下一21:27后按两小时规则，只fresh准入一次完整BANK24，X-R共享。",
+      "gap_and_next_action": "自身R2 CPU、CAL12上游/gate及存储均已验；21:27两GPU仍被其他任务占用，下一23:28按两小时规则fresh准入一次完整BANK24，X-R共享。",
       "priority": "探索P3·零额外GPU",
       "evidence_refs": [
         "scouts_594",
@@ -4027,7 +4029,9 @@
         "reports/wc_user_storage_maintenance_independent_acceptance_20261019.json",
         "reports/wc_scout_BANK24_storage_accepted_fresh_resource_20261019_1926.json",
         "research/608_WC_STORAGE_FULLY_ACCEPTED_BANK24_READY_BUT_GPU_BUSY_20261019.md",
-        "reports/wc_storage_complete_BANK24_busy_ordered_continuation_20261019.json"
+        "reports/wc_storage_complete_BANK24_busy_ordered_continuation_20261019.json",
+        "reports/wc_scout_BANK24_fresh_resource_20261019_2127.json",
+        "reports/wc_scout_BANK24_resource_slot_2127_independent_busy_acceptance_20261019.json"
       ],
       "method_mapping_ids": [],
       "contribution_ids": [],
@@ -4069,7 +4073,7 @@
       "storage_acceptance_verified": true,
       "storage_acceptance_ref": "reports/wc_user_storage_maintenance_independent_acceptance_20261019.json",
       "resource_queue_automation": "worldcache-bank24",
-      "next_resource_check_local": "2026-10-19T21:27:00+08:00"
+      "next_resource_check_local": "2026-10-19T23:28:00+08:00"
     }
   ],
   "source_refs": {
@@ -5057,7 +5061,9 @@
     "storage_complete_independent_20261019": "reports/wc_user_storage_maintenance_independent_acceptance_20261019.json",
     "BANK24_storage_complete_resource_20261019": "reports/wc_scout_BANK24_storage_accepted_fresh_resource_20261019_1926.json",
     "storage_BANK24_ready_608": "research/608_WC_STORAGE_FULLY_ACCEPTED_BANK24_READY_BUT_GPU_BUSY_20261019.md",
-    "storage_BANK24_resource_schedule_20261019": "reports/wc_storage_complete_BANK24_busy_ordered_continuation_20261019.json"
+    "storage_BANK24_resource_schedule_20261019": "reports/wc_storage_complete_BANK24_busy_ordered_continuation_20261019.json",
+    "BANK24_resource_2127_20261019": "reports/wc_scout_BANK24_fresh_resource_20261019_2127.json",
+    "BANK24_resource_2127_busy_accepted_20261019": "reports/wc_scout_BANK24_resource_slot_2127_independent_busy_acceptance_20261019.json"
   },
   "source_bindings": {
     "11": {
@@ -8738,8 +8744,8 @@
     },
     "scout_GPU_ready_continuation_runbook": {
       "path": "plans/WC_SCOUT_GPU_READY_CONTINUATION_20261019.md",
-      "sha256": "64489444d84819e7e70855bc5e2626e57c949f73e859d980ba99fa9425114621",
-      "bytes": 11502
+      "sha256": "881b6d659bd31e313785cb18dd5f9056bdabf9adde3f4b7d063c4d35f5cc0477",
+      "bytes": 12062
     },
     "scout_R2_accepted_resource_continuation": {
       "path": "reports/wc_scout_R2_CPU_accepted_ready_resource_continuation_20261019.json",
@@ -9050,13 +9056,23 @@
     },
     "storage_BANK24_ready_608": {
       "path": "research/608_WC_STORAGE_FULLY_ACCEPTED_BANK24_READY_BUT_GPU_BUSY_20261019.md",
-      "sha256": "d5ce2f47a2c1a069ba374cea020150d1799c55635f7e56ed8459822619dcbb1c",
-      "bytes": 4383
+      "sha256": "f37e0e050aaafb2bbfd18f6c43ecbfaa1b9191a32ea04069b5b58b7613ad7f7b",
+      "bytes": 5008
     },
     "storage_BANK24_resource_schedule_20261019": {
       "path": "reports/wc_storage_complete_BANK24_busy_ordered_continuation_20261019.json",
       "sha256": "4f1c7e7566b5e330b5659ddd113780969baeb614126235f5741dfe2160a93b38",
       "bytes": 1456
+    },
+    "BANK24_resource_2127_20261019": {
+      "path": "reports/wc_scout_BANK24_fresh_resource_20261019_2127.json",
+      "sha256": "138e1b49f44a4491be8899c46b483b9d2a7331859f9080ff5e3505cbfcc53485",
+      "bytes": 28167
+    },
+    "BANK24_resource_2127_busy_accepted_20261019": {
+      "path": "reports/wc_scout_BANK24_resource_slot_2127_independent_busy_acceptance_20261019.json",
+      "sha256": "aa2c98fe149723242585eb2237c5655879730d2387c63da4664e7ecd8d282403",
+      "bytes": 911
     }
   },
   "operation_policy": {
@@ -9079,7 +9095,7 @@
     "available_after_whole_reservations_GPUh": 109.174976891229,
     "per_UUID_lock_protocol": "plans/WORLD_CACHE_DUAL_GPU_EXECUTION_20261015.md",
     "scheduled_collections_local": [
-      "2026-10-19T21:27:00+08:00"
+      "2026-10-19T23:28:00+08:00"
     ],
     "running_forecasts_GPUh": {
       "wc-drop1-correction-window-cal4-full24-r1": 3.0641666666666665
@@ -9558,7 +9574,7 @@
     "N07_R2_observed_job_actual_GPUh": 10.443678323069795,
     "N07_R2_own_job_reservation_GPUh": 0,
     "full_v2_pool_independent_terminal_acceptance_pending": false,
-    "current_budget_aggregate_freshness": "BANK24 fresh resource snapshot 2026-10-19T19:26:40.496+08:00; recheck before admission",
+    "current_budget_aggregate_freshness": "2026-10-19T21:27:49.684+08:00 resource snapshot; fresh admission required",
     "current_GPU_actual_bill_acceptance_ref": null,
     "N07_R2_terminal_scientific_available_cohorts_accepted": true,
     "N07_R2_all160_success": false,
@@ -9751,9 +9767,9 @@
       "SSH_queries": 0
     },
     "scheduled_CPU_collections_local": {},
-    "latest_GPU_resource_receipt_ref": "reports/wc_scout_BANK24_storage_accepted_fresh_resource_20261019_1926.json",
-    "next_resource_check_not_before_unix": 1792416400.4960527,
-    "next_resource_check_local": "2026-10-19T21:27:00+08:00",
+    "latest_GPU_resource_receipt_ref": "reports/wc_scout_BANK24_fresh_resource_20261019_2127.json",
+    "next_resource_check_not_before_unix": 1792423669.6840827,
+    "next_resource_check_local": "2026-10-19T23:28:00+08:00",
     "resource_monitor_automation": null,
     "N10_production_CPU_complete": true,
     "N10_full960_GPU_lifecycle_tools_complete": true,
@@ -9912,8 +9928,9 @@
     },
     "current_GPU_job": null,
     "storage_interlock_released": true,
-    "BANK24_GPU_dispatched": false
+    "BANK24_GPU_dispatched": false,
+    "last_resource_independent_acceptance_ref": "reports/wc_scout_BANK24_resource_slot_2127_independent_busy_acceptance_20261019.json"
   },
   "mapping_sha256_at_inventory": "88b3d760a0c94c20b6c802e21f30c7286d6e596cc9b3f3100e7ee6feaa3938f3",
-  "latest_mapping_sha256": "814cb01876691159fb7305521a94793bc0879b64a65c4ddae030b442bc3c88b1"
+  "latest_mapping_sha256": "cdb61e8bea0f80a883252c5783d26e713054170f73a19dcc2ab7f17dea8bbeed"
 }

@@ -39,3 +39,7 @@ source2bd41dc8fa19f42353e03a7c78b7264b4b2695c6；stage `.sync/wc-scout-bank24-gp
 按ready手册调用launch_wc_scout_gpu_r1.py一次，目标唯一launch文件`reports/wc_scout_BANK24_full24_GPU_launch_20261019.json`；fresh空闲UUID/显存/compute/锁/v2余额及原stage无派发标记均满足才执行。已有fence/通信未知仅恢复原句柄，禁止删除标记重放。一次实际admission核对后按真实launch半程/ETA各约一次，并删除已无用途的资源巡检。
 
 终态保存原件再离线analyze，完整24分母/所有拒绝失败/warm OFF-ON/同状态前20guided与probe/inputhash/全部有效兼容正式93帧/真实Native/owner与实际费用分别接受。X-R共享银行，仅执行原登记CPU方向/同D配额门控诊断，不把离线重组当在线闭环或clean速度，不自动并入主稿。F/B关闭，无训练/人评/付费VLM/OMR；原N10、Window24、CAL12不重查或重跑。
+
+## 21:27资源占用未变，下一23:28
+
+实际21:27:49.684只做一次资源查询，两UUID仍被原PID2883539/2883540占满，48170/47824MiB、100%；自身锁free，原BANK24所有派发标记与输出仍不存在，0新GPU/预留/费用，没有重跑CPU或存储。原件wc_scout_BANK24_fresh_resource_20261019_2127.json及独立核对wc_scout_BANK24_resource_slot_2127_independent_busy_acceptance_20261019.json保存。按origin加全部SETTLED原费用独立重建116.825023108771/cap226，余109.174976891229。worldcache-bank24已更新下一23:28，最早unix1792423669.6840827/23:27:49.684；不连续监听。

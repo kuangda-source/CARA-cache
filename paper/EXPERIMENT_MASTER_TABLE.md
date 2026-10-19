@@ -1,3 +1,7 @@
+## 2026-10-19 21:27两GPU占用未变，BANK24未派发；下一23:28
+
+[608资源接续](../research/608_WC_STORAGE_FULLY_ACCEPTED_BANK24_READY_BUT_GPU_BUSY_20261019.md)：一次fresh查询两卡仍由原其他任务PID2883539/2883540占满，自身两锁free但无空闲GPU。BANK24的fence/launch/授权/输出均不存在，0新提交/预留/费用；已验CPU/存储不重跑。v2按原账独立重建116.825023109/cap226，余109.174976891。下一23:28（最早23:27:49.684），按实际观察每两小时一次，busy不变安静。以下为历史。
+
 ## 2026-10-19 19:25存储维护完整接受；BANK24仅等待GPU，21:27再查
 
 [608完整接受与资源接续](../research/608_WC_STORAGE_FULLY_ACCEPTED_BANK24_READY_BUT_GPU_BUSY_20261019.md)：FRP和五项存储维护已验收，HF/Wan全SHA及旧路径/运行文件指纹通过，home系统盘163.895→9.967GiB，实际减少153.928GiB。维护互斥解除。两GPU被其他任务满占，BANK24无fence/launch/输出，0新GPU费用；自身CPU、CAL12上游/gate均已验不重跑。资源worldcache-bank24下一21:27（最早21:26:40.496），之后按实际观察每两小时一次；原worldcache-cal12-bank24已完成删除。以下为历史。
