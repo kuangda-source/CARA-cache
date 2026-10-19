@@ -1,3 +1,9 @@
+## 2026-10-19 连续24完整结果 连续修正收回更多删D失真
+
+[604](../../research/604_WC_WINDOW24_FULL24_ACCEPTED_CONTINUOUS_CORRECTION_RESULTS_AND_CAL12_NEXT_20261019.md) **原24路径、16正式视频的全部93帧评分及原件、控制、财务均已独立接受。连续A3相对单次A1的平均LPIPS降低19.7690%，相对同25D的C降低26.6335%，四场景各93/93帧均改善。相对26D仍有5.7235%的失真差距，不能称为等质量替代D。**
+
+Window24: ALL24/ALL16 accepted; actual1.810126445GPUh, pool115.835110836/cap226, reserve0. Next: own-CPU-accepted CAL12 -> frozen CAL gate -> BANK24. CAL12 actual dispatch pending fresh admission. Earlier entries are historical snapshots.
+
 ## 2026-10-19 关键问题与6pro讨论报告603已整理；原24仍15:48查收
 
 [603讨论报告](../../research/603_WC_KEY_QUESTIONS_AND_INDEPENDENT_CONTRIBUTION_DISCUSSION_20261019.md)集中整理N07同质量队列时间、N08重复计时、N09部署开销、N10自动质量及N12固定位置修正证据；表格从既有机器原件提取并保存来源SHA于reports/wc_6pro_key_issues_report_evidence_20261019.json。核心区分为“高保真工作点／修正终点作用已有证据”与“调度相对强前密的独立增量／修正承接D待验证”。新布局×C/A和独立确认是待讨论补充，不新增已执行卡。

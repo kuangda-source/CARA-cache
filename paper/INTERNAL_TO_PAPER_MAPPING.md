@@ -1,3 +1,9 @@
+## 2026-10-19 连续24完整结果 连续修正收回更多删D失真
+
+[604](../research/604_WC_WINDOW24_FULL24_ACCEPTED_CONTINUOUS_CORRECTION_RESULTS_AND_CAL12_NEXT_20261019.md) **原24路径、16正式视频的全部93帧评分及原件、控制、财务均已独立接受。连续A3相对单次A1的平均LPIPS降低19.7690%，相对同25D的C降低26.6335%，四场景各93/93帧均改善。相对26D仍有5.7235%的失真差距，不能称为等质量替代D。**
+
+Window24: ALL24/ALL16 accepted; actual1.810126445GPUh, pool115.835110836/cap226, reserve0. Next: own-CPU-accepted CAL12 -> frozen CAL gate -> BANK24. CAL12 actual dispatch pending fresh admission. Earlier entries are historical snapshots.
+
 ## 2026-10-18 三条小成本探索：E0真实CPU已完成，GPU卡独立排队
 
 [594安排与实际CPU](../research/594_WC_THREE_SCOUTS_E0_REAL_CPU_AND_DEDUPLICATED_NEXT_CARDS_20261018.md)：五旧文件实际读取，0新GPU。AV28 step21在预设α∈[0,1]内以α=1最优，本轮不扫shrink；两Native轨迹产生一个26D新计划（−D33/+D22），仅为合法候选。X-R一状态分解不充预测收益，z仍缺probe。原N10 22:43验收与原完整24顺序保持；G11复用原24，新增CAL12只补G01和一个共享计划，DEV6银行含六Native参考，X-R共享，不恢复F/B。

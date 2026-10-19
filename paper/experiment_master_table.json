@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "updated_local_date": "2026-10-19",
-  "snapshot_basis": "N10 full960/all645 accepted; original continuous-correction Window24 full24 is running after same-handle metadata recovery, one GPU dispatch, whole4GPUh reservation, new endpoint results and actual charge pending.",
+  "snapshot_basis": "Original Window24 full24/all16 accepted; A3 improves versus same25D A1/C, retains5.7235% LPIPS gap to26D. CAL12 own CPU accepted, actual dispatch pending fresh admission.",
   "git_snapshot_before_inventory": "4cb9fa2640b838dab0d1f913f4bb57e230b9edbd",
   "mapping_ref": "paper/internal_to_paper_mapping.json",
   "scope": "scientific experiment families and complete cards, not each engineering retry; reused artifacts must not be summed as independent samples",
@@ -54,7 +54,7 @@
     "待补｜主张条件": 1,
     "暂缓/未执行｜旧卡": 1,
     "已完成｜完整18路径与12正式93帧接受，同25D修正改善，未补平26D保真": 1,
-    "EXPLORATORY_PRODUCTION_CPU_READY_WAITING_WINDOW24_AND_GPU": 4
+    "EXPLORATORY_PRODUCTION_CPU_READY_WINDOW24_ACCEPTED_WAITING_CAL12": 4
   },
   "rows": [
     {
@@ -2442,7 +2442,7 @@
       ],
       "contribution_relation": "C1修正能否替代D；C2完整预算计划的判别开发；C3真实质量时间",
       "evidence_or_planned_scope": "全部18完成/12正式1116帧；三种36guided重复、四旧前密终态/actions/A历史/93RGB控制均通过。四场景/seed0同25D仅第21步C/A不同。",
-      "gap_and_next_action": "Original full18 accepted results are unchanged. The continuous-correction full24 follow-up is admitted and running on GPU0; inspect technical health once at14:01 and collect the complete original artifacts/93-frame scores/actual bill at15:48. A3 endpoint quality and repeated clean speed remain unproven.",
+      "gap_and_next_action": "Original full18 unchanged. Continuous full24 all16 formal93-frame scores accepted. A3 improves over A1/C; remaining mean LPIPS gap5.7235% versus26D. Continue own-CPU-ready CAL12 then frozen CAL gate/BANK24; no equality or repeated clean-speed claim.",
       "priority": "已接受·固定预算修正消融",
       "evidence_refs": [
         "endpoint_budget_design_551",
@@ -2551,7 +2551,12 @@
         "window24_obsolete_resource_monitor_deleted",
         "window24_full24_midpoint_health",
         "window24_full24_midpoint_technical_accepted",
-        "window24_full24_midpoint_closed_final_retained"
+        "window24_full24_midpoint_closed_final_retained",
+        "window24_full24_terminal_original",
+        "window24_full24_terminal_accepted",
+        "window24_full24_complete_analysis",
+        "window24_full24_results_604",
+        "window24_full24_results_summarizer"
       ],
       "method_mapping_ids": [
         "module.gcr",
@@ -2767,10 +2772,275 @@
         "card": "WC-DROP1-WINDOW-CAL4-FOURARM-FULL24-R1-20261018-A",
         "plan_ref": "plans/WC_DROP1_CORRECTION_WINDOW_FULL24_20261018.md",
         "static_scope_ref": "manifests/wc_drop1_correction_window_full24_static_scope_20261018.json",
-        "status": "ORIGINAL_FULL24_GPU_RUNNING_ADMISSION_ACCEPTED_ENDPOINTS_PENDING",
+        "status": "WINDOW24_FULL24_ALL16_INDEPENDENTLY_ACCEPTED",
         "GPU_submissions": 1,
-        "quality_results": null,
-        "timing_results": null,
+        "quality_results": {
+          "S26-C": {
+            "mean_LPIPS": 0.05820673609012237,
+            "mean_core_seconds": 223.6165230725892,
+            "mean_guarded_seconds": 252.9935369004961
+          },
+          "S25-C": {
+            "mean_LPIPS": 0.08387788238945187,
+            "mean_core_seconds": 217.36109740124084,
+            "mean_guarded_seconds": 247.16291093453765
+          },
+          "S25-A1": {
+            "mean_LPIPS": 0.07670131415849732,
+            "mean_core_seconds": 217.7583400469739,
+            "mean_guarded_seconds": 247.08425868023187
+          },
+          "S25-A3": {
+            "mean_LPIPS": 0.061538227172868866,
+            "mean_core_seconds": 217.8733647414483,
+            "mean_guarded_seconds": 247.55646903719753
+          }
+        },
+        "timing_results": {
+          "single_development_observation": true,
+          "comparisons": [
+            {
+              "candidate": "S25-A3",
+              "baseline": "S25-A1",
+              "equal_scene_LPIPS_change_percent": -19.769005462272926,
+              "equal_scene_core_change_seconds": 0.11502469447441399,
+              "equal_scene_core_change_percent": 0.05282217638580278,
+              "core_speedup": 0.9994720571070681,
+              "guarded_speedup": 0.9980925145733327,
+              "improved_scenes": 4,
+              "per_scene": [
+                {
+                  "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+                  "LPIPS_change_percent": -14.090775101078423,
+                  "core_change_seconds": -1.1417621588334441,
+                  "improved_frames": 93,
+                  "worsened_frames": 0
+                },
+                {
+                  "scene": "human_199",
+                  "LPIPS_change_percent": -24.0754110831189,
+                  "core_change_seconds": -0.13093805219978094,
+                  "improved_frames": 93,
+                  "worsened_frames": 0
+                },
+                {
+                  "scene": "misc_13398218_3840_2160_60fps",
+                  "LPIPS_change_percent": -20.150387640973054,
+                  "core_change_seconds": -0.660984574817121,
+                  "improved_frames": 93,
+                  "worsened_frames": 0
+                },
+                {
+                  "scene": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+                  "LPIPS_change_percent": -21.99096778001951,
+                  "core_change_seconds": 2.393783563748002,
+                  "improved_frames": 93,
+                  "worsened_frames": 0
+                }
+              ]
+            },
+            {
+              "candidate": "S25-A3",
+              "baseline": "S25-C",
+              "equal_scene_LPIPS_change_percent": -26.63354698543552,
+              "equal_scene_core_change_seconds": 0.5122673402074724,
+              "equal_scene_core_change_percent": 0.2356757240978835,
+              "core_speedup": 0.9976487840043441,
+              "guarded_speedup": 0.9984102289704223,
+              "improved_scenes": 4,
+              "per_scene": [
+                {
+                  "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+                  "LPIPS_change_percent": -21.099840815742755,
+                  "core_change_seconds": -0.6800275584682822,
+                  "improved_frames": 93,
+                  "worsened_frames": 0
+                },
+                {
+                  "scene": "human_199",
+                  "LPIPS_change_percent": -32.881595228265304,
+                  "core_change_seconds": 0.46226805821061134,
+                  "improved_frames": 93,
+                  "worsened_frames": 0
+                },
+                {
+                  "scene": "misc_13398218_3840_2160_60fps",
+                  "LPIPS_change_percent": -25.48958752877062,
+                  "core_change_seconds": -0.027804489247500896,
+                  "improved_frames": 93,
+                  "worsened_frames": 0
+                },
+                {
+                  "scene": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+                  "LPIPS_change_percent": -28.52921708141487,
+                  "core_change_seconds": 2.2946333503350616,
+                  "improved_frames": 93,
+                  "worsened_frames": 0
+                }
+              ]
+            },
+            {
+              "candidate": "S25-A3",
+              "baseline": "S26-C",
+              "equal_scene_LPIPS_change_percent": 5.723549036641229,
+              "equal_scene_core_change_seconds": -5.743158331140876,
+              "equal_scene_core_change_percent": -2.568306783518215,
+              "core_speedup": 1.0263600754408706,
+              "guarded_speedup": 1.0219629399483865,
+              "improved_scenes": 0,
+              "per_scene": [
+                {
+                  "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+                  "LPIPS_change_percent": 12.513518628362142,
+                  "core_change_seconds": -6.285936767235398,
+                  "improved_frames": 1,
+                  "worsened_frames": 92
+                },
+                {
+                  "scene": "human_199",
+                  "LPIPS_change_percent": 2.402208914291326,
+                  "core_change_seconds": -6.65903286729008,
+                  "improved_frames": 33,
+                  "worsened_frames": 60
+                },
+                {
+                  "scene": "misc_13398218_3840_2160_60fps",
+                  "LPIPS_change_percent": 5.180781298668746,
+                  "core_change_seconds": -5.95392242539674,
+                  "improved_frames": 25,
+                  "worsened_frames": 68
+                },
+                {
+                  "scene": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+                  "LPIPS_change_percent": 1.0010007443893132,
+                  "core_change_seconds": -4.073741264641285,
+                  "improved_frames": 39,
+                  "worsened_frames": 54
+                }
+              ]
+            },
+            {
+              "candidate": "S25-C",
+              "baseline": "S26-C",
+              "equal_scene_LPIPS_change_percent": 44.10339425248391,
+              "equal_scene_core_change_seconds": -6.255425671348348,
+              "equal_scene_core_change_percent": -2.7973897390926483,
+              "core_speedup": 1.0287789569805172,
+              "guarded_speedup": 1.0235902140167896,
+              "improved_scenes": 0,
+              "per_scene": [
+                {
+                  "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+                  "LPIPS_change_percent": 42.60239750037371,
+                  "core_change_seconds": -5.605909208767116,
+                  "improved_frames": 0,
+                  "worsened_frames": 93
+                },
+                {
+                  "scene": "human_199",
+                  "LPIPS_change_percent": 52.56949157619961,
+                  "core_change_seconds": -7.121300925500691,
+                  "improved_frames": 0,
+                  "worsened_frames": 93
+                },
+                {
+                  "scene": "misc_13398218_3840_2160_60fps",
+                  "LPIPS_change_percent": 41.16252723642093,
+                  "core_change_seconds": -5.9261179361492395,
+                  "improved_frames": 0,
+                  "worsened_frames": 93
+                },
+                {
+                  "scene": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+                  "LPIPS_change_percent": 41.317887701668354,
+                  "core_change_seconds": -6.3683746149763465,
+                  "improved_frames": 0,
+                  "worsened_frames": 93
+                }
+              ]
+            },
+            {
+              "candidate": "S25-A1",
+              "baseline": "S25-C",
+              "equal_scene_LPIPS_change_percent": -8.555972118648825,
+              "equal_scene_core_change_seconds": 0.39724264573305845,
+              "equal_scene_core_change_percent": 0.18275701148111612,
+              "core_speedup": 0.9981757638047417,
+              "guarded_speedup": 1.0003183215908853,
+              "improved_scenes": 4,
+              "per_scene": [
+                {
+                  "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+                  "LPIPS_change_percent": -8.158688107023448,
+                  "core_change_seconds": 0.4617346003651619,
+                  "improved_frames": 93,
+                  "worsened_frames": 0
+                },
+                {
+                  "scene": "human_199",
+                  "LPIPS_change_percent": -11.598593118215007,
+                  "core_change_seconds": 0.5932061104103923,
+                  "improved_frames": 93,
+                  "worsened_frames": 0
+                },
+                {
+                  "scene": "misc_13398218_3840_2160_60fps",
+                  "LPIPS_change_percent": -6.686569577559098,
+                  "core_change_seconds": 0.6331800855696201,
+                  "improved_frames": 93,
+                  "worsened_frames": 0
+                },
+                {
+                  "scene": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+                  "LPIPS_change_percent": -8.381400352407809,
+                  "core_change_seconds": -0.0991502134129405,
+                  "improved_frames": 93,
+                  "worsened_frames": 0
+                }
+              ]
+            },
+            {
+              "candidate": "S25-A1",
+              "baseline": "S26-C",
+              "equal_scene_LPIPS_change_percent": 31.77394801821478,
+              "equal_scene_core_change_seconds": -5.85818302561529,
+              "equal_scene_core_change_percent": -2.6197451534981764,
+              "core_speedup": 1.0269022211702734,
+              "guarded_speedup": 1.02391604488213,
+              "improved_scenes": 0,
+              "per_scene": [
+                {
+                  "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+                  "LPIPS_change_percent": 30.96791265518042,
+                  "core_change_seconds": -5.144174608401954,
+                  "improved_frames": 0,
+                  "worsened_frames": 93
+                },
+                {
+                  "scene": "human_199",
+                  "LPIPS_change_percent": 34.8735770257469,
+                  "core_change_seconds": -6.528094815090299,
+                  "improved_frames": 1,
+                  "worsened_frames": 92
+                },
+                {
+                  "scene": "misc_13398218_3840_2160_60fps",
+                  "LPIPS_change_percent": 31.72359663531683,
+                  "core_change_seconds": -5.292937850579619,
+                  "improved_frames": 0,
+                  "worsened_frames": 93
+                },
+                {
+                  "scene": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+                  "LPIPS_change_percent": 29.473469763825456,
+                  "core_change_seconds": -6.467524828389287,
+                  "improved_frames": 0,
+                  "worsened_frames": 93
+                }
+              ]
+            }
+          ]
+        },
         "CPU_accepted": true,
         "whole_quote_GPUh": 3.0641666666666665,
         "after_N09_terminal": true,
@@ -2852,7 +3122,7 @@
         "runner_pid": 2640331,
         "post_pid": 2641355,
         "whole_forecast_GPUh": 3.0641666666666665,
-        "actual_GPUh": null,
+        "actual_GPUh": 1.8101264448456156,
         "original_unknown_dispatch_retained": true,
         "GPU_relaunches": 0,
         "metadata_recovery_ref": "research/602_WC_WINDOW24_FULL24_SINGLE_GPU_ADMISSION_METADATA_RECOVERY_AND_COLLECTION_20261019.md",
@@ -2887,12 +3157,21 @@
         "latest_live_observed_unix": 1792389697.4323392,
         "current_liveness_basis_ref": "reports/wc_drop1_window24_full24_midpoint_health_20261019.json.gz",
         "midpoint_automation_deleted": true,
-        "scientific_partial_read": false
+        "scientific_partial_read": false,
+        "terminal_GPU_and_post_accepted": true,
+        "full_protocol_accepted": true,
+        "terminal_capture_ref": "reports/wc_drop1_window24_full24_terminal_collection_20261019.json.gz",
+        "terminal_acceptance_ref": "reports/wc_drop1_window24_full24_terminal_independent_acceptance_20261019.json",
+        "complete_results_ref": "reports/wc_drop1_window24_full24_complete_results_analysis_20261019.json",
+        "extra_distortion_recovery": {
+          "S25-A1": 0.2795577629169601,
+          "S25-A3": 0.8702242960286697
+        }
       }
     },
     {
       "id": "X-A",
-      "state": "EXPLORATORY_PRODUCTION_CPU_READY_WAITING_WINDOW24_AND_GPU",
+      "state": "EXPLORATORY_PRODUCTION_CPU_READY_WINDOW24_ACCEPTED_WAITING_CAL12",
       "paper_experiment_name": "Exploratory Continued Readout",
       "internal_ids": [
         "X-A"
@@ -2987,7 +3266,12 @@
         "scout_CAL12_R2_lifecycle_accepted",
         "scout_BANK24_R2_lifecycle_full_capture",
         "scout_BANK24_R2_lifecycle_accepted",
-        "window24_running_report_602"
+        "window24_running_report_602",
+        "window24_full24_terminal_original",
+        "window24_full24_terminal_accepted",
+        "window24_full24_complete_analysis",
+        "window24_full24_results_604",
+        "window24_full24_results_summarizer"
       ],
       "method_mapping_ids": [],
       "contribution_ids": [],
@@ -3016,13 +3300,15 @@
       "production_CPU_basis": "Unchanged accepted numerical and actual Cosmos entry plus both actual lifecycle R2 CPU proofs",
       "GPU_actual_protocol_accepted": false,
       "lifecycle_CPU_state": "BOTH_ACTUAL_R2_CPU_INDEPENDENTLY_ACCEPTED",
-      "upstream_Window24_GPU_running": true,
+      "upstream_Window24_GPU_running": false,
       "upstream_Window24_launch_ref": "reports/wc_drop1_window24_full24_recovered_GPU_launch_20261019.json",
-      "upstream_Window24_complete_acceptance_pending": true
+      "upstream_Window24_complete_acceptance_pending": false,
+      "upstream_Window24_complete_accepted": true,
+      "upstream_Window24_complete_acceptance_ref": "reports/wc_drop1_window24_full24_terminal_independent_acceptance_20261019.json"
     },
     {
       "id": "X-S-CURV",
-      "state": "EXPLORATORY_PRODUCTION_CPU_READY_WAITING_WINDOW24_AND_GPU",
+      "state": "EXPLORATORY_PRODUCTION_CPU_READY_WINDOW24_ACCEPTED_WAITING_CAL12",
       "paper_experiment_name": "Exploratory Variation-Prior Shared Schedule",
       "internal_ids": [
         "X-S-CURV"
@@ -3117,7 +3403,12 @@
         "scout_CAL12_R2_lifecycle_accepted",
         "scout_BANK24_R2_lifecycle_full_capture",
         "scout_BANK24_R2_lifecycle_accepted",
-        "window24_running_report_602"
+        "window24_running_report_602",
+        "window24_full24_terminal_original",
+        "window24_full24_terminal_accepted",
+        "window24_full24_complete_analysis",
+        "window24_full24_results_604",
+        "window24_full24_results_summarizer"
       ],
       "method_mapping_ids": [],
       "contribution_ids": [],
@@ -3146,13 +3437,15 @@
       "production_CPU_basis": "Unchanged accepted numerical and actual Cosmos entry plus both actual lifecycle R2 CPU proofs",
       "GPU_actual_protocol_accepted": false,
       "lifecycle_CPU_state": "BOTH_ACTUAL_R2_CPU_INDEPENDENTLY_ACCEPTED",
-      "upstream_Window24_GPU_running": true,
+      "upstream_Window24_GPU_running": false,
       "upstream_Window24_launch_ref": "reports/wc_drop1_window24_full24_recovered_GPU_launch_20261019.json",
-      "upstream_Window24_complete_acceptance_pending": true
+      "upstream_Window24_complete_acceptance_pending": false,
+      "upstream_Window24_complete_accepted": true,
+      "upstream_Window24_complete_acceptance_ref": "reports/wc_drop1_window24_full24_terminal_independent_acceptance_20261019.json"
     },
     {
       "id": "X-S-GATE",
-      "state": "EXPLORATORY_PRODUCTION_CPU_READY_WAITING_WINDOW24_AND_GPU",
+      "state": "EXPLORATORY_PRODUCTION_CPU_READY_WINDOW24_ACCEPTED_WAITING_CAL12",
       "paper_experiment_name": "Exploratory Single-Decision Gate",
       "internal_ids": [
         "X-S-GATE"
@@ -3247,7 +3540,12 @@
         "scout_CAL12_R2_lifecycle_accepted",
         "scout_BANK24_R2_lifecycle_full_capture",
         "scout_BANK24_R2_lifecycle_accepted",
-        "window24_running_report_602"
+        "window24_running_report_602",
+        "window24_full24_terminal_original",
+        "window24_full24_terminal_accepted",
+        "window24_full24_complete_analysis",
+        "window24_full24_results_604",
+        "window24_full24_results_summarizer"
       ],
       "method_mapping_ids": [],
       "contribution_ids": [],
@@ -3276,13 +3574,15 @@
       "production_CPU_basis": "Unchanged accepted numerical and actual Cosmos entry plus both actual lifecycle R2 CPU proofs",
       "GPU_actual_protocol_accepted": false,
       "lifecycle_CPU_state": "BOTH_ACTUAL_R2_CPU_INDEPENDENTLY_ACCEPTED",
-      "upstream_Window24_GPU_running": true,
+      "upstream_Window24_GPU_running": false,
       "upstream_Window24_launch_ref": "reports/wc_drop1_window24_full24_recovered_GPU_launch_20261019.json",
-      "upstream_Window24_complete_acceptance_pending": true
+      "upstream_Window24_complete_acceptance_pending": false,
+      "upstream_Window24_complete_accepted": true,
+      "upstream_Window24_complete_acceptance_ref": "reports/wc_drop1_window24_full24_terminal_independent_acceptance_20261019.json"
     },
     {
       "id": "X-R",
-      "state": "EXPLORATORY_PRODUCTION_CPU_READY_WAITING_WINDOW24_AND_GPU",
+      "state": "EXPLORATORY_PRODUCTION_CPU_READY_WINDOW24_ACCEPTED_WAITING_CAL12",
       "paper_experiment_name": "Exploratory Directional and Edge Risk",
       "internal_ids": [
         "X-R"
@@ -3377,7 +3677,12 @@
         "scout_CAL12_R2_lifecycle_accepted",
         "scout_BANK24_R2_lifecycle_full_capture",
         "scout_BANK24_R2_lifecycle_accepted",
-        "window24_running_report_602"
+        "window24_running_report_602",
+        "window24_full24_terminal_original",
+        "window24_full24_terminal_accepted",
+        "window24_full24_complete_analysis",
+        "window24_full24_results_604",
+        "window24_full24_results_summarizer"
       ],
       "method_mapping_ids": [],
       "contribution_ids": [],
@@ -3406,9 +3711,11 @@
       "production_CPU_basis": "Unchanged accepted numerical and actual Cosmos entry plus both actual lifecycle R2 CPU proofs",
       "GPU_actual_protocol_accepted": false,
       "lifecycle_CPU_state": "BOTH_ACTUAL_R2_CPU_INDEPENDENTLY_ACCEPTED",
-      "upstream_Window24_GPU_running": true,
+      "upstream_Window24_GPU_running": false,
       "upstream_Window24_launch_ref": "reports/wc_drop1_window24_full24_recovered_GPU_launch_20261019.json",
-      "upstream_Window24_complete_acceptance_pending": true
+      "upstream_Window24_complete_acceptance_pending": false,
+      "upstream_Window24_complete_accepted": true,
+      "upstream_Window24_complete_acceptance_ref": "reports/wc_drop1_window24_full24_terminal_independent_acceptance_20261019.json"
     }
   ],
   "source_refs": {
@@ -4360,7 +4667,12 @@
     "window24_obsolete_resource_monitor_deleted": "reports/wc_drop1_window24_resource_monitor_deleted_after_admission_20261019.json",
     "window24_full24_midpoint_health": "reports/wc_drop1_window24_full24_midpoint_health_20261019.json.gz",
     "window24_full24_midpoint_technical_accepted": "reports/wc_drop1_window24_full24_midpoint_independent_technical_acceptance_20261019.json",
-    "window24_full24_midpoint_closed_final_retained": "reports/wc_drop1_window24_midpoint_automation_closed_final_retained_20261019.json"
+    "window24_full24_midpoint_closed_final_retained": "reports/wc_drop1_window24_midpoint_automation_closed_final_retained_20261019.json",
+    "window24_full24_terminal_original": "reports/wc_drop1_window24_full24_terminal_collection_20261019.json.gz",
+    "window24_full24_terminal_accepted": "reports/wc_drop1_window24_full24_terminal_independent_acceptance_20261019.json",
+    "window24_full24_complete_analysis": "reports/wc_drop1_window24_full24_complete_results_analysis_20261019.json",
+    "window24_full24_results_604": "research/604_WC_WINDOW24_FULL24_ACCEPTED_CONTINUOUS_CORRECTION_RESULTS_AND_CAL12_NEXT_20261019.md",
+    "window24_full24_results_summarizer": "scripts/summarize_wc_window24_complete_results_20261019.py"
   },
   "source_bindings": {
     "11": {
@@ -8179,6 +8491,31 @@
       "path": "reports/wc_drop1_window24_midpoint_automation_closed_final_retained_20261019.json",
       "sha256": "eab3ab757cdd5e2906c2a55818ffe2d827441541a61c64888174c31919b1e988",
       "bytes": 987
+    },
+    "window24_full24_terminal_original": {
+      "path": "reports/wc_drop1_window24_full24_terminal_collection_20261019.json.gz",
+      "sha256": "f54e9c3ef8356e8b03bab8054fb324ab72d69223c7c6b9f33d3a6dba7624b855",
+      "bytes": 988464
+    },
+    "window24_full24_terminal_accepted": {
+      "path": "reports/wc_drop1_window24_full24_terminal_independent_acceptance_20261019.json",
+      "sha256": "93ae16b89cf10583d6d24aebd1691d42bac8c62d458e24536653c0326ed1fbdc",
+      "bytes": 23201
+    },
+    "window24_full24_complete_analysis": {
+      "path": "reports/wc_drop1_window24_full24_complete_results_analysis_20261019.json",
+      "sha256": "f36c235ad7c03b85fb304bccd809273ace3e1630e78aee2a11b37b9aa77632dd",
+      "bytes": 39308
+    },
+    "window24_full24_results_604": {
+      "path": "research/604_WC_WINDOW24_FULL24_ACCEPTED_CONTINUOUS_CORRECTION_RESULTS_AND_CAL12_NEXT_20261019.md",
+      "sha256": "064f8f6865399304106948d4c3eed29bf06ff2354bd887abd21642362c720c73",
+      "bytes": 5436
+    },
+    "window24_full24_results_summarizer": {
+      "path": "scripts/summarize_wc_window24_complete_results_20261019.py",
+      "sha256": "aa2b27a113cb8a9957ec95848ac682dfed13ba8b97891a6bfcb3b685474bbf12",
+      "bytes": 5674
     }
   },
   "operation_policy": {
@@ -9039,5 +9376,6 @@
     "Window24_midpoint_automation_deleted": true,
     "new_GPU_submissions_this_midpoint": 0
   },
-  "mapping_sha256_at_inventory": "88b3d760a0c94c20b6c802e21f30c7286d6e596cc9b3f3100e7ee6feaa3938f3"
+  "mapping_sha256_at_inventory": "88b3d760a0c94c20b6c802e21f30c7286d6e596cc9b3f3100e7ee6feaa3938f3",
+  "latest_mapping_sha256": "939e3e983e5b2415f68783a5e96fff79653e9f820a1ea5979d938aa029ce9760"
 }

@@ -77,7 +77,7 @@
         "curve60",
         "confirm50"
       ],
-      "scope_note": "Current unit-gain phase-scaled readout; historical scalar/shrink variants are not aliases of this deployed implementation. N07 A_NO_P does not establish stable superiority over RA; fixed-front A/C provides conditional evidence. Dense-budget replacement is proposed, not accepted."
+      "scope_note": "Fixed25D endpoint correction accepted on four old CAL. Continuous A3 reduces mean LPIPS19.7690% versus A1 and26.6335% versus C, recovering87.0224% of deleted-D extra distortion; mean loss remains5.7235% above26D. Independent confirmation pending."
     },
     {
       "id": "module.cpa",
@@ -2137,7 +2137,12 @@
     "N09_R3_independent_admission": "reports/wc_paper_N09_actual40_R3_independent_admission_acceptance_20261018.json",
     "N09_R3_two_once_checks": "reports/wc_paper_N09_actual40_R3_two_collection_automations_20261018.json",
     "two_GPU_resource_20261018_0718": "reports/wc_two_gpu_resource_readonly_20261018_0718.json",
-    "N09_R3_user_requested_technical_status_1257": "reports/wc_paper_N09_R3_user_status_20261018_1255.json"
+    "N09_R3_user_requested_technical_status_1257": "reports/wc_paper_N09_R3_user_status_20261018_1255.json",
+    "window24_full24_terminal_original": "reports/wc_drop1_window24_full24_terminal_collection_20261019.json.gz",
+    "window24_full24_terminal_accepted": "reports/wc_drop1_window24_full24_terminal_independent_acceptance_20261019.json",
+    "window24_full24_complete_analysis": "reports/wc_drop1_window24_full24_complete_results_analysis_20261019.json",
+    "window24_full24_results_604": "research/604_WC_WINDOW24_FULL24_ACCEPTED_CONTINUOUS_CORRECTION_RESULTS_AND_CAL12_NEXT_20261019.md",
+    "window24_full24_results_summarizer": "scripts/summarize_wc_window24_complete_results_20261019.py"
   },
   "evidence_batches": {
     "curve60": {
@@ -4702,6 +4707,53 @@
       "midpoint_automation_deleted": true,
       "terminal_check_unchanged": true,
       "terminal_check_local": "2026-10-19T15:48:00+08:00"
+    },
+    "window24_original_full24_terminal_604": {
+      "status": "WINDOW24_FULL24_ALL16_INDEPENDENTLY_ACCEPTED",
+      "refs": {
+        "window24_full24_terminal_original": "reports/wc_drop1_window24_full24_terminal_collection_20261019.json.gz",
+        "window24_full24_terminal_accepted": "reports/wc_drop1_window24_full24_terminal_independent_acceptance_20261019.json",
+        "window24_full24_complete_analysis": "reports/wc_drop1_window24_full24_complete_results_analysis_20261019.json",
+        "window24_full24_results_604": "research/604_WC_WINDOW24_FULL24_ACCEPTED_CONTINUOUS_CORRECTION_RESULTS_AND_CAL12_NEXT_20261019.md",
+        "window24_full24_results_summarizer": "scripts/summarize_wc_window24_complete_results_20261019.py"
+      },
+      "scope": {
+        "registered": 24,
+        "formal": 16,
+        "warm": 8,
+        "scored_frames": 1488
+      },
+      "source_revision": "a350ea9822e3443c3cd8f4c601673fc064d49684",
+      "actual_GPUh": 1.8101264448456156,
+      "quality": {
+        "S26-C": {
+          "mean_LPIPS": 0.05820673609012237,
+          "mean_core_seconds": 223.6165230725892,
+          "mean_guarded_seconds": 252.9935369004961
+        },
+        "S25-C": {
+          "mean_LPIPS": 0.08387788238945187,
+          "mean_core_seconds": 217.36109740124084,
+          "mean_guarded_seconds": 247.16291093453765
+        },
+        "S25-A1": {
+          "mean_LPIPS": 0.07670131415849732,
+          "mean_core_seconds": 217.7583400469739,
+          "mean_guarded_seconds": 247.08425868023187
+        },
+        "S25-A3": {
+          "mean_LPIPS": 0.061538227172868866,
+          "mean_core_seconds": 217.8733647414483,
+          "mean_guarded_seconds": 247.55646903719753
+        }
+      },
+      "extra_distortion_recovery": {
+        "S25-A1": 0.2795577629169601,
+        "S25-A3": 0.8702242960286697
+      },
+      "independent_new_input_confirmation": false,
+      "stable_repeated_clean_speed_claim": false,
+      "CAL12_dispatched": false
     }
   },
   "statistical_rules": {
@@ -6553,28 +6605,28 @@
       "bytes": 8960
     },
     "memory/handoffs/LATEST.md": {
-      "sha256": "d778462016f66b7dd53e59a953e54059303116d3be103e2ca55e8e27295f19cc",
-      "bytes": 716887
+      "sha256": "b5fc02234932e65c03ac827f967b3028649d54a16dfcd580b9f91d6d085f632f",
+      "bytes": 718521
     },
     "src/wcomr/runtime_profile40_acceptance_r1.py": {
       "sha256": "9d5de68477518880b2087a557b699a93ca73e8ab06a058e2c54059997af45116",
       "bytes": 17772
     },
     "research/09_NEXT_ACTIONS.md": {
-      "sha256": "934af108c462779f3e39fc79ecf7ee0827dfd2e895b64775d619771067775196",
-      "bytes": 623978
+      "sha256": "f8769b097ae022e215e0132e80685751d5b45dcdea0abc778c945069fbd436af",
+      "bytes": 624676
     },
     "reports/wc_paper_N09_runtime40_collection_R1_fixture_failure_20261016.json": {
       "sha256": "1b03ddcd9982149e9fe2254c9770eb85b0f9b69e5f1f81958be66df55d1bb247",
       "bytes": 2169
     },
     "paper/EXPERIMENT_MASTER_TABLE.md": {
-      "sha256": "2a5c710439d1c56cd032ec3dfdf346763f7af6ebbb38a5e4e12bc73aed2aaf7d",
-      "bytes": 109287
+      "sha256": "f2393b59a4bf19e12d58d2401202a9d47ab63d2421842b8963099058e86b5a31",
+      "bytes": 109997
     },
     "research/02_CURRENT_STATE.md": {
-      "sha256": "eb0da40f8e4b37f988815fc37c55500cf8269db516703cce2fb486222769f140",
-      "bytes": 596515
+      "sha256": "1a92390a1826d975eb20660312c357ec6dbe1f177ac4e34678d4215c06f94277",
+      "bytes": 597213
     },
     "tests/test_runtime_profile40_capture_r1.py": {
       "sha256": "40cba26bb42f450c8afdd075ef9e594ebd92639fd0424d61e5e8583ba1b17491",
@@ -6601,12 +6653,12 @@
       "bytes": 81279
     },
     "EXPERIMENT_REPORT.md": {
-      "sha256": "7486e1f23715bffe201dfaafa903a68bc2be8aaca5e46ed529314322681cf991",
-      "bytes": 667410
+      "sha256": "29308ff72b2c6c7af4870592a441e4c155e57778afedc24b368afecca1a48c87",
+      "bytes": 668933
     },
     "paper/INTERNAL_TO_PAPER_MAPPING.md": {
-      "sha256": "ef1f17af15bbdc980b93b1c15ec69b112b330977399ca768f6e7b3923935a8ff",
-      "bytes": 101679
+      "sha256": "c5cce31304a73715585e215be43c0c2b3d2a5ff5f59f1e5cea4b5ba508c4a859",
+      "bytes": 102389
     },
     "AGENTS.md": {
       "sha256": "af7369bcf4a6694f029c35429f5aab906a8cb164be9b773e04e69dd1a756e0d8",
@@ -9159,6 +9211,26 @@
     "reports/wc_drop1_window24_full24_midpoint_independent_technical_acceptance_20261019.json": {
       "sha256": "fe4c84303859b65963dd8a7e2dd2a0f12328667e36ad65e6d4234579355570ef",
       "bytes": 1452
+    },
+    "reports/wc_drop1_window24_full24_terminal_collection_20261019.json.gz": {
+      "sha256": "f54e9c3ef8356e8b03bab8054fb324ab72d69223c7c6b9f33d3a6dba7624b855",
+      "bytes": 988464
+    },
+    "reports/wc_drop1_window24_full24_terminal_independent_acceptance_20261019.json": {
+      "sha256": "93ae16b89cf10583d6d24aebd1691d42bac8c62d458e24536653c0326ed1fbdc",
+      "bytes": 23201
+    },
+    "reports/wc_drop1_window24_full24_complete_results_analysis_20261019.json": {
+      "sha256": "f36c235ad7c03b85fb304bccd809273ace3e1630e78aee2a11b37b9aa77632dd",
+      "bytes": 39308
+    },
+    "research/604_WC_WINDOW24_FULL24_ACCEPTED_CONTINUOUS_CORRECTION_RESULTS_AND_CAL12_NEXT_20261019.md": {
+      "sha256": "064f8f6865399304106948d4c3eed29bf06ff2354bd887abd21642362c720c73",
+      "bytes": 5436
+    },
+    "scripts/summarize_wc_window24_complete_results_20261019.py": {
+      "sha256": "aa2b27a113cb8a9957ec95848ac682dfed13ba8b97891a6bfcb3b685474bbf12",
+      "bytes": 5674
     }
   },
   "math_notation": [

@@ -1,3 +1,9 @@
+## 2026-10-19 连续24完整结果 连续修正收回更多删D失真
+
+[604](../research/604_WC_WINDOW24_FULL24_ACCEPTED_CONTINUOUS_CORRECTION_RESULTS_AND_CAL12_NEXT_20261019.md) **原24路径、16正式视频的全部93帧评分及原件、控制、财务均已独立接受。连续A3相对单次A1的平均LPIPS降低19.7690%，相对同25D的C降低26.6335%，四场景各93/93帧均改善。相对26D仍有5.7235%的失真差距，不能称为等质量替代D。**
+
+Window24: ALL24/ALL16 accepted; actual1.810126445GPUh, pool115.835110836/cap226, reserve0. Next: own-CPU-accepted CAL12 -> frozen CAL gate -> BANK24. CAL12 actual dispatch pending fresh admission. Earlier entries are historical snapshots.
+
 ## 2026-10-19 连续修正24半程正常，科学结论仍待15:48验收
 
 [602半程记录](../research/602_WC_WINDOW24_FULL24_SINGLE_GPU_ADMISSION_METADATA_RECOVERY_AND_COLLECTION_20261019.md)：14:01:37一次技术检查为20完成／1运行／3未到达，全部24分母保持，原句柄／锁／授权一致、错误标签空；未读取质量或方法时间，不新增论文效果证据。半程自动化已删除，15:48终态和后续探索顺序保持。以下为历史。

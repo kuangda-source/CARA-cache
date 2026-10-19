@@ -1,3 +1,9 @@
+## 2026-10-19 连续24完整结果 连续修正收回更多删D失真
+
+[604](604_WC_WINDOW24_FULL24_ACCEPTED_CONTINUOUS_CORRECTION_RESULTS_AND_CAL12_NEXT_20261019.md) **原24路径、16正式视频的全部93帧评分及原件、控制、财务均已独立接受。连续A3相对单次A1的平均LPIPS降低19.7690%，相对同25D的C降低26.6335%，四场景各93/93帧均改善。相对26D仍有5.7235%的失真差距，不能称为等质量替代D。**
+
+Window24: ALL24/ALL16 accepted; actual1.810126445GPUh, pool115.835110836/cap226, reserve0. Next: own-CPU-accepted CAL12 -> frozen CAL gate -> BANK24. CAL12 actual dispatch pending fresh admission. Earlier entries are historical snapshots.
+
 ## 2026-10-19 当前：连续修正完整24已单次准入，新增科学结果待验
 
 [602原件与恢复](602_WC_WINDOW24_FULL24_SINGLE_GPU_ADMISSION_METADATA_RECOVERY_AND_COLLECTION_20261019.md)：原source a350ea98／完整24于12:28:22.733在GPU0准入，supervisor2639899、runner2640331、post2641355。原启动回执即时进程身份断言失败，原unknown保留，仅恢复原句柄和缺失CPU post，GPU不重派，原算法／CPU证明不改。唯一launch-ref reports/wc_drop1_window24_full24_recovered_GPU_launch_20261019.json，14:01技术半程／15:48完整验收已安排；两小时资源巡检已删除。v2实结114.024984391/cap226、预留4、可准入107.975015609，本卡实费和A3质量／速度仍待。原24接受后接已验CAL12→四CAL gate→BANK24，X-R共享，原N10不重查，F/B关闭。以下为历史。
