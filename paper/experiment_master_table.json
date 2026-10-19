@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "updated_local_date": "2026-10-19",
-  "snapshot_basis": "Original Window24 complete24/all16 accepted604. Own-CPU-accepted CAL12 full12 single dispatch/admission on GPU0; scientific endpoints pending. Once-only health16:54 and terminal18:06; then frozen CAL gate/BANK24. No F/B restart.",
+  "snapshot_basis": "CAL12 original full12 once-only technical midpoint healthy:11 complete/1 running/0 not-reached; no scientific partial read. Original18:06 terminal and frozen gate/BANK24 retained. Original Window24 results remain accepted.",
   "git_snapshot_before_inventory": "4cb9fa2640b838dab0d1f913f4bb57e230b9edbd",
   "mapping_ref": "paper/internal_to_paper_mapping.json",
   "scope": "scientific experiment families and complete cards, not each engineering retry; reused artifacts must not be summed as independent samples",
@@ -3281,7 +3281,10 @@
         "scout_CAL12_full12_GPU_launch",
         "scout_CAL12_full12_original_admission",
         "scout_CAL12_full12_independent_admission",
-        "scout_CAL12_two_once_checks"
+        "scout_CAL12_two_once_checks",
+        "scout_CAL12_full12_midpoint_health",
+        "scout_CAL12_full12_midpoint_technical_accepted",
+        "scout_CAL12_midpoint_closed_final_retained"
       ],
       "method_mapping_ids": [],
       "contribution_ids": [],
@@ -3400,10 +3403,26 @@
       "shared_card_charged_once": true,
       "GPU_launch_ref": "reports/wc_scout_CAL12_full12_GPU_launch_20261019.json",
       "GPU_admission_ref": "reports/wc_scout_CAL12_full12_independent_admission_acceptance_20261019.json",
-      "current_liveness_basis_ref": "reports/wc_scout_CAL12_full12_original_admission_20261019.json.gz",
+      "current_liveness_basis_ref": "reports/wc_scout_CAL12_full12_midpoint_health_20261019.json.gz",
       "scientific_partial_read": false,
       "halfway_scheduled_local": "2026-10-19T16:54:00+08:00",
-      "terminal_scheduled_local": "2026-10-19T18:06:00+08:00"
+      "terminal_scheduled_local": "2026-10-19T18:06:00+08:00",
+      "halfway_technical_check_accepted": true,
+      "halfway_independent_acceptance_ref": "reports/wc_scout_CAL12_full12_midpoint_independent_technical_acceptance_20261019.json",
+      "halfway_technical_progress": {
+        "supervisor_status": "SCOUT_GPU_RUNNING",
+        "runner_status": "SCOUT_COMPLETE_REGISTERED_PATHS_RUNNING",
+        "planned_slots": 12,
+        "observed_slots": 12,
+        "states": {
+          "COMPLETE": 11,
+          "RUNNING": 1
+        },
+        "not_reached": 0
+      },
+      "latest_live_observed_unix": 1792400078.6291494,
+      "midpoint_automation_deleted": true,
+      "terminal_check_unchanged": true
     },
     {
       "id": "X-S-CURV",
@@ -3513,7 +3532,10 @@
         "scout_CAL12_full12_GPU_launch",
         "scout_CAL12_full12_original_admission",
         "scout_CAL12_full12_independent_admission",
-        "scout_CAL12_two_once_checks"
+        "scout_CAL12_two_once_checks",
+        "scout_CAL12_full12_midpoint_health",
+        "scout_CAL12_full12_midpoint_technical_accepted",
+        "scout_CAL12_midpoint_closed_final_retained"
       ],
       "method_mapping_ids": [],
       "contribution_ids": [],
@@ -3632,10 +3654,26 @@
       "shared_card_charged_once": true,
       "GPU_launch_ref": "reports/wc_scout_CAL12_full12_GPU_launch_20261019.json",
       "GPU_admission_ref": "reports/wc_scout_CAL12_full12_independent_admission_acceptance_20261019.json",
-      "current_liveness_basis_ref": "reports/wc_scout_CAL12_full12_original_admission_20261019.json.gz",
+      "current_liveness_basis_ref": "reports/wc_scout_CAL12_full12_midpoint_health_20261019.json.gz",
       "scientific_partial_read": false,
       "halfway_scheduled_local": "2026-10-19T16:54:00+08:00",
-      "terminal_scheduled_local": "2026-10-19T18:06:00+08:00"
+      "terminal_scheduled_local": "2026-10-19T18:06:00+08:00",
+      "halfway_technical_check_accepted": true,
+      "halfway_independent_acceptance_ref": "reports/wc_scout_CAL12_full12_midpoint_independent_technical_acceptance_20261019.json",
+      "halfway_technical_progress": {
+        "supervisor_status": "SCOUT_GPU_RUNNING",
+        "runner_status": "SCOUT_COMPLETE_REGISTERED_PATHS_RUNNING",
+        "planned_slots": 12,
+        "observed_slots": 12,
+        "states": {
+          "COMPLETE": 11,
+          "RUNNING": 1
+        },
+        "not_reached": 0
+      },
+      "latest_live_observed_unix": 1792400078.6291494,
+      "midpoint_automation_deleted": true,
+      "terminal_check_unchanged": true
     },
     {
       "id": "X-S-GATE",
@@ -4884,7 +4922,10 @@
     "scout_CAL12_full12_GPU_launch": "reports/wc_scout_CAL12_full12_GPU_launch_20261019.json",
     "scout_CAL12_full12_original_admission": "reports/wc_scout_CAL12_full12_original_admission_20261019.json.gz",
     "scout_CAL12_full12_independent_admission": "reports/wc_scout_CAL12_full12_independent_admission_acceptance_20261019.json",
-    "scout_CAL12_two_once_checks": "reports/wc_scout_CAL12_full12_two_once_collection_automations_20261019.json"
+    "scout_CAL12_two_once_checks": "reports/wc_scout_CAL12_full12_two_once_collection_automations_20261019.json",
+    "scout_CAL12_full12_midpoint_health": "reports/wc_scout_CAL12_full12_midpoint_health_20261019.json.gz",
+    "scout_CAL12_full12_midpoint_technical_accepted": "reports/wc_scout_CAL12_full12_midpoint_independent_technical_acceptance_20261019.json",
+    "scout_CAL12_midpoint_closed_final_retained": "reports/wc_scout_CAL12_midpoint_automation_closed_final_retained_20261019.json"
   },
   "source_bindings": {
     "11": {
@@ -8732,8 +8773,8 @@
     },
     "scout_CAL12_running_report_605": {
       "path": "research/605_WC_CAL12_FULL12_SINGLE_GPU_ADMISSION_AND_TWO_ONCE_COLLECTIONS_20261019.md",
-      "sha256": "6e4b913fce2feb7994910e1f4c96376c01051ef582d5c3a7a3823a546a35b3f9",
-      "bytes": 5524
+      "sha256": "f0359064d040eec1b01efcbbc40fc9d3bafc69a8b20a70ac6f7af09b17aa26c4",
+      "bytes": 6710
     },
     "scout_CAL12_fresh_preflight": {
       "path": "reports/wc_scout_CAL12_fresh_preflight_20261019.json",
@@ -8759,6 +8800,21 @@
       "path": "reports/wc_scout_CAL12_full12_two_once_collection_automations_20261019.json",
       "sha256": "357e8d8763854fbba1a5f37b90825f3d1b6a2651eda8457aee6995468731a6f5",
       "bytes": 1219
+    },
+    "scout_CAL12_full12_midpoint_health": {
+      "path": "reports/wc_scout_CAL12_full12_midpoint_health_20261019.json.gz",
+      "sha256": "e5058d39b8f911e80cedf7664ffe7a8cb59735021079a3cc8c850f1bb4268b14",
+      "bytes": 7144
+    },
+    "scout_CAL12_full12_midpoint_technical_accepted": {
+      "path": "reports/wc_scout_CAL12_full12_midpoint_independent_technical_acceptance_20261019.json",
+      "sha256": "044d36aa91558fad8d4adfe047ca4c64f75dc5c7c9ec30fdd4b97f193896c869",
+      "bytes": 3723
+    },
+    "scout_CAL12_midpoint_closed_final_retained": {
+      "path": "reports/wc_scout_CAL12_midpoint_automation_closed_final_retained_20261019.json",
+      "sha256": "fad034d3313ceeaaf96c07e399dfeba5b4bd3d9094706d3fd239f126c44ede7c",
+      "bytes": 653
     }
   },
   "operation_policy": {
@@ -9620,5 +9676,5 @@
     "new_GPU_submissions_this_midpoint": 0
   },
   "mapping_sha256_at_inventory": "88b3d760a0c94c20b6c802e21f30c7286d6e596cc9b3f3100e7ee6feaa3938f3",
-  "latest_mapping_sha256": "a2cb4fa921681aab045e579871ebb3a3eefa9cf1be3e43ab07f83b7617dc93b6"
+  "latest_mapping_sha256": "cbc2e40ffdffa73b46be4550a47ac746a9835eb1b10fd952b7bbc733954e0c46"
 }

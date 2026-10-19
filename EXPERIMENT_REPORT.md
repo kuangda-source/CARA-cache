@@ -1,3 +1,7 @@
+## 2026-10-19 16:54 CAL12 technical midpoint healthy 18:06 final retained
+
+[605 midpoint](research/605_WC_CAL12_FULL12_SINGLE_GPU_ADMISSION_AND_TWO_ONCE_COLLECTIONS_20261019.md) CAL12 original full12 technical midpoint checked once at16:54:38.629: 11 COMPLETE /1 RUNNING /0 NOT_REACHED. Original supervisor/runner/post PID and start_ticks match; own GPU0 lease held; error tags empty. No scientific scores, frames, tensors or method times read. Actual115.835110836/cap226, reserve2.5 unchanged; actual card fee unknown. Midpoint automation deleted; original18:06 final and frozen gate/BANK24 continuation retained. Earlier entries are historical snapshots.
+
 ## 2026-10-19 CAL12完整12已单次准入 两次查收已安排
 
 [605](research/605_WC_CAL12_FULL12_SINGLE_GPU_ADMISSION_AND_TWO_ONCE_COLLECTIONS_20261019.md) **连续24已完整接受后，CAL12于2026年10月19日15:57:36.932单次派发，原supervisor、runner、CPU post、GPU0锁及2.5GPUh整卡预留已独立核对。16:54只作技术半程，18:06作完整原件验收。当前没有CAL12新增质量或速度结果。**

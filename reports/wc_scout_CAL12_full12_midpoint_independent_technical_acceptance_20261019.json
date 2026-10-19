@@ -1,0 +1,63 @@
+{
+  "status": "CAL12_ONCE_MIDPOINT_TECHNICAL_HEALTH_ACCEPTED_NO_SCIENTIFIC_READ",
+  "capture_ref": "reports/wc_scout_CAL12_full12_midpoint_health_20261019.json.gz",
+  "capture_sha256": "e5058d39b8f911e80cedf7664ffe7a8cb59735021079a3cc8c850f1bb4268b14",
+  "launch_ref": "reports/wc_scout_CAL12_full12_GPU_launch_20261019.json",
+  "launch_sha256": "2f61add0ac8cefadc573b73e48a2b9ae0ee38008abfe3eff00b9628aa9231403",
+  "source_revision": "2bd41dc8fa19f42353e03a7c78b7264b4b2695c6",
+  "entry_source_revision": "c1c95ce0c598fb7839b0b89f4a69bd45c8aef7c9",
+  "observed_unix": 1792400078.6291494,
+  "observed_local": "2026-10-19T16:54:38.629149+08:00",
+  "technical_progress": {
+    "supervisor_status": "SCOUT_GPU_RUNNING",
+    "runner_status": "SCOUT_COMPLETE_REGISTERED_PATHS_RUNNING",
+    "planned_slots": 12,
+    "observed_slots": 12,
+    "states": {
+      "COMPLETE": 11,
+      "RUNNING": 1
+    },
+    "not_reached": 0
+  },
+  "original_identity_accepted": true,
+  "original_expected_handles": {
+    "supervisor": {
+      "pid": 2729092,
+      "state": "R",
+      "start_ticks": 569156045,
+      "command": "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/.sync/wc-scout-cal12-gpu-lifecycle-cpu-r2-20261018/scripts/supervise_wc_scout_gpu_r1.py --project /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr --stage /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/.sync/wc-scout-cal12-gpu-lifecycle-cpu-r2-20261018 --authorization /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/.sync/wc-scout-cal12-gpu-lifecycle-cpu-r2-20261018/scout-GPU-authorization.json --source-revision 2bd41dc8fa19f42353e03a7c78b7264b4b2695c6 --gpu-uuid GPU-de9a5370-cd87-0f1c-a48e-288888777dd3 "
+    },
+    "post": {
+      "pid": 2729096,
+      "state": "R",
+      "start_ticks": 569156053,
+      "command": "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/.sync/wc-scout-cal12-gpu-lifecycle-cpu-r2-20261018/scripts/watch_wc_scout_post_cpu_r1.py --project /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr --stage /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/.sync/wc-scout-cal12-gpu-lifecycle-cpu-r2-20261018 --supervisor-pid 2729092 --supervisor-start-ticks 569156045 "
+    },
+    "runner": {
+      "pid": 2729134,
+      "state": "R",
+      "start_ticks": 569156584,
+      "command": "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python -u /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/.sync/wc-scout-cal12-production-entry-cpu-r1-20261018/scripts/run_wc_scout_production_entry_r1.py --project /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr --stage /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/.sync/wc-scout-cal12-production-entry-cpu-r1-20261018 --source-revision c1c95ce0c598fb7839b0b89f4a69bd45c8aef7c9 --gpu-uuid GPU-de9a5370-cd87-0f1c-a48e-288888777dd3 "
+    }
+  },
+  "own_UUID_lock_held": true,
+  "error_tags": {
+    "GPU": [],
+    "supervisor": []
+  },
+  "pool_snapshot": {
+    "used_gpu_hours": 115.83511083569408,
+    "cap_gpu_hours": 226,
+    "reserved_gpu_hours": 2.5,
+    "available_gpu_hours": 107.66488916430592
+  },
+  "actual_card_charge_known": false,
+  "scientific_partial_read": false,
+  "terminal_scientific_accepted": false,
+  "terminal_check_unchanged": true,
+  "terminal_check_not_before_unix": 1792404312.9320405,
+  "terminal_check_local": "2026-10-19T18:06:00+08:00",
+  "GPU_submissions": 0,
+  "SSH_queries": 0,
+  "ledger_written": false
+}

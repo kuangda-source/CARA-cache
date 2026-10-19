@@ -54,3 +54,11 @@ CAL12完整预测1.876666667GPUh、上限2.5，沿原严格少于12GPUh直接授
 CAL12全部适用原件／费用和四CAL gate接受后，依[就绪手册](../plans/WC_SCOUT_GPU_READY_CONTINUATION_20261019.md)接BANK24自己的R2 CPU三件套、实际CAL12上游和固定gate，重新fresh UUID/v2完整准入。BANK24六DEV×D21/A21/Native35，18正式＋6预热，完整24／864pairs／一次加载／六Native，预测3.407222222、上限4.5GPUh；不提前派发。
 
 X-R共享银行，不另开GPU。观察器开销计费，不把单次诊断时间或离线单点门控重组当完整在线加速证据；探索不自动并入主稿。N10不重评，F/B关闭，不新增训练、人评、付费VLM或OMR。
+
+## 16:54半程技术检查正常
+
+16:54:38.629按时一次[原任务半程捕获](../reports/wc_scout_CAL12_full12_midpoint_health_20261019.json.gz)确认：完整12分母中11完成、1运行、0未到达。已有12条记录不等于12完成。原supervisor2729092、runner2729134、CPU post2729096的PID/start_ticks均与准入回执一致，原GPU0锁持有，GPU与supervisor错误标签均为空。
+
+[独立技术接受](../reports/wc_scout_CAL12_full12_midpoint_independent_technical_acceptance_20261019.json)另核对原source／注册／实际CPU与授权绑定、完整12计数、原job及v2加法总数。实结115.83511083569408/cap226、整卡预留2.5、可准入107.66488916430592保持；本卡实际费用尚未知。没有读取质量、逐帧、张量或方法时间，不能将COMPLETE技术记录当作科学原件验收。
+
+[半程关闭与最终保留](../reports/wc_scout_CAL12_midpoint_automation_closed_final_retained_20261019.json)确认：本次worldcache-cal12自动化已删除，worldcache-cal12-bank24仍ACTIVE，原18:06时间／not-before／完整验收和BANK24接续保持。没有追加巡检、重新派发、修改原stage或提前开下一卡。
