@@ -1,3 +1,7 @@
+## 2026-10-19 原Window24半程检查正常，15:48完整验收保持
+
+[602第5节](research/602_WC_WINDOW24_FULL24_SINGLE_GPU_ADMISSION_METADATA_RECOVERY_AND_COLLECTION_20261019.md)：14:01:37.432一次技术回执确认全部24中20完成／1运行／3未到达，原GPU／runner／CPU post身份一致、原UUID锁持有、错误标签空。未读科学partial，不判新A3质量或速度收益。半程自动化已删除，原15:48终态及其后原24完整接受→CAL12→四CAL gate→BANK24接续保持，无新GPU／CPU派发。实结114.024984391、整卡预留4、本卡实费未知。以下为历史。
+
 ## 2026-10-19 原Window24完整24已准入，等待14:01／15:48两次查收
 
 [602实际运行与回执恢复](research/602_WC_WINDOW24_FULL24_SINGLE_GPU_ADMISSION_METADATA_RECOVERY_AND_COLLECTION_20261019.md)：原source a350ea98／四CAL四臂16正式＋8预热／864pairs于12:28:22.733在GPU0单次准入。原启动回执即时进程身份校验失败，已沿原launch_id／原句柄恢复并仅补缺失CPU post；GPU重派0、原注册算法源和配置不改，旧unknown保留，不重跑已验CPU。唯一实际launch-ref为wc_drop1_window24_full24_recovered_GPU_launch_20261019.json，原supervisor2639899、runner2640331、post2641355及锁／4整卡预留均独立接受。

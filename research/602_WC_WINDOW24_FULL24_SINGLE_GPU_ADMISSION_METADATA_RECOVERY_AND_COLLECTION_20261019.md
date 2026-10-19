@@ -52,3 +52,11 @@ GPU0 UUID为`GPU-de9a5370-cd87-0f1c-a48e-288888777dd3`。原锁持有、完整24
 原24完整原件和费用按原协议接受后，按[就绪手册](../plans/WC_SCOUT_GPU_READY_CONTINUATION_20261019.md)直接接已验CAL12完整12（预测1.876666667／上限2.5），从四旧CAL冻结μ和中位秩阈值，再接BANK24完整24（预测3.407222222／上限4.5），X-R共享。新卡自己的R2生命周期CPU三件套已接受，不重跑准备，不借原卡通过标记。每卡重新fresh UUID／v2准入、半程／ETA各一次；未知派发不重放。
 
 原N10全960已接受，不重查／重评；探索不自动并入主稿，F/B关闭，无训练、人评、付费VLM或OMR。当前所有新科学结果仍待真实终态验收。
+
+## 5. 14:01技术半程已完成，原15:48终态不变
+
+14:01:37.432一次[原任务半程回执](../reports/wc_drop1_window24_full24_midpoint_health_20261019.json.gz)确认：全部24分母中20完成、1运行、3未到达；21个已有runner记录不等于21个完成。原supervisor2639899／runner2640331／post2641355的PID/start_ticks和原注册绑定一致，原GPU0锁仍持有，GPU与supervisor错误标签为空。只读取技术状态，没有打开质量、逐帧、张量或方法时间比较。
+
+[独立技术接受](../reports/wc_drop1_window24_full24_midpoint_independent_technical_acceptance_20261019.json)核对完整计数、原句柄／UUID／授权／4预留及池账相符；实结114.024984391／cap226、预留4、可准入107.975015609保持，本卡实际费用未知。没有新增GPU或CPU派发，没有改原stage。完整源／视频／费用终态接受未执行，不能用本次健康检查代替。
+
+本次半程自动化`worldcache-window24`完成后已删除；原终态自动化`worldcache-window24-cal12`及15:48时间／原not-before／全部接受协议和后续CAL12接续保持不变。状态正常，无需人工动作，不追加巡检或提前读取科学结果。

@@ -1,3 +1,9 @@
+## 2026-10-19 14:01原24半程正常；原15:48完整验收保持
+
+[602半程原件](../../research/602_WC_WINDOW24_FULL24_SINGLE_GPU_ADMISSION_METADATA_RECOVERY_AND_COLLECTION_20261019.md)与reports/wc_drop1_window24_full24_midpoint_health_20261019.json.gz：实际14:01:37.432一次检查，原24分母20完成／1运行／3未到达；原2639899／2640331／2641355的PID/start_ticks一致，原GPU0锁持有，错误标签空。独立技术接受wc_drop1_window24_full24_midpoint_independent_technical_acceptance_20261019.json；仅技术状态，不读取质量／逐帧／张量或方法时间，不判终态成功。
+
+半程worldcache-window24已删除，唯一终态worldcache-window24-cal12保持15:48／最早unix1792396033.7336438，原launch-ref仍wc_drop1_window24_full24_recovered_GPU_launch_20261019.json；不追加巡检／提前读partial／重派／开新GPU。实结114.024984391/cap226、预留4、可准入107.975015609，本卡实费未知。原24完整接受后直接CAL12→四CAL gate→BANK24，X-R共享，已验CPU不重跑。以下为历史。
+
 ## 2026-10-19 原Window24完整24已单次准入；14:01半程／15:48完整验收
 
 先读[602实际准入与回执恢复](../../research/602_WC_WINDOW24_FULL24_SINGLE_GPU_ADMISSION_METADATA_RECOVERY_AND_COLLECTION_20261019.md)。原07:06资源心跳延后，实际12:25:39两GPU空闲；source a350ea98／原stage完整24于12:28:22.733在GPU0准入，supervisor2639899/start567894598、runner2640331/start567900634。原启动器Popen后即时command断言失败，原unknown回执保留；一次只读核对确认原GPU已运行，未重派。独立工具仅恢复原启动回执并补原CPU post2641355/start567912775，原算法／注册源／配置不改，原数值／生产CPU不重跑。
