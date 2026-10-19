@@ -1,3 +1,7 @@
+## 2026-10-19 18:06 CAL12 collection connection unknown; once18:30 recovery
+
+[606 connection boundary](../research/606_WC_CAL12_TERMINAL_COLLECTION_CONNECTION_UNKNOWN_AND_ONCE_RECOVERY_20261019.md) CAL12 original18:06 terminal collector failed before SSH key exchange. The saved receipt is OBSERVATION_UNKNOWN, not GPU/scientific failure or acceptance. Own local FRPC listener/control TCP remain present; local log reports remote visitor missing. No FRPC/server/GPU/post restart, no ledger/stage change or new submission. Preserve original unknown; same automation updated to once18:30, new recovered capture filename. Last verified16:54 was11 COMPLETE/1 RUNNING; current task/fee/lease unknown. BANK24 remains unsubmitted until full CAL12 acceptance and frozen gate. Earlier snapshots below are historical.
+
 ## 2026-10-19 CAL12完整12已单次准入 两次查收已安排
 
 [605](../research/605_WC_CAL12_FULL12_SINGLE_GPU_ADMISSION_AND_TWO_ONCE_COLLECTIONS_20261019.md) **连续24已完整接受后，CAL12于2026年10月19日15:57:36.932单次派发，原supervisor、runner、CPU post、GPU0锁及2.5GPUh整卡预留已独立核对。16:54只作技术半程，18:06作完整原件验收。当前没有CAL12新增质量或速度结果。**

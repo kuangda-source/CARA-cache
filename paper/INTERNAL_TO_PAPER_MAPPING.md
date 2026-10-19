@@ -1,3 +1,7 @@
+## 2026-10-19 18:06 CAL12 collection connection unknown; once18:30 recovery
+
+[606 connection boundary](../research/606_WC_CAL12_TERMINAL_COLLECTION_CONNECTION_UNKNOWN_AND_ONCE_RECOVERY_20261019.md) CAL12 original18:06 terminal collector failed before SSH key exchange. The saved receipt is OBSERVATION_UNKNOWN, not GPU/scientific failure or acceptance. Own local FRPC listener/control TCP remain present; local log reports remote visitor missing. No FRPC/server/GPU/post restart, no ledger/stage change or new submission. Preserve original unknown; same automation updated to once18:30, new recovered capture filename. Last verified16:54 was11 COMPLETE/1 RUNNING; current task/fee/lease unknown. BANK24 remains unsubmitted until full CAL12 acceptance and frozen gate. Earlier snapshots below are historical.
+
 ## 2026-10-19 16:54 CAL12 technical midpoint healthy 18:06 final retained
 
 [605 midpoint](../research/605_WC_CAL12_FULL12_SINGLE_GPU_ADMISSION_AND_TWO_ONCE_COLLECTIONS_20261019.md) CAL12 original full12 technical midpoint checked once at16:54:38.629: 11 COMPLETE /1 RUNNING /0 NOT_REACHED. Original supervisor/runner/post PID and start_ticks match; own GPU0 lease held; error tags empty. No scientific scores, frames, tensors or method times read. Actual115.835110836/cap226, reserve2.5 unchanged; actual card fee unknown. Midpoint automation deleted; original18:06 final and frozen gate/BANK24 continuation retained. Earlier entries are historical snapshots.

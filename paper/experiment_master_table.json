@@ -54,7 +54,7 @@
     "待补｜主张条件": 1,
     "暂缓/未执行｜旧卡": 1,
     "已完成｜完整18路径与12正式93帧接受，同25D修正改善，未补平26D保真": 1,
-    "EXPLORATORY_CAL12_FULL12_GPU_ADMITTED_SCIENTIFIC_ENDPOINTS_PENDING": 2,
+    "EXPLORATORY_CAL12_TERMINAL_COLLECTION_CONNECTION_UNKNOWN_ENDPOINTS_PENDING": 2,
     "EXPLORATORY_BANK24_CPU_READY_WAITING_CAL12_ACCEPTANCE_AND_FROZEN_GATE": 2
   },
   "rows": [
@@ -3175,14 +3175,14 @@
     },
     {
       "id": "X-A",
-      "state": "EXPLORATORY_CAL12_FULL12_GPU_ADMITTED_SCIENTIFIC_ENDPOINTS_PENDING",
+      "state": "EXPLORATORY_CAL12_TERMINAL_COLLECTION_CONNECTION_UNKNOWN_ENDPOINTS_PENDING",
       "paper_experiment_name": "Exploratory Continued Readout",
       "internal_ids": [
         "X-A"
       ],
       "contribution_relation": "探索潜在修正/分配证据，尚不支撑冻结主稿新贡献",
       "evidence_or_planned_scope": "AV28 step21五α真张量扫描；单状态α=1最佳。原连续24包含G11，G01缺。",
-      "gap_and_next_action": "Actual original full12 is admitted. Collect original technical health once16:54 and full artifacts/scores/fees once18:06; keep X-A and shared-plan findings separate, no repeated CPU or new scientific claim before acceptance.",
+      "gap_and_next_action": "Original18:06 capture is CONNECTION_UNKNOWN before key exchange, not GPU failure/acceptance. Preserve it; once18:30 recover original full12 artifacts into a new filename. Actual fee/lease and current process state unknown; no relaunch, CPU rerun or BANK24 before full acceptance/gate.",
       "priority": "探索P1·复用原24",
       "evidence_refs": [
         "scouts_594",
@@ -3284,7 +3284,12 @@
         "scout_CAL12_two_once_checks",
         "scout_CAL12_full12_midpoint_health",
         "scout_CAL12_full12_midpoint_technical_accepted",
-        "scout_CAL12_midpoint_closed_final_retained"
+        "scout_CAL12_midpoint_closed_final_retained",
+        "scout_CAL12_terminal_connection_unknown_606",
+        "scout_CAL12_terminal_connection_unknown_original",
+        "scout_CAL12_terminal_own_FRPC_diagnostic",
+        "scout_CAL12_terminal_connection_boundary_acceptance",
+        "scout_CAL12_once_connection_recovery_schedule"
       ],
       "method_mapping_ids": [],
       "contribution_ids": [],
@@ -3406,7 +3411,7 @@
       "current_liveness_basis_ref": "reports/wc_scout_CAL12_full12_midpoint_health_20261019.json.gz",
       "scientific_partial_read": false,
       "halfway_scheduled_local": "2026-10-19T16:54:00+08:00",
-      "terminal_scheduled_local": "2026-10-19T18:06:00+08:00",
+      "terminal_scheduled_local": "2026-10-19T18:30:00+08:00",
       "halfway_technical_check_accepted": true,
       "halfway_independent_acceptance_ref": "reports/wc_scout_CAL12_full12_midpoint_independent_technical_acceptance_20261019.json",
       "halfway_technical_progress": {
@@ -3422,18 +3427,25 @@
       },
       "latest_live_observed_unix": 1792400078.6291494,
       "midpoint_automation_deleted": true,
-      "terminal_check_unchanged": true
+      "terminal_check_unchanged": false,
+      "terminal_collection_state": "OBSERVATION_UNKNOWN_NOT_TASK_TERMINAL",
+      "original_GPU_current_state": "UNKNOWN",
+      "terminal_connection_unknown_ref": "reports/wc_scout_CAL12_full12_terminal_collection_20261019.json.gz",
+      "terminal_retry_local": "2026-10-19T18:30:00+08:00",
+      "terminal_recovery_capture_ref": "reports/wc_scout_CAL12_full12_terminal_recovered_collection_20261019_1830.json.gz",
+      "original_terminal_scheduled_local": "2026-10-19T18:06:00+08:00",
+      "original_terminal_not_before_unchanged": true
     },
     {
       "id": "X-S-CURV",
-      "state": "EXPLORATORY_CAL12_FULL12_GPU_ADMITTED_SCIENTIFIC_ENDPOINTS_PENDING",
+      "state": "EXPLORATORY_CAL12_TERMINAL_COLLECTION_CONNECTION_UNKNOWN_ENDPOINTS_PENDING",
       "paper_experiment_name": "Exploratory Variation-Prior Shared Schedule",
       "internal_ids": [
         "X-S-CURV"
       ],
       "contribution_relation": "探索潜在修正/分配证据，尚不支撑冻结主稿新贡献",
       "evidence_or_planned_scope": "两旧CAL Native完整36速度；g²主候选−33/+22，合法26D。",
-      "gap_and_next_action": "Actual original full12 is admitted. Collect original technical health once16:54 and full artifacts/scores/fees once18:06; keep X-A and shared-plan findings separate, no repeated CPU or new scientific claim before acceptance.",
+      "gap_and_next_action": "Original18:06 capture is CONNECTION_UNKNOWN before key exchange, not GPU failure/acceptance. Preserve it; once18:30 recover original full12 artifacts into a new filename. Actual fee/lease and current process state unknown; no relaunch, CPU rerun or BANK24 before full acceptance/gate.",
       "priority": "探索P2·单候选",
       "evidence_refs": [
         "scouts_594",
@@ -3535,7 +3547,12 @@
         "scout_CAL12_two_once_checks",
         "scout_CAL12_full12_midpoint_health",
         "scout_CAL12_full12_midpoint_technical_accepted",
-        "scout_CAL12_midpoint_closed_final_retained"
+        "scout_CAL12_midpoint_closed_final_retained",
+        "scout_CAL12_terminal_connection_unknown_606",
+        "scout_CAL12_terminal_connection_unknown_original",
+        "scout_CAL12_terminal_own_FRPC_diagnostic",
+        "scout_CAL12_terminal_connection_boundary_acceptance",
+        "scout_CAL12_once_connection_recovery_schedule"
       ],
       "method_mapping_ids": [],
       "contribution_ids": [],
@@ -3657,7 +3674,7 @@
       "current_liveness_basis_ref": "reports/wc_scout_CAL12_full12_midpoint_health_20261019.json.gz",
       "scientific_partial_read": false,
       "halfway_scheduled_local": "2026-10-19T16:54:00+08:00",
-      "terminal_scheduled_local": "2026-10-19T18:06:00+08:00",
+      "terminal_scheduled_local": "2026-10-19T18:30:00+08:00",
       "halfway_technical_check_accepted": true,
       "halfway_independent_acceptance_ref": "reports/wc_scout_CAL12_full12_midpoint_independent_technical_acceptance_20261019.json",
       "halfway_technical_progress": {
@@ -3673,7 +3690,14 @@
       },
       "latest_live_observed_unix": 1792400078.6291494,
       "midpoint_automation_deleted": true,
-      "terminal_check_unchanged": true
+      "terminal_check_unchanged": false,
+      "terminal_collection_state": "OBSERVATION_UNKNOWN_NOT_TASK_TERMINAL",
+      "original_GPU_current_state": "UNKNOWN",
+      "terminal_connection_unknown_ref": "reports/wc_scout_CAL12_full12_terminal_collection_20261019.json.gz",
+      "terminal_retry_local": "2026-10-19T18:30:00+08:00",
+      "terminal_recovery_capture_ref": "reports/wc_scout_CAL12_full12_terminal_recovered_collection_20261019_1830.json.gz",
+      "original_terminal_scheduled_local": "2026-10-19T18:06:00+08:00",
+      "original_terminal_not_before_unchanged": true
     },
     {
       "id": "X-S-GATE",
@@ -3684,7 +3708,7 @@
       ],
       "contribution_relation": "探索潜在修正/分配证据，尚不支撑冻结主稿新贡献",
       "evidence_or_planned_scope": "四旧CAL D/A完整端点已有；z缺，六DEV本地身份冻结。",
-      "gap_and_next_action": "Own R2 lifecycle CPU is accepted. Wait for actual CAL12 full12 acceptance and frozen four-CAL gate; then original BANK24 scope/fresh UUID/v2, no DEV refit. X-R shares bank, no independent GPU.",
+      "gap_and_next_action": "Own accepted R2 CPU remains valid; BANK24 unsubmitted. Wait for original CAL12 connection recovery, full12 artifact/finance acceptance and frozen four-CAL gate. No repeated CPU or DEV refit.",
       "priority": "探索P2·共享银行",
       "evidence_refs": [
         "scouts_594",
@@ -3783,7 +3807,12 @@
         "scout_CAL12_full12_GPU_launch",
         "scout_CAL12_full12_original_admission",
         "scout_CAL12_full12_independent_admission",
-        "scout_CAL12_two_once_checks"
+        "scout_CAL12_two_once_checks",
+        "scout_CAL12_terminal_connection_unknown_606",
+        "scout_CAL12_terminal_connection_unknown_original",
+        "scout_CAL12_terminal_own_FRPC_diagnostic",
+        "scout_CAL12_terminal_connection_boundary_acceptance",
+        "scout_CAL12_once_connection_recovery_schedule"
       ],
       "method_mapping_ids": [],
       "contribution_ids": [],
@@ -3827,7 +3856,7 @@
       ],
       "contribution_relation": "探索潜在修正/分配证据，尚不支撑冻结主稿新贡献",
       "evidence_or_planned_scope": "单状态方向/边缘分解已算，无跨输入端点排序证据。",
-      "gap_and_next_action": "Own R2 lifecycle CPU is accepted. Wait for actual CAL12 full12 acceptance and frozen four-CAL gate; then original BANK24 scope/fresh UUID/v2, no DEV refit. X-R shares bank, no independent GPU.",
+      "gap_and_next_action": "Own accepted R2 CPU remains valid; BANK24 unsubmitted. Wait for original CAL12 connection recovery, full12 artifact/finance acceptance and frozen four-CAL gate. No repeated CPU or DEV refit.",
       "priority": "探索P3·零额外GPU",
       "evidence_refs": [
         "scouts_594",
@@ -3926,7 +3955,12 @@
         "scout_CAL12_full12_GPU_launch",
         "scout_CAL12_full12_original_admission",
         "scout_CAL12_full12_independent_admission",
-        "scout_CAL12_two_once_checks"
+        "scout_CAL12_two_once_checks",
+        "scout_CAL12_terminal_connection_unknown_606",
+        "scout_CAL12_terminal_connection_unknown_original",
+        "scout_CAL12_terminal_own_FRPC_diagnostic",
+        "scout_CAL12_terminal_connection_boundary_acceptance",
+        "scout_CAL12_once_connection_recovery_schedule"
       ],
       "method_mapping_ids": [],
       "contribution_ids": [],
@@ -4925,7 +4959,12 @@
     "scout_CAL12_two_once_checks": "reports/wc_scout_CAL12_full12_two_once_collection_automations_20261019.json",
     "scout_CAL12_full12_midpoint_health": "reports/wc_scout_CAL12_full12_midpoint_health_20261019.json.gz",
     "scout_CAL12_full12_midpoint_technical_accepted": "reports/wc_scout_CAL12_full12_midpoint_independent_technical_acceptance_20261019.json",
-    "scout_CAL12_midpoint_closed_final_retained": "reports/wc_scout_CAL12_midpoint_automation_closed_final_retained_20261019.json"
+    "scout_CAL12_midpoint_closed_final_retained": "reports/wc_scout_CAL12_midpoint_automation_closed_final_retained_20261019.json",
+    "scout_CAL12_terminal_connection_unknown_606": "research/606_WC_CAL12_TERMINAL_COLLECTION_CONNECTION_UNKNOWN_AND_ONCE_RECOVERY_20261019.md",
+    "scout_CAL12_terminal_connection_unknown_original": "reports/wc_scout_CAL12_full12_terminal_collection_20261019.json.gz",
+    "scout_CAL12_terminal_own_FRPC_diagnostic": "reports/wc_scout_CAL12_terminal_connection_unknown_local_FRPC_readonly_20261019.json",
+    "scout_CAL12_terminal_connection_boundary_acceptance": "reports/wc_scout_CAL12_terminal_connection_unknown_independent_assessment_20261019.json",
+    "scout_CAL12_once_connection_recovery_schedule": "reports/wc_scout_CAL12_connection_recovery_once_schedule_20261019.json"
   },
   "source_bindings": {
     "11": {
@@ -8606,8 +8645,8 @@
     },
     "scout_GPU_ready_continuation_runbook": {
       "path": "plans/WC_SCOUT_GPU_READY_CONTINUATION_20261019.md",
-      "sha256": "6a0420673e4877bbe78f76a9ef04afcb0ae1c4269d10c75e94613307c75b5260",
-      "bytes": 8483
+      "sha256": "d4299145172f6bca613c90715159b20704b3e80992c79c8abd2b3662d0bf70d3",
+      "bytes": 9292
     },
     "scout_R2_accepted_resource_continuation": {
       "path": "reports/wc_scout_R2_CPU_accepted_ready_resource_continuation_20261019.json",
@@ -8773,8 +8812,8 @@
     },
     "scout_CAL12_running_report_605": {
       "path": "research/605_WC_CAL12_FULL12_SINGLE_GPU_ADMISSION_AND_TWO_ONCE_COLLECTIONS_20261019.md",
-      "sha256": "f0359064d040eec1b01efcbbc40fc9d3bafc69a8b20a70ac6f7af09b17aa26c4",
-      "bytes": 6710
+      "sha256": "8f37816ca61f6463766b79fc2fbda781b5689b8be471b9c61af2c9c380dba538",
+      "bytes": 7193
     },
     "scout_CAL12_fresh_preflight": {
       "path": "reports/wc_scout_CAL12_fresh_preflight_20261019.json",
@@ -8815,11 +8854,36 @@
       "path": "reports/wc_scout_CAL12_midpoint_automation_closed_final_retained_20261019.json",
       "sha256": "fad034d3313ceeaaf96c07e399dfeba5b4bd3d9094706d3fd239f126c44ede7c",
       "bytes": 653
+    },
+    "scout_CAL12_terminal_connection_unknown_606": {
+      "path": "research/606_WC_CAL12_TERMINAL_COLLECTION_CONNECTION_UNKNOWN_AND_ONCE_RECOVERY_20261019.md",
+      "sha256": "d47895a7182f6c807ca5781f490e2faf8194febbe2527f522b7f423b3b36f181",
+      "bytes": 3104
+    },
+    "scout_CAL12_terminal_connection_unknown_original": {
+      "path": "reports/wc_scout_CAL12_full12_terminal_collection_20261019.json.gz",
+      "sha256": "cb5a383b3764b0c52a6054a6bf1d7d91a58fd4424af9065e829e8ace41f722d3",
+      "bytes": 1512
+    },
+    "scout_CAL12_terminal_own_FRPC_diagnostic": {
+      "path": "reports/wc_scout_CAL12_terminal_connection_unknown_local_FRPC_readonly_20261019.json",
+      "sha256": "d791facea022cc7d93a56cbdd8a1822c841fec7a4520b584e6adf7c12c3d61ad",
+      "bytes": 1075
+    },
+    "scout_CAL12_terminal_connection_boundary_acceptance": {
+      "path": "reports/wc_scout_CAL12_terminal_connection_unknown_independent_assessment_20261019.json",
+      "sha256": "c522de295c644b84befa2edbdb09c67dae455418a253b5abfe1291e0a77ff951",
+      "bytes": 1424
+    },
+    "scout_CAL12_once_connection_recovery_schedule": {
+      "path": "reports/wc_scout_CAL12_connection_recovery_once_schedule_20261019.json",
+      "sha256": "dd11429c26ad39e3f5a2fbefadd5b934a009c1134b915b5bc053bba81c744927",
+      "bytes": 626
     }
   },
   "operation_policy": {
     "current_running_card": "wc-drop1-correction-window-cal4-full24-r1",
-    "scheduled_collection_local": null,
+    "scheduled_collection_local": "2026-10-19T18:30:00+08:00",
     "no_continuous_monitoring": true,
     "new_GPU_jobs_started_by_this_inventory": 2,
     "automatic_single_complete_job_estimate_exclusive_GPUh_upper_bound": 12,
@@ -8857,7 +8921,7 @@
     "available_after_whole_reservations_GPUh": 107.97501560915154,
     "per_UUID_lock_protocol": "plans/WORLD_CACHE_DUAL_GPU_EXECUTION_20261015.md",
     "scheduled_collections_local": {
-      "ORIGINAL_TERMINAL_AND_ORDERED_CAL12": "2026-10-19T15:48:00+08:00"
+      "CAL12_ORIGINAL_ONCE_CONNECTION_RECOVERY": "2026-10-19T18:30:00+08:00"
     },
     "running_forecasts_GPUh": {
       "wc-drop1-correction-window-cal4-full24-r1": 3.0641666666666665
@@ -9673,8 +9737,21 @@
     "Window24_GPU_relaunches": 0,
     "Window24_midpoint_technical_accepted": true,
     "Window24_midpoint_automation_deleted": true,
-    "new_GPU_submissions_this_midpoint": 0
+    "new_GPU_submissions_this_midpoint": 0,
+    "CAL12_terminal_collection_latest": {
+      "status": "OBSERVATION_UNKNOWN_NOT_TASK_TERMINAL",
+      "original_scheduled_local": "2026-10-19T18:06:00+08:00",
+      "next_once_local": "2026-10-19T18:30:00+08:00",
+      "unknown_capture_ref": "reports/wc_scout_CAL12_full12_terminal_collection_20261019.json.gz",
+      "new_recovery_capture_ref": "reports/wc_scout_CAL12_full12_terminal_recovered_collection_20261019_1830.json.gz",
+      "independent_boundary_ref": "reports/wc_scout_CAL12_terminal_connection_unknown_independent_assessment_20261019.json",
+      "current_GPU_process_or_fee_verified": false,
+      "actual_GPUh": null,
+      "BANK24_submitted": false,
+      "new_GPU_submissions_this_collection": 0,
+      "original_task_or_FRPC_restarted": false
+    }
   },
   "mapping_sha256_at_inventory": "88b3d760a0c94c20b6c802e21f30c7286d6e596cc9b3f3100e7ee6feaa3938f3",
-  "latest_mapping_sha256": "cbc2e40ffdffa73b46be4550a47ac746a9835eb1b10fd952b7bbc733954e0c46"
+  "latest_mapping_sha256": "63f08556f9566f6f2e7e93e4e1f7c72a88cea085ee8b26229045d6048f14f29a"
 }

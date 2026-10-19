@@ -62,3 +62,8 @@ X-R共享银行，不另开GPU。观察器开销计费，不把单次诊断时�
 [独立技术接受](../reports/wc_scout_CAL12_full12_midpoint_independent_technical_acceptance_20261019.json)另核对原source／注册／实际CPU与授权绑定、完整12计数、原job及v2加法总数。实结115.83511083569408/cap226、整卡预留2.5、可准入107.66488916430592保持；本卡实际费用尚未知。没有读取质量、逐帧、张量或方法时间，不能将COMPLETE技术记录当作科学原件验收。
 
 [半程关闭与最终保留](../reports/wc_scout_CAL12_midpoint_automation_closed_final_retained_20261019.json)确认：本次worldcache-cal12自动化已删除，worldcache-cal12-bank24仍ACTIVE，原18:06时间／not-before／完整验收和BANK24接续保持。没有追加巡检、重新派发、修改原stage或提前开下一卡。
+
+
+## 18:06 terminal collection connection unknown
+
+[606 connection boundary](606_WC_CAL12_TERMINAL_COLLECTION_CONNECTION_UNKNOWN_AND_ONCE_RECOVERY_20261019.md) records the original unknown capture and own-local FRPC diagnostic. No scientific result or fresh fee/lease acceptance is available. Original handles/source/scope survive unchanged; one recovery collection is scheduled18:30 with a fresh output filename. BANK24 remains unsubmitted until full acceptance and fixed CAL gate.
