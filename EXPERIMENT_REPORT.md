@@ -1,3 +1,9 @@
+## 2026-10-19 论文关键问题讨论报告603
+
+[603供6pro讨论](research/603_WC_KEY_QUESTIONS_AND_INDEPENDENT_CONTRIBUTION_DISCUSSION_20261019.md)将已接受N07/N08/N09/N10/N12与H1、前密、后续实验责任并列：已有高保真工作点及同25D修正证据，关键补强是相对强简单布局的独立调度增量和修正替代D的真实质量—时间收益。N07时间使用各比较相同质量队列，另列N08重复时间；N10沿原维度和缺失，不合成总分。表格与来源SHA见reports/wc_6pro_key_issues_report_evidence_20261019.json。
+
+报告不改变实验队列。原Window24仍按15:48一次完整验收，之后CAL12→冻结四CAL gate→BANK24；本轮无SSH／新GPU／新质量分数。原24截至14:01技术状态不当终点，A3留空。以下状态继续有效。
+
 ## 2026-10-19 原Window24半程检查正常，15:48完整验收保持
 
 [602第5节](research/602_WC_WINDOW24_FULL24_SINGLE_GPU_ADMISSION_METADATA_RECOVERY_AND_COLLECTION_20261019.md)：14:01:37.432一次技术回执确认全部24中20完成／1运行／3未到达，原GPU／runner／CPU post身份一致、原UUID锁持有、错误标签空。未读科学partial，不判新A3质量或速度收益。半程自动化已删除，原15:48终态及其后原24完整接受→CAL12→四CAL gate→BANK24接续保持，无新GPU／CPU派发。实结114.024984391、整卡预留4、本卡实费未知。以下为历史。

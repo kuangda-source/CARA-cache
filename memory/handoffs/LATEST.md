@@ -1,3 +1,9 @@
+## 2026-10-19 关键问题与6pro讨论报告603已整理；原24仍15:48查收
+
+[603讨论报告](../../research/603_WC_KEY_QUESTIONS_AND_INDEPENDENT_CONTRIBUTION_DISCUSSION_20261019.md)集中整理N07同质量队列时间、N08重复计时、N09部署开销、N10自动质量及N12固定位置修正证据；表格从既有机器原件提取并保存来源SHA于reports/wc_6pro_key_issues_report_evidence_20261019.json。核心区分为“高保真工作点／修正终点作用已有证据”与“调度相对强前密的独立增量／修正承接D待验证”。新布局×C/A和独立确认是待讨论补充，不新增已执行卡。
+
+本轮只整理本地文档，未SSH、派CPU/GPU或读取原24科学partial。原24唯一launch-ref、14:01技术接受、15:48终态及完整接受后CAL12→四CAL gate→BANK24保持；A3结果仍空，原件／失败与预算历史不变。以下原接续继续有效。
+
 ## 2026-10-19 14:01原24半程正常；原15:48完整验收保持
 
 [602半程原件](../../research/602_WC_WINDOW24_FULL24_SINGLE_GPU_ADMISSION_METADATA_RECOVERY_AND_COLLECTION_20261019.md)与reports/wc_drop1_window24_full24_midpoint_health_20261019.json.gz：实际14:01:37.432一次检查，原24分母20完成／1运行／3未到达；原2639899／2640331／2641355的PID/start_ticks一致，原GPU0锁持有，错误标签空。独立技术接受wc_drop1_window24_full24_midpoint_independent_technical_acceptance_20261019.json；仅技术状态，不读取质量／逐帧／张量或方法时间，不判终态成功。
