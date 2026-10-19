@@ -1,6 +1,6 @@
 # 原24收尾后接新探索：已验CPU的直接执行入口
 
-**CAL12与BANK24生命周期R2 CPU均已独立接受；当前只等待原Window24完整接受及fresh资源准入。** 原R1打包失败完整保留，已验数值248＋10和c1c95ce0实际Cosmos入口CPU没有重复运行。当前没有新增视频、GPU运行或算法效果结果。
+**CAL12与BANK24生命周期R2 CPU均已独立接受；原Window24已在GPU0运行，当前等待其完整接受，再做新卡fresh资源准入。** 原R1打包失败完整保留，已验数值248＋10和c1c95ce0实际Cosmos入口CPU没有重复运行。CAL12／BANK24当前没有新增视频、GPU运行或算法效果结果。
 
 ## 固定证据
 
@@ -13,7 +13,7 @@ CPU证明的`GPU_dispatch_ready=true`表示工具前置条件就绪；上游接�
 
 ## 1. 原Window24保持第一位
 
-原source a350ea98／stage wc-drop1-window24-production-cpu-r1-20261018与已验五命令CPU不改；四CAL×四臂16正式＋8完整预热／864pairs／一次加载，预测3.064166667／上限4。原05:03资源检查于05:05:41.861实际查收，两卡仍有其他compute任务，原stage与输出均无派发标记；由`worldcache-gpu`下一次10-19 07:06检查处理，最早unix1792364741.8611987，不提前SSH查GPU。实际后续时点以LATEST与原资源回执为准。
+原source a350ea98／stage wc-drop1-window24-production-cpu-r1-20261018与已验五命令CPU不改；四CAL×四臂16正式＋8完整预热／864pairs／一次加载，预测3.064166667／上限4。原07:06心跳延后，实际12:25:39两GPU空闲，原24于12:28:22.733在GPU0单次准入；启动回执身份断言异常已按原句柄恢复并仅补原CPU post，GPU重派0，详见[602](../research/602_WC_WINDOW24_FULL24_SINGLE_GPU_ADMISSION_METADATA_RECOVERY_AND_COLLECTION_20261019.md)。唯一收件launch-ref为reports/wc_drop1_window24_full24_recovered_GPU_launch_20261019.json，14:01技术半程／15:48完整验收已创建；两小时资源巡检已删除，不提前查看partial。实际后续时点以LATEST与原启动回执为准。
 
 原24启动后必须按实际launch安排一次半程和ETA查收。终态只捕获原任务一次，离线`analyze_wc_drop1_window24_r1.py`；完整原件、全部适用93帧、旧12端点、36guided／前21步控制及实际墙钟费用接受后，才执行下一节。原24自身失败／拒绝／缺失保留，不能借其他scope通过或缩样本。
 

@@ -1,3 +1,11 @@
+## 2026-10-19 原Window24完整24已单次准入；14:01半程／15:48完整验收
+
+先读[602实际准入与回执恢复](../../research/602_WC_WINDOW24_FULL24_SINGLE_GPU_ADMISSION_METADATA_RECOVERY_AND_COLLECTION_20261019.md)。原07:06资源心跳延后，实际12:25:39两GPU空闲；source a350ea98／原stage完整24于12:28:22.733在GPU0准入，supervisor2639899/start567894598、runner2640331/start567900634。原启动器Popen后即时command断言失败，原unknown回执保留；一次只读核对确认原GPU已运行，未重派。独立工具仅恢复原启动回执并补原CPU post2641355/start567912775，原算法／注册源／配置不改，原数值／生产CPU不重跑。
+
+唯一收件launch-ref reports/wc_drop1_window24_full24_recovered_GPU_launch_20261019.json；原launch_id edae5828-637b-4823-b686-2ba0f8741a7c。一次admission与independent_admission_acceptance已接受原身份／24范围／UUID锁／4预留。v2实结114.02498439084846／cap226，预留4、可准入107.97501560915154，实际本卡费用待原账单，origin历史不变。
+
+worldcache-window24安排14:01技术半程（最早unix1792389618.7336438），worldcache-window24-cal12安排15:48完整收件（最早unix1792396033.7336438），两次均已实际创建并核对。使用capture_wc_drop1_window24_r1.py --mode halfway/terminal，终态保存后仅离线analyze。原worldcache-gpu两小时资源巡检已删除，不再重复观察；新长卡资源受阻再恢复。当前无新A3保真／速度结论。原24全部适用原件／费用接受后依ready手册直接CAL12→四CAL冻结gate→BANK24，X-R共享；两卡R2 CPU已验不重跑。原N10全960不重查，F/B关闭。以下为历史。
+
 ## 2026-10-19 05:05两GPU占用未变，原24未派发；下一07:06
 
 原05:03资源心跳05:05:10送达，实际05:05:41.861仅一次fresh只读检查。原件reports/wc_window24_fresh_resource_and_single_dispatch_preflight_20261019_0503.json，独立核对wc_window24_resource_slot_0503_independent_busy_acceptance_20261019.json。显存仍29357／28988MiB、利用率均100%、compute PID2280686／2282147；自身两锁free，仍无空闲UUID。原Window24全部fence／launch／admission_failure和输出仍不存在，未尝试派发，0本项目GPU任务／0预留／0新费用。v2实结114.02498439084846／cap226，余111.97501560915154，origin和历史不变。

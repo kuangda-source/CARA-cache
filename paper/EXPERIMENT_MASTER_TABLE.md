@@ -1,3 +1,9 @@
+## 2026-10-19 连续修正完整24路径已运行，新增科学结论仍待验收
+
+[602实际准入](../research/602_WC_WINDOW24_FULL24_SINGLE_GPU_ADMISSION_METADATA_RECOVERY_AND_COLLECTION_20261019.md)：原Window24／source a350ea98、16正式＋8预热／864pairs已于12:28:22.733在GPU0单次准入；原启动回执身份异常已恢复，保留旧unknown，原GPU重派0、原算法和CPU证明不改。14:01技术半程、15:48完整验收已实际安排，两小时资源巡检已删除。4GPUh仅为整卡预留，本卡实际费用与A3新增保真／速度结果均待原终态验收。
+
+N12原完整18已验结果保持；其连续修正24后续卡现在运行。X-A／X-S-CURV／X-S-GATE／X-R仍是已验CPU、等待原24完整接受的独立探索，尚无新GPU／视频结果，不并入主稿。原24完整接受后按[就绪CLI](../plans/WC_SCOUT_GPU_READY_CONTINUATION_20261019.md)接CAL12→四CAL冻结gate→BANK24，原N10不重查。以下为历史。
+
 ## 2026-10-19 探索生产CPU已全部就绪，科学结果保持待执行
 
 [601实际CPU接受](../research/601_WC_SCOUT_LIFECYCLE_R1_PACKAGE_FAILURE_AND_R2_ISOLATED_REPAIR_20261018.md)：CAL12／BANK24 source2bd41dc8，每卡全部1789源/runtime和两命令接受，原数值／实际Cosmos入口CPU直接复用；原R1失败保留。GPU_dispatch_ready=true仅表示工具前置条件就绪，原24上游／fresh资源／实际GPU准入仍需完成。X-A／X-S-CURV／X-S-GATE／X-R仍是独立探索，新增结果与GPU费用0，不支撑新增论文贡献。

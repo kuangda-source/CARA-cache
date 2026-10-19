@@ -1,3 +1,9 @@
+## 2026-10-19 原Window24完整24已准入，等待14:01／15:48两次查收
+
+[602实际运行与回执恢复](research/602_WC_WINDOW24_FULL24_SINGLE_GPU_ADMISSION_METADATA_RECOVERY_AND_COLLECTION_20261019.md)：原source a350ea98／四CAL四臂16正式＋8预热／864pairs于12:28:22.733在GPU0单次准入。原启动回执即时进程身份校验失败，已沿原launch_id／原句柄恢复并仅补缺失CPU post；GPU重派0、原注册算法源和配置不改，旧unknown保留，不重跑已验CPU。唯一实际launch-ref为wc_drop1_window24_full24_recovered_GPU_launch_20261019.json，原supervisor2639899、runner2640331、post2641355及锁／4整卡预留均独立接受。
+
+预测3.064166667／上限4GPUh；实结114.024984391／cap226、预留4、可准入107.975015609，本卡实际费用仍未知。已创建14:01技术半程／15:48完整验收，删除两小时资源巡检，不持续监听。新A3保真和速度结果留空，全部原件与实际费用接受后按ready手册CAL12→四CAL gate→BANK24，X-R共享；探索CPU无需重跑，原N10不重查，F/B关闭。以下为历史。
+
 ## 2026-10-19 两张新探索生命周期CPU完整接受，等待原24上游
 
 [601实际完整接受](research/601_WC_SCOUT_LIFECYCLE_R1_PACKAGE_FAILURE_AND_R2_ISOLATED_REPAIR_20261018.md)：source2bd41dc8、两卡各1789源/runtime、每卡20控制＋实际入口依赖两命令全0，CPU77.617048／65.231004秒。原R1打包失败保留；原数值248＋10与真实c1入口CPU直接复用，执行代码和报价不改。现在lifecycle_CPU_accepted／GPU_dispatch_ready=true，尚无新GPU或视频结果。

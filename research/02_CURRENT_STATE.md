@@ -1,3 +1,7 @@
+## 2026-10-19 当前：连续修正完整24已单次准入，新增科学结果待验
+
+[602原件与恢复](602_WC_WINDOW24_FULL24_SINGLE_GPU_ADMISSION_METADATA_RECOVERY_AND_COLLECTION_20261019.md)：原source a350ea98／完整24于12:28:22.733在GPU0准入，supervisor2639899、runner2640331、post2641355。原启动回执即时进程身份断言失败，原unknown保留，仅恢复原句柄和缺失CPU post，GPU不重派，原算法／CPU证明不改。唯一launch-ref reports/wc_drop1_window24_full24_recovered_GPU_launch_20261019.json，14:01技术半程／15:48完整验收已安排；两小时资源巡检已删除。v2实结114.024984391/cap226、预留4、可准入107.975015609，本卡实费和A3质量／速度仍待。原24接受后接已验CAL12→四CAL gate→BANK24，X-R共享，原N10不重查，F/B关闭。以下为历史。
+
 ## 2026-10-18 当前：N09 fresh R3完整40已在GPU0准入；14:48半程／17:23完整验收
 
 [590原任务与查收](590_WC_N09_FRESH_R3_SINGLE_GPU_DISPATCH_AND_TWO_COLLECTION_TIMES_20261018.md)：07:19两卡空闲；R3已于12:37:23单次派发，12:41:52原件及独立接受确认1787源／原CPU、supervisor1947245/start559314698、runner1947617/start559319208、post1947246/start559314707、GPU0锁及完整5预留。原source1de07673／stage wc-paper-n09-production-cpu-r3-20261018／完整40/10warm+30正式/1440pairs不变，forecast4.245833333／上限5；初始27秒pending回执保留，不重派。
