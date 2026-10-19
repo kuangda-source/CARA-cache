@@ -1,3 +1,9 @@
+## 2026-10-19 CAL12完整12已单次准入 两次查收已安排
+
+[605](../research/605_WC_CAL12_FULL12_SINGLE_GPU_ADMISSION_AND_TWO_ONCE_COLLECTIONS_20261019.md) **连续24已完整接受后，CAL12于2026年10月19日15:57:36.932单次派发，原supervisor、runner、CPU post、GPU0锁及2.5GPUh整卡预留已独立核对。16:54只作技术半程，18:06作完整原件验收。当前没有CAL12新增质量或速度结果。**
+
+Original Window24 complete24/all16 and actual1.810126445GPUh are accepted604; never recollect it. CAL12 source2bd41dc8, entryc1c95ce0, supervisor2729092/start569156045, runner2729134/start569156584, post2729096/start569156053; GPU0 admission and own CPU accepted. Only16:54 technical /18:06 terminal once; then frozen CAL gate -> BANK24. Pool actual115.835110836/cap226, reserve2.5, available107.664889164; reservation is not expense. Original Window24 automation deleted. Earlier entries are historical snapshots; no repeated CPU, N10 or F/B work.
+
 # 原24收尾后接新探索：已验CPU的直接执行入口
 
 **CAL12与BANK24生命周期R2 CPU均已独立接受；原Window24已在GPU0运行，当前等待其完整接受，再做新卡fresh资源准入。** 原R1打包失败完整保留，已验数值248＋10和c1c95ce0实际Cosmos入口CPU没有重复运行。CAL12／BANK24当前没有新增视频、GPU运行或算法效果结果。

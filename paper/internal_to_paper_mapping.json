@@ -2142,7 +2142,13 @@
     "window24_full24_terminal_accepted": "reports/wc_drop1_window24_full24_terminal_independent_acceptance_20261019.json",
     "window24_full24_complete_analysis": "reports/wc_drop1_window24_full24_complete_results_analysis_20261019.json",
     "window24_full24_results_604": "research/604_WC_WINDOW24_FULL24_ACCEPTED_CONTINUOUS_CORRECTION_RESULTS_AND_CAL12_NEXT_20261019.md",
-    "window24_full24_results_summarizer": "scripts/summarize_wc_window24_complete_results_20261019.py"
+    "window24_full24_results_summarizer": "scripts/summarize_wc_window24_complete_results_20261019.py",
+    "scout_CAL12_running_report_605": "research/605_WC_CAL12_FULL12_SINGLE_GPU_ADMISSION_AND_TWO_ONCE_COLLECTIONS_20261019.md",
+    "scout_CAL12_fresh_preflight": "reports/wc_scout_CAL12_fresh_preflight_20261019.json",
+    "scout_CAL12_full12_GPU_launch": "reports/wc_scout_CAL12_full12_GPU_launch_20261019.json",
+    "scout_CAL12_full12_original_admission": "reports/wc_scout_CAL12_full12_original_admission_20261019.json.gz",
+    "scout_CAL12_full12_independent_admission": "reports/wc_scout_CAL12_full12_independent_admission_acceptance_20261019.json",
+    "scout_CAL12_two_once_checks": "reports/wc_scout_CAL12_full12_two_once_collection_automations_20261019.json"
   },
   "evidence_batches": {
     "curve60": {
@@ -4754,6 +4760,43 @@
       "independent_new_input_confirmation": false,
       "stable_repeated_clean_speed_claim": false,
       "CAL12_dispatched": false
+    },
+    "scout_CAL12_actual_full12_GPU_running_605": {
+      "status": "CAL12_ORIGINAL_FULL12_ADMISSION_ACCEPTED_ENDPOINTS_PENDING",
+      "refs": {
+        "scout_CAL12_running_report_605": "research/605_WC_CAL12_FULL12_SINGLE_GPU_ADMISSION_AND_TWO_ONCE_COLLECTIONS_20261019.md",
+        "scout_CAL12_fresh_preflight": "reports/wc_scout_CAL12_fresh_preflight_20261019.json",
+        "scout_CAL12_full12_GPU_launch": "reports/wc_scout_CAL12_full12_GPU_launch_20261019.json",
+        "scout_CAL12_full12_original_admission": "reports/wc_scout_CAL12_full12_original_admission_20261019.json.gz",
+        "scout_CAL12_full12_independent_admission": "reports/wc_scout_CAL12_full12_independent_admission_acceptance_20261019.json",
+        "scout_CAL12_two_once_checks": "reports/wc_scout_CAL12_full12_two_once_collection_automations_20261019.json"
+      },
+      "scope_counts": {
+        "requests": 4,
+        "methods": 2,
+        "formal_paths": 8,
+        "full_warmup_paths": 4,
+        "total_paths": 12,
+        "loads": 1,
+        "new_teacher_pairs": 0,
+        "new_Native_formal": 0,
+        "ordinary_pairs": 432,
+        "ordinary_CFG_calls": 864
+      },
+      "source_revision": "2bd41dc8fa19f42353e03a7c78b7264b4b2695c6",
+      "entry_source_revision": "c1c95ce0c598fb7839b0b89f4a69bd45c8aef7c9",
+      "launch_id": "f3c235ac-1b69-45e5-81cc-4d1cdbd92b08",
+      "gpu_uuid": "GPU-de9a5370-cd87-0f1c-a48e-288888777dd3",
+      "supervisor_pid": 2729092,
+      "runner_pid": 2729134,
+      "post_pid": 2729096,
+      "actual_GPUh": null,
+      "new_quality_or_speed_result": false,
+      "forecast_GPUh": 1.8766666666666667,
+      "billed_limit_GPUh": 2.5,
+      "halfway_local": "2026-10-19T16:54:00+08:00",
+      "terminal_local": "2026-10-19T18:06:00+08:00",
+      "upstream_Window24_accepted": true
     }
   },
   "statistical_rules": {
@@ -4779,7 +4822,7 @@
     "strong_simple_schedule_repeat_timing_if_claimed",
     "new_holdout_after_new_method_freeze",
     "continuous_correction_window_and_new_input_confirmation",
-    "Exploratory X-A/X-S/X-R: numerical258 and both real entry CPUs accepted; GPU lifecycle and new endpoints pending; not mainline claims."
+    "Both scout lifecycle R2 CPUs accepted. CAL12 own complete12 is admitted, endpoints pending16:54/18:06 checks; BANK24 waits CAL12 acceptance and frozen four-CAL gate. No new scout scientific result or mainline merge."
   ],
   "file_bindings": {
     "configs/wc_clean_speed20_r1_20261012.json": {
@@ -6605,28 +6648,28 @@
       "bytes": 8960
     },
     "memory/handoffs/LATEST.md": {
-      "sha256": "b5fc02234932e65c03ac827f967b3028649d54a16dfcd580b9f91d6d085f632f",
-      "bytes": 718521
+      "sha256": "04de658bb914e1dc638c509a4b31b34fc469088c25e09a2986c9047a61d04807",
+      "bytes": 719509
     },
     "src/wcomr/runtime_profile40_acceptance_r1.py": {
       "sha256": "9d5de68477518880b2087a557b699a93ca73e8ab06a058e2c54059997af45116",
       "bytes": 17772
     },
     "research/09_NEXT_ACTIONS.md": {
-      "sha256": "f8769b097ae022e215e0132e80685751d5b45dcdea0abc778c945069fbd436af",
-      "bytes": 624676
+      "sha256": "4b2c2ee77fa84b53d5fce2f25284bc8c41e7bc7abbf997409874056cecbbc11f",
+      "bytes": 625649
     },
     "reports/wc_paper_N09_runtime40_collection_R1_fixture_failure_20261016.json": {
       "sha256": "1b03ddcd9982149e9fe2254c9770eb85b0f9b69e5f1f81958be66df55d1bb247",
       "bytes": 2169
     },
     "paper/EXPERIMENT_MASTER_TABLE.md": {
-      "sha256": "f2393b59a4bf19e12d58d2401202a9d47ab63d2421842b8963099058e86b5a31",
-      "bytes": 109997
+      "sha256": "8cdc774ff21d61d6688c9a25e06ca90c54abdbf27dd619dd2d91225e3189012d",
+      "bytes": 110982
     },
     "research/02_CURRENT_STATE.md": {
-      "sha256": "1a92390a1826d975eb20660312c357ec6dbe1f177ac4e34678d4215c06f94277",
-      "bytes": 597213
+      "sha256": "4a14b2e381b52c3b16d272f84d0fc0b9329f0721bd6e3b84ebe373f9c50268ec",
+      "bytes": 598186
     },
     "tests/test_runtime_profile40_capture_r1.py": {
       "sha256": "40cba26bb42f450c8afdd075ef9e594ebd92639fd0424d61e5e8583ba1b17491",
@@ -6653,16 +6696,16 @@
       "bytes": 81279
     },
     "EXPERIMENT_REPORT.md": {
-      "sha256": "29308ff72b2c6c7af4870592a441e4c155e57778afedc24b368afecca1a48c87",
-      "bytes": 668933
+      "sha256": "2e5f9d164a81c56c0f7a502450996e53eb9335d120704dd3f647c129859c2f34",
+      "bytes": 669915
     },
     "paper/INTERNAL_TO_PAPER_MAPPING.md": {
-      "sha256": "c5cce31304a73715585e215be43c0c2b3d2a5ff5f59f1e5cea4b5ba508c4a859",
-      "bytes": 102389
+      "sha256": "fd0eef7ffa393a60d2d0cf459612e3a3d7c84c7066f118e33c66ff5ed861cfd7",
+      "bytes": 103374
     },
     "AGENTS.md": {
-      "sha256": "af7369bcf4a6694f029c35429f5aab906a8cb164be9b773e04e69dd1a756e0d8",
-      "bytes": 600691
+      "sha256": "1b5a241ee19fa4b53b650498bf8152f7299bf321478911c84f4e0c59d8f1632f",
+      "bytes": 601673
     },
     "scripts/prepare_wc_paper_N09_action16_scope_r1.py": {
       "sha256": "29ebbd44644f2711c31027d69de4b4d2347e8514a808551665007ba89ac6a15e",
@@ -9105,8 +9148,8 @@
       "bytes": 650
     },
     "plans/WC_SCOUT_GPU_READY_CONTINUATION_20261019.md": {
-      "sha256": "80c59cc78e897a35f587be991465da7cd4ebe91daa8f13bc0078a31997c9834e",
-      "bytes": 7498
+      "sha256": "6a0420673e4877bbe78f76a9ef04afcb0ae1c4269d10c75e94613307c75b5260",
+      "bytes": 8483
     },
     "reports/wc_scout_BANK24_GPU_lifecycle_CPU_R2_independent_acceptance_20261019.json": {
       "sha256": "d5038e7e6fb1de7e6b5ea666ce0b0501e611176a0f5c9ba1773770b86503cdce",
@@ -9231,6 +9274,30 @@
     "scripts/summarize_wc_window24_complete_results_20261019.py": {
       "sha256": "aa2b27a113cb8a9957ec95848ac682dfed13ba8b97891a6bfcb3b685474bbf12",
       "bytes": 5674
+    },
+    "research/605_WC_CAL12_FULL12_SINGLE_GPU_ADMISSION_AND_TWO_ONCE_COLLECTIONS_20261019.md": {
+      "sha256": "6e4b913fce2feb7994910e1f4c96376c01051ef582d5c3a7a3823a546a35b3f9",
+      "bytes": 5524
+    },
+    "reports/wc_scout_CAL12_fresh_preflight_20261019.json": {
+      "sha256": "5400bb6b6e56e9c150af35486390cab29f1213a923845e1750d7ce8e5f5d004e",
+      "bytes": 24445
+    },
+    "reports/wc_scout_CAL12_full12_GPU_launch_20261019.json": {
+      "sha256": "2f61add0ac8cefadc573b73e48a2b9ae0ee38008abfe3eff00b9628aa9231403",
+      "bytes": 6860
+    },
+    "reports/wc_scout_CAL12_full12_original_admission_20261019.json.gz": {
+      "sha256": "ada6926411892c7b0f064e3ad4bcad468f14f35827aa0342ed94e633284d84ec",
+      "bytes": 7113
+    },
+    "reports/wc_scout_CAL12_full12_independent_admission_acceptance_20261019.json": {
+      "sha256": "5a4451df6c7c8a089d0a64269cc0c5c1a6e920e1088caaefd698705fafec69b3",
+      "bytes": 3822
+    },
+    "reports/wc_scout_CAL12_full12_two_once_collection_automations_20261019.json": {
+      "sha256": "357e8d8763854fbba1a5f37b90825f3d1b6a2651eda8457aee6995468731a6f5",
+      "bytes": 1219
     }
   },
   "math_notation": [

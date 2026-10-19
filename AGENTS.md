@@ -1,3 +1,9 @@
+## 2026-10-19 CAL12完整12已单次准入 两次查收已安排
+
+[605](research/605_WC_CAL12_FULL12_SINGLE_GPU_ADMISSION_AND_TWO_ONCE_COLLECTIONS_20261019.md) **连续24已完整接受后，CAL12于2026年10月19日15:57:36.932单次派发，原supervisor、runner、CPU post、GPU0锁及2.5GPUh整卡预留已独立核对。16:54只作技术半程，18:06作完整原件验收。当前没有CAL12新增质量或速度结果。**
+
+Original Window24 complete24/all16 and actual1.810126445GPUh are accepted604; never recollect it. CAL12 source2bd41dc8, entryc1c95ce0, supervisor2729092/start569156045, runner2729134/start569156584, post2729096/start569156053; GPU0 admission and own CPU accepted. Only16:54 technical /18:06 terminal once; then frozen CAL gate -> BANK24. Pool actual115.835110836/cap226, reserve2.5, available107.664889164; reservation is not expense. Original Window24 automation deleted. Earlier entries are historical snapshots; no repeated CPU, N10 or F/B work.
+
 ## 2026-10-19 当前：原Window24完整24已在GPU0准入；14:01／15:48各一次
 
 先读[602原准入与元数据恢复](research/602_WC_WINDOW24_FULL24_SINGLE_GPU_ADMISSION_METADATA_RECOVERY_AND_COLLECTION_20261019.md)和LATEST。原a350ea98／stage wc-drop1-window24-production-cpu-r1-20261018于12:28:22.733单次准入，supervisor2639899/start567894598、runner2640331/start567900634、post2641355/start567912775。启动器即时command断言失败，原GPU已运行，保留unknown；只恢复原回执／补一次原CPU post，GPU重派0、原部署代码不改。唯一launch-ref reports/wc_drop1_window24_full24_recovered_GPU_launch_20261019.json；完整24/864pairs/一加载/预测3.064166667/上限4不缩。14:01半程和15:48终态已创建，worldcache-gpu资源巡检已删除，不持续监听。v2实结114.024984391/cap226、预留4、可准入107.975015609，预留非实费。原24完整接受后按ready手册接已验CAL12→四CAL gate→BANK24，X-R共享；N10已验不重查，CPU不重跑，F/B关闭。以下为历史。
