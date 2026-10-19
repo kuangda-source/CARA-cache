@@ -60,3 +60,11 @@ BANK24自身R2生命周期CPU三件套已接受，不重跑CPU。迁移独立接
 19:12:36.075一次原件捕获确认原PID/start/source不变，RUNNING/HASH_DESTINATION_WAN，无错误。HF的199项/103普通文件、51,651,996,220逻辑字节已完成源/目标全SHA和兼容路径切换；原件记录的full_SHA256_tree_match=true。Wan尚未最终接受，不能宣告整项完成，也不能解除BANK24互斥。原19:12回执wc_user_storage_maintenance_terminal_20261019.json保留，不作为终态送accept。
 
 累计哈希150,150,987,601字节是两树源/目标之和；按已登记模型规模估计尚余约21.6GB目标哈希，另留原子路径切换和旧副本回收时间，改约19:25一次新查收（not-before1792409100）。只使用新wc_user_storage_maintenance_terminal_recheck_20261019_1925.json，原worker不改/不重派，不再次查询当前快照。独立重估原件wc_user_storage_maintenance_once_reestimate_20261019_1912.json。worldcache-cal12-bank24已实际更新为19:25；通过后接BANK24的授权、CPU/完整矩阵/冻结gate/预算保持。
+
+## 8. 19:25完整独立接受：系统盘实际减少153.928GiB
+
+19:25:35.543新原件确认worker已结束且维护锁释放，五动作全部完成，HF/Wan各自完整源/目标SHA通过；独立收件对四旧路径软链接、数据盘位置/同inode/可读、两私有清单摘要及全部目标元数据、受检运行文件指纹复核通过。126个模型普通文件全部完成复制校验；环境未重装，原项目模型别名保持。原19:12运行中快照不覆盖，私有逐文件清单不导出。
+
+正式接受为reports/wc_user_storage_maintenance_independent_acceptance_20261019.json，status=COMPLETED_STORAGE_MIGRATION_VERIFIED；home实占175,980,699,648→10,701,676,544字节，即163.8948→9.9667GiB，实际减少165,279,023,104字节/153.9281GiB。该时刻系统盘可用192.4265GiB、数据盘1260.1984GiB，为全文件系统容量快照，不全部归因于本次维护。原worker19:18:36.086完成，全wall约2506.956秒，0新GPU费用；本地维护互斥已由独立接受解除。
+
+19:26:40.496仅一次fresh资源查询发现两GPU被其他任务占满（PID2883539/2883540，48168/47822MiB，100%），自身锁free但无空闲卡。原BANK24 stage所有fence/launch/授权/log/输出不存在，未调用GPU派发器，0新GPU/预留。新资源自动化worldcache-bank24实际安排21:27，最早21:26:40.496；占用未变时按实际观测+2小时再约一次，禁止连续尝试。原worldcache-cal12-bank24本轮维护用途完成已删除。当前完整接续见608。

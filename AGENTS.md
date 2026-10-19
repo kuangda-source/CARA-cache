@@ -1,3 +1,7 @@
+## 2026-10-19 19:25存储维护完整接受；BANK24仅等待GPU，21:27再查
+
+[608完整接受与资源接续](research/608_WC_STORAGE_FULLY_ACCEPTED_BANK24_READY_BUT_GPU_BUSY_20261019.md)：FRP和五项存储维护已验收，HF/Wan全SHA及旧路径/运行文件指纹通过，home系统盘163.895→9.967GiB，实际减少153.928GiB。维护互斥解除。两GPU被其他任务满占，BANK24无fence/launch/输出，0新GPU费用；自身CPU、CAL12上游/gate均已验不重跑。资源worldcache-bank24下一21:27（最早21:26:40.496），之后按实际观察每两小时一次；原worldcache-cal12-bank24已完成删除。以下为历史。
+
 ## 2026-10-19 19:12 HF迁移已完成，Wan最后哈希；一次重估19:25
 
 原维护身份一致、无错误，HF已全SHA并切换兼容路径，Wan仍HASH_DESTINATION_WAN，尚未最终独立接受。原19:12快照保留，按剩余约21.6GB哈希及切换回收余量，只另约19:25一次新文件收件；不循环监听。BANK24仍受维护互斥，未派发。[607存储接续](research/607_WC_STORAGE_MAINTENANCE_FRPC_REPAIRED_CAL12_ACCEPTED_AND_MODEL_COPY_IN_PROGRESS_20261019.md)；以下为历史。

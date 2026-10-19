@@ -1,3 +1,7 @@
+## 2026-10-19 19:25存储维护完整接受；BANK24仅等待GPU，21:27再查
+
+[608完整接受与资源接续](../research/608_WC_STORAGE_FULLY_ACCEPTED_BANK24_READY_BUT_GPU_BUSY_20261019.md)：FRP和五项存储维护已验收，HF/Wan全SHA及旧路径/运行文件指纹通过，home系统盘163.895→9.967GiB，实际减少153.928GiB。维护互斥解除。两GPU被其他任务满占，BANK24无fence/launch/输出，0新GPU费用；自身CPU、CAL12上游/gate均已验不重跑。资源worldcache-bank24下一21:27（最早21:26:40.496），之后按实际观察每两小时一次；原worldcache-cal12-bank24已完成删除。以下为历史。
+
 ## 2026-10-19 18:46 FRP已修复，CAL12完整接受；HF/Wan迁移待19:12验收
 
 [607存储与实验接续](../research/607_WC_STORAGE_MAINTENANCE_FRPC_REPAIRED_CAL12_ACCEPTED_AND_MODEL_COPY_IN_PROGRESS_20261019.md)：本人原FRPC重连并保留gkd_minchen原入口，远端实验未重启。CAL12沿原launch恢复收件，全部12/8正式93帧/4warm及0.989912273GPUh已独立接受，原18:06 UNKNOWN保留；四CAL gate已冻结，探索未自动并入主稿。BANK24仍未派发，等待用户授权的存储迁移独立接受。
@@ -8,7 +12,7 @@
 |---|---|---|
 | X-A 连续修正 | 原Window24和CAL12完整原件/8正式93帧，四格材料齐备 | 开发结果归纳及独立DEV确认；不当最终未见测试 |
 | X-S-CURV 共享计划 | CAL12完整12与四旧CAL端点接受，实费与X-A共享仅计一次 | 跨输入独立确认/相对强简单布局的增量 |
-| X-S-GATE 单点门控 | 四CAL probe、mu/中位秩阈值已冻结；BANK24自身CPU已验 | 先完成HF/Wan迁移独立验收，再执行六DEV完整银行 |
+| X-S-GATE 单点门控 | 四CAL probe、mu/中位秩阈值已冻结；BANK24自身CPU已验 | HF/Wan已验收；等GPU空闲后执行六DEV完整银行 |
 | X-R 方向/边缘 | 原CPU分解保留，复用同一BANK24，无独立GPU | 银行后离线已登记方向分析；不把拟合当调度收益 |
 
 
