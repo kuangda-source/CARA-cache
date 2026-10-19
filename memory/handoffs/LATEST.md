@@ -1,3 +1,7 @@
+## 2026-10-19 19:12 HF迁移已完成，Wan最后哈希；一次重估19:25
+
+原维护身份一致、无错误，HF已全SHA并切换兼容路径，Wan仍HASH_DESTINATION_WAN，尚未最终独立接受。原19:12快照保留，按剩余约21.6GB哈希及切换回收余量，只另约19:25一次新文件收件；不循环监听。BANK24仍受维护互斥，未派发。[607存储接续](../../research/607_WC_STORAGE_MAINTENANCE_FRPC_REPAIRED_CAL12_ACCEPTED_AND_MODEL_COPY_IN_PROGRESS_20261019.md)；以下为历史。
+
 ## 2026-10-19 18:52存储迁移半程正常，19:12最终保持
 
 原维护PID/start/source一致，正在HF目标全文件SHA校验，累计哈希68,932,992,844字节包含源与目标，非唯一迁移容量。无错误、0新执行/GPU；BANK24维护互斥保持。半程已收一次并删除worldcache，worldcache-cal12-bank24的19:12完整独立验收不变。[607存储接续](../../research/607_WC_STORAGE_MAINTENANCE_FRPC_REPAIRED_CAL12_ACCEPTED_AND_MODEL_COPY_IN_PROGRESS_20261019.md)；以下为历史。

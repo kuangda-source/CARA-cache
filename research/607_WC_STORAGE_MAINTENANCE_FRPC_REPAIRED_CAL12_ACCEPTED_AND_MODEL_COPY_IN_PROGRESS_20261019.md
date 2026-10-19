@@ -54,3 +54,9 @@ BANK24自身R2生命周期CPU三件套已接受，不重跑CPU。迁移独立接
 ## 6. 18:52一次半程正常
 
 实际18:52:31.737仅一次技术读取，原PID2856956/start570111208及source一致，处于HASH_DESTINATION_HUGGINGFACE，累计已哈希68,932,992,844字节（包含源/目标，不能当唯一迁移容量或整体完成百分比），无错误。Nano删除及两缓存重建完成；HF/Wan尚未作最终独立验收，维护互斥保持。原件wc_user_storage_maintenance_midpoint_20261019.json及独立技术核对wc_user_storage_maintenance_midpoint_technical_acceptance_20261019.json已保存。半程worldcache已删除；唯一19:12最终worldcache-cal12-bank24保持，不新增检查或GPU。
+
+## 7. 19:12按时读取，HF已迁移；Wan最后哈希重估19:25
+
+19:12:36.075一次原件捕获确认原PID/start/source不变，RUNNING/HASH_DESTINATION_WAN，无错误。HF的199项/103普通文件、51,651,996,220逻辑字节已完成源/目标全SHA和兼容路径切换；原件记录的full_SHA256_tree_match=true。Wan尚未最终接受，不能宣告整项完成，也不能解除BANK24互斥。原19:12回执wc_user_storage_maintenance_terminal_20261019.json保留，不作为终态送accept。
+
+累计哈希150,150,987,601字节是两树源/目标之和；按已登记模型规模估计尚余约21.6GB目标哈希，另留原子路径切换和旧副本回收时间，改约19:25一次新查收（not-before1792409100）。只使用新wc_user_storage_maintenance_terminal_recheck_20261019_1925.json，原worker不改/不重派，不再次查询当前快照。独立重估原件wc_user_storage_maintenance_once_reestimate_20261019_1912.json。worldcache-cal12-bank24已实际更新为19:25；通过后接BANK24的授权、CPU/完整矩阵/冻结gate/预算保持。

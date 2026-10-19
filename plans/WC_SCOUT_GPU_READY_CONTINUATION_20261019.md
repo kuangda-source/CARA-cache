@@ -1,3 +1,7 @@
+## 2026-10-19 19:12 HF迁移已完成，Wan最后哈希；一次重估19:25
+
+原维护身份一致、无错误，HF已全SHA并切换兼容路径，Wan仍HASH_DESTINATION_WAN，尚未最终独立接受。原19:12快照保留，按剩余约21.6GB哈希及切换回收余量，只另约19:25一次新文件收件；不循环监听。BANK24仍受维护互斥，未派发。[607存储接续](../research/607_WC_STORAGE_MAINTENANCE_FRPC_REPAIRED_CAL12_ACCEPTED_AND_MODEL_COPY_IN_PROGRESS_20261019.md)；以下为历史。
+
 ## 2026-10-19 18:46 FRP已修复，CAL12完整接受；HF/Wan迁移待19:12验收
 
 [607存储与实验接续](../research/607_WC_STORAGE_MAINTENANCE_FRPC_REPAIRED_CAL12_ACCEPTED_AND_MODEL_COPY_IN_PROGRESS_20261019.md)：本人原FRPC重连并保留gkd_minchen原入口，远端实验未重启。CAL12沿原launch恢复收件，全部12/8正式93帧/4warm及0.989912273GPUh已独立接受，原18:06 UNKNOWN保留；四CAL gate已冻结，探索未自动并入主稿。BANK24仍未派发，等待用户授权的存储迁移独立接受。

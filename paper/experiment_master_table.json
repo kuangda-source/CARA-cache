@@ -5022,7 +5022,9 @@
     "scout_CAL12_full12_terminal_accepted_20261019": "reports/wc_scout_CAL12_full12_terminal_independent_acceptance_20261019.json",
     "scout_CAL12_frozen_gate_20261019": "reports/wc_scout_CAL12_fourCAL_frozen_gate_20261019.json",
     "storage_midpoint_20261019": "reports/wc_user_storage_maintenance_midpoint_20261019.json",
-    "storage_midpoint_technical_20261019": "reports/wc_user_storage_maintenance_midpoint_technical_acceptance_20261019.json"
+    "storage_midpoint_technical_20261019": "reports/wc_user_storage_maintenance_midpoint_technical_acceptance_20261019.json",
+    "storage_terminal_first_pending_20261019": "reports/wc_user_storage_maintenance_terminal_20261019.json",
+    "storage_once_reestimate_20261019": "reports/wc_user_storage_maintenance_once_reestimate_20261019_1912.json"
   },
   "source_bindings": {
     "11": {
@@ -8703,8 +8705,8 @@
     },
     "scout_GPU_ready_continuation_runbook": {
       "path": "plans/WC_SCOUT_GPU_READY_CONTINUATION_20261019.md",
-      "sha256": "3af198b821f8258903093b6a66901be74f602ea33132156544b66edc2e8f7d6d",
-      "bytes": 10327
+      "sha256": "534516ca4db0f1460a388b86e5d04c21050dc8534b5f54183abb994a4e5ac9d6",
+      "bytes": 10845
     },
     "scout_R2_accepted_resource_continuation": {
       "path": "reports/wc_scout_R2_CPU_accepted_ready_resource_continuation_20261019.json",
@@ -8940,8 +8942,8 @@
     },
     "storage_maintenance_607": {
       "path": "research/607_WC_STORAGE_MAINTENANCE_FRPC_REPAIRED_CAL12_ACCEPTED_AND_MODEL_COPY_IN_PROGRESS_20261019.md",
-      "sha256": "a8c0199a9b1253d92f9bc4165d8f76eaa166c9fc4105989b5d0e60a9dcc21942",
-      "bytes": 7504
+      "sha256": "f61b424e9c02fa7bcc2292209580f7a3c1f15cfbac5bde06554abab98b472e8d",
+      "bytes": 8582
     },
     "storage_maintenance_launch_20261019": {
       "path": "reports/wc_user_storage_maintenance_launch_20261019.json",
@@ -8987,6 +8989,16 @@
       "path": "reports/wc_user_storage_maintenance_midpoint_technical_acceptance_20261019.json",
       "sha256": "f5f29b1b9239941391dbc0aec396843968b864b5d37e8f280ad8a2de5621e586",
       "bytes": 704
+    },
+    "storage_terminal_first_pending_20261019": {
+      "path": "reports/wc_user_storage_maintenance_terminal_20261019.json",
+      "sha256": "e780dddeac7ceee9b08367caf2054bae26796e59f9c208ee9526676456eee3ab",
+      "bytes": 4422
+    },
+    "storage_once_reestimate_20261019": {
+      "path": "reports/wc_user_storage_maintenance_once_reestimate_20261019_1912.json",
+      "sha256": "e0ca6276a19c297524428714153a9e5851d1df13983117c0fd67e41968fce679",
+      "bytes": 816
     }
   },
   "operation_policy": {
@@ -9009,8 +9021,7 @@
     "available_after_whole_reservations_GPUh": 109.174976891229,
     "per_UUID_lock_protocol": "plans/WORLD_CACHE_DUAL_GPU_EXECUTION_20261015.md",
     "scheduled_collections_local": [
-      "2026-10-19T18:52:00+08:00",
-      "2026-10-19T19:12:00+08:00"
+      "2026-10-19T19:25:00+08:00"
     ],
     "running_forecasts_GPUh": {
       "wc-drop1-correction-window-cal4-full24-r1": 3.0641666666666665
@@ -9817,20 +9828,25 @@
       "original_unknown_preserved": true
     },
     "current_storage_maintenance": {
-      "status": "ACTIVE_STORAGE_WORKER_DISPATCHED",
+      "status": "RUNNING_HASH_DESTINATION_WAN",
       "launch_ref": "reports/wc_user_storage_maintenance_launch_20261019.json",
       "no_new_GPU_until_independent_acceptance": true,
       "midpoint_local": "2026-10-19T18:52:00+08:00",
-      "terminal_local": "2026-10-19T19:12:00+08:00",
+      "terminal_local": "2026-10-19T19:25:00+08:00",
       "new_GPU_submissions": 0,
       "halfway_technical_healthy": true,
       "halfway_capture_ref": "reports/wc_user_storage_maintenance_midpoint_20261019.json",
       "halfway_independent_technical_ref": "reports/wc_user_storage_maintenance_midpoint_technical_acceptance_20261019.json",
       "halfway_automation_deleted": true,
-      "last_technical_observation_unix": 1792407151.7370229
+      "last_technical_observation_unix": 1792408356.07472,
+      "first_terminal_pending_capture": "reports/wc_user_storage_maintenance_terminal_20261019.json",
+      "terminal_reestimate_ref": "reports/wc_user_storage_maintenance_once_reestimate_20261019_1912.json",
+      "HF_worker_copy_SHA_verified": true,
+      "Wan_full_acceptance_pending": true,
+      "terminal_not_before_unix": 1792409100
     },
     "current_GPU_job": null
   },
   "mapping_sha256_at_inventory": "88b3d760a0c94c20b6c802e21f30c7286d6e596cc9b3f3100e7ee6feaa3938f3",
-  "latest_mapping_sha256": "00cddf7d7486b7c4a80670764b0eb523f4062f2fb2c452acd6691747ecc278b5"
+  "latest_mapping_sha256": "7e4e8f1650f2f7fceeda3c3cd2d8483d20c557b0f26406711a23008b9993b52b"
 }
