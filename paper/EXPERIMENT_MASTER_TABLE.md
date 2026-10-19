@@ -1,3 +1,17 @@
+## 2026-10-19 18:46 FRP已修复，CAL12完整接受；HF/Wan迁移待19:12验收
+
+[607存储与实验接续](../research/607_WC_STORAGE_MAINTENANCE_FRPC_REPAIRED_CAL12_ACCEPTED_AND_MODEL_COPY_IN_PROGRESS_20261019.md)：本人原FRPC重连并保留gkd_minchen原入口，远端实验未重启。CAL12沿原launch恢复收件，全部12/8正式93帧/4warm及0.989912273GPUh已独立接受，原18:06 UNKNOWN保留；四CAL gate已冻结，探索未自动并入主稿。BANK24仍未派发，等待用户授权的存储迁移独立接受。
+
+本人Nano模型已删除，pip/uv缓存已在数据盘清空重建并保留原路径；HF/Wan约80GiB仍复制和全SHA校验，不能宣称全部迁移完成。唯一维护PID2856956/source b1d31ba2、0GPU；已约18:52技术半程/19:12终态各一次。旧路径原子交换兼容，维护marker未通过禁止新GPU。Wangshuai数据盘Nano全部索引必需文件可读，无权限改动。实际释放量待最终原件，详情及接续CLI见607和ready手册；以下为历史快照。
+
+| 当前探索 | 已接受证据 | 下一缺口 |
+|---|---|---|
+| X-A 连续修正 | 原Window24和CAL12完整原件/8正式93帧，四格材料齐备 | 开发结果归纳及独立DEV确认；不当最终未见测试 |
+| X-S-CURV 共享计划 | CAL12完整12与四旧CAL端点接受，实费与X-A共享仅计一次 | 跨输入独立确认/相对强简单布局的增量 |
+| X-S-GATE 单点门控 | 四CAL probe、mu/中位秩阈值已冻结；BANK24自身CPU已验 | 先完成HF/Wan迁移独立验收，再执行六DEV完整银行 |
+| X-R 方向/边缘 | 原CPU分解保留，复用同一BANK24，无独立GPU | 银行后离线已登记方向分析；不把拟合当调度收益 |
+
+
 ## 2026-10-19 18:06 CAL12 collection connection unknown; once18:30 recovery
 
 [606 connection boundary](../research/606_WC_CAL12_TERMINAL_COLLECTION_CONNECTION_UNKNOWN_AND_ONCE_RECOVERY_20261019.md) CAL12 original18:06 terminal collector failed before SSH key exchange. The saved receipt is OBSERVATION_UNKNOWN, not GPU/scientific failure or acceptance. Own local FRPC listener/control TCP remain present; local log reports remote visitor missing. No FRPC/server/GPU/post restart, no ledger/stage change or new submission. Preserve original unknown; same automation updated to once18:30, new recovered capture filename. Last verified16:54 was11 COMPLETE/1 RUNNING; current task/fee/lease unknown. BANK24 remains unsubmitted until full CAL12 acceptance and frozen gate. Earlier snapshots below are historical.

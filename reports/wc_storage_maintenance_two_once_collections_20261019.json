@@ -1,0 +1,27 @@
+{
+  "automations": [
+    {
+      "id": "worldcache",
+      "kind": "heartbeat",
+      "name": "WorldCache 存储迁移半程",
+      "status": "ACTIVE",
+      "rrule": "RRULE:FREQ=DAILY;COUNT=1;BYHOUR=18;BYMINUTE=52;BYSECOND=0",
+      "target_thread_id": "01a0f1eb-7894-7ed0-a186-d010111e14b1",
+      "scheduled_local": "2026-10-19T18:52:00+08:00",
+      "configuration_sha256": "dace8c8d6ea0d592b26f88b6dbfcb579ca57d13e84927cfdb2d0436a16ff6bf9"
+    },
+    {
+      "id": "worldcache-cal12-bank24",
+      "kind": "heartbeat",
+      "name": "WorldCache 存储验收并接BANK24",
+      "status": "ACTIVE",
+      "rrule": "RRULE:FREQ=DAILY;COUNT=1;BYHOUR=19;BYMINUTE=12;BYSECOND=0",
+      "target_thread_id": "01a0f1eb-7894-7ed0-a186-d010111e14b1",
+      "scheduled_local": "2026-10-19T19:12:00+08:00",
+      "configuration_sha256": "f5b0f1cf67667e2aae67fe9955597dd3d465e8b6ee29b86f003d8fc35f842201"
+    }
+  ],
+  "continuous_monitoring": false,
+  "storage_launch_ref": "reports/wc_user_storage_maintenance_launch_20261019.json",
+  "BANK24_requires_storage_independent_acceptance": true
+}
