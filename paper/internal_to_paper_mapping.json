@@ -2175,7 +2175,10 @@
     "storage_BANK24_ready_608": "research/608_WC_STORAGE_FULLY_ACCEPTED_BANK24_READY_BUT_GPU_BUSY_20261019.md",
     "storage_BANK24_resource_schedule_20261019": "reports/wc_storage_complete_BANK24_busy_ordered_continuation_20261019.json",
     "BANK24_resource_2127_20261019": "reports/wc_scout_BANK24_fresh_resource_20261019_2127.json",
-    "BANK24_resource_2127_busy_accepted_20261019": "reports/wc_scout_BANK24_resource_slot_2127_independent_busy_acceptance_20261019.json"
+    "BANK24_resource_2127_busy_accepted_20261019": "reports/wc_scout_BANK24_resource_slot_2127_independent_busy_acceptance_20261019.json",
+    "CAL12_independent_effects_analysis_609": "research/609_WC_CAL12_FULL_FACTORIAL_A_AND_SHARED_PLAN_INDEPENDENT_EFFECTS_20261019.md",
+    "CAL12_independent_effects_machine_20261019": "reports/wc_CAL12_independent_A_factorial_and_shared_plan_analysis_20261019.json",
+    "CAL12_independent_effects_script_20261019": "scripts/analyze_wc_cal12_independent_effects_20261019.py"
   },
   "evidence_batches": {
     "curve60": {
@@ -4892,6 +4895,23 @@
       "next_resource_check_local": "2026-10-19T23:28:00+08:00",
       "no_new_quality_or_speed_claim": true,
       "last_resource_busy_acceptance_ref": "reports/wc_scout_BANK24_resource_slot_2127_independent_busy_acceptance_20261019.json"
+    },
+    "CAL12_factorial_and_shared_plan_offline_609": {
+      "status": "ACCEPTED_CAL12_OFFLINE_FACTORIAL_AND_PLAN_ANALYSIS_COMPLETE",
+      "analysis_ref": "reports/wc_CAL12_independent_A_factorial_and_shared_plan_analysis_20261019.json",
+      "report_ref": "research/609_WC_CAL12_FULL_FACTORIAL_A_AND_SHARED_PLAN_INDEPENDENT_EFFECTS_20261019.md",
+      "CAL_prompt_denominator": 4,
+      "G01_vs_G00_LPIPS_change_percent": -23.680836259587203,
+      "G11_vs_G01_LPIPS_change_percent": -3.8688981654613985,
+      "mean_interaction": 0.004699897001026779,
+      "plan_vs_front_C_LPIPS_change_percent": -15.364305816603263,
+      "plan_vs_front_A_LPIPS_change_percent": -12.48276595101644,
+      "clean_latency_claim": false,
+      "online_H1_independent_advantage_proven": false,
+      "independent_final_test_claim": false,
+      "BANK24_schedule_changed": false,
+      "merged_into_mainline": false,
+      "new_GPU_submissions": 0
     }
   },
   "statistical_rules": {
@@ -6743,28 +6763,28 @@
       "bytes": 8960
     },
     "memory/handoffs/LATEST.md": {
-      "sha256": "855a275465211f945be99c18bf23c6bb9063a1c987a8eb3b51f3f6672eae9c6b",
-      "bytes": 724283
+      "sha256": "6e7b03748cda88b677a9c124f1aa6ac453591627c00d7086ee6259b82b2dc7c6",
+      "bytes": 724972
     },
     "src/wcomr/runtime_profile40_acceptance_r1.py": {
       "sha256": "9d5de68477518880b2087a557b699a93ca73e8ab06a058e2c54059997af45116",
       "bytes": 17772
     },
     "research/09_NEXT_ACTIONS.md": {
-      "sha256": "430b7611143c32f3d2de2000ce894db1d1a84acc79edad016133b249f2d71918",
-      "bytes": 629817
+      "sha256": "2aaf51e58adb511e940cf6ab042d72a27ded53f3dd8fca2bcb16ae11cd874d62",
+      "bytes": 630491
     },
     "reports/wc_paper_N09_runtime40_collection_R1_fixture_failure_20261016.json": {
       "sha256": "1b03ddcd9982149e9fe2254c9770eb85b0f9b69e5f1f81958be66df55d1bb247",
       "bytes": 2169
     },
     "paper/EXPERIMENT_MASTER_TABLE.md": {
-      "sha256": "06a5825d9a22ed25913db514d6efb38da0b241321b7b1afacd0ab70ee20467ac",
-      "bytes": 115382
+      "sha256": "2167ac7ecc6f258530bc9f6339cc786a884e9b5ee07ad1ebf8bb63553dd2b5b8",
+      "bytes": 116091
     },
     "research/02_CURRENT_STATE.md": {
-      "sha256": "b48b7ccac1c3a8a6d05dae70f0889028c2ca5c0b4f4cb07c27b7e2ba1afda09a",
-      "bytes": 602354
+      "sha256": "52503c41179e4e96427e7937981ee3e04b9193fff87c27b926beddd1b27bb7fe",
+      "bytes": 603028
     },
     "tests/test_runtime_profile40_capture_r1.py": {
       "sha256": "40cba26bb42f450c8afdd075ef9e594ebd92639fd0424d61e5e8583ba1b17491",
@@ -6791,16 +6811,16 @@
       "bytes": 81279
     },
     "EXPERIMENT_REPORT.md": {
-      "sha256": "59b4bfc0444c5752c1158f70c1ad2246b9187d989969045977360f9beee63b26",
-      "bytes": 674647
+      "sha256": "c0cf5ce020a24b646358504a1bac6f218d4be000d1409aaf9d66a3777cebd322",
+      "bytes": 675330
     },
     "paper/INTERNAL_TO_PAPER_MAPPING.md": {
-      "sha256": "b5e6e626ee7af7473f00eed501275e3d03e36c3a4c64d46275506d8bdc2ca8eb",
-      "bytes": 107096
+      "sha256": "860fab91e01d591177ee27cd051d785896eb0aa8a4488eed3566423fd3b862b8",
+      "bytes": 107782
     },
     "AGENTS.md": {
-      "sha256": "5c875de5108ad93e343e658ac0b519bdc6c1c675381d207cf3ebebfc52a7364e",
-      "bytes": 606405
+      "sha256": "17d7b7a29263a792252c1cfb4236ddd403585aa07c3cecf5c61aca7c0906fefc",
+      "bytes": 607088
     },
     "scripts/prepare_wc_paper_N09_action16_scope_r1.py": {
       "sha256": "29ebbd44644f2711c31027d69de4b4d2347e8514a808551665007ba89ac6a15e",
@@ -9501,6 +9521,18 @@
     "reports/wc_scout_BANK24_fresh_resource_20261019_2127.json": {
       "sha256": "138e1b49f44a4491be8899c46b483b9d2a7331859f9080ff5e3505cbfcc53485",
       "bytes": 28167
+    },
+    "reports/wc_CAL12_independent_A_factorial_and_shared_plan_analysis_20261019.json": {
+      "sha256": "cba2bdbb9cf4ecb1b53c52f7cda625342de38e365842e4f37d15abb45f3e47b3",
+      "bytes": 348705
+    },
+    "research/609_WC_CAL12_FULL_FACTORIAL_A_AND_SHARED_PLAN_INDEPENDENT_EFFECTS_20261019.md": {
+      "sha256": "f1a1c7e22ef063bc6b76c27531402162807077a0072e47fcca37bcc25e8e31bc",
+      "bytes": 8586
+    },
+    "scripts/analyze_wc_cal12_independent_effects_20261019.py": {
+      "sha256": "c8679d0a5e54b356d89308367fa352102086971ed80bcbec286a75f88d925343",
+      "bytes": 12234
     }
   },
   "math_notation": [

@@ -54,7 +54,8 @@
     "待补｜主张条件": 1,
     "暂缓/未执行｜旧卡": 1,
     "已完成｜完整18路径与12正式93帧接受，同25D修正改善，未补平26D保真": 1,
-    "EXPLORATORY_CAL12_FULL12_PROTOCOL_ACCEPTED_DEV_CONFIRMATION_PENDING": 2,
+    "EXPLORATORY_CAL12_A_FACTORIAL_GAIN_ON_CAL_PENDING_INDEPENDENT_CONFIRMATION": 1,
+    "EXPLORATORY_CAL12_SHARED26D_PLAN_GAIN_ON_CAL_PENDING_INDEPENDENT_CONFIRMATION": 1,
     "EXPLORATORY_BANK24_CPU_READY_CAL_GATE_FROZEN_STORAGE_ACCEPTED_WAITING_GPU": 2
   },
   "rows": [
@@ -3175,14 +3176,14 @@
     },
     {
       "id": "X-A",
-      "state": "EXPLORATORY_CAL12_FULL12_PROTOCOL_ACCEPTED_DEV_CONFIRMATION_PENDING",
+      "state": "EXPLORATORY_CAL12_A_FACTORIAL_GAIN_ON_CAL_PENDING_INDEPENDENT_CONFIRMATION",
       "paper_experiment_name": "Exploratory Continued Readout",
       "internal_ids": [
         "X-A"
       ],
       "contribution_relation": "探索潜在修正/分配证据，尚不支撑冻结主稿新贡献",
       "evidence_or_planned_scope": "AV28 step21五α真张量扫描；单状态α=1最佳。原连续24包含G11，G01缺。",
-      "gap_and_next_action": "CAL12完整12/8正式93帧及控制/财务已接受，四CAL探索不自动并入主稿。存储迁移已验收，BANK24等待GPU空闲后按已验范围继续；单次诊断时间不是clean速度。",
+      "gap_and_next_action": "同25D布局的A连续区间独立保真收益已复算，收益重叠；需独立输入及净额外成本确认。BANK24仅单点D/A门控，不替代A3确认；本轮不新增GPU。",
       "priority": "探索P1·复用原24",
       "evidence_refs": [
         "scouts_594",
@@ -3302,7 +3303,10 @@
         "reports/wc_user_storage_maintenance_independent_acceptance_20261019.json",
         "reports/wc_scout_BANK24_storage_accepted_fresh_resource_20261019_1926.json",
         "research/608_WC_STORAGE_FULLY_ACCEPTED_BANK24_READY_BUT_GPU_BUSY_20261019.md",
-        "reports/wc_storage_complete_BANK24_busy_ordered_continuation_20261019.json"
+        "reports/wc_storage_complete_BANK24_busy_ordered_continuation_20261019.json",
+        "research/609_WC_CAL12_FULL_FACTORIAL_A_AND_SHARED_PLAN_INDEPENDENT_EFFECTS_20261019.md",
+        "reports/wc_CAL12_independent_A_factorial_and_shared_plan_analysis_20261019.json",
+        "scripts/analyze_wc_cal12_independent_effects_20261019.py"
       ],
       "method_mapping_ids": [],
       "contribution_ids": [],
@@ -3450,18 +3454,23 @@
           "569156045"
         ]
       },
-      "current_GPU_job": null
+      "current_GPU_job": null,
+      "factorial_mean_interaction": 0.004699897001026779,
+      "G01_vs_G00_LPIPS_change_percent": -23.680836259587203,
+      "G11_vs_G01_LPIPS_change_percent": -3.8688981654613985,
+      "superadditive_synergy_observed": false,
+      "independent_final_test_claim": false
     },
     {
       "id": "X-S-CURV",
-      "state": "EXPLORATORY_CAL12_FULL12_PROTOCOL_ACCEPTED_DEV_CONFIRMATION_PENDING",
+      "state": "EXPLORATORY_CAL12_SHARED26D_PLAN_GAIN_ON_CAL_PENDING_INDEPENDENT_CONFIRMATION",
       "paper_experiment_name": "Exploratory Variation-Prior Shared Schedule",
       "internal_ids": [
         "X-S-CURV"
       ],
       "contribution_relation": "探索潜在修正/分配证据，尚不支撑冻结主稿新贡献",
       "evidence_or_planned_scope": "两旧CAL Native完整36速度；g²主候选−33/+22，合法26D。",
-      "gap_and_next_action": "CAL12完整12/8正式93帧及控制/财务已接受，四CAL探索不自动并入主稿。存储迁移已验收，BANK24等待GPU空闲后按已验范围继续；单次诊断时间不是clean速度。",
+      "gap_and_next_action": "同26D纯C的新共享计划已优于前密C及前密A；独立输入/其他预算/g²消融/部署成本仍待。BANK24不含VARIATION26，不可当其确认，不自动合入主稿。",
       "priority": "探索P2·单候选",
       "evidence_refs": [
         "scouts_594",
@@ -3581,7 +3590,10 @@
         "reports/wc_user_storage_maintenance_independent_acceptance_20261019.json",
         "reports/wc_scout_BANK24_storage_accepted_fresh_resource_20261019_1926.json",
         "research/608_WC_STORAGE_FULLY_ACCEPTED_BANK24_READY_BUT_GPU_BUSY_20261019.md",
-        "reports/wc_storage_complete_BANK24_busy_ordered_continuation_20261019.json"
+        "reports/wc_storage_complete_BANK24_busy_ordered_continuation_20261019.json",
+        "research/609_WC_CAL12_FULL_FACTORIAL_A_AND_SHARED_PLAN_INDEPENDENT_EFFECTS_20261019.md",
+        "reports/wc_CAL12_independent_A_factorial_and_shared_plan_analysis_20261019.json",
+        "scripts/analyze_wc_cal12_independent_effects_20261019.py"
       ],
       "method_mapping_ids": [],
       "contribution_ids": [],
@@ -3729,7 +3741,12 @@
           "569156045"
         ]
       },
-      "current_GPU_job": null
+      "current_GPU_job": null,
+      "plan_vs_front_C_LPIPS_change_percent": -15.364305816603263,
+      "plan_vs_front_A_LPIPS_change_percent": -12.48276595101644,
+      "all_four_prompts_improved": true,
+      "independent_final_test_claim": false,
+      "clean_latency_claim": false
     },
     {
       "id": "X-S-GATE",
@@ -5063,7 +5080,10 @@
     "storage_BANK24_ready_608": "research/608_WC_STORAGE_FULLY_ACCEPTED_BANK24_READY_BUT_GPU_BUSY_20261019.md",
     "storage_BANK24_resource_schedule_20261019": "reports/wc_storage_complete_BANK24_busy_ordered_continuation_20261019.json",
     "BANK24_resource_2127_20261019": "reports/wc_scout_BANK24_fresh_resource_20261019_2127.json",
-    "BANK24_resource_2127_busy_accepted_20261019": "reports/wc_scout_BANK24_resource_slot_2127_independent_busy_acceptance_20261019.json"
+    "BANK24_resource_2127_busy_accepted_20261019": "reports/wc_scout_BANK24_resource_slot_2127_independent_busy_acceptance_20261019.json",
+    "CAL12_independent_effects_analysis_609": "research/609_WC_CAL12_FULL_FACTORIAL_A_AND_SHARED_PLAN_INDEPENDENT_EFFECTS_20261019.md",
+    "CAL12_independent_effects_machine_20261019": "reports/wc_CAL12_independent_A_factorial_and_shared_plan_analysis_20261019.json",
+    "CAL12_independent_effects_script_20261019": "scripts/analyze_wc_cal12_independent_effects_20261019.py"
   },
   "source_bindings": {
     "11": {
@@ -9073,6 +9093,21 @@
       "path": "reports/wc_scout_BANK24_resource_slot_2127_independent_busy_acceptance_20261019.json",
       "sha256": "aa2c98fe149723242585eb2237c5655879730d2387c63da4664e7ecd8d282403",
       "bytes": 911
+    },
+    "CAL12_independent_effects_analysis_609": {
+      "path": "research/609_WC_CAL12_FULL_FACTORIAL_A_AND_SHARED_PLAN_INDEPENDENT_EFFECTS_20261019.md",
+      "sha256": "f1a1c7e22ef063bc6b76c27531402162807077a0072e47fcca37bcc25e8e31bc",
+      "bytes": 8586
+    },
+    "CAL12_independent_effects_machine_20261019": {
+      "path": "reports/wc_CAL12_independent_A_factorial_and_shared_plan_analysis_20261019.json",
+      "sha256": "cba2bdbb9cf4ecb1b53c52f7cda625342de38e365842e4f37d15abb45f3e47b3",
+      "bytes": 348705
+    },
+    "CAL12_independent_effects_script_20261019": {
+      "path": "scripts/analyze_wc_cal12_independent_effects_20261019.py",
+      "sha256": "c8679d0a5e54b356d89308367fa352102086971ed80bcbec286a75f88d925343",
+      "bytes": 12234
     }
   },
   "operation_policy": {
@@ -9929,8 +9964,13 @@
     "current_GPU_job": null,
     "storage_interlock_released": true,
     "BANK24_GPU_dispatched": false,
-    "last_resource_independent_acceptance_ref": "reports/wc_scout_BANK24_resource_slot_2127_independent_busy_acceptance_20261019.json"
+    "last_resource_independent_acceptance_ref": "reports/wc_scout_BANK24_resource_slot_2127_independent_busy_acceptance_20261019.json",
+    "latest_offline_component_analysis_ref": "reports/wc_CAL12_independent_A_factorial_and_shared_plan_analysis_20261019.json",
+    "latest_offline_component_report_ref": "research/609_WC_CAL12_FULL_FACTORIAL_A_AND_SHARED_PLAN_INDEPENDENT_EFFECTS_20261019.md",
+    "offline_analysis_GPU_submissions": 0,
+    "offline_analysis_SSH_calls": 0,
+    "BANK24_schedule_or_scope_changed_by_analysis": false
   },
   "mapping_sha256_at_inventory": "88b3d760a0c94c20b6c802e21f30c7286d6e596cc9b3f3100e7ee6feaa3938f3",
-  "latest_mapping_sha256": "cdb61e8bea0f80a883252c5783d26e713054170f73a19dcc2ab7f17dea8bbeed"
+  "latest_mapping_sha256": "f667883fb61e693168f2d6921e51de5097e67ef0c1656fb3e47aaba168ce79cb"
 }
