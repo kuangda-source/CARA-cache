@@ -1,3 +1,7 @@
+## 2026-10-19 18:52存储迁移半程正常，19:12最终保持
+
+原维护PID/start/source一致，正在HF目标全文件SHA校验，累计哈希68,932,992,844字节包含源与目标，非唯一迁移容量。无错误、0新执行/GPU；BANK24维护互斥保持。半程已收一次并删除worldcache，worldcache-cal12-bank24的19:12完整独立验收不变。[607存储接续](../../research/607_WC_STORAGE_MAINTENANCE_FRPC_REPAIRED_CAL12_ACCEPTED_AND_MODEL_COPY_IN_PROGRESS_20261019.md)；以下为历史。
+
 ## 2026-10-19 18:46 FRP已修复，CAL12完整接受；HF/Wan迁移待19:12验收
 
 [607存储与实验接续](../../research/607_WC_STORAGE_MAINTENANCE_FRPC_REPAIRED_CAL12_ACCEPTED_AND_MODEL_COPY_IN_PROGRESS_20261019.md)：本人原FRPC重连并保留gkd_minchen原入口，远端实验未重启。CAL12沿原launch恢复收件，全部12/8正式93帧/4warm及0.989912273GPUh已独立接受，原18:06 UNKNOWN保留；四CAL gate已冻结，探索未自动并入主稿。BANK24仍未派发，等待用户授权的存储迁移独立接受。

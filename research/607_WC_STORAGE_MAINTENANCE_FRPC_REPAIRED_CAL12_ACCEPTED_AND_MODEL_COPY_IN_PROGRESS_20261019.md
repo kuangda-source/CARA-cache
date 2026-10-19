@@ -50,3 +50,7 @@
 CAL12为四旧CAL探索，诊断秒数不当clean速度，不自动并入主稿。四CAL gate已保存`reports/wc_scout_CAL12_fourCAL_frozen_gate_20261019.json`；mu/中位秩阈值只来自CAL，较大z保留D，平局>=，DEV不拟合。
 
 BANK24自身R2生命周期CPU三件套已接受，不重跑CPU。迁移独立接受后，用CAL12上述真实capture/acceptance和gate、fresh v2/UUID按ready手册仅一次启动原完整24（18正式+6warm，六DEV与六Native，forecast3.407222222/上限4.5GPUh）。已有fence/未知派发仅恢复原句柄；资源busy则每两小时一次，禁止循环。累计cap226、origin79.99637737158223及历史不变，严格整卡<12直接执行；F/B关闭，无训练/人评/付费VLM/OMR。
+
+## 6. 18:52一次半程正常
+
+实际18:52:31.737仅一次技术读取，原PID2856956/start570111208及source一致，处于HASH_DESTINATION_HUGGINGFACE，累计已哈希68,932,992,844字节（包含源/目标，不能当唯一迁移容量或整体完成百分比），无错误。Nano删除及两缓存重建完成；HF/Wan尚未作最终独立验收，维护互斥保持。原件wc_user_storage_maintenance_midpoint_20261019.json及独立技术核对wc_user_storage_maintenance_midpoint_technical_acceptance_20261019.json已保存。半程worldcache已删除；唯一19:12最终worldcache-cal12-bank24保持，不新增检查或GPU。

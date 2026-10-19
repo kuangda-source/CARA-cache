@@ -5020,7 +5020,9 @@
     "wangshuai_Nano_access_20261019": "reports/wc_wangshuai_Nano_read_access_20261019.json",
     "scout_CAL12_full12_recovered_terminal_20261019": "reports/wc_scout_CAL12_full12_terminal_recovered_collection_20261019_1830.json.gz",
     "scout_CAL12_full12_terminal_accepted_20261019": "reports/wc_scout_CAL12_full12_terminal_independent_acceptance_20261019.json",
-    "scout_CAL12_frozen_gate_20261019": "reports/wc_scout_CAL12_fourCAL_frozen_gate_20261019.json"
+    "scout_CAL12_frozen_gate_20261019": "reports/wc_scout_CAL12_fourCAL_frozen_gate_20261019.json",
+    "storage_midpoint_20261019": "reports/wc_user_storage_maintenance_midpoint_20261019.json",
+    "storage_midpoint_technical_20261019": "reports/wc_user_storage_maintenance_midpoint_technical_acceptance_20261019.json"
   },
   "source_bindings": {
     "11": {
@@ -8938,8 +8940,8 @@
     },
     "storage_maintenance_607": {
       "path": "research/607_WC_STORAGE_MAINTENANCE_FRPC_REPAIRED_CAL12_ACCEPTED_AND_MODEL_COPY_IN_PROGRESS_20261019.md",
-      "sha256": "518e2f013d621ae265b8a5bf975c0c9d889eada5eec7578039d9e86b961ca790",
-      "bytes": 6865
+      "sha256": "a8c0199a9b1253d92f9bc4165d8f76eaa166c9fc4105989b5d0e60a9dcc21942",
+      "bytes": 7504
     },
     "storage_maintenance_launch_20261019": {
       "path": "reports/wc_user_storage_maintenance_launch_20261019.json",
@@ -8975,6 +8977,16 @@
       "path": "reports/wc_scout_CAL12_fourCAL_frozen_gate_20261019.json",
       "sha256": "2ee75db20b773f676823dc899b836569aa3e3f8f4dff70e429c54ba629eca9c0",
       "bytes": 883
+    },
+    "storage_midpoint_20261019": {
+      "path": "reports/wc_user_storage_maintenance_midpoint_20261019.json",
+      "sha256": "4a486f345b3e0b84f6eabde9bad88028399feb35b375fc26e95cebbb2b798501",
+      "bytes": 1152
+    },
+    "storage_midpoint_technical_20261019": {
+      "path": "reports/wc_user_storage_maintenance_midpoint_technical_acceptance_20261019.json",
+      "sha256": "f5f29b1b9239941391dbc0aec396843968b864b5d37e8f280ad8a2de5621e586",
+      "bytes": 704
     }
   },
   "operation_policy": {
@@ -9810,10 +9822,15 @@
       "no_new_GPU_until_independent_acceptance": true,
       "midpoint_local": "2026-10-19T18:52:00+08:00",
       "terminal_local": "2026-10-19T19:12:00+08:00",
-      "new_GPU_submissions": 0
+      "new_GPU_submissions": 0,
+      "halfway_technical_healthy": true,
+      "halfway_capture_ref": "reports/wc_user_storage_maintenance_midpoint_20261019.json",
+      "halfway_independent_technical_ref": "reports/wc_user_storage_maintenance_midpoint_technical_acceptance_20261019.json",
+      "halfway_automation_deleted": true,
+      "last_technical_observation_unix": 1792407151.7370229
     },
     "current_GPU_job": null
   },
   "mapping_sha256_at_inventory": "88b3d760a0c94c20b6c802e21f30c7286d6e596cc9b3f3100e7ee6feaa3938f3",
-  "latest_mapping_sha256": "fe92db5b67811c20e5037b08db66e886df6c11716978c7962c9854674d7d76c2"
+  "latest_mapping_sha256": "00cddf7d7486b7c4a80670764b0eb523f4062f2fb2c452acd6691747ecc278b5"
 }
