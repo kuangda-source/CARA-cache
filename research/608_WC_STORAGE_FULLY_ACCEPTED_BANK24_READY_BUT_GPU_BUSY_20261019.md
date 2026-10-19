@@ -47,3 +47,7 @@ source2bd41dc8fa19f42353e03a7c78b7264b4b2695c6；stage `.sync/wc-scout-bank24-gp
 ## 23:28资源占用未变，下一10月20日01:29
 
 实际23:28:49.481仅一次资源查询，两GPU仍由原PID2883539/2883540占满（48170/47824MiB、100%），自身锁free、BANK24所有派发标记和输出不存在，未启动GPU或重跑准备。原件wc_scout_BANK24_fresh_resource_20261019_2328.json和独立核对wc_scout_BANK24_resource_slot_2328_independent_busy_acceptance_20261019.json保存。原账重建实结116.825023108771/cap226、预留0余109.174976891229，费用不变。下一not-before1792430929.4810946（10月20日01:28:49.481），worldcache-bank24已约01:29一次；不循环监听，609本地科学分析及原BANK24冻结scope/gate保持。
+
+## 2026-10-20 01:30两GPU仍占用，BANK24未派发；下一03:31
+
+原01:29槽实际01:30:40.464仅一次轻量资源快照：两GPU仍占满48170/47824MiB、100%，其他任务PID更新为3015457/3015458；自身两锁free、原BANK24全部派发标记和输出不存在，0本项目GPU/预留/新费用。v2逐原任务重建实结116.825023108771/cap226，余109.174976891229；源/CPU/存储/CAL12/gate不重跑。下一最早03:30:40.464（unix1792438240.4636245），worldcache-bank24已更新03:31一次，忙卡不变安静、不循环。v6新32路径仍是待实际生产CPU的草案，本轮不抢开新GPU。 原件`reports/wc_scout_BANK24_fresh_resource_20261020_0129.json`、独立核对`reports/wc_scout_BANK24_resource_slot_0129_independent_busy_acceptance_20261020.json`。
