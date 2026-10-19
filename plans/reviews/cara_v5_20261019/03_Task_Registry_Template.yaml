@@ -1,0 +1,319 @@
+schema_version: 1
+plan_id: CARA-V5-REVIEW-CLOSURE-20261019
+status: PLANNING_TEMPLATE_NOT_REMOTE_STATE
+created_at_date: '2026-10-19'
+source_basis:
+- file: CARA_Cache_TCSVT_叙事重构_v5_20261019.pdf
+  sha256: e2ccc468988d9b8949b94708098ca7a12a621760f910b4a8a893f122038a1488
+  role: manuscript_evidence
+- file: CARA_Cache_v5_Strict_PreSubmission_Review_20261019.md
+  sha256: d7515481548fc75898655908f3391bc233e779debb1faac089f7726a59bf0032
+  role: review_issues
+- file: 02_Paper_Story_and_Claim_Map_V2.md
+  role: narrative_policy
+authority:
+  starts_remote_work: false
+  creates_gpu_allocation: false
+  uses_existing_original_conversation_authorizations: true
+  current_accounting_snapshot: null
+  current_whole_card_threshold_gpu_h: null
+  new_budget_approval_required_if_not_covered: true
+  may_split_to_evade_approval: false
+  keep_running_cards_unchanged: true
+  stopped_branches:
+  - F_spatial_frequency
+  - B_partial_block_expansion
+  deferred_cards:
+  - legacy_P_reference_full_13h
+principles:
+  do_not_require_each_component_independent_significance: true
+  no_teacher_or_future_labels_online: true
+  only_dense_writes_true_anchor_history: true
+  new_D_mask_recomputes_intervals: true
+  D_and_A_masks_disjoint: true
+  never_add_old_87pct_and_15pct_as_joint_gain: true
+  do_not_call_local_best_global_optimum: true
+  reuse_quality_not_unmatched_timing: true
+  proposal_is_not_experiment_result: true
+  technical_failure_is_not_scientific_rejection: true
+  report_all_prespecified_test_outcomes: true
+  per_card_scope_frozen_before_execution: true
+final_policy_contract:
+  variant_id: null
+  model_config_hash: null
+  implementation_hash: null
+  solver_grid_hash: null
+  task_mode: null
+  base_schedule_generator: null
+  dense_mask: null
+  readout_mask: null
+  alpha_rule: null
+  source_update_rule: null
+  support_and_protection_rule: null
+  diagnostic_invalid_action_behavior: null
+  deployment_fallback_behavior: null
+  budget_target_seconds: null
+  dense_quota_auxiliary: null
+  calibration_manifest: null
+  calibration_cost_gpu_h: null
+  frozen_at: null
+  main_claims: []
+data_protocol:
+  dataset_and_version: null
+  sampling_strata_and_rule: null
+  development_ids: []
+  all_previously_exposed_ids_manifest: null
+  test_ids_manifest: null
+  test_seeds: []
+  main_metric: mean_full_frame_LPIPS_to_matched_Native
+  unit_of_independence: prompt
+  aggregation_order:
+  - frame_to_video
+  - seeds_within_prompt
+  - equal_prompt_mean
+  main_pair_cohort: same_prompt_and_seeds_for_quality_and_time
+  secondary_common_cohort: true
+  refusals_technical_failures_missing_reference_separate: true
+  impute_missing_as_zero: false
+  replace_unfavorable_seed: false
+  tune_after_test_and_still_call_unseen: false
+tasks:
+- id: R0
+  importance: 1
+  title: 最新证据复用、算法身份与数据协议
+  state: PROPOSED_CHECK_LATEST_FIRST
+  depends_on: []
+  new_formal_positions_example: 0
+  new_positions_after_dedup: null
+  warmup_positions: null
+  whole_card_gpu_h_quote: null
+  authorization_reference: null
+  allowed_to_start_now: false
+  expected_artifacts:
+  - REV_EVIDENCE_REUSE_MAP.md
+  - METHOD_SPEC_V6.md
+  - DATA_PROTOCOL_V6.md
+  - paper_variant_map.yaml
+  notes:
+  - CPU/项目内准备可按既有权限进行
+  - 最新已接受证据可直接关闭问题
+  - 不可重复全套历史验收
+- id: R1
+  importance: 1
+  title: 区间候选有限开发与一般执行规则
+  state: PROPOSED_CHECK_LATEST_FIRST
+  depends_on:
+  - R0
+  new_formal_positions_example: 24
+  new_positions_after_dedup: null
+  warmup_positions: null
+  whole_card_gpu_h_quote: null
+  authorization_reference: null
+  allowed_to_start_now: false
+  expected_artifacts:
+  - frozen_policy_candidates.json
+  - algorithm_1.md
+  - dev_selection_report.md
+  notes:
+  - 两个预算每个最多三个新增候选
+  - G11/G01和强前密作为已知候选
+  - MovedD22会截断原21-23区间
+  - 最多一轮有依据的科学修订
+- id: R2-A
+  importance: 3
+  title: 同A次数的修正位置控制
+  state: PROPOSED_CHECK_LATEST_FIRST
+  depends_on:
+  - R0
+  new_formal_positions_example: 8
+  new_positions_after_dedup: null
+  warmup_positions: null
+  whole_card_gpu_h_quote: null
+  authorization_reference: null
+  allowed_to_start_now: false
+  expected_artifacts:
+  - single_A_position_results.json
+  - readout_position_ablation.md
+  notes:
+  - 固定D1-20/24/27/30/33/36
+  - 新增A22和A23，alpha均1
+  - G00/G10/G01/G11按身份复用
+- id: R2-N
+  importance: 3
+  title: 直接修正近邻接入与同掩码对照
+  state: PROPOSED_CHECK_LATEST_FIRST
+  depends_on:
+  - R0
+  new_formal_positions_example: 8
+  new_positions_after_dedup: null
+  warmup_positions: null
+  whole_card_gpu_h_quote: null
+  authorization_reference: null
+  allowed_to_start_now: false
+  expected_artifacts:
+  - NEIGHBOR_ADAPTATION_NOTE.md
+  - neighbor_matched_readout_results.json
+  notes:
+  - 先查RFC可忠实适配性
+  - 看结果前确定替代近邻
+  - 区分same-mask读出移植和完整原方法
+- id: R3
+  importance: 4
+  title: 两个预算的强基线开发与共同设计控制
+  state: PROPOSED_CHECK_LATEST_FIRST
+  depends_on:
+  - R0
+  new_formal_positions_example: 48
+  new_positions_after_dedup: null
+  warmup_positions: null
+  whole_card_gpu_h_quote: null
+  authorization_reference: null
+  allowed_to_start_now: false
+  expected_artifacts:
+  - dev_budget_grid_union.json
+  - baseline_calibration_manifest.json
+  - freeze_decision.md
+  notes:
+  - R1/R2-N只有部分同身份点可去重
+  - R2-A及失败/未选搜索点仍单列计费
+  - 固定候选以后不得用TEST选阈值
+  - R1/R2/R3工程可并行准备
+- id: R4-A
+  importance: 2
+  title: 最终区间算法的独立新主表
+  state: PROPOSED_CHECK_LATEST_FIRST
+  depends_on:
+  - R1
+  - R2-N
+  - R3
+  new_formal_positions_example: 168
+  new_positions_after_dedup: null
+  warmup_positions: null
+  whole_card_gpu_h_quote: null
+  authorization_reference: null
+  allowed_to_start_now: false
+  expected_artifacts:
+  - TEST_V6_FROZEN.json
+  - main_results_B1.json
+  - test_acceptance_summary.md
+  notes:
+  - 12prompt*2seed*7角色
+  - 算法和所有baseline先冻结
+  - 含Native/FrontC/FrontA/WC/RA/近邻/CARA
+  - 这是建议范围而非已批准任务
+- id: R4-B
+  importance: 4
+  title: 第二预算在预登记子集的确认
+  state: PROPOSED_CHECK_LATEST_FIRST
+  depends_on:
+  - R4-A
+  new_formal_positions_example: 72
+  new_positions_after_dedup: null
+  warmup_positions: null
+  whole_card_gpu_h_quote: null
+  authorization_reference: null
+  allowed_to_start_now: false
+  expected_artifacts:
+  - main_results_B2_subset.json
+  - paired_two_budget_frontier.md
+  notes:
+  - 6prompt*2seed*6非Native角色
+  - 子集和B2参数在看R4-A前确定
+  - B1和Native复用
+  - 不为配额审批人为拆总范围
+- id: R5-W
+  importance: 5
+  title: 另外两个合法区间的对照
+  state: PROPOSED_CHECK_LATEST_FIRST
+  depends_on:
+  - R1
+  new_formal_positions_example: 16
+  new_positions_after_dedup: null
+  warmup_positions: null
+  whole_card_gpu_h_quote: null
+  authorization_reference: null
+  allowed_to_start_now: false
+  expected_artifacts:
+  - cross_interval_results.json
+  - interval_scope.md
+  notes:
+  - 候选k20和k27需实际支持检查
+  - 每窗口C/连续GCR配对
+  - 不要求所有窗口有相同恢复率
+- id: R5-M
+  importance: 5
+  title: 第二设置或骨干上的核心迁移
+  state: PROPOSED_CHECK_LATEST_FIRST
+  depends_on:
+  - R1
+  - R3
+  new_formal_positions_example: 48
+  new_positions_after_dedup: null
+  warmup_positions: null
+  whole_card_gpu_h_quote: null
+  authorization_reference: null
+  allowed_to_start_now: false
+  expected_artifacts:
+  - transfer_calibration_manifest.json
+  - transfer_results.md
+  notes:
+  - 最小6prompt*2seed*4角色
+  - 重标定与零参数迁移分开
+  - 费用不套Cosmos均价
+  - 不强制14B或P/F/B全套移植
+- id: R6
+  importance: 6
+  title: 新方法重复计时、质量与最低部署成本
+  state: PROPOSED_CHECK_LATEST_FIRST
+  depends_on:
+  - R4-A
+  new_formal_positions_example: 30
+  new_positions_after_dedup: null
+  warmup_positions: null
+  whole_card_gpu_h_quote: null
+  authorization_reference: null
+  allowed_to_start_now: false
+  expected_artifacts:
+  - final_timing_repeats.json
+  - quality_dimensions_new_method.json
+  - deployment_cost.md
+  - qualitative_selection_manifest.json
+  notes:
+  - 两输入五角色三轮，另建议10预热
+  - 旧H1时间不能替新方法
+  - 质量评分复用R4视频，但评价推理仍计费
+  - 核查flickering N/A真实原因
+- id: R7
+  importance: 7
+  title: 正文、主图和主张证据同步
+  state: PROPOSED_CHECK_LATEST_FIRST
+  depends_on:
+  - R0
+  new_formal_positions_example: 0
+  new_positions_after_dedup: null
+  warmup_positions: null
+  whole_card_gpu_h_quote: null
+  authorization_reference: null
+  allowed_to_start_now: false
+  expected_artifacts:
+  - claim_registry.yaml
+  - v6_manuscript_changes.md
+  - final_review_closure_matrix.md
+  notes:
+  - 立即开始，不依赖所有GPU完成
+  - 使用V2积极且不失真叙事
+  - 投稿稿移除待办空表
+  - 图2先一般区间，再21-23例子
+accounting:
+  deduplicate_by_full_result_identity: true
+  dev_grid_does_not_include_all_ablation_and_losing_search_runs: true
+  quote_required_fields:
+  - load
+  - warmup
+  - formal_generation
+  - required_checks
+  - gpu_scoring
+  - reserve
+  total_current_budget_gpu_h: null
+  sum_estimates_as_approval: false
+  stated_counts_are_scenarios_not_accepted_outcomes: true

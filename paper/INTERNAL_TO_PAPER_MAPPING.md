@@ -1,3 +1,7 @@
+## 2026-10-20 v6论文身份与评审闭环
+
+[版本映射](../plans/cara_v6_20261020/paper_variant_map.yaml)区分旧A_NO_P／TABLE_PHASE_H1（Legacy-Efficient／Legacy-H1）、四CAL上的S25-A3／VARIATION26_C，以及尚未冻结的最终Interval B1/B2。原N07/N08/N10分别是旧版本保真、重复时间和自动质量，禁止跨身份填入新方法。新方法一般区间规则、同次数A22/A23、直接近邻与独立主表排期见[新方案](../plans/cara_v6_20261020/README.md)。原名称保留兼容，新增显示别名不重写历史结果。以下为原映射与证据。
+
 ## 2026-10-19 23:28两GPU仍占用，BANK24未派发；下一10月20日01:29
 
 [608资源接续](../research/608_WC_STORAGE_FULLY_ACCEPTED_BANK24_READY_BUT_GPU_BUSY_20261019.md)：按原时点一次查询，两卡仍由原其他PID2883539/2883540占满；自身锁free、原BANK24无fence/launch/输出，0新提交/预留/费用，CPU/存储/CAL12不重跑。v2按原账重建116.825023109/cap226，余109.174976891。下一10月20日01:29（最早01:28:49.481），无变化安静，不连续监听；609分析和BANK24冻结范围不改。以下为历史。

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_local_date": "2026-10-19",
+  "updated_local_date": "2026-10-20",
   "repository": "kuangda-source/worldcache-omr-experiments",
   "repository_absolute_path": "/Users/kuangda_gao/Documents/世界模型加速实验/worldcache_omr",
   "snapshot_git_commit_before_mapping": "4cb9fa2640b838dab0d1f913f4bb57e230b9edbd",
@@ -324,7 +324,9 @@
       "readout": "BETA1_ONE_PHASE",
       "partial_refresh_enabled": false,
       "not_same_lambda_family_as_high_fidelity": true,
-      "scope_note": " Efficient is an operating-point label; N07 vs RA_DEFAULT paired LPIPS +2.039%, not a universal Pareto advantage."
+      "scope_note": " Efficient is an operating-point label; N07 vs RA_DEFAULT paired LPIPS +2.039%, not a universal Pareto advantage.",
+      "publication_display_v6": "CARA-Cache Legacy-Efficient",
+      "final_interval_results_transferable": false
     },
     {
       "id": "config.high_fidelity",
@@ -367,7 +369,9 @@
         "A": 5,
         "C": 5
       },
-      "scope_note": " N07 confirms high reference fidelity; does not establish independent adaptive advantage over FRONT_DENSE_C/A."
+      "scope_note": " N07 confirms high reference fidelity; does not establish independent adaptive advantage over FRONT_DENSE_C/A.",
+      "publication_display_v6": "CARA-Cache Legacy-H1",
+      "final_interval_results_transferable": false
     },
     {
       "id": "ablation.fixed_a",
@@ -1450,6 +1454,46 @@
         "N12_saved_warm21_real_CPU_worker",
         "N12_saved_warm21_real_CPU_reader"
       ]
+    },
+    {
+      "id": "config.interval_candidate_B1",
+      "kind": "proposed_method_config",
+      "paper_name_en": "CARA-Cache Interval (B1, candidate)",
+      "paper_name_zh": "待冻结区间方法B1",
+      "internal_aliases": [],
+      "namespace": "CARA_V6_UNFROZEN",
+      "evidence_status": "NO_FROZEN_FINAL_CONFIG_NO_TEST_OR_SPEED_RESULTS",
+      "paper_role": "Independent new final method evidence required",
+      "implementation_paths": [
+        "src/wcomr/interval_policy_v6_r1.py"
+      ],
+      "evidence_ids": [
+        "CARA_v6_review_plan_610",
+        "CARA_v6_local_structural_CPU"
+      ],
+      "GPU_dispatch_ready": false,
+      "quality_results": null,
+      "speed_results": null
+    },
+    {
+      "id": "config.interval_candidate_B2",
+      "kind": "proposed_method_config",
+      "paper_name_en": "CARA-Cache Interval (B2, candidate)",
+      "paper_name_zh": "待冻结区间方法B2",
+      "internal_aliases": [],
+      "namespace": "CARA_V6_UNFROZEN",
+      "evidence_status": "NO_FROZEN_FINAL_CONFIG_NO_TEST_OR_SPEED_RESULTS",
+      "paper_role": "Independent new final method evidence required",
+      "implementation_paths": [
+        "src/wcomr/interval_policy_v6_r1.py"
+      ],
+      "evidence_ids": [
+        "CARA_v6_review_plan_610",
+        "CARA_v6_local_structural_CPU"
+      ],
+      "GPU_dispatch_ready": false,
+      "quality_results": null,
+      "speed_results": null
     }
   ],
   "experiment_configs": {
@@ -2180,7 +2224,18 @@
     "CAL12_independent_effects_machine_20261019": "reports/wc_CAL12_independent_A_factorial_and_shared_plan_analysis_20261019.json",
     "CAL12_independent_effects_script_20261019": "scripts/analyze_wc_cal12_independent_effects_20261019.py",
     "BANK24_resource_2328_20261019": "reports/wc_scout_BANK24_fresh_resource_20261019_2328.json",
-    "BANK24_resource_2328_busy_accepted_20261019": "reports/wc_scout_BANK24_resource_slot_2328_independent_busy_acceptance_20261019.json"
+    "BANK24_resource_2328_busy_accepted_20261019": "reports/wc_scout_BANK24_resource_slot_2328_independent_busy_acceptance_20261019.json",
+    "CARA_v6_review_plan_610": "research/610_WC_CARA_V6_REVIEW_CLOSURE_PLAN_INTERVAL_SPEC_AND_FIRST_DEV_SCOPE_20261020.md",
+    "CARA_v6_task_registry": "plans/cara_v6_20261020/TASK_REGISTRY_V6.json",
+    "CARA_v6_method_spec": "plans/cara_v6_20261020/METHOD_SPEC_V6.md",
+    "CARA_v6_first_dev_complete32_draft": "plans/cara_v6_20261020/FIRST_DEV_UNION32_DRAFT.json",
+    "CARA_v6_data_protocol": "plans/cara_v6_20261020/DATA_PROTOCOL_V6.md",
+    "CARA_v6_TEST_reserved_not_frozen": "plans/cara_v6_20261020/TEST_V6_RESERVATION_PROTOCOL.json",
+    "CARA_v6_variant_map": "plans/cara_v6_20261020/paper_variant_map.yaml",
+    "CARA_v6_reconciliation_receipt": "reports/wc_cara_v6_revision_package_and_current_evidence_reconciliation_20261020.json",
+    "CARA_v6_local_structural_CPU": "reports/wc_cara_v6_interval_compiler_local_CPU_controls_20261020.json",
+    "CARA_v6_design_integrity_independent_local": "reports/wc_cara_v6_design_scope_independent_local_acceptance_20261020.json",
+    "CARA_v6_design_integrity_validator": "scripts/validate_wc_cara_v6_design_20261020.py"
   },
   "evidence_batches": {
     "curve60": {
@@ -4914,6 +4969,27 @@
       "BANK24_schedule_changed": false,
       "merged_into_mainline": false,
       "new_GPU_submissions": 0
+    },
+    "CARA_V6_REVIEW_INTEGRATION_610": {
+      "status": "PLAN_AND_LOCAL_STRUCTURAL_CPU_ONLY",
+      "source_reports": [
+        "CARA_v6_review_plan_610",
+        "CARA_v6_task_registry",
+        "CARA_v6_method_spec",
+        "CARA_v6_first_dev_complete32_draft",
+        "CARA_v6_data_protocol",
+        "CARA_v6_TEST_reserved_not_frozen",
+        "CARA_v6_variant_map",
+        "CARA_v6_reconciliation_receipt",
+        "CARA_v6_local_structural_CPU"
+      ],
+      "production_CPU_accepted": false,
+      "new_GPU_submissions": 0,
+      "new_video_results": null,
+      "final_method_frozen": false,
+      "BANK24_modified": false,
+      "final_unseen_TEST_IDs_frozen": false,
+      "design_integrity_ref": "reports/wc_cara_v6_design_scope_independent_local_acceptance_20261020.json"
     }
   },
   "statistical_rules": {
@@ -6781,8 +6857,8 @@
       "bytes": 2169
     },
     "paper/EXPERIMENT_MASTER_TABLE.md": {
-      "sha256": "0901ef982391d7968126a0d9f29f633ee42dd0a377ba2425d3086af58d251f8a",
-      "bytes": 116652
+      "sha256": "56aa72a366861bd4bb611bbf2354aa5d0681b7d78950d68cf66bfa890b8ed275",
+      "bytes": 118869
     },
     "research/02_CURRENT_STATE.md": {
       "sha256": "486dae7067ae25573c091be67532fa31735af27756cddd9ff274c747142f4051",
@@ -6817,8 +6893,8 @@
       "bytes": 675888
     },
     "paper/INTERNAL_TO_PAPER_MAPPING.md": {
-      "sha256": "cee8cff6045a389a24116f2b5e4dc509dbac7f6e2822c900bfc9b51291644ac9",
-      "bytes": 108343
+      "sha256": "ab501d618bfbe6f53025ffcd7d9a89b3420bb6fa27e1f19ff19ca0588b251ba0",
+      "bytes": 108940
     },
     "AGENTS.md": {
       "sha256": "3203921430d404f6814831db9440a67c09f541102a921be397c21161736ddaa0",
@@ -9543,6 +9619,98 @@
     "reports/wc_scout_BANK24_resource_slot_2328_independent_busy_acceptance_20261019.json": {
       "sha256": "4ea67faf7457a98b708a192e8334d9e1e7ecc7a7fd393f1413f2cec9b60c37ee",
       "bytes": 917
+    },
+    "research/610_WC_CARA_V6_REVIEW_CLOSURE_PLAN_INTERVAL_SPEC_AND_FIRST_DEV_SCOPE_20261020.md": {
+      "sha256": "292e528d5c5122b230eef2e116d73cf938f7b44089ce89cc1c258f135ec585b8",
+      "bytes": 6391
+    },
+    "reports/wc_cara_v6_revision_package_and_current_evidence_reconciliation_20261020.json": {
+      "sha256": "63ff954a6e016f09e05eeb7983417bcad0937a1ece554971b5ef20c9e7694919",
+      "bytes": 4654
+    },
+    "reports/wc_cara_v6_interval_compiler_local_CPU_controls_20261020.json": {
+      "sha256": "96641f202f53d694a9385b37630b76e60741dd6dd61219f40995293cbac255ee",
+      "bytes": 16668
+    },
+    "src/wcomr/interval_policy_v6_r1.py": {
+      "sha256": "d5a5ab39e5ac01863b442731a9270b8e782e573a8025a692436520f607b90a81",
+      "bytes": 9006
+    },
+    "scripts/validate_wc_interval_policy_v6_r1.py": {
+      "sha256": "0156e14ebf90d8a530793ad7d1a8debf3b921d6a56daacbf1dde20bd276961ee",
+      "bytes": 4831
+    },
+    "scripts/prepare_wc_cara_v6_revision_plan_20261020.py": {
+      "sha256": "ff367bfb54d53115ab275bbb5f0efdec3c958a8be99fa8a4131087525deee5c1",
+      "bytes": 21528
+    },
+    "plans/cara_v6_20261020/TASK_REGISTRY_V6.yaml": {
+      "sha256": "e9a2126330974e2294e129f52483708464e2c96bbbd2d051e71c52c8810290f7",
+      "bytes": 9915
+    },
+    "plans/cara_v6_20261020/ALGORITHM_1.md": {
+      "sha256": "196459027bb16bb1fb64edfc3a8ec122c77606483a36960a2302c7fb16cf30e5",
+      "bytes": 1521
+    },
+    "plans/cara_v6_20261020/TEST_V6_RESERVATION_PROTOCOL.json": {
+      "sha256": "26e9f6cdcb2ff52114805336cab8d180246d7189fc2b047ec1f68d42e4b12505",
+      "bytes": 15825
+    },
+    "plans/cara_v6_20261020/TASK_REGISTRY_V6.json": {
+      "sha256": "e9a2126330974e2294e129f52483708464e2c96bbbd2d051e71c52c8810290f7",
+      "bytes": 9915
+    },
+    "plans/cara_v6_20261020/paper_variant_map.yaml": {
+      "sha256": "22491ccad35e8ef686528f19c594bca73e3bbc4964a1a515fdf54e0c0b141aab",
+      "bytes": 1672
+    },
+    "plans/cara_v6_20261020/DATA_PROTOCOL_V6.md": {
+      "sha256": "db3fed2bf206d61930c4c317b21aa4d2e6d22473166fc4acd2fe509017f41287",
+      "bytes": 2974
+    },
+    "plans/cara_v6_20261020/paper_variant_map.json": {
+      "sha256": "22491ccad35e8ef686528f19c594bca73e3bbc4964a1a515fdf54e0c0b141aab",
+      "bytes": 1672
+    },
+    "plans/cara_v6_20261020/NEIGHBOR_ADAPTATION_NOTE.md": {
+      "sha256": "8957c83a603b6942520d2bba57687e99d6e3e9d2935776f38aee189dec9f009a",
+      "bytes": 2243
+    },
+    "plans/cara_v6_20261020/README.md": {
+      "sha256": "b1dc19531c0dde038a1ef4699751da74740e472f7aaaebfd174b3c099cb5c517",
+      "bytes": 2815
+    },
+    "plans/cara_v6_20261020/PRIORITIZED_EXECUTION_PLAN.md": {
+      "sha256": "bf5cc70a0ac2a5e9bb534e27a05d914539f4219e06e16014d6a3c80aa911dd8c",
+      "bytes": 8611
+    },
+    "plans/cara_v6_20261020/METHOD_SPEC_V6.md": {
+      "sha256": "643c0bb91fcd087cdcd1e21d857693f97ef55a614359cdba2c0866b8b67a783d",
+      "bytes": 6843
+    },
+    "plans/cara_v6_20261020/FIRST_DEV_UNION32_DRAFT.json": {
+      "sha256": "814667fb2df5274f8715cadd4bf3cb15faf22391b506e965cb1c203fea318178",
+      "bytes": 29164
+    },
+    "plans/cara_v6_20261020/REVIEW_ISSUE_CLOSURE_MATRIX.md": {
+      "sha256": "03b8ffe1b076f0380bf2fb920e6310fbd7d277e718dca79c248369eff8068164",
+      "bytes": 2197
+    },
+    "plans/cara_v6_20261020/DEVELOPMENT_UNION_V6.json": {
+      "sha256": "6a7567252acc492ff5e7168d5449071d26e5b6c9bbfc9e07e3b718fdd2ec0ecb",
+      "bytes": 44170
+    },
+    "plans/cara_v6_20261020/REV_EVIDENCE_REUSE_MAP.md": {
+      "sha256": "94c9298e6d41e020f13d108263cc1c59d024302b39541459a9a1da9ebce893af",
+      "bytes": 2912
+    },
+    "scripts/validate_wc_cara_v6_design_20261020.py": {
+      "sha256": "1f13f27ab37da98a0c449ed4854d206059dd67a598eef55a50575ed7dd5eff5d",
+      "bytes": 7616
+    },
+    "reports/wc_cara_v6_design_scope_independent_local_acceptance_20261020.json": {
+      "sha256": "b4bb7e107ba8a5eb4bd682cc9a4d78fdfcb1eed0bb650dbf731c8be4fc65ad6b",
+      "bytes": 5232
     }
   },
   "math_notation": [
@@ -9898,6 +10066,20 @@
       "mapping_id": "ablation.drop1_front25_a",
       "config_sha256": "8c2a0d512f8ccc4f8a7a57a237949fcee56f4cb8dde9bfd94cd032369669b4ba",
       "requires_source_rule": false
+    },
+    "CARA_V6_UNFROZEN::B1": {
+      "mapping_id": "config.interval_candidate_B1",
+      "config_sha256": null,
+      "requires_source_rule": true,
+      "requires_variant_freeze": true,
+      "results_available": false
+    },
+    "CARA_V6_UNFROZEN::B2": {
+      "mapping_id": "config.interval_candidate_B2",
+      "config_sha256": null,
+      "requires_source_rule": true,
+      "requires_variant_freeze": true,
+      "results_available": false
     }
   },
   "report_shorthands": {
@@ -9995,5 +10177,21 @@
       "ref": "reports/wc_paper_N10_full960_terminal_independent_acceptance_20261018.json",
       "new_inputs": 0
     }
-  ]
+  ],
+  "revision_plan": {
+    "registry_ref": "plans/cara_v6_20261020/TASK_REGISTRY_V6.yaml",
+    "report_ref": "research/610_WC_CARA_V6_REVIEW_CLOSURE_PLAN_INTERVAL_SPEC_AND_FIRST_DEV_SCOPE_20261020.md",
+    "first_complete_card_draft": "plans/cara_v6_20261020/FIRST_DEV_UNION32_DRAFT.json",
+    "original_row_count": 37,
+    "added_revision_rows": 11,
+    "current_total_rows": 48,
+    "original_BANK24_plan_modified": false,
+    "new_GPU_submissions": 0,
+    "variant_map_ref": "plans/cara_v6_20261020/paper_variant_map.yaml"
+  },
+  "revision_contribution_targets": {
+    "C1": "区间CFG读出修正：四CAL正向；等次数位置、忠实直接近邻与独立新TEST仍需关闭。",
+    "C2": "共享刷新区间与预算校准：移位纯C的四CAL位置增量已验；完整联合方法、真实时间预算和独立确认待补，不追认旧H1在线增量。",
+    "C3": "最终版本自己的保真—时间、自动质量和部署证据；原N07/N08/N09/N10只归其旧配置身份。"
+  }
 }

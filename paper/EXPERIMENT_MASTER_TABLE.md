@@ -1,3 +1,23 @@
+## 2026-10-20 v6修订任务已并入总表（原37＋新增11＝48项）
+
+[完整执行方案](../plans/cara_v6_20261020/README.md)和[机器注册表](../plans/cara_v6_20261020/TASK_REGISTRY_V6.yaml)。原已验行与新修订行是证据/依赖关系，不能相加为独立实验样本。BANK24原队列不改；首张32路径只是草案，本地结构通过，实际生产CPU/GPU未执行。新最终方法不沿用旧H1时间/质量。
+
+| 任务 | 优先级 | 支撑贡献 | 完整设计范围 | 当前缺口 |
+|---|---|---|---|---|
+| REV-R0 | 1 | C1, C2, C3 | CPU/文档，0新增生成 | production entry/runtime/source validation；final B1/B2 and TEST IDs |
+| REV-R1 | 1 | C1, C2 | 12 formal（或设计上限） | 32-path draft production adapter/CPU；measured time budgets and selection guards |
+| REV-R2-A | 3 | C1 | 8 formal（或设计上限） | 32-path draft production adapter/CPU；8 new formal endpoints |
+| REV-R2-N | 3 | C1 | 8 formal（或设计上限） | faithful source/code audit；adaptation note/formula parity/whole quote/real CPU |
+| REV-R3 | 4 | C2, C3 | 48 formal（或设计上限） | exact new union count/whole quote；fair finite WC/RA tuning；final freeze |
+| REV-R4-A | 2 | C1, C2, C3 | 168 formal（或设计上限） | 12 unseen identities；specific complete quote/CPU/approval if >=12；168 formal plus warm/load/score |
+| REV-R4-B | 4 | C2, C3 | 72 formal（或设计上限） | subset before R4A outcomes；B2 variant frozen；complete cost and phase decision |
+| REV-R5-W | 5 | C1 | 16 formal（或设计上限） | actual protection/source-age legality；own quote/production CPU；16 endpoints if enabled |
+| REV-R5-M | 5 | C1, C2, C3 | 48 formal（或设计上限） | mature CFG backbone/setting and calibration；asset/runtime and complete quote/CPU |
+| REV-R6 | 6 | C3 | 30 formal（或设计上限） | 2 inputs x5 roles x3 balanced rounds plus10warm；exclusive GPU and paid full pipeline；reuse new TEST videos for five-model scores |
+| REV-R7 | 7 | C1, C2, C3 | CPU/文档，0新增生成 | fill only accepted final-method results；choose narrative from actual direct-neighbor/plan findings |
+
+以下为旧卡与原37项证据记录，实测值保持。
+
 ## 2026-10-19 23:28两GPU仍占用，BANK24未派发；下一10月20日01:29
 
 [608资源接续](../research/608_WC_STORAGE_FULLY_ACCEPTED_BANK24_READY_BUT_GPU_BUSY_20261019.md)：按原时点一次查询，两卡仍由原其他PID2883539/2883540占满；自身锁free、原BANK24无fence/launch/输出，0新提交/预留/费用，CPU/存储/CAL12不重跑。v2按原账重建116.825023109/cap226，余109.174976891。下一10月20日01:29（最早01:28:49.481），无变化安静，不连续监听；609分析和BANK24冻结范围不改。以下为历史。

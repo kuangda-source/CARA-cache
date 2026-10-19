@@ -1,0 +1,344 @@
+{
+  "status": "RESERVED_DESIGN_NOT_FROZEN_TEST_IDENTITIES",
+  "current_task_mode": "text2world",
+  "source_mode_is_video_conditioned": false,
+  "model": "Cosmos-Predict2.5-2B",
+  "solver_num_steps_argument": 35,
+  "actual_guided_updates": 36,
+  "dimensions": {
+    "frames": 93,
+    "resolution": "432,768",
+    "guidance_argument": 7
+  },
+  "primary_R4A": {
+    "prompts": 12,
+    "seeds_per_prompt": 2,
+    "roles": 7,
+    "formal_paths": 168,
+    "roles_order": [
+      "NATIVE35",
+      "FRONT_C",
+      "FRONT_A",
+      "TUNED_WC",
+      "TUNED_RA",
+      "FROZEN_NEIGHBOR",
+      "FROZEN_INTERVAL"
+    ],
+    "identities": null,
+    "seeds_proposed": [
+      17,
+      43
+    ],
+    "seeds_frozen": false
+  },
+  "conditional_R4B": {
+    "subset_prompts": 6,
+    "seeds_per_prompt": 2,
+    "non_Native_roles": 6,
+    "maximum_additional_formal_paths": 72,
+    "subset_selection": "Take first six of a strata-balanced hash order frozen before R4A generation/results",
+    "subset_identities": null,
+    "enabled": false
+  },
+  "maximum_joint_formal": 240,
+  "complete_GPUh_quote": null,
+  "complete_billed_limit_GPUh": null,
+  "launch_permission": "Only after full identity/CPU/quote and specific approval if >=12 GPUh; no threshold-evading split",
+  "freeze_requires": [
+    "Final method and direct neighbor frozen",
+    "B1/B2 measured-time definitions frozen",
+    "Baseline finite tuning frozen",
+    "All 12 input IDs and seed/noise hashes frozen",
+    "B2 subset fixed before B1 outcomes",
+    "Common primary cohort rule and failures frozen",
+    "Full warm/load/scoring/guard/diagnostic budget and physical scope frozen",
+    "Registered-output identity audit beyond this local declaration inventory"
+  ],
+  "local_declared_exposure_inventory": [
+    {
+      "canonical_name": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "prompt_text_sha256": "62f8a3f818e0a2996237961be80e30f714ebaaf7ee6d264002b14713c241a57c",
+      "refs": [
+        "configs/wc_block_velocity_suffix3_full312_production_r1_20261013.json",
+        "configs/wc_clean_speed20_r1_20261012.json",
+        "configs/wc_drop1_cal4_three_arm_full18_r1_20261017.json",
+        "configs/wc_drop1_correction_window_full24_production_r1_20261018.json",
+        "configs/wc_e1_diag8_production_r1_20261011.json",
+        "configs/wc_e1_diag8_production_r2_20261011.json",
+        "configs/wc_e3_complete64_production_r1_20261011.json",
+        "configs/wc_e4c_source_age_production_r1_20261011.json",
+        "configs/wc_e5_head_complete24_production_r1_20261011.json",
+        "configs/wc_fb_probe_r1_20261013.json",
+        "configs/wc_h1_cost_curve_full60_production_r1_20261013.json",
+        "configs/wc_math_n1_natural12_production_r1_20261012.json",
+        "configs/wc_math_n2_full36_production_r1_20261012.json",
+        "configs/wc_math_n2_full36_production_r2_20261012.json",
+        "configs/wc_p_acr_local12_profile528_production_r1_20261015.json",
+        "configs/wc_p_reference_same_state_production_r1_20261011.json",
+        "configs/wc_p_reference_same_state_production_r2_20261011.json",
+        "configs/wc_paper_N05_core66_production_r1_20261016.json",
+        "configs/wc_pi0_suffix8_full266_production_r1_20261013.json",
+        "configs/wc_scout_cal12_production_entry_r1_20261018.json",
+        "configs/wc_simple26d_full36_r1_20261015.json",
+        "configs/wc_simple26d_memory_full36_r2_20261015.json",
+        "configs/wc_source_phase16_full368_production_r1_20261012.json",
+        "configs/wc_source_phase_h1_full24_production_r1_20261013.json",
+        "configs/wc_supported_gate_full36_production_r1_20261012.json",
+        "configs/wc_teacher_first_velocity_full270_production_r1_20261013.json"
+      ]
+    },
+    {
+      "canonical_name": "human_199",
+      "prompt_text_sha256": "2a53149e7561b48e82f17a6849102542fe770437f6672b1a79383080fa7de35d",
+      "refs": [
+        "configs/wc_block_velocity_suffix3_full312_production_r1_20261013.json",
+        "configs/wc_clean_speed20_r1_20261012.json",
+        "configs/wc_drop1_cal4_three_arm_full18_r1_20261017.json",
+        "configs/wc_drop1_correction_window_full24_production_r1_20261018.json",
+        "configs/wc_e1_diag8_production_r1_20261011.json",
+        "configs/wc_e1_diag8_production_r2_20261011.json",
+        "configs/wc_e3_complete64_production_r1_20261011.json",
+        "configs/wc_e4c_source_age_production_r1_20261011.json",
+        "configs/wc_e5_head_complete24_production_r1_20261011.json",
+        "configs/wc_fb_probe_r1_20261013.json",
+        "configs/wc_h1_cost_curve_full60_production_r1_20261013.json",
+        "configs/wc_math_n1_natural12_production_r1_20261012.json",
+        "configs/wc_math_n2_full36_production_r1_20261012.json",
+        "configs/wc_math_n2_full36_production_r2_20261012.json",
+        "configs/wc_p_acr_local12_profile528_production_r1_20261015.json",
+        "configs/wc_p_reference_same_state_production_r1_20261011.json",
+        "configs/wc_p_reference_same_state_production_r2_20261011.json",
+        "configs/wc_paper_N05_core66_production_r1_20261016.json",
+        "configs/wc_pi0_suffix8_full266_production_r1_20261013.json",
+        "configs/wc_scout_cal12_production_entry_r1_20261018.json",
+        "configs/wc_simple26d_full36_r1_20261015.json",
+        "configs/wc_simple26d_memory_full36_r2_20261015.json",
+        "configs/wc_source_phase16_full368_production_r1_20261012.json",
+        "configs/wc_source_phase_h1_full24_production_r1_20261013.json",
+        "configs/wc_supported_gate_full36_production_r1_20261012.json",
+        "configs/wc_teacher_first_velocity_full270_production_r1_20261013.json"
+      ]
+    },
+    {
+      "canonical_name": "misc_13398218_3840_2160_60fps",
+      "prompt_text_sha256": "57e07508cd1ba4d3559737117d78f8e11fdf3355ef8ed8ceba152341a3bb910f",
+      "refs": [
+        "configs/wc_drop1_cal4_three_arm_full18_r1_20261017.json",
+        "configs/wc_drop1_correction_window_full24_production_r1_20261018.json",
+        "configs/wc_e3_complete64_production_r1_20261011.json",
+        "configs/wc_fb_probe_r1_20261013.json",
+        "configs/wc_h1_cost_curve_full60_production_r1_20261013.json",
+        "configs/wc_math_n1_natural12_production_r1_20261012.json",
+        "configs/wc_math_n2_full36_production_r1_20261012.json",
+        "configs/wc_math_n2_full36_production_r2_20261012.json",
+        "configs/wc_p_acr_local12_profile528_production_r1_20261015.json",
+        "configs/wc_paper_N05_core66_production_r1_20261016.json",
+        "configs/wc_pi0_suffix8_full266_production_r1_20261013.json",
+        "configs/wc_scout_cal12_production_entry_r1_20261018.json",
+        "configs/wc_simple26d_full36_r1_20261015.json",
+        "configs/wc_simple26d_memory_full36_r2_20261015.json",
+        "configs/wc_source_phase16_full368_production_r1_20261012.json",
+        "configs/wc_source_phase_h1_full24_production_r1_20261013.json",
+        "configs/wc_supported_gate_full36_production_r1_20261012.json",
+        "configs/wc_teacher_first_velocity_full270_production_r1_20261013.json"
+      ]
+    },
+    {
+      "canonical_name": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+      "prompt_text_sha256": "65a7a8c9ec9db9864d9e2e426af3e20b933a8ad0b28417dab26120addeebade9",
+      "refs": [
+        "configs/wc_drop1_cal4_three_arm_full18_r1_20261017.json",
+        "configs/wc_drop1_correction_window_full24_production_r1_20261018.json",
+        "configs/wc_e3_complete64_production_r1_20261011.json",
+        "configs/wc_fb_probe_r1_20261013.json",
+        "configs/wc_h1_cost_curve_full60_production_r1_20261013.json",
+        "configs/wc_math_n1_natural12_production_r1_20261012.json",
+        "configs/wc_math_n2_full36_production_r1_20261012.json",
+        "configs/wc_math_n2_full36_production_r2_20261012.json",
+        "configs/wc_p_acr_local12_profile528_production_r1_20261015.json",
+        "configs/wc_paper_N05_core66_production_r1_20261016.json",
+        "configs/wc_pi0_suffix8_full266_production_r1_20261013.json",
+        "configs/wc_scout_cal12_production_entry_r1_20261018.json",
+        "configs/wc_simple26d_full36_r1_20261015.json",
+        "configs/wc_simple26d_memory_full36_r2_20261015.json",
+        "configs/wc_source_phase16_full368_production_r1_20261012.json",
+        "configs/wc_source_phase_h1_full24_production_r1_20261013.json",
+        "configs/wc_supported_gate_full36_production_r1_20261012.json",
+        "configs/wc_teacher_first_velocity_full270_production_r1_20261013.json"
+      ]
+    },
+    {
+      "canonical_name": "av_5f567f79-4dd0-413d-a81a-2607684decf2",
+      "prompt_text_sha256": "22e788e261fd176e4f1c3ff2461d34facd964ce057e6c7369bfeef3ed8c71c0d",
+      "refs": [
+        "inputs/N07/av_5f567f79-4dd0-413d-a81a-2607684decf2.json"
+      ]
+    },
+    {
+      "canonical_name": "av_3f748a97-5a86-4311-a099-c2d1bd1e5fb1",
+      "prompt_text_sha256": "9f380cb9472327021f131caaa465a3cb458bb006d7e2edbd4e2be7b706d9574b",
+      "refs": [
+        "inputs/N07/av_3f748a97-5a86-4311-a099-c2d1bd1e5fb1.json"
+      ]
+    },
+    {
+      "canonical_name": "human_186",
+      "prompt_text_sha256": "0412782b0f2a33a38b0d85351d246fa4d2f90675ceaebc30bdb37bf1f0cf1c5d",
+      "refs": [
+        "inputs/N07/human_186.json"
+      ]
+    },
+    {
+      "canonical_name": "human_212",
+      "prompt_text_sha256": "3c5a1679f78f1e5028fc288a2dde5cc61dcc6dd1eae9460fe90e8198a139662a",
+      "refs": [
+        "inputs/N07/human_212.json"
+      ]
+    },
+    {
+      "canonical_name": "misc_4707906-uhd_3840_2160_30fps",
+      "prompt_text_sha256": "d066033f03053ee093daedbbb12852d2cd76715bfc2d59932489376a4fdae164",
+      "refs": [
+        "inputs/N07/misc_4707906-uhd_3840_2160_30fps.json"
+      ]
+    },
+    {
+      "canonical_name": "misc_4761738-uhd_4096_2160_25fps",
+      "prompt_text_sha256": "59534e744c8ca35d568a895b44c73f4a2104e1bbc3ed59530d165b09dc1caec1",
+      "refs": [
+        "inputs/N07/misc_4761738-uhd_4096_2160_25fps.json"
+      ]
+    },
+    {
+      "canonical_name": "robot_110",
+      "prompt_text_sha256": "d1571837df2c3c8dcc9e58072730ccad9f636666dfb0e9fc4ec1a135c2ee2320",
+      "refs": [
+        "inputs/N07/robot_110.json"
+      ]
+    },
+    {
+      "canonical_name": "robot_060",
+      "prompt_text_sha256": "3ade9c9e477ebc9cd9807c1cd1366bbfe30fbc52fb2b48bb2125aa15a9432e5b",
+      "refs": [
+        "inputs/N07/robot_060.json"
+      ]
+    },
+    {
+      "canonical_name": "av_9f986144-dec3-490d-8c44-aed3a2727413",
+      "prompt_text_sha256": "cbd42eb29a33f8703fe4f9e33dbeddd77d190a00b079fc6b8e7e096fd2f6513f",
+      "refs": [
+        "configs/wc_scout_bank24_production_entry_r1_20261018.json"
+      ]
+    },
+    {
+      "canonical_name": "av_4db72212-26c5-4265-a620-fdbe7b6dc3f7",
+      "prompt_text_sha256": "6555e17f1854d3e90783ece2f1cbb118e8387fc5873c2284837c75bbe107d315",
+      "refs": [
+        "configs/wc_scout_bank24_production_entry_r1_20261018.json"
+      ]
+    },
+    {
+      "canonical_name": "human_068",
+      "prompt_text_sha256": "a75d99aa6e7ed1159787c40b92bb6562305ddda8aeed29a3b9ac9f119eb42b3a",
+      "refs": [
+        "configs/wc_scout_bank24_production_entry_r1_20261018.json"
+      ]
+    },
+    {
+      "canonical_name": "human_124",
+      "prompt_text_sha256": "bfa73b5cda3653b34c9ac596fb6faa8c218f44114d71941dc727975f57a1ffd7",
+      "refs": [
+        "configs/wc_scout_bank24_production_entry_r1_20261018.json"
+      ]
+    },
+    {
+      "canonical_name": "misc_1200903-hd_1920_1080_30fps",
+      "prompt_text_sha256": "e1018bf87611303988305233c4ed3a1b1644c606fcc2da38020a88bc55b5bda0",
+      "refs": [
+        "configs/wc_scout_bank24_production_entry_r1_20261018.json"
+      ]
+    },
+    {
+      "canonical_name": "robot_149",
+      "prompt_text_sha256": "2df8efe64fcd3afed552a5de1c0aae4686ec4e370e5ae8ddae5d925684cf6c89",
+      "refs": [
+        "configs/wc_scout_bank24_production_entry_r1_20261018.json"
+      ]
+    },
+    {
+      "canonical_name": "av_46fe9718-b496-4c30-b1b6-8b02028dd336_SOURCECONF_seed17",
+      "prompt_text_sha256": "23006ea7241cb2288585652ff7e07f788f4b420f3c506d0b9c8aa6b4fd62edbd",
+      "refs": [
+        "configs/wc_source_conditional_confirmation_full50_production_r1_20261013.json",
+        "configs/wc_source_conditional_confirmation_full50_production_template_r1_20261013.json"
+      ]
+    },
+    {
+      "canonical_name": "human_125_SOURCECONF_seed17",
+      "prompt_text_sha256": "fa270fcb491f4f18e6669ee68ab740a1f303c8dbf3c612a413ddb6c9bc4e347d",
+      "refs": [
+        "configs/wc_source_conditional_confirmation_full50_production_r1_20261013.json",
+        "configs/wc_source_conditional_confirmation_full50_production_template_r1_20261013.json"
+      ]
+    },
+    {
+      "canonical_name": "misc_2711212-uhd_3840_2160_24fps_SOURCECONF_seed17",
+      "prompt_text_sha256": "bf7be0842c0b2919c07fc093854ceb984c806e8fa4f0910891c0e338de7953ba",
+      "refs": [
+        "configs/wc_source_conditional_confirmation_full50_production_r1_20261013.json",
+        "configs/wc_source_conditional_confirmation_full50_production_template_r1_20261013.json"
+      ]
+    },
+    {
+      "canonical_name": "robot_043_SOURCECONF_seed17",
+      "prompt_text_sha256": "c3cdd950d678db5e7dd2d12bd0f60b6d343908016f26192c692bb1deb9f033ec",
+      "refs": [
+        "configs/wc_source_conditional_confirmation_full50_production_r1_20261013.json",
+        "configs/wc_source_conditional_confirmation_full50_production_template_r1_20261013.json"
+      ]
+    },
+    {
+      "canonical_name": "av_46fe9718-b496-4c30-b1b6-8b02028dd336_SOURCECONF_seed43",
+      "prompt_text_sha256": "23006ea7241cb2288585652ff7e07f788f4b420f3c506d0b9c8aa6b4fd62edbd",
+      "refs": [
+        "configs/wc_source_conditional_confirmation_full50_production_r1_20261013.json",
+        "configs/wc_source_conditional_confirmation_full50_production_template_r1_20261013.json"
+      ]
+    },
+    {
+      "canonical_name": "human_125_SOURCECONF_seed43",
+      "prompt_text_sha256": "fa270fcb491f4f18e6669ee68ab740a1f303c8dbf3c612a413ddb6c9bc4e347d",
+      "refs": [
+        "configs/wc_source_conditional_confirmation_full50_production_r1_20261013.json",
+        "configs/wc_source_conditional_confirmation_full50_production_template_r1_20261013.json"
+      ]
+    },
+    {
+      "canonical_name": "misc_2711212-uhd_3840_2160_24fps_SOURCECONF_seed43",
+      "prompt_text_sha256": "bf7be0842c0b2919c07fc093854ceb984c806e8fa4f0910891c0e338de7953ba",
+      "refs": [
+        "configs/wc_source_conditional_confirmation_full50_production_r1_20261013.json",
+        "configs/wc_source_conditional_confirmation_full50_production_template_r1_20261013.json"
+      ]
+    },
+    {
+      "canonical_name": "robot_043_SOURCECONF_seed43",
+      "prompt_text_sha256": "c3cdd950d678db5e7dd2d12bd0f60b6d343908016f26192c692bb1deb9f033ec",
+      "refs": [
+        "configs/wc_source_conditional_confirmation_full50_production_r1_20261013.json",
+        "configs/wc_source_conditional_confirmation_full50_production_template_r1_20261013.json"
+      ]
+    }
+  ],
+  "exposure_inventory_basis": "All currently declared config requests/input_files including planned DEV; conservative exclusion, not global proof of no exposure",
+  "exclude_all_N07": true,
+  "exclude_all_CAL_and_EXPL_DEV": true,
+  "exclude_BANK24_DEV6": true,
+  "aggregation": "93 frames -> video; two seeds -> prompt; prompts equal weight; paired prompt bootstrap4096",
+  "failure_policy": "Retain text/video rejection, technical failure, missing Native and N/A. No replacement, zero-fill or seed cherry-picking.",
+  "primary_common_cohort_rule": "For a declared contrast include complete dual-seed prompts common to all roles in that contrast; report full12 and retained denominator; do not choose comparison membership after outcomes",
+  "narrower_pairwise_secondary_only": true,
+  "quality_results": null,
+  "speed_results": null,
+  "new_GPU_submissions": 0
+}
