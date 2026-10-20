@@ -1,3 +1,7 @@
+## 2026-10-21 01:37四卡独立CPU修复已启动，半程正常，01:44完整查收
+
+[618实际修复](618_WC_FOUR_CARD_ENVIRONMENT_EXTENSION_RELAY_AND_ISOLATED_CPU_REPAIR_20261021.md)：官方四wheel已在四卡逐SHA核对，GitHub source32062b18的独立修复于01:37:25.700单次启动PID330428/start930290906，worker97c7af2e/manifest9574f4a5。原env-r2/R1 job及项目c9a2f95b保持；新env-r3仍在复制已验基础。实际01:40:46.765半程源/句柄一致、无错误，未提前完整接受；本次半程监控已完成删除。新worldcache-2已约01:44终态（最早01:43:25.700），原R1 01:50失败收件与两卡02:30资源检查保持。0GPU/模型加载/账本写；实际修复CPU、模型/GPU兼容仍待。
+
 ## 2026-10-21 四卡独立环境修复已准备，待官方wheel转运和实际CPU
 
 [618独立修复](618_WC_FOUR_CARD_ENVIRONMENT_EXTENSION_RELAY_AND_ISOLATED_CPU_REPAIR_20261021.md)：原完整环境的CUDA扩展下载超时且遗漏cosmos-cuda，现准备复用已装基础到新env-r3；官方固定wheel已本地逐SHA核对、转运在途。新版本还将仅修打包声明，保持原11执行源码和37项decord payload SHA，实际CPU请求/推理导入及四帧合成解码待验。原R1/job/env不改，01:50原完整收件和两卡02:30检查保留；0新GPU/模型加载/账本，尚无修复CPU通过。

@@ -1,0 +1,154 @@
+{
+  "version": "WC_FOUR_CARD_ISOLATED_CPU_ENVIRONMENT_REPAIR_R2",
+  "workspace": "/data20t/gaokuangda/worldcache_workspace",
+  "run_id": "wc-fourcard-env-repair-r2-20261021",
+  "source_environment_name": "wc-cosmos-py310-cu128-r2",
+  "environment_name": "wc-cosmos-py310-cu128-r3",
+  "original_job": "/data20t/gaokuangda/worldcache_workspace/bootstrap/wc-fourcard-env-r1-20261020",
+  "original_PID": 290861,
+  "original_start_ticks": 929820876,
+  "original_result_sha256": "28c07df2fd0ad7004f66a275b71f5efccce59be3dcea6588ca48cc4ec8cd4237",
+  "original_project_revision": "c9a2f95bf2e7ecc25d4d84731d8b4d35d6f1f6c3",
+  "container_image_id": "sha256:1e81ac62ee68ca1a6ef655515096a1d84579b01aa4986810c9b18d4f6c4c552d",
+  "runtime_source_sha256": {
+    "cosmos_predict2/_src/predict2/models/video2world_model_rectified_flow.py": "9b53e3f024e5cbb2cb3778819e1a6fd353923c13ad9b868d99602051640a65e8",
+    "cosmos_predict2/_src/predict2/models/text2world_model_rectified_flow.py": "c6c68f297859e11c76d2921667a29cabfecef3a7b5d3ab831bf9bb54b25b7d87",
+    "cosmos_predict2/_src/predict2/inference/worldcache_utils.py": "b485cb8fd6e262a40e5823365c34ef7db1bc036c591d7577489e04077c515903",
+    "cosmos_predict2/_src/predict2/models/fm_solvers_unipc.py": "f6a06c75f059693ade6c802e99f6058575969b6a71ef18ab05e7ed46701053d3",
+    "cosmos_predict2/_src/predict2/configs/video2world/defaults/conditioner.py": "d58f515074237843b707d67001751c0e022546061348728e6322faaaa22e837c",
+    "cosmos_predict2/_src/predict2/configs/video2world/defaults/model.py": "042e4ef004f36c2f391c5234532b3feac4c7754f7469e4f998919bbee76a49e0",
+    "cosmos_predict2/inference.py": "0db96c49f0b3f18a971bc989e0727132dafc27ef621145a2d25a3da62a7a1975",
+    "cosmos_predict2/_src/predict2/inference/video2world.py": "59aa9e236a5e7e26490f5cfcb94ab95ce911d9c38eba61dd8aef7d067e458a95",
+    "cosmos_predict2/_src/predict2/conditioner.py": "47554e88f2a5d5157e30b18b1d7ad4a4ee55a99dfbaf7071f680c7acf438843a",
+    "cosmos_predict2/_src/predict2/networks/minimal_v1_lvg_dit.py": "2d3ddcf94158c61223bc610f31ede475f7e4e27cc3b604ff3557b73d891e665f",
+    "cosmos_predict2/_src/predict2/networks/minimal_v4_dit.py": "a41a1772f694ee338e4b91f032428ea81f28e80fb90990e2db86eb7d1ce30071"
+  },
+  "sentinel_source_sha256": {
+    "pyproject.toml": "7dd06985dc2292fc385594b06a6b0277e6dcfc301ddefd329ba40ad09353a9df",
+    "cosmos_cuda/__init__.py": "a907dbf89e10c3e56abfee70e79ffe05ec5f030956eb183208628fba3aa3850e",
+    "cosmos_cuda/__about__.py": "045e78829da1e6ef3dfec9b47ebc76facc19017233b33c1b69896db64b82aa3d"
+  },
+  "native_library_manifest_sha256": "32cb2f8f77385bc7033e65fdb9c4c4b3e59fd505fe41aadff18b15b57c356f4b",
+  "wheels": [
+    {
+      "filename": "flash_attn-2.7.3+cu128.torch27-cp310-cp310-linux_x86_64.whl",
+      "bytes": 500487962,
+      "sha256": "88c104eb74fa84ed1993c2e9db4e1987269080927d3b04ed9bfdb937a71e9f4a",
+      "official_asset_id": 320797884,
+      "official_url": "https://github.com/nvidia-cosmos/cosmos-dependencies/releases/download/v1.2.0/flash_attn-2.7.3%2Bcu128.torch27-cp310-cp310-linux_x86_64.whl",
+      "package_metadata": [
+        "Name: flash_attn",
+        "Version: 2.7.3+cu128.torch27",
+        "Requires-Dist: torch",
+        "Requires-Dist: einops"
+      ]
+    },
+    {
+      "filename": "natten-0.21.0+cu128.torch27-cp310-cp310-linux_x86_64.whl",
+      "bytes": 362400879,
+      "sha256": "bbfc51cf240e67f8ba9fe1acaa62ec451d2875190dd81b72eb28ae73dbaaaeef",
+      "official_asset_id": 310303872,
+      "official_url": "https://github.com/nvidia-cosmos/cosmos-dependencies/releases/download/v1.2.0/natten-0.21.0%2Bcu128.torch27-cp310-cp310-linux_x86_64.whl",
+      "package_metadata": [
+        "Name: natten",
+        "Version: 0.21.0+cu128.torch27",
+        "Requires-Dist: torch"
+      ]
+    },
+    {
+      "filename": "transformer_engine-2.2+cu128.torch27-cp310-cp310-linux_x86_64.whl",
+      "bytes": 295053959,
+      "sha256": "fc79fef4a1bbd912f9064e28faeef30b0dba0cbf1f9e2f6647f7b4a5a7abc1e6",
+      "official_asset_id": 320797885,
+      "official_url": "https://github.com/nvidia-cosmos/cosmos-dependencies/releases/download/v1.2.0/transformer_engine-2.2%2Bcu128.torch27-cp310-cp310-linux_x86_64.whl",
+      "package_metadata": [
+        "Name: transformer_engine",
+        "Version: 2.2+cu128.torch27",
+        "Requires-Dist: packaging",
+        "Requires-Dist: importlib-metadata>=1.0",
+        "Requires-Dist: pydantic",
+        "Requires-Dist: torch>=2.1",
+        "Requires-Dist: pytest>=8.2.1; extra == \"test\"",
+        "Requires-Dist: torchvision; extra == \"test\"",
+        "Requires-Dist: numpy; extra == \"test\"",
+        "Requires-Dist: prettytable; extra == \"test\"",
+        "Requires-Dist: PyYAML; extra == \"test\""
+      ]
+    },
+    {
+      "filename": "xformers-0.0.31-cp39-abi3-manylinux_2_28_x86_64.whl",
+      "bytes": 117056502,
+      "sha256": "b2ea87e0651f46164cb3cd74face021bd1654229ca4f8c0baa03b8c477515c7a",
+      "official_url": "https://download.pytorch.org/whl/cu128/xformers-0.0.31-cp39-abi3-manylinux_2_28_x86_64.whl",
+      "official_index": "https://download.pytorch.org/whl/cu128/xformers/",
+      "package_metadata": [
+        "Name: xformers",
+        "Version: 0.0.31",
+        "Requires-Dist: numpy",
+        "Requires-Dist: torch==2.7.1"
+      ]
+    }
+  ],
+  "decord_metadata_repair": {
+    "official_url": "https://files.pythonhosted.org/packages/11/79/936af42edf90a7bd4e41a6cac89c913d4b47fa48a26b042d5129a9242ee3/decord-0.6.0-py3-none-manylinux2010_x86_64.whl",
+    "official_filename": "decord-0.6.0-py3-none-manylinux2010_x86_64.whl",
+    "official_sha256": "51997f20be8958e23b7c4061ba45d0efcd86bffd5fe81c695d0befee0d442976",
+    "internal_WHEEL": "Wheel-Version: 1.0\nGenerator: bdist_wheel (0.36.2)\nRoot-Is-Purelib: false\nTag: cp36-cp36m-manylinux2010_x86_64\n\n",
+    "internal_WHEEL_sha256": "d24f09731316657ed32488ba245812cbb5047342b148776a371264e69966d856",
+    "payload_sha256": {
+      "decord/logging.py": "92c06f2f94b63b0113ef9d8dd9ba2960409ca55beb406c7b605d260eaf7555e9",
+      "decord/_ffi/_ctypes/__init__.py": "31a1e673e8c4229a334521bd7fc34367ce5aa5b83af5ad59c768df612280de21",
+      "decord/_ffi/_ctypes/types.py": "5d814119b51909104d9572c5e88d32b759eb51e90421ae7fdfd42c58ba94fab1",
+      "decord/_ffi/_ctypes/ndarray.py": "1b9253fc79339f06a6200b097967b3a60a1413f36c37fdd2b79ffcb2c8d6f708",
+      "decord/_ffi/_ctypes/function.py": "f33fa3d5b3fb80c2a7fb0400976c3608975d5b161401359d342ab8aa8ccccce3",
+      "decord/_ffi/libinfo.py": "93b8d28794dd05f9a89390edec7d477bd597cdf7ae453832a20ae904db528000",
+      "decord/_ffi/_cy3/__init__.py": "f017885d07429335d01c7a9fe6973a724ccd3b959333b179f6ef0334f1d96022",
+      "decord/_ffi/__init__.py": "88be9b7bce2637bba0ba4bcefffad867a418a404ed92057836f001a79bc9f9b1",
+      "decord/_ffi/base.py": "b0376b62a88e65fe9731257a3a76efec600b22626cbb260f5af0340d3be2e79d",
+      "decord/_ffi/ndarray.py": "aaad0479bcb054cfc062aec276986e257c1c3c4517932a3491223a7949f9f8f5",
+      "decord/_ffi/_cy2/__init__.py": "6d1c9d09ace8bd62a6bc4f69329f9e3c400eae8c260a29879b08bfd3a777920d",
+      "decord/_ffi/runtime_ctypes.py": "d531461211551e39514088e89d73a423c2dd6d65f5cdbe22d8a3f354c9c6c2ec",
+      "decord/_ffi/function.py": "b17d9941bc3df2f3bb9c2300762c2058e9695f5139705f71b30bf06ec72e53e6",
+      "decord/libdecord.so": "98b260c5812106648ba299279916fbe98439893e346d4efdcf5cde66ba8973da",
+      "decord/av_reader.py": "b65dc136cbd6034c4cdf22ac44390a94896f02b7d4ec44553a5537b686507fbd",
+      "decord/_api_internal.py": "4f283de6270207177bd7c9f3e6b631e26441d3fb23d8fb0be01e4645f0ff06de",
+      "decord/bridge/tvm.py": "bf0e5d678d9f80d0a83564842821194e12cbf72d5f4a360f3788655f95d7d330",
+      "decord/bridge/mxnet.py": "afe4865f459c4757044e21c73e8cd05c857285c811109b489adc8535c4687083",
+      "decord/bridge/__init__.py": "00f190f0b41b380802d3baef5792be9427d372566f22ec06ccfe192aac7592cd",
+      "decord/bridge/utils.py": "7a9fcf7e3f696caf19b44120ce6e3d64aade188d9e36d1211be6867c86e97bb5",
+      "decord/bridge/torchdl.py": "ccae38600d9900cde082d220afc9f4ae695bba3e3045fc106a40adfeba4ba22d",
+      "decord/bridge/tf.py": "3bf640be0ae41b0f7f0a706efc72f19767e820d33f307b479fffff25ca0b22a6",
+      "decord/audio_reader.py": "01e59d3e674ef769f53947c2bd02370ee4c0f1927b0a13a50dfc839089a1ac1d",
+      "decord/video_loader.py": "485ce851a600958ffc216a4698eeae10a2f442138244f47fdfffa2871e46a5c1",
+      "decord/function/__init__.py": "edf13f2e1de8867fbf35c746259a9818337aa105e5b423afda95c5c5de339569",
+      "decord/function/base.py": "cf1eb51fddbdbe2bf1e18c7924867a4781a79e67560159bf88f6a36c14abfc3b",
+      "decord/__init__.py": "0920d346a64d92aad5e43ca67cee12d358f0ae1bf07ea74ba4119a48def7bfb0",
+      "decord/video_reader.py": "d871751a659c34abb8fe3ed7ffbf8ee7c1bbc424127a4575fc5f003ddbc04857",
+      "decord/base.py": "4bfd9cfafba6dbd316157ca2134929282c6020d1b35bdbf53db98e8471138859",
+      "decord/ndarray.py": "8a39c6daaab1ff998de6635c8d12b839c00101e9e28a2071d79ce717451fdba8",
+      "decord/data/kinetics/kinetics400_action.py": "8221091efafe22450534d482c0d33418006762cc6025e0dcc23c5d8c9ad59f41",
+      "decord/data/kinetics/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decord/data/__init__.py": "072b8039275da82c44f0edafd6df5d2755c2e2bc386ab00193f509c3610c2b21",
+      "decord/data/transforms/action.py": "b1a03fa00f27cde257068003271a9a18f8d69869e77a79ffeca6d03b8c50dfb3",
+      "decord/data/transforms/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decord/data/base_action.py": "be1ba3e6d576e6f74094b0d20addaa6ba198a1925038d1de3a9609dcfca40871",
+      "decord/data/dataloader.py": "cfa4e455125a3e5bcb8dd0054a080f00c6ce55aacc8effaa68f141de498d862d"
+    },
+    "target_tag": "py3-none-manylinux2010_x86_64",
+    "rationale": "Align internal tag with official outer filename; ctypes-only Python wrapper; preserve every decoder payload byte."
+  },
+  "CPU_only": true,
+  "production_CPU_accepted": false,
+  "GPU_dispatch_ready": false,
+  "GPU_submissions": 0,
+  "ledger_written": false,
+  "halfway_after_start_seconds": 120,
+  "terminal_after_start_seconds": 360,
+  "repair_source_revision": "32062b186cddc7c2baa592d7ade32e86e2bec1ce",
+  "worker_sha256": "97c7af2ee6a7a68d66d8a3bd4afcd94e4adabc81846be6f56c4f84b16ff1220b",
+  "repair_source_bundle": {
+    "path": "/data20t/gaokuangda/worldcache_workspace/staging/github-repair-32062b186cdd.bundle",
+    "sha256": "649a239619d42fc359b1aa20d93e223f559a54c9b502fac3c591ff370ec9a1e1",
+    "bytes": 59387
+  }
+}

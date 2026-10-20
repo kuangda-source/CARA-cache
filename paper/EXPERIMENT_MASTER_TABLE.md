@@ -1,3 +1,7 @@
+## 2026-10-21 01:37四卡独立CPU修复已启动，半程正常，01:44完整查收
+
+[618实际修复](../research/618_WC_FOUR_CARD_ENVIRONMENT_EXTENSION_RELAY_AND_ISOLATED_CPU_REPAIR_20261021.md)：官方四wheel已在四卡逐SHA核对，GitHub source32062b18的独立修复于01:37:25.700单次启动PID330428/start930290906，worker97c7af2e/manifest9574f4a5。原env-r2/R1 job及项目c9a2f95b保持；新env-r3仍在复制已验基础。实际01:40:46.765半程源/句柄一致、无错误，未提前完整接受；本次半程监控已完成删除。新worldcache-2已约01:44终态（最早01:43:25.700），原R1 01:50失败收件与两卡02:30资源检查保持。0GPU/模型加载/账本写；实际修复CPU、模型/GPU兼容仍待。
+
 ## 2026-10-21 00:50完整环境技术半程：扩展安装超时，01:50完整收件保持
 
 [617技术接续](../research/617_WC_FOUR_CARD_TORCH_BASE_ACCEPTED_FULL_ENVIRONMENT_SINGLE_DISPATCH_20261021.md)：实际00:50:50.355仅一次捕获原完整环境任务，原worker SHA和health中的source/manifest与launch一致；原PID已退出，health报告00:39:32.226结束、wall1226.773秒、CPU_ENVIRONMENT_PARTIAL_FAILURES_RETAINED。13命令中11项exit0，CUDA扩展轮安装exit1且日志出现operation timed out，随后Cosmos CPU请求导入exit1/CUDA extra not installed。原生库、Torch和Cosmos基础安装命令为0，完整依赖及新机生产CPU/GPU仍未接受。本次只读技术health/有界错误，未读最终result或提前验收，未修源/重派；0GPU/模型加载/账本写。本次worldcache半程任务已完成删除；worldcache-3的01:50原完整收件和worldcache-bank24的02:30资源检查均读回确认保持。失败原件留存，待原终态完整收件后离线定位新独立修复版本，不重跑旧基础R2或改原stage。
