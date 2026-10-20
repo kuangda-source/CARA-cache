@@ -1,3 +1,9 @@
+## 2026-10-21 00:50完整环境技术半程：扩展安装超时，01:50完整收件保持
+
+实际00:50:50.355仅一次捕获原完整环境任务，原worker SHA和health中的source/manifest与launch一致；原PID已退出，health报告00:39:32.226结束、wall1226.773秒、CPU_ENVIRONMENT_PARTIAL_FAILURES_RETAINED。13命令中11项exit0，CUDA扩展轮安装exit1且日志出现operation timed out，随后Cosmos CPU请求导入exit1/CUDA extra not installed。原生库、Torch和Cosmos基础安装命令为0，完整依赖及新机生产CPU/GPU仍未接受。本次只读技术health/有界错误，未读最终result或提前验收，未修源/重派；0GPU/模型加载/账本写。本次worldcache半程任务已完成删除；worldcache-3的01:50原完整收件和worldcache-bank24的02:30资源检查均读回确认保持。失败原件留存，待原终态完整收件后离线定位新独立修复版本，不重跑旧基础R2或改原stage。
+
+[半程原件](../reports/wc_four_card_environment_CPU_R1_midpoint_20261021.json)；[离线技术边界](../reports/wc_four_card_environment_CPU_R1_midpoint_technical_boundary_20261021.json)。
+
 # 四卡基础环境已验，完整Cosmos CPU安装单次启动
 
 本轮按原00:15计划完整收件，仅处理已授权四卡环境准备。原BANK24、完整1624卡具体12GPUh批准、冻结源码/CPU/gate及原上游顺序保持；没有GPU实验或账本写入。

@@ -1,0 +1,75 @@
+{
+  "status": "TECHNICAL_MIDPOINT_PARTIAL_INSTALL_FAILURE_OBSERVED_FINAL_CAPTURE_PENDING",
+  "capture_ref": "reports/wc_four_card_environment_CPU_R1_midpoint_20261021.json",
+  "capture_sha256": "e978d7caee22fe53a4c9bb343b0409d92aa47a5880ccadf79e8d0f95a5bcf2b0",
+  "observed_unix": 1792515050.3551948,
+  "observed_local": "2026-10-21T00:50:50.355195+08:00",
+  "original_worker_source_matches": true,
+  "health_source_and_manifest_match_original_launch": true,
+  "original_PID_absent": true,
+  "health_reported_end_unix": 1792514372.226166,
+  "health_reported_end_local": "2026-10-21T00:39:32.226166+08:00",
+  "health_reported_wall_seconds": 1226.7729387283325,
+  "commands_recorded": 13,
+  "commands_exit_zero": 11,
+  "failed_commands": [
+    {
+      "phase": "registered-cuda-extension-wheels",
+      "exit_code": 1,
+      "wall_seconds": 798.6369211673737
+    },
+    {
+      "phase": "cpu-environment-import",
+      "exit_code": 1,
+      "wall_seconds": 16.612868070602417
+    }
+  ],
+  "bounded_errors": [
+    {
+      "log": "registered-cuda-extension-wheels.log",
+      "line": "  ╰─▶ operation timed out"
+    },
+    {
+      "log": "registered-cuda-extension-wheels.log",
+      "line": "Traceback (most recent call last):"
+    },
+    {
+      "log": "cpu-environment-import.log",
+      "line": "Traceback (most recent call last):"
+    },
+    {
+      "log": "cpu-environment-import.log",
+      "line": "    raise RuntimeError(\"CUDA extra not installed. Please run 'uv sync --extra=<cuda_name>'\") from None"
+    },
+    {
+      "log": "cpu-environment-import.log",
+      "line": "RuntimeError: CUDA extra not installed. Please run 'uv sync --extra=<cuda_name>'"
+    },
+    {
+      "log": "cpu-environment-import.log",
+      "line": "Traceback (most recent call last):"
+    }
+  ],
+  "full_environment_accepted": false,
+  "final_result_read": false,
+  "terminal_independent_acceptance_performed": false,
+  "foundation_R2_acceptance_preserved": true,
+  "repair_or_redispatch_performed": false,
+  "source_stage_or_environment_modified_by_check": false,
+  "GPU_submissions": 0,
+  "model_weights_loaded": 0,
+  "ledger_written": false,
+  "trigger_automation": "worldcache",
+  "trigger_automation_deleted_after_single_check": true,
+  "original_final_automation_unchanged": {
+    "status": "ACTIVE",
+    "rrule": "RRULE:FREQ=DAILY;COUNT=1;BYHOUR=1;BYMINUTE=50;BYSECOND=0"
+  },
+  "original_BANK24_resource_automation_unchanged": {
+    "status": "ACTIVE",
+    "rrule": "RRULE:FREQ=DAILY;COUNT=1;BYHOUR=2;BYMINUTE=30;BYSECOND=0"
+  },
+  "final_collection_local": "2026-10-21T01:50:00+08:00",
+  "production_CPU_accepted": false,
+  "GPU_dispatch_ready": false
+}

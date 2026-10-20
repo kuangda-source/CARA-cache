@@ -1,3 +1,7 @@
+## 2026-10-21 00:50完整环境技术半程：扩展安装超时，01:50完整收件保持
+
+[617技术接续](../../research/617_WC_FOUR_CARD_TORCH_BASE_ACCEPTED_FULL_ENVIRONMENT_SINGLE_DISPATCH_20261021.md)：实际00:50:50.355仅一次捕获原完整环境任务，原worker SHA和health中的source/manifest与launch一致；原PID已退出，health报告00:39:32.226结束、wall1226.773秒、CPU_ENVIRONMENT_PARTIAL_FAILURES_RETAINED。13命令中11项exit0，CUDA扩展轮安装exit1且日志出现operation timed out，随后Cosmos CPU请求导入exit1/CUDA extra not installed。原生库、Torch和Cosmos基础安装命令为0，完整依赖及新机生产CPU/GPU仍未接受。本次只读技术health/有界错误，未读最终result或提前验收，未修源/重派；0GPU/模型加载/账本写。本次worldcache半程任务已完成删除；worldcache-3的01:50原完整收件和worldcache-bank24的02:30资源检查均读回确认保持。失败原件留存，待原终态完整收件后离线定位新独立修复版本，不重跑旧基础R2或改原stage。
+
 ## 2026-10-21 00:20资源槽实际00:29仍连接未知，下一02:30
 
 [608资源接续](../../research/608_WC_STORAGE_FULLY_ACCEPTED_BANK24_READY_BUT_GPU_BUSY_20261019.md)：原双卡仅一次资源SSH于00:29:28.540在认证前reset（exit255），没有当前GPU/锁/v2/原句柄观察；最后成功资源仍为10月20日16:05，不能据旧状态准入。本人FRPC63302和原33620监听仍在，本轮未重启或追加远端CPU查询，0新CPU/GPU/账本写。原件与离线UNKNOWN边界已保留，worldcache-bank24已读回确认改约02:30一次（最早02:29:28.540，unix1792520968.539606），同槽不重查、无可行动变化安静。原BANK24优先、已验CPU/gate及完整1624具体12批准/实际CPU/上游接受前置不变；四卡完整环境00:50/01:50两次查收独立保留，不迁移原scope。
