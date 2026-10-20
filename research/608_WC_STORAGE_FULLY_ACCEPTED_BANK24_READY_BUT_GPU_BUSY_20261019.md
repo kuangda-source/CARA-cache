@@ -1,3 +1,9 @@
+## 2026-10-21 00:20资源槽实际00:29仍连接未知，下一02:30
+
+原双卡仅一次资源SSH于00:29:28.540在认证前reset（exit255），没有当前GPU/锁/v2/原句柄观察；最后成功资源仍为10月20日16:05，不能据旧状态准入。本人FRPC63302和原33620监听仍在，本轮未重启或追加远端CPU查询，0新CPU/GPU/账本写。原件与离线UNKNOWN边界已保留，worldcache-bank24已读回确认改约02:30一次（最早02:29:28.540，unix1792520968.539606），同槽不重查、无可行动变化安静。原BANK24优先、已验CPU/gate及完整1624具体12批准/实际CPU/上游接受前置不变；四卡完整环境00:50/01:50两次查收独立保留，不迁移原scope。
+
+原件：[本槽一次连接回执](../reports/wc_scout_BANK24_fresh_resource_20261021_0020.json)；[离线边界核对](../reports/wc_scout_BANK24_resource_slot_0020_independent_unknown_acceptance_20261021.json)；[下一次02:30实际排程读回](../reports/wc_scout_BANK24_resource_slot_0020_once_reschedule_20261021.json)。
+
 ## 2026-10-20 22:10槽实际22:19连接仍未知，下一10月21日00:20
 
 一次原入口SSH仍认证前失败，未取得GPU/锁/v2/原stage。reports/wc_scout_BANK24_fresh_resource_20261020_2210.json及独立unknown边界已保存，最后成功观察仍16:05，旧余额不充fresh。原worldcache-bank24按实际22:19:50.876+7200秒重约00:20一次并回读，未追加CPU SSH或重复派发。已授权四卡CPU环境按615独立准备，原BANK24/已批完整12卡的source/证明/上游顺序保持，0本轮GPU/账本。以下为历史。

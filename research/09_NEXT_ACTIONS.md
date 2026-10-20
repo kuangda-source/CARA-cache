@@ -1,3 +1,7 @@
+## 2026-10-21 00:20资源槽实际00:29仍连接未知，下一02:30
+
+[608资源接续](608_WC_STORAGE_FULLY_ACCEPTED_BANK24_READY_BUT_GPU_BUSY_20261019.md)：原双卡仅一次资源SSH于00:29:28.540在认证前reset（exit255），没有当前GPU/锁/v2/原句柄观察；最后成功资源仍为10月20日16:05，不能据旧状态准入。本人FRPC63302和原33620监听仍在，本轮未重启或追加远端CPU查询，0新CPU/GPU/账本写。原件与离线UNKNOWN边界已保留，worldcache-bank24已读回确认改约02:30一次（最早02:29:28.540，unix1792520968.539606），同槽不重查、无可行动变化安静。原BANK24优先、已验CPU/gate及完整1624具体12批准/实际CPU/上游接受前置不变；四卡完整环境00:50/01:50两次查收独立保留，不迁移原scope。
+
 ## 2026-10-21 基础环境已验，完整Cosmos CPU安装单次在途
 
 [617真实接续](../research/617_WC_FOUR_CARD_TORCH_BASE_ACCEPTED_FULL_ENVIRONMENT_SINGLE_DISPATCH_20261021.md)：四卡基础R2已实际独立接受，Python3.10/Torch2.7.1+cu128、15检查全过、无CUDA初始化，旧基础不重跑。完整Cosmos CPU安装已于00:19:05单次启动PID290861/start929820876，source c9a2f95b；初次原进程/source/11关键runtime一致，六源命令全0，当前data-disk-native-libraries、无有界错误。新worldcache/worldcache-3已约00:50半程和01:50终态，旧worldcache-2完成删除。仍非完整环境/新scope生产CPU/GPU就绪，原BANK24/具体12批准及所有前置不变，0GPU/账本。
