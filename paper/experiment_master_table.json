@@ -68,7 +68,7 @@
     "FINAL_VARIANT_TIMING_AND_QUALITY_PENDING": 1,
     "CLAIM_AND_EVIDENCE_WRITING_PROTOCOL_READY": 1,
     "LOCAL_CPU_PROTOTYPE22_PASS_NOT_PRODUCTION": 1,
-    "REAL_ASSET_AND_PRODUCTION_CLOSURE_REQUIRED": 1,
+    "EXECUTABLE_FULL1624_CARD_LOCAL12_PASS_PRODUCTION_CPU_PENDING_SPECIFIC12_APPROVAL": 1,
     "COMPLETE_ADAPTIVE_CARD_DRAFT_QUOTE_AND_REAL_CPU_PENDING": 1,
     "PRE_REGISTER_AND_DEDUP_AFTER_FIRST_LOOP": 1,
     "CONDITIONAL_SAME_PROCEDURE_RECALIBRATION": 1,
@@ -4622,20 +4622,37 @@
     },
     {
       "id": "PG-P1-ASSETS",
-      "state": "REAL_ASSET_AND_PRODUCTION_CLOSURE_REQUIRED",
+      "state": "EXECUTABLE_FULL1624_CARD_LOCAL12_PASS_PRODUCTION_CPU_PENDING_SPECIFIC12_APPROVAL",
       "paper_experiment_name": "Complete real statistics, prices and generated-mask entry",
       "internal_ids": [
         "PG-P1-ASSETS"
       ],
       "contribution_relation": "可复现区间生成器的新方法验证；CPU原型不充真实质量结果",
-      "evidence_or_planned_scope": "CPU or scope not yet frozen",
-      "gap_and_next_action": "补真实完整source/time与费用表、任意mask入口；完整报价/实际CPU后单预算闭环",
+      "evidence_or_planned_scope": "4CAL/1624formal cells;14 complete paths/2030 cells including warm/13020 paired readout trials",
+      "gap_and_next_action": "新scope生产CPU（28完整Toy路径/4060格+真实Cosmos边界）后独立接受；完整上限12需明确批准，原BANK24接受后fresh准入。",
       "priority": "GEN-1",
       "evidence_refs": [
         "research/612_WC_POLICY_GENERATOR_CPU_PROTOTYPE_AND_REPRODUCIBLE_VALIDATION_DESIGN_20261020.md",
         "plans/cara_policy_generator_20261020/README.md",
         "plans/cara_policy_generator_20261020/TASK_REGISTRY.json",
-        "reports/wc_policy_generator_CPU_independent_acceptance_20261020.json"
+        "reports/wc_policy_generator_CPU_independent_acceptance_20261020.json",
+        "PG_assets_execution_card",
+        "PG_assets_report_613",
+        "PG_assets_config",
+        "PG_assets_quote",
+        "PG_assets_preparation",
+        "PG_assets_policy_interval_assets_r1",
+        "PG_assets_policy_interval_assets_production_r1",
+        "PG_assets_policy_interval_assets_audit_r1",
+        "PG_assets_policy_interval_readout_r1",
+        "PG_assets_policy_interval_assets_sampling_r1",
+        "PG_assets_policy_interval_assets_lifecycle_r1",
+        "PG_assets_check_wc_policy_interval_assets_cpu_r1",
+        "PG_assets_wc_policy_interval_assets_lifecycle_r1",
+        "PG_assets_run_wc_policy_interval_assets_r1",
+        "PG_assets_postprocess_wc_policy_interval_assets_r1",
+        "PG_assets_test_policy_interval_assets_r1",
+        "PG_assets_check_policy_interval_assets_sampling_cpu_r1"
       ],
       "method_mapping_ids": [],
       "contribution_ids": [
@@ -4653,7 +4670,10 @@
       "new_GPU_submissions": 0,
       "quality_results": null,
       "speed_results": null,
-      "merged_into_mainline": false
+      "merged_into_mainline": false,
+      "forecast_complete_GPUh": 9.918333333333333,
+      "billed_limit_GPUh": 12.0,
+      "specific_whole_card_confirmation_required": true
     },
     {
       "id": "PG-P1",
@@ -5822,7 +5842,24 @@
     "CARA_generator_design_integration": "reports/wc_policy_generator_design_integration_20261020.json",
     "CARA_generator_source_archive": "plans/reviews/cara_policy_generator_20261020/SOURCE_MANIFEST.json",
     "BANK24_resource_1601_20261020": "reports/wc_scout_BANK24_fresh_resource_20261020_1601.json",
-    "BANK24_resource_1601_busy_accepted_20261020": "reports/wc_scout_BANK24_resource_slot_1601_independent_busy_acceptance_20261020.json"
+    "BANK24_resource_1601_busy_accepted_20261020": "reports/wc_scout_BANK24_resource_slot_1601_independent_busy_acceptance_20261020.json",
+    "PG_assets_execution_card": "plans/cara_policy_generator_20261020/REAL_INTERVAL_ASSETS_EXECUTION_CARD_20261020.md",
+    "PG_assets_report_613": "research/613_WC_FULL1624_INTERVAL_LABELS_AND_INDEPENDENT_ACTION_PRICES_EXECUTABLE_CARD_20261020.md",
+    "PG_assets_config": "configs/wc_policy_interval_assets_full1624_r1_20261020.json",
+    "PG_assets_quote": "manifests/wc_policy_interval_assets_full1624_whole_quote_r1_20261020.json",
+    "PG_assets_preparation": "reports/wc_policy_interval_assets_full1624_card_preparation_20261020.json",
+    "PG_assets_policy_interval_assets_r1": "src/wcomr/policy_interval_assets_r1.py",
+    "PG_assets_policy_interval_assets_production_r1": "src/wcomr/policy_interval_assets_production_r1.py",
+    "PG_assets_policy_interval_assets_audit_r1": "src/wcomr/policy_interval_assets_audit_r1.py",
+    "PG_assets_policy_interval_readout_r1": "src/wcomr/policy_interval_readout_r1.py",
+    "PG_assets_policy_interval_assets_sampling_r1": "src/wcomr/policy_interval_assets_sampling_r1.py",
+    "PG_assets_policy_interval_assets_lifecycle_r1": "src/wcomr/policy_interval_assets_lifecycle_r1.py",
+    "PG_assets_check_wc_policy_interval_assets_cpu_r1": "scripts/check_wc_policy_interval_assets_cpu_r1.py",
+    "PG_assets_wc_policy_interval_assets_lifecycle_r1": "scripts/wc_policy_interval_assets_lifecycle_r1.py",
+    "PG_assets_run_wc_policy_interval_assets_r1": "scripts/run_wc_policy_interval_assets_r1.py",
+    "PG_assets_postprocess_wc_policy_interval_assets_r1": "scripts/postprocess_wc_policy_interval_assets_r1.py",
+    "PG_assets_test_policy_interval_assets_r1": "tests/test_policy_interval_assets_r1.py",
+    "PG_assets_check_policy_interval_assets_sampling_cpu_r1": "tests/check_policy_interval_assets_sampling_cpu_r1.py"
   },
   "source_bindings": {
     "11": {
@@ -9985,8 +10022,8 @@
     },
     "CARA_generator_registry": {
       "path": "plans/cara_policy_generator_20261020/TASK_REGISTRY.json",
-      "sha256": "630251baaba9bfda8a6bee9b3ced10772a3c471b595a1d641ebd459427eefc24",
-      "bytes": 3648
+      "sha256": "323a5c640962231b264439d9f902344faf150ba6f00330180dae31191fcf2407",
+      "bytes": 4184
     },
     "CARA_generator_asset_gaps": {
       "path": "plans/cara_policy_generator_20261020/ASSET_REUSE_INVENTORY.json",
@@ -10022,6 +10059,91 @@
       "path": "reports/wc_scout_BANK24_resource_slot_1601_independent_busy_acceptance_20261020.json",
       "sha256": "47c12c862b636b51cbd6b5899cbfe61f6d837efd9ee5a1ac37d729569b73ff50",
       "bytes": 1363
+    },
+    "PG_assets_execution_card": {
+      "path": "plans/cara_policy_generator_20261020/REAL_INTERVAL_ASSETS_EXECUTION_CARD_20261020.md",
+      "sha256": "2e598737e2fab7f518e5372f9cc5ee6770aa05efb50e08c5327b3c5d406e36cd",
+      "bytes": 4490
+    },
+    "PG_assets_report_613": {
+      "path": "research/613_WC_FULL1624_INTERVAL_LABELS_AND_INDEPENDENT_ACTION_PRICES_EXECUTABLE_CARD_20261020.md",
+      "sha256": "c3d36c43478426ebbe33ae72e46c898c29033f1fb847f298986d6e069625b6a7",
+      "bytes": 1547
+    },
+    "PG_assets_config": {
+      "path": "configs/wc_policy_interval_assets_full1624_r1_20261020.json",
+      "sha256": "75338efd0d7c2d145c73bb3d5514c37fcec46851995785724eeca8f650419f9a",
+      "bytes": 13177
+    },
+    "PG_assets_quote": {
+      "path": "manifests/wc_policy_interval_assets_full1624_whole_quote_r1_20261020.json",
+      "sha256": "6a8a9362342089403aed332fa6f63e82683e146e1f6dc466d7324dff4a46cc67",
+      "bytes": 2265
+    },
+    "PG_assets_preparation": {
+      "path": "reports/wc_policy_interval_assets_full1624_card_preparation_20261020.json",
+      "sha256": "c06b4dad80a548c2f23df0725c9350fc4212991801024d10b31574198cd7d4b9",
+      "bytes": 553
+    },
+    "PG_assets_policy_interval_assets_r1": {
+      "path": "src/wcomr/policy_interval_assets_r1.py",
+      "sha256": "817c548664a81acdbfc3a082650bf29429162fd412169ba9ef96effd165eef58",
+      "bytes": 8040
+    },
+    "PG_assets_policy_interval_assets_production_r1": {
+      "path": "src/wcomr/policy_interval_assets_production_r1.py",
+      "sha256": "6007d7878339245f521f1ffb11b2b366f9a62cfe4203209cf8bcb028530b7d97",
+      "bytes": 1788
+    },
+    "PG_assets_policy_interval_assets_audit_r1": {
+      "path": "src/wcomr/policy_interval_assets_audit_r1.py",
+      "sha256": "3cc0546cacc0163206bad831273bccf9dc995637900f85981a2457179d71c14f",
+      "bytes": 6776
+    },
+    "PG_assets_policy_interval_readout_r1": {
+      "path": "src/wcomr/policy_interval_readout_r1.py",
+      "sha256": "90fb5852ff5a27e01cfefc61337c0103ddf329ed741eea2ac349ffcbea508a4f",
+      "bytes": 6088
+    },
+    "PG_assets_policy_interval_assets_sampling_r1": {
+      "path": "src/wcomr/policy_interval_assets_sampling_r1.py",
+      "sha256": "fe0536c295497083c874c2edced31bb8a264642bb5d1a29db99778d4ae245f97",
+      "bytes": 10393
+    },
+    "PG_assets_policy_interval_assets_lifecycle_r1": {
+      "path": "src/wcomr/policy_interval_assets_lifecycle_r1.py",
+      "sha256": "1db8ab89aff6dd9f32d1cc3e35bfff77c1ef08f7f8b9a0c9279a79be59383b11",
+      "bytes": 7244
+    },
+    "PG_assets_check_wc_policy_interval_assets_cpu_r1": {
+      "path": "scripts/check_wc_policy_interval_assets_cpu_r1.py",
+      "sha256": "527fdc8dc3a75037bcddc5b00d05e3ab4a3ba3610213a45f89cc1d6bd6ab9417",
+      "bytes": 5425
+    },
+    "PG_assets_wc_policy_interval_assets_lifecycle_r1": {
+      "path": "scripts/wc_policy_interval_assets_lifecycle_r1.py",
+      "sha256": "9cd58c85109957e6e4037290c673a46838fb882e0d03c9445dfa167815e9738e",
+      "bytes": 30664
+    },
+    "PG_assets_run_wc_policy_interval_assets_r1": {
+      "path": "scripts/run_wc_policy_interval_assets_r1.py",
+      "sha256": "b3db6e2d870a73ca893ccc573633765288a2c176d804dde9f1eecf5318e9051e",
+      "bytes": 6996
+    },
+    "PG_assets_postprocess_wc_policy_interval_assets_r1": {
+      "path": "scripts/postprocess_wc_policy_interval_assets_r1.py",
+      "sha256": "d904fdd324430f83f21a2c4b8ab3ea9582537eed0a6912a75c0077250ce50b32",
+      "bytes": 5194
+    },
+    "PG_assets_test_policy_interval_assets_r1": {
+      "path": "tests/test_policy_interval_assets_r1.py",
+      "sha256": "fd5ef963169ee5e98aab5b9f4345fb4a33ae8a82eddb616b6245e9d3bbf922ac",
+      "bytes": 6826
+    },
+    "PG_assets_check_policy_interval_assets_sampling_cpu_r1": {
+      "path": "tests/check_policy_interval_assets_sampling_cpu_r1.py",
+      "sha256": "463669dc962a8183ff84ddaf44875fd300c42d7b9e0e9a9d3dd19cc5f06b5016",
+      "bytes": 7763
     }
   },
   "operation_policy": {
@@ -10886,7 +11008,7 @@
     "BANK24_schedule_or_scope_changed_by_analysis": false
   },
   "mapping_sha256_at_inventory": "88b3d760a0c94c20b6c802e21f30c7286d6e596cc9b3f3100e7ee6feaa3938f3",
-  "latest_mapping_sha256": "42f5f040baec1fdcab75a903e42a581e16f7eb0ac29eab01c59c65caef67547f",
+  "latest_mapping_sha256": "a79fbe688e1677891ca32bbaafbac7e464cbd034a394b46e19ffc4ee57b59eac",
   "revision_plan": {
     "registry_ref": "plans/cara_v6_20261020/TASK_REGISTRY_V6.yaml",
     "report_ref": "research/610_WC_CARA_V6_REVIEW_CLOSURE_PLAN_INTERVAL_SPEC_AND_FIRST_DEV_SCOPE_20261020.md",
