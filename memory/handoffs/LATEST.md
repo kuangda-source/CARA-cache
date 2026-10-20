@@ -1,3 +1,7 @@
+## 2026-10-20 四卡Ada已只读盘点：入口可用，四GPU占用且缺已验WC环境
+
+[614四卡当前盘点](../../research/614_WC_FOUR_CARD_ADA_FRESH_RESOURCE_ASSET_AUDIT_AND_MIGRATION_BOUNDARY_20261020.md)：20:55–20:57已恢复原账号/主机密钥认证，只读核对4×RTX6000Ada48GB，四张均有任务、无空闲UUID。本人项目目录及默认HF hub中未发现可直接复用的完整Cosmos/guardrail资产或已验WC环境；系统盘余4.7GiB、/data1余75GiB、/data20t文件系统余446GiB（本人可写落点未验）。硬件是备选，当前不能直接接实验；0GPU/模型加载/账本写，未迁移主机或新开监控。当前双卡FRPC63302、额外本人四卡visitor63606分属两入口；原BANK24/1624具体12批准与22:10资源接续保持。
+
 ## 2026-10-20 20:44按人类重启本人FRPC，原SSH仍未知
 
 [重启后一次验证](../../reports/wc_owned_FRPC_restart_original_SSH_once_test_20261020_2044.json)：原本人60782已核对身份后停止，以原完整配置启动63302；新登录与原33620监听均正常，但20:44:40一次SSH仍认证前255，当前新日志明确远端转发listener未注册。未动其他FRPC、服务器实验或GPU/v2，没有确认任何新生产CPU执行。当前本人客户端为63302，后续从私有current-owned-process记录读取；22:10原资源检查保持，此人工恢复测试不充GPU/财务资源观察。BANK24原顺序与完整1624卡已批12/实际CPU/上游前置保持。
