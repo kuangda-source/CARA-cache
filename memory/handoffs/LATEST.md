@@ -1,3 +1,7 @@
+## 2026-10-20 原20:08资源槽连接仍未知，下一22:10
+
+[608最新接续](../../research/608_WC_STORAGE_FULLY_ACCEPTED_BANK24_READY_BUT_GPU_BUSY_20261019.md)：实际20:09:33.313只执行一次资源SSH，仍认证前reset；没有当前GPU/compute/锁/v2观察，最后成功资源快照仍16:05，不能据此准入或判断原任务终态。原件与独立UNKNOWN边界回执完整保留，未追加CPU SSH、重启FRPC/实验或写账本。worldcache-bank24已更新22:10一次（最早22:09:33.313）；原BANK24保持第一顺位。完整1624卡的具体12GPUh批准已保存，仍等原入口恢复、新scope真实生产CPU及BANK24完整验收；不重问批准，不虚排未启动卡的半程/ETA。
+
 ## 2026-10-20 完整1624卡上限12已明确批准；FRP远端入口仍待恢复
 
 [具体整卡批准](../../reports/wc_policy_interval_assets_full1624_specific_whole12_approval_20261020.json)已绑定冻结config SHA75338efd，完整4CAL/1624正式格、14路径，预计9.918333333/上限12GPUh；无需重复确认。[613接续](../../research/613_WC_FULL1624_INTERVAL_LABELS_AND_INDEPENDENT_ACTION_PRICES_EXECUTABLE_CARD_20261020.md)：19:55:07原入口复测仍在SSH认证前失败，本任务60782客户端登录/33620监听正常，目标与原官方visitor一致，但远端转发listener未注册。尚未确认任何新生产CPU执行或GPU准入；旧stage未知不能重放。原BANK24保持第一顺位，20:08资源恢复检查已保留并补入此批准。连接恢复后先读原句柄，完成新scope实际生产CPU；该CPU及原BANK24完整原件/费用均接受后，携本批准直接启动完整采集。每个实际新launch另约一次技术半程及预计结束验收，未启动卡不虚排完成时间。

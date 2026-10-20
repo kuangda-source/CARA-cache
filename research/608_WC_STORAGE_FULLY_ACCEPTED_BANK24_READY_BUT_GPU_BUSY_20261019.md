@@ -1,5 +1,13 @@
 # 存储维护完整接受，BANK24就绪等待GPU（2026-10-19）
 
+## 最新：2026-10-20 20:09原20:08槽连接仍未知，下一22:10
+
+本槽按原not-before后只执行一次轻量资源SSH；实际20:09:33.312568仍在认证前reset，未取得任何当前GPU/compute/逐UUID锁/v2/原任务句柄。原件[wc_scout_BANK24_fresh_resource_20261020_2008.json](../reports/wc_scout_BANK24_fresh_resource_20261020_2008.json)及独立[wc_scout_BANK24_resource_slot_2008_independent_unknown_acceptance_20261020.json](../reports/wc_scout_BANK24_resource_slot_2008_independent_unknown_acceptance_20261020.json)保留；这仅接受连接未知边界，不接受GPU资源、任务终态或任何价格/科学结果。最后成功快照仍为16:05，不能填成当前空闲/忙卡或余额。
+
+本人60782客户端仍存活，有界日志继续显示远端原转发listener未注册；未重启客户端、其他FRPC或任何服务器任务。本槽没有追加新CPU SSH，0新GPU/账本写。原BANK24及新完整1624卡的实际服务器状态仍须恢复原句柄；完整12GPUh具体批准已记录，CPU及BANK24前置没有放宽。
+
+按实际尝试+7200秒最早22:09:33.312568，向上取整22:10已通过app工具更新本资源自动化一次COUNT1并回读核实；无新通知事项、无循环监听。同槽原件已存在时仅离线读它，下一时点仍执行原BANK24优先及613已批完整卡的接续。以下为历史观察，旧“仅GPU占用”的表述不代表当前已连接。
+
 **FRP修复与五项存储维护已完整接受；系统盘上本人home实占减少153.9281GiB。BANK24自身CPU、CAL12上游和四CAL门控均已接受，目前唯一阻碍是两张GPU被其他任务占满。没有新GPU派发或费用。**
 
 ## 实际完成与证据
