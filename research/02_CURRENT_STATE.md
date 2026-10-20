@@ -1,3 +1,7 @@
+## 2026-10-21 基础环境已验，完整Cosmos CPU安装单次在途
+
+[617真实接续](../research/617_WC_FOUR_CARD_TORCH_BASE_ACCEPTED_FULL_ENVIRONMENT_SINGLE_DISPATCH_20261021.md)：四卡基础R2已实际独立接受，Python3.10/Torch2.7.1+cu128、15检查全过、无CUDA初始化，旧基础不重跑。完整Cosmos CPU安装已于00:19:05单次启动PID290861/start929820876，source c9a2f95b；初次原进程/source/11关键runtime一致，六源命令全0，当前data-disk-native-libraries、无有界错误。新worldcache/worldcache-3已约00:50半程和01:50终态，旧worldcache-2完成删除。仍非完整环境/新scope生产CPU/GPU就绪，原BANK24/具体12批准及所有前置不变，0GPU/账本。
+
 ## 2026-10-20 四卡CPU基础R2在途，两次查收已约
 
 [615真实接续](../research/615_WC_FOUR_CARD_DATA_DISK_WORKSPACE_AND_ENVIRONMENT_PREPARATION_20261020.md)：四卡数据盘余445.9GiB且本人工作区已验证可写，容器已拉取。首轮Torch依赖失败保留，R2固定pip/精确cu128轮已于22:44:35单次启动，PID256731/start929253857，初次检查无错误。已约23:15半程、10月21日00:15终态并接完整环境；GitHub源码完整包已传四卡并核验SHA，模型/驱动兼容/新scope生产CPU未通过，0GPU/账本。原双卡22:10槽实际22:19仍连接未知，worldcache-bank24已重约00:20；原BANK24优先及完整1624具体12批准和前置保持。
