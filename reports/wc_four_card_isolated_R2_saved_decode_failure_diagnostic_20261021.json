@@ -1,0 +1,11 @@
+{
+  "status": "READONLY_SAVED_CPU_DECODE_FAILURE_LOG",
+  "observed_unix": 1792519264.6873264,
+  "result_SHA256": "9d80dcc7985bd35fddddb720e97032548c98c3aceea1fc299bc2fe7846e41814",
+  "phase": "decord-actual-synthetic-video-CPU-decode",
+  "log_SHA256": "38272ad69a2e797f46f4b9725c95105382258abcabb8ca0f45b0e6b03b627d5f",
+  "bounded_log": "  File \"<string>\", line 10\n    print('DECORD_SYNTHETIC_CPU_'/data20t/gaokuangda/worldcache_workspace/bootstrap/wc-fourcard-env-repair-r2-20261021/synthetic-decode-smoke.mp4'_DECODE_4FRAMES_OK')\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nSyntaxError: invalid syntax. Perhaps you forgot a comma?\nTraceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n  File \"/usr/local/lib/python3.10/subprocess.py\", line 526, in run\n    raise CalledProcessError(retcode, process.args,\nsubprocess.CalledProcessError: Command '['/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/bin/python', '-c', \"import imageio.v2 as imageio,numpy as np,decord,json\\nframes=np.stack([np.full((64,64,3),[40+i*20,90,120],dtype=np.uint8) for i in range(4)])\\npath='/data20t/gaokuangda/worldcache_workspace/bootstrap/wc-fourcard-env-repair-r2-20261021/synthetic-decode-smoke.mp4'\\nimageio.mimwrite(path,frames,fps=4,codec='libx264')\\nreader=decord.VideoReader(path,ctx=decord.cpu(0),num_threads=2)\\ndecoded=reader.get_batch(list(range(len(reader)))).asnumpy()\\nassert len(reader)==4 and decoded.shape==(4,64,64,3) and decoded.dtype==np.uint8\\nassert np.abs(decoded.astype(np.float32)-frames).mean()<16\\nprint(json.dumps(dict(frames=4,HWC=[64,64,3],device='cpu',synthetic_not_research_result=True)))\\nprint('DECORD_SYNTHETIC_CPU_'/data20t/gaokuangda/worldcache_workspace/bootstrap/wc-fourcard-env-repair-r2-20261021/synthetic-decode-smoke.mp4'_DECODE_4FRAMES_OK')\\n\"]' returned non-zero exit status 1.\n",
+  "GPU_submissions": 0,
+  "ledger_written": false,
+  "transport_started_unix": 1792519263.752667
+}
