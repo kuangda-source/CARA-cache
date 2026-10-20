@@ -1,5 +1,11 @@
 # 四卡环境实际准备：存储已过，代码/CPU环境独立部署
 
+## 23:04原生库缺口已实际定位，安装准备保留待验
+
+reports/wc_four_card_CPU_container_system_library_probe_20261020.json核对原Python镜像：libstdc++可加载，libGL/glib/libgomp缺失。最新完整环境worker因此增加数据盘原生库步骤：官方签名APT包只下载并用dpkg-deb解到system-libs-r1，通过LD_LIBRARY_PATH/PATH加载；不安装宿主机包，不运行安装脚本，拒绝替换固定容器libc/loader，记录每个deb SHA并在新Python进程核验。此步骤尚未实际执行，不能说原生库已装好；原R2 Torch任务未改。
+
+GitHub完整镜像已实际完成，已发布58873323的完整bundle为387902233字节、SHA6094d21d9df1ec7a830e40b9d5204a62800a55812190ddb0bec2c79fce18af48；runtime源码归档1306627字节、SHA950e227cc4a070fc92eec0bdff33e4956a805c7437efc20e98125d852c376bb9，11关键SHA保持。本机按需存储一次读取超时发生在任何上传前，下载并复制归档到本地.cache后SHA一致。当前仅源码转运在途，CPU/GPU未重派。后续小变更用带base先决条件的增量bundle，完整worker逐包验SHA再fetch/checkout准确GitHub版本，避免重复发送完整历史。
+
 当前/data20t可用478,780,252,160字节（约445.9GiB），本人新工作区/data20t/gaokuangda/worldcache_workspace已完成64KiB写入/fsync/回读/删除验证。300GiB工作区规划加128GiB余量小于当前空间；原HF树逻辑大小51,651,996,220字节作模型存储保守依据，非已复制结果。数据盘cache/tmp/env/assets目录已建，系统环境没动，0GPU/模型加载/v2写。
 
 四卡GitHub匿名私有仓库读取被拒绝，PyPI可达；官方HF元数据连接失败且未有HF凭据。既有Docker有权限，但缓存候选均不满足本次用户态要求：glibc2.27/2.31，一个ARM64候选不能在该x86机器运行，失败元数据保留。采用独立轻量官方Python3.10容器准备CPU环境，不改共享驱动/daemon；固定Cosmos要求与实际驱动/glibc差异已经明确，准备不等于可运行GPU。

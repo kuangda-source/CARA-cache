@@ -1,5 +1,7 @@
 # 四卡备选服务器：独立环境、资产和GitHub同步
 
+23:04只读CPU检查发现固定容器缺libGL/glib/libgomp。完整worker已补仅解压官方APT包到数据盘的步骤，不安装宿主机包、不执行安装脚本；保留固定容器libc/loader，逐deb SHA和新进程加载需真实终态接受，目前未执行。原R2基础CPU不改。GitHub完整base包首次传到四卡后，同步脚本复用已验base，只追加必要的增量bundle；manifest绑定每包SHA，完整worker按base→delta→确定commit恢复。部署归档在本机.cache下，避开按需存储读取超时；私有认证只在本地transport内存使用。
+
 用户直接要求先确认空间，再配置四卡环境并经GitHub同步代码和最新进度。原BANK24和完整1624采集卡的冻结scope/source、已批12GPUh及原上游顺序保持；本准备不派任何GPU，不改共享驱动或Docker daemon。
 
 工作区/data20t/gaokuangda/worldcache_workspace已创建并实际write/fsync/readback/unlink通过。当前约445.9GiB可用；规划整个工作区最多300GiB（包括原HF树约48.1GiB、环境/源码/临时空间和完整卡至少93.5GiB工作余量），另保留128GiB文件系统余量；当前空间满足。模型、独立env、HF/pip/uv/Torch缓存与tmp全部落数据盘，原系统环境不变。
