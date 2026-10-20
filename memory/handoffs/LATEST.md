@@ -1,3 +1,7 @@
+## 2026-10-21 本机中转缓存已清理，后续使用本地代理并在服务端验SHA后删除临时副本
+
+[619代理与清理](../../research/619_WC_LOCAL_PROXY_AND_VERIFIED_TRANSFER_CACHE_CLEANUP_20261021.md)：按人类最新要求，已先在四卡只读重验10份服务器副本完整SHA，再删除13个本机wheel/旧整包/已传增量/runtime重复包；实际释放1.958GiB，删除后可用11.992GiB。约0.38GiB的GitHub源码镜像、源码/验收/私有认证与技术日志保留；不动服务器资产、环境、实验或账本。后续网络使用本地127.0.0.1:7897 HTTP/HTTPS代理，优先直接落服务器数据盘/流式转运；确需本机中转时逐文件/分块，完整远端SHA验收后及时删除本机包，不堆积整套模型或重建已传full bundle。代理已实际返回Guardrail固定revision元数据200，但文件401/GatedRepo，本机无HF token文件/环境变量；没有模型权重下载，授权缺口与网络分开保留。原BANK24两卡02:30与完整1624具体12批准/前置均保持。
+
 ## 2026-10-21 四卡依赖故障已修复；完整推理仍缺固定Guardrail模型资产
 
 [618实际修复边界](../../research/618_WC_FOUR_CARD_ENVIRONMENT_EXTENSION_RELAY_AND_ISOLATED_CPU_REPAIR_20261021.md)：官方四扩展wheel已安装并逐SHA核对，匹配cosmos-cuda、依赖声明和decord元数据修正完成；实际uv依赖检查、Cosmos CPU请求导入/精确版本与四帧合成CPU编码解码通过。29项组件范围独立核对全过，196份实际已装依赖metadata已保存。原R2验证脚本的VIDEO占位符错误保留为失败，由GitHub source e8f80c6c的只读R3实际补验解码；未重装原基础或修改旧stage/env。完整推理导入另在固定Cosmos-Guardrail1 revision d6d4bfa899a71454a700907664f3e88f503950cf的离线缓存缺失处停止，R1/R2/R3完整接受仍false；只接受已修好的依赖组件，不称完整环境/新scope生产CPU/GPU就绪。原env-r2、项目c9a2f95b、11关键runtime、37项decoder payload及原失败结果保持；修复和补验PID/自身容器均退出，0CUDA初始化/模型加载/GPU/账本写。下一步仍需固定模型资产、GPU兼容及新机scope生产CPU/报价/共同v2；原BANK24优先和两卡02:30资源检查、完整1624具体12批准及上游条件保持。已完成的四卡半程/终态自动化均删除，缺模型不重试安装。
