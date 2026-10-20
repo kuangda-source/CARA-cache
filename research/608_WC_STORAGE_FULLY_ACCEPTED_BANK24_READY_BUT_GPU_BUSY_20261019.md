@@ -59,3 +59,9 @@ source2bd41dc8fa19f42353e03a7c78b7264b4b2695c6；stage `.sync/wc-scout-bank24-gp
 ## 2026-10-20 05:32两GPU占用未变，BANK24未派发；下一07:33
 
 实际05:32:52.004仅一次轻量资源快照：原其他任务PID3015457/3015458仍占满两GPU（48170/47824MiB、100%），自身两锁free，BANK24全部派发标记与输出不存在，0本项目GPU/预留/新费用。v2逐原任务重建实结116.825023108771/cap226，余109.174976891229；原CPU、存储、CAL12与gate不重跑。下一最早07:32:52.004（unix1792452772.0036604），worldcache-bank24已更新07:33一次；不循环监听、不问释放时间，v6首轮32路径仍须自己的实际生产CPU，不抢开新GPU。 原件`reports/wc_scout_BANK24_fresh_resource_20261020_0532.json`、独立核对`reports/wc_scout_BANK24_resource_slot_0532_independent_busy_acceptance_20261020.json`。
+
+## 2026-10-20 14:00原07:33槽延后查收，两GPU仍占用；下一16:01
+
+原07:33心跳延后送达，实际14:00:10.808仅一次当前资源快照，未补填中间观察：其他任务PID3015457/3015458仍占两GPU（48214/47826MiB，利用率5%/8%；显存未释放仍busy），自身两锁free，BANK24全部派发标记和输出不存在，0本项目GPU/预留/新费用。v2逐原任务重建实结116.825023108771/cap226，余109.174976891229。下一最早16:00:10.808（unix1792483210.8082192），worldcache-bank24已实际更新16:01一次；不循环监听，原CPU/存储/CAL12/gate与v6设计保持，v6首轮32路径仍须自己的实际生产CPU。
+
+原件`reports/wc_scout_BANK24_fresh_resource_20261020_0733.json`及独立核对`reports/wc_scout_BANK24_resource_slot_0733_independent_busy_acceptance_20261020.json`保存。实际观察距原计划07:33已延后约6小时27分钟；本轮没有重复SSH、重跑CPU或派发GPU。按实际观察后至少7200秒安排下一次，不能据旧时刻循环追补查询。
