@@ -1,3 +1,7 @@
+## 2026-10-21 四卡依赖故障已修复；完整推理仍缺固定Guardrail模型资产
+
+[618实际修复边界](618_WC_FOUR_CARD_ENVIRONMENT_EXTENSION_RELAY_AND_ISOLATED_CPU_REPAIR_20261021.md)：官方四扩展wheel已安装并逐SHA核对，匹配cosmos-cuda、依赖声明和decord元数据修正完成；实际uv依赖检查、Cosmos CPU请求导入/精确版本与四帧合成CPU编码解码通过。29项组件范围独立核对全过，196份实际已装依赖metadata已保存。原R2验证脚本的VIDEO占位符错误保留为失败，由GitHub source e8f80c6c的只读R3实际补验解码；未重装原基础或修改旧stage/env。完整推理导入另在固定Cosmos-Guardrail1 revision d6d4bfa899a71454a700907664f3e88f503950cf的离线缓存缺失处停止，R1/R2/R3完整接受仍false；只接受已修好的依赖组件，不称完整环境/新scope生产CPU/GPU就绪。原env-r2、项目c9a2f95b、11关键runtime、37项decoder payload及原失败结果保持；修复和补验PID/自身容器均退出，0CUDA初始化/模型加载/GPU/账本写。下一步仍需固定模型资产、GPU兼容及新机scope生产CPU/报价/共同v2；原BANK24优先和两卡02:30资源检查、完整1624具体12批准及上游条件保持。已完成的四卡半程/终态自动化均删除，缺模型不重试安装。
+
 ## 2026-10-21 00:50完整环境技术半程：扩展安装超时，01:50完整收件保持
 
 [617技术接续](617_WC_FOUR_CARD_TORCH_BASE_ACCEPTED_FULL_ENVIRONMENT_SINGLE_DISPATCH_20261021.md)：实际00:50:50.355仅一次捕获原完整环境任务，原worker SHA和health中的source/manifest与launch一致；原PID已退出，health报告00:39:32.226结束、wall1226.773秒、CPU_ENVIRONMENT_PARTIAL_FAILURES_RETAINED。13命令中11项exit0，CUDA扩展轮安装exit1且日志出现operation timed out，随后Cosmos CPU请求导入exit1/CUDA extra not installed。原生库、Torch和Cosmos基础安装命令为0，完整依赖及新机生产CPU/GPU仍未接受。本次只读技术health/有界错误，未读最终result或提前验收，未修源/重派；0GPU/模型加载/账本写。本次worldcache半程任务已完成删除；worldcache-3的01:50原完整收件和worldcache-bank24的02:30资源检查均读回确认保持。失败原件留存，待原终态完整收件后离线定位新独立修复版本，不重跑旧基础R2或改原stage。

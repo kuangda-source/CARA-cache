@@ -1,3 +1,7 @@
+## 2026-10-21 四卡依赖故障已修复；完整推理仍缺固定Guardrail模型资产
+
+[618实际修复边界](research/618_WC_FOUR_CARD_ENVIRONMENT_EXTENSION_RELAY_AND_ISOLATED_CPU_REPAIR_20261021.md)：官方四扩展wheel已安装并逐SHA核对，匹配cosmos-cuda、依赖声明和decord元数据修正完成；实际uv依赖检查、Cosmos CPU请求导入/精确版本与四帧合成CPU编码解码通过。29项组件范围独立核对全过，196份实际已装依赖metadata已保存。原R2验证脚本的VIDEO占位符错误保留为失败，由GitHub source e8f80c6c的只读R3实际补验解码；未重装原基础或修改旧stage/env。完整推理导入另在固定Cosmos-Guardrail1 revision d6d4bfa899a71454a700907664f3e88f503950cf的离线缓存缺失处停止，R1/R2/R3完整接受仍false；只接受已修好的依赖组件，不称完整环境/新scope生产CPU/GPU就绪。原env-r2、项目c9a2f95b、11关键runtime、37项decoder payload及原失败结果保持；修复和补验PID/自身容器均退出，0CUDA初始化/模型加载/GPU/账本写。下一步仍需固定模型资产、GPU兼容及新机scope生产CPU/报价/共同v2；原BANK24优先和两卡02:30资源检查、完整1624具体12批准及上游条件保持。已完成的四卡半程/终态自动化均删除，缺模型不重试安装。
+
 ## 2026-10-21 01:37四卡独立CPU修复已启动，半程正常，01:44完整查收
 
 [618实际修复](research/618_WC_FOUR_CARD_ENVIRONMENT_EXTENSION_RELAY_AND_ISOLATED_CPU_REPAIR_20261021.md)：官方四wheel已在四卡逐SHA核对，GitHub source32062b18的独立修复于01:37:25.700单次启动PID330428/start930290906，worker97c7af2e/manifest9574f4a5。原env-r2/R1 job及项目c9a2f95b保持；新env-r3仍在复制已验基础。实际01:40:46.765半程源/句柄一致、无错误，未提前完整接受；本次半程监控已完成删除。新worldcache-2已约01:44终态（最早01:43:25.700），原R1 01:50失败收件与两卡02:30资源检查保持。0GPU/模型加载/账本写；实际修复CPU、模型/GPU兼容仍待。

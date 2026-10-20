@@ -1,0 +1,139 @@
+{
+  "status": "FOUR_CARD_UNCHANGED_ENVIRONMENT_VALIDATION_CAPTURE",
+  "mode": "halfway",
+  "observed_unix": 1792519730.1332998,
+  "launch": {
+    "status": "FOUR_CARD_READONLY_ENVIRONMENT_VALIDATION_SINGLE_DISPATCHED",
+    "job": "/data20t/gaokuangda/worldcache_workspace/bootstrap/wc-fourcard-env-validation-r3-20261021",
+    "workspace": "/data20t/gaokuangda/worldcache_workspace",
+    "source_revision": "e8f80c6cd70e00fa7302235baf8587c2853e1c1f",
+    "worker_sha256": "4139cb3edd028712178c9a82e9ebc39f9eeba82c2dd95e2a258eefca10b1bd77",
+    "manifest_sha256": "86dd5682b4d3d98dba03a015c2958a063c86e8af0092e3327c2df8a905858581",
+    "identity": {
+      "pid": 346013,
+      "start_ticks": 930465445,
+      "state": "R"
+    },
+    "command": [
+      "/usr/bin/python3",
+      "/data20t/gaokuangda/worldcache_workspace/bootstrap/wc-fourcard-env-validation-r3-20261021/validation_worker.py",
+      "--manifest",
+      "/data20t/gaokuangda/worldcache_workspace/bootstrap/wc-fourcard-env-validation-r3-20261021/manifest.json"
+    ],
+    "started_unix": 1792519591.097778,
+    "halfway_not_before_unix": 1792519681.097778,
+    "final_not_before_unix": 1792519891.097778,
+    "GPU_submissions": 0,
+    "model_weights_loaded": 0,
+    "ledger_written": false,
+    "production_CPU_accepted": false,
+    "GPU_dispatch_ready": false
+  },
+  "worker_sha256": "4139cb3edd028712178c9a82e9ebc39f9eeba82c2dd95e2a258eefca10b1bd77",
+  "manifest_sha256": "86dd5682b4d3d98dba03a015c2958a063c86e8af0092e3327c2df8a905858581",
+  "support_source_sha256": "97c7af2ee6a7a68d66d8a3bd4afcd94e4adabc81846be6f56c4f84b16ff1220b",
+  "process": null,
+  "original_handle_live": false,
+  "result_exists": true,
+  "GPU_submissions": 0,
+  "ledger_written": false,
+  "health": {
+    "status": "CPU_VALIDATION_COMPLETION_FAILED_RETAINED",
+    "started_unix": 1792519591.4304109,
+    "source_revision": "e8f80c6cd70e00fa7302235baf8587c2853e1c1f",
+    "worker_sha256": "4139cb3edd028712178c9a82e9ebc39f9eeba82c2dd95e2a258eefca10b1bd77",
+    "manifest_sha256": "86dd5682b4d3d98dba03a015c2958a063c86e8af0092e3327c2df8a905858581",
+    "upstream_result_sha256": "9d80dcc7985bd35fddddb720e97032548c98c3aceea1fc299bc2fe7846e41814",
+    "environment_path": "/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3",
+    "environment_metadata_before": "4bb51826483b7ede5079543c8df691729d7d51b24b8a8a3b5e777bfe49db83b3",
+    "upstream_successful_commands": [
+      {
+        "phase": "copy-existing-base-to-independent-environment",
+        "exit_code": 0,
+        "wall_seconds": 340.7280898094177
+      },
+      {
+        "phase": "install-verified-local-cuda-wheels",
+        "exit_code": 0,
+        "wall_seconds": 117.15039825439453
+      },
+      {
+        "phase": "install-matching-official-cosmos-cuda-package",
+        "exit_code": 0,
+        "wall_seconds": 8.089025020599365
+      },
+      {
+        "phase": "install-runtime-packaging-dependency-alignment",
+        "exit_code": 0,
+        "wall_seconds": 4.228225231170654
+      },
+      {
+        "phase": "installed-dependency-check",
+        "exit_code": 0,
+        "wall_seconds": 3.224658727645874
+      },
+      {
+        "phase": "actual-Cosmos-request-import-CPU-only",
+        "exit_code": 0,
+        "wall_seconds": 82.00810122489929
+      }
+    ],
+    "reused_request_probe": {
+      "versions": {
+        "torch": "2.7.1+cu128",
+        "torchvision": "0.22.1+cu128",
+        "flash-attn": "2.7.3+cu128.torch27",
+        "natten": "0.21.0+cu128.torch27",
+        "transformer-engine": "2.2+cu128.torch27",
+        "triton": "3.3.1",
+        "xformers": "0.0.31",
+        "decord": "0.6.0"
+      },
+      "Cosmos_version": "1.4.0",
+      "CUDA_initialized": false,
+      "model_weights_loaded": 0
+    },
+    "commands": [
+      {
+        "phase": "corrected-synthetic-CPU-video-decode",
+        "exit_code": 0,
+        "wall_seconds": 2.6231689453125
+      },
+      {
+        "phase": "frozen-production-guarded-inference-import",
+        "exit_code": 1,
+        "wall_seconds": 19.069905996322632
+      }
+    ],
+    "GPU_submissions": 0,
+    "model_weights_loaded": 0,
+    "ledger_written": false,
+    "CUDA_initialized": false,
+    "environment_modified": false,
+    "production_CPU_accepted": false,
+    "GPU_dispatch_ready": false,
+    "driver_or_daemon_config_changed": false,
+    "phase": "frozen-production-guarded-inference-import",
+    "error_type": "AssertionError",
+    "error": "frozen-production-guarded-inference-import",
+    "environment_metadata_after": "4bb51826483b7ede5079543c8df691729d7d51b24b8a8a3b5e777bfe49db83b3",
+    "environment_metadata_unchanged": true,
+    "decord_payload_unchanged": true,
+    "runtime_critical_sources_unchanged": true,
+    "ended_unix": 1792519613.2322617,
+    "wall_seconds": 21.801851511001587
+  },
+  "errors": [
+    {
+      "log": "frozen-production-guarded-inference-import.log",
+      "lines": [
+        "Traceback (most recent call last):",
+        "Traceback (most recent call last):",
+        "huggingface_hub.errors.LocalEntryNotFoundError: Cannot find an appropriate cached snapshot folder for the specified revision on the local disk and outgoing traffic has been disabled. To enable repo look-ups and downloads online, set 'HF_HUB_OFFLINE=0' as environment variable.",
+        "Traceback (most recent call last):",
+        "subprocess.CalledProcessError: Command '['/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/bin/python', '-c', \"import torch\\ndef forbidden(*a,**k): raise RuntimeError('CPU import only: no CUDA, weights or downloads')\\ntorch.cuda._lazy_init=forbidden;torch.load=forbidden;torch.hub.download_url_to_file=forbidden\\nimport triton\\nclass ImportOnlyDriver:\\n def get_benchmarker(self):return forbidden\\n def __getattr__(self,n):raise RuntimeError('CPU import denies Triton execution: '+n)\\ntriton.runtime.driver.active=ImportOnlyDriver()\\nimport transformers.utils as hu\\nfrom transformers.utils import import_utils as iu\\nhu.is_flash_attn_2_available=iu.is_flash_attn_2_available=lambda:True\\ntorch.cuda.current_device=lambda:0\\nimport cosmos_predict2.inference\\nfrom cosmos_predict2._src.predict2.inference import worldcache_utils\\nfrom cosmos_predict2._src.predict2.models import video2world_model_rectified_flow\\nassert not torch.cuda.is_initialized()\\nprint('FROZEN_PRODUCTION_GUARDED_INFERENCE_IMPORT_CPU_ONLY_OK')\\n\"]' returned non-zero exit status 1."
+      ],
+      "bounded_tail": "orkspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py\", line 114, in _inner_fn\n    return fn(*args, **kwargs)\n  File \"/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/huggingface_hub/hf_api.py\", line 2867, in repo_info\n    return method(\n  File \"/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py\", line 114, in _inner_fn\n    return fn(*args, **kwargs)\n  File \"/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/huggingface_hub/hf_api.py\", line 2660, in model_info\n    r = get_session().get(path, headers=headers, timeout=timeout, params=params)\n  File \"/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/requests/sessions.py\", line 671, in get\n    return self.request(\"GET\", url, params=params, **kwargs)\n  File \"/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/requests/sessions.py\", line 651, in request\n    resp = self.send(prep, **send_kwargs)\n  File \"/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/requests/sessions.py\", line 784, in send\n    r = adapter.send(request, **kwargs)\n  File \"/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/huggingface_hub/utils/_http.py\", line 106, in send\n    raise OfflineModeIsEnabled(\nhuggingface_hub.errors.OfflineModeIsEnabled: Cannot reach https://huggingface.co/api/models/nvidia/Cosmos-Guardrail1/revision/d6d4bfa899a71454a700907664f3e88f503950cf: offline mode is enabled. To disable it, please unset the `HF_HUB_OFFLINE` environment variable.\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"<string>\", line 13, in <module>\n  File \"/data20t/gaokuangda/worldcache_workspace/bootstrap/wc-fourcard-env-repair-r2-20261021/runtime-packaging-overlay/cosmos_predict2/inference.py\", line 20, in <module>\n    from cosmos_predict2._src.imaginaire.auxiliary.guardrail.common import presets as guardrail_presets\n  File \"/data20t/gaokuangda/worldcache_workspace/bootstrap/wc-fourcard-env-repair-r2-20261021/runtime-packaging-overlay/cosmos_predict2/_src/imaginaire/auxiliary/guardrail/common/presets.py\", line 18, in <module>\n    from cosmos_predict2._src.imaginaire.auxiliary.guardrail.blocklist.blocklist import Blocklist\n  File \"/data20t/gaokuangda/worldcache_workspace/bootstrap/wc-fourcard-env-repair-r2-20261021/runtime-packaging-overlay/cosmos_predict2/_src/imaginaire/auxiliary/guardrail/blocklist/blocklist.py\", line 26, in <module>\n    from cosmos_predict2._src.imaginaire.auxiliary.guardrail.common.core import (\n  File \"/data20t/gaokuangda/worldcache_workspace/bootstrap/wc-fourcard-env-repair-r2-20261021/runtime-packaging-overlay/cosmos_predict2/_src/imaginaire/auxiliary/guardrail/common/core.py\", line 24, in <module>\n    GUARDRAIL1_CHECKPOINT_DIR = get_checkpoint_by_uuid(GUARDRAIL1_UUID).path\n  File \"/usr/local/lib/python3.10/functools.py\", line 981, in __get__\n    val = self.func(instance)\n  File \"/data20t/gaokuangda/worldcache_workspace/bootstrap/wc-fourcard-env-repair-r2-20261021/runtime-packaging-overlay/cosmos_predict2/_src/imaginaire/utils/checkpoint_db.py\", line 172, in path\n    return self.hf.path\n  File \"/usr/local/lib/python3.10/functools.py\", line 981, in __get__\n    val = self.func(instance)\n  File \"/data20t/gaokuangda/worldcache_workspace/bootstrap/wc-fourcard-env-repair-r2-20261021/runtime-packaging-overlay/cosmos_predict2/_src/imaginaire/utils/checkpoint_db.py\", line 48, in path\n    return self._download()\n  File \"/data20t/gaokuangda/worldcache_workspace/bootstrap/wc-fourcard-env-repair-r2-20261021/runtime-packaging-overlay/cosmos_predict2/_src/imaginaire/utils/checkpoint_db.py\", line 132, in _download\n    path = snapshot_download(**download_kwargs)\n  File \"/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py\", line 114, in _inner_fn\n    return fn(*args, **kwargs)\n  File \"/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/huggingface_hub/_snapshot_download.py\", line 236, in snapshot_download\n    raise LocalEntryNotFoundError(\nhuggingface_hub.errors.LocalEntryNotFoundError: Cannot find an appropriate cached snapshot folder for the specified revision on the local disk and outgoing traffic has been disabled. To enable repo look-ups and downloads online, set 'HF_HUB_OFFLINE=0' as environment variable.\nTraceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n  File \"/usr/local/lib/python3.10/subprocess.py\", line 526, in run\n    raise CalledProcessError(retcode, process.args,\nsubprocess.CalledProcessError: Command '['/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/bin/python', '-c', \"import torch\\ndef forbidden(*a,**k): raise RuntimeError('CPU import only: no CUDA, weights or downloads')\\ntorch.cuda._lazy_init=forbidden;torch.load=forbidden;torch.hub.download_url_to_file=forbidden\\nimport triton\\nclass ImportOnlyDriver:\\n def get_benchmarker(self):return forbidden\\n def __getattr__(self,n):raise RuntimeError('CPU import denies Triton execution: '+n)\\ntriton.runtime.driver.active=ImportOnlyDriver()\\nimport transformers.utils as hu\\nfrom transformers.utils import import_utils as iu\\nhu.is_flash_attn_2_available=iu.is_flash_attn_2_available=lambda:True\\ntorch.cuda.current_device=lambda:0\\nimport cosmos_predict2.inference\\nfrom cosmos_predict2._src.predict2.inference import worldcache_utils\\nfrom cosmos_predict2._src.predict2.models import video2world_model_rectified_flow\\nassert not torch.cuda.is_initialized()\\nprint('FROZEN_PRODUCTION_GUARDED_INFERENCE_IMPORT_CPU_ONLY_OK')\\n\"]' returned non-zero exit status 1.\n"
+    }
+  ]
+}

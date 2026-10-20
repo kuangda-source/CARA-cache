@@ -1,0 +1,1257 @@
+{
+  "status": "FOUR_CARD_UNCHANGED_ENVIRONMENT_VALIDATION_CAPTURE",
+  "mode": "terminal",
+  "observed_unix": 1792519918.4951963,
+  "launch": {
+    "status": "FOUR_CARD_READONLY_ENVIRONMENT_VALIDATION_SINGLE_DISPATCHED",
+    "job": "/data20t/gaokuangda/worldcache_workspace/bootstrap/wc-fourcard-env-validation-r3-20261021",
+    "workspace": "/data20t/gaokuangda/worldcache_workspace",
+    "source_revision": "e8f80c6cd70e00fa7302235baf8587c2853e1c1f",
+    "worker_sha256": "4139cb3edd028712178c9a82e9ebc39f9eeba82c2dd95e2a258eefca10b1bd77",
+    "manifest_sha256": "86dd5682b4d3d98dba03a015c2958a063c86e8af0092e3327c2df8a905858581",
+    "identity": {
+      "pid": 346013,
+      "start_ticks": 930465445,
+      "state": "R"
+    },
+    "command": [
+      "/usr/bin/python3",
+      "/data20t/gaokuangda/worldcache_workspace/bootstrap/wc-fourcard-env-validation-r3-20261021/validation_worker.py",
+      "--manifest",
+      "/data20t/gaokuangda/worldcache_workspace/bootstrap/wc-fourcard-env-validation-r3-20261021/manifest.json"
+    ],
+    "started_unix": 1792519591.097778,
+    "halfway_not_before_unix": 1792519681.097778,
+    "final_not_before_unix": 1792519891.097778,
+    "GPU_submissions": 0,
+    "model_weights_loaded": 0,
+    "ledger_written": false,
+    "production_CPU_accepted": false,
+    "GPU_dispatch_ready": false
+  },
+  "worker_sha256": "4139cb3edd028712178c9a82e9ebc39f9eeba82c2dd95e2a258eefca10b1bd77",
+  "manifest_sha256": "86dd5682b4d3d98dba03a015c2958a063c86e8af0092e3327c2df8a905858581",
+  "support_source_sha256": "97c7af2ee6a7a68d66d8a3bd4afcd94e4adabc81846be6f56c4f84b16ff1220b",
+  "process": null,
+  "original_handle_live": false,
+  "result_exists": true,
+  "GPU_submissions": 0,
+  "ledger_written": false,
+  "health": {
+    "status": "CPU_VALIDATION_COMPLETION_FAILED_RETAINED",
+    "started_unix": 1792519591.4304109,
+    "source_revision": "e8f80c6cd70e00fa7302235baf8587c2853e1c1f",
+    "worker_sha256": "4139cb3edd028712178c9a82e9ebc39f9eeba82c2dd95e2a258eefca10b1bd77",
+    "manifest_sha256": "86dd5682b4d3d98dba03a015c2958a063c86e8af0092e3327c2df8a905858581",
+    "upstream_result_sha256": "9d80dcc7985bd35fddddb720e97032548c98c3aceea1fc299bc2fe7846e41814",
+    "environment_path": "/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3",
+    "environment_metadata_before": "4bb51826483b7ede5079543c8df691729d7d51b24b8a8a3b5e777bfe49db83b3",
+    "upstream_successful_commands": [
+      {
+        "phase": "copy-existing-base-to-independent-environment",
+        "exit_code": 0,
+        "wall_seconds": 340.7280898094177
+      },
+      {
+        "phase": "install-verified-local-cuda-wheels",
+        "exit_code": 0,
+        "wall_seconds": 117.15039825439453
+      },
+      {
+        "phase": "install-matching-official-cosmos-cuda-package",
+        "exit_code": 0,
+        "wall_seconds": 8.089025020599365
+      },
+      {
+        "phase": "install-runtime-packaging-dependency-alignment",
+        "exit_code": 0,
+        "wall_seconds": 4.228225231170654
+      },
+      {
+        "phase": "installed-dependency-check",
+        "exit_code": 0,
+        "wall_seconds": 3.224658727645874
+      },
+      {
+        "phase": "actual-Cosmos-request-import-CPU-only",
+        "exit_code": 0,
+        "wall_seconds": 82.00810122489929
+      }
+    ],
+    "reused_request_probe": {
+      "versions": {
+        "torch": "2.7.1+cu128",
+        "torchvision": "0.22.1+cu128",
+        "flash-attn": "2.7.3+cu128.torch27",
+        "natten": "0.21.0+cu128.torch27",
+        "transformer-engine": "2.2+cu128.torch27",
+        "triton": "3.3.1",
+        "xformers": "0.0.31",
+        "decord": "0.6.0"
+      },
+      "Cosmos_version": "1.4.0",
+      "CUDA_initialized": false,
+      "model_weights_loaded": 0
+    },
+    "commands": [
+      {
+        "phase": "corrected-synthetic-CPU-video-decode",
+        "exit_code": 0,
+        "wall_seconds": 2.6231689453125
+      },
+      {
+        "phase": "frozen-production-guarded-inference-import",
+        "exit_code": 1,
+        "wall_seconds": 19.069905996322632
+      }
+    ],
+    "GPU_submissions": 0,
+    "model_weights_loaded": 0,
+    "ledger_written": false,
+    "CUDA_initialized": false,
+    "environment_modified": false,
+    "production_CPU_accepted": false,
+    "GPU_dispatch_ready": false,
+    "driver_or_daemon_config_changed": false,
+    "phase": "frozen-production-guarded-inference-import",
+    "error_type": "AssertionError",
+    "error": "frozen-production-guarded-inference-import",
+    "environment_metadata_after": "4bb51826483b7ede5079543c8df691729d7d51b24b8a8a3b5e777bfe49db83b3",
+    "environment_metadata_unchanged": true,
+    "decord_payload_unchanged": true,
+    "runtime_critical_sources_unchanged": true,
+    "ended_unix": 1792519613.2322617,
+    "wall_seconds": 21.801851511001587
+  },
+  "errors": [
+    {
+      "log": "frozen-production-guarded-inference-import.log",
+      "lines": [
+        "Traceback (most recent call last):",
+        "Traceback (most recent call last):",
+        "huggingface_hub.errors.LocalEntryNotFoundError: Cannot find an appropriate cached snapshot folder for the specified revision on the local disk and outgoing traffic has been disabled. To enable repo look-ups and downloads online, set 'HF_HUB_OFFLINE=0' as environment variable.",
+        "Traceback (most recent call last):",
+        "subprocess.CalledProcessError: Command '['/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/bin/python', '-c', \"import torch\\ndef forbidden(*a,**k): raise RuntimeError('CPU import only: no CUDA, weights or downloads')\\ntorch.cuda._lazy_init=forbidden;torch.load=forbidden;torch.hub.download_url_to_file=forbidden\\nimport triton\\nclass ImportOnlyDriver:\\n def get_benchmarker(self):return forbidden\\n def __getattr__(self,n):raise RuntimeError('CPU import denies Triton execution: '+n)\\ntriton.runtime.driver.active=ImportOnlyDriver()\\nimport transformers.utils as hu\\nfrom transformers.utils import import_utils as iu\\nhu.is_flash_attn_2_available=iu.is_flash_attn_2_available=lambda:True\\ntorch.cuda.current_device=lambda:0\\nimport cosmos_predict2.inference\\nfrom cosmos_predict2._src.predict2.inference import worldcache_utils\\nfrom cosmos_predict2._src.predict2.models import video2world_model_rectified_flow\\nassert not torch.cuda.is_initialized()\\nprint('FROZEN_PRODUCTION_GUARDED_INFERENCE_IMPORT_CPU_ONLY_OK')\\n\"]' returned non-zero exit status 1."
+      ],
+      "bounded_tail": "orkspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py\", line 114, in _inner_fn\n    return fn(*args, **kwargs)\n  File \"/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/huggingface_hub/hf_api.py\", line 2867, in repo_info\n    return method(\n  File \"/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py\", line 114, in _inner_fn\n    return fn(*args, **kwargs)\n  File \"/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/huggingface_hub/hf_api.py\", line 2660, in model_info\n    r = get_session().get(path, headers=headers, timeout=timeout, params=params)\n  File \"/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/requests/sessions.py\", line 671, in get\n    return self.request(\"GET\", url, params=params, **kwargs)\n  File \"/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/requests/sessions.py\", line 651, in request\n    resp = self.send(prep, **send_kwargs)\n  File \"/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/requests/sessions.py\", line 784, in send\n    r = adapter.send(request, **kwargs)\n  File \"/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/huggingface_hub/utils/_http.py\", line 106, in send\n    raise OfflineModeIsEnabled(\nhuggingface_hub.errors.OfflineModeIsEnabled: Cannot reach https://huggingface.co/api/models/nvidia/Cosmos-Guardrail1/revision/d6d4bfa899a71454a700907664f3e88f503950cf: offline mode is enabled. To disable it, please unset the `HF_HUB_OFFLINE` environment variable.\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"<string>\", line 13, in <module>\n  File \"/data20t/gaokuangda/worldcache_workspace/bootstrap/wc-fourcard-env-repair-r2-20261021/runtime-packaging-overlay/cosmos_predict2/inference.py\", line 20, in <module>\n    from cosmos_predict2._src.imaginaire.auxiliary.guardrail.common import presets as guardrail_presets\n  File \"/data20t/gaokuangda/worldcache_workspace/bootstrap/wc-fourcard-env-repair-r2-20261021/runtime-packaging-overlay/cosmos_predict2/_src/imaginaire/auxiliary/guardrail/common/presets.py\", line 18, in <module>\n    from cosmos_predict2._src.imaginaire.auxiliary.guardrail.blocklist.blocklist import Blocklist\n  File \"/data20t/gaokuangda/worldcache_workspace/bootstrap/wc-fourcard-env-repair-r2-20261021/runtime-packaging-overlay/cosmos_predict2/_src/imaginaire/auxiliary/guardrail/blocklist/blocklist.py\", line 26, in <module>\n    from cosmos_predict2._src.imaginaire.auxiliary.guardrail.common.core import (\n  File \"/data20t/gaokuangda/worldcache_workspace/bootstrap/wc-fourcard-env-repair-r2-20261021/runtime-packaging-overlay/cosmos_predict2/_src/imaginaire/auxiliary/guardrail/common/core.py\", line 24, in <module>\n    GUARDRAIL1_CHECKPOINT_DIR = get_checkpoint_by_uuid(GUARDRAIL1_UUID).path\n  File \"/usr/local/lib/python3.10/functools.py\", line 981, in __get__\n    val = self.func(instance)\n  File \"/data20t/gaokuangda/worldcache_workspace/bootstrap/wc-fourcard-env-repair-r2-20261021/runtime-packaging-overlay/cosmos_predict2/_src/imaginaire/utils/checkpoint_db.py\", line 172, in path\n    return self.hf.path\n  File \"/usr/local/lib/python3.10/functools.py\", line 981, in __get__\n    val = self.func(instance)\n  File \"/data20t/gaokuangda/worldcache_workspace/bootstrap/wc-fourcard-env-repair-r2-20261021/runtime-packaging-overlay/cosmos_predict2/_src/imaginaire/utils/checkpoint_db.py\", line 48, in path\n    return self._download()\n  File \"/data20t/gaokuangda/worldcache_workspace/bootstrap/wc-fourcard-env-repair-r2-20261021/runtime-packaging-overlay/cosmos_predict2/_src/imaginaire/utils/checkpoint_db.py\", line 132, in _download\n    path = snapshot_download(**download_kwargs)\n  File \"/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py\", line 114, in _inner_fn\n    return fn(*args, **kwargs)\n  File \"/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/huggingface_hub/_snapshot_download.py\", line 236, in snapshot_download\n    raise LocalEntryNotFoundError(\nhuggingface_hub.errors.LocalEntryNotFoundError: Cannot find an appropriate cached snapshot folder for the specified revision on the local disk and outgoing traffic has been disabled. To enable repo look-ups and downloads online, set 'HF_HUB_OFFLINE=0' as environment variable.\nTraceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n  File \"/usr/local/lib/python3.10/subprocess.py\", line 526, in run\n    raise CalledProcessError(retcode, process.args,\nsubprocess.CalledProcessError: Command '['/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/bin/python', '-c', \"import torch\\ndef forbidden(*a,**k): raise RuntimeError('CPU import only: no CUDA, weights or downloads')\\ntorch.cuda._lazy_init=forbidden;torch.load=forbidden;torch.hub.download_url_to_file=forbidden\\nimport triton\\nclass ImportOnlyDriver:\\n def get_benchmarker(self):return forbidden\\n def __getattr__(self,n):raise RuntimeError('CPU import denies Triton execution: '+n)\\ntriton.runtime.driver.active=ImportOnlyDriver()\\nimport transformers.utils as hu\\nfrom transformers.utils import import_utils as iu\\nhu.is_flash_attn_2_available=iu.is_flash_attn_2_available=lambda:True\\ntorch.cuda.current_device=lambda:0\\nimport cosmos_predict2.inference\\nfrom cosmos_predict2._src.predict2.inference import worldcache_utils\\nfrom cosmos_predict2._src.predict2.models import video2world_model_rectified_flow\\nassert not torch.cuda.is_initialized()\\nprint('FROZEN_PRODUCTION_GUARDED_INFERENCE_IMPORT_CPU_ONLY_OK')\\n\"]' returned non-zero exit status 1.\n"
+    }
+  ],
+  "manifest": {
+    "version": "WC_FOUR_CARD_UNCHANGED_ENVIRONMENT_CPU_VALIDATION_R3",
+    "workspace": "/data20t/gaokuangda/worldcache_workspace",
+    "run_id": "wc-fourcard-env-validation-r3-20261021",
+    "upstream_job": "/data20t/gaokuangda/worldcache_workspace/bootstrap/wc-fourcard-env-repair-r2-20261021",
+    "upstream_result_sha256": "9d80dcc7985bd35fddddb720e97032548c98c3aceea1fc299bc2fe7846e41814",
+    "upstream_worker_sha256": "97c7af2ee6a7a68d66d8a3bd4afcd94e4adabc81846be6f56c4f84b16ff1220b",
+    "upstream_decode_failure_log_sha256": "38272ad69a2e797f46f4b9725c95105382258abcabb8ca0f45b0e6b03b627d5f",
+    "upstream_capture_ref": "reports/wc_four_card_environment_isolated_CPU_repair_R2_terminal_recheck_20261021_0200.json",
+    "upstream_capture_sha256": "b84c7e821f9ccebea85de88fd10f1dd1151feeb7c0dfbf77ae8ea65ecb292acf",
+    "CPU_only": true,
+    "environment_install_or_modification": false,
+    "workspace_mount_readonly": true,
+    "job_only_writable": true,
+    "halfway_after_start_seconds": 90,
+    "terminal_after_start_seconds": 300,
+    "GPU_submissions": 0,
+    "ledger_written": false,
+    "production_CPU_accepted": false,
+    "GPU_dispatch_ready": false,
+    "source_revision": "e8f80c6cd70e00fa7302235baf8587c2853e1c1f",
+    "worker_sha256": "4139cb3edd028712178c9a82e9ebc39f9eeba82c2dd95e2a258eefca10b1bd77",
+    "source_bundle": {
+      "path": "/data20t/gaokuangda/worldcache_workspace/staging/github-validation-e8f80c6cd70e.bundle",
+      "sha256": "da9316f84e041b1b2143977bce696ea54eaef003538da84356c23281c16ff9c7",
+      "bytes": 91503
+    }
+  },
+  "result": {
+    "status": "CPU_VALIDATION_COMPLETION_FAILED_RETAINED",
+    "started_unix": 1792519591.4304109,
+    "source_revision": "e8f80c6cd70e00fa7302235baf8587c2853e1c1f",
+    "worker_sha256": "4139cb3edd028712178c9a82e9ebc39f9eeba82c2dd95e2a258eefca10b1bd77",
+    "manifest_sha256": "86dd5682b4d3d98dba03a015c2958a063c86e8af0092e3327c2df8a905858581",
+    "upstream_result_sha256": "9d80dcc7985bd35fddddb720e97032548c98c3aceea1fc299bc2fe7846e41814",
+    "environment_path": "/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3",
+    "environment_metadata_before": "4bb51826483b7ede5079543c8df691729d7d51b24b8a8a3b5e777bfe49db83b3",
+    "upstream_successful_commands": [
+      {
+        "phase": "copy-existing-base-to-independent-environment",
+        "exit_code": 0,
+        "wall_seconds": 340.7280898094177
+      },
+      {
+        "phase": "install-verified-local-cuda-wheels",
+        "exit_code": 0,
+        "wall_seconds": 117.15039825439453
+      },
+      {
+        "phase": "install-matching-official-cosmos-cuda-package",
+        "exit_code": 0,
+        "wall_seconds": 8.089025020599365
+      },
+      {
+        "phase": "install-runtime-packaging-dependency-alignment",
+        "exit_code": 0,
+        "wall_seconds": 4.228225231170654
+      },
+      {
+        "phase": "installed-dependency-check",
+        "exit_code": 0,
+        "wall_seconds": 3.224658727645874
+      },
+      {
+        "phase": "actual-Cosmos-request-import-CPU-only",
+        "exit_code": 0,
+        "wall_seconds": 82.00810122489929
+      }
+    ],
+    "reused_request_probe": {
+      "versions": {
+        "torch": "2.7.1+cu128",
+        "torchvision": "0.22.1+cu128",
+        "flash-attn": "2.7.3+cu128.torch27",
+        "natten": "0.21.0+cu128.torch27",
+        "transformer-engine": "2.2+cu128.torch27",
+        "triton": "3.3.1",
+        "xformers": "0.0.31",
+        "decord": "0.6.0"
+      },
+      "Cosmos_version": "1.4.0",
+      "CUDA_initialized": false,
+      "model_weights_loaded": 0
+    },
+    "commands": [
+      {
+        "phase": "corrected-synthetic-CPU-video-decode",
+        "exit_code": 0,
+        "wall_seconds": 2.6231689453125
+      },
+      {
+        "phase": "frozen-production-guarded-inference-import",
+        "exit_code": 1,
+        "wall_seconds": 19.069905996322632
+      }
+    ],
+    "GPU_submissions": 0,
+    "model_weights_loaded": 0,
+    "ledger_written": false,
+    "CUDA_initialized": false,
+    "environment_modified": false,
+    "production_CPU_accepted": false,
+    "GPU_dispatch_ready": false,
+    "driver_or_daemon_config_changed": false,
+    "phase": "frozen-production-guarded-inference-import",
+    "error_type": "AssertionError",
+    "error": "frozen-production-guarded-inference-import",
+    "environment_metadata_after": "4bb51826483b7ede5079543c8df691729d7d51b24b8a8a3b5e777bfe49db83b3",
+    "environment_metadata_unchanged": true,
+    "decord_payload_unchanged": true,
+    "runtime_critical_sources_unchanged": true,
+    "ended_unix": 1792519613.2322617,
+    "wall_seconds": 21.801851511001587
+  },
+  "result_sha256": "9d44d033d298f8880417f32865de98de989ba496161c021723470d43ff7e01d9",
+  "own_container_running": false,
+  "upstream_result_sha256": "9d80dcc7985bd35fddddb720e97032548c98c3aceea1fc299bc2fe7846e41814",
+  "original_R1_result_sha256": "28c07df2fd0ad7004f66a275b71f5efccce59be3dcea6588ca48cc4ec8cd4237",
+  "original_project_revision": "c9a2f95bf2e7ecc25d4d84731d8b4d35d6f1f6c3",
+  "runtime_critical_sources_match": true,
+  "all_wheel_SHA_match": true,
+  "native_archives_SHA_match": true,
+  "decord_decode_marker": true,
+  "guarded_inference_marker": false,
+  "resolved_python_freeze": null,
+  "installed_distribution_metadata": [
+    {
+      "name": "accelerate",
+      "version": "1.15.0",
+      "metadata_sha256": "64e744885238d853870093f1d4526eb93ac6ae8a5420a2b3f864fe5d16189d37"
+    },
+    {
+      "name": "albucore",
+      "version": "0.0.24",
+      "metadata_sha256": "20f9863950c8228e58e87c59fda3555b5f7416845c8249dfe32d13fdd78196fe"
+    },
+    {
+      "name": "albumentations",
+      "version": "2.0.8",
+      "metadata_sha256": "99a63c73df9aba5492a860e5405fc651fddfca68421ba1d96e74ef30c486b003"
+    },
+    {
+      "name": "annotated-types",
+      "version": "0.8.0",
+      "metadata_sha256": "614985b278f601b8ef863f82783b991cc3ada4b89f592eb71c7c48c5f2ef2298"
+    },
+    {
+      "name": "antlr4-python3-runtime",
+      "version": "4.9.3",
+      "metadata_sha256": "bf325e5155318385a2fcc4680742da710bbadf13a3d1c0979a98b3487980f261"
+    },
+    {
+      "name": "anyio",
+      "version": "4.15.1",
+      "metadata_sha256": "043aecb571af7189e8a6c528f5d8e32545f1b2cdfaaf761d51e6d5b67ea3ca81"
+    },
+    {
+      "name": "asttokens",
+      "version": "3.0.2",
+      "metadata_sha256": "8b3567b29654e6e9a60ab50fde2c317899152790acadaab7868a708bf931c3d3"
+    },
+    {
+      "name": "attrs",
+      "version": "26.1.0",
+      "metadata_sha256": "4cd40e690f23bf37cbcad34efd6758e062df1df07c86833f7e3ce95bf1fa38cc"
+    },
+    {
+      "name": "av",
+      "version": "17.1.0",
+      "metadata_sha256": "89c2df8ac110b9ecb42c2e8958fbb6e9ddcfe7a94c5d7dcc27775f43c742c410"
+    },
+    {
+      "name": "awscrt",
+      "version": "0.38.0",
+      "metadata_sha256": "11784a1c2e6836cd63322e8e17c83fca820be6414f18f66ff738ad17ae9adaef"
+    },
+    {
+      "name": "better-profanity",
+      "version": "0.7.0",
+      "metadata_sha256": "9b28e71e43bf714481fa539b3c0f1e514b17cf88cd514c30f052c0696a4099be"
+    },
+    {
+      "name": "boto3",
+      "version": "1.43.115",
+      "metadata_sha256": "56d82e561b6d75016cbdd068f50f83ddf575c4f21f2a7a409800f25bf83968df"
+    },
+    {
+      "name": "botocore",
+      "version": "1.43.115",
+      "metadata_sha256": "32f8a4535f85acebb2297b46d86d99358f2d0b30e5e4dda7dff15c5d96bdd78d"
+    },
+    {
+      "name": "braceexpand",
+      "version": "0.1.7",
+      "metadata_sha256": "f565495b6e5832d7aa47fe2c8373a8ea58655720b28fb6ca92ee2e23cf115a02"
+    },
+    {
+      "name": "bracex",
+      "version": "3.1",
+      "metadata_sha256": "649d878ad103f36d16942b482b53bd88d50fa0438840482a04023d6e8bb8cf3a"
+    },
+    {
+      "name": "certifi",
+      "version": "2026.10.19",
+      "metadata_sha256": "a5c0be3a42daeef0edfaf58e6ea5b7550f3e4e8eb35420f72e902df9bcf00f5c"
+    },
+    {
+      "name": "cffi",
+      "version": "2.1.1",
+      "metadata_sha256": "558bafb9093a8e790175d9ecff9688382981d744877dad86fd6770db0f4dc918"
+    },
+    {
+      "name": "charset-normalizer",
+      "version": "3.5.2",
+      "metadata_sha256": "89ce6362bb7be88558f4be99a98f5d1b4da93d19cd0323e5ee0bac05cf883dfb"
+    },
+    {
+      "name": "click",
+      "version": "8.5.0",
+      "metadata_sha256": "e87bce0bd194de70dfb8e708e0a6b0483009f25611804eaf87bfeb63e6c20501"
+    },
+    {
+      "name": "cloudpickle",
+      "version": "3.1.2",
+      "metadata_sha256": "3d0263bfe9ee4f23b244bdcaff73acbe7a1957ebf82743b6ae42693adc48d721"
+    },
+    {
+      "name": "contourpy",
+      "version": "1.3.2",
+      "metadata_sha256": "0d860f7cb8af8e85005c209499e0ca25da8515b4b67915ee8b88b8852c316c08"
+    },
+    {
+      "name": "cosmos-cuda",
+      "version": "1.4.0",
+      "metadata_sha256": "8744a1726c1693287499a55681b7021a367b778be80d1d74bea4dbbf23a08f6a"
+    },
+    {
+      "name": "cosmos-oss",
+      "version": "1.4.0",
+      "metadata_sha256": "beec608d2db035cbe5326576b462f45e360ff3255863c751fe32d6a243a27fd6"
+    },
+    {
+      "name": "cosmos-predict2",
+      "version": "1.4.0",
+      "metadata_sha256": "1d284e07396688e80395829957629dfb87df8beb9b84e3adaee8ca01f94d8102"
+    },
+    {
+      "name": "cramjam",
+      "version": "2.11.0",
+      "metadata_sha256": "a12355a4ef38541d5e0f8f40abf875d3a7b53f499ca2cafc42db67b4f44cdd67"
+    },
+    {
+      "name": "cryptography",
+      "version": "50.0.2",
+      "metadata_sha256": "047cfc71226409de4318b360aef15c63a2adf609731e3dcf7fe932f14ea042ee"
+    },
+    {
+      "name": "cwevals",
+      "version": "0.0.1b1",
+      "metadata_sha256": "37e2470c3a3d2b89895f899fd5ec934543b02a3d16ae69be0f55c368a88a43ab"
+    },
+    {
+      "name": "cycler",
+      "version": "0.12.1",
+      "metadata_sha256": "23289e19b76f1e01394227696e6af2b6cd1ce79e89731209bf9195148b18ed36"
+    },
+    {
+      "name": "decorator",
+      "version": "5.3.1",
+      "metadata_sha256": "2133792485403bbd739e1db5960228bedbcde6d00c0acc052b27f39dbae5b5c4"
+    },
+    {
+      "name": "decord",
+      "version": "0.6.0",
+      "metadata_sha256": "c716df1c8d318a318acadc35ad1160770e0ff1776a19a4b7e29b6fc10ccd19a6"
+    },
+    {
+      "name": "defusedxml",
+      "version": "0.7.1",
+      "metadata_sha256": "369d3cef64870daf849fba711cb8d05a7efe3c8d9ab0f763adc34079fe378bb1"
+    },
+    {
+      "name": "diffusers",
+      "version": "0.37.1",
+      "metadata_sha256": "b3577ec282ceed04b4f0e216d2a1b00f5b6397de89825e78e67023fee2da22b3"
+    },
+    {
+      "name": "distro",
+      "version": "1.9.0",
+      "metadata_sha256": "31632ab2de5591131091b3397bdcdf797718579d85a75186f06839dd0c09e81d"
+    },
+    {
+      "name": "docstring_parser",
+      "version": "0.18.0",
+      "metadata_sha256": "cbc42027997fd4b194ae5fd064a4d1e57b92976941d0c26d369561a7c016a333"
+    },
+    {
+      "name": "einops",
+      "version": "0.8.2",
+      "metadata_sha256": "0bd65db043688a44f4a29608c1cba521c932f7ff76f238bbd869441e15012653"
+    },
+    {
+      "name": "exceptiongroup",
+      "version": "1.3.1",
+      "metadata_sha256": "81984a523a2f7a522ad12bea784a8bb85edec0805ebbd0fb4e350169a36dd802"
+    },
+    {
+      "name": "executing",
+      "version": "2.3.0",
+      "metadata_sha256": "d619489e8b06a0bcd934e4dae17fe86bd651b2aea0b3a4d2964221fd66c55db0"
+    },
+    {
+      "name": "fastparquet",
+      "version": "2026.9.0",
+      "metadata_sha256": "41e33fb1108f3c93c5047840b327c6f89be223433e8ccb6269550c2d2da1554c"
+    },
+    {
+      "name": "filelock",
+      "version": "3.32.7",
+      "metadata_sha256": "8ca3e60f5144b556a3e5ed85cdf45ad708f28f1358be397ce9b052d8b450a363"
+    },
+    {
+      "name": "flash_attn",
+      "version": "2.7.3+cu128.torch27",
+      "metadata_sha256": "a0874a433a015eba7f98acb0e159fe5857d70a3982b05b57ed6c4184b3a92aa3"
+    },
+    {
+      "name": "fonttools",
+      "version": "4.65.0",
+      "metadata_sha256": "767c772df5fec424631e48baa13cfa55498f4d7be9b41d1071b34bf52cc28fa8"
+    },
+    {
+      "name": "fsspec",
+      "version": "2026.9.0",
+      "metadata_sha256": "68f5a262767510638e9b1933b1493f2baadc9616fe1e696f62aedd59c8c0a37c"
+    },
+    {
+      "name": "ftfy",
+      "version": "6.3.1",
+      "metadata_sha256": "83f67c6280377637c560b5e8802a00ba6ee512b0a1ea1dae5dff1e745b19d1df"
+    },
+    {
+      "name": "fvcore",
+      "version": "0.1.5.post20221221",
+      "metadata_sha256": "8f0b3e03d143b6570198e13a4b93ca9ceed0f0e2d4582e01dda526d8ebbc5930"
+    },
+    {
+      "name": "google-api-core",
+      "version": "2.42.0",
+      "metadata_sha256": "1d9c5641a46cb86af469ce7b5c6610c170e47cc8ace987cb4efe5441e8c27c13"
+    },
+    {
+      "name": "google-auth",
+      "version": "2.62.0",
+      "metadata_sha256": "7f89925f9bab6feb1a5bd97b19902fffb9f0ad00aa24b24423b9163ae6655c2e"
+    },
+    {
+      "name": "google-cloud-core",
+      "version": "2.8.0",
+      "metadata_sha256": "3d663ba8202ffb11a4cc5fda7cb8caf582ba5297406792d9b06bcd126ac6a372"
+    },
+    {
+      "name": "google-cloud-storage",
+      "version": "3.17.1",
+      "metadata_sha256": "9e770136b11c2f4a4b1799d0a9d5403aa2c1808491d638ecaaa54581dd2fcc05"
+    },
+    {
+      "name": "google-crc32c",
+      "version": "1.9.0",
+      "metadata_sha256": "553d7ec13e2e6e6520d577f3f9af4ee53f5425e1432ff30b9a20a3305546b758"
+    },
+    {
+      "name": "google-resumable-media",
+      "version": "2.11.0",
+      "metadata_sha256": "24e6851ae9d119c5b23d46a8ccac3b4c2054a427c0dbdcd7f0aaffedd47e126e"
+    },
+    {
+      "name": "googleapis-common-protos",
+      "version": "1.75.5",
+      "metadata_sha256": "972d4190abd8f2109a51aa590721a3d499a36b49b013e213466ba04f508e3736"
+    },
+    {
+      "name": "h11",
+      "version": "0.16.0",
+      "metadata_sha256": "28f326098ac09fcba79b8f180f96087c841fe2456215cb7b872a9c7d5cd19d64"
+    },
+    {
+      "name": "hf-xet",
+      "version": "1.7.0",
+      "metadata_sha256": "05975b1239f188bb418539f178ef68a693ea6824f20c30583a02eea94faf650a"
+    },
+    {
+      "name": "httpcore",
+      "version": "1.0.9",
+      "metadata_sha256": "fe2d4fda6199128978779e0cf27f3c045c531863fcdd987eacc74f3a18d41c21"
+    },
+    {
+      "name": "httpx",
+      "version": "0.28.1",
+      "metadata_sha256": "febb9b0f8f3e80d57c8199c304f35c4336e8581d1d18d7983c92766b82793b25"
+    },
+    {
+      "name": "huggingface-hub",
+      "version": "0.36.0",
+      "metadata_sha256": "26ce80563d3402f2935b7d881835b9b1a64d897dc2f986f52bf4114642de71ad"
+    },
+    {
+      "name": "hydra-core",
+      "version": "1.3.7",
+      "metadata_sha256": "4cfccd8210edb3ae4cce8f88a9216bd2829f7e5b53db2fa6e5840cc5d1acf8a9"
+    },
+    {
+      "name": "idna",
+      "version": "3.20",
+      "metadata_sha256": "dbd8c14c1e4ca1e0c9824a6dbc7cbbf78884f38eb52d91148cd3025f671e4b85"
+    },
+    {
+      "name": "ImageIO",
+      "version": "2.38.0",
+      "metadata_sha256": "c6c48046e1f02bdb44ee5a39b4702651bd27125977e227ef52cae60e7f20daab"
+    },
+    {
+      "name": "imageio-ffmpeg",
+      "version": "0.6.0",
+      "metadata_sha256": "c9697b379419a64049d99e2248c4cba963e03b5cad1dc65e10a887d1da7651ee"
+    },
+    {
+      "name": "importlib_metadata",
+      "version": "9.0.1",
+      "metadata_sha256": "1a90ba399de022d3528ad996c7a8593422207ccb13d27f062ad005f509e11500"
+    },
+    {
+      "name": "iniconfig",
+      "version": "2.3.1",
+      "metadata_sha256": "47c2c35d936f5c649d8074c6464719a42966a67b5cebad01e3e5784cf090cfb6"
+    },
+    {
+      "name": "iopath",
+      "version": "0.1.10",
+      "metadata_sha256": "62f3927f4f6e05fb46c5ccecfa033582e105e6596ca7106a13161ed7b602a2a0"
+    },
+    {
+      "name": "ipdb",
+      "version": "0.13.13",
+      "metadata_sha256": "b39917be3918c2249e9c9557a7c8508298e5b4ffddd948bf076cf18ce5383b10"
+    },
+    {
+      "name": "ipython",
+      "version": "8.39.0",
+      "metadata_sha256": "91f8aad15630af8a0972e7e1365d7b3ea2ea64147a80142b544c1874080cd3aa"
+    },
+    {
+      "name": "jedi",
+      "version": "0.20.1",
+      "metadata_sha256": "b9450ab995663c682c807066e067a2f4c176de4754901c61c95ba9144291516a"
+    },
+    {
+      "name": "Jinja2",
+      "version": "3.1.6",
+      "metadata_sha256": "68c5548fb67c4132a13898d9b31ec50c6bea2abdd915d921f214355c3a6499c8"
+    },
+    {
+      "name": "jmespath",
+      "version": "1.1.0",
+      "metadata_sha256": "81181e9a312f1b87e5be7c8376c57b0e8c962ba524a25a313d43dc2e2d3984f3"
+    },
+    {
+      "name": "joblib",
+      "version": "1.6.0",
+      "metadata_sha256": "c5fd6509906c5795fd6724d97bc1709d1f266b78aff92c0156d6cf5ad7c045e3"
+    },
+    {
+      "name": "jsonschema",
+      "version": "4.26.0",
+      "metadata_sha256": "05b189866ca98a96da3934bf6b83687ced3ff85325273b77e16b705f6d8b26d2"
+    },
+    {
+      "name": "jsonschema-specifications",
+      "version": "2025.9.1",
+      "metadata_sha256": "35abd41757f32b4ea24756920ded47b70173d77cbc052a5a6d3ab583b2e8d89d"
+    },
+    {
+      "name": "kiwisolver",
+      "version": "1.5.1",
+      "metadata_sha256": "f07b7b6c0c9c2a624c8a31f931e16712f2cf3490e7dfd51643d68e9d42d4b2c9"
+    },
+    {
+      "name": "lark",
+      "version": "1.3.1",
+      "metadata_sha256": "730d3f056045a9096bc0a65e4faccae53fe7f3634055174d4b8245cd19cb4cde"
+    },
+    {
+      "name": "lazy-loader",
+      "version": "0.6",
+      "metadata_sha256": "9cd369edae6bf499af0c1acee15d0389361036907742690ac504f9b3b84d56b3"
+    },
+    {
+      "name": "loguru",
+      "version": "0.7.3",
+      "metadata_sha256": "3a371f8b089014fdaee055edc440d448242847926ad67613621af402f9975fd9"
+    },
+    {
+      "name": "lpips",
+      "version": "0.1.4",
+      "metadata_sha256": "cbd4a3730b2c9390741cdbad69661a87cabdc2796f1efc530bc46b738745b9b5"
+    },
+    {
+      "name": "MarkupSafe",
+      "version": "3.0.4",
+      "metadata_sha256": "66767d76388ece15d49d50dafb655891ef5d868715e7128e7f7d737a70b353c4"
+    },
+    {
+      "name": "matplotlib",
+      "version": "3.10.9",
+      "metadata_sha256": "bea8a4672bbe4f26b7a4fe5bc5e5023a08c4fb7069cc951f39eef26a403c7ea6"
+    },
+    {
+      "name": "matplotlib-inline",
+      "version": "0.2.2",
+      "metadata_sha256": "fedb3d587ec2d3fa4b0a81fd5353df697d2534c8ee714dbf050009afc60bcab7"
+    },
+    {
+      "name": "mediapy",
+      "version": "1.2.7",
+      "metadata_sha256": "4ac328c143d8f9abb1c9f1621881d4fbf7bfa7a0772c2e2cac5a11b90bcca915"
+    },
+    {
+      "name": "megatron-core",
+      "version": "0.16.1",
+      "metadata_sha256": "a77e44507193a6e3d761b43e9cc430e50630292ff49d303bd8fa1754af6e9241"
+    },
+    {
+      "name": "ml_dtypes",
+      "version": "0.6.0",
+      "metadata_sha256": "363d582174259be78c619e314216fc8979e5a5ec245337ee236b244945df3f01"
+    },
+    {
+      "name": "modelscope",
+      "version": "1.40.2",
+      "metadata_sha256": "99aa5fc45b6e5535a9e6f8c98e4a87d7477c57dbea2b4585c6e1a539403d45b9"
+    },
+    {
+      "name": "modelscope-hub",
+      "version": "0.4.6",
+      "metadata_sha256": "d3bb43830ff5a74d59aeb2223db82a7d50870d6ddd7755b66f3bcd1a2b2e1a95"
+    },
+    {
+      "name": "mpmath",
+      "version": "1.3.0",
+      "metadata_sha256": "44b66ea444b9c0d19ae94815d356bf047ae6b680c19268b5c265687cd6a81406"
+    },
+    {
+      "name": "msal",
+      "version": "1.39.0",
+      "metadata_sha256": "cfda1fa5434e7d1594efab2477dfe9c7c9deda1bba9a44fd27cec73693cb6b87"
+    },
+    {
+      "name": "multi-storage-client",
+      "version": "1.2.0",
+      "metadata_sha256": "0893e2c7531c950d726ff7d4487f7c85da5b112ef05b1f0736caad398e329f34"
+    },
+    {
+      "name": "natten",
+      "version": "0.21.0+cu128.torch27",
+      "metadata_sha256": "9c6396a73ad7168138c2f518f42e1b13e7840b1d7ddf38c6457c0e76da672bcf"
+    },
+    {
+      "name": "networkx",
+      "version": "3.4.2",
+      "metadata_sha256": "2e5265dda876ef3c44fefa9e9553499bc564c89a16c95e38bdaf9babc556d1d7"
+    },
+    {
+      "name": "nltk",
+      "version": "3.10.3",
+      "metadata_sha256": "78584b6194873a677ecc029634f2178e6b962fababd4188a0049d76e6b64ba1e"
+    },
+    {
+      "name": "numpy",
+      "version": "2.2.6",
+      "metadata_sha256": "22d648f53848429464ca643b40d73b49a920d47876fc77c395d4dca4e834904a"
+    },
+    {
+      "name": "numpydantic",
+      "version": "1.10.0",
+      "metadata_sha256": "4d9d4698b9778ee0cd3a1f4d5af20d26dd92334bf0d0ca545898b00f5feedc72"
+    },
+    {
+      "name": "nvidia-cublas-cu12",
+      "version": "12.8.3.14",
+      "metadata_sha256": "b77917e0c0c9ba5137fb6ba258270d904645b6338f74f9f3e277ebe32a7a2426"
+    },
+    {
+      "name": "nvidia-cuda-cupti-cu12",
+      "version": "12.8.57",
+      "metadata_sha256": "38e4e20eb39e418101e0fffca727d3f5756a301b6b4f13f77bf7cfa31460c037"
+    },
+    {
+      "name": "nvidia-cuda-nvrtc-cu12",
+      "version": "12.8.61",
+      "metadata_sha256": "957c238bb9693e02fdd2dd7b9be2d496e9a870398c083bab5aeb04e0df048eef"
+    },
+    {
+      "name": "nvidia-cuda-runtime-cu12",
+      "version": "12.8.57",
+      "metadata_sha256": "c450a27787fcec867730bc6490c70db58ca4d224915701b46637d5178878e869"
+    },
+    {
+      "name": "nvidia-cudnn-cu12",
+      "version": "9.7.1.26",
+      "metadata_sha256": "a9de8685623b400dea03be6c064df033c60639a3f20745dc91e1f4391bd4fe58"
+    },
+    {
+      "name": "nvidia-cufft-cu12",
+      "version": "11.3.3.41",
+      "metadata_sha256": "51738ef59e7195e47ca3e5ae138511cf771c6cf2fd1643a5c24b9be928e233d8"
+    },
+    {
+      "name": "nvidia-cufile-cu12",
+      "version": "1.13.0.11",
+      "metadata_sha256": "f0d564ccf2003f21f1ad93c9c802f892458e02bcdad3bad3da13f508532b2e43"
+    },
+    {
+      "name": "nvidia-curand-cu12",
+      "version": "10.3.9.55",
+      "metadata_sha256": "d077bc8e1f97cd50997a5f537bdfa9e74f4228540274b13e261e577fbbc4295b"
+    },
+    {
+      "name": "nvidia-cusolver-cu12",
+      "version": "11.7.2.55",
+      "metadata_sha256": "6c29fd45dfde7170242a34761f2b2d4ac1112978e9ea32686f1fe8e1d2c647fb"
+    },
+    {
+      "name": "nvidia-cusparse-cu12",
+      "version": "12.5.7.53",
+      "metadata_sha256": "9e790d50c456a85161fe267d6aface3fd0700972891b0c1ab3d0f80d4eb53cfc"
+    },
+    {
+      "name": "nvidia-cusparselt-cu12",
+      "version": "0.6.3",
+      "metadata_sha256": "d9ef439af4fab7f6839a03eec5bff1aaed26903ea17a0e75b136c6d3e69c8b11"
+    },
+    {
+      "name": "nvidia-ml-py",
+      "version": "13.615.71",
+      "metadata_sha256": "df52f2f04ac78c5259e776be3194ae3bfee274cadc0623576be6a699621ef6a8"
+    },
+    {
+      "name": "nvidia-nccl-cu12",
+      "version": "2.26.2",
+      "metadata_sha256": "b70f61955da2b73ab44dbdf10f5d822baf48ed6665af2f800e27537caf27848b"
+    },
+    {
+      "name": "nvidia-nvjitlink-cu12",
+      "version": "12.8.61",
+      "metadata_sha256": "e492c83bd198e5eeff43a00c98e4e4ae9c5f172c1d8e7969f5c6a8c3bd76ce16"
+    },
+    {
+      "name": "nvidia-nvtx-cu12",
+      "version": "12.8.55",
+      "metadata_sha256": "f8b548c1b05e426d5bd9db4dbaab15214ec3a2c809101535ba45156f3d97f3cf"
+    },
+    {
+      "name": "omegaconf",
+      "version": "2.3.1",
+      "metadata_sha256": "24dc07ea1b801810c63c386cc47376727a774cce4493bfddf6454fe8335eb84e"
+    },
+    {
+      "name": "opencv-python",
+      "version": "5.0.0.93",
+      "metadata_sha256": "20749df4e7500c53075dee344cd02f63d4df0dce93526e49e7e1c90fbc094e3e"
+    },
+    {
+      "name": "opencv-python-headless",
+      "version": "5.0.0.93",
+      "metadata_sha256": "f8e9104b4dce58f708d4cc7af95ebd8a5d65a3e36209d42386eb61065ae50e1a"
+    },
+    {
+      "name": "opentelemetry-api",
+      "version": "1.45.1",
+      "metadata_sha256": "5bc71e90cb421be92a43bf5ad5b0f25dccfa2a24ddceaa2877779879962a4c9e"
+    },
+    {
+      "name": "opentelemetry-exporter-http-transport",
+      "version": "0.66b1",
+      "metadata_sha256": "13f918a456445f2ff6dc97b2f7ccca6ae803e649cf7888cc9fb70adc5504225d"
+    },
+    {
+      "name": "opentelemetry-exporter-otlp-common",
+      "version": "0.66b1",
+      "metadata_sha256": "a2fcd71a1e43d98acfb9fcb2c664d3d750a3b83fa68fa4330b90f948cea3b77d"
+    },
+    {
+      "name": "opentelemetry-exporter-otlp-proto-common",
+      "version": "1.45.1",
+      "metadata_sha256": "95aed04d7e4ca7cecd6813b04666d3f5d069bea793cbda5131dcc7a44192b7d6"
+    },
+    {
+      "name": "opentelemetry-exporter-otlp-proto-http",
+      "version": "1.45.1",
+      "metadata_sha256": "93be2171f402c500e2b39ea70f4a6c7a9902c43e61e5987b3f23a576613947ce"
+    },
+    {
+      "name": "opentelemetry-proto",
+      "version": "1.45.1",
+      "metadata_sha256": "fb0c27d4250fd7f73926884d7788c3cdb8577a1c3485e3f73ebbd23f5ac6d30a"
+    },
+    {
+      "name": "opentelemetry-sdk",
+      "version": "1.45.1",
+      "metadata_sha256": "0a353d0fa633a7ece2b51f6f2dd3f64f75563d0d8bc8716480489fc2f9476e34"
+    },
+    {
+      "name": "opentelemetry-semantic-conventions",
+      "version": "0.66b1",
+      "metadata_sha256": "0b21fb9e6e2c2c79b61c110c3235757606fc2d2d11eaa22840f2f66794efd61c"
+    },
+    {
+      "name": "packaging",
+      "version": "26.3",
+      "metadata_sha256": "70fdb89fc4d4a9a043bf7372b8972bcc883fddff34ab55e9cf80d73875384763"
+    },
+    {
+      "name": "pandas",
+      "version": "2.3.3",
+      "metadata_sha256": "40ee953dc7ca155840b639a1881ff84578075187fce0ac20eeda55a7fa0d9a90"
+    },
+    {
+      "name": "parso",
+      "version": "0.8.7",
+      "metadata_sha256": "2fd8c9f8209218163a6c086ba8075d177122430645fea770cc02c53cd426119d"
+    },
+    {
+      "name": "peft",
+      "version": "0.21.2",
+      "metadata_sha256": "57ace1298996b6c641c067d01d418a3c8528f819cf415509cce6f8a2b1f2ba69"
+    },
+    {
+      "name": "pexpect",
+      "version": "4.9.0",
+      "metadata_sha256": "2d7c5ac5fdefde4a0194ec522fbcc0ca70e99e1a2a956eea444168f8591650aa"
+    },
+    {
+      "name": "pillow",
+      "version": "12.3.0",
+      "metadata_sha256": "8fc07146cab33ef7582361dab6eac596d340b03ec648f18217da7894f73838c8"
+    },
+    {
+      "name": "pip",
+      "version": "25.2",
+      "metadata_sha256": "97a3ad14d71fd8914a38f24af5b31a1f9faeb05aea66a4af40d979d6d7ad229f"
+    },
+    {
+      "name": "platformdirs",
+      "version": "4.12.4",
+      "metadata_sha256": "2418b715af2d19c99d62ebf721c2e02075f20479ac9c0557a06e119fdbe14a3f"
+    },
+    {
+      "name": "pluggy",
+      "version": "1.7.0",
+      "metadata_sha256": "20ac8237e37f1d6e7e75500cd663015177ba80c1a1a595ff6bae18a539ff8a2c"
+    },
+    {
+      "name": "portalocker",
+      "version": "4.4.1",
+      "metadata_sha256": "260ebae8969bfbb40139745af0ad224e9b07c08e0dc387c2162918991ed7a5f7"
+    },
+    {
+      "name": "prettytable",
+      "version": "3.18.0",
+      "metadata_sha256": "271a5357524f01c8ce05af4ecd0d9fb8ea969e774f80aa2dcaa1d39005255558"
+    },
+    {
+      "name": "prompt_toolkit",
+      "version": "3.0.53",
+      "metadata_sha256": "d04994e4401b88abf884ca54fb3b85e50a8b4fb1fde1ed7eb3ece9d8bf5459a9"
+    },
+    {
+      "name": "proto-plus",
+      "version": "1.29.0",
+      "metadata_sha256": "53ba48a72466ce01421899f516577705a58083f7e90139d967ce42ed15b611d2"
+    },
+    {
+      "name": "protobuf",
+      "version": "7.36.2",
+      "metadata_sha256": "445916389cc3a87d5f815d763192372a17a221339d474cb661523157bf07d61c"
+    },
+    {
+      "name": "psutil",
+      "version": "7.2.2",
+      "metadata_sha256": "525f8ba78523cf7bc3759d62a105e7c57fd679ea702402b9449fb0746aa0217f"
+    },
+    {
+      "name": "ptyprocess",
+      "version": "0.7.0",
+      "metadata_sha256": "c3c2b96b5d9a55da5958c34d08c18a0849f56609026cc46d5c95b8b77fcf3e0c"
+    },
+    {
+      "name": "pure_eval",
+      "version": "0.2.4",
+      "metadata_sha256": "4fe70f69411b9963d7275084210743afa819c2350899a29150bc43b1abf105d0"
+    },
+    {
+      "name": "pyarrow",
+      "version": "25.0.1",
+      "metadata_sha256": "12ed8d0988a6f7153fec923ee47b7fc1d6134463a86b1b89fa36f24c250163ff"
+    },
+    {
+      "name": "pyasn1",
+      "version": "0.6.4",
+      "metadata_sha256": "a092d99fad1e3744d6aa26eef2598e8ee2343ea403137ca73d06dccef19d70e2"
+    },
+    {
+      "name": "pyasn1_modules",
+      "version": "0.4.2",
+      "metadata_sha256": "162666d75297dfcdd0116cbeab134d78fab808b8a66bfa5c1d74832d9b754771"
+    },
+    {
+      "name": "pycocotools",
+      "version": "2.0.11",
+      "metadata_sha256": "4310ec1c3b4eab38c4d8f850366c0f90c2a4ac078f486bab19b86eafa17f2fa4"
+    },
+    {
+      "name": "pycparser",
+      "version": "3.11",
+      "metadata_sha256": "e3a74c846648bb55f4f907284b745e2003b87b96d9c9d17a8a50cf37804541c9"
+    },
+    {
+      "name": "pydantic",
+      "version": "2.11.7",
+      "metadata_sha256": "f791b40bde997db7ff175b238bff97d50cf9505a8aa307e0bf791d57ed1ae282"
+    },
+    {
+      "name": "pydantic_core",
+      "version": "2.33.2",
+      "metadata_sha256": "efc941a0e673e0acdfcf3ff2308fea147305b36484dd58275a97863ed8f270ab"
+    },
+    {
+      "name": "Pygments",
+      "version": "2.21.0",
+      "metadata_sha256": "1dde075570136774c706bf0009183a793fe0ee262e4a5590cc6eff8453eedd43"
+    },
+    {
+      "name": "pyinstrument",
+      "version": "5.1.3",
+      "metadata_sha256": "f0734f94a3f48c77858780576bb3a8b2930ea6187f2d8bde16ece948ba6e2683"
+    },
+    {
+      "name": "PyJWT",
+      "version": "2.15.1",
+      "metadata_sha256": "1ea0c9f139b8c928276b3628af165955f6f764491448a6ad8f103cdcbb382da3"
+    },
+    {
+      "name": "pyparsing",
+      "version": "3.3.3",
+      "metadata_sha256": "f2ca34052d720622d300023472ef8ae94fe5b57d69acbb28a8667f6dd0e13497"
+    },
+    {
+      "name": "pytest",
+      "version": "9.1.1",
+      "metadata_sha256": "c5d032518012789cabc870d46589aca3aeda36cf9fa4399ee88bda3d10438451"
+    },
+    {
+      "name": "python-dateutil",
+      "version": "2.9.0.post0",
+      "metadata_sha256": "a9d436da322be808332f98d88325998e87cb693a678a9969feb4cfad729a6e93"
+    },
+    {
+      "name": "pytz",
+      "version": "2026.5",
+      "metadata_sha256": "4d20d16f6004b1d7f9b01a96f4d3eb462c0c2a8413d9aa878effe50a21535929"
+    },
+    {
+      "name": "PyYAML",
+      "version": "6.0.3",
+      "metadata_sha256": "03c3b415ed38d09faedc49360e930769b40c58f68585e6de00e2e4916a858d34"
+    },
+    {
+      "name": "qwen-vl-utils",
+      "version": "0.0.14",
+      "metadata_sha256": "c2b08fb2a7704facf04d47f1af11fd4443eb8cfe15fd1d65acf035b0fdeb9a21"
+    },
+    {
+      "name": "referencing",
+      "version": "0.37.0",
+      "metadata_sha256": "c93b00e6ab1524fd60848376604c189a114374776475c25a31d57be47b29de6a"
+    },
+    {
+      "name": "regex",
+      "version": "2026.9.29",
+      "metadata_sha256": "33859377dbf8dd38ee3de73fd97faebf4a63d50576e3cc1a9dfe44df08b0936a"
+    },
+    {
+      "name": "requests",
+      "version": "2.34.2",
+      "metadata_sha256": "8c384ba3e979480faae2859d3c5e6c1276dd2c3616e322e124d52c8cfc556f27"
+    },
+    {
+      "name": "retinaface-py",
+      "version": "0.0.2",
+      "metadata_sha256": "821d4a83d719c495f53f79020f4b2fc66e994df48dd0b432da6279c9b933ebfc"
+    },
+    {
+      "name": "rpds-py",
+      "version": "0.30.0",
+      "metadata_sha256": "cc01d097ddb9c7e07a29c9553ee8dd35cf920e85fb574f7b0c23d68138a716bf"
+    },
+    {
+      "name": "s3transfer",
+      "version": "0.19.3",
+      "metadata_sha256": "7b7029ecab804a4f394906ed493b93402beb32538be18caa7b462873e2ed7d81"
+    },
+    {
+      "name": "safetensors",
+      "version": "0.6.2",
+      "metadata_sha256": "8768f97439fd846ac9bec48a5e4cba450b268142529db527ce4681d29833a736"
+    },
+    {
+      "name": "scikit-image",
+      "version": "0.25.2",
+      "metadata_sha256": "efc0b93767c3a5f239c5c8f835da9a13addcfab9533a6971173a36d0687db934"
+    },
+    {
+      "name": "scipy",
+      "version": "1.15.3",
+      "metadata_sha256": "c75caf32b67a13a9fc16aacf993a8bb883b7a69744ffe77cbbd4f3bfbad28f3d"
+    },
+    {
+      "name": "sentencepiece",
+      "version": "0.2.2",
+      "metadata_sha256": "bb49c79797fff1b8f3048efd4849d86dce4adbe26f7f3f0a5b37239a59d88ee8"
+    },
+    {
+      "name": "setuptools",
+      "version": "84.2.0",
+      "metadata_sha256": "2983f7c6baba274b63380e453f38ec0f6114a8683697d64b09759a4ffbe361d2"
+    },
+    {
+      "name": "simsimd",
+      "version": "6.5.16",
+      "metadata_sha256": "b2764651c234655b030bf251284f91d0d79f1691b10feff6c1d56c3c79f390cc"
+    },
+    {
+      "name": "six",
+      "version": "1.17.0",
+      "metadata_sha256": "562042078c2752549f6d8a7c86dbc5dd708088a7be6d80672ec7b07100b72468"
+    },
+    {
+      "name": "sniffio",
+      "version": "1.3.1",
+      "metadata_sha256": "0b318b57098edeccf585e60a889a6b6a7b5c4086f3a9aa62eff76a1d3cee12d9"
+    },
+    {
+      "name": "stack-data",
+      "version": "0.6.3",
+      "metadata_sha256": "f28a66f2adde54e7031355e09a166e437bc0d023a31c10c973ac494288ca4c6f"
+    },
+    {
+      "name": "stringzilla",
+      "version": "5.3.1",
+      "metadata_sha256": "f408e614781a5a934ef6a1ab9b38fb509b963ccafe3cace28d23d30bcda6fe57"
+    },
+    {
+      "name": "sympy",
+      "version": "1.14.0",
+      "metadata_sha256": "b756c2fbfd5be05ac5bdb0ebca61f55618f30f633ed92d88a5687429313a7595"
+    },
+    {
+      "name": "tabulate",
+      "version": "0.10.0",
+      "metadata_sha256": "38dfc6db689745ff4c3890b3c30ef7e5d0b156fdbeeb765b9027fd917043d84b"
+    },
+    {
+      "name": "termcolor",
+      "version": "3.3.0",
+      "metadata_sha256": "880aeaba6300677d4ecc022fb63f8adcd57a753b6fd2b5ec17841f722f910196"
+    },
+    {
+      "name": "tifffile",
+      "version": "2025.5.10",
+      "metadata_sha256": "e8240bfe93e1cc5fe701cc06d982805debd583c97db050468d085e1816c6be8b"
+    },
+    {
+      "name": "tokenizers",
+      "version": "0.21.4",
+      "metadata_sha256": "ef1cc38a5ceceb768e2963515069bc1a6f539408fb0262443765caa8773e7123"
+    },
+    {
+      "name": "tomli",
+      "version": "2.5.0",
+      "metadata_sha256": "91899b0158243d859ca66a875d693bc98c2d979a52854b70d1ee0699f22b5d76"
+    },
+    {
+      "name": "torch",
+      "version": "2.7.1+cu128",
+      "metadata_sha256": "e41a1ec38ccc8170c228b57b1432cc7ae03718dd69bb0a72d1fc32707dde1765"
+    },
+    {
+      "name": "torchvision",
+      "version": "0.22.1+cu128",
+      "metadata_sha256": "7364ba83c7a24fc55a062f61c9217ec758000eb2be8fcf4dfec991b308692a0f"
+    },
+    {
+      "name": "tqdm",
+      "version": "4.70.1",
+      "metadata_sha256": "a5da70b966afea3a759716041bad7187f2ece02c22348cf9e7c0a512bbf15f57"
+    },
+    {
+      "name": "traitlets",
+      "version": "5.16.1",
+      "metadata_sha256": "e42b503240c058625ffb30c390818d72933117840cb25060614cb24f0be9e587"
+    },
+    {
+      "name": "transformer_engine",
+      "version": "2.2+cu128.torch27",
+      "metadata_sha256": "26580abe30032782c6db1cc0faa5be6dd4bad183f0e4d8869d901a7364781519"
+    },
+    {
+      "name": "transformers",
+      "version": "4.51.3",
+      "metadata_sha256": "a7fc5edbab63ce77b74b91957a376d101a5159c1b20036aaa33b9349034141ac"
+    },
+    {
+      "name": "triton",
+      "version": "3.3.1",
+      "metadata_sha256": "34d1dcbf4948d86b691e0dc803a1aa9e9d884af8ea1281394371809b0a8e234d"
+    },
+    {
+      "name": "typeguard",
+      "version": "4.6.0",
+      "metadata_sha256": "9548e2e34c3e9368f90c3034223c54085e0bf54db03cf425be974d18c0efea01"
+    },
+    {
+      "name": "typing_extensions",
+      "version": "4.16.0",
+      "metadata_sha256": "b05084ca1d50879865178d9fff9fabeab61bdfb1f361bfbde95421ffc8f9be46"
+    },
+    {
+      "name": "typing-inspection",
+      "version": "0.4.4",
+      "metadata_sha256": "bad3d9e6342ef6750cf5128ec942327b8bebdce0b6e4d6f67cb15b27ae5118da"
+    },
+    {
+      "name": "tyro",
+      "version": "1.0.16",
+      "metadata_sha256": "1b92784450e5eb6a1026994740f54d20257dd6d417fea00a6666ca119ab0cdb5"
+    },
+    {
+      "name": "tzdata",
+      "version": "2025.3",
+      "metadata_sha256": "4225d7bb5592b2007f665b38624e93dbadd36413fbfcf3c1fa7cd80ae7b087f8"
+    },
+    {
+      "name": "urllib3",
+      "version": "2.8.0",
+      "metadata_sha256": "10898c620e8007c030e07fa5622b68358a43010025dfbd78a1cb797699de2bb4"
+    },
+    {
+      "name": "wandb",
+      "version": "0.31.0",
+      "metadata_sha256": "9df2fa46683caf7c30ca1dfa73936d97a522fe747bcb3f00593074e1becd5200"
+    },
+    {
+      "name": "wcmatch",
+      "version": "10.2.1",
+      "metadata_sha256": "ffb58216fbee7e8b670029e35673175f7c077ac3a61ca6f135bcba31f096520d"
+    },
+    {
+      "name": "wcwidth",
+      "version": "0.9.3",
+      "metadata_sha256": "4875c44a7b8b92e9fc3c1ab58f9eeedfe82609af04c3c2a41b1601cfe830bf23"
+    },
+    {
+      "name": "webdataset",
+      "version": "1.0.2",
+      "metadata_sha256": "3c579d5c162af07c0b9272fe06447752ad511f7f327fba8a6d9f40469bfefa5c"
+    },
+    {
+      "name": "worldcache-omr-experiments",
+      "version": "0.1.0",
+      "metadata_sha256": "94250d3922fd67d78a8e6697400beae83efb258d69e811fc06b24488994c3653"
+    },
+    {
+      "name": "xattr",
+      "version": "1.3.0",
+      "metadata_sha256": "848c6dc7d5b6902432a7de72055b4172903c46bb34b1563245fe2e940829cf1b"
+    },
+    {
+      "name": "xformers",
+      "version": "0.0.31",
+      "metadata_sha256": "f6d481b77b4bd8b24cb80aff97012210e0e25ae32db004209b7ec1872597ff99"
+    },
+    {
+      "name": "xxhash",
+      "version": "4.0.2",
+      "metadata_sha256": "9c77e2dc143269f99b8cda61c3ee1c4d106019d9d434fb345033e8f44440408d"
+    },
+    {
+      "name": "yacs",
+      "version": "0.1.8",
+      "metadata_sha256": "247fc386c844cfbe17a39f9115b8eeb852f18190aa209fe9953685eeb2d5a3b3"
+    },
+    {
+      "name": "zipp",
+      "version": "4.1.1",
+      "metadata_sha256": "3080f93de17d4bd784cd33afc0933db91c28cbec1cb444e1ffdfec5c7e0f5d90"
+    }
+  ],
+  "raw_substring_marker_observations": {
+    "decord_decode_marker": true,
+    "guarded_inference_marker": true
+  },
+  "offline_marker_qualification": {
+    "original_capture_ref": "reports/wc_four_card_environment_validation_CPU_R3_terminal_20261021.json",
+    "original_capture_sha256": "5c30834765093487f2a284b7266ae5226d0f306f0d8cce3e47a147e9ea4c6bd1",
+    "rule": "Require both observed marker and exit0 of the exact frozen command. Traceback echo of source text cannot grant success.",
+    "original_remote_capture_preserved": true,
+    "new_SSH_calls": 0
+  }
+}
