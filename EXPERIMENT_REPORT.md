@@ -1,3 +1,7 @@
+## 2026-10-20 23:30两卡入口仍未知，四卡GPU1已空闲
+
+[616当前资源](research/616_WC_TWO_CARD_ROUTE_STILL_UNKNOWN_FOUR_CARD_GPU1_IDLE_20261020.md)：人工要求下各一次实查，原两卡SSH仍认证前reset；四卡GPU1为23MiB/0%/无compute，其余三卡有任务。未占卡或派发GPU。四卡环境/模型资产/兼容性与共同账本尚待，R2原00:15验收及BANK24原00:20恢复接续保持。具体12卡及上游前置不改。
+
 ## 2026-10-20 四卡CPU基础R2在途，两次查收已约
 
 [615真实接续](research/615_WC_FOUR_CARD_DATA_DISK_WORKSPACE_AND_ENVIRONMENT_PREPARATION_20261020.md)：四卡数据盘余445.9GiB且本人工作区已验证可写，容器已拉取。首轮Torch依赖失败保留，R2固定pip/精确cu128轮已于22:44:35单次启动，PID256731/start929253857，初次检查无错误。已约23:15半程、10月21日00:15终态并接完整环境；GitHub源码完整包已传四卡并核验SHA，模型/驱动兼容/新scope生产CPU未通过，0GPU/账本。原双卡22:10槽实际22:19仍连接未知，worldcache-bank24已重约00:20；原BANK24优先及完整1624具体12批准和前置保持。

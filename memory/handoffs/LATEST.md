@@ -1,3 +1,7 @@
+## 2026-10-20 23:30人工复查：四卡GPU1空闲，两卡入口仍未知
+
+[616实查](../../research/616_WC_TWO_CARD_ROUTE_STILL_UNKNOWN_FOUR_CARD_GPU1_IDLE_20261020.md)：两卡原SSH一次仍认证前255，没有当前GPU/v2/句柄；原00:20恢复检查保持。四卡入口正常，GPU1为23MiB/0%/无compute，UUID GPU-19d4d100-f845-018d-ec30-def1553c01f5；GPU0/2/3有任务。仅观测、不占卡；本机尚无已验模型hub/checkout/共同v2，0GPU/账本。原R2的00:15、BANK24及具体12卡前置保持，不提前接受环境或改变原stage。
+
 ## 2026-10-20 23:16四卡R2技术半程完成，原00:15终态保持
 
 [615实际半程](../../research/615_WC_FOUR_CARD_DATA_DISK_WORKSPACE_AND_ENVIRONMENT_PREPARATION_20261020.md)：实际23:16:49.520一次捕获原R2，PID/start与worker SHA一致、进程存活、仍在Torch安装，result未出且无有界错误标签。原件reports/wc_four_card_container_Torch_CPU_R2_midpoint_20261020.json；仅技术检查，CPU环境/生产CPU/GPU均未接受。原worldcache-2的00:15和BANK24的00:20保持，本次worldcache半程监控完成删除，0GPU/权重/账本，不重复派发。

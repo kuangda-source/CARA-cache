@@ -1,5 +1,9 @@
 # 四卡环境实际准备：存储已过，代码/CPU环境独立部署
 
+## 23:30资源变化：GPU1空闲，环境前置仍待
+
+[616原件核对](616_WC_TWO_CARD_ROUTE_STILL_UNKNOWN_FOUR_CARD_GPU1_IDLE_20261020.md)：四卡GPU1实际23MiB、0%、无计算进程，其余三卡仍有任务；本项目GPU锁/共同v2和模型hub尚无，未占卡。原两卡入口仍认证前reset。原R2的00:15验收保持，本次不提前读取终态或加载模型；空闲只是硬件可用性，不替代新机环境/模型/兼容/实际CPU与完整准入。
+
 ## 23:16一次技术半程完成，R2仍正常安装
 
 按23:15原安排，实际23:16:49.520仅一次捕获reports/wc_four_card_container_Torch_CPU_R2_midpoint_20261020.json。原PID256731/start929253857及worker SHA688b331e一致、进程存活，仍为python-and-pinned-torch阶段，result尚不存在，有界错误标签为空。仅完成技术半程核对，不提前运行终态collector或接受CPU环境；0GPU/权重/账本。原00:15完整查收与原BANK24的00:20资源接续均保留，本次半程自动化完成后删除，不循环查询或重派。

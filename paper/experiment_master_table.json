@@ -5953,7 +5953,10 @@
     "reports/wc_four_card_CPU_container_system_library_probe_20261020.json": "reports/wc_four_card_CPU_container_system_library_probe_20261020.json",
     "reports/wc_four_card_GitHub_source_bundle_and_runtime_transfer_20261020.json": "reports/wc_four_card_GitHub_source_bundle_and_runtime_transfer_20261020.json",
     "reports/wc_four_card_GitHub_incremental_source_latest_20261020.json": "reports/wc_four_card_GitHub_incremental_source_latest_20261020.json",
-    "reports/wc_four_card_container_Torch_CPU_R2_midpoint_20261020.json": "reports/wc_four_card_container_Torch_CPU_R2_midpoint_20261020.json"
+    "reports/wc_four_card_container_Torch_CPU_R2_midpoint_20261020.json": "reports/wc_four_card_container_Torch_CPU_R2_midpoint_20261020.json",
+    "reports/wc_four_card_human_requested_fresh_resource_20261020_2329.json": "reports/wc_four_card_human_requested_fresh_resource_20261020_2329.json",
+    "reports/wc_two_card_human_requested_fresh_resource_20261020_2329.json": "reports/wc_two_card_human_requested_fresh_resource_20261020_2329.json",
+    "research/616_WC_TWO_CARD_ROUTE_STILL_UNKNOWN_FOUR_CARD_GPU1_IDLE_20261020.md": "research/616_WC_TWO_CARD_ROUTE_STILL_UNKNOWN_FOUR_CARD_GPU1_IDLE_20261020.md"
   },
   "source_bindings": {
     "11": {
@@ -10376,8 +10379,8 @@
     },
     "four_card_env_report_615": {
       "path": "research/615_WC_FOUR_CARD_DATA_DISK_WORKSPACE_AND_ENVIRONMENT_PREPARATION_20261020.md",
-      "sha256": "8546defc8dd20e1ea248cef3dc64acc0a75519cf97ecd4fd1bf19bd61ef3575d",
-      "bytes": 5379
+      "sha256": "dee42561d833048e7b4c83dcfcca68791e23bdfb0f17d3941c16515ce9c27b48",
+      "bytes": 5858
     },
     "four_card_env_bootstrap_source": {
       "path": "scripts/bootstrap_wc_four_card_environment_r1.py",
@@ -10391,13 +10394,13 @@
     },
     "EXPERIMENT_REPORT.md": {
       "path": "EXPERIMENT_REPORT.md",
-      "sha256": "9e2853f7ec5dcc6ac67f26ce87092d3fedc444eb758802b01fc73b98ad5305d8",
-      "bytes": 688261
+      "sha256": "90c5c7b5ffb50b05824b2fb5b5680b75d656a4a2cf4212b591e972d98a074010",
+      "bytes": 688721
     },
     "memory/handoffs/LATEST.md": {
       "path": "memory/handoffs/LATEST.md",
-      "sha256": "0701f67c4237c62222b853c8599f7c36ffe8632e251c24938940459a9a39c68f",
-      "bytes": 738601
+      "sha256": "1c5595357f4be5d143a7123897d38cfa46111f800b875a36373139d4f149fb88",
+      "bytes": 739166
     },
     "research/02_CURRENT_STATE.md": {
       "path": "research/02_CURRENT_STATE.md",
@@ -10421,8 +10424,8 @@
     },
     "research/615_WC_FOUR_CARD_DATA_DISK_WORKSPACE_AND_ENVIRONMENT_PREPARATION_20261020.md": {
       "path": "research/615_WC_FOUR_CARD_DATA_DISK_WORKSPACE_AND_ENVIRONMENT_PREPARATION_20261020.md",
-      "sha256": "8546defc8dd20e1ea248cef3dc64acc0a75519cf97ecd4fd1bf19bd61ef3575d",
-      "bytes": 5379
+      "sha256": "dee42561d833048e7b4c83dcfcca68791e23bdfb0f17d3941c16515ce9c27b48",
+      "bytes": 5858
     },
     "plans/WC_FOUR_CARD_ENVIRONMENT_AND_GITHUB_SYNC_20261020.md": {
       "path": "plans/WC_FOUR_CARD_ENVIRONMENT_AND_GITHUB_SYNC_20261020.md",
@@ -10513,6 +10516,21 @@
       "path": "reports/wc_four_card_container_Torch_CPU_R2_midpoint_20261020.json",
       "sha256": "348cf777e8a663f5681f0fc6f2c2ffc90d7ac9fc5a695fa923f614d02c5d0fba",
       "bytes": 1840
+    },
+    "reports/wc_four_card_human_requested_fresh_resource_20261020_2329.json": {
+      "path": "reports/wc_four_card_human_requested_fresh_resource_20261020_2329.json",
+      "sha256": "e43b46d5e874160e1c5ea94c5049fcd181cff7d862cad740796bd4811b7b47aa",
+      "bytes": 2913
+    },
+    "reports/wc_two_card_human_requested_fresh_resource_20261020_2329.json": {
+      "path": "reports/wc_two_card_human_requested_fresh_resource_20261020_2329.json",
+      "sha256": "de9b3198b78c7b02857e500042ac86c28117c0af53ff100fe03c9d3629ebf131",
+      "bytes": 327
+    },
+    "research/616_WC_TWO_CARD_ROUTE_STILL_UNKNOWN_FOUR_CARD_GPU1_IDLE_20261020.md": {
+      "path": "research/616_WC_TWO_CARD_ROUTE_STILL_UNKNOWN_FOUR_CARD_GPU1_IDLE_20261020.md",
+      "sha256": "1227711addba607b6e32742a3b3bf8a5839500076ec8774f66a867ac1b4ec7ef",
+      "bytes": 2062
     }
   },
   "operation_policy": {
@@ -11414,11 +11432,19 @@
       "halfway_observed_unix": 1792509409.5200384,
       "halfway_original_process_alive": true,
       "halfway_error_tags": [],
-      "halfway_monitor_completed": true
+      "halfway_monitor_completed": true,
+      "latest_resource_ref": "reports/wc_four_card_human_requested_fresh_resource_20261020_2329.json",
+      "latest_resource_observed_unix": 1792510249.1631708,
+      "observed_idle_GPU_UUIDs": [
+        "GPU-19d4d100-f845-018d-ec30-def1553c01f5"
+      ],
+      "idle_GPU_is_reserved": false,
+      "current_authoritative_project_pool_available": false,
+      "current_model_hub_exists": false
     }
   },
   "mapping_sha256_at_inventory": "88b3d760a0c94c20b6c802e21f30c7286d6e596cc9b3f3100e7ee6feaa3938f3",
-  "latest_mapping_sha256": "cb62b8b4877f1831d9573de2fe236714b4e35722c63c7746e5035e28b2ae0752",
+  "latest_mapping_sha256": "e49942cc12bbcff04d6e38d1ee31ac6c28afea8ba84fad7b8a85674f123d92c7",
   "revision_plan": {
     "registry_ref": "plans/cara_v6_20261020/TASK_REGISTRY_V6.yaml",
     "report_ref": "research/610_WC_CARA_V6_REVIEW_CLOSURE_PLAN_INTERVAL_SPEC_AND_FIRST_DEV_SCOPE_20261020.md",
