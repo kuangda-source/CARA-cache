@@ -51,6 +51,10 @@ def main():
             extension_wheels_installed=result.get('CUDA_extension_wheels_installed') is True,
             actual_freeze_captured=bool(capture.get('resolved_python_freeze')),
             manifest_matches=capture.get('manifest_sha256') == launch.get('manifest_sha256'))
+        checks['data_disk_native_dependencies_match'] = (
+            capture.get('native_dependency_archive_SHA_match') is True
+            and capture.get('native_library_manifest_sha256') == result.get('native_library_manifest_sha256')
+            and result.get('native_libraries_prepared') is True)
     accepted = all(checks.values())
     value = dict(status='ENVIRONMENT_EVIDENCE_ACCEPTED' if accepted else 'ENVIRONMENT_NOT_ACCEPTED_RETAINED',
                  kind=args.kind, checks=checks, accepted=accepted,

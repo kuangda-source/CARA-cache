@@ -82,8 +82,13 @@ def main():
         assert prerequisite['GPU_submissions'] == 0 and prerequisite['ledger_written'] is False
         for name in ['source_bundle', 'runtime_archive']:
             assert sha(manifest[name]['path']) == manifest[name]['sha256']
+        for delta in manifest.get('source_incremental_bundles', []):
+            assert sha(delta['path']) == delta['sha256']
         assert not project.exists() and not runtime.exists()
         command('git-clone-verified-bundle', ['git', 'clone', manifest['source_bundle']['path'], str(project)], 600)
+        for index, delta in enumerate(manifest.get('source_incremental_bundles', [])):
+            command('git-fetch-verified-delta-'+str(index),
+                    ['git', '-C', str(project), 'fetch', delta['path'], 'refs/heads/main'], 180)
         command('git-checkout-github-revision', ['git', '-C', str(project), 'checkout', manifest['source_revision']], 180)
         command('git-origin-github', ['git', '-C', str(project), 'remote', 'set-url', 'origin', manifest['github_origin']], 30)
         actual = subprocess.check_output(['git', '-C', str(project), 'rev-parse', 'HEAD'], text=True).strip()
@@ -116,6 +121,9 @@ def main():
                          HF_HUB_OFFLINE='1', TRANSFORMERS_OFFLINE='1', PYTHONDONTWRITEBYTECODE='1',
                          OMP_NUM_THREADS='2', OPENBLAS_NUM_THREADS='2', UV_HTTP_TIMEOUT='60',
                          UV_CONCURRENT_DOWNLOADS='3', UV_CONCURRENT_BUILDS='1')
+        native = workspace/'system-libs-r1'
+        variables['LD_LIBRARY_PATH'] = str(native/'usr/lib/x86_64-linux-gnu')+':'+str(native/'lib/x86_64-linux-gnu')
+        variables['PATH'] = str(native/'usr/bin')+':/usr/local/bin:/usr/bin:/bin'
         for key, item in variables.items():
             container += ['-e', key + '=' + item]
         container += ['--entrypoint', '/usr/local/bin/python', image]
@@ -124,8 +132,35 @@ def main():
         for path in [workspace/'user-home', workspace/'tools']:
             path.mkdir(exist_ok=True)
 
-        def run_python(label, code, timeout=1800, required=True):
-            return command(label, container+['-c', code], timeout, required)
+        def run_python(label, code, timeout=1800, required=True, root=False):
+            argv = list(container)
+            if root:
+                argv[argv.index('--user')+1] = '0:0'
+            return command(label, argv+['-c', code], timeout, required)
+
+        native_code = 'ROOT='+repr(str(native))+'\n'+r'''
+import pathlib,subprocess,json,hashlib,sys
+root=pathlib.Path(ROOT);state=root/'apt-state';cache=root/'apt-cache';logs=root/'apt-log'
+for path in [state/'lists/partial',cache/'archives/partial',logs]:path.mkdir(parents=True,exist_ok=True)
+options=['-o','Dir::State::lists='+str(state/'lists'),'-o','Dir::Cache::archives='+str(cache/'archives'),
+         '-o','Dir::Cache::pkgcache='+str(cache/'pkgcache.bin'),'-o','Dir::Cache::srcpkgcache='+str(cache/'srcpkgcache.bin'),
+         '-o','Dir::Log='+str(logs),'-o','APT::Sandbox::User=root','-o','Debug::NoLocking=1']
+subprocess.run(['apt-get']+options+['update'],check=True,timeout=300)
+subprocess.run(['apt-get']+options+['--yes','--download-only','--no-install-recommends','install',
+                                 'libgl1','libglib2.0-0','libgomp1','ffmpeg'],check=True,timeout=600)
+packages=[]
+for archive in sorted((cache/'archives').glob('*.deb')):
+    assert not archive.name.startswith(('libc6_', 'libc-bin_')), 'Keep the pinned container libc and loader intact'
+    subprocess.run(['dpkg-deb','-x',str(archive),str(root)],check=True)
+    packages.append(dict(filename=archive.name,sha256=hashlib.sha256(archive.read_bytes()).hexdigest(),bytes=archive.stat().st_size))
+assert packages
+subprocess.run([sys.executable,'-c','import ctypes; [ctypes.CDLL(n) for n in ["libGL.so.1","libglib-2.0.so.0","libgomp.so.1"]]'],check=True)
+(root/'native-library-manifest.json').write_text(json.dumps(dict(packages=packages,extraction_only=True,host_system_packages_changed=False),indent=2)+'\n')
+print('DATA_DISK_NATIVE_LIBRARIES_READY_NO_HOST_PACKAGE_CHANGE')
+'''
+        run_python('data-disk-native-libraries', native_code, 1000, root=True)
+        value['native_library_manifest_sha256'] = sha(native/'native-library-manifest.json')
+        value['native_libraries_prepared'] = True
 
         run_python('uv-and-python-environment',
                    'import subprocess; subprocess.run(["python","-m","pip","install","--disable-pip-version-check",'
