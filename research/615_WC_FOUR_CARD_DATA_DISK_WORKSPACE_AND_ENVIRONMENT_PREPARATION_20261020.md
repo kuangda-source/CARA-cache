@@ -1,5 +1,9 @@
 # 四卡环境实际准备：存储已过，代码/CPU环境独立部署
 
+## 23:11源码完整包已实际传到四卡
+
+reports/wc_four_card_GitHub_source_bundle_and_runtime_transfer_20261020.json：23:11:41.661完成58873323完整GitHub历史包和原runtime源码包上传，远端逐包SHA均与本机已验包一致；不含凭据或模型。最新原生库代码已经GitHub发布，后续小改动按增量包同步。此为源码转运接受，不是环境/生产CPU/GPU接受。原R2及23:15/00:15查收保持，原BANK24仍00:20。
+
 ## 23:04原生库缺口已实际定位，安装准备保留待验
 
 reports/wc_four_card_CPU_container_system_library_probe_20261020.json核对原Python镜像：libstdc++可加载，libGL/glib/libgomp缺失。最新完整环境worker因此增加数据盘原生库步骤：官方签名APT包只下载并用dpkg-deb解到system-libs-r1，通过LD_LIBRARY_PATH/PATH加载；不安装宿主机包，不运行安装脚本，拒绝替换固定容器libc/loader，记录每个deb SHA并在新Python进程核验。此步骤尚未实际执行，不能说原生库已装好；原R2 Torch任务未改。
