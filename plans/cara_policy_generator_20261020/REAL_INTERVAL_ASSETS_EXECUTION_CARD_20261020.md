@@ -24,7 +24,7 @@ Cosmos-Predict2.5-2B，原四CAL/seed0/T2W/CFG7/432×768/93帧/35参数对应36�
 
 [配置](../../configs/wc_policy_interval_assets_full1624_r1_20261020.json)，[整卡报价](../../manifests/wc_policy_interval_assets_full1624_whole_quote_r1_20261020.json)。预计9.918333333GPUh，计费上限12GPUh。包括14完整请求、13020读出试验、约52.6GB原始输出、约2.069TB规划源搬运、SHA/重读/归约及退出余量，25%规划margin；此前N09包含区间仅作保守规划依据，不是新动作单价。最低数据盘余量约100.4GB，CPU锚bank规划约18.35GB。实际空闲UUID/显存/compute/锁/v2余额、磁盘和主存均需再准入。
 
-12不属于用户严格<12的免确认范围。准备和生产CPU已获授权；整卡GPU须自己的明确12GPUh批准，不拆卡/缩范围或降低上限规避。
+本完整卡现已得到直接人类的具体12GPUh批准，见reports/wc_policy_interval_assets_full1624_specific_whole12_approval_20261020.json，绑定本config完整SHA。12边界规则保持，此具体批准已满足，不再重复询问；不拆卡/缩范围或降低上限。实际生产CPU、原BANK24完整原件/费用和fresh资源准入仍必须通过。
 
 ## 生产与验收
 

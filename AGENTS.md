@@ -1,3 +1,7 @@
+## 2026-10-20 完整1624卡上限12已明确批准；FRP远端入口仍待恢复
+
+[具体整卡批准](reports/wc_policy_interval_assets_full1624_specific_whole12_approval_20261020.json)已绑定冻结config SHA75338efd，完整4CAL/1624正式格、14路径，预计9.918333333/上限12GPUh；无需重复确认。[613接续](research/613_WC_FULL1624_INTERVAL_LABELS_AND_INDEPENDENT_ACTION_PRICES_EXECUTABLE_CARD_20261020.md)：19:55:07原入口复测仍在SSH认证前失败，本任务60782客户端登录/33620监听正常，目标与原官方visitor一致，但远端转发listener未注册。尚未确认任何新生产CPU执行或GPU准入；旧stage未知不能重放。原BANK24保持第一顺位，20:08资源恢复检查已保留并补入此批准。连接恢复后先读原句柄，完成新scope实际生产CPU；该CPU及原BANK24完整原件/费用均接受后，携本批准直接启动完整采集。每个实际新launch另约一次技术半程及预计结束验收，未启动卡不虚排完成时间。
+
 ## 2026-10-20 完整1624卡本地数值通过，生产CPU受FRP远端入口阻挡
 
 [613当前状态](research/613_WC_FULL1624_INTERVAL_LABELS_AND_INDEPENDENT_ACTION_PRICES_EXECUTABLE_CARD_20261020.md)：真实区间/价格新卡已实现：4CAL/1624正式格、14完整路径；12项本地控制及双flow28完整Toy路径/4060格原件重读通过，生成器费用桥接24控制通过。服务器CPU首提交在SSH认证前失败，尚未启动；本人TCP客户端60782已恢复登录/33620监听，但远端目标入口未注册，连接仍未知。原BANK24保持第一顺位，18:06槽仅一次未知连接回执，下一20:08；恢复后先读原stage/句柄再推进本卡CPU。预计9.918333333/上限12，GPU需具体整卡批准；实际CPU/GPU/新价格仍空。
