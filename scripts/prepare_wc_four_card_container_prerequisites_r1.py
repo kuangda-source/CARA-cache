@@ -37,13 +37,13 @@ def main():
         value['resolved_image_id']=image;save()
         for name in ['user-home','envs','cache/pip','tmp']:(workspace/name).mkdir(parents=True,exist_ok=True)
         env=workspace/'envs/wc-cosmos-py310-cu128-r1';py=str(env/'bin/python')
-        code=('import subprocess,pathlib; env='+repr(str(env))+'; '
-              'subprocess.run(["python","-m","venv",env],check=True); '
-              'subprocess.run([env+"/bin/python","-m","pip","install","--disable-pip-version-check",'
-              '"torch==2.7.1","torchvision==0.22.1","--index-url","https://download.pytorch.org/whl/cu128"],check=True); '
-              'subprocess.run([env+"/bin/python","-c",'
-              '"import torch,sys; assert sys.version_info[:2]==(3,10); assert torch.__version__.startswith(\"2.7.1\"); '
-              'assert not torch.cuda.is_initialized(); print(sys.version,torch.__version__,torch.version.cuda,\"CPU_ONLY_NO_CUDA_INIT\")"],check=True)')
+        check=('import torch,sys; assert sys.version_info[:2]==(3,10); '
+               'assert torch.__version__.startswith("2.7.1"); assert not torch.cuda.is_initialized(); '
+               'print(sys.version,torch.__version__,torch.version.cuda,"CPU_ONLY_NO_CUDA_INIT")')
+        code=('import subprocess; subprocess.run('+repr(['python','-m','venv',str(env)])+',check=True); '
+              'subprocess.run('+repr([py,'-m','pip','install','--disable-pip-version-check','torch==2.7.1',
+                                      'torchvision==0.22.1','--index-url','https://download.pytorch.org/whl/cu128'])+',check=True); '
+              'subprocess.run('+repr([py,'-c',check])+',check=True)')
         cmd=['docker','run','--rm','--read-only','--name','wc-fourcard-core-prereq-r1-20261020',
              '--user',str(os.getuid())+':'+str(os.getgid()),'--cpus','2','--memory','16g',
              '--tmpfs','/tmp:rw,size=512m','-v',str(workspace)+':'+str(workspace),'-w',str(workspace)]
