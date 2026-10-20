@@ -1,0 +1,262 @@
+{
+  "status": "ORIGINAL_FOUR_CARD_ENVIRONMENT_CAPTURE",
+  "kind": "environment",
+  "mode": "terminal",
+  "observed_unix": 1792518586.3009613,
+  "launch": {
+    "status": "FOUR_CARD_CPU_ENVIRONMENT_SINGLE_DISPATCHED",
+    "workspace": "/data20t/gaokuangda/worldcache_workspace",
+    "job": "/data20t/gaokuangda/worldcache_workspace/bootstrap/wc-fourcard-env-r1-20261020",
+    "source_revision": "c9a2f95bf2e7ecc25d4d84731d8b4d35d6f1f6c3",
+    "manifest_sha256": "af9d84959a817c7e338c48dc663f74786f44409648c1b92dfbaee581f09c10da",
+    "worker_source_sha256": "afa0d522ddaf86dd6e4acf80b22867400680d5057fdaa320a4fcbd78d6d83be5",
+    "identity": {
+      "pid": 290861,
+      "start_ticks": 929820876,
+      "state": "R"
+    },
+    "command": [
+      "/usr/bin/python3",
+      "/data20t/gaokuangda/worldcache_workspace/bootstrap/wc-fourcard-env-r1-20261020/bootstrap_worker.py",
+      "--manifest",
+      "/data20t/gaokuangda/worldcache_workspace/bootstrap/wc-fourcard-env-r1-20261020/manifest.json"
+    ],
+    "started_unix": 1792513145.400462,
+    "halfway_not_before_unix": 1792514945.400462,
+    "final_not_before_unix": 1792518545.400462,
+    "GPU_submissions": 0,
+    "ledger_written": false,
+    "production_CPU_accepted": false,
+    "GPU_dispatch_ready": false
+  },
+  "process": null,
+  "original_handle_live": false,
+  "worker_source_sha256": "afa0d522ddaf86dd6e4acf80b22867400680d5057fdaa320a4fcbd78d6d83be5",
+  "result_exists": true,
+  "GPU_submissions": 0,
+  "ledger_written": false,
+  "health": {
+    "status": "CPU_ENVIRONMENT_PARTIAL_FAILURES_RETAINED",
+    "started_unix": 1792513145.4532278,
+    "commands": [
+      {
+        "phase": "git-clone-verified-bundle",
+        "exit_code": 0,
+        "wall_seconds": 14.664093971252441
+      },
+      {
+        "phase": "git-fetch-verified-delta-0",
+        "exit_code": 0,
+        "wall_seconds": 0.5190770626068115
+      },
+      {
+        "phase": "git-checkout-github-revision",
+        "exit_code": 0,
+        "wall_seconds": 4.480365514755249
+      },
+      {
+        "phase": "git-origin-github",
+        "exit_code": 0,
+        "wall_seconds": 0.010158061981201172
+      },
+      {
+        "phase": "runtime-unpack",
+        "exit_code": 0,
+        "wall_seconds": 0.16758227348327637
+      },
+      {
+        "phase": "small-cpu-base-pull",
+        "exit_code": 0,
+        "wall_seconds": 1.5719480514526367
+      },
+      {
+        "phase": "data-disk-native-libraries",
+        "exit_code": 0,
+        "wall_seconds": 91.5548722743988
+      },
+      {
+        "phase": "uv-and-python-environment",
+        "exit_code": 0,
+        "wall_seconds": 23.887654781341553
+      },
+      {
+        "phase": "torch-pinned-cu128",
+        "exit_code": 0,
+        "wall_seconds": 1.9216282367706299
+      },
+      {
+        "phase": "cosmos-and-project-base",
+        "exit_code": 0,
+        "wall_seconds": 270.1709942817688
+      },
+      {
+        "phase": "registered-cuda-extension-wheels",
+        "exit_code": 1,
+        "wall_seconds": 798.6369211673737
+      },
+      {
+        "phase": "cpu-environment-import",
+        "exit_code": 1,
+        "wall_seconds": 16.612868070602417
+      },
+      {
+        "phase": "resolved-python-freeze",
+        "exit_code": 0,
+        "wall_seconds": 0.8686702251434326
+      }
+    ],
+    "GPU_submissions": 0,
+    "model_weights_loaded": 0,
+    "ledger_written": false,
+    "production_CPU_accepted": false,
+    "GPU_dispatch_ready": false,
+    "driver_or_daemon_config_changed": false,
+    "manifest_sha256": "af9d84959a817c7e338c48dc663f74786f44409648c1b92dfbaee581f09c10da",
+    "source_revision": "c9a2f95bf2e7ecc25d4d84731d8b4d35d6f1f6c3",
+    "phase": "resolved-python-freeze",
+    "GitHub_revision_deployed": "c9a2f95bf2e7ecc25d4d84731d8b4d35d6f1f6c3",
+    "registered_runtime_execution_sources_match": true,
+    "container_image_id": "sha256:1e81ac62ee68ca1a6ef655515096a1d84579b01aa4986810c9b18d4f6c4c552d",
+    "native_library_manifest_sha256": "32cb2f8f77385bc7033e65fdb9c4c4b3e59fd505fe41aadff18b15b57c356f4b",
+    "native_libraries_prepared": true,
+    "base_environment_installed": true,
+    "actual_CPU_import_passed": false,
+    "CUDA_extension_wheels_installed": false,
+    "HF_assets_ready": false,
+    "GPU_driver_compatibility_verified": false,
+    "ended_unix": 1792514372.226166,
+    "wall_seconds": 1226.7729387283325
+  },
+  "errors": [
+    {
+      "log": "registered-cuda-extension-wheels.log",
+      "line": "  \u2570\u2500\u25b6 operation timed out"
+    },
+    {
+      "log": "registered-cuda-extension-wheels.log",
+      "line": "Traceback (most recent call last):"
+    },
+    {
+      "log": "cpu-environment-import.log",
+      "line": "Traceback (most recent call last):"
+    },
+    {
+      "log": "cpu-environment-import.log",
+      "line": "    raise RuntimeError(\"CUDA extra not installed. Please run 'uv sync --extra=<cuda_name>'\") from None"
+    },
+    {
+      "log": "cpu-environment-import.log",
+      "line": "RuntimeError: CUDA extra not installed. Please run 'uv sync --extra=<cuda_name>'"
+    },
+    {
+      "log": "cpu-environment-import.log",
+      "line": "Traceback (most recent call last):"
+    }
+  ],
+  "own_container_running": false,
+  "result": {
+    "status": "CPU_ENVIRONMENT_PARTIAL_FAILURES_RETAINED",
+    "started_unix": 1792513145.4532278,
+    "commands": [
+      {
+        "phase": "git-clone-verified-bundle",
+        "exit_code": 0,
+        "wall_seconds": 14.664093971252441
+      },
+      {
+        "phase": "git-fetch-verified-delta-0",
+        "exit_code": 0,
+        "wall_seconds": 0.5190770626068115
+      },
+      {
+        "phase": "git-checkout-github-revision",
+        "exit_code": 0,
+        "wall_seconds": 4.480365514755249
+      },
+      {
+        "phase": "git-origin-github",
+        "exit_code": 0,
+        "wall_seconds": 0.010158061981201172
+      },
+      {
+        "phase": "runtime-unpack",
+        "exit_code": 0,
+        "wall_seconds": 0.16758227348327637
+      },
+      {
+        "phase": "small-cpu-base-pull",
+        "exit_code": 0,
+        "wall_seconds": 1.5719480514526367
+      },
+      {
+        "phase": "data-disk-native-libraries",
+        "exit_code": 0,
+        "wall_seconds": 91.5548722743988
+      },
+      {
+        "phase": "uv-and-python-environment",
+        "exit_code": 0,
+        "wall_seconds": 23.887654781341553
+      },
+      {
+        "phase": "torch-pinned-cu128",
+        "exit_code": 0,
+        "wall_seconds": 1.9216282367706299
+      },
+      {
+        "phase": "cosmos-and-project-base",
+        "exit_code": 0,
+        "wall_seconds": 270.1709942817688
+      },
+      {
+        "phase": "registered-cuda-extension-wheels",
+        "exit_code": 1,
+        "wall_seconds": 798.6369211673737
+      },
+      {
+        "phase": "cpu-environment-import",
+        "exit_code": 1,
+        "wall_seconds": 16.612868070602417
+      },
+      {
+        "phase": "resolved-python-freeze",
+        "exit_code": 0,
+        "wall_seconds": 0.8686702251434326
+      }
+    ],
+    "GPU_submissions": 0,
+    "model_weights_loaded": 0,
+    "ledger_written": false,
+    "production_CPU_accepted": false,
+    "GPU_dispatch_ready": false,
+    "driver_or_daemon_config_changed": false,
+    "manifest_sha256": "af9d84959a817c7e338c48dc663f74786f44409648c1b92dfbaee581f09c10da",
+    "source_revision": "c9a2f95bf2e7ecc25d4d84731d8b4d35d6f1f6c3",
+    "phase": "resolved-python-freeze",
+    "GitHub_revision_deployed": "c9a2f95bf2e7ecc25d4d84731d8b4d35d6f1f6c3",
+    "registered_runtime_execution_sources_match": true,
+    "container_image_id": "sha256:1e81ac62ee68ca1a6ef655515096a1d84579b01aa4986810c9b18d4f6c4c552d",
+    "native_library_manifest_sha256": "32cb2f8f77385bc7033e65fdb9c4c4b3e59fd505fe41aadff18b15b57c356f4b",
+    "native_libraries_prepared": true,
+    "base_environment_installed": true,
+    "actual_CPU_import_passed": false,
+    "CUDA_extension_wheels_installed": false,
+    "HF_assets_ready": false,
+    "GPU_driver_compatibility_verified": false,
+    "ended_unix": 1792514372.226166,
+    "wall_seconds": 1226.7729387283325
+  },
+  "result_sha256": "28c07df2fd0ad7004f66a275b71f5efccce59be3dcea6588ca48cc4ec8cd4237",
+  "environment_python_exists": true,
+  "torch_metadata_versions": [
+    "2.7.1+cu128"
+  ],
+  "data_disk_free_bytes": 448619364352,
+  "manifest_sha256": "af9d84959a817c7e338c48dc663f74786f44409648c1b92dfbaee581f09c10da",
+  "actual_GitHub_revision": "c9a2f95bf2e7ecc25d4d84731d8b4d35d6f1f6c3",
+  "all_runtime_source_SHA_match": true,
+  "Cosmos_CPU_import_marker_present": true,
+  "resolved_python_freeze": "Using Python 3.10.19 environment at: envs/wc-cosmos-py310-cu128-r2\naccelerate==1.15.0\nalbucore==0.0.24\nalbumentations==2.0.8\nannotated-types==0.8.0\nantlr4-python3-runtime==4.9.3\nanyio==4.15.1\nasttokens==3.0.2\nattrs==26.1.0\nav==17.1.0\nawscrt==0.38.0\nbetter-profanity==0.7.0\nboto3==1.43.115\nbotocore==1.43.115\nbraceexpand==0.1.7\nbracex==3.1\ncertifi==2026.10.19\ncffi==2.1.1\ncharset-normalizer==3.5.2\nclick==8.5.0\ncloudpickle==3.1.2\ncontourpy==1.3.2\n-e file:///data20t/gaokuangda/worldcache_workspace/runtime/packages/cosmos-oss\n-e file:///data20t/gaokuangda/worldcache_workspace/runtime\ncramjam==2.11.0\ncryptography==50.0.2\ncwevals==0.0.1b1\ncycler==0.12.1\ndecorator==5.3.1\ndecord==0.6.0\ndefusedxml==0.7.1\ndiffusers==0.37.1\ndistro==1.9.0\ndocstring-parser==0.18.0\neinops==0.8.2\nexceptiongroup==1.3.1\nexecuting==2.3.0\nfastparquet==2026.9.0\nfilelock==3.32.7\nfonttools==4.65.0\nfsspec==2026.9.0\nftfy==6.3.1\nfvcore==0.1.5.post20221221\ngoogle-api-core==2.42.0\ngoogle-auth==2.62.0\ngoogle-cloud-core==2.8.0\ngoogle-cloud-storage==3.17.1\ngoogle-crc32c==1.9.0\ngoogle-resumable-media==2.11.0\ngoogleapis-common-protos==1.75.5\nh11==0.16.0\nhf-xet==1.7.0\nhttpcore==1.0.9\nhttpx==0.28.1\nhuggingface-hub==0.36.0\nhydra-core==1.3.7\nidna==3.20\nimageio==2.38.0\nimageio-ffmpeg==0.6.0\nimportlib-metadata==9.0.1\niniconfig==2.3.1\niopath==0.1.10\nipdb==0.13.13\nipython==8.39.0\njedi==0.20.1\njinja2==3.1.6\njmespath==1.1.0\njoblib==1.6.0\njsonschema==4.26.0\njsonschema-specifications==2025.9.1\nkiwisolver==1.5.1\nlark==1.3.1\nlazy-loader==0.6\nloguru==0.7.3\nlpips==0.1.4\nmarkupsafe==3.0.4\nmatplotlib==3.10.9\nmatplotlib-inline==0.2.2\nmediapy==1.2.7\nmegatron-core==0.16.1\nml-dtypes==0.6.0\nmodelscope==1.40.2\nmodelscope-hub==0.4.6\nmpmath==1.3.0\nmsal==1.39.0\nmulti-storage-client==1.2.0\nnetworkx==3.4.2\nnltk==3.10.3\nnumpy==2.2.6\nnumpydantic==1.10.0\nnvidia-cublas-cu12==12.8.3.14\nnvidia-cuda-cupti-cu12==12.8.57\nnvidia-cuda-nvrtc-cu12==12.8.61\nnvidia-cuda-runtime-cu12==12.8.57\nnvidia-cudnn-cu12==9.7.1.26\nnvidia-cufft-cu12==11.3.3.41\nnvidia-cufile-cu12==1.13.0.11\nnvidia-curand-cu12==10.3.9.55\nnvidia-cusolver-cu12==11.7.2.55\nnvidia-cusparse-cu12==12.5.7.53\nnvidia-cusparselt-cu12==0.6.3\nnvidia-ml-py==13.615.71\nnvidia-nccl-cu12==2.26.2\nnvidia-nvjitlink-cu12==12.8.61\nnvidia-nvtx-cu12==12.8.55\nomegaconf==2.3.1\nopencv-python==5.0.0.93\nopencv-python-headless==5.0.0.93\nopentelemetry-api==1.45.1\nopentelemetry-exporter-http-transport==0.66b1\nopentelemetry-exporter-otlp-common==0.66b1\nopentelemetry-exporter-otlp-proto-common==1.45.1\nopentelemetry-exporter-otlp-proto-http==1.45.1\nopentelemetry-proto==1.45.1\nopentelemetry-sdk==1.45.1\nopentelemetry-semantic-conventions==0.66b1\npackaging==26.3\npandas==2.3.3\nparso==0.8.7\npeft==0.21.2\npexpect==4.9.0\npillow==12.3.0\npip==25.2\nplatformdirs==4.12.4\npluggy==1.7.0\nportalocker==4.4.1\nprettytable==3.18.0\nprompt-toolkit==3.0.53\nproto-plus==1.29.0\nprotobuf==7.36.2\npsutil==7.2.2\nptyprocess==0.7.0\npure-eval==0.2.4\npyarrow==25.0.1\npyasn1==0.6.4\npyasn1-modules==0.4.2\npycocotools==2.0.11\npycparser==3.11\npydantic==2.11.7\npydantic-core==2.33.2\npygments==2.21.0\npyinstrument==5.1.3\npyjwt==2.15.1\npyparsing==3.3.3\npytest==9.1.1\npython-dateutil==2.9.0.post0\npytz==2026.5\npyyaml==6.0.3\nqwen-vl-utils==0.0.14\nreferencing==0.37.0\nregex==2026.9.29\nrequests==2.34.2\nretinaface-py==0.0.2\nrpds-py==0.30.0\ns3transfer==0.19.3\nsafetensors==0.6.2\nscikit-image==0.25.2\nscipy==1.15.3\nsentencepiece==0.2.2\nsetuptools==84.2.0\nsimsimd==6.5.16\nsix==1.17.0\nsniffio==1.3.1\nstack-data==0.6.3\nstringzilla==5.3.1\nsympy==1.14.0\ntabulate==0.10.0\ntermcolor==3.3.0\ntifffile==2025.5.10\ntokenizers==0.21.4\ntomli==2.5.0\ntorch==2.7.1+cu128\ntorchvision==0.22.1+cu128\ntqdm==4.70.1\ntraitlets==5.16.1\ntransformers==4.51.3\ntriton==3.3.1\ntypeguard==4.6.0\ntyping-extensions==4.16.0\ntyping-inspection==0.4.4\ntyro==1.0.16\ntzdata==2025.3\nurllib3==2.8.0\nwandb==0.31.0\nwcmatch==10.2.1\nwcwidth==0.9.3\nwebdataset==1.0.2\n-e file:///data20t/gaokuangda/worldcache_workspace/project\nxattr==1.3.0\nxxhash==4.0.2\nyacs==0.1.8\nzipp==4.1.1\n",
+  "native_dependency_archive_SHA_match": true,
+  "native_library_manifest_sha256": "32cb2f8f77385bc7033e65fdb9c4c4b3e59fd505fe41aadff18b15b57c356f4b"
+}
