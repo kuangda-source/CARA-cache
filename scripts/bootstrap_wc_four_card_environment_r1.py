@@ -53,8 +53,18 @@ def main():
         save()
         began = time.time()
         with (job / (label + '.log')).open('xb') as output:
-            call = subprocess.run(argv, stdout=output, stderr=subprocess.STDOUT,
-                                  timeout=timeout, env=dict(os.environ, CUDA_VISIBLE_DEVICES=''))
+            try:
+                call = subprocess.run(argv, stdout=output, stderr=subprocess.STDOUT,
+                                      timeout=timeout, env=dict(os.environ, CUDA_VISIBLE_DEVICES=''))
+            except subprocess.TimeoutExpired:
+                if argv[:2] == ['docker', 'run']:
+                    owned = subprocess.run(['docker', 'inspect', manifest['run_id'], '--format',
+                                            '{{index .Config.Labels "wcomr.manifest"}}'],
+                                           stdout=subprocess.PIPE, stderr=subprocess.DEVNULL, text=True)
+                    if owned.returncode == 0 and owned.stdout.strip() == value['manifest_sha256']:
+                        subprocess.run(['docker', 'stop', '--time', '20', manifest['run_id']],
+                                       stdout=output, stderr=subprocess.STDOUT, timeout=45)
+                raise
         value['commands'].append(dict(phase=label, exit_code=call.returncode,
                                       wall_seconds=time.time()-began))
         save()
@@ -63,6 +73,13 @@ def main():
         return call.returncode == 0
 
     try:
+        foundation = manifest['prerequisites']
+        assert sha(foundation['result_path']) == foundation['result_sha256']
+        prerequisite = json.loads(Path(foundation['result_path']).read_text())
+        assert prerequisite['status'] == 'CONTAINER_AND_TORCH_CPU_PREREQUISITES_READY_NOT_PRODUCTION'
+        assert prerequisite['worker_sha256'] == foundation['worker_sha256']
+        assert prerequisite['base_environment_path'] == str(workspace/'envs'/manifest['environment_name'])
+        assert prerequisite['GPU_submissions'] == 0 and prerequisite['ledger_written'] is False
         for name in ['source_bundle', 'runtime_archive']:
             assert sha(manifest[name]['path']) == manifest[name]['sha256']
         assert not project.exists() and not runtime.exists()
@@ -88,6 +105,7 @@ def main():
                                'transformers==4.51.3\nhuggingface-hub==0.36.0\nnumpy==2.2.6\n'
                                'pydantic==2.11.7\nsafetensors==0.6.2\n')
         container = ['docker', 'run', '--rm', '--read-only', '--name', manifest['run_id'],
+                     '--label', 'wcomr.manifest='+value['manifest_sha256'],
                      '--user', str(os.getuid()) + ':' + str(os.getgid()),
                      '--cpus', '2', '--memory', '16g', '--tmpfs', '/tmp:rw,size=512m',
                      '-v', str(workspace) + ':' + str(workspace), '-w', str(workspace)]

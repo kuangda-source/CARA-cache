@@ -1,3 +1,7 @@
+## 2026-10-20 四卡CPU基础R2在途，两次查收已约
+
+[615真实接续](../research/615_WC_FOUR_CARD_DATA_DISK_WORKSPACE_AND_ENVIRONMENT_PREPARATION_20261020.md)：四卡数据盘余445.9GiB且本人工作区已验证可写，容器已拉取。首轮Torch依赖失败保留，R2固定pip/精确cu128轮已于22:44:35单次启动，PID256731/start929253857，初次检查无错误。已约23:15半程、10月21日00:15终态并接完整环境；GitHub直接镜像在途，模型/驱动兼容/新scope生产CPU未通过，0GPU/账本。原双卡22:10槽实际22:19仍连接未知，worldcache-bank24已重约00:20；原BANK24优先及完整1624具体12批准和前置保持。
+
 ## 2026-10-20 四卡备选环境获授权准备，数据盘工作区已实际可写
 
 [615环境接续](../research/615_WC_FOUR_CARD_DATA_DISK_WORKSPACE_AND_ENVIRONMENT_PREPARATION_20261020.md)：/data20t余445.9GiB，300GiB规划＋128GiB余量满足，独立工作区write/fsync/readback通过，缓存/env/tmp已落数据盘。GitHub权威commit用bundle转运；新CPU worker已实现，真实环境安装与模型资产未接受。四卡旧驱动/glibc与固定Cosmos要求有差异，准备采用独立CPU容器，不改共享驱动/daemon、0GPU/账本。原BANK24及完整1624卡具体12批准/上游前置保持，原22:10资源任务不改。
