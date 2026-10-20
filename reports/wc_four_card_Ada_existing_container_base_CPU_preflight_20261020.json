@@ -1,0 +1,88 @@
+{
+  "status": "FOUR_CARD_FRESH_READONLY_INVENTORY_COLLECTED",
+  "attempted_unix": 1792505141.410967,
+  "SSH_exit_code": 0,
+  "SSH_signal": null,
+  "historical_authentication_reused_in_memory_only": true,
+  "credentials_saved_or_exported": false,
+  "GPU_workloads_started": 0,
+  "ledger_written": false,
+  "remote": {
+    "status": "FOUR_CARD_EXISTING_CONTAINER_BASE_CPU_PREFLIGHT",
+    "observed_unix": 1792505142.1905298,
+    "GPU_submissions": 0,
+    "model_weights_loaded": 0,
+    "images_pulled": 0,
+    "image_list_exit_code": 0,
+    "total_cached_images": 19,
+    "candidate_cached_images": [
+      {
+        "Containers": "N/A",
+        "CreatedAt": "2025-10-11 16:30:56 +0800 CST",
+        "CreatedSince": "12 months ago",
+        "Digest": "<none>",
+        "ID": "2adfef0f3621",
+        "Repository": "zhxu_1.8.0-cuda11.1-cudnn8_py3.8",
+        "SharedSize": "N/A",
+        "Size": "20.5GB",
+        "Tag": "latest",
+        "UniqueSize": "N/A",
+        "VirtualSize": "20.45GB"
+      },
+      {
+        "Containers": "N/A",
+        "CreatedAt": "2023-12-15 02:54:49 +0800 CST",
+        "CreatedSince": "2 years ago",
+        "Digest": "<none>",
+        "ID": "2d36b029aa3f",
+        "Repository": "dustynv/l4t-pytorch",
+        "SharedSize": "N/A",
+        "Size": "11.5GB",
+        "Tag": "r35.3.1",
+        "UniqueSize": "N/A",
+        "VirtualSize": "11.54GB"
+      },
+      {
+        "Containers": "N/A",
+        "CreatedAt": "2023-11-10 13:52:20 +0800 CST",
+        "CreatedSince": "2 years ago",
+        "Digest": "<none>",
+        "ID": "15ca36fdea07",
+        "Repository": "nvcr.io/nvidia/cuda",
+        "SharedSize": "N/A",
+        "Size": "9.47GB",
+        "Tag": "12.1.1-cudnn8-devel-ubuntu20.04",
+        "UniqueSize": "N/A",
+        "VirtualSize": "9.474GB"
+      }
+    ],
+    "current_UID": 1000,
+    "current_GID": 1000,
+    "CPU_base_checks": [
+      {
+        "image_id": "2adfef0f3621",
+        "repository": "zhxu_1.8.0-cuda11.1-cudnn8_py3.8",
+        "tag": "latest",
+        "exit_code": 0,
+        "stdout": "ldd (Ubuntu GLIBC 2.27-3ubuntu1.3) 2.27\n/opt/conda/bin/python3\nPython 3.8.8\n",
+        "stderr": ""
+      },
+      {
+        "image_id": "2d36b029aa3f",
+        "repository": "dustynv/l4t-pytorch",
+        "tag": "r35.3.1",
+        "exit_code": 255,
+        "stdout": "",
+        "stderr": "WARNING: The requested image's platform (linux/arm64) does not match the detected host platform (linux/amd64/v3) and no specific platform was requested\nexec /bin/sh: exec format error\n"
+      },
+      {
+        "image_id": "15ca36fdea07",
+        "repository": "nvcr.io/nvidia/cuda",
+        "tag": "12.1.1-cudnn8-devel-ubuntu20.04",
+        "exit_code": 127,
+        "stdout": "ldd (Ubuntu GLIBC 2.31-0ubuntu9.12) 2.31\n",
+        "stderr": "/bin/sh: 1: python3: not found\n"
+      }
+    ]
+  }
+}

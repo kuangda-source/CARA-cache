@@ -1,3 +1,7 @@
+## 2026-10-20 四卡备选环境获授权准备，数据盘工作区已实际可写
+
+[615环境接续](../research/615_WC_FOUR_CARD_DATA_DISK_WORKSPACE_AND_ENVIRONMENT_PREPARATION_20261020.md)：/data20t余445.9GiB，300GiB规划＋128GiB余量满足，独立工作区write/fsync/readback通过，缓存/env/tmp已落数据盘。GitHub权威commit用bundle转运；新CPU worker已实现，真实环境安装与模型资产未接受。四卡旧驱动/glibc与固定Cosmos要求有差异，准备采用独立CPU容器，不改共享驱动/daemon、0GPU/账本。原BANK24及完整1624卡具体12批准/上游前置保持，原22:10资源任务不改。
+
 ## 2026-10-20 四卡Ada已只读盘点：入口可用，四GPU占用且缺已验WC环境
 
 [614四卡当前盘点](../research/614_WC_FOUR_CARD_ADA_FRESH_RESOURCE_ASSET_AUDIT_AND_MIGRATION_BOUNDARY_20261020.md)：20:55–20:57已恢复原账号/主机密钥认证，只读核对4×RTX6000Ada48GB，四张均有任务、无空闲UUID。本人项目目录及默认HF hub中未发现可直接复用的完整Cosmos/guardrail资产或已验WC环境；系统盘余4.7GiB、/data1余75GiB、/data20t文件系统余446GiB（本人可写落点未验）。硬件是备选，当前不能直接接实验；0GPU/模型加载/账本写，未迁移主机或新开监控。当前双卡FRPC63302、额外本人四卡visitor63606分属两入口；原BANK24/1624具体12批准与22:10资源接续保持。
