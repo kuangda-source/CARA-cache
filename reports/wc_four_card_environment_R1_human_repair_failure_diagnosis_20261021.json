@@ -1,0 +1,18 @@
+{
+  "status": "HUMAN_AUTHORIZED_READONLY_FAILURE_DIAGNOSIS_REPAIR_PENDING",
+  "observed_unix": 1792515489.5468774,
+  "original_result_sha256": "28c07df2fd0ad7004f66a275b71f5efccce59be3dcea6588ca48cc4ec8cd4237",
+  "original_status": "CPU_ENVIRONMENT_PARTIAL_FAILURES_RETAINED",
+  "failure": "Transformer Engine official GitHub Release download timed out after three retries",
+  "failed_official_url": "https://github.com/nvidia-cosmos/cosmos-dependencies/releases/download/v1.2.0/transformer_engine-2.2%2Bcu128.torch27-cp310-cp310-linux_x86_64.whl",
+  "second_cause": "Original explicit extension install omitted matching cosmos-cuda source package",
+  "dependency_metadata_diagnostic": "reports/wc_four_card_failed_environment_original_metadata_R2_diagnostic_20261021.json",
+  "decord_CPU_probe": "reports/wc_four_card_decord_original_CPU_compatibility_diagnostic_20261021.json",
+  "packaging_only_repairs": [
+    "align cosmos-oss==0.1.0 declaration to source package version1.4.0 in a separate runtime overlay",
+    "align decord internal cp36 tag to official py3 filename; preserve all37 decoder payload SHA"
+  ],
+  "new_CPU_launched": false,
+  "GPU_submissions": 0,
+  "ledger_written": false
+}

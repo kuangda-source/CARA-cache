@@ -1,0 +1,21 @@
+# 四卡环境故障：官方wheel转运与独立CPU修复
+
+人类在00:56直接要求解决完整环境故障。本修复仅准备四卡环境；原双卡BANK24、完整1624采集卡的冻结范围、CPU/gate、上游顺序和具体12GPUh批准保持。
+
+## 原故障与依赖边界
+
+原R1已结束，结果SHA为28c07df2fd0ad7004f66a275b71f5efccce59be3dcea6588ca48cc4ec8cd4237。Transformer Engine 2.2/cu128/torch27从官方GitHub Release下载三次重试后超时；随后Cosmos请求导入失败。源码检查另确认原显式安装步骤遗漏同版本cosmos-cuda包，不能只重试下载或跳过官方检查。
+
+原环境只读metadata检查还识别两项打包问题：cosmos-predict2声明cosmos-oss==0.1.0，而同一固定源码树实际包版本为1.4.0；decord官方py3发布文件内部仍标cp36。实际x86_64/glibc2.36/Python3.10的decord CPU导入正常，但不能把它直接充完整解码验证。
+
+## 独立修复方案
+
+- 从官方发布源取得FlashAttention2.7.3、NATTEN0.21.0、Transformer Engine2.2的cp310/cu128/torch27二进制wheel，另补匹配Torch2.7.1的xFormers0.0.31；逐项使用官方SHA256校验，再转运到本人数据盘，服务器从本地文件安装，不依赖其GitHub Release下载链路。
+- 将原已安装基础复制至独立envs/wc-cosmos-py310-cu128-r3。原env、R1 job/source/log/result不改，不重复基础Torch安装。
+- 从原固定源码安装同版本cosmos-cuda；只在新runtime打包overlay中修正依赖版本声明，11项关键执行源码SHA逐字节保持。decord只修复制后环境的WHEEL/RECORD声明，37项官方decoder payload SHA全部保持；实际四帧合成CPU解码另验，不作研究结果。
+- 隐藏GPU、2CPU/16GB、只读root、复用同一固定容器和数据盘原生库，不改宿主机包/驱动/daemon，不加载模型或写GPU账本。
+- 实际检查完整依赖、普通Cosmos请求导入、原生产CPU边界下的推理模块导入、精确版本/freeze、原环境metadata未变、原PID/容器退出。接受只代表环境CPU准备，不代表新机生产CPU、模型资产或GPU驱动兼容。
+
+配置与实现：manifests/wc_four_card_environment_isolated_repair_recipe_r2_20261021.json；scripts/repair_wc_four_card_environment_r2.py；scripts/analyze_wc_four_card_environment_repair_r2.py。官方wheel和decord来源/SHA单独登记在本轮manifests下。私有transport只在本地恢复原授权，不导出凭据。
+
+当前为修复准备/转运阶段，未确认新CPU启动或通过。新job预定wc-fourcard-env-repair-r2-20261021；真实launch后+120秒技术半程、+360秒完整查收各一次，已有句柄/未知派发只恢复，不重放。原R1的01:50完整收件及两卡02:30资源任务保留。
