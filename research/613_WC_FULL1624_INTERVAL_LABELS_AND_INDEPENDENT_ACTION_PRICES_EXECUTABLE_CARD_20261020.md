@@ -1,5 +1,11 @@
 # 完整1624区间标签和独立动作价格：新可执行卡与生产CPU
 
+## 2026-10-20 20:44直接人类要求下的一次本人FRPC重启
+
+用户直接要求“重启下 frp 试试呢”。原本人60782先验证PID命令与完整配置身份，再正常停止，以同一完整配置启动63302；配置SHA不变，新客户端登录和原33620监听均独立确认。一次原SSH测试20:44:40仍在认证前255，当前新日志提示远端原转发listener未注册，未执行服务器命令、未取得原stage/句柄或当前GPU/v2。原件[重启](../reports/wc_owned_FRPC_direct_human_restart_20261020_2043.json)和[原SSH一次测试](../reports/wc_owned_FRPC_restart_original_SSH_once_test_20261020_2044.json)保留。当前客户端PID为63302，私有PID/日志引用在ignored .sync/policy-assets-frpc-20261020/current-owned-process.private.json，旧60782及旧日志仅为历史。
+
+没有动其他FRPC或服务器实验，无新CPU/GPU派发或账本写；未再循环重启。此为直接人类恢复探测，非新资源观察，原资源自动化22:10一次保持。其prompt已改为当前63302和新日志，具体上限12批准仍有效，原BANK24及新scope实际生产CPU前置未放宽。
+
 20:08资源槽已于20:09:33.313一次查询，仍认证前连接未知，回执reports/wc_scout_BANK24_fresh_resource_20261020_2008.json；没有追加CPU查询或派发，下一22:10已约。具体整卡12GPUh批准保持有效，新实际CPU/原BANK24完整接受仍待；以下19:55恢复记录保留其原时点身份。
 
 ## 最新直接人类具体批准与执行阻碍

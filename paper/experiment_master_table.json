@@ -4678,7 +4678,9 @@
         "PG_assets_stage_after_visitor_restore",
         "PG_assets_stage_recovered",
         "PG_assets_specific_whole12_approval",
-        "PG_assets_specific12_route_recovery"
+        "PG_assets_specific12_route_recovery",
+        "owned_FRPC_human_restart_2043",
+        "owned_FRPC_original_SSH_once_test_2044"
       ],
       "method_mapping_ids": [],
       "contribution_ids": [
@@ -4706,7 +4708,9 @@
       "specific_whole_card_confirmation_satisfied": true,
       "specific_whole_card_confirmation_pending": false,
       "specific_whole_card_approval_ref": "reports/wc_policy_interval_assets_full1624_specific_whole12_approval_20261020.json",
-      "last_route_recovery_ref": "reports/wc_policy_assets_specific12_original_route_recovery_20261020.json"
+      "last_route_recovery_ref": "reports/wc_owned_FRPC_restart_original_SSH_once_test_20261020_2044.json",
+      "current_owned_FRPC_pid": 63302,
+      "manual_FRPC_restart_ref": "reports/wc_owned_FRPC_direct_human_restart_20261020_2043.json"
     },
     {
       "id": "PG-P1",
@@ -5907,7 +5911,9 @@
     "PG_assets_specific_whole12_approval": "reports/wc_policy_interval_assets_full1624_specific_whole12_approval_20261020.json",
     "PG_assets_specific12_route_recovery": "reports/wc_policy_assets_specific12_original_route_recovery_20261020.json",
     "BANK24_resource_2008_unknown_20261020": "reports/wc_scout_BANK24_fresh_resource_20261020_2008.json",
-    "BANK24_resource_2008_unknown_accepted_20261020": "reports/wc_scout_BANK24_resource_slot_2008_independent_unknown_acceptance_20261020.json"
+    "BANK24_resource_2008_unknown_accepted_20261020": "reports/wc_scout_BANK24_resource_slot_2008_independent_unknown_acceptance_20261020.json",
+    "owned_FRPC_human_restart_2043": "reports/wc_owned_FRPC_direct_human_restart_20261020_2043.json",
+    "owned_FRPC_original_SSH_once_test_2044": "reports/wc_owned_FRPC_restart_original_SSH_once_test_20261020_2044.json"
   },
   "source_bindings": {
     "11": {
@@ -9900,8 +9906,8 @@
     },
     "storage_BANK24_ready_608": {
       "path": "research/608_WC_STORAGE_FULLY_ACCEPTED_BANK24_READY_BUT_GPU_BUSY_20261019.md",
-      "sha256": "4ffd0b31aba87ad1d2264db275a65a5da447441bcb19e14942498b4b1aa991c6",
-      "bytes": 12599
+      "sha256": "f7f2bda15f7a3fe926f110766f8f6b9ab8e146a6093cc7b297cc1b9209cfc762",
+      "bytes": 13744
     },
     "storage_BANK24_resource_schedule_20261019": {
       "path": "reports/wc_storage_complete_BANK24_busy_ordered_continuation_20261019.json",
@@ -10070,8 +10076,8 @@
     },
     "CARA_generator_registry": {
       "path": "plans/cara_policy_generator_20261020/TASK_REGISTRY.json",
-      "sha256": "393f822f4c29c5513a91fb232d57a04599c85a5d8ab97f0f1fe40f092357780f",
-      "bytes": 5100
+      "sha256": "e54b207db40c2e53695cf0a9190e9eec42ec9c2cb208b92104ad81cd31e7eaa4",
+      "bytes": 5235
     },
     "CARA_generator_asset_gaps": {
       "path": "plans/cara_policy_generator_20261020/ASSET_REUSE_INVENTORY.json",
@@ -10115,8 +10121,8 @@
     },
     "PG_assets_report_613": {
       "path": "research/613_WC_FULL1624_INTERVAL_LABELS_AND_INDEPENDENT_ACTION_PRICES_EXECUTABLE_CARD_20261020.md",
-      "sha256": "ab7e7566f16c4170c176f31b60d39e4cc04c2df096ff7d6b60e0c9835d6ceea1",
-      "bytes": 6132
+      "sha256": "d31f2d17ba58cb0428a4743e1193a9f294267dc0cdf03b30700d2c451d0b8aa0",
+      "bytes": 7277
     },
     "PG_assets_config": {
       "path": "configs/wc_policy_interval_assets_full1624_r1_20261020.json",
@@ -10267,6 +10273,16 @@
       "path": "reports/wc_scout_BANK24_resource_slot_2008_independent_unknown_acceptance_20261020.json",
       "sha256": "97c2f51deb3beb2889f5b90c162eca196696880f081c6a368b32fcb1b59e216b",
       "bytes": 1396
+    },
+    "owned_FRPC_human_restart_2043": {
+      "path": "reports/wc_owned_FRPC_direct_human_restart_20261020_2043.json",
+      "sha256": "93b98841a33e303b68c6ac152f6cbf396fb7c00894da36f014c1441ca0af4143",
+      "bytes": 708
+    },
+    "owned_FRPC_original_SSH_once_test_2044": {
+      "path": "reports/wc_owned_FRPC_restart_original_SSH_once_test_20261020_2044.json",
+      "sha256": "9aca8cb8b9d18078245ed993b97148c1b3eb296093913e95e44cea0456c64dcb",
+      "bytes": 613
     }
   },
   "operation_policy": {
@@ -11131,7 +11147,7 @@
     "BANK24_schedule_or_scope_changed_by_analysis": false
   },
   "mapping_sha256_at_inventory": "88b3d760a0c94c20b6c802e21f30c7286d6e596cc9b3f3100e7ee6feaa3938f3",
-  "latest_mapping_sha256": "381d93a7ea3fd67402db5c7dd15192faa55996af1c905be48cc437c7711737a6",
+  "latest_mapping_sha256": "b6c79ca133cb8d43c85ca401475acf989340181b0ec8af3cd1ae18e4bcdad9ae",
   "revision_plan": {
     "registry_ref": "plans/cara_v6_20261020/TASK_REGISTRY_V6.yaml",
     "report_ref": "research/610_WC_CARA_V6_REVIEW_CLOSURE_PLAN_INTERVAL_SPEC_AND_FIRST_DEV_SCOPE_20261020.md",
