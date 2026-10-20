@@ -1,0 +1,59 @@
+{
+  "status": "LOCAL_OFFICIAL_SOURCE_AND_PLAN_BINDING_ACCEPTED_NOT_PRODUCTION_OR_GPU",
+  "user_instruction": "wc 不用调参吧，直接用官方配置对比就行了",
+  "policy_ref": "plans/cara_v6_20261020/WC_OFFICIAL_BASELINE_POLICY_20261020.json",
+  "policy_sha256": "552f4e9bac04531929aca6114f5124f5a0aeb6a7b9aea07b1f393056df1e8641",
+  "report_ref": "research/611_WC_OFFICIAL_RECOMMENDED_FIXED_BASELINE_HUMAN_POLICY_20261020.md",
+  "official_source_bindings": {
+    "README.md": {
+      "url": "https://raw.githubusercontent.com/umair1221/WorldCache/60a486df6d2e6d2aa3c21815895aac157a88e95d/README.md",
+      "sha256": "adb274fc0c17a0d961a47fc9904fc9de7dfcac0aca0b6f2c4ea485e86d791761",
+      "bytes": 14917
+    },
+    "Models/Cosmos-Predict2.5/cosmos_predict2/config.py": {
+      "url": "https://raw.githubusercontent.com/umair1221/WorldCache/60a486df6d2e6d2aa3c21815895aac157a88e95d/Models/Cosmos-Predict2.5/cosmos_predict2/config.py",
+      "sha256": "83fce9944547335b94ae1000db8de1ffa1fb6a9bd12f907c77c1c98f217a7916",
+      "bytes": 19618
+    },
+    "Models/Cosmos-Predict2.5/cosmos_predict2/inference.py": {
+      "url": "https://raw.githubusercontent.com/umair1221/WorldCache/60a486df6d2e6d2aa3c21815895aac157a88e95d/Models/Cosmos-Predict2.5/cosmos_predict2/inference.py",
+      "sha256": "0db96c49f0b3f18a971bc989e0727132dafc27ef621145a2d25a3da62a7a1975",
+      "bytes": 8785
+    }
+  },
+  "WorldCache_algorithm_parameters": {
+    "worldcache_enabled": true,
+    "worldcache_num_steps": 35,
+    "worldcache_rel_l1_thresh": 0.06,
+    "worldcache_ret_ratio": 0.2,
+    "worldcache_probe_depth": 2,
+    "worldcache_motion_sensitivity": 2.0,
+    "worldcache_flow_enabled": true,
+    "worldcache_flow_scale": 2.0,
+    "worldcache_saliency_enabled": true,
+    "worldcache_saliency_weight": 1.0,
+    "worldcache_osi_enabled": true,
+    "worldcache_dynamic_decay": true
+  },
+  "new_WC_tuning_required": false,
+  "upstream_commit": "60a486df6d2e6d2aa3c21815895aac157a88e95d",
+  "BANK24_automation_sha256_before": "f4b368c0ec669bc9ed09966ca5f6fee6f7dbd0bcff6bf3c25a8051e936103612",
+  "BANK24_automation_sha256_after": "f4b368c0ec669bc9ed09966ca5f6fee6f7dbd0bcff6bf3c25a8051e936103612",
+  "protected_scope_files_unchanged": {
+    "plans/cara_v6_20261020/FIRST_DEV_UNION32_DRAFT.json": "814667fb2df5274f8715cadd4bf3cb15faf22391b506e965cb1c203fea318178",
+    "plans/cara_v6_20261020/DEVELOPMENT_UNION_V6.json": "6a7567252acc492ff5e7168d5449071d26e5b6c9bbfc9e07e3b718fdd2ec0ecb",
+    "manifests/wc_paper_N07_N08_method_freeze_r1_20261016.json": "b8d24be55ee722b6b7a2601ea18ff5ac3e686621a110de8128878ebb42fc400c",
+    "reports/wc_scout_CAL12_fourCAL_frozen_gate_20261019.json": "2ee75db20b773f676823dc899b836569aa3e3f8f4dff70e429c54ba629eca9c0"
+  },
+  "all_existing_experiment_result_files_unchanged": true,
+  "production_CPU_accepted": false,
+  "GPU_dispatch_ready": false,
+  "new_GPU_submissions": 0,
+  "new_scientific_results": 0,
+  "local_checks": {
+    "registry_JSON_YAML_equal": true,
+    "48_master_rows_and_all_nonrevision_rows_preserved": true,
+    "R4_roles_and_fixed_WC_dedup_counts_consistent": true,
+    "future_results_remain_null_not_GPU_ready": true
+  }
+}

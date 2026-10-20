@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "status": "HUMAN_SELECTED_OFFICIAL_RECOMMENDED_FIXED_WC_PROFILE_NOT_NEW_GPU_RESULT",
+  "date": "2026-10-20",
+  "direct_user_instruction": "wc 不用调参吧，直接用官方配置对比就行了",
+  "paper_role": "WC_OFFICIAL_RECOMMENDED",
+  "display_name": "WorldCache (official recommended configuration; shared evaluation protocol)",
+  "upstream_repository": "https://github.com/umair1221/WorldCache",
+  "upstream_commit": "60a486df6d2e6d2aa3c21815895aac157a88e95d",
+  "source_bindings": {
+    "README.md": {
+      "url": "https://raw.githubusercontent.com/umair1221/WorldCache/60a486df6d2e6d2aa3c21815895aac157a88e95d/README.md",
+      "sha256": "adb274fc0c17a0d961a47fc9904fc9de7dfcac0aca0b6f2c4ea485e86d791761",
+      "bytes": 14917
+    },
+    "Models/Cosmos-Predict2.5/cosmos_predict2/config.py": {
+      "url": "https://raw.githubusercontent.com/umair1221/WorldCache/60a486df6d2e6d2aa3c21815895aac157a88e95d/Models/Cosmos-Predict2.5/cosmos_predict2/config.py",
+      "sha256": "83fce9944547335b94ae1000db8de1ffa1fb6a9bd12f907c77c1c98f217a7916",
+      "bytes": 19618
+    },
+    "Models/Cosmos-Predict2.5/cosmos_predict2/inference.py": {
+      "url": "https://raw.githubusercontent.com/umair1221/WorldCache/60a486df6d2e6d2aa3c21815895aac157a88e95d/Models/Cosmos-Predict2.5/cosmos_predict2/inference.py",
+      "sha256": "0db96c49f0b3f18a971bc989e0727132dafc27ef621145a2d25a3da62a7a1975",
+      "bytes": 8785
+    }
+  },
+  "profile_definition": "Pinned official README Text2World recommended WorldCache algorithm flags, combined with argument defaults for omitted WorldCache fields",
+  "WorldCache_algorithm_parameters": {
+    "worldcache_enabled": true,
+    "worldcache_num_steps": 35,
+    "worldcache_rel_l1_thresh": 0.06,
+    "worldcache_ret_ratio": 0.2,
+    "worldcache_probe_depth": 2,
+    "worldcache_motion_sensitivity": 2.0,
+    "worldcache_flow_enabled": true,
+    "worldcache_flow_scale": 2.0,
+    "worldcache_saliency_enabled": true,
+    "worldcache_saliency_weight": 1.0,
+    "worldcache_osi_enabled": true,
+    "worldcache_dynamic_decay": true
+  },
+  "new_WC_tuning_required": false,
+  "new_WC_threshold_sweeps_selected": false,
+  "WC_workpoints_per_setting": 1,
+  "historical_labels": {
+    "WC_DEFAULT": {
+      "threshold": 0.06,
+      "same_threshold_as_official": true,
+      "full_profile_reuse_requires_source_runtime_argument_and_endpoint_compatibility": true
+    },
+    "WC_HALF": {
+      "threshold": 0.03,
+      "role": "EXISTING_TUNED_SUPPLEMENTARY_POINT_NOT_OFFICIAL_DEFAULT"
+    },
+    "WC_DOUBLE": {
+      "threshold": 0.12,
+      "role": "EXISTING_TUNED_SUPPLEMENTARY_POINT_NOT_OFFICIAL_DEFAULT"
+    }
+  },
+  "common_protocol": {
+    "same_inputs_seeds_checkpoint_solver_dimensions_precision_timing_for_all_methods": true,
+    "guardrails_remain_enabled": true,
+    "README_disable_guardrails_example_flag_not_applied": true,
+    "system_compile_offload_settings_shared_and_reported_separately": true,
+    "not_claimed_as_full_original_paper_benchmark_reproduction": true
+  },
+  "scope": "Future unfrozen R3/R4 and final baseline/timing role selection. Existing accepted cards and BANK24 are unchanged.",
+  "RA_policy_changed": false,
+  "official_WC_single_point_does_not_prove_entire_WC_quality_time_frontier_dominance": true,
+  "R3_WC_reused_between_B1_B2_if_same_identity": true,
+  "R4B_WC_reused_from_R4A_if_same_identity": true,
+  "production_argument_binding_CPU_accepted": false,
+  "GPU_dispatch_ready": false,
+  "new_GPU_submissions": 0,
+  "new_quality_results": null,
+  "new_speed_results": null
+}

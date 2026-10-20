@@ -119,14 +119,17 @@
       ],
       "remaining_gaps": [
         "exact new union count/whole quote",
-        "fair finite WC/RA tuning",
+        "official WC full-profile CPU binding; original RA protocol",
         "final freeze"
       ],
       "quality_results": null,
       "speed_results": null,
       "production_CPU_accepted": false,
       "GPU_dispatch_ready": false,
-      "new_GPU_submissions": 0
+      "new_GPU_submissions": 0,
+      "fixed_WC_workpoints": 1,
+      "WC_baseline_policy_ref": "plans/cara_v6_20261020/WC_OFFICIAL_BASELINE_POLICY_20261020.json",
+      "logical_grid_distinct_after_fixed_WC_upper": 44
     },
     {
       "id": "REV-R4-A",
@@ -156,15 +159,16 @@
       "speed_results": null,
       "production_CPU_accepted": false,
       "GPU_dispatch_ready": false,
-      "new_GPU_submissions": 0
+      "new_GPU_submissions": 0,
+      "WC_baseline_policy_ref": "plans/cara_v6_20261020/WC_OFFICIAL_BASELINE_POLICY_20261020.json"
     },
     {
       "id": "REV-R4-B",
       "priority": 4,
       "status": "CONDITIONAL_DISABLED_PRESELECT_SUBSET_BEFORE_R4A",
       "title": "6 prespecified prompts x2 seeds x6 roles",
-      "formal_count_or_upper": 72,
-      "count_basis": "CONDITIONAL_MAXIMUM_NEW_FORMAL72",
+      "formal_count_or_upper": 60,
+      "count_basis": "CONDITIONAL_MAXIMUM_NEW_FORMAL60_AFTER_FIXED_WC_REUSE",
       "formal_count_is_complete_physical_GPU_scope": false,
       "contribution_ids": [
         "C2",
@@ -182,7 +186,10 @@
       "speed_results": null,
       "production_CPU_accepted": false,
       "GPU_dispatch_ready": false,
-      "new_GPU_submissions": 0
+      "new_GPU_submissions": 0,
+      "WC_baseline_policy_ref": "plans/cara_v6_20261020/WC_OFFICIAL_BASELINE_POLICY_20261020.json",
+      "maximum_new_formal_after_fixed_WC_reuse": 60,
+      "original_logical_formal_upper": 72
     },
     {
       "id": "REV-R5-W",
@@ -253,13 +260,15 @@
       "remaining_gaps": [
         "2 inputs x5 roles x3 balanced rounds plus10warm",
         "exclusive GPU and paid full pipeline",
-        "reuse new TEST videos for five-model scores"
+        "reuse new TEST videos for five-model scores",
+        "freeze official WC repeated-timing coverage and requote complete roles if expanded"
       ],
       "quality_results": null,
       "speed_results": null,
       "production_CPU_accepted": false,
       "GPU_dispatch_ready": false,
-      "new_GPU_submissions": 0
+      "new_GPU_submissions": 0,
+      "WC_baseline_policy_ref": "plans/cara_v6_20261020/WC_OFFICIAL_BASELINE_POLICY_20261020.json"
     },
     {
       "id": "REV-R7",
@@ -320,5 +329,7 @@
   "all_formal_counts_exclude_warm_load_post_score": true,
   "quoted_first_dev_forecast_GPUh": 4.918461104080391,
   "proposed_first_dev_cap_GPUh": 6.25,
-  "final_test_total_quote_and_permission_pending": true
+  "final_test_total_quote_and_permission_pending": true,
+  "WC_baseline_policy_ref": "plans/cara_v6_20261020/WC_OFFICIAL_BASELINE_POLICY_20261020.json",
+  "new_WC_tuning_required": false
 }

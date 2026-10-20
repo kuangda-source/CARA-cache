@@ -19,7 +19,7 @@
       "NATIVE35",
       "FRONT_C",
       "FRONT_A",
-      "TUNED_WC",
+      "WC_OFFICIAL_RECOMMENDED",
       "TUNED_RA",
       "FROZEN_NEIGHBOR",
       "FROZEN_INTERVAL"
@@ -35,12 +35,15 @@
     "subset_prompts": 6,
     "seeds_per_prompt": 2,
     "non_Native_roles": 6,
-    "maximum_additional_formal_paths": 72,
+    "maximum_additional_formal_paths": 60,
     "subset_selection": "Take first six of a strata-balanced hash order frozen before R4A generation/results",
     "subset_identities": null,
-    "enabled": false
+    "enabled": false,
+    "fixed_WC_reused_from_R4A_formal_paths": 12,
+    "maximum_additional_after_fixed_WC_reuse": 60,
+    "original_logical_formal_paths": 72
   },
-  "maximum_joint_formal": 240,
+  "maximum_joint_formal": 228,
   "complete_GPUh_quote": null,
   "complete_billed_limit_GPUh": null,
   "launch_permission": "Only after full identity/CPU/quote and specific approval if >=12 GPUh; no threshold-evading split",
@@ -340,5 +343,9 @@
   "narrower_pairwise_secondary_only": true,
   "quality_results": null,
   "speed_results": null,
-  "new_GPU_submissions": 0
+  "new_GPU_submissions": 0,
+  "WC_baseline_policy_ref": "plans/cara_v6_20261020/WC_OFFICIAL_BASELINE_POLICY_20261020.json",
+  "WC_parameters_tuned_on_CAL_or_TEST": false,
+  "maximum_joint_after_fixed_WC_reuse": 228,
+  "original_joint_logical_formal_upper": 240
 }
