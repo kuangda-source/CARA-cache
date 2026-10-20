@@ -1,0 +1,131 @@
+{
+  "schema_version": 1,
+  "version": "CARA_POLICY_GENERATOR_CPU_R1",
+  "status": "FROZEN_CPU_PROTOTYPE_RULES_NOT_PRODUCTION_OR_SCIENTIFIC_ACCEPTANCE",
+  "operator": "GeneratePolicy(adapter,sampler,hardware,CAL_FIT,CAL_SELECT,B,Q,calibration_GPUh_cap)",
+  "deployment_kind": "OFFLINE_SHARED_INTERVAL_POLICY",
+  "model_specific_step_numbers_in_rules": false,
+  "grammar": {
+    "edge": "D_s plus internal C/A on [s,r); terminal N+1 has no model call",
+    "window": "all C or one contiguous A window",
+    "alpha_candidates": [
+      0.5,
+      1.0
+    ],
+    "legal_support_from_verified_adapter": true,
+    "count_true_D_anchors_only": true
+  },
+  "proposal": {
+    "coordinate": "post-warp/head/RF guided output",
+    "quadratic_requires_validated_output_linear_fusion": true,
+    "label_basis": "TEACHER_CONDITIONED_PROPOSAL",
+    "initial_weight_rule": "UNIFORM_W_EQUALS_ONE",
+    "missing_labels": "EXCLUDE_EDGE_AND_PRESERVE_MISSING_CELL_NOT_ZERO_FILL",
+    "actual_free_running_error_truth": false
+  },
+  "planner": {
+    "cost_quantum_seconds": 0.25,
+    "round_edge_cost": "CEILING",
+    "round_remaining_budget": "FLOOR",
+    "paths_per_state": 4,
+    "maximum_final_paths": 32,
+    "second_topology": "largest D-mask symmetric difference in retained pool; proxy,time,fingerprint ties",
+    "global_real_endpoint_optimum_claim": false
+  },
+  "search": {
+    "unique_endpoint_information_query_limit": 8,
+    "first_batch_slots": [
+      "SIMPLE_C",
+      "SIMPLE_A",
+      "GRAPH_MIN",
+      "GRAPH_DIVERSE"
+    ],
+    "duplicate_slots": "alias only; no added free query",
+    "refinement_batches": 1,
+    "refinement_maximum_new_plans": 4,
+    "incumbents": 2,
+    "variants_per_boundary": 4,
+    "neighbors": [
+      "merge",
+      "split_or_move_boundary",
+      "change_window_or_alpha"
+    ],
+    "ranking": [
+      "proxy_loss",
+      "predicted_seconds",
+      "fingerprint"
+    ],
+    "old_endpoint_information_counts_against_Q": true,
+    "technical_failures_or_rejections_consume_attempt_and_remain_registered": true
+  },
+  "deployment_budget": {
+    "first_Native_ratio": 0.8,
+    "seconds": null,
+    "basis": "same-profile accepted clean CAL Native prompt-equal mean before candidate endpoints",
+    "secondary_ratio_reserved": 0.7,
+    "is_per_request_hard_realtime_bound": false
+  },
+  "data": {
+    "CAL_FIT": [
+      {
+        "prompt": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+        "seed": 0
+      },
+      {
+        "prompt": "human_199",
+        "seed": 0
+      },
+      {
+        "prompt": "misc_13398218_3840_2160_60fps",
+        "seed": 0
+      },
+      {
+        "prompt": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+        "seed": 0
+      }
+    ],
+    "CAL_FIT_exposed": true,
+    "CAL_SELECT_count": 2,
+    "CAL_SELECT_ids": null,
+    "CAL_SELECT_membership_frozen_before_new_endpoint_evaluation": true,
+    "finalists": 2,
+    "selection_controls": [
+      "SIMPLE_C",
+      "SIMPLE_A"
+    ],
+    "maximum_selection_policies": 4,
+    "CAL_SELECT_after_fingerprint_freeze_search_closed": true,
+    "TEST_not_used": true
+  },
+  "selection": {
+    "primary": "minimum prompt-equal full endpoint LPIPS among measured mean time<=B",
+    "tie_break": [
+      "measured_mean_seconds",
+      "fingerprint"
+    ],
+    "tail_ceiling_per_prompt": "min(simple_C_LPIPS,simple_A_LPIPS)+0.01",
+    "tail_absolute_tolerance": 0.01,
+    "tail_guard_is_quality_equivalence_proof": false,
+    "no_feasible_policy": "BUDGET_NOT_VERIFIED"
+  },
+  "fixed_WC_policy_ref": "plans/cara_v6_20261020/WC_OFFICIAL_BASELINE_POLICY_20261020.json",
+  "new_WC_tuning": false,
+  "RA_protocol_changed": false,
+  "authorizations": {
+    "cap_GPUh": 226,
+    "origin_GPUh": 79.99637737158223,
+    "single_whole_card_autonomous_exclusive_upper_GPUh": 12,
+    "no_card_split_to_evade_permission": true,
+    "long_task": "one technical midpoint and one ETA collection",
+    "F_B": "CLOSED",
+    "training": false,
+    "human_review": false,
+    "paid_VLM": false,
+    "OMR": false
+  },
+  "production_CPU_accepted": false,
+  "GPU_dispatch_ready": false,
+  "new_GPU_submissions": 0,
+  "new_quality_results": null,
+  "new_speed_results": null
+}

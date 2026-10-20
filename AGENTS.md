@@ -1,3 +1,7 @@
+## 2026-10-20 可复现策略生成器优先：22项CPU通过，真实闭环待表/费用
+
+[612生成器设计](research/612_WC_POLICY_GENERATOR_CPU_PROTOTYPE_AND_REPRODUCIBLE_VALIDATION_DESIGN_20261020.md)：已实现一般N区间语法、预算DP、一次联合边界/覆盖邻域和数据/费用隔离；22项CPU控制及45组穷举预算核对通过，合成JSON重复逐字节一致。人工32路径草案保留但不再先跑；先完整真实source/time统计、alpha动作价格与新生产CPU，再四FIT/Q≤8/两SELECT单预算闭环。基础最大64完整路径，额外采集另计，真实GPUh报价留空；0新GPU/真实质量结果。官方固定WC、RA原协议、原BANK24及两小时资源/半程ETA规则保持。
+
 ## 2026-10-20 最新人类修订：WC固定官方推荐配置，不新增扫参
 
 [611固定WC主对照](research/611_WC_OFFICIAL_RECOMMENDED_FIXED_BASELINE_HUMAN_POLICY_20261020.md)：后续未冻结R3/R4的WC主对照固定官方README推荐算法配置（阈值0.06及flow/OSI/saliency/动态阈值等原推荐参数），WC调参不再是主线前置。旧WC_HALF/DEFAULT/DOUBLE原数据与冻结卡保持身份；RA原协议、首轮32路径和原BANK24/资源自动化不改。新实际生产CPU/GPU结果仍空，完整去重范围与费用在派发前冻结。

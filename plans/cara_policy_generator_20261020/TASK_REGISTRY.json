@@ -1,0 +1,111 @@
+{
+  "schema_version": 1,
+  "tasks": [
+    {
+      "id": "PG-P0",
+      "priority": 1,
+      "title": "Model-profile grammar, finite proxy DP, deterministic search and isolation",
+      "status": "LOCAL_CPU_PROTOTYPE22_PASS_NOT_PRODUCTION",
+      "dependencies": [],
+      "formal_count_or_upper": 0,
+      "count_basis": "CPU or scope not yet frozen",
+      "local_CPU_prototype_accepted": true,
+      "production_CPU_accepted": false,
+      "GPU_dispatch_ready": false,
+      "quality_results": null,
+      "speed_results": null,
+      "new_GPU_submissions": 0
+    },
+    {
+      "id": "PG-P1-ASSETS",
+      "priority": 1,
+      "title": "Complete real statistics, prices and generated-mask entry",
+      "status": "REAL_ASSET_AND_PRODUCTION_CLOSURE_REQUIRED",
+      "dependencies": [
+        "PG-P0"
+      ],
+      "formal_count_or_upper": null,
+      "count_basis": "CPU or scope not yet frozen",
+      "local_CPU_prototype_accepted": false,
+      "production_CPU_accepted": false,
+      "GPU_dispatch_ready": false,
+      "quality_results": null,
+      "speed_results": null,
+      "new_GPU_submissions": 0
+    },
+    {
+      "id": "PG-P1",
+      "priority": 2,
+      "title": "One measured budget, Q<=8 and one CAL_SELECT freeze",
+      "status": "COMPLETE_ADAPTIVE_CARD_DRAFT_QUOTE_AND_REAL_CPU_PENDING",
+      "dependencies": [
+        "BANK24 accepted",
+        "PG-P1-ASSETS"
+      ],
+      "formal_count_or_upper": 40,
+      "count_basis": "P1 maximum40 candidate formal plus6 Native and18 warm; extra statistics separate",
+      "local_CPU_prototype_accepted": false,
+      "production_CPU_accepted": false,
+      "GPU_dispatch_ready": false,
+      "quality_results": null,
+      "speed_results": null,
+      "new_GPU_submissions": 0
+    },
+    {
+      "id": "PG-P2",
+      "priority": 3,
+      "title": "Equal-query fixed-readout/local-only/joint/random controls",
+      "status": "PRE_REGISTER_AND_DEDUP_AFTER_FIRST_LOOP",
+      "dependencies": [
+        "PG-P1"
+      ],
+      "formal_count_or_upper": null,
+      "count_basis": "CPU or scope not yet frozen",
+      "local_CPU_prototype_accepted": false,
+      "production_CPU_accepted": false,
+      "GPU_dispatch_ready": false,
+      "quality_results": null,
+      "speed_results": null,
+      "new_GPU_submissions": 0
+    },
+    {
+      "id": "PG-P3",
+      "priority": 4,
+      "title": "Same recipe on second budget and model or setting",
+      "status": "CONDITIONAL_SAME_PROCEDURE_RECALIBRATION",
+      "dependencies": [
+        "PG-P2"
+      ],
+      "formal_count_or_upper": null,
+      "count_basis": "CPU or scope not yet frozen",
+      "local_CPU_prototype_accepted": false,
+      "production_CPU_accepted": false,
+      "GPU_dispatch_ready": false,
+      "quality_results": null,
+      "speed_results": null,
+      "new_GPU_submissions": 0
+    },
+    {
+      "id": "PG-P4",
+      "priority": 5,
+      "title": "Frozen generated-policy independent TEST, repeated time and quality",
+      "status": "WAIT_FOR_GENERATOR_FREEZE_NOT_LEGACY_RESULT_REUSE",
+      "dependencies": [
+        "PG-P2"
+      ],
+      "formal_count_or_upper": null,
+      "count_basis": "CPU or scope not yet frozen",
+      "local_CPU_prototype_accepted": false,
+      "production_CPU_accepted": false,
+      "GPU_dispatch_ready": false,
+      "quality_results": null,
+      "speed_results": null,
+      "new_GPU_submissions": 0
+    }
+  ],
+  "recipe_ref": "plans/cara_policy_generator_20261020/generator_recipe_r1.json",
+  "original_BANK24_unchanged": true,
+  "old_manual32_first_card_superseded_not_deleted": true,
+  "strict_under12_and_cap226_unchanged": true,
+  "no_gpu_launched_this_turn": true
+}

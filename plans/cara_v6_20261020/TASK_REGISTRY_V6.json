@@ -31,7 +31,7 @@
     {
       "id": "REV-R1",
       "priority": 1,
-      "status": "INITIAL_FINITE_CANDIDATES_DEFINED_NOT_VIDEO_EXECUTED",
+      "status": "DEFERRED_MANUAL_MASK_SCREEN_SUPERSEDED_BY_GENERATOR_VALIDATION",
       "title": "Finite shared interval-policy development",
       "formal_count_or_upper": 12,
       "count_basis": "EXACT_NEW_FORMAL_INITIAL12",
@@ -51,12 +51,15 @@
       "speed_results": null,
       "production_CPU_accepted": false,
       "GPU_dispatch_ready": false,
-      "new_GPU_submissions": 0
+      "new_GPU_submissions": 0,
+      "previous_status_before_generator_request": "INITIAL_FINITE_CANDIDATES_DEFINED_NOT_VIDEO_EXECUTED",
+      "superseded_priority_by": "PG-P1",
+      "original_design_and_source_preserved": true
     },
     {
       "id": "REV-R2-A",
       "priority": 3,
-      "status": "EXACT8_NEW_FORMAL_DEFINED_NOT_EXECUTED",
+      "status": "DEFERRED_MANUAL_MASK_SCREEN_SUPERSEDED_BY_GENERATOR_VALIDATION",
       "title": "Single22/Single23 at same25D and alpha1",
       "formal_count_or_upper": 8,
       "count_basis": "EXACT_NEW_FORMAL8",
@@ -75,7 +78,10 @@
       "speed_results": null,
       "production_CPU_accepted": false,
       "GPU_dispatch_ready": false,
-      "new_GPU_submissions": 0
+      "new_GPU_submissions": 0,
+      "previous_status_before_generator_request": "EXACT8_NEW_FORMAL_DEFINED_NOT_EXECUTED",
+      "superseded_priority_by": "PG-P1",
+      "original_design_and_source_preserved": true
     },
     {
       "id": "REV-R2-N",
@@ -115,12 +121,14 @@
       ],
       "dependencies": [
         "REV-R1",
-        "REV-R2-N"
+        "REV-R2-N",
+        "PG-P1/P2 automatic generator freeze"
       ],
       "remaining_gaps": [
         "exact new union count/whole quote",
         "official WC full-profile CPU binding; original RA protocol",
-        "final freeze"
+        "final freeze",
+        "generated-policy identity and validation before large TEST or final timing"
       ],
       "quality_results": null,
       "speed_results": null,
@@ -148,12 +156,14 @@
         "REV-R1",
         "REV-R2-A",
         "REV-R2-N",
-        "REV-R3"
+        "REV-R3",
+        "PG-P1/P2 automatic generator freeze"
       ],
       "remaining_gaps": [
         "12 unseen identities",
         "specific complete quote/CPU/approval if >=12",
-        "168 formal plus warm/load/score"
+        "168 formal plus warm/load/score",
+        "generated-policy identity and validation before large TEST or final timing"
       ],
       "quality_results": null,
       "speed_results": null,
@@ -255,13 +265,15 @@
         "C3"
       ],
       "dependencies": [
-        "REV-R4-A"
+        "REV-R4-A",
+        "PG-P1/P2 automatic generator freeze"
       ],
       "remaining_gaps": [
         "2 inputs x5 roles x3 balanced rounds plus10warm",
         "exclusive GPU and paid full pipeline",
         "reuse new TEST videos for five-model scores",
-        "freeze official WC repeated-timing coverage and requote complete roles if expanded"
+        "freeze official WC repeated-timing coverage and requote complete roles if expanded",
+        "generated-policy identity and validation before large TEST or final timing"
       ],
       "quality_results": null,
       "speed_results": null,
@@ -331,5 +343,7 @@
   "proposed_first_dev_cap_GPUh": 6.25,
   "final_test_total_quote_and_permission_pending": true,
   "WC_baseline_policy_ref": "plans/cara_v6_20261020/WC_OFFICIAL_BASELINE_POLICY_20261020.json",
-  "new_WC_tuning_required": false
+  "new_WC_tuning_required": false,
+  "latest_generator_plan_ref": "plans/cara_policy_generator_20261020/TASK_REGISTRY.json",
+  "manual32_first_card_priority_superseded_by_direct_user_request": true
 }
