@@ -9,3 +9,17 @@
 [配置](../configs/wc_policy_interval_assets_full1624_r1_20261020.json)与[整卡报价](../manifests/wc_policy_interval_assets_full1624_whole_quote_r1_20261020.json)：预测9.918333333 GPUh，上限12；新动作单价尚未测出，原N09包含区间仅为保守规划。此上限需单独明确批准，不能按严格<12自动授权准入。cap226及origin/全部历史保持。
 
 本地第一次完整fixture调用缺少Cosmos模块搜索路径，原失败记录保留在忽略的.sync/policy-interval-assets-local-r1/numeric.failure.json；不称数值不等或服务器CPU失败。正式生产CPU使用已有完整Cosmos环境，须按全部新scope验收。现阶段0新GPU/0预留/0价格结果。
+
+## 本地完整范围通过；真实生产CPU尚未启动
+
+本地显式Toy namespace下已完成两flow共28完整路径、4060格/26040读出试验，以及每格C/Phi/A_HALF和共享D原件重读。全36guided、终态、Toy RGB的Native/OFF/ON比较全部相等，非线性head和owner释放通过。证据reports/wc_policy_interval_assets_local_full28_numeric_20261020.json。它使用源码精确的WC/RF/UniPC函数和显式小型权重/命名空间，不是实际Cosmos导入或生产CPU通过；前两次本地环境/namespace缺口失败保留，未改原算法执行。
+
+保护D位置没有可执行C/A价格，输出null而非伪造0；生成器费用接口新增此合法域支持，原22项及2项桥接控制全24通过，见reports/wc_policy_generator_assets_protected_prices_bridge24_20261020.json。它不改变搜索语法、Q、预算或原BANK24。
+
+源031c5435799ff42ab35bd183b791c896eddf9483的首个CPU提交在SSH认证前失败255，launch=null，原件保留；不能称CPU已启动，亦不能盲目重放。原目标stage未能通过远端只读查询，连接恢复后先恢复原stage/launch，存在只恢复句柄；明确不存在才首次部署。
+
+本人FRPC原35140会话重连后，完整原visitor已恢复到33620，本地新PID60782能登录中央FRP并监听。但错误明确为远端原target listener未注册，SSH仍在认证前reset。没有操作服务器任务、其他FRPC、模型、GPU或账本；凭据/完整配置/日志仅在本地ignored目录。脱敏原件reports/wc_policy_assets_owned_FRPC_reconnect_20261020.json。
+
+原18:06资源槽于18:07:33.450仅一次SSH尝试，连接未知，未取得当前GPU/锁/v2。原件reports/wc_scout_BANK24_fresh_resource_20261020_1806.json和独立UNKNOWN边界回执保留；最后成功资源观察仍是16:05，不能当新准入。worldcache-bank24已实际更新下一20:08（最早20:07:33.450），仍按真实尝试后两小时，不循环。其prompt已经包含本卡CPU恢复/半程/ETA/独立接受与原BANK24终态后的接续；BANK24原GPU/source/gate/CPU/优先顺序未动。
+
+当前可执行实现和完整报价已准备，本地数值通过；生产CPU=false/GPU_dispatch_ready=false/0新GPU/0新价格。连接是外部阻碍。真实CPU启动后才能按该launch另约一次半程和ETA，不能给未启动进程伪造查收时间。完整上限12仍需自己的明确批准，准备授权及cap226不视为已批12；在实际生产CPU通过后提交具体整卡确认。

@@ -71,3 +71,10 @@ source2bd41dc8fa19f42353e03a7c78b7264b4b2695c6；stage `.sync/wc-scout-bank24-gp
 原16:01槽实际16:05:17.889仅一次轻量资源快照：原其他任务PID3015457/3015458仍占两GPU（48214/47826MiB、100%），自身两UUID锁free，BANK24全部派发标记与输出不存在，0本项目GPU/预留/新费用。v2逐原任务重建实结116.825023108771/cap226，余109.174976891229；原CPU、存储、CAL12与gate未重跑。下一最早18:05:17.889（unix1792490717.8894036），worldcache-bank24已实际更新18:06一次，不循环监听。最新611固定官方WC和612可复现策略生成器设计保持；人工32路径草案后置，新生成器22项CPU原型控制不代替真实生产CPU，本任务仍只接原BANK24。
 
 原件`reports/wc_scout_BANK24_fresh_resource_20261020_1601.json`及独立核对`reports/wc_scout_BANK24_resource_slot_1601_independent_busy_acceptance_20261020.json`保存；原07:33槽实际14:00观察仍保留，本次没有回填中间观察。两次实际观察间隔超过7200秒；未读科学partial或方法时间。
+
+
+## 2026-10-20 18:07原18:06槽连接未知，下一20:08
+
+仅一次资源SSH尝试在认证前reset，未读取GPU/compute/锁/v2或原任务终态。最后成功原件仍为16:05，旧busy和旧余额不充当前准入。自己的完整TCP客户端60782可登录/监听33620，但远端原target listener未注册；不循环重连、不重启服务器任务或其他FRPC。原件wc_scout_BANK24_fresh_resource_20261020_1806.json及resource_slot_1806_independent_unknown_acceptance_20261020.json保留。实际18:07:33.450尝试后+7200秒，下一最早20:07:33.450，worldcache-bank24已实际约20:08一次。
+
+最新直接人类613卡的CPU恢复已接入本资源任务与未来BANK24终态接续；BANK24仍原卡优先。新卡全1624标签/独立价格、14路径，预计9.918333333/上限12，本地完整Toy数值通过；实际生产CPU因认证前失败尚未启动，不能当GPU-ready或默认批准12。恢复后先原stage/launch只读，未知不得重派。全部旧CPU/存储/CAL12/gate不重查。

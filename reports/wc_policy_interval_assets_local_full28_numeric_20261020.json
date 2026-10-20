@@ -1,0 +1,65 @@
+{
+  "status": "LOCAL_FULL28_TOY_NUMERIC_INDEPENDENT_RAW_CONTROLS_PASS_NOT_PRODUCTION",
+  "checks": [
+    {
+      "flow": false,
+      "status": "PASS",
+      "complete_CPU_paths": 14,
+      "guard_refusal_controls": 3,
+      "complete_source_time_cells": 2030,
+      "full_readout_trials": 13020,
+      "formal_source_time_cells": 1624,
+      "all36_observer_OFF_ON_and_Native_equal": true,
+      "full_final_and_CPU_RGB_equal": true,
+      "nonlinear_head_used": true,
+      "owners_released": true,
+      "ordinary_initial_state_restored": true,
+      "declared_Toy_channels": 8,
+      "real_GPU_or_video_claim": false
+    },
+    {
+      "flow": true,
+      "status": "PASS",
+      "complete_CPU_paths": 14,
+      "guard_refusal_controls": 3,
+      "complete_source_time_cells": 2030,
+      "full_readout_trials": 13020,
+      "formal_source_time_cells": 1624,
+      "all36_observer_OFF_ON_and_Native_equal": true,
+      "full_final_and_CPU_RGB_equal": true,
+      "nonlinear_head_used": true,
+      "owners_released": true,
+      "ordinary_initial_state_restored": true,
+      "declared_Toy_channels": 8,
+      "real_GPU_or_video_claim": false
+    }
+  ],
+  "upstream_sha256": {
+    "cosmos_predict2/inference.py": "0db96c49f0b3f18a971bc989e0727132dafc27ef621145a2d25a3da62a7a1975",
+    "cosmos_predict2/_src/predict2/inference/video2world.py": "59aa9e236a5e7e26490f5cfcb94ab95ce911d9c38eba61dd8aef7d067e458a95",
+    "cosmos_predict2/_src/predict2/inference/worldcache_utils.py": "b485cb8fd6e262a40e5823365c34ef7db1bc036c591d7577489e04077c515903",
+    "cosmos_predict2/_src/predict2/models/text2world_model_rectified_flow.py": "c6c68f297859e11c76d2921667a29cabfecef3a7b5d3ab831bf9bb54b25b7d87",
+    "cosmos_predict2/_src/predict2/models/fm_solvers_unipc.py": "f6a06c75f059693ade6c802e99f6058575969b6a71ef18ab05e7ed46701053d3"
+  },
+  "cuda_initialized": false,
+  "limits": "Unchanged pinned sampler/get_velocity/denoise/decode wrapper, WC, UniPC, generate_vid2world and Inference method bodies. Explicit Toy net, CPU noise/conditioner/normalize/broadcast/prepare/tokenizer/mock writer, offload disabled and CUDA telemetry adapters; equal finite threshold schedule is CPU control only. No weights, true VAE/encoded video, GPU completion, independent restart or quality result. No sparse candidate in this control.",
+  "actual_CPU_paths": 28,
+  "source_time_cells_reloaded": 4060,
+  "readout_trials": 26040,
+  "formal_cells_across_two_flows": 3248,
+  "CUDA_initialized": false,
+  "GPU_submissions": 0,
+  "explicit_Toy_namespaces": true,
+  "actual_Cosmos_production_import": false,
+  "elapsed_seconds": 38.424798011779785,
+  "source_sha256": {
+    "src/wcomr/policy_interval_assets_sampling_r1.py": "fe0536c295497083c874c2edced31bb8a264642bb5d1a29db99778d4ae245f97",
+    "src/wcomr/policy_interval_readout_r1.py": "90fb5852ff5a27e01cfefc61337c0103ddf329ed741eea2ac349ffcbea508a4f",
+    "tests/check_policy_interval_assets_sampling_cpu_r1.py": "463669dc962a8183ff84ddaf44875fd300c42d7b9e0e9a9d3dd19cc5f06b5016"
+  },
+  "explicit_namespace_adapter_sha256": "99750a6e88366182d15ce55b35d1b34eb2b6be98691dab3d48ae90596ca5629c",
+  "actual_production_CPU_accepted": false,
+  "GPU_dispatch_ready": false,
+  "ledger_written": false,
+  "original_local_environment_failures_retained": true
+}

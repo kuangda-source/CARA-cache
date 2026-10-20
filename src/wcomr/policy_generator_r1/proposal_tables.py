@@ -55,10 +55,14 @@ class Costs:
             raise ValueError("A forecast or D count cannot masquerade as observed action costs")
         if set(self.A_seconds_by_alpha) != set(profile.alpha_candidates):
             raise ValueError("Price each supported alpha's actual readout path")
-        for values in (self.dense_seconds, self.C_seconds, *self.A_seconds_by_alpha.values()):
+        for index, values in enumerate((self.dense_seconds, self.C_seconds, *self.A_seconds_by_alpha.values())):
             if len(values) != profile.horizon:
                 raise ValueError("Every action cost table must cover the full horizon")
-            for value in values:
+            for step, value in enumerate(values, 1):
+                # An unavailable readout at a mandatory-D update is explicit,
+                # rather than an invented zero or a substituted dense price.
+                if index > 0 and step in profile.protected_dense and value is None:
+                    continue
                 number(value, "action seconds", True)
         number(self.shared_seconds, "non-edge shared seconds")
         return self
