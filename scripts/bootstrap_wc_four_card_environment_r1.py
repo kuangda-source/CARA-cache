@@ -101,7 +101,7 @@ def main():
         for key, item in variables.items():
             container += ['-e', key + '=' + item]
         container += ['--entrypoint', '/usr/local/bin/python', image]
-        environment = workspace/'envs/wc-cosmos-py310-cu128-r1'
+        environment = workspace/'envs'/manifest['environment_name']
         uvtarget = workspace/'tools/uv-python'
         for path in [workspace/'user-home', workspace/'tools']:
             path.mkdir(exist_ok=True)
@@ -124,8 +124,10 @@ def main():
             code = 'import subprocess; subprocess.run('+repr([uv,'pip','install','--python',py]+arguments)+',check=True)'
             return run_python(label, code, 2400, required)
 
-        pip('torch-pinned-cu128', ['torch==2.7.1','torchvision==0.22.1',
-                                 '--index-url','https://download.pytorch.org/whl/cu128'])
+        pip('torch-pinned-cu128', ['torch==2.7.1+cu128','torchvision==0.22.1+cu128','--no-build',
+                                 '--index-url','https://download.pytorch.org/whl/cu128',
+                                 '--extra-index-url','https://pypi.org/simple',
+                                 '--index-strategy','unsafe-best-match'])
         pip('cosmos-and-project-base', ['--constraint',str(constraints),'-e',str(runtime/'packages/cosmos-oss'),
                                        '-e',str(runtime),'-e',str(project),'lpips==0.1.4'])
         extensions_ok = pip('registered-cuda-extension-wheels',

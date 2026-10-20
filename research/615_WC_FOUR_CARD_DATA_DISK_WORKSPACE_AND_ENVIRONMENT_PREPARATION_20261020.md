@@ -5,3 +5,9 @@
 四卡GitHub匿名私有仓库读取被拒绝，PyPI可达；官方HF元数据连接失败且未有HF凭据。既有Docker有权限，但缓存候选均不满足本次用户态要求：glibc2.27/2.31，一个ARM64候选不能在该x86机器运行，失败元数据保留。采用独立轻量官方Python3.10容器准备CPU环境，不改共享驱动/daemon；固定Cosmos要求与实际驱动/glibc差异已经明确，准备不等于可运行GPU。
 
 新worker及固定recipe已实现并做本地语法/CLI与11关键runtime SHA核对；真实服务器环境尚待单次worker完成，不能称新scope生产CPU通过。完整执行与GitHub转运协议见plans/WC_FOUR_CARD_ENVIRONMENT_AND_GITHUB_SYNC_20261020.md。原BANK24/已批完整12卡/22:10资源时点保持。
+
+## 容器已拉取，首轮Torch依赖错误保留并修复新R2
+
+22:36:07原CPU prerequisite单次启动，22:38:19终态失败，131.499秒。官方Python3.10.19/bookworm镜像实际拉取成功；Torch阶段typing_extensions wheel名称元数据被旧pip拒绝，回退源码后CUDA单一索引缺flit_core。原失败worker/日志/回执保留；不是科研负结果，0GPU/模型加载/账本。R2改用独立envs/wc-cosmos-py310-cu128-r2、固定pip25.2、精确cu128二进制轮及PyPI依赖源；主环境安装同步修正相同依赖源边界。真实CPU导入尚未通过，不能称环境或生产CPU接受。失败证据见reports/wc_four_card_container_Torch_CPU_R1_technical_failure_capture_20261020.json及failure_independent_boundary。
+
+原双卡22:10资源槽实际22:19:50一次SSH仍认证前失败，GPU/v2/原句柄未读到；下一最早10月21日00:19:50，原worldcache-bank24已重约00:20。四卡准备不替代原BANK24和完整1624具体12批准的上游/实际CPU前置。

@@ -1,0 +1,54 @@
+{
+  "status": "ORIGINAL_PREREQUISITE_TECHNICAL_FAILURE_CAPTURE",
+  "observed_unix": 1792507334.8514535,
+  "launch": {
+    "status": "FOUR_CARD_CONTAINER_TORCH_CPU_PREREQUISITES_SINGLE_DISPATCHED",
+    "workspace": "/data20t/gaokuangda/worldcache_workspace",
+    "job": "/data20t/gaokuangda/worldcache_workspace/bootstrap/wc-fourcard-core-prereq-r1-20261020",
+    "source_revision": "ef79116f80cb77e22d21801cd769c08fa35e7fef",
+    "worker_source_sha256": "759dc6bacad4b0231c51c77ac0737dfd50fa86548ecbdc4be20a534106830158",
+    "identity": {
+      "pid": 255973,
+      "start_ticks": 929203086,
+      "state": "R"
+    },
+    "started_unix": 1792506967.505753,
+    "halfway_not_before_unix": 1792508767.505753,
+    "final_not_before_unix": 1792512367.505753,
+    "GPU_submissions": 0,
+    "ledger_written": false,
+    "production_CPU_accepted": false,
+    "GPU_dispatch_ready": false
+  },
+  "result": {
+    "status": "CONTAINER_OR_TORCH_CPU_PREREQUISITES_FAILED_RETAINED",
+    "commands": [
+      {
+        "phase": "base-image-pull",
+        "exit_code": 0,
+        "wall_seconds": 10.401480674743652
+      },
+      {
+        "phase": "python-and-pinned-torch",
+        "exit_code": 1,
+        "wall_seconds": 121.04067182540894
+      }
+    ],
+    "started_unix": 1792506967.5772521,
+    "worker_sha256": "759dc6bacad4b0231c51c77ac0737dfd50fa86548ecbdc4be20a534106830158",
+    "GPU_submissions": 0,
+    "model_weights_loaded": 0,
+    "ledger_written": false,
+    "production_CPU_accepted": false,
+    "GPU_dispatch_ready": false,
+    "phase": "python-and-pinned-torch",
+    "resolved_image_id": "sha256:1e81ac62ee68ca1a6ef655515096a1d84579b01aa4986810c9b18d4f6c4c552d",
+    "error_type": "RuntimeError",
+    "error": "Original prerequisite phase failed: python-and-pinned-torch",
+    "ended_unix": 1792507099.0765193,
+    "wall_seconds": 131.499267578125
+  },
+  "phase_log_tail": "Looking in indexes: https://download.pytorch.org/whl/cu128\nCollecting torch==2.7.1\n  Obtaining dependency information for torch==2.7.1 from https://download-r2.pytorch.org/whl/cu128/torch-2.7.1%2Bcu128-cp310-cp310-manylinux_2_28_x86_64.whl.metadata\n  Downloading https://download-r2.pytorch.org/whl/cu128/torch-2.7.1%2Bcu128-cp310-cp310-manylinux_2_28_x86_64.whl.metadata (29 kB)\nCollecting torchvision==0.22.1\n  Obtaining dependency information for torchvision==0.22.1 from https://download-r2.pytorch.org/whl/cu128/torchvision-0.22.1%2Bcu128-cp310-cp310-manylinux_2_28_x86_64.whl.metadata\n  Downloading https://download-r2.pytorch.org/whl/cu128/torchvision-0.22.1%2Bcu128-cp310-cp310-manylinux_2_28_x86_64.whl.metadata (6.1 kB)\nCollecting filelock\n  Obtaining dependency information for filelock from https://files.pythonhosted.org/packages/a7/8e/50f46a9c0ce8d2861a394c1347caae037ea0431d2f67d7feb151cbc4649a/filelock-3.32.3-py3-none-any.whl.metadata\n  Downloading filelock-3.32.3-py3-none-any.whl.metadata (2.0 kB)\nCollecting nvidia-nvjitlink-cu12==12.8.61\n  Downloading https://pypi.nvidia.com/nvidia-nvjitlink-cu12/nvidia_nvjitlink_cu12-12.8.61-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl (39.2 MB)\n     \u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501 39.2/39.2 MB 1.8 MB/s eta 0:00:00\nCollecting nvidia-cusparselt-cu12==0.6.3\n  Downloading https://pypi.nvidia.com/nvidia-cusparselt-cu12/nvidia_cusparselt_cu12-0.6.3-py3-none-manylinux2014_x86_64.whl (156.8 MB)\n     \u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501 156.8/156.8 MB 1.3 MB/s eta 0:00:00\nCollecting nvidia-nvtx-cu12==12.8.55\n  Downloading https://pypi.nvidia.com/nvidia-nvtx-cu12/nvidia_nvtx_cu12-12.8.55-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (89 kB)\n     \u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501 89.9/89.9 kB 674.2 kB/s eta 0:00:00\nCollecting typing-extensions>=4.10.0\n  Obtaining dependency information for typing-extensions>=4.10.0 from https://files.pythonhosted.org/packages/49/d3/b8441a820a491ddfc024b0b0cf0393375b75ea13866d9c66727e54c2fc80/typing_extensions-4.16.0-py3-none-any.whl.metadata\n  Downloading typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)\nDiscarding https://files.pythonhosted.org/packages/49/d3/b8441a820a491ddfc024b0b0cf0393375b75ea13866d9c66727e54c2fc80/typing_extensions-4.16.0-py3-none-any.whl#sha256=481caa481374e813c1b176ada14e97f1f67a4539ce9cfeb3f350d78d6370c2e8 (from https://download.pytorch.org/whl/cu128/typing-extensions/) (requires-python:>=3.9): Requested typing-extensions>=4.10.0 from https://files.pythonhosted.org/packages/49/d3/b8441a820a491ddfc024b0b0cf0393375b75ea13866d9c66727e54c2fc80/typing_extensions-4.16.0-py3-none-any.whl#sha256=481caa481374e813c1b176ada14e97f1f67a4539ce9cfeb3f350d78d6370c2e8 (from torch==2.7.1) has inconsistent Name: expected 'typing-extensions', but metadata has 'typing_extensions'\n  Downloading typing_extensions-4.16.0.tar.gz (113 kB)\n     \u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501 113.6/113.6 kB 317.3 kB/s eta 0:00:00\n  Installing build dependencies: started\n  Installing build dependencies: finished with status 'error'\n  error: subprocess-exited-with-error\n  \n  \u00d7 pip subprocess to install build dependencies did not run successfully.\n  \u2502 exit code: 1\n  \u2570\u2500> [3 lines of output]\n      Looking in indexes: https://download.pytorch.org/whl/cu128\n      ERROR: Could not find a version that satisfies the requirement flit_core<4,>=3.11 (from versions: none)\n      ERROR: No matching distribution found for flit_core<4,>=3.11\n      [end of output]\n  \n  note: This error originates from a subprocess, and is likely not a problem with pip.\nerror: subprocess-exited-with-error\n\n\u00d7 pip subprocess to install build dependencies did not run successfully.\n\u2502 exit code: 1\n\u2570\u2500> See above for output.\n\nnote: This error originates from a subprocess, and is likely not a problem with pip.\nTraceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n  File \"/usr/local/lib/python3.10/subprocess.py\", line 526, in run\n    raise CalledProcessError(retcode, process.args,\nsubprocess.CalledProcessError: Command '['/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r1/bin/python', '-m', 'pip', 'install', '--disable-pip-version-check', 'torch==2.7.1', 'torchvision==0.22.1', '--index-url', 'https://download.pytorch.org/whl/cu128']' returned non-zero exit status 1.\n",
+  "GPU_submissions": 0,
+  "ledger_written": false
+}

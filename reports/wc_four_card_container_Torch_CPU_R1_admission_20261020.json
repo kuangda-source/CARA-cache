@@ -1,0 +1,76 @@
+{
+  "status": "ORIGINAL_FOUR_CARD_CPU_PREREQUISITE_CAPTURE",
+  "mode": "admission",
+  "observed_unix": 1792507119.936085,
+  "launch": {
+    "status": "FOUR_CARD_CONTAINER_TORCH_CPU_PREREQUISITES_SINGLE_DISPATCHED",
+    "workspace": "/data20t/gaokuangda/worldcache_workspace",
+    "job": "/data20t/gaokuangda/worldcache_workspace/bootstrap/wc-fourcard-core-prereq-r1-20261020",
+    "source_revision": "ef79116f80cb77e22d21801cd769c08fa35e7fef",
+    "worker_source_sha256": "759dc6bacad4b0231c51c77ac0737dfd50fa86548ecbdc4be20a534106830158",
+    "identity": {
+      "pid": 255973,
+      "start_ticks": 929203086,
+      "state": "R"
+    },
+    "started_unix": 1792506967.505753,
+    "halfway_not_before_unix": 1792508767.505753,
+    "final_not_before_unix": 1792512367.505753,
+    "GPU_submissions": 0,
+    "ledger_written": false,
+    "production_CPU_accepted": false,
+    "GPU_dispatch_ready": false
+  },
+  "process": null,
+  "original_handle_live": false,
+  "worker_source_sha256": "759dc6bacad4b0231c51c77ac0737dfd50fa86548ecbdc4be20a534106830158",
+  "result_exists": true,
+  "GPU_submissions": 0,
+  "ledger_written": false,
+  "health": {
+    "status": "CONTAINER_OR_TORCH_CPU_PREREQUISITES_FAILED_RETAINED",
+    "commands": [
+      {
+        "phase": "base-image-pull",
+        "exit_code": 0,
+        "wall_seconds": 10.401480674743652
+      },
+      {
+        "phase": "python-and-pinned-torch",
+        "exit_code": 1,
+        "wall_seconds": 121.04067182540894
+      }
+    ],
+    "started_unix": 1792506967.5772521,
+    "worker_sha256": "759dc6bacad4b0231c51c77ac0737dfd50fa86548ecbdc4be20a534106830158",
+    "GPU_submissions": 0,
+    "model_weights_loaded": 0,
+    "ledger_written": false,
+    "production_CPU_accepted": false,
+    "GPU_dispatch_ready": false,
+    "phase": "python-and-pinned-torch",
+    "resolved_image_id": "sha256:1e81ac62ee68ca1a6ef655515096a1d84579b01aa4986810c9b18d4f6c4c552d",
+    "error_type": "RuntimeError",
+    "error": "Original prerequisite phase failed: python-and-pinned-torch",
+    "ended_unix": 1792507099.0765193,
+    "wall_seconds": 131.499267578125
+  },
+  "errors": [
+    {
+      "log": "supervisor.log",
+      "line": "{\"status\": \"CONTAINER_OR_TORCH_CPU_PREREQUISITES_FAILED_RETAINED\", \"commands\": [{\"phase\": \"base-image-pull\", \"exit_code\": 0, \"wall_seconds\": 10.401480674743652}, {\"phase\": \"python-and-pinned-torch\", \"exit_code\": 1, \"wall_seconds\": 121.04067182540894}], \"started_unix\": 1792506967.5772521, \"worker_sha256\": \"759dc6bacad4b0231c51c77ac0737dfd50fa86548ecbdc4be20a534106830158\", \"GPU_submissions\": 0, \"model_weights_loaded\": 0, \"ledger_written\": false, \"production_CPU_accepted\": false, \"GPU_dispatch_ready\": false, \"phase\": \"python-and-pinned-torch\", \"resolved_image_id\": \"sha256:1e81ac62ee68ca1a6ef655515096a1d84579b01aa4986810c9b18d4f6c4c552d\", \"error_type\": \"RuntimeError\", \"error\": \"Original prerequisite phase failed: python-and-pinned-torch\", \"ended_unix\": 1792507099.0765193, \"wall_seconds\": 131.499267578125}"
+    },
+    {
+      "log": "python-and-pinned-torch.log",
+      "line": "      ERROR: Could not find a version that satisfies the requirement flit_core<4,>=3.11 (from versions: none)"
+    },
+    {
+      "log": "python-and-pinned-torch.log",
+      "line": "      ERROR: No matching distribution found for flit_core<4,>=3.11"
+    },
+    {
+      "log": "python-and-pinned-torch.log",
+      "line": "Traceback (most recent call last):"
+    }
+  ]
+}

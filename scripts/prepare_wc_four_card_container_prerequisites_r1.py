@@ -13,8 +13,10 @@ def main():
     parser=argparse.ArgumentParser()
     parser.add_argument('--job',type=Path,required=True)
     parser.add_argument('--workspace',type=Path,required=True)
+    parser.add_argument('--environment-name',default='wc-cosmos-py310-cu128-r2')
     args=parser.parse_args();job=args.job;workspace=args.workspace.resolve()
     assert str(workspace).startswith('/data20t/gaokuangda/') and job.is_dir()
+    assert '/' not in args.environment_name and args.environment_name.startswith('wc-cosmos-')
     assert not (job/'result.json').exists()
     value=dict(status='CONTAINER_AND_TORCH_CPU_PREPARATION_RUNNING',commands=[],started_unix=time.time(),
                worker_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
@@ -32,19 +34,26 @@ def main():
         if p.returncode:raise RuntimeError('Original prerequisite phase failed: '+phase)
     try:
         root=os.statvfs('/');assert root.f_bavail*root.f_frsize>=4*1024**3
-        tag='python:3.10.19-slim-bookworm';run('base-image-pull',['docker','pull',tag],900)
+        tag='python:3.10.19-slim-bookworm'
+        cached=subprocess.run(['docker','image','inspect',tag],stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL).returncode==0
+        if not cached:run('base-image-pull',['docker','pull',tag],900)
         image=subprocess.check_output(['docker','image','inspect',tag,'--format','{{.Id}}'],text=True).strip()
         value['resolved_image_id']=image;save()
         for name in ['user-home','envs','cache/pip','tmp']:(workspace/name).mkdir(parents=True,exist_ok=True)
-        env=workspace/'envs/wc-cosmos-py310-cu128-r1';py=str(env/'bin/python')
+        env=workspace/'envs'/args.environment_name;assert not env.exists();py=str(env/'bin/python')
+        value['base_environment_path']=str(env);save()
         check=('import torch,sys; assert sys.version_info[:2]==(3,10); '
-               'assert torch.__version__.startswith("2.7.1"); assert not torch.cuda.is_initialized(); '
+               'assert torch.__version__=="2.7.1+cu128"; assert not torch.cuda.is_initialized(); '
                'print(sys.version,torch.__version__,torch.version.cuda,"CPU_ONLY_NO_CUDA_INIT")')
         code=('import subprocess; subprocess.run('+repr(['python','-m','venv',str(env)])+',check=True); '
-              'subprocess.run('+repr([py,'-m','pip','install','--disable-pip-version-check','torch==2.7.1',
-                                      'torchvision==0.22.1','--index-url','https://download.pytorch.org/whl/cu128'])+',check=True); '
+              'subprocess.run('+repr([py,'-m','pip','install','--disable-pip-version-check','pip==25.2',
+                                      '--index-url','https://pypi.org/simple'])+',check=True); '
+              'subprocess.run('+repr([py,'-m','pip','install','--disable-pip-version-check','--only-binary=:all:',
+                                      'torch==2.7.1+cu128','torchvision==0.22.1+cu128',
+                                      '--index-url','https://download.pytorch.org/whl/cu128',
+                                      '--extra-index-url','https://pypi.org/simple'])+',check=True); '
               'subprocess.run('+repr([py,'-c',check])+',check=True)')
-        cmd=['docker','run','--rm','--read-only','--name','wc-fourcard-core-prereq-r1-20261020',
+        cmd=['docker','run','--rm','--read-only','--name',job.name,
              '--user',str(os.getuid())+':'+str(os.getgid()),'--cpus','2','--memory','16g',
              '--tmpfs','/tmp:rw,size=512m','-v',str(workspace)+':'+str(workspace),'-w',str(workspace)]
         for k,v in dict(NVIDIA_VISIBLE_DEVICES='void',CUDA_VISIBLE_DEVICES='',HOME=str(workspace/'user-home'),
