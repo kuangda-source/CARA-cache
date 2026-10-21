@@ -37,3 +37,9 @@ GitHub source `f6af9f383de79ddd9702b73b5a8db97d3d9c63bf`发布后，05:30:23.955
 - `r4-3-cpu-2`：05:41一次完整收件，最早unix1792618823.9551198／05:40:23.955120；保存后仅离线accept。
 
 两个原定义已读回；旧R4.2终态`r4-2-cpu-2`完成删除，两卡06:16定义保持。R4.3仍为资源CPU在途，完整CPU／CUDA兼容／科研scope生产CPU／报价／预算门分别接受，0科研GPU／账本写。
+
+## 2026-10-22 05:38半程：R4.3两项CPU命令已退出0，05:41独立终态验收保持
+
+[midpoint](../reports/wc_four_card_offline_resources_CPU_R4_3_midpoint_20261022.json)：05:35槽实际05:38:27.910528仅一次原R4.3技术收件，原PID/start/source、全payload与manifest一致；supervisor及本人容器已退出。health报告05:33:16.862结束、wall171.870秒，原受限入口导入与预训练LPIPS CPU两命令均0／精确marker通过，原110解析0证明、进程身份／五个自有缓存、env／runtime保持。半程只记录技术完成，未读取最终result／日志／终态独立哈希或accept；完整离线资源CPU仍待05:41一次原件验收，不充CUDA兼容／新机科研scope生产CPU／报价／GPU-ready。未新增下载／安装／Cosmos权重／CUDA初始化／真实评分／科研GPU／账本写。半程r4-3-cpu已完成删除；r4-3-cpu-2原05:41及两卡四小时06:16保持。原96／公开14、BANK24→完整1624／具体12批准／cap226历史及54科研行状态保持。
+
+[Technical boundary](../reports/wc_four_card_offline_resources_CPU_R4_3_midpoint_technical_completion_boundary_20261022.json) / [Original final handoff](../reports/wc_four_card_offline_resources_CPU_R4_3_midpoint_completed_original_final_handoff_20261022.json). All 20 technical checks passed; independent full resource CPU acceptance remains pending.

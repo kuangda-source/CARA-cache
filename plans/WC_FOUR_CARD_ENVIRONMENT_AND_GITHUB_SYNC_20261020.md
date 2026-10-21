@@ -1,3 +1,8 @@
+## 2026-10-22 05:38半程：R4.3两项CPU命令已退出0，05:41独立终态验收保持
+
+[630技术原件与接续](../research/630_WC_NUMERIC_UID_COMPILER_CACHE_FAILURE_AND_RESOURCE_CPU_R4_3_20261022.md)：05:35槽实际05:38:27.910528仅一次原R4.3技术收件，原PID/start/source、全payload与manifest一致；supervisor及本人容器已退出。health报告05:33:16.862结束、wall171.870秒，原受限入口导入与预训练LPIPS CPU两命令均0／精确marker通过，原110解析0证明、进程身份／五个自有缓存、env／runtime保持。半程只记录技术完成，未读取最终result／日志／终态独立哈希或accept；完整离线资源CPU仍待05:41一次原件验收，不充CUDA兼容／新机科研scope生产CPU／报价／GPU-ready。未新增下载／安装／Cosmos权重／CUDA初始化／真实评分／科研GPU／账本写。半程r4-3-cpu已完成删除；r4-3-cpu-2原05:41及两卡四小时06:16保持。原96／公开14、BANK24→完整1624／具体12批准／cap226历史及54科研行状态保持。
+
+
 ## 2026-10-22 R4.2数字UID缓存失败已定位，R4.3剩余CPU验证已启动
 
 [630原件与接续](../research/630_WC_NUMERIC_UID_COMPILER_CACHE_FAILURE_AND_RESOURCE_CPU_R4_3_20261022.md)：05:24一次完整收件、离线不接受R4.2，17项独立失败留存核对通过。原栈已越过NVRTC／TE原生库加载，新的失败为TorchInductor默认缓存查getpass用户名，容器数字UID1000缺passwd条目且未供USER/LOGNAME；原env/runtime和资源保持。独立R4.3只补容器进程身份与五个新job缓存，不改系统passwd/依赖/原环境，不关闭编译或跳过库加载；复用110解析0和现有LPIPS／NVRTC，只新执行原入口导入及LPIPS两命令。21本地控制通过，sourcef6af9f38已GitHub发布，05:30:23.955单次启动PID621186/start940328731；一次准入实际getpass解析gaokuangda/UID1000、五目录所有权／写入通过，原进程和本人只读容器活，正在入口导入。已读回r4-3-cpu于05:35半程、r4-3-cpu-2于05:41完整收件；旧R4.2终态自动化已完成删除，两卡四小时06:16不动。原96／公开14完整接受保持，新资源CPU／CUDA／scope生产CPU／报价／唯一预算仍各自验，0新下载／安装／Cosmos权重／CUDA初始化／真实评分／科研GPU／账本写，54科研行状态、BANK24→完整1624／具体12批准／cap226历史保持。
