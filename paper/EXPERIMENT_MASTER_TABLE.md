@@ -1,3 +1,7 @@
+## 2026-10-21 22:12两卡只读槽仍连接未知，下一10月22日02:15
+
+[608](../research/608_WC_STORAGE_FULLY_ACCEPTED_BANK24_READY_BUT_GPU_BUSY_20261019.md)：本22:12槽实际仅于22:14:10.178480尝试一次原双卡SSH，认证前255/connection reset；没有当前GPU/显存/compute/UUID锁/原句柄或权威v2观察，不判断空闲、未派发或终态。本机本人FRPC88068/33620私有argv身份及监听一致，未重启、追加SSH或提交CPU/GPU，0账本写入。原件与离线UNKNOWN边界保留；按实际尝试＋14400秒，最早10月22日02:14:10.178480（unix1792606450.1784801），worldcache-bank24已读回重约02:15一次，只读恢复和唯一账本交接，不在两卡新派GPU。四卡627资源R3原23:51半程／明晨03:51全件查收定义已离线核对保持，本轮未查四卡；旧R2的r2/sha检查均为已删除历史，不恢复。BANK24→完整1624及其具体12批准/cap226/origin历史和54科研行保持；常态未知无可行动变化静默。
+
 ## 2026-10-21 完整96资源R3已启动，23:51半程／明晨03:51全件查收
 
 [627 R3](../research/627_WC_FIXED96_HYBRID_R3_SERVER_MODELSCOPE_AND_ORIGINAL_HF_RESOURCE_CONTINUATION_20261021.md)：原R2失败已完整本地收件并独立不接受，原源码/job及1,132,462,080字节断点保留。新GitHub source3d2dd5e1的R3于19:50:46.056单次启动Mac PID99269；19:51一次准入核对原server Docker PID527857/start936852533、source/worker/manifest及全部原96，16项全过，正接收原断点。四Reason1字节相同分片改server匿名魔搭、其余原HF缺失文件只Mac外盘；完整96/21,358,871,258字节分母、原HF revision/兼容路径保持。新实现14项控制通过，资源准入不是完整资产/生产CPU/GPU通过。2CPU16GiB/隐藏GPU，0模型加载/CUDA/科学GPU/账本写；server fresh数据盘352.642GiB，旧receiver不存在。已读回r3今晚23:51技术半程、r3-96-cpu于10月22日03:51完整全SHA；旧sha接续已删，两卡四小时只读22:12定义保持。完整资产接受后依次LPIPS/完整推理CPU/实际兼容/各scope新机CPU与报价/唯一权威v2交接，才接BANK24→已登记CPU诊断→完整1624，具体12批准及cap226/origin历史不变；科研54行不变。

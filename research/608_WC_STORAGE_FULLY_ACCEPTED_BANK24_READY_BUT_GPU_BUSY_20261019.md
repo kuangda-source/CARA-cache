@@ -1,3 +1,9 @@
+## 2026-10-21 22:12两卡只读槽仍连接未知，下一10月22日02:15
+
+[608](608_WC_STORAGE_FULLY_ACCEPTED_BANK24_READY_BUT_GPU_BUSY_20261019.md)：本22:12槽实际仅于22:14:10.178480尝试一次原双卡SSH，认证前255/connection reset；没有当前GPU/显存/compute/UUID锁/原句柄或权威v2观察，不判断空闲、未派发或终态。本机本人FRPC88068/33620私有argv身份及监听一致，未重启、追加SSH或提交CPU/GPU，0账本写入。原件与离线UNKNOWN边界保留；按实际尝试＋14400秒，最早10月22日02:14:10.178480（unix1792606450.1784801），worldcache-bank24已读回重约02:15一次，只读恢复和唯一账本交接，不在两卡新派GPU。四卡627资源R3原23:51半程／明晨03:51全件查收定义已离线核对保持，本轮未查四卡；旧R2的r2/sha检查均为已删除历史，不恢复。BANK24→完整1624及其具体12批准/cap226/origin历史和54科研行保持；常态未知无可行动变化静默。
+
+Receipts: [single attempt](../reports/wc_scout_BANK24_fresh_resource_20261021_2212.json) / [offline boundary](../reports/wc_scout_BANK24_resource_slot_2212_independent_unknown_acceptance_20261021.json) / [next schedule](../reports/wc_scout_BANK24_resource_slot_2212_once_reschedule_20261021.json).
+
 ## 2026-10-21 17:48槽延后18:11仍连接未知，下一22:12（四小时只读）
 
 本17:48资源槽延后送达，实际仅于18:11:20.181997尝试一次原双卡SSH，认证前255/connection reset；没有当前GPU/显存/compute/UUID锁/原句柄或完整权威v2观察，不判断空闲、原任务终态或当前未派发。本人FRPC88068/33620的私有argv身份和监听仍一致，未重启、追加CPU SSH或重派，0新CPU/GPU/账本写。worldcache-bank24已按实际尝试＋14400秒读回改约22:12一次（最早22:11:20.181997，unix1792591880.181997），同槽原件保留、不补轮询。两卡仅只读恢复/唯一账本交接，不在两卡新派科学GPU；最后成功GPU/v2仍10月20日16:05历史。四卡公开14文件已完整接受、96件生产R2 source7f79ceef/PID94749沿10月22日00:43半程/07:43全SHA，两定义SHA已离线核对保持，本轮不查询四卡。BANK24→完整1624/具体12批准和cap226/origin历史保持；无可行动变化静默。
