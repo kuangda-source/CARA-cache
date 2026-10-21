@@ -4,7 +4,7 @@
 
 复用已验env-r3、容器和runtime。source e8d1d4268967cc7683ef6a87f700d36257529ccc的公开任务于2026年10月21日12:37:05.773单次启动：PID389727/start934248913；原job wc-fourcard-public-model-assets-r1-20261021。两份固定snapshot为Qwen3Guard和SigLIP，14文件/5,034,332,532字节。2CPU/16GiB/隐藏GPU，0CUDA/模型加载/GPU/账本。
 
-一次技术半程在原not-before之后已保存：原句柄/worker/manifest一致，仍在下载，没有最终result；已下载字节仅为技术进度，不是完整哈希接受。半程automation-2已删除，automation-3保留13:08完整收件（最早13:07:05.773）。原件只收一次，之后离线接受；未完按剩余量一次重估，不覆盖或重派。
+一次技术半程在原not-before之后已保存：原句柄/worker/manifest一致，仍在下载，没有最终result；已下载字节仅为技术进度，不是完整哈希接受。半程automation-2已删除，13:08计划收件实际13:09:30只捕获一次，原PID仍活/无result，已保存1,284,658,789技术字节的在途边界，不运行最终accept。原最长5400秒不改，automation-3已重新约14:08，新文件terminal_recheck_20261021_1408.json，不覆盖13:08原件；不循环或重派。
 
 自己的SSH master只将服务器127.0.0.1:17897接到本机127.0.0.1:7897代理，模型直接落四卡数据盘。原c9项目不改；GitHub e8源码已转运到独立projects/wc-resource-preparation-e8d1d4268967-20261021，全部增量SHA接受后本机318,380字节临时bundle已删除。已验服务器base/runtime/wheel不重建。
 
@@ -12,7 +12,7 @@
 
 浏览器账号GaoKuangda已获Guardrail访问权限。在用户逐项批准后创建worldcache-fourcard-download-20261021，只允许三个NVIDIA仓库的读取，无写入、付费推理或管理权限。凭据只在本机0600文件；不传服务器、GitHub或回执。实际whoami200、固定Guardrail文件200、固定主权重206，匿名401的缺口已解决。
 
-按最新直接要求，本机模型中转仅使用可写USB APFS外盘/Volumes/data（观察时余1268.552GiB）；Mac内盘余11.195GiB，不承载模型。96个注册生产文件/21,358,871,258字节（19.892GiB）的新中转worker与配方已经实现。每件先在外盘完整哈希，流式SSH传模型字节，再在服务器独立全文件哈希并建立原HF兼容路径；接受后删除对应外盘副本。HTTP跨主机重定向剥离Authorization，凭据不进入服务器。
+按最新直接要求，本机模型中转仅使用可写USB APFS外盘/Volumes/data（观察时余1268.552GiB）；Mac内盘余11.195GiB，不承载模型。96个注册生产文件/21,358,871,258字节（19.892GiB）的新中转worker以GitHub已发布source79c9d171，于13:10:26.252单次启动，PID87082，外盘job /Volumes/data/worldcache_resource_relay_20261021/nvidia-fixed-models-r1。每件先在外盘完整哈希，流式SSH传模型字节，再在服务器独立全文件哈希并建立原HF兼容路径；接受后删除对应外盘副本。HTTP跨主机重定向剥离Authorization，凭据不进入服务器。
 
 ## 固定模型与VAE内容身份
 
@@ -22,7 +22,7 @@
 
 ## 尚待接受
 
-公开两模型尚未全哈希接受；96件生产文件仍待实际新launch和全部远端SHA回执。之后独立离线模型/推理导入、LPIPS评分资产、实际CUDA/驱动兼容、新机scope生产CPU/完整报价和共同权威v2还须分别接受。完整资源/GPU_dispatch_ready仍false，科学GPU未启动。原BANK24→完整1624、具体整卡12GPUh批准、原scope/source/CPU/gate和两卡资源任务均保持。
+公开两模型尚未全哈希接受；96件生产文件已真实单次启动，原PID/lstart/脚本/manifest/source已核对，尚待全部远端SHA回执。首次本机捕获因Python launcher展开而误判活性，原回执保留，捕获器只修本地身份解析后已核对原进程活、无重启。17:11一次技术半程（最早17:10:26.252）由wc4-model-relay-midpoint负责；21:11一次完整验收（最早21:10:26.252、8小时规划）由sha负责，两个真实app安排均已读回。之后独立离线模型/推理导入、LPIPS评分资产、实际CUDA/驱动兼容、新机scope生产CPU/完整报价和共同权威v2还须分别接受。完整资源/GPU_dispatch_ready仍false，科学GPU未启动。原BANK24→完整1624、具体整卡12GPUh批准、原scope/source/CPU/gate和两卡资源任务均保持。
 
 ## 原件
 
@@ -34,3 +34,8 @@
 - [固定生产文件配方](../manifests/wc_four_card_frozen_production_assets_r1_20261021.json)
 - [外盘中转安全控制](../reports/wc_four_card_authorized_external_relay_local_controls_20261021.json)
 - [独立GitHub源码与转运SHA](../reports/wc_four_card_GitHub_resource_preparation_R4_source_transfer_20261021.json)
+
+- [96件实际launch](../reports/wc_four_card_authorized_external_models_R1_launch_20261021.json)
+- [原进程恢复核对](../reports/wc_four_card_authorized_external_models_R1_admission_recovered_20261021.json)
+- [应用三项实际收件安排](../reports/wc_four_card_model_resource_actual_collection_schedules_20261021.json)
+- [GitHub79源码实际转运与本机清理](../reports/wc_four_card_GitHub_authorized_model_relay_R1_source_transfer_20261021.json)

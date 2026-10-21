@@ -1,3 +1,7 @@
+## 2026-10-21 13:10 四卡96模型文件已从外盘单次中转；17:11半程/21:11全SHA
+
+[621实际资源任务](research/621_WC_FOUR_CARD_RESOURCE_COMPLETION_FIXED_PUBLIC_ASSETS_AND_AUTHORIZED_MODEL_GATE_20261021.md)：GitHub source79c9d171的96文件/19.892GiB中转已实际启动PID87082，job /Volumes/data/worldcache_resource_relay_20261021/nvidia-fixed-models-r1；原PID/lstart/脚本/manifest一致，首个Mac launcher命令展开的误判只离线修捕获器，原件保留、0重启。新只读HF认证已通，token只Mac0600，不传服务器/Git；模型只外盘/Volumes/data，每件远端全SHA后删副本。新79源码delta服务器SHA/新项目HEAD已验，31,538字节外盘包已删，旧c9/e8不动。实际app安排wc4-model-relay-midpoint为17:11技术半程、sha为21:11完整验收与资源CPU接续；公开14文件原13:08收件仍跑/1.284GB技术字节，automation-3仅改约14:08新文件，不接受或重派。完整模型/环境/新机scope CPU/GPU兼容/共同v2仍未全接受，科学GPU0；原BANK24→1624、具体12批准/预算历史/两卡监控保持。
+
 ## 2026-10-21 四卡公开模型在途，HF只读授权已通；本机模型中转仅外盘
 
 [621资源准备](research/621_WC_FOUR_CARD_RESOURCE_COMPLETION_FIXED_PUBLIC_ASSETS_AND_AUTHORIZED_MODEL_GATE_20261021.md)：621已更新实际任务：公开Qwen3Guard/SigLIP于12:37单次启动，原PID389727/start934248913、14文件5.034GB；一次技术半程正常，automation-2已删，automation-3保留13:08全SHA收件。GaoKuangda浏览器授权与经批准的新三仓库只读令牌已实际通过Guardrail200/主权重206，token仅Mac0600、不上服务器/Git。/Volumes/data余约1.24TiB，96件19.892GiB生产文件外盘中转实现/配方已就绪，完整SHA后逐件清理；VAE按历史完整SHA证据恢复原兼容路径，runtime不改。旧c9项目保持，新e8源码增量服务器SHA已验、本机临时bundle已清理。完整资源/新机生产CPU/GPU仍未接受；原BANK24/1624顺序、具体12批准和两卡监控保持。
