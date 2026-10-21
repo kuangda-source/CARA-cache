@@ -92,5 +92,16 @@ class OfflineResourceControls(unittest.TestCase):
     def test_remote_setup_and_capture_compile_without_execution(self):
         compile(l.SETUP,'setup','exec');compile('L={}\nMODE="terminal"\n'+l.CAPTURE,'capture','exec')
 
+    def test_offline_acceptance_uses_original_published_recipe_and_rejects_missing_receipts(self):
+        requested=[]
+        def published(argv):
+            requested.append(argv[-1]);path=argv[-1].split(':',1)[1]
+            return (ROOT/path).read_bytes()
+        launch=dict(source_revision='a'*40,manifest_sha256='b'*64,worker_sha256='c'*64,file_sha256={'worker.py':'c'*64})
+        with patch.object(l.subprocess,'check_output',side_effect=published):
+            result=l.accept(launch,{})
+        self.assertFalse(result['offline_environment_resources_accepted'])
+        self.assertIn('a'*40+':'+str(l.RECIPE),requested)
+
 
 if __name__=='__main__':unittest.main()

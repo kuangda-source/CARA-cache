@@ -16,11 +16,23 @@
 
 新CPU资源job复用env-r3、11个原runtime SHA、29项已验组件与成功合成解码。明确设置原数据盘HF_HOME／HF_HUB_CACHE，依次检查110个已验文件的离线解析与Reason tokenizer、原封不动的受限推理入口导入，以及官方预训练LPIPS CPU自零／扰动正值／重复一致。LPIPS独立加载两份预训练文件；Cosmos权重加载、CUDA初始化、真实视频评分、科研GPU及账本写入均为0。CPU检查通过也不等于BANK24／1624生产CPU或GPU-ready。
 
-新实现通过9项本地有界资源控制；它们不是远端生产CPU通过。源代码先GitHub发布，随后一次fresh数据盘／主存／原job／容器预检、单次派发并绑定实际source／worker／manifest／PID-start。2CPU／16GiB，workspace与环境只读、隐藏GPU，仅新job及Torch资源缓存可写；CPU子检查禁止网络。规划45分钟，半程22.5分钟、最终47分钟，下载最长90分钟、整体最长110分钟；这不是GPU报价。实际launch和两个检查在派发后独立记录，当前本节为已落实实现、尚未派发。
+新实现通过9项本地有界资源控制；它们不是远端生产CPU通过。源代码先GitHub发布，随后一次fresh数据盘／主存／原job／容器预检、单次派发并绑定实际source／worker／manifest／PID-start。2CPU／16GiB，workspace与环境只读、隐藏GPU，仅新job及Torch资源缓存可写；CPU子检查禁止网络。规划45分钟，半程22.5分钟、最终47分钟，下载最长90分钟、整体最长110分钟；这不是GPU报价。初次R4预检留存与实际R4.1启动如下。
 
 ## 04:15首次预检退出与R4.1修正
 
 首次R4预检错误引用旧R3的`result.json`，而原worker和collector明确使用`server-result.json`。远端明确在创建新stage／fence／Popen之前FileNotFoundError退出，原未知回执保留，不冒充CPU已启动或模型丢失。新R4.1注册显式绑定原回执文件名，并在新stage创建前一次只读确认原R4 stage确实不存在；原本地dispatch intent与失败回执不删、不重放。新版本的真实派发与检查另记。
+
+## R4.1实际单次派发与两个原时点
+
+GitHub发布source `e5eedef488d33098974e884cad7ac10e6ac0a1d0`后，R4.1于04:17:03.983421实际启动，supervisor PID615773／start939888734；新job为`/data20t/gaokuangda/worldcache_workspace/bootstrap/wc-fourcard-offline-resources-cpu-r4-1-20261022`。worker SHA `920e60b445f63ba12096883d5b7e2eb4335a7692d7c5a70fdd4f82ffb7008233`，manifest SHA `940048e5cd6fc606602e64e99feb6764510b11a05d285fafee0c5155cff1b3d7`。
+
+实际预检确认原R4 stage不存在、原R3本人容器退出、复用原已缓存镜像，数据盘345,300,471,808字节／主存60,513,628,160字节。一次admission确认原进程、source／全payload／manifest、本人容器标签、只读root、空Devices／DeviceRequests均一致；health处于官方LPIPS下载，已完整落盘4,194,304字节，无错误。此为技术准入，不提前接受完整资源CPU。
+
+- [实际launch](../reports/wc_four_card_offline_resources_CPU_R4_1_launch_20261022.json)／[一次admission](../reports/wc_four_card_offline_resources_CPU_R4_1_admission_20261022.json)
+- `r4-1-cpu`：04:40一次技术半程，最早04:39:33.983421／unix1792615173.9834206。
+- `r4-1-cpu-2`：05:05一次完整查收，最早05:04:03.983421／unix1792616643.9834206；保存原件后仅离线accept，三命令、原发布probe源码、两份LPIPS独立全SHA、未改环境／runtime／原件与原进程／容器／锁退出分别接受。
+
+两个实际定义已读回，旧`r3-96-cpu`完整96查收已完成删除；`worldcache-bank24`两卡06:16四小时只读定义保持。新资源CPU若未完只根据原件重估一次另约，不循环等待／重派。全件模型接受、资源CPU、CUDA兼容、科研scope生产CPU与GPU准入分开登记。
 
 ## 科研顺序与预算边界
 

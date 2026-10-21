@@ -79,3 +79,8 @@
 ## 2026-10-21 完整96资源R3已启动，23:51半程／明晨03:51全件查收
 
 [627 R3](627_WC_FIXED96_HYBRID_R3_SERVER_MODELSCOPE_AND_ORIGINAL_HF_RESOURCE_CONTINUATION_20261021.md)：原R2失败已完整本地收件并独立不接受，原源码/job及1,132,462,080字节断点保留。新GitHub source3d2dd5e1的R3于19:50:46.056单次启动Mac PID99269；19:51一次准入核对原server Docker PID527857/start936852533、source/worker/manifest及全部原96，16项全过，正接收原断点。四Reason1字节相同分片改server匿名魔搭、其余原HF缺失文件只Mac外盘；完整96/21,358,871,258字节分母、原HF revision/兼容路径保持。新实现14项控制通过，资源准入不是完整资产/生产CPU/GPU通过。2CPU16GiB/隐藏GPU，0模型加载/CUDA/科学GPU/账本写；server fresh数据盘352.642GiB，旧receiver不存在。已读回r3今晚23:51技术半程、r3-96-cpu于10月22日03:51完整全SHA；旧sha接续已删，两卡四小时只读22:12定义保持。完整资产接受后依次LPIPS/完整推理CPU/实际兼容/各scope新机CPU与报价/唯一权威v2交接，才接BANK24→已登记CPU诊断→完整1624，具体12批准及cap226/origin历史不变；科研54行不变。
+
+
+## 2026-10-22 固定96全件接受；R4.1离线CPU资源04:17启动
+
+[628实际接受与接续](628_WC_FIXED96_ACCEPTED_AND_LPIPS_OFFLINE_INFERENCE_CPU_R4_20261022.md)：原R3完整96件／21,358,871,258字节已一次终态收件并独立接受，23项全过：全文件哈希与HF兼容路径、四Reason镜像完整SHA与原断点绑定、原进程／容器／锁退出、新外盘副本清理均通过。公开14件已验原件复用，不重下；原R1/R2失败与1,132,462,080字节断点保留。首次新CPU预检错引旧回执文件名，在创建stage前退出，失败保留；独立R4.1 sourcee5eedef4于04:17:03.983单次启动PID615773/start939888734，fresh原R4 stage不存在、数据盘321.586GiB／主存56.358GiB，15项技术准入核对通过。正在服务器直下官方LPIPS，原env-r3和11runtime保持；随后110离线路径／Reason tokenizer、原受限推理入口、预训练LPIPS合成CPU验证。Cosmos权重0／CUDA0／真实评分0／科研GPU0／账本0；资源CPU不充新机scope生产CPU或GPU-ready。已读回r4-1-cpu于04:40一次半程、r4-1-cpu-2于05:05一次完整验收，旧r3-96-cpu已完成删除；两卡worldcache-bank24四小时只读06:16保持。本轮未查双卡或改权威v2，BANK24→既定CPU诊断→完整1624及其具体12批准、cap226/origin历史与54科研行保持。

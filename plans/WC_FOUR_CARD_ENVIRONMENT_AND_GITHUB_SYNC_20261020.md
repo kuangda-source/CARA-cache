@@ -1,3 +1,8 @@
+## 2026-10-22 固定96全件接受；R4.1离线CPU资源04:17启动
+
+[628实际接受与接续](../research/628_WC_FIXED96_ACCEPTED_AND_LPIPS_OFFLINE_INFERENCE_CPU_R4_20261022.md)：原R3完整96件／21,358,871,258字节已一次终态收件并独立接受，23项全过：全文件哈希与HF兼容路径、四Reason镜像完整SHA与原断点绑定、原进程／容器／锁退出、新外盘副本清理均通过。公开14件已验原件复用，不重下；原R1/R2失败与1,132,462,080字节断点保留。首次新CPU预检错引旧回执文件名，在创建stage前退出，失败保留；独立R4.1 sourcee5eedef4于04:17:03.983单次启动PID615773/start939888734，fresh原R4 stage不存在、数据盘321.586GiB／主存56.358GiB，15项技术准入核对通过。正在服务器直下官方LPIPS，原env-r3和11runtime保持；随后110离线路径／Reason tokenizer、原受限推理入口、预训练LPIPS合成CPU验证。Cosmos权重0／CUDA0／真实评分0／科研GPU0／账本0；资源CPU不充新机scope生产CPU或GPU-ready。已读回r4-1-cpu于04:40一次半程、r4-1-cpu-2于05:05一次完整验收，旧r3-96-cpu已完成删除；两卡worldcache-bank24四小时只读06:16保持。本轮未查双卡或改权威v2，BANK24→既定CPU诊断→完整1624及其具体12批准、cap226/origin历史与54科研行保持。
+
+
 ## 2026-10-21 R3一次半程技术正常，94/96 worker回执，03:51完整收件保持
 
 [627 R3](../research/627_WC_FIXED96_HYBRID_R3_SERVER_MODELSCOPE_AND_ORIGINAL_HF_RESOURCE_CONTINUATION_20261021.md)：23:51:42.637仅一次原R3半程收件，Mac PID99269/source3d2dd5e1及原worker/manifest/依赖一致，21项技术核对通过；parent仍在下载原HF Predict主权重，外盘当前587,202,560/4,118,575,006字节，VAE尚未到达。server四个Reason1分片已有全SHA worker回执（共16,584,414,544字节），原1,132,462,080字节种子prefix绑定通过，原Docker退出及资源锁释放符合该子阶段完成。当前合计94/96个worker回执/16,732,686,372字节；不是完整96独立验收。Mac累计3次有界TLS错误，已越过最后出错区间继续写入，非终态失败。半程未读最终result或全96独立哈希，0模型加载/CUDA/GPU/账本写，无重启/重派/额外SSH；半程r3已完成删除，明晨10月22日03:51的r3-96-cpu完整查收和两卡四小时02:15定义保持。本轮不查双卡、不改科学scope/上游/具体12批准/累计预算；54科研行及状态不变，正常在途静默。

@@ -166,7 +166,8 @@ def launch(out):
 def accept(L,c):
     r=c.get('result') or {};m=c.get('manifest') or {};cmd=r.get('commands',[]);hashes=c.get('independent_LPIPS_hashes') or {}
     phases=['frozen110-offline-paths-tokenizer','unchanged-guarded-inference-import','official-LPIPS-pretrained-CPU']
-    logs=c.get('logs') or {};resource=json.loads(RECIPE.read_text())
+    logs=c.get('logs') or {}
+    resource=json.loads(subprocess.check_output(['git','show',L['source_revision']+':'+str(RECIPE)]))
     import types
     bound=types.ModuleType('original_resource_r4_worker')
     original=subprocess.check_output(['git','show',L['source_revision']+':'+PAYLOADS['worker.py']])
