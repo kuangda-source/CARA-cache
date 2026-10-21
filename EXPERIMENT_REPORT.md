@@ -1,3 +1,7 @@
+## 2026-10-21 四卡资源补齐已授权，固定公开资产准备执行
+
+[621资源补齐](research/621_WC_FOUR_CARD_RESOURCE_COMPLETION_FIXED_PUBLIC_ASSETS_AND_AUTHORIZED_MODEL_GATE_20261021.md)：公开Qwen3Guard/SigLIP两snapshot共14文件、5.034GB已按原哈希落实新worker；自己的loopback SSH代理已从四卡实际取得206，可直接写数据盘而不在Mac堆积模型。固定Cosmos和Guardrail原件仍返回401且无HF登录，已询问可用授权来源；公开部分与代码准备继续。新worker仅CPU/0GPU，原环境不改，实际下载/哈希待真实回执；原BANK24/1624和两卡12:37检查保持。
+
 ## 2026-10-21 12:00四卡GPU1空闲，模型和新机运行验证仍待完成
 
 [620当前核对](research/620_WC_FOUR_CARD_CURRENT_READINESS_GPU1_IDLE_MODELS_MISSING_20261021.md)：一次只读复查确认GPU1为23MiB/0%/无compute，数据盘余415.260GiB；env-r3及已验29项依赖组件保持。本人准备的模型缓存无模型目录，完整推理/模型资产、实际CUDA兼容、新机scope生产CPU/完整报价及共同v2尚未接受，当前project仍c9a2f95b。下一先准备有权限且SHA可核对的完整固定模型，再独立新stage和实际运行验证；0GPU/模型加载/账本写，未迁移原BANK24/1624或占卡，原两卡12:37检查保持。

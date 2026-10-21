@@ -1,0 +1,44 @@
+{
+  "observed_unix": 1792556912.2211127,
+  "fixed_runtime_reference_excerpts": {
+    "cosmos_predict2/_src/imaginaire/utils/checkpoint_db.py": [
+      {
+        "start": 180,
+        "end": 270,
+        "text": "    if checkpoint_config.uuid in _CHECKPOINTS_BY_UUID:\n        raise ValueError(f\"Checkpoint UUID {checkpoint_config.uuid} already registered.\")\n    _CHECKPOINTS_BY_UUID[checkpoint_config.uuid] = checkpoint_config\n    if checkpoint_config.s3 is not None:\n        uri = checkpoint_config.s3.uri\n        if uri in _CHECKPOINTS_BY_S3:\n            raise ValueError(f\"Checkpoint S3 {uri} already registered.\")\n        _CHECKPOINTS_BY_S3[uri] = checkpoint_config\n\n\n_register_checkpoint(\n    CheckpointConfig(\n        uuid=\"4dbf13c6-1d30-4b02-99d6-75780dd8b744\",\n        name=\"google-t5/t5-11b\",\n        hf=CheckpointDirHf(\n            repository=\"google-t5/t5-11b\",\n            revision=\"90f37703b3334dfe9d2b009bfcbfbf1ac9d28ea3\",\n            exclude=(\"tf_model.h5\",),\n        ),\n    ),\n)\n\n_register_checkpoint(\n    CheckpointConfig(\n        uuid=\"a2944743-cf8d-427e-a6fc-b3c03d807064\",\n        name=\"meta-llama/Llama-Guard-3-8B\",\n        hf=CheckpointDirHf(\n            repository=\"meta-llama/Llama-Guard-3-8B\",\n            revision=\"7327bd9f6efbbe6101dc6cc4736302b3cbb6e425\",\n            exclude=(\"original/*\",),\n        ),\n    ),\n)\n\n_register_checkpoint(\n    CheckpointConfig(\n        uuid=\"9c7b7da4-2d95-45bb-9cb8-2eed954e9736\",\n        name=\"nvidia/Cosmos-Guardrail1\",\n        hf=CheckpointDirHf(\n            repository=\"nvidia/Cosmos-Guardrail1\",\n            revision=\"d6d4bfa899a71454a700907664f3e88f503950cf\",\n        ),\n    ),\n)\n\n_register_checkpoint(\n    CheckpointConfig(\n        uuid=\"7219c6c7-f878-4137-bbdb-76842ea85e70\",\n        name=\"Qwen/Qwen2.5-VL-7B-Instruct\",\n        s3=CheckpointDirS3(\n            uri=\"s3://bucket/cosmos_reasoning1/pretrained/Qwen_tokenizer/Qwen/Qwen2.5-VL-7B-Instruct\",\n        ),\n        hf=CheckpointDirHf(\n            repository=\"nvidia/Cosmos-Experimental\",\n            revision=\"736a20b6cfbc38e42ba3f7e7d8efa1d886c20db1\",\n            subdirectory=\"7219c6c7-f878-4137-bbdb-76842ea85e70\",\n        )\n        if EXPERIMENTAL_CHECKPOINTS\n        else CheckpointDirHf(\n            repository=\"nvidia/Cosmos-Reason1-7B\",\n            revision=\"3210bec0495fdc7a8d3dbb8d58da5711eab4b423\",\n        ),\n    ),\n)\n\n_register_checkpoint(\n    CheckpointConfig(\n        uuid=\"685afcaa-4de2-42fe-b7b9-69f7a2dee4d8\",\n        name=\"Wan2.1/vae\",\n        s3=CheckpointFileS3(\n            uri=\"s3://bucket/cosmos_diffusion_v2/pretrain_weights/tokenizer/wan2pt1/Wan2.1_VAE.pth\",\n        ),\n        hf=CheckpointFileHf(\n            repository=\"nvidia/Cosmos-Experimental\",\n            revision=\"736a20b6cfbc38e42ba3f7e7d8efa1d886c20db1\",\n            filename=\"685afcaa-4de2-42fe-b7b9-69f7a2dee4d8.pth\",\n        )\n        if EXPERIMENTAL_CHECKPOINTS\n        else CheckpointFileHf(\n            repository=\"nvidia/Cosmos-Predict2.5-2B\",\n            revision=\"6787e176dce74a101d922174a95dba29fa5f0c55\",\n            filename=\"tokenizer.pth\",\n        ),\n    ),\n)\n\n_register_checkpoint(\n    CheckpointConfig(\n        uuid=\"cb3e3ffa-7b08-4c34-822d-61c7aa31a14f\",\n        name=\"nvidia/Cosmos-Reason1.1-7B\",\n        s3=CheckpointDirS3("
+      },
+      {
+        "start": 365,
+        "end": 396,
+        "text": "    ),\n)\n\n_register_checkpoint(\n    CheckpointConfig(\n        uuid=\"81edfebe-bd6a-4039-8c1d-737df1a790bf\",\n        name=\"nvidia/Cosmos-Predict2.5-2B/base/post-trained\",\n        experiment=\"Stage-c_pt_4-Index-2-Size-2B-Res-720-Fps-16-Note-rf_with_edm_ckpt\",\n        metadata={\n            \"resolution\": \"720p\",\n            \"fps\": 16,\n        },\n        s3=CheckpointFileS3(\n            uri=\"s3://bucket/cosmos_diffusion_v2/official_runs_vid2vid/Stage-c_GRPO-reason_embeddings-Index-26-Size-2B-Res-720-Fps-16-posttrain_data-HQ_V7_RF_MERGE_LOCAL_ag_every2_guidance0_scorekeyoverall_reward_databeta0.01_mincon0/checkpoints/iter_000000288/model\",\n        ),\n        hf=CheckpointFileHf(\n            repository=\"nvidia/Cosmos-Experimental\",\n            revision=\"9a02ed8daa8c6c7718ac09da06488bfd1d363cb6\",\n            filename=\"81edfebe-bd6a-4039-8c1d-737df1a790bf/model_ema_bf16.pt\",\n        )\n        if EXPERIMENTAL_CHECKPOINTS\n        else CheckpointFileHf(\n            repository=\"nvidia/Cosmos-Predict2.5-2B\",\n            revision=\"15a82a2ec231bc318692aa0456a36537c806e7d4\",\n            filename=\"base/post-trained/81edfebe-bd6a-4039-8c1d-737df1a790bf_ema_bf16.pt\",\n        ),\n    ),\n)\n\n_register_checkpoint(\n    CheckpointConfig(\n        uuid=\"524af350-2e43-496c-8590-3646ae1325da\","
+      }
+    ]
+  },
+  "proxy_probe": [
+    {
+      "name": "Qwen_small",
+      "status": 206,
+      "read_bytes": 727,
+      "seconds": 2.390392541885376,
+      "content_range": "bytes 0-726/727",
+      "content_length": "727"
+    },
+    {
+      "name": "SigLIP_weight_range",
+      "status": 206,
+      "read_bytes": 1024,
+      "seconds": 4.109654188156128,
+      "content_range": "bytes 0-1023/3511950624",
+      "content_length": "1024"
+    },
+    {
+      "name": "Cosmos_frozen_weight",
+      "status": 401,
+      "error_code": "GatedRepo"
+    }
+  ],
+  "proxy_scope": "own loopback SSH forward only",
+  "HF_token_used": false,
+  "model_weights_downloaded": false,
+  "GPU_submissions": 0
+}
