@@ -36,6 +36,12 @@ GitHub source `8925d16800d7d0c6266bc825ded78cc21a72284b`发布后，05:13:35.882
 
 两定义已读回，原R4.1终态`r4-1-cpu-2`完成删除；两卡06:16原定义保持。R4.2状态仍为资源CPU在途，0新模型下载／环境安装／Cosmos权重／CUDA／真实评分／科研GPU／账本写入。
 
+## 05:18槽实际05:19一次半程：入口仍失败，05:24终态保持
+
+实际05:19:24.951087（unix1792617564.951087）仅一次原R4.2技术收件。PID/start/source／全部payload／manifest一致，supervisor和本人容器均退出；health报告05:14:13.447712结束／wall36.553971秒。唯一新入口导入命令exit1／精确marker缺失，LPIPS CPU探针未执行。原resolver成功复用证明、NVRTC／LPIPS记录及env／runtime保持，0Cosmos权重／CUDA／科研GPU／账本。
+
+[半程原件](../reports/wc_four_card_offline_resources_CPU_R4_2_midpoint_20261022.json)与[14项技术边界](../reports/wc_four_card_offline_resources_CPU_R4_2_midpoint_technical_failure_boundary_20261022.json)已保存。本次未读最终result／日志／独立终态哈希或accept，不推测新异常、不沿用旧R4.1根因解释新失败；资源CPU不接受，无额外SSH或重派。半程r4-2-cpu已完成删除，r4-2-cpu-2仍05:24（最早unix1792617815.8821979）且新失败定位接续已读回，两卡06:16不改。
+
 ## 原科学与预算接续
 
 原双卡四小时只读06:16保持，本任务不查双卡或改权威v2。cap226／origin79.99637737158223／历史和54科研行及状态保持。BANK24完整24→既定X-R／同D配额CPU诊断→完整1624顺序、原闭包与四CAL gate、完整1624具体12批准均保持；新机CPU／整卡报价／BANK24完整原件与费用／唯一权威预算交接前置不绕过。F/B关闭，无训练／人评／付费VLM／OMR。
