@@ -37,3 +37,16 @@ GitHub发布source `e5eedef488d33098974e884cad7ac10e6ac0a1d0`后，R4.1于04:17:
 ## 科研顺序与预算边界
 
 原双卡仍四小时只读恢复，下一06:16；本资源任务不追加双卡查询。cap226、origin79.99637737158223、全部历史与54科研行保持。科学顺序BANK24完整24路径→既定X-R／同D配额CPU诊断→完整1624→策略生成器。完整1624原具体12GPUh批准保持，不重复询问、不拆缩；新机CPU、完整报价、BANK24原件与费用及共同权威预算前置保持。
+
+## 04:40一次半程：推理入口导入技术失败，05:05完整查收保持
+
+实际仅于04:40:27.595646（unix1792615227.5956464）读取一次原R4.1技术快照。原PID/start、source、worker、全部payload及manifest一致，supervisor与本人容器已退出，result存在；本次严格未读result或日志、未执行accept或独立LPIPS终态哈希。13项身份与技术边界核对通过，只说明原失败被保存。
+
+health状态`R4_CPU_RESOURCE_FAILURE_RETAINED`，报告04:27:03.659521结束／wall592.615649秒。官方AlexNet244,408,911字节下载和worker完整SHA核对通过，已装线性权重worker SHA保持；110件离线解析／Reason tokenizer命令exit0且精确marker通过。随后原受限推理入口导入命令exit1／marker缺失，LPIPS CPU探针尚未执行。外层AssertionError只是非零命令断言，原导入异常栈尚未收取，当前不归因为网络、缺模型、硬件或算法。
+
+- [一次半程原件](../reports/wc_four_card_offline_resources_CPU_R4_1_midpoint_20261022.json)
+- [独立技术失败边界](../reports/wc_four_card_offline_resources_CPU_R4_1_midpoint_technical_failure_boundary_20261022.json)
+
+env元数据、runtime的worker保持检查通过；Cosmos权重／CUDA／真实视频评分／科研GPU／账本写入为0。固定96与公开14的既有完整接受保持，R4.1资源CPU仍不接受。原job/source/partial与所有失败均保留，无重派／重装／额外SSH或双卡查询。
+
+半程`r4-1-cpu`已完成删除；`r4-1-cpu-2`仍05:05一次完整查收（原最早unix1792616643.9834206），已补此技术失败与日志定位／独立新版本修复接续并读回。届时从原件收完整失败和有界导入日志，先定位实际异常；复用成功110解析证明与已下固定LPIPS/全部已验模型和环境，不能拿成功子集称完整CPU通过。两卡06:16定义不动，54科研行／状态及权威预算不变。

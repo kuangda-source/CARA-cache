@@ -1,3 +1,8 @@
+## 2026-10-22 04:40半程发现R4.1入口CPU导入失败，05:05完整查收保持
+
+[628本次技术原件](research/628_WC_FIXED96_ACCEPTED_AND_LPIPS_OFFLINE_INFERENCE_CPU_R4_20261022.md)：实际04:40:27.595仅一次原R4.1技术收件，PID/start/source/全部payload/manifest一致；supervisor与本人容器退出，health为R4_CPU_RESOURCE_FAILURE_RETAINED，result存在但本次未读result／日志或accept。AlexNet244,408,911字节已下载并由worker核对原SHA，110件离线解析／Reason tokenizer命令0／精确marker通过，随后原受限推理入口导入命令1／marker缺失，LPIPS CPU探针未执行；原异常栈留05:05完整收件定位，外层AssertionError不当根因。13项身份／技术边界核对通过，只记录失败，不接受完整资源CPU。原env/runtime保持，Cosmos权重／CUDA／真实评分／科研GPU／账本0，无额外SSH／重派／重装；已接受96与公开14保持。半程r4-1-cpu已完成删除，r4-1-cpu-2仍05:05且已补故障定位／独立新版本接续并读回；两卡四小时只读06:16及BANK24→完整1624／具体12批准／累计cap226历史／54科研行状态保持。
+
+
 ## 2026-10-22 固定96全件接受；R4.1离线CPU资源04:17启动
 
 [628实际接受与接续](research/628_WC_FIXED96_ACCEPTED_AND_LPIPS_OFFLINE_INFERENCE_CPU_R4_20261022.md)：原R3完整96件／21,358,871,258字节已一次终态收件并独立接受，23项全过：全文件哈希与HF兼容路径、四Reason镜像完整SHA与原断点绑定、原进程／容器／锁退出、新外盘副本清理均通过。公开14件已验原件复用，不重下；原R1/R2失败与1,132,462,080字节断点保留。首次新CPU预检错引旧回执文件名，在创建stage前退出，失败保留；独立R4.1 sourcee5eedef4于04:17:03.983单次启动PID615773/start939888734，fresh原R4 stage不存在、数据盘321.586GiB／主存56.358GiB，15项技术准入核对通过。正在服务器直下官方LPIPS，原env-r3和11runtime保持；随后110离线路径／Reason tokenizer、原受限推理入口、预训练LPIPS合成CPU验证。Cosmos权重0／CUDA0／真实评分0／科研GPU0／账本0；资源CPU不充新机scope生产CPU或GPU-ready。已读回r4-1-cpu于04:40一次半程、r4-1-cpu-2于05:05一次完整验收，旧r3-96-cpu已完成删除；两卡worldcache-bank24四小时只读06:16保持。本轮未查双卡或改权威v2，BANK24→既定CPU诊断→完整1624及其具体12批准、cap226/origin历史与54科研行保持。
