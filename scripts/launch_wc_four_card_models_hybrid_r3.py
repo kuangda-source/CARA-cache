@@ -29,6 +29,11 @@ def main():
     L=json.loads(Path(recipe['parent_launch_ref']).read_text());old=Path(L['job'])
     parent_result=json.loads((old/'result.json').read_text())
     assert parent_result['status']=='AUTHORIZED_MODEL_RELAY_FAILURE_RETAINED'
+    failure=json.loads(Path(recipe['parent_failure_capture_ref']).read_text())
+    nonacceptance=json.loads(Path(recipe['parent_nonacceptance_ref']).read_text())
+    assert nonacceptance['complete96_accepted'] is False and all(nonacceptance['checks'].values())
+    assert nonacceptance['capture_sha256']==sha(recipe['parent_failure_capture_ref'])
+    assert failure['manifest_sha256']==L['manifest_sha256'] and failure['original_process_live'] is False
     assert subprocess.run(['ps','-p',str(L['identity']['pid']),'-o','pid='],capture_output=True).returncode!=0
     assert sha(old/'worker.py')==L['worker_sha256'] and sha(old/'manifest.json')==L['manifest_sha256']
     old_m=json.loads((old/'manifest.json').read_text())
@@ -47,6 +52,8 @@ def main():
            legacy_helper_sha256=sha(paths['legacy_relay.py']),original_R2_worker_sha256=sha(paths['resume_r2.py']),
            allowed_missing_asset_identities=missing,parent_verified_asset_identities=complete,
            seeded_partial=seed,recipe_sha256=sha(recipe_ref))
+    m['parent_failure_capture_sha256']=sha(recipe['parent_failure_capture_ref'])
+    m['parent_nonacceptance_sha256']=sha(recipe['parent_nonacceptance_ref'])
     assert m['modelscope_assets']==[a for a in m['assets'] if a['repo_id']=='nvidia/Cosmos-Reason1-7B' and a['path'].startswith('model-000')]
     job.mkdir(mode=0o700)
     assert job.stat().st_dev==Path('/Volumes/data').stat().st_dev

@@ -228,8 +228,11 @@ def main():
         bypath = {x["Path"]: x for x in metadata["Data"]["Files"]}
         assert all(bypath[a["path"]]["Sha256"] == a["digest"] and bypath[a["path"]]["Size"] == a["size"] for a in assets)
         state["transport_provenance"] = dict(repository="unsloth/Cosmos-Reason1-7B", transport_locator_revision="master", artifact_identity_revision=assets[0]["source_revision"], all_four_metadata_match=True)
-        partials = job/"partials"
-        partials.mkdir(exist_ok=True)
+        # Keep staging and final blobs under the SAME cache bind mount so rename
+        # remains atomic; /job and /cache are separate container mount points.
+        partials = cache/(".wc-hybrid-r3-"+Path(m["server_job"]).name)
+        partials.mkdir(exist_ok=False)
+        state["own_partial_directory"] = str(partials)
         seed = m["seeded_partial"]
         part = partials/(seed["digest"]+".partial")
         state["phase"] = "receive-old-failed-job-prefix-without-modifying-source"
