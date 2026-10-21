@@ -1,0 +1,751 @@
+{
+  "status": "ORIGINAL_BANK24_EXECUTION_ADAPTER_CPU_CAPTURE",
+  "mode": "admission",
+  "observed_unix": 1792622487.4201045,
+  "launch": {
+    "status": "FOUR_CARD_BANK24_EXECUTION_ADAPTER_CPU_SINGLE_DISPATCHED",
+    "source_revision": "a3cfddd9dafe3eb885e8e650aa1212e6dcd764c9",
+    "job": "/data20t/gaokuangda/worldcache_workspace/bootstrap/wc-fourcard-bank24-execution-adapter-cpu-r1-1-20261022",
+    "identity": {
+      "pid": 625584,
+      "start_ticks": 940752742
+    },
+    "started_unix": 1792622464.0633543,
+    "manifest_sha256": "f56653a71f914f543341c82a328919ee9f91a836c23d84ae8cee0c67e7a4badf",
+    "payload_sha256": {
+      "worker.py": "ba53b257ec27f0c565f0c1b1976f16747bf21d01a73d527b1a8606e72c0d7bf2",
+      "check_wc_four_card_bank24_execution_adapter_r1.py": "ba53b257ec27f0c565f0c1b1976f16747bf21d01a73d527b1a8606e72c0d7bf2",
+      "supervisor.py": "d75d58304328b5118d5963702e05cb25dede1adebadba8c1c863f9ea1896ddad",
+      "resource_worker.py": "96368f6bd21732178e0ad1f2faab12c58051c10be6a85de90b59b69c6470e201",
+      "repair_support.py": "97c7af2ee6a7a68d66d8a3bd4afcd94e4adabc81846be6f56c4f84b16ff1220b",
+      "four_card_bank24_execution_adapter_r1.py": "f9649aeee9857df0a50b7866eebe8985356ab137fb46a844dbe2c359468491c0",
+      "four_card_bank24_host_contract_r1.py": "6b7413754a6001ae25a39a2329c06e2d288a549e3796dfee00889f264a8b3cd7",
+      "execution-metadata-registration.json": "83af17c52ff25af00945e10df105ecc1dab9a2309f2dac50b53751ffa5bc7400",
+      "frontend-accepted.json": "89d49b725ac052c92742fcdc5dc09ba4d0ec20d8b7bfb2cb6cf7297370d43bb7"
+    },
+    "scope_counts": {
+      "requests": 6,
+      "methods": 3,
+      "formal_paths": 18,
+      "full_warmup_paths": 6,
+      "total_paths": 24,
+      "loads": 1,
+      "new_teacher_pairs": 0,
+      "new_Native_formal": 6,
+      "ordinary_pairs": 864,
+      "ordinary_CFG_calls": 1728
+    },
+    "halfway_not_before_unix": 1792622524.0633543,
+    "final_not_before_unix": 1792622764.0633543,
+    "maximum_wall_seconds": 900,
+    "planning_seconds": 180,
+    "preflight": {
+      "data_disk_free_bytes": 344120721408,
+      "MemAvailable_bytes": 67393396736,
+      "original_frontend_exited_and_accepted": true,
+      "original1789_reused_from_server_not_retransferred": true,
+      "additional_metadata_files": 29
+    },
+    "GPU_submissions": 0,
+    "ledger_written": false,
+    "full_new_host_scope_production_CPU_accepted": false,
+    "GPU_dispatch_ready": false
+  },
+  "original_supervisor_live": false,
+  "own_container_running": false,
+  "manifest": {
+    "version": "BANK24_FOUR_CARD_REAL_INPUTS_SM89_EXECUTION_ADAPTER_CPU_R1_1",
+    "workspace": "/data20t/gaokuangda/worldcache_workspace",
+    "run_id": "wc-fourcard-bank24-execution-adapter-cpu-r1-1-20261022",
+    "CPU_scope": "REAL_METADATA_AND_REVERSIBLE_SM89_COMPONENTS_NOT_CONTAINER_GPU_LIFECYCLE",
+    "scope_counts": {
+      "requests": 6,
+      "methods": 3,
+      "formal_paths": 18,
+      "full_warmup_paths": 6,
+      "total_paths": 24,
+      "loads": 1,
+      "new_teacher_pairs": 0,
+      "new_Native_formal": 6,
+      "ordinary_pairs": 864,
+      "ordinary_CFG_calls": 1728
+    },
+    "frozen_scientific_lifecycle_source": "2bd41dc8fa19f42353e03a7c78b7264b4b2695c6",
+    "frozen_scientific_entry_source": "c1c95ce0c598fb7839b0b89f4a69bd45c8aef7c9",
+    "metadata_registration_ref": "manifests/wc_four_card_bank24_execution_metadata_r1_20261022.json",
+    "metadata_registration_sha256": "83af17c52ff25af00945e10df105ecc1dab9a2309f2dac50b53751ffa5bc7400",
+    "metadata_archive_sha256": "3445cff98f3c971ea6a146991470e6d1b01152a08a72397be9e9e5fe2341abc7",
+    "metadata_archive_bytes": 2015550,
+    "upstream_frontend_job": "/data20t/gaokuangda/worldcache_workspace/bootstrap/wc-fourcard-bank24-host-cpu-r1-20261022",
+    "upstream_frontend_source": "907d20cbb81eb3d898b93d71b03398ec558d1888",
+    "upstream_frontend_result_sha256": "03d33a48dba7bb06a394c1a81741e29461c66e79b17cc50aae1864946dd9e3f9",
+    "upstream_frontend_manifest_sha256": "923de4b2ee3edc5aa1ce426b91a1ac8a2639119481a1bc2e87b458426d85bedb",
+    "frontend_acceptance_ref": "reports/wc_four_card_BANK24_host_CPU_R1_independent_acceptance_20261022.json",
+    "frontend_acceptance_sha256": "89d49b725ac052c92742fcdc5dc09ba4d0ec20d8b7bfb2cb6cf7297370d43bb7",
+    "expected_real_inputs": {
+      "status": "BANK24_ORIGINAL_REAL_EXECUTION_INPUTS_RECONSTRUCTED_CPU_ONLY",
+      "scope_counts": {
+        "requests": 6,
+        "methods": 3,
+        "formal_paths": 18,
+        "full_warmup_paths": 6,
+        "total_paths": 24,
+        "loads": 1,
+        "new_teacher_pairs": 0,
+        "new_Native_formal": 6,
+        "ordinary_pairs": 864,
+        "ordinary_CFG_calls": 1728
+      },
+      "matrix": [
+        {
+          "id": "warm_1_D21",
+          "scene": "av_9f986144-dec3-490d-8c44-aed3a2727413_SCOUT_DEV_seed0",
+          "method": "D21",
+          "section": "WARMUP",
+          "round": 1,
+          "observer": false
+        },
+        {
+          "id": "warm_1_A21",
+          "scene": "av_9f986144-dec3-490d-8c44-aed3a2727413_SCOUT_DEV_seed0",
+          "method": "A21",
+          "section": "WARMUP",
+          "round": 1,
+          "observer": false
+        },
+        {
+          "id": "warm_1_NATIVE35",
+          "scene": "av_9f986144-dec3-490d-8c44-aed3a2727413_SCOUT_DEV_seed0",
+          "method": "NATIVE35",
+          "section": "WARMUP",
+          "round": 1,
+          "observer": false
+        },
+        {
+          "id": "warm_2_NATIVE35",
+          "scene": "av_9f986144-dec3-490d-8c44-aed3a2727413_SCOUT_DEV_seed0",
+          "method": "NATIVE35",
+          "section": "WARMUP",
+          "round": 2,
+          "observer": false
+        },
+        {
+          "id": "warm_2_A21",
+          "scene": "av_9f986144-dec3-490d-8c44-aed3a2727413_SCOUT_DEV_seed0",
+          "method": "A21",
+          "section": "WARMUP",
+          "round": 2,
+          "observer": true
+        },
+        {
+          "id": "warm_2_D21",
+          "scene": "av_9f986144-dec3-490d-8c44-aed3a2727413_SCOUT_DEV_seed0",
+          "method": "D21",
+          "section": "WARMUP",
+          "round": 2,
+          "observer": true
+        },
+        {
+          "id": "timed_0_D21",
+          "scene": "av_9f986144-dec3-490d-8c44-aed3a2727413_SCOUT_DEV_seed0",
+          "method": "D21",
+          "section": "TIMED",
+          "round": 1,
+          "observer": true
+        },
+        {
+          "id": "timed_0_A21",
+          "scene": "av_9f986144-dec3-490d-8c44-aed3a2727413_SCOUT_DEV_seed0",
+          "method": "A21",
+          "section": "TIMED",
+          "round": 1,
+          "observer": true
+        },
+        {
+          "id": "timed_0_NATIVE35",
+          "scene": "av_9f986144-dec3-490d-8c44-aed3a2727413_SCOUT_DEV_seed0",
+          "method": "NATIVE35",
+          "section": "TIMED",
+          "round": 1,
+          "observer": false
+        },
+        {
+          "id": "timed_1_A21",
+          "scene": "av_4db72212-26c5-4265-a620-fdbe7b6dc3f7_SCOUT_DEV_seed0",
+          "method": "A21",
+          "section": "TIMED",
+          "round": 1,
+          "observer": true
+        },
+        {
+          "id": "timed_1_NATIVE35",
+          "scene": "av_4db72212-26c5-4265-a620-fdbe7b6dc3f7_SCOUT_DEV_seed0",
+          "method": "NATIVE35",
+          "section": "TIMED",
+          "round": 1,
+          "observer": false
+        },
+        {
+          "id": "timed_1_D21",
+          "scene": "av_4db72212-26c5-4265-a620-fdbe7b6dc3f7_SCOUT_DEV_seed0",
+          "method": "D21",
+          "section": "TIMED",
+          "round": 1,
+          "observer": true
+        },
+        {
+          "id": "timed_2_NATIVE35",
+          "scene": "human_068_SCOUT_DEV_seed0",
+          "method": "NATIVE35",
+          "section": "TIMED",
+          "round": 1,
+          "observer": false
+        },
+        {
+          "id": "timed_2_D21",
+          "scene": "human_068_SCOUT_DEV_seed0",
+          "method": "D21",
+          "section": "TIMED",
+          "round": 1,
+          "observer": true
+        },
+        {
+          "id": "timed_2_A21",
+          "scene": "human_068_SCOUT_DEV_seed0",
+          "method": "A21",
+          "section": "TIMED",
+          "round": 1,
+          "observer": true
+        },
+        {
+          "id": "timed_3_D21",
+          "scene": "human_124_SCOUT_DEV_seed0",
+          "method": "D21",
+          "section": "TIMED",
+          "round": 1,
+          "observer": true
+        },
+        {
+          "id": "timed_3_A21",
+          "scene": "human_124_SCOUT_DEV_seed0",
+          "method": "A21",
+          "section": "TIMED",
+          "round": 1,
+          "observer": true
+        },
+        {
+          "id": "timed_3_NATIVE35",
+          "scene": "human_124_SCOUT_DEV_seed0",
+          "method": "NATIVE35",
+          "section": "TIMED",
+          "round": 1,
+          "observer": false
+        },
+        {
+          "id": "timed_4_A21",
+          "scene": "misc_1200903-hd_1920_1080_30fps_SCOUT_DEV_seed0",
+          "method": "A21",
+          "section": "TIMED",
+          "round": 1,
+          "observer": true
+        },
+        {
+          "id": "timed_4_NATIVE35",
+          "scene": "misc_1200903-hd_1920_1080_30fps_SCOUT_DEV_seed0",
+          "method": "NATIVE35",
+          "section": "TIMED",
+          "round": 1,
+          "observer": false
+        },
+        {
+          "id": "timed_4_D21",
+          "scene": "misc_1200903-hd_1920_1080_30fps_SCOUT_DEV_seed0",
+          "method": "D21",
+          "section": "TIMED",
+          "round": 1,
+          "observer": true
+        },
+        {
+          "id": "timed_5_NATIVE35",
+          "scene": "robot_149_SCOUT_DEV_seed0",
+          "method": "NATIVE35",
+          "section": "TIMED",
+          "round": 1,
+          "observer": false
+        },
+        {
+          "id": "timed_5_D21",
+          "scene": "robot_149_SCOUT_DEV_seed0",
+          "method": "D21",
+          "section": "TIMED",
+          "round": 1,
+          "observer": true
+        },
+        {
+          "id": "timed_5_A21",
+          "scene": "robot_149_SCOUT_DEV_seed0",
+          "method": "A21",
+          "section": "TIMED",
+          "round": 1,
+          "observer": true
+        }
+      ],
+      "calibration_fingerprint": "9ab1d77c303560823ed2f32f43b2982318cdd9835828a46da4835a1b95ea7d7a",
+      "H1_fingerprint": "34ef948ed2a309e8b1cae4b72b780c14e21d63383fa1eadcdfc8803c3d5beef8",
+      "previous_fingerprint": "39e7f0feb3648dbabe8a98d842bd1d60fa03bd1800259513c5da7c9d976fc9c0",
+      "gamma": 0.7235237005554214,
+      "ranking_fingerprint": "d7b60d99e3aded059ad960f79bea199cb0ca1609da764cb37ffd032aeabbcf44",
+      "input_evidence_fingerprint": "6ff3902a8a6272529ad5ad558699b994be1940b7efa1de24adfd37cae0aad90e",
+      "metadata_Native_provenance_slots": 4,
+      "new_Native_paths_required": 6,
+      "old_physical_Native_artifacts_read": false,
+      "DEV_refitted": false,
+      "numerical_paths_reexecuted": 0,
+      "Cosmos_weights_loaded": 0,
+      "CUDA_initialized": false,
+      "GPU_submissions": 0,
+      "ledger_written": false
+    },
+    "expected_generated_sha256": {
+      "bank24-sm89-runner.py": "e1cef606937681af0b98c037bbd851dfd35a7aa4731f640a818d115e5d1a4379",
+      "bank24_sm89_entry_contract.py": "7819b2600d10032a892286099e16972ecd4c1531d3c03987c0ca40a2a0363ece",
+      "bank24_sm89_budget_pool.py": "087d322be55eda3e98a9bc9d71e9be0e47929c82cce585f2260100414b3aaf21"
+    },
+    "expected_adaptation_binding": {
+      "original_runner_sha256": "3a4aa59bc8559a82e43717bc7d04592a8a346e2812f209bd8f98243045a63b4c",
+      "unchanged_scout_adapter_sha256": "e81dbc7f9fd416fd6992176bfa590f4024511e7a49002141c5f9767cefdbfb20",
+      "host_runner_sha256": "e1cef606937681af0b98c037bbd851dfd35a7aa4731f640a818d115e5d1a4379",
+      "reversible_host_replacements": 6,
+      "target_compute_capability": [
+        8,
+        9
+      ],
+      "original_scientific_entry_source": "c1c95ce0c598fb7839b0b89f4a69bd45c8aef7c9",
+      "sampling_or_guardrails_or_readout_changed": false
+    },
+    "remaining": [
+      "containerized_GPU_supervisor_and_PID_FD_lock_contract",
+      "portable_post_and_terminal_collector_full24_acceptance",
+      "new_host_whole_card_quote",
+      "actual_CUDA_compatibility",
+      "single_authoritative_v2_history_and_writer_handoff"
+    ],
+    "environment_metadata_sha256": "4bb51826483b7ede5079543c8df691729d7d51b24b8a8a3b5e777bfe49db83b3",
+    "runtime_source_sha256": {
+      "cosmos_predict2/_src/predict2/models/video2world_model_rectified_flow.py": "9b53e3f024e5cbb2cb3778819e1a6fd353923c13ad9b868d99602051640a65e8",
+      "cosmos_predict2/_src/predict2/models/text2world_model_rectified_flow.py": "c6c68f297859e11c76d2921667a29cabfecef3a7b5d3ab831bf9bb54b25b7d87",
+      "cosmos_predict2/_src/predict2/inference/worldcache_utils.py": "b485cb8fd6e262a40e5823365c34ef7db1bc036c591d7577489e04077c515903",
+      "cosmos_predict2/_src/predict2/models/fm_solvers_unipc.py": "f6a06c75f059693ade6c802e99f6058575969b6a71ef18ab05e7ed46701053d3",
+      "cosmos_predict2/_src/predict2/configs/video2world/defaults/conditioner.py": "d58f515074237843b707d67001751c0e022546061348728e6322faaaa22e837c",
+      "cosmos_predict2/_src/predict2/configs/video2world/defaults/model.py": "042e4ef004f36c2f391c5234532b3feac4c7754f7469e4f998919bbee76a49e0",
+      "cosmos_predict2/inference.py": "0db96c49f0b3f18a971bc989e0727132dafc27ef621145a2d25a3da62a7a1975",
+      "cosmos_predict2/_src/predict2/inference/video2world.py": "59aa9e236a5e7e26490f5cfcb94ab95ce911d9c38eba61dd8aef7d067e458a95",
+      "cosmos_predict2/_src/predict2/conditioner.py": "47554e88f2a5d5157e30b18b1d7ad4a4ee55a99dfbaf7071f680c7acf438843a",
+      "cosmos_predict2/_src/predict2/networks/minimal_v1_lvg_dit.py": "2d3ddcf94158c61223bc610f31ede475f7e4e27cc3b604ff3557b73d891e665f",
+      "cosmos_predict2/_src/predict2/networks/minimal_v4_dit.py": "a41a1772f694ee338e4b91f032428ea81f28e80fb90990e2db86eb7d1ce30071"
+    },
+    "container_image_id": "sha256:1e81ac62ee68ca1a6ef655515096a1d84579b01aa4986810c9b18d4f6c4c552d",
+    "container_process_user_name": "gaokuangda",
+    "offline_only": true,
+    "torch_cache_readonly": true,
+    "resume_completed_resolver": true,
+    "explicit_process_identity_cache": true,
+    "CPU_limit": 2,
+    "memory_limit_GiB": 16,
+    "planning_seconds": 180,
+    "maximum_wall_seconds": 900,
+    "halfway_after_start_seconds": 60,
+    "terminal_after_start_seconds": 300,
+    "old_numerical_or_frontend_or_resource_CPU_reexecution": false,
+    "full_new_host_scope_production_CPU_accepted": false,
+    "actual_CUDA_compatibility_accepted": false,
+    "whole_card_new_host_quote_accepted": false,
+    "GPU_dispatch_ready": false,
+    "GPU_submissions": 0,
+    "ledger_written": false,
+    "prior_predispatch_failure_ref": "reports/wc_four_card_BANK24_execution_adapter_CPU_R1_predispatch_failure_boundary_20261022.json",
+    "prior_predispatch_failure_sha256": "ff9ace298b4ca17c7a82423e3990c9b66b083d014f4f991767662f47ea957bd6",
+    "control_Python38_compatible_path_gate": true,
+    "source_revision": "a3cfddd9dafe3eb885e8e650aa1212e6dcd764c9",
+    "recipe_ref": "manifests/wc_four_card_bank24_execution_adapter_cpu_r1_1_20261022.json",
+    "payload_sha256": {
+      "worker.py": "ba53b257ec27f0c565f0c1b1976f16747bf21d01a73d527b1a8606e72c0d7bf2",
+      "check_wc_four_card_bank24_execution_adapter_r1.py": "ba53b257ec27f0c565f0c1b1976f16747bf21d01a73d527b1a8606e72c0d7bf2",
+      "supervisor.py": "d75d58304328b5118d5963702e05cb25dede1adebadba8c1c863f9ea1896ddad",
+      "resource_worker.py": "96368f6bd21732178e0ad1f2faab12c58051c10be6a85de90b59b69c6470e201",
+      "repair_support.py": "97c7af2ee6a7a68d66d8a3bd4afcd94e4adabc81846be6f56c4f84b16ff1220b",
+      "four_card_bank24_execution_adapter_r1.py": "f9649aeee9857df0a50b7866eebe8985356ab137fb46a844dbe2c359468491c0",
+      "four_card_bank24_host_contract_r1.py": "6b7413754a6001ae25a39a2329c06e2d288a549e3796dfee00889f264a8b3cd7",
+      "execution-metadata-registration.json": "83af17c52ff25af00945e10df105ecc1dab9a2309f2dac50b53751ffa5bc7400",
+      "frontend-accepted.json": "89d49b725ac052c92742fcdc5dc09ba4d0ec20d8b7bfb2cb6cf7297370d43bb7"
+    },
+    "worker_sha256": "ba53b257ec27f0c565f0c1b1976f16747bf21d01a73d527b1a8606e72c0d7bf2",
+    "supervisor_sha256": "d75d58304328b5118d5963702e05cb25dede1adebadba8c1c863f9ea1896ddad"
+  },
+  "manifest_sha256": "f56653a71f914f543341c82a328919ee9f91a836c23d84ae8cee0c67e7a4badf",
+  "payload_sha256": {
+    "worker.py": "ba53b257ec27f0c565f0c1b1976f16747bf21d01a73d527b1a8606e72c0d7bf2",
+    "check_wc_four_card_bank24_execution_adapter_r1.py": "ba53b257ec27f0c565f0c1b1976f16747bf21d01a73d527b1a8606e72c0d7bf2",
+    "supervisor.py": "d75d58304328b5118d5963702e05cb25dede1adebadba8c1c863f9ea1896ddad",
+    "resource_worker.py": "96368f6bd21732178e0ad1f2faab12c58051c10be6a85de90b59b69c6470e201",
+    "repair_support.py": "97c7af2ee6a7a68d66d8a3bd4afcd94e4adabc81846be6f56c4f84b16ff1220b",
+    "four_card_bank24_execution_adapter_r1.py": "f9649aeee9857df0a50b7866eebe8985356ab137fb46a844dbe2c359468491c0",
+    "four_card_bank24_host_contract_r1.py": "6b7413754a6001ae25a39a2329c06e2d288a549e3796dfee00889f264a8b3cd7",
+    "execution-metadata-registration.json": "83af17c52ff25af00945e10df105ecc1dab9a2309f2dac50b53751ffa5bc7400",
+    "frontend-accepted.json": "89d49b725ac052c92742fcdc5dc09ba4d0ec20d8b7bfb2cb6cf7297370d43bb7"
+  },
+  "health": {
+    "status": "BANK24_SM89_EXECUTION_ADAPTER_CPU_PASS_NOT_FULL_GPU_LIFECYCLE",
+    "source_revision": "a3cfddd9dafe3eb885e8e650aa1212e6dcd764c9",
+    "worker_sha256": "ba53b257ec27f0c565f0c1b1976f16747bf21d01a73d527b1a8606e72c0d7bf2",
+    "commands": [
+      {
+        "exit_code": 0,
+        "wall_seconds": 18.37166428565979,
+        "exact_marker": true,
+        "probe_source_sha256": "adc972667f38525420fed603c034853915401f3a8c10f396e3858531ce3e3d32"
+      }
+    ],
+    "started_unix": 1792622465.0262306,
+    "full_new_host_scope_production_CPU_accepted": false,
+    "GPU_dispatch_ready": false,
+    "Cosmos_weights_loaded": 0,
+    "CUDA_initialized": false,
+    "GPU_submissions": 0,
+    "ledger_written": false,
+    "process_identity_and_cache": {
+      "variables": {
+        "USER": "gaokuangda",
+        "LOGNAME": "gaokuangda",
+        "TORCHINDUCTOR_CACHE_DIR": "/data20t/gaokuangda/worldcache_workspace/bootstrap/wc-fourcard-bank24-execution-adapter-cpu-r1-1-20261022/process-caches/torchinductor",
+        "TRITON_CACHE_DIR": "/data20t/gaokuangda/worldcache_workspace/bootstrap/wc-fourcard-bank24-execution-adapter-cpu-r1-1-20261022/process-caches/triton",
+        "TORCH_EXTENSIONS_DIR": "/data20t/gaokuangda/worldcache_workspace/bootstrap/wc-fourcard-bank24-execution-adapter-cpu-r1-1-20261022/process-caches/extensions",
+        "CUDA_CACHE_PATH": "/data20t/gaokuangda/worldcache_workspace/bootstrap/wc-fourcard-bank24-execution-adapter-cpu-r1-1-20261022/process-caches/cuda",
+        "XDG_CACHE_HOME": "/data20t/gaokuangda/worldcache_workspace/bootstrap/wc-fourcard-bank24-execution-adapter-cpu-r1-1-20261022/process-caches/xdg"
+      },
+      "resolved_user": "gaokuangda",
+      "numeric_uid": 1000,
+      "cache_directories_inside_own_job": true,
+      "write_probe_pass": true,
+      "system_passwd_modified": false
+    },
+    "environment_metadata_before": "4bb51826483b7ede5079543c8df691729d7d51b24b8a8a3b5e777bfe49db83b3",
+    "phase": "CPU_complete_remaining_container_supervisor_terminal_quote_and_authority",
+    "updated_unix": 1792622483.4856327,
+    "execution_adapter_CPU": {
+      "verified": {
+        "original_files": 1789,
+        "extra_metadata_files": 29,
+        "original_closure_unchanged": true,
+        "metadata_not_new_GPU_evidence": true
+      },
+      "real_inputs": {
+        "status": "BANK24_ORIGINAL_REAL_EXECUTION_INPUTS_RECONSTRUCTED_CPU_ONLY",
+        "scope_counts": {
+          "requests": 6,
+          "methods": 3,
+          "formal_paths": 18,
+          "full_warmup_paths": 6,
+          "total_paths": 24,
+          "loads": 1,
+          "new_teacher_pairs": 0,
+          "new_Native_formal": 6,
+          "ordinary_pairs": 864,
+          "ordinary_CFG_calls": 1728
+        },
+        "matrix": [
+          {
+            "id": "warm_1_D21",
+            "scene": "av_9f986144-dec3-490d-8c44-aed3a2727413_SCOUT_DEV_seed0",
+            "method": "D21",
+            "section": "WARMUP",
+            "round": 1,
+            "observer": false
+          },
+          {
+            "id": "warm_1_A21",
+            "scene": "av_9f986144-dec3-490d-8c44-aed3a2727413_SCOUT_DEV_seed0",
+            "method": "A21",
+            "section": "WARMUP",
+            "round": 1,
+            "observer": false
+          },
+          {
+            "id": "warm_1_NATIVE35",
+            "scene": "av_9f986144-dec3-490d-8c44-aed3a2727413_SCOUT_DEV_seed0",
+            "method": "NATIVE35",
+            "section": "WARMUP",
+            "round": 1,
+            "observer": false
+          },
+          {
+            "id": "warm_2_NATIVE35",
+            "scene": "av_9f986144-dec3-490d-8c44-aed3a2727413_SCOUT_DEV_seed0",
+            "method": "NATIVE35",
+            "section": "WARMUP",
+            "round": 2,
+            "observer": false
+          },
+          {
+            "id": "warm_2_A21",
+            "scene": "av_9f986144-dec3-490d-8c44-aed3a2727413_SCOUT_DEV_seed0",
+            "method": "A21",
+            "section": "WARMUP",
+            "round": 2,
+            "observer": true
+          },
+          {
+            "id": "warm_2_D21",
+            "scene": "av_9f986144-dec3-490d-8c44-aed3a2727413_SCOUT_DEV_seed0",
+            "method": "D21",
+            "section": "WARMUP",
+            "round": 2,
+            "observer": true
+          },
+          {
+            "id": "timed_0_D21",
+            "scene": "av_9f986144-dec3-490d-8c44-aed3a2727413_SCOUT_DEV_seed0",
+            "method": "D21",
+            "section": "TIMED",
+            "round": 1,
+            "observer": true
+          },
+          {
+            "id": "timed_0_A21",
+            "scene": "av_9f986144-dec3-490d-8c44-aed3a2727413_SCOUT_DEV_seed0",
+            "method": "A21",
+            "section": "TIMED",
+            "round": 1,
+            "observer": true
+          },
+          {
+            "id": "timed_0_NATIVE35",
+            "scene": "av_9f986144-dec3-490d-8c44-aed3a2727413_SCOUT_DEV_seed0",
+            "method": "NATIVE35",
+            "section": "TIMED",
+            "round": 1,
+            "observer": false
+          },
+          {
+            "id": "timed_1_A21",
+            "scene": "av_4db72212-26c5-4265-a620-fdbe7b6dc3f7_SCOUT_DEV_seed0",
+            "method": "A21",
+            "section": "TIMED",
+            "round": 1,
+            "observer": true
+          },
+          {
+            "id": "timed_1_NATIVE35",
+            "scene": "av_4db72212-26c5-4265-a620-fdbe7b6dc3f7_SCOUT_DEV_seed0",
+            "method": "NATIVE35",
+            "section": "TIMED",
+            "round": 1,
+            "observer": false
+          },
+          {
+            "id": "timed_1_D21",
+            "scene": "av_4db72212-26c5-4265-a620-fdbe7b6dc3f7_SCOUT_DEV_seed0",
+            "method": "D21",
+            "section": "TIMED",
+            "round": 1,
+            "observer": true
+          },
+          {
+            "id": "timed_2_NATIVE35",
+            "scene": "human_068_SCOUT_DEV_seed0",
+            "method": "NATIVE35",
+            "section": "TIMED",
+            "round": 1,
+            "observer": false
+          },
+          {
+            "id": "timed_2_D21",
+            "scene": "human_068_SCOUT_DEV_seed0",
+            "method": "D21",
+            "section": "TIMED",
+            "round": 1,
+            "observer": true
+          },
+          {
+            "id": "timed_2_A21",
+            "scene": "human_068_SCOUT_DEV_seed0",
+            "method": "A21",
+            "section": "TIMED",
+            "round": 1,
+            "observer": true
+          },
+          {
+            "id": "timed_3_D21",
+            "scene": "human_124_SCOUT_DEV_seed0",
+            "method": "D21",
+            "section": "TIMED",
+            "round": 1,
+            "observer": true
+          },
+          {
+            "id": "timed_3_A21",
+            "scene": "human_124_SCOUT_DEV_seed0",
+            "method": "A21",
+            "section": "TIMED",
+            "round": 1,
+            "observer": true
+          },
+          {
+            "id": "timed_3_NATIVE35",
+            "scene": "human_124_SCOUT_DEV_seed0",
+            "method": "NATIVE35",
+            "section": "TIMED",
+            "round": 1,
+            "observer": false
+          },
+          {
+            "id": "timed_4_A21",
+            "scene": "misc_1200903-hd_1920_1080_30fps_SCOUT_DEV_seed0",
+            "method": "A21",
+            "section": "TIMED",
+            "round": 1,
+            "observer": true
+          },
+          {
+            "id": "timed_4_NATIVE35",
+            "scene": "misc_1200903-hd_1920_1080_30fps_SCOUT_DEV_seed0",
+            "method": "NATIVE35",
+            "section": "TIMED",
+            "round": 1,
+            "observer": false
+          },
+          {
+            "id": "timed_4_D21",
+            "scene": "misc_1200903-hd_1920_1080_30fps_SCOUT_DEV_seed0",
+            "method": "D21",
+            "section": "TIMED",
+            "round": 1,
+            "observer": true
+          },
+          {
+            "id": "timed_5_NATIVE35",
+            "scene": "robot_149_SCOUT_DEV_seed0",
+            "method": "NATIVE35",
+            "section": "TIMED",
+            "round": 1,
+            "observer": false
+          },
+          {
+            "id": "timed_5_D21",
+            "scene": "robot_149_SCOUT_DEV_seed0",
+            "method": "D21",
+            "section": "TIMED",
+            "round": 1,
+            "observer": true
+          },
+          {
+            "id": "timed_5_A21",
+            "scene": "robot_149_SCOUT_DEV_seed0",
+            "method": "A21",
+            "section": "TIMED",
+            "round": 1,
+            "observer": true
+          }
+        ],
+        "calibration_fingerprint": "9ab1d77c303560823ed2f32f43b2982318cdd9835828a46da4835a1b95ea7d7a",
+        "H1_fingerprint": "34ef948ed2a309e8b1cae4b72b780c14e21d63383fa1eadcdfc8803c3d5beef8",
+        "previous_fingerprint": "39e7f0feb3648dbabe8a98d842bd1d60fa03bd1800259513c5da7c9d976fc9c0",
+        "gamma": 0.7235237005554214,
+        "ranking_fingerprint": "d7b60d99e3aded059ad960f79bea199cb0ca1609da764cb37ffd032aeabbcf44",
+        "input_evidence_fingerprint": "6ff3902a8a6272529ad5ad558699b994be1940b7efa1de24adfd37cae0aad90e",
+        "metadata_Native_provenance_slots": 4,
+        "new_Native_paths_required": 6,
+        "old_physical_Native_artifacts_read": false,
+        "DEV_refitted": false,
+        "numerical_paths_reexecuted": 0,
+        "Cosmos_weights_loaded": 0,
+        "CUDA_initialized": false,
+        "GPU_submissions": 0,
+        "ledger_written": false
+      },
+      "binding": {
+        "original_runner_sha256": "3a4aa59bc8559a82e43717bc7d04592a8a346e2812f209bd8f98243045a63b4c",
+        "unchanged_scout_adapter_sha256": "e81dbc7f9fd416fd6992176bfa590f4024511e7a49002141c5f9767cefdbfb20",
+        "host_runner_sha256": "e1cef606937681af0b98c037bbd851dfd35a7aa4731f640a818d115e5d1a4379",
+        "reversible_host_replacements": 6,
+        "target_compute_capability": [
+          8,
+          9
+        ],
+        "original_scientific_entry_source": "c1c95ce0c598fb7839b0b89f4a69bd45c8aef7c9",
+        "sampling_or_guardrails_or_readout_changed": false
+      },
+      "controls": {
+        "checks": {
+          "SM86": true,
+          "A6000": true,
+          "occupied_zero_utilization": true,
+          "compute_owner": true,
+          "negative_memory": true,
+          "NaN_memory": true,
+          "whole12_requires_specific_card": true,
+          "forecast_exceeds_full_limit": true,
+          "whole_limit_reserved_not_actual_fee": true,
+          "same_handle_replay": true,
+          "same_UUID_double_owner": true,
+          "insufficient_whole_balance": true,
+          "additive_actual_and_release": true,
+          "same_settlement_idempotent": true,
+          "conflicting_actual": true,
+          "failed_start_has_additive_actual_fee": true,
+          "missing_full_new_host_scope_production_CPU_accepted": true,
+          "missing_container_supervisor_and_terminal_lifecycle_accepted": true,
+          "missing_whole_card_new_host_quote_accepted": true,
+          "missing_single_authoritative_v2_handoff_accepted": true,
+          "unchanged_accounting_on_same_full_history": true
+        },
+        "actual_GPU_ledger_opened": false,
+        "ledger_written": false,
+        "filesystem_transactions_executed": 0,
+        "actual_reservations": 0,
+        "all_finance_controls": "IN_MEMORY_TEST_ONLY_NOT_CURRENT_AUTHORITY"
+      },
+      "generated_sha256": {
+        "bank24-sm89-runner.py": "e1cef606937681af0b98c037bbd851dfd35a7aa4731f640a818d115e5d1a4379",
+        "bank24_sm89_entry_contract.py": "7819b2600d10032a892286099e16972ecd4c1531d3c03987c0ca40a2a0363ece",
+        "bank24_sm89_budget_pool.py": "087d322be55eda3e98a9bc9d71e9be0e47929c82cce585f2260100414b3aaf21"
+      },
+      "remaining": [
+        "containerized_GPU_supervisor_and_PID_FD_lock_contract",
+        "portable_post_and_terminal_collector_full24_acceptance",
+        "new_host_whole_card_quote",
+        "actual_CUDA_compatibility",
+        "single_authoritative_v2_history_and_writer_handoff"
+      ],
+      "full_new_host_scope_production_CPU_accepted": false,
+      "actual_CUDA_compatibility_accepted": false,
+      "whole_card_new_host_quote_accepted": false,
+      "GPU_dispatch_ready": false,
+      "Cosmos_weights_loaded": 0,
+      "CUDA_initialized": false,
+      "GPU_submissions": 0,
+      "ledger_written": false
+    },
+    "execution_adapter_CPU_passed": true,
+    "remaining": [
+      "containerized_GPU_supervisor_and_PID_FD_lock_contract",
+      "portable_post_and_terminal_collector_full24_acceptance",
+      "new_host_whole_card_quote",
+      "actual_CUDA_compatibility",
+      "single_authoritative_v2_history_and_writer_handoff"
+    ],
+    "environment_metadata_after": "4bb51826483b7ede5079543c8df691729d7d51b24b8a8a3b5e777bfe49db83b3",
+    "runtime_critical_sources_unchanged": true,
+    "ended_unix": 1792622483.4856272,
+    "wall_seconds": 18.459397554397583
+  },
+  "result_exists": true,
+  "GPU_submissions": 0,
+  "ledger_written": false,
+  "container_manifest_label": null,
+  "readonly_root": null,
+  "devices": null,
+  "device_requests": null,
+  "launch_ref": "reports/wc_four_card_BANK24_execution_adapter_CPU_R1_1_launch_20261022.json",
+  "launch_sha256": "27eac3f026dbda077eef372a29774211141eaa70e214f45141b12477f0ff6030"
+}

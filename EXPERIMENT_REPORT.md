@@ -1,3 +1,7 @@
+## 2026-10-22 BANK24前端CPU19项已接受；SM89组件CPU R1.1实际启动
+
+[632原件与完整执行接续](research/632_WC_BANK24_FRONTEND_ACCEPTED_AND_SM89_EXECUTION_ADAPTER_CPU_20261022.md)：原前端source907d20cb的19项独立接受完成，1789／1772原闭包、六请求／24保护位置／12范围拒绝及原进程／容器／锁退出通过。独立SM89组件R1首次控制面Python3.8路径API在stage／Popen前失败，0CPU，原件保留；R1.1 sourcea3cfddd9于06:41:04.063354单次启动PID625584/start940752742，先确认原R1 stage不存在，复用服务器完整1789并单列29件同2bd原SHA元数据。一次admission的16项身份／技术边界通过，health报告CPU18.459秒／命令0，真实输入及完整24范围、三生成源可逆SM89适配和21项内存费用控制完成；独立终态尚未接受。已读回bank24-sm89-cpu-r1-1于06:43半程、bank24-sm89-cpu-r1-1-2于06:47终态；原bank24-cpu-2原因完成后删除。模型／LPIPS／env／runtime复用，无新模型下载／CUDA／科研GPU／实际账本写。完整容器GPU supervisor／PID-FD锁／post终态／完整新机scope生产CPU、实际CUDA、八项新机价／整卡报价和唯一权威v2交接仍各自待，GPU-ready=false；不能把组件CPU或旧报价当整卡完成。两卡四小时只读自动化保持，本任务未追加双卡查询；BANK24→既定X-R／同D配额CPU诊断→完整1624／已批12GPUh、cap226／origin历史及54科研行状态保持。
+
 ## 2026-10-22 BANK24新机前端19项独立接受；接SM89执行适配CPU
 
 [632执行适配卡与接续](research/632_WC_BANK24_FRONTEND_ACCEPTED_AND_SM89_EXECUTION_ADAPTER_CPU_20261022.md)：06:13:25.442一次原终态收件并离线独立接受，原source907d20cb／9件payload／完整1789依赖与1772子集、六真实请求／24保护入口／12范围拒绝、原进程／本人容器／资源锁退出均通过，19项全过。只接受host_boundary_CPU；完整新机scope生产CPU／实际CUDA／新机整卡报价／GPU-ready仍false，八项新机价格仍null。继续独立SM89执行适配CPU：同原2bd41dc8单列29件真实元数据，不改原1789分母；原校准／H1／gamma及六DEV完整24重建通过，六类可逆runner主机替换和预算硬件谓词适配已完成本地7项单元＋21项内存费用控制。新CPU配方已冻结，须GitHub发布后单次实际派发并按真实launch另约半程／终态；它不重复资源／旧数值或前端CPU，仍不等于完整GPU容器supervisor／PID-FD锁／post终态生命周期通过。完整固定96／公开14／LPIPS复用，无新模型下载／CUDA／科研GPU／权威账本写；四卡仍需完整新生命周期CPU／报价与唯一v2交接。两卡原四小时只读监控保持，本任务不追加双卡查询。BANK24→既定CPU诊断→完整1624／具体12批准、cap226／origin历史及54科研行状态不变。

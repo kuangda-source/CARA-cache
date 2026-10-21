@@ -53,3 +53,15 @@
 source `242070556de95727101ecc656b922a2591d7e3a4` 首次部署返回远端 Python 异常，原 UNKNOWN 回执保持。离线核对原发布 SETUP 的第 30 行和原异常栈，确定控制面 Python 3.8 缺 `Path.is_relative_to`，错误在 `job.mkdir` 和 `Popen` 之前，0 CPU 启动；这是控制面适配问题，不能说网络／模型／CUDA 失败。[原部署回执](../reports/wc_four_card_BANK24_execution_adapter_CPU_R1_launch_20261022.json) 与 [源码顺序失败边界](../reports/wc_four_card_BANK24_execution_adapter_CPU_R1_predispatch_failure_boundary_20261022.json) 均保留。
 
 独立 [R1.1 配方](../manifests/wc_four_card_bank24_execution_adapter_cpu_r1_1_20261022.json) 改用 Python 3.8 支持的路径祖先检查，最先只读检查原 R1 stage，若存在就恢复而不派新任务。新 job 为 `wc-fourcard-bank24-execution-adapter-cpu-r1-1-20261022`；不重用原回执或 intent。容器内 Python 3.10 的科学代码、CPU worker、额外 29 件元数据、完整 24 分母和三个生成源码均不改。7 项本地控制重新通过，加入控制面路径 API 与原 stage 拒绝检查。新版本 GitHub 发布后才单次部署；无真实新 launch 时不虚排半程或成功验收。
+
+## R1.1 实际启动、技术完成与两次独立查收
+
+GitHub source `a3cfddd9dafe3eb885e8e650aa1212e6dcd764c9` 发布后，R1.1 于 **2026-10-22 06:41:04.063354**（unix `1792622464.0633543`）单次启动，supervisor PID `625584`／start `940752742`。原 R1 stage 的优先恢复检查通过才进入新部署；原 1,789 件从已验服务器目录逐 SHA 复制，没有重传基础包或下载模型。manifest SHA `f56653a71f914f543341c82a328919ee9f91a836c23d84ae8cee0c67e7a4badf`，worker SHA `ba53b257ec27f0c565f0c1b1976f16747bf21d01a73d527b1a8606e72c0d7bf2`。
+
+一次 admission 已保存，16 项身份与技术边界核对通过。收件时原 supervisor 和本人容器已退出，health 报告新 CPU 命令退出 0／精确 marker，通过真实元数据重建、可逆 SM89 组件生成及 21 项内存费用控制，worker wall **18.459398 秒**。这不是终态独立 SHA 接受：尚未读取最终 result／日志或执行独立终态 hash，`execution_adapter_CPU_accepted` 仍为 false，完整新机 scope／GPU-ready 继续 false。
+
+- [实际 launch](../reports/wc_four_card_BANK24_execution_adapter_CPU_R1_1_launch_20261022.json)。
+- [一次 admission](../reports/wc_four_card_BANK24_execution_adapter_CPU_R1_1_admission_20261022.json) 与 [技术边界](../reports/wc_four_card_BANK24_execution_adapter_CPU_R1_1_admission_technical_boundary_20261022.json)。
+- [按真实 launch 读回的两次检查](../reports/wc_four_card_BANK24_execution_adapter_CPU_R1_1_actual_two_once_checks_20261022.json)：`bank24-sm89-cpu-r1-1` 于 **06:43** 技术半程（最早 06:42:04.063354），`bank24-sm89-cpu-r1-1-2` 于 **06:47** 独立终态（最早 06:46:04.063354）。只恢复同一原句柄，不因早完成重派或提前接受。
+
+原 `bank24-cpu-2` 的 19 项前端验收原因已完成，且新两次检查创建／读回后已删除。两卡四小时只读自动化保持，本轮没有查询双卡、GPU 或权威账本。后续终态接续已明确完整容器 supervisor／PID-FD／锁与费用／post／collector 的独立 CPU 工作，不能以本组件 CPU 代替。
