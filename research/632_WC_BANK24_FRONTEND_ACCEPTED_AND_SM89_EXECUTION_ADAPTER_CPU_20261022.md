@@ -47,3 +47,9 @@
 新机整卡价的八项仍分别待测，不将旧 forecast3.407222222／cap4.5 变成 Ada 实测。完整 BANK24 接受及实费结清后，接既定 X-R／同 D 配额 CPU 诊断，再接已具体批准整卡 12 GPUh 的完整 1624 卡。原批准不重问，不拆缩；PG-P1 等后续仍沿原独立冻结／CPU／报价门。F/B 关闭，无训练、人评、付费 VLM／OMR；54 科研行和 status_counts 不变。
 
 实际新 source／launch／admission／两次检查的回执在启动后补入本报告和机器索引。两卡四小时只读监控保持，本卡不追加双卡 SSH。
+
+## R1 控制面预检失败与独立 R1.1
+
+source `242070556de95727101ecc656b922a2591d7e3a4` 首次部署返回远端 Python 异常，原 UNKNOWN 回执保持。离线核对原发布 SETUP 的第 30 行和原异常栈，确定控制面 Python 3.8 缺 `Path.is_relative_to`，错误在 `job.mkdir` 和 `Popen` 之前，0 CPU 启动；这是控制面适配问题，不能说网络／模型／CUDA 失败。[原部署回执](../reports/wc_four_card_BANK24_execution_adapter_CPU_R1_launch_20261022.json) 与 [源码顺序失败边界](../reports/wc_four_card_BANK24_execution_adapter_CPU_R1_predispatch_failure_boundary_20261022.json) 均保留。
+
+独立 [R1.1 配方](../manifests/wc_four_card_bank24_execution_adapter_cpu_r1_1_20261022.json) 改用 Python 3.8 支持的路径祖先检查，最先只读检查原 R1 stage，若存在就恢复而不派新任务。新 job 为 `wc-fourcard-bank24-execution-adapter-cpu-r1-1-20261022`；不重用原回执或 intent。容器内 Python 3.10 的科学代码、CPU worker、额外 29 件元数据、完整 24 分母和三个生成源码均不改。7 项本地控制重新通过，加入控制面路径 API 与原 stage 拒绝检查。新版本 GitHub 发布后才单次部署；无真实新 launch 时不虚排半程或成功验收。

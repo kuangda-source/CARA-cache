@@ -72,6 +72,8 @@ class ExecutionAdapterTest(unittest.TestCase):
         self.assertIn('independent_extra_metadata_sha256',CAPTURE)
         self.assertIn('independent_generated_sha256',CAPTURE)
         self.assertNotIn('nvidia-smi',SETUP+CAPTURE)
+        self.assertNotIn('.is_relative_to(',SETUP)
+        self.assertIn('PRIOR_STAGE_EXISTS_RESTORE_ONLY',SETUP)
 
 
 if __name__=='__main__':unittest.main()

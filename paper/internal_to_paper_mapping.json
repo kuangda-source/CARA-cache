@@ -2574,7 +2574,11 @@
     "four_card_BANK24_execution_adapter_card": "research/632_WC_BANK24_FRONTEND_ACCEPTED_AND_SM89_EXECUTION_ADAPTER_CPU_20261022.md",
     "four_card_BANK24_execution_adapter_recipe": "manifests/wc_four_card_bank24_execution_adapter_cpu_r1_20261022.json",
     "four_card_BANK24_execution_metadata": "manifests/wc_four_card_bank24_execution_metadata_r1_20261022.json",
-    "four_card_BANK24_execution_adapter_local_controls": "reports/wc_four_card_BANK24_execution_adapter_local_controls_20261022.json"
+    "four_card_BANK24_execution_adapter_local_controls": "reports/wc_four_card_BANK24_execution_adapter_local_controls_20261022.json",
+    "four_card_BANK24_execution_adapter_R1_failure": "reports/wc_four_card_BANK24_execution_adapter_CPU_R1_predispatch_failure_boundary_20261022.json",
+    "four_card_BANK24_execution_adapter_R1_attempt": "reports/wc_four_card_BANK24_execution_adapter_CPU_R1_launch_20261022.json",
+    "four_card_BANK24_execution_adapter_R1_1_recipe": "manifests/wc_four_card_bank24_execution_adapter_cpu_r1_1_20261022.json",
+    "four_card_BANK24_execution_adapter_R1_1_repair_checks": "reports/wc_four_card_BANK24_execution_adapter_CPU_R1_1_control_repair_local_checks_20261022.json"
   },
   "evidence_batches": {
     "curve60": {
@@ -11416,8 +11420,8 @@
       "bytes": 2376
     },
     "research/632_WC_BANK24_FRONTEND_ACCEPTED_AND_SM89_EXECUTION_ADAPTER_CPU_20261022.md": {
-      "sha256": "4f4cdf84b8acbae6c9845b7df8181af542313bbeb392719c034d2bafddb34e03",
-      "bytes": 6493
+      "sha256": "0fefc9dc5429875cf94102520556e509355fb267435bd232decff428692501f1",
+      "bytes": 7771
     },
     "manifests/wc_four_card_bank24_execution_adapter_cpu_r1_20261022.json": {
       "sha256": "776b62d27244c12a552280d87a444463c0e9942ff298476c598ca07d91cbb1c1",
@@ -11430,6 +11434,22 @@
     "reports/wc_four_card_BANK24_execution_adapter_local_controls_20261022.json": {
       "sha256": "5fbd594c116e379dc04ad3ccad085064dc594c96f2eb066c332580254aeae1e9",
       "bytes": 10686
+    },
+    "reports/wc_four_card_BANK24_execution_adapter_CPU_R1_predispatch_failure_boundary_20261022.json": {
+      "sha256": "ff9ace298b4ca17c7a82423e3990c9b66b083d014f4f991767662f47ea957bd6",
+      "bytes": 956
+    },
+    "reports/wc_four_card_BANK24_execution_adapter_CPU_R1_launch_20261022.json": {
+      "sha256": "12515e509817858db08f9a79e6568cf60497734bc956e8cdd3eca42b43f272ec",
+      "bytes": 216
+    },
+    "manifests/wc_four_card_bank24_execution_adapter_cpu_r1_1_20261022.json": {
+      "sha256": "17c35afb39c5b4aa2854834c7d590720163d47a3aa7b66e3e08d7ed203952317",
+      "bytes": 11848
+    },
+    "reports/wc_four_card_BANK24_execution_adapter_CPU_R1_1_control_repair_local_checks_20261022.json": {
+      "sha256": "77d07c52d8875a371a56924ff4bdb12ae95866835601499707ff03b8b1be7013",
+      "bytes": 938
     }
   },
   "math_notation": [
@@ -13218,7 +13238,7 @@
     "supervisor_wall_seconds": 121.27884006500244
   },
   "four_card_BANK24_execution_adapter_CPU_R1": {
-    "status": "BANK24_SM89_EXECUTION_ADAPTER_CPU_FROZEN_AWAITING_ACTUAL_DISPATCH",
+    "status": "EXPLICIT_PREDISPATCH_CONTROL_PYTHON38_PATH_API_FAILURE",
     "report_ref": "research/632_WC_BANK24_FRONTEND_ACCEPTED_AND_SM89_EXECUTION_ADAPTER_CPU_20261022.md",
     "recipe_ref": "manifests/wc_four_card_bank24_execution_adapter_cpu_r1_20261022.json",
     "metadata_registration_ref": "manifests/wc_four_card_bank24_execution_metadata_r1_20261022.json",
@@ -13241,6 +13261,37 @@
       "new_host_whole_card_quote",
       "actual_CUDA_compatibility",
       "single_authoritative_v2_history_and_writer_handoff"
-    ]
+    ],
+    "launch_attempt_ref": "reports/wc_four_card_BANK24_execution_adapter_CPU_R1_launch_20261022.json",
+    "failure_boundary_ref": "reports/wc_four_card_BANK24_execution_adapter_CPU_R1_predispatch_failure_boundary_20261022.json"
+  },
+  "four_card_BANK24_execution_adapter_CPU_R1_1": {
+    "status": "INDEPENDENT_R1_1_CONTROL_REPAIR_READY_NOT_DISPATCHED",
+    "report_ref": "research/632_WC_BANK24_FRONTEND_ACCEPTED_AND_SM89_EXECUTION_ADAPTER_CPU_20261022.md",
+    "recipe_ref": "manifests/wc_four_card_bank24_execution_adapter_cpu_r1_1_20261022.json",
+    "metadata_registration_ref": "manifests/wc_four_card_bank24_execution_metadata_r1_20261022.json",
+    "local_controls_ref": "reports/wc_four_card_BANK24_execution_adapter_local_controls_20261022.json",
+    "original_dependency_files": 1789,
+    "additional_original_source_metadata_files": 29,
+    "local_unit_tests": 7,
+    "in_memory_finance_controls": 21,
+    "actual_new_host_CPU_started": false,
+    "execution_adapter_CPU_accepted": false,
+    "full_new_host_scope_production_CPU_accepted": false,
+    "actual_CUDA_compatibility_accepted": false,
+    "whole_card_new_host_quote_accepted": false,
+    "GPU_dispatch_ready": false,
+    "GPU_submissions": 0,
+    "ledger_written": false,
+    "remaining": [
+      "containerized_GPU_supervisor_and_PID_FD_lock_contract",
+      "portable_post_and_terminal_collector_full24_acceptance",
+      "new_host_whole_card_quote",
+      "actual_CUDA_compatibility",
+      "single_authoritative_v2_history_and_writer_handoff"
+    ],
+    "repair_local_controls_ref": "reports/wc_four_card_BANK24_execution_adapter_CPU_R1_1_control_repair_local_checks_20261022.json",
+    "run_id": "wc-fourcard-bank24-execution-adapter-cpu-r1-1-20261022",
+    "previous_failure_boundary_ref": "reports/wc_four_card_BANK24_execution_adapter_CPU_R1_predispatch_failure_boundary_20261022.json"
   }
 }

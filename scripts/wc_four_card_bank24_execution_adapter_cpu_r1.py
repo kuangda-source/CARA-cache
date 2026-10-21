@@ -13,9 +13,10 @@ from four_card_bank24_execution_adapter_r1 import (ADAPTER_STATUS,REMAINING,WORK
 from wc_four_card_resource_cpu_r4 import ssh,write
 from wc_four_card_bank24_host_cpu_r1 import CAPTURE as HOST_CAPTURE
 
-RUN='wc-fourcard-bank24-execution-adapter-cpu-r1-20261022'
+RUN='wc-fourcard-bank24-execution-adapter-cpu-r1-1-20261022'
+VERSION='BANK24_FOUR_CARD_REAL_INPUTS_SM89_EXECUTION_ADAPTER_CPU_R1_1'
 LOCAL=Path('.sync/four-card-bank24-execution-adapter-r1-20261022')
-RECIPE=Path('manifests/wc_four_card_bank24_execution_adapter_cpu_r1_20261022.json')
+RECIPE=Path('manifests/wc_four_card_bank24_execution_adapter_cpu_r1_1_20261022.json')
 METADATA='manifests/wc_four_card_bank24_execution_metadata_r1_20261022.json'
 FRONT='reports/wc_four_card_BANK24_host_CPU_R1_'
 PAYLOADS={'worker.py':'scripts/check_wc_four_card_bank24_execution_adapter_r1.py',
@@ -41,7 +42,7 @@ def freeze():
     import sys
     sys.path.insert(0,'.venv/lib/python3.9/site-packages')
     inputs,expected=reconstruct(LOCAL/'inputs');bundle,binding=generated_bundle(LOCAL/'inputs')
-    recipe=dict(version='BANK24_FOUR_CARD_REAL_INPUTS_SM89_EXECUTION_ADAPTER_CPU_R1',
+    recipe=dict(version=VERSION,
         workspace=WORKSPACE,run_id=RUN,CPU_scope='REAL_METADATA_AND_REVERSIBLE_SM89_COMPONENTS_NOT_CONTAINER_GPU_LIFECYCLE',
         scope_counts=expected['scope_counts'],frozen_scientific_lifecycle_source=metadata['source_revision'],
         frozen_scientific_entry_source='c1c95ce0c598fb7839b0b89f4a69bd45c8aef7c9',
@@ -73,9 +74,12 @@ import base64,fcntl,gzip,hashlib,json,os,shutil,subprocess,sys,time
 from pathlib import Path
 d=json.load(sys.stdin);m=d['manifest'];root=Path(m['workspace']);job=root/'bootstrap'/m['run_id']
 sha=lambda p:hashlib.sha256(Path(p).read_bytes()).hexdigest()
+prior=root/'bootstrap'/'wc-fourcard-bank24-execution-adapter-cpu-r1-20261022'
+if prior.exists():
+ print(json.dumps(dict(status='PRIOR_STAGE_EXISTS_RESTORE_ONLY',job=str(prior),launch=json.loads((prior/'launch.json').read_text()) if (prior/'launch.json').is_file() else None)));sys.exit(0)
 if job.exists():
  print(json.dumps(dict(status='EXISTING_STAGE_RESTORE_ONLY',job=str(job),launch=json.loads((job/'launch.json').read_text()) if (job/'launch.json').is_file() else None)));sys.exit(0)
-assert job.name=='wc-fourcard-bank24-execution-adapter-cpu-r1-20261022' and job.parent.resolve()==(root/'bootstrap').resolve()
+assert job.name=='wc-fourcard-bank24-execution-adapter-cpu-r1-1-20261022' and job.parent.resolve()==(root/'bootstrap').resolve()
 free=shutil.disk_usage(root).free
 memory=int(next(x.split()[1] for x in Path('/proc/meminfo').read_text().splitlines() if x.startswith('MemAvailable:')))*1024
 assert free>=128*(1<<30) and memory>=18*(1<<30)
@@ -97,7 +101,7 @@ assert metadata['original_denominator']==1789 and len(metadata['original_payload
 closure={}
 for name,expected in metadata['original_payload_sha256'].items():
  path=previous/'closure'/name
- assert not path.is_symlink() and path.resolve().is_relative_to((previous/'closure').resolve())
+ assert not path.is_symlink() and (previous/'closure').resolve() in path.resolve().parents
  body=path.read_bytes();assert hashlib.sha256(body).hexdigest()==expected;closure[name]=body
 encoded=base64.b64decode(d['metadata_archive'])
 assert len(encoded)==m['metadata_archive_bytes'] and hashlib.sha256(encoded).hexdigest()==m['metadata_archive_sha256']
@@ -143,7 +147,7 @@ def launch(output):
     files={n:Path(p).read_bytes() for n,p in PAYLOADS.items()}
     manifest=dict(recipe,source_revision=source,recipe_ref=str(RECIPE),
         payload_sha256={n:digest(b) for n,b in files.items()},worker_sha256=digest(files['worker.py']),supervisor_sha256=digest(files['supervisor.py']))
-    write(LOCAL/'dispatch-intent.json',dict(source_revision=source,job=WORKSPACE+'/bootstrap/'+RUN,created_unix=time.time(),no_replay=True))
+    write(LOCAL/'dispatch-intent-r1-1.json',dict(source_revision=source,job=WORKSPACE+'/bootstrap/'+RUN,created_unix=time.time(),no_replay=True))
     archive=Path(metadata['metadata_archive_ref']);require(sha(archive)==recipe['metadata_archive_sha256'],'Metadata transport changed')
     result=ssh(SETUP,dict(manifest=manifest,files={n:base64.b64encode(b).decode() for n,b in files.items()},
         metadata_archive=base64.b64encode(archive.read_bytes()).decode()),timeout=180)
