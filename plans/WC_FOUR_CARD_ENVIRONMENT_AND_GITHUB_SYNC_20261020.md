@@ -1,3 +1,7 @@
+## 2026-10-21 R3一次半程技术正常，94/96 worker回执，03:51完整收件保持
+
+[627 R3](../research/627_WC_FIXED96_HYBRID_R3_SERVER_MODELSCOPE_AND_ORIGINAL_HF_RESOURCE_CONTINUATION_20261021.md)：23:51:42.637仅一次原R3半程收件，Mac PID99269/source3d2dd5e1及原worker/manifest/依赖一致，21项技术核对通过；parent仍在下载原HF Predict主权重，外盘当前587,202,560/4,118,575,006字节，VAE尚未到达。server四个Reason1分片已有全SHA worker回执（共16,584,414,544字节），原1,132,462,080字节种子prefix绑定通过，原Docker退出及资源锁释放符合该子阶段完成。当前合计94/96个worker回执/16,732,686,372字节；不是完整96独立验收。Mac累计3次有界TLS错误，已越过最后出错区间继续写入，非终态失败。半程未读最终result或全96独立哈希，0模型加载/CUDA/GPU/账本写，无重启/重派/额外SSH；半程r3已完成删除，明晨10月22日03:51的r3-96-cpu完整查收和两卡四小时02:15定义保持。本轮不查双卡、不改科学scope/上游/具体12批准/累计预算；54科研行及状态不变，正常在途静默。
+
 ## 2026-10-21 完整96资源R3已启动，23:51半程／明晨03:51全件查收
 
 [627 R3](../research/627_WC_FIXED96_HYBRID_R3_SERVER_MODELSCOPE_AND_ORIGINAL_HF_RESOURCE_CONTINUATION_20261021.md)：原R2失败已完整本地收件并独立不接受，原源码/job及1,132,462,080字节断点保留。新GitHub source3d2dd5e1的R3于19:50:46.056单次启动Mac PID99269；19:51一次准入核对原server Docker PID527857/start936852533、source/worker/manifest及全部原96，16项全过，正接收原断点。四Reason1字节相同分片改server匿名魔搭、其余原HF缺失文件只Mac外盘；完整96/21,358,871,258字节分母、原HF revision/兼容路径保持。新实现14项控制通过，资源准入不是完整资产/生产CPU/GPU通过。2CPU16GiB/隐藏GPU，0模型加载/CUDA/科学GPU/账本写；server fresh数据盘352.642GiB，旧receiver不存在。已读回r3今晚23:51技术半程、r3-96-cpu于10月22日03:51完整全SHA；旧sha接续已删，两卡四小时只读22:12定义保持。完整资产接受后依次LPIPS/完整推理CPU/实际兼容/各scope新机CPU与报价/唯一权威v2交接，才接BANK24→已登记CPU诊断→完整1624，具体12批准及cap226/origin历史不变；科研54行不变。

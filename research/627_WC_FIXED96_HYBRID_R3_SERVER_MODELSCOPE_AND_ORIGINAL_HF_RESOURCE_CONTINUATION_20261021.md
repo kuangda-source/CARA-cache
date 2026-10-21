@@ -63,3 +63,9 @@ R3先重新哈希原96已有文件，只允许原10个登记缺失；将原R2的
 公开Qwen3Guard/SigLIP全部14件已独立接受，不重下载或SSH重验。固定96资源接受之后，依次补LPIPS官方固定资产全SHA、独立完整推理CPU及离线模型可用性、真实CUDA兼容、BANK24与完整1624各自新机生产CPU/完整报价。取得原权威v2完整历史/settlement/所有活动整卡预留及唯一写入权交接之前，不在四卡新建或重置独立账本，不用旧116.825快照开科研GPU。
 
 科学顺序仍为BANK24完整24路径→已登记X-R/同D配额CPU诊断→完整1624→PG-P1及后续消融/迁移/独立确认。原source、四CAL gate、上游与全部分母保持。1624的具体整卡12GPUh批准继续有效，不重复询问；新机CPU/报价/BANK24完整接受/财务前置不绕过。cap226/origin79.99637737158223和历史保持。F/B关闭，无训练、人评、付费VLM或OMR。机器总表仍54科研行，本次仅新增资源证据。
+
+## 2026-10-21 R3一次半程技术正常，94/96 worker回执，03:51完整收件保持
+
+[627 R3](627_WC_FIXED96_HYBRID_R3_SERVER_MODELSCOPE_AND_ORIGINAL_HF_RESOURCE_CONTINUATION_20261021.md)：23:51:42.637仅一次原R3半程收件，Mac PID99269/source3d2dd5e1及原worker/manifest/依赖一致，21项技术核对通过；parent仍在下载原HF Predict主权重，外盘当前587,202,560/4,118,575,006字节，VAE尚未到达。server四个Reason1分片已有全SHA worker回执（共16,584,414,544字节），原1,132,462,080字节种子prefix绑定通过，原Docker退出及资源锁释放符合该子阶段完成。当前合计94/96个worker回执/16,732,686,372字节；不是完整96独立验收。Mac累计3次有界TLS错误，已越过最后出错区间继续写入，非终态失败。半程未读最终result或全96独立哈希，0模型加载/CUDA/GPU/账本写，无重启/重派/额外SSH；半程r3已完成删除，明晨10月22日03:51的r3-96-cpu完整查收和两卡四小时02:15定义保持。本轮不查双卡、不改科学scope/上游/具体12批准/累计预算；54科研行及状态不变，正常在途静默。
+
+原件：[一次半程](../reports/wc_four_card_models_hybrid_R3_midpoint_20261021.json) / [21项技术边界](../reports/wc_four_card_models_hybrid_R3_midpoint_independent_technical_boundary_20261021.json) / [完成删除与两定义保持](../reports/wc_four_card_models_hybrid_R3_midpoint_completed_handoff_20261021.json)。
