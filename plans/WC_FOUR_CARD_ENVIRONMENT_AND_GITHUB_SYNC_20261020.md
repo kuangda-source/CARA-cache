@@ -1,3 +1,7 @@
+## 2026-10-21 公开R2收件未知，17:25一次原句柄恢复
+
+[623公开资源接续](../research/623_WC_PUBLIC_ASSET_R1_TIMEOUT_AND_MISSING_ONLY_R2_RESUME_20261021.md)：16:23唯一终态收件在55秒内未返回JSON而超时，未取得原result/当前进程退出/全14哈希，状态保留UNKNOWN，不接受或重派。原件已保存，原worker/cache/两任务入口保持；只新建本地180秒有界收件器（不改原验收），automation-2已读回重约17:25一次恢复并使用新文件，sha21:11已补此接续。原96件17:11/21:11和两卡4小时17:48时点保持；没有第二次SSH、模型加载、科研CPU/GPU或账本写。 [回执与排程](../reports/wc_four_card_public_model_assets_resume_R2_terminal_unknown_boundary_20261021.json)。
+
 ## 2026-10-21 GitHub 仓库更名为 CARA-cache
 
 GitHub 已按用户要求更名为 [kuangda-source/CARA-cache](https://github.com/kuangda-source/CARA-cache)，同一 repository ID 1394607313、私有可见性和 main 历史保留；本地 origin、四卡源码镜像 origin 与后续同步工具地址已更新，新地址已读回原 main 提交。当前本地目录 `worldcache_omr`、历史回执、已冻结 source/stage 和在途 worker 保持；原模型查收与两卡每4小时检查定义未改，实验顺序与预算继续依原接续。 [改名核对回执](../reports/wc_GitHub_repository_rename_CARA_cache_20261021.json)。

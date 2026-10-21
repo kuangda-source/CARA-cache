@@ -1,3 +1,7 @@
+## 2026-10-21 公开R2收件未知，17:25一次原句柄恢复
+
+[623公开资源接续](623_WC_PUBLIC_ASSET_R1_TIMEOUT_AND_MISSING_ONLY_R2_RESUME_20261021.md)：16:23唯一终态收件在55秒内未返回JSON而超时，未取得原result/当前进程退出/全14哈希，状态保留UNKNOWN，不接受或重派。原件已保存，原worker/cache/两任务入口保持；只新建本地180秒有界收件器（不改原验收），automation-2已读回重约17:25一次恢复并使用新文件，sha21:11已补此接续。原96件17:11/21:11和两卡4小时17:48时点保持；没有第二次SSH、模型加载、科研CPU/GPU或账本写。 [回执与排程](../reports/wc_four_card_public_model_assets_resume_R2_terminal_unknown_boundary_20261021.json)。
+
 ## 2026-10-21 SigLIP独立R2半程健康，16:23完整验收保持
 
 [623半程原件](623_WC_PUBLIC_ASSET_R1_TIMEOUT_AND_MISSING_ONLY_R2_RESUME_20261021.md)：原R2在14:53:07.942一次半程核对中PID/start/source及全部job文件SHA一致；13件已验文件已复用，仅请求注册SigLIP权重，技术字节4.217/5.034GB，无错误、尚无result。仅技术健康，不提前完整接受；半程siglip已完成删除，原automation-2的16:23全14收件、96件外盘中转17:11/21:11、两卡每4小时17:48只读检查均保持。0重启/重派、0模型加载/GPU/账本写，正常无可行动变化静默。

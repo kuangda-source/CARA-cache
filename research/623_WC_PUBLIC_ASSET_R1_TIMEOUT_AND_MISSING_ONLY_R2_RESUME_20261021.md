@@ -44,3 +44,11 @@ R2于**14:21:31.718**实际单次启动，原PID**397742/start934875508**，job 
 实际2026-10-21T14:53:07.942109+08:00仅一次捕获原R2半程。原PID397742/start934875508仍活，source/worker/manifest/job文件SHA全部一致；现存13件已完整核对复用，网络仅请求注册SigLIP权重，技术字节4,217,222,228/5,034,332,532，无错误、无最终result。只接受技术健康，不读最终结果或完整模型接受；16:23原全件验收保持。半程siglip已完成删除，其他17:11/21:11资源检查、两卡4小时17:48只读检查均实际读回保持；0重派/模型加载/GPU/账本写。
 
 [原半程回执](../reports/wc_four_card_public_model_assets_resume_R2_midpoint_20261021.json)与[独立技术边界/排程保持](../reports/wc_four_card_public_model_assets_resume_R2_midpoint_technical_boundary_20261021.json)。
+
+## 16:23一次终态收件未返回，17:25恢复原句柄
+
+原16:23公开R2终态收件只执行一次，collector在55秒内未返回JSON后 `TimeoutExpired`；没有原result、当前原PID/容器终态或14文件全哈希观察，因此不运行accept、不将未知认作资源失败或完成。已保存本次UNKNOWN原件与独立边界；本机85709 SSH master、63606 FRPC进程及原control socket存在，仅核对本地身份，0重启/第二次SSH/重派。原worker/source/manifest/cache保持。
+
+`automation-2`已实际改约 **17:25** 一次恢复，采用独立本地收件器将单次传输/全件收件上限由55改180秒并保存超时或JSON解析UNKNOWN，验收条件不变；17:25为恢复检查时点，不是worker预计结束时间。新原件使用 `terminal_recovery_20261021_1725.json`，不覆盖16:23回执。`sha`的21:11接续已补本次未知及新文件；原96件17:11技术半程/21:11全SHA与两卡每4小时17:48只读检查保持，不代收其任务、不开新GPU。只有原result、进程/容器退出和全部14原件/复用范围满足后才接受公开两模型文件；完整Cosmos/新机scope CPU/GPU准入仍待。
+
+[本次UNKNOWN原件](../reports/wc_four_card_public_model_assets_resume_R2_terminal_20261021.json)、[本地边界与实际排程读回](../reports/wc_four_card_public_model_assets_resume_R2_terminal_unknown_boundary_20261021.json)。
