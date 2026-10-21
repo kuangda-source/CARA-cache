@@ -1,3 +1,8 @@
+## 2026-10-22 06:03半程：BANK24新机前端CPU技术完成，06:13独立验收保持
+
+[631技术原件与接续](631_WC_OFFLINE_RESOURCES_ACCEPTED_AND_BANK24_FOUR_CARD_HOST_CPU_BOUNDARY_20261022.md)：06:02槽实际06:03:26.329876仅一次原句柄半程收件，原PID/start/source907d20cb／全部9payload／manifest一致，supervisor和本人容器已退出。health报告05:59:40.254结束、wall120.488秒，新探针退出0／精确marker通过，六真实请求、24保护入口及12范围变更拒绝已有worker记录，1789／1772件依赖、进程身份／缓存、env／runtime保持。完整费用清单保留8项新机待测价格，forecast／上限仍null；旧机规划不当Ada实测。半程未读最终result／日志／终态独立哈希或accept，不提前接受新机前端，更不充整个科研scope生产CPU／CUDA／报价／GPU-ready。bank24-cpu半程完成删除，bank24-cpu-2仍06:13完整收件，两卡06:16四小时只读不动；0新派发／下载／模型加载／CUDA／科研GPU／账本写，54科研行及cap226历史保持。
+
+
 ## 2026-10-22 离线资源CPU已接受，BANK24新机边界CPU05:57单次启动
 
 [631原件与接续](631_WC_OFFLINE_RESOURCES_ACCEPTED_AND_BANK24_FOUR_CARD_HOST_CPU_BOUNDARY_20261022.md)：R4.3完整离线推理／LPIPS资源CPU30项独立接受，原失败与env／runtime保持；完整96／公开14复用。GitHub source907d20cb发布后，BANK24新机依赖／生产前端CPU于05:57:39.015248单次启动PID623317/start940492237，原2bd41dc8／c1c95ce0的1789／1772件闭包全部恢复并保留原SHA。20项实际准入核对通过，原进程／只读容器活、隐藏GPU，getpass／五缓存与env保持；worker已核对完整依赖，正在六请求及24位置保护入口验证。已读回bank24-cpu于06:02一次半程、bank24-cpu-2于06:13完整验收；已完成r4-3-cpu-2删除，两卡06:16四小时只读保持。新机前端CPU尚未接受，完整科研scope CPU／SM89及GPU生命周期／实测报价／CUDA／唯一预算仍各自待，GPU-ready为false，0科研GPU／账本新增。54科研行、BANK24→完整1624、具体12批准与cap226历史保持。
