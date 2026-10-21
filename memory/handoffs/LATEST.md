@@ -1,3 +1,7 @@
+## 2026-10-21 用户要求立即修复，独立模型续传R2已实际恢复
+
+[625即时修复](../../research/625_WC_AUTHORIZED_MODEL_RELAY_IMMEDIATE_REPAIR_AND_MISSING_ONLY_R2_20261021.md)：用户“现在就开始修复”取代等待旧21:11才定位的安排，原R1失败已本地完整收件并离线不接受，原源/job/partial留存。新source7f79ceef通过11项实现控制并已GitHub发布，17:42:17.428单次启动外盘R2 PID94749；一次准入验原source/worker/legacy/manifest及句柄一致、复用全部86件，只请求注册10缺失，复制核对原385,875,968字节种子并已越过断点8MiB。4MiB/8次有界重试与脱敏错误已生效，模型只外盘、凭据只Mac。按首批分块观察将资源规划改14小时，原24小时wall不改：已实际约10月22日00:43一次技术半程（r2）、07:43一次全SHA（sha）；原8小时启动规划保留为历史，不当完成保证。公开R2原句柄恢复与两卡4小时只读保持；未称完整资源/生产CPU/GPU就绪，0CUDA/模型加载/科研GPU/账本写。 [实际新launch](../../reports/wc_four_card_authorized_external_models_resume_R2_launch_20261021.json) / [准入与实际排程](../../reports/wc_four_card_authorized_external_models_resume_R2_actual_schedules_20261021.json)。
+
 ## 2026-10-21 外盘96件中转技术失败留存，21:11完整查收保持
 
 [621本次技术半程](../../research/621_WC_FOUR_CARD_RESOURCE_COMPLETION_FIXED_PUBLIC_ASSETS_AND_AUTHORIZED_MODEL_GATE_20261021.md)：17:12仅一次本地捕获确认原外盘PID87082已退出，原source79c9d171/worker/manifest及完整96分母一致；health记录13:43:47.627下载Reason1首分片时RuntimeError退出，保留385,875,968字节partial。86个注册worker远端SHA通过回执仅合计141,176,513字节，不能当主要权重已齐或完整资源接受。半程不读result内容/最终远端资产、不accept、不SSH/重启/重派/清partial。原21:11完整收件保持，sha已补失败定位和独立缺失续传接续；本半程自动化已完成删除。公开R2的17:25恢复、两卡4小时17:48只读检查保持，0模型加载/科研GPU/账本写。 [原件与独立技术边界](../../reports/wc_four_card_authorized_external_models_R1_midpoint_technical_failure_boundary_20261021.json)。

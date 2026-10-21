@@ -1,3 +1,7 @@
+## 2026-10-21 用户要求立即修复，独立模型续传R2已实际恢复
+
+[625即时修复](625_WC_AUTHORIZED_MODEL_RELAY_IMMEDIATE_REPAIR_AND_MISSING_ONLY_R2_20261021.md)：用户“现在就开始修复”取代等待旧21:11才定位的安排，原R1失败已本地完整收件并离线不接受，原源/job/partial留存。新source7f79ceef通过11项实现控制并已GitHub发布，17:42:17.428单次启动外盘R2 PID94749；一次准入验原source/worker/legacy/manifest及句柄一致、复用全部86件，只请求注册10缺失，复制核对原385,875,968字节种子并已越过断点8MiB。4MiB/8次有界重试与脱敏错误已生效，模型只外盘、凭据只Mac。按首批分块观察将资源规划改14小时，原24小时wall不改：已实际约10月22日00:43一次技术半程（r2）、07:43一次全SHA（sha）；原8小时启动规划保留为历史，不当完成保证。公开R2原句柄恢复与两卡4小时只读保持；未称完整资源/生产CPU/GPU就绪，0CUDA/模型加载/科研GPU/账本写。 [实际新launch](../reports/wc_four_card_authorized_external_models_resume_R2_launch_20261021.json) / [准入与实际排程](../reports/wc_four_card_authorized_external_models_resume_R2_actual_schedules_20261021.json)。
+
 ## 2026-10-21 外盘96件中转技术失败留存，21:11完整查收保持
 
 17:11计划半程实际于 **17:12:00.731** 仅一次本地捕获原外盘中转。source79c9d171、worker SHA d3556447、manifest SHA f59d04a1、原完整96文件/21,358,871,258字节身份全部一致，外盘仍挂载；原PID87082已不活，health技术终态为 `AUTHORIZED_MODEL_RELAY_FAILURE_RETAINED`。health记录 **13:43:47.627** 结束、wall2001.328秒，停在 `nvidia/Cosmos-Reason1-7B/model-00001-of-00004.safetensors` 的download-to-external-volume阶段，`RuntimeError`，技术partial385,875,968/4,968,243,304字节保留。

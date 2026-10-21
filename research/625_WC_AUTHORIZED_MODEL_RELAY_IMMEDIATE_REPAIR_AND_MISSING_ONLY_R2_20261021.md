@@ -18,3 +18,13 @@
 - [原失败独立不接受及scope纠正](../reports/wc_four_card_authorized_external_models_R1_human_immediate_repair_independent_nonacceptance_20261021.json)
 - [独立R2配方](../manifests/wc_four_card_frozen_model_relay_resume_r2_20261021.json)
 - [独立R2实现](../scripts/relay_wc_four_card_frozen_models_resume_r2.py)
+
+## 实际新R2启动、准入和排程
+
+新source **7f79ceef2e382f12814816ba6ec4955df52a1bad** 已推送CARA-cache；实际 **17:42:17.428** 单次启动，PID **94749**，新job `/Volumes/data/worldcache_resource_relay_20261021/nvidia-fixed-models-resume-r2`。worker SHA `9e1529de5ee89bc1326e73d05888dc667f88ec9bbd826dc60c16954b190b0826`、manifest SHA `63a98f351e53ab7e0d5c64baac5551363119a3fe85b7a4eba0daf4539f7694ce`、原receiver/helper SHA `d3556447a46934ab26fd1db7811faad4b37112b7934416b98b2cc54542a64950` 均已按一次实际准入核对。完整原86件复用，当前只请求登记缺失；新种子与旧385,875,968字节partial完整SHA一致，准入已观察推进8,388,608字节，证明恢复了实际下载，不是仅提交计划。新执行器在Mac，精确执行源码已GitHub发布；服务器字节接收器仍用原已验不变代码，未修改原c9/e8/88科学或资源stage。
+
+首批4MiB块全wall8.229秒/响应头3.821秒，只有单块观察，不能当稳定带宽。按剩余下载、上传与哈希余量将初始8小时规划保守改14小时，原启动回执不重写、原24小时资源上限不变。已实际读回 **2026-10-22 00:43** 技术半程（r2）和 **07:43** 全件查收（sha）；旧R1的21:11收件由本次直接立即修复授权取代，不再另查原失败任务。若届时仍运行只依据保存快照重估一次，不循环。公开SigLIP原自动化和两卡每4小时只读保持。
+
+- [新实际launch](../reports/wc_four_card_authorized_external_models_resume_R2_launch_20261021.json)
+- [一次实际准入](../reports/wc_four_card_authorized_external_models_resume_R2_admission_20261021.json) / [独立技术准入](../reports/wc_four_card_authorized_external_models_resume_R2_independent_admission_20261021.json)
+- [资源规划修正](../reports/wc_four_card_authorized_external_models_resume_R2_collection_plan_20261021.json) / [实际排程读回](../reports/wc_four_card_authorized_external_models_resume_R2_actual_schedules_20261021.json)

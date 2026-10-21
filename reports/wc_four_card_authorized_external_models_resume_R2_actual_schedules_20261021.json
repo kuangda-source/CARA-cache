@@ -1,0 +1,58 @@
+{
+  "status": "R2_SINGLE_RESUME_ADMITTED_AND_TWO_ONCE_CHECKS_ACTUALLY_SCHEDULED",
+  "launch_ref": "reports/wc_four_card_authorized_external_models_resume_R2_launch_20261021.json",
+  "launch_sha256": "0d2ee9eabaeb46d39b69cd87f72169c7a3ce3544c762fbc1efe062d8a27793a3",
+  "admission_ref": "reports/wc_four_card_authorized_external_models_resume_R2_admission_20261021.json",
+  "admission_acceptance_ref": "reports/wc_four_card_authorized_external_models_resume_R2_independent_admission_20261021.json",
+  "collection_plan_ref": "reports/wc_four_card_authorized_external_models_resume_R2_collection_plan_20261021.json",
+  "actual_app_readback": [
+    {
+      "id": "r2",
+      "name": "四卡模型续传R2技术半程",
+      "status": "ACTIVE",
+      "rrule": "RRULE:FREQ=DAILY;COUNT=1;BYHOUR=0;BYMINUTE=43;BYSECOND=0",
+      "target_thread_id": "01a0f1eb-7894-7ed0-a186-d010111e14b1",
+      "prompt_sha256": "3b1598ef0505ff81a257d5bc0e7a7bd4901e7da778912329f8520135750d8e90"
+    },
+    {
+      "id": "sha",
+      "name": "四卡模型续传R2全SHA与资源接续",
+      "status": "ACTIVE",
+      "rrule": "RRULE:FREQ=DAILY;COUNT=1;BYHOUR=7;BYMINUTE=43;BYSECOND=0",
+      "target_thread_id": "01a0f1eb-7894-7ed0-a186-d010111e14b1",
+      "prompt_sha256": "81a8bd90ff79b540a88e196fe96d08222fb43784e28189a1985b1cdeacb7a05b"
+    },
+    {
+      "id": "automation-2",
+      "name": "四卡公开模型续传完整验收",
+      "status": "ACTIVE",
+      "rrule": "RRULE:FREQ=DAILY;COUNT=1;BYHOUR=17;BYMINUTE=25;BYSECOND=0",
+      "target_thread_id": "01a0f1eb-7894-7ed0-a186-d010111e14b1",
+      "prompt_sha256": "fb7b2c7b8d9054a4c5db0c608efd1474d9759322e8c4037b8f0e3cf4a5189ee6"
+    },
+    {
+      "id": "worldcache-bank24",
+      "name": "WorldCache 两卡状态每4小时",
+      "status": "ACTIVE",
+      "rrule": "RRULE:FREQ=DAILY;COUNT=1;BYHOUR=17;BYMINUTE=48;BYSECOND=0",
+      "target_thread_id": "01a0f1eb-7894-7ed0-a186-d010111e14b1",
+      "prompt_sha256": "8817133a17611e39056c229f1170995cbdc0cefc291f098f9f5b91224edc7d3d"
+    }
+  ],
+  "halfway_automation_id": "r2",
+  "halfway_scheduled_local": "2026-10-22T00:43:00+08:00",
+  "final_automation_id": "sha",
+  "final_scheduled_local": "2026-10-22T07:43:00+08:00",
+  "human_requested_immediate_repair_supersedes_old_R1_final_wait": true,
+  "old_R1_original_job_source_and_result_preserved": true,
+  "old_R1_2111_collector_replaced_by_R2_actual_ETA": true,
+  "new_helper_ref": ".sync/four-card-bootstrap-transfer-20261020/capture_authorized_external_models_resume_r2_20261021.py",
+  "new_helper_sha256": "5d8a4a04fb9fc13c7c7980e0ab69be26d8f3e646881815a4339223482eca3c1b",
+  "new_launcher_ref": ".sync/four-card-bootstrap-transfer-20261020/launch_authorized_external_models_resume_r2_20261021.py",
+  "new_launcher_sha256": "54c49cedbc59d4dc158ff36903b99de45916dea716a721128074179881b36ae6",
+  "public_auxiliary_recovery_and_two_card_readonly_checks_preserved": true,
+  "GPU_submissions": 0,
+  "ledger_written": false,
+  "whole_resources_accepted": false,
+  "GPU_dispatch_ready": false
+}
