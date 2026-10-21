@@ -1,3 +1,7 @@
+## 2026-10-21 12:37资源槽延后13:26仍连接未知，下一15:27
+
+[608资源接续](research/608_WC_STORAGE_FULLY_ACCEPTED_BANK24_READY_BUT_GPU_BUSY_20261019.md)：原双卡12:37槽延后送达，实际仅于13:26:06.991610尝试一次资源SSH，认证前reset（exit255），没有当前GPU/显存/compute/UUID锁/v2/原句柄观察；不回填12:37或中间观察，最后成功仍10月20日16:05，不能据连接失败判断空闲、未派发或终态。本人FRPC63302的私有argv身份和33620监听仍一致，存储marker完整接受；无重启、追加CPU/其他SSH，0新CPU/GPU/账本写。原件与UNKNOWN边界保留，worldcache-bank24已读回改约15:27一次（最早15:26:06.991610，unix1792567566.99161）；本槽不重查、无可行动变化静默。原BANK24/source/CPU/gate和完整1624具体12批准/实际CPU/上游保持。四卡按621已实际公开模型下载及96件外盘中转，HF只读授权已通、token只Mac，14:08/17:11/21:11三原检查不改，本轮不查四卡或停其资源准备。
+
 ## 2026-10-21 13:10 四卡96模型文件已从外盘单次中转；17:11半程/21:11全SHA
 
 [621实际资源任务](research/621_WC_FOUR_CARD_RESOURCE_COMPLETION_FIXED_PUBLIC_ASSETS_AND_AUTHORIZED_MODEL_GATE_20261021.md)：GitHub source79c9d171的96文件/19.892GiB中转已实际启动PID87082，job /Volumes/data/worldcache_resource_relay_20261021/nvidia-fixed-models-r1；原PID/lstart/脚本/manifest一致，首个Mac launcher命令展开的误判只离线修捕获器，原件保留、0重启。新只读HF认证已通，token只Mac0600，不传服务器/Git；模型只外盘/Volumes/data，每件远端全SHA后删副本。新79源码delta服务器SHA/新项目HEAD已验，31,538字节外盘包已删，旧c9/e8不动。实际app安排wc4-model-relay-midpoint为17:11技术半程、sha为21:11完整验收与资源CPU接续；公开14文件原13:08收件仍跑/1.284GB技术字节，automation-3仅改约14:08新文件，不接受或重派。完整模型/环境/新机scope CPU/GPU兼容/共同v2仍未全接受，科学GPU0；原BANK24→1624、具体12批准/预算历史/两卡监控保持。
