@@ -55,12 +55,13 @@ if job.exists():
  sys.exit(0)
 assert root.is_dir() and (root/'bootstrap').is_dir()
 assert job.parent.resolve()==(root/'bootstrap').resolve()
+assert not Path(m['previous_preflight_only_stage']).exists(),'Original R4 stage must be explicitly absent before the new version'
 free=shutil.disk_usage(root).free
 memory=int(next(x.split()[1] for x in Path('/proc/meminfo').read_text().splitlines() if x.startswith('MemAvailable:')))*1024
 assert free>=128*(1<<30) and memory>=18*(1<<30)
 previous=Path(m['previous_validation_job']);assert sha(previous/'result.json')==m['previous_result_sha256']
 assert sha(previous/'manifest.json')==m['previous_manifest_sha256']
-old_resource=Path(m['accepted_model_server_job']);assert json.loads((old_resource/'result.json').read_text())['status']=='FOUR_FIXED_REASON_SHARDS_FULL_HASH_PASS'
+old_resource=Path(m['accepted_model_server_job']);assert json.loads((old_resource/m['accepted_model_server_result_filename']).read_text())['status']=='FOUR_FIXED_REASON_SHARDS_FULL_HASH_PASS'
 old_docker=subprocess.run(['docker','inspect',m['accepted_model_server_container'],'--format','{{.State.Running}}'],capture_output=True,text=True,timeout=20)
 assert old_docker.returncode!=0 or old_docker.stdout.strip()=='false'
 image=subprocess.run(['docker','image','inspect',m['container_image_id'],'--format','{{.Id}}'],capture_output=True,text=True,timeout=20)
@@ -83,7 +84,7 @@ launch=dict(status='OFFLINE_RESOURCE_CPU_R4_SINGLE_DISPATCHED',started_unix=star
  worker_sha256=m['worker_sha256'],supervisor_sha256=m['supervisor_sha256'],
  halfway_not_before_unix=started+m['halfway_after_start_seconds'],final_not_before_unix=started+m['terminal_after_start_seconds'],
  maximum_wall_seconds=m['maximum_wall_seconds'],planning_seconds=m['planning_seconds'],
- preflight=dict(data_disk_free_bytes=free,MemAvailable_bytes=memory,accepted_R3_server_container_exited=True,cached_container_image_id=image.stdout.strip()),
+ preflight=dict(data_disk_free_bytes=free,MemAvailable_bytes=memory,accepted_R3_server_container_exited=True,cached_container_image_id=image.stdout.strip(),original_R4_preflight_only_stage_absent=True),
  GPU_submissions=0,ledger_written=False,CUDA_initialized=False,Cosmos_weights_loaded=0,
  new_host_production_CPU_accepted=False,GPU_dispatch_ready=False)
 (job/'launch.json').write_text(json.dumps(launch,indent=2)+'\n');print(json.dumps(launch))
@@ -155,7 +156,7 @@ def launch(out):
         resource_support_sha256=sha(PAYLOADS['resource_support.py']),repair_support_sha256=sha(PAYLOADS['repair_support.py']),
         model_assets_acceptance_sha256=sha(refs['upstream-assets-acceptance.json']),public14_acceptance_sha256=sha(refs['upstream-public14-acceptance.json']),
         fixed96_manifest_sha256=sha(refs['frozen96.json']),availability_assets=availability,recipe_sha256=sha(RECIPE))
-    intent=Path('.sync/four-card-bootstrap-transfer-20261020/resource-cpu-r4-dispatch-intent.json')
+    intent=Path('.sync/four-card-bootstrap-transfer-20261020')/(recipe['run_id']+'-dispatch-intent.json')
     write(intent,dict(source_revision=source,job=ROOT+'/bootstrap/'+recipe['run_id'],created_unix=time.time(),output=str(out)))
     value=ssh(SETUP,dict(manifest=m,files={n:base64.b64encode(b).decode() for n,b in files.items()},file_sha256={n:hashlib.sha256(b).hexdigest() for n,b in files.items()}))
     value['local_source_revision']=source
