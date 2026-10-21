@@ -1,0 +1,47 @@
+{
+  "status": "BANK24_CONTAINER_CPU_HALFWAY_COMPLETED_ORIGINAL_FINAL_UNCHANGED",
+  "capture_ref": "reports/wc_four_card_BANK24_container_lifecycle_CPU_R1_midpoint_20261022.json",
+  "technical_boundary_ref": "reports/wc_four_card_BANK24_container_lifecycle_CPU_R1_midpoint_technical_boundary_20261022.json",
+  "observed_unix": 1792625213.919197,
+  "observed_local": "2026-10-22T07:26:53.919197+08:00",
+  "planned_halfway_local": "2026-10-22T07:20:00+08:00",
+  "schedule_time_not_backfilled": true,
+  "halfway_deleted": true,
+  "deleted_automation_id": "bank24-fd-cpu",
+  "app_deletion_ack": {
+    "automationId": "bank24-fd-cpu",
+    "mode": "delete",
+    "deleteStatus": "deleted",
+    "snapshot": {
+      "kind": "heartbeat",
+      "name": "BANK24 FD容器CPU半程",
+      "rrule": "RRULE:FREQ=DAILY;COUNT=1;BYHOUR=7;BYMINUTE=20;BYSECOND=0"
+    }
+  },
+  "terminal_automation": {
+    "id": "bank24-fd-cpu-2",
+    "kind": "heartbeat",
+    "name": "BANK24 FD容器CPU终态与派发工具接续",
+    "status": "ACTIVE",
+    "rrule": "RRULE:FREQ=DAILY;COUNT=1;BYHOUR=7;BYMINUTE=25;BYSECOND=0"
+  },
+  "terminal_automation_config_sha256": "4ce77db960702a7a601b045035846343fc211e86f280212a0a7eba24dbd4c04d",
+  "terminal_not_before_unix": 1792625041.510432,
+  "terminal_rescheduled": false,
+  "terminal_collected_by_halfway": false,
+  "two_card_monitor_automation": {
+    "id": "worldcache-bank24",
+    "kind": "heartbeat",
+    "name": "WorldCache 两卡状态每4小时",
+    "status": "ACTIVE",
+    "rrule": "RRULE:FREQ=DAILY;COUNT=1;BYHOUR=6;BYMINUTE=16;BYSECOND=0"
+  },
+  "two_card_monitor_config_sha256": "01b793faf865a13fa72740a41e1d7c22107647c89568f50c1f5dbd03d308077a",
+  "two_card_monitor_changed": false,
+  "no_extra_SSH": true,
+  "GPU_submissions": 0,
+  "ledger_written": false,
+  "container_lifecycle_CPU_accepted": false,
+  "full_new_host_scope_production_CPU_accepted": false,
+  "GPU_dispatch_ready": false
+}

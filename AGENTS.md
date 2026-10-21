@@ -1,3 +1,7 @@
+## 2026-10-22 07:26跨容器CPU半程技术状态保持，独立终态待收
+
+[633技术原件与接续](research/633_WC_SM89_COMPONENTS_ACCEPTED_AND_REAL_CROSS_CONTAINER_BANK24_LIFECYCLE_CPU_20261022.md)：07:20半程槽延后，实际07:26:53.919197仅一次原句柄技术收件，20项身份／技术边界核对通过；原source687ef2b8／12payload／manifest一致，health仍报告CPU25.092秒PASS，原supervisor和本人容器退出。真实FD／Docker peer核对、正常／失败／超时全24保留、post失败路径全24未到达和0评分保持；未读最终result／日志／独立终态哈希或运行accept。本半程自动化已删除，原bank24-fd-cpu-2的07:25独立终态安排／句柄保持，不回填计划时点观察。完整新机scope CPU／CUDA／实测价格／唯一v2交接及GPU-ready仍未通过；0新派发／模型下载／CUDA／科研GPU／权威账本写，两卡四小时只读、BANK24→既定CPU诊断→完整1624／具体12批准、cap226历史和54科研行状态不变。
+
 ## 2026-10-22 跨容器生命周期CPU07:17实际启动，07:25独立验收
 
 [633实际原件与接续](research/633_WC_SM89_COMPONENTS_ACCEPTED_AND_REAL_CROSS_CONTAINER_BANK24_LIFECYCLE_CPU_20261022.md)：SM89组件CPU R1.1已20项独立接受；source687ef2b8的新跨容器CPU于07:17:01.510432单次启动PID629593/start940968487，复用原1789＋29、模型／资源／前端和数值证明。一次admission20项身份／技术边界通过，health报告25.092秒CPU PASS，真实socket peer＝Docker PID、namespace与flock FD继承核对通过，正常／第三项失败／超时都保留全24；原post真实失败路径全24未到达、0评分，无神经输出或伪质量。独立终态尚未接受，已读回bank24-fd-cpu于07:20技术半程、bank24-fd-cpu-2于07:25终态；原组件终态自动化原因完成后删除，过期半程不回填。Docker nvidia runtime同次SETUP已观察注册，不充实际CUDA；完整GPU派发CLI／post watcher／科学collector绑定和完整scope CPU仍待。整卡保守规划6.974166667／上限8.75<12是估价，实际新机价null、0GPU／0实际预留／0权威账本；唯一完整v2交接仍缺，GPU-ready=false。旧机报价／旧余额不作fresh。按服务器全SHA后清理本人Mac重复代码副本46,023,934字节，源归档／Git／原件／模型和凭据保留。两卡每4小时只读不改，本任务未追加其SSH；BANK24完整原件／实费后既定CPU诊断再完整1624／具体12批准、cap226／origin历史和54科研行状态保持。

@@ -66,3 +66,15 @@ SETUP 只在同一次 CPU 部署中读取 Docker runtime 名称，记录是否�
 原 `bank24-sm89-cpu-r1-1-2` 的完整组件接受原因已完成，新真实检查安排并读回后已删除。原半程过期删除，不回填观察；两卡四小时只读自动化保持。
 
 按本机存储约束，在原 1,789＋29 全件已独立 SHA 接受且服务器复用后，清理本任务本机重复的代码输入／生成副本 **46,023,934 字节**，两个 SHA 源归档、Git 和所有原件保留；不触碰任何模型／凭据／原失败外盘 prefix。见 [清理回执](../reports/wc_four_card_BANK24_container_lifecycle_CPU_R1_local_redundant_code_copy_cleanup_20261022.json)。
+
+## 07:20半程槽延后，实际07:26一次技术收件
+
+实际 **2026-10-22 07:26:53.919197**／unix `1792625213.919197`，只执行一次原 R1 句柄的 `capture --kind halfway`。原 source、12 件 payload、manifest、host PID／start 和 Docker peer／FD 记录一致；20 项技术边界核对通过，health 仍报告原 CPU 25.091993 秒 PASS，原 supervisor 和本人容器退出。三个场景全 24 分母、21／24 未到达保留、原 post 失败路径全 24 未到达／0 评分和 env／runtime 保持。
+
+本次未读取最终 result、日志、终态独立哈希或运行 `accept`，因此跨容器 CPU 的独立接受仍待原 `bank24-fd-cpu-2` 终态收件；其 **07:25** 原计划／最早时点与句柄保持，不在半程任务中代收或回填观察。本次半程原因完成，已删除 `bank24-fd-cpu`。
+
+- [一次半程原件](../reports/wc_four_card_BANK24_container_lifecycle_CPU_R1_midpoint_20261022.json)。
+- [20 项技术边界](../reports/wc_four_card_BANK24_container_lifecycle_CPU_R1_midpoint_technical_boundary_20261022.json)。
+- [半程删除与原终态保持回执](../reports/wc_four_card_BANK24_container_lifecycle_CPU_R1_midpoint_completed_final_handoff_20261022.json)。
+
+完整新机 scope CPU／实际 CUDA／Ada 实测价格／唯一权威 v2 交接和 GPU-ready 仍未通过；本次无新派发、下载、模型加载、CUDA、科研 GPU 或权威账本写。两卡每四小时只读、原 BANK24→既定 CPU 诊断→完整 1624／具体 12 批准、cap226 历史及 54 科研行状态保持。
