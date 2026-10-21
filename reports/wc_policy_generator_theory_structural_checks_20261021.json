@@ -1,0 +1,185 @@
+{
+  "schema_version": 1,
+  "status": "SYNTHETIC_THEORY_CHECKS_AND_SOURCE_AUDIT_NOT_MODEL_EVIDENCE",
+  "checks": [
+    {
+      "id": "QUADRATIC_CONDITIONAL_IDENTITY",
+      "verified": true,
+      "exact_rational_example": [
+        {
+          "alpha": 0.0,
+          "MSE": 0.5
+        },
+        {
+          "alpha": 0.5,
+          "MSE": 0.0
+        },
+        {
+          "alpha": 1.0,
+          "MSE": 0.5
+        }
+      ],
+      "continuous_optimum": 0.5,
+      "requires_same_state_history_and_output_linear_fusion": true,
+      "does_not_establish_endpoint_or_global_optimality": true
+    },
+    {
+      "id": "CONSERVATIVE_COST_ROUNDING_HAS_COVERAGE_LOSS",
+      "verified": true,
+      "synthetic_unrounded_seconds": 36.36,
+      "coarse_quantum": 0.25,
+      "coarse_charged_predicted_seconds": 45.0,
+      "coarse_no_proposal": true,
+      "fine_quantum": 0.01,
+      "fine_proposal_exists": true,
+      "all_36_step_rounding_padding_upper_bound_seconds": 9.0,
+      "claim": "Ceiling bounds predicted costs, not actual latency"
+    },
+    {
+      "id": "ADDITIVE_LOCAL_MSE_CAN_REVERSE_ENDPOINT_RANKING",
+      "verified": true,
+      "one_dimensional_additive_sampler_example": {
+        "P": {
+          "local_sum_squares": 2.0,
+          "final_state_error_squared": 0.0
+        },
+        "Q": {
+          "local_sum_squares": 0.72,
+          "final_state_error_squared": 1.44
+        }
+      },
+      "observation": "Cross-step directions alone reverse ranking even without off-policy state drift"
+    },
+    {
+      "id": "LATEST_BOUNDARY_IS_NOT_SUFFICIENT_FOR_TWO_ANCHOR_READOUT",
+      "verified": true,
+      "hypothetical_extrapolator": "r_s+(t-s)/(s-p)*(r_s-r_p), with r_j=j^2",
+      "latest_source": 4,
+      "target": 5,
+      "prediction_older3": 23,
+      "prediction_older1": 21,
+      "not_claimed_to_be_actual_WC_operator": true
+    },
+    {
+      "id": "JOINT_DOMAIN_CAN_HAVE_VALUE",
+      "verified": true,
+      "all_four_abstract_choices_assumed_budget_feasible": true,
+      "synthetic_loss_table": {
+        "S1_C": 0.1,
+        "S1_A": 0.09,
+        "S2_C": 0.11,
+        "S2_A": 0.01
+      },
+      "D_then_A_from_C_loss": 0.09,
+      "joint_optimum_loss": 0.01,
+      "universal_joint_advantage_or_finite_query_guarantee": false
+    },
+    {
+      "id": "FRONT_DENSE_CAN_BE_EXACTLY_OPTIMAL_IN_A_VALID_SPECIAL_CASE",
+      "verified": true,
+      "independent_refresh_benefits": [
+        8,
+        4,
+        2,
+        1
+      ],
+      "equal_cost_refresh_budget": 2,
+      "optimal_positions": [
+        1,
+        2
+      ],
+      "assumptions": [
+        "additive independent benefits",
+        "nonincreasing position benefit",
+        "equal costs",
+        "chosen prefix legal"
+      ],
+      "empirical_WC_or_H1_explanation_proven": false
+    },
+    {
+      "id": "POINTWISE_CONTROL_TAIL_GUARD_NEED_NOT_ADMIT_A_BASELINE",
+      "verified": true,
+      "C_losses": [
+        0.0,
+        0.1
+      ],
+      "A_losses": [
+        0.1,
+        0.0
+      ],
+      "both_control_mean_losses": 0.05,
+      "pointwise_min_plus_tolerance": 0.01,
+      "all_times_feasible": true,
+      "actual_prototype_status": "BUDGET_NOT_VERIFIED",
+      "implication": "Do not infer unconditional baseline dominance or a time-only infeasibility from this status"
+    },
+    {
+      "id": "TWO_PROMPT_SELECTION_NOT_A_STRONG_GENERALIZATION_CERTIFICATE",
+      "verified": true,
+      "independent_prompt_clusters": 2,
+      "frozen_finalists_and_controls": 4,
+      "delta": 0.05,
+      "hypothetical_loss_bound_assumption": "L in [0,1] solely for illustration; actual raw LPIPS not assumed bounded by1",
+      "Hoeffding_union_bound_epsilon": 1.1264073214465788,
+      "bound_is_vacuous": true,
+      "empirical_generalization_result": false
+    },
+    {
+      "id": "REGISTERED_DOMAIN_STRUCTURAL_COUNTS",
+      "verified": true,
+      "registered_config_ref": "configs/wc_policy_interval_assets_full1624_r1_20261020.json",
+      "registered_config_sha256": "75338efd0d7c2d145c73bb3d5514c37fcec46851995785724eeca8f650419f9a",
+      "source_time_cells_per_CAL": 406,
+      "formal_four_CAL_cells": 1624,
+      "structural_interval_readout_edges": 63372,
+      "complete_structural_paths": "333706375249190",
+      "history_basis": "CANONICAL_ACTUAL_D_TEACHER_LAST_TWO_ANCHORS_NOT_FREE_POLICY_HISTORY",
+      "actual_runtime_or_GPU_acceptance": false
+    }
+  ],
+  "checks_verified": 9,
+  "all_checks_verified": true,
+  "source_bindings": {
+    "src/wcomr/policy_generator_r1/budgeted_planner.py": {
+      "sha256": "7b367e8fd3fefed79051398c6d7811d6e90b76f8493001a6048778695a8a7622",
+      "bytes": 5686
+    },
+    "src/wcomr/policy_generator_r1/interval_grammar.py": {
+      "sha256": "0a01fac5e85e326d153365153a7d7fce6373e5e3c470b0590d9c1589642adf06",
+      "bytes": 7254
+    },
+    "src/wcomr/policy_generator_r1/proposal_tables.py": {
+      "sha256": "83fc382a1badeb26d727855906f7ea380b669b4dd2dc6e6035026c1bfe8735b1",
+      "bytes": 5930
+    },
+    "src/wcomr/policy_generator_r1/search_protocol.py": {
+      "sha256": "bba876b760c7c6efef050dd11bfb7653b931a5e5aca21d2e757704932f8eb44c",
+      "bytes": 13959
+    },
+    "src/wcomr/policy_interval_assets_sampling_r1.py": {
+      "sha256": "fe0536c295497083c874c2edced31bb8a264642bb5d1a29db99778d4ae245f97",
+      "bytes": 10393
+    },
+    "src/wcomr/policy_interval_readout_r1.py": {
+      "sha256": "90fb5852ff5a27e01cfefc61337c0103ddf329ed741eea2ac349ffcbea508a4f",
+      "bytes": 6088
+    },
+    "plans/cara_policy_generator_20261020/generator_recipe_r1.json": {
+      "sha256": "2316f3a1ee2bd36658e0aa727626239d9a532670be5939c4c50dbb923cc27bdb",
+      "bytes": 4142
+    },
+    "configs/wc_policy_interval_assets_full1624_r1_20261020.json": {
+      "sha256": "75338efd0d7c2d145c73bb3d5514c37fcec46851995785724eeca8f650419f9a",
+      "bytes": 13177
+    }
+  },
+  "scope": "Algebra, finite grammar and counterexamples; no actual trajectory, video, price or quality measurements",
+  "frozen_recipe_modified": false,
+  "collection_config_modified": false,
+  "model_loaded": false,
+  "server_SSH_calls": 0,
+  "GPU_submissions": 0,
+  "ledger_written": false,
+  "production_CPU_accepted": false,
+  "GPU_dispatch_ready": false
+}

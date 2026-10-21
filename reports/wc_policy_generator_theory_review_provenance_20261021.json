@@ -1,0 +1,93 @@
+{
+  "status": "THEORY_AND_SOURCE_REVIEW_ONLY_NO_NEW_MODEL_EVIDENCE",
+  "reviewed_local": "2026-10-21T15:59:11.845145+08:00",
+  "report_ref": "research/624_WC_REPRODUCIBLE_POLICY_GENERATOR_THEORY_VALIDITY_AND_EVIDENCE_20261021.md",
+  "report_sha256": "2e7a9a439f7f7bc0af91f313768e6a889b9389c4641e8ea9ab3ce360a317c762",
+  "analysis_script_ref": "scripts/analyze_wc_policy_generator_theory_r1.py",
+  "analysis_script_sha256": "f31ff1e0a43d2a9d66d8b6517321a362696c12ec2a71b2895a9088f8acb097b9",
+  "structural_check_ref": "reports/wc_policy_generator_theory_structural_checks_20261021.json",
+  "structural_check_sha256": "0fcc910ab5c38182f4b73ca34e7cc10757030e2acb283b78317d52dd6f5f6eda",
+  "checked_examples": 9,
+  "source_bindings": {
+    "src/wcomr/policy_generator_r1/budgeted_planner.py": {
+      "sha256": "7b367e8fd3fefed79051398c6d7811d6e90b76f8493001a6048778695a8a7622",
+      "bytes": 5686
+    },
+    "src/wcomr/policy_generator_r1/interval_grammar.py": {
+      "sha256": "0a01fac5e85e326d153365153a7d7fce6373e5e3c470b0590d9c1589642adf06",
+      "bytes": 7254
+    },
+    "src/wcomr/policy_generator_r1/proposal_tables.py": {
+      "sha256": "83fc382a1badeb26d727855906f7ea380b669b4dd2dc6e6035026c1bfe8735b1",
+      "bytes": 5930
+    },
+    "src/wcomr/policy_generator_r1/search_protocol.py": {
+      "sha256": "bba876b760c7c6efef050dd11bfb7653b931a5e5aca21d2e757704932f8eb44c",
+      "bytes": 13959
+    },
+    "src/wcomr/policy_interval_assets_sampling_r1.py": {
+      "sha256": "fe0536c295497083c874c2edced31bb8a264642bb5d1a29db99778d4ae245f97",
+      "bytes": 10393
+    },
+    "src/wcomr/policy_interval_readout_r1.py": {
+      "sha256": "90fb5852ff5a27e01cfefc61337c0103ddf329ed741eea2ac349ffcbea508a4f",
+      "bytes": 6088
+    },
+    "plans/cara_policy_generator_20261020/generator_recipe_r1.json": {
+      "sha256": "2316f3a1ee2bd36658e0aa727626239d9a532670be5939c4c50dbb923cc27bdb",
+      "bytes": 4142
+    },
+    "configs/wc_policy_interval_assets_full1624_r1_20261020.json": {
+      "sha256": "75338efd0d7c2d145c73bb3d5514c37fcec46851995785724eeca8f650419f9a",
+      "bytes": 13177
+    }
+  },
+  "primary_sources": [
+    {
+      "role": "CEM primary: interval prior and DP, existing related direction",
+      "url": "https://arxiv.org/html/2512.23258v2",
+      "version": "v2 2026-02-28"
+    },
+    {
+      "role": "Golden Path primary: shared schedules, output search and state propagation",
+      "url": "https://arxiv.org/html/2609.39343v1",
+      "version": "v1 2026-09-30"
+    }
+  ],
+  "qualified_mathematical_properties": [
+    "guided-output conditional quadratic identity",
+    "exact finite additive graph best path",
+    "conservative predicted-cost rounding",
+    "conditional state-error propagation bound"
+  ],
+  "verified_counterexamples": [
+    "local MSE sum versus final error rank reversal",
+    "latest boundary does not summarize two-anchor history",
+    "D refresh does not imply latent reset",
+    "coarse rounding can remove unrounded feasible candidates",
+    "pointwise tail guard can exclude all simple controls",
+    "two-prompt selection confidence bound can be vacuous"
+  ],
+  "native_D_reset_note": "Explained analytically; no runtime experiment performed",
+  "conditional_graph_optimality_is_not_video_global_optimality": true,
+  "registered_table_is_teacher_conditioned_canonical_history": true,
+  "actual_real_interval_labels_or_prices_available": false,
+  "empirical_new_quality_or_speed_result": false,
+  "frozen_method_recipe_changed": false,
+  "approved_whole1624_config_changed": false,
+  "actual_source_stages_modified": false,
+  "previous_model_and_resource_check_definitions_SHA": {
+    "automation-2": "771c832184ae660dfb3bce135c8d4834abee5f6a7c0e52f74325f6545e65073c",
+    "wc4-model-relay-midpoint": "9dba473f239596df869f09b9b1c55e242ed4c5ab93c57be3ae8ed2b4b48e04fb",
+    "sha": "479d5d1ccdfe4ba803e0f4aa86184a63aec3efa8d4b8759c3303752cbf751616",
+    "worldcache-bank24": "a8b6621d806f2561104660d2aecdd5f483168a19916895c20dab0cd6254ae8c2"
+  },
+  "automation_updates": 0,
+  "server_SSH_calls": 0,
+  "new_model_CPU_runs": 0,
+  "model_loaded": false,
+  "GPU_submissions": 0,
+  "ledger_written": false,
+  "production_CPU_accepted": false,
+  "GPU_dispatch_ready": false
+}
