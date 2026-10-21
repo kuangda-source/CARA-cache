@@ -1,3 +1,8 @@
+## 2026-10-22 R4.1原失败已完整定位，R4.2仅补剩余CPU两命令
+
+[629故障原件与接续](research/629_WC_NVRTC_LOADER_DIAGNOSIS_AND_REMAINING_ONLY_CPU_R4_2_20261022.md)：05:05一次完整收件并离线不接受R4.1，原source／全payload／manifest／失败／退出与资源锁核对保持；已定位Transformer Engine的NVRTC查找未绑定CUDA_HOME/CUDA_PATH，fallback又找不到ldconfig。一次本人环境只读诊断确认现有104,454,480字节NVRTC库；新R4.2只补自身容器进程路径，原env-r3／29组件／CPU解码／11runtime和科研stage保持。16项本地控制通过，source8925d168已GitHub发布；05:13:35.882单次启动PID619726/start940227924，一次准入确认原进程／本人容器／全源码与SHA、旧110解析成功证明和现存LPIPS权重复用，正在入口导入，无新命令终态通过。只新执行入口导入与LPIPS CPU两命令，2CPU16GiB／网络none／readonly root、workspace和Torch缓存，不重复下载或执行已验解析；Cosmos权重／CUDA／真实评分／科研GPU／账本0。已读回r4-2-cpu于05:18技术半程、r4-2-cpu-2于05:24完整验收，旧R4.1终态自动化已完成删除；两卡四小时只读06:16保持。固定96与公开14已接受，新机资源CPU／CUDA兼容／scope生产CPU／整卡报价／唯一权威v2交接仍分别验；BANK24→完整1624／具体12批准／cap226及54科研行状态保持。
+
+
 ## 2026-10-22 04:40半程发现R4.1入口CPU导入失败，05:05完整查收保持
 
 [628本次技术原件](research/628_WC_FIXED96_ACCEPTED_AND_LPIPS_OFFLINE_INFERENCE_CPU_R4_20261022.md)：实际04:40:27.595仅一次原R4.1技术收件，PID/start/source/全部payload/manifest一致；supervisor与本人容器退出，health为R4_CPU_RESOURCE_FAILURE_RETAINED，result存在但本次未读result／日志或accept。AlexNet244,408,911字节已下载并由worker核对原SHA，110件离线解析／Reason tokenizer命令0／精确marker通过，随后原受限推理入口导入命令1／marker缺失，LPIPS CPU探针未执行；原异常栈留05:05完整收件定位，外层AssertionError不当根因。13项身份／技术边界核对通过，只记录失败，不接受完整资源CPU。原env/runtime保持，Cosmos权重／CUDA／真实评分／科研GPU／账本0，无额外SSH／重派／重装；已接受96与公开14保持。半程r4-1-cpu已完成删除，r4-1-cpu-2仍05:05且已补故障定位／独立新版本接续并读回；两卡四小时只读06:16及BANK24→完整1624／具体12批准／累计cap226历史／54科研行状态保持。

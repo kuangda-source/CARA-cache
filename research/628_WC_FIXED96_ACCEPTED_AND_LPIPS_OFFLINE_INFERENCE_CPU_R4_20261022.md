@@ -50,3 +50,7 @@ health状态`R4_CPU_RESOURCE_FAILURE_RETAINED`，报告04:27:03.659521结束／w
 env元数据、runtime的worker保持检查通过；Cosmos权重／CUDA／真实视频评分／科研GPU／账本写入为0。固定96与公开14的既有完整接受保持，R4.1资源CPU仍不接受。原job/source/partial与所有失败均保留，无重派／重装／额外SSH或双卡查询。
 
 半程`r4-1-cpu`已完成删除；`r4-1-cpu-2`仍05:05一次完整查收（原最早unix1792616643.9834206），已补此技术失败与日志定位／独立新版本修复接续并读回。届时从原件收完整失败和有界导入日志，先定位实际异常；复用成功110解析证明与已下固定LPIPS/全部已验模型和环境，不能拿成功子集称完整CPU通过。两卡06:16定义不动，54科研行／状态及权威预算不变。
+
+## 2026-10-22 R4.1原失败已完整定位，R4.2仅补剩余CPU两命令
+
+[629故障原件与接续](629_WC_NVRTC_LOADER_DIAGNOSIS_AND_REMAINING_ONLY_CPU_R4_2_20261022.md)：05:05一次完整收件并离线不接受R4.1，原source／全payload／manifest／失败／退出与资源锁核对保持；已定位Transformer Engine的NVRTC查找未绑定CUDA_HOME/CUDA_PATH，fallback又找不到ldconfig。一次本人环境只读诊断确认现有104,454,480字节NVRTC库；新R4.2只补自身容器进程路径，原env-r3／29组件／CPU解码／11runtime和科研stage保持。16项本地控制通过，source8925d168已GitHub发布；05:13:35.882单次启动PID619726/start940227924，一次准入确认原进程／本人容器／全源码与SHA、旧110解析成功证明和现存LPIPS权重复用，正在入口导入，无新命令终态通过。只新执行入口导入与LPIPS CPU两命令，2CPU16GiB／网络none／readonly root、workspace和Torch缓存，不重复下载或执行已验解析；Cosmos权重／CUDA／真实评分／科研GPU／账本0。已读回r4-2-cpu于05:18技术半程、r4-2-cpu-2于05:24完整验收，旧R4.1终态自动化已完成删除；两卡四小时只读06:16保持。固定96与公开14已接受，新机资源CPU／CUDA兼容／scope生产CPU／整卡报价／唯一权威v2交接仍分别验；BANK24→完整1624／具体12批准／cap226及54科研行状态保持。

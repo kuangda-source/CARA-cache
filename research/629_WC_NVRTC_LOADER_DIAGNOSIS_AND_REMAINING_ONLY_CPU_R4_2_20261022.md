@@ -24,6 +24,18 @@
 
 终态必须原source／payload／两新命令／两个精确marker／原发布probe源码、原成功resolver复用证明、现有NVRTC源码及库的独立SHA、两LPIPS独立完整SHA、原环境与runtime不改、原supervisor／容器／锁退出分别接受。资源CPU通过不充新机CUDA兼容、BANK24／1624生产CPU／整卡报价或GPU-ready。
 
+## R4.2实际启动与两次检查
+
+GitHub source `8925d16800d7d0c6266bc825ded78cc21a72284b`发布后，05:13:35.882198单次启动supervisor PID619726/start940227924；worker SHA `4aa6d0f846994773592c084f526a683519485ef30b5a82446c95a22be055d97b`，manifest SHA `d8e08ca06d2aae8503a444fbb48759f600a5c320bba8bbf05b5eb5f9b38f90e8`，独立新job按上述R4.2名称。
+
+一次admission确认原source／全payload／manifest、原进程与本人容器活、只读root与空GPU设备一致，已完整绑定复用旧resolver成功证明及现存LPIPS权重，正在入口导入；尚无新命令终态通过。现有NVRTC库worker SHA `3d917ecfcbb1d6e1e834c0baf11a2a095c5c137d07e194b1795f2b8dcfa59ee2`，实际loader SHA `57801aa64be0fbb4d08a1a53032fbb96e55a11d0eefe5be75d761bb2659beae0`。fresh预检数据盘345,012,273,152字节／主存67,526,111,232字节仅供本资源准入。
+
+- [实际launch](../reports/wc_four_card_offline_resources_CPU_R4_2_launch_20261022.json)／[一次admission](../reports/wc_four_card_offline_resources_CPU_R4_2_admission_20261022.json)
+- `r4-2-cpu`：05:18一次技术半程，最早unix1792617455.8821979／05:17:35.882198。
+- `r4-2-cpu-2`：05:24一次完整收件，最早unix1792617815.8821979／05:23:35.882198，保存后仅离线accept。
+
+两定义已读回，原R4.1终态`r4-1-cpu-2`完成删除；两卡06:16原定义保持。R4.2状态仍为资源CPU在途，0新模型下载／环境安装／Cosmos权重／CUDA／真实评分／科研GPU／账本写入。
+
 ## 原科学与预算接续
 
 原双卡四小时只读06:16保持，本任务不查双卡或改权威v2。cap226／origin79.99637737158223／历史和54科研行及状态保持。BANK24完整24→既定X-R／同D配额CPU诊断→完整1624顺序、原闭包与四CAL gate、完整1624具体12批准均保持；新机CPU／整卡报价／BANK24完整原件与费用／唯一权威预算交接前置不绕过。F/B关闭，无训练／人评／付费VLM／OMR。

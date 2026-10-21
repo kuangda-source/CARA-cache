@@ -74,3 +74,7 @@ R3先重新哈希原96已有文件，只允许原10个登记缺失；将原R2的
 ## 2026-10-22 固定96全件接受；R4.1离线CPU资源04:17启动
 
 [628实际接受与接续](628_WC_FIXED96_ACCEPTED_AND_LPIPS_OFFLINE_INFERENCE_CPU_R4_20261022.md)：原R3完整96件／21,358,871,258字节已一次终态收件并独立接受，23项全过：全文件哈希与HF兼容路径、四Reason镜像完整SHA与原断点绑定、原进程／容器／锁退出、新外盘副本清理均通过。公开14件已验原件复用，不重下；原R1/R2失败与1,132,462,080字节断点保留。首次新CPU预检错引旧回执文件名，在创建stage前退出，失败保留；独立R4.1 sourcee5eedef4于04:17:03.983单次启动PID615773/start939888734，fresh原R4 stage不存在、数据盘321.586GiB／主存56.358GiB，15项技术准入核对通过。正在服务器直下官方LPIPS，原env-r3和11runtime保持；随后110离线路径／Reason tokenizer、原受限推理入口、预训练LPIPS合成CPU验证。Cosmos权重0／CUDA0／真实评分0／科研GPU0／账本0；资源CPU不充新机scope生产CPU或GPU-ready。已读回r4-1-cpu于04:40一次半程、r4-1-cpu-2于05:05一次完整验收，旧r3-96-cpu已完成删除；两卡worldcache-bank24四小时只读06:16保持。本轮未查双卡或改权威v2，BANK24→既定CPU诊断→完整1624及其具体12批准、cap226/origin历史与54科研行保持。
+
+## 2026-10-22 R4.1原失败已完整定位，R4.2仅补剩余CPU两命令
+
+[629故障原件与接续](629_WC_NVRTC_LOADER_DIAGNOSIS_AND_REMAINING_ONLY_CPU_R4_2_20261022.md)：05:05一次完整收件并离线不接受R4.1，原source／全payload／manifest／失败／退出与资源锁核对保持；已定位Transformer Engine的NVRTC查找未绑定CUDA_HOME/CUDA_PATH，fallback又找不到ldconfig。一次本人环境只读诊断确认现有104,454,480字节NVRTC库；新R4.2只补自身容器进程路径，原env-r3／29组件／CPU解码／11runtime和科研stage保持。16项本地控制通过，source8925d168已GitHub发布；05:13:35.882单次启动PID619726/start940227924，一次准入确认原进程／本人容器／全源码与SHA、旧110解析成功证明和现存LPIPS权重复用，正在入口导入，无新命令终态通过。只新执行入口导入与LPIPS CPU两命令，2CPU16GiB／网络none／readonly root、workspace和Torch缓存，不重复下载或执行已验解析；Cosmos权重／CUDA／真实评分／科研GPU／账本0。已读回r4-2-cpu于05:18技术半程、r4-2-cpu-2于05:24完整验收，旧R4.1终态自动化已完成删除；两卡四小时只读06:16保持。固定96与公开14已接受，新机资源CPU／CUDA兼容／scope生产CPU／整卡报价／唯一权威v2交接仍分别验；BANK24→完整1624／具体12批准／cap226及54科研行状态保持。
