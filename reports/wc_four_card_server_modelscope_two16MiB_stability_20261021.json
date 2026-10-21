@@ -1,0 +1,62 @@
+{
+  "status": "MODELSCOPE_SERVER_TWO16MiB_SAMPLES_CAPTURED",
+  "started_unix": 1792581436.2514281,
+  "remote_source": "import json,time,signal,hashlib,urllib.request,urllib.parse,urllib.error,sys\nc=json.load(sys.stdin)\ndef alarm(s,f):raise TimeoutError()\nsignal.signal(signal.SIGALRM,alarm)\nopener=urllib.request.build_opener(urllib.request.ProxyHandler({}))\nvalue=dict(status='MODELSCOPE_SERVER_DIRECT_TWO_16MiB_SAMPLES',started_unix=time.time(),samples=[],credentials_used=False,model_files_written=0,original_workers_changed=False,GPU_submissions=0,ledger_written=False)\nfor trial in range(2):\n row=dict(trial=trial+1,requested_bytes=16<<20,range_start=c['range_start']);value['samples'].append(row);began=time.time();signal.setitimer(signal.ITIMER_REAL,25)\n try:\n  url='https://modelscope.cn/api/v1/models/unsloth/Cosmos-Reason1-7B/repo?'+urllib.parse.urlencode(dict(Revision='master',FilePath=c['path']))\n  start=c['range_start'];count=16<<20\n  request=urllib.request.Request(url,headers={'Range':'bytes=%d-%d'%(start,start+count-1),'Accept-Encoding':'identity','User-Agent':'CARA-cache-bounded-identity-speed-test'})\n  with opener.open(request,timeout=12) as response:\n   row.update(http_status=response.status,final_host=urllib.parse.urlsplit(response.geturl()).hostname,content_range=response.headers.get('Content-Range'),header_seconds=time.time()-began)\n   expected='bytes %d-%d/%d'%(start,start+count-1,c['size'])\n   if response.status==206 and response.headers.get('Content-Range')==expected and response.headers.get('Content-Length')==str(count):\n    data=response.read(count+1);row.update(received_bytes=len(data),sample_sha256=hashlib.sha256(data).hexdigest(),first4MiB_sha256=hashlib.sha256(data[:4<<20]).hexdigest())\n    row['status']='EXACT_RANGE_AND_SHARED_PREFIX_MATCH' if len(data)==count and row['first4MiB_sha256']==c['reference_first4MiB_sha256'] else 'SIZE_OR_SHARED_PREFIX_MISMATCH'\n   else:row['status']='HTTP_OR_RANGE_REJECTED'\n except urllib.error.HTTPError as e:row.update(status='HTTP_ERROR',http_status=e.code)\n except Exception as e:row.update(status='PROBE_ERROR',error_type=type(e).__name__)\n finally:signal.setitimer(signal.ITIMER_REAL,0);row['wall_seconds']=time.time()-began\n if row.get('status')=='EXACT_RANGE_AND_SHARED_PREFIX_MATCH':row['effective_MiB_per_second_including_headers']=16/row['wall_seconds']\nvalue['ended_unix']=time.time();print(json.dumps(value))\n",
+  "remote_source_sha256": "3668d2444aeb8c2978d26d65378925e0383265412b498d7acb8b240c0e315588",
+  "request": {
+    "path": "model-00001-of-00004.safetensors",
+    "size": 4968243304,
+    "range_start": 1132462080,
+    "reference_first4MiB_sha256": "306c26f934d3f5a2fe87878dea1ef371b57b70d38c09730ad52792f0ff290a6a"
+  },
+  "SSH_calls": 1,
+  "HF_credentials_exported": false,
+  "model_files_written": 0,
+  "original_workers_changed": false,
+  "GPU_submissions": 0,
+  "ledger_written": false,
+  "SSH_exit_code": 0,
+  "remote": {
+    "status": "MODELSCOPE_SERVER_DIRECT_TWO_16MiB_SAMPLES",
+    "started_unix": 1792581436.5416775,
+    "samples": [
+      {
+        "trial": 1,
+        "requested_bytes": 16777216,
+        "range_start": 1132462080,
+        "http_status": 206,
+        "final_host": "cdn-lfs-cn-1.modelscope.cn",
+        "content_range": "bytes 1132462080-1149239295/4968243304",
+        "header_seconds": 0.21456289291381836,
+        "received_bytes": 16777216,
+        "sample_sha256": "42644502ce060f10220d2913e264dece30cdbe60f58db7392f4d02d395317c12",
+        "first4MiB_sha256": "306c26f934d3f5a2fe87878dea1ef371b57b70d38c09730ad52792f0ff290a6a",
+        "status": "EXACT_RANGE_AND_SHARED_PREFIX_MATCH",
+        "wall_seconds": 1.1644372940063477,
+        "effective_MiB_per_second_including_headers": 13.740542391038172
+      },
+      {
+        "trial": 2,
+        "requested_bytes": 16777216,
+        "range_start": 1132462080,
+        "http_status": 206,
+        "final_host": "cdn-lfs-cn-1.modelscope.cn",
+        "content_range": "bytes 1132462080-1149239295/4968243304",
+        "header_seconds": 0.15907025337219238,
+        "received_bytes": 16777216,
+        "sample_sha256": "42644502ce060f10220d2913e264dece30cdbe60f58db7392f4d02d395317c12",
+        "first4MiB_sha256": "306c26f934d3f5a2fe87878dea1ef371b57b70d38c09730ad52792f0ff290a6a",
+        "status": "EXACT_RANGE_AND_SHARED_PREFIX_MATCH",
+        "wall_seconds": 1.105961561203003,
+        "effective_MiB_per_second_including_headers": 14.467048911352848
+      }
+    ],
+    "credentials_used": false,
+    "model_files_written": 0,
+    "original_workers_changed": false,
+    "GPU_submissions": 0,
+    "ledger_written": false,
+    "ended_unix": 1792581438.8120987
+  },
+  "ended_unix": 1792581438.68475
+}

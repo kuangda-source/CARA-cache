@@ -1,3 +1,7 @@
+## 2026-10-21 四卡魔搭同字节Reason1短测更快，资源R2失败保留并接新来源
+
+[626服务器实测](626_WC_FOUR_CARD_SERVER_MIRROR_ROUTE_COMPARISON_AND_FIXED_MODELSCOPE_WEIGHT_IDENTITY_20261021.md)：魔搭四个Reason1分片的元数据SHA256/大小与冻结NVIDIA精确一致；同一4MiB1.740秒、Mac代理11.843—12.416秒，两次16MiB1.106—1.164秒（13.74—14.47MiB/s），样本哈希交叉一致；短测不作完整稳速或全资源ETA。HF-Mirror首次4MiB3.787秒后429，直连HF两次20秒超时。另已只读确认原Mac R2 source7f79ceef/PID94749于18:23:48.385技术失败，8次SSLEOFError，原1,132,462,080字节partial及source/job保持；未重派或接受完整96件。旧r2半程已删，sha改约本日19:35一次故障/魔搭来源接续（不是新worker ETA）；新下载worker尚未启动，后续须独立源码/注册、断点绑定与真实launch半程/终态。两卡22:12四小时只读保持，0模型加载/CUDA/GPU/账本。
+
 ## 2026-10-21 公开两辅助模型全14已接受，独立资源检查关闭
 
 [623完整收件](../research/623_WC_PUBLIC_ASSET_R1_TIMEOUT_AND_MISSING_ONLY_R2_RESUME_20261021.md)：17:25恢复槽延后，实际仅于17:55:23.834读取原R2 PID397742/start934875508/source88ebc004；原任务15:17:25.447结束、wall3353.677414秒，原进程和本人容器退出。Qwen3Guard与SigLIP全部14文件/5,034,332,532字节独立Git-blob/SHA256及尺寸全过、两命令0；13件复用，唯一注册SigLIP权重请求与完成，15项额外范围核对全过。R1失败与16:23收件UNKNOWN原件保留，不将旧超时认作下载失败；只接受公开两辅助模型文件。automation-2已完成删除，sha已补真实三件套及复用证明；96件生产模型R2 source7f79ceef/PID94749仍按10月22日00:43一次半程、07:43全SHA，两个时点已读回保持。完整Cosmos资源、LPIPS、完整推理CPU、新机scope CPU/报价/兼容及唯一v2准入仍待，BANK24→完整1624/具体12批准/cap226历史与两卡4小时只读保持。0CUDA/模型加载/科研GPU/账本写；本人85709 master/63606 FRPC继续供资源使用。 [原件](../reports/wc_four_card_public_model_assets_resume_R2_terminal_recovery_20261021_1725.json) / [独立全范围接受](../reports/wc_four_card_public_model_assets_resume_R2_full14_resume_scope_acceptance_20261021.json) / [检查关闭与接续读回](../reports/wc_four_card_public_model_assets_resume_R2_completed_handoff_and_schedules_20261021.json)。

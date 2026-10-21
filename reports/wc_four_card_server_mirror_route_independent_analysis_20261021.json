@@ -1,0 +1,107 @@
+{
+  "status": "MODELSCOPE_FIXED_REASON_WEIGHT_ROUTE_MEASURED_SUFFICIENT_FOR_RESOURCE_SOURCE_SELECTION_NOT_FULL_ASSET_ACCEPTANCE",
+  "checks": {
+    "three_route_fixed_requests_and_whole_range_preserved": true,
+    "successful_same4MiB_all_cross_route_SHA_equal": true,
+    "all_four_core_weight_SHA256_and_sizes_match_frozen_NVIDIA": true,
+    "two16MiB_exact_range_and_common4MiB_match": true,
+    "two16MiB_repeated_sample_SHA_equal": true,
+    "all_three_remote_tests_zero_credentials_GPU_files_or_worker_changes": true,
+    "R2_failure_original_source_and_1132462080_byte_partial_retained": true
+  },
+  "bindings": {
+    "three_routes": {
+      "path": "reports/wc_four_card_server_anonymous_model_route_probe_r1_20261021.json",
+      "sha256": "89a33cccebc59c4cf8e868fbb8806817e9aceb2fd4478bed105467910c74caf5",
+      "bytes": 10560
+    },
+    "modelscope_identities": {
+      "path": "reports/wc_four_card_server_modelscope_fixed_identity_probe_r1_20261021.json",
+      "sha256": "cbf8a7b0bda8f627016ea12757533133a0a400ba33f28ab8684419113de876ed",
+      "bytes": 66591
+    },
+    "modelscope_two16MiB": {
+      "path": "reports/wc_four_card_server_modelscope_two16MiB_stability_20261021.json",
+      "sha256": "0628bb79c20896181ed9528745d1e176d9cd6469b2e19f2c697fe6946eb264e5",
+      "bytes": 4713
+    },
+    "R2_technical_failure": {
+      "path": "reports/wc_four_card_authorized_external_models_resume_R2_user_route_probe_failure_boundary_20261021.json",
+      "sha256": "36dfcd15874d2bc78eca500ea4de1c7bb111b0897b86d712c48d62c0173c4a85",
+      "bytes": 4653
+    }
+  },
+  "server_direct_modelscope_repo": "unsloth/Cosmos-Reason1-7B",
+  "frozen_NVIDIA_revision": "3210bec0495fdc7a8d3dbb8d58da5711eab4b423",
+  "frozen_matched_core_weights": [
+    {
+      "path": "model-00001-of-00004.safetensors",
+      "bytes": 4968243304,
+      "sha256": "c28404126221997ae8eb70a23b919c96174d42e35ae1d537e0c95093d50b359a"
+    },
+    {
+      "path": "model-00002-of-00004.safetensors",
+      "bytes": 4991495816,
+      "sha256": "f281081864c10992d3e03874c79d526c84407e049d713747f19eb9c79cd16db3"
+    },
+    {
+      "path": "model-00003-of-00004.safetensors",
+      "bytes": 4932751040,
+      "sha256": "3bb3a62a8d0e83c6283388ddea99395b221f908f9181b8edd0f7f91d02260ebe"
+    },
+    {
+      "path": "model-00004-of-00004.safetensors",
+      "bytes": 1691924384,
+      "sha256": "91bacbe1ad798e16daa05023b4e4bec70b53c8cd7d757db86c5bc76c4e0bbf15"
+    }
+  ],
+  "matched_core_weight_bytes": 16584414544,
+  "proxy_4MiB_seconds": [
+    12.415956258773804,
+    11.843408584594727
+  ],
+  "proxy_4MiB_effective_MiB_s": [
+    0.3221660834358512,
+    0.33774060663608163
+  ],
+  "mirror4MiB_success_seconds": 3.787111282348633,
+  "hf_mirror_failures": [
+    {
+      "repo": "nvidia/Cosmos-Reason1-7B",
+      "http_status": 429
+    },
+    {
+      "repo": "nvidia/Cosmos-Predict2.5-2B",
+      "http_status": 429
+    },
+    {
+      "repo": "nvidia/Cosmos-Guardrail1",
+      "http_status": 429
+    }
+  ],
+  "modelscope4MiB_seconds": 1.73954439163208,
+  "modelscope16MiB_seconds": [
+    1.1644372940063477,
+    1.105961561203003
+  ],
+  "modelscope16MiB_effective_MiB_s": [
+    13.740542391038172,
+    14.467048911352848
+  ],
+  "nominal_matched4MiB_ratio_proxy_wall_over_modelscope_wall": 6.9729076648075194,
+  "full_file_downloaded_and_hashed": false,
+  "all_modelscope_configs_accepted": false,
+  "whole96_assets_accepted": false,
+  "production_CPU_accepted": false,
+  "GPU_dispatch_ready": false,
+  "CUDA_initialized": false,
+  "model_weights_loaded": 0,
+  "GPU_submissions": 0,
+  "ledger_written": false,
+  "limitations": [
+    "Two short repeated ranges do not establish sustained full-file throughput or whole-resource ETA.",
+    "ModelScope public metadata hashes match four core files; whole-file independent hashes remain required after download.",
+    "No matching Predict/Guardrail repositories verified in the tested nvidia namespaces; 404 does not prove no other mirror exists."
+  ],
+  "resource_continuation": "Use an independent missing-only resource version; prefer direct server ModelScope for only these four byte-identical weights, preserve original HF runtime/configs and 96 denominator, retain old R2 and seed; other files use original authorized route. New actual launches need their own admission/halfway/final schedule."
+}

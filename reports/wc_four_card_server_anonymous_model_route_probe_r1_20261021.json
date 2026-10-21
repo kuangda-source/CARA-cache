@@ -1,0 +1,271 @@
+{
+  "status": "BOUNDED_FOUR_CARD_SERVER_ROUTE_PROBE_CAPTURED",
+  "started_unix": 1792580759.3497448,
+  "source_revision": "1be1367c5eac9f29f0171aa8ace3ec6c3aeaf5bb",
+  "script_ref": "scripts/probe_wc_model_download_routes_r1.py",
+  "script_sha256": "39665eb4f46861d6e64a22590922dd4c2e6b02ffaea2e2dcbad028358b037dcc",
+  "manifest_ref": "manifests/wc_four_card_anonymous_model_route_probe_r1_20261021.json",
+  "manifest_sha256": "3cab7b47f330df3d0f84ef6ed99010c24a788348bd3346395f8435cf9741c5b0",
+  "request": {
+    "kind": "WC_ANONYMOUS_SERVER_MODEL_ROUTE_COMPARISON_R1",
+    "assets": [
+      {
+        "repo_id": "nvidia/Cosmos-Reason1-7B",
+        "source_revision": "3210bec0495fdc7a8d3dbb8d58da5711eab4b423",
+        "path": "model-00001-of-00004.safetensors",
+        "size": 4968243304,
+        "digest": "c28404126221997ae8eb70a23b919c96174d42e35ae1d537e0c95093d50b359a",
+        "git_blob": false
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Predict2.5-2B",
+        "source_revision": "15a82a2ec231bc318692aa0456a36537c806e7d4",
+        "path": "base/post-trained/81edfebe-bd6a-4039-8c1d-737df1a790bf_ema_bf16.pt",
+        "size": 4118575006,
+        "digest": "565bbb2c9645737327983f4461e4d32627bba465b0a8dc26447edea144e1ff47",
+        "git_blob": false
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Guardrail1",
+        "source_revision": "d6d4bfa899a71454a700907664f3e88f503950cf",
+        "path": "face_blur_filter/Resnet50_Final.pth",
+        "size": 109497761,
+        "digest": "6d1de9c2944f2ccddca5f5e010ea5ae64a39845a86311af6fdf30841b0a5a16d",
+        "git_blob": false
+      }
+    ],
+    "sample_bytes": 4194304,
+    "reason_range_start": 1132462080,
+    "request_seconds": 20,
+    "maximum_body_bytes": 27262976,
+    "anonymous_only": true,
+    "model_file_persistence": false,
+    "original_worker_changes_allowed": false,
+    "source_ref": "scripts/probe_wc_model_download_routes_r1.py",
+    "source_sha256": "39665eb4f46861d6e64a22590922dd4c2e6b02ffaea2e2dcbad028358b037dcc",
+    "frozen_assets_ref": "manifests/wc_four_card_frozen_production_assets_r1_20261021.json",
+    "frozen_assets_sha256": "fc4be2142d3b462fca5a84413ae7f4c21abfab8df0ed80e5565e691a414e560c"
+  },
+  "SSH_calls": 1,
+  "HF_credentials_exported": false,
+  "model_files_written": 0,
+  "original_workers_changed": false,
+  "GPU_submissions": 0,
+  "ledger_written": false,
+  "SSH_exit_code": 0,
+  "remote": {
+    "status": "BOUNDED_SERVER_MODEL_ROUTE_COMPARISON",
+    "started_unix": 1792580759.8375573,
+    "request": {
+      "kind": "WC_ANONYMOUS_SERVER_MODEL_ROUTE_COMPARISON_R1",
+      "assets": [
+        {
+          "repo_id": "nvidia/Cosmos-Reason1-7B",
+          "source_revision": "3210bec0495fdc7a8d3dbb8d58da5711eab4b423",
+          "path": "model-00001-of-00004.safetensors",
+          "size": 4968243304,
+          "digest": "c28404126221997ae8eb70a23b919c96174d42e35ae1d537e0c95093d50b359a",
+          "git_blob": false
+        },
+        {
+          "repo_id": "nvidia/Cosmos-Predict2.5-2B",
+          "source_revision": "15a82a2ec231bc318692aa0456a36537c806e7d4",
+          "path": "base/post-trained/81edfebe-bd6a-4039-8c1d-737df1a790bf_ema_bf16.pt",
+          "size": 4118575006,
+          "digest": "565bbb2c9645737327983f4461e4d32627bba465b0a8dc26447edea144e1ff47",
+          "git_blob": false
+        },
+        {
+          "repo_id": "nvidia/Cosmos-Guardrail1",
+          "source_revision": "d6d4bfa899a71454a700907664f3e88f503950cf",
+          "path": "face_blur_filter/Resnet50_Final.pth",
+          "size": 109497761,
+          "digest": "6d1de9c2944f2ccddca5f5e010ea5ae64a39845a86311af6fdf30841b0a5a16d",
+          "git_blob": false
+        }
+      ],
+      "sample_bytes": 4194304,
+      "reason_range_start": 1132462080,
+      "request_seconds": 20,
+      "maximum_body_bytes": 27262976,
+      "anonymous_only": true,
+      "model_file_persistence": false,
+      "original_worker_changes_allowed": false,
+      "source_ref": "scripts/probe_wc_model_download_routes_r1.py",
+      "source_sha256": "39665eb4f46861d6e64a22590922dd4c2e6b02ffaea2e2dcbad028358b037dcc",
+      "frozen_assets_ref": "manifests/wc_four_card_frozen_production_assets_r1_20261021.json",
+      "frozen_assets_sha256": "fc4be2142d3b462fca5a84413ae7f4c21abfab8df0ed80e5565e691a414e560c"
+    },
+    "observations": [
+      {
+        "repo_id": "nvidia/Cosmos-Reason1-7B",
+        "revision": "3210bec0495fdc7a8d3dbb8d58da5711eab4b423",
+        "path": "model-00001-of-00004.safetensors",
+        "route": "server_direct_hf_mirror",
+        "range_start": 1132462080,
+        "requested_bytes": 4194304,
+        "redirect_chain": [
+          {
+            "status": 302,
+            "destination_host": "cas-bridge.xethub.hf.co"
+          }
+        ],
+        "received_bytes": 4194304,
+        "credentials_used": false,
+        "model_files_written": 0,
+        "http_status": 206,
+        "final_host": "cas-bridge.xethub.hf.co",
+        "header_seconds": 1.575401782989502,
+        "content_range": "bytes 1132462080-1136656383/4968243304",
+        "status": "EXACT_BOUNDED_RANGE_RECEIVED",
+        "sample_sha256": "306c26f934d3f5a2fe87878dea1ef371b57b70d38c09730ad52792f0ff290a6a",
+        "wall_seconds": 3.787111282348633,
+        "effective_MiB_per_second_including_headers": 1.0562140116250667,
+        "round": 1
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Reason1-7B",
+        "revision": "3210bec0495fdc7a8d3dbb8d58da5711eab4b423",
+        "path": "model-00001-of-00004.safetensors",
+        "route": "server_direct_HF",
+        "range_start": 1132462080,
+        "requested_bytes": 4194304,
+        "redirect_chain": [],
+        "received_bytes": 0,
+        "credentials_used": false,
+        "model_files_written": 0,
+        "status": "BOUNDED_REQUEST_DEADLINE",
+        "wall_seconds": 20.00095820426941,
+        "round": 1
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Reason1-7B",
+        "revision": "3210bec0495fdc7a8d3dbb8d58da5711eab4b423",
+        "path": "model-00001-of-00004.safetensors",
+        "route": "server_via_existing_Mac_proxy",
+        "range_start": 1132462080,
+        "requested_bytes": 4194304,
+        "redirect_chain": [
+          {
+            "status": 302,
+            "destination_host": "us.aws.cdn.hf.co"
+          }
+        ],
+        "received_bytes": 4194304,
+        "credentials_used": false,
+        "model_files_written": 0,
+        "http_status": 206,
+        "final_host": "us.aws.cdn.hf.co",
+        "header_seconds": 3.5296332836151123,
+        "content_range": "bytes 1132462080-1136656383/4968243304",
+        "status": "EXACT_BOUNDED_RANGE_RECEIVED",
+        "sample_sha256": "306c26f934d3f5a2fe87878dea1ef371b57b70d38c09730ad52792f0ff290a6a",
+        "wall_seconds": 12.415956258773804,
+        "effective_MiB_per_second_including_headers": 0.3221660834358512,
+        "round": 1
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Reason1-7B",
+        "revision": "3210bec0495fdc7a8d3dbb8d58da5711eab4b423",
+        "path": "model-00001-of-00004.safetensors",
+        "route": "server_via_existing_Mac_proxy",
+        "range_start": 1132462080,
+        "requested_bytes": 4194304,
+        "redirect_chain": [
+          {
+            "status": 302,
+            "destination_host": "us.aws.cdn.hf.co"
+          }
+        ],
+        "received_bytes": 4194304,
+        "credentials_used": false,
+        "model_files_written": 0,
+        "http_status": 206,
+        "final_host": "us.aws.cdn.hf.co",
+        "header_seconds": 3.6290676593780518,
+        "content_range": "bytes 1132462080-1136656383/4968243304",
+        "status": "EXACT_BOUNDED_RANGE_RECEIVED",
+        "sample_sha256": "306c26f934d3f5a2fe87878dea1ef371b57b70d38c09730ad52792f0ff290a6a",
+        "wall_seconds": 11.843408584594727,
+        "effective_MiB_per_second_including_headers": 0.33774060663608163,
+        "round": 2
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Reason1-7B",
+        "revision": "3210bec0495fdc7a8d3dbb8d58da5711eab4b423",
+        "path": "model-00001-of-00004.safetensors",
+        "route": "server_direct_HF",
+        "range_start": 1132462080,
+        "requested_bytes": 4194304,
+        "redirect_chain": [],
+        "received_bytes": 0,
+        "credentials_used": false,
+        "model_files_written": 0,
+        "status": "BOUNDED_REQUEST_DEADLINE",
+        "wall_seconds": 20.000938415527344,
+        "round": 2
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Reason1-7B",
+        "revision": "3210bec0495fdc7a8d3dbb8d58da5711eab4b423",
+        "path": "model-00001-of-00004.safetensors",
+        "route": "server_direct_hf_mirror",
+        "range_start": 1132462080,
+        "requested_bytes": 4194304,
+        "redirect_chain": [],
+        "received_bytes": 0,
+        "credentials_used": false,
+        "model_files_written": 0,
+        "status": "HTTP_ERROR",
+        "http_status": 429,
+        "wall_seconds": 0.9656078815460205,
+        "round": 2
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Predict2.5-2B",
+        "revision": "15a82a2ec231bc318692aa0456a36537c806e7d4",
+        "path": "base/post-trained/81edfebe-bd6a-4039-8c1d-737df1a790bf_ema_bf16.pt",
+        "route": "server_direct_hf_mirror",
+        "range_start": 0,
+        "requested_bytes": 1048576,
+        "redirect_chain": [],
+        "received_bytes": 0,
+        "credentials_used": false,
+        "model_files_written": 0,
+        "status": "HTTP_ERROR",
+        "http_status": 429,
+        "wall_seconds": 0.5925321578979492,
+        "round": "other_fixed_asset_access"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Guardrail1",
+        "revision": "d6d4bfa899a71454a700907664f3e88f503950cf",
+        "path": "face_blur_filter/Resnet50_Final.pth",
+        "route": "server_direct_hf_mirror",
+        "range_start": 0,
+        "requested_bytes": 1048576,
+        "redirect_chain": [],
+        "received_bytes": 0,
+        "credentials_used": false,
+        "model_files_written": 0,
+        "status": "HTTP_ERROR",
+        "http_status": 429,
+        "wall_seconds": 0.5169098377227783,
+        "round": "other_fixed_asset_access"
+      }
+    ],
+    "full_model_files_downloaded": 0,
+    "full_model_hash_acceptance": false,
+    "credentials_used": false,
+    "model_files_written": 0,
+    "original_worker_changed": false,
+    "CUDA_initialized": false,
+    "model_weights_loaded": 0,
+    "GPU_submissions": 0,
+    "ledger_written": false,
+    "ended_unix": 1792580829.9623992,
+    "wall_seconds": 70.12484216690063
+  },
+  "ended_unix": 1792580829.854458,
+  "wall_seconds": 70.50471329689026
+}

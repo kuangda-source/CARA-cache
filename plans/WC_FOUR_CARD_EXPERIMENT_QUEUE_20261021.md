@@ -5,7 +5,7 @@
 ## 当前执行状态
 
 - **四卡为后续实验目标主机，科学GPU尚未启动。** 29项依赖/请求/实际CPU编解码组件通过；完整固定模型、推理导入、CUDA兼容和各scope新机生产CPU尚未完整接受。
-- 公开辅助模型独立R2已完整接受：Qwen3Guard/SigLIP原14文件5,034,332,532字节全部独立全哈希、两命令0、13件复用/唯一SigLIP请求完成，原R1失败和收件UNKNOWN保留。96件生产模型R1失败已保留，按用户即时修复要求于17:42以source7f79ceef/PID94749单次启动缺失续传R2，复用86完整件、只请求注册10缺失；10月22日00:43技术半程、07:43全SHA验收，完整生产资源尚未接受。模型只在外盘`/Volumes/data`中转，每件服务器完整SHA后删除新外盘副本，令牌只Mac受限文件。详见[623](../research/623_WC_PUBLIC_ASSET_R1_TIMEOUT_AND_MISSING_ONLY_R2_RESUME_20261021.md)与[625](../research/625_WC_AUTHORIZED_MODEL_RELAY_IMMEDIATE_REPAIR_AND_MISSING_ONLY_R2_20261021.md)。
+- 公开辅助模型独立R2已完整接受：Qwen3Guard/SigLIP原14文件5,034,332,532字节全部独立全哈希、两命令0、13件复用/唯一SigLIP请求完成，原R1失败和收件UNKNOWN保留。96件生产模型R1失败保留，17:42独立R2 source7f79ceef/PID94749于18:23技术失败，原1,132,462,080字节partial留存；626已核对魔搭四个Reason1分片元数据全SHA/大小精确相同并在服务器短测更快。旧R2半程已删，sha改约本日19:35一次资源恢复，尚未启动新下载worker，完整生产资源未接受。模型只在外盘`/Volumes/data`中转，每件服务器完整SHA后删除新外盘副本，令牌只Mac受限文件。详见[623](../research/623_WC_PUBLIC_ASSET_R1_TIMEOUT_AND_MISSING_ONLY_R2_RESUME_20261021.md)与[625](../research/625_WC_AUTHORIZED_MODEL_RELAY_IMMEDIATE_REPAIR_AND_MISSING_ONLY_R2_20261021.md)。
 - 两卡只做只读恢复/原句柄/完整权威账本交接，不自动启动新GPU。17:48槽延后至18:11:20.181997仅一次认证前255，GPU/v2/原句柄未知；按真实尝试＋14400秒，下一最早22:11:20.181997、实际约22:12，之后仍向上取整分钟。无可行动变化静默。
 - 单个昂贵任务保持串行，四张卡不代表自动启四份卡。每张卡依fresh UUID、显存、compute、锁、主存、磁盘和共同预算准入；不停止其他用户任务。
 

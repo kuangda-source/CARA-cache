@@ -32,3 +32,9 @@
 ## 公开两辅助模型已独立完整接受
 
 [623实际原句柄恢复](623_WC_PUBLIC_ASSET_R1_TIMEOUT_AND_MISSING_ONLY_R2_RESUME_20261021.md)于17:55只捕获一次原公开R2：14文件/5,034,332,532字节全哈希、两命令0、退出与13件复用/唯一SigLIP请求均独立通过。automation-2已完成删除，sha07:43已补真实三件套及复用检查。本625的生产96件R2 scope/source/PID94749、00:43半程与07:43全SHA不变；公开文件接受不替代自身生产资产/完整推理CPU或GPU准入。
+
+## 最新服务器镜像实测与资源失败接续
+
+[626服务器实测](626_WC_FOUR_CARD_SERVER_MIRROR_ROUTE_COMPARISON_AND_FIXED_MODELSCOPE_WEIGHT_IDENTITY_20261021.md)：魔搭四个Reason1分片的元数据SHA256/大小与冻结NVIDIA精确一致；同一4MiB1.740秒、Mac代理11.843—12.416秒，两次16MiB1.106—1.164秒（13.74—14.47MiB/s），样本哈希交叉一致；短测不作完整稳速或全资源ETA。HF-Mirror首次4MiB3.787秒后429，直连HF两次20秒超时。另已只读确认原Mac R2 source7f79ceef/PID94749于18:23:48.385技术失败，8次SSLEOFError，原1,132,462,080字节partial及source/job保持；未重派或接受完整96件。旧r2半程已删，sha改约本日19:35一次故障/魔搭来源接续（不是新worker ETA）；新下载worker尚未启动，后续须独立源码/注册、断点绑定与真实launch半程/终态。两卡22:12四小时只读保持，0模型加载/CUDA/GPU/账本。
+
+原先00:43/07:43为已失败R2的历史安排，不再作为新资源任务时点。公开14文件完整接受和科学卡所有门槛保持。

@@ -67,3 +67,9 @@ R2于**14:21:31.718**实际单次启动，原PID**397742/start934875508**，job 
 - [离线独立接受](../reports/wc_four_card_public_model_assets_resume_R2_independent_acceptance_20261021.json)
 - [全14身份/字节/复用与只请求缺失范围](../reports/wc_four_card_public_model_assets_resume_R2_full14_resume_scope_acceptance_20261021.json)
 - [完成删除与生产R2排程保持读回](../reports/wc_four_card_public_model_assets_resume_R2_completed_handoff_and_schedules_20261021.json)
+
+## 最新服务器镜像实测与资源失败接续
+
+[626服务器实测](626_WC_FOUR_CARD_SERVER_MIRROR_ROUTE_COMPARISON_AND_FIXED_MODELSCOPE_WEIGHT_IDENTITY_20261021.md)：魔搭四个Reason1分片的元数据SHA256/大小与冻结NVIDIA精确一致；同一4MiB1.740秒、Mac代理11.843—12.416秒，两次16MiB1.106—1.164秒（13.74—14.47MiB/s），样本哈希交叉一致；短测不作完整稳速或全资源ETA。HF-Mirror首次4MiB3.787秒后429，直连HF两次20秒超时。另已只读确认原Mac R2 source7f79ceef/PID94749于18:23:48.385技术失败，8次SSLEOFError，原1,132,462,080字节partial及source/job保持；未重派或接受完整96件。旧r2半程已删，sha改约本日19:35一次故障/魔搭来源接续（不是新worker ETA）；新下载worker尚未启动，后续须独立源码/注册、断点绑定与真实launch半程/终态。两卡22:12四小时只读保持，0模型加载/CUDA/GPU/账本。
+
+原先00:43/07:43为已失败R2的历史安排，不再作为新资源任务时点。公开14文件完整接受和科学卡所有门槛保持。
