@@ -92,3 +92,7 @@
 ## 2026-10-22 R4.2数字UID缓存失败已定位，R4.3剩余CPU验证已启动
 
 [630原件与接续](630_WC_NUMERIC_UID_COMPILER_CACHE_FAILURE_AND_RESOURCE_CPU_R4_3_20261022.md)：05:24一次完整收件、离线不接受R4.2，17项独立失败留存核对通过。原栈已越过NVRTC／TE原生库加载，新的失败为TorchInductor默认缓存查getpass用户名，容器数字UID1000缺passwd条目且未供USER/LOGNAME；原env/runtime和资源保持。独立R4.3只补容器进程身份与五个新job缓存，不改系统passwd/依赖/原环境，不关闭编译或跳过库加载；复用110解析0和现有LPIPS／NVRTC，只新执行原入口导入及LPIPS两命令。21本地控制通过，sourcef6af9f38已GitHub发布，05:30:23.955单次启动PID621186/start940328731；一次准入实际getpass解析gaokuangda/UID1000、五目录所有权／写入通过，原进程和本人只读容器活，正在入口导入。已读回r4-3-cpu于05:35半程、r4-3-cpu-2于05:41完整收件；旧R4.2终态自动化已完成删除，两卡四小时06:16不动。原96／公开14完整接受保持，新资源CPU／CUDA／scope生产CPU／报价／唯一预算仍各自验，0新下载／安装／Cosmos权重／CUDA初始化／真实评分／科研GPU／账本写，54科研行状态、BANK24→完整1624／具体12批准／cap226历史保持。
+
+## 2026-10-22 四卡离线推理与LPIPS资源CPU已独立接受；接BANK24新机边界
+
+[631完整接受与新机CPU卡](631_WC_OFFLINE_RESOURCES_ACCEPTED_AND_BANK24_FOUR_CARD_HOST_CPU_BOUNDARY_20261022.md)：R4.3一次终态收件及离线独立接受，30项全过，原入口导入／预训练LPIPS CPU两命令0；两个固定LPIPS完整SHA、NVRTC／loader、110解析复用证明、原进程／容器／锁退出与env／11runtime保持。96／公开14接受复用，不重下或全量重哈希模型，旧R4.1／R4.2失败保留。继续独立BANK24新机完整1,789／1,772件依赖、六请求及24位置保护入口CPU验证和全量费用清单；冻结入口的SM86断言需显式Ada适配，生产前端通过不充整个新机科研scope CPU／实际CUDA／完整实测报价／GPU-ready。两卡四小时06:16只读与唯一权威v2交接保持；BANK24→完整1624、具体12批准、cap226历史及54科研行状态不改，0科研GPU／账本新增。
