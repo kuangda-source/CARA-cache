@@ -1,0 +1,28 @@
+{
+  "status": "LOCAL_RESOURCE_RELAY_R2_IMPLEMENTATION_CONTROLS_PASSED_NOT_MODEL_ACCEPTANCE",
+  "command": "python3 -m unittest discover -s tests -p test_four_card_model_relay_resume_r2.py -v",
+  "exit_code": 0,
+  "tests_passed": 11,
+  "worker_ref": "scripts/relay_wc_four_card_frozen_models_resume_r2.py",
+  "worker_sha256": "9e1529de5ee89bc1326e73d05888dc667f88ec9bbd826dc60c16954b190b0826",
+  "test_ref": "tests/test_four_card_model_relay_resume_r2.py",
+  "test_sha256": "34ab79483266864398dbd54b0d60e8c5ce42d0d4ddc95624cdac1544d2b9ce45",
+  "controls": [
+    "resume only suffix",
+    "short read rollback",
+    "wrong range rejected",
+    "wrong length rejected",
+    "HTTP error classified without secrets",
+    "401 stops bounded retries",
+    "small whole-file 200 supported",
+    "corrupt seed fails whole-object hash",
+    "timeouts preserve checkpoint",
+    "cross-host authorization stripped",
+    "existing blob and aliases independently hashed"
+  ],
+  "real_production_CPU_passed": false,
+  "model_assets_accepted": false,
+  "GPU_dispatch_ready": false,
+  "GPU_submissions": 0,
+  "ledger_written": false
+}
