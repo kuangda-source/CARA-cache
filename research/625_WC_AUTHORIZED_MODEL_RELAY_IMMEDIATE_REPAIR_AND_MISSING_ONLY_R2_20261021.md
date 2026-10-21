@@ -28,3 +28,7 @@
 - [新实际launch](../reports/wc_four_card_authorized_external_models_resume_R2_launch_20261021.json)
 - [一次实际准入](../reports/wc_four_card_authorized_external_models_resume_R2_admission_20261021.json) / [独立技术准入](../reports/wc_four_card_authorized_external_models_resume_R2_independent_admission_20261021.json)
 - [资源规划修正](../reports/wc_four_card_authorized_external_models_resume_R2_collection_plan_20261021.json) / [实际排程读回](../reports/wc_four_card_authorized_external_models_resume_R2_actual_schedules_20261021.json)
+
+## 公开两辅助模型已独立完整接受
+
+[623实际原句柄恢复](623_WC_PUBLIC_ASSET_R1_TIMEOUT_AND_MISSING_ONLY_R2_RESUME_20261021.md)于17:55只捕获一次原公开R2：14文件/5,034,332,532字节全哈希、两命令0、退出与13件复用/唯一SigLIP请求均独立通过。automation-2已完成删除，sha07:43已补真实三件套及复用检查。本625的生产96件R2 scope/source/PID94749、00:43半程与07:43全SHA不变；公开文件接受不替代自身生产资产/完整推理CPU或GPU准入。

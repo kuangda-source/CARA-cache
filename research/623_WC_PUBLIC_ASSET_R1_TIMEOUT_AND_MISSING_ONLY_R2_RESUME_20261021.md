@@ -52,3 +52,18 @@ R2于**14:21:31.718**实际单次启动，原PID**397742/start934875508**，job 
 `automation-2`已实际改约 **17:25** 一次恢复，采用独立本地收件器将单次传输/全件收件上限由55改180秒并保存超时或JSON解析UNKNOWN，验收条件不变；17:25为恢复检查时点，不是worker预计结束时间。新原件使用 `terminal_recovery_20261021_1725.json`，不覆盖16:23回执。`sha`的21:11接续已补本次未知及新文件；原96件17:11技术半程/21:11全SHA与两卡每4小时17:48只读检查保持，不代收其任务、不开新GPU。只有原result、进程/容器退出和全部14原件/复用范围满足后才接受公开两模型文件；完整Cosmos/新机scope CPU/GPU准入仍待。
 
 [本次UNKNOWN原件](../reports/wc_four_card_public_model_assets_resume_R2_terminal_20261021.json)、[本地边界与实际排程读回](../reports/wc_four_card_public_model_assets_resume_R2_terminal_unknown_boundary_20261021.json)。
+
+## 17:25恢复槽延后17:55实际收件，公开两模型完整接受
+
+本槽只执行一次180秒上限的有界原句柄收件，实际技术观察为 **2026-10-21 17:55:23.834**。原PID397742/start934875508和本人容器均已退出，source88ebc004、worker/manifest/job文件SHA及原c9/新88项目身份全部匹配。原result记录 **15:17:25.447** 完成、wall **3353.677414秒**；下载命令3274.687323秒、全部文件核验78.986449秒，两命令均exit0。旧16:23回执为55秒内未收到JSON的收件未知，保留其原件；此次真实成功原件不能反推旧超时唯一原因，也没有重复派发或修改原worker。
+
+原分母 **14文件/5,034,332,532字节** 全部完整：Qwen3Guard7件、SigLIP7件，每件独立重读的尺寸和Git-blob/SHA256均与固定revision锁定原件精确匹配。SigLIP权重3,511,950,624字节，SHA256 `ea2abad2b7f8a9c1aa5e49a244d5d57ffa71c56f720c94bc5d240ef4d6e1d94a`。保存原件后仅离线运行原accept入口，12项接受检查全过；再以保存的resume_summary和登记integrity离线核对15项：全部14唯一身份、完整字节/哈希、worker原件一致，13已验文件复用、唯一注册SigLIP请求且完成、无未登记文件请求、分区无重复缺失、原进程/容器退出及0CUDA/模型加载/GPU/账本写。原R1失败与UNKNOWN留存；原R1未再远端查询，其留存边界由历史原件与冻结R2写入范围证明，不冒充新增实时哈希。
+
+接受仅限 **两公开辅助模型文件**。完整96件生产模型、LPIPS、完整推理CPU、实际新机兼容、BANK24/1624各自生产CPU/完整报价与唯一权威v2仍待；未新增科研CPU/GPU或视频质量结果。资源任务的这一步已完成，`automation-2`已删除，避免重复下载或哈希检查。本人master85709/63606入口继续供生产资源R2使用，不关闭。
+
+最新直接人类“现在就开始修复”已由[625](625_WC_AUTHORIZED_MODEL_RELAY_IMMEDIATE_REPAIR_AND_MISSING_ONLY_R2_20261021.md)执行：生产模型以source7f79ceef/PID94749于17:42单次启动独立缺失续传R2，**10月22日00:43**半程`r2`、**07:43**全SHA`sha`保持；本次只为sha补公开两模型真实launch/capture/accepted及复用证明，不再使用前文旧R1 21:11安排。两卡每4小时只读、原BANK24→完整1624与具体12批准/预算历史不变。
+
+- [原R2成功收件](../reports/wc_four_card_public_model_assets_resume_R2_terminal_recovery_20261021_1725.json)
+- [离线独立接受](../reports/wc_four_card_public_model_assets_resume_R2_independent_acceptance_20261021.json)
+- [全14身份/字节/复用与只请求缺失范围](../reports/wc_four_card_public_model_assets_resume_R2_full14_resume_scope_acceptance_20261021.json)
+- [完成删除与生产R2排程保持读回](../reports/wc_four_card_public_model_assets_resume_R2_completed_handoff_and_schedules_20261021.json)
