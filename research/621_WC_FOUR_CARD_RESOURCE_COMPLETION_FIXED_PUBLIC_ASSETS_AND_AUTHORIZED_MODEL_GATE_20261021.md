@@ -1,3 +1,11 @@
+## 2026-10-21 外盘96件中转技术失败留存，21:11完整查收保持
+
+17:11计划半程实际于 **17:12:00.731** 仅一次本地捕获原外盘中转。source79c9d171、worker SHA d3556447、manifest SHA f59d04a1、原完整96文件/21,358,871,258字节身份全部一致，外盘仍挂载；原PID87082已不活，health技术终态为 `AUTHORIZED_MODEL_RELAY_FAILURE_RETAINED`。health记录 **13:43:47.627** 结束、wall2001.328秒，停在 `nvidia/Cosmos-Reason1-7B/model-00001-of-00004.safetensors` 的download-to-external-volume阶段，`RuntimeError`，技术partial385,875,968/4,968,243,304字节保留。
+
+已有86个注册worker `REMOTE_FULL_HASH_PASS` 回执共 **141,176,513字节**，多数是小文件，不能用86/96推断主要权重完成比例。根据冻结源码与失败阶段，可定位到三次有界分块下载尝试耗尽；原catch只保存RuntimeError，无法进一步区分网络超时、HTTP错误、响应头不符合或短读。这里只读技术health与本地worker/manifest SHA，未读最终result内容、未查询最终远端模型、未运行accept；完整资源未接受，原job/partial/源不改、不重派。
+
+[本次半程原件](../reports/wc_four_card_authorized_external_models_R1_midpoint_20261021.json)与[独立技术失败边界/实际排程读回](../reports/wc_four_card_authorized_external_models_R1_midpoint_technical_failure_boundary_20261021.json)。本半程 `wc4-model-relay-midpoint` 已完成删除；`sha` 的 **21:11** 完整查收保留，并补原失败收件后独立新R2只续传缺失件/安全partial、复用完整已验件和脱敏错误分类的接续；不提前读原result或复活原worker。原公开R2 **17:25** 收件恢复与两卡 **17:48** 四小时只读检查保持。本人SSH master仍供资源使用，不关闭；0CUDA/模型加载/科研GPU/账本写，BANK24→完整1624/具体12批准与全部新机准入前置保持。
+
 ## 2026-10-21 公开R2收件未知，17:25一次原句柄恢复
 
 [623公开资源接续](623_WC_PUBLIC_ASSET_R1_TIMEOUT_AND_MISSING_ONLY_R2_RESUME_20261021.md)：16:23唯一终态收件在55秒内未返回JSON而超时，未取得原result/当前进程退出/全14哈希，状态保留UNKNOWN，不接受或重派。原件已保存，原worker/cache/两任务入口保持；只新建本地180秒有界收件器（不改原验收），automation-2已读回重约17:25一次恢复并使用新文件，sha21:11已补此接续。原96件17:11/21:11和两卡4小时17:48时点保持；没有第二次SSH、模型加载、科研CPU/GPU或账本写。 [回执与排程](../reports/wc_four_card_public_model_assets_resume_R2_terminal_unknown_boundary_20261021.json)。

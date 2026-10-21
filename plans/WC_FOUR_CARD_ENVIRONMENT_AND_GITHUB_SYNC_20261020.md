@@ -1,3 +1,7 @@
+## 2026-10-21 外盘96件中转技术失败留存，21:11完整查收保持
+
+[621本次技术半程](../research/621_WC_FOUR_CARD_RESOURCE_COMPLETION_FIXED_PUBLIC_ASSETS_AND_AUTHORIZED_MODEL_GATE_20261021.md)：17:12仅一次本地捕获确认原外盘PID87082已退出，原source79c9d171/worker/manifest及完整96分母一致；health记录13:43:47.627下载Reason1首分片时RuntimeError退出，保留385,875,968字节partial。86个注册worker远端SHA通过回执仅合计141,176,513字节，不能当主要权重已齐或完整资源接受。半程不读result内容/最终远端资产、不accept、不SSH/重启/重派/清partial。原21:11完整收件保持，sha已补失败定位和独立缺失续传接续；本半程自动化已完成删除。公开R2的17:25恢复、两卡4小时17:48只读检查保持，0模型加载/科研GPU/账本写。 [原件与独立技术边界](../reports/wc_four_card_authorized_external_models_R1_midpoint_technical_failure_boundary_20261021.json)。
+
 ## 2026-10-21 公开R2收件未知，17:25一次原句柄恢复
 
 [623公开资源接续](../research/623_WC_PUBLIC_ASSET_R1_TIMEOUT_AND_MISSING_ONLY_R2_RESUME_20261021.md)：16:23唯一终态收件在55秒内未返回JSON而超时，未取得原result/当前进程退出/全14哈希，状态保留UNKNOWN，不接受或重派。原件已保存，原worker/cache/两任务入口保持；只新建本地180秒有界收件器（不改原验收），automation-2已读回重约17:25一次恢复并使用新文件，sha21:11已补此接续。原96件17:11/21:11和两卡4小时17:48时点保持；没有第二次SSH、模型加载、科研CPU/GPU或账本写。 [回执与排程](../reports/wc_four_card_public_model_assets_resume_R2_terminal_unknown_boundary_20261021.json)。
