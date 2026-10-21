@@ -1,0 +1,31 @@
+{
+  "status": "R4_2_COMPLETE_ORIGINAL_FAILURE_INDEPENDENTLY_RETAINED_NOT_ACCEPTED",
+  "checks": {
+    "original_source": true,
+    "original_worker": true,
+    "original_manifest": true,
+    "all_payloads": true,
+    "original_supervisor_exited": true,
+    "original_container_exited": true,
+    "actual_supervisor_exit_one": true,
+    "own_lock_free": true,
+    "actual_one_remaining_command_failed": true,
+    "failed_original_job_retained": true,
+    "new_failure_root_identified": true,
+    "NVRTC_stage_progress_observed": true,
+    "prior_resolver_full_binding": true,
+    "NVRTC_independent_SHA_matches": true,
+    "environment_and_runtime_unchanged": true,
+    "complete_CPU_not_accepted": true,
+    "resource_only": true
+  },
+  "capture_ref": "reports/wc_four_card_offline_resources_CPU_R4_2_terminal_20261022.json",
+  "capture_sha256": "31b6e87e664c0e5469e04421db409596ecd476f0614153178e03967ee7be110e",
+  "independent_nonacceptance_ref": "reports/wc_four_card_offline_resources_CPU_R4_2_independent_acceptance_20261022.json",
+  "cause": "Numeric container UID has no passwd entry; PyTorch Inductor default cache calls getpass.getuser without USER/LOGNAME",
+  "NVRTC_loader_initial_failure_not_repeated": true,
+  "repair": "New job process USER/LOGNAME and explicit owned writable compiler caches; no runtime/install/passwd change",
+  "offline_environment_resources_accepted": false,
+  "GPU_submissions": 0,
+  "ledger_written": false
+}

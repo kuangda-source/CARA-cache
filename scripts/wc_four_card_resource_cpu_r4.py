@@ -67,6 +67,12 @@ if m.get('resume_completed_resolver'):
  assert sha(prior/'worker.py')==m['prior_failed_cpu_worker_sha256']
  old_cpu=subprocess.run(['docker','inspect',prior.name,'--format','{{.State.Running}}'],capture_output=True,text=True,timeout=20)
  assert old_cpu.returncode!=0 or old_cpu.stdout.strip()=='false'
+if m.get('explicit_process_identity_cache'):
+ latest=Path(m['latest_failed_cpu_job'])
+ assert sha(latest/'manifest.json')==m['latest_failed_cpu_manifest_sha256'] and sha(latest/'result.json')==m['latest_failed_cpu_result_sha256']
+ assert sha(latest/'worker.py')==m['latest_failed_cpu_worker_sha256']
+ previous_cpu=subprocess.run(['docker','inspect',latest.name,'--format','{{.State.Running}}'],capture_output=True,text=True,timeout=20)
+ assert previous_cpu.returncode!=0 or previous_cpu.stdout.strip()=='false'
 old_resource=Path(m['accepted_model_server_job']);assert json.loads((old_resource/m['accepted_model_server_result_filename']).read_text())['status']=='FOUR_FIXED_REASON_SHARDS_FULL_HASH_PASS'
 old_docker=subprocess.run(['docker','inspect',m['accepted_model_server_container'],'--format','{{.State.Running}}'],capture_output=True,text=True,timeout=20)
 assert old_docker.returncode!=0 or old_docker.stdout.strip()=='false'
@@ -141,6 +147,9 @@ if MODE=='terminal':
   v['independent_prior_resolver_proof']=dict(result_sha256=sha(prior/'result.json'),manifest_sha256=sha(prior/'manifest.json'),worker_sha256=sha(prior/'worker.py'),probe_sha256=sha(prior/'frozen110-offline-paths-tokenizer.py'),log_sha256=sha(prior/'frozen110-offline-paths-tokenizer.log'),result=json.loads((prior/'result.json').read_text()),marker='FROZEN110_OFFLINE_HF_PATHS_AND_REASON_TOKENIZER_CPU_OK' in (prior/'frozen110-offline-paths-tokenizer.log').read_text().splitlines())
   site=root/'envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages';nvrtc=site/'nvidia/cuda_nvrtc/lib/libnvrtc.so.12'
   v['independent_NVRTC_existing_resource']=dict(library_sha256=sha(nvrtc),library_bytes=nvrtc.stat().st_size,loader_sha256=sha(site/'transformer_engine/common/__init__.py'))
+ if m.get('explicit_process_identity_cache'):
+  latest=Path(m['latest_failed_cpu_job']);v['independent_latest_failed_CPU_preserved']=dict(job=str(latest),manifest_sha256=sha(latest/'manifest.json'),result_sha256=sha(latest/'result.json'),worker_sha256=sha(latest/'worker.py'))
+  v['own_process_cache_directories']={n:dict(exists=(job/'process-caches'/n).is_dir(),is_symlink=(job/'process-caches'/n).is_symlink()) for n in ['torchinductor','triton','extensions','cuda','xdg']}
 print(json.dumps(v))
 '''
 
@@ -165,6 +174,10 @@ def launch(out,recipe_path=RECIPE):
         assert refusal['offline_environment_resources_accepted'] is False and refusal['capture_sha256']==sha(recipe['prior_failed_capture_ref'])
         assert prior['original_supervisor_live'] is False and prior['own_container_running'] is False and prior['own_resource_lock_free']
         assert prior['result']['status']=='R4_CPU_RESOURCE_FAILURE_RETAINED'
+    if recipe.get('explicit_process_identity_cache'):
+        latest=json.loads(Path(recipe['latest_failed_capture_ref']).read_text());refusal=json.loads(Path(recipe['latest_failed_nonacceptance_ref']).read_text())
+        assert refusal['offline_environment_resources_accepted'] is False and refusal['capture_sha256']==sha(recipe['latest_failed_capture_ref'])
+        assert latest['original_supervisor_live'] is False and latest['own_container_running'] is False and latest['own_resource_lock_free']
     fixed=json.loads(Path(refs['frozen96.json']).read_text())['assets']
     hashes=json.loads(Path(public['capture_ref']).read_text())['independent_file_hashes']
     assert len(fixed)==96 and len(hashes)==14 and all(x['status']=='PASS' for x in hashes)
@@ -226,6 +239,14 @@ def accept(L,c):
             existing_backbone_reused=(r.get('LPIPS_fixed_resource') or {}).get('existing_backbone_reused') is True,
             real_existing_NVRTC_source_unchanged=nv.get('loader_sha256')==resource['NVRTC_loader_sha256']==reported.get('loader_sha256') and nv.get('library_sha256')==reported.get('library_sha256') and nv.get('library_bytes')==104454480,
             explicit_native_loader_process_environment='CUDA_HOME='+resource['NVRTC_package_home'] in command and 'CUDA_PATH='+resource['NVRTC_package_home'] in command and '--network' in command and command[command.index('--network')+1]=='none' and all('NVTE_PROJECT_BUILDING=' not in x for x in command))
+    if resource.get('explicit_process_identity_cache'):
+        envproof=r.get('process_identity_and_cache') or {};expected=bound.process_cache_environment(Path(L['job']),resource['container_process_user_name'])
+        latest=c.get('independent_latest_failed_CPU_preserved') or {}
+        dirs=c.get('own_process_cache_directories') or {}
+        checks.update(real_process_identity_and_cache=envproof.get('variables')==expected and envproof.get('resolved_user')==resource['container_process_user_name'] and envproof.get('write_probe_pass') is True and envproof.get('system_passwd_modified') is False and all(k+'='+v in command for k,v in expected.items()),
+            own_writable_process_cache_directories=len(dirs)==5 and all(x.get('exists') is True and x.get('is_symlink') is False for x in dirs.values()),
+            no_compiler_bypass_added=all(not x.startswith(('TORCH_COMPILE_DISABLE=','TORCHDYNAMO_DISABLE=','NVTE_TORCH_COMPILE=','NVTE_PROJECT_BUILDING=')) for x in command),
+            latest_failed_scope_preserved=latest.get('result_sha256')==resource['latest_failed_cpu_result_sha256'] and latest.get('manifest_sha256')==resource['latest_failed_cpu_manifest_sha256'] and latest.get('worker_sha256')==resource['latest_failed_cpu_worker_sha256'])
     return dict(status='LPIPS_AND_OFFLINE_INFERENCE_CPU_RESOURCES_INDEPENDENTLY_ACCEPTED' if all(checks.values()) else 'CPU_RESOURCE_NOT_ACCEPTED_PRESERVE_ORIGINAL',checks=checks,
         offline_environment_resources_accepted=all(checks.values()),actual_CUDA_compatibility_accepted=False,new_host_scope_production_CPU_accepted=False,GPU_dispatch_ready=False,GPU_submissions=0,ledger_written=False)
 

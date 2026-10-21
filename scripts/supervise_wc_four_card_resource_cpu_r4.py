@@ -3,6 +3,7 @@
 import argparse
 import fcntl
 import hashlib
+import importlib.util
 import json
 import os
 from pathlib import Path
@@ -33,6 +34,11 @@ def main():
         libraries=[site/'nvidia'/name/'lib' for name in ['cuda_nvrtc','cuda_runtime','cudnn','nvjitlink','cublas']]+[site/'torch/lib']
         variables['LD_LIBRARY_PATH']+=':'+':'.join(map(str,libraries))
         variables['PATH']+=':/usr/sbin:/sbin'
+    if m.get('explicit_process_identity_cache'):
+        assert sha(job/'worker.py')==m['worker_sha256']
+        spec=importlib.util.spec_from_file_location('owned_resource_environment',job/'worker.py')
+        worker=importlib.util.module_from_spec(spec);spec.loader.exec_module(worker)
+        variables.update(worker.process_cache_environment(job,m['container_process_user_name']))
     args=['docker','run','--rm','--read-only','--network','none' if m.get('offline_only') else 'host','--name',m['run_id'],'--label','wcomr.manifest='+digest,
         '--user',str(os.getuid())+':'+str(os.getgid()),'--cpus','2','--memory','16g','--pids-limit','256',
         '--tmpfs','/tmp:rw,size=1g','-v',str(root)+':'+str(root)+':ro','-v',str(job)+':'+str(job)+':rw',

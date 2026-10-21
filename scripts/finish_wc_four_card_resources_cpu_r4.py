@@ -6,6 +6,7 @@ probe loads pretrained AlexNet/LPIPS weights; it produces no research scores.
 """
 import argparse
 import ast
+import getpass
 import hashlib
 import importlib.util
 import json
@@ -141,6 +142,31 @@ def existing_nvrtc_resource(env,expected_loader_sha):
         library_bytes=candidates[0].stat().st_size,loader_sha256=sha(loader))
 
 
+def process_cache_environment(job,user):
+    job=Path(job)
+    assert user and '/' not in user and '\\' not in user
+    values=dict(USER=user,LOGNAME=user)
+    for key,name in [('TORCHINDUCTOR_CACHE_DIR','torchinductor'),('TRITON_CACHE_DIR','triton'),
+                     ('TORCH_EXTENSIONS_DIR','extensions'),('CUDA_CACHE_PATH','cuda'),('XDG_CACHE_HOME','xdg')]:
+        values[key]=str(job/'process-caches'/name)
+    return values
+
+
+def verify_process_cache_environment(job,user):
+    values=process_cache_environment(job,user);job=Path(job)
+    assert all(os.environ.get(k)==v for k,v in values.items())
+    assert getpass.getuser()==user
+    for key,path in values.items():
+        if key in ('USER','LOGNAME'):continue
+        dest=Path(path);assert job.resolve() in dest.resolve().parents and not dest.is_symlink()
+        dest.mkdir(parents=True,exist_ok=True)
+        sentinel=dest/'.owned-write-probe';assert not sentinel.exists()
+        with sentinel.open('xb') as f:f.write(b'CPU')
+        assert sentinel.stat().st_uid==os.getuid();sentinel.unlink()
+    return dict(variables=values,resolved_user=getpass.getuser(),numeric_uid=os.getuid(),
+        cache_directories_inside_own_job=True,write_probe_pass=True,system_passwd_modified=False)
+
+
 def offline_assets_probe(assets):
     return NETWORK_GUARD+'ASSETS='+repr(assets)+'\n'+r'''
 from pathlib import Path
@@ -215,6 +241,13 @@ def main():
     def event(info):
         state['resource_error_events']+=1;state['last_resource_error']=info;save()
     try:
+        if m.get('explicit_process_identity_cache'):
+            state['process_identity_and_cache']=verify_process_cache_environment(job,m['container_process_user_name']);save()
+            latest=Path(m['latest_failed_cpu_job'])
+            assert sha(latest/'manifest.json')==m['latest_failed_cpu_manifest_sha256']
+            assert sha(latest/'result.json')==m['latest_failed_cpu_result_sha256']
+            assert sha(latest/'worker.py')==m['latest_failed_cpu_worker_sha256']
+            state['latest_failed_CPU_preserved']=dict(job=str(latest),manifest_sha256=sha(latest/'manifest.json'),result_sha256=sha(latest/'result.json'),worker_sha256=sha(latest/'worker.py'))
         state['phase']='fixed-LPIPS-official-weight-resource';save()
         torch_home=root/'cache/torch';dest=torch_home/'hub/checkpoints/alexnet-owt-7be5be79.pth';dest.parent.mkdir(parents=True,exist_ok=True)
         assert not dest.parent.is_symlink()

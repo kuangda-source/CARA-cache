@@ -1,0 +1,27 @@
+# 数字UID与编译缓存定位；剩余资源CPU R4.3
+
+## R4.2原失败已完整保存
+
+05:24沿原launch一次完整收件，随后仅离线accept明确不接受完整资源CPU。原source8925d168、worker／manifest／全部payload一致；supervisor／本人容器退出、资源锁释放；env元数据／11runtime／原resolver复用证明保持，NVRTC库和loader独立SHA与worker记录匹配。17项完整失败留存核对通过。
+
+- [完整终态原件](../reports/wc_four_card_offline_resources_CPU_R4_2_terminal_20261022.json)
+- [独立不接受](../reports/wc_four_card_offline_resources_CPU_R4_2_independent_acceptance_20261022.json)
+- [完整失败审计](../reports/wc_four_card_offline_resources_CPU_R4_2_complete_failure_audit_20261022.json)
+
+本次已越过Transformer Engine common原生库加载，进入pytorch/jit导入。新失败为PyTorch Inductor初始化默认缓存时调用`getpass.getuser()`，容器数字UID1000没有passwd条目、也未提供用户名变量，触发`KeyError: getpwuid(): uid not found: 1000`。原NVRTC错误不在本次栈中；这只说明该导入阶段取得进展，尚不接受完整入口或CUDA兼容。
+
+[PyTorch v2.7.1缓存实现](https://raw.githubusercontent.com/pytorch/pytorch/v2.7.1/torch/_inductor/runtime/cache_dir_utils.py)优先使用TORCHINDUCTOR_CACHE_DIR，默认目录才查用户名；[Python 3.10 getuser约定](https://docs.python.org/3.10/library/getpass.html#getpass.getuser)优先读取LOGNAME／USER等变量。新修复沿原实现设置进程配置，不关闭编译、不伪造库加载成功。
+
+## 独立R4.3只补进程身份与自身缓存
+
+[新固定配方](../manifests/wc_four_card_offline_resources_cpu_r4_3_20261022.json)注册独立job `wc-fourcard-offline-resources-cpu-r4-3-20261022`。保持原数字UID／GID，只给容器进程设置USER／LOGNAME，并明确五个缓存路径：TORCHINDUCTOR_CACHE_DIR、TRITON_CACHE_DIR、TORCH_EXTENSIONS_DIR、CUDA_CACHE_PATH、XDG_CACHE_HOME，全在新job下。实际执行前核对真实getpass解析、目录所有权与写入探针，不改系统passwd／宿主机配置／env-r3／依赖／runtime。
+
+继续复用原R4.1成功110解析／tokenizer命令的完整result／manifest／worker／probe／log SHA；另绑定最新R4.2失败原件与退出。只新执行原受限入口导入与未到达的预训练LPIPS CPU探针。原探针body与原算法实现不改，不设置关闭Torch编译或绕过Transformer Engine的变量。现有AlexNet／线性权重与NVRTC库必须原SHA复用，禁止下载。
+
+2CPU16GiB、隐藏GPU、网络none、readonly root／workspace／Torch缓存，仅新job和自身缓存可写。Cosmos权重／CUDA初始化／真实评分／科研GPU／账本仍为0；LPIPS允许加载两个固定CPU权重并执行合成检查。
+
+21项本地控制通过，新增复现无passwd数字UID错误、无需改passwd的真实getpass解析、五个缓存目录写入／所有权、缺失Inductor路径和目录越界拒绝。这些不是远端CPU通过。代码先GitHub发布后一次fresh预检、单次真实派发；规划8分钟，半程4分钟／最终10分钟，整体上限20分钟。实际launch与两个检查另记，当前尚未派发。
+
+终态必须两新命令全0／两个精确marker与原发布probe源码、原resolver复用、最新失败原件不改、真实进程身份及五个自有缓存、NVRTC／两LPIPS独立完整SHA、env／runtime保持及原进程／容器／锁退出分别接受。资源CPU通过不等于实际CUDA／新机科研scope生产CPU／整卡报价或GPU-ready。
+
+原双卡四小时只读06:16不动，本任务不查双卡或写v2；cap226／origin79.99637737158223／全部历史／54科研行与状态保持。原BANK24→既定CPU诊断→完整1624、四CAL gate与源闭包、完整1624具体12批准和新机CPU／重价／上游／唯一预算交接前置保持。F/B关闭，无训练／人评／付费VLM／OMR。
