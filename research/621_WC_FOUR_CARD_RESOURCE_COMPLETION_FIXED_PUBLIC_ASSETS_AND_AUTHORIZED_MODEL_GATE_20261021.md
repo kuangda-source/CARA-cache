@@ -1,31 +1,36 @@
-# 四卡资源补齐：固定公开资产先执行，受限模型等待可用授权来源
+# 四卡资源补齐：公开模型下载在途，固定生产模型已接通只读授权
 
-用户已直接要求完成资源准备。复用已经接受的env-r3、固定容器、runtime和GitHub base；准备文件不重装原环境，不修改原BANK24/完整1624的冻结部署。
+## 实际公开模型任务
 
-## 已验证的下载与资产边界
+复用已验env-r3、容器和runtime。source e8d1d4268967cc7683ef6a87f700d36257529ccc的公开任务于2026年10月21日12:37:05.773单次启动：PID389727/start934248913；原job wc-fourcard-public-model-assets-r1-20261021。两份固定snapshot为Qwen3Guard和SigLIP，14文件/5,034,332,532字节。2CPU/16GiB/隐藏GPU，0CUDA/模型加载/GPU/账本。
 
-自己的SSH master将服务器127.0.0.1:17897仅转发到本机127.0.0.1:7897代理。实际从四卡取得Qwen配置及SigLIP权重的HTTP206字节范围，数据可直接进入四卡数据盘，无需在Mac暂存整套模型。此通道不改FRP、共享服务器配置或其他用户任务。
+一次技术半程在原not-before之后已保存：原句柄/worker/manifest一致，仍在下载，没有最终result；已下载字节仅为技术进度，不是完整哈希接受。半程automation-2已删除，automation-3保留13:08完整收件（最早13:07:05.773）。原件只收一次，之后离线接受；未完按剩余量一次重估，不覆盖或重派。
 
-固定公开阶段是原Qwen3Guard-Gen-0.6B和SigLIP两份snapshot，共14个推理文件、5,034,332,532字节。原官方Git-blob/SHA256清单不改；下载后逐文件重读哈希。容器隐藏GPU、只读挂载旧环境，只有新job和本人HF hub可写；CPU限制2核/16GiB。最长5400秒，实际launch后另安排一次技术半程和一次预计结束查收。此阶段完成仍不能称完整模型或GPU就绪。
+自己的SSH master只将服务器127.0.0.1:17897接到本机127.0.0.1:7897代理，模型直接落四卡数据盘。原c9项目不改；GitHub e8源码已转运到独立projects/wc-resource-preparation-e8d1d4268967-20261021，全部增量SHA接受后本机318,380字节临时bundle已删除。已验服务器base/runtime/wheel不重建。
 
-固定NVIDIA文件仍缺授权：本机和四卡标准HF登录位置均无token，实际Cosmos-Predict2.5-2B原revision的权重与Guardrail文件返回401/GatedRepo。已向用户询问可用登录或可读模型路径；没有转运凭据或接受新的仓库条款。先继续公开部分与代码准备。
+## HF授权和外接硬盘
 
-## 冻结生产模型引用
+浏览器账号GaoKuangda已获Guardrail访问权限。在用户逐项批准后创建worldcache-fourcard-download-20261021，只允许三个NVIDIA仓库的读取，无写入、付费推理或管理权限。凭据只在本机0600文件；不传服务器、GitHub或回执。实际whoami200、固定Guardrail文件200、固定主权重206，匿名401的缺口已解决。
 
-实际runtime checkpoint_db确认：主权重使用Cosmos-Predict2.5-2B的15a82a2ec231bc318692aa0456a36537c806e7d4，post-trained文件SHA256为565bbb2c9645737327983f4461e4d32627bba465b0a8dc26447edea144e1ff47；tokenizer.pth来自6787e176dce74a101d922174a95dba29fa5f0c55。Guardrail revision d6d4bfa899a71454a700907664f3e88f503950cf保持。不会改成当前HF main或下载无关Cosmos3-Nano。
+按最新直接要求，本机模型中转仅使用可写USB APFS外盘/Volumes/data（观察时余1268.552GiB）；Mac内盘余11.195GiB，不承载模型。96个注册生产文件/21,358,871,258字节（19.892GiB）的新中转worker与配方已经实现。每件先在外盘完整哈希，流式SSH传模型字节，再在服务器独立全文件哈希并建立原HF兼容路径；接受后删除对应外盘副本。HTTP跨主机重定向剥离Authorization，凭据不进入服务器。
 
-文本编码器按当前实际配置依赖继续闭包，只获取被选中的固定模型，不因注册表还存在其他模型就下载全部权重。原模型保护机制保持。
+## 固定模型与VAE内容身份
 
-## 后续准入
+主权重固定15a82a2ec231bc318692aa0456a36537c806e7d4/post-trained，SHA256 565bbb2c9645737327983f4461e4d32627bba465b0a8dc26447edea144e1ff47。Guardrail保持d6d4bfa899a71454a700907664f3e88f503950cf。实际Reason1.1别名和Qwen tokenizer均指向Cosmos-Reason1-7B固定3210bec0495fdc7a8d3dbb8d58da5711eab4b423，共用同一组文件，不下载无关T5/旧Llama/Cosmos3-Nano。
 
-固定模型完整哈希和离线导入接受后，再进行新机实际CUDA兼容、新scope生产CPU/完整报价和共同权威v2准入。不能把原双卡CPU、公开模型下载或CPU依赖组件的通过状态移植为新机完整接受。科学GPU未启动，原BANK24→完整1624顺序、具体整卡12GPUh批准与两卡原资源检查保持。
+原VAE revision6787e176dce74a101d922174a95dba29fa5f0c55现已认证实测元数据404。历史真实decoder_policy_r1_stage_b.json已记录tokenizer.pth为507,609,880字节/SHA256 38071ab59bd94681c686fa51d75a1968f64e470262043be31f7a094e442fd981；可访问的官方固定15a82a2e版本元数据给出完全相同大小和完整SHA。新配方明确分开下载来源与原目标revision，按已证明的字节身份建立可逆缓存兼容链接；不改runtime/冻结decoder策略，不把两个Git revision称作相同。
 
-## 原件与实现
+## 尚待接受
 
-- [模型来源本机代理实测](../reports/wc_four_card_fixed_model_sources_local_proxy_probe_20261021.json)
-- [四卡实际网络/认证前置](../reports/wc_four_card_model_preparation_preflight_20261021.json)
-- [自己的代理实测及原runtime模型引用](../reports/wc_four_card_owned_proxy_and_fixed_asset_sources_20261021.json)
-- [公开阶段配方](../manifests/wc_four_card_public_model_preparation_r1_20261021.json)
-- [新公开资产worker](../scripts/prepare_wc_four_card_model_assets_r1.py)
+公开两模型尚未全哈希接受；96件生产文件仍待实际新launch和全部远端SHA回执。之后独立离线模型/推理导入、LPIPS评分资产、实际CUDA/驱动兼容、新机scope生产CPU/完整报价和共同权威v2还须分别接受。完整资源/GPU_dispatch_ready仍false，科学GPU未启动。原BANK24→完整1624、具体整卡12GPUh批准、原scope/source/CPU/gate和两卡资源任务均保持。
 
-当前为已实现并准备部署；生产资产下载/完整哈希仍待实际回执，完整模型/新机生产CPU/GPU接受均为false。
+## 原件
+
+- [公开任务launch](../reports/wc_four_card_public_model_assets_R1_launch_20261021.json)
+- [公开任务准入](../reports/wc_four_card_public_model_assets_R1_admission_20261021.json)
+- [一次技术半程](../reports/wc_four_card_public_model_assets_R1_midpoint_20261021.json)
+- [两次收件安排](../reports/wc_four_card_public_model_assets_R1_collection_schedule_20261021.json)
+- [浏览器授权后实际文件测试](../reports/wc_four_card_HF_browser_authorized_fixed_source_probe_20261021.json)
+- [固定生产文件配方](../manifests/wc_four_card_frozen_production_assets_r1_20261021.json)
+- [外盘中转安全控制](../reports/wc_four_card_authorized_external_relay_local_controls_20261021.json)
+- [独立GitHub源码与转运SHA](../reports/wc_four_card_GitHub_resource_preparation_R4_source_transfer_20261021.json)

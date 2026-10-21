@@ -1,3 +1,7 @@
+## 2026-10-21 四卡公开模型在途，HF只读授权已通；本机模型中转仅外盘
+
+[621资源准备](../research/621_WC_FOUR_CARD_RESOURCE_COMPLETION_FIXED_PUBLIC_ASSETS_AND_AUTHORIZED_MODEL_GATE_20261021.md)：621已更新实际任务：公开Qwen3Guard/SigLIP于12:37单次启动，原PID389727/start934248913、14文件5.034GB；一次技术半程正常，automation-2已删，automation-3保留13:08全SHA收件。GaoKuangda浏览器授权与经批准的新三仓库只读令牌已实际通过Guardrail200/主权重206，token仅Mac0600、不上服务器/Git。/Volumes/data余约1.24TiB，96件19.892GiB生产文件外盘中转实现/配方已就绪，完整SHA后逐件清理；VAE按历史完整SHA证据恢复原兼容路径，runtime不改。旧c9项目保持，新e8源码增量服务器SHA已验、本机临时bundle已清理。完整资源/新机生产CPU/GPU仍未接受；原BANK24/1624顺序、具体12批准和两卡监控保持。
+
 ## 2026-10-21 12:00四卡GPU1空闲，模型和新机运行验证仍待完成
 
 [620当前核对](../research/620_WC_FOUR_CARD_CURRENT_READINESS_GPU1_IDLE_MODELS_MISSING_20261021.md)：一次只读复查确认GPU1为23MiB/0%/无compute，数据盘余415.260GiB；env-r3及已验29项依赖组件保持。本人准备的模型缓存无模型目录，完整推理/模型资产、实际CUDA兼容、新机scope生产CPU/完整报价及共同v2尚未接受，当前project仍c9a2f95b。下一先准备有权限且SHA可核对的完整固定模型，再独立新stage和实际运行验证；0GPU/模型加载/账本写，未迁移原BANK24/1624或占卡，原两卡12:37检查保持。

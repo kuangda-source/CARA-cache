@@ -1,3 +1,7 @@
+## 2026-10-21 四卡公开模型在途，HF只读授权已通；本机模型中转仅外盘
+
+[621资源准备](621_WC_FOUR_CARD_RESOURCE_COMPLETION_FIXED_PUBLIC_ASSETS_AND_AUTHORIZED_MODEL_GATE_20261021.md)：621已更新实际任务：公开Qwen3Guard/SigLIP于12:37单次启动，原PID389727/start934248913、14文件5.034GB；一次技术半程正常，automation-2已删，automation-3保留13:08全SHA收件。GaoKuangda浏览器授权与经批准的新三仓库只读令牌已实际通过Guardrail200/主权重206，token仅Mac0600、不上服务器/Git。/Volumes/data余约1.24TiB，96件19.892GiB生产文件外盘中转实现/配方已就绪，完整SHA后逐件清理；VAE按历史完整SHA证据恢复原兼容路径，runtime不改。旧c9项目保持，新e8源码增量服务器SHA已验、本机临时bundle已清理。完整资源/新机生产CPU/GPU仍未接受；原BANK24/1624顺序、具体12批准和两卡监控保持。
+
 ## 2026-10-21 四卡资源补齐已授权，固定公开资产准备执行
 
 [621资源补齐](621_WC_FOUR_CARD_RESOURCE_COMPLETION_FIXED_PUBLIC_ASSETS_AND_AUTHORIZED_MODEL_GATE_20261021.md)：公开Qwen3Guard/SigLIP两snapshot共14文件、5.034GB已按原哈希落实新worker；自己的loopback SSH代理已从四卡实际取得206，可直接写数据盘而不在Mac堆积模型。固定Cosmos和Guardrail原件仍返回401且无HF登录，已询问可用授权来源；公开部分与代码准备继续。新worker仅CPU/0GPU，原环境不改，实际下载/哈希待真实回执；原BANK24/1624和两卡12:37检查保持。
