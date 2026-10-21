@@ -1,3 +1,7 @@
+## 2026-10-21 GitHub 仓库更名为 CARA-cache
+
+GitHub 已按用户要求更名为 [kuangda-source/CARA-cache](https://github.com/kuangda-source/CARA-cache)，同一 repository ID 1394607313、私有可见性和 main 历史保留；本地 origin、四卡源码镜像 origin 与后续同步工具地址已更新，新地址已读回原 main 提交。当前本地目录 `worldcache_omr`、历史回执、已冻结 source/stage 和在途 worker 保持；原模型查收与两卡每4小时检查定义未改，实验顺序与预算继续依原接续。 [改名核对回执](reports/wc_GitHub_repository_rename_CARA_cache_20261021.json)。
+
 ## 2026-10-21 可复现生成器理论审查完成，真实效果沿原P1/P2验证
 
 [624理论报告](research/624_WC_REPRODUCIBLE_POLICY_GENERATOR_THEORY_VALIDITY_AND_EVIDENCE_20261021.md)：纯本地审查已形成624报告及9项代数/结构/反例核对：输出二次式和有限可加图DP在其条件内成立，真实终点还受跨步抵消、latent/多锚点历史及有限候选覆盖影响。当前1624采集明确固定参考锚点s−1/s，职责为真实执行提案表；已批配置和范围不改。主线定位为部署时延与完整校准费用双约束的离线联合策略生成；独立收益由完整自然轨迹和同额对照验证。报告另明确两SELECT的统计职责、尾部守卫、取整余量及校准摊销，未新增算法/模型训练或科学接受。原16:23公开资源、17:11/21:11外盘资源、两卡每4小时17:48检查定义SHA全部保持；0服务器查询/新模型CPU/GPU/账本写。
@@ -3281,7 +3285,7 @@ common与human_199都是曝光CAL；早[8,12]/晚[25,29]从新官方baseline按�
 - Keep upstream pinned and unmodified. Experimental runtime adaptations must be separately identified, versioned, and shared by both comparison paths where appropriate.
 - True anchors are full computations within the current request, CFG branch and model/expert. Current shadow truth never updates deployed state. Reset on requests and model/condition changes. Fail safe on nonfinite inputs or insufficient anchors.
 - Synthetic/CPU tests are implementation evidence only; no generated video or quality/latency claim without real receipts. Record UNKNOWN and TECH_BLOCKED honestly.
-- User requests that every meaningful code/config/result change be committed and synchronized to the private GitHub repository `kuangda-source/worldcache-omr-experiments` before reporting completion. Keep code, plans, tests, manifests, summaries and small receipts in Git. Never commit credentials, machine connection secrets, weights, bulk tensors, or videos. Record artifact paths/hashes instead. Do not force-push or overwrite unrelated changes.
+- User requests that every meaningful code/config/result change be committed and synchronized to the private GitHub repository `kuangda-source/CARA-cache` before reporting completion. Keep code, plans, tests, manifests, summaries and small receipts in Git. Never commit credentials, machine connection secrets, weights, bulk tensors, or videos. Record artifact paths/hashes instead. Do not force-push or overwrite unrelated changes.
 - A GitHub connector atomic tree/commit/ref update may be used when local Git credentials are unavailable. Verify the resulting commit and file tree; preserve remote README and parent history. Record local-to-remote mapping under ignored `.sync/`.
 
 - Maintain `EXPERIMENT_REPORT.md` as the stable cross-device experiment overview. After meaningful experiment changes, update its evidence-bound results/decisions plus next actions and handoff in the same sync. Follow its Git conflict and single GPU submitter protocol; Git synchronization is not a distributed runtime lock.

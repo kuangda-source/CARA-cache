@@ -1,3 +1,7 @@
+## 2026-10-21 GitHub 仓库更名为 CARA-cache
+
+GitHub 已按用户要求更名为 [kuangda-source/CARA-cache](https://github.com/kuangda-source/CARA-cache)，同一 repository ID 1394607313、私有可见性和 main 历史保留；本地 origin、四卡源码镜像 origin 与后续同步工具地址已更新，新地址已读回原 main 提交。当前本地目录 `worldcache_omr`、历史回执、已冻结 source/stage 和在途 worker 保持；原模型查收与两卡每4小时检查定义未改，实验顺序与预算继续依原接续。 [改名核对回执](../reports/wc_GitHub_repository_rename_CARA_cache_20261021.json)。
+
 ## 2026-10-21 SigLIP独立R2半程健康，16:23完整验收保持
 
 [623半程原件](../research/623_WC_PUBLIC_ASSET_R1_TIMEOUT_AND_MISSING_ONLY_R2_RESUME_20261021.md)：原R2在14:53:07.942一次半程核对中PID/start/source及全部job文件SHA一致；13件已验文件已复用，仅请求注册SigLIP权重，技术字节4.217/5.034GB，无错误、尚无result。仅技术健康，不提前完整接受；半程siglip已完成删除，原automation-2的16:23全14收件、96件外盘中转17:11/21:11、两卡每4小时17:48只读检查均保持。0重启/重派、0模型加载/GPU/账本写，正常无可行动变化静默。

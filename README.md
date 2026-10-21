@@ -1,3 +1,9 @@
+# CARA-cache
+
+面向视频扩散的 CFG 对齐缓存读出与成本感知计算分配。当前论文方法正在按可复现策略生成流程验证，已有结果与待验结论见 [实验总览](EXPERIMENT_REPORT.md)。
+
+GitHub 已按用户要求更名为 [kuangda-source/CARA-cache](https://github.com/kuangda-source/CARA-cache)，同一 repository ID 1394607313、私有可见性和 main 历史保留；本地 origin、四卡源码镜像 origin 与后续同步工具地址已更新，新地址已读回原 main 提交。当前本地目录 `worldcache_omr`、历史回执、已冻结 source/stage 和在途 worker 保持；原模型查收与两卡每4小时检查定义未改，实验顺序与预算继续依原接续。
+
 ## 2026-10-14 P-ACR / W3-MixTrend后续设计更新；无新实验
 
 [增强整合计划](plans/WORLD_CACHE_P_ACR_W3_MIXTREND_ENHANCEMENT_20261014.md) ｜ [具体接续](memory/handoffs/WC_P_W3_DESIGN_20261014.md) ｜ [仅设计预算/状态](manifests/wc_p_acr_w3_mixtrend_design_envelope_20261014.json)。
@@ -974,7 +980,7 @@ python3 -m venv .venv
 .venv/bin/python -m pytest -q
 ```
 
-CPU测试只验证接口/实现。上游版本固定，vendor、权重、视频、环境和连接凭据不提交Git。`src/wcomr`及原仓库名称沿用历史标识以兼容部署；最新研究内容与队列只含WorldCache。
+CPU测试只验证接口/实现。上游版本固定，vendor、权重、视频、环境和连接凭据不提交Git。`src/wcomr`及本地/服务器目录沿用历史标识以兼容部署；最新研究内容与队列只含WorldCache。
 
 [仓库拆分记录](research/67_REPOSITORY_SPLIT_20261002.md)说明迁移范围和源提交；原Git历史保留。每次实质变更提交并推送私有库。
 
