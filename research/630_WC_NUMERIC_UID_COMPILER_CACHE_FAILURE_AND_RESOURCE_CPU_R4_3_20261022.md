@@ -25,3 +25,15 @@
 终态必须两新命令全0／两个精确marker与原发布probe源码、原resolver复用、最新失败原件不改、真实进程身份及五个自有缓存、NVRTC／两LPIPS独立完整SHA、env／runtime保持及原进程／容器／锁退出分别接受。资源CPU通过不等于实际CUDA／新机科研scope生产CPU／整卡报价或GPU-ready。
 
 原双卡四小时只读06:16不动，本任务不查双卡或写v2；cap226／origin79.99637737158223／全部历史／54科研行与状态保持。原BANK24→既定CPU诊断→完整1624、四CAL gate与源闭包、完整1624具体12批准和新机CPU／重价／上游／唯一预算交接前置保持。F/B关闭，无训练／人评／付费VLM／OMR。
+
+## R4.3实际启动与两个原时点
+
+GitHub source `f6af9f383de79ddd9702b73b5a8db97d3d9c63bf`发布后，05:30:23.955120单次启动supervisor PID621186/start940328731；worker SHA `96368f6bd21732178e0ad1f2faab12c58051c10be6a85de90b59b69c6470e201`，manifest SHA `2e5520648babbc24a1fd7e4ec9d76bbc0044f2ad8b6d5399ffbdfaa63f104c45`，新job按上述R4.3名称。
+
+一次admission确认原source／全payload／manifest、原进程与本人容器活、只读root／空GPU设备；实际进程getpass解析gaokuangda、numeric UID1000、五个缓存目录所有权／写入检查通过，未改passwd。旧R4.2失败原件与原成功resolver／LPIPS资源保持，正在入口导入，尚无新命令终态通过。fresh预检数据盘344,413,700,096字节／主存68,408,176,640字节只供本资源准入。
+
+- [实际launch](../reports/wc_four_card_offline_resources_CPU_R4_3_launch_20261022.json)／[一次admission](../reports/wc_four_card_offline_resources_CPU_R4_3_admission_20261022.json)
+- `r4-3-cpu`：05:35一次技术半程，最早unix1792618463.9551198／05:34:23.955120。
+- `r4-3-cpu-2`：05:41一次完整收件，最早unix1792618823.9551198／05:40:23.955120；保存后仅离线accept。
+
+两个原定义已读回；旧R4.2终态`r4-2-cpu-2`完成删除，两卡06:16定义保持。R4.3仍为资源CPU在途，完整CPU／CUDA兼容／科研scope生产CPU／报价／预算门分别接受，0科研GPU／账本写。
