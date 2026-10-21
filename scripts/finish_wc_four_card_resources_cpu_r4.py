@@ -108,6 +108,39 @@ def guarded_source(repair_source):
     return NETWORK_GUARD+source
 
 
+def prior_resolver_proof(m):
+    """Reuse one successful original command, never the failed overall job."""
+    old=Path(m['prior_failed_cpu_job'])
+    assert sha(old/'manifest.json')==m['prior_failed_cpu_manifest_sha256']
+    assert sha(old/'result.json')==m['prior_failed_cpu_result_sha256']
+    assert sha(old/'worker.py')==m['prior_failed_cpu_worker_sha256']
+    assert sha(old/'frozen110-offline-paths-tokenizer.py')==m['prior_resolver_probe_sha256']
+    assert sha(old/'frozen110-offline-paths-tokenizer.log')==m['prior_resolver_log_sha256']
+    previous=json.loads((old/'result.json').read_text());original=json.loads((old/'manifest.json').read_text())
+    assert previous['status']=='R4_CPU_RESOURCE_FAILURE_RETAINED' and previous['environment_metadata_unchanged']
+    assert previous['environment_metadata_after']==m['environment_metadata_sha256']
+    assert previous['runtime_critical_sources_unchanged'] and original['availability_assets']==m['availability_assets']
+    commands=previous['commands'];assert len(commands)==2
+    assert commands[0]['phase']=='frozen110-offline-paths-tokenizer' and commands[0]['exit_code']==0 and commands[0]['exact_marker']
+    assert commands[1]['phase']=='unchanged-guarded-inference-import' and commands[1]['exit_code']==1
+    assert 'FROZEN110_OFFLINE_HF_PATHS_AND_REASON_TOKENIZER_CPU_OK' in (old/'frozen110-offline-paths-tokenizer.log').read_text().splitlines()
+    return dict(job=str(old),result_sha256=sha(old/'result.json'),manifest_sha256=sha(old/'manifest.json'),
+        worker_sha256=sha(old/'worker.py'),probe_sha256=sha(old/'frozen110-offline-paths-tokenizer.py'),
+        log_sha256=sha(old/'frozen110-offline-paths-tokenizer.log'),successful_command=commands[0],
+        original_failed_job_not_accepted=True)
+
+
+def existing_nvrtc_resource(env,expected_loader_sha):
+    site=Path(env)/'lib/python3.10/site-packages';home=site/'nvidia/cuda_nvrtc'
+    loader=site/'transformer_engine/common/__init__.py';assert sha(loader)==expected_loader_sha
+    candidates=[p for p in home.rglob('libnvrtc.so*') if 'stub' not in str(p) and 'libnvrtc-builtins' not in p.name]
+    candidates.sort(reverse=True,key=lambda p:p.name)
+    assert candidates and candidates[0].name=='libnvrtc.so.12' and not candidates[0].is_symlink()
+    assert os.environ['CUDA_HOME']==os.environ['CUDA_PATH']==str(home)
+    return dict(home=str(home),library=str(candidates[0]),library_sha256=sha(candidates[0]),
+        library_bytes=candidates[0].stat().st_size,loader_sha256=sha(loader))
+
+
 def offline_assets_probe(assets):
     return NETWORK_GUARD+'ASSETS='+repr(assets)+'\n'+r'''
 from pathlib import Path
@@ -186,6 +219,7 @@ def main():
         torch_home=root/'cache/torch';dest=torch_home/'hub/checkpoints/alexnet-owt-7be5be79.pth';dest.parent.mkdir(parents=True,exist_ok=True)
         assert not dest.parent.is_symlink()
         existing=cache_valid(dest)
+        if m.get('require_cached_LPIPS_backbone'):assert existing,'Registered cached backbone must be reused; no new download'
         if not existing:
             part=dest.parent/('.wc-r4-'+m['run_id']+'.partial');assert not part.exists()
             opener=urllib.request.build_opener(urllib.request.ProxyHandler({'https':m['anonymous_server_proxy']}),support.ScopedRedirect())
@@ -205,7 +239,12 @@ def main():
             lines=(job/(label+'.log')).read_text(errors='replace').splitlines()
             item=dict(phase=label,exit_code=r.returncode,wall_seconds=time.time()-start,exact_marker=marker in lines,probe_source_sha256=sha(script))
             state['commands'].append(item);save();assert r.returncode==0 and item['exact_marker'],label
-        inside('frozen110-offline-paths-tokenizer',offline_assets_probe(m['availability_assets']),'FROZEN110_OFFLINE_HF_PATHS_AND_REASON_TOKENIZER_CPU_OK',300)
+        if m.get('resume_completed_resolver'):
+            state['reused_completed_resolver']=prior_resolver_proof(m)
+            state['NVRTC_existing_resource']=existing_nvrtc_resource(env,m['NVRTC_loader_sha256'])
+            state['new_command_count_expected']=2;state['prior_successful_command_count_reused']=1;save()
+        else:
+            inside('frozen110-offline-paths-tokenizer',offline_assets_probe(m['availability_assets']),'FROZEN110_OFFLINE_HF_PATHS_AND_REASON_TOKENIZER_CPU_OK',300)
         inside('unchanged-guarded-inference-import',guarded_source((job/'repair_support.py').read_text()),'FROZEN_PRODUCTION_GUARDED_INFERENCE_IMPORT_CPU_ONLY_OK',300)
         state['LPIPS_CPU_pretrained_weight_loading_attempted']=True
         state['LPIPS_CPU_pretrained_weight_files_loaded']=None

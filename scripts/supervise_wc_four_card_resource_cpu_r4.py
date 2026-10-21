@@ -27,10 +27,16 @@ def main():
         OMP_NUM_THREADS='2',OPENBLAS_NUM_THREADS='2',TOKENIZERS_PARALLELISM='false',
         LD_LIBRARY_PATH=str(root/'system-libs-r1/usr/lib/x86_64-linux-gnu')+':'+str(root/'system-libs-r1/lib/x86_64-linux-gnu'),
         PATH=str(root/'system-libs-r1/usr/bin')+':/usr/local/bin:/usr/bin:/bin')
-    args=['docker','run','--rm','--read-only','--network','host','--name',m['run_id'],'--label','wcomr.manifest='+digest,
+    if m.get('resume_completed_resolver'):
+        site=env/'lib/python3.10/site-packages'
+        variables.update(CUDA_HOME=str(site/'nvidia/cuda_nvrtc'),CUDA_PATH=str(site/'nvidia/cuda_nvrtc'))
+        libraries=[site/'nvidia'/name/'lib' for name in ['cuda_nvrtc','cuda_runtime','cudnn','nvjitlink','cublas']]+[site/'torch/lib']
+        variables['LD_LIBRARY_PATH']+=':'+':'.join(map(str,libraries))
+        variables['PATH']+=':/usr/sbin:/sbin'
+    args=['docker','run','--rm','--read-only','--network','none' if m.get('offline_only') else 'host','--name',m['run_id'],'--label','wcomr.manifest='+digest,
         '--user',str(os.getuid())+':'+str(os.getgid()),'--cpus','2','--memory','16g','--pids-limit','256',
         '--tmpfs','/tmp:rw,size=1g','-v',str(root)+':'+str(root)+':ro','-v',str(job)+':'+str(job)+':rw',
-        '-v',str(root/'cache/torch')+':'+str(root/'cache/torch')+':rw','-w',str(job)]
+        '-v',str(root/'cache/torch')+':'+str(root/'cache/torch')+(':'+('ro' if m.get('torch_cache_readonly') else 'rw')),'-w',str(job)]
     for k,v in variables.items():args+=['-e',k+'='+v]
     args+=['--entrypoint',str(env/'bin/python'),m['container_image_id'],str(job/'worker.py'),'--manifest',str(a.manifest)]
     with (job/'container-command.json').open('x') as command:

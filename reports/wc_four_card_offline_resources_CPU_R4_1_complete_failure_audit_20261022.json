@@ -1,0 +1,32 @@
+{
+  "status": "R4_1_COMPLETE_ORIGINAL_FAILURE_INDEPENDENTLY_AUDITED_NOT_ACCEPTED",
+  "checks": {
+    "original_source": true,
+    "original_worker": true,
+    "original_manifest": true,
+    "all_original_payloads": true,
+    "original_supervisor_exited": true,
+    "original_container_exited": true,
+    "original_supervisor_actual_nonzero": true,
+    "own_resource_lock_free": true,
+    "real_failure_retained": true,
+    "actual_commands_0_then_1": true,
+    "installed_loader_failure_identified": true,
+    "NVRTC_package_already_present": true,
+    "environment_and_runtime_unchanged": true,
+    "offline_full_CPU_not_accepted": true,
+    "failed_path_did_not_read_success_hashes": true,
+    "resource_only": true
+  },
+  "launch_ref": "reports/wc_four_card_offline_resources_CPU_R4_1_launch_20261022.json",
+  "launch_sha256": "99bebc2f7c8ca29ec213c1a1257e51c1987da8ad671f92b90d7566a86702f26d",
+  "capture_ref": "reports/wc_four_card_offline_resources_CPU_R4_1_terminal_20261022.json",
+  "capture_sha256": "e5886c8c8fdcbd05be28835adc78286d3b81733e5a6766b7d0721d7cd62917c5",
+  "independent_nonacceptance_ref": "reports/wc_four_card_offline_resources_CPU_R4_1_independent_acceptance_20261022.json",
+  "diagnosis_ref": "reports/wc_four_card_R4_1_NVRTC_loader_readonly_diagnosis_20261022.json",
+  "cause": "Transformer Engine NVRTC loader had no CUDA_HOME/CUDA_PATH; fallback ldconfig not found",
+  "repair_scope": "New independent R4.2 job uses existing package home; unchanged runtime/environment and reused successful resolver",
+  "offline_environment_resources_accepted": false,
+  "GPU_submissions": 0,
+  "ledger_written": false
+}

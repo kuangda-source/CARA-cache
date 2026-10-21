@@ -1,0 +1,1636 @@
+{
+  "status": "ORIGINAL_OFFLINE_RESOURCE_CPU_R4_CAPTURE",
+  "mode": "terminal",
+  "observed_unix": 1792616725.4358978,
+  "launch": {
+    "status": "OFFLINE_RESOURCE_CPU_R4_SINGLE_DISPATCHED",
+    "started_unix": 1792613823.9834206,
+    "identity": {
+      "pid": 615773,
+      "start_ticks": 939888734
+    },
+    "job": "/data20t/gaokuangda/worldcache_workspace/bootstrap/wc-fourcard-offline-resources-cpu-r4-1-20261022",
+    "source_revision": "e5eedef488d33098974e884cad7ac10e6ac0a1d0",
+    "manifest_sha256": "940048e5cd6fc606602e64e99feb6764510b11a05d285fafee0c5155cff1b3d7",
+    "file_sha256": {
+      "worker.py": "920e60b445f63ba12096883d5b7e2eb4335a7692d7c5a70fdd4f82ffb7008233",
+      "supervisor.py": "056e01ea7f3d265a20d6234978e0317613579a1d42461fd033a4ec3fd524d132",
+      "resource_support.py": "3a4dacb74b583cb6845c4b6e311f479797f6e293f5c1164599a362c9437f9bbf",
+      "repair_support.py": "97c7af2ee6a7a68d66d8a3bd4afcd94e4adabc81846be6f56c4f84b16ff1220b",
+      "upstream-assets-acceptance.json": "41b02ca82fb4746056cecb9d05aaef0eff5b3fab84eb5e4cca2195cf64ff098b",
+      "upstream-public14-acceptance.json": "e1ccf7bec3e4cb1c5c5c10addd3cfc56052af62e89896a6159dc76debc281ed8",
+      "frozen96.json": "fc4be2142d3b462fca5a84413ae7f4c21abfab8df0ed80e5565e691a414e560c"
+    },
+    "worker_sha256": "920e60b445f63ba12096883d5b7e2eb4335a7692d7c5a70fdd4f82ffb7008233",
+    "supervisor_sha256": "056e01ea7f3d265a20d6234978e0317613579a1d42461fd033a4ec3fd524d132",
+    "halfway_not_before_unix": 1792615173.9834206,
+    "final_not_before_unix": 1792616643.9834206,
+    "maximum_wall_seconds": 6600,
+    "planning_seconds": 2700,
+    "preflight": {
+      "data_disk_free_bytes": 345300471808,
+      "MemAvailable_bytes": 60513628160,
+      "accepted_R3_server_container_exited": true,
+      "cached_container_image_id": "sha256:1e81ac62ee68ca1a6ef655515096a1d84579b01aa4986810c9b18d4f6c4c552d",
+      "original_R4_preflight_only_stage_absent": true
+    },
+    "GPU_submissions": 0,
+    "ledger_written": false,
+    "CUDA_initialized": false,
+    "Cosmos_weights_loaded": 0,
+    "new_host_production_CPU_accepted": false,
+    "GPU_dispatch_ready": false
+  },
+  "original_supervisor_live": false,
+  "manifest": {
+    "version": "WC_FOUR_CARD_FIXED_LPIPS_AND_UNCHANGED_OFFLINE_CPU_RESOURCES_R4_1",
+    "run_id": "wc-fourcard-offline-resources-cpu-r4-1-20261022",
+    "workspace": "/data20t/gaokuangda/worldcache_workspace",
+    "container_image_id": "sha256:1e81ac62ee68ca1a6ef655515096a1d84579b01aa4986810c9b18d4f6c4c552d",
+    "runtime_source_sha256": {
+      "cosmos_predict2/_src/predict2/models/video2world_model_rectified_flow.py": "9b53e3f024e5cbb2cb3778819e1a6fd353923c13ad9b868d99602051640a65e8",
+      "cosmos_predict2/_src/predict2/models/text2world_model_rectified_flow.py": "c6c68f297859e11c76d2921667a29cabfecef3a7b5d3ab831bf9bb54b25b7d87",
+      "cosmos_predict2/_src/predict2/inference/worldcache_utils.py": "b485cb8fd6e262a40e5823365c34ef7db1bc036c591d7577489e04077c515903",
+      "cosmos_predict2/_src/predict2/models/fm_solvers_unipc.py": "f6a06c75f059693ade6c802e99f6058575969b6a71ef18ab05e7ed46701053d3",
+      "cosmos_predict2/_src/predict2/configs/video2world/defaults/conditioner.py": "d58f515074237843b707d67001751c0e022546061348728e6322faaaa22e837c",
+      "cosmos_predict2/_src/predict2/configs/video2world/defaults/model.py": "042e4ef004f36c2f391c5234532b3feac4c7754f7469e4f998919bbee76a49e0",
+      "cosmos_predict2/inference.py": "0db96c49f0b3f18a971bc989e0727132dafc27ef621145a2d25a3da62a7a1975",
+      "cosmos_predict2/_src/predict2/inference/video2world.py": "59aa9e236a5e7e26490f5cfcb94ab95ce911d9c38eba61dd8aef7d067e458a95",
+      "cosmos_predict2/_src/predict2/conditioner.py": "47554e88f2a5d5157e30b18b1d7ad4a4ee55a99dfbaf7071f680c7acf438843a",
+      "cosmos_predict2/_src/predict2/networks/minimal_v1_lvg_dit.py": "2d3ddcf94158c61223bc610f31ede475f7e4e27cc3b604ff3557b73d891e665f",
+      "cosmos_predict2/_src/predict2/networks/minimal_v4_dit.py": "a41a1772f694ee338e4b91f032428ea81f28e80fb90990e2db86eb7d1ce30071"
+    },
+    "previous_validation_job": "/data20t/gaokuangda/worldcache_workspace/bootstrap/wc-fourcard-env-validation-r3-20261021",
+    "previous_result_sha256": "9d44d033d298f8880417f32865de98de989ba496161c021723470d43ff7e01d9",
+    "previous_manifest_sha256": "86dd5682b4d3d98dba03a015c2958a063c86e8af0092e3327c2df8a905858581",
+    "environment_metadata_sha256": "4bb51826483b7ede5079543c8df691729d7d51b24b8a8a3b5e777bfe49db83b3",
+    "model_assets_acceptance_ref": "reports/wc_four_card_models_hybrid_R3_independent_acceptance_20261022.json",
+    "public14_acceptance_ref": "reports/wc_four_card_public_model_assets_resume_R2_independent_acceptance_20261021.json",
+    "fixed96_manifest_ref": "manifests/wc_four_card_frozen_production_assets_r1_20261021.json",
+    "components_acceptance_ref": "reports/wc_four_card_dependency_repair_components_independent_acceptance_20261021.json",
+    "accepted_model_server_job": "/data20t/gaokuangda/worldcache_workspace/bootstrap/wc-fourcard-fixed-models-hybrid-r3-20261021",
+    "accepted_model_server_container": "wc-fourcard-fixed-models-hybrid-r3-20261021",
+    "LPIPS_backbone": {
+      "url": "https://download.pytorch.org/models/alexnet-owt-7be5be79.pth",
+      "bytes": 244408911,
+      "sha256": "7be5be791159472b1fbf3c69796f7cb30dca7ad8466c2df70058c37116cdee02"
+    },
+    "LPIPS_linear_sha256": "df73285e35b22355a2df87cdb6b70b343713b667eddbda73e1977e0c860835c0",
+    "anonymous_server_proxy": "http://127.0.0.1:17897",
+    "download_policy": {
+      "chunk_bytes": 4194304,
+      "attempts_per_chunk": 8,
+      "socket_timeout_seconds": 90,
+      "maximum_retry_after_seconds": 300,
+      "backoff_initial_seconds": 2,
+      "backoff_cap_seconds": 60
+    },
+    "resource_maximum_wall_seconds": 5400,
+    "maximum_wall_seconds": 6600,
+    "planning_seconds": 2700,
+    "halfway_after_start_seconds": 1350,
+    "terminal_after_start_seconds": 2820,
+    "CPU_only": true,
+    "CPU_limit": 2,
+    "memory_limit_GiB": 16,
+    "workspace_readonly": true,
+    "environment_install_or_modification": false,
+    "Cosmos_weights_loaded": 0,
+    "LPIPS_CPU_pretrained_weights_load_allowed": true,
+    "real_video_scores": 0,
+    "GPU_submissions": 0,
+    "CUDA_initialized": false,
+    "ledger_written": false,
+    "production_CPU_accepted": false,
+    "GPU_dispatch_ready": false,
+    "previous_preflight_only_stage": "/data20t/gaokuangda/worldcache_workspace/bootstrap/wc-fourcard-offline-resources-cpu-r4-20261022",
+    "accepted_model_server_result_filename": "server-result.json",
+    "source_revision": "e5eedef488d33098974e884cad7ac10e6ac0a1d0",
+    "worker_sha256": "920e60b445f63ba12096883d5b7e2eb4335a7692d7c5a70fdd4f82ffb7008233",
+    "supervisor_sha256": "056e01ea7f3d265a20d6234978e0317613579a1d42461fd033a4ec3fd524d132",
+    "resource_support_sha256": "3a4dacb74b583cb6845c4b6e311f479797f6e293f5c1164599a362c9437f9bbf",
+    "repair_support_sha256": "97c7af2ee6a7a68d66d8a3bd4afcd94e4adabc81846be6f56c4f84b16ff1220b",
+    "model_assets_acceptance_sha256": "41b02ca82fb4746056cecb9d05aaef0eff5b3fab84eb5e4cca2195cf64ff098b",
+    "public14_acceptance_sha256": "e1ccf7bec3e4cb1c5c5c10addd3cfc56052af62e89896a6159dc76debc281ed8",
+    "fixed96_manifest_sha256": "fc4be2142d3b462fca5a84413ae7f4c21abfab8df0ed80e5565e691a414e560c",
+    "availability_assets": [
+      {
+        "repo_id": "nvidia/Cosmos-Guardrail1",
+        "source_revision": "d6d4bfa899a71454a700907664f3e88f503950cf",
+        "path": "README.md",
+        "size": 20683,
+        "digest": "9a0563bc33e32d81e5400cf3ee8e94220ba3692a",
+        "git_blob": true,
+        "target_revisions": [
+          "d6d4bfa899a71454a700907664f3e88f503950cf"
+        ],
+        "main_revision": "d6d4bfa899a71454a700907664f3e88f503950cf"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Guardrail1",
+        "source_revision": "d6d4bfa899a71454a700907664f3e88f503950cf",
+        "path": "blocklist/custom/blocklist",
+        "size": 3643,
+        "digest": "8f694e654295c5bff6ae30fdb29047d8dba468e0",
+        "git_blob": true,
+        "target_revisions": [
+          "d6d4bfa899a71454a700907664f3e88f503950cf"
+        ],
+        "main_revision": "d6d4bfa899a71454a700907664f3e88f503950cf"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Guardrail1",
+        "source_revision": "d6d4bfa899a71454a700907664f3e88f503950cf",
+        "path": "blocklist/exact_match/blocked",
+        "size": 16158,
+        "digest": "9e62284cb5ed834ee6904a44446a789c4db6d056",
+        "git_blob": true,
+        "target_revisions": [
+          "d6d4bfa899a71454a700907664f3e88f503950cf"
+        ],
+        "main_revision": "d6d4bfa899a71454a700907664f3e88f503950cf"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Guardrail1",
+        "source_revision": "d6d4bfa899a71454a700907664f3e88f503950cf",
+        "path": "blocklist/nltk_data/corpora/wordnet.zip",
+        "size": 10775600,
+        "digest": "cbda5ea6eef7f36a97a43d4a75f85e07fccbb4f23657d27b4ccbc93e2646ab59",
+        "git_blob": false,
+        "target_revisions": [
+          "d6d4bfa899a71454a700907664f3e88f503950cf"
+        ],
+        "main_revision": "d6d4bfa899a71454a700907664f3e88f503950cf"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Guardrail1",
+        "source_revision": "d6d4bfa899a71454a700907664f3e88f503950cf",
+        "path": "blocklist/nltk_data/tokenizers/punkt_tab.zip",
+        "size": 4259017,
+        "digest": "c2b16c23d738effbdc5789d7aa601397c13ba2819bf922fb904687f3f16657ed",
+        "git_blob": false,
+        "target_revisions": [
+          "d6d4bfa899a71454a700907664f3e88f503950cf"
+        ],
+        "main_revision": "d6d4bfa899a71454a700907664f3e88f503950cf"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Guardrail1",
+        "source_revision": "d6d4bfa899a71454a700907664f3e88f503950cf",
+        "path": "blocklist/nltk_data/tokenizers/punkt_tab/README",
+        "size": 8574,
+        "digest": "49a637cb19b758348071ed19edb29d33ab435b33",
+        "git_blob": true,
+        "target_revisions": [
+          "d6d4bfa899a71454a700907664f3e88f503950cf"
+        ],
+        "main_revision": "d6d4bfa899a71454a700907664f3e88f503950cf"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Guardrail1",
+        "source_revision": "d6d4bfa899a71454a700907664f3e88f503950cf",
+        "path": "blocklist/nltk_data/tokenizers/punkt_tab/czech/abbrev_types.txt",
+        "size": 462,
+        "digest": "addf93e5edbb1dd14b83f3f67d272efaef348ad5",
+        "git_blob": true,
+        "target_revisions": [
+          "d6d4bfa899a71454a700907664f3e88f503950cf"
+        ],
+        "main_revision": "d6d4bfa899a71454a700907664f3e88f503950cf"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Guardrail1",
+        "source_revision": "d6d4bfa899a71454a700907664f3e88f503950cf",
+        "path": "blocklist/nltk_data/tokenizers/punkt_tab/czech/collocations.tab",
+        "size": 1390,
+        "digest": "a455cf31496e566cd3330255ce4e158e28f7ab4c",
+        "git_blob": true,
+        "target_revisions": [
+          "d6d4bfa899a71454a700907664f3e88f503950cf"
+        ],
+        "main_revision": "d6d4bfa899a71454a700907664f3e88f503950cf"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Guardrail1",
+        "source_revision": "d6d4bfa899a71454a700907664f3e88f503950cf",
+        "path": "blocklist/nltk_data/tokenizers/punkt_tab/czech/ortho_context.tab",
+        "size": 684150,
+        "digest": "9142df3336b3dc0eb60d2a70b8ee005449763ebd",
+        "git_blob": true,
+        "target_revisions": [
+          "d6d4bfa899a71454a700907664f3e88f503950cf"
+        ],
+        "main_revision": "d6d4bfa899a71454a700907664f3e88f503950cf"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Guardrail1",
+        "source_revision": "d6d4bfa899a71454a700907664f3e88f503950cf",
+        "path": "blocklist/nltk_data/tokenizers/punkt_tab/czech/sent_starters.txt",
+        "size": 352,
+        "digest": "c81aad32035c6b0a7f90756515d885510ed01bd0",
+        "git_blob": true,
+        "target_revisions": [
+          "d6d4bfa899a71454a700907664f3e88f503950cf"
+        ],
+        "main_revision": "d6d4bfa899a71454a700907664f3e88f503950cf"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Guardrail1",
+        "source_revision": "d6d4bfa899a71454a700907664f3e88f503950cf",
+        "path": "blocklist/nltk_data/tokenizers/punkt_tab/danish/abbrev_types.txt",
+        "size": 1130,
+        "digest": "6fc09d901dade22248c02d631753175f083ac704",
+        "git_blob": true,
+        "target_revisions": [
+          "d6d4bfa899a71454a700907664f3e88f503950cf"
+        ],
+        "main_revision": "d6d4bfa899a71454a700907664f3e88f503950cf"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Guardrail1",
+        "source_revision": "d6d4bfa899a71454a700907664f3e88f503950cf",
+        "path": "blocklist/nltk_data/tokenizers/punkt_tab/danish/collocations.tab",
+        "size": 1693,
+        "digest": "97f345f7de214797e17e1989c072883e7391bacd",
+        "git_blob": true,
+        "target_revisions": [
+          "d6d4bfa899a71454a700907664f3e88f503950cf"
+        ],
+        "main_revision": "d6d4bfa899a71454a700907664f3e88f503950cf"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Guardrail1",
+        "source_revision": "d6d4bfa899a71454a700907664f3e88f503950cf",
+        "path": "blocklist/nltk_data/tokenizers/punkt_tab/danish/ortho_context.tab",
+        "size": 743835,
+        "digest": "fb97fe71815d42542632401c1ecc104be05ea57a",
+        "git_blob": true,
+        "target_revisions": [
+          "d6d4bfa899a71454a700907664f3e88f503950cf"
+        ],
+        "main_revision": "d6d4bfa899a71454a700907664f3e88f503950cf"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Guardrail1",
+        "source_revision": "d6d4bfa899a71454a700907664f3e88f503950cf",
+        "path": "blocklist/nltk_data/tokenizers/punkt_tab/danish/sent_starters.txt",
+        "size": 415,
+        "digest": "5458df91e0297ace2b480dbeeb836913c30284db",
+        "git_blob": true,
+        "target_revisions": [
+          "d6d4bfa899a71454a700907664f3e88f503950cf"
+        ],
+        "main_revision": "d6d4bfa899a71454a700907664f3e88f503950cf"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Guardrail1",
+        "source_revision": "d6d4bfa899a71454a700907664f3e88f503950cf",
+        "path": "blocklist/nltk_data/tokenizers/punkt_tab/dutch/abbrev_types.txt",
+        "size": 434,
+        "digest": "4afec6e3301699597ac153e12bb89a581d2f12db",
+        "git_blob": true,
+        "target_revisions": [
+          "d6d4bfa899a71454a700907664f3e88f503950cf"
+        ],
+        "main_revision": "d6d4bfa899a71454a700907664f3e88f503950cf"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Guardrail1",
+        "source_revision": "d6d4bfa899a71454a700907664f3e88f503950cf",
+        "path": "blocklist/nltk_data/tokenizers/punkt_tab/dutch/collocations.tab",
+        "size": 623,
+        "digest": "501015d123edc9a42c71265fc894a8d9c912e559",
+        "git_blob": true,
+        "target_revisions": [
+          "d6d4bfa899a71454a700907664f3e88f503950cf"
+        ],
+        "main_revision": "d6d4bfa899a71454a700907664f3e88f503950cf"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Guardrail1",
+        "source_revision": "d6d4bfa899a71454a700907664f3e88f503950cf",
+        "path": "blocklist/nltk_data/tokenizers/punkt_tab/dutch/ortho_context.tab",
+        "size": 428403,
+        "digest": "6a37ed3f0f93afa9b221bdfa00b7d7c5fa12ee63",
+        "git_blob": true,
+        "target_revisions": [
+          "d6d4bfa899a71454a700907664f3e88f503950cf"
+        ],
+        "main_revision": "d6d4bfa899a71454a700907664f3e88f503950cf"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Guardrail1",
+        "source_revision": "d6d4bfa899a71454a700907664f3e88f503950cf",
+        "path": "blocklist/nltk_data/tokenizers/punkt_tab/dutch/sent_starters.txt",
+        "size": 310,
+        "digest": "e246bfdfbe6927bb1760439a9e7f938391f9627e",
+        "git_blob": true,
+        "target_revisions": [
+          "d6d4bfa899a71454a700907664f3e88f503950cf"
+        ],
+        "main_revision": "d6d4bfa899a71454a700907664f3e88f503950cf"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Guardrail1",
+        "source_revision": "d6d4bfa899a71454a700907664f3e88f503950cf",
+        "path": "blocklist/nltk_data/tokenizers/punkt_tab/english/abbrev_types.txt",
+        "size": 619,
+        "digest": "b38862b8c3126ae4ad3468f3377a7b2708554c17",
+        "git_blob": true,
+        "target_revisions": [
+          "d6d4bfa899a71454a700907664f3e88f503950cf"
+        ],
+        "main_revision": "d6d4bfa899a71454a700907664f3e88f503950cf"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Guardrail1",
+        "source_revision": "d6d4bfa899a71454a700907664f3e88f503950cf",
+        "path": "blocklist/nltk_data/tokenizers/punkt_tab/english/collocations.tab",
+        "size": 594,
+        "digest": "c7032b7fc96369e446570185d07cd195c7bd5381",
+        "git_blob": true,
+        "target_revisions": [
+          "d6d4bfa899a71454a700907664f3e88f503950cf"
+        ],
+        "main_revision": "d6d4bfa899a71454a700907664f3e88f503950cf"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Guardrail1",
+        "source_revision": "d6d4bfa899a71454a700907664f3e88f503950cf",
+        "path": "blocklist/nltk_data/tokenizers/punkt_tab/english/ortho_context.tab",
+        "size": 236303,
+        "digest": "a33a364852803f59d77bd6b8433801dbf7581439",
+        "git_blob": true,
+        "target_revisions": [
+          "d6d4bfa899a71454a700907664f3e88f503950cf"
+        ],
+        "main_revision": "d6d4bfa899a71454a700907664f3e88f503950cf"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Guardrail1",
+        "source_revision": "d6d4bfa899a71454a700907664f3e88f503950cf",
+        "path": "blocklist/nltk_data/tokenizers/punkt_tab/english/sent_starters.txt",
+        "size": 241,
+        "digest": "478fd8334c5508d522b87a2ba7c06c38f56bf7b6",
+        "git_blob": true,
+        "target_revisions": [
+          "d6d4bfa899a71454a700907664f3e88f503950cf"
+        ],
+        "main_revision": "d6d4bfa899a71454a700907664f3e88f503950cf"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Guardrail1",
+        "source_revision": "d6d4bfa899a71454a700907664f3e88f503950cf",
+        "path": "blocklist/nltk_data/tokenizers/punkt_tab/estonian/abbrev_types.txt",
+        "size": 224,
+        "digest": "c68ab829b328223e471cc6d309c635b6d174160d",
+        "git_blob": true,
+        "target_revisions": [
+          "d6d4bfa899a71454a700907664f3e88f503950cf"
+        ],
+        "main_revision": "d6d4bfa899a71454a700907664f3e88f503950cf"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Guardrail1",
+        "source_revision": "d6d4bfa899a71454a700907664f3e88f503950cf",
+        "path": "blocklist/nltk_data/tokenizers/punkt_tab/estonian/collocations.tab",
+        "size": 1825,
+        "digest": "c7a6177a5f0e1faf0622d8c29f6dfca5acf0d8cf",
+        "git_blob": true,
+        "target_revisions": [
+          "d6d4bfa899a71454a700907664f3e88f503950cf"
+        ],
+        "main_revision": "d6d4bfa899a71454a700907664f3e88f503950cf"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Guardrail1",
+        "source_revision": "d6d4bfa899a71454a700907664f3e88f503950cf",
+        "path": "blocklist/nltk_data/tokenizers/punkt_tab/estonian/ortho_context.tab",
+        "size": 936992,
+        "digest": "97d74744c4d2698558fc520d0727c0f0ac248e8c",
+        "git_blob": true,
+        "target_revisions": [
+          "d6d4bfa899a71454a700907664f3e88f503950cf"
+        ],
+        "main_revision": "d6d4bfa899a71454a700907664f3e88f503950cf"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Guardrail1",
+        "source_revision": "d6d4bfa899a71454a700907664f3e88f503950cf",
+        "path": "blocklist/nltk_data/tokenizers/punkt_tab/estonian/sent_starters.txt",
+        "size": 679,
+        "digest": "7221cccbd6b8b6134d98dd0bc7f463131c952e9e",
+        "git_blob": true,
+        "target_revisions": [
+          "d6d4bfa899a71454a700907664f3e88f503950cf"
+        ],
+        "main_revision": "d6d4bfa899a71454a700907664f3e88f503950cf"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Guardrail1",
+        "source_revision": "d6d4bfa899a71454a700907664f3e88f503950cf",
+        "path": "blocklist/nltk_data/tokenizers/punkt_tab/finnish/abbrev_types.txt",
+        "size": 484,
+        "digest": "8cb53791b1dbcd6bd43b3b0165bc7061b9169dd9",
+        "git_blob": true,
+        "target_revisions": [
+          "d6d4bfa899a71454a700907664f3e88f503950cf"
+        ],
+        "main_revision": "d6d4bfa899a71454a700907664f3e88f503950cf"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Guardrail1",
+        "source_revision": "d6d4bfa899a71454a700907664f3e88f503950cf",
+        "path": "blocklist/nltk_data/tokenizers/punkt_tab/finnish/collocations.tab",
+        "size": 3046,
+        "digest": "f383d5ab44e8270ef923d2c9fe4bd8b776d75546",
+        "git_blob": true,
+        "target_revisions": [
+          "d6d4bfa899a71454a700907664f3e88f503950cf"
+        ],
+        "main_revision": "d6d4bfa899a71454a700907664f3e88f503950cf"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Guardrail1",
+        "source_revision": "d6d4bfa899a71454a700907664f3e88f503950cf",
+        "path": "blocklist/nltk_data/tokenizers/punkt_tab/finnish/ortho_context.tab",
+        "size": 1189717,
+        "digest": "2fe97158665831ec291127243dc3a2c90f32d9a1",
+        "git_blob": true,
+        "target_revisions": [
+          "d6d4bfa899a71454a700907664f3e88f503950cf"
+        ],
+        "main_revision": "d6d4bfa899a71454a700907664f3e88f503950cf"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Guardrail1",
+        "source_revision": "d6d4bfa899a71454a700907664f3e88f503950cf",
+        "path": "blocklist/nltk_data/tokenizers/punkt_tab/finnish/sent_starters.txt",
+        "size": 810,
+        "digest": "38abd4895899c25b4bc0b86d7cc8ee918a161991",
+        "git_blob": true,
+        "target_revisions": [
+          "d6d4bfa899a71454a700907664f3e88f503950cf"
+        ],
+        "main_revision": "d6d4bfa899a71454a700907664f3e88f503950cf"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Guardrail1",
+        "source_revision": "d6d4bfa899a71454a700907664f3e88f503950cf",
+        "path": "blocklist/nltk_data/tokenizers/punkt_tab/french/abbrev_types.txt",
+        "size": 245,
+        "digest": "82ef7f3f807dd77610d4e300975636c993fc3b0f",
+        "git_blob": true,
+        "target_revisions": [
+          "d6d4bfa899a71454a700907664f3e88f503950cf"
+        ],
+        "main_revision": "d6d4bfa899a71454a700907664f3e88f503950cf"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Guardrail1",
+        "source_revision": "d6d4bfa899a71454a700907664f3e88f503950cf",
+        "path": "blocklist/nltk_data/tokenizers/punkt_tab/french/collocations.tab",
+        "size": 334,
+        "digest": "1fe9b9b04b2d53669d2b64247394a987bf5419c5",
+        "git_blob": true,
+        "target_revisions": [
+          "d6d4bfa899a71454a700907664f3e88f503950cf"
+        ],
+        "main_revision": "d6d4bfa899a71454a700907664f3e88f503950cf"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Guardrail1",
+        "source_revision": "d6d4bfa899a71454a700907664f3e88f503950cf",
+        "path": "blocklist/nltk_data/tokenizers/punkt_tab/french/ortho_context.tab",
+        "size": 334275,
+        "digest": "56ce056b0421f7f2250f48e8539ce97b68d720fd",
+        "git_blob": true,
+        "target_revisions": [
+          "d6d4bfa899a71454a700907664f3e88f503950cf"
+        ],
+        "main_revision": "d6d4bfa899a71454a700907664f3e88f503950cf"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Guardrail1",
+        "source_revision": "d6d4bfa899a71454a700907664f3e88f503950cf",
+        "path": "blocklist/nltk_data/tokenizers/punkt_tab/french/sent_starters.txt",
+        "size": 233,
+        "digest": "bd9f4d3357910f0a4dd2102152cdada4fd8e4722",
+        "git_blob": true,
+        "target_revisions": [
+          "d6d4bfa899a71454a700907664f3e88f503950cf"
+        ],
+        "main_revision": "d6d4bfa899a71454a700907664f3e88f503950cf"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Guardrail1",
+        "source_revision": "d6d4bfa899a71454a700907664f3e88f503950cf",
+        "path": "blocklist/nltk_data/tokenizers/punkt_tab/german/abbrev_types.txt",
+        "size": 246,
+        "digest": "5acff23e04e7c48e3634427694699ee14ec794cb",
+        "git_blob": true,
+        "target_revisions": [
+          "d6d4bfa899a71454a700907664f3e88f503950cf"
+        ],
+        "main_revision": "d6d4bfa899a71454a700907664f3e88f503950cf"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Guardrail1",
+        "source_revision": "d6d4bfa899a71454a700907664f3e88f503950cf",
+        "path": "blocklist/nltk_data/tokenizers/punkt_tab/german/collocations.tab",
+        "size": 527,
+        "digest": "e85c5004e1e9c4da8c614c6cb82a11cb0aeb5c96",
+        "git_blob": true,
+        "target_revisions": [
+          "d6d4bfa899a71454a700907664f3e88f503950cf"
+        ],
+        "main_revision": "d6d4bfa899a71454a700907664f3e88f503950cf"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Guardrail1",
+        "source_revision": "d6d4bfa899a71454a700907664f3e88f503950cf",
+        "path": "blocklist/nltk_data/tokenizers/punkt_tab/german/ortho_context.tab",
+        "size": 943500,
+        "digest": "52ff05ac9c2b8bfa18c806e3ce2172f3f1686a45",
+        "git_blob": true,
+        "target_revisions": [
+          "d6d4bfa899a71454a700907664f3e88f503950cf"
+        ],
+        "main_revision": "d6d4bfa899a71454a700907664f3e88f503950cf"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Guardrail1",
+        "source_revision": "d6d4bfa899a71454a700907664f3e88f503950cf",
+        "path": "blocklist/nltk_data/tokenizers/punkt_tab/german/sent_starters.txt",
+        "size": 762,
+        "digest": "1240eca4f27964cc87a93b1042a09dd14964e2f3",
+        "git_blob": true,
+        "target_revisions": [
+          "d6d4bfa899a71454a700907664f3e88f503950cf"
+        ],
+        "main_revision": "d6d4bfa899a71454a700907664f3e88f503950cf"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Guardrail1",
+        "source_revision": "d6d4bfa899a71454a700907664f3e88f503950cf",
+        "path": "blocklist/nltk_data/tokenizers/punkt_tab/greek/abbrev_types.txt",
+        "size": 570,
+        "digest": "4d8a0a06b7255e8a19c7bf5b3d31e1e1a5e01280",
+        "git_blob": true,
+        "target_revisions": [
+          "d6d4bfa899a71454a700907664f3e88f503950cf"
+        ],
+        "main_revision": "d6d4bfa899a71454a700907664f3e88f503950cf"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Guardrail1",
+        "source_revision": "d6d4bfa899a71454a700907664f3e88f503950cf",
+        "path": "blocklist/nltk_data/tokenizers/punkt_tab/greek/collocations.tab",
+        "size": 118,
+        "digest": "2821727f8c461e648765a6a9c0de3e7d40b65764",
+        "git_blob": true,
+        "target_revisions": [
+          "d6d4bfa899a71454a700907664f3e88f503950cf"
+        ],
+        "main_revision": "d6d4bfa899a71454a700907664f3e88f503950cf"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Guardrail1",
+        "source_revision": "d6d4bfa899a71454a700907664f3e88f503950cf",
+        "path": "blocklist/nltk_data/tokenizers/punkt_tab/greek/ortho_context.tab",
+        "size": 632838,
+        "digest": "e61e774def6742368f3887b3c5ff632f556a959b",
+        "git_blob": true,
+        "target_revisions": [
+          "d6d4bfa899a71454a700907664f3e88f503950cf"
+        ],
+        "main_revision": "d6d4bfa899a71454a700907664f3e88f503950cf"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Guardrail1",
+        "source_revision": "d6d4bfa899a71454a700907664f3e88f503950cf",
+        "path": "blocklist/nltk_data/tokenizers/punkt_tab/greek/sent_starters.txt",
+        "size": 567,
+        "digest": "4099aed6cb48bcedf2225a9ee856393efacb213b",
+        "git_blob": true,
+        "target_revisions": [
+          "d6d4bfa899a71454a700907664f3e88f503950cf"
+        ],
+        "main_revision": "d6d4bfa899a71454a700907664f3e88f503950cf"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Guardrail1",
+        "source_revision": "d6d4bfa899a71454a700907664f3e88f503950cf",
+        "path": "blocklist/nltk_data/tokenizers/punkt_tab/italian/abbrev_types.txt",
+        "size": 534,
+        "digest": "13beb19640c04a4dfab2690763bc4825397d5d94",
+        "git_blob": true,
+        "target_revisions": [
+          "d6d4bfa899a71454a700907664f3e88f503950cf"
+        ],
+        "main_revision": "d6d4bfa899a71454a700907664f3e88f503950cf"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Guardrail1",
+        "source_revision": "d6d4bfa899a71454a700907664f3e88f503950cf",
+        "path": "blocklist/nltk_data/tokenizers/punkt_tab/italian/collocations.tab",
+        "size": 53,
+        "digest": "4fd846baeaa42f84954e2090182d8fbcc8ce22bc",
+        "git_blob": true,
+        "target_revisions": [
+          "d6d4bfa899a71454a700907664f3e88f503950cf"
+        ],
+        "main_revision": "d6d4bfa899a71454a700907664f3e88f503950cf"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Guardrail1",
+        "source_revision": "d6d4bfa899a71454a700907664f3e88f503950cf",
+        "path": "blocklist/nltk_data/tokenizers/punkt_tab/italian/ortho_context.tab",
+        "size": 369822,
+        "digest": "7b5c93d0b20ef6bab588227f1e04688ec17195bc",
+        "git_blob": true,
+        "target_revisions": [
+          "d6d4bfa899a71454a700907664f3e88f503950cf"
+        ],
+        "main_revision": "d6d4bfa899a71454a700907664f3e88f503950cf"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Guardrail1",
+        "source_revision": "d6d4bfa899a71454a700907664f3e88f503950cf",
+        "path": "blocklist/nltk_data/tokenizers/punkt_tab/italian/sent_starters.txt",
+        "size": 208,
+        "digest": "dcadf042465b7aca1cde274e2533054fb2f7dd2a",
+        "git_blob": true,
+        "target_revisions": [
+          "d6d4bfa899a71454a700907664f3e88f503950cf"
+        ],
+        "main_revision": "d6d4bfa899a71454a700907664f3e88f503950cf"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Guardrail1",
+        "source_revision": "d6d4bfa899a71454a700907664f3e88f503950cf",
+        "path": "blocklist/nltk_data/tokenizers/punkt_tab/norwegian/abbrev_types.txt",
+        "size": 496,
+        "digest": "3379948584ae4641073a1d345d1b0533ea1d37a4",
+        "git_blob": true,
+        "target_revisions": [
+          "d6d4bfa899a71454a700907664f3e88f503950cf"
+        ],
+        "main_revision": "d6d4bfa899a71454a700907664f3e88f503950cf"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Guardrail1",
+        "source_revision": "d6d4bfa899a71454a700907664f3e88f503950cf",
+        "path": "blocklist/nltk_data/tokenizers/punkt_tab/norwegian/collocations.tab",
+        "size": 869,
+        "digest": "7888449542c1fcff60c886fa88fd8c06c11a0ca7",
+        "git_blob": true,
+        "target_revisions": [
+          "d6d4bfa899a71454a700907664f3e88f503950cf"
+        ],
+        "main_revision": "d6d4bfa899a71454a700907664f3e88f503950cf"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Guardrail1",
+        "source_revision": "d6d4bfa899a71454a700907664f3e88f503950cf",
+        "path": "blocklist/nltk_data/tokenizers/punkt_tab/norwegian/ortho_context.tab",
+        "size": 734070,
+        "digest": "a9b7dd2386855537c256a373e0e2386f678150b4",
+        "git_blob": true,
+        "target_revisions": [
+          "d6d4bfa899a71454a700907664f3e88f503950cf"
+        ],
+        "main_revision": "d6d4bfa899a71454a700907664f3e88f503950cf"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Guardrail1",
+        "source_revision": "d6d4bfa899a71454a700907664f3e88f503950cf",
+        "path": "blocklist/nltk_data/tokenizers/punkt_tab/norwegian/sent_starters.txt",
+        "size": 378,
+        "digest": "70b191b1a4ca5d33a5688edd2d19bcf56aa19ba3",
+        "git_blob": true,
+        "target_revisions": [
+          "d6d4bfa899a71454a700907664f3e88f503950cf"
+        ],
+        "main_revision": "d6d4bfa899a71454a700907664f3e88f503950cf"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Guardrail1",
+        "source_revision": "d6d4bfa899a71454a700907664f3e88f503950cf",
+        "path": "blocklist/nltk_data/tokenizers/punkt_tab/polish/abbrev_types.txt",
+        "size": 973,
+        "digest": "d0c7a93629d95e96140d6d079ff2127f5f586f70",
+        "git_blob": true,
+        "target_revisions": [
+          "d6d4bfa899a71454a700907664f3e88f503950cf"
+        ],
+        "main_revision": "d6d4bfa899a71454a700907664f3e88f503950cf"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Guardrail1",
+        "source_revision": "d6d4bfa899a71454a700907664f3e88f503950cf",
+        "path": "blocklist/nltk_data/tokenizers/punkt_tab/polish/collocations.tab",
+        "size": 1101,
+        "digest": "1f4d291321dbd96e9f889c8230829da8f7d260fe",
+        "git_blob": true,
+        "target_revisions": [
+          "d6d4bfa899a71454a700907664f3e88f503950cf"
+        ],
+        "main_revision": "d6d4bfa899a71454a700907664f3e88f503950cf"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Guardrail1",
+        "source_revision": "d6d4bfa899a71454a700907664f3e88f503950cf",
+        "path": "blocklist/nltk_data/tokenizers/punkt_tab/polish/ortho_context.tab",
+        "size": 1066577,
+        "digest": "8c25887cf8384d5f3eb9e445ad27e48e00e0ba93",
+        "git_blob": true,
+        "target_revisions": [
+          "d6d4bfa899a71454a700907664f3e88f503950cf"
+        ],
+        "main_revision": "d6d4bfa899a71454a700907664f3e88f503950cf"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Guardrail1",
+        "source_revision": "d6d4bfa899a71454a700907664f3e88f503950cf",
+        "path": "blocklist/nltk_data/tokenizers/punkt_tab/polish/sent_starters.txt",
+        "size": 518,
+        "digest": "0a2158412aea35ae88429c8c193d2d8bfb97135e",
+        "git_blob": true,
+        "target_revisions": [
+          "d6d4bfa899a71454a700907664f3e88f503950cf"
+        ],
+        "main_revision": "d6d4bfa899a71454a700907664f3e88f503950cf"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Guardrail1",
+        "source_revision": "d6d4bfa899a71454a700907664f3e88f503950cf",
+        "path": "blocklist/nltk_data/tokenizers/punkt_tab/portuguese/abbrev_types.txt",
+        "size": 301,
+        "digest": "5840329505a37a244585c9cc39bc0b7a6b631e91",
+        "git_blob": true,
+        "target_revisions": [
+          "d6d4bfa899a71454a700907664f3e88f503950cf"
+        ],
+        "main_revision": "d6d4bfa899a71454a700907664f3e88f503950cf"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Guardrail1",
+        "source_revision": "d6d4bfa899a71454a700907664f3e88f503950cf",
+        "path": "blocklist/nltk_data/tokenizers/punkt_tab/portuguese/collocations.tab",
+        "size": 64,
+        "digest": "6355d4107725f98ef9e71e4f218acde01ecaa513",
+        "git_blob": true,
+        "target_revisions": [
+          "d6d4bfa899a71454a700907664f3e88f503950cf"
+        ],
+        "main_revision": "d6d4bfa899a71454a700907664f3e88f503950cf"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Guardrail1",
+        "source_revision": "d6d4bfa899a71454a700907664f3e88f503950cf",
+        "path": "blocklist/nltk_data/tokenizers/punkt_tab/portuguese/ortho_context.tab",
+        "size": 363124,
+        "digest": "e07acba10f239ebf5646fa61fe309595f6b656f2",
+        "git_blob": true,
+        "target_revisions": [
+          "d6d4bfa899a71454a700907664f3e88f503950cf"
+        ],
+        "main_revision": "d6d4bfa899a71454a700907664f3e88f503950cf"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Guardrail1",
+        "source_revision": "d6d4bfa899a71454a700907664f3e88f503950cf",
+        "path": "blocklist/nltk_data/tokenizers/punkt_tab/portuguese/sent_starters.txt",
+        "size": 209,
+        "digest": "494fe8b279928cb0e339419343ae60d8c71caffe",
+        "git_blob": true,
+        "target_revisions": [
+          "d6d4bfa899a71454a700907664f3e88f503950cf"
+        ],
+        "main_revision": "d6d4bfa899a71454a700907664f3e88f503950cf"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Guardrail1",
+        "source_revision": "d6d4bfa899a71454a700907664f3e88f503950cf",
+        "path": "blocklist/nltk_data/tokenizers/punkt_tab/russian/abbrev_types.txt",
+        "size": 15363,
+        "digest": "3bb31653f49b45888c8e6afe270e3ed5f5bb705d",
+        "git_blob": true,
+        "target_revisions": [
+          "d6d4bfa899a71454a700907664f3e88f503950cf"
+        ],
+        "main_revision": "d6d4bfa899a71454a700907664f3e88f503950cf"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Guardrail1",
+        "source_revision": "d6d4bfa899a71454a700907664f3e88f503950cf",
+        "path": "blocklist/nltk_data/tokenizers/punkt_tab/russian/collocations.tab",
+        "size": 0,
+        "digest": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+        "git_blob": true,
+        "target_revisions": [
+          "d6d4bfa899a71454a700907664f3e88f503950cf"
+        ],
+        "main_revision": "d6d4bfa899a71454a700907664f3e88f503950cf"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Guardrail1",
+        "source_revision": "d6d4bfa899a71454a700907664f3e88f503950cf",
+        "path": "blocklist/nltk_data/tokenizers/punkt_tab/russian/ortho_context.tab",
+        "size": 10,
+        "digest": "9b18d6eb42882f1d53bf4508aaf938e0345687cc",
+        "git_blob": true,
+        "target_revisions": [
+          "d6d4bfa899a71454a700907664f3e88f503950cf"
+        ],
+        "main_revision": "d6d4bfa899a71454a700907664f3e88f503950cf"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Guardrail1",
+        "source_revision": "d6d4bfa899a71454a700907664f3e88f503950cf",
+        "path": "blocklist/nltk_data/tokenizers/punkt_tab/russian/sent_starters.txt",
+        "size": 0,
+        "digest": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+        "git_blob": true,
+        "target_revisions": [
+          "d6d4bfa899a71454a700907664f3e88f503950cf"
+        ],
+        "main_revision": "d6d4bfa899a71454a700907664f3e88f503950cf"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Guardrail1",
+        "source_revision": "d6d4bfa899a71454a700907664f3e88f503950cf",
+        "path": "blocklist/nltk_data/tokenizers/punkt_tab/slovene/abbrev_types.txt",
+        "size": 280,
+        "digest": "72a14996107556cef68138d8f23b4b067513f8c5",
+        "git_blob": true,
+        "target_revisions": [
+          "d6d4bfa899a71454a700907664f3e88f503950cf"
+        ],
+        "main_revision": "d6d4bfa899a71454a700907664f3e88f503950cf"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Guardrail1",
+        "source_revision": "d6d4bfa899a71454a700907664f3e88f503950cf",
+        "path": "blocklist/nltk_data/tokenizers/punkt_tab/slovene/collocations.tab",
+        "size": 1131,
+        "digest": "04cb9ebbd81eb4dc5fdc50f40de59f0a55bcf46f",
+        "git_blob": true,
+        "target_revisions": [
+          "d6d4bfa899a71454a700907664f3e88f503950cf"
+        ],
+        "main_revision": "d6d4bfa899a71454a700907664f3e88f503950cf"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Guardrail1",
+        "source_revision": "d6d4bfa899a71454a700907664f3e88f503950cf",
+        "path": "blocklist/nltk_data/tokenizers/punkt_tab/slovene/ortho_context.tab",
+        "size": 445129,
+        "digest": "7add76758ebffb3f5fa5a6ef04e308d77d5685df",
+        "git_blob": true,
+        "target_revisions": [
+          "d6d4bfa899a71454a700907664f3e88f503950cf"
+        ],
+        "main_revision": "d6d4bfa899a71454a700907664f3e88f503950cf"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Guardrail1",
+        "source_revision": "d6d4bfa899a71454a700907664f3e88f503950cf",
+        "path": "blocklist/nltk_data/tokenizers/punkt_tab/slovene/sent_starters.txt",
+        "size": 358,
+        "digest": "56ee9c75b0e7f9de6f4cb2d077eb0a486a308e39",
+        "git_blob": true,
+        "target_revisions": [
+          "d6d4bfa899a71454a700907664f3e88f503950cf"
+        ],
+        "main_revision": "d6d4bfa899a71454a700907664f3e88f503950cf"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Guardrail1",
+        "source_revision": "d6d4bfa899a71454a700907664f3e88f503950cf",
+        "path": "blocklist/nltk_data/tokenizers/punkt_tab/spanish/abbrev_types.txt",
+        "size": 234,
+        "digest": "2668423af54897cc0554e25152006a8d5525dc53",
+        "git_blob": true,
+        "target_revisions": [
+          "d6d4bfa899a71454a700907664f3e88f503950cf"
+        ],
+        "main_revision": "d6d4bfa899a71454a700907664f3e88f503950cf"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Guardrail1",
+        "source_revision": "d6d4bfa899a71454a700907664f3e88f503950cf",
+        "path": "blocklist/nltk_data/tokenizers/punkt_tab/spanish/collocations.tab",
+        "size": 74,
+        "digest": "a3c8e4ac4403e95e089c2bff7e804bbdbe555f8b",
+        "git_blob": true,
+        "target_revisions": [
+          "d6d4bfa899a71454a700907664f3e88f503950cf"
+        ],
+        "main_revision": "d6d4bfa899a71454a700907664f3e88f503950cf"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Guardrail1",
+        "source_revision": "d6d4bfa899a71454a700907664f3e88f503950cf",
+        "path": "blocklist/nltk_data/tokenizers/punkt_tab/spanish/ortho_context.tab",
+        "size": 337707,
+        "digest": "4387d2779a83bda1cc0b8f8b47e60169bcee39d2",
+        "git_blob": true,
+        "target_revisions": [
+          "d6d4bfa899a71454a700907664f3e88f503950cf"
+        ],
+        "main_revision": "d6d4bfa899a71454a700907664f3e88f503950cf"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Guardrail1",
+        "source_revision": "d6d4bfa899a71454a700907664f3e88f503950cf",
+        "path": "blocklist/nltk_data/tokenizers/punkt_tab/spanish/sent_starters.txt",
+        "size": 289,
+        "digest": "25cd8a03e9e166ac3b7f4f1acf0ede6da7d236c9",
+        "git_blob": true,
+        "target_revisions": [
+          "d6d4bfa899a71454a700907664f3e88f503950cf"
+        ],
+        "main_revision": "d6d4bfa899a71454a700907664f3e88f503950cf"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Guardrail1",
+        "source_revision": "d6d4bfa899a71454a700907664f3e88f503950cf",
+        "path": "blocklist/nltk_data/tokenizers/punkt_tab/swedish/abbrev_types.txt",
+        "size": 208,
+        "digest": "79b12d4cf6df9afb7210033a3a76306ce9d24180",
+        "git_blob": true,
+        "target_revisions": [
+          "d6d4bfa899a71454a700907664f3e88f503950cf"
+        ],
+        "main_revision": "d6d4bfa899a71454a700907664f3e88f503950cf"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Guardrail1",
+        "source_revision": "d6d4bfa899a71454a700907664f3e88f503950cf",
+        "path": "blocklist/nltk_data/tokenizers/punkt_tab/swedish/collocations.tab",
+        "size": 136,
+        "digest": "6565db7d5e853cc5d5e1d838f6063f89bc7f0d1a",
+        "git_blob": true,
+        "target_revisions": [
+          "d6d4bfa899a71454a700907664f3e88f503950cf"
+        ],
+        "main_revision": "d6d4bfa899a71454a700907664f3e88f503950cf"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Guardrail1",
+        "source_revision": "d6d4bfa899a71454a700907664f3e88f503950cf",
+        "path": "blocklist/nltk_data/tokenizers/punkt_tab/swedish/ortho_context.tab",
+        "size": 616904,
+        "digest": "ebec8ccc3a1b6d62e18d990cd3232588d7394ae5",
+        "git_blob": true,
+        "target_revisions": [
+          "d6d4bfa899a71454a700907664f3e88f503950cf"
+        ],
+        "main_revision": "d6d4bfa899a71454a700907664f3e88f503950cf"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Guardrail1",
+        "source_revision": "d6d4bfa899a71454a700907664f3e88f503950cf",
+        "path": "blocklist/nltk_data/tokenizers/punkt_tab/swedish/sent_starters.txt",
+        "size": 295,
+        "digest": "5ccb1347ea11616c9f3a7a6fdb25c2e60a86db25",
+        "git_blob": true,
+        "target_revisions": [
+          "d6d4bfa899a71454a700907664f3e88f503950cf"
+        ],
+        "main_revision": "d6d4bfa899a71454a700907664f3e88f503950cf"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Guardrail1",
+        "source_revision": "d6d4bfa899a71454a700907664f3e88f503950cf",
+        "path": "blocklist/nltk_data/tokenizers/punkt_tab/turkish/abbrev_types.txt",
+        "size": 424,
+        "digest": "f610cc126be9b94ea685bab4f2ad7324075f80d7",
+        "git_blob": true,
+        "target_revisions": [
+          "d6d4bfa899a71454a700907664f3e88f503950cf"
+        ],
+        "main_revision": "d6d4bfa899a71454a700907664f3e88f503950cf"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Guardrail1",
+        "source_revision": "d6d4bfa899a71454a700907664f3e88f503950cf",
+        "path": "blocklist/nltk_data/tokenizers/punkt_tab/turkish/collocations.tab",
+        "size": 273,
+        "digest": "c6305c90cd18f20a2e776f5ed87093ff21b815c0",
+        "git_blob": true,
+        "target_revisions": [
+          "d6d4bfa899a71454a700907664f3e88f503950cf"
+        ],
+        "main_revision": "d6d4bfa899a71454a700907664f3e88f503950cf"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Guardrail1",
+        "source_revision": "d6d4bfa899a71454a700907664f3e88f503950cf",
+        "path": "blocklist/nltk_data/tokenizers/punkt_tab/turkish/ortho_context.tab",
+        "size": 642682,
+        "digest": "9efceb5d33bc9c8a99f608a010f3944aec42e7d2",
+        "git_blob": true,
+        "target_revisions": [
+          "d6d4bfa899a71454a700907664f3e88f503950cf"
+        ],
+        "main_revision": "d6d4bfa899a71454a700907664f3e88f503950cf"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Guardrail1",
+        "source_revision": "d6d4bfa899a71454a700907664f3e88f503950cf",
+        "path": "blocklist/nltk_data/tokenizers/punkt_tab/turkish/sent_starters.txt",
+        "size": 613,
+        "digest": "67c39626372185a21983d7bba64abc8123da4195",
+        "git_blob": true,
+        "target_revisions": [
+          "d6d4bfa899a71454a700907664f3e88f503950cf"
+        ],
+        "main_revision": "d6d4bfa899a71454a700907664f3e88f503950cf"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Guardrail1",
+        "source_revision": "d6d4bfa899a71454a700907664f3e88f503950cf",
+        "path": "blocklist/whitelist/whitelisted",
+        "size": 5,
+        "digest": "42b509ed5ed5f2471f7aafeba5b3bdc32dd8b65c",
+        "git_blob": true,
+        "target_revisions": [
+          "d6d4bfa899a71454a700907664f3e88f503950cf"
+        ],
+        "main_revision": "d6d4bfa899a71454a700907664f3e88f503950cf"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Guardrail1",
+        "source_revision": "d6d4bfa899a71454a700907664f3e88f503950cf",
+        "path": "face_blur_filter/Resnet50_Final.pth",
+        "size": 109497761,
+        "digest": "6d1de9c2944f2ccddca5f5e010ea5ae64a39845a86311af6fdf30841b0a5a16d",
+        "git_blob": false,
+        "target_revisions": [
+          "d6d4bfa899a71454a700907664f3e88f503950cf"
+        ],
+        "main_revision": "d6d4bfa899a71454a700907664f3e88f503950cf"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Guardrail1",
+        "source_revision": "d6d4bfa899a71454a700907664f3e88f503950cf",
+        "path": "video_content_safety_filter/safety_filter.pt",
+        "size": 5814682,
+        "digest": "a408f177d33943b475e3c0644553e38d8499b199eaf1bbf95c9f773f9997a575",
+        "git_blob": false,
+        "target_revisions": [
+          "d6d4bfa899a71454a700907664f3e88f503950cf"
+        ],
+        "main_revision": "d6d4bfa899a71454a700907664f3e88f503950cf"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Reason1-7B",
+        "source_revision": "3210bec0495fdc7a8d3dbb8d58da5711eab4b423",
+        "path": ".gitattributes",
+        "size": 1519,
+        "digest": "a6344aac8c09253b3b630fb776ae94478aa0275b",
+        "git_blob": true,
+        "target_revisions": [
+          "3210bec0495fdc7a8d3dbb8d58da5711eab4b423"
+        ],
+        "main_revision": "3210bec0495fdc7a8d3dbb8d58da5711eab4b423"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Reason1-7B",
+        "source_revision": "3210bec0495fdc7a8d3dbb8d58da5711eab4b423",
+        "path": "README.md",
+        "size": 25877,
+        "digest": "fba130f4794812d694d8ea9a54f2e0e9c0f3614a",
+        "git_blob": true,
+        "target_revisions": [
+          "3210bec0495fdc7a8d3dbb8d58da5711eab4b423"
+        ],
+        "main_revision": "3210bec0495fdc7a8d3dbb8d58da5711eab4b423"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Reason1-7B",
+        "source_revision": "3210bec0495fdc7a8d3dbb8d58da5711eab4b423",
+        "path": "chat_template.json",
+        "size": 1050,
+        "digest": "732bd68bc5427d1fb6c06a59b3bf2456b2155d24",
+        "git_blob": true,
+        "target_revisions": [
+          "3210bec0495fdc7a8d3dbb8d58da5711eab4b423"
+        ],
+        "main_revision": "3210bec0495fdc7a8d3dbb8d58da5711eab4b423"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Reason1-7B",
+        "source_revision": "3210bec0495fdc7a8d3dbb8d58da5711eab4b423",
+        "path": "config.json",
+        "size": 1374,
+        "digest": "58ee12a9fb3d8708a1e41e49cb9aa5ac5017b6a6",
+        "git_blob": true,
+        "target_revisions": [
+          "3210bec0495fdc7a8d3dbb8d58da5711eab4b423"
+        ],
+        "main_revision": "3210bec0495fdc7a8d3dbb8d58da5711eab4b423"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Reason1-7B",
+        "source_revision": "3210bec0495fdc7a8d3dbb8d58da5711eab4b423",
+        "path": "generation_config.json",
+        "size": 217,
+        "digest": "01e339a7fa288f08f11d56c7baf5c887237e1c5a",
+        "git_blob": true,
+        "target_revisions": [
+          "3210bec0495fdc7a8d3dbb8d58da5711eab4b423"
+        ],
+        "main_revision": "3210bec0495fdc7a8d3dbb8d58da5711eab4b423"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Reason1-7B",
+        "source_revision": "3210bec0495fdc7a8d3dbb8d58da5711eab4b423",
+        "path": "model-00001-of-00004.safetensors",
+        "size": 4968243304,
+        "digest": "c28404126221997ae8eb70a23b919c96174d42e35ae1d537e0c95093d50b359a",
+        "git_blob": false,
+        "target_revisions": [
+          "3210bec0495fdc7a8d3dbb8d58da5711eab4b423"
+        ],
+        "main_revision": "3210bec0495fdc7a8d3dbb8d58da5711eab4b423"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Reason1-7B",
+        "source_revision": "3210bec0495fdc7a8d3dbb8d58da5711eab4b423",
+        "path": "model-00002-of-00004.safetensors",
+        "size": 4991495816,
+        "digest": "f281081864c10992d3e03874c79d526c84407e049d713747f19eb9c79cd16db3",
+        "git_blob": false,
+        "target_revisions": [
+          "3210bec0495fdc7a8d3dbb8d58da5711eab4b423"
+        ],
+        "main_revision": "3210bec0495fdc7a8d3dbb8d58da5711eab4b423"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Reason1-7B",
+        "source_revision": "3210bec0495fdc7a8d3dbb8d58da5711eab4b423",
+        "path": "model-00003-of-00004.safetensors",
+        "size": 4932751040,
+        "digest": "3bb3a62a8d0e83c6283388ddea99395b221f908f9181b8edd0f7f91d02260ebe",
+        "git_blob": false,
+        "target_revisions": [
+          "3210bec0495fdc7a8d3dbb8d58da5711eab4b423"
+        ],
+        "main_revision": "3210bec0495fdc7a8d3dbb8d58da5711eab4b423"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Reason1-7B",
+        "source_revision": "3210bec0495fdc7a8d3dbb8d58da5711eab4b423",
+        "path": "model-00004-of-00004.safetensors",
+        "size": 1691924384,
+        "digest": "91bacbe1ad798e16daa05023b4e4bec70b53c8cd7d757db86c5bc76c4e0bbf15",
+        "git_blob": false,
+        "target_revisions": [
+          "3210bec0495fdc7a8d3dbb8d58da5711eab4b423"
+        ],
+        "main_revision": "3210bec0495fdc7a8d3dbb8d58da5711eab4b423"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Reason1-7B",
+        "source_revision": "3210bec0495fdc7a8d3dbb8d58da5711eab4b423",
+        "path": "model.safetensors.index.json",
+        "size": 57618,
+        "digest": "0581f2e84b28e50710380865674b39403dab90de",
+        "git_blob": true,
+        "target_revisions": [
+          "3210bec0495fdc7a8d3dbb8d58da5711eab4b423"
+        ],
+        "main_revision": "3210bec0495fdc7a8d3dbb8d58da5711eab4b423"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Reason1-7B",
+        "source_revision": "3210bec0495fdc7a8d3dbb8d58da5711eab4b423",
+        "path": "preprocessor_config.json",
+        "size": 350,
+        "digest": "7f3b746825e5eef53ed8ed57a91df9e86ee62c0a",
+        "git_blob": true,
+        "target_revisions": [
+          "3210bec0495fdc7a8d3dbb8d58da5711eab4b423"
+        ],
+        "main_revision": "3210bec0495fdc7a8d3dbb8d58da5711eab4b423"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Reason1-7B",
+        "source_revision": "3210bec0495fdc7a8d3dbb8d58da5711eab4b423",
+        "path": "tokenizer.json",
+        "size": 7031645,
+        "digest": "443909a61d429dff23010e5bddd28ff530edda00",
+        "git_blob": true,
+        "target_revisions": [
+          "3210bec0495fdc7a8d3dbb8d58da5711eab4b423"
+        ],
+        "main_revision": "3210bec0495fdc7a8d3dbb8d58da5711eab4b423"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Reason1-7B",
+        "source_revision": "3210bec0495fdc7a8d3dbb8d58da5711eab4b423",
+        "path": "tokenizer_config.json",
+        "size": 5702,
+        "digest": "91684ea3dc135a7d815e2c932054ce88c1aab41f",
+        "git_blob": true,
+        "target_revisions": [
+          "3210bec0495fdc7a8d3dbb8d58da5711eab4b423"
+        ],
+        "main_revision": "3210bec0495fdc7a8d3dbb8d58da5711eab4b423"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Predict2.5-2B",
+        "source_revision": "15a82a2ec231bc318692aa0456a36537c806e7d4",
+        "path": "base/post-trained/81edfebe-bd6a-4039-8c1d-737df1a790bf_ema_bf16.pt",
+        "size": 4118575006,
+        "digest": "565bbb2c9645737327983f4461e4d32627bba465b0a8dc26447edea144e1ff47",
+        "git_blob": false,
+        "target_revisions": [
+          "15a82a2ec231bc318692aa0456a36537c806e7d4"
+        ],
+        "main_revision": "15a82a2ec231bc318692aa0456a36537c806e7d4"
+      },
+      {
+        "repo_id": "nvidia/Cosmos-Predict2.5-2B",
+        "source_revision": "15a82a2ec231bc318692aa0456a36537c806e7d4",
+        "path": "tokenizer.pth",
+        "size": 507609880,
+        "digest": "38071ab59bd94681c686fa51d75a1968f64e470262043be31f7a094e442fd981",
+        "git_blob": false,
+        "target_revisions": [
+          "15a82a2ec231bc318692aa0456a36537c806e7d4",
+          "6787e176dce74a101d922174a95dba29fa5f0c55"
+        ],
+        "main_revision": "15a82a2ec231bc318692aa0456a36537c806e7d4",
+        "byte_identity_bridge": {
+          "original_revision": "6787e176dce74a101d922174a95dba29fa5f0c55",
+          "original_artifact_sha256": "38071ab59bd94681c686fa51d75a1968f64e470262043be31f7a094e442fd981",
+          "original_artifact_bytes": 507609880,
+          "original_receipt": "reports/decoder_policy_r1_stage_b.json",
+          "original_receipt_sha256": "8315384ffc53b3c7e2165683409667f361be293b35f96581cac1701a42c62f4b",
+          "source_revision_metadata_ref": "reports/wc_four_card_frozen_production_asset_metadata_20261021.json",
+          "source_is_recorded_separately": true,
+          "original_runtime_reference_unchanged": true
+        }
+      },
+      {
+        "repo_id": "Qwen/Qwen3Guard-Gen-0.6B",
+        "path": "config.json",
+        "digest": "eea5267ae100b197dd81cb1823d797bb18ebbc13",
+        "size": 727,
+        "target_revisions": [
+          "fada3b2f655b89601929198343c94cd2f64d93cc"
+        ]
+      },
+      {
+        "repo_id": "Qwen/Qwen3Guard-Gen-0.6B",
+        "path": "generation_config.json",
+        "digest": "76b0c0e82f202eb40ea0ed77df1afb0ac6a4cd4e",
+        "size": 161,
+        "target_revisions": [
+          "fada3b2f655b89601929198343c94cd2f64d93cc"
+        ]
+      },
+      {
+        "repo_id": "Qwen/Qwen3Guard-Gen-0.6B",
+        "path": "merges.txt",
+        "digest": "31349551d90c7606f325fe0f11bbb8bd5fa0d7c7",
+        "size": 1671853,
+        "target_revisions": [
+          "fada3b2f655b89601929198343c94cd2f64d93cc"
+        ]
+      },
+      {
+        "repo_id": "Qwen/Qwen3Guard-Gen-0.6B",
+        "path": "model.safetensors",
+        "digest": "4f3ce47ebd968cddb67de08d8764f8ede7c410a7d1fb9e08145a4c7a2f2e5c0f",
+        "size": 1503300328,
+        "target_revisions": [
+          "fada3b2f655b89601929198343c94cd2f64d93cc"
+        ]
+      },
+      {
+        "repo_id": "Qwen/Qwen3Guard-Gen-0.6B",
+        "path": "tokenizer.json",
+        "digest": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+        "size": 11422654,
+        "target_revisions": [
+          "fada3b2f655b89601929198343c94cd2f64d93cc"
+        ]
+      },
+      {
+        "repo_id": "Qwen/Qwen3Guard-Gen-0.6B",
+        "path": "tokenizer_config.json",
+        "digest": "409e51f8f3d4316361001ea16127a4aa7db80903",
+        "size": 9601,
+        "target_revisions": [
+          "fada3b2f655b89601929198343c94cd2f64d93cc"
+        ]
+      },
+      {
+        "repo_id": "Qwen/Qwen3Guard-Gen-0.6B",
+        "path": "vocab.json",
+        "digest": "4783fe10ac3adce15ac8f358ef5462739852c569",
+        "size": 2776833,
+        "target_revisions": [
+          "fada3b2f655b89601929198343c94cd2f64d93cc"
+        ]
+      },
+      {
+        "repo_id": "google/siglip-so400m-patch14-384",
+        "path": "config.json",
+        "digest": "a513b447f6b05f640f9980d25f4d8a5cff6cd25d",
+        "size": 576,
+        "target_revisions": [
+          "9fdffc58afc957d1a03a25b10dba0329ab15c2a3"
+        ]
+      },
+      {
+        "repo_id": "google/siglip-so400m-patch14-384",
+        "path": "model.safetensors",
+        "digest": "ea2abad2b7f8a9c1aa5e49a244d5d57ffa71c56f720c94bc5d240ef4d6e1d94a",
+        "size": 3511950624,
+        "target_revisions": [
+          "9fdffc58afc957d1a03a25b10dba0329ab15c2a3"
+        ]
+      },
+      {
+        "repo_id": "google/siglip-so400m-patch14-384",
+        "path": "preprocessor_config.json",
+        "digest": "051261b5a784a2e7e5f93de1f86d170d69a9efd9",
+        "size": 368,
+        "target_revisions": [
+          "9fdffc58afc957d1a03a25b10dba0329ab15c2a3"
+        ]
+      },
+      {
+        "repo_id": "google/siglip-so400m-patch14-384",
+        "path": "special_tokens_map.json",
+        "digest": "6555f2261d409dea394d6b6973129a53b8725803",
+        "size": 409,
+        "target_revisions": [
+          "9fdffc58afc957d1a03a25b10dba0329ab15c2a3"
+        ]
+      },
+      {
+        "repo_id": "google/siglip-so400m-patch14-384",
+        "path": "spiece.model",
+        "digest": "1e5036bed065526c3c212dfbe288752391797c4bb1a284aa18c9a0b23fcaf8ec",
+        "size": 798330,
+        "target_revisions": [
+          "9fdffc58afc957d1a03a25b10dba0329ab15c2a3"
+        ]
+      },
+      {
+        "repo_id": "google/siglip-so400m-patch14-384",
+        "path": "tokenizer.json",
+        "digest": "6d6fd0bd6cc263099dc98e4fa383f90c9baa3521",
+        "size": 2399357,
+        "target_revisions": [
+          "9fdffc58afc957d1a03a25b10dba0329ab15c2a3"
+        ]
+      },
+      {
+        "repo_id": "google/siglip-so400m-patch14-384",
+        "path": "tokenizer_config.json",
+        "digest": "70741c5c1f6d21423ebf51ee77ef2fce868c33f2",
+        "size": 711,
+        "target_revisions": [
+          "9fdffc58afc957d1a03a25b10dba0329ab15c2a3"
+        ]
+      }
+    ],
+    "recipe_sha256": "b2d48d8aeefcda4534434199159c11eda2919dfffa96562e2782c6d9cac3e067"
+  },
+  "manifest_sha256": "940048e5cd6fc606602e64e99feb6764510b11a05d285fafee0c5155cff1b3d7",
+  "file_sha256": {
+    "worker.py": "920e60b445f63ba12096883d5b7e2eb4335a7692d7c5a70fdd4f82ffb7008233",
+    "supervisor.py": "056e01ea7f3d265a20d6234978e0317613579a1d42461fd033a4ec3fd524d132",
+    "resource_support.py": "3a4dacb74b583cb6845c4b6e311f479797f6e293f5c1164599a362c9437f9bbf",
+    "repair_support.py": "97c7af2ee6a7a68d66d8a3bd4afcd94e4adabc81846be6f56c4f84b16ff1220b",
+    "upstream-assets-acceptance.json": "41b02ca82fb4746056cecb9d05aaef0eff5b3fab84eb5e4cca2195cf64ff098b",
+    "upstream-public14-acceptance.json": "e1ccf7bec3e4cb1c5c5c10addd3cfc56052af62e89896a6159dc76debc281ed8",
+    "frozen96.json": "fc4be2142d3b462fca5a84413ae7f4c21abfab8df0ed80e5565e691a414e560c"
+  },
+  "health": {
+    "status": "R4_CPU_RESOURCE_FAILURE_RETAINED",
+    "started_unix": 1792613831.0438726,
+    "source_revision": "e5eedef488d33098974e884cad7ac10e6ac0a1d0",
+    "worker_sha256": "920e60b445f63ba12096883d5b7e2eb4335a7692d7c5a70fdd4f82ffb7008233",
+    "manifest_sha256": "940048e5cd6fc606602e64e99feb6764510b11a05d285fafee0c5155cff1b3d7",
+    "commands": [
+      {
+        "phase": "frozen110-offline-paths-tokenizer",
+        "exit_code": 0,
+        "wall_seconds": 44.65610861778259,
+        "exact_marker": true,
+        "probe_source_sha256": "8724278305f70268a238495b8f632562e29947bbb17ce465e0eb025011414148"
+      },
+      {
+        "phase": "unchanged-guarded-inference-import",
+        "exit_code": 1,
+        "wall_seconds": 67.98199439048767,
+        "exact_marker": false,
+        "probe_source_sha256": "1e0be22219d22fe57761c9db31e44548edb7c24275369512c81c592d2df3e4e2"
+      }
+    ],
+    "resource_error_events": 0,
+    "environment_metadata_before": "4bb51826483b7ede5079543c8df691729d7d51b24b8a8a3b5e777bfe49db83b3",
+    "environment_modified": false,
+    "original_successful_decode_reused": true,
+    "original_components_acceptance_reused": true,
+    "full_fixed96_already_accepted": true,
+    "public14_already_accepted": true,
+    "Cosmos_weights_loaded": 0,
+    "LPIPS_CPU_pretrained_weight_files_loaded": 0,
+    "real_video_scores": 0,
+    "CUDA_initialized": false,
+    "GPU_submissions": 0,
+    "ledger_written": false,
+    "production_CPU_accepted": false,
+    "GPU_dispatch_ready": false,
+    "phase": "unchanged-guarded-inference-import",
+    "updated_unix": 1792614423.6595314,
+    "LPIPS_durable_bytes": 244408911,
+    "LPIPS_fixed_resource": {
+      "backbone_sha256": "7be5be791159472b1fbf3c69796f7cb30dca7ad8466c2df70058c37116cdee02",
+      "backbone_bytes": 244408911,
+      "linear_sha256": "df73285e35b22355a2df87cdb6b70b343713b667eddbda73e1977e0c860835c0",
+      "existing_backbone_reused": false
+    },
+    "failure": {
+      "code": "LOCAL_OR_TRANSPORT_ERROR",
+      "error_type": "AssertionError"
+    },
+    "environment_metadata_after": "4bb51826483b7ede5079543c8df691729d7d51b24b8a8a3b5e777bfe49db83b3",
+    "environment_metadata_unchanged": true,
+    "runtime_critical_sources_unchanged": true,
+    "ended_unix": 1792614423.6595209,
+    "wall_seconds": 592.6156494617462
+  },
+  "result_exists": true,
+  "own_container_running": false,
+  "own_container_label": null,
+  "own_container_devices": null,
+  "own_container_device_requests": null,
+  "own_container_readonly_root": null,
+  "GPU_submissions": 0,
+  "ledger_written": false,
+  "result": {
+    "status": "R4_CPU_RESOURCE_FAILURE_RETAINED",
+    "started_unix": 1792613831.0438726,
+    "source_revision": "e5eedef488d33098974e884cad7ac10e6ac0a1d0",
+    "worker_sha256": "920e60b445f63ba12096883d5b7e2eb4335a7692d7c5a70fdd4f82ffb7008233",
+    "manifest_sha256": "940048e5cd6fc606602e64e99feb6764510b11a05d285fafee0c5155cff1b3d7",
+    "commands": [
+      {
+        "phase": "frozen110-offline-paths-tokenizer",
+        "exit_code": 0,
+        "wall_seconds": 44.65610861778259,
+        "exact_marker": true,
+        "probe_source_sha256": "8724278305f70268a238495b8f632562e29947bbb17ce465e0eb025011414148"
+      },
+      {
+        "phase": "unchanged-guarded-inference-import",
+        "exit_code": 1,
+        "wall_seconds": 67.98199439048767,
+        "exact_marker": false,
+        "probe_source_sha256": "1e0be22219d22fe57761c9db31e44548edb7c24275369512c81c592d2df3e4e2"
+      }
+    ],
+    "resource_error_events": 0,
+    "environment_metadata_before": "4bb51826483b7ede5079543c8df691729d7d51b24b8a8a3b5e777bfe49db83b3",
+    "environment_modified": false,
+    "original_successful_decode_reused": true,
+    "original_components_acceptance_reused": true,
+    "full_fixed96_already_accepted": true,
+    "public14_already_accepted": true,
+    "Cosmos_weights_loaded": 0,
+    "LPIPS_CPU_pretrained_weight_files_loaded": 0,
+    "real_video_scores": 0,
+    "CUDA_initialized": false,
+    "GPU_submissions": 0,
+    "ledger_written": false,
+    "production_CPU_accepted": false,
+    "GPU_dispatch_ready": false,
+    "phase": "unchanged-guarded-inference-import",
+    "updated_unix": 1792614423.6595314,
+    "LPIPS_durable_bytes": 244408911,
+    "LPIPS_fixed_resource": {
+      "backbone_sha256": "7be5be791159472b1fbf3c69796f7cb30dca7ad8466c2df70058c37116cdee02",
+      "backbone_bytes": 244408911,
+      "linear_sha256": "df73285e35b22355a2df87cdb6b70b343713b667eddbda73e1977e0c860835c0",
+      "existing_backbone_reused": false
+    },
+    "failure": {
+      "code": "LOCAL_OR_TRANSPORT_ERROR",
+      "error_type": "AssertionError"
+    },
+    "environment_metadata_after": "4bb51826483b7ede5079543c8df691729d7d51b24b8a8a3b5e777bfe49db83b3",
+    "environment_metadata_unchanged": true,
+    "runtime_critical_sources_unchanged": true,
+    "ended_unix": 1792614423.6595209,
+    "wall_seconds": 592.6156494617462
+  },
+  "supervisor_result": {
+    "started_unix": 1792613824.036161,
+    "manifest_sha256": "940048e5cd6fc606602e64e99feb6764510b11a05d285fafee0c5155cff1b3d7",
+    "container": "wc-fourcard-offline-resources-cpu-r4-1-20261022",
+    "GPU_submissions": 0,
+    "ledger_written": false,
+    "docker_client_pid": 615774,
+    "exit_code": 1,
+    "ended_unix": 1792614423.759628,
+    "wall_seconds": 599.7234683036804
+  },
+  "worker_once": {
+    "manifest_sha256": "940048e5cd6fc606602e64e99feb6764510b11a05d285fafee0c5155cff1b3d7",
+    "source_revision": "e5eedef488d33098974e884cad7ac10e6ac0a1d0"
+  },
+  "container_command": [
+    "docker",
+    "run",
+    "--rm",
+    "--read-only",
+    "--network",
+    "host",
+    "--name",
+    "wc-fourcard-offline-resources-cpu-r4-1-20261022",
+    "--label",
+    "wcomr.manifest=940048e5cd6fc606602e64e99feb6764510b11a05d285fafee0c5155cff1b3d7",
+    "--user",
+    "1000:1000",
+    "--cpus",
+    "2",
+    "--memory",
+    "16g",
+    "--pids-limit",
+    "256",
+    "--tmpfs",
+    "/tmp:rw,size=1g",
+    "-v",
+    "/data20t/gaokuangda/worldcache_workspace:/data20t/gaokuangda/worldcache_workspace:ro",
+    "-v",
+    "/data20t/gaokuangda/worldcache_workspace/bootstrap/wc-fourcard-offline-resources-cpu-r4-1-20261022:/data20t/gaokuangda/worldcache_workspace/bootstrap/wc-fourcard-offline-resources-cpu-r4-1-20261022:rw",
+    "-v",
+    "/data20t/gaokuangda/worldcache_workspace/cache/torch:/data20t/gaokuangda/worldcache_workspace/cache/torch:rw",
+    "-w",
+    "/data20t/gaokuangda/worldcache_workspace/bootstrap/wc-fourcard-offline-resources-cpu-r4-1-20261022",
+    "-e",
+    "CUDA_VISIBLE_DEVICES=",
+    "-e",
+    "NVIDIA_VISIBLE_DEVICES=void",
+    "-e",
+    "PYTHONDONTWRITEBYTECODE=1",
+    "-e",
+    "HOME=/tmp",
+    "-e",
+    "TMPDIR=/tmp",
+    "-e",
+    "HF_HOME=/data20t/gaokuangda/worldcache_workspace/cache/huggingface",
+    "-e",
+    "HF_HUB_CACHE=/data20t/gaokuangda/worldcache_workspace/cache/huggingface/hub",
+    "-e",
+    "TORCH_HOME=/data20t/gaokuangda/worldcache_workspace/cache/torch",
+    "-e",
+    "HF_HUB_OFFLINE=1",
+    "-e",
+    "TRANSFORMERS_OFFLINE=1",
+    "-e",
+    "OMP_NUM_THREADS=2",
+    "-e",
+    "OPENBLAS_NUM_THREADS=2",
+    "-e",
+    "TOKENIZERS_PARALLELISM=false",
+    "-e",
+    "LD_LIBRARY_PATH=/data20t/gaokuangda/worldcache_workspace/system-libs-r1/usr/lib/x86_64-linux-gnu:/data20t/gaokuangda/worldcache_workspace/system-libs-r1/lib/x86_64-linux-gnu",
+    "-e",
+    "PATH=/data20t/gaokuangda/worldcache_workspace/system-libs-r1/usr/bin:/usr/local/bin:/usr/bin:/bin",
+    "--entrypoint",
+    "/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/bin/python",
+    "sha256:1e81ac62ee68ca1a6ef655515096a1d84579b01aa4986810c9b18d4f6c4c552d",
+    "/data20t/gaokuangda/worldcache_workspace/bootstrap/wc-fourcard-offline-resources-cpu-r4-1-20261022/worker.py",
+    "--manifest",
+    "/data20t/gaokuangda/worldcache_workspace/bootstrap/wc-fourcard-offline-resources-cpu-r4-1-20261022/manifest.json"
+  ],
+  "logs": {
+    "supervisor.log": "",
+    "unchanged-guarded-inference-import.log": "[10-21 20:26:30|INFO|../wc-fourcard-env-repair-r2-20261021/runtime-packaging-overlay/cosmos_predict2/_src/imaginaire/utils/checkpoint_db.py:171:path] Downloading checkpoint nvidia/Cosmos-Guardrail1(9c7b7da4-2d95-45bb-9cb8-2eed954e9736)\n[10-21 20:26:30|INFO|../wc-fourcard-env-repair-r2-20261021/runtime-packaging-overlay/cosmos_predict2/_src/imaginaire/utils/checkpoint_db.py:131:_download] Downloading checkpoint from Hugging Face with {'repo_id': 'nvidia/Cosmos-Guardrail1', 'repo_type': 'model', 'revision': 'd6d4bfa899a71454a700907664f3e88f503950cf', 'allow_patterns': ['*']}\n/bin/sh: 1: ldconfig: not found\nTraceback (most recent call last):\n  File \"/data20t/gaokuangda/worldcache_workspace/bootstrap/wc-fourcard-offline-resources-cpu-r4-1-20261022/unchanged-guarded-inference-import.py\", line 18, in <module>\n    import cosmos_predict2.inference\n  File \"/data20t/gaokuangda/worldcache_workspace/bootstrap/wc-fourcard-env-repair-r2-20261021/runtime-packaging-overlay/cosmos_predict2/inference.py\", line 20, in <module>\n    from cosmos_predict2._src.imaginaire.auxiliary.guardrail.common import presets as guardrail_presets\n  File \"/data20t/gaokuangda/worldcache_workspace/bootstrap/wc-fourcard-env-repair-r2-20261021/runtime-packaging-overlay/cosmos_predict2/_src/imaginaire/auxiliary/guardrail/common/presets.py\", line 18, in <module>\n    from cosmos_predict2._src.imaginaire.auxiliary.guardrail.blocklist.blocklist import Blocklist\n  File \"/data20t/gaokuangda/worldcache_workspace/bootstrap/wc-fourcard-env-repair-r2-20261021/runtime-packaging-overlay/cosmos_predict2/_src/imaginaire/auxiliary/guardrail/blocklist/blocklist.py\", line 31, in <module>\n    from cosmos_predict2._src.imaginaire.utils import log, misc\n  File \"/data20t/gaokuangda/worldcache_workspace/bootstrap/wc-fourcard-env-repair-r2-20261021/runtime-packaging-overlay/cosmos_predict2/_src/imaginaire/utils/misc.py\", line 43, in <module>\n    from cosmos_predict2._src.imaginaire.utils import distributed, log\n  File \"/data20t/gaokuangda/worldcache_workspace/bootstrap/wc-fourcard-env-repair-r2-20261021/runtime-packaging-overlay/cosmos_predict2/_src/imaginaire/utils/distributed.py\", line 44, in <module>\n    from megatron.core import parallel_state\n  File \"/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/megatron/core/__init__.py\", line 3, in <module>\n    import megatron.core.tensor_parallel\n  File \"/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/megatron/core/tensor_parallel/__init__.py\", line 2, in <module>\n    from .cross_entropy import vocab_parallel_cross_entropy\n  File \"/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/megatron/core/tensor_parallel/cross_entropy.py\", line 7, in <module>\n    from megatron.core.parallel_state import (\n  File \"/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/megatron/core/parallel_state.py\", line 15, in <module>\n    from .utils import GlobalMemoryBuffer, GlobalSymmetricMemoryBuffer, is_torch_min_version\n  File \"/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/megatron/core/utils.py\", line 80, in <module>\n    import transformer_engine  # pylint: disable=unused-import\n  File \"/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/transformer_engine/__init__.py\", line 10, in <module>\n    import transformer_engine.common\n  File \"/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/transformer_engine/common/__init__.py\", line 128, in <module>\n    _NVRTC_LIB_CTYPES = _load_nvrtc()\n  File \"/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/transformer_engine/common/__init__.py\", line 111, in _load_nvrtc\n    libs = subprocess.check_output(\"ldconfig -p | grep 'libnvrtc'\", shell=True)\n  File \"/usr/local/lib/python3.10/subprocess.py\", line 421, in check_output\n    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,\n  File \"/usr/local/lib/python3.10/subprocess.py\", line 526, in run\n    raise CalledProcessError(retcode, process.args,\nsubprocess.CalledProcessError: Command 'ldconfig -p | grep 'libnvrtc'' returned non-zero exit status 1.\n",
+    "frozen110-offline-paths-tokenizer.log": "{\"resolved_files\": 110, \"offline\": true, \"Cosmos_weights_loaded\": 0, \"CUDA_initialized\": false}\nFROZEN110_OFFLINE_HF_PATHS_AND_REASON_TOKENIZER_CPU_OK\n",
+    "container.log": ""
+  },
+  "independent_environment_metadata_sha256": "4bb51826483b7ede5079543c8df691729d7d51b24b8a8a3b5e777bfe49db83b3",
+  "runtime_critical_sources_unchanged": true,
+  "old_validation_result_sha256": "9d44d033d298f8880417f32865de98de989ba496161c021723470d43ff7e01d9",
+  "own_resource_lock_free": true,
+  "probe_source_sha256": {
+    "frozen110-offline-paths-tokenizer.py": "8724278305f70268a238495b8f632562e29947bbb17ce465e0eb025011414148",
+    "unchanged-guarded-inference-import.py": "1e0be22219d22fe57761c9db31e44548edb7c24275369512c81c592d2df3e4e2"
+  },
+  "launch_ref": "reports/wc_four_card_offline_resources_CPU_R4_1_launch_20261022.json",
+  "launch_sha256": "99bebc2f7c8ca29ec213c1a1257e51c1987da8ad671f92b90d7566a86702f26d"
+}
