@@ -1,3 +1,7 @@
+## 2026-10-21 SigLIP独立R2半程健康，16:23完整验收保持
+
+[623半程原件](623_WC_PUBLIC_ASSET_R1_TIMEOUT_AND_MISSING_ONLY_R2_RESUME_20261021.md)：原R2在14:53:07.942一次半程核对中PID/start/source及全部job文件SHA一致；13件已验文件已复用，仅请求注册SigLIP权重，技术字节4.217/5.034GB，无错误、尚无result。仅技术健康，不提前完整接受；半程siglip已完成删除，原automation-2的16:23全14收件、96件外盘中转17:11/21:11、两卡每4小时17:48只读检查均保持。0重启/重派、0模型加载/GPU/账本写，正常无可行动变化静默。
+
 ## 2026-10-21 公开模型R1超时留存，SigLIP缺失文件R2已单次续传
 
 [623原件与续传](623_WC_PUBLIC_ASSET_R1_TIMEOUT_AND_MISSING_ONLY_R2_RESUME_20261021.md)：原公开14文件任务触及90分钟上限/TimeoutExpired，PID及自身容器退出；13件独立全SHA通过，唯一SigLIP权重缺，完整资源不接受。原job/result/partial保留，source88ebc004的新独立R2只请求注册缺失文件并复用已验件，14:21:31.718启动PID397742/start934875508；一次技术准入source/worker/manifest/文件一致、原进程活，尚无完整接受。新siglip已约14:52技术半程、automation-2已约16:23全14验收；本触发automation-3已删除。71,648字节新GitHub delta远端全SHA后已删外盘包；未重装基础/重下13件。原96件外盘中转PID87082的17:11/21:11、两卡只读4小时17:48均保持，sha已补R2真实接续，不代收。完整模型/推理/CUDA/新机scope CPU/报价/单一v2仍待，BANK24→1624和具体12批准/预算历史不变，0CUDA/模型加载/GPU/账本写。

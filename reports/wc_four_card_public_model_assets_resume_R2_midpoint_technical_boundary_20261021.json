@@ -1,0 +1,79 @@
+{
+  "status": "HEALTHY_ORIGINAL_R2_MIDPOINT_TECHNICAL_ONLY_NOT_MODEL_ACCEPTANCE",
+  "checks": {
+    "original_PID": true,
+    "original_start": true,
+    "original_process_live": true,
+    "original_source": true,
+    "worker_SHA": true,
+    "manifest_SHA": true,
+    "job_files_SHA": true,
+    "no_error": true,
+    "reused_verified_files13": true,
+    "sole_registered_missing_request": true,
+    "no_final_result_read": true,
+    "GPU_and_ledger_unchanged": true
+  },
+  "capture_ref": "reports/wc_four_card_public_model_assets_resume_R2_midpoint_20261021.json",
+  "capture_sha256": "75adf2554826ca98ad01167b734d96de65649700ef7c084d5ca01906a7cb60ab",
+  "launch_ref": "reports/wc_four_card_public_model_assets_resume_R2_launch_20261021.json",
+  "launch_sha256": "92534136a29e6384ec6c166f91dbbc95a1fac7605e425331ac0e9cf5dbc32765",
+  "observed_local": "2026-10-21T14:53:07.942109+08:00",
+  "observed_unix": 1792565587.9421086,
+  "original_identity": {
+    "pid": 397742,
+    "start_ticks": 934875508
+  },
+  "source_revision": "88ebc004b039eae003a93f390f30d79b11a99dc2",
+  "technical_phase": "download-public-fixed-models",
+  "reused_verified_files": 13,
+  "registered_network_file_requests": 1,
+  "technical_downloaded_bytes_without_acceptance": 4217222228,
+  "expected_bytes": 5034332532,
+  "model_assets_accepted": false,
+  "production_CPU_accepted": false,
+  "GPU_dispatch_ready": false,
+  "final_not_before_unix": 1792570951.7180228,
+  "final_scheduled_local": "2026-10-21T16:23:00+08:00",
+  "final_and_other_checks_app_readback": [
+    {
+      "id": "automation-2",
+      "name": "四卡公开模型续传完整验收",
+      "status": "ACTIVE",
+      "rrule": "RRULE:FREQ=DAILY;COUNT=1;BYHOUR=16;BYMINUTE=23;BYSECOND=0",
+      "target_thread_id": "01a0f1eb-7894-7ed0-a186-d010111e14b1",
+      "prompt_sha256": "01cc41e87c92343ae4027263fc20e34ae6621eb7ce0a4e6ed758e9a96d0d9554"
+    },
+    {
+      "id": "wc4-model-relay-midpoint",
+      "name": "WC4 model relay midpoint",
+      "status": "ACTIVE",
+      "rrule": "RRULE:FREQ=DAILY;COUNT=1;BYHOUR=17;BYMINUTE=11;BYSECOND=0",
+      "target_thread_id": "01a0f1eb-7894-7ed0-a186-d010111e14b1",
+      "prompt_sha256": "c8e5498ac78701c08edc44ce80be2d7c05c0230765a16ebc8a9aaf9cbb517b16"
+    },
+    {
+      "id": "sha",
+      "name": "四卡固定模型全SHA验收与资源接续",
+      "status": "ACTIVE",
+      "rrule": "RRULE:FREQ=DAILY;COUNT=1;BYHOUR=21;BYMINUTE=11;BYSECOND=0",
+      "target_thread_id": "01a0f1eb-7894-7ed0-a186-d010111e14b1",
+      "prompt_sha256": "362170b56a41a69255adaaee5caff738906cc8e9a9dce68c3eaab38b5e07d939"
+    },
+    {
+      "id": "worldcache-bank24",
+      "name": "WorldCache 两卡状态每4小时",
+      "status": "ACTIVE",
+      "rrule": "RRULE:FREQ=DAILY;COUNT=1;BYHOUR=17;BYMINUTE=48;BYSECOND=0",
+      "target_thread_id": "01a0f1eb-7894-7ed0-a186-d010111e14b1",
+      "prompt_sha256": "8817133a17611e39056c229f1170995cbdc0cefc291f098f9f5b91224edc7d3d"
+    }
+  ],
+  "midpoint_automation_deleted": true,
+  "deleted_automation_id": "siglip",
+  "midpoint_configuration_absent": true,
+  "new_GPU_submissions": 0,
+  "new_CPU_submissions": 0,
+  "ledger_written": false,
+  "other_resource_jobs_requeried": false
+}

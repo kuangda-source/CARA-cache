@@ -38,3 +38,9 @@ R2于**14:21:31.718**实际单次启动，原PID**397742/start934875508**，job 
 - [GitHub delta与外盘包清理](../reports/wc_four_card_GitHub_public_model_resume_R2_source_transfer_20261021.json)
 - [R2实际launch](../reports/wc_four_card_public_model_assets_resume_R2_launch_20261021.json)、[一次admission原件](../reports/wc_four_card_public_model_assets_resume_R2_admission_20261021.json)、[独立技术准入](../reports/wc_four_card_public_model_assets_resume_R2_independent_admission_20261021.json)
 - [实际两次检查与其他任务读回](../reports/wc_four_card_public_model_assets_resume_R2_actual_schedules_20261021.json)
+
+## 14:52半程实际14:53技术核对
+
+实际2026-10-21T14:53:07.942109+08:00仅一次捕获原R2半程。原PID397742/start934875508仍活，source/worker/manifest/job文件SHA全部一致；现存13件已完整核对复用，网络仅请求注册SigLIP权重，技术字节4,217,222,228/5,034,332,532，无错误、无最终result。只接受技术健康，不读最终结果或完整模型接受；16:23原全件验收保持。半程siglip已完成删除，其他17:11/21:11资源检查、两卡4小时17:48只读检查均实际读回保持；0重派/模型加载/GPU/账本写。
+
+[原半程回执](../reports/wc_four_card_public_model_assets_resume_R2_midpoint_20261021.json)与[独立技术边界/排程保持](../reports/wc_four_card_public_model_assets_resume_R2_midpoint_technical_boundary_20261021.json)。
