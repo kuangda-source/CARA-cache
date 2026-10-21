@@ -1,3 +1,8 @@
+## 2026-10-22 离线资源CPU已接受，BANK24新机边界CPU05:57单次启动
+
+[631原件与接续](../../research/631_WC_OFFLINE_RESOURCES_ACCEPTED_AND_BANK24_FOUR_CARD_HOST_CPU_BOUNDARY_20261022.md)：R4.3完整离线推理／LPIPS资源CPU30项独立接受，原失败与env／runtime保持；完整96／公开14复用。GitHub source907d20cb发布后，BANK24新机依赖／生产前端CPU于05:57:39.015248单次启动PID623317/start940492237，原2bd41dc8／c1c95ce0的1789／1772件闭包全部恢复并保留原SHA。20项实际准入核对通过，原进程／只读容器活、隐藏GPU，getpass／五缓存与env保持；worker已核对完整依赖，正在六请求及24位置保护入口验证。已读回bank24-cpu于06:02一次半程、bank24-cpu-2于06:13完整验收；已完成r4-3-cpu-2删除，两卡06:16四小时只读保持。新机前端CPU尚未接受，完整科研scope CPU／SM89及GPU生命周期／实测报价／CUDA／唯一预算仍各自待，GPU-ready为false，0科研GPU／账本新增。54科研行、BANK24→完整1624、具体12批准与cap226历史保持。
+
+
 ## 2026-10-22 四卡离线推理与LPIPS资源CPU已独立接受；接BANK24新机边界
 
 [631完整接受与新机CPU卡](../../research/631_WC_OFFLINE_RESOURCES_ACCEPTED_AND_BANK24_FOUR_CARD_HOST_CPU_BOUNDARY_20261022.md)：R4.3一次终态收件及离线独立接受，30项全过，原入口导入／预训练LPIPS CPU两命令0；两个固定LPIPS完整SHA、NVRTC／loader、110解析复用证明、原进程／容器／锁退出与env／11runtime保持。96／公开14接受复用，不重下或全量重哈希模型，旧R4.1／R4.2失败保留。继续独立BANK24新机完整1,789／1,772件依赖、六请求及24位置保护入口CPU验证和全量费用清单；冻结入口的SM86断言需显式Ada适配，生产前端通过不充整个新机科研scope CPU／实际CUDA／完整实测报价／GPU-ready。两卡四小时06:16只读与唯一权威v2交接保持；BANK24→完整1624、具体12批准、cap226历史及54科研行状态不改，0科研GPU／账本新增。

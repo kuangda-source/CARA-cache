@@ -32,3 +32,9 @@ CPU卡终态先保存原件并离线独立接受，然后继续独立的新机GP
 科研顺序仍BANK24完整卡→已登记X-R／同D配额CPU分析→完整1624真实区间标签／独立动作价格→PG-P1；具体12批准、cap226／origin79.99637737158223及54科研行状态均保持。F/B关闭，无训练、人评、付费VLM或OMR。
 
 [17 local controls](../reports/wc_four_card_bank24_host_CPU_R1_local_controls_20261022.json) passed. These validate recovery, full denominators, gate rules, archive containment and the CPU-only container contract; they do not constitute actual new-host CPU execution.
+
+## 2026-10-22 离线资源CPU已接受，BANK24新机边界CPU05:57单次启动
+
+[631原件与接续](../reports/wc_four_card_BANK24_host_CPU_R1_launch_20261022.json)：R4.3完整离线推理／LPIPS资源CPU30项独立接受，原失败与env／runtime保持；完整96／公开14复用。GitHub source907d20cb发布后，BANK24新机依赖／生产前端CPU于05:57:39.015248单次启动PID623317/start940492237，原2bd41dc8／c1c95ce0的1789／1772件闭包全部恢复并保留原SHA。20项实际准入核对通过，原进程／只读容器活、隐藏GPU，getpass／五缓存与env保持；worker已核对完整依赖，正在六请求及24位置保护入口验证。已读回bank24-cpu于06:02一次半程、bank24-cpu-2于06:13完整验收；已完成r4-3-cpu-2删除，两卡06:16四小时只读保持。新机前端CPU尚未接受，完整科研scope CPU／SM89及GPU生命周期／实测报价／CUDA／唯一预算仍各自待，GPU-ready为false，0科研GPU／账本新增。54科研行、BANK24→完整1624、具体12批准与cap226历史保持。
+
+[Actual admission](../reports/wc_four_card_BANK24_host_CPU_R1_admission_20261022.json) / [20 technical admission checks](../reports/wc_four_card_BANK24_host_CPU_R1_independent_admission_20261022.json) / [Two once-only checks and completed resource handoff](../reports/wc_four_card_BANK24_host_CPU_R1_actual_schedules_and_R4_3_completed_handoff_20261022.json).
