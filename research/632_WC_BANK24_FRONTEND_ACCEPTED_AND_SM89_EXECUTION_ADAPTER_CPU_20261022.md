@@ -65,3 +65,7 @@ GitHub source `a3cfddd9dafe3eb885e8e650aa1212e6dcd764c9` 发布后，R1.1 于 **
 - [按真实 launch 读回的两次检查](../reports/wc_four_card_BANK24_execution_adapter_CPU_R1_1_actual_two_once_checks_20261022.json)：`bank24-sm89-cpu-r1-1` 于 **06:43** 技术半程（最早 06:42:04.063354），`bank24-sm89-cpu-r1-1-2` 于 **06:47** 独立终态（最早 06:46:04.063354）。只恢复同一原句柄，不因早完成重派或提前接受。
 
 原 `bank24-cpu-2` 的 19 项前端验收原因已完成，且新两次检查创建／读回后已删除。两卡四小时只读自动化保持，本轮没有查询双卡、GPU 或权威账本。后续终态接续已明确完整容器 supervisor／PID-FD／锁与费用／post／collector 的独立 CPU 工作，不能以本组件 CPU 代替。
+
+## 2026-10-22 SM89组件CPU20项独立接受；接跨容器FD／PID及失败生命周期
+
+[633原件与新CPU卡](633_WC_SM89_COMPONENTS_ACCEPTED_AND_REAL_CROSS_CONTAINER_BANK24_LIFECYCLE_CPU_20261022.md)：按06:47原时点一次终态收件后仅离线接受，R1.1原sourcea3cfddd9／1789＋29原SHA／三生成源／完整24输入与21项内存费用控制、原进程／容器／锁退出和env／runtime保持，20项全部通过。只接受执行组件CPU，不充完整新机scope／实际CUDA／Ada实测价格或GPU-ready。新增独立容器生命周期CPU代码与16项本地控制已通过：本人短socket用SCM_RIGHTS传真实flock FD，显式host PID namespace与实际Docker peer核对，真实子进程成功／失败／超时全24保留、测试目录事务费用加法、原post真实失败路径保留全部未到达而不填质量。新卡仍待GitHub发布／实际CPU；不重复已验资源／数值／前端／组件CPU。完整24保守规划6.974166667GPUh／上限8.75<12，来源为旧机全项乘2加容器和失败余量，非Ada实测；实际价格仍null，0GPU／0权威账本或预留。完整GPU派发CLI／post watcher／终态collector绑定、完整scope CPU、CUDA和唯一v2交接仍待，GPU-ready=false。旧R1.1半程因完整接受已过期删除，不回填观察；原两卡四小时只读保持，本任务未追加双卡查询。BANK24→既定CPU诊断→完整1624／具体12批准、cap226／origin历史及54科研行不改。
