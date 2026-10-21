@@ -1,0 +1,154 @@
+{
+  "schema_version": 1,
+  "status": "ORDERED_QUEUE_NOT_EXPERIMENT_EXECUTION_OR_NEW_ACCEPTANCE",
+  "target_host": "four_card",
+  "plan_ref": "plans/WC_FOUR_CARD_EXPERIMENT_QUEUE_20261021.md",
+  "policy_ref": "reports/wc_four_card_primary_and_two_card_four_hour_monitor_acceptance_20261021.json",
+  "tasks": [
+    {
+      "id": "HOST4-PREP",
+      "kind": "preparation",
+      "status": "FIXED_MODELS_IN_FLIGHT_FULL_ENV_CUDA_SCOPE_CPU_QUOTES_AUTHORITY_PENDING",
+      "scientific_result": false,
+      "scope": "Fixed production and auxiliary models plus LPIPS, full imports, GPU compatibility, per-scope host CPU, complete quotes and single-authority ledger handoff",
+      "source_ref": "research/621_WC_FOUR_CARD_RESOURCE_COMPLETION_FIXED_PUBLIC_ASSETS_AND_AUTHORIZED_MODEL_GATE_20261021.md",
+      "forecast_GPUh": null,
+      "billed_limit_GPUh": null
+    },
+    {
+      "id": "BANK24",
+      "kind": "GPU_card",
+      "status": "ORIGINAL_CPU_ACCEPTED_NEW_HOST_PRODUCTION_CPU_AND_ADMISSION_PENDING",
+      "formal_paths": 18,
+      "warm_paths": 6,
+      "total_paths": 24,
+      "pairs": 864,
+      "CFG_evaluations": 1728,
+      "model_loads": 1,
+      "native_formal_paths": 6,
+      "upstream": [
+        "CAL12 accepted",
+        "HOST4-PREP"
+      ],
+      "original_source": "2bd41dc8fa19f42353e03a7c78b7264b4b2695c6",
+      "original_entry_source": "c1c95ce0c598fb7839b0b89f4a69bd45c8aef7c9",
+      "original_host_forecast_GPUh": 3.407222222,
+      "original_host_billed_limit_GPUh": 4.5,
+      "new_host_forecast_GPUh": null,
+      "new_host_billed_limit_GPUh": null,
+      "DEV_gate_refit_allowed": false
+    },
+    {
+      "id": "BANK24-CPU-DIAGNOSTICS",
+      "kind": "offline_CPU",
+      "status": "WAIT_FOR_BANK24_FULL_ACCEPTANCE",
+      "upstream": [
+        "BANK24 accepted"
+      ],
+      "scope": "Registered X-R direction and same-D-quota comparisons on the shared bank; no independent GPU",
+      "new_GPUh": 0
+    },
+    {
+      "id": "PG-P1-ASSETS",
+      "kind": "GPU_card",
+      "status": "SPECIFIC_WHOLE12_APPROVED_NEW_HOST_CPU_AND_BANK24_ACCEPTANCE_PENDING",
+      "formal_CALs": 4,
+      "formal_cells_per_CAL": 406,
+      "formal_cells": 1624,
+      "total_complete_paths": 14,
+      "observed_cells_including_warm": 2030,
+      "readout_trials": 13020,
+      "upstream": [
+        "BANK24 accepted",
+        "HOST4-PREP",
+        "Own new-host production CPU accepted"
+      ],
+      "config_ref": "configs/wc_policy_interval_assets_full1624_r1_20261020.json",
+      "config_sha256": "75338efd0d7c2d145c73bb3d5514c37fcec46851995785724eeca8f650419f9a",
+      "original_host_forecast_GPUh": 9.918333333333333,
+      "approved_whole_card_billed_limit_GPUh": 12,
+      "specific_approval_ref": "reports/wc_policy_interval_assets_full1624_specific_whole12_approval_20261020.json",
+      "specific_approval_received": true,
+      "specific_approval_ask_again": false,
+      "new_host_forecast_GPUh": null,
+      "label_reference": "Teacher-conditioned true intervals on an unperturbed all-D reference trajectory; not labels for every free-running policy history"
+    },
+    {
+      "id": "PG-P1",
+      "kind": "adaptive_development_card",
+      "status": "DRAFT_IDENTITIES_IMPLEMENTATION_WHOLE_QUOTE_AND_PRODUCTION_CPU_PENDING",
+      "upstream": [
+        "PG-P1-ASSETS accepted"
+      ],
+      "budget_ratio_native": 0.8,
+      "CAL_FIT_count": 4,
+      "CAL_SELECT_count": 2,
+      "CAL_SELECT_identities_frozen": false,
+      "max_distinct_endpoint_queries": 8,
+      "proposal_batches": [
+        4,
+        4
+      ],
+      "max_base_complete_paths": 64,
+      "extra_acquisition_paths_included": false,
+      "forecast_complete_GPUh": null,
+      "billed_limit_GPUh": null,
+      "source_ref": "plans/cara_policy_generator_20261020/single_budget_validation.md"
+    },
+    {
+      "id": "PG-P2",
+      "kind": "future_ablation_card",
+      "status": "PRE_REGISTER_DEDUP_AND_QUOTE_AFTER_FIRST_LOOP",
+      "upstream": [
+        "PG-P1"
+      ],
+      "controls": [
+        "same-time front-dense C/A",
+        "fixed correction coverage D-only optimization",
+        "local-proxy only",
+        "joint boundaries/readout plus endpoint revision",
+        "same-grammar simple or seeded random search"
+      ],
+      "equal_total_queries_and_calibration_GPUh": true,
+      "forecast_complete_GPUh": null,
+      "billed_limit_GPUh": null
+    },
+    {
+      "id": "PG-P3",
+      "kind": "conditional_transfer_card",
+      "status": "CONDITIONAL_SAME_PROCEDURE_RECALIBRATION",
+      "upstream": [
+        "PG-P2"
+      ],
+      "second_budget_native_ratio": 0.7,
+      "second_model_or_setting_frozen": false,
+      "zero_shot_transfer_claimed": false,
+      "forecast_complete_GPUh": null,
+      "billed_limit_GPUh": null
+    },
+    {
+      "id": "PG-P4",
+      "kind": "independent_confirmation_card",
+      "status": "WAIT_FOR_METHOD_AND_COMPARISON_FREEZE",
+      "upstream": [
+        "PG-P2",
+        "method freeze before new TEST"
+      ],
+      "prospective_formal_path_draft": 168,
+      "prospective_draft_is_admitted": false,
+      "legacy_N07_N08_N10_reused_as_new_method_evidence": false,
+      "forecast_complete_GPUh": null,
+      "billed_limit_GPUh": null
+    }
+  ],
+  "one_expensive_GPU_task_at_a_time": true,
+  "WC_baseline": "Fixed official recommended configuration; no extra tuning",
+  "RA_comparison_retained": true,
+  "old_manual32_path_screen_deferred": true,
+  "closed_F_B_reopened": false,
+  "new_GPU_submissions": 0,
+  "automatic_complete_card_limit_exclusive_GPUh": 12,
+  "specific_whole1624_cap12_already_approved": true,
+  "cap_GPUh": 226,
+  "origin_used_GPUh": 79.99637737158223
+}

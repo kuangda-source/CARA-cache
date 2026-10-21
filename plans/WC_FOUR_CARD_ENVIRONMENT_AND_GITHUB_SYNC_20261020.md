@@ -1,3 +1,7 @@
+## 2026-10-21 两卡改四小时只读检查，四卡接续原BANK24→1624→自动生成器
+
+[622最新决策](../research/622_WC_FOUR_HOUR_TWO_CARD_MONITOR_AND_FOUR_CARD_EXPERIMENT_QUEUE_20261021.md)与[完整后续清单](WC_FOUR_CARD_EXPERIMENT_QUEUE_20261021.md)：按最新直接人类要求，worldcache-bank24已实际改为14400秒一次，只读恢复状态/原句柄/权威账本，不在两卡自动启动新GPU；以13:47:14.270913实际人类连接测试为基准，下一17:48（最早17:47:14.270913），原15:27由本次改频取代。四卡成为后续实验目标主机，原14:08/17:11/21:11模型检查保留，21:11 collector已补新机生产CPU/完整报价/唯一v2交接后的接续。顺序：资源与新机门→完整BANK24及共享CPU诊断→已批12GPUh完整1624→PG-P1单预算闭环→PG-P2公平消融→PG-P3跨预算/模型再校准→PG-P4冻结后独立确认。原source/scope/gate/已验结果与cap226/origin历史保留；旧机报价不作Ada实测，新机CPU/模型/兼容/共同权威账本仍须分别通过。当前仅准备与安排变更，0新远端查询/CPU/GPU/账本写；正常未知/忙静默。
+
 ## 2026-10-21 13:10 四卡96模型文件已从外盘单次中转；17:11半程/21:11全SHA
 
 [621实际资源任务](../research/621_WC_FOUR_CARD_RESOURCE_COMPLETION_FIXED_PUBLIC_ASSETS_AND_AUTHORIZED_MODEL_GATE_20261021.md)：GitHub source79c9d171的96文件/19.892GiB中转已实际启动PID87082，job /Volumes/data/worldcache_resource_relay_20261021/nvidia-fixed-models-r1；原PID/lstart/脚本/manifest一致，首个Mac launcher命令展开的误判只离线修捕获器，原件保留、0重启。新只读HF认证已通，token只Mac0600，不传服务器/Git；模型只外盘/Volumes/data，每件远端全SHA后删副本。新79源码delta服务器SHA/新项目HEAD已验，31,538字节外盘包已删，旧c9/e8不动。实际app安排wc4-model-relay-midpoint为17:11技术半程、sha为21:11完整验收与资源CPU接续；公开14文件原13:08收件仍跑/1.284GB技术字节，automation-3仅改约14:08新文件，不接受或重派。完整模型/环境/新机scope CPU/GPU兼容/共同v2仍未全接受，科学GPU0；原BANK24→1624、具体12批准/预算历史/两卡监控保持。
