@@ -50,3 +50,19 @@ SETUP 只在同一次 CPU 部署中读取 Docker runtime 名称，记录是否�
 实际 GPU 入口必须取得双卡权威 v2 全历史／settlements／全部活动预留，旧机不再新派的 fence，以及唯一写入权交接。当前没有该证据，不能用旧 `116.825` 快照初始化四卡账本；新入口读取真实交接并验证历史不截断。cap226／origin79.99637737158223 保持。两卡每四小时只读自动化独立，本任务不额外查询双卡。
 
 完整 BANK24 原件／实费接受后，仍接既定 X-R／同 D 配额 CPU 诊断，再接原 config SHA `75338efd0d7c2d145c73bb3d5514c37fcec46851995785724eeca8f650419f9a` 的完整 1624 卡；具体整卡 12 GPUh 已批，不重问、不拆缩。F/B 关闭，无训练、人评、付费 VLM／OMR。54 科研行和状态不变，不把本卡写作科研结果。
+
+## 实际单次启动与查收安排
+
+新 source `687ef2b88a3786b535db8377c8f0605e9430199e` 已 GitHub 发布。实际于 **2026-10-22 07:17:01.510432**／unix `1792624621.510432` 单次启动，supervisor PID `629593`／start `940968487`，worker SHA `c1336cd2b3a34dc1048c6d96e6af8ffb2f350abcb4d1762a2bc70e62c7b21385`，manifest SHA `bfcdf06c73f45c3800811ff1d6e6384c036b3826ad087e3abdfe48b9da22bfb2`。实际从服务器复用全部 1,789＋29 件源文件，无基础包／模型重传。
+
+07:17:36.219252 的一次 admission 已保存，20 项身份与技术边界核对通过。原进程和本人容器已退出，health 报告 CPU **25.091993 秒**通过：真实 host/Docker peer PID 和 FD／inode／namespace 核对通过，三个真实子进程场景分别访问 24／3／0 项，完整保留 24／24／24，后两者保留 21／24 未到达；原 post 失败路径退出 0、完整 24 未到达、0 评分且未填质量。尚未做终态独立源 SHA／锁释放验收，因此 `container_lifecycle_CPU_accepted=false`，完整新机 scope／GPU-ready 仍 false。
+
+同次 SETUP 实际读到 Docker runtime 名称含 `nvidia`，仅接受已注册这一资源事实，不充 CUDA／模型兼容。部署前磁盘 344,004,132,864 字节、MemAvailable 68,055,384,064 字节，仅为本 CPU 准入，不当后续 GPU fresh 准入。
+
+- [实际 launch](../reports/wc_four_card_BANK24_container_lifecycle_CPU_R1_launch_20261022.json)。
+- [一次 admission](../reports/wc_four_card_BANK24_container_lifecycle_CPU_R1_admission_20261022.json) 与 [20 项技术边界](../reports/wc_four_card_BANK24_container_lifecycle_CPU_R1_admission_technical_boundary_20261022.json)。
+- [两次检查实际读回](../reports/wc_four_card_BANK24_container_lifecycle_CPU_R1_actual_two_once_checks_20261022.json)：`bank24-fd-cpu` **07:20** 技术半程（最早 07:19:01.510432），`bank24-fd-cpu-2` **07:25** 独立终态（最早 07:24:01.510432）。即使早完成也不提前接受或重派。
+
+原 `bank24-sm89-cpu-r1-1-2` 的完整组件接受原因已完成，新真实检查安排并读回后已删除。原半程过期删除，不回填观察；两卡四小时只读自动化保持。
+
+按本机存储约束，在原 1,789＋29 全件已独立 SHA 接受且服务器复用后，清理本任务本机重复的代码输入／生成副本 **46,023,934 字节**，两个 SHA 源归档、Git 和所有原件保留；不触碰任何模型／凭据／原失败外盘 prefix。见 [清理回执](../reports/wc_four_card_BANK24_container_lifecycle_CPU_R1_local_redundant_code_copy_cleanup_20261022.json)。
