@@ -33,7 +33,7 @@ env=dict(os.environ,PATH=str(job/'bin')+':'+os.environ['PATH'],CUDA_VISIBLE_DEVI
 env.pop('LD_PRELOAD',None)
 probe="""import json,sys,torch\nfrom pathlib import Path\nsys.path.insert(0,STAGE)\nfrom four_card_bank24_execution_tools_r1 import validate_authorization\nauth=json.loads(Path(AUTH).read_text())\nreg,meta,quote,handoff=validate_authorization(ROOT,STAGE,auth)\nassert not torch.cuda.is_initialized()\nprint(json.dumps(dict(status='ACTUAL_NATIVE_PY310_TORCH_AND_ORIGINAL_FULL_AUTHORIZATION_CPU_PASS',python=sys.version.split()[0],torch=torch.__version__,CUDA_initialized=False,original_registration_sha256=auth['registration_sha256'],handoff=handoff,scope_counts=meta['scope_counts'])))\n"""
 (job/'authorization.json').write_text(json.dumps(d['authorization'],indent=2)+'\n')
-probe=probe.replace('STAGE',repr(str(stage))).replace('ROOT',repr(str(root))).replace('AUTH',repr(str(job/'authorization.json')))
+probe='STAGE='+repr(str(stage))+'\nROOT='+repr(str(root))+'\nAUTH='+repr(str(job/'authorization.json'))+'\n'+probe
 q=subprocess.run([str(wrapper),'-c',probe],env=env,capture_output=True,text=True,timeout=120)
 (job/'probe.stdout').write_text(q.stdout);(job/'probe.stderr').write_text(q.stderr)
 result=dict(status='NATIVE_CONTROL_PYTHON_CPU_PASS' if q.returncode==0 else 'NATIVE_CONTROL_PYTHON_CPU_FAILED_RETAINED',observed_unix=time.time(),job=str(job),source_revision=d['manifest']['source_revision'],
