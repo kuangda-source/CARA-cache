@@ -1,3 +1,7 @@
+## 2026-10-22 完整工具CPU只读预算修复R2于11:50实际启动，11:53／11:58查收
+
+[635实际原件与接续](../research/635_WC_READONLY_BUDGET_READER_FIX_AND_FULL_BANK24_TOOLS_CPU_R2_20261022.md)：原R1完整失败／17项留存审计保持。修复后的source6d9cd494已GitHub发布，R2于11:50:27.049436单次启动PID644729/start942609041，独立job和target均为R2；14payload／原1789＋29及全部已验资源复用，不改旧R1 job。11:50:39一次admission确认原worker活、source／manifest／生成源／2CPU16GiB和旧R1失败绑定一致，已进入一次提交及结清后真实CPU post阶段；仅技术准入，尚未完整scope CPU接受。只读预算修复沿原accounting、已有锁rb／共享flock，8新控制＋20原工具回归通过，实际post预算／锁不改写及collector完整链仍待终态独立验收。已读回bank24-full-tools-r2-cpu-halfway于11:53一次半程、bank24-full-tools-r2-cpu-terminal于11:58终态，按实际launch最早11:52:27／11:57:27，不回填观察；旧R1终态自动化已完成删除。本人SSH master当前28085，四卡连接已恢复；GPU／CUDA／新价／唯一v2仍待，0新科研GPU／权威账本写。两卡15:19四小时只读、原完整24／BANK24→既定CPU诊断→完整1624／具体12批准、cap226历史与54科研行状态保持。
+
 ## 2026-10-22 四卡连接已恢复，原完整工具CPU失败已留存；接只读预算修复R2
 
 [635原件与独立修复](../research/635_WC_READONLY_BUDGET_READER_FIX_AND_FULL_BANK24_TOOLS_CPU_R2_20261022.md)：本人SSH连接已一次恢复，当前master PID28085／原专用socket，未改FRPC或其他入口。11:33一次取回原sourcea25ae777的完整终态：worker记录73.079秒失败，原post使用BudgetPool.read的a+锁接口与只读workspace冲突，实际EROFS日志已留存；17项失败审计通过，原完整scope CPU明确不接受。原1789＋29／14payload／env-runtime、进程／已尝试容器及锁退出保持，不把失败后的未到达算通过。独立R2只将CPU预算读取改为已有物理锁rb／共享非阻塞flock，沿原accounting核算，并核对预算和锁前后SHA／metadata不变；8新测试＋20原工具回归通过，配方已冻结，须GitHub发布后一次实际CPU并另约半程／终态。模型／旧已验资源不重下或重跑，0CUDA／科研GPU／权威账本写。完整scope CPU／实际CUDA／实测价格／唯一v2／GPU-ready仍待；BANK24→既定CPU诊断→完整1624／具体12批准、两卡15:19四小时只读、cap226历史与54科研行状态保持。
