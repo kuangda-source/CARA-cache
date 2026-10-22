@@ -1,3 +1,7 @@
+## 2026-10-22 四卡连接已恢复，原完整工具CPU失败已留存；接只读预算修复R2
+
+[635原件与独立修复](research/635_WC_READONLY_BUDGET_READER_FIX_AND_FULL_BANK24_TOOLS_CPU_R2_20261022.md)：本人SSH连接已一次恢复，当前master PID28085／原专用socket，未改FRPC或其他入口。11:33一次取回原sourcea25ae777的完整终态：worker记录73.079秒失败，原post使用BudgetPool.read的a+锁接口与只读workspace冲突，实际EROFS日志已留存；17项失败审计通过，原完整scope CPU明确不接受。原1789＋29／14payload／env-runtime、进程／已尝试容器及锁退出保持，不把失败后的未到达算通过。独立R2只将CPU预算读取改为已有物理锁rb／共享非阻塞flock，沿原accounting核算，并核对预算和锁前后SHA／metadata不变；8新测试＋20原工具回归通过，配方已冻结，须GitHub发布后一次实际CPU并另约半程／终态。模型／旧已验资源不重下或重跑，0CUDA／科研GPU／权威账本写。完整scope CPU／实际CUDA／实测价格／唯一v2／GPU-ready仍待；BANK24→既定CPU诊断→完整1624／具体12批准、两卡15:19四小时只读、cap226历史与54科研行状态保持。
+
 ## 2026-10-22 原06:16两卡槽延后11:18仍连接未知，下一15:19
 
 [622两卡只读接续](research/622_WC_FOUR_HOUR_TWO_CARD_MONITOR_AND_FOUR_CARD_EXPERIMENT_QUEUE_20261021.md)：原06:16槽实际仅于11:18:45.277915尝试一次gkd_minchen资源SSH，认证前255／connection reset；未取得当前GPU／compute／UUID锁／原句柄或完整权威v2，不判断空闲、未派发或终态，不回填06:16或中间观察。本人FRPC88068的parsed argv与33620监听一致，未重启、追加SSH或提交CPU／GPU，0账本写。按实际尝试＋14400秒，下一最早15:18:45.277915（unix1792653525.2779148），worldcache-bank24已读回改约15:19一次；两卡仅只读恢复及完整预算资料核对，不在两卡新派实验。最后成功资源／财务仍10月20日16:05历史，唯一v2交接仍待。四卡最新634的完整工具CPU连接恢复收件仍由独立自动化负责，原11:30定义／source／状态保持，本轮未查四卡worker或改其任务。BANK24→既定CPU诊断→完整1624／具体12批准、cap226历史与54科研行状态保持；常态未知无可行动变化静默。

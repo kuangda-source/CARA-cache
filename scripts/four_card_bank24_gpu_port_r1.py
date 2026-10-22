@@ -88,6 +88,31 @@ def require_full_CPU(stage, source_revision):
     return accepted
 
 
+def readonly_budget_source():
+    """Use the original accounting under an existing shared read lock.
+
+    CPU readers have a read-only workspace. They must never create a lock,
+    initialize a pool, or use the writer's append-mode transaction helper.
+    """
+    return '''
+class ReadOnlyBudgetPool:
+ def __init__(self,project):
+  self.project=Path(project).resolve()
+  self.path=self.project/'reports/gpu-budget-v2.json'
+  self.lock_path=self.project/'.sync/gpu-budget-v2.lock'
+ def read(self):
+  import copy,fcntl
+  from wcomr.gpu_budget_pool_v2 import BudgetPool as OriginalBudgetPool
+  require(self.path.is_file() and not self.path.is_symlink(),'Existing physical pool required; CPU reader never initializes')
+  require(self.lock_path.is_file() and not self.lock_path.is_symlink(),'Existing physical budget lock required; CPU reader never creates')
+  with self.lock_path.open('rb') as handle:
+   fcntl.flock(handle,fcntl.LOCK_SH|fcntl.LOCK_NB)
+   value=read(self.path)
+   require(all(value[k]==v for k,v in OriginalBudgetPool.accounting(value).items()),'Stored pool totals disagree with original accounting')
+   return copy.deepcopy(value)
+'''
+
+
 def contract_source():
     return '''import json,os,sys
 from pathlib import Path
@@ -125,7 +150,7 @@ def lpips_identity(project,stage):
  alex=Path(project)/'cache/torch/hub/checkpoints/alexnet-owt-7be5be79.pth';linear=env/'lpips/weights/v0.1/alex.pth'
  require(sha(alex)==ALEX_SHA and sha(linear)==LINEAR_SHA,'Accepted fixed LPIPS weights changed')
  return dict(status='ACCEPTED_FIXED_TWO_LPIPS_FILES_REUSED',alexnet_sha256=ALEX_SHA,linear_sha256=LINEAR_SHA,version='0.1.4',metric_version='0.1',net='alex')
-'''
+'''+readonly_budget_source()
 
 
 def generate(inputs):
@@ -155,6 +180,8 @@ def generate(inputs):
         ("TORCH_HOME='/home/gaokuangda/.cache/torch'","TORCH_HOME=str(a.project/'cache/torch')",1),
         ("sys.path.insert(0, str(a.stage/'src'))","sys.path[:0]=[str(a.stage),str(a.stage/'inputs/src')]",1),
         ('from wcomr.scout_gpu_lifecycle_r1 import bound_dependency','from bank24_fourcard_lifecycle_r1 import bound_dependency',1),
+        ('from wcomr.gpu_budget_pool_v2 import BudgetPool, atomic_json, same_live_process',
+         'from wcomr.gpu_budget_pool_v2 import atomic_json, same_live_process\n    from bank24_fourcard_lifecycle_r1 import ReadOnlyBudgetPool as BudgetPool',1),
         (old_lpips,new_lpips,1)])
     accept=(inputs/'src/wcomr/scout_gpu_lifecycle_r1.py').read_text()
     start=accept.index('def accept_terminal(');end=accept.index('\ndef freeze_cal_gate(',start)
@@ -168,6 +195,7 @@ def generate(inputs):
     return result,dict(component_binding=binding,full_post93_RGB_LPIPS_and_owner_logic_preserved=True,
         full_acceptance24_denominator_and_all_errors_preserved=True,
         actual_entry_source_and_original_scientific_entry_separately_bound=True,
+        CPU_post_uses_existing_readonly_budget_lock_and_original_accounting=True,
         GPU_branch_uses_actual_full_new_host_CPU_acceptance_without_fabricating_legacy_entry_proof=True,
         original_code_modifications=0,old_physical_Native_artifacts_required=False)
 

@@ -1,0 +1,36 @@
+{
+  "status": "READONLY_BUDGET_REPAIR_8_NEW_CONTROLS_AND20_RELATED_REGRESSION_PASS_NOT_PRODUCTION_CPU",
+  "new_readonly_budget_tests": 8,
+  "related_existing_execution_regression_tests": 20,
+  "production_CPU_accepted": false,
+  "CPU_deployed": false,
+  "GPU_dispatch_ready": false,
+  "GPU_submissions": 0,
+  "ledger_written": false,
+  "actual_GPUh_charged": 0,
+  "remote_setup_and_capture_Python38_syntax_checked": true,
+  "test_commands": [
+    "python3 -m unittest discover -s tests -p test_four_card_bank24_readonly_budget_r2.py -v",
+    "python3 -m unittest discover -s tests -p test_four_card_bank24_execution_tools_r1.py -v"
+  ],
+  "payload_source_sha256": {
+    "scripts/four_card_bank24_execution_tools_r1.py": "658819cdeba45f0608d56b6972b2919a4bf6bd615e1d8371d2f908d9555997c5",
+    "scripts/four_card_bank24_gpu_port_r1.py": "a58199887e3b0536a797289fde52663b42e3fa455b7f8702123c1a59d01de5be",
+    "scripts/four_card_bank24_execution_adapter_r1.py": "f9649aeee9857df0a50b7866eebe8985356ab137fb46a844dbe2c359468491c0",
+    "scripts/four_card_bank24_container_transport_r1.py": "8fd1783b549638e7bd3b15bffa58f32770ccee50b46915cb123d8d24119d421c",
+    "scripts/supervise_wc_four_card_bank24_gpu_r1.py": "d52a4160d1f011549bc2d19fc09a353fa1328069d2f9d702097a6bdee73bab1f",
+    "scripts/run_wc_four_card_bank24_inner_r1.py": "72679d5697eeb2266d7f912063d5998d549175879549f0f9b3a2880f3d65822b",
+    "scripts/watch_wc_four_card_bank24_post_r1.py": "b6c9298965e5d8b54fc12320b789072138e676e209fc014f54f106b1b2c37b5a",
+    "scripts/run_wc_four_card_bank24_collector_cpu_r1.py": "f8d963bf613eb130ff45bb90bba928b92f6746dfaf096bf87472b2c38a20fb51",
+    "scripts/wc_four_card_bank24_execution_r1.py": "3fa31cc293f08dcb55e9faa6941c1d0438a97abd744a3487ebf8d1756dd6f3f3",
+    "scripts/wc_four_card_resource_cpu_r4.py": "ad9a9c56ef833dfc2afbd3c190486f09b75daae9ce88e50078e43a8004c2bef6",
+    "scripts/check_wc_four_card_bank24_execution_cpu_r2.py": "6cce3b018503ed151bfaf36cf049e00bd09d325304686b22ecdc963a0b5cc311",
+    "scripts/repair_wc_four_card_environment_r2.py": "97c7af2ee6a7a68d66d8a3bd4afcd94e4adabc81846be6f56c4f84b16ff1220b",
+    "reports/wc_four_card_BANK24_container_lifecycle_CPU_R1_independent_acceptance_20261022.json": "660e06e04fe96895c7dc34fd171dcc49dbc1d9889c8885170a8ef2dbd992aa9e",
+    "manifests/wc_four_card_bank24_execution_metadata_r1_20261022.json": "83af17c52ff25af00945e10df105ecc1dab9a2309f2dac50b53751ffa5bc7400"
+  },
+  "test_source_sha256": "edae54169aa3c8537f92cef791f693a9e2ac7ba8a279504ae0e16b2530f8a69f",
+  "recipe_ref": "manifests/wc_four_card_bank24_full_execution_cpu_r2_20261022.json",
+  "recipe_sha256": "140c67e4212dfda622a7fb1ca92c216b284d76046f2497450f76395851e758cf",
+  "failure_audit_ref": "reports/wc_four_card_BANK24_full_execution_tools_CPU_R1_complete_failure_and_readonly_budget_diagnosis_20261022.json"
+}

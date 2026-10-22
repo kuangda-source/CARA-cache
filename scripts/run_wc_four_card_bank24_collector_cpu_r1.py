@@ -52,6 +52,11 @@ def collect(snapshot,stage):
 def post(stage,snapshot):
     stage=Path(stage);L=snapshot['launch'];project=Path(L['project'])
     post_conditions(project,stage,L,snapshot['GPU_container_state'])
+    budget=project/'reports/gpu-budget-v2.json';budget_lock=project/'.sync/gpu-budget-v2.lock'
+    def physical_record(path):
+        st=path.stat()
+        return dict(sha256=sha(path),bytes=st.st_size,inode=st.st_ino,mtime_ns=st.st_mtime_ns)
+    before=dict(pool=physical_record(budget),lock=physical_record(budget_lock))
     sys.path[:0]=[str(stage),str(stage/'inputs/src')];os.environ['WC_SCOUT_KIND']='BANK24'
     import torch
     def forbidden(*a,**k):raise RuntimeError('CPU post cannot initialize CUDA or download')
@@ -67,8 +72,11 @@ def post(stage,snapshot):
     sys.argv=['original-post','--project',str(project),'--stage',str(stage)]
     runpy.run_path(str(stage/'bank24-fourcard-post.py'),run_name='__main__')
     assert not torch.cuda.is_initialized()
+    after=dict(pool=physical_record(budget),lock=physical_record(budget_lock))
+    assert before==after,'CPU post must not write or replace the budget or its existing lock'
     return dict(status='ORIGINAL_FULL24_CPU_POST_EXITED',final_result_sha256=sha(stage/'CPU-final-results.json'),
-        exit_code=0,CUDA_initialized=False,GPU_submissions=0,ledger_written=False)
+        exit_code=0,CUDA_initialized=False,GPU_submissions=0,ledger_written=False,
+        readonly_budget_and_lock_verified=True,readonly_budget_before=before,readonly_budget_after=after)
 
 
 def main():

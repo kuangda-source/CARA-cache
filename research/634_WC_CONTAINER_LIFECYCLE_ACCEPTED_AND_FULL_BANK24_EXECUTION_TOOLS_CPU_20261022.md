@@ -71,3 +71,7 @@ The receipt is SSH exit 255 without a remote JSON observation. Original source, 
 - [Saved original terminal UNKNOWN](../reports/wc_four_card_BANK24_full_execution_tools_CPU_R1_terminal_20261022.json)
 - [Offline connection boundary](../reports/wc_four_card_BANK24_full_execution_tools_CPU_R1_terminal_unknown_connection_boundary_20261022.json)
 - [One updated recovery schedule and exact readback](../reports/wc_four_card_BANK24_full_execution_tools_CPU_R1_terminal_recovery_schedule_20261022.json)
+
+## 2026-10-22 四卡连接已恢复，原完整工具CPU失败已留存；接只读预算修复R2
+
+[635原件与独立修复](635_WC_READONLY_BUDGET_READER_FIX_AND_FULL_BANK24_TOOLS_CPU_R2_20261022.md)：本人SSH连接已一次恢复，当前master PID28085／原专用socket，未改FRPC或其他入口。11:33一次取回原sourcea25ae777的完整终态：worker记录73.079秒失败，原post使用BudgetPool.read的a+锁接口与只读workspace冲突，实际EROFS日志已留存；17项失败审计通过，原完整scope CPU明确不接受。原1789＋29／14payload／env-runtime、进程／已尝试容器及锁退出保持，不把失败后的未到达算通过。独立R2只将CPU预算读取改为已有物理锁rb／共享非阻塞flock，沿原accounting核算，并核对预算和锁前后SHA／metadata不变；8新测试＋20原工具回归通过，配方已冻结，须GitHub发布后一次实际CPU并另约半程／终态。模型／旧已验资源不重下或重跑，0CUDA／科研GPU／权威账本写。完整scope CPU／实际CUDA／实测价格／唯一v2／GPU-ready仍待；BANK24→既定CPU诊断→完整1624／具体12批准、两卡15:19四小时只读、cap226历史与54科研行状态保持。

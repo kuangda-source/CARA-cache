@@ -20,7 +20,7 @@ from four_card_bank24_container_transport_r1 import atomic,identity,alive,LeaseB
 from four_card_bank24_execution_adapter_r1 import CONFIG,LIFECYCLE_SOURCE,ENTRY_SOURCE
 from four_card_bank24_gpu_port_r1 import ROOT,SCIENCE_RUN,FULL_CPU_STATUS,read,sha,require,generate,full_quote,require_full_CPU,validate_handoff
 
-TARGET_STAGE='wc-bank24-fourcard-full-execution-r1-20261022'
+TARGET_STAGE='wc-bank24-fourcard-full-execution-r2-20261022'
 GPU_LAUNCH='scout-GPU-launch.json'
 GPU_INTENT='scout-GPU-dispatch-fence.json'
 PRODUCTION_SCRIPTS=[
