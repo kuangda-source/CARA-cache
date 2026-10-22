@@ -10,7 +10,8 @@ from pathlib import Path
 from four_card_bank24_execution_adapter_r1 import exact_patch,digest,read,require,adapt_runner,adapt_budget_pool
 
 ROOT='/data20t/gaokuangda/worldcache_workspace'
-SCIENCE_RUN='wc-scout-dev6-paired-native-full24-r1'
+SCIENTIFIC_RUN='wc-scout-dev6-paired-native-full24-r1'
+SCIENCE_RUN='wc-scout-dev6-paired-native-full24-ada-r2'
 FULL_CPU_STATUS='BANK24_FOURCARD_FULL_EXECUTION_TOOLS_CPU_INDEPENDENTLY_ACCEPTED'
 ALEX_SHA='7be5be791159472b1fbf3c69796f7cb30dca7ad8466c2df70058c37116cdee02'
 LINEAR_SHA='df73285e35b22355a2df87cdb6b70b343713b667eddbda73e1977e0c860835c0'
@@ -119,7 +120,11 @@ from pathlib import Path
 from four_card_bank24_execution_adapter_r1 import reconstruct,verify_inputs,read,require,digest
 from four_card_bank24_gpu_port_r1 import require_full_CPU,validate_handoff,sha,ALEX_SHA,LINEAR_SHA,FULL_CPU_STATUS
 from wcomr.scout_gpu_lifecycle_r1 import counts,RUNS,VECTORS,audit_registered_rows,repeat_and_prefix
-from wcomr.scout_production_entry_r1 import METHODS,RUN,STRATEGY,COUNTS,write,execute,matrix,audit_row,validate_contract
+from wcomr.scout_production_entry_r1 import METHODS,STRATEGY,COUNTS,write,execute,matrix,audit_row,validate_contract
+from four_card_bank24_gpu_port_r1 import SCIENCE_RUN
+# Physical execution identity only; validate_contract still validates the frozen scientific run.
+RUN=SCIENCE_RUN
+RUNS=dict(RUNS,BANK24=SCIENCE_RUN)
 from wcomr.drop1_full18_r1 import MODE_REF as ORIGINAL_MODE_REF
 CONFIG='inputs/configs/wc_scout_bank24_production_entry_r1_20261018.json'
 MODE_REF='inputs/'+ORIGINAL_MODE_REF
@@ -216,6 +221,7 @@ def accept_capture(capture,launch,inputs):
             all_paths=[dict(row,status='NOT_REACHED_RETAINED') for row in launch['matrix']],
             actual_GPUh=fin['actual_GPUh'],GPU_submissions=0,ledger_written=False)
     generated,_=generate(inputs);namespace=original.__dict__.copy()
+    namespace['RUNS']=dict(original.RUNS,BANK24=SCIENCE_RUN)
     exec(compile(generated['bank24-fourcard-accept-terminal-function.py'],'<host-bound-original-full24-acceptance>','exec'),namespace)
     result=namespace['accept_terminal'](capture,launch)
     if result.get('scored_nonNative_formal',0):

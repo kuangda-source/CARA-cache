@@ -20,7 +20,7 @@ from four_card_bank24_container_transport_r1 import atomic,identity,alive,LeaseB
 from four_card_bank24_execution_adapter_r1 import CONFIG,LIFECYCLE_SOURCE,ENTRY_SOURCE
 from four_card_bank24_gpu_port_r1 import ROOT,SCIENCE_RUN,FULL_CPU_STATUS,read,sha,require,generate,full_quote,require_full_CPU,validate_handoff
 
-TARGET_STAGE='wc-bank24-fourcard-full-execution-r2-20261022'
+TARGET_STAGE='wc-bank24-fourcard-full-execution-r3-20261022'
 GPU_LAUNCH='scout-GPU-launch.json'
 GPU_INTENT='scout-GPU-dispatch-fence.json'
 NLTK_RESOURCE_REL='runtime-resources/nltk-guardrail-d6d4bfa8-r1'
@@ -30,7 +30,7 @@ PRODUCTION_SCRIPTS=[
     'four_card_bank24_execution_adapter_r1.py','four_card_bank24_container_transport_r1.py',
     'supervise_wc_four_card_bank24_gpu_r1.py','run_wc_four_card_bank24_inner_r1.py',
     'watch_wc_four_card_bank24_post_r1.py','run_wc_four_card_bank24_collector_cpu_r1.py',
-    'wc_four_card_bank24_execution_r1.py','wc_four_card_resource_cpu_r4.py']
+    'wc_four_card_bank24_execution_r2.py','wc_four_card_resource_cpu_r4.py']
 
 
 def module(name,path):
@@ -111,7 +111,8 @@ def build_template(inputs,destination,source,recipe,script_directory):
     meta=dict(namespace='BANK24_FOURCARD_GPU_PORT_R1',host_source_revision=source,entry_stage=str(target),
         config_ref='inputs/'+CONFIG,config_sha256=sha(destination/'inputs'/CONFIG),scope_counts=c['scope_counts'],
         scientific_lifecycle_source=LIFECYCLE_SOURCE,scientific_entry_source=ENTRY_SOURCE,
-        container_image_id=recipe['container_image_id'],scientific_source_modifications=0)
+        container_image_id=recipe['container_image_id'],scientific_source_modifications=0,
+        scientific_run_id=c['run_id'],execution_run_id=SCIENCE_RUN)
     atomic(destination/'host-lifecycle-dependency.json',meta);payload['host-lifecycle-dependency.json']=sha(destination/'host-lifecycle-dependency.json')
     reg=dict(namespace='BANK24_FOURCARD_GPU_PORT_R1',source_revision=source,payload_sha256=payload,
         runtime_source_sha256=recipe['runtime_source_sha256'],original_payload_count=1789,extra_metadata_count=29,
