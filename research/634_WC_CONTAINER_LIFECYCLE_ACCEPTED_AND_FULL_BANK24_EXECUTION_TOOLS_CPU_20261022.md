@@ -39,3 +39,17 @@ host 控制器仅做本人 Docker／文件／PID 协调，限制自身为两个 
 实际 GPU／CUDA 兼容仍必须先拿到双卡完整权威 v2 历史／settlements／全部活动预留、旧机不再新派的 fence 和唯一写入权交接，再做 fresh UUID／磁盘／主存与完整余额准入。当前不复制旧 `116.825` 快照，也不免费试 GPU。缺交接继续独立 CPU 准备，不制造无用巡检。
 
 完整 1624 原 config SHA `75338efd0d7c2d145c73bb3d5514c37fcec46851995785724eeca8f650419f9a`、4 CAL×406／14 完整路径／含 warm 2,030 格／13,020 试验和具体整卡 12 GPUh 批准保持，不重问、不拆缩；新机自己的 CPU／整卡重价／BANK24 原件与实费／权威预算门不绕过。cap226／origin79.99637737158223、全部预算历史、54 科研行与 status_counts 不变。F/B 关闭，无训练、人评、付费 VLM／OMR，不自动并主稿。两卡每四小时只读独立，本卡不追加双卡查询。
+
+## 实际新CPU启动与两次唯一检查
+
+新 source `a25ae777d075fb937ff61e3e67886e9f682a01ed` 已发布到 GitHub。实际 **08:01:40.854244**／unix `1792627300.8542438` 单次启动，PID `632076`／start `941236421`；worker SHA `bdbeaaf6a93f0ef3734dd094bb266cd8e44f77183e867e6884ffe18d22fd9b1b`，manifest SHA `82bba2886c688afd03187bd8970110c26e3bd2f441d9fd045de16a69d028d04e`。原 1,789＋29 件从上一已验 job 逐 SHA 复用，无模型／基础包重传。
+
+**08:01:50.919462** 一次 admission 的 20 项身份／技术边界核对通过：原 PID／start、14 payload／source／manifest、完整 24 范围、原 env metadata、2 CPU affinity／16 GiB 地址空间限制、实际 CLI 帮助退出 0／缺参退出 2、新五生成源的 worker 技术绑定均一致。观察时原 worker 活，阶段为 `actual_one_dispatch_original_restore_and_settled_only_CPU_post`；此时未读取最终 result、日志或独立终态原件，也未接受完整 scope CPU。GPU／CUDA／模型／真实 nvidia-smi／权威账本均为 0。
+
+部署前数据盘 343,953,264,640 字节／MemAvailable 67,834,941,440 字节仅属本 CPU 准入，不能当后续 GPU fresh 观察。
+
+- [实际 launch](../reports/wc_four_card_BANK24_full_execution_tools_CPU_R1_launch_20261022.json)。
+- [一次 admission](../reports/wc_four_card_BANK24_full_execution_tools_CPU_R1_admission_20261022.json) 与 [20 项技术边界](../reports/wc_four_card_BANK24_full_execution_tools_CPU_R1_admission_technical_boundary_20261022.json)。
+- [两次新检查读回](../reports/wc_four_card_BANK24_full_execution_tools_CPU_R1_actual_two_once_checks_20261022.json)：`bank24-full-tools-r1-cpu-halfway` **08:06**，最早 **08:03:40.854244**；`bank24-full-tools-r1-cpu-terminal` **08:09**，最早 **08:08:40.854244**。创建延后时只选择未来可执行分钟，原最早门不变，不回填半程／中间观察。
+
+新两次检查已创建并读回后，删除已完成的原 `bank24-fd-cpu-2`。初建的短 ID `bank24-cpu`／`bank24-cpu-2` 因会与历史前端 CPU ID 混淆，已替换为上述唯一新 ID 并删除；没有额外收件或重派 CPU。两卡四小时只读定义保持。

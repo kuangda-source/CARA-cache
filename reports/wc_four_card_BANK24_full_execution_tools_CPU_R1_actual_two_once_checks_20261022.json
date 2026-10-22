@@ -1,0 +1,118 @@
+{
+  "status": "ACTUAL_CPU_LAUNCH_TWO_UNIQUE_ONCE_CHECKS_READBACK_VERIFIED",
+  "launch_ref": "reports/wc_four_card_BANK24_full_execution_tools_CPU_R1_launch_20261022.json",
+  "source_revision": "a25ae777d075fb937ff61e3e67886e9f682a01ed",
+  "actual_start_unix": 1792627300.8542438,
+  "halfway_not_before_unix": 1792627420.8542438,
+  "terminal_not_before_unix": 1792627720.8542438,
+  "halfway_local": "2026-10-22T08:06:00+08:00",
+  "terminal_local": "2026-10-22T08:09:00+08:00",
+  "half_creation_delayed_to_next_future_minute": true,
+  "original_half_minimum_preserved": true,
+  "automations": {
+    "bank24-full-tools-r1-cpu-halfway": {
+      "id": "bank24-full-tools-r1-cpu-halfway",
+      "kind": "heartbeat",
+      "name": "BANK24 full-tools R1 CPU halfway",
+      "status": "ACTIVE",
+      "rrule": "RRULE:FREQ=DAILY;COUNT=1;BYHOUR=8;BYMINUTE=6;BYSECOND=0",
+      "target_thread_id": "01a0f1eb-7894-7ed0-a186-d010111e14b1",
+      "created_at": 1792627502124,
+      "updated_at": 1792627502124,
+      "definition_sha256": "de7cd3e08773850861f88c0983f0a3e11b5fb07f56288437620a920b97e7f467"
+    },
+    "bank24-full-tools-r1-cpu-terminal": {
+      "id": "bank24-full-tools-r1-cpu-terminal",
+      "kind": "heartbeat",
+      "name": "BANK24 full-tools R1 CPU terminal",
+      "status": "ACTIVE",
+      "rrule": "RRULE:FREQ=DAILY;COUNT=1;BYHOUR=8;BYMINUTE=9;BYSECOND=0",
+      "target_thread_id": "01a0f1eb-7894-7ed0-a186-d010111e14b1",
+      "created_at": 1792627502439,
+      "updated_at": 1792627502439,
+      "definition_sha256": "6b5c7961b2a6b39fab493ce48950ed58a9fe685f71fc0556983cc34c1422259c"
+    }
+  },
+  "current_completed_automation_deleted": "bank24-fd-cpu-2",
+  "old_short_aliases_replaced_to_avoid_historical_ID_collision": [
+    "bank24-cpu",
+    "bank24-cpu-2"
+  ],
+  "tool_deletion_and_creation_results": {
+    "half": {
+      "content": [
+        {
+          "type": "text",
+          "text": "Created automation in the app."
+        },
+        {
+          "type": "text",
+          "text": "{\"automationId\":\"bank24-full-tools-r1-cpu-halfway\",\"mode\":\"create\",\"status\":\"ACTIVE\"}"
+        }
+      ],
+      "isError": false
+    },
+    "terminal": {
+      "content": [
+        {
+          "type": "text",
+          "text": "Created automation in the app."
+        },
+        {
+          "type": "text",
+          "text": "{\"automationId\":\"bank24-full-tools-r1-cpu-terminal\",\"mode\":\"create\",\"status\":\"ACTIVE\"}"
+        }
+      ],
+      "isError": false
+    },
+    "old_terminal_deleted": {
+      "content": [
+        {
+          "type": "text",
+          "text": "Deleted automation in the app."
+        },
+        {
+          "type": "text",
+          "text": "{\"automationId\":\"bank24-fd-cpu-2\",\"mode\":\"delete\",\"deleteStatus\":\"deleted\",\"snapshot\":{\"kind\":\"heartbeat\",\"name\":\"BANK24 FD容器CPU终态与派发工具接续\",\"rrule\":\"RRULE:FREQ=DAILY;COUNT=1;BYHOUR=7;BYMINUTE=25;BYSECOND=0\"}}"
+        }
+      ],
+      "isError": false
+    },
+    "replaced_short_half": {
+      "content": [
+        {
+          "type": "text",
+          "text": "Deleted automation in the app."
+        },
+        {
+          "type": "text",
+          "text": "{\"automationId\":\"bank24-cpu\",\"mode\":\"delete\",\"deleteStatus\":\"deleted\",\"snapshot\":{\"kind\":\"heartbeat\",\"name\":\"BANK24完整工具CPU半程\",\"rrule\":\"RRULE:FREQ=DAILY;COUNT=1;BYHOUR=8;BYMINUTE=4;BYSECOND=0\"}}"
+        }
+      ],
+      "isError": false
+    },
+    "replaced_short_terminal": {
+      "content": [
+        {
+          "type": "text",
+          "text": "Deleted automation in the app."
+        },
+        {
+          "type": "text",
+          "text": "{\"automationId\":\"bank24-cpu-2\",\"mode\":\"delete\",\"deleteStatus\":\"deleted\",\"snapshot\":{\"kind\":\"heartbeat\",\"name\":\"BANK24完整工具CPU终态与接续\",\"rrule\":\"RRULE:FREQ=DAILY;COUNT=1;BYHOUR=8;BYMINUTE=9;BYSECOND=0\"}}"
+        }
+      ],
+      "isError": false
+    },
+    "schedule": {
+      "half_unix": 1792627560,
+      "terminal_unix": 1792627740,
+      "half_local": "08:06",
+      "terminal_local": "08:09",
+      "created_clock": "2026-10-22 00:05:01 UTC"
+    }
+  },
+  "two_card_monitor_modified": false,
+  "GPU_submissions": 0,
+  "ledger_written": false
+}
