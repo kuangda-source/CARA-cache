@@ -166,3 +166,11 @@ source2bd41dc8fa19f42353e03a7c78b7264b4b2695c6；stage `.sync/wc-scout-bank24-gp
 仅一次资源SSH尝试在认证前reset，未读取GPU/compute/锁/v2或原任务终态。最后成功原件仍为16:05，旧busy和旧余额不充当前准入。自己的完整TCP客户端60782可登录/监听33620，但远端原target listener未注册；不循环重连、不重启服务器任务或其他FRPC。原件wc_scout_BANK24_fresh_resource_20261020_1806.json及resource_slot_1806_independent_unknown_acceptance_20261020.json保留。实际18:07:33.450尝试后+7200秒，下一最早20:07:33.450，worldcache-bank24已实际约20:08一次。
 
 最新直接人类613卡的CPU恢复已接入本资源任务与未来BANK24终态接续；BANK24仍原卡优先。新卡全1624标签/独立价格、14路径，预计9.918333333/上限12，本地完整Toy数值通过；实际生产CPU因认证前失败尚未启动，不能当GPU-ready或默认批准12。恢复后先原stage/launch只读，未知不得重派。全部旧CPU/存储/CAL12/gate不重查。
+
+## 2026-10-22 原06:16两卡槽延后11:18仍连接未知，下一15:19
+
+[622两卡只读接续](622_WC_FOUR_HOUR_TWO_CARD_MONITOR_AND_FOUR_CARD_EXPERIMENT_QUEUE_20261021.md)：原06:16槽实际仅于11:18:45.277915尝试一次gkd_minchen资源SSH，认证前255／connection reset；未取得当前GPU／compute／UUID锁／原句柄或完整权威v2，不判断空闲、未派发或终态，不回填06:16或中间观察。本人FRPC88068的parsed argv与33620监听一致，未重启、追加SSH或提交CPU／GPU，0账本写。按实际尝试＋14400秒，下一最早15:18:45.277915（unix1792653525.2779148），worldcache-bank24已读回改约15:19一次；两卡仅只读恢复及完整预算资料核对，不在两卡新派实验。最后成功资源／财务仍10月20日16:05历史，唯一v2交接仍待。四卡最新634的完整工具CPU连接恢复收件仍由独立自动化负责，原11:30定义／source／状态保持，本轮未查四卡worker或改其任务。BANK24→既定CPU诊断→完整1624／具体12批准、cap226历史与54科研行状态保持；常态未知无可行动变化静默。
+
+- [One original receipt](../reports/wc_scout_BANK24_fresh_resource_20261022_0616.json)
+- [Offline UNKNOWN boundary](../reports/wc_scout_BANK24_resource_slot_0616_independent_unknown_acceptance_20261022.json)
+- [Next four-hour schedule readback](../reports/wc_scout_BANK24_resource_slot_0616_once_reschedule_20261022.json)

@@ -1,3 +1,7 @@
+## 2026-10-22 原06:16两卡槽延后11:18仍连接未知，下一15:19
+
+[622两卡只读接续](../research/622_WC_FOUR_HOUR_TWO_CARD_MONITOR_AND_FOUR_CARD_EXPERIMENT_QUEUE_20261021.md)：原06:16槽实际仅于11:18:45.277915尝试一次gkd_minchen资源SSH，认证前255／connection reset；未取得当前GPU／compute／UUID锁／原句柄或完整权威v2，不判断空闲、未派发或终态，不回填06:16或中间观察。本人FRPC88068的parsed argv与33620监听一致，未重启、追加SSH或提交CPU／GPU，0账本写。按实际尝试＋14400秒，下一最早15:18:45.277915（unix1792653525.2779148），worldcache-bank24已读回改约15:19一次；两卡仅只读恢复及完整预算资料核对，不在两卡新派实验。最后成功资源／财务仍10月20日16:05历史，唯一v2交接仍待。四卡最新634的完整工具CPU连接恢复收件仍由独立自动化负责，原11:30定义／source／状态保持，本轮未查四卡worker或改其任务。BANK24→既定CPU诊断→完整1624／具体12批准、cap226历史与54科研行状态保持；常态未知无可行动变化静默。
+
 ## 2026-10-22 11:07终态收件认证受阻，11:30恢复本人连接后续收
 
 [634本次原件与恢复安排](../research/634_WC_CONTAINER_LIFECYCLE_ACCEPTED_AND_FULL_BANK24_EXECUTION_TOOLS_CPU_20261022.md)：原08:09终态槽延后送达，实际11:07:53.556405仅一次原句柄收件，SSH退出255／Permission denied (publickey,password)，未取得当前远端PID／阶段／源码或终态；该时间为本地原件保存时间，不当远端观察。随后只读本机核对确认原SSH master PID85709与专用control socket均不存在；原收件器复用丢失连接后转为BatchMode认证被拒绝，不能据此判原CPU失败或退出。未追加SSH、重派、读取原CPU result／日志、运行accept、查询GPU或写账本。保留原UNKNOWN并将同一终态自动化改为11:30一次恢复接续：先恢复本机已授权私有SSH连接，再用新唯一文件收取原sourcea25ae777／PID632076/start941236421结果，不改旧job／科学闭包／FRPC或他人任务，不回填08:09观察。11:30是连接恢复收件时点，非worker ETA；完整scope CPU／CUDA／Ada实测价格／唯一v2和GPU-ready仍待。已验资源及完整24范围、两卡每4小时只读、BANK24→既定CPU诊断→完整1624／具体12批准、cap226历史及54科研行状态保持。
