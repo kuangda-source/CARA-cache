@@ -1,3 +1,7 @@
+## 2026-10-22 11:00半程收件未知，原独立终态句柄保留
+
+[634本次原件与接续](../../research/634_WC_CONTAINER_LIFECYCLE_ACCEPTED_AND_FULL_BANK24_EXECUTION_TOOLS_CPU_20261022.md)：08:06半程槽延后送达，实际11:00:52.139584仅一次原句柄收件，SSH退出255；本地已保存UNKNOWN原件，没有获得当前PID／阶段／14件源码／env或退出状态，不据此判断原CPU成功、失败或停止。该时间是本地回执保存时间，不当远端观察，最近成功证据仍为08:01:50.919462的原admission。未追加SSH、读取最终result／日志、运行accept、重派或启动GPU；半程自动化bank24-full-tools-r1-cpu-halfway已完成删除，独立终态bank24-full-tools-r1-cpu-terminal保留原句柄与定义，不代收或回填08:06／08:09观察。完整scope CPU／CUDA／新机实测价格／唯一v2和GPU-ready仍待，原sourcea25ae777／全24范围、两卡每四小时只读、BANK24→既定CPU诊断→完整1624／具体12批准、cap226历史与54科研行状态保持。
+
 ## 2026-10-22 完整BANK24执行工具CPU08:01单次启动，08:06／08:09查收
 
 [634实际原件与接续](../../research/634_WC_CONTAINER_LIFECYCLE_ACCEPTED_AND_FULL_BANK24_EXECUTION_TOOLS_CPU_20261022.md)：原跨容器CPU已26项独立接受。新sourcea25ae777的完整部署工具CPU于08:01:40.854244单次启动PID632076/start941236421，复用原1789＋29／模型和全部已验依赖；一次admission20项身份／技术边界核对通过，实际CLI帮助0／缺参拒绝2、原env和2CPU16GiB限制保持，08:01:50观察原worker活、进入一次派发与结算后真实CPU post阶段，未终态接受。已读回唯一新ID bank24-full-tools-r1-cpu-halfway于08:06技术半程（最早08:03:40.854244）、bank24-full-tools-r1-cpu-terminal于08:09独立终态（最早08:08:40.854244）；创建延后只向后排，不回填观察。原bank24-fd-cpu-2原因完成已删除，避免历史ID碰撞的短别名也已替换删除。完整scope CPU／实际CUDA／Ada实测价格／唯一v2和GPU-ready仍待，0新科研GPU／权威账本写；保守全24规划6.974166667／上限8.75<12非实测。两卡四小时只读、原BANK24→既定CPU诊断→完整1624／已批12、cap226历史及54科研行状态保持。

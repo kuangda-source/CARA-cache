@@ -53,3 +53,13 @@ host 控制器仅做本人 Docker／文件／PID 协调，限制自身为两个 
 - [两次新检查读回](../reports/wc_four_card_BANK24_full_execution_tools_CPU_R1_actual_two_once_checks_20261022.json)：`bank24-full-tools-r1-cpu-halfway` **08:06**，最早 **08:03:40.854244**；`bank24-full-tools-r1-cpu-terminal` **08:09**，最早 **08:08:40.854244**。创建延后时只选择未来可执行分钟，原最早门不变，不回填半程／中间观察。
 
 新两次检查已创建并读回后，删除已完成的原 `bank24-fd-cpu-2`。初建的短 ID `bank24-cpu`／`bank24-cpu-2` 因会与历史前端 CPU ID 混淆，已替换为上述唯一新 ID 并删除；没有额外收件或重派 CPU。两卡四小时只读定义保持。
+
+## 2026-10-22 11:00半程收件未知，原独立终态句柄保留
+
+[634本次原件与接续](634_WC_CONTAINER_LIFECYCLE_ACCEPTED_AND_FULL_BANK24_EXECUTION_TOOLS_CPU_20261022.md)：08:06半程槽延后送达，实际11:00:52.139584仅一次原句柄收件，SSH退出255；本地已保存UNKNOWN原件，没有获得当前PID／阶段／14件源码／env或退出状态，不据此判断原CPU成功、失败或停止。该时间是本地回执保存时间，不当远端观察，最近成功证据仍为08:01:50.919462的原admission。未追加SSH、读取最终result／日志、运行accept、重派或启动GPU；半程自动化bank24-full-tools-r1-cpu-halfway已完成删除，独立终态bank24-full-tools-r1-cpu-terminal保留原句柄与定义，不代收或回填08:06／08:09观察。完整scope CPU／CUDA／新机实测价格／唯一v2和GPU-ready仍待，原sourcea25ae777／全24范围、两卡每四小时只读、BANK24→既定CPU诊断→完整1624／具体12批准、cap226历史与54科研行状态保持。
+
+- [One saved UNKNOWN capture](../reports/wc_four_card_BANK24_full_execution_tools_CPU_R1_midpoint_20261022.json)
+- [Offline UNKNOWN boundary](../reports/wc_four_card_BANK24_full_execution_tools_CPU_R1_midpoint_unknown_boundary_20261022.json)
+- [Halfway automation deletion acknowledgement](../reports/wc_four_card_BANK24_full_execution_tools_CPU_R1_midpoint_automation_completion_20261022.json)
+
+The receipt is SSH exit 255 without a remote JSON observation. Original source, worker termination, payloads, environment and CPU outcome were not checked remotely in this slot. No second SSH, terminal collection, acceptance, resubmission, GPU query or ledger write was performed. The original terminal automation remains active; it retains the original launch and its existing bounded recovery contract.
