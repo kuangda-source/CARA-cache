@@ -12,3 +12,11 @@
 - 新完整包：`manifests/wc_policy_assets_fourcard_full1624_package_r6_20261022.json`
 
 BANK24已接受的六DEV结论保持644：A修正改善同状态误差；冻结z门控仍需加强，不能依据新DEV拟合阈值。完整1624将提供自动生成器所需的真实区间标签和动作价格，当前入口故障不改变这两项科学判断。
+
+## R2实际启动与检查安排
+
+source `94fe08832b8feb92ae6235c5b569d615950cf491` 已推送并读回GitHub同SHA。R2实际启动时间 `2026-10-22T21:47:16.094202+08:00`，PID793286/start946189945，容器PID793333；原R1四项原件SHA不变。启动后31秒GPU隐藏/只读容器正常，生产proof尚未落盘。launch原件 `reports/wc_policy_assets_full1624_fourcard_CPU_r2_launch_20261022.json`。
+
+21:55（最早21:54:46）技术半程 `cara-1624-r2-cpu`；22:06（最早22:05:16）完整验收复用 `cara-bank24-2`，实际返回时间均已绑定。完整CPU通过后继续原12GPUh整卡及新GPU实际半程/全程安排；当前无新GPU提交。
+
+21:49:55实际观察：R2真实Cosmos生产入口已通过，4请求/12拒绝控制、C/RF逆变换及容器FD/父进程/锁/GPU隐藏证明齐全；当前继续完整数值CPU，尚未整体接受，日志无错误。生产proof原件见reports/wc_policy_assets_full1624_fourcard_CPU_r2_production_boundary_20261022.json。
