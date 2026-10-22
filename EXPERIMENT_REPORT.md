@@ -1,3 +1,7 @@
+## 2026-10-22 12:05 BANK24四卡完整执行工具CPU已独立接受
+
+[635完整原件与接续](research/635_WC_READONLY_BUDGET_READER_FIX_AND_FULL_BANK24_TOOLS_CPU_R2_20261022.md)：11:58终态槽延后，实际仅于12:05:54.420407收取原R2/source6d9cd494/PID644729/start942609041，保存原件后离线34项接受全过。原14payload／1789＋29／五生成源和registration、一次提交恢复、结清后真实CPU post／四拒绝／collector、预算与锁前后物理metadata及终态独立SHA、原worker／fixture进程／两CPU容器／FD／IPC／资源锁退出、env-runtime均接受；原R1只读预算失败和UNKNOWN原件保持。当前BANK24完整新机执行scope CPU通过，GPU边界仍为TEST_ONLY CPU fixture，全24未到达／0评分／实际GPU费0，不产生神经实验结果。96／公开14／LPIPS和已验依赖复用，无新下载或重装。实际CUDA、Ada实测价格、fresh资源及唯一权威v2写入交接仍待，GPU-ready为false；6.974166667／上限8.75只是完整保守规划。R2两次检查均完成删除，无新长CPU或GPU任务；两卡下一15:19四小时只读定义保持。后续先完成完整权威历史／活动预留／旧机不新派fence与唯一写入交接，再按真实CPU三件套及原CAL12／gate进行单次准入；完整1624还需自己的新机CPU／重价并等待BANK24完整原件和实费接受，其具体12批准不重问。原全24／四CAL gate／DEV不拟合、BANK24→既定CPU诊断→完整1624、cap226历史与54科研行状态保持。
+
 ## 2026-10-22 12:00完整工具CPU R2技术完成，独立终态待验
 
 [635技术原件与接续](research/635_WC_READONLY_BUDGET_READER_FIX_AND_FULL_BANK24_TOOLS_CPU_R2_20261022.md)：11:53半程槽延后送达，实际仅于12:00:09.855954收取原R2技术状态；source6d9cd494／PID644729/start942609041／14payload与manifest一致。原worker已退出，health记录11:51:02.710220结束、wall35.577秒，报告一次提交及原句柄恢复、只读预算post、四项拒绝和真实CPU collector完成；预算与锁前后SHA／inode／mtime／大小相同，CPU容器peer／隐藏GPU与完整24未到达／0评分边界保持。这些仍为技术记录，未读取最终result／日志、终态独立哈希或运行accept，完整新机scope CPU尚未接受；11:58独立终态任务保留原句柄，按实际送达收件，不回填观察。半程bank24-full-tools-r2-cpu-halfway已完成删除，未改终态或两卡15:19四小时只读定义；0新派发／模型下载／Cosmos权重／CUDA／科研GPU／权威账本写。实际CUDA、Ada实测价格、唯一权威v2和GPU-ready仍待，原完整24／BANK24→既定CPU诊断→完整1624／具体12批准、cap226历史及54科研行状态保持。

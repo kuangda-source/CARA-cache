@@ -92,3 +92,12 @@ The receipt is SSH exit 255 without a remote JSON observation. Original source, 
 - [One technical halfway capture](../reports/wc_four_card_BANK24_full_execution_tools_CPU_R2_midpoint_20261022.json)
 - [Offline technical boundary: 36 checks](../reports/wc_four_card_BANK24_full_execution_tools_CPU_R2_midpoint_technical_boundary_20261022.json)
 - [Halfway deletion and unchanged independent checks](../reports/wc_four_card_BANK24_full_execution_tools_CPU_R2_midpoint_automation_completion_20261022.json)
+
+## 2026-10-22 12:05 BANK24四卡完整执行工具CPU已独立接受
+
+[635完整原件与接续](635_WC_READONLY_BUDGET_READER_FIX_AND_FULL_BANK24_TOOLS_CPU_R2_20261022.md)：11:58终态槽延后，实际仅于12:05:54.420407收取原R2/source6d9cd494/PID644729/start942609041，保存原件后离线34项接受全过。原14payload／1789＋29／五生成源和registration、一次提交恢复、结清后真实CPU post／四拒绝／collector、预算与锁前后物理metadata及终态独立SHA、原worker／fixture进程／两CPU容器／FD／IPC／资源锁退出、env-runtime均接受；原R1只读预算失败和UNKNOWN原件保持。当前BANK24完整新机执行scope CPU通过，GPU边界仍为TEST_ONLY CPU fixture，全24未到达／0评分／实际GPU费0，不产生神经实验结果。96／公开14／LPIPS和已验依赖复用，无新下载或重装。实际CUDA、Ada实测价格、fresh资源及唯一权威v2写入交接仍待，GPU-ready为false；6.974166667／上限8.75只是完整保守规划。R2两次检查均完成删除，无新长CPU或GPU任务；两卡下一15:19四小时只读定义保持。后续先完成完整权威历史／活动预留／旧机不新派fence与唯一写入交接，再按真实CPU三件套及原CAL12／gate进行单次准入；完整1624还需自己的新机CPU／重价并等待BANK24完整原件和实费接受，其具体12批准不重问。原全24／四CAL gate／DEV不拟合、BANK24→既定CPU诊断→完整1624、cap226历史与54科研行状态保持。
+
+- [Original R2 terminal](../reports/wc_four_card_BANK24_full_execution_tools_CPU_R2_terminal_20261022.json)
+- [Independent CPU acceptance: all34](../reports/wc_four_card_BANK24_full_execution_tools_CPU_R2_independent_acceptance_20261022.json)
+- [Complete acceptance audit](../reports/wc_four_card_BANK24_full_execution_tools_CPU_R2_complete_acceptance_audit_20261022.json)
+- [Completed checks and conditional next steps](../reports/wc_four_card_BANK24_full_execution_tools_CPU_R2_completed_handoff_20261022.json)

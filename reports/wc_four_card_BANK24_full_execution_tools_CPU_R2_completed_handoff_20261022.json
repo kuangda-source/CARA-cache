@@ -1,0 +1,93 @@
+{
+  "status": "R2_FULL_EXECUTION_CPU_COMPLETED_ORIGINAL_AUTOMATION_DELETED_GPU_GATES_RETAINED",
+  "automation_id": "bank24-full-tools-r2-cpu-terminal",
+  "deletion": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Deleted automation in the app."
+      },
+      {
+        "type": "text",
+        "text": "{\"automationId\":\"bank24-full-tools-r2-cpu-terminal\",\"mode\":\"delete\",\"deleteStatus\":\"deleted\",\"snapshot\":{\"kind\":\"heartbeat\",\"name\":\"BANK24 full-tools R2 CPU terminal\",\"rrule\":\"FREQ=DAILY;COUNT=1;BYHOUR=11;BYMINUTE=58;BYSECOND=0\"}}"
+      }
+    ],
+    "isError": false
+  },
+  "launch_ref": "reports/wc_four_card_BANK24_full_execution_tools_CPU_R2_launch_20261022.json",
+  "launch_sha256": "2add8165b1cae435b43aab49737104acd96ffc75a0566eab0ee63cdaae2acccf",
+  "capture_ref": "reports/wc_four_card_BANK24_full_execution_tools_CPU_R2_terminal_20261022.json",
+  "capture_sha256": "0b263e01dc697a78d8f7fb69c1df432a17f222f6d0dd61f5fd4a7240bd6ba45d",
+  "acceptance_ref": "reports/wc_four_card_BANK24_full_execution_tools_CPU_R2_independent_acceptance_20261022.json",
+  "acceptance_sha256": "32af30ed7eaaab119c63c7131dde86ec9c8ec75b12caf91902cf049e520722a1",
+  "source_revision": "6d9cd4941d5b88aa01e87e5947a0a0d65fce7dad",
+  "observed_unix": 1792641954.4204068,
+  "observed_local": "2026-10-22T12:05:54.420407+08:00",
+  "independent_acceptance_checks": 34,
+  "full_new_host_scope_production_CPU_accepted": true,
+  "accepted_scope": "BANK24_complete_execution_tools_CPU",
+  "actual_CUDA_compatibility_accepted": false,
+  "actual_new_host_measured_quote_accepted": false,
+  "unique_authoritative_v2_handoff_accepted": false,
+  "GPU_dispatch_ready": false,
+  "completed_automations": [
+    {
+      "id": "bank24-full-tools-r2-cpu-halfway",
+      "file_exists": false
+    },
+    {
+      "id": "bank24-full-tools-r2-cpu-terminal",
+      "file_exists": false
+    }
+  ],
+  "two_card_automation_unchanged": {
+    "id": "worldcache-bank24",
+    "file_exists": true,
+    "configuration_sha256": "0bb7860e7c756cd09b9cce6212c00d429a98d71f526a02528e5bcbdeae52ddba",
+    "status": "ACTIVE",
+    "rrule": "FREQ=DAILY;COUNT=1;BYHOUR=15;BYMINUTE=19;BYSECOND=0"
+  },
+  "next_two_card_readonly_local": "2026-10-22T15:19:00+08:00",
+  "no_new_periodic_resource_polling": true,
+  "new_CPU_launches_this_turn": 0,
+  "GPU_submissions": 0,
+  "ledger_written": false,
+  "remaining_GPU_gates": [
+    "unique_authoritative_v2_full_history_and_single_writer_handoff",
+    "fresh_GPU_UUID_disk_host_memory_and_budget_admission",
+    "charged_actual_CUDA_compatibility_and_complete24_GPU_execution",
+    "actual_Ada_time_and_action_price_measurements"
+  ],
+  "next_GPU_command_template_not_executed": [
+    "python3",
+    "scripts/wc_four_card_bank24_execution_r1.py",
+    "launch-gpu",
+    "--CPU-launch-ref",
+    "reports/wc_four_card_BANK24_full_execution_tools_CPU_R2_launch_20261022.json",
+    "--CPU-capture",
+    "reports/wc_four_card_BANK24_full_execution_tools_CPU_R2_terminal_20261022.json",
+    "--CPU-acceptance",
+    "reports/wc_four_card_BANK24_full_execution_tools_CPU_R2_independent_acceptance_20261022.json",
+    "--unique-handoff",
+    "<ACTUAL_COMPLETE_UNIQUE_AUTHORITY_HANDOFF.json>",
+    "--upstream-capture",
+    "reports/wc_scout_CAL12_full12_terminal_recovered_collection_20261019_1830.json.gz",
+    "--upstream-acceptance",
+    "reports/wc_scout_CAL12_full12_terminal_independent_acceptance_20261019.json",
+    "--frozen-gate",
+    "reports/wc_scout_CAL12_fourCAL_frozen_gate_20261019.json",
+    "--gpu-uuid",
+    "<FRESH_IDLE_UUID>",
+    "--output",
+    "<NEW_UNIQUE_FULL24_GPU_LAUNCH_RECEIPT.json>"
+  ],
+  "next_GPU_requires_full_authority_history_settlements_active_whole_limits_old_host_dispatch_fence_and_single_writer_handoff": true,
+  "next_GPU_admission_and_actual_halfway_ETA_once_each_required_after_actual_launch": true,
+  "next_full1624_independent_new_host_CPU_and_whole_quote": "AUTHORIZED_PREPARATION_NOT_LAUNCHED_HERE_GPU_WAITS_BANK24_FULL_ARTIFACTS_AND_ACTUAL_FEES",
+  "full1624_specific_whole12_approval_ref": "reports/wc_policy_interval_assets_full1624_specific_whole12_approval_20261020.json",
+  "science_sequence": [
+    "BANK24_complete24_and_actual_fees_accepted",
+    "registered_XR_same_D_quota_CPU_diagnostics",
+    "full1624_after_own_new_host_CPU_quote_budget_and_BANK24_upstream"
+  ]
+}
