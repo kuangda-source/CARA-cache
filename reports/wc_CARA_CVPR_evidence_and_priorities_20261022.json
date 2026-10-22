@@ -1,0 +1,162 @@
+{
+  "status": "CVPR_ORIENTED_EVIDENCE_AND_PRIORITY_REVIEW_NO_NEW_SCIENTIFIC_RESULT",
+  "source_bindings": {
+    "reports/wc_drop1_window24_full24_complete_results_analysis_20261019.json": "f36c235ad7c03b85fb304bccd809273ace3e1630e78aee2a11b37b9aa77632dd",
+    "reports/wc_paper_N07_R2_complete_results_analysis_20261017.json": "9df50978582cdcfe548971409cc41231282a61752c35be05f9bdb07afb96860a",
+    "reports/wc_paper_N08_balanced_full40_terminal_independent_acceptance_roundoff_r1_20261017.json": "2ba47b448b96183b05d1483ed421b2cdb17f3cd77b06bf3d279a56021c6b4c11",
+    "reports/wc_paper_N10_dimensionwise_accepted_analysis_20261018.json": "05406824e26df58642fa172f759272d45416c50e401bdb4e2b4a9ef8cd34a050",
+    "paper/experiment_master_table.json": "94ec398ae24b0f8ac79bfa30efeed164d8c220a01e9afdbbe711da7e686359ea",
+    "plans/cara_policy_generator_20261020/single_budget_validation.md": "bc46292ee12cd3f6dd8d59b8d9f8deaf765229829bc64797c54b611dcb388281",
+    "plans/cara_policy_generator_20261020/generator_recipe_r1.json": "2316f3a1ee2bd36658e0aa727626239d9a532670be5939c4c50dbb923cc27bdb"
+  },
+  "N07": {
+    "formal_status_counts": {
+      "COMPLETE": 129,
+      "TEXT_REJECTED": 20,
+      "VIDEO_REJECTED": 11
+    },
+    "matched_H1_comparisons": [
+      {
+        "candidate": "TABLE_PHASE_H1",
+        "baseline": "NATIVE35",
+        "candidate_LPIPS": 0.05066774744460339,
+        "baseline_LPIPS": 0.0,
+        "LPIPS_change_percent": null,
+        "joint_speedup": 1.2671070851861364,
+        "joint_quality_time_prompt_ids": [
+          "av_5f567f79-4dd0-413d-a81a-2607684decf2",
+          "human_186",
+          "human_212",
+          "misc_4707906-uhd_3840_2160_30fps",
+          "robot_060",
+          "robot_110"
+        ]
+      },
+      {
+        "candidate": "TABLE_PHASE_H1",
+        "baseline": "WC_HALF",
+        "candidate_LPIPS": 0.05066774744460339,
+        "baseline_LPIPS": 0.3264051390858534,
+        "LPIPS_change_percent": -84.47703746745347,
+        "joint_speedup": 0.9440011052683172,
+        "joint_quality_time_prompt_ids": [
+          "av_5f567f79-4dd0-413d-a81a-2607684decf2",
+          "human_186",
+          "human_212",
+          "misc_4707906-uhd_3840_2160_30fps",
+          "robot_060",
+          "robot_110"
+        ]
+      },
+      {
+        "candidate": "TABLE_PHASE_H1",
+        "baseline": "FRONT_DENSE_C",
+        "candidate_LPIPS": 0.05066774744460339,
+        "baseline_LPIPS": 0.050175838003863035,
+        "LPIPS_change_percent": 0.9803711513547197,
+        "joint_speedup": 0.9959888791421488,
+        "joint_quality_time_prompt_ids": [
+          "av_5f567f79-4dd0-413d-a81a-2607684decf2",
+          "human_186",
+          "human_212",
+          "misc_4707906-uhd_3840_2160_30fps",
+          "robot_060",
+          "robot_110"
+        ]
+      },
+      {
+        "candidate": "TABLE_PHASE_H1",
+        "baseline": "FRONT_DENSE_A",
+        "candidate_LPIPS": 0.05066774744460339,
+        "baseline_LPIPS": 0.04893907467504182,
+        "LPIPS_change_percent": 3.532295575754252,
+        "joint_speedup": 1.0029002311465935,
+        "joint_quality_time_prompt_ids": [
+          "av_5f567f79-4dd0-413d-a81a-2607684decf2",
+          "human_186",
+          "human_212",
+          "misc_4707906-uhd_3840_2160_30fps",
+          "robot_060",
+          "robot_110"
+        ]
+      }
+    ]
+  },
+  "N08": {
+    "scope_counts": {
+      "requests": 2,
+      "methods": 5,
+      "scientific_paths": 30,
+      "full_warmup_paths": 10,
+      "total_paths": 40,
+      "ordinary_pairs": 1440,
+      "CFG_calls": 2880,
+      "loads": 1,
+      "teacher_pairs": 0
+    },
+    "scientific_full_scope_accepted": true,
+    "repeated_timing": [
+      {
+        "candidate": "GCR_EFFICIENT",
+        "baseline": "FULL_NATIVE",
+        "registered_paired_rounds": 6,
+        "full_registered_speedup": 1.9097169144368658
+      },
+      {
+        "candidate": "GCR_EFFICIENT",
+        "baseline": "WORLD_CACHE",
+        "registered_paired_rounds": 6,
+        "full_registered_speedup": 1.4112003241774698
+      },
+      {
+        "candidate": "GCR_EFFICIENT",
+        "baseline": "RA_CFG_CACHE",
+        "registered_paired_rounds": 6,
+        "full_registered_speedup": 0.9938898088050419
+      },
+      {
+        "candidate": "CPA_HIGH_FIDELITY",
+        "baseline": "FULL_NATIVE",
+        "registered_paired_rounds": 6,
+        "full_registered_speedup": 1.2652687785920242
+      },
+      {
+        "candidate": "CPA_HIGH_FIDELITY",
+        "baseline": "WORLD_CACHE",
+        "registered_paired_rounds": 6,
+        "full_registered_speedup": 0.9349803088732738
+      },
+      {
+        "candidate": "CPA_HIGH_FIDELITY",
+        "baseline": "RA_CFG_CACHE",
+        "registered_paired_rounds": 6,
+        "full_registered_speedup": 0.6584943218208006
+      }
+    ]
+  },
+  "N10": {
+    "counts": {
+      "SCORED": 645,
+      "NOT_APPLICABLE_STATIC_SCOPE": 160,
+      "VIDEO_UNAVAILABLE": 155
+    },
+    "independent_new_videos": false,
+    "available_original_videos": 129
+  },
+  "priority": [
+    "BANK24 frozen6DEV and registered X-R/equal-D CPU",
+    "complete1624 real interval assets and action costs",
+    "PG-P1 automatic policy loop under measured budget",
+    "PG-P2 equal-information equal-query attribution and full calibration cost",
+    "PG-P3 same-procedure recalibration; PG-P4 frozen new TEST and repeated timing"
+  ],
+  "primary_next_question": "Does joint refresh/readout generation improve held-out full-video quality at matched measured latency and calibration opportunity against strong simple schedules?",
+  "new_GPU_submissions_for_this_review": 0,
+  "existing_scientific_card_modified": false,
+  "sources": [
+    "https://cvpr.thecvf.com/Conferences/2026/ReviewerTrainingMaterial",
+    "https://arxiv.org/html/2512.23258v2",
+    "https://arxiv.org/html/2609.39343v1",
+    "https://arxiv.org/abs/2610.02660"
+  ]
+}
