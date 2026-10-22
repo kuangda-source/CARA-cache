@@ -7,10 +7,13 @@ import sys
 
 
 def main():
-    p=argparse.ArgumentParser();p.add_argument('--stage',type=Path,required=True);a=p.parse_args()
+    p=argparse.ArgumentParser();p.add_argument('--stage',type=Path,required=True);p.add_argument('--diagnostics-source',type=Path,required=True);a=p.parse_args()
     sys.path[:0]=[str(a.stage),str(a.stage/'inputs/src')]
     from four_card_bank24_execution_tools_r1 import verify_registration,read,sha
-    from wcomr.scout_diagnostics_r1 import amplitude_and_direction
+    import importlib.util
+    spec=importlib.util.spec_from_file_location('registered_XR_diagnostics',a.diagnostics_source)
+    module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
+    amplitude_and_direction=module.amplitude_and_direction
     from wcomr.mid_coverage import tree_digest
     import torch
     torch.set_num_threads(2)
@@ -45,7 +48,7 @@ def main():
     assert len(result)==6 and not torch.cuda.is_initialized()
     print(json.dumps(dict(status='BANK24_SIX_SAME_STATE_FIXED_XR_CPU_DIAGNOSTICS',rows=result,
         original_final_sha256=sha(a.stage/'CPU-final-results.json'),registration_sha256=sha(a.stage/'registration.json'),
-        scientific_source_sha256=sha(a.stage/'inputs/src/wcomr/scout_diagnostics_r1.py'),
+        scientific_source_sha256=sha(a.diagnostics_source),
         GPU_submissions=0,new_teacher_calls=0,DEV_fit=False,quality_labels_read=False),allow_nan=False))
 
 
