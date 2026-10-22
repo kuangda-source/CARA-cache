@@ -20,3 +20,7 @@ source `94fe08832b8feb92ae6235c5b569d615950cf491` 已推送并读回GitHub同SHA
 21:55（最早21:54:46）技术半程 `cara-1624-r2-cpu`；22:06（最早22:05:16）完整验收复用 `cara-bank24-2`，实际返回时间均已绑定。完整CPU通过后继续原12GPUh整卡及新GPU实际半程/全程安排；当前无新GPU提交。
 
 21:49:55实际观察：R2真实Cosmos生产入口已通过，4请求/12拒绝控制、C/RF逆变换及容器FD/父进程/锁/GPU隐藏证明齐全；当前继续完整数值CPU，尚未整体接受，日志无错误。生产proof原件见reports/wc_policy_assets_full1624_fourcard_CPU_r2_production_boundary_20261022.json。
+
+## R2实际技术半程
+
+实际2026-10-22T21:55:39.368011+08:00半程收件：原PID/start与容器PID匹配，GPU隐藏/只读、无OOM/日志错误；生产proof与21:49:55原件SHA相同。数值报告与完整bundle尚未落盘，仍运行；目录清单仅记物理文件，不能当作已验收路径。一次半程cara-1624-r2-cpu已删除，原cara-bank24-2保持22:06完整验收，scope和GPU准入不变。半程原件 reports/wc_policy_assets_full1624_fourcard_CPU_r2_halfway_20261022_2155.json；技术核对 reports/wc_policy_assets_full1624_fourcard_CPU_r2_halfway_checked_20261022.json。

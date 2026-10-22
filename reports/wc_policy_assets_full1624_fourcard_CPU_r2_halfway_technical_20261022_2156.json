@@ -1,0 +1,297 @@
+{
+  "observed_unix": 1792677379.7385285,
+  "production_proof_sha256": "a630189da75459adb280b808382c44ad230132924eb8963bf59869a0dd378fbd",
+  "production_proof": {
+    "status": "POLICY_ASSETS_ACTUAL_COSMOS_PRODUCTION_CPU_PASS_NOT_GPU",
+    "production_CPU_accepted": true,
+    "source_revision": "94fe08832b8feb92ae6235c5b569d615950cf491",
+    "registration_sha256": "2bc9b893c942ef5ae6a4a0ffef40c7e1e9fda92984699516b12149753b23d1ec",
+    "config_sha256": "75338efd0d7c2d145c73bb3d5514c37fcec46851995785724eeca8f650419f9a",
+    "scope_counts": {
+      "requests": 4,
+      "total_paths": 14,
+      "formal_paths": 12,
+      "full_warmup_paths": 2,
+      "native_reference_paths": 4,
+      "observer_OFF_control_paths": 4,
+      "observer_ON_formal_paths": 4,
+      "ordinary_pairs": 504,
+      "ordinary_CFG_calls": 1008,
+      "loads": 1,
+      "legal_source_time_cells_per_prompt": 406,
+      "formal_source_time_cells": 1624,
+      "warm_source_time_cells": 406,
+      "total_collected_source_time_cells": 2030,
+      "minimum_price_trials_per_cell": 6,
+      "warm_action_trials_per_cell": 3,
+      "minimum_formal_action_trials_per_cell": 3,
+      "canonical_price_cells_per_prompt": 28,
+      "canonical_price_trials_per_cell": 12,
+      "total_readout_pair_trials": 13020,
+      "formal_cell_price_trials": 10416,
+      "additional_deep_teacher_pairs": 0
+    },
+    "matrix": [
+      {
+        "id": "warm_1_CONTROL",
+        "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+        "section": "WARMUP",
+        "mode": "CONTROL",
+        "observer": false,
+        "round": 1
+      },
+      {
+        "id": "warm_2_COLLECT",
+        "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+        "section": "WARMUP",
+        "mode": "COLLECT",
+        "observer": true,
+        "round": 2
+      },
+      {
+        "id": "formal_0_NATIVE",
+        "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+        "section": "FORMAL",
+        "mode": "NATIVE",
+        "observer": false,
+        "round": 1
+      },
+      {
+        "id": "formal_0_CONTROL",
+        "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+        "section": "FORMAL",
+        "mode": "CONTROL",
+        "observer": false,
+        "round": 1
+      },
+      {
+        "id": "formal_0_COLLECT",
+        "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+        "section": "FORMAL",
+        "mode": "COLLECT",
+        "observer": true,
+        "round": 1
+      },
+      {
+        "id": "formal_1_NATIVE",
+        "scene": "human_199",
+        "section": "FORMAL",
+        "mode": "NATIVE",
+        "observer": false,
+        "round": 1
+      },
+      {
+        "id": "formal_1_CONTROL",
+        "scene": "human_199",
+        "section": "FORMAL",
+        "mode": "CONTROL",
+        "observer": false,
+        "round": 1
+      },
+      {
+        "id": "formal_1_COLLECT",
+        "scene": "human_199",
+        "section": "FORMAL",
+        "mode": "COLLECT",
+        "observer": true,
+        "round": 1
+      },
+      {
+        "id": "formal_2_NATIVE",
+        "scene": "misc_13398218_3840_2160_60fps",
+        "section": "FORMAL",
+        "mode": "NATIVE",
+        "observer": false,
+        "round": 1
+      },
+      {
+        "id": "formal_2_CONTROL",
+        "scene": "misc_13398218_3840_2160_60fps",
+        "section": "FORMAL",
+        "mode": "CONTROL",
+        "observer": false,
+        "round": 1
+      },
+      {
+        "id": "formal_2_COLLECT",
+        "scene": "misc_13398218_3840_2160_60fps",
+        "section": "FORMAL",
+        "mode": "COLLECT",
+        "observer": true,
+        "round": 1
+      },
+      {
+        "id": "formal_3_NATIVE",
+        "scene": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+        "section": "FORMAL",
+        "mode": "NATIVE",
+        "observer": false,
+        "round": 1
+      },
+      {
+        "id": "formal_3_CONTROL",
+        "scene": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+        "section": "FORMAL",
+        "mode": "CONTROL",
+        "observer": false,
+        "round": 1
+      },
+      {
+        "id": "formal_3_COLLECT",
+        "scene": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+        "section": "FORMAL",
+        "mode": "COLLECT",
+        "observer": true,
+        "round": 1
+      }
+    ],
+    "profile": {
+      "horizon": 36,
+      "protected_dense": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        36
+      ],
+      "max_source_age": 28,
+      "min_C_anchors": 2,
+      "min_A_anchors": 1,
+      "alpha_candidates": [
+        0.5,
+        1.0
+      ],
+      "CFG_coefficients": [
+        8,
+        -7
+      ],
+      "basis": "PINNED_NATIVE_POLICY_EXECUTOR_INITIAL7_AND_CYCLE_RESET",
+      "source_history": "CANONICAL_ACTUAL_D_TEACHER_LAST_TWO_ANCHORS_NOT_FREE_POLICY_HISTORY"
+    },
+    "actual_Cosmos_request_count": 4,
+    "guard_refusal_controls": 12,
+    "C_source_inverse": {
+      "full_C_skip_branch_inverse_AST_equal": true,
+      "source_sha256": "b485cb8fd6e262a40e5823365c34ef7db1bc036c591d7577489e04077c515903",
+      "mutation_target": "ISOLATED_SOURCE_VIEW_ONLY",
+      "protected_forward_modified": false
+    },
+    "RF_source_inverse": {
+      "RF_source_sha256": "9b53e3f024e5cbb2cb3778819e1a6fd353923c13ad9b868d99602051640a65e8",
+      "supplied_output_inverse_AST_equal": true,
+      "actual_RF_globals": {
+        "torch": {
+          "binding": "actual_module_global",
+          "type": "builtins.module",
+          "module": "torch",
+          "qualname": null
+        }
+      },
+      "net_calls": 0,
+      "teacher_or_same_state_proof": false
+    },
+    "original_Cosmos_entry_imported": true,
+    "model_weights_loaded": 0,
+    "CUDA_initialized": false,
+    "GPU_submissions": 0,
+    "ledger_written": false,
+    "CPU_wall_seconds": 3.8701953031122684,
+    "host_transport_CPU": {
+      "parent_and_namespace_match": true,
+      "original_fd_inode_match": true,
+      "independent_open_refused": true,
+      "GPU_hidden": true,
+      "child_exited": true,
+      "fixture_lock_released": true,
+      "authority_ledger_opened": false
+    }
+  },
+  "artifact_directory_inventory": {
+    "flow_False": [
+      {
+        "name": "formal_0_COLLECT",
+        "files": 446
+      },
+      {
+        "name": "formal_0_CONTROL",
+        "files": 2
+      },
+      {
+        "name": "formal_0_NATIVE",
+        "files": 2
+      },
+      {
+        "name": "formal_1_COLLECT",
+        "files": 446
+      },
+      {
+        "name": "formal_1_CONTROL",
+        "files": 2
+      },
+      {
+        "name": "formal_1_NATIVE",
+        "files": 2
+      },
+      {
+        "name": "formal_2_COLLECT",
+        "files": 446
+      },
+      {
+        "name": "formal_2_CONTROL",
+        "files": 2
+      },
+      {
+        "name": "formal_2_NATIVE",
+        "files": 2
+      },
+      {
+        "name": "formal_3_COLLECT",
+        "files": 446
+      },
+      {
+        "name": "formal_3_CONTROL",
+        "files": 2
+      },
+      {
+        "name": "formal_3_NATIVE",
+        "files": 2
+      },
+      {
+        "name": "rejected_COLLECT",
+        "files": 0
+      },
+      {
+        "name": "rejected_CONTROL",
+        "files": 0
+      },
+      {
+        "name": "rejected_NATIVE",
+        "files": 0
+      },
+      {
+        "name": "warm_1_CONTROL",
+        "files": 2
+      },
+      {
+        "name": "warm_2_COLLECT",
+        "files": 446
+      }
+    ],
+    "flow_True": [
+      {
+        "name": "warm_1_CONTROL",
+        "files": 2
+      },
+      {
+        "name": "warm_2_COLLECT",
+        "files": 406
+      }
+    ]
+  },
+  "counts_are_materialized_files_not_accepted_paths": true,
+  "GPU_submissions": 0,
+  "ledger_written": false
+}

@@ -1,0 +1,112 @@
+{
+  "status": "POLICY_ASSETS_ONCE_ORIGINAL_CAPTURE",
+  "mode": "cpu-halfway",
+  "launch": {
+    "status": "FULL1624_FOURCARD_CPU_SINGLE_DISPATCHED",
+    "project": "/data20t/gaokuangda/worldcache_workspace",
+    "stage": "/data20t/gaokuangda/worldcache_workspace/.sync/wc-policy-assets-fourcard-full1624-r2-20261022",
+    "source_revision": "94fe08832b8feb92ae6235c5b569d615950cf491",
+    "registration_sha256": "2bc9b893c942ef5ae6a4a0ffef40c7e1e9fda92984699516b12149753b23d1ec",
+    "identity": {
+      "pid": 793286,
+      "start_ticks": 946189945,
+      "state": "R"
+    },
+    "container": "wc-policy-assets-fourcard-full1624-r2-20261022-cpu",
+    "started_unix": 1792676836.0942016,
+    "halfway_not_before_unix": 1792677286.0942016,
+    "final_not_before_unix": 1792677916.0942016,
+    "GPU_submissions": 0,
+    "ledger_written": false
+  },
+  "observed_unix": 1792677339.368011,
+  "GPU_submissions": 0,
+  "ledger_written": false,
+  "process": {
+    "pid": 793286,
+    "state": "S",
+    "start_ticks": 946189945,
+    "command": "docker run --read-only --network none --pid host --name wc-policy-assets-fourcard-full1624-r2-20261022-cpu --label wcomr.manifest=2bc9b893c942ef5ae6a4a0ffef40c7e1e9fda92984699516b12149753b23d1ec --user 1000:1000 --cpus 2 --memory 16g --pids-limit 512 --tmpfs /tmp:rw,size=2g -v /data20t/gaokuangda/worldcache_workspace:/data20t/gaokuangda/worldcache_workspace:ro -v /data20t/gaokuangda/worldcache_workspace/.sync/wc-policy-assets-fourcard-full1624-r2-20261022:/data20t/gaokuangda/worldcache_workspace/.sync/wc-policy-assets-fourcard-full1624-r2-20261022:rw -w /data20t/gaokuangda/worldcache_workspace/runtime -e CUDA_CACHE_PATH=/data20t/gaokuangda/worldcache_workspace/.sync/wc-policy-assets-fourcard-full1624-r2-20261022/CPU-caches/cuda -e CUDA_HOME=/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cuda_nvrtc -e CUDA_PATH=/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cuda_nvrtc -e CUDA_VISIBLE_DEVICES= -e HF_HOME=/data20t/gaokuangda/worldcache_workspace/cache/huggingface -e HF_HUB_CACHE=/data20t/gaokuangda/worldcache_workspace/cache/huggingface/hub -e HF_HUB_OFFLINE=1 -e LD_LIBRARY_PATH=/data20t/gaokuangda/worldcache_workspace/system-libs-r1/usr/lib/x86_64-linux-gnu/blas:/data20t/gaokuangda/worldcache_workspace/system-libs-r1/usr/lib/x86_64-linux-gnu/lapack:/data20t/gaokuangda/worldcache_workspace/system-libs-r1/usr/lib/x86_64-linux-gnu/pulseaudio:/data20t/gaokuangda/worldcache_workspace/system-libs-r1/usr/lib/x86_64-linux-gnu:/data20t/gaokuangda/worldcache_workspace/system-libs-r1/lib/x86_64-linux-gnu:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cuda_nvrtc/lib:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cuda_runtime/lib:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cudnn/lib:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/nvjitlink/lib:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cublas/lib:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/torch/lib -e LOGNAME=gaokuangda -e NLTK_DATA=/data20t/gaokuangda/worldcache_workspace/runtime-resources/nltk-guardrail-d6d4bfa8-r1 -e NVIDIA_VISIBLE_DEVICES=void -e OMP_NUM_THREADS=2 -e OPENBLAS_NUM_THREADS=2 -e PATH=/data20t/gaokuangda/worldcache_workspace/system-libs-r1/usr/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin -e PYTHONDONTWRITEBYTECODE=1 -e PYTHONPATH=/data20t/gaokuangda/worldcache_workspace/.sync/wc-policy-assets-fourcard-full1624-r2-20261022/scripts:/data20t/gaokuangda/worldcache_workspace/.sync/wc-policy-assets-fourcard-full1624-r2-20261022/src -e TOKENIZERS_PARALLELISM=false -e TORCHINDUCTOR_CACHE_DIR=/data20t/gaokuangda/worldcache_workspace/.sync/wc-policy-assets-fourcard-full1624-r2-20261022/CPU-caches/torchinductor -e TORCH_EXTENSIONS_DIR=/data20t/gaokuangda/worldcache_workspace/.sync/wc-policy-assets-fourcard-full1624-r2-20261022/CPU-caches/extensions -e TORCH_HOME=/data20t/gaokuangda/worldcache_workspace/cache/torch -e TRANSFORMERS_OFFLINE=1 -e TRITON_CACHE_DIR=/data20t/gaokuangda/worldcache_workspace/.sync/wc-policy-assets-fourcard-full1624-r2-20261022/CPU-caches/triton -e USER=gaokuangda -e WC_SCOUT_KIND=CAL12 -e XDG_CACHE_HOME=/data20t/gaokuangda/worldcache_workspace/.sync/wc-policy-assets-fourcard-full1624-r2-20261022/CPU-caches/xdg --entrypoint /data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/bin/python sha256:1e81ac62ee68ca1a6ef655515096a1d84579b01aa4986810c9b18d4f6c4c552d /data20t/gaokuangda/worldcache_workspace/.sync/wc-policy-assets-fourcard-full1624-r2-20261022/scripts/wc_policy_interval_assets_lifecycle_r1.py cpu-worker --project /data20t/gaokuangda/worldcache_workspace --stage /data20t/gaokuangda/worldcache_workspace/.sync/wc-policy-assets-fourcard-full1624-r2-20261022 "
+  },
+  "result_files_present": {
+    "bundle": false,
+    "proof": true,
+    "numerical": false,
+    "config": true
+  },
+  "error_lines": [],
+  "container_binding": {
+    "state": {
+      "Status": "running",
+      "Running": true,
+      "Paused": false,
+      "Restarting": false,
+      "OOMKilled": false,
+      "Dead": false,
+      "Pid": 793333,
+      "ExitCode": 0,
+      "Error": "",
+      "StartedAt": "2026-10-22T13:47:16.153374052Z",
+      "FinishedAt": "0001-01-01T00:00:00Z"
+    },
+    "image": "sha256:1e81ac62ee68ca1a6ef655515096a1d84579b01aa4986810c9b18d4f6c4c552d",
+    "readonly_root": true,
+    "pid_mode": "host",
+    "device_requests": [],
+    "devices": [],
+    "registration_sha256": "2bc9b893c942ef5ae6a4a0ffef40c7e1e9fda92984699516b12149753b23d1ec"
+  },
+  "execution_quote": {
+    "status": "FULL1624_ADA_WHOLE_CARD_PLANNING_WITH_ACCEPTED_BANK24_TIMES",
+    "scope_counts": {
+      "requests": 4,
+      "total_paths": 14,
+      "formal_paths": 12,
+      "full_warmup_paths": 2,
+      "native_reference_paths": 4,
+      "observer_OFF_control_paths": 4,
+      "observer_ON_formal_paths": 4,
+      "ordinary_pairs": 504,
+      "ordinary_CFG_calls": 1008,
+      "loads": 1,
+      "legal_source_time_cells_per_prompt": 406,
+      "formal_source_time_cells": 1624,
+      "warm_source_time_cells": 406,
+      "total_collected_source_time_cells": 2030,
+      "minimum_price_trials_per_cell": 6,
+      "warm_action_trials_per_cell": 3,
+      "minimum_formal_action_trials_per_cell": 3,
+      "canonical_price_cells_per_prompt": 28,
+      "canonical_price_trials_per_cell": 12,
+      "total_readout_pair_trials": 13020,
+      "formal_cell_price_trials": 10416,
+      "additional_deep_teacher_pairs": 0
+    },
+    "terms_seconds": {
+      "load": 174.62186110392213,
+      "full14_requests": 4286.786205291748,
+      "all_readout_trials": 16211.708887133003,
+      "source_transfer_planning": 3853.828125,
+      "raw_write_and_read_and_SHA": 1306.7578125,
+      "moments_and_full_output_equality": 1015.0,
+      "setup_and_CPU_post": 900.0,
+      "shutdown_reserve": 180.0,
+      "previous_unattributed": 445.3226309409365,
+      "fourcard_container_setup_and_exit": 300.0
+    },
+    "forecast_complete_GPUh": 9.956388888888888,
+    "billed_limit_GPUh": 12.0,
+    "within_approved_limit": true,
+    "measured_terms": [
+      "load",
+      "full14_requests"
+    ],
+    "extra_readout_scaling": 1.0,
+    "remaining_terms_are_conservative_historical_allowances": true,
+    "independent_Ada_action_prices_measured": false,
+    "minimum_free_disk_bytes": 100400365568,
+    "minimum_MemAvailable_bytes": 28144618701,
+    "BANK24_capture_sha256": "ebdedc2c5a67ccee4075e4ccc234d97ce325b1585989ed0a40e4899f7f582eca",
+    "BANK24_acceptance_sha256": "3f5fe59596d4dfc769349cd95766b51ff270df3956b5b4e30ee4e42dc7261913"
+  }
+}
