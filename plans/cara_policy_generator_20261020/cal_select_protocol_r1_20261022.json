@@ -1,0 +1,26 @@
+{
+  "version": "CARA_P1_CAL_SELECT_GROUP_HASH_R1",
+  "role": "DEVELOPMENT_SELECTION_NOT_FINAL_TEST",
+  "count": 2,
+  "seed": 0,
+  "salt": "CARA-PG-P1-CAL-SELECT-R1-20261022",
+  "strata": {"av": 1, "non_av": 1},
+  "selection": "SHA256(salt|canonical_group_name), ascending within each stratum",
+  "canonical_group_name": "lexicographically smallest member of the complete source group",
+  "exclusion": "transitive complete source groups, names including run suffixes, and all matching prompt hashes",
+  "dataset_audit_ref": "reports/dataset_source_group_audit_20260930.json",
+  "exposure_inventory_refs": [
+    "manifests/cal_v1.json",
+    "manifests/wc_paper_N07_actual_selected_unexposed_inputs_r1_20261016.json",
+    "manifests/wc_source_conditional_confirmation_inputs_r1_20261013.json",
+    "manifests/wc_e2_confirmation_full72_inputs_r1_20261011.json",
+    "manifests/wc_w3_expl_dev8_inputs_r1_20261015.json",
+    "manifests/wc_paper_N07_actual_bound_inputs_r1_20261016.json",
+    "plans/scouts_20261018/SCOUT_EXPL_DEV6_INPUTS.json"
+  ],
+  "no_quality_or_rejection_screening": true,
+  "no_replacement_after_rejection": true,
+  "runtime_exposure_reverification_before_first_endpoint": true,
+  "final_TEST_must_exclude_selected_groups": true,
+  "new_GPU_submissions": 0
+}
