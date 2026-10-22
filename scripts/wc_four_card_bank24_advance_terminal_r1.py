@@ -69,6 +69,13 @@ def replace_once(source, before, after):
 
 def accept_capture(capture, launch, inputs):
     timing_allowed(capture, launch)
+    if capture.get('CPU_post_recovery'):
+        recovery = capture['CPU_post_recovery']
+        require(recovery == capture['post_exit'] and recovery['preserved_before'] == recovery['preserved_after']
+                and recovery['output_path_only_substitution'] is True
+                and recovery['original_post_source_sha256'] == capture['registration']['payload_sha256']['bank24-fourcard-post.py']
+                and recovery['GPU_submissions'] == 0 and recovery['CUDA_initialized'] is False,
+                'Separate CPU recovery must preserve original source, failures and budget')
     # Clone the exact existing functions with only their scheduling predicates
     # replaced; every finance/raw/frame/control check executes unchanged.
     body = replace_once(inspect.getsource(port.accept_capture),

@@ -162,6 +162,9 @@ def container_command(project, stage, mode, manifest, environment, uid, gid, gpu
             args += ['-v',str(path)+':'+str(path)+':rw']
     env = dict(environment, WC_SCOUT_KIND='CAL12', CUDA_VISIBLE_DEVICES='',
                NVIDIA_VISIBLE_DEVICES=gpu_uuid if gpu else 'void')
+    # FFmpeg's private dependencies include nested BLAS/LAPACK/Pulse paths.
+    codec_libs = project/'system-libs-r1/usr/lib/x86_64-linux-gnu'
+    env['LD_LIBRARY_PATH'] = ':'.join(str(codec_libs/n) for n in ('blas','lapack','pulseaudio'))+':'+env.get('LD_LIBRARY_PATH','')
     env['PYTHONPATH'] = str(stage/'scripts')+':'+str(stage/'src')
     for key, value in sorted(env.items()):
         args += ['-e',key+'='+str(value)]
