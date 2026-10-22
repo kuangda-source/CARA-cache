@@ -15,6 +15,10 @@ class Selection(unittest.TestCase):
         rows=self.records()
         self.assertEqual(exclusion_closure(rows,['av_a_long_PG_SELECT_seed0'],[]),{'av_a_long'})
 
+    def test_exposure_includes_any_dataset_category(self):
+        rows=self.records()+[dict(name='industry_057',category='industry',group_members=['industry_057'],prompt_sha256='f'*64)]
+        self.assertEqual(exclusion_closure(rows,['industry_057_seed0'],[]),{'industry_057'})
+
     def test_hash_matches_all_aliases_and_transitive_group_members(self):
         rows=self.records();rows[2]['prompt_sha256']=rows[3]['prompt_sha256']
         rows[3]['group_members']=['human_2','robot_1'];rows[4]['group_members']=['robot_1','misc_1']

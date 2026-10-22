@@ -24,7 +24,7 @@ def exclusion_closure(records, documents, engineering):
         if not set(r['group_members'])<=set(lookup):raise ValueError('Incomplete source group')
     excluded=set(engineering)
     for document in documents:
-        for token in re.findall(r'(?:av|human|misc|robot)_[A-Za-z0-9_-]+',document):
+        for token in re.findall(r'[A-Za-z0-9][A-Za-z0-9_-]*',document):
             match=next((name for name in names if token==name or token.startswith(name+'_')),None)
             if match:excluded.add(match)
         for value in re.findall(r'\b[0-9a-f]{64}\b',document):excluded.update(hashes.get(value,()))
