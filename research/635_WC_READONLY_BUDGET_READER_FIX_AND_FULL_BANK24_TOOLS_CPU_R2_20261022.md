@@ -58,3 +58,12 @@ R2 当前仅完成实现和本地控制，尚未实际验收。完整 scope CPU�
 - [Independent CPU acceptance: all34](../reports/wc_four_card_BANK24_full_execution_tools_CPU_R2_independent_acceptance_20261022.json)
 - [Complete acceptance audit](../reports/wc_four_card_BANK24_full_execution_tools_CPU_R2_complete_acceptance_audit_20261022.json)
 - [Completed checks and conditional next steps](../reports/wc_four_card_BANK24_full_execution_tools_CPU_R2_completed_handoff_20261022.json)
+
+## 2026-10-22 人类改为四卡唯一执行，BANK24 GPU已于15:46单次启动
+
+[636实际原件与接续](636_WC_HUMAN_FOUR_CARD_ONLY_AUTHORITY_AND_BANK24_GPU_20261022.md)：直接人类“不管两卡服务器了，直接在4卡上做起来吧”已取代等待原两卡恢复的安排；worldcache-bank24已删除，本人旧88068／33620入口退出，不再查询或重建两卡巡检。四卡新权威池保留原12结算／26事件／cap226／origin79.99637737158223，原机当前仍未知，另保留旧BANK24 4.5＋完整1624 12共16.5GPUh责任预约，不充实际费用或确认GPU次数。两次控制入口失败均发生在GPU提交前并保留原件；只修外层R2目录绑定和专用native Python3.10控制，十生产payload／实际CPU source6d9cd494／1789＋29及科学逻辑保持。实际launch_id e6c04f54-dac1-476d-9c53-3bc4ff6fc253于15:46:54.448575启动GPU1／UUID GPU-19d4d100-f845-018d-ec30-def1553c01f5，supervisor688318/start944027781。15:48:15一次有效admission确认supervisor/post/inner/runner与GPU容器均活、compute PID688616、24696MiB、自身UUID锁持有；全24／18正式＋6warm／864pairs／1728CFG／1load／6新Native保持。池used116.825023108771／reserved25.25（16.5旧未知＋8.75本卡）／余83.924976891229，8.75为整卡上限，6.974166667为规划，未称Ada实测。已读回wc4-bank24-gpu-halfway-20261022于19:17一次技术半程、wc4-bank24-gpu-terminal-20261022于23:01独立终态，按实际launch门限19:16:08／23:00:21，不循环／不读科学partial。首次admission空stdin解析UNKNOWN已保留，修传输后只恢复原句柄；不得再派。本人成熟四卡master当前31383／原socket，专用native控制数据盘job必须保留。实际GPU已开始，完整CUDA协议／新机实费／质量仍待终态；原四CAL固定gate、DEV不拟合，BANK24全原件与实费接受→既定X-R／同D配额CPU→完整1624，其自身四卡CPU／完整报价和具体12批准保持。54科研行及status_counts不因启动增加科学接受，F/B关闭。
+
+- [Actual once-only GPU launch](../reports/wc_four_card_BANK24_full24_GPU_actual_launch_20261022.json)
+- [Recovered single admission](../reports/wc_four_card_BANK24_full24_GPU_admission_recovery_20261022.json)
+- [Independent admission boundary](../reports/wc_four_card_BANK24_full24_GPU_independent_admission_20261022.json)
+- [Actual half and terminal checks](../reports/wc_four_card_BANK24_full24_GPU_actual_checks_20261022.json)
