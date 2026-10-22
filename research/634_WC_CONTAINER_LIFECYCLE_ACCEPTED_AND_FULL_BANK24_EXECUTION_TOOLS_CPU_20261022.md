@@ -63,3 +63,11 @@ host 控制器仅做本人 Docker／文件／PID 协调，限制自身为两个 
 - [Halfway automation deletion acknowledgement](../reports/wc_four_card_BANK24_full_execution_tools_CPU_R1_midpoint_automation_completion_20261022.json)
 
 The receipt is SSH exit 255 without a remote JSON observation. Original source, worker termination, payloads, environment and CPU outcome were not checked remotely in this slot. No second SSH, terminal collection, acceptance, resubmission, GPU query or ledger write was performed. The original terminal automation remains active; it retains the original launch and its existing bounded recovery contract.
+
+## 2026-10-22 11:07终态收件认证受阻，11:30恢复本人连接后续收
+
+[634本次原件与恢复安排](634_WC_CONTAINER_LIFECYCLE_ACCEPTED_AND_FULL_BANK24_EXECUTION_TOOLS_CPU_20261022.md)：原08:09终态槽延后送达，实际11:07:53.556405仅一次原句柄收件，SSH退出255／Permission denied (publickey,password)，未取得当前远端PID／阶段／源码或终态；该时间为本地原件保存时间，不当远端观察。随后只读本机核对确认原SSH master PID85709与专用control socket均不存在；原收件器复用丢失连接后转为BatchMode认证被拒绝，不能据此判原CPU失败或退出。未追加SSH、重派、读取原CPU result／日志、运行accept、查询GPU或写账本。保留原UNKNOWN并将同一终态自动化改为11:30一次恢复接续：先恢复本机已授权私有SSH连接，再用新唯一文件收取原sourcea25ae777／PID632076/start941236421结果，不改旧job／科学闭包／FRPC或他人任务，不回填08:09观察。11:30是连接恢复收件时点，非worker ETA；完整scope CPU／CUDA／Ada实测价格／唯一v2和GPU-ready仍待。已验资源及完整24范围、两卡每4小时只读、BANK24→既定CPU诊断→完整1624／具体12批准、cap226历史及54科研行状态保持。
+
+- [Saved original terminal UNKNOWN](../reports/wc_four_card_BANK24_full_execution_tools_CPU_R1_terminal_20261022.json)
+- [Offline connection boundary](../reports/wc_four_card_BANK24_full_execution_tools_CPU_R1_terminal_unknown_connection_boundary_20261022.json)
+- [One updated recovery schedule and exact readback](../reports/wc_four_card_BANK24_full_execution_tools_CPU_R1_terminal_recovery_schedule_20261022.json)

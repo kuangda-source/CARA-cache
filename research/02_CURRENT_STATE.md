@@ -1,3 +1,7 @@
+## 2026-10-22 11:07终态收件认证受阻，11:30恢复本人连接后续收
+
+[634本次原件与恢复安排](634_WC_CONTAINER_LIFECYCLE_ACCEPTED_AND_FULL_BANK24_EXECUTION_TOOLS_CPU_20261022.md)：原08:09终态槽延后送达，实际11:07:53.556405仅一次原句柄收件，SSH退出255／Permission denied (publickey,password)，未取得当前远端PID／阶段／源码或终态；该时间为本地原件保存时间，不当远端观察。随后只读本机核对确认原SSH master PID85709与专用control socket均不存在；原收件器复用丢失连接后转为BatchMode认证被拒绝，不能据此判原CPU失败或退出。未追加SSH、重派、读取原CPU result／日志、运行accept、查询GPU或写账本。保留原UNKNOWN并将同一终态自动化改为11:30一次恢复接续：先恢复本机已授权私有SSH连接，再用新唯一文件收取原sourcea25ae777／PID632076/start941236421结果，不改旧job／科学闭包／FRPC或他人任务，不回填08:09观察。11:30是连接恢复收件时点，非worker ETA；完整scope CPU／CUDA／Ada实测价格／唯一v2和GPU-ready仍待。已验资源及完整24范围、两卡每4小时只读、BANK24→既定CPU诊断→完整1624／具体12批准、cap226历史及54科研行状态保持。
+
 ## 2026-10-22 11:00半程收件未知，原独立终态句柄保留
 
 [634本次原件与接续](634_WC_CONTAINER_LIFECYCLE_ACCEPTED_AND_FULL_BANK24_EXECUTION_TOOLS_CPU_20261022.md)：08:06半程槽延后送达，实际11:00:52.139584仅一次原句柄收件，SSH退出255；本地已保存UNKNOWN原件，没有获得当前PID／阶段／14件源码／env或退出状态，不据此判断原CPU成功、失败或停止。该时间是本地回执保存时间，不当远端观察，最近成功证据仍为08:01:50.919462的原admission。未追加SSH、读取最终result／日志、运行accept、重派或启动GPU；半程自动化bank24-full-tools-r1-cpu-halfway已完成删除，独立终态bank24-full-tools-r1-cpu-terminal保留原句柄与定义，不代收或回填08:06／08:09观察。完整scope CPU／CUDA／新机实测价格／唯一v2和GPU-ready仍待，原sourcea25ae777／全24范围、两卡每四小时只读、BANK24→既定CPU诊断→完整1624／具体12批准、cap226历史与54科研行状态保持。

@@ -86,3 +86,7 @@ SETUP 只在同一次 CPU 部署中读取 Docker runtime 名称，记录是否�
 ## 2026-10-22 完整BANK24执行工具CPU08:01单次启动，08:06／08:09查收
 
 [634实际原件与接续](634_WC_CONTAINER_LIFECYCLE_ACCEPTED_AND_FULL_BANK24_EXECUTION_TOOLS_CPU_20261022.md)：原跨容器CPU已26项独立接受。新sourcea25ae777的完整部署工具CPU于08:01:40.854244单次启动PID632076/start941236421，复用原1789＋29／模型和全部已验依赖；一次admission20项身份／技术边界核对通过，实际CLI帮助0／缺参拒绝2、原env和2CPU16GiB限制保持，08:01:50观察原worker活、进入一次派发与结算后真实CPU post阶段，未终态接受。已读回唯一新ID bank24-full-tools-r1-cpu-halfway于08:06技术半程（最早08:03:40.854244）、bank24-full-tools-r1-cpu-terminal于08:09独立终态（最早08:08:40.854244）；创建延后只向后排，不回填观察。原bank24-fd-cpu-2原因完成已删除，避免历史ID碰撞的短别名也已替换删除。完整scope CPU／实际CUDA／Ada实测价格／唯一v2和GPU-ready仍待，0新科研GPU／权威账本写；保守全24规划6.974166667／上限8.75<12非实测。两卡四小时只读、原BANK24→既定CPU诊断→完整1624／已批12、cap226历史及54科研行状态保持。
+
+## 2026-10-22 11:07终态收件认证受阻，11:30恢复本人连接后续收
+
+[634本次原件与恢复安排](634_WC_CONTAINER_LIFECYCLE_ACCEPTED_AND_FULL_BANK24_EXECUTION_TOOLS_CPU_20261022.md)：原08:09终态槽延后送达，实际11:07:53.556405仅一次原句柄收件，SSH退出255／Permission denied (publickey,password)，未取得当前远端PID／阶段／源码或终态；该时间为本地原件保存时间，不当远端观察。随后只读本机核对确认原SSH master PID85709与专用control socket均不存在；原收件器复用丢失连接后转为BatchMode认证被拒绝，不能据此判原CPU失败或退出。未追加SSH、重派、读取原CPU result／日志、运行accept、查询GPU或写账本。保留原UNKNOWN并将同一终态自动化改为11:30一次恢复接续：先恢复本机已授权私有SSH连接，再用新唯一文件收取原sourcea25ae777／PID632076/start941236421结果，不改旧job／科学闭包／FRPC或他人任务，不回填08:09观察。11:30是连接恢复收件时点，非worker ETA；完整scope CPU／CUDA／Ada实测价格／唯一v2和GPU-ready仍待。已验资源及完整24范围、两卡每4小时只读、BANK24→既定CPU诊断→完整1624／具体12批准、cap226历史及54科研行状态保持。
