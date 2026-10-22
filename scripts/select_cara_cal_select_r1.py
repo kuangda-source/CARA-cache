@@ -65,6 +65,7 @@ def freeze(output):
         if (ROOT/name).read_bytes()!=raw:raise ValueError('Selection inputs must be published unchanged: '+name)
         return raw
     protocol_raw=committed(PROTOCOL);protocol=json.loads(protocol_raw)
+    upstream_raw=committed('manifests/upstream.json');upstream=json.loads(upstream_raw)
     audit_raw=committed(protocol['dataset_audit_ref']);audit=json.loads(audit_raw)
     documents=[];bindings=[]
     for name in protocol['exposure_inventory_refs']:
@@ -74,7 +75,10 @@ def freeze(output):
     sources=[];requests=[]
     for r in selected:
         name='vendor/WorldCache/Evaluation/PAI-Eval/cosmos_eval_jsons_text_only/'+r['name']+'.json'
-        raw=committed(name);request=json.loads(raw)
+        relative=str(Path(name).relative_to(upstream['path']))
+        raw=subprocess.check_output(['git','show',upstream['commit']+':'+relative],cwd=ROOT/upstream['path'])
+        if (ROOT/name).read_bytes()!=raw:raise ValueError('Pinned upstream request bytes changed: '+name)
+        request=json.loads(raw)
         if sha(request['prompt'].encode())!=r['prompt_sha256']:raise ValueError('Original prompt identity changed')
         if (request['resolution'],request['num_output_frames'],request['guidance'])!=('432,768',93,7):
             raise ValueError('Original common evaluation protocol changed')
@@ -85,6 +89,7 @@ def freeze(output):
     value=dict(status='P1_CAL_SELECT_LOCAL_IDENTITIES_FROZEN_RUNTIME_EXPOSURE_RECHECK_PENDING',
         source_revision=revision,protocol_ref=PROTOCOL,protocol_sha256=sha(protocol_raw),
         dataset_audit_sha256=sha(audit_raw),local_exposure_inventory_bindings=bindings,
+        upstream_commit=upstream['commit'],upstream_manifest_sha256=sha(upstream_raw),
         excluded_group_members=sorted(excluded),eligible_groups_per_stratum=available,
         selected_sources=sources,requests=requests,seed=0,
         rejection_policy='KEEP_REGISTERED_POSITIONS_NO_REPLACEMENT',
