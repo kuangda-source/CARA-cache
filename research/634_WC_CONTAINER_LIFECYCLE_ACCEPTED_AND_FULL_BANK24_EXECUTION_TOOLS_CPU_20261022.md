@@ -84,3 +84,11 @@ The receipt is SSH exit 255 without a remote JSON observation. Original source, 
 - [One admission](../reports/wc_four_card_BANK24_full_execution_tools_CPU_R2_admission_20261022.json)
 - [Technical admission boundary](../reports/wc_four_card_BANK24_full_execution_tools_CPU_R2_admission_technical_boundary_20261022.json)
 - [Two once-only checks and prior automation deletion](../reports/wc_four_card_BANK24_full_execution_tools_CPU_R2_actual_two_once_checks_20261022.json)
+
+## 2026-10-22 12:00完整工具CPU R2技术完成，独立终态待验
+
+[635技术原件与接续](635_WC_READONLY_BUDGET_READER_FIX_AND_FULL_BANK24_TOOLS_CPU_R2_20261022.md)：11:53半程槽延后送达，实际仅于12:00:09.855954收取原R2技术状态；source6d9cd494／PID644729/start942609041／14payload与manifest一致。原worker已退出，health记录11:51:02.710220结束、wall35.577秒，报告一次提交及原句柄恢复、只读预算post、四项拒绝和真实CPU collector完成；预算与锁前后SHA／inode／mtime／大小相同，CPU容器peer／隐藏GPU与完整24未到达／0评分边界保持。这些仍为技术记录，未读取最终result／日志、终态独立哈希或运行accept，完整新机scope CPU尚未接受；11:58独立终态任务保留原句柄，按实际送达收件，不回填观察。半程bank24-full-tools-r2-cpu-halfway已完成删除，未改终态或两卡15:19四小时只读定义；0新派发／模型下载／Cosmos权重／CUDA／科研GPU／权威账本写。实际CUDA、Ada实测价格、唯一权威v2和GPU-ready仍待，原完整24／BANK24→既定CPU诊断→完整1624／具体12批准、cap226历史及54科研行状态保持。
+
+- [One technical halfway capture](../reports/wc_four_card_BANK24_full_execution_tools_CPU_R2_midpoint_20261022.json)
+- [Offline technical boundary: 36 checks](../reports/wc_four_card_BANK24_full_execution_tools_CPU_R2_midpoint_technical_boundary_20261022.json)
+- [Halfway deletion and unchanged independent checks](../reports/wc_four_card_BANK24_full_execution_tools_CPU_R2_midpoint_automation_completion_20261022.json)
