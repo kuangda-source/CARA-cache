@@ -5177,8 +5177,8 @@
         "PG-P1-ASSETS"
       ],
       "contribution_relation": "可复现区间生成器的新方法验证；CPU原型不充真实质量结果",
-      "evidence_or_planned_scope": "生产CPU已接受；GPU启动于2026-10-22T22:13:05+08:00。快照：10/14路径完成、1运行、3未到达、0失败；当前路径`formal_2_COLLECT`。",
-      "gap_and_next_action": "同一launch完整收件；分别验收数值/控制与价格。半程发现同UUID外部计算进程，价格竞争影响核验前不接PG-P1。",
+      "evidence_or_planned_scope": "生产CPU已接受；GPU启动于2026-10-22T22:13:05+08:00。快照：13/14路径完成、1运行、0未到达、0失败；当前路径`formal_3_COLLECT`。",
+      "gap_and_next_action": "原1624完整接受后运行价格审计；已知同卡竞争的价格另做独占测量补救，价格信任通过前不接PG-P1。",
       "priority": "GEN-1",
       "evidence_refs": [
         "research/612_WC_POLICY_GENERATOR_CPU_PROTOTYPE_AND_REPRODUCIBLE_VALIDATION_DESIGN_20261020.md",
@@ -5234,7 +5234,9 @@
         "PG_assets_fourcard_GPU_progress_646",
         "PG_assets_fourcard_GPU_initial_sampling",
         "research/647_CARA_FULL1624_HALFWAY_AND_SHARED_GPU_PRICE_CAVEAT_20261023.md",
-        "reports/wc_policy_assets_full1624_fourcard_GPU_halfway_technical_20261023.json"
+        "reports/wc_policy_assets_full1624_fourcard_GPU_halfway_technical_20261023.json",
+        "research/648_CARA_GPU_OWNER_PRICE_TRUST_AND_ORDERED_CONTINUATION_20261023.md",
+        "plans/cara_policy_generator_20261020/PRICE_HISTORY_NATIVE_CONTINUATION_R1_20261023.md"
       ],
       "method_mapping_ids": [],
       "contribution_ids": [
@@ -5285,12 +5287,14 @@
       "reader": {
         "title": "完整1624真实区间/价格资产",
         "status": "GPU运行中（已记录快照）",
-        "result": "生产CPU已接受；GPU启动于2026-10-22T22:13:05+08:00。快照：10/14路径完成、1运行、3未到达、0失败；当前路径`formal_2_COLLECT`。",
-        "next_action": "同一launch完整收件；分别验收数值/控制与价格。半程发现同UUID外部计算进程，价格竞争影响核验前不接PG-P1。",
+        "result": "生产CPU已接受；GPU启动于2026-10-22T22:13:05+08:00。快照：13/14路径完成、1运行、0未到达、0失败；当前路径`formal_3_COLLECT`。",
+        "next_action": "原1624完整接受后运行价格审计；已知同卡竞争的价格另做独占测量补救，价格信任通过前不接PG-P1。",
         "evidence_refs": [
           "PG_assets_fourcard_GPU_progress_646",
           "research/647_CARA_FULL1624_HALFWAY_AND_SHARED_GPU_PRICE_CAVEAT_20261023.md",
-          "reports/wc_policy_assets_full1624_fourcard_GPU_halfway_technical_20261023.json"
+          "reports/wc_policy_assets_full1624_fourcard_GPU_halfway_technical_20261023.json",
+          "research/648_CARA_GPU_OWNER_PRICE_TRUST_AND_ORDERED_CONTINUATION_20261023.md",
+          "plans/cara_policy_generator_20261020/PRICE_HISTORY_NATIVE_CONTINUATION_R1_20261023.md"
         ]
       }
     },
@@ -5303,13 +5307,15 @@
       ],
       "contribution_relation": "可复现区间生成器的新方法验证；CPU原型不充真实质量结果",
       "evidence_or_planned_scope": "已登记0.80×Native预算、Q≤8及一次CAL_SELECT冻结；最多40候选正式+6Native+18warm基础路径。",
-      "gap_and_next_action": "先接受真实标签/价格，核对CAL_SELECT曝光、任意mask生产CPU和完整报价；额外资产采集另计。",
+      "gap_and_next_action": "接受真实标签及可信价格、独占准入、CAL_SELECT曝光核查、实际CPU与整卡报价；冻结后加入小规模历史窗口诊断，新增成本另计。",
       "priority": "GEN-2",
       "evidence_refs": [
         "research/612_WC_POLICY_GENERATOR_CPU_PROTOTYPE_AND_REPRODUCIBLE_VALIDATION_DESIGN_20261020.md",
         "plans/cara_policy_generator_20261020/README.md",
         "plans/cara_policy_generator_20261020/TASK_REGISTRY.json",
-        "reports/wc_policy_generator_CPU_independent_acceptance_20261020.json"
+        "reports/wc_policy_generator_CPU_independent_acceptance_20261020.json",
+        "research/648_CARA_GPU_OWNER_PRICE_TRUST_AND_ORDERED_CONTINUATION_20261023.md",
+        "plans/cara_policy_generator_20261020/PRICE_HISTORY_NATIVE_CONTINUATION_R1_20261023.md"
       ],
       "method_mapping_ids": [],
       "contribution_ids": [
@@ -5337,9 +5343,11 @@
         "title": "单预算自动策略闭环",
         "status": "已登记，待真实闭环",
         "result": "已登记0.80×Native预算、Q≤8及一次CAL_SELECT冻结；最多40候选正式+6Native+18warm基础路径。",
-        "next_action": "先接受真实标签/价格，核对CAL_SELECT曝光、任意mask生产CPU和完整报价；额外资产采集另计。",
+        "next_action": "接受真实标签及可信价格、独占准入、CAL_SELECT曝光核查、实际CPU与整卡报价；冻结后加入小规模历史窗口诊断，新增成本另计。",
         "evidence_refs": [
-          "CARA_generator_report_612"
+          "CARA_generator_report_612",
+          "research/648_CARA_GPU_OWNER_PRICE_TRUST_AND_ORDERED_CONTINUATION_20261023.md",
+          "plans/cara_policy_generator_20261020/PRICE_HISTORY_NATIVE_CONTINUATION_R1_20261023.md"
         ]
       }
     },
@@ -5352,13 +5360,15 @@
       ],
       "contribution_relation": "可复现区间生成器的新方法验证；CPU原型不充真实质量结果",
       "evidence_or_planned_scope": "等Q、等信息、计入校准成本的强前密C/A、仅优化刷新、纯代理、联合修订及简单搜索比较已列入路线。",
-      "gap_and_next_action": "P1后冻结实际并集并去重，完成整卡报价及真实CPU，再执行。",
+      "gap_and_next_action": "加入少步Native等实际时间对照；P1后冻结比较并集、完整报价及真实CPU，使用独占卡。",
       "priority": "GEN-3",
       "evidence_refs": [
         "research/612_WC_POLICY_GENERATOR_CPU_PROTOTYPE_AND_REPRODUCIBLE_VALIDATION_DESIGN_20261020.md",
         "plans/cara_policy_generator_20261020/README.md",
         "plans/cara_policy_generator_20261020/TASK_REGISTRY.json",
-        "reports/wc_policy_generator_CPU_independent_acceptance_20261020.json"
+        "reports/wc_policy_generator_CPU_independent_acceptance_20261020.json",
+        "research/648_CARA_GPU_OWNER_PRICE_TRUST_AND_ORDERED_CONTINUATION_20261023.md",
+        "plans/cara_policy_generator_20261020/PRICE_HISTORY_NATIVE_CONTINUATION_R1_20261023.md"
       ],
       "method_mapping_ids": [],
       "contribution_ids": [
@@ -5385,9 +5395,11 @@
         "title": "等预算与等查询强基线",
         "status": "待P1后冻结",
         "result": "等Q、等信息、计入校准成本的强前密C/A、仅优化刷新、纯代理、联合修订及简单搜索比较已列入路线。",
-        "next_action": "P1后冻结实际并集并去重，完成整卡报价及真实CPU，再执行。",
+        "next_action": "加入少步Native等实际时间对照；P1后冻结比较并集、完整报价及真实CPU，使用独占卡。",
         "evidence_refs": [
-          "CARA_generator_report_612"
+          "CARA_generator_report_612",
+          "research/648_CARA_GPU_OWNER_PRICE_TRUST_AND_ORDERED_CONTINUATION_20261023.md",
+          "plans/cara_policy_generator_20261020/PRICE_HISTORY_NATIVE_CONTINUATION_R1_20261023.md"
         ]
       }
     },
@@ -6921,7 +6933,20 @@
     "PG_assets_fourcard_GPU_admission": "reports/wc_policy_assets_full1624_fourcard_GPU_load_observation_20261022.json",
     "PG_assets_fourcard_GPU_schedule": "reports/wc_policy_assets_full1624_fourcard_GPU_admission_checked_and_schedule_20261022.json",
     "PG_assets_fourcard_GPU_progress_646": "research/646_CARA_FULL1624_CPU_ACCEPTED_GPU_LAUNCH_20261022.md",
-    "PG_assets_fourcard_GPU_initial_sampling": "reports/wc_policy_assets_full1624_fourcard_GPU_initial_sampling_20261022.json"
+    "PG_assets_fourcard_GPU_initial_sampling": "reports/wc_policy_assets_full1624_fourcard_GPU_initial_sampling_20261022.json",
+    "research/648_CARA_GPU_OWNER_PRICE_TRUST_AND_ORDERED_CONTINUATION_20261023.md": "research/648_CARA_GPU_OWNER_PRICE_TRUST_AND_ORDERED_CONTINUATION_20261023.md",
+    "plans/cara_policy_generator_20261020/PRICE_HISTORY_NATIVE_CONTINUATION_R1_20261023.md": "plans/cara_policy_generator_20261020/PRICE_HISTORY_NATIVE_CONTINUATION_R1_20261023.md",
+    "reports/wc_policy_assets_full1624_fourcard_GPU_recovered_20261023_0403.json": "reports/wc_policy_assets_full1624_fourcard_GPU_recovered_20261023_0403.json",
+    "reports/wc_four_card_GPU_exclusive_capability_and_competing_account_20261023.json": "reports/wc_four_card_GPU_exclusive_capability_and_competing_account_20261023.json",
+    "reports/wc_four_card_exclusive_sudo_authority_readonly_20261023.json": "reports/wc_four_card_exclusive_sudo_authority_readonly_20261023.json",
+    "reports/wc_four_card_owned_control_recovered_20261023_0404.json": "reports/wc_four_card_owned_control_recovered_20261023_0404.json",
+    "reports/wc_four_card_exclusive_admission_clock_bound_readonly_20261023.json": "reports/wc_four_card_exclusive_admission_clock_bound_readonly_20261023.json",
+    "scripts/audit_wc_policy_asset_prices_r1.py": "scripts/audit_wc_policy_asset_prices_r1.py",
+    "scripts/check_wc_four_card_exclusive_r1.py": "scripts/check_wc_four_card_exclusive_r1.py",
+    "src/wcomr/policy_asset_price_review_r1.py": "src/wcomr/policy_asset_price_review_r1.py",
+    "tests/test_policy_asset_price_review_r1.py": "tests/test_policy_asset_price_review_r1.py",
+    "plans/cara_policy_generator_20261020/TASK_REGISTRY.json": "plans/cara_policy_generator_20261020/TASK_REGISTRY.json",
+    "reports/wc_cara_ordered_continuation_preparation_20261023.json": "reports/wc_cara_ordered_continuation_preparation_20261023.json"
   },
   "source_bindings": {
     "11": {
@@ -11084,7 +11109,7 @@
     },
     "CARA_generator_registry": {
       "path": "plans/cara_policy_generator_20261020/TASK_REGISTRY.json",
-      "sha256": "e54b207db40c2e53695cf0a9190e9eec42ec9c2cb208b92104ad81cd31e7eaa4",
+      "sha256": "e668484af3c586969e46210ed11bb79cebd2134d6a15e072e39bce2a1eecf0af",
       "bytes": 5235
     },
     "CARA_generator_asset_gaps": {
@@ -11354,33 +11379,33 @@
     },
     "AGENTS.md": {
       "path": "AGENTS.md",
-      "sha256": "e9829ae9a35275f4811ba75d04710eee6e7f862b5dc40f0ee691b5cb3ca8d699",
-      "bytes": 4205
+      "sha256": "ab868dd09a37fb5d1408bbce0719bf31bbd5934da1aee51311191da86355a869",
+      "bytes": 4767
     },
     "EXPERIMENT_REPORT.md": {
       "path": "EXPERIMENT_REPORT.md",
-      "sha256": "640bf4d63f8c9900fed46f0b591ea883e92a157499d6ec01bb4cecfd94a587e9",
-      "bytes": 7913
+      "sha256": "59fb08f997f9d9cdfaf613f005080d10591bbf358cec1e8b6235367926fafbb7",
+      "bytes": 8062
     },
     "memory/handoffs/LATEST.md": {
       "path": "memory/handoffs/LATEST.md",
-      "sha256": "44d8a0f5cba753aa855c2b067fff1da57ba80ac51a96d60b737f502075a4b1d9",
-      "bytes": 3890
+      "sha256": "367e25da20d104377cc561cf9e422cac0b47c6fe5080713b5ceefd7bd31f4169",
+      "bytes": 4294
     },
     "research/02_CURRENT_STATE.md": {
       "path": "research/02_CURRENT_STATE.md",
-      "sha256": "4c93042078bad20e35a15531063e80bfbfc588776eece12a86cab1016c48b99e",
-      "bytes": 4738
+      "sha256": "9c98e0995433ec497bf64d595b4d7e40bc84d26b782135509f9309632ca76650",
+      "bytes": 4887
     },
     "research/09_NEXT_ACTIONS.md": {
       "path": "research/09_NEXT_ACTIONS.md",
-      "sha256": "69eb03c553da0253af659deefdbb380f4dd1ebff6fef04df3ffbb36ec0c4a104",
-      "bytes": 3694
+      "sha256": "cf87fba6a3ef0028d386bc0964e3c6ead31e77c23895610ed5f5fc8c06e9bf8e",
+      "bytes": 4281
     },
     "paper/EXPERIMENT_MASTER_TABLE.md": {
       "path": "paper/EXPERIMENT_MASTER_TABLE.md",
-      "sha256": "d81de31d2623408e4f12e4ce0ef92beca3f68f91f26eecb4032fbd0bfae61cfc",
-      "bytes": 27414
+      "sha256": "1a2f32b98a25cfa915b31b0864e8a55bcf112e5cb16f8230d69650eb4d9a0458",
+      "bytes": 28154
     },
     "paper/INTERNAL_TO_PAPER_MAPPING.md": {
       "path": "paper/INTERNAL_TO_PAPER_MAPPING.md",
@@ -13094,6 +13119,58 @@
     "PG_assets_fourcard_GPU_initial_sampling": {
       "path": "reports/wc_policy_assets_full1624_fourcard_GPU_initial_sampling_20261022.json",
       "sha256": "775d8d460463a1f41dace4bb723815970fc9ff07e07dd2400d60c58e99c69311"
+    },
+    "research/648_CARA_GPU_OWNER_PRICE_TRUST_AND_ORDERED_CONTINUATION_20261023.md": {
+      "path": "research/648_CARA_GPU_OWNER_PRICE_TRUST_AND_ORDERED_CONTINUATION_20261023.md",
+      "sha256": "dd166fd615d4b499834c90161b8a1fc72e98a72e7579891a49cd201a0fd8af67"
+    },
+    "plans/cara_policy_generator_20261020/PRICE_HISTORY_NATIVE_CONTINUATION_R1_20261023.md": {
+      "path": "plans/cara_policy_generator_20261020/PRICE_HISTORY_NATIVE_CONTINUATION_R1_20261023.md",
+      "sha256": "ed4b13bcea411fe86db988e8c63b43515b35b06f721601cbc4074164451e7c56"
+    },
+    "reports/wc_policy_assets_full1624_fourcard_GPU_recovered_20261023_0403.json": {
+      "path": "reports/wc_policy_assets_full1624_fourcard_GPU_recovered_20261023_0403.json",
+      "sha256": "c48f6085c700dcb8c7182d7142d653bec2e6610ddeb3ff2da43eab0db08dc659"
+    },
+    "reports/wc_four_card_GPU_exclusive_capability_and_competing_account_20261023.json": {
+      "path": "reports/wc_four_card_GPU_exclusive_capability_and_competing_account_20261023.json",
+      "sha256": "a4563ed8ce7e87d734e38f2582326927434d9461b4ca067a794c63917eae6434"
+    },
+    "reports/wc_four_card_exclusive_sudo_authority_readonly_20261023.json": {
+      "path": "reports/wc_four_card_exclusive_sudo_authority_readonly_20261023.json",
+      "sha256": "6b6bbdc1976b0dc90c2b8b52c264c67a6e5198406c3328317b0f51939a9b50c4"
+    },
+    "reports/wc_four_card_owned_control_recovered_20261023_0404.json": {
+      "path": "reports/wc_four_card_owned_control_recovered_20261023_0404.json",
+      "sha256": "5f9c18e02ed38f17d47f4801805c15573857515daa6dbbf21d20677b17efc424"
+    },
+    "reports/wc_four_card_exclusive_admission_clock_bound_readonly_20261023.json": {
+      "path": "reports/wc_four_card_exclusive_admission_clock_bound_readonly_20261023.json",
+      "sha256": "f0fb8b6a31f6d0bdf7287a35c12853e28bb274c0f9174175a6247e33940f2c7d"
+    },
+    "scripts/audit_wc_policy_asset_prices_r1.py": {
+      "path": "scripts/audit_wc_policy_asset_prices_r1.py",
+      "sha256": "ad91d0b403941e87a05f413b321b02962539d70bd82dbeb6a58bbc067b565c9f"
+    },
+    "scripts/check_wc_four_card_exclusive_r1.py": {
+      "path": "scripts/check_wc_four_card_exclusive_r1.py",
+      "sha256": "1bc8042ca92389b1b467d7167b5f132423519760a9d3ddfcc30cfedbf9ed7da6"
+    },
+    "src/wcomr/policy_asset_price_review_r1.py": {
+      "path": "src/wcomr/policy_asset_price_review_r1.py",
+      "sha256": "923842668285ea4d2e60dda134fe84b46767e9a1bfb8f68e8d8b68419f498e8e"
+    },
+    "tests/test_policy_asset_price_review_r1.py": {
+      "path": "tests/test_policy_asset_price_review_r1.py",
+      "sha256": "664a1fa4a3efa1a1624184eed0596f47aed5c892f1e230be71d8d32c9596ef60"
+    },
+    "plans/cara_policy_generator_20261020/TASK_REGISTRY.json": {
+      "path": "plans/cara_policy_generator_20261020/TASK_REGISTRY.json",
+      "sha256": "e668484af3c586969e46210ed11bb79cebd2134d6a15e072e39bce2a1eecf0af"
+    },
+    "reports/wc_cara_ordered_continuation_preparation_20261023.json": {
+      "path": "reports/wc_cara_ordered_continuation_preparation_20261023.json",
+      "sha256": "23320ee1c18a2b3638dac5fe4bedfb975e195d3893a7353b1cf041c82a2154d3"
     }
   },
   "operation_policy": {
@@ -13102,7 +13179,7 @@
     "current_running_cards": [
       "PG-P1-ASSETS"
     ],
-    "snapshot_observed_at": "2026-10-23T03:16:50.826901+08:00",
+    "snapshot_observed_at": "2026-10-23T04:01:26.333449+08:00",
     "active_launch_ref": "reports/wc_policy_assets_full1624_fourcard_GPU_launch_20261022.json",
     "execution_site": "four-card RTX 6000 Ada server; private authorized connection",
     "do_not_resume_two_card": true,
@@ -13111,7 +13188,7 @@
     "historical_operation_policy_ref": "docs/archive/20261022_before_navigation/paper/experiment_master_table.json"
   },
   "mapping_sha256_at_inventory": "88b3d760a0c94c20b6c802e21f30c7286d6e596cc9b3f3100e7ee6feaa3938f3",
-  "latest_mapping_sha256": "4d2c5e8b5e0d0bedd6b4ba06916f05838aa8d5cce47d3b2a1062fa832c9ed9c5",
+  "latest_mapping_sha256": "3dfe54e16ecaef53f11e59be9deb8c66c53961c7731f45f94e4db6a2837453ec",
   "revision_plan": {
     "registry_ref": "plans/cara_v6_20261020/TASK_REGISTRY_V6.yaml",
     "report_ref": "research/610_WC_CARA_V6_REVIEW_CLOSURE_PLAN_INTERVAL_SPEC_AND_FIRST_DEV_SCOPE_20261020.md",

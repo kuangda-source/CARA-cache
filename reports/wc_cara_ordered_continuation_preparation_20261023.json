@@ -1,0 +1,59 @@
+{
+  "status": "ORDERED_CONTINUATION_CPU_PREPARATION_AND_READONLY_ADMISSION_COMPLETE",
+  "recorded_unix": 1792699514.916074,
+  "launch_ref": "reports/wc_policy_assets_full1624_fourcard_GPU_launch_20261022.json",
+  "launch_id": "37ab7e89-952b-4ddb-acde-5b20a0fc1295",
+  "latest_technical_capture": "reports/wc_policy_assets_full1624_fourcard_GPU_recovered_20261023_0403.json",
+  "original_GPU_running": true,
+  "full1624_terminal_accepted": false,
+  "actual_action_price_review_performed": false,
+  "clean_action_prices_accepted": false,
+  "own_running_stage_modified": false,
+  "foreign_processes_modified": false,
+  "compute_mode_changed": false,
+  "future_exclusive_required": true,
+  "authenticated_sudo_permission_confirmed": true,
+  "actual_exclusive_hardware_support_verified": false,
+  "CPU_unit_tests": {
+    "command": ".venv/bin/python -m unittest discover -s tests -p test_policy_asset_price_review_r1.py -v",
+    "passed": 7,
+    "failed": 0,
+    "evidence_kind": "SYNTHETIC_UNIT_FIXTURES_NOT_PRODUCTION_GPU"
+  },
+  "real_readonly_gate_ref": "reports/wc_four_card_exclusive_admission_clock_bound_readonly_20261023.json",
+  "automation": {
+    "id": "cara-bank24-2",
+    "same_launch": true,
+    "scheduled_local": "2026-10-23 08:26 Asia/Shanghai",
+    "saved_configuration_sha256": "6a28ebae1e54fc8a2919da4bb3624e5fbd2f66a30f935097bb60b231bdd46cfd"
+  },
+  "source_bindings": [
+    {
+      "ref": "scripts/audit_wc_policy_asset_prices_r1.py",
+      "sha256": "ad91d0b403941e87a05f413b321b02962539d70bd82dbeb6a58bbc067b565c9f"
+    },
+    {
+      "ref": "scripts/check_wc_four_card_exclusive_r1.py",
+      "sha256": "1bc8042ca92389b1b467d7167b5f132423519760a9d3ddfcc30cfedbf9ed7da6"
+    },
+    {
+      "ref": "src/wcomr/policy_asset_price_review_r1.py",
+      "sha256": "923842668285ea4d2e60dda134fe84b46767e9a1bfb8f68e8d8b68419f498e8e"
+    },
+    {
+      "ref": "tests/test_policy_asset_price_review_r1.py",
+      "sha256": "664a1fa4a3efa1a1624184eed0596f47aed5c892f1e230be71d8d32c9596ef60"
+    },
+    {
+      "ref": "plans/cara_policy_generator_20261020/PRICE_HISTORY_NATIVE_CONTINUATION_R1_20261023.md",
+      "sha256": "ed4b13bcea411fe86db988e8c63b43515b35b06f721601cbc4074164451e7c56"
+    },
+    {
+      "ref": "research/648_CARA_GPU_OWNER_PRICE_TRUST_AND_ORDERED_CONTINUATION_20261023.md",
+      "sha256": "dd166fd615d4b499834c90161b8a1fc72e98a72e7579891a49cd201a0fd8af67"
+    }
+  ],
+  "GPU_submissions": 0,
+  "ledger_written": false,
+  "additional_GPU_budget_consumed": 0
+}

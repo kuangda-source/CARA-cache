@@ -4,11 +4,11 @@
 
 论文主线：**CFG对齐读出修正 → 数据驱动计算时机 → 冻结自动程序的实际质量—时间收益**。已有机制结果放在前面，自动生成器的最终数值由后续真实验证填入。
 
-**已保存的实验观测：2026-10-23T03:16:50.826901+08:00（Asia/Shanghai）。** 完整1624生产CPU已接受；GPU采集中，同卡竞争触发动作价格核验。10/14路径完成、1运行、3未到达、0失败；当前路径`formal_2_COLLECT`。
+**已保存的实验观测：2026-10-23T04:01:26.333449+08:00（Asia/Shanghai）。** 完整1624生产CPU已接受；GPU采集中，同卡竞争触发动作价格核验。13/14路径完成、1运行、0未到达、0失败；当前路径`formal_3_COLLECT`。
 
 范围：4 CAL / 1624正式区间格 / 14完整路径（12正式+2warm）/ 2030总格 / 13020读出试验；整卡上限12 GPUh。完整终态验收：**2026-10-23 08:26 Asia/Shanghai**。
 
-[本卡完整记录](../research/647_CARA_FULL1624_HALFWAY_AND_SHARED_GPU_PRICE_CAVEAT_20261023.md) · [观测原件](../reports/wc_policy_assets_full1624_fourcard_GPU_halfway_20261023_0317.json) · [当前状态](../research/02_CURRENT_STATE.md)。半程于实际03:16:50收件；原任务继续运行。同UUID出现外部计算进程，动作价格需先核验竞争影响再用于生成器；完整验收前不作科学结论。
+[本卡完整记录](../research/648_CARA_GPU_OWNER_PRICE_TRUST_AND_ORDERED_CONTINUATION_20261023.md) · [观测原件](../reports/wc_policy_assets_full1624_fourcard_GPU_recovered_20261023_0403.json) · [当前状态](../research/02_CURRENT_STATE.md)。04:01原句柄恢复核对：13/14完成，最后COLLECT路径运行，无错误。同GPU账号guanwenfei的进程仍在；原数值与动作价格分别接受。已确认四卡sudo模式权限，当前不改变占用中的GPU，后续卡启用实际独占。
 
 | 需要的材料 | 入口 |
 |---|---|

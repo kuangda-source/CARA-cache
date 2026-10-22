@@ -21,7 +21,7 @@
       "id": "PG-P1-ASSETS",
       "priority": 1,
       "title": "Complete real statistics, prices and generated-mask entry",
-      "status": "FULL1624_FOURCARD_GPU_RUNNING_FULL_CPU_ACCEPTED",
+      "status": "FULL1624_FOURCARD_GPU_RUNNING_EXTERNAL_CONTENTION_PRICE_REVIEW_REQUIRED",
       "dependencies": [
         "PG-P0"
       ],
@@ -86,7 +86,11 @@
       "actual_CPU_terminal_ref": "reports/wc_policy_assets_full1624_fourcard_CPU_r2_terminal_20261022_2212.json",
       "actual_CPU_acceptance_ref": "reports/wc_policy_assets_full1624_fourcard_CPU_r2_accepted_20261022.json",
       "actual_GPU_launch_ref": "reports/wc_policy_assets_full1624_fourcard_GPU_launch_20261022.json",
-      "actual_GPU_schedule_ref": "reports/wc_policy_assets_full1624_fourcard_GPU_admission_checked_and_schedule_20261022.json"
+      "actual_GPU_schedule_ref": "reports/wc_policy_assets_full1624_fourcard_GPU_admission_checked_and_schedule_20261022.json",
+      "actual_GPU_observation_ref": "reports/wc_policy_assets_full1624_fourcard_GPU_recovered_20261023_0403.json",
+      "clean_action_prices_accepted": false,
+      "price_review_entry": "scripts/audit_wc_policy_asset_prices_r1.py",
+      "action_price_gate_ref": "plans/cara_policy_generator_20261020/PRICE_HISTORY_NATIVE_CONTINUATION_R1_20261023.md"
     },
     {
       "id": "PG-P1",
@@ -112,7 +116,11 @@
       ],
       "CAL_SELECT_runtime_exposure_recheck_pending": true,
       "offline_analysis_entry": "scripts/analyze_cara_policy_calibration_r1.py",
-      "complete_card_quote_still_pending": true
+      "complete_card_quote_still_pending": true,
+      "continuation_requirements_ref": "plans/cara_policy_generator_20261020/PRICE_HISTORY_NATIVE_CONTINUATION_R1_20261023.md",
+      "actual_GPU_exclusivity_required": true,
+      "clean_action_prices_required": true,
+      "frozen_policy_small_history_diagnostic_planned": true
     },
     {
       "id": "PG-P2",
@@ -132,7 +140,11 @@
       "new_GPU_submissions": 0,
       "comparison_preparation_ref": "plans/cara_policy_generator_20261020/ANALYSIS_AND_CONTROLS_R1_20261022.md",
       "comparison_interface": "src/wcomr/policy_generator_r1/comparison_preparation.py",
-      "complete_card_quote_still_pending": true
+      "complete_card_quote_still_pending": true,
+      "continuation_requirements_ref": "plans/cara_policy_generator_20261020/PRICE_HISTORY_NATIVE_CONTINUATION_R1_20261023.md",
+      "actual_GPU_exclusivity_required": true,
+      "clean_action_prices_required": true,
+      "matched_time_fewer_step_Native_required": true
     },
     {
       "id": "PG-P3",
@@ -175,5 +187,6 @@
   "strict_under12_and_cap226_unchanged": true,
   "no_gpu_launched_this_turn": false,
   "latest_preparation_audit_ref": "reports/wc_policy_assets_four_card_preparation_audit_20261022.json",
-  "latest_actual_progress_ref": "research/646_CARA_FULL1624_CPU_ACCEPTED_GPU_LAUNCH_20261022.md"
+  "latest_actual_progress_ref": "research/648_CARA_GPU_OWNER_PRICE_TRUST_AND_ORDERED_CONTINUATION_20261023.md",
+  "latest_preparation_plan_ref": "plans/cara_policy_generator_20261020/PRICE_HISTORY_NATIVE_CONTINUATION_R1_20261023.md"
 }

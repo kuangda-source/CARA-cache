@@ -4,20 +4,20 @@
 
 本表由[机器索引](experiment_master_table.json)自动生成，共 **54项**。每行是一组科学问题或完整实验卡，不是一次工程重试；不同实验复用的原件不累加为独立样本。`D`为历史开发、`N`为评价/后续、`X`为探索、`REV`为v6设计、`PG`为现行自动生成器路线。
 
-**已保存的实验观测：2026-10-23T03:16:50.826901+08:00（Asia/Shanghai）。** 完整1624生产CPU已接受；GPU采集中，同卡竞争触发动作价格核验。10/14路径完成、1运行、3未到达、0失败；当前路径`formal_2_COLLECT`。
+**已保存的实验观测：2026-10-23T04:01:26.333449+08:00（Asia/Shanghai）。** 完整1624生产CPU已接受；GPU采集中，同卡竞争触发动作价格核验。13/14路径完成、1运行、0未到达、0失败；当前路径`formal_3_COLLECT`。
 
 范围：4 CAL / 1624正式区间格 / 14完整路径（12正式+2warm）/ 2030总格 / 13020读出试验；整卡上限12 GPUh。完整终态验收：**2026-10-23 08:26 Asia/Shanghai**。
 
-[本卡完整记录](../research/647_CARA_FULL1624_HALFWAY_AND_SHARED_GPU_PRICE_CAVEAT_20261023.md) · [观测原件](../reports/wc_policy_assets_full1624_fourcard_GPU_halfway_20261023_0317.json) · [当前状态](../research/02_CURRENT_STATE.md)。半程于实际03:16:50收件；原任务继续运行。同UUID出现外部计算进程，动作价格需先核验竞争影响再用于生成器；完整验收前不作科学结论。
+[本卡完整记录](../research/648_CARA_GPU_OWNER_PRICE_TRUST_AND_ORDERED_CONTINUATION_20261023.md) · [观测原件](../reports/wc_policy_assets_full1624_fourcard_GPU_recovered_20261023_0403.json) · [当前状态](../research/02_CURRENT_STATE.md)。04:01原句柄恢复核对：13/14完成，最后COLLECT路径运行，无错误。同GPU账号guanwenfei的进程仍在；原数值与动作价格分别接受。已确认四卡sudo模式权限，当前不改变占用中的GPU，后续卡启用实际独占。
 
 ## 现行自动生成器路线
 
 | ID · 实验 / 状态 | 结果或登记范围 | 下一步 | 优先证据 |
 |---|---|---|---|
 | <a id="pg-p0"></a>**PG-P0 · 可复现自动生成器CPU原型**<br>本地CPU通过 | 生成器本地CPU原型24项控制通过；覆盖语法、有限DP、确定性搜索、信息隔离及保护位置价格。 | 完整真实标签接受后，验证生成器任意合法mask的实际生产入口。 | [证据1](../research/612_WC_POLICY_GENERATOR_CPU_PROTOTYPE_AND_REPRODUCIBLE_VALIDATION_DESIGN_20261020.md) · [证据2](../reports/wc_policy_generator_assets_protected_prices_bridge24_20261020.json) |
-| <a id="pg-p1-assets"></a>**PG-P1-ASSETS · 完整1624真实区间/价格资产**<br>GPU运行中（已记录快照） | 生产CPU已接受；GPU启动于2026-10-22T22:13:05+08:00。快照：10/14路径完成、1运行、3未到达、0失败；当前路径`formal_2_COLLECT`。 | 同一launch完整收件；分别验收数值/控制与价格。半程发现同UUID外部计算进程，价格竞争影响核验前不接PG-P1。 | [证据1](../research/646_CARA_FULL1624_CPU_ACCEPTED_GPU_LAUNCH_20261022.md) · [证据2](../research/647_CARA_FULL1624_HALFWAY_AND_SHARED_GPU_PRICE_CAVEAT_20261023.md) · [证据3](../reports/wc_policy_assets_full1624_fourcard_GPU_halfway_technical_20261023.json) |
-| <a id="pg-p1"></a>**PG-P1 · 单预算自动策略闭环**<br>已登记，待真实闭环 | 已登记0.80×Native预算、Q≤8及一次CAL_SELECT冻结；最多40候选正式+6Native+18warm基础路径。 | 先接受真实标签/价格，核对CAL_SELECT曝光、任意mask生产CPU和完整报价；额外资产采集另计。 | [证据1](../research/612_WC_POLICY_GENERATOR_CPU_PROTOTYPE_AND_REPRODUCIBLE_VALIDATION_DESIGN_20261020.md) |
-| <a id="pg-p2"></a>**PG-P2 · 等预算与等查询强基线**<br>待P1后冻结 | 等Q、等信息、计入校准成本的强前密C/A、仅优化刷新、纯代理、联合修订及简单搜索比较已列入路线。 | P1后冻结实际并集并去重，完成整卡报价及真实CPU，再执行。 | [证据1](../research/612_WC_POLICY_GENERATOR_CPU_PROTOTYPE_AND_REPRODUCIBLE_VALIDATION_DESIGN_20261020.md) |
+| <a id="pg-p1-assets"></a>**PG-P1-ASSETS · 完整1624真实区间/价格资产**<br>GPU运行中（已记录快照） | 生产CPU已接受；GPU启动于2026-10-22T22:13:05+08:00。快照：13/14路径完成、1运行、0未到达、0失败；当前路径`formal_3_COLLECT`。 | 原1624完整接受后运行价格审计；已知同卡竞争的价格另做独占测量补救，价格信任通过前不接PG-P1。 | [证据1](../research/646_CARA_FULL1624_CPU_ACCEPTED_GPU_LAUNCH_20261022.md) · [证据2](../research/647_CARA_FULL1624_HALFWAY_AND_SHARED_GPU_PRICE_CAVEAT_20261023.md) · [证据3](../reports/wc_policy_assets_full1624_fourcard_GPU_halfway_technical_20261023.json) · [证据4](../research/648_CARA_GPU_OWNER_PRICE_TRUST_AND_ORDERED_CONTINUATION_20261023.md) · [证据5](../plans/cara_policy_generator_20261020/PRICE_HISTORY_NATIVE_CONTINUATION_R1_20261023.md) |
+| <a id="pg-p1"></a>**PG-P1 · 单预算自动策略闭环**<br>已登记，待真实闭环 | 已登记0.80×Native预算、Q≤8及一次CAL_SELECT冻结；最多40候选正式+6Native+18warm基础路径。 | 接受真实标签及可信价格、独占准入、CAL_SELECT曝光核查、实际CPU与整卡报价；冻结后加入小规模历史窗口诊断，新增成本另计。 | [证据1](../research/612_WC_POLICY_GENERATOR_CPU_PROTOTYPE_AND_REPRODUCIBLE_VALIDATION_DESIGN_20261020.md) · [证据2](../research/648_CARA_GPU_OWNER_PRICE_TRUST_AND_ORDERED_CONTINUATION_20261023.md) · [证据3](../plans/cara_policy_generator_20261020/PRICE_HISTORY_NATIVE_CONTINUATION_R1_20261023.md) |
+| <a id="pg-p2"></a>**PG-P2 · 等预算与等查询强基线**<br>待P1后冻结 | 等Q、等信息、计入校准成本的强前密C/A、仅优化刷新、纯代理、联合修订及简单搜索比较已列入路线。 | 加入少步Native等实际时间对照；P1后冻结比较并集、完整报价及真实CPU，使用独占卡。 | [证据1](../research/612_WC_POLICY_GENERATOR_CPU_PROTOTYPE_AND_REPRODUCIBLE_VALIDATION_DESIGN_20261020.md) · [证据2](../research/648_CARA_GPU_OWNER_PRICE_TRUST_AND_ORDERED_CONTINUATION_20261023.md) · [证据3](../plans/cara_policy_generator_20261020/PRICE_HISTORY_NATIVE_CONTINUATION_R1_20261023.md) |
 | <a id="pg-p3"></a>**PG-P3 · 固定程序跨预算/模型**<br>条件性后续 | 固定生成程序的第二预算与第二模型/设置验证已列入路线，尚无迁移结果。 | P1/P2后先0.70×Native，再成熟第二模型或明确第二设置重新校准。 | [证据1](../research/612_WC_POLICY_GENERATOR_CPU_PROTOTYPE_AND_REPRODUCIBLE_VALIDATION_DESIGN_20261020.md) |
 | <a id="pg-p4"></a>**PG-P4 · 最终独立TEST与部署评价**<br>待方法冻结 | 最终自动生成版本的独立TEST、重复时间和自动质量待执行；168正式为未准入草案。 | 冻结方法、对手、预算、选择规则后再选新TEST；计入warm与全流程成本。 | [证据1](../research/612_WC_POLICY_GENERATOR_CPU_PROTOTYPE_AND_REPRODUCIBLE_VALIDATION_DESIGN_20261020.md) |
 

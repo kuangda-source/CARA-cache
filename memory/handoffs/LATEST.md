@@ -4,11 +4,11 @@
 
 先读[当前状态](../../research/02_CURRENT_STATE.md)、[实验顺序](../../research/09_NEXT_ACTIONS.md)与[本卡646记录](../../research/646_CARA_FULL1624_CPU_ACCEPTED_GPU_LAUNCH_20261022.md)。它们共用规范数据；旧长交接已完整归档。
 
-**已保存的实验观测：2026-10-23T03:16:50.826901+08:00（Asia/Shanghai）。** 完整1624生产CPU已接受；GPU采集中，同卡竞争触发动作价格核验。10/14路径完成、1运行、3未到达、0失败；当前路径`formal_2_COLLECT`。
+**已保存的实验观测：2026-10-23T04:01:26.333449+08:00（Asia/Shanghai）。** 完整1624生产CPU已接受；GPU采集中，同卡竞争触发动作价格核验。13/14路径完成、1运行、0未到达、0失败；当前路径`formal_3_COLLECT`。
 
 范围：4 CAL / 1624正式区间格 / 14完整路径（12正式+2warm）/ 2030总格 / 13020读出试验；整卡上限12 GPUh。完整终态验收：**2026-10-23 08:26 Asia/Shanghai**。
 
-[本卡完整记录](../../research/647_CARA_FULL1624_HALFWAY_AND_SHARED_GPU_PRICE_CAVEAT_20261023.md) · [观测原件](../../reports/wc_policy_assets_full1624_fourcard_GPU_halfway_20261023_0317.json) · [当前状态](../../research/02_CURRENT_STATE.md)。半程于实际03:16:50收件；原任务继续运行。同UUID出现外部计算进程，动作价格需先核验竞争影响再用于生成器；完整验收前不作科学结论。
+[本卡完整记录](../../research/648_CARA_GPU_OWNER_PRICE_TRUST_AND_ORDERED_CONTINUATION_20261023.md) · [观测原件](../../reports/wc_policy_assets_full1624_fourcard_GPU_recovered_20261023_0403.json) · [当前状态](../../research/02_CURRENT_STATE.md)。04:01原句柄恢复核对：13/14完成，最后COLLECT路径运行，无错误。同GPU账号guanwenfei的进程仍在；原数值与动作价格分别接受。已确认四卡sudo模式权限，当前不改变占用中的GPU，后续卡启用实际独占。
 
 | 字段 | 冻结身份 / 已记录状态 |
 |---|---|
@@ -35,7 +35,7 @@
 - 唯一提交者只跟踪上述launch。半程使用`capture --mode gpu-halfway`，终态使用`capture --mode gpu-terminal`后`accept --kind gpu`；控制器为`scripts/wc_four_card_policy_assets_r1.py`。每次输出新文件，已有原件先复用，不重复验收/提交。
 - `--launch-ref`固定上述启动原件。unknown只恢复原句柄；提前退出保留实际终态与费用。原R1 CPU失败、BANK24原ffprobe失败和后续恢复均保留。
 - 使用已授权四卡私有入口；不恢复两卡、不触碰他人任务、不更改在跑stage。完整范围/预算/冻结门控不变，DEV不回流调阈值。
-- 资产接受且`generator_input_ready`后按PG-P1→P2→P3→P4准备与执行；每卡仍须自己的范围、完整成本、实际CPU和fresh准入。长任务绑定实际启动安排半程与全程，复用自动化，完成后关闭对应一次检查。
+- 原资产接受后先运行完整价格审计，再按[价格/独占/历史诊断/少步Native接续方案](../../plans/cara_policy_generator_20261020/PRICE_HISTORY_NATIVE_CONTINUATION_R1_20261023.md)推进。原`generator_input_ready`不能覆盖同卡竞争；新GPU卡须动作价格信任通过、真实独占、自己的范围、完整成本、实际CPU和fresh准入。已用四卡私有凭据确认sudo模式修改权限，待空闲卡实际启用，不动在跑stage。长任务绑定实际启动安排半程与全程，复用自动化，完成后关闭对应一次检查。
 - 有意义的进度、完成、失败或需用户行动时才通知；文档整理不构成新的实验观测。
 
 后续修改规范数据和模板，再运行`python3 docs/tools/render_repository_docs.py`及`--check`；有意义的代码、配置、结果须同步私有GitHub。完整历史见[归档入口](../../docs/archive/README.md)。
