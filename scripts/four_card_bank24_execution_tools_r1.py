@@ -23,6 +23,8 @@ from four_card_bank24_gpu_port_r1 import ROOT,SCIENCE_RUN,FULL_CPU_STATUS,read,s
 TARGET_STAGE='wc-bank24-fourcard-full-execution-r2-20261022'
 GPU_LAUNCH='scout-GPU-launch.json'
 GPU_INTENT='scout-GPU-dispatch-fence.json'
+NLTK_RESOURCE_REL='runtime-resources/nltk-guardrail-d6d4bfa8-r1'
+NLTK_MANIFEST_SHA='d43349c4e6b5e31d4f34d600f21c8d49d94cf35b63bd9bb50b05341a37a07571'
 PRODUCTION_SCRIPTS=[
     'four_card_bank24_execution_tools_r1.py','four_card_bank24_gpu_port_r1.py',
     'four_card_bank24_execution_adapter_r1.py','four_card_bank24_container_transport_r1.py',
@@ -55,6 +57,7 @@ def process_environment(project,cache_root,gpu_uuid=None):
         WC_SCOUT_KIND='BANK24',
         CUDA_VISIBLE_DEVICES=gpu_uuid or '',NVIDIA_VISIBLE_DEVICES=gpu_uuid or 'void',
         HF_HOME=str(project/'cache/huggingface'),HF_HUB_CACHE=str(project/'cache/huggingface/hub'),
+        NLTK_DATA=str(project/NLTK_RESOURCE_REL),
         TORCH_HOME=str(project/'cache/torch'),HF_HUB_OFFLINE='1',TRANSFORMERS_OFFLINE='1',
         OMP_NUM_THREADS='2',OPENBLAS_NUM_THREADS='2',TOKENIZERS_PARALLELISM='false',
         CUDA_HOME=str(site/'nvidia/cuda_nvrtc'),CUDA_PATH=str(site/'nvidia/cuda_nvrtc'),
@@ -63,6 +66,25 @@ def process_environment(project,cache_root,gpu_uuid=None):
     libraries += [site/'nvidia'/n/'lib' for n in ['cuda_nvrtc','cuda_runtime','cudnn','nvjitlink','cublas']]+[site/'torch/lib']
     value['LD_LIBRARY_PATH']=':'.join(map(str,libraries))
     value.update({k:str(cache_root/v) for k,v in caches.items()});return value
+
+
+def verify_nltk_resources(project):
+    """Check the actual files before any GPU observation, reservation or spawn."""
+    root=Path(project)/NLTK_RESOURCE_REL;receipt=root.with_suffix('.manifest.json')
+    require(root.is_dir() and not root.is_symlink() and root.resolve()==root.absolute(),
+            'Physical Guardrail NLTK resources required')
+    require(receipt.is_file() and not receipt.is_symlink() and sha(receipt)==NLTK_MANIFEST_SHA,
+            'Pinned NLTK manifest required')
+    manifest=read(receipt);paths=list(root.rglob('*'))
+    require(not any(p.is_symlink() for p in paths),'NLTK resources must not contain symbolic links')
+    require({p.relative_to(root).as_posix() for p in paths if p.is_file()}==set(manifest['files']),
+            'NLTK file inventory differs')
+    for name,expected in manifest['files'].items():
+        require(not Path(name).is_absolute() and '..' not in Path(name).parts,'Unsafe NLTK path')
+        p=root/name
+        require(p.stat().st_size==expected['bytes'] and sha(p)==expected['sha256'],
+                'Pinned NLTK bytes differ: '+name)
+    return dict(root=str(root),manifest_sha256=NLTK_MANIFEST_SHA,files=len(manifest['files']))
 
 
 def build_template(inputs,destination,source,recipe,script_directory):
@@ -187,6 +209,7 @@ def _dispatch_locked(project,stage,auth):
     if old:return old
     project=Path(project);stage=Path(stage)
     reg,meta,quote,handoff=validate_authorization(project,stage,auth)
+    verify_nltk_resources(project)
     controller=module('bound_GPU_controller',stage/'supervise_wc_four_card_bank24_gpu_r1.py')
     gpu=controller.observe(auth['gpu_uuid']);poolmod=module('bound_SM89_pool',stage/'bank24_sm89_budget_pool.py');pool=poolmod.BudgetPool(project).read()
     from four_card_bank24_execution_adapter_r1 import device_gate

@@ -61,8 +61,11 @@ def main():
     p=argparse.ArgumentParser();p.add_argument('--stage',required=True,type=Path)
     p.add_argument('--authorization',required=True,type=Path);a=p.parse_args()
     project=Path(ROOT);stage=a.stage.resolve();out=project/'outputs'/SCIENCE_RUN
-    from four_card_bank24_execution_tools_r1 import validate_authorization
+    from four_card_bank24_execution_tools_r1 import validate_authorization,verify_nltk_resources
     validate_authorization(project,stage,read(a.authorization))
+    nltk_resources=verify_nltk_resources(project)
+    env=read(stage/'GPU-process-environment.json')
+    require(env.get('NLTK_DATA')==nltk_resources['root'],'Materialized NLTK path missing from GPU environment')
     require(project.resolve() in stage.parents and stage.parent==project/'.sync','Wrong independent host namespace')
     reg=read(stage/'registration.json');meta=read(stage/'host-lifecycle-dependency.json');auth=read(a.authorization)
     require_full_CPU(stage,reg['source_revision'])
@@ -100,7 +103,6 @@ def main():
             gpu_uuid=auth['gpu_uuid'],handoff_nonce=secrets.token_hex(24),container='wc-bank24-gpu-'+auth['launch_id'],
             host_start_monotonic=start,billed_limit_GPUh=auth['billed_limit_GPUh'])
         atomic(stage/'gpu-container-manifest.json',m);label=sha(stage/'gpu-container-manifest.json')
-        env=read(stage/'GPU-process-environment.json')
         state=dict(status='BANK24_HOST_GPU_CONTAINER_RUNNING',source_revision=reg['source_revision'],scope_counts=meta['scope_counts'],
             supervisor_identity=who,started_unix=time.time(),pool_before=before,pool_after_reservation=after,
             launch_id=auth['launch_id'],gpu_uuid=auth['gpu_uuid'],container=m['container'],container_manifest_sha256=label)
