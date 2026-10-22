@@ -1,3 +1,5 @@
+> **最新进度（2026-10-22 22:19）：** BANK24完整结果已接受；完整1624生产CPU通过，GPU3整卡采集已启动。见[当前任务与验收安排](../research/646_CARA_FULL1624_CPU_ACCEPTED_GPU_LAUNCH_20261022.md)、[六新DEV科学结果](../research/644_CARA_BANK24_COMPLETE_DEV6_RESULTS_20261022.md)和[机器实验总表](../paper/experiment_master_table.json)。下方按日期保留历史记录。
+
 ## 2026-10-21 基础环境已验，完整Cosmos CPU安装单次在途
 
 [617真实接续](../research/617_WC_FOUR_CARD_TORCH_BASE_ACCEPTED_FULL_ENVIRONMENT_SINGLE_DISPATCH_20261021.md)：四卡基础R2已实际独立接受，Python3.10/Torch2.7.1+cu128、15检查全过、无CUDA初始化，旧基础不重跑。完整Cosmos CPU安装已于00:19:05单次启动PID290861/start929820876，source c9a2f95b；初次原进程/source/11关键runtime一致，六源命令全0，当前data-disk-native-libraries、无有界错误。新worldcache/worldcache-3已约00:50半程和01:50终态，旧worldcache-2完成删除。仍非完整环境/新scope生产CPU/GPU就绪，原BANK24/具体12批准及所有前置不变，0GPU/账本。

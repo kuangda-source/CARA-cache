@@ -1,5 +1,7 @@
 # CARA-cache
 
+> **最新进度（2026-10-22 22:19）：** BANK24完整结果已接受；完整1624生产CPU通过，GPU3整卡采集已启动。见[当前任务与验收安排](research/646_CARA_FULL1624_CPU_ACCEPTED_GPU_LAUNCH_20261022.md)、[六新DEV科学结果](research/644_CARA_BANK24_COMPLETE_DEV6_RESULTS_20261022.md)和[机器实验总表](paper/experiment_master_table.json)。下方按日期保留历史记录。
+
 面向视频扩散的 CFG 对齐缓存读出与成本感知计算分配。当前论文方法正在按可复现策略生成流程验证，已有结果与待验结论见 [实验总览](EXPERIMENT_REPORT.md)。
 
 GitHub 已按用户要求更名为 [kuangda-source/CARA-cache](https://github.com/kuangda-source/CARA-cache)，同一 repository ID 1394607313、私有可见性和 main 历史保留；本地 origin、四卡源码镜像 origin 与后续同步工具地址已更新，新地址已读回原 main 提交。当前本地目录 `worldcache_omr`、历史回执、已冻结 source/stage 和在途 worker 保持；原模型查收与两卡每4小时检查定义未改，实验顺序与预算继续依原接续。

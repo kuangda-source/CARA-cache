@@ -1,3 +1,5 @@
+> **最新进度（2026-10-22 22:19）：** BANK24完整结果已接受；完整1624生产CPU通过，GPU3整卡采集已启动。见[当前任务与验收安排](../research/646_CARA_FULL1624_CPU_ACCEPTED_GPU_LAUNCH_20261022.md)、[六新DEV科学结果](../research/644_CARA_BANK24_COMPLETE_DEV6_RESULTS_20261022.md)和[机器实验总表](../paper/experiment_master_table.json)。下方按日期保留历史记录。
+
 ## 2026-10-18 当前：N09 fresh R3完整40已在GPU0准入；14:48半程／17:23完整验收
 
 [590原任务与查收](../research/590_WC_N09_FRESH_R3_SINGLE_GPU_DISPATCH_AND_TWO_COLLECTION_TIMES_20261018.md)：07:19两卡空闲；R3已于12:37:23单次派发，12:41:52原件及独立接受确认1787源／原CPU、supervisor1947245/start559314698、runner1947617/start559319208、post1947246/start559314707、GPU0锁及完整5预留。原source1de07673／stage wc-paper-n09-production-cpu-r3-20261018／完整40/10warm+30正式/1440pairs不变，forecast4.245833333／上限5；初始27秒pending回执保留，不重派。

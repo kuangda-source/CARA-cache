@@ -1,10 +1,7 @@
-## 2026-10-22 完整1624 CPU R2已实际启动，原R1失败保留
+## 当前进度 · 2026-10-22 22:19 Asia/Shanghai
 
-修复Cosmos必填output_dir、保留全部三条CPU命令后，R6/source94fe08832b8feb92ae6235c5b569d615950cf491于21:47:16.0942016实际启动独立R2，PID793286/start946189945；GPU隐藏/只读容器正常运行，原R1四项原件SHA不变。21:55 cara-1624-r2-cpu半程、22:06 cara-bank24-2完整验收均绑定新launch；通过后沿已批4CAL/1624formal/14paths/2030total/13020trials/12GPUh接单次GPU。原R1完整数值通过、生产入口失败，0GPU，不覆盖。BANK24完整接受和六DEV结论保持644，接续详见645。
+BANK24全24视频与12评分已接受，[六新DEV结果](../../research/644_CARA_BANK24_COMPLETE_DEV6_RESULTS_20261022.md)表明修正A改善同状态误差，冻结门控尚未表现出同配额优势。完整1624生产CPU已接受，22:13在四卡服务器空闲GPU3启动原14路径采集；22:19已进入首条预热实际采样、原句柄/锁/账本正常。明天03:12半程、08:26全程验收，已批12GPUh整卡保持。当前任务、范围和原件见[646接续记录](../../research/646_CARA_FULL1624_CPU_ACCEPTED_GPU_LAUNCH_20261022.md)。
 
-21:49:55实际观察：R2真实Cosmos生产入口已通过，4请求/12拒绝控制、C/RF逆变换及容器FD/父进程/锁/GPU隐藏证明齐全；当前继续完整数值CPU，尚未整体接受，日志无错误。生产proof原件见reports/wc_policy_assets_full1624_fourcard_CPU_r2_production_boundary_20261022.json。
-
-实际2026-10-22T21:55:39.368011+08:00半程收件：原PID/start与容器PID匹配，GPU隐藏/只读、无OOM/日志错误；生产proof与21:49:55原件SHA相同。数值报告与完整bundle尚未落盘，仍运行；目录清单仅记物理文件，不能当作已验收路径。一次半程cara-1624-r2-cpu已删除，原cara-bank24-2保持22:06完整验收，scope和GPU准入不变。半程原件 reports/wc_policy_assets_full1624_fourcard_CPU_r2_halfway_20261022_2155.json；技术核对 reports/wc_policy_assets_full1624_fourcard_CPU_r2_halfway_checked_20261022.json。
 
 ## 2026-10-22 完整1624 CPU原R1入口失败已定位，R2完整修复包就绪
 
