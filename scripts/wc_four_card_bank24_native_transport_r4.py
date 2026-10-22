@@ -16,13 +16,19 @@ def main():
     q=s.add_parser('launch-gpu')
     for name in ['CPU-launch-ref','CPU-capture','CPU-acceptance','unique-handoff','upstream-capture','upstream-acceptance','frozen-gate','output']:q.add_argument('--'+name,required=True,type=Path)
     q.add_argument('--gpu-uuid',required=True)
-    q=s.add_parser('capture');q.add_argument('--launch-ref',required=True,type=Path);q.add_argument('--mode',choices=['admission','halfway','terminal'],required=True);q.add_argument('--output',required=True,type=Path)
+    q=s.add_parser('capture');q.add_argument('--launch-ref',required=True,type=Path);q.add_argument('--mode',choices=['admission','halfway','terminal'],required=True);q.add_argument('--output',required=True,type=Path);q.add_argument('--human-advanced-terminal',action='store_true')
     q=s.add_parser('accept');q.add_argument('--launch-ref',required=True,type=Path);q.add_argument('--capture',required=True,type=Path);q.add_argument('--output',required=True,type=Path)
     a=p.parse_args();runtime=json.loads(Path(RUNTIME_REF).read_text())
     original.ssh=lambda code,data=None,timeout=180:base_ssh(bridge(code,runtime),data,timeout=timeout)
     if a.command=='launch-gpu':
         value=original.launch_gpu(a)
-    elif a.command=='capture':value=original.capture(a)
-    else:value=original.accept_gpu(a)
+    elif a.command=='capture':
+        if a.human_advanced_terminal:
+            from wc_four_card_bank24_advance_terminal_r1 import capture
+            value=capture(a)
+        else:value=original.capture(a)
+    else:
+        from wc_four_card_bank24_advance_terminal_r1 import accept_gpu
+        value=accept_gpu(a)
     print(json.dumps(value))
 if __name__=='__main__':main()

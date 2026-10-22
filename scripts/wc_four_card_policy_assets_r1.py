@@ -77,7 +77,7 @@ def prepare(output):
 def accepted_bank24(launch_ref, capture_ref, accepted_ref):
     # Reuse the entire original four-card acceptor, including finance and raw
     # artifacts, instead of trusting a Boolean copied from another receipt.
-    from wc_four_card_bank24_execution_r2 import accept_gpu
+    from wc_four_card_bank24_advance_terminal_r1 import accept_gpu
     from types import SimpleNamespace
     with tempfile.TemporaryDirectory() as tmp:
         target=Path(tmp)/'accept.json'
