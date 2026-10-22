@@ -49,11 +49,11 @@ LPIPS 越低表示越接近同输入的 Native 视频；它与局部速度 MSE�
 
 ## 当前进度
 
-**已保存的实验观测：2026-10-22T22:19:22.644816+08:00（Asia/Shanghai）。** 完整1624生产CPU已接受；四卡服务器GPU采集中。0/14路径完成、1运行、13未到达、0失败；当前路径`warm_1_CONTROL`。
+**已保存的实验观测：2026-10-23T03:16:50.826901+08:00（Asia/Shanghai）。** 完整1624生产CPU已接受；GPU采集中，同卡竞争触发动作价格核验。10/14路径完成、1运行、3未到达、0失败；当前路径`formal_2_COLLECT`。
 
-范围：4 CAL / 1624正式区间格 / 14完整路径（12正式+2warm）/ 2030总格 / 13020读出试验；整卡上限12 GPUh。半程技术检查：**2026-10-23 03:12 Asia/Shanghai**；完整终态验收：**2026-10-23 08:26 Asia/Shanghai**。
+范围：4 CAL / 1624正式区间格 / 14完整路径（12正式+2warm）/ 2030总格 / 13020读出试验；整卡上限12 GPUh。完整终态验收：**2026-10-23 08:26 Asia/Shanghai**。
 
-[本卡完整记录](research/646_CARA_FULL1624_CPU_ACCEPTED_GPU_LAUNCH_20261022.md) · [观测原件](reports/wc_policy_assets_full1624_fourcard_GPU_initial_sampling_20261022.json) · [当前状态](research/02_CURRENT_STATE.md)。本轮整理复用已保存回执，未重新连接服务器；此时间是实验观测时间，不是文档生成时间。
+[本卡完整记录](research/647_CARA_FULL1624_HALFWAY_AND_SHARED_GPU_PRICE_CAVEAT_20261023.md) · [观测原件](reports/wc_policy_assets_full1624_fourcard_GPU_halfway_20261023_0317.json) · [当前状态](research/02_CURRENT_STATE.md)。半程于实际03:16:50收件；原任务继续运行。同UUID出现外部计算进程，动作价格需先核验竞争影响再用于生成器；完整验收前不作科学结论。
 
 ## 仓库结构与使用
 

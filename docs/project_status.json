@@ -1,24 +1,19 @@
 {
   "schema_version": 1,
   "project": "CARA-Cache",
-  "evidence_observed_at": "2026-10-22T22:19:22.644816+08:00",
+  "evidence_observed_at": "2026-10-23T03:16:50.826901+08:00",
   "timezone": "Asia/Shanghai",
-  "snapshot_note": "本轮整理复用已保存回执，未重新连接服务器；此时间是实验观测时间，不是文档生成时间。",
+  "snapshot_note": "半程于实际03:16:50收件；原任务继续运行。同UUID出现外部计算进程，动作价格需先核验竞争影响再用于生成器；完整验收前不作科学结论。",
   "research_summary": "修正机制与若干共享布局的保真收益已有实证；当前采集完整真实区间标签和动作价格，下一步检验可复现自动策略在实际预算下的质量—时间收益。",
   "active_experiment_id": "PG-P1-ASSETS",
-  "active_state": "FULL1624_FOURCARD_GPU_RUNNING_FULL_CPU_ACCEPTED",
-  "active_state_zh": "完整1624生产CPU已接受；四卡服务器GPU采集中",
+  "active_state": "FULL1624_FOURCARD_GPU_RUNNING_EXTERNAL_CONTENTION_PRICE_REVIEW_REQUIRED",
+  "active_state_zh": "完整1624生产CPU已接受；GPU采集中，同卡竞争触发动作价格核验",
   "launch_ref": "reports/wc_policy_assets_full1624_fourcard_GPU_launch_20261022.json",
-  "observation_ref": "reports/wc_policy_assets_full1624_fourcard_GPU_initial_sampling_20261022.json",
+  "observation_ref": "reports/wc_policy_assets_full1624_fourcard_GPU_halfway_20261023_0317.json",
   "admission_ref": "reports/wc_policy_assets_full1624_fourcard_GPU_admission_checked_and_schedule_20261022.json",
   "cpu_acceptance_ref": "reports/wc_policy_assets_full1624_fourcard_CPU_r2_accepted_20261022.json",
-  "run_report_ref": "research/646_CARA_FULL1624_CPU_ACCEPTED_GPU_LAUNCH_20261022.md",
+  "run_report_ref": "research/647_CARA_FULL1624_HALFWAY_AND_SHARED_GPU_PRICE_CAVEAT_20261023.md",
   "next_checks": [
-    {
-      "kind": "半程技术检查",
-      "scheduled_local": "2026-10-23 03:12 Asia/Shanghai",
-      "automation_id": "cara-1624-gpu"
-    },
     {
       "kind": "完整终态验收",
       "scheduled_local": "2026-10-23 08:26 Asia/Shanghai",
@@ -84,5 +79,12 @@
   ],
   "history_snapshot_ref": "docs/archive/20261022_before_navigation/manifest.json",
   "master_ref": "paper/experiment_master_table.json",
-  "mapping_ref": "paper/internal_to_paper_mapping.json"
+  "mapping_ref": "paper/internal_to_paper_mapping.json",
+  "technical_review_ref": "reports/wc_policy_assets_full1624_fourcard_GPU_halfway_technical_20261023.json",
+  "action_price_gate": {
+    "status": "EXTERNAL_SAME_UUID_CONTENTION_REVIEW_REQUIRED",
+    "clean_price_accepted": false,
+    "PG_P1_dispatch_ready": false,
+    "evidence_ref": "reports/wc_policy_assets_full1624_fourcard_GPU_halfway_compute_identity_20261023.json"
+  }
 }
