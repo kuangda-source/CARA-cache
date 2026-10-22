@@ -1,3 +1,7 @@
+## 2026-10-22 BANK24完整接受与六DEV分析完成，完整1624 CPU已过技术半程
+
+BANK24原24视频/12评分、全部重复/同状态/原件/财务独立接受，实费1.845248657494GPUh；ffprobe既有库路径修复后独立CPU补验，原失败和GPU输出不覆盖。六新DEV的A相对C同状态MSE均改善，等权均值降低52.53%；冻结z门控同3D配额排12/20，LPIPS0.0778937 vs随机期望0.0768148，无DEV重拟合。科学分析见research/644_CARA_BANK24_COMPLETE_DEV6_RESULTS_20261022.md，全链路见643。完整1624 CPU于21:17:54/sourceefd7b7ca/PID776653/start946013772启动，R5包、14路径/1624formal/2030total/13020trials/已批12GPUh，Ada完整规划9.956389GPUh（动作价格仍待本卡）。实际21:27:04半程原进程/只读GPU隐藏容器仍运行、无日志错误；半程检查已完成删除，21:36 cara-bank24-2完整验收后接单次GPU及实际时间半程/终态。54科研行中X-S-GATE/X-R已更新完整探索结果，生成器新质量结果仍待。
+
 ## 2026-10-22 BANK24完整验收发现ffprobe依赖路径缺口，独立CPU恢复
 
 原24生成完成和1.845248657494 GPUh财务已接受；首次完整收件因CPU ffprobe退出127使24视频未验/12评分未到达。已定位到既有私有BLAS/LAPACK/Pulse目录漏入动态库路径，补路径后真实93帧解码通过。仅新独立CPU后处理/收件，不重跑GPU，不覆盖失败；原scope和四CAL gate保持。完整1624 R5已同步修补codec入口，待原BANK24完整接受后按人类指示接续并分析。见research/643_CARA_BANK24_ACCEPTANCE_AND_FULL1624_CONTINUATION_20261022.md。
