@@ -11,11 +11,12 @@ import json
 import os
 from pathlib import Path
 import secrets
+import signal
 import shutil
 import subprocess
 import time
 
-from four_card_bank24_container_transport_r1 import LeaseBroker,atomic,identity,socket_path
+from four_card_bank24_container_transport_r1 import LeaseBroker,atomic,identity,alive,socket_path
 from four_card_bank24_gpu_port_r1 import ROOT,SCIENCE_RUN,require_full_CPU,validate_handoff,sha,read,require
 
 
@@ -60,6 +61,8 @@ def main():
     p=argparse.ArgumentParser();p.add_argument('--stage',required=True,type=Path)
     p.add_argument('--authorization',required=True,type=Path);a=p.parse_args()
     project=Path(ROOT);stage=a.stage.resolve();out=project/'outputs'/SCIENCE_RUN
+    from four_card_bank24_execution_tools_r1 import validate_authorization
+    validate_authorization(project,stage,read(a.authorization))
     require(project.resolve() in stage.parents and stage.parent==project/'.sync','Wrong independent host namespace')
     reg=read(stage/'registration.json');meta=read(stage/'host-lifecycle-dependency.json');auth=read(a.authorization)
     require_full_CPU(stage,reg['source_revision'])
@@ -80,6 +83,8 @@ def main():
     require(shutil.disk_usage(project).free>=128*(1<<30) and available>=50*(1<<30),'Full GPU disk/host-memory gate failed')
     poolmod=module(stage/'bank24_sm89_budget_pool.py');pool=poolmod.BudgetPool(project);lease=poolmod.DeviceLease(project,auth['gpu_uuid'])
     reserved=False;known_off=False;broker=None;child=None;state={};start=None
+    def interrupted(number,frame):raise InterruptedError('Own GPU supervisor interrupted: '+str(number))
+    signal.signal(signal.SIGTERM,interrupted);signal.signal(signal.SIGINT,interrupted)
     try:
         lease.acquire();require(not out.exists(),'Original whole BANK24 output exists; restore only')
         with (stage/'GPU-dispatch-fence.json').open('x') as stream:json.dump(dict(source_revision=reg['source_revision'],launch_id=auth['launch_id'],created_unix=time.time()),stream)
@@ -118,6 +123,8 @@ def main():
         state.update(child_pid=(inner.get('child_identity') or {}).get('pid'),child_identity=inner.get('child_identity'),
             inner_identity=inner.get('identity'),child_exit_code=inner.get('exit_code',child.returncode),
             original_FD_handoff_sha256=sha(stage/'host-FD-handoff.json') if (stage/'host-FD-handoff.json').is_file() else None)
+        known_off=known_off and not alive(inner.get('identity')) and not alive(inner.get('child_identity'))
+        require(known_off,'Original inner/runner process still live; retain reservation and restore only')
     except BaseException as error:
         state.update(error_type=type(error).__name__,error=str(error))
         if reserved and 'm' in locals():
@@ -130,6 +137,10 @@ def main():
     finally:
         if broker:broker.close()
         if reserved and known_off:
+            last_inner=read(stage/'inner-supervisor.json') if (stage/'inner-supervisor.json').is_file() else {}
+            known_off=not alive(last_inner.get('identity')) and not alive(last_inner.get('child_identity'))
+            state['owned_container_exit_verified']=known_off
+        if reserved and known_off:
             # Container creation, import, inference, failures and container exit
             # are all inside this wall. No free GPU compatibility probe.
             wall=time.monotonic()-start
@@ -141,12 +152,16 @@ def main():
             state.update(status='SCOUT_GPU_EXITED_REQUIRES_RAW_CPU_AUDIT',billing_sha256=sha(out/'billing.json'),
                 pool_after=settled,actual_GPUh=wall/3600,wall_seconds=wall,ended_unix=time.time(),
                 runner_sha256=sha(runner) if runner.is_file() else None)
-            atomic(out/'supervisor.json',state);lease.close()
+            lease.close();state['original_UUID_FD_closed_after_settlement']=True
+            atomic(out/'supervisor.json',state)
         elif reserved:
             state.update(status='GPU_CONTAINER_UNKNOWN_RESERVATION_RETAINED_RESTORE_ONLY',settlement_unknown=True,
                 own_UUID_release_verified=False,do_not_replay=True)
             atomic(out/'supervisor.json',state)
-        else:lease.close()
+        else:
+            lease.close()
+            atomic(stage/'scout-admission-failure.json',dict(status='GPU_ADMISSION_FAILED_NO_RESERVATION',
+                error_type=state.get('error_type'),error=state.get('error'),GPU_submissions=0,ledger_written=False))
 
 
 if __name__=='__main__':main()

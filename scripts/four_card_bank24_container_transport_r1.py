@@ -145,7 +145,7 @@ def stop_owned(child, grace=5):
     except subprocess.TimeoutExpired:os.killpg(child.pid,signal.SIGKILL);child.wait(timeout=grace)
 
 
-def run_inherited(command, fd, env, timeout, log):
+def run_inherited(command, fd, env, timeout, log, on_started=None):
     """Shared actual launch/timeout path used by GPU and CPU transport checks."""
     start=time.monotonic();started=time.time();child=None;result={}
     try:
@@ -153,6 +153,7 @@ def run_inherited(command, fd, env, timeout, log):
             env=dict(env,WC_SUPERVISOR_PID=str(os.getpid()),WC_LOCK_FD=str(fd)),
             pass_fds=(fd,),start_new_session=True)
         result.update(child_identity=identity(child.pid),started_unix=started)
+        if on_started is not None:on_started(dict(result))
         try:result['exit_code']=child.wait(timeout=timeout)
         except subprocess.TimeoutExpired:
             result['owned_timeout_stop']=True;stop_owned(child);result['exit_code']=child.returncode

@@ -11,7 +11,7 @@ from four_card_bank24_execution_adapter_r1 import exact_patch,digest,read,requir
 
 ROOT='/data20t/gaokuangda/worldcache_workspace'
 SCIENCE_RUN='wc-scout-dev6-paired-native-full24-r1'
-FULL_CPU_STATUS='BANK24_FOURCARD_CONTAINER_LIFECYCLE_CPU_INDEPENDENTLY_ACCEPTED'
+FULL_CPU_STATUS='BANK24_FOURCARD_FULL_EXECUTION_TOOLS_CPU_INDEPENDENTLY_ACCEPTED'
 ALEX_SHA='7be5be791159472b1fbf3c69796f7cb30dca7ad8466c2df70058c37116cdee02'
 LINEAR_SHA='df73285e35b22355a2df87cdb6b70b343713b667eddbda73e1977e0c860835c0'
 
@@ -77,6 +77,14 @@ def require_full_CPU(stage, source_revision):
         and accepted.get('source_revision')==source_revision and accepted.get('checks')
         and all(v is True for v in accepted['checks'].values()), 'Actual full new-host lifecycle CPU required')
     require(sha(stage/'scout-lifecycle-CPU-proof.json')==accepted['proof_sha256'], 'Actual full CPU proof bytes differ')
+    proof=read(stage/'scout-lifecycle-CPU-proof.json')
+    require(proof.get('status')=='BANK24_FULL_EXECUTION_TOOLS_CPU_PASS_NOT_NEURAL_OR_GPU'
+        and proof.get('source_revision')==source_revision
+        and proof.get('target_registration_sha256')==sha(stage/'registration.json')
+        and accepted.get('registration_sha256')==sha(stage/'registration.json')
+        and proof.get('target_stage')==str(stage.resolve())
+        and accepted.get('actual_CUDA_compatibility_accepted') is False,
+        'Real complete CPU proof must bind this host registration and target stage')
     return accepted
 
 
@@ -103,6 +111,7 @@ def bound_dependency(project,stage):
  c=read(stage/CONFIG);validate_contract(c)
  accepted=require_full_CPU(stage,reg['source_revision'])
  require(meta['config_sha256']==sha(stage/CONFIG) and meta['scope_counts']==c['scope_counts'],'Whole24 identity changed')
+ meta=dict(meta,entry_source_revision=reg['source_revision'],entry_registration_sha256=sha(stage/'registration.json'))
  return meta,c,reg,None,accepted
 def validate(project,stage):
  stage=Path(stage);meta,c,reg,_,accepted=bound_dependency(project,stage)
@@ -123,6 +132,12 @@ def generate(inputs):
     inputs=Path(inputs)
     runner,binding=adapt_runner((inputs/'scripts/run_wc_drop1_full18_r1.py').read_text())
     runner=exact_patch(runner,[('from bank24_sm89_entry_contract import','from bank24_fourcard_lifecycle_r1 import',4)])
+    runner=exact_patch(runner,[("""    proof=json.loads((a.stage/'scout-entry-production-CPU-result.json').read_text())
+    assert proof['status']==PRODUCTION_CPU_STATUS and proof['config_sha256']==sha(a.stage/CONFIG) and proof['registration_sha256']==sha(a.stage/'registration.json')
+""","""    from bank24_fourcard_lifecycle_r1 import require_full_CPU
+    proof=require_full_CPU(a.stage,a.source_revision)
+    assert proof['registration_sha256']==sha(a.stage/'registration.json')
+""",1)])
     post=(inputs/'scripts/postprocess_wc_scout_gpu_r1.py').read_text()
     old_lpips="""        from wcomr.lpips_resource_identity import audit
         resource = a.project/'.sync/wc-rv0-lpips-resource-v2'
@@ -153,18 +168,19 @@ def generate(inputs):
     return result,dict(component_binding=binding,full_post93_RGB_LPIPS_and_owner_logic_preserved=True,
         full_acceptance24_denominator_and_all_errors_preserved=True,
         actual_entry_source_and_original_scientific_entry_separately_bound=True,
+        GPU_branch_uses_actual_full_new_host_CPU_acceptance_without_fabricating_legacy_entry_proof=True,
         original_code_modifications=0,old_physical_Native_artifacts_required=False)
 
 
 def accept_capture(capture,launch,inputs):
     """Delegate every original fidelity/control check; handle pre-run failures."""
-    import sys
-    sys.path.insert(0,str(Path(inputs)/'src'))
-    from wcomr import scout_gpu_lifecycle_r1 as original
     require(capture['launch']==launch and capture['mode']=='terminal'
         and capture['observed_unix']>=launch['next_check_not_before_unix'],'Original terminal and actual ETA required')
     if any(capture['original_live_handles'].values()):
         return dict(status='ORIGINAL_STILL_RUNNING_REESTIMATE_ONCE',full_protocol_accepted=False)
+    import sys
+    sys.path.insert(0,str(Path(inputs)/'src'))
+    from wcomr import scout_gpu_lifecycle_r1 as original
     fin=original.finance(capture,launch)
     if not capture.get('runner',{}).get('source_revision'):
         return dict(status='GPU_FAILED_BEFORE_RUNNER_FULL24_RETAINED',full_protocol_accepted=False,

@@ -26,7 +26,10 @@ def main():
         command=[sys.executable,'-u',str(stage/'bank24-fourcard-runner.py'),
             '--project',m['project'],'--stage',str(stage),'--source-revision',m['source_revision'],'--gpu-uuid',m['gpu_uuid']]
         with (Path(m['output'])/'GPU.log').open('x') as log:
-            result.update(run_inherited(command,fd,environment,remaining,log))
+            def publish(progress):
+                result.update(progress)
+                atomic(stage/'inner-supervisor.json',result)
+            result.update(run_inherited(command,fd,environment,remaining,log,on_started=publish))
         result['status']='INNER_RUNNER_EXITED'
     finally:
         os.close(fd);result['inner_FD_closed_after_child_exit']=True

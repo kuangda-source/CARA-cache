@@ -78,3 +78,7 @@ SETUP 只在同一次 CPU 部署中读取 Docker runtime 名称，记录是否�
 - [半程删除与原终态保持回执](../reports/wc_four_card_BANK24_container_lifecycle_CPU_R1_midpoint_completed_final_handoff_20261022.json)。
 
 完整新机 scope CPU／实际 CUDA／Ada 实测价格／唯一权威 v2 交接和 GPU-ready 仍未通过；本次无新派发、下载、模型加载、CUDA、科研 GPU 或权威账本写。两卡每四小时只读、原 BANK24→既定 CPU 诊断→完整 1624／具体 12 批准、cap226 历史及 54 科研行状态保持。
+
+## 2026-10-22 跨容器CPU26项独立接受，接完整部署工具CPU
+
+[634实际接受与新卡](634_WC_CONTAINER_LIFECYCLE_ACCEPTED_AND_FULL_BANK24_EXECUTION_TOOLS_CPU_20261022.md)：原07:25槽实际07:31:03.886818仅一次完整收件，source687ef2b8的26项独立接受全过，原1789＋29／五生成源、真实FD与Docker PID、全24失败保留／0评分、两锁／IPC与原进程退出、env／runtime保持。继续补齐一次GPU派发／原句柄恢复、结算后CPU post和host-PID绑定终态collector；20项新本地控制及相关回归通过，新scope CPU配方已冻结，须GitHub发布后单次实际运行，不以本地通过替代生产验证。原GPU分支改读真实新机完整CPU证明，不伪造旧注册；完整24与科学逻辑不改。保守规划6.974166667／上限8.75<12仍非Ada实测，完整scope CPU／CUDA／实际价格／唯一v2和GPU-ready仍待，0科研GPU／权威账本写。两卡四小时只读、BANK24→既定CPU诊断→完整1624／已批12、cap226历史及54科研行状态保持。

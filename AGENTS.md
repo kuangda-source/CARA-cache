@@ -1,3 +1,7 @@
+## 2026-10-22 跨容器CPU26项独立接受，接完整部署工具CPU
+
+[634实际接受与新卡](research/634_WC_CONTAINER_LIFECYCLE_ACCEPTED_AND_FULL_BANK24_EXECUTION_TOOLS_CPU_20261022.md)：原07:25槽实际07:31:03.886818仅一次完整收件，source687ef2b8的26项独立接受全过，原1789＋29／五生成源、真实FD与Docker PID、全24失败保留／0评分、两锁／IPC与原进程退出、env／runtime保持。继续补齐一次GPU派发／原句柄恢复、结算后CPU post和host-PID绑定终态collector；20项新本地控制及相关回归通过，新scope CPU配方已冻结，须GitHub发布后单次实际运行，不以本地通过替代生产验证。原GPU分支改读真实新机完整CPU证明，不伪造旧注册；完整24与科学逻辑不改。保守规划6.974166667／上限8.75<12仍非Ada实测，完整scope CPU／CUDA／实际价格／唯一v2和GPU-ready仍待，0科研GPU／权威账本写。两卡四小时只读、BANK24→既定CPU诊断→完整1624／已批12、cap226历史及54科研行状态保持。
+
 ## 2026-10-22 07:26跨容器CPU半程技术状态保持，独立终态待收
 
 [633技术原件与接续](research/633_WC_SM89_COMPONENTS_ACCEPTED_AND_REAL_CROSS_CONTAINER_BANK24_LIFECYCLE_CPU_20261022.md)：07:20半程槽延后，实际07:26:53.919197仅一次原句柄技术收件，20项身份／技术边界核对通过；原source687ef2b8／12payload／manifest一致，health仍报告CPU25.092秒PASS，原supervisor和本人容器退出。真实FD／Docker peer核对、正常／失败／超时全24保留、post失败路径全24未到达和0评分保持；未读最终result／日志／独立终态哈希或运行accept。本半程自动化已删除，原bank24-fd-cpu-2的07:25独立终态安排／句柄保持，不回填计划时点观察。完整新机scope CPU／CUDA／实测价格／唯一v2交接及GPU-ready仍未通过；0新派发／模型下载／CUDA／科研GPU／权威账本写，两卡四小时只读、BANK24→既定CPU诊断→完整1624／具体12批准、cap226历史和54科研行状态不变。

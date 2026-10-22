@@ -73,3 +73,7 @@ GitHub source `a3cfddd9dafe3eb885e8e650aa1212e6dcd764c9` 发布后，R1.1 于 **
 ## 2026-10-22 跨容器生命周期CPU07:17实际启动，07:25独立验收
 
 [633实际原件与接续](633_WC_SM89_COMPONENTS_ACCEPTED_AND_REAL_CROSS_CONTAINER_BANK24_LIFECYCLE_CPU_20261022.md)：SM89组件CPU R1.1已20项独立接受；source687ef2b8的新跨容器CPU于07:17:01.510432单次启动PID629593/start940968487，复用原1789＋29、模型／资源／前端和数值证明。一次admission20项身份／技术边界通过，health报告25.092秒CPU PASS，真实socket peer＝Docker PID、namespace与flock FD继承核对通过，正常／第三项失败／超时都保留全24；原post真实失败路径全24未到达、0评分，无神经输出或伪质量。独立终态尚未接受，已读回bank24-fd-cpu于07:20技术半程、bank24-fd-cpu-2于07:25终态；原组件终态自动化原因完成后删除，过期半程不回填。Docker nvidia runtime同次SETUP已观察注册，不充实际CUDA；完整GPU派发CLI／post watcher／科学collector绑定和完整scope CPU仍待。整卡保守规划6.974166667／上限8.75<12是估价，实际新机价null、0GPU／0实际预留／0权威账本；唯一完整v2交接仍缺，GPU-ready=false。旧机报价／旧余额不作fresh。按服务器全SHA后清理本人Mac重复代码副本46,023,934字节，源归档／Git／原件／模型和凭据保留。两卡每4小时只读不改，本任务未追加其SSH；BANK24完整原件／实费后既定CPU诊断再完整1624／具体12批准、cap226／origin历史和54科研行状态保持。
+
+## 2026-10-22 跨容器CPU26项独立接受，接完整部署工具CPU
+
+[634实际接受与新卡](634_WC_CONTAINER_LIFECYCLE_ACCEPTED_AND_FULL_BANK24_EXECUTION_TOOLS_CPU_20261022.md)：原07:25槽实际07:31:03.886818仅一次完整收件，source687ef2b8的26项独立接受全过，原1789＋29／五生成源、真实FD与Docker PID、全24失败保留／0评分、两锁／IPC与原进程退出、env／runtime保持。继续补齐一次GPU派发／原句柄恢复、结算后CPU post和host-PID绑定终态collector；20项新本地控制及相关回归通过，新scope CPU配方已冻结，须GitHub发布后单次实际运行，不以本地通过替代生产验证。原GPU分支改读真实新机完整CPU证明，不伪造旧注册；完整24与科学逻辑不改。保守规划6.974166667／上限8.75<12仍非Ada实测，完整scope CPU／CUDA／实际价格／唯一v2和GPU-ready仍待，0科研GPU／权威账本写。两卡四小时只读、BANK24→既定CPU诊断→完整1624／已批12、cap226历史及54科研行状态保持。
