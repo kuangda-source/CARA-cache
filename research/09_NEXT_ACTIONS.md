@@ -1,3 +1,7 @@
+## 2026-10-22 等待期间完成完整1624四卡接续审查
+
+[640 准备清单与接续缺口](../research/640_WC_WAIT_WINDOW_PREPARATION_AND_FULL1624_PORT_AUDIT_20261022.md)：已对14件已提交文件绑定SHA并核对9项准备缺口，生成器任务表中的退役两卡FRP活动状态已移入历史，当前目标明确四卡。下一步优先独立1624 host/container适配与完整CPU配方、两CAL_SELECT身份准备，再接P1费用/分析接口及公平对照。原四CAL/1624正式格/14完整路径/具体12GPUh批准保持；旧9.918小时标记为旧机规划，新Ada报价未填写。已有结果验收器复用，当前BANK24沿639原句柄及20:33/次日00:17安排；本轮未远端查询、读在途科学结果、启动CPU/GPU或改生产源码，54科研行不变。
+
 ## 2026-10-22 17:03 BANK24 修复后独立重跑已实际进入 GPU，20:33 半程／次日00:17全程验收
 
 [639 实际启动与验收安排](../research/639_WC_BANK24_ADA_RETRY2_LAUNCH_AND_ACCEPTANCE_SCHEDULE_20261022.md)：用户授权继续后续实验；source d0d4b118 的新版完整 CPU 实际 26.35 秒完成，35 项独立验收全过，旧 CPU R3 wrapper 失败和原 GPU NLTK 失败/0.075736525161 GPUh 保留。17:03:16 单次启动独立 run wc-scout-dev6-paired-native-full24-ada-r2，launch e14a3299、GPU1/UUID19d4d100、supervisor707273/start944485942；17:06:40 admission 确认原 supervisor/post/inner/runner/容器活、compute707498、21066MiB、自身锁持有。17:08:49有界技术日志已确认原生产prompt guardrail于17:07:21通过并进入首条预热实际采样9/36步，NLTK故障点已越过。原6DEV/18正式+6warm/864pairs/1728CFG/1load和四CAL gate保持。整卡保守估计6.974166667 GPUh、上限8.75；账本used116.900759633932/reserved25.25/available83.849240366068，含保留旧未知16.5责任预约。已从文件读回当前聊天一次性 cara-bank24 于10月22日20:33半程、cara-bank24-2于10月23日00:17全程验收，预计00:01:43完成；按实际证据重估，不重派。终态接受后依次既定同D/X-R CPU→完整1624/14路径/已批12GPUh→PG-P1/P2/P3/P4；后续各自完整新机CPU和报价后执行。科学优先级见[638 CVPR论证](../research/638_CARA_CVPR_CONTRIBUTION_AND_EXPERIMENT_PRIORITIES_20261022.md)：相同实际时间及可比校准成本下，自动生成相对强前密C/A的增量。当前运行不是完整结果接受，54科研行及状态计数保持；两卡不再查询。

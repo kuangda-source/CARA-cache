@@ -1,0 +1,161 @@
+{
+  "status": "LOCAL_SOURCE_BOUND_PREPARATION_AUDIT_NOT_PRODUCTION_ACCEPTANCE",
+  "source_revision": "9f7b5de82571a99c6cb8352149052791de360579",
+  "created_at": "2026-10-22T17:20:12.427071+08:00",
+  "scope_counts": {
+    "requests": 4,
+    "total_paths": 14,
+    "formal_paths": 12,
+    "full_warmup_paths": 2,
+    "native_reference_paths": 4,
+    "observer_OFF_control_paths": 4,
+    "observer_ON_formal_paths": 4,
+    "ordinary_pairs": 504,
+    "ordinary_CFG_calls": 1008,
+    "loads": 1,
+    "legal_source_time_cells_per_prompt": 406,
+    "formal_source_time_cells": 1624,
+    "warm_source_time_cells": 406,
+    "total_collected_source_time_cells": 2030,
+    "minimum_price_trials_per_cell": 6,
+    "warm_action_trials_per_cell": 3,
+    "minimum_formal_action_trials_per_cell": 3,
+    "canonical_price_cells_per_prompt": 28,
+    "canonical_price_trials_per_cell": 12,
+    "total_readout_pair_trials": 13020,
+    "formal_cell_price_trials": 10416,
+    "additional_deep_teacher_pairs": 0
+  },
+  "specific_full12_approval_preserved": true,
+  "source_bindings": [
+    {
+      "ref": "scripts/wc_policy_interval_assets_lifecycle_r1.py",
+      "sha256": "9cd58c85109957e6e4037290c673a46838fb882e0d03c9445dfa167815e9738e"
+    },
+    {
+      "ref": "src/wcomr/policy_interval_assets_production_r1.py",
+      "sha256": "6007d7878339245f521f1ffb11b2b366f9a62cfe4203209cf8bcb028530b7d97"
+    },
+    {
+      "ref": "src/wcomr/policy_interval_assets_lifecycle_r1.py",
+      "sha256": "1db8ab89aff6dd9f32d1cc3e35bfff77c1ef08f7f8b9a0c9279a79be59383b11"
+    },
+    {
+      "ref": "scripts/check_wc_policy_interval_assets_cpu_r1.py",
+      "sha256": "527fdc8dc3a75037bcddc5b00d05e3ab4a3ba3610213a45f89cc1d6bd6ab9417"
+    },
+    {
+      "ref": "scripts/postprocess_wc_policy_interval_assets_r1.py",
+      "sha256": "d904fdd324430f83f21a2c4b8ab3ea9582537eed0a6912a75c0077250ce50b32"
+    },
+    {
+      "ref": "scripts/four_card_bank24_gpu_port_r1.py",
+      "sha256": "9ad8695b7de1069e3e08b411edcc3bf7d2a9e372d07d31fcae6b7f54283592d1"
+    },
+    {
+      "ref": "scripts/four_card_bank24_execution_tools_r1.py",
+      "sha256": "3e58bb9a2345fe938d7ce70e90a01300dd8e6d05d005ca91c5aa253c24d3cde4"
+    },
+    {
+      "ref": "configs/wc_policy_interval_assets_full1624_r1_20261020.json",
+      "sha256": "75338efd0d7c2d145c73bb3d5514c37fcec46851995785724eeca8f650419f9a"
+    },
+    {
+      "ref": "manifests/wc_policy_interval_assets_full1624_whole_quote_r1_20261020.json",
+      "sha256": "6a8a9362342089403aed332fa6f63e82683e146e1f6dc466d7324dff4a46cc67"
+    },
+    {
+      "ref": "reports/wc_policy_interval_assets_full1624_specific_whole12_approval_20261020.json",
+      "sha256": "2c932c43e8e4a52225019047605a980826995626fbd203ce7f456c5c25889592"
+    },
+    {
+      "ref": "plans/cara_policy_generator_20261020/generator_recipe_r1.json",
+      "sha256": "2316f3a1ee2bd36658e0aa727626239d9a532670be5939c4c50dbb923cc27bdb"
+    },
+    {
+      "ref": "plans/cara_policy_generator_20261020/P1_COMPLETE_CARD_DRAFT.json",
+      "sha256": "4c3feea3ecffef15706342908877cb54b2f25ff4d289de9cd1d2b8eb4a144573"
+    },
+    {
+      "ref": "plans/cara_policy_generator_20261020/TASK_REGISTRY.json",
+      "sha256": "e54b207db40c2e53695cf0a9190e9eec42ec9c2cb208b92104ad81cd31e7eaa4"
+    },
+    {
+      "ref": "reports/wc_four_card_BANK24_full24_GPU_retry2_admission_20261022.json",
+      "sha256": "7729af56ede1694e3077d7e32abf8f80995acf1c897392fff6eaf6ca8d76fe8c"
+    }
+  ],
+  "findings": [
+    {
+      "id": "HOST_TRANSPORT",
+      "evidence_ref": "scripts/wc_policy_interval_assets_lifecycle_r1.py",
+      "evidence": "REMOTE_ROOT/REMOTE_PY and gkd_minchen still refer to retired two-card route",
+      "preparation": "Create independent four-card transport using verified private Python wrapper; keep subprocesses on wrapper or container interpreter."
+    },
+    {
+      "id": "DEPENDENCY_RECONSTRUCTION",
+      "evidence_ref": "scripts/wc_policy_interval_assets_lifecycle_r1.py",
+      "evidence": "deploy_cpu uses original CAL12 registration stage and requires base.parent == stage.parent",
+      "preparation": "Bind copied frozen original inputs and accepted four-card runtime by SHA in a new stage; preserve scientific configuration bytes."
+    },
+    {
+      "id": "BANK24_UPSTREAM_IDENTITY",
+      "evidence_ref": "src/wcomr/policy_interval_assets_production_r1.py",
+      "evidence": "require_BANK24 directly calls legacy accept_terminal; retry uses mapped physical run identity and host finance checks",
+      "preparation": "Recompute full four-card acceptance from final original capture, bind its new launch/source and unchanged science; do not substitute a boolean."
+    },
+    {
+      "id": "GPU_CONTAINER_AND_LOCK",
+      "evidence_ref": "scripts/wc_policy_interval_assets_lifecycle_r1.py",
+      "evidence": "supervise launches host process with pass_fds; four-card runner uses a container and cross-container UUID lease transport",
+      "preparation": "Reuse verified FD/peer handoff and explicit host/container lifecycle in a separate full1624 scope adapter."
+    },
+    {
+      "id": "ENVIRONMENT_AND_NLTK",
+      "evidence_ref": "scripts/four_card_bank24_execution_tools_r1.py",
+      "evidence": "Four-card environment helper binds physical NLTK and CUDA libraries but has WC_SCOUT_KIND=BANK24",
+      "preparation": "Reuse verified assets with explicit CAL12 scope for four original CAL inputs; retain actual production import/guard checks."
+    },
+    {
+      "id": "POST_AND_COMPLETE_CPU",
+      "evidence_ref": "scripts/check_wc_policy_interval_assets_cpu_r1.py",
+      "evidence": "New scope needs actual 28 CPU paths/4060 reloaded cells plus production import and 12 guard-refusal controls",
+      "preparation": "Prepare entire new CPU recipe and CPU-only post/collector, using readonly budget reader; execute at a noninterfering resource window."
+    },
+    {
+      "id": "WHOLE_QUOTE",
+      "evidence_ref": "manifests/wc_policy_interval_assets_full1624_whole_quote_r1_20261020.json",
+      "evidence": "9.918333333 GPUh quote uses old-host inclusive interval proxies, not measured Ada action prices",
+      "preparation": "Keep all14 paths/2030 total cells/13020 trials, update load/request terms using accepted BANK24 receipts; retain explicit allowance for unmeasured extra collection work."
+    },
+    {
+      "id": "SELECT_MEMBERSHIP",
+      "evidence_ref": "plans/cara_policy_generator_20261020/generator_recipe_r1.json",
+      "evidence": "Two CAL_SELECT IDs are null",
+      "preparation": "Prepare deterministic grouped exposure exclusions and hash selection before endpoint access; freeze two development identities, reserve final TEST for later."
+    },
+    {
+      "id": "P1_FULL_CARD_QUOTE",
+      "evidence_ref": "plans/cara_policy_generator_20261020/P1_COMPLETE_CARD_DRAFT.json",
+      "evidence": "Maximum64 base full paths; extra collection work and complete price are null",
+      "preparation": "Prepare full workload table and dedup/information-exposure accounting now; fill measured prices only after full1624 acceptance."
+    }
+  ],
+  "resources_from_historical_whole_quote": {
+    "raw_tensor_planning_bytes": 52617019392,
+    "source_transfer_planning_bytes": 2069008220160,
+    "minimum_free_disk_bytes": 100400365568,
+    "peak_CPU_anchor_bank_planning_bytes": 18345885696
+  },
+  "minimum_available_host_memory_bytes_from_existing_admission_formula": 28144618700.8,
+  "resource_values_are_current_free_capacity": false,
+  "complete_legacy_forecast_GPUh": 9.918333333333333,
+  "complete_Ada_forecast_GPUh": null,
+  "current_BANK24_scientific_outputs_read": false,
+  "remote_calls": 0,
+  "GPU_submissions": 0,
+  "ledger_written": false,
+  "existing_model_assets_modified": false,
+  "existing_scientific_config_modified": false,
+  "new_scientific_acceptance": false
+}
