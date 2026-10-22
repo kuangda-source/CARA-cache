@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "updated_local_date": "2026-10-22",
-  "snapshot_basis": "BANK24 full24/12LPIPS original protocol and finance accepted; six-DEV frozen gate and X-R analyzed without refit. Full1624 Ada production CPU launched21:17:54 and actual21:27 halfway healthy; no new full1624 GPU yet.",
+  "snapshot_basis": "BANK24 fully accepted and six-DEV analysis frozen. Full1624 R1 numerical CPU passed, production entry failed on missing output_dir; full R2 repair prepared, no full1624 GPU submission.",
   "git_snapshot_before_inventory": "4cb9fa2640b838dab0d1f913f4bb57e230b9edbd",
   "mapping_ref": "paper/internal_to_paper_mapping.json",
   "scope": "scientific experiment families and complete cards, not each engineering retry; reused artifacts must not be summed as independent samples",
@@ -68,7 +68,7 @@
     "FINAL_VARIANT_TIMING_AND_QUALITY_PENDING": 1,
     "CLAIM_AND_EVIDENCE_WRITING_PROTOCOL_READY": 1,
     "LOCAL_CPU_PROTOTYPE24_WITH_PROTECTED_PRICE_BRIDGE_NOT_PRODUCTION": 1,
-    "FULL1624_FOURCARD_REAL_PRODUCTION_CPU_RUNNING_BANK24_ACCEPTED": 1,
+    "FULL1624_CPU_R1_ENTRY_FAILED_R2_FULL_REPAIR_PREPARED": 1,
     "COMPLETE_ADAPTIVE_CARD_DRAFT_QUOTE_AND_REAL_CPU_PENDING": 1,
     "PRE_REGISTER_AND_DEDUP_AFTER_FIRST_LOOP": 1,
     "CONDITIONAL_SAME_PROCEDURE_RECALIBRATION": 1,
@@ -4702,14 +4702,14 @@
     },
     {
       "id": "PG-P1-ASSETS",
-      "state": "FULL1624_FOURCARD_REAL_PRODUCTION_CPU_RUNNING_BANK24_ACCEPTED",
+      "state": "FULL1624_CPU_R1_ENTRY_FAILED_R2_FULL_REPAIR_PREPARED",
       "paper_experiment_name": "Complete real statistics, prices and generated-mask entry",
       "internal_ids": [
         "PG-P1-ASSETS"
       ],
       "contribution_relation": "可复现区间生成器的新方法验证；CPU原型不充真实质量结果",
       "evidence_or_planned_scope": "4CAL/1624formal cells;14 complete paths/2030 cells including warm/13020 paired readout trials",
-      "gap_and_next_action": "Actual21:27 halfway healthy;21:36 full CPU acceptance then complete14-path GPU launch under specific12GPUh approval and9.956389 forecast; original4CAL/1624formal unchanged.",
+      "gap_and_next_action": "R1 full numerical CPU passed; actual Cosmos production setup lacked required output_dir. Reversible host fix and full R2 CPU package prepared; preserve R1 failure, accept full R2 before one approved GPU card.",
       "priority": "GEN-1",
       "evidence_refs": [
         "research/612_WC_POLICY_GENERATOR_CPU_PROTOTYPE_AND_REPRODUCIBLE_VALIDATION_DESIGN_20261020.md",
@@ -4748,7 +4748,11 @@
         "PG_assets_specific12_route_recovery",
         "owned_FRPC_human_restart_2043",
         "owned_FRPC_original_SSH_once_test_2044",
-        "PG_assets_fourcard_CPU_launch"
+        "PG_assets_fourcard_CPU_launch",
+        "PG_assets_fourcard_CPU_r1_failed",
+        "PG_assets_fourcard_CPU_repair_645",
+        "PG_assets_fourcard_package_r6",
+        "BANK24_final_643"
       ],
       "method_mapping_ids": [],
       "contribution_ids": [
@@ -4782,8 +4786,8 @@
       "target_execution_host": "four_card",
       "new_host_production_CPU_accepted": false,
       "future_queue_ref": "reports/wc_four_card_future_experiment_queue_20261021.json",
-      "new_host_forecast_GPUh": null,
-      "price_basis": "Original two-card full quote retained; four-card complete quote pending",
+      "new_host_forecast_GPUh": 9.956388888888888,
+      "price_basis": "Accepted BANK24 Ada load/request measurements plus conservative historical collection overhead; independent Ada action prices pending",
       "theory_review_ref": "research/624_WC_REPRODUCIBLE_POLICY_GENERATOR_THEORY_VALIDITY_AND_EVIDENCE_20261021.md"
     },
     {
@@ -6363,7 +6367,10 @@
     "BANK24_gate_complete": "reports/wc_four_card_BANK24_retry2_frozen_gate_analysis_20261022.json",
     "BANK24_XR_complete": "reports/wc_four_card_BANK24_retry2_XR_CPU_diagnostics_r2_20261022.json",
     "BANK24_complete_analysis": "reports/wc_four_card_BANK24_retry2_complete_results_analysis_20261022.json",
-    "PG_assets_fourcard_CPU_launch": "reports/wc_policy_assets_full1624_fourcard_CPU_launch_20261022.json"
+    "PG_assets_fourcard_CPU_launch": "reports/wc_policy_assets_full1624_fourcard_CPU_launch_20261022.json",
+    "PG_assets_fourcard_CPU_r1_failed": "reports/wc_policy_assets_full1624_fourcard_CPU_r1_failure_accepted_20261022.json",
+    "PG_assets_fourcard_CPU_repair_645": "research/645_CARA_FULL1624_CPU_ENTRY_REPAIR_20261022.md",
+    "PG_assets_fourcard_package_r6": "manifests/wc_policy_assets_fourcard_full1624_package_r6_20261022.json"
   },
   "source_bindings": {
     "11": {
@@ -12451,7 +12458,7 @@
     },
     "BANK24_final_643": {
       "path": "research/643_CARA_BANK24_ACCEPTANCE_AND_FULL1624_CONTINUATION_20261022.md",
-      "sha256": "b1580351f3fc82920eaf81140e9faa867b4161f047e318fe42581080f2294513"
+      "sha256": "340ba954f4857629f7d932fe4be939eb8a3caf0e0360356a881dd6de6d6887c0"
     },
     "BANK24_science_644": {
       "path": "research/644_CARA_BANK24_COMPLETE_DEV6_RESULTS_20261022.md",
@@ -12480,6 +12487,18 @@
     "PG_assets_fourcard_CPU_launch": {
       "path": "reports/wc_policy_assets_full1624_fourcard_CPU_launch_20261022.json",
       "sha256": "b0f5498992b1affac227e27df5a6db39ba54007059d178a4b0c9eacf5f1c2048"
+    },
+    "PG_assets_fourcard_CPU_r1_failed": {
+      "path": "reports/wc_policy_assets_full1624_fourcard_CPU_r1_failure_accepted_20261022.json",
+      "sha256": "a133ede40abc10c58d34c01f3c61b9a18f93e7f3a8602e7c23a5a482fe9b22e9"
+    },
+    "PG_assets_fourcard_CPU_repair_645": {
+      "path": "research/645_CARA_FULL1624_CPU_ENTRY_REPAIR_20261022.md",
+      "sha256": "48a5962ab3ffa6065609c3f3dcb838fdde550e0e929db501988a16e054ba5a80"
+    },
+    "PG_assets_fourcard_package_r6": {
+      "path": "manifests/wc_policy_assets_fourcard_full1624_package_r6_20261022.json",
+      "sha256": "c54b64d1c2d620a5ae1c044f7446e0245f117ff5be552ebccbb6cec478549ea8"
     }
   },
   "operation_policy": {

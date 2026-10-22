@@ -1,0 +1,22 @@
+{
+  "observed_unix": 1792676632.549801,
+  "stage": "/data20t/gaokuangda/worldcache_workspace/.sync/wc-policy-assets-fourcard-full1624-r1-20261022",
+  "log_sha256": "6ca0086c7e80eb3684c5a5c32ae6b2f57f6603ec0d0146dd9b8c8febc0b019ea",
+  "log_bytes": 368075,
+  "error_tail": "Traceback (most recent call last):\n  File \"/data20t/gaokuangda/worldcache_workspace/.sync/wc-policy-assets-fourcard-full1624-r1-20261022/scripts/check_wc_policy_interval_assets_cpu_r1.py\", line 88, in <module>\n    if __name__=='__main__':main()\n  File \"/data20t/gaokuangda/worldcache_workspace/.sync/wc-policy-assets-fourcard-full1624-r1-20261022/scripts/check_wc_policy_interval_assets_cpu_r1.py\", line 65, in main\n    setup=SetupArguments(**{**read(a.stage/'configs/f1_setup.json'),'keep_going':True,'worldcache_enabled':True})\n  File \"/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/pydantic/main.py\", line 253, in __init__\n    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)\npydantic_core._pydantic_core.ValidationError: 1 validation error for SetupArguments\noutput_dir\n  Field required [type=missing, input_value={'model': '2B/post-traine...ntext_parallel_size': 1}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\nTraceback (most recent call last):\n  File \"/data20t/gaokuangda/worldcache_workspace/.sync/wc-policy-assets-fourcard-full1624-r1-20261022/scripts/wc_policy_interval_assets_lifecycle_r1.py\", line 445, in <module>\n    if __name__=='__main__':main()\n  File \"/data20t/gaokuangda/worldcache_workspace/.sync/wc-policy-assets-fourcard-full1624-r1-20261022/scripts/wc_policy_interval_assets_lifecycle_r1.py\", line 441, in main\n    {'prepare':prepare,'deploy-cpu':deploy_cpu,'cpu-worker':cpu_worker,'launch-gpu':launch_gpu,\n  File \"/data20t/gaokuangda/worldcache_workspace/.sync/wc-policy-assets-fourcard-full1624-r1-20261022/scripts/wc_policy_interval_assets_lifecycle_r1.py\", line 149, in cpu_worker\n    if call.returncode:raise RuntimeError('New full-scope CPU command failed')\nRuntimeError: New full-scope CPU command failed\n",
+  "original_file_sha256": {
+    "registration.json": "8642741f3fc4f2d4fcf9bd29000192bdaf5795a07bd8108253e96ab418ee6252",
+    "fourcard-cpu-launch.json": "b0f5498992b1affac227e27df5a6db39ba54007059d178a4b0c9eacf5f1c2048",
+    "policy-assets-production-CPU-bundle.json": "a01599b7d7b3a53056b2aa14b9997121bd26b95295c8774cc954da71799757c2",
+    "policy-assets-numerical-CPU.json": "6871f038d306cf033d39f222e077f619dae8fae69efae3dd71a221cef85cf9cf"
+  },
+  "status": "FULL1624_CPU_R1_OUTPUT_DIRECTORY_INTEGRATION_FAILURE_RETAINED",
+  "failure_capture": "reports/wc_policy_assets_full1624_fourcard_CPU_terminal_20261022_2136.json",
+  "repair": "Add explicit stage-local output_dir to actual Cosmos SetupArguments in reversible host adapter; run production before unchanged numerical validation",
+  "numerical_CPU_paths": 28,
+  "source_time_cells_reloaded": 4060,
+  "readout_trials": 26040,
+  "GPU_submissions": 0,
+  "scientific_source_unchanged": true,
+  "local_port_checks_passed": 13
+}

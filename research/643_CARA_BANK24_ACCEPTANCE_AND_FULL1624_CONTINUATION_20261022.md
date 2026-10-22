@@ -21,3 +21,7 @@ CPU完整接受后继续单次launch-gpu；BANK参数固定recovered_terminal ca
 GitHub直连SSH出现连接关闭；临时命令经本机既有7900代理和ssh.github.com:443成功同步，HostKeyAlias仍为github.com，无全局SSH/代理配置修改。
 
 21:27:04.936075实际技术半程已收件，原PID/start一致，原只读/GPU隐藏容器仍运行、未OOM、无日志错误；完整CPU尚待21:36独立终态。`cara-1624-cpu`已完成删除并读回；`cara-bank24-2`继续绑定相同CPU launch。半程原件为 `reports/wc_policy_assets_full1624_fourcard_CPU_halfway_20261022.json`。不能把半程无错当作完整生产CPU接受。
+
+## 21:36完整CPU原R1失败与修复
+
+原完整数值通过，生产SetupArguments漏传必填output_dir导致退出1，950.807秒、0GPU。原件保留；四卡可逆层补目录并提前生产检查，R6独立R2完整CPU接续见645。原21:36检查已实际执行，不再重复原R1。

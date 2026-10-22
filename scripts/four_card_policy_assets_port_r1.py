@@ -15,8 +15,8 @@ from pathlib import Path
 from four_card_bank24_execution_adapter_r1 import exact_patch, require, read, digest
 
 ROOT = '/data20t/gaokuangda/worldcache_workspace'
-RUN = 'wc-policy-interval-assets-cal4-full1624-ada-r1'
-STAGE = 'wc-policy-assets-fourcard-full1624-r1-20261022'
+RUN = 'wc-policy-interval-assets-cal4-full1624-ada-r2'
+STAGE = 'wc-policy-assets-fourcard-full1624-r2-20261022'
 CONFIG = 'configs/wc_policy_interval_assets_full1624_r1_20261020.json'
 IMAGE = 'sha256:1e81ac62ee68ca1a6ef655515096a1d84579b01aa4986810c9b18d4f6c4c552d'
 SCIENCE_SOURCE = '832ee685b823540fde5584c917c0f7c05253f0fd'
@@ -42,6 +42,8 @@ def generated_sources(root):
         'scripts/check_wc_policy_interval_assets_cpu_r1.py': [
             ('from wcomr.policy_interval_assets_production_r1 import validate', 'from '+CONTRACT+' import validate', 1),
             ("read(a.project/'configs/f1_setup.json')", "read(a.stage/'configs/f1_setup.json')", 1),
+            ("'keep_going':True,'worldcache_enabled':True}",
+             "'keep_going':True,'worldcache_enabled':True,'output_dir':str(a.stage/'CPU-production-output')}", 1),
             ("    assert not a.output.exists();atomic_json(a.output,value)",
              "    if a.mode=='production':\n        from four_card_policy_assets_port_r1 import cpu_transport_probe\n        value['host_transport_CPU']=cpu_transport_probe(a.stage)\n    assert not a.output.exists();atomic_json(a.output,value)", 1),
         ],
@@ -49,6 +51,8 @@ def generated_sources(root):
             ('from wcomr.policy_interval_assets_r1 import', 'from '+CONTRACT+' import', 1),
         ],
         'scripts/wc_policy_interval_assets_lifecycle_r1.py': [
+            ("[('numerical','policy-assets-numerical-CPU.json'),('production',A.CPU_PROOF)]",
+             "[('production',A.CPU_PROOF),('numerical','policy-assets-numerical-CPU.json')]", 1),
             ('from wcomr import policy_interval_assets_r1 as A', 'import '+CONTRACT+' as A', 2),
             ('from wcomr.policy_interval_assets_production_r1 import validate', 'from '+CONTRACT+' import validate', 1),
             ('from wcomr.policy_interval_assets_lifecycle_r1 import validate_authority', 'from '+CONTRACT+' import validate_authority', 2),

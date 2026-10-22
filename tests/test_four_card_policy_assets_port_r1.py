@@ -5,6 +5,7 @@ from pathlib import Path
 import sys
 import tempfile
 import unittest
+from types import SimpleNamespace
 
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'scripts'))
@@ -39,6 +40,27 @@ class Full1624Port(unittest.TestCase):
         sources,_=generated_sources(ROOT)
         self.assertIn('from wcomr.policy_interval_assets_r1 import *',sources['scripts/policy_assets_fourcard_contract.py'])
         self.assertIn('get_device_capability()==(8,9)',sources['scripts/run_wc_policy_interval_assets_r1.py'])
+
+    def test_production_setup_supplies_required_isolated_output_directory(self):
+        source=generated_sources(ROOT)[0]['scripts/check_wc_policy_interval_assets_cpu_r1.py']
+        calls=[node for node in ast.walk(ast.parse(source)) if isinstance(node,ast.Call)
+               and isinstance(node.func,ast.Name) and node.func.id=='SetupArguments']
+        self.assertEqual(len(calls),1)
+        config=json.loads((ROOT/'configs/f1_setup.json').read_text())
+        stage=Path(REMOTE)/'.sync'/STAGE
+        expression=ast.Expression(calls[0].keywords[0].value)
+        values=eval(compile(expression,'generated-production-setup','eval'),
+                    {'read':lambda path:config,'a':SimpleNamespace(stage=stage),'str':str})
+        self.assertEqual(values['output_dir'],str(stage/'CPU-production-output'))
+        self.assertFalse(values['disable_guardrails'])
+        self.assertFalse(values['use_torch_compile'])
+        self.assertFalse(values['offload_diffusion_model'])
+
+    def test_production_check_precedes_full_unchanged_numerical_scope(self):
+        source=generated_sources(ROOT)[0]['scripts/wc_policy_interval_assets_lifecycle_r1.py']
+        order="[('production',A.CPU_PROOF),('numerical','policy-assets-numerical-CPU.json')]"
+        self.assertEqual(source.count(order),1)
+        self.assertIn("'-p','test_policy_interval_assets_r1.py'",source)
 
     def test_actual_CPU_command_has_no_GPU_exposure_or_writable_authority(self):
         stage=Path(REMOTE)/'.sync'/STAGE

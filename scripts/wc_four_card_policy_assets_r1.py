@@ -117,7 +117,7 @@ DEPLOY = r'''
 import base64,hashlib,json,os,pathlib,shutil,subprocess,sys,time
 p=json.load(sys.stdin);root=pathlib.Path(p['package']['project']);stage=pathlib.Path(p['package']['stage']);base=pathlib.Path(p['base'])
 sha=lambda f:hashlib.sha256(f.read_bytes()).hexdigest()
-assert stage.parent==root/'.sync' and stage.name=='wc-policy-assets-fourcard-full1624-r1-20261022'
+assert stage.parent==root/'.sync' and stage.name=='wc-policy-assets-fourcard-full1624-r2-20261022'
 if stage.exists():
  print(json.dumps(dict(status='EXISTING_FULL1624_STAGE_RESTORE_ONLY',stage=str(stage),launch=json.loads((stage/'fourcard-cpu-launch.json').read_text()) if (stage/'fourcard-cpu-launch.json').exists() else None)));sys.exit(0)
 pool=json.loads((root/'reports/gpu-budget-v2.json').read_text())
@@ -215,9 +215,17 @@ def accept(a):
             and binding['registration_sha256']==cap['launch']['registration_sha256'], 'Original container identity differs')
     require(not binding['state']['Running'], 'Original container is still running')
     if a.kind=='cpu':
-        require(not binding['device_requests'] and not binding['devices'] and binding['state']['ExitCode']==0,
-                'Actual GPU-hidden CPU container must exit successfully')
+        require(not binding['device_requests'] and not binding['devices'],
+                'Actual CPU container must hide GPUs')
         value=accept_cpu(cap)
+        if binding['state']['ExitCode'] != 0:
+            require(value.get('production_CPU_accepted') is False,
+                    'Failed CPU cannot have a passing acceptance')
+            value.update(capture_ref=str(a.capture),capture_sha256=sha(a.capture),
+                container_binding_accepted=True,GPU_submissions=0,ledger_written=False,
+                full_new_host_scope_production_CPU_accepted=False,GPU_dispatch_ready=False,
+                container_exit_code=binding['state']['ExitCode'])
+            write(a.output,value);return value
         require(value['production_CPU_accepted'], 'Complete original full CPU required')
         transport=cap['files']['proof']['data'].get('host_transport_CPU',{})
         require(all(transport.get(k) is True for k in ['parent_and_namespace_match','original_fd_inode_match',
