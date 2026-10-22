@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "project": "CARA-Cache",
+  "evidence_observed_at": "2026-10-22T22:19:22.644816+08:00",
+  "timezone": "Asia/Shanghai",
+  "snapshot_note": "本轮整理复用已保存回执，未重新连接服务器；此时间是实验观测时间，不是文档生成时间。",
+  "research_summary": "修正机制与若干共享布局的保真收益已有实证；当前采集完整真实区间标签和动作价格，下一步检验可复现自动策略在实际预算下的质量—时间收益。",
+  "active_experiment_id": "PG-P1-ASSETS",
+  "active_state": "FULL1624_FOURCARD_GPU_RUNNING_FULL_CPU_ACCEPTED",
+  "active_state_zh": "完整1624生产CPU已接受；四卡服务器GPU采集中",
+  "launch_ref": "reports/wc_policy_assets_full1624_fourcard_GPU_launch_20261022.json",
+  "observation_ref": "reports/wc_policy_assets_full1624_fourcard_GPU_initial_sampling_20261022.json",
+  "admission_ref": "reports/wc_policy_assets_full1624_fourcard_GPU_admission_checked_and_schedule_20261022.json",
+  "cpu_acceptance_ref": "reports/wc_policy_assets_full1624_fourcard_CPU_r2_accepted_20261022.json",
+  "run_report_ref": "research/646_CARA_FULL1624_CPU_ACCEPTED_GPU_LAUNCH_20261022.md",
+  "next_checks": [
+    {
+      "kind": "半程技术检查",
+      "scheduled_local": "2026-10-23 03:12 Asia/Shanghai",
+      "automation_id": "cara-1624-gpu"
+    },
+    {
+      "kind": "完整终态验收",
+      "scheduled_local": "2026-10-23 08:26 Asia/Shanghai",
+      "automation_id": "cara-bank24-2"
+    }
+  ],
+  "headline_results": [
+    {
+      "title": "修正读出有跨输入机制收益",
+      "result": "BANK24六个新DEV中，A相对C的同状态扩散速度预测MSE全部降低43.53%–63.00%，等权场景均值降低52.53%。",
+      "scope": "6DEV；18正式+6warm；24视频、12组LPIPS全部接受。这里的52.53%是局部MSE，不是视频质量提升。",
+      "refs": [
+        "research/644_CARA_BANK24_COMPLETE_DEV6_RESULTS_20261022.md"
+      ],
+      "short_scope": "6个新DEV，局部机制"
+    },
+    {
+      "title": "连续修正改善最终视频保真",
+      "result": "Window24同25D布局下，A3较C的平均LPIPS低26.6335%，较A1低19.7690%；CAL12四格补齐了后两次A的独立增量。",
+      "scope": "4个旧CAL、seed0；A3仍比26D前密C高5.7235%失真。",
+      "refs": [
+        "research/604_WC_WINDOW24_FULL24_ACCEPTED_CONTINUOUS_CORRECTION_RESULTS_AND_CAL12_NEXT_20261019.md",
+        "research/609_WC_CAL12_FULL_FACTORIAL_A_AND_SHARED_PLAN_INDEPENDENT_EFFECTS_20261019.md"
+      ],
+      "short_scope": "4个旧CAL，同25D布局"
+    },
+    {
+      "title": "刷新位置值得从数据生成",
+      "result": "CAL12同26D、同纯C的共享计划较前密C的LPIPS低15.36%，四场景均改善。",
+      "scope": "由既有轨迹变化量导出的一个冻结布局；属于CAL证据，独立输入和净时间待验证。",
+      "refs": [
+        "research/609_WC_CAL12_FULL_FACTORIAL_A_AND_SHARED_PLAN_INDEPENDENT_EFFECTS_20261019.md"
+      ],
+      "short_scope": "4个旧CAL，同26D/10C"
+    },
+    {
+      "title": "已有质量—时间工作点",
+      "result": "D14同批比较中，Efficient比WorldCache耗时少13.72%、LPIPS低11.1600%；同26D的A较plain低3.5196%，增加0.8762秒。",
+      "scope": "历史4CAL工作点；同卡40正式+20warm。N07/N08/N10已补充共同评价、重复计时和自动质量。",
+      "refs": [
+        "research/420_WC_FULL60_COST_CURVE_COMPLETE_RESULTS_AND_CONVERGENCE_20261014.md",
+        "research/552_WC_N08_FULL40_ACCEPTED_REPEATED_TIMING_AND_PENDING_TASK_CLOSURE_20261017.md",
+        "research/599_WC_N10_FULL960_ACCEPTED_DIMENSIONWISE_RESULTS_AND_WINDOW24_RESOURCE_QUEUE_20261018.md"
+      ],
+      "short_scope": "4个旧CAL，历史冻结工作点"
+    },
+    {
+      "title": "单点门控给出明确的改进方向",
+      "result": "BANK24冻结z门控在同3D配额的20种分配中排12/20；LPIPS 0.0778937，高于随机分配期望0.0768148。",
+      "scope": "四CAL冻结规则，六DEV不重拟合。接下来检验真实区间标签与动作价格驱动的联合策略。",
+      "refs": [
+        "research/644_CARA_BANK24_COMPLETE_DEV6_RESULTS_20261022.md"
+      ],
+      "short_scope": "6个新DEV，同3D配额"
+    }
+  ],
+  "next_sequence": [
+    "PG-P1-ASSETS",
+    "PG-P1",
+    "PG-P2",
+    "PG-P3",
+    "PG-P4"
+  ],
+  "history_snapshot_ref": "docs/archive/20261022_before_navigation/manifest.json",
+  "master_ref": "paper/experiment_master_table.json",
+  "mapping_ref": "paper/internal_to_paper_mapping.json"
+}

@@ -1,0 +1,866 @@
+> **最新进度（2026-10-22 22:19）：** BANK24完整结果已接受；完整1624生产CPU通过，GPU3整卡采集已启动。见[当前任务与验收安排](../research/646_CARA_FULL1624_CPU_ACCEPTED_GPU_LAUNCH_20261022.md)、[六新DEV科学结果](../research/644_CARA_BANK24_COMPLETE_DEV6_RESULTS_20261022.md)和[机器实验总表](../paper/experiment_master_table.json)。下方按日期保留历史记录。
+
+## 2026-10-22 17:03 BANK24 修复后独立重跑已实际进入 GPU，20:33 半程／次日00:17全程验收
+
+[639 实际启动与验收安排](../research/639_WC_BANK24_ADA_RETRY2_LAUNCH_AND_ACCEPTANCE_SCHEDULE_20261022.md)：用户授权继续后续实验；source d0d4b118 的新版完整 CPU 实际 26.35 秒完成，35 项独立验收全过，旧 CPU R3 wrapper 失败和原 GPU NLTK 失败/0.075736525161 GPUh 保留。17:03:16 单次启动独立 run wc-scout-dev6-paired-native-full24-ada-r2，launch e14a3299、GPU1/UUID19d4d100、supervisor707273/start944485942；17:06:40 admission 确认原 supervisor/post/inner/runner/容器活、compute707498、21066MiB、自身锁持有。17:08:49有界技术日志已确认原生产prompt guardrail于17:07:21通过并进入首条预热实际采样9/36步，NLTK故障点已越过。原6DEV/18正式+6warm/864pairs/1728CFG/1load和四CAL gate保持。整卡保守估计6.974166667 GPUh、上限8.75；账本used116.900759633932/reserved25.25/available83.849240366068，含保留旧未知16.5责任预约。已从文件读回当前聊天一次性 cara-bank24 于10月22日20:33半程、cara-bank24-2于10月23日00:17全程验收，预计00:01:43完成；按实际证据重估，不重派。终态接受后依次既定同D/X-R CPU→完整1624/14路径/已批12GPUh→PG-P1/P2/P3/P4；后续各自完整新机CPU和报价后执行。科学优先级见[638 CVPR论证](../research/638_CARA_CVPR_CONTRIBUTION_AND_EXPERIMENT_PRIORITIES_20261022.md)：相同实际时间及可比校准成本下，自动生成相对强前密C/A的增量。当前运行不是完整结果接受，54科研行及状态计数保持；两卡不再查询。
+
+## 2026-10-22 人类改为四卡唯一执行，BANK24 GPU已于15:46单次启动
+
+[636实际原件与接续](../research/636_WC_HUMAN_FOUR_CARD_ONLY_AUTHORITY_AND_BANK24_GPU_20261022.md)：直接人类“不管两卡服务器了，直接在4卡上做起来吧”已取代等待原两卡恢复的安排；worldcache-bank24已删除，本人旧88068／33620入口退出，不再查询或重建两卡巡检。四卡新权威池保留原12结算／26事件／cap226／origin79.99637737158223，原机当前仍未知，另保留旧BANK24 4.5＋完整1624 12共16.5GPUh责任预约，不充实际费用或确认GPU次数。两次控制入口失败均发生在GPU提交前并保留原件；只修外层R2目录绑定和专用native Python3.10控制，十生产payload／实际CPU source6d9cd494／1789＋29及科学逻辑保持。实际launch_id e6c04f54-dac1-476d-9c53-3bc4ff6fc253于15:46:54.448575启动GPU1／UUID GPU-19d4d100-f845-018d-ec30-def1553c01f5，supervisor688318/start944027781。15:48:15一次有效admission确认supervisor/post/inner/runner与GPU容器均活、compute PID688616、24696MiB、自身UUID锁持有；全24／18正式＋6warm／864pairs／1728CFG／1load／6新Native保持。池used116.825023108771／reserved25.25（16.5旧未知＋8.75本卡）／余83.924976891229，8.75为整卡上限，6.974166667为规划，未称Ada实测。已读回wc4-bank24-gpu-halfway-20261022于19:17一次技术半程、wc4-bank24-gpu-terminal-20261022于23:01独立终态，按实际launch门限19:16:08／23:00:21，不循环／不读科学partial。首次admission空stdin解析UNKNOWN已保留，修传输后只恢复原句柄；不得再派。本人成熟四卡master当前31383／原socket，专用native控制数据盘job必须保留。实际GPU已开始，完整CUDA协议／新机实费／质量仍待终态；原四CAL固定gate、DEV不拟合，BANK24全原件与实费接受→既定X-R／同D配额CPU→完整1624，其自身四卡CPU／完整报价和具体12批准保持。54科研行及status_counts不因启动增加科学接受，F/B关闭。
+
+## 2026-10-22 12:05 BANK24四卡完整执行工具CPU已独立接受
+
+[635完整原件与接续](../research/635_WC_READONLY_BUDGET_READER_FIX_AND_FULL_BANK24_TOOLS_CPU_R2_20261022.md)：11:58终态槽延后，实际仅于12:05:54.420407收取原R2/source6d9cd494/PID644729/start942609041，保存原件后离线34项接受全过。原14payload／1789＋29／五生成源和registration、一次提交恢复、结清后真实CPU post／四拒绝／collector、预算与锁前后物理metadata及终态独立SHA、原worker／fixture进程／两CPU容器／FD／IPC／资源锁退出、env-runtime均接受；原R1只读预算失败和UNKNOWN原件保持。当前BANK24完整新机执行scope CPU通过，GPU边界仍为TEST_ONLY CPU fixture，全24未到达／0评分／实际GPU费0，不产生神经实验结果。96／公开14／LPIPS和已验依赖复用，无新下载或重装。实际CUDA、Ada实测价格、fresh资源及唯一权威v2写入交接仍待，GPU-ready为false；6.974166667／上限8.75只是完整保守规划。R2两次检查均完成删除，无新长CPU或GPU任务；两卡下一15:19四小时只读定义保持。后续先完成完整权威历史／活动预留／旧机不新派fence与唯一写入交接，再按真实CPU三件套及原CAL12／gate进行单次准入；完整1624还需自己的新机CPU／重价并等待BANK24完整原件和实费接受，其具体12批准不重问。原全24／四CAL gate／DEV不拟合、BANK24→既定CPU诊断→完整1624、cap226历史与54科研行状态保持。
+
+## 2026-10-22 12:00完整工具CPU R2技术完成，独立终态待验
+
+[635技术原件与接续](../research/635_WC_READONLY_BUDGET_READER_FIX_AND_FULL_BANK24_TOOLS_CPU_R2_20261022.md)：11:53半程槽延后送达，实际仅于12:00:09.855954收取原R2技术状态；source6d9cd494／PID644729/start942609041／14payload与manifest一致。原worker已退出，health记录11:51:02.710220结束、wall35.577秒，报告一次提交及原句柄恢复、只读预算post、四项拒绝和真实CPU collector完成；预算与锁前后SHA／inode／mtime／大小相同，CPU容器peer／隐藏GPU与完整24未到达／0评分边界保持。这些仍为技术记录，未读取最终result／日志、终态独立哈希或运行accept，完整新机scope CPU尚未接受；11:58独立终态任务保留原句柄，按实际送达收件，不回填观察。半程bank24-full-tools-r2-cpu-halfway已完成删除，未改终态或两卡15:19四小时只读定义；0新派发／模型下载／Cosmos权重／CUDA／科研GPU／权威账本写。实际CUDA、Ada实测价格、唯一权威v2和GPU-ready仍待，原完整24／BANK24→既定CPU诊断→完整1624／具体12批准、cap226历史及54科研行状态保持。
+
+## 2026-10-22 完整工具CPU只读预算修复R2于11:50实际启动，11:53／11:58查收
+
+[635实际原件与接续](../research/635_WC_READONLY_BUDGET_READER_FIX_AND_FULL_BANK24_TOOLS_CPU_R2_20261022.md)：原R1完整失败／17项留存审计保持。修复后的source6d9cd494已GitHub发布，R2于11:50:27.049436单次启动PID644729/start942609041，独立job和target均为R2；14payload／原1789＋29及全部已验资源复用，不改旧R1 job。11:50:39一次admission确认原worker活、source／manifest／生成源／2CPU16GiB和旧R1失败绑定一致，已进入一次提交及结清后真实CPU post阶段；仅技术准入，尚未完整scope CPU接受。只读预算修复沿原accounting、已有锁rb／共享flock，8新控制＋20原工具回归通过，实际post预算／锁不改写及collector完整链仍待终态独立验收。已读回bank24-full-tools-r2-cpu-halfway于11:53一次半程、bank24-full-tools-r2-cpu-terminal于11:58终态，按实际launch最早11:52:27／11:57:27，不回填观察；旧R1终态自动化已完成删除。本人SSH master当前28085，四卡连接已恢复；GPU／CUDA／新价／唯一v2仍待，0新科研GPU／权威账本写。两卡15:19四小时只读、原完整24／BANK24→既定CPU诊断→完整1624／具体12批准、cap226历史与54科研行状态保持。
+
+## 2026-10-22 四卡连接已恢复，原完整工具CPU失败已留存；接只读预算修复R2
+
+[635原件与独立修复](../research/635_WC_READONLY_BUDGET_READER_FIX_AND_FULL_BANK24_TOOLS_CPU_R2_20261022.md)：本人SSH连接已一次恢复，当前master PID28085／原专用socket，未改FRPC或其他入口。11:33一次取回原sourcea25ae777的完整终态：worker记录73.079秒失败，原post使用BudgetPool.read的a+锁接口与只读workspace冲突，实际EROFS日志已留存；17项失败审计通过，原完整scope CPU明确不接受。原1789＋29／14payload／env-runtime、进程／已尝试容器及锁退出保持，不把失败后的未到达算通过。独立R2只将CPU预算读取改为已有物理锁rb／共享非阻塞flock，沿原accounting核算，并核对预算和锁前后SHA／metadata不变；8新测试＋20原工具回归通过，配方已冻结，须GitHub发布后一次实际CPU并另约半程／终态。模型／旧已验资源不重下或重跑，0CUDA／科研GPU／权威账本写。完整scope CPU／实际CUDA／实测价格／唯一v2／GPU-ready仍待；BANK24→既定CPU诊断→完整1624／具体12批准、两卡15:19四小时只读、cap226历史与54科研行状态保持。
+
+## 2026-10-22 原06:16两卡槽延后11:18仍连接未知，下一15:19
+
+[622两卡只读接续](../research/622_WC_FOUR_HOUR_TWO_CARD_MONITOR_AND_FOUR_CARD_EXPERIMENT_QUEUE_20261021.md)：原06:16槽实际仅于11:18:45.277915尝试一次gkd_minchen资源SSH，认证前255／connection reset；未取得当前GPU／compute／UUID锁／原句柄或完整权威v2，不判断空闲、未派发或终态，不回填06:16或中间观察。本人FRPC88068的parsed argv与33620监听一致，未重启、追加SSH或提交CPU／GPU，0账本写。按实际尝试＋14400秒，下一最早15:18:45.277915（unix1792653525.2779148），worldcache-bank24已读回改约15:19一次；两卡仅只读恢复及完整预算资料核对，不在两卡新派实验。最后成功资源／财务仍10月20日16:05历史，唯一v2交接仍待。四卡最新634的完整工具CPU连接恢复收件仍由独立自动化负责，原11:30定义／source／状态保持，本轮未查四卡worker或改其任务。BANK24→既定CPU诊断→完整1624／具体12批准、cap226历史与54科研行状态保持；常态未知无可行动变化静默。
+
+## 2026-10-22 11:07终态收件认证受阻，11:30恢复本人连接后续收
+
+[634本次原件与恢复安排](../research/634_WC_CONTAINER_LIFECYCLE_ACCEPTED_AND_FULL_BANK24_EXECUTION_TOOLS_CPU_20261022.md)：原08:09终态槽延后送达，实际11:07:53.556405仅一次原句柄收件，SSH退出255／Permission denied (publickey,password)，未取得当前远端PID／阶段／源码或终态；该时间为本地原件保存时间，不当远端观察。随后只读本机核对确认原SSH master PID85709与专用control socket均不存在；原收件器复用丢失连接后转为BatchMode认证被拒绝，不能据此判原CPU失败或退出。未追加SSH、重派、读取原CPU result／日志、运行accept、查询GPU或写账本。保留原UNKNOWN并将同一终态自动化改为11:30一次恢复接续：先恢复本机已授权私有SSH连接，再用新唯一文件收取原sourcea25ae777／PID632076/start941236421结果，不改旧job／科学闭包／FRPC或他人任务，不回填08:09观察。11:30是连接恢复收件时点，非worker ETA；完整scope CPU／CUDA／Ada实测价格／唯一v2和GPU-ready仍待。已验资源及完整24范围、两卡每4小时只读、BANK24→既定CPU诊断→完整1624／具体12批准、cap226历史及54科研行状态保持。
+
+## 2026-10-22 11:00半程收件未知，原独立终态句柄保留
+
+[634本次原件与接续](../research/634_WC_CONTAINER_LIFECYCLE_ACCEPTED_AND_FULL_BANK24_EXECUTION_TOOLS_CPU_20261022.md)：08:06半程槽延后送达，实际11:00:52.139584仅一次原句柄收件，SSH退出255；本地已保存UNKNOWN原件，没有获得当前PID／阶段／14件源码／env或退出状态，不据此判断原CPU成功、失败或停止。该时间是本地回执保存时间，不当远端观察，最近成功证据仍为08:01:50.919462的原admission。未追加SSH、读取最终result／日志、运行accept、重派或启动GPU；半程自动化bank24-full-tools-r1-cpu-halfway已完成删除，独立终态bank24-full-tools-r1-cpu-terminal保留原句柄与定义，不代收或回填08:06／08:09观察。完整scope CPU／CUDA／新机实测价格／唯一v2和GPU-ready仍待，原sourcea25ae777／全24范围、两卡每四小时只读、BANK24→既定CPU诊断→完整1624／具体12批准、cap226历史与54科研行状态保持。
+
+## 2026-10-22 完整BANK24执行工具CPU08:01单次启动，08:06／08:09查收
+
+[634实际原件与接续](../research/634_WC_CONTAINER_LIFECYCLE_ACCEPTED_AND_FULL_BANK24_EXECUTION_TOOLS_CPU_20261022.md)：原跨容器CPU已26项独立接受。新sourcea25ae777的完整部署工具CPU于08:01:40.854244单次启动PID632076/start941236421，复用原1789＋29／模型和全部已验依赖；一次admission20项身份／技术边界核对通过，实际CLI帮助0／缺参拒绝2、原env和2CPU16GiB限制保持，08:01:50观察原worker活、进入一次派发与结算后真实CPU post阶段，未终态接受。已读回唯一新ID bank24-full-tools-r1-cpu-halfway于08:06技术半程（最早08:03:40.854244）、bank24-full-tools-r1-cpu-terminal于08:09独立终态（最早08:08:40.854244）；创建延后只向后排，不回填观察。原bank24-fd-cpu-2原因完成已删除，避免历史ID碰撞的短别名也已替换删除。完整scope CPU／实际CUDA／Ada实测价格／唯一v2和GPU-ready仍待，0新科研GPU／权威账本写；保守全24规划6.974166667／上限8.75<12非实测。两卡四小时只读、原BANK24→既定CPU诊断→完整1624／已批12、cap226历史及54科研行状态保持。
+
+## 2026-10-22 跨容器CPU26项独立接受，接完整部署工具CPU
+
+[634实际接受与新卡](../research/634_WC_CONTAINER_LIFECYCLE_ACCEPTED_AND_FULL_BANK24_EXECUTION_TOOLS_CPU_20261022.md)：原07:25槽实际07:31:03.886818仅一次完整收件，source687ef2b8的26项独立接受全过，原1789＋29／五生成源、真实FD与Docker PID、全24失败保留／0评分、两锁／IPC与原进程退出、env／runtime保持。继续补齐一次GPU派发／原句柄恢复、结算后CPU post和host-PID绑定终态collector；20项新本地控制及相关回归通过，新scope CPU配方已冻结，须GitHub发布后单次实际运行，不以本地通过替代生产验证。原GPU分支改读真实新机完整CPU证明，不伪造旧注册；完整24与科学逻辑不改。保守规划6.974166667／上限8.75<12仍非Ada实测，完整scope CPU／CUDA／实际价格／唯一v2和GPU-ready仍待，0科研GPU／权威账本写。两卡四小时只读、BANK24→既定CPU诊断→完整1624／已批12、cap226历史及54科研行状态保持。
+
+## 2026-10-22 07:26跨容器CPU半程技术状态保持，独立终态待收
+
+[633技术原件与接续](../research/633_WC_SM89_COMPONENTS_ACCEPTED_AND_REAL_CROSS_CONTAINER_BANK24_LIFECYCLE_CPU_20261022.md)：07:20半程槽延后，实际07:26:53.919197仅一次原句柄技术收件，20项身份／技术边界核对通过；原source687ef2b8／12payload／manifest一致，health仍报告CPU25.092秒PASS，原supervisor和本人容器退出。真实FD／Docker peer核对、正常／失败／超时全24保留、post失败路径全24未到达和0评分保持；未读最终result／日志／独立终态哈希或运行accept。本半程自动化已删除，原bank24-fd-cpu-2的07:25独立终态安排／句柄保持，不回填计划时点观察。完整新机scope CPU／CUDA／实测价格／唯一v2交接及GPU-ready仍未通过；0新派发／模型下载／CUDA／科研GPU／权威账本写，两卡四小时只读、BANK24→既定CPU诊断→完整1624／具体12批准、cap226历史和54科研行状态不变。
+
+## 2026-10-22 跨容器生命周期CPU07:17实际启动，07:25独立验收
+
+[633实际原件与接续](../research/633_WC_SM89_COMPONENTS_ACCEPTED_AND_REAL_CROSS_CONTAINER_BANK24_LIFECYCLE_CPU_20261022.md)：SM89组件CPU R1.1已20项独立接受；source687ef2b8的新跨容器CPU于07:17:01.510432单次启动PID629593/start940968487，复用原1789＋29、模型／资源／前端和数值证明。一次admission20项身份／技术边界通过，health报告25.092秒CPU PASS，真实socket peer＝Docker PID、namespace与flock FD继承核对通过，正常／第三项失败／超时都保留全24；原post真实失败路径全24未到达、0评分，无神经输出或伪质量。独立终态尚未接受，已读回bank24-fd-cpu于07:20技术半程、bank24-fd-cpu-2于07:25终态；原组件终态自动化原因完成后删除，过期半程不回填。Docker nvidia runtime同次SETUP已观察注册，不充实际CUDA；完整GPU派发CLI／post watcher／科学collector绑定和完整scope CPU仍待。整卡保守规划6.974166667／上限8.75<12是估价，实际新机价null、0GPU／0实际预留／0权威账本；唯一完整v2交接仍缺，GPU-ready=false。旧机报价／旧余额不作fresh。按服务器全SHA后清理本人Mac重复代码副本46,023,934字节，源归档／Git／原件／模型和凭据保留。两卡每4小时只读不改，本任务未追加其SSH；BANK24完整原件／实费后既定CPU诊断再完整1624／具体12批准、cap226／origin历史和54科研行状态保持。
+
+## 2026-10-22 SM89组件CPU20项独立接受；接跨容器FD／PID及失败生命周期
+
+[633原件与新CPU卡](../research/633_WC_SM89_COMPONENTS_ACCEPTED_AND_REAL_CROSS_CONTAINER_BANK24_LIFECYCLE_CPU_20261022.md)：按06:47原时点一次终态收件后仅离线接受，R1.1原sourcea3cfddd9／1789＋29原SHA／三生成源／完整24输入与21项内存费用控制、原进程／容器／锁退出和env／runtime保持，20项全部通过。只接受执行组件CPU，不充完整新机scope／实际CUDA／Ada实测价格或GPU-ready。新增独立容器生命周期CPU代码与16项本地控制已通过：本人短socket用SCM_RIGHTS传真实flock FD，显式host PID namespace与实际Docker peer核对，真实子进程成功／失败／超时全24保留、测试目录事务费用加法、原post真实失败路径保留全部未到达而不填质量。新卡仍待GitHub发布／实际CPU；不重复已验资源／数值／前端／组件CPU。完整24保守规划6.974166667GPUh／上限8.75<12，来源为旧机全项乘2加容器和失败余量，非Ada实测；实际价格仍null，0GPU／0权威账本或预留。完整GPU派发CLI／post watcher／终态collector绑定、完整scope CPU、CUDA和唯一v2交接仍待，GPU-ready=false。旧R1.1半程因完整接受已过期删除，不回填观察；原两卡四小时只读保持，本任务未追加双卡查询。BANK24→既定CPU诊断→完整1624／具体12批准、cap226／origin历史及54科研行不改。
+
+## 2026-10-22 BANK24前端CPU19项已接受；SM89组件CPU R1.1实际启动
+
+[632原件与完整执行接续](../research/632_WC_BANK24_FRONTEND_ACCEPTED_AND_SM89_EXECUTION_ADAPTER_CPU_20261022.md)：原前端source907d20cb的19项独立接受完成，1789／1772原闭包、六请求／24保护位置／12范围拒绝及原进程／容器／锁退出通过。独立SM89组件R1首次控制面Python3.8路径API在stage／Popen前失败，0CPU，原件保留；R1.1 sourcea3cfddd9于06:41:04.063354单次启动PID625584/start940752742，先确认原R1 stage不存在，复用服务器完整1789并单列29件同2bd原SHA元数据。一次admission的16项身份／技术边界通过，health报告CPU18.459秒／命令0，真实输入及完整24范围、三生成源可逆SM89适配和21项内存费用控制完成；独立终态尚未接受。已读回bank24-sm89-cpu-r1-1于06:43半程、bank24-sm89-cpu-r1-1-2于06:47终态；原bank24-cpu-2原因完成后删除。模型／LPIPS／env／runtime复用，无新模型下载／CUDA／科研GPU／实际账本写。完整容器GPU supervisor／PID-FD锁／post终态／完整新机scope生产CPU、实际CUDA、八项新机价／整卡报价和唯一权威v2交接仍各自待，GPU-ready=false；不能把组件CPU或旧报价当整卡完成。两卡四小时只读自动化保持，本任务未追加双卡查询；BANK24→既定X-R／同D配额CPU诊断→完整1624／已批12GPUh、cap226／origin历史及54科研行状态保持。
+
+## 2026-10-22 BANK24新机前端19项独立接受；接SM89执行适配CPU
+
+[632执行适配卡与接续](../research/632_WC_BANK24_FRONTEND_ACCEPTED_AND_SM89_EXECUTION_ADAPTER_CPU_20261022.md)：06:13:25.442一次原终态收件并离线独立接受，原source907d20cb／9件payload／完整1789依赖与1772子集、六真实请求／24保护入口／12范围拒绝、原进程／本人容器／资源锁退出均通过，19项全过。只接受host_boundary_CPU；完整新机scope生产CPU／实际CUDA／新机整卡报价／GPU-ready仍false，八项新机价格仍null。继续独立SM89执行适配CPU：同原2bd41dc8单列29件真实元数据，不改原1789分母；原校准／H1／gamma及六DEV完整24重建通过，六类可逆runner主机替换和预算硬件谓词适配已完成本地7项单元＋21项内存费用控制。新CPU配方已冻结，须GitHub发布后单次实际派发并按真实launch另约半程／终态；它不重复资源／旧数值或前端CPU，仍不等于完整GPU容器supervisor／PID-FD锁／post终态生命周期通过。完整固定96／公开14／LPIPS复用，无新模型下载／CUDA／科研GPU／权威账本写；四卡仍需完整新生命周期CPU／报价与唯一v2交接。两卡原四小时只读监控保持，本任务不追加双卡查询。BANK24→既定CPU诊断→完整1624／具体12批准、cap226／origin历史及54科研行状态不变。
+
+## 2026-10-22 06:03半程：BANK24新机前端CPU技术完成，06:13独立验收保持
+
+[631技术原件与接续](../research/631_WC_OFFLINE_RESOURCES_ACCEPTED_AND_BANK24_FOUR_CARD_HOST_CPU_BOUNDARY_20261022.md)：06:02槽实际06:03:26.329876仅一次原句柄半程收件，原PID/start/source907d20cb／全部9payload／manifest一致，supervisor和本人容器已退出。health报告05:59:40.254结束、wall120.488秒，新探针退出0／精确marker通过，六真实请求、24保护入口及12范围变更拒绝已有worker记录，1789／1772件依赖、进程身份／缓存、env／runtime保持。完整费用清单保留8项新机待测价格，forecast／上限仍null；旧机规划不当Ada实测。半程未读最终result／日志／终态独立哈希或accept，不提前接受新机前端，更不充整个科研scope生产CPU／CUDA／报价／GPU-ready。bank24-cpu半程完成删除，bank24-cpu-2仍06:13完整收件，两卡06:16四小时只读不动；0新派发／下载／模型加载／CUDA／科研GPU／账本写，54科研行及cap226历史保持。
+
+
+## 2026-10-22 离线资源CPU已接受，BANK24新机边界CPU05:57单次启动
+
+[631原件与接续](../research/631_WC_OFFLINE_RESOURCES_ACCEPTED_AND_BANK24_FOUR_CARD_HOST_CPU_BOUNDARY_20261022.md)：R4.3完整离线推理／LPIPS资源CPU30项独立接受，原失败与env／runtime保持；完整96／公开14复用。GitHub source907d20cb发布后，BANK24新机依赖／生产前端CPU于05:57:39.015248单次启动PID623317/start940492237，原2bd41dc8／c1c95ce0的1789／1772件闭包全部恢复并保留原SHA。20项实际准入核对通过，原进程／只读容器活、隐藏GPU，getpass／五缓存与env保持；worker已核对完整依赖，正在六请求及24位置保护入口验证。已读回bank24-cpu于06:02一次半程、bank24-cpu-2于06:13完整验收；已完成r4-3-cpu-2删除，两卡06:16四小时只读保持。新机前端CPU尚未接受，完整科研scope CPU／SM89及GPU生命周期／实测报价／CUDA／唯一预算仍各自待，GPU-ready为false，0科研GPU／账本新增。54科研行、BANK24→完整1624、具体12批准与cap226历史保持。
+
+
+## 2026-10-22 四卡离线推理与LPIPS资源CPU已独立接受；接BANK24新机边界
+
+[631完整接受与新机CPU卡](../research/631_WC_OFFLINE_RESOURCES_ACCEPTED_AND_BANK24_FOUR_CARD_HOST_CPU_BOUNDARY_20261022.md)：R4.3一次终态收件及离线独立接受，30项全过，原入口导入／预训练LPIPS CPU两命令0；两个固定LPIPS完整SHA、NVRTC／loader、110解析复用证明、原进程／容器／锁退出与env／11runtime保持。96／公开14接受复用，不重下或全量重哈希模型，旧R4.1／R4.2失败保留。继续独立BANK24新机完整1,789／1,772件依赖、六请求及24位置保护入口CPU验证和全量费用清单；冻结入口的SM86断言需显式Ada适配，生产前端通过不充整个新机科研scope CPU／实际CUDA／完整实测报价／GPU-ready。两卡四小时06:16只读与唯一权威v2交接保持；BANK24→完整1624、具体12批准、cap226历史及54科研行状态不改，0科研GPU／账本新增。
+
+
+## 2026-10-22 05:38半程：R4.3两项CPU命令已退出0，05:41独立终态验收保持
+
+[630技术原件与接续](../research/630_WC_NUMERIC_UID_COMPILER_CACHE_FAILURE_AND_RESOURCE_CPU_R4_3_20261022.md)：05:35槽实际05:38:27.910528仅一次原R4.3技术收件，原PID/start/source、全payload与manifest一致；supervisor及本人容器已退出。health报告05:33:16.862结束、wall171.870秒，原受限入口导入与预训练LPIPS CPU两命令均0／精确marker通过，原110解析0证明、进程身份／五个自有缓存、env／runtime保持。半程只记录技术完成，未读取最终result／日志／终态独立哈希或accept；完整离线资源CPU仍待05:41一次原件验收，不充CUDA兼容／新机科研scope生产CPU／报价／GPU-ready。未新增下载／安装／Cosmos权重／CUDA初始化／真实评分／科研GPU／账本写。半程r4-3-cpu已完成删除；r4-3-cpu-2原05:41及两卡四小时06:16保持。原96／公开14、BANK24→完整1624／具体12批准／cap226历史及54科研行状态保持。
+
+
+## 2026-10-22 R4.2数字UID缓存失败已定位，R4.3剩余CPU验证已启动
+
+[630原件与接续](../research/630_WC_NUMERIC_UID_COMPILER_CACHE_FAILURE_AND_RESOURCE_CPU_R4_3_20261022.md)：05:24一次完整收件、离线不接受R4.2，17项独立失败留存核对通过。原栈已越过NVRTC／TE原生库加载，新的失败为TorchInductor默认缓存查getpass用户名，容器数字UID1000缺passwd条目且未供USER/LOGNAME；原env/runtime和资源保持。独立R4.3只补容器进程身份与五个新job缓存，不改系统passwd/依赖/原环境，不关闭编译或跳过库加载；复用110解析0和现有LPIPS／NVRTC，只新执行原入口导入及LPIPS两命令。21本地控制通过，sourcef6af9f38已GitHub发布，05:30:23.955单次启动PID621186/start940328731；一次准入实际getpass解析gaokuangda/UID1000、五目录所有权／写入通过，原进程和本人只读容器活，正在入口导入。已读回r4-3-cpu于05:35半程、r4-3-cpu-2于05:41完整收件；旧R4.2终态自动化已完成删除，两卡四小时06:16不动。原96／公开14完整接受保持，新资源CPU／CUDA／scope生产CPU／报价／唯一预算仍各自验，0新下载／安装／Cosmos权重／CUDA初始化／真实评分／科研GPU／账本写，54科研行状态、BANK24→完整1624／具体12批准／cap226历史保持。
+
+
+## 2026-10-22 05:19半程：R4.2入口CPU导入仍失败，05:24原终态保持
+
+[629本次技术原件](../research/629_WC_NVRTC_LOADER_DIAGNOSIS_AND_REMAINING_ONLY_CPU_R4_2_20261022.md)：05:18槽实际05:19:24.951仅一次原R4.2技术收件，原PID/start/source／全部payload／manifest一致，supervisor与本人容器退出；health报告05:14:13.448结束／wall36.554秒，唯一新入口导入命令1／marker缺失，LPIPS CPU探针未执行。原110解析0复用证明、现有NVRTC／LPIPS记录与env／runtime保持；14项身份／技术边界核对通过只记录失败，不接受完整资源CPU。半程未读最终result／日志／独立哈希或accept，新根因留05:24完整日志定位，不沿用旧R4.1原因推断。本次无额外SSH／新派发／安装／下载／Cosmos权重／CUDA／科研GPU／账本写。半程r4-2-cpu已完成删除；r4-2-cpu-2仍05:24且已补新失败定位接续并读回，两卡四小时06:16不改。已接受96／公开14、BANK24→完整1624／具体12批准／cap226历史及54科研行状态保持。
+
+
+## 2026-10-22 R4.1原失败已完整定位，R4.2仅补剩余CPU两命令
+
+[629故障原件与接续](../research/629_WC_NVRTC_LOADER_DIAGNOSIS_AND_REMAINING_ONLY_CPU_R4_2_20261022.md)：05:05一次完整收件并离线不接受R4.1，原source／全payload／manifest／失败／退出与资源锁核对保持；已定位Transformer Engine的NVRTC查找未绑定CUDA_HOME/CUDA_PATH，fallback又找不到ldconfig。一次本人环境只读诊断确认现有104,454,480字节NVRTC库；新R4.2只补自身容器进程路径，原env-r3／29组件／CPU解码／11runtime和科研stage保持。16项本地控制通过，source8925d168已GitHub发布；05:13:35.882单次启动PID619726/start940227924，一次准入确认原进程／本人容器／全源码与SHA、旧110解析成功证明和现存LPIPS权重复用，正在入口导入，无新命令终态通过。只新执行入口导入与LPIPS CPU两命令，2CPU16GiB／网络none／readonly root、workspace和Torch缓存，不重复下载或执行已验解析；Cosmos权重／CUDA／真实评分／科研GPU／账本0。已读回r4-2-cpu于05:18技术半程、r4-2-cpu-2于05:24完整验收，旧R4.1终态自动化已完成删除；两卡四小时只读06:16保持。固定96与公开14已接受，新机资源CPU／CUDA兼容／scope生产CPU／整卡报价／唯一权威v2交接仍分别验；BANK24→完整1624／具体12批准／cap226及54科研行状态保持。
+
+
+## 2026-10-22 04:40半程发现R4.1入口CPU导入失败，05:05完整查收保持
+
+[628本次技术原件](../research/628_WC_FIXED96_ACCEPTED_AND_LPIPS_OFFLINE_INFERENCE_CPU_R4_20261022.md)：实际04:40:27.595仅一次原R4.1技术收件，PID/start/source/全部payload/manifest一致；supervisor与本人容器退出，health为R4_CPU_RESOURCE_FAILURE_RETAINED，result存在但本次未读result／日志或accept。AlexNet244,408,911字节已下载并由worker核对原SHA，110件离线解析／Reason tokenizer命令0／精确marker通过，随后原受限推理入口导入命令1／marker缺失，LPIPS CPU探针未执行；原异常栈留05:05完整收件定位，外层AssertionError不当根因。13项身份／技术边界核对通过，只记录失败，不接受完整资源CPU。原env/runtime保持，Cosmos权重／CUDA／真实评分／科研GPU／账本0，无额外SSH／重派／重装；已接受96与公开14保持。半程r4-1-cpu已完成删除，r4-1-cpu-2仍05:05且已补故障定位／独立新版本接续并读回；两卡四小时只读06:16及BANK24→完整1624／具体12批准／累计cap226历史／54科研行状态保持。
+
+
+## 2026-10-22 固定96全件接受；R4.1离线CPU资源04:17启动
+
+[628实际接受与接续](../research/628_WC_FIXED96_ACCEPTED_AND_LPIPS_OFFLINE_INFERENCE_CPU_R4_20261022.md)：原R3完整96件／21,358,871,258字节已一次终态收件并独立接受，23项全过：全文件哈希与HF兼容路径、四Reason镜像完整SHA与原断点绑定、原进程／容器／锁退出、新外盘副本清理均通过。公开14件已验原件复用，不重下；原R1/R2失败与1,132,462,080字节断点保留。首次新CPU预检错引旧回执文件名，在创建stage前退出，失败保留；独立R4.1 sourcee5eedef4于04:17:03.983单次启动PID615773/start939888734，fresh原R4 stage不存在、数据盘321.586GiB／主存56.358GiB，15项技术准入核对通过。正在服务器直下官方LPIPS，原env-r3和11runtime保持；随后110离线路径／Reason tokenizer、原受限推理入口、预训练LPIPS合成CPU验证。Cosmos权重0／CUDA0／真实评分0／科研GPU0／账本0；资源CPU不充新机scope生产CPU或GPU-ready。已读回r4-1-cpu于04:40一次半程、r4-1-cpu-2于05:05一次完整验收，旧r3-96-cpu已完成删除；两卡worldcache-bank24四小时只读06:16保持。本轮未查双卡或改权威v2，BANK24→既定CPU诊断→完整1624及其具体12批准、cap226/origin历史与54科研行保持。
+
+
+## 2026-10-22 02:15两卡只读检查仍连接未知，下一06:16
+
+[608](../research/608_WC_STORAGE_FULLY_ACCEPTED_BANK24_READY_BUT_GPU_BUSY_20261019.md)：本槽实际仅于02:15:52.214821尝试一次原双卡SSH，仍认证前255/connection reset；未取得GPU/显存/compute/UUID锁/原句柄或完整权威v2，不据此判断空闲、未派发或任务终态。本人FRPC88068的私有argv身份与原33620监听一致，未重启、追加SSH或提交CPU/GPU，0账本写入。一次回执和离线UNKNOWN边界保留；按实际尝试＋14400秒，下一最早06:15:52.214821（unix1792620952.214821），worldcache-bank24已读回改约06:16一次，只读恢复及唯一账本交接，不在双卡新派GPU。四卡627的23:51半程为已完成历史，r3已删除；r3-96-cpu原03:51完整查收定义保持，本轮不查四卡或重建旧检查。原BANK24→完整1624/具体12批准/cap226/origin及54科研行状态保持；正常未知无可行动变化静默。
+
+## 2026-10-21 R3一次半程技术正常，94/96 worker回执，03:51完整收件保持
+
+[627 R3](../research/627_WC_FIXED96_HYBRID_R3_SERVER_MODELSCOPE_AND_ORIGINAL_HF_RESOURCE_CONTINUATION_20261021.md)：23:51:42.637仅一次原R3半程收件，Mac PID99269/source3d2dd5e1及原worker/manifest/依赖一致，21项技术核对通过；parent仍在下载原HF Predict主权重，外盘当前587,202,560/4,118,575,006字节，VAE尚未到达。server四个Reason1分片已有全SHA worker回执（共16,584,414,544字节），原1,132,462,080字节种子prefix绑定通过，原Docker退出及资源锁释放符合该子阶段完成。当前合计94/96个worker回执/16,732,686,372字节；不是完整96独立验收。Mac累计3次有界TLS错误，已越过最后出错区间继续写入，非终态失败。半程未读最终result或全96独立哈希，0模型加载/CUDA/GPU/账本写，无重启/重派/额外SSH；半程r3已完成删除，明晨10月22日03:51的r3-96-cpu完整查收和两卡四小时02:15定义保持。本轮不查双卡、不改科学scope/上游/具体12批准/累计预算；54科研行及状态不变，正常在途静默。
+
+## 2026-10-21 22:12两卡只读槽仍连接未知，下一10月22日02:15
+
+[608](../research/608_WC_STORAGE_FULLY_ACCEPTED_BANK24_READY_BUT_GPU_BUSY_20261019.md)：本22:12槽实际仅于22:14:10.178480尝试一次原双卡SSH，认证前255/connection reset；没有当前GPU/显存/compute/UUID锁/原句柄或权威v2观察，不判断空闲、未派发或终态。本机本人FRPC88068/33620私有argv身份及监听一致，未重启、追加SSH或提交CPU/GPU，0账本写入。原件与离线UNKNOWN边界保留；按实际尝试＋14400秒，最早10月22日02:14:10.178480（unix1792606450.1784801），worldcache-bank24已读回重约02:15一次，只读恢复和唯一账本交接，不在两卡新派GPU。四卡627资源R3原23:51半程／明晨03:51全件查收定义已离线核对保持，本轮未查四卡；旧R2的r2/sha检查均为已删除历史，不恢复。BANK24→完整1624及其具体12批准/cap226/origin历史和54科研行保持；常态未知无可行动变化静默。
+
+## 2026-10-21 完整96资源R3已启动，23:51半程／明晨03:51全件查收
+
+[627 R3](../research/627_WC_FIXED96_HYBRID_R3_SERVER_MODELSCOPE_AND_ORIGINAL_HF_RESOURCE_CONTINUATION_20261021.md)：原R2失败已完整本地收件并独立不接受，原源码/job及1,132,462,080字节断点保留。新GitHub source3d2dd5e1的R3于19:50:46.056单次启动Mac PID99269；19:51一次准入核对原server Docker PID527857/start936852533、source/worker/manifest及全部原96，16项全过，正接收原断点。四Reason1字节相同分片改server匿名魔搭、其余原HF缺失文件只Mac外盘；完整96/21,358,871,258字节分母、原HF revision/兼容路径保持。新实现14项控制通过，资源准入不是完整资产/生产CPU/GPU通过。2CPU16GiB/隐藏GPU，0模型加载/CUDA/科学GPU/账本写；server fresh数据盘352.642GiB，旧receiver不存在。已读回r3今晚23:51技术半程、r3-96-cpu于10月22日03:51完整全SHA；旧sha接续已删，两卡四小时只读22:12定义保持。完整资产接受后依次LPIPS/完整推理CPU/实际兼容/各scope新机CPU与报价/唯一权威v2交接，才接BANK24→已登记CPU诊断→完整1624，具体12批准及cap226/origin历史不变；科研54行不变。
+
+## 2026-10-21 四卡魔搭同字节Reason1短测更快，资源R2失败保留并接新来源
+
+[626服务器实测](../research/626_WC_FOUR_CARD_SERVER_MIRROR_ROUTE_COMPARISON_AND_FIXED_MODELSCOPE_WEIGHT_IDENTITY_20261021.md)：魔搭四个Reason1分片的元数据SHA256/大小与冻结NVIDIA精确一致；同一4MiB1.740秒、Mac代理11.843—12.416秒，两次16MiB1.106—1.164秒（13.74—14.47MiB/s），样本哈希交叉一致；短测不作完整稳速或全资源ETA。HF-Mirror首次4MiB3.787秒后429，直连HF两次20秒超时。另已只读确认原Mac R2 source7f79ceef/PID94749于18:23:48.385技术失败，8次SSLEOFError，原1,132,462,080字节partial及source/job保持；未重派或接受完整96件。旧r2半程已删，sha改约本日19:35一次故障/魔搭来源接续（不是新worker ETA）；新下载worker尚未启动，后续须独立源码/注册、断点绑定与真实launch半程/终态。两卡22:12四小时只读保持，0模型加载/CUDA/GPU/账本。
+
+## 2026-10-21 17:48槽延后18:11仍连接未知，下一22:12（四小时只读）
+
+[608两卡只读恢复](../research/608_WC_STORAGE_FULLY_ACCEPTED_BANK24_READY_BUT_GPU_BUSY_20261019.md)：本17:48资源槽延后送达，实际仅于18:11:20.181997尝试一次原双卡SSH，认证前255/connection reset；没有当前GPU/显存/compute/UUID锁/原句柄或完整权威v2观察，不判断空闲、原任务终态或当前未派发。本人FRPC88068/33620的私有argv身份和监听仍一致，未重启、追加CPU SSH或重派，0新CPU/GPU/账本写。worldcache-bank24已按实际尝试＋14400秒读回改约22:12一次（最早22:11:20.181997，unix1792591880.181997），同槽原件保留、不补轮询。两卡仅只读恢复/唯一账本交接，不在两卡新派科学GPU；最后成功GPU/v2仍10月20日16:05历史。四卡公开14文件已完整接受、96件生产R2 source7f79ceef/PID94749沿10月22日00:43半程/07:43全SHA，两定义SHA已离线核对保持，本轮不查询四卡。BANK24→完整1624/具体12批准和cap226/origin历史保持；无可行动变化静默。
+
+## 2026-10-21 公开两辅助模型全14已接受，独立资源检查关闭
+
+[623完整收件](../research/623_WC_PUBLIC_ASSET_R1_TIMEOUT_AND_MISSING_ONLY_R2_RESUME_20261021.md)：17:25恢复槽延后，实际仅于17:55:23.834读取原R2 PID397742/start934875508/source88ebc004；原任务15:17:25.447结束、wall3353.677414秒，原进程和本人容器退出。Qwen3Guard与SigLIP全部14文件/5,034,332,532字节独立Git-blob/SHA256及尺寸全过、两命令0；13件复用，唯一注册SigLIP权重请求与完成，15项额外范围核对全过。R1失败与16:23收件UNKNOWN原件保留，不将旧超时认作下载失败；只接受公开两辅助模型文件。automation-2已完成删除，sha已补真实三件套及复用证明；96件生产模型R2 source7f79ceef/PID94749仍按10月22日00:43一次半程、07:43全SHA，两个时点已读回保持。完整Cosmos资源、LPIPS、完整推理CPU、新机scope CPU/报价/兼容及唯一v2准入仍待，BANK24→完整1624/具体12批准/cap226历史与两卡4小时只读保持。0CUDA/模型加载/科研GPU/账本写；本人85709 master/63606 FRPC继续供资源使用。 [原件](../reports/wc_four_card_public_model_assets_resume_R2_terminal_recovery_20261021_1725.json) / [独立全范围接受](../reports/wc_four_card_public_model_assets_resume_R2_full14_resume_scope_acceptance_20261021.json) / [检查关闭与接续读回](../reports/wc_four_card_public_model_assets_resume_R2_completed_handoff_and_schedules_20261021.json)。
+
+## 2026-10-21 用户要求立即修复，独立模型续传R2已实际恢复
+
+[625即时修复](../research/625_WC_AUTHORIZED_MODEL_RELAY_IMMEDIATE_REPAIR_AND_MISSING_ONLY_R2_20261021.md)：用户“现在就开始修复”取代等待旧21:11才定位的安排，原R1失败已本地完整收件并离线不接受，原源/job/partial留存。新source7f79ceef通过11项实现控制并已GitHub发布，17:42:17.428单次启动外盘R2 PID94749；一次准入验原source/worker/legacy/manifest及句柄一致、复用全部86件，只请求注册10缺失，复制核对原385,875,968字节种子并已越过断点8MiB。4MiB/8次有界重试与脱敏错误已生效，模型只外盘、凭据只Mac。按首批分块观察将资源规划改14小时，原24小时wall不改：已实际约10月22日00:43一次技术半程（r2）、07:43一次全SHA（sha）；原8小时启动规划保留为历史，不当完成保证。公开R2原句柄恢复与两卡4小时只读保持；未称完整资源/生产CPU/GPU就绪，0CUDA/模型加载/科研GPU/账本写。 [实际新launch](../reports/wc_four_card_authorized_external_models_resume_R2_launch_20261021.json) / [准入与实际排程](../reports/wc_four_card_authorized_external_models_resume_R2_actual_schedules_20261021.json)。
+
+## 2026-10-21 外盘96件中转技术失败留存，21:11完整查收保持
+
+[621本次技术半程](../research/621_WC_FOUR_CARD_RESOURCE_COMPLETION_FIXED_PUBLIC_ASSETS_AND_AUTHORIZED_MODEL_GATE_20261021.md)：17:12仅一次本地捕获确认原外盘PID87082已退出，原source79c9d171/worker/manifest及完整96分母一致；health记录13:43:47.627下载Reason1首分片时RuntimeError退出，保留385,875,968字节partial。86个注册worker远端SHA通过回执仅合计141,176,513字节，不能当主要权重已齐或完整资源接受。半程不读result内容/最终远端资产、不accept、不SSH/重启/重派/清partial。原21:11完整收件保持，sha已补失败定位和独立缺失续传接续；本半程自动化已完成删除。公开R2的17:25恢复、两卡4小时17:48只读检查保持，0模型加载/科研GPU/账本写。 [原件与独立技术边界](../reports/wc_four_card_authorized_external_models_R1_midpoint_technical_failure_boundary_20261021.json)。
+
+## 2026-10-21 公开R2收件未知，17:25一次原句柄恢复
+
+[623公开资源接续](../research/623_WC_PUBLIC_ASSET_R1_TIMEOUT_AND_MISSING_ONLY_R2_RESUME_20261021.md)：16:23唯一终态收件在55秒内未返回JSON而超时，未取得原result/当前进程退出/全14哈希，状态保留UNKNOWN，不接受或重派。原件已保存，原worker/cache/两任务入口保持；只新建本地180秒有界收件器（不改原验收），automation-2已读回重约17:25一次恢复并使用新文件，sha21:11已补此接续。原96件17:11/21:11和两卡4小时17:48时点保持；没有第二次SSH、模型加载、科研CPU/GPU或账本写。 [回执与排程](../reports/wc_four_card_public_model_assets_resume_R2_terminal_unknown_boundary_20261021.json)。
+
+## 2026-10-21 GitHub 仓库更名为 CARA-cache
+
+GitHub 已按用户要求更名为 [kuangda-source/CARA-cache](https://github.com/kuangda-source/CARA-cache)，同一 repository ID 1394607313、私有可见性和 main 历史保留；本地 origin、四卡源码镜像 origin 与后续同步工具地址已更新，新地址已读回原 main 提交。当前本地目录 `worldcache_omr`、历史回执、已冻结 source/stage 和在途 worker 保持；原模型查收与两卡每4小时检查定义未改，实验顺序与预算继续依原接续。 [改名核对回执](../reports/wc_GitHub_repository_rename_CARA_cache_20261021.json)。
+
+## 2026-10-21 可复现生成器理论审查完成，真实效果沿原P1/P2验证
+
+[624理论报告](../research/624_WC_REPRODUCIBLE_POLICY_GENERATOR_THEORY_VALIDITY_AND_EVIDENCE_20261021.md)：纯本地审查已形成624报告及9项代数/结构/反例核对：输出二次式和有限可加图DP在其条件内成立，真实终点还受跨步抵消、latent/多锚点历史及有限候选覆盖影响。当前1624采集明确固定参考锚点s−1/s，职责为真实执行提案表；已批配置和范围不改。主线定位为部署时延与完整校准费用双约束的离线联合策略生成；独立收益由完整自然轨迹和同额对照验证。报告另明确两SELECT的统计职责、尾部守卫、取整余量及校准摊销，未新增算法/模型训练或科学接受。原16:23公开资源、17:11/21:11外盘资源、两卡每4小时17:48检查定义SHA全部保持；0服务器查询/新模型CPU/GPU/账本写。
+
+## 2026-10-21 SigLIP独立R2半程健康，16:23完整验收保持
+
+[623半程原件](../research/623_WC_PUBLIC_ASSET_R1_TIMEOUT_AND_MISSING_ONLY_R2_RESUME_20261021.md)：原R2在14:53:07.942一次半程核对中PID/start/source及全部job文件SHA一致；13件已验文件已复用，仅请求注册SigLIP权重，技术字节4.217/5.034GB，无错误、尚无result。仅技术健康，不提前完整接受；半程siglip已完成删除，原automation-2的16:23全14收件、96件外盘中转17:11/21:11、两卡每4小时17:48只读检查均保持。0重启/重派、0模型加载/GPU/账本写，正常无可行动变化静默。
+
+## 2026-10-21 公开模型R1超时留存，SigLIP缺失文件R2已单次续传
+
+[623原件与续传](../research/623_WC_PUBLIC_ASSET_R1_TIMEOUT_AND_MISSING_ONLY_R2_RESUME_20261021.md)：原公开14文件任务触及90分钟上限/TimeoutExpired，PID及自身容器退出；13件独立全SHA通过，唯一SigLIP权重缺，完整资源不接受。原job/result/partial保留，source88ebc004的新独立R2只请求注册缺失文件并复用已验件，14:21:31.718启动PID397742/start934875508；一次技术准入source/worker/manifest/文件一致、原进程活，尚无完整接受。新siglip已约14:52技术半程、automation-2已约16:23全14验收；本触发automation-3已删除。71,648字节新GitHub delta远端全SHA后已删外盘包；未重装基础/重下13件。原96件外盘中转PID87082的17:11/21:11、两卡只读4小时17:48均保持，sha已补R2真实接续，不代收。完整模型/推理/CUDA/新机scope CPU/报价/单一v2仍待，BANK24→1624和具体12批准/预算历史不变，0CUDA/模型加载/GPU/账本写。
+
+## 2026-10-21 两卡改四小时只读检查，四卡接续原BANK24→1624→自动生成器
+
+[622最新决策](../research/622_WC_FOUR_HOUR_TWO_CARD_MONITOR_AND_FOUR_CARD_EXPERIMENT_QUEUE_20261021.md)与[完整后续清单](../plans/WC_FOUR_CARD_EXPERIMENT_QUEUE_20261021.md)：按最新直接人类要求，worldcache-bank24已实际改为14400秒一次，只读恢复状态/原句柄/权威账本，不在两卡自动启动新GPU；以13:47:14.270913实际人类连接测试为基准，下一17:48（最早17:47:14.270913），原15:27由本次改频取代。四卡成为后续实验目标主机，原14:08/17:11/21:11模型检查保留，21:11 collector已补新机生产CPU/完整报价/唯一v2交接后的接续。顺序：资源与新机门→完整BANK24及共享CPU诊断→已批12GPUh完整1624→PG-P1单预算闭环→PG-P2公平消融→PG-P3跨预算/模型再校准→PG-P4冻结后独立确认。原source/scope/gate/已验结果与cap226/origin历史保留；旧机报价不作Ada实测，新机CPU/模型/兼容/共同权威账本仍须分别通过。当前仅准备与安排变更，0新远端查询/CPU/GPU/账本写；正常未知/忙静默。
+
+## 2026-10-21 13:47 人工重启本机FRP后仍缺远端listener，15:27资源检查保持
+
+[608本次人工恢复](../research/608_WC_STORAGE_FULLY_ACCEPTED_BANK24_READY_BUT_GPU_BUSY_20261019.md)：按直接人类要求核对本任务原63302私有argv身份后，仅一次SIGTERM并按原完整配置重启；新本人客户端88068已登录、原33620 visitor监听成功，配置SHA前后一致。随后一次SSH连接测试仍认证前255；后续本人新日志已明确分类为远端转发listener不存在。结论限于远端FRP注册/转发链路不可用，不能据此判断整台GPU服务器宕机，也未从当前不可用入口执行远端frpc重启。原63302仅为历史进程，今后按current-owned-process.private.json核对88068，不查旧PID或自动重复重启。无其他FRPC/服务器任务改动，未取得GPU/锁/v2/原句柄，0CPU/GPU/账本写。此次人工连接测试不充fresh资源、不后移原15:27（最早15:26:06.991610）；BANK24/1624及四卡14:08/17:11/21:11资源检查和外盘模型准备均保持。
+
+## 2026-10-21 12:37资源槽延后13:26仍连接未知，下一15:27
+
+[608资源接续](../research/608_WC_STORAGE_FULLY_ACCEPTED_BANK24_READY_BUT_GPU_BUSY_20261019.md)：原双卡12:37槽延后送达，实际仅于13:26:06.991610尝试一次资源SSH，认证前reset（exit255），没有当前GPU/显存/compute/UUID锁/v2/原句柄观察；不回填12:37或中间观察，最后成功仍10月20日16:05，不能据连接失败判断空闲、未派发或终态。本人FRPC63302的私有argv身份和33620监听仍一致，存储marker完整接受；无重启、追加CPU/其他SSH，0新CPU/GPU/账本写。原件与UNKNOWN边界保留，worldcache-bank24已读回改约15:27一次（最早15:26:06.991610，unix1792567566.99161）；本槽不重查、无可行动变化静默。原BANK24/source/CPU/gate和完整1624具体12批准/实际CPU/上游保持。四卡按621已实际公开模型下载及96件外盘中转，HF只读授权已通、token只Mac，14:08/17:11/21:11三原检查不改，本轮不查四卡或停其资源准备。
+
+## 2026-10-21 13:10 四卡96模型文件已从外盘单次中转；17:11半程/21:11全SHA
+
+[621实际资源任务](../research/621_WC_FOUR_CARD_RESOURCE_COMPLETION_FIXED_PUBLIC_ASSETS_AND_AUTHORIZED_MODEL_GATE_20261021.md)：GitHub source79c9d171的96文件/19.892GiB中转已实际启动PID87082，job /Volumes/data/worldcache_resource_relay_20261021/nvidia-fixed-models-r1；原PID/lstart/脚本/manifest一致，首个Mac launcher命令展开的误判只离线修捕获器，原件保留、0重启。新只读HF认证已通，token只Mac0600，不传服务器/Git；模型只外盘/Volumes/data，每件远端全SHA后删副本。新79源码delta服务器SHA/新项目HEAD已验，31,538字节外盘包已删，旧c9/e8不动。实际app安排wc4-model-relay-midpoint为17:11技术半程、sha为21:11完整验收与资源CPU接续；公开14文件原13:08收件仍跑/1.284GB技术字节，automation-3仅改约14:08新文件，不接受或重派。完整模型/环境/新机scope CPU/GPU兼容/共同v2仍未全接受，科学GPU0；原BANK24→1624、具体12批准/预算历史/两卡监控保持。
+
+## 2026-10-21 四卡公开模型在途，HF只读授权已通；本机模型中转仅外盘
+
+[621资源准备](../research/621_WC_FOUR_CARD_RESOURCE_COMPLETION_FIXED_PUBLIC_ASSETS_AND_AUTHORIZED_MODEL_GATE_20261021.md)：621已更新实际任务：公开Qwen3Guard/SigLIP于12:37单次启动，原PID389727/start934248913、14文件5.034GB；一次技术半程正常，automation-2已删，automation-3保留13:08全SHA收件。GaoKuangda浏览器授权与经批准的新三仓库只读令牌已实际通过Guardrail200/主权重206，token仅Mac0600、不上服务器/Git。/Volumes/data余约1.24TiB，96件19.892GiB生产文件外盘中转实现/配方已就绪，完整SHA后逐件清理；VAE按历史完整SHA证据恢复原兼容路径，runtime不改。旧c9项目保持，新e8源码增量服务器SHA已验、本机临时bundle已清理。完整资源/新机生产CPU/GPU仍未接受；原BANK24/1624顺序、具体12批准和两卡监控保持。
+
+## 2026-10-21 12:00四卡GPU1空闲，模型和新机运行验证仍待完成
+
+[620当前核对](../research/620_WC_FOUR_CARD_CURRENT_READINESS_GPU1_IDLE_MODELS_MISSING_20261021.md)：一次只读复查确认GPU1为23MiB/0%/无compute，数据盘余415.260GiB；env-r3及已验29项依赖组件保持。本人准备的模型缓存无模型目录，完整推理/模型资产、实际CUDA兼容、新机scope生产CPU/完整报价及共同v2尚未接受，当前project仍c9a2f95b。下一先准备有权限且SHA可核对的完整固定模型，再独立新stage和实际运行验证；0GPU/模型加载/账本写，未迁移原BANK24/1624或占卡，原两卡12:37检查保持。
+
+## 2026-10-21 10:36资源槽连接仍未知，下一12:37
+
+[608资源接续](../research/608_WC_STORAGE_FULLY_ACCEPTED_BANK24_READY_BUT_GPU_BUSY_20261019.md)：原双卡本槽仅一次资源SSH于10:36:33.101639认证前reset（exit255），未取得当前GPU/显存/compute/UUID锁/v2/原句柄；最后成功资源仍10月20日16:05，不能据连接失败推断空闲、未派发或终态。本人FRPC63302的私有命令身份和33620监听核对一致；无重启、追加CPU或其他远端查询，0新CPU/GPU/账本写。原件与离线UNKNOWN边界已保留；worldcache-bank24已实际改约12:37一次（最早12:36:33.101639，unix1792557393.1016388），同槽不重查、状态无可行动变化静默。BANK24已验CPU/source/gate优先与完整1624具体12批准/实际CPU/上游前置保持；四卡618/619依赖组件和本机代理/清理/HF授权缺口保持，本轮不查四卡、不重建旧环境监控或本机大包。
+
+## 2026-10-21 08:35资源槽连接仍未知，下一10:36
+
+[608资源接续](../research/608_WC_STORAGE_FULLY_ACCEPTED_BANK24_READY_BUT_GPU_BUSY_20261019.md)：原双卡本槽仅一次资源SSH于08:35:28.540566认证前reset（exit255），未取得当前GPU/显存/compute/UUID锁/v2/原句柄；最后成功资源仍10月20日16:05，不能据连接失败推断空闲、未派发或终态。本人FRPC63302的私有命令身份和33620监听核对一致；无重启、追加CPU或其他远端查询，0新CPU/GPU/账本写。原件与离线UNKNOWN边界已保留；worldcache-bank24已实际改约10:36一次（最早10:35:28.540566，unix1792550128.540566），同槽不重查、状态无可行动变化静默。BANK24已验CPU/source/gate优先与完整1624具体12批准/实际CPU/上游前置保持；四卡618/619依赖组件和本机代理/清理/HF授权缺口保持，本轮不查四卡、不重建旧环境监控或本机大包。
+
+## 2026-10-21 06:34资源槽连接仍未知，下一08:35
+
+[608资源接续](../research/608_WC_STORAGE_FULLY_ACCEPTED_BANK24_READY_BUT_GPU_BUSY_20261019.md)：原双卡本槽仅一次资源SSH于06:34:40.516376认证前reset（exit255），未取得当前GPU/显存/compute/UUID锁/v2/原句柄；最后成功资源仍10月20日16:05，不能据连接失败推断空闲、未派发或终态。本人FRPC63302的私有命令身份和33620监听核对一致；无重启、追加CPU或其他远端查询，0新CPU/GPU/账本写。原件与离线UNKNOWN边界已保留；worldcache-bank24已实际改约08:35一次（最早08:34:40.516376，unix1792542880.516376），同槽不重查、状态无可行动变化静默。BANK24已验CPU/source/gate优先与完整1624具体12批准/实际CPU/上游前置保持；四卡618/619依赖组件和本机代理/清理/HF授权缺口保持，本轮不查四卡、不重建旧环境监控或本机大包。
+
+## 2026-10-21 04:33资源槽连接仍未知，下一06:34
+
+[608资源接续](../research/608_WC_STORAGE_FULLY_ACCEPTED_BANK24_READY_BUT_GPU_BUSY_20261019.md)：原双卡本槽仅一次资源SSH于04:33:39.099812认证前reset（exit255），未取得当前GPU/显存/compute/UUID锁/v2/原句柄；最后成功资源仍10月20日16:05，不能据连接失败推断空闲、未派发或终态。本人FRPC63302的私有命令身份和33620监听核对一致；无重启、追加CPU或其他远端查询，0新CPU/GPU/账本写。原件与离线UNKNOWN边界已保留；worldcache-bank24已实际改约06:34一次（最早06:33:39.099812，unix1792535619.099812），同槽不重查、状态无可行动变化静默。BANK24已验CPU/source/gate优先与完整1624具体12批准/实际CPU/上游前置保持；四卡618/619依赖组件和本机代理/清理/HF授权缺口保持，本轮不查四卡、不重建旧环境监控或本机大包。
+
+## 2026-10-21 02:30资源槽实际02:32仍连接未知，下一04:33
+
+[608资源接续](../research/608_WC_STORAGE_FULLY_ACCEPTED_BANK24_READY_BUT_GPU_BUSY_20261019.md)：原双卡本槽仅一次资源SSH于02:32:34.568812认证前reset（exit255），未取得当前GPU/显存/compute/UUID锁/v2/原句柄；最后成功资源仍10月20日16:05，不能据连接失败推断空闲、未派发或任务终态。本人FRPC63302的私有命令身份与原33620监听核对一致，未重启客户端/服务器、未追加CPU或其他远端查询，0新CPU/GPU/账本写。原件与离线UNKNOWN边界保留；worldcache-bank24已实际改约04:33一次（最早04:32:34.568812，unix1792528354.5688121），同槽不重查、无可行动变化静默。原BANK24冻结CPU/source/gate优先与完整1624具体12批准和实际CPU/上游前置保持；四卡618依赖组件已接受而完整推理/模型/GPU仍未接受，619本机代理/清理及HF授权缺口保持，本轮不查四卡或重建已完成环境监控。
+
+## 2026-10-21 本机中转缓存已清理，后续使用本地代理并在服务端验SHA后删除临时副本
+
+[619代理与清理](../research/619_WC_LOCAL_PROXY_AND_VERIFIED_TRANSFER_CACHE_CLEANUP_20261021.md)：按人类最新要求，已先在四卡只读重验10份服务器副本完整SHA，再删除13个本机wheel/旧整包/已传增量/runtime重复包；实际释放1.958GiB，删除后可用11.992GiB。约0.38GiB的GitHub源码镜像、源码/验收/私有认证与技术日志保留；不动服务器资产、环境、实验或账本。后续网络使用本地127.0.0.1:7897 HTTP/HTTPS代理，优先直接落服务器数据盘/流式转运；确需本机中转时逐文件/分块，完整远端SHA验收后及时删除本机包，不堆积整套模型或重建已传full bundle。代理已实际返回Guardrail固定revision元数据200，但文件401/GatedRepo，本机无HF token文件/环境变量；没有模型权重下载，授权缺口与网络分开保留。原BANK24两卡02:30与完整1624具体12批准/前置均保持。
+
+## 2026-10-21 四卡依赖故障已修复；完整推理仍缺固定Guardrail模型资产
+
+[618实际修复边界](../research/618_WC_FOUR_CARD_ENVIRONMENT_EXTENSION_RELAY_AND_ISOLATED_CPU_REPAIR_20261021.md)：官方四扩展wheel已安装并逐SHA核对，匹配cosmos-cuda、依赖声明和decord元数据修正完成；实际uv依赖检查、Cosmos CPU请求导入/精确版本与四帧合成CPU编码解码通过。29项组件范围独立核对全过，196份实际已装依赖metadata已保存。原R2验证脚本的VIDEO占位符错误保留为失败，由GitHub source e8f80c6c的只读R3实际补验解码；未重装原基础或修改旧stage/env。完整推理导入另在固定Cosmos-Guardrail1 revision d6d4bfa899a71454a700907664f3e88f503950cf的离线缓存缺失处停止，R1/R2/R3完整接受仍false；只接受已修好的依赖组件，不称完整环境/新scope生产CPU/GPU就绪。原env-r2、项目c9a2f95b、11关键runtime、37项decoder payload及原失败结果保持；修复和补验PID/自身容器均退出，0CUDA初始化/模型加载/GPU/账本写。下一步仍需固定模型资产、GPU兼容及新机scope生产CPU/报价/共同v2；原BANK24优先和两卡02:30资源检查、完整1624具体12批准及上游条件保持。已完成的四卡半程/终态自动化均删除，缺模型不重试安装。
+
+## 2026-10-21 01:37四卡独立CPU修复已启动，半程正常，01:44完整查收
+
+[618实际修复](../research/618_WC_FOUR_CARD_ENVIRONMENT_EXTENSION_RELAY_AND_ISOLATED_CPU_REPAIR_20261021.md)：官方四wheel已在四卡逐SHA核对，GitHub source32062b18的独立修复于01:37:25.700单次启动PID330428/start930290906，worker97c7af2e/manifest9574f4a5。原env-r2/R1 job及项目c9a2f95b保持；新env-r3仍在复制已验基础。实际01:40:46.765半程源/句柄一致、无错误，未提前完整接受；本次半程监控已完成删除。新worldcache-2已约01:44终态（最早01:43:25.700），原R1 01:50失败收件与两卡02:30资源检查保持。0GPU/模型加载/账本写；实际修复CPU、模型/GPU兼容仍待。
+
+## 2026-10-21 00:50完整环境技术半程：扩展安装超时，01:50完整收件保持
+
+[617技术接续](../research/617_WC_FOUR_CARD_TORCH_BASE_ACCEPTED_FULL_ENVIRONMENT_SINGLE_DISPATCH_20261021.md)：实际00:50:50.355仅一次捕获原完整环境任务，原worker SHA和health中的source/manifest与launch一致；原PID已退出，health报告00:39:32.226结束、wall1226.773秒、CPU_ENVIRONMENT_PARTIAL_FAILURES_RETAINED。13命令中11项exit0，CUDA扩展轮安装exit1且日志出现operation timed out，随后Cosmos CPU请求导入exit1/CUDA extra not installed。原生库、Torch和Cosmos基础安装命令为0，完整依赖及新机生产CPU/GPU仍未接受。本次只读技术health/有界错误，未读最终result或提前验收，未修源/重派；0GPU/模型加载/账本写。本次worldcache半程任务已完成删除；worldcache-3的01:50原完整收件和worldcache-bank24的02:30资源检查均读回确认保持。失败原件留存，待原终态完整收件后离线定位新独立修复版本，不重跑旧基础R2或改原stage。
+
+## 2026-10-21 00:20资源槽实际00:29仍连接未知，下一02:30
+
+[608资源接续](../research/608_WC_STORAGE_FULLY_ACCEPTED_BANK24_READY_BUT_GPU_BUSY_20261019.md)：原双卡仅一次资源SSH于00:29:28.540在认证前reset（exit255），没有当前GPU/锁/v2/原句柄观察；最后成功资源仍为10月20日16:05，不能据旧状态准入。本人FRPC63302和原33620监听仍在，本轮未重启或追加远端CPU查询，0新CPU/GPU/账本写。原件与离线UNKNOWN边界已保留，worldcache-bank24已读回确认改约02:30一次（最早02:29:28.540，unix1792520968.539606），同槽不重查、无可行动变化安静。原BANK24优先、已验CPU/gate及完整1624具体12批准/实际CPU/上游接受前置不变；四卡完整环境00:50/01:50两次查收独立保留，不迁移原scope。
+
+## 2026-10-21 基础环境已验，完整Cosmos CPU安装单次在途
+
+[617真实接续](../research/617_WC_FOUR_CARD_TORCH_BASE_ACCEPTED_FULL_ENVIRONMENT_SINGLE_DISPATCH_20261021.md)：四卡基础R2已实际独立接受，Python3.10/Torch2.7.1+cu128、15检查全过、无CUDA初始化，旧基础不重跑。完整Cosmos CPU安装已于00:19:05单次启动PID290861/start929820876，source c9a2f95b；初次原进程/source/11关键runtime一致，六源命令全0，当前data-disk-native-libraries、无有界错误。新worldcache/worldcache-3已约00:50半程和01:50终态，旧worldcache-2完成删除。仍非完整环境/新scope生产CPU/GPU就绪，原BANK24/具体12批准及所有前置不变，0GPU/账本。
+
+## 2026-10-20 四卡CPU基础R2在途，两次查收已约
+
+[615真实接续](../research/615_WC_FOUR_CARD_DATA_DISK_WORKSPACE_AND_ENVIRONMENT_PREPARATION_20261020.md)：四卡数据盘余445.9GiB且本人工作区已验证可写，容器已拉取。首轮Torch依赖失败保留，R2固定pip/精确cu128轮已于22:44:35单次启动，PID256731/start929253857，初次检查无错误。已约23:15半程、10月21日00:15终态并接完整环境；GitHub源码完整包已传四卡并核验SHA，模型/驱动兼容/新scope生产CPU未通过，0GPU/账本。原双卡22:10槽实际22:19仍连接未知，worldcache-bank24已重约00:20；原BANK24优先及完整1624具体12批准和前置保持。
+
+## 2026-10-20 四卡备选环境获授权准备，数据盘工作区已实际可写
+
+[615环境接续](../research/615_WC_FOUR_CARD_DATA_DISK_WORKSPACE_AND_ENVIRONMENT_PREPARATION_20261020.md)：/data20t余445.9GiB，300GiB规划＋128GiB余量满足，独立工作区write/fsync/readback通过，缓存/env/tmp已落数据盘。GitHub权威commit用bundle转运；新CPU worker已实现，真实环境安装与模型资产未接受。四卡旧驱动/glibc与固定Cosmos要求有差异，准备采用独立CPU容器，不改共享驱动/daemon、0GPU/账本。原BANK24及完整1624卡具体12批准/上游前置保持，原22:10资源任务不改。
+
+## 2026-10-20 四卡Ada已只读盘点：入口可用，四GPU占用且缺已验WC环境
+
+[614四卡当前盘点](../research/614_WC_FOUR_CARD_ADA_FRESH_RESOURCE_ASSET_AUDIT_AND_MIGRATION_BOUNDARY_20261020.md)：20:55–20:57已恢复原账号/主机密钥认证，只读核对4×RTX6000Ada48GB，四张均有任务、无空闲UUID。本人项目目录及默认HF hub中未发现可直接复用的完整Cosmos/guardrail资产或已验WC环境；系统盘余4.7GiB、/data1余75GiB、/data20t文件系统余446GiB（本人可写落点未验）。硬件是备选，当前不能直接接实验；0GPU/模型加载/账本写，未迁移主机或新开监控。当前双卡FRPC63302、额外本人四卡visitor63606分属两入口；原BANK24/1624具体12批准与22:10资源接续保持。
+
+## 2026-10-20 20:44按人类重启本人FRPC，原SSH仍未知
+
+[重启后一次验证](../reports/wc_owned_FRPC_restart_original_SSH_once_test_20261020_2044.json)：原本人60782已核对身份后停止，以原完整配置启动63302；新登录与原33620监听均正常，但20:44:40一次SSH仍认证前255，当前新日志明确远端转发listener未注册。未动其他FRPC、服务器实验或GPU/v2，没有确认任何新生产CPU执行。当前本人客户端为63302，后续从私有current-owned-process记录读取；22:10原资源检查保持，此人工恢复测试不充GPU/财务资源观察。BANK24原顺序与完整1624卡已批12/实际CPU/上游前置保持。
+
+## 2026-10-20 原20:08资源槽连接仍未知，下一22:10
+
+[608最新接续](../research/608_WC_STORAGE_FULLY_ACCEPTED_BANK24_READY_BUT_GPU_BUSY_20261019.md)：实际20:09:33.313只执行一次资源SSH，仍认证前reset；没有当前GPU/compute/锁/v2观察，最后成功资源快照仍16:05，不能据此准入或判断原任务终态。原件与独立UNKNOWN边界回执完整保留，未追加CPU SSH、重启FRPC/实验或写账本。worldcache-bank24已更新22:10一次（最早22:09:33.313）；原BANK24保持第一顺位。完整1624卡的具体12GPUh批准已保存，仍等原入口恢复、新scope真实生产CPU及BANK24完整验收；不重问批准，不虚排未启动卡的半程/ETA。
+
+## 2026-10-20 完整1624卡上限12已明确批准；FRP远端入口仍待恢复
+
+[具体整卡批准](../reports/wc_policy_interval_assets_full1624_specific_whole12_approval_20261020.json)已绑定冻结config SHA75338efd，完整4CAL/1624正式格、14路径，预计9.918333333/上限12GPUh；无需重复确认。[613接续](../research/613_WC_FULL1624_INTERVAL_LABELS_AND_INDEPENDENT_ACTION_PRICES_EXECUTABLE_CARD_20261020.md)：19:55:07原入口复测仍在SSH认证前失败，本任务60782客户端登录/33620监听正常，目标与原官方visitor一致，但远端转发listener未注册。尚未确认任何新生产CPU执行或GPU准入；旧stage未知不能重放。原BANK24保持第一顺位，20:08资源恢复检查已保留并补入此批准。连接恢复后先读原句柄，完成新scope实际生产CPU；该CPU及原BANK24完整原件/费用均接受后，携本批准直接启动完整采集。每个实际新launch另约一次技术半程及预计结束验收，未启动卡不虚排完成时间。
+
+## 2026-10-20 完整1624卡本地数值通过，生产CPU受FRP远端入口阻挡
+
+[613当前状态](../research/613_WC_FULL1624_INTERVAL_LABELS_AND_INDEPENDENT_ACTION_PRICES_EXECUTABLE_CARD_20261020.md)：真实区间/价格新卡已实现：4CAL/1624正式格、14完整路径；12项本地控制及双flow28完整Toy路径/4060格原件重读通过，生成器费用桥接24控制通过。服务器CPU首提交在SSH认证前失败，尚未启动；本人TCP客户端60782已恢复登录/33620监听，但远端目标入口未注册，连接仍未知。原BANK24保持第一顺位，18:06槽仅一次未知连接回执，下一20:08；恢复后先读原stage/句柄再推进本卡CPU。预计9.918333333/上限12，GPU需具体整卡批准；实际CPU/GPU/新价格仍空。
+
+## 2026-10-20 完整1624区间标签/动作价格可执行卡，生产CPU待验
+
+[613执行卡与报价](../research/613_WC_FULL1624_INTERVAL_LABELS_AND_INDEPENDENT_ACTION_PRICES_EXECUTABLE_CARD_20261020.md)：完整真实区间标签与动作价格已落实为新卡：四CAL×406合法格=1624正式格，14完整Native/OFF/ON路径，含ON预热共2030格/13020双支读出试验。12项本地控制通过；新生产CPU尚待。完整预计9.918333333GPUh、上限12，需要这张整卡明确批准；不按严格<12豁免。原BANK24第一顺位、原CPU/source/gate和18:06资源时点保持，0新GPU/账本写。
+
+## 2026-10-20 16:05两GPU占用未变，BANK24未派发；下一18:06
+
+[608资源接续](../research/608_WC_STORAGE_FULLY_ACCEPTED_BANK24_READY_BUT_GPU_BUSY_20261019.md)：原16:01槽实际16:05:17.889仅一次轻量资源快照：原其他任务PID3015457/3015458仍占两GPU（48214/47826MiB、100%），自身两UUID锁free，BANK24全部派发标记与输出不存在，0本项目GPU/预留/新费用。v2逐原任务重建实结116.825023108771/cap226，余109.174976891229；原CPU、存储、CAL12与gate未重跑。下一最早18:05:17.889（unix1792490717.8894036），worldcache-bank24已实际更新18:06一次，不循环监听。最新611固定官方WC和612可复现策略生成器设计保持；人工32路径草案后置，新生成器22项CPU原型控制不代替真实生产CPU，本任务仍只接原BANK24。
+
+## 2026-10-20 可复现策略生成器优先：22项CPU通过，真实闭环待表/费用
+
+[612生成器设计](../research/612_WC_POLICY_GENERATOR_CPU_PROTOTYPE_AND_REPRODUCIBLE_VALIDATION_DESIGN_20261020.md)：已实现一般N区间语法、预算DP、一次联合边界/覆盖邻域和数据/费用隔离；22项CPU控制及45组穷举预算核对通过，合成JSON重复逐字节一致。人工32路径草案保留但不再先跑；先完整真实source/time统计、alpha动作价格与新生产CPU，再四FIT/Q≤8/两SELECT单预算闭环。基础最大64完整路径，额外采集另计，真实GPUh报价留空；0新GPU/真实质量结果。官方固定WC、RA原协议、原BANK24及两小时资源/半程ETA规则保持。
+
+## 2026-10-20 最新人类修订：WC固定官方推荐配置，不新增扫参
+
+[611固定WC主对照](../research/611_WC_OFFICIAL_RECOMMENDED_FIXED_BASELINE_HUMAN_POLICY_20261020.md)：后续未冻结R3/R4的WC主对照固定官方README推荐算法配置（阈值0.06及flow/OSI/saliency/动态阈值等原推荐参数），WC调参不再是主线前置。旧WC_HALF/DEFAULT/DOUBLE原数据与冻结卡保持身份；RA原协议、首轮32路径和原BANK24/资源自动化不改。新实际生产CPU/GPU结果仍空，完整去重范围与费用在派发前冻结。
+
+## 2026-10-20 14:00原07:33槽延后查收，两GPU仍占用；下一16:01
+
+[608资源接续](../research/608_WC_STORAGE_FULLY_ACCEPTED_BANK24_READY_BUT_GPU_BUSY_20261019.md)：原07:33心跳延后送达，实际14:00:10.808仅一次当前资源快照，未补填中间观察：其他任务PID3015457/3015458仍占两GPU（48214/47826MiB，利用率5%/8%；显存未释放仍busy），自身两锁free，BANK24全部派发标记和输出不存在，0本项目GPU/预留/新费用。v2逐原任务重建实结116.825023108771/cap226，余109.174976891229。下一最早16:00:10.808（unix1792483210.8082192），worldcache-bank24已实际更新16:01一次；不循环监听，原CPU/存储/CAL12/gate与v6设计保持，v6首轮32路径仍须自己的实际生产CPU。以下旧资源快照按时间阅读。
+
+## 2026-10-20 05:32两GPU占用未变，BANK24未派发；下一07:33
+
+[608资源接续](../research/608_WC_STORAGE_FULLY_ACCEPTED_BANK24_READY_BUT_GPU_BUSY_20261019.md)：实际05:32:52.004仅一次轻量资源快照：原其他任务PID3015457/3015458仍占满两GPU（48170/47824MiB、100%），自身两锁free，BANK24全部派发标记与输出不存在，0本项目GPU/预留/新费用。v2逐原任务重建实结116.825023108771/cap226，余109.174976891229；原CPU、存储、CAL12与gate不重跑。下一最早07:32:52.004（unix1792452772.0036604），worldcache-bank24已更新07:33一次；不循环监听、不问释放时间，v6首轮32路径仍须自己的实际生产CPU，不抢开新GPU。以下旧资源快照按时间阅读，v6设计保持有效。
+
+## 2026-10-20 03:31两GPU占用未变，BANK24未派发；下一05:32
+
+[608资源接续](../research/608_WC_STORAGE_FULLY_ACCEPTED_BANK24_READY_BUT_GPU_BUSY_20261019.md)：实际03:31:53.348仅一次轻量资源快照：原其他任务PID3015457/3015458仍占满两GPU（48170/47824MiB、100%），自身两锁free，BANK24全部派发标记与输出不存在，0本项目GPU/预留/新费用。v2逐原任务重建实结116.825023108771/cap226，余109.174976891229；原CPU、存储、CAL12与gate不重跑。下一最早05:31:53.348（unix1792445513.3477428），worldcache-bank24已更新05:32一次；不循环监听、不问释放时间，v6首轮32路径仍须自己的实际生产CPU，不抢开新GPU。以下旧资源快照按时间阅读，v6设计保持有效。
+
+## 2026-10-20 01:30两GPU仍占用，BANK24未派发；下一03:31
+
+[608资源接续](../research/608_WC_STORAGE_FULLY_ACCEPTED_BANK24_READY_BUT_GPU_BUSY_20261019.md)：原01:29槽实际01:30:40.464仅一次轻量资源快照：两GPU仍占满48170/47824MiB、100%，其他任务PID更新为3015457/3015458；自身两锁free、原BANK24全部派发标记和输出不存在，0本项目GPU/预留/新费用。v2逐原任务重建实结116.825023108771/cap226，余109.174976891229；源/CPU/存储/CAL12/gate不重跑。下一最早03:30:40.464（unix1792438240.4636245），worldcache-bank24已更新03:31一次，忙卡不变安静、不循环。v6新32路径仍是待实际生产CPU的草案，本轮不抢开新GPU。以下旧资源快照按时间阅读，v6设计保持有效。
+
+## 2026-10-20 v6修订任务已并入总表（原37＋新增11＝48项）
+
+[完整执行方案](../plans/cara_v6_20261020/README.md)和[机器注册表](../plans/cara_v6_20261020/TASK_REGISTRY_V6.yaml)。原已验行与新修订行是证据/依赖关系，不能相加为独立实验样本。BANK24原队列不改；首张32路径只是草案，本地结构通过，实际生产CPU/GPU未执行。新最终方法不沿用旧H1时间/质量。
+
+| 任务 | 优先级 | 支撑贡献 | 完整设计范围 | 当前缺口 |
+|---|---|---|---|---|
+| REV-R0 | 1 | C1, C2, C3 | CPU/文档，0新增生成 | production entry/runtime/source validation；final B1/B2 and TEST IDs |
+| REV-R1 | 1 | C1, C2 | 12 formal（或设计上限） | 32-path draft production adapter/CPU；measured time budgets and selection guards |
+| REV-R2-A | 3 | C1 | 8 formal（或设计上限） | 32-path draft production adapter/CPU；8 new formal endpoints |
+| REV-R2-N | 3 | C1 | 8 formal（或设计上限） | faithful source/code audit；adaptation note/formula parity/whole quote/real CPU |
+| REV-R3 | 4 | C2, C3 | 48 formal（或设计上限） | exact new union count/whole quote；fair finite WC/RA tuning；final freeze |
+| REV-R4-A | 2 | C1, C2, C3 | 168 formal（或设计上限） | 12 unseen identities；specific complete quote/CPU/approval if >=12；168 formal plus warm/load/score |
+| REV-R4-B | 4 | C2, C3 | 72 formal（或设计上限） | subset before R4A outcomes；B2 variant frozen；complete cost and phase decision |
+| REV-R5-W | 5 | C1 | 16 formal（或设计上限） | actual protection/source-age legality；own quote/production CPU；16 endpoints if enabled |
+| REV-R5-M | 5 | C1, C2, C3 | 48 formal（或设计上限） | mature CFG backbone/setting and calibration；asset/runtime and complete quote/CPU |
+| REV-R6 | 6 | C3 | 30 formal（或设计上限） | 2 inputs x5 roles x3 balanced rounds plus10warm；exclusive GPU and paid full pipeline；reuse new TEST videos for five-model scores |
+| REV-R7 | 7 | C1, C2, C3 | CPU/文档，0新增生成 | fill only accepted final-method results；choose narrative from actual direct-neighbor/plan findings |
+
+以下为旧卡与原37项证据记录，实测值保持。
+
+## 2026-10-19 23:28两GPU仍占用，BANK24未派发；下一10月20日01:29
+
+[608资源接续](../research/608_WC_STORAGE_FULLY_ACCEPTED_BANK24_READY_BUT_GPU_BUSY_20261019.md)：按原时点一次查询，两卡仍由原其他PID2883539/2883540占满；自身锁free、原BANK24无fence/launch/输出，0新提交/预留/费用，CPU/存储/CAL12不重跑。v2按原账重建116.825023109/cap226，余109.174976891。下一10月20日01:29（最早01:28:49.481），无变化安静，不连续监听；609分析和BANK24冻结范围不改。以下为历史。
+
+## 2026-10-19 CAL12独立效应复算完成，BANK24保持原计划
+
+[609完整分析](../research/609_WC_CAL12_FULL_FACTORIAL_A_AND_SHARED_PLAN_INDEPENDENT_EFFECTS_20261019.md)：固定25D布局，G01仅A22/23比纯C失真下降23.6808%，G11再加A21下降3.8689%；四格交互+0.004699897，收益重叠。固定26D/纯C，−D33/+D22共享计划比前密C下降15.3643%、4/4改善，也优于前密A。两条均有开发集独立保真增量，仍非旧H1在线优势/独立泛化/净加速；新计划本次诊断秒数更高。0SSH/新GPU/评分，BANK24仍23:28资源检查，不改原CPU、scope或gate；其单点门控不替代A3/新布局独立确认。以下为历史。
+
+## 2026-10-19 21:27两GPU占用未变，BANK24未派发；下一23:28
+
+[608资源接续](../research/608_WC_STORAGE_FULLY_ACCEPTED_BANK24_READY_BUT_GPU_BUSY_20261019.md)：一次fresh查询两卡仍由原其他任务PID2883539/2883540占满，自身两锁free但无空闲GPU。BANK24的fence/launch/授权/输出均不存在，0新提交/预留/费用；已验CPU/存储不重跑。v2按原账独立重建116.825023109/cap226，余109.174976891。下一23:28（最早23:27:49.684），按实际观察每两小时一次，busy不变安静。以下为历史。
+
+## 2026-10-19 19:25存储维护完整接受；BANK24仅等待GPU，21:27再查
+
+[608完整接受与资源接续](../research/608_WC_STORAGE_FULLY_ACCEPTED_BANK24_READY_BUT_GPU_BUSY_20261019.md)：FRP和五项存储维护已验收，HF/Wan全SHA及旧路径/运行文件指纹通过，home系统盘163.895→9.967GiB，实际减少153.928GiB。维护互斥解除。两GPU被其他任务满占，BANK24无fence/launch/输出，0新GPU费用；自身CPU、CAL12上游/gate均已验不重跑。资源worldcache-bank24下一21:27（最早21:26:40.496），之后按实际观察每两小时一次；原worldcache-cal12-bank24已完成删除。以下为历史。
+
+## 2026-10-19 18:46 FRP已修复，CAL12完整接受；HF/Wan迁移待19:12验收
+
+[607存储与实验接续](../research/607_WC_STORAGE_MAINTENANCE_FRPC_REPAIRED_CAL12_ACCEPTED_AND_MODEL_COPY_IN_PROGRESS_20261019.md)：本人原FRPC重连并保留gkd_minchen原入口，远端实验未重启。CAL12沿原launch恢复收件，全部12/8正式93帧/4warm及0.989912273GPUh已独立接受，原18:06 UNKNOWN保留；四CAL gate已冻结，探索未自动并入主稿。BANK24仍未派发，等待用户授权的存储迁移独立接受。
+
+本人Nano模型已删除，pip/uv缓存已在数据盘清空重建并保留原路径；HF/Wan约80GiB仍复制和全SHA校验，不能宣称全部迁移完成。唯一维护PID2856956/source b1d31ba2、0GPU；已约18:52技术半程/19:12终态各一次。旧路径原子交换兼容，维护marker未通过禁止新GPU。Wangshuai数据盘Nano全部索引必需文件可读，无权限改动。实际释放量待最终原件，详情及接续CLI见607和ready手册；以下为历史快照。
+
+| 当前探索 | 已接受证据 | 下一缺口 |
+|---|---|---|
+| X-A 连续修正 | 四格完成；晚两步−23.68%、补A21再−3.87%，收益重叠 | 连续A独立输入及成本确认；BANK24不覆盖A3 |
+| X-S-CURV 共享计划 | 同26D纯C比前密C−15.36%，4/4改善，实费与X-A共享一次 | 新布局独立输入/其他预算/g²消融及净成本；BANK24不覆盖新布局 |
+| X-S-GATE 单点门控 | 四CAL probe、mu/中位秩阈值已冻结；BANK24自身CPU已验 | HF/Wan已验收；等GPU空闲后执行六DEV完整银行 |
+| X-R 方向/边缘 | 原CPU分解保留，复用同一BANK24，无独立GPU | 银行后离线已登记方向分析；不把拟合当调度收益 |
+
+
+## 2026-10-19 18:06 CAL12 collection connection unknown; once18:30 recovery
+
+[606 connection boundary](../research/606_WC_CAL12_TERMINAL_COLLECTION_CONNECTION_UNKNOWN_AND_ONCE_RECOVERY_20261019.md) CAL12 original18:06 terminal collector failed before SSH key exchange. The saved receipt is OBSERVATION_UNKNOWN, not GPU/scientific failure or acceptance. Own local FRPC listener/control TCP remain present; local log reports remote visitor missing. No FRPC/server/GPU/post restart, no ledger/stage change or new submission. Preserve original unknown; same automation updated to once18:30, new recovered capture filename. Last verified16:54 was11 COMPLETE/1 RUNNING; current task/fee/lease unknown. BANK24 remains unsubmitted until full CAL12 acceptance and frozen gate. Earlier snapshots below are historical.
+
+## 2026-10-19 16:54 CAL12 technical midpoint healthy 18:06 final retained
+
+[605 midpoint](../research/605_WC_CAL12_FULL12_SINGLE_GPU_ADMISSION_AND_TWO_ONCE_COLLECTIONS_20261019.md) CAL12 original full12 technical midpoint checked once at16:54:38.629: 11 COMPLETE /1 RUNNING /0 NOT_REACHED. Original supervisor/runner/post PID and start_ticks match; own GPU0 lease held; error tags empty. No scientific scores, frames, tensors or method times read. Actual115.835110836/cap226, reserve2.5 unchanged; actual card fee unknown. Midpoint automation deleted; original18:06 final and frozen gate/BANK24 continuation retained. Earlier entries are historical snapshots.
+
+## 2026-10-19 CAL12完整12已单次准入 两次查收已安排
+
+[605](../research/605_WC_CAL12_FULL12_SINGLE_GPU_ADMISSION_AND_TWO_ONCE_COLLECTIONS_20261019.md) **连续24已完整接受后，CAL12于2026年10月19日15:57:36.932单次派发，原supervisor、runner、CPU post、GPU0锁及2.5GPUh整卡预留已独立核对。16:54只作技术半程，18:06作完整原件验收。当前没有CAL12新增质量或速度结果。**
+
+Original Window24 complete24/all16 and actual1.810126445GPUh are accepted604; never recollect it. CAL12 source2bd41dc8, entryc1c95ce0, supervisor2729092/start569156045, runner2729134/start569156584, post2729096/start569156053; GPU0 admission and own CPU accepted. Only16:54 technical /18:06 terminal once; then frozen CAL gate -> BANK24. Pool actual115.835110836/cap226, reserve2.5, available107.664889164; reservation is not expense. Original Window24 automation deleted. Earlier entries are historical snapshots; no repeated CPU, N10 or F/B work.
+
+## 2026-10-19 连续24完整结果 连续修正收回更多删D失真
+
+[604](../research/604_WC_WINDOW24_FULL24_ACCEPTED_CONTINUOUS_CORRECTION_RESULTS_AND_CAL12_NEXT_20261019.md) **原24路径、16正式视频的全部93帧评分及原件、控制、财务均已独立接受。连续A3相对单次A1的平均LPIPS降低19.7690%，相对同25D的C降低26.6335%，四场景各93/93帧均改善。相对26D仍有5.7235%的失真差距，不能称为等质量替代D。**
+
+Window24: ALL24/ALL16 accepted; actual1.810126445GPUh, pool115.835110836/cap226, reserve0. Next: own-CPU-accepted CAL12 -> frozen CAL gate -> BANK24. CAL12 actual dispatch pending fresh admission. Earlier entries are historical snapshots.
+
+## 2026-10-19 连续修正24半程正常，科学结论仍待15:48验收
+
+[602半程记录](../research/602_WC_WINDOW24_FULL24_SINGLE_GPU_ADMISSION_METADATA_RECOVERY_AND_COLLECTION_20261019.md)：14:01:37一次技术检查为20完成／1运行／3未到达，全部24分母保持，原句柄／锁／授权一致、错误标签空；未读取质量或方法时间，不新增论文效果证据。半程自动化已删除，15:48终态和后续探索顺序保持。以下为历史。
+
+## 2026-10-19 连续修正完整24路径已运行，新增科学结论仍待验收
+
+[602实际准入](../research/602_WC_WINDOW24_FULL24_SINGLE_GPU_ADMISSION_METADATA_RECOVERY_AND_COLLECTION_20261019.md)：原Window24／source a350ea98、16正式＋8预热／864pairs已于12:28:22.733在GPU0单次准入；原启动回执身份异常已恢复，保留旧unknown，原GPU重派0、原算法和CPU证明不改。14:01技术半程、15:48完整验收已实际安排，两小时资源巡检已删除。4GPUh仅为整卡预留，本卡实际费用与A3新增保真／速度结果均待原终态验收。
+
+N12原完整18已验结果保持；其连续修正24后续卡现在运行。X-A／X-S-CURV／X-S-GATE／X-R仍是已验CPU、等待原24完整接受的独立探索，尚无新GPU／视频结果，不并入主稿。原24完整接受后按[就绪CLI](../plans/WC_SCOUT_GPU_READY_CONTINUATION_20261019.md)接CAL12→四CAL冻结gate→BANK24，原N10不重查。以下为历史。
+
+## 2026-10-19 探索生产CPU已全部就绪，科学结果保持待执行
+
+[601实际CPU接受](../research/601_WC_SCOUT_LIFECYCLE_R1_PACKAGE_FAILURE_AND_R2_ISOLATED_REPAIR_20261018.md)：CAL12／BANK24 source2bd41dc8，每卡全部1789源/runtime和两命令接受，原数值／实际Cosmos入口CPU直接复用；原R1失败保留。GPU_dispatch_ready=true仅表示工具前置条件就绪，原24上游／fresh资源／实际GPU准入仍需完成。X-A／X-S-CURV／X-S-GATE／X-R仍是独立探索，新增结果与GPU费用0，不支撑新增论文贡献。
+
+原24在05:05:41.861一次fresh资源检查中仍无空闲UUID，未派发；[0503槽原件](../reports/wc_window24_fresh_resource_and_single_dispatch_preflight_20261019_0503.json)保留，下一07:06保持优先（最早07:05:41.861）。完整接受后按[就绪CLI](../plans/WC_SCOUT_GPU_READY_CONTINUATION_20261019.md)直接接CAL12，再四CAL冻结gate／BANK24，X-R共享。CPU查收任务已完成删除，原N10已验结果不重查；当前0本项目GPU任务／0预留，cap226和strict<12保持。以下为历史。
+
+## 2026-10-18 探索R1打包失败保留；R2新CPU待查收
+
+[601原件／修复](../research/601_WC_SCOUT_LIFECYCLE_R1_PACKAGE_FAILURE_AND_R2_ISOLATED_REPAIR_20261018.md)：R1因共用测试缺另一kind配置而未通过，不构成方法负结果；原件保留。新source2bd41dc8只补配置闭包，两个1789源stage已各单次派发，新半程10-19 00:00／完整00:03。原数值及真实入口接受不变，GPU_dispatch_ready=false，新增科学结果／GPU费用0。
+
+X-A／X-S-CURV／X-S-GATE／X-R继续作为独立探索；原24由00:51资源任务优先，随后CAL12→四CAL冻结gate→BANK24。cap226／strict<12／F/B关闭保持。以下为历史。
+
+## 2026-10-18 探索生命周期实际CPU在途；不新增论文结果
+
+[600新工具与CPU](../research/600_WC_SCOUT_DISTINCT_GPU_LIFECYCLE_LOCAL_CONTROLS_AND_PRODUCTION_CPU_20261018.md)：两新stage1787源／source59be5980已分别单次启动，20本地控制与6条CLI通过；23:45半程／23:48完整收件。R2数值及真实入口CPU已验并直接复用，独立生命周期CPU仍待接受，GPU_dispatch_ready=false。X-A／X-S-CURV／X-S-GATE／X-R保持探索、结果空白，未并入主稿。
+
+原Window24仍优先等待资源任务00:51，未派发；随后CAL12完整接受、四CAL冻结gate，再BANK24，X-R共享。0新GPU／预留／费用；N10全645评分已接受不重查，cap226和strict<12规则不变。以下为历史。
+
+## 2026-10-18 N10自动质量完整接受，原24已验CPU等待资源
+
+[599结果／统计／接续](../research/599_WC_N10_FULL960_ACCEPTED_DIMENSIONWISE_RESULTS_AND_WINDOW24_RESOURCE_QUEUE_20261018.md)：645适用评分全部成功，原960含155视频不可用／160静态N/A完整保留；五模型／19对比／4096 prompt bootstrap和0.386506105GPUh接受。N10自动质量表现在可以填写已验分数，按完整双seed提示词同队列比较；不填加权总分、不充新独立输入或生成速度。H1相对RA有主体／平滑／MUSIQ正向，强前密对照仍有取舍。N10原终态自动化已删除。
+
+原Window24真实五命令CPU已接受，22:50资源检查发现两卡被他人占满显存，因此未尝试派发／0新费用。worldcache-gpu恢复两小时检查，下次10-19 00:51，不早于00:50:02；空闲后依原a350ea98证明直接启完整24。新增探索两入口CPU亦接受，生命周期链待23:00本地接续；不抢原24、不增加原冻结scope。当前本项目0GPU任务／0预留，v2实结114.024984391／cap226、余111.975015609；strict<12及F/B关闭保持。以下为历史。
+
+## 2026-10-18 Both real scout entry CPUs accepted; N10 at22:43 preserved
+
+[598 accepted entries](../research/598_WC_SCOUT_R2_NUMERICAL_ACCEPTED_AND_TWO_REAL_ENTRY_CPU_LAUNCHES_20261018.md): source c1c95ce0, all1772 source files/runtime and both commands per kind independently accepted. CPU wall CAL12=143.263445s, BANK24=111.329267s. Exact accepted files: reports/wc_scout_<KIND>_real_entry_CPU_R1_independent_acceptance_20261018.json. production_entry_CPU_accepted=true; GPU_dispatch_ready=false. No video or acceleration result is implied.
+
+Original entry final automation deleted; new local lifecycle tooling continuation worldcache-gpu-2 scheduled once at23:00. N10 original22:43 final and its direct original Window24 launch stay first. GPU order: Window24 terminal acceptance -> CAL12 -> freeze CAL gate -> BANK24. No new GPU/reservation/cost. cap226, strict-under12 authority, historical accounting and F/B closure preserved. Earlier entries below are historical.
+
+## 2026-10-18 两张入口CPU半程已收，完整证明待接续接受
+
+[598半程记录](../research/598_WC_SCOUT_R2_NUMERICAL_ACCEPTED_AND_TWO_REAL_ENTRY_CPU_LAUNCHES_20261018.md)：原约22:32心跳延迟至22:34:37送达，实际22:35:05／06一次核对CAL12／BANK24原PID均结束、三证明存在、错误线索为空；未读证明内容或查全源，不判通过。worldcache-cpu半程已删除，原22:35终态任务与N10原22:43／随后原24单次启动均保持，不在半程重复终态收件。0新GPU／账本写，以下为历史。
+
+## 2026-10-18 R2完整248＋10接受，两张真实入口CPU已启动
+
+[598实际接受／启动](../research/598_WC_SCOUT_R2_NUMERICAL_ACCEPTED_AND_TWO_REAL_ENTRY_CPU_LAUNCHES_20261018.md)：R2 source db1de113完整248采样＋10拒绝控制已独立接受927.946723秒，原R1保留。两张实际配置与完整报价已冻结：CAL12预测1.876666667／上限2.5，BANK24预测3.407222222／上限4.5，包含全部warm／Native／加载与观察余量，规划非实费。
+
+共同source c1c95ce0／每stage1772源；CAL12入口CPU2245370-start562857758于22:27:54单次启动，BANK24 2245680-start562861304于22:28:29单次启动，各两命令未验收。worldcache-cpu新半程22:32、worldcache-cpu-2新完整22:35已实际创建，ID为应用删除旧数值任务后的复用，不重查旧任务。生产入口接受仍不覆盖未实现的GPU监督／post／原件链，GPU_dispatch_ready=false。N10原22:43及其后原24直接启动不改；新GPU仍原24→CAL12→BANK24。当前0新GPU／账本写，cap226／strict<12／历史保持，F/B关闭。以下为历史。
+
+## 2026-10-18 22:10 R2数值CPU原句柄结束，22:25完整收件保持
+
+[597半程记录](../research/597_WC_SCOUT_R1_NUMERIC_ACCEPTED_REFUSAL_BOUNDARY_R2_AND_PRODUCTION_NEXT_20261018.md)：2230226原句柄已不存在，worker SHA一致、三证明存在、错误线索为空；未读证明内容，不判断248＋10已通过。worldcache-cpu半程已删除；worldcache-cpu-2仍22:25逐项接受并接生产入口CPU，N10原22:43及原24直接接续不变。0新GPU／账本写，不循环监听。以下为历史。
+
+## 2026-10-18 探索R1数值248接受，拒绝边界R2已单次启动
+
+[597接受／修复与生产接续](../research/597_WC_SCOUT_R1_NUMERIC_ACCEPTED_REFUSAL_BOUNDARY_R2_AND_PRODUCTION_NEXT_20261018.md)：R1完整248已独立接受950.578805秒，原件保留。生产适配发现TEXT_REJECTED空历史被误判动作不一致；只修该拒绝边界，R2 source db1de113／PID2230226-start562657668／1759源于21:54:33单次启动，仍保留80＋168完整36采样，另加10拒绝控制。worldcache-cpu约22:10半程、worldcache-cpu-2约22:25完整收件，各一次；R1原完整收件自动化已删除。不提前查R2，不判新版本通过。
+
+六DEV身份审计R1无命中但两大文件读取缺口保留；R2流式补齐两文件后项目输出范围无命中／无错误，不称全球未曝光。新生产入口、配置／报价及独立入口CPU工具已准备，实际生产CPU尚未执行、GPU生命周期监督/post仍待，不充视频或加速结果。R2接受后依[runbook](../plans/WC_SCOUT_PRODUCTION_AND_GPU_CONTINUATION_RUNBOOK_20261018.md)直接生成配置、提交冻结、部署入口CPU并安排半程／ETA；入口接受不等于完整GPU准入。N10原22:43不改，收完沿已接受a350ea98直接启原24（预测3.064166667／上限4），GPU随后CAL12→BANK24。cap226／严格<12／原历史保持，新GPU0、F/B关闭。以下为历史。
+
+## 2026-10-18 21:31 探索248半程技术终态，21:45完整收件保持
+
+[596半程记录](../research/596_WC_SCOUT_NUMERIC248_SINGLE_CPU_LAUNCH_AND_ORDERED_GPU_QUEUE_20261018.md)：原PID2202370已消失，worker SHA一致，CAL12／BANK24／bundle三文件存在，有界错误线索为空；未读证明内容，不判CPU通过。worldcache-248-cpu半程已删除，worldcache-248-cpu-2仍21:45完整收件，N10原22:43与其后原24顺序不改。无新GPU／账本写，不重复派发或持续监听。以下为历史。
+
+## 2026-10-18 探索248数值CPU已单次启动，原24生产CPU已接受
+
+[596实际启动与执行顺序](../research/596_WC_SCOUT_NUMERIC248_SINGLE_CPU_LAUNCH_AND_ORDERED_GPU_QUEUE_20261018.md)：原24 source a350ea98的1749源／五命令生产CPU已接受，N10原22:43收完后直接复用原证明启动完整24（预测3.064166667／上限4），不重复CPU。新增探索source bbc63109／1758源／PID2202370-start562419905于21:14:55单次启动完整248数值Toy路径，尚未接受，不是生产CPU或视频。worldcache-248-cpu半程21:30、worldcache-248-cpu-2完整21:45已实际创建，各一次；不持续监听。
+
+GPU顺序N10原22:43终态→原24→CAL12→BANK24；新卡仍需实际生产适配／CPU、完整报价与fresh DEV6身份审计。严格<12／cap226／历史保持，当前新增GPU0／预留0／A3结果空，F/B结束，探索未并入主稿。[具体接续](../plans/WC_SCOUT_PRODUCTION_AND_GPU_CONTINUATION_RUNBOOK_20261018.md)。以下为历史。
+
+## 2026-10-18 原连续24生产CPU已接受，按最新授权顺序执行
+
+[595实际生产接受与接续](../research/595_WC_WINDOW24_PRODUCTION_CPU_ACCEPTED_AND_SCOUT_ORDERED_EXECUTION_20261018.md)：source a350ea98／stage wc-drop1-window24-production-cpu-r1-20261018／PID2184695已结束，完整1749源／五命令全0，153.492秒。原88数值与旧12控制保持，CPU接受原件reports/wc_drop1_window24_actual_production_CPU_R1_independent_acceptance_20261018.json。N10原22:43完整验收后直接复用此证明，以fresh v2／UUID启动原完整24（预测3.064166667／上限4），不重复CPU、不换source或缩卡；启动后半程和ETA各一次。N10原自动化时刻不变，已补入现有CPU接受与直接启动指令。
+
+新增CAL12／BANK24观察器和完整数值248入口已准备，尚未执行；数值与生产接受分开。后续继续原24→CAL12→银行，X-R共享，严格<12／cap226历史、F/B结束保持。本段写入时无新GPU派发或预留，A3结果仍空。以下为历史。
+
+## 2026-10-18 三条小成本探索：E0真实CPU已完成，GPU卡独立排队
+
+[594安排与实际CPU](../research/594_WC_THREE_SCOUTS_E0_REAL_CPU_AND_DEDUPLICATED_NEXT_CARDS_20261018.md)：五旧文件实际读取，0新GPU。AV28 step21在预设α∈[0,1]内以α=1最优，本轮不扫shrink；两Native轨迹产生一个26D新计划（−D33/+D22），仅为合法候选。X-R一状态分解不充预测收益，z仍缺probe。原N10 22:43验收与原完整24顺序保持；G11复用原24，新增CAL12只补G01和一个共享计划，DEV6银行含六Native参考，X-R共享，不恢复F/B。
+
+新探索26正式＋10预热／两次加载，设计预测4.643488GPUh、拟议计费上限合计6.25；原3.35粗估漏了新参考／完整加载等费用，旧估算和判据保留。新卡真实生产适配／CPU／fresh输入与v2/UUID准入尚待，0派发／0预留／0实费。原连续24预测3.064167／上限4另计，不缩四臂或重复G11。六DEV本地身份已登记，fresh服务器曝光审计待，均不称最终未见测试。[独立探索入口](../plans/scouts_20261018/README.md)。以下为历史。
+
+| 独立探索 | 当前已做 | 下一张卡／缺口 | 优先级 |
+|---|---|---|---|
+| X-A 连续修正 | AV28同状态α扫描完成；[0,1]内α=1最佳 | 原24收G11，CAL12只补G01 | 探索P1 |
+| X-S 共享计划 | 两Native得出合法−D33/+D22候选 | CAL12四旧CAL端点 | 探索P2 |
+| X-S 单点门控 | 旧四CAL成对端点可用，z尚缺 | CAL12采probe；新六DEV银行含Native参考 | 探索P2 |
+| X-R 方向／边缘 | 单状态分解通过，无预测收益结论 | 共享银行，0独立GPU | 探索P3 |
+
+本表四项均为探索，不加入冻结论文主结果；GPU设计卡仍待真实生产验证。
+
+## 2026-10-18 20:02 N10半程确认技术终态，22:43完整验收保持
+
+[593半程原件与解释](../research/593_WC_N10_MIDPOINT_TECHNICAL_TERMINAL_AND_FINAL_ACCEPTANCE_RETAINED_20261018.md)：原source／registration／CPU绑定及2077516/start561087236、2077521/start561087296原句柄一致，现均已结束，child exit0，原GPU0和锁释放；错误标签为空。仅一次只读SSH、无科学partial读取。runner的FINISHED_FAILURES_RETAINED是固定正常完成状态名，不据此判断有评分失败；全645是否成功／实际失败计数均未读取。
+
+v2已记录本卡0.386506105GPUh结算，累计114.024984391/cap226、预留0余111.975015609；这只是账本技术观察，原bill／完整960质量尚未独立验收。半程自动化worldcache-n10-960已删除，原worldcache-n10-960-2仍ACTIVE，今晚22:43（最早1792334562.8404052）一次完整收件不变。本轮不启动连续24或重评分；其报价3.064166667／上限4和真实生产CPU待办保持。F/B关闭，以下为历史。
+
+## 2026-10-18 当前：N09完整40接受，N10完整960已准入，20:01／22:43两次查收
+
+[591 N09结果](../research/591_WC_N09_FULL40_ACCEPTED_DEPLOYMENT_PROFILE_AND_N10_NEXT_20261018.md)已独立接受并推送21da18ed，实费2.769417131GPUh；原40/全部原件及财务通过。原N09终态自动化已删除，不重查旧任务。
+
+[592 N10真实派发](../research/592_WC_N10_FULL960_GPU_ADMITTED_AFTER_N09_AND_TWO_COLLECTION_TIMES_20261018.md)：source d10e9926／原stage wc-paper-n10-full960-production-cpu-r1-20261018／run wc-paper-n10-accepted160-full960-r1／launch_id be35c872-a1b6-4b74-8de3-a3aa62b2bc22，17:32:48单次派发、17:33:24独立准入接受。GPU0／supervisor2077516/start561087236、child2077521/start561087296，原271源及五命令真实CPU不改。完整960／645待评／155不可用／160静态N/A／五模型／19对比／4096 prompt bootstrap，0新视频，新质量分数尚未验收。
+
+20:01一次技术半程worldcache-n10-960（最早1792324815.8404052），22:43一次完整查收worldcache-n10-960-2（最早1792334562.8404052）；实际自动化均ACTIVE/COUNT=1，不提前读partial或持续监听。原资源自动化目前PAUSED，本轮未改。实结113.638478286/cap226，预留6.25、可准入106.111521714；预留非实费，原origin／历史保持。连续修正完整24已实际报价3.064166667／上限4，仍待真实新stage生产CPU，A3结果为空。N10验收后沿已登记主线接续，strict<12、半程／ETA各一次及F/B关闭保持。以下为历史。
+
+## 2026-10-18 17:23 N09完整40已接受：实费2.769417131，N10按原计划接续
+
+[591完整结果](../research/591_WC_N09_FULL40_ACCEPTED_DEPLOYMENT_PROFILE_AND_N10_NEXT_20261018.md)：1787源／十命令生产CPU及40全部原模型、93 RGB、内存／20组件原件和三组各10等价控制通过，零拒绝／技术失败／缺失；GPU及post exit0、GPU0锁释放。30正式逐帧与原N08已评分像素完全一致，已明确绑定复用2790距离，0新LPIPS模型／独立输入。三模式是诊断，不充N08 clean重复速度；独立动作价格和最小校准采集成本仍未测。实结113.638478286/cap226，预留0、可用112.361521714；origin与历史不变。
+
+N10原完整960／五模型／19对比／4.915预测／6.25上限按原CPU证明和fresh v2／UUID接续，当前本段写入时尚未派发。连续修正完整24已由N09真实观测生成3.064166667预测／4上限，实际新stage生产CPU和A3视频仍待。原N09终态自动化收完删除，F/B关闭，不自动恢复P／历史网络。以下为历史。
+
+## 2026-10-18 当前：N09 fresh R3完整40已在GPU0准入；14:48半程／17:23完整验收
+
+[590原任务与查收](../research/590_WC_N09_FRESH_R3_SINGLE_GPU_DISPATCH_AND_TWO_COLLECTION_TIMES_20261018.md)：07:19两卡空闲；R3已于12:37:23单次派发，12:41:52原件及独立接受确认1787源／原CPU、supervisor1947245/start559314698、runner1947617/start559319208、post1947246/start559314707、GPU0锁及完整5预留。原source1de07673／stage wc-paper-n09-production-cpu-r3-20261018／完整40/10warm+30正式/1440pairs不变，forecast4.245833333／上限5；初始27秒pending回执保留，不重派。
+
+原launch reports/wc_paper_N09_actual40_R3_GPU_launch_20261018_123616.json。半程最早unix1792306043.4642522、worldcache-n09-r3已约14:48；终态最早1792315343.4642522、worldcache-n09-r3-2已约17:23，各一次，不持续监听。v2实结110.869061155/cap226、完整预留5、可准入110.130938845，实际本卡费待结算。另一GPU不并发N10/重模型CPU。N09原件及费用完整接受后接已备N10完整960；连续修正完整24还待真实N09观测/报价/生产CPU。资源每两小时保留，下次不早于14:41:52，约14:45，距固定检查15分钟内复用该检查。strict<12／origin历史及F/B关闭保持。以下为历史。
+
+## 2026-10-18 当前：N09忙卡预检不消耗原派发标记；06:22资源检查保持
+
+[589客户端补充](../research/589_WC_N09_CLIENT_BUSY_RESOURCE_PREFLIGHT_PRESERVES_FRESH_STAGE_20261018.md)：N09写fence前只读重查本UUID显存／进程，明确忙卡返回N09_RESOURCE_BUSY_NOT_DISPATCHED_NO_FENCE，0子进程／授权／预留／费。18本地控制及CLI通过；原1787源／R3真实十命令CPU证明、本地数值和四观察源／监督／worker／post／合同重验保持，不改服务器stage。预检非原子准入，原监督v2/UUID最终判断不变。未知通信仍不重放。
+
+N09完整40／预测4.245833333／上限5仍优先，原件与财务收完后接已准备的N10完整960（4.915／6.25，0新分数）；连续修正完整24仍待N09观测／报价／生产CPU。最近资源仍为04:23:09两卡被他人占满，本轮0 SSH，下次06:22／每两小时不变。cap226／origin历史、strict<12、半程与ETA各一次及F/B关闭保持。以下为历史。
+
+## 2026-10-18 当前：N10完整960派发与终态代码链已准备；N09优先等待资源
+
+[588代码与验收准备](../research/588_WC_N10_FULL960_GPU_CLIENT_AND_INDEPENDENT_TERMINAL_SOURCE_READY_20261018.md)：客户端单次派发、半程／ETA一次收件和逐项原件／实际财务独立验收已实现，11本地控制及3 CLI通过。合成评分仅用于单元控制，0新质量／GPU；原source d10e9926／271源／真实五命令CPU证明与4.915预测／6.25上限保持，服务器stage不改。原160／960、645待评／155不可用／160静态N/A、五模型／19对比不缩。
+
+N09 fresh R3完整40／预测4.245833333／上限5仍优先；原件与财务收完后再接N10，实际测速不并发重模型CPU／评分。连续修正完整24仍待真实N09观测、报价与生产CPU，A3结果为空。最近资源证据仍为04:23:09两卡被其他账号占满，本轮0 SSH；下次06:22、每两小时查看不变。最近实结110.869061155/cap226、预留0余115.130938845是已有快照，准入重读fresh v2/UUID，origin历史、strict<12／半程与ETA各一次、F/B关闭保持。以下为历史。
+
+## 2026-10-18 当前：N10完整960真实生产CPU已接受；GPU下次06:22查看
+
+[587完整接受](../research/587_WC_N10_FULL960_ACTUAL_PRODUCTION_CPU_ACCEPTED_AND_TWO_HOURLY_GPU_QUEUE_20261018.md)：source d10e9926／271源／四组控制＋实际960入口五命令全0，原五模型证明及完整4.915预测／6.25上限重验，实际31.1677秒。原PID1740470终态，半程／完整各收一次，CPU自动化已删除。原160／960、645待评分／155不可用／160静态N/A、五模型／19对比保持；0新质量／GPU。客户端GPU派发和完整960终态接受工具仍待，不把CPU通过当GPU准入。
+
+04:22批次已一次实际查收，两卡仍由原PID1615193／1615194占满显存，自身无GPU任务／预留；fresh v2实结110.869061155/cap226，余115.130938845，origin历史保持。下次不早于06:22，两小时周期不变，延后04:22心跳只读已有本地回执。N09 fresh R3完整40／预测4.245833333／上限5仍优先，不重跑CPU或重放旧fence；N10评分与连续修正完整24按原依赖接续。strict<12／半程和ETA各一次、F/B关闭／无训练人评OMR保持。以下为历史。
+
+## 2026-10-18 当前：N10完整960生产输入检查与工作量清单已准备，费用仍待
+
+[584准备报告](../research/584_WC_N10_FULL960_UNPRICED_PRODUCTION_INPUTS_WORKLOAD_AND_NEXT_20261018.md)：实际五模型CPU与原160／960重新核对，645待评分／155不可用／160静态N/A不变；不加载神经框架的真实准备入口通过，原18对比及固定前密A/C补充共19对。五角色采样工作量、16项生产依赖与原244源均绑定，无覆盖；18本地控制全过。未报价模板与正式配置分开，普通生产validator仍拒绝，0新质量／生产CPU／GPU。
+
+下一步补完整费用依据、真实报价、独立stage生产CPU及原完整评分。N09 fresh R3／原40／4.245833333预测／上限5优先，每两小时资源查看保持，不提前SSH或重放旧fence；连续修正完整24代码已准备，真实N09观测／报价／生产CPU／A3视频待。本轮无新GPU或账本写入，cap226／origin及历史、strict<12、半程／ETA各一次不变，N09测速不并发重CPU。F/B关闭。以下为历史。
+
+## 2026-10-18 当前：完整24执行／验收代码链已准备，N09按每两小时资源检查推进
+
+[583准备报告](../research/583_WC_WINDOW24_GPU_CLIENT_FINAL_ACCEPTANCE_AND_PRICING_SCOPE_R2_20261018.md)：GPU客户端、原件收件和16正式93帧／六对比独立验收已实现；四组37本地控制全过，含负结果保留、拒绝／缺帧／超限及原任务释放。安装器完整24 scope缺失已本地复现并修复，旧88数值源不变。N09新观测前补充登记报价资格R2，保留原40拒绝分母、四条完整A_NO_P成本源及原费用公式。
+
+实际N09组件观测／完整24报价／生产CPU／A3视频结果仍空。N09 fresh R3真实CPU已接受，原40／forecast4.245833333／上限5优先等待两小时资源查看，不重放R2 fence、不重跑CPU；N10真实五模型和960输入已接受，0质量分数、生产／报价待。本轮0 SSH／新GPU／真实账本写入。最近已接受cap226／实结110.869061155／预留0余115.130938845是既有快照，准入读fresh v2／UUID，origin历史与strict<12、半程／ETA各一次保持；N09实际测速不并发重CPU。F/B关闭。以下为历史。
+
+## 2026-10-18 当前：完整24的CPU部署／收件和GPU监督代码已准备，仍待真实报价与生产验证
+
+[582本地准备](../research/582_WC_WINDOW24_CPU_STAGING_ACCEPTANCE_AND_GPU_SUPERVISION_SOURCE_20261018.md)：不可变新stage安装、完整生产CPU五命令、一次CPU收件／独立接受、v2逐UUID监督和原PID＋start_ticks自动post已实现；九项本地控制通过，包括另一UUID在途仍可本卡结算释放、忙卡0子进程／0预留／0费。初始输出父目录缺失的本地失败保留，修复后九项全过。152 Python依赖与原1686 payload无覆盖冲突，五CLI与提前ETA／缺报价拒绝通过，0 SSH或新GPU。
+
+客户端GPU派发／原件收件／最终独立验收工具仍待，实际新stage／完整生产CPU／报价／A3结果均空，完整24／16正式／旧12控制／四warm重复／前21步不缩，原88数值源不变。N09 fresh R3真实CPU已接受，原40／forecast4.245833333／上限5等待两小时资源检查，有资源按R3证明／fresh授权／v2／UUID推进，不重放R2 fence或重跑CPU。N10真实五模型／960输入已接受，0质量分数，评分生产／报价／GPU待。无本项目CPU或GPU在途；最近cap226／实结110.869061155／预留0余115.130938845及origin历史保持，strict<12与半程／ETA各一次不变。N09实际测量不并发重CPU，F/B关闭。以下为历史。
+
+## 2026-10-18 当前：连续修正完整24运行／验收与报价代码已准备；N09继续等待GPU
+
+[581源准备](../research/581_WC_WINDOW24_RUN_POST_AND_PRICING_ENTRY_PREPARATION_20261018.md)：新独立生产模块、运行与16正式93帧评分入口、真实N09绑定的整卡报价构造器已实现，本地8项控制及3条CLI通过；真实未准入回执在写配置／报价前被拒绝。全部24／12旧端点／四完整36guided重复／两轮共同前21步保持，原88数值源不变。组件包含区间仅作明确费用规划代理，规则已提前登记，不能当动作单价或净加速。真实N09观测／配置／报价／完整生产CPU及新GPU派发验收壳仍待，A3结果空。
+
+N09 fresh R3完整1787源／10命令真实CPU已接受，原40与forecast4.245833333／计费上限5保持；worldcache-gpu每两小时查看，按fresh资源／R3证明／授权／v2／UUID准入，旧R2 fence不动、不重跑CPU。无本项目CPU／GPU在途，最近cap226／实结110.869061155／预留0余115.130938845及origin历史保持。N10五模型／实际160×6输入已接受，0质量分数，评分生产／报价／GPU待。strict<12、长任务半程／ETA各一次不变；N09正式GPU测量不并发重CPU，F/B关闭。以下为历史。
+
+## 2026-10-18 当前：N09 fresh生产CPU已接受，完整40等待GPU；连续修正旧12对照已绑定
+
+[580完整接受与接续](../research/580_WC_N09_FRESH_CPU_ACCEPTED_ALL12_WINDOW_CONTROLS_READY_AND_GPU_QUEUE_20261018.md)：source1de07673／R3新目录／1787源／九组控制及真实完整40入口共10命令已独立接受，bundle182.2257秒，原PID1699795终态。02:43半程及02:46完整原件各一次完成，两个CPU自动化已删除；原R2未准入fence保留，fresh R3未GPU派发。worldcache-gpu每两小时查看一次，资源可用时直接接R3证明、原40范围／forecast4.245833333／计费上限5，经fresh授权／v2／UUID准入推进，不重复CPU。
+
+连续修正完整24的全部12旧端点已从原18原件重验并绑定，八项语义控制全过；仅是准备，原服务器文件未重审，仍需真实生产／12旧端点与四warm控制／N09价格报价，A3结果空。88数值源不变。N10五模型R2和原160／960实际输入已接受，0质量分数，评分生产／报价／GPU待。目前无本项目CPU／GPU在途；最近账本cap226／实结110.869061155／预留0余115.130938845及origin历史不变，strict<12和长任务半程／ETA各一次保持。N09正式GPU测量不并发重CPU，F/B关闭。以下为历史。
+
+## 2026-10-18 当前：N09 fresh完整生产CPU R3在途；GPU每两小时查看
+
+[579当前原任务](../research/579_WC_N09_FRESH_FULL40_CPU_R3_RUNNING_WHILE_TWO_HOURLY_GPU_CHECK_20261018.md)：source1de07673／新stage wc-paper-n09-production-cpu-r3-20261018／PID1699795/start555732410／1787源／194 overlay及10完整CPU命令已于02:40:20.584985单次派发。02:43一次技术半程、02:46一次完整原件接受，worldcache-n09-r3-cpu／worldcache-n09-r3-cpu-2；原N09 R2 GPU未准入的fence和0费用保持，fresh R3未GPU派发、不提前查CPU进度或GPU占用。
+
+N10五模型R2全5真实CPU及原160／960实际输入已独立接受，0质量分数；完整评分报价／生产CPU／GPU待。连续修正88数值CPU已接受，完整24生产／旧12端点与四warm控制／N09价格报价待，A3结果空。worldcache-gpu继续每两小时一次只读资源查看，占用不变安静；资源可用且fresh CPU／v2／UUID通过后完整N09优先，正式GPU测速不并发重CPU。cap226／最近实结110.869061155／预留0余115.130938845及origin历史保持，strict<12和长任务半程／预计结束各一次不变，F/B关闭。以下为历史。
+
+## 2026-10-18 当前：五模型真实CPU全部接受；完整960实际输入就绪，GPU每两小时检查
+
+[578完整接受](../research/578_WC_N10_ALL_FIVE_REAL_CPU_ACCEPTED_AND_ACTUAL_SCORER_FULL960_BOUND_20261018.md)：DINO／AMT_S／RAFT_THINGS／ViCLIP／MUSIQ_SPAQ真实CPU R2全5独立通过，原sourcefb89a755／244源／固定权重与构造器均已核对，bundle93.7842秒。原160正式／960指标位置已绑定该实际证明并独立逐格接受：645待评分、155视频不可用、160静态范围N/A；四项重新指纹的语义破坏均拒绝。当前质量分数仍0；完整报价／实际评分生产CPU／GPU待，原R1失败保留。
+
+连续修正88数值CPU已接受，完整24生产／旧12端点与四warm控制／N09价格报价待，A3终点结果留空。所有旧CPU原件已终态收完、查收自动化删除；只保留worldcache-gpu每两小时一次轻量资源查看，占用不变安静。N09完整40优先，旧未准入stage的fence保留，fresh stage／真实CPU／v2和UUID准入后推进；实际GPU测速不并发重CPU。cap226／最近实结110.869061155／预留0余115.130938845及origin历史不变，strict<12与长任务半程／预计结束各一次保持，F/B关闭。以下为历史。
+
+## 2026-10-18 当前：完整88数值CPU已接受；五模型R2待02:30原件，GPU两小时一次
+
+[577最新安排](../research/577_WC_TWO_HOURLY_GPU_RESOURCE_CHECK_AND_N10_R2_MIDPOINT_20261018.md)：用户不知道GPU释放时间，已创建worldcache-gpu每两小时一次轻量资源查看，占用不变安静，不再反复问释放时间；原N09完整40优先，fresh v2／UUID／真实CPU／完整报价准入及原失败fence不改。
+
+连续修正88／88及三命令已完整独立接受（576），source57b4c19／1686源和runtime一致，bundle332.7927秒、0CUDA／GPU／视频；两个查收自动化删除。下一步接完整24真实生产／旧12端点及四warm控制／报价，A3结果空。N10修复R2半程原sourcefb89a755／五分母／worker身份核对，原PID已终态且五角色均记录exit0；完整模型证明仍待02:30一次原件和独立接受，半程自动化删除、worldcache-n10-cpu-2保留，当前0质量分数／本项目GPU或CPU进程在途。cap226／最近实结110.869061155／预留0余115.130938845、origin历史与strict<12保持，GPU测速不并发重CPU，F/B关闭。以下为历史。
+
+## 2026-10-18 当前：五模型修复R2在途；88原CPU半程已收，02:20完整验收
+
+[575当前任务](../research/575_WC_N10_REPAIRED_FULL_FIVE_CPU_R2_RUNNING_AND_WINDOW88_HALFWAY_20261018.md)：N10 R1完整五原件只1/5独立接受保持；DINO宽高比描述、AMT规范路径及GitPython精确本地git version误拦截已限定修复，58本地控制通过。新完整五CPU sourcefb89a755／PID1688791/start555576034／244源已于02:14:16.819221单次派发，02:22半程、02:30完整接受各一次；原五权重／官方源／预处理不变，网络下载仍拒绝，0正式质量分数。
+
+原连续修正88 CPU source57b4c19／PID1685865在02:14半程已技术核对终态，结果文件在且无错误线索，未读数值／未接受完整88；半程自动化删除，worldcache-88cpu-2保留02:20原件及离线接受。N10修复未改原88stage；完整24生产／报价／GPU仍待，新A3结果空。N09外部两GPU满显存未准入，原完整40保持、0GPU费；实际N09测速不并发重CPU。cap226／最近实结110.869061155／预留0余115.130938845、origin历史与strict<12保持，F/B关闭。以下为历史。
+
+## 2026-10-18 当前：N10完整CPU原件已收，连续修正完整88数值CPU在途
+
+[573实际接续](../research/573_WC_N10_FULL_CPU_FAILURE_DIAGNOSIS_AND_WINDOW88_ACTUAL_CPU_RUNNING_20261018.md)：N10原五CPU／244源完整查收后仅RAFT独立接受（1/5）；DINO官方实际宽高比与验收表、AMT路径规范化、ViCLIP/MUSIQ被拦截联网事件待定位修复，原54相关本地控制全过仍不替代真模型。原五CPU两个自动化已删除，0质量分数，不重派旧R1或缩子集。
+
+连续修正完整88已于02:07:41.912177单次启动，source57b4c19、stage wc-drop1-window88-cpu-r1-20261018、PID1685865/start555536543、1686payload；64新＋24原控制完整36更新，另新8旧4，0GPU／权重。安排02:14技术半程、02:20完整独立验收各一次，worldcache-88cpu／worldcache-88cpu-2；不提前看partial或重复派发。数值CPU接受前不当生产CPU／视频结果，完整24生产与报价待。N09真实CPU已接受但外部两GPU满显存未准入，0费用；原N12已完成结果保持。cap226／110.869061155实结／预留0余115.130938845最近快照、origin历史账与strict<12保持，F/B关闭。以下为历史。
+
+## 2026-10-18 当前：五模型CPU半程已收，原任务终态两项错误；02:07完整验收
+
+[572半程技术状态](../research/572_WC_N10_CPU_MIDPOINT_TERMINAL_TWO_ERRORS_FINAL_PENDING_20261018.md)：原sourcecd88370／PID1679058五模型CPU于01:59:35一次核对，五角色均有记录、原进程已结束；3项记录exit0，ViCLIP／MUSIQ各ValueError。完整模型证明／traceback尚未查收，不据半程独立接受前三项。半程自动化已删除，worldcache-n10-cpu-2保留02:07收完整五原件及离线接受，随后定位修复，不缩成子集。当前0新质量分数／本项目GPU／CPU在途。
+
+原ViCLIP服务端1.71GB全SHA已接受；N09真实CPU已接受、两GPU仍被原其他账号任务满显存占用，0准入／0费用，不重放旧fence或干预他人。连续修正完整24／88执行链和12文件身份已准备，实际88／生产／报价／GPU仍待，待原N10终态完整查收且无N09实际GPU时接CPU。N12结果保持；cap226／实结110.869061155／预留0余115.130938845最近快照、origin及历史不变，strict<12及半程／预计结束各一次保持，F/B关闭。以下为历史。
+
+## 2026-10-18 当前：原资源完整SHA接受；完整五模型CPU已单次运行
+
+[570资源收尾与CPU实际启动](../research/570_WC_N10_SERVER_RESOURCE_ACCEPTED_AND_FULL_FIVE_MODEL_CPU_RUNNING_20261018.md)：原SCP终态独立接受，服务器1,710,545,812字节／7a4d6ad6全SHA一致；原两个资源查收自动化已删除。完整DINO／AMT_S／RAFT_THINGS／ViCLIP／MUSIQ_SPAQ CPU现运行，sourcecd88370、PID1679058/start555441328、244payload，实际启动01:51:49.761960。已安排01:59:30技术半程、02:07完整独立接受，各一次；worldcache-n10-cpu／worldcache-n10-cpu-2。不提前查进度，不用合成CPU接口当正式质量，当前新质量分数0。
+
+连续修正完整24适配器及88入口、本地12准备保持，实际88／生产／报价／GPU待。N09 CPU已接受但外部两GPU满显存未准入，0生成／0费用，不重放旧fence或干预他人；实际N09 GPU测量不并发重CPU。cap226／实结110.869061155／预留0余115.130938845最近快照，origin与历史不变；严格<12整卡自主，F/B关闭，无训练／人评／OMR。以下为历史。
+
+## 2026-10-18 当前：连续修正四臂本地12项通过；N10半程已收、最终01:50
+
+[569当前准备与半程](../research/569_WC_N10_MIDPOINT_REESTIMATE_AND_CORRECTION_WINDOW88_LOCAL_PREPARATION_20261018.md)：完整24四臂适配器和88条数值CPU入口已实现，本地8新＋4原回归全部通过；实际88、真实生产、整卡报价和GPU仍待，新A3质量／时间为空。原N12三臂已完成结果保持，不用旧端点填新臂。
+
+原N10 SCP半程实际01:20:12／服务器01:20:22一次核对，758,484,992／1,710,545,812字节（44.34%），原PID／注册一致无错误；半程自动化已删除。按唯一快照累计速度将原最终01:32顺延为01:50，worldcache-n10-scp-2单次保留；不再提前查询或重复SCP。资源接受后完整五模型CPU，当前0新质量分数。N09实际CPU已接受但原GPU未准入，0费用，不干预外部GPU任务。
+
+同一cap226、实结110.869061155、预留0余115.130938845GPUh（最近接受快照）；origin及历史不变。严格<12整卡自主、半程／预计结束各一次保持，N09实际GPU测量不并发重模型CPU。F/B关闭，无训练／人评／OMR。以下为历史。
+
+## 2026-10-18 当前：N10固定资源SCP在途；N09 CPU已接受、GPU资源等待
+
+[568资源实际启动](../research/568_WC_N10_ORIGINAL_SCP_RESOURCE_RUNNING_AND_CPU_NEXT_20261018.md)：原ViCLIP 1,710,545,812字节/固定7a4d6ad6 SHA已本机重新接受；sourcef06ca5a、独立stage wc-N10-viclip-relay-r1-20261018、原Mac worker81517/lstart01:01:29，初始身份仍活跃且server-prepared存在。预计10–30分钟，已安排01:17技术半程/01:32完整独立服务端SHA各一次；worldcache-n10-scp与worldcache-n10-scp-2，完成后删除，不持续监听或重复SCP。资源/五模型CPU/质量评分分开，当前新分数0。
+
+原N09修复R2十命令真实CPU通过（198.8012秒），原完整40 GPU派发因其他账号两GPU满显存未准入，0生成/0预留/0GPU费；原两个查收自动化已删除，不停止其他账号进程或重派旧fence。v2快照110.869061155/cap226，预留0余115.130938845，原origin保持。资源接受后接完整五模型CPU，实际N09 GPU测量时不并发重模型；连续A完整24仅静态设计，88数值CPU/生产/报价待。F/B关闭，无训练/人评/OMR。以下为历史。
+
+## 2026-10-18 当前：N09真实CPU完整接受，外部GPU占用导致未准入
+
+[567实际状态](../research/567_WC_N09_REAL_CPU_ACCEPTED_EXTERNAL_GPU_OCCUPANCY_AND_NO_CHARGE_20261018.md)：修复R2 source8c353ba、1787源/194overlay/十命令实际CPU全部通过（198.8012秒），原R1失败保留，原N08严格验收器/桥接不改。完整40/五冻结角色/4.245833预测及5GPUh上限保持。派发1636878/1636879在生成前因其他账号两GPU满显存退出；原句柄消失、无GPU子进程、无N09预算job、预留0/本轮GPU费0，自身锁释放。原两查收自动化已删除，不循环重派或停止其他账号任务。
+
+fresh v2仍110.869061155/cap226，预留0余115.130938845，原origin和历史不变。当前无本项目在途GPU/CPU；资源释放时间已向用户询问，继续CPU准备和N10固定资源接入，N09实际GPU测量时不并发重模型评分。连续A完整24仅设计和静态计划；新生产/88数值CPU/报价待做，N12结果保持。F/B关闭。以下为历史。
+
+## 2026-10-18 当前：E0与少一次D完整三臂已接受
+
+[563完整结果](../research/563_WC_DROP1_FULL18_RESULTS_FIXED25D_CORRECTION_VALUE_AND_REMAINING_20261018.md)：18/18完成，12正式视频全部93帧/1116帧接受，三方法完整36guided重复和四旧前密终态/actions/A历史/93RGB通过，零拒绝/失败/缺失。固定25D时A相对C平均LPIPS低8.5560%，四场景均93/93帧改善；相对26D仍高31.7739%，仅恢复删D新增失真的27.9558%。核心均时221.060/215.939/215.895秒（26C/25C/25A），每格一次开发计时，不当稳定净加速或未见泛化。
+
+原N12 GPU/post已结束、自身锁释放；半程和终态各查收一次，两个一次性自动化完成后删除，没有在途GPU卡。实费1.474263031，累计110.869061155/cap226，预留0余115.130938845GPUh；origin及历史账保持，严格<12规则不变。已完成登记的6条预热/一个AV28输入第21步零GPU解释性CPU：共同20步前缀及216原张量身份通过，guided MSE降低52.9048%，两重复一致，仅一个旧输入。本轮不自动新GPU；N09实际服务器CPU/完整40及N10服务器资源/五模型CPU/评分待补，F/B关闭。补充原件与解释见[564](../research/564_WC_DROP1_SAVED_WARM21_REAL_CPU_MECHANISM_AND_NEXT_20261018.md)。以下为历史。
+
+## 2026-10-17 当前：E0完成，少一次D完整18卡已在GPU0准入
+
+**22:46半程已查收（559）：**原18总路径14完成/1执行/3未到达，三个原句柄及source/config/registration匹配，登记错误为空，GPU0原runner和UUID锁仍持有。仅技术快照，无科学partial或新质量/速度结果；完整验收仍10月18日00:01。快照实结109.394798124/cap226、预留2.25、可准入114.355201876，预留非实费。半程一次性自动化已删除，最终自动化保留；不继续轮询或新GPU。见[559](../research/559_WC_DROP1_FULL18_ONCE_HALFWAY_HEALTH_AND_FINAL_PENDING_20261017.md)。
+
+E0剩余逐seed/布局/去step23 CPU及独立原件复算完成（553）；1674源、两flow56完整数值路径/36步旧前密与audit/lean/history/RGB控制、四命令实际服务器CPU均接受（358.104秒）。完整S26-C/S25-C/S25-A，四原CAL/seed0、12正式+6warm/18路径648pairs，一次加载、零新教师/Native，只删除实际更新21并在同位置比较C/A；没有新终点或速度结果。
+
+原source e76b4f8、stage wc-drop1-production-r1-20261017，21:31:29 GPU0锁内准入；supervisor1515148/runner1515544/post1515149。整卡预计1.758860873、计费上限2.25GPUh；累计cap226/origin79.996377372/所有历史账不变，实结109.394798124、预留2.25、可新准入114.355201876。已登记今晚22:46技术半程、10月18日00:01完整验收，各一次，不持续监听；不要重复派发或改原stage。见[555](../research/555_WC_DROP1_FULL18_CPU_ACCEPTED_GPU_ADMISSION_AND_TWO_COLLECTIONS_20261017.md)。F/B关闭，P/历史增强后置；本卡之后先总结结果，不自动新GPU。以下为历史。
+
+| 当前项 | 状态 | 支撑与缺口 | 优先级 |
+|---|---|---|---|
+| E0剩余CPU | 已完成/独立复算通过 | A有条件，12/14刷新布局不同；有回退T2仅局部线索 | 保留证据 |
+| N12少一次D三臂18路径 | 已完成：全部18路径/12正式93帧接受 | 同25D时A四场景均改善，均值LPIPS−8.5560%；相对26D仍+31.7739%，暂未保持保真 | 已接受·固定预算修正消融 |
+| N09部署与价格 | 原完整40已选/本地合同通过，待实际生产CPU/GPU | 原完整范围保持，不从准备推实测费用 | 待本卡结果后讨论 |
+| N10完整自动质量 | 本机固定权重已接受，服务器接入/五模型CPU/评分待补 | 运动/语义等质量证据缺口保持 | 待本卡结果后讨论 |
+
+**等待期间本地准备（556）：**已将接受后的R2全部160正式位置接成960质量指标位置：645待评分、155视频不可用、160静态N/A；六metadata、实际原件独立核对及8负例通过。原本机ViCLIP iCloud实体恢复并重新通过1.71GB全SHA及原relay本地入口。当前0新质量分数/模型/SSH/SCP/GPU；正式评分身份仍不可生产，后续先服务器同SHA接入与完整五模型CPU，再绑定整卡费用/实际评分。N12原source/句柄与22:46、00:01两次查收不改，没有提前查其partial。见[556](../research/556_WC_N10_R2_ACTUAL160_FULL960_METADATA_AND_LOCAL_RESOURCE_RESTORED_20261017.md)。
+
+**论文数据导出（557）：**原N07的19配对表、同一可用5提示词/双seed十方法图和N08两场景三轮全部秒数/LPIPS/波动/倍数已从接受原件重算，SVG/PNG已视检；data.json保留全8矩阵与缺失、原主时间队列和同质量队列差别，N12/N10未完成值仍空。主计时与请求安装/边界GC/清理/加载/guard/write分开。当前0新模型/评分/GPU/SSH；N12两查收不改。见[557](../research/557_WC_ACCEPTED_N07_N08_PAPER_FIGURES_TABLES_AND_TIMING_SCOPE_20261017.md)。
+
+**等待期间N09接续（558）：**已用实际接受的N07 R2/N08原件选定原完整40配置（30正式+10warm），原件重验、34配置依赖和6项本地合同控制通过。既定1 ULP桥接只接已登记版本，旧严格分支和全部原件门槛保留；四份数值/观察源码不变。整卡预计4.245833333、计费上限5GPUh，实际服务器生产CPU/GPU、组件与显存结果仍待。本轮0SSH/新GPU/权重加载/账本写；N12原source及22:46、00:01查收保持。见[558](../research/558_WC_N09_ACTUAL40_PRIOR_ACCEPTANCE_BRIDGE_AND_LOCAL_CONFIGURATION_20261017.md)。
+
+**已有N08外围区间复算（560）：**30正式原件的核心/guarded、安装/清理/写盘及三个GC调用已逐项导出；Efficient相对Native/WC的guarded倍数1.7674/1.3478，核心倍数1.9097/1.4112保持。两旧CAL/三轮，未拼新端到端时间；原五次标量拟合证据沿用，最低教师采集费、N09动作价格与独立显存仍待。0新GPU/SSH/模型，N12 00:01不改。见[560](../research/560_WC_ACCEPTED_N08_SEPARATE_REQUEST_INTERVALS_AND_N09_REMAINING_20261017.md)。
+
+**N10静态资源就绪（561）：**213个iCloud占位恢复后，12项目源码+216固定上游文件+BPE共229文件/2,940,075字节已按实际大小、SHA与Git身份核对；未执行上游代码或模型。服务器ViCLIP relay、DINO12源码fresh核对、完整五模型CPU及评分仍待，0新质量/SSH/GPU。N12原00:01验收不改。见[561](../research/561_WC_N10_LOCAL_STATIC229_MATERIALIZED_AND_FIVE_MODEL_CPU_NEXT_20261017.md)。
+
+**N09查收字段修复（562）：**实际配置漏填首查收时延已用原派发语句重现并修复，现相对真正派发+2h10半程/+4h45完整收。9组74本地控制、实际N07/N08合同与原派发时延语句通过；旧夹具失败保留。完整40/方法/价格/指纹/4原观察源码与99数值依赖不变，当前配置SHA afea36a，194文件dry plan已重建；旧34393/Git归档为历史，新实际服务器CPU/GPU仍待。N12 00:01不改。见[562](../research/562_WC_N09_DISPATCH_TIMING_KEYS_REPAIRED_FULL74_CPU_AND_CURRENT194_20261017.md)。
+
+**N12验收后的可选CPU解释：**已登记[已有6条预热的第21步分析](../plans/WC_N12_SAVED_WARM_STEP21_CPU_ANALYSIS_20261017.md)，只在共同20步前缀/输入/时序成立时报告同状态guided误差；两重复仍仅一个旧CAL，不能用预热时间或后续跨轨迹差异冒充主结果。0新GPU/教师/视频，尚未执行、结果为空，原18路径判据不改，也不阻塞原00:01验收。
+
+## 2026-10-17 当前：E0剩余CPU完成，少一次D三臂已选定
+
+E0逐帧/动作/分组目标独立复算通过：6提示词双seed中固定前密A有3双正/2双负/1反转；RA/A_NO_P的14条完整轨迹有12条D位置不同。去step23后T1无主组增量，有相同负风险回退的T2保留局部线索，但不冒充终点收益。新完整卡S26-C/S25-C/S25-A只改实际更新21，四旧CAL/seed0、12正式+6完整warm/18路径，预计1.758860873GPUh、计费上限2.25；实际56数值CPU和生产入口CPU/GPU尚待。
+
+用户已直接将同一累计上限113翻倍至226GPUh；服务器已扩额，origin和所有历史费用不变，实结109.394798124、预留0、余116.605201876。严格<12整卡自主及半程/预计结束各一次查收保持，F/B关闭、P/历史网络后置；本轮不自动N09/N10。见[553](../research/553_WC_E0_CPU_COMPLETE_CAP226_AND_DROP1_FULL18_PREREG_20261017.md)。以下为历史。
+
+## 2026-10-17 当前：N08已完整验收，无已启动未验收任务
+
+[552完整验收](../research/552_WC_N08_FULL40_ACCEPTED_REPEATED_TIMING_AND_PENDING_TASK_CLOSURE_20261017.md)：N08原40路径/30正式视频2790帧、10warm及30正式完整控制、82登记资源边界全部接受；GPU/post结束、自身锁释放，无在途。原严格派生std一个ULP差异保留，经固定原源码的只读桥接及12负例CPU验证后完整接受。效率点对Native/WC/RA时间比1.9097/1.4112/0.9939，高保真点对Native1.2653；仅两旧CAL，R2与强前密边界不改。实际2.672147893，累计109.394798124/113，预留0余3.605201876GPUh。原15:32/17:32无执行回执，本次补验不造半程；worldcache-180已暂停。N09/N10、E0与N12为未执行待做，本轮不开新实验。以下为历史。
+
+## 2026-10-17 当前设计：先检验修正能否换掉一次完整刷新
+
+已根据最新两轮讨论和三份文档更新[551终点预算计划设计](../research/551_WC_ENDPOINT_BUDGET_SCHEDULE_REDESIGN_AND_MINIMUM_D_REPLACEMENT_20261017.md)：保留R2高保真工作点，A_NO_P稳定胜RA与H1独立胜前密的主张不成立；不据此否定A/调度。下一轮先复用共同队列并补逐seed/动作分歧/去step23的CPU分析，再准备强前密26D、删除21处D的25D-C/25D-A三臂，拟12正式+6warm/18路径；仅静态mask通过，实际CPU/报价/GPU均未做。前密step23本已复用，不照搬H1位置。N08原source8bdebc3/五角色/40路径/15:32半程及17:32最终安排不改；本轮0SSH/新GPU/预算写。既有cap113与严格<12规则保持，快照实结106.722650231、N08预留3.6275、可准入2.649849769。N09旧大卡保留未执行，N10复用旧视频的完整质量评价待接入；F/B关闭，P/历史网络后置。以下为历史。
+
+**写作口径：**GCR为有条件读出机制；当前CPA为校准阶段配置，独立调度增量待验证。Efficient/High-Fidelity是配置标签，不是普遍优胜保证；拟议终点预算优化器尚未实现。新方法不把已曝光N07重新当未见测试。
+
+## 2026-10-17 N08原完整40已在GPU0运行，15:32/17:32查收
+
+[550实际准入与两次查收](../research/550_WC_N08_COMPLETE40_CPU_ACCEPTED_GPU_RUNNING_AND_1532_1732_COLLECTION_20261017.md)：R2完整结果547已总结并推送，原N08完整40于13:31:23在GPU0单次准入，source8bdebc3、stage wc-paper-n08-production-cpu-r1-20261017，supervisor1265104/runner1265137/post1265105及原start_ticks独立接受。1747源/九命令实际CPU全部0退出（148.614s）、三进程/原UUID锁和完整预留通过；原五角色/2旧CAL/30正式+10warm/1440pairs/1load不变。已启用worldcache-180的新N08查收：15:32半程/17:32最终各一次，不持续监听。实结106.722650231/113，预留3.6275，可新准入2.649849769，预留非实费。0新方法结果，不并行GPU或重CPU指标；F/B关闭，旧R2等不重查。以下为历史。
+
+## 2026-10-17 N08完整40实际服务器CPU已单次启动
+
+[549当前CPU与接续](../research/549_WC_N08_FULL40_ACTUAL_PRODUCTION_CPU_RUNNING_AFTER_R2_COMPLETE_20261017.md)：R2完整结果已验收并总结547/推送8bdebc3；N08 source8bdebc3的独立stage已于13:22:55单次启动实际CPU1263883/start550947856，1747payload/180overlay/原九命令、完整40范围，13:28一次查收（最早13:27:55）。CPU/GPU结果仍待，当前0新GPU/预算写。通过后fresh v2/UUID/clean资源准入原3.6275GPUh完整40，不重复确认；实际启动后2h半程/4h终态各一次。当前实结106.722650231/113、余6.277349769、预留0。F/B关闭；原R2/旧卡不重查。以下为历史。
+
+## 2026-10-17 R2完整结果接受，接续原五角色N08完整40
+
+[547完整结果](../research/547_WC_N07_R2_COMPLETE_RESULTS_FIDELITY_COST_SIMPLE_CONTROLS_AND_N08_NEXT_20261017.md) · [548测速卡](../research/548_WC_N08_COMPLETE40_FROZEN_REPEAT_TIMING_SELECTED_AND_PRODUCTION_CPU_PREREG_20261017.md)：R2原180完整处理、CPU post退出0，1750源/10warm控制/全部适用原件接受，129正式视频/126兼容93帧（11718帧）评分、0审计失败；31拒绝与3参考缺失保留，非160全部成功。H1对WC失真−84.48%（6prompt）、计时+5.55%（7prompt），对简单前密A失真+3.53%；A_NO_P对RA默认失真+2.04%、计时+1.02%。全8均值仍空，不以旧单点替代。实结106.722650231/113、余6.277349769，R2及旧查收暂停。按用户先完整总结再直接推进N08，原五角色完整40/3.6275GPUh配置已选，实际九命令CPU与fresh准入待做；实际启动后2h半程/4h终态各一次。0新增GPU，F/B关闭。以下为历史。
+
+## 2026-10-17 R2按指令立即验收GPU，CPU剩余评分12:50查收
+
+[546当前接受与剩余量](../research/546_WC_N07_R2_IMMEDIATE_GPU_ACCEPTANCE_CPU_SCORING_REMAINDER_AND_1250_COLLECTION_20261017.md)：用户“gpu 生成完了那就直接验收呗”覆盖原17:24等待。12:38原件确认180全部处理：20预热完成，正式129完成／20文本拒／11视频拒，技术失败与未到达0；1750源和10完整warm控制通过。GPU/锁及原账单接受，实费10.443678323，累计106.722650231/113，预留0余6.277349769。CPU原post仍活跃，126兼容视频已评分120条、剩6条，另3条接受视频缺原生参考；科学均值尚不发布，按剩余量改12:50一次查收，不等17:24。0新GPU／服务器写，F/B关闭，N08待适用完整原件接受。以下为历史。
+
+## 2026-10-17 R2半程延迟至12:25补查，GPU正常终态／CPU评分中
+
+[545实际健康回执](../research/545_WC_N07_R2_LATE_MIDPOINT_GPU_DONE_POSTCPU_ACTIVE_AND_FINAL_1724_20261017.md)：原09:24无执行回执，用户询问后12:25:54一次补查。原GPU退出0，180/180已处理，149完成／20文本拒／11视频拒（含预热），技术失败与未到达0；CPU post原1212465仍活跃，GPU与锁释放。无质量结果读取或新GPU；原17:24完整验收保留，worldcache-180仅余该一次。原job技术账记录实结10.443678323GPUh，完整池／账单待原终态接受；旧全池预留快照不当当前余额。N08待完整适用原件接受，F/B关闭。以下为历史。
+
+## 2026-10-17 R1可用20视频离线分析：修正与高保真正信号，R2不改
+
+[544已有结果](../research/544_WC_N07_R1_AVAILABLE20_FIDELITY_SPEED_SIGNALS_AND_SIMPLE_RULE_COMPARISON_20261017.md)：1个AV×双seed×十方法离线复算；A_NO_P相对RA默认LPIPS低6.7587%、主计时高2.7705%，H1相对WC_HALF低80.4233%、主计时高4.8616%。固定前密D序列的A相对C保真再改善7.4864%、时间高0.7952%；H1未优于近似费用的简单前密＋A（LPIPS高5.5154%）。只作原R1已审计可用子集解释，全8prompt均值仍空；0SSH／GPU／新评分，未选赢家或改方法。R2原09:24／17:24和全部冻结矩阵保持，N08待原验收。以下为历史。
+
+## 2026-10-17 原N07 R1完整失败验收归档，R2保持09:24／17:24
+
+[543首卡收尾](../research/543_WC_N07_R1_FAILED_FULL180_FINAL_ARCHIVE_AND_TASK_SCOPED_UUID_REUSE_ACCEPTANCE_20261017.md)：原source140d0a6于05:30窗口一次收全180分母，20warm＋20正式完成／8文本拒绝／1技术失败／131未到达；20正式93帧视频和10warm控制通过，原件审计0失败，整卡科学接受仍false。原费用2.697147250GPUh已结不重记；本地仅设备归属条件作可逆替换，13CPU通过，原错误和原capture保留。worldcache-26d已暂停；获批R2/source6e10aa3原任务和09:24／17:24不改，不提前读其科学partial，N08待R2完整接受。N10本地权重已接受、评分仍待，F/B关闭。以下为历史。
+
+## 2026-10-17 N10完整ViCLIP本地权重接受，资源自动化暂停
+
+[542资源验收](../research/542_WC_N10_VICLIP_DIRECT_R4_COMPLETE_RESOURCE_ACCEPTED_AND_SCORING_HANDOFF_20261017.md)：原R4在01:54按时一次查收，1710545812字节／固定官方全SHA／204段全部一致，实际获取2596.804秒、HTTP失败0，p-acr-cpu已暂停。完整资源接受仅限本机；SCP／服务器SHA／五模型CPU／正式评分仍待，0新质量分数。本轮0GPU／SSH／模型／账本写，旧partial保持；原N07失败R1的05:30与修复R2的09:24／17:24查收不改，未查询它们的服务器进度。重CPU避开GPU／clean测速，F/B关闭。以下为历史。
+
+## 2026-10-17 N07完整修复180已批准并在GPU0准入，09:24／17:24查收
+
+[541批准与运行](../research/541_WC_N07_REPAIR180_HUMAN_APPROVED_SINGLE_GPU_LAUNCH_AND_0924_1724_COLLECTION_20261017.md)：用户“批准完整180修复卡”已独立绑定；source6e10aa3的完整160正式+20warm单次派发，supervisor1212464／runner1212599／post1212465与1750源SHA、v2完整预留／自身UUID锁接受。实际01:23:40启动，新worldcache-180于09:24半程、17:24完整收；不持续监听、不报科学partial。实结96.278971908/113，完整预留15.055555556，可新准入1.665472537，预留非实费。原R1的05:30验收不变；N10资源半程204段记录已齐，仍待01:54独立完整SHA。N07完整接受后N08→N09/10，重CPU避开GPU／clean测速，F/B关闭。以下为历史。
+
+## 2026-10-17 N10完整固定权重直连R4在途，01:09/01:54查收
+
+[540资源单次启动](../research/540_WC_N10_DIRECT_R4_SINGLE_LAUNCH_AND_TWO_COLLECTION_TIMES_20261017.md)：source8fd3a3a/PID40655于00:23:18在本机独立stage单次派完整204段/1.71GB，初次原PID/lstart/command及两worker SHA接受。p-acr-cpu已约01:09半程技术、01:54完整大小/SHA验收，不持续监听；旧R3/112MiB保持。当前完整权重/模型/质量仍0，0GPU/SSH/账本写。原N07 worldcache-26d 的05:30验收及R2完整15.0556GPUh原具体确认独立保持，cap113与F/B关闭不变。以下为历史。
+
+## 2026-10-17 N10直连非零数据通过，完整204段R4准备
+
+[539资源恢复准备](../research/539_WC_N10_VERIFIED_DIRECT_TRANSFER_AND_FULL204_RESOURCE_R4_CPU_PREPARED_20261017.md)：固定权重原失败偏移1MiB直连实收通过206/范围/原ETag；代理6秒超时与首字节重定向大小限制失败均保留。原完整1.71GB/204段不缩，新直连执行器35本地CPU/3冷CLI通过，旧112MiB及旧stage不改；新完整R4尚未启动，完整权重/模型/质量仍0。同步后一次派发，按实际启动45min技术/90min完整收；0SSH/GPU/账本写。N07完整修复待原具体回复、原05:30验收与cap113保持，F/B关闭。以下为历史。
+
+## 2026-10-16 N08半程一次技术查收本地CPU通过
+
+[538半程接线](../research/538_WC_N08_ACTUAL_START_HALFWAY_TECHNICAL_COLLECTION_CPU_READY_20261016.md)：N08启动回执新增实际窗口一半的时点，原句柄/只读/去重/UNKNOWN与最终时间保持；34本地CPU及3冷CLI通过，新控制已并入原capture组/仍九命令生产CPU。实际配置/服务器CPU/GPU仍待N07，未虚构新绝对时间或创建自动化。本轮0SSH/新GPU/账本写，未改99数值源码或原N07半程工具；原R1/05:30和R2完整15.0556GPUh待原具体回复保持，F/B关闭。以下为历史。
+
+## 2026-10-16 N07修复版到N08/N09接续本地CPU通过
+
+[537显式来源接续](../research/537_WC_N07_REPAIR_DOWNSTREAM_N08_N09_SOURCE_IDENTITY_BRIDGE_CPU_READY_20261016.md)：R2实际run/source/config保留，以原冻结配置核对方法；N08部署和N09合同已接完整180独立重验，31本地CPU/2冷入口通过，10合法文本拒绝保留完整分母。未改99数值源码；0SSH/实际服务器CPU/新GPU/账本写，不追认6e10aa3已有CPU覆盖新下游代码。原R1/05:30与R2完整15.0556GPUh待原具体回复保持；真实N08九命令CPU/完整40及N09测量待前序验收，F/B关闭。以下为历史。
+
+## 2026-10-16 N07完整修复GPU工具已准备，具体整卡待批准
+
+[536完整卡与两次查收](../research/536_WC_N07_REPAIR180_GPU_TOOLS_READY_COMPLETE_CARD_AND_MIDPOINT_FINAL_CHECKS_20261016.md)：R2原source6e10aa3／九命令实际CPU接受保持；单次GPU派发、半程技术检查、完整180科学接受工具新增46本地控制及3冷CLI通过。完整160正式+20warm／15.0556GPUh已成卡，超过严格<12规则，未获新批准／未GPU派发。23:07只读v2实结96.279/113、预留0余16.721；实际准入仍fresh核对。原R1/05:30验收保留，新卡启动后8h半程与16h终态各一次；N08/N09接续待补，不恢复F/B。以下为历史。
+
+## 2026-10-16 N07修复完整真实服务器CPU已接受
+
+[535真实CPU接受](../research/535_WC_N07_REPAIR180_ACTUAL_SERVER_CPU_ACCEPTED_AND_READONLY_COLLECTOR_REPAIRS_20261016.md)：独立R2/source6e10aa3的服务器九命令全部0退出，1750源SHA/160变体/99数值依赖/8 guard检查接受，包耗时147.991秒。原stage不改；只读collector标准库依赖及接受器launch字段两处本地修正通过，未重派CPU。原R1/05:30失败验收保持；R2 GPU派发/科学接受与N08/N09接续待完成，15.0556完整卡届时具体确认。本轮0新GPU/账本写。以下为历史。
+
+## 2026-10-16 N07修复CPU独立部署与源码包准备
+
+[534 CPU部署准备](../research/534_WC_N07_REPAIR_CPU_IMMUTABLE_DEPLOYMENT_CAPTURE_AND_LOCAL_PACKET_READY_20261016.md)：R2独立部署/一次查收/离线接受工具已写，3新+9不可变打包CPU及3冷CLI通过；183份overlay闭合99数值/修复/执行测试依赖。Git提交后实际归档隔离验证及服务器九命令CPU尚待，0SSH/新GPU/账本写。原R1/05:30失败验收、完整180/15.0556/cap113与严格<12保持。以下为历史。
+
+## 2026-10-16 N07独立修复完整生产接线本地CPU通过
+
+[533生产接线](../research/533_WC_N07_REFUSAL_REPAIR180_PRODUCTION_BINDINGS_AND_COMPLETE_CPU_CONTRACT_20261016.md)：独立R2完整180配置及worker/supervisor/post/watcher接好，原四入口SHA和数值/输入/参数保持；八组本地46控制、五冷CLI通过。服务器九命令生产CPU、派发/科学终态绑定仍待，0SSH/新GPU/账本写。原R1/05:30完整失败验收保持；新完整报价沿用15.055555556，生产准备好后另询具体整卡，未挪用旧批准。以下为历史。
+
+## 2026-10-16 N07半程技术失败与拒绝边界CPU修复
+
+[532半程与修复](../research/532_WC_N07_MIDPOINT_TECHNICAL_FAILURE_ZERO_STEP_REFUSAL_AND_FULL520_CPU_REPAIR_20261016.md)：21:30一次健康查收确认原N07已技术停止：20warm完成，正式20完成/8文本拒绝/1技术失败/131未到达。固定mask对零步文本拒绝仍验36步导致错误，独立边界修复4控制及两flow完整520本地CPU通过，原源码/参数保持；生产接线/真实CPU与新卡仍待。原费用2.697147250GPUh，实结96.278971908/113、预留0、余16.721028092。原R1不重启，05:30完整失败原件验收保留，不读科学partial；先修复N07再N08→N09/10，>=12新整卡需具体批准。以下为历史。
+
+**半程技术入口准备（531）：**[531](../research/531_WC_N07_ONCE_MIDPOINT_TECHNICAL_ENTRY_CPU_PREPARED_20261016.md)：独立入口6CPU与冷CLI通过；21:30只收原句柄/总体进度/资源，未查服务器。原05:30完整验收及N07→N08→N09/10保持，非新科学证据。
+
+**动作后处理准备（530）：**[530](../research/530_WC_N09_ACTION12_READONLY_POST_FULL24_RAW1528_CPU_PREPARED_20261016.md)：N09动作12只读原件/36步/RGB/三轮计时审计已写，6本地控制与2冷CLI通过，原24注册路径112文件1528张量/768正式区间重读通过，未重跑采样。修复仅诊断路径教师汇总字段误判，旧失败保留；视频为Toy回调，真实生产CPU/GPU与终态接受仍待。原12/944/10.045规划、N07今晚21:30/明早05:30、cap113与严格<12保持，本轮0SSH/新GPU/账本写。
+
+**动作生产入口准备（529）：**[529](../research/529_WC_N09_ACTION12_PRODUCTION_CONTRACT_AND_RESIDENT_ENTRY_CPU_PREPARED_20261016.md)：N09动作12生产合同与单次驻留worker已接线，五项本地控制及两个冷入口通过，原32路径与99数值源码复用；实际配置/服务器CPU/监督及完整后处理仍待。原12父/944pairs与10.045GPUh规划不变，N07/N08后才准入。本轮0SSH/新GPU/账本写，N07今晚21:30半程/明早05:30、cap113和严格<12保持。
+
+**完整报价与执行器准备（528）：**[528](../research/528_WC_N09_ACTION12_WHOLE_COST_AND_FULL32_CPU_ADAPTER_ACCEPTED_20261016.md)：N09完整动作12/944pairs整卡规划10.045GPUh，执行器两flow完整32CPU及112原件1528张量独立接受，另13控制通过；原数值/范围保持，失败保留。Tiny CPU准备不当真实GPU价格，生产CPU/实际测量与最小标定费仍待。N07今晚21:30半程/明早05:30、N07→N08→N09/10及cap113/严格<12保持，本轮0SSH/新GPU/账本写。
+
+**动作测量准备（527）：**[527完整动作测量](../research/527_WC_N09_CURRENT_ACTION_PRICES_FULL16_TWO_MODE_SCOPE_AND_FULL24_CPU_READY_20261016.md)：N09当前C/A/P0/D同状态报价入口已写，保留16旧自然状态、audit/lean和完整三轮；拟议12父/944pairs范围已登记。两flow完整24条CPU/1888pairs及64原件640张量独立重读通过，另3时钟与7负例通过；Tiny权重/codec，非实际GPU价格。真实报价/生产CPU/GPU及最小标定采集费仍待。N07今晚21:30半程/明早05:30、主线顺序/cap113与<12保持，本轮0SSH/新GPU/服务器账本写。 以下为历史。
+
+**查收与独立接受准备（526）：**[526完整工具](../research/526_WC_N09_MIDPOINT_TERMINAL_COLLECTION_AND_INDEPENDENT_ACCEPTANCE_CPU_READY_20261016.md)：N09半程/终态一次查收与离线独立接受已准备，157份隔离包九组72项、5打包控制与两冷CLI通过；原36步/93帧/组件原区间/显存/自身实费独立核对，失败与超额保留。真实配置/生产CPU/GPU仍待N07/N08后完成。原N07今天21:30半程、明早05:30完整验收，cap113/<12及F/B关闭保持；本轮0SSH/新GPU/服务器账本写。
+
+**单次派发入口准备（525）：**[525原CPU绑定与时点](../research/525_WC_N09_SINGLE_GPU_DISPATCH_CPU_BINDING_AND_CHECK_TIMES_READY_20261016.md)：N09完整40单次GPU派发入口已绑定独立CPU原件SHA/完整授权，fence与原sup/post句柄保留，回执写半程及最终时点；25相关本地CPU/冷CLI通过，更新152份隔离包七组62项及5打包控制通过。GPU实际准入仍由fresh UUID/v2监督执行；本轮0SSH/实际派发/GPU/自动化新增/服务器账本写。真实N09配置/CPU与GPU终态接受仍待，原N07今天21:30半程/明早05:30、cap113/<12规则及F/B关闭保持。
+
+**独立源码包准备（524）：**[524打包/隔离验证](../research/524_WC_N09_IMMUTABLE_CPU_SOURCE_PACKET_AND_ISOLATED_VALIDATION_READY_20261016.md)：N09独立源码包与一次CPU部署入口已写，19顶层CPU/冷CLI通过；151份当前源码/数据隔离跑完七组58项。原N08 base只读、Git字节绑定/新目录一次派发，缺实际配置不SSH；Mac路径别名夹具失败保留并修复，原四数值源码保持。真实N09配置/Git生产包/服务器CPU与GPU仍待N07/N08后完成。本轮0SSH/资源HTTP/GPU/服务器账本写，原N07今天21:30半程/明早05:30、cap113与<12规则、F/B关闭及N10资源缺口保持。
+
+**完整CPU验收入口准备（523）：**[523 CPU包与独立接受](../research/523_WC_N09_FULL_CPU_BUNDLE_ONCE_CAPTURE_INDEPENDENT_ACCEPTANCE_READY_20261016.md)：N09七组控制＋真实Cosmos无权重入口的完整CPU命令包、一次查收与离线独立接受已写；七组当前本地58项/四冷CLI通过，真实Cosmos CPU仍0。CPU身份R/S误拒绝已先重现保留原失败，再改用PID/start_ticks，源码/退出/完整范围规则不变；监督已验证完整bundle。实际配置/源码包/生产CPU部署/派发和GPU终态接受仍待N07/N08后完成。本轮0SSH/资源HTTP/新GPU/服务器账本写；N07今天21:30半程/明早05:30、cap113与<12规则保持，F/B关闭。
+
+**部署执行收尾准备（522）：**[522整卡监督与CPU触发](../research/522_WC_N09_COMPLETE40_SUPERVISOR_AND_CPU_POST_TRIGGER_PREPARATION_20261016.md)：N09完整40单子任务/逐UUID锁/v2加法结算与CPU原件后处理触发已接线，19项本地CPU及两个冷CLI通过；8监督+6触发+5原合同，进程/显卡为测试替身，原四数值源码保持。真实配置/CPU完整bundle/派发/终态接受仍待N07/N08后完成，0服务器部署/SSH/新GPU/账本写。N07今天21:30半程/明早05:30、cap113和<12整卡规则保持，N10资源缺口及F/B关闭保持。
+
+**部署验收准备（521）：**[521完整40后处理](../research/521_WC_N09_COMPLETE40_READONLY_POST_AUDIT_CPU_READY_20261016.md)：N09完整40原件/36步/RGB/组件区间/逐请求显存的CPU后处理已写，27项本地控制和冷CLI通过；三种诊断模式分别保存，不并入clean均值。首轮夹具失败保留，真实Cosmos/codec/GPU测量仍0，实际配置/生产CPU/监督部署和独立终态接受仍待。机器总表遗留的N10下载在途登记已据15:50原终态回执归档，不重查/重下。本轮0SSH/资源HTTP/新GPU/账本写；N07原今天21:30半程/明早05:30、N07→N08→N09/10及cap113保持。
+
+# 实验总表：状态、论文贡献、缺口与优先级
+
+**完整费用准备（520）：**[520完整40报价](../research/520_WC_N09_FULL40_HISTORICAL_WHOLE_COST_PREVIEW_AND_N10_LOCAL_CACHE_INVENTORY_20261016.md)：完整40部署诊断报价已按真实N05/N06接受原件独立复算为4.245833333GPUh：30trace与20profile余量、一次load、整卡余项和20%规划余量均计入；13本地报价控制通过，预估不当实费/组件测量，未选新GPU卡。N09实际配置/生产CPU/部署和原件接受仍待N07/N08后fresh准入，动作报价/标定费继续独立。本机四已知缓存无ViCLIP候选，517资源缺口保持。本轮0服务器SSH/资源HTTP/新GPU/账本写；N07原今天21:30半程/明早05:30、cap113及原origin保持。
+
+**部署入口准备（519）：**[519完整40测量](../research/519_WC_N09_RUNTIME40_RESIDENT_ENTRY_AND_FROZEN_EXECUTION_CPU_PREPARATION_20261016.md)：N09完整五角色×两旧CAL×三模式/30正式+10warm/40路径运行入口已写，26项本地CPU通过；原102观察器/数值四源码SHA保持，未重跑102/952。原取证与轻量/组件观察分别记录、全40分母/36guided取证/逐请求显存和原CPU/UUID/整卡授权已接线；实际Cosmos CPU、整卡报价/部署/终态及动作报价/标定采集费仍待，0真实GPU测量。本轮0SSH/新GPU/服务器账本写；原N07今天21:30半程/明早05:30、N07→N08→N09/10和cap113保持。517权重TLS缺口与资源自动化暂停保持。
+
+**资源终态与监督（517/518）：**[517](../research/517_WC_N10_RESOURCE_R3_TERMINAL_TLS_FAILURE_AND_SCOPED_TRANSPORT_DIAGNOSIS_20261016.md) · [518](../research/518_WC_N10_FULL960_SUPERVISOR_AND_ACTUAL_COST_CPU_PREPARATION_20261016.md)：15:50已一次收原R3/PID19489：终态exit1，14/204段、117440512bytes，TLS连接失败；14段及原prefix独立逐字节/SHA核对通过，仍非完整权重。四种小范围传输探测仍TLS失败，未派SCP，原资源自动化已暂停。完整960评分监督/实际wall结算与原CPU/整卡授权接线13本地CPU通过；实际原模型/质量/GPU仍0。原N07/source140d0a6今天21:30半程/明早05:30验收、N07→N08→N09/10及cap113保持，本轮0SSH/服务器账本写。
+
+**完整评分入口（516）：**[516完整960 worker](../research/516_WC_N10_COMPLETE960_SCORING_WORKER_AND_ORIGINAL_ADMISSION_CPU_PREPARATION_20261016.md)：完整160×六维960评分worker已接原五模型工厂、原UUID父监督与v2预留，入口/相关45本地CPU通过；原日志可独立重建、失败和静态不适用保留。实际五模型/最终输入/监督部署/报价和正式质量仍待，模型与新质量分数0。原N07/source140d0a6今天21:30健康检查/明早05:30完整验收、资源129577b今天15:50和cap113保持；本轮0SSH/新GPU/服务器账本写。
+
+**评分模型接线（515）：**[515共用构造与工厂](../research/515_WC_N10_SHARED_ORIGINAL_CONSTRUCTORS_AND_FACTORY_CPU_PREPARATION_20261016.md)：五模型CPU探针与评分工厂已共用原构造入口，实际构造SHA由逐角色独立接受传递；工厂/完整960接线及相关54CPU、232份源码包和隔离冷导入通过，原Mac夹具别名失败保留。微型参数/检查点与评分替身，真实原模型/质量分数仍0；生产GPU驱动/费用和实际五模型CPU待。原180/source140d0a6今天21:30健康检查、明早05:30完整验收及资源129577b今天15:50保持；本轮0SSH/0新GPU/0服务器账本写，cap113不变。
+
+**长卡查收安排（514）：**[514半程与最终安排](../research/514_WC_N07_MIDPOINT_HEALTH_CHECK_AND_FINAL_COLLECTION_SCHEDULE_20261016.md)：用户新增长卡半程健康检查。原worldcache-26d已更新为今天21:30一次只读健康检查＋明早05:30原完整验收；半程只看原句柄/技术报错/进度与资源，不读质量或改变原任务，不持续轮询。后续多小时卡按真实启动/估时同样安排半程与终态两次。原N07/source140d0a6/完整180/最终时间门、cap113及<12规则保持；本轮0SSH/0新GPU/0服务器账本写。N10资源今天15:50独立安排保持。
+
+**完整评分准备（513）：**[513完整960批处理](../research/513_WC_N10_COMPLETE960_BATCH_CORE_AND_INTERRUPTION_JOURNAL_CPU_READY_20261016.md)：完整160×六维960批处理核心与持久日志已实现，11项CPU通过；拒绝/失败/资源缺失/静态不适用保持，原件中断可只读重建，不自动续跑。生产评分工厂、五模型实际CPU、最终视频/费用和评分GPU仍待，实际模型/质量分数0。只读核对DINO两份原源码与既有SHA一致，1次独立源码SSH、0新GPU/服务器写；未查询N07或下载partial。原180/source140d0a6/明早05:30、资源129577b/今天15:50及同一cap113保持。
+
+**评分入口准备（512）：**[512逐视频评分入口](../research/512_WC_N10_PER_VIDEO_METRIC_OBSERVER_AND_AMT_NATIVE_CPU_REPAIR_20261016.md)：逐视频评分入口与原生工具CPU准备完成：观察六维原内部采样、保留逐视频原分数，修复尚未部署的AMT探针单输入unpad误删batch维度；48项相关CPU控制通过，首版夹具失败保留。解码/神经模型为显式替身，实际模型/最终质量分数仍0，完整960驱动与费用待补。原N07/source140d0a6/明早05:30、资源R3/source129577b/今天15:50一次查收及cap113保持，本轮0SSH/0新GPU/0服务器账本写。
+
+**固定资源在途（511）：**[511固定资源R3分段在途](../research/511_WC_N10_EXACT_RANGE204_LOCAL_R3_SINGLE_LAUNCH_AND_1550_COLLECTION_20261016.md)：原R1超时/R2截断保持，source129577b/PID19489-lstart14:15:26在fresh本机目录单次派204个8MiB范围；原最早15:45:26.652263，**今天15:50一次查收**，不持续监听。13CPU与真实两范围探测已过，尚非完整资源/模型/质量结果；通过全SHA后才独立SCP。原N07完整180/source140d0a6和明早05:30、cap113及账本保持，0新GPU/SSH/服务器写。以下旧14:00在途/修复待派文字为历史。
+
+**资源修复（510）：**[510固定资源分段修复](../research/510_WC_N10_LOCAL_TRUNCATION_RETAINED_EXACT_HTTP_RANGES_CPU_REPAIR_20261016.md)：14:00一次收本机18318已终态，78094879字节截断/166.582秒，完整验收拒绝，原partial/SHA保持。真实起始与非零HTTP206探测通过，中间TLS错误保留；系统curl按8MiB精确Range新入口/查收13CPU通过，新R3须本提交后单次派发、启动90分钟后收。当前0完整权重/0模型/0新质量分数，不查询N07或写GPU账；原180/source140d0a6/明早05:30/cap113保持。以下原14:00在途说明均为历史。
+
+**部署测量范围（509）：**[509部署开销完整范围](../research/509_WC_N09_FROZEN_RUNTIME_PROFILE40_SCOPE_AND_REMAINING_ACTION_CALIBRATION_COSTS_20261016.md)登记五个原冻结角色×两旧CAL×原audit/profile-audit/profile-lean，30正式+10warm/40路径/1440pairs；独立矩阵检查和原102四源码全SHA复用通过，未跑新采样/生产CPU或GPU。同状态C/A/P0/D报价与可复现标定采集费用仍待，真实整卡配置/CPU/费用未选。N07原完整180/source140d0a6和明早05:30、本机资源18318今天14:00保持，本轮无SSH/预算写或partial查询。以下为运行和准备历史。
+
+**资源接入准备（508）：**[508固定权重接入准备](../research/508_WC_N10_ORIGINAL_SCP_PINNED_RESOURCE_RELAY_CPU_READY_NO_GPU_INTERFERENCE_20261016.md)：原SCP单次传输/完整SHA/独立服务器资源查收入口已准备，九项小文件与Mac句柄控制、五模型227payload接口检查通过，实际传输/模型/新质量分数仍0。本轮未查N07或资源partial、未SSH/改账；原N07完整180/source140d0a6及明天05:30验收保持。原本机18318今天14:00收，完整接受后用独立R3经既有SSH传同一权重，按实际ETA一次收；重模型CPU避开主线。下方为原运行与准备历史。
+
+**当前运行（506）：**用户已明确批准完整180卡及同一累计cap113。[506完整共同GPU准入](../research/506_WC_N07_FULL180_HUMAN_APPROVED_CAP113_GPU_ADMITTED_AND_0530_COLLECTION_20261016.md)：原source140d0a6、1725源/六命令CPU保持，13:26:43在GPU0单次准入，1115797/1115898/post1115798；8新prompt×seed17/43×十方法，160正式+20warm/6318pairs不缩。实结93.581824657/cap113、预留15.055555556、可准入4.362619787，原origin与历史不变。**10月17日05:30一次查收**，不提前看partial/持续监听；适用完整接受后按N08→N09/10接续。
+
+**评价准备（505/507）：**[505五模型CPU链](../research/505_WC_N10_COMPLETE_FIVE_MODEL_CPU_BATCH_STAGING_AND_INDEPENDENT_ACCEPTANCE_READY_20261016.md)完整bundle/部署/独立验收15控制已准备，真实模型0。[507固定评分资源](../research/507_WC_N10_SERVER_RESOURCE_TIMEOUT_RETAINED_LOCAL_PROXY_DOWNLOAD_AND_MAINLINE_PRIORITY_20261016.md)：服务器R1已终态0字节超时保留；本机同URL HEAD200后复用原worker/source5d7ef36，PID18318于13:28:28经既有代理单次下载同一权重，**今天14:00一次收**。只资源准备，不占GPU/运行模型；重CPU模型避开N07及之后clean测速。下方旧在途/待回复文字保留为历史。
+
+**N10入口准备（504）：**[504模型CPU入口准备](../research/504_WC_N10_FIVE_MODEL_CPU_ENTRY_PREIMPORT_RESOURCE_CONTROLS_PREPARED_20261016.md)：原DINO/AMT/RAFT/ViCLIP/MUSIQ五角色实际调用入口已写，5项资源/词表/源路径/网络边界CPU通过；checkpoint为小夹具，未import Torch或执行真实模型。四现存SHA及指定ViCLIP期望绑定保持，完整bundle/部署/实际五模型CPU仍待。原下载3c7767f/1113019仍13:17一次收，N07整卡/cap113仍待原一次人类回复；0新GPU/0服务器写，冻结方法/输入/源CPU不变。
+
+**无GPU的资源准备（503）：**[503质量资源CPU派发](../research/503_WC_N10_PINNED_VICLIP_RESOURCE_CPU_DISPATCH_AND_MAINLINE_APPROVAL_WAIT_20261016.md)：502已只读核DINO/AMT/RAFT/MUSIQ四实际SHA与MUSIQ旧协议一致、0模型评分。固定1.71GB ViCLIP资源source3c7767f/独立stage/1113019-start542082643于12:45:22单次派发；13:17一次收（最早13:15:22.916501），不持续监听，终态独立全SHA才接受资源。0新GPU/0预算写；N07完整CPU已接受501，15.055555556及拟议cap113仍待此前一次人类回复，不重复提问或擅自执行。
+
+**当前验收（501）：**[501真实生产CPU接受](../research/501_WC_N07_FULL180_REAL_PRODUCTION_CPU_ACCEPTED_COMPLETE_CARD_AND_BUDGET_DECISION_20261016.md)：12:35一次收R2/source140d0a6/1111913终态，1725 SHA/六命令/160typed/原180全通过，148.735906秒，原R1失败保留499。12:36 fresh池实结93.581824657/cap104.971363333、预留0余11.389538676；完整N07预计15.055555556与拟议cap113已一次询问人类，未获回复前0GPU/0cap写。自动化暂停，不重查旧CPU；N08同origin增量兼容12CPU通过、原99数值不改。
+
+**当前修复（500）：**[500完整生产CPU R2在途](../research/500_WC_N07_COMPLETE180_PRODUCTION_CPU_R2_LAUNCH_AFTER_IMPORT_CLOSURE_REPAIR_20261016.md)：R1于12:27一次收，第三组漏传automatic_quality，原失败保留499。Python extra依赖闭合修复9项/受影响N08打包7项通过，99数值原SHA不变。新source140d0a6/stage R2/CPU1111913/start541989964于12:29:56单次启动，1725payload/158overlay/原六命令；12:35一次收（最早12:33:56.128427）。完整180/输入/报价不改，0新GPU/0服务器cap写；通过后才问整卡15.055555556及拟议cap113。
+
+**当前执行（498）：**[498生产CPU在途](../research/498_WC_N07_FULL180_REAL_PRODUCTION_CPU_RUNNING_AND_COST_APPROVAL_NEXT_20261016.md)：source3138e03/独立N07 stage、CPU1111360/start541937992于12:21:16单次派发，1724payload/157overlay、六命令；12:27一次收（最早12:25:16.3995705），不持续监听。完整180/160正式/6318pairs不变；CPU未验收、0新GPU/0账本写。完整N07预计15.055555556，CPU通过后询问具体整卡及拟议cap113；实际原cap104.971363333/余额11.389538676未改。
+
+更新：2026-10-16。与[内部实现→论文表述映射](INTERNAL_TO_PAPER_MAPPING.md)一起使用；[机器索引](experiment_master_table.json)保存相同条目、依赖和证据SHA。本表按科学问题／完整卡汇总，不逐个罗列CPU修复重试；旧原件复用与多个报告引用同一实验，不增加独立样本数。
+
+**最终共同测试准备（497）：**[497最终共同冻结](../research/497_WC_N07_FROZEN_NEW_INPUTS_FULL180_ACTUAL_COST_AND_PRODUCTION_CPU_PREREG_20261016.md)：十方法后fresh身份审计928文档/0错误，按原salt选8新prompt×seed17/43，160正式+20warm/6318pairs完整绑定；原99数值不变。N07实据报价15.055555556、N08完整40为3.6275GPUh，两卡缺7.293516880GPUh；配置内cap113仅拟议待批准，服务器原cap104.971363333/账本未改、0新GPU。先做真实六命令CPU，再询问具体整卡与预算，不拆缩。
+
+**当前：N05/N06全部接受，十方法和五测速角色已冻结；没有在运行GPU卡。** [496完整强基线与冻结](../research/496_WC_N05_CORE66_COMPLETE_STRONG_BASELINES_AND_N07_N08_METHOD_FREEZE_20261016.md)：N05原66/44视频4092帧全部接受，11warm/5完整guided/20旧控制通过，实际4.095730440GPUh。A相对默认RA失真低9.6667%、主时间高1.0809%；高保真与Native26近时且更保真。原GPU/锁释放、自动化暂停。12:05原池实结93.581824657、余11.389538676、预留0；十方法/五测速角色已在新输入前冻结，输入/实际CPU/费用/GPU仍待；按N07→N08→N09/10，原窗口/数值/F_B关闭保持。
+
+**直接修正近邻实施核查：**[471](../research/471_WC_DIRECT_CORRECTION_NEIGHBOR_AUTHOR_SOURCE_CPU_FIDELITY_AND_MAINLINE_BOUNDARY_20261016.md)已复核固定作者核与分支，仍未具备忠实Cosmos接口；不冒充当前N05第12项。现有66卡、12:05验收及后续主线不变。
+
+## 阅读图例
+
+- **C1｜GCR：**真实CFG输出空间的廉价修正读出。当前已完成实验可支撑修正作用与效率工作点。
+- **C2｜CPA：**对实际动作的误差／费用标定与计算安排。当前已支持阶段部署；优于强简单安排或内容自适应的增量仍待相应实验。
+- **C3｜系统实证：**保真—时间工作点、新输入确认、真实费用与部署分析，属于实验支撑，不额外包装成第三个新算法。
+- **E-P／E-W3：**新单分支补偿读出／新因果风险估计，当前是独立增强。是否纳入正文取决于后续完整证据。
+- **R：**保留已接受结果，不默认重跑。**P0：**先收原在途卡与CPU标签评价。**P1：**论文核心补验。**P2：**最终测试／重复测速／部署质量。**P3-C：**跨骨干主张的条件补验。**C**后缀表示依赖信号与资源选择。**X：**关闭或暂缓，不是待执行队列。
+
+## 一张总表
+
+“已完成”包括不同证据层级：终点、机制和CPU准备各自标明，不互相替代。“待补”只表示已设计的证据问题；模板规模不是已通过CPU或已经选定的GPU卡。
+
+|编号／状态|实验：内部ID → 论文表述|已经得到什么／待补范围|支撑哪项贡献|缺口与下一步|优先级|证据入口|
+|---|---|---|---|---|---|---|
+|D01 · 已完成｜基线|`F1_R3 / NATIVE / WC` → Full Inference / WorldCache技术复现|初始3个接受配对场景，WorldCache加速1.476–1.602×；后续420另有同批WC/RA/Native结果。|C3基础；非本文新算法|初始样本不是官方论文全部质量复现；原视频保留，公平调优比较见N05。|R·保留，不重跑|[11](../research/11_F1_R3_TECHNICAL_RESULTS.md) · [420](../research/420_WC_FULL60_COST_CURVE_COMPLETE_RESULTS_AND_CONVERGENCE_20261014.md)|
+|D02 · 已完成｜历史开发|`W1_CAL8 / SCALAR / SHRINK` → Scalar Incremental Calibration|8开发场景中7/8内部预测与残差误差改善，预测MSE均值降低24.08%；后续视频评价混合。|C1设计线索；不替代当前GCR主结果|保留局部与终点差异；当前正文使用CFG共享阶段修正，不再扩展旧逐支W1。|R·历史机制|[21](../research/21_W1D_CAL8_RESULTS.md) · [28](../research/28_W1_DEVELOPMENT_VQA_RESULTS.md) · [424](../research/424_WC_FINAL_EXPERIMENT_CLOSURE_AND_PAPER_EVIDENCE_20261014.md)|
+|D03 · 已完成｜早期干预|`WC_W3_SMALL_HUMAN` → Refresh Intervention|Human单点强制D使LPIPS降低2.8080%，后续两CFG完整调用合计18→16。|C2机制线索；非在线调度结论|次数变化是干预后果；并非固定配额或clean端到端优势。新W3不复用该单点充泛化。|R·机制/附录|[129](../research/129_WC_W3_HUMAN_APPROVED_EXECUTION_AND_RESULTS.md)|
+|D04 · 已完成｜开发终点|`RA_PLUS_A_FULL32 / W1_ONE_PHASE / BETA1_ONE_PHASE` → CFG-Aligned Corrected Reuse|四CAL×七候选＋四Native，共32路径；阶段β=1相对WC均值LPIPS低11.1600%，4/4改善。|C1直接终点证据|旧wall含取证，不作为clean延迟；速度引用D07/D13的同口径结果。|R·主干开发证据|[257](../research/257_WC_RA_PLUS_A_COMPLETE32_FIDELITY_AND_COST_RESULTS_20261010.md) · [420](../research/420_WC_FULL60_COST_CURVE_COMPLETE_RESULTS_AND_CONVERGENCE_20261014.md)|
+|D05 · 已完成｜工程等价|`E5_FULL24 / LEGACY / FAST` → Equivalent Head Execution|24路径，所测输出/动作/RNG等价；修正配对head次数868→688，少20.7373%。|C3工程支持；非新加速主结果|次数不等于时间；已验clean主配置未自动启用该FAST，不能把比例加到1.8974×。|R·工程/附录|[365](../research/365_WC_E5_COMPLETE24_REAL_HEAD_EQUIVALENCE_RESULTS_AND_E3_NEXT_20261011.md) · [374](../research/374_WC_CLEAN_SPEED20_COMPLETE_RESULTS_20261012.md) · [420](../research/420_WC_FULL60_COST_CURVE_COMPLETE_RESULTS_AND_CONVERGENCE_20261014.md)|
+|D06 · 已完成｜组合开发|`E3_COMPLETE64 / KEEP / NONZERO` → Source-Rule × Readout Interaction|两规则×四CAL×八方法，64视频/5952帧；KEEP阶段W1/β1较同规则CPD失真低13.6735%/12.7233%；NONZERO组合反转。|C1来源机制；E-P旧P0组合条件|不能算P独立收益，不能以含取证/复用的时间作净加速；不再重跑全矩阵。|R·机制与条件|[369](../research/369_WC_E3_COMPLETE64_RESULTS_SOURCE_READOUT_INTERACTION_AND_NEXT_20261012.md)|
+|D07 · 已完成｜重复测速|`CLEAN_SPEED20 / KEEP_A_P / A_NO_P` → Forward–Reverse Clean Timing|两场景×五配置×正反两轮=20正式＋20预热；A无P在两个场景的两轮均快于WC且LPIPS更低。|C1效率工作点；C3计时证据|重复范围限两场景旧五配置；未覆盖最终高保真版本，最终重复计时见N08。|R·计时证据|[374](../research/374_WC_CLEAN_SPEED20_COMPLETE_RESULTS_20261012.md)|
+|D08 · 已完成｜旧控制开发|`N2_SOURCE_H1 / SOURCE_H2 / H2_P_TO_D` → Normalized-Risk Controllers|36正式＋18预热；来源门控P_OFF有质量工作点，旧H1/H2没有执行A。|C2设计分析；不是新absolute H1|与D12的新TABLE_PHASE_H1分版本；不再把旧H1/H2当待完成主模块。|R·设计/附录|[380](../research/380_WC_MATH_N2_COMPLETE_SOURCE_GATE_POSITIVE_AND_ROUTER_A_UNUSED_RESULTS_20261012.md)|
+|D09 · 已完成｜同状态机制|`SOURCE_PHASE16 / FULL368` → Source-Consistent Readout and Calibration|四CAL×D/P×早晚16状态；来源一致A为16/16优于C；P来源旧D参考2/8、融合8/8改善。|C1直接局部机制；C2标定依据|16状态不是16独立视频；旧gamma使用过CAL；局部regret不等于端点，桥接见D10。|R·机制主证据|[392](../research/392_WC_SOURCE_PHASE16_COMPLETE_POSITIVE_RESULTS_AND_CONSEQUENCE_NEXT_20261012.md)|
+|D10 · 已完成｜后果干预|`PI0_SUFFIX8 / FULL266` → Single-Readout Suffix Consequences|4父＋8后缀/12视频；AV28一次A让LPIPS低0.9812%、后续D+P由8→7；另外三点有小幅反例。|C1/C2交互机制|确认局部更准并不保证终点更好；取证/解码顺序影响不作为clean收益。保留全四点。|R·因果机制|[396](../research/396_WC_PI0_SUFFIX8_COMPLETE_RESULTS_LOCAL_TARGET_AND_FUTURE_COMPUTE_20261013.md)|
+|D11 · 已完成｜工程筛查/归档|`R4_FULL104 / SPARSE_FAIR` → Sparse Attention Feasibility|104 QKV输入/312算子案例，中位1.218931×；旧两视频全流程少0.2916%/1.4070%。|不作为当前CARA核心模块|算子与视频成本层级不同、覆盖率有限；当前不继续稀疏搜索，不拿微收益否定整个方向。|X·归档，不续开|[75](../research/75_WC_FULL104_R4_CARD_AND_RESULTS.md) · [134](../research/134_WC_SPARSE_COST_CONDITIONS_EXPLORATORY_RESULTS.md) · [424](../research/424_WC_FINAL_EXPERIMENT_CLOSURE_AND_PAPER_EVIDENCE_20261014.md)|
+|D12 · 已完成｜主方法开发|`TABLE_PHASE_H1 / TABLE_POOLED_H1 / ABS_H1_CAL24` → Absolute Source-and-Phase Allocation|六方法×四CAL=24正式＋12预热；absolute guided MSE/g²/源分价下A真正被选择，高保真轨迹26D/5A/5C。|C2已实现标定与工作点；C1读出|更多D和阶段位置共同影响终点；已有固定归因D14，仍缺简单同配额对照N06。|R·主干开发证据|[403](../research/403_WC_ABSOLUTE_H1_COMPLETE_RESULTS_HIGH_FIDELITY_AND_NEXT_20261013.md)|
+|D13 · 已完成｜冻结确认|`FROZEN_CONFIRM50 / TABLE_PHASE_H1 / A_NO_P / P_OFF` → Frozen New-Prompt Confirmation|四新prompt×seed17/43，40正式＋10预热；39兼容视频，RA拒绝1；高保真LPIPS0.0530368、Native加速1.2681×。|C1/C2工作点确认；C3有限新输入|RA完整八视频质量均值缺失；当前输入已曝光；更广的全部对手共同冻结测试见N07。|R·主结果确认|[417](../research/417_WC_FROZEN_CONFIRMATION_FULL50_RESULTS_AND_COST_CURVE_NEXT_20261013.md)|
+|D14 · 已完成｜主比较与归因|`COST_CURVE60 / H1_LOW/MID/HIGH / FIXED_A / FIXED_PLAIN` → Common-Batch Trade-off and Matched-Refresh Ablation|40正式＋20预热；Efficient比WC时间少13.72%、失真低11.1600%；同26D的A/plain失真低3.5196%、多0.8762秒；MID=fixed。|C1修正独立归因；C2阶段部署；C3同批比较|三λ都26D，不是宽连续前沿；每格一次计时；fixed等价不证明优于均匀/粗阶段规则。|R·主表/消融|[420](../research/420_WC_FULL60_COST_CURVE_COMPLETE_RESULTS_AND_CONVERGENCE_20261014.md)|
+|D15 · 已完成并关闭｜探索|`F / RAW / Haar / FFT` → Spectral Risk-Feature Probe|F真实局部实验及分组分析已完成；RAW改善预测但动作未变，Haar/FFT未产生当前决策增量。|不合入主线；独立附录|F新差值假设未做但已随方向关闭，不记为活跃待补或自动追加训练。|X·关闭|[412](../research/412_WC_FB_COMPLETE_RESULTS_AND_INDEPENDENT_CONFIRMATION_LAUNCH_20261013.md) · [424](../research/424_WC_FINAL_EXPERIMENT_CLOSURE_AND_PAPER_EVIDENCE_20261014.md)|
+|D16 · 已完成并关闭｜探索|`B_FULL312 / C_REPLAY / DENSE_VELOCITY / L2_VELOCITY` → Block-Reuse Endpoint Diagnostic|4状态/16视频/1488帧；C/Dense/L2均值LPIPS 0.3272410/0.3289287/0.3300823，端点混合。|不合入主线；独立附录|首返回保存速度、实际C缓存，不是在线B刷新或净加速；保留父C/A差异解释，不再扩展。|X·关闭|[423](../research/423_WC_B_FULL312_COMPLETE_ENDPOINT_RESULTS_AND_READOUT_BOUNDARY_20261014.md) · [424](../research/424_WC_FINAL_EXPERIMENT_CLOSURE_AND_PAPER_EVIDENCE_20261014.md)|
+|D17 · 已完成｜离线增强机制|`P_ACR_E0 / Pc / Pu` → Single-Branch Compensation E0|旧16真实状态；按prompt留出的SourcePhase Pu系数相对A的guided MSE低37.2996%，14/16点、4/4提示词改善。|E-P局部可行性；未成为主贡献|只隔离系数留出，A已用过CAL；没有新单支实际价/新来源/闭环结果。下一可选N03。|R·增强机制|[426](../research/426_WC_P_W3_E0_COMPLETE_ASYMMETRIC_ORACLE_AND_COEFFICIENT_RESULTS_20261014.md)|
+|D18 · 已完成｜CPU准备|`PA528_CPU_R2` → P-ACR Production CPU Validation|完整PA528的原语、父恢复、真实入口和启动/post CPU接受；模型/权重/GPU为0。|E-P执行准备，不是性能证据|CPU通过不等于真实528执行；P-ACR当前不更新来源，GPU卡未选定。|R·无需重做CPU|[433](../research/433_WC_P_ACR_WHOLE528_LAUNCH_CPU_AND_NEXT_DECISION_20261015.md)|
+|D19 · 已完成｜CPU准备|`W3_CLOCK432 / W3_FULL72_CPU / W3_PRODUCTION_CPU_R3` → Causal Clock and W3 Collector Validation|真实scheduler CPU重放对齐旧432步；完整模拟采集/父恢复/因果隔离及生产23控制接受。|E-W3/C2监督工具；不是新风险模型收益|模拟72父/3456pairs不是真实W3标签；真实18父卡为R01。无需再派准备CPU。|R·准备封口|[434](../research/434_WC_W3_REAL_CONTINUOUS_CLOCK_AND_FULL432_CAUSAL_HISTORY_CPU_20261015.md) · [441](../research/441_WC_W3_FULL72_COLLECTOR_CPU_ACCEPTED_AND_PRODUCTION_NEXT_20261015.md) · [447](../research/447_WC_W3_COMPLETE_CPU_CLOSED_AND_WHOLE864_PERMISSION_DECISION_20261015.md)|
+|R01 · 已完成｜有缺口监督接受|`W3_LABEL64 / FULL864` → Same-State C/A/D Label Collection|80原件/1104张量/64标签通过；15视频1395帧，8组完整模型非提交等价/7组RGB等价；原18/72分母保留。|C2/E-W3真实监督，非新策略端点|1坏视频及2文本拒绝保留；主6prompt/48点、raw敏感性7/56、warm8不拟合，原整卡非全成功。|R·监督子集接受|[455](../research/455_WC_W3_RAW_COHORT_ACCEPTANCE_GROUPED_T1_T2_RESULTS_AND_PHASE_ATTRIBUTION_20261016.md)|
+|N01 · 已完成｜开发性CPU决策评价|`T0/T1/T2/T_TIME/T_STEP_TABLE/STEP23` → Grouped Action-Value and Phase-Only Controls|主组T1/时间-only/仅23步regret为0.339971/0.340532/0.337549；敏感性0.329269/0.332689/0.330417。|E-W3→C2阶段校准；未并入主线|456保留原局部结果；551的E0补去step23、同合法域/同回退的剩余状态增量。无新视频或速度结论，不默认扩历史模型。|R·CPU区分完成|[456](../research/456_WC_T1_VS_SIMPLE_PHASE_CPU_RESULTS_AND_VIDEO_DECISION_20261016.md)|
+|N02 · 待补｜本地完整CPU已接受|`W3_FROZEN_PREDICTOR_CLOSED_LOOP` → Phase-Revision versus Learned Allocation|459全72 Toy路径、32audit/lean、8旧H1完整控制与8/8第23步D→A实际覆盖通过。|C2执行准备；非新视频端点|旧459完整Toy控制保留；H1第23步完整终点仍未做。551先做强前密少一次D的三臂，两个实际mask不同，不将旧CPU等价转用新卡。|P2-C·E1后有价值才做|[459](../research/459_WC_PHASE_FULL72_LOCAL_CPU_ACCEPTED_AND_MAINLINE_PRIORITY_20261016.md)|
+|N03 · 待补｜可选整卡|`PA528` → Single-Branch Readout: Real Error and Price|原完整8父/12状态/C,A,D,Pc,Pu各1warm+3正式，共528pairs/1056CFG；预计7.529994GPUh。|E-P费用/精度候选；不作为主稿前置|需要实际单支报价、误差下包络与恢复/视频控制；不默认为必须执行，先保护主稿补验余额。|P2-C·条件可选|[433](../research/433_WC_P_ACR_WHOLE528_LAUNCH_CPU_AND_NEXT_DECISION_20261015.md) · [roadmap](../plans/WORLD_CACHE_RESEARCH_ROADMAP_20261015.md) · [448](../research/448_WC_W3_FULL864_APPROVED_GPU_LAUNCH_AND_UNDER12_AUTONOMY_20261015.md)|
+|N04 · 待补｜条件组合|`S1_SIX_CONFIGURATION_TEMPLATE` → P-ACR / Trend Readout Bridge and Combination|既有模板：4开发prompt×6配置=24正式＋12预热；含H1原集/CAD桥接、Trend、ACR及组合。|拟增强E-P/C2；不提前计主贡献|先有值得追踪的误差—费用或交互信号，再冻结完整范围；只做读出闭环，合法来源refresh须另设计。|P2-C·有信号/余额才做|[roadmap](../plans/WORLD_CACHE_RESEARCH_ROADMAP_20261015.md)|
+|N05 · 已完成｜有限强基线前沿|Fair Tuned-Baseline Frontier|完整66/44视频4092帧全部接受；A比RA默认失真低9.6667%、时间高1.0809%；两个候选均在本批观测前沿。|C1/C2实用增量；C3公平性|旧CAL开发结果保留；N07新输入已完整接受可用共同队列，A_NO_P未稳定胜RA；N08在途，直接修正近邻Cosmos适配仍缺。|R·主结果开发基线|[closure_plan](../plans/WORLD_CACHE_PAPER_CONVERGENCE_AND_FINAL_EXPERIMENTS_20261014.md) · [roadmap](../plans/WORLD_CACHE_RESEARCH_ROADMAP_20261015.md) · [mainline_queue_20261016](../plans/WORLD_CACHE_MAINLINE_PRIORITY_QUEUE_20261016.md) · [baseline_grid_prereg_20261016](../manifests/wc_paper_N05_bounded_baseline_grid_preregistration_draft_20261016.json) · [neighbor_resources_20261016](../reports/wc_mainline_neighbor_resource_inventory_20261016.json) · [N05_core66_scope](../manifests/wc_paper_N05_core66_preregistration_r1_20261016.json) · [N05_scheduler_CPU](../reports/wc_paper_N05_actual_native_scheduler_grid_CPU_20261016.json) · [N05_CPU_launch_460](../research/460_WC_N05_CORE66_FROZEN_GRID_AND_FULL216_LOCAL_CPU_LAUNCH_20261016.md) · [N05_local_CPU_461](../research/461_WC_N05_FULL216_CPU_ACCEPTED_CORE66_PRODUCTION_AND_POST_READY_20261016.md) · [N05_local_CPU_independent](../reports/wc_paper_N05_core216_local_CPU_independent_acceptance_20261016.json) · [N05_core66_cost](../manifests/wc_paper_N05_core66_full_cost_r1_20261016.json) · [N05_core66_production](../configs/wc_paper_N05_core66_production_r1_20261016.json) · [N05_production_CPU_462](../research/462_WC_N05_CORE66_ACTUAL_PRODUCTION_CPU_DISPATCH_20261016.md) · [N05_production_CPU_repair_463](../research/463_WC_N05_PRODUCTION_CPU_R1_MISSING_MANIFEST_AND_R2_PACKAGING_REPAIR_20261016.md) · [N05_production_CPU_464](../research/464_WC_N05_CORE66_REAL_PRODUCTION_CPU_ACCEPTED_AND_N06_0455_NEXT_20261016.md) · [N05_production_CPU_R2_accepted](../reports/wc_paper_N05_core66_production_CPU_R2_independent_acceptance_20261016.json) · [N05_neighbor_code_compatibility](../reports/wc_mainline_neighbor_adapter_code_readonly_followup_20261016.json) · [470](../research/470_WC_N05_CORE66_GPU_ADMITTED_AFTER_COMPLETE_N06_AND_1205_COLLECTION_20261016.md) · [471](../research/471_WC_DIRECT_CORRECTION_NEIGHBOR_AUTHOR_SOURCE_CPU_FIDELITY_AND_MAINLINE_BOUNDARY_20261016.md) · [496](../research/496_WC_N05_CORE66_COMPLETE_STRONG_BASELINES_AND_N07_N08_METHOD_FREEZE_20261016.md)|
+|N06 · 已完成｜同26D位置/读出归因|`SIMPLE26D_MEMORY_FULL36_R2` → Matched-Dense-Refresh Schedule Controls|36全部完成，24视频/2232帧，26D下比较原阶段、均匀、前密的A/C；全28旧等价与显存控制通过。|C1读出归因；C2位置作用|原阶段胜均匀，前密A均值比原阶段A低3.9297%；前密C也强。旧CAL/seed0；并发秒数不作clean。|R·主消融；强简单对照进入最终筛选|[469](../research/469_WC_SIMPLE26D_COMPLETE_RESULTS_POSITION_READOUT_AND_STRONG_SIMPLE_BASELINE_20261016.md)|
+|N07 · 正在运行｜GPU完成，CPU审计评分中|Common Frozen Evaluation Matrix|R2全部180位置处理，149完成／20文本拒／11视频拒（含预热），技术失败和未到达0；GPU退出0，CPU post仍活跃。R1独立失败归档。|C1/C2最终确认；C3共同输入|不补拒绝、不重跑R2；保留全126兼容/11718帧及共同质量队列时间。551只用其作已曝光分析，不用逐提示词选新计划后再称未见确认。|R·结果保留，接续N08|[545](../research/545_WC_N07_R2_LATE_MIDPOINT_GPU_DONE_POSTCPU_ACTIVE_AND_FINAL_1724_20261017.md)|
+|N08 · 已完成｜完整40独立接受|Balanced Repeated Clean Latency|2旧CAL/5角色/三轮；40全完成、30正式2790帧，数值/RGB/登记资源条件通过。|C3稳定费用；C1/C2工作点复验|无在途；不当新输入泛化或胜强前密，551后续仍待做。|R·完整接受|[closure_plan](../plans/WORLD_CACHE_PAPER_CONVERGENCE_AND_FINAL_EXPERIMENTS_20261014.md) · [roadmap](../plans/WORLD_CACHE_RESEARCH_ROADMAP_20261015.md) · [mainline_queue_20261016](../plans/WORLD_CACHE_MAINLINE_PRIORITY_QUEUE_20261016.md) · [N08_repeat_CPU_467](../research/467_WC_N08_BALANCED_REPEAT40_MATRIX_AND_STATISTICS_CPU_PREPARED_20261016.md) · [N08_repeat_protocol](../manifests/wc_paper_N08_balanced_repeat40_protocol_r1_20261016.json) · [N08_repeat_CPU](../reports/wc_paper_N08_balanced_repeat_statistics_CPU_r1_20261016.json) · [485](../research/485_WC_N08_FULL40_EXECUTION_BINDING_AND_OBSERVED_TIMER_CPU_READY_20261016.md) · [488](../research/488_WC_N08_RESIDENT_FULL40_PRODUCTION_ENTRY_AND_WARM_INTERFACE_REPAIR_CPU_READY_20261016.md) · [489](../research/489_WC_N08_FULL40_CPU_POST_REPEAT_PARITY_SAME_ROUND_FIDELITY_AND_FAILURE_ISOLATION_READY_20261016.md) · [490](../research/490_WC_N08_SEVEN_COMMAND_CPU_GATE_SINGLE_DISPATCH_AND_UUID_SETTLEMENT_READY_20261016.md) · [491](../research/491_WC_N08_FULL40_INDEPENDENT_ACCEPTANCE_AND_N07_CAPTURE_REGISTRATION_REPAIR_CPU_READY_20261016.md) · [492](../research/492_WC_N08_PRODUCTION_CPU_DEPLOYMENT_AND_ONCE_COLLECTION_PREPARATION_20261016.md) · [495](../research/495_WC_N07_N08_COMPLETE_CARD_COST_PLANNING_CPU_READY_20261016.md) · [N07_N08_complete_cost_CPU](../reports/wc_paper_N07_N08_whole_cost_CPU_acceptance_r2_20261016.json) · [496](../research/496_WC_N05_CORE66_COMPLETE_STRONG_BASELINES_AND_N07_N08_METHOD_FREEZE_20261016.md) · [497](../research/497_WC_N07_FROZEN_NEW_INPUTS_FULL180_ACTUAL_COST_AND_PRODUCTION_CPU_PREREG_20261016.md) · [501](../research/501_WC_N07_FULL180_REAL_PRODUCTION_CPU_ACCEPTED_COMPLETE_CARD_AND_BUDGET_DECISION_20261016.md) · [506](../research/506_WC_N07_FULL180_HUMAN_APPROVED_CAP113_GPU_ADMITTED_AND_0530_COLLECTION_20261016.md) · [537](../research/537_WC_N07_REPAIR_DOWNSTREAM_N08_N09_SOURCE_IDENTITY_BRIDGE_CPU_READY_20261016.md) · [538](../research/538_WC_N08_ACTUAL_START_HALFWAY_TECHNICAL_COLLECTION_CPU_READY_20261016.md) · [552](../research/552_WC_N08_FULL40_ACCEPTED_REPEATED_TIMING_AND_PENDING_TASK_CLOSURE_20261017.md)|
+|N09 · 已完成｜完整40部署诊断接受|Calibration and Minimal Deployment Profile|40全完成，20组件原件／请求显存／全部93RGB与输出等价通过；实费2.769417131GPUh，原GPU及post释放。|C3部署开销；C2费用一致|原action12独立动作单价／最小校准采集成本仍待；三模式不作clean重复。|R·本轮完整接受|[591完整结果](../research/591_WC_N09_FULL40_ACCEPTED_DEPLOYMENT_PROFILE_AND_N10_NEXT_20261018.md) · [独立接受](../reports/wc_paper_N09_actual40_R3_terminal_independent_acceptance_20261018.json)|
+|N10 · GPU技术终态｜待完整质量与账单接受|Automatic Video Quality on Final Outputs|20:02半程确认原进程exit0、GPU0及锁释放；全960科学原件未读取，原645待评分／155不可用／160静态N/A分母保持。|C3视频质量范围|22:43原完整收件；终态固定名称不当评分失败或全成功结论。|P0·原完整终态验收|[593半程技术记录](../research/593_WC_N10_MIDPOINT_TECHNICAL_TERMINAL_AND_FINAL_ACCEPTANCE_RETAINED_20261018.md) · [592原任务](../research/592_WC_N10_FULL960_GPU_ADMITTED_AFTER_N09_AND_TWO_COLLECTION_TIMES_20261018.md)|
+|N11 · 待补｜主张条件|`SECOND_MODEL_TRANSFER` → Second-Backbone Transfer|模型内接线pilot→必要q/g/费用标定→冻结共同测试；尚无本项目迁移结果。|C3跨骨干；若不做则限定Cosmos|原8/−7权重、36更新、step25不原样当新模型真值；模型/范围/费用待定。|P3-C·主张跨骨干时必补|[closure_plan](../plans/WORLD_CACHE_PAPER_CONVERGENCE_AND_FINAL_EXPERIMENTS_20261014.md) · [roadmap](../plans/WORLD_CACHE_RESEARCH_ROADMAP_20261015.md)|
+|N12 · 已完成｜完整18路径接受|Correction-Paid Dense-Budget Reduction|4CAL×3臂，12正式1116帧，实际更新21处D→C/A；全部原件/控制通过，实费1.474263GPUh。|C1同25D修正保真作用；C2终点预算计划的适用条件；C3开发成本|同25D失真−8.5560%，恢复删除D损失27.9558%；相对26D仍+31.7739%。已有6warm/一个AV28同状态CPU解释完成，局部guided MSE−52.9048%；不自动新GPU。|已接受·修正消融|[563](../research/563_WC_DROP1_FULL18_RESULTS_FIXED25D_CORRECTION_VALUE_AND_REMAINING_20261018.md)|
+|Z01 · 暂缓/未执行｜旧卡|`OLD_E2_FULL76 / OLD_P_REFERENCE_13H` → Legacy Deferred Cards|旧E2完整76、P参考双flow13.0600GPUh等历史卡保留。|不算当前待执行承诺|不由新文档重启、缩卡或借用授权；新P/W3及正式补验用各自完整登记。|X·暂缓，不恢复|[369](../research/369_WC_E3_COMPLETE64_RESULTS_SOURCE_READOUT_INTERACTION_AND_NEXT_20261012.md) · [424](../research/424_WC_FINAL_EXPERIMENT_CLOSURE_AND_PAPER_EVIDENCE_20261014.md) · [roadmap](../plans/WORLD_CACHE_RESEARCH_ROADMAP_20261015.md)|
+
+
+## 接下来的顺序与论文用法
+
+最新用户已要求当前验收完按主线重要性推进，执行入口为[主线优先队列](../plans/WORLD_CACHE_MAINLINE_PRIORITY_QUEUE_20261016.md)。
+
+1. **N06原完整R2仍04:55一次验收。** 不改运行源、句柄、六配置四CAL或原分母。全部适用原件/视频/显存/费用接受后继续；技术失败保留并定位。
+2. **N05是下一张主线卡。** 优先完成Native少步、有限调优WC/RA与两个冻结工作点的实际CPU/整卡费用，按原严格<12GPUh及fresh v2/UUID自主推进。近邻Cosmos适配未验，明确完整范围，不按授权阈值删对照。
+3. **N07共同冻结测试→N08最终重复clean测速，N09/10费用/自动质量配套。** 原CONF输入与新EXPL都已曝光，不再作未见输入；已有D07/D13/D14保留。完整卡>=12或总余额不够时先交付具体整卡决定，不拆/缩或重置窗口。
+4. **N02/03/04保持可选。** 阶段/T1完整本地72已在459接受，生产/视频尚无；简单阶段解释几乎全部局部收益，不让新预测器/PA准备挤占强基线和确认。F/B关闭。
+
+本轮未SSH查同26D或新资源，也没有新增GPU扣费。预算仍用01:19已捕获快照：实结86.864053599、N06预留8、可准入10.107309734GPUh；不是实时余额。04:55结算后按v2原账单加法重算，原cap104.971363333不变。
+
+正文围绕GCR修正与校准阶段部署的两个工作点组织，N05验证强对手公平性，N06验证位置/读出归因，N07–N10补冻结覆盖和部署证据。420是四CAL/seed0开发、每格一次计时；417确认有一个RA拒绝，两个工作点不拼接，LPIPS为Native相对保真，93帧不是93个独立样本。新CPU通过不升级为新策略质量/速度结果。
+
+## 交给写作对话的读取顺序
+
+```text
+请一起读取：
+/Users/kuangda_gao/Documents/世界模型加速实验/worldcache_omr/paper/INTERNAL_TO_PAPER_MAPPING.md
+/Users/kuangda_gao/Documents/世界模型加速实验/worldcache_omr/paper/EXPERIMENT_MASTER_TABLE.md
+
+机器索引为同目录 internal_to_paper_mapping.json 与 experiment_master_table.json。
+先用映射解释名称，再用总表确定证据状态、论文贡献、缺口和优先级。
+当前正文采用已完成的GCR与校准阶段部署；运行、CPU准备和未执行模板不写成方法收益。
+“待补”不是已完成具体范围/CPU准入；选定并通过完整准入后按现行授权推进，不恢复历史许可门槛。
+后续有新的完整结果后，按原ID更新本表和映射，不改旧配置/原件身份。
+```
+
+**W3 01:18收尾：**原只读CPU与本轮分组评价均已结束，不再查旧句柄或自动续GPU；同26D R2仍04:55验收。T1冻结参数只是离线候选，CARA/GCR/CPA现有主方法范围保持。
+
+**456 CPU收尾：**简单阶段与T1对照已完成，三个隔离控制和独立折内拟合/指标复算通过；原同26D行、任务、04:55验收不变。新视频验证目前是建议，不是已启动任务。
+
+**457执行准备：**新接口已接四种原H1/合法集/阶段/T1配置，六标量控制通过。完整72本地Toy CPU已启动，02:28一次查收；没有新GPU视频或生产CPU接受。N06原任务/04:55验收不改。
