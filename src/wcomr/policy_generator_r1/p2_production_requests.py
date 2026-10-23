@@ -33,6 +33,11 @@ class Requests:
             require(slot['method'].startswith('NATIVE'),'Unknown timing method')
             n=int(slot['method'][6:]);require(n in self.schedules,'Unregistered Native count')
             sample.num_steps=n;result=native_execute(self.inference,sample,schedule=self.schedules[n],**common)
+        result['sampling_method']=result.pop('method',None)
+        if 'policy_fingerprint' in result:
+            fp=result.pop('policy_fingerprint')
+            require('policy_fingerprint' not in slot or slot['policy_fingerprint']==fp,'Executed policy differs from frozen slot')
+            result['executed_policy_fingerprint']=fp
         # In CPU parity tests only, guided vectors exist. Their transport is an
         # audit artifact, never a JSON metadata value or production timing copy.
         guided=result.pop('guided',None);latent=result.pop('final_latent',None)

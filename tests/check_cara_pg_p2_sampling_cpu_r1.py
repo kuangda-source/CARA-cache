@@ -63,8 +63,10 @@ def body(inference,selected,wc,rf,common,initial,profile,root,native,flow,infere
        schedules=schedules,output=root/'adapter',common=dict(common,CPU_native=native))
    native_slot=dict(id='native18',member=selected[0].name,seed=0,method='NATIVE18')
    initial.restore();r=adapter(native_slot);paths+=1
+   assert not (set(native_slot)&set(r))
    assert r['status']=='COMPLETE' and r['solver_steps']==19 and r['video_artifact']['sha256']
-   initial.restore();r=adapter(dict(id='history',member=selected[0].name,seed=0),plan);paths+=1
+   initial.restore();r=adapter(dict(id='history',member=selected[0].name,seed=0,policy_fingerprint=plan['fingerprint']),plan);paths+=1
+   assert 'policy_fingerprint' not in r and r['executed_policy_fingerprint']==plan['fingerprint']
    assert r['status']=='COMPLETE' and len(r['history_records'])==3 and r['full_request_seconds'] is None
    try:adapter(native_slot)
    except ValueError:pass
