@@ -1,0 +1,81 @@
+{
+  "status": "PASS",
+  "actual_original_positive_control": true,
+  "negative_cases": [
+    {
+      "case": "live_container",
+      "rejected": true,
+      "reason": "Original CPU exit0 required"
+    },
+    {
+      "case": "nonzero_exit",
+      "rejected": true,
+      "reason": "Original CPU exit0 required"
+    },
+    {
+      "case": "OOM",
+      "rejected": true,
+      "reason": "Original CPU exit0 required"
+    },
+    {
+      "case": "GPU_exposure",
+      "rejected": true,
+      "reason": "Pinned bounded GPU-hidden CPU container required"
+    },
+    {
+      "case": "changed_payload",
+      "rejected": true,
+      "reason": "Registered source/runtime changed"
+    },
+    {
+      "case": "wrong_namespace",
+      "rejected": true,
+      "reason": "Original registered source/stage required"
+    },
+    {
+      "case": "proof_SHA",
+      "rejected": true,
+      "reason": "Original proof bytes binding failed"
+    },
+    {
+      "case": "missing_Native_count",
+      "rejected": true,
+      "reason": "All Native step counts required"
+    },
+    {
+      "case": "missing_path",
+      "rejected": true,
+      "reason": "Whole declared small-tensor numeric scope required"
+    },
+    {
+      "case": "raw_branch_audit_missing",
+      "rejected": true,
+      "reason": "Full Native or state-isolated history numerical scope failed"
+    },
+    {
+      "case": "parent_state_changed",
+      "rejected": true,
+      "reason": "Full Native or state-isolated history numerical scope failed"
+    },
+    {
+      "case": "codec_incomplete",
+      "rejected": true,
+      "reason": "Actual tokenizer/93-frame codec boundary failed"
+    },
+    {
+      "case": "request_missing",
+      "rejected": true,
+      "reason": "72 actual FIT/request-step and SetupArguments boundaries required"
+    },
+    {
+      "case": "batch_controls_missing",
+      "rejected": true,
+      "reason": "Whole timing batch controls required"
+    }
+  ],
+  "checks": 15,
+  "capture_ref": "reports/cara_PG_P2_native_history_CPU_complete_r4_20261023.json",
+  "capture_sha256": "9a0556af6d296fc6b47cb9e32f67683a33e16c7f894313a7b3fd376def037943",
+  "observed_unix": 1792762406.181368,
+  "GPU_submissions": 0
+}

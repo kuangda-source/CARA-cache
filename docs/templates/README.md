@@ -41,7 +41,7 @@ LPIPS 越低表示越接近同输入的 Native 视频；它与局部速度 MSE�
 
 {{snapshot}}
 
-价格补测运行期间，PG-P1整卡监督、真实93帧评分与终态复算组合已通过独立CPU接受；完整64路预计8.84 GPUh、上限10.5 GPUh。原价格完整接受并释放后，按新卡资源与账本准入直接接续。见[组合接受与接续](repo:research/657_CARA_PG_P1_FULL_CARD_COMBINATION_CPU_ACCEPTED_AND_PRICE_HANDOFF_20261023.md)。
+PG-P1 已在 GPU3 硬独占运行，原64位置与10.5 GPUh上限不变。运行期间，P2 历史诊断和少步 Native 生产入口完成48条完整小张量路径、72个真实请求构造的独立CPU接受；全36步/最终latent/93帧RGB影子开关相等。完整P2未去重报价上界518路、78.5 GPUh，P1通过后绑定策略、去重并完成整卡组合验收和最终预算。见[663准备与接续](repo:research/663_CARA_PG_P2_NATIVE_HISTORY_PRODUCTION_CPU_ACCEPTED_AND_WHOLE_QUOTE_20261023.md)。
 
 ## 仓库结构与使用
 

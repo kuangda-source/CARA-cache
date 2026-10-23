@@ -6,7 +6,7 @@
 
 范围：4 CAL_FIT / 2 CAL_SELECT，Q≤8（首批4+一次细化4），最多64路径/40评分/2304pairs/4608CFG，单load；forecast8.844444 GPUh，上限10.5 GPUh。PG-P1技术半程：**2026-10-24 00:52 Asia/Shanghai**；PG-P1完整终态验收：**2026-10-24 05:32 Asia/Shanghai**。
 
-[唯一实际PG启动](../reports/cara_PG_P1_full64_GPU_actual_launch_20261023_2030.json) · [PG技术观测](../reports/cara_PG_P1_full64_GPU_after_load_20261023_2030.json) · [真实独占核验](../reports/cara_PG_P1_GPU3_exclusive_active_20261023_2027.json) · [完整接续记录](661_CARA_EXCLUSIVE_PRICES_ACCEPTED_PG_P1_ACTUALLY_ADMITTED_20261023.md)。独占价格10/10完整接受，实际6.916276GPUh结算、原锁/容器释放，原标签保持。全1624价格CV中位0.36–0.39%、P95<1%；单个A_HALF尖峰保留且不改冻结聚合。CAL_SELECT新核查3193本地/53远端元数据无执行命中。PG首次派发因缺os在intent之前退出，已保存失败并经10项真实派发body CPU检查沿同一授权恢复；20:26:04单次实际启动，原runner独占核验通过、MODEL_LOADING、0失败。新报价8.844444、上限10.5GPUh，不能以准入宣称策略成功。
+[唯一实际PG启动](../reports/cara_PG_P1_full64_GPU_actual_launch_20261023_2030.json) · [PG技术观测](../reports/cara_PG_P1_full64_GPU_after_load_20261023_2030.json) · [真实独占核验](../reports/cara_PG_P1_GPU3_exclusive_active_20261023_2027.json) · [完整接续记录](661_CARA_EXCLUSIVE_PRICES_ACCEPTED_PG_P1_ACTUALLY_ADMITTED_20261023.md)。独占价格10/10完整接受，实际6.916276GPUh结算、原锁/容器释放，原标签保持。全1624价格CV中位0.36–0.39%、P95<1%；单个A_HALF尖峰保留且不改冻结聚合。CAL_SELECT新核查3193本地/53远端元数据无执行命中。PG首次派发因缺os在intent之前退出，已保存失败并经10项真实派发body CPU检查沿同一授权恢复；20:26:04单次实际启动，原runner独占核验通过、MODEL_LOADING、0失败。新报价8.844444、上限10.5GPUh，不能以准入宣称策略成功。 P2独立CPU于21:32完整观察接受：48路径、72请求、43本地控制；原P1 stage不改。完整P2未去重报价67.878889/78.5GPUh，待P1冻结角色去重及整卡批准。
 
 原1624标签完整接受；独占价格补测10/10完整接受、实际6.916276 GPUh已结算，[独立价格接受](../reports/wc_policy_price_refresh_GPU_accepted_20261023_2023.json)。PG-P1尚无科学结果；CPU和独占准入不代表策略优势。
 
@@ -16,13 +16,13 @@
 |---|---|---|
 | PG-P1-ASSETS | 完整1624真实区间/价格资产：原标签与独占价格完整接受 | 以新双SHA bundle接已接受CPU的PG-P1，检验闭环策略。 |
 | PG-P1 | 单预算自动策略闭环：GPU运行中（原卡独占） | 保持原64位置及Q≤8，半程只读技术检查；完整终态独立复算候选/评分/决策及财务。 |
-| PG-P2 | 等预算与等查询强基线：规则与CPU接口已准备 | 历史诊断和少步Native计时选择规则/CPU控制已就绪；P1后冻结矩阵和新输入，完整报价后实际生产验收。 |
+| PG-P2 | 等预算与等查询强基线：Native/历史生产入口CPU已接受 | P1接受后绑定最终策略/原件并去重；补齐整卡监督评分终态组合CPU和最终报价/批准。完整未去重P2上界518路、78.5GPUh，当前不派发。 |
 | PG-P3 | 固定程序跨预算/模型：条件性后续 | P1/P2后先0.70×Native，再成熟第二模型或明确第二设置重新校准。 |
 | PG-P4 | 最终独立TEST与部署评价：待方法冻结 | 冻结方法、对手、预算、选择规则后再选新TEST；计入warm与全流程成本。 |
 
 ## 下一卡的具体准备
 
-PG-P1两个已登记CAL_SELECT（`av_animal_dear_1_0`、`industry_057`，seed0）的本地回执及四卡项目输出身份核查已完成，范围内没有发现执行记录；首次SELECT端点前核对新增元数据。等待期还补齐了可信资产转换接口、历史失配诊断矩阵规则、少步Native纯计时选择和27项CPU控制，见[652准备记录](652_CARA_PG_P1_P2_CPU_PREPARATION_AND_HANDOFF_20261023.md)与[接续命令](../plans/cara_policy_generator_20261020/P1_P2_CPU_HANDOFF_R1_20261023.md)。[657](657_CARA_PG_P1_FULL_CARD_COMBINATION_CPU_ACCEPTED_AND_PRICE_HANDOFF_20261023.md)已补齐整卡监督、真实93帧评分、Native时钟与终态复算组合接受。下一步原价格完整接受并结算释放后，按[整卡接续命令](../plans/cara_policy_generator_20261020/P1_FULL_CARD_COMBINATION_HANDOFF_R3_20261023.md)绑定价格双SHA、重新核查曝光和资源，再单次派发完整64路PG-P1，预计8.844444、上限10.5 GPUh。
+PG-P1 已在 GPU3 硬独占运行，原64位置与10.5 GPUh上限不变。运行期间，P2 历史诊断和少步 Native 生产入口完成48条完整小张量路径、72个真实请求构造的独立CPU接受；全36步/最终latent/93帧RGB影子开关相等。完整P2未去重报价上界518路、78.5 GPUh，P1通过后绑定策略、去重并完成整卡组合验收和最终预算。见[663准备与接续](663_CARA_PG_P2_NATIVE_HISTORY_PRODUCTION_CPU_ACCEPTED_AND_WHOLE_QUOTE_20261023.md)。
 
 [2026-10-23接续要求](../plans/cara_policy_generator_20261020/PRICE_HISTORY_NATIVE_CONTINUATION_R1_20261023.md)：原1624数值/控制和动作价格分别接受；已知同卡竞争的价格不因低波动自动通过。未来GPU卡要求实际独占。冻结策略后加入小规模历史窗口诊断，PG-P2加入少步Native等实测时间对照；shadow不写回，不计为干净延迟，新增范围单独进入完整报价。
 

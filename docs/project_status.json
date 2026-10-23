@@ -3,8 +3,8 @@
   "project": "CARA-Cache",
   "evidence_observed_at": "2026-10-23T08:26:41.422652+08:00",
   "timezone": "Asia/Shanghai",
-  "snapshot_note": "独占价格10/10完整接受，实际6.916276GPUh结算、原锁/容器释放，原标签保持。全1624价格CV中位0.36–0.39%、P95<1%；单个A_HALF尖峰保留且不改冻结聚合。CAL_SELECT新核查3193本地/53远端元数据无执行命中。PG首次派发因缺os在intent之前退出，已保存失败并经10项真实派发body CPU检查沿同一授权恢复；20:26:04单次实际启动，原runner独占核验通过、MODEL_LOADING、0失败。新报价8.844444、上限10.5GPUh，不能以准入宣称策略成功。",
-  "research_summary": "修正机制与共享布局已有实证；完整1624真实区间标签已接受，半强度在四CAL全区间均值均改善。当前修复动作价格可信度，再检验自动生成计划的独立质量—时间收益。",
+  "snapshot_note": "独占价格10/10完整接受，实际6.916276GPUh结算、原锁/容器释放，原标签保持。全1624价格CV中位0.36–0.39%、P95<1%；单个A_HALF尖峰保留且不改冻结聚合。CAL_SELECT新核查3193本地/53远端元数据无执行命中。PG首次派发因缺os在intent之前退出，已保存失败并经10项真实派发body CPU检查沿同一授权恢复；20:26:04单次实际启动，原runner独占核验通过、MODEL_LOADING、0失败。新报价8.844444、上限10.5GPUh，不能以准入宣称策略成功。 P2独立CPU于21:32完整观察接受：48路径、72请求、43本地控制；原P1 stage不改。完整P2未去重报价67.878889/78.5GPUh，待P1冻结角色去重及整卡批准。",
+  "research_summary": "修正机制与共享布局已有实证；完整1624真实区间标签和独占动作价格均已接受。当前PG-P1按干净Native时钟生成策略；P2 Native/历史生产入口已通过CPU，后续检验冻结计划的新输入质量—时间收益。",
   "active_experiment_id": "PG-P1",
   "active_state": "PG_P1_EXCLUSIVE_GPU_RUNNING",
   "active_state_zh": "独占价格已完整接受；PG-P1 GPU3硬独占运行中",
@@ -137,7 +137,7 @@
     "latest_process_owner_ref": "reports/wc_policy_price_refresh_GPU3_new_context_identity_20261023_1305.json"
   },
   "PG_continuation_preparation": {
-    "status": "COMPLETE_PRODUCTION_COMBINATION_CPU_ACCEPTED_CLEAN_PRICE_PENDING",
+    "status": "COMPLETE_PRODUCTION_COMBINATION_CPU_ACCEPTED_PG_P1_ACTUALLY_RUNNING",
     "report_ref": "research/657_CARA_PG_P1_FULL_CARD_COMBINATION_CPU_ACCEPTED_AND_PRICE_HANDOFF_20261023.md",
     "plan_ref": "plans/cara_policy_generator_20261020/P1_FULL_CARD_COMBINATION_HANDOFF_R3_20261023.md",
     "exposure_ref": "reports/cara_CAL_SELECT_exposure_committed_20261023.json",
@@ -145,7 +145,7 @@
     "tests_passed": 27,
     "production_CPU_accepted": true,
     "GPU_dispatch_ready": true,
-    "GPU_submissions": 0,
+    "GPU_submissions": 1,
     "combined_tests_passed": 92,
     "CPU_test_ref": "reports/cara_PG_P1_combination_local_CPU_checks_20261023.json",
     "production_entry_CPU_accepted": true,
@@ -211,5 +211,26 @@
     "hardware_admitted": true,
     "stage_ref": "reports/cara_PG_P1_full64_stage_ref_20261023.json",
     "GPU_submissions": 1
+  },
+  "PG_P2_preparation": {
+    "status": "NATIVE_HISTORY_PRODUCTION_CPU_ACCEPTED_WHOLE_P2_BINDINGS_PENDING",
+    "report_ref": "research/663_CARA_PG_P2_NATIVE_HISTORY_PRODUCTION_CPU_ACCEPTED_AND_WHOLE_QUOTE_20261023.md",
+    "plan_ref": "plans/cara_policy_generator_20261020/P2_NATIVE_HISTORY_PRODUCTION_HANDOFF_R1_20261023.md",
+    "CPU_capture_ref": "reports/cara_PG_P2_native_history_CPU_complete_r4_20261023.json",
+    "CPU_acceptance_ref": "reports/cara_PG_P2_native_history_CPU_accepted_r4_20261023.json",
+    "CPU_source_revision": "0e80e5fc11dc429238b108cfe0269f71077d2bb4",
+    "observed_at": "2026-10-23T21:32:03.080679+08:00",
+    "Native_history_production_CPU_accepted": true,
+    "complete_CPU_paths": 48,
+    "actual_request_count": 72,
+    "local_checks": 43,
+    "independent_fault_checks": 14,
+    "whole_quote_ref": "manifests/cara_PG_P2_whole518_planning_quote_r1_20261023.json",
+    "forecast_complete_GPUh": 67.8788888888889,
+    "billed_limit_GPUh": 78.5,
+    "full_P2_GPU_lifecycle_CPU_accepted": false,
+    "GPU_dispatch_ready": false,
+    "GPU_submissions": 0,
+    "active_P1_stage_modified": false
   }
 }

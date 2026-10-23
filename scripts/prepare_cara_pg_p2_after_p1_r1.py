@@ -40,8 +40,15 @@ def main():
  consumer=record(p1,'consumer');batch=record(p1,'runner')['batch'];roles=roles_from_batch(batch)
  fields=dict(consumer['profile']);fields['protected_dense']=tuple(fields['protected_dense']);fields['alpha_candidates']=tuple(fields['alpha_candidates'])
  matrix=history_matrix(Profile(**fields),roles,consumer['CAL_FIT_members'][:2])
+ references=[]
+ for slot in matrix['rows']:
+  matches=[r for r in batch['rows'] if r['split']=='CAL_FIT' and r.get('fingerprint')==slot['policy_fingerprint'] and r.get('member')==slot['member'] and r.get('seed')==slot['seed'] and r['status']=='COMPLETE']
+  require(len(matches)==1,'History needs its exact accepted own-policy P1 reference')
+  row=matches[0]
+  references.append(dict(member=slot['member'],seed=slot['seed'],policy_fingerprint=slot['policy_fingerprint'],section=slot['section'],
+      P1_request_sha256=row['request_artifact']['sha256'],video_artifact=row['video_artifact'],final_latent_artifact=row['final_latent_artifact']))
  output=dict(status='P2_ORIGINAL_P1_POLICY_AND_NATIVE_HISTORY_CPU_BOUND_NOT_DISPATCH',profile=consumer['profile'],roles=roles,
-  history_matrix=matrix,Native_schedules=ca['schedule_rows'],CAL_FIT_members=consumer['CAL_FIT_members'],
+  history_matrix=matrix,history_OFF_reference_bindings=references,Native_schedules=ca['schedule_rows'],CAL_FIT_members=consumer['CAL_FIT_members'],
   source_bindings=[dict(ref=str(path),sha256=hashlib.sha256(path.read_bytes()).hexdigest()) for path in
    (a.p1_capture,a.p1_acceptance,a.cpu_capture,a.cpu_acceptance)],
   P1_selected_policy_frozen=True,new_DEV_selected=False,whole_P2_quote_rebinding_required=True,
