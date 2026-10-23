@@ -219,7 +219,7 @@
     "terminal_container_finished_at": "2026-10-23T23:02:35.085636+08:00",
     "analysis_ref": "reports/cara_PG_P1_complete_budget_attribution_20261024.json",
     "repair_plan_ref": "plans/cara_policy_generator_20261020/P1_BUDGET_BRIDGE_AND_FEASIBILITY_REPAIR_R2_20261024.md",
-    "analysis_next_action": "104卡正在GPU3独占采集；等待完整采集、GPU释放后72评分及独立终态接受，再据历史强基线与预算边界修复P1；不放宽预算。"
+    "analysis_next_action": "104完整终态后按673离线入口分析强历史基线、24/25D实测预算边界与冻结计时误差；再按预定分支准备P1修复合同、曝光核查、CPU和完整报价，不放宽预算。"
   },
   "PG_P2_preparation": {
     "status": "QUALITY_ENTRY_AND_CARD_BINDING_PREPARED_REAL_MODEL_CPU_PENDING",
@@ -310,7 +310,19 @@
     "combination_CPU_acceptance_ref": "reports/cara_history104_combination_CPU_accepted_r1_20261024.json",
     "combination_CPU_capture_ref": "reports/cara_history104_combination_CPU_terminal_r1_20261024.json",
     "execution_source_revision": "5fc4dfe66a33a915fcc7bdf10700bae8810bb401",
-    "launch_ref": "reports/cara_history104_GPU_actual_launch_r1_20261024.json"
+    "launch_ref": "reports/cara_history104_GPU_actual_launch_r1_20261024.json",
+    "result_analysis_preparation": {
+      "status": "OFFLINE_ANALYSIS_READY_WAIT_COMPLETE104_ACCEPTANCE",
+      "plan_ref": "plans/cara_policy_generator_20261020/HISTORY104_ANALYSIS_AND_P1_REPAIR_HANDOFF_R1_20261024.md",
+      "report_ref": "research/673_CARA_HISTORY104_ANALYSIS_READY_AND_P1_REPAIR_DECISIONS_20261024.md",
+      "CPU_preparation_ref": "reports/cara_history104_analysis_preparation_CPU_r1_20261024.json",
+      "entry": "scripts/analyze_cara_history104_results_r1.py",
+      "unit_checks": 29,
+      "CLI_checks": 3,
+      "partial_results_used": false,
+      "GPU_submissions": 0,
+      "search_or_budget_changed": false
+    }
   },
   "history104_GPU": {
     "launch_ref": "reports/cara_history104_GPU_actual_launch_r1_20261024.json",
@@ -322,5 +334,17 @@
     "status": "GPU_EXCLUSIVE_RUNNING",
     "observed_at": "2026-10-24T03:28:24.130215+08:00",
     "full_protocol_accepted": false
+  },
+  "history104_result_analysis_preparation": {
+    "status": "OFFLINE_ANALYSIS_READY_WAIT_COMPLETE104_ACCEPTANCE",
+    "plan_ref": "plans/cara_policy_generator_20261020/HISTORY104_ANALYSIS_AND_P1_REPAIR_HANDOFF_R1_20261024.md",
+    "report_ref": "research/673_CARA_HISTORY104_ANALYSIS_READY_AND_P1_REPAIR_DECISIONS_20261024.md",
+    "CPU_preparation_ref": "reports/cara_history104_analysis_preparation_CPU_r1_20261024.json",
+    "entry": "scripts/analyze_cara_history104_results_r1.py",
+    "unit_checks": 29,
+    "CLI_checks": 3,
+    "partial_results_used": false,
+    "GPU_submissions": 0,
+    "search_or_budget_changed": false
   }
 }
