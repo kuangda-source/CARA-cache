@@ -68,6 +68,20 @@ def accept(v,old_capture,old_accepted):
     require(v['files']['authorization']['sha256']==L['authorization_sha256'],'Authorization bytes differ')
     for k in ('run_id','launch_id','source_revision','gpu_uuid','registration_sha256','config_sha256','scope_counts','billed_limit_GPUh'):
         require(auth[k]==L[k],'Authority/launch differs: '+k)
+    if L.get('entry_recovery_intent_sha256'):
+        recovery=record(v,'entry_recovery');original=record(v,'original_launch')
+        require(v['files']['entry_recovery']['sha256']==L['entry_recovery_intent_sha256']
+                and v['files']['original_launch']['sha256']==L['original_launch_sha256']==recovery['original_launch_sha256'],
+                'Entry recovery or preserved original launch SHA differs')
+        require(recovery['launch_id']==L['launch_id']==original['launch_id'] and recovery['GPU_replay'] is False
+                and recovery['pre_interpreter_failure_confirmed'] and recovery['confirmed_prior_GPU_submissions']==0
+                and recovery['prior_actual_GPUh']==0
+                and recovery['controller_source_revision']==L['entry_recovery_controller_revision'],
+                'Entry recovery was not a proven pre-GPU continuation')
+        require(original['guardian_identity']==L['original_guardian_identity']
+                and original['started_unix']==L['original_started_unix']<L['started_unix']
+                and all(original[k]==L[k] for k in ('run_id','source_revision','gpu_uuid','scope_counts','authorization_sha256')),
+                'Entry recovery changed original experiment identity')
     cpu=record(v,'CPU_acceptance')
     require(cpu['production_CPU_accepted'] and cpu['full_GPU_lifecycle_CPU_accepted']
             and cpu['source_revision']==L['source_revision'] and cpu['registration_sha256']==L['registration_sha256']

@@ -10,7 +10,7 @@ import sys
 import time
 import uuid
 
-from wc_four_card_policy_assets_r1 import ssh,write,read,sha,REPO
+from wc_four_card_policy_assets_r1 import ssh,write,read,sha,REPO,RUNTIME_REF
 from wc_four_card_price_refresh_r1 import CAPTURE as OLD_CAPTURE,ACCEPTED as OLD_ACCEPTED
 from audit_wc_policy_price_refresh_cpu_r1 import accept as accept_cpu
 sys.path.insert(0,str(REPO/'src'))
@@ -107,6 +107,7 @@ def launch_gpu(a):
         autonomy_exclusive_upper_GPUh=12,controller_source_revision=revision,controller_payload_sha256=bindings,
         original_asset_capture_sha256=sha(REPO/OLD_CAPTURE),original_asset_acceptance_sha256=sha(REPO/OLD_ACCEPTED))
     data=dict(CPU_launch=L,gpu_uuid=a.gpu_uuid,auth=auth,
+        control_runtime=read(REPO/RUNTIME_REF),
         CPU_files={k:cap['files'][k]['sha256'] for k in ('production','numerical','bundle')},
         accepted_base64=base64.b64encode(a.cpu_acceptance.read_bytes()).decode())
     # No credential lookup or durable intent until the selected UUID is idle.
@@ -132,7 +133,16 @@ for name in ('price-GPU-launch.json','price-GPU-intent.json'):
  if (stage/name).exists():
   print(json.dumps(dict(status='EXISTING_PRICE_GPU_HANDLE_RECOVER_ONLY',original=json.loads((stage/name).read_text()))));raise SystemExit(0)
 '''
-LAUNCH_SUFFIX=r'''
+RUNTIME_WRAPPER=r'''
+runtime=p['control_runtime'];runtime_root=pathlib.Path(runtime['job'])
+assert runtime['status']=='NATIVE_CONTROL_PYTHON_CPU_PASS' and runtime['exit_code']==0
+for name,key in [('bin/python3','wrapper_sha256'),('usr-local/bin/python3.10','python_sha256'),('lib/ld-linux-x86-64.so.2','loader_sha256'),('manifest.json','manifest_sha256')]:
+ assert sha(runtime_root/name)==runtime[key]
+assert read(runtime_root/'result.json')['status']=='NATIVE_CONTROL_PYTHON_CPU_PASS'
+host_python=str(runtime_root/'bin/python3')
+'''
+
+LAUNCH_SUFFIX=RUNTIME_WRAPPER+r'''
 import base64
 from wcomr.gpu_budget_pool_v2 import process_identity,atomic_json
 if not value['admissible']:
@@ -150,7 +160,7 @@ with (stage/'price-GPU-authorization.json').open('x') as f:json.dump(auth,f,inde
 intent=dict(status='PRICE_ONCE_ONLY_GPU_INTENT',launch_id=auth['launch_id'],source_revision=reg['source_revision'],
  registration_sha256=L['registration_sha256'],gpu_uuid=auth['gpu_uuid'],created_unix=time.time(),no_replay=True)
 with (stage/'price-GPU-intent.json').open('x') as f:json.dump(intent,f,indent=2);f.flush();os.fsync(f.fileno())
-command=[sys.executable,'-u',str(stage/'scripts/wc_policy_price_host_guardian_r1.py'),'--project',str(root),'--stage',str(stage)]
+command=[host_python,'-u',str(stage/'scripts/wc_policy_price_host_guardian_r1.py'),'--project',str(root),'--stage',str(stage)]
 with (stage/'price-host-guardian.log').open('x') as log:
  child=subprocess.Popen(command,stdin=subprocess.PIPE,stdout=log,stderr=subprocess.STDOUT,start_new_session=True,
   env=dict(os.environ,CUDA_VISIBLE_DEVICES='',PYTHONDONTWRITEBYTECODE='1'))
@@ -173,12 +183,99 @@ def recover(a):
     result=ssh(r'''
 import json,pathlib,subprocess,sys,time
 p=json.load(sys.stdin);stage=pathlib.Path(p['stage']);v=dict(status='PRICE_ORIGINAL_HANDLE_RECOVERY_ONLY',stage=str(stage),observed_unix=time.time(),handles={},GPU_submissions=0)
-for name in ('price-GPU-intent.json','price-GPU-launch.json','price-host-guardian.json','price-admission-failure.json'):
+for name in ('price-GPU-intent.json','price-GPU-launch.json','price-host-guardian.json','price-admission-failure.json','price-entry-recovery-intent.json','price-entry-recovery-launch.json'):
  if (stage/name).exists():v['handles'][name]=json.loads((stage/name).read_text())
 q=subprocess.run(['docker','inspect',stage.name+'-gpu'],capture_output=True,text=True,timeout=15)
 v['container_state']=json.loads(q.stdout)[0]['State'] if q.returncode==0 else None
 print(json.dumps(v))
 ''',L);write(a.output,result);return result
+
+
+ENTRY_RECOVERY_PREFIX=r'''
+import json,pathlib,fcntl,sys
+p=json.load(sys.stdin);stage=pathlib.Path(p['CPU_launch']['stage'])
+lock=(stage/'price-dispatch.lock').open('a');fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
+for name in ('price-entry-recovery-intent.json','price-entry-recovery-launch.json'):
+ if (stage/name).exists():
+  print(json.dumps(dict(status='EXISTING_ENTRY_RECOVERY_HANDLE_RECOVER_ONLY',original=json.loads((stage/name).read_text()))));raise SystemExit(0)
+'''
+
+ENTRY_RECOVERY_CHECK=r'''
+from wcomr.gpu_budget_pool_v2 import process_identity
+original=p['original_launch'];assert read(stage/'price-GPU-launch.json')==original
+assert sha(stage/'price-GPU-launch.json')==p['original_launch_sha256']
+assert original['run_id']==RUN and original['stage']==str(stage)
+assert original['source_revision']==reg['source_revision'] and original['registration_sha256']==L['registration_sha256']
+assert original['gpu_uuid']==p['gpu_uuid'] and original['scope_counts']==COUNTS
+assert sha(stage/'price-GPU-authorization.json')==original['authorization_sha256']
+auth=read(stage/'price-GPU-authorization.json');intent=read(stage/'price-GPU-intent.json')
+assert intent['launch_id']==auth['launch_id']==original['launch_id']
+ident=original['guardian_identity'];actual=process_identity(ident['pid'])
+assert actual.get('start_ticks')!=ident['start_ticks'] or actual.get('state') in (None,'Z','X'),'Original guardian remains live'
+assert RUN not in pool['jobs'] and not (root/'outputs'/RUN).exists(),'GPU reservation or output already exists; recover only'
+for name in ('price-host-guardian.json','price-container.log','price-runner-context-ready.json','price-runner-context-granted.json'):
+ assert not (stage/name).exists(),'Host entry progressed; no entry replay'
+q=subprocess.run(['docker','inspect',original['container']],capture_output=True,text=True,timeout=20)
+assert q.returncode!=0 and 'No such' in q.stderr,'Container exists or inspect is unknown; recover only'
+failure=(stage/'price-host-guardian.log').read_text()
+assert 'GLIBC_2.34' in failure and 'not found' in failure and 'Traceback' not in failure,'Not the known pre-interpreter loader failure'
+assert sha(stage/'price-host-guardian.log')==p['failure_log_sha256']
+assert value['snapshot']['compute_mode']=='Default','Mode changed after pre-interpreter failure'
+if not value['admissible']:
+ print(json.dumps(value));raise SystemExit(0)
+'''
+
+ENTRY_RECOVERY_START=RUNTIME_WRAPPER+r'''
+if not p['execute']:
+ print(json.dumps(dict(value,status='PRICE_ENTRY_RECOVERY_PRECONDITIONS_PASS',original_launch_id=original['launch_id'],
+   confirmed_GPU_submissions=0,actual_GPUh=0,original_failure_log_sha256=p['failure_log_sha256'])));raise SystemExit(0)
+recovery=dict(status='PRICE_ENTRY_RECOVERY_INTENT',launch_id=original['launch_id'],created_unix=time.time(),
+ original_launch_sha256=p['original_launch_sha256'],failure_log_sha256=p['failure_log_sha256'],
+ controller_source_revision=p['controller_source_revision'],controller_payload_sha256=p['controller_payload_sha256'],
+ control_runtime=p['control_runtime'],entry_CPU_proof_sha256=p['entry_CPU_proof_sha256'],
+ GPU_replay=False,pre_interpreter_failure_confirmed=True,confirmed_prior_GPU_submissions=0,prior_actual_GPUh=0)
+with (stage/'price-entry-recovery-intent.json').open('x') as f:json.dump(recovery,f,indent=2);f.flush();os.fsync(f.fileno())
+command=[host_python,'-u',str(stage/'scripts/wc_policy_price_host_guardian_r1.py'),'--project',str(root),'--stage',str(stage)]
+with (stage/'price-host-guardian-entry-recovery.log').open('x') as log:
+ child=subprocess.Popen(command,stdin=subprocess.PIPE,stdout=log,stderr=subprocess.STDOUT,start_new_session=True,
+  env=dict(os.environ,CUDA_VISIBLE_DEVICES='',PYTHONDONTWRITEBYTECODE='1'))
+ child.stdin.write(json.dumps(dict(sudo_password=p.pop('sudo_password'))).encode());child.stdin.close()
+now=time.time();identity=process_identity(child.pid);assert identity['start_ticks'] is not None
+result=dict(original,status='PRICE_ORIGINAL_INTENT_ENTRY_RESUMED_HARDWARE_ADMISSION_PENDING',guardian_identity=identity,
+ original_guardian_identity=original['guardian_identity'],original_started_unix=original['started_unix'],
+ original_launch_sha256=p['original_launch_sha256'],entry_recovery_intent_sha256=sha(stage/'price-entry-recovery-intent.json'),
+ entry_recovery_controller_revision=p['controller_source_revision'],started_unix=now,
+ halfway_check_not_before_unix=now+original['forecast_GPUh']*1800,
+ next_check_not_before_unix=now+original['forecast_GPUh']*3600+900)
+with (stage/'price-entry-recovery-launch.json').open('x') as f:json.dump(result,f,indent=2);f.write(chr(10));f.flush();os.fsync(f.fileno())
+print(json.dumps(result))
+'''
+
+
+def resume_host_entry(a):
+    cap,_=verified_CPU(a);original=read(a.launch_ref)
+    proof=read(a.entry_cpu_proof);probe=json.loads(proof['stdout'])
+    if (proof['exit_code']!=0 or proof['runtime']!=read(REPO/RUNTIME_REF)
+            or probe['status']!='ACTUAL_FROZEN_HOST_ENTRY_WRAPPER_CPU_PASS'
+            or probe['source_revision']!=original['source_revision'] or probe['scope_counts']!=COUNTS
+            or probe['CUDA_initialized'] or probe['mode_changes'] or probe['GPU_submissions']):
+        raise ValueError('Actual frozen host entry child-wrapper CPU proof required')
+    revision,bindings=published_controller()
+    data=dict(CPU_launch=cap['launch'],gpu_uuid=a.gpu_uuid,original_launch=original,
+        original_launch_sha256=sha(a.launch_ref),failure_log_sha256=a.failure_log_sha256,
+        CPU_files={k:cap['files'][k]['sha256'] for k in ('production','numerical','bundle')},
+        controller_source_revision=revision,controller_payload_sha256=bindings,
+        control_runtime=read(REPO/RUNTIME_REF),entry_CPU_proof_sha256=sha(a.entry_cpu_proof),execute=False)
+    code=ENTRY_RECOVERY_PREFIX+PREFLIGHT.replace('p=json.load(sys.stdin);','')+ENTRY_RECOVERY_CHECK+ENTRY_RECOVERY_START
+    checked=ssh(code,data)
+    if checked.get('status')!='PRICE_ENTRY_RECOVERY_PRECONDITIONS_PASS':
+        write(a.output,checked);return checked
+    data.update(execute=True,sudo_password=saved_secret())
+    try:result=ssh(code,data)
+    except Exception as e:
+        result=dict(status='PRICE_ENTRY_RECOVERY_UNKNOWN_RECOVER_ONLY',original_launch=original,error_type=type(e).__name__,no_replay=True)
+    finally:data.pop('sudo_password',None)
+    write(a.output,result);return result
 
 
 def capture(a):
@@ -227,9 +324,12 @@ if lock.exists():
   except BlockingIOError:v['own_UUID_lock_free']=False
 for key,name in [('guardian','price-host-guardian.json'),('authorization','price-GPU-authorization.json'),
  ('ready','price-runner-context-ready.json'),('grant','price-runner-context-granted.json')]:keep(key,stage/name)
+if L.get('entry_recovery_intent_sha256'):
+ for key,name in [('entry_recovery','price-entry-recovery-intent.json'),('original_launch','price-GPU-launch.json')]:keep(key,stage/name)
 v['health']=read(out/'runner-health.json') if (out/'runner-health.json').exists() else None
 v['error_lines']=[]
-for log in (stage/'price-host-guardian.log',stage/'price-container.log',out/'GPU.log',out/'post-CPU.log'):
+host_log='price-host-guardian-entry-recovery.log' if L.get('entry_recovery_intent_sha256') else 'price-host-guardian.log'
+for log in (stage/host_log,stage/'price-container.log',out/'GPU.log',out/'post-CPU.log'):
  if log.exists():
   with log.open('rb') as f:f.seek(0,2);f.seek(max(0,f.tell()-16384));tail=f.read().decode(errors='replace')
   v['error_lines'] += [x for x in tail.splitlines() if any(k in x for k in ('Traceback','RuntimeError','AssertionError','OutOfMemory','No space left'))][-8:]
@@ -285,10 +385,14 @@ def accept_gpu(a):
 
 def main():
     p=argparse.ArgumentParser();s=p.add_subparsers(dest='command',required=True)
-    for mode in ('preflight','launch-gpu'):
+    for mode in ('preflight','launch-gpu','resume-host-entry'):
         q=s.add_parser(mode)
         for n in ('cpu-capture','cpu-acceptance','lifecycle-capture','output'):q.add_argument('--'+n,type=Path,required=True)
         q.add_argument('--gpu-uuid',required=True)
+        if mode=='resume-host-entry':
+            q.add_argument('--launch-ref',required=True,type=Path)
+            q.add_argument('--failure-log-sha256',required=True)
+            q.add_argument('--entry-cpu-proof',required=True,type=Path)
     q=s.add_parser('recover');q.add_argument('--cpu-launch',type=Path,required=True);q.add_argument('--output',type=Path,required=True)
     q=s.add_parser('capture');q.add_argument('--launch-ref',type=Path,required=True);q.add_argument('--mode',choices=['admission','halfway','terminal'],required=True);q.add_argument('--output',type=Path,required=True)
     q=s.add_parser('accept-gpu');q.add_argument('--capture',type=Path,required=True);q.add_argument('--output',type=Path,required=True)

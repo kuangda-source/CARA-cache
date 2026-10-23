@@ -145,13 +145,79 @@ class TerminalAcceptance(unittest.TestCase):
     def test_deferred_restore_does_not_erase_clean_measurement(self):
         self.rewrite('guardian',lambda g:g.update(mode_restoration=dict(restored=False,status='RESTORE_DEFERRED_NO_FOREIGN_PROCESS_TOUCHED')))
         self.assertTrue(self.check()['mode_restoration_pending'])
+    def add_entry_recovery(self):
+        L=self.v['launch'];original=copy.deepcopy(L)
+        original.update(guardian_identity=dict(pid=90,start_ticks=490),started_unix=1.)
+        original_sha=put(self.v,'original_launch',original)
+        recovery=dict(launch_id=L['launch_id'],original_launch_sha256=original_sha,GPU_replay=False,
+            pre_interpreter_failure_confirmed=True,confirmed_prior_GPU_submissions=0,prior_actual_GPUh=0,
+            controller_source_revision='recovery-controller')
+        recovery_sha=put(self.v,'entry_recovery',recovery)
+        L.update(original_launch_sha256=original_sha,entry_recovery_intent_sha256=recovery_sha,
+            original_guardian_identity=original['guardian_identity'],original_started_unix=1.,started_unix=2.,
+            entry_recovery_controller_revision='recovery-controller')
+    def test_proven_pre_gpu_entry_continuation_preserves_acceptance(self):
+        self.add_entry_recovery();self.assertTrue(self.check()['full_protocol_accepted'])
+    def test_entry_continuation_cannot_hide_prior_gpu_use(self):
+        self.add_entry_recovery()
+        self.rewrite('entry_recovery',lambda r:r.update(confirmed_prior_GPU_submissions=1))
+        self.v['launch']['entry_recovery_intent_sha256']=self.v['files']['entry_recovery']['sha256']
+        with self.assertRaisesRegex(ValueError,'pre-GPU continuation'):self.check()
 
 
 class ControllerSyntax(unittest.TestCase):
     def test_remote_programs_compile_without_execution(self):
         import wc_four_card_price_refresh_gpu_r1 as ctl
-        for code in [ctl.PREFLIGHT+'\nprint(json.dumps(value))',ctl.LAUNCH_PREFIX+ctl.PREFLIGHT.replace('p=json.load(sys.stdin);','')+ctl.LAUNCH_SUFFIX,ctl.CAPTURE_GPU]:
+        for code in [ctl.PREFLIGHT+'\nprint(json.dumps(value))',ctl.LAUNCH_PREFIX+ctl.PREFLIGHT.replace('p=json.load(sys.stdin);','')+ctl.LAUNCH_SUFFIX,ctl.CAPTURE_GPU,
+                     ctl.ENTRY_RECOVERY_PREFIX+ctl.PREFLIGHT.replace('p=json.load(sys.stdin);','')+ctl.ENTRY_RECOVERY_CHECK+ctl.ENTRY_RECOVERY_START]:
             compile(code,'CPU-only-remote-syntax','exec')
+    def test_guardian_uses_verified_wrapper_not_raw_executable(self):
+        import wc_four_card_price_refresh_gpu_r1 as ctl
+        for code in (ctl.LAUNCH_SUFFIX,ctl.ENTRY_RECOVERY_START):
+            self.assertIn("command=[host_python,'-u'",code)
+            self.assertNotIn('command=[sys.executable',code)
+            self.assertIn("sha(runtime_root/name)==runtime[key]",code)
+    def test_existing_recovery_intent_never_restarts(self):
+        import io,tempfile,contextlib
+        from unittest.mock import patch
+        import wc_four_card_price_refresh_gpu_r1 as ctl
+        with tempfile.TemporaryDirectory() as tmp:
+            Path(tmp,'price-entry-recovery-intent.json').write_text(json.dumps(dict(launch_id='original')))
+            out=io.StringIO();namespace={}
+            with patch('sys.stdin',io.StringIO(json.dumps(dict(CPU_launch=dict(stage=tmp))))),contextlib.redirect_stdout(out):
+                try:
+                    with self.assertRaises(SystemExit):exec(ctl.ENTRY_RECOVERY_PREFIX,namespace)
+                finally:namespace['lock'].close()
+            self.assertEqual(json.loads(out.getvalue())['status'],'EXISTING_ENTRY_RECOVERY_HANDLE_RECOVER_ONLY')
+    def test_entry_recovery_requires_no_prior_gpu_or_running_host(self):
+        import tempfile,subprocess
+        from types import SimpleNamespace
+        from unittest.mock import patch
+        import wc_four_card_price_refresh_gpu_r1 as ctl
+        for condition in ('clean','live','reserved','output','guardian','container','unknown_inspect','wrong_failure','changed_mode'):
+            with self.subTest(condition=condition),tempfile.TemporaryDirectory() as tmp:
+                root=Path(tmp);stage=root/'stage';stage.mkdir()
+                original=dict(run_id=RUN,stage=str(stage),source_revision='source',registration_sha256='reg',
+                    gpu_uuid='GPU-fixture',scope_counts=COUNTS,launch_id='original',guardian_identity=dict(pid=50,start_ticks=100),container='fixture')
+                auth=dict(launch_id='original');(stage/'price-GPU-authorization.json').write_text(json.dumps(auth))
+                original['authorization_sha256']=ctl.sha(stage/'price-GPU-authorization.json')
+                (stage/'price-GPU-launch.json').write_text(json.dumps(original))
+                (stage/'price-GPU-intent.json').write_text(json.dumps(auth))
+                (stage/'price-host-guardian.log').write_text('GLIBC_2.34 not found' if condition!='wrong_failure' else 'different failure')
+                if condition=='guardian':(stage/'price-host-guardian.json').write_text('{}')
+                if condition=='output':(root/'outputs'/RUN).mkdir(parents=True)
+                p=dict(original_launch=original,original_launch_sha256=ctl.sha(stage/'price-GPU-launch.json'),
+                    gpu_uuid='GPU-fixture',failure_log_sha256=ctl.sha(stage/'price-host-guardian.log'))
+                ns=dict(p=p,stage=stage,root=root,read=ctl.read,sha=ctl.sha,RUN=RUN,COUNTS=COUNTS,
+                    reg=dict(source_revision='source'),L=dict(registration_sha256='reg'),
+                    pool=dict(jobs={RUN:{}} if condition=='reserved' else {}),
+                    value=dict(admissible=True,snapshot=dict(compute_mode='Exclusive_Process' if condition=='changed_mode' else 'Default')),
+                    subprocess=subprocess,json=json)
+                query=SimpleNamespace(returncode=0 if condition=='container' else 1,stderr='daemon unavailable' if condition=='unknown_inspect' else 'No such object: fixture')
+                with patch('wcomr.gpu_budget_pool_v2.process_identity',return_value=dict(pid=50,start_ticks=100,state='R' if condition=='live' else 'Z')),patch.object(subprocess,'run',return_value=query):
+                    if condition=='clean':exec(ctl.ENTRY_RECOVERY_CHECK,ns)
+                    else:
+                        with self.assertRaises(AssertionError):exec(ctl.ENTRY_RECOVERY_CHECK,ns)
     def test_existing_once_only_intent_never_dispatches(self):
         import io,tempfile,contextlib
         from unittest.mock import patch
