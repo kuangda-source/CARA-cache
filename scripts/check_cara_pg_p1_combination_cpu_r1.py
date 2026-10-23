@@ -25,7 +25,7 @@ def main():
  from wcomr.policy_generator_r1.production_evidence import metric_resource_identity
  import lpips,importlib.metadata
  identity=metric_resource_identity(a.project);assert importlib.metadata.version('lpips')=='0.1.4'
- torch.hub.set_dir(str(a.project/'cache/torch'))
+ torch.hub.set_dir(str(a.project/'cache/torch/hub'))
  metric=lpips.LPIPS(net='alex',version='0.1',spatial=False,verbose=False).cpu().eval()
  for v in metric.parameters():v.requires_grad_(False)
  out=a.stage/'CPU-full-video-score';out.mkdir()

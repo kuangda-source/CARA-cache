@@ -61,7 +61,7 @@ def main():
   settings=parent['historical_wc_settings'];wc.apply_worldcache(net,**{k.removeprefix('worldcache_'):v for k,v in settings.items()})
   initial=CompleteStateRoundtrip(net,model.sample_scheduler,torch.zeros(1));origin=initial.fingerprint();versions=[(v,v._version) for v in net.parameters()]
   metric_identity=metric_resource_identity(a.project);assert importlib.metadata.version('lpips')=='0.1.4'
-  torch.hub.set_dir(str(a.project/'cache/torch'));metric=lpips.LPIPS(net='alex',version='0.1',spatial=False,verbose=False).cpu().eval()
+  torch.hub.set_dir(str(a.project/'cache/torch/hub'));metric=lpips.LPIPS(net='alex',version='0.1',spatial=False,verbose=False).cpu().eval()
   for v in metric.parameters():v.requires_grad_(False)
   state['metric_identity']=metric_identity;save()
   ident={k:process_identity(os.getpid())[k] for k in ('pid','start_ticks')};ident['uid']=os.getuid()

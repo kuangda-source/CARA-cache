@@ -19,6 +19,9 @@ def main():
  else:
   revision=subprocess.check_output(['git','rev-parse','HEAD'],cwd=REPO,text=True).strip()
   names=set(local_python_closure(REPO,ENTRY))|set(EXTRA)|{str(p.relative_to(REPO)) for p in (REPO/'src/wcomr/policy_generator_r1').glob('*.py')}
+  # Keep the already accepted SM89 budget port in the registered base;
+  # the repository's historical SM86 file is not a replacement for it.
+  names.discard('src/wcomr/gpu_budget_pool_v2.py')
   files={};hashes={}
   for n in sorted(names):
    raw=subprocess.check_output(['git','show',revision+':'+n],cwd=REPO);assert raw==(REPO/n).read_bytes(),'Commit exact PG composition source first'
