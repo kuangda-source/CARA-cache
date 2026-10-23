@@ -1,0 +1,102 @@
+{
+  "status": "P1_ACCEPTED_NO_FEASIBLE_POLICY_HISTORY_DEPENDENCY_PENDING",
+  "observed_at": "2026-10-24T03:22:34.318653+08:00",
+  "source_bindings": {
+    "P1_capture": {
+      "ref": "reports/cara_PG_P1_original_terminal_codec_recovered_20261024_0035.json",
+      "sha256": "77e8d8d63a840fe45282903c613d9feabfb3174c921d718800f3b56c8900e949"
+    },
+    "P1_acceptance": {
+      "ref": "reports/cara_PG_P1_original_terminal_accepted_20261024_0037.json",
+      "sha256": "edf0b39b72fd2ff7ff9929602b3c4a61b6b7b10ce73b1c8692c93f1331dd4759"
+    },
+    "P1_attribution": {
+      "ref": "reports/cara_PG_P1_complete_budget_attribution_20261024.json",
+      "sha256": "ca0f05fecc818d80cc4caa48bfb1cd0f3f04f354adae31cdb13601c6b3f9ba7c"
+    },
+    "live_boundary104": {
+      "ref": "reports/cara_scheduler_sidecar_history104_readonly_20261024.json",
+      "sha256": "3a17ae918cfb1bb02974aa7c4d737abb0e618086f90a82d9c8d5bab2eb4d6001"
+    },
+    "decision_contract": {
+      "ref": "research/scheduler_feasibility_20261023/decision_contract.json",
+      "sha256": "94d4cd09afa953519b428cc620d971d5f519f1fb1827bc82245846e7558a88a7"
+    }
+  },
+  "P1_independent_acceptance_recomputed_this_turn": true,
+  "P1_actual_GPUh": 2.5578333599208336,
+  "P1_scientific": {
+    "complete_registered_slots": 64,
+    "executed_paths": 30,
+    "scored_pairs": 16,
+    "query_attempts": 4,
+    "decision_recomputed": true,
+    "selected_policy": null,
+    "clean_Native_clock_accepted": true,
+    "teacher_conditioned_labels_preserved": true
+  },
+  "PG_P2_input_ready": false,
+  "history_diagnostic_started": false,
+  "boundary104_is_history_shadow_experiment": false,
+  "boundary104": {
+    "launch_id": "d6351496-ee8a-4428-8ede-898f53d665cd",
+    "source_revision": "5fc4dfe66a33a915fcc7bdf10700bae8810bb401",
+    "scope_counts": {
+      "roles": 10,
+      "CAL_FIT": 4,
+      "seeds": [
+        0
+      ],
+      "formal_repeats": 2,
+      "formal_paths": 80,
+      "warm_paths": 20,
+      "diagnostic_paths": 4,
+      "total_paths": 104,
+      "guided_pairs": 3744,
+      "CFG_calls": 7488,
+      "loads": 1,
+      "post_CPU_score_pairs": 72,
+      "post_CPU_frames": 6696,
+      "SELECT_paths": 0,
+      "DEV_paths": 0,
+      "TEST_paths": 0
+    },
+    "started_at": "2026-10-24T03:21:57.029531+08:00",
+    "original_live_handles": {
+      "guardian": true,
+      "supervisor": true,
+      "runner": true,
+      "container": true
+    },
+    "sole_runner_identity_verified": {
+      "pid": 1204959,
+      "start_ticks": 956838489,
+      "uid": 1000
+    },
+    "compute_mode": "Exclusive_Process",
+    "lock_held": true,
+    "error_lines": [],
+    "progress_available": false,
+    "billed_limit_GPUh": 11.9
+  },
+  "gate_decision": {
+    "S0": "COMPLETED_OLD_CAL_ANALYSIS",
+    "S1": "ORIGINAL_PROTOCOL_ACCEPTED_BUT_NO_BUDGET_FEASIBLE_POLICY",
+    "S2": "WAIT_ACCEPTED_REPAIRED_P1_AND_FEASIBLE_FROZEN_CARA_SIMPLE",
+    "S3": "NO_REAL_HISTORY_LABELS_YET",
+    "S4": "KEEP_SHARED_PLANNING_PRIORITY_NO_TRAINING"
+  },
+  "next_dependencies": [
+    "Accept original full104 generation, release, CPU scoring and independent terminal evidence",
+    "Validate unchanged-budget cost bridge; register complete repaired-P1 card using existing mainline ownership",
+    "Only after repaired-P1 measured feasibility and frozen roles bind history matrix and complete existing P2 admission",
+    "Preserve independent sidecar history interpretation and no training decision"
+  ],
+  "deployment_seconds_cap": 257.7712338712067,
+  "cumulative_GPUh_cap": 226,
+  "new_GPU_submissions": 0,
+  "ledger_written": false,
+  "active_source_or_configuration_modified": false,
+  "new_scheduler_training": false,
+  "duplicate_monitor_or_runner_created": false
+}
