@@ -31,4 +31,19 @@ class Timing(unittest.TestCase):
   self.assertEqual(len(self.calls),28)
  def test_identity_overwrite_stops(self):
   with self.assertRaises(ValueError):self.run_card(lambda r:{**self.endpoint(r),'member':'changed'})
+class HistoryAnalysis(unittest.TestCase):
+ def test_constant_rank_and_zero_denominator(self):
+  from wcomr.policy_generator_r1.p2_history_analysis import compare
+  r=compare(dict(C=0.,A_HALF=0.,A_ONE=0.),dict(C=0.,A_HALF=0.,A_ONE=0.))
+  self.assertIsNone(r['Spearman_with_average_ties']);self.assertEqual(set(r['ratio'].values()),{None})
+  self.assertEqual(r['tied_other_choice_regret_range'],[0.,0.])
+ def test_ties_preserve_possible_regret(self):
+  from wcomr.policy_generator_r1.p2_history_analysis import compare
+  r=compare(dict(C=3.,A_HALF=1.,A_ONE=2.),dict(C=0.,A_HALF=0.,A_ONE=1.))
+  self.assertEqual(r['tied_other_choice_regret_range'],[0.,2.]);self.assertEqual(r['best_set_intersection'],['A_HALF'])
+ def test_nonfinite_or_negative_rejected(self):
+  from wcomr.policy_generator_r1.p2_history_analysis import compare
+  for bad in (-1.,float('nan'),float('inf')):
+   with self.assertRaises(ValueError):compare(dict(C=bad,A_HALF=1.,A_ONE=2.),dict(C=1.,A_HALF=2.,A_ONE=3.))
+
 if __name__=='__main__':unittest.main()

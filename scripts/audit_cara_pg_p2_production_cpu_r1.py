@@ -24,25 +24,25 @@ def accept(v):
         raise ValueError('Actual tokenizer/93-frame codec boundary failed')
     if not all(p['transport'][k] for k in ('parent_and_namespace_match','original_fd_inode_match','independent_open_refused','GPU_hidden','child_exited','fixture_lock_released')):
         raise ValueError('CPU inherited handle transport failed')
-    if p['batch_controls_passed']!=6:raise ValueError('Whole timing batch controls required')
+    if p['batch_controls_passed']!=9:raise ValueError('Whole timing batch controls required')
     checks=p['numeric']['checks']
     if len(checks)!=2 or {x['flow'] for x in checks}!={False,True}:raise ValueError('Both full flow states required')
     for x in checks:
-        if x['status']!='PASS' or x['complete_paths']!=22 or x['actual_Cosmos_weights'] or x['real_generated_video']:
+        if x['status']!='PASS' or x['complete_paths']!=24 or x['actual_Cosmos_weights'] or x['real_generated_video']:
             raise ValueError('Whole declared small-tensor numeric scope required')
         if x['Native_requested_steps']!=list(range(18,36)) or len(x['schedule_rows'])!=18:
             raise ValueError('All Native step counts required')
         if not all(x[k] for k in ('all_Native_first_last_blocks_counted','no_production_cache_installer',
             'history_alpha_half_one','shadow_OFF_ON_full36_guided_final_equal','shadow_OFF_ON_all93_RGB_equal',
             'all_three_history_bins','parent_input_solver_cache_anchor_condition_RNG_unchanged',
-            'branch_tensors_reloaded','A_ONE_older_window_invariant','exact_shadow_pair_counts','refusal_retained')):
+            'resident_request_adapter_native_and_history','duplicate_slot_refused','branch_tensors_reloaded','independent_raw_branch_audit_and_faults','A_ONE_older_window_invariant','exact_shadow_pair_counts','refusal_retained')):
             raise ValueError('Full Native or state-isolated history numerical scope failed')
     if checks[0]['schedule_rows']!=checks[1]['schedule_rows']:raise ValueError('Flow changed Native schedule')
     if proof['sha256']!=hashlib.sha256((json.dumps(p,indent=2,allow_nan=False)+'\n').encode()).hexdigest():
         raise ValueError('Original proof bytes binding failed')
     return dict(status='PG_P2_NATIVE_HISTORY_PRODUCTION_ENTRY_CPU_ACCEPTED_NOT_GPU',
         source_revision=reg['source_revision'],registration_sha256=L['registration_sha256'],proof_sha256=proof['sha256'],
-        production_entry_CPU_accepted=True,complete_CPU_paths=44,actual_request_count=72,
+        production_entry_CPU_accepted=True,complete_CPU_paths=48,actual_request_count=72,
         Native_requested_steps=list(range(18,36)),schedule_rows=checks[0]['schedule_rows'],
         shadow_OFF_ON_full36_final_93RGB_equal=True,branch_tensors_saved_and_reloaded=True,
         actual_guardrail_codec_transport=True,GPU_submissions=0,

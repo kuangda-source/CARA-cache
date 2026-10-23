@@ -91,11 +91,15 @@ class HistoryOwner(PolicyOwner):
                         mse[name]={k:float((guided(v).double()-guided(cpu(D)).double()).square().mean()) for k,v in values.items()}
                     if any(not torch.equal(a,b) for a,b in zip(outputs['actual']['A_ONE'],outputs['adjacent']['A_ONE'])):
                         raise ValueError('A_ONE unexpectedly depends on older history')
-                    raw=dict(D=cpu(D),windows=outputs,point=point,input_sha256=tree_digest(plain(inputs)))
+                    raw=dict(D=cpu(D),windows=outputs,point=point,input_sha256=tree_digest(plain(inputs)),
+                        Phi_key='A_ONE',anchor_identity=dict(actual_previous_sha256=tree_digest(self.bank[p]),
+                        latest_true_D_sha256=tree_digest(self.bank[s]),adjacent_shadow_sha256=tree_digest(self.adjacent[s-1])),
+                        parent_state_before_sha256=before)
                     path=self.directory/f'target-{t}-branches.pt'
                     with path.open('xb') as f:torch.save(raw,f)
                     self.records.append(dict(point=point,guided_MSE=mse,branch_artifact=dict(path=str(path),sha256=sha(path),bytes=path.stat().st_size),
-                        A_ONE_window_invariant=True,shadow_writes_parent=False,input_sha256=raw['input_sha256']))
+                        A_ONE_window_invariant=True,shadow_writes_parent=False,input_sha256=raw['input_sha256'],
+                        anchor_identity=raw['anchor_identity'],parent_state_before_sha256=before))
             finally:
                 if any(v is not None and x._version!=v for x,v in versions):raise ValueError('Shadow mutated retained parent tensor')
                 for k,v in saved.items():setattr(self.net,k,v)

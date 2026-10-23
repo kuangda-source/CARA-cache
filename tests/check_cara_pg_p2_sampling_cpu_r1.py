@@ -4,6 +4,8 @@ from pathlib import Path
 import numpy as np
 import torch
 from wcomr.policy_generator_r1.p2_native_sampling import execute as native_execute
+from wcomr.policy_generator_r1.p2_history_analysis import audit_record
+from wcomr.policy_generator_r1.p2_production_requests import Requests
 from wcomr.policy_generator_r1.p2_history_sampling import execute as history_execute
 from wcomr.policy_generator_r1.production_sampling import execute as policy_execute
 from wcomr.policy_generator_r1.interval_grammar import Edge,compile_policy
@@ -47,6 +49,26 @@ def body(inference,selected,wc,rf,common,initial,profile,root,native,flow,infere
      with open(record['branch_artifact']['path'],'rb') as f:raw=torch.load(f,map_location='cpu',weights_only=False)
      assert len(raw['D'])==2 and set(raw['windows'])=={'actual','adjacent'}
      assert all(len(v)==2 for w in raw['windows'].values() for v in w.values())
+     checked=audit_record(record,root=root)
+     assert checked['accepted_branch_bytes'] and checked['policy_update_allowed'] is False
+     bad=copy.deepcopy(record);bad['branch_artifact']['sha256']='0'*64
+     try:audit_record(bad,root=root)
+     except ValueError:pass
+     else:raise AssertionError('Changed raw bytes binding accepted')
+     bad=copy.deepcopy(record);bad['anchor_identity']['latest_true_D_sha256']='0'*64
+     try:audit_record(bad,root=root)
+     except ValueError:pass
+     else:raise AssertionError('Changed source identity accepted')
+   adapter=Requests(inference=inference,samples={selected[0].name:selected[0]},profile=profile,CARA=plan,
+       schedules=schedules,output=root/'adapter',common=dict(common,CPU_native=native))
+   native_slot=dict(id='native18',member=selected[0].name,seed=0,method='NATIVE18')
+   initial.restore();r=adapter(native_slot);paths+=1
+   assert r['status']=='COMPLETE' and r['solver_steps']==19 and r['video_artifact']['sha256']
+   initial.restore();r=adapter(dict(id='history',member=selected[0].name,seed=0),plan);paths+=1
+   assert r['status']=='COMPLETE' and len(r['history_records'])==3 and r['full_request_seconds'] is None
+   try:adapter(native_slot)
+   except ValueError:pass
+   else:raise AssertionError('Duplicate physical slot retried')
    initial.restore();origin=initial.fingerprint()
    with clean.patched(inference,'generate',lambda *a,**k:[]):
     refused=native_execute(inference,selected[0],schedule=schedules[-1],CPU_native=native,output=root/'refused',**common)
@@ -55,7 +77,7 @@ def body(inference,selected,wc,rf,common,initial,profile,root,native,flow,infere
   return [dict(flow=flow,status='PASS',complete_paths=paths,Native_requested_steps=list(range(18,36)),schedule_rows=schedules,
    all_Native_first_last_blocks_counted=True,no_production_cache_installer=True,history_alpha_half_one=True,
    shadow_OFF_ON_full36_guided_final_equal=True,shadow_OFF_ON_all93_RGB_equal=True,all_three_history_bins=True,
-   parent_input_solver_cache_anchor_condition_RNG_unchanged=True,branch_tensors_reloaded=True,A_ONE_older_window_invariant=True,
+   parent_input_solver_cache_anchor_condition_RNG_unchanged=True,resident_request_adapter_native_and_history=True,duplicate_slot_refused=True,branch_tensors_reloaded=True,independent_raw_branch_audit_and_faults=True,A_ONE_older_window_invariant=True,
    exact_shadow_pair_counts=True,refusal_retained=True,actual_Cosmos_weights=False,real_generated_video=False)]
  finally:initial.restore()
 

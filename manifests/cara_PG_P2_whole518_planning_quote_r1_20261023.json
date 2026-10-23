@@ -1,0 +1,109 @@
+{
+  "status": "WHOLE_P2_NO_DEDUP_PLANNING_ENVELOPE_PENDING_ACCEPTED_P1_BINDINGS",
+  "version": "CARA_PG_P2_WHOLE518_R1",
+  "scope_counts": {
+    "Native_timing_paths": 84,
+    "history_paths": 6,
+    "history_extra_D_pairs": 36,
+    "history_paired_readouts": 108,
+    "same_Q_complete_calibration_paths": 64,
+    "fixed_control_CAL_paths": 24,
+    "new_DEV_prompts": 16,
+    "new_DEV_seeds": 2,
+    "new_DEV_role_upper": 10,
+    "new_DEV_formal_paths": 320,
+    "new_DEV_warm_paths": 20,
+    "maximum_paths": 518,
+    "maximum_ordinary_guided_pairs": 18648,
+    "maximum_guided_pairs_with_shadow": 18684,
+    "maximum_CFG_calls": 37368,
+    "LPIPS_pairs_upper": 346,
+    "quality_positions_upper": 1600,
+    "generation_loads": 1,
+    "quality_model_loads_upper": 5
+  },
+  "roles": [
+    "CARA",
+    "FRONT_C",
+    "FRONT_A",
+    "REFRESH_C",
+    "REFRESH_A",
+    "PURE_PROXY",
+    "SAME_Q_SIMPLE",
+    "NATIVE35",
+    "SHORT_NATIVE_LOW",
+    "SHORT_NATIVE_HIGH"
+  ],
+  "terms_seconds": {
+    "generation_model_load": 174.62186110392213,
+    "all518_guarded_complete_requests": 158611.08959579468,
+    "shadow36_full_D_pairs": 306.1990146636963,
+    "history108_paired_readouts": 918.5970439910889,
+    "history_state_hash_copy_and_branch_export_allowance": 1800.0,
+    "complete346_93frame_CPU_LPIPS_allowance": 20760.0,
+    "five_dimensions_all320_videos": 5120.634270310402,
+    "five_metric_load_and_warm_allowance": 1800.0,
+    "CPU_proposals_and_simple_search": 1200.0,
+    "artifact_decode_hash_raw_copy": 3600.0,
+    "exclusive_admission_monitor_shutdown": 1200.0
+  },
+  "metric_per_video_planning_max_seconds": {
+    "subject_consistency": 2.957452643662691,
+    "motion_smoothness": 3.7549149226397276,
+    "overall_consistency": 0.825024095363915,
+    "dynamic_degree": 5.9825754426419735,
+    "MUSIQ_LONGER512": 2.482014990411699
+  },
+  "forecast_complete_GPUh": 67.8788888888889,
+  "billed_limit_GPUh": 78.5,
+  "planning_margin": 1.25,
+  "limit_margin": 1.15,
+  "auxiliary90_included_not_separate_authorization": {
+    "terms_seconds": {
+      "model_load": 174.62186110392213,
+      "all90_requests": 27557.911319732666,
+      "shadow36_D": 306.1990146636963,
+      "readouts108": 918.5970439910889,
+      "state_hash_copy_export": 1800.0,
+      "artifact_validation": 1200.0,
+      "exclusive_shutdown": 900.0
+    },
+    "forecast_GPUh": 11.408888888888889,
+    "billed_limit_GPUh": 13.5
+  },
+  "clean_action_price_used_for_forecast": false,
+  "planning_clocks_not_latency_results": true,
+  "timing_boundary": "COMPLETE_VIDEO_REQUEST_GUARDRAILS_SAMPLER_DECODE_WRITE_NO_DIAGNOSTICS",
+  "physical_dedup_credit_seconds": 0,
+  "old_P1_budget_reused": false,
+  "same_Q_calibration_count_basis": "8_NATIVE_REFERENCE_WARM+8_QUERIES*(2_WARM+4_FIT)+4_SELECT_FINALISTS*2_SELECT",
+  "fixed_control_count_basis": "3_FIXED_PLANS*(2_WARM+4_FIT+2_SELECT)",
+  "LPIPS_count_basis": "40_SIMPLE_CAL+18_FIXED_CAL+9_NONREFERENCE_ROLES*32_NEW_INPUTS",
+  "new_DEV_count_is_design_target": true,
+  "new_DEV_identity_selected": false,
+  "no_extra_quality_search": true,
+  "query_limit_simple": 8,
+  "training": false,
+  "pending_bindings": [
+    "P1_independent_terminal_and_final_policy",
+    "legal_compiled_control_fingerprints_and_aliases",
+    "all_registered_input_source_groups_and_seeds",
+    "Native_timing_choice_before_new_DEV_quality",
+    "P2_whole_lifecycle_metric_CPU_and_resource_acceptance",
+    "fresh_ledger_and_complete_card_approval"
+  ],
+  "specific_whole_card_approval_required": true,
+  "cumulative_cap_GPUh": 226,
+  "GPU_submissions": 0,
+  "GPU_dispatch_ready": false,
+  "planning_sources": [
+    {
+      "ref": "reports/wc_four_card_BANK24_retry2_recovered_terminal_20261022.json",
+      "sha256": "ebdedc2c5a67ccee4075e4ccc234d97ce325b1585989ed0a40e4899f7f582eca"
+    },
+    {
+      "ref": "reports/wc_paper_N10_full960_terminal_independent_acceptance_20261018.json",
+      "sha256": "0ffa4faae270e5fad2d20b855d587b8b5d75a95c1ee6b1b320b87b400380db06"
+    }
+  ]
+}
