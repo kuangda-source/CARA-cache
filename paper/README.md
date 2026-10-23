@@ -4,13 +4,13 @@
 
 论文主线：**CFG对齐读出修正 → 数据驱动计算时机 → 冻结自动程序的实际质量—时间收益**。已有机制结果放在前面，自动生成器的最终数值由后续真实验证填入。
 
-**当前独占价格补测：GPU3硬独占运行中，完整价格待终态验收。** 实际启动2026-10-23T13:13:24+08:00，观测2026-10-23T17:59:38.811566+08:00。7/10路径完成、1运行、2未到达、0失败；当前路径`formal_2_PRICE`。
+**当前PG-P1：GPU3硬独占运行中。** 实际启动2026-10-23T20:26:04+08:00，观测2026-10-23T20:30:18.017824+08:00。PG_P1_MODEL_LOADING；0/64位置已完成、0失败。
 
-范围：4 CAL / 10路径（8正式+2warm）/ 1624正式格、2030总格 / 24360读出；单卡上限11.5 GPUh。独占价格完整验收：**2026-10-23 20:20 Asia/Shanghai**。
+范围：4 CAL_FIT / 2 CAL_SELECT，Q≤8（首批4+一次细化4），最多64路径/40评分/2304pairs/4608CFG，单load；forecast8.844444 GPUh，上限10.5 GPUh。PG-P1技术半程：**2026-10-24 00:52 Asia/Shanghai**；PG-P1完整终态验收：**2026-10-24 05:32 Asia/Shanghai**。
 
-[唯一实际恢复启动](../reports/wc_policy_price_refresh_full1624_GPU_actual_recovery_launch_20261023_1313.json) · [GPU技术观测](../reports/wc_policy_price_refresh_GPU_halfway_20261023_1759.json) · [实际独占接受](../reports/wc_policy_price_refresh_GPU3_exclusive_active_actual_20261023_1316.json) · [完整记录](../research/659_CARA_PRICE_HALFWAY_HEALTHY_ORIGINAL_HANDOFF_RETAINED_20261023.md)。17:59半程只读检查：7/10路径完成，formal_2_PRICE为152/406格；正式964/1624、含warm1370/2030格。原GPU3硬独占、原句柄与锁保持，0失败；7865条独占前缀样本无违规、最大间隔2.995秒。预计20:00–20:30采集完成、条件顺利20:30–21:00接PG-P1不变。一次半程已完成并删除，既有20:20终态检查保持；完整价格仍待接受，PG-P1生产组合CPU已接受。
+[唯一实际PG启动](../reports/cara_PG_P1_full64_GPU_actual_launch_20261023_2030.json) · [PG技术观测](../reports/cara_PG_P1_full64_GPU_after_load_20261023_2030.json) · [真实独占核验](../reports/cara_PG_P1_GPU3_exclusive_active_20261023_2027.json) · [完整接续记录](../research/661_CARA_EXCLUSIVE_PRICES_ACCEPTED_PG_P1_ACTUALLY_ADMITTED_20261023.md)。独占价格10/10完整接受，实际6.916276GPUh结算、原锁/容器释放，原标签保持。全1624价格CV中位0.36–0.39%、P95<1%；单个A_HALF尖峰保留且不改冻结聚合。CAL_SELECT新核查3193本地/53远端元数据无执行命中。PG首次派发因缺os在intent之前退出，已保存失败并经10项真实派发body CPU检查沿同一授权恢复；20:26:04单次实际启动，原runner独占核验通过、MODEL_LOADING、0失败。新报价8.844444、上限10.5GPUh，不能以准入宣称策略成功。
 
-原1624已完整接受、实际6.900544 GPUh已结算，[原1624接受](../reports/wc_policy_assets_full1624_fourcard_GPU_accepted_20261023_0826.json)；新价格完整生产CPU接受保持，[价格CPU接受](../reports/wc_policy_price_refresh_full1624_CPU_accepted_r1_20261023.json)。当前技术准入不代表价格终态接受或PG闭环结果。
+原1624标签完整接受；独占价格补测10/10完整接受、实际6.916276 GPUh已结算，[独立价格接受](../reports/wc_policy_price_refresh_GPU_accepted_20261023_2023.json)。PG-P1尚无科学结果；CPU和独占准入不代表策略优势。
 
 | 需要的材料 | 入口 |
 |---|---|

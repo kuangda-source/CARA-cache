@@ -2,20 +2,20 @@
 
 # CARA-Cache 后续实验顺序
 
-**当前独占价格补测：GPU3硬独占运行中，完整价格待终态验收。** 实际启动2026-10-23T13:13:24+08:00，观测2026-10-23T17:59:38.811566+08:00。7/10路径完成、1运行、2未到达、0失败；当前路径`formal_2_PRICE`。
+**当前PG-P1：GPU3硬独占运行中。** 实际启动2026-10-23T20:26:04+08:00，观测2026-10-23T20:30:18.017824+08:00。PG_P1_MODEL_LOADING；0/64位置已完成、0失败。
 
-范围：4 CAL / 10路径（8正式+2warm）/ 1624正式格、2030总格 / 24360读出；单卡上限11.5 GPUh。独占价格完整验收：**2026-10-23 20:20 Asia/Shanghai**。
+范围：4 CAL_FIT / 2 CAL_SELECT，Q≤8（首批4+一次细化4），最多64路径/40评分/2304pairs/4608CFG，单load；forecast8.844444 GPUh，上限10.5 GPUh。PG-P1技术半程：**2026-10-24 00:52 Asia/Shanghai**；PG-P1完整终态验收：**2026-10-24 05:32 Asia/Shanghai**。
 
-[唯一实际恢复启动](../reports/wc_policy_price_refresh_full1624_GPU_actual_recovery_launch_20261023_1313.json) · [GPU技术观测](../reports/wc_policy_price_refresh_GPU_halfway_20261023_1759.json) · [实际独占接受](../reports/wc_policy_price_refresh_GPU3_exclusive_active_actual_20261023_1316.json) · [完整记录](659_CARA_PRICE_HALFWAY_HEALTHY_ORIGINAL_HANDOFF_RETAINED_20261023.md)。17:59半程只读检查：7/10路径完成，formal_2_PRICE为152/406格；正式964/1624、含warm1370/2030格。原GPU3硬独占、原句柄与锁保持，0失败；7865条独占前缀样本无违规、最大间隔2.995秒。预计20:00–20:30采集完成、条件顺利20:30–21:00接PG-P1不变。一次半程已完成并删除，既有20:20终态检查保持；完整价格仍待接受，PG-P1生产组合CPU已接受。
+[唯一实际PG启动](../reports/cara_PG_P1_full64_GPU_actual_launch_20261023_2030.json) · [PG技术观测](../reports/cara_PG_P1_full64_GPU_after_load_20261023_2030.json) · [真实独占核验](../reports/cara_PG_P1_GPU3_exclusive_active_20261023_2027.json) · [完整接续记录](661_CARA_EXCLUSIVE_PRICES_ACCEPTED_PG_P1_ACTUALLY_ADMITTED_20261023.md)。独占价格10/10完整接受，实际6.916276GPUh结算、原锁/容器释放，原标签保持。全1624价格CV中位0.36–0.39%、P95<1%；单个A_HALF尖峰保留且不改冻结聚合。CAL_SELECT新核查3193本地/53远端元数据无执行命中。PG首次派发因缺os在intent之前退出，已保存失败并经10项真实派发body CPU检查沿同一授权恢复；20:26:04单次实际启动，原runner独占核验通过、MODEL_LOADING、0失败。新报价8.844444、上限10.5GPUh，不能以准入宣称策略成功。
 
-原1624已完整接受、实际6.900544 GPUh已结算，[原1624接受](../reports/wc_policy_assets_full1624_fourcard_GPU_accepted_20261023_0826.json)；新价格完整生产CPU接受保持，[价格CPU接受](../reports/wc_policy_price_refresh_full1624_CPU_accepted_r1_20261023.json)。当前技术准入不代表价格终态接受或PG闭环结果。
+原1624标签完整接受；独占价格补测10/10完整接受、实际6.916276 GPUh已结算，[独立价格接受](../reports/wc_policy_price_refresh_GPU_accepted_20261023_2023.json)。PG-P1尚无科学结果；CPU和独占准入不代表策略优势。
 
 研究目标是验证**可复现的校准程序是否能在实际计算预算下生成有竞争力的缓存/修正/刷新计划**。下面按依赖顺序推进；已完成旧卡与条件性扩展不混入活动队列。
 
 | 顺序 | 当前阶段 | 下一项验收 / 动作 |
 |---|---|---|
-| PG-P1-ASSETS | 完整1624真实区间/价格资产：GPU运行中（已记录快照） | 原launch下GPU3硬独占运行；17:59技术半程、22:59完整价格验收，接受后接PG-P1。 |
-| PG-P1 | 单预算自动策略闭环：整卡组合CPU已验，等待干净价格 | 原独占价格完整接受并结算释放后，复用组合CPU，重新核查SELECT曝光及fresh资源，单次启动完整PG-P1；同卡先测干净Native预算。 |
+| PG-P1-ASSETS | 完整1624真实区间/价格资产：原标签与独占价格完整接受 | 以新双SHA bundle接已接受CPU的PG-P1，检验闭环策略。 |
+| PG-P1 | 单预算自动策略闭环：GPU运行中（原卡独占） | 保持原64位置及Q≤8，半程只读技术检查；完整终态独立复算候选/评分/决策及财务。 |
 | PG-P2 | 等预算与等查询强基线：规则与CPU接口已准备 | 历史诊断和少步Native计时选择规则/CPU控制已就绪；P1后冻结矩阵和新输入，完整报价后实际生产验收。 |
 | PG-P3 | 固定程序跨预算/模型：条件性后续 | P1/P2后先0.70×Native，再成熟第二模型或明确第二设置重新校准。 |
 | PG-P4 | 最终独立TEST与部署评价：待方法冻结 | 冻结方法、对手、预算、选择规则后再选新TEST；计入warm与全流程成本。 |
@@ -26,7 +26,7 @@ PG-P1两个已登记CAL_SELECT（`av_animal_dear_1_0`、`industry_057`，seed0�
 
 [2026-10-23接续要求](../plans/cara_policy_generator_20261020/PRICE_HISTORY_NATIVE_CONTINUATION_R1_20261023.md)：原1624数值/控制和动作价格分别接受；已知同卡竞争的价格不因低波动自动通过。未来GPU卡要求实际独占。冻结策略后加入小规模历史窗口诊断，PG-P2加入少步Native等实测时间对照；shadow不写回，不计为干净延迟，新增范围单独进入完整报价。
 
-原1624资产卡已经完整接受。当前运行[独占价格刷新R1](../plans/cara_policy_generator_20261020/FULL1624_PRICE_REFRESH_R1_20261023.md)：10条新路径、全部区间每动作三轮正式重复，完整报价9.500278 GPUh、上限11.5；完整生产CPU与生命周期已接受，兼容入口修复后已于13:13:24在GPU3实际硬件独占运行。17:59技术半程已完成（见659），20:20提前终态检查保持，均绑定实际恢复启动，见[655运行与协调记录](655_CARA_PRICE_GPU3_EXCLUSIVE_ADMITTED_AND_COORDINATED_SCHEDULE_20261023.md)。
+原1624标签与独立价格补测均完整接受。当前已进入PG-P1整卡独占运行：4 CAL_FIT/2 CAL_SELECT、最多64路径/40评分、Q≤8、B=.80，forecast8.844444/上限10.5 GPUh。见[661实际接续](661_CARA_EXCLUSIVE_PRICES_ACCEPTED_PG_P1_ACTUALLY_ADMITTED_20261023.md)；半程10月24日00:52、终态05:32绑定唯一PG launch，不重派已完成资产卡或CPU。
 
 PG-P1的Q表示用于策略选择的完整终点评价查询预算。第一个预算为0.80×Native，Q≤8、首4后4、一次CAL_SELECT冻结。基础范围最多40候选正式+6Native+18warm=64路径；额外统计采集另计。具体完整报价与准入仍按注册表执行，不挪用已完成资产卡的12GPUh批准。
 

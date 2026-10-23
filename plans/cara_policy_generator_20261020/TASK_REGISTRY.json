@@ -21,7 +21,7 @@
       "id": "PG-P1-ASSETS",
       "priority": 1,
       "title": "Complete real statistics, prices and generated-mask entry",
-      "status": "PRICE_REFRESH_EXCLUSIVE_GPU_RUNNING",
+      "status": "FULL_LABELS_AND_EXCLUSIVE_PRICES_ACCEPTED",
       "dependencies": [
         "PG-P0"
       ],
@@ -88,7 +88,7 @@
       "actual_GPU_launch_ref": "reports/wc_policy_assets_full1624_fourcard_GPU_launch_20261022.json",
       "actual_GPU_schedule_ref": "reports/wc_policy_assets_full1624_fourcard_GPU_admission_checked_and_schedule_20261022.json",
       "actual_GPU_observation_ref": "reports/wc_policy_assets_full1624_fourcard_GPU_terminal_20261023_0826.json",
-      "clean_action_prices_accepted": false,
+      "clean_action_prices_accepted": true,
       "price_review_entry": "scripts/audit_wc_policy_asset_prices_r1.py",
       "action_price_gate_ref": "plans/cara_policy_generator_20261020/PRICE_HISTORY_NATIVE_CONTINUATION_R1_20261023.md",
       "actual_GPU_terminal_ref": "reports/wc_policy_assets_full1624_fourcard_GPU_terminal_20261023_0826.json",
@@ -185,13 +185,14 @@
           }
         ],
         "clean_action_prices_accepted": false
-      }
+      },
+      "price_acceptance_ref": "reports/wc_policy_price_refresh_GPU_accepted_20261023_2023.json"
     },
     {
       "id": "PG-P1",
       "priority": 2,
       "title": "One measured budget, Q<=8 and one CAL_SELECT freeze",
-      "status": "COMPLETE_PRODUCTION_COMBINATION_CPU_ACCEPTED_QUOTE_READY_PRICE_PENDING",
+      "status": "PG_P1_EXCLUSIVE_GPU_RUNNING",
       "dependencies": [
         "BANK24 accepted",
         "PG-P1-ASSETS"
@@ -200,10 +201,10 @@
       "count_basis": "P1 maximum40 candidate formal plus6 Native and18 warm; extra statistics separate",
       "local_CPU_prototype_accepted": false,
       "production_CPU_accepted": true,
-      "GPU_dispatch_ready": false,
+      "GPU_dispatch_ready": true,
       "quality_results": null,
       "speed_results": null,
-      "new_GPU_submissions": 0,
+      "new_GPU_submissions": 1,
       "CAL_SELECT_manifest_ref": "plans/cara_policy_generator_20261020/CAL_SELECT_INPUTS_R1_20261022.json",
       "CAL_SELECT_ids": [
         "av_animal_dear_1_0",
@@ -234,7 +235,9 @@
       "full_GPU_lifecycle_CPU_accepted": true,
       "combination_CPU_capture_ref": "reports/cara_PG_P1_combination_CPU_terminal_r3_complete_20261023.json",
       "combination_CPU_acceptance_ref": "reports/cara_PG_P1_combination_CPU_accepted_r3_20261023.json",
-      "production_controller_ref": "scripts/wc_four_card_cara_pg_gpu_r1.py"
+      "production_controller_ref": "scripts/wc_four_card_cara_pg_gpu_r1.py",
+      "actual_launch_ref": "reports/cara_PG_P1_full64_GPU_actual_launch_20261023_2030.json",
+      "actual_observation_ref": "reports/cara_PG_P1_full64_GPU_initial_health_20261023_2029.json"
     },
     {
       "id": "PG-P2",

@@ -241,6 +241,56 @@ def build():
         active['reader']['result'] = f"原1624已接受；独立价格补测已实际独占启动。{pp}；完整价格结果待终态接受。"
         active['evidence_or_planned_scope'] = active['reader']['result']
         master['operation_policy'].update(active_launch_ref=price_gpu['launch_ref'], snapshot_observed_at=price_gpu['observed_at'])
+        if price_gpu.get('terminal_acceptance_ref'):
+            pa = load(price_gpu['terminal_acceptance_ref'])
+            if (not pa['full_protocol_accepted'] or not pa['clean_action_prices_accepted']
+                    or pa['capture_sha256'] != digest((ROOT / price_gpu['observation_ref']).read_bytes())['sha256']
+                    or pa['launch_id'] != pl['launch_id']):
+                raise ValueError('Clean price status must bind original independent acceptance')
+            asset = by_id['PG-P1-ASSETS']
+            asset['state'] = 'FULL_LABELS_AND_EXCLUSIVE_PRICES_ACCEPTED'
+            asset['reader'].update(status='原标签与独占价格完整接受',
+                result=f"原1624标签保持；独占价格10/10完整接受，实际{pa['actual_GPUh']:.6f} GPUh，原卡已结算释放。",
+                next_action='以新双SHA bundle接已接受CPU的PG-P1，检验闭环策略。')
+            asset['evidence_or_planned_scope'] = asset['reader']['result']
+    pg = status.get('PG_P1_GPU')
+    if pg:
+        gl, go, gc = load(pg['launch_ref']), load(pg['observation_ref']), load(pg['CPU_acceptance_ref'])
+        if (go['launch'] != gl or gl['source_revision'] != gc['source_revision']
+                or not gc['production_CPU_accepted'] or not gc['full_GPU_lifecycle_CPU_accepted']
+                or abs(datetime.fromisoformat(pg['observed_at']).timestamp() - go['observed_unix']) > .00001):
+            raise ValueError('PG observation/launch/CPU identity mismatch')
+        def pg_record(key):
+            item = go['files'][key]; raw = item['raw_utf8'].encode()
+            if not item['exists'] or digest(raw)['sha256'] != item['sha256'] or len(raw) != item['bytes']:
+                raise ValueError('Changed PG original: ' + key)
+            return json.loads(raw)
+        gr, ready = pg_record('grant'), pg_record('ready')
+        gate = load(pg['exclusive_active_ref'])
+        apps = gate['snapshot']['compute_apps']
+        if (gr['runner'] != ready['identity'] or gr['source_revision'] != gl['source_revision']
+                or not gate['observation_passed'] or gate['snapshot']['gpu_uuid'] != gl['gpu_uuid']
+                or len(apps) != 1 or any(apps[0][k] != gr['runner'][k] for k in ('pid','start_ticks','uid'))):
+            raise ValueError('PG real sole-context identity mismatch')
+        gh = go.get('health')
+        gp = ('原runner已建立CUDA上下文，生产入口初始化中' if gh is None else
+              f"{gh['phase']}；{gh['completed_paths']}/64位置已完成、{gh['failed_paths']}失败")
+        snapshot = (f"**当前PG-P1：GPU3硬独占运行中。** 实际启动{local_time(gl['started_unix'])}，观测{pg['observed_at']}。{gp}。\n\n"
+                    f"范围：4 CAL_FIT / 2 CAL_SELECT，Q≤8（首批4+一次细化4），最多64路径/40评分/2304pairs/4608CFG，单load；"
+                    f"forecast{gl['forecast_GPUh']:.6f} GPUh，上限{gl['billed_limit_GPUh']} GPUh。{schedule}。\n\n"
+                    f"{link(pg['launch_ref'], '唯一实际PG启动')} · {link(pg['observation_ref'], 'PG技术观测')} · "
+                    f"{link(pg['exclusive_active_ref'], '真实独占核验')} · {link(status['run_report_ref'], '完整接续记录')}。{status['snapshot_note']}\n\n"
+                    f"原1624标签完整接受；独占价格补测10/10完整接受、实际{pa['actual_GPUh']:.6f} GPUh已结算，"
+                    f"{link(price_gpu['terminal_acceptance_ref'], '独立价格接受')}。PG-P1尚无科学结果；CPU和独占准入不代表策略优势。")
+        active = by_id['PG-P1']; active['state'] = status['active_state']
+        active['reader'].update(status='GPU运行中（原卡独占）',result=gp+'；新独占价格已接受，按干净Native时钟B=.80生成候选。',
+            next_action='保持原64位置及Q≤8，半程只读技术检查；完整终态独立复算候选/评分/决策及财务。')
+        active['evidence_or_planned_scope'] = active['reader']['result']
+        master['operation_policy'].update(current_running_card='PG-P1',current_running_cards=['PG-P1'],active_launch_ref=pg['launch_ref'],snapshot_observed_at=pg['observed_at'])
+        fields=[('run',gl['run_id']),('launch ID',gl['launch_id']),('source',gl['source_revision']),('stage',gl['stage']),
+                ('GPU UUID',gl['gpu_uuid']),('容器',gl['container']),('guardian',gl['guardian_identity']['pid']),
+                ('runner',f"PID {gr['runner']['pid']} / start_ticks {gr['runner']['start_ticks']} / UID {gr['runner']['uid']}")]
+        run_details='| 当前PG-P1字段 | 原始身份 |\n|---|---|\n'+'\n'.join(f'| {k} | `{v}` |' for k,v in fields)
     headlines = '\n'.join(f"- **{f['title']}**（{f['short_scope']}）：{f['result']} {refs(f['refs'])}"
                            for f in status['headline_results'])
     details = '\n\n'.join(f"### {i+1}. {f['title']}\n\n{f['result']}\n\n{f['scope']} {refs(f['refs'])}"

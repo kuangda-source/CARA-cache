@@ -3,20 +3,25 @@
   "project": "CARA-Cache",
   "evidence_observed_at": "2026-10-23T08:26:41.422652+08:00",
   "timezone": "Asia/Shanghai",
-  "snapshot_note": "17:59半程只读检查：7/10路径完成，formal_2_PRICE为152/406格；正式964/1624、含warm1370/2030格。原GPU3硬独占、原句柄与锁保持，0失败；7865条独占前缀样本无违规、最大间隔2.995秒。预计20:00–20:30采集完成、条件顺利20:30–21:00接PG-P1不变。一次半程已完成并删除，既有20:20终态检查保持；完整价格仍待接受，PG-P1生产组合CPU已接受。",
+  "snapshot_note": "独占价格10/10完整接受，实际6.916276GPUh结算、原锁/容器释放，原标签保持。全1624价格CV中位0.36–0.39%、P95<1%；单个A_HALF尖峰保留且不改冻结聚合。CAL_SELECT新核查3193本地/53远端元数据无执行命中。PG首次派发因缺os在intent之前退出，已保存失败并经10项真实派发body CPU检查沿同一授权恢复；20:26:04单次实际启动，原runner独占核验通过、MODEL_LOADING、0失败。新报价8.844444、上限10.5GPUh，不能以准入宣称策略成功。",
   "research_summary": "修正机制与共享布局已有实证；完整1624真实区间标签已接受，半强度在四CAL全区间均值均改善。当前修复动作价格可信度，再检验自动生成计划的独立质量—时间收益。",
-  "active_experiment_id": "PG-P1-ASSETS",
-  "active_state": "PRICE_REFRESH_EXCLUSIVE_GPU_RUNNING",
-  "active_state_zh": "原1624已接受；独立价格GPU3硬独占运行中",
+  "active_experiment_id": "PG-P1",
+  "active_state": "PG_P1_EXCLUSIVE_GPU_RUNNING",
+  "active_state_zh": "独占价格已完整接受；PG-P1 GPU3硬独占运行中",
   "launch_ref": "reports/wc_policy_assets_full1624_fourcard_GPU_launch_20261022.json",
   "observation_ref": "reports/wc_policy_assets_full1624_fourcard_GPU_terminal_20261023_0826.json",
   "admission_ref": "reports/wc_policy_assets_full1624_fourcard_GPU_admission_checked_and_schedule_20261022.json",
   "cpu_acceptance_ref": "reports/wc_policy_assets_full1624_fourcard_CPU_r2_accepted_20261022.json",
-  "run_report_ref": "research/659_CARA_PRICE_HALFWAY_HEALTHY_ORIGINAL_HANDOFF_RETAINED_20261023.md",
+  "run_report_ref": "research/661_CARA_EXCLUSIVE_PRICES_ACCEPTED_PG_P1_ACTUALLY_ADMITTED_20261023.md",
   "next_checks": [
     {
-      "kind": "独占价格完整验收",
-      "scheduled_local": "2026-10-23 20:20 Asia/Shanghai",
+      "kind": "PG-P1技术半程",
+      "scheduled_local": "2026-10-24 00:52 Asia/Shanghai",
+      "automation_id": "cara-pg-p1"
+    },
+    {
+      "kind": "PG-P1完整终态验收",
+      "scheduled_local": "2026-10-24 05:32 Asia/Shanghai",
       "automation_id": "cara-bank24-2"
     }
   ],
@@ -82,13 +87,13 @@
   "mapping_ref": "paper/internal_to_paper_mapping.json",
   "technical_review_ref": "reports/wc_policy_assets_full1624_price_review_20261023_0827.json",
   "action_price_gate": {
-    "status": "ORIGINAL_NUMERICAL_ACCEPTED_CONTAMINATED_PRICES_REPLACEMENT_PENDING",
-    "clean_price_accepted": false,
-    "PG_P1_dispatch_ready": false,
-    "evidence_ref": "reports/wc_four_card_GPU_exclusive_capability_and_competing_account_20261023.json",
+    "status": "ORIGINAL_LABELS_WITH_ACCEPTED_EXCLUSIVE_REPLACEMENT_PRICES",
+    "clean_price_accepted": true,
+    "PG_P1_dispatch_ready": true,
+    "evidence_ref": "reports/wc_policy_price_refresh_GPU_accepted_20261023_2023.json",
     "review_entry": "scripts/audit_wc_policy_asset_prices_r1.py",
     "continuation_plan_ref": "plans/cara_policy_generator_20261020/PRICE_HISTORY_NATIVE_CONTINUATION_R1_20261023.md",
-    "review_ref": "reports/wc_policy_assets_full1624_price_review_20261023_0827.json",
+    "review_ref": "reports/wc_policy_price_refresh_full1624_descriptive_analysis_20261023.json",
     "refresh_quote_ref": "manifests/wc_policy_price_refresh_full1624_whole_quote_r1_20261023.json",
     "refresh_plan_ref": "plans/cara_policy_generator_20261020/FULL1624_PRICE_REFRESH_R1_20261023.md"
   },
@@ -104,15 +109,15 @@
     "exact_source_lifecycle_CPU_fixture_passed": true,
     "hardware_support_verified": true,
     "controller_CPU_passed": true,
-    "exclusive_active_ref": "reports/wc_policy_price_refresh_GPU3_exclusive_active_actual_20261023_1316.json"
+    "exclusive_active_ref": "reports/cara_PG_P1_GPU3_exclusive_active_20261023_2027.json"
   },
   "terminal_acceptance_ref": "reports/wc_policy_assets_full1624_fourcard_GPU_accepted_20261023_0826.json",
-  "resource_observation_ref": "reports/wc_policy_price_refresh_monitor_and_resources_20261023_1316.json",
+  "resource_observation_ref": "reports/cara_PG_P1_full64_GPU_initial_health_20261023_2029.json",
   "actual_original_GPUh": 6.900543598864331,
   "budget_snapshot": {
-    "used_gpu_hours": 125.64655189029101,
-    "reserved_gpu_hours": 28.0,
-    "available_gpu_hours": 72.35344810970899,
+    "used_gpu_hours": 132.5628281559511,
+    "reserved_gpu_hours": 27.0,
+    "available_gpu_hours": 66.43717184404889,
     "cap_gpu_hours": 226
   },
   "price_refresh_CPU": {
@@ -139,7 +144,7 @@
     "scoped_SELECT_no_execution_evidence": true,
     "tests_passed": 27,
     "production_CPU_accepted": true,
-    "GPU_dispatch_ready": false,
+    "GPU_dispatch_ready": true,
     "GPU_submissions": 0,
     "combined_tests_passed": 92,
     "CPU_test_ref": "reports/cara_PG_P1_combination_local_CPU_checks_20261023.json",
@@ -157,7 +162,9 @@
     "actual_all93_frame_LPIPS_CPU": true,
     "lifecycle_CPU_cases": 6,
     "terminal_CPU_fault_checks": 12,
-    "controller_ref": "scripts/wc_four_card_cara_pg_gpu_r1.py"
+    "controller_ref": "scripts/wc_four_card_cara_pg_gpu_r1.py",
+    "actual_GPU_launch_ref": "reports/cara_PG_P1_full64_GPU_actual_launch_20261023_2030.json",
+    "price_gate_passed": true
   },
   "price_refresh_entry_recovery": {
     "status": "ORIGINAL_INTENT_RECOVERED_ACTUAL_EXCLUSIVE_GPU_RUNNING",
@@ -178,10 +185,10 @@
     "actual_recovery_launch_ref": "reports/wc_policy_price_refresh_full1624_GPU_actual_recovery_launch_20261023_1313.json"
   },
   "price_refresh_GPU": {
-    "status_zh": "GPU3硬独占运行中，完整价格待终态验收",
+    "status_zh": "完整独占价格已接受、原卡已结算释放",
     "launch_ref": "reports/wc_policy_price_refresh_full1624_GPU_actual_recovery_launch_20261023_1313.json",
-    "observation_ref": "reports/wc_policy_price_refresh_GPU_halfway_20261023_1759.json",
-    "observed_at": "2026-10-23T17:59:38.811566+08:00",
+    "observation_ref": "reports/wc_policy_price_refresh_GPU_terminal_20261023_2020.json",
+    "observed_at": "2026-10-23T20:20:45.867565+08:00",
     "admission_ref": "reports/wc_policy_price_refresh_exclusive_admission_and_schedule_20261023.json",
     "exclusive_active_ref": "reports/wc_policy_price_refresh_GPU3_exclusive_active_actual_20261023_1316.json",
     "hardware_admitted": true,
@@ -190,6 +197,19 @@
     "technical_progress_ref": "reports/wc_policy_price_refresh_GPU_halfway_technical_20261023_1800.json",
     "exclusive_prefix_ref": "reports/wc_policy_price_refresh_GPU_halfway_technical_20261023_1800.json",
     "eta_ref": "reports/wc_policy_price_refresh_GPU_halfway_summary_20261023_1800.json",
-    "halfway_completed_ref": "reports/wc_policy_price_refresh_GPU_halfway_summary_20261023_1800.json"
+    "halfway_completed_ref": "reports/wc_policy_price_refresh_GPU_halfway_summary_20261023_1800.json",
+    "terminal_acceptance_ref": "reports/wc_policy_price_refresh_GPU_accepted_20261023_2023.json",
+    "actual_GPUh": 6.916276265660094,
+    "analysis_ref": "reports/wc_policy_price_refresh_full1624_descriptive_analysis_20261023.json"
+  },
+  "PG_P1_GPU": {
+    "launch_ref": "reports/cara_PG_P1_full64_GPU_actual_launch_20261023_2030.json",
+    "observation_ref": "reports/cara_PG_P1_full64_GPU_after_load_20261023_2030.json",
+    "observed_at": "2026-10-23T20:30:18.017824+08:00",
+    "CPU_acceptance_ref": "reports/cara_PG_P1_combination_CPU_accepted_r3_20261023.json",
+    "exclusive_active_ref": "reports/cara_PG_P1_GPU3_exclusive_active_20261023_2027.json",
+    "hardware_admitted": true,
+    "stage_ref": "reports/cara_PG_P1_full64_stage_ref_20261023.json",
+    "GPU_submissions": 1
   }
 }
