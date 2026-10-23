@@ -21,7 +21,7 @@
       "id": "PG-P1-ASSETS",
       "priority": 1,
       "title": "Complete real statistics, prices and generated-mask entry",
-      "status": "PRICE_ENTRY_REPAIRED_WAIT_EXCLUSIVE_RESOURCE",
+      "status": "PRICE_REFRESH_EXCLUSIVE_GPU_RUNNING",
       "dependencies": [
         "PG-P0"
       ],
@@ -59,7 +59,7 @@
         "manual_FRPC_restart_ref": "reports/wc_owned_FRPC_direct_human_restart_20261020_2043.json"
       },
       "execution_host": "FOUR_CARD_ONLY",
-      "connection_status": "FOUR_CARD_PRIVATE_ROUTE_ACTIVE_PRICE_RESOURCE_WAIT",
+      "connection_status": "FOUR_CARD_PRIVATE_ROUTE_ACTIVE_PRICE_GPU_RUNNING",
       "preparation_audit_ref": "reports/wc_policy_assets_four_card_preparation_audit_20261022.json",
       "preparation_plan_ref": "research/641_CARA_ORDERED_WAIT_WINDOW_PREPARATION_20261022.md",
       "forecast_basis": "Accepted BANK24 Ada load/request measurements plus conservative historical collection overhead; independent Ada action prices pending",
@@ -130,8 +130,8 @@
         "local_quote_controls_passed": 3,
         "production_CPU_accepted": true,
         "GPU_dispatch_ready": false,
-        "GPU_submissions": 0,
-        "resource_ref": "reports/wc_policy_price_refresh_recovery_resource_recheck_20261023_130436.json",
+        "GPU_submissions": 1,
+        "resource_ref": "reports/wc_policy_price_refresh_monitor_and_resources_20261023_1316.json",
         "actual_CPU_launch_ref": "reports/wc_policy_price_refresh_full1624_CPU_launch_r1_20261023.json",
         "source_revision": "cecba6647fcc626887761961fc7215c6fe1afa8b",
         "real_production_entry_passed": true,
@@ -147,12 +147,11 @@
         "controller_entry": "scripts/wc_four_card_price_refresh_gpu_r1.py",
         "terminal_acceptor": "src/wcomr/policy_price_terminal_r1.py",
         "preflight_ref": "reports/wc_policy_price_refresh_full1624_GPU_recovered_launch_r1_20261023_1304.json",
-        "hardware_exclusivity_verified": false,
-        "next_resource_check_local": "2026-10-23 13:30 Asia/Shanghai",
+        "hardware_exclusivity_verified": true,
         "resource_observed_at": "2026-10-23T12:52:26.882393+08:00",
         "process_owner_ref": "reports/wc_policy_price_refresh_GPU3_new_context_identity_20261023_1305.json",
         "entry_recovery": {
-          "status": "KNOWN_PRE_INTERPRETER_FAILURE_REPAIRED_RESOURCE_WAIT",
+          "status": "ORIGINAL_INTENT_RECOVERED_ACTUAL_EXCLUSIVE_GPU_RUNNING",
           "original_attempt_ref": "reports/wc_policy_price_refresh_full1624_GPU_launch_r1_20261023_1300.json",
           "original_launch_id": "895d66c7-5e95-42b3-bbff-0f78766eb424",
           "failure_ref": "reports/wc_policy_price_refresh_original_host_entry_diagnostic_20261023_1300.json",
@@ -162,12 +161,30 @@
           "tests_passed": 37,
           "controller_source_revision": "03f702e2",
           "recovery_attempt_ref": "reports/wc_policy_price_refresh_full1624_GPU_recovered_launch_r1_20261023_1304.json",
-          "recovery_intent_created": false,
-          "confirmed_GPU_submissions": 0,
-          "actual_GPUh": 0,
-          "allowed_next_command": "resume-host-entry",
-          "original_stage_unchanged": true
-        }
+          "recovery_intent_created": true,
+          "confirmed_GPU_submissions": 1,
+          "actual_GPUh": null,
+          "allowed_next_command": "capture_or_recover_only",
+          "original_stage_unchanged": true,
+          "actual_recovery_launch_ref": "reports/wc_policy_price_refresh_full1624_GPU_actual_recovery_launch_20261023_1313.json"
+        },
+        "GPU_dispatched": true,
+        "actual_GPU_launch_ref": "reports/wc_policy_price_refresh_full1624_GPU_actual_recovery_launch_20261023_1313.json",
+        "actual_GPU_admission_ref": "reports/wc_policy_price_refresh_exclusive_admission_and_schedule_20261023.json",
+        "actual_GPU_observation_ref": "reports/wc_policy_price_refresh_full1624_GPU_initial_progress_20261023_131859.json",
+        "next_checks": [
+          {
+            "kind": "独占价格技术半程",
+            "scheduled_local": "2026-10-23 17:59 Asia/Shanghai",
+            "automation_id": "cara"
+          },
+          {
+            "kind": "独占价格完整验收",
+            "scheduled_local": "2026-10-23 22:59 Asia/Shanghai",
+            "automation_id": "cara-bank24-2"
+          }
+        ],
+        "clean_action_prices_accepted": false
       }
     },
     {

@@ -1,0 +1,80 @@
+{
+  "status": "PRICE_ACTUAL_EXCLUSIVE_GPU_ADMISSION_ACCEPTED",
+  "created_unix": 1792732720.284738,
+  "launch_ref": "reports/wc_policy_price_refresh_full1624_GPU_actual_recovery_launch_20261023_1313.json",
+  "launch_sha256": "5714334b5b6da382df89435ca9964b7b4faeed0ad38c1cb98df75ffbb1058b64",
+  "capture_ref": "reports/wc_policy_price_refresh_full1624_GPU_recovery_admission_20261023_1316.json",
+  "capture_sha256": "e8dc7cbc88c9836fa28f93d58148676a44f527584fce5d2afa827da80529fecc",
+  "exclusive_active_ref": "reports/wc_policy_price_refresh_GPU3_exclusive_active_actual_20261023_1316.json",
+  "exclusive_active_sha256": "6ca1893ce9b1303ba76fa9f07b5a9377756a533d7fdf0c9cb65871ae6a585e47",
+  "monitor_ref": "reports/wc_policy_price_refresh_monitor_and_resources_20261023_1316.json",
+  "launch_id": "895d66c7-5e95-42b3-bbff-0f78766eb424",
+  "source_revision": "cecba6647fcc626887761961fc7215c6fe1afa8b",
+  "gpu_uuid": "GPU-d4868f0a-29df-9077-82db-77f7bf0f9934",
+  "guardian": {
+    "pid": 950505,
+    "state": "R",
+    "start_ticks": 951746754,
+    "command": "/bin/sh /data20t/gaokuangda/worldcache_workspace/bootstrap/wc-fourcard-native-control-python310-r1-20261022/bin/python3 -u /data20t/gaokuangda/worldcache_workspace/.sync/wc-policy-price-refresh-fourcard-full1624-r1-20261023/scripts/wc_policy_price_host_guardian_r1.py --project /data20t/gaokuangda/worldcache_workspace --stage /data20t/gaokuangda/worldcache_workspace/.sync/wc-policy-price-refresh-fourcard-full1624-r1-20261023 "
+  },
+  "supervisor": {
+    "pid": 950689,
+    "state": "R",
+    "start_ticks": 951747277,
+    "command": "/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/bin/python /data20t/gaokuangda/worldcache_workspace/.sync/wc-policy-price-refresh-fourcard-full1624-r1-20261023/scripts/wc_policy_price_refresh_worker_r1.py supervise --project /data20t/gaokuangda/worldcache_workspace --stage /data20t/gaokuangda/worldcache_workspace/.sync/wc-policy-price-refresh-fourcard-full1624-r1-20261023 "
+  },
+  "runner": {
+    "pid": 950782,
+    "start_ticks": 951747898,
+    "uid": 1000
+  },
+  "scope_counts": {
+    "requests": 4,
+    "total_paths": 10,
+    "formal_paths": 8,
+    "warm_paths": 2,
+    "new_Native_paths": 0,
+    "reused_accepted_Native_paths": 4,
+    "CONTROL_paths": 5,
+    "PRICE_paths": 5,
+    "ordinary_pairs": 360,
+    "ordinary_CFG_calls": 720,
+    "loads": 1,
+    "formal_cells": 1624,
+    "warm_cells": 406,
+    "total_cells": 2030,
+    "warmup_round_readout_trials": 6090,
+    "formal_round_readout_trials": 18270,
+    "formal_path_readout_trials": 19488,
+    "warm_path_readout_trials": 4872,
+    "total_readout_trials": 24360,
+    "formal_repetitions_per_cell_action": 3,
+    "new_error_labels": 0
+  },
+  "hardware_admitted": true,
+  "prior_failed_entry_preserved": true,
+  "confirmed_GPU_submissions": 1,
+  "scientific_terminal_accepted": false,
+  "clean_action_prices_accepted": false,
+  "actual_started_at": "2026-10-23T13:13:24.179586+08:00",
+  "halfway_not_before": "2026-10-23T17:58:24.679586+08:00",
+  "terminal_not_before": "2026-10-23T22:58:25.179586+08:00",
+  "checks": [
+    {
+      "kind": "独占价格技术半程",
+      "scheduled_local": "2026-10-23 17:59 Asia/Shanghai",
+      "automation_id": "cara"
+    },
+    {
+      "kind": "独占价格完整验收",
+      "scheduled_local": "2026-10-23 22:59 Asia/Shanghai",
+      "automation_id": "cara-bank24-2"
+    }
+  ],
+  "financial_snapshot": {
+    "used_gpu_hours": 125.64655189029101,
+    "reserved_gpu_hours": 28.0,
+    "available_gpu_hours": 72.35344810970899,
+    "cap_gpu_hours": 226
+  }
+}

@@ -4,13 +4,13 @@
 
 论文主线：**CFG对齐读出修正 → 数据驱动计算时机 → 冻结自动程序的实际质量—时间收益**。已有机制结果放在前面，自动生成器的最终数值由后续真实验证填入。
 
-**已保存的实验观测：2026-10-23T08:26:41.422652+08:00（Asia/Shanghai）。** 原1624已接受；价格入口已修复，等待GPU3上GMSD释放。14/14路径完成、0运行、0未到达、0失败。
+**当前独占价格补测：GPU3硬独占运行中，完整价格待终态验收。** 实际启动2026-10-23T13:13:24+08:00，观测2026-10-23T13:19:01.438472+08:00。0/10路径完成、1运行、9未到达、0失败；当前路径`warm_1_CONTROL`。
 
-范围：4 CAL / 1624正式区间格 / 14完整路径（12正式+2warm）/ 2030总格 / 13020读出试验；整卡上限12 GPUh。独占价格补测资源检查与单次准入：**2026-10-23 13:30 Asia/Shanghai**。
+范围：4 CAL / 10路径（8正式+2warm）/ 1624正式格、2030总格 / 24360读出；单卡上限11.5 GPUh。独占价格技术半程：**2026-10-23 17:59 Asia/Shanghai**；独占价格完整验收：**2026-10-23 22:59 Asia/Shanghai**。
 
-[本卡完整记录](../research/654_CARA_PRICE_HOST_ENTRY_REPAIRED_WAIT_GMSD_RELEASE_20261023.md) · [观测原件](../reports/wc_policy_assets_full1624_fourcard_GPU_terminal_20261023_0826.json) · [当前状态](../research/02_CURRENT_STATE.md)。12:58 GPU3曾空闲并通过完整准入；第一次host guardian子进程误用裸Python，因GLIBC不匹配在解释器启动前退出，未改模式、创建容器、预约或使用GPU。兼容启动器真实CPU复核及37项相关CPU检查已通过，冻结生产stage保持。13:03恢复准入仅GPU_BUSY：另一项目GMSD的PID942555于13:00:42启动，13:05已核对容器gmsd-e07-postupdate-r1-20261023；未干预该任务。价格GPU提交仍为0，沿原launch意图等待资源恢复，不重复launch-gpu。
+[唯一实际恢复启动](../reports/wc_policy_price_refresh_full1624_GPU_actual_recovery_launch_20261023_1313.json) · [GPU技术观测](../reports/wc_policy_price_refresh_full1624_GPU_initial_progress_20261023_131859.json) · [实际独占接受](../reports/wc_policy_price_refresh_GPU3_exclusive_active_actual_20261023_1316.json) · [完整记录](../research/655_CARA_PRICE_GPU3_EXCLUSIVE_ADMITTED_AND_COORDINATED_SCHEDULE_20261023.md)。GMSD已释放GPU3，用户直接授权CARA优先。原12:59解释器前失败保持，13:13:24沿同一launch恢复；硬件Exclusive_Process、唯一runner950782/start951747898/UID1000、共享UUID锁及连续监测均已核对。13:19已进入首条warm CONTROL路径，0失败；11.5 GPUh已预留，当前费用待终态结算。半程17:59、全程22:59按实际恢复启动安排，检查时间不保证释放；GPU0–2当前有其他进程。
 
-**当前独立价格补测：完整生产CPU已接受；host入口已修复并通过真实CPU检查，等待GPU3释放后恢复原意图。** CPU启动于2026-10-23T09:14:02+08:00，最近观测2026-10-23T09:51:55+08:00。[价格CPU启动原件](../reports/wc_policy_price_refresh_full1624_CPU_launch_r1_20261023.json) · [价格CPU观测](../reports/wc_policy_price_refresh_full1624_CPU_terminal_check_r1_20261023_0955.json)。新GPU提交为0；完整价格卡保持10路径/1624正式格/24360读出、11.5 GPUh上限。
+原1624已完整接受、实际6.900544 GPUh已结算，[原1624接受](../reports/wc_policy_assets_full1624_fourcard_GPU_accepted_20261023_0826.json)；新价格完整生产CPU接受保持，[价格CPU接受](../reports/wc_policy_price_refresh_full1624_CPU_accepted_r1_20261023.json)。当前技术准入不代表价格终态接受或PG闭环结果。
 
 | 需要的材料 | 入口 |
 |---|---|

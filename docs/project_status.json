@@ -3,20 +3,25 @@
   "project": "CARA-Cache",
   "evidence_observed_at": "2026-10-23T08:26:41.422652+08:00",
   "timezone": "Asia/Shanghai",
-  "snapshot_note": "12:58 GPU3曾空闲并通过完整准入；第一次host guardian子进程误用裸Python，因GLIBC不匹配在解释器启动前退出，未改模式、创建容器、预约或使用GPU。兼容启动器真实CPU复核及37项相关CPU检查已通过，冻结生产stage保持。13:03恢复准入仅GPU_BUSY：另一项目GMSD的PID942555于13:00:42启动，13:05已核对容器gmsd-e07-postupdate-r1-20261023；未干预该任务。价格GPU提交仍为0，沿原launch意图等待资源恢复，不重复launch-gpu。",
+  "snapshot_note": "GMSD已释放GPU3，用户直接授权CARA优先。原12:59解释器前失败保持，13:13:24沿同一launch恢复；硬件Exclusive_Process、唯一runner950782/start951747898/UID1000、共享UUID锁及连续监测均已核对。13:19已进入首条warm CONTROL路径，0失败；11.5 GPUh已预留，当前费用待终态结算。半程17:59、全程22:59按实际恢复启动安排，检查时间不保证释放；GPU0–2当前有其他进程。",
   "research_summary": "修正机制与共享布局已有实证；完整1624真实区间标签已接受，半强度在四CAL全区间均值均改善。当前修复动作价格可信度，再检验自动生成计划的独立质量—时间收益。",
   "active_experiment_id": "PG-P1-ASSETS",
-  "active_state": "PRICE_ENTRY_REPAIRED_WAIT_EXCLUSIVE_RESOURCE",
-  "active_state_zh": "原1624已接受；价格入口已修复，等待GPU3上GMSD释放",
+  "active_state": "PRICE_REFRESH_EXCLUSIVE_GPU_RUNNING",
+  "active_state_zh": "原1624已接受；独立价格GPU3硬独占运行中",
   "launch_ref": "reports/wc_policy_assets_full1624_fourcard_GPU_launch_20261022.json",
   "observation_ref": "reports/wc_policy_assets_full1624_fourcard_GPU_terminal_20261023_0826.json",
   "admission_ref": "reports/wc_policy_assets_full1624_fourcard_GPU_admission_checked_and_schedule_20261022.json",
   "cpu_acceptance_ref": "reports/wc_policy_assets_full1624_fourcard_CPU_r2_accepted_20261022.json",
-  "run_report_ref": "research/654_CARA_PRICE_HOST_ENTRY_REPAIRED_WAIT_GMSD_RELEASE_20261023.md",
+  "run_report_ref": "research/655_CARA_PRICE_GPU3_EXCLUSIVE_ADMITTED_AND_COORDINATED_SCHEDULE_20261023.md",
   "next_checks": [
     {
-      "kind": "独占价格补测资源检查与单次准入",
-      "scheduled_local": "2026-10-23 13:30 Asia/Shanghai",
+      "kind": "独占价格技术半程",
+      "scheduled_local": "2026-10-23 17:59 Asia/Shanghai",
+      "automation_id": "cara"
+    },
+    {
+      "kind": "独占价格完整验收",
+      "scheduled_local": "2026-10-23 22:59 Asia/Shanghai",
       "automation_id": "cara-bank24-2"
     }
   ],
@@ -94,7 +99,7 @@
   },
   "future_GPU_exclusivity": {
     "required": true,
-    "current_mode_enabled": false,
+    "current_mode_enabled": true,
     "sudo_authority_verified": true,
     "authority_ref": "reports/wc_four_card_exclusive_sudo_authority_readonly_20261023.json",
     "read_only_check": "scripts/check_wc_four_card_exclusive_r1.py",
@@ -102,31 +107,32 @@
     "original_active_launch_unchanged": true,
     "production_mode_guard_implemented": true,
     "exact_source_lifecycle_CPU_fixture_passed": true,
-    "hardware_support_verified": false,
-    "controller_CPU_passed": true
+    "hardware_support_verified": true,
+    "controller_CPU_passed": true,
+    "exclusive_active_ref": "reports/wc_policy_price_refresh_GPU3_exclusive_active_actual_20261023_1316.json"
   },
   "terminal_acceptance_ref": "reports/wc_policy_assets_full1624_fourcard_GPU_accepted_20261023_0826.json",
-  "resource_observation_ref": "reports/wc_policy_price_refresh_recovery_resource_recheck_20261023_130436.json",
+  "resource_observation_ref": "reports/wc_policy_price_refresh_monitor_and_resources_20261023_1316.json",
   "actual_original_GPUh": 6.900543598864331,
   "budget_snapshot": {
     "used_gpu_hours": 125.64655189029101,
-    "reserved_gpu_hours": 16.5,
-    "available_gpu_hours": 83.85344810970899,
+    "reserved_gpu_hours": 28.0,
+    "available_gpu_hours": 72.35344810970899,
     "cap_gpu_hours": 226
   },
   "price_refresh_CPU": {
     "launch_ref": "reports/wc_policy_price_refresh_full1624_CPU_launch_r1_20261023.json",
     "observation_ref": "reports/wc_policy_price_refresh_full1624_CPU_terminal_check_r1_20261023_0955.json",
     "lifecycle_ref": "reports/wc_policy_price_refresh_lifecycle_CPU_capture_r1_20261023.json",
-    "status_zh": "完整生产CPU已接受；host入口已修复并通过真实CPU检查，等待GPU3释放后恢复原意图",
+    "status_zh": "完整生产CPU已接受；兼容入口修复后GPU已实际硬独占启动",
     "source_revision": "cecba6647fcc626887761961fc7215c6fe1afa8b",
     "production_CPU_accepted": true,
-    "GPU_submissions": 0,
+    "GPU_submissions": 1,
     "acceptance_ref": "reports/wc_policy_price_refresh_full1624_CPU_accepted_r1_20261023.json",
     "controller_CPU_ref": "reports/wc_policy_price_refresh_entry_recovery_controller_CPU_20261023.json",
     "controller_ref": "scripts/wc_four_card_price_refresh_gpu_r1.py",
     "fresh_preflight_ref": "reports/wc_policy_price_refresh_full1624_GPU_recovered_launch_r1_20261023_1304.json",
-    "latest_resource_ref": "reports/wc_policy_price_refresh_recovery_resource_recheck_20261023_130436.json",
+    "latest_resource_ref": "reports/wc_policy_price_refresh_monitor_and_resources_20261023_1316.json",
     "resource_observed_at": "2026-10-23T13:03:48.589744+08:00",
     "latest_process_owner_ref": "reports/wc_policy_price_refresh_GPU3_new_context_identity_20261023_1305.json"
   },
@@ -144,7 +150,7 @@
     "CPU_test_ref": "reports/cara_PG_continuation_CPU_preparation_final_20261023.json"
   },
   "price_refresh_entry_recovery": {
-    "status": "KNOWN_PRE_INTERPRETER_FAILURE_REPAIRED_RESOURCE_WAIT",
+    "status": "ORIGINAL_INTENT_RECOVERED_ACTUAL_EXCLUSIVE_GPU_RUNNING",
     "original_attempt_ref": "reports/wc_policy_price_refresh_full1624_GPU_launch_r1_20261023_1300.json",
     "original_launch_id": "895d66c7-5e95-42b3-bbff-0f78766eb424",
     "failure_ref": "reports/wc_policy_price_refresh_original_host_entry_diagnostic_20261023_1300.json",
@@ -154,10 +160,22 @@
     "tests_passed": 37,
     "controller_source_revision": "03f702e2",
     "recovery_attempt_ref": "reports/wc_policy_price_refresh_full1624_GPU_recovered_launch_r1_20261023_1304.json",
-    "recovery_intent_created": false,
-    "confirmed_GPU_submissions": 0,
-    "actual_GPUh": 0,
-    "allowed_next_command": "resume-host-entry",
-    "original_stage_unchanged": true
+    "recovery_intent_created": true,
+    "confirmed_GPU_submissions": 1,
+    "actual_GPUh": null,
+    "allowed_next_command": "capture_or_recover_only",
+    "original_stage_unchanged": true,
+    "actual_recovery_launch_ref": "reports/wc_policy_price_refresh_full1624_GPU_actual_recovery_launch_20261023_1313.json"
+  },
+  "price_refresh_GPU": {
+    "status_zh": "GPU3硬独占运行中，完整价格待终态验收",
+    "launch_ref": "reports/wc_policy_price_refresh_full1624_GPU_actual_recovery_launch_20261023_1313.json",
+    "observation_ref": "reports/wc_policy_price_refresh_full1624_GPU_initial_progress_20261023_131859.json",
+    "observed_at": "2026-10-23T13:19:01.438472+08:00",
+    "admission_ref": "reports/wc_policy_price_refresh_exclusive_admission_and_schedule_20261023.json",
+    "exclusive_active_ref": "reports/wc_policy_price_refresh_GPU3_exclusive_active_actual_20261023_1316.json",
+    "hardware_admitted": true,
+    "GPU_submissions": 1,
+    "coordination_ref": "reports/wc_policy_price_refresh_CARA_priority_coordination_20261023.json"
   }
 }

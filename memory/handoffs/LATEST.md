@@ -2,15 +2,31 @@
 
 # CARA-Cache 当前交接
 
-先读[当前状态](../../research/02_CURRENT_STATE.md)、[实验顺序](../../research/09_NEXT_ACTIONS.md)与[本卡646记录](../../research/646_CARA_FULL1624_CPU_ACCEPTED_GPU_LAUNCH_20261022.md)。它们共用规范数据；旧长交接已完整归档。
+先读[当前状态](../../research/02_CURRENT_STATE.md)、[实验顺序](../../research/09_NEXT_ACTIONS.md)与[价格独占655记录](../../research/655_CARA_PRICE_GPU3_EXCLUSIVE_ADMITTED_AND_COORDINATED_SCHEDULE_20261023.md)。它们共用规范数据；旧长交接已完整归档。
 
-**已保存的实验观测：2026-10-23T08:26:41.422652+08:00（Asia/Shanghai）。** 原1624已接受；价格入口已修复，等待GPU3上GMSD释放。14/14路径完成、0运行、0未到达、0失败。
+**当前独占价格补测：GPU3硬独占运行中，完整价格待终态验收。** 实际启动2026-10-23T13:13:24+08:00，观测2026-10-23T13:19:01.438472+08:00。0/10路径完成、1运行、9未到达、0失败；当前路径`warm_1_CONTROL`。
 
-范围：4 CAL / 1624正式区间格 / 14完整路径（12正式+2warm）/ 2030总格 / 13020读出试验；整卡上限12 GPUh。独占价格补测资源检查与单次准入：**2026-10-23 13:30 Asia/Shanghai**。
+范围：4 CAL / 10路径（8正式+2warm）/ 1624正式格、2030总格 / 24360读出；单卡上限11.5 GPUh。独占价格技术半程：**2026-10-23 17:59 Asia/Shanghai**；独占价格完整验收：**2026-10-23 22:59 Asia/Shanghai**。
 
-[本卡完整记录](../../research/654_CARA_PRICE_HOST_ENTRY_REPAIRED_WAIT_GMSD_RELEASE_20261023.md) · [观测原件](../../reports/wc_policy_assets_full1624_fourcard_GPU_terminal_20261023_0826.json) · [当前状态](../../research/02_CURRENT_STATE.md)。12:58 GPU3曾空闲并通过完整准入；第一次host guardian子进程误用裸Python，因GLIBC不匹配在解释器启动前退出，未改模式、创建容器、预约或使用GPU。兼容启动器真实CPU复核及37项相关CPU检查已通过，冻结生产stage保持。13:03恢复准入仅GPU_BUSY：另一项目GMSD的PID942555于13:00:42启动，13:05已核对容器gmsd-e07-postupdate-r1-20261023；未干预该任务。价格GPU提交仍为0，沿原launch意图等待资源恢复，不重复launch-gpu。
+[唯一实际恢复启动](../../reports/wc_policy_price_refresh_full1624_GPU_actual_recovery_launch_20261023_1313.json) · [GPU技术观测](../../reports/wc_policy_price_refresh_full1624_GPU_initial_progress_20261023_131859.json) · [实际独占接受](../../reports/wc_policy_price_refresh_GPU3_exclusive_active_actual_20261023_1316.json) · [完整记录](../../research/655_CARA_PRICE_GPU3_EXCLUSIVE_ADMITTED_AND_COORDINATED_SCHEDULE_20261023.md)。GMSD已释放GPU3，用户直接授权CARA优先。原12:59解释器前失败保持，13:13:24沿同一launch恢复；硬件Exclusive_Process、唯一runner950782/start951747898/UID1000、共享UUID锁及连续监测均已核对。13:19已进入首条warm CONTROL路径，0失败；11.5 GPUh已预留，当前费用待终态结算。半程17:59、全程22:59按实际恢复启动安排，检查时间不保证释放；GPU0–2当前有其他进程。
 
-**当前独立价格补测：完整生产CPU已接受；host入口已修复并通过真实CPU检查，等待GPU3释放后恢复原意图。** CPU启动于2026-10-23T09:14:02+08:00，最近观测2026-10-23T09:51:55+08:00。[价格CPU启动原件](../../reports/wc_policy_price_refresh_full1624_CPU_launch_r1_20261023.json) · [价格CPU观测](../../reports/wc_policy_price_refresh_full1624_CPU_terminal_check_r1_20261023_0955.json)。新GPU提交为0；完整价格卡保持10路径/1624正式格/24360读出、11.5 GPUh上限。
+原1624已完整接受、实际6.900544 GPUh已结算，[原1624接受](../../reports/wc_policy_assets_full1624_fourcard_GPU_accepted_20261023_0826.json)；新价格完整生产CPU接受保持，[价格CPU接受](../../reports/wc_policy_price_refresh_full1624_CPU_accepted_r1_20261023.json)。当前技术准入不代表价格终态接受或PG闭环结果。
+
+| 当前价格GPU字段 | 实际身份 |
+|---|---|
+| run | `wc-policy-price-refresh-cal4-full1624-ada-r1` |
+| launch ID | `895d66c7-5e95-42b3-bbff-0f78766eb424` |
+| 生产源码 | `cecba6647fcc626887761961fc7215c6fe1afa8b` |
+| stage | `/data20t/gaokuangda/worldcache_workspace/.sync/wc-policy-price-refresh-fourcard-full1624-r1-20261023` |
+| GPU UUID | `GPU-d4868f0a-29df-9077-82db-77f7bf0f9934` |
+| 容器 | `wc-policy-price-refresh-fourcard-full1624-r1-20261023-gpu` |
+| guardian | `PID 950505 / start_ticks 951746754` |
+| supervisor | `PID 950689 / start_ticks 951747277` |
+| runner | `PID 950782 / start_ticks 951747898 / UID 1000` |
+| 实际启动 | `2026-10-23T13:13:24+08:00` |
+| GPU模式 | `Exclusive_Process` |
+
+**已接受原1624身份（历史，不重复运行）**
 
 | 字段 | 冻结身份 / 已记录状态 |
 |---|---|
@@ -33,14 +49,14 @@
 
 504普通pairs / 1008CFG / 1次模型加载。原规划9.956389 GPUh。实际已结算6.900544 GPUh；[GPU完整接受](../../reports/wc_policy_assets_full1624_fourcard_GPU_accepted_20261023_0826.json)。
 
-**当前价格CPU任务**：`/data20t/gaokuangda/worldcache_workspace/.sync/wc-policy-price-refresh-fourcard-full1624-r1-20261023`，源码`cecba6647fcc626887761961fc7215c6fe1afa8b`；PID 915069 / start_ticks 950310551；容器`wc-policy-price-refresh-fourcard-full1624-r1-20261023-cpu`。实际状态：完整生产CPU已接受；host入口已修复并通过真实CPU检查，等待GPU3释放后恢复原意图。原1624的已接受身份和费用列在上表，不作为新补测的启动授权。
+**当前价格CPU任务**：`/data20t/gaokuangda/worldcache_workspace/.sync/wc-policy-price-refresh-fourcard-full1624-r1-20261023`，源码`cecba6647fcc626887761961fc7215c6fe1afa8b`；PID 915069 / start_ticks 950310551；容器`wc-policy-price-refresh-fourcard-full1624-r1-20261023-cpu`。实际状态：完整生产CPU已接受；兼容入口修复后GPU已实际硬独占启动。原1624的已接受身份和费用列在上表，不作为新补测的启动授权。
 
 ## 接续规则
 
-- 上述1624 launch已于08:26完整接受，原件见[649](../../research/649_CARA_FULL1624_ACCEPTED_PRICE_AUDIT_AND_REFRESH_SCOPE_20261023.md)，不重复验收/提交。下一项为[独立价格刷新](../../plans/cara_policy_generator_20261020/FULL1624_PRICE_REFRESH_R1_20261023.md)：完整生产CPU已接受，原容器09:46:34退出、实际09:51:55观察；GPU控制器及独立终态接受已通过32项CPU检查。见[651](../../research/651_CARA_PRICE_CPU_ACCEPTED_CONTROLLER_READY_WAIT_EXCLUSIVE_20261023.md)，四卡仍占用，没有新GPU启动，硬件独占尚未实测。
-- `--launch-ref`固定上述启动原件。unknown只恢复原句柄；提前退出保留实际终态与费用。原R1 CPU失败、BANK24原ffprobe失败和后续恢复均保留。
+- 原1624 launch已于08:26完整接受，原件见[649](../../research/649_CARA_FULL1624_ACCEPTED_PRICE_AUDIT_AND_REFRESH_SCOPE_20261023.md)，不重复验收/提交。[独立价格刷新](../../plans/cara_policy_generator_20261020/FULL1624_PRICE_REFRESH_R1_20261023.md)完整生产CPU已接受；修复host兼容入口后37项相关CPU检查通过。13:13:24沿原意图实际恢复并验证GPU3硬件独占，见[655](../../research/655_CARA_PRICE_GPU3_EXCLUSIVE_ADMITTED_AND_COORDINATED_SCHEDULE_20261023.md)。GMSD已释放该卡，用户授权CARA优先。
+- `--launch-ref`固定价格实际恢复启动`reports/wc_policy_price_refresh_full1624_GPU_actual_recovery_launch_20261023_1313.json`。unknown只恢复原句柄；已有恢复intent/launch，不能再次launch-gpu或resume-host-entry。提前退出保留实际终态与费用，原12:59解释器前失败不能冒充实际GPU启动时间。原R1 CPU失败、BANK24原ffprobe失败和后续恢复均保留。
 - 使用已授权四卡私有入口；不恢复两卡、不触碰他人任务、不更改在跑stage。完整范围/预算/冻结门控不变，DEV不回流调阈值。
-- 原资产接受后先运行完整价格审计，再按[价格/独占/历史诊断/少步Native接续方案](../../plans/cara_policy_generator_20261020/PRICE_HISTORY_NATIVE_CONTINUATION_R1_20261023.md)推进。原`generator_input_ready`不能覆盖同卡竞争；新GPU卡须动作价格信任通过、真实独占、自己的范围、完整成本、实际CPU和fresh准入。已用四卡私有凭据确认sudo模式修改权限，待空闲卡实际启用，不动在跑stage。长任务绑定实际启动安排半程与全程，复用自动化，完成后关闭对应一次检查。
+- 原资产接受后先运行完整价格审计，再按[价格/独占/历史诊断/少步Native接续方案](../../plans/cara_policy_generator_20261020/PRICE_HISTORY_NATIVE_CONTINUATION_R1_20261023.md)推进。原`generator_input_ready`不能覆盖同卡竞争；完整价格须独占监测、完整原件和独立财务接受。GPU3已实际启用Exclusive_Process并验证唯一原runner，不动在跑stage；结束后仅空闲时恢复原模式。17:59半程、22:59终态绑定实际恢复启动；完成后关闭或明确改绑对应一次检查，不重复创建。
 - 有意义的进度、完成、失败或需用户行动时才通知；文档整理不构成新的实验观测。
 - P1/P2接续准备见[652](../../research/652_CARA_PG_P1_P2_CPU_PREPARATION_AND_HANDOFF_20261023.md)及[可执行接入设计](../../plans/cara_policy_generator_20261020/P1_P2_CPU_HANDOFF_R1_20261023.md)。SELECT审计范围内无执行证据，首次端点前检查新增记录；先接受干净价格，再完成P1真实生产CPU/完整报价，在原64路径卡内取得干净Native预算后生成提案。历史shadow和少步Native选择成本另外完整计入P2，不能因本轮CPU控制通过就直接派GPU。
 

@@ -157,7 +157,7 @@ def build():
                      f"CPU启动于{local_time(fl['started_unix'])}，最近观测{local_time(fo['observed_unix'])}。"
                      f"{link(followup['launch_ref'], '价格CPU启动原件')} · "
                      f"{link(followup['observation_ref'], '价格CPU观测')}。"
-                     "新GPU提交为0；完整价格卡保持10路径/1624正式格/24360读出、11.5 GPUh上限。")
+                     f"新GPU提交为{followup.get('GPU_submissions', 0)}；完整价格卡保持10路径/1624正式格/24360读出、11.5 GPUh上限。")
     run_rows = [('实验ID', active['id']), ('run', launch['run_id']), ('launch ID', launch['launch_id']),
                 ('运行源码', launch['source_revision']), ('stage', launch['stage']),
                 ('GPU UUID', launch['gpu_uuid']), ('容器', launch['container']),
@@ -189,6 +189,58 @@ def build():
                         f"PID {fl['identity']['pid']} / start_ticks {fl['identity']['start_ticks']}；"
                         f"容器`{fl['container']}`。实际状态：{phase}。"
                         "原1624的已接受身份和费用列在上表，不作为新补测的启动授权。")
+    price_gpu = status.get('price_refresh_GPU')
+    if price_gpu:
+        pl, po = load(price_gpu['launch_ref']), load(price_gpu['observation_ref'])
+        if po['launch'] != pl or pl['source_revision'] != fl['source_revision']:
+            raise ValueError('Price GPU observation/source differs from its actual launch')
+        if abs(datetime.fromisoformat(price_gpu['observed_at']).timestamp() - po['observed_unix']) > .00001:
+            raise ValueError('Price GPU observation timestamp differs')
+        def original_record(key):
+            item = po['files'][key]
+            raw = item['raw_utf8'].encode()
+            if not item['exists'] or digest(raw)['sha256'] != item['sha256'] or len(raw) != item['bytes']:
+                raise ValueError('Price captured original bytes differ: ' + key)
+            return json.loads(raw)
+        grant, ready = original_record('grant'), original_record('ready')
+        if grant['runner'] != ready['identity'] or grant['gpu_uuid'] != pl['gpu_uuid']:
+            raise ValueError('Price actual CUDA owner identity differs')
+        if price_gpu['hardware_admitted']:
+            gate = load(price_gpu['exclusive_active_ref'])
+            if not gate['observation_passed'] or gate['snapshot']['gpu_uuid'] != pl['gpu_uuid']:
+                raise ValueError('Price actual active exclusivity proof required')
+            apps = gate['snapshot']['compute_apps']
+            if len(apps) != 1 or any(apps[0][k] != grant['runner'][k] for k in ('pid', 'start_ticks', 'uid')):
+                raise ValueError('Price exclusive proof belongs to another runner')
+        ph = po['health']
+        pp = (f"{ph['completed_paths']}/{ph['registered_paths']}路径完成、"
+              f"{ph['running_paths']}运行、{ph['not_reached_paths']}未到达、{ph['failed_paths']}失败")
+        if ph.get('active_path'):
+            pp += f"；当前路径`{ph['active_path']}`"
+        ps = pl['scope_counts']
+        snapshot = (f"**当前独占价格补测：{price_gpu['status_zh']}。** "
+                    f"实际启动{local_time(pl['started_unix'])}，观测{price_gpu['observed_at']}。{pp}。\n\n"
+                    f"范围：{ps['requests']} CAL / {ps['total_paths']}路径（{ps['formal_paths']}正式+{ps['warm_paths']}warm）/ "
+                    f"{ps['formal_cells']}正式格、{ps['total_cells']}总格 / {ps['total_readout_trials']}读出；"
+                    f"单卡上限{pl['billed_limit_GPUh']} GPUh。{schedule}。\n\n"
+                    f"{link(price_gpu['launch_ref'], '唯一实际恢复启动')} · {link(price_gpu['observation_ref'], 'GPU技术观测')} · "
+                    f"{link(price_gpu['exclusive_active_ref'], '实际独占接受')} · {link(status['run_report_ref'], '完整记录')}。"
+                    f"{status['snapshot_note']}\n\n"
+                    f"原1624已完整接受、实际{status['actual_original_GPUh']:.6f} GPUh已结算，"
+                    f"{link(status['terminal_acceptance_ref'], '原1624接受')}；新价格完整生产CPU接受保持，"
+                    f"{link(followup['acceptance_ref'], '价格CPU接受')}。当前技术准入不代表价格终态接受或PG闭环结果。")
+        job = po['pool']['jobs'][pl['run_id']]
+        rows_gpu = [('run', pl['run_id']), ('launch ID', pl['launch_id']), ('生产源码', pl['source_revision']),
+                    ('stage', pl['stage']), ('GPU UUID', pl['gpu_uuid']), ('容器', pl['container']),
+                    ('guardian', f"PID {pl['guardian_identity']['pid']} / start_ticks {pl['guardian_identity']['start_ticks']}"),
+                    ('supervisor', f"PID {job['supervisor_pid']} / start_ticks {job['supervisor_start_ticks']}"),
+                    ('runner', f"PID {grant['runner']['pid']} / start_ticks {grant['runner']['start_ticks']} / UID {grant['runner']['uid']}"),
+                    ('实际启动', local_time(pl['started_unix'])), ('GPU模式', po['current_GPU']['compute_mode'])]
+        run_details = ('| 当前价格GPU字段 | 实际身份 |\n|---|---|\n' + '\n'.join(
+            f'| {k} | `{v}` |' for k, v in rows_gpu) + '\n\n**已接受原1624身份（历史，不重复运行）**\n\n' + run_details)
+        active['reader']['result'] = f"原1624已接受；独立价格补测已实际独占启动。{pp}；完整价格结果待终态接受。"
+        active['evidence_or_planned_scope'] = active['reader']['result']
+        master['operation_policy'].update(active_launch_ref=price_gpu['launch_ref'], snapshot_observed_at=price_gpu['observed_at'])
     headlines = '\n'.join(f"- **{f['title']}**（{f['short_scope']}）：{f['result']} {refs(f['refs'])}"
                            for f in status['headline_results'])
     details = '\n\n'.join(f"### {i+1}. {f['title']}\n\n{f['result']}\n\n{f['scope']} {refs(f['refs'])}"
