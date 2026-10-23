@@ -1,0 +1,487 @@
+{
+  "status": "COMPLETE_PG_P1_PLANNING_QUOTE_PENDING_PRICE_AND_CPU_BINDINGS",
+  "version": "CARA_PG_P1_COMPLETE64_R1",
+  "scope_counts": {
+    "maximum_paths": 64,
+    "FIT_endpoint_paths": 32,
+    "SELECT_endpoint_paths": 8,
+    "Native_reference_paths": 6,
+    "nonNative_warm_paths": 16,
+    "Native_warm_paths": 2,
+    "maximum_guided_pairs": 2304,
+    "maximum_CFG_calls": 4608,
+    "loads": 1,
+    "maximum_scored_pairs": 40,
+    "extra_label_collection_paths": 0,
+    "extra_shadow_pairs": 0,
+    "information_queries": 8
+  },
+  "matrix": [
+    {
+      "id": "native_warm_1",
+      "split": "WARM",
+      "kind": "NATIVE",
+      "member_index": 0
+    },
+    {
+      "id": "native_warm_2",
+      "split": "WARM",
+      "kind": "NATIVE",
+      "member_index": 0
+    },
+    {
+      "id": "native_fit_0",
+      "split": "CAL_FIT",
+      "kind": "NATIVE",
+      "member_index": 0
+    },
+    {
+      "id": "native_fit_1",
+      "split": "CAL_FIT",
+      "kind": "NATIVE",
+      "member_index": 1
+    },
+    {
+      "id": "native_fit_2",
+      "split": "CAL_FIT",
+      "kind": "NATIVE",
+      "member_index": 2
+    },
+    {
+      "id": "native_fit_3",
+      "split": "CAL_FIT",
+      "kind": "NATIVE",
+      "member_index": 3
+    },
+    {
+      "id": "q0_warm_1",
+      "split": "WARM",
+      "kind": "POLICY",
+      "query_slot": 0,
+      "member_index": 0
+    },
+    {
+      "id": "q0_warm_2",
+      "split": "WARM",
+      "kind": "POLICY",
+      "query_slot": 0,
+      "member_index": 0
+    },
+    {
+      "id": "q0_fit_0",
+      "split": "CAL_FIT",
+      "kind": "POLICY",
+      "query_slot": 0,
+      "member_index": 0
+    },
+    {
+      "id": "q0_fit_1",
+      "split": "CAL_FIT",
+      "kind": "POLICY",
+      "query_slot": 0,
+      "member_index": 1
+    },
+    {
+      "id": "q0_fit_2",
+      "split": "CAL_FIT",
+      "kind": "POLICY",
+      "query_slot": 0,
+      "member_index": 2
+    },
+    {
+      "id": "q0_fit_3",
+      "split": "CAL_FIT",
+      "kind": "POLICY",
+      "query_slot": 0,
+      "member_index": 3
+    },
+    {
+      "id": "q1_warm_1",
+      "split": "WARM",
+      "kind": "POLICY",
+      "query_slot": 1,
+      "member_index": 0
+    },
+    {
+      "id": "q1_warm_2",
+      "split": "WARM",
+      "kind": "POLICY",
+      "query_slot": 1,
+      "member_index": 0
+    },
+    {
+      "id": "q1_fit_0",
+      "split": "CAL_FIT",
+      "kind": "POLICY",
+      "query_slot": 1,
+      "member_index": 0
+    },
+    {
+      "id": "q1_fit_1",
+      "split": "CAL_FIT",
+      "kind": "POLICY",
+      "query_slot": 1,
+      "member_index": 1
+    },
+    {
+      "id": "q1_fit_2",
+      "split": "CAL_FIT",
+      "kind": "POLICY",
+      "query_slot": 1,
+      "member_index": 2
+    },
+    {
+      "id": "q1_fit_3",
+      "split": "CAL_FIT",
+      "kind": "POLICY",
+      "query_slot": 1,
+      "member_index": 3
+    },
+    {
+      "id": "q2_warm_1",
+      "split": "WARM",
+      "kind": "POLICY",
+      "query_slot": 2,
+      "member_index": 0
+    },
+    {
+      "id": "q2_warm_2",
+      "split": "WARM",
+      "kind": "POLICY",
+      "query_slot": 2,
+      "member_index": 0
+    },
+    {
+      "id": "q2_fit_0",
+      "split": "CAL_FIT",
+      "kind": "POLICY",
+      "query_slot": 2,
+      "member_index": 0
+    },
+    {
+      "id": "q2_fit_1",
+      "split": "CAL_FIT",
+      "kind": "POLICY",
+      "query_slot": 2,
+      "member_index": 1
+    },
+    {
+      "id": "q2_fit_2",
+      "split": "CAL_FIT",
+      "kind": "POLICY",
+      "query_slot": 2,
+      "member_index": 2
+    },
+    {
+      "id": "q2_fit_3",
+      "split": "CAL_FIT",
+      "kind": "POLICY",
+      "query_slot": 2,
+      "member_index": 3
+    },
+    {
+      "id": "q3_warm_1",
+      "split": "WARM",
+      "kind": "POLICY",
+      "query_slot": 3,
+      "member_index": 0
+    },
+    {
+      "id": "q3_warm_2",
+      "split": "WARM",
+      "kind": "POLICY",
+      "query_slot": 3,
+      "member_index": 0
+    },
+    {
+      "id": "q3_fit_0",
+      "split": "CAL_FIT",
+      "kind": "POLICY",
+      "query_slot": 3,
+      "member_index": 0
+    },
+    {
+      "id": "q3_fit_1",
+      "split": "CAL_FIT",
+      "kind": "POLICY",
+      "query_slot": 3,
+      "member_index": 1
+    },
+    {
+      "id": "q3_fit_2",
+      "split": "CAL_FIT",
+      "kind": "POLICY",
+      "query_slot": 3,
+      "member_index": 2
+    },
+    {
+      "id": "q3_fit_3",
+      "split": "CAL_FIT",
+      "kind": "POLICY",
+      "query_slot": 3,
+      "member_index": 3
+    },
+    {
+      "id": "q4_warm_1",
+      "split": "WARM",
+      "kind": "POLICY",
+      "query_slot": 4,
+      "member_index": 0
+    },
+    {
+      "id": "q4_warm_2",
+      "split": "WARM",
+      "kind": "POLICY",
+      "query_slot": 4,
+      "member_index": 0
+    },
+    {
+      "id": "q4_fit_0",
+      "split": "CAL_FIT",
+      "kind": "POLICY",
+      "query_slot": 4,
+      "member_index": 0
+    },
+    {
+      "id": "q4_fit_1",
+      "split": "CAL_FIT",
+      "kind": "POLICY",
+      "query_slot": 4,
+      "member_index": 1
+    },
+    {
+      "id": "q4_fit_2",
+      "split": "CAL_FIT",
+      "kind": "POLICY",
+      "query_slot": 4,
+      "member_index": 2
+    },
+    {
+      "id": "q4_fit_3",
+      "split": "CAL_FIT",
+      "kind": "POLICY",
+      "query_slot": 4,
+      "member_index": 3
+    },
+    {
+      "id": "q5_warm_1",
+      "split": "WARM",
+      "kind": "POLICY",
+      "query_slot": 5,
+      "member_index": 0
+    },
+    {
+      "id": "q5_warm_2",
+      "split": "WARM",
+      "kind": "POLICY",
+      "query_slot": 5,
+      "member_index": 0
+    },
+    {
+      "id": "q5_fit_0",
+      "split": "CAL_FIT",
+      "kind": "POLICY",
+      "query_slot": 5,
+      "member_index": 0
+    },
+    {
+      "id": "q5_fit_1",
+      "split": "CAL_FIT",
+      "kind": "POLICY",
+      "query_slot": 5,
+      "member_index": 1
+    },
+    {
+      "id": "q5_fit_2",
+      "split": "CAL_FIT",
+      "kind": "POLICY",
+      "query_slot": 5,
+      "member_index": 2
+    },
+    {
+      "id": "q5_fit_3",
+      "split": "CAL_FIT",
+      "kind": "POLICY",
+      "query_slot": 5,
+      "member_index": 3
+    },
+    {
+      "id": "q6_warm_1",
+      "split": "WARM",
+      "kind": "POLICY",
+      "query_slot": 6,
+      "member_index": 0
+    },
+    {
+      "id": "q6_warm_2",
+      "split": "WARM",
+      "kind": "POLICY",
+      "query_slot": 6,
+      "member_index": 0
+    },
+    {
+      "id": "q6_fit_0",
+      "split": "CAL_FIT",
+      "kind": "POLICY",
+      "query_slot": 6,
+      "member_index": 0
+    },
+    {
+      "id": "q6_fit_1",
+      "split": "CAL_FIT",
+      "kind": "POLICY",
+      "query_slot": 6,
+      "member_index": 1
+    },
+    {
+      "id": "q6_fit_2",
+      "split": "CAL_FIT",
+      "kind": "POLICY",
+      "query_slot": 6,
+      "member_index": 2
+    },
+    {
+      "id": "q6_fit_3",
+      "split": "CAL_FIT",
+      "kind": "POLICY",
+      "query_slot": 6,
+      "member_index": 3
+    },
+    {
+      "id": "q7_warm_1",
+      "split": "WARM",
+      "kind": "POLICY",
+      "query_slot": 7,
+      "member_index": 0
+    },
+    {
+      "id": "q7_warm_2",
+      "split": "WARM",
+      "kind": "POLICY",
+      "query_slot": 7,
+      "member_index": 0
+    },
+    {
+      "id": "q7_fit_0",
+      "split": "CAL_FIT",
+      "kind": "POLICY",
+      "query_slot": 7,
+      "member_index": 0
+    },
+    {
+      "id": "q7_fit_1",
+      "split": "CAL_FIT",
+      "kind": "POLICY",
+      "query_slot": 7,
+      "member_index": 1
+    },
+    {
+      "id": "q7_fit_2",
+      "split": "CAL_FIT",
+      "kind": "POLICY",
+      "query_slot": 7,
+      "member_index": 2
+    },
+    {
+      "id": "q7_fit_3",
+      "split": "CAL_FIT",
+      "kind": "POLICY",
+      "query_slot": 7,
+      "member_index": 3
+    },
+    {
+      "id": "native_select_0",
+      "split": "CAL_SELECT",
+      "kind": "NATIVE",
+      "member_index": 0
+    },
+    {
+      "id": "native_select_1",
+      "split": "CAL_SELECT",
+      "kind": "NATIVE",
+      "member_index": 1
+    },
+    {
+      "id": "select_0_0",
+      "split": "CAL_SELECT",
+      "kind": "POLICY",
+      "selection_slot": 0,
+      "member_index": 0
+    },
+    {
+      "id": "select_0_1",
+      "split": "CAL_SELECT",
+      "kind": "POLICY",
+      "selection_slot": 0,
+      "member_index": 1
+    },
+    {
+      "id": "select_1_0",
+      "split": "CAL_SELECT",
+      "kind": "POLICY",
+      "selection_slot": 1,
+      "member_index": 0
+    },
+    {
+      "id": "select_1_1",
+      "split": "CAL_SELECT",
+      "kind": "POLICY",
+      "selection_slot": 1,
+      "member_index": 1
+    },
+    {
+      "id": "select_2_0",
+      "split": "CAL_SELECT",
+      "kind": "POLICY",
+      "selection_slot": 2,
+      "member_index": 0
+    },
+    {
+      "id": "select_2_1",
+      "split": "CAL_SELECT",
+      "kind": "POLICY",
+      "selection_slot": 2,
+      "member_index": 1
+    },
+    {
+      "id": "select_3_0",
+      "split": "CAL_SELECT",
+      "kind": "POLICY",
+      "selection_slot": 3,
+      "member_index": 0
+    },
+    {
+      "id": "select_3_1",
+      "split": "CAL_SELECT",
+      "kind": "POLICY",
+      "selection_slot": 3,
+      "member_index": 1
+    }
+  ],
+  "terms_seconds": {
+    "model_load": 174.62186110392213,
+    "all64_full_paths": 19596.736938476562,
+    "CPU_graph_and_one_refinement": 1200.0,
+    "complete40_pairs_93frame_CPU_LPIPS": 2400.0,
+    "raw_copy_hash_reference_validation": 1200.0,
+    "exclusive_admission_monitor_shutdown": 900.0
+  },
+  "planning_margin": 1.25,
+  "limit_margin": 1.15,
+  "forecast_complete_GPUh": 8.844444444444445,
+  "billed_limit_GPUh": 10.5,
+  "specific_whole_card_approval_required": false,
+  "cumulative_cap_GPUh": 226,
+  "complete_request_boundary": "COMPLETE_VIDEO_REQUEST_GUARDRAILS_SAMPLER_DECODE_WRITE_NO_DIAGNOSTICS",
+  "old_timings_only_for_conservative_planning": true,
+  "deployment_B_seconds": null,
+  "clean_action_prices_used": false,
+  "physical_dedup_credit_seconds": 0,
+  "price_refresh_budget_reused": false,
+  "minimum_free_disk_bytes": 32212254720,
+  "minimum_MemAvailable_bytes": 25769803776,
+  "training": false,
+  "GPU_dispatch_ready": false,
+  "planning_source_ref": "reports/wc_four_card_BANK24_retry2_recovered_terminal_20261022.json",
+  "planning_source_sha256": "ebdedc2c5a67ccee4075e4ccc234d97ce325b1585989ed0a40e4899f7f582eca"
+}
