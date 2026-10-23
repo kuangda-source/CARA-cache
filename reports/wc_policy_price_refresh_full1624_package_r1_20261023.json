@@ -1,0 +1,365 @@
+{
+  "status": "PRICE_COMPLETE_NEW_SOURCE_PREPARED_CPU_ONLY",
+  "stage": "/data20t/gaokuangda/worldcache_workspace/.sync/wc-policy-price-refresh-fourcard-full1624-r1-20261023",
+  "base": "/data20t/gaokuangda/worldcache_workspace/.sync/wc-policy-assets-fourcard-full1624-r2-20261022",
+  "project": "/data20t/gaokuangda/worldcache_workspace",
+  "base_registration_sha256": "2bc9b893c942ef5ae6a4a0ffef40c7e1e9fda92984699516b12149753b23d1ec",
+  "config": {
+    "version": "CARA_PRICE_REFRESH_FULL1624_R1",
+    "run_id": "wc-policy-price-refresh-cal4-full1624-ada-r1",
+    "scope_counts": {
+      "requests": 4,
+      "total_paths": 10,
+      "formal_paths": 8,
+      "warm_paths": 2,
+      "new_Native_paths": 0,
+      "reused_accepted_Native_paths": 4,
+      "CONTROL_paths": 5,
+      "PRICE_paths": 5,
+      "ordinary_pairs": 360,
+      "ordinary_CFG_calls": 720,
+      "loads": 1,
+      "formal_cells": 1624,
+      "warm_cells": 406,
+      "total_cells": 2030,
+      "warmup_round_readout_trials": 6090,
+      "formal_round_readout_trials": 18270,
+      "formal_path_readout_trials": 19488,
+      "warm_path_readout_trials": 4872,
+      "total_readout_trials": 24360,
+      "formal_repetitions_per_cell_action": 3,
+      "new_error_labels": 0
+    },
+    "matrix": [
+      {
+        "id": "warm_1_CONTROL",
+        "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+        "section": "WARMUP",
+        "mode": "CONTROL"
+      },
+      {
+        "id": "warm_2_PRICE",
+        "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+        "section": "WARMUP",
+        "mode": "PRICE"
+      },
+      {
+        "id": "formal_0_CONTROL",
+        "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+        "section": "FORMAL",
+        "mode": "CONTROL"
+      },
+      {
+        "id": "formal_0_PRICE",
+        "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+        "section": "FORMAL",
+        "mode": "PRICE"
+      },
+      {
+        "id": "formal_1_CONTROL",
+        "scene": "human_199",
+        "section": "FORMAL",
+        "mode": "CONTROL"
+      },
+      {
+        "id": "formal_1_PRICE",
+        "scene": "human_199",
+        "section": "FORMAL",
+        "mode": "PRICE"
+      },
+      {
+        "id": "formal_2_CONTROL",
+        "scene": "misc_13398218_3840_2160_60fps",
+        "section": "FORMAL",
+        "mode": "CONTROL"
+      },
+      {
+        "id": "formal_2_PRICE",
+        "scene": "misc_13398218_3840_2160_60fps",
+        "section": "FORMAL",
+        "mode": "PRICE"
+      },
+      {
+        "id": "formal_3_CONTROL",
+        "scene": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+        "section": "FORMAL",
+        "mode": "CONTROL"
+      },
+      {
+        "id": "formal_3_PRICE",
+        "scene": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+        "section": "FORMAL",
+        "mode": "PRICE"
+      }
+    ],
+    "profile": {
+      "horizon": 36,
+      "protected_dense": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        36
+      ],
+      "max_source_age": 28,
+      "min_C_anchors": 2,
+      "min_A_anchors": 1,
+      "alpha_candidates": [
+        0.5,
+        1.0
+      ],
+      "CFG_coefficients": [
+        8,
+        -7
+      ],
+      "basis": "PINNED_NATIVE_POLICY_EXECUTOR_INITIAL7_AND_CYCLE_RESET",
+      "source_history": "CANONICAL_ACTUAL_D_TEACHER_LAST_TWO_ANCHORS_NOT_FREE_POLICY_HISTORY"
+    },
+    "requests": [
+      {
+        "inference_type": "text2world",
+        "seed": 0,
+        "guidance": 7,
+        "num_output_frames": 93,
+        "resolution": "432,768",
+        "negative_prompt": "The video captures a series of frames showing ugly scenes, static with no motion, motion blur, over-saturation, shaky footage, low resolution, grainy texture, pixelated images, poorly lit areas, underexposed and overexposed scenes, poor color balance, washed out colors, choppy sequences, jerky movements, low frame rate, artifacting, color banding, unnatural transitions, outdated special effects, fake elements, unconvincing visuals, poorly edited content, jump cuts, visual noise, and flickering. Overall, the video is of poor quality.",
+        "name": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+        "prompt": "The video opens with a nighttime scene captured from inside a vehicle, likely through a dashboard camera, providing a first-person perspective. The road ahead has three lanes, with clear lane markings and a mix of left-turn and right-turn indicators. The scene is dimly lit by the car's headlights and scattered streetlights, creating a moody and atmospheric setting. A semi-truck is visible in the distance, its lights glowing faintly against the dark sky. To the right, a pedestrian crossing sign is visible, and a building or structure with a lit sign suggests a gas station or convenience store. The environment feels quiet and somewhat eerie due to the darkness and limited visibility.  As the video progresses, the car continues its journey along the highway, with additional vehicles occasionally appearing and disappearing into the headlights' reach. The streetlights continue to cast their glow, reflecting off the road surface, enhancing the sense of movement and depth. By the final frame, the car approaches an intersection, where traffic lights are visible, and the road markings become clearer, indicating the direction of travel. The overall scene conveys a sense of solitude and anticipation as the vehicle navigates the quiet, dimly lit road.",
+        "num_steps": 35
+      },
+      {
+        "inference_type": "text2world",
+        "seed": 0,
+        "guidance": 7,
+        "num_output_frames": 93,
+        "resolution": "432,768",
+        "negative_prompt": "The video captures a series of frames showing ugly scenes, static with no motion, motion blur, over-saturation, shaky footage, low resolution, grainy texture, pixelated images, poorly lit areas, underexposed and overexposed scenes, poor color balance, washed out colors, choppy sequences, jerky movements, low frame rate, artifacting, color banding, unnatural transitions, outdated special effects, fake elements, unconvincing visuals, poorly edited content, jump cuts, visual noise, and flickering. Overall, the video is of poor quality.",
+        "name": "human_199",
+        "prompt": "A wide shot captures an outdoor tennis court at the University of Barcelona, as indicated by the signage on the green portion and fence surrounding the court. The court is a standard hard surface with white boundary lines marking the playing area. Two players are present: one on the left side of the frame, dressed in a white shirt and dark shorts, holding a tennis racket and preparing to serve, while the other player is positioned on the far side of the court, ready to receive the serve. The court is enclosed by a high fence adorned with banners and flags, beyond which a row of parked cars and a building can be seen. The setting suggests a clear day with ample daylight illuminating the scene. The position of the camera remains steady, capturing the players' focused and deliberate movements as they engage in the game. The player on the left side of the court serves the ball across the net towards the opponent, who is poised to return the serve. The ball is seen in mid-air, traveling from one side of the court to the other, indicating the beginning of a rally. The players' movements are fluid and engaged, showcasing their concentration and skill. The video concludes with the ball still in play, suggesting that the rally continues beyond the frame's end.",
+        "num_steps": 35
+      },
+      {
+        "inference_type": "text2world",
+        "seed": 0,
+        "guidance": 7,
+        "num_output_frames": 93,
+        "resolution": "432,768",
+        "negative_prompt": "The video captures a series of frames showing ugly scenes, static with no motion, motion blur, over-saturation, shaky footage, low resolution, grainy texture, pixelated images, poorly lit areas, underexposed and overexposed scenes, poor color balance, washed out colors, choppy sequences, jerky movements, low frame rate, artifacting, color banding, unnatural transitions, outdated special effects, fake elements, unconvincing visuals, poorly edited content, jump cuts, visual noise, and flickering. Overall, the video is of poor quality.",
+        "name": "misc_13398218_3840_2160_60fps",
+        "prompt": "The video opens with a wide shot of a snow-covered urban street, likely in a city known for its winter weather. Snow blankets the sidewalks and road, creating a thick layer that obscures the pavement beneath. The street is flanked by tall buildings, one of which prominently displays the word \"CANADA\" on its facade. A traffic light on the left side of the frame shows a green signal, indicating that vehicles can proceed. A no-parking sign is affixed to the same pole, suggesting restrictions during the snowstorm. Bare trees line the sidewalk, their branches laden with snow. A few individuals can be seen walking on the left side of the street, bundled up against the cold weather. The atmosphere is quiet and serene, with the falling snow adding to the wintry ambiance.  As the video progresses, the snow continues to fall steadily, accumulating more on the ground and buildings. Pedestrians continue to walk on the left side of the street, moving slowly due to the slippery conditions. The traffic light remains consistently green, and a white sedan car moves slowly into the scene along the road. The scene maintains its tranquil and wintry feel throughout the duration of the video, with the snowflakes gently swirling around the urban landscape.",
+        "num_steps": 35
+      },
+      {
+        "inference_type": "text2world",
+        "seed": 0,
+        "guidance": 7,
+        "num_output_frames": 93,
+        "resolution": "432,768",
+        "negative_prompt": "The video captures a series of frames showing ugly scenes, static with no motion, motion blur, over-saturation, shaky footage, low resolution, grainy texture, pixelated images, poorly lit areas, underexposed and overexposed scenes, poor color balance, washed out colors, choppy sequences, jerky movements, low frame rate, artifacting, color banding, unnatural transitions, outdated special effects, fake elements, unconvincing visuals, poorly edited content, jump cuts, visual noise, and flickering. Overall, the video is of poor quality.",
+        "name": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+        "prompt": "A nighttime scene viewed from the top of a vehicle captures the hood of the car in the foreground. The road ahead is illuminated by streetlights, casting a soft glow over the asphalt. The ego vehicle comes to a stop next to a white RV, which goes off the screen. Across the road, beyond the road median, a red car is seen driving away into the distance. A one-way sign is visible under the ego vehicle's headlights. The surroundings include trees and other houses, suggesting a suburban neighborhood. The sky is dark, indicating it is late at night, and the overall atmosphere is quiet and calm. As the video progresses, the scene remains largely static, with no significant changes in the environment. The white RV on the right side of the ego vehicle remains stationary, and the red car continues to drive away into the distance. The streetlights continue to illuminate the road, and the trees and houses in the background remain unchanged. The overall scene maintains its tranquil nighttime setting without any notable movements or new objects entering the frame. The ego vehicle carefully makes a right turn at the t-intersection, and by the final frame, the scene is consistent with the initial one, depicting the same quiet suburban street under the night sky.",
+        "num_steps": 35
+      }
+    ],
+    "forecast_complete_GPUh": 9.500277777777777,
+    "billed_limit_GPUh": 11.5,
+    "accepted_original_files": {
+      "runner.json": "b5301dcce949ecf55a311fe5d14656eb826a0577ab4ad31c4a20ee4eaaf17ece",
+      "generator-input-bundle.json": "66ea189aaaa7013693976cc337b80744d892359f749607b710dbb364ebecf2f0",
+      "post-results.json": "ccb258f782ee52906ba33ce6d39280c30c6c216dd84b2f2a1ef6b1fd50dea121"
+    },
+    "accepted_capture_sha256": "ab94d6ccc4ef04d15d8cdd3d1ab9e8c39b769ed17e1688062582b71c0f974d73",
+    "independent_acceptance_sha256": "837b1e59859a24f545609136938aaf6b95be4cf52e61840c1b0914c5cfcda75e",
+    "full_GPU_lifecycle_accepted": false
+  },
+  "quote": {
+    "status": "FULL_DOMAIN_PRICE_REFRESH_COMPLETE_PLANNING_QUOTE_NOT_DISPATCH",
+    "version": "CARA_PRICE_REFRESH_FULL1624_R1",
+    "scope_counts": {
+      "requests": 4,
+      "total_paths": 10,
+      "formal_paths": 8,
+      "warm_paths": 2,
+      "new_Native_paths": 0,
+      "reused_accepted_Native_paths": 4,
+      "CONTROL_paths": 5,
+      "PRICE_paths": 5,
+      "ordinary_pairs": 360,
+      "ordinary_CFG_calls": 720,
+      "loads": 1,
+      "formal_cells": 1624,
+      "warm_cells": 406,
+      "total_cells": 2030,
+      "warmup_round_readout_trials": 6090,
+      "formal_round_readout_trials": 18270,
+      "formal_path_readout_trials": 19488,
+      "warm_path_readout_trials": 4872,
+      "total_readout_trials": 24360,
+      "formal_repetitions_per_cell_action": 3,
+      "new_error_labels": 0
+    },
+    "matrix": [
+      {
+        "id": "warm_1_CONTROL",
+        "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+        "section": "WARMUP",
+        "mode": "CONTROL"
+      },
+      {
+        "id": "warm_2_PRICE",
+        "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+        "section": "WARMUP",
+        "mode": "PRICE"
+      },
+      {
+        "id": "formal_0_CONTROL",
+        "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+        "section": "FORMAL",
+        "mode": "CONTROL"
+      },
+      {
+        "id": "formal_0_PRICE",
+        "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+        "section": "FORMAL",
+        "mode": "PRICE"
+      },
+      {
+        "id": "formal_1_CONTROL",
+        "scene": "human_199",
+        "section": "FORMAL",
+        "mode": "CONTROL"
+      },
+      {
+        "id": "formal_1_PRICE",
+        "scene": "human_199",
+        "section": "FORMAL",
+        "mode": "PRICE"
+      },
+      {
+        "id": "formal_2_CONTROL",
+        "scene": "misc_13398218_3840_2160_60fps",
+        "section": "FORMAL",
+        "mode": "CONTROL"
+      },
+      {
+        "id": "formal_2_PRICE",
+        "scene": "misc_13398218_3840_2160_60fps",
+        "section": "FORMAL",
+        "mode": "PRICE"
+      },
+      {
+        "id": "formal_3_CONTROL",
+        "scene": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+        "section": "FORMAL",
+        "mode": "CONTROL"
+      },
+      {
+        "id": "formal_3_PRICE",
+        "scene": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+        "section": "FORMAL",
+        "mode": "PRICE"
+      }
+    ],
+    "all_cell_rounds": [
+      {
+        "name": "WARMUP",
+        "actions": [
+          "C",
+          "A_HALF",
+          "A_ONE"
+        ]
+      },
+      {
+        "name": "FORMAL_1",
+        "actions": [
+          "A_ONE",
+          "A_HALF",
+          "C"
+        ]
+      },
+      {
+        "name": "FORMAL_2",
+        "actions": [
+          "C",
+          "A_HALF",
+          "A_ONE"
+        ]
+      },
+      {
+        "name": "FORMAL_3",
+        "actions": [
+          "A_HALF",
+          "A_ONE",
+          "C"
+        ]
+      }
+    ],
+    "terms_seconds": {
+      "original_GPU_wall_minus_only_reused_Native": 23463.648658277467,
+      "additional_repeats_at_max_same_cell_observed_seconds": 2996.625859167427,
+      "exclusive_admission_monitor_and_shutdown_reserve": 900.0
+    },
+    "planning_margin": 1.25,
+    "limit_margin": 1.2,
+    "forecast_complete_GPUh": 9.500277777777777,
+    "billed_limit_GPUh": 11.5,
+    "specific_whole_card_approval_required": false,
+    "cumulative_cap_GPUh": 226,
+    "extra_readout_trials": 11340,
+    "original_tensor_IO_reduction_credited_seconds": 0,
+    "contention_timings_used_only_for_planning_not_clean_prices": true,
+    "raw_labels_reused_not_recollected": true,
+    "old_max_source_cost_reduction_unchanged": true,
+    "new_original_parent_and_Native_parity_required": true,
+    "actual_exclusive_GPU_required": true,
+    "production_CPU_accepted": false,
+    "production_collector_and_lifecycle_integration_pending": true,
+    "source_frozen_for_dispatch": false,
+    "GPU_dispatch_ready": false,
+    "GPU_submissions": 0,
+    "ledger_written": false,
+    "run_id": "wc-policy-price-refresh-cal4-full1624-ada-r1",
+    "source_asset_launch_id": "37ab7e89-952b-4ddb-acde-5b20a0fc1295",
+    "original_asset_launch_ref": "reports/wc_policy_assets_full1624_fourcard_GPU_launch_20261022.json",
+    "source_bindings": [
+      {
+        "ref": "reports/wc_policy_assets_full1624_fourcard_GPU_terminal_20261023_0826.json",
+        "sha256": "ab94d6ccc4ef04d15d8cdd3d1ab9e8c39b769ed17e1688062582b71c0f974d73"
+      },
+      {
+        "ref": "reports/wc_policy_assets_full1624_fourcard_GPU_accepted_20261023_0826.json",
+        "sha256": "837b1e59859a24f545609136938aaf6b95be4cf52e61840c1b0914c5cfcda75e"
+      }
+    ],
+    "old_label_bundle_sha256": "66ea189aaaa7013693976cc337b80744d892359f749607b710dbb364ebecf2f0",
+    "resource_available_at_terminal": false,
+    "resource_observation_ref": "reports/wc_policy_assets_full1624_fourcard_GPU_terminal_20261023_0826.json",
+    "old_asset_authorization_reused": false,
+    "new_scope_under_existing_under12_autonomy": true
+  },
+  "overlay_sha256": {
+    "src/wcomr/policy_price_refresh_contract_r1.py": "4dc9d9859b62e11b75a5af9e93828e8ac0b8deefd1db98b4923c9f9742cd148b",
+    "src/wcomr/policy_price_refresh_sampling_r1.py": "dbb06abc6b4a2dc0d14c3f8326d85e727efef5f363f11800e1774ec0d3263868",
+    "src/wcomr/policy_price_refresh_audit_r1.py": "b4c7b904824060936f51f74b65fc3b343d639aa4fd0ab90341b9c4393fd38e51",
+    "src/wcomr/policy_price_refresh_production_r1.py": "f14b6f86a5d33ef7a0b683245c4ed9030bb653cdf64b16ff656984c5e951ed12",
+    "src/wcomr/policy_price_mode_guard_r1.py": "d0fbff561d7e3bb79f87e9a2a64549ca0cdf421a4b2483eae7c8bab60763d878",
+    "scripts/wc_policy_price_host_guardian_r1.py": "bf1762dffd5fe1bca08f14e0c2f97ae402e04963ca72c782648216e477411a32",
+    "tests/test_policy_price_refresh_exclusive_r1.py": "94b0c4ccc373e1e9eea0470021fb04ad1a9acbc21385036082b2175d7920fcae",
+    "src/wcomr/policy_price_exclusive_r1.py": "1299500b9442b3cbd94c8f4917acf118f3f79a159f88715eac56dcced14d09b0",
+    "src/wcomr/policy_asset_price_review_r1.py": "923842668285ea4d2e60dda134fe84b46767e9a1bfb8f68e8d8b68419f498e8e",
+    "scripts/run_wc_policy_price_refresh_r1.py": "4c829677abee66d80d065e629d520208fb325110a445d7bfee1f518337d3d59b",
+    "scripts/postprocess_wc_policy_price_refresh_r1.py": "3b1fad8601d62d2bbad34a6440c50d976d26667beda18bf9f138ba9ea7522f4d",
+    "scripts/check_wc_policy_price_refresh_cpu_r1.py": "e514ca44ab4d230645ea9fe69b6bfc65bab708c560f786ac2bb350507d5234bb",
+    "scripts/wc_policy_price_refresh_worker_r1.py": "1e8ecd904622d0b4b601ed45f494953f4abf57b6e32ff305ff0763f104f520b3",
+    "scripts/wc_four_card_price_refresh_r1.py": "d0d3328e3b94a7a2df9248bf43340474a1b3ee48055396f0db0f3bb07d5acde7",
+    "tests/check_policy_price_refresh_sampling_cpu_r1.py": "9b561a880e4f7e99477283674a14b692be1b24f4ca01da9c39dddbbfcac0090f",
+    "tests/test_policy_price_refresh_contract_r1.py": "432d85a34607a5c44421d446fc13f06cae3fd1a1fafde7951e8a47d5ec2f4043",
+    "tests/test_policy_price_refresh_audit_r1.py": "984599ab40d930410850641ff25ec25ff3efabfc6c27760010796e70be166cf5"
+  },
+  "GPU_submissions": 0,
+  "full_GPU_lifecycle_accepted": false,
+  "production_CPU_accepted": false
+}
