@@ -8,7 +8,7 @@
 
 ## 下一卡的具体准备
 
-PG-P1先接已完整接受的真实标签与动作价格，再核对两个已登记CAL_SELECT（`av_animal_dear_1_0`、`industry_057`，seed0）的服务器曝光记录。任意合法mask必须通过其自己的实际生产CPU；不能用资产采集CPU替代生成器入口验证。
+PG-P1两个已登记CAL_SELECT（`av_animal_dear_1_0`、`industry_057`，seed0）的本地回执及四卡项目输出身份核查已完成，范围内没有发现执行记录；首次SELECT端点前核对新增元数据。等待期还补齐了可信资产转换接口、历史失配诊断矩阵规则、少步Native纯计时选择和27项CPU控制，见[652准备记录](repo:research/652_CARA_PG_P1_P2_CPU_PREPARATION_AND_HANDOFF_20261023.md)与[接续命令](repo:plans/cara_policy_generator_20261020/P1_P2_CPU_HANDOFF_R1_20261023.md)。待新价格完整接受后，任意合法mask/alpha仍须自己的实际生产CPU及整卡报价；资产CPU或本轮局部控制不能替代它。
 
 [2026-10-23接续要求](repo:plans/cara_policy_generator_20261020/PRICE_HISTORY_NATIVE_CONTINUATION_R1_20261023.md)：原1624数值/控制和动作价格分别接受；已知同卡竞争的价格不因低波动自动通过。未来GPU卡要求实际独占。冻结策略后加入小规模历史窗口诊断，PG-P2加入少步Native等实测时间对照；shadow不写回，不计为干净延迟，新增范围单独进入完整报价。
 

@@ -148,7 +148,7 @@
         "terminal_acceptor": "src/wcomr/policy_price_terminal_r1.py",
         "preflight_ref": "reports/wc_policy_price_refresh_GPU3_full_preflight_20261023_1005.json",
         "hardware_exclusivity_verified": false,
-        "next_resource_check_local": "2026-10-23 12:30 Asia/Shanghai"
+        "next_resource_check_local": "2026-10-23 13:30 Asia/Shanghai"
       }
     },
     {
@@ -173,13 +173,20 @@
         "av_animal_dear_1_0",
         "industry_057"
       ],
-      "CAL_SELECT_runtime_exposure_recheck_pending": true,
+      "CAL_SELECT_runtime_exposure_recheck_pending": false,
       "offline_analysis_entry": "scripts/analyze_cara_policy_calibration_r1.py",
       "complete_card_quote_still_pending": true,
       "continuation_requirements_ref": "plans/cara_policy_generator_20261020/PRICE_HISTORY_NATIVE_CONTINUATION_R1_20261023.md",
       "actual_GPU_exclusivity_required": true,
       "clean_action_prices_required": true,
-      "frozen_policy_small_history_diagnostic_planned": true
+      "frozen_policy_small_history_diagnostic_planned": true,
+      "continuation_preparation_report_ref": "research/652_CARA_PG_P1_P2_CPU_PREPARATION_AND_HANDOFF_20261023.md",
+      "continuation_preparation_rules_ref": "plans/cara_policy_generator_20261020/P1_P2_CPU_HANDOFF_R1_20261023.md",
+      "local_continuation_controls_passed": 27,
+      "CAL_SELECT_scoped_exposure_audit_ref": "reports/cara_CAL_SELECT_exposure_committed_20261023.json",
+      "CAL_SELECT_pre_endpoint_delta_recheck_required": true,
+      "generator_input_bridge": "scripts/prepare_cara_pg_continuation_r1.py generator-input",
+      "continuation_CPU_test_ref": "reports/cara_PG_continuation_CPU_preparation_final_20261023.json"
     },
     {
       "id": "PG-P2",
@@ -203,7 +210,14 @@
       "continuation_requirements_ref": "plans/cara_policy_generator_20261020/PRICE_HISTORY_NATIVE_CONTINUATION_R1_20261023.md",
       "actual_GPU_exclusivity_required": true,
       "clean_action_prices_required": true,
-      "matched_time_fewer_step_Native_required": true
+      "matched_time_fewer_step_Native_required": true,
+      "continuation_preparation_report_ref": "research/652_CARA_PG_P1_P2_CPU_PREPARATION_AND_HANDOFF_20261023.md",
+      "continuation_preparation_rules_ref": "plans/cara_policy_generator_20261020/P1_P2_CPU_HANDOFF_R1_20261023.md",
+      "local_continuation_controls_passed": 27,
+      "Native_actual_scheduler_CPU_ref": "reports/cara_PG_Native18to35_committed_scheduler_CPU_20261023.json",
+      "Native_timing_module_path_upper": 84,
+      "history_diagnostic_path_upper": 6,
+      "continuation_CPU_test_ref": "reports/cara_PG_continuation_CPU_preparation_final_20261023.json"
     },
     {
       "id": "PG-P3",
@@ -244,8 +258,8 @@
   "original_BANK24_unchanged": true,
   "old_manual32_first_card_superseded_not_deleted": true,
   "strict_under12_and_cap226_unchanged": true,
-  "no_gpu_launched_this_turn": false,
-  "latest_preparation_audit_ref": "reports/wc_policy_price_refresh_controller_terminal_CPU_20261023.json",
+  "no_gpu_launched_this_turn": true,
+  "latest_preparation_audit_ref": "reports/cara_CAL_SELECT_exposure_committed_20261023.json",
   "latest_actual_progress_ref": "reports/wc_policy_price_refresh_full1624_CPU_terminal_check_r1_20261023_0955.json",
-  "latest_preparation_plan_ref": "research/651_CARA_PRICE_CPU_ACCEPTED_CONTROLLER_READY_WAIT_EXCLUSIVE_20261023.md"
+  "latest_preparation_plan_ref": "plans/cara_policy_generator_20261020/P1_P2_CPU_HANDOFF_R1_20261023.md"
 }

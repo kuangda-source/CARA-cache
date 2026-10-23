@@ -41,6 +41,8 @@ LPIPS 越低表示越接近同输入的 Native 视频；它与局部速度 MSE�
 
 {{snapshot}}
 
+等待资源期间，PG-P1/P2的SELECT曝光核查、资产转换、历史失配诊断和少步Native选步规则已推进；[准备结果与下一步依赖](repo:research/652_CARA_PG_P1_P2_CPU_PREPARATION_AND_HANDOFF_20261023.md)集中记录接口、CPU验证和接续命令。
+
 ## 仓库结构与使用
 
 | 目录 | 内容 |

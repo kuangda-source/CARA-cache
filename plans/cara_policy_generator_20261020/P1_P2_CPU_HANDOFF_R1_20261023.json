@@ -1,0 +1,119 @@
+{
+  "version": "PG_CONTINUATION_CPU_PREPARATION_R1",
+  "status": "RULES_AND_INTERFACES_READY_ACTUAL_PRICE_AND_PRODUCTION_CPU_PENDING",
+  "observed_unix": 1792730504.4579031,
+  "human_plan_ref": "plans/cara_policy_generator_20261020/P1_P2_CPU_HANDOFF_R1_20261023.md",
+  "frozen_inputs": {
+    "plans/cara_policy_generator_20261020/generator_recipe_r1.json": "7320da775c0e38850bfdc7aef399551a37e02173a3d00cb78bf634215a945b87",
+    "plans/cara_policy_generator_20261020/CAL_SELECT_INPUTS_R1_20261022.json": "d6bb1546100499456685b7300baa985d6d891794dd5716a199efeaec0985b87e",
+    "plans/cara_policy_generator_20261020/cal_select_protocol_r1_20261022.json": "ffc6fea0470589b6154049f8a5569327df3d5877d70783e3a8d5d6863c49555b",
+    "plans/cara_policy_generator_20261020/P1_COMPLETE_CARD_DRAFT.json": "bb963fb55dbd2b7d770b4e3f654a71afda82dbf4846946d9c1ae0a7af3815a89"
+  },
+  "exposure_audit_ref": "reports/cara_CAL_SELECT_exposure_committed_20261023.json",
+  "interfaces": {
+    "exposure": "scripts/audit_cara_cal_select_exposure_r1.py",
+    "prepare": "scripts/prepare_cara_pg_continuation_r1.py",
+    "consumer": "scripts/run_wc_policy_generator_r1.py",
+    "analysis": "scripts/analyze_cara_policy_calibration_r1.py"
+  },
+  "P1": {
+    "Native_ratio": 0.8,
+    "Q_max": 8,
+    "initial_queries": 4,
+    "refinement_queries_max": 4,
+    "SELECT_passes": 1,
+    "base_paths_max": 64,
+    "Native_FIT_clock_before_candidates": true,
+    "SELECT_Native_after_finalist_freeze": true,
+    "complete_quote_GPUh": null,
+    "production_CPU_accepted": false
+  },
+  "history": {
+    "roles": [
+      "CARA",
+      "SIMPLE"
+    ],
+    "members": "FIRST_TWO_ORIGINAL_CAL_FIT",
+    "seed": 0,
+    "history_gap_bins": [
+      [
+        2,
+        4
+      ],
+      [
+        5,
+        8
+      ],
+      [
+        9,
+        null
+      ]
+    ],
+    "point_rule": "FIRST_LEGAL_SKIP_IN_EACH_BIN_NO_ENDPOINT_ACCESS",
+    "max_paths": 6,
+    "max_formal_paths": 4,
+    "max_shadow_D_pairs": 36,
+    "max_total_pairs": 252,
+    "max_CFG_calls": 504,
+    "max_paired_readouts": 108,
+    "save_branch_outputs": true,
+    "shadow_writes_parent": false,
+    "uses_clean_deployment_timing": false,
+    "actual_matrix_frozen": false
+  },
+  "Native": {
+    "schedule_CPU_ref": "reports/cara_PG_Native18to35_committed_scheduler_CPU_20261023.json",
+    "candidate_domain": [
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34
+    ],
+    "prediction": "actual_update_ratio_only_screening",
+    "max_candidates": 4,
+    "formal_CAL_members": 4,
+    "formal_repeats": 3,
+    "warm_per_method": 2,
+    "reference_methods": [
+      "FROZEN_CARA",
+      "NATIVE35"
+    ],
+    "reference_timing_paths": 28,
+    "candidate_timing_paths_max": 56,
+    "total_timing_module_paths_max": 84,
+    "matched_relative_tolerance": 0.02,
+    "if_unmatched": "ACTUAL_ADJACENT_STEP_BRACKET_OR_NO_MATCH_NO_QUALITY_INTERPOLATION",
+    "scores_allowed_in_step_selector": false
+  },
+  "P2": {
+    "design_target_new_prompts": 16,
+    "seeds": [
+      0,
+      1
+    ],
+    "input_identities_selected": false,
+    "cohort_role": "FRESH_DEV_NOT_PG_P4_TEST",
+    "bootstrap_unit": "PROMPT_CLUSTER_WITHIN_PROMPT_SEED_MEAN",
+    "final_union_and_quote_pending": true
+  },
+  "original_price_stage_changed": false,
+  "new_GPU_submissions": 0,
+  "production_CPU_accepted": false,
+  "GPU_dispatch_ready": false,
+  "local_CPU_ref": "reports/cara_PG_continuation_CPU_preparation_final_20261023.json",
+  "local_CPU_tests_passed": 61,
+  "new_CPU_tests_passed": 27
+}

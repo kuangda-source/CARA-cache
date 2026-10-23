@@ -5377,7 +5377,7 @@
         "terminal_acceptor": "src/wcomr/policy_price_terminal_r1.py",
         "preflight_ref": "reports/wc_policy_price_refresh_GPU3_full_preflight_20261023_1005.json",
         "hardware_exclusivity_verified": false,
-        "next_resource_check_local": "2026-10-23 12:30 Asia/Shanghai"
+        "next_resource_check_local": "2026-10-23 13:30 Asia/Shanghai"
       }
     },
     {
@@ -5389,7 +5389,7 @@
       ],
       "contribution_relation": "可复现区间生成器的新方法验证；CPU原型不充真实质量结果",
       "evidence_or_planned_scope": "已登记0.80×Native预算、Q≤8及一次CAL_SELECT冻结；最多40候选正式+6Native+18warm基础路径。",
-      "gap_and_next_action": "接受真实标签及可信价格、独占准入、CAL_SELECT曝光核查、实际CPU与整卡报价；冻结后加入小规模历史窗口诊断，新增成本另计。",
+      "gap_and_next_action": "SELECT范围内曝光核查及资产转换接口已就绪；待干净价格、任意mask/alpha生产CPU与完整报价，再在原卡内用干净Native固定B。",
       "priority": "GEN-2",
       "evidence_refs": [
         "research/612_WC_POLICY_GENERATOR_CPU_PROTOTYPE_AND_REPRODUCIBLE_VALIDATION_DESIGN_20261020.md",
@@ -5397,7 +5397,10 @@
         "plans/cara_policy_generator_20261020/TASK_REGISTRY.json",
         "reports/wc_policy_generator_CPU_independent_acceptance_20261020.json",
         "research/648_CARA_GPU_OWNER_PRICE_TRUST_AND_ORDERED_CONTINUATION_20261023.md",
-        "plans/cara_policy_generator_20261020/PRICE_HISTORY_NATIVE_CONTINUATION_R1_20261023.md"
+        "plans/cara_policy_generator_20261020/PRICE_HISTORY_NATIVE_CONTINUATION_R1_20261023.md",
+        "research/652_CARA_PG_P1_P2_CPU_PREPARATION_AND_HANDOFF_20261023.md",
+        "plans/cara_policy_generator_20261020/P1_P2_CPU_HANDOFF_R1_20261023.md",
+        "reports/cara_CAL_SELECT_exposure_committed_20261023.json"
       ],
       "method_mapping_ids": [],
       "contribution_ids": [
@@ -5423,15 +5426,19 @@
       "theory_review_ref": "research/624_WC_REPRODUCIBLE_POLICY_GENERATOR_THEORY_VALIDITY_AND_EVIDENCE_20261021.md",
       "reader": {
         "title": "单预算自动策略闭环",
-        "status": "已登记，待真实闭环",
+        "status": "CPU准备就绪，待真实闭环",
         "result": "已登记0.80×Native预算、Q≤8及一次CAL_SELECT冻结；最多40候选正式+6Native+18warm基础路径。",
-        "next_action": "接受真实标签及可信价格、独占准入、CAL_SELECT曝光核查、实际CPU与整卡报价；冻结后加入小规模历史窗口诊断，新增成本另计。",
+        "next_action": "SELECT范围内曝光核查及资产转换接口已就绪；待干净价格、任意mask/alpha生产CPU与完整报价，再在原卡内用干净Native固定B。",
         "evidence_refs": [
           "CARA_generator_report_612",
           "research/648_CARA_GPU_OWNER_PRICE_TRUST_AND_ORDERED_CONTINUATION_20261023.md",
-          "plans/cara_policy_generator_20261020/PRICE_HISTORY_NATIVE_CONTINUATION_R1_20261023.md"
+          "plans/cara_policy_generator_20261020/PRICE_HISTORY_NATIVE_CONTINUATION_R1_20261023.md",
+          "research/652_CARA_PG_P1_P2_CPU_PREPARATION_AND_HANDOFF_20261023.md",
+          "plans/cara_policy_generator_20261020/P1_P2_CPU_HANDOFF_R1_20261023.md",
+          "reports/cara_CAL_SELECT_exposure_committed_20261023.json"
         ]
-      }
+      },
+      "continuation_CPU_test_ref": "reports/cara_PG_continuation_CPU_preparation_final_20261023.json"
     },
     {
       "id": "PG-P2",
@@ -5442,7 +5449,7 @@
       ],
       "contribution_relation": "可复现区间生成器的新方法验证；CPU原型不充真实质量结果",
       "evidence_or_planned_scope": "等Q、等信息、计入校准成本的强前密C/A、仅优化刷新、纯代理、联合修订及简单搜索比较已列入路线。",
-      "gap_and_next_action": "加入少步Native等实际时间对照；P1后冻结比较并集、完整报价及真实CPU，使用独占卡。",
+      "gap_and_next_action": "历史诊断和少步Native计时选择规则/CPU控制已就绪；P1后冻结矩阵和新输入，完整报价后实际生产验收。",
       "priority": "GEN-3",
       "evidence_refs": [
         "research/612_WC_POLICY_GENERATOR_CPU_PROTOTYPE_AND_REPRODUCIBLE_VALIDATION_DESIGN_20261020.md",
@@ -5450,7 +5457,10 @@
         "plans/cara_policy_generator_20261020/TASK_REGISTRY.json",
         "reports/wc_policy_generator_CPU_independent_acceptance_20261020.json",
         "research/648_CARA_GPU_OWNER_PRICE_TRUST_AND_ORDERED_CONTINUATION_20261023.md",
-        "plans/cara_policy_generator_20261020/PRICE_HISTORY_NATIVE_CONTINUATION_R1_20261023.md"
+        "plans/cara_policy_generator_20261020/PRICE_HISTORY_NATIVE_CONTINUATION_R1_20261023.md",
+        "research/652_CARA_PG_P1_P2_CPU_PREPARATION_AND_HANDOFF_20261023.md",
+        "plans/cara_policy_generator_20261020/P1_P2_CPU_HANDOFF_R1_20261023.md",
+        "reports/cara_CAL_SELECT_exposure_committed_20261023.json"
       ],
       "method_mapping_ids": [],
       "contribution_ids": [
@@ -5475,15 +5485,19 @@
       "theory_review_ref": "research/624_WC_REPRODUCIBLE_POLICY_GENERATOR_THEORY_VALIDITY_AND_EVIDENCE_20261021.md",
       "reader": {
         "title": "等预算与等查询强基线",
-        "status": "待P1后冻结",
+        "status": "规则与CPU接口已准备",
         "result": "等Q、等信息、计入校准成本的强前密C/A、仅优化刷新、纯代理、联合修订及简单搜索比较已列入路线。",
-        "next_action": "加入少步Native等实际时间对照；P1后冻结比较并集、完整报价及真实CPU，使用独占卡。",
+        "next_action": "历史诊断和少步Native计时选择规则/CPU控制已就绪；P1后冻结矩阵和新输入，完整报价后实际生产验收。",
         "evidence_refs": [
           "CARA_generator_report_612",
           "research/648_CARA_GPU_OWNER_PRICE_TRUST_AND_ORDERED_CONTINUATION_20261023.md",
-          "plans/cara_policy_generator_20261020/PRICE_HISTORY_NATIVE_CONTINUATION_R1_20261023.md"
+          "plans/cara_policy_generator_20261020/PRICE_HISTORY_NATIVE_CONTINUATION_R1_20261023.md",
+          "research/652_CARA_PG_P1_P2_CPU_PREPARATION_AND_HANDOFF_20261023.md",
+          "plans/cara_policy_generator_20261020/P1_P2_CPU_HANDOFF_R1_20261023.md",
+          "reports/cara_CAL_SELECT_exposure_committed_20261023.json"
         ]
-      }
+      },
+      "continuation_CPU_test_ref": "reports/cara_PG_continuation_CPU_preparation_final_20261023.json"
     },
     {
       "id": "PG-P3",
@@ -11486,28 +11500,28 @@
     },
     "EXPERIMENT_REPORT.md": {
       "path": "EXPERIMENT_REPORT.md",
-      "sha256": "5c31b2fac876e88345e8ccf0e84aa98a336dcd07268157bb19475158d073c645",
-      "bytes": 8618
+      "sha256": "20ee11a17de978bc1d4603a8ad9e6ad5b0147b130ae754164c782d5f40c73290",
+      "bytes": 8863
     },
     "memory/handoffs/LATEST.md": {
       "path": "memory/handoffs/LATEST.md",
-      "sha256": "1dc3500e09e81822db5fe303dfcf6e45dd0ad817528dcd3650d667ef3b13dc06",
-      "bytes": 5790
+      "sha256": "9a85b17f9af376bb70c92064b67742cce29de72c872fe48476d2b4cad69e90fe",
+      "bytes": 6523
     },
     "research/02_CURRENT_STATE.md": {
       "path": "research/02_CURRENT_STATE.md",
-      "sha256": "16372700a65b180a4a798676b5db7b5814028e2a41e7de50fdb0a977375fb547",
-      "bytes": 6141
+      "sha256": "b9af2969d171104ce01363e4f5884093e929a26bef7951876e561decc93e8901",
+      "bytes": 6767
     },
     "research/09_NEXT_ACTIONS.md": {
       "path": "research/09_NEXT_ACTIONS.md",
-      "sha256": "a545656b9fc25e118a2962189d2f7436b68dfae92940ec8ba9fe692e1b4098c4",
-      "bytes": 5322
+      "sha256": "3f3d378f0283042d13e8e8e5fd9a66a9a4e621886df57720954e5c6e79040c4b",
+      "bytes": 5955
     },
     "paper/EXPERIMENT_MASTER_TABLE.md": {
       "path": "paper/EXPERIMENT_MASTER_TABLE.md",
-      "sha256": "d593e672c7de413d30cd1ffd6862609aac1a17f645925e50c95c663d3d13cd39",
-      "bytes": 29463
+      "sha256": "1719e9edae6a6ccbf6d31371455d560f52c4a74a9da5a34f45b22742b2ced560",
+      "bytes": 30198
     },
     "paper/INTERNAL_TO_PAPER_MAPPING.md": {
       "path": "paper/INTERNAL_TO_PAPER_MAPPING.md",
@@ -13376,7 +13390,7 @@
     "historical_operation_policy_ref": "docs/archive/20261022_before_navigation/paper/experiment_master_table.json"
   },
   "mapping_sha256_at_inventory": "88b3d760a0c94c20b6c802e21f30c7286d6e596cc9b3f3100e7ee6feaa3938f3",
-  "latest_mapping_sha256": "07174ffc9736c42703955c1d168e0a246a5df833762ba2a9dd82e33d673dd97d",
+  "latest_mapping_sha256": "fe833e8dc8d57a16d46c8b0f3a1d7869da507189acd21e2c9e97e8451b607c6b",
   "revision_plan": {
     "registry_ref": "plans/cara_v6_20261020/TASK_REGISTRY_V6.yaml",
     "report_ref": "research/610_WC_CARA_V6_REVIEW_CLOSURE_PLAN_INTERVAL_SPEC_AND_FIRST_DEV_SCOPE_20261020.md",

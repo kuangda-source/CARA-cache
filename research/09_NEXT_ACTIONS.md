@@ -4,9 +4,9 @@
 
 **已保存的实验观测：2026-10-23T08:26:41.422652+08:00（Asia/Shanghai）。** 原1624已接受；独立价格CPU已接受，等待独占资源。14/14路径完成、0运行、0未到达、0失败。
 
-范围：4 CAL / 1624正式区间格 / 14完整路径（12正式+2warm）/ 2030总格 / 13020读出试验；整卡上限12 GPUh。独占价格补测资源检查与单次准入：**2026-10-23 12:30 Asia/Shanghai**。
+范围：4 CAL / 1624正式区间格 / 14完整路径（12正式+2warm）/ 2030总格 / 13020读出试验；整卡上限12 GPUh。独占价格补测资源检查与单次准入：**2026-10-23 13:30 Asia/Shanghai**。
 
-[本卡完整记录](651_CARA_PRICE_CPU_ACCEPTED_CONTROLLER_READY_WAIT_EXCLUSIVE_20261023.md) · [观测原件](../reports/wc_policy_assets_full1624_fourcard_GPU_terminal_20261023_0826.json) · [当前状态](02_CURRENT_STATE.md)。原1624的08:26接受及6.900544 GPUh结算保持；新价格CPU原容器09:46:34退出，实际09:51:55完整验收，控制器32项CPU检查通过。最新11:30:58四卡仍占用；原价格stage没有GPU提交句柄，预算不变，没有新预约、模式修改或GPU提交。
+[本卡完整记录](651_CARA_PRICE_CPU_ACCEPTED_CONTROLLER_READY_WAIT_EXCLUSIVE_20261023.md) · [观测原件](../reports/wc_policy_assets_full1624_fourcard_GPU_terminal_20261023_0826.json) · [当前状态](02_CURRENT_STATE.md)。原1624的08:26接受及6.900544 GPUh结算保持；新价格CPU原容器09:46:34退出，实际09:51:55完整验收，控制器32项CPU检查通过。最近资源观测为11:30:58，当时四卡均占用；原价格stage没有GPU提交句柄，预算不变，没有新预约、模式修改或GPU提交。 等待期P1/P2准备已完成SELECT范围内曝光核查、转换/诊断/Native选步接口和27项局部CPU控制；未改价格stage或GPU模式；GPU资源状态仍引用11:30快照。
 
 **当前独立价格补测：完整价格CPU已接受；GPU控制器32项检查通过，等待空闲卡实际验证独占。** CPU启动于2026-10-23T09:14:02+08:00，最近观测2026-10-23T09:51:55+08:00。[价格CPU启动原件](../reports/wc_policy_price_refresh_full1624_CPU_launch_r1_20261023.json) · [价格CPU观测](../reports/wc_policy_price_refresh_full1624_CPU_terminal_check_r1_20261023_0955.json)。新GPU提交为0；完整价格卡保持10路径/1624正式格/24360读出、11.5 GPUh上限。
 
@@ -15,14 +15,14 @@
 | 顺序 | 当前阶段 | 下一项验收 / 动作 |
 |---|---|---|
 | PG-P1-ASSETS | 完整1624真实区间/价格资产：原1624已接受；独立价格CPU已接受，等待独占资源 | 完整价格CPU与控制器已通过；等待空闲UUID实际验证硬独占，再单次10路径补测（11.5 GPUh上限），价格接受后接PG-P1。 |
-| PG-P1 | 单预算自动策略闭环：已登记，待真实闭环 | 接受真实标签及可信价格、独占准入、CAL_SELECT曝光核查、实际CPU与整卡报价；冻结后加入小规模历史窗口诊断，新增成本另计。 |
-| PG-P2 | 等预算与等查询强基线：待P1后冻结 | 加入少步Native等实际时间对照；P1后冻结比较并集、完整报价及真实CPU，使用独占卡。 |
+| PG-P1 | 单预算自动策略闭环：CPU准备就绪，待真实闭环 | SELECT范围内曝光核查及资产转换接口已就绪；待干净价格、任意mask/alpha生产CPU与完整报价，再在原卡内用干净Native固定B。 |
+| PG-P2 | 等预算与等查询强基线：规则与CPU接口已准备 | 历史诊断和少步Native计时选择规则/CPU控制已就绪；P1后冻结矩阵和新输入，完整报价后实际生产验收。 |
 | PG-P3 | 固定程序跨预算/模型：条件性后续 | P1/P2后先0.70×Native，再成熟第二模型或明确第二设置重新校准。 |
 | PG-P4 | 最终独立TEST与部署评价：待方法冻结 | 冻结方法、对手、预算、选择规则后再选新TEST；计入warm与全流程成本。 |
 
 ## 下一卡的具体准备
 
-PG-P1先接已完整接受的真实标签与动作价格，再核对两个已登记CAL_SELECT（`av_animal_dear_1_0`、`industry_057`，seed0）的服务器曝光记录。任意合法mask必须通过其自己的实际生产CPU；不能用资产采集CPU替代生成器入口验证。
+PG-P1两个已登记CAL_SELECT（`av_animal_dear_1_0`、`industry_057`，seed0）的本地回执及四卡项目输出身份核查已完成，范围内没有发现执行记录；首次SELECT端点前核对新增元数据。等待期还补齐了可信资产转换接口、历史失配诊断矩阵规则、少步Native纯计时选择和27项CPU控制，见[652准备记录](652_CARA_PG_P1_P2_CPU_PREPARATION_AND_HANDOFF_20261023.md)与[接续命令](../plans/cara_policy_generator_20261020/P1_P2_CPU_HANDOFF_R1_20261023.md)。待新价格完整接受后，任意合法mask/alpha仍须自己的实际生产CPU及整卡报价；资产CPU或本轮局部控制不能替代它。
 
 [2026-10-23接续要求](../plans/cara_policy_generator_20261020/PRICE_HISTORY_NATIVE_CONTINUATION_R1_20261023.md)：原1624数值/控制和动作价格分别接受；已知同卡竞争的价格不因低波动自动通过。未来GPU卡要求实际独占。冻结策略后加入小规模历史窗口诊断，PG-P2加入少步Native等实测时间对照；shadow不写回，不计为干净延迟，新增范围单独进入完整报价。
 

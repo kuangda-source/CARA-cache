@@ -3,7 +3,7 @@
   "project": "CARA-Cache",
   "evidence_observed_at": "2026-10-23T08:26:41.422652+08:00",
   "timezone": "Asia/Shanghai",
-  "snapshot_note": "原1624的08:26接受及6.900544 GPUh结算保持；新价格CPU原容器09:46:34退出，实际09:51:55完整验收，控制器32项CPU检查通过。最新11:30:58四卡仍占用；原价格stage没有GPU提交句柄，预算不变，没有新预约、模式修改或GPU提交。",
+  "snapshot_note": "原1624的08:26接受及6.900544 GPUh结算保持；新价格CPU原容器09:46:34退出，实际09:51:55完整验收，控制器32项CPU检查通过。最近资源观测为11:30:58，当时四卡均占用；原价格stage没有GPU提交句柄，预算不变，没有新预约、模式修改或GPU提交。 等待期P1/P2准备已完成SELECT范围内曝光核查、转换/诊断/Native选步接口和27项局部CPU控制；未改价格stage或GPU模式；GPU资源状态仍引用11:30快照。",
   "research_summary": "修正机制与共享布局已有实证；完整1624真实区间标签已接受，半强度在四CAL全区间均值均改善。当前修复动作价格可信度，再检验自动生成计划的独立质量—时间收益。",
   "active_experiment_id": "PG-P1-ASSETS",
   "active_state": "PRICE_REFRESH_CPU_ACCEPTED_WAIT_EXCLUSIVE_RESOURCE",
@@ -16,7 +16,7 @@
   "next_checks": [
     {
       "kind": "独占价格补测资源检查与单次准入",
-      "scheduled_local": "2026-10-23 12:30 Asia/Shanghai",
+      "scheduled_local": "2026-10-23 13:30 Asia/Shanghai",
       "automation_id": "cara-bank24-2"
     }
   ],
@@ -127,5 +127,18 @@
     "controller_ref": "scripts/wc_four_card_price_refresh_gpu_r1.py",
     "fresh_preflight_ref": "reports/wc_policy_price_refresh_GPU3_full_preflight_20261023_1005.json",
     "latest_resource_ref": "reports/wc_policy_price_refresh_fresh_resources_20261023_113057.json"
+  },
+  "PG_continuation_preparation": {
+    "status": "CPU_RULES_AND_INTERFACES_READY_NOT_PRODUCTION_ACCEPTED",
+    "report_ref": "research/652_CARA_PG_P1_P2_CPU_PREPARATION_AND_HANDOFF_20261023.md",
+    "plan_ref": "plans/cara_policy_generator_20261020/P1_P2_CPU_HANDOFF_R1_20261023.md",
+    "exposure_ref": "reports/cara_CAL_SELECT_exposure_committed_20261023.json",
+    "scoped_SELECT_no_execution_evidence": true,
+    "tests_passed": 27,
+    "production_CPU_accepted": false,
+    "GPU_dispatch_ready": false,
+    "GPU_submissions": 0,
+    "combined_tests_passed": 61,
+    "CPU_test_ref": "reports/cara_PG_continuation_CPU_preparation_final_20261023.json"
   }
 }
