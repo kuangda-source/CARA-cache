@@ -12,7 +12,7 @@ BANK24完整24视频、12组LPIPS、原控制和实际1.845248657494 GPUh已接�
 
 P1/P2等待期准备已完成SELECT范围内曝光核查、价格/标签到生成器的转换接口、历史诊断矩阵与少步Native计时选择规则、27项局部CPU控制及真实UniPC调度网格。详见[652准备与接续](repo:research/652_CARA_PG_P1_P2_CPU_PREPARATION_AND_HANDOFF_20261023.md)。最新[657](repo:research/657_CARA_PG_P1_FULL_CARD_COMBINATION_CPU_ACCEPTED_AND_PRICE_HANDOFF_20261023.md)已完成整卡监督/评分/Native时钟/终态复算组合CPU接受，保留18条采样控制，新增真实全93帧LPIPS和6种生命周期，12项终态检查；本地92项相关检查通过。64路完整报价仍为8.844444/10.5 GPUh。原价格完整接受后，PG-P1已按661实际启动；P2新增GPU提交仍为0。
 
-P1原64位置、10.5 GPUh及半程/终态安排保持不变。P2 Native/历史R4生产入口CPU已接受；本轮整卡监督、评分与终态组合代码通过75项本地控制和15项独立接受器控制。新生产组合CPU因共享盘不足40GiB未启动，不能称为完整生产接受。最终范围和预算等P1接受、策略物理去重后确定，旧518路报价仅保留作历史上界。见[665组合检查与接续](repo:research/665_CARA_PG_P2_COMBINATION_CHECKED_CPU_STORAGE_GATE_20261023.md)。
+P1原64位置、10.5 GPUh及半程/终态安排保持不变。旧文件无损去重释放11.97GiB；新组合CPU退出0并独立接受：48采样路径/72请求、真实93帧LPIPS、6生命周期、32组合检查。P1原进程及登记源码不变。 五项独立质量模型本轮仅验证协议和分母，真实模型资源及最终整卡绑定仍待完成。最终范围和预算等P1接受、策略物理去重后确定，旧518路报价仅保留作历史上界。见[666归档与组合CPU接受](repo:research/666_CARA_LOSSLESS_ARCHIVE_AND_PG_P2_COMBINATION_CPU_20261023.md)。
 
 ## 科学判断与下一步
 

@@ -24,6 +24,7 @@
   },
   "status_counts": {
     "CLAIM_AND_EVIDENCE_WRITING_PROTOCOL_READY": 1,
+    "COMBINATION_CPU_ACCEPTED_P1_BINDINGS_AND_BUDGET_PENDING": 1,
     "CONDITIONAL_DISABLED_PRESELECT_SUBSET_BEFORE_R4A": 1,
     "CONDITIONAL_OTHER_WINDOWS_NOT_RUNTIME_VALIDATED": 1,
     "CONDITIONAL_PLANNED_NOT_FROZEN_OR_APPROVED_CARD": 1,
@@ -36,7 +37,6 @@
     "FINITE_FRONTIER_UNION_PENDING_IDENTITY_AND_COST": 1,
     "FULL960_ALL645_SCORES_PROTOCOL_AND_FINANCE_ACCEPTED": 1,
     "FULL_LABELS_AND_EXCLUSIVE_PRICES_ACCEPTED": 1,
-    "LOCAL_COMBINATION_CHECKED_REMOTE_CPU_STORAGE_GATE": 1,
     "LOCAL_CPU_PROTOTYPE24_WITH_PROTECTED_PRICE_BRIDGE_NOT_PRODUCTION": 1,
     "PARTIAL_LOCAL_STRUCTURAL_AND_DOCUMENTS_READY": 1,
     "PG_P1_EXCLUSIVE_GPU_RUNNING": 1,
@@ -5506,14 +5506,14 @@
     },
     {
       "id": "PG-P2",
-      "state": "LOCAL_COMBINATION_CHECKED_REMOTE_CPU_STORAGE_GATE",
+      "state": "COMBINATION_CPU_ACCEPTED_P1_BINDINGS_AND_BUDGET_PENDING",
       "paper_experiment_name": "Equal-query fixed-readout/local-only/joint/random controls",
       "internal_ids": [
         "PG-P2"
       ],
       "contribution_relation": "可复现区间生成器的新方法验证；CPU原型不充真实质量结果",
-      "evidence_or_planned_scope": "Native/历史R4采样CPU已接受；新增整卡组合代码75项本地控制+15项接受器控制通过。新生产组合CPU因共享盘不足40GiB未启动。",
-      "gap_and_next_action": "P1保持原检查；资源恢复后新闭包完整组合CPU，P1接受及物理策略去重后再确定最终矩阵和预算，不提前GPU派发。",
+      "evidence_or_planned_scope": "旧文件无损去重释放11.97GiB；新组合CPU退出0并独立接受：48采样路径/72请求、真实93帧LPIPS、6生命周期、32组合检查。P1原进程及登记源码不变。",
+      "gap_and_next_action": "等待P1完整接受并物理策略去重，绑定真实整卡runner/采集器与五项质量模型资源后确定最终矩阵和预算；不提前GPU派发。",
       "priority": "GEN-3",
       "evidence_refs": [
         "research/612_WC_POLICY_GENERATOR_CPU_PROTOTYPE_AND_REPRODUCIBLE_VALIDATION_DESIGN_20261020.md",
@@ -5532,7 +5532,11 @@
         "manifests/cara_PG_P2_whole518_planning_quote_r1_20261023.json",
         "research/665_CARA_PG_P2_COMBINATION_CHECKED_CPU_STORAGE_GATE_20261023.md",
         "plans/cara_policy_generator_20261020/P2_COMBINATION_CPU_HANDOFF_R1_20261023.md",
-        "reports/cara_PG_P2_combination_local_checks_20261023.json"
+        "reports/cara_PG_P2_combination_local_checks_20261023.json",
+        "research/666_CARA_LOSSLESS_ARCHIVE_AND_PG_P2_COMBINATION_CPU_20261023.md",
+        "reports/cara_PG_P2_combination_CPU_check_r2_20261023_05.json",
+        "reports/cara_PG_P2_combination_CPU_accepted_r2_20261023.json",
+        "reports/cara_archive_restore_and_P1_protection_verified_20261023.json"
       ],
       "method_mapping_ids": [],
       "contribution_ids": [
@@ -5545,21 +5549,21 @@
         "PG-P1"
       ],
       "local_CPU_prototype_accepted": true,
-      "production_CPU_accepted": false,
+      "production_CPU_accepted": true,
       "GPU_dispatch_ready": false,
       "new_GPU_submissions": 0,
       "quality_results": null,
       "speed_results": null,
       "merged_into_mainline": false,
       "target_execution_host": "four_card",
-      "new_host_production_CPU_accepted": false,
+      "new_host_production_CPU_accepted": true,
       "future_queue_ref": "reports/wc_four_card_future_experiment_queue_20261021.json",
       "theory_review_ref": "research/624_WC_REPRODUCIBLE_POLICY_GENERATOR_THEORY_VALIDITY_AND_EVIDENCE_20261021.md",
       "reader": {
         "title": "等预算与等查询强基线",
-        "status": "组合本地检查通过；生产CPU等磁盘准入",
-        "result": "Native/历史R4采样CPU已接受；新增整卡组合代码75项本地控制+15项接受器控制通过。新生产组合CPU因共享盘不足40GiB未启动。",
-        "next_action": "P1保持原检查；资源恢复后新闭包完整组合CPU，P1接受及物理策略去重后再确定最终矩阵和预算，不提前GPU派发。",
+        "status": "组合CPU已独立接受；最终策略绑定和预算待P1",
+        "result": "旧文件无损去重释放11.97GiB；新组合CPU退出0并独立接受：48采样路径/72请求、真实93帧LPIPS、6生命周期、32组合检查。P1原进程及登记源码不变。",
+        "next_action": "等待P1完整接受并物理策略去重，绑定真实整卡runner/采集器与五项质量模型资源后确定最终矩阵和预算；不提前GPU派发。",
         "evidence_refs": [
           "CARA_generator_report_612",
           "research/648_CARA_GPU_OWNER_PRICE_TRUST_AND_ORDERED_CONTINUATION_20261023.md",
@@ -5570,19 +5574,23 @@
           "research/663_CARA_PG_P2_NATIVE_HISTORY_PRODUCTION_CPU_ACCEPTED_AND_WHOLE_QUOTE_20261023.md",
           "reports/cara_PG_P2_native_history_CPU_accepted_r4_20261023.json",
           "manifests/cara_PG_P2_whole518_planning_quote_r1_20261023.json",
-          "research/665_CARA_PG_P2_COMBINATION_CHECKED_CPU_STORAGE_GATE_20261023.md"
+          "research/665_CARA_PG_P2_COMBINATION_CHECKED_CPU_STORAGE_GATE_20261023.md",
+          "research/666_CARA_LOSSLESS_ARCHIVE_AND_PG_P2_COMBINATION_CPU_20261023.md",
+          "reports/cara_PG_P2_combination_CPU_check_r2_20261023_05.json",
+          "reports/cara_PG_P2_combination_CPU_accepted_r2_20261023.json",
+          "reports/cara_archive_restore_and_P1_protection_verified_20261023.json"
         ]
       },
       "continuation_CPU_test_ref": "reports/cara_PG_continuation_CPU_preparation_final_20261023.json",
       "Native_history_production_CPU_accepted": true,
-      "whole_P2_GPU_lifecycle_CPU_accepted": false,
+      "whole_P2_GPU_lifecycle_CPU_accepted": true,
       "production_entry_CPU_acceptance_ref": "reports/cara_PG_P2_native_history_CPU_accepted_r4_20261023.json",
       "whole_planning_quote_ref": "manifests/cara_PG_P2_whole518_planning_quote_r1_20261023.json",
       "combination_local_checks": 75,
       "combination_acceptor_controls": 15,
       "combination_plan_ref": "plans/cara_policy_generator_20261020/P2_COMBINATION_CPU_HANDOFF_R1_20261023.md",
-      "combination_report_ref": "research/665_CARA_PG_P2_COMBINATION_CHECKED_CPU_STORAGE_GATE_20261023.md",
-      "remote_combination_CPU_started": false,
+      "combination_report_ref": "research/666_CARA_LOSSLESS_ARCHIVE_AND_PG_P2_COMBINATION_CPU_20261023.md",
+      "remote_combination_CPU_started": true,
       "final_budget_determined": false,
       "historical_no_dedup_planning_envelope": {
         "forecast_complete_GPUh": 67.8788888888889,
@@ -5590,7 +5598,18 @@
         "not_current_authorization": true
       },
       "final_forecast_GPUh": null,
-      "final_billed_limit_GPUh": null
+      "final_billed_limit_GPUh": null,
+      "remote_combination_CPU_accepted": true,
+      "combination_CPU_capture_ref": "reports/cara_PG_P2_combination_CPU_check_r2_20261023_05.json",
+      "combination_CPU_acceptance_ref": "reports/cara_PG_P2_combination_CPU_accepted_r2_20261023.json",
+      "combination_CPU_source_revision": "43bb75f5d79d8d73d04217bf3c210bb6baa183d4",
+      "combination_CPU_observed_at": "2026-10-23T22:54:52.291542+08:00",
+      "combination_actual_lifecycle_cases": 6,
+      "combination_terminal_checks": 32,
+      "actual_all93_frame_LPIPS": true,
+      "actual_five_quality_models_loaded": false,
+      "final_bound_card_CPU_accepted": false,
+      "archive_protection_ref": "reports/cara_archive_restore_and_P1_protection_verified_20261023.json"
     },
     {
       "id": "PG-P3",
@@ -11593,28 +11612,28 @@
     },
     "EXPERIMENT_REPORT.md": {
       "path": "EXPERIMENT_REPORT.md",
-      "sha256": "9a75faceefd4157edbe25b8f7ff9f54f0b2665b40172fc26d1f93de7b00711fa",
-      "bytes": 8871
+      "sha256": "83444c4fc642bab29a02dbcae5023541686ebd28cfea12dc2f30b1c6a3614dd6",
+      "bytes": 9059
     },
     "memory/handoffs/LATEST.md": {
       "path": "memory/handoffs/LATEST.md",
-      "sha256": "858b3108505fe09f7c98dd09e52f9bd1f10126dd85411eebbb66c83604b2a2a5",
-      "bytes": 6471
+      "sha256": "07e817ad4b557dca355835c133e72df6d97ef125c6d44936cb96c85ad7769dc4",
+      "bytes": 6709
     },
     "research/02_CURRENT_STATE.md": {
       "path": "research/02_CURRENT_STATE.md",
-      "sha256": "7a21480cac66f3e3aea14dde188c7256f89d73f6dbd1bd6a85b33f4d96cce3ba",
-      "bytes": 6156
+      "sha256": "85e31551c9387b4f16c8661315cf552c7194dd1539ac60365b3be3b55775c166",
+      "bytes": 6413
     },
     "research/09_NEXT_ACTIONS.md": {
       "path": "research/09_NEXT_ACTIONS.md",
-      "sha256": "9f4e738706d3dd3c59bdcdbbe47f8f38c5d61f157dd923f81ba527f3886319c5",
-      "bytes": 5683
+      "sha256": "9c4b3bb85ab5fcac93d57fe63951b0d477cce21d5e72c043d48b2363d5e76efe",
+      "bytes": 5940
     },
     "paper/EXPERIMENT_MASTER_TABLE.md": {
       "path": "paper/EXPERIMENT_MASTER_TABLE.md",
-      "sha256": "7e9aabf1c3eeaade40dbbd12d9a3eb3550c5da79b35f883b805c1688ff7300cc",
-      "bytes": 29882
+      "sha256": "ade3a0c510d407fbe747e130b49c4620197c6be646501d28d65f386581aad6f1",
+      "bytes": 30435
     },
     "paper/INTERNAL_TO_PAPER_MAPPING.md": {
       "path": "paper/INTERNAL_TO_PAPER_MAPPING.md",
@@ -13485,7 +13504,7 @@
     "historical_operation_policy_ref": "docs/archive/20261022_before_navigation/paper/experiment_master_table.json"
   },
   "mapping_sha256_at_inventory": "88b3d760a0c94c20b6c802e21f30c7286d6e596cc9b3f3100e7ee6feaa3938f3",
-  "latest_mapping_sha256": "a87719d9739677f7331f37899af809d3c6701b9f50dbaddc4893abb005537a5c",
+  "latest_mapping_sha256": "bf3ae78a7e2d9a8f378ff5d99ee035448c91d2007199a7e861c73f40e4c13b24",
   "revision_plan": {
     "registry_ref": "plans/cara_v6_20261020/TASK_REGISTRY_V6.yaml",
     "report_ref": "research/610_WC_CARA_V6_REVIEW_CLOSURE_PLAN_INTERVAL_SPEC_AND_FIRST_DEV_SCOPE_20261020.md",
