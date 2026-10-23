@@ -128,7 +128,7 @@ def launch(a):
  write(a.output,v);return v
 
 LAUNCH_PREFIX=r'''
-import json,pathlib,sys,fcntl
+import json,pathlib,sys,fcntl,os
 p=json.load(sys.stdin);stage=pathlib.Path(p['stage_ref']['stage'])
 lock=(stage/'pg-dispatch.lock').open('a');fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
 for name in ('pg-GPU-launch.json','pg-GPU-intent.json'):
@@ -145,6 +145,50 @@ def recover(a):
  L=read(a.stage_ref)
  v=ssh("import json,pathlib,sys\nL=json.load(sys.stdin);s=pathlib.Path(L['stage']);v={n:json.loads((s/n).read_text()) for n in ('pg-GPU-intent.json','pg-GPU-launch.json','pg-host-guardian.json','pg-admission-failure.json') if (s/n).exists()};print(json.dumps(dict(status='PG_P1_ORIGINAL_HANDLE_RECOVERY_NO_DISPATCH',stage_reference=L,original_files=v,GPU_submissions=0)))",L)
  write(a.output,v);return v
+
+
+def resume_authorization(a):
+ """Continue the proven pre-intent fsync failure; retain its exact authority."""
+ L=read(a.stage_ref);revision,closure=published()
+ failure=read(a.failure_ref)
+ if failure.get('status')!='PG_PRE_INTENT_OS_IMPORT_FAILURE_CONFIRMED' or failure['stage_reference']!=L:
+  raise ValueError('Original pre-intent failure proof required')
+ if sha(REPO/failure['original_failed_dispatch_ref'])!=failure['original_failed_dispatch_sha256']:
+  raise ValueError('Original failed dispatch receipt changed')
+ proof=ssh(PREFLIGHT+r'''
+assert value['admissible'],value['reasons']
+assert not (root/'outputs'/RUN).exists() and RUN not in pool['jobs']
+for n in ('pg-GPU-intent.json','pg-GPU-launch.json','pg-host-guardian.json','pg-preintent-recovery.json'):
+ assert not (stage/n).exists(),'Existing handle: recover only'
+assert not (stage/'pg-host-guardian.log').exists()
+auth=read(stage/'pg-GPU-authorization.json')
+assert auth['registration_sha256']==L['registration_sha256'] and auth['source_revision']==L['source_revision']
+assert auth['scope_counts']==COUNTS and auth['gpu_uuid']==p['gpu_uuid']
+print(json.dumps(dict(authorization=auth,authorization_sha256=sha(stage/'pg-GPU-authorization.json'),preflight=value)))
+''',dict(stage_ref=L,gpu_uuid=a.gpu_uuid))
+ if 'authorization' not in proof:write(a.output,proof);return proof
+ if proof['authorization_sha256']!=failure['authorization_sha256']:
+  raise ValueError('Original authorization changed')
+ data=dict(stage_ref=L,gpu_uuid=a.gpu_uuid,auth=proof['authorization'],authorization_sha256=proof['authorization_sha256'],
+   recovery_controller_revision=revision,control_runtime=read(REPO/RUNTIME_REF),sudo_password=saved_secret())
+ continuation=authorization_continuation()
+ try:v=ssh(LAUNCH_PREFIX+PREFLIGHT.replace('p=json.load(sys.stdin);','')+continuation,data)
+ finally:data.pop('sudo_password',None)
+ write(a.output,v);return v
+
+
+def authorization_continuation():
+ start=LAUNCH_SUFFIX.index("with (stage/'pg-GPU-authorization.json')")
+ end=LAUNCH_SUFFIX.index("intent=dict(",start)
+ continuation=LAUNCH_SUFFIX[:start]+r'''
+assert sha(stage/'pg-GPU-authorization.json')==p['authorization_sha256']
+assert not (root/'outputs'/RUN).exists() and RUN not in pool['jobs']
+assert not (stage/'pg-host-guardian.log').exists()
+with (stage/'pg-preintent-recovery.json').open('x') as f:
+ json.dump(dict(status='ORIGINAL_AUTH_PRE_INTENT_RECOVERY',launch_id=auth['launch_id'],authorization_sha256=p['authorization_sha256'],controller_revision=p['recovery_controller_revision'],confirmed_prior_GPU_submissions=0,observed_unix=time.time()),f,indent=2)
+ f.flush();os.fsync(f.fileno())
+'''+LAUNCH_SUFFIX[end:]
+ return continuation
 
 # Preserve the proven handle/container/UUID observer; replace price-specific post.
 CAPTURE=PRICE_CAPTURE[:PRICE_CAPTURE.index('if terminal:')]
@@ -166,14 +210,15 @@ def main():
  t=sub.add_parser('prepare')
  for n in ('cpu-capture','cpu-acceptance','price-capture','price-acceptance','exposure'):t.add_argument('--'+n,type=Path,required=True)
  t.add_argument('--stage-name',required=True)
- for name in ('preflight','launch-gpu','recover'):
+ for name in ('preflight','launch-gpu','recover','resume-authorization'):
   t=sub.add_parser(name);t.add_argument('--stage-ref',type=Path,required=True)
   if name!='recover':t.add_argument('--gpu-uuid',required=True)
+  if name=='resume-authorization':t.add_argument('--failure-ref',type=Path,required=True)
  t=sub.add_parser('capture');t.add_argument('--launch-ref',type=Path,required=True);t.add_argument('--mode',choices=['admission','halfway','terminal'],required=True)
  t=sub.add_parser('accept-gpu');t.add_argument('--capture',type=Path,required=True)
  for t in sub.choices.values():t.add_argument('--output',type=Path,required=True)
  a=p.parse_args()
  if a.command=='accept-gpu':v=accept_terminal(read(a.capture));v.update(capture_ref=str(a.capture),capture_sha256=sha(a.capture));write(a.output,v)
- else:v={'prepare':prepare,'preflight':preflight,'launch-gpu':launch,'recover':recover,'capture':capture}[a.command](a)
+ else:v={'prepare':prepare,'preflight':preflight,'launch-gpu':launch,'recover':recover,'resume-authorization':resume_authorization,'capture':capture}[a.command](a)
  print(json.dumps({k:v.get(k) for k in ('status','admissible','stage','launch_id','full_protocol_accepted')}))
 if __name__=='__main__':main()
