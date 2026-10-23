@@ -1,0 +1,161 @@
+{
+  "status": "INDEPENDENT_ARITHMETIC_AND_MATCHED_COUNT_AUDIT_COMPLETE",
+  "report_sha256": "d1f2dd228cfbdf35dd70af74799c43b049e990056b8501ad29abbdb6d87fb4a8",
+  "source_sha256": "8fe3aebc3fb5cf6b2e2d9e0de2cfa4ef0706bcc06da4453554b548970c30f1d2",
+  "checked_OOF_rows": 3248,
+  "max_abs_prediction_difference": 1.9539925233402755e-14,
+  "max_abs_beta_difference": 4.3576253716537394e-15,
+  "protected_files_unchanged": {
+    "files": 1181,
+    "sha256": "818d2b45e5b0189e279814105052774ef53909ec51f2767a0b5b67f5ae22da1d"
+  },
+  "supplemental_scope": "POST_HOC_DIAGNOSTIC_AFTER_PRIMARY_RESULTS; no refit or selection; exact baseline C/A_HALF/A_ONE counts retained per scene; counterfactual cells only, not a deployable trajectory or matched runtime",
+  "initial_execution_notes": [
+    "First attempt stopped before fitting: existing lifecycle acceptor transitively required unavailable torch; fixed to consume and SHA-bind saved complete acceptance instead, without changing model protocol.",
+    "Successful primary run emitted platform numpy matmul floating-point warnings but all outputs were finite. This audit independently recomputes every selected regression and prediction using scalar fsum products."
+  ],
+  "matched_action_count_folds": [
+    {
+      "mode": "log",
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "counts": {
+        "C": 110,
+        "A_HALF": 118,
+        "A_ONE": 178
+      },
+      "baseline_MSE": 0.4064597338193735,
+      "L1_matched_count_MSE": 0.40016691018263284,
+      "matched_count_oracle_MSE": 0.38059234614895765,
+      "baseline_regret": 0.025867387670415853,
+      "L1_regret": 0.01957456403367519,
+      "relative_MSE_reduction": 0.015482034536629219
+    },
+    {
+      "mode": "log",
+      "scene": "human_199",
+      "counts": {
+        "C": 122,
+        "A_HALF": 119,
+        "A_ONE": 165
+      },
+      "baseline_MSE": 0.8619484276175279,
+      "L1_matched_count_MSE": 0.8284807099757813,
+      "matched_count_oracle_MSE": 0.8162249538270836,
+      "baseline_regret": 0.04572347379044428,
+      "L1_regret": 0.012255756148697672,
+      "relative_MSE_reduction": 0.03882798154670719
+    },
+    {
+      "mode": "log",
+      "scene": "misc_13398218_3840_2160_60fps",
+      "counts": {
+        "C": 123,
+        "A_HALF": 115,
+        "A_ONE": 168
+      },
+      "baseline_MSE": 0.5890957087436459,
+      "L1_matched_count_MSE": 0.5867991524294636,
+      "matched_count_oracle_MSE": 0.5783695176279818,
+      "baseline_regret": 0.010726191115664085,
+      "L1_regret": 0.008429634801481733,
+      "relative_MSE_reduction": 0.0038984434618954955
+    },
+    {
+      "mode": "log",
+      "scene": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+      "counts": {
+        "C": 109,
+        "A_HALF": 126,
+        "A_ONE": 171
+      },
+      "baseline_MSE": 0.6587422176958927,
+      "L1_matched_count_MSE": 0.6504212487647794,
+      "matched_count_oracle_MSE": 0.6359007880391271,
+      "baseline_regret": 0.02284142965676561,
+      "L1_regret": 0.014520460725652273,
+      "relative_MSE_reduction": 0.012631601114344693
+    },
+    {
+      "mode": "relative",
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "counts": {
+        "C": 106,
+        "A_HALF": 124,
+        "A_ONE": 176
+      },
+      "baseline_MSE": 0.40939320398411944,
+      "L1_matched_count_MSE": 0.4097745949392184,
+      "matched_count_oracle_MSE": 0.38078327801307993,
+      "baseline_regret": 0.028609925971039507,
+      "L1_regret": 0.02899131692613849,
+      "relative_MSE_reduction": -0.0009316006015425149
+    },
+    {
+      "mode": "relative",
+      "scene": "human_199",
+      "counts": {
+        "C": 112,
+        "A_HALF": 124,
+        "A_ONE": 170
+      },
+      "baseline_MSE": 0.846326454373408,
+      "L1_matched_count_MSE": 0.8384528924646812,
+      "matched_count_oracle_MSE": 0.8157946709534033,
+      "baseline_regret": 0.030531783420004732,
+      "L1_regret": 0.022658221511277943,
+      "relative_MSE_reduction": 0.009303220841130555
+    },
+    {
+      "mode": "relative",
+      "scene": "misc_13398218_3840_2160_60fps",
+      "counts": {
+        "C": 113,
+        "A_HALF": 122,
+        "A_ONE": 171
+      },
+      "baseline_MSE": 0.5932479042202187,
+      "L1_matched_count_MSE": 0.5870283894596033,
+      "matched_count_oracle_MSE": 0.577620504723142,
+      "baseline_regret": 0.0156273994970767,
+      "L1_regret": 0.00940788473646137,
+      "relative_MSE_reduction": 0.01048383772849637
+    },
+    {
+      "mode": "relative",
+      "scene": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+      "counts": {
+        "C": 95,
+        "A_HALF": 134,
+        "A_ONE": 177
+      },
+      "baseline_MSE": 0.6522089158814027,
+      "L1_matched_count_MSE": 0.647578023785627,
+      "matched_count_oracle_MSE": 0.6375327730889444,
+      "baseline_regret": 0.014676142792458324,
+      "L1_regret": 0.010045250696682606,
+      "relative_MSE_reduction": 0.007100320132112037
+    }
+  ],
+  "scene_equal_aggregate": {
+    "log": {
+      "baseline_MSE": 0.62906152196911,
+      "L1_matched_count_MSE": 0.6164670053381642,
+      "matched_count_oracle_MSE": 0.6027719014107875,
+      "baseline_regret": 0.026289620558322457,
+      "L1_regret": 0.013695103927376717,
+      "relative_MSE_reduction": 0.020021120655293045,
+      "improved_scenes": 4
+    },
+    "relative": {
+      "baseline_MSE": 0.6252941196147872,
+      "L1_matched_count_MSE": 0.6207084751622824,
+      "matched_count_oracle_MSE": 0.6029328066946424,
+      "baseline_regret": 0.022361312920144816,
+      "L1_regret": 0.0177756684676401,
+      "relative_MSE_reduction": 0.007333580004446172,
+      "improved_scenes": 3
+    }
+  },
+  "GPU_submissions": 0,
+  "live_server_calls": 0
+}
