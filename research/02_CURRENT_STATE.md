@@ -2,13 +2,13 @@
 
 # CARA-Cache 当前状态
 
-**已保存的实验观测：2026-10-23T04:01:26.333449+08:00（Asia/Shanghai）。** 完整1624生产CPU已接受；GPU采集中，同卡竞争触发动作价格核验。13/14路径完成、1运行、0未到达、0失败；当前路径`formal_3_COLLECT`。
+**已保存的实验观测：2026-10-23T08:26:41.422652+08:00（Asia/Shanghai）。** 完整1624数值、控制与费用已接受；独占价格补测准备中。14/14路径完成、0运行、0未到达、0失败。
 
-范围：4 CAL / 1624正式区间格 / 14完整路径（12正式+2warm）/ 2030总格 / 13020读出试验；整卡上限12 GPUh。完整终态验收：**2026-10-23 08:26 Asia/Shanghai**。
+范围：4 CAL / 1624正式区间格 / 14完整路径（12正式+2warm）/ 2030总格 / 13020读出试验；整卡上限12 GPUh。独占价格测量生产准备与准入复查：**2026-10-23 09:00 Asia/Shanghai**。
 
-[本卡完整记录](648_CARA_GPU_OWNER_PRICE_TRUST_AND_ORDERED_CONTINUATION_20261023.md) · [观测原件](../reports/wc_policy_assets_full1624_fourcard_GPU_recovered_20261023_0403.json) · [当前状态](02_CURRENT_STATE.md)。04:01原句柄恢复核对：13/14完成，最后COLLECT路径运行，无错误。同GPU账号guanwenfei的进程仍在；原数值与动作价格分别接受。已确认四卡sudo模式权限，当前不改变占用中的GPU，后续卡启用实际独占。
+[本卡完整记录](649_CARA_FULL1624_ACCEPTED_PRICE_AUDIT_AND_REFRESH_SCOPE_20261023.md) · [观测原件](../reports/wc_policy_assets_full1624_fourcard_GPU_terminal_20261023_0826.json) · [当前状态](02_CURRENT_STATE.md)。原GPU段05:07结束，含CPU后处理的容器05:20退出0；08:26实际收件，14/14及全部原始数值/参照通过，结算6.900544 GPUh。价格存在同卡竞争证据，独立补测前不接PG-P1。08:34四卡仍占用，本轮未启用独占或提交新GPU。
 
-## 唯一活动实验
+## 当前跟踪实验
 
 | 字段 | 冻结身份 / 已记录状态 |
 |---|---|
@@ -23,12 +23,13 @@
 | 注册SHA256 | `2bc9b893c942ef5ae6a4a0ffef40c7e1e9fda92984699516b12149753b23d1ec` |
 | 配置SHA256 | `75338efd0d7c2d145c73bb3d5514c37fcec46851995785724eeca8f650419f9a` |
 | CPU证明SHA256 | `a630189da75459adb280b808382c44ad230132924eb8963bf59869a0dd378fbd` |
-| supervisor | `PID 811837 / start_ticks 946344871` |
-| runner | `PID 811944 / start_ticks 946345336` |
+| supervisor | `PID 811837 / start_ticks 946344871（已退出）` |
+| runner | `PID 811944 / start_ticks 946345336（已退出）` |
+| post | `PID 906269 / start_ticks 948829570（已退出）` |
 
 [唯一启动原件](../reports/wc_policy_assets_full1624_fourcard_GPU_launch_20261022.json) · [CPU完整接受](../reports/wc_policy_assets_full1624_fourcard_CPU_r2_accepted_20261022.json) · [准入与检查安排](../reports/wc_policy_assets_full1624_fourcard_GPU_admission_checked_and_schedule_20261022.json)
 
-504普通pairs / 1008CFG / 1次模型加载。规划9.956389 GPUh为估算，终态按完整实际费用结算。
+504普通pairs / 1008CFG / 1次模型加载。原规划9.956389 GPUh。实际已结算6.900544 GPUh；[GPU完整接受](../reports/wc_policy_assets_full1624_fourcard_GPU_accepted_20261023_0826.json)。
 
 ## 已完成的前置
 
@@ -36,11 +37,11 @@ BANK24完整24视频、12组LPIPS、原控制和实际1.845248657494 GPUh已接�
 
 ## 科学判断与下一步
 
-修正机制与若干共享布局的保真收益已有实证；当前采集完整真实区间标签和动作价格，下一步检验可复现自动策略在实际预算下的质量—时间收益。
+修正机制与共享布局已有实证；完整1624真实区间标签已接受，半强度在四CAL全区间均值均改善。当前修复动作价格可信度，再检验自动生成计划的独立质量—时间收益。
 
 | 顺序 | 当前阶段 | 下一项验收 / 动作 |
 |---|---|---|
-| PG-P1-ASSETS | 完整1624真实区间/价格资产：GPU运行中（已记录快照） | 原1624完整接受后运行价格审计；已知同卡竞争的价格另做独占测量补救，价格信任通过前不接PG-P1。 |
+| PG-P1-ASSETS | 完整1624真实区间/价格资产：完整1624数值、控制与费用已接受；独占价格补测准备中 | 原数值/控制/费用全部接受；完整价格刷新卡10新路径/24360读出、上限11.5 GPUh，先完成生产CPU与空闲卡硬独占，再接PG-P1。 |
 | PG-P1 | 单预算自动策略闭环：已登记，待真实闭环 | 接受真实标签及可信价格、独占准入、CAL_SELECT曝光核查、实际CPU与整卡报价；冻结后加入小规模历史窗口诊断，新增成本另计。 |
 | PG-P2 | 等预算与等查询强基线：待P1后冻结 | 加入少步Native等实际时间对照；P1后冻结比较并集、完整报价及真实CPU，使用独占卡。 |
 | PG-P3 | 固定程序跨预算/模型：条件性后续 | P1/P2后先0.70×Native，再成熟第二模型或明确第二设置重新校准。 |

@@ -4,11 +4,11 @@
 
 先读[当前状态](../../research/02_CURRENT_STATE.md)、[实验顺序](../../research/09_NEXT_ACTIONS.md)与[本卡646记录](../../research/646_CARA_FULL1624_CPU_ACCEPTED_GPU_LAUNCH_20261022.md)。它们共用规范数据；旧长交接已完整归档。
 
-**已保存的实验观测：2026-10-23T04:01:26.333449+08:00（Asia/Shanghai）。** 完整1624生产CPU已接受；GPU采集中，同卡竞争触发动作价格核验。13/14路径完成、1运行、0未到达、0失败；当前路径`formal_3_COLLECT`。
+**已保存的实验观测：2026-10-23T08:26:41.422652+08:00（Asia/Shanghai）。** 完整1624数值、控制与费用已接受；独占价格补测准备中。14/14路径完成、0运行、0未到达、0失败。
 
-范围：4 CAL / 1624正式区间格 / 14完整路径（12正式+2warm）/ 2030总格 / 13020读出试验；整卡上限12 GPUh。完整终态验收：**2026-10-23 08:26 Asia/Shanghai**。
+范围：4 CAL / 1624正式区间格 / 14完整路径（12正式+2warm）/ 2030总格 / 13020读出试验；整卡上限12 GPUh。独占价格测量生产准备与准入复查：**2026-10-23 09:00 Asia/Shanghai**。
 
-[本卡完整记录](../../research/648_CARA_GPU_OWNER_PRICE_TRUST_AND_ORDERED_CONTINUATION_20261023.md) · [观测原件](../../reports/wc_policy_assets_full1624_fourcard_GPU_recovered_20261023_0403.json) · [当前状态](../../research/02_CURRENT_STATE.md)。04:01原句柄恢复核对：13/14完成，最后COLLECT路径运行，无错误。同GPU账号guanwenfei的进程仍在；原数值与动作价格分别接受。已确认四卡sudo模式权限，当前不改变占用中的GPU，后续卡启用实际独占。
+[本卡完整记录](../../research/649_CARA_FULL1624_ACCEPTED_PRICE_AUDIT_AND_REFRESH_SCOPE_20261023.md) · [观测原件](../../reports/wc_policy_assets_full1624_fourcard_GPU_terminal_20261023_0826.json) · [当前状态](../../research/02_CURRENT_STATE.md)。原GPU段05:07结束，含CPU后处理的容器05:20退出0；08:26实际收件，14/14及全部原始数值/参照通过，结算6.900544 GPUh。价格存在同卡竞争证据，独立补测前不接PG-P1。08:34四卡仍占用，本轮未启用独占或提交新GPU。
 
 | 字段 | 冻结身份 / 已记录状态 |
 |---|---|
@@ -23,16 +23,17 @@
 | 注册SHA256 | `2bc9b893c942ef5ae6a4a0ffef40c7e1e9fda92984699516b12149753b23d1ec` |
 | 配置SHA256 | `75338efd0d7c2d145c73bb3d5514c37fcec46851995785724eeca8f650419f9a` |
 | CPU证明SHA256 | `a630189da75459adb280b808382c44ad230132924eb8963bf59869a0dd378fbd` |
-| supervisor | `PID 811837 / start_ticks 946344871` |
-| runner | `PID 811944 / start_ticks 946345336` |
+| supervisor | `PID 811837 / start_ticks 946344871（已退出）` |
+| runner | `PID 811944 / start_ticks 946345336（已退出）` |
+| post | `PID 906269 / start_ticks 948829570（已退出）` |
 
 [唯一启动原件](../../reports/wc_policy_assets_full1624_fourcard_GPU_launch_20261022.json) · [CPU完整接受](../../reports/wc_policy_assets_full1624_fourcard_CPU_r2_accepted_20261022.json) · [准入与检查安排](../../reports/wc_policy_assets_full1624_fourcard_GPU_admission_checked_and_schedule_20261022.json)
 
-504普通pairs / 1008CFG / 1次模型加载。规划9.956389 GPUh为估算，终态按完整实际费用结算。
+504普通pairs / 1008CFG / 1次模型加载。原规划9.956389 GPUh。实际已结算6.900544 GPUh；[GPU完整接受](../../reports/wc_policy_assets_full1624_fourcard_GPU_accepted_20261023_0826.json)。
 
 ## 接续规则
 
-- 唯一提交者只跟踪上述launch。半程使用`capture --mode gpu-halfway`，终态使用`capture --mode gpu-terminal`后`accept --kind gpu`；控制器为`scripts/wc_four_card_policy_assets_r1.py`。每次输出新文件，已有原件先复用，不重复验收/提交。
+- 上述1624 launch已于08:26完整接受，原件见[649](../../research/649_CARA_FULL1624_ACCEPTED_PRICE_AUDIT_AND_REFRESH_SCOPE_20261023.md)，不重复验收/提交。下一项为[独立价格刷新](../../plans/cara_policy_generator_20261020/FULL1624_PRICE_REFRESH_R1_20261023.md)：完整范围、报价已登记，生产collector/生命周期/实际CPU尚待；没有新GPU启动。
 - `--launch-ref`固定上述启动原件。unknown只恢复原句柄；提前退出保留实际终态与费用。原R1 CPU失败、BANK24原ffprobe失败和后续恢复均保留。
 - 使用已授权四卡私有入口；不恢复两卡、不触碰他人任务、不更改在跑stage。完整范围/预算/冻结门控不变，DEV不回流调阈值。
 - 原资产接受后先运行完整价格审计，再按[价格/独占/历史诊断/少步Native接续方案](../../plans/cara_policy_generator_20261020/PRICE_HISTORY_NATIVE_CONTINUATION_R1_20261023.md)推进。原`generator_input_ready`不能覆盖同卡竞争；新GPU卡须动作价格信任通过、真实独占、自己的范围、完整成本、实际CPU和fresh准入。已用四卡私有凭据确认sudo模式修改权限，待空闲卡实际启用，不动在跑stage。长任务绑定实际启动安排半程与全程，复用自动化，完成后关闭对应一次检查。

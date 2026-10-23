@@ -89,11 +89,32 @@ def build():
     active['state'] = status['active_state']
     running = 'RUNNING' in status['active_state']
     active['reader']['status'] = 'GPU运行中（已记录快照）' if running else status['active_state_zh']
-    health, scope = observation['health'], launch['scope_counts']
+    scope = launch['scope_counts']
+    health = observation.get('health')
+    if health is None and observation.get('mode') == 'gpu-terminal':
+        terminal_rows = observation['runner']['runs']
+        health = dict(registered_paths=scope['total_paths'],
+            completed_paths=sum(r['status'] in ('COMPLETE', 'VIDEO_REJECTED', 'TEXT_REJECTED') for r in terminal_rows),
+            running_paths=sum(r['status'] == 'RUNNING' for r in terminal_rows),
+            failed_paths=sum(r['status'] == 'TECH_FAILED' for r in terminal_rows),
+            not_reached_paths=scope['total_paths'] - len(terminal_rows),
+            active_path=next((r['id'] for r in terminal_rows if r['status'] == 'RUNNING'), None))
+        if status.get('terminal_acceptance_ref'):
+            accepted = load(status['terminal_acceptance_ref'])
+            if (accepted['capture_sha256'] != digest((ROOT / status['observation_ref']).read_bytes())['sha256']
+                    or accepted.get('full_protocol_accepted') is not True):
+                raise ValueError('Terminal status must bind actual complete acceptance')
+    if health is None:
+        raise ValueError('A saved technical health or original terminal runner is required')
     progress = (f"{health['completed_paths']}/{health['registered_paths']}路径完成、"
                 f"{health['running_paths']}运行、{health['not_reached_paths']}未到达、"
-                f"{health['failed_paths']}失败；当前路径`{health.get('active_path')}`")
+                f"{health['failed_paths']}失败")
+    if health.get('active_path'):
+        progress += f"；当前路径`{health['active_path']}`"
     active['reader']['result'] = f"生产CPU已接受；GPU启动于{local_time(launch['started_unix'])}。快照：{progress}。"
+    if status.get('terminal_acceptance_ref'):
+        active['reader']['result'] = (f"原完整卡已接受；实际{accepted['finance']['actual_GPUh']:.6f} GPUh。"
+                                      f"终态：{progress}；独立价格门槛见下一步。")
     active['evidence_or_planned_scope'] = active['reader']['result']
     master['status_counts'] = {state: sum(r['state'] == state for r in rows)
                                for state in sorted({r['state'] for r in rows})}
@@ -123,14 +144,25 @@ def build():
                 ('注册SHA256', launch['registration_sha256']), ('配置SHA256', launch['config_sha256']),
                 ('CPU证明SHA256', launch['production_CPU_sha256'])]
     for role, identity in observation['original_processes'].items():
-        run_rows.append((role, f"PID {identity['pid']} / start_ticks {identity['start_ticks']}"))
+        saved_key = {'supervisor': 'supervisor_identity', 'runner': 'child_identity', 'post': 'post_identity'}.get(role)
+        saved = observation.get('supervisor', {}).get(saved_key, {})
+        ticks = identity.get('start_ticks')
+        if ticks is None and saved.get('pid') == identity['pid']:
+            ticks = saved.get('start_ticks')
+        ended = '（已退出）' if observation.get('original_live_handles', {}).get(role) is False else ''
+        run_rows.append((role, f"PID {identity['pid']} / start_ticks {ticks}{ended}"))
     run_details = '| 字段 | 冻结身份 / 已记录状态 |\n|---|---|\n' + '\n'.join(
         f'| {k} | `{v}` |' for k, v in run_rows)
     run_details += (f"\n\n{link(status['launch_ref'], '唯一启动原件')} · "
                     f"{link(status['cpu_acceptance_ref'], 'CPU完整接受')} · "
                     f"{link(status['admission_ref'], '准入与检查安排')}\n\n"
                     f"{scope['ordinary_pairs']}普通pairs / {scope['ordinary_CFG_calls']}CFG / {scope['loads']}次模型加载。"
-                    f"规划{launch['forecast_GPUh']:.6f} GPUh为估算，终态按完整实际费用结算。")
+                    f"原规划{launch['forecast_GPUh']:.6f} GPUh。")
+    if status.get('terminal_acceptance_ref'):
+        run_details += (f"实际已结算{accepted['finance']['actual_GPUh']:.6f} GPUh；"
+                        f"{link(status['terminal_acceptance_ref'], 'GPU完整接受')}。")
+    else:
+        run_details += '规划为估算，终态按完整实际费用结算。'
     headlines = '\n'.join(f"- **{f['title']}**（{f['short_scope']}）：{f['result']} {refs(f['refs'])}"
                            for f in status['headline_results'])
     details = '\n\n'.join(f"### {i+1}. {f['title']}\n\n{f['result']}\n\n{f['scope']} {refs(f['refs'])}"

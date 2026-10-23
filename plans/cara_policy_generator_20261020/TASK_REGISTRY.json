@@ -21,7 +21,7 @@
       "id": "PG-P1-ASSETS",
       "priority": 1,
       "title": "Complete real statistics, prices and generated-mask entry",
-      "status": "FULL1624_FOURCARD_GPU_RUNNING_EXTERNAL_CONTENTION_PRICE_REVIEW_REQUIRED",
+      "status": "FULL1624_ORIGINALS_ACCEPTED_EXCLUSIVE_PRICE_REFRESH_PENDING",
       "dependencies": [
         "PG-P0"
       ],
@@ -87,10 +87,52 @@
       "actual_CPU_acceptance_ref": "reports/wc_policy_assets_full1624_fourcard_CPU_r2_accepted_20261022.json",
       "actual_GPU_launch_ref": "reports/wc_policy_assets_full1624_fourcard_GPU_launch_20261022.json",
       "actual_GPU_schedule_ref": "reports/wc_policy_assets_full1624_fourcard_GPU_admission_checked_and_schedule_20261022.json",
-      "actual_GPU_observation_ref": "reports/wc_policy_assets_full1624_fourcard_GPU_recovered_20261023_0403.json",
+      "actual_GPU_observation_ref": "reports/wc_policy_assets_full1624_fourcard_GPU_terminal_20261023_0826.json",
       "clean_action_prices_accepted": false,
       "price_review_entry": "scripts/audit_wc_policy_asset_prices_r1.py",
-      "action_price_gate_ref": "plans/cara_policy_generator_20261020/PRICE_HISTORY_NATIVE_CONTINUATION_R1_20261023.md"
+      "action_price_gate_ref": "plans/cara_policy_generator_20261020/PRICE_HISTORY_NATIVE_CONTINUATION_R1_20261023.md",
+      "actual_GPU_terminal_ref": "reports/wc_policy_assets_full1624_fourcard_GPU_terminal_20261023_0826.json",
+      "actual_GPU_acceptance_ref": "reports/wc_policy_assets_full1624_fourcard_GPU_accepted_20261023_0826.json",
+      "original_assets_accepted": true,
+      "actual_GPUh": 6.900543598864331,
+      "original_acceptor_generator_input_ready": true,
+      "generator_input_ready": false,
+      "action_price_review_ref": "reports/wc_policy_assets_full1624_price_review_20261023_0827.json",
+      "price_refresh": {
+        "run_id": "wc-policy-price-refresh-cal4-full1624-ada-r1",
+        "scope_counts": {
+          "requests": 4,
+          "total_paths": 10,
+          "formal_paths": 8,
+          "warm_paths": 2,
+          "new_Native_paths": 0,
+          "reused_accepted_Native_paths": 4,
+          "CONTROL_paths": 5,
+          "PRICE_paths": 5,
+          "ordinary_pairs": 360,
+          "ordinary_CFG_calls": 720,
+          "loads": 1,
+          "formal_cells": 1624,
+          "warm_cells": 406,
+          "total_cells": 2030,
+          "warmup_round_readout_trials": 6090,
+          "formal_round_readout_trials": 18270,
+          "formal_path_readout_trials": 19488,
+          "warm_path_readout_trials": 4872,
+          "total_readout_trials": 24360,
+          "formal_repetitions_per_cell_action": 3,
+          "new_error_labels": 0
+        },
+        "quote_ref": "manifests/wc_policy_price_refresh_full1624_whole_quote_r1_20261023.json",
+        "plan_ref": "plans/cara_policy_generator_20261020/FULL1624_PRICE_REFRESH_R1_20261023.md",
+        "forecast_complete_GPUh": 9.500277777777777,
+        "billed_limit_GPUh": 11.5,
+        "local_quote_controls_passed": 3,
+        "production_CPU_accepted": false,
+        "GPU_dispatch_ready": false,
+        "GPU_submissions": 0,
+        "resource_ref": "reports/wc_policy_price_refresh_resource_20261023_0840.json"
+      }
     },
     {
       "id": "PG-P1",
@@ -187,6 +229,6 @@
   "strict_under12_and_cap226_unchanged": true,
   "no_gpu_launched_this_turn": false,
   "latest_preparation_audit_ref": "reports/wc_policy_assets_four_card_preparation_audit_20261022.json",
-  "latest_actual_progress_ref": "research/648_CARA_GPU_OWNER_PRICE_TRUST_AND_ORDERED_CONTINUATION_20261023.md",
-  "latest_preparation_plan_ref": "plans/cara_policy_generator_20261020/PRICE_HISTORY_NATIVE_CONTINUATION_R1_20261023.md"
+  "latest_actual_progress_ref": "research/649_CARA_FULL1624_ACCEPTED_PRICE_AUDIT_AND_REFRESH_SCOPE_20261023.md",
+  "latest_preparation_plan_ref": "plans/cara_policy_generator_20261020/FULL1624_PRICE_REFRESH_R1_20261023.md"
 }

@@ -1,0 +1,165 @@
+{
+  "status": "FULL_DOMAIN_PRICE_REFRESH_COMPLETE_PLANNING_QUOTE_NOT_DISPATCH",
+  "version": "CARA_PRICE_REFRESH_FULL1624_R1",
+  "scope_counts": {
+    "requests": 4,
+    "total_paths": 10,
+    "formal_paths": 8,
+    "warm_paths": 2,
+    "new_Native_paths": 0,
+    "reused_accepted_Native_paths": 4,
+    "CONTROL_paths": 5,
+    "PRICE_paths": 5,
+    "ordinary_pairs": 360,
+    "ordinary_CFG_calls": 720,
+    "loads": 1,
+    "formal_cells": 1624,
+    "warm_cells": 406,
+    "total_cells": 2030,
+    "warmup_round_readout_trials": 6090,
+    "formal_round_readout_trials": 18270,
+    "formal_path_readout_trials": 19488,
+    "warm_path_readout_trials": 4872,
+    "total_readout_trials": 24360,
+    "formal_repetitions_per_cell_action": 3,
+    "new_error_labels": 0
+  },
+  "matrix": [
+    {
+      "id": "warm_1_CONTROL",
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "section": "WARMUP",
+      "mode": "CONTROL"
+    },
+    {
+      "id": "warm_2_PRICE",
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "section": "WARMUP",
+      "mode": "PRICE"
+    },
+    {
+      "id": "formal_0_CONTROL",
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "section": "FORMAL",
+      "mode": "CONTROL"
+    },
+    {
+      "id": "formal_0_PRICE",
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "section": "FORMAL",
+      "mode": "PRICE"
+    },
+    {
+      "id": "formal_1_CONTROL",
+      "scene": "human_199",
+      "section": "FORMAL",
+      "mode": "CONTROL"
+    },
+    {
+      "id": "formal_1_PRICE",
+      "scene": "human_199",
+      "section": "FORMAL",
+      "mode": "PRICE"
+    },
+    {
+      "id": "formal_2_CONTROL",
+      "scene": "misc_13398218_3840_2160_60fps",
+      "section": "FORMAL",
+      "mode": "CONTROL"
+    },
+    {
+      "id": "formal_2_PRICE",
+      "scene": "misc_13398218_3840_2160_60fps",
+      "section": "FORMAL",
+      "mode": "PRICE"
+    },
+    {
+      "id": "formal_3_CONTROL",
+      "scene": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+      "section": "FORMAL",
+      "mode": "CONTROL"
+    },
+    {
+      "id": "formal_3_PRICE",
+      "scene": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+      "section": "FORMAL",
+      "mode": "PRICE"
+    }
+  ],
+  "all_cell_rounds": [
+    {
+      "name": "WARMUP",
+      "actions": [
+        "C",
+        "A_HALF",
+        "A_ONE"
+      ]
+    },
+    {
+      "name": "FORMAL_1",
+      "actions": [
+        "A_ONE",
+        "A_HALF",
+        "C"
+      ]
+    },
+    {
+      "name": "FORMAL_2",
+      "actions": [
+        "C",
+        "A_HALF",
+        "A_ONE"
+      ]
+    },
+    {
+      "name": "FORMAL_3",
+      "actions": [
+        "A_HALF",
+        "A_ONE",
+        "C"
+      ]
+    }
+  ],
+  "terms_seconds": {
+    "original_GPU_wall_minus_only_reused_Native": 23463.648658277467,
+    "additional_repeats_at_max_same_cell_observed_seconds": 2996.625859167427,
+    "exclusive_admission_monitor_and_shutdown_reserve": 900.0
+  },
+  "planning_margin": 1.25,
+  "limit_margin": 1.2,
+  "forecast_complete_GPUh": 9.500277777777777,
+  "billed_limit_GPUh": 11.5,
+  "specific_whole_card_approval_required": false,
+  "cumulative_cap_GPUh": 226,
+  "extra_readout_trials": 11340,
+  "original_tensor_IO_reduction_credited_seconds": 0,
+  "contention_timings_used_only_for_planning_not_clean_prices": true,
+  "raw_labels_reused_not_recollected": true,
+  "old_max_source_cost_reduction_unchanged": true,
+  "new_original_parent_and_Native_parity_required": true,
+  "actual_exclusive_GPU_required": true,
+  "production_CPU_accepted": false,
+  "production_collector_and_lifecycle_integration_pending": true,
+  "source_frozen_for_dispatch": false,
+  "GPU_dispatch_ready": false,
+  "GPU_submissions": 0,
+  "ledger_written": false,
+  "run_id": "wc-policy-price-refresh-cal4-full1624-ada-r1",
+  "source_asset_launch_id": "37ab7e89-952b-4ddb-acde-5b20a0fc1295",
+  "original_asset_launch_ref": "reports/wc_policy_assets_full1624_fourcard_GPU_launch_20261022.json",
+  "source_bindings": [
+    {
+      "ref": "reports/wc_policy_assets_full1624_fourcard_GPU_terminal_20261023_0826.json",
+      "sha256": "ab94d6ccc4ef04d15d8cdd3d1ab9e8c39b769ed17e1688062582b71c0f974d73"
+    },
+    {
+      "ref": "reports/wc_policy_assets_full1624_fourcard_GPU_accepted_20261023_0826.json",
+      "sha256": "837b1e59859a24f545609136938aaf6b95be4cf52e61840c1b0914c5cfcda75e"
+    }
+  ],
+  "old_label_bundle_sha256": "66ea189aaaa7013693976cc337b80744d892359f749607b710dbb364ebecf2f0",
+  "resource_available_at_terminal": false,
+  "resource_observation_ref": "reports/wc_policy_assets_full1624_fourcard_GPU_terminal_20261023_0826.json",
+  "old_asset_authorization_reused": false,
+  "new_scope_under_existing_under12_autonomy": true
+}
