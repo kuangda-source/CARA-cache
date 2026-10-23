@@ -7,7 +7,7 @@ from wc_four_card_policy_assets_r1 import ssh,write,read,REPO
 from four_card_policy_assets_port_r1 import ROOT
 sys.path.insert(0,str(REPO/'src'))
 from wcomr.immutable_stage_payload_r1 import local_python_closure
-ENTRY=['scripts/check_cara_pg_p2_production_cpu_r1.py','tests/check_cara_pg_p2_sampling_cpu_r1.py',
+ENTRY=['tests/test_cara_pg_p2_production_batch.py','scripts/check_cara_pg_p2_production_cpu_r1.py','tests/check_cara_pg_p2_sampling_cpu_r1.py',
  'tests/check_cara_pg_production_sampling_cpu_r1.py','scripts/check_wc_policy_price_refresh_cpu_r1.py']
 EXTRA=['plans/cara_policy_generator_20261020/CAL_SELECT_INPUTS_R1_20261022.json']
 

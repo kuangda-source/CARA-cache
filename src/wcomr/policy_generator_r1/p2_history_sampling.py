@@ -4,7 +4,7 @@ import random
 import numpy as np
 from pathlib import Path
 import torch
-from .production_sampling import PolicyOwner, _cache_snapshot, execute as policy_execute
+from .production_sampling import PolicyOwner, _cache_snapshot, execute as policy_execute, compile_collection, NativePolicyPairedExecutor
 from .interval_grammar import Edge, compile_policy
 from .continuation_preparation import history_points
 from ..policy_interval_readout_r1 import ReadoutKernel, guided
@@ -37,6 +37,11 @@ class HistoryOwner(PolicyOwner):
             self.features[b]=dict(original=original,probe=probe,embedding=embedding,adaln=adaln)
             return old(net,skipped,b,original,probe,hidden,kwargs,embedding,adaln)
         self.shadow.readout.hidden=capture
+        # The source compiler captures bound observation methods, so compile
+        # this isolated executor after installing the branch observer.
+        _,denoise,_=compile_collection(kw['runtime'],kw['wc'],kw['rf'],self.shadow.readout)
+        self.shadow.executor=NativePolicyPairedExecutor(self.model,denoise,torch,
+            wc_forward=kw['wc'].worldcache_mini_train_dit_forward,rf_denoise=kw['rf'].Video2WorldModelRectifiedFlow.denoise)
         self.kernel=ReadoutKernel(self.model,kw['runtime'],kw['wc'],kw['rf'],self.shadow.readout.warp)
 
     def state(self,inputs):

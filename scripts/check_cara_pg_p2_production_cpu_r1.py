@@ -60,13 +60,18 @@ def main():
         else:raise AssertionError('Unguarded P2 request accepted')
     from check_wc_policy_price_refresh_cpu_r1 import guardrail_codec_probe
     codec=guardrail_codec_probe(a.stage,a.project,im)
+    import unittest
+    spec2=importlib.util.spec_from_file_location('p2_batch_cpu',a.stage/'tests/test_cara_pg_p2_production_batch.py')
+    batch=importlib.util.module_from_spec(spec2);spec2.loader.exec_module(batch)
+    batch_result=unittest.TextTestRunner().run(unittest.defaultTestLoader.loadTestsFromModule(batch))
+    assert batch_result.wasSuccessful()
     numeric=checks.run(runtime,a.stage/'CPU-pg-numeric')
     assert {c['flow'] for c in numeric['checks']}=={False,True}
     from four_card_policy_assets_port_r1 import cpu_transport_probe
     transport=cpu_transport_probe(a.stage)
     value=dict(status='PG_P2_NATIVE_HISTORY_ACTUAL_ENTRY_CPU_COMPLETE_NOT_GPU',source_revision=reg['source_revision'],
         registration_sha256=sha(a.stage/'registration.json'),started_unix=started,ended_unix=time.time(),
-        actual_request_count=72,guard_refusal_controls=72,actual_SetupArguments=True,codec=codec,numeric=numeric,transport=transport,
+        batch_controls_passed=batch_result.testsRun,actual_request_count=72,guard_refusal_controls=72,actual_SetupArguments=True,codec=codec,numeric=numeric,transport=transport,
         CUDA_initialized=False,model_weights_loaded=0,GPU_submissions=0,ledger_written=False)
     assert not torch.cuda.is_initialized()
     with a.output.open('x') as f:json.dump(value,f,indent=2,allow_nan=False);f.write('\n')

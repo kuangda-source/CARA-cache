@@ -24,6 +24,7 @@ def accept(v):
         raise ValueError('Actual tokenizer/93-frame codec boundary failed')
     if not all(p['transport'][k] for k in ('parent_and_namespace_match','original_fd_inode_match','independent_open_refused','GPU_hidden','child_exited','fixture_lock_released')):
         raise ValueError('CPU inherited handle transport failed')
+    if p['batch_controls_passed']!=6:raise ValueError('Whole timing batch controls required')
     checks=p['numeric']['checks']
     if len(checks)!=2 or {x['flow'] for x in checks}!={False,True}:raise ValueError('Both full flow states required')
     for x in checks:
