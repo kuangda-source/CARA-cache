@@ -1,0 +1,38 @@
+{
+  "id": "CARA_PROBE_REFRESH_GATE_CLOSED_R1",
+  "recorded_at": "2026-10-23T21:04:03+08:00",
+  "decision_source": "Direct user instruction in this chat on 2026-10-23",
+  "status": "CLOSED_NO_NEW_COLLECTION_OR_GPU",
+  "closed_scope": "Shallow-probe online gating to decide refresh placement; includes L2/L3 escalation and a new learned scheduler on this line.",
+  "new_GPU_authorized": false,
+  "new_collection_authorized": false,
+  "automatic_reopening": false,
+  "conditional_reserves": [
+    {
+      "use": "Request-level compute budget allocation",
+      "trigger": "PG-P1 closed-loop succeeds and the mainline identifies a concrete mismatch from assigning the same budget to requests of different difficulty.",
+      "status": "DORMANT_NOT_A_DISPATCH_OR_VALIDATION_APPROVAL",
+      "additional_boundary": "The all-406-cell summary below is noncausal and not an available early-request budget signal. Any future use needs a causal cheap prefix signal and a fixed-total-budget evaluation."
+    },
+    {
+      "use": "Choose correction strength among C, A(.5), A(1)",
+      "trigger": "The mainline has committed to alpha levels and needs a cheap candidate for selecting between them.",
+      "status": "DORMANT_NOT_A_DISPATCH_OR_VALIDATION_APPROVAL",
+      "additional_boundary": "Previous 2% local matched-count benefit is exploratory, not endpoint or matched-runtime evidence."
+    }
+  ],
+  "allowed_closeout": {
+    "scope": "One bounded CPU-only scene-mean-L1 diagnostic using the same accepted1624, no new data. Freeze specification here before fitting.",
+    "prior_report": "reports/cara_L1_conditional_LOSO_20261023.json",
+    "primary_summary": "g=mean(log(d2)) over all406 cells of a scene, aligned to the previous log-L1 feature; one scalar only.",
+    "literal_mean_sensitivity": "g=log(mean(sqrt(d2))) over all406 cells: arithmetic mean guided RMS divergence followed by log. No sigma weighting. Report both, do not choose by held-out outcomes.",
+    "model": "For each action, use the original exact target/age baseline in log loss. Fit one scalar ridge slope across TRAINING SCENES between centered g and each scene's mean log-loss residual. Apply one constant log offset to every held-out cell; no time/age interaction in the adjustment.",
+    "outer_and_inner": "Same four outer scene-held-out folds, with nested leave-one-of-three-training-scenes-out selection among original lambdas [0,.01,.1,1,10,100] and no-signal. All fitting and scaling train-only.",
+    "metric": "Primary C mean squared log error, all folds and scene-equal aggregate. Recovery=(baseline_loss-scene_only_loss)/(baseline_loss-previous_cellwise_L1_loss). This is predictive loss recovery, not explained variance or causal attribution.",
+    "additional_read_only_decomposition": "For previous baseline and cellwise L1 predictions, log-error MSE = squared mean residual + centered residual MSE within each scene. Report the exact additive reduction of these terms and the teacher-label-derived best constant-offset oracle; oracle is diagnostic only.",
+    "online_validity": "Uses complete future teacher-conditioned source alternatives; neither an online gate nor a demonstrated deployable budget predictor.",
+    "stop": "After this report, no additional variants, feature collection, scheduler training, or L2/L3 work on this line."
+  },
+  "mainline": "PG-P1/P2 retain their existing exact scope, source, budgets, schedule, and verification. This closure adds no task or action to them.",
+  "future_diagnostic_design": "Determine the oracle gap on CAL/pilot material first, then freeze a threshold expressed as a fraction of that gap before looking at held-out outcomes. If the gap is near zero, mark the diagnostic as unable to distinguish practical improvements. Retain absolute effect sizes and decision cost."
+}

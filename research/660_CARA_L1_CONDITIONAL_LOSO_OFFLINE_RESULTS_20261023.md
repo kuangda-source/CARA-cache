@@ -110,3 +110,7 @@ python3 -m pytest -q tests/test_cara_l1_loso_20261023.py
 - [独立算术审核与等动作数量诊断](../reports/cara_L1_conditional_LOSO_audit_20261023.json)
 - [分析脚本](../scripts/analyze_cara_l1_loso_20261023.py) · [独立审核脚本](../scripts/audit_cara_l1_loso_20261023.py) · [CPU控制](../tests/test_cara_l1_loso_20261023.py)
 - [原1624完整接受](../reports/wc_policy_assets_full1624_fourcard_GPU_accepted_20261023_0826.json) · [原终态](../reports/wc_policy_assets_full1624_fourcard_GPU_terminal_20261023_0826.json)
+
+## 后续决策（不改写以上原分析）
+
+用户随后明确结束浅层探针刷新门控线，仅保留两个条件性窄用途。场景平均L1的CPU收尾并未支持“此前改善主要只是全场景尺度”的解释；完整结果与关闭范围见[662收尾记录](662_CARA_PROBE_REFRESH_GATE_CLOSED_AND_SCENE_SCALE_CHECK_20261023.md)。该决定不改变PG-P1/P2。
