@@ -19,7 +19,7 @@ reg=json.loads((base/'registration.json').read_text())
 assert sha(base/'registration.json')==p['base_registration_sha256']
 mem=int(next(x.split()[1] for x in pathlib.Path('/proc/meminfo').read_text().splitlines() if x.startswith('MemAvailable:')))*1024
 disk=shutil.disk_usage(root).free
-assert mem>=32*2**30 and disk>=40*2**30
+assert mem>=24*2**30 and disk>=40*2**30
 for n,h in reg['payload_sha256'].items():assert not (base/n).is_symlink() and sha(base/n)==h
 stage.mkdir(mode=0o700)
 for n in reg['payload_sha256']:
