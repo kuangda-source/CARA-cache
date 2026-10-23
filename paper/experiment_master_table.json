@@ -39,7 +39,7 @@
     "LOCAL_CPU_PROTOTYPE24_WITH_PROTECTED_PRICE_BRIDGE_NOT_PRODUCTION": 1,
     "PARTIAL_LOCAL_STRUCTURAL_AND_DOCUMENTS_READY": 1,
     "PRE_REGISTER_AND_DEDUP_AFTER_FIRST_LOOP": 1,
-    "PRICE_REFRESH_CPU_ACCEPTED_WAIT_EXCLUSIVE_RESOURCE": 1,
+    "PRICE_ENTRY_REPAIRED_WAIT_EXCLUSIVE_RESOURCE": 1,
     "RFC_PRIMARY_SOURCE_IDENTIFIED_ADAPTATION_NOT_FROZEN": 1,
     "SECOND_BACKBONE_OR_SETTING_NOT_SELECTED": 1,
     "WAIT_FOR_GENERATOR_FREEZE_NOT_LEGACY_RESULT_REUSE": 1,
@@ -5171,14 +5171,14 @@
     },
     {
       "id": "PG-P1-ASSETS",
-      "state": "PRICE_REFRESH_CPU_ACCEPTED_WAIT_EXCLUSIVE_RESOURCE",
+      "state": "PRICE_ENTRY_REPAIRED_WAIT_EXCLUSIVE_RESOURCE",
       "paper_experiment_name": "Complete real statistics, prices and generated-mask entry",
       "internal_ids": [
         "PG-P1-ASSETS"
       ],
       "contribution_relation": "可复现区间生成器的新方法验证；CPU原型不充真实质量结果",
-      "evidence_or_planned_scope": "原完整卡已接受；实际6.900544 GPUh。终态：14/14路径完成、0运行、0未到达、0失败；独立价格门槛见下一步。价格补测：完整价格CPU已接受；GPU控制器32项检查通过，等待空闲卡实际验证独占。",
-      "gap_and_next_action": "完整价格CPU与控制器已通过；12:52 GPU0完整准入仅GPU_BUSY，等待空闲UUID硬独占后单次10路径补测（上限11.5 GPUh），价格接受后接PG-P1。",
+      "evidence_or_planned_scope": "原完整卡已接受；实际6.900544 GPUh。终态：14/14路径完成、0运行、0未到达、0失败；独立价格门槛见下一步。价格补测：完整生产CPU已接受；host入口已修复并通过真实CPU检查，等待GPU3释放后恢复原意图。",
+      "gap_and_next_action": "兼容启动器修复及完整CPU接受保持；GMSD释放GPU3后仅resume-host-entry恢复原意图，实际独占/唯一runner核查后安排半程与全程。",
       "priority": "GEN-1",
       "evidence_refs": [
         "research/612_WC_POLICY_GENERATOR_CPU_PROTOTYPE_AND_REPRODUCIBLE_VALIDATION_DESIGN_20261020.md",
@@ -5257,7 +5257,13 @@
         "research/653_CARA_GPU0_RECHECK_AND_ACCEPTANCE_STATUS_20261023.md",
         "reports/wc_policy_price_refresh_GPU0_user_full_preflight_20261023_1252.json",
         "reports/wc_policy_price_refresh_user_GPU0_resource_20261023_125149.json",
-        "reports/wc_policy_price_refresh_GPU0_owner_20261023_1252.json"
+        "reports/wc_policy_price_refresh_GPU0_owner_20261023_1252.json",
+        "research/654_CARA_PRICE_HOST_ENTRY_REPAIRED_WAIT_GMSD_RELEASE_20261023.md",
+        "reports/wc_policy_price_refresh_entry_recovery_controller_CPU_20261023.json",
+        "reports/wc_policy_price_refresh_host_entry_wrapper_actual_CPU_r2_20261023.json",
+        "reports/wc_policy_price_refresh_full1624_GPU_launch_r1_20261023_1300.json",
+        "reports/wc_policy_price_refresh_full1624_GPU_recovered_launch_r1_20261023_1304.json",
+        "reports/wc_policy_price_refresh_GPU3_new_context_identity_20261023_1305.json"
       ],
       "method_mapping_ids": [],
       "contribution_ids": [
@@ -5307,9 +5313,9 @@
       "generator_input_ready": false,
       "reader": {
         "title": "完整1624真实区间/价格资产",
-        "status": "原1624已接受；独立价格CPU已接受，等待独占资源",
-        "result": "原完整卡已接受；实际6.900544 GPUh。终态：14/14路径完成、0运行、0未到达、0失败；独立价格门槛见下一步。价格补测：完整价格CPU已接受；GPU控制器32项检查通过，等待空闲卡实际验证独占。",
-        "next_action": "完整价格CPU与控制器已通过；12:52 GPU0完整准入仅GPU_BUSY，等待空闲UUID硬独占后单次10路径补测（上限11.5 GPUh），价格接受后接PG-P1。",
+        "status": "原1624已接受；价格入口已修复，等待GPU3上GMSD释放",
+        "result": "原完整卡已接受；实际6.900544 GPUh。终态：14/14路径完成、0运行、0未到达、0失败；独立价格门槛见下一步。价格补测：完整生产CPU已接受；host入口已修复并通过真实CPU检查，等待GPU3释放后恢复原意图。",
+        "next_action": "兼容启动器修复及完整CPU接受保持；GMSD释放GPU3后仅resume-host-entry恢复原意图，实际独占/唯一runner核查后安排半程与全程。",
         "evidence_refs": [
           "PG_assets_fourcard_GPU_progress_646",
           "research/647_CARA_FULL1624_HALFWAY_AND_SHARED_GPU_PRICE_CAVEAT_20261023.md",
@@ -5323,7 +5329,13 @@
           "research/651_CARA_PRICE_CPU_ACCEPTED_CONTROLLER_READY_WAIT_EXCLUSIVE_20261023.md",
           "reports/wc_policy_price_refresh_full1624_CPU_accepted_r1_20261023.json",
           "reports/wc_policy_price_refresh_controller_terminal_CPU_20261023.json",
-          "research/653_CARA_GPU0_RECHECK_AND_ACCEPTANCE_STATUS_20261023.md"
+          "research/653_CARA_GPU0_RECHECK_AND_ACCEPTANCE_STATUS_20261023.md",
+          "research/654_CARA_PRICE_HOST_ENTRY_REPAIRED_WAIT_GMSD_RELEASE_20261023.md",
+          "reports/wc_policy_price_refresh_entry_recovery_controller_CPU_20261023.json",
+          "reports/wc_policy_price_refresh_host_entry_wrapper_actual_CPU_r2_20261023.json",
+          "reports/wc_policy_price_refresh_full1624_GPU_launch_r1_20261023_1300.json",
+          "reports/wc_policy_price_refresh_full1624_GPU_recovered_launch_r1_20261023_1304.json",
+          "reports/wc_policy_price_refresh_GPU3_new_context_identity_20261023_1305.json"
         ]
       },
       "actual_GPU_terminal_ref": "reports/wc_policy_assets_full1624_fourcard_GPU_terminal_20261023_0826.json",
@@ -5365,7 +5377,7 @@
         "production_CPU_accepted": true,
         "GPU_dispatch_ready": false,
         "GPU_submissions": 0,
-        "resource_ref": "reports/wc_policy_price_refresh_user_GPU0_resource_20261023_125149.json",
+        "resource_ref": "reports/wc_policy_price_refresh_recovery_resource_recheck_20261023_130436.json",
         "actual_CPU_launch_ref": "reports/wc_policy_price_refresh_full1624_CPU_launch_r1_20261023.json",
         "source_revision": "cecba6647fcc626887761961fc7215c6fe1afa8b",
         "real_production_entry_passed": true,
@@ -5376,15 +5388,32 @@
         "actual_numerical_CPU_still_running": false,
         "actual_CPU_terminal_ref": "reports/wc_policy_price_refresh_full1624_CPU_terminal_check_r1_20261023_0955.json",
         "actual_CPU_acceptance_ref": "reports/wc_policy_price_refresh_full1624_CPU_accepted_r1_20261023.json",
-        "controller_CPU_tests_passed": 32,
-        "controller_CPU_ref": "reports/wc_policy_price_refresh_controller_terminal_CPU_20261023.json",
+        "controller_CPU_tests_passed": 37,
+        "controller_CPU_ref": "reports/wc_policy_price_refresh_entry_recovery_controller_CPU_20261023.json",
         "controller_entry": "scripts/wc_four_card_price_refresh_gpu_r1.py",
         "terminal_acceptor": "src/wcomr/policy_price_terminal_r1.py",
-        "preflight_ref": "reports/wc_policy_price_refresh_GPU0_user_full_preflight_20261023_1252.json",
+        "preflight_ref": "reports/wc_policy_price_refresh_full1624_GPU_recovered_launch_r1_20261023_1304.json",
         "hardware_exclusivity_verified": false,
         "next_resource_check_local": "2026-10-23 13:30 Asia/Shanghai",
         "resource_observed_at": "2026-10-23T12:52:26.882393+08:00",
-        "process_owner_ref": "reports/wc_policy_price_refresh_GPU0_owner_20261023_1252.json"
+        "process_owner_ref": "reports/wc_policy_price_refresh_GPU3_new_context_identity_20261023_1305.json",
+        "entry_recovery": {
+          "status": "KNOWN_PRE_INTERPRETER_FAILURE_REPAIRED_RESOURCE_WAIT",
+          "original_attempt_ref": "reports/wc_policy_price_refresh_full1624_GPU_launch_r1_20261023_1300.json",
+          "original_launch_id": "895d66c7-5e95-42b3-bbff-0f78766eb424",
+          "failure_ref": "reports/wc_policy_price_refresh_original_host_entry_diagnostic_20261023_1300.json",
+          "failure_log_sha256": "d3947fdb9a9d041a9f003ca0277c9f54a3f90c15a3daf3786a6d3a765e5f785d",
+          "wrapper_CPU_ref": "reports/wc_policy_price_refresh_host_entry_wrapper_actual_CPU_r2_20261023.json",
+          "controller_CPU_ref": "reports/wc_policy_price_refresh_entry_recovery_controller_CPU_20261023.json",
+          "tests_passed": 37,
+          "controller_source_revision": "03f702e2",
+          "recovery_attempt_ref": "reports/wc_policy_price_refresh_full1624_GPU_recovered_launch_r1_20261023_1304.json",
+          "recovery_intent_created": false,
+          "confirmed_GPU_submissions": 0,
+          "actual_GPUh": 0,
+          "allowed_next_command": "resume-host-entry",
+          "original_stage_unchanged": true
+        }
       }
     },
     {
@@ -11507,28 +11536,28 @@
     },
     "EXPERIMENT_REPORT.md": {
       "path": "EXPERIMENT_REPORT.md",
-      "sha256": "98e845b55eeda51dcbee9055c42685190b93f87d26c0bc6f9f16fbd75bfa2c9d",
-      "bytes": 8887
+      "sha256": "51fc37ddcbfbd2e0479905c3558c068b3a5bb0ec8110f994111a24c25dd117ff",
+      "bytes": 8912
     },
     "memory/handoffs/LATEST.md": {
       "path": "memory/handoffs/LATEST.md",
-      "sha256": "b85e47d4e534f0edc47049f9bcad3962c8eb1d5b1cd49fb4e70a277103e165c1",
-      "bytes": 6526
+      "sha256": "0899fce4104e1607a3c9b0f23826d995e96c109be7f070dc021c7d6e12a7aa76",
+      "bytes": 6576
     },
     "research/02_CURRENT_STATE.md": {
       "path": "research/02_CURRENT_STATE.md",
-      "sha256": "a8649a2fce0d509a9175edfdca6bea4ff59b0156639ce1ce0f30857373626d18",
-      "bytes": 6791
+      "sha256": "bae1c911496e3ec30db548686d6fe5be4142ad6e10f342689518d02b734f57f9",
+      "bytes": 6831
     },
     "research/09_NEXT_ACTIONS.md": {
       "path": "research/09_NEXT_ACTIONS.md",
-      "sha256": "ec65b22a8b9c6879c3efe5132ea6a4068174a0f5a15a09c527fed6f13c1a3be5",
-      "bytes": 5979
+      "sha256": "64115d803c755b83be1b1eb1d56b103372710f8577ebac45d3d66f26dc8ffaf1",
+      "bytes": 6004
     },
     "paper/EXPERIMENT_MASTER_TABLE.md": {
       "path": "paper/EXPERIMENT_MASTER_TABLE.md",
-      "sha256": "3be31133cc32fa4affa3816332c5d4522afd5649405e65d48198c5b97884f0c7",
-      "bytes": 30305
+      "sha256": "098688e5476579e8740e3ad25d81d9489472f5283e1902ef9ebfc6515193ba16",
+      "bytes": 30917
     },
     "paper/INTERNAL_TO_PAPER_MAPPING.md": {
       "path": "paper/INTERNAL_TO_PAPER_MAPPING.md",
@@ -13397,7 +13426,7 @@
     "historical_operation_policy_ref": "docs/archive/20261022_before_navigation/paper/experiment_master_table.json"
   },
   "mapping_sha256_at_inventory": "88b3d760a0c94c20b6c802e21f30c7286d6e596cc9b3f3100e7ee6feaa3938f3",
-  "latest_mapping_sha256": "1b3e08dce1f16c8b3cecc05e6126ac9888f32b4d46684e063eb4ad0265658228",
+  "latest_mapping_sha256": "f6cc850d5a9d2d1c713cac0faf8f0c9bb567759403139271a3e50cc37be618f2",
   "revision_plan": {
     "registry_ref": "plans/cara_v6_20261020/TASK_REGISTRY_V6.yaml",
     "report_ref": "research/610_WC_CARA_V6_REVIEW_CLOSURE_PLAN_INTERVAL_SPEC_AND_FIRST_DEV_SCOPE_20261020.md",

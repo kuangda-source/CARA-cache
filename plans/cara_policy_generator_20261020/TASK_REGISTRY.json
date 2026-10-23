@@ -21,7 +21,7 @@
       "id": "PG-P1-ASSETS",
       "priority": 1,
       "title": "Complete real statistics, prices and generated-mask entry",
-      "status": "PRICE_REFRESH_CPU_ACCEPTED_WAIT_EXCLUSIVE_RESOURCE",
+      "status": "PRICE_ENTRY_REPAIRED_WAIT_EXCLUSIVE_RESOURCE",
       "dependencies": [
         "PG-P0"
       ],
@@ -131,7 +131,7 @@
         "production_CPU_accepted": true,
         "GPU_dispatch_ready": false,
         "GPU_submissions": 0,
-        "resource_ref": "reports/wc_policy_price_refresh_user_GPU0_resource_20261023_125149.json",
+        "resource_ref": "reports/wc_policy_price_refresh_recovery_resource_recheck_20261023_130436.json",
         "actual_CPU_launch_ref": "reports/wc_policy_price_refresh_full1624_CPU_launch_r1_20261023.json",
         "source_revision": "cecba6647fcc626887761961fc7215c6fe1afa8b",
         "real_production_entry_passed": true,
@@ -142,15 +142,32 @@
         "actual_numerical_CPU_still_running": false,
         "actual_CPU_terminal_ref": "reports/wc_policy_price_refresh_full1624_CPU_terminal_check_r1_20261023_0955.json",
         "actual_CPU_acceptance_ref": "reports/wc_policy_price_refresh_full1624_CPU_accepted_r1_20261023.json",
-        "controller_CPU_tests_passed": 32,
-        "controller_CPU_ref": "reports/wc_policy_price_refresh_controller_terminal_CPU_20261023.json",
+        "controller_CPU_tests_passed": 37,
+        "controller_CPU_ref": "reports/wc_policy_price_refresh_entry_recovery_controller_CPU_20261023.json",
         "controller_entry": "scripts/wc_four_card_price_refresh_gpu_r1.py",
         "terminal_acceptor": "src/wcomr/policy_price_terminal_r1.py",
-        "preflight_ref": "reports/wc_policy_price_refresh_GPU0_user_full_preflight_20261023_1252.json",
+        "preflight_ref": "reports/wc_policy_price_refresh_full1624_GPU_recovered_launch_r1_20261023_1304.json",
         "hardware_exclusivity_verified": false,
         "next_resource_check_local": "2026-10-23 13:30 Asia/Shanghai",
         "resource_observed_at": "2026-10-23T12:52:26.882393+08:00",
-        "process_owner_ref": "reports/wc_policy_price_refresh_GPU0_owner_20261023_1252.json"
+        "process_owner_ref": "reports/wc_policy_price_refresh_GPU3_new_context_identity_20261023_1305.json",
+        "entry_recovery": {
+          "status": "KNOWN_PRE_INTERPRETER_FAILURE_REPAIRED_RESOURCE_WAIT",
+          "original_attempt_ref": "reports/wc_policy_price_refresh_full1624_GPU_launch_r1_20261023_1300.json",
+          "original_launch_id": "895d66c7-5e95-42b3-bbff-0f78766eb424",
+          "failure_ref": "reports/wc_policy_price_refresh_original_host_entry_diagnostic_20261023_1300.json",
+          "failure_log_sha256": "d3947fdb9a9d041a9f003ca0277c9f54a3f90c15a3daf3786a6d3a765e5f785d",
+          "wrapper_CPU_ref": "reports/wc_policy_price_refresh_host_entry_wrapper_actual_CPU_r2_20261023.json",
+          "controller_CPU_ref": "reports/wc_policy_price_refresh_entry_recovery_controller_CPU_20261023.json",
+          "tests_passed": 37,
+          "controller_source_revision": "03f702e2",
+          "recovery_attempt_ref": "reports/wc_policy_price_refresh_full1624_GPU_recovered_launch_r1_20261023_1304.json",
+          "recovery_intent_created": false,
+          "confirmed_GPU_submissions": 0,
+          "actual_GPUh": 0,
+          "allowed_next_command": "resume-host-entry",
+          "original_stage_unchanged": true
+        }
       }
     },
     {
