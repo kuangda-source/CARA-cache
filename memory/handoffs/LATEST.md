@@ -8,7 +8,7 @@
 
 观测：2026-10-24T00:34:39.820871+08:00。原半程/终态检查已关闭，无重复提交。
 
-[完整原终态](../../reports/cara_PG_P1_original_terminal_codec_recovered_20261024_0035.json) · [独立接受](../../reports/cara_PG_P1_original_terminal_accepted_20261024_0037.json) · [完整记录](../../research/669_CARA_PG_P1_COMPLETE_BUDGET_ATTRIBUTION_AND_REPAIR_PLAN_20261024.md)。原P1完整接受：30路径、16评分、4查询，实际2.557833359921 GPUh，selected_policy=null。完整离线复算确认完整请求低估7.25–12.96秒，以及无可行首批则跳过细化的搜索缺口；GRAPH_DIVERSE在4个已曝光CAL的LPIPS比SIMPLE_C低4.92%，不是新输入结论。修复和44路径计时验证仅为方案，尚未实现/CPU接受/派GPU，原257.771秒预算不变。
+[完整原终态](../../reports/cara_PG_P1_original_terminal_codec_recovered_20261024_0035.json) · [独立接受](../../reports/cara_PG_P1_original_terminal_accepted_20261024_0037.json) · [完整记录](../../research/670_CARA_HISTORICAL_BASELINE_EQUIVALENCE_AND_BOUNDARY104_20261024.md)。原P1完整接受但没有预算可行策略；原结果与费用保持。历史强基线原alpha及24/25D的新旧入口148路径、真实请求/编解码/锁CPU已接受。新104路径验证卡报价11.423207/11.9 GPUh；组合CPU与GPU结果尚未完成，原部署257.771秒及累计226 GPUh不变。
 
 | 当前PG-P1字段 | 原始身份 |
 |---|---|
@@ -23,14 +23,14 @@
 
 原件与财务完整接受；实际2.557833 GPUh。64登记位置中执行30路径、16评分、4候选查询；未选出满足冻结预算的策略，PG-P2尚不准入。
 
-完整分析已完成：先实现生产全请求计时桥接与首批不可行时的有限搜索恢复，完成CPU后冻结44路径计时验证卡；原B不放宽，P2等待冻结策略。
+历史原alpha及24/25D新旧入口完整148路径CPU已独立接受；104路径整卡已报价11.423207/11.9 GPUh，先完成新增采集/释放GPU后评分/终态组合CPU，再进行独占GPU准入。部署257.771秒与累计226 GPUh保持，P2等待可行冻结策略。
 
 ## 接续规则
 
 - 原1624 launch已于08:26完整接受，原件见[649](../../research/649_CARA_FULL1624_ACCEPTED_PRICE_AUDIT_AND_REFRESH_SCOPE_20261023.md)，不重复验收/提交。[独立价格刷新](../../plans/cara_policy_generator_20261020/FULL1624_PRICE_REFRESH_R1_20261023.md)完整生产CPU已接受；修复host兼容入口后37项相关CPU检查通过。13:13:24沿原意图实际恢复并验证GPU3硬件独占，见[655](../../research/655_CARA_PRICE_GPU3_EXCLUSIVE_ADMITTED_AND_COORDINATED_SCHEDULE_20261023.md)。GMSD已释放该卡，用户授权CARA优先。
 - `--launch-ref`固定价格实际恢复启动`reports/wc_policy_price_refresh_full1624_GPU_actual_recovery_launch_20261023_1313.json`。unknown只恢复原句柄；已有恢复intent/launch，不能再次launch-gpu或resume-host-entry。提前退出保留实际终态与费用，原12:59解释器前失败不能冒充实际GPU启动时间。原R1 CPU失败、BANK24原ffprobe失败和后续恢复均保留。
 - 使用已授权四卡私有入口；不恢复两卡、不触碰他人任务、不更改在跑stage。完整范围/预算/冻结门控不变，DEV不回流调阈值。
-- 原资产与独占价格继续保持接受。PG-P1原终态已独立接受，但未选出预算可行策略；原两次检查已关闭。见[668原终态](../../research/668_CARA_STORAGE_DEDUP_AND_P1_ORIGINAL_TERMINAL_ACCEPTANCE_20261024.md)。完整分析与修复方案见[669](../../research/669_CARA_PG_P1_COMPLETE_BUDGET_ATTRIBUTION_AND_REPAIR_PLAN_20261024.md)；生产实现/CPU与44路径计时验证待做，不能把方案当GPU接受或直接接P2。
+- 原资产与独占价格继续保持接受。PG-P1原终态已独立接受，但未选出预算可行策略；原两次检查已关闭。见[668原终态](../../research/668_CARA_STORAGE_DEDUP_AND_P1_ORIGINAL_TERMINAL_ACCEPTANCE_20261024.md)。完整分析与修复方案见[669](../../research/669_CARA_PG_P1_COMPLETE_BUDGET_ATTRIBUTION_AND_REPAIR_PLAN_20261024.md)；历史/边界入口148路径CPU已接受，104卡已报价，新增组合CPU与GPU执行待做，不能直接接P2。见[670](../../research/670_CARA_HISTORICAL_BASELINE_EQUIVALENCE_AND_BOUNDARY104_20261024.md)。
 - 有意义的进度、完成、失败或需用户行动时才通知；文档整理不构成新的实验观测。
 - P1/P2历史准备见[652](../../research/652_CARA_PG_P1_P2_CPU_PREPARATION_AND_HANDOFF_20261023.md)、[657](../../research/657_CARA_PG_P1_FULL_CARD_COMBINATION_CPU_ACCEPTED_AND_PRICE_HANDOFF_20261023.md)和[整卡交接](../../plans/cara_policy_generator_20261020/P1_FULL_CARD_COMBINATION_HANDOFF_R3_20261023.md)。这些是已经执行的原P1入口和报价，不得将旧接续命令作为再次派发授权。历史shadow和少步Native仍属P2独立范围。
 
@@ -38,6 +38,6 @@
 
 ## P2并行准备
 
-P1原件与财务已完整接受，但没有预算可行的冻结策略，P2目前不准入。保留已通过的P2组合CPU与五模型入口准备；完整离线分析确认全请求价格低估与可行性恢复搜索缺口，见[669原因分析与修复](../../research/669_CARA_PG_P1_COMPLETE_BUDGET_ATTRIBUTION_AND_REPAIR_PLAN_20261024.md)。下一步实现计时桥接与有限搜索恢复，44路径计时验证为未执行草案，原预算不放宽。已完成旧实验约4.45 GiB实体去重，38原路径和所有SHA保持；两个压缩包经全量一致核验后清理，本次合计释放63.05 GiB，另三个差异包保留。见[668当前原件与维护](../../research/668_CARA_STORAGE_DEDUP_AND_P1_ORIGINAL_TERMINAL_ACCEPTANCE_20261024.md)。
+P1原件与财务已完整接受，但没有预算可行的冻结策略，P2目前不准入。保留已通过的P2组合CPU与五模型入口准备；完整离线分析确认全请求价格低估与可行性恢复搜索缺口，见[669原因分析与修复](../../research/669_CARA_PG_P1_COMPLETE_BUDGET_ATTRIBUTION_AND_REPAIR_PLAN_20261024.md)。历史强基线原alpha及24/25D新旧入口148路径CPU已接受；[104路径预算边界卡](../../research/670_CARA_HISTORICAL_BASELINE_EQUIVALENCE_AND_BOUNDARY104_20261024.md)已完整报价11.423207/11.9 GPUh，替代未执行44路径草案。下一步补齐104卡采集、GPU释放后评分与终态组合CPU，部署257.771秒及累计226 GPUh不变。已完成旧实验约4.45 GiB实体去重，38原路径和所有SHA保持；两个压缩包经全量一致核验后清理，本次合计释放63.05 GiB，另三个差异包保留。见[668当前原件与维护](../../research/668_CARA_STORAGE_DEDUP_AND_P1_ORIGINAL_TERMINAL_ACCEPTANCE_20261024.md)。
 
 P2 CPU原件与绑定命令见[生产接续方案](../../plans/cara_policy_generator_20261020/P2_NATIVE_HISTORY_PRODUCTION_HANDOFF_R1_20261023.md)。不重复已接受CPU。78.5 GPUh仍是历史未去重上界，非已批预算；无预算可行的冻结P1策略时不能生成最终P2报价或派发。

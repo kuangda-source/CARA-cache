@@ -53,9 +53,9 @@ LPIPS 越低表示越接近同输入的 Native 视频；它与局部速度 MSE�
 
 观测：2026-10-24T00:34:39.820871+08:00。原半程/终态检查已关闭，无重复提交。
 
-[完整原终态](reports/cara_PG_P1_original_terminal_codec_recovered_20261024_0035.json) · [独立接受](reports/cara_PG_P1_original_terminal_accepted_20261024_0037.json) · [完整记录](research/669_CARA_PG_P1_COMPLETE_BUDGET_ATTRIBUTION_AND_REPAIR_PLAN_20261024.md)。原P1完整接受：30路径、16评分、4查询，实际2.557833359921 GPUh，selected_policy=null。完整离线复算确认完整请求低估7.25–12.96秒，以及无可行首批则跳过细化的搜索缺口；GRAPH_DIVERSE在4个已曝光CAL的LPIPS比SIMPLE_C低4.92%，不是新输入结论。修复和44路径计时验证仅为方案，尚未实现/CPU接受/派GPU，原257.771秒预算不变。
+[完整原终态](reports/cara_PG_P1_original_terminal_codec_recovered_20261024_0035.json) · [独立接受](reports/cara_PG_P1_original_terminal_accepted_20261024_0037.json) · [完整记录](research/670_CARA_HISTORICAL_BASELINE_EQUIVALENCE_AND_BOUNDARY104_20261024.md)。原P1完整接受但没有预算可行策略；原结果与费用保持。历史强基线原alpha及24/25D的新旧入口148路径、真实请求/编解码/锁CPU已接受。新104路径验证卡报价11.423207/11.9 GPUh；组合CPU与GPU结果尚未完成，原部署257.771秒及累计226 GPUh不变。
 
-P1原件与财务已完整接受，但没有预算可行的冻结策略，P2目前不准入。保留已通过的P2组合CPU与五模型入口准备；完整离线分析确认全请求价格低估与可行性恢复搜索缺口，见[669原因分析与修复](research/669_CARA_PG_P1_COMPLETE_BUDGET_ATTRIBUTION_AND_REPAIR_PLAN_20261024.md)。下一步实现计时桥接与有限搜索恢复，44路径计时验证为未执行草案，原预算不放宽。已完成旧实验约4.45 GiB实体去重，38原路径和所有SHA保持；两个压缩包经全量一致核验后清理，本次合计释放63.05 GiB，另三个差异包保留。见[668当前原件与维护](research/668_CARA_STORAGE_DEDUP_AND_P1_ORIGINAL_TERMINAL_ACCEPTANCE_20261024.md)。
+P1原件与财务已完整接受，但没有预算可行的冻结策略，P2目前不准入。保留已通过的P2组合CPU与五模型入口准备；完整离线分析确认全请求价格低估与可行性恢复搜索缺口，见[669原因分析与修复](research/669_CARA_PG_P1_COMPLETE_BUDGET_ATTRIBUTION_AND_REPAIR_PLAN_20261024.md)。历史强基线原alpha及24/25D新旧入口148路径CPU已接受；[104路径预算边界卡](research/670_CARA_HISTORICAL_BASELINE_EQUIVALENCE_AND_BOUNDARY104_20261024.md)已完整报价11.423207/11.9 GPUh，替代未执行44路径草案。下一步补齐104卡采集、GPU释放后评分与终态组合CPU，部署257.771秒及累计226 GPUh不变。已完成旧实验约4.45 GiB实体去重，38原路径和所有SHA保持；两个压缩包经全量一致核验后清理，本次合计释放63.05 GiB，另三个差异包保留。见[668当前原件与维护](research/668_CARA_STORAGE_DEDUP_AND_P1_ORIGINAL_TERMINAL_ACCEPTANCE_20261024.md)。
 
 ## 仓库结构与使用
 

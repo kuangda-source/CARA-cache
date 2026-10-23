@@ -8,7 +8,7 @@
 
 观测：2026-10-24T00:34:39.820871+08:00。原半程/终态检查已关闭，无重复提交。
 
-[完整原终态](../reports/cara_PG_P1_original_terminal_codec_recovered_20261024_0035.json) · [独立接受](../reports/cara_PG_P1_original_terminal_accepted_20261024_0037.json) · [完整记录](../research/669_CARA_PG_P1_COMPLETE_BUDGET_ATTRIBUTION_AND_REPAIR_PLAN_20261024.md)。原P1完整接受：30路径、16评分、4查询，实际2.557833359921 GPUh，selected_policy=null。完整离线复算确认完整请求低估7.25–12.96秒，以及无可行首批则跳过细化的搜索缺口；GRAPH_DIVERSE在4个已曝光CAL的LPIPS比SIMPLE_C低4.92%，不是新输入结论。修复和44路径计时验证仅为方案，尚未实现/CPU接受/派GPU，原257.771秒预算不变。
+[完整原终态](../reports/cara_PG_P1_original_terminal_codec_recovered_20261024_0035.json) · [独立接受](../reports/cara_PG_P1_original_terminal_accepted_20261024_0037.json) · [完整记录](../research/670_CARA_HISTORICAL_BASELINE_EQUIVALENCE_AND_BOUNDARY104_20261024.md)。原P1完整接受但没有预算可行策略；原结果与费用保持。历史强基线原alpha及24/25D的新旧入口148路径、真实请求/编解码/锁CPU已接受。新104路径验证卡报价11.423207/11.9 GPUh；组合CPU与GPU结果尚未完成，原部署257.771秒及累计226 GPUh不变。
 
 | 需要的材料 | 入口 |
 |---|---|
