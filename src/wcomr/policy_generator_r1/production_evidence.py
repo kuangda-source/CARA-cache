@@ -80,3 +80,16 @@ def native_clock(rows,*,fit_members,profile_identity,monitor_raw,runner,gpu_uuid
         exclusive_monitoring_accepted=True,profile_identity=profile_identity,timing_boundary=TIME_BOUNDARY,
         before_candidate_endpoints=True,rows=out,monitor_prefix_sha256=hashlib.sha256(monitor_raw.encode()).hexdigest(),
         observed_unix=now,source_revision=source_revision,launch_id=launch_id,gpu_uuid=gpu_uuid,runner=runner)
+
+
+def metric_resource_identity(project):
+    """Same accepted BANK24 LPIPS bytes, without importing its old stage module."""
+    import importlib.metadata
+    import lpips
+    project=Path(project);site=project/'envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages'
+    alex=project/'cache/torch/hub/checkpoints/alexnet-owt-7be5be79.pth';linear=site/'lpips/weights/v0.1/alex.pth'
+    alex_sha='7be5be791159472b1fbf3c69796f7cb30dca7ad8466c2df70058c37116cdee02'
+    linear_sha='df73285e35b22355a2df87cdb6b70b343713b667eddbda73e1977e0c860835c0'
+    require(sha(alex)==alex_sha and sha(linear)==linear_sha,'Accepted full LPIPS weights changed')
+    require(importlib.metadata.version('lpips')=='0.1.4' and Path(lpips.__file__).resolve()==(site/'lpips/__init__.py').resolve(),'LPIPS package/version differs')
+    return dict(status='ACCEPTED_FIXED_TWO_LPIPS_FILES_REUSED',alexnet_sha256=alex_sha,linear_sha256=linear_sha,version='0.1.4',metric_version='0.1',net='alex')

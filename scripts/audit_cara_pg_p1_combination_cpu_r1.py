@@ -18,6 +18,7 @@ def accept(v):
   if life[field]!=reg['payload_sha256'][name]:raise ValueError('Tested supervisor/guardian source mismatch')
  metric=p['full_video_metric']
  if not metric['actual_accepted_LPIPS_CPU'] or not metric['all93_original432x768'] or metric['identity_zero']!=0. or metric['Cosmos_generated_video']:raise ValueError('Actual full CPU score protocol failed')
+ if not all(metric.get(k) is True for k in ('actual_endpoint_callback_serialization','metric_failure_propagated_raw_retained','same_slot_replay_refused')):raise ValueError('Actual callback/error composition missing')
  if not p['terminal_combination']['passed'] or p['terminal_combination']['tests_run']<12 or not p['terminal_combination']['complete64_denominator']:raise ValueError('Incomplete independent terminal combination')
  return dict(status='PG_P1_COMPLETE_PRODUCTION_COMBINATION_CPU_ACCEPTED_PRICE_PENDING',source_revision=accepted['source_revision'],registration_sha256=accepted['registration_sha256'],
   production_CPU_accepted=True,full_GPU_lifecycle_CPU_accepted=True,production_entry_CPU_accepted=True,proof_sha256=v['proof']['sha256'],

@@ -36,7 +36,7 @@ def main():
  from wcomr.policy_generator_r1.continuation_preparation import TIME_BOUNDARY
  from wcomr.gpu_budget_pool_v2 import atomic_json,process_identity
  from four_card_policy_assets_port_r1 import reconstruct
- from bank24_fourcard_lifecycle_r1 import lpips_identity
+ from wcomr.policy_generator_r1.production_evidence import metric_resource_identity
  base,parent,inputs,*_=reconstruct(a.stage);calibration,specs,*_=inputs
  select=read(a.stage/'plans/cara_policy_generator_20261020/CAL_SELECT_INPUTS_R1_20261022.json')
  fit=json.loads(assets[1])['fit_members'];members=[r['name'] for r in select['selected_sources']]
@@ -60,7 +60,7 @@ def main():
   assert torch.__version__=='2.7.1+cu128' and torch.cuda.get_device_capability()==(8,9) and len(net.blocks)==28
   settings=parent['historical_wc_settings'];wc.apply_worldcache(net,**{k.removeprefix('worldcache_'):v for k,v in settings.items()})
   initial=CompleteStateRoundtrip(net,model.sample_scheduler,torch.zeros(1));origin=initial.fingerprint();versions=[(v,v._version) for v in net.parameters()]
-  metric_identity=lpips_identity(a.project,a.stage);assert importlib.metadata.version('lpips')=='0.1.4'
+  metric_identity=metric_resource_identity(a.project);assert importlib.metadata.version('lpips')=='0.1.4'
   torch.hub.set_dir(str(a.project/'cache/torch'));metric=lpips.LPIPS(net='alex',version='0.1',spatial=False,verbose=False).cpu().eval()
   for v in metric.parameters():v.requires_grad_(False)
   state['metric_identity']=metric_identity;save()

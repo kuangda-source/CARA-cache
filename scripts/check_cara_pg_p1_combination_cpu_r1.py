@@ -22,20 +22,46 @@ def main():
  torch.set_num_threads(1)
  from wcomr.policy_generator_r1.production_evidence import sha,artifact,score_videos,validate_score
  # Load only accepted CPU LPIPS weights, no Cosmos weights or CUDA initialization.
- from bank24_fourcard_lifecycle_r1 import lpips_identity
+ from wcomr.policy_generator_r1.production_evidence import metric_resource_identity
  import lpips,importlib.metadata
- identity=lpips_identity(a.project,a.stage);assert importlib.metadata.version('lpips')=='0.1.4'
+ identity=metric_resource_identity(a.project);assert importlib.metadata.version('lpips')=='0.1.4'
  torch.hub.set_dir(str(a.project/'cache/torch'))
  metric=lpips.LPIPS(net='alex',version='0.1',spatial=False,verbose=False).cpu().eval()
  for v in metric.parameters():v.requires_grad_(False)
  out=a.stage/'CPU-full-video-score';out.mkdir()
  video=out/'declared-CPU-solid93.mp4'
  subprocess.run(['ffmpeg','-v','error','-threads','1','-filter_threads','1','-f','lavfi','-i','color=c=gray:s=768x432:r=16','-frames:v','93','-c:v','libx264','-threads','1','-pix_fmt','yuv420p',str(video)],check=True,timeout=60)
- ref=artifact(video,out);t=time.monotonic();score=score_videos(ref,ref,metric,root=out,metric_identity=identity)
- assert validate_score(score,ref,ref,identity)==0. and score['frames']==93
- (out/'all93-score.json').write_text(json.dumps(score,indent=2)+'\n')
+ from unittest.mock import patch
+ from wcomr.policy_generator_r1.production_callbacks import Callbacks
+ from wcomr.policy_generator_r1.continuation_preparation import TIME_BOUNDARY
+ import shutil
+ def endpoint_fixture(slot,policy,directory):
+  directory.mkdir();shutil.copyfile(video,directory/'video.mp4')
+  return dict(status='COMPLETE',video_path=str(directory/'video.mp4'),final_latent=torch.zeros(1),
+   solver_steps=36,guided_pairs=36,timing_boundary=TIME_BOUNDARY,full_request_seconds=1.,core_seconds=.9,
+   declared_CPU_endpoint_fixture=True)
+ with patch('wcomr.policy_generator_r1.production_callbacks.accepted_assets',return_value=(b'{}',b'{"profile_identity":"CPU_ONLY"}',{},{})):
+  cb=Callbacks(project=a.project,stage=a.stage,out=out,execute_request=endpoint_fixture,metric=metric,metric_identity=identity,
+   fit_members=['a','b','c','d'],select_members=['e','f'],launch={},runner={})
+ slot=dict(id='native_cpu',member='a',seed=0,split='CAL_FIT',kind='NATIVE')
+ reference=dict(slot,**cb.endpoint(slot));t=time.monotonic()
+ candidate=cb.endpoint(dict(slot,id='candidate_cpu',kind='POLICY'),{'declared_CPU_fixture':True},reference)
+ score=json.loads(Path(candidate['score_artifact']['path']).read_text())
+ assert candidate['LPIPS']==0. and score['frames']==93
+ # A real callback scoring failure must propagate; it cannot invent a scalar,
+ # delete its raw endpoint or overwrite/replay the same request directory.
+ failed=dict(slot,id='score_failure_cpu',kind='POLICY')
+ with patch('wcomr.policy_generator_r1.production_callbacks.score_videos',side_effect=RuntimeError('DECLARED_SCORE_FAILURE')):
+  try:cb.endpoint(failed,{'declared_CPU_fixture':True},reference)
+  except RuntimeError:pass
+  else:raise AssertionError('Metric failure suppressed')
+ assert (out/failed['id']/'request.json').exists() and not (out/failed['id']/'score.json').exists()
+ try:cb.endpoint(failed,{'declared_CPU_fixture':True},reference)
+ except ValueError:pass
+ else:raise AssertionError('Original failed endpoint replayed')
  metric_result=dict(actual_accepted_LPIPS_CPU=True,all93_original432x768=True,identity_zero=score['mean_LPIPS'],metric_identity=identity,
-  score_sha256=sha(out/'all93-score.json'),video_sha256=ref['sha256'],seconds=time.monotonic()-t,Cosmos_generated_video=False)
+  score_sha256=candidate['score_artifact']['sha256'],video_sha256=candidate['video_artifact']['sha256'],seconds=time.monotonic()-t,Cosmos_generated_video=False,
+  actual_endpoint_callback_serialization=True,metric_failure_propagated_raw_retained=True,same_slot_replay_refused=True)
  del metric
  life=load(a.stage/'tests/check_cara_pg_p1_lifecycle_cpu_r1.py','pg_actual_lifecycle').run(a.stage,a.stage/'CPU-lifecycle')
  # Actual supervisor/guardian fixture runs own real children; never real nvidia/sudo.
