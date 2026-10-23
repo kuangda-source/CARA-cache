@@ -1,0 +1,107 @@
+{
+  "status": "OFFLINE_ORIGINAL_P1_BUDGET_DESCRIPTION_NO_REFIT",
+  "capture_ref": "reports/cara_PG_P1_original_terminal_codec_recovered_20261024_0035.json",
+  "capture_sha256": "77e8d8d63a840fe45282903c613d9feabfb3174c921d718800f3b56c8900e949",
+  "observed_unix": 1792773712.3411891,
+  "frozen_budget_seconds": 257.7712338712067,
+  "query_attempts": 4,
+  "selected_policy": null,
+  "candidates": [
+    {
+      "query_slot": 0,
+      "roles": [
+        "SIMPLE_C"
+      ],
+      "counts": {
+        "D": 26,
+        "A": 0,
+        "C": 10
+      },
+      "predicted_seconds": 252.41151754907332,
+      "observed_full_request_seconds": [
+        261.6773430891335,
+        265.68933340907097,
+        267.12068355828524,
+        266.9894190020859
+      ],
+      "observed_mean_seconds": 265.3691947646439,
+      "over_budget_seconds": 7.597960893437232,
+      "over_budget_percent": 2.947559655641596,
+      "prediction_underestimate_seconds": 12.957677215570584,
+      "fit_count": 4
+    },
+    {
+      "query_slot": 1,
+      "roles": [
+        "SIMPLE_A"
+      ],
+      "counts": {
+        "D": 26,
+        "A": 10,
+        "C": 0
+      },
+      "predicted_seconds": 253.8689896556704,
+      "observed_full_request_seconds": [
+        265.49418439902365,
+        264.8446439113468,
+        267.19898005388677,
+        266.36255749873817
+      ],
+      "observed_mean_seconds": 265.97509146574885,
+      "over_budget_seconds": 8.203857594542171,
+      "over_budget_percent": 3.1826117566869927,
+      "prediction_underestimate_seconds": 12.106101810078457,
+      "fit_count": 4
+    },
+    {
+      "query_slot": 2,
+      "roles": [
+        "GRAPH_MIN"
+      ],
+      "counts": {
+        "D": 26,
+        "A": 10,
+        "C": 0
+      },
+      "predicted_seconds": 254.59095800947398,
+      "observed_full_request_seconds": [
+        265.78981619514525,
+        265.0583743546158,
+        265.99738079868257,
+        266.79554566182196
+      ],
+      "observed_mean_seconds": 265.9102792525664,
+      "over_budget_seconds": 8.139045381359722,
+      "over_budget_percent": 3.157468449495937,
+      "prediction_underestimate_seconds": 11.319321243092418,
+      "fit_count": 4
+    },
+    {
+      "query_slot": 3,
+      "roles": [
+        "GRAPH_DIVERSE"
+      ],
+      "counts": {
+        "D": 26,
+        "A": 10,
+        "C": 0
+      },
+      "predicted_seconds": 254.4105506312723,
+      "observed_full_request_seconds": [
+        262.6352944895625,
+        261.80903827771544,
+        262.4541865903884,
+        259.7272332571447
+      ],
+      "observed_mean_seconds": 261.65643815370277,
+      "over_budget_seconds": 3.8852042824960904,
+      "over_budget_percent": 1.5072295787811996,
+      "prediction_underestimate_seconds": 7.245887522430479,
+      "fit_count": 4
+    }
+  ],
+  "new_queries": 0,
+  "threshold_changes": 0,
+  "GPU_submissions": 0,
+  "interpretation": "All four original candidate mean full-request times exceed the frozen budget. This is a measured feasibility failure at this frozen point, not evidence that all corrected or generated policies lack value."
+}

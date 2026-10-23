@@ -41,7 +41,7 @@ LPIPS 越低表示越接近同输入的 Native 视频；它与局部速度 MSE�
 
 {{snapshot}}
 
-P1原64位置、10.5 GPUh及半程/终态安排保持不变。R2组合CPU已接受；新增真实五模型评分入口、去重绑定及34项本地控制完成。五原权重/固定源码已在本地齐备，四卡实际模型CPU待独立环境和磁盘准入。 本轮仅四卡只读核查和本地准备，未改P1环境或stage。最新磁盘约34.7GiB，未降低40GiB准入线。最终预算等P1完整接受及策略物理去重后确定，未新增GPU预算或派发。见[667真实质量入口与整卡绑定](repo:research/667_CARA_PG_P2_REAL_QUALITY_ENTRY_AND_CARD_BINDING_PREPARED_20261023.md)。
+P1原件与财务已完整接受，但没有预算可行的冻结策略，P2目前不准入。保留已通过的P2组合CPU与五模型入口准备；先离线解释原P1决策，不追加查询、不改阈值或派GPU。已完成旧实验约4.45 GiB实体去重，38原路径和所有SHA保持；两个压缩包经全量一致核验后清理，本次合计释放63.05 GiB，另三个差异包保留。见[668当前原件与维护](repo:research/668_CARA_STORAGE_DEDUP_AND_P1_ORIGINAL_TERMINAL_ACCEPTANCE_20261024.md)。
 
 ## 仓库结构与使用
 

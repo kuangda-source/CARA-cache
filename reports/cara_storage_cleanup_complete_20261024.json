@@ -1,0 +1,96 @@
+{
+  "status": "AUTHORIZED_DUPLICATES_CONSOLIDATED_AND_EQUAL_ARCHIVES_REMOVED",
+  "observed_unix": 1792774795.9765313,
+  "evidence": {
+    "archive_audit": {
+      "path": "reports/cara_archive_cleanup_terminal_independent_20261024.json",
+      "sha256": "7e0fbaa3af8649462108e4a6fe038459a60927201dc1c67a70f04f1ccb02cf13"
+    },
+    "tensor_actual": {
+      "path": "reports/cara_completed_tensor_dedup_r2_recovered_20261024_003033.json",
+      "sha256": "43f945e26beb99dcd5035b337cf3b34bac444752f12555d00cb22396f7b97e9f"
+    },
+    "tensor_acceptance": {
+      "path": "reports/cara_completed_tensor_dedup_r2_independent_acceptance_20261024.json",
+      "sha256": "4d59855d86e35da8fba9d57d795aea026e0d6e4a5fefa8b9a24d6e4acd6cc3e0"
+    },
+    "archive_inventory": {
+      "path": "reports/cara_shared_archive_redundancy_candidates_20261024_000633.json",
+      "sha256": "c6307ea206f13ee8d6595bc95a0c82a698a2d6aad9624d80f2ee55b951774883"
+    },
+    "P1_acceptance": {
+      "path": "reports/cara_PG_P1_original_terminal_accepted_20261024_0037.json",
+      "sha256": "edf0b39b72fd2ff7ff9929602b3c4a61b6b7b10ce73b1c8692c93f1331dd4759"
+    }
+  },
+  "tensor": {
+    "groups": 9,
+    "original_paths": 38,
+    "replaced_paths": 15,
+    "retired_inodes": 15,
+    "all_before_links_covered": true,
+    "all_original_paths_and_bytes_retained": true,
+    "allocated_bytes_released": 4777795584
+  },
+  "removed_archives": [
+    {
+      "path": "/data20t/datasets/v1.0-mini.tgz",
+      "members": 31225,
+      "logical_bytes": 4168148189,
+      "allocated_bytes": 4168155136,
+      "completed_unix": 1792773208.8163142,
+      "full_byte_equality": true,
+      "all_extracted_identities_rechecked": true,
+      "manifest_sha256": "4dee9243f4b15528f4d10559b52352860351468cc27e1806b44bdbc42a5374b5"
+    },
+    {
+      "path": "/data20t/KYXZ2021/KYXZ2021-A数据.zip",
+      "members": 46008,
+      "logical_bytes": 58749110536,
+      "allocated_bytes": 58749124608,
+      "completed_unix": 1792774755.9940927,
+      "full_byte_equality": true,
+      "all_extracted_identities_rechecked": true,
+      "manifest_sha256": "19969842d0df1d0918635aa4315f7c4cdfaf82c322d785ac5e42c575cd20424c"
+    }
+  ],
+  "retained_archives": [
+    {
+      "path": "/data20t/shentong/BeamNG.tech.v0.35.5.0.zip",
+      "present": true,
+      "inode": 8334422,
+      "bytes": 27336508990,
+      "mtime_ns": 1790527431510000000
+    },
+    {
+      "path": "/data20t/datasets/DIS5K.zip",
+      "present": true,
+      "inode": 291408421,
+      "bytes": 5677398863,
+      "mtime_ns": 1755830206000000000
+    },
+    {
+      "path": "/data20t/datasets/COD10K-v3.zip",
+      "present": true,
+      "inode": 291408420,
+      "bytes": 2416808676,
+      "mtime_ns": 1755749331000000000
+    }
+  ],
+  "total_allocated_bytes_released": 67695075328,
+  "total_allocated_GiB_released": 63.04595184326172,
+  "data20t_available_bytes": 83348500480,
+  "data20t_available_GiB": 77.62434005737305,
+  "space_note": "Released allocation is summed from validated retired entities; current filesystem availability also reflects concurrent users and is not an attributable before-after delta.",
+  "P1": {
+    "original_container_exited_before_maintenance": true,
+    "original_registration_unchanged": true,
+    "registered_payloads_unchanged": 1891,
+    "full_protocol_accepted": true,
+    "selected_policy": null,
+    "PG_P2_input_ready": false,
+    "new_GPU_submissions": 0
+  },
+  "restoration_document": "plans/cara_policy_generator_20261020/COLD_ARCHIVE_RESTORE_R2_20261024.md",
+  "maintenance_tests_passed": 10
+}

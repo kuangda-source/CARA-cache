@@ -8,11 +8,11 @@
 
 ## 下一卡的具体准备
 
-P1原64位置、10.5 GPUh及半程/终态安排保持不变。R2组合CPU已接受；新增真实五模型评分入口、去重绑定及34项本地控制完成。五原权重/固定源码已在本地齐备，四卡实际模型CPU待独立环境和磁盘准入。 本轮仅四卡只读核查和本地准备，未改P1环境或stage。最新磁盘约34.7GiB，未降低40GiB准入线。最终预算等P1完整接受及策略物理去重后确定，未新增GPU预算或派发。见[667真实质量入口与整卡绑定](repo:research/667_CARA_PG_P2_REAL_QUALITY_ENTRY_AND_CARD_BINDING_PREPARED_20261023.md)。
+P1原件与财务已完整接受，但没有预算可行的冻结策略，P2目前不准入。保留已通过的P2组合CPU与五模型入口准备；先离线解释原P1决策，不追加查询、不改阈值或派GPU。已完成旧实验约4.45 GiB实体去重，38原路径和所有SHA保持；两个压缩包经全量一致核验后清理，本次合计释放63.05 GiB，另三个差异包保留。见[668当前原件与维护](repo:research/668_CARA_STORAGE_DEDUP_AND_P1_ORIGINAL_TERMINAL_ACCEPTANCE_20261024.md)。
 
 [2026-10-23接续要求](repo:plans/cara_policy_generator_20261020/PRICE_HISTORY_NATIVE_CONTINUATION_R1_20261023.md)：原1624数值/控制和动作价格分别接受；已知同卡竞争的价格不因低波动自动通过。未来GPU卡要求实际独占。冻结策略后加入小规模历史窗口诊断，PG-P2加入少步Native等实测时间对照；shadow不写回，不计为干净延迟，新增范围单独进入完整报价。
 
-原1624标签与独立价格补测均完整接受。当前已进入PG-P1整卡独占运行：4 CAL_FIT/2 CAL_SELECT、最多64路径/40评分、Q≤8、B=.80，forecast8.844444/上限10.5 GPUh。见[661实际接续](repo:research/661_CARA_EXCLUSIVE_PRICES_ACCEPTED_PG_P1_ACTUALLY_ADMITTED_20261023.md)；半程10月24日00:52、终态05:32绑定唯一PG launch，不重派已完成资产卡或CPU。
+原1624标签与独立价格补测均完整接受。PG-P1原卡已结束、实际2.557833 GPUh，64位置上界中执行30路径/16评分/4候选查询，selected_policy=null。原半程和终态一次检查已关闭，不重派原任务。
 
 PG-P1的Q表示用于策略选择的完整终点评价查询预算。第一个预算为0.80×Native，Q≤8、首4后4、一次CAL_SELECT冻结。基础范围最多40候选正式+6Native+18warm=64路径；额外统计采集另计。具体完整报价与准入仍按注册表执行，不挪用已完成资产卡的12GPUh批准。
 

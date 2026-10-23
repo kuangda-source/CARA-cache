@@ -291,6 +291,27 @@ def build():
                 ('GPU UUID',gl['gpu_uuid']),('容器',gl['container']),('guardian',gl['guardian_identity']['pid']),
                 ('runner',f"PID {gr['runner']['pid']} / start_ticks {gr['runner']['start_ticks']} / UID {gr['runner']['uid']}")]
         run_details='| 当前PG-P1字段 | 原始身份 |\n|---|---|\n'+'\n'.join(f'| {k} | `{v}` |' for k,v in fields)
+    if pg and pg.get('terminal_acceptance_ref'):
+        ta = load(pg['terminal_acceptance_ref'])
+        if (not ta['full_protocol_accepted'] or ta['launch_id'] != gl['launch_id']
+                or ta['source_revision'] != gl['source_revision']
+                or ta['capture_sha256'] != digest((ROOT / pg['observation_ref']).read_bytes())['sha256']
+                or any(go['original_live_handles'].values())):
+            raise ValueError('PG accepted terminal does not bind original capture/source/exit')
+        sc = ta['scientific']
+        result = (f"原件与财务完整接受；实际{ta['actual_GPUh']:.6f} GPUh。"
+                  f"64登记位置中执行{sc['executed_paths']}路径、{sc['scored_pairs']}评分、{sc['query_attempts']}候选查询；"
+                  + ('已冻结所选策略。' if sc['selected_policy'] is not None else '未选出满足冻结预算的策略，PG-P2尚不准入。'))
+        next_action = ('按冻结策略去重后确定P2完整范围和报价。' if ta['PG_P2_input_ready'] else
+                       '保留原终态与费用，离线分析预算不可行原因；不追加查询、不改阈值、不直接启动P2。')
+        snapshot = (f"**PG-P1已结束并完成原件验收。** {result}\n\n"
+                    f"观测：{pg['observed_at']}。原半程/终态检查已关闭，无重复提交。\n\n"
+                    f"{link(pg['observation_ref'], '完整原终态')} · {link(pg['terminal_acceptance_ref'], '独立接受')} · "
+                    f"{link(status['run_report_ref'], '完整记录')}。{status['snapshot_note']}")
+        active['reader'].update(status=status['active_state_zh'],result=result,next_action=next_action)
+        active['evidence_or_planned_scope'] = result
+        master['operation_policy'].update(current_running_card=None,current_running_cards=[],snapshot_observed_at=pg['observed_at'])
+        run_details += '\n\n' + result + '\n\n' + next_action
     headlines = '\n'.join(f"- **{f['title']}**（{f['short_scope']}）：{f['result']} {refs(f['refs'])}"
                            for f in status['headline_results'])
     details = '\n\n'.join(f"### {i+1}. {f['title']}\n\n{f['result']}\n\n{f['scope']} {refs(f['refs'])}"

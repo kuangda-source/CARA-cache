@@ -12,7 +12,7 @@ BANK24完整24视频、12组LPIPS、原控制和实际1.845248657494 GPUh已接�
 
 P1/P2等待期准备已完成SELECT范围内曝光核查、价格/标签到生成器的转换接口、历史诊断矩阵与少步Native计时选择规则、27项局部CPU控制及真实UniPC调度网格。详见[652准备与接续](repo:research/652_CARA_PG_P1_P2_CPU_PREPARATION_AND_HANDOFF_20261023.md)。最新[657](repo:research/657_CARA_PG_P1_FULL_CARD_COMBINATION_CPU_ACCEPTED_AND_PRICE_HANDOFF_20261023.md)已完成整卡监督/评分/Native时钟/终态复算组合CPU接受，保留18条采样控制，新增真实全93帧LPIPS和6种生命周期，12项终态检查；本地92项相关检查通过。64路完整报价仍为8.844444/10.5 GPUh。原价格完整接受后，PG-P1已按661实际启动；P2新增GPU提交仍为0。
 
-P1原64位置、10.5 GPUh及半程/终态安排保持不变。R2组合CPU已接受；新增真实五模型评分入口、去重绑定及34项本地控制完成。五原权重/固定源码已在本地齐备，四卡实际模型CPU待独立环境和磁盘准入。 本轮仅四卡只读核查和本地准备，未改P1环境或stage。最新磁盘约34.7GiB，未降低40GiB准入线。最终预算等P1完整接受及策略物理去重后确定，未新增GPU预算或派发。见[667真实质量入口与整卡绑定](repo:research/667_CARA_PG_P2_REAL_QUALITY_ENTRY_AND_CARD_BINDING_PREPARED_20261023.md)。
+P1原件与财务已完整接受，但没有预算可行的冻结策略，P2目前不准入。保留已通过的P2组合CPU与五模型入口准备；先离线解释原P1决策，不追加查询、不改阈值或派GPU。已完成旧实验约4.45 GiB实体去重，38原路径和所有SHA保持；两个压缩包经全量一致核验后清理，本次合计释放63.05 GiB，另三个差异包保留。见[668当前原件与维护](repo:research/668_CARA_STORAGE_DEDUP_AND_P1_ORIGINAL_TERMINAL_ACCEPTANCE_20261024.md)。
 
 ## 科学判断与下一步
 

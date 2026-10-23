@@ -192,7 +192,7 @@
       "id": "PG-P1",
       "priority": 2,
       "title": "One measured budget, Q<=8 and one CAL_SELECT freeze",
-      "status": "PG_P1_EXCLUSIVE_GPU_RUNNING",
+      "status": "PG_P1_TERMINAL_ACCEPTED_NO_BUDGET_FEASIBLE_SELECTION",
       "dependencies": [
         "BANK24 accepted",
         "PG-P1-ASSETS"
@@ -201,7 +201,7 @@
       "count_basis": "P1 maximum40 candidate formal plus6 Native and18 warm; extra statistics separate",
       "local_CPU_prototype_accepted": false,
       "production_CPU_accepted": true,
-      "GPU_dispatch_ready": true,
+      "GPU_dispatch_ready": false,
       "quality_results": null,
       "speed_results": null,
       "new_GPU_submissions": 1,
@@ -225,7 +225,7 @@
       "generator_input_bridge": "scripts/prepare_cara_pg_continuation_r1.py generator-input",
       "continuation_CPU_test_ref": "reports/cara_PG_continuation_CPU_preparation_final_20261023.json",
       "production_entry_CPU_accepted": true,
-      "full_GPU_lifecycle_accepted": false,
+      "full_GPU_lifecycle_accepted": true,
       "production_entry_CPU_acceptance_ref": "reports/cara_PG_P1_production_CPU_accepted_r2_20261023.json",
       "whole_quote_ref": "manifests/cara_PG_P1_full64_whole_quote_r1_20261023.json",
       "forecast_complete_GPUh": 8.844444444444445,
@@ -237,7 +237,11 @@
       "combination_CPU_acceptance_ref": "reports/cara_PG_P1_combination_CPU_accepted_r3_20261023.json",
       "production_controller_ref": "scripts/wc_four_card_cara_pg_gpu_r1.py",
       "actual_launch_ref": "reports/cara_PG_P1_full64_GPU_actual_launch_20261023_2030.json",
-      "actual_observation_ref": "reports/cara_PG_P1_full64_GPU_initial_health_20261023_2029.json"
+      "actual_observation_ref": "reports/cara_PG_P1_original_terminal_codec_recovered_20261024_0035.json",
+      "full_protocol_accepted": true,
+      "terminal_acceptance_ref": "reports/cara_PG_P1_original_terminal_accepted_20261024_0037.json",
+      "actual_GPUh": 2.5578333599208336,
+      "selected_policy": null
     },
     {
       "id": "PG-P2",
@@ -308,7 +312,8 @@
       "local_quality_and_binding_checks": 34,
       "local_original_model_resources_complete": true,
       "four_card_real_model_CPU_accepted": false,
-      "final_whole_card_binding_accepted": false
+      "final_whole_card_binding_accepted": false,
+      "P1_selected_policy": null
     },
     {
       "id": "PG-P3",
@@ -351,7 +356,7 @@
   "strict_under12_and_cap226_unchanged": true,
   "no_gpu_launched_this_turn": true,
   "latest_preparation_audit_ref": "research/657_CARA_PG_P1_FULL_CARD_COMBINATION_CPU_ACCEPTED_AND_PRICE_HANDOFF_20261023.md",
-  "latest_actual_progress_ref": "reports/cara_PG_P1_combination_CPU_terminal_r3_complete_20261023.json",
+  "latest_actual_progress_ref": "reports/cara_PG_P1_original_terminal_codec_recovered_20261024_0035.json",
   "latest_preparation_plan_ref": "plans/cara_policy_generator_20261020/P1_FULL_CARD_COMBINATION_HANDOFF_R3_20261023.md",
   "active_price_actual_progress_ref": "reports/wc_policy_price_refresh_full1624_GPU_initial_progress_20261023_131859.json"
 }

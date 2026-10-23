@@ -3,28 +3,17 @@
   "project": "CARA-Cache",
   "evidence_observed_at": "2026-10-23T08:26:41.422652+08:00",
   "timezone": "Asia/Shanghai",
-  "snapshot_note": "独占价格10/10完整接受，实际6.916276GPUh结算、原锁/容器释放，原标签保持。全1624价格CV中位0.36–0.39%、P95<1%；单个A_HALF尖峰保留且不改冻结聚合。CAL_SELECT新核查3193本地/53远端元数据无执行命中。PG首次派发因缺os在intent之前退出，已保存失败并经10项真实派发body CPU检查沿同一授权恢复；20:26:04单次实际启动，原runner独占核验通过、MODEL_LOADING、0失败。新报价8.844444、上限10.5GPUh，不能以准入宣称策略成功。 P2：R2组合CPU已接受；新增真实五模型评分入口、去重绑定及34项本地控制完成。五原权重/固定源码已在本地齐备，四卡实际模型CPU待独立环境和磁盘准入。 P1按原计划验收；空间满足后迁入质量资源、独立依赖闭包及真实五模型CPU，最终整卡预算等P1接受与策略去重。",
-  "research_summary": "修正机制与共享布局已有实证；完整1624真实区间标签和独占动作价格均已接受。当前PG-P1按干净Native时钟生成策略；P2 Native/历史生产入口已通过CPU，后续检验冻结计划的新输入质量—时间收益。",
+  "snapshot_note": "原P1容器于10月23日23:02:35退出0；完整原件在原镜像的只读CPU收件中恢复并独立接受。实际2.557833359921 GPUh、独占4221采样、最大间隔2.883秒；64登记位置保留，实际30路径/16评分/4查询，selected_policy=null。P2准备继续保留，但不能越过无冻结策略的准入缺口。清理仅针对已授权重复实体与完全一致的压缩包，不改变任何实验输入或结果。",
+  "research_summary": "修正机制与共享布局已有实证；完整1624真实区间标签和独占动作价格均已接受。原PG-P1完整结束并通过原件验收，但四个候选实测完整请求时钟均超过冻结预算，未选出策略。P2生产入口与CPU准备保留，下一步先分析预算预测偏差。",
   "active_experiment_id": "PG-P1",
-  "active_state": "PG_P1_EXCLUSIVE_GPU_RUNNING",
-  "active_state_zh": "独占价格已完整接受；PG-P1 GPU3硬独占运行中",
+  "active_state": "PG_P1_TERMINAL_ACCEPTED_NO_BUDGET_FEASIBLE_SELECTION",
+  "active_state_zh": "P1原件已接受，未选出预算可行策略",
   "launch_ref": "reports/wc_policy_assets_full1624_fourcard_GPU_launch_20261022.json",
   "observation_ref": "reports/wc_policy_assets_full1624_fourcard_GPU_terminal_20261023_0826.json",
   "admission_ref": "reports/wc_policy_assets_full1624_fourcard_GPU_admission_checked_and_schedule_20261022.json",
   "cpu_acceptance_ref": "reports/wc_policy_assets_full1624_fourcard_CPU_r2_accepted_20261022.json",
-  "run_report_ref": "research/661_CARA_EXCLUSIVE_PRICES_ACCEPTED_PG_P1_ACTUALLY_ADMITTED_20261023.md",
-  "next_checks": [
-    {
-      "kind": "PG-P1技术半程",
-      "scheduled_local": "2026-10-24 00:52 Asia/Shanghai",
-      "automation_id": "cara-pg-p1"
-    },
-    {
-      "kind": "PG-P1完整终态验收",
-      "scheduled_local": "2026-10-24 05:32 Asia/Shanghai",
-      "automation_id": "cara-bank24-2"
-    }
-  ],
+  "run_report_ref": "research/668_CARA_STORAGE_DEDUP_AND_P1_ORIGINAL_TERMINAL_ACCEPTANCE_20261024.md",
+  "next_checks": [],
   "headline_results": [
     {
       "title": "修正读出有跨输入机制收益",
@@ -115,9 +104,9 @@
   "resource_observation_ref": "reports/cara_PG_P1_full64_GPU_initial_health_20261023_2029.json",
   "actual_original_GPUh": 6.900543598864331,
   "budget_snapshot": {
-    "used_gpu_hours": 132.5628281559511,
-    "reserved_gpu_hours": 27.0,
-    "available_gpu_hours": 66.43717184404889,
+    "used_gpu_hours": 135.12066151587194,
+    "reserved_gpu_hours": 16.5,
+    "available_gpu_hours": 74.37933848412806,
     "cap_gpu_hours": 226
   },
   "price_refresh_CPU": {
@@ -204,13 +193,19 @@
   },
   "PG_P1_GPU": {
     "launch_ref": "reports/cara_PG_P1_full64_GPU_actual_launch_20261023_2030.json",
-    "observation_ref": "reports/cara_PG_P1_full64_GPU_after_load_20261023_2030.json",
-    "observed_at": "2026-10-23T20:30:18.017824+08:00",
+    "observation_ref": "reports/cara_PG_P1_original_terminal_codec_recovered_20261024_0035.json",
+    "observed_at": "2026-10-24T00:34:39.820871+08:00",
     "CPU_acceptance_ref": "reports/cara_PG_P1_combination_CPU_accepted_r3_20261023.json",
     "exclusive_active_ref": "reports/cara_PG_P1_GPU3_exclusive_active_20261023_2027.json",
     "hardware_admitted": true,
     "stage_ref": "reports/cara_PG_P1_full64_stage_ref_20261023.json",
-    "GPU_submissions": 1
+    "GPU_submissions": 1,
+    "terminal_acceptance_ref": "reports/cara_PG_P1_original_terminal_accepted_20261024_0037.json",
+    "full_protocol_accepted": true,
+    "actual_GPUh": 2.5578333599208336,
+    "PG_P2_input_ready": false,
+    "selected_policy": null,
+    "terminal_container_finished_at": "2026-10-23T23:02:35.085636+08:00"
   },
   "PG_P2_preparation": {
     "status": "QUALITY_ENTRY_AND_CARD_BINDING_PREPARED_REAL_MODEL_CPU_PENDING",
@@ -237,7 +232,7 @@
     "remote_combination_CPU_started": true,
     "remote_combination_CPU_accepted": true,
     "final_budget_determined": false,
-    "budget_decision_dependency": "P1_ACCEPTED_AND_PHYSICAL_POLICY_DEDUP",
+    "budget_decision_dependency": "FROZEN_BUDGET_FEASIBLE_POLICY_REQUIRED_BEFORE_P2_DEDUP_AND_QUOTE",
     "historical_no_dedup_planning_envelope": {
       "forecast_complete_GPUh": 67.8788888888889,
       "billed_limit_GPUh": 78.5,
@@ -264,6 +259,18 @@
     "local_quality_and_binding_checks": 34,
     "local_original_model_resources_complete": true,
     "four_card_real_model_CPU_accepted": false,
-    "final_whole_card_binding_accepted": false
+    "final_whole_card_binding_accepted": false,
+    "P1_accepted": true,
+    "P1_selected_policy": null
+  },
+  "storage_maintenance": {
+    "status": "COMPLETE_INDEPENDENTLY_VERIFIED",
+    "receipt_ref": "reports/cara_storage_cleanup_complete_20261024.json",
+    "report_ref": "research/668_CARA_STORAGE_DEDUP_AND_P1_ORIGINAL_TERMINAL_ACCEPTANCE_20261024.md",
+    "released_allocated_GiB": 63.04595184326172,
+    "original_tensor_paths_retained": 38,
+    "archives_removed_after_complete_equality": 2,
+    "archives_retained_due_to_mismatch": 3,
+    "P1_original_records_unchanged": true
   }
 }
