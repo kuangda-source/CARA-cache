@@ -1,7 +1,8 @@
 # 完整研究记录索引
 
-共654份已跟踪研究Markdown，按编号倒序；编号表示记录顺序，不表示全部独立实验。历史文件中的“当前/下一步”指其记录当时；最新状态以[当前状态](../research/02_CURRENT_STATE.md)为准。
+共657份已跟踪研究Markdown，按编号倒序；编号表示记录顺序，不表示全部独立实验。历史文件中的“当前/下一步”指其记录当时；最新状态以[当前状态](../research/02_CURRENT_STATE.md)为准。
 
+- [664 CARA SCHEDULER FEASIBILITY SIDECAR AND HISTORY DECISION RULES 20261023](../research/664_CARA_SCHEDULER_FEASIBILITY_SIDECAR_AND_HISTORY_DECISION_RULES_20261023.md)
 - [663 CARA PG P2 NATIVE HISTORY PRODUCTION CPU ACCEPTED AND WHOLE QUOTE 20261023](../research/663_CARA_PG_P2_NATIVE_HISTORY_PRODUCTION_CPU_ACCEPTED_AND_WHOLE_QUOTE_20261023.md)
 - [662 CARA PROBE REFRESH GATE CLOSED AND SCENE SCALE CHECK 20261023](../research/662_CARA_PROBE_REFRESH_GATE_CLOSED_AND_SCENE_SCALE_CHECK_20261023.md)
 - [661 CARA EXCLUSIVE PRICES ACCEPTED PG P1 ACTUALLY ADMITTED 20261023](../research/661_CARA_EXCLUSIVE_PRICES_ACCEPTED_PG_P1_ACTUALLY_ADMITTED_20261023.md)
@@ -649,6 +650,8 @@
 - [PA Local Oracle Feasibility](../research/p_w3_e0_20261014/PA_Local_Oracle_Feasibility.md)
 - [W3 Full864 Whole Card Decision Spec 20261015](../research/p_w3_e0_20261014/W3_Full864_Whole_Card_Decision_Spec_20261015.md)
 - [W3 Trend Label And Baseline Spec](../research/p_w3_e0_20261014/W3_Trend_Label_And_Baseline_Spec.md)
+- [README](../research/scheduler_feasibility_20261023/README.md)
+- [execution handoff](../research/scheduler_feasibility_20261023/execution_handoff.md)
 - [WorldCache Analysis and Next Batch 20261006](../research/sources/WorldCache_Analysis_and_Next_Batch_20261006.md)
 - [README](../research/sources/ra_cfgcache_20261009/README.md)
 - [WorldCache Baseline Reporting and CVPR Plan 20261014](../research/sources/worldcache_convergence_20261014/WorldCache_Baseline_Reporting_and_CVPR_Plan_20261014.md)
