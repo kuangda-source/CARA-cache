@@ -41,7 +41,7 @@ LPIPS 越低表示越接近同输入的 Native 视频；它与局部速度 MSE�
 
 {{snapshot}}
 
-PG-P1 已在 GPU3 硬独占运行，原64位置与10.5 GPUh上限不变。运行期间，P2 历史诊断和少步 Native 生产入口完成48条完整小张量路径、72个真实请求构造的独立CPU接受；全36步/最终latent/93帧RGB影子开关相等。完整P2未去重报价上界518路、78.5 GPUh，P1通过后绑定策略、去重并完成整卡组合验收和最终预算。见[663准备与接续](repo:research/663_CARA_PG_P2_NATIVE_HISTORY_PRODUCTION_CPU_ACCEPTED_AND_WHOLE_QUOTE_20261023.md)。
+P1原64位置、10.5 GPUh及半程/终态安排保持不变。P2 Native/历史R4生产入口CPU已接受；本轮整卡监督、评分与终态组合代码通过75项本地控制和15项独立接受器控制。新生产组合CPU因共享盘不足40GiB未启动，不能称为完整生产接受。最终范围和预算等P1接受、策略物理去重后确定，旧518路报价仅保留作历史上界。见[665组合检查与接续](repo:research/665_CARA_PG_P2_COMBINATION_CHECKED_CPU_STORAGE_GATE_20261023.md)。
 
 ## 仓库结构与使用
 

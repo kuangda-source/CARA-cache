@@ -47,7 +47,7 @@ class Composition(unittest.TestCase):
     @classmethod
     def setUpClass(cls):cls.template=fixture()[0]
     def setUp(self):self.v=copy.deepcopy(self.template)
-    def audit(self):return audit_registered(self.v['manifest'],self.v['state'],self.v['request_records'],self.v['score_records'],self.v['metric_identity'],lambda r:None)
+    def audit(self):return audit_registered(self.v['manifest'],self.v['state'],self.v['request_records'],self.v['score_records'],self.v['metric_identity'],lambda r:None,history_audit=lambda s,r:dict(raw_branch_records_accepted=r['history_originals_audited'],P1_OFF_reference_parity=r['P1_OFF_reference_parity']))
     def test_whole518_346scores_36shadow(self):
         a=self.audit();self.assertEqual((a['physical_paths'],a['LPIPS_pairs'],a['shadow_D_pairs']),(518,346,36))
     def test_missing_path(self):

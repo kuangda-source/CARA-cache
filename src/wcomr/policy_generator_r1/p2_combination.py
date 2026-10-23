@@ -77,7 +77,7 @@ def run_registered(m,execute,score,save):
         row.update(status='TECH_FAILED',error_type=type(e).__name__,error=str(e));state['status']='FAILED_FULL_DENOMINATOR_RETAINED';raise
     finally:save(copy.deepcopy(state))
 
-def audit_registered(m,state,request_records,score_records,metric_identity,artifact_check):
+def audit_registered(m,state,request_records,score_records,metric_identity,artifact_check,history_audit=None):
     """Replay original request/scoring evidence, not trusted aggregate scalars."""
     slots=validate_manifest(m)
     require(state['manifest_sha256']==m['sha256'] and state['status']=='COMPLETE_ORIGINALS_REQUIRE_INDEPENDENT_AUDIT','Incomplete P2 original state')
@@ -92,7 +92,9 @@ def audit_registered(m,state,request_records,score_records,metric_identity,artif
         require(result['status']=='COMPLETE' and result['guided_pairs']==result['solver_steps']==slot['expected_updates'],'Partial path accepted')
         if slot['block']=='history':
             require(result['full_request_seconds'] is None and result['clean_deployment_timing'] is False and result['shadow_D_pairs']==slot['shadow_D_pairs'],'History entered clean timing')
-            require(result['history_originals_audited'] is True and result['P1_OFF_reference_parity'] is True,'Raw history/OFF audit missing')
+            require(history_audit is not None,'Bound original branch and accepted P1 OFF auditor required')
+            checked=history_audit(copy.deepcopy(slot),copy.deepcopy(result))
+            require(checked['raw_branch_records_accepted'] is True and checked['P1_OFF_reference_parity'] is True,'Raw history/OFF audit missing')
         else:require(result['timing_boundary']==TIME_BOUNDARY and math.isfinite(result['full_request_seconds']) and result['full_request_seconds']>0,'Invalid clean clock')
         if slot['lpips']:
             score=score_records[slot['id']];value=validate_score(score,done[slot['reference_id']]['video_artifact'],result['video_artifact'],metric_identity)

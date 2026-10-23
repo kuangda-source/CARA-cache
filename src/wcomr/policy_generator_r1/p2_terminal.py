@@ -22,7 +22,7 @@ def accept_lifecycle(v):
     require(c['billed_limit_GPUh']==q['billed_limit_GPUh']==L['billed_limit_GPUh'] and math.isfinite(L['billed_limit_GPUh']) and 0<L['forecast_GPUh']==q['forecast_complete_GPUh']<=L['billed_limit_GPUh'],'Final whole quote differs')
     require(auth['specific_whole_card_approved'] is True,'No whole-card authorization')
     cpu=record(v,'CPU_acceptance')
-    require(cpu['production_CPU_accepted'] and cpu['full_GPU_lifecycle_CPU_accepted'] and v['files']['CPU_acceptance']['sha256']==auth['independent_CPU_acceptance_sha256'],'Bound CPU acceptance required')
+    require(cpu['production_CPU_accepted'] and cpu['full_GPU_lifecycle_CPU_accepted'] and cpu['source_revision']==L['source_revision'] and cpu['registration_sha256']==L['registration_sha256'] and v['files']['CPU_acceptance']['sha256']==auth['independent_CPU_acceptance_sha256'],'Bound CPU acceptance required')
     require(not any(v['original_live_handles'].values()) and v['own_UUID_lock_free'] is True,'Original handles/lock remain live')
     con=v['container'];s=con['state']
     require(not s['Running'] and s['ExitCode']==0 and not s['OOMKilled'] and con['image']==IMAGE and con['readonly_root'] and con['pid_mode']=='host' and con['manifest_sha256']==L['registration_sha256'],'Original container failed')

@@ -6,6 +6,7 @@ from audit_cara_pg_p2_production_cpu_r1 import accept as accept_entry
 
 def accept(v):
  p=v['proof']['data']
+ if hashlib.sha256((json.dumps(v['registration'],indent=2)+'\n').encode()).hexdigest()!=v['launch']['registration_sha256']:raise ValueError('Original registration bytes differ')
  if hashlib.sha256((json.dumps(p,indent=2,allow_nan=False)+'\n').encode()).hexdigest()!=v['proof']['sha256']:raise ValueError('Original complete CPU proof bytes differ')
  entry=copy.deepcopy(v);entry['proof']=dict(exists=True,data=p['entry'],sha256=p['entry_proof_sha256'])
  accepted=accept_entry(entry)
