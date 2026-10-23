@@ -53,7 +53,7 @@ LPIPS 越低表示越接近同输入的 Native 视频；它与局部速度 MSE�
 
 范围：4 CAL / 1624正式区间格 / 14完整路径（12正式+2warm）/ 2030总格 / 13020读出试验；整卡上限12 GPUh。独占价格补测资源检查与单次准入：**2026-10-23 13:30 Asia/Shanghai**。
 
-[本卡完整记录](research/651_CARA_PRICE_CPU_ACCEPTED_CONTROLLER_READY_WAIT_EXCLUSIVE_20261023.md) · [观测原件](reports/wc_policy_assets_full1624_fourcard_GPU_terminal_20261023_0826.json) · [当前状态](research/02_CURRENT_STATE.md)。原1624的08:26接受及6.900544 GPUh结算保持；新价格CPU原容器09:46:34退出，实际09:51:55完整验收，控制器32项CPU检查通过。最近资源观测为11:30:58，当时四卡均占用；原价格stage没有GPU提交句柄，预算不变，没有新预约、模式修改或GPU提交。 等待期P1/P2准备已完成SELECT范围内曝光核查、转换/诊断/Native选步接口和27项局部CPU控制；未改价格stage或GPU模式；GPU资源状态仍引用11:30快照。
+[本卡完整记录](research/653_CARA_GPU0_RECHECK_AND_ACCEPTANCE_STATUS_20261023.md) · [观测原件](reports/wc_policy_assets_full1624_fourcard_GPU_terminal_20261023_0826.json) · [当前状态](research/02_CURRENT_STATE.md)。原1624已完整接受，实际6.900544 GPUh已结算；独立价格CPU完整接受保持。12:52:26再次通过完整CPU接受复核、源码与资产绑定及预算/磁盘/内存检查，唯一未满足项为GPU0繁忙：BeamNG PID731146、UID1000（账号user），进程显存4693 MiB。12:51全卡观察仍均有进程；原价格stage无GPU提交句柄，未改模式、预留或提交GPU。P1/P2的SELECT曝光核查、诊断与Native接口准备及61项相关CPU检查保持，等待独占价格补测。
 
 **当前独立价格补测：完整价格CPU已接受；GPU控制器32项检查通过，等待空闲卡实际验证独占。** CPU启动于2026-10-23T09:14:02+08:00，最近观测2026-10-23T09:51:55+08:00。[价格CPU启动原件](reports/wc_policy_price_refresh_full1624_CPU_launch_r1_20261023.json) · [价格CPU观测](reports/wc_policy_price_refresh_full1624_CPU_terminal_check_r1_20261023_0955.json)。新GPU提交为0；完整价格卡保持10路径/1624正式格/24360读出、11.5 GPUh上限。
 

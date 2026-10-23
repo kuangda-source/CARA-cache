@@ -5178,7 +5178,7 @@
       ],
       "contribution_relation": "可复现区间生成器的新方法验证；CPU原型不充真实质量结果",
       "evidence_or_planned_scope": "原完整卡已接受；实际6.900544 GPUh。终态：14/14路径完成、0运行、0未到达、0失败；独立价格门槛见下一步。价格补测：完整价格CPU已接受；GPU控制器32项检查通过，等待空闲卡实际验证独占。",
-      "gap_and_next_action": "原数值/控制/费用全部接受；完整价格刷新卡10新路径/24360读出、上限11.5 GPUh，先完成生产CPU与空闲卡硬独占，再接PG-P1。",
+      "gap_and_next_action": "完整价格CPU与控制器已通过；12:52 GPU0完整准入仅GPU_BUSY，等待空闲UUID硬独占后单次10路径补测（上限11.5 GPUh），价格接受后接PG-P1。",
       "priority": "GEN-1",
       "evidence_refs": [
         "research/612_WC_POLICY_GENERATOR_CPU_PROTOTYPE_AND_REPRODUCIBLE_VALIDATION_DESIGN_20261020.md",
@@ -5253,7 +5253,11 @@
         "reports/wc_policy_price_refresh_fresh_resources_20261023_095612.json",
         "reports/wc_policy_price_refresh_GPU3_full_preflight_20261023_1005.json",
         "scripts/wc_four_card_price_refresh_gpu_r1.py",
-        "src/wcomr/policy_price_terminal_r1.py"
+        "src/wcomr/policy_price_terminal_r1.py",
+        "research/653_CARA_GPU0_RECHECK_AND_ACCEPTANCE_STATUS_20261023.md",
+        "reports/wc_policy_price_refresh_GPU0_user_full_preflight_20261023_1252.json",
+        "reports/wc_policy_price_refresh_user_GPU0_resource_20261023_125149.json",
+        "reports/wc_policy_price_refresh_GPU0_owner_20261023_1252.json"
       ],
       "method_mapping_ids": [],
       "contribution_ids": [
@@ -5305,7 +5309,7 @@
         "title": "完整1624真实区间/价格资产",
         "status": "原1624已接受；独立价格CPU已接受，等待独占资源",
         "result": "原完整卡已接受；实际6.900544 GPUh。终态：14/14路径完成、0运行、0未到达、0失败；独立价格门槛见下一步。价格补测：完整价格CPU已接受；GPU控制器32项检查通过，等待空闲卡实际验证独占。",
-        "next_action": "完整价格CPU与控制器已通过；等待空闲UUID实际验证硬独占，再单次10路径补测（11.5 GPUh上限），价格接受后接PG-P1。",
+        "next_action": "完整价格CPU与控制器已通过；12:52 GPU0完整准入仅GPU_BUSY，等待空闲UUID硬独占后单次10路径补测（上限11.5 GPUh），价格接受后接PG-P1。",
         "evidence_refs": [
           "PG_assets_fourcard_GPU_progress_646",
           "research/647_CARA_FULL1624_HALFWAY_AND_SHARED_GPU_PRICE_CAVEAT_20261023.md",
@@ -5318,7 +5322,8 @@
           "research/650_CARA_PRICE_REFRESH_REAL_ENTRY_AND_FULL_CPU_IN_PROGRESS_20261023.md",
           "research/651_CARA_PRICE_CPU_ACCEPTED_CONTROLLER_READY_WAIT_EXCLUSIVE_20261023.md",
           "reports/wc_policy_price_refresh_full1624_CPU_accepted_r1_20261023.json",
-          "reports/wc_policy_price_refresh_controller_terminal_CPU_20261023.json"
+          "reports/wc_policy_price_refresh_controller_terminal_CPU_20261023.json",
+          "research/653_CARA_GPU0_RECHECK_AND_ACCEPTANCE_STATUS_20261023.md"
         ]
       },
       "actual_GPU_terminal_ref": "reports/wc_policy_assets_full1624_fourcard_GPU_terminal_20261023_0826.json",
@@ -5360,7 +5365,7 @@
         "production_CPU_accepted": true,
         "GPU_dispatch_ready": false,
         "GPU_submissions": 0,
-        "resource_ref": "reports/wc_policy_price_refresh_fresh_resources_20261023_113057.json",
+        "resource_ref": "reports/wc_policy_price_refresh_user_GPU0_resource_20261023_125149.json",
         "actual_CPU_launch_ref": "reports/wc_policy_price_refresh_full1624_CPU_launch_r1_20261023.json",
         "source_revision": "cecba6647fcc626887761961fc7215c6fe1afa8b",
         "real_production_entry_passed": true,
@@ -5375,9 +5380,11 @@
         "controller_CPU_ref": "reports/wc_policy_price_refresh_controller_terminal_CPU_20261023.json",
         "controller_entry": "scripts/wc_four_card_price_refresh_gpu_r1.py",
         "terminal_acceptor": "src/wcomr/policy_price_terminal_r1.py",
-        "preflight_ref": "reports/wc_policy_price_refresh_GPU3_full_preflight_20261023_1005.json",
+        "preflight_ref": "reports/wc_policy_price_refresh_GPU0_user_full_preflight_20261023_1252.json",
         "hardware_exclusivity_verified": false,
-        "next_resource_check_local": "2026-10-23 13:30 Asia/Shanghai"
+        "next_resource_check_local": "2026-10-23 13:30 Asia/Shanghai",
+        "resource_observed_at": "2026-10-23T12:52:26.882393+08:00",
+        "process_owner_ref": "reports/wc_policy_price_refresh_GPU0_owner_20261023_1252.json"
       }
     },
     {
@@ -11500,28 +11507,28 @@
     },
     "EXPERIMENT_REPORT.md": {
       "path": "EXPERIMENT_REPORT.md",
-      "sha256": "20ee11a17de978bc1d4603a8ad9e6ad5b0147b130ae754164c782d5f40c73290",
-      "bytes": 8863
+      "sha256": "98e845b55eeda51dcbee9055c42685190b93f87d26c0bc6f9f16fbd75bfa2c9d",
+      "bytes": 8887
     },
     "memory/handoffs/LATEST.md": {
       "path": "memory/handoffs/LATEST.md",
-      "sha256": "9a85b17f9af376bb70c92064b67742cce29de72c872fe48476d2b4cad69e90fe",
-      "bytes": 6523
+      "sha256": "b85e47d4e534f0edc47049f9bcad3962c8eb1d5b1cd49fb4e70a277103e165c1",
+      "bytes": 6526
     },
     "research/02_CURRENT_STATE.md": {
       "path": "research/02_CURRENT_STATE.md",
-      "sha256": "b9af2969d171104ce01363e4f5884093e929a26bef7951876e561decc93e8901",
-      "bytes": 6767
+      "sha256": "a8649a2fce0d509a9175edfdca6bea4ff59b0156639ce1ce0f30857373626d18",
+      "bytes": 6791
     },
     "research/09_NEXT_ACTIONS.md": {
       "path": "research/09_NEXT_ACTIONS.md",
-      "sha256": "3f3d378f0283042d13e8e8e5fd9a66a9a4e621886df57720954e5c6e79040c4b",
-      "bytes": 5955
+      "sha256": "ec65b22a8b9c6879c3efe5132ea6a4068174a0f5a15a09c527fed6f13c1a3be5",
+      "bytes": 5979
     },
     "paper/EXPERIMENT_MASTER_TABLE.md": {
       "path": "paper/EXPERIMENT_MASTER_TABLE.md",
-      "sha256": "1719e9edae6a6ccbf6d31371455d560f52c4a74a9da5a34f45b22742b2ced560",
-      "bytes": 30198
+      "sha256": "3be31133cc32fa4affa3816332c5d4522afd5649405e65d48198c5b97884f0c7",
+      "bytes": 30305
     },
     "paper/INTERNAL_TO_PAPER_MAPPING.md": {
       "path": "paper/INTERNAL_TO_PAPER_MAPPING.md",
@@ -13390,7 +13397,7 @@
     "historical_operation_policy_ref": "docs/archive/20261022_before_navigation/paper/experiment_master_table.json"
   },
   "mapping_sha256_at_inventory": "88b3d760a0c94c20b6c802e21f30c7286d6e596cc9b3f3100e7ee6feaa3938f3",
-  "latest_mapping_sha256": "fe833e8dc8d57a16d46c8b0f3a1d7869da507189acd21e2c9e97e8451b607c6b",
+  "latest_mapping_sha256": "1b3e08dce1f16c8b3cecc05e6126ac9888f32b4d46684e063eb4ad0265658228",
   "revision_plan": {
     "registry_ref": "plans/cara_v6_20261020/TASK_REGISTRY_V6.yaml",
     "report_ref": "research/610_WC_CARA_V6_REVIEW_CLOSURE_PLAN_INTERVAL_SPEC_AND_FIRST_DEV_SCOPE_20261020.md",
