@@ -3,7 +3,7 @@
   "project": "CARA-Cache",
   "evidence_observed_at": "2026-10-23T08:26:41.422652+08:00",
   "timezone": "Asia/Shanghai",
-  "snapshot_note": "独占价格10/10完整接受，实际6.916276GPUh结算、原锁/容器释放，原标签保持。全1624价格CV中位0.36–0.39%、P95<1%；单个A_HALF尖峰保留且不改冻结聚合。CAL_SELECT新核查3193本地/53远端元数据无执行命中。PG首次派发因缺os在intent之前退出，已保存失败并经10项真实派发body CPU检查沿同一授权恢复；20:26:04单次实际启动，原runner独占核验通过、MODEL_LOADING、0失败。新报价8.844444、上限10.5GPUh，不能以准入宣称策略成功。 P2：旧文件无损去重释放11.97GiB；新组合CPU退出0并独立接受：48采样路径/72请求、真实93帧LPIPS、6生命周期、32组合检查。P1原进程及登记源码不变。 等待P1完整接受并物理策略去重，绑定真实整卡runner/采集器与五项质量模型资源后确定最终矩阵和预算；不提前GPU派发。",
+  "snapshot_note": "独占价格10/10完整接受，实际6.916276GPUh结算、原锁/容器释放，原标签保持。全1624价格CV中位0.36–0.39%、P95<1%；单个A_HALF尖峰保留且不改冻结聚合。CAL_SELECT新核查3193本地/53远端元数据无执行命中。PG首次派发因缺os在intent之前退出，已保存失败并经10项真实派发body CPU检查沿同一授权恢复；20:26:04单次实际启动，原runner独占核验通过、MODEL_LOADING、0失败。新报价8.844444、上限10.5GPUh，不能以准入宣称策略成功。 P2：R2组合CPU已接受；新增真实五模型评分入口、去重绑定及34项本地控制完成。五原权重/固定源码已在本地齐备，四卡实际模型CPU待独立环境和磁盘准入。 P1按原计划验收；空间满足后迁入质量资源、独立依赖闭包及真实五模型CPU，最终整卡预算等P1接受与策略去重。",
   "research_summary": "修正机制与共享布局已有实证；完整1624真实区间标签和独占动作价格均已接受。当前PG-P1按干净Native时钟生成策略；P2 Native/历史生产入口已通过CPU，后续检验冻结计划的新输入质量—时间收益。",
   "active_experiment_id": "PG-P1",
   "active_state": "PG_P1_EXCLUSIVE_GPU_RUNNING",
@@ -213,8 +213,8 @@
     "GPU_submissions": 1
   },
   "PG_P2_preparation": {
-    "status": "COMBINATION_CPU_ACCEPTED_P1_BINDINGS_AND_BUDGET_PENDING",
-    "report_ref": "research/666_CARA_LOSSLESS_ARCHIVE_AND_PG_P2_COMBINATION_CPU_20261023.md",
+    "status": "QUALITY_ENTRY_AND_CARD_BINDING_PREPARED_REAL_MODEL_CPU_PENDING",
+    "report_ref": "research/667_CARA_PG_P2_REAL_QUALITY_ENTRY_AND_CARD_BINDING_PREPARED_20261023.md",
     "plan_ref": "plans/cara_policy_generator_20261020/P2_NATIVE_HISTORY_PRODUCTION_HANDOFF_R1_20261023.md",
     "CPU_capture_ref": "reports/cara_PG_P2_native_history_CPU_complete_r4_20261023.json",
     "CPU_acceptance_ref": "reports/cara_PG_P2_native_history_CPU_accepted_r4_20261023.json",
@@ -255,6 +255,15 @@
     "actual_five_quality_models_loaded": false,
     "final_bound_card_CPU_accepted": false,
     "archive_protection_ref": "reports/cara_archive_restore_and_P1_protection_verified_20261023.json",
-    "archive_released_duplicate_bytes": 12852656704
+    "archive_released_duplicate_bytes": 12852656704,
+    "real_quality_entry_prepared": true,
+    "quality_packet_ref": "reports/cara_PG_P2_quality_original_packet_r1_20261023.json",
+    "quality_preflight_ref": "reports/cara_PG_P2_quality_fourcard_preflight_r1_20261023.json",
+    "quality_binding_plan_ref": "plans/cara_policy_generator_20261020/P2_QUALITY_AND_CARD_BINDING_R1_20261023.md",
+    "quality_binding_report_ref": "research/667_CARA_PG_P2_REAL_QUALITY_ENTRY_AND_CARD_BINDING_PREPARED_20261023.md",
+    "local_quality_and_binding_checks": 34,
+    "local_original_model_resources_complete": true,
+    "four_card_real_model_CPU_accepted": false,
+    "final_whole_card_binding_accepted": false
   }
 }

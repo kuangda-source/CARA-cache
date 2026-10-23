@@ -24,7 +24,6 @@
   },
   "status_counts": {
     "CLAIM_AND_EVIDENCE_WRITING_PROTOCOL_READY": 1,
-    "COMBINATION_CPU_ACCEPTED_P1_BINDINGS_AND_BUDGET_PENDING": 1,
     "CONDITIONAL_DISABLED_PRESELECT_SUBSET_BEFORE_R4A": 1,
     "CONDITIONAL_OTHER_WINDOWS_NOT_RUNTIME_VALIDATED": 1,
     "CONDITIONAL_PLANNED_NOT_FROZEN_OR_APPROVED_CARD": 1,
@@ -40,6 +39,7 @@
     "LOCAL_CPU_PROTOTYPE24_WITH_PROTECTED_PRICE_BRIDGE_NOT_PRODUCTION": 1,
     "PARTIAL_LOCAL_STRUCTURAL_AND_DOCUMENTS_READY": 1,
     "PG_P1_EXCLUSIVE_GPU_RUNNING": 1,
+    "QUALITY_ENTRY_AND_CARD_BINDING_PREPARED_REAL_MODEL_CPU_PENDING": 1,
     "RFC_PRIMARY_SOURCE_IDENTIFIED_ADAPTATION_NOT_FROZEN": 1,
     "SECOND_BACKBONE_OR_SETTING_NOT_SELECTED": 1,
     "WAIT_FOR_GENERATOR_FREEZE_NOT_LEGACY_RESULT_REUSE": 1,
@@ -5506,14 +5506,14 @@
     },
     {
       "id": "PG-P2",
-      "state": "COMBINATION_CPU_ACCEPTED_P1_BINDINGS_AND_BUDGET_PENDING",
+      "state": "QUALITY_ENTRY_AND_CARD_BINDING_PREPARED_REAL_MODEL_CPU_PENDING",
       "paper_experiment_name": "Equal-query fixed-readout/local-only/joint/random controls",
       "internal_ids": [
         "PG-P2"
       ],
       "contribution_relation": "可复现区间生成器的新方法验证；CPU原型不充真实质量结果",
-      "evidence_or_planned_scope": "旧文件无损去重释放11.97GiB；新组合CPU退出0并独立接受：48采样路径/72请求、真实93帧LPIPS、6生命周期、32组合检查。P1原进程及登记源码不变。",
-      "gap_and_next_action": "等待P1完整接受并物理策略去重，绑定真实整卡runner/采集器与五项质量模型资源后确定最终矩阵和预算；不提前GPU派发。",
+      "evidence_or_planned_scope": "R2组合CPU已接受；新增真实五模型评分入口、去重绑定及34项本地控制完成。五原权重/固定源码已在本地齐备，四卡实际模型CPU待独立环境和磁盘准入。",
+      "gap_and_next_action": "P1按原计划验收；空间满足后迁入质量资源、独立依赖闭包及真实五模型CPU，最终整卡预算等P1接受与策略去重。",
       "priority": "GEN-3",
       "evidence_refs": [
         "research/612_WC_POLICY_GENERATOR_CPU_PROTOTYPE_AND_REPRODUCIBLE_VALIDATION_DESIGN_20261020.md",
@@ -5536,7 +5536,11 @@
         "research/666_CARA_LOSSLESS_ARCHIVE_AND_PG_P2_COMBINATION_CPU_20261023.md",
         "reports/cara_PG_P2_combination_CPU_check_r2_20261023_05.json",
         "reports/cara_PG_P2_combination_CPU_accepted_r2_20261023.json",
-        "reports/cara_archive_restore_and_P1_protection_verified_20261023.json"
+        "reports/cara_archive_restore_and_P1_protection_verified_20261023.json",
+        "research/667_CARA_PG_P2_REAL_QUALITY_ENTRY_AND_CARD_BINDING_PREPARED_20261023.md",
+        "plans/cara_policy_generator_20261020/P2_QUALITY_AND_CARD_BINDING_R1_20261023.md",
+        "reports/cara_PG_P2_quality_original_packet_r1_20261023.json",
+        "reports/cara_PG_P2_quality_fourcard_preflight_r1_20261023.json"
       ],
       "method_mapping_ids": [],
       "contribution_ids": [
@@ -5561,9 +5565,9 @@
       "theory_review_ref": "research/624_WC_REPRODUCIBLE_POLICY_GENERATOR_THEORY_VALIDITY_AND_EVIDENCE_20261021.md",
       "reader": {
         "title": "等预算与等查询强基线",
-        "status": "组合CPU已独立接受；最终策略绑定和预算待P1",
-        "result": "旧文件无损去重释放11.97GiB；新组合CPU退出0并独立接受：48采样路径/72请求、真实93帧LPIPS、6生命周期、32组合检查。P1原进程及登记源码不变。",
-        "next_action": "等待P1完整接受并物理策略去重，绑定真实整卡runner/采集器与五项质量模型资源后确定最终矩阵和预算；不提前GPU派发。",
+        "status": "质量入口与绑定准备完成；真实模型CPU待准入",
+        "result": "R2组合CPU已接受；新增真实五模型评分入口、去重绑定及34项本地控制完成。五原权重/固定源码已在本地齐备，四卡实际模型CPU待独立环境和磁盘准入。",
+        "next_action": "P1按原计划验收；空间满足后迁入质量资源、独立依赖闭包及真实五模型CPU，最终整卡预算等P1接受与策略去重。",
         "evidence_refs": [
           "CARA_generator_report_612",
           "research/648_CARA_GPU_OWNER_PRICE_TRUST_AND_ORDERED_CONTINUATION_20261023.md",
@@ -5578,7 +5582,11 @@
           "research/666_CARA_LOSSLESS_ARCHIVE_AND_PG_P2_COMBINATION_CPU_20261023.md",
           "reports/cara_PG_P2_combination_CPU_check_r2_20261023_05.json",
           "reports/cara_PG_P2_combination_CPU_accepted_r2_20261023.json",
-          "reports/cara_archive_restore_and_P1_protection_verified_20261023.json"
+          "reports/cara_archive_restore_and_P1_protection_verified_20261023.json",
+          "research/667_CARA_PG_P2_REAL_QUALITY_ENTRY_AND_CARD_BINDING_PREPARED_20261023.md",
+          "plans/cara_policy_generator_20261020/P2_QUALITY_AND_CARD_BINDING_R1_20261023.md",
+          "reports/cara_PG_P2_quality_original_packet_r1_20261023.json",
+          "reports/cara_PG_P2_quality_fourcard_preflight_r1_20261023.json"
         ]
       },
       "continuation_CPU_test_ref": "reports/cara_PG_continuation_CPU_preparation_final_20261023.json",
@@ -5609,7 +5617,16 @@
       "actual_all93_frame_LPIPS": true,
       "actual_five_quality_models_loaded": false,
       "final_bound_card_CPU_accepted": false,
-      "archive_protection_ref": "reports/cara_archive_restore_and_P1_protection_verified_20261023.json"
+      "archive_protection_ref": "reports/cara_archive_restore_and_P1_protection_verified_20261023.json",
+      "real_quality_entry_prepared": true,
+      "quality_packet_ref": "reports/cara_PG_P2_quality_original_packet_r1_20261023.json",
+      "quality_preflight_ref": "reports/cara_PG_P2_quality_fourcard_preflight_r1_20261023.json",
+      "quality_binding_plan_ref": "plans/cara_policy_generator_20261020/P2_QUALITY_AND_CARD_BINDING_R1_20261023.md",
+      "quality_binding_report_ref": "research/667_CARA_PG_P2_REAL_QUALITY_ENTRY_AND_CARD_BINDING_PREPARED_20261023.md",
+      "local_quality_and_binding_checks": 34,
+      "local_original_model_resources_complete": true,
+      "four_card_real_model_CPU_accepted": false,
+      "final_whole_card_binding_accepted": false
     },
     {
       "id": "PG-P3",
@@ -11612,28 +11629,28 @@
     },
     "EXPERIMENT_REPORT.md": {
       "path": "EXPERIMENT_REPORT.md",
-      "sha256": "83444c4fc642bab29a02dbcae5023541686ebd28cfea12dc2f30b1c6a3614dd6",
-      "bytes": 9059
+      "sha256": "83eb3067637173a99e23507ab6707d5246e81b3169ba7aaa3a17f946be2a5b14",
+      "bytes": 9050
     },
     "memory/handoffs/LATEST.md": {
       "path": "memory/handoffs/LATEST.md",
-      "sha256": "07e817ad4b557dca355835c133e72df6d97ef125c6d44936cb96c85ad7769dc4",
-      "bytes": 6709
+      "sha256": "7ce0254a7e39455daa5b8929e11e5952f30e24553df49b7c3bd8c46214621d2f",
+      "bytes": 6734
     },
     "research/02_CURRENT_STATE.md": {
       "path": "research/02_CURRENT_STATE.md",
-      "sha256": "85e31551c9387b4f16c8661315cf552c7194dd1539ac60365b3be3b55775c166",
-      "bytes": 6413
+      "sha256": "f2fd750f439cf5fd956cf901c79e696ceee434e71038cb6bb97de5ff786bbacb",
+      "bytes": 6428
     },
     "research/09_NEXT_ACTIONS.md": {
       "path": "research/09_NEXT_ACTIONS.md",
-      "sha256": "9c4b3bb85ab5fcac93d57fe63951b0d477cce21d5e72c043d48b2363d5e76efe",
-      "bytes": 5940
+      "sha256": "61deb69a979b01fa2819109284713c328a62b9d3098c536439fc510583a0500e",
+      "bytes": 5955
     },
     "paper/EXPERIMENT_MASTER_TABLE.md": {
       "path": "paper/EXPERIMENT_MASTER_TABLE.md",
-      "sha256": "ade3a0c510d407fbe747e130b49c4620197c6be646501d28d65f386581aad6f1",
-      "bytes": 30435
+      "sha256": "99568e10edc656f9b2357b24ea35ff3920b5058b9315be9d8246d2b30fa4f826",
+      "bytes": 30794
     },
     "paper/INTERNAL_TO_PAPER_MAPPING.md": {
       "path": "paper/INTERNAL_TO_PAPER_MAPPING.md",
@@ -13504,7 +13521,7 @@
     "historical_operation_policy_ref": "docs/archive/20261022_before_navigation/paper/experiment_master_table.json"
   },
   "mapping_sha256_at_inventory": "88b3d760a0c94c20b6c802e21f30c7286d6e596cc9b3f3100e7ee6feaa3938f3",
-  "latest_mapping_sha256": "bf3ae78a7e2d9a8f378ff5d99ee035448c91d2007199a7e861c73f40e4c13b24",
+  "latest_mapping_sha256": "4f1b831513ea6e3ee4c986ffa680eecce98252df229d26b9dd53de2dbc53fdbe",
   "revision_plan": {
     "registry_ref": "plans/cara_v6_20261020/TASK_REGISTRY_V6.yaml",
     "report_ref": "research/610_WC_CARA_V6_REVIEW_CLOSURE_PLAN_INTERVAL_SPEC_AND_FIRST_DEV_SCOPE_20261020.md",

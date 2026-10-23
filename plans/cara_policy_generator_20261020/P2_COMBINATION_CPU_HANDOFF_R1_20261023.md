@@ -1,5 +1,7 @@
 # PG-P2 整卡组合 CPU 接续
 
+最新质量与绑定准备见 `plans/cara_policy_generator_20261020/P2_QUALITY_AND_CARD_BINDING_R1_20261023.md` 和 `research/667_CARA_PG_P2_REAL_QUALITY_ENTRY_AND_CARD_BINDING_PREPARED_20261023.md`。原R2组合CPU保持已接受；新增质量入口本地准备不等于五模型实际CPU。P1接续脚本现在还要求原组合CPU的 `--combination-capture` 和 `--combination-acceptance`。预算继续等P1验收和去重。
+
 ## 2026-10-23 22:54 最新接续：组合 CPU 已接受
 
 已完成本人旧文件452个重复对象的只读无损去重，释放11.97GiB，保留原路径/SHA及恢复清单；P1原runner与登记源码不变。完整记录见 `research/666_CARA_LOSSLESS_ARCHIVE_AND_PG_P2_COMBINATION_CPU_20261023.md`。R2组合CPU原容器22:54:33退出0，22:54:52完整收件；`reports/cara_PG_P2_combination_CPU_check_r2_20261023_05.json` 与 `reports/cara_PG_P2_combination_CPU_accepted_r2_20261023.json` 已独立接受。48采样/72请求、真实93帧LPIPS、6生命周期、32组合检查通过；五项质量模型仍仅协议/分母控制。**复用本次原件，不再部署或重跑组合CPU。**

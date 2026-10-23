@@ -8,7 +8,7 @@
 
 范围：4 CAL_FIT / 2 CAL_SELECT，Q≤8（首批4+一次细化4），最多64路径/40评分/2304pairs/4608CFG，单load；forecast8.844444 GPUh，上限10.5 GPUh。PG-P1技术半程：**2026-10-24 00:52 Asia/Shanghai**；PG-P1完整终态验收：**2026-10-24 05:32 Asia/Shanghai**。
 
-[唯一实际PG启动](../../reports/cara_PG_P1_full64_GPU_actual_launch_20261023_2030.json) · [PG技术观测](../../reports/cara_PG_P1_full64_GPU_after_load_20261023_2030.json) · [真实独占核验](../../reports/cara_PG_P1_GPU3_exclusive_active_20261023_2027.json) · [完整接续记录](../../research/661_CARA_EXCLUSIVE_PRICES_ACCEPTED_PG_P1_ACTUALLY_ADMITTED_20261023.md)。独占价格10/10完整接受，实际6.916276GPUh结算、原锁/容器释放，原标签保持。全1624价格CV中位0.36–0.39%、P95<1%；单个A_HALF尖峰保留且不改冻结聚合。CAL_SELECT新核查3193本地/53远端元数据无执行命中。PG首次派发因缺os在intent之前退出，已保存失败并经10项真实派发body CPU检查沿同一授权恢复；20:26:04单次实际启动，原runner独占核验通过、MODEL_LOADING、0失败。新报价8.844444、上限10.5GPUh，不能以准入宣称策略成功。 P2：旧文件无损去重释放11.97GiB；新组合CPU退出0并独立接受：48采样路径/72请求、真实93帧LPIPS、6生命周期、32组合检查。P1原进程及登记源码不变。 等待P1完整接受并物理策略去重，绑定真实整卡runner/采集器与五项质量模型资源后确定最终矩阵和预算；不提前GPU派发。
+[唯一实际PG启动](../../reports/cara_PG_P1_full64_GPU_actual_launch_20261023_2030.json) · [PG技术观测](../../reports/cara_PG_P1_full64_GPU_after_load_20261023_2030.json) · [真实独占核验](../../reports/cara_PG_P1_GPU3_exclusive_active_20261023_2027.json) · [完整接续记录](../../research/661_CARA_EXCLUSIVE_PRICES_ACCEPTED_PG_P1_ACTUALLY_ADMITTED_20261023.md)。独占价格10/10完整接受，实际6.916276GPUh结算、原锁/容器释放，原标签保持。全1624价格CV中位0.36–0.39%、P95<1%；单个A_HALF尖峰保留且不改冻结聚合。CAL_SELECT新核查3193本地/53远端元数据无执行命中。PG首次派发因缺os在intent之前退出，已保存失败并经10项真实派发body CPU检查沿同一授权恢复；20:26:04单次实际启动，原runner独占核验通过、MODEL_LOADING、0失败。新报价8.844444、上限10.5GPUh，不能以准入宣称策略成功。 P2：R2组合CPU已接受；新增真实五模型评分入口、去重绑定及34项本地控制完成。五原权重/固定源码已在本地齐备，四卡实际模型CPU待独立环境和磁盘准入。 P1按原计划验收；空间满足后迁入质量资源、独立依赖闭包及真实五模型CPU，最终整卡预算等P1接受与策略去重。
 
 原1624标签完整接受；独占价格补测10/10完整接受、实际6.916276 GPUh已结算，[独立价格接受](../../reports/wc_policy_price_refresh_GPU_accepted_20261023_2023.json)。PG-P1尚无科学结果；CPU和独占准入不代表策略优势。
 
@@ -36,6 +36,6 @@
 
 ## P2并行准备
 
-P1原64位置、10.5 GPUh及半程/终态安排保持不变。旧文件无损去重释放11.97GiB；新组合CPU退出0并独立接受：48采样路径/72请求、真实93帧LPIPS、6生命周期、32组合检查。P1原进程及登记源码不变。 五项独立质量模型本轮仅验证协议和分母，真实模型资源及最终整卡绑定仍待完成。最终范围和预算等P1接受、策略物理去重后确定，旧518路报价仅保留作历史上界。见[666归档与组合CPU接受](../../research/666_CARA_LOSSLESS_ARCHIVE_AND_PG_P2_COMBINATION_CPU_20261023.md)。
+P1原64位置、10.5 GPUh及半程/终态安排保持不变。R2组合CPU已接受；新增真实五模型评分入口、去重绑定及34项本地控制完成。五原权重/固定源码已在本地齐备，四卡实际模型CPU待独立环境和磁盘准入。 本轮仅四卡只读核查和本地准备，未改P1环境或stage。最新磁盘约34.7GiB，未降低40GiB准入线。最终预算等P1完整接受及策略物理去重后确定，未新增GPU预算或派发。见[667真实质量入口与整卡绑定](../../research/667_CARA_PG_P2_REAL_QUALITY_ENTRY_AND_CARD_BINDING_PREPARED_20261023.md)。
 
 P2 CPU原件与绑定命令见[生产接续方案](../../plans/cara_policy_generator_20261020/P2_NATIVE_HISTORY_PRODUCTION_HANDOFF_R1_20261023.md)。不重复已接受CPU；全P2监督/评分/终态组合尚待完成。78.5GPUh为未去重整体上界，不是已批额度；原累计226、退役两卡16.5责任保留。
