@@ -1,0 +1,141 @@
+{
+  "observed_unix": 1792745853.5029042,
+  "launch_id": "895d66c7-5e95-42b3-bbff-0f78766eb424",
+  "status": "POLICY_PRICE_COMPLETE10_RUNNING",
+  "model_loads": 1,
+  "load_seconds": 230.19598644785583,
+  "runs": [
+    {
+      "id": "warm_1_CONTROL",
+      "mode": "CONTROL",
+      "section": "WARMUP",
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "status": "COMPLETE",
+      "started_unix": 1792732704.0331259,
+      "ended_unix": 1792733058.1969125,
+      "technical_progress": []
+    },
+    {
+      "id": "warm_2_PRICE",
+      "mode": "PRICE",
+      "section": "WARMUP",
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "status": "COMPLETE",
+      "started_unix": 1792733058.4604385,
+      "ended_unix": 1792737580.0158873,
+      "technical_progress": [
+        {
+          "path": "warm_2_PRICE/price-raw/technical-progress.json",
+          "mtime": 1792737525.4948463,
+          "stage": "PRICE_REFRESH",
+          "completed_source_time_cells": 406,
+          "registered_source_time_cells": 406,
+          "current_target": 35,
+          "current_source": 34,
+          "errors": 0
+        }
+      ]
+    },
+    {
+      "id": "formal_0_CONTROL",
+      "mode": "CONTROL",
+      "section": "FORMAL",
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "status": "COMPLETE",
+      "started_unix": 1792737580.509249,
+      "ended_unix": 1792737900.3193948,
+      "technical_progress": []
+    },
+    {
+      "id": "formal_0_PRICE",
+      "mode": "PRICE",
+      "section": "FORMAL",
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "status": "COMPLETE",
+      "started_unix": 1792737900.7477465,
+      "ended_unix": 1792742491.023158,
+      "technical_progress": [
+        {
+          "path": "formal_0_PRICE/price-raw/technical-progress.json",
+          "mtime": 1792742419.2725391,
+          "stage": "PRICE_REFRESH",
+          "completed_source_time_cells": 406,
+          "registered_source_time_cells": 406,
+          "current_target": 35,
+          "current_source": 34,
+          "errors": 0
+        }
+      ]
+    },
+    {
+      "id": "formal_1_CONTROL",
+      "mode": "CONTROL",
+      "section": "FORMAL",
+      "scene": "human_199",
+      "status": "COMPLETE",
+      "started_unix": 1792742491.6357148,
+      "ended_unix": 1792742818.6907127,
+      "technical_progress": []
+    },
+    {
+      "id": "formal_1_PRICE",
+      "mode": "PRICE",
+      "section": "FORMAL",
+      "scene": "human_199",
+      "status": "RUNNING",
+      "started_unix": 1792742819.352679,
+      "technical_progress": [
+        {
+          "path": "formal_1_PRICE/price-raw/technical-progress.json",
+          "mtime": 1792745843.7715933,
+          "stage": "PRICE_REFRESH",
+          "completed_source_time_cells": 254,
+          "registered_source_time_cells": 406,
+          "current_target": 30,
+          "current_source": 7,
+          "errors": 0
+        }
+      ]
+    }
+  ],
+  "disk_free_bytes": 99216330752,
+  "monitor_count": 6153,
+  "monitor_first": {
+    "snapshot": {
+      "gpu_uuid": "GPU-d4868f0a-29df-9077-82db-77f7bf0f9934",
+      "compute_mode": "Exclusive_Process",
+      "compute_apps": [],
+      "mps_processes": [],
+      "observed_unix": 1792732415.9155588
+    },
+    "context_granted": false,
+    "monotonic_elapsed": 0.4206403847783804
+  },
+  "monitor_last": {
+    "snapshot": {
+      "gpu_uuid": "GPU-d4868f0a-29df-9077-82db-77f7bf0f9934",
+      "compute_mode": "Exclusive_Process",
+      "compute_apps": [
+        {
+          "gpu_uuid": "GPU-d4868f0a-29df-9077-82db-77f7bf0f9934",
+          "pid": 950782,
+          "start_ticks": 951747898,
+          "uid": 1000,
+          "memory_MiB": "15836"
+        }
+      ],
+      "mps_processes": [],
+      "observed_unix": 1792745852.1534464
+    },
+    "context_granted": true,
+    "monotonic_elapsed": 13436.658647034317
+  },
+  "monitor_keys": [
+    "snapshot",
+    "context_granted",
+    "monotonic_elapsed"
+  ],
+  "monitor_bad_records": [],
+  "monitor_max_gap_seconds": 0,
+  "MemAvailable_bytes": 26022055936
+}

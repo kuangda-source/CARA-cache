@@ -1,0 +1,43 @@
+{
+  "status": "RUNNING_TECHNICAL_PROGRESS_NOT_PRICE_ACCEPTANCE",
+  "launch_id": "895d66c7-5e95-42b3-bbff-0f78766eb424",
+  "capture_ref": "reports/wc_policy_price_refresh_GPU_user_progress_20261023_1655.json",
+  "technical_ref": "reports/wc_policy_price_refresh_GPU_technical_eta_snapshot_20261023_1658.json",
+  "exclusive_prefix_ref": "reports/wc_policy_price_refresh_GPU_exclusive_prefix_20261023_1659.json",
+  "observed_at": "2026-10-23T16:57:33.502904+08:00",
+  "formal_cells_completed": 660,
+  "formal_cells_total": 1624,
+  "warm_cells_completed": 406,
+  "total_cells_completed": 1066,
+  "total_cells": 2030,
+  "complete_PRICE_path_seconds": [
+    4521.555448770523,
+    4590.275411605835
+  ],
+  "remaining_point_estimate_seconds": 11464.35892382866,
+  "point_estimate_GPU_finish": "2026-10-23T20:08:37.861828+08:00",
+  "estimated_GPU_finish_window_local": [
+    "2026-10-23 20:00",
+    "2026-10-23 20:30"
+  ],
+  "estimated_acceptance_and_PG_launch_window_local": [
+    "2026-10-23 20:30",
+    "2026-10-23 21:00"
+  ],
+  "estimate_is_not_guarantee": true,
+  "method": "Mean of two complete PRICE durations times remaining PRICE-cell fraction plus two mean formal CONTROL durations; completion window allows scene/runtime variation. Acceptance and staging allowance is an estimate, not measured.",
+  "prefix_monitor_aggregation_note": "technical snapshot monitor_max_gap_seconds=0 was computed from the wrong nesting level and is invalid; only the separately recomputed exclusive_prefix_ref is authoritative for monitor aggregation. Empty monitor_bad_records in that snapshot is also not a validated check.",
+  "new_GPU_submissions": 0,
+  "scientific_labels_or_prices_inspected": false,
+  "terminal_automation_id": "cara-bank24-2",
+  "terminal_schedule_before": "2026-10-23 22:59",
+  "terminal_schedule_after": "2026-10-23 20:20",
+  "automation_readback": {
+    "name": "CARA 独占价格补测全程验收",
+    "prompt": "目录 /Users/kuangda_gao/Documents/世界模型加速实验/worldcache_omr。先读research/658_CARA_PRICE_PROGRESS_AND_EARLIER_PG_P1_HANDOFF_20261023.md、research/657_CARA_PG_P1_FULL_CARD_COMBINATION_CPU_ACCEPTED_AND_PRICE_HANDOFF_20261023.md、655和当前状态，已有原件复用不重复。用户已在GMSD对话01a0f8c7-2f9c-7372-87e3-bd77f830f9f2直接授权CARA优先；GMSD原任务已完成并释放，暂不争用GPU3。唯一价格GPU实际恢复launch-ref reports/wc_policy_price_refresh_full1624_GPU_actual_recovery_launch_20261023_1313.json，launch_id895d66c7-5e95-42b3-bbff-0f78766eb424，source cecba6647fcc626887761961fc7215c6fe1afa8b，stage /data20t/gaokuangda/worldcache_workspace/.sync/wc-policy-price-refresh-fourcard-full1624-r1-20261023，run wc-policy-price-refresh-cal4-full1624-ada-r1，GPU3 UUID GPU-d4868f0a-29df-9077-82db-77f7bf0f9934，guardian950505/start951746754，supervisor950689/start951747277，runner950782/start951747898/UID1000。实际恢复13:13:24.179586（1792732404.1795857），原12:59裸Python的GLIBC失败没有GPU/模式/预约，原件保留，不能用作新检查起点。恢复intent和恢复launch已经存在，绝不再launch-gpu或resume-host-entry；未知只recover原CPU句柄并找到上述恢复launch，不盲重派。恢复启动已实际通过Exclusive_Process idle及唯一原runner active验证，见reports/wc_policy_price_refresh_GPU3_exclusive_active_actual_20261023_1316.json。首次技术收件reports/wc_policy_price_refresh_full1624_GPU_recovery_admission_20261023_1316.json为MODEL_LOADING、0失败；持续监测56采样、最大间隔2.612秒，账本已预留11.5GPUh。范围4CAL/10路径(8正式+2warm)/1624正式格2030总格/每格1warm+3正式轮3动作/24360读出/360pairs720CFG/单load；复用原4Native与原标签。forecast9.500278、上限11.5GPUh；pool used125.646551890291/reserved28(含旧两卡未知16.5)/available72.353448109709/cap226。原1624已完整接受，6.900543598864 GPUh已结算，不重收重跑。控制器scripts/wc_four_card_price_refresh_gpu_r1.py；收件使用新唯一路径，捕获原进程/容器/UUID/模式/锁/预算/磁盘/进度与错误。持续独占规则仍为唯一原runner、无MPS、相邻及末次到结算间隔<=45秒；不修改运行stage，不以部分结果调参。只用已授权四卡私有入口，SSH失败恢复私有连接后读取同句柄，不恢复两卡或触碰其他任务。凭据不入Git日志。只有意义进度、完成、失败或需用户行动时通知，状态无变化静默。 基于16:57实际技术进度，本次检查提前到10月23日20:20。原launch中22:58:25是旧forecast推算检查点，不是必须等待的终态门槛；实际退出即可完整收件。16:57已完成5/10路径，formal_1_PRICE为254/406格；两条完整PRICE为75.36/76.50分钟，预计20:00–20:30运行完成。独占前缀6167样本无违规、最大间隔2.816秒；该前缀不是完整终态接受。若20:20仍运行，按实际技术进度复用本检查更新，不伪称完成。运行capture --launch-ref上述实际恢复启动 --mode terminal --output 新唯一回执；仍运行只记技术状态，按实际进度/预算更新本检查。已完整退出则accept-gpu --capture 新终态 --output 新独立接受。核对完整10路径24360读出、所有36步/最终latent/93帧与旧Native相等、source/input/olderSHA/三轮输出一致、旧标签不变、独占连续监测、真实账单和权威结算、原进程/容器/锁释放、新bundle双SHA，以及入口恢复的原始/恢复launch身份与SHA；未通过保留原失败和费用。模式恢复仅空闲时，延期单独跟踪不动外部进程。不得根据旧原1624的generator_input_ready跳过新价格验收。完整接受后输出全1624重复波动/顺序漂移/max-source聚合放大，不以低CV代替独占证据；PG-P1整卡组合CPU已独立接受，原件 reports/cara_PG_P1_combination_CPU_terminal_r3_complete_20261023.json，独立接受 reports/cara_PG_P1_combination_CPU_accepted_r3_20261023.json，执行source170c50e6，stage /data20t/gaokuangda/worldcache_workspace/.sync/cara-pg-p1-CPU-combination-r3-20261023。原容器16:32:04退出0，真实18采样CPU路径、全部93帧LPIPS回调、6种原监督/guardian真实CPU子进程生命周期及12终态故障均过；本地92项相关检查过。R1遗漏旧评分模块和R2只读hub路径失败保留；R3固定新评分资源路径并保留已接受SM89预算端口。不得重复派已接受CPU，不能把CPU通过称为GPU结果。\n原价格完整接受并结算释放后，按 plans/cara_policy_generator_20261020/P1_FULL_CARD_COMBINATION_HANDOFF_R3_20261023.md 直接接续已授权PG-P1：先scripts/audit_cara_cal_select_exposure_r1.py生成30分钟内的完整本地+四卡SELECT身份审计；然后scripts/wc_four_card_cara_pg_gpu_r1.py prepare --cpu-capture上述R3终态 --cpu-acceptance上述R3接受 --price-capture本次完整价格终态 --price-acceptance本次独立价格接受 --exposure新曝光原件 --stage-name cara-pg-p1-full64-ada-r1-20261023 --output新唯一stage-ref。prepare独立重算原价格接受、绑定旧标签与新价格SHA并复制已接受源码闭包，不改原价卡stage。若原stage已经存在，先恢复原stage和句柄，不能盲建重派。\nPG控制器preflight --stage-ref新stage-ref --gpu-uuid实际空闲UUID --output新原件，然后launch-gpu同参数；完整64路报价 manifests/cara_PG_P1_full64_whole_quote_r1_20261023.json forecast8.844444/limit10.5GPUh，独立预约不挪用价格11.5或旧资产12。fresh账本cap226/旧两卡16.5未知责任保留；仍有原GPU任务或UUID忙就等待不改变模式。launch会验证公开Git HEAD与控制器闭包，并经原授权私有凭据、已验host wrapper单次启用空闲UUID EXCLUSIVE_PROCESS；不杀他人，不以项目锁替代硬独占。Git SSH若需原本机7900代理，沿已有GIT_SSH_COMMAND代理方式，不改全局配置。派发后立即PG控制器capture --launch-ref新实际启动 --mode admission核对唯一原runner PID/start/UID、GPU UUID、原锁、账本、真实上下文握手。UNKNOWN或已有intent只recover --stage-ref原stage-ref，绝不重新launch。\n完整P1保持4CAL_FIT/2CAL_SELECT、64位置上限、40评分、2304pairs/4608CFG、单load、Q<=8首批4+一次细化4。本卡先Native warm2+FIT4取得干净完整请求时钟并接受独占监测前缀，固定B=.80，再生成候选；不能用旧共享GPU时钟设B。首次SELECT前由runner再次查新增输出身份，不换SELECT。真实93帧432x768 CPU LPIPS保留逐帧分数/PTS和视频/权重SHA；GPU保持期间搜索评分保存都计入整卡费用。终态PG控制器capture --mode terminal再accept-gpu，独立复算所有候选/角色别名/排序/最终策略，核对原件、独占、原进程/容器/锁释放、实际账单权威结算；拒绝缺分母、评分异常或不实clock。没有可行策略保持原失败/费用，不补查询或改阈值。\n新GPU实际启动后按返回halfway/next_check安排半程与全程，复用本终态自动化改绑PG launch，另建最多一个技术半程；不要重复。P1策略冻结后小历史window shadow不写回、P2少步Native等实测时间，新增范围各自完整报价，不塞入本64路预算。P2最多84计时路径和6历史路径的设计已准备但未生产接受。不以DEV或部分运行结果调参。价格验收完成后删除或明确改绑本任务；仅意义进度、完成、失败或需用户行动通知，状态未变静默。不主动跨对话发消息。",
+    "status": "ACTIVE",
+    "rrule": "FREQ=DAILY;COUNT=1;BYHOUR=20;BYMINUTE=20;BYSECOND=0",
+    "target_thread_id": "01a16291-9678-7131-ab80-b03e985a9047"
+  },
+  "halfway_unchanged": "2026-10-23 17:59"
+}
