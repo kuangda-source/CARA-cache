@@ -12,7 +12,7 @@ PG-P1先接已完整接受的真实标签与动作价格，再核对两个已登
 
 [2026-10-23接续要求](repo:plans/cara_policy_generator_20261020/PRICE_HISTORY_NATIVE_CONTINUATION_R1_20261023.md)：原1624数值/控制和动作价格分别接受；已知同卡竞争的价格不因低波动自动通过。未来GPU卡要求实际独占。冻结策略后加入小规模历史窗口诊断，PG-P2加入少步Native等实测时间对照；shadow不写回，不计为干净延迟，新增范围单独进入完整报价。
 
-原1624资产卡已经完整接受。眼前的下一卡为[独占价格刷新R1](repo:plans/cara_policy_generator_20261020/FULL1624_PRICE_REFRESH_R1_20261023.md)：10条新路径、全部区间每动作三轮正式重复，完整报价9.500278 GPUh、上限11.5；生产入口与实际CPU尚待完成。
+原1624资产卡已经完整接受。眼前的下一卡为[独占价格刷新R1](repo:plans/cara_policy_generator_20261020/FULL1624_PRICE_REFRESH_R1_20261023.md)：10条新路径、全部区间每动作三轮正式重复，完整报价9.500278 GPUh、上限11.5；完整生产CPU与生命周期已接受，一次性GPU控制器及独立终态接受已完成CPU检查，等待空闲UUID实际验证硬件独占。见[651接续记录](repo:research/651_CARA_PRICE_CPU_ACCEPTED_CONTROLLER_READY_WAIT_EXCLUSIVE_20261023.md)。
 
 PG-P1的Q表示用于策略选择的完整终点评价查询预算。第一个预算为0.80×Native，Q≤8、首4后4、一次CAL_SELECT冻结。基础范围最多40候选正式+6Native+18warm=64路径；额外统计采集另计。具体完整报价与准入仍按注册表执行，不挪用已完成资产卡的12GPUh批准。
 

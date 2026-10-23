@@ -3,20 +3,20 @@
   "project": "CARA-Cache",
   "evidence_observed_at": "2026-10-23T08:26:41.422652+08:00",
   "timezone": "Asia/Shanghai",
-  "snapshot_note": "原1624的08:26接受及6.900544 GPUh结算保持；新价格补测CPU于09:14实际启动，真实入口与生命周期CPU故障测试已通过，完整数值验证进行中。尚未启用实际独占、预留或提交新GPU。",
+  "snapshot_note": "原1624的08:26接受及6.900544 GPUh结算保持；新价格CPU原容器09:46:34退出，实际09:51:55完整验收。控制器32项CPU检查通过，10:00:11全准入仅GPU_BUSY未满足；没有新GPU预约、模式变更或提交。",
   "research_summary": "修正机制与共享布局已有实证；完整1624真实区间标签已接受，半强度在四CAL全区间均值均改善。当前修复动作价格可信度，再检验自动生成计划的独立质量—时间收益。",
   "active_experiment_id": "PG-P1-ASSETS",
-  "active_state": "PRICE_REFRESH_CPU_VALIDATION_IN_PROGRESS",
-  "active_state_zh": "原1624已接受；独立价格补测完整CPU验证进行中",
+  "active_state": "PRICE_REFRESH_CPU_ACCEPTED_WAIT_EXCLUSIVE_RESOURCE",
+  "active_state_zh": "原1624已接受；独立价格CPU已接受，等待独占资源",
   "launch_ref": "reports/wc_policy_assets_full1624_fourcard_GPU_launch_20261022.json",
   "observation_ref": "reports/wc_policy_assets_full1624_fourcard_GPU_terminal_20261023_0826.json",
   "admission_ref": "reports/wc_policy_assets_full1624_fourcard_GPU_admission_checked_and_schedule_20261022.json",
   "cpu_acceptance_ref": "reports/wc_policy_assets_full1624_fourcard_CPU_r2_accepted_20261022.json",
-  "run_report_ref": "research/650_CARA_PRICE_REFRESH_REAL_ENTRY_AND_FULL_CPU_IN_PROGRESS_20261023.md",
+  "run_report_ref": "research/651_CARA_PRICE_CPU_ACCEPTED_CONTROLLER_READY_WAIT_EXCLUSIVE_20261023.md",
   "next_checks": [
     {
-      "kind": "独立价格补测完整CPU验收与后续准入",
-      "scheduled_local": "2026-10-23 09:45 Asia/Shanghai",
+      "kind": "独占价格补测资源检查与单次准入",
+      "scheduled_local": "2026-10-23 10:30 Asia/Shanghai",
       "automation_id": "cara-bank24-2"
     }
   ],
@@ -98,14 +98,15 @@
     "sudo_authority_verified": true,
     "authority_ref": "reports/wc_four_card_exclusive_sudo_authority_readonly_20261023.json",
     "read_only_check": "scripts/check_wc_four_card_exclusive_r1.py",
-    "production_launcher_integration_pending": true,
+    "production_launcher_integration_pending": false,
     "original_active_launch_unchanged": true,
     "production_mode_guard_implemented": true,
     "exact_source_lifecycle_CPU_fixture_passed": true,
-    "hardware_support_verified": false
+    "hardware_support_verified": false,
+    "controller_CPU_passed": true
   },
   "terminal_acceptance_ref": "reports/wc_policy_assets_full1624_fourcard_GPU_accepted_20261023_0826.json",
-  "resource_observation_ref": "reports/wc_policy_price_refresh_resources_and_CPU_progress_20261023_0924.json",
+  "resource_observation_ref": "reports/wc_policy_price_refresh_fresh_resources_20261023_095612.json",
   "actual_original_GPUh": 6.900543598864331,
   "budget_snapshot": {
     "used_gpu_hours": 125.64655189029101,
@@ -115,11 +116,15 @@
   },
   "price_refresh_CPU": {
     "launch_ref": "reports/wc_policy_price_refresh_full1624_CPU_launch_r1_20261023.json",
-    "observation_ref": "reports/wc_policy_price_refresh_full1624_CPU_halfway_r1_20261023_0924.json",
+    "observation_ref": "reports/wc_policy_price_refresh_full1624_CPU_terminal_check_r1_20261023_0955.json",
     "lifecycle_ref": "reports/wc_policy_price_refresh_lifecycle_CPU_capture_r1_20261023.json",
-    "status_zh": "09:24技术半程正常；真实入口及六项生命周期CPU检查通过，完整数值验证进行中",
+    "status_zh": "完整价格CPU已接受；GPU控制器32项检查通过，等待空闲卡实际验证独占",
     "source_revision": "cecba6647fcc626887761961fc7215c6fe1afa8b",
-    "production_CPU_accepted": false,
-    "GPU_submissions": 0
+    "production_CPU_accepted": true,
+    "GPU_submissions": 0,
+    "acceptance_ref": "reports/wc_policy_price_refresh_full1624_CPU_accepted_r1_20261023.json",
+    "controller_CPU_ref": "reports/wc_policy_price_refresh_controller_terminal_CPU_20261023.json",
+    "controller_ref": "scripts/wc_four_card_price_refresh_gpu_r1.py",
+    "fresh_preflight_ref": "reports/wc_policy_price_refresh_GPU3_full_preflight_20261023_1005.json"
   }
 }

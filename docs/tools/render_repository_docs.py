@@ -143,6 +143,13 @@ def build():
         fo = load(followup['observation_ref'])
         if fo['launch'] != fl or fo['registration']['source_revision'] != fl['source_revision']:
             raise ValueError('Price CPU source/launch differs from its saved observation')
+        if followup.get('production_CPU_accepted'):
+            fa = load(followup['acceptance_ref'])
+            if (fa['capture_sha256'] != digest((ROOT / followup['observation_ref']).read_bytes())['sha256']
+                    or fa['source_revision'] != fl['source_revision']
+                    or fa['registration_sha256'] != fl['registration_sha256']
+                    or not fa['production_CPU_accepted'] or not fa['full_GPU_lifecycle_CPU_accepted']):
+                raise ValueError('Price CPU completion must bind full independent acceptance')
         phase = followup['status_zh']
         active['reader']['result'] += '价格补测：' + phase + '。'
         active['evidence_or_planned_scope'] = active['reader']['result']

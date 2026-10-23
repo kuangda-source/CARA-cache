@@ -21,7 +21,7 @@
       "id": "PG-P1-ASSETS",
       "priority": 1,
       "title": "Complete real statistics, prices and generated-mask entry",
-      "status": "FULL1624_ORIGINALS_ACCEPTED_EXCLUSIVE_PRICE_REFRESH_PENDING",
+      "status": "PRICE_REFRESH_CPU_ACCEPTED_WAIT_EXCLUSIVE_RESOURCE",
       "dependencies": [
         "PG-P0"
       ],
@@ -128,18 +128,26 @@
         "forecast_complete_GPUh": 9.500277777777777,
         "billed_limit_GPUh": 11.5,
         "local_quote_controls_passed": 3,
-        "production_CPU_accepted": false,
+        "production_CPU_accepted": true,
         "GPU_dispatch_ready": false,
         "GPU_submissions": 0,
-        "resource_ref": "reports/wc_policy_price_refresh_resources_and_CPU_progress_20261023_0924.json",
+        "resource_ref": "reports/wc_policy_price_refresh_fresh_resources_20261023_095612.json",
         "actual_CPU_launch_ref": "reports/wc_policy_price_refresh_full1624_CPU_launch_r1_20261023.json",
         "source_revision": "cecba6647fcc626887761961fc7215c6fe1afa8b",
         "real_production_entry_passed": true,
-        "complete_numerical_CPU_pending": true,
+        "complete_numerical_CPU_pending": false,
         "lifecycle_CPU_fixture_ref": "reports/wc_policy_price_refresh_lifecycle_CPU_capture_r1_20261023.json",
         "local_unit_controls_passed": 14,
         "CPU_halfway_ref": "reports/wc_policy_price_refresh_full1624_CPU_halfway_r1_20261023_0924.json",
-        "actual_numerical_CPU_still_running": true
+        "actual_numerical_CPU_still_running": false,
+        "actual_CPU_terminal_ref": "reports/wc_policy_price_refresh_full1624_CPU_terminal_check_r1_20261023_0955.json",
+        "actual_CPU_acceptance_ref": "reports/wc_policy_price_refresh_full1624_CPU_accepted_r1_20261023.json",
+        "controller_CPU_tests_passed": 32,
+        "controller_CPU_ref": "reports/wc_policy_price_refresh_controller_terminal_CPU_20261023.json",
+        "controller_entry": "scripts/wc_four_card_price_refresh_gpu_r1.py",
+        "terminal_acceptor": "src/wcomr/policy_price_terminal_r1.py",
+        "preflight_ref": "reports/wc_policy_price_refresh_GPU3_full_preflight_20261023_1005.json",
+        "hardware_exclusivity_verified": false
       }
     },
     {
@@ -236,7 +244,7 @@
   "old_manual32_first_card_superseded_not_deleted": true,
   "strict_under12_and_cap226_unchanged": true,
   "no_gpu_launched_this_turn": false,
-  "latest_preparation_audit_ref": "reports/wc_policy_assets_four_card_preparation_audit_20261022.json",
-  "latest_actual_progress_ref": "reports/wc_policy_price_refresh_full1624_CPU_halfway_r1_20261023_0924.json",
-  "latest_preparation_plan_ref": "research/650_CARA_PRICE_REFRESH_REAL_ENTRY_AND_FULL_CPU_IN_PROGRESS_20261023.md"
+  "latest_preparation_audit_ref": "reports/wc_policy_price_refresh_controller_terminal_CPU_20261023.json",
+  "latest_actual_progress_ref": "reports/wc_policy_price_refresh_full1624_CPU_terminal_check_r1_20261023_0955.json",
+  "latest_preparation_plan_ref": "research/651_CARA_PRICE_CPU_ACCEPTED_CONTROLLER_READY_WAIT_EXCLUSIVE_20261023.md"
 }

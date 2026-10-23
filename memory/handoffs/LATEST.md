@@ -4,13 +4,13 @@
 
 先读[当前状态](../../research/02_CURRENT_STATE.md)、[实验顺序](../../research/09_NEXT_ACTIONS.md)与[本卡646记录](../../research/646_CARA_FULL1624_CPU_ACCEPTED_GPU_LAUNCH_20261022.md)。它们共用规范数据；旧长交接已完整归档。
 
-**已保存的实验观测：2026-10-23T08:26:41.422652+08:00（Asia/Shanghai）。** 原1624已接受；独立价格补测完整CPU验证进行中。14/14路径完成、0运行、0未到达、0失败。
+**已保存的实验观测：2026-10-23T08:26:41.422652+08:00（Asia/Shanghai）。** 原1624已接受；独立价格CPU已接受，等待独占资源。14/14路径完成、0运行、0未到达、0失败。
 
-范围：4 CAL / 1624正式区间格 / 14完整路径（12正式+2warm）/ 2030总格 / 13020读出试验；整卡上限12 GPUh。独立价格补测完整CPU验收与后续准入：**2026-10-23 09:45 Asia/Shanghai**。
+范围：4 CAL / 1624正式区间格 / 14完整路径（12正式+2warm）/ 2030总格 / 13020读出试验；整卡上限12 GPUh。独占价格补测资源检查与单次准入：**2026-10-23 10:30 Asia/Shanghai**。
 
-[本卡完整记录](../../research/650_CARA_PRICE_REFRESH_REAL_ENTRY_AND_FULL_CPU_IN_PROGRESS_20261023.md) · [观测原件](../../reports/wc_policy_assets_full1624_fourcard_GPU_terminal_20261023_0826.json) · [当前状态](../../research/02_CURRENT_STATE.md)。原1624的08:26接受及6.900544 GPUh结算保持；新价格补测CPU于09:14实际启动，真实入口与生命周期CPU故障测试已通过，完整数值验证进行中。尚未启用实际独占、预留或提交新GPU。
+[本卡完整记录](../../research/651_CARA_PRICE_CPU_ACCEPTED_CONTROLLER_READY_WAIT_EXCLUSIVE_20261023.md) · [观测原件](../../reports/wc_policy_assets_full1624_fourcard_GPU_terminal_20261023_0826.json) · [当前状态](../../research/02_CURRENT_STATE.md)。原1624的08:26接受及6.900544 GPUh结算保持；新价格CPU原容器09:46:34退出，实际09:51:55完整验收。控制器32项CPU检查通过，10:00:11全准入仅GPU_BUSY未满足；没有新GPU预约、模式变更或提交。
 
-**当前独立价格补测：09:24技术半程正常；真实入口及六项生命周期CPU检查通过，完整数值验证进行中。** CPU启动于2026-10-23T09:14:02+08:00，最近观测2026-10-23T09:24:29+08:00。[价格CPU启动原件](../../reports/wc_policy_price_refresh_full1624_CPU_launch_r1_20261023.json) · [价格CPU观测](../../reports/wc_policy_price_refresh_full1624_CPU_halfway_r1_20261023_0924.json)。新GPU提交为0；完整价格卡保持10路径/1624正式格/24360读出、11.5 GPUh上限。
+**当前独立价格补测：完整价格CPU已接受；GPU控制器32项检查通过，等待空闲卡实际验证独占。** CPU启动于2026-10-23T09:14:02+08:00，最近观测2026-10-23T09:51:55+08:00。[价格CPU启动原件](../../reports/wc_policy_price_refresh_full1624_CPU_launch_r1_20261023.json) · [价格CPU观测](../../reports/wc_policy_price_refresh_full1624_CPU_terminal_check_r1_20261023_0955.json)。新GPU提交为0；完整价格卡保持10路径/1624正式格/24360读出、11.5 GPUh上限。
 
 | 字段 | 冻结身份 / 已记录状态 |
 |---|---|
@@ -33,11 +33,11 @@
 
 504普通pairs / 1008CFG / 1次模型加载。原规划9.956389 GPUh。实际已结算6.900544 GPUh；[GPU完整接受](../../reports/wc_policy_assets_full1624_fourcard_GPU_accepted_20261023_0826.json)。
 
-**当前价格CPU任务**：`/data20t/gaokuangda/worldcache_workspace/.sync/wc-policy-price-refresh-fourcard-full1624-r1-20261023`，源码`cecba6647fcc626887761961fc7215c6fe1afa8b`；PID 915069 / start_ticks 950310551；容器`wc-policy-price-refresh-fourcard-full1624-r1-20261023-cpu`。实际状态：09:24技术半程正常；真实入口及六项生命周期CPU检查通过，完整数值验证进行中。原1624的已接受身份和费用列在上表，不作为新补测的启动授权。
+**当前价格CPU任务**：`/data20t/gaokuangda/worldcache_workspace/.sync/wc-policy-price-refresh-fourcard-full1624-r1-20261023`，源码`cecba6647fcc626887761961fc7215c6fe1afa8b`；PID 915069 / start_ticks 950310551；容器`wc-policy-price-refresh-fourcard-full1624-r1-20261023-cpu`。实际状态：完整价格CPU已接受；GPU控制器32项检查通过，等待空闲卡实际验证独占。原1624的已接受身份和费用列在上表，不作为新补测的启动授权。
 
 ## 接续规则
 
-- 上述1624 launch已于08:26完整接受，原件见[649](../../research/649_CARA_FULL1624_ACCEPTED_PRICE_AUDIT_AND_REFRESH_SCOPE_20261023.md)，不重复验收/提交。下一项为[独立价格刷新](../../plans/cara_policy_generator_20261020/FULL1624_PRICE_REFRESH_R1_20261023.md)：完整范围、报价已登记，生产collector/生命周期/实际CPU尚待；没有新GPU启动。
+- 上述1624 launch已于08:26完整接受，原件见[649](../../research/649_CARA_FULL1624_ACCEPTED_PRICE_AUDIT_AND_REFRESH_SCOPE_20261023.md)，不重复验收/提交。下一项为[独立价格刷新](../../plans/cara_policy_generator_20261020/FULL1624_PRICE_REFRESH_R1_20261023.md)：完整生产CPU已接受，原容器09:46:34退出、实际09:51:55观察；GPU控制器及独立终态接受已通过32项CPU检查。见[651](../../research/651_CARA_PRICE_CPU_ACCEPTED_CONTROLLER_READY_WAIT_EXCLUSIVE_20261023.md)，四卡仍占用，没有新GPU启动，硬件独占尚未实测。
 - `--launch-ref`固定上述启动原件。unknown只恢复原句柄；提前退出保留实际终态与费用。原R1 CPU失败、BANK24原ffprobe失败和后续恢复均保留。
 - 使用已授权四卡私有入口；不恢复两卡、不触碰他人任务、不更改在跑stage。完整范围/预算/冻结门控不变，DEV不回流调阈值。
 - 原资产接受后先运行完整价格审计，再按[价格/独占/历史诊断/少步Native接续方案](../../plans/cara_policy_generator_20261020/PRICE_HISTORY_NATIVE_CONTINUATION_R1_20261023.md)推进。原`generator_input_ready`不能覆盖同卡竞争；新GPU卡须动作价格信任通过、真实独占、自己的范围、完整成本、实际CPU和fresh准入。已用四卡私有凭据确认sudo模式修改权限，待空闲卡实际启用，不动在跑stage。长任务绑定实际启动安排半程与全程，复用自动化，完成后关闭对应一次检查。
