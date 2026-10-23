@@ -7,6 +7,7 @@ from wcomr.policy_generator_r1.continuation_preparation import require,history_m
 from wcomr.policy_generator_r1.interval_grammar import Profile
 from wcomr.policy_generator_r1.production_terminal import accept as accept_p1,record
 from audit_cara_pg_p2_production_cpu_r1 import accept as accept_cpu
+from audit_cara_pg_p2_combination_cpu_r1 import accept as accept_combination
 
 
 def checked(capture,acceptance,fn):
@@ -28,11 +29,13 @@ def roles_from_batch(batch):
 
 def main():
  p=argparse.ArgumentParser()
- for k in ('p1-capture','p1-acceptance','cpu-capture','cpu-acceptance','output'):p.add_argument('--'+k,type=Path,required=True)
+ for k in ('p1-capture','p1-acceptance','cpu-capture','cpu-acceptance','combination-capture','combination-acceptance','output'):p.add_argument('--'+k,type=Path,required=True)
  a=p.parse_args();require(not a.output.exists(),'Preserve original handoff')
  p1,acceptance=checked(a.p1_capture,a.p1_acceptance,accept_p1)
  require(acceptance['PG_P2_input_ready'] is True,'P1 cannot release P2 input yet')
  cpu,ca=checked(a.cpu_capture,a.cpu_acceptance,accept_cpu)
+ combo,co=checked(a.combination_capture,a.combination_acceptance,accept_combination)
+ require(co['production_CPU_accepted'] is True and co['full_GPU_lifecycle_CPU_accepted'] is True,'Complete P2 composition CPU required')
  require(ca['production_entry_CPU_accepted'] is True,'P2 actual entry CPU required')
  for name,h in cpu['registration']['payload_sha256'].items():
   if name.startswith('src/wcomr/policy_generator_r1/p2_'):
@@ -50,9 +53,10 @@ def main():
  output=dict(status='P2_ORIGINAL_P1_POLICY_AND_NATIVE_HISTORY_CPU_BOUND_NOT_DISPATCH',profile=consumer['profile'],roles=roles,
   history_matrix=matrix,history_OFF_reference_bindings=references,Native_schedules=ca['schedule_rows'],CAL_FIT_members=consumer['CAL_FIT_members'],
   source_bindings=[dict(ref=str(path),sha256=hashlib.sha256(path.read_bytes()).hexdigest()) for path in
-   (a.p1_capture,a.p1_acceptance,a.cpu_capture,a.cpu_acceptance)],
+   (a.p1_capture,a.p1_acceptance,a.cpu_capture,a.cpu_acceptance,a.combination_capture,a.combination_acceptance)],
   P1_selected_policy_frozen=True,new_DEV_selected=False,whole_P2_quote_rebinding_required=True,
-  whole_P2_GPU_lifecycle_CPU_pending=True,GPU_dispatch_ready=False,GPU_submissions=0)
+  whole_P2_GPU_lifecycle_CPU_pending=False,final_whole_card_binding_pending=True,real_quality_models_CPU_pending=True,
+  final_budget_determined=False,GPU_dispatch_ready=False,GPU_submissions=0)
  with a.output.open('x') as f:json.dump(output,f,indent=2,allow_nan=False);f.write('\n')
  print(json.dumps(dict(status=output['status'],history_paths=matrix['physical_paths'],GPU_dispatch_ready=False)))
 if __name__=='__main__':main()

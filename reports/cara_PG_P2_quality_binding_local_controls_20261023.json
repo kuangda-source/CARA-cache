@@ -1,0 +1,51 @@
+{
+  "status": "P2_QUALITY_ENTRY_AND_PHYSICAL_BINDING_LOCAL_CONTROLS_PASS",
+  "observed_unix": 1792768979.0286279,
+  "tests_run": 28,
+  "rows": [
+    {
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_cara_pg_p2_quality_binding_r1.py",
+        "-v"
+      ],
+      "exit_code": 0,
+      "output": "test_actual_solver_mismatch (test_cara_pg_p2_quality_binding_r1.Dedup) ... ok\ntest_duplicate_role_rejected (test_cara_pg_p2_quality_binding_r1.Dedup) ... ok\ntest_missing_repeat_identity_rejected (test_cara_pg_p2_quality_binding_r1.Dedup) ... ok\ntest_reference_rewrites_only_to_original_alias (test_cara_pg_p2_quality_binding_r1.Dedup) ... ok\ntest_repeat_seed_query_input_policy_do_not_collapse (test_cara_pg_p2_quality_binding_r1.Dedup) ... ok\ntest_same_policy_aliases_only (test_cara_pg_p2_quality_binding_r1.Dedup) ... ok\ntest_shadow_mode_distinct (test_cara_pg_p2_quality_binding_r1.Dedup) ... ok\ntest_unknown_reference_rejected (test_cara_pg_p2_quality_binding_r1.Dedup) ... ok\ntest_blueprint_preserves_all_blocks_and_no_budget (test_cara_pg_p2_quality_binding_r1.OriginalBinding) ... ok\ntest_plan_reads_real_serialized_request_and_rejects_changed_video (test_cara_pg_p2_quality_binding_r1.OriginalBinding) ... ok\ntest_policy_cannot_change_after_p1 (test_cara_pg_p2_quality_binding_r1.OriginalBinding) ... ok\ntest_alias_tampering_rejected (test_cara_pg_p2_quality_binding_r1.Quality) ... ok\ntest_bad_decoder_rejected (test_cara_pg_p2_quality_binding_r1.Quality) ... ok\ntest_bad_raw_score_saved_before_rejection (test_cara_pg_p2_quality_binding_r1.Quality) ... ok\ntest_bad_source_rejected (test_cara_pg_p2_quality_binding_r1.Quality) ... ok\ntest_five_physical_positions_keep_aliases (test_cara_pg_p2_quality_binding_r1.Quality) ... ok\ntest_missing_score_rejected (test_cara_pg_p2_quality_binding_r1.Quality) ... ok\ntest_model_failure_keeps_full_denominator (test_cara_pg_p2_quality_binding_r1.Quality) ... ok\ntest_musiq_all_frame_shapes (test_cara_pg_p2_quality_binding_r1.Quality) ... ok\ntest_no_overwrite_original_journal (test_cara_pg_p2_quality_binding_r1.Quality) ... ok\ntest_terminal_requires_all_models_released (test_cara_pg_p2_quality_binding_r1.Quality) ... ok\n\n----------------------------------------------------------------------\nRan 21 tests in 0.023s\n\nOK\n",
+      "test_source_sha256": "ca75ec9b8ad8dd5986c34b874e4d84796021b7412640ee949a75cf8d48db3f54"
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_cara_pg_p2_handoff.py",
+        "-v"
+      ],
+      "exit_code": 0,
+      "output": "test_no_simple_no_diagnostic_selection (test_cara_pg_p2_handoff.Handoff) ... ok\ntest_select_existing_best_feasible_control (test_cara_pg_p2_handoff.Handoff) ... ok\ntest_selected_simple_can_alias (test_cara_pg_p2_handoff.Handoff) ... ok\ntest_unfinished_p1_blocked (test_cara_pg_p2_handoff.Handoff) ... ok\ntest_alias_keeps_roles_and_exact_three_paths (test_cara_pg_p2_handoff.HistoryBatch) ... ok\ntest_no_silent_missing_history (test_cara_pg_p2_handoff.HistoryBatch) ... ok\ntest_shadow_clock_cannot_enter_latency (test_cara_pg_p2_handoff.HistoryBatch) ... ok\n\n----------------------------------------------------------------------\nRan 7 tests in 0.002s\n\nOK\n",
+      "test_source_sha256": "63095f329bb69fc8fce2d36104ef577d7fb884dd99adad7a515bd29c7ed745ef"
+    }
+  ],
+  "source_sha256": {
+    "src/wcomr/policy_generator_r1/p2_quality_entry.py": "e2aa375e3f6d1674757c091f39d88bd0d21312b9f308603f1c955f62f6b16e92",
+    "src/wcomr/policy_generator_r1/p2_card_binding.py": "829be2391ebbb760e377f458b98c154603ba70cc512f52b3a683debe7093dc93",
+    "scripts/run_cara_pg_p2_quality_r1.py": "f5bb3adccfab4ba3f8243e1a3c833a91936d746f7e368f4b81b42f7913ee5e44",
+    "scripts/prepare_cara_pg_p2_after_p1_r1.py": "fd372fa01f3a0e0c6108b8621edd9d37324596addcf611bea4c522428f4a91cf",
+    "scripts/prepare_cara_pg_p2_card_binding_r1.py": "8655a1a425aec94099d1ee7f0277e2085e4a983b2a72d376f6576cebc0290e45",
+    "scripts/prepare_cara_pg_p2_quality_resources_r1.py": "1f59a227b5e5e77543ac213b76f8bfebc6742097494cd8d71c2566a9b74755b9"
+  },
+  "actual_five_models_loaded": false,
+  "four_card_real_model_CPU_accepted": false,
+  "GPU_submissions": 0,
+  "final_budget_determined": false
+}
