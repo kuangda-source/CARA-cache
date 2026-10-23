@@ -312,6 +312,35 @@ def build():
         active['evidence_or_planned_scope'] = result
         master['operation_policy'].update(current_running_card=None,current_running_cards=[],snapshot_observed_at=pg['observed_at'])
         run_details += '\n\n' + result + '\n\n' + next_action
+    history = status.get('history104_GPU')
+    if history:
+        hl, ho, hc = load(history['launch_ref']), load(history['observation_ref']), load(history['CPU_acceptance_ref'])
+        hg = load(history['exclusive_active_ref'])
+        if (ho['launch'] != hl or hc['source_revision'] != hl['source_revision']
+                or not hc['production_CPU_accepted'] or not hc['full_GPU_lifecycle_CPU_accepted']
+                or abs(datetime.fromisoformat(history['observed_at']).timestamp() - ho['observed_unix']) > .00001
+                or hg['launch_id'] != hl['launch_id'] or hg['gpu_uuid'] != hl['gpu_uuid']
+                or not hg['exclusive_gate']['observation_passed']
+                or hg['capture_sha256'] != digest((ROOT / hg['capture_ref']).read_bytes())['sha256']):
+            raise ValueError('History104 original launch/CPU/exclusive evidence mismatch')
+        hh = ho.get('health') or {}
+        hp = f"{hh.get('phase', '入口初始化')}；{hh.get('completed_paths', 0)}/104完成、{hh.get('failed_paths', 0)}失败"
+        snapshot = (f"**当前104路径验证卡：GPU3硬独占运行中。** 实际启动{local_time(hl['started_unix'])}，观测{history['observed_at']}。{hp}。\n\n"
+                    f"范围：4 CAL、10角色、80正式+20warm+4诊断；3744pairs/7488CFG，单load。释放GPU并结算后执行72配对/6696帧CPU评分。"
+                    f"forecast{hl['forecast_GPUh']:.6f}、硬上限{hl['billed_limit_GPUh']} GPUh；部署257.771秒及累计226 GPUh保持。{schedule}。\n\n"
+                    f"{link(history['launch_ref'], '唯一实际启动')} · {link(history['observation_ref'], '最新技术观测')} · "
+                    f"{link(history['exclusive_active_ref'], '真实独占核验')} · {link(history['report_ref'], '组合检查与执行记录')}。\n\n"
+                    "原P1原件与财务完整接受，但未选出预算可行策略。104卡CPU与独占准入不代表GPU结果；P2仍等待可行冻结策略。")
+        hr = by_id['PG-P1-H104']; hr['state'] = history['status']
+        hr['reader'].update(status='GPU3硬独占运行中', result=hp+'；组合CPU已接受，完整结果待终态。')
+        hr['evidence_or_planned_scope'] = hr['reader']['result']
+        master['operation_policy'].update(current_running_card='PG-P1-H104',current_running_cards=['PG-P1-H104'],
+            active_launch_ref=history['launch_ref'],snapshot_observed_at=history['observed_at'])
+        fields=[('run',hl['run_id']),('launch ID',hl['launch_id']),('source',hl['source_revision']),('stage',hl['stage']),
+                ('GPU UUID',hl['gpu_uuid']),('容器',hl['container']),('guardian',hl['guardian_identity']['pid']),
+                ('runner',f"PID {hg['runner']['pid']} / start_ticks {hg['runner']['start_ticks']} / UID {hg['runner']['uid']}")]
+        run_details='| 当前104路径卡字段 | 原始身份 |\n|---|---|\n'+'\n'.join(f'| {k} | `{v}` |' for k,v in fields)
+        master['status_counts'] = {state: sum(r['state'] == state for r in rows) for state in sorted({r['state'] for r in rows})}
     headlines = '\n'.join(f"- **{f['title']}**（{f['short_scope']}）：{f['result']} {refs(f['refs'])}"
                            for f in status['headline_results'])
     details = '\n\n'.join(f"### {i+1}. {f['title']}\n\n{f['result']}\n\n{f['scope']} {refs(f['refs'])}"

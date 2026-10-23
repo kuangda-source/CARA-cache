@@ -4,11 +4,13 @@
 
 论文主线：**CFG对齐读出修正 → 数据驱动计算时机 → 冻结自动程序的实际质量—时间收益**。已有机制结果放在前面，自动生成器的最终数值由后续真实验证填入。
 
-**PG-P1已结束并完成原件验收。** 原件与财务完整接受；实际2.557833 GPUh。64登记位置中执行30路径、16评分、4候选查询；未选出满足冻结预算的策略，PG-P2尚不准入。
+**当前104路径验证卡：GPU3硬独占运行中。** 实际启动2026-10-24T03:21:57+08:00，观测2026-10-24T03:28:24.130215+08:00。RUNNING；0/104完成、0失败。
 
-观测：2026-10-24T00:34:39.820871+08:00。原半程/终态检查已关闭，无重复提交。
+范围：4 CAL、10角色、80正式+20warm+4诊断；3744pairs/7488CFG，单load。释放GPU并结算后执行72配对/6696帧CPU评分。forecast11.423207、硬上限11.9 GPUh；部署257.771秒及累计226 GPUh保持。104卡技术半程：**2026-10-24 09:05 Asia/Shanghai**；104卡全程/释放后评分验收：**2026-10-24 15:03 Asia/Shanghai**。
 
-[完整原终态](../reports/cara_PG_P1_original_terminal_codec_recovered_20261024_0035.json) · [独立接受](../reports/cara_PG_P1_original_terminal_accepted_20261024_0037.json) · [完整记录](../research/670_CARA_HISTORICAL_BASELINE_EQUIVALENCE_AND_BOUNDARY104_20261024.md)。原P1完整接受但没有预算可行策略；原结果与费用保持。历史强基线原alpha及24/25D的新旧入口148路径、真实请求/编解码/锁CPU已接受。新104路径验证卡报价11.423207/11.9 GPUh；组合CPU与GPU结果尚未完成，原部署257.771秒及累计226 GPUh不变。
+[唯一实际启动](../reports/cara_history104_GPU_actual_launch_r1_20261024.json) · [最新技术观测](../reports/cara_history104_GPU_model_health_r1_20261024.json) · [真实独占核验](../reports/cara_history104_GPU3_exclusive_active_r1_20261024.json) · [组合检查与执行记录](../research/671_CARA_HISTORY104_COMBINATION_AND_EXCLUSIVE_EXECUTION_20261024.md)。
+
+原P1原件与财务完整接受，但未选出预算可行策略。104卡CPU与独占准入不代表GPU结果；P2仍等待可行冻结策略。
 
 | 需要的材料 | 入口 |
 |---|---|

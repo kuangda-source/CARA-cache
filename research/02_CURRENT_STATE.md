@@ -2,28 +2,26 @@
 
 # CARA-Cache 当前状态
 
-**PG-P1已结束并完成原件验收。** 原件与财务完整接受；实际2.557833 GPUh。64登记位置中执行30路径、16评分、4候选查询；未选出满足冻结预算的策略，PG-P2尚不准入。
+**当前104路径验证卡：GPU3硬独占运行中。** 实际启动2026-10-24T03:21:57+08:00，观测2026-10-24T03:28:24.130215+08:00。RUNNING；0/104完成、0失败。
 
-观测：2026-10-24T00:34:39.820871+08:00。原半程/终态检查已关闭，无重复提交。
+范围：4 CAL、10角色、80正式+20warm+4诊断；3744pairs/7488CFG，单load。释放GPU并结算后执行72配对/6696帧CPU评分。forecast11.423207、硬上限11.9 GPUh；部署257.771秒及累计226 GPUh保持。104卡技术半程：**2026-10-24 09:05 Asia/Shanghai**；104卡全程/释放后评分验收：**2026-10-24 15:03 Asia/Shanghai**。
 
-[完整原终态](../reports/cara_PG_P1_original_terminal_codec_recovered_20261024_0035.json) · [独立接受](../reports/cara_PG_P1_original_terminal_accepted_20261024_0037.json) · [完整记录](670_CARA_HISTORICAL_BASELINE_EQUIVALENCE_AND_BOUNDARY104_20261024.md)。原P1完整接受但没有预算可行策略；原结果与费用保持。历史强基线原alpha及24/25D的新旧入口148路径、真实请求/编解码/锁CPU已接受。新104路径验证卡报价11.423207/11.9 GPUh；组合CPU与GPU结果尚未完成，原部署257.771秒及累计226 GPUh不变。
+[唯一实际启动](../reports/cara_history104_GPU_actual_launch_r1_20261024.json) · [最新技术观测](../reports/cara_history104_GPU_model_health_r1_20261024.json) · [真实独占核验](../reports/cara_history104_GPU3_exclusive_active_r1_20261024.json) · [组合检查与执行记录](671_CARA_HISTORY104_COMBINATION_AND_EXCLUSIVE_EXECUTION_20261024.md)。
+
+原P1原件与财务完整接受，但未选出预算可行策略。104卡CPU与独占准入不代表GPU结果；P2仍等待可行冻结策略。
 
 ## 当前跟踪实验
 
-| 当前PG-P1字段 | 原始身份 |
+| 当前104路径卡字段 | 原始身份 |
 |---|---|
-| run | `cara-pg-p1-cal-fit4-select2-full64-ada-r1` |
-| launch ID | `39b4481a-79a7-4dff-92aa-0498a03c3e78` |
-| source | `170c50e6c289a93cb60d13ead918fdb258177746` |
-| stage | `/data20t/gaokuangda/worldcache_workspace/.sync/cara-pg-p1-full64-ada-r1-20261023` |
+| run | `cara-history-boundary104-cal4-ada-r1` |
+| launch ID | `d6351496-ee8a-4428-8ede-898f53d665cd` |
+| source | `5fc4dfe66a33a915fcc7bdf10700bae8810bb401` |
+| stage | `/data20t/gaokuangda/worldcache_workspace/.sync/cara-history104-full-ada-r1-20261024` |
 | GPU UUID | `GPU-d4868f0a-29df-9077-82db-77f7bf0f9934` |
-| 容器 | `cara-pg-p1-full64-ada-r1-20261023-gpu` |
-| guardian | `1148066` |
-| runner | `PID 1148184 / start_ticks 954343237 / UID 1000` |
-
-原件与财务完整接受；实际2.557833 GPUh。64登记位置中执行30路径、16评分、4候选查询；未选出满足冻结预算的策略，PG-P2尚不准入。
-
-历史原alpha及24/25D新旧入口完整148路径CPU已独立接受；104路径整卡已报价11.423207/11.9 GPUh，先完成新增采集/释放GPU后评分/终态组合CPU，再进行独占GPU准入。部署257.771秒与累计226 GPUh保持，P2等待可行冻结策略。
+| 容器 | `cara-history104-full-ada-r1-20261024-gpu` |
+| guardian | `1204767` |
+| runner | `PID 1204959 / start_ticks 956838489 / UID 1000` |
 
 ## 已完成的前置
 
@@ -31,16 +29,16 @@ BANK24完整24视频、12组LPIPS、原控制和实际1.845248657494 GPUh已接�
 
 P1/P2等待期准备已完成SELECT范围内曝光核查、价格/标签到生成器的转换接口、历史诊断矩阵与少步Native计时选择规则、27项局部CPU控制及真实UniPC调度网格。详见[652准备与接续](652_CARA_PG_P1_P2_CPU_PREPARATION_AND_HANDOFF_20261023.md)。最新[657](657_CARA_PG_P1_FULL_CARD_COMBINATION_CPU_ACCEPTED_AND_PRICE_HANDOFF_20261023.md)已完成整卡监督/评分/Native时钟/终态复算组合CPU接受，保留18条采样控制，新增真实全93帧LPIPS和6种生命周期，12项终态检查；本地92项相关检查通过。64路完整报价仍为8.844444/10.5 GPUh。原价格完整接受后，PG-P1已按661实际启动；P2新增GPU提交仍为0。
 
-P1原件与财务已完整接受，但没有预算可行的冻结策略，P2目前不准入。保留已通过的P2组合CPU与五模型入口准备；完整离线分析确认全请求价格低估与可行性恢复搜索缺口，见[669原因分析与修复](669_CARA_PG_P1_COMPLETE_BUDGET_ATTRIBUTION_AND_REPAIR_PLAN_20261024.md)。历史强基线原alpha及24/25D新旧入口148路径CPU已接受；[104路径预算边界卡](670_CARA_HISTORICAL_BASELINE_EQUIVALENCE_AND_BOUNDARY104_20261024.md)已完整报价11.423207/11.9 GPUh，替代未执行44路径草案。下一步补齐104卡采集、GPU释放后评分与终态组合CPU，部署257.771秒及累计226 GPUh不变。已完成旧实验约4.45 GiB实体去重，38原路径和所有SHA保持；两个压缩包经全量一致核验后清理，本次合计释放63.05 GiB，另三个差异包保留。见[668当前原件与维护](668_CARA_STORAGE_DEDUP_AND_P1_ORIGINAL_TERMINAL_ACCEPTANCE_20261024.md)。
+P1原件与财务已完整接受，但没有预算可行的冻结策略，P2目前不准入。保留已通过的P2组合CPU与五模型入口准备；完整离线分析确认全请求价格低估与可行性恢复搜索缺口，见[669原因分析与修复](669_CARA_PG_P1_COMPLETE_BUDGET_ATTRIBUTION_AND_REPAIR_PLAN_20261024.md)。历史强基线原alpha及24/25D新旧入口148路径CPU已接受；[104路径预算边界卡](670_CARA_HISTORICAL_BASELINE_EQUIVALENCE_AND_BOUNDARY104_20261024.md)已完整报价11.423207/11.9 GPUh，替代未执行44路径草案。104卡采集、释放GPU后评分与终态组合CPU已接受，GPU3已实际独占运行；等待完整104采集及72配对评分验收，部署257.771秒及累计226 GPUh不变。见[671实际执行](671_CARA_HISTORY104_COMBINATION_AND_EXCLUSIVE_EXECUTION_20261024.md)。已完成旧实验约4.45 GiB实体去重，38原路径和所有SHA保持；两个压缩包经全量一致核验后清理，本次合计释放63.05 GiB，另三个差异包保留。见[668当前原件与维护](668_CARA_STORAGE_DEDUP_AND_P1_ORIGINAL_TERMINAL_ACCEPTANCE_20261024.md)。
 
 ## 科学判断与下一步
 
-下一步用同机强历史布局、24/25D成对C/A及交错重复验证预算边界。先校验完整请求计时，再验证自动分配；原P1没有可行策略的结论保持。
+当前104卡检验历史强基线原alpha与24/25D预算边界；等待完整重复计时和释放GPU后评分结果，再修复P1。
 
 | 顺序 | 当前阶段 | 下一项验收 / 动作 |
 |---|---|---|
 | PG-P1-ASSETS | 完整1624真实区间/价格资产：原标签与独占价格完整接受 | 以新双SHA bundle接已接受CPU的PG-P1，检验闭环策略。 |
-| PG-P1 | 单预算自动策略闭环：P1原件已接受，未选出预算可行策略 | 历史原alpha及24/25D新旧入口完整148路径CPU已独立接受；104路径整卡已报价11.423207/11.9 GPUh，先完成新增采集/释放GPU后评分/终态组合CPU，再进行独占GPU准入。部署257.771秒与累计226 GPUh保持，P2等待可行冻结策略。 |
+| PG-P1 | 单预算自动策略闭环：P1原件已接受，未选出预算可行策略 | 104卡正在GPU3独占采集；等待完整采集、GPU释放后72评分及独立终态接受，再据历史强基线与预算边界修复P1；不放宽预算。 |
 | PG-P2 | 等预算与等查询强基线：质量入口与绑定准备完成；真实模型CPU待准入 | P1原件已接受但没有预算可行的冻结策略；保留已完成CPU与质量入口准备，暂不定最终GPU预算或派发。 |
 | PG-P3 | 固定程序跨预算/模型：条件性后续 | P1/P2后先0.70×Native，再成熟第二模型或明确第二设置重新校准。 |
 | PG-P4 | 最终独立TEST与部署评价：待方法冻结 | 冻结方法、对手、预算、选择规则后再选新TEST；计入warm与全流程成本。 |

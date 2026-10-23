@@ -36,6 +36,7 @@
     "FINITE_FRONTIER_UNION_PENDING_IDENTITY_AND_COST": 1,
     "FULL960_ALL645_SCORES_PROTOCOL_AND_FINANCE_ACCEPTED": 1,
     "FULL_LABELS_AND_EXCLUSIVE_PRICES_ACCEPTED": 1,
+    "GPU_EXCLUSIVE_RUNNING": 1,
     "LOCAL_CPU_PROTOTYPE24_WITH_PROTECTED_PRICE_BRIDGE_NOT_PRODUCTION": 1,
     "PARTIAL_LOCAL_STRUCTURAL_AND_DOCUMENTS_READY": 1,
     "PG_P1_TERMINAL_ACCEPTED_NO_BUDGET_FEASIBLE_SELECTION": 1,
@@ -5434,7 +5435,7 @@
       ],
       "contribution_relation": "可复现区间生成器的新方法验证；CPU原型不充真实质量结果",
       "evidence_or_planned_scope": "原件与财务完整接受；实际2.557833 GPUh。64登记位置中执行30路径、16评分、4候选查询；未选出满足冻结预算的策略，PG-P2尚不准入。",
-      "gap_and_next_action": "历史原alpha及24/25D新旧入口完整148路径CPU已独立接受；104路径整卡已报价11.423207/11.9 GPUh，先完成新增采集/释放GPU后评分/终态组合CPU，再进行独占GPU准入。部署257.771秒与累计226 GPUh保持，P2等待可行冻结策略。",
+      "gap_and_next_action": "104卡正在GPU3独占采集；等待完整采集、GPU释放后72评分及独立终态接受，再据历史强基线与预算边界修复P1；不放宽预算。",
       "priority": "GEN-2",
       "evidence_refs": [
         "research/612_WC_POLICY_GENERATOR_CPU_PROTOTYPE_AND_REPRODUCIBLE_VALIDATION_DESIGN_20261020.md",
@@ -5493,7 +5494,7 @@
         "title": "单预算自动策略闭环",
         "status": "P1原件已接受，未选出预算可行策略",
         "result": "原件与财务完整接受；实际2.557833 GPUh。64登记位置中执行30路径、16评分、4候选查询；未选出满足冻结预算的策略，PG-P2尚不准入。",
-        "next_action": "历史原alpha及24/25D新旧入口完整148路径CPU已独立接受；104路径整卡已报价11.423207/11.9 GPUh，先完成新增采集/释放GPU后评分/终态组合CPU，再进行独占GPU准入。部署257.771秒与累计226 GPUh保持，P2等待可行冻结策略。",
+        "next_action": "104卡正在GPU3独占采集；等待完整采集、GPU释放后72评分及独立终态接受，再据历史强基线与预算边界修复P1；不放宽预算。",
         "evidence_refs": [
           "reports/cara_PG_P1_full64_GPU_actual_launch_20261023_2030.json",
           "reports/cara_PG_P1_full64_GPU_initial_health_20261023_2029.json",
@@ -5535,24 +5536,77 @@
       "selected_policy": null,
       "repair_preparation": {
         "analysis_ref": "reports/cara_PG_P1_complete_budget_attribution_20261024.json",
-        "report_ref": "research/670_CARA_HISTORICAL_BASELINE_EQUIVALENCE_AND_BOUNDARY104_20261024.md",
+        "report_ref": "research/671_CARA_HISTORY104_COMBINATION_AND_EXCLUSIVE_EXECUTION_20261024.md",
         "repair_plan_ref": "plans/cara_policy_generator_20261020/HISTORICAL_BASELINES_BOUNDARY104_R1_20261024.md",
         "timing_card_draft_ref": "manifests/cara_historical_bridge104_scope_quote_r1_20261024.json",
         "previous_44_draft_ref": "plans/cara_policy_generator_20261020/P1_TIMING_BRIDGE44_DRAFT_20261024.json",
-        "status": "HISTORICAL_ENTRY_CPU_ACCEPTED_BOUNDARY104_QUOTED_COMBINATION_PENDING",
+        "status": "HISTORY104_COMBINATION_CPU_ACCEPTED_GPU_EXCLUSIVE_RUNNING",
         "historical_entry_CPU_acceptance_ref": "reports/cara_history_bridge_production_CPU_accepted_r1_20261024.json",
         "historical_entry_CPU_capture_ref": "reports/cara_history_bridge_production_CPU_terminal_r5_20261024.json",
         "historical_entry_source_revision": "f3dbd47e362f5738e622994e2398681188193b37",
         "complete_CPU_paths": 148,
-        "full104_GPU_combination_CPU_accepted": false,
+        "full104_GPU_combination_CPU_accepted": true,
         "forecast_GPUh": 11.423207068397064,
         "billed_limit_GPUh": 11.9,
         "deployment_limit_seconds": 257.7712338712067,
         "cumulative_cap_GPUh": 226,
         "GPU_dispatch_ready": false,
-        "new_GPU_submissions": 0,
+        "new_GPU_submissions": 1,
         "budget_relaxed": false,
-        "evidence_observed_at": "2026-10-24T03:01:19.508745+08:00"
+        "evidence_observed_at": "2026-10-24T03:28:24.130215+08:00",
+        "combination_CPU_acceptance_ref": "reports/cara_history104_combination_CPU_accepted_r1_20261024.json",
+        "combination_CPU_capture_ref": "reports/cara_history104_combination_CPU_terminal_r1_20261024.json",
+        "execution_source_revision": "5fc4dfe66a33a915fcc7bdf10700bae8810bb401",
+        "launch_ref": "reports/cara_history104_GPU_actual_launch_r1_20261024.json"
+      }
+    },
+    {
+      "id": "PG-P1-H104",
+      "state": "GPU_EXCLUSIVE_RUNNING",
+      "paper_experiment_name": "Historical baselines and measured budget boundary",
+      "internal_ids": [
+        "HISTORY104"
+      ],
+      "contribution_relation": "历史强基线与预算边界确认",
+      "evidence_or_planned_scope": "RUNNING；0/104完成、0失败；组合CPU已接受，完整结果待终态。",
+      "gap_and_next_action": "原句柄技术检查、采集完成释放GPU后评分与独立终态接受",
+      "priority": "GEN-2",
+      "evidence_refs": [
+        "research/671_CARA_HISTORY104_COMBINATION_AND_EXCLUSIVE_EXECUTION_20261024.md",
+        "reports/cara_history104_GPU_actual_launch_r1_20261024.json",
+        "reports/cara_history104_GPU_initial_health_r1_20261024.json",
+        "reports/cara_history104_combination_CPU_accepted_r1_20261024.json",
+        "reports/cara_history104_GPU3_exclusive_active_r1_20261024.json",
+        "manifests/cara_historical_bridge104_scope_quote_r1_20261024.json",
+        "reports/cara_history104_GPU_model_health_r1_20261024.json"
+      ],
+      "method_mapping_ids": [],
+      "contribution_ids": [
+        "C1",
+        "C2"
+      ],
+      "claim_relation": "VALIDATION_IN_PROGRESS",
+      "paper_placement": "预算校准与强基线验证",
+      "dependencies": [
+        "PG-P1"
+      ],
+      "production_CPU_accepted": true,
+      "new_GPU_submissions": 1,
+      "full_protocol_accepted": false,
+      "reader": {
+        "title": "历史强基线与预算边界104路径",
+        "status": "GPU3硬独占运行中",
+        "result": "RUNNING；0/104完成、0失败；组合CPU已接受，完整结果待终态。",
+        "next_action": "全104采集、释放GPU后72配对评分及独立终态验收",
+        "evidence_refs": [
+          "research/671_CARA_HISTORY104_COMBINATION_AND_EXCLUSIVE_EXECUTION_20261024.md",
+          "reports/cara_history104_GPU_actual_launch_r1_20261024.json",
+          "reports/cara_history104_GPU_initial_health_r1_20261024.json",
+          "reports/cara_history104_combination_CPU_accepted_r1_20261024.json",
+          "reports/cara_history104_GPU3_exclusive_active_r1_20261024.json",
+          "manifests/cara_historical_bridge104_scope_quote_r1_20261024.json",
+          "reports/cara_history104_GPU_model_health_r1_20261024.json"
+        ]
       }
     },
     {
@@ -7248,7 +7302,13 @@
     "manifests/cara_historical_bridge104_scope_quote_r1_20261024.json": "manifests/cara_historical_bridge104_scope_quote_r1_20261024.json",
     "reports/cara_history_bridge_production_CPU_accepted_r1_20261024.json": "reports/cara_history_bridge_production_CPU_accepted_r1_20261024.json",
     "reports/cara_history_bridge_production_CPU_terminal_r5_20261024.json": "reports/cara_history_bridge_production_CPU_terminal_r5_20261024.json",
-    "reports/cara_history_bridge_acceptor_checks_r1_20261024.json": "reports/cara_history_bridge_acceptor_checks_r1_20261024.json"
+    "reports/cara_history_bridge_acceptor_checks_r1_20261024.json": "reports/cara_history_bridge_acceptor_checks_r1_20261024.json",
+    "research/671_CARA_HISTORY104_COMBINATION_AND_EXCLUSIVE_EXECUTION_20261024.md": "research/671_CARA_HISTORY104_COMBINATION_AND_EXCLUSIVE_EXECUTION_20261024.md",
+    "reports/cara_history104_GPU_actual_launch_r1_20261024.json": "reports/cara_history104_GPU_actual_launch_r1_20261024.json",
+    "reports/cara_history104_GPU_initial_health_r1_20261024.json": "reports/cara_history104_GPU_initial_health_r1_20261024.json",
+    "reports/cara_history104_combination_CPU_accepted_r1_20261024.json": "reports/cara_history104_combination_CPU_accepted_r1_20261024.json",
+    "reports/cara_history104_GPU3_exclusive_active_r1_20261024.json": "reports/cara_history104_GPU3_exclusive_active_r1_20261024.json",
+    "reports/cara_history104_GPU_model_health_r1_20261024.json": "reports/cara_history104_GPU_model_health_r1_20261024.json"
   },
   "source_bindings": {
     "11": {
@@ -11686,28 +11746,28 @@
     },
     "EXPERIMENT_REPORT.md": {
       "path": "EXPERIMENT_REPORT.md",
-      "sha256": "2a8ca6264f4074824a0a9f40c35feb369acfcc0ae08254c51e41032734f683b5",
-      "bytes": 8132
+      "sha256": "a6d7a178b0fd2c6500d8009fb1d8317ff302463985f482120eb78730f4266b0f",
+      "bytes": 8168
     },
     "memory/handoffs/LATEST.md": {
       "path": "memory/handoffs/LATEST.md",
-      "sha256": "69ddf2c25b383a73f482f9336bcf55c44185a85df3595b2033d9f32d69b5cbe2",
-      "bytes": 6204
+      "sha256": "ca38bd05edac1bb4bcdccec43babd9162b7ee771d20ef4705bcf1880fc5f023b",
+      "bytes": 6124
     },
     "research/02_CURRENT_STATE.md": {
       "path": "research/02_CURRENT_STATE.md",
-      "sha256": "4c8a321d8be62914f11ee7ac56106a4b1969fd38b33c847c5515effe803e767e",
-      "bytes": 6248
+      "sha256": "8751819ce8c21d53b5743b6f699eaf263924276ef2ae9d75d090609369623b39",
+      "bytes": 5957
     },
     "research/09_NEXT_ACTIONS.md": {
       "path": "research/09_NEXT_ACTIONS.md",
-      "sha256": "1f83f6d68c73bd628f42b2cb0843cd85433aca0a5a8f24aff12ebd190e2feea8",
-      "bytes": 5254
+      "sha256": "e08df210a1748b55b8b0ee3189bbed53d2660828be2d0617df80c269a2759629",
+      "bytes": 5454
     },
     "paper/EXPERIMENT_MASTER_TABLE.md": {
       "path": "paper/EXPERIMENT_MASTER_TABLE.md",
-      "sha256": "f20378ee7cdc616d45868b54e9289bfaeb65a17202dbbec175fc7f953fddb2f3",
-      "bytes": 31104
+      "sha256": "0cc4d6e5d41780031a6f66ffb3d30df3b3c38d0ab314e09ff00f673873796aa0",
+      "bytes": 31967
     },
     "paper/INTERNAL_TO_PAPER_MAPPING.md": {
       "path": "paper/INTERNAL_TO_PAPER_MAPPING.md",
@@ -13591,14 +13651,46 @@
       "path": "reports/cara_history_bridge_acceptor_checks_r1_20261024.json",
       "sha256": "eaeb34dd8a4087d8942f996d0e20c93a7bd62d28e53aa73b281c2c55d05697dd",
       "bytes": 2158
+    },
+    "research/671_CARA_HISTORY104_COMBINATION_AND_EXCLUSIVE_EXECUTION_20261024.md": {
+      "path": "research/671_CARA_HISTORY104_COMBINATION_AND_EXCLUSIVE_EXECUTION_20261024.md",
+      "sha256": "120cfe33db0e160a4979aaddf05cafa43eac4716466c04720c63094f281346d0",
+      "bytes": 4795
+    },
+    "reports/cara_history104_GPU_actual_launch_r1_20261024.json": {
+      "path": "reports/cara_history104_GPU_actual_launch_r1_20261024.json",
+      "sha256": "09c6b56f4af0a9451034d870e8aa5ae8910727a9f0727b77e8bec842f8224fa6",
+      "bytes": 2094
+    },
+    "reports/cara_history104_GPU_initial_health_r1_20261024.json": {
+      "path": "reports/cara_history104_GPU_initial_health_r1_20261024.json",
+      "sha256": "229e065b7b12504f7cb5d6da93912e346d7979c628969598944b65559030bfa9",
+      "bytes": 55608
+    },
+    "reports/cara_history104_combination_CPU_accepted_r1_20261024.json": {
+      "path": "reports/cara_history104_combination_CPU_accepted_r1_20261024.json",
+      "sha256": "623467f7e35c95d564fd467a2267097bfd40b710b69f3b252f2ba706a02eedeb",
+      "bytes": 211663
+    },
+    "reports/cara_history104_GPU3_exclusive_active_r1_20261024.json": {
+      "path": "reports/cara_history104_GPU3_exclusive_active_r1_20261024.json",
+      "sha256": "694b84d95752b0128b46b9daa37749be6dfc2f4b9f1745ab117c15f82eec27a3",
+      "bytes": 773
+    },
+    "reports/cara_history104_GPU_model_health_r1_20261024.json": {
+      "path": "reports/cara_history104_GPU_model_health_r1_20261024.json",
+      "sha256": "aeb085d3e7c88d9189b87a09179513226db405a6e1a0b9f019069bdb0a4b1f57",
+      "bytes": 55592
     }
   },
   "operation_policy": {
     "current_status_ref": "docs/project_status.json",
-    "current_running_card": null,
-    "current_running_cards": [],
-    "snapshot_observed_at": "2026-10-24T00:34:39.820871+08:00",
-    "active_launch_ref": "reports/cara_PG_P1_full64_GPU_actual_launch_20261023_2030.json",
+    "current_running_card": "PG-P1-H104",
+    "current_running_cards": [
+      "PG-P1-H104"
+    ],
+    "snapshot_observed_at": "2026-10-24T03:28:24.130215+08:00",
+    "active_launch_ref": "reports/cara_history104_GPU_actual_launch_r1_20261024.json",
     "execution_site": "four-card RTX 6000 Ada server; private authorized connection",
     "do_not_resume_two_card": true,
     "no_replay_on_unknown": true,
@@ -13606,7 +13698,7 @@
     "historical_operation_policy_ref": "docs/archive/20261022_before_navigation/paper/experiment_master_table.json"
   },
   "mapping_sha256_at_inventory": "88b3d760a0c94c20b6c802e21f30c7286d6e596cc9b3f3100e7ee6feaa3938f3",
-  "latest_mapping_sha256": "046ed545e616e1c6be1e206a387dd9a0cc58b944ef587f2ebcc04b795421a2b7",
+  "latest_mapping_sha256": "9a31ae1ecd8f6befad29f6b3c1a1b17b9448cf1b4e26be2a7fcfd91357bb638b",
   "revision_plan": {
     "registry_ref": "plans/cara_v6_20261020/TASK_REGISTRY_V6.yaml",
     "report_ref": "research/610_WC_CARA_V6_REVIEW_CLOSURE_PLAN_INTERVAL_SPEC_AND_FIRST_DEV_SCOPE_20261020.md",

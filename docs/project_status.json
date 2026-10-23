@@ -3,8 +3,8 @@
   "project": "CARA-Cache",
   "evidence_observed_at": "2026-10-23T08:26:41.422652+08:00",
   "timezone": "Asia/Shanghai",
-  "snapshot_note": "原P1完整接受但没有预算可行策略；原结果与费用保持。历史强基线原alpha及24/25D的新旧入口148路径、真实请求/编解码/锁CPU已接受。新104路径验证卡报价11.423207/11.9 GPUh；组合CPU与GPU结果尚未完成，原部署257.771秒及累计226 GPUh不变。",
-  "research_summary": "下一步用同机强历史布局、24/25D成对C/A及交错重复验证预算边界。先校验完整请求计时，再验证自动分配；原P1没有可行策略的结论保持。",
+  "snapshot_note": "104路径组合CPU已接受，GPU3已实际硬独占启动；采集结束释放GPU后执行72配对CPU评分，再作独立终态接受。原P1无预算可行策略的结果保持，部署257.771秒及累计226 GPUh不变。",
+  "research_summary": "当前104卡检验历史强基线原alpha与24/25D预算边界；等待完整重复计时和释放GPU后评分结果，再修复P1。",
   "active_experiment_id": "PG-P1",
   "active_state": "PG_P1_TERMINAL_ACCEPTED_NO_BUDGET_FEASIBLE_SELECTION",
   "active_state_zh": "P1原件已接受，未选出预算可行策略",
@@ -12,8 +12,19 @@
   "observation_ref": "reports/wc_policy_assets_full1624_fourcard_GPU_terminal_20261023_0826.json",
   "admission_ref": "reports/wc_policy_assets_full1624_fourcard_GPU_admission_checked_and_schedule_20261022.json",
   "cpu_acceptance_ref": "reports/wc_policy_assets_full1624_fourcard_CPU_r2_accepted_20261022.json",
-  "run_report_ref": "research/670_CARA_HISTORICAL_BASELINE_EQUIVALENCE_AND_BOUNDARY104_20261024.md",
-  "next_checks": [],
+  "run_report_ref": "research/671_CARA_HISTORY104_COMBINATION_AND_EXCLUSIVE_EXECUTION_20261024.md",
+  "next_checks": [
+    {
+      "kind": "104卡技术半程",
+      "scheduled_local": "2026-10-24 09:05 Asia/Shanghai",
+      "automation_id": "cara-104"
+    },
+    {
+      "kind": "104卡全程/释放后评分验收",
+      "scheduled_local": "2026-10-24 15:03 Asia/Shanghai",
+      "automation_id": "cara-104-2"
+    }
+  ],
   "headline_results": [
     {
       "title": "修正读出有跨输入机制收益",
@@ -208,7 +219,7 @@
     "terminal_container_finished_at": "2026-10-23T23:02:35.085636+08:00",
     "analysis_ref": "reports/cara_PG_P1_complete_budget_attribution_20261024.json",
     "repair_plan_ref": "plans/cara_policy_generator_20261020/P1_BUDGET_BRIDGE_AND_FEASIBILITY_REPAIR_R2_20261024.md",
-    "analysis_next_action": "历史原alpha及24/25D新旧入口完整148路径CPU已独立接受；104路径整卡已报价11.423207/11.9 GPUh，先完成新增采集/释放GPU后评分/终态组合CPU，再进行独占GPU准入。部署257.771秒与累计226 GPUh保持，P2等待可行冻结策略。"
+    "analysis_next_action": "104卡正在GPU3独占采集；等待完整采集、GPU释放后72评分及独立终态接受，再据历史强基线与预算边界修复P1；不放宽预算。"
   },
   "PG_P2_preparation": {
     "status": "QUALITY_ENTRY_AND_CARD_BINDING_PREPARED_REAL_MODEL_CPU_PENDING",
@@ -278,23 +289,38 @@
   },
   "PG_P1_repair_preparation": {
     "analysis_ref": "reports/cara_PG_P1_complete_budget_attribution_20261024.json",
-    "report_ref": "research/670_CARA_HISTORICAL_BASELINE_EQUIVALENCE_AND_BOUNDARY104_20261024.md",
+    "report_ref": "research/671_CARA_HISTORY104_COMBINATION_AND_EXCLUSIVE_EXECUTION_20261024.md",
     "repair_plan_ref": "plans/cara_policy_generator_20261020/HISTORICAL_BASELINES_BOUNDARY104_R1_20261024.md",
     "timing_card_draft_ref": "manifests/cara_historical_bridge104_scope_quote_r1_20261024.json",
     "previous_44_draft_ref": "plans/cara_policy_generator_20261020/P1_TIMING_BRIDGE44_DRAFT_20261024.json",
-    "status": "HISTORICAL_ENTRY_CPU_ACCEPTED_BOUNDARY104_QUOTED_COMBINATION_PENDING",
+    "status": "HISTORY104_COMBINATION_CPU_ACCEPTED_GPU_EXCLUSIVE_RUNNING",
     "historical_entry_CPU_acceptance_ref": "reports/cara_history_bridge_production_CPU_accepted_r1_20261024.json",
     "historical_entry_CPU_capture_ref": "reports/cara_history_bridge_production_CPU_terminal_r5_20261024.json",
     "historical_entry_source_revision": "f3dbd47e362f5738e622994e2398681188193b37",
     "complete_CPU_paths": 148,
-    "full104_GPU_combination_CPU_accepted": false,
+    "full104_GPU_combination_CPU_accepted": true,
     "forecast_GPUh": 11.423207068397064,
     "billed_limit_GPUh": 11.9,
     "deployment_limit_seconds": 257.7712338712067,
     "cumulative_cap_GPUh": 226,
     "GPU_dispatch_ready": false,
-    "new_GPU_submissions": 0,
+    "new_GPU_submissions": 1,
     "budget_relaxed": false,
-    "evidence_observed_at": "2026-10-24T03:01:19.508745+08:00"
+    "evidence_observed_at": "2026-10-24T03:28:24.130215+08:00",
+    "combination_CPU_acceptance_ref": "reports/cara_history104_combination_CPU_accepted_r1_20261024.json",
+    "combination_CPU_capture_ref": "reports/cara_history104_combination_CPU_terminal_r1_20261024.json",
+    "execution_source_revision": "5fc4dfe66a33a915fcc7bdf10700bae8810bb401",
+    "launch_ref": "reports/cara_history104_GPU_actual_launch_r1_20261024.json"
+  },
+  "history104_GPU": {
+    "launch_ref": "reports/cara_history104_GPU_actual_launch_r1_20261024.json",
+    "observation_ref": "reports/cara_history104_GPU_model_health_r1_20261024.json",
+    "CPU_acceptance_ref": "reports/cara_history104_combination_CPU_accepted_r1_20261024.json",
+    "exclusive_active_ref": "reports/cara_history104_GPU3_exclusive_active_r1_20261024.json",
+    "report_ref": "research/671_CARA_HISTORY104_COMBINATION_AND_EXCLUSIVE_EXECUTION_20261024.md",
+    "stage_ref": "reports/cara_history104_GPU_stage_r1_20261024.json",
+    "status": "GPU_EXCLUSIVE_RUNNING",
+    "observed_at": "2026-10-24T03:28:24.130215+08:00",
+    "full_protocol_accepted": false
   }
 }
