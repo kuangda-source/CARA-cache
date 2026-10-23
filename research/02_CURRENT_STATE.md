@@ -2,11 +2,13 @@
 
 # CARA-Cache 当前状态
 
-**已保存的实验观测：2026-10-23T08:26:41.422652+08:00（Asia/Shanghai）。** 完整1624数值、控制与费用已接受；独占价格补测准备中。14/14路径完成、0运行、0未到达、0失败。
+**已保存的实验观测：2026-10-23T08:26:41.422652+08:00（Asia/Shanghai）。** 原1624已接受；独立价格补测完整CPU验证进行中。14/14路径完成、0运行、0未到达、0失败。
 
-范围：4 CAL / 1624正式区间格 / 14完整路径（12正式+2warm）/ 2030总格 / 13020读出试验；整卡上限12 GPUh。独占价格测量生产准备与准入复查：**2026-10-23 09:00 Asia/Shanghai**。
+范围：4 CAL / 1624正式区间格 / 14完整路径（12正式+2warm）/ 2030总格 / 13020读出试验；整卡上限12 GPUh。独立价格补测完整CPU验收与后续准入：**2026-10-23 09:45 Asia/Shanghai**。
 
-[本卡完整记录](649_CARA_FULL1624_ACCEPTED_PRICE_AUDIT_AND_REFRESH_SCOPE_20261023.md) · [观测原件](../reports/wc_policy_assets_full1624_fourcard_GPU_terminal_20261023_0826.json) · [当前状态](02_CURRENT_STATE.md)。原GPU段05:07结束，含CPU后处理的容器05:20退出0；08:26实际收件，14/14及全部原始数值/参照通过，结算6.900544 GPUh。价格存在同卡竞争证据，独立补测前不接PG-P1。08:34四卡仍占用，本轮未启用独占或提交新GPU。
+[本卡完整记录](650_CARA_PRICE_REFRESH_REAL_ENTRY_AND_FULL_CPU_IN_PROGRESS_20261023.md) · [观测原件](../reports/wc_policy_assets_full1624_fourcard_GPU_terminal_20261023_0826.json) · [当前状态](02_CURRENT_STATE.md)。原1624的08:26接受及6.900544 GPUh结算保持；新价格补测CPU于09:14实际启动，真实入口与生命周期CPU故障测试已通过，完整数值验证进行中。尚未启用实际独占、预留或提交新GPU。
+
+**当前独立价格补测：09:24技术半程正常；真实入口及六项生命周期CPU检查通过，完整数值验证进行中。** CPU启动于2026-10-23T09:14:02+08:00，最近观测2026-10-23T09:24:29+08:00。[价格CPU启动原件](../reports/wc_policy_price_refresh_full1624_CPU_launch_r1_20261023.json) · [价格CPU观测](../reports/wc_policy_price_refresh_full1624_CPU_halfway_r1_20261023_0924.json)。新GPU提交为0；完整价格卡保持10路径/1624正式格/24360读出、11.5 GPUh上限。
 
 ## 当前跟踪实验
 
@@ -31,6 +33,8 @@
 
 504普通pairs / 1008CFG / 1次模型加载。原规划9.956389 GPUh。实际已结算6.900544 GPUh；[GPU完整接受](../reports/wc_policy_assets_full1624_fourcard_GPU_accepted_20261023_0826.json)。
 
+**当前价格CPU任务**：`/data20t/gaokuangda/worldcache_workspace/.sync/wc-policy-price-refresh-fourcard-full1624-r1-20261023`，源码`cecba6647fcc626887761961fc7215c6fe1afa8b`；PID 915069 / start_ticks 950310551；容器`wc-policy-price-refresh-fourcard-full1624-r1-20261023-cpu`。实际状态：09:24技术半程正常；真实入口及六项生命周期CPU检查通过，完整数值验证进行中。原1624的已接受身份和费用列在上表，不作为新补测的启动授权。
+
 ## 已完成的前置
 
 BANK24完整24视频、12组LPIPS、原控制和实际1.845248657494 GPUh已接受，[科学分析](644_CARA_BANK24_COMPLETE_DEV6_RESULTS_20261022.md)已完成。完整1624 CPU R2的3条命令、28路径/4060重载格/26040试验、真实请求与FD锁证明通过。CPU R1缺少`output_dir`的原失败保持，不重写为成功。[修复记录](645_CARA_FULL1624_CPU_ENTRY_REPAIR_20261022.md)。
@@ -41,7 +45,7 @@ BANK24完整24视频、12组LPIPS、原控制和实际1.845248657494 GPUh已接�
 
 | 顺序 | 当前阶段 | 下一项验收 / 动作 |
 |---|---|---|
-| PG-P1-ASSETS | 完整1624真实区间/价格资产：完整1624数值、控制与费用已接受；独占价格补测准备中 | 原数值/控制/费用全部接受；完整价格刷新卡10新路径/24360读出、上限11.5 GPUh，先完成生产CPU与空闲卡硬独占，再接PG-P1。 |
+| PG-P1-ASSETS | 完整1624真实区间/价格资产：原1624已接受；独立价格补测完整CPU验证进行中 | 先完整接受新价格CPU与控制器，再等空闲UUID验证硬件独占，执行10路径完整补测（上限11.5 GPUh）；价格通过后接PG-P1。 |
 | PG-P1 | 单预算自动策略闭环：已登记，待真实闭环 | 接受真实标签及可信价格、独占准入、CAL_SELECT曝光核查、实际CPU与整卡报价；冻结后加入小规模历史窗口诊断，新增成本另计。 |
 | PG-P2 | 等预算与等查询强基线：待P1后冻结 | 加入少步Native等实际时间对照；P1后冻结比较并集、完整报价及真实CPU，使用独占卡。 |
 | PG-P3 | 固定程序跨预算/模型：条件性后续 | P1/P2后先0.70×Native，再成熟第二模型或明确第二设置重新校准。 |

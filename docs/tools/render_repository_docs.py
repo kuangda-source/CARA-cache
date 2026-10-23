@@ -137,6 +137,20 @@ def build():
                 f"整卡上限{launch['billed_limit_GPUh']} GPUh。{schedule}。\n\n"
                 f"{link(status['run_report_ref'], '本卡完整记录')} · {link(status['observation_ref'], '观测原件')} · "
                 f"{link('research/02_CURRENT_STATE.md', '当前状态')}。{status['snapshot_note']}")
+    followup = status.get('price_refresh_CPU')
+    if followup:
+        fl = load(followup['launch_ref'])
+        fo = load(followup['observation_ref'])
+        if fo['launch'] != fl or fo['registration']['source_revision'] != fl['source_revision']:
+            raise ValueError('Price CPU source/launch differs from its saved observation')
+        phase = followup['status_zh']
+        active['reader']['result'] += '价格补测：' + phase + '。'
+        active['evidence_or_planned_scope'] = active['reader']['result']
+        snapshot += (f"\n\n**当前独立价格补测：{phase}。** "
+                     f"CPU启动于{local_time(fl['started_unix'])}，最近观测{local_time(fo['observed_unix'])}。"
+                     f"{link(followup['launch_ref'], '价格CPU启动原件')} · "
+                     f"{link(followup['observation_ref'], '价格CPU观测')}。"
+                     "新GPU提交为0；完整价格卡保持10路径/1624正式格/24360读出、11.5 GPUh上限。")
     run_rows = [('实验ID', active['id']), ('run', launch['run_id']), ('launch ID', launch['launch_id']),
                 ('运行源码', launch['source_revision']), ('stage', launch['stage']),
                 ('GPU UUID', launch['gpu_uuid']), ('容器', launch['container']),
@@ -163,6 +177,11 @@ def build():
                         f"{link(status['terminal_acceptance_ref'], 'GPU完整接受')}。")
     else:
         run_details += '规划为估算，终态按完整实际费用结算。'
+    if followup:
+        run_details += (f"\n\n**当前价格CPU任务**：`{fl['stage']}`，源码`{fl['source_revision']}`；"
+                        f"PID {fl['identity']['pid']} / start_ticks {fl['identity']['start_ticks']}；"
+                        f"容器`{fl['container']}`。实际状态：{phase}。"
+                        "原1624的已接受身份和费用列在上表，不作为新补测的启动授权。")
     headlines = '\n'.join(f"- **{f['title']}**（{f['short_scope']}）：{f['result']} {refs(f['refs'])}"
                            for f in status['headline_results'])
     details = '\n\n'.join(f"### {i+1}. {f['title']}\n\n{f['result']}\n\n{f['scope']} {refs(f['refs'])}"

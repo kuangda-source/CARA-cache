@@ -4,11 +4,13 @@
 
 先读[当前状态](../../research/02_CURRENT_STATE.md)、[实验顺序](../../research/09_NEXT_ACTIONS.md)与[本卡646记录](../../research/646_CARA_FULL1624_CPU_ACCEPTED_GPU_LAUNCH_20261022.md)。它们共用规范数据；旧长交接已完整归档。
 
-**已保存的实验观测：2026-10-23T08:26:41.422652+08:00（Asia/Shanghai）。** 完整1624数值、控制与费用已接受；独占价格补测准备中。14/14路径完成、0运行、0未到达、0失败。
+**已保存的实验观测：2026-10-23T08:26:41.422652+08:00（Asia/Shanghai）。** 原1624已接受；独立价格补测完整CPU验证进行中。14/14路径完成、0运行、0未到达、0失败。
 
-范围：4 CAL / 1624正式区间格 / 14完整路径（12正式+2warm）/ 2030总格 / 13020读出试验；整卡上限12 GPUh。独占价格测量生产准备与准入复查：**2026-10-23 09:00 Asia/Shanghai**。
+范围：4 CAL / 1624正式区间格 / 14完整路径（12正式+2warm）/ 2030总格 / 13020读出试验；整卡上限12 GPUh。独立价格补测完整CPU验收与后续准入：**2026-10-23 09:45 Asia/Shanghai**。
 
-[本卡完整记录](../../research/649_CARA_FULL1624_ACCEPTED_PRICE_AUDIT_AND_REFRESH_SCOPE_20261023.md) · [观测原件](../../reports/wc_policy_assets_full1624_fourcard_GPU_terminal_20261023_0826.json) · [当前状态](../../research/02_CURRENT_STATE.md)。原GPU段05:07结束，含CPU后处理的容器05:20退出0；08:26实际收件，14/14及全部原始数值/参照通过，结算6.900544 GPUh。价格存在同卡竞争证据，独立补测前不接PG-P1。08:34四卡仍占用，本轮未启用独占或提交新GPU。
+[本卡完整记录](../../research/650_CARA_PRICE_REFRESH_REAL_ENTRY_AND_FULL_CPU_IN_PROGRESS_20261023.md) · [观测原件](../../reports/wc_policy_assets_full1624_fourcard_GPU_terminal_20261023_0826.json) · [当前状态](../../research/02_CURRENT_STATE.md)。原1624的08:26接受及6.900544 GPUh结算保持；新价格补测CPU于09:14实际启动，真实入口与生命周期CPU故障测试已通过，完整数值验证进行中。尚未启用实际独占、预留或提交新GPU。
+
+**当前独立价格补测：09:24技术半程正常；真实入口及六项生命周期CPU检查通过，完整数值验证进行中。** CPU启动于2026-10-23T09:14:02+08:00，最近观测2026-10-23T09:24:29+08:00。[价格CPU启动原件](../../reports/wc_policy_price_refresh_full1624_CPU_launch_r1_20261023.json) · [价格CPU观测](../../reports/wc_policy_price_refresh_full1624_CPU_halfway_r1_20261023_0924.json)。新GPU提交为0；完整价格卡保持10路径/1624正式格/24360读出、11.5 GPUh上限。
 
 | 字段 | 冻结身份 / 已记录状态 |
 |---|---|
@@ -30,6 +32,8 @@
 [唯一启动原件](../../reports/wc_policy_assets_full1624_fourcard_GPU_launch_20261022.json) · [CPU完整接受](../../reports/wc_policy_assets_full1624_fourcard_CPU_r2_accepted_20261022.json) · [准入与检查安排](../../reports/wc_policy_assets_full1624_fourcard_GPU_admission_checked_and_schedule_20261022.json)
 
 504普通pairs / 1008CFG / 1次模型加载。原规划9.956389 GPUh。实际已结算6.900544 GPUh；[GPU完整接受](../../reports/wc_policy_assets_full1624_fourcard_GPU_accepted_20261023_0826.json)。
+
+**当前价格CPU任务**：`/data20t/gaokuangda/worldcache_workspace/.sync/wc-policy-price-refresh-fourcard-full1624-r1-20261023`，源码`cecba6647fcc626887761961fc7215c6fe1afa8b`；PID 915069 / start_ticks 950310551；容器`wc-policy-price-refresh-fourcard-full1624-r1-20261023-cpu`。实际状态：09:24技术半程正常；真实入口及六项生命周期CPU检查通过，完整数值验证进行中。原1624的已接受身份和费用列在上表，不作为新补测的启动授权。
 
 ## 接续规则
 

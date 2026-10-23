@@ -10,7 +10,7 @@ from wcomr.policy_interval_assets_r1 import read,sha
 from wcomr.policy_price_refresh_contract_r1 import COUNTS,matrix,VERSION
 
 
-def accept(v):
+def accept(v,lifecycle=None):
     L=v['launch'];reg=v['registration'];container=v['container'];f=v['files']
     if container['state']['Running'] or container['state']['ExitCode']!=0 or container['state']['OOMKilled']:
         raise ValueError('Complete original CPU container exit0 required')
@@ -51,19 +51,40 @@ def accept(v):
                 'old_source_mismatch_rejected_before_readout','no_new_interval_tensors','labels_unchanged_after_merge',
                 'owners_released','ordinary_initial_state_restored')):
             raise ValueError('Real collector numerical or cleanup gate failed')
-    return dict(status='PRICE_COLLECTOR_AND_REAL_ENTRY_CPU_ACCEPTED_LIFECYCLE_PENDING',
+    life_ok=False
+    if lifecycle is not None:
+        lc=lifecycle['container'];lr=lifecycle['result'];manifest=lifecycle['manifest']
+        if (lc['state']['Running'] or lc['state']['ExitCode']!=0 or lc['state']['OOMKilled']
+                or lc['image']!=container['image'] or not lc['readonly_root'] or lc['device_requests']
+                or lr['stage_registration_sha256']!=L['registration_sha256']
+                or manifest['production_registration_sha256']!=L['registration_sha256']
+                or lr['production_supervisor_sha256']!=reg['payload_sha256']['scripts/wc_policy_price_refresh_worker_r1.py']
+                or lr['production_host_guardian_sha256']!=reg['payload_sha256']['scripts/wc_policy_price_host_guardian_r1.py']
+                or lr['CUDA_initialized'] or lr['GPU_submissions']):
+            raise ValueError('Exact frozen lifecycle fixture and hidden CPU container required')
+        expected={'success','runner_failure','foreign_context','telemetry_failure_on_release',
+                  'host_clean_restore','host_foreign_arrival_defer_restore'}
+        if len(lr['checks'])!=6 or {x['scenario'] for x in lr['checks']}!=expected:
+            raise ValueError('All lifecycle failure/restoration cases required')
+        for x in lr['checks']:
+            if x['status']!='PASS' or x['actual_sudo_calls'] or x['actual_nvidia_smi_calls'] or x['GPU_submissions']:
+                raise ValueError('Lifecycle fixture failed or touched actual GPU/admin commands')
+        life_ok=True
+    return dict(status='PRICE_FULL_PRODUCTION_CPU_ACCEPTED_ADMISSION_PENDING' if life_ok else 'PRICE_COLLECTOR_AND_REAL_ENTRY_CPU_ACCEPTED_LIFECYCLE_PENDING',
         source_revision=L['source_revision'],registration_sha256=L['registration_sha256'],
         real_entry_CPU_accepted=True,full_price_collector_numerical_CPU_accepted=True,
         actual_CPU_paths=48,new_price_paths=20,new_price_cells=4060,new_price_readout_trials=48720,
         actual_tokenization_codec_and_FD_transport_accepted=True,
-        full_GPU_lifecycle_CPU_accepted=False,production_CPU_accepted=False,GPU_dispatch_ready=False,
-        remaining='Exact supervisor/host-guardian failure, settlement and restoration integration fixture; independent GPU terminal acceptor.',
+        full_GPU_lifecycle_CPU_accepted=life_ok,production_CPU_accepted=life_ok,GPU_dispatch_ready=False,
+        remaining='Fresh idle UUID, verified hardware Exclusive_Process and complete original-handle controller/terminal acceptance.' if life_ok else 'Exact supervisor/host-guardian lifecycle fixture.',
         GPU_submissions=0,ledger_written=False)
 
 
 def main():
     p=argparse.ArgumentParser();p.add_argument('--capture',type=Path,required=True);p.add_argument('--output',type=Path,required=True)
-    a=p.parse_args();v=accept(read(a.capture));v.update(capture_ref=str(a.capture),capture_sha256=sha(a.capture))
+    p.add_argument('--lifecycle-capture',type=Path)
+    a=p.parse_args();v=accept(read(a.capture),read(a.lifecycle_capture) if a.lifecycle_capture else None);v.update(capture_ref=str(a.capture),capture_sha256=sha(a.capture))
+    if a.lifecycle_capture:v.update(lifecycle_capture_ref=str(a.lifecycle_capture),lifecycle_capture_sha256=sha(a.lifecycle_capture))
     with a.output.open('x') as f:json.dump(v,f,indent=2);f.write('\n')
     print(json.dumps(v))
 
