@@ -2,7 +2,7 @@
 """Once-only full104 exclusive launch, original-handle capture and independent audit."""
 import argparse,base64,hashlib,json,subprocess,sys,time,uuid
 from pathlib import Path
-from wc_four_card_policy_assets_r1 import ssh,write,read,sha,REPO,RUNTIME_REF
+from wc_four_card_policy_assets_r1 import ssh,write,read,sha,REPO,RUNTIME_REF,base_ssh,bridge
 from wc_four_card_price_refresh_gpu_r1 import saved_secret
 import wc_four_card_cara_pg_gpu_r1 as base
 from recover_cara_pg_p1_terminal_codec_r1 import COLLECT as READONLY_CODEC
@@ -55,12 +55,12 @@ def recover(a):
 
 OLD=" from wcomr.policy_generator_r1.production_capture import collect\n try:v.update(collect(root,stage,L))\n except Exception as e:v['terminal_collection_error']=dict(error_type=type(e).__name__,error=str(e))\n"
 assert base.CAPTURE.count(OLD)==1
-CAPTURE=base.CAPTURE.replace(OLD,READONLY_CODEC.replace('policy_generator_r1.production_capture','policy_generator_r1.historical_capture').replace("'--memory','2g'","'--memory','4g'"))
+CAPTURE=base.CAPTURE.replace(OLD,READONLY_CODEC.replace('policy_generator_r1.production_capture','policy_generator_r1.historical_capture').replace("'--memory','2g'","'--memory','4g'").replace("'--read-only','--network'","'--read-only','--tmpfs','/tmp:rw,size=256m','--network'").replace('timeout=140','timeout=360'))
 CAPTURE=CAPTURE.replace('policy_generator_r1.production_stage','policy_generator_r1.historical_card').replace('PG_P1','HISTORY104')
 CAPTURE=CAPTURE.replace('print(json.dumps(v,allow_nan=False))',"\nif (out/'score-progress.json').exists():\n s=read(out/'score-progress.json');v['post_score_health']={k:s.get(k) for k in ('status','completed_pairs','planned_pairs','started_unix','ended_unix')}\nprint(json.dumps(v,allow_nan=False))")
 
 def capture(a):
- v=ssh(CAPTURE,dict(launch=read(a.launch_ref),terminal=a.mode=='terminal'));write(a.output,v);return v
+ v=base_ssh(bridge(CAPTURE,read(REPO/RUNTIME_REF)),dict(launch=read(a.launch_ref),terminal=a.mode=='terminal'),timeout=420);write(a.output,v);return v
 
 def main():
  p=argparse.ArgumentParser();sub=p.add_subparsers(dest='command',required=True)
