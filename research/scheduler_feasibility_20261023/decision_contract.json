@@ -1,0 +1,59 @@
+{
+  "id": "CARA_SCHEDULER_FEASIBILITY_SIDECAR_R1_20261023",
+  "scope": "Independent interpretation of accepted labels and subsequent shared-planning/history diagnostics. No production policy changes.",
+  "user_direction": "把这次分析和后续判断标准独立于主线，先完成共享规划与自身历史失配诊断，不急着训练调度器。",
+  "analysis_status": "POST_HOC_DESCRIPTIVE_OLD_CAL_NOT_PREREGISTERED_TEST",
+  "decision_rules_status": "FIXED_BEFORE_READING_PG_P1_ENDPOINT_OR_REAL_HISTORY_RESULTS",
+  "training": false,
+  "new_GPU_card_created": false,
+  "mainline_mutation": false,
+  "automatic_reopening_of_probe_gate": false,
+  "prior_closure_ref": "plans/cara_probe_gate_closure_20261023.json",
+  "inputs": {
+    "accepted_CAL_labels": "reports/wc_policy_assets_full1624_fourcard_GPU_terminal_20261023_0826.json",
+    "P1_launch": "reports/cara_PG_P1_full64_GPU_actual_launch_20261023_2030.json",
+    "P1_launch_id": "39b4481a-79a7-4dff-92aa-0498a03c3e78",
+    "P1_source": "170c50e6c289a93cb60d13ead918fdb258177746",
+    "history_contract": "plans/cara_policy_generator_20261020/P1_P2_CPU_HANDOFF_R1_20261023.md",
+    "history_matrix_entry": "scripts/prepare_cara_pg_continuation_r1.py history-matrix",
+    "history_original_tensor_acceptor": "src/wcomr/policy_generator_r1/p2_history_analysis.py"
+  },
+  "gates": [
+    {
+      "id": "S0_LABELS",
+      "require": "Original accepted capture hash, all four CAL/seed0 and all406 cells per scene; teacher adjacent anchors explicit. No warm, SELECT, DEV, TEST or partial running output.",
+      "report": "Action-specific log decomposition and exploratory leave-one-CAL-out fixed-cell action regret; never a quality or adaptive upper-bound claim."
+    },
+    {
+      "id": "S1_SHARED_PLANNING",
+      "require": "Complete original PG-P1 independent acceptance including frozen policy identities, full denominators, complete-video scores, clean timing, finance and released original resources.",
+      "report": "Reuse registered selection unchanged; report feasible candidate losses, measured full-request times, tails, proxy-endpoint ranking and calibration cost. No feasible policy or missing originals stays unresolved, not an adaptive-scheduler justification."
+    },
+    {
+      "id": "S2_HISTORY_EXECUTION",
+      "require": "Freeze final CARA and registered feasible SIMPLE from P1; original first two CAL_FIT, seed0; preserve existing P2 scope, complete quote, production CPU and fresh exclusive admission. Do not launch a duplicate or split the registered P2 card.",
+      "matrix": "For each unique policy, one warm and two formal requests; at most six paths. Earliest skipped target in each true-D gap bin 2-4,5-8,>=9; empty bins remain empty; duplicate policy roles share physical paths.",
+      "integrity": "Shadow OFF/ON controls; exact parent input, solver, cache, anchors, conditions and RNG noninterference; paired original C/A_HALF/A_ONE/D tensors, hashes and source identities; A_ONE invariant to older anchor. Shadow is never a deployed anchor or a clean timing sample."
+    },
+    {
+      "id": "S3_HISTORY_INTERPRETATION",
+      "report": "Separate same-state actual-vs-adjacent-window comparison from teacher-table-vs-own-state total mismatch. Preserve action ties, NA constant ranks, absolute regret, zero-denominator NA, per-point/per-prompt losses and policy/bin coverage. Two prompts support mechanism diagnosis, not population confidence or independent406-cell significance.",
+      "empty_case": "No legal points => NOT_APPLICABLE_FOR_FROZEN_POLICIES; never change policy to create a favorable point.",
+      "decision": "Rank reversals with nonzero regret flag a history-conditioned surrogate issue; first assess history representation. Stable local ordering with poor endpoint ordering nominates sensitivity/interaction diagnosis. Neither automatically authorizes training."
+    },
+    {
+      "id": "S4_RESEARCH_ALLOCATION",
+      "continue_shared": "Shared planning remains the default until a controlled deployable alternative demonstrates useful incremental endpoint benefit at matched measured time on fresh inputs.",
+      "optional_future_pilot": "Only propose a separately versioned sensitivity or causal online-calibration pilot if S1-S3 identify a concrete unresolved mechanism; report full data/readout/transfer/storage/shadow/score costs first.",
+      "learning": "Dormant. Any reopening must respect the explicit probe-line closure and obtain a new concrete task decision. No automatic model fitting, new data collection or DAgger iteration from this sidecar."
+    }
+  ],
+  "rejected_shortcuts": [
+    "80 percent explained variance is not a stop/go rule for adaptivity.",
+    "A 3 percent endpoint gap is not an established margin; a future margin and paired uncertainty procedure must be frozen before fresh evaluation.",
+    "Per-prompt teacher-table DP is a privileged comparator, not a true closed-loop oracle.",
+    "Uniform positive loss rescaling cannot change a hard-budget optimizer's minimizer.",
+    "O(T^2) labels from one deep trajectory do not cost one Native request.",
+    "LPIPS is not the sum of scalar local MSE; injected response depends on direction, source, action and solver/history."
+  ]
+}
