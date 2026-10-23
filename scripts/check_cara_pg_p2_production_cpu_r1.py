@@ -21,7 +21,7 @@ def main():
     torch.cuda._lazy_init=forbidden;torch.hub.download_url_to_file=forbidden
     original_load=torch.load
     def diagnostic_load(file,*args,**kwargs):
-        path=Path(getattr(file,'name',file)).resolve()
+        path=Path(file if isinstance(file,(str,Path)) else file.name).resolve()
         if not path.is_relative_to((a.stage/'CPU-pg-numeric').resolve()) or path.suffix!='.pt':forbidden()
         return original_load(file,*args,**kwargs)
     torch.load=diagnostic_load
