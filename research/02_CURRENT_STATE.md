@@ -2,11 +2,11 @@
 
 # CARA-Cache 当前状态
 
-**当前独占价格补测：GPU3硬独占运行中，完整价格待终态验收。** 实际启动2026-10-23T13:13:24+08:00，观测2026-10-23T16:56:35.990417+08:00。5/10路径完成、1运行、4未到达、0失败；当前路径`formal_1_PRICE`。
+**当前独占价格补测：GPU3硬独占运行中，完整价格待终态验收。** 实际启动2026-10-23T13:13:24+08:00，观测2026-10-23T17:59:38.811566+08:00。7/10路径完成、1运行、2未到达、0失败；当前路径`formal_2_PRICE`。
 
-范围：4 CAL / 10路径（8正式+2warm）/ 1624正式格、2030总格 / 24360读出；单卡上限11.5 GPUh。独占价格技术半程：**2026-10-23 17:59 Asia/Shanghai**；独占价格完整验收：**2026-10-23 20:20 Asia/Shanghai**。
+范围：4 CAL / 10路径（8正式+2warm）/ 1624正式格、2030总格 / 24360读出；单卡上限11.5 GPUh。独占价格完整验收：**2026-10-23 20:20 Asia/Shanghai**。
 
-[唯一实际恢复启动](../reports/wc_policy_price_refresh_full1624_GPU_actual_recovery_launch_20261023_1313.json) · [GPU技术观测](../reports/wc_policy_price_refresh_GPU_user_progress_20261023_1655.json) · [实际独占接受](../reports/wc_policy_price_refresh_GPU3_exclusive_active_actual_20261023_1316.json) · [完整记录](658_CARA_PRICE_PROGRESS_AND_EARLIER_PG_P1_HANDOFF_20261023.md)。16:57只读技术进度：5/10路径完成，formal_1_PRICE为254/406格；正式660/1624格，含warm1066/2030格。原GPU3硬独占、原句柄与锁保持，0失败；6167条独占前缀样本无违规、最大间隔2.815秒。按已完成PRICE路径估计20:00–20:30采集完成，条件顺利则20:30–21:00接PG-P1。原17:59半程保持，既有终态检查提前至20:20；实际完整接受前价格门槛仍关闭。PG-P1生产组合CPU已接受，无需重复准备。
+[唯一实际恢复启动](../reports/wc_policy_price_refresh_full1624_GPU_actual_recovery_launch_20261023_1313.json) · [GPU技术观测](../reports/wc_policy_price_refresh_GPU_halfway_20261023_1759.json) · [实际独占接受](../reports/wc_policy_price_refresh_GPU3_exclusive_active_actual_20261023_1316.json) · [完整记录](659_CARA_PRICE_HALFWAY_HEALTHY_ORIGINAL_HANDOFF_RETAINED_20261023.md)。17:59半程只读检查：7/10路径完成，formal_2_PRICE为152/406格；正式964/1624、含warm1370/2030格。原GPU3硬独占、原句柄与锁保持，0失败；7865条独占前缀样本无违规、最大间隔2.995秒。预计20:00–20:30采集完成、条件顺利20:30–21:00接PG-P1不变。一次半程已完成并删除，既有20:20终态检查保持；完整价格仍待接受，PG-P1生产组合CPU已接受。
 
 原1624已完整接受、实际6.900544 GPUh已结算，[原1624接受](../reports/wc_policy_assets_full1624_fourcard_GPU_accepted_20261023_0826.json)；新价格完整生产CPU接受保持，[价格CPU接受](../reports/wc_policy_price_refresh_full1624_CPU_accepted_r1_20261023.json)。当前技术准入不代表价格终态接受或PG闭环结果。
 
