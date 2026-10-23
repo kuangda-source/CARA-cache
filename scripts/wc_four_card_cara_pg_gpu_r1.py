@@ -17,7 +17,10 @@ QUOTE='manifests/cara_PG_P1_full64_whole_quote_r1_20261023.json'
 def published():
  from wcomr.immutable_stage_payload_r1 import local_python_closure
  revision=subprocess.check_output(['git','rev-parse','HEAD'],cwd=REPO,text=True).strip()
- names=local_python_closure(REPO,['scripts/wc_four_card_cara_pg_gpu_r1.py','scripts/audit_cara_pg_p1_combination_cpu_r1.py'])
+ names=local_python_closure(REPO,['scripts/wc_four_card_cara_pg_gpu_r1.py','scripts/audit_cara_pg_p1_combination_cpu_r1.py',
+  'scripts/audit_cara_pg_p1_production_cpu_r1.py','scripts/wc_four_card_policy_assets_r1.py',
+  'scripts/wc_four_card_price_refresh_gpu_r1.py','scripts/wc_four_card_price_refresh_r1.py',
+  'scripts/audit_wc_policy_price_refresh_cpu_r1.py','scripts/four_card_policy_assets_port_r1.py'])
  for n,h in names.items():
   if hashlib.sha256(subprocess.check_output(['git','show',revision+':'+n],cwd=REPO)).hexdigest()!=h:raise ValueError('Commit controller closure before dispatch')
  if subprocess.check_output(['git','ls-remote','origin','refs/heads/main'],cwd=REPO,text=True).split()[0]!=revision:raise ValueError('Controller revision not published')
