@@ -8,7 +8,7 @@
 
 观测：2026-10-24T00:34:39.820871+08:00。原半程/终态检查已关闭，无重复提交。
 
-[完整原终态](../reports/cara_PG_P1_original_terminal_codec_recovered_20261024_0035.json) · [独立接受](../reports/cara_PG_P1_original_terminal_accepted_20261024_0037.json) · [完整记录](../research/668_CARA_STORAGE_DEDUP_AND_P1_ORIGINAL_TERMINAL_ACCEPTANCE_20261024.md)。原P1容器于10月23日23:02:35退出0；完整原件在原镜像的只读CPU收件中恢复并独立接受。实际2.557833359921 GPUh、独占4221采样、最大间隔2.883秒；64登记位置保留，实际30路径/16评分/4查询，selected_policy=null。P2准备继续保留，但不能越过无冻结策略的准入缺口。清理仅针对已授权重复实体与完全一致的压缩包，不改变任何实验输入或结果。
+[完整原终态](../reports/cara_PG_P1_original_terminal_codec_recovered_20261024_0035.json) · [独立接受](../reports/cara_PG_P1_original_terminal_accepted_20261024_0037.json) · [完整记录](../research/669_CARA_PG_P1_COMPLETE_BUDGET_ATTRIBUTION_AND_REPAIR_PLAN_20261024.md)。原P1完整接受：30路径、16评分、4查询，实际2.557833359921 GPUh，selected_policy=null。完整离线复算确认完整请求低估7.25–12.96秒，以及无可行首批则跳过细化的搜索缺口；GRAPH_DIVERSE在4个已曝光CAL的LPIPS比SIMPLE_C低4.92%，不是新输入结论。修复和44路径计时验证仅为方案，尚未实现/CPU接受/派GPU，原257.771秒预算不变。
 
 | 需要的材料 | 入口 |
 |---|---|

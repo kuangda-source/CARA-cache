@@ -3,8 +3,8 @@
   "project": "CARA-Cache",
   "evidence_observed_at": "2026-10-23T08:26:41.422652+08:00",
   "timezone": "Asia/Shanghai",
-  "snapshot_note": "原P1容器于10月23日23:02:35退出0；完整原件在原镜像的只读CPU收件中恢复并独立接受。实际2.557833359921 GPUh、独占4221采样、最大间隔2.883秒；64登记位置保留，实际30路径/16评分/4查询，selected_policy=null。P2准备继续保留，但不能越过无冻结策略的准入缺口。清理仅针对已授权重复实体与完全一致的压缩包，不改变任何实验输入或结果。",
-  "research_summary": "修正机制与共享布局已有实证；完整1624真实区间标签和独占动作价格均已接受。原PG-P1完整结束并通过原件验收，但四个候选实测完整请求时钟均超过冻结预算，未选出策略。P2生产入口与CPU准备保留，下一步先分析预算预测偏差。",
+  "snapshot_note": "原P1完整接受：30路径、16评分、4查询，实际2.557833359921 GPUh，selected_policy=null。完整离线复算确认完整请求低估7.25–12.96秒，以及无可行首批则跳过细化的搜索缺口；GRAPH_DIVERSE在4个已曝光CAL的LPIPS比SIMPLE_C低4.92%，不是新输入结论。修复和44路径计时验证仅为方案，尚未实现/CPU接受/派GPU，原257.771秒预算不变。",
+  "research_summary": "完整1624标签与独占动作价格已接受。P1没有预算可行策略；完整分析确认动作价到生产请求的计时差额和可行性恢复搜索缺口。下一步修复成本闭合与搜索，再验证同预算策略优势；原实验与全部失败记录保留。",
   "active_experiment_id": "PG-P1",
   "active_state": "PG_P1_TERMINAL_ACCEPTED_NO_BUDGET_FEASIBLE_SELECTION",
   "active_state_zh": "P1原件已接受，未选出预算可行策略",
@@ -12,7 +12,7 @@
   "observation_ref": "reports/wc_policy_assets_full1624_fourcard_GPU_terminal_20261023_0826.json",
   "admission_ref": "reports/wc_policy_assets_full1624_fourcard_GPU_admission_checked_and_schedule_20261022.json",
   "cpu_acceptance_ref": "reports/wc_policy_assets_full1624_fourcard_CPU_r2_accepted_20261022.json",
-  "run_report_ref": "research/668_CARA_STORAGE_DEDUP_AND_P1_ORIGINAL_TERMINAL_ACCEPTANCE_20261024.md",
+  "run_report_ref": "research/669_CARA_PG_P1_COMPLETE_BUDGET_ATTRIBUTION_AND_REPAIR_PLAN_20261024.md",
   "next_checks": [],
   "headline_results": [
     {
@@ -205,7 +205,10 @@
     "actual_GPUh": 2.5578333599208336,
     "PG_P2_input_ready": false,
     "selected_policy": null,
-    "terminal_container_finished_at": "2026-10-23T23:02:35.085636+08:00"
+    "terminal_container_finished_at": "2026-10-23T23:02:35.085636+08:00",
+    "analysis_ref": "reports/cara_PG_P1_complete_budget_attribution_20261024.json",
+    "repair_plan_ref": "plans/cara_policy_generator_20261020/P1_BUDGET_BRIDGE_AND_FEASIBILITY_REPAIR_R2_20261024.md",
+    "analysis_next_action": "完整分析已完成：先实现生产全请求计时桥接与首批不可行时的有限搜索恢复，完成CPU后冻结44路径计时验证卡；原B不放宽，P2等待冻结策略。"
   },
   "PG_P2_preparation": {
     "status": "QUALITY_ENTRY_AND_CARD_BINDING_PREPARED_REAL_MODEL_CPU_PENDING",
@@ -272,5 +275,15 @@
     "archives_removed_after_complete_equality": 2,
     "archives_retained_due_to_mismatch": 3,
     "P1_original_records_unchanged": true
+  },
+  "PG_P1_repair_preparation": {
+    "analysis_ref": "reports/cara_PG_P1_complete_budget_attribution_20261024.json",
+    "report_ref": "research/669_CARA_PG_P1_COMPLETE_BUDGET_ATTRIBUTION_AND_REPAIR_PLAN_20261024.md",
+    "repair_plan_ref": "plans/cara_policy_generator_20261020/P1_BUDGET_BRIDGE_AND_FEASIBILITY_REPAIR_R2_20261024.md",
+    "timing_card_draft_ref": "plans/cara_policy_generator_20261020/P1_TIMING_BRIDGE44_DRAFT_20261024.json",
+    "status": "OFFLINE_ANALYSIS_AND_PLAN_COMPLETE_PRODUCTION_CPU_PENDING",
+    "GPU_dispatch_ready": false,
+    "new_GPU_submissions": 0,
+    "budget_relaxed": false
   }
 }

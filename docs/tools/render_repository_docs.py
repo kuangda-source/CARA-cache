@@ -303,7 +303,7 @@ def build():
                   f"64登记位置中执行{sc['executed_paths']}路径、{sc['scored_pairs']}评分、{sc['query_attempts']}候选查询；"
                   + ('已冻结所选策略。' if sc['selected_policy'] is not None else '未选出满足冻结预算的策略，PG-P2尚不准入。'))
         next_action = ('按冻结策略去重后确定P2完整范围和报价。' if ta['PG_P2_input_ready'] else
-                       '保留原终态与费用，离线分析预算不可行原因；不追加查询、不改阈值、不直接启动P2。')
+                       pg.get('analysis_next_action', '保留原终态与费用，离线分析预算不可行原因；不追加查询、不改阈值、不直接启动P2。'))
         snapshot = (f"**PG-P1已结束并完成原件验收。** {result}\n\n"
                     f"观测：{pg['observed_at']}。原半程/终态检查已关闭，无重复提交。\n\n"
                     f"{link(pg['observation_ref'], '完整原终态')} · {link(pg['terminal_acceptance_ref'], '独立接受')} · "
