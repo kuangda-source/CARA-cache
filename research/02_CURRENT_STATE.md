@@ -2,11 +2,11 @@
 
 # CARA-Cache 当前状态
 
-**当前104路径验证卡：GPU3硬独占运行中。** 实际启动2026-10-24T03:21:57+08:00，观测2026-10-24T03:28:24.130215+08:00。RUNNING；0/104完成、0失败。
+**当前104路径验证卡：GPU3硬独占运行中。** 实际启动2026-10-24T03:21:57+08:00，观测2026-10-24T04:17:16.119286+08:00。RUNNING；11/104完成、0失败。
 
 范围：4 CAL、10角色、80正式+20warm+4诊断；3744pairs/7488CFG，单load。释放GPU并结算后执行72配对/6696帧CPU评分。forecast11.423207、硬上限11.9 GPUh；部署257.771秒及累计226 GPUh保持。104卡技术半程：**2026-10-24 09:05 Asia/Shanghai**；104卡全程/释放后评分验收：**2026-10-24 15:03 Asia/Shanghai**。
 
-[唯一实际启动](../reports/cara_history104_GPU_actual_launch_r1_20261024.json) · [最新技术观测](../reports/cara_history104_GPU_model_health_r1_20261024.json) · [真实独占核验](../reports/cara_history104_GPU3_exclusive_active_r1_20261024.json) · [组合检查与执行记录](671_CARA_HISTORY104_COMBINATION_AND_EXCLUSIVE_EXECUTION_20261024.md)。
+[唯一实际启动](../reports/cara_history104_GPU_actual_launch_r1_20261024.json) · [最新技术观测](../reports/cara_history104_GPU_technical_progress_20261024_0417.json) · [真实独占核验](../reports/cara_history104_GPU3_exclusive_active_r1_20261024.json) · [组合检查与执行记录](675_CARA_HISTORY104_TECHNICAL_PROGRESS_EXCLUSIVITY_AND_ETA_20261024.md)。
 
 原P1原件与财务完整接受，但未选出预算可行策略。104卡CPU与独占准入不代表GPU结果；P2仍等待可行冻结策略。
 
