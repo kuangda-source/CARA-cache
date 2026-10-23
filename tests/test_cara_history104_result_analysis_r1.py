@@ -51,6 +51,23 @@ class Analysis(unittest.TestCase):
         key=next(k for k in req if k.startswith('CALIBRATION'))
         req[key]['result']['video_write_seconds']=500
         with self.assertRaises(ValueError):summarize(record(self.capture,'card'),self.accepted['scientific'],req)
+    def test_exact_mask_ages_not_a_three_step_threshold(self):
+        r=self.result();ages={x['role']:x['max_reuse_age'] for x in r['anchor_age_inventory']}
+        self.assertEqual([ages[k] for k in ('S26_C','S25_C','S24_C','SHARED26_C')],[2,3,4,5])
+        self.assertFalse(any(x['age_effect_identified'] for x in r['anchor_age_inventory']))
+    def test_measured_failure_vs_planning_margin_are_distinct(self):
+        t={'timing_model_validated':True}
+        expensive=route(t,[dict(validation_measured_feasible=False,planning_feasible_with_fixed_margin=False)])
+        conservative=route(t,[dict(validation_measured_feasible=True,planning_feasible_with_fixed_margin=False)])
+        self.assertEqual(expensive['action'],conservative['action'])
+        self.assertEqual(expensive['diagnosis'],'TESTED_LAYOUTS_EXCEED_MEASURED_BUDGET')
+        self.assertEqual(conservative['diagnosis'],'MEASURED_FEASIBLE_BUT_NO_CONSERVATIVE_PROPOSAL_HEADROOM')
+    def test_interpretation_render_keeps_frozen_timing_gate(self):
+        from analyze_cara_history104_results_r1 import render
+        r=self.result();text=render(r)
+        self.assertIn('不要求实测≤B−6',text);self.assertIn('最大年龄为5',text)
+        self.assertEqual(r['timing']['frozen_result'],self.accepted['scientific']['timing'])
+        self.assertFalse(r['P1_continuation']['final_budget_relaxed'])
     def test_missing_prompt_quality_rejected(self):
         s=copy.deepcopy(self.accepted['scientific']);s['quality']['S24_C'].pop()
         with self.assertRaises(ValueError):summarize(record(self.capture,'card'),s,self.capture['requests'])

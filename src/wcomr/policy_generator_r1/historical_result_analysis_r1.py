@@ -49,12 +49,39 @@ def route(timing, boundaries):
         action = 'NO_TESTED_24_25D_PLANNING_HEADROOM_KEEP_BUDGET'
     else:
         action = 'PREPARE_NEW_P1_CONTRACT_WITH_VALIDATED_COST_INTERFACE'
-    return dict(action=action, selected_policy=None, PG_P2_input_ready=False,
+    if not timing['timing_model_validated']:
+        diagnosis = 'COST_MODEL_NOT_VALIDATED'
+    elif not boundaries:
+        diagnosis = 'NO_BOUNDARY_ROWS'
+    elif not any(b['validation_measured_feasible'] for b in boundaries):
+        diagnosis = 'TESTED_LAYOUTS_EXCEED_MEASURED_BUDGET'
+    elif not any(b['planning_feasible_with_fixed_margin'] and b['validation_measured_feasible'] for b in boundaries):
+        diagnosis = 'MEASURED_FEASIBLE_BUT_NO_CONSERVATIVE_PROPOSAL_HEADROOM'
+    else:
+        diagnosis = 'VALIDATED_MODEL_WITH_TESTED_PROPOSAL_HEADROOM'
+    return dict(action=action, diagnosis=diagnosis, selected_policy=None, PG_P2_input_ready=False,
                 GPU_dispatch_ready=False, additional_GPU_submissions=0,
                 final_budget_relaxed=False, timing_model_refit=False,
                 required_before_new_dispatch=['full exposure accounting and equal-information controls',
                     'new frozen candidate/search/SELECT contract', 'new production CPU acceptance',
                     'whole-card quote within226 pool', 'fresh idle exclusive GPU admission'])
+
+
+
+def anchor_age_inventory(card):
+    """Static mask description only; age is t minus the most recent true D."""
+    rows=[]
+    for role, policy in card['policies'].items():
+        actions=['D']*36 if policy is None else policy['actions']
+        anchor=None;reuse=[]
+        for step, action in enumerate(actions,1):
+            if action=='D':anchor=step
+            else:
+                if anchor is None:raise ValueError('Reuse before a true D anchor')
+                reuse.append(dict(step=step,action=action,source_step=anchor,age=step-anchor))
+        rows.append(dict(role=role,max_reuse_age=max([r['age'] for r in reuse],default=0),
+                         reuse_steps=reuse,age_effect_identified=False))
+    return rows
 
 
 def summarize(card, science, requests):
@@ -135,6 +162,7 @@ def summarize(card, science, requests):
     boundary=[r for r in role_table if r['role'] in ('S24_C','S24_A_PHASE','S25_C','S25_A_PHASE')]
     return dict(status='COMPLETE104_POST_ACCEPTANCE_DESCRIPTIVE_ANALYSIS',
         baseline_role_table=role_table,registered_comparisons=comparisons,budget_boundaries=boundary,
+        anchor_age_inventory=anchor_age_inventory(card),
         timing=dict(frozen_result=timing,PG_allD_minus_direct_Native=entry_delta,
             order_drift_descriptive=order,formal_component_rows=component_rows,
             formal_component_means=component_summary,diagnostic_rows=diagnostics,
@@ -143,7 +171,14 @@ def summarize(card, science, requests):
         interpretation=dict(CAL_only=True, independent_prompts=4,independent_seeds=1,
             frames_or_repeats_are_not_independent_prompts=True,LPIPS_is_Native_fidelity_not_independent_quality=True,
             age_causal_claim=False,baseline_cherry_pick=False,heldout_claim=False,
-            no_universal_D_cap_from_tested_layouts=True))
+            no_universal_D_cap_from_tested_layouts=True,
+            no_age_three_effectiveness_threshold=True,
+            same_D_is_ablation_not_only_contribution_criterion=True,
+            planning_margin_applies_to_prediction_not_measured_budget=True,
+            more_repeats_do_not_remove_systematic_bias=True,
+            future_margin_change_requires_independent_validation=True,
+            old_GRAPH_vs_SIMPLE_signal_is_not_strong_baseline_advantage=True,
+            fewer_step_Native_requires_time_matching_and_independent_quality=True))
 
 
 
