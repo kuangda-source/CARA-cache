@@ -77,7 +77,22 @@ def local_python_closure(root, entrypoints):
                 if not imported.startswith('wcomr.'): continue
                 target = 'src/' + imported.replace('.', '/') + '.py'
                 if not (Path(root) / target).is_file():
-                    raise ValueError('Declared local import is not packaged: ' + imported)
+                    # Package imports and explicit constants exported by __init__
+                    # belong to that initializer, not a fabricated symbol.py.
+                    package_target = 'src/' + imported.replace('.', '/') + '/__init__.py'
+                    parent, _, symbol = imported.rpartition('.')
+                    parent_target = 'src/' + parent.replace('.', '/') + '/__init__.py'
+                    if (Path(root) / package_target).is_file():
+                        target = package_target
+                    elif (Path(root) / parent_target).is_file():
+                        tree = ast.parse(source_bytes(root, parent_target).decode())
+                        declared = {n.id for statement in tree.body for n in ast.walk(statement)
+                                    if isinstance(n, ast.Name) and isinstance(n.ctx, ast.Store)}
+                        if symbol not in declared:
+                            raise ValueError('Unknown package export: ' + imported)
+                        target = parent_target
+                    else:
+                        raise ValueError('Declared local import is not packaged: ' + imported)
                 pending.append(target)
     return found
 
