@@ -31,6 +31,8 @@ def main():
     try:
         from cosmos_predict2.config import SetupArguments,InferenceArguments
         import cosmos_predict2.inference as im
+        from cosmos_predict2._src.predict2.inference import worldcache_utils as wc
+        from cosmos_predict2._src.predict2.models import video2world_model_rectified_flow as rf
     finally:hu.is_flash_attn_2_available,iu.is_flash_attn_2_available,torch.cuda.current_device=saved
     from wcomr.policy_interval_assets_r1 import read,sha
     reg=read(a.stage/'registration.json')
