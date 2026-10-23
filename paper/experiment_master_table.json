@@ -24,7 +24,6 @@
   },
   "status_counts": {
     "CLAIM_AND_EVIDENCE_WRITING_PROTOCOL_READY": 1,
-    "COMPLETE_ADAPTIVE_CARD_DRAFT_QUOTE_AND_REAL_CPU_PENDING": 1,
     "CONDITIONAL_DISABLED_PRESELECT_SUBSET_BEFORE_R4A": 1,
     "CONDITIONAL_OTHER_WINDOWS_NOT_RUNTIME_VALIDATED": 1,
     "CONDITIONAL_PLANNED_NOT_FROZEN_OR_APPROVED_CARD": 1,
@@ -40,6 +39,7 @@
     "PARTIAL_LOCAL_STRUCTURAL_AND_DOCUMENTS_READY": 1,
     "PRE_REGISTER_AND_DEDUP_AFTER_FIRST_LOOP": 1,
     "PRICE_REFRESH_EXCLUSIVE_GPU_RUNNING": 1,
+    "PRODUCTION_ENTRY_CPU_ACCEPTED_QUOTE_READY_PRICE_AND_LIFECYCLE_PENDING": 1,
     "RFC_PRIMARY_SOURCE_IDENTIFIED_ADAPTATION_NOT_FROZEN": 1,
     "SECOND_BACKBONE_OR_SETTING_NOT_SELECTED": 1,
     "WAIT_FOR_GENERATOR_FREEZE_NOT_LEGACY_RESULT_REUSE": 1,
@@ -5445,14 +5445,14 @@
     },
     {
       "id": "PG-P1",
-      "state": "COMPLETE_ADAPTIVE_CARD_DRAFT_QUOTE_AND_REAL_CPU_PENDING",
+      "state": "PRODUCTION_ENTRY_CPU_ACCEPTED_QUOTE_READY_PRICE_AND_LIFECYCLE_PENDING",
       "paper_experiment_name": "One measured budget, Q<=8 and one CAL_SELECT freeze",
       "internal_ids": [
         "PG-P1"
       ],
       "contribution_relation": "可复现区间生成器的新方法验证；CPU原型不充真实质量结果",
-      "evidence_or_planned_scope": "已登记0.80×Native预算、Q≤8及一次CAL_SELECT冻结；最多40候选正式+6Native+18warm基础路径。",
-      "gap_and_next_action": "SELECT范围内曝光核查及资产转换接口已就绪；待干净价格、任意mask/alpha生产CPU与完整报价，再在原卡内用干净Native固定B。",
+      "evidence_or_planned_scope": "生产采样入口已独立CPU接受：两flow共18完整路径及真实6请求/93帧codec；64路整卡forecast8.844444、limit10.5 GPUh。尚无PG-P1 GPU结果。",
+      "gap_and_next_action": "等待独占价格完整接受；复用已验mask/alpha入口，完成整卡监督/评分/Native时钟/终态回调组合与生命周期CPU，再按10.5 GPUh整卡准入。",
       "priority": "GEN-2",
       "evidence_refs": [
         "research/612_WC_POLICY_GENERATOR_CPU_PROTOTYPE_AND_REPRODUCIBLE_VALIDATION_DESIGN_20261020.md",
@@ -5463,7 +5463,10 @@
         "plans/cara_policy_generator_20261020/PRICE_HISTORY_NATIVE_CONTINUATION_R1_20261023.md",
         "research/652_CARA_PG_P1_P2_CPU_PREPARATION_AND_HANDOFF_20261023.md",
         "plans/cara_policy_generator_20261020/P1_P2_CPU_HANDOFF_R1_20261023.md",
-        "reports/cara_CAL_SELECT_exposure_committed_20261023.json"
+        "reports/cara_CAL_SELECT_exposure_committed_20261023.json",
+        "research/656_CARA_PG_P1_PRODUCTION_ENTRY_CPU_ACCEPTED_AND_FULL64_QUOTE_20261023.md",
+        "reports/cara_PG_P1_production_CPU_accepted_r2_20261023.json",
+        "manifests/cara_PG_P1_full64_whole_quote_r1_20261023.json"
       ],
       "method_mapping_ids": [],
       "contribution_ids": [
@@ -5489,19 +5492,30 @@
       "theory_review_ref": "research/624_WC_REPRODUCIBLE_POLICY_GENERATOR_THEORY_VALIDITY_AND_EVIDENCE_20261021.md",
       "reader": {
         "title": "单预算自动策略闭环",
-        "status": "CPU准备就绪，待真实闭环",
-        "result": "已登记0.80×Native预算、Q≤8及一次CAL_SELECT冻结；最多40候选正式+6Native+18warm基础路径。",
-        "next_action": "SELECT范围内曝光核查及资产转换接口已就绪；待干净价格、任意mask/alpha生产CPU与完整报价，再在原卡内用干净Native固定B。",
+        "status": "生产入口已验、整卡报价就绪",
+        "result": "生产采样入口已独立CPU接受：两flow共18完整路径及真实6请求/93帧codec；64路整卡forecast8.844444、limit10.5 GPUh。尚无PG-P1 GPU结果。",
+        "next_action": "等待独占价格完整接受；复用已验mask/alpha入口，完成整卡监督/评分/Native时钟/终态回调组合与生命周期CPU，再按10.5 GPUh整卡准入。",
         "evidence_refs": [
           "CARA_generator_report_612",
           "research/648_CARA_GPU_OWNER_PRICE_TRUST_AND_ORDERED_CONTINUATION_20261023.md",
           "plans/cara_policy_generator_20261020/PRICE_HISTORY_NATIVE_CONTINUATION_R1_20261023.md",
           "research/652_CARA_PG_P1_P2_CPU_PREPARATION_AND_HANDOFF_20261023.md",
           "plans/cara_policy_generator_20261020/P1_P2_CPU_HANDOFF_R1_20261023.md",
-          "reports/cara_CAL_SELECT_exposure_committed_20261023.json"
+          "reports/cara_CAL_SELECT_exposure_committed_20261023.json",
+          "research/656_CARA_PG_P1_PRODUCTION_ENTRY_CPU_ACCEPTED_AND_FULL64_QUOTE_20261023.md",
+          "reports/cara_PG_P1_production_CPU_accepted_r2_20261023.json",
+          "manifests/cara_PG_P1_full64_whole_quote_r1_20261023.json"
         ]
       },
-      "continuation_CPU_test_ref": "reports/cara_PG_continuation_CPU_preparation_final_20261023.json"
+      "continuation_CPU_test_ref": "reports/cara_PG_continuation_CPU_preparation_final_20261023.json",
+      "production_entry_CPU_accepted": true,
+      "full_GPU_lifecycle_accepted": false,
+      "production_entry_CPU_acceptance_ref": "reports/cara_PG_P1_production_CPU_accepted_r2_20261023.json",
+      "complete_card_quote_still_pending": false,
+      "whole_quote_ref": "manifests/cara_PG_P1_full64_whole_quote_r1_20261023.json",
+      "forecast_complete_GPUh": 8.844444444444445,
+      "billed_limit_GPUh": 10.5,
+      "latest_production_preparation_ref": "research/656_CARA_PG_P1_PRODUCTION_ENTRY_CPU_ACCEPTED_AND_FULL64_QUOTE_20261023.md"
     },
     {
       "id": "PG-P2",
@@ -11563,28 +11577,28 @@
     },
     "EXPERIMENT_REPORT.md": {
       "path": "EXPERIMENT_REPORT.md",
-      "sha256": "1aafdbdb385dd9cae0e0ea34612ea51b70c0ecdff6df462c78c5716fb07fb02f",
-      "bytes": 8836
+      "sha256": "37804c1ee58007c3c30ef2baa816aedd4422b5cd5109209ebacddaea4be623f3",
+      "bytes": 8853
     },
     "memory/handoffs/LATEST.md": {
       "path": "memory/handoffs/LATEST.md",
-      "sha256": "719efd5ea9dcf43f550912dca4b98e65b9a0d745dbf1a35d85173800957c649a",
-      "bytes": 7567
+      "sha256": "5197ee3d47a98b94aaf01d562f393b7b460e0919ec2398adeeb59c076382f98e",
+      "bytes": 7872
     },
     "research/02_CURRENT_STATE.md": {
       "path": "research/02_CURRENT_STATE.md",
-      "sha256": "9d02d30f7099eb14eb64b8eeea3f93b6714692145a49289591ab40d4d2013827",
-      "bytes": 7547
+      "sha256": "1c9c28f97c8a8cc40a3f2e94f05e71e4165f938a7b4ea5f58952c4ab7133d1c1",
+      "bytes": 7768
     },
     "research/09_NEXT_ACTIONS.md": {
       "path": "research/09_NEXT_ACTIONS.md",
-      "sha256": "706fb621ed0a605eb8e4ff846e2b3baa2b5fd9f3b612df4f8e122d67e88f3137",
-      "bytes": 5980
+      "sha256": "4ace3646427bd629713b940776982086b831f45af5bedb7e78edc2184815c33e",
+      "bytes": 6141
     },
     "paper/EXPERIMENT_MASTER_TABLE.md": {
       "path": "paper/EXPERIMENT_MASTER_TABLE.md",
-      "sha256": "2b636905f646cd809433c6d3044c5fb62a6ad9f2bea883e715194ce975e793d4",
-      "bytes": 31252
+      "sha256": "36a052ad5e24d887c3e15acc07504232ff72401d41eb97adcf42dfebf371a896",
+      "bytes": 31571
     },
     "paper/INTERNAL_TO_PAPER_MAPPING.md": {
       "path": "paper/INTERNAL_TO_PAPER_MAPPING.md",
@@ -13455,7 +13469,7 @@
     "historical_operation_policy_ref": "docs/archive/20261022_before_navigation/paper/experiment_master_table.json"
   },
   "mapping_sha256_at_inventory": "88b3d760a0c94c20b6c802e21f30c7286d6e596cc9b3f3100e7ee6feaa3938f3",
-  "latest_mapping_sha256": "a1a49ca6cce687ff418e13b791d07236f406358b860720422174d2f0b38e9434",
+  "latest_mapping_sha256": "8a79c3749d263f7b70194ac4b5e6340c9285275b94459c5e9f2073b75e55b481",
   "revision_plan": {
     "registry_ref": "plans/cara_v6_20261020/TASK_REGISTRY_V6.yaml",
     "report_ref": "research/610_WC_CARA_V6_REVIEW_CLOSURE_PLAN_INTERVAL_SPEC_AND_FIRST_DEV_SCOPE_20261020.md",

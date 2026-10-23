@@ -15,14 +15,14 @@
 | 顺序 | 当前阶段 | 下一项验收 / 动作 |
 |---|---|---|
 | PG-P1-ASSETS | 完整1624真实区间/价格资产：GPU运行中（已记录快照） | 原launch下GPU3硬独占运行；17:59技术半程、22:59完整价格验收，接受后接PG-P1。 |
-| PG-P1 | 单预算自动策略闭环：CPU准备就绪，待真实闭环 | SELECT范围内曝光核查及资产转换接口已就绪；待干净价格、任意mask/alpha生产CPU与完整报价，再在原卡内用干净Native固定B。 |
+| PG-P1 | 单预算自动策略闭环：生产入口已验、整卡报价就绪 | 等待独占价格完整接受；复用已验mask/alpha入口，完成整卡监督/评分/Native时钟/终态回调组合与生命周期CPU，再按10.5 GPUh整卡准入。 |
 | PG-P2 | 等预算与等查询强基线：规则与CPU接口已准备 | 历史诊断和少步Native计时选择规则/CPU控制已就绪；P1后冻结矩阵和新输入，完整报价后实际生产验收。 |
 | PG-P3 | 固定程序跨预算/模型：条件性后续 | P1/P2后先0.70×Native，再成熟第二模型或明确第二设置重新校准。 |
 | PG-P4 | 最终独立TEST与部署评价：待方法冻结 | 冻结方法、对手、预算、选择规则后再选新TEST；计入warm与全流程成本。 |
 
 ## 下一卡的具体准备
 
-PG-P1两个已登记CAL_SELECT（`av_animal_dear_1_0`、`industry_057`，seed0）的本地回执及四卡项目输出身份核查已完成，范围内没有发现执行记录；首次SELECT端点前核对新增元数据。等待期还补齐了可信资产转换接口、历史失配诊断矩阵规则、少步Native纯计时选择和27项CPU控制，见[652准备记录](652_CARA_PG_P1_P2_CPU_PREPARATION_AND_HANDOFF_20261023.md)与[接续命令](../plans/cara_policy_generator_20261020/P1_P2_CPU_HANDOFF_R1_20261023.md)。待新价格完整接受后，任意合法mask/alpha仍须自己的实际生产CPU及整卡报价；资产CPU或本轮局部控制不能替代它。
+PG-P1两个已登记CAL_SELECT（`av_animal_dear_1_0`、`industry_057`，seed0）的本地回执及四卡项目输出身份核查已完成，范围内没有发现执行记录；首次SELECT端点前核对新增元数据。等待期还补齐了可信资产转换接口、历史失配诊断矩阵规则、少步Native纯计时选择和27项CPU控制，见[652准备记录](652_CARA_PG_P1_P2_CPU_PREPARATION_AND_HANDOFF_20261023.md)与[接续命令](../plans/cara_policy_generator_20261020/P1_P2_CPU_HANDOFF_R1_20261023.md)。[656](656_CARA_PG_P1_PRODUCTION_ENTRY_CPU_ACCEPTED_AND_FULL64_QUOTE_20261023.md)已补齐合法mask/alpha采样入口真实CPU接受与完整64路报价：预计8.844444、上限10.5 GPUh。下一步绑定干净价格，并完成整卡监督/评分/Native时钟/终态回调的组合接受。
 
 [2026-10-23接续要求](../plans/cara_policy_generator_20261020/PRICE_HISTORY_NATIVE_CONTINUATION_R1_20261023.md)：原1624数值/控制和动作价格分别接受；已知同卡竞争的价格不因低波动自动通过。未来GPU卡要求实际独占。冻结策略后加入小规模历史窗口诊断，PG-P2加入少步Native等实测时间对照；shadow不写回，不计为干净延迟，新增范围单独进入完整报价。
 

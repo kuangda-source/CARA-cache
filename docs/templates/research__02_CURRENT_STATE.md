@@ -10,7 +10,7 @@
 
 BANK24完整24视频、12组LPIPS、原控制和实际1.845248657494 GPUh已接受，[科学分析](repo:research/644_CARA_BANK24_COMPLETE_DEV6_RESULTS_20261022.md)已完成。完整1624 CPU R2的3条命令、28路径/4060重载格/26040试验、真实请求与FD锁证明通过。CPU R1缺少`output_dir`的原失败保持，不重写为成功。[修复记录](repo:research/645_CARA_FULL1624_CPU_ENTRY_REPAIR_20261022.md)。
 
-P1/P2等待期准备已完成SELECT范围内曝光核查、价格/标签到生成器的转换接口、历史诊断矩阵与少步Native计时选择规则、27项局部CPU控制及真实UniPC调度网格。详见[652准备与接续](repo:research/652_CARA_PG_P1_P2_CPU_PREPARATION_AND_HANDOFF_20261023.md)。这些准备未提交PG-P1/P2的GPU任务；新价格完整接受、P1实际生产CPU与整卡报价仍须完成。
+P1/P2等待期准备已完成SELECT范围内曝光核查、价格/标签到生成器的转换接口、历史诊断矩阵与少步Native计时选择规则、27项局部CPU控制及真实UniPC调度网格。详见[652准备与接续](repo:research/652_CARA_PG_P1_P2_CPU_PREPARATION_AND_HANDOFF_20261023.md)。最新[656](repo:research/656_CARA_PG_P1_PRODUCTION_ENTRY_CPU_ACCEPTED_AND_FULL64_QUOTE_20261023.md)已完成合法mask/alpha生产采样入口的独立CPU接受、62项相关本地检查与64路完整报价（8.844444/10.5 GPUh）。未提交PG-P1/P2 GPU；干净价格与整卡监督/评分/时钟/终态组合接受仍待完成。
 
 ## 科学判断与下一步
 

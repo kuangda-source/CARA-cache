@@ -191,7 +191,7 @@
       "id": "PG-P1",
       "priority": 2,
       "title": "One measured budget, Q<=8 and one CAL_SELECT freeze",
-      "status": "COMPLETE_ADAPTIVE_CARD_DRAFT_QUOTE_AND_REAL_CPU_PENDING",
+      "status": "PRODUCTION_ENTRY_CPU_ACCEPTED_QUOTE_READY_PRICE_AND_LIFECYCLE_PENDING",
       "dependencies": [
         "BANK24 accepted",
         "PG-P1-ASSETS"
@@ -211,7 +211,7 @@
       ],
       "CAL_SELECT_runtime_exposure_recheck_pending": false,
       "offline_analysis_entry": "scripts/analyze_cara_policy_calibration_r1.py",
-      "complete_card_quote_still_pending": true,
+      "complete_card_quote_still_pending": false,
       "continuation_requirements_ref": "plans/cara_policy_generator_20261020/PRICE_HISTORY_NATIVE_CONTINUATION_R1_20261023.md",
       "actual_GPU_exclusivity_required": true,
       "clean_action_prices_required": true,
@@ -222,7 +222,14 @@
       "CAL_SELECT_scoped_exposure_audit_ref": "reports/cara_CAL_SELECT_exposure_committed_20261023.json",
       "CAL_SELECT_pre_endpoint_delta_recheck_required": true,
       "generator_input_bridge": "scripts/prepare_cara_pg_continuation_r1.py generator-input",
-      "continuation_CPU_test_ref": "reports/cara_PG_continuation_CPU_preparation_final_20261023.json"
+      "continuation_CPU_test_ref": "reports/cara_PG_continuation_CPU_preparation_final_20261023.json",
+      "production_entry_CPU_accepted": true,
+      "full_GPU_lifecycle_accepted": false,
+      "production_entry_CPU_acceptance_ref": "reports/cara_PG_P1_production_CPU_accepted_r2_20261023.json",
+      "whole_quote_ref": "manifests/cara_PG_P1_full64_whole_quote_r1_20261023.json",
+      "forecast_complete_GPUh": 8.844444444444445,
+      "billed_limit_GPUh": 10.5,
+      "latest_production_preparation_ref": "research/656_CARA_PG_P1_PRODUCTION_ENTRY_CPU_ACCEPTED_AND_FULL64_QUOTE_20261023.md"
     },
     {
       "id": "PG-P2",
@@ -295,7 +302,7 @@
   "old_manual32_first_card_superseded_not_deleted": true,
   "strict_under12_and_cap226_unchanged": true,
   "no_gpu_launched_this_turn": true,
-  "latest_preparation_audit_ref": "reports/cara_CAL_SELECT_exposure_committed_20261023.json",
+  "latest_preparation_audit_ref": "research/656_CARA_PG_P1_PRODUCTION_ENTRY_CPU_ACCEPTED_AND_FULL64_QUOTE_20261023.md",
   "latest_actual_progress_ref": "reports/wc_policy_price_refresh_full1624_CPU_terminal_check_r1_20261023_0955.json",
-  "latest_preparation_plan_ref": "plans/cara_policy_generator_20261020/P1_P2_CPU_HANDOFF_R1_20261023.md"
+  "latest_preparation_plan_ref": "plans/cara_policy_generator_20261020/P1_PRODUCTION_ENTRY_HANDOFF_R2_20261023.md"
 }
