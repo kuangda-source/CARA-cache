@@ -14,3 +14,11 @@
 核对时/data20t普通用户可用仍为0；恢复空间后仍须单独完成104失败账单、持久控制文件和ENOSPC生命周期修复，不能自动重跑。原104及CARA所有实验原件均不在两个目标目录内。
 
 原件：[目录/进程核对](../reports/cara_two_user_marked_deletion_targets_readonly_20261024.json)、[逐文件清单摘要及完整本地清单SHA](../reports/cara_two_user_marked_targets_file_manifest_20261024.json)。前一项磁盘归因与104恢复方案保留在[677](677_CARA_DISK_GROWTH_ATTRIBUTION_SAFE_MIGRATION_AND_104_RECOVERY_20261024.md)。
+
+## 用户选择与实际完成
+
+用户随后明确选择“只删NuPlan数据及压缩包、ConvMAE训练检查点；保留代码、配置和小日志”。已按上述固定逐文件清单执行，未整目录删除。实际收件时间2026-10-24T13:04:25.005840+08:00：61,974份目标文件已删除，原分配空间1,458,187,579,392字节（1358.043GiB）；579份保留文件删除前后完整SHA256一致。包括ConvMAE基础权重的checkpoint目录、全部代码、配置和小日志保留。两次删除前进程/映射核对无引用；逐文件dev/inode/UID/size/mtime/ctime重新验证，任何变化即停止。目录结构保留，未递归删除上级目录，未触碰CARA原件、任务或GPU。
+
+/data20t普通用户可用从0恢复到1,458,187,579,392字节（1358.043GiB）。这是实际statvfs快照，可能随其他任务变化；本次实际可用空间增量与目标文件分配空间一致；不把估算代替实测。原104失败和11.9GPUh预约仍保留，未结算、未评分、未重跑；恢复方案仍需独立执行决定。
+
+[删除前身份与保留SHA](../reports/cara_two_targets_predelete_identity_and_retained_SHA_20261024.json) · [实际清理与保留SHA复验](../reports/cara_two_targets_authorized_bulk_cleanup_complete_20261024.json)。远端小审计原件：`/tmp/cara-user-authorized-bulk-cleanup-20261024-1305.json`。
