@@ -160,10 +160,26 @@ def summarize(card, science, requests):
         raw=[(clocks[role,m,2]-clocks[role,m,1])-(clocks['NATIVE',m,2]-clocks['NATIVE',m,1]) for m in members]
         order.append(dict(role=role,native_adjusted_round_shift=paired_summary(raw,members)))
     boundary=[r for r in role_table if r['role'] in ('S24_C','S24_A_PHASE','S25_C','S25_A_PHASE')]
+    targets=card['timing']['primary_error_targets']
+    timing_checks=[
+        dict(check='mean_absolute_relative_error', value=timing['mean_absolute_relative_error'],
+             limit=targets['mean_absolute_relative_error_max'],
+             passed=timing['mean_absolute_relative_error']<=targets['mean_absolute_relative_error_max']),
+        dict(check='maximum_underestimate_seconds', value=timing['maximum_underestimate_seconds'],
+             limit=targets['maximum_underestimate_seconds_max'],
+             passed=timing['maximum_underestimate_seconds']<=targets['maximum_underestimate_seconds_max']),
+        dict(check='no_false_feasible', value=timing['no_false_feasible'], limit=True,
+             passed=timing['no_false_feasible']),
+    ]
+    if all(x['passed'] for x in timing_checks)!=timing['timing_model_validated']:
+        raise ValueError('Timing decision differs from frozen acceptance checks')
     return dict(status='COMPLETE104_POST_ACCEPTANCE_DESCRIPTIVE_ANALYSIS',
+        analysis_revision=3,
         baseline_role_table=role_table,registered_comparisons=comparisons,budget_boundaries=boundary,
+        strong_baseline_assessment=[r for r in comparisons if r['purpose'].startswith('graph_vs_')],
         anchor_age_inventory=anchor_age_inventory(card),
         timing=dict(frozen_result=timing,PG_allD_minus_direct_Native=entry_delta,
+            acceptance_checks=timing_checks,
             order_drift_descriptive=order,formal_component_rows=component_rows,
             formal_component_means=component_summary,diagnostic_rows=diagnostics,
             decomposition_note='Components close the complete request; core overlaps guarded pipeline. Diagnostic-clean differences confound instrumentation and order.'),

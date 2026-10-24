@@ -1,0 +1,84 @@
+{
+  "launch_id": "eee11fe8-c801-4e11-9e53-15b5a6040863",
+  "run_id": "cara-history-boundary104-cal4-ada-r2",
+  "source_revision": "159aaa76ddecc78864b40fa669a32029a3a4a6e4",
+  "scope_counts": {
+    "roles": 10,
+    "CAL_FIT": 4,
+    "seeds": [
+      0
+    ],
+    "formal_repeats": 2,
+    "formal_paths": 80,
+    "warm_paths": 20,
+    "diagnostic_paths": 4,
+    "total_paths": 104,
+    "guided_pairs": 3744,
+    "CFG_calls": 7488,
+    "loads": 1,
+    "post_CPU_score_pairs": 72,
+    "post_CPU_frames": 6696,
+    "SELECT_paths": 0,
+    "DEV_paths": 0,
+    "TEST_paths": 0
+  },
+  "schema_version": 1,
+  "status": "PREPARED_WAIT_COMPLETE_R2_ACCEPTANCE",
+  "launch_ref": "reports/cara_history104_recovery_GPU_actual_launch_r2_20261024.json",
+  "launch_sha256": "2860147d6f851c7c502dd305365fda35be8dca6a1c03601bfe5400540fe34310",
+  "card_ref": "manifests/cara_historical_bridge104_scope_quote_r1_20261024.json",
+  "card_sha256": "77c4e8f972f2622c0b7ebcbfeca6252a5437ea23cdfab595d740b48fb2f081a3",
+  "stage_ref": "reports/cara_history104_recovery_GPU_stage_r2_20261024.json",
+  "source_CPU_acceptance_ref": "reports/cara_history104_storage_combination_CPU_accepted_r2_20261024.json",
+  "analysis_entry": "scripts/analyze_cara_history104_results_r1.py",
+  "analysis_command_template": ".venv/bin/python scripts/analyze_cara_history104_results_r1.py --capture <完整R2终态> --accepted <对应独立接受> --launch-ref reports/cara_history104_recovery_GPU_actual_launch_r2_20261024.json --handoff-spec plans/cara_policy_generator_20261020/HISTORY104_R2_POST_ACCEPTANCE_HANDOFF_20261024.json --output <新唯一分析.json>",
+  "deployment_limit_seconds": 257.7712338712067,
+  "relative_Native_limit": 0.8,
+  "fixed_prediction_margin_seconds": 6,
+  "primary_error_targets": {
+    "mean_absolute_relative_error_max": 0.01,
+    "maximum_underestimate_seconds_max": 2.0
+  },
+  "GPU_billed_limit": 11.9,
+  "cumulative_limit_GPUh": 226,
+  "expected_output_denominators": {
+    "roles": 10,
+    "formal_clocks": 80,
+    "score_pairs": 72,
+    "score_frames": 6696,
+    "prompts": 4,
+    "seeds": 1,
+    "comparisons": 11,
+    "budget_boundary_layouts": 4
+  },
+  "next_P1_gate": {
+    "contract_frozen": false,
+    "production_CPU_accepted": false,
+    "whole_quote_finalized": false,
+    "GPU_dispatch_ready": false,
+    "required": [
+      "104完整协议接受与单独计时模型判定",
+      "全研发曝光11个已登记布局与实际费用披露",
+      "CAL_SELECT身份再核查且不得用于修预算或拟合",
+      "固定新版本候选与Q<=8查询计数/有限可行性恢复规则",
+      "强简单布局与自动对照使用相同预曝光信息",
+      "新完整报价和生产CPU",
+      "fresh空闲硬独占及226GPUh账本准入"
+    ]
+  },
+  "P2_gate": {
+    "frozen_budget_feasible_policy_required": true,
+    "strategy_dedup_before_quote": true,
+    "history_shadow_separately_budgeted": true,
+    "fewer_step_Native_time_matched": true,
+    "independent_quality_required": true,
+    "GPU_dispatch_ready": false
+  },
+  "excluded": [
+    "旧失败R1的72路径不得拼接",
+    "不使用部分时钟或评分",
+    "不在本卡改变alpha/余量/拟合验证划分",
+    "不将4CAL两轮当作8独立样本",
+    "不凭局部/保真或单次同D数比较宣布泛化质量优势"
+  ]
+}

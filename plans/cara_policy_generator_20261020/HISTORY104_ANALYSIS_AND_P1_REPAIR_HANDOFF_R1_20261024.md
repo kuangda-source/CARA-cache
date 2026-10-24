@@ -2,7 +2,7 @@
 
 状态：**分析入口和接续设计已准备；未读取当前运行的部分视频、分数或计时，尚无104完整结果。** 此文件补充已冻结104合同，不修改运行源码、alpha、输入、顺序、阈值或预算。部署绝对上限257.7712338712067秒、相对0.80×新Native、累计226 GPUh保持。当前104卡11.9 GPUh完整授权与下一张修复卡分开。
 
-绑定原任务：launch `d6351496-ee8a-4428-8ede-898f53d665cd`，source `5fc4dfe66a33a915fcc7bdf10700bae8810bb401`；[104原合同](HISTORICAL_BASELINES_BOUNDARY104_R1_20261024.md)与[671实际启动](../../research/671_CARA_HISTORY104_COMBINATION_AND_EXCLUSIVE_EXECUTION_20261024.md)保持。原44草案与R2修复提议保留历史，此接续采用104合同的固定6秒余量与低维模型，旧“按新验证误差调整余量”等提议不用于本卡。
+当前分析绑定完整R2：launch `eee11fe8-c801-4e11-9e53-15b5a6040863`，source `159aaa76ddecc78864b40fa669a32029a3a4a6e4`，见[680实际启动](../../research/680_CARA_HISTORY104_R2_EXCLUSIVE_LAUNCH_AND_ACCEPTANCE_20261024.md)。旧R1 `d6351496-ee8a-4428-8ede-898f53d665cd` 的磁盘失败与5.48GPUh保守结算保持，旧72路径不进入本分析。[104原科学合同](HISTORICAL_BASELINES_BOUNDARY104_R1_20261024.md)未变。原44草案与R2修复提议保留历史，此接续采用104合同的固定6秒余量与低维模型，旧“按新验证误差调整余量”等提议不用于本卡。
 
 本次补充仅细化解释口径与离线报告字段，保留原11组比较、拟合/验证分割、全部门槛和运行范围；详见[674解释口径补充](../../research/674_CARA_HISTORY104_INTERPRETATION_CLARIFICATIONS_20261024.md)。
 
@@ -14,11 +14,12 @@
 .venv/bin/python scripts/analyze_cara_history104_results_r1.py \
   --capture reports/本次完整终态.json \
   --accepted reports/本次独立接受.json \
-  --launch-ref reports/cara_history104_GPU_actual_launch_r1_20261024.json \
+  --launch-ref reports/cara_history104_recovery_GPU_actual_launch_r2_20261024.json \
+  --handoff-spec plans/cara_policy_generator_20261020/HISTORY104_R2_POST_ACCEPTANCE_HANDOFF_20261024.json \
   --output reports/本次唯一完整分析.json
 ```
 
-入口核对原capture SHA、唯一launch和全量接受重算；未完成或仍有原进程存活就拒绝。输出JSON与同名Markdown，已有输出不覆盖；不访问SSH、视频服务器或GPU，不修改账本、不产生策略或派发。协议验收、计时模型是否通过、科学对比三项分别列出。全部证据SHA与分析源码SHA保存。
+入口先按R2接续登记核对launch文件SHA、launch/source/run/scope和科学合同SHA，再核对原capture SHA、唯一launch和全量接受重算；未完成或仍有原进程存活就拒绝。输出JSON与同名Markdown，已有输出不覆盖；不访问SSH、视频服务器或GPU，不修改账本、不产生策略或派发。协议验收、计时模型是否通过、科学对比三项分别列出。全部证据SHA与分析源码SHA保存。
 
 输出固定包括：10角色×4prompt×2轮正式时钟；9个非Native角色的72配对评分；11组预定比较；24/25D四个预算边界；完整请求组成、全D入口差额、顺序漂移及4条诊断。warm与诊断不进入干净延迟均值。两个重复先在同prompt内平均，独立样本为4个prompt、seed0；给出逐prompt差值、最坏场景与枚举4^4次prompt聚类bootstrap描述区间，不把8次重复或6696帧当独立样本，也不把这些CAL区间当泛化显著性证明。
 
@@ -109,3 +110,18 @@ CAL_SELECT仍与开发分开：新P1前重做完整本地+四卡身份曝光核�
 ## 执行边界
 
 本分析器只在完整终态后运行；当前stage和104合同SHA不变。没有新增GPU预约、提交或资源探测。新P1预算必须按实际路径、warm/重复/评分/SELECT/加载及清理完整计算，保留旧两卡16.5GPUh未知责任和累计226上限。最终新GPU仍要求源码发布、生产CPU、fresh账本与空闲硬独占准入。
+
+
+## R2接续复核（681）
+
+[机器接续登记](HISTORY104_R2_POST_ACCEPTANCE_HANDOFF_20261024.json)给出唯一R2绑定、输出分母和新P1/P2准备清单。上述命令必须在GPU采集、释放结算、72组CPU评分、独立终态接受全部完成后执行；当前没有可代入的真实完整终态。`--handoff-spec`拒绝旧R1或其他source/scope/card，原有不带该参数的通用入口保留兼容性，本次R2接续使用带登记的命令。
+
+离线报告先看三张表：
+
+1. `strong_baseline_assessment`保留GRAPH与S26_C、S26_A_PHASE、SHARED26_C三个对照；11组预登记比较全部输出。LPIPS/时间、预算可行性与CAL范围分别报告，不能依据一个弱基线的4.92%宣布优势。
+2. `budget_boundaries`列出S24/S25各自C/phase A的第一轮、第二轮、两轮均值、实测是否≤B、预测+6是否≤B和跨轮越界。第二轮失败不能被第一轮或两轮平均覆盖。
+3. `timing.acceptance_checks`逐项展开原1%/2秒/无假可行判据，保留第一轮拟合和第二轮独立验证。数据完整接受与模型通过不同；模型失败照实报告现有完整结果，但该模型不准入搜索。
+
+结果到下一卡的输出物固定为：完整分析JSON/Markdown、模型校准是否可复用的判断、所有强基线与预算边界表、研发曝光/实际成本账、待冻结的新P1合同与完整报价。完整104报告本身不产生`selected_policy`，也不把P2标成ready。新P1仍需冻结候选、Q≤8计数、强简单与自动对照的等信息条件、有限可行性恢复、FIT/SELECT选择规则、合法mask与原alpha，然后完成生产CPU和整卡报价；模型若失败，先另行登记成本修复及独立验证。
+
+本轮41项本地合成终态/分析/计时/CLI检查通过，包含实际命令行生成、字节一致重放、拒绝覆盖和拒绝不完整接受；不代表真实模型速度、保真或策略有效。测试只用合成视频/张量摘要，不调用SSH/GPU。正在运行stage中的分析器快照也不替换，终态后使用本地新版离线报告入口。半程与全程自动检查不变，读本文件即可使用更新命令。
