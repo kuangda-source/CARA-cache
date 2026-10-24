@@ -2,13 +2,11 @@
 
 # CARA-Cache 当前状态
 
-**当前104路径验证卡：采集提前失败。** 观测2026-10-24T09:09:11.001053+08:00。磁盘满提前退出；旧health记录72/104完成；GPU已释放、原锁自由，完整验收未通过。账单写入失败，11.9GPUh预约保留待恢复。
+**104恢复准备：旧卡已结算，新GPU未启动。** 旧104保持失败；费用按保守重建值5.48GPUh结算（非精确原账单），原11.9预约已释放。32GiB独立输出卷与48MiB跨盘控制日志已准备；恢复整卡CPU与真实ENOSPC检查已通过。
 
-原104路径范围、alpha调度、部署257.771秒及累计226 GPUh不变。原完成时间预计失效；先保全失败原件并恢复存储与费用证据，不重派、不补跑、不分析部分结果。104失败原件、存储与账单恢复（状态未变不通知）：**2026-10-24 14:30 Asia/Shanghai**。
+最终恢复为新的完整104、单load、原alpha与两轮顺序；forecast11.423207/硬上限11.9GPUh，释放后72组CPU评分。部署257.771秒、累计226GPUh保持。用户明确先不重跑，旧72路径不拼接或分析调参。
 
-[失败记录与接续](676_CARA_HISTORY104_DISK_FULL_EARLY_EXIT_20261024.md) · [原句柄失败终态](../reports/cara_history104_GPU_failed_terminal_readonly_20261024_0912.json) · [技术失败汇总](../reports/cara_history104_early_failure_technical_summary_20261024.json)。
-
-原P1原件与财务已接受，但无预算可行策略；P1修复与P2仍等待完整证据。
+[结算、保护与CPU验收](679_CARA_HISTORY104_FAILED_SETTLEMENT_STORAGE_GUARD_AND_FINAL_RECOVERY_20261024.md) · [最终完整报价](../manifests/cara_history104_recovery_full104_quote_r2_20261024.json)。
 
 ## 当前跟踪实验
 
@@ -29,13 +27,13 @@ BANK24完整24视频、12组LPIPS、原控制和实际1.845248657494 GPUh已接�
 
 P1/P2等待期准备已完成SELECT范围内曝光核查、价格/标签到生成器的转换接口、历史诊断矩阵与少步Native计时选择规则、27项局部CPU控制及真实UniPC调度网格。详见[652准备与接续](652_CARA_PG_P1_P2_CPU_PREPARATION_AND_HANDOFF_20261023.md)。最新[657](657_CARA_PG_P1_FULL_CARD_COMBINATION_CPU_ACCEPTED_AND_PRICE_HANDOFF_20261023.md)已完成整卡监督/评分/Native时钟/终态复算组合CPU接受，保留18条采样控制，新增真实全93帧LPIPS和6种生命周期，12项终态检查；本地92项相关检查通过。64路完整报价仍为8.844444/10.5 GPUh。原价格完整接受后，PG-P1已按661实际启动；P2新增GPU提交仍为0。
 
-P1原件与财务已完整接受，但没有预算可行的冻结策略，P2目前不准入。保留已通过的P2组合CPU与五模型入口准备；完整离线分析确认全请求价格低估与可行性恢复搜索缺口，见[669原因分析与修复](669_CARA_PG_P1_COMPLETE_BUDGET_ATTRIBUTION_AND_REPAIR_PLAN_20261024.md)。历史强基线原alpha及24/25D新旧入口148路径CPU已接受；[104路径预算边界卡](670_CARA_HISTORICAL_BASELINE_EQUIVALENCE_AND_BOUNDARY104_20261024.md)已完整报价11.423207/11.9 GPUh，替代未执行44路径草案。104卡组合CPU已接受，但GPU采集在08:49因磁盘满提前退出；旧health为72/104完成，GPU已释放，完整验收未通过，11.9GPUh预约保留待账单恢复。部署257.771秒及累计226 GPUh不变。见[676失败原件](676_CARA_HISTORY104_DISK_FULL_EARLY_EXIT_20261024.md)。见[671实际执行](671_CARA_HISTORY104_COMBINATION_AND_EXCLUSIVE_EXECUTION_20261024.md)。已完成旧实验约4.45 GiB实体去重，38原路径和所有SHA保持；两个压缩包经全量一致核验后清理，本次合计释放63.05 GiB，另三个差异包保留。见[668当前原件与维护](668_CARA_STORAGE_DEDUP_AND_P1_ORIGINAL_TERMINAL_ACCEPTANCE_20261024.md)。
+P1原件与财务已完整接受，但没有预算可行的冻结策略，P2目前不准入。保留已通过的P2组合CPU与五模型入口准备；完整离线分析确认全请求价格低估与可行性恢复搜索缺口，见[669原因分析与修复](669_CARA_PG_P1_COMPLETE_BUDGET_ATTRIBUTION_AND_REPAIR_PLAN_20261024.md)。历史强基线原alpha及24/25D新旧入口148路径CPU已接受；[104路径预算边界卡](670_CARA_HISTORICAL_BASELINE_EQUIVALENCE_AND_BOUNDARY104_20261024.md)已完整报价11.423207/11.9 GPUh，替代未执行44路径草案。104卡组合CPU已接受，但GPU采集在08:49因磁盘满提前退出；旧health为72/104完成，GPU已释放，完整验收未通过，旧11.9GPUh预约已释放，按明确标注的保守重建值5.48GPUh结算；新完整104恢复CPU和存储保护已通过但未获重跑授权。部署257.771秒及累计226 GPUh不变。见[676失败原件](676_CARA_HISTORY104_DISK_FULL_EARLY_EXIT_20261024.md)。见[671实际执行](671_CARA_HISTORY104_COMBINATION_AND_EXCLUSIVE_EXECUTION_20261024.md)。已完成旧实验约4.45 GiB实体去重，38原路径和所有SHA保持；两个压缩包经全量一致核验后清理，本次合计释放63.05 GiB，另三个差异包保留。见[668当前原件与维护](668_CARA_STORAGE_DEDUP_AND_P1_ORIGINAL_TERMINAL_ACCEPTANCE_20261024.md)。
 
 104完整结果分析入口已准备：固定比较历史强基线、24/25D实测预算边界与计时偏差；只接受完整终态，不读取部分结果调参。P1修复按模型验证和真实可行性分支接续，开发曝光与下一阶段Q≤8分列。[673分析准备](673_CARA_HISTORY104_ANALYSIS_READY_AND_P1_REPAIR_DECISIONS_20261024.md) · [674解释口径](674_CARA_HISTORY104_INTERPRETATION_CLARIFICATIONS_20261024.md) · [固定接续口径](../plans/cara_policy_generator_20261020/HISTORY104_ANALYSIS_AND_P1_REPAIR_HANDOFF_R1_20261024.md)。
 
 ## 科学判断与下一步
 
-先保全104失败原件、恢复存储与费用证据；P1修复和P2仍等待完整证据，原预算不变。
+旧104失败费用与磁盘保护已处理；新完整104恢复准备通过CPU，等待明确重跑授权。P1修复和P2仍等待完整科学证据。
 
 | 顺序 | 当前阶段 | 下一项验收 / 动作 |
 |---|---|---|
@@ -54,3 +52,5 @@ P1原件与财务已完整接受，但没有预算可行的冻结策略，P2目�
 磁盘增长归因已定向核对：guanwenfei的SAM区域文件约57.09GiB、user账号BeamNG采集约19.73GiB、CARA约0.80GiB；与77.62GiB空间下降基本对齐。72条/216原件SHA保持，已给出迁移和新104/跨会话64备选报价，均未执行。[677存储归因与恢复方案](677_CARA_DISK_GROWTH_ATTRIBUTION_SAFE_MIGRATION_AND_104_RECOVERY_20261024.md)。
 
 用户指定NuPlan数据和ConvMAE训练检查点已按清单清理约1.326TiB，579份代码/配置/日志/基础权重SHA保持一致；实测普通用户空间恢复约1358.0GiB。104仍为失败未结算，不自动重跑。见记录678及`reports/cara_two_targets_authorized_bulk_cleanup_complete_20261024.json`。
+
+[679最终恢复准备](679_CARA_HISTORY104_FAILED_SETTLEMENT_STORAGE_GUARD_AND_FINAL_RECOVERY_20261024.md)：旧失败保守结算5.48GPUh；新完整104维持11.423207/11.9GPUh，32GiB独立输出卷与跨盘日志、真实ENOSPC组合CPU通过。新GPU提交/预约均为0，等待后续明确启动授权。

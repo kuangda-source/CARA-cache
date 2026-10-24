@@ -3,8 +3,8 @@
   "project": "CARA-Cache",
   "evidence_observed_at": "2026-10-23T08:26:41.422652+08:00",
   "timezone": "Asia/Shanghai",
-  "snapshot_note": "104卡因共享盘普通用户可用空间耗尽提前退出；旧health完成72/104，GPU已释放，账单写入失败，原11.9GPUh预约保留。完整验收未通过，不重跑或分析部分结果。",
-  "research_summary": "先保全104失败原件、恢复存储与费用证据；P1修复和P2仍等待完整证据，原预算不变。",
+  "snapshot_note": "原104失败保持，已按保守重建值5.48GPUh结算（非精确原账单），原11.9预约释放。32GiB独立输出卷、跨盘48MiB控制日志、新CPU组合均已接受；最终恢复完整104，forecast11.423207/上限11.9GPUh。用户要求先不重跑，新GPU提交0。",
+  "research_summary": "旧104失败费用与磁盘保护已处理；新完整104恢复准备通过CPU，等待明确重跑授权。P1修复和P2仍等待完整科学证据。",
   "active_experiment_id": "PG-P1",
   "active_state": "PG_P1_TERMINAL_ACCEPTED_NO_BUDGET_FEASIBLE_SELECTION",
   "active_state_zh": "P1原件已接受，未选出预算可行策略",
@@ -13,13 +13,7 @@
   "admission_ref": "reports/wc_policy_assets_full1624_fourcard_GPU_admission_checked_and_schedule_20261022.json",
   "cpu_acceptance_ref": "reports/wc_policy_assets_full1624_fourcard_CPU_r2_accepted_20261022.json",
   "run_report_ref": "research/676_CARA_HISTORY104_DISK_FULL_EARLY_EXIT_20261024.md",
-  "next_checks": [
-    {
-      "kind": "104失败原件、存储与账单恢复（状态未变不通知）",
-      "scheduled_local": "2026-10-24 14:30 Asia/Shanghai",
-      "automation_id": "cara-104-2"
-    }
-  ],
+  "next_checks": [],
   "headline_results": [
     {
       "title": "修正读出有跨输入机制收益",
@@ -110,9 +104,9 @@
   "resource_observation_ref": "reports/cara_PG_P1_full64_GPU_initial_health_20261023_2029.json",
   "actual_original_GPUh": 6.900543598864331,
   "budget_snapshot": {
-    "used_gpu_hours": 135.12066151587194,
+    "used_gpu_hours": 140.60066151587193,
     "reserved_gpu_hours": 16.5,
-    "available_gpu_hours": 74.37933848412806,
+    "available_gpu_hours": 68.89933848412807,
     "cap_gpu_hours": 226
   },
   "price_refresh_CPU": {
@@ -330,7 +324,7 @@
     "exclusive_active_ref": "reports/cara_history104_GPU3_exclusive_active_r1_20261024.json",
     "report_ref": "research/676_CARA_HISTORY104_DISK_FULL_EARLY_EXIT_20261024.md",
     "stage_ref": "reports/cara_history104_GPU_stage_r1_20261024.json",
-    "status": "EARLY_EXIT_DISK_FULL_INCOMPLETE_UNSETTLED",
+    "status": "FAILED_ORIGINAL_RECONSTRUCTED_COST_SETTLED_RECOVERY_CPU_READY_NO_REPLAY",
     "observed_at": "2026-10-24T09:09:11.001053+08:00",
     "full_protocol_accepted": false,
     "technical_summary_ref": "reports/cara_history104_early_failure_technical_summary_20261024.json",
@@ -349,7 +343,16 @@
     "storage_cleanup_report_ref": "research/678_CARA_USER_MARKED_NUPLAN_CONVMAE_DELETION_SCOPE_VERIFICATION_20261024.md",
     "storage_cleanup_observed_at": "2026-10-24T13:04:25.005840+08:00",
     "storage_available_after_cleanup_bytes": 1458187579392,
-    "recovery_GPU_dispatch_authorized": false
+    "recovery_GPU_dispatch_authorized": false,
+    "failed_settlement_ref": "reports/cara_history104_failed_conservative_settlement_20261024.json",
+    "recovery_CPU_acceptance_ref": "reports/cara_history104_storage_combination_CPU_accepted_r2_20261024.json",
+    "recovery_report_ref": "research/679_CARA_HISTORY104_FAILED_SETTLEMENT_STORAGE_GUARD_AND_FINAL_RECOVERY_20261024.md",
+    "recovery_final_quote_ref": "manifests/cara_history104_recovery_full104_quote_r2_20261024.json",
+    "recovery_stage_ref": "reports/cara_history104_recovery_GPU_stage_r2_20261024.json",
+    "failed_cost_charge_GPUh": 5.48,
+    "failed_cost_exact_actual_GPUh": null,
+    "original_reservation_released": true,
+    "recovery_preparation_acceptance_ref": "reports/cara_history104_recovery_prelaunch_acceptance_20261024.json"
   },
   "history104_result_analysis_preparation": {
     "status": "OFFLINE_ANALYSIS_READY_WAIT_COMPLETE104_ACCEPTANCE",

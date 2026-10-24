@@ -36,16 +36,20 @@ PREFLIGHT=base.PREFLIGHT.replace('policy_generator_r1.production_stage','policy_
 PREFLIGHT+="\nfrom wcomr.history104_storage_r2 import storage_for\ntry:\n storage=storage_for(stage);value['dedicated_storage']=storage.check();assert c.get('storage_contract_required');assert not any(storage.output.iterdir())\nexcept Exception as e:\n value['admissible']=False;value['reasons'].append('DEDICATED_STORAGE_NOT_READY:'+str(e))\n"
 LAUNCH_PREFIX=base.LAUNCH_PREFIX.replace('PG_P1','HISTORY104')
 LAUNCH_SUFFIX=base.LAUNCH_SUFFIX.replace('wc_cara_pg_p1_host_guardian_r1.py','wc_cara_history104_host_guardian_r1.py').replace('PG_P1','HISTORY104')
+LAUNCH_SUFFIX=LAUNCH_SUFFIX.replace("assert not (root/'outputs'/RUN).exists()","assert storage.output==root/'outputs'/RUN and not any(storage.output.iterdir()) and RUN not in pool['jobs']")
 
 def preflight(a):
  v=ssh(PREFLIGHT+'\nprint(json.dumps(value))',dict(stage_ref=read(a.stage_ref),gpu_uuid=a.gpu_uuid));write(a.output,v);return v
 
 def launch(a):
- L=read(a.stage_ref);revision,closure=published();data=dict(stage_ref=L,gpu_uuid=a.gpu_uuid)
+ L=read(a.stage_ref)
+ permission=read(a.recovery_authorization)
+ if (permission.get('new_run_id')!=RUN or permission.get('explicit_GPU_rerun_authorized') is not True or not permission.get('user_reply_quote') or permission.get('registration_sha256')!=L['registration_sha256'] or permission.get('CPU_proof_sha256')!=L['CPU_proof_sha256'] or permission.get('source_revision')!=L['source_revision'] or permission.get('billed_limit_GPUh')!=11.9 or permission.get('cumulative_cap_GPUh')!=226 or permission.get('deployment_limit_seconds')!=257.7712338712067):raise ValueError('Fresh explicit recovery authorization required; storage preparation is not GPU authorization')
+ revision,closure=published();data=dict(stage_ref=L,gpu_uuid=a.gpu_uuid)
  observed=ssh(PREFLIGHT+'\nprint(json.dumps(value))',data)
  if not observed.get('admissible'):write(a.output,observed);return observed
  metadata=ssh(PREFLIGHT+"\nprint(json.dumps(dict(config=c,cpu_sha=sha(stage/'pg-independent-CPU-acceptance.json'),config_sha=sha(stage/CONFIG))))",data);c=metadata['config']
- auth=dict(kind='DIRECT_USER_COMPLETE104_UNDER12',run_id=RUN,launch_id=str(uuid.uuid4()),source_revision=L['source_revision'],entry_stage=L['stage'],registration_sha256=L['registration_sha256'],config_sha256=metadata['config_sha'],production_CPU_sha256=L['CPU_proof_sha256'],independent_CPU_acceptance_sha256=metadata['cpu_sha'],gpu_uuid=a.gpu_uuid,scope_counts=COUNTS,forecast_GPUh=c['forecast_complete_GPUh'],billed_limit_GPUh=11.9,cumulative_cap_GPUh=226,deployment_limit_seconds=257.7712338712067,direct_user_authorization=True,controller_source_revision=revision,controller_payload_sha256=closure)
+ auth=dict(kind='DIRECT_USER_COMPLETE104_UNDER12',run_id=RUN,launch_id=str(uuid.uuid4()),source_revision=L['source_revision'],entry_stage=L['stage'],registration_sha256=L['registration_sha256'],config_sha256=metadata['config_sha'],production_CPU_sha256=L['CPU_proof_sha256'],independent_CPU_acceptance_sha256=metadata['cpu_sha'],gpu_uuid=a.gpu_uuid,scope_counts=COUNTS,forecast_GPUh=c['forecast_complete_GPUh'],billed_limit_GPUh=11.9,cumulative_cap_GPUh=226,deployment_limit_seconds=257.7712338712067,direct_user_authorization=True,controller_source_revision=revision,controller_payload_sha256=closure,recovery_authorization_sha256=sha(a.recovery_authorization),recovery_user_reply_quote=permission['user_reply_quote'])
  data.update(auth=auth,control_runtime=read(REPO/RUNTIME_REF),sudo_password=saved_secret())
  try:v=ssh(LAUNCH_PREFIX+PREFLIGHT.replace('p=json.load(sys.stdin);','')+LAUNCH_SUFFIX,data)
  except Exception as e:v=dict(status='HISTORY104_DISPATCH_UNKNOWN_RECOVER_ONLY',stage_reference=L,intended_launch_id=auth['launch_id'],error_type=type(e).__name__,GPU_replay_allowed=False)
@@ -79,6 +83,7 @@ def main():
  for name in ('preflight','launch-gpu','recover'):
   t=sub.add_parser(name);t.add_argument('--stage-ref',type=Path,required=True)
   if name!='recover':t.add_argument('--gpu-uuid',required=True)
+  if name=='launch-gpu':t.add_argument('--recovery-authorization',type=Path,required=True)
  t=sub.add_parser('capture');t.add_argument('--launch-ref',type=Path,required=True);t.add_argument('--mode',choices=['admission','halfway','terminal'],required=True)
  t=sub.add_parser('accept-gpu');t.add_argument('--capture',type=Path,required=True)
  for t in sub.choices.values():t.add_argument('--output',type=Path,required=True)

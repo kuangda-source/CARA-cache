@@ -12,6 +12,8 @@ def main():
  if 'container_state' in v:
   v['status']=classify(v['container_state'],v['live_handles'])
   v['full_protocol_accepted']=False
-  if v['status']=='FAILED_ORIGINAL_TERMINAL':v['reconstruction']=reconstruction(v)
+  if v['status']=='FAILED_ORIGINAL_TERMINAL':
+   try:v['reconstruction']=reconstruction(v)
+   except (ValueError,TypeError,KeyError) as e:v['accounting_reconstruction_not_applicable']=str(e)
  write(a.output,v);print(json.dumps({k:v.get(k) for k in ('status','available_bytes','monitor_summary','reconstruction')}))
 if __name__=='__main__':main()

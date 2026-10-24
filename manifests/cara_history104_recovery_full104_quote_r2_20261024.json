@@ -1,0 +1,108 @@
+{
+  "version": "CARA_HISTORY104_FULL_RECOVERY_R2",
+  "run_id": "cara-history-boundary104-cal4-ada-r2",
+  "original_failed_launch_id": "d6351496-ee8a-4428-8ede-898f53d665cd",
+  "recovery_protocol": "NEW_COMPLETE104_SINGLE_LOAD_NO_PARTIAL_SPLICE",
+  "scientific_contract_ref": "manifests/cara_historical_bridge104_scope_quote_r1_20261024.json",
+  "scientific_contract_sha256": "77c4e8f972f2622c0b7ebcbfeca6252a5437ea23cdfab595d740b48fb2f081a3",
+  "scope": {
+    "roles": 10,
+    "CAL_FIT": 4,
+    "seeds": [
+      0
+    ],
+    "formal_repeats": 2,
+    "formal_paths": 80,
+    "warm_paths": 20,
+    "diagnostic_paths": 4,
+    "total_paths": 104,
+    "guided_pairs": 3744,
+    "CFG_calls": 7488,
+    "loads": 1,
+    "post_CPU_score_pairs": 72,
+    "post_CPU_frames": 6696,
+    "SELECT_paths": 0,
+    "DEV_paths": 0,
+    "TEST_paths": 0
+  },
+  "budget": {
+    "deployment_seconds": 257.7712338712067,
+    "relative_native": 0.8,
+    "new_run_rule": "min(original_absolute_limit, 0.8 * fresh_Native_mean)",
+    "relaxed": false
+  },
+  "quote": {
+    "measured_basis": "Original P1 per-arm maximum formal full request; unmeasured costs are explicit planning multipliers",
+    "arm_seconds": {
+      "NATIVE": 324.09893578104675,
+      "PG_ALL_D": 372.71377614820375,
+      "GRAPH_DIVERSE_ORIGINAL": 262.6352944895625,
+      "S26_C": 267.12068355828524,
+      "S26_A_PHASE": 275.1343040650338,
+      "SHARED26_C": 280.47671773619953,
+      "S25_C": 267.12068355828524,
+      "S25_A_PHASE": 275.1343040650338,
+      "S24_C": 267.12068355828524,
+      "S24_A_PHASE": 275.1343040650338
+    },
+    "components": {
+      "formal_GPUh": 6.370421526722154,
+      "warm_GPUh": 1.7518659198485926,
+      "diagnostic_GPUh": 0.516278208146904,
+      "model_load_GPUh": 0.1,
+      "save_cleanup_and_release_GPUh": 0.4
+    },
+    "uncertainty_margin_fraction": 0.25,
+    "forecast_GPUh": 11.423207068397064,
+    "billed_limit_GPUh": 11.9,
+    "strict_under12": true,
+    "within_limit": true,
+    "cumulative_cap_GPUh": 226,
+    "post_GPU_release_CPU": {
+      "score_pairs": 72,
+      "seconds_per_pair_allowance": 60,
+      "additional_seconds": 1080,
+      "wall_limit_hours": 1.5,
+      "cpus": 2,
+      "vCPU_hours_upper": 3,
+      "GPU_held": false
+    },
+    "source_revision_binds_all_files_required": true
+  },
+  "original_failed_cost": {
+    "charge_GPUh": 5.48,
+    "exact_actual_GPUh": null,
+    "basis": "Container finish minus earlier launch, plus60s, rounded UP to0.01GPUh; not exact monotonic billing"
+  },
+  "pool_after_original_settlement": {
+    "used_gpu_hours": 140.60066151587193,
+    "reserved_gpu_hours": 16.5,
+    "available_gpu_hours": 68.89933848412807,
+    "cap_gpu_hours": 226
+  },
+  "worst_case": {
+    "used_after_new_full_limit_GPUh": 152.50066151587194,
+    "old_unknown_two_card_reserved_GPUh": 16.5,
+    "available_after_new_full_limit_GPUh": 56.99933848412807
+  },
+  "storage": {
+    "preallocated_output_GiB": 32,
+    "independent_fixed_control_MiB": 48,
+    "output_low_water_GiB": 4,
+    "host_low_water_MiB": 128,
+    "allocated_outside_GPU_clock": true,
+    "receipt_ref": "reports/cara_history104_recovery_private_storage_provision_20261024.json"
+  },
+  "cost_basis": "Original complete104 forecast and25% margin unchanged; preallocation/format/CPU fault tests performed with no GPU. Control persistence and post-path checks remain in original0.4GPUh save/release allowance; hard stop11.9 unchanged.",
+  "partial_results_used_for_choice_or_quote": false,
+  "old72_outputs_retained_no_scoring": true,
+  "short64_alternative_not_selected": true,
+  "original_alpha_schedule_unchanged": true,
+  "new_GPU_authorized": false,
+  "GPU_submissions": 0,
+  "new_GPU_reservation": 0,
+  "CPU_acceptance_pending": false,
+  "CPU_acceptance_ref": "reports/cara_history104_storage_combination_CPU_accepted_r2_20261024.json",
+  "execution_stage_ref": "reports/cara_history104_recovery_GPU_stage_r2_20261024.json",
+  "storage_container_CPU_ref": "reports/cara_history104_recovery_storage_actual_container_CPU_20261024.json"
+}

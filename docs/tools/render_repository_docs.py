@@ -354,6 +354,27 @@ def build():
             hr['reader'].update(status='磁盘满提前退出，费用待恢复', result=hp)
             hr['evidence_or_planned_scope'] = hp
             master['operation_policy'].update(current_running_card=None,current_running_cards=[])
+        if history.get('failed_settlement_ref'):
+            settlement=load(history['failed_settlement_ref']);bill=settlement['receipt'];after=settlement['after']
+            if (bill['launch_id']!=hl['launch_id'] or bill['actual_is_exact'] is not False
+                    or after['jobs'][hl['run_id']]['actual_GPUh']!=bill['charge_GPUh']
+                    or after['jobs'][hl['run_id']]['status']!='SETTLED' or after['cap_gpu_hours']!=226):
+                raise ValueError('Failed104 reconstructed settlement binding differs')
+            cpu_text='恢复CPU检查进行中'
+            if history.get('recovery_CPU_acceptance_ref'):
+                recovery_cpu=load(history['recovery_CPU_acceptance_ref'])
+                if not recovery_cpu.get('storage_ENOSPC_lifecycle_CPU_accepted'):raise ValueError('Recovery storage CPU proof missing')
+                cpu_text='恢复整卡CPU与真实ENOSPC检查已通过'
+            hp=(f"旧104保持失败；费用按保守重建值{bill['charge_GPUh']:.2f}GPUh结算（非精确原账单），原11.9预约已释放。"
+                f"32GiB独立输出卷与48MiB跨盘控制日志已准备；{cpu_text}。")
+            snapshot=(f"**104恢复准备：旧卡已结算，新GPU未启动。** {hp}\n\n"
+                      "最终恢复为新的完整104、单load、原alpha与两轮顺序；forecast11.423207/硬上限11.9GPUh，释放后72组CPU评分。"
+                      "部署257.771秒、累计226GPUh保持。用户明确先不重跑，旧72路径不拼接或分析调参。\n\n"
+                      f"{link(history['recovery_report_ref'],'结算、保护与CPU验收')} · {link(history['recovery_final_quote_ref'],'最终完整报价')}。")
+            hr['reader'].update(status='旧卡失败已结算；新104待重跑授权',result=hp,
+                next_action='保持新GPU提交0；按完整104恢复合同，等待新的明确启动授权。')
+            hr['evidence_or_planned_scope']=hp
+            master['operation_policy'].update(current_running_card=None,current_running_cards=[])
         fields=[('run',hl['run_id']),('launch ID',hl['launch_id']),('source',hl['source_revision']),('stage',hl['stage']),
                 ('GPU UUID',hl['gpu_uuid']),('容器',hl['container']),('guardian',hl['guardian_identity']['pid']),
                 ('runner',f"PID {hg['runner']['pid']} / start_ticks {hg['runner']['start_ticks']} / UID {hg['runner']['uid']}")]

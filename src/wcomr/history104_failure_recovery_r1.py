@@ -4,6 +4,8 @@ from pathlib import Path
 
 
 def classify(container_state, live_handles):
+    if any(v is None for v in live_handles.values()):
+        return 'TERMINAL_HANDLE_IDENTITY_INCOMPLETE'
     if any(live_handles.values()) or container_state.get('Running'):
         return 'RUNNING_ORIGINAL_HANDLE_ONLY'
     if not isinstance(container_state.get('ExitCode'), int):
@@ -13,6 +15,7 @@ def classify(container_state, live_handles):
 
 
 def reconstruction(capture):
+    capture={k:v for k,v in capture.items() if k!='reconstruction'}
     L=capture['launch']; state=capture['container_state']
     if classify(state,capture['live_handles'])!='FAILED_ORIGINAL_TERMINAL':
         raise ValueError('Exited failed original handles required')
@@ -84,7 +87,7 @@ for n in ('supervisor.json',):
 g=json.loads((stage/'pg-host-guardian.json').read_text());identities['container_cli']=g.get('container_cli_identity')
 live={}
 for key,i in identities.items():
- if not i:live[key]=True;continue
+ if not i:live[key]=None;continue
  try:
   fields=(pathlib.Path('/proc')/str(i['pid'])/'stat').read_text().rsplit(')',1)[1].split();live[key]=fields[0] not in ('Z','X') and int(fields[19])==i['start_ticks']
  except FileNotFoundError:live[key]=False
@@ -97,12 +100,41 @@ for i,line in enumerate(b.splitlines()):
  try:samples.append(json.loads(line))
  except ValueError:bad.append(i)
 offsets=[s['snapshot']['observed_unix']-s['monotonic_elapsed'] for s in samples]
-assert samples
 v=dict(observed_unix=time.time(),launch=L,container_state=raw['State'],container_image=raw['Image'],live_handles=live,
  lock_free=free,registration_sha256=sha(stage/'registration.json'),authorization_sha256=sha(stage/'pg-GPU-authorization.json'),
  original_billing_exists=(out/'billing.json').exists(),files=files,monitor_sha256=hashlib.sha256(b).hexdigest(),
- monitor_summary=dict(valid_samples=len(samples),invalid_line_indices=bad,last_monotonic_seconds=samples[-1]['monotonic_elapsed'],clock_offset_span_seconds=max(offsets)-min(offsets)),
+ monitor_summary=dict(valid_samples=len(samples),invalid_line_indices=bad,last_monotonic_seconds=samples[-1]['monotonic_elapsed'] if samples else None,clock_offset_span_seconds=max(offsets)-min(offsets) if offsets else None),
  pool=json.loads((root/'reports/gpu-budget-v2.json').read_text()),GPU_submissions=0,remote_mutations=0)
+storage_ref=stage/'history104-storage.json'
+if storage_ref.exists():
+ try:
+  reg=json.loads((stage/'registration.json').read_text());assert sha(storage_ref)==reg['payload_sha256']['history104-storage.json']
+  storage=json.loads(storage_ref.read_text());assert storage['run_id']==L['run_id']
+  sys.path.insert(0,str(stage/'src'))
+  from wcomr.history104_storage_r2 import FixedJournal,KEYS
+  journal=FixedJournal(storage['journal_path']);v['durable_control']={}
+  for key in KEYS:
+   try:v['durable_control'][key]=dict(valid=True,value=journal.read(key))
+   except (ValueError,OSError) as e:v['durable_control'][key]=dict(valid=False,error=str(e))
+ except Exception as e:v['durable_control_error']=dict(type=type(e).__name__,message=str(e))
 s=os.statvfs(root);v['available_bytes']=s.f_bavail*s.f_frsize
 print(json.dumps(v))
 '''
+
+
+def audit_durable_billing(capture):
+    """Recover precise future bills only from a bound, checksum-valid journal.
+
+    This accepts financial evidence only; failed/partial104 stays unaccepted.
+    """
+    if classify(capture['container_state'],capture['live_handles']) not in ('FAILED_ORIGINAL_TERMINAL','EXITED_ZERO_REQUIRES_FULL_ACCEPTANCE') or not capture['lock_free']:
+        raise ValueError('Original processes and lease must be released')
+    entry=capture.get('durable_control',{}).get('billing',{})
+    if not entry.get('valid'):raise ValueError('No checksum-valid durable billing record')
+    bill=entry['value'];L=capture['launch']
+    for k in ('run_id','launch_id','source_revision','gpu_uuid','scope_counts','billed_limit_GPUh'):
+        if bill.get(k)!=L[k]:raise ValueError('Durable bill identity differs '+k)
+    seconds=bill['wall_seconds'];actual=bill['actual_GPUh']
+    if not math.isfinite(seconds) or not 0<seconds/3600==actual<=L['billed_limit_GPUh']:raise ValueError('Invalid exact monotonic bill')
+    return dict(status='DURABLE_MONOTONIC_FINANCIAL_EVIDENCE_ACCEPTED_ONLY',bill=bill,
+                exact_actual_GPUh=actual,full_protocol_accepted=False,GPU_submissions=0)

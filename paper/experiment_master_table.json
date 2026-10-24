@@ -29,10 +29,10 @@
     "CONDITIONAL_PLANNED_NOT_FROZEN_OR_APPROVED_CARD": 1,
     "CONDITIONAL_SAME_PROCEDURE_RECALIBRATION": 1,
     "DEFERRED_MANUAL_MASK_SCREEN_SUPERSEDED_BY_GENERATOR_VALIDATION": 2,
-    "EARLY_EXIT_DISK_FULL_INCOMPLETE_UNSETTLED": 1,
     "EXPLORATORY_BANK24_FULL24_ACCEPTED_FROZEN_GATE_AND_XR_ANALYZED": 2,
     "EXPLORATORY_CAL12_A_FACTORIAL_GAIN_ON_CAL_PENDING_INDEPENDENT_CONFIRMATION": 1,
     "EXPLORATORY_CAL12_SHARED26D_PLAN_GAIN_ON_CAL_PENDING_INDEPENDENT_CONFIRMATION": 1,
+    "FAILED_ORIGINAL_RECONSTRUCTED_COST_SETTLED_RECOVERY_CPU_READY_NO_REPLAY": 1,
     "FINAL_VARIANT_TIMING_AND_QUALITY_PENDING": 1,
     "FINITE_FRONTIER_UNION_PENDING_IDENTITY_AND_COST": 1,
     "FULL960_ALL645_SCORES_PROTOCOL_AND_FINANCE_ACCEPTED": 1,
@@ -5578,13 +5578,13 @@
     },
     {
       "id": "PG-P1-H104",
-      "state": "EARLY_EXIT_DISK_FULL_INCOMPLETE_UNSETTLED",
+      "state": "FAILED_ORIGINAL_RECONSTRUCTED_COST_SETTLED_RECOVERY_CPU_READY_NO_REPLAY",
       "paper_experiment_name": "Historical baselines and measured budget boundary",
       "internal_ids": [
         "HISTORY104"
       ],
       "contribution_relation": "历史强基线与预算边界确认",
-      "evidence_or_planned_scope": "磁盘满提前退出；旧health记录72/104完成；GPU已释放、原锁自由，完整验收未通过。账单写入失败，11.9GPUh预约保留待恢复",
+      "evidence_or_planned_scope": "旧104保持失败；费用按保守重建值5.48GPUh结算（非精确原账单），原11.9预约已释放。32GiB独立输出卷与48MiB跨盘控制日志已准备；恢复整卡CPU与真实ENOSPC检查已通过。",
       "gap_and_next_action": "保全失败原件，恢复存储和账单；不重派，不以72路径分析或继续P1。",
       "priority": "GEN-2",
       "evidence_refs": [
@@ -5621,9 +5621,9 @@
       "full_protocol_accepted": false,
       "reader": {
         "title": "历史强基线与预算边界104路径",
-        "status": "磁盘满提前退出，费用待恢复",
-        "result": "磁盘满提前退出；旧health记录72/104完成；GPU已释放、原锁自由，完整验收未通过。账单写入失败，11.9GPUh预约保留待恢复",
-        "next_action": "保全失败原件，恢复存储和账单；不重派，不以72路径分析或继续P1。",
+        "status": "旧卡失败已结算；新104待重跑授权",
+        "result": "旧104保持失败；费用按保守重建值5.48GPUh结算（非精确原账单），原11.9预约已释放。32GiB独立输出卷与48MiB跨盘控制日志已准备；恢复整卡CPU与真实ENOSPC检查已通过。",
+        "next_action": "保持新GPU提交0；按完整104恢复合同，等待新的明确启动授权。",
         "evidence_refs": [
           "research/671_CARA_HISTORY104_COMBINATION_AND_EXCLUSIVE_EXECUTION_20261024.md",
           "reports/cara_history104_GPU_actual_launch_r1_20261024.json",
@@ -11809,28 +11809,28 @@
     },
     "EXPERIMENT_REPORT.md": {
       "path": "EXPERIMENT_REPORT.md",
-      "sha256": "3a0aba9d7b38b596b572134f0249034d5063b1faae6b4b0503bc180b6c116fc0",
-      "bytes": 8124
+      "sha256": "0ddfe23eb01f816e42e46e6dd359e8d6a06d3d28dcfb8501777580f0dbb3e71f",
+      "bytes": 7903
     },
     "memory/handoffs/LATEST.md": {
       "path": "memory/handoffs/LATEST.md",
-      "sha256": "4d4808fe0156a1e090f63d7cf5e59ba6f5f4a6b2e9d8d5760561113b1a50ae8c",
-      "bytes": 7489
+      "sha256": "d3748b90aff0f910caa5947ba274bacac4aa1c0940041f644e6200742dfe4971",
+      "bytes": 7700
     },
     "research/02_CURRENT_STATE.md": {
       "path": "research/02_CURRENT_STATE.md",
-      "sha256": "e223a0fac653adeae5c67cde69c0d894360255a57efc011a25b9f338fc55b81f",
-      "bytes": 7266
+      "sha256": "dece9f771f99a0eb59648fcb0ad158100316619c61927bdd900c179aa6519b75",
+      "bytes": 7504
     },
     "research/09_NEXT_ACTIONS.md": {
       "path": "research/09_NEXT_ACTIONS.md",
-      "sha256": "43bbcb468352dd712c59d9ed84d1a601fb638d612fbb1c769bd2d7758a91b45a",
-      "bytes": 6784
+      "sha256": "e54a611c782f4b760b6c144f9e59d79ea24edd97f4ae2dc275f497101c9158f0",
+      "bytes": 6983
     },
     "paper/EXPERIMENT_MASTER_TABLE.md": {
       "path": "paper/EXPERIMENT_MASTER_TABLE.md",
-      "sha256": "3307cf4679acad34b70145eb605eab5e0cf300814c3a486cfd87bf74df07ca61",
-      "bytes": 32970
+      "sha256": "8b4264890dce1c7c1460ce63107fc1d0104ea98be9da9596ea8aa237f9b52775",
+      "bytes": 32802
     },
     "paper/INTERNAL_TO_PAPER_MAPPING.md": {
       "path": "paper/INTERNAL_TO_PAPER_MAPPING.md",
@@ -13809,7 +13809,7 @@
     "historical_operation_policy_ref": "docs/archive/20261022_before_navigation/paper/experiment_master_table.json"
   },
   "mapping_sha256_at_inventory": "88b3d760a0c94c20b6c802e21f30c7286d6e596cc9b3f3100e7ee6feaa3938f3",
-  "latest_mapping_sha256": "83d7157451d2779477a72bb90f903eb1205733afce4ad5cac596f49794778645",
+  "latest_mapping_sha256": "bfcf8c9e93a9f2884f7ffdc4fb59ab3df5c2a5bb845724096c2b02491654d13c",
   "revision_plan": {
     "registry_ref": "plans/cara_v6_20261020/TASK_REGISTRY_V6.yaml",
     "report_ref": "research/610_WC_CARA_V6_REVIEW_CLOSURE_PLAN_INTERVAL_SPEC_AND_FIRST_DEV_SCOPE_20261020.md",
