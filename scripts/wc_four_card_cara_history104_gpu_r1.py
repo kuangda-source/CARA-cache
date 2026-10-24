@@ -21,16 +21,19 @@ def published():
 
 def prepare(a):
  cap=read(a.cpu_capture);cpu=accept_cpu(cap);cpu.update(capture_ref=str(a.cpu_capture),capture_sha256=sha(a.cpu_capture))
+ if not cpu.get('storage_ENOSPC_lifecycle_CPU_accepted'):raise ValueError('Recovery requires new storage ENOSPC CPU proof')
  if cpu!=read(a.cpu_acceptance):raise ValueError('Independent CPU acceptance does not reproduce')
  for n,h in cpu['execution_source_sha256'].items():
   if (REPO/n).exists() and n.startswith(('src/wcomr/policy_generator_r1/','scripts/run_cara_history','scripts/wc_cara_history','scripts/postprocess_cara_history')) and sha(REPO/n)!=h:raise ValueError('Accepted source changed '+n)
- card=check_card(read(REPO/MANIFEST));config=dict(version=VERSION,run_id=RUN,scope_counts=COUNTS,matrix=card['matrix'],forecast_complete_GPUh=card['quote']['forecast_GPUh'],billed_limit_GPUh=11.9)
- rawfiles={'pg-whole-quote.json':(json.dumps(card['quote'],indent=2)+'\n').encode(),'pg-config.json':(json.dumps(config,indent=2)+'\n').encode(),'pg-independent-CPU-acceptance.json':a.cpu_acceptance.read_bytes()}
+ card=check_card(read(REPO/MANIFEST));config=dict(version=VERSION,run_id=RUN,scope_counts=COUNTS,matrix=card['matrix'],forecast_complete_GPUh=card['quote']['forecast_GPUh'],billed_limit_GPUh=11.9,storage_contract_required=True)
+ storage=read(a.storage_ref)['storage_contract'];assert storage['run_id']==RUN
+ rawfiles={'pg-whole-quote.json':(json.dumps(card['quote'],indent=2)+'\n').encode(),'pg-config.json':(json.dumps(config,indent=2)+'\n').encode(),'history104-storage.json':(json.dumps(storage,indent=2)+'\n').encode(),'pg-independent-CPU-acceptance.json':a.cpu_acceptance.read_bytes()}
  data=dict(CPU_launch=cap['launch'],CPU_proof_sha256=cap['proof']['sha256'],stage_name=a.stage_name,root='/data20t/gaokuangda/worldcache_workspace',files={n:base64.b64encode(raw).decode() for n,raw in rawfiles.items()},hashes={n:hashlib.sha256(raw).hexdigest() for n,raw in rawfiles.items()})
  v=ssh(PREPARE,data);write(a.output,v);return v
 
 PREPARE=base.PREPARE.replace('PG-combination-CPU.json',CPU_PROOF).replace('cara-pg-p1-full64-','cara-history104-full-').replace('CARA_PG_P1_COMPLETE64_R1',VERSION).replace('policy_generator_r1.production_stage','policy_generator_r1.historical_card').replace('PG_P1','HISTORY104')
 PREFLIGHT=base.PREFLIGHT.replace('policy_generator_r1.production_stage','policy_generator_r1.historical_card').replace('PG_P1','HISTORY104')
+PREFLIGHT+="\nfrom wcomr.history104_storage_r2 import storage_for\ntry:\n storage=storage_for(stage);value['dedicated_storage']=storage.check();assert c.get('storage_contract_required');assert not any(storage.output.iterdir())\nexcept Exception as e:\n value['admissible']=False;value['reasons'].append('DEDICATED_STORAGE_NOT_READY:'+str(e))\n"
 LAUNCH_PREFIX=base.LAUNCH_PREFIX.replace('PG_P1','HISTORY104')
 LAUNCH_SUFFIX=base.LAUNCH_SUFFIX.replace('wc_cara_pg_p1_host_guardian_r1.py','wc_cara_history104_host_guardian_r1.py').replace('PG_P1','HISTORY104')
 
@@ -56,17 +59,23 @@ def recover(a):
 OLD=" from wcomr.policy_generator_r1.production_capture import collect\n try:v.update(collect(root,stage,L))\n except Exception as e:v['terminal_collection_error']=dict(error_type=type(e).__name__,error=str(e))\n"
 assert base.CAPTURE.count(OLD)==1
 CAPTURE=base.CAPTURE.replace(OLD,READONLY_CODEC.replace('policy_generator_r1.production_capture','policy_generator_r1.historical_capture').replace("'--memory','2g'","'--memory','4g'").replace("'--read-only','--network'","'--read-only','--tmpfs','/tmp:rw,size=256m','--network'").replace('timeout=140','timeout=360'))
+CAPTURE=CAPTURE.replace("assert not original['State']['Running'] and original['State']['ExitCode']==0", "assert not original['State']['Running']")
 CAPTURE=CAPTURE.replace('policy_generator_r1.production_stage','policy_generator_r1.historical_card').replace('PG_P1','HISTORY104')
 CAPTURE=CAPTURE.replace('print(json.dumps(v,allow_nan=False))',"\nif (out/'score-progress.json').exists():\n s=read(out/'score-progress.json');v['post_score_health']={k:s.get(k) for k in ('status','completed_pairs','planned_pairs','started_unix','ended_unix')}\nprint(json.dumps(v,allow_nan=False))")
 
 def capture(a):
+ if a.mode=='terminal':
+  from wcomr.history104_failure_recovery_r1 import REMOTE_CAPTURE,classify
+  technical=base_ssh(REMOTE_CAPTURE,read(a.launch_ref),timeout=90)
+  if 'container_state' in technical and classify(technical['container_state'],technical['live_handles'])=='FAILED_ORIGINAL_TERMINAL':
+   technical.update(status='FAILED_ORIGINAL_TERMINAL',full_protocol_accepted=False);write(a.output,technical);return technical
  v=base_ssh(bridge(CAPTURE,read(REPO/RUNTIME_REF)),dict(launch=read(a.launch_ref),terminal=a.mode=='terminal'),timeout=420);write(a.output,v);return v
 
 def main():
  p=argparse.ArgumentParser();sub=p.add_subparsers(dest='command',required=True)
  t=sub.add_parser('prepare')
  for n in ('cpu-capture','cpu-acceptance'):t.add_argument('--'+n,type=Path,required=True)
- t.add_argument('--stage-name',required=True)
+ t.add_argument('--stage-name',required=True);t.add_argument('--storage-ref',type=Path,required=True)
  for name in ('preflight','launch-gpu','recover'):
   t=sub.add_parser(name);t.add_argument('--stage-ref',type=Path,required=True)
   if name!='recover':t.add_argument('--gpu-uuid',required=True)

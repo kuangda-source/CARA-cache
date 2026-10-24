@@ -11,6 +11,8 @@ def main():
  sys.path[:0]=[str(a.stage/'src'),str(a.stage/'scripts'),str(a.project/'runtime'),str(a.project/'runtime/packages/cosmos-oss'),str(a.project/'runtime/packages/cosmos-cuda')]
  from wcomr.policy_generator_r1.historical_card import validate,read,sha,RUN,COUNTS,CONFIG
  c,reg,card=validate(a.project,a.stage)
+ from wcomr.history104_storage_r2 import storage_for
+ storage=storage_for(a.stage);storage.check()
  assert reg['source_revision']==a.source_revision
  auth=read(a.stage/'pg-GPU-authorization.json');out=a.project/'outputs'/RUN
  assert auth['gpu_uuid']==a.gpu_uuid==os.environ['CUDA_VISIBLE_DEVICES'] and os.environ['WC_SUPERVISOR_PID']==str(os.getppid())
@@ -60,6 +62,7 @@ def main():
   settings=parent['historical_wc_settings'];wc.apply_worldcache(net,**{k.removeprefix('worldcache_'):v for k,v in settings.items()})
   initial=CompleteStateRoundtrip(net,model.sample_scheduler,torch.zeros(1));origin=initial.fingerprint();versions=[(v,v._version) for v in net.parameters()]
   def request(slot,policy,directory):
+   storage.check()  # Outside complete_request_seconds and all timed sampling.
    initial.restore();assert initial.fingerprint()==origin;verify_shared_eval(net,mode)
    kw=dict(runtime=a.project/'runtime',wc=wc,rf=rf,settings=settings,calibration=calibration,specs=specs[STRATEGY],inference_module=im,output=directory,expected_shape=parent['expected_real_shape'],audit=slot['section']=='DIAGNOSTIC')
    if policy:

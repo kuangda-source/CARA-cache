@@ -20,6 +20,9 @@ def main():
     from wcomr.policy_generator_r1.historical_card import read,sha,validate
     from wcomr.gpu_budget_pool_v2 import DeviceLease,atomic_json,process_identity
     c,reg,*_=validate(a.project,a.stage)
+    from wcomr.history104_storage_r2 import storage_for
+    storage=storage_for(a.stage) if c.get('storage_contract_required') else None
+    if storage:storage.check()
     auth=read(a.stage/'pg-GPU-authorization.json');uuid=auth['gpu_uuid']
     # Do not put this input in any receipt, command argument, environment, or log.
     incoming=json.load(sys.stdin);password=incoming.pop('sudo_password');assert not incoming
@@ -32,7 +35,9 @@ def main():
     lock_path=a.project/'.sync/gpu-locks'/(uuid+'.mode-owner.lock');lock_path.parent.mkdir(parents=True,exist_ok=True)
     child=None;state=dict(status='HISTORY104_MODE_OWNER_ADMITTING',identity=process_identity(os.getpid()),
         gpu_uuid=uuid,source_revision=reg['source_revision'],started_unix=time.time())
-    def save():atomic_json(a.stage/'pg-host-guardian.json',state)
+    def save():
+        if storage:storage.persist('guardian',a.stage/'pg-host-guardian.json',state,atomic_json)
+        else:atomic_json(a.stage/'pg-host-guardian.json',state)
     with lock_path.open('a+') as mode_lock:
         fcntl.flock(mode_lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
         try:
@@ -45,6 +50,10 @@ def main():
             from four_card_policy_assets_port_r1 import container_command
             command=container_command(a.project,a.stage,'supervise',sha(a.stage/'registration.json'),
                 process_environment(a.project,a.stage/'GPU-caches'),os.getuid(),os.getgid(),uuid)
+            if storage:
+                # Exact per-run writable mounts; the control journal is on another disk.
+                at=command.index('--entrypoint')
+                command[at:at]=['-v',str(storage.output)+':'+str(storage.output)+':rw','-v',str(storage.journal.path)+':'+str(storage.journal.path)+':rw','-v',storage.config['image_path']+':'+storage.config['image_path']+':ro']
             old=str(a.stage/'scripts/wc_policy_interval_assets_lifecycle_r1.py')
             command[command.index(old)]=str(a.stage/'scripts/wc_cara_history104_worker_r1.py')
             i=command.index('--authorization');assert i==len(command)-2;command=command[:i]

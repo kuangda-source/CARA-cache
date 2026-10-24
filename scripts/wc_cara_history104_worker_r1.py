@@ -22,6 +22,9 @@ def supervise(a):
     from wcomr.gpu_budget_pool_v2 import DeviceLease,BudgetPool,process_identity,atomic_json
     from wcomr.policy_generator_r1.production_exclusive import observe,verify
     c,reg,*_=validate(a.project,a.stage);auth=read(a.stage/'pg-GPU-authorization.json')
+    from wcomr.history104_storage_r2 import storage_for
+    storage=storage_for(a.stage) if c.get('storage_contract_required') else None
+    if storage:storage.check()
     if (auth['source_revision']!=reg['source_revision'] or auth['registration_sha256']!=sha(a.stage/'registration.json')
             or auth['production_CPU_sha256']!=sha(a.stage/CPU_PROOF) or auth['scope_counts']!=COUNTS
             or auth['billed_limit_GPUh']!=c['billed_limit_GPUh']
@@ -30,9 +33,14 @@ def supervise(a):
     uuid=auth['gpu_uuid'];out=a.project/'outputs'/RUN
     lease=DeviceLease(a.project,uuid);pool=BudgetPool(a.project)
     child=None;reserved=False;start=None;state=None;monitor=[]
-    def save():atomic_json(out/'supervisor.json',state)
+    def save():
+        if storage:storage.persist('supervisor',out/'supervisor.json',state,atomic_json)
+        else:atomic_json(out/'supervisor.json',state)
     try:
-        lease.acquire();assert not out.exists()
+        lease.acquire()
+        if storage:
+            storage.check();assert storage.output==out and not any(out.iterdir())
+        else:assert not out.exists()
         snap=observe(uuid);verify(snap,uuid)
         values=subprocess.check_output(['/usr/bin/nvidia-smi','-i',uuid,
             '--query-gpu=uuid,name,memory.used,compute_cap','--format=csv,noheader,nounits'],text=True).strip().split(',')
@@ -45,7 +53,8 @@ def supervise(a):
             scope_counts=COUNTS,forecast_GPUh=c['forecast_complete_GPUh'],billed_limit_GPUh=c['billed_limit_GPUh'],
             cumulative_cap_GPUh=226,budget_origin_used_GPUh=79.99637737158223,
             supervisor_pid=os.getpid(),supervisor_start_ticks=ident['start_ticks'],stage=str(a.stage))
-        before=pool.read();after=pool.reserve(job,gpu);reserved=True;start=time.monotonic();out.mkdir()
+        before=pool.read();after=pool.reserve(job,gpu);reserved=True;start=time.monotonic()
+        if not storage:out.mkdir()
         state=dict(status='HISTORY104_GPU_RUNNING',source_revision=reg['source_revision'],run_id=RUN,
             launch_id=auth['launch_id'],gpu_uuid=uuid,scope_counts=COUNTS,supervisor_identity=ident,
             started_unix=time.time(),pool_before=before,pool_after_reservation=after,
@@ -83,6 +92,8 @@ def supervise(a):
                     else:verify(snap,uuid)
                     if time.monotonic()-start>180:raise TimeoutError('Runner did not establish exact context')
                 monitor.append(dict(snapshot=snap,context_granted=granted,monotonic_elapsed=time.monotonic()-start))
+                if storage:
+                    storage.journal.write('telemetry',dict(launch_id=auth['launch_id'],run_id=RUN,supervisor=ident,runner=identity,sample=monitor[-1]));storage.check()
                 with (out/'exclusive-monitor.jsonl').open('a') as f:f.write(json.dumps(monitor[-1])+'\n')
                 time.sleep(2)
             state['child_exit_code']=child.wait()
@@ -107,14 +118,22 @@ def supervise(a):
                 bill=dict(status='HISTORY104_ACTUAL_GPU_WALL_BILL',run_id=RUN,launch_id=auth['launch_id'],
                     source_revision=reg['source_revision'],gpu_uuid=uuid,scope_counts=COUNTS,
                     wall_seconds=wall,actual_GPUh=wall/3600,billed_limit_GPUh=c['billed_limit_GPUh'],ended_unix=time.time())
+                if storage:storage.journal.write('billing',bill)
+                # The independent preallocated record survives output/ledger ENOSPC.
                 atomic_json(out/'billing.json',bill);settled=pool.settle(RUN,wall/3600,sha(out/'billing.json'))
+                if storage:storage.journal.write('accounting',dict(settled=True,billing_sha256=sha(out/'billing.json'),actual_GPUh=wall/3600))
                 atomic_json(out/'exclusive-monitor-final.json',dict(accepted=state['exclusive_monitor_accepted'],
                     observations=len(monitor),final_snapshot=final,runner=state.get('child_identity'),
                     started_unix=state['started_unix'],ended_unix=time.time(),monitor_sha256=sha(out/'exclusive-monitor.jsonl')
                     if (out/'exclusive-monitor.jsonl').exists() else None))
                 state.update(status='HISTORY104_GPU_RELEASED_CPU_POST_PENDING',ended_unix=time.time(),actual_GPUh=wall/3600,
                     pool_after=settled,billing_sha256=sha(out/'billing.json'));save()
-        finally:lease.close()
+        finally:
+            lease.close()
+            if storage:
+                failure=dict(status='ORIGINAL_GPU_LEASE_RELEASED',launch_id=auth['launch_id'],run_id=RUN,state=state)
+                try:storage.journal.write('failure',failure)
+                except Exception:pass
     if not state['exclusive_monitor_accepted']:raise RuntimeError('Original exclusive release failed; CPU scoring blocked')
     command=[sys.executable,str(a.stage/'scripts/postprocess_cara_history104_r1.py'),
         '--project',str(a.project),'--stage',str(a.stage)]

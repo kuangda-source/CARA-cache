@@ -67,13 +67,14 @@ def main():
  assert validate_score(actual,r['video_artifact'],s['video_artifact'],identity)==0 and actual['frames']==93
  atomic_json(out/'real-LPIPS93.json',actual);del metric
  life=load(a.stage/'tests/check_cara_history104_lifecycle_cpu_r1.py','life').run(a.stage,a.stage/'CPU-history104-lifecycle')
+ storage_life=load(a.stage/'tests/check_history104_storage_cpu_r2.py','storage_life').run(a.stage,a.stage/'CPU-storage104-lifecycle')
  import unittest
  tests=load(a.stage/'tests/test_cara_history104_combination_r1.py','terminal_tests');result=unittest.TextTestRunner(verbosity=2).run(unittest.defaultTestLoader.loadTestsFromModule(tests));assert result.wasSuccessful()
  assert not torch.cuda.is_initialized()
  proof=dict(status='HISTORY104_FULL_COLLECTION_RELEASE_SCORE_TERMINAL_CPU_PASS',source_revision=reg['source_revision'],registration_sha256=sha(a.stage/'registration.json'),started_unix=started,ended_unix=time.time(),
   entry=read(a.stage/'PG-production-CPU.json'),entry_proof_sha256=sha(a.stage/'PG-production-CPU.json'),historical148_accepted=history,unchanged_historical_execution_SHA=unchanged,
   collection=dict(paths=104,controls=15,requests_serialized=104,diagnostic_guided_artifacts=4,complete72_score_schedule=True,score_failure_raw_retained=True,score_resume_no_GPU_replay=True,pre_release_score_refused=True,same_slot_replay_refused=True,synthetic_endpoints_and_72_scores=True),
-  full_video_metric=dict(real_LPIPS93=True,identity_zero=0.,metric_identity=identity,score_sha256=sha(out/'real-LPIPS93.json'),Cosmos_generated_video=False),lifecycle=life,terminal_tests=result.testsRun,
+  full_video_metric=dict(real_LPIPS93=True,identity_zero=0.,metric_identity=identity,score_sha256=sha(out/'real-LPIPS93.json'),Cosmos_generated_video=False),lifecycle=life,storage_lifecycle=storage_life,terminal_tests=result.testsRun,
   CUDA_initialized=False,Cosmos_weights_loaded=0,GPU_submissions=0,authoritative_ledger_written=False)
  with a.output.open('x') as f:json.dump(proof,f,indent=2,allow_nan=False);f.write('\n')
  print(json.dumps(dict(status=proof['status'],wall_seconds=time.time()-started)))

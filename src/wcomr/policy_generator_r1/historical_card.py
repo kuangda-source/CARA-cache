@@ -3,8 +3,8 @@ import json
 from pathlib import Path
 from .production_evidence import sha
 from .continuation_preparation import require
-RUN='cara-history-boundary104-cal4-ada-r1'
-VERSION='CARA_HISTORICAL_BOUNDARY104_R1'
+RUN='cara-history-boundary104-cal4-ada-r2'
+VERSION='CARA_HISTORICAL_BOUNDARY104_R2_STORAGE'
 CONFIG='pg-config.json'
 CPU_PROOF='historical-combination-CPU.json'
 CPU_BUNDLE=CPU_PROOF
