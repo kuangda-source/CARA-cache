@@ -2,13 +2,17 @@
 
 # CARA-Cache 实验总表
 
-本表由[机器索引](experiment_master_table.json)自动生成，共 **55项**。每行是一组科学问题或完整实验卡，不是一次工程重试；不同实验复用的原件不累加为独立样本。`D`为历史开发、`N`为评价/后续、`X`为探索、`REV`为v6设计、`PG`为现行自动生成器路线。
+本表由[机器索引](experiment_master_table.json)自动生成，共 **56项**。每行是一组科学问题或完整实验卡，不是一次工程重试；不同实验复用的原件不累加为独立样本。`D`为历史开发、`N`为评价/后续、`X`为探索、`REV`为v6设计、`PG`为现行自动生成器路线。
 
-**104 R2已完整验收并完成离线分析。** 104/104路径、72组/6696帧评分与独占、财务完整接受；实际7.395282 GPUh。计时模型未通过原判据，须独立成本验证后才能接P1。
+**当前COST112独立计时验证：硬独占运行中。** 实际启动2026-10-25T01:11:58+08:00，观测2026-10-25T01:16:54.241596+08:00。RUNNING；0/112完成、0失败；新模型尚未独立验收，P1继续等待。
 
-原GPU、容器及锁已释放，终态检查已关闭；部署257.771秒、0.80×新Native与累计226 GPUh不变。尚未选择最终策略，PG-P2不准入。
+保留原10角色、强基线与alpha；20warm+8独立全D时钟参照+80正式+4诊断，4032pairs/8064CFG，单load。系数由已接受104完整数据冻结，本卡72个目标只验证、不重拟合。释放GPU结算后72组/6696帧CPU评分。
 
-[完整原终态](../reports/cara_history104_R2_terminal_20261024_2315.json) · [独立接受](../reports/cara_history104_R2_accepted_20261024_2315.json) · [完整分析](../reports/cara_history104_R2_complete_analysis_20261024.json) · [结果与接续](../research/685_CARA_HISTORY104_R2_COMPLETE_ACCEPTANCE_RESULTS_AND_COST_GATE_20261024.md)。
+forecast10.867202、硬上限11.9 GPUh；部署257.771秒、0.80×新Native及累计226 GPUh保持。技术半程：**2026-10-25 06:38 Asia/Shanghai**；终态收件/若仍评分则改绑：**2026-10-25 12:20 Asia/Shanghai**。
+
+[唯一实际启动](../reports/cara_cost112_GPU_actual_launch_r1_20261025.json) · [最新技术观测](../reports/cara_cost112_GPU_live_health_r1_20261025.json) · [真实独占](../reports/cara_cost112_GPU3_exclusive_active_r1_20261025.json) · [归因及独立验证记录](../research/687_CARA_COST112_CPU_ACCEPTED_EXCLUSIVE_LAUNCH_20261025.md)。
+
+原104 R2完整接受，原计时模型最坏低估2.618秒未通过2秒门槛；新卡通过后才接新P1生产验证与完整报价。
 
 ## 现行自动生成器路线
 
@@ -21,6 +25,7 @@
 | <a id="pg-p2"></a>**PG-P2 · 等预算与等查询强基线**<br>质量入口与绑定准备完成；真实模型CPU待准入 | R2组合CPU已接受；新增真实五模型评分入口、去重绑定及34项本地控制完成。五原权重/固定源码已在本地齐备，四卡实际模型CPU待独立环境和磁盘准入。 | P1原件已接受但没有预算可行的冻结策略；保留已完成CPU与质量入口准备，暂不定最终GPU预算或派发。 | [证据1](../research/612_WC_POLICY_GENERATOR_CPU_PROTOTYPE_AND_REPRODUCIBLE_VALIDATION_DESIGN_20261020.md) · [证据2](../research/648_CARA_GPU_OWNER_PRICE_TRUST_AND_ORDERED_CONTINUATION_20261023.md) · [证据3](../plans/cara_policy_generator_20261020/PRICE_HISTORY_NATIVE_CONTINUATION_R1_20261023.md) · [证据4](../research/652_CARA_PG_P1_P2_CPU_PREPARATION_AND_HANDOFF_20261023.md) · [证据5](../plans/cara_policy_generator_20261020/P1_P2_CPU_HANDOFF_R1_20261023.md) · [证据6](../reports/cara_CAL_SELECT_exposure_committed_20261023.json) · [证据7](../research/663_CARA_PG_P2_NATIVE_HISTORY_PRODUCTION_CPU_ACCEPTED_AND_WHOLE_QUOTE_20261023.md) · [证据8](../reports/cara_PG_P2_native_history_CPU_accepted_r4_20261023.json) · [证据9](../manifests/cara_PG_P2_whole518_planning_quote_r1_20261023.json) · [证据10](../research/665_CARA_PG_P2_COMBINATION_CHECKED_CPU_STORAGE_GATE_20261023.md) · [证据11](../research/666_CARA_LOSSLESS_ARCHIVE_AND_PG_P2_COMBINATION_CPU_20261023.md) · [证据12](../reports/cara_PG_P2_combination_CPU_check_r2_20261023_05.json) · [证据13](../reports/cara_PG_P2_combination_CPU_accepted_r2_20261023.json) · [证据14](../reports/cara_archive_restore_and_P1_protection_verified_20261023.json) · [证据15](../research/667_CARA_PG_P2_REAL_QUALITY_ENTRY_AND_CARD_BINDING_PREPARED_20261023.md) · [证据16](../plans/cara_policy_generator_20261020/P2_QUALITY_AND_CARD_BINDING_R1_20261023.md) · [证据17](../reports/cara_PG_P2_quality_original_packet_r1_20261023.json) · [证据18](../reports/cara_PG_P2_quality_fourcard_preflight_r1_20261023.json) |
 | <a id="pg-p3"></a>**PG-P3 · 固定程序跨预算/模型**<br>条件性后续 | 固定生成程序的第二预算与第二模型/设置验证已列入路线，尚无迁移结果。 | P1/P2后先0.70×Native，再成熟第二模型或明确第二设置重新校准。 | [证据1](../research/612_WC_POLICY_GENERATOR_CPU_PROTOTYPE_AND_REPRODUCIBLE_VALIDATION_DESIGN_20261020.md) |
 | <a id="pg-p4"></a>**PG-P4 · 最终独立TEST与部署评价**<br>待方法冻结 | 最终自动生成版本的独立TEST、重复时间和自动质量待执行；168正式为未准入草案。 | 冻结方法、对手、预算、选择规则后再选新TEST；计入warm与全流程成本。 | [证据1](../research/612_WC_POLICY_GENERATOR_CPU_PROTOTYPE_AND_REPRODUCIBLE_VALIDATION_DESIGN_20261020.md) |
+| <a id="pg-p1-c112"></a>**PG-P1-C112 · 同入口全D参照的112路径独立计时验证**<br>独立计时验证硬独占运行中 | RUNNING；0/112完成、0失败；新模型尚未独立验收，P1继续等待。 | 先完成112/72评分/23控制/财务独立接受；计时通过后按接续合同准备新P1，不直接选择本卡最优质量布局。 | [证据1](../research/687_CARA_COST112_CPU_ACCEPTED_EXCLUSIVE_LAUNCH_20261025.md) · [证据2](../research/686_CARA_COST_MODEL_ATTRIBUTION_AND_INDEPENDENT112_PREPARATION_20261025.md) · [证据3](../reports/cara_cost112_attribution_and_frozen_model_20261025.json) · [证据4](../reports/cara_cost112_GPU_actual_launch_r1_20261025.json) · [证据5](../reports/cara_cost112_GPU_initial_health_r1_20261025.json) · [证据6](../reports/cara_cost112_CPU_accepted_r2_20261025.json) · [证据7](../reports/cara_cost112_GPU3_exclusive_active_r1_20261025.json) · [证据8](../reports/cara_cost112_storage_and_thermal_admission_20261025.json) · [证据9](../manifests/cara_cost112_scope_quote_r1_20261025.json) · [证据10](../plans/cara_policy_generator_20261020/COST112_TO_P1_HANDOFF_R1_20261025.json) · [证据11](../reports/cara_cost112_GPU_live_health_r1_20261025.json) |
 
 ## 机制与历史方法开发
 

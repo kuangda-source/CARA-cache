@@ -3,8 +3,8 @@
   "project": "CARA-Cache",
   "evidence_observed_at": "2026-10-23T08:26:41.422652+08:00",
   "timezone": "Asia/Shanghai",
-  "snapshot_note": "104 R2完整原件与7.395282GPUh财务接受；强历史基线优于原GRAPH，24/25D均实测可行；计时模型最坏低估2.618秒未过2秒门槛，先修成本验证，不派P1/P2。",
-  "research_summary": "新完整104 R2硬独占运行，完整验收后按既定口径分析强历史基线、24/25D预算边界与计时偏差。P1修复及P2继续等待完整科学证据。",
+  "snapshot_note": "COST112独立计时验证已硬独占GPU3启动；原104完整接受但模型最大低估失败，新72目标只验证不重拟合，预算和alpha不变。",
+  "research_summary": "原104完整结果支持保留历史强基线与24/25D工作点；当前COST112用独立同入口全D参照验证修复后的计时模型，通过后接新P1。",
   "active_experiment_id": "PG-P1",
   "active_state": "PG_P1_TERMINAL_ACCEPTED_NO_BUDGET_FEASIBLE_SELECTION",
   "active_state_zh": "P1原件已接受，未选出预算可行策略",
@@ -12,8 +12,23 @@
   "observation_ref": "reports/wc_policy_assets_full1624_fourcard_GPU_terminal_20261023_0826.json",
   "admission_ref": "reports/wc_policy_assets_full1624_fourcard_GPU_admission_checked_and_schedule_20261022.json",
   "cpu_acceptance_ref": "reports/wc_policy_assets_full1624_fourcard_CPU_r2_accepted_20261022.json",
-  "run_report_ref": "research/685_CARA_HISTORY104_R2_COMPLETE_ACCEPTANCE_RESULTS_AND_COST_GATE_20261024.md",
-  "next_checks": [],
+  "run_report_ref": "research/687_CARA_COST112_CPU_ACCEPTED_EXCLUSIVE_LAUNCH_20261025.md",
+  "next_checks": [
+    {
+      "kind": "技术半程",
+      "scheduled_local": "2026-10-25 06:38 Asia/Shanghai",
+      "automation_id": "cara-cost112",
+      "launch_id": "35150ebb-41a4-4db7-b8fb-45f6ef49297f",
+      "not_before_unix": 1792881479.519971
+    },
+    {
+      "kind": "终态收件/若仍评分则改绑",
+      "scheduled_local": "2026-10-25 12:20 Asia/Shanghai",
+      "automation_id": "cara-cost112-p1",
+      "launch_id": "35150ebb-41a4-4db7-b8fb-45f6ef49297f",
+      "not_before_unix": 1792901940.4844196
+    }
+  ],
   "headline_results": [
     {
       "title": "修正读出有跨输入机制收益",
@@ -65,7 +80,7 @@
     }
   ],
   "next_sequence": [
-    "PG-P1-ASSETS",
+    "PG-P1-C112",
     "PG-P1",
     "PG-P2",
     "PG-P3",
@@ -98,18 +113,18 @@
     "exact_source_lifecycle_CPU_fixture_passed": true,
     "hardware_support_verified": true,
     "controller_CPU_passed": true,
-    "exclusive_active_ref": "reports/cara_PG_P1_GPU3_exclusive_active_20261023_2027.json"
+    "exclusive_active_ref": "reports/cara_cost112_GPU3_exclusive_active_r1_20261025.json"
   },
   "terminal_acceptance_ref": "reports/wc_policy_assets_full1624_fourcard_GPU_accepted_20261023_0826.json",
   "resource_observation_ref": "reports/cara_PG_P1_full64_GPU_initial_health_20261023_2029.json",
   "actual_original_GPUh": 6.900543598864331,
   "budget_snapshot": {
     "used_gpu_hours": 147.99594373601028,
-    "reserved_gpu_hours": 16.5,
-    "available_gpu_hours": 61.504056263989725,
+    "reserved_gpu_hours": 28.4,
+    "available_gpu_hours": 49.604056263989726,
     "cap_gpu_hours": 226,
-    "observed_at": "2026-10-24T23:15:50.311288+08:00",
-    "source_ref": "reports/cara_history104_R2_terminal_20261024_2315.json"
+    "observed_at": "2026-10-25T01:16:54.241596+08:00",
+    "source_ref": "reports/cara_cost112_GPU_live_health_r1_20261025.json"
   },
   "price_refresh_CPU": {
     "launch_ref": "reports/wc_policy_price_refresh_full1624_CPU_launch_r1_20261023.json",
@@ -284,7 +299,7 @@
     "repair_plan_ref": "plans/cara_policy_generator_20261020/HISTORICAL_BASELINES_BOUNDARY104_R1_20261024.md",
     "timing_card_draft_ref": "manifests/cara_historical_bridge104_scope_quote_r1_20261024.json",
     "previous_44_draft_ref": "plans/cara_policy_generator_20261020/P1_TIMING_BRIDGE44_DRAFT_20261024.json",
-    "status": "HISTORY104_COMPLETE_COST_VALIDATION_REPAIR_REQUIRED",
+    "status": "COST112_INDEPENDENT_TIMING_VALIDATION_RUNNING",
     "historical_entry_CPU_acceptance_ref": "reports/cara_history_bridge_production_CPU_accepted_r1_20261024.json",
     "historical_entry_CPU_capture_ref": "reports/cara_history_bridge_production_CPU_terminal_r5_20261024.json",
     "historical_entry_source_revision": "f3dbd47e362f5738e622994e2398681188193b37",
@@ -325,7 +340,8 @@
       "complete_report_ref": "research/685_CARA_HISTORY104_R2_COMPLETE_ACCEPTANCE_RESULTS_AND_COST_GATE_20261024.md",
       "terminal_acceptance_ref": "reports/cara_history104_R2_accepted_20261024_2315.json"
     },
-    "full104_analysis_ref": "reports/cara_history104_R2_complete_analysis_20261024.json"
+    "full104_analysis_ref": "reports/cara_history104_R2_complete_analysis_20261024.json",
+    "cost112_handoff_ref": "plans/cara_policy_generator_20261020/COST112_TO_P1_HANDOFF_R1_20261025.json"
   },
   "history104_GPU": {
     "launch_ref": "reports/cara_history104_recovery_GPU_actual_launch_r2_20261024.json",
@@ -410,5 +426,28 @@
     "failed_cost_exact_actual_GPUh": null,
     "original_reservation_released": true,
     "recovery_preparation_acceptance_ref": "reports/cara_history104_recovery_prelaunch_acceptance_20261024.json"
+  },
+  "current_active_experiment_id": "PG-P1-C112",
+  "cost112_GPU": {
+    "status": "COST112_EXCLUSIVE_GPU_RUNNING_NO_SCIENTIFIC_RESULT",
+    "launch_ref": "reports/cara_cost112_GPU_actual_launch_r1_20261025.json",
+    "launch_id": "35150ebb-41a4-4db7-b8fb-45f6ef49297f",
+    "observation_ref": "reports/cara_cost112_GPU_live_health_r1_20261025.json",
+    "observed_at": "2026-10-25T01:16:54.241596+08:00",
+    "CPU_launch_ref": "reports/cara_cost112_CPU_launch_r2_20261025.json",
+    "CPU_terminal_ref": "reports/cara_cost112_CPU_terminal_r2_20261025.json",
+    "CPU_acceptance_ref": "reports/cara_cost112_CPU_accepted_r2_20261025.json",
+    "exclusive_active_ref": "reports/cara_cost112_GPU3_exclusive_active_r1_20261025.json",
+    "storage_ref": "reports/cara_cost112_storage_and_thermal_admission_20261025.json",
+    "stage_ref": "reports/cara_cost112_GPU_stage_r1_20261025.json",
+    "report_ref": "research/687_CARA_COST112_CPU_ACCEPTED_EXCLUSIVE_LAUNCH_20261025.md",
+    "scope_ref": "manifests/cara_cost112_scope_quote_r1_20261025.json",
+    "analysis_preparation_ref": "reports/cara_cost112_attribution_and_frozen_model_20261025.json",
+    "handoff_ref": "plans/cara_policy_generator_20261020/COST112_TO_P1_HANDOFF_R1_20261025.json",
+    "new_GPU_submissions": 1,
+    "full_protocol_accepted": false,
+    "timing_model_validated": false,
+    "original_alpha_unchanged": true,
+    "strong_baselines_unchanged": true
   }
 }
