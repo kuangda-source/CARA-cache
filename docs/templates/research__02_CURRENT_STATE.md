@@ -27,3 +27,5 @@ P1原件与财务已完整接受，但没有预算可行的冻结策略，P2目�
 ## 状态来源
 
 本页由[规范状态数据](repo:docs/project_status.json)、[实验索引](repo:paper/experiment_master_table.json)和已保存回执生成。新观察覆盖规范状态指针，旧观察保留原文件。文档更新时间不能代替实验观测时间。[维护规则](repo:docs/MAINTENANCE.md) · [历史记录](repo:docs/archive/README.md)。
+
+磁盘增长归因已定向核对：guanwenfei的SAM区域文件约57.09GiB、user账号BeamNG采集约19.73GiB、CARA约0.80GiB；与77.62GiB空间下降基本对齐。72条/216原件SHA保持，已给出迁移和新104/跨会话64备选报价，均未执行。[677存储归因与恢复方案](repo:research/677_CARA_DISK_GROWTH_ATTRIBUTION_SAFE_MIGRATION_AND_104_RECOVERY_20261024.md)。

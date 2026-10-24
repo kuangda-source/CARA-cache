@@ -1,0 +1,96 @@
+{
+  "status": "READONLY_ATTRIBUTION_AND_REVIEWABLE_RECOVERY_PLAN_NO_EXECUTION",
+  "observed_unix": 1792817284.6754873,
+  "baseline_unix": 1792774795.9765313,
+  "baseline_available_bytes": 83348500480,
+  "recent_target_files_allocated": 83341365248,
+  "unreconciled_bytes": 7135232,
+  "attribution_basis": "Complete metadata walks of three target trees; unique inode allocation for files with ctime or mtime after verified cleanup; file-owner and time attribution, not historical writer PID or human identity proof. No before-per-file sizes or birth timestamps; allocation accounting is a close reconciliation, not a complete filesystem audit.",
+  "contributors": [
+    {
+      "path": "/data20t/wuxumin/3Docc/Doracamom论文复现/Doracamom/data/NewScenes_SAM_regions",
+      "owners": {
+        "guanwenfei": [
+          7422,
+          61302874112
+        ]
+      },
+      "recent_files": 7422,
+      "allocated_bytes": 61302874112,
+      "allocated_GiB": 57.092750549316406,
+      "first_time": "2026-10-24T01:00:01.631733+08:00",
+      "last_time": "2026-10-24T08:49:15.879901+08:00",
+      "after_failure_files": 0
+    },
+    {
+      "path": "/data20t/shentong/beamng_collections/reviewed_ego_batches",
+      "owners": {
+        "user": [
+          52058,
+          21183033344
+        ]
+      },
+      "recent_files": 52058,
+      "allocated_bytes": 21183033344,
+      "allocated_GiB": 19.72823715209961,
+      "first_time": "2026-10-24T01:24:25.610314+08:00",
+      "last_time": "2026-10-24T06:50:06.108227+08:00",
+      "after_failure_files": 0
+    },
+    {
+      "path": "/data20t/gaokuangda/worldcache_workspace",
+      "owners": {
+        "user": [
+          6855,
+          855457792
+        ]
+      },
+      "recent_files": 6855,
+      "allocated_bytes": 855457792,
+      "allocated_GiB": 0.7967071533203125,
+      "first_time": "2026-10-24T02:47:58.719605+08:00",
+      "last_time": "2026-10-24T08:49:32.463959+08:00",
+      "after_failure_files": 2
+    }
+  ],
+  "data20t_deleted_open_files_found": 0,
+  "migration_candidates": [
+    {
+      "kind": "pip_and_wheels",
+      "allocated_GiB": 5.475009918212891,
+      "action": "Copy+SHA+open-FD check then preserve compatible paths; no move yet"
+    },
+    {
+      "kind": "old_R2_env",
+      "allocated_GiB": 7.664905548095703,
+      "action": "Archive only after complete source/reference/import checks; not a disposable directory"
+    },
+    {
+      "kind": "completed_CARA_originals_with_all_hardlink_aliases",
+      "allocated_GiB": 45.406097412109375,
+      "action": "1994 unique inodes across5 roots; no outside hardlink aliases. Retain full tree/hardlinks and use validated directory bind mounts, not external per-file symlinks."
+    }
+  ],
+  "verified_duplicate_groups": 3,
+  "verified_duplicate_logical_GiB": 2.3626979077234864,
+  "duplicate_caveat": "1.89GiB are mutable runtime libraries, not an automatic hardlink recommendation;0.473GiB VAE is a candidate for immutable shared object after runtime checks. Do not add library savings to whole-R2 archival savings.",
+  "preserved_104_paths": 72,
+  "preserved_104_artifacts": 216,
+  "all_216_SHA_match": true,
+  "GPU_submissions": 0,
+  "files_deleted_moved_or_deduplicated": 0,
+  "experiments_or_remote_ledger_changed": false,
+  "partial_scientific_results_analyzed": false,
+  "refs": {
+    "reports/cara_data20t_target_growth_attribution_20261024.json": "9ff1e356f650f1d64f80ee3b1a21ac2805c89b2f8b2372a06f483e420eacee75",
+    "reports/cara_storage_cleanup_complete_20261024.json": "2548419ac9b3f06c1364e74b79d7920e17ea93b910d1ce22d0ec51113e853a3a",
+    "reports/cara_owned_migration_dedup_inventory_20261024.json": "046ff63f4c61227f6286818306403794c7b5778ae9608b3dcaa73f82103e839d",
+    "reports/cara_cold_migration_candidate_sizes_20261024.json": "51eef91db95293485fbe012ddac876f6d43150e6a459334f9afee350ab9255a2",
+    "reports/cara_completed_cold_union_hardlink_inventory_20261024.json": "a4dcbd742f524ee4f48bc393a71251d48d973a3fee473cbc0e324d4bd5996e71",
+    "reports/cara_owned_large_duplicate_hash_check_20261024.json": "64e7c00bf5537b060b60bb30b85aa2e83110b749557d6e3c32cca68de56430b4",
+    "reports/cara_history104_preserved_artifact_hash_audit_20261024.json": "51815e4370639799eca006229ad81a8894b4266560d3b23e908ed3384d041f70",
+    "reports/cara_data20t_deleted_open_metadata_20261024.json": "df6a127f6a198821fc6b5ad782ba051f9cdd3883c0561076753ad779b38f3930",
+    "reports/cara_storage_mounts_processes_20261024.json": "eac68a22142e27dec5eb8c5bf9afac950fd907e97a10ed4ffc7a346f6c4aed23",
+    "plans/cara_policy_generator_20261020/HISTORY104_RECOVERY_COST_OPTIONS_20261024.json": "7caea92642a9784068415b2ca60011085f1d5ecc149901168724edbb1a44e576"
+  }
+}

@@ -39,3 +39,5 @@ PG-P2公平比较计入相同信息、查询数与校准GPUh；PG-P3沿同一程
 完成冻结程序的输入接口、账本和来源核对，准备表格与图的固定比较口径，整理已接受原件；这些准备不使用运行中部分结果选择新阈值或掩码。已完成的N07/N08/N09/N10、BANK24保持原件，旧人工32路径筛查不自动恢复。
 
 [当前生成器计划](../plans/cara_policy_generator_20261020/README.md) · [任务登记](../plans/cara_policy_generator_20261020/TASK_REGISTRY.json) · [完整实验总表](../paper/EXPERIMENT_MASTER_TABLE.md) · [旧计划历史](../docs/archive/README.md)。
+
+磁盘增长归因已定向核对：guanwenfei的SAM区域文件约57.09GiB、user账号BeamNG采集约19.73GiB、CARA约0.80GiB；与77.62GiB空间下降基本对齐。72条/216原件SHA保持，已给出迁移和新104/跨会话64备选报价，均未执行。[677存储归因与恢复方案](677_CARA_DISK_GROWTH_ATTRIBUTION_SAFE_MIGRATION_AND_104_RECOVERY_20261024.md)。

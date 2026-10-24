@@ -24,3 +24,5 @@ P1原件与财务已完整接受，但没有预算可行的冻结策略，P2目�
 104完整结果分析入口已准备：固定比较历史强基线、24/25D实测预算边界与计时偏差；只接受完整终态，不读取部分结果调参。P1修复按模型验证和真实可行性分支接续，开发曝光与下一阶段Q≤8分列。[673分析准备](repo:research/673_CARA_HISTORY104_ANALYSIS_READY_AND_P1_REPAIR_DECISIONS_20261024.md) · [674解释口径](repo:research/674_CARA_HISTORY104_INTERPRETATION_CLARIFICATIONS_20261024.md) · [固定接续口径](repo:plans/cara_policy_generator_20261020/HISTORY104_ANALYSIS_AND_P1_REPAIR_HANDOFF_R1_20261024.md)。
 
 P2 CPU原件与绑定命令见[生产接续方案](repo:plans/cara_policy_generator_20261020/P2_NATIVE_HISTORY_PRODUCTION_HANDOFF_R1_20261023.md)。不重复已接受CPU。78.5 GPUh仍是历史未去重上界，非已批预算；无预算可行的冻结P1策略时不能生成最终P2报价或派发。
+
+磁盘增长归因已定向核对：guanwenfei的SAM区域文件约57.09GiB、user账号BeamNG采集约19.73GiB、CARA约0.80GiB；与77.62GiB空间下降基本对齐。72条/216原件SHA保持，已给出迁移和新104/跨会话64备选报价，均未执行。[677存储归因与恢复方案](repo:research/677_CARA_DISK_GROWTH_ATTRIBUTION_SAFE_MIGRATION_AND_104_RECOVERY_20261024.md)。

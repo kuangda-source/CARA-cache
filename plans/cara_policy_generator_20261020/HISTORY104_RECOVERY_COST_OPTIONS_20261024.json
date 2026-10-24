@@ -1,0 +1,48 @@
+{
+  "status": "RECOVERY_OPTIONS_COST_ESTIMATES_ONLY_NO_DISPATCH_OR_AUTHORIZATION",
+  "original_launch_id": "d6351496-ee8a-4428-8ede-898f53d665cd",
+  "original_protocol_accepted": false,
+  "preserved_complete_paths": 72,
+  "preserved_artifacts_hash_matched": 216,
+  "mismatches": [],
+  "original_failure_GPUh_estimate": 5.46,
+  "original_exact_GPUh": null,
+  "original_reservation_retained_GPUh": 11.9,
+  "deployment_limit_seconds": 257.7712338712067,
+  "cumulative_cap_GPUh": 226,
+  "options": [
+    {
+      "id": "EXACT_PROTOCOL_NEW104",
+      "scope": "new104:20warm+40CALIBRATION+40VALIDATION+4diagnostic, single load; all original72 retained as failed-run history",
+      "forecast_GPUh": 11.423207068397064,
+      "provisional_limit_GPUh": 11.9,
+      "post_GPU_CPU_hours_upper": 1.5,
+      "new_authorization_required": true,
+      "original_not_replayed_in_place": true
+    },
+    {
+      "id": "SEPARATE_CROSS_SESSION_VALIDATION64",
+      "scope": "new64:20warm+40complete VALIDATION+4diagnostic; possible reuse original complete40CALIBRATION only after independent full component audit; discard no originals and do not splice old12 VALIDATION into new40",
+      "quote_components": {
+        "formal_GPUh": 3.185210763361077,
+        "warm_GPUh": 1.7518659198485926,
+        "diagnostic_GPUh": 0.516278208146904,
+        "model_load_GPUh": 0.1,
+        "save_cleanup_and_release_GPUh": 0.4
+      },
+      "forecast_GPUh": 7.441693614195717,
+      "provisional_limit_GPUh": 8.5,
+      "not_original104_acceptance": true,
+      "requires_new_protocol": true,
+      "main_risk": "Different sessions and model loads; requires declared cross-session clock/control validation. This is an option, not a claim that original single-load protocol can resume.",
+      "new_authorization_required": true
+    }
+  ],
+  "forbidden": "No32-path resume represented as original single-load104; no current partial scientific analysis, scoring, budget settlement or GPU launch",
+  "storage_requirements": [
+    "Fix ordinary-user space and root filesystem headroom first",
+    "Guarantee job output capacity on dedicated/preallocated storage, not just shared30GiB preflight",
+    "Durable small control/billing journal independent of output filesystem, plus local copy",
+    "Prelaunch real ENOSPC and missing-bill lifecycle CPU checks; preserve old stage"
+  ]
+}
