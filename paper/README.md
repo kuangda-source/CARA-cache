@@ -4,13 +4,13 @@
 
 论文主线：**CFG对齐读出修正 → 数据驱动计算时机 → 冻结自动程序的实际质量—时间收益**。已有机制结果放在前面，自动生成器的最终数值由后续真实验证填入。
 
-**当前COST112独立计时验证：硬独占运行中。** 实际启动2026-10-25T01:11:58+08:00，观测2026-10-25T01:16:54.241596+08:00。RUNNING；0/112完成、0失败；新模型尚未独立验收，P1继续等待。
+**当前COST112独立计时验证：硬独占运行中。** 实际启动2026-10-25T01:11:58+08:00，观测2026-10-25T06:39:36.303813+08:00。RUNNING；75/112完成、0失败；新模型尚未独立验收，P1继续等待。
 
 保留原10角色、强基线与alpha；20warm+8独立全D时钟参照+80正式+4诊断，4032pairs/8064CFG，单load。系数由已接受104完整数据冻结，本卡72个目标只验证、不重拟合。释放GPU结算后72组/6696帧CPU评分。
 
-forecast10.867202、硬上限11.9 GPUh；部署257.771秒、0.80×新Native及累计226 GPUh保持。技术半程：**2026-10-25 06:38 Asia/Shanghai**；终态收件/若仍评分则改绑：**2026-10-25 12:20 Asia/Shanghai**。
+forecast10.867202、硬上限11.9 GPUh；部署257.771秒、0.80×新Native及累计226 GPUh保持。终态收件/若仍评分则改绑：**2026-10-25 11:15 Asia/Shanghai**。
 
-[唯一实际启动](../reports/cara_cost112_GPU_actual_launch_r1_20261025.json) · [最新技术观测](../reports/cara_cost112_GPU_live_health_r1_20261025.json) · [真实独占](../reports/cara_cost112_GPU3_exclusive_active_r1_20261025.json) · [归因及独立验证记录](../research/687_CARA_COST112_CPU_ACCEPTED_EXCLUSIVE_LAUNCH_20261025.md)。
+[唯一实际启动](../reports/cara_cost112_GPU_actual_launch_r1_20261025.json) · [最新技术观测](../reports/cara_cost112_GPU_halfway_20261025_0638.json) · [真实独占](../reports/cara_cost112_GPU3_exclusive_active_r1_20261025.json) · [归因及独立验证记录](../research/687_CARA_COST112_CPU_ACCEPTED_EXCLUSIVE_LAUNCH_20261025.md)。
 
 原104 R2完整接受，原计时模型最坏低估2.618秒未通过2秒门槛；新卡通过后才接新P1生产验证与完整报价。
 
