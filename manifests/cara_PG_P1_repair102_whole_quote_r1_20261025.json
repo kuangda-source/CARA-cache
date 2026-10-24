@@ -1,0 +1,908 @@
+{
+  "version": "CARA_PG_P1_REPAIR102_R1",
+  "scope_counts": {
+    "maximum_paths": 102,
+    "Native_paths": 8,
+    "fullD_clock_paths": 14,
+    "candidate_warm_paths": 16,
+    "candidate_FIT_paths": 32,
+    "candidate_SELECT_paths": 8,
+    "strong_warm_paths": 6,
+    "strong_FIT_paths": 12,
+    "strong_SELECT_paths": 6,
+    "maximum_score_pairs": 58,
+    "maximum_score_frames": 5394,
+    "maximum_guided_pairs": 3672,
+    "maximum_CFG_calls": 7344,
+    "loads": 1,
+    "new_candidate_queries": 8,
+    "fixed_baseline_policies": 3,
+    "maximum_distinct_evaluated_policies": 11,
+    "CAL_FIT": 4,
+    "CAL_SELECT": 2,
+    "DEV": 0,
+    "TEST": 0
+  },
+  "matrix": [
+    {
+      "id": "native_warm_1",
+      "kind": "NATIVE",
+      "split": "WARM",
+      "member_index": 0
+    },
+    {
+      "id": "native_warm_2",
+      "kind": "NATIVE",
+      "split": "WARM",
+      "member_index": 0
+    },
+    {
+      "id": "native_fit_0",
+      "kind": "NATIVE",
+      "split": "CAL_FIT",
+      "member_index": 0
+    },
+    {
+      "id": "native_fit_1",
+      "kind": "NATIVE",
+      "split": "CAL_FIT",
+      "member_index": 1
+    },
+    {
+      "id": "native_fit_2",
+      "kind": "NATIVE",
+      "split": "CAL_FIT",
+      "member_index": 2
+    },
+    {
+      "id": "native_fit_3",
+      "kind": "NATIVE",
+      "split": "CAL_FIT",
+      "member_index": 3
+    },
+    {
+      "id": "bootstrap_0",
+      "kind": "CLOCK",
+      "split": "CAL_FIT",
+      "member_index": 0
+    },
+    {
+      "id": "bootstrap_1",
+      "kind": "CLOCK",
+      "split": "CAL_FIT",
+      "member_index": 1
+    },
+    {
+      "id": "bootstrap_2",
+      "kind": "CLOCK",
+      "split": "CAL_FIT",
+      "member_index": 2
+    },
+    {
+      "id": "bootstrap_3",
+      "kind": "CLOCK",
+      "split": "CAL_FIT",
+      "member_index": 3
+    },
+    {
+      "id": "S26_C_warm_1",
+      "kind": "STRONG",
+      "split": "WARM",
+      "member_index": 0,
+      "role": "S26_C"
+    },
+    {
+      "id": "S26_C_warm_2",
+      "kind": "STRONG",
+      "split": "WARM",
+      "member_index": 0,
+      "role": "S26_C"
+    },
+    {
+      "id": "S26_A_PHASE_warm_1",
+      "kind": "STRONG",
+      "split": "WARM",
+      "member_index": 0,
+      "role": "S26_A_PHASE"
+    },
+    {
+      "id": "S26_A_PHASE_warm_2",
+      "kind": "STRONG",
+      "split": "WARM",
+      "member_index": 0,
+      "role": "S26_A_PHASE"
+    },
+    {
+      "id": "SHARED26_C_warm_1",
+      "kind": "STRONG",
+      "split": "WARM",
+      "member_index": 0,
+      "role": "SHARED26_C"
+    },
+    {
+      "id": "SHARED26_C_warm_2",
+      "kind": "STRONG",
+      "split": "WARM",
+      "member_index": 0,
+      "role": "SHARED26_C"
+    },
+    {
+      "id": "q0_warm_1",
+      "kind": "QUERY",
+      "split": "WARM",
+      "member_index": 0,
+      "query_slot": 0
+    },
+    {
+      "id": "q0_warm_2",
+      "kind": "QUERY",
+      "split": "WARM",
+      "member_index": 0,
+      "query_slot": 0
+    },
+    {
+      "id": "q1_warm_1",
+      "kind": "QUERY",
+      "split": "WARM",
+      "member_index": 0,
+      "query_slot": 1
+    },
+    {
+      "id": "q1_warm_2",
+      "kind": "QUERY",
+      "split": "WARM",
+      "member_index": 0,
+      "query_slot": 1
+    },
+    {
+      "id": "q2_warm_1",
+      "kind": "QUERY",
+      "split": "WARM",
+      "member_index": 0,
+      "query_slot": 2
+    },
+    {
+      "id": "q2_warm_2",
+      "kind": "QUERY",
+      "split": "WARM",
+      "member_index": 0,
+      "query_slot": 2
+    },
+    {
+      "id": "q3_warm_1",
+      "kind": "QUERY",
+      "split": "WARM",
+      "member_index": 0,
+      "query_slot": 3
+    },
+    {
+      "id": "q3_warm_2",
+      "kind": "QUERY",
+      "split": "WARM",
+      "member_index": 0,
+      "query_slot": 3
+    },
+    {
+      "id": "q4_warm_1",
+      "kind": "QUERY",
+      "split": "WARM",
+      "member_index": 0,
+      "query_slot": 4
+    },
+    {
+      "id": "q4_warm_2",
+      "kind": "QUERY",
+      "split": "WARM",
+      "member_index": 0,
+      "query_slot": 4
+    },
+    {
+      "id": "q5_warm_1",
+      "kind": "QUERY",
+      "split": "WARM",
+      "member_index": 0,
+      "query_slot": 5
+    },
+    {
+      "id": "q5_warm_2",
+      "kind": "QUERY",
+      "split": "WARM",
+      "member_index": 0,
+      "query_slot": 5
+    },
+    {
+      "id": "q6_warm_1",
+      "kind": "QUERY",
+      "split": "WARM",
+      "member_index": 0,
+      "query_slot": 6
+    },
+    {
+      "id": "q6_warm_2",
+      "kind": "QUERY",
+      "split": "WARM",
+      "member_index": 0,
+      "query_slot": 6
+    },
+    {
+      "id": "q7_warm_1",
+      "kind": "QUERY",
+      "split": "WARM",
+      "member_index": 0,
+      "query_slot": 7
+    },
+    {
+      "id": "q7_warm_2",
+      "kind": "QUERY",
+      "split": "WARM",
+      "member_index": 0,
+      "query_slot": 7
+    },
+    {
+      "id": "anchor_0_0",
+      "kind": "CLOCK",
+      "split": "CAL_FIT",
+      "member_index": 0,
+      "phase": 0
+    },
+    {
+      "id": "S26_C_fit_0",
+      "kind": "STRONG",
+      "split": "CAL_FIT",
+      "member_index": 0,
+      "role": "S26_C",
+      "clock_anchor_id": "anchor_0_0"
+    },
+    {
+      "id": "S26_A_PHASE_fit_0",
+      "kind": "STRONG",
+      "split": "CAL_FIT",
+      "member_index": 0,
+      "role": "S26_A_PHASE",
+      "clock_anchor_id": "anchor_0_0"
+    },
+    {
+      "id": "SHARED26_C_fit_0",
+      "kind": "STRONG",
+      "split": "CAL_FIT",
+      "member_index": 0,
+      "role": "SHARED26_C",
+      "clock_anchor_id": "anchor_0_0"
+    },
+    {
+      "id": "q0_fit_0",
+      "kind": "QUERY",
+      "split": "CAL_FIT",
+      "member_index": 0,
+      "query_slot": 0,
+      "clock_anchor_id": "anchor_0_0"
+    },
+    {
+      "id": "q1_fit_0",
+      "kind": "QUERY",
+      "split": "CAL_FIT",
+      "member_index": 0,
+      "query_slot": 1,
+      "clock_anchor_id": "anchor_0_0"
+    },
+    {
+      "id": "q2_fit_0",
+      "kind": "QUERY",
+      "split": "CAL_FIT",
+      "member_index": 0,
+      "query_slot": 2,
+      "clock_anchor_id": "anchor_0_0"
+    },
+    {
+      "id": "q3_fit_0",
+      "kind": "QUERY",
+      "split": "CAL_FIT",
+      "member_index": 0,
+      "query_slot": 3,
+      "clock_anchor_id": "anchor_0_0"
+    },
+    {
+      "id": "anchor_0_1",
+      "kind": "CLOCK",
+      "split": "CAL_FIT",
+      "member_index": 1,
+      "phase": 0
+    },
+    {
+      "id": "S26_C_fit_1",
+      "kind": "STRONG",
+      "split": "CAL_FIT",
+      "member_index": 1,
+      "role": "S26_C",
+      "clock_anchor_id": "anchor_0_1"
+    },
+    {
+      "id": "S26_A_PHASE_fit_1",
+      "kind": "STRONG",
+      "split": "CAL_FIT",
+      "member_index": 1,
+      "role": "S26_A_PHASE",
+      "clock_anchor_id": "anchor_0_1"
+    },
+    {
+      "id": "SHARED26_C_fit_1",
+      "kind": "STRONG",
+      "split": "CAL_FIT",
+      "member_index": 1,
+      "role": "SHARED26_C",
+      "clock_anchor_id": "anchor_0_1"
+    },
+    {
+      "id": "q0_fit_1",
+      "kind": "QUERY",
+      "split": "CAL_FIT",
+      "member_index": 1,
+      "query_slot": 0,
+      "clock_anchor_id": "anchor_0_1"
+    },
+    {
+      "id": "q1_fit_1",
+      "kind": "QUERY",
+      "split": "CAL_FIT",
+      "member_index": 1,
+      "query_slot": 1,
+      "clock_anchor_id": "anchor_0_1"
+    },
+    {
+      "id": "q2_fit_1",
+      "kind": "QUERY",
+      "split": "CAL_FIT",
+      "member_index": 1,
+      "query_slot": 2,
+      "clock_anchor_id": "anchor_0_1"
+    },
+    {
+      "id": "q3_fit_1",
+      "kind": "QUERY",
+      "split": "CAL_FIT",
+      "member_index": 1,
+      "query_slot": 3,
+      "clock_anchor_id": "anchor_0_1"
+    },
+    {
+      "id": "anchor_0_2",
+      "kind": "CLOCK",
+      "split": "CAL_FIT",
+      "member_index": 2,
+      "phase": 0
+    },
+    {
+      "id": "S26_C_fit_2",
+      "kind": "STRONG",
+      "split": "CAL_FIT",
+      "member_index": 2,
+      "role": "S26_C",
+      "clock_anchor_id": "anchor_0_2"
+    },
+    {
+      "id": "S26_A_PHASE_fit_2",
+      "kind": "STRONG",
+      "split": "CAL_FIT",
+      "member_index": 2,
+      "role": "S26_A_PHASE",
+      "clock_anchor_id": "anchor_0_2"
+    },
+    {
+      "id": "SHARED26_C_fit_2",
+      "kind": "STRONG",
+      "split": "CAL_FIT",
+      "member_index": 2,
+      "role": "SHARED26_C",
+      "clock_anchor_id": "anchor_0_2"
+    },
+    {
+      "id": "q0_fit_2",
+      "kind": "QUERY",
+      "split": "CAL_FIT",
+      "member_index": 2,
+      "query_slot": 0,
+      "clock_anchor_id": "anchor_0_2"
+    },
+    {
+      "id": "q1_fit_2",
+      "kind": "QUERY",
+      "split": "CAL_FIT",
+      "member_index": 2,
+      "query_slot": 1,
+      "clock_anchor_id": "anchor_0_2"
+    },
+    {
+      "id": "q2_fit_2",
+      "kind": "QUERY",
+      "split": "CAL_FIT",
+      "member_index": 2,
+      "query_slot": 2,
+      "clock_anchor_id": "anchor_0_2"
+    },
+    {
+      "id": "q3_fit_2",
+      "kind": "QUERY",
+      "split": "CAL_FIT",
+      "member_index": 2,
+      "query_slot": 3,
+      "clock_anchor_id": "anchor_0_2"
+    },
+    {
+      "id": "anchor_0_3",
+      "kind": "CLOCK",
+      "split": "CAL_FIT",
+      "member_index": 3,
+      "phase": 0
+    },
+    {
+      "id": "S26_C_fit_3",
+      "kind": "STRONG",
+      "split": "CAL_FIT",
+      "member_index": 3,
+      "role": "S26_C",
+      "clock_anchor_id": "anchor_0_3"
+    },
+    {
+      "id": "S26_A_PHASE_fit_3",
+      "kind": "STRONG",
+      "split": "CAL_FIT",
+      "member_index": 3,
+      "role": "S26_A_PHASE",
+      "clock_anchor_id": "anchor_0_3"
+    },
+    {
+      "id": "SHARED26_C_fit_3",
+      "kind": "STRONG",
+      "split": "CAL_FIT",
+      "member_index": 3,
+      "role": "SHARED26_C",
+      "clock_anchor_id": "anchor_0_3"
+    },
+    {
+      "id": "q0_fit_3",
+      "kind": "QUERY",
+      "split": "CAL_FIT",
+      "member_index": 3,
+      "query_slot": 0,
+      "clock_anchor_id": "anchor_0_3"
+    },
+    {
+      "id": "q1_fit_3",
+      "kind": "QUERY",
+      "split": "CAL_FIT",
+      "member_index": 3,
+      "query_slot": 1,
+      "clock_anchor_id": "anchor_0_3"
+    },
+    {
+      "id": "q2_fit_3",
+      "kind": "QUERY",
+      "split": "CAL_FIT",
+      "member_index": 3,
+      "query_slot": 2,
+      "clock_anchor_id": "anchor_0_3"
+    },
+    {
+      "id": "q3_fit_3",
+      "kind": "QUERY",
+      "split": "CAL_FIT",
+      "member_index": 3,
+      "query_slot": 3,
+      "clock_anchor_id": "anchor_0_3"
+    },
+    {
+      "id": "anchor_1_0",
+      "kind": "CLOCK",
+      "split": "CAL_FIT",
+      "member_index": 0,
+      "phase": 1
+    },
+    {
+      "id": "q4_fit_0",
+      "kind": "QUERY",
+      "split": "CAL_FIT",
+      "member_index": 0,
+      "query_slot": 4,
+      "clock_anchor_id": "anchor_1_0"
+    },
+    {
+      "id": "q5_fit_0",
+      "kind": "QUERY",
+      "split": "CAL_FIT",
+      "member_index": 0,
+      "query_slot": 5,
+      "clock_anchor_id": "anchor_1_0"
+    },
+    {
+      "id": "q6_fit_0",
+      "kind": "QUERY",
+      "split": "CAL_FIT",
+      "member_index": 0,
+      "query_slot": 6,
+      "clock_anchor_id": "anchor_1_0"
+    },
+    {
+      "id": "q7_fit_0",
+      "kind": "QUERY",
+      "split": "CAL_FIT",
+      "member_index": 0,
+      "query_slot": 7,
+      "clock_anchor_id": "anchor_1_0"
+    },
+    {
+      "id": "anchor_1_1",
+      "kind": "CLOCK",
+      "split": "CAL_FIT",
+      "member_index": 1,
+      "phase": 1
+    },
+    {
+      "id": "q4_fit_1",
+      "kind": "QUERY",
+      "split": "CAL_FIT",
+      "member_index": 1,
+      "query_slot": 4,
+      "clock_anchor_id": "anchor_1_1"
+    },
+    {
+      "id": "q5_fit_1",
+      "kind": "QUERY",
+      "split": "CAL_FIT",
+      "member_index": 1,
+      "query_slot": 5,
+      "clock_anchor_id": "anchor_1_1"
+    },
+    {
+      "id": "q6_fit_1",
+      "kind": "QUERY",
+      "split": "CAL_FIT",
+      "member_index": 1,
+      "query_slot": 6,
+      "clock_anchor_id": "anchor_1_1"
+    },
+    {
+      "id": "q7_fit_1",
+      "kind": "QUERY",
+      "split": "CAL_FIT",
+      "member_index": 1,
+      "query_slot": 7,
+      "clock_anchor_id": "anchor_1_1"
+    },
+    {
+      "id": "anchor_1_2",
+      "kind": "CLOCK",
+      "split": "CAL_FIT",
+      "member_index": 2,
+      "phase": 1
+    },
+    {
+      "id": "q4_fit_2",
+      "kind": "QUERY",
+      "split": "CAL_FIT",
+      "member_index": 2,
+      "query_slot": 4,
+      "clock_anchor_id": "anchor_1_2"
+    },
+    {
+      "id": "q5_fit_2",
+      "kind": "QUERY",
+      "split": "CAL_FIT",
+      "member_index": 2,
+      "query_slot": 5,
+      "clock_anchor_id": "anchor_1_2"
+    },
+    {
+      "id": "q6_fit_2",
+      "kind": "QUERY",
+      "split": "CAL_FIT",
+      "member_index": 2,
+      "query_slot": 6,
+      "clock_anchor_id": "anchor_1_2"
+    },
+    {
+      "id": "q7_fit_2",
+      "kind": "QUERY",
+      "split": "CAL_FIT",
+      "member_index": 2,
+      "query_slot": 7,
+      "clock_anchor_id": "anchor_1_2"
+    },
+    {
+      "id": "anchor_1_3",
+      "kind": "CLOCK",
+      "split": "CAL_FIT",
+      "member_index": 3,
+      "phase": 1
+    },
+    {
+      "id": "q4_fit_3",
+      "kind": "QUERY",
+      "split": "CAL_FIT",
+      "member_index": 3,
+      "query_slot": 4,
+      "clock_anchor_id": "anchor_1_3"
+    },
+    {
+      "id": "q5_fit_3",
+      "kind": "QUERY",
+      "split": "CAL_FIT",
+      "member_index": 3,
+      "query_slot": 5,
+      "clock_anchor_id": "anchor_1_3"
+    },
+    {
+      "id": "q6_fit_3",
+      "kind": "QUERY",
+      "split": "CAL_FIT",
+      "member_index": 3,
+      "query_slot": 6,
+      "clock_anchor_id": "anchor_1_3"
+    },
+    {
+      "id": "q7_fit_3",
+      "kind": "QUERY",
+      "split": "CAL_FIT",
+      "member_index": 3,
+      "query_slot": 7,
+      "clock_anchor_id": "anchor_1_3"
+    },
+    {
+      "id": "native_select_0",
+      "kind": "NATIVE",
+      "split": "CAL_SELECT",
+      "member_index": 0
+    },
+    {
+      "id": "anchor_select_0",
+      "kind": "CLOCK",
+      "split": "CAL_SELECT",
+      "member_index": 0
+    },
+    {
+      "id": "S26_C_select_0",
+      "kind": "STRONG",
+      "split": "CAL_SELECT",
+      "member_index": 0,
+      "role": "S26_C",
+      "clock_anchor_id": "anchor_select_0"
+    },
+    {
+      "id": "S26_A_PHASE_select_0",
+      "kind": "STRONG",
+      "split": "CAL_SELECT",
+      "member_index": 0,
+      "role": "S26_A_PHASE",
+      "clock_anchor_id": "anchor_select_0"
+    },
+    {
+      "id": "SHARED26_C_select_0",
+      "kind": "STRONG",
+      "split": "CAL_SELECT",
+      "member_index": 0,
+      "role": "SHARED26_C",
+      "clock_anchor_id": "anchor_select_0"
+    },
+    {
+      "id": "select_0_0",
+      "kind": "QUERY",
+      "split": "CAL_SELECT",
+      "member_index": 0,
+      "selection_slot": 0,
+      "clock_anchor_id": "anchor_select_0"
+    },
+    {
+      "id": "select_1_0",
+      "kind": "QUERY",
+      "split": "CAL_SELECT",
+      "member_index": 0,
+      "selection_slot": 1,
+      "clock_anchor_id": "anchor_select_0"
+    },
+    {
+      "id": "select_2_0",
+      "kind": "QUERY",
+      "split": "CAL_SELECT",
+      "member_index": 0,
+      "selection_slot": 2,
+      "clock_anchor_id": "anchor_select_0"
+    },
+    {
+      "id": "select_3_0",
+      "kind": "QUERY",
+      "split": "CAL_SELECT",
+      "member_index": 0,
+      "selection_slot": 3,
+      "clock_anchor_id": "anchor_select_0"
+    },
+    {
+      "id": "native_select_1",
+      "kind": "NATIVE",
+      "split": "CAL_SELECT",
+      "member_index": 1
+    },
+    {
+      "id": "anchor_select_1",
+      "kind": "CLOCK",
+      "split": "CAL_SELECT",
+      "member_index": 1
+    },
+    {
+      "id": "S26_C_select_1",
+      "kind": "STRONG",
+      "split": "CAL_SELECT",
+      "member_index": 1,
+      "role": "S26_C",
+      "clock_anchor_id": "anchor_select_1"
+    },
+    {
+      "id": "S26_A_PHASE_select_1",
+      "kind": "STRONG",
+      "split": "CAL_SELECT",
+      "member_index": 1,
+      "role": "S26_A_PHASE",
+      "clock_anchor_id": "anchor_select_1"
+    },
+    {
+      "id": "SHARED26_C_select_1",
+      "kind": "STRONG",
+      "split": "CAL_SELECT",
+      "member_index": 1,
+      "role": "SHARED26_C",
+      "clock_anchor_id": "anchor_select_1"
+    },
+    {
+      "id": "select_0_1",
+      "kind": "QUERY",
+      "split": "CAL_SELECT",
+      "member_index": 1,
+      "selection_slot": 0,
+      "clock_anchor_id": "anchor_select_1"
+    },
+    {
+      "id": "select_1_1",
+      "kind": "QUERY",
+      "split": "CAL_SELECT",
+      "member_index": 1,
+      "selection_slot": 1,
+      "clock_anchor_id": "anchor_select_1"
+    },
+    {
+      "id": "select_2_1",
+      "kind": "QUERY",
+      "split": "CAL_SELECT",
+      "member_index": 1,
+      "selection_slot": 2,
+      "clock_anchor_id": "anchor_select_1"
+    },
+    {
+      "id": "select_3_1",
+      "kind": "QUERY",
+      "split": "CAL_SELECT",
+      "member_index": 1,
+      "selection_slot": 3,
+      "clock_anchor_id": "anchor_select_1"
+    }
+  ],
+  "path_allowance_seconds": {
+    "native_warm_1": 326.812630844675,
+    "native_warm_2": 326.812630844675,
+    "native_fit_0": 297.1023916769773,
+    "native_fit_1": 297.1023916769773,
+    "native_fit_2": 297.1023916769773,
+    "native_fit_3": 297.1023916769773,
+    "bootstrap_0": 300.89820293337107,
+    "bootstrap_1": 300.89820293337107,
+    "bootstrap_2": 300.89820293337107,
+    "bootstrap_3": 300.89820293337107,
+    "S26_C_warm_1": 264.9103482950479,
+    "S26_C_warm_2": 264.9103482950479,
+    "S26_A_PHASE_warm_1": 266.43117678295823,
+    "S26_A_PHASE_warm_2": 266.43117678295823,
+    "SHARED26_C_warm_1": 265.04749330915513,
+    "SHARED26_C_warm_2": 265.04749330915513,
+    "q0_warm_1": 330.9880232267082,
+    "q0_warm_2": 330.9880232267082,
+    "q1_warm_1": 330.9880232267082,
+    "q1_warm_2": 330.9880232267082,
+    "q2_warm_1": 330.9880232267082,
+    "q2_warm_2": 330.9880232267082,
+    "q3_warm_1": 330.9880232267082,
+    "q3_warm_2": 330.9880232267082,
+    "q4_warm_1": 330.9880232267082,
+    "q4_warm_2": 330.9880232267082,
+    "q5_warm_1": 330.9880232267082,
+    "q5_warm_2": 330.9880232267082,
+    "q6_warm_1": 330.9880232267082,
+    "q6_warm_2": 330.9880232267082,
+    "q7_warm_1": 330.9880232267082,
+    "q7_warm_2": 330.9880232267082,
+    "anchor_0_0": 300.89820293337107,
+    "S26_C_fit_0": 240.82758935913444,
+    "S26_A_PHASE_fit_0": 242.2101607117802,
+    "SHARED26_C_fit_0": 240.95226664468646,
+    "q0_fit_0": 300.89820293337107,
+    "q1_fit_0": 300.89820293337107,
+    "q2_fit_0": 300.89820293337107,
+    "q3_fit_0": 300.89820293337107,
+    "anchor_0_1": 300.89820293337107,
+    "S26_C_fit_1": 240.82758935913444,
+    "S26_A_PHASE_fit_1": 242.2101607117802,
+    "SHARED26_C_fit_1": 240.95226664468646,
+    "q0_fit_1": 300.89820293337107,
+    "q1_fit_1": 300.89820293337107,
+    "q2_fit_1": 300.89820293337107,
+    "q3_fit_1": 300.89820293337107,
+    "anchor_0_2": 300.89820293337107,
+    "S26_C_fit_2": 240.82758935913444,
+    "S26_A_PHASE_fit_2": 242.2101607117802,
+    "SHARED26_C_fit_2": 240.95226664468646,
+    "q0_fit_2": 300.89820293337107,
+    "q1_fit_2": 300.89820293337107,
+    "q2_fit_2": 300.89820293337107,
+    "q3_fit_2": 300.89820293337107,
+    "anchor_0_3": 300.89820293337107,
+    "S26_C_fit_3": 240.82758935913444,
+    "S26_A_PHASE_fit_3": 242.2101607117802,
+    "SHARED26_C_fit_3": 240.95226664468646,
+    "q0_fit_3": 300.89820293337107,
+    "q1_fit_3": 300.89820293337107,
+    "q2_fit_3": 300.89820293337107,
+    "q3_fit_3": 300.89820293337107,
+    "anchor_1_0": 300.89820293337107,
+    "q4_fit_0": 300.89820293337107,
+    "q5_fit_0": 300.89820293337107,
+    "q6_fit_0": 300.89820293337107,
+    "q7_fit_0": 300.89820293337107,
+    "anchor_1_1": 300.89820293337107,
+    "q4_fit_1": 300.89820293337107,
+    "q5_fit_1": 300.89820293337107,
+    "q6_fit_1": 300.89820293337107,
+    "q7_fit_1": 300.89820293337107,
+    "anchor_1_2": 300.89820293337107,
+    "q4_fit_2": 300.89820293337107,
+    "q5_fit_2": 300.89820293337107,
+    "q6_fit_2": 300.89820293337107,
+    "q7_fit_2": 300.89820293337107,
+    "anchor_1_3": 300.89820293337107,
+    "q4_fit_3": 300.89820293337107,
+    "q5_fit_3": 300.89820293337107,
+    "q6_fit_3": 300.89820293337107,
+    "q7_fit_3": 300.89820293337107,
+    "native_select_0": 297.1023916769773,
+    "anchor_select_0": 300.89820293337107,
+    "S26_C_select_0": 240.82758935913444,
+    "S26_A_PHASE_select_0": 242.2101607117802,
+    "SHARED26_C_select_0": 240.95226664468646,
+    "select_0_0": 300.89820293337107,
+    "select_1_0": 300.89820293337107,
+    "select_2_0": 300.89820293337107,
+    "select_3_0": 300.89820293337107,
+    "native_select_1": 297.1023916769773,
+    "anchor_select_1": 300.89820293337107,
+    "S26_C_select_1": 240.82758935913444,
+    "S26_A_PHASE_select_1": 242.2101607117802,
+    "SHARED26_C_select_1": 240.95226664468646,
+    "select_0_1": 300.89820293337107,
+    "select_1_1": 300.89820293337107,
+    "select_2_1": 300.89820293337107,
+    "select_3_1": 300.89820293337107
+  },
+  "additional_seconds": {
+    "model_load": 360.0,
+    "online58_full93_CPU_LPIPS": 3480.0,
+    "graph_and_one_recovery": 1200.0,
+    "raw_copy_hash_and_safe_release": 1440.0
+  },
+  "planning_margin": 1.25,
+  "forecast_complete_GPUh": 12.638055555555555,
+  "billed_limit_GPUh": 14.0,
+  "cumulative_cap_GPUh": 226,
+  "deployment_limit_seconds": 257.7712338712067,
+  "relative_native_budget": 0.8,
+  "proposal_margin_seconds": 6.0,
+  "specific_whole_card_approval_required": true,
+  "physical_dedup_credit_seconds": 0,
+  "prior_budget_reused": false,
+  "GPU_dispatch_ready": false,
+  "status": "FULL_SCOPE_QUOTED_PENDING_COST112_CPU_ADMISSION_AND_SPECIFIC_BUDGET"
+}
