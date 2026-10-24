@@ -7,6 +7,31 @@ from .continuation_preparation import require
 from ..policy_price_terminal_r1 import record,monitor,IMAGE
 
 
+def post_replay_equal(original, replay, path=()):
+    """Only derived least-squares floats tolerate platform roundoff (1e-12).
+
+    Raw clocks, quality, identities, budgets and all decision flags remain exact.
+    This is serialization/replay compatibility, not a timing acceptance margin.
+    """
+    import math
+    if isinstance(original, dict) and isinstance(replay, dict):
+        return original.keys()==replay.keys() and all(
+            post_replay_equal(original[k],replay[k],path+(k,)) for k in original)
+    if isinstance(original, list) and isinstance(replay, list):
+        return len(original)==len(replay) and all(
+            post_replay_equal(a,b,path+(i,)) for i,(a,b) in enumerate(zip(original,replay)))
+    derived = (len(path)==3 and path[:2]==('timing','fit_coefficients')
+               and path[-1] in ('offset','per_D','per_A')) or (
+        len(path)==2 and path[0]=='timing' and path[-1] in (
+            'mean_absolute_relative_error','maximum_underestimate_seconds')) or (
+        len(path)==4 and path[:2]==('timing','validation') and path[-1] in (
+            'predicted_seconds','underestimate_seconds','absolute_relative_error')) or (
+        len(path)==4 and path[:2]==('timing','per_role') and path[-1]=='predicted_mean_seconds')
+    if derived and isinstance(original,float) and isinstance(replay,float):
+        return math.isfinite(original) and math.isfinite(replay) and abs(original-replay)<=1e-12
+    return type(original) is type(replay) and original==replay
+
+
 def scientific(v):
     card=record(v,'card');runner=record(v,'runner');batch=runner['batch']
     require(runner['model_loads']==1,'Single model load required')
@@ -75,7 +100,7 @@ def accept(v):
     runner=record(v,'runner')
     require(runner['source_revision']==L['source_revision'] and runner['registration_sha256']==L['registration_sha256'] and runner['config_sha256']==L['config_sha256'] and runner['pid']==sup['child_identity']['pid'],'Runner identity changed')
     require(postexit['exit_code']==0 and postexit['CPU_only_after_UUID_release'] and postexit['final_result_sha256']==v['files']['post']['sha256'] and post['runner_sha256']==v['files']['runner']['sha256'],'Independent post binding failed')
-    science=scientific(v);require(post['scientific']==science,'Post and original independent replay differ')
+    science=scientific(v);require(post_replay_equal(post['scientific'],science),'Post and original independent replay differ')
     restore=guard['mode_restoration'];require(restore['restored'] or restore['status']=='RESTORE_DEFERRED_NO_FOREIGN_PROCESS_TOUCHED','Unknown safe mode restoration')
     return dict(status='HISTORY104_COMPLETE_ORIGINALS_FINANCE_AND_SELECTION_ACCEPTED',full_protocol_accepted=True,
         source_revision=L['source_revision'],launch_id=L['launch_id'],actual_GPUh=actual,scope_counts=COUNTS,

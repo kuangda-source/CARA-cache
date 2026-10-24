@@ -4,13 +4,11 @@
 
 论文主线：**CFG对齐读出修正 → 数据驱动计算时机 → 冻结自动程序的实际质量—时间收益**。已有机制结果放在前面，自动生成器的最终数值由后续真实验证填入。
 
-**当前104路径验证卡：GPU3硬独占运行中。** 实际启动2026-10-24T13:41:30+08:00，观测2026-10-24T19:27:58.446736+08:00。RUNNING；81/104完成、0失败。
+**104 R2已完整验收并完成离线分析。** 104/104路径、72组/6696帧评分与独占、财务完整接受；实际7.395282 GPUh。计时模型未通过原判据，须独立成本验证后才能接P1。
 
-范围：4 CAL、10角色、80正式+20warm+4诊断；3744pairs/7488CFG，单load。释放GPU并结算后执行72配对/6696帧CPU评分。forecast11.423207、硬上限11.9 GPUh；部署257.771秒及累计226 GPUh保持。最终验收（含释放后CPU评分）：**2026-10-24 23:15 Asia/Shanghai**。
+原GPU、容器及锁已释放，终态检查已关闭；部署257.771秒、0.80×新Native与累计226 GPUh不变。尚未选择最终策略，PG-P2不准入。
 
-[唯一实际启动](../reports/cara_history104_recovery_GPU_actual_launch_r2_20261024.json) · [最新技术观测](../reports/cara_history104_R2_halfway_20261024_1925.json) · [真实独占核验](../reports/cara_history104_recovery_GPU3_exclusive_active_r2_20261024.json) · [组合检查与执行记录](../research/684_CARA_HISTORY104_R2_HALFWAY_81_PATHS_20261024.md)。
-
-原P1原件与财务完整接受，但未选出预算可行策略。104卡CPU与独占准入不代表GPU结果；P2仍等待可行冻结策略。
+[完整原终态](../reports/cara_history104_R2_terminal_20261024_2315.json) · [独立接受](../reports/cara_history104_R2_accepted_20261024_2315.json) · [完整分析](../reports/cara_history104_R2_complete_analysis_20261024.json) · [结果与接续](../research/685_CARA_HISTORY104_R2_COMPLETE_ACCEPTANCE_RESULTS_AND_COST_GATE_20261024.md)。
 
 | 需要的材料 | 入口 |
 |---|---|

@@ -2,31 +2,29 @@
 
 # CARA-Cache 后续实验顺序
 
-**当前104路径验证卡：GPU3硬独占运行中。** 实际启动2026-10-24T13:41:30+08:00，观测2026-10-24T19:27:58.446736+08:00。RUNNING；81/104完成、0失败。
+**104 R2已完整验收并完成离线分析。** 104/104路径、72组/6696帧评分与独占、财务完整接受；实际7.395282 GPUh。计时模型未通过原判据，须独立成本验证后才能接P1。
 
-范围：4 CAL、10角色、80正式+20warm+4诊断；3744pairs/7488CFG，单load。释放GPU并结算后执行72配对/6696帧CPU评分。forecast11.423207、硬上限11.9 GPUh；部署257.771秒及累计226 GPUh保持。最终验收（含释放后CPU评分）：**2026-10-24 23:15 Asia/Shanghai**。
+原GPU、容器及锁已释放，终态检查已关闭；部署257.771秒、0.80×新Native与累计226 GPUh不变。尚未选择最终策略，PG-P2不准入。
 
-[唯一实际启动](../reports/cara_history104_recovery_GPU_actual_launch_r2_20261024.json) · [最新技术观测](../reports/cara_history104_R2_halfway_20261024_1925.json) · [真实独占核验](../reports/cara_history104_recovery_GPU3_exclusive_active_r2_20261024.json) · [组合检查与执行记录](684_CARA_HISTORY104_R2_HALFWAY_81_PATHS_20261024.md)。
+[完整原终态](../reports/cara_history104_R2_terminal_20261024_2315.json) · [独立接受](../reports/cara_history104_R2_accepted_20261024_2315.json) · [完整分析](../reports/cara_history104_R2_complete_analysis_20261024.json) · [结果与接续](685_CARA_HISTORY104_R2_COMPLETE_ACCEPTANCE_RESULTS_AND_COST_GATE_20261024.md)。
 
-原P1原件与财务完整接受，但未选出预算可行策略。104卡CPU与独占准入不代表GPU结果；P2仍等待可行冻结策略。
-
-10月24日19:27技术半程见[684](684_CARA_HISTORY104_R2_HALFWAY_81_PATHS_20261024.md)：81/104完成、1运行、0失败；独占、磁盘保护和跨盘日志正常。88°C且瞬时软件温控，保持配置。预计21:00–21:30完成采集，23:15检查完整终态；未分析部分结果。
+10月24日完整终态见[685](685_CARA_HISTORY104_R2_COMPLETE_ACCEPTANCE_RESULTS_AND_COST_GATE_20261024.md)：104路径与72评分完整接受，实际7.395282GPUh，GPU和锁已释放。历史强基线均胜原GRAPH；24/25D实测可行，但计时模型最坏低估2.618秒未过2秒门槛。下一步先修成本验证；本次不派P1/P2。
 
 研究目标是验证**可复现的校准程序是否能在实际计算预算下生成有竞争力的缓存/修正/刷新计划**。下面按依赖顺序推进；已完成旧卡与条件性扩展不混入活动队列。
 
 | 顺序 | 当前阶段 | 下一项验收 / 动作 |
 |---|---|---|
 | PG-P1-ASSETS | 完整1624真实区间/价格资产：原标签与独占价格完整接受 | 以新双SHA bundle接已接受CPU的PG-P1，检验闭环策略。 |
-| PG-P1 | 单预算自动策略闭环：P1原件已接受，未选出预算可行策略 | 104完整终态后按673离线入口分析强历史基线、24/25D实测预算边界与冻结计时误差；再按预定分支准备P1修复合同、曝光核查、CPU和完整报价，不放宽预算。 |
+| PG-P1 | 单预算自动策略闭环：P1原件已接受，未选出预算可行策略 | 104 R2完整分析已完成：强历史布局优于原GRAPH，24/25D实测在本卡B内，但模型最坏低估2.618秒未过2秒门槛。先登记成本修复与独立验证，再准备新P1合同/CPU/完整报价，不直接派P2。 |
 | PG-P2 | 等预算与等查询强基线：质量入口与绑定准备完成；真实模型CPU待准入 | P1原件已接受但没有预算可行的冻结策略；保留已完成CPU与质量入口准备，暂不定最终GPU预算或派发。 |
 | PG-P3 | 固定程序跨预算/模型：条件性后续 | P1/P2后先0.70×Native，再成熟第二模型或明确第二设置重新校准。 |
 | PG-P4 | 最终独立TEST与部署评价：待方法冻结 | 冻结方法、对手、预算、选择规则后再选新TEST；计入warm与全流程成本。 |
 
 ## 下一卡的具体准备
 
-P1原件与财务已完整接受，但没有预算可行的冻结策略，P2目前不准入。保留已通过的P2组合CPU与五模型入口准备；完整离线分析确认全请求价格低估与可行性恢复搜索缺口，见[669原因分析与修复](669_CARA_PG_P1_COMPLETE_BUDGET_ATTRIBUTION_AND_REPAIR_PLAN_20261024.md)。历史强基线原alpha及24/25D新旧入口148路径CPU已接受；[104路径预算边界卡](670_CARA_HISTORICAL_BASELINE_EQUIVALENCE_AND_BOUNDARY104_20261024.md)已完整报价11.423207/11.9 GPUh，替代未执行44路径草案。104卡组合CPU已接受，但GPU采集在08:49因磁盘满提前退出；旧health为72/104完成，GPU已释放，完整验收未通过，旧11.9GPUh预约已释放，按明确标注的保守重建值5.48GPUh结算；新完整104 R2已按后续明确授权于13:41:30在GPU3硬独占启动，独立输出卷与跨盘日志生效。部署257.771秒及累计226 GPUh不变。见[676失败原件](676_CARA_HISTORY104_DISK_FULL_EARLY_EXIT_20261024.md)。见[671实际执行](671_CARA_HISTORY104_COMBINATION_AND_EXCLUSIVE_EXECUTION_20261024.md)。已完成旧实验约4.45 GiB实体去重，38原路径和所有SHA保持；两个压缩包经全量一致核验后清理，本次合计释放63.05 GiB，另三个差异包保留。见[668当前原件与维护](668_CARA_STORAGE_DEDUP_AND_P1_ORIGINAL_TERMINAL_ACCEPTANCE_20261024.md)。
+P1原件与财务已完整接受，但没有预算可行的冻结策略，P2目前不准入。保留已通过的P2组合CPU与五模型入口准备；完整离线分析确认全请求价格低估与可行性恢复搜索缺口，见[669原因分析与修复](669_CARA_PG_P1_COMPLETE_BUDGET_ATTRIBUTION_AND_REPAIR_PLAN_20261024.md)。历史强基线原alpha及24/25D新旧入口148路径CPU已接受；[104路径预算边界卡](670_CARA_HISTORICAL_BASELINE_EQUIVALENCE_AND_BOUNDARY104_20261024.md)已完整报价11.423207/11.9 GPUh，替代未执行44路径草案。104卡组合CPU已接受，但GPU采集在08:49因磁盘满提前退出；旧health为72/104完成，GPU已释放，完整验收未通过，旧11.9GPUh预约已释放，按明确标注的保守重建值5.48GPUh结算；新完整104 R2于13:41:30在GPU3硬独占启动，现104路径/72评分已完整接受并结算7.395282GPUh，独立输出卷与跨盘日志核验通过；计时模型未过2秒最大低估门槛，先修成本验证。部署257.771秒及累计226 GPUh不变。见[676失败原件](676_CARA_HISTORY104_DISK_FULL_EARLY_EXIT_20261024.md)。见[671实际执行](671_CARA_HISTORY104_COMBINATION_AND_EXCLUSIVE_EXECUTION_20261024.md)。已完成旧实验约4.45 GiB实体去重，38原路径和所有SHA保持；两个压缩包经全量一致核验后清理，本次合计释放63.05 GiB，另三个差异包保留。见[668当前原件与维护](668_CARA_STORAGE_DEDUP_AND_P1_ORIGINAL_TERMINAL_ACCEPTANCE_20261024.md)。
 
-104完整结果分析入口已准备：固定比较历史强基线、24/25D实测预算边界与计时偏差；只接受完整终态，不读取部分结果调参。P1修复按模型验证和真实可行性分支接续，开发曝光与下一阶段Q≤8分列。[673分析准备](673_CARA_HISTORY104_ANALYSIS_READY_AND_P1_REPAIR_DECISIONS_20261024.md) · [674解释口径](674_CARA_HISTORY104_INTERPRETATION_CLARIFICATIONS_20261024.md) · [681 R2接续复核](681_CARA_HISTORY104_R2_ANALYSIS_ENTRY_AND_P1_HANDOFF_CHECKED_20261024.md) · [固定接续口径](../plans/cara_policy_generator_20261020/HISTORY104_ANALYSIS_AND_P1_REPAIR_HANDOFF_R1_20261024.md)。
+104完整结果已按预定口径分析：强历史布局优于原GRAPH，24/25D实测可行，计时模型最大低估未过门槛；先登记独立成本验证。P1修复按模型验证和真实可行性分支接续，开发曝光与下一阶段Q≤8分列。[673分析准备](673_CARA_HISTORY104_ANALYSIS_READY_AND_P1_REPAIR_DECISIONS_20261024.md) · [674解释口径](674_CARA_HISTORY104_INTERPRETATION_CLARIFICATIONS_20261024.md) · [681 R2接续复核](681_CARA_HISTORY104_R2_ANALYSIS_ENTRY_AND_P1_HANDOFF_CHECKED_20261024.md) · [固定接续口径](../plans/cara_policy_generator_20261020/HISTORY104_ANALYSIS_AND_P1_REPAIR_HANDOFF_R1_20261024.md)。
 
 [2026-10-23接续要求](../plans/cara_policy_generator_20261020/PRICE_HISTORY_NATIVE_CONTINUATION_R1_20261023.md)：原1624数值/控制和动作价格分别接受；已知同卡竞争的价格不因低波动自动通过。未来GPU卡要求实际独占。冻结策略后加入小规模历史窗口诊断，PG-P2加入少步Native等实测时间对照；shadow不写回，不计为干净延迟，新增范围单独进入完整报价。
 
@@ -44,6 +42,6 @@ PG-P2公平比较计入相同信息、查询数与校准GPUh；PG-P3沿同一程
 
 磁盘增长归因已定向核对：guanwenfei的SAM区域文件约57.09GiB、user账号BeamNG采集约19.73GiB、CARA约0.80GiB；与77.62GiB空间下降基本对齐。72条/216原件SHA保持，已给出迁移和新104/跨会话64备选报价，均未执行。[677存储归因与恢复方案](677_CARA_DISK_GROWTH_ATTRIBUTION_SAFE_MIGRATION_AND_104_RECOVERY_20261024.md)。
 
-用户指定NuPlan数据和ConvMAE训练检查点已按清单清理约1.326TiB，579份代码/配置/日志/基础权重SHA保持一致；实测普通用户空间恢复约1358.0GiB。原104失败已按保守值5.48GPUh结算；新的完整104 R2依据后续明确授权独立运行。见记录678及`reports/cara_two_targets_authorized_bulk_cleanup_complete_20261024.json`。
+用户指定NuPlan数据和ConvMAE训练检查点已按清单清理约1.326TiB，579份代码/配置/日志/基础权重SHA保持一致；实测普通用户空间恢复约1358.0GiB。原104失败已按保守值5.48GPUh结算；新的完整104 R2已完成并独立验收，实际7.395282GPUh。见记录678及`reports/cara_two_targets_authorized_bulk_cleanup_complete_20261024.json`。
 
-[679最终恢复准备](679_CARA_HISTORY104_FAILED_SETTLEMENT_STORAGE_GUARD_AND_FINAL_RECOVERY_20261024.md)：旧失败保守结算5.48GPUh；新完整104维持11.423207/11.9GPUh，32GiB独立输出卷与跨盘日志、真实ENOSPC组合CPU通过。后续启动授权及实际执行见[680新完整104 R2](680_CARA_HISTORY104_R2_EXCLUSIVE_LAUNCH_AND_ACCEPTANCE_20261024.md)；该新卡已单次提交并预留11.9GPUh。
+[679最终恢复准备](679_CARA_HISTORY104_FAILED_SETTLEMENT_STORAGE_GUARD_AND_FINAL_RECOVERY_20261024.md)：旧失败保守结算5.48GPUh；新完整104维持11.423207/11.9GPUh，32GiB独立输出卷与跨盘日志、真实ENOSPC组合CPU通过。后续启动授权及实际执行见[680新完整104 R2](680_CARA_HISTORY104_R2_EXCLUSIVE_LAUNCH_AND_ACCEPTANCE_20261024.md)；该新卡现已完整验收，7.395282GPUh结算，原11.9GPUh预约释放。

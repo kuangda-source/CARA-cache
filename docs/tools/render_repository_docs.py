@@ -375,6 +375,25 @@ def build():
                 next_action='保持新GPU提交0；按完整104恢复合同，等待新的明确启动授权。')
             hr['evidence_or_planned_scope']=hp
             master['operation_policy'].update(current_running_card=None,current_running_cards=[])
+        if history.get('terminal_acceptance_ref'):
+            accepted=load(history['terminal_acceptance_ref'])
+            if (not accepted['full_protocol_accepted'] or accepted['launch_id']!=hl['launch_id']
+                    or accepted['source_revision']!=hl['source_revision']
+                    or accepted['capture_sha256']!=digest((ROOT/history['observation_ref']).read_bytes())['sha256']
+                    or any(ho['original_live_handles'].values()) or not ho['own_UUID_lock_free']
+                    or ho['container']['state']['ExitCode']!=0):
+                raise ValueError('History104 complete terminal binding differs')
+            result=(f"104/104路径、72组/6696帧评分与独占、财务完整接受；实际{accepted['actual_GPUh']:.6f} GPUh。"
+                    + ('计时模型通过。' if accepted['timing_model_validated'] else '计时模型未通过原判据，须独立成本验证后才能接P1。'))
+            snapshot=(f"**104 R2已完整验收并完成离线分析。** {result}\n\n"
+                      "原GPU、容器及锁已释放，终态检查已关闭；部署257.771秒、0.80×新Native与累计226 GPUh不变。"
+                      "尚未选择最终策略，PG-P2不准入。\n\n"
+                      f"{link(history['observation_ref'],'完整原终态')} · {link(history['terminal_acceptance_ref'],'独立接受')} · "
+                      f"{link(history['analysis_ref'],'完整分析')} · {link(history['report_ref'],'结果与接续')}。")
+            hr.update(full_protocol_accepted=True,evidence_or_planned_scope=result,claim_relation='COMPLETE_CAL_DESCRIPTIVE_EVIDENCE')
+            hr['reader'].update(status='完整接受；计时模型待修复',result=result,
+                next_action='保持预算与原alpha，先登记成本修复及独立验证；保留历史强基线与24/25D边界，不自动重派P1/P2。')
+            master['operation_policy'].update(current_running_card=None,current_running_cards=[])
         fields=[('run',hl['run_id']),('launch ID',hl['launch_id']),('source',hl['source_revision']),('stage',hl['stage']),
                 ('GPU UUID',hl['gpu_uuid']),('容器',hl['container']),('guardian',hl['guardian_identity']['pid']),
                 ('runner',f"PID {hg['runner']['pid']} / start_ticks {hg['runner']['start_ticks']} / UID {hg['runner']['uid']}")]
