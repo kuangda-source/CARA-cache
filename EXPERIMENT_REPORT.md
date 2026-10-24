@@ -4,11 +4,13 @@
 
 本项目的核心价值是把**缓存读出质量**与**计算时机分配**放在同一预算问题中研究。已完成的实验说明：CFG对齐修正能降低局部误差，并在固定刷新布局下改善视频终点；数据导出的共享布局也有CAL信号。正在推进的自动生成器将这些证据接到可复现、计入校准费用的完整质量—时间比较。
 
-**104恢复准备：旧卡已结算，新GPU未启动。** 旧104保持失败；费用按保守重建值5.48GPUh结算（非精确原账单），原11.9预约已释放。32GiB独立输出卷与48MiB跨盘控制日志已准备；恢复整卡CPU与真实ENOSPC检查已通过。
+**当前104路径验证卡：GPU3硬独占运行中。** 实际启动2026-10-24T13:41:30+08:00，观测2026-10-24T13:43:31.849206+08:00。HISTORY104_MODEL_LOADING；0/104完成、0失败。
 
-最终恢复为新的完整104、单load、原alpha与两轮顺序；forecast11.423207/硬上限11.9GPUh，释放后72组CPU评分。部署257.771秒、累计226GPUh保持。用户明确先不重跑，旧72路径不拼接或分析调参。
+范围：4 CAL、10角色、80正式+20warm+4诊断；3744pairs/7488CFG，单load。释放GPU并结算后执行72配对/6696帧CPU评分。forecast11.423207、硬上限11.9 GPUh；部署257.771秒及累计226 GPUh保持。技术半程：**2026-10-24 19:25 Asia/Shanghai**；最终验收（含释放后CPU评分）：**2026-10-25 03:10 Asia/Shanghai**。
 
-[结算、保护与CPU验收](research/679_CARA_HISTORY104_FAILED_SETTLEMENT_STORAGE_GUARD_AND_FINAL_RECOVERY_20261024.md) · [最终完整报价](manifests/cara_history104_recovery_full104_quote_r2_20261024.json)。
+[唯一实际启动](reports/cara_history104_recovery_GPU_actual_launch_r2_20261024.json) · [最新技术观测](reports/cara_history104_recovery_GPU_model_loading_r2_20261024.json) · [真实独占核验](reports/cara_history104_recovery_GPU3_exclusive_active_r2_20261024.json) · [组合检查与执行记录](research/680_CARA_HISTORY104_R2_EXCLUSIVE_LAUNCH_AND_ACCEPTANCE_20261024.md)。
+
+原P1原件与财务完整接受，但未选出预算可行策略。104卡CPU与独占准入不代表GPU结果；P2仍等待可行冻结策略。
 
 ## 方法及比较对象
 

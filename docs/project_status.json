@@ -3,8 +3,8 @@
   "project": "CARA-Cache",
   "evidence_observed_at": "2026-10-23T08:26:41.422652+08:00",
   "timezone": "Asia/Shanghai",
-  "snapshot_note": "原104失败保持，已按保守重建值5.48GPUh结算（非精确原账单），原11.9预约释放。32GiB独立输出卷、跨盘48MiB控制日志、新CPU组合均已接受；最终恢复完整104，forecast11.423207/上限11.9GPUh。用户要求先不重跑，新GPU提交0。",
-  "research_summary": "旧104失败费用与磁盘保护已处理；新完整104恢复准备通过CPU，等待明确重跑授权。P1修复和P2仍等待完整科学证据。",
+  "snapshot_note": "新完整104 R2已于2026-10-24 13:41:30在GPU3硬独占启动；原失败保守结算5.48GPUh保持。独立输出卷和跨盘日志生效；仅技术观察，不据部分结果调参。",
+  "research_summary": "新完整104 R2硬独占运行，完整验收后按既定口径分析强历史基线、24/25D预算边界与计时偏差。P1修复及P2继续等待完整科学证据。",
   "active_experiment_id": "PG-P1",
   "active_state": "PG_P1_TERMINAL_ACCEPTED_NO_BUDGET_FEASIBLE_SELECTION",
   "active_state_zh": "P1原件已接受，未选出预算可行策略",
@@ -12,8 +12,22 @@
   "observation_ref": "reports/wc_policy_assets_full1624_fourcard_GPU_terminal_20261023_0826.json",
   "admission_ref": "reports/wc_policy_assets_full1624_fourcard_GPU_admission_checked_and_schedule_20261022.json",
   "cpu_acceptance_ref": "reports/wc_policy_assets_full1624_fourcard_CPU_r2_accepted_20261022.json",
-  "run_report_ref": "research/676_CARA_HISTORY104_DISK_FULL_EARLY_EXIT_20261024.md",
-  "next_checks": [],
+  "run_report_ref": "research/680_CARA_HISTORY104_R2_EXCLUSIVE_LAUNCH_AND_ACCEPTANCE_20261024.md",
+  "next_checks": [
+    {
+      "kind": "技术半程",
+      "scheduled_local": "2026-10-24 19:25 Asia/Shanghai",
+      "automation_id": "cara104-r2",
+      "launch_ref": "reports/cara_history104_recovery_GPU_actual_launch_r2_20261024.json",
+      "not_before_unix": 1792841052.6843472
+    },
+    {
+      "kind": "最终验收（含释放后CPU评分）",
+      "scheduled_local": "2026-10-25 03:10 Asia/Shanghai",
+      "automation_id": "cara104-r2-2",
+      "launch_ref": "reports/cara_history104_recovery_GPU_actual_launch_r2_20261024.json"
+    }
+  ],
   "headline_results": [
     {
       "title": "修正读出有跨输入机制收益",
@@ -105,9 +119,11 @@
   "actual_original_GPUh": 6.900543598864331,
   "budget_snapshot": {
     "used_gpu_hours": 140.60066151587193,
-    "reserved_gpu_hours": 16.5,
-    "available_gpu_hours": 68.89933848412807,
-    "cap_gpu_hours": 226
+    "reserved_gpu_hours": 28.4,
+    "available_gpu_hours": 56.99933848412807,
+    "cap_gpu_hours": 226,
+    "observed_at": "2026-10-24T13:43:31.849206+08:00",
+    "source_ref": "reports/cara_history104_recovery_GPU_model_loading_r2_20261024.json"
   },
   "price_refresh_CPU": {
     "launch_ref": "reports/wc_policy_price_refresh_full1624_CPU_launch_r1_20261023.json",
@@ -278,11 +294,11 @@
   },
   "PG_P1_repair_preparation": {
     "analysis_ref": "reports/cara_PG_P1_complete_budget_attribution_20261024.json",
-    "report_ref": "research/671_CARA_HISTORY104_COMBINATION_AND_EXCLUSIVE_EXECUTION_20261024.md",
+    "report_ref": "research/680_CARA_HISTORY104_R2_EXCLUSIVE_LAUNCH_AND_ACCEPTANCE_20261024.md",
     "repair_plan_ref": "plans/cara_policy_generator_20261020/HISTORICAL_BASELINES_BOUNDARY104_R1_20261024.md",
     "timing_card_draft_ref": "manifests/cara_historical_bridge104_scope_quote_r1_20261024.json",
     "previous_44_draft_ref": "plans/cara_policy_generator_20261020/P1_TIMING_BRIDGE44_DRAFT_20261024.json",
-    "status": "HISTORY104_COMBINATION_CPU_ACCEPTED_GPU_EXCLUSIVE_RUNNING",
+    "status": "HISTORY104_R2_EXCLUSIVE_RUNNING_STORAGE_PROTECTED",
     "historical_entry_CPU_acceptance_ref": "reports/cara_history_bridge_production_CPU_accepted_r1_20261024.json",
     "historical_entry_CPU_capture_ref": "reports/cara_history_bridge_production_CPU_terminal_r5_20261024.json",
     "historical_entry_source_revision": "f3dbd47e362f5738e622994e2398681188193b37",
@@ -295,11 +311,11 @@
     "GPU_dispatch_ready": false,
     "new_GPU_submissions": 1,
     "budget_relaxed": false,
-    "evidence_observed_at": "2026-10-24T03:28:24.130215+08:00",
-    "combination_CPU_acceptance_ref": "reports/cara_history104_combination_CPU_accepted_r1_20261024.json",
-    "combination_CPU_capture_ref": "reports/cara_history104_combination_CPU_terminal_r1_20261024.json",
-    "execution_source_revision": "5fc4dfe66a33a915fcc7bdf10700bae8810bb401",
-    "launch_ref": "reports/cara_history104_GPU_actual_launch_r1_20261024.json",
+    "evidence_observed_at": "2026-10-24T13:43:31.849206+08:00",
+    "combination_CPU_acceptance_ref": "reports/cara_history104_storage_combination_CPU_accepted_r2_20261024.json",
+    "combination_CPU_capture_ref": "reports/cara_history104_storage_combination_CPU_terminal_r2_20261024.json",
+    "execution_source_revision": "159aaa76ddecc78864b40fa669a32029a3a4a6e4",
+    "launch_ref": "reports/cara_history104_recovery_GPU_actual_launch_r2_20261024.json",
     "result_analysis_preparation": {
       "status": "OFFLINE_ANALYSIS_READY_WAIT_COMPLETE104_ACCEPTANCE",
       "plan_ref": "plans/cara_policy_generator_20261020/HISTORY104_ANALYSIS_AND_P1_REPAIR_HANDOFF_R1_20261024.md",
@@ -318,6 +334,38 @@
     }
   },
   "history104_GPU": {
+    "launch_ref": "reports/cara_history104_recovery_GPU_actual_launch_r2_20261024.json",
+    "observation_ref": "reports/cara_history104_recovery_GPU_model_loading_r2_20261024.json",
+    "CPU_acceptance_ref": "reports/cara_history104_storage_combination_CPU_accepted_r2_20261024.json",
+    "exclusive_active_ref": "reports/cara_history104_recovery_GPU3_exclusive_active_r2_20261024.json",
+    "report_ref": "research/680_CARA_HISTORY104_R2_EXCLUSIVE_LAUNCH_AND_ACCEPTANCE_20261024.md",
+    "stage_ref": "reports/cara_history104_recovery_GPU_stage_r2_20261024.json",
+    "status": "HISTORY104_R2_EXCLUSIVE_RUNNING_STORAGE_PROTECTED",
+    "observed_at": "2026-10-24T13:43:31.849206+08:00",
+    "full_protocol_accepted": false,
+    "recovery_GPU_dispatch_authorized": true,
+    "storage_ref": "reports/cara_history104_recovery_active_storage_journal_20261024.json",
+    "exclusive_prefix_ref": "reports/cara_history104_recovery_exclusive_monitor_prefix_20261024.json",
+    "authorization_ref": "reports/cara_history104_recovery_direct_user_GPU_authorization_20261024.json",
+    "whole_quote_ref": "manifests/cara_history104_recovery_full104_quote_r2_20261024.json"
+  },
+  "history104_result_analysis_preparation": {
+    "status": "OFFLINE_ANALYSIS_READY_WAIT_COMPLETE104_ACCEPTANCE",
+    "plan_ref": "plans/cara_policy_generator_20261020/HISTORY104_ANALYSIS_AND_P1_REPAIR_HANDOFF_R1_20261024.md",
+    "report_ref": "research/673_CARA_HISTORY104_ANALYSIS_READY_AND_P1_REPAIR_DECISIONS_20261024.md",
+    "CPU_preparation_ref": "reports/cara_history104_analysis_preparation_CPU_r1_20261024.json",
+    "entry": "scripts/analyze_cara_history104_results_r1.py",
+    "unit_checks": 29,
+    "CLI_checks": 3,
+    "partial_results_used": false,
+    "GPU_submissions": 0,
+    "search_or_budget_changed": false,
+    "interpretation_revision": 2,
+    "clarification_report_ref": "research/674_CARA_HISTORY104_INTERPRETATION_CLARIFICATIONS_20261024.md",
+    "clarification_CPU_ref": "reports/cara_history104_interpretation_clarification_CPU_r1_20261024.json",
+    "latest_unit_checks": 32
+  },
+  "history104_original_failed_GPU": {
     "launch_ref": "reports/cara_history104_GPU_actual_launch_r1_20261024.json",
     "observation_ref": "reports/cara_history104_GPU_failed_terminal_readonly_20261024_0912.json",
     "CPU_acceptance_ref": "reports/cara_history104_combination_CPU_accepted_r1_20261024.json",
@@ -353,21 +401,5 @@
     "failed_cost_exact_actual_GPUh": null,
     "original_reservation_released": true,
     "recovery_preparation_acceptance_ref": "reports/cara_history104_recovery_prelaunch_acceptance_20261024.json"
-  },
-  "history104_result_analysis_preparation": {
-    "status": "OFFLINE_ANALYSIS_READY_WAIT_COMPLETE104_ACCEPTANCE",
-    "plan_ref": "plans/cara_policy_generator_20261020/HISTORY104_ANALYSIS_AND_P1_REPAIR_HANDOFF_R1_20261024.md",
-    "report_ref": "research/673_CARA_HISTORY104_ANALYSIS_READY_AND_P1_REPAIR_DECISIONS_20261024.md",
-    "CPU_preparation_ref": "reports/cara_history104_analysis_preparation_CPU_r1_20261024.json",
-    "entry": "scripts/analyze_cara_history104_results_r1.py",
-    "unit_checks": 29,
-    "CLI_checks": 3,
-    "partial_results_used": false,
-    "GPU_submissions": 0,
-    "search_or_budget_changed": false,
-    "interpretation_revision": 2,
-    "clarification_report_ref": "research/674_CARA_HISTORY104_INTERPRETATION_CLARIFICATIONS_20261024.md",
-    "clarification_CPU_ref": "reports/cara_history104_interpretation_clarification_CPU_r1_20261024.json",
-    "latest_unit_checks": 32
   }
 }
