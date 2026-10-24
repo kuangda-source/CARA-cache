@@ -430,6 +430,19 @@ def build():
                 ('runner',f"PID {cg['runner']['pid']} / start_ticks {cg['runner']['start_ticks']} / UID {cg['runner']['uid']}")]
         run_details='| 当前112路径卡字段 | 原始身份 |\n|---|---|\n'+'\n'.join(f'| {k} | `{v}` |' for k,v in fields)
         master['status_counts']={state:sum(r['state']==state for r in rows) for state in sorted({r['state'] for r in rows})}
+    repair = status.get('P1_repair102_preparation')
+    if repair:
+        ra, rt, rq, repair_exposure = (load(repair[k]) for k in ('CPU_acceptance_ref','CPU_terminal_ref','quote_ref','exposure_ref'))
+        if (not ra['production_entry_CPU_accepted'] or ra['source_revision'] != rt['launch']['source_revision']
+                or not repair_exposure['scoped_no_execution_evidence'] or rq['scope_counts']['maximum_paths'] != 102
+                or repair['new_GPU_submissions'] != 0 or repair['specific_quote_authorized']):
+            raise ValueError('P1 repair preparation evidence mismatch')
+        snapshot += ("\n\n**新P1准备：入口CPU已独立接受，GPU未启动。** 新的同输入全D时钟块、三条历史强基线、原alpha及一次有限恢复已接入；"
+                     "Q≤8候选之外另有3条固定比较布局，完整最多102路径/58组评分。"
+                     f"预计{rq['forecast_complete_GPUh']:.4f} GPUh、建议上限{rq['billed_limit_GPUh']:g} GPUh，尚未专项批准；原112的11.9、累计226与部署257.771秒不变。"
+                     "新102监督/捕获/财务终态组合仍须独立CPU接受，且必须等待112完整计时门，不能凭入口CPU派卡。 "
+                     + link(repair['report_ref'],'准备与报价记录') + ' · ' + link(repair['CPU_acceptance_ref'],'入口CPU接受'))
+        by_id['PG-P1']['reader']['next_action'] = by_id['PG-P1-R102']['reader']['next_action']
     headlines = '\n'.join(f"- **{f['title']}**（{f['short_scope']}）：{f['result']} {refs(f['refs'])}"
                            for f in status['headline_results'])
     details = '\n\n'.join(f"### {i+1}. {f['title']}\n\n{f['result']}\n\n{f['scope']} {refs(f['refs'])}"

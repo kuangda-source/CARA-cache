@@ -22,7 +22,34 @@ def sha(raw):
     return hashlib.sha256(raw).hexdigest()
 
 
+def accepted_p1_unused_select(ref,data,root=ROOT):
+    """Exempt only the exact accepted original whose SELECT never executed."""
+    original='reports/cara_PG_P1_original_terminal_codec_recovered_20261024_0035.json'
+    if ref!=original:return False
+    try:
+        raw=(root/ref).read_bytes()
+        accepted=json.loads((root/'reports/cara_PG_P1_original_terminal_accepted_20261024_0037.json').read_text())
+        if (sha(raw)!=accepted['capture_sha256'] or accepted['capture_ref']!=ref
+                or json.loads(raw)!=data or accepted['full_protocol_accepted'] is not True
+                or accepted['launch_id']!=data['launch']['launch_id']):return False
+        batch=json.loads(data['files']['runner']['raw_utf8'])['batch']
+        selected=[r for r in batch['rows'] if r['split']=='CAL_SELECT']
+        if (len(batch['rows'])!=64 or len(selected)!=10 or batch['status']!='BUDGET_NOT_VERIFIED'
+                or batch['selection_frozen'] is not None
+                or accepted['scientific']['selected_policy'] is not None):return False
+        if any(r['status']!='UNUSED_REGISTERED_UPPER_BOUND' or set(r)&{'member','video_artifact','score_artifact','request_artifact'} for r in selected):return False
+        ids={r['id'] for r in selected}
+        if any(ids & set(data[k]) for k in ('requests','scores','artifact_checks')):return False
+        return True
+    except (KeyError,ValueError,TypeError,OSError):return False
+
+
 def metadata_reason(ref, data):
+    if accepted_p1_unused_select(ref,data):
+        index=Identities(json.loads((ROOT/SELECT).read_text())['selected_sources'])
+        hits,_=index.document(data)
+        if hits and all(h['location'] in ('$.select_members[0]','$.select_members[1]') for h in hits):
+            return 'ACCEPTED_P1_UNUSED_SELECT_IDENTITIES_ONLY_NO_REQUESTS'
     if ref == CATALOG:
         return 'ORIGINAL_BENCHMARK_CATALOG_NOT_EXECUTION'
     if ref == 'reports/wc_paper_N07_all1044_original_input_bytes_CPU_inventory_20261016.json':

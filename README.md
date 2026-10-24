@@ -12,7 +12,7 @@ CARA-Cache（CFG-Aligned Readout and Cost-Aware Allocation for Video Diffusion�
 |---|---|
 | 做了什么、主要结果怎样 | [研究与结果概览](EXPERIMENT_REPORT.md) |
 | 现在在跑什么、下一次何时验收 | [当前状态](research/02_CURRENT_STATE.md) |
-| 每项实验是否完成、支持什么结论 | [56项实验总表](paper/EXPERIMENT_MASTER_TABLE.md) |
+| 每项实验是否完成、支持什么结论 | [57项实验总表](paper/EXPERIMENT_MASTER_TABLE.md) |
 | 下一步解决什么问题 | [后续实验顺序](research/09_NEXT_ACTIONS.md) |
 | 如何复核代码、原件和统计 | [复现与证据指南](docs/REPRODUCIBILITY.md) |
 | 从项目开始到现在的完整记录 | [历史入口](docs/archive/README.md) |
@@ -58,6 +58,8 @@ forecast10.867202、硬上限11.9 GPUh；部署257.771秒、0.80×新Native及�
 [唯一实际启动](reports/cara_cost112_GPU_actual_launch_r1_20261025.json) · [最新技术观测](reports/cara_cost112_GPU_live_health_r1_20261025.json) · [真实独占](reports/cara_cost112_GPU3_exclusive_active_r1_20261025.json) · [归因及独立验证记录](research/687_CARA_COST112_CPU_ACCEPTED_EXCLUSIVE_LAUNCH_20261025.md)。
 
 原104 R2完整接受，原计时模型最坏低估2.618秒未通过2秒门槛；新卡通过后才接新P1生产验证与完整报价。
+
+**新P1准备：入口CPU已独立接受，GPU未启动。** 新的同输入全D时钟块、三条历史强基线、原alpha及一次有限恢复已接入；Q≤8候选之外另有3条固定比较布局，完整最多102路径/58组评分。预计12.6381 GPUh、建议上限14 GPUh，尚未专项批准；原112的11.9、累计226与部署257.771秒不变。新102监督/捕获/财务终态组合仍须独立CPU接受，且必须等待112完整计时门，不能凭入口CPU派卡。 [准备与报价记录](research/688_CARA_P1_REPAIR102_ENTRY_CPU_QUOTE_AND_SELECT_AUDIT_20261025.md) · [入口CPU接受](reports/cara_PG_P1_repair102_CPU_accepted_r1_20261025.json)
 
 10月24日完整终态见[685](research/685_CARA_HISTORY104_R2_COMPLETE_ACCEPTANCE_RESULTS_AND_COST_GATE_20261024.md)：104路径与72评分完整接受，实际7.395282GPUh，GPU和锁已释放。历史强基线均胜原GRAPH；24/25D实测可行，但计时模型最坏低估2.618秒未过2秒门槛。COST112独立计时验证已于10月25日01:11:58在GPU3硬独占启动；完整通过后接新P1，P2仍等待冻结策略。见[687](research/687_CARA_COST112_CPU_ACCEPTED_EXCLUSIVE_LAUNCH_20261025.md)。
 
