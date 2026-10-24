@@ -4,6 +4,8 @@
 
 {{snapshot}}
 
+10月24日14:40技术观察见[682](repo:research/682_CARA_HISTORY104_R2_TECHNICAL_PROGRESS_STORAGE_AND_THERMAL_20261024.md)：13/104完成、1运行、0失败；独占、独立输出卷和跨盘日志正常。短窗口88–89°C且有软件温控/功率限制；保持配置，19:25复核并更新ETA。未分析部分结果。
+
 {{run_details}}
 
 ## 接续规则

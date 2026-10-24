@@ -49,13 +49,15 @@ LPIPS 越低表示越接近同输入的 Native 视频；它与局部速度 MSE�
 
 ## 当前进度
 
-**当前104路径验证卡：GPU3硬独占运行中。** 实际启动2026-10-24T13:41:30+08:00，观测2026-10-24T13:43:31.849206+08:00。HISTORY104_MODEL_LOADING；0/104完成、0失败。
+**当前104路径验证卡：GPU3硬独占运行中。** 实际启动2026-10-24T13:41:30+08:00，观测2026-10-24T14:39:17.586516+08:00。RUNNING；13/104完成、0失败。
 
 范围：4 CAL、10角色、80正式+20warm+4诊断；3744pairs/7488CFG，单load。释放GPU并结算后执行72配对/6696帧CPU评分。forecast11.423207、硬上限11.9 GPUh；部署257.771秒及累计226 GPUh保持。技术半程：**2026-10-24 19:25 Asia/Shanghai**；最终验收（含释放后CPU评分）：**2026-10-25 03:10 Asia/Shanghai**。
 
-[唯一实际启动](reports/cara_history104_recovery_GPU_actual_launch_r2_20261024.json) · [最新技术观测](reports/cara_history104_recovery_GPU_model_loading_r2_20261024.json) · [真实独占核验](reports/cara_history104_recovery_GPU3_exclusive_active_r2_20261024.json) · [组合检查与执行记录](research/680_CARA_HISTORY104_R2_EXCLUSIVE_LAUNCH_AND_ACCEPTANCE_20261024.md)。
+[唯一实际启动](reports/cara_history104_recovery_GPU_actual_launch_r2_20261024.json) · [最新技术观测](reports/cara_history104_R2_technical_capture_20261024_1439.json) · [真实独占核验](reports/cara_history104_recovery_GPU3_exclusive_active_r2_20261024.json) · [组合检查与执行记录](research/682_CARA_HISTORY104_R2_TECHNICAL_PROGRESS_STORAGE_AND_THERMAL_20261024.md)。
 
 原P1原件与财务完整接受，但未选出预算可行策略。104卡CPU与独占准入不代表GPU结果；P2仍等待可行冻结策略。
+
+10月24日14:40技术观察见[682](research/682_CARA_HISTORY104_R2_TECHNICAL_PROGRESS_STORAGE_AND_THERMAL_20261024.md)：13/104完成、1运行、0失败；独占、独立输出卷和跨盘日志正常。短窗口88–89°C且有软件温控/功率限制；保持配置，19:25复核并更新ETA。未分析部分结果。
 
 P1原件与财务已完整接受，但没有预算可行的冻结策略，P2目前不准入。保留已通过的P2组合CPU与五模型入口准备；完整离线分析确认全请求价格低估与可行性恢复搜索缺口，见[669原因分析与修复](research/669_CARA_PG_P1_COMPLETE_BUDGET_ATTRIBUTION_AND_REPAIR_PLAN_20261024.md)。历史强基线原alpha及24/25D新旧入口148路径CPU已接受；[104路径预算边界卡](research/670_CARA_HISTORICAL_BASELINE_EQUIVALENCE_AND_BOUNDARY104_20261024.md)已完整报价11.423207/11.9 GPUh，替代未执行44路径草案。104卡组合CPU已接受，但GPU采集在08:49因磁盘满提前退出；旧health为72/104完成，GPU已释放，完整验收未通过，旧11.9GPUh预约已释放，按明确标注的保守重建值5.48GPUh结算；新完整104 R2已按后续明确授权于13:41:30在GPU3硬独占启动，独立输出卷与跨盘日志生效。部署257.771秒及累计226 GPUh不变。见[676失败原件](research/676_CARA_HISTORY104_DISK_FULL_EARLY_EXIT_20261024.md)。见[671实际执行](research/671_CARA_HISTORY104_COMBINATION_AND_EXCLUSIVE_EXECUTION_20261024.md)。已完成旧实验约4.45 GiB实体去重，38原路径和所有SHA保持；两个压缩包经全量一致核验后清理，本次合计释放63.05 GiB，另三个差异包保留。见[668当前原件与维护](research/668_CARA_STORAGE_DEDUP_AND_P1_ORIGINAL_TERMINAL_ACCEPTANCE_20261024.md)。
 

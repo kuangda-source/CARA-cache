@@ -3,7 +3,7 @@
   "project": "CARA-Cache",
   "evidence_observed_at": "2026-10-23T08:26:41.422652+08:00",
   "timezone": "Asia/Shanghai",
-  "snapshot_note": "新完整104 R2已于2026-10-24 13:41:30在GPU3硬独占启动；原失败保守结算5.48GPUh保持。独立输出卷和跨盘日志生效；仅技术观察，不据部分结果调参。",
+  "snapshot_note": "14:39技术观察13/104完成、1运行0失败；独占/独立输出卷/跨盘日志正常。14:40短窗口88–89°C并观察到软件温控/功率限制，未改运行配置。19:25半程复核，03:10终态兜底不变。",
   "research_summary": "新完整104 R2硬独占运行，完整验收后按既定口径分析强历史基线、24/25D预算边界与计时偏差。P1修复及P2继续等待完整科学证据。",
   "active_experiment_id": "PG-P1",
   "active_state": "PG_P1_TERMINAL_ACCEPTED_NO_BUDGET_FEASIBLE_SELECTION",
@@ -12,7 +12,7 @@
   "observation_ref": "reports/wc_policy_assets_full1624_fourcard_GPU_terminal_20261023_0826.json",
   "admission_ref": "reports/wc_policy_assets_full1624_fourcard_GPU_admission_checked_and_schedule_20261022.json",
   "cpu_acceptance_ref": "reports/wc_policy_assets_full1624_fourcard_CPU_r2_accepted_20261022.json",
-  "run_report_ref": "research/680_CARA_HISTORY104_R2_EXCLUSIVE_LAUNCH_AND_ACCEPTANCE_20261024.md",
+  "run_report_ref": "research/682_CARA_HISTORY104_R2_TECHNICAL_PROGRESS_STORAGE_AND_THERMAL_20261024.md",
   "next_checks": [
     {
       "kind": "技术半程",
@@ -339,19 +339,21 @@
   },
   "history104_GPU": {
     "launch_ref": "reports/cara_history104_recovery_GPU_actual_launch_r2_20261024.json",
-    "observation_ref": "reports/cara_history104_recovery_GPU_model_loading_r2_20261024.json",
+    "observation_ref": "reports/cara_history104_R2_technical_capture_20261024_1439.json",
     "CPU_acceptance_ref": "reports/cara_history104_storage_combination_CPU_accepted_r2_20261024.json",
     "exclusive_active_ref": "reports/cara_history104_recovery_GPU3_exclusive_active_r2_20261024.json",
-    "report_ref": "research/680_CARA_HISTORY104_R2_EXCLUSIVE_LAUNCH_AND_ACCEPTANCE_20261024.md",
+    "report_ref": "research/682_CARA_HISTORY104_R2_TECHNICAL_PROGRESS_STORAGE_AND_THERMAL_20261024.md",
     "stage_ref": "reports/cara_history104_recovery_GPU_stage_r2_20261024.json",
-    "status": "HISTORY104_R2_EXCLUSIVE_RUNNING_STORAGE_PROTECTED",
-    "observed_at": "2026-10-24T13:43:31.849206+08:00",
+    "status": "HISTORY104_R2_RUNNING_STORAGE_EXCLUSIVE_OK_THERMAL_LIMIT_OBSERVED",
+    "observed_at": "2026-10-24T14:39:17.586516+08:00",
     "full_protocol_accepted": false,
     "recovery_GPU_dispatch_authorized": true,
     "storage_ref": "reports/cara_history104_recovery_active_storage_journal_20261024.json",
     "exclusive_prefix_ref": "reports/cara_history104_recovery_exclusive_monitor_prefix_20261024.json",
     "authorization_ref": "reports/cara_history104_recovery_direct_user_GPU_authorization_20261024.json",
-    "whole_quote_ref": "manifests/cara_history104_recovery_full104_quote_r2_20261024.json"
+    "whole_quote_ref": "manifests/cara_history104_recovery_full104_quote_r2_20261024.json",
+    "latest_storage_thermal_ref": "reports/cara_history104_R2_technical_status_and_ETA_20261024_1441.json",
+    "initial_execution_report_ref": "research/680_CARA_HISTORY104_R2_EXCLUSIVE_LAUNCH_AND_ACCEPTANCE_20261024.md"
   },
   "history104_result_analysis_preparation": {
     "status": "OFFLINE_ANALYSIS_READY_WAIT_COMPLETE104_ACCEPTANCE",
