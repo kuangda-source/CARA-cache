@@ -399,6 +399,37 @@ def build():
                 ('runner',f"PID {hg['runner']['pid']} / start_ticks {hg['runner']['start_ticks']} / UID {hg['runner']['uid']}")]
         run_details='| 当前104路径卡字段 | 原始身份 |\n|---|---|\n'+'\n'.join(f'| {k} | `{v}` |' for k,v in fields)
         master['status_counts'] = {state: sum(r['state'] == state for r in rows) for state in sorted({r['state'] for r in rows})}
+    cost = status.get('cost112_GPU')
+    if cost:
+        cl, co, cc = load(cost['launch_ref']), load(cost['observation_ref']), load(cost['CPU_acceptance_ref'])
+        cg = load(cost['exclusive_active_ref'])
+        if (co['launch'] != cl or cc['source_revision'] != cl['source_revision']
+                or not cc['production_CPU_accepted'] or not cc['storage_ENOSPC_lifecycle_CPU_accepted']
+                or cg['launch_id'] != cl['launch_id'] or cg['gpu_uuid'] != cl['gpu_uuid']
+                or not cg['exclusive_gate']['observation_passed']
+                or cg['capture_sha256'] != digest((ROOT/cg['capture_ref']).read_bytes())['sha256']
+                or abs(datetime.fromisoformat(cost['observed_at']).timestamp()-co['observed_unix']) > .00001):
+            raise ValueError('Cost112 original launch/CPU/exclusive evidence mismatch')
+        ch = co.get('health') or {}
+        progress = f"{ch.get('phase','入口初始化')}；{ch.get('completed_paths',0)}/112完成、{ch.get('failed_paths',0)}失败"
+        result = progress + '；新模型尚未独立验收，P1继续等待。'
+        snapshot = (f"**当前COST112独立计时验证：硬独占运行中。** 实际启动{local_time(cl['started_unix'])}，观测{cost['observed_at']}。{result}\n\n"
+                    "保留原10角色、强基线与alpha；20warm+8独立全D时钟参照+80正式+4诊断，4032pairs/8064CFG，单load。"
+                    "系数由已接受104完整数据冻结，本卡72个目标只验证、不重拟合。释放GPU结算后72组/6696帧CPU评分。\n\n"
+                    f"forecast{cl['forecast_GPUh']:.6f}、硬上限{cl['billed_limit_GPUh']} GPUh；部署257.771秒、0.80×新Native及累计226 GPUh保持。{schedule}。\n\n"
+                    f"{link(cost['launch_ref'],'唯一实际启动')} · {link(cost['observation_ref'],'最新技术观测')} · "
+                    f"{link(cost['exclusive_active_ref'],'真实独占')} · {link(cost['report_ref'],'归因及独立验证记录')}。\n\n"
+                    "原104 R2完整接受，原计时模型最坏低估2.618秒未通过2秒门槛；新卡通过后才接新P1生产验证与完整报价。")
+        cr = by_id['PG-P1-C112']; cr['state'] = cost['status']
+        cr['reader'].update(status='独立计时验证硬独占运行中', result=result)
+        cr['evidence_or_planned_scope'] = result
+        master['operation_policy'].update(current_running_card='PG-P1-C112',current_running_cards=['PG-P1-C112'],
+            active_launch_ref=cost['launch_ref'],snapshot_observed_at=cost['observed_at'])
+        fields=[('run',cl['run_id']),('launch ID',cl['launch_id']),('source',cl['source_revision']),('stage',cl['stage']),
+                ('GPU UUID',cl['gpu_uuid']),('容器',cl['container']),('guardian',cl['guardian_identity']['pid']),
+                ('runner',f"PID {cg['runner']['pid']} / start_ticks {cg['runner']['start_ticks']} / UID {cg['runner']['uid']}")]
+        run_details='| 当前112路径卡字段 | 原始身份 |\n|---|---|\n'+'\n'.join(f'| {k} | `{v}` |' for k,v in fields)
+        master['status_counts']={state:sum(r['state']==state for r in rows) for state in sorted({r['state'] for r in rows})}
     headlines = '\n'.join(f"- **{f['title']}**（{f['short_scope']}）：{f['result']} {refs(f['refs'])}"
                            for f in status['headline_results'])
     details = '\n\n'.join(f"### {i+1}. {f['title']}\n\n{f['result']}\n\n{f['scope']} {refs(f['refs'])}"

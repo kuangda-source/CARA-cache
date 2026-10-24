@@ -73,7 +73,7 @@ def capture(a):
   technical=base_ssh(REMOTE_CAPTURE,read(a.launch_ref),timeout=90)
   if 'container_state' in technical and classify(technical['container_state'],technical['live_handles'])=='FAILED_ORIGINAL_TERMINAL':
    technical.update(status='FAILED_ORIGINAL_TERMINAL',full_protocol_accepted=False);write(a.output,technical);return technical
- v=base_ssh(bridge(CAPTURE,read(REPO/RUNTIME_REF)),dict(launch=read(a.launch_ref),terminal=a.mode=='terminal'),timeout=420);write(a.output,v);return v
+ v=base_ssh(bridge(CAPTURE,read(REPO/RUNTIME_REF)).replace('timeout=160','timeout=390'),dict(launch=read(a.launch_ref),terminal=a.mode=='terminal'),timeout=420);write(a.output,v);return v
 
 def main():
  p=argparse.ArgumentParser();sub=p.add_subparsers(dest='command',required=True)
