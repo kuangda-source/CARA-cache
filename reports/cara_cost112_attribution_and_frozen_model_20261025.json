@@ -1,0 +1,132 @@
+{
+  "status": "COMPLETE104_ATTRIBUTION_AND_COST112_FROZEN_DEVELOPMENT_MODEL",
+  "observed_unix": 1792860740.667178,
+  "original_model_still_failed": true,
+  "original_maximum_underestimate": {
+    "member": "misc_13398218_3840_2160_60fps",
+    "role": "PG_ALL_D",
+    "predicted_seconds": 298.28029500001287,
+    "actual_seconds": 300.89820293337107,
+    "underestimate_seconds": 2.6179079333581967,
+    "absolute_relative_error": 0.008700310961770314
+  },
+  "fullD_minus_native_components": {
+    "CALIBRATION": {
+      "method_install_seconds": 0.16851310804486275,
+      "guarded_pipeline_without_write_seconds": 0.9255553111433983,
+      "video_write_seconds": -0.2073837723582983,
+      "method_cleanup_seconds": 0.0003811083734035492,
+      "core_seconds": 0.9452774096280336,
+      "outside_core_seconds": -0.05821165442466736,
+      "full_seconds": 0.8870657552033663
+    },
+    "VALIDATION": {
+      "method_install_seconds": 0.1978878378868103,
+      "guarded_pipeline_without_write_seconds": 2.7782702520489693,
+      "video_write_seconds": 0.8192215077579021,
+      "method_cleanup_seconds": 0.00043165870010852814,
+      "core_seconds": 2.686924433335662,
+      "outside_core_seconds": 1.1088868230581284,
+      "full_seconds": 3.7958112563937902
+    }
+  },
+  "native_adjusted_round_shift": {
+    "method_install_seconds": 0.029374729841947556,
+    "guarded_pipeline_without_write_seconds": 1.852714940905571,
+    "video_write_seconds": 1.0266052801162004,
+    "method_cleanup_seconds": 5.055032670497894e-05,
+    "core_seconds": 1.7416470237076283,
+    "outside_core_seconds": 1.1670984774827957,
+    "full_seconds": 2.908745501190424
+  },
+  "frozen_model": {
+    "version": "CARA_PRECEDING_FULLD_CLOCK_MODEL_R1",
+    "fit_capture_ref": "reports/cara_history104_R2_terminal_20261024_2315.json",
+    "fit_capture_sha256": "00b2a16348085c97626065acb85717855325cbd4bb87f1476f7efd28008163de",
+    "training_rows": 64,
+    "training_scope": "All complete old104 cache clocks from both rounds; development only, never independent validation",
+    "features": [
+      "nD-36",
+      "nA"
+    ],
+    "coefficients": [
+      5.759309912605651,
+      0.12491496618716978
+    ],
+    "intercept": 0.0,
+    "formula": "T_pred = independent_preceding_PG_ALL_D_anchor_same_prompt + dD*(nD-36) + dA*nA",
+    "new_card_refit": false,
+    "new_card_validation_rows": 72,
+    "anchor_also_validation": false,
+    "quality_used": false
+  },
+  "development_only_maximum_underestimate_seconds": 4.319611736608316,
+  "new_independent_validation_passed": false,
+  "causal_thermal_attribution_proven": false,
+  "scope": {
+    "roles": 11,
+    "CAL_FIT": 4,
+    "seeds": [
+      0
+    ],
+    "formal_repeats": 2,
+    "formal_paths": 80,
+    "warm_paths": 20,
+    "diagnostic_paths": 4,
+    "total_paths": 112,
+    "guided_pairs": 4032,
+    "CFG_calls": 8064,
+    "loads": 1,
+    "post_CPU_score_pairs": 72,
+    "post_CPU_frames": 6696,
+    "SELECT_paths": 0,
+    "DEV_paths": 0,
+    "TEST_paths": 0,
+    "clock_anchor_paths": 8
+  },
+  "quote": {
+    "measured_basis": "Accepted old104 per-role formal maximum; eight new fullD anchors; warm1.10 diagnostic1.50 plus .1h load .4h IO/release, all times1.25",
+    "arm_seconds": {
+      "NATIVE": 297.1023916769773,
+      "PG_ALL_D": 300.89820293337107,
+      "GRAPH_DIVERSE_ORIGINAL": 243.10119911842048,
+      "S26_C": 240.82758935913444,
+      "S26_A_PHASE": 242.2101607117802,
+      "SHARED26_C": 240.95226664468646,
+      "S25_C": 234.1468679253012,
+      "S25_A_PHASE": 236.73045156896114,
+      "S24_C": 230.1848700772971,
+      "S24_A_PHASE": 230.78717424161732,
+      "CLOCK_ANCHOR": 300.89820293337107
+    },
+    "components": {
+      "full_paths_GPUh": 8.193761977198845,
+      "model_load_GPUh": 0.1,
+      "save_controls_cleanup_release_GPUh": 0.4
+    },
+    "uncertainty_margin_fraction": 0.25,
+    "forecast_GPUh": 10.867202471498556,
+    "billed_limit_GPUh": 11.9,
+    "strict_under12": true,
+    "within_limit": true,
+    "cumulative_cap_GPUh": 226,
+    "post_GPU_release_CPU": {
+      "score_pairs": 72,
+      "seconds_per_pair_allowance": 60,
+      "additional_seconds": 1080,
+      "wall_limit_hours": 1.5,
+      "cpus": 2,
+      "vCPU_hours_upper": 3,
+      "GPU_held": false
+    },
+    "source_revision_binds_all_files_required": true
+  },
+  "original_alpha_and_strong_baselines_equal": true,
+  "GPU_submissions": 0,
+  "bindings": {
+    "reports/cara_history104_R2_terminal_20261024_2315.json": "00b2a16348085c97626065acb85717855325cbd4bb87f1476f7efd28008163de",
+    "reports/cara_history104_R2_accepted_20261024_2315.json": "24706c0d29ae5b3d2b7e982a2142481c681b423c214b07687e4343e11be54b13",
+    "manifests/cara_cost112_scope_quote_r1_20261025.json": "157c5c5c0e9769d5fa5277125149180ffdcffc7063411efe2e97ee546b89ace5",
+    "scripts/analyze_cara_cost112_preparation_r1.py": "0b695a548cd833f158083ab278c368fd9a1c66f8fd7e9abe60d8c15a4f0bad49"
+  }
+}
