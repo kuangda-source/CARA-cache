@@ -4,13 +4,13 @@
 
 本项目的核心价值是把**缓存读出质量**与**计算时机分配**放在同一预算问题中研究。已完成的实验说明：CFG对齐修正能降低局部误差，并在固定刷新布局下改善视频终点；数据导出的共享布局也有CAL信号。正在推进的自动生成器将这些证据接到可复现、计入校准费用的完整质量—时间比较。
 
-**当前104路径验证卡：GPU3硬独占运行中。** 实际启动2026-10-24T03:21:57+08:00，观测2026-10-24T04:17:16.119286+08:00。RUNNING；11/104完成、0失败。
+**当前104路径验证卡：采集提前失败。** 观测2026-10-24T09:09:11.001053+08:00。磁盘满提前退出；旧health记录72/104完成；GPU已释放、原锁自由，完整验收未通过。账单写入失败，11.9GPUh预约保留待恢复。
 
-范围：4 CAL、10角色、80正式+20warm+4诊断；3744pairs/7488CFG，单load。释放GPU并结算后执行72配对/6696帧CPU评分。forecast11.423207、硬上限11.9 GPUh；部署257.771秒及累计226 GPUh保持。104卡技术半程：**2026-10-24 09:05 Asia/Shanghai**；104卡全程/释放后评分验收：**2026-10-24 15:03 Asia/Shanghai**。
+原104路径范围、alpha调度、部署257.771秒及累计226 GPUh不变。原完成时间预计失效；先保全失败原件并恢复存储与费用证据，不重派、不补跑、不分析部分结果。104失败原件、存储与账单恢复：**2026-10-24 10:30 Asia/Shanghai**。
 
-[唯一实际启动](reports/cara_history104_GPU_actual_launch_r1_20261024.json) · [最新技术观测](reports/cara_history104_GPU_technical_progress_20261024_0417.json) · [真实独占核验](reports/cara_history104_GPU3_exclusive_active_r1_20261024.json) · [组合检查与执行记录](research/675_CARA_HISTORY104_TECHNICAL_PROGRESS_EXCLUSIVITY_AND_ETA_20261024.md)。
+[失败记录与接续](research/676_CARA_HISTORY104_DISK_FULL_EARLY_EXIT_20261024.md) · [原句柄失败终态](reports/cara_history104_GPU_failed_terminal_readonly_20261024_0912.json) · [技术失败汇总](reports/cara_history104_early_failure_technical_summary_20261024.json)。
 
-原P1原件与财务完整接受，但未选出预算可行策略。104卡CPU与独占准入不代表GPU结果；P2仍等待可行冻结策略。
+原P1原件与财务已接受，但无预算可行策略；P1修复与P2仍等待完整证据。
 
 ## 方法及比较对象
 

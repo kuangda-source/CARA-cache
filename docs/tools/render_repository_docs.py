@@ -336,6 +336,24 @@ def build():
         hr['evidence_or_planned_scope'] = hr['reader']['result']
         master['operation_policy'].update(current_running_card='PG-P1-H104',current_running_cards=['PG-P1-H104'],
             active_launch_ref=history['launch_ref'],snapshot_observed_at=history['observed_at'])
+        if history.get('failure_technical_summary_ref'):
+            failure = load(history['failure_technical_summary_ref'])
+            if (failure['launch_id'] != hl['launch_id'] or failure['full_protocol_accepted']
+                    or any(ho['original_live_handles'].values())
+                    or ho['container']['state']['ExitCode'] == 0):
+                raise ValueError('History104 failed-terminal evidence mismatch')
+            hp = (f"磁盘满提前退出；旧health记录{hh.get('completed_paths', 0)}/104完成；"
+                  "GPU已释放、原锁自由，完整验收未通过。账单写入失败，11.9GPUh预约保留待恢复")
+            snapshot = (f"**当前104路径验证卡：采集提前失败。** 观测{history['observed_at']}。{hp}。\n\n"
+                        "原104路径范围、alpha调度、部署257.771秒及累计226 GPUh不变。原完成时间预计失效；"
+                        "先保全失败原件并恢复存储与费用证据，不重派、不补跑、不分析部分结果。"
+                        f"{schedule}。\n\n{link(history['report_ref'], '失败记录与接续')} · "
+                        f"{link(history['observation_ref'], '原句柄失败终态')} · "
+                        f"{link(history['failure_technical_summary_ref'], '技术失败汇总')}。\n\n"
+                        "原P1原件与财务已接受，但无预算可行策略；P1修复与P2仍等待完整证据。")
+            hr['reader'].update(status='磁盘满提前退出，费用待恢复', result=hp)
+            hr['evidence_or_planned_scope'] = hp
+            master['operation_policy'].update(current_running_card=None,current_running_cards=[])
         fields=[('run',hl['run_id']),('launch ID',hl['launch_id']),('source',hl['source_revision']),('stage',hl['stage']),
                 ('GPU UUID',hl['gpu_uuid']),('容器',hl['container']),('guardian',hl['guardian_identity']['pid']),
                 ('runner',f"PID {hg['runner']['pid']} / start_ticks {hg['runner']['start_ticks']} / UID {hg['runner']['uid']}")]
