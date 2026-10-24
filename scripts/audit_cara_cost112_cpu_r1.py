@@ -13,7 +13,7 @@ def accept(v):
  if not p['unchanged_historical_execution_SHA'] or any(reg['payload_sha256'][n]!=h for n,h in p['unchanged_historical_execution_SHA'].items()):raise ValueError('Historical accepted source changed')
  c=p['collection'];required=('complete72_score_schedule','score_failure_raw_retained','score_resume_no_GPU_replay','pre_release_score_refused','same_slot_replay_refused')
  if c['paths']!=112 or c['requests_serialized']!=112 or c['controls']!=23 or c['diagnostic_guided_artifacts']!=4 or not all(c[k] for k in required):raise ValueError('Whole collection/score composition missing')
- if not p['full_video_metric']['real_LPIPS93'] or p['full_video_metric']['identity_zero']!=0 or p['terminal_tests']<14 or p.get('model_tests',0)<7:raise ValueError('Real complete scoring/terminal checks missing')
+ if not p['full_video_metric']['real_LPIPS93'] or p['full_video_metric']['identity_zero']!=0 or p['terminal_tests']<14 or p.get('model_tests',0)<8:raise ValueError('Real complete scoring/terminal checks missing')
  storage=p.get('storage_lifecycle')
  if storage is not None:
   if storage['status']!='COST112_STORAGE_REAL_ENOSPC_SUPERVISOR_CPU_PASS' or not storage['actual_tmpfs_ENOSPC'] or storage['GPU_submissions'] or storage['authoritative_ledger_written'] or len(storage['checks'])!=6 or any(c['status']!='PASS' for c in storage['checks']):raise ValueError('Storage ENOSPC lifecycle incomplete')
