@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Real entry +104 serialization/release/score composition; CUDA forbidden."""
+"""Real entry +112 serialization/release/score composition; CUDA forbidden."""
 import argparse,copy,importlib.util,json,os,shutil,subprocess,sys,time
 from pathlib import Path
 

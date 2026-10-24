@@ -91,4 +91,4 @@ time.sleep(2.5)
   if scenario=='success':assert error is None
   else:assert error is not None and not (out/'post-exit.json').exists()
   checks.append(dict(scenario=scenario,status='PASS',real_CPU_child_exited=True,lease_released=True,durable_bill_readable=True,original_failure_preserved=True,fixture_accounting_status=job['status'],real_ENOSPC_injected=scenario!='success'))
- return dict(status='COST112_STORAGE_REAL_ENOSPC_SUPERVISOR_CPU_PASS',checks=checks,actual_tmpfs_ENOSPC=True,source_sha256={n:budget.sha(stage/n) for n in ('src/wcomr/cost112_storage_r2.py','scripts/wc_cara_cost112_worker_r1.py','tests/check_cost112_storage_cpu_r1.py')},GPU_submissions=0,authoritative_ledger_written=False)
+ return dict(status='COST112_STORAGE_REAL_ENOSPC_SUPERVISOR_CPU_PASS',checks=checks,actual_tmpfs_ENOSPC=True,source_sha256={n:budget.sha(stage/n) for n in ('src/wcomr/history104_storage_r2.py','scripts/wc_cara_cost112_worker_r1.py','tests/check_cost112_storage_cpu_r1.py')},GPU_submissions=0,authoritative_ledger_written=False)

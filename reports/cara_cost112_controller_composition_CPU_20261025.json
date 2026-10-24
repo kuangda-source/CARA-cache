@@ -1,0 +1,81 @@
+{
+  "status": "COST112_CONTROLLER_COMPOSITION_CPU_PASS",
+  "observed_unix": 1792861126.275119,
+  "scope": {
+    "roles": 11,
+    "CAL_FIT": 4,
+    "seeds": [
+      0
+    ],
+    "formal_repeats": 2,
+    "formal_paths": 80,
+    "warm_paths": 20,
+    "diagnostic_paths": 4,
+    "total_paths": 112,
+    "guided_pairs": 4032,
+    "CFG_calls": 8064,
+    "loads": 1,
+    "post_CPU_score_pairs": 72,
+    "post_CPU_frames": 6696,
+    "SELECT_paths": 0,
+    "DEV_paths": 0,
+    "TEST_paths": 0,
+    "clock_anchor_paths": 8
+  },
+  "quote": {
+    "measured_basis": "Accepted old104 per-role formal maximum; eight new fullD anchors; warm1.10 diagnostic1.50 plus .1h load .4h IO/release, all times1.25",
+    "arm_seconds": {
+      "NATIVE": 297.1023916769773,
+      "PG_ALL_D": 300.89820293337107,
+      "GRAPH_DIVERSE_ORIGINAL": 243.10119911842048,
+      "S26_C": 240.82758935913444,
+      "S26_A_PHASE": 242.2101607117802,
+      "SHARED26_C": 240.95226664468646,
+      "S25_C": 234.1468679253012,
+      "S25_A_PHASE": 236.73045156896114,
+      "S24_C": 230.1848700772971,
+      "S24_A_PHASE": 230.78717424161732,
+      "CLOCK_ANCHOR": 300.89820293337107
+    },
+    "components": {
+      "full_paths_GPUh": 8.193761977198845,
+      "model_load_GPUh": 0.1,
+      "save_controls_cleanup_release_GPUh": 0.4
+    },
+    "uncertainty_margin_fraction": 0.25,
+    "forecast_GPUh": 10.867202471498556,
+    "billed_limit_GPUh": 11.9,
+    "strict_under12": true,
+    "within_limit": true,
+    "cumulative_cap_GPUh": 226,
+    "post_GPU_release_CPU": {
+      "score_pairs": 72,
+      "seconds_per_pair_allowance": 60,
+      "additional_seconds": 1080,
+      "wall_limit_hours": 1.5,
+      "cpus": 2,
+      "vCPU_hours_upper": 3,
+      "GPU_held": false
+    },
+    "source_revision_binds_all_files_required": true
+  },
+  "original_policies_and_alpha_unchanged": true,
+  "original_budget_unchanged": true,
+  "source_sha256": {
+    "prepare": "bcf5ee2eb14b903e504b4bea05d1bc8ff8e7c1a930488090e5e5efe6476205b6",
+    "preflight": "b8d75549da540e54c14ef9b0acf3f32091a7c192fd301216cf1c4095737d9552",
+    "launch": "23366a616fdb927c948d911cefa077cc2862173eea4abc7262ff828986705a9e",
+    "capture": "305e875093c26990aa34f7f6516f8bbafe8478fcffe51666d1ba4edcfc694903"
+  },
+  "checks": [
+    "all_four_generated_entries_parse",
+    "new_guardian_bound",
+    "dedicated_existing_empty_output_only",
+    "nonzero_terminal_not_misclassified",
+    "storage_preflight",
+    "exact_old_policies_alpha",
+    "exact_old_budget"
+  ],
+  "remote_calls": 0,
+  "GPU_submissions": 0
+}
