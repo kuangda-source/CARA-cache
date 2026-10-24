@@ -1,0 +1,119 @@
+{
+  "status": "HISTORY104_R2_TECHNICAL_ONLY_STORAGE_MONITOR_CADENCE",
+  "observed_unix": 1792841291.883671,
+  "launch_id": "eee11fe8-c801-4e11-9e53-15b5a6040863",
+  "health": {
+    "phase": "RUNNING",
+    "registered_paths": 104,
+    "completed_paths": 81,
+    "running_paths": 1,
+    "failed_paths": 0
+  },
+  "storage": {
+    "output_available": 32766214144,
+    "host_available": 1416706490368,
+    "free_inodes": 2096727
+  },
+  "storage_identity": {
+    "output_device": 1806,
+    "image_inode": 184291183,
+    "image_bytes": 34359738368,
+    "image_allocated_bytes": 34359771136,
+    "journal_device": 2096,
+    "journal_bytes": 50331648,
+    "journal_allocated_bytes": 50335744,
+    "mount": {
+      "filesystems": [
+        {
+          "source": "/dev/loop14",
+          "target": "/data20t/gaokuangda/worldcache_workspace/outputs/cara-history-boundary104-cal4-ada-r2",
+          "fstype": "ext4",
+          "options": "rw,nosuid,nodev,noexec,relatime"
+        }
+      ]
+    },
+    "required_minimum_output_bytes": 4294967296,
+    "required_minimum_host_bytes": 134217728
+  },
+  "container_storage_mounts": [
+    {
+      "Source": "/data20t/gaokuangda/worldcache_workspace/.sync/storage-reservations/history104-r2/output.ext4",
+      "Destination": "/data20t/gaokuangda/worldcache_workspace/.sync/storage-reservations/history104-r2/output.ext4",
+      "RW": false,
+      "Propagation": "rprivate"
+    },
+    {
+      "Source": "/data20t/gaokuangda/worldcache_workspace/outputs/cara-history-boundary104-cal4-ada-r2",
+      "Destination": "/data20t/gaokuangda/worldcache_workspace/outputs/cara-history-boundary104-cal4-ada-r2",
+      "RW": true,
+      "Propagation": "rprivate"
+    },
+    {
+      "Source": "/data1/gaokuangda_cara_control/history104-r2/control.journal",
+      "Destination": "/data1/gaokuangda_cara_control/history104-r2/control.journal",
+      "RW": true,
+      "Propagation": "rprivate"
+    }
+  ],
+  "journal_records": {
+    "supervisor": {
+      "present": true,
+      "status": "HISTORY104_GPU_RUNNING",
+      "launch_id": "eee11fe8-c801-4e11-9e53-15b5a6040863"
+    },
+    "guardian": {
+      "present": true,
+      "status": "HISTORY104_ORIGINAL_CONTAINER_RUNNING",
+      "launch_id": null
+    },
+    "telemetry": {
+      "present": true,
+      "status": null,
+      "launch_id": "eee11fe8-c801-4e11-9e53-15b5a6040863",
+      "sample_observed_unix": 1792841289.7876213,
+      "sample_age_seconds": 2.0960497856140137,
+      "runner_matches": true,
+      "launch_matches": true,
+      "gate": {
+        "status": "EXCLUSIVE_OBSERVATION_PASS",
+        "observation_passed": true,
+        "phase": "active",
+        "reasons": [],
+        "future_ownership_guaranteed": false,
+        "reservation_created": false,
+        "process_or_compute_mode_modified": false
+      }
+    },
+    "billing": {
+      "present": false
+    },
+    "accounting": {
+      "present": false
+    }
+  },
+  "exclusive_monitor": {
+    "samples": 9278,
+    "granted_samples": 9276,
+    "invalid_line_indexes": [],
+    "trailing_partial_line": false,
+    "violations": [],
+    "max_interval_seconds": 3.012598864734173,
+    "last_sample_age_seconds": 2.0960497856140137,
+    "last_monotonic_elapsed": 20795.15906756185
+  },
+  "cadence": {
+    "basis": "REQUEST_JSON_FILESYSTEM_MTIME_ONLY_NOT_SCIENTIFIC_CLOCK",
+    "request_artifacts": 81,
+    "first_completion_unix": 1792821045.0251684,
+    "last_completion_unix": 1792841137.5879462,
+    "interval_count": 80,
+    "median_interval_seconds": 242.12495911121368,
+    "min_interval_seconds": 229.67280840873718,
+    "max_interval_seconds": 305.6449890136719,
+    "recent5_mean_interval_seconds": 269.8096527099609,
+    "elapsed_since_last_completion_seconds": 154.2957248687744
+  },
+  "gpu_technical_csv": "GPU-d4868f0a-29df-9077-82db-77f7bf0f9934, Exclusive_Process, 100, 16043, 88, 281.91",
+  "scientific_results_read": false,
+  "changes_made": false
+}

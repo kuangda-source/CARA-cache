@@ -3,7 +3,7 @@
   "project": "CARA-Cache",
   "evidence_observed_at": "2026-10-23T08:26:41.422652+08:00",
   "timezone": "Asia/Shanghai",
-  "snapshot_note": "17:37技术观察55/104完成、1运行0失败；原独占/存储保护/跨盘日志正常。88°C，瞬时功率限制；未分析部分结果或改运行配置。",
+  "snapshot_note": "19:27技术半程81/104完成、1运行0失败；独占/磁盘保护/跨盘日志通过。88°C瞬时软件温控，未分析部分结果；终态检查提前至23:15。",
   "research_summary": "新完整104 R2硬独占运行，完整验收后按既定口径分析强历史基线、24/25D预算边界与计时偏差。P1修复及P2继续等待完整科学证据。",
   "active_experiment_id": "PG-P1",
   "active_state": "PG_P1_TERMINAL_ACCEPTED_NO_BUDGET_FEASIBLE_SELECTION",
@@ -12,18 +12,11 @@
   "observation_ref": "reports/wc_policy_assets_full1624_fourcard_GPU_terminal_20261023_0826.json",
   "admission_ref": "reports/wc_policy_assets_full1624_fourcard_GPU_admission_checked_and_schedule_20261022.json",
   "cpu_acceptance_ref": "reports/wc_policy_assets_full1624_fourcard_CPU_r2_accepted_20261022.json",
-  "run_report_ref": "research/683_CARA_HISTORY104_R2_55_PATH_TECHNICAL_PROGRESS_20261024.md",
+  "run_report_ref": "research/684_CARA_HISTORY104_R2_HALFWAY_81_PATHS_20261024.md",
   "next_checks": [
     {
-      "kind": "技术半程",
-      "scheduled_local": "2026-10-24 19:25 Asia/Shanghai",
-      "automation_id": "cara104-r2",
-      "launch_ref": "reports/cara_history104_recovery_GPU_actual_launch_r2_20261024.json",
-      "not_before_unix": 1792841052.6843472
-    },
-    {
       "kind": "最终验收（含释放后CPU评分）",
-      "scheduled_local": "2026-10-25 03:10 Asia/Shanghai",
+      "scheduled_local": "2026-10-24 23:15 Asia/Shanghai",
       "automation_id": "cara104-r2-2",
       "launch_ref": "reports/cara_history104_recovery_GPU_actual_launch_r2_20261024.json"
     }
@@ -122,8 +115,8 @@
     "reserved_gpu_hours": 28.4,
     "available_gpu_hours": 56.99933848412807,
     "cap_gpu_hours": 226,
-    "observed_at": "2026-10-24T13:43:31.849206+08:00",
-    "source_ref": "reports/cara_history104_recovery_GPU_model_loading_r2_20261024.json"
+    "observed_at": "2026-10-24T19:27:58.446736+08:00",
+    "source_ref": "reports/cara_history104_R2_halfway_20261024_1925.json"
   },
   "price_refresh_CPU": {
     "launch_ref": "reports/wc_policy_price_refresh_full1624_CPU_launch_r1_20261023.json",
@@ -339,20 +332,20 @@
   },
   "history104_GPU": {
     "launch_ref": "reports/cara_history104_recovery_GPU_actual_launch_r2_20261024.json",
-    "observation_ref": "reports/cara_history104_R2_progress_check_20261024_latest1.json",
+    "observation_ref": "reports/cara_history104_R2_halfway_20261024_1925.json",
     "CPU_acceptance_ref": "reports/cara_history104_storage_combination_CPU_accepted_r2_20261024.json",
     "exclusive_active_ref": "reports/cara_history104_recovery_GPU3_exclusive_active_r2_20261024.json",
-    "report_ref": "research/683_CARA_HISTORY104_R2_55_PATH_TECHNICAL_PROGRESS_20261024.md",
+    "report_ref": "research/684_CARA_HISTORY104_R2_HALFWAY_81_PATHS_20261024.md",
     "stage_ref": "reports/cara_history104_recovery_GPU_stage_r2_20261024.json",
-    "status": "HISTORY104_R2_RUNNING_55_COMPLETE_EXCLUSIVE_STORAGE_OK_POWER_LIMIT_OBSERVED",
-    "observed_at": "2026-10-24T17:37:07.988802+08:00",
+    "status": "HISTORY104_R2_RUNNING_81_COMPLETE_EXCLUSIVE_STORAGE_OK_THERMAL_LIMIT_OBSERVED",
+    "observed_at": "2026-10-24T19:27:58.446736+08:00",
     "full_protocol_accepted": false,
     "recovery_GPU_dispatch_authorized": true,
     "storage_ref": "reports/cara_history104_recovery_active_storage_journal_20261024.json",
     "exclusive_prefix_ref": "reports/cara_history104_recovery_exclusive_monitor_prefix_20261024.json",
     "authorization_ref": "reports/cara_history104_recovery_direct_user_GPU_authorization_20261024.json",
     "whole_quote_ref": "manifests/cara_history104_recovery_full104_quote_r2_20261024.json",
-    "latest_storage_thermal_ref": "reports/cara_history104_R2_storage_journal_cadence_20261024_1737.json",
+    "latest_storage_thermal_ref": "reports/cara_history104_R2_storage_journal_cadence_20261024_1925.json",
     "initial_execution_report_ref": "research/680_CARA_HISTORY104_R2_EXCLUSIVE_LAUNCH_AND_ACCEPTANCE_20261024.md"
   },
   "history104_result_analysis_preparation": {

@@ -4,11 +4,11 @@
 
 论文主线：**CFG对齐读出修正 → 数据驱动计算时机 → 冻结自动程序的实际质量—时间收益**。已有机制结果放在前面，自动生成器的最终数值由后续真实验证填入。
 
-**当前104路径验证卡：GPU3硬独占运行中。** 实际启动2026-10-24T13:41:30+08:00，观测2026-10-24T17:37:07.988802+08:00。RUNNING；55/104完成、0失败。
+**当前104路径验证卡：GPU3硬独占运行中。** 实际启动2026-10-24T13:41:30+08:00，观测2026-10-24T19:27:58.446736+08:00。RUNNING；81/104完成、0失败。
 
-范围：4 CAL、10角色、80正式+20warm+4诊断；3744pairs/7488CFG，单load。释放GPU并结算后执行72配对/6696帧CPU评分。forecast11.423207、硬上限11.9 GPUh；部署257.771秒及累计226 GPUh保持。技术半程：**2026-10-24 19:25 Asia/Shanghai**；最终验收（含释放后CPU评分）：**2026-10-25 03:10 Asia/Shanghai**。
+范围：4 CAL、10角色、80正式+20warm+4诊断；3744pairs/7488CFG，单load。释放GPU并结算后执行72配对/6696帧CPU评分。forecast11.423207、硬上限11.9 GPUh；部署257.771秒及累计226 GPUh保持。最终验收（含释放后CPU评分）：**2026-10-24 23:15 Asia/Shanghai**。
 
-[唯一实际启动](../reports/cara_history104_recovery_GPU_actual_launch_r2_20261024.json) · [最新技术观测](../reports/cara_history104_R2_progress_check_20261024_latest1.json) · [真实独占核验](../reports/cara_history104_recovery_GPU3_exclusive_active_r2_20261024.json) · [组合检查与执行记录](../research/683_CARA_HISTORY104_R2_55_PATH_TECHNICAL_PROGRESS_20261024.md)。
+[唯一实际启动](../reports/cara_history104_recovery_GPU_actual_launch_r2_20261024.json) · [最新技术观测](../reports/cara_history104_R2_halfway_20261024_1925.json) · [真实独占核验](../reports/cara_history104_recovery_GPU3_exclusive_active_r2_20261024.json) · [组合检查与执行记录](../research/684_CARA_HISTORY104_R2_HALFWAY_81_PATHS_20261024.md)。
 
 原P1原件与财务完整接受，但未选出预算可行策略。104卡CPU与独占准入不代表GPU结果；P2仍等待可行冻结策略。
 
