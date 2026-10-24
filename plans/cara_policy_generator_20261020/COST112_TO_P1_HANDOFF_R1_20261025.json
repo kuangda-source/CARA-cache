@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "status": "WAIT_COMPLETE112_AND_INDEPENDENT_COST_PASS",
+  "card_ref": "manifests/cara_cost112_scope_quote_r1_20261025.json",
+  "card_sha256": "157c5c5c0e9769d5fa5277125149180ffdcffc7063411efe2e97ee546b89ace5",
+  "run_id": "cara-cost-validation112-cal4-ada-r1",
+  "model": {
+    "version": "CARA_PRECEDING_FULLD_CLOCK_MODEL_R1",
+    "fit_capture_ref": "reports/cara_history104_R2_terminal_20261024_2315.json",
+    "fit_capture_sha256": "00b2a16348085c97626065acb85717855325cbd4bb87f1476f7efd28008163de",
+    "training_rows": 64,
+    "training_scope": "All complete old104 cache clocks from both rounds; development only, never independent validation",
+    "features": [
+      "nD-36",
+      "nA"
+    ],
+    "coefficients": [
+      5.759309912605651,
+      0.12491496618716978
+    ],
+    "intercept": 0.0,
+    "formula": "T_pred = independent_preceding_PG_ALL_D_anchor_same_prompt + dD*(nD-36) + dA*nA",
+    "new_card_refit": false,
+    "new_card_validation_rows": 72,
+    "anchor_also_validation": false,
+    "quality_used": false
+  },
+  "gate": {
+    "full_protocol_accepted": true,
+    "timing_model_validated": true,
+    "validation_rows": 72,
+    "clock_anchors": 8,
+    "mean_absolute_relative_error_max": 0.01,
+    "maximum_underestimate_seconds_max": 2.0,
+    "no_false_feasible": true
+  },
+  "unchanged": {
+    "deployment_seconds": 257.7712338712067,
+    "relative_fresh_Native": 0.8,
+    "prediction_margin_seconds": 6.0,
+    "cumulative_GPUh": 226,
+    "original_alpha": true,
+    "strong_baselines": [
+      "S26_C",
+      "S26_A_PHASE",
+      "SHARED26_C"
+    ],
+    "boundary_layouts": [
+      "S25_C",
+      "S25_A_PHASE",
+      "S24_C",
+      "S24_A_PHASE"
+    ],
+    "new_version_query_cap": 8
+  },
+  "P1_requirements": [
+    "Only complete accepted112 may clear the timing gate; do not retrain on112 validation clocks",
+    "Reacquire and charge strict-past same-input PG-allD references using the validated acquisition protocol; do not reuse old host clocks as fresh references",
+    "Preserve all11 prior development policy exposures and actual costs; do not call the whole project Q<=8",
+    "Refresh full local and remote CAL_SELECT identity exposure audit, without replacing SELECT",
+    "Freeze legal masks, diversity and at most one bounded feasibility-recovery branch within Q<=8 before CPU",
+    "Preserve original alpha and all strong baselines; no adoption of best112 quality layout as a selected policy",
+    "New whole quote must include clock anchors, clean Native, warm, FIT, SELECT, full scoring, load and release",
+    "Actual production CPU, fresh226 ledger and idle exclusive UUID required before one new P1 dispatch"
+  ],
+  "failure_action": "Preserve independent failure and actual fees; no relaxation, ninth query or automatic rerun",
+  "P1_GPU_dispatch_ready": false,
+  "P2_GPU_dispatch_ready": false
+}
