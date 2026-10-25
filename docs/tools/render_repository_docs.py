@@ -568,6 +568,32 @@ def build():
                 '66位置整卡监督、历史原件桥接、释放后48/156评分和终态组合CPU已接受；真实质量模型CPU仍待完成。')
             snapshot+=' · '+link(cal66['combination_CPU_acceptance_ref'],'CAL66组合CPU接受')
             run_details=run_details.replace('生产入口60路径接受；组合与真实模型CPU验收推进中','生产入口60路径与整卡组合接受；真实模型CPU验收推进中')
+        if cal66.get('quality_models_CPU_accepted'):
+            models=load(cal66['quality_models_CPU_acceptance_ref'])
+            if (not models['CPU_accepted'] or models['accepted_models']!=5
+                    or models['capture_sha256']!=digest((ROOT/cal66['quality_models_CPU_terminal_ref']).read_bytes())['sha256']
+                    or models['GPU_submissions'] or models['ledger_written']):
+                raise ValueError('CAL66 original model CPU evidence differs')
+            snapshot=snapshot.replace('真实质量模型CPU仍待完成。','五个原始质量模型真实CPU前向已接受；完整93帧评分探针另行验收。')
+            snapshot+=' · '+link(cal66['quality_models_CPU_acceptance_ref'],'原模型CPU接受')
+            run_details=run_details.replace('真实模型CPU验收推进中','五模型CPU接受；93帧评分探针推进中')
+        if cal66.get('complete_CPU_preparation_accepted'):
+            all_cpu=load(cal66['complete_CPU_preparation_ref'])
+            video=load(cal66['quality_video_CPU_acceptance_ref'])
+            if (not all_cpu['CPU_preparation_accepted'] or not video['CPU_accepted']
+                    or all_cpu['registered_paths']!=66 or all_cpu['real_original_models_accepted']!=5
+                    or all_cpu['real_video_metric_probes']!=3 or all_cpu['probe_frames']!=93
+                    or video['capture_sha256']!=digest((ROOT/cal66['quality_video_CPU_terminal_ref']).read_bytes())['sha256']
+                    or all_cpu['binding_sha256']!=digest((ROOT/cal66['quality_binding_ref']).read_bytes())['sha256']
+                    or all_cpu['quote']['forecast_GPUh']!=c66['quote']['forecast_GPUh']
+                    or not all_cpu['CPU_planning']['within_original_CPU_envelope']
+                    or all_cpu['GPU_submissions'] or all_cpu['new_GPUh_reserved'] or all_cpu['GPU_dispatch_ready']):
+                raise ValueError('CAL66 final separate CPU gates or unchanged quote differ')
+            snapshot=snapshot.replace('五个原始质量模型真实CPU前向已接受；完整93帧评分探针另行验收。',
+                '五个原始质量模型CPU与完整93帧三指标探针也已接受；四项CPU证据已独立合并复核，尚无新GPU结果。')
+            snapshot+=' · '+link(cal66['complete_CPU_preparation_ref'],'完整CPU准备与报价复核')
+            run_details=run_details.replace('五模型CPU接受；93帧评分探针推进中','五模型及93帧三指标CPU接受')
+            run_details+='\n| CPU评分规划 | 探针与历史LPIPS外推并加余量约4.72小时，原6小时/2CPU/8GiB上限不变；非整批实测 |'
     headlines = '\n'.join(f"- **{f['title']}**（{f['short_scope']}）：{f['result']} {refs(f['refs'])}"
                            for f in status['headline_results'])
     details = '\n\n'.join(f"### {i+1}. {f['title']}\n\n{f['result']}\n\n{f['scope']} {refs(f['refs'])}"
