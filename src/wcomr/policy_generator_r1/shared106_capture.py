@@ -19,4 +19,10 @@ def collect(project,stage,launch):
   for s in read(stage/MANIFEST)['matrix']:
    if s['section'] in ('QUALITY',) and s['role']!='NATIVE35':keep(s['id'],out/s['id']/'score.json',value['scores'])
  for i in range(228):keep(str(i),out/'quality'/(str(i)+'.json'),value['quality_scores'])
+ try:
+  from ..history104_storage_r2 import storage_for
+  guard=storage_for(stage);snapshot=guard.check()
+  value['storage']=dict(checked=True,contract_sha256=hashlib.sha256((stage/'history104-storage.json').read_bytes()).hexdigest(),snapshot=snapshot,
+   journal={k:guard.journal.read(k) for k in ('billing','accounting','supervisor','guardian')})
+ except Exception as error:value['storage']=dict(checked=False,error_type=type(error).__name__,error=str(error))
  return value

@@ -57,7 +57,8 @@ def execute(p,factory,out,release,save):
      row=r['planned']
      if row['dimension']!=dim:continue
      target=out/(str(i)+'.json');raw=out/(str(i)+'.raw.json');r['status']='RUNNING';save(copy.deepcopy(state))
-     if target.exists():result=read(target)
+     if target.exists():
+      result=read(target);require(raw.exists() and read(raw)==result,'Original raw and accepted score differ')
      else:
       require(not raw.exists(),'Unaccepted raw original needs explicit recovery, never overwrite')
       result=scorer.score(copy.deepcopy(row));atomic_json(raw,result)
@@ -66,7 +67,10 @@ def execute(p,factory,out,release,save):
    life['status']='RELEASED'
   state['status']='QUALITY_COMPLETE228';return state
  except BaseException as e:
-  state.update(status='QUALITY_FAILED_ORIGINALS_RETAINED',error_type=type(e).__name__,error=str(e));raise
+  state.update(status='QUALITY_FAILED_ORIGINALS_RETAINED',error_type=type(e).__name__,error=str(e))
+  failures=out/'failures';failures.mkdir(exist_ok=True)
+  with (failures/(str(time.time_ns())+'.json')).open('x') as f:json.dump(state,f,allow_nan=False)
+  raise
  finally:state['ended_unix']=time.time();save(copy.deepcopy(state))
 
 def audit(p,state):

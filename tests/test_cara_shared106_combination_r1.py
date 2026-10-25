@@ -23,7 +23,7 @@ def fixture():
  identity=dict(pid=101,start_ticks=501,uid=1000);source=h('CPU_ONLY');gpu='GPU-fixture';guardian=dict(pid=100,start_ticks=500)
  L=dict(run_id=RUN,launch_id='CPU106-fixture',source_revision=source,gpu_uuid=gpu,stage='/fixture',scope_counts=COUNTS,billed_limit_GPUh=11.5,forecast_GPUh=card['quote']['forecast_GPUh'],guardian_identity=guardian);v['launch']=L
  put(v,'card',card);put(v,'quote',card['quote']);L['config_sha256']=put(v,'config',dict(run_id=RUN,scope_counts=COUNTS,matrix=card['matrix'],forecast_complete_GPUh=L['forecast_GPUh'],billed_limit_GPUh=11.5))
- reg=dict(source_revision=source,stage='/fixture',runtime_source_sha256={'fixture.py':h('runtime')},payload_sha256={n:v['files'][k]['sha256'] for k,n in [('config','pg-config.json'),('quote','pg-whole-quote.json'),('card',MANIFEST)]});L['registration_sha256']=put(v,'registration',reg);v.update(payload_actual_sha256=reg['payload_sha256'],runtime_actual_sha256=reg['runtime_source_sha256'])
+ reg=dict(source_revision=source,stage='/fixture',runtime_source_sha256={'fixture.py':h('runtime')},payload_sha256={n:v['files'][k]['sha256'] for k,n in [('config','pg-config.json'),('quote','pg-whole-quote.json'),('card',MANIFEST)]});reg['payload_sha256']['history104-storage.json']=h('CPU_STORAGE_CONTRACT');L['registration_sha256']=put(v,'registration',reg);v.update(payload_actual_sha256=reg['payload_sha256'],runtime_actual_sha256=reg['runtime_source_sha256'])
  put(v,'CPU_acceptance',dict(full_GPU_lifecycle_CPU_accepted=True,production_CPU_accepted=True,independent_quality_models_CPU_accepted=True,source_revision=source));auth=dict(L,independent_CPU_acceptance_sha256=v['files']['CPU_acceptance']['sha256']);L['authorization_sha256']=put(v,'authorization',auth)
  v['container']=dict(state=dict(Running=False,ExitCode=0,OOMKilled=False),image=IMAGE,readonly_root=True,nano_cpus=2*10**9,memory_bytes=48*2**30,pid_mode='host',manifest_sha256=L['registration_sha256'],device_requests=[dict(DeviceIDs=[gpu])])
  def snap(active,stamp=100):return dict(gpu_uuid=gpu,compute_mode='Exclusive_Process',compute_apps=[dict(identity,gpu_uuid=gpu)] if active else [],mps_processes=[],observed_unix=stamp)
@@ -69,6 +69,7 @@ def fixture():
  qp=dict(evaluator_identity=identity,rows=planned);qp['sha256']=digest(qp);put(v,'quality_plan',qp)
  put(v,'quality_progress',dict(status='QUALITY_COMPLETE228',plan_sha256=qp['sha256'],rows=quality_rows,model_lifecycle=[dict(dimension=d,status='RELEASED') for d in DIMENSIONS],release=record(v,'score_progress')['release'],started_unix=t+2))
  put(v,'post',dict(scientific=scientific(v),runner_sha256=v['files']['runner']['sha256']));put(v,'post_exit',dict(exit_code=0,CPU_only_after_UUID_release=True,post_resource_limits=dict(address_space_bytes=8*2**30,max_affinity_cpus=2,wall_limit_seconds=21600),final_result_sha256=v['files']['post']['sha256']))
+ v['storage']=dict(checked=True,contract_sha256=h('CPU_STORAGE_CONTRACT'),snapshot={},journal=dict(billing=record(v,'billing'),supervisor=record(v,'supervisor'),guardian=record(v,'guardian'),accounting=dict(settled=True,actual_GPUh=bill['actual_GPUh'],billing_sha256=v['files']['billing']['sha256'])))
  return v
 
 class Combined(unittest.TestCase):
@@ -143,3 +144,20 @@ class ModelGate(Combined):
  def test_missing_real_model_CPU_blocks_acceptance(self):
   self.change('CPU_acceptance',lambda c:c.update(independent_quality_models_CPU_accepted=False))
   with self.assertRaises(ValueError):accept(self.v)
+
+class StorageGate(unittest.TestCase):
+ def test_durable_bill_mismatch(self):
+  v=fixture();v['storage']['journal']['billing']['actual_GPUh']+=.1
+  with self.assertRaises(ValueError):accept(v)
+ def test_storage_check_missing(self):
+  v=fixture();v['storage']['checked']=False
+  with self.assertRaises(ValueError):accept(v)
+
+class QualityBeforeRelease(unittest.TestCase):
+ def test_no_quality_model_before_release(self):
+  import tempfile
+  from wcomr.policy_generator_r1.shared106_quality import execute
+  v=fixture();p=record(v,'quality_plan');called=[]
+  with tempfile.TemporaryDirectory() as t:
+   with self.assertRaises(ValueError):execute(p,lambda dim:called.append(dim),Path(t)/'quality',dict(GPU_released=False,ledger_settled=True,lock_free=True,CUDA_hidden=True),lambda v:None)
+   self.assertFalse(called);self.assertFalse((Path(t)/'quality').exists())

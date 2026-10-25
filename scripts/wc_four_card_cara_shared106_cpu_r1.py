@@ -29,7 +29,7 @@ def main():
    files[n]=base64.b64encode(raw).decode();hashes[n]=hashlib.sha256(raw).hexdigest()
   old=read(REPO/'reports/wc_policy_assets_full1624_fourcard_GPU_terminal_20261023_0826.json')
   code=DEPLOY.replace('cara-pg-p1-CPU-','cara-shared106-combination-CPU-').replace('CARA_PG_P1_CPU_R1','CARA_SHARED106_COMBINATION_R1').replace('check_cara_pg_p1_production_cpu_r1.py','check_cara_shared106_combination_cpu_r1.py').replace("str(stage/'PG-production-CPU.json')","str(stage/'shared106-combination-CPU.json')")
-  code=code.replace("command[command.index('--memory')+1]='4g'","command[0:0]=[];command[command.index('--entrypoint'):command.index('--entrypoint')]=['--tmpfs','/fault:rw,size=64m,mode=1777'];command[command.index('--memory')+1]='4g'")
+  code=code.replace("command[command.index('--memory')+1]='4g'","command[0:0]=[];command[command.index('--entrypoint'):command.index('--entrypoint')]=['--tmpfs','/fault:rw,size=64m,mode=1777','--tmpfs','/fixture:rw,size=256m,mode=1777'];command[command.index('--memory')+1]='4g'")
   v=ssh(code,dict(root=ROOT,base=BASE,base_registration_sha256=old['registration_sha256'],stage_name=a.stage_name,revision=revision,files=files,hashes=hashes))
  write(a.output,v);print(json.dumps({k:v.get(k) for k in ('status','stage','container','resource_admission')}))
 if __name__=='__main__':main()

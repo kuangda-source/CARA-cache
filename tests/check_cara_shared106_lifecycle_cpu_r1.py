@@ -26,19 +26,19 @@ def run(stage, output_root):
     from wcomr.gpu_budget_pool_v2 import BudgetPool,DeviceLease,atomic_json,sha,process_identity
     import wc_cara_shared106_worker_r1 as worker
     checks=[]
-    for scenario in ('success','runner_failure','foreign_context','telemetry_failure_on_release'):
+    for scenario in ('success','runner_failure','foreign_context','telemetry_failure_on_release','budget_timeout','post_failure','post_timeout'):
         root=output_root/scenario;fixture=root/'.sync/fixture-stage';fixture.mkdir(parents=True)
         (root/'reports').mkdir();(root/'outputs').mkdir();(fixture/'scripts').mkdir()
         (root/'runtime').mkdir()
         source='CPU_FIXTURE_ONLY_NOT_AN_EXPERIMENT'
-        config=dict(forecast_complete_GPUh=.1,billed_limit_GPUh=.2)
+        config=dict(forecast_complete_GPUh=.004 if scenario=='budget_timeout' else .1,billed_limit_GPUh=.00834 if scenario=='budget_timeout' else .2)
         reg=dict(source_revision=source)
         atomic_json(fixture/'registration.json',reg);atomic_json(fixture/contract.CONFIG,config)
         atomic_json(fixture/contract.CPU_PROOF,dict(CPU_fixture_only=True))
         atomic_json(fixture/'pg-independent-CPU-acceptance.json',dict(production_CPU_accepted=True,CPU_fixture_only=True))
         auth=dict(source_revision=source,registration_sha256=sha(fixture/'registration.json'),
             production_CPU_sha256=sha(fixture/contract.CPU_PROOF),scope_counts=contract.COUNTS,
-            billed_limit_GPUh=.2,gpu_uuid='GPU-CPU-fixture',launch_id=scenario)
+            billed_limit_GPUh=config['billed_limit_GPUh'],gpu_uuid='GPU-CPU-fixture',launch_id=scenario)
         atomic_json(fixture/'pg-GPU-authorization.json',auth)
         pool=dict(schema='WC_GPU_BUDGET_POOL_V2',cap_gpu_hours=226.,origin_used_gpu_hours=1.,
             origin_gpu_jobs_launched=0,jobs={},events=[],CPU_FIXTURE_ONLY_NOT_AUTHORITY=True)
@@ -61,6 +61,8 @@ raise SystemExit(EXIT_CODE)
 '''.replace('SOURCE_SRC',repr(str(stage/'src'))).replace('EXIT_CODE','1' if scenario=='runner_failure' else '0')
         (fixture/'scripts/run_cara_shared106_r1.py').write_text(runner)
         post="import json,pathlib,sys,resource,os\nassert resource.getrlimit(resource.RLIMIT_AS)==(8*2**30,8*2**30) and len(os.sched_getaffinity(0))<=2\na=dict(zip(sys.argv[1::2],sys.argv[2::2]));p=pathlib.Path(a['--project'])/'outputs'/"+repr(contract.RUN)+"\n(p/'post-results.json').write_text(json.dumps(dict(CPU_fixture_only=True)))\n"
+        if scenario=='post_failure':post+='raise SystemExit(1)\n'
+        if scenario=='post_timeout':post+='import time; time.sleep(3600)\n'
         (fixture/'scripts/postprocess_cara_shared106_r1.py').write_text(post)
         observations=[]
         def observe(uuid):
@@ -81,10 +83,14 @@ raise SystemExit(EXIT_CODE)
             return 'GPU-CPU-fixture, NVIDIA RTX 6000 Ada Generation, 0, 8.9\n'
         original_handler=__import__('signal').getsignal(__import__('signal').SIGTERM)
         error=None
+        normal_wait=subprocess.Popen.wait
+        def bounded_wait(process,timeout=None):
+            if scenario=='post_timeout' and timeout==21600:raise subprocess.TimeoutExpired(process.args,timeout)
+            return normal_wait(process,timeout=timeout)
         try:
-            with patch.object(contract,'validate',lambda *a:(config,reg)),patch.object(exclusive,'observe',observe),patch.object(subprocess,'check_output',smi):
+            with patch.object(contract,'validate',lambda *a:(config,reg)),patch.object(exclusive,'observe',observe),patch.object(subprocess,'check_output',smi),patch.object(subprocess.Popen,'wait',bounded_wait):
                 try:worker.supervise(SimpleNamespace(project=root,stage=fixture))
-                except (RuntimeError,ValueError) as e:error=str(e)
+                except (RuntimeError,ValueError,TimeoutError) as e:error=str(e)
         finally:__import__('signal').signal(__import__('signal').SIGTERM,original_handler)
         out=root/'outputs'/contract.RUN;bill=contract.read(out/'billing.json');after=BudgetPool(root).read()
         assert after['jobs'][contract.RUN]['status']=='SETTLED'
@@ -93,6 +99,8 @@ raise SystemExit(EXIT_CODE)
         with DeviceLease(root,'GPU-CPU-fixture'):pass
         state=contract.read(out/'supervisor.json');monitor=contract.read(out/'exclusive-monitor-final.json')
         if scenario=='success':assert error is None and monitor['accepted'] and state['post_exit_code']==0
+        elif scenario in ('post_failure','post_timeout'):
+            assert monitor['accepted'] and error is not None and state['post_exit_code']==(124 if scenario=='post_timeout' else 1)
         else:
             assert not monitor['accepted']
             if scenario!='telemetry_failure_on_release':assert error is not None

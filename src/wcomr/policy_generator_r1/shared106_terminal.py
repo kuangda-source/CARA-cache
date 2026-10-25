@@ -112,6 +112,9 @@ def accept(v):
     require(runner['source_revision']==L['source_revision'] and runner['registration_sha256']==L['registration_sha256'] and runner['config_sha256']==L['config_sha256'] and runner['pid']==sup['child_identity']['pid'],'Runner identity changed')
     require(postexit['post_resource_limits']==dict(address_space_bytes=8*2**30,max_affinity_cpus=2,wall_limit_seconds=21600),'Post CPU limits changed')
     require(postexit['exit_code']==0 and postexit['CPU_only_after_UUID_release'] and postexit['final_result_sha256']==v['files']['post']['sha256'] and post['runner_sha256']==v['files']['runner']['sha256'],'Independent post binding failed')
+    storage=v['storage'];require(storage['checked'] and storage['contract_sha256']==reg['payload_sha256']['history104-storage.json'],'Dedicated storage/cross-disk check failed')
+    durable=storage['journal'];require(durable['billing']==bill and durable['supervisor']==sup and durable['guardian']==guard,'Cross-disk originals differ')
+    require(durable['accounting']['settled'] and durable['accounting']['actual_GPUh']==actual and durable['accounting']['billing_sha256']==v['files']['billing']['sha256'],'Durable settlement differs')
     science=scientific(v);require(post_replay_equal(post['scientific'],science),'Post and original independent replay differ')
     restore=guard['mode_restoration'];require(restore['restored'] or restore['status']=='RESTORE_DEFERRED_NO_FOREIGN_PROCESS_TOUCHED','Unknown safe mode restoration')
     return dict(status='SHARED106_COMPLETE_ORIGINALS_FINANCE_AND_SELECTION_ACCEPTED',full_protocol_accepted=True,

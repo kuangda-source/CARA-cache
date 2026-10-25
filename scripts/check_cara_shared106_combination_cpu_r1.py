@@ -26,7 +26,7 @@ def main():
  names=('src/wcomr/policy_generator_r1/exploration_requests.py','src/wcomr/policy_generator_r1/shared_exploration.py','src/wcomr/policy_generator_r1/p2_native_sampling.py','src/wcomr/policy_generator_r1/production_sampling.py','src/wcomr/cfg_guided_w1_deployment.py')
  unchanged={n:original['registration']['payload_sha256'][n] for n in names}
  assert all(reg['payload_sha256'][n]==h for n,h in unchanged.items())
- out=a.stage/'CPU-complete106';out.mkdir();video=out/'fixture93.mp4'
+ out=Path('/fixture')/'CPU-complete106';assert os.path.ismount(out.parent);out.mkdir();video=out/'fixture93.mp4'
  subprocess.run(['ffmpeg','-v','error','-threads','1','-filter_threads','1','-f','lavfi','-i','color=c=gray:s=768x432:r=16','-frames:v','93','-c:v','libx264','-threads','1','-pix_fmt','yuv420p',str(video)],check=True,timeout=60)
  def request(slot,policy,directory):
   directory.mkdir();shutil.copyfile(video,directory/'video.mp4');r=result_fixture(slot,policy);r.update(video_path=str(directory/'video.mp4'),final_latent=torch.zeros(1))
@@ -54,6 +54,7 @@ def main():
  assert read(out/'scores.json')['completed_pairs']==2
  with patch('wcomr.policy_generator_r1.shared106_collection.score_videos',synthetic_score):
   scores=score_after_release(card,state,out,None,METRIC,release,lambda s:atomic_json(out/'scores.json',s))
+ assert len(list((out/'score-failures').glob('*.json')))==1
  assert scores['completed_pairs']==72 and len(list(out.glob('*/request.json')))==106
  from test_cara_pg_p2_quality_binding_r1 import plan_and_scores
  from contextlib import contextmanager
@@ -74,20 +75,24 @@ def main():
  else:raise AssertionError('Quality failure hidden')
  assert read(out/'quality-progress.json')['status']=='QUALITY_FAILED_ORIGINALS_RETAINED'
  qs=quality_execute(qp,factory,qdir,release,lambda s:atomic_json(out/'quality-progress.json',s));quality=quality_audit(qp,qs)
+ assert len(list((qdir/'failures').glob('*.json')))==1
  assert quality['positions']==228 and len(list(out.glob('*/request.json')))==106
+ shutil.copytree(out/'score-failures',a.stage/'CPU-score-failures')
+ shutil.copytree(qdir/'failures',a.stage/'CPU-quality-failures')
+ atomic_json(a.stage/'CPU-fixture-summary.json',dict(batch=state,controls=packet['controls'],LPIPS=scores,quality=qs,declared_synthetic=True))
  import lpips
  identity=metric_resource_identity(a.project);torch.hub.set_dir(str(a.project/'cache/torch/hub'));metric=lpips.LPIPS(net='alex',version='0.1',spatial=False,verbose=False).cpu().eval()
  for v in metric.parameters():v.requires_grad_(False)
  r=state['rows'][0]['result'];s=state['rows'][1]['result'];actual=score_videos(r['video_artifact'],s['video_artifact'],metric,root=out,metric_identity=identity)
  assert validate_score(actual,r['video_artifact'],s['video_artifact'],identity)==0 and actual['frames']==93
- atomic_json(out/'real-LPIPS93.json',actual);del metric
+ atomic_json(a.stage/'real-LPIPS93.json',actual);del metric
  life=load(a.stage/'tests/check_cara_shared106_lifecycle_cpu_r1.py','life').run(a.stage,a.stage/'CPU-shared106-lifecycle')
  storage=load(a.stage/'tests/check_shared106_storage_cpu_r1.py','storage').run(a.stage,a.stage/'CPU-storage106-lifecycle')
  module=load(a.stage/'tests/test_cara_shared106_combination_r1.py','terminaltests');tests=unittest.TextTestRunner(verbosity=2).run(unittest.defaultTestLoader.loadTestsFromModule(module));assert tests.wasSuccessful()
  assert not torch.cuda.is_initialized()
  proof=dict(status='SHARED106_COLLECTION_RELEASE_SCORE_TERMINAL_COMBINATION_CPU_PASS',source_revision=reg['source_revision'],registration_sha256=sha(a.stage/'registration.json'),started_unix=started,ended_unix=time.time(),
-  reused_entry=entry,unchanged_entry_SHA=unchanged,collection=dict(paths=106,controls=22,requests_serialized=106,score_pairs=72,score_frames=6696,quality_videos=76,quality_positions=228,synthetic_endpoints_and_scores=True,score_resume_without_GPU_replay=True,quality_resume_without_GPU_replay=True,pre_release_score_refused=True,same_slot_replay_refused=True),
-  full_video_metric=dict(real_LPIPS93=True,metric_identity=identity,score_sha256=sha(out/'real-LPIPS93.json'),Cosmos_generated_video=False),
+  reused_entry=entry,unchanged_entry_SHA=unchanged,collection=dict(paths=106,controls=22,requests_serialized=106,score_pairs=72,score_frames=6696,quality_videos=76,quality_positions=228,synthetic_endpoints_and_scores=True,score_resume_without_GPU_replay=True,quality_resume_without_GPU_replay=True,original_scoring_failure_receipts_retained=True,pre_release_score_refused=True,same_slot_replay_refused=True),
+  fixture_summary_sha256=sha(a.stage/'CPU-fixture-summary.json'),full_video_metric=dict(real_LPIPS93=True,metric_identity=identity,score_sha256=sha(a.stage/'real-LPIPS93.json'),Cosmos_generated_video=False),
   lifecycle=life,storage_lifecycle=storage,terminal_tests=tests.testsRun,quote=quote_audit(card),
   independent_quality_models_loaded=False,quality_resource_CPU_accepted=False,CUDA_initialized=False,Cosmos_weights_loaded=0,GPU_submissions=0,authoritative_ledger_written=False)
  with a.output.open('x') as f:json.dump(proof,f,indent=2,allow_nan=False);f.write('\n')

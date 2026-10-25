@@ -120,7 +120,11 @@ def score_after_release(card,state,out,metric,identity,release,save):
    scores[s['id']]=dict(reference_id=ref['id'],score_artifact=artifact(path,out),LPIPS=lp)
    progress['completed_pairs']=len(scores);save(copy.deepcopy(progress))
   progress['status']='CPU_SCORE_COMPLETE72';return progress
- except BaseException as e:progress.update(status='CPU_SCORE_FAILED_ORIGINALS_RETAINED',error_type=type(e).__name__,error=str(e));raise
+ except BaseException as e:
+  progress.update(status='CPU_SCORE_FAILED_ORIGINALS_RETAINED',error_type=type(e).__name__,error=str(e))
+  failures=out/'score-failures';failures.mkdir(exist_ok=True)
+  with (failures/(str(time.time_ns())+'.json')).open('x') as f:json.dump(progress,f,allow_nan=False)
+  raise
  finally:progress['ended_unix']=time.time();save(copy.deepcopy(progress))
 
 
