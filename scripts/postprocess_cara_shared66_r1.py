@@ -35,9 +35,14 @@ def main():
  assert 'quality-binding.json' in reg['payload_sha256'] and sha(a.stage/'quality-binding.json')==reg['payload_sha256']['quality-binding.json']
  binding=read(a.stage/'quality-binding.json')
  quality_plan=plan(card,runner['batch'],binding['members'],binding['identity'],out)
- factory=original_factory(stage=Path(binding['registration']['stage']),resources=binding['resources'],
-  acceptance=binding['acceptance'],registration=binding['registration'],identity=binding['identity'],torch=torch,device='cpu')
- execute(quality_plan,factory,out/'quality',release,lambda v:atomic_json(out/'quality-progress.json',v))
+ # Import original metric code only in its independently accepted model stage.
+ import subprocess
+ atomic_json(out/'quality-plan-input.json',quality_plan);atomic_json(out/'quality-release-input.json',release)
+ model_stage=Path(binding['registration']['stage']);child=model_stage/'scripts/score_cara_cal66_quality_cpu_r1.py'
+ assert binding['registration']['payload_sha256']['scripts/score_cara_cal66_quality_cpu_r1.py']==sha(child)
+ env=dict(os.environ,PYTHONPATH=str(model_stage/'scripts')+':'+str(model_stage/'src')+':'+binding['dependency_overlay'])
+ subprocess.run([sys.executable,str(child),'--binding',str(a.stage/'quality-binding.json'),
+  '--plan',str(out/'quality-plan-input.json'),'--release',str(out/'quality-release-input.json'),'--output',str(out)],env=env,check=True)
  assert not torch.cuda.is_initialized()
  packet=collect(a.project,a.stage,read(a.stage/'pg-GPU-authorization.json'))
  result=scientific(packet)
