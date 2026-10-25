@@ -21,7 +21,7 @@ def main():
  from unittest.mock import patch
  reg=read(a.stage/'registration.json');card=read(a.stage/MANIFEST)
  from audit_cara_cal66_entry_cpu_r1 import accept as accept_entry
- original=read(a.stage/'reports/cara_CAL66_entry_CPU_terminal_r1_20261025.json');entry=accept_entry(original)
+ original=read(a.stage/'reports/cara_CAL66_entry_CPU_exited_r1_20261025.json');entry=accept_entry(original)
  # Accepted sampling closure is reused by exact bytes, not silently redefined.
  names=('src/wcomr/policy_generator_r1/exploration_requests.py','src/wcomr/policy_generator_r1/shared_exploration.py','src/wcomr/policy_generator_r1/p2_native_sampling.py','src/wcomr/policy_generator_r1/production_sampling.py','src/wcomr/cfg_guided_w1_deployment.py')
  unchanged={n:original['registration']['payload_sha256'][n] for n in names}

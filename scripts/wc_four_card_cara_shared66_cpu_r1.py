@@ -12,7 +12,7 @@ ENTRY=['scripts/check_cara_shared66_combination_cpu_r1.py','scripts/run_cara_sha
  'tests/check_cara_shared66_lifecycle_cpu_r1.py','tests/check_shared66_storage_cpu_r1.py',
  'tests/test_cara_shared66_combination_r1.py','tests/test_cara_pg_p2_quality_binding_r1.py','tests/test_policy_price_terminal_r1.py',
  'scripts/audit_cara_cal66_entry_cpu_r1.py']
-EXTRA=['reports/cara_history104_R2_terminal_20261024_2315.json','manifests/cara_shared_CAL66_scope_quote_r1_20261025.json','reports/cara_CAL66_entry_CPU_terminal_r1_20261025.json']
+EXTRA=['reports/cara_history104_R2_terminal_20261024_2315.json','manifests/cara_shared_CAL66_scope_quote_r1_20261025.json','reports/cara_CAL66_entry_CPU_exited_r1_20261025.json']
 def main():
  p=argparse.ArgumentParser();p.add_argument('command',choices=['deploy','capture']);p.add_argument('--stage-name');p.add_argument('--launch-ref',type=Path);p.add_argument('--output',type=Path,required=True);a=p.parse_args()
  if a.output.exists():raise ValueError('Preserve original CPU receipt')
