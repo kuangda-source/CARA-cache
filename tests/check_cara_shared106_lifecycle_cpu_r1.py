@@ -60,7 +60,7 @@ time.sleep(3)
 raise SystemExit(EXIT_CODE)
 '''.replace('SOURCE_SRC',repr(str(stage/'src'))).replace('EXIT_CODE','1' if scenario=='runner_failure' else '0')
         (fixture/'scripts/run_cara_shared106_r1.py').write_text(runner)
-        post="import json,pathlib,sys\na=dict(zip(sys.argv[1::2],sys.argv[2::2]));p=pathlib.Path(a['--project'])/'outputs'/"+repr(contract.RUN)+"\n(p/'post-results.json').write_text(json.dumps(dict(CPU_fixture_only=True)))\n"
+        post="import json,pathlib,sys,resource,os\nassert resource.getrlimit(resource.RLIMIT_AS)==(8*2**30,8*2**30) and len(os.sched_getaffinity(0))<=2\na=dict(zip(sys.argv[1::2],sys.argv[2::2]));p=pathlib.Path(a['--project'])/'outputs'/"+repr(contract.RUN)+"\n(p/'post-results.json').write_text(json.dumps(dict(CPU_fixture_only=True)))\n"
         (fixture/'scripts/postprocess_cara_shared106_r1.py').write_text(post)
         observations=[]
         def observe(uuid):

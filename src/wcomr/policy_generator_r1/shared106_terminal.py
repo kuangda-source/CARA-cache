@@ -87,10 +87,11 @@ def accept(v):
     require(v['files']['authorization']['sha256']==L['authorization_sha256'],'Authorization bytes changed')
     for k in ('run_id','launch_id','source_revision','gpu_uuid','registration_sha256','config_sha256','scope_counts','billed_limit_GPUh'):require(auth[k]==L[k],'Launch authority differs: '+k)
     require(cpu['full_GPU_lifecycle_CPU_accepted'] and cpu['production_CPU_accepted'] and v['files']['CPU_acceptance']['sha256']==auth['independent_CPU_acceptance_sha256'],'Bound complete CPU acceptance missing')
+    require(cpu.get('independent_quality_models_CPU_accepted') is True,'Real independent quality model CPU acceptance is still required')
     require(not any(v['original_live_handles'].values()) and v['own_UUID_lock_free'] is True,'Original handle/lock still live')
     con=v['container'];s=con['state']
     require(not s['Running'] and s['ExitCode']==0 and not s['OOMKilled'] and con['image']==IMAGE and con['readonly_root'] and con['pid_mode']=='host' and con['manifest_sha256']==L['registration_sha256'],'Original container did not exit cleanly')
-    require(con['nano_cpus']==2*10**9 and con['memory_bytes']==8*2**30,'CPU post resource envelope changed')
+    require(con['nano_cpus']==2*10**9 and con['memory_bytes']==48*2**30,'CPU post resource envelope changed')
     require(len(con['device_requests'])==1 and con['device_requests'][0]['DeviceIDs']==[L['gpu_uuid']],'Wrong GPU exposure')
     guard=record(v,'guardian');sup=record(v,'supervisor');postexit=record(v,'post_exit');post=record(v,'post');bill=record(v,'billing')
     from ..policy_asset_price_review_r1 import exclusive_gate
@@ -109,6 +110,7 @@ def accept(v):
     require(pool['cap_gpu_hours']==226 and all(pool[k]==x for k,x in BudgetPool.accounting(pool).items()),'Cumulative ledger mismatch')
     runner=record(v,'runner')
     require(runner['source_revision']==L['source_revision'] and runner['registration_sha256']==L['registration_sha256'] and runner['config_sha256']==L['config_sha256'] and runner['pid']==sup['child_identity']['pid'],'Runner identity changed')
+    require(postexit['post_resource_limits']==dict(address_space_bytes=8*2**30,max_affinity_cpus=2,wall_limit_seconds=21600),'Post CPU limits changed')
     require(postexit['exit_code']==0 and postexit['CPU_only_after_UUID_release'] and postexit['final_result_sha256']==v['files']['post']['sha256'] and post['runner_sha256']==v['files']['runner']['sha256'],'Independent post binding failed')
     science=scientific(v);require(post_replay_equal(post['scientific'],science),'Post and original independent replay differ')
     restore=guard['mode_restoration'];require(restore['restored'] or restore['status']=='RESTORE_DEFERRED_NO_FOREIGN_PROCESS_TOUCHED','Unknown safe mode restoration')

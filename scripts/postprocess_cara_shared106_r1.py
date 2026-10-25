@@ -7,6 +7,8 @@ def main():
  p=argparse.ArgumentParser()
  for n in ('project','stage'):p.add_argument('--'+n,type=Path,required=True)
  a=p.parse_args();assert os.environ['CUDA_VISIBLE_DEVICES']==''
+ import resource
+ assert resource.getrlimit(resource.RLIMIT_AS)==(8*2**30,8*2**30) and 1<=len(os.sched_getaffinity(0))<=2
  sys.path[:0]=[str(a.stage/'src'),str(a.stage/'scripts')]
  from wcomr.policy_generator_r1.shared106_card import validate,RUN,read
  from wcomr.policy_generator_r1.production_evidence import metric_resource_identity,sha
@@ -30,6 +32,7 @@ def main():
  # Real metric code/resources must be bound and independently CPU accepted.
  from wcomr.policy_generator_r1.p2_quality_entry import original_factory
  from wcomr.policy_generator_r1.shared106_quality import plan,execute
+ assert 'quality-binding.json' in reg['payload_sha256'] and sha(a.stage/'quality-binding.json')==reg['payload_sha256']['quality-binding.json']
  binding=read(a.stage/'quality-binding.json')
  quality_plan=plan(card,runner['batch'],binding['members'],binding['identity'],out)
  factory=original_factory(stage=Path(binding['registration']['stage']),resources=binding['resources'],

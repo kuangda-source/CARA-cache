@@ -54,7 +54,6 @@ def main():
                 # Exact per-run writable mounts; the control journal is on another disk.
                 at=command.index('--entrypoint')
                 command[at:at]=['-v',str(storage.output)+':'+str(storage.output)+':rw','-v',str(storage.journal.path)+':'+str(storage.journal.path)+':rw','-v',storage.config['image_path']+':'+storage.config['image_path']+':ro']
-            command[command.index('--cpus')+1]='2';command[command.index('--memory')+1]='8g'
             old=str(a.stage/'scripts/wc_policy_interval_assets_lifecycle_r1.py')
             command[command.index(old)]=str(a.stage/'scripts/wc_cara_shared106_worker_r1.py')
             i=command.index('--authorization');assert i==len(command)-2;command=command[:i]

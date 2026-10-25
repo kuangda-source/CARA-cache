@@ -17,6 +17,13 @@ def stop(child):
     except subprocess.TimeoutExpired:os.killpg(child.pid,signal.SIGKILL);child.wait()
 
 
+def post_limits():
+    # The inference container keeps its accepted48GiB envelope. Only the post
+    # child receives a stricter8GiB virtual-address-space limit and2 CPU cores.
+    import resource
+    resource.setrlimit(resource.RLIMIT_AS,(8*2**30,8*2**30))
+    allowed=sorted(os.sched_getaffinity(0));os.sched_setaffinity(0,allowed[:2])
+
 def supervise(a):
     from wcomr.policy_generator_r1.shared106_card import RUN,COUNTS,CONFIG,CPU_PROOF,read,sha,validate
     from wcomr.gpu_budget_pool_v2 import DeviceLease,BudgetPool,process_identity,atomic_json
@@ -143,12 +150,13 @@ def supervise(a):
     command=[sys.executable,str(a.stage/'scripts/postprocess_cara_shared106_r1.py'),
         '--project',str(a.project),'--stage',str(a.stage)]
     with (out/'post-CPU.log').open('x') as log:
-        post=subprocess.Popen(command,stdout=log,stderr=subprocess.STDOUT,env=dict(os.environ,CUDA_VISIBLE_DEVICES='',OMP_NUM_THREADS='2',OPENBLAS_NUM_THREADS='2'),start_new_session=True)
+        post=subprocess.Popen(command,stdout=log,stderr=subprocess.STDOUT,env=dict(os.environ,CUDA_VISIBLE_DEVICES='',OMP_NUM_THREADS='2',OPENBLAS_NUM_THREADS='2'),start_new_session=True,preexec_fn=post_limits)
         state.update(post_identity=process_identity(post.pid),post_started_unix=time.time());save()
         try:code=post.wait(timeout=21600)
         except subprocess.TimeoutExpired:
             stop(post);code=124;state['post_timeout']=True
     atomic_json(out/'post-exit.json',dict(exit_code=code,CPU_only_after_UUID_release=True,ended_unix=time.time(),
+        post_resource_limits=dict(address_space_bytes=8*2**30,max_affinity_cpus=2,wall_limit_seconds=21600),
         final_result_sha256=sha(out/'post-results.json') if (out/'post-results.json').exists() else None))
     state.update(status='SHARED106_CPU_POST_EXITED',post_exit_code=code);save()
     if code:raise RuntimeError('Full price postprocessing failed')
