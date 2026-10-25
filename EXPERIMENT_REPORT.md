@@ -6,11 +6,11 @@
 
 **下一卡已调整为CAL66，GPU未启动。** 4旧CAL、13正式角色：52正式、6重复、6预热、2历史桥接；Shared24/25保留原α，新增同布局全phase A与age3对照。20D推后，若新DEV为正优先补齐。
 
-完整报价预计6.478451 GPUh，拟上限8 GPUh，未批准执行、未预约。累计226 GPUh及最终min(257.771秒,0.8×新Native)不变。15角色/60路径真实生产入口CPU已接受；整卡组合正在修复验收，独立质量模型CPU仍待完成。
+完整报价预计6.478451 GPUh，拟上限8 GPUh，未批准执行、未预约。累计226 GPUh及最终min(257.771秒,0.8×新Native)不变。15角色/60路径真实生产入口CPU已接受；66位置整卡监督、历史原件桥接、释放后48/156评分和终态组合CPU已接受；真实质量模型CPU仍待完成。
 
 CAL106保留为未执行的被替代方案，原入口和组合CPU接受仍有效作为组件复用依据。新输入池完成过范围内来源组审计，首次使用前仍需增量核查。
 
-[设计变更与核查](research/695_CARA_CAL66_PRODUCTION_COMBINATION_AND_QUALITY_PREPARATION_20261025.md) · [比较及决策合同](plans/cara_policy_generator_20261020/CAL66_DESIGN_AND_DECISION_CONTRACT_R1_20261025.md) · [66路径与完整报价](manifests/cara_shared_CAL66_scope_quote_r1_20261025.json) · [本地设计检查](reports/cara_CAL66_design_local_CPU_20261025.json) · [CAL66生产CPU接受](reports/cara_CAL66_entry_CPU_accepted_r1_20261025.json)
+[设计变更与核查](research/695_CARA_CAL66_PRODUCTION_COMBINATION_AND_QUALITY_PREPARATION_20261025.md) · [比较及决策合同](plans/cara_policy_generator_20261020/CAL66_DESIGN_AND_DECISION_CONTRACT_R1_20261025.md) · [66路径与完整报价](manifests/cara_shared_CAL66_scope_quote_r1_20261025.json) · [本地设计检查](reports/cara_CAL66_design_local_CPU_20261025.json) · [CAL66生产CPU接受](reports/cara_CAL66_entry_CPU_accepted_r1_20261025.json) · [CAL66组合CPU接受](reports/cara_CAL66_combination_CPU_accepted_r3_20261025.json)
 
 ## 方法及比较对象
 
@@ -81,7 +81,7 @@ LPIPS百分比以同批场景均值之比计算；视频帧不当独立样本；
 
 | 顺序 | 当前阶段 | 下一项验收 / 动作 |
 |---|---|---|
-| PG-SHARED-CAL66 | CAL66：刷新位置、原phase修正与尾部停用：设计与本地16项CPU检查完成；生产变更待接受 | 核验66范围适配、两all臂真实入口、桥接RGB与真实质量模型CPU；不启动GPU。 |
+| PG-SHARED-CAL66 | CAL66：刷新位置、原phase修正与尾部停用：60路径生产入口与66位置整卡组合CPU已接受；真实质量模型CPU待完成 | 完成独立质量模型真实前向与完整视频评分探针；本轮不启动GPU。 |
 | PG-P2 | 等预算与等查询强基线：质量入口与绑定准备完成；真实模型CPU待准入 | Shared探索后冻结一个方法/预算档；新输入增量核查，少步Native与独立质量共同确认。 |
 | PG-P3 | 固定程序跨预算/模型：条件性后续 | P1/P2后先0.70×Native，再成熟第二模型或明确第二设置重新校准。 |
 | PG-P4 | 最终独立TEST与部署评价：待方法冻结 | 冻结方法、对手、预算、选择规则后再选新TEST；计入warm与全流程成本。 |

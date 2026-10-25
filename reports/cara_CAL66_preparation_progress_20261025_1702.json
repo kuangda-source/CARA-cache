@@ -1,0 +1,116 @@
+{
+  "observed_unix": 1792918868.9665787,
+  "CPU": {
+    "cara-shared66-combination-CPU-r2-20261025": {
+      "state": {
+        "Status": "running",
+        "Running": true,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 1583717,
+        "ExitCode": 0,
+        "Error": "",
+        "StartedAt": "2026-10-25T08:58:14.392352388Z",
+        "FinishedAt": "0001-01-01T00:00:00Z"
+      },
+      "log_tail": "/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.\n  warnings.warn(\n/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=AlexNet_Weights.IMAGENET1K_V1`. You can also use `weights=AlexNet_Weights.DEFAULT` to get the most up-to-date weights.\n  warnings.warn(msg)\n/data20t/gaokuangda/worldcache_workspace/.sync/cara-shared66-combination-CPU-r2-20261025/src/wcomr/rv0_lpips.py:21: UserWarning: The given NumPy array is not writable, and PyTorch does not support non-writable tensors. This means writing to this tensor will result in undefined behavior. You may want to copy the array to protect its data or make it writable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at /pytorch/torch/csrc/utils/tensor_numpy.cpp:203.)\n  return torch.from_numpy(np.ascontiguousarray(rgb)).permute(2, 0, 1).unsqueeze(0).float()/127.5-1.\n",
+      "result": null
+    },
+    "cara-cal66-quality-import-CPU-r2-20261025": {
+      "state": {
+        "Status": "exited",
+        "Running": false,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 0,
+        "ExitCode": 1,
+        "Error": "",
+        "StartedAt": "2026-10-25T08:54:46.78393054Z",
+        "FinishedAt": "2026-10-25T08:57:08.282174318Z"
+      },
+      "log_tail": "/data20t/gaokuangda/worldcache_workspace/cache/cara-pg-p2-quality-r1/dependency-overlay/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers\n  warnings.warn(f\"Importing from {__name__} is deprecated, please import via timm.layers\", FutureWarning)\n{\"status\": \"QUALITY_DEPENDENCIES_IMPORT_FAILED\", \"failed\": [\"pyiqa\"]}\n",
+      "result": {
+        "status": "QUALITY_DEPENDENCIES_IMPORT_FAILED",
+        "observed_unix": 1792918608.8745992,
+        "rows": [
+          {
+            "module": "torchvision",
+            "status": "PASS",
+            "source": "/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/torchvision/__init__.py"
+          },
+          {
+            "module": "timm",
+            "status": "PASS",
+            "source": "/data20t/gaokuangda/worldcache_workspace/cache/cara-pg-p2-quality-r1/dependency-overlay/timm/__init__.py"
+          },
+          {
+            "module": "pyiqa",
+            "status": "FAIL",
+            "error_type": "AttributeError",
+            "error": "`np.sctypes` was removed in the NumPy 2.0 release. Access dtypes explicitly instead.",
+            "traceback": "Traceback (most recent call last):\n  File \"/data20t/gaokuangda/worldcache_workspace/.sync/cara-cal66-quality-import-CPU-r2-20261025/check.py\", line 16, in main\n    module=importlib.import_module(name);rows.append(dict(module=name,status='PASS',source=getattr(module,'__file__',None)))\n  File \"/usr/local/lib/python3.10/importlib/__init__.py\", line 126, in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n  File \"<frozen importlib._bootstrap>\", line 1050, in _gcd_import\n  File \"<frozen importlib._bootstrap>\", line 1027, in _find_and_load\n  File \"<frozen importlib._bootstrap>\", line 1006, in _find_and_load_unlocked\n  File \"<frozen importlib._bootstrap>\", line 688, in _load_unlocked\n  File \"<frozen importlib._bootstrap_external>\", line 883, in exec_module\n  File \"<frozen importlib._bootstrap>\", line 241, in _call_with_frames_removed\n  File \"/data20t/gaokuangda/worldcache_workspace/cache/cara-pg-p2-quality-r1/dependency-overlay/pyiqa/__init__.py\", line 2, in <module>\n    from .archs import *\n  File \"/data20t/gaokuangda/worldcache_workspace/cache/cara-pg-p2-quality-r1/dependency-overlay/pyiqa/archs/__init__.py\", line 17, in <module>\n    _arch_modules = [importlib.import_module(f'pyiqa.archs.{file_name}') for file_name in arch_filenames]\n  File \"/data20t/gaokuangda/worldcache_workspace/cache/cara-pg-p2-quality-r1/dependency-overlay/pyiqa/archs/__init__.py\", line 17, in <listcomp>\n    _arch_modules = [importlib.import_module(f'pyiqa.archs.{file_name}') for file_name in arch_filenames]\n  File \"/usr/local/lib/python3.10/importlib/__init__.py\", line 126, in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n  File \"/data20t/gaokuangda/worldcache_workspace/cache/cara-pg-p2-quality-r1/dependency-overlay/pyiqa/archs/musiq_arch.py\", line 19, in <module>\n    from pyiqa.data.multiscale_trans_util import get_multiscale_patches\n  File \"/data20t/gaokuangda/worldcache_workspace/cache/cara-pg-p2-quality-r1/dependency-overlay/pyiqa/data/__init__.py\", line 22, in <module>\n    _dataset_modules = [importlib.import_module(f'pyiqa.data.{file_name}') for file_name in dataset_filenames]\n  File \"/data20t/gaokuangda/worldcache_workspace/cache/cara-pg-p2-quality-r1/dependency-overlay/pyiqa/data/__init__.py\", line 22, in <listcomp>\n    _dataset_modules = [importlib.import_module(f'pyiqa.data.{file_name}') for file_name in dataset_filenames]\n  File \"/usr/local/lib/python3.10/importlib/__init__.py\", line 126, in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n  File \"/data20t/gaokuangda/worldcache_workspace/cache/cara-pg-p2-quality-r1/dependency-overlay/pyiqa/data/general_nr_dataset.py\", line 5, in <module>\n    from pyiqa.data.data_util import read_meta_info_file\n  File \"/data20t/gaokuangda/worldcache_workspace/cache/cara-pg-p2-quality-r1/dependency-overlay/pyiqa/data/data_util.py\", line 9, in <module>\n    from pyiqa.data.transforms import mod_crop\n  File \"/data20t/gaokuangda/worldcache_workspace/cache/cara-pg-p2-quality-r1/dependency-overlay/pyiqa/data/transforms.py\", line 7, in <module>\n    from imgaug import augmenters as iaa\n  File \"/data20t/gaokuangda/worldcache_workspace/cache/cara-pg-p2-quality-r1/dependency-overlay/imgaug/__init__.py\", line 7, in <module>\n    from imgaug.imgaug import *  # pylint: disable=redefined-builtin\n  File \"/data20t/gaokuangda/worldcache_workspace/cache/cara-pg-p2-quality-r1/dependency-overlay/imgaug/imgaug.py\", line 45, in <module>\n    NP_FLOAT_TYPES = set(np.sctypes[\"float\"])\n  File \"/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/numpy/__init__.py\", line 400, in __getattr__\n    raise AttributeError(\nAttributeError: `np.sctypes` was removed in the NumPy 2.0 release. Access dtypes explicitly instead.\n"
+          },
+          {
+            "module": "clip",
+            "status": "PASS",
+            "source": "/data20t/gaokuangda/worldcache_workspace/cache/cara-pg-p2-quality-r1/dependency-overlay/clip/__init__.py"
+          },
+          {
+            "module": "lmdb",
+            "status": "PASS",
+            "source": "/data20t/gaokuangda/worldcache_workspace/cache/cara-pg-p2-quality-r1/dependency-overlay/lmdb/__init__.py"
+          },
+          {
+            "module": "easydict",
+            "status": "PASS",
+            "source": "/data20t/gaokuangda/worldcache_workspace/cache/cara-pg-p2-quality-r1/dependency-overlay/easydict/__init__.py"
+          },
+          {
+            "module": "omegaconf",
+            "status": "PASS",
+            "source": "/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/omegaconf/__init__.py"
+          },
+          {
+            "module": "decord",
+            "status": "PASS",
+            "source": "/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/decord/__init__.py"
+          },
+          {
+            "module": "cv2",
+            "status": "PASS",
+            "source": "/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/cv2/__init__.py"
+          },
+          {
+            "module": "filterpy",
+            "status": "PASS",
+            "source": "/data20t/gaokuangda/worldcache_workspace/cache/cara-pg-p2-quality-r1/dependency-overlay/filterpy/__init__.py"
+          },
+          {
+            "module": "tensorboard",
+            "status": "PASS",
+            "source": "/data20t/gaokuangda/worldcache_workspace/cache/cara-pg-p2-quality-r1/dependency-overlay/tensorboard/__init__.py"
+          }
+        ],
+        "versions": {
+          "pyiqa": "0.1.10",
+          "timm": "1.0.24",
+          "easydict": "1.13",
+          "openai-clip": "1.0.1"
+        },
+        "base_environment_modified": false,
+        "CUDA_initialized": false,
+        "GPU_submissions": 0
+      }
+    }
+  },
+  "transfer": {
+    "AMT_S.pth": 12038359,
+    "RAFT_THINGS.pth": 21108000,
+    "ViCLIP.pth.incoming-cal66-1792917457638475000": 836730880,
+    "DINO.pth": 343242485
+  }
+}

@@ -1,0 +1,114 @@
+{
+  "observed_unix": 1792919668.002583,
+  "CPU": {
+    "cara-shared66-combination-CPU-r3-20261025": {
+      "state": {
+        "Status": "running",
+        "Running": true,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 1598057,
+        "ExitCode": 0,
+        "Error": "",
+        "StartedAt": "2026-10-25T09:12:56.198750025Z",
+        "FinishedAt": "0001-01-01T00:00:00Z"
+      },
+      "log_tail": "",
+      "result": null
+    },
+    "cara-cal66-quality-import-CPU-r3-20261025": {
+      "state": {
+        "Status": "exited",
+        "Running": false,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 0,
+        "ExitCode": 0,
+        "Error": "",
+        "StartedAt": "2026-10-25T09:08:04.989217295Z",
+        "FinishedAt": "2026-10-25T09:12:46.598343194Z"
+      },
+      "log_tail": "/data20t/gaokuangda/worldcache_workspace/cache/cara-pg-p2-quality-r1/dependency-overlay/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers\n  warnings.warn(f\"Importing from {__name__} is deprecated, please import via timm.layers\", FutureWarning)\n{\"status\": \"QUALITY_DEPENDENCIES_IMPORT_PASS\", \"failed\": []}\n",
+      "result": {
+        "status": "QUALITY_DEPENDENCIES_IMPORT_PASS",
+        "observed_unix": 1792919551.6854942,
+        "rows": [
+          {
+            "module": "torchvision",
+            "status": "PASS",
+            "source": "/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/torchvision/__init__.py"
+          },
+          {
+            "module": "timm",
+            "status": "PASS",
+            "source": "/data20t/gaokuangda/worldcache_workspace/cache/cara-pg-p2-quality-r1/dependency-overlay/timm/__init__.py"
+          },
+          {
+            "module": "pyiqa",
+            "status": "PASS",
+            "source": "/data20t/gaokuangda/worldcache_workspace/cache/cara-pg-p2-quality-r1/dependency-overlay/pyiqa/__init__.py"
+          },
+          {
+            "module": "clip",
+            "status": "PASS",
+            "source": "/data20t/gaokuangda/worldcache_workspace/cache/cara-pg-p2-quality-r1/dependency-overlay/clip/__init__.py"
+          },
+          {
+            "module": "lmdb",
+            "status": "PASS",
+            "source": "/data20t/gaokuangda/worldcache_workspace/cache/cara-pg-p2-quality-r1/dependency-overlay/lmdb/__init__.py"
+          },
+          {
+            "module": "easydict",
+            "status": "PASS",
+            "source": "/data20t/gaokuangda/worldcache_workspace/cache/cara-pg-p2-quality-r1/dependency-overlay/easydict/__init__.py"
+          },
+          {
+            "module": "omegaconf",
+            "status": "PASS",
+            "source": "/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/omegaconf/__init__.py"
+          },
+          {
+            "module": "decord",
+            "status": "PASS",
+            "source": "/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/decord/__init__.py"
+          },
+          {
+            "module": "cv2",
+            "status": "PASS",
+            "source": "/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/cv2/__init__.py"
+          },
+          {
+            "module": "filterpy",
+            "status": "PASS",
+            "source": "/data20t/gaokuangda/worldcache_workspace/cache/cara-pg-p2-quality-r1/dependency-overlay/filterpy/__init__.py"
+          },
+          {
+            "module": "tensorboard",
+            "status": "PASS",
+            "source": "/data20t/gaokuangda/worldcache_workspace/cache/cara-pg-p2-quality-r1/dependency-overlay/tensorboard/__init__.py"
+          }
+        ],
+        "versions": {
+          "pyiqa": "0.1.10",
+          "timm": "1.0.24",
+          "easydict": "1.13",
+          "openai-clip": "1.0.1"
+        },
+        "base_environment_modified": false,
+        "CUDA_initialized": false,
+        "GPU_submissions": 0
+      }
+    }
+  },
+  "transfer": {
+    "AMT_S.pth": 12038359,
+    "RAFT_THINGS.pth": 21108000,
+    "ViCLIP.pth.incoming-cal66-1792917457638475000": 1122205696,
+    "DINO.pth": 343242485
+  }
+}

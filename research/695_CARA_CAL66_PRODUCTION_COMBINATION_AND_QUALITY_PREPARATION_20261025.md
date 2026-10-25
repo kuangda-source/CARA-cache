@@ -40,3 +40,9 @@ R1失败定位：监督器先取得空闲快照，随后ready文件刚好到达�
 R2于16:58:14启动、17:01:37退出1：新增竞态fixture把等待ready的屏障误放在runner生成前的idle准入检查，尚未派出fixture runner即超时。R2失败原件保留；R3将屏障移至第一次运行中快照，由真实CPU子进程与监督器明确握手，不改变生产独占门或GPU费用上限。本地组合/设计已70项通过。
 
 依赖R2导入进一步检出原版imgaug使用 `np.sctypes`、与基础NumPy2不兼容；在专用overlay加入固定NumPy1.26.4，基础环境保持不变，随后再次核查。ViCLIP原传输达到30分钟工具时限，保留已传部分；仅在原SCP退出后核对本地/远端前缀SHA再续传，最终仍按完整原权重SHA接受，不替换模型或截断权重。
+
+## 追加：R3整卡组合CPU已完整接受
+
+[原终态](../reports/cara_CAL66_combination_CPU_exited_r3_20261025.json)和[独立接受](../reports/cara_CAL66_combination_CPU_accepted_r3_20261025.json)绑定source `323bb2a1`。完整66位置、6内部重复、48LPIPS/4464帧、156质量调度位置、10项实际CPU子进程生命周期和6项存储故障检查通过。真实93帧LPIPS、历史S26/Shared26及Native原件SHA/RGB读取通过；组合fixture不代表新GPU桥接数值相等，156调度覆盖也不冒充156个真实质量分数。
+
+[评分依赖实际导入](../reports/cara_CAL66_quality_overlay_CPU_accepted_r3_complete_20261025.json)已退出0，11项依赖导入通过，2395个overlay文件已登记SHA；基础venv未改。模型权重与完整前向仍单独验收。

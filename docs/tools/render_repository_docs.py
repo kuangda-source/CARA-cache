@@ -556,6 +556,18 @@ def build():
                 '15角色/60路径真实生产入口CPU已接受；整卡组合正在修复验收，独立质量模型CPU仍待完成。')
             snapshot+=' · '+link(cal66['entry_CPU_acceptance_ref'],'CAL66生产CPU接受')
             run_details=run_details.replace('本地设计16项通过；变更生产入口与组合接受待完成','生产入口60路径接受；组合与真实模型CPU验收推进中')
+        if cal66.get('combination_CPU_accepted'):
+            ca=load(cal66['combination_CPU_acceptance_ref'])
+            if (not ca['full_GPU_lifecycle_CPU_accepted'] or not ca['storage_ENOSPC_lifecycle_CPU_accepted']
+                    or not ca['post_CPU_resource_limits_verified'] or not ca['real_LPIPS93']
+                    or (ca['registered_paths'],ca['LPIPS_pairs'],ca['LPIPS_frames'],ca['independent_quality_positions'])!=(66,48,4464,156)
+                    or ca['capture_sha256']!=digest((ROOT/cal66['combination_CPU_terminal_ref']).read_bytes())['sha256']
+                    or ca['GPU_submissions'] or ca['ledger_written']):
+                raise ValueError('CAL66 full combination CPU evidence differs')
+            snapshot=snapshot.replace('整卡组合正在修复验收，独立质量模型CPU仍待完成。',
+                '66位置整卡监督、历史原件桥接、释放后48/156评分和终态组合CPU已接受；真实质量模型CPU仍待完成。')
+            snapshot+=' · '+link(cal66['combination_CPU_acceptance_ref'],'CAL66组合CPU接受')
+            run_details=run_details.replace('生产入口60路径接受；组合与真实模型CPU验收推进中','生产入口60路径与整卡组合接受；真实模型CPU验收推进中')
     headlines = '\n'.join(f"- **{f['title']}**（{f['short_scope']}）：{f['result']} {refs(f['refs'])}"
                            for f in status['headline_results'])
     details = '\n\n'.join(f"### {i+1}. {f['title']}\n\n{f['result']}\n\n{f['scope']} {refs(f['refs'])}"
