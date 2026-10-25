@@ -1,0 +1,103 @@
+{
+  "version": "CARA_CAL66_A6000_WHOLE_QUOTE_R1",
+  "status": "MIGRATION_PREPARATION_NOT_GPU_ADMITTED",
+  "created_unix": 1792930566.772583,
+  "original_manifest_ref": "manifests/cara_shared_CAL66_scope_quote_r1_20261025.json",
+  "original_manifest_sha256": "b992b6824b9780bc7360748069dfa692f97444f5fb162e5f3de9bf01383267de",
+  "scope": {
+    "formal_roles": 13,
+    "total_role_identities": 15,
+    "CAL": 4,
+    "seeds": [
+      0
+    ],
+    "quality_paths": 52,
+    "timing_repeat_paths": 6,
+    "warm_paths": 6,
+    "historical_bridge_paths": 2,
+    "total_paths": 66,
+    "guided_pairs": 2296,
+    "CFG_calls": 4592,
+    "loads": 1,
+    "LPIPS_pairs": 48,
+    "LPIPS_frames": 4464,
+    "independent_quality_videos": 52,
+    "independent_quality_positions": 156,
+    "SELECT_paths": 0,
+    "DEV_paths": 0,
+    "TEST_paths": 0
+  },
+  "matrix_sha256": "2bc84e7936e93835f9ae525fd012068517b04fc9c8327eb97e2aeee8f6511997",
+  "roles_sha256": "d3664ee85874ca550dc793d71a3a5a5c1b77d63cbc6556f4d674238f3a72852c",
+  "arm_seconds": {
+    "NATIVE35": 335.0,
+    "NATIVE26": 335.0,
+    "NATIVE28": 335.0,
+    "S24_C": 290.0,
+    "S24_A_PHASE": 290.0,
+    "SHARED24_C": 335.0,
+    "SHARED24_A_PHASE_ALL": 335.0,
+    "SHARED24_A_PHASE_AGE3": 335.0,
+    "S25_C": 290.0,
+    "S25_A_PHASE": 290.0,
+    "SHARED25_C": 335.0,
+    "SHARED25_A_PHASE_ALL": 335.0,
+    "SHARED25_A_PHASE_AGE3": 335.0,
+    "S26_C": 290.0,
+    "SHARED26_C": 290.0
+  },
+  "components": {
+    "all66_generation_GPUh": 5.904166666666667,
+    "startup_allowance_GPUh": 0.5,
+    "artifact_save_release_GPUh": 0.35
+  },
+  "uncertainty_margin": 0.15,
+  "forecast_GPUh": 7.767291666666666,
+  "billed_limit_GPUh": 8,
+  "cumulative_cap_GPUh": 226,
+  "deployment_absolute_seconds": 257.7712338712067,
+  "deployment_native_ratio": 0.8,
+  "pool_snapshot": {
+    "used_gpu_hours": 156.62041309731035,
+    "reserved_gpu_hours": 16.5,
+    "available_gpu_hours": 52.87958690268965,
+    "cap_gpu_hours": 226
+  },
+  "available_if_future8_reserved_GPUh": 44.87958690268965,
+  "post_release_CPU": {
+    "GPU_held": false,
+    "cpus": 2,
+    "memory_GiB": 8,
+    "wall_limit_hours": 6,
+    "vCPU_hours_upper": 12,
+    "LPIPS_pairs": 48,
+    "independent_quality_videos": 52,
+    "independent_quality_positions": 156,
+    "metrics": [
+      "MUSIQ",
+      "subject_consistency",
+      "motion_smoothness"
+    ],
+    "real_model_resources_and_throughput_CPU_pending": true
+  },
+  "original66_and_alpha_unchanged": true,
+  "no_completed_R1_paths_reused": true,
+  "run_id_proposal": "cara-shared-cal66-ada-r2",
+  "fresh_registration_and_CPU_binding_required": true,
+  "original_GPU_stage_untouched": true,
+  "GPU_submissions": 0,
+  "new_GPU_authorization": false,
+  "ledger_written": false,
+  "hardware": "RTX A6000 SM86",
+  "basis": {
+    "Native_complete_including_write_max_seconds": 334.5633865557611,
+    "Native_bound_roundup_seconds": 335,
+    "cached_complete_allowance_seconds": 290,
+    "cached_basis": "Historical A6000 Window24 S26 complete guarded mean252.9935s; 290s allows encoding and changed adapter overhead. This is a forecast, not an observed current bound. Shorter24/25D and historical Shared26 use same allowance. All new Shared24/25 arms and reduced-step Native use conservative full Native335s.",
+    "historical_capture_ref": "reports/wc_h1_cost_curve_full60_collection_20261014_0245.json.gz",
+    "historical_capture_sha256": "3e6b061e836aed1a88bd5f8e860c189829f4511b363d35f6628b517470c3ba47",
+    "historical_all60_accepted": true,
+    "new_environment_timing_uncertainty_retained": true
+  },
+  "startup_basis": "Retain0.5h startup allowance from failed Ada run; full environment mirrored; not a new A6000 measured load."
+}
