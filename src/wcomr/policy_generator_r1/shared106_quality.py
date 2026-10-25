@@ -3,7 +3,7 @@
 Synthetic callbacks are used only in declared CPU combination tests. Production
 uses the original source/weight-bound factory; missing model CPU proof blocks it.
 """
-import copy,time
+import copy,json,time
 from pathlib import Path
 from .shared106_card import check_card,digest,read
 from .continuation_preparation import require

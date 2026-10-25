@@ -161,3 +161,26 @@ class QualityBeforeRelease(unittest.TestCase):
   with tempfile.TemporaryDirectory() as t:
    with self.assertRaises(ValueError):execute(p,lambda dim:called.append(dim),Path(t)/'quality',dict(GPU_released=False,ledger_settled=True,lock_free=True,CUDA_hidden=True),lambda v:None)
    self.assertFalse(called);self.assertFalse((Path(t)/'quality').exists())
+
+
+class QualityResume(unittest.TestCase):
+ def test_failure_original_survives_full228_resume(self):
+  import tempfile
+  from contextlib import contextmanager
+  from types import SimpleNamespace
+  from wcomr.policy_generator_r1.shared106_quality import execute,audit,digest
+  v=fixture();p=record(v,'quality_plan');count=[];values={(r['planned']['method'],r['planned']['dimension']):r['result'] for r in record(v,'quality_progress')['rows']}
+  @contextmanager
+  def factory(d):
+   def score(row):
+    count.append(1)
+    if len(count)==3:raise RuntimeError('DECLARED_SCORE_FAILURE')
+    return copy.deepcopy(values[row['method'],row['dimension']])
+   yield SimpleNamespace(dimension=d,scorer_fingerprint=digest(p['evaluator_identity']),score=score)
+  release=dict(GPU_released=True,ledger_settled=True,lock_free=True,CUDA_hidden=True)
+  with tempfile.TemporaryDirectory() as t:
+   out=Path(t)/'quality'
+   with self.assertRaises(RuntimeError):execute(p,factory,out,release,lambda v:None)
+   originals={f.name:f.read_bytes() for f in (out/'failures').glob('*.json')};self.assertEqual(len(originals),1)
+   state=execute(p,factory,out,release,lambda v:None);self.assertEqual(audit(p,state)['positions'],228)
+   self.assertEqual(originals,{f.name:f.read_bytes() for f in (out/'failures').glob('*.json')})
