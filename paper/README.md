@@ -6,9 +6,9 @@
 
 **CAL66已在两卡A6000 GPU1硬独占运行。**
 
-10月25日23:06单次启动于两卡GPU1 A6000；真实硬独占和唯一runner已核验，进入首个采集请求。111个监测样本无前缀违规、最大间隔2.383秒，独立卷与跨盘日志正常。原66/alpha/强基线不变，预计7.767292 GPUh/上限8，累计226及最终部署预算不变。
+10月26日02:29–02:30技术实查46/66完成、1运行0失败；原4句柄和GPU1独占锁正常。5513监测样本无违规、最大间隔3.287秒，私有卷30.80GiB可用、跨盘日志正常。仅按文件mtime节奏预计03:50–04:20采集、08:35–09:05具备完整收件条件，终态检查提前09:30，03:00半程保留。未分析部分结果。
 
-[证据1](../research/701_CARA_CAL66_A6000_MIGRATION_AND_EXECUTION_20261025.md) · [证据2](../reports/cara_CAL66_A6000_GPU_actual_launch_20261025.json) · [证据3](../reports/cara_CAL66_A6000_technical_admission_20261025.json) · [证据4](../reports/cara_CAL66_A6000_CPU_accepted_r3_20261025.json) · [证据5](../reports/cara_CAL66_A6000_central_admission_confirmed_20261025.json)
+[证据1](../research/701_CARA_CAL66_A6000_MIGRATION_AND_EXECUTION_20261025.md) · [证据2](../reports/cara_CAL66_A6000_GPU_actual_launch_20261025.json) · [证据3](../reports/cara_CAL66_A6000_technical_admission_20261025.json) · [证据4](../reports/cara_CAL66_A6000_CPU_accepted_r3_20261025.json) · [证据5](../reports/cara_CAL66_A6000_central_admission_confirmed_20261025.json) · [证据6](../reports/cara_CAL66_A6000_technical_progress_20261026_022914.json) · [证据7](../reports/cara_CAL66_A6000_progress_capture_20261026_0230.json) · [证据8](../reports/cara_CAL66_A6000_progress_pace_20261026_0231.json)
 
 | 需要的材料 | 入口 |
 |---|---|

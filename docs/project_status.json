@@ -1,15 +1,15 @@
 {
   "schema_version": 1,
   "project": "CARA-Cache",
-  "evidence_observed_at": "2026-10-25T23:10:31.115940+08:00",
+  "evidence_observed_at": "2026-10-26T02:29:17.266337+08:00",
   "timezone": "Asia/Shanghai",
-  "snapshot_note": "新主机同66完整卡已单次准入并开始采集；原Ada失败保留，Ada R2未派发。",
+  "snapshot_note": "技术进度46/66完成、1运行0失败，独占和存储健康；终态检查提前09:30，未分析部分结果。",
   "research_summary": "CAL66检验过渡段刷新位置、同布局phase修正与尾部A34/35停用。当前24/25/26D能量、传播先验与模板同掩码；构造规则增量留给可辨识的第二设置。只冻结一个主工作点进入新DEV，累计与最终部署预算不变。",
   "active_experiment_id": "PG-SHARED-CAL66",
   "active_state": "CAL66_A6000_EXCLUSIVE_RUNNING",
   "active_state_zh": "CAL66已在两卡A6000 GPU1硬独占运行",
   "launch_ref": "reports/cara_CAL66_A6000_GPU_actual_launch_20261025.json",
-  "observation_ref": "reports/cara_CAL66_A6000_GPU_admission_20261025.json",
+  "observation_ref": "reports/cara_CAL66_A6000_progress_capture_20261026_0230.json",
   "admission_ref": "reports/cara_CAL66_A6000_technical_admission_20261025.json",
   "cpu_acceptance_ref": "reports/cara_CAL66_A6000_CPU_accepted_r3_20261025.json",
   "run_report_ref": "research/701_CARA_CAL66_A6000_MIGRATION_AND_EXECUTION_20261025.md",
@@ -21,7 +21,7 @@
     },
     {
       "kind": "完整终态验收",
-      "scheduled_local": "2026-10-26 11:45 Asia/Shanghai",
+      "scheduled_local": "2026-10-26 09:30 Asia/Shanghai",
       "automation_id": "cara-cal66-r2"
     }
   ],
@@ -644,29 +644,32 @@
     "GPU_submissions": 0
   },
   "CAL66_A6000_execution": {
-    "observed_unix": 1792941031.1159396,
+    "observed_unix": 1792952957.2663374,
     "quote_ref": "manifests/cara_CAL66_A6000_whole_quote_r1_20261025.json",
     "GPU_running": true,
-    "summary": "10月25日23:06单次启动于两卡GPU1 A6000；真实硬独占和唯一runner已核验，进入首个采集请求。111个监测样本无前缀违规、最大间隔2.383秒，独立卷与跨盘日志正常。原66/alpha/强基线不变，预计7.767292 GPUh/上限8，累计226及最终部署预算不变。",
+    "summary": "10月26日02:29–02:30技术实查46/66完成、1运行0失败；原4句柄和GPU1独占锁正常。5513监测样本无违规、最大间隔3.287秒，私有卷30.80GiB可用、跨盘日志正常。仅按文件mtime节奏预计03:50–04:20采集、08:35–09:05具备完整收件条件，终态检查提前09:30，03:00半程保留。未分析部分结果。",
     "evidence_refs": [
       "research/701_CARA_CAL66_A6000_MIGRATION_AND_EXECUTION_20261025.md",
       "reports/cara_CAL66_A6000_GPU_actual_launch_20261025.json",
       "reports/cara_CAL66_A6000_technical_admission_20261025.json",
       "reports/cara_CAL66_A6000_CPU_accepted_r3_20261025.json",
-      "reports/cara_CAL66_A6000_central_admission_confirmed_20261025.json"
+      "reports/cara_CAL66_A6000_central_admission_confirmed_20261025.json",
+      "reports/cara_CAL66_A6000_technical_progress_20261026_022914.json",
+      "reports/cara_CAL66_A6000_progress_capture_20261026_0230.json",
+      "reports/cara_CAL66_A6000_progress_pace_20261026_0231.json"
     ],
     "details": {
       "范围": "52正式+6重复+6warm+2桥接；2296pairs/4592CFG，单load",
       "GPU": "GPU1 A6000真实Exclusive_Process，唯一runner3755108/UID1004",
-      "运行": "首条请求运行，0失败；仅技术快照，不分析部分结果",
+      "运行": "46/66完成，1运行0失败；原guardian/supervisor/runner/container均存活，UUID锁持有，无错误行",
       "CPU": "迁移实际冻结参数、采样链、60终态及监督/存储、真实三模型93帧检查接受",
       "预算": "预计7.767292，上限8；中央used156.620413/reserved24.5/available44.879587，含旧16.5未知责任",
-      "存储": "32GiB预留卷约31.18GiB可用；48MiB系统盘日志健康",
+      "存储": "私有卷30.80GiB可用；宿主约1.14TiB可用；跨盘日志最近采样0.67秒前",
       "半程": "10月26日03:00，同launch技术检查",
-      "采集/验收预测": "采集06:52；GPU释放后CPU评分，完整验收检查11:45，按实际进度调整"
+      "采集/验收预测": "10月26日03:50–04:20采集；原4.715486h评分预测08:35–09:05，09:30最终检查；6h评分上限不变"
     },
     "next_action": "按唯一A6000 launch半程及终态检查；GPU释放后48组LPIPS/156质量位置CPU评分，原账单向四卡中央预算包结算。完整接受后才按冻结CAL66合同分析；不启动Ada R2、不自动追加DEV。",
-    "observation_ref": "reports/cara_CAL66_A6000_technical_admission_20261025.json",
+    "observation_ref": "reports/cara_CAL66_A6000_technical_progress_20261026_022914.json",
     "launch_ref": "reports/cara_CAL66_A6000_GPU_actual_launch_20261025.json",
     "stage_ref": "reports/cara_CAL66_A6000_GPU_stage_20261025.json",
     "CPU_acceptance_ref": "reports/cara_CAL66_A6000_CPU_accepted_r3_20261025.json"

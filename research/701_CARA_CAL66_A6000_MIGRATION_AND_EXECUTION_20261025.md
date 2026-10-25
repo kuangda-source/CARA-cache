@@ -52,3 +52,11 @@
 - [中央包实际准入确认](../reports/cara_CAL66_A6000_central_admission_confirmed_20261025.json)
 
 后续命令：`scripts/wc_two_card_cara_cal66_gpu_r1.py capture/accept-gpu/settle-central`；技术检查`check_cara_cal66_a6000_technical_r1.py`。UNKNOWN只对`reports/cara_CAL66_A6000_GPU_stage_20261025.json`执行recover，不再次launch。完整终态前不分析部分结果。
+
+## 10月26日02:29–02:30技术进度与检查提前
+
+实查46/66完成、1运行0失败，原四句柄存活、UUID锁持有、错误行为空。5513独占监测样本无违规，最大间隔3.287秒；独立卷30.80GiB可用，跨盘日志采样年龄0.67秒。未读取部分视频/质量，也未用部分请求时钟调参。
+
+仅以已完成request.json的mtime间隔估计：最近20条均值261.10秒，采集预计03:50–04:20；按原4.715486h评分预测08:35–09:05可完整收件。评分仍有6h上限，较慢时可能约10:20才结束。03:00技术半程保留；既有cara-cal66-r2终态检查已从11:45提前09:30，届时若未结束只按实际状态调整同一检查。原源码、α、分母、8GPUh预算和运行stage不变。
+
+证据：[实时技术检查](../reports/cara_CAL66_A6000_technical_progress_20261026_022914.json)、[原句柄收件](../reports/cara_CAL66_A6000_progress_capture_20261026_0230.json)、[仅文件时间节奏](../reports/cara_CAL66_A6000_progress_pace_20261026_0231.json)。实际观察以observed_unix为准，文件名0231仅标签。
