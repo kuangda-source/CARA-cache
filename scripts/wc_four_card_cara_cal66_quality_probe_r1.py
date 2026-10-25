@@ -90,6 +90,12 @@ def main():
   resources=c['files']['model-resources.json']['data']['resources']
   identity=evaluator_identity(c['registration'],accepted,resources,c['registration_sha256'])
   b=dict(registration=c['registration'],acceptance=accepted,resources=resources,identity=identity,dependency_overlay=overlay['overlay'],dependency_overlay_manifest_sha256=overlay['overlay_manifest_sha256'])
+  from wcomr.automatic_quality_r1 import text_sha
+  from wcomr.policy_generator_r1.shared66_card import check_card
+  card=check_card(read(REPO/'manifests/cara_shared_CAL66_scope_quote_r1_20261025.json'))
+  requests=read(REPO/'configs/wc_policy_interval_assets_full1624_r1_20261020.json')['requests']
+  assert {r['name'] for r in requests}=={s['member'] for s in card['matrix']}
+  b['members']={r['name']:dict(prompt=r['prompt'],prompt_sha256=text_sha(r['prompt'])) for r in requests}
   rev=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip();raw=Path(__file__).read_bytes();name=str(Path(__file__).resolve().relative_to(REPO));assert subprocess.check_output(['git','show',rev+':'+name])==raw
   v=ssh(DEPLOY,dict(binding=b,wrapper=WRAPPER,stage_name=a.stage_name,base=BASE,source_revision=rev,source_sha256=hashlib.sha256(raw).hexdigest()))
  elif a.command=='capture':
