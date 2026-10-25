@@ -27,10 +27,12 @@ def accept(v):
     if p['batch_controls_passed']!=9:raise ValueError('Whole timing batch controls required')
     checks=p['numeric']['checks']
     if len(checks)!=2 or {x['flow'] for x in checks}!={False,True}:raise ValueError('Both full flow states required')
+    card=json.loads((ROOT/'manifests/cara_shared_CAL106_scope_quote_r1_20261025.json').read_text())
     for x in checks:
         if x['status']!='PASS' or x['complete_paths']!=38 or x['actual_Cosmos_weights'] or x['real_generated_video']:
             raise ValueError('All19 roles times2 repeats must complete for each flow')
-        if len(x['roles'])!=19 or len({r['role'] for r in x['roles']})!=19:
+        if ({r['role'] for r in x['roles']}!=set(card['roles']) or len(x['roles'])!=19
+                or any(r['updates']!=card['roles'][r['role']]['requested_steps']+1 for r in x['roles'])):
             raise ValueError('Missing/duplicate registered role')
         if not all(r['repeat_all_guided_final_RGB_equal'] for r in x['roles']):
             raise ValueError('Repeated guided/final/RGB differs')

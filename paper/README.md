@@ -4,15 +4,13 @@
 
 论文主线：**CFG对齐读出修正 → 数据驱动计算时机 → 冻结自动程序的实际质量—时间收益**。已有机制结果放在前面，自动生成器的最终数值由后续真实验证填入。
 
-**COST112已完整验收，计时模型未通过。** 112路径、72组/6696帧评分及23控制完整接受；实际8.139511 GPUh。计时平均绝对相对误差0.545%，最大低估5.006秒；最大低估未过原2秒门槛，新P1不准入。
+**当前推进Shared-CAL106探索准备，GPU未启动。** Shared24/25通用构造、原α与强基线已绑定；唯一激进档20D，少步Native26/28/30。新生产入口76条CPU采样路径完整接受，48组新输入通过范围内曝光核查。
 
-本卡按0.80×新Native得到实际预算237.969秒，绝对上限257.771秒、固定6秒余量与累计226 GPUh不变。原GPU、容器与锁已释放，检查已关闭；热降频证据保留，不剔除样本、不重新拟合或自动追加GPU。
+完整106路径：76正式、20计时重复、8warm、2诊断；预计9.971317 GPUh，拟上限11.5 GPUh，未预留。累计226 GPUh及最终min(257.771秒,0.8×新Native)不变。整卡监督/释放后评分/终态组合和质量资源CPU仍须完成；入口CPU不代表GPU准入。
 
-[完整原终态](../reports/cara_cost112_GPU_terminal_20261025_1115.json) · [独立接受](../reports/cara_cost112_GPU_accepted_20261025_1115.json) · [完整计时与温控诊断](../reports/cara_cost112_complete_timing_thermal_analysis_20261025.json) · [结果和后续](../research/690_CARA_COST112_COMPLETE_ACCEPTANCE_AND_TIMING_GATE_FAILURE_20261025.md)。
+用户已授权新的探索/确认合同：探索不再以前一计时模型的2秒门为前置，最终方法仍须独立实测预算确认。旧104/112计时失败和原P1空选择保留，新的纯计时卡与GRAPH102暂缓。
 
-后续归因已完成：最大低估中，同块全D参照差异1.356秒，余下3.650秒分布在主流水线、外层处理与写入。更近/双参照最大值仍不能过2秒，温控因果份额尚不能识别。先补运行条件与阶段计时的CPU等价验证，不重跑。 [归因结论](../research/691_CARA_COST112_CAUSE_SEPARATION_AND_P1_REPAIR_PLAN_20261025.md) · [修复、独立验证与P1接续方案](../plans/cara_policy_generator_20261020/COST_RUNTIME_REPAIR_AND_P1_HANDOFF_R2_20261025.md)
-
-**新P1准备：入口CPU已独立接受，GPU未启动。** 新的同输入全D时钟块、三条历史强基线、原alpha及一次有限恢复已接入；Q≤8候选之外另有3条固定比较布局，完整最多102路径/58组评分。预计12.6381 GPUh、建议上限14 GPUh，尚未专项批准；原112的11.9、累计226与部署257.771秒不变。新102监督/捕获/财务终态组合仍须独立CPU接受，且必须等待112完整计时门，不能凭入口CPU派卡。 [准备与报价记录](../research/688_CARA_P1_REPAIR102_ENTRY_CPU_QUOTE_AND_SELECT_AUDIT_20261025.md) · [入口CPU接受](../reports/cara_PG_P1_repair102_CPU_accepted_r1_20261025.json) 当前112已完整结束且计时门失败，原102参照方案不能直接接续；先审阅完整误差诊断，保留入口CPU原件与未执行报价。
+[本轮准备与验收](../research/692_CARA_SHARED_EXPLORATION_CONTRACT_POOL_AND_CPU_20261025.md) · [探索/确认合同](../plans/cara_policy_generator_20261020/EXPLORATION_CONFIRMATION_CONTRACT_R1_20261025.md) · [入口CPU接受](../reports/cara_shared_CAL106_CPU_accepted_r1_20261025.json) · [完整范围与报价](../manifests/cara_shared_CAL106_scope_quote_r1_20261025.json)
 
 | 需要的材料 | 入口 |
 |---|---|

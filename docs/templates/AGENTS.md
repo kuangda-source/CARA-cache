@@ -15,7 +15,7 @@ Read [EXPERIMENT_REPORT.md](repo:EXPERIMENT_REPORT.md), [current state](repo:res
 - Keep pinned upstream unmodified. Identify and version runtime adaptations separately; share them between comparison paths where appropriate.
 - True anchors are full computations in the same request, CFG branch and model/expert. Shadow truth never updates deployed state. Reset on request or model/condition changes; fail safe on nonfinite values or insufficient anchors.
 - CPU tests demonstrate implementation, not video quality or speed. Separate local MSE, endpoint fidelity, automatic quality, clean latency and billed GPUh. Preserve refusal/failure denominators and matched cohorts. Do not count reused artifacts as new independent samples.
-- Keep CAL/SELECT/DEV/TEST roles and frozen selection rules. Do not fit thresholds to BANK24 DEV or tune from partial running outputs. Follow the registered PG-P1→P2→P3→P4 dependencies and each card's scope/cost/admission.
+- Keep CAL/SELECT/DEV/TEST roles and frozen selection rules. Do not fit thresholds to BANK24 DEV or tune from partial running outputs. For new work follow the user-authorized 2026-10-25 exploration/confirmation contract in plans/cara_policy_generator_20261020/EXPLORATION_CONFIRMATION_CONTRACT_R1_20261025.md. Preserve historical PG-P1→P2→P3→P4 receipts and each registered card's scope/cost/admission. Current permission is CPU preparation only, no GPU dispatch.
 
 ## Documentation and synchronization
 

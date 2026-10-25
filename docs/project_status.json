@@ -3,8 +3,8 @@
   "project": "CARA-Cache",
   "evidence_observed_at": "2026-10-23T08:26:41.422652+08:00",
   "timezone": "Asia/Shanghai",
-  "snapshot_note": "112最大5.006秒已按过去全D控制和阶段时钟拆解；温控因果未识别，简单双参照仍失败。先准备运行时/分段计时CPU等价，原预算不变，不重跑。",
-  "research_summary": "历史强基线和24/25D工作点已复核；COST112完整接受但计时尾部误差失败，先厘清参照漂移及运行环境，不直接启动新P1。",
+  "snapshot_note": "Shared探索入口CPU和48组曝光核查已接受；不启动GPU。",
+  "research_summary": "新主线先检验Shared24/25与20D、少步Native及历史强基线。探索与最终部署预算确认分开；48组新输入通过范围内曝光核查，GPU未授权未启动。",
   "active_experiment_id": "PG-P1",
   "active_state": "PG_P1_TERMINAL_ACCEPTED_NO_BUDGET_FEASIBLE_SELECTION",
   "active_state_zh": "P1原件已接受，未选出预算可行策略",
@@ -65,9 +65,7 @@
     }
   ],
   "next_sequence": [
-    "PG-P1-C112",
-    "PG-P1",
-    "PG-P1-R102",
+    "PG-SHARED-CAL106",
     "PG-P2",
     "PG-P3",
     "PG-P4"
@@ -498,5 +496,21 @@
     "capture_ref": "reports/cara_cost112_GPU_terminal_20261025_1115.json",
     "observed_at": "2026-10-25T11:15:19.301087+08:00",
     "automation_deleted": true
+  },
+  "shared_exploration_preparation": {
+    "status": "ENTRY_CPU_ACCEPTED_NO_GPU_AUTHORITY",
+    "report_ref": "research/692_CARA_SHARED_EXPLORATION_CONTRACT_POOL_AND_CPU_20261025.md",
+    "contract_ref": "plans/cara_policy_generator_20261020/EXPLORATION_CONFIRMATION_CONTRACT_R1_20261025.md",
+    "quote_ref": "manifests/cara_shared_CAL106_scope_quote_r1_20261025.json",
+    "pool_ref": "plans/cara_policy_generator_20261020/NEW_INPUT_POOL48_R1_20261025.json",
+    "exposure_ref": "reports/cara_new_input_pool48_exposure_r1_20261025.json",
+    "CPU_launch_ref": "reports/cara_shared_CAL106_CPU_launch_r1_20261025.json",
+    "GPU_dispatch_ready": false,
+    "new_GPU_submissions": 0,
+    "new_GPUh_reserved": 0,
+    "CPU_terminal_ref": "reports/cara_shared_CAL106_CPU_terminal_r1_20261025.json",
+    "CPU_acceptance_ref": "reports/cara_shared_CAL106_CPU_accepted_r1_20261025.json",
+    "production_entry_CPU_accepted": true,
+    "full_GPU_lifecycle_accepted": false
   }
 }

@@ -2,51 +2,35 @@
 
 # CARA-Cache 后续实验顺序
 
-**COST112已完整验收，计时模型未通过。** 112路径、72组/6696帧评分及23控制完整接受；实际8.139511 GPUh。计时平均绝对相对误差0.545%，最大低估5.006秒；最大低估未过原2秒门槛，新P1不准入。
+**当前推进Shared-CAL106探索准备，GPU未启动。** Shared24/25通用构造、原α与强基线已绑定；唯一激进档20D，少步Native26/28/30。新生产入口76条CPU采样路径完整接受，48组新输入通过范围内曝光核查。
 
-本卡按0.80×新Native得到实际预算237.969秒，绝对上限257.771秒、固定6秒余量与累计226 GPUh不变。原GPU、容器与锁已释放，检查已关闭；热降频证据保留，不剔除样本、不重新拟合或自动追加GPU。
+完整106路径：76正式、20计时重复、8warm、2诊断；预计9.971317 GPUh，拟上限11.5 GPUh，未预留。累计226 GPUh及最终min(257.771秒,0.8×新Native)不变。整卡监督/释放后评分/终态组合和质量资源CPU仍须完成；入口CPU不代表GPU准入。
 
-[完整原终态](../reports/cara_cost112_GPU_terminal_20261025_1115.json) · [独立接受](../reports/cara_cost112_GPU_accepted_20261025_1115.json) · [完整计时与温控诊断](../reports/cara_cost112_complete_timing_thermal_analysis_20261025.json) · [结果和后续](690_CARA_COST112_COMPLETE_ACCEPTANCE_AND_TIMING_GATE_FAILURE_20261025.md)。
+用户已授权新的探索/确认合同：探索不再以前一计时模型的2秒门为前置，最终方法仍须独立实测预算确认。旧104/112计时失败和原P1空选择保留，新的纯计时卡与GRAPH102暂缓。
 
-后续归因已完成：最大低估中，同块全D参照差异1.356秒，余下3.650秒分布在主流水线、外层处理与写入。更近/双参照最大值仍不能过2秒，温控因果份额尚不能识别。先补运行条件与阶段计时的CPU等价验证，不重跑。 [归因结论](691_CARA_COST112_CAUSE_SEPARATION_AND_P1_REPAIR_PLAN_20261025.md) · [修复、独立验证与P1接续方案](../plans/cara_policy_generator_20261020/COST_RUNTIME_REPAIR_AND_P1_HANDOFF_R2_20261025.md)
-
-**新P1准备：入口CPU已独立接受，GPU未启动。** 新的同输入全D时钟块、三条历史强基线、原alpha及一次有限恢复已接入；Q≤8候选之外另有3条固定比较布局，完整最多102路径/58组评分。预计12.6381 GPUh、建议上限14 GPUh，尚未专项批准；原112的11.9、累计226与部署257.771秒不变。新102监督/捕获/财务终态组合仍须独立CPU接受，且必须等待112完整计时门，不能凭入口CPU派卡。 [准备与报价记录](688_CARA_P1_REPAIR102_ENTRY_CPU_QUOTE_AND_SELECT_AUDIT_20261025.md) · [入口CPU接受](../reports/cara_PG_P1_repair102_CPU_accepted_r1_20261025.json) 当前112已完整结束且计时门失败，原102参照方案不能直接接续；先审阅完整误差诊断，保留入口CPU原件与未执行报价。
-
-10月24日完整终态见[685](685_CARA_HISTORY104_R2_COMPLETE_ACCEPTANCE_RESULTS_AND_COST_GATE_20261024.md)：104路径与72评分完整接受，实际7.395282GPUh，GPU和锁已释放。历史强基线均胜原GRAPH；24/25D实测可行，但计时模型最坏低估2.618秒未过2秒门槛。COST112于10月25日完整接受，实际8.139511GPUh；计时最大低估5.006秒未过2秒门槛，新P1不准入，P2仍等待冻结策略。见[690](690_CARA_COST112_COMPLETE_ACCEPTANCE_AND_TIMING_GATE_FAILURE_20261025.md)。
-
-研究目标是验证**可复现的校准程序是否能在实际计算预算下生成有竞争力的缓存/修正/刷新计划**。下面按依赖顺序推进；已完成旧卡与条件性扩展不混入活动队列。
+[本轮准备与验收](692_CARA_SHARED_EXPLORATION_CONTRACT_POOL_AND_CPU_20261025.md) · [探索/确认合同](../plans/cara_policy_generator_20261020/EXPLORATION_CONFIRMATION_CONTRACT_R1_20261025.md) · [入口CPU接受](../reports/cara_shared_CAL106_CPU_accepted_r1_20261025.json) · [完整范围与报价](../manifests/cara_shared_CAL106_scope_quote_r1_20261025.json)
 
 | 顺序 | 当前阶段 | 下一项验收 / 动作 |
 |---|---|---|
-| PG-P1-C112 | 同入口全D参照的112路径独立计时验证：完整接受；计时门失败 | 先实现运行条件和分段计时CPU等价修复；冻结具体方案后另作完整独立验证，当前不重跑。保持1%/2秒/无假可行、原预算/α/强基线。 |
-| PG-P1 | 单预算自动策略闭环：P1原件已接受，未选出预算可行策略 | 112失败保持；先按691完成运行时/计时修复与独立验证方案。原102 CPU与未批准14GPUh报价保留；新模型/入口改变后重新做相应组合CPU，不派GPU。 |
-| PG-P1-R102 | 新P1生产入口、同输入时钟与有限恢复：入口CPU已过；112计时失败，GPU接续阻断 | 112失败保持；先按691完成运行时/计时修复与独立验证方案。原102 CPU与未批准14GPUh报价保留；新模型/入口改变后重新做相应组合CPU，不派GPU。 |
-| PG-P2 | 等预算与等查询强基线：质量入口与绑定准备完成；真实模型CPU待准入 | P1原件已接受但没有预算可行的冻结策略；保留已完成CPU与质量入口准备，暂不定最终GPU预算或派发。 |
+| PG-SHARED-CAL106 | Shared24/25、20D与少步Native的CAL探索：入口CPU已接受；GPU未授权未启动 | 补齐新整卡监督、释放后评分和终态组合及质量资源CPU；保留本轮不启动GPU的边界。 |
+| PG-P2 | 等预算与等查询强基线：质量入口与绑定准备完成；真实模型CPU待准入 | Shared探索后冻结一个方法/预算档；新输入增量核查，少步Native与独立质量共同确认。 |
 | PG-P3 | 固定程序跨预算/模型：条件性后续 | P1/P2后先0.70×Native，再成熟第二模型或明确第二设置重新校准。 |
 | PG-P4 | 最终独立TEST与部署评价：待方法冻结 | 冻结方法、对手、预算、选择规则后再选新TEST；计入warm与全流程成本。 |
 
-## 下一卡的具体准备
+## 本轮授权范围
 
-P1原件与财务已完整接受，但没有预算可行的冻结策略，P2目前不准入。保留已通过的P2组合CPU与五模型入口准备；完整离线分析确认全请求价格低估与可行性恢复搜索缺口，见[669原因分析与修复](669_CARA_PG_P1_COMPLETE_BUDGET_ATTRIBUTION_AND_REPAIR_PLAN_20261024.md)。历史强基线原alpha及24/25D新旧入口148路径CPU已接受；[104路径预算边界卡](670_CARA_HISTORICAL_BASELINE_EQUIVALENCE_AND_BOUNDARY104_20261024.md)已完整报价11.423207/11.9 GPUh，替代未执行44路径草案。104卡组合CPU已接受，但GPU采集在08:49因磁盘满提前退出；旧health为72/104完成，GPU已释放，完整验收未通过，旧11.9GPUh预约已释放，按明确标注的保守重建值5.48GPUh结算；新完整104 R2于13:41:30在GPU3硬独占启动，现104路径/72评分已完整接受并结算7.395282GPUh，独立输出卷与跨盘日志核验通过；计时模型未过2秒最大低估门槛，先修成本验证。部署257.771秒及累计226 GPUh不变。见[676失败原件](676_CARA_HISTORY104_DISK_FULL_EARLY_EXIT_20261024.md)。见[671实际执行](671_CARA_HISTORY104_COMBINATION_AND_EXCLUSIVE_EXECUTION_20261024.md)。已完成旧实验约4.45 GiB实体去重，38原路径和所有SHA保持；两个压缩包经全量一致核验后清理，本次合计释放63.05 GiB，另三个差异包保留。见[668当前原件与维护](668_CARA_STORAGE_DEDUP_AND_P1_ORIGINAL_TERMINAL_ACCEPTANCE_20261024.md)。
+只做Shared通用构造、Native入口、输入曝光核查、探索合同、CPU和完整报价准备。GPU提交与预约均为0；不因CPU接受自动启动。CAL106是新探索卡，不是旧104或112恢复。
 
-104完整结果已按预定口径分析：强历史布局优于原GRAPH，24/25D实测可行，计时模型最大低估未过门槛；COST112独立验证已完整结束，最大低估门槛失败。P1修复按模型验证和真实可行性分支接续，开发曝光与下一阶段Q≤8分列。[673分析准备](673_CARA_HISTORY104_ANALYSIS_READY_AND_P1_REPAIR_DECISIONS_20261024.md) · [674解释口径](674_CARA_HISTORY104_INTERPRETATION_CLARIFICATIONS_20261024.md) · [681 R2接续复核](681_CARA_HISTORY104_R2_ANALYSIS_ENTRY_AND_P1_HANDOFF_CHECKED_20261024.md) · [固定接续口径](../plans/cara_policy_generator_20261020/HISTORY104_ANALYSIS_AND_P1_REPAIR_HANDOFF_R1_20261024.md)。
+探索比较固定D布局、修正增量和完整请求质量—时间曲线；不要求所有探索点过最终预算。方法冻结后，以独立新输入验证原双重预算、强基线及少步Native，按prompt聚类，重复计时不增加质量样本量。
 
-[2026-10-23接续要求](../plans/cara_policy_generator_20261020/PRICE_HISTORY_NATIVE_CONTINUATION_R1_20261023.md)：原1624数值/控制和动作价格分别接受；已知同卡竞争的价格不因低波动自动通过。未来GPU卡要求实际独占。冻结策略后加入小规模历史窗口诊断，PG-P2加入少步Native等实测时间对照；shadow不写回，不计为干净延迟，新增范围单独进入完整报价。
+新106整卡的监督、释放后评分、终态组合与质量模型资源CPU仍须接受。沿用独占、磁盘输出卷、跨盘日志、完整分母和费用保障；只复用哈希一致的组件，变更部分重新验证。
 
-原1624标签与独立价格补测均完整接受。PG-P1原卡已结束、实际2.557833 GPUh，64位置上界中执行30路径/16评分/4候选查询，selected_policy=null。原半程和终态一次检查已关闭，不重派原任务。
+## 已完成历史与暂缓方案
 
-PG-P1的Q表示用于策略选择的完整终点评价查询预算。第一个预算为0.80×Native，Q≤8、首4后4、一次CAL_SELECT冻结。基础范围最多40候选正式+6Native+18warm=64路径；额外统计采集另计。具体完整报价与准入仍按注册表执行，不挪用已完成资产卡的12GPUh批准。
+- 原P1未选出预算内策略，原件及实际2.557833 GPUh保留。
+- 完整104 R2接受，历史强布局超过原GRAPH；计时最大低估2.618秒失败，实际7.395282 GPUh保留。
+- COST112完整接受，计时最大低估5.006秒失败，实际8.139511 GPUh保留。[归因691](691_CARA_COST112_CAUSE_SEPARATION_AND_P1_REPAIR_PLAN_20261025.md)。
+- 新纯计时重跑和GRAPH102暂缓；原CPU与未执行报价保留，不重新解释为成功。
+- 旧两卡16.5 GPUh未知责任预约继续保留；退役两卡不恢复。
 
-PG-P2公平比较计入相同信息、查询数与校准GPUh；PG-P3沿同一程序重校准，先第二预算，再第二模型或设置；PG-P4冻结方法和对手后才选独立TEST并重复计时。旧168正式TEST矩阵是草案，warm/加载/评分另计。
-
-## 等待期间可推进
-
-完成冻结程序的输入接口、账本和来源核对，准备表格与图的固定比较口径，整理已接受原件；这些准备不使用运行中部分结果选择新阈值或掩码。已完成的N07/N08/N09/N10、BANK24保持原件，旧人工32路径筛查不自动恢复。
-
-[当前生成器计划](../plans/cara_policy_generator_20261020/README.md) · [任务登记](../plans/cara_policy_generator_20261020/TASK_REGISTRY.json) · [完整实验总表](../paper/EXPERIMENT_MASTER_TABLE.md) · [旧计划历史](../docs/archive/README.md)。
-
-磁盘增长归因已定向核对：guanwenfei的SAM区域文件约57.09GiB、user账号BeamNG采集约19.73GiB、CARA约0.80GiB；与77.62GiB空间下降基本对齐。72条/216原件SHA保持，已给出迁移和新104/跨会话64备选报价，均未执行。[677存储归因与恢复方案](677_CARA_DISK_GROWTH_ATTRIBUTION_SAFE_MIGRATION_AND_104_RECOVERY_20261024.md)。
-
-用户指定NuPlan数据和ConvMAE训练检查点已按清单清理约1.326TiB，579份代码/配置/日志/基础权重SHA保持一致；实测普通用户空间恢复约1358.0GiB。原104失败已按保守值5.48GPUh结算；新的完整104 R2已完成并独立验收，实际7.395282GPUh。见记录678及`reports/cara_two_targets_authorized_bulk_cleanup_complete_20261024.json`。
-
-[679最终恢复准备](679_CARA_HISTORY104_FAILED_SETTLEMENT_STORAGE_GUARD_AND_FINAL_RECOVERY_20261024.md)：旧失败保守结算5.48GPUh；新完整104维持11.423207/11.9GPUh，32GiB独立输出卷与跨盘日志、真实ENOSPC组合CPU通过。后续启动授权及实际执行见[680新完整104 R2](680_CARA_HISTORY104_R2_EXCLUSIVE_LAUNCH_AND_ACCEPTANCE_20261024.md)；该新卡现已完整验收，7.395282GPUh结算，原11.9GPUh预约释放。
+[新合同](../plans/cara_policy_generator_20261020/EXPLORATION_CONFIRMATION_CONTRACT_R1_20261025.md) · [本轮记录692](692_CARA_SHARED_EXPLORATION_CONTRACT_POOL_AND_CPU_20261025.md) · [完整实验总表](../paper/EXPERIMENT_MASTER_TABLE.md) · [历史计划](../docs/archive/README.md)

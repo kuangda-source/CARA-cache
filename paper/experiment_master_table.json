@@ -30,6 +30,7 @@
     "CONDITIONAL_SAME_PROCEDURE_RECALIBRATION": 1,
     "COST112_COMPLETE_ACCEPTED_TIMING_GATE_FAILED": 1,
     "DEFERRED_MANUAL_MASK_SCREEN_SUPERSEDED_BY_GENERATOR_VALIDATION": 2,
+    "ENTRY_CPU_ACCEPTED_NO_GPU_AUTHORITY": 1,
     "EXPLORATORY_BANK24_FULL24_ACCEPTED_FROZEN_GATE_AND_XR_ANALYZED": 2,
     "EXPLORATORY_CAL12_A_FACTORIAL_GAIN_ON_CAL_PENDING_INDEPENDENT_CONFIRMATION": 1,
     "EXPLORATORY_CAL12_SHARED26D_PLAN_GAIN_ON_CAL_PENDING_INDEPENDENT_CONFIRMATION": 1,
@@ -5496,7 +5497,7 @@
         "title": "单预算自动策略闭环",
         "status": "P1原件已接受，未选出预算可行策略",
         "result": "原件与财务完整接受；实际2.557833 GPUh。64登记位置中执行30路径、16评分、4候选查询；未选出满足冻结预算的策略，PG-P2尚不准入。",
-        "next_action": "112失败保持；先按691完成运行时/计时修复与独立验证方案。原102 CPU与未批准14GPUh报价保留；新模型/入口改变后重新做相应组合CPU，不派GPU。",
+        "next_action": "旧失败和费用保留；新纯计时卡与GRAPH102暂缓，转入Shared-CAL106准备。",
         "evidence_refs": [
           "reports/cara_PG_P1_full64_GPU_actual_launch_20261023_2030.json",
           "reports/cara_PG_P1_full64_GPU_initial_health_20261023_2029.json",
@@ -5742,7 +5743,7 @@
         "title": "等预算与等查询强基线",
         "status": "质量入口与绑定准备完成；真实模型CPU待准入",
         "result": "R2组合CPU已接受；新增真实五模型评分入口、去重绑定及34项本地控制完成。五原权重/固定源码已在本地齐备，四卡实际模型CPU待独立环境和磁盘准入。",
-        "next_action": "P1原件已接受但没有预算可行的冻结策略；保留已完成CPU与质量入口准备，暂不定最终GPU预算或派发。",
+        "next_action": "Shared探索后冻结一个方法/预算档；新输入增量核查，少步Native与独立质量共同确认。",
         "evidence_refs": [
           "CARA_generator_report_612",
           "research/648_CARA_GPU_OWNER_PRICE_TRUST_AND_ORDERED_CONTINUATION_20261023.md",
@@ -5943,7 +5944,7 @@
         "title": "同入口全D参照的112路径独立计时验证",
         "status": "完整接受；计时门失败",
         "result": "112路径、72组/6696帧评分及23控制完整接受；实际8.139511 GPUh。计时平均绝对相对误差0.545%，最大低估5.006秒；最大低估未过原2秒门槛，新P1不准入。",
-        "next_action": "先实现运行条件和分段计时CPU等价修复；冻结具体方案后另作完整独立验证，当前不重跑。保持1%/2秒/无假可行、原预算/α/强基线。",
+        "next_action": "旧失败和费用保留；新纯计时卡与GRAPH102暂缓，转入Shared-CAL106准备。",
         "evidence_refs": [
           "research/691_CARA_COST112_CAUSE_SEPARATION_AND_P1_REPAIR_PLAN_20261025.md",
           "reports/cara_cost112_root_cause_attribution_r2_20261025.json",
@@ -6004,7 +6005,7 @@
         "title": "新P1生产入口、同输入时钟与有限恢复",
         "status": "入口CPU已过；112计时失败，GPU接续阻断",
         "result": "真实18采样CPU路径、新自适应分母/实际93帧评分/独立决策重放通过；不是GPU质量或策略成功。",
-        "next_action": "112失败保持；先按691完成运行时/计时修复与独立验证方案。原102 CPU与未批准14GPUh报价保留；新模型/入口改变后重新做相应组合CPU，不派GPU。",
+        "next_action": "旧失败和费用保留；新纯计时卡与GRAPH102暂缓，转入Shared-CAL106准备。",
         "evidence_refs": [
           "research/688_CARA_P1_REPAIR102_ENTRY_CPU_QUOTE_AND_SELECT_AUDIT_20261025.md",
           "plans/cara_policy_generator_20261020/P1_REPAIR102_PRODUCTION_AND_QUOTE_R1_20261025.md",
@@ -6013,6 +6014,54 @@
           "reports/cara_PG_P1_repair102_CPU_accepted_r1_20261025.json",
           "reports/cara_PG_P1_repair102_SELECT_exposure_preparation_r2_20261025.json",
           "reports/cara_PG_P1_repair102_active112_protection_r1_20261025.json"
+        ]
+      }
+    },
+    {
+      "id": "PG-SHARED-CAL106",
+      "state": "ENTRY_CPU_ACCEPTED_NO_GPU_AUTHORITY",
+      "paper_experiment_name": "Deterministic Shared placement and Native step controls",
+      "internal_ids": [
+        "cara-shared-cal106-exploration-r1"
+      ],
+      "evidence_refs": [
+        "research/692_CARA_SHARED_EXPLORATION_CONTRACT_POOL_AND_CPU_20261025.md",
+        "plans/cara_policy_generator_20261020/EXPLORATION_CONFIRMATION_CONTRACT_R1_20261025.md",
+        "manifests/cara_shared_CAL106_scope_quote_r1_20261025.json",
+        "plans/cara_policy_generator_20261020/NEW_INPUT_POOL48_R1_20261025.json",
+        "reports/cara_shared_CAL106_CPU_terminal_r1_20261025.json",
+        "reports/cara_shared_CAL106_CPU_accepted_r1_20261025.json",
+        "reports/cara_new_input_pool48_exposure_r1_20261025.json"
+      ],
+      "method_mapping_ids": [],
+      "contribution_ids": [
+        "C1",
+        "C2"
+      ],
+      "claim_relation": "PREPARATION_NOT_SCIENTIFIC_RESULT",
+      "paper_placement": "CAL探索与独立确认准备",
+      "dependencies": [
+        "PG-P1-ASSETS"
+      ],
+      "production_CPU_accepted": false,
+      "production_entry_CPU_accepted": true,
+      "new_GPU_submissions": 0,
+      "GPU_dispatch_ready": false,
+      "full_protocol_accepted": false,
+      "evidence_or_planned_scope": "4CAL/19角色/106路径；预计9.971317GPUh、拟上限11.5；48新输入池冻结；GPU禁止启动。",
+      "reader": {
+        "title": "Shared24/25、20D与少步Native的CAL探索",
+        "status": "入口CPU已接受；GPU未授权未启动",
+        "result": "76条生产链小张量CPU采样接受；48组输入范围内无曝光；没有新GPU质量结果。",
+        "next_action": "补齐新整卡监督、释放后评分和终态组合及质量资源CPU；保留本轮不启动GPU的边界。",
+        "evidence_refs": [
+          "research/692_CARA_SHARED_EXPLORATION_CONTRACT_POOL_AND_CPU_20261025.md",
+          "plans/cara_policy_generator_20261020/EXPLORATION_CONFIRMATION_CONTRACT_R1_20261025.md",
+          "manifests/cara_shared_CAL106_scope_quote_r1_20261025.json",
+          "plans/cara_policy_generator_20261020/NEW_INPUT_POOL48_R1_20261025.json",
+          "reports/cara_shared_CAL106_CPU_terminal_r1_20261025.json",
+          "reports/cara_shared_CAL106_CPU_accepted_r1_20261025.json",
+          "reports/cara_new_input_pool48_exposure_r1_20261025.json"
         ]
       }
     }
@@ -11938,33 +11987,33 @@
     },
     "AGENTS.md": {
       "path": "AGENTS.md",
-      "sha256": "bf6822c13a44e8f112a14c90e9bd2aa54e16b00aabfe565b23352b68cec04a02",
-      "bytes": 4965
+      "sha256": "52013c282440d3af55c50d14e82e3dd2c766c6d24197c442cb387d9e879756e2",
+      "bytes": 5206
     },
     "EXPERIMENT_REPORT.md": {
       "path": "EXPERIMENT_REPORT.md",
-      "sha256": "5b3a620be19191b651d92d8893a635dd332b41577497927541f722f2c9747517",
-      "bytes": 9760
+      "sha256": "b6598630ab5b5e1c425d39066d1c2adf62d5a417e6e0a91028fd69a0216013b2",
+      "bytes": 8059
     },
     "memory/handoffs/LATEST.md": {
       "path": "memory/handoffs/LATEST.md",
-      "sha256": "6c8c6af7cf4be1a114ba872b8ac1fa169310ff8545e60be843fb15a5ecd33cb2",
-      "bytes": 10234
+      "sha256": "ea73ffc3b45b5edcada74c57049b5fa1e464c1239ee6e1f19baa14deda6b3d95",
+      "bytes": 4051
     },
     "research/02_CURRENT_STATE.md": {
       "path": "research/02_CURRENT_STATE.md",
-      "sha256": "0b1efaed08642a07c56daa8a2ae4d23f485e7117be8ea6080724c03a22d87db4",
-      "bytes": 10368
+      "sha256": "d03de99200a49e34dd0c811bc1cbfbdbd05c06528a4f2324022f03b7273deec9",
+      "bytes": 5035
     },
     "research/09_NEXT_ACTIONS.md": {
       "path": "research/09_NEXT_ACTIONS.md",
-      "sha256": "de2a1ed96ae1f41fc6d79e6e6fb0c1b8bc2fa0967b2da71b8d612534e02199df",
-      "bytes": 9849
+      "sha256": "733983c0ff79588f3ddc3ed099626cb10703393cde56fd3f3d050d44e2c18d08",
+      "bytes": 3720
     },
     "paper/EXPERIMENT_MASTER_TABLE.md": {
       "path": "paper/EXPERIMENT_MASTER_TABLE.md",
-      "sha256": "871df2c5348beca627795043a4d99c5767a97ff6152fa04127f634f5b27259fa",
-      "bytes": 37613
+      "sha256": "3ae5a74e2b1e53ce0ac93065706eaca8834b4008bcefabb02592227848e5c303",
+      "bytes": 37203
     },
     "paper/INTERNAL_TO_PAPER_MAPPING.md": {
       "path": "paper/INTERNAL_TO_PAPER_MAPPING.md",
@@ -13943,7 +13992,7 @@
     "historical_operation_policy_ref": "docs/archive/20261022_before_navigation/paper/experiment_master_table.json"
   },
   "mapping_sha256_at_inventory": "88b3d760a0c94c20b6c802e21f30c7286d6e596cc9b3f3100e7ee6feaa3938f3",
-  "latest_mapping_sha256": "582fbec7ca24c0ff8bf1361ac4ff75e6544d3a6f7072e45a0f0c6b36f7bd9cf2",
+  "latest_mapping_sha256": "2d90e1165a4bbf203344eaa54abeaa08a5719beb73850f20361f398f96bf050f",
   "revision_plan": {
     "registry_ref": "plans/cara_v6_20261020/TASK_REGISTRY_V6.yaml",
     "report_ref": "research/610_WC_CARA_V6_REVIEW_CLOSURE_PLAN_INTERVAL_SPEC_AND_FIRST_DEV_SCOPE_20261020.md",

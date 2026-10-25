@@ -477,6 +477,34 @@ def build():
         if cost and cost.get('terminal_acceptance_ref') and not cost['timing_model_validated']:
             snapshot += " 当前112已完整结束且计时门失败，原102参照方案不能直接接续；先审阅完整误差诊断，保留入口CPU原件与未执行报价。"
         by_id['PG-P1']['reader']['next_action'] = by_id['PG-P1-R102']['reader']['next_action']
+    shared = status.get('shared_exploration_preparation')
+    if shared and shared.get('CPU_acceptance_ref'):
+        sa, sc, sq, pool, exposure = (load(shared[k]) for k in
+            ('CPU_acceptance_ref','CPU_terminal_ref','quote_ref','pool_ref','exposure_ref'))
+        if (not sa['production_entry_CPU_accepted'] or sa['complete_CPU_paths'] != 76
+                or sa['capture_sha256'] != digest((ROOT/shared['CPU_terminal_ref']).read_bytes())['sha256']
+                or sa['source_revision'] != sc['launch']['source_revision']
+                or not exposure['scoped_clear'] or len(pool['members']) != 48
+                or sq['scope']['total_paths'] != 106 or shared['new_GPU_submissions'] != 0
+                or shared['GPU_dispatch_ready']):
+            raise ValueError('Shared exploration source/CPU/pool preparation differs')
+        snapshot = ('**当前推进Shared-CAL106探索准备，GPU未启动。** Shared24/25通用构造、原α与强基线已绑定；'
+            '唯一激进档20D，少步Native26/28/30。新生产入口76条CPU采样路径完整接受，48组新输入通过范围内曝光核查。\n\n'
+            f"完整106路径：76正式、20计时重复、8warm、2诊断；预计{sq['quote']['forecast_GPUh']:.6f} GPUh，拟上限11.5 GPUh，未预留。"
+            '累计226 GPUh及最终min(257.771秒,0.8×新Native)不变。整卡监督/释放后评分/终态组合和质量资源CPU仍须完成；入口CPU不代表GPU准入。\n\n'
+            '用户已授权新的探索/确认合同：探索不再以前一计时模型的2秒门为前置，最终方法仍须独立实测预算确认。'
+            '旧104/112计时失败和原P1空选择保留，新的纯计时卡与GRAPH102暂缓。\n\n'
+            + link(shared['report_ref'],'本轮准备与验收') + ' · ' + link(shared['contract_ref'],'探索/确认合同')
+            + ' · ' + link(shared['CPU_acceptance_ref'],'入口CPU接受') + ' · ' + link(shared['quote_ref'],'完整范围与报价'))
+        sr = by_id['PG-SHARED-CAL106']
+        sr['production_entry_CPU_accepted'] = True
+        sr['reader'].update(status='入口CPU已接受；GPU未授权未启动',
+            next_action='补齐新整卡监督、释放后评分和终态组合及质量资源CPU；保留本轮不启动GPU的边界。')
+        for old_id in ('PG-P1','PG-P1-C112','PG-P1-R102'):
+            by_id[old_id]['reader']['next_action']='旧失败和费用保留；新纯计时卡与GRAPH102暂缓，转入Shared-CAL106准备。'
+        run_details = ('| 当前准备字段 | 内容 |\n|---|---|\n'
+            f"| CPU source | `{sa['source_revision']}` |\n| CPU stage | `{sc['launch']['stage']}` |\n"
+            '| CPU资源 | 1CPU / 4GiB / GPU隐藏，已退出0 |\n| GPU提交 / 预算预留 | 0 / 0 |')
     headlines = '\n'.join(f"- **{f['title']}**（{f['short_scope']}）：{f['result']} {refs(f['refs'])}"
                            for f in status['headline_results'])
     details = '\n\n'.join(f"### {i+1}. {f['title']}\n\n{f['result']}\n\n{f['scope']} {refs(f['refs'])}"
