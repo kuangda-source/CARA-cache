@@ -6,7 +6,7 @@
 
 ## 核心动作
 
-完整CPU接受后，fresh空闲A6000准入、同一中央8GPUh预算包、真实硬独占单次启动；按实际起点安排半程/终态。已有intent只恢复。
+按唯一A6000 launch半程及终态检查；GPU释放后48组LPIPS/156质量位置CPU评分，原账单向四卡中央预算包结算。完整接受后才按冻结CAL66合同分析；不启动Ada R2、不自动追加DEV。
 
 C包含原WorldCache的probe/window/warp/head/RF读出，并非单纯复制旧速度。A在post-RF分支速度上修正，共享alpha后做CFG融合；语义C/A都可能显示为物理CC。D对两CFG支做完整深层计算，更新真实D历史，但不会抹掉已有轨迹误差。WorldCache自己的决策可能出现DC/CD。
 

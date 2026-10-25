@@ -2,15 +2,15 @@
 
 # CARA-Cache 后续实验顺序
 
-**CAL66两卡A6000迁移准备中，真实组合CPU验证中。**
+**CAL66已在两卡A6000 GPU1硬独占运行。**
 
-隔离环境、相同镜像、32GiB预留输出卷和跨盘日志已准备；新主机真实CPU采样/评分/失败边界检查中，未提交GPU。原66、alpha、强基线不变；报价7.767292 GPUh，上限8，累计226不变。
+10月25日23:06单次启动于两卡GPU1 A6000；真实硬独占和唯一runner已核验，进入首个采集请求。111个监测样本无前缀违规、最大间隔2.383秒，独立卷与跨盘日志正常。原66/alpha/强基线不变，预计7.767292 GPUh/上限8，累计226及最终部署预算不变。
 
-[证据1](701_CARA_CAL66_A6000_MIGRATION_AND_EXECUTION_20261025.md) · [证据2](../reports/cara_CAL66_A6000_CPU_launch_r3_20261025.json) · [证据3](../reports/cara_CAL66_A6000_private_storage_20261025.json)
+[证据1](701_CARA_CAL66_A6000_MIGRATION_AND_EXECUTION_20261025.md) · [证据2](../reports/cara_CAL66_A6000_GPU_actual_launch_20261025.json) · [证据3](../reports/cara_CAL66_A6000_technical_admission_20261025.json) · [证据4](../reports/cara_CAL66_A6000_CPU_accepted_r3_20261025.json) · [证据5](../reports/cara_CAL66_A6000_central_admission_confirmed_20261025.json)
 
 | 顺序 | 当前阶段 | 下一项验收 / 动作 |
 |---|---|---|
-| PG-SHARED-CAL66 | CAL66：刷新位置、原phase修正与尾部停用：CAL66两卡A6000迁移准备中，真实组合CPU验证中 | 完整CPU接受后，fresh空闲A6000准入、同一中央8GPUh预算包、真实硬独占单次启动；按实际起点安排半程/终态。已有intent只恢复。 |
+| PG-SHARED-CAL66 | CAL66：刷新位置、原phase修正与尾部停用：CAL66已在两卡A6000 GPU1硬独占运行 | 按唯一A6000 launch半程及终态检查；GPU释放后48组LPIPS/156质量位置CPU评分，原账单向四卡中央预算包结算。完整接受后才按冻结CAL66合同分析；不启动Ada R2、不自动追加DEV。 |
 | PG-P2 | 等预算与等查询强基线：五原模型CPU可复用；P2整卡绑定及完整五指标视频评分待确认 | Shared探索后冻结一个方法/预算档；新输入增量核查，少步Native与独立质量共同确认。 |
 | PG-P3 | 固定程序跨预算/模型：条件性后续 | P1/P2后先0.70×Native，再成熟第二模型或明确第二设置重新校准。 |
 | PG-P4 | 最终独立TEST与部署评价：待方法冻结 | 冻结方法、对手、预算、选择规则后再选新TEST；计入warm与全流程成本。 |

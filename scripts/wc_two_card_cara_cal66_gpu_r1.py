@@ -130,6 +130,36 @@ def capture(a):
     return ssh(proven.CAPTURE,dict(launch=L,terminal=a.mode=='terminal'))
 
 
+def confirm(a):
+    """Mark the parent envelope as a live lease only after actual admission."""
+    L=read(a.launch_ref);v=read(a.capture);assert v['launch']==L
+    from wcomr.policy_price_terminal_r1 import record
+    from wcomr.policy_asset_price_review_r1 import exclusive_gate
+    ready=record(v,'ready');grant=record(v,'grant');guard=record(v,'guardian')
+    identity=ready['identity'];assert grant['runner']==identity and ready['GPU_context_held']
+    assert grant['source_revision']==ready['source_revision']==L['source_revision']
+    assert all(v['original_live_handles'].values()) and not v['own_UUID_lock_free']
+    for snap,phase,runner in ((guard['mode_admission']['verified_snapshot'],'idle',None),(v['current_GPU'],'active',identity)):
+        result=exclusive_gate(snap,gpu_uuid=L['gpu_uuid'],phase=phase,now=snap['observed_unix'],**({'runner':runner} if runner else {}))
+        assert result['observation_passed']
+    budget=adapt('src/wcomr/gpu_budget_pool_v2.py',(ROOT/'src/wcomr/gpu_budget_pool_v2.py').read_text())[0]
+    code=r'''
+import json,sys,pathlib,time
+p=json.load(sys.stdin);ns={'__name__':'cal66_scope_budget'};exec(p['budget_code'],ns)
+root=pathlib.Path('/data20t/gaokuangda/worldcache_workspace');pool=ns['BudgetPool'](root);L=p['launch']
+with pool.transaction() as v:
+ j=v['jobs'][p['envelope_id']]
+ assert j['status']=='RESERVED_OR_RUNNING' and j['run_id']==L['run_id'] and j['stage']==L['stage'] and j['source_revision']==L['source_revision'] and j['gpu_uuid']==L['gpu_uuid']
+ if j.get('actual_GPU_submission_known'):
+  assert j['launch_id']==L['launch_id']
+ else:
+  j.update(confirmed_GPU_submission=True,actual_GPU_submission_known=True,launch_id=L['launch_id'],admission_capture_sha256=p['capture_sha256'])
+  pool.commit(v,dict(type='CONFIRM_EXTERNAL_HOST_SINGLE_RUNNER',job_id=p['envelope_id']))
+ print(json.dumps(dict(status='CAL66_A6000_CENTRAL_ADMISSION_CONFIRMED',observed_unix=time.time(),launch=L,envelope_job=j,pool_totals=pool.accounting(v),capture_sha256=p['capture_sha256'],actual_unique_runner_accepted=True)))
+'''
+    return transport.four_ssh(code,dict(budget_code=budget,launch=L,envelope_id=ENVELOPE_ID,capture_sha256=sha(a.capture)))
+
+
 def settle(a):
     """Re-read the original bill/settled subledger; never infer failure cost."""
     L=read(a.launch_ref)
@@ -163,7 +193,7 @@ print(json.dumps(receipt))
 
 
 def main():
-    p=argparse.ArgumentParser();p.add_argument('command',choices=['bind','preflight','launch-gpu','recover','capture','accept-gpu','settle-central'])
+    p=argparse.ArgumentParser();p.add_argument('command',choices=['bind','preflight','launch-gpu','recover','capture','confirm-central','accept-gpu','settle-central'])
     for n in ('cpu-capture','cpu-acceptance','stage-ref','launch-ref','capture','recovery-authorization'):p.add_argument('--'+n,type=Path)
     p.add_argument('--gpu-uuid');p.add_argument('--mode',choices=['admission','halfway','terminal']);p.add_argument('--output',type=Path,required=True);a=p.parse_args()
     assert not a.output.exists()
@@ -173,6 +203,7 @@ def main():
     elif a.command=='recover':
         proven.ssh=ssh;v=proven.recover(a);print(v['status']);return
     elif a.command=='capture':v=capture(a)
+    elif a.command=='confirm-central':v=confirm(a)
     elif a.command=='settle-central':v=settle(a)
     else:
         v=accept_terminal(read(a.capture));v.update(capture_ref=str(a.capture),capture_sha256=sha(a.capture),central_settlement_pending=True)

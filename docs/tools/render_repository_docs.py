@@ -703,9 +703,10 @@ def build():
         actions=migration['next_action']
         active66=by_id['PG-SHARED-CAL66'];active66['state']=status['active_state']
         active66['reader'].update(status=status['active_state_zh'],result=migration['summary'],next_action=migration['next_action'])
+        active66['evidence_or_planned_scope']=migration['summary']
         active66['reader']['evidence_refs']=list(dict.fromkeys(active66['reader']['evidence_refs']+migration['evidence_refs']))
         current=migration.get('launch_ref') if migration.get('GPU_running') else None
-        master['operation_policy'].update(current_running_card=current,current_running_cards=[current] if current else [],snapshot_observed_at=migration['observed_unix'])
+        master['operation_policy'].update(current_running_card='PG-SHARED-CAL66' if current else None,current_running_cards=['PG-SHARED-CAL66'] if current else [],active_launch_ref=current,snapshot_observed_at=migration['observed_unix'])
         master['status_counts']={state:sum(r['state']==state for r in rows) for state in sorted({r['state'] for r in rows})}
     headlines = '\n'.join(f"- **{f['title']}**（{f['short_scope']}）：{f['result']} {refs(f['refs'])}"
                            for f in status['headline_results'])

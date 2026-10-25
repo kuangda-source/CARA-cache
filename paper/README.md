@@ -4,11 +4,11 @@
 
 论文主线：**CFG对齐读出修正 → 数据驱动计算时机 → 冻结自动程序的实际质量—时间收益**。已有机制结果放在前面，自动生成器的最终数值由后续真实验证填入。
 
-**CAL66两卡A6000迁移准备中，真实组合CPU验证中。**
+**CAL66已在两卡A6000 GPU1硬独占运行。**
 
-隔离环境、相同镜像、32GiB预留输出卷和跨盘日志已准备；新主机真实CPU采样/评分/失败边界检查中，未提交GPU。原66、alpha、强基线不变；报价7.767292 GPUh，上限8，累计226不变。
+10月25日23:06单次启动于两卡GPU1 A6000；真实硬独占和唯一runner已核验，进入首个采集请求。111个监测样本无前缀违规、最大间隔2.383秒，独立卷与跨盘日志正常。原66/alpha/强基线不变，预计7.767292 GPUh/上限8，累计226及最终部署预算不变。
 
-[证据1](../research/701_CARA_CAL66_A6000_MIGRATION_AND_EXECUTION_20261025.md) · [证据2](../reports/cara_CAL66_A6000_CPU_launch_r3_20261025.json) · [证据3](../reports/cara_CAL66_A6000_private_storage_20261025.json)
+[证据1](../research/701_CARA_CAL66_A6000_MIGRATION_AND_EXECUTION_20261025.md) · [证据2](../reports/cara_CAL66_A6000_GPU_actual_launch_20261025.json) · [证据3](../reports/cara_CAL66_A6000_technical_admission_20261025.json) · [证据4](../reports/cara_CAL66_A6000_CPU_accepted_r3_20261025.json) · [证据5](../reports/cara_CAL66_A6000_central_admission_confirmed_20261025.json)
 
 | 需要的材料 | 入口 |
 |---|---|
