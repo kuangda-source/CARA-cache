@@ -35,7 +35,7 @@ def cpu_source_names():
             for node in ast.walk(ast.parse((ROOT/name).read_text())):
                 if isinstance(node,ast.Constant) and isinstance(node.value,str):
                     value=node.value
-                    if re.fullmatch(r'[A-Za-z_]\w*(?:\.py)?',value):
+                    if re.fullmatch(r'[a-z_][a-z0-9_]*(?:\.py)?',value):
                         sibling=Path(name).parent/(value if value.endswith('.py') else value+'.py')
                         if (ROOT/sibling).is_file():names.add(str(sibling))
         if old==names:return names
