@@ -2,13 +2,15 @@
 
 2026-10-25。用户已授权修改流程、模板、交接和问题队列，提交GitHub，并推进新输入池增量审计与最小入口。没有新增GPU授权、预算或当前卡变更。
 
+**最新准备：冻结请求适配已修复，新真实类CPU链完整接受，恢复报价6.880951GPUh（上限8）。用户明确先不重跑，见[699](../../research/699_CARA_CAL66_FROZEN_ADAPTER_REPAIR_CPU_ACCEPTED_AND_RECOVERY_QUOTE_20261025.md)与[完整恢复方案](../../plans/cara_policy_generator_20261020/CAL66_FROZEN_REQUEST_RECOVERY_R2_20261025.md)。旧R1入口接受已被新证据替代，未改监督/评分组件按SHA复用。**
+
 **最新技术状态覆盖（20:03观察）：CAL66已于18:49:06失败退出，0/66完成；冻结InferenceArguments.seed修改异常，精确结算0.484959 GPUh。原半程/最终检查已删除，未重跑。见[698](../../research/698_CARA_CAL66_EARLY_FAILURE_TECHNICAL_AND_FINANCE_20261025.md)。以下启动与检查时间保留为历史安排。**
 
 ## 先读与权限
 
 先读 [AGENTS](../../AGENTS.md)、[执行流程](../../docs/EXECUTION_MODES.md)、[问题队列](../../plans/QUESTION_QUEUE.md)、[当前状态](../../docs/project_status.json)、[CAL66合同](../../plans/cara_policy_generator_20261020/CAL66_DESIGN_AND_DECISION_CONTRACT_R1_20261025.md)。交接中的状态是保存证据快照；如已有更新终态，优先复用新原件。
 
-CAL66唯一launch `54eeebc7-00bb-4951-96cf-e2f66a85e344`，原GPU2、66路径、8GPUh、α、强基线及stage保持。原检查为10月25日21:35技术半程、10月26日05:50含释放后CPU评分的收件；本次没有调整。按[696](../../research/696_CARA_CAL66_EXCLUSIVE_LAUNCH_AND_ACCEPTANCE_20261025.md)接续，不重复提交、不读部分结果调参。
+CAL66唯一launch `54eeebc7-00bb-4951-96cf-e2f66a85e344`，原GPU2、66路径、8GPUh、α、强基线及stage保持。原检查为10月25日21:35技术半程、10月26日05:50含释放后CPU评分的收件；以上均为已失效的原安排，检查已删除；不得据此重派。原启动记录见[696](../../research/696_CARA_CAL66_EXCLUSIVE_LAUNCH_AND_ACCEPTANCE_20261025.md)接续，不重复提交、不读部分结果调参。
 
 ## 本次已完成
 

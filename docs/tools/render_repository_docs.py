@@ -653,6 +653,21 @@ def build():
         active66['evidence_or_planned_scope']=active66['reader']['result']
         master['operation_policy'].update(current_running_card=None,current_running_cards=[],snapshot_observed_at=failed['observed_unix'])
         master['status_counts']={state:sum(r['state']==state for r in rows) for state in sorted({r['state'] for r in rows})}
+        recovery66=status.get('CAL66_recovery_preparation')
+        if recovery66:
+            repaired=load(recovery66['acceptance_ref'])
+            if (not repaired['frozen_request_chain_CPU_accepted'] or not repaired['old_entry_acceptance_superseded']
+                    or repaired['GPU_submissions'] or repaired['GPU_dispatch_ready'] or repaired['new_GPU_authorization']
+                    or repaired['registered_paths']!=66 or repaired['hard_limit_GPUh']!=8):
+                raise ValueError('CAL66 recovery preparation evidence/authorization differs')
+            update=(f'**CAL66冻结参数适配已修复，新的真实参数链CPU验收通过；GPU未重跑。** '
+                f'原α、强基线与66路径不变。完整恢复预计{repaired["forecast_GPUh"]:.6f} GPUh、单卡上限8、累计226及最终部署预算不变。'
+                '新R2执行身份/注册与fresh准入留待实际启动；本轮没有GPU预约或授权。\n\n'
+                +link(recovery66['report_ref'],'修复与漏检归因')+' · '+link(recovery66['plan_ref'],'完整恢复方案')+' · '+link(recovery66['acceptance_ref'],'独立合并审核'))
+            snapshot=update+'\n\n'+snapshot
+            run_details+='\n| 修复准备 | 66槽位预检、60真实冻结类数值CPU路径与失败边界接受；无新GPU |'
+            active66['reader']['next_action']='修复CPU与完整报价已接受；用户本轮要求不重跑，等待恢复执行指示及新注册/fresh准入。'
+            active66['reader']['evidence_refs']=list(dict.fromkeys(active66['reader']['evidence_refs']+[recovery66['report_ref'],recovery66['acceptance_ref']]))
     headlines = '\n'.join(f"- **{f['title']}**（{f['short_scope']}）：{f['result']} {refs(f['refs'])}"
                            for f in status['headline_results'])
     details = '\n\n'.join(f"### {i+1}. {f['title']}\n\n{f['result']}\n\n{f['scope']} {refs(f['refs'])}"

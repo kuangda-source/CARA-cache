@@ -49,6 +49,10 @@ LPIPS 越低表示越接近同输入的 Native 视频；它与局部速度 MSE�
 
 ## 当前进度
 
+**CAL66冻结参数适配已修复，新的真实参数链CPU验收通过；GPU未重跑。** 原α、强基线与66路径不变。完整恢复预计6.880951 GPUh、单卡上限8、累计226及最终部署预算不变。新R2执行身份/注册与fresh准入留待实际启动；本轮没有GPU预约或授权。
+
+[修复与漏检归因](research/699_CARA_CAL66_FROZEN_ADAPTER_REPAIR_CPU_ACCEPTED_AND_RECOVERY_QUOTE_20261025.md) · [完整恢复方案](plans/cara_policy_generator_20261020/CAL66_FROZEN_REQUEST_RECOVERY_R2_20261025.md) · [独立合并审核](reports/cara_CAL66_frozen_recovery_preparation_accepted_r2_20261025.json)
+
 **CAL66已提前失败退出，0/66路径完成。** 2026-10-25 18:49:06 +08:00，模型加载后的首请求尝试修改冻结的InferenceArguments.seed，触发ValidationError。未进入后续采集与CPU评分；原α、强基线、66分母和预算不变。
 
 精确结算0.484959 GPUh，原预约已释放；四个原句柄退出、设备锁释放，GPU模式恢复。磁盘保护及跨盘账单完整。原半程与完整验收检查已取消，旧完成ETA失效；没有重跑。
