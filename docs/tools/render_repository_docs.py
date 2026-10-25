@@ -547,6 +547,15 @@ def build():
             '| 释放后评分 | 48对LPIPS/4464帧，52视频×3独立指标 |\n'
             '| CPU状态 | 本地设计16项通过；变更生产入口与组合接受待完成 |\n'
             '| GPU提交 / 预算预留 | 0 / 0 |')
+        if cal66.get('production_CPU_accepted'):
+            entry=load(cal66['entry_CPU_acceptance_ref'])
+            if (not entry['production_entry_CPU_accepted'] or entry['complete_CPU_paths']!=60
+                    or entry['capture_sha256']!=digest((ROOT/cal66['entry_CPU_terminal_ref']).read_bytes())['sha256']):
+                raise ValueError('CAL66 production CPU evidence differs')
+            snapshot=snapshot.replace('16项本地设计CPU检查通过，不等于CAL66生产/整卡组合接受；独立质量模型CPU仍待完成。',
+                '15角色/60路径真实生产入口CPU已接受；整卡组合正在修复验收，独立质量模型CPU仍待完成。')
+            snapshot+=' · '+link(cal66['entry_CPU_acceptance_ref'],'CAL66生产CPU接受')
+            run_details=run_details.replace('本地设计16项通过；变更生产入口与组合接受待完成','生产入口60路径接受；组合与真实模型CPU验收推进中')
     headlines = '\n'.join(f"- **{f['title']}**（{f['short_scope']}）：{f['result']} {refs(f['refs'])}"
                            for f in status['headline_results'])
     details = '\n\n'.join(f"### {i+1}. {f['title']}\n\n{f['result']}\n\n{f['scope']} {refs(f['refs'])}"

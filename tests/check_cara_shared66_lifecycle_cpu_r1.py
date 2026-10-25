@@ -59,6 +59,8 @@ while not (stage/'pg-runner-context-granted.json').exists():
 time.sleep(3)
 raise SystemExit(EXIT_CODE)
 '''.replace('SOURCE_SRC',repr(str(stage/'src'))).replace('EXIT_CODE','1' if scenario=='runner_failure' else '0')
+        if scenario=='ready_arrives_after_snapshot':
+            runner=runner.replace("atomic_json(stage/'pg-runner-context-ready.json',dict(identity=identity))", "while not (stage/'fixture-release-ready').exists(): time.sleep(.01)\natomic_json(stage/'pg-runner-context-ready.json',dict(identity=identity))")
         (fixture/'scripts/run_cara_shared66_r1.py').write_text(runner)
         post="import json,pathlib,sys,resource,os\nassert resource.getrlimit(resource.RLIMIT_AS)==(8*2**30,8*2**30) and len(os.sched_getaffinity(0))<=2\na=dict(zip(sys.argv[1::2],sys.argv[2::2]));p=pathlib.Path(a['--project'])/'outputs'/"+repr(contract.RUN)+"\n(p/'post-results.json').write_text(json.dumps(dict(CPU_fixture_only=True)))\n"
         if scenario=='post_failure':post+='raise SystemExit(1)\n'
@@ -76,7 +78,8 @@ raise SystemExit(EXIT_CODE)
                 if scenario=='foreign_context' and (fixture/'pg-runner-context-granted.json').exists():
                     apps.append(dict(pid=99999999,uid=9999,start_ticks=1))
             s=dict(gpu_uuid=uuid,compute_mode='Exclusive_Process',compute_apps=apps,mps_processes=[],observed_unix=time.time())
-            if scenario=='ready_arrives_after_snapshot' and not observations and not ready.exists():
+            if scenario=='ready_arrives_after_snapshot' and len(observations)==1 and not ready.exists():
+                (fixture/'fixture-release-ready').touch()
                 deadline=time.monotonic()+15
                 while not ready.exists():
                     assert time.monotonic()<deadline

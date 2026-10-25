@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Bounded immutable historical/PG entry equivalence CPU; never dispatches GPUs."""
-import argparse,base64,hashlib,json,subprocess,sys
+import argparse,base64,gzip,hashlib,json,subprocess,sys
 from pathlib import Path
 from wc_four_card_cara_pg_cpu_r1 import DEPLOY,CAPTURE,BASE
 from wc_four_card_policy_assets_r1 import ssh,write,read,REPO
@@ -16,7 +16,11 @@ EXTRA=['reports/cara_history104_R2_terminal_20261024_2315.json','manifests/cara_
 def main():
  p=argparse.ArgumentParser();p.add_argument('command',choices=['deploy','capture']);p.add_argument('--stage-name');p.add_argument('--launch-ref',type=Path);p.add_argument('--output',type=Path,required=True);a=p.parse_args()
  if a.output.exists():raise ValueError('Preserve original CPU receipt')
- if a.command=='capture':v=ssh(CAPTURE.replace("stage/'PG-production-CPU.json'","stage/'shared66-combination-CPU.json'"),read(a.launch_ref))
+ if a.command=='capture':
+  code=CAPTURE.replace("stage/'PG-production-CPU.json'","stage/'shared66-combination-CPU.json'")
+  code=code.replace('print(json.dumps(out))',"print(json.dumps(dict(compressed_original=__import__('base64').b64encode(__import__('gzip').compress(json.dumps(out).encode())).decode())))")
+  wire=ssh(code,read(a.launch_ref))
+  v=json.loads(gzip.decompress(base64.b64decode(wire['compressed_original']))) if 'compressed_original' in wire else wire
  else:
   revision=subprocess.check_output(['git','rev-parse','HEAD'],cwd=REPO,text=True).strip()
   names=set(local_python_closure(REPO,ENTRY))|set(EXTRA)|{str(p.relative_to(REPO)) for p in (REPO/'src/wcomr/policy_generator_r1').glob('*.py')}
