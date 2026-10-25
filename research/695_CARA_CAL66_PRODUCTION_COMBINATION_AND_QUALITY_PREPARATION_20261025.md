@@ -46,3 +46,9 @@ R2于16:58:14启动、17:01:37退出1：新增竞态fixture把等待ready的屏�
 [原终态](../reports/cara_CAL66_combination_CPU_exited_r3_20261025.json)和[独立接受](../reports/cara_CAL66_combination_CPU_accepted_r3_20261025.json)绑定source `323bb2a1`。完整66位置、6内部重复、48LPIPS/4464帧、156质量调度位置、10项实际CPU子进程生命周期和6项存储故障检查通过。真实93帧LPIPS、历史S26/Shared26及Native原件SHA/RGB读取通过；组合fixture不代表新GPU桥接数值相等，156调度覆盖也不冒充156个真实质量分数。
 
 [评分依赖实际导入](../reports/cara_CAL66_quality_overlay_CPU_accepted_r3_complete_20261025.json)已退出0，11项依赖导入通过，2395个overlay文件已登记SHA；基础venv未改。模型权重与完整前向仍单独验收。
+
+## 追加：五模型原始资源完整校验
+
+[五份原权重](../reports/cara_CAL66_quality_weights_verified_20261025.json)共2,195,545,639字节，全部完整SHA通过；ViCLIP续传后完整校验，MUSIQ新文件改用首次上传而非resume，未改变任何权重。原SFTP失败是新目标不存在，原日志保留。
+
+真实五模型CPU已单次启动于 `cara-pg-p2-quality-CPU-cal66-r1-20261025`，source `75ffec3a`；[启动原件](../reports/cara_CAL66_quality_models_CPU_launch_r1_20261025.json)。1CPU/8GiB、只读根、无网络、GPU隐藏；完成后独立接受，再进入2CPU/8GiB/6小时限制下的93帧真实三指标探针。以上均为CPU准备，不记为CAL科学结果。
