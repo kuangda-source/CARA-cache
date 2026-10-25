@@ -1,0 +1,263 @@
+{
+  "observed_unix": 1792918512.7293673,
+  "fixtures": {
+    "post_failure": {
+      "supervisor.json": {
+        "status": "SHARED66_GPU_RELEASED_CPU_POST_PENDING",
+        "source_revision": "CPU_FIXTURE_ONLY_NOT_AN_EXPERIMENT",
+        "run_id": "cara-shared-cal66-ada-r1",
+        "launch_id": "post_failure",
+        "gpu_uuid": "GPU-CPU-fixture",
+        "scope_counts": {
+          "formal_roles": 13,
+          "total_role_identities": 15,
+          "CAL": 4,
+          "seeds": [
+            0
+          ],
+          "quality_paths": 52,
+          "timing_repeat_paths": 6,
+          "warm_paths": 6,
+          "historical_bridge_paths": 2,
+          "total_paths": 66,
+          "guided_pairs": 2296,
+          "CFG_calls": 4592,
+          "loads": 1,
+          "LPIPS_pairs": 48,
+          "LPIPS_frames": 4464,
+          "independent_quality_videos": 52,
+          "independent_quality_positions": 156,
+          "SELECT_paths": 0,
+          "DEV_paths": 0,
+          "TEST_paths": 0
+        },
+        "supervisor_identity": {
+          "pid": 1575853,
+          "state": "R",
+          "start_ticks": 970306289,
+          "command": "/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/bin/python /data20t/gaokuangda/worldcache_workspace/.sync/cara-shared66-combination-CPU-r1-20261025/scripts/check_cara_shared66_combination_cpu_r1.py --project /data20t/gaokuangda/worldcache_workspace --stage /data20t/gaokuangda/worldcache_workspace/.sync/cara-shared66-combination-CPU-r1-20261025 --output /data20t/gaokuangda/worldcache_workspace/.sync/cara-shared66-combination-CPU-r1-20261025/shared66-combination-CPU.json "
+        },
+        "started_unix": 1792918327.538648,
+        "pool_before": {
+          "schema": "WC_GPU_BUDGET_POOL_V2",
+          "cap_gpu_hours": 226.0,
+          "origin_used_gpu_hours": 1.0,
+          "origin_gpu_jobs_launched": 0,
+          "jobs": {},
+          "events": [],
+          "CPU_FIXTURE_ONLY_NOT_AUTHORITY": true,
+          "used_gpu_hours": 1.0,
+          "reserved_gpu_hours": 0.0,
+          "available_gpu_hours": 225.0,
+          "gpu_jobs_launched": 0
+        },
+        "pool_after_reservation": {
+          "schema": "WC_GPU_BUDGET_POOL_V2",
+          "cap_gpu_hours": 226.0,
+          "origin_used_gpu_hours": 1.0,
+          "origin_gpu_jobs_launched": 0,
+          "jobs": {
+            "cara-shared-cal66-ada-r1": {
+              "job_id": "cara-shared-cal66-ada-r1",
+              "run_id": "cara-shared-cal66-ada-r1",
+              "launch_id": "post_failure",
+              "gpu_uuid": "GPU-CPU-fixture",
+              "source_revision": "CPU_FIXTURE_ONLY_NOT_AN_EXPERIMENT",
+              "config_sha256": "82db0aa4777f0e0ab2f4ed475e1e14f69e455571622b2e262cdf913bdf9065e3",
+              "registration_sha256": "de02736c024f14e84f75d7a6920732051dac28a0c5651e87f32ca9adf673bcfc",
+              "production_CPU_sha256": "dfd9a5c5335472f11ed74d7b0a715cfdac4ffa76c44d2504954a94e1ffa8ed7b",
+              "authorization_sha256": "62bba38229747fcc02a3fb19d31333bad31760e42af97119a779ac12b2c677db",
+              "scope_counts": {
+                "formal_roles": 13,
+                "total_role_identities": 15,
+                "CAL": 4,
+                "seeds": [
+                  0
+                ],
+                "quality_paths": 52,
+                "timing_repeat_paths": 6,
+                "warm_paths": 6,
+                "historical_bridge_paths": 2,
+                "total_paths": 66,
+                "guided_pairs": 2296,
+                "CFG_calls": 4592,
+                "loads": 1,
+                "LPIPS_pairs": 48,
+                "LPIPS_frames": 4464,
+                "independent_quality_videos": 52,
+                "independent_quality_positions": 156,
+                "SELECT_paths": 0,
+                "DEV_paths": 0,
+                "TEST_paths": 0
+              },
+              "forecast_GPUh": 0.1,
+              "billed_limit_GPUh": 0.2,
+              "cumulative_cap_GPUh": 226,
+              "budget_origin_used_GPUh": 79.99637737158223,
+              "supervisor_pid": 1575853,
+              "supervisor_start_ticks": 970306289,
+              "stage": "/data20t/gaokuangda/worldcache_workspace/.sync/cara-shared66-combination-CPU-r1-20261025/CPU-shared66-lifecycle/post_failure/.sync/fixture-stage",
+              "status": "RESERVED_OR_RUNNING",
+              "kind": "V2",
+              "reserved_unix": 1792918326.7268867
+            }
+          },
+          "events": [
+            {
+              "sequence": 1,
+              "unix": 1792918326.7268991,
+              "type": "RESERVE_WHOLE_JOB",
+              "job_id": "cara-shared-cal66-ada-r1"
+            }
+          ],
+          "CPU_FIXTURE_ONLY_NOT_AUTHORITY": true,
+          "used_gpu_hours": 1.0,
+          "reserved_gpu_hours": 0.2,
+          "available_gpu_hours": 224.8,
+          "gpu_jobs_launched": 1
+        },
+        "exclusive_monitor_accepted": false,
+        "child_identity": {
+          "pid": 1580146,
+          "start_ticks": 970339197,
+          "uid": 1000
+        },
+        "child_pid": 1580146,
+        "error_type": "ValueError",
+        "error": "Hardware exclusive gate: EXACT_OWN_RUNNER_NOT_SOLE_CONTEXT",
+        "ended_unix": 1792918334.1095269,
+        "actual_GPUh": 0.0006585405052949984,
+        "pool_after": {
+          "schema": "WC_GPU_BUDGET_POOL_V2",
+          "cap_gpu_hours": 226.0,
+          "origin_used_gpu_hours": 1.0,
+          "origin_gpu_jobs_launched": 0,
+          "jobs": {
+            "cara-shared-cal66-ada-r1": {
+              "job_id": "cara-shared-cal66-ada-r1",
+              "run_id": "cara-shared-cal66-ada-r1",
+              "launch_id": "post_failure",
+              "gpu_uuid": "GPU-CPU-fixture",
+              "source_revision": "CPU_FIXTURE_ONLY_NOT_AN_EXPERIMENT",
+              "config_sha256": "82db0aa4777f0e0ab2f4ed475e1e14f69e455571622b2e262cdf913bdf9065e3",
+              "registration_sha256": "de02736c024f14e84f75d7a6920732051dac28a0c5651e87f32ca9adf673bcfc",
+              "production_CPU_sha256": "dfd9a5c5335472f11ed74d7b0a715cfdac4ffa76c44d2504954a94e1ffa8ed7b",
+              "authorization_sha256": "62bba38229747fcc02a3fb19d31333bad31760e42af97119a779ac12b2c677db",
+              "scope_counts": {
+                "formal_roles": 13,
+                "total_role_identities": 15,
+                "CAL": 4,
+                "seeds": [
+                  0
+                ],
+                "quality_paths": 52,
+                "timing_repeat_paths": 6,
+                "warm_paths": 6,
+                "historical_bridge_paths": 2,
+                "total_paths": 66,
+                "guided_pairs": 2296,
+                "CFG_calls": 4592,
+                "loads": 1,
+                "LPIPS_pairs": 48,
+                "LPIPS_frames": 4464,
+                "independent_quality_videos": 52,
+                "independent_quality_positions": 156,
+                "SELECT_paths": 0,
+                "DEV_paths": 0,
+                "TEST_paths": 0
+              },
+              "forecast_GPUh": 0.1,
+              "billed_limit_GPUh": 0.2,
+              "cumulative_cap_GPUh": 226,
+              "budget_origin_used_GPUh": 79.99637737158223,
+              "supervisor_pid": 1575853,
+              "supervisor_start_ticks": 970306289,
+              "stage": "/data20t/gaokuangda/worldcache_workspace/.sync/cara-shared66-combination-CPU-r1-20261025/CPU-shared66-lifecycle/post_failure/.sync/fixture-stage",
+              "status": "SETTLED",
+              "kind": "V2",
+              "reserved_unix": 1792918326.7268867,
+              "actual_GPUh": 0.0006585405052949984,
+              "billing_sha256": "91dcac16a261923b8347750856f7c07e7363f377221654989b62c6a56eb03b80",
+              "settled_unix": 1792918331.1177447
+            }
+          },
+          "events": [
+            {
+              "sequence": 1,
+              "unix": 1792918326.7268991,
+              "type": "RESERVE_WHOLE_JOB",
+              "job_id": "cara-shared-cal66-ada-r1"
+            },
+            {
+              "sequence": 2,
+              "unix": 1792918331.1177642,
+              "type": "SETTLE_ACTUAL_ADDITIVELY",
+              "job_id": "cara-shared-cal66-ada-r1"
+            }
+          ],
+          "CPU_FIXTURE_ONLY_NOT_AUTHORITY": true,
+          "used_gpu_hours": 1.000658540505295,
+          "reserved_gpu_hours": 0.0,
+          "available_gpu_hours": 224.9993414594947,
+          "gpu_jobs_launched": 1
+        },
+        "billing_sha256": "91dcac16a261923b8347750856f7c07e7363f377221654989b62c6a56eb03b80"
+      },
+      "exclusive-monitor-final.json": {
+        "accepted": false,
+        "observations": 0,
+        "final_snapshot": {
+          "gpu_uuid": "GPU-CPU-fixture",
+          "compute_mode": "Exclusive_Process",
+          "compute_apps": [],
+          "mps_processes": [],
+          "observed_unix": 1792918329.9091272
+        },
+        "runner": {
+          "pid": 1580146,
+          "start_ticks": 970339197,
+          "uid": 1000
+        },
+        "started_unix": 1792918327.538648,
+        "ended_unix": 1792918332.8932147,
+        "monitor_sha256": null
+      },
+      "billing.json": {
+        "status": "SHARED66_ACTUAL_GPU_WALL_BILL",
+        "run_id": "cara-shared-cal66-ada-r1",
+        "launch_id": "post_failure",
+        "source_revision": "CPU_FIXTURE_ONLY_NOT_AN_EXPERIMENT",
+        "gpu_uuid": "GPU-CPU-fixture",
+        "scope_counts": {
+          "formal_roles": 13,
+          "total_role_identities": 15,
+          "CAL": 4,
+          "seeds": [
+            0
+          ],
+          "quality_paths": 52,
+          "timing_repeat_paths": 6,
+          "warm_paths": 6,
+          "historical_bridge_paths": 2,
+          "total_paths": 66,
+          "guided_pairs": 2296,
+          "CFG_calls": 4592,
+          "loads": 1,
+          "LPIPS_pairs": 48,
+          "LPIPS_frames": 4464,
+          "independent_quality_videos": 52,
+          "independent_quality_positions": 156,
+          "SELECT_paths": 0,
+          "DEV_paths": 0,
+          "TEST_paths": 0
+        },
+        "wall_seconds": 2.3707458190619946,
+        "actual_GPUh": 0.0006585405052949984,
+        "billed_limit_GPUh": 0.2,
+        "ended_unix": 1792918329.9091456
+      }
+    },
+    "post_timeout": {}
+  },
+  "GPU_submissions": 0
+}

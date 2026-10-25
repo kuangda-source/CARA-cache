@@ -205,3 +205,35 @@ class HistoryGate(unittest.TestCase):
  def test_hidden_mismatch(self):
   v=fixture();v['historical_bridge']['historical_pooling_compatible']=True
   with self.assertRaises(ValueError):accept(v)
+
+class ModelChildBinding(unittest.TestCase):
+ def fixture(self,root):
+  from wcomr.policy_generator_r1.shared66_quality_process import ENTRY
+  stage=root/'model';(stage/'scripts').mkdir(parents=True);child=stage/ENTRY;child.write_text('# fixture only')
+  overlay=root/'cache/dependency-overlay';overlay.mkdir(parents=True);(overlay/'fixture.py').write_text('# dependency')
+  lock=overlay.parent/'dependency-overlay-manifest.json';lock.write_text(json.dumps(dict(base_environment_modified=False,files={'fixture.py':h('# dependency')})))
+  b=dict(registration=dict(stage=str(stage),payload_sha256={ENTRY:h('# fixture only')}),identity={'fixture':True},dependency_overlay=str(overlay),dependency_overlay_manifest_sha256=h(lock.read_text()))
+  binding=root/'binding.json';binding.write_text(json.dumps(b));out=root/'out';out.mkdir()
+  return b,binding,dict(evaluator_identity=b['identity']),dict(GPU_released=True,ledger_settled=True,lock_free=True,CUDA_hidden=True),out
+ def test_bound_original_stage_process(self):
+  import tempfile,os
+  from unittest.mock import patch
+  from wcomr.policy_generator_r1.shared66_quality_process import run_bound_child
+  with tempfile.TemporaryDirectory() as t,patch.dict(os.environ,CUDA_VISIBLE_DEVICES=''):
+   args=self.fixture(Path(t));calls=[];run_bound_child(*args,run=lambda cmd,**kw:calls.append((cmd,kw)))
+   self.assertEqual(len(calls),1);self.assertIn(args[0]['registration']['stage'],calls[0][0][1]);self.assertEqual(calls[0][1]['env']['CUDA_VISIBLE_DEVICES'],'')
+ def test_unreleased_never_spawns(self):
+  import tempfile,os
+  from unittest.mock import patch
+  from wcomr.policy_generator_r1.shared66_quality_process import run_bound_child
+  with tempfile.TemporaryDirectory() as t,patch.dict(os.environ,CUDA_VISIBLE_DEVICES=''):
+   args=self.fixture(Path(t));args[3]['GPU_released']=False;calls=[]
+   with self.assertRaises(ValueError):run_bound_child(*args,run=lambda *a,**k:calls.append(1))
+   self.assertFalse(calls)
+ def test_overlay_mutation_never_spawns(self):
+  import tempfile,os
+  from unittest.mock import patch
+  from wcomr.policy_generator_r1.shared66_quality_process import run_bound_child
+  with tempfile.TemporaryDirectory() as t,patch.dict(os.environ,CUDA_VISIBLE_DEVICES=''):
+   args=self.fixture(Path(t));(Path(args[0]['dependency_overlay'])/'fixture.py').write_text('changed')
+   with self.assertRaises(ValueError):run_bound_child(*args,run=lambda *a,**k:None)

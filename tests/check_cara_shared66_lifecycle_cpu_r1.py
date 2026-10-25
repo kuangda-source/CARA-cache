@@ -26,7 +26,7 @@ def run(stage, output_root):
     from wcomr.gpu_budget_pool_v2 import BudgetPool,DeviceLease,atomic_json,sha,process_identity
     import wc_cara_shared66_worker_r1 as worker
     checks=[]
-    for scenario in ('success','runner_failure','foreign_context','telemetry_failure_on_release','budget_timeout','post_failure','post_timeout'):
+    for scenario in ('success','ready_arrives_after_snapshot','runner_failure','foreign_context','telemetry_failure_on_release','budget_timeout','post_failure','post_timeout'):
         root=output_root/scenario;fixture=root/'.sync/fixture-stage';fixture.mkdir(parents=True)
         (root/'reports').mkdir();(root/'outputs').mkdir();(fixture/'scripts').mkdir()
         (root/'runtime').mkdir()
@@ -76,6 +76,12 @@ raise SystemExit(EXIT_CODE)
                 if scenario=='foreign_context' and (fixture/'pg-runner-context-granted.json').exists():
                     apps.append(dict(pid=99999999,uid=9999,start_ticks=1))
             s=dict(gpu_uuid=uuid,compute_mode='Exclusive_Process',compute_apps=apps,mps_processes=[],observed_unix=time.time())
+            if scenario=='ready_arrives_after_snapshot' and not observations and not ready.exists():
+                deadline=time.monotonic()+15
+                while not ready.exists():
+                    assert time.monotonic()<deadline
+                    time.sleep(.01)
+                # Return the already captured empty snapshot after readiness appears.
             observations.append(s);return s
         def smi(args,**kw):
             assert args[0]=='/usr/bin/nvidia-smi' and '--query-gpu=uuid,name,memory.used,compute_cap' in args
@@ -98,7 +104,7 @@ raise SystemExit(EXIT_CODE)
         assert after['jobs'][contract.RUN]['billing_sha256']==sha(out/'billing.json')
         with DeviceLease(root,'GPU-CPU-fixture'):pass
         state=contract.read(out/'supervisor.json');monitor=contract.read(out/'exclusive-monitor-final.json')
-        if scenario=='success':assert error is None and monitor['accepted'] and state['post_exit_code']==0
+        if scenario in ('success','ready_arrives_after_snapshot'):assert error is None and monitor['accepted'] and state['post_exit_code']==0
         elif scenario in ('post_failure','post_timeout'):
             assert monitor['accepted'] and error is not None and state['post_exit_code']==(124 if scenario=='post_timeout' else 1)
         else:

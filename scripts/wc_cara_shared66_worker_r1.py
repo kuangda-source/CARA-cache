@@ -83,8 +83,11 @@ def supervise(a):
             while child.poll() is None:
                 if time.monotonic()-start>=c['billed_limit_GPUh']*3600-30:
                     raise TimeoutError('Complete price card reached its own billed limit')
+                # Read readiness before the snapshot. A newly published ready file
+                # cannot retroactively turn an earlier idle snapshot into an error.
+                ready_observed=ready.exists()
                 snap=observe(uuid)
-                if ready.exists():
+                if ready_observed:
                     actual=read(ready)
                     if actual['identity']!=identity:raise ValueError('Context readiness identity differs')
                     # During shutdown the process may disappear between poll and query.

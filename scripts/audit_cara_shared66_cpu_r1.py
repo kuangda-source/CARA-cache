@@ -22,7 +22,7 @@ def accept(v):
  if p['collection'].get('original_scoring_failure_receipts_retained'):expected['original_scoring_failure_receipts_retained']=True
  need(p['collection']==expected,'Full registered66 combination required')
  need(p['full_video_metric']['real_LPIPS93'] and not p['full_video_metric']['Cosmos_generated_video'],'Actual93 frame LPIPS callback required')
- need(p['terminal_tests']>=34 and len(p['lifecycle']['checks']) in (6,9) and all(x['status']=='PASS' and x['actual_sudo_calls']==x['actual_nvidia_smi_calls']==x['GPU_submissions']==0 for x in p['lifecycle']['checks']),'Actual supervisor/guardian CPU scenarios required')
+ need(p['terminal_tests']>=34 and len(p['lifecycle']['checks'])==10 and all(x['status']=='PASS' and x['actual_sudo_calls']==x['actual_nvidia_smi_calls']==x['GPU_submissions']==0 for x in p['lifecycle']['checks']),'Actual supervisor/guardian CPU scenarios required')
  need(p['storage_lifecycle']['actual_tmpfs_ENOSPC'] and len(p['storage_lifecycle']['checks'])==6 and all(x['status']=='PASS' for x in p['storage_lifecycle']['checks']),'Actual ENOSPC/storage scenarios required')
  need(set(p['historical_originals']['originals'])=={'S26_C','SHARED26_C','NATIVE35'} and p['historical_originals']['read_only'],'Historical originals must be actually decoded')
  need(p['quote']==quote_audit(read(ROOT/MANIFEST)),'Complete quote differs')
@@ -34,7 +34,7 @@ def accept(v):
  return dict(status='CAL66_FULL_COMBINATION_CPU_ACCEPTED_NOT_GPU',source_revision=L['source_revision'],registration_sha256=L['registration_sha256'],proof_sha256=v['proof']['sha256'],
   production_CPU_accepted=True,full_GPU_lifecycle_CPU_accepted=True,storage_ENOSPC_lifecycle_CPU_accepted=True,
   original_scoring_failure_receipts_retained=p['collection'].get('original_scoring_failure_receipts_retained',False),
-  post_CPU_resource_limits_verified=len(p['lifecycle']['checks'])==9,
+  post_CPU_resource_limits_verified=len(p['lifecycle']['checks'])==10,
   execution_source_sha256={n:h for n,h in reg['payload_sha256'].items() if n.startswith(('src/','scripts/','tests/'))},registered_paths=66,LPIPS_pairs=48,LPIPS_frames=4464,independent_quality_positions=156,
   real_LPIPS93=True,independent_quality_models_CPU_accepted=False,hardware_exclusivity_verified=False,GPU_dispatch_ready=False,
   pending=['independent_quality_model_resources_CPU','GPU_permission','fresh_exclusive_storage_ledger_admission'],
