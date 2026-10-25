@@ -1,0 +1,92 @@
+{
+  "observed_unix": 1792928921.623339,
+  "status": "WORKFLOW_R2_CPU_CHECKS_PASSED",
+  "checks": [
+    {
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_card_workflow_r1.py",
+        "-v"
+      ],
+      "environment": {
+        "PYTHONPATH": "src"
+      },
+      "tests": 14,
+      "exit_code": 0,
+      "output_sha256": "2a676b94ea0302f2eb35c224a3e73d4db0c6329f857d0c4a5f38e79c9a3ab7fe",
+      "summary": "Ran 14 tests in 0.135s\n\nOK"
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_frozen_input_exposure_r1.py",
+        "-v"
+      ],
+      "environment": {
+        "PYTHONPATH": "src"
+      },
+      "tests": 10,
+      "exit_code": 0,
+      "output_sha256": "5d7e85f26640f0c01d51f5f1f3a35a92a1e16ab4d2a3fe3dce85e2d1e7cfbb29",
+      "summary": "Ran 10 tests in 0.041s\n\nOK"
+    }
+  ],
+  "total_tests": 24,
+  "source_sha256": {
+    "scripts/run_card.py": "2c69900484961520da419f0d89619bce288b45e7740a3b541a81b5a529af39e5",
+    "scripts/audit_cara_new_pool_delta_r1.py": "54543bfd85ae181b826f6bee363929950c9023ee7af5c60d7bf014d8c1a67dbe",
+    "tests/test_card_workflow_r1.py": "8f4c9525884400823cbaea9ad8f8a1ac3d1c32d9105c8ba878c9a6fb0847583e",
+    "cards/TEMPLATE.yaml": "f639358a7b19c19acadf4b52b45970d6c3ada00bdb4f6a37d110dee50fda76c1",
+    "cards/cal66_existing_r1.yaml": "a9aeaa2a59efe78285286c58d900b5f87eeb0702e3574b7e5dd38fd954b3b697",
+    "cards/bindings/cal66_existing_reader_r1.json": "5b0d994f135cd601ebff8714434f96dc7b25908b17daeca4a288602732af83f7"
+  },
+  "offline_plan": {
+    "status": "EXISTING_HANDLE_READER_VALIDATED",
+    "adapter": "cal66_existing_r1",
+    "launch_id": "54eeebc7-00bb-4951-96cf-e2f66a85e344",
+    "stage": "/data20t/gaokuangda/worldcache_workspace/.sync/cara-shared66-full-ada-r1-20261025",
+    "source_revision": "323bb2a10a0a255b0c3429b9c88a31b1d4fffade",
+    "physical_paths": 66,
+    "ready_for_new_GPU": false,
+    "remote_actions_allowed": true,
+    "allowed_commands": [
+      "validate",
+      "plan",
+      "recover",
+      "capture",
+      "accept"
+    ],
+    "GPU_submissions": 0,
+    "card_ref": "cards/cal66_existing_r1.yaml",
+    "card_sha256": "a9aeaa2a59efe78285286c58d900b5f87eeb0702e3574b7e5dd38fd954b3b697",
+    "server_contacted": false,
+    "ledger_written": false,
+    "steps": [
+      "validate immutable references",
+      "use existing recover/capture when requested",
+      "independent original acceptor after completion"
+    ],
+    "new_dispatch_supported": false
+  },
+  "pool_delta_ref": "reports/cara_new_input_pool48_delta_r1_20261025.json",
+  "pool_delta_sha256": "d3a95dcf0212b107bc130769580b074bf3399ecad614f71f70fe4fecf641142d",
+  "GPU_submissions": 0,
+  "GPUh": 0,
+  "ledger_written": false,
+  "active_stage_modified": false,
+  "automations_modified": false,
+  "observation_adapter_remotely_exercised": false,
+  "new_GPU_admission": false
+}

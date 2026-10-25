@@ -1,0 +1,86 @@
+version: 1
+card_id: cal66_existing_r1
+mode: EXPLORE
+state: EXISTING_HANDLE
+question: 读取已登记CAL66的唯一句柄；不是新科学卡或重跑授权
+decision_rule:
+  contract:
+    path: plans/cara_policy_generator_20261020/CAL66_DESIGN_AND_DECISION_CONTRACT_R1_20261025.md
+    sha256: 1d5e44f1d4fe5dffe73a94c3d97305c15bc3755d90182768757b56d8aae1c462
+  branches:
+  - 满足预登记条件→继续
+  - 不确定→按合同有限追加或停止
+  - 失败→收窄/停止
+inputs:
+  pool:
+    path: null
+    sha256: null
+  exposure:
+    path: null
+    sha256: null
+  seeds:
+  - 0
+scope:
+  manifest: &id001
+    path: manifests/cara_shared_CAL66_scope_quote_r1_20261025.json
+    sha256: b992b6824b9780bc7360748069dfa692f97444f5fb162e5f3de9bf01383267de
+  logical_roles: 13
+  physical_paths: 66
+dedupe:
+  identity: full_execution_fingerprint_v1
+  method_aliases_only: true
+  preserve_slots:
+  - TIMING_REPEAT
+  - WARM
+  - CONTROL
+  - HISTORICAL_BRIDGE
+quality:
+  formal_rounds: 1
+  reuse_repeat_scores_only_after_latent_and_RGB_equal: true
+timing:
+  all_formal_requests_measured: true
+  repeats_ref: null
+  same_input_fresh_native: true
+budget:
+  quote: *id001
+  forecast_gpuh: 6.4784512618713475
+  cap_gpuh: 8
+  cumulative_cap_gpuh: 226
+  deployment_absolute_seconds: 257.7712338712067
+  deployment_ratio: 0.8
+  acceptance:
+    point: V_le_1
+    robust: prompt_paired_bootstrap_95_upper_le_1
+post_release_cpu:
+  cpus: 2
+  memory_gib: 8
+  wall_hours: 6
+  cap_vcpuh: 12
+validation:
+  changes:
+  - New local reader only; original CAL66 stage/automation unchanged
+  reused_evidence:
+  - path: reports/cara_CAL66_complete_CPU_preparation_and_quote_20261025.json
+    sha256: da1da303bc6554bcfa2ea5a89dac6cb9f740d61a3998b50478e737d960db31ff
+  affected_path_checks:
+  - read-only adapter contract and no-launch CPU tests
+authorization:
+  new_gpu_dispatch: false
+  source_ref: null
+backend:
+  adapter: cal66_existing_r1
+  bindings:
+    path: cards/bindings/cal66_existing_reader_r1.json
+    sha256: 5b0d994f135cd601ebff8714434f96dc7b25908b17daeca4a288602732af83f7
+  launch:
+    path: reports/cara_CAL66_GPU_actual_launch_r1_20261025.json
+    sha256: dbbb3d43336bdcc4479f9bedb4b53d16443c759ae01d35d236ba4d679c277e77
+  stage:
+    path: reports/cara_CAL66_GPU_stage_r1_20261025.json
+    sha256: 918a8a532ac450c376eaf3b6ea37ea9a0dc835b36ea67e45feebb16775d521ba
+stop_conditions:
+- storage_guard
+- billed_limit_with_release_margin
+- nonfinite
+- real_entry_error
+- exclusivity_lost

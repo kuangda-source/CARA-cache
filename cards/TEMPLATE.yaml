@@ -1,0 +1,29 @@
+# R2: one source of truth; matrices/contracts are referenced with SHA256.
+# validate accepts a DRAFT for review; it never grants execution permission.
+version: 1
+card_id: example_card_r1
+mode: EXPLORE                    # EXPLORE | CONFIRM
+state: DRAFT                     # DRAFT | EXISTING_HANDLE
+question: "这张卡要改变的一个科学决策"
+decision_rule:
+  contract: {path: null, sha256: null}  # Registered detailed decision/statistics rule
+  branches: ["满足预登记条件→继续", "不确定→按合同有限追加或停止", "失败→收窄/停止"]
+inputs: {pool: {path: null, sha256: null}, exposure: {path: null, sha256: null}, seeds: [0]}
+scope: {manifest: {path: null, sha256: null}, logical_roles: null, physical_paths: null}
+# Includes model/weights,input/preprocess,seed,solver/grid,D/C/A,alpha/beta,readout,precision/runtime.
+dedupe: {identity: full_execution_fingerprint_v1, method_aliases_only: true, preserve_slots: [TIMING_REPEAT, WARM, CONTROL, HISTORICAL_BRIDGE]}
+quality: {formal_rounds: 1, reuse_repeat_scores_only_after_latent_and_RGB_equal: true}
+timing: {all_formal_requests_measured: true, repeats_ref: null, same_input_fresh_native: true}
+budget:
+  quote: {path: null, sha256: null}
+  forecast_gpuh: null
+  cap_gpuh: null
+  cumulative_cap_gpuh: 226
+  deployment_absolute_seconds: 257.7712338712067
+  deployment_ratio: 0.8
+  acceptance: {point: V_le_1, robust: prompt_paired_bootstrap_95_upper_le_1}
+post_release_cpu: {cpus: 2, memory_gib: 8, wall_hours: null, cap_vcpuh: null}
+validation: {changes: [], reused_evidence: [], affected_path_checks: []}
+authorization: {new_gpu_dispatch: false, source_ref: null}
+backend: {adapter: null, bindings: {path: null, sha256: null}, launch: {path: null, sha256: null}, stage: {path: null, sha256: null}}
+stop_conditions: [storage_guard, billed_limit_with_release_margin, nonfinite, real_entry_error, exclusivity_lost]
