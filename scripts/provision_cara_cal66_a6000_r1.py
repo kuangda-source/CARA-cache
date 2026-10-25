@@ -13,6 +13,7 @@ def main():
     code=code.replace('.sync/storage-reservations/cal66-r2', '.sync/storage-reservations/cal66-a6000-r1')
     code=code.replace('/data1/gaokuangda_cara_control/cal66-r2/control.journal', '/home/gaokuangda/cara_control/cal66-a6000-r1/control.journal')
     code=code.replace('.sync/cara-shared66-combination-CPU-r3-20261025/src', '.sync/cara-shared66-full-ada-r2-20261025/src')
+    code=code.replace('base.mkdir(mode=0o700);out.mkdir(mode=0o700)', 'base.parent.mkdir(parents=True,exist_ok=True);out.parent.mkdir(parents=True,exist_ok=True);base.mkdir(mode=0o700);out.mkdir(mode=0o700)')
     value=ssh(code,dict(sudo_password=password()));write(a.output,value)
     print(value['status'])
 

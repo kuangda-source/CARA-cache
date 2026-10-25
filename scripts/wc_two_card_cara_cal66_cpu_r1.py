@@ -30,6 +30,9 @@ original=read(base/'registration.json');assert sha(base/'registration.json')==p[
 assert all(sha(base/n)==h for n,h in original['payload_sha256'].items())
 assert all(sha(root/'runtime'/n)==h for n,h in original['runtime_source_sha256'].items())
 stage.mkdir(mode=0o700);names=set(original['payload_sha256'])
+# A parent execution's proof is historical input, never the new output path.
+# It remains intact in the mirrored parent and the failed first CPU stage.
+names.difference_update({'shared66-recovery-CPU.json','pg-independent-CPU-acceptance.json'})
 for n in names:
  target=stage/n;target.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(base/n,target)
 for n,raw in p['files'].items():
