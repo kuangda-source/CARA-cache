@@ -2,6 +2,12 @@
 
 本文件记录本次用户决定。共享规划和实际历史采集仍由原PG-P1/P2唯一执行链完成，分析结论单独保存于本目录。没有第二个runner或新训练卡；本聊天仅新增验收证据接续自动任务，见下文。
 
+## 2026-10-25晚间补充：失败已结算，恢复未授权
+
+主线CAL66原一次执行因修改冻结InferenceArguments而在首请求失败，0/66完成；精确费用0.484958702 GPUh已结算。修复真实参数链CPU与完整恢复报价已接受，但用户本轮要求不重跑，GPU_dispatch_ready=false。见[698失败原件](../698_CARA_CAL66_EARLY_FAILURE_TECHNICAL_AND_FINANCE_20261025.md)、[699修复接受](../699_CARA_CAL66_FROZEN_ADAPTER_REPAIR_CPU_ACCEPTED_AND_RECOVERY_QUOTE_20261025.md)。本轮只核验保存回执的4项来源SHA，未连接服务器或重复CPU；没有科学结果可进入独立分析。
+
+恢复自身历史诊断还须处理699识别的旧p2_production_requests.py直接赋值风险：验证真实冻结类的参数链，不能用原可修改夹具CPU接受替代。该组件不属于CAL66本次修复范围，本聊天未修改共享主线代码。自动任务已同步“原一次授权不授权重跑”和P2验证缺口；等待主线后续明确授权、完整CAL及角色冻结，不重复请求批准或派发。
+
 ## 2026-10-25有效接续：CAL66仅CPU准备
 
 主线104 R2及COST112均已完整验收，原计时门均失败；主线随后按新用户合同改为Shared-CAL探索，当前CAL66只有CPU准备权限。以下10月24日操作链及检查时间是历史记录，不再授权重跑计时卡、修复P1卡或自动派发P2。见[独立证据判断](accepted_evidence_update_20261025.md)及[原件SHA](accepted_evidence_status_20261025.json)。
