@@ -23,7 +23,7 @@
     "X": "closed or explicitly deferred; not in the active queue"
   },
   "status_counts": {
-    "CAL66_R2_AUTHORIZED_WAITING_IDLE_GPU": 2,
+    "CAL66_A6000_MIGRATION_CPU_RUNNING": 2,
     "CLAIM_AND_EVIDENCE_WRITING_PROTOCOL_READY": 1,
     "CONDITIONAL_DISABLED_PRESELECT_SUBSET_BEFORE_R4A": 1,
     "CONDITIONAL_OTHER_WINDOWS_NOT_RUNTIME_VALIDATED": 1,
@@ -5431,7 +5431,7 @@
     },
     {
       "id": "PG-P1",
-      "state": "CAL66_R2_AUTHORIZED_WAITING_IDLE_GPU",
+      "state": "CAL66_A6000_MIGRATION_CPU_RUNNING",
       "paper_experiment_name": "One measured budget, Q<=8 and one CAL_SELECT freeze",
       "internal_ids": [
         "PG-P1"
@@ -5495,7 +5495,7 @@
       "theory_review_ref": "research/624_WC_REPRODUCIBLE_POLICY_GENERATOR_THEORY_VALIDITY_AND_EVIDENCE_20261021.md",
       "reader": {
         "title": "单预算自动策略闭环",
-        "status": "CAL66 R2准备已接受并获执行授权，等待空闲卡",
+        "status": "CAL66两卡A6000迁移准备中，真实组合CPU验证中",
         "result": "原件与财务完整接受；实际2.557833 GPUh。64登记位置中执行30路径、16评分、4候选查询；未选出满足冻结预算的策略，PG-P2尚不准入。",
         "next_action": "保留旧失败与费用；纯计时及GRAPH102暂缓，推进CAL66设计。",
         "evidence_refs": [
@@ -6079,7 +6079,7 @@
     },
     {
       "id": "PG-SHARED-CAL66",
-      "state": "CAL66_R2_AUTHORIZED_WAITING_IDLE_GPU",
+      "state": "CAL66_A6000_MIGRATION_CPU_RUNNING",
       "paper_experiment_name": "Transition refresh placement and controlled correction at24/25D",
       "internal_ids": [
         "cara-shared-cal66-design-r1"
@@ -6116,9 +6116,9 @@
       "evidence_or_planned_scope": "完整66分母保留，0完成；首请求冻结参数异常。精确费用0.484959 GPUh已结算；无科学结果。",
       "reader": {
         "title": "CAL66：刷新位置、原phase修正与尾部停用",
-        "status": "CAL66 R2准备已接受并获执行授权，等待空闲卡",
-        "result": "完整66分母保留，0完成；首请求冻结参数异常。精确费用0.484959 GPUh已结算；无科学结果。",
-        "next_action": "资源空闲且fresh准入通过后，按本次授权独占一张卡单次执行；不重派旧R1。",
+        "status": "CAL66两卡A6000迁移准备中，真实组合CPU验证中",
+        "result": "隔离环境、相同镜像、32GiB预留输出卷和跨盘日志已准备；新主机真实CPU采样/评分/失败边界检查中，未提交GPU。原66、alpha、强基线不变；报价7.767292 GPUh，上限8，累计226不变。",
+        "next_action": "完整CPU接受后，fresh空闲A6000准入、同一中央8GPUh预算包、真实硬独占单次启动；按实际起点安排半程/终态。已有intent只恢复。",
         "evidence_refs": [
           "research/694_CARA_CAL66_REDESIGN_MASK_IDENTIFIABILITY_AND_QUOTE_20261025.md",
           "plans/cara_policy_generator_20261020/CAL66_DESIGN_AND_DECISION_CONTRACT_R1_20261025.md",
@@ -6142,7 +6142,10 @@
           "reports/cara_CAL66_frozen_recovery_preparation_accepted_r2_20261025.json",
           "research/700_CARA_CAL66_R2_BOUND_CPU_STORAGE_AND_IDLE_GPU_ADMISSION_20261025.md",
           "reports/cara_CAL66_R2_GPU_stage_20261025.json",
-          "reports/cara_CAL66_R2_preflight_after_storage_repair_20261025.json"
+          "reports/cara_CAL66_R2_preflight_after_storage_repair_20261025.json",
+          "research/701_CARA_CAL66_A6000_MIGRATION_AND_EXECUTION_20261025.md",
+          "reports/cara_CAL66_A6000_CPU_launch_r3_20261025.json",
+          "reports/cara_CAL66_A6000_private_storage_20261025.json"
         ]
       },
       "full_GPU_lifecycle_CPU_accepted": true,
@@ -12072,38 +12075,38 @@
     },
     "AGENTS.md": {
       "path": "AGENTS.md",
-      "sha256": "b3cb88edaec501916bedd1f148c7bda7b192095e5d3eaec1b1d84635a2f32cbb",
-      "bytes": 6204
+      "sha256": "3d41033df7ccb38a76646cab5ce888325f269141cb60b799a62ab232a2e75a05",
+      "bytes": 6548
     },
     "EXPERIMENT_REPORT.md": {
       "path": "EXPERIMENT_REPORT.md",
-      "sha256": "5ba3c0ce6d82d8c59c87b26a3337953fcb4380366b3ed3df23a7edbc959359f6",
-      "bytes": 7868
+      "sha256": "a5e08fcb96ec3ce2d185c8813c7ea8c5f26497c4844e5f21d8a59d40fb97df26",
+      "bytes": 7260
     },
     "memory/handoffs/LATEST.md": {
       "path": "memory/handoffs/LATEST.md",
-      "sha256": "50ecabb0e2be6e5cd3ebb1912565caa9b3db6c8f1e6b9c064d422d204aaa8f23",
-      "bytes": 5369
+      "sha256": "de9e5673bfb81ae31b61c8b7ecaa40cd9f01de0f9d12763b3d377b7a72b1c9b1",
+      "bytes": 4889
     },
     "research/02_CURRENT_STATE.md": {
       "path": "research/02_CURRENT_STATE.md",
-      "sha256": "1cfae2cafd9397dfcdc7ffc9bc9e0ed7b3304dddcc07e3017a12d8ebcf5ff7b9",
-      "bytes": 5291
+      "sha256": "608a7f27eb594b0fb97db6a0bef94946372d7583e53627c2a4eb6eee620be6c8",
+      "bytes": 4811
     },
     "research/09_NEXT_ACTIONS.md": {
       "path": "research/09_NEXT_ACTIONS.md",
-      "sha256": "c19bcde07ed965dfcd764b4cd917ff5556ad1f7330e9280fbf671aad8b49c266",
-      "bytes": 3863
+      "sha256": "63736e0480e5b0736128ea2ed302d301da1f0556d2b803101c5b47d44bd76a71",
+      "bytes": 3520
     },
     "paper/EXPERIMENT_MASTER_TABLE.md": {
       "path": "paper/EXPERIMENT_MASTER_TABLE.md",
-      "sha256": "c4fedaf44d8e0d95e6b9fb9f4df6421b441bedb1d0630b40ebb5077f4c97aacc",
-      "bytes": 39719
+      "sha256": "0e7e275157a30e7de4344d608ddf94072c84cbdc099c7a019548e9cb43a7e5d4",
+      "bytes": 39717
     },
     "paper/INTERNAL_TO_PAPER_MAPPING.md": {
       "path": "paper/INTERNAL_TO_PAPER_MAPPING.md",
-      "sha256": "0e5bedd291203025a64b366ac63ed9b0c938e3fa8de046b4529984d3bf7bbc0c",
-      "bytes": 10155
+      "sha256": "add22a542b6c45d56a3ba5c1b25606fe68112b7906b13a5e7c28a59d4cf1fc63",
+      "bytes": 9890
     },
     "research/615_WC_FOUR_CARD_DATA_DISK_WORKSPACE_AND_ENVIRONMENT_PREPARATION_20261020.md": {
       "path": "research/615_WC_FOUR_CARD_DATA_DISK_WORKSPACE_AND_ENVIRONMENT_PREPARATION_20261020.md",
@@ -14068,7 +14071,7 @@
     "current_status_ref": "docs/project_status.json",
     "current_running_card": null,
     "current_running_cards": [],
-    "snapshot_observed_at": 1792934720.9774523,
+    "snapshot_observed_at": 1792940372.219614,
     "active_launch_ref": "reports/cara_CAL66_GPU_actual_launch_r1_20261025.json",
     "execution_site": "four-card RTX 6000 Ada server; private authorized connection",
     "do_not_resume_two_card": true,
@@ -14077,7 +14080,7 @@
     "historical_operation_policy_ref": "docs/archive/20261022_before_navigation/paper/experiment_master_table.json"
   },
   "mapping_sha256_at_inventory": "88b3d760a0c94c20b6c802e21f30c7286d6e596cc9b3f3100e7ee6feaa3938f3",
-  "latest_mapping_sha256": "2e980b4b10ff8ec319b5b814736180f3aa1edd39c483a21870eacf22ad0f0ef2",
+  "latest_mapping_sha256": "528877baade76e85bb2a40ee18ea191e3b311476a7358355883119ff286308a8",
   "revision_plan": {
     "registry_ref": "plans/cara_v6_20261020/TASK_REGISTRY_V6.yaml",
     "report_ref": "research/610_WC_CARA_V6_REVIEW_CLOSURE_PLAN_INTERVAL_SPEC_AND_FIRST_DEV_SCOPE_20261020.md",

@@ -21,11 +21,7 @@ CARA-Cache（CFG-Aligned Readout and Cost-Aware Allocation for Video Diffusion�
 
 扩散模型逐步生成视频。完整计算昂贵，直接复用旧缓存会积累误差；CARA研究一种利用当前浅层增量和历史真实锚点的低成本修正，并将修正与完整刷新共同分配到时间轴上。
 
-| 动作 | 做什么 | 作用 |
-|---|---|---|
-| **C：直接缓存读出** | 使用已有缓存与原WorldCache读出链 | 节省深层计算 |
-| **A：修正缓存读出** | 用当前浅层增量与过去真实D锚点修正，CFG两支共享强度 | 以较小额外成本降低读出误差 |
-| **D：完整刷新** | 两CFG支均进行完整深层计算，更新真实锚点 | 支付计算成本，获得当前真实深层结果 |
+完整CPU接受后，fresh空闲A6000准入、同一中央8GPUh预算包、真实硬独占单次启动；按实际起点安排半程/终态。已有intent只恢复。
 
 CFG 指 classifier-free guidance，包含条件与负条件两支。A 使用共享修正强度，保持两支融合口径一致。D 更新当前请求的真实深层锚点；A 不把近似结果冒充新的真实锚点。Native 是每个请求步均完整计算的参考推理。
 
@@ -49,13 +45,11 @@ LPIPS 越低表示越接近同输入的 Native 视频；它与局部速度 MSE�
 
 ## 当前进度
 
-**CAL66 R2已获执行授权、准备完成，目前等待空闲GPU。** 四卡最近快照均有进程；完整准入已通过源码、质量资源、磁盘与账本检查，所查GPU仍忙。未提交GPU、未新增8小时预约。
+**CAL66两卡A6000迁移准备中，真实组合CPU验证中。**
 
-新R2身份和报价CPU接受，原α、强基线与66路径不变；预计6.880951 GPUh、单卡上限8、累计226及最终部署预算不变。原R1失败0/66与已结算0.484959 GPUh保留。
+隔离环境、相同镜像、32GiB预留输出卷和跨盘日志已准备；新主机真实CPU采样/评分/失败边界检查中，未提交GPU。原66、alpha、强基线不变；报价7.767292 GPUh，上限8，累计226不变。
 
-本聊天每30分钟检查空闲卡准入，成功启动后按实际时间绑定半程与全程验收；预计启动后3小时27分半程、6小时53分采集结束、约11小时36分含评分。当前没有实际完成日期。
-
-[R2执行准备与接续](research/700_CARA_CAL66_R2_BOUND_CPU_STORAGE_AND_IDLE_GPU_ADMISSION_20261025.md) · [唯一新stage](reports/cara_CAL66_R2_GPU_stage_20261025.json) · [准入原件](reports/cara_CAL66_R2_preflight_after_storage_repair_20261025.json)
+[证据1](research/701_CARA_CAL66_A6000_MIGRATION_AND_EXECUTION_20261025.md) · [证据2](reports/cara_CAL66_A6000_CPU_launch_r3_20261025.json) · [证据3](reports/cara_CAL66_A6000_private_storage_20261025.json)
 
 10月24日完整终态见[685](research/685_CARA_HISTORY104_R2_COMPLETE_ACCEPTANCE_RESULTS_AND_COST_GATE_20261024.md)：104路径与72评分完整接受，实际7.395282GPUh，GPU和锁已释放。历史强基线均胜原GRAPH；24/25D实测可行，但计时模型最坏低估2.618秒未过2秒门槛。COST112于10月25日完整接受，实际8.139511GPUh；计时最大低估5.006秒未过2秒门槛，新P1不准入，P2仍等待冻结策略。见[690](research/690_CARA_COST112_COMPLETE_ACCEPTANCE_AND_TIMING_GATE_FAILURE_20261025.md)。
 

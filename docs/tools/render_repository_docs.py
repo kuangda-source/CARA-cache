@@ -74,7 +74,8 @@ def build():
     if cpu['source_revision'] != launch['source_revision'] or not cpu['production_CPU_accepted']:
         raise ValueError('CPU acceptance does not bind the launched source')
     stamp = datetime.fromisoformat(status['evidence_observed_at']).timestamp()
-    if abs(stamp - observation['observed_unix']) > 0.00001:
+    current_observation = load(status['CAL66_A6000_execution']['observation_ref']) if status.get('CAL66_A6000_execution') else observation
+    if abs(stamp - current_observation['observed_unix']) > 0.00001:
         raise ValueError('evidence timestamp does not match the saved observation')
     rows = master['rows']
     if len({r['id'] for r in rows}) != len(rows):
@@ -690,6 +691,21 @@ def build():
         active66['reader'].update(status=status['active_state_zh'],next_action='资源空闲且fresh准入通过后，按本次授权独占一张卡单次执行；不重派旧R1。')
         active66['reader']['evidence_refs']=list(dict.fromkeys(active66['reader']['evidence_refs']+[r2['report_ref'],r2['stage_ref'],r2['preflight_ref']]))
         master['operation_policy'].update(current_running_card=None,current_running_cards=[],snapshot_observed_at=gate['observed_unix'])
+        master['status_counts']={state:sum(r['state']==state for r in rows) for state in sorted({r['state'] for r in rows})}
+    migration=status.get('CAL66_A6000_execution')
+    if migration:
+        q=load(migration['quote_ref'])
+        if q['scope']['total_paths']!=66 or q['billed_limit_GPUh']!=8 or q['cumulative_cap_GPUh']!=226:
+            raise ValueError('A6000 migration cannot change scope or budget')
+        for ref in migration['evidence_refs']:load(ref) if ref.endswith('.json') else (ROOT/ref).read_text()
+        snapshot='**'+status['active_state_zh']+'。**\n\n'+migration['summary']+'\n\n'+refs(migration['evidence_refs'])
+        run_details='| 字段 | 两卡迁移状态 |\n|---|---|\n'+'\n'.join('| '+cell(k)+' | '+cell(v)+' |' for k,v in migration['details'].items())
+        actions=migration['next_action']
+        active66=by_id['PG-SHARED-CAL66'];active66['state']=status['active_state']
+        active66['reader'].update(status=status['active_state_zh'],result=migration['summary'],next_action=migration['next_action'])
+        active66['reader']['evidence_refs']=list(dict.fromkeys(active66['reader']['evidence_refs']+migration['evidence_refs']))
+        current=migration.get('launch_ref') if migration.get('GPU_running') else None
+        master['operation_policy'].update(current_running_card=current,current_running_cards=[current] if current else [],snapshot_observed_at=migration['observed_unix'])
         master['status_counts']={state:sum(r['state']==state for r in rows) for state in sorted({r['state'] for r in rows})}
     headlines = '\n'.join(f"- **{f['title']}**（{f['short_scope']}）：{f['result']} {refs(f['refs'])}"
                            for f in status['headline_results'])
