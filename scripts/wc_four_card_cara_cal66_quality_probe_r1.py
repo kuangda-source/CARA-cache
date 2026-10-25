@@ -56,6 +56,8 @@ files={}
 for f in sorted((s/'output').glob('*.json')):
  raw=f.read_bytes();files[f.name]=dict(sha256=hashlib.sha256(raw).hexdigest(),raw_base64=base64.b64encode(raw).decode(),data=json.loads(raw))
 v=dict(status='CAL66_REAL_METRIC_CPU_CAPTURE',observed_unix=time.time(),launch=L,registration=reg,binding=json.loads((s/'binding.json').read_text()),files=files,container=dict(state=c['State'],readonly_root=c['HostConfig']['ReadonlyRootfs'],network=c['HostConfig']['NetworkMode'],nano_cpus=c['HostConfig']['NanoCpus'],memory=c['HostConfig']['Memory'],devices=c['HostConfig'].get('Devices') or [],device_requests=c['HostConfig'].get('DeviceRequests') or []),log_tail=(s/'probe.log').read_text(errors='replace')[-12000:],GPU_submissions=0,ledger_written=False)
+video=s/'output/fixture93.mp4'
+v['video_artifact']=dict(path=str(video),bytes=video.stat().st_size,sha256=sha(video)) if video.is_file() else None
 print(json.dumps(dict(compressed_original=base64.b64encode(gzip.compress(json.dumps(v).encode())).decode())))
 '''
 
@@ -70,10 +72,11 @@ def accept(v):
   raw=base64.b64decode(r['raw_base64'],validate=True);assert hashlib.sha256(raw).hexdigest()==r['sha256'] and json.loads(raw)==r['data']
  proof=v['files']['result.json']['data'];assert proof['status']=='CAL66_REAL_THREE_METRIC_93_FRAME_CPU_PROBE_PASS' and proof['frames']==93 and proof['geometry']==[432,768] and not proof['scientific_quality_result'] and not proof['GPU_submissions']
  assert [r['dimension'] for r in proof['rows']]==list(DIMENSIONS)
+ assert v['video_artifact']['bytes']>0
  for r in proof['rows']:
   raw=v['files'][r['dimension']+'.raw.json'];assert r['result_sha256']==raw['sha256']
   result=raw['data'];validate_sources_and_decoder(v['binding']['identity'],result)
-  row=dict(case_id='DECLARED_SYNTHETIC_CPU',method='CPU93',dimension=r['dimension'],seed=0,prompt='Synthetic gray CPU fixture',prompt_sha256=text_sha('Synthetic gray CPU fixture'),video_path=str(Path(v['launch']['stage'])/'output/fixture93.mp4'),video_sha256=result['video_sha256'],scorer_fingerprint=digest(v['binding']['identity']),expected_sampling=sampling_spec(r['dimension']),input_status='READY_TO_SCORE')
+  row=dict(case_id='DECLARED_SYNTHETIC_CPU',method='CPU93',dimension=r['dimension'],seed=0,prompt='Synthetic gray CPU fixture',prompt_sha256=text_sha('Synthetic gray CPU fixture'),video_path=v['video_artifact']['path'],video_sha256=v['video_artifact']['sha256'],scorer_fingerprint=digest(v['binding']['identity']),expected_sampling=sampling_spec(r['dimension']),input_status='READY_TO_SCORE')
   validate_result(row,result)
  estimate=52*sum(r['score_seconds'] for r in proof['rows'])+sum(r['load_seconds'] for r in proof['rows'])
  return dict(status='CAL66_REAL_THREE_METRIC_93_FRAME_CPU_ACCEPTED_NOT_SCIENCE',CPU_accepted=True,proof=proof,full52_quality_only_extrapolated_seconds=estimate,extrapolation_is_not_full_cohort_acceptance=True,LPIPS_and_IO_not_included=True,CPU_limits=dict(cpus=2,memory_bytes=8*2**30,wall_seconds=21600),GPU_submissions=0,ledger_written=False)
