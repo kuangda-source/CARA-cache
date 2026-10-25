@@ -1,18 +1,14 @@
-# Codex 交接：高效实验流程 R2
+# Codex 交接：高效实验流程 R3
 
-2026-10-25。用户已授权修改流程、模板、交接和问题队列，提交GitHub，并推进新输入池增量审计与最小入口。没有新增GPU授权、预算或当前卡变更。
+2026-10-25。新卡同时准备四卡SM89和两卡SM86兼容profile，共用科学manifest；启动时默认四卡，四卡无合格空闲卡才选两卡。双端各自验证受影响生产路径、资源、存储与报价；单一中央预算包、跨主机单次提交，原预算与GPU授权边界不变。详见[执行流程第7节](../../docs/EXECUTION_MODES.md#7-双服务器准备与启动选择)。最小入口尚不实现自动选机，不能把模板当作启动证明。
 
-**最新执行授权：用户已要求按方案独占运行新R2；CPU/stage/磁盘均准备好，当前等待空闲卡，自动检查cara-cal66-r2每30分钟接续。见[700](../../research/700_CARA_CAL66_R2_BOUND_CPU_STORAGE_AND_IDLE_GPU_ADMISSION_20261025.md)。不要重复prepare/provision，已有intent只恢复原句柄。**
+**当前已启动，不能重复派发：CAL66在两卡A6000 GPU1运行，launch `5d262751-5d8d-4c61-9081-96d816b9d581`，实际2026-10-25 23:06:21；半程10月26日03:00、最终检查11:45，均绑定同launch。原四卡等待入口已撤销。见[701](../../research/701_CARA_CAL66_A6000_MIGRATION_AND_EXECUTION_20261025.md)。这是保存快照，后续以当前状态和新原件为准。**
 
-**最新准备：冻结请求适配已修复，新真实类CPU链完整接受，恢复报价6.880951GPUh（上限8）。用户明确先不重跑，见[699](../../research/699_CARA_CAL66_FROZEN_ADAPTER_REPAIR_CPU_ACCEPTED_AND_RECOVERY_QUOTE_20261025.md)与[完整恢复方案](../../plans/cara_policy_generator_20261020/CAL66_FROZEN_REQUEST_RECOVERY_R2_20261025.md)。旧R1入口接受已被新证据替代，未改监督/评分组件按SHA复用。**
-
-**最新技术状态覆盖（20:03观察）：CAL66已于18:49:06失败退出，0/66完成；冻结InferenceArguments.seed修改异常，精确结算0.484959 GPUh。原半程/最终检查已删除，未重跑。见[698](../../research/698_CARA_CAL66_EARLY_FAILURE_TECHNICAL_AND_FINANCE_20261025.md)。以下启动与检查时间保留为历史安排。**
+历史链保持：[698原R1失败](../../research/698_CARA_CAL66_EARLY_FAILURE_TECHNICAL_AND_FINANCE_20261025.md)、[699冻结参数修复](../../research/699_CARA_CAL66_FROZEN_ADAPTER_REPAIR_CPU_ACCEPTED_AND_RECOVERY_QUOTE_20261025.md)、[700四卡R2待空闲](../../research/700_CARA_CAL66_R2_BOUND_CPU_STORAGE_AND_IDLE_GPU_ADMISSION_20261025.md)。这些历史等待/检查安排不能再触发启动。
 
 ## 先读与权限
 
 先读 [AGENTS](../../AGENTS.md)、[执行流程](../../docs/EXECUTION_MODES.md)、[问题队列](../../plans/QUESTION_QUEUE.md)、[当前状态](../../docs/project_status.json)、[CAL66合同](../../plans/cara_policy_generator_20261020/CAL66_DESIGN_AND_DECISION_CONTRACT_R1_20261025.md)。交接中的状态是保存证据快照；如已有更新终态，优先复用新原件。
-
-CAL66唯一launch `54eeebc7-00bb-4951-96cf-e2f66a85e344`，原GPU2、66路径、8GPUh、α、强基线及stage保持。原检查为10月25日21:35技术半程、10月26日05:50含释放后CPU评分的收件；以上均为已失效的原安排，检查已删除；不得据此重派。原启动记录见[696](../../research/696_CARA_CAL66_EXCLUSIVE_LAUNCH_AND_ACCEPTANCE_20261025.md)接续，不重复提交、不读部分结果调参。
 
 ## 本次已完成
 
@@ -25,10 +21,10 @@ CAL66唯一launch `54eeebc7-00bb-4951-96cf-e2f66a85e344`，原GPU2、66路径、
 - CAL66完整接受后，按原合同写一页结果/决策，更新Q1。未完整接受就保留失败/等待证据，不将运行状态当结论。
 - 若合同允许进入新DEV，冻结唯一主工作点与六角色，重算完整128请求（96正式+24重复+6warm+2控制）的报价；旧保守估计12.778311 GPUh超过12h子池，不把粗估当批准。累计226和最终部署上限不变。
 - 新DEV用冻结池前16组，最终确认另外16组隔离。执行前增量曝光审计；DEV用于选择后不再是最终TEST。不使用BANK24六DEV替代。
-- 新卡只为改变的路径补CPU验证和必要适配，复用未变组件证据。最小入口不提供新GPU派发权限；新报价/卡仍按既有授权边界处理。
+- 新卡在两端分别为改变的路径补CPU验证和必要适配，复用未变组件证据，准备各自完整报价；实际使用前曝光审计覆盖两端。最小入口不提供新GPU派发权限；新报价/卡仍按既有授权边界处理。
 
 ## 不再沿用旧交接的做法
 
 不要求每卡重新造独立CPU卡，不要求实现完整通用启动框架后才能做科学工作；不把探索结果一律排除论文；不将所有计时重复或桥接因指纹相同删掉；不把点估计预算可行写成95%上界确认；不因普通修复重复请求已有授权。
 
-旧流程的未签署探索自主额度未生效。本R2不授予额度，不追溯改变CAL66或历史失败。
+旧流程的未签署探索自主额度未生效。本R3不授予额度，不追溯改变CAL66或历史失败。

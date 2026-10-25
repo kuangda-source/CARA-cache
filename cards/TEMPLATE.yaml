@@ -1,4 +1,4 @@
-# R2: one source of truth; matrices/contracts are referenced with SHA256.
+# R3: one source of truth; matrices/contracts are referenced with SHA256.
 # validate accepts a DRAFT for review; it never grants execution permission.
 version: 1
 card_id: example_card_r1
@@ -25,5 +25,22 @@ budget:
 post_release_cpu: {cpus: 2, memory_gib: 8, wall_hours: null, cap_vcpuh: null}
 validation: {changes: [], reused_evidence: [], affected_path_checks: []}
 authorization: {new_gpu_dispatch: false, source_ref: null}
+# Planning metadata only; run_card.py does not implement routing or new dispatch.
+# Each profile binds runtime/resources, production CPU evidence, storage and whole quote.
+server_preparation:
+  shared_science_ref: scope.manifest
+  required_hosts: [four_card, two_card]
+  preference: [four_card, two_card]
+  profiles:
+    four_card: {hardware: RTX_6000_Ada_SM89, evidence: {path: null, sha256: null}, quote: {path: null, sha256: null}}
+    two_card: {hardware: RTX_A6000_SM86, evidence: {path: null, sha256: null}, quote: {path: null, sha256: null}}
+  selection: fresh_idle_and_full_admission_within_authorized_cap
+  recover_existing_intent_on_either_host_first: true
+  single_dispatch_across_hosts: true
+  central_ledger_host: four_card
+  shared_budget_envelope: true
+  pin_host_after_launch: true
+  exposure_audit_hosts: [four_card, two_card]
+  selected_host: null
 backend: {adapter: null, bindings: {path: null, sha256: null}, launch: {path: null, sha256: null}, stage: {path: null, sha256: null}}
 stop_conditions: [storage_guard, billed_limit_with_release_margin, nonfinite, real_entry_error, exclusivity_lost]
