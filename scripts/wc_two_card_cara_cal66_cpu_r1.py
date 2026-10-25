@@ -16,7 +16,9 @@ ADAPTED = ['src/wcomr/policy_generator_r1/shared66_card.py', 'scripts/run_cara_s
            'src/wcomr/gpu_budget_pool_v2.py', 'tests/check_cara_shared66_lifecycle_cpu_r1.py',
            'tests/check_shared66_storage_cpu_r1.py']
 EXTRA = ['scripts/check_cara_cal66_a6000_cpu_r1.py', 'scripts/cara_cal66_a6000_profile_r1.py',
-         'tests/test_cara_cal66_a6000_profile_r1.py', QUOTE]
+         'tests/test_cara_cal66_a6000_profile_r1.py', 'scripts/check_cara_cal66_entry_cpu_r2.py',
+         'tests/check_cara_cal66_sampling_cpu_r2.py', 'tests/test_cara_pg_p2_production_batch.py',
+         'scripts/check_wc_policy_price_refresh_cpu_r1.py', QUOTE]
 
 PREPARE = r'''
 import pathlib,sys,json,base64,hashlib,subprocess,time,os,shutil
@@ -89,7 +91,10 @@ def main():
     else:
         rev=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip()
         files={};hashes={};evidence=[]
-        for n in ADAPTED+EXTRA:
+        sys.path.insert(0,str(ROOT/'src'))
+        from wcomr.immutable_stage_payload_r1 import local_python_closure
+        names=set(ADAPTED+EXTRA)|set(local_python_closure(ROOT,[n for n in EXTRA if n.endswith('.py')]))
+        for n in sorted(names):
             raw=(ROOT/n).read_bytes()
             assert subprocess.check_output(['git','show',rev+':'+n],cwd=ROOT)==raw,'Commit exact source first'
             if n in ADAPTED:

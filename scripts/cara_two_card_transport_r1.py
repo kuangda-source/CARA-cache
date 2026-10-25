@@ -37,3 +37,13 @@ def ssh(code, data=None, *, docker_group=False, timeout=180):
             message = message.replace(password(), '[REDACTED]')
         raise RuntimeError('Two-card read/operation failed: ' + message[-1800:])
     return json.loads(result.stdout)
+
+
+def four_ssh(code, data=None, timeout=180):
+    """Existing key route; avoids dependence on the retired private master PID."""
+    r = subprocess.run(['ssh', '-o', 'BatchMode=yes', '-o', 'ConnectTimeout=15',
+                        'four_card', 'python3 -c '+shlex.quote(code)],
+                       input=json.dumps(data) if data is not None else '', text=True,
+                       capture_output=True, timeout=timeout)
+    if r.returncode: raise RuntimeError('Four-card control failed: '+r.stderr[-1200:])
+    return json.loads(r.stdout)
