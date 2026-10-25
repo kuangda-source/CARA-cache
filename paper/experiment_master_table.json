@@ -24,13 +24,13 @@
   },
   "status_counts": {
     "CLAIM_AND_EVIDENCE_WRITING_PROTOCOL_READY": 1,
-    "COMBINATION_CPU_ACCEPTED_QUALITY_MODELS_PENDING_NO_GPU": 1,
     "CONDITIONAL_DISABLED_PRESELECT_SUBSET_BEFORE_R4A": 1,
     "CONDITIONAL_OTHER_WINDOWS_NOT_RUNTIME_VALIDATED": 1,
     "CONDITIONAL_PLANNED_NOT_FROZEN_OR_APPROVED_CARD": 1,
     "CONDITIONAL_SAME_PROCEDURE_RECALIBRATION": 1,
     "COST112_COMPLETE_ACCEPTED_TIMING_GATE_FAILED": 1,
     "DEFERRED_MANUAL_MASK_SCREEN_SUPERSEDED_BY_GENERATOR_VALIDATION": 2,
+    "DESIGN_CPU_CHECKED_PRODUCTION_DELTA_PENDING_NO_GPU": 1,
     "EXPLORATORY_BANK24_FULL24_ACCEPTED_FROZEN_GATE_AND_XR_ANALYZED": 2,
     "EXPLORATORY_CAL12_A_FACTORIAL_GAIN_ON_CAL_PENDING_INDEPENDENT_CONFIRMATION": 1,
     "EXPLORATORY_CAL12_SHARED26D_PLAN_GAIN_ON_CAL_PENDING_INDEPENDENT_CONFIRMATION": 1,
@@ -46,6 +46,7 @@
     "QUALITY_ENTRY_AND_CARD_BINDING_PREPARED_REAL_MODEL_CPU_PENDING": 1,
     "RFC_PRIMARY_SOURCE_IDENTIFIED_ADAPTATION_NOT_FROZEN": 1,
     "SECOND_BACKBONE_OR_SETTING_NOT_SELECTED": 1,
+    "SUPERSEDED_UNEXECUTED_PROPOSAL_CPU_EVIDENCE_RETAINED": 1,
     "WAIT_FOR_GENERATOR_FREEZE_NOT_LEGACY_RESULT_REUSE": 1,
     "已完成并关闭｜探索": 2,
     "已完成｜CPU准备": 2,
@@ -5497,7 +5498,7 @@
         "title": "单预算自动策略闭环",
         "status": "P1原件已接受，未选出预算可行策略",
         "result": "原件与财务完整接受；实际2.557833 GPUh。64登记位置中执行30路径、16评分、4候选查询；未选出满足冻结预算的策略，PG-P2尚不准入。",
-        "next_action": "旧失败和费用保留；新纯计时卡与GRAPH102暂缓，转入Shared-CAL106准备。",
+        "next_action": "保留旧失败与费用；纯计时及GRAPH102暂缓，推进CAL66设计。",
         "evidence_refs": [
           "reports/cara_PG_P1_full64_GPU_actual_launch_20261023_2030.json",
           "reports/cara_PG_P1_full64_GPU_initial_health_20261023_2029.json",
@@ -5944,7 +5945,7 @@
         "title": "同入口全D参照的112路径独立计时验证",
         "status": "完整接受；计时门失败",
         "result": "112路径、72组/6696帧评分及23控制完整接受；实际8.139511 GPUh。计时平均绝对相对误差0.545%，最大低估5.006秒；最大低估未过原2秒门槛，新P1不准入。",
-        "next_action": "旧失败和费用保留；新纯计时卡与GRAPH102暂缓，转入Shared-CAL106准备。",
+        "next_action": "保留旧失败与费用；纯计时及GRAPH102暂缓，推进CAL66设计。",
         "evidence_refs": [
           "research/691_CARA_COST112_CAUSE_SEPARATION_AND_P1_REPAIR_PLAN_20261025.md",
           "reports/cara_cost112_root_cause_attribution_r2_20261025.json",
@@ -6005,7 +6006,7 @@
         "title": "新P1生产入口、同输入时钟与有限恢复",
         "status": "入口CPU已过；112计时失败，GPU接续阻断",
         "result": "真实18采样CPU路径、新自适应分母/实际93帧评分/独立决策重放通过；不是GPU质量或策略成功。",
-        "next_action": "旧失败和费用保留；新纯计时卡与GRAPH102暂缓，转入Shared-CAL106准备。",
+        "next_action": "保留旧失败与费用；纯计时及GRAPH102暂缓，推进CAL66设计。",
         "evidence_refs": [
           "research/688_CARA_P1_REPAIR102_ENTRY_CPU_QUOTE_AND_SELECT_AUDIT_20261025.md",
           "plans/cara_policy_generator_20261020/P1_REPAIR102_PRODUCTION_AND_QUOTE_R1_20261025.md",
@@ -6019,7 +6020,7 @@
     },
     {
       "id": "PG-SHARED-CAL106",
-      "state": "COMBINATION_CPU_ACCEPTED_QUALITY_MODELS_PENDING_NO_GPU",
+      "state": "SUPERSEDED_UNEXECUTED_PROPOSAL_CPU_EVIDENCE_RETAINED",
       "paper_experiment_name": "Deterministic Shared placement and Native step controls",
       "internal_ids": [
         "cara-shared-cal106-exploration-r1"
@@ -6055,9 +6056,9 @@
       "evidence_or_planned_scope": "4CAL/19角色/106路径；预计9.971317GPUh、拟上限11.5；48新输入池冻结；GPU禁止启动。",
       "reader": {
         "title": "Shared24/25、20D与少步Native的CAL探索",
-        "status": "入口与整卡组合CPU已接受；模型CPU待完成；GPU未启动",
+        "status": "未执行方案已由CAL66替代；原CPU接受保留",
         "result": "完整106位置、72配对与228指标调度组合接受，真实93帧LPIPS通过；端点与独立指标为合成fixture，没有GPU科学结果。",
-        "next_action": "补齐独立质量模型资源和真实CPU；本轮不启动GPU，报价与原预算不变。",
+        "next_action": "按闭包复用已验组件，不派发旧106；执行准备转CAL66。",
         "evidence_refs": [
           "research/692_CARA_SHARED_EXPLORATION_CONTRACT_POOL_AND_CPU_20261025.md",
           "plans/cara_policy_generator_20261020/EXPLORATION_CONFIRMATION_CONTRACT_R1_20261025.md",
@@ -6073,7 +6074,54 @@
         ]
       },
       "full_GPU_lifecycle_CPU_accepted": true,
-      "independent_quality_models_CPU_accepted": false
+      "independent_quality_models_CPU_accepted": false,
+      "superseded_by": "PG-SHARED-CAL66"
+    },
+    {
+      "id": "PG-SHARED-CAL66",
+      "state": "DESIGN_CPU_CHECKED_PRODUCTION_DELTA_PENDING_NO_GPU",
+      "paper_experiment_name": "Transition refresh placement and controlled correction at24/25D",
+      "internal_ids": [
+        "cara-shared-cal66-design-r1"
+      ],
+      "evidence_refs": [
+        "research/694_CARA_CAL66_REDESIGN_MASK_IDENTIFIABILITY_AND_QUOTE_20261025.md",
+        "plans/cara_policy_generator_20261020/CAL66_DESIGN_AND_DECISION_CONTRACT_R1_20261025.md",
+        "manifests/cara_shared_CAL66_scope_quote_r1_20261025.json",
+        "reports/cara_CAL66_design_local_CPU_20261025.json",
+        "reports/cara_CAL66_reference_provenance_20261025.json",
+        "reports/cara_CAL66_new_pool_audit_status_20261025.json"
+      ],
+      "method_mapping_ids": [],
+      "contribution_ids": [
+        "C1",
+        "C2"
+      ],
+      "claim_relation": "DESIGN_NOT_SCIENTIFIC_RESULT",
+      "paper_placement": "CAL机制筛查与主工作点选择",
+      "dependencies": [
+        "PG-SHARED-CAL106",
+        "PG-P1-ASSETS"
+      ],
+      "production_CPU_accepted": false,
+      "full_protocol_accepted": false,
+      "GPU_dispatch_ready": false,
+      "new_GPU_submissions": 0,
+      "evidence_or_planned_scope": "4CAL/13正式角色+2桥接角色/66路径；48LPIPS配对/156独立评分；预计6.478451GPUh、拟上限8，未授权执行。",
+      "reader": {
+        "title": "CAL66：刷新位置、原phase修正与尾部停用",
+        "status": "设计与本地16项CPU检查完成；生产变更待接受",
+        "result": "Shared24/25代数及all/age3差异核对；24/25/26D完整能量、仅先验与模板同掩码；没有新GPU结果。",
+        "next_action": "核验66范围适配、两all臂真实入口、桥接RGB与真实质量模型CPU；不启动GPU。",
+        "evidence_refs": [
+          "research/694_CARA_CAL66_REDESIGN_MASK_IDENTIFIABILITY_AND_QUOTE_20261025.md",
+          "plans/cara_policy_generator_20261020/CAL66_DESIGN_AND_DECISION_CONTRACT_R1_20261025.md",
+          "manifests/cara_shared_CAL66_scope_quote_r1_20261025.json",
+          "reports/cara_CAL66_design_local_CPU_20261025.json",
+          "reports/cara_CAL66_reference_provenance_20261025.json",
+          "reports/cara_CAL66_new_pool_audit_status_20261025.json"
+        ]
+      }
     }
   ],
   "source_refs": {
@@ -11997,33 +12045,33 @@
     },
     "AGENTS.md": {
       "path": "AGENTS.md",
-      "sha256": "52013c282440d3af55c50d14e82e3dd2c766c6d24197c442cb387d9e879756e2",
-      "bytes": 5206
+      "sha256": "14b2d3121231bac6907deb494b927c8e2e87702708e456c03c94dc98b07dce2a",
+      "bytes": 5452
     },
     "EXPERIMENT_REPORT.md": {
       "path": "EXPERIMENT_REPORT.md",
-      "sha256": "48c34493125e13ed952d0af11b084df20d349f1544cb782f31b81d4c88e5f643",
-      "bytes": 8199
+      "sha256": "f309a0d5da2b25e679d47fe020d40cb4d7db709ab826e52d6005853c5661fc32",
+      "bytes": 7988
     },
     "memory/handoffs/LATEST.md": {
       "path": "memory/handoffs/LATEST.md",
-      "sha256": "d97ba278ab4971a481f59b6d041b8149db1f6154c613c3d47ea150fc0c9e8ee3",
-      "bytes": 4551
+      "sha256": "e3dc3b33f54d00d82e31f99f2c34fe40a21ebba8a78c20984492ad6cd3ca0a0f",
+      "bytes": 4199
     },
     "research/02_CURRENT_STATE.md": {
       "path": "research/02_CURRENT_STATE.md",
-      "sha256": "b6ac59fb6c823a0567026945f71786b537a1ab76450149cea2e8d5381721e0cf",
-      "bytes": 5473
+      "sha256": "c31ee8e1692af011b3e60ad5e8b08f5dd700ccbd0a52d2f3ad1d25485f6847fe",
+      "bytes": 5029
     },
     "research/09_NEXT_ACTIONS.md": {
       "path": "research/09_NEXT_ACTIONS.md",
-      "sha256": "f0697bfda1734dbfbea452d19a72c394b604601fc3a7d69db296cd55bf062e3d",
-      "bytes": 3890
+      "sha256": "cf6c16747bea3234a81d50ccc922b5f03b79703c5afac128a2048186037d7bbe",
+      "bytes": 3689
     },
     "paper/EXPERIMENT_MASTER_TABLE.md": {
       "path": "paper/EXPERIMENT_MASTER_TABLE.md",
-      "sha256": "37aac3b71ba288ee602c5fa05b543d3f820c84136f3b47ae26dfae6d1de46795",
-      "bytes": 37746
+      "sha256": "8b44e5caecc8013b914fb368c21378745b57b011a9515e6af6fffd49c9537c98",
+      "bytes": 38323
     },
     "paper/INTERNAL_TO_PAPER_MAPPING.md": {
       "path": "paper/INTERNAL_TO_PAPER_MAPPING.md",
@@ -14002,7 +14050,7 @@
     "historical_operation_policy_ref": "docs/archive/20261022_before_navigation/paper/experiment_master_table.json"
   },
   "mapping_sha256_at_inventory": "88b3d760a0c94c20b6c802e21f30c7286d6e596cc9b3f3100e7ee6feaa3938f3",
-  "latest_mapping_sha256": "07ce358ff126c2fe2fe553ef636dab72ef3fdbab08fc850dcdc729bb4dee2033",
+  "latest_mapping_sha256": "b96e0034208e9b6713674b48f71517e591c8d6f1bf4f5a6257f077f6a43e87b3",
   "revision_plan": {
     "registry_ref": "plans/cara_v6_20261020/TASK_REGISTRY_V6.yaml",
     "report_ref": "research/610_WC_CARA_V6_REVIEW_CLOSURE_PLAN_INTERVAL_SPEC_AND_FIRST_DEV_SCOPE_20261020.md",

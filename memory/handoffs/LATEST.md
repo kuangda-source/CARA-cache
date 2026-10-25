@@ -2,30 +2,29 @@
 
 # CARA-Cache 当前交接
 
-**当前推进Shared-CAL106探索准备，GPU未启动。** Shared24/25通用构造、原α与强基线已绑定；唯一激进档20D，少步Native26/28/30。新生产入口76条CPU采样路径完整接受，48组新输入通过范围内曝光核查。
+**下一卡已调整为CAL66，GPU未启动。** 4旧CAL、13正式角色：52正式、6重复、6预热、2历史桥接；Shared24/25保留原α，新增同布局全phase A与age3对照。20D推后，若新DEV为正优先补齐。
 
-完整106路径：76正式、20计时重复、8warm、2诊断；预计9.971317 GPUh，拟上限11.5 GPUh，未预留。累计226 GPUh及最终min(257.771秒,0.8×新Native)不变。整卡监督、释放后评分与终态组合CPU已接受；独立质量模型资源CPU仍待完成，不能据组合通过启动GPU。
+完整报价预计6.478451 GPUh，拟上限8 GPUh，未批准执行、未预约。累计226 GPUh及最终min(257.771秒,0.8×新Native)不变。16项本地设计CPU检查通过，不等于CAL66生产/整卡组合接受；独立质量模型CPU仍待完成。
 
-用户已授权新的探索/确认合同：探索不再以前一计时模型的2秒门为前置，最终方法仍须独立实测预算确认。旧104/112计时失败和原P1空选择保留，新的纯计时卡与GRAPH102暂缓。
+CAL106保留为未执行的被替代方案，原入口和组合CPU接受仍有效作为组件复用依据。新输入池完成过范围内来源组审计，首次使用前仍需增量核查。
 
-[本轮准备与验收](../../research/693_CARA_CAL106_COMBINATION_CPU_ACCEPTED_AND_QUOTE_RECHECK_20261025.md) · [探索/确认合同](../../plans/cara_policy_generator_20261020/EXPLORATION_CONFIRMATION_CONTRACT_R1_20261025.md) · [入口CPU接受](../../reports/cara_shared_CAL106_CPU_accepted_r1_20261025.json) · [完整范围与报价](../../manifests/cara_shared_CAL106_scope_quote_r1_20261025.json) · [组合CPU接受](../../reports/cara_shared_CAL106_combination_CPU_accepted_r3_20261025.json)
+[设计变更与核查](../../research/694_CARA_CAL66_REDESIGN_MASK_IDENTIFIABILITY_AND_QUOTE_20261025.md) · [比较及决策合同](../../plans/cara_policy_generator_20261020/CAL66_DESIGN_AND_DECISION_CONTRACT_R1_20261025.md) · [66路径与完整报价](../../manifests/cara_shared_CAL66_scope_quote_r1_20261025.json) · [本地设计检查](../../reports/cara_CAL66_design_local_CPU_20261025.json)
 
-| 当前准备字段 | 内容 |
+| 当前设计字段 | 内容 |
 |---|---|
-| CPU source | `039a23955c483aaff416a07c57fcaa852c4217bb` |
-| CPU stage | `/data20t/gaokuangda/worldcache_workspace/.sync/cara-shared-explore-CPU-r1-20261025` |
-| CPU资源 | 1CPU / 4GiB / GPU隐藏，已退出0 |
+| 正式 / 重复 / 预热 / 桥接 | 52 / 6 / 6 / 2 |
+| 更新 / CFG调用 / 加载 | 2296 / 4592 / 1 |
+| 释放后评分 | 48对LPIPS/4464帧，52视频×3独立指标 |
+| CPU状态 | 本地设计16项通过；变更生产入口与组合接受待完成 |
 | GPU提交 / 预算预留 | 0 / 0 |
-| 组合CPU source | `cd26726541a3dcb218e5000f250d80e65f5dffde` |
-| 组合CPU stage | `/data20t/gaokuangda/worldcache_workspace/.sync/cara-shared106-combination-CPU-r3-20261025` |
-| 组合边界 | 106位置/72配对/228独立指标调度；真实93帧LPIPS；独立质量模型未加载 |
 
 ## 当前用户授权
 
-按[692](../../research/692_CARA_SHARED_EXPLORATION_CONTRACT_POOL_AND_CPU_20261025.md)和[新合同](../../plans/cara_policy_generator_20261020/EXPLORATION_CONFIRMATION_CONTRACT_R1_20261025.md)继续CPU准备。用户明确本轮不启动GPU；不要自动沿旧112/102脚本派发，不创建GPU预约。
+按[694](../../research/694_CARA_CAL66_REDESIGN_MASK_IDENTIFIABILITY_AND_QUOTE_20261025.md)和[CAL66合同](../../plans/cara_policy_generator_20261020/CAL66_DESIGN_AND_DECISION_CONTRACT_R1_20261025.md)继续CPU准备。用户本轮不启动GPU，不创建预约。
 
-- 新Shared-CAL106保留原α、S26-C/S26-A/Shared26-C强基线，以及24/25D；唯一激进档20D，少步Native26/28/30。预计9.971317、拟上限11.5GPUh，未授权未预留。
-- 新入口CPU已接受：19角色×2重复×2flow=76小张量采样，原source和回执见692。不要重派此CPU；新整卡监督、释放后评分与终态组合R3也已接受，见693。下一缺口为独立质量模型资源及真实CPU，不重派已接受组合。
+- 下一卡CAL66：13正式角色×4输入、6重复、6warm、2历史桥接，共66；预计6.478451、拟上限8GPUh，未批准执行。原α、β、强基线身份不变；20D后置但新DEV正向后优先补齐。
+- 原CAL106入口与组合CPU接受保留，旧106不派发。新66有16项本地设计检查，不等于生产接受；待补变更CPU、历史桥接RGB、48/156评分终态适配与真实质量模型资源CPU。
+- Shared24/25全A与age3只差A34/35；当前完整能量、仅传播先验与模板同掩码。新卡不能证明能量优于模板；第二设置先做CPU可辨识性检查。
 - 新输入48组已范围内曝光核查及源字节校验，16新DEV/16最终确认候选/16备用；不读新输入端点来修规则，首次执行前做增量身份审计。
 - 旧104/112最大低估失败保持，新探索不再要求先通过旧2秒门；最终冻结方法仍需完整请求的0.8×新Native和257.7712338712067秒上限确认。累计226、旧两卡16.5未知责任不变。
 - 新纯计时卡与GRAPH102暂缓；原P1/104/112/1624/价格卡均已结束，不重跑或重新结算。未知只恢复原句柄，不盲重派。
@@ -33,7 +32,7 @@
 
 | 顺序 | 当前阶段 | 下一项验收 / 动作 |
 |---|---|---|
-| PG-SHARED-CAL106 | Shared24/25、20D与少步Native的CAL探索：入口与整卡组合CPU已接受；模型CPU待完成；GPU未启动 | 补齐独立质量模型资源和真实CPU；本轮不启动GPU，报价与原预算不变。 |
+| PG-SHARED-CAL66 | CAL66：刷新位置、原phase修正与尾部停用：设计与本地16项CPU检查完成；生产变更待接受 | 核验66范围适配、两all臂真实入口、桥接RGB与真实质量模型CPU；不启动GPU。 |
 | PG-P2 | 等预算与等查询强基线：质量入口与绑定准备完成；真实模型CPU待准入 | Shared探索后冻结一个方法/预算档；新输入增量核查，少步Native与独立质量共同确认。 |
 | PG-P3 | 固定程序跨预算/模型：条件性后续 | P1/P2后先0.70×Native，再成熟第二模型或明确第二设置重新校准。 |
 | PG-P4 | 最终独立TEST与部署评价：待方法冻结 | 冻结方法、对手、预算、选择规则后再选新TEST；计入warm与全流程成本。 |

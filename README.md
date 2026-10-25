@@ -12,7 +12,7 @@ CARA-Cache（CFG-Aligned Readout and Cost-Aware Allocation for Video Diffusion�
 |---|---|
 | 做了什么、主要结果怎样 | [研究与结果概览](EXPERIMENT_REPORT.md) |
 | 现在在跑什么、下一次何时验收 | [当前状态](research/02_CURRENT_STATE.md) |
-| 每项实验是否完成、支持什么结论 | [58项实验总表](paper/EXPERIMENT_MASTER_TABLE.md) |
+| 每项实验是否完成、支持什么结论 | [59项实验总表](paper/EXPERIMENT_MASTER_TABLE.md) |
 | 下一步解决什么问题 | [后续实验顺序](research/09_NEXT_ACTIONS.md) |
 | 如何复核代码、原件和统计 | [复现与证据指南](docs/REPRODUCIBILITY.md) |
 | 从项目开始到现在的完整记录 | [历史入口](docs/archive/README.md) |
@@ -49,13 +49,13 @@ LPIPS 越低表示越接近同输入的 Native 视频；它与局部速度 MSE�
 
 ## 当前进度
 
-**当前推进Shared-CAL106探索准备，GPU未启动。** Shared24/25通用构造、原α与强基线已绑定；唯一激进档20D，少步Native26/28/30。新生产入口76条CPU采样路径完整接受，48组新输入通过范围内曝光核查。
+**下一卡已调整为CAL66，GPU未启动。** 4旧CAL、13正式角色：52正式、6重复、6预热、2历史桥接；Shared24/25保留原α，新增同布局全phase A与age3对照。20D推后，若新DEV为正优先补齐。
 
-完整106路径：76正式、20计时重复、8warm、2诊断；预计9.971317 GPUh，拟上限11.5 GPUh，未预留。累计226 GPUh及最终min(257.771秒,0.8×新Native)不变。整卡监督、释放后评分与终态组合CPU已接受；独立质量模型资源CPU仍待完成，不能据组合通过启动GPU。
+完整报价预计6.478451 GPUh，拟上限8 GPUh，未批准执行、未预约。累计226 GPUh及最终min(257.771秒,0.8×新Native)不变。16项本地设计CPU检查通过，不等于CAL66生产/整卡组合接受；独立质量模型CPU仍待完成。
 
-用户已授权新的探索/确认合同：探索不再以前一计时模型的2秒门为前置，最终方法仍须独立实测预算确认。旧104/112计时失败和原P1空选择保留，新的纯计时卡与GRAPH102暂缓。
+CAL106保留为未执行的被替代方案，原入口和组合CPU接受仍有效作为组件复用依据。新输入池完成过范围内来源组审计，首次使用前仍需增量核查。
 
-[本轮准备与验收](research/693_CARA_CAL106_COMBINATION_CPU_ACCEPTED_AND_QUOTE_RECHECK_20261025.md) · [探索/确认合同](plans/cara_policy_generator_20261020/EXPLORATION_CONFIRMATION_CONTRACT_R1_20261025.md) · [入口CPU接受](reports/cara_shared_CAL106_CPU_accepted_r1_20261025.json) · [完整范围与报价](manifests/cara_shared_CAL106_scope_quote_r1_20261025.json) · [组合CPU接受](reports/cara_shared_CAL106_combination_CPU_accepted_r3_20261025.json)
+[设计变更与核查](research/694_CARA_CAL66_REDESIGN_MASK_IDENTIFIABILITY_AND_QUOTE_20261025.md) · [比较及决策合同](plans/cara_policy_generator_20261020/CAL66_DESIGN_AND_DECISION_CONTRACT_R1_20261025.md) · [66路径与完整报价](manifests/cara_shared_CAL66_scope_quote_r1_20261025.json) · [本地设计检查](reports/cara_CAL66_design_local_CPU_20261025.json)
 
 10月24日完整终态见[685](research/685_CARA_HISTORY104_R2_COMPLETE_ACCEPTANCE_RESULTS_AND_COST_GATE_20261024.md)：104路径与72评分完整接受，实际7.395282GPUh，GPU和锁已释放。历史强基线均胜原GRAPH；24/25D实测可行，但计时模型最坏低估2.618秒未过2秒门槛。COST112于10月25日完整接受，实际8.139511GPUh；计时最大低估5.006秒未过2秒门槛，新P1不准入，P2仍等待冻结策略。见[690](research/690_CARA_COST112_COMPLETE_ACCEPTANCE_AND_TIMING_GATE_FAILURE_20261025.md)。
 

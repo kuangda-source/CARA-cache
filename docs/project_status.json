@@ -3,8 +3,8 @@
   "project": "CARA-Cache",
   "evidence_observed_at": "2026-10-23T08:26:41.422652+08:00",
   "timezone": "Asia/Shanghai",
-  "snapshot_note": "Shared-CAL106入口及整卡组合CPU接受；独立质量模型CPU待完成；GPU提交和预约均为0。",
-  "research_summary": "新主线先检验Shared24/25与20D、少步Native及历史强基线。探索与最终部署预算确认分开；48组新输入通过范围内曝光核查，GPU未授权未启动。",
+  "snapshot_note": "CAL66设计与本地CPU核查完成；66生产变更和真实质量模型CPU待接受；GPU未启动。",
+  "research_summary": "CAL66检验过渡段刷新位置、同布局phase修正与尾部A34/35停用。当前24/25/26D能量、传播先验与模板同掩码；构造规则增量留给可辨识的第二设置。只冻结一个主工作点进入新DEV，累计与最终部署预算不变。",
   "active_experiment_id": "PG-P1",
   "active_state": "PG_P1_TERMINAL_ACCEPTED_NO_BUDGET_FEASIBLE_SELECTION",
   "active_state_zh": "P1原件已接受，未选出预算可行策略",
@@ -65,7 +65,7 @@
     }
   ],
   "next_sequence": [
-    "PG-SHARED-CAL106",
+    "PG-SHARED-CAL66",
     "PG-P2",
     "PG-P3",
     "PG-P4"
@@ -521,6 +521,22 @@
     "quote_recheck_ref": "reports/cara_shared_CAL106_whole_quote_recheck_r1_20261025.json",
     "quality_resource_preflight_ref": "reports/cara_CAL106_quality_resource_preflight_20261025.json",
     "budget_readonly_ref": "reports/cara_CAL106_budget_readonly_20261025.json",
-    "evidence_observed_at": "2026-10-25T15:56:51.836802+08:00"
+    "evidence_observed_at": "2026-10-25T15:56:51.836802+08:00",
+    "superseded_proposal_by": "PG-SHARED-CAL66"
+  },
+  "CAL66_preparation": {
+    "status": "DESIGN_CPU_CHECKED_PRODUCTION_DELTA_PENDING_NO_GPU",
+    "report_ref": "research/694_CARA_CAL66_REDESIGN_MASK_IDENTIFIABILITY_AND_QUOTE_20261025.md",
+    "contract_ref": "plans/cara_policy_generator_20261020/CAL66_DESIGN_AND_DECISION_CONTRACT_R1_20261025.md",
+    "manifest_ref": "manifests/cara_shared_CAL66_scope_quote_r1_20261025.json",
+    "design_CPU_ref": "reports/cara_CAL66_design_local_CPU_20261025.json",
+    "pool_audit_review_ref": "reports/cara_CAL66_new_pool_audit_status_20261025.json",
+    "supersedes_unexecuted_proposal": "PG-SHARED-CAL106",
+    "new_GPU_submissions": 0,
+    "new_GPUh_reserved": 0,
+    "GPU_dispatch_ready": false,
+    "production_CPU_accepted": false,
+    "combination_CPU_accepted": false,
+    "quality_models_CPU_accepted": false
   }
 }

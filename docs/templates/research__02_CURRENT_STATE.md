@@ -12,10 +12,10 @@
 
 ## 本轮已完成与尚缺
 
-- Shared通用规则固定能量源、保护D24、并列顺序和单次交换；24/25/20D由同一规则导出，26D回归恢复历史交换。原alpha和三条26D强基线保持。
-- 新生产请求入口完成19角色、两次重复、两种flow共76条小张量CPU采样接受；普通请求、NLTK、93帧编解码和GPU隐藏核验通过。这不是Cosmos真实权重质量/速度结果。
-- 48组候选输入按来源组和固定身份规则冻结，16新DEV、16最终确认候选、16备用；首次执行前增量核查。BANK24的已曝光六DEV不回流。
-- CAL106完整范围和报价已准备；GPU未启动、预算未预留。整卡监督、GPU释放后评分与终态组合CPU已接受；独立质量模型资源CPU仍须接受。
+- CAL66独立登记66路径：52正式、6反序重复、6warm、2历史桥接；新增Shared-all对照隔离A34/35停用效应，原α及历史强布局身份不变。
+- 24/25/26D的完整能量、仅传播先验、简单模板同掩码；本轮检验位置价值，构造规则增量留给换步数设置，不重复生成别名。
+- 原CAL106及其入口/组合CPU接受保留为组件复用依据。新66范围、两all臂真实生产CPU、桥接RGB与评分终态适配待完成；真实独立质量模型CPU也待接受。
+- 原48组池已做来源组范围内审计，本轮复核源字节不变；首次DEV前增量核查，不能宣称已完成最终输入准入。
 
 ## 关键历史证据
 
@@ -32,6 +32,6 @@
 
 ## 状态来源
 
-[本轮准备692](repo:research/692_CARA_SHARED_EXPLORATION_CONTRACT_POOL_AND_CPU_20261025.md) · [规范状态](repo:docs/project_status.json) · [实验总表](repo:paper/EXPERIMENT_MASTER_TABLE.md) · [历史记录](repo:docs/archive/README.md)
+[本轮设计694](repo:research/694_CARA_CAL66_REDESIGN_MASK_IDENTIFIABILITY_AND_QUOTE_20261025.md) · [规范状态](repo:docs/project_status.json) · [实验总表](repo:paper/EXPERIMENT_MASTER_TABLE.md) · [历史记录](repo:docs/archive/README.md)
 
 文档时间不代替实际观测；原终态绑定其launch和SHA。只有后续明确GPU授权、完整CPU/报价和fresh独占/存储/账本准入后才能提交新GPU。

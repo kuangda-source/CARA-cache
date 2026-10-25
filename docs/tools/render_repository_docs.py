@@ -520,6 +520,33 @@ def build():
         by_id['PG-SHARED-CAL106']['reader'].update(status='入口与整卡组合CPU已接受；模型CPU待完成；GPU未启动',
             next_action='补齐独立质量模型资源和真实CPU；本轮不启动GPU，报价与原预算不变。')
         run_details+=f"\n| 组合CPU source | `{ca['source_revision']}` |\n| 组合CPU stage | `{cc['launch']['stage']}` |\n| 组合边界 | 106位置/72配对/228独立指标调度；真实93帧LPIPS；独立质量模型未加载 |"
+    cal66 = status.get('CAL66_preparation')
+    if cal66:
+        c66, test66 = load(cal66['manifest_ref']), load(cal66['design_CPU_ref'])
+        if (c66['scope']['total_paths'] != 66 or c66['scope']['LPIPS_pairs'] != 48
+                or c66['scope']['independent_quality_positions'] != 156
+                or test66['source_sha256'][cal66['manifest_ref']] != digest((ROOT/cal66['manifest_ref']).read_bytes())['sha256']
+                or c66['GPU_dispatch_ready'] or cal66['new_GPU_submissions'] != 0):
+            raise ValueError('CAL66 design evidence differs')
+        snapshot = ('**下一卡已调整为CAL66，GPU未启动。** 4旧CAL、13正式角色：52正式、6重复、6预热、2历史桥接；'
+            'Shared24/25保留原α，新增同布局全phase A与age3对照。20D推后，若新DEV为正优先补齐。\n\n'
+            f"完整报价预计{c66['quote']['forecast_GPUh']:.6f} GPUh，拟上限8 GPUh，未批准执行、未预约。"
+            '累计226 GPUh及最终min(257.771秒,0.8×新Native)不变。16项本地设计CPU检查通过，'
+            '不等于CAL66生产/整卡组合接受；独立质量模型CPU仍待完成。\n\n'
+            'CAL106保留为未执行的被替代方案，原入口和组合CPU接受仍有效作为组件复用依据。'
+            '新输入池完成过范围内来源组审计，首次使用前仍需增量核查。\n\n'
+            + link(cal66['report_ref'],'设计变更与核查') + ' · ' + link(cal66['contract_ref'],'比较及决策合同')
+            + ' · ' + link(cal66['manifest_ref'],'66路径与完整报价') + ' · ' + link(cal66['design_CPU_ref'],'本地设计检查'))
+        by_id['PG-SHARED-CAL106']['reader'].update(status='未执行方案已由CAL66替代；原CPU接受保留',
+            next_action='按闭包复用已验组件，不派发旧106；执行准备转CAL66。')
+        for old_id in ('PG-P1','PG-P1-C112','PG-P1-R102'):
+            by_id[old_id]['reader']['next_action']='保留旧失败与费用；纯计时及GRAPH102暂缓，推进CAL66设计。'
+        run_details = ('| 当前设计字段 | 内容 |\n|---|---|\n'
+            '| 正式 / 重复 / 预热 / 桥接 | 52 / 6 / 6 / 2 |\n'
+            '| 更新 / CFG调用 / 加载 | 2296 / 4592 / 1 |\n'
+            '| 释放后评分 | 48对LPIPS/4464帧，52视频×3独立指标 |\n'
+            '| CPU状态 | 本地设计16项通过；变更生产入口与组合接受待完成 |\n'
+            '| GPU提交 / 预算预留 | 0 / 0 |')
     headlines = '\n'.join(f"- **{f['title']}**（{f['short_scope']}）：{f['result']} {refs(f['refs'])}"
                            for f in status['headline_results'])
     details = '\n\n'.join(f"### {i+1}. {f['title']}\n\n{f['result']}\n\n{f['scope']} {refs(f['refs'])}"

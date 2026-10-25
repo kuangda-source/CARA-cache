@@ -4,13 +4,13 @@
 
 本项目的核心价值是把**缓存读出质量**与**计算时机分配**放在同一预算问题中研究。已完成的实验说明：CFG对齐修正能降低局部误差，并在固定刷新布局下改善视频终点；数据导出的共享布局也有CAL信号。正在推进的自动生成器将这些证据接到可复现、计入校准费用的完整质量—时间比较。
 
-**当前推进Shared-CAL106探索准备，GPU未启动。** Shared24/25通用构造、原α与强基线已绑定；唯一激进档20D，少步Native26/28/30。新生产入口76条CPU采样路径完整接受，48组新输入通过范围内曝光核查。
+**下一卡已调整为CAL66，GPU未启动。** 4旧CAL、13正式角色：52正式、6重复、6预热、2历史桥接；Shared24/25保留原α，新增同布局全phase A与age3对照。20D推后，若新DEV为正优先补齐。
 
-完整106路径：76正式、20计时重复、8warm、2诊断；预计9.971317 GPUh，拟上限11.5 GPUh，未预留。累计226 GPUh及最终min(257.771秒,0.8×新Native)不变。整卡监督、释放后评分与终态组合CPU已接受；独立质量模型资源CPU仍待完成，不能据组合通过启动GPU。
+完整报价预计6.478451 GPUh，拟上限8 GPUh，未批准执行、未预约。累计226 GPUh及最终min(257.771秒,0.8×新Native)不变。16项本地设计CPU检查通过，不等于CAL66生产/整卡组合接受；独立质量模型CPU仍待完成。
 
-用户已授权新的探索/确认合同：探索不再以前一计时模型的2秒门为前置，最终方法仍须独立实测预算确认。旧104/112计时失败和原P1空选择保留，新的纯计时卡与GRAPH102暂缓。
+CAL106保留为未执行的被替代方案，原入口和组合CPU接受仍有效作为组件复用依据。新输入池完成过范围内来源组审计，首次使用前仍需增量核查。
 
-[本轮准备与验收](research/693_CARA_CAL106_COMBINATION_CPU_ACCEPTED_AND_QUOTE_RECHECK_20261025.md) · [探索/确认合同](plans/cara_policy_generator_20261020/EXPLORATION_CONFIRMATION_CONTRACT_R1_20261025.md) · [入口CPU接受](reports/cara_shared_CAL106_CPU_accepted_r1_20261025.json) · [完整范围与报价](manifests/cara_shared_CAL106_scope_quote_r1_20261025.json) · [组合CPU接受](reports/cara_shared_CAL106_combination_CPU_accepted_r3_20261025.json)
+[设计变更与核查](research/694_CARA_CAL66_REDESIGN_MASK_IDENTIFIABILITY_AND_QUOTE_20261025.md) · [比较及决策合同](plans/cara_policy_generator_20261020/CAL66_DESIGN_AND_DECISION_CONTRACT_R1_20261025.md) · [66路径与完整报价](manifests/cara_shared_CAL66_scope_quote_r1_20261025.json) · [本地设计检查](reports/cara_CAL66_design_local_CPU_20261025.json)
 
 ## 方法及比较对象
 
@@ -81,7 +81,7 @@ LPIPS百分比以同批场景均值之比计算；视频帧不当独立样本；
 
 | 顺序 | 当前阶段 | 下一项验收 / 动作 |
 |---|---|---|
-| PG-SHARED-CAL106 | Shared24/25、20D与少步Native的CAL探索：入口与整卡组合CPU已接受；模型CPU待完成；GPU未启动 | 补齐独立质量模型资源和真实CPU；本轮不启动GPU，报价与原预算不变。 |
+| PG-SHARED-CAL66 | CAL66：刷新位置、原phase修正与尾部停用：设计与本地16项CPU检查完成；生产变更待接受 | 核验66范围适配、两all臂真实入口、桥接RGB与真实质量模型CPU；不启动GPU。 |
 | PG-P2 | 等预算与等查询强基线：质量入口与绑定准备完成；真实模型CPU待准入 | Shared探索后冻结一个方法/预算档；新输入增量核查，少步Native与独立质量共同确认。 |
 | PG-P3 | 固定程序跨预算/模型：条件性后续 | P1/P2后先0.70×Native，再成熟第二模型或明确第二设置重新校准。 |
 | PG-P4 | 最终独立TEST与部署评价：待方法冻结 | 冻结方法、对手、预算、选择规则后再选新TEST；计入warm与全流程成本。 |
