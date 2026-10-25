@@ -93,7 +93,7 @@ def supervise(a):
                     else:verify(snap,uuid)
                     if time.monotonic()-start>180:raise TimeoutError('Runner did not establish exact context')
                 if c.get('thermal_telemetry_required') and time.monotonic()-thermal_at>=30:
-                    from wcomr.policy_generator_r1.shared106_telemetry import observe as thermal_observe
+                    from wcomr.policy_generator_r1.cost112_telemetry import observe as thermal_observe
                     thermal=thermal_observe(uuid);thermal_at=time.monotonic()
                 monitor.append(dict(snapshot=snap,context_granted=granted,monotonic_elapsed=time.monotonic()-start))
                 if thermal is not None:monitor[-1]['thermal']=thermal
