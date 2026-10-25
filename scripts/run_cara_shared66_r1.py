@@ -44,6 +44,8 @@ def main():
  fit=card['CAL_FIT_members'];assert len(fit)==4
  samples=dict(zip(fit,[InferenceArguments(**r) for r in base['requests']]))
  pp=dict(card['profile']);pp['protected_dense']=tuple(pp['protected_dense']);pp['alpha_candidates']=tuple(pp['alpha_candidates']);profile=Profile(**pp)
+ # Validate the actual frozen request objects for all slots before expensive model loading.
+ Requests(inference=None,samples=samples,profile=profile,roles=card['roles'],schedules=card['schedules'],common={}).validate_slots(card['matrix'])
  setup=SetupArguments(**{**read(a.stage/'configs/f1_setup.json'),'keep_going':True,'worldcache_enabled':True,'output_dir':str(out)})
  assert not setup.disable_guardrails and not setup.use_torch_compile and not setup.offload_diffusion_model
  state=dict(status='SHARED66_MODEL_LOADING',pid=os.getpid(),source_revision=a.source_revision,config_sha256=sha(a.stage/CONFIG),
