@@ -18,7 +18,11 @@ base.mkdir(mode=0o700);out.mkdir(mode=0o700);journal.parent.mkdir(mode=0o700)
 fd=os.open(image,os.O_CREAT|os.O_EXCL|os.O_RDWR,0o600)
 try:os.posix_fallocate(fd,0,32*2**30);os.fsync(fd)
 finally:os.close(fd)
-subprocess.run(['/usr/sbin/mkfs.ext4','-q','-F','-E','nodiscard','-m','0',str(image)],check=True,capture_output=True,timeout=60)
+subprocess.run(['/usr/sbin/mkfs.ext4','-q','-F','-E','nodiscard,lazy_itable_init=0,lazy_journal_init=0','-m','0',str(image)],check=True,capture_output=True,timeout=60)
+# Formatting/zeroing can punch holes through loop backing. Reserve after it.
+fd=os.open(image,os.O_RDWR)
+try:os.posix_fallocate(fd,0,32*2**30);os.fsync(fd)
+finally:os.close(fd)
 def sudo(args):
  r=subprocess.run(['sudo','-S','-p','']+args,input=password+'\n',text=True,capture_output=True,timeout=45)
  if r.returncode:raise RuntimeError('Selected private storage operation failed: '+args[0])

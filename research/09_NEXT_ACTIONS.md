@@ -2,28 +2,26 @@
 
 # CARA-Cache 后续实验顺序
 
-**CAL66冻结参数适配已修复，新的真实参数链CPU验收通过；GPU未重跑。** 原α、强基线与66路径不变。完整恢复预计6.880951 GPUh、单卡上限8、累计226及最终部署预算不变。新R2执行身份/注册与fresh准入留待实际启动；本轮没有GPU预约或授权。
+**CAL66 R2已获执行授权、准备完成，目前等待空闲GPU。** 四卡最近快照均有进程；完整准入已通过源码、质量资源、磁盘与账本检查，所查GPU仍忙。未提交GPU、未新增8小时预约。
 
-[修复与漏检归因](699_CARA_CAL66_FROZEN_ADAPTER_REPAIR_CPU_ACCEPTED_AND_RECOVERY_QUOTE_20261025.md) · [完整恢复方案](../plans/cara_policy_generator_20261020/CAL66_FROZEN_REQUEST_RECOVERY_R2_20261025.md) · [独立合并审核](../reports/cara_CAL66_frozen_recovery_preparation_accepted_r2_20261025.json)
+新R2身份和报价CPU接受，原α、强基线与66路径不变；预计6.880951 GPUh、单卡上限8、累计226及最终部署预算不变。原R1失败0/66与已结算0.484959 GPUh保留。
 
-**CAL66已提前失败退出，0/66路径完成。** 2026-10-25 18:49:06 +08:00，模型加载后的首请求尝试修改冻结的InferenceArguments.seed，触发ValidationError。未进入后续采集与CPU评分；原α、强基线、66分母和预算不变。
+本聊天每30分钟检查空闲卡准入，成功启动后按实际时间绑定半程与全程验收；预计启动后3小时27分半程、6小时53分采集结束、约11小时36分含评分。当前没有实际完成日期。
 
-精确结算0.484959 GPUh，原预约已释放；四个原句柄退出、设备锁释放，GPU模式恢复。磁盘保护及跨盘账单完整。原半程与完整验收检查已取消，旧完成ETA失效；没有重跑。
-
-[技术失败与费用记录](698_CARA_CAL66_EARLY_FAILURE_TECHNICAL_AND_FINANCE_20261025.md) · [原失败终态](../reports/cara_CAL66_failed_terminal_20261025_2002.json) · [独立财务核验](../reports/cara_CAL66_failed_financial_audit_20261025_2006.json)
+[R2执行准备与接续](700_CARA_CAL66_R2_BOUND_CPU_STORAGE_AND_IDLE_GPU_ADMISSION_20261025.md) · [唯一新stage](../reports/cara_CAL66_R2_GPU_stage_20261025.json) · [准入原件](../reports/cara_CAL66_R2_preflight_after_storage_repair_20261025.json)
 
 | 顺序 | 当前阶段 | 下一项验收 / 动作 |
 |---|---|---|
-| PG-SHARED-CAL66 | CAL66：刷新位置、原phase修正与尾部停用：CAL66原失败保留；冻结适配CPU已接受，未重跑 | 修复CPU与完整报价已接受；用户本轮要求不重跑，等待恢复执行指示及新注册/fresh准入。 |
+| PG-SHARED-CAL66 | CAL66：刷新位置、原phase修正与尾部停用：CAL66 R2准备已接受并获执行授权，等待空闲卡 | 资源空闲且fresh准入通过后，按本次授权独占一张卡单次执行；不重派旧R1。 |
 | PG-P2 | 等预算与等查询强基线：五原模型CPU可复用；P2整卡绑定及完整五指标视频评分待确认 | Shared探索后冻结一个方法/预算档；新输入增量核查，少步Native与独立质量共同确认。 |
 | PG-P3 | 固定程序跨预算/模型：条件性后续 | P1/P2后先0.70×Native，再成熟第二模型或明确第二设置重新校准。 |
 | PG-P4 | 最终独立TEST与部署评价：待方法冻结 | 冻结方法、对手、预算、选择规则后再选新TEST；计入warm与全流程成本。 |
 
 ## 本轮授权范围与下一步
 
-原CAL66已失败并结算，用户本轮要求修复、CPU验证与完整恢复报价，**先不重跑GPU**。修复和新真实冻结参数链CPU已接受，见[699](699_CARA_CAL66_FROZEN_ADAPTER_REPAIR_CPU_ACCEPTED_AND_RECOVERY_QUOTE_20261025.md)；完整66恢复预计6.880951GPUh，上限8，累计226和最终部署预算不变。
+用户已授权新的完整CAL66 R2独占执行及半程/最终验收。新R2身份、真实参数链和监督/存储CPU、stage与磁盘保护已接受，当前等待空闲GPU；每30分钟检查准入，见[700](700_CARA_CAL66_R2_BOUND_CPU_STORAGE_AND_IDLE_GPU_ADMISSION_20261025.md)。原R1失败已结算，不重放；新卡预计6.880951GPUh，上限8，累计226和最终部署预算不变。
 
-下一次执行需新R2身份/注册绑定新CPU闭包和恢复报价，fresh独占/磁盘/账本准入；不直接重放R1。原α、强基线、历史桥接、释放后评分范围保留，未改组件按SHA复用；旧生产入口接受已被新冻结参数证据替代。完整CAL结果后按冻结规则选一个主工作点，首次DEV前做增量曝光审计并重新报价128请求；不承诺其必然装入12GPUh规划池。
+空闲卡通过fresh源码/资源/账本核验后单次启动。已有intent或UNKNOWN只恢复原句柄，不重复prepare/provision/launch。半程与全程检查绑定新launch实际起点；完整接受后按原冻结合同选一个主工作点，首次DEV前做增量曝光审计并重新报价128请求；不承诺其必然装入12GPUh规划池。
 
 若新DEV正向，新增工作点优先20D；构造规则迁移优先同模型换步数，并包含仅传播先验与缩放模板。WC保持官方工作点，RA在预登记CAL有限阈值网格对齐时间。所有新卡独立报价，不放宽累计226和最终部署预算。
 

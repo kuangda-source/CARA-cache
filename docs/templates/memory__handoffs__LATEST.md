@@ -10,7 +10,7 @@
 
 ## 当前用户授权
 
-本轮只修复/验证/报价，用户明确先不重跑；见[699](repo:research/699_CARA_CAL66_FROZEN_ADAPTER_REPAIR_CPU_ACCEPTED_AND_RECOVERY_QUOTE_20261025.md)和[恢复方案](repo:plans/cara_policy_generator_20261020/CAL66_FROZEN_REQUEST_RECOVERY_R2_20261025.md)。此前一次完整CAL66授权已执行并失败，不自动授权重放。单卡8GPUh、累计226与最终部署预算不变。
+用户已授权按完整R2方案独占执行、估时并安排半程/最终验收。新stage及CPU/磁盘准备接受，目前等待空闲GPU；已建立每30分钟准入检查，见[700](repo:research/700_CARA_CAL66_R2_BOUND_CPU_STORAGE_AND_IDLE_GPU_ADMISSION_20261025.md)。新R2单次执行上限8GPUh，累计226与最终部署预算不变；原R1失败不重放。
 
 - 原CAL66已失败并结算（见698），下列为保留的原范围：13正式角色×4输入、6重复、6warm、2历史桥接，共66；预计6.478451、上限8GPUh，该原授权已执行。原α、β、强基线身份不变；20D后置但新DEV正向后优先补齐。
 - 原CAL106入口与组合CPU接受保留，旧106不派发。旧60路径入口漏检冻结类，已由f35c826d真实参数链CPU替代；历史原件RGB及48/156评分终态组合未改部分按323bb2a1源码SHA复用；五原模型前向和93帧三指标探针均已独立接受，完整合并复核与质量绑定见695；52视频质量外推加旧LPIPS、50%余量及600秒准备约4.72小时，CPU6小时上限不变，不是整批实测。

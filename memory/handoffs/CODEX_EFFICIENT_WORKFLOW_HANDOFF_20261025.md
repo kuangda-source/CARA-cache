@@ -2,6 +2,8 @@
 
 2026-10-25。用户已授权修改流程、模板、交接和问题队列，提交GitHub，并推进新输入池增量审计与最小入口。没有新增GPU授权、预算或当前卡变更。
 
+**最新执行授权：用户已要求按方案独占运行新R2；CPU/stage/磁盘均准备好，当前等待空闲卡，自动检查cara-cal66-r2每30分钟接续。见[700](../../research/700_CARA_CAL66_R2_BOUND_CPU_STORAGE_AND_IDLE_GPU_ADMISSION_20261025.md)。不要重复prepare/provision，已有intent只恢复原句柄。**
+
 **最新准备：冻结请求适配已修复，新真实类CPU链完整接受，恢复报价6.880951GPUh（上限8）。用户明确先不重跑，见[699](../../research/699_CARA_CAL66_FROZEN_ADAPTER_REPAIR_CPU_ACCEPTED_AND_RECOVERY_QUOTE_20261025.md)与[完整恢复方案](../../plans/cara_policy_generator_20261020/CAL66_FROZEN_REQUEST_RECOVERY_R2_20261025.md)。旧R1入口接受已被新证据替代，未改监督/评分组件按SHA复用。**
 
 **最新技术状态覆盖（20:03观察）：CAL66已于18:49:06失败退出，0/66完成；冻结InferenceArguments.seed修改异常，精确结算0.484959 GPUh。原半程/最终检查已删除，未重跑。见[698](../../research/698_CARA_CAL66_EARLY_FAILURE_TECHNICAL_AND_FINANCE_20261025.md)。以下启动与检查时间保留为历史安排。**

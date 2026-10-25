@@ -74,11 +74,11 @@ class FrozenAcceptance(unittest.TestCase):
         self.v['proof']['sha256'] = '0' * 64
         with self.assertRaises(ValueError): accept(self.v)
 
-    def test_reuse_only_unchanged_components_and_never_gpu_permission(self):
-        v = audit(CAPTURE, ACCEPTED, QUOTE)
-        self.assertTrue(v['old_entry_acceptance_superseded'])
-        self.assertFalse(v['GPU_dispatch_ready']); self.assertFalse(v['new_GPU_authorization'])
-        self.assertEqual(v['registered_paths'], 66)
-        self.assertEqual(len(v['repaired_source_sha256']), 3)
+    def test_old_reuse_guard_requires_new_identity_CPU(self):
+        # R2 identity/quote is an intentional new change after this entry proof.
+        # The old reuse gate must not silently clear it; its separate server CPU
+        # proof is required by audit_cara_cal66_recovery_launch_cpu_r2 instead.
+        with self.assertRaisesRegex(AssertionError, 'Unvalidated component changed'):
+            audit(CAPTURE, ACCEPTED, QUOTE)
 
 if __name__ == '__main__': unittest.main()

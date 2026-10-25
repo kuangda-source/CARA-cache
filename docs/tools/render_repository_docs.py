@@ -668,6 +668,29 @@ def build():
             run_details+='\n| 修复准备 | 66槽位预检、60真实冻结类数值CPU路径与失败边界接受；无新GPU |'
             active66['reader']['next_action']='修复CPU与完整报价已接受；用户本轮要求不重跑，等待恢复执行指示及新注册/fresh准入。'
             active66['reader']['evidence_refs']=list(dict.fromkeys(active66['reader']['evidence_refs']+[recovery66['report_ref'],recovery66['acceptance_ref']]))
+    r2=status.get('CAL66_R2_execution')
+    if r2 and r2['state']=='AUTHORIZED_WAITING_IDLE_GPU':
+        staged=load(r2['stage_ref']);permission=load(r2['authorization_ref']);gate=load(r2['preflight_ref']);cpu=load(r2['CPU_acceptance_ref'])
+        if (permission['registration_sha256']!=staged['registration_sha256'] or not permission['explicit_GPU_dispatch_authorized']
+                or not cpu['production_CPU_accepted'] or cpu['registered_paths']!=66
+                or gate['admissible'] or gate['reasons']!=['GPU_BUSY'] or gate['GPU_submissions']):
+            raise ValueError('R2 waiting status must bind CPU, authorization and actual resource gate')
+        snapshot=('**CAL66 R2已获执行授权、准备完成，目前等待空闲GPU。** 四卡最近快照均有进程；完整准入已通过源码、质量资源、磁盘与账本检查，所查GPU仍忙。未提交GPU、未新增8小时预约。\n\n'
+            '新R2身份和报价CPU接受，原α、强基线与66路径不变；预计6.880951 GPUh、单卡上限8、累计226及最终部署预算不变。原R1失败0/66与已结算0.484959 GPUh保留。\n\n'
+            '本聊天每30分钟检查空闲卡准入，成功启动后按实际时间绑定半程与全程验收；预计启动后3小时27分半程、6小时53分采集结束、约11小时36分含评分。当前没有实际完成日期。\n\n'
+            +link(r2['report_ref'],'R2执行准备与接续')+' · '+link(r2['stage_ref'],'唯一新stage')+' · '+link(r2['preflight_ref'],'准入原件'))
+        run_details=('| 字段 | R2当前准备状态 |\n|---|---|\n'
+            '| 完整范围 | 原66路径，48组LPIPS、156质量位置，GPU释放后评分 |\n'
+            '| CPU | 实际R2身份/报价/监督10情景/存储6情景/60终态检查通过 |\n'
+            '| GPU | 等待真正空闲卡；尚无GPU launch |\n'
+            '| 磁盘 | 新32GiB私有卷和48MiB跨盘日志，空卷稀疏预留问题已修复并复验 |\n'
+            '| 预算 | 新卡预计6.880951/上限8GPUh，累计226不变；未预留 |\n'
+            '| 自动接续 | cara-cal66-r2每30分钟查准入，启动后绑定半程/终态 |')
+        active66=by_id['PG-SHARED-CAL66'];active66['state']=status['active_state']
+        active66['reader'].update(status=status['active_state_zh'],next_action='资源空闲且fresh准入通过后，按本次授权独占一张卡单次执行；不重派旧R1。')
+        active66['reader']['evidence_refs']=list(dict.fromkeys(active66['reader']['evidence_refs']+[r2['report_ref'],r2['stage_ref'],r2['preflight_ref']]))
+        master['operation_policy'].update(current_running_card=None,current_running_cards=[],snapshot_observed_at=gate['observed_unix'])
+        master['status_counts']={state:sum(r['state']==state for r in rows) for state in sorted({r['state'] for r in rows})}
     headlines = '\n'.join(f"- **{f['title']}**（{f['short_scope']}）：{f['result']} {refs(f['refs'])}"
                            for f in status['headline_results'])
     details = '\n\n'.join(f"### {i+1}. {f['title']}\n\n{f['result']}\n\n{f['scope']} {refs(f['refs'])}"
