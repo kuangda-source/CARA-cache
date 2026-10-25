@@ -1,0 +1,24 @@
+{
+  "observed_unix": 1792940516.3283715,
+  "GPUs": "0, GPU-de9a5370-cd87-0f1c-a48e-288888777dd3, NVIDIA RTX A6000, 405 MiB, Default\n1, GPU-cebf7119-cf03-23b9-e192-cd196332b704, NVIDIA RTX A6000, 24 MiB, Default\n",
+  "apps": "",
+  "CPU_state": {
+    "Status": "running",
+    "Running": true,
+    "Paused": false,
+    "Restarting": false,
+    "OOMKilled": false,
+    "Dead": false,
+    "Pid": 3753221,
+    "ExitCode": 0,
+    "Error": "",
+    "StartedAt": "2026-10-25T14:56:35.234825578Z",
+    "FinishedAt": "0001-01-01T00:00:00Z"
+  },
+  "CPU_log_tail": "d-W1-collection:558:worldcache_mini_train_dit_forward] [WorldCache Summary] Skipped 24/70 steps (34.3%) | MotionSens=5.0\n{\"status\": \"SHARED_CAL66_FROZEN_ENTRY_CPU_R2_COMPLETE_NOT_GPU\", \"CPU_wall_seconds\": 146.13825869560242}\n............................................................\n----------------------------------------------------------------------\nRan 60 tests in 30.806s\n\nOK\n/data20t/gaokuangda/worldcache_workspace/cache/cara-pg-p2-quality-r1/dependency-overlay/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers\n  warnings.warn(f\"Importing from {__name__} is deprecated, please import via timm.layers\", FutureWarning)\n/data20t/gaokuangda/worldcache_workspace/.sync/cara-pg-p2-quality-CPU-cal66-r1-20261025/src/wcomr/imaging_quality.py:12: UserWarning: The given NumPy array is not writable, and PyTorch does not support non-writable tensors. This means writing to this tensor will result in undefined behavior. You may want to copy the array to protect its data or make it writable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at /pytorch/torch/csrc/utils/tensor_numpy.cpp:203.)\n  image = torch.from_numpy(np.ascontiguousarray(rgb)).permute(2, 0, 1).unsqueeze(0).float()\nLoading pretrained model MUSIQ from /data20t/gaokuangda/worldcache_workspace/cache/cara-pg-p2-quality-r1/MUSIQ_SPAQ.pth\n\n  0%|          | 0/1 [00:00<?, ?it/s]",
+  "quality_files": [
+    "fixture93.mp4",
+    "MUSIQ_LONGER512.raw.json"
+  ],
+  "GPU_submissions": 0
+}
