@@ -1,8 +1,10 @@
 """New A6000 stage and full affected CPU entry. Never launches a GPU task."""
 import argparse
+import ast
 import base64
 import hashlib
 import json
+import re
 from pathlib import Path
 import subprocess
 import sys
@@ -19,6 +21,24 @@ EXTRA = ['scripts/check_cara_cal66_a6000_cpu_r1.py', 'scripts/cara_cal66_a6000_p
          'tests/test_cara_cal66_a6000_profile_r1.py', 'scripts/check_cara_cal66_entry_cpu_r2.py',
          'tests/check_cara_cal66_sampling_cpu_r2.py', 'tests/test_cara_pg_p2_production_batch.py',
          'scripts/check_wc_policy_price_refresh_cpu_r1.py', QUOTE]
+
+
+def cpu_source_names():
+    """Include literal dynamic sibling loaders as well as ordinary imports."""
+    from wcomr.immutable_stage_payload_r1 import local_python_closure
+    names=set(ADAPTED+EXTRA)
+    while True:
+        old=set(names)
+        names.update(local_python_closure(ROOT,[n for n in names if n.endswith('.py')]))
+        for name in list(names):
+            if not name.endswith('.py'):continue
+            for node in ast.walk(ast.parse((ROOT/name).read_text())):
+                if isinstance(node,ast.Constant) and isinstance(node.value,str):
+                    value=node.value
+                    if re.fullmatch(r'[A-Za-z_]\w*(?:\.py)?',value):
+                        sibling=Path(name).parent/(value if value.endswith('.py') else value+'.py')
+                        if (ROOT/sibling).is_file():names.add(str(sibling))
+        if old==names:return names
 
 PREPARE = r'''
 import pathlib,sys,json,base64,hashlib,subprocess,time,os,shutil
@@ -96,7 +116,7 @@ def main():
         files={};hashes={};evidence=[]
         sys.path.insert(0,str(ROOT/'src'))
         from wcomr.immutable_stage_payload_r1 import local_python_closure
-        names=set(ADAPTED+EXTRA)|set(local_python_closure(ROOT,[n for n in EXTRA if n.endswith('.py')]))
+        names=cpu_source_names()
         for n in sorted(names):
             raw=(ROOT/n).read_bytes()
             assert subprocess.check_output(['git','show',rev+':'+n],cwd=ROOT)==raw,'Commit exact source first'

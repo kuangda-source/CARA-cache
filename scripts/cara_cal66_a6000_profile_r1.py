@@ -5,7 +5,7 @@ from pathlib import Path
 
 RUN = 'cara-shared-cal66-a6000-r1'
 VERSION = 'CARA_SHARED66_A6000_R1'
-STAGE = 'cara-shared66-full-a6000-r2-20261025'
+STAGE = 'cara-shared66-full-a6000-r3-20261025'
 QUOTE = 'manifests/cara_CAL66_A6000_whole_quote_r1_20261025.json'
 QUOTE_SHA = '190dd6d5eb105bde2d4be3af248e0d60d904acd9049706fd35d9fc746233ca8c'
 

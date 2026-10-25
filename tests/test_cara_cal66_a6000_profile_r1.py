@@ -70,5 +70,13 @@ class ProfileTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             adapt('scripts/run_cara_shared66_r1.py', '# unexpected')
 
+    def test_actual_cpu_dynamic_sampler_dependencies_and_fresh_output(self):
+        sys.path.insert(0,str(ROOT/'src'))
+        from wc_two_card_cara_cal66_cpu_r1 import cpu_source_names,PREPARE
+        names=cpu_source_names()
+        for name in ('check_cara_pg_production_sampling_cpu_r1','check_partial_mlp_guided_sampling_cpu_r1','check_rv0_video_actions_cpu','check_full_sampling'):
+            self.assertIn('tests/'+name+'.py',names)
+        self.assertIn("names.difference_update({'shared66-recovery-CPU.json','pg-independent-CPU-acceptance.json'})",PREPARE)
+
 
 if __name__ == '__main__': unittest.main()
