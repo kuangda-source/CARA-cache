@@ -6,11 +6,11 @@
 
 **当前推进Shared-CAL106探索准备，GPU未启动。** Shared24/25通用构造、原α与强基线已绑定；唯一激进档20D，少步Native26/28/30。新生产入口76条CPU采样路径完整接受，48组新输入通过范围内曝光核查。
 
-完整106路径：76正式、20计时重复、8warm、2诊断；预计9.971317 GPUh，拟上限11.5 GPUh，未预留。累计226 GPUh及最终min(257.771秒,0.8×新Native)不变。整卡监督/释放后评分/终态组合和质量资源CPU仍须完成；入口CPU不代表GPU准入。
+完整106路径：76正式、20计时重复、8warm、2诊断；预计9.971317 GPUh，拟上限11.5 GPUh，未预留。累计226 GPUh及最终min(257.771秒,0.8×新Native)不变。整卡监督、释放后评分与终态组合CPU已接受；独立质量模型资源CPU仍待完成，不能据组合通过启动GPU。
 
 用户已授权新的探索/确认合同：探索不再以前一计时模型的2秒门为前置，最终方法仍须独立实测预算确认。旧104/112计时失败和原P1空选择保留，新的纯计时卡与GRAPH102暂缓。
 
-[本轮准备与验收](../research/692_CARA_SHARED_EXPLORATION_CONTRACT_POOL_AND_CPU_20261025.md) · [探索/确认合同](../plans/cara_policy_generator_20261020/EXPLORATION_CONFIRMATION_CONTRACT_R1_20261025.md) · [入口CPU接受](../reports/cara_shared_CAL106_CPU_accepted_r1_20261025.json) · [完整范围与报价](../manifests/cara_shared_CAL106_scope_quote_r1_20261025.json)
+[本轮准备与验收](../research/693_CARA_CAL106_COMBINATION_CPU_ACCEPTED_AND_QUOTE_RECHECK_20261025.md) · [探索/确认合同](../plans/cara_policy_generator_20261020/EXPLORATION_CONFIRMATION_CONTRACT_R1_20261025.md) · [入口CPU接受](../reports/cara_shared_CAL106_CPU_accepted_r1_20261025.json) · [完整范围与报价](../manifests/cara_shared_CAL106_scope_quote_r1_20261025.json) · [组合CPU接受](../reports/cara_shared_CAL106_combination_CPU_accepted_r3_20261025.json)
 
 | 需要的材料 | 入口 |
 |---|---|

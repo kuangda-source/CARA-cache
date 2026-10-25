@@ -3,7 +3,7 @@
   "project": "CARA-Cache",
   "evidence_observed_at": "2026-10-23T08:26:41.422652+08:00",
   "timezone": "Asia/Shanghai",
-  "snapshot_note": "Shared探索入口CPU和48组曝光核查已接受；不启动GPU。",
+  "snapshot_note": "Shared-CAL106入口及整卡组合CPU接受；独立质量模型CPU待完成；GPU提交和预约均为0。",
   "research_summary": "新主线先检验Shared24/25与20D、少步Native及历史强基线。探索与最终部署预算确认分开；48组新输入通过范围内曝光核查，GPU未授权未启动。",
   "active_experiment_id": "PG-P1",
   "active_state": "PG_P1_TERMINAL_ACCEPTED_NO_BUDGET_FEASIBLE_SELECTION",
@@ -103,12 +103,12 @@
   "resource_observation_ref": "reports/cara_PG_P1_full64_GPU_initial_health_20261023_2029.json",
   "actual_original_GPUh": 6.900543598864331,
   "budget_snapshot": {
-    "used_gpu_hours": 147.99594373601028,
-    "reserved_gpu_hours": 28.4,
-    "available_gpu_hours": 49.604056263989726,
+    "used_gpu_hours": 156.1354543951237,
+    "reserved_gpu_hours": 16.5,
+    "available_gpu_hours": 53.3645456048763,
     "cap_gpu_hours": 226,
-    "observed_at": "2026-10-25T01:16:54.241596+08:00",
-    "source_ref": "reports/cara_cost112_GPU_live_health_r1_20261025.json"
+    "observed_at": "2026-10-25T15:37:14.573433+08:00",
+    "source_ref": "reports/cara_CAL106_budget_readonly_20261025.json"
   },
   "price_refresh_CPU": {
     "launch_ref": "reports/wc_policy_price_refresh_full1624_CPU_launch_r1_20261023.json",
@@ -498,8 +498,8 @@
     "automation_deleted": true
   },
   "shared_exploration_preparation": {
-    "status": "ENTRY_CPU_ACCEPTED_NO_GPU_AUTHORITY",
-    "report_ref": "research/692_CARA_SHARED_EXPLORATION_CONTRACT_POOL_AND_CPU_20261025.md",
+    "status": "COMBINATION_CPU_ACCEPTED_QUALITY_MODELS_PENDING_NO_GPU",
+    "report_ref": "research/693_CARA_CAL106_COMBINATION_CPU_ACCEPTED_AND_QUOTE_RECHECK_20261025.md",
     "contract_ref": "plans/cara_policy_generator_20261020/EXPLORATION_CONFIRMATION_CONTRACT_R1_20261025.md",
     "quote_ref": "manifests/cara_shared_CAL106_scope_quote_r1_20261025.json",
     "pool_ref": "plans/cara_policy_generator_20261020/NEW_INPUT_POOL48_R1_20261025.json",
@@ -511,6 +511,16 @@
     "CPU_terminal_ref": "reports/cara_shared_CAL106_CPU_terminal_r1_20261025.json",
     "CPU_acceptance_ref": "reports/cara_shared_CAL106_CPU_accepted_r1_20261025.json",
     "production_entry_CPU_accepted": true,
-    "full_GPU_lifecycle_accepted": false
+    "full_GPU_lifecycle_accepted": true,
+    "combination_report_ref": "research/693_CARA_CAL106_COMBINATION_CPU_ACCEPTED_AND_QUOTE_RECHECK_20261025.md",
+    "combination_CPU_launch_ref": "reports/cara_shared_CAL106_combination_CPU_launch_r3_20261025.json",
+    "combination_CPU_terminal_ref": "reports/cara_shared_CAL106_combination_CPU_terminal_r3_20261025.json",
+    "combination_CPU_acceptance_ref": "reports/cara_shared_CAL106_combination_CPU_accepted_r3_20261025.json",
+    "full_GPU_lifecycle_CPU_accepted": true,
+    "independent_quality_models_CPU_accepted": false,
+    "quote_recheck_ref": "reports/cara_shared_CAL106_whole_quote_recheck_r1_20261025.json",
+    "quality_resource_preflight_ref": "reports/cara_CAL106_quality_resource_preflight_20261025.json",
+    "budget_readonly_ref": "reports/cara_CAL106_budget_readonly_20261025.json",
+    "evidence_observed_at": "2026-10-25T15:56:51.836802+08:00"
   }
 }

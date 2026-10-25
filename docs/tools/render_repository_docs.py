@@ -505,6 +505,21 @@ def build():
         run_details = ('| 当前准备字段 | 内容 |\n|---|---|\n'
             f"| CPU source | `{sa['source_revision']}` |\n| CPU stage | `{sc['launch']['stage']}` |\n"
             '| CPU资源 | 1CPU / 4GiB / GPU隐藏，已退出0 |\n| GPU提交 / 预算预留 | 0 / 0 |')
+    if shared and shared.get('combination_CPU_acceptance_ref'):
+        ca=load(shared['combination_CPU_acceptance_ref']);cc=load(shared['combination_CPU_terminal_ref'])
+        if (not ca['full_GPU_lifecycle_CPU_accepted'] or not ca['post_CPU_resource_limits_verified']
+                or not ca['original_scoring_failure_receipts_retained']
+                or ca['capture_sha256']!=digest((ROOT/shared['combination_CPU_terminal_ref']).read_bytes())['sha256']
+                or ca['source_revision']!=cc['launch']['source_revision']
+                or ca['registered_paths']!=106 or ca['independent_quality_positions']!=228
+                or ca['GPU_dispatch_ready'] or ca['independent_quality_models_CPU_accepted']):
+            raise ValueError('CAL106 combination CPU evidence differs')
+        snapshot=snapshot.replace('整卡监督/释放后评分/终态组合和质量资源CPU仍须完成；入口CPU不代表GPU准入。',
+            '整卡监督、释放后评分与终态组合CPU已接受；独立质量模型资源CPU仍待完成，不能据组合通过启动GPU。')
+        snapshot+=' · '+link(shared['combination_CPU_acceptance_ref'],'组合CPU接受')
+        by_id['PG-SHARED-CAL106']['reader'].update(status='入口与整卡组合CPU已接受；模型CPU待完成；GPU未启动',
+            next_action='补齐独立质量模型资源和真实CPU；本轮不启动GPU，报价与原预算不变。')
+        run_details+=f"\n| 组合CPU source | `{ca['source_revision']}` |\n| 组合CPU stage | `{cc['launch']['stage']}` |\n| 组合边界 | 106位置/72配对/228独立指标调度；真实93帧LPIPS；独立质量模型未加载 |"
     headlines = '\n'.join(f"- **{f['title']}**（{f['short_scope']}）：{f['result']} {refs(f['refs'])}"
                            for f in status['headline_results'])
     details = '\n\n'.join(f"### {i+1}. {f['title']}\n\n{f['result']}\n\n{f['scope']} {refs(f['refs'])}"
