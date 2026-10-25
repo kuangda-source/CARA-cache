@@ -105,12 +105,19 @@ def build():
                     or accepted.get('full_protocol_accepted') is not True):
                 raise ValueError('Terminal status must bind actual complete acceptance')
     if health is None:
-        raise ValueError('A saved technical health or original terminal runner is required')
-    progress = (f"{health['completed_paths']}/{health['registered_paths']}路径完成、"
-                f"{health['running_paths']}运行、{health['not_reached_paths']}未到达、"
-                f"{health['failed_paths']}失败")
-    if health.get('active_path'):
-        progress += f"；当前路径`{health['active_path']}`"
+        if status.get('CAL66_GPU'):
+            admission=load(status['CAL66_GPU']['admission_ref'])
+            if not admission.get('actual_unique_runner_accepted') or admission['launch_id']!=launch['launch_id']:
+                raise ValueError('Loading snapshot requires original unique runner proof')
+            progress='原runner上下文已核验；尚未写出路径完成量'
+        else:
+            raise ValueError('A saved technical health or original terminal runner is required')
+    else:
+        progress=(f"{health['completed_paths']}/{health['registered_paths']}路径完成、"
+                  f"{health['running_paths']}运行、{health.get('not_reached_paths', health['registered_paths']-health['completed_paths']-health['running_paths']-health['failed_paths'])}未到达、"
+                  f"{health['failed_paths']}失败")
+        if health.get('active_path'):
+            progress+=f"；当前路径`{health['active_path']}`"
     active['reader']['result'] = f"生产CPU已接受；GPU启动于{local_time(launch['started_unix'])}。快照：{progress}。"
     if status.get('terminal_acceptance_ref'):
         active['reader']['result'] = (f"原完整卡已接受；实际{accepted['finance']['actual_GPUh']:.6f} GPUh。"
@@ -129,14 +136,17 @@ def build():
         '| **A：修正缓存读出** | 用当前浅层增量与过去真实D锚点修正，CFG两支共享强度 | 以较小额外成本降低读出误差 |',
         '| **D：完整刷新** | 两CFG支均进行完整深层计算，更新真实锚点 | 支付计算成本，获得当前真实深层结果 |'])
     schedule = '；'.join(f"{c['kind']}：**{c['scheduled_local']}**" for c in status['next_checks'])
-    snapshot = (f"**已保存的实验观测：{status['evidence_observed_at']}（Asia/Shanghai）。** "
-                f"{status['active_state_zh']}。{progress}。\n\n"
-                f"范围：{scope['requests']} CAL / {scope['formal_source_time_cells']}正式区间格 / "
-                f"{scope['total_paths']}完整路径（{scope['formal_paths']}正式+{scope['full_warmup_paths']}warm）/ "
-                f"{scope['total_collected_source_time_cells']}总格 / {scope['total_readout_pair_trials']}读出试验；"
-                f"整卡上限{launch['billed_limit_GPUh']} GPUh。{schedule}。\n\n"
-                f"{link(status['run_report_ref'], '本卡完整记录')} · {link(status['observation_ref'], '观测原件')} · "
-                f"{link('research/02_CURRENT_STATE.md', '当前状态')}。{status['snapshot_note']}")
+    if status.get('CAL66_GPU'):
+        snapshot=f"CAL66完整{scope['total_paths']}路径；{progress}。{schedule}。"
+    else:
+        snapshot = (f"**已保存的实验观测：{status['evidence_observed_at']}（Asia/Shanghai）。** "
+                    f"{status['active_state_zh']}。{progress}。\n\n"
+                    f"范围：{scope['requests']} CAL / {scope['formal_source_time_cells']}正式区间格 / "
+                    f"{scope['total_paths']}完整路径（{scope['formal_paths']}正式+{scope['full_warmup_paths']}warm）/ "
+                    f"{scope['total_collected_source_time_cells']}总格 / {scope['total_readout_pair_trials']}读出试验；"
+                    f"整卡上限{launch['billed_limit_GPUh']} GPUh。{schedule}。\n\n"
+                    f"{link(status['run_report_ref'], '本卡完整记录')} · {link(status['observation_ref'], '观测原件')} · "
+                    f"{link('research/02_CURRENT_STATE.md', '当前状态')}。{status['snapshot_note']}")
     followup = status.get('price_refresh_CPU')
     if followup:
         fl = load(followup['launch_ref'])
@@ -164,7 +174,7 @@ def build():
                 ('启动时间', local_time(launch['started_unix'])),
                 ('注册SHA256', launch['registration_sha256']), ('配置SHA256', launch['config_sha256']),
                 ('CPU证明SHA256', launch['production_CPU_sha256'])]
-    for role, identity in observation['original_processes'].items():
+    for role, identity in observation.get('original_processes', {}).items():
         saved_key = {'supervisor': 'supervisor_identity', 'runner': 'child_identity', 'post': 'post_identity'}.get(role)
         saved = observation.get('supervisor', {}).get(saved_key, {})
         ticks = identity.get('start_ticks')
@@ -177,7 +187,7 @@ def build():
     run_details += (f"\n\n{link(status['launch_ref'], '唯一启动原件')} · "
                     f"{link(status['cpu_acceptance_ref'], 'CPU完整接受')} · "
                     f"{link(status['admission_ref'], '准入与检查安排')}\n\n"
-                    f"{scope['ordinary_pairs']}普通pairs / {scope['ordinary_CFG_calls']}CFG / {scope['loads']}次模型加载。"
+                    f"{scope.get('ordinary_pairs', scope.get('guided_pairs'))}pairs / {scope.get('ordinary_CFG_calls', scope.get('CFG_calls'))}CFG / {scope['loads']}次模型加载。"
                     f"原规划{launch['forecast_GPUh']:.6f} GPUh。")
     if status.get('terminal_acceptance_ref'):
         run_details += (f"实际已结算{accepted['finance']['actual_GPUh']:.6f} GPUh；"
@@ -594,6 +604,28 @@ def build():
             snapshot+=' · '+link(cal66['complete_CPU_preparation_ref'],'完整CPU准备与报价复核')
             run_details=run_details.replace('五模型CPU接受；93帧评分探针推进中','五模型及93帧三指标CPU接受')
             run_details+='\n| CPU评分规划 | 探针与历史LPIPS外推并加余量约4.72小时，原6小时/2CPU/8GiB上限不变；非整批实测 |'
+    cal66_gpu=status.get('CAL66_GPU')
+    if cal66_gpu:
+        launch66=load(cal66_gpu['launch_ref'])
+        if launch66['run_id']!='cara-shared-cal66-ada-r1' or launch66['billed_limit_GPUh']!=8 or launch66['scope_counts']['total_paths']!=66:
+            raise ValueError('CAL66 launch differs from authorized full card')
+        snapshot=('**CAL66完整66路径已单次启动，正在运行。** '+cal66_gpu['started_local']+'，'+cal66_gpu['GPU_label']+'实际硬独占及唯一原runner上下文已核验。'
+            '52正式、6计时重复、6warm、2历史桥接，原α与强基线不变。\n\n'
+            '预计占卡6.48GPUh，单卡硬上限8GPUh；累计226GPUh和最终min(257.7712338712067秒,0.8×fresh Native)不变。'
+            '32GiB私有输出卷和跨盘48MiB控制日志已准入。GPU释放并结算后，执行48组LPIPS/4464帧及52视频×3独立指标，CPU限2核/8GiB/6小时。\n\n'
+            +link(cal66_gpu['launch_ref'],'唯一实际启动')+' · '+link(cal66_gpu['admission_ref'],'硬独占与存储准入')+' · '+link(cal66_gpu['report_ref'],'执行与检查安排'))
+        run_details=('| 当前执行字段 | 内容 |\n|---|---|\n'
+            '| GPU提交 / 新预约 | 1 / 8 GPUh |\n'
+            '| 独占设备 | '+cal66_gpu['GPU_label']+' |\n'
+            '| 半程检查 | '+cal66_gpu['halfway_local']+' |\n'
+            '| 首次收件检查 | '+cal66_gpu['terminal_check_local']+'；若评分未完按原句柄继续 |\n'
+            '| 证据边界 | 当前只有技术准入；不分析部分结果或调参 |')
+        by_id['PG-SHARED-CAL66']['reader'].update(status='GPU已实际硬独占启动，完整结果待收件',next_action='按原launch半程技术检查，GPU释放后CPU评分，再完整独立验收。')
+        by_id['PG-SHARED-CAL66']['state']='GPU_EXCLUSIVE_RUNNING'
+        by_id['PG-SHARED-CAL66']['reader']['result']='完整66路径单次运行；原alpha与强基线、8/226GPUh及最终部署预算不变；暂无新CAL科学结论。'
+        by_id['PG-SHARED-CAL66']['evidence_or_planned_scope']=by_id['PG-SHARED-CAL66']['reader']['result']
+        master['operation_policy'].update(current_running_card='PG-SHARED-CAL66',current_running_cards=['PG-SHARED-CAL66'],active_launch_ref=cal66_gpu['launch_ref'],snapshot_observed_at=cal66_gpu['observed_unix'])
+        master['status_counts']={state:sum(r['state']==state for r in rows) for state in sorted({r['state'] for r in rows})}
     headlines = '\n'.join(f"- **{f['title']}**（{f['short_scope']}）：{f['result']} {refs(f['refs'])}"
                            for f in status['headline_results'])
     details = '\n\n'.join(f"### {i+1}. {f['title']}\n\n{f['result']}\n\n{f['scope']} {refs(f['refs'])}"

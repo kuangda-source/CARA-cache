@@ -2,17 +2,15 @@
 
 # CARA-Cache 后续实验顺序
 
-**下一卡已调整为CAL66，GPU未启动。** 4旧CAL、13正式角色：52正式、6重复、6预热、2历史桥接；Shared24/25保留原α，新增同布局全phase A与age3对照。20D推后，若新DEV为正优先补齐。
+**CAL66完整66路径已单次启动，正在运行。** 2026-10-25 18:19:39 +08:00，GPU2 / GPU-ad5c68cd-890e-b4c1-d0b6-4d80c7d51018实际硬独占及唯一原runner上下文已核验。52正式、6计时重复、6warm、2历史桥接，原α与强基线不变。
 
-完整报价预计6.478451 GPUh，拟上限8 GPUh，未批准执行、未预约。累计226 GPUh及最终min(257.771秒,0.8×新Native)不变。15角色/60路径真实生产入口CPU已接受；66位置整卡监督、历史原件桥接、释放后48/156评分和终态组合CPU已接受；五个原始质量模型CPU与完整93帧三指标探针也已接受；四项CPU证据已独立合并复核，尚无新GPU结果。
+预计占卡6.48GPUh，单卡硬上限8GPUh；累计226GPUh和最终min(257.7712338712067秒,0.8×fresh Native)不变。32GiB私有输出卷和跨盘48MiB控制日志已准入。GPU释放并结算后，执行48组LPIPS/4464帧及52视频×3独立指标，CPU限2核/8GiB/6小时。
 
-CAL106保留为未执行的被替代方案，原入口和组合CPU接受仍有效作为组件复用依据。新输入池完成过范围内来源组审计，首次使用前仍需增量核查。
-
-[设计变更与核查](695_CARA_CAL66_PRODUCTION_COMBINATION_AND_QUALITY_PREPARATION_20261025.md) · [比较及决策合同](../plans/cara_policy_generator_20261020/CAL66_DESIGN_AND_DECISION_CONTRACT_R1_20261025.md) · [66路径与完整报价](../manifests/cara_shared_CAL66_scope_quote_r1_20261025.json) · [本地设计检查](../reports/cara_CAL66_design_local_CPU_20261025.json) · [CAL66生产CPU接受](../reports/cara_CAL66_entry_CPU_accepted_r1_20261025.json) · [CAL66组合CPU接受](../reports/cara_CAL66_combination_CPU_accepted_r3_20261025.json) · [原模型CPU接受](../reports/cara_CAL66_quality_models_CPU_accepted_r1_20261025.json) · [完整CPU准备与报价复核](../reports/cara_CAL66_complete_CPU_preparation_and_quote_20261025.json)
+[唯一实际启动](../reports/cara_CAL66_GPU_actual_launch_r1_20261025.json) · [硬独占与存储准入](../reports/cara_CAL66_GPU2_exclusive_storage_active_20261025.json) · [执行与检查安排](696_CARA_CAL66_EXCLUSIVE_LAUNCH_AND_ACCEPTANCE_20261025.md)
 
 | 顺序 | 当前阶段 | 下一项验收 / 动作 |
 |---|---|---|
-| PG-SHARED-CAL66 | CAL66：刷新位置、原phase修正与尾部停用：入口、整卡组合、五模型与93帧三指标CPU已接受；GPU未启动 | 本轮不启动GPU；若后续执行，仍需新stage绑定、fresh独占/磁盘/账本准入。 |
+| PG-SHARED-CAL66 | CAL66：刷新位置、原phase修正与尾部停用：GPU已实际硬独占启动，完整结果待收件 | 按原launch半程技术检查，GPU释放后CPU评分，再完整独立验收。 |
 | PG-P2 | 等预算与等查询强基线：五原模型CPU可复用；P2整卡绑定及完整五指标视频评分待确认 | Shared探索后冻结一个方法/预算档；新输入增量核查，少步Native与独立质量共同确认。 |
 | PG-P3 | 固定程序跨预算/模型：条件性后续 | P1/P2后先0.70×Native，再成熟第二模型或明确第二设置重新校准。 |
 | PG-P4 | 最终独立TEST与部署评价：待方法冻结 | 冻结方法、对手、预算、选择规则后再选新TEST；计入warm与全流程成本。 |
