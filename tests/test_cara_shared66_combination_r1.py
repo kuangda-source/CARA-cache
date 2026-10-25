@@ -1,7 +1,7 @@
 """Declared synthetic whole66 terminal and failure controls; no GPU results."""
 import copy,json,unittest
 from pathlib import Path
-from wcomr.policy_generator_r1.shared66_card import RUN,COUNTS,MANIFEST
+from wcomr.policy_generator_r1.shared66_card import RUN,COUNTS,MANIFEST,execution_quote
 from wcomr.policy_generator_r1.shared66_terminal import scientific,accept
 from wcomr.policy_generator_r1.continuation_preparation import TIME_BOUNDARY
 from wcomr.policy_price_terminal_r1 import record,IMAGE
@@ -21,8 +21,8 @@ def result_fixture(slot,policy):
 def fixture():
  card=json.loads((ROOT/MANIFEST).read_text());v=dict(files={},requests={},artifact_checks={},scores={},original_live_handles=dict(runner=False,guardian=False,supervisor=False,post=False,container=False),own_UUID_lock_free=True)
  identity=dict(pid=101,start_ticks=501,uid=1000);source=h('CPU_ONLY');gpu='GPU-fixture';guardian=dict(pid=100,start_ticks=500)
- L=dict(run_id=RUN,launch_id='CPU66-fixture',source_revision=source,gpu_uuid=gpu,stage='/fixture',scope_counts=COUNTS,billed_limit_GPUh=8.0,forecast_GPUh=card['quote']['forecast_GPUh'],guardian_identity=guardian);v['launch']=L
- put(v,'card',card);put(v,'quote',card['quote']);L['config_sha256']=put(v,'config',dict(run_id=RUN,scope_counts=COUNTS,matrix=card['matrix'],forecast_complete_GPUh=L['forecast_GPUh'],billed_limit_GPUh=8.0))
+ L=dict(run_id=RUN,launch_id='CPU66-fixture',source_revision=source,gpu_uuid=gpu,stage='/fixture',scope_counts=COUNTS,billed_limit_GPUh=8.0,forecast_GPUh=execution_quote(card)['forecast_GPUh'],guardian_identity=guardian);v['launch']=L
+ put(v,'card',card);put(v,'quote',execution_quote(card));L['config_sha256']=put(v,'config',dict(run_id=RUN,scope_counts=COUNTS,matrix=card['matrix'],forecast_complete_GPUh=L['forecast_GPUh'],billed_limit_GPUh=8.0))
  reg=dict(source_revision=source,stage='/fixture',runtime_source_sha256={'fixture.py':h('runtime')},payload_sha256={n:v['files'][k]['sha256'] for k,n in [('config','pg-config.json'),('quote','pg-whole-quote.json'),('card',MANIFEST)]});reg['payload_sha256']['history104-storage.json']=h('CPU_STORAGE_CONTRACT');L['registration_sha256']=put(v,'registration',reg);v.update(payload_actual_sha256=reg['payload_sha256'],runtime_actual_sha256=reg['runtime_source_sha256'])
  put(v,'CPU_acceptance',dict(full_GPU_lifecycle_CPU_accepted=True,production_CPU_accepted=True,independent_quality_models_CPU_accepted=True,source_revision=source));auth=dict(L,independent_CPU_acceptance_sha256=v['files']['CPU_acceptance']['sha256']);L['authorization_sha256']=put(v,'authorization',auth)
  v['container']=dict(state=dict(Running=False,ExitCode=0,OOMKilled=False),image=IMAGE,readonly_root=True,nano_cpus=2*10**9,memory_bytes=48*2**30,pid_mode='host',manifest_sha256=L['registration_sha256'],device_requests=[dict(DeviceIDs=[gpu])])

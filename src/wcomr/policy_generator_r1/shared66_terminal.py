@@ -1,5 +1,5 @@
 """Independent whole66 numerical, score, timing and financial acceptance."""
-from .shared66_card import COUNTS,check_card
+from .shared66_card import COUNTS,check_card,execution_quote
 from .shared66_collection import audit_rows,FORMAL
 from .production_evidence import validate_score
 from .continuation_preparation import require
@@ -85,7 +85,7 @@ def accept(v):
     for key,name in [('config',CONFIG),('quote','pg-whole-quote.json'),('card',MANIFEST)]:
         require(v['files'][key]['sha256']==reg['payload_sha256'][name],'Registered asset bytes differ: '+key)
     card=record(v,'card');check_card(card)
-    require(c['scope_counts']==COUNTS and c['matrix']==card['matrix'] and quote==card['quote'],'Full66 quote/config differ')
+    require(c['scope_counts']==COUNTS and c['matrix']==card['matrix'] and quote==execution_quote(card),'Full66 quote/config differ')
     require(c['billed_limit_GPUh']==quote['proposed_limit_GPUh']==L['billed_limit_GPUh'] and 0<L['forecast_GPUh']==quote['forecast_GPUh']<=L['billed_limit_GPUh']<12,'Whole card quote exceeded')
     require(v['files']['authorization']['sha256']==L['authorization_sha256'],'Authorization bytes changed')
     for k in ('run_id','launch_id','source_revision','gpu_uuid','registration_sha256','config_sha256','scope_counts','billed_limit_GPUh'):require(auth[k]==L[k],'Launch authority differs: '+k)

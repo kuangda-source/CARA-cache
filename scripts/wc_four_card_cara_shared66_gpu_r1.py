@@ -6,10 +6,10 @@ from wc_four_card_policy_assets_r1 import ssh,write,read,sha,REPO,RUNTIME_REF,ba
 from wc_four_card_price_refresh_gpu_r1 import saved_secret
 import wc_four_card_cara_pg_gpu_r1 as base
 from recover_cara_pg_p1_terminal_codec_r1 import COLLECT as READONLY_CODEC
-from audit_cara_shared66_cpu_r1 import accept as accept_cpu
+from audit_cara_cal66_recovery_launch_cpu_r2 import accept as accept_cpu
 from audit_cara_cal66_preparation_r1 import audit as audit_preparation
 sys.path.insert(0,str(REPO/'src'))
-from wcomr.policy_generator_r1.shared66_card import RUN,CONFIG,CPU_PROOF,MANIFEST,COUNTS,VERSION,check_card
+from wcomr.policy_generator_r1.shared66_card import RUN,CONFIG,CPU_PROOF,MANIFEST,COUNTS,VERSION,check_card,execution_quote
 from wcomr.policy_generator_r1.shared66_terminal import accept as accept_terminal
 
 def published():
@@ -25,13 +25,14 @@ def prepare(a):
  assert preparation['CPU_preparation_accepted'] and binding==(REPO/'reports/cara_CAL66_quality_binding_20261025.json').read_bytes()
  cap=read(a.cpu_capture);cpu=accept_cpu(cap);cpu.update(capture_ref=str(a.cpu_capture),capture_sha256=sha(a.cpu_capture))
  if not cpu.get('storage_ENOSPC_lifecycle_CPU_accepted'):raise ValueError('Recovery requires new storage ENOSPC CPU proof')
+ assert cpu['independent_quality_models_CPU_accepted'] and cpu['quality_binding_sha256']==hashlib.sha256(binding).hexdigest()
  accepted=read(a.cpu_acceptance)
  if any(accepted.get(k)!=v for k,v in cpu.items() if k!='capture_ref'):raise ValueError('Independent CPU acceptance does not reproduce')
  for n,h in cpu['execution_source_sha256'].items():
   if (REPO/n).exists() and n.startswith(('src/wcomr/policy_generator_r1/','scripts/run_cara_shared66','scripts/wc_cara_shared66','scripts/postprocess_cara_shared66')) and sha(REPO/n)!=h:raise ValueError('Accepted source changed '+n)
- card=check_card(read(REPO/MANIFEST));config=dict(version=VERSION,run_id=RUN,scope_counts=COUNTS,matrix=card['matrix'],forecast_complete_GPUh=card['quote']['forecast_GPUh'],billed_limit_GPUh=8.0,storage_contract_required=True,thermal_telemetry_required=True)
+ card=check_card(read(REPO/MANIFEST));quote=execution_quote(card);config=dict(version=VERSION,run_id=RUN,scope_counts=COUNTS,matrix=card['matrix'],forecast_complete_GPUh=quote['forecast_GPUh'],billed_limit_GPUh=8.0,storage_contract_required=True,thermal_telemetry_required=True)
  storage=read(a.storage_ref)['storage_contract'];assert storage['run_id']==RUN
- rawfiles={'pg-whole-quote.json':(json.dumps(card['quote'],indent=2)+'\n').encode(),'pg-config.json':(json.dumps(config,indent=2)+'\n').encode(),'history104-storage.json':(json.dumps(storage,indent=2)+'\n').encode(),'pg-independent-CPU-acceptance.json':a.cpu_acceptance.read_bytes()}
+ rawfiles={'pg-whole-quote.json':(json.dumps(quote,indent=2)+'\n').encode(),'pg-config.json':(json.dumps(config,indent=2)+'\n').encode(),'history104-storage.json':(json.dumps(storage,indent=2)+'\n').encode(),'pg-independent-CPU-acceptance.json':a.cpu_acceptance.read_bytes()}
  rawfiles['quality-binding.json']=binding
  rawfiles['cal66-preparation-replay.json']=(json.dumps(preparation,indent=2)+'\n').encode()
  data=dict(CPU_launch=cap['launch'],CPU_proof_sha256=cap['proof']['sha256'],stage_name=a.stage_name,root='/data20t/gaokuangda/worldcache_workspace',files={n:base64.b64encode(raw).decode() for n,raw in rawfiles.items()},hashes={n:hashlib.sha256(raw).hexdigest() for n,raw in rawfiles.items()})
