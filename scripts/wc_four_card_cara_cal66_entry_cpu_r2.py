@@ -25,6 +25,7 @@ def main():
    files[n]=base64.b64encode(raw).decode();hashes[n]=hashlib.sha256(raw).hexdigest()
   old=read(REPO/'reports/wc_policy_assets_full1624_fourcard_GPU_terminal_20261023_0826.json')
   code=DEPLOY.replace('cara-pg-p1-CPU-','cara-cal66-entry-CPU-').replace('CARA_PG_P1_CPU_R1','CARA_CAL66_ENTRY_CPU_R2').replace('check_cara_pg_p1_production_cpu_r1.py','check_cara_cal66_entry_cpu_r2.py').replace('PG-production-CPU.json','CAL66-entry-r2-CPU.json')
+  code=code.replace("runtime_source_sha256=reg['runtime_source_sha256']","runtime_source_sha256={**reg['runtime_source_sha256'],'cosmos_predict2/config.py':sha(root/'runtime/cosmos_predict2/config.py')}")
   v=ssh(code,dict(root=ROOT,base=BASE,base_registration_sha256=old['registration_sha256'],stage_name=a.stage_name,revision=revision,files=files,hashes=hashes))
  write(a.output,v);print(json.dumps({k:v.get(k) for k in ('status','stage','container','resource_admission')}))
 if __name__=='__main__':main()

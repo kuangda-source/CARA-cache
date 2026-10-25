@@ -13,6 +13,8 @@ def accept(v):
         raise ValueError('Pinned bounded GPU-hidden CPU container required')
     if reg['namespace']!='CARA_CAL66_ENTRY_CPU_R2' or reg['source_revision']!=L['source_revision'] or reg['stage']!=L['stage']:
         raise ValueError('Original registered source/stage required')
+    if hashlib.sha256((json.dumps(reg,indent=2)+'\n').encode()).hexdigest()!=L['registration_sha256'] or 'cosmos_predict2/config.py' not in reg['runtime_source_sha256']:
+        raise ValueError('Registration and actual frozen class source binding required')
     if v['payload_actual_sha256']!=reg['payload_sha256'] or v['runtime_actual_sha256']!=reg['runtime_source_sha256']:
         raise ValueError('Registered source/runtime changed')
     if not proof['exists']:raise ValueError('Original full proof missing')
