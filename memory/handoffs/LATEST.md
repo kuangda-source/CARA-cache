@@ -4,19 +4,19 @@
 
 **CAL66已在两卡A6000 GPU1硬独占运行。**
 
-10月26日02:29–02:30技术实查46/66完成、1运行0失败；原4句柄和GPU1独占锁正常。5513监测样本无违规、最大间隔3.287秒，私有卷30.80GiB可用、跨盘日志正常。仅按文件mtime节奏预计03:50–04:20采集、08:35–09:05具备完整收件条件，终态检查提前09:30，03:00半程保留。未分析部分结果。
+10月26日03:04实际半程技术收件54/66完成、1运行0失败；原4句柄和GPU1独占锁正常，6469监测样本无违规、最大间隔3.287秒，独立卷与跨盘日志正常。仍符合03:50–04:20采集、09:30完整检查的技术预测。半程一次检查已删除，未分析部分结果。
 
-[证据1](../../research/701_CARA_CAL66_A6000_MIGRATION_AND_EXECUTION_20261025.md) · [证据2](../../reports/cara_CAL66_A6000_GPU_actual_launch_20261025.json) · [证据3](../../reports/cara_CAL66_A6000_technical_admission_20261025.json) · [证据4](../../reports/cara_CAL66_A6000_CPU_accepted_r3_20261025.json) · [证据5](../../reports/cara_CAL66_A6000_central_admission_confirmed_20261025.json) · [证据6](../../reports/cara_CAL66_A6000_technical_progress_20261026_022914.json) · [证据7](../../reports/cara_CAL66_A6000_progress_capture_20261026_0230.json) · [证据8](../../reports/cara_CAL66_A6000_progress_pace_20261026_0231.json)
+[证据1](../../research/701_CARA_CAL66_A6000_MIGRATION_AND_EXECUTION_20261025.md) · [证据2](../../reports/cara_CAL66_A6000_GPU_actual_launch_20261025.json) · [证据3](../../reports/cara_CAL66_A6000_technical_admission_20261025.json) · [证据4](../../reports/cara_CAL66_A6000_CPU_accepted_r3_20261025.json) · [证据5](../../reports/cara_CAL66_A6000_central_admission_confirmed_20261025.json) · [证据6](../../reports/cara_CAL66_A6000_technical_progress_20261026_022914.json) · [证据7](../../reports/cara_CAL66_A6000_progress_capture_20261026_0230.json) · [证据8](../../reports/cara_CAL66_A6000_progress_pace_20261026_0231.json) · [证据9](../../reports/cara_CAL66_A6000_halfway_20261026_030425.json) · [证据10](../../reports/cara_CAL66_A6000_halfway_technical_20261026_030425.json)
 
 | 字段 | 两卡迁移状态 |
 |---|---|
 | 范围 | 52正式+6重复+6warm+2桥接；2296pairs/4592CFG，单load |
 | GPU | GPU1 A6000真实Exclusive_Process，唯一runner3755108/UID1004 |
-| 运行 | 46/66完成，1运行0失败；原guardian/supervisor/runner/container均存活，UUID锁持有，无错误行 |
+| 运行 | 54/66完成，1运行0失败；原4句柄存活，UUID锁持有，无错误行 |
 | CPU | 迁移实际冻结参数、采样链、60终态及监督/存储、真实三模型93帧检查接受 |
 | 预算 | 预计7.767292，上限8；中央used156.620413/reserved24.5/available44.879587，含旧16.5未知责任 |
-| 存储 | 私有卷30.80GiB可用；宿主约1.14TiB可用；跨盘日志最近采样0.67秒前 |
-| 半程 | 10月26日03:00，同launch技术检查 |
+| 存储 | 独立卷约30.73GiB可用，跨盘日志采样年龄1.36秒；StorageGuard正常 |
+| 半程 | 10月26日03:04实际收件通过技术检查，一次半程自动化已删除；不代表完整接受 |
 | 采集/验收预测 | 10月26日03:50–04:20采集；原4.715486h评分预测08:35–09:05，09:30最终检查；6h评分上限不变 |
 
 ## 执行流程与已完成准备
@@ -37,7 +37,7 @@
 
 | 顺序 | 当前阶段 | 下一项验收 / 动作 |
 |---|---|---|
-| PG-SHARED-CAL66 | CAL66：刷新位置、原phase修正与尾部停用：CAL66已在两卡A6000 GPU1硬独占运行 | 按唯一A6000 launch半程及终态检查；GPU释放后48组LPIPS/156质量位置CPU评分，原账单向四卡中央预算包结算。完整接受后才按冻结CAL66合同分析；不启动Ada R2、不自动追加DEV。 |
+| PG-SHARED-CAL66 | CAL66：刷新位置、原phase修正与尾部停用：CAL66已在两卡A6000 GPU1硬独占运行 | 沿唯一A6000 launch于09:30完整收件，GPU释放后评分及中央结算；仍评分则复用终态检查调整时间。完整接受后按冻结合同分析，不重派。 |
 | PG-P2 | 等预算与等查询强基线：五原模型CPU可复用；P2整卡绑定及完整五指标视频评分待确认 | Shared探索后冻结一个方法/预算档；新输入增量核查，少步Native与独立质量共同确认。 |
 | PG-P3 | 固定程序跨预算/模型：条件性后续 | P1/P2后先0.70×Native，再成熟第二模型或明确第二设置重新校准。 |
 | PG-P4 | 最终独立TEST与部署评价：待方法冻结 | 冻结方法、对手、预算、选择规则后再选新TEST；计入warm与全流程成本。 |
