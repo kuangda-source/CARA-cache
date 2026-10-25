@@ -4,17 +4,13 @@
 
 论文主线：**CFG对齐读出修正 → 数据驱动计算时机 → 冻结自动程序的实际质量—时间收益**。已有机制结果放在前面，自动生成器的最终数值由后续真实验证填入。
 
-**当前COST112独立计时验证：硬独占运行中。** 实际启动2026-10-25T01:11:58+08:00，观测2026-10-25T06:39:36.303813+08:00。RUNNING；75/112完成、0失败；新模型尚未独立验收，P1继续等待。
+**COST112已完整验收，计时模型未通过。** 112路径、72组/6696帧评分及23控制完整接受；实际8.139511 GPUh。计时平均绝对相对误差0.545%，最大低估5.006秒；最大低估未过原2秒门槛，新P1不准入。
 
-保留原10角色、强基线与alpha；20warm+8独立全D时钟参照+80正式+4诊断，4032pairs/8064CFG，单load。系数由已接受104完整数据冻结，本卡72个目标只验证、不重拟合。释放GPU结算后72组/6696帧CPU评分。
+本卡按0.80×新Native得到实际预算237.969秒，绝对上限257.771秒、固定6秒余量与累计226 GPUh不变。原GPU、容器与锁已释放，检查已关闭；热降频证据保留，不剔除样本、不重新拟合或自动追加GPU。
 
-forecast10.867202、硬上限11.9 GPUh；部署257.771秒、0.80×新Native及累计226 GPUh保持。终态收件/若仍评分则改绑：**2026-10-25 11:15 Asia/Shanghai**。
+[完整原终态](../reports/cara_cost112_GPU_terminal_20261025_1115.json) · [独立接受](../reports/cara_cost112_GPU_accepted_20261025_1115.json) · [完整计时与温控诊断](../reports/cara_cost112_complete_timing_thermal_analysis_20261025.json) · [结果和后续](../research/690_CARA_COST112_COMPLETE_ACCEPTANCE_AND_TIMING_GATE_FAILURE_20261025.md)。
 
-[唯一实际启动](../reports/cara_cost112_GPU_actual_launch_r1_20261025.json) · [最新技术观测](../reports/cara_cost112_GPU_halfway_20261025_0638.json) · [真实独占](../reports/cara_cost112_GPU3_exclusive_active_r1_20261025.json) · [归因及独立验证记录](../research/687_CARA_COST112_CPU_ACCEPTED_EXCLUSIVE_LAUNCH_20261025.md)。
-
-原104 R2完整接受，原计时模型最坏低估2.618秒未通过2秒门槛；新卡通过后才接新P1生产验证与完整报价。
-
-**新P1准备：入口CPU已独立接受，GPU未启动。** 新的同输入全D时钟块、三条历史强基线、原alpha及一次有限恢复已接入；Q≤8候选之外另有3条固定比较布局，完整最多102路径/58组评分。预计12.6381 GPUh、建议上限14 GPUh，尚未专项批准；原112的11.9、累计226与部署257.771秒不变。新102监督/捕获/财务终态组合仍须独立CPU接受，且必须等待112完整计时门，不能凭入口CPU派卡。 [准备与报价记录](../research/688_CARA_P1_REPAIR102_ENTRY_CPU_QUOTE_AND_SELECT_AUDIT_20261025.md) · [入口CPU接受](../reports/cara_PG_P1_repair102_CPU_accepted_r1_20261025.json)
+**新P1准备：入口CPU已独立接受，GPU未启动。** 新的同输入全D时钟块、三条历史强基线、原alpha及一次有限恢复已接入；Q≤8候选之外另有3条固定比较布局，完整最多102路径/58组评分。预计12.6381 GPUh、建议上限14 GPUh，尚未专项批准；原112的11.9、累计226与部署257.771秒不变。新102监督/捕获/财务终态组合仍须独立CPU接受，且必须等待112完整计时门，不能凭入口CPU派卡。 [准备与报价记录](../research/688_CARA_P1_REPAIR102_ENTRY_CPU_QUOTE_AND_SELECT_AUDIT_20261025.md) · [入口CPU接受](../reports/cara_PG_P1_repair102_CPU_accepted_r1_20261025.json) 当前112已完整结束且计时门失败，原102参照方案不能直接接续；先审阅完整误差诊断，保留入口CPU原件与未执行报价。
 
 | 需要的材料 | 入口 |
 |---|---|

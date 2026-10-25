@@ -429,6 +429,28 @@ def build():
                 ('GPU UUID',cl['gpu_uuid']),('容器',cl['container']),('guardian',cl['guardian_identity']['pid']),
                 ('runner',f"PID {cg['runner']['pid']} / start_ticks {cg['runner']['start_ticks']} / UID {cg['runner']['uid']}")]
         run_details='| 当前112路径卡字段 | 原始身份 |\n|---|---|\n'+'\n'.join(f'| {k} | `{v}` |' for k,v in fields)
+        if cost.get('terminal_acceptance_ref'):
+            ca = load(cost['terminal_acceptance_ref'])
+            if (not ca['full_protocol_accepted'] or ca['launch_id'] != cl['launch_id']
+                    or ca['source_revision'] != cl['source_revision']
+                    or ca['capture_sha256'] != digest((ROOT/cost['observation_ref']).read_bytes())['sha256']
+                    or any(co['original_live_handles'].values()) or not co['own_UUID_lock_free']
+                    or co['container']['state']['ExitCode'] != 0
+                    or cost['timing_model_validated'] != ca['timing_model_validated']):
+                raise ValueError('Cost112 complete terminal binding differs')
+            ct = ca['scientific']['timing']
+            result = (f"112路径、72组/6696帧评分及23控制完整接受；实际{ca['actual_GPUh']:.6f} GPUh。"
+                      f"计时平均绝对相对误差{ct['mean_absolute_relative_error']*100:.3f}%，最大低估{ct['maximum_underestimate_seconds']:.3f}秒；"
+                      + ('原计时门通过。' if ca['timing_model_validated'] else '最大低估未过原2秒门槛，新P1不准入。'))
+            snapshot = (f"**COST112已完整验收，计时模型{'通过' if ca['timing_model_validated'] else '未通过'}。** {result}\n\n"
+                        f"本卡按0.80×新Native得到实际预算{ct['budget_seconds']:.3f}秒，绝对上限257.771秒、固定6秒余量与累计226 GPUh不变。"
+                        "原GPU、容器与锁已释放，检查已关闭；热降频证据保留，不剔除样本、不重新拟合或自动追加GPU。\n\n"
+                        f"{link(cost['observation_ref'],'完整原终态')} · {link(cost['terminal_acceptance_ref'],'独立接受')} · "
+                        f"{link(cost['analysis_ref'],'完整计时与温控诊断')} · {link(cost['report_ref'],'结果和后续')}。")
+            cr.update(full_protocol_accepted=True, timing_model_validated=ca['timing_model_validated'],
+                      claim_relation='COMPLETE_INDEPENDENT_TIMING_VALIDATION', evidence_or_planned_scope=result)
+            cr['reader'].update(status='完整接受；计时门'+('通过' if ca['timing_model_validated'] else '失败'), result=result)
+            master['operation_policy'].update(current_running_card=None,current_running_cards=[])
         master['status_counts']={state:sum(r['state']==state for r in rows) for state in sorted({r['state'] for r in rows})}
     repair = status.get('P1_repair102_preparation')
     if repair:
@@ -442,6 +464,8 @@ def build():
                      f"预计{rq['forecast_complete_GPUh']:.4f} GPUh、建议上限{rq['billed_limit_GPUh']:g} GPUh，尚未专项批准；原112的11.9、累计226与部署257.771秒不变。"
                      "新102监督/捕获/财务终态组合仍须独立CPU接受，且必须等待112完整计时门，不能凭入口CPU派卡。 "
                      + link(repair['report_ref'],'准备与报价记录') + ' · ' + link(repair['CPU_acceptance_ref'],'入口CPU接受'))
+        if cost and cost.get('terminal_acceptance_ref') and not cost['timing_model_validated']:
+            snapshot += " 当前112已完整结束且计时门失败，原102参照方案不能直接接续；先审阅完整误差诊断，保留入口CPU原件与未执行报价。"
         by_id['PG-P1']['reader']['next_action'] = by_id['PG-P1-R102']['reader']['next_action']
     headlines = '\n'.join(f"- **{f['title']}**（{f['short_scope']}）：{f['result']} {refs(f['refs'])}"
                            for f in status['headline_results'])

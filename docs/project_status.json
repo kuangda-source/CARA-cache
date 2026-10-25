@@ -3,8 +3,8 @@
   "project": "CARA-Cache",
   "evidence_observed_at": "2026-10-23T08:26:41.422652+08:00",
   "timezone": "Asia/Shanghai",
-  "snapshot_note": "COST112实际06:39:36技术半程75/112完成、0失败；独占和磁盘正常，已记录间歇热降频，完整计时门仍待验收；终态检查提前11:15。",
-  "research_summary": "原104完整结果支持保留历史强基线与24/25D工作点；当前COST112用独立同入口全D参照验证修复后的计时模型，通过后接新P1。",
+  "snapshot_note": "COST112完整原件、独占与财务接受；最大低估5.006秒未过2秒门槛，原P1接续阻断，不自动追加GPU。",
+  "research_summary": "历史强基线和24/25D工作点已复核；COST112完整接受但计时尾部误差失败，先厘清参照漂移及运行环境，不直接启动新P1。",
   "active_experiment_id": "PG-P1",
   "active_state": "PG_P1_TERMINAL_ACCEPTED_NO_BUDGET_FEASIBLE_SELECTION",
   "active_state_zh": "P1原件已接受，未选出预算可行策略",
@@ -12,17 +12,8 @@
   "observation_ref": "reports/wc_policy_assets_full1624_fourcard_GPU_terminal_20261023_0826.json",
   "admission_ref": "reports/wc_policy_assets_full1624_fourcard_GPU_admission_checked_and_schedule_20261022.json",
   "cpu_acceptance_ref": "reports/wc_policy_assets_full1624_fourcard_CPU_r2_accepted_20261022.json",
-  "run_report_ref": "research/687_CARA_COST112_CPU_ACCEPTED_EXCLUSIVE_LAUNCH_20261025.md",
-  "next_checks": [
-    {
-      "kind": "终态收件/若仍评分则改绑",
-      "scheduled_local": "2026-10-25 11:15 Asia/Shanghai",
-      "automation_id": "cara-cost112-p1",
-      "launch_id": "35150ebb-41a4-4db7-b8fb-45f6ef49297f",
-      "original_forecast_not_before_unix": 1792901940.4844196,
-      "technical_estimate_ref": "research/689_CARA_COST112_HALFWAY_TECHNICAL_AND_THERMAL_20261025.md"
-    }
-  ],
+  "run_report_ref": "research/690_CARA_COST112_COMPLETE_ACCEPTANCE_AND_TIMING_GATE_FAILURE_20261025.md",
+  "next_checks": [],
   "headline_results": [
     {
       "title": "修正读出有跨输入机制收益",
@@ -422,35 +413,39 @@
     "original_reservation_released": true,
     "recovery_preparation_acceptance_ref": "reports/cara_history104_recovery_prelaunch_acceptance_20261024.json"
   },
-  "current_active_experiment_id": "PG-P1-C112",
+  "current_active_experiment_id": null,
   "cost112_GPU": {
-    "status": "COST112_EXCLUSIVE_GPU_RUNNING_NO_SCIENTIFIC_RESULT",
+    "status": "COST112_COMPLETE_ACCEPTED_TIMING_GATE_FAILED",
     "launch_ref": "reports/cara_cost112_GPU_actual_launch_r1_20261025.json",
     "launch_id": "35150ebb-41a4-4db7-b8fb-45f6ef49297f",
-    "observation_ref": "reports/cara_cost112_GPU_halfway_20261025_0638.json",
-    "observed_at": "2026-10-25T06:39:36.303813+08:00",
+    "observation_ref": "reports/cara_cost112_GPU_terminal_20261025_1115.json",
+    "observed_at": "2026-10-25T11:15:19.301087+08:00",
     "CPU_launch_ref": "reports/cara_cost112_CPU_launch_r2_20261025.json",
     "CPU_terminal_ref": "reports/cara_cost112_CPU_terminal_r2_20261025.json",
     "CPU_acceptance_ref": "reports/cara_cost112_CPU_accepted_r2_20261025.json",
     "exclusive_active_ref": "reports/cara_cost112_GPU3_exclusive_active_r1_20261025.json",
     "storage_ref": "reports/cara_cost112_storage_and_thermal_admission_20261025.json",
     "stage_ref": "reports/cara_cost112_GPU_stage_r1_20261025.json",
-    "report_ref": "research/687_CARA_COST112_CPU_ACCEPTED_EXCLUSIVE_LAUNCH_20261025.md",
+    "report_ref": "research/690_CARA_COST112_COMPLETE_ACCEPTANCE_AND_TIMING_GATE_FAILURE_20261025.md",
     "scope_ref": "manifests/cara_cost112_scope_quote_r1_20261025.json",
     "analysis_preparation_ref": "reports/cara_cost112_attribution_and_frozen_model_20261025.json",
     "handoff_ref": "plans/cara_policy_generator_20261020/COST112_TO_P1_HANDOFF_R1_20261025.json",
     "new_GPU_submissions": 1,
-    "full_protocol_accepted": false,
+    "full_protocol_accepted": true,
     "timing_model_validated": false,
     "original_alpha_unchanged": true,
     "strong_baselines_unchanged": true,
     "halfway_technical_ref": "reports/cara_cost112_GPU_halfway_storage_monitor_20261025_0643.json",
     "halfway_thermal_ref": "reports/cara_cost112_GPU_halfway_thermal_review_20261025_0643.json",
     "halfway_report_ref": "research/689_CARA_COST112_HALFWAY_TECHNICAL_AND_THERMAL_20261025.md",
-    "thermal_status": "INTERMITTENT_THERMAL_SLOWDOWN_OBSERVED_NO_PARTIAL_TIMING_ANALYSIS"
+    "thermal_status": "INTERMITTENT_THERMAL_SLOWDOWN_COMPLETE_DESCRIPTIVE_DIAGNOSTIC_NO_CAUSAL_CLAIM",
+    "terminal_acceptance_ref": "reports/cara_cost112_GPU_accepted_20261025_1115.json",
+    "analysis_ref": "reports/cara_cost112_complete_timing_thermal_analysis_20261025.json",
+    "actual_GPUh": 8.139510659113423,
+    "terminal_storage_ref": "reports/cara_cost112_terminal_storage_verified_20261025_1115.json"
   },
   "P1_repair102_preparation": {
-    "status": "P1_REPAIR102_ENTRY_CPU_ACCEPTED_FULL_GPU_COMBINATION_AND_COST112_PENDING",
+    "status": "P1_REPAIR102_ENTRY_CPU_PRESERVED_BLOCKED_BY_COST112_TIMING_FAILURE",
     "observed_at": "2026-10-25T02:22:04.386873+08:00",
     "report_ref": "research/688_CARA_P1_REPAIR102_ENTRY_CPU_QUOTE_AND_SELECT_AUDIT_20261025.md",
     "plan_ref": "plans/cara_policy_generator_20261020/P1_REPAIR102_PRODUCTION_AND_QUOTE_R1_20261025.md",
@@ -469,8 +464,10 @@
     "partial112_science_used": false,
     "new_GPU_submissions": 0,
     "new_GPUh_reserved": 0,
-    "actual_COST112_accepted": false,
-    "GPU_dispatch_ready": false
+    "actual_COST112_accepted": true,
+    "GPU_dispatch_ready": false,
+    "actual_COST112_timing_model_validated": false,
+    "COST112_acceptance_ref": "reports/cara_cost112_GPU_accepted_20261025_1115.json"
   },
   "completed_cost112_halfway_check": {
     "kind": "技术半程",
@@ -480,6 +477,21 @@
     "not_before_unix": 1792881479.519971,
     "observed_at": "2026-10-25T06:39:36.303813+08:00",
     "receipt_ref": "reports/cara_cost112_GPU_halfway_20261025_0638.json",
+    "automation_deleted": true
+  },
+  "completed_cost112_terminal_check": {
+    "checks": [
+      {
+        "kind": "终态收件/若仍评分则改绑",
+        "scheduled_local": "2026-10-25 11:15 Asia/Shanghai",
+        "automation_id": "cara-cost112-p1",
+        "launch_id": "35150ebb-41a4-4db7-b8fb-45f6ef49297f",
+        "original_forecast_not_before_unix": 1792901940.4844196,
+        "technical_estimate_ref": "research/689_CARA_COST112_HALFWAY_TECHNICAL_AND_THERMAL_20261025.md"
+      }
+    ],
+    "capture_ref": "reports/cara_cost112_GPU_terminal_20261025_1115.json",
+    "observed_at": "2026-10-25T11:15:19.301087+08:00",
     "automation_deleted": true
   }
 }
