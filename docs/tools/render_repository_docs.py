@@ -626,6 +626,33 @@ def build():
         by_id['PG-SHARED-CAL66']['evidence_or_planned_scope']=by_id['PG-SHARED-CAL66']['reader']['result']
         master['operation_policy'].update(current_running_card='PG-SHARED-CAL66',current_running_cards=['PG-SHARED-CAL66'],active_launch_ref=cal66_gpu['launch_ref'],snapshot_observed_at=cal66_gpu['observed_unix'])
         master['status_counts']={state:sum(r['state']==state for r in rows) for state in sorted({r['state'] for r in rows})}
+    failure66=status.get('CAL66_failure')
+    if failure66:
+        failed=load(failure66['terminal_ref']);finance=load(failure66['finance_ref'])
+        if (failed['launch']['launch_id']!=launch66['launch_id'] or failed['container_state']['Running']
+                or failed['container_state']['ExitCode']==0 or any(failed['live_handles'].values())
+                or not finance['authoritative_ledger_settled'] or finance['full_protocol_accepted']):
+            raise ValueError('CAL66 failed terminal identity/settlement differs')
+        cost=finance['exact_actual_GPUh']
+        snapshot=('**CAL66已提前失败退出，0/66路径完成。** '+failure66['ended_local']+'，模型加载后的首请求尝试修改冻结的InferenceArguments.seed，触发ValidationError。'
+            '未进入后续采集与CPU评分；原α、强基线、66分母和预算不变。\n\n'
+            f'精确结算{cost:.6f} GPUh，原预约已释放；四个原句柄退出、设备锁释放，GPU模式恢复。磁盘保护及跨盘账单完整。'
+            '原半程与完整验收检查已取消，旧完成ETA失效；没有重跑。\n\n'
+            +link(failure66['report_ref'],'技术失败与费用记录')+' · '+link(failure66['terminal_ref'],'原失败终态')+' · '+link(failure66['finance_ref'],'独立财务核验'))
+        run_details=('| 字段 | 当前原件状态 |\n|---|---|\n'
+            '| 完整分母 | 66；0完成、1失败、其余未到达 |\n'
+            '| 直接错误 | 修改冻结InferenceArguments.seed |\n'
+            f'| 实际GPUh | {cost:.9f}，权威账本已结算 |\n'
+            '| GPU/锁 | 原句柄退出、模式已恢复、锁释放 |\n'
+            '| 磁盘/日志 | 私有卷约31.18GiB可用，48MiB跨盘日志完整 |\n'
+            '| 后续检查 | 原两次检查已删除；无新采集/评分ETA |\n'
+            '| 证据边界 | 技术失败、财务已核验；无新科学结果、未重跑 |')
+        active66=by_id['PG-SHARED-CAL66'];active66['state']=status['active_state']
+        active66['reader'].update(status=status['active_state_zh'],result=f'完整66分母保留，0完成；首请求冻结参数异常。精确费用{cost:.6f} GPUh已结算；无科学结果。',next_action='先修真实冻结参数适配并验证；保留失败原件，不自动重跑。')
+        active66['reader']['evidence_refs']=list(dict.fromkeys(active66['reader']['evidence_refs']+[failure66['report_ref'],failure66['terminal_ref'],failure66['finance_ref']]))
+        active66['evidence_or_planned_scope']=active66['reader']['result']
+        master['operation_policy'].update(current_running_card=None,current_running_cards=[],snapshot_observed_at=failed['observed_unix'])
+        master['status_counts']={state:sum(r['state']==state for r in rows) for state in sorted({r['state'] for r in rows})}
     headlines = '\n'.join(f"- **{f['title']}**（{f['short_scope']}）：{f['result']} {refs(f['refs'])}"
                            for f in status['headline_results'])
     details = '\n\n'.join(f"### {i+1}. {f['title']}\n\n{f['result']}\n\n{f['scope']} {refs(f['refs'])}"

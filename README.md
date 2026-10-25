@@ -49,11 +49,11 @@ LPIPS 越低表示越接近同输入的 Native 视频；它与局部速度 MSE�
 
 ## 当前进度
 
-**CAL66完整66路径已单次启动，正在运行。** 2026-10-25 18:19:39 +08:00，GPU2 / GPU-ad5c68cd-890e-b4c1-d0b6-4d80c7d51018实际硬独占及唯一原runner上下文已核验。52正式、6计时重复、6warm、2历史桥接，原α与强基线不变。
+**CAL66已提前失败退出，0/66路径完成。** 2026-10-25 18:49:06 +08:00，模型加载后的首请求尝试修改冻结的InferenceArguments.seed，触发ValidationError。未进入后续采集与CPU评分；原α、强基线、66分母和预算不变。
 
-预计占卡6.48GPUh，单卡硬上限8GPUh；累计226GPUh和最终min(257.7712338712067秒,0.8×fresh Native)不变。32GiB私有输出卷和跨盘48MiB控制日志已准入。GPU释放并结算后，执行48组LPIPS/4464帧及52视频×3独立指标，CPU限2核/8GiB/6小时。
+精确结算0.484959 GPUh，原预约已释放；四个原句柄退出、设备锁释放，GPU模式恢复。磁盘保护及跨盘账单完整。原半程与完整验收检查已取消，旧完成ETA失效；没有重跑。
 
-[唯一实际启动](reports/cara_CAL66_GPU_actual_launch_r1_20261025.json) · [硬独占与存储准入](reports/cara_CAL66_GPU2_exclusive_storage_active_20261025.json) · [执行与检查安排](research/696_CARA_CAL66_EXCLUSIVE_LAUNCH_AND_ACCEPTANCE_20261025.md)
+[技术失败与费用记录](research/698_CARA_CAL66_EARLY_FAILURE_TECHNICAL_AND_FINANCE_20261025.md) · [原失败终态](reports/cara_CAL66_failed_terminal_20261025_2002.json) · [独立财务核验](reports/cara_CAL66_failed_financial_audit_20261025_2006.json)
 
 10月24日完整终态见[685](research/685_CARA_HISTORY104_R2_COMPLETE_ACCEPTANCE_RESULTS_AND_COST_GATE_20261024.md)：104路径与72评分完整接受，实际7.395282GPUh，GPU和锁已释放。历史强基线均胜原GRAPH；24/25D实测可行，但计时模型最坏低估2.618秒未过2秒门槛。COST112于10月25日完整接受，实际8.139511GPUh；计时最大低估5.006秒未过2秒门槛，新P1不准入，P2仍等待冻结策略。见[690](research/690_CARA_COST112_COMPLETE_ACCEPTANCE_AND_TIMING_GATE_FAILURE_20261025.md)。
 

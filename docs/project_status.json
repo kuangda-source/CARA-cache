@@ -1,30 +1,19 @@
 {
   "schema_version": 1,
   "project": "CARA-Cache",
-  "evidence_observed_at": "2026-10-25T18:21:24.850609+08:00",
+  "evidence_observed_at": "2026-10-25T20:00:05.403030+08:00",
   "timezone": "Asia/Shanghai",
-  "snapshot_note": "CAL66运行中；原费用已在各历史卡结算，不混入本卡结果。",
+  "snapshot_note": "CAL66原任务18:49提前失败；19:59技术检查发现，0/66完成，精确费用已结算。未重跑。",
   "research_summary": "CAL66检验过渡段刷新位置、同布局phase修正与尾部A34/35停用。当前24/25/26D能量、传播先验与模板同掩码；构造规则增量留给可辨识的第二设置。只冻结一个主工作点进入新DEV，累计与最终部署预算不变。",
   "active_experiment_id": "PG-SHARED-CAL66",
-  "active_state": "CAL66_GPU_EXCLUSIVE_RUNNING",
-  "active_state_zh": "CAL66完整66路径GPU2硬独占运行",
+  "active_state": "CAL66_FAILED_FROZEN_INFERENCE_ARGUMENTS",
+  "active_state_zh": "CAL66首请求参数冻结异常，提前失败并释放",
   "launch_ref": "reports/cara_CAL66_GPU_actual_launch_r1_20261025.json",
-  "observation_ref": "reports/cara_CAL66_GPU2_active_admission_20261025.json",
+  "observation_ref": "reports/cara_CAL66_failed_terminal_20261025_2002.json",
   "admission_ref": "reports/cara_CAL66_GPU2_exclusive_storage_active_20261025.json",
   "cpu_acceptance_ref": "reports/cara_CAL66_combination_CPU_accepted_r3_20261025.json",
-  "run_report_ref": "research/696_CARA_CAL66_EXCLUSIVE_LAUNCH_AND_ACCEPTANCE_20261025.md",
-  "next_checks": [
-    {
-      "id": "cara-cal66",
-      "kind": "halfway",
-      "scheduled_local": "2026-10-25T21:35:00+08:00"
-    },
-    {
-      "id": "cara-cal66-2",
-      "kind": "terminal_including_CPU_scores",
-      "scheduled_local": "2026-10-26T05:50:00+08:00"
-    }
-  ],
+  "run_report_ref": "research/698_CARA_CAL66_EARLY_FAILURE_TECHNICAL_AND_FINANCE_20261025.md",
+  "next_checks": [],
   "headline_results": [
     {
       "title": "修正读出有跨输入机制收益",
@@ -595,7 +584,7 @@
       }
     ]
   },
-  "actual_original_GPUh_scope": "historical_full1624_only; current CAL66 bill pending",
+  "actual_original_GPUh_scope": "historical_full1624_only; CAL66 separately settled 0.48495870218663994 GPUh with failed scientific acceptance",
   "workflow_preparation": {
     "observed_unix": 1792928921.62727,
     "status": "R2_POOL_DELTA_AND_MINIMAL_READER_CPU_COMPLETE",
@@ -607,5 +596,18 @@
     "new_GPU_submissions": 0,
     "active_experiment_changed": false,
     "first_use_exposure_refresh_required": true
+  },
+  "CAL66_failure": {
+    "terminal_ref": "reports/cara_CAL66_failed_terminal_20261025_2002.json",
+    "diagnostic_ref": "reports/cara_CAL66_failed_storage_monitor_error_20261025_2005.json",
+    "finance_ref": "reports/cara_CAL66_failed_financial_audit_20261025_2006.json",
+    "report_ref": "research/698_CARA_CAL66_EARLY_FAILURE_TECHNICAL_AND_FINANCE_20261025.md",
+    "ended_local": "2026-10-25 18:49:06 +08:00",
+    "actual_GPUh": 0.48495870218663994,
+    "scheduled_checks_deleted": [
+      "cara-cal66",
+      "cara-cal66-2"
+    ],
+    "no_GPU_replay": true
   }
 }

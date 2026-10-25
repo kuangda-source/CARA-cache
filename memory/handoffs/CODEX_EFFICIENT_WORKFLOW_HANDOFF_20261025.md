@@ -2,6 +2,8 @@
 
 2026-10-25。用户已授权修改流程、模板、交接和问题队列，提交GitHub，并推进新输入池增量审计与最小入口。没有新增GPU授权、预算或当前卡变更。
 
+**最新技术状态覆盖（20:03观察）：CAL66已于18:49:06失败退出，0/66完成；冻结InferenceArguments.seed修改异常，精确结算0.484959 GPUh。原半程/最终检查已删除，未重跑。见[698](../../research/698_CARA_CAL66_EARLY_FAILURE_TECHNICAL_AND_FINANCE_20261025.md)。以下启动与检查时间保留为历史安排。**
+
 ## 先读与权限
 
 先读 [AGENTS](../../AGENTS.md)、[执行流程](../../docs/EXECUTION_MODES.md)、[问题队列](../../plans/QUESTION_QUEUE.md)、[当前状态](../../docs/project_status.json)、[CAL66合同](../../plans/cara_policy_generator_20261020/CAL66_DESIGN_AND_DECISION_CONTRACT_R1_20261025.md)。交接中的状态是保存证据快照；如已有更新终态，优先复用新原件。

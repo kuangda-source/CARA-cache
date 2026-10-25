@@ -1,0 +1,94 @@
+{
+  "observed_unix": 1792929693.438145,
+  "launch_id": "54eeebc7-00bb-4951-96cf-e2f66a85e344",
+  "GPU_submissions": 0,
+  "remote_mutations": 0,
+  "storage": {
+    "output_available": 33484201984,
+    "host_available": 1276654477312,
+    "free_inodes": 2097132
+  },
+  "storage_ok": true,
+  "storage_contract": {
+    "output_mount": "/data20t/gaokuangda/worldcache_workspace/outputs/cara-shared-cal66-ada-r1",
+    "journal_path": "/data1/gaokuangda_cara_control/cal66-r1/control.journal",
+    "minimum_output_free_bytes": 4294967296,
+    "minimum_host_free_bytes": 134217728
+  },
+  "journal_bytes": 50331648,
+  "monitor": {
+    "samples": 774,
+    "context_granted_samples": 734,
+    "invalid_lines": [],
+    "violations": [
+      {
+        "index": 38,
+        "reasons": [
+          "GPU_ALREADY_OCCUPIED"
+        ]
+      },
+      {
+        "index": 39,
+        "reasons": [
+          "GPU_ALREADY_OCCUPIED"
+        ]
+      }
+    ],
+    "max_gap_seconds": 3.3102425187826157,
+    "last_to_bill_seconds": 2.201219415292144
+  },
+  "files": {
+    "runner.json": {
+      "bytes": 22908,
+      "sha256": "9a070633a831c03c0c0d4d0c83e98494e7f8aadbc62453cda6858da6eaf994d7",
+      "top_keys": [
+        "status",
+        "pid",
+        "source_revision",
+        "config_sha256",
+        "registration_sha256",
+        "scope_counts",
+        "model_loads",
+        "started_unix",
+        "load_seconds",
+        "batch",
+        "ended_unix"
+      ],
+      "errors": [
+        {
+          "status": "TECH_FAILED",
+          "error": "1 validation error for InferenceArguments\nseed\n  Instance is frozen [type=frozen_instance, input_value=0, input_type=int]\n    For further information visit https://errors.pydantic.dev/2.11/v/frozen_instance",
+          "error_type": "ValidationError"
+        }
+      ]
+    },
+    "exclusive-monitor-final.json": {
+      "bytes": 508,
+      "sha256": "78bcb2c0d5365be872fd17147a32a600e8a3ff81a3cb6c9cc89f0889161dd897",
+      "value": {
+        "accepted": false,
+        "observations": 774,
+        "final_snapshot": {
+          "gpu_uuid": "GPU-ad5c68cd-890e-b4c1-d0b6-4d80c7d51018",
+          "compute_mode": "Exclusive_Process",
+          "compute_apps": [],
+          "mps_processes": [],
+          "observed_unix": 1792925336.6905165
+        },
+        "runner": {
+          "pid": 1635470,
+          "start_ticks": 970865687,
+          "uid": 1000
+        },
+        "started_unix": 1792923590.83923,
+        "ended_unix": 1792925342.295012,
+        "monitor_sha256": "98a7ad4540fc8a9292a47f69a03037245b72a701e92b9cbb80fbd95e28e3ca09"
+      }
+    },
+    "GPU.log": {
+      "bytes": 5452,
+      "sha256": "e25b9ef5576a41870d54eea789ec74812df3034fb9e6f00979e5c03542456910",
+      "traceback_tail": "Traceback (most recent call last):\n  File \"/data20t/gaokuangda/worldcache_workspace/.sync/cara-shared66-full-ada-r1-20261025/scripts/run_cara_shared66_r1.py\", line 79, in <module>\n    if __name__=='__main__':main()\n  File \"/data20t/gaokuangda/worldcache_workspace/.sync/cara-shared66-full-ada-r1-20261025/scripts/run_cara_shared66_r1.py\", line 74, in main\n    batch=collect(card,out,request,save)\n  File \"/data20t/gaokuangda/worldcache_workspace/.sync/cara-shared66-full-ada-r1-20261025/src/wcomr/policy_generator_r1/shared66_collection.py\", line 19, in collect\n    result=execute(slot,card['roles'][slot['role']]['policy'],directory)\n  File \"/data20t/gaokuangda/worldcache_workspace/.sync/cara-shared66-full-ada-r1-20261025/scripts/run_cara_shared66_r1.py\", line 71, in request\n    result=adapter(slot,directory)\n  File \"/data20t/gaokuangda/worldcache_workspace/.sync/cara-shared66-full-ada-r1-20261025/src/wcomr/policy_generator_r1/exploration_requests.py\", line 16, in __call__\n    sample.seed=slot['seed'];sample.num_steps=role['requested_steps']\n  File \"/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/pydantic/main.py\", line 997, in __setattr__\n    elif (setattr_handler := self._setattr_handler(name, value)) is not None:\n  File \"/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/pydantic/main.py\", line 1033, in _setattr_handler\n    _check_frozen(cls, name, value)\n  File \"/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/pydantic/main.py\", line 92, in _check_frozen\n    raise ValidationError.from_exception_data(\npydantic_core._pydantic_core.ValidationError: 1 validation error for InferenceArguments\nseed\n  Instance is frozen [type=frozen_instance, input_value=0, input_type=int]\n    For further information visit https://errors.pydantic.dev/2.11/v/frozen_instance"
+    }
+  }
+}
