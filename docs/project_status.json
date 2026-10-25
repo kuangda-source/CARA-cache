@@ -3,7 +3,7 @@
   "project": "CARA-Cache",
   "evidence_observed_at": "2026-10-23T08:26:41.422652+08:00",
   "timezone": "Asia/Shanghai",
-  "snapshot_note": "COST112完整原件、独占与财务接受；最大低估5.006秒未过2秒门槛，原P1接续阻断，不自动追加GPU。",
+  "snapshot_note": "112最大5.006秒已按过去全D控制和阶段时钟拆解；温控因果未识别，简单双参照仍失败。先准备运行时/分段计时CPU等价，原预算不变，不重跑。",
   "research_summary": "历史强基线和24/25D工作点已复核；COST112完整接受但计时尾部误差失败，先厘清参照漂移及运行环境，不直接启动新P1。",
   "active_experiment_id": "PG-P1",
   "active_state": "PG_P1_TERMINAL_ACCEPTED_NO_BUDGET_FEASIBLE_SELECTION",
@@ -442,7 +442,12 @@
     "terminal_acceptance_ref": "reports/cara_cost112_GPU_accepted_20261025_1115.json",
     "analysis_ref": "reports/cara_cost112_complete_timing_thermal_analysis_20261025.json",
     "actual_GPUh": 8.139510659113423,
-    "terminal_storage_ref": "reports/cara_cost112_terminal_storage_verified_20261025_1115.json"
+    "terminal_storage_ref": "reports/cara_cost112_terminal_storage_verified_20261025_1115.json",
+    "root_cause_analysis_ref": "reports/cara_cost112_root_cause_attribution_r2_20261025.json",
+    "root_cause_report_ref": "research/691_CARA_COST112_CAUSE_SEPARATION_AND_P1_REPAIR_PLAN_20261025.md",
+    "repair_plan_ref": "plans/cara_policy_generator_20261020/COST_RUNTIME_REPAIR_AND_P1_HANDOFF_R2_20261025.md",
+    "repair_quote_ref": "manifests/cara_cost_runtime_repair_validation112_proposed_quote_20261025.json",
+    "repair_GPU_authorized": false
   },
   "P1_repair102_preparation": {
     "status": "P1_REPAIR102_ENTRY_CPU_PRESERVED_BLOCKED_BY_COST112_TIMING_FAILURE",

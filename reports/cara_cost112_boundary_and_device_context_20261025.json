@@ -1,0 +1,836 @@
+{
+  "status": "COST112_READONLY_BOUNDARY_AND_DEVICE_CONTEXT",
+  "observed_unix": 1792902715.8505666,
+  "launch_id": "35150ebb-41a4-4db7-b8fb-45f6ef49297f",
+  "source_excerpts": {
+    "cosmos_predict2/inference.py": {
+      "sha256": "0db96c49f0b3f18a971bc989e0727132dafc27ef621145a2d25a3da62a7a1975",
+      "lines": [
+        {
+          "line": 82,
+          "text": "            self.text_guardrail_runner = None"
+        },
+        {
+          "line": 83,
+          "text": "            # pyrefly: ignore  # bad-assignment"
+        },
+        {
+          "line": 84,
+          "text": "            self.video_guardrail_runner = None"
+        },
+        {
+          "line": 85,
+          "text": ""
+        },
+        {
+          "line": 86,
+          "text": "    def generate(self, samples: list[InferenceArguments], output_dir: Path) -> list[str]:"
+        },
+        {
+          "line": 87,
+          "text": "        if SMOKE:"
+        },
+        {
+          "line": 88,
+          "text": "            samples = samples[:1]"
+        },
+        {
+          "line": 89,
+          "text": ""
+        },
+        {
+          "line": 90,
+          "text": "        sample_names = [sample.name for sample in samples]"
+        },
+        {
+          "line": 91,
+          "text": "        log.info(f\"Generating {len(samples)} samples: {sample_names}\")"
+        },
+        {
+          "line": 92,
+          "text": ""
+        },
+        {
+          "line": 93,
+          "text": "        output_paths: list[str] = []"
+        },
+        {
+          "line": 94,
+          "text": "        for i_sample, sample in enumerate(samples):"
+        },
+        {
+          "line": 95,
+          "text": "            log.info(f\"[{i_sample + 1}/{len(samples)}] Processing sample {sample.name}\")"
+        },
+        {
+          "line": 96,
+          "text": "            output_path = self._generate_sample(sample, output_dir)"
+        },
+        {
+          "line": 97,
+          "text": "            if output_path is not None:"
+        },
+        {
+          "line": 98,
+          "text": "                output_paths.append(output_path)"
+        },
+        {
+          "line": 99,
+          "text": "        return output_paths"
+        },
+        {
+          "line": 100,
+          "text": ""
+        },
+        {
+          "line": 101,
+          "text": "    def _generate_sample(self, sample: InferenceArguments, output_dir: Path) -> str | None:"
+        },
+        {
+          "line": 102,
+          "text": "        log.debug(f\"{sample.__class__.__name__}({sample})\")"
+        },
+        {
+          "line": 103,
+          "text": "        output_path = output_dir / sample.name"
+        },
+        {
+          "line": 104,
+          "text": ""
+        },
+        {
+          "line": 105,
+          "text": "        if self.rank0:"
+        },
+        {
+          "line": 106,
+          "text": "            output_dir.mkdir(parents=True, exist_ok=True)"
+        },
+        {
+          "line": 107,
+          "text": "            open(f\"{output_path}.json\", \"w\").write(sample.model_dump_json())"
+        },
+        {
+          "line": 108,
+          "text": "            log.info(f\"Saved arguments to {output_path}.json\")"
+        },
+        {
+          "line": 109,
+          "text": ""
+        },
+        {
+          "line": 110,
+          "text": "            # run text guardrail on the prompt"
+        },
+        {
+          "line": 111,
+          "text": "            if self.text_guardrail_runner is not None:"
+        },
+        {
+          "line": 112,
+          "text": "                if not guardrail_presets.run_text_guardrail(sample.prompt, self.text_guardrail_runner):"
+        },
+        {
+          "line": 113,
+          "text": "                    message = f\"Guardrail blocked text2world generation. Prompt: {sample.prompt}\""
+        },
+        {
+          "line": 114,
+          "text": "                    log.critical(message)"
+        },
+        {
+          "line": 115,
+          "text": "                    if self.setup_args.keep_going:"
+        },
+        {
+          "line": 116,
+          "text": "                        return None"
+        },
+        {
+          "line": 117,
+          "text": "                    else:"
+        },
+        {
+          "line": 118,
+          "text": "                        raise Exception(message)"
+        },
+        {
+          "line": 119,
+          "text": "                else:"
+        },
+        {
+          "line": 120,
+          "text": "                    log.success(\"Passed guardrail on prompt\")"
+        },
+        {
+          "line": 121,
+          "text": "            elif self.text_guardrail_runner is None:"
+        },
+        {
+          "line": 122,
+          "text": "                log.warning(\"Guardrail checks on prompt are disabled\")"
+        },
+        {
+          "line": 123,
+          "text": ""
+        },
+        {
+          "line": 124,
+          "text": "        # Choose generation mode based on autoregressive flag"
+        },
+        {
+          "line": 125,
+          "text": "        video: torch.Tensor"
+        },
+        {
+          "line": 126,
+          "text": "        if sample.enable_autoregressive:"
+        },
+        {
+          "line": 127,
+          "text": "            log.info(f\"Generating video with autoregressive mode...\")"
+        },
+        {
+          "line": 128,
+          "text": "            video = self.pipe.generate_autoregressive_from_batch("
+        },
+        {
+          "line": 129,
+          "text": "                prompt=sample.prompt,"
+        },
+        {
+          "line": 130,
+          "text": "                input_path=path_to_str(sample.input_path),"
+        },
+        {
+          "line": 131,
+          "text": "                num_output_frames=sample.num_output_frames,"
+        },
+        {
+          "line": 132,
+          "text": "                chunk_size=sample.chunk_size,"
+        },
+        {
+          "line": 133,
+          "text": "                chunk_overlap=sample.chunk_overlap,"
+        },
+        {
+          "line": 134,
+          "text": "                guidance=sample.guidance,"
+        },
+        {
+          "line": 135,
+          "text": "                num_latent_conditional_frames=sample.num_input_frames,"
+        },
+        {
+          "line": 136,
+          "text": "                resolution=sample.resolution,"
+        },
+        {
+          "line": 137,
+          "text": "                seed=sample.seed,"
+        },
+        {
+          "line": 138,
+          "text": "                negative_prompt=sample.negative_prompt,"
+        },
+        {
+          "line": 139,
+          "text": "                num_steps=sample.num_steps,"
+        },
+        {
+          "line": 140,
+          "text": "            )"
+        },
+        {
+          "line": 141,
+          "text": "        else:"
+        },
+        {
+          "line": 142,
+          "text": "            log.info(f\"Generating video with standard mode...\")"
+        },
+        {
+          "line": 143,
+          "text": "            video = self.pipe.generate_vid2world("
+        },
+        {
+          "line": 144,
+          "text": "                prompt=sample.prompt,"
+        },
+        {
+          "line": 145,
+          "text": "                input_path=path_to_str(sample.input_path),"
+        },
+        {
+          "line": 146,
+          "text": "                guidance=sample.guidance,"
+        },
+        {
+          "line": 147,
+          "text": "                num_video_frames=sample.num_output_frames,"
+        },
+        {
+          "line": 148,
+          "text": "                num_latent_conditional_frames=sample.num_input_frames,"
+        },
+        {
+          "line": 149,
+          "text": "                resolution=sample.resolution,"
+        },
+        {
+          "line": 150,
+          "text": "                seed=sample.seed,"
+        },
+        {
+          "line": 151,
+          "text": "                negative_prompt=sample.negative_prompt,"
+        },
+        {
+          "line": 152,
+          "text": "                num_steps=sample.num_steps,"
+        },
+        {
+          "line": 153,
+          "text": "            )"
+        },
+        {
+          "line": 154,
+          "text": ""
+        },
+        {
+          "line": 155,
+          "text": "        if self.rank0:"
+        },
+        {
+          "line": 156,
+          "text": "            video = (1.0 + video[0]) / 2"
+        },
+        {
+          "line": 159,
+          "text": "            if self.video_guardrail_runner is not None:"
+        },
+        {
+          "line": 160,
+          "text": "                log.info(\"Running guardrail check on video...\")"
+        },
+        {
+          "line": 161,
+          "text": "                frames = (video * 255.0).clamp(0.0, 255.0).to(torch.uint8)"
+        },
+        {
+          "line": 162,
+          "text": "                frames = frames.permute(1, 2, 3, 0).cpu().numpy().astype(np.uint8)  # (T, H, W, C)"
+        },
+        {
+          "line": 163,
+          "text": "                processed_frames = guardrail_presets.run_video_guardrail(frames, self.video_guardrail_runner)"
+        },
+        {
+          "line": 164,
+          "text": "                if processed_frames is None:"
+        },
+        {
+          "line": 165,
+          "text": "                    message = \"Guardrail blocked video2world generation.\""
+        },
+        {
+          "line": 166,
+          "text": "                    log.critical(message)"
+        },
+        {
+          "line": 167,
+          "text": "                    if self.setup_args.keep_going:"
+        },
+        {
+          "line": 168,
+          "text": "                        return None"
+        },
+        {
+          "line": 169,
+          "text": "                    else:"
+        },
+        {
+          "line": 170,
+          "text": "                        raise Exception(message)"
+        },
+        {
+          "line": 171,
+          "text": "                else:"
+        },
+        {
+          "line": 172,
+          "text": "                    log.success(\"Passed guardrail on generated video\")"
+        },
+        {
+          "line": 173,
+          "text": "                # Convert processed frames back to tensor format"
+        },
+        {
+          "line": 174,
+          "text": "                processed_video = torch.from_numpy(processed_frames).float().permute(3, 0, 1, 2) / 255.0"
+        },
+        {
+          "line": 175,
+          "text": "                video = processed_video.to(video.device, dtype=video.dtype)"
+        },
+        {
+          "line": 176,
+          "text": "            else:"
+        },
+        {
+          "line": 177,
+          "text": "                log.warning(\"Guardrail checks on video are disabled\")"
+        },
+        {
+          "line": 178,
+          "text": ""
+        },
+        {
+          "line": 179,
+          "text": "            save_img_or_video(video, str(output_path), fps=16)"
+        },
+        {
+          "line": 180,
+          "text": "            log.success(f\"Saved video to {output_path}.mp4\")"
+        },
+        {
+          "line": 181,
+          "text": "        return f\"{output_path}.mp4\""
+        }
+      ]
+    },
+    "cosmos_predict2/_src/predict2/inference/video2world.py": {
+      "sha256": "59aa9e236a5e7e26490f5cfcb94ab95ce911d9c38eba61dd8aef7d067e458a95",
+      "lines": [
+        {
+          "line": 490,
+          "text": "                data_batch[k] = v.cuda().to(dtype=torch.bfloat16)"
+        },
+        {
+          "line": 491,
+          "text": ""
+        },
+        {
+          "line": 492,
+          "text": "        return data_batch"
+        },
+        {
+          "line": 493,
+          "text": ""
+        },
+        {
+          "line": 494,
+          "text": "    def generate_vid2world("
+        },
+        {
+          "line": 495,
+          "text": "        self,"
+        },
+        {
+          "line": 496,
+          "text": "        prompt: str,"
+        },
+        {
+          "line": 497,
+          "text": "        input_path: str | torch.Tensor | None,"
+        },
+        {
+          "line": 498,
+          "text": "        guidance: int = 7,"
+        },
+        {
+          "line": 499,
+          "text": "        num_video_frames: int = 77,"
+        },
+        {
+          "line": 500,
+          "text": "        num_latent_conditional_frames: int = 1,"
+        },
+        {
+          "line": 501,
+          "text": "        num_input_video: int = 1,"
+        },
+        {
+          "line": 502,
+          "text": "        num_output_video: int = 1,"
+        },
+        {
+          "line": 503,
+          "text": "        resolution: str = \"192,320\","
+        },
+        {
+          "line": 504,
+          "text": "        seed: int = 1,"
+        },
+        {
+          "line": 505,
+          "text": "        negative_prompt: str = _DEFAULT_NEGATIVE_PROMPT,"
+        },
+        {
+          "line": 506,
+          "text": "        camera: torch.Tensor | None = None,"
+        },
+        {
+          "line": 507,
+          "text": "        action: torch.Tensor | None = None,"
+        },
+        {
+          "line": 508,
+          "text": "        num_steps: int = 35,"
+        },
+        {
+          "line": 509,
+          "text": "    ):"
+        },
+        {
+          "line": 510,
+          "text": "        \"\"\""
+        },
+        {
+          "line": 511,
+          "text": "        Generates a video based on an input image or video and text prompt."
+        },
+        {
+          "line": 512,
+          "text": ""
+        },
+        {
+          "line": 513,
+          "text": "        Processes the input, prepares the data batch, runs the diffusion"
+        },
+        {
+          "line": 514,
+          "text": "        model sampling, and decodes the result into a video tensor."
+        },
+        {
+          "line": 515,
+          "text": ""
+        },
+        {
+          "line": 516,
+          "text": "        Args:"
+        },
+        {
+          "line": 517,
+          "text": "            prompt: The text prompt describing the desired video content/style."
+        },
+        {
+          "line": 518,
+          "text": "            input_path: Path to the input image or video file or a torch.Tensor."
+        },
+        {
+          "line": 519,
+          "text": "            guidance: Classifier-free guidance scale. Defaults to 7."
+        },
+        {
+          "line": 520,
+          "text": "            num_video_frames: Number of video frames to generate. Defaults to 77."
+        },
+        {
+          "line": 521,
+          "text": "            num_latent_conditional_frames : Number of latent conditional frames. Defaults to 1."
+        },
+        {
+          "line": 522,
+          "text": "            resolution: Target video resolution in \"H,W\" format. Defaults to \"192,320\"."
+        },
+        {
+          "line": 523,
+          "text": "            seed: Random seed for reproducibility. Defaults to 1."
+        },
+        {
+          "line": 524,
+          "text": "            negative_prompt: Custom negative prompt. Defaults to the predefined default negative prompt."
+        },
+        {
+          "line": 525,
+          "text": "            camera: Target camera extrinsics and intrinsics for the K output videos. Must be provided if model is camera conditioned."
+        },
+        {
+          "line": 526,
+          "text": "            action: Target robot action for the K output videos. Must be provided if model is action conditioned."
+        },
+        {
+          "line": 527,
+          "text": "            num_steps: Number of generation steps. Defaults to 35."
+        },
+        {
+          "line": 528,
+          "text": "            offload_diffusion_model: If True, offload diffusion model to CPU to save GPU memory. Defaults to False."
+        },
+        {
+          "line": 529,
+          "text": "            offload_text_encoder: If True, offload text encoder to CPU to save GPU memory. Defaults to False."
+        },
+        {
+          "line": 530,
+          "text": "            offload_tokenizer: If True, offload tokenizer to CPU to save GPU memory. Defaults to False."
+        },
+        {
+          "line": 531,
+          "text": ""
+        },
+        {
+          "line": 532,
+          "text": "        Returns:"
+        },
+        {
+          "line": 533,
+          "text": "            torch.Tensor: The generated video tensor (B, C, T, H, W) in the range [-1, 1]."
+        },
+        {
+          "line": 534,
+          "text": "        \"\"\""
+        },
+        {
+          "line": 535,
+          "text": "        assert camera is not None or action is not None or num_input_video == 1 and num_output_video == 1, ("
+        },
+        {
+          "line": 536,
+          "text": "            \"expected num_output_video==1 and num_output_video==1 for no camera conditioning or action conditioning\""
+        },
+        {
+          "line": 537,
+          "text": "        )"
+        },
+        {
+          "line": 538,
+          "text": ""
+        },
+        {
+          "line": 706,
+          "text": "        if isinstance(sample, list):"
+        },
+        {
+          "line": 707,
+          "text": "            # Decode the latent sample into a video tensor"
+        },
+        {
+          "line": 708,
+          "text": "            video_list = []"
+        },
+        {
+          "line": 709,
+          "text": "            for sample_chunk in sample:"
+        },
+        {
+          "line": 710,
+          "text": "                video_chunk = self.model.decode(sample_chunk)"
+        },
+        {
+          "line": 711,
+          "text": "                video_list.append(video_chunk)"
+        },
+        {
+          "line": 712,
+          "text": "            video = torch.cat(video_list, dim=3)"
+        },
+        {
+          "line": 713,
+          "text": "        else:"
+        },
+        {
+          "line": 714,
+          "text": "            # Decode the latent sample into a video tensor"
+        },
+        {
+          "line": 715,
+          "text": "            video = self.model.decode(sample)"
+        },
+        {
+          "line": 716,
+          "text": ""
+        },
+        {
+          "line": 717,
+          "text": "        # Memory Optimization Step 6: Final Cleanup"
+        },
+        {
+          "line": 718,
+          "text": "        # Offload decoder after decoding & reload the tokenizer for the next inference call"
+        },
+        {
+          "line": 719,
+          "text": "        if self.offload_tokenizer:"
+        },
+        {
+          "line": 720,
+          "text": "            log.info(\"[Memory Optimization] Offloading tokenizer decoder to CPU\")"
+        },
+        {
+          "line": 721,
+          "text": "            if hasattr(self.model.tokenizer, \"decoder\") and self.model.tokenizer.decoder is not None:"
+        },
+        {
+          "line": 722,
+          "text": "                self.model.tokenizer.decoder = self.model.tokenizer.decoder.to(\"cpu\")"
+        },
+        {
+          "line": 723,
+          "text": "            torch.cuda.empty_cache()"
+        },
+        {
+          "line": 724,
+          "text": ""
+        },
+        {
+          "line": 725,
+          "text": "        if self.offload_text_encoder and self.model.text_encoder is not None:"
+        },
+        {
+          "line": 726,
+          "text": "            log.info(\"[Memory Optimization] Load text encoder to GPU\")"
+        },
+        {
+          "line": 727,
+          "text": "            # TextEncoder is a wrapper class with self.model (the actual neural network)"
+        },
+        {
+          "line": 728,
+          "text": "            if hasattr(self.model.text_encoder, \"model\") and self.model.text_encoder.model is not None:"
+        },
+        {
+          "line": 729,
+          "text": "                self.model.text_encoder.model = self.model.text_encoder.model.to(\"cuda\")"
+        },
+        {
+          "line": 730,
+          "text": "            torch.cuda.empty_cache()"
+        },
+        {
+          "line": 731,
+          "text": ""
+        },
+        {
+          "line": 732,
+          "text": "        return video"
+        },
+        {
+          "line": 733,
+          "text": ""
+        },
+        {
+          "line": 734,
+          "text": "    def generate_autoregressive_from_batch("
+        },
+        {
+          "line": 735,
+          "text": "        self,"
+        },
+        {
+          "line": 736,
+          "text": "        prompt: str,"
+        },
+        {
+          "line": 737,
+          "text": "        input_path: str | torch.Tensor | None,"
+        },
+        {
+          "line": 738,
+          "text": "        num_output_frames: int,"
+        },
+        {
+          "line": 739,
+          "text": "        chunk_size: int,"
+        },
+        {
+          "line": 740,
+          "text": "        chunk_overlap: int,"
+        },
+        {
+          "line": 741,
+          "text": "        guidance: int = 7,"
+        },
+        {
+          "line": 742,
+          "text": "        num_latent_conditional_frames: int = 1,"
+        },
+        {
+          "line": 743,
+          "text": "        resolution: str = \"192,320\","
+        },
+        {
+          "line": 744,
+          "text": "        seed: int = 1,"
+        },
+        {
+          "line": 745,
+          "text": "        negative_prompt: str = _DEFAULT_NEGATIVE_PROMPT,"
+        },
+        {
+          "line": 746,
+          "text": "        camera: torch.Tensor | None = None,"
+        },
+        {
+          "line": 747,
+          "text": "        action: torch.Tensor | None = None,"
+        },
+        {
+          "line": 748,
+          "text": "        num_steps: int = 35,"
+        },
+        {
+          "line": 749,
+          "text": "    ) -> torch.Tensor:"
+        },
+        {
+          "line": 750,
+          "text": "        \"\"\""
+        },
+        {
+          "line": 751,
+          "text": "        Generate video using autoregressive sliding window approach."
+        },
+        {
+          "line": 752,
+          "text": ""
+        },
+        {
+          "line": 753,
+          "text": "        Args:"
+        },
+        {
+          "line": 754,
+          "text": "            prompt: The text prompt describing the desired video content/style."
+        },
+        {
+          "line": 755,
+          "text": "            input_path: Path to the input image or video file or a torch.Tensor."
+        },
+        {
+          "line": 756,
+          "text": "            num_output_frames: Total number of frames to generate in the final output."
+        },
+        {
+          "line": 757,
+          "text": "            chunk_size: Number of frames per chunk (model's native capacity)."
+        },
+        {
+          "line": 758,
+          "text": "            chunk_overlap: Number of overlapping frames between chunks."
+        },
+        {
+          "line": 759,
+          "text": "            guidance: Classifier-free guidance scale."
+        }
+      ]
+    }
+  },
+  "current_device_context": {
+    "product_name": "NVIDIA RTX 6000 Ada Generation",
+    "fan_speed": "35 %",
+    "performance_state": "P8",
+    "compute_mode": "Default",
+    "temperature/gpu_temp": "63 C",
+    "temperature/gpu_temp_max_threshold": null,
+    "temperature/gpu_temp_slow_threshold": null,
+    "temperature/gpu_temp_target_temperature": null,
+    "power_readings/power_limit": null,
+    "gpu_power_readings/power_limit": null
+  },
+  "device_context_not_historical_cause": true,
+  "GPU_submissions": 0,
+  "server_changes": false
+}

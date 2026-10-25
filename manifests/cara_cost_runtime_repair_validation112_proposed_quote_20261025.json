@@ -1,0 +1,72 @@
+{
+  "status": "COST_RUNTIME_REPAIR_VALIDATION112_PROPOSED_NOT_AUTHORIZED",
+  "registered_production_scope": false,
+  "GPU_dispatch_ready": false,
+  "GPU_submissions": 0,
+  "ledger_written": false,
+  "source_inputs": {
+    "manifests/cara_cost112_scope_quote_r1_20261025.json": "157c5c5c0e9769d5fa5277125149180ffdcffc7063411efe2e97ee546b89ace5",
+    "reports/cara_cost112_GPU_terminal_20261025_1115.json": "16be13d022ede0527e2edd96841f3f22d08be9e7e0a792c2d2f68b64c354f248"
+  },
+  "basis": "Maximum of original104 quote basis and accepted112 same-role formal clocks; no partial inputs",
+  "arm_seconds": {
+    "NATIVE": 299.00618623383343,
+    "PG_ALL_D": 301.83007523044944,
+    "GRAPH_DIVERSE_ORIGINAL": 244.95315795391798,
+    "S26_C": 243.99683783762157,
+    "S26_A_PHASE": 244.28714146651328,
+    "SHARED26_C": 244.26505583152175,
+    "S25_C": 237.60360679030418,
+    "S25_A_PHASE": 238.93402817845345,
+    "S24_C": 232.63978866301477,
+    "S24_A_PHASE": 235.20119451358914,
+    "CLOCK_ANCHOR": 301.83007523044944
+  },
+  "scope": {
+    "total_paths": 112,
+    "warm": 20,
+    "anchors": 8,
+    "formal": 80,
+    "diagnostic": 4,
+    "validation_targets": 72,
+    "score_pairs": 72,
+    "score_frames": 6696,
+    "loads": 1,
+    "guided_pairs": 4032,
+    "CFG_calls": 8064,
+    "CAL": 4,
+    "roles": 11
+  },
+  "components_GPUh": {
+    "full_paths": 8.272231973480071,
+    "load": 0.1,
+    "IO_controls_release": 0.4
+  },
+  "uncertainty_margin_fraction": 0.25,
+  "forecast_GPUh": 10.96528996685009,
+  "proposed_billed_limit_GPUh": 11.9,
+  "within_unchanged_11_9": true,
+  "cumulative_cap_GPUh": 226,
+  "deployment_cap_seconds": 257.7712338712067,
+  "relative_fresh_Native": 0.8,
+  "prediction_margin_seconds": 6,
+  "unchanged_policies_SHA256": "b28b6b4d3b394ae8925c26117ac05e4b849056600e63cb908388875d63fdb7ee",
+  "post_release_CPU": {
+    "score_pairs": 72,
+    "wall_limit_hours": 1.5,
+    "cpus": 2
+  },
+  "ledger_snapshot": {
+    "used": 156.1354543951237,
+    "reserved": 16.5,
+    "available": 53.3645456048763,
+    "available_after_proposed_11_9_reservation": 41.4645456048763
+  },
+  "conditions": [
+    "User currently says do not rerun; this quote is not launch authority.",
+    "Do not execute another112 unchanged merely because it fits the budget.",
+    "First identify and CPU-verify a concrete runtime/measurement repair, freeze source, model and full scope; re-quote if any paths, warmups or held GPU overhead are added.",
+    "Original failed104/112 gates remain failed; new independent observations alone can validate a frozen repair.",
+    "Original P1 repair102 proposed14GPUh remains unapproved and is not increased or automatically allocated."
+  ]
+}

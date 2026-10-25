@@ -451,6 +451,16 @@ def build():
                       claim_relation='COMPLETE_INDEPENDENT_TIMING_VALIDATION', evidence_or_planned_scope=result)
             cr['reader'].update(status='完整接受；计时门'+('通过' if ca['timing_model_validated'] else '失败'), result=result)
             master['operation_policy'].update(current_running_card=None,current_running_cards=[])
+            if cost.get('root_cause_analysis_ref'):
+                cause = load(cost['root_cause_analysis_ref'])
+                if (cause['inputs'][cost['observation_ref']] != ca['capture_sha256']
+                        or cause['coefficients_changed'] or cause['thresholds_changed']
+                        or cause['new_GPU_submissions']):
+                    raise ValueError('Cost112 attribution must preserve complete evidence and frozen gates')
+                snapshot += ("\n\n后续归因已完成：最大低估中，同块全D参照差异1.356秒，余下3.650秒分布在主流水线、外层处理与写入。"
+                             "更近/双参照最大值仍不能过2秒，温控因果份额尚不能识别。先补运行条件与阶段计时的CPU等价验证，不重跑。 "
+                             + link(cost['root_cause_report_ref'],'归因结论') + ' · '
+                             + link(cost['repair_plan_ref'],'修复、独立验证与P1接续方案'))
         master['status_counts']={state:sum(r['state']==state for r in rows) for state in sorted({r['state'] for r in rows})}
     repair = status.get('P1_repair102_preparation')
     if repair:

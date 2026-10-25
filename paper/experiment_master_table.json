@@ -5496,7 +5496,7 @@
         "title": "单预算自动策略闭环",
         "status": "P1原件已接受，未选出预算可行策略",
         "result": "原件与财务完整接受；实际2.557833 GPUh。64登记位置中执行30路径、16评分、4候选查询；未选出满足冻结预算的策略，PG-P2尚不准入。",
-        "next_action": "原参照协议独立验证失败；保留102入口CPU和未批准14GPUh报价，先审阅完整误差诊断与新方案，不能直接派卡。",
+        "next_action": "112失败保持；先按691完成运行时/计时修复与独立验证方案。原102 CPU与未批准14GPUh报价保留；新模型/入口改变后重新做相应组合CPU，不派GPU。",
         "evidence_refs": [
           "reports/cara_PG_P1_full64_GPU_actual_launch_20261023_2030.json",
           "reports/cara_PG_P1_full64_GPU_initial_health_20261023_2029.json",
@@ -5907,6 +5907,9 @@
         "cara-cost-validation112-cal4-ada-r1"
       ],
       "evidence_refs": [
+        "research/691_CARA_COST112_CAUSE_SEPARATION_AND_P1_REPAIR_PLAN_20261025.md",
+        "reports/cara_cost112_root_cause_attribution_r2_20261025.json",
+        "plans/cara_policy_generator_20261020/COST_RUNTIME_REPAIR_AND_P1_HANDOFF_R2_20261025.md",
         "research/690_CARA_COST112_COMPLETE_ACCEPTANCE_AND_TIMING_GATE_FAILURE_20261025.md",
         "reports/cara_cost112_GPU_accepted_20261025_1115.json",
         "reports/cara_cost112_complete_timing_thermal_analysis_20261025.json",
@@ -5940,8 +5943,11 @@
         "title": "同入口全D参照的112路径独立计时验证",
         "status": "完整接受；计时门失败",
         "result": "112路径、72组/6696帧评分及23控制完整接受；实际8.139511 GPUh。计时平均绝对相对误差0.545%，最大低估5.006秒；最大低估未过原2秒门槛，新P1不准入。",
-        "next_action": "保留72目标独立失败与实际费用；先做参照漂移/环境控制的可审阅修复方案，不重拟合112、不放宽门槛或自动追加GPU。",
+        "next_action": "先实现运行条件和分段计时CPU等价修复；冻结具体方案后另作完整独立验证，当前不重跑。保持1%/2秒/无假可行、原预算/α/强基线。",
         "evidence_refs": [
+          "research/691_CARA_COST112_CAUSE_SEPARATION_AND_P1_REPAIR_PLAN_20261025.md",
+          "reports/cara_cost112_root_cause_attribution_r2_20261025.json",
+          "plans/cara_policy_generator_20261020/COST_RUNTIME_REPAIR_AND_P1_HANDOFF_R2_20261025.md",
           "research/690_CARA_COST112_COMPLETE_ACCEPTANCE_AND_TIMING_GATE_FAILURE_20261025.md",
           "reports/cara_cost112_GPU_accepted_20261025_1115.json",
           "reports/cara_cost112_complete_timing_thermal_analysis_20261025.json",
@@ -5998,7 +6004,7 @@
         "title": "新P1生产入口、同输入时钟与有限恢复",
         "status": "入口CPU已过；112计时失败，GPU接续阻断",
         "result": "真实18采样CPU路径、新自适应分母/实际93帧评分/独立决策重放通过；不是GPU质量或策略成功。",
-        "next_action": "原参照协议独立验证失败；保留102入口CPU和未批准14GPUh报价，先审阅完整误差诊断与新方案，不能直接派卡。",
+        "next_action": "112失败保持；先按691完成运行时/计时修复与独立验证方案。原102 CPU与未批准14GPUh报价保留；新模型/入口改变后重新做相应组合CPU，不派GPU。",
         "evidence_refs": [
           "research/688_CARA_P1_REPAIR102_ENTRY_CPU_QUOTE_AND_SELECT_AUDIT_20261025.md",
           "plans/cara_policy_generator_20261020/P1_REPAIR102_PRODUCTION_AND_QUOTE_R1_20261025.md",
@@ -11937,28 +11943,28 @@
     },
     "EXPERIMENT_REPORT.md": {
       "path": "EXPERIMENT_REPORT.md",
-      "sha256": "117ed0c45a5b9c7adec65f75578e456bed8bb3bfa694c4563ddc80d48f3ba0c9",
-      "bytes": 9151
+      "sha256": "5b3a620be19191b651d92d8893a635dd332b41577497927541f722f2c9747517",
+      "bytes": 9760
     },
     "memory/handoffs/LATEST.md": {
       "path": "memory/handoffs/LATEST.md",
-      "sha256": "7f89bfe848eccfbf9617c27603a65193428b5c204b826021ee12ba0ce57f611a",
-      "bytes": 9715
+      "sha256": "6c8c6af7cf4be1a114ba872b8ac1fa169310ff8545e60be843fb15a5ecd33cb2",
+      "bytes": 10234
     },
     "research/02_CURRENT_STATE.md": {
       "path": "research/02_CURRENT_STATE.md",
-      "sha256": "4cee2e1470a7679338222d280985ff697438d4a2c86f9cbfa53e3db72d3386fd",
-      "bytes": 9765
+      "sha256": "0b1efaed08642a07c56daa8a2ae4d23f485e7117be8ea6080724c03a22d87db4",
+      "bytes": 10368
     },
     "research/09_NEXT_ACTIONS.md": {
       "path": "research/09_NEXT_ACTIONS.md",
-      "sha256": "d02949bcfe56770962fb0098949265aff3c51930a9e3fe99b6befafcebf57509",
-      "bytes": 9246
+      "sha256": "de2a1ed96ae1f41fc6d79e6e6fb0c1b8bc2fa0967b2da71b8d612534e02199df",
+      "bytes": 9849
     },
     "paper/EXPERIMENT_MASTER_TABLE.md": {
       "path": "paper/EXPERIMENT_MASTER_TABLE.md",
-      "sha256": "1d24ba08418e08966117dc08f08dc28f0e9b1543a790b003139040ba6941306e",
-      "bytes": 36722
+      "sha256": "871df2c5348beca627795043a4d99c5767a97ff6152fa04127f634f5b27259fa",
+      "bytes": 37613
     },
     "paper/INTERNAL_TO_PAPER_MAPPING.md": {
       "path": "paper/INTERNAL_TO_PAPER_MAPPING.md",
@@ -13937,7 +13943,7 @@
     "historical_operation_policy_ref": "docs/archive/20261022_before_navigation/paper/experiment_master_table.json"
   },
   "mapping_sha256_at_inventory": "88b3d760a0c94c20b6c802e21f30c7286d6e596cc9b3f3100e7ee6feaa3938f3",
-  "latest_mapping_sha256": "6e15cdc5f1349c515d18b8cad5769e614c55d87eaee3e76ae446ea55013bfee8",
+  "latest_mapping_sha256": "582fbec7ca24c0ff8bf1361ac4ff75e6544d3a6f7072e45a0f0c6b36f7bd9cf2",
   "revision_plan": {
     "registry_ref": "plans/cara_v6_20261020/TASK_REGISTRY_V6.yaml",
     "report_ref": "research/610_WC_CARA_V6_REVIEW_CLOSURE_PLAN_INTERVAL_SPEC_AND_FIRST_DEV_SCOPE_20261020.md",
