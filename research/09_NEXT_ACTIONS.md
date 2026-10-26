@@ -4,9 +4,9 @@
 
 **Shared25-C新DEV128已在两卡A6000独占启动。**
 
-2026-10-26 17:41–17:42实际技术观察：DEV128已完成55/128、1运行、0失败。两卡GPU1原runner仍为唯一EXCLUSIVE_PROCESS上下文，原guardian/supervisor/runner/container与锁正常；6627独占样本无违规，最大间隔3.501秒。输出卷可用30.73GiB，跨盘日志新鲜度1.56秒。最近20完成文件间隔均值259.02秒，仅技术预测今晚23点前后完成采集，释放后CPU评分原预测8.56449h/最多10h，暂估明早7:30–9:30具备完整收件条件。原19:26半程和明日10:04终态保持，半程按新节奏再调整；未读取部分科学结果。
+2026-10-26 19:47:57–19:49实际技术半程：84/128完成、1运行、0失败；原四句柄、GPU1唯一runner与锁正常。10083独占前缀样本无违规，最大间隔3.501秒；输出卷30.49GiB可用，跨盘日志新鲜度0.413秒。按最近20个完成文件mtime间隔260.18秒预测约22:57完成采集，释放后按原CPU预测约次日07:31、10小时评分上限约08:57结束；均非完成保证。半程一次任务已删除，终态仍10月27日10:04。未读取部分视频、质量或分角色时钟。
 
-[证据1](705_CARA_DEV128_A6000_EXCLUSIVE_LAUNCH_AND_ACCEPTANCE_SCHEDULE_20261026.md) · [证据2](../reports/cara_DEV128_A6000_GPU_actual_launch_20261026.json) · [证据3](../reports/cara_DEV128_A6000_technical_admission_20261026.json) · [证据4](../reports/cara_DEV128_A6000_central_admission_20261026.json) · [证据5](../reports/cara_DEV128_A6000_acceptance_schedule_20261026.json) · [证据6](../reports/cara_DEV128_A6000_storage_20261026.json) · [证据7](../reports/cara_DEV128_prelaunch_dual_exposure_reviewed_20261026.json) · [证据8](../reports/cara_DEV128_full_four_card_CPU_accepted_r4_20261026.json) · [证据9](../reports/cara_DEV128_full_two_card_CPU_accepted_r4_20261026.json) · [证据10](../reports/cara_DEV128_A6000_technical_followup_20261026.json) · [证据11](../reports/cara_DEV128_A6000_technical_progress_20261026_1742.json) · [证据12](../reports/cara_DEV128_A6000_progress_capture_20261026_1743.json) · [证据13](../reports/cara_DEV128_A6000_progress_pace_20261026_1744.json)
+[证据1](705_CARA_DEV128_A6000_EXCLUSIVE_LAUNCH_AND_ACCEPTANCE_SCHEDULE_20261026.md) · [证据2](../reports/cara_DEV128_A6000_GPU_actual_launch_20261026.json) · [证据3](../reports/cara_DEV128_A6000_technical_admission_20261026.json) · [证据4](../reports/cara_DEV128_A6000_central_admission_20261026.json) · [证据5](../reports/cara_DEV128_A6000_acceptance_schedule_20261026.json) · [证据6](../reports/cara_DEV128_A6000_storage_20261026.json) · [证据7](../reports/cara_DEV128_prelaunch_dual_exposure_reviewed_20261026.json) · [证据8](../reports/cara_DEV128_full_four_card_CPU_accepted_r4_20261026.json) · [证据9](../reports/cara_DEV128_full_two_card_CPU_accepted_r4_20261026.json) · [证据10](../reports/cara_DEV128_A6000_technical_followup_20261026.json) · [证据11](../reports/cara_DEV128_A6000_technical_progress_20261026_1742.json) · [证据12](../reports/cara_DEV128_A6000_progress_capture_20261026_1743.json) · [证据13](../reports/cara_DEV128_A6000_progress_pace_20261026_1744.json) · [证据14](../reports/cara_DEV128_A6000_halfway_capture_20261026_1948.json) · [证据15](../reports/cara_DEV128_A6000_halfway_technical_20261026_1948.json) · [证据16](../reports/cara_DEV128_A6000_halfway_pace_20261026_1948.json) · [证据17](711_CARA_DEV128_A6000_HALFWAY_TECHNICAL_20261026.md)
 
 ## 后续探索当前版本：E1 V2.2
 
@@ -18,7 +18,7 @@
 
 | 顺序 | 当前阶段 | 下一项验收 / 动作 |
 |---|---|---|
-| PG-SHARED-DEV128 | Shared25-C：16新DEV、六角色128路径：Shared25-C新DEV128已在两卡A6000独占启动 | 按原launch半程与终态收件；释放GPU后完成80LPIPS/288质量评分，中央原账单结算后独立完整接受。不得重派、看部分结果调参或自动追加GPU。 |
+| PG-SHARED-DEV128 | Shared25-C：16新DEV、六角色128路径：Shared25-C新DEV128已在两卡A6000独占启动 | 技术半程已完成并关闭；继续同一launch采集，GPU释放后CPU评分及真实账单中央结算，10月27日10:04完整验收。不得重派或用部分结果调参。 |
 
 ## 本轮授权范围与下一步
 

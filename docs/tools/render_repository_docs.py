@@ -792,7 +792,7 @@ def build():
             '| 完整范围 | 16新DEV、六角色、128路径；原α/强基线保持 |\n'
             '| GPU预算 | 预测11.618228h / 硬12h / 累计226h |\n'
             '| 释放后评分 | 80LPIPS/7440帧、288质量；2CPU/8GiB，最多10h |\n'
-            '| 自动检查 | 10月26日19:26半程；10月27日10:04终态，按实际进度调整 |')
+            '| 自动检查 | ' + execution.get('check_schedule_zh', '10月26日19:26半程；10月27日10:04终态，按实际进度调整') + ' |')
         actions = execution['next_action']
         row = by_id['PG-SHARED-DEV128']
         row.update(state=execution['status'],new_GPU_submissions=1,full_protocol_accepted=False,
