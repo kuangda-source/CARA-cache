@@ -69,6 +69,11 @@ def names():
      for folder in ('scripts','tests'):
       imported=Path(folder)/(node.module.replace('.', '/')+'.py')
       if (ROOT/imported).is_file():ns.add(str(imported))
+    if isinstance(node,ast.Constant) and isinstance(node.value,str) and node.value.endswith('.py'):
+     value=Path(node.value)
+     if not value.is_absolute() and '..' not in value.parts:
+      for candidate in (value,Path('scripts')/value,Path('tests')/value):
+       if (ROOT/candidate).is_file():ns.add(str(candidate))
     if isinstance(node,ast.Constant) and isinstance(node.value,str) and re.fullmatch(r'[a-z_][a-z0-9_]*(?:\.py)?',node.value):
      sibling=Path(n).parent/(node.value if node.value.endswith('.py') else node.value+'.py')
      if (ROOT/sibling).is_file():ns.add(str(sibling))
