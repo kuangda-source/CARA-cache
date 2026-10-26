@@ -8,7 +8,7 @@
 
 {{research_summary}}
 
-[创新量增益探索R1](repo:plans/cara_innovation_gain_20261027/README.md)的两卡A6000/四卡Ada同源CPU复核通过，每端9项检查及新增B1整卡拟合/实际重放控制通过。B1已在两卡GPU0独占启动，唯一句柄`82bec7e7-c131-412a-b5e5-3e2069609ff9`，阶段上限1.5GPUh属于全轮7GPUh内。真实模型已加载并进入父路径采集，尚无科学结果；DEV128的CPU评分及其中央责任保持原样。见[713](repo:research/713_CARA_IG_B1_EXCLUSIVE_A6000_LAUNCH_20261027.md)。
+[创新量增益探索R1](repo:plans/cara_innovation_gain_20261027/README.md)已完成双端CPU复核与一次两卡真实工程尝试。原B1在首条观测路径的两状态实测约8分钟/状态，瓶颈是反复GPU到CPU的全状态哈希；为避免超过1.5GPUh阶段上限已停止，实际0.582724GPUh结算并保留原件。R2仅优化隔离审计结构，本地逐点原适配器对照通过，双端CPU与新的独立执行卡待完成。无方法效果结论，DEV128保持原样。见[714](repo:research/714_CARA_IG_B1_HASH_OVERHEAD_AND_GROUPED_REPAIR_20261027.md)。
 
 {{queue}}
 

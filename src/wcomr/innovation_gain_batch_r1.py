@@ -4,6 +4,7 @@ The same orchestration is used by the declared CPU model and real model entry.
 No partial denominator, surrogate score or local error is a video-quality result.
 """
 import time
+import contextlib
 from pathlib import Path
 
 import torch
@@ -15,7 +16,7 @@ from .policy_interval_readout_r1 import guided
 from .scout_readout_v22 import STATE_STEPS
 
 
-def collect(root, prompts, request, replay, *, byte_limit, check_space, save):
+def collect(root, prompts, request, replay, *, byte_limit, check_space, save, replay_context=None):
     root=Path(root)
     if len(prompts)!=2 or len(set(prompts))!=2:raise ValueError('Exactly two frozen CAL prompts')
     assets=GainAssetStore(root/'assets',byte_limit=byte_limit,check_space=check_space)
@@ -51,24 +52,25 @@ def collect(root, prompts, request, replay, *, byte_limit, check_space, save):
     folds={f['held_out_prompt']:f['coefficients'] for f in fitted['folds']}
     for row in assets.states:
         check_space();payload=load_state(assets.root,row['artifact'])
-        # Gate the exact restored inputs before paying for either fitted proposal.
-        for gain,label in (((0.,0.),'FULL'),((1.,1.),'R4_GLOBAL')):
-            value=replay(payload,gain)
-            if not all(torch.equal(x.detach().cpu(),y) for x,y in zip(value['outputs'],payload['readouts'][label]['outputs'])):
-                raise ValueError('Stored actual adapter endpoint changed: '+label)
-            state['replays'].append(dict(prompt=row['prompt'],step=row['step'],kind='ENDPOINT',role=label,exact=True))
-            del value
-        teacher=guided(payload['teacher']).double()
-        for kind,coefficients in (('LOPO',folds[row['prompt']]),('FINAL',fitted['final'])):
-            for role in ('IG_SCALAR','IG_BAND'):
-                gains=coefficients[role];value=replay(payload,gains)
-                output=guided(tuple(x.detach().cpu() for x in value['outputs'])).double()
-                mse=float((output-teacher).square().mean())
-                if not torch.isfinite(torch.tensor(mse)):raise ValueError('Nonfinite actual replay error')
-                state['replays'].append(dict(prompt=row['prompt'],step=row['step'],kind=kind,role=role,
-                    gains=gains,actual_guided_MSE=mse,baseline_FULL_MSE=row['moments']['baseline_FULL_MSE'],
-                    baseline_DEEP_MSE=row['moments']['baseline_DEEP_MSE']))
-                del value,output
+        with (replay_context(payload) if replay_context else contextlib.nullcontext()):
+            # Gate the exact restored inputs before paying for either fitted proposal.
+            for gain,label in (((0.,0.),'FULL'),((1.,1.),'R4_GLOBAL')):
+                value=replay(payload,gain)
+                if not all(torch.equal(x.detach().cpu(),y) for x,y in zip(value['outputs'],payload['readouts'][label]['outputs'])):
+                    raise ValueError('Stored actual adapter endpoint changed: '+label)
+                state['replays'].append(dict(prompt=row['prompt'],step=row['step'],kind='ENDPOINT',role=label,exact=True))
+                del value
+            teacher=guided(payload['teacher']).double()
+            for kind,coefficients in (('LOPO',folds[row['prompt']]),('FINAL',fitted['final'])):
+                for role in ('IG_SCALAR','IG_BAND'):
+                    gains=coefficients[role];value=replay(payload,gains)
+                    output=guided(tuple(x.detach().cpu() for x in value['outputs'])).double()
+                    mse=float((output-teacher).square().mean())
+                    if not torch.isfinite(torch.tensor(mse)):raise ValueError('Nonfinite actual replay error')
+                    state['replays'].append(dict(prompt=row['prompt'],step=row['step'],kind=kind,role=role,
+                        gains=gains,actual_guided_MSE=mse,baseline_FULL_MSE=row['moments']['baseline_FULL_MSE'],
+                        baseline_DEEP_MSE=row['moments']['baseline_DEEP_MSE']))
+                    del value,output
         del payload,teacher
         checkpoint()
     if len(assets.states)!=12 or len(state['replays'])!=72:raise ValueError('Incomplete B1 replay denominator')

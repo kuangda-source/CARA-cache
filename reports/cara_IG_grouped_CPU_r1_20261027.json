@@ -1,0 +1,255 @@
+{
+  "status": "IG_GROUPED_SOURCE_BOUND_CPU_PASS_NOT_REAL_MODEL_RESULT",
+  "unit_tests": 12,
+  "full_parent_controls": {
+    "status": "SCOUT_SPARSE_PARENT_SOURCE_PATH_CPU_PASS_NOT_REAL_WEIGHT_ACCEPTANCE",
+    "checks": [
+      {
+        "flow": false,
+        "status": "PASS",
+        "requests": [
+          {
+            "request": "OLD_CAL_CPU_0",
+            "full36_OFF_ON_equal": true,
+            "final_latent_and_declared_CPU_RGB_equal": true,
+            "selected_states": 6,
+            "readout_positions": 36,
+            "actual_dense_teacher_pairs": 6,
+            "owner_released": true
+          },
+          {
+            "request": "OLD_CAL_CPU_1",
+            "full36_OFF_ON_equal": true,
+            "final_latent_and_declared_CPU_RGB_equal": true,
+            "selected_states": 6,
+            "readout_positions": 36,
+            "actual_dense_teacher_pairs": 6,
+            "owner_released": true
+          }
+        ],
+        "actual_CPU_paths": 4,
+        "failed_boundary_attempts": [
+          {
+            "fault": "teacher_failure",
+            "original_error_preserved": true,
+            "adapter_uninstalled": true,
+            "attempted_sink_positions": 0,
+            "completed_sink_positions": 0,
+            "no_replay": true
+          },
+          {
+            "fault": "last_state_writer_failure",
+            "original_error_preserved": true,
+            "adapter_uninstalled": true,
+            "attempted_sink_positions": 6,
+            "completed_sink_positions": 5,
+            "no_replay": true
+          },
+          {
+            "fault": "copy_cap",
+            "original_error_preserved": true,
+            "adapter_uninstalled": true,
+            "attempted_sink_positions": 0,
+            "completed_sink_positions": 0,
+            "no_replay": true
+          }
+        ],
+        "time_mapping_rejections": 3,
+        "pinned_WC_RF_UniPC": true,
+        "weights_attention_prepare_decode_writer": "DECLARED_SMALL_CPU_STANDINS",
+        "full_Cosmos_weights": false,
+        "scientific_readout_gate_evaluated": false
+      },
+      {
+        "flow": true,
+        "status": "PASS",
+        "requests": [
+          {
+            "request": "OLD_CAL_CPU_0",
+            "full36_OFF_ON_equal": true,
+            "final_latent_and_declared_CPU_RGB_equal": true,
+            "selected_states": 6,
+            "readout_positions": 36,
+            "actual_dense_teacher_pairs": 6,
+            "owner_released": true
+          },
+          {
+            "request": "OLD_CAL_CPU_1",
+            "full36_OFF_ON_equal": true,
+            "final_latent_and_declared_CPU_RGB_equal": true,
+            "selected_states": 6,
+            "readout_positions": 36,
+            "actual_dense_teacher_pairs": 6,
+            "owner_released": true
+          }
+        ],
+        "actual_CPU_paths": 4,
+        "failed_boundary_attempts": [
+          {
+            "fault": "teacher_failure",
+            "original_error_preserved": true,
+            "adapter_uninstalled": true,
+            "attempted_sink_positions": 0,
+            "completed_sink_positions": 0,
+            "no_replay": true
+          },
+          {
+            "fault": "last_state_writer_failure",
+            "original_error_preserved": true,
+            "adapter_uninstalled": true,
+            "attempted_sink_positions": 6,
+            "completed_sink_positions": 5,
+            "no_replay": true
+          },
+          {
+            "fault": "copy_cap",
+            "original_error_preserved": true,
+            "adapter_uninstalled": true,
+            "attempted_sink_positions": 0,
+            "completed_sink_positions": 0,
+            "no_replay": true
+          }
+        ],
+        "time_mapping_rejections": 3,
+        "pinned_WC_RF_UniPC": true,
+        "weights_attention_prepare_decode_writer": "DECLARED_SMALL_CPU_STANDINS",
+        "full_Cosmos_weights": false,
+        "scientific_readout_gate_evaluated": false
+      }
+    ],
+    "upstream_sha256": {
+      "cosmos_predict2/inference.py": "0db96c49f0b3f18a971bc989e0727132dafc27ef621145a2d25a3da62a7a1975",
+      "cosmos_predict2/_src/predict2/inference/video2world.py": "59aa9e236a5e7e26490f5cfcb94ab95ce911d9c38eba61dd8aef7d067e458a95",
+      "cosmos_predict2/_src/predict2/inference/worldcache_utils.py": "b485cb8fd6e262a40e5823365c34ef7db1bc036c591d7577489e04077c515903",
+      "cosmos_predict2/_src/predict2/models/text2world_model_rectified_flow.py": "c6c68f297859e11c76d2921667a29cabfecef3a7b5d3ab831bf9bb54b25b7d87",
+      "cosmos_predict2/_src/predict2/models/fm_solvers_unipc.py": "f6a06c75f059693ade6c802e99f6058575969b6a71ef18ab05e7ed46701053d3"
+    },
+    "cuda_initialized": false,
+    "limits": "Unchanged pinned sampler/get_velocity/denoise/decode wrapper, WC, UniPC, generate_vid2world and Inference method bodies. Explicit Toy net, CPU noise/conditioner/normalize/broadcast/prepare/tokenizer/mock writer, offload disabled and CUDA telemetry adapters; equal finite threshold schedule is CPU control only. No weights, true VAE/encoded video, GPU completion, independent restart or quality result. No sparse candidate in this control.",
+    "actual_CPU_paths": 8,
+    "failed_boundary_attempts": 6,
+    "selected_states": 24,
+    "readout_positions": 144,
+    "CUDA_initialized": false,
+    "GPU_submissions": 0,
+    "server_actions": 0
+  },
+  "observed_gain_states_including_failure_attempts": 36,
+  "saved_input_endpoint_replays_including_failure_attempts": 72,
+  "streamed_unique_anchor_stores": 6,
+  "actual_request_schema": null,
+  "free_running_deployment_controls": {
+    "status": "IG_CLOSED_LOOP_CPU_PASS_NOT_MODEL_RESULT",
+    "checks": [
+      {
+        "flow": false,
+        "status": "PASS",
+        "actual_CPU_paths": 10,
+        "roles": [
+          "WC_C",
+          "A_PHASE",
+          "FULL",
+          "DEEP",
+          "DCTA",
+          "IG_SCALAR",
+          "IG_BAND",
+          "IG_ZERO",
+          "IG_ONE"
+        ],
+        "C_parent_endpoint_equal": true,
+        "FULL_IG0_trajectory_equal": true,
+        "DEEP_IG1_trajectory_equal": true,
+        "all36_head_counts_verified": true,
+        "all_candidates_free_running": true,
+        "teacher_calls": 0,
+        "real_model": false
+      },
+      {
+        "flow": true,
+        "status": "PASS",
+        "actual_CPU_paths": 10,
+        "roles": [
+          "WC_C",
+          "A_PHASE",
+          "FULL",
+          "DEEP",
+          "DCTA",
+          "IG_SCALAR",
+          "IG_BAND",
+          "IG_ZERO",
+          "IG_ONE"
+        ],
+        "C_parent_endpoint_equal": true,
+        "FULL_IG0_trajectory_equal": true,
+        "DEEP_IG1_trajectory_equal": true,
+        "all36_head_counts_verified": true,
+        "all_candidates_free_running": true,
+        "teacher_calls": 0,
+        "real_model": false
+      }
+    ],
+    "actual_CPU_paths": 20,
+    "GPU_submissions": 0
+  },
+  "B1_batch_controls": {
+    "status": "B1_GROUPED_BATCH_SOURCE_CPU_PASS_NOT_REAL_MODEL",
+    "checks": [
+      {
+        "flow": false,
+        "status": "B1_GROUPED_BATCH_CPU_PASS",
+        "complete_paths": 4,
+        "states": 12,
+        "exact_saved_endpoint_replays": 24,
+        "actual_LOPO_replays": 24,
+        "actual_final_replays": 24,
+        "additional_guided_replays": 108,
+        "real_weights": false
+      },
+      {
+        "flow": true,
+        "status": "B1_GROUPED_BATCH_CPU_PASS",
+        "complete_paths": 4,
+        "states": 12,
+        "exact_saved_endpoint_replays": 24,
+        "actual_LOPO_replays": 24,
+        "actual_final_replays": 24,
+        "additional_guided_replays": 108,
+        "real_weights": false
+      }
+    ],
+    "GPU_submissions": 0
+  },
+  "original_parent_implementation_unchanged": true,
+  "source_sha256": {
+    "src/wcomr/innovation_gain_observer_r1.py": "28a14eff0159712b6de67c570cf14e0a761ade002abbeb5b3101ad2e61e4ce8e",
+    "src/wcomr/innovation_gain_r1.py": "742a2466b1c66cf360623b5aafaf7a2faa62c3c12a5c2df9c0778aa5e24231ac",
+    "src/wcomr/innovation_gain_deployment_r1.py": "90df5f209d24a07d8e6e6fdfa6bfb20eff873933c7a35325f950b15e1f3c4bc1",
+    "src/wcomr/innovation_gain_batch_r1.py": "f87cda7d017219d87667a4bef0b1f3bcc8cb08d032109f4cb8e62d12339157be",
+    "src/wcomr/innovation_gain_assets_r1.py": "7aaeea4f0016c25d8a44bc87937f6fcf26f44d7f7726e6b3170b1c14606304bb",
+    "src/wcomr/innovation_gain_b1_card_r1.py": "65e0230be0c945cb1caf6a40497f2bf1464102eeaeaf91c658a6417992d65d38",
+    "src/wcomr/innovation_gain_fit_r1.py": "9d186d989e2f113fa62b770cfd61f6907b18a042b438113f53cf8b161ae82536",
+    "tests/test_innovation_gain_r1.py": "b86f454a924efd8f4b6ec6ccab0cb253bc9b93293be3a51353571d800bb4486d",
+    "scripts/check_cara_innovation_gain_cpu_r1.py": "1af1572c87f8a19dfdedf4dfbf63c35c10a60a9907d265e965b950936e6edcbf",
+    "src/wcomr/scout_parent_v22.py": "e304ba28a9118c5d5836b05f9830a8dad3dda76918a587aed4d42c54ef676ffe",
+    "src/wcomr/scout_readout_v22.py": "57bcf8507d2be2c6d67ea80b0cad163200ac15dcb67a69a5d4cdfbf247a55be0",
+    "tests/check_scout_parent_cpu_v22.py": "219e08e82bbe2fca1a0ec4d32aea8d8ab004c6b58b88f1a1d91dab06f98ff17a",
+    "tests/test_scout_readout_v22.py": "22c677abb4f7bf36f28086f4d1e180ac6b6813e0b2479cb2bc3a30692887fa5d",
+    "tests/check_innovation_gain_deployment_cpu_r1.py": "94fc1952a6aced60f65d312f08792631579fda1e5069e758319ac6abeb2f26d3",
+    "tests/check_innovation_gain_batch_cpu_r1.py": "a4f4c40e9a5ecd61666afb914f822c4fc2976a330af77bee2acc909e8acc866b",
+    "src/wcomr/innovation_gain_grouped_r2.py": "4cba9d2524e6396629bee3e39613083f2b33d7feb85f4a7c53228ed98ec77611",
+    "tests/check_innovation_gain_batch_cpu_r2.py": "c51620670313e417ca8136f254bba493c03c43ecad24d30f018d726e4dc9b7ee",
+    "tests/test_innovation_gain_grouped_r2.py": "b2f925c498cbc27cb1f1fdad25022ac9f6a66879ef93fd860e09f6e70e40264e",
+    "scripts/check_cara_innovation_gain_cpu_r2.py": "fed7a61bbe5cc429ded589a043d0d493220caf2268de357df10af84ff31d4519",
+    "tests/test_innovation_gain_finance_r1.py": "0eb3ceeba0d010af22cae0932de7c5ae9aa82721a6a811a866ddc2f4d92f0c49",
+    "scripts/run_cara_ig_b1_r1.py": "fa7956b46864031b09cae210d51efd096bea665e21bfe5d93c77c5dcbaa85791",
+    "scripts/wc_cara_ig_b1_worker_r1.py": "d7077b5fd944375e32db583ba1f5d3a7c4327d6c3516444419c777f1792f082e",
+    "scripts/wc_cara_ig_b1_host_guardian_r1.py": "d54fb61382d739f6e8c64987da04bcb32934cfdf03597588fef1c0a28b0d4ec7",
+    "scripts/postprocess_cara_ig_b1_r1.py": "5ba9e223270e2a5392c3df555251b2db7d27f87749cd024b0b6fb8a729f94525"
+  },
+  "tests_log": "test_actual_adapter_endpoints_all_states_and_flows (test_innovation_gain_r1.InnovationTests) ... ok\ntest_cross_gram_known_gain_and_actual_nonlinearity (test_innovation_gain_r1.InnovationTests) ... ok\ntest_paid_C_reuse_equals_isolated_actual_adapter (test_innovation_gain_r1.InnovationTests) ... ok\ntest_projection_partial_boundary_and_axes (test_innovation_gain_r1.InnovationTests) ... ok\ntest_prompt_holdout_no_teacher_leakage (test_innovation_gain_r1.InnovationTests) ... ok\ntest_raw_identity_and_equal_gain_scalar (test_innovation_gain_r1.InnovationTests) ... ok\ntest_scalar_failure_does_not_veto_band (test_innovation_gain_r1.InnovationTests) ... ok\ntest_true_band_response_and_failure_isolation (test_innovation_gain_r1.InnovationTests) ... ok\ntest_phase_does_not_overwrite_running_main_ledger (test_innovation_gain_finance_r1.Finance) ... ok\ntest_all_labels_and_gains_exact_original (test_innovation_gain_grouped_r2.Grouped) ... ok\ntest_failure_restores_buffers_solver_rng (test_innovation_gain_grouped_r2.Grouped) ... ok\ntest_no_unaudited_call (test_innovation_gain_grouped_r2.Grouped) ... ok\n\n----------------------------------------------------------------------\nRan 12 tests in 2.560s\n\nOK\n",
+  "wall_seconds": 51.829030833,
+  "observed_unix": 1793041679.653888,
+  "cuda_initialized": false,
+  "GPU_submissions": 0,
+  "real_model_inference": false
+}

@@ -990,7 +990,7 @@
   },
   "current_followup_plan_ref": "plans/cara_innovation_gain_20261027/README.md",
   "innovation_gain_exploration_R1": {
-    "status": "B1_REAL_MODEL_RUNNING_ON_EXCLUSIVE_A6000",
+    "status": "B1_R1_ENGINEERING_ABORT_SETTLED_GROUPED_R2_CPU_PREPARATION",
     "plan_ref": "plans/cara_innovation_gain_20261027/README.md",
     "scope_ref": "manifests/cara_IG_scope_intake_r1_20261027.json",
     "host_profiles_ref": "manifests/cara_IG_dual_host_profiles_r1_20261027.json",
@@ -1001,12 +1001,14 @@
     "whole_quote_accepted": true,
     "GPU_launch_ready": false,
     "GPU_submissions": 1,
-    "reserved_GPUh": 1.5,
+    "reserved_GPUh": 0,
     "mainline_unchanged": true,
     "DEV128_partial_metrics_read": false,
-    "next_action": "跟踪唯一B1原句柄；真实状态采集、实际系数重放、释放与精确结算后判读，再决定条件B2。保持DEV128 CPU评分及中央旧责任。",
+    "next_action": "R1两状态实测重复GPU到CPU完整哈希约8分钟/状态，无法在阶段上限内完成；已按原句柄停止结算。R2仅优化隔离审计结构，固定数值公式/alpha/样本，先双端CPU和原适配器逐点对照，再独立整卡验证；原费用计入7GPUh。",
     "launch_ref": "reports/cara_IG_B1_two_card_launch_r1_20261027.json",
     "admission_ref": "reports/cara_IG_B1_central_admission_confirmed_20261027.json",
-    "latest_operational_ref": "reports/cara_IG_B1_loading_health_20261027.json"
+    "latest_operational_ref": "reports/cara_IG_B1_engineering_terminal_20261027.json",
+    "round_actual_GPUh": 0.5827235015070377,
+    "settlement_ref": "reports/cara_IG_B1_engineering_central_settlement_20261027.json"
   }
 }

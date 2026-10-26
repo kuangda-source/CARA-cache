@@ -1,0 +1,23 @@
+{
+  "status": "IG_DISPATCH_AND_SETTLEMENT_CPU_ACCEPTED",
+  "dispatch_tests": 6,
+  "settlement_tests": 2,
+  "private_phase_tests": 1,
+  "source_sha256": {
+    "scripts/wc_cara_ig_b1_gpu_r1.py": "67cbedb65367ce6f7f55d860600befc154dc6c50cd6b43359348bf446722332d",
+    "scripts/wc_cara_ig_b1_capture_r1.py": "4a48a87497ec73621320544fc13e854474a360be78c7988ba469150a81010d53",
+    "tests/test_innovation_gain_dispatch_r1.py": "ec237c285cfded0b17e67f5fcc5fb918c9909ca3492579750d4ba35aceb5c102",
+    "tests/test_innovation_gain_settlement_r1.py": "f4f0fbe83dae8ee4fc4fc37fc48652888d2ddf7164eb19a56bfae62c856553b6",
+    "tests/test_innovation_gain_finance_r1.py": "0eb3ceeba0d010af22cae0932de7c5ae9aa82721a6a811a866ddc2f4d92f0c49"
+  },
+  "controls": [
+    "GPU overlap rejects",
+    "cross-host prior intent rejects",
+    "future budget preserved",
+    "wrong original identity rejects",
+    "private ledger does not overwrite original",
+    "failed science still settles actual once",
+    "mismatched bill rejects"
+  ],
+  "GPU_submissions_by_tests": 0
+}
