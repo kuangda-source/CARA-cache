@@ -1,0 +1,158 @@
+{
+  "status": "SCOUT_SPARSE_PARENT_SOURCE_PATH_CPU_PASS_NOT_REAL_WEIGHT_ACCEPTANCE",
+  "checks": [
+    {
+      "flow": false,
+      "status": "PASS",
+      "requests": [
+        {
+          "request": "OLD_CAL_CPU_0",
+          "full36_OFF_ON_equal": true,
+          "final_latent_and_declared_CPU_RGB_equal": true,
+          "selected_states": 6,
+          "readout_positions": 36,
+          "actual_dense_teacher_pairs": 6,
+          "owner_released": true
+        },
+        {
+          "request": "OLD_CAL_CPU_1",
+          "full36_OFF_ON_equal": true,
+          "final_latent_and_declared_CPU_RGB_equal": true,
+          "selected_states": 6,
+          "readout_positions": 36,
+          "actual_dense_teacher_pairs": 6,
+          "owner_released": true
+        }
+      ],
+      "actual_CPU_paths": 4,
+      "failed_boundary_attempts": [
+        {
+          "fault": "teacher_failure",
+          "original_error_preserved": true,
+          "adapter_uninstalled": true,
+          "attempted_sink_positions": 0,
+          "completed_sink_positions": 0,
+          "no_replay": true
+        },
+        {
+          "fault": "last_state_writer_failure",
+          "original_error_preserved": true,
+          "adapter_uninstalled": true,
+          "attempted_sink_positions": 6,
+          "completed_sink_positions": 5,
+          "no_replay": true
+        },
+        {
+          "fault": "copy_cap",
+          "original_error_preserved": true,
+          "adapter_uninstalled": true,
+          "attempted_sink_positions": 0,
+          "completed_sink_positions": 0,
+          "no_replay": true
+        }
+      ],
+      "time_mapping_rejections": 3,
+      "pinned_WC_RF_UniPC": true,
+      "weights_attention_prepare_decode_writer": "DECLARED_SMALL_CPU_STANDINS",
+      "full_Cosmos_weights": false,
+      "scientific_readout_gate_evaluated": false
+    },
+    {
+      "flow": true,
+      "status": "PASS",
+      "requests": [
+        {
+          "request": "OLD_CAL_CPU_0",
+          "full36_OFF_ON_equal": true,
+          "final_latent_and_declared_CPU_RGB_equal": true,
+          "selected_states": 6,
+          "readout_positions": 36,
+          "actual_dense_teacher_pairs": 6,
+          "owner_released": true
+        },
+        {
+          "request": "OLD_CAL_CPU_1",
+          "full36_OFF_ON_equal": true,
+          "final_latent_and_declared_CPU_RGB_equal": true,
+          "selected_states": 6,
+          "readout_positions": 36,
+          "actual_dense_teacher_pairs": 6,
+          "owner_released": true
+        }
+      ],
+      "actual_CPU_paths": 4,
+      "failed_boundary_attempts": [
+        {
+          "fault": "teacher_failure",
+          "original_error_preserved": true,
+          "adapter_uninstalled": true,
+          "attempted_sink_positions": 0,
+          "completed_sink_positions": 0,
+          "no_replay": true
+        },
+        {
+          "fault": "last_state_writer_failure",
+          "original_error_preserved": true,
+          "adapter_uninstalled": true,
+          "attempted_sink_positions": 6,
+          "completed_sink_positions": 5,
+          "no_replay": true
+        },
+        {
+          "fault": "copy_cap",
+          "original_error_preserved": true,
+          "adapter_uninstalled": true,
+          "attempted_sink_positions": 0,
+          "completed_sink_positions": 0,
+          "no_replay": true
+        }
+      ],
+      "time_mapping_rejections": 3,
+      "pinned_WC_RF_UniPC": true,
+      "weights_attention_prepare_decode_writer": "DECLARED_SMALL_CPU_STANDINS",
+      "full_Cosmos_weights": false,
+      "scientific_readout_gate_evaluated": false
+    }
+  ],
+  "upstream_sha256": {
+    "cosmos_predict2/inference.py": "0db96c49f0b3f18a971bc989e0727132dafc27ef621145a2d25a3da62a7a1975",
+    "cosmos_predict2/_src/predict2/inference/video2world.py": "59aa9e236a5e7e26490f5cfcb94ab95ce911d9c38eba61dd8aef7d067e458a95",
+    "cosmos_predict2/_src/predict2/inference/worldcache_utils.py": "b485cb8fd6e262a40e5823365c34ef7db1bc036c591d7577489e04077c515903",
+    "cosmos_predict2/_src/predict2/models/text2world_model_rectified_flow.py": "c6c68f297859e11c76d2921667a29cabfecef3a7b5d3ab831bf9bb54b25b7d87",
+    "cosmos_predict2/_src/predict2/models/fm_solvers_unipc.py": "f6a06c75f059693ade6c802e99f6058575969b6a71ef18ab05e7ed46701053d3"
+  },
+  "cuda_initialized": false,
+  "limits": "Unchanged pinned sampler/get_velocity/denoise/decode wrapper, WC, UniPC, generate_vid2world and Inference method bodies. Explicit Toy net, CPU noise/conditioner/normalize/broadcast/prepare/tokenizer/mock writer, offload disabled and CUDA telemetry adapters; equal finite threshold schedule is CPU control only. No weights, true VAE/encoded video, GPU completion, independent restart or quality result. No sparse candidate in this control.",
+  "actual_CPU_paths": 8,
+  "failed_boundary_attempts": 6,
+  "selected_states": 24,
+  "readout_positions": 144,
+  "CUDA_initialized": false,
+  "GPU_submissions": 0,
+  "server_actions": 0,
+  "observed_unix": 1793014941.80459,
+  "wall_seconds": 19.311035542,
+  "CPU_seconds": 19.060348,
+  "source_sha256": {
+    "src/wcomr/scout_parent_v22.py": "e304ba28a9118c5d5836b05f9830a8dad3dda76918a587aed4d42c54ef676ffe",
+    "src/wcomr/scout_readout_v22.py": "57bcf8507d2be2c6d67ea80b0cad163200ac15dcb67a69a5d4cdfbf247a55be0",
+    "tests/check_scout_parent_cpu_v22.py": "219e08e82bbe2fca1a0ec4d32aea8d8ab004c6b58b88f1a1d91dab06f98ff17a",
+    "scripts/check_cara_scout_parent_cpu_v22.py": "12b13b331a905d0aadceff28cc58505732026e4dfdc9f6039594824b43efd349",
+    "tests/check_full_sampling.py": "137574672d216ebeae4d2639f381dbb2c63a51505ba37e74989e8b7e3e172cc8",
+    "tests/check_partial_mlp_guided_sampling_cpu_r1.py": "d2d6b63280c181a326507400ac8c63b89d58c684bdeaf3c53cc91521f160e2a4",
+    "tests/check_rv0_video_actions_cpu.py": "c90bfc9bca2855ca7440056a4d154006765b1d2917223f5a54928942de5bd4ac",
+    "src/wcomr/cfg_guided_w1_forward.py": "eeb85a3d480c0965b35a69b5181e1615b3ae208d5d05a12d2ec417c1367ab1ff",
+    "src/wcomr/cfg_paired_probe_forward.py": "e240851429f72336038ecfcdd1fdf60614e17b2fbe2a1bd8af42d71562e9db2b",
+    "src/wcomr/policy_interval_readout_r1.py": "90fb5852ff5a27e01cfefc61337c0103ddf329ed741eea2ac349ffcbea508a4f",
+    "src/wcomr/full_sampling.py": "d5fc455dbf8d0fe3b5b1fdc2a69d00d1a2a41dd7cc741fc6b0830b74f7b881aa",
+    "src/wcomr/partial_mlp_deployment_state.py": "c7501223a35e9276391586006602470d80a50de8ff4adcdc72aa241b3a7c6137",
+    "src/wcomr/partial_mlp.py": "8661e1904f5abf4313a70906233d301282152081a59026e5a874154696eb19ec",
+    "src/wcomr/source_phase_fixed_mask_r1.py": "ae3765032744f2a8527a7b37e1283d52fb6f1407007a1c290968f4b0b8726e4b",
+    "src/wcomr/clean_speed20_r1.py": "49ebb32a6f9afce64f223c435b2fd87090229de9c40708f8852999c35628637c",
+    "plans/cara_predictor_refresh_scout_v2_20261026/E1_STATE_METADATA_V22.json": "1d2b9dffa5f1fabc2317dbf7990cd8f211a822acf5239ee1d6bc1a8a65dfc4f2",
+    "manifests/cara_shared_CAL66_scope_quote_r1_20261025.json": "b992b6824b9780bc7360748069dfa692f97444f5fb162e5f3de9bf01383267de"
+  },
+  "peak_rss_platform_units": 280788992,
+  "dual_host_production_accepted": false,
+  "artifact_root": ".sync/scout-parent-cpu-v22-r7"
+}

@@ -1,0 +1,19 @@
+{
+  "status": "CPU_FAILED",
+  "traceback": "Traceback (most recent call last):\n  File \"/Users/kuangda_gao/Documents/\u4e16\u754c\u6a21\u578b\u52a0\u901f\u5b9e\u9a8c/worldcache_omr/scripts/check_cara_scout_parent_cpu_v22.py\", line 25, in main\n    value=run(ROOT/'cache/runtime',lambda path:torch.load(path,map_location='cpu',weights_only=False),a.artifacts)\n  File \"/Users/kuangda_gao/Documents/\u4e16\u754c\u6a21\u578b\u52a0\u901f\u5b9e\u9a8c/worldcache_omr/tests/check_scout_parent_cpu_v22.py\", line 91, in run\n    value=load('check_full_sampling').run(runtime,exercise=lambda **kw:ns['exercise'](\n  File \"/Users/kuangda_gao/Documents/\u4e16\u754c\u6a21\u578b\u52a0\u901f\u5b9e\u9a8c/worldcache_omr/tests/check_full_sampling.py\", line 282, in run\n    checks.extend(exercise(inference=inference, samples=[Sample('common'), Sample('human')],\n  File \"/Users/kuangda_gao/Documents/\u4e16\u754c\u6a21\u578b\u52a0\u901f\u5b9e\u9a8c/worldcache_omr/tests/check_scout_parent_cpu_v22.py\", line 91, in <lambda>\n    value=load('check_full_sampling').run(runtime,exercise=lambda **kw:ns['exercise'](\n  File \"/Users/kuangda_gao/Documents/\u4e16\u754c\u6a21\u578b\u52a0\u901f\u5b9e\u9a8c/worldcache_omr/tests/check_scout_parent_cpu_v22.py#pinned-small-CPU-setup\", line 2, in exercise\nModuleNotFoundError: No module named 'cosmos_predict2'\n",
+  "observed_unix": 1793014446.38723,
+  "wall_seconds": 10.207261042,
+  "CPU_seconds": 0.27487400000000006,
+  "source_sha256": {
+    "src/wcomr/scout_parent_v22.py": "06a5432d522c97f101e130e1ad5e016119aaf85b7d58dcd97d165ee6449b5bf2",
+    "src/wcomr/scout_readout_v22.py": "57bcf8507d2be2c6d67ea80b0cad163200ac15dcb67a69a5d4cdfbf247a55be0",
+    "tests/check_scout_parent_cpu_v22.py": "1c345c3b14ec81175db9ee39b7768c8782c2c11e1610fa34a25de0fca20bd773",
+    "scripts/check_cara_scout_parent_cpu_v22.py": "971bb687ac01e3f5906c7747c7ee3a035dc94fdf8886436ff8cc1f71d6323ffb"
+  },
+  "peak_rss_platform_units": 207323136,
+  "CUDA_initialized": false,
+  "server_actions": 0,
+  "GPU_submissions": 0,
+  "dual_host_production_accepted": false,
+  "artifact_root": ".sync/scout-parent-cpu-v22-r1"
+}

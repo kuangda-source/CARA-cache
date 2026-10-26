@@ -1,0 +1,145 @@
+{
+  "status": "SCOUT_SPARSE_PARENT_SOURCE_PATH_CPU_PASS_NOT_REAL_WEIGHT_ACCEPTANCE",
+  "checks": [
+    {
+      "flow": false,
+      "status": "PASS",
+      "requests": [
+        {
+          "request": "OLD_CAL_CPU_0",
+          "full36_OFF_ON_equal": true,
+          "final_latent_and_declared_CPU_RGB_equal": true,
+          "selected_states": 6,
+          "readout_positions": 36,
+          "actual_dense_teacher_pairs": 6,
+          "owner_released": true
+        },
+        {
+          "request": "OLD_CAL_CPU_1",
+          "full36_OFF_ON_equal": true,
+          "final_latent_and_declared_CPU_RGB_equal": true,
+          "selected_states": 6,
+          "readout_positions": 36,
+          "actual_dense_teacher_pairs": 6,
+          "owner_released": true
+        }
+      ],
+      "actual_CPU_paths": 4,
+      "failed_boundary_attempts": [
+        {
+          "fault": "teacher_failure",
+          "original_error_preserved": true,
+          "adapter_uninstalled": true,
+          "attempted_sink_positions": 0,
+          "completed_sink_positions": 0,
+          "no_replay": true
+        },
+        {
+          "fault": "last_state_writer_failure",
+          "original_error_preserved": true,
+          "adapter_uninstalled": true,
+          "attempted_sink_positions": 6,
+          "completed_sink_positions": 5,
+          "no_replay": true
+        },
+        {
+          "fault": "copy_cap",
+          "original_error_preserved": true,
+          "adapter_uninstalled": true,
+          "attempted_sink_positions": 0,
+          "completed_sink_positions": 0,
+          "no_replay": true
+        }
+      ],
+      "time_mapping_rejections": 3,
+      "pinned_WC_RF_UniPC": true,
+      "weights_attention_prepare_decode_writer": "DECLARED_SMALL_CPU_STANDINS",
+      "full_Cosmos_weights": false,
+      "scientific_readout_gate_evaluated": false
+    },
+    {
+      "flow": true,
+      "status": "PASS",
+      "requests": [
+        {
+          "request": "OLD_CAL_CPU_0",
+          "full36_OFF_ON_equal": true,
+          "final_latent_and_declared_CPU_RGB_equal": true,
+          "selected_states": 6,
+          "readout_positions": 36,
+          "actual_dense_teacher_pairs": 6,
+          "owner_released": true
+        },
+        {
+          "request": "OLD_CAL_CPU_1",
+          "full36_OFF_ON_equal": true,
+          "final_latent_and_declared_CPU_RGB_equal": true,
+          "selected_states": 6,
+          "readout_positions": 36,
+          "actual_dense_teacher_pairs": 6,
+          "owner_released": true
+        }
+      ],
+      "actual_CPU_paths": 4,
+      "failed_boundary_attempts": [
+        {
+          "fault": "teacher_failure",
+          "original_error_preserved": true,
+          "adapter_uninstalled": true,
+          "attempted_sink_positions": 0,
+          "completed_sink_positions": 0,
+          "no_replay": true
+        },
+        {
+          "fault": "last_state_writer_failure",
+          "original_error_preserved": true,
+          "adapter_uninstalled": true,
+          "attempted_sink_positions": 6,
+          "completed_sink_positions": 5,
+          "no_replay": true
+        },
+        {
+          "fault": "copy_cap",
+          "original_error_preserved": true,
+          "adapter_uninstalled": true,
+          "attempted_sink_positions": 0,
+          "completed_sink_positions": 0,
+          "no_replay": true
+        }
+      ],
+      "time_mapping_rejections": 3,
+      "pinned_WC_RF_UniPC": true,
+      "weights_attention_prepare_decode_writer": "DECLARED_SMALL_CPU_STANDINS",
+      "full_Cosmos_weights": false,
+      "scientific_readout_gate_evaluated": false
+    }
+  ],
+  "upstream_sha256": {
+    "cosmos_predict2/inference.py": "0db96c49f0b3f18a971bc989e0727132dafc27ef621145a2d25a3da62a7a1975",
+    "cosmos_predict2/_src/predict2/inference/video2world.py": "59aa9e236a5e7e26490f5cfcb94ab95ce911d9c38eba61dd8aef7d067e458a95",
+    "cosmos_predict2/_src/predict2/inference/worldcache_utils.py": "b485cb8fd6e262a40e5823365c34ef7db1bc036c591d7577489e04077c515903",
+    "cosmos_predict2/_src/predict2/models/text2world_model_rectified_flow.py": "c6c68f297859e11c76d2921667a29cabfecef3a7b5d3ab831bf9bb54b25b7d87",
+    "cosmos_predict2/_src/predict2/models/fm_solvers_unipc.py": "f6a06c75f059693ade6c802e99f6058575969b6a71ef18ab05e7ed46701053d3"
+  },
+  "cuda_initialized": false,
+  "limits": "Unchanged pinned sampler/get_velocity/denoise/decode wrapper, WC, UniPC, generate_vid2world and Inference method bodies. Explicit Toy net, CPU noise/conditioner/normalize/broadcast/prepare/tokenizer/mock writer, offload disabled and CUDA telemetry adapters; equal finite threshold schedule is CPU control only. No weights, true VAE/encoded video, GPU completion, independent restart or quality result. No sparse candidate in this control.",
+  "actual_CPU_paths": 8,
+  "failed_boundary_attempts": 6,
+  "selected_states": 24,
+  "readout_positions": 144,
+  "CUDA_initialized": false,
+  "GPU_submissions": 0,
+  "server_actions": 0,
+  "observed_unix": 1793014878.02288,
+  "wall_seconds": 19.052763542,
+  "CPU_seconds": 18.717709,
+  "source_sha256": {
+    "src/wcomr/scout_parent_v22.py": "e304ba28a9118c5d5836b05f9830a8dad3dda76918a587aed4d42c54ef676ffe",
+    "src/wcomr/scout_readout_v22.py": "57bcf8507d2be2c6d67ea80b0cad163200ac15dcb67a69a5d4cdfbf247a55be0",
+    "tests/check_scout_parent_cpu_v22.py": "219e08e82bbe2fca1a0ec4d32aea8d8ab004c6b58b88f1a1d91dab06f98ff17a",
+    "scripts/check_cara_scout_parent_cpu_v22.py": "7bcdfc6c89744da4f97d115ea647cf80382e338b8ffbd2d6e7ff9f086174b1c5"
+  },
+  "peak_rss_platform_units": 288112640,
+  "dual_host_production_accepted": false,
+  "artifact_root": ".sync/scout-parent-cpu-v22-r6"
+}
