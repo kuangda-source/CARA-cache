@@ -6,7 +6,7 @@
 
 ## 核心动作
 
-继续原CPU评分；沿唯一launch完成全部评分、中央结算和独立终态验收，不重派GPU。
+原CPU评分完成后，01:15沿唯一launch完整收件、中央结算与独立验收；未完成则调整同一检查，不重派GPU。
 
 C包含原WorldCache的probe/window/warp/head/RF读出，并非单纯复制旧速度。A在post-RF分支速度上修正，共享alpha后做CFG融合；语义C/A都可能显示为物理CC。D对两CFG支做完整深层计算，更新真实D历史，但不会抹掉已有轨迹误差。WorldCache自己的决策可能出现DC/CD。
 

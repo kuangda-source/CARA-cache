@@ -4,9 +4,9 @@
 
 **Shared25-C新DEV128采集完成，释放GPU后CPU评分中。**
 
-2026-10-26 23:39实际只读核查：128/128采集完成、0失败，GPU runner退出；15335独占样本无违规。原GPU账单9.417059GPUh已形成，中央结算尚待执行。23:02启动原CPU评分，2CPU/8GiB、affinity 0–1；80组LPIPS与40/288质量文件已生成，未读取分数，完整评分与独立终态接受尚未完成。原10月27日10:04最终检查保持。
+2026-10-27 00:55:09实查：128/128采集完成、0失败，GPU runner退出。原GPU账单9.417059GPUh已形成，中央结算待收件。原CPU评分进程身份匹配、CPU0–1；80/80 LPIPS与274/288质量文件已生成，未读分数。日志尾部无错误，输出卷29.58GiB可用。最近20质量文件间隔22.612秒，预计约01:00评分完成，同一终态检查提前01:15；尚非完整接受。
 
-[证据1](705_CARA_DEV128_A6000_EXCLUSIVE_LAUNCH_AND_ACCEPTANCE_SCHEDULE_20261026.md) · [证据2](../reports/cara_DEV128_A6000_GPU_actual_launch_20261026.json) · [证据3](../reports/cara_DEV128_A6000_technical_admission_20261026.json) · [证据4](../reports/cara_DEV128_A6000_central_admission_20261026.json) · [证据5](../reports/cara_DEV128_A6000_acceptance_schedule_20261026.json) · [证据6](../reports/cara_DEV128_A6000_storage_20261026.json) · [证据7](../reports/cara_DEV128_prelaunch_dual_exposure_reviewed_20261026.json) · [证据8](../reports/cara_DEV128_full_four_card_CPU_accepted_r4_20261026.json) · [证据9](../reports/cara_DEV128_full_two_card_CPU_accepted_r4_20261026.json) · [证据10](../reports/cara_DEV128_A6000_technical_followup_20261026.json) · [证据11](../reports/cara_DEV128_A6000_technical_progress_20261026_1742.json) · [证据12](../reports/cara_DEV128_A6000_progress_capture_20261026_1743.json) · [证据13](../reports/cara_DEV128_A6000_progress_pace_20261026_1744.json) · [证据14](../reports/cara_DEV128_A6000_halfway_capture_20261026_1948.json) · [证据15](../reports/cara_DEV128_A6000_halfway_technical_20261026_1948.json) · [证据16](../reports/cara_DEV128_A6000_halfway_pace_20261026_1948.json) · [证据17](711_CARA_DEV128_A6000_HALFWAY_TECHNICAL_20261026.md) · [证据18](../reports/cara_DEV128_GMSD_CPU_scoring_resource_review_20261026.json) · [证据19](../reports/cara_DEV128_A6000_GMSD_window_technical_20261026_2340.json) · [证据20](../reports/cara_GMSD_CAP1_two_card_preparation_review_20261026.json)
+[证据1](705_CARA_DEV128_A6000_EXCLUSIVE_LAUNCH_AND_ACCEPTANCE_SCHEDULE_20261026.md) · [证据2](../reports/cara_DEV128_A6000_GPU_actual_launch_20261026.json) · [证据3](../reports/cara_DEV128_A6000_technical_admission_20261026.json) · [证据4](../reports/cara_DEV128_A6000_central_admission_20261026.json) · [证据5](../reports/cara_DEV128_A6000_acceptance_schedule_20261026.json) · [证据6](../reports/cara_DEV128_A6000_storage_20261026.json) · [证据7](../reports/cara_DEV128_prelaunch_dual_exposure_reviewed_20261026.json) · [证据8](../reports/cara_DEV128_full_four_card_CPU_accepted_r4_20261026.json) · [证据9](../reports/cara_DEV128_full_two_card_CPU_accepted_r4_20261026.json) · [证据10](../reports/cara_DEV128_A6000_technical_followup_20261026.json) · [证据11](../reports/cara_DEV128_A6000_technical_progress_20261026_1742.json) · [证据12](../reports/cara_DEV128_A6000_progress_capture_20261026_1743.json) · [证据13](../reports/cara_DEV128_A6000_progress_pace_20261026_1744.json) · [证据14](../reports/cara_DEV128_A6000_halfway_capture_20261026_1948.json) · [证据15](../reports/cara_DEV128_A6000_halfway_technical_20261026_1948.json) · [证据16](../reports/cara_DEV128_A6000_halfway_pace_20261026_1948.json) · [证据17](711_CARA_DEV128_A6000_HALFWAY_TECHNICAL_20261026.md) · [证据18](../reports/cara_DEV128_GMSD_CPU_scoring_resource_review_20261026.json) · [证据19](../reports/cara_DEV128_A6000_GMSD_window_technical_20261026_2340.json) · [证据20](../reports/cara_GMSD_CAP1_two_card_preparation_review_20261026.json) · [证据21](../reports/cara_DEV128_A6000_CPU_progress_20261027_0055.json)
 
 ## 后续探索当前版本：E1 V2.2
 
@@ -18,7 +18,7 @@
 
 | 顺序 | 当前阶段 | 下一项验收 / 动作 |
 |---|---|---|
-| PG-SHARED-DEV128 | Shared25-C：16新DEV、六角色128路径：Shared25-C新DEV128采集完成，释放GPU后CPU评分中 | 继续原CPU评分；沿唯一launch完成全部评分、中央结算和独立终态验收，不重派GPU。 |
+| PG-SHARED-DEV128 | Shared25-C：16新DEV、六角色128路径：Shared25-C新DEV128采集完成，释放GPU后CPU评分中 | 原CPU评分完成后，01:15沿唯一launch完整收件、中央结算与独立验收；未完成则调整同一检查，不重派GPU。 |
 
 ## 本轮授权范围与下一步
 
