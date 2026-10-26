@@ -118,7 +118,7 @@ def main():
     batch=importlib.util.module_from_spec(spec2);spec2.loader.exec_module(batch)
     batch_result=unittest.TextTestRunner().run(unittest.defaultTestLoader.loadTestsFromModule(batch))
     assert batch_result.wasSuccessful()
-    tiny=InferenceArguments.model_validate({**original_requests[0],'resolution':'16,16'})
+    tiny=InferenceArguments.model_validate({**next(r for r in original_requests if r['name']==card['warm_member']),'resolution':'16,16'})
     numeric=checks.run(runtime,a.stage/'CPU-pg-numeric',tiny)
     assert before=={n:s.model_dump(mode='python',round_trip=True) for n,s in bases.items()}
     assert {c['flow'] for c in numeric['checks']}=={False,True}

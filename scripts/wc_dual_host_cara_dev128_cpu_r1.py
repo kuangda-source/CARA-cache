@@ -78,8 +78,13 @@ def main():
  else:
   assert re.fullmatch(r'cara-dev128-CPU-(?:ada|a6000)-r[0-9]+-20261026',a.stage_name)
   rev=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip();files={};hashes={}
+  input_hashes=json.loads((ROOT/MANIFEST).read_text())['input_bindings']
   for n in sorted(names()):
-   raw=(ROOT/n).read_bytes();assert subprocess.check_output(['git','show',rev+':'+n],cwd=ROOT)==raw,'Commit exact source first: '+n
+   raw=(ROOT/n).read_bytes()
+   if n in input_hashes:
+    assert hashlib.sha256(raw).hexdigest()==input_hashes[n],'Frozen vendor input changed: '+n
+   else:
+    assert subprocess.check_output(['git','show',rev+':'+n],cwd=ROOT)==raw,'Commit exact source first: '+n
    files[n]=base64.b64encode(raw).decode();hashes[n]=hashlib.sha256(raw).hexdigest()
   v=remote(PREPARE,dict(root=REMOTE,host=a.host,stage_name=a.stage_name,revision=rev,files=files,hashes=hashes,base_registration_sha256='48193714a15f219b33fd62a6f929ee8e7a5c17b1b6c3dfd9c7615318318c7561'))
  with a.output.open('x') as f:json.dump(v,f,indent=2);f.write('\n')
