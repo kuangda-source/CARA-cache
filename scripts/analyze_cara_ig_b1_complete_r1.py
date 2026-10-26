@@ -52,7 +52,12 @@ def analyze(capture, settlement, prior):
     assert {(r['prompt'], r['step'], r['role']) for r in endpoints} == set(
         itertools.product(prompts, steps, ('FULL', 'R4_GLOBAL')))
     reports = {}
+    def better(a, b):
+        # NumPy moments and Torch replay use different FP64 reduction order.
+        # This numerical tolerance is not an investment or quality threshold.
+        return a < b - 1e-12 * max(1., abs(a), abs(b))
     def ratio(new, base):
+        if abs(new-base) <= 1e-12 * max(1., abs(new), abs(base)):return 0.
         return 100 * (1 - new / base) if base > 0 else None
     for kind in ('LOPO', 'FINAL'):
         rows = [r for r in replays if r['kind'] == kind]
@@ -72,8 +77,8 @@ def analyze(capture, settlement, prior):
                 group[role] = dict(means, gains=coef[role],
                     improvement_vs_FULL_percent=ratio(means['actual_guided_MSE'], means['baseline_FULL_MSE']),
                     improvement_vs_DEEP_percent=ratio(means['actual_guided_MSE'], means['baseline_DEEP_MSE']),
-                    states_better_than_FULL=sum(r['actual_guided_MSE'] < r['baseline_FULL_MSE'] for r in selected),
-                    states_better_than_DEEP=sum(r['actual_guided_MSE'] < r['baseline_DEEP_MSE'] for r in selected))
+                    states_better_than_FULL=sum(better(r['actual_guided_MSE'], r['baseline_FULL_MSE']) for r in selected),
+                    states_better_than_DEEP=sum(better(r['actual_guided_MSE'], r['baseline_DEEP_MSE']) for r in selected))
             group['band_improvement_vs_scalar_percent'] = ratio(
                 group['IG_BAND']['actual_guided_MSE'], group['IG_SCALAR']['actual_guided_MSE'])
             groups[prompt] = group
@@ -96,6 +101,7 @@ def analyze(capture, settlement, prior):
                 round_actual_GPUh=bill['actual_GPUh'] + prior['job']['actual_GPUh'],
                 round_remaining_GPUh=7 - bill['actual_GPUh'] - prior['job']['actual_GPUh'],
                 independent_prompts=2, states=12, uncertainty='Descriptive development LOPO only; no independent TEST',
+                descriptive_numeric_tie_tolerance='1e-12 * max(1, absolute MSE values), FP64 reduction order only',
                 mainline_admitted=False, video_quality_measured=False,
                 deployment_speed_measured=False, scientific_continuation_requires_review=True)
 
