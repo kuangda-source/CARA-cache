@@ -9,3 +9,9 @@
 [原R1失败](714_CARA_IG_B1_HASH_OVERHEAD_AND_GROUPED_REPAIR_20261027.md)保留，已付0.5827235015070377GPUh与R2一并受本轮7GPUh约束。中央预算仍保留原DEV128责任和16.5GPUh未知责任；不覆盖两卡主账本，不读取DEV128部分科学指标。
 
 下一步按本次实际启动时钟检查中点与终态，完整接受后评估局部留出收益、响应面和费用，再决定是否进入46路径的固定布局完整视频阶段。启动、CPU通过、部分状态都不是方法成功或失败，不支持并入主线。
+
+## 实际启动时钟中点
+
+[中点回执](../reports/cara_IG_B1_R2_midpoint_20261027.json)：启动后2056.99秒，3/4父路径完成、第四条运行，无失败；原runner PID/start保持，GPU仍为EXCLUSIVE_PROCESS唯一上下文，输出可用约51.8GiB。只读运行健康，不读取部分误差作候选选择。
+
+等待期间已准备[条件性46路径矩阵](../manifests/cara_IG_B2_predeclared_matrix_r1_20261027.json)和[完整92条小权重CPU路径](../reports/cara_IG_B2_video_local_CPU_r2_20261027.json)。矩阵补充保留CAL66实际选出的S25-A较强参考原件；旧质量证据不计新增样本或新批次时钟。[双端实际冻结参数类复核](../reports/cara_IG_B2_dual_host_CPU_accepted_20261027.json)随后通过，每端92路径、12重复控制，两端源码一致。B2尚无GPU提交，完整生命周期、冻结B1参数和质量评分绑定仍需在继续决定后接受。
