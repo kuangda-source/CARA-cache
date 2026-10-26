@@ -39,3 +39,5 @@ E0最新准备：[官方源审计与11组CPU用例](../../plans/cara_predictor_r
 E1准备接续见[709](../../research/709_CARA_SCOUT_READOUT_CPU_AND_NATIVE_GRADIENT_20261026.md)：新入口本地11项与原区间模块12项检查通过；两端资源草案尚无完整forecast/硬额度，未启动GPU。先补真实父状态/teacher/完整控制和双端CPU，不能把小张量通过称为完整生产接受。
 
 E1下一步见[710](../../research/710_CARA_SCOUT_SPARSE_PARENT_CPU_NONINTERFERENCE_20261026.md)：按SHA去重writer、真实冻结请求和双端受影响生产CPU；原DEV128运行与验收不变。
+
+DEV128 已完整接受，见[冻结结果与决策](repo:research/716_CARA_DEV128_COMPLETE_ACCEPTANCE_AND_FROZEN_DECISION_20261027.md)。两项 DEV128 一次性检查已删除，不重跑或自动启动下一 GPU 实验；独立授权的 IG 执行保持不变。

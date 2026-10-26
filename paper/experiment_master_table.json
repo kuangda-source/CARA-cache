@@ -31,7 +31,7 @@
     "CONDITIONAL_SAME_PROCEDURE_RECALIBRATION": 1,
     "COST112_COMPLETE_ACCEPTED_TIMING_GATE_FAILED": 1,
     "DEFERRED_MANUAL_MASK_SCREEN_SUPERSEDED_BY_GENERATOR_VALIDATION": 2,
-    "DEV128_A6000_GPU_RELEASED_CPU_SCORING_RUNNING": 1,
+    "DEV128_A6000_COMPLETE_ACCEPTED_FROZEN_CONTINUE": 1,
     "EXPLORATORY_BANK24_FULL24_ACCEPTED_FROZEN_GATE_AND_XR_ANALYZED": 2,
     "EXPLORATORY_CAL12_A_FACTORIAL_GAIN_ON_CAL_PENDING_INDEPENDENT_CONFIRMATION": 1,
     "EXPLORATORY_CAL12_SHARED26D_PLAN_GAIN_ON_CAL_PENDING_INDEPENDENT_CONFIRMATION": 1,
@@ -6190,7 +6190,7 @@
     },
     {
       "id": "PG-SHARED-DEV128",
-      "state": "DEV128_A6000_GPU_RELEASED_CPU_SCORING_RUNNING",
+      "state": "DEV128_A6000_COMPLETE_ACCEPTED_FROZEN_CONTINUE",
       "paper_experiment_name": "Frozen Shared25-C held-out input validation",
       "internal_ids": [
         "cara-dev128-r1"
@@ -6209,7 +6209,12 @@
         "reports/cara_DEV128_four_card_CPU_accepted_r4_20261026.json",
         "reports/cara_DEV128_two_card_CPU_accepted_r4_20261026.json",
         "manifests/cara_DEV128_dual_host_whole_quote_r1_20261026.json",
-        "plans/cara_policy_generator_20261020/CAL66_FEEDBACK_AND_DEV128_BOUNDARIES_20261026.md"
+        "plans/cara_policy_generator_20261020/CAL66_FEEDBACK_AND_DEV128_BOUNDARIES_20261026.md",
+        "research/716_CARA_DEV128_COMPLETE_ACCEPTANCE_AND_FROZEN_DECISION_20261027.md",
+        "reports/cara_DEV128_A6000_complete_analysis_20261027.json",
+        "reports/cara_DEV128_A6000_accepted_20261027_0404.json",
+        "reports/cara_DEV128_A6000_central_settlement_20261027_0404.json",
+        "reports/cara_DEV128_A6000_terminal_20261027_0400.json"
       ],
       "method_mapping_ids": [],
       "contribution_ids": [
@@ -6221,15 +6226,15 @@
         "PG-SHARED-CAL66"
       ],
       "production_CPU_accepted": true,
-      "full_protocol_accepted": false,
+      "full_protocol_accepted": true,
       "GPU_dispatch_ready": false,
       "new_GPU_submissions": 1,
-      "evidence_or_planned_scope": "2026-10-27 01:17技术更正：128/128采集完成、80/80 LPIPS完成；正式质量状态167/288（MUSIQ96、主体71、运动0），另1份正式文件刚写入等待状态提交。此前274/288错误地把raw与正式JSON重复计数，约01:00完成预测撤回。原评分进程与CPU0–1正常，无GPU重派。各维度耗时不同，不再按混合文件间隔外推；同一最终检查调整04:00。原CPU预测约07:36、10小时截止约09:02仅为时间参照。完整接受及中央结算仍待办。",
+      "evidence_or_planned_scope": "2026-10-27完整128路径、26控制、80LPIPS/7440帧及288质量全部接受；原GPU与CPU均退出，锁释放、Default恢复。Shared25-C相对冻结强参考S25-A的LPIPS降低14.82%，16/16改善，成对差单侧95%上界−0.007669；相对S25-C降低26.16%。完整请求246.675秒，V上界0.9863，三项独立质量非劣门均过。实际9.417059GPUh已中央唯一结算，按原合同进入登记独立最终确认，不自动追加GPU。该结论支持固定布局泛化，非自动规划创新或最终部署接受。",
       "reader": {
         "title": "Shared25-C：16新DEV、六角色128路径",
-        "status": "Shared25-C新DEV128采集完成，释放GPU后CPU评分中",
-        "result": "2026-10-27 01:17技术更正：128/128采集完成、80/80 LPIPS完成；正式质量状态167/288（MUSIQ96、主体71、运动0），另1份正式文件刚写入等待状态提交。此前274/288错误地把raw与正式JSON重复计数，约01:00完成预测撤回。原评分进程与CPU0–1正常，无GPU重派。各维度耗时不同，不再按混合文件间隔外推；同一最终检查调整04:00。原CPU预测约07:36、10小时截止约09:02仅为时间参照。完整接受及中央结算仍待办。",
-        "next_action": "04:00沿原launch检查；评分未完则按实际状态调整同一任务，全部退出后中央结算与独立接受。技术监测只用正式编号和状态字段，不返回部分评分。",
+        "status": "DEV128完整接受：Shared25-C通过16新输入冻结继续门",
+        "result": "2026-10-27完整128路径、26控制、80LPIPS/7440帧及288质量全部接受；原GPU与CPU均退出，锁释放、Default恢复。Shared25-C相对冻结强参考S25-A的LPIPS降低14.82%，16/16改善，成对差单侧95%上界−0.007669；相对S25-C降低26.16%。完整请求246.675秒，V上界0.9863，三项独立质量非劣门均过。实际9.417059GPUh已中央唯一结算，按原合同进入登记独立最终确认，不自动追加GPU。该结论支持固定布局泛化，非自动规划创新或最终部署接受。",
+        "next_action": "按原合同准备独立最终确认与必要迁移的完整范围、报价；冻结主候选不改，不用DEV反向调新读出。已独立授权的IG实验保持其原运行与验收。",
         "evidence_refs": [
           "research/704_CARA_DEV128_FULL_CPU_COMBINATION_ACCEPTED_AND_QUOTE_20261026.md",
           "plans/cara_policy_generator_20261020/DEV128_FULL_LIFECYCLE_AND_FINANCE_CPU_R1_20261026.md",
@@ -6245,15 +6250,11 @@
           "reports/cara_DEV128_two_card_CPU_accepted_r4_20261026.json",
           "manifests/cara_DEV128_dual_host_whole_quote_r1_20261026.json",
           "plans/cara_policy_generator_20261020/CAL66_FEEDBACK_AND_DEV128_BOUNDARIES_20261026.md",
-          "research/705_CARA_DEV128_A6000_EXCLUSIVE_LAUNCH_AND_ACCEPTANCE_SCHEDULE_20261026.md",
-          "reports/cara_DEV128_A6000_GPU_actual_launch_20261026.json",
-          "reports/cara_DEV128_A6000_technical_admission_20261026.json",
-          "reports/cara_DEV128_A6000_central_admission_20261026.json",
-          "reports/cara_DEV128_A6000_acceptance_schedule_20261026.json",
-          "reports/cara_DEV128_A6000_storage_20261026.json",
-          "reports/cara_DEV128_prelaunch_dual_exposure_reviewed_20261026.json",
-          "reports/cara_DEV128_full_four_card_CPU_accepted_r4_20261026.json",
-          "reports/cara_DEV128_full_two_card_CPU_accepted_r4_20261026.json"
+          "research/716_CARA_DEV128_COMPLETE_ACCEPTANCE_AND_FROZEN_DECISION_20261027.md",
+          "reports/cara_DEV128_A6000_complete_analysis_20261027.json",
+          "reports/cara_DEV128_A6000_accepted_20261027_0404.json",
+          "reports/cara_DEV128_A6000_central_settlement_20261027_0404.json",
+          "reports/cara_DEV128_A6000_terminal_20261027_0400.json"
         ]
       },
       "full_GPU_supervisor_financial_terminal_binding_CPU_accepted": true,
@@ -12186,33 +12187,33 @@
     },
     "EXPERIMENT_REPORT.md": {
       "path": "EXPERIMENT_REPORT.md",
-      "sha256": "4f5a54dfd9dc35fb956b3da5c425475e97b48ff44efcafe7fd4852440d1a9db9",
-      "bytes": 9817
+      "sha256": "2a44f87eca5044426d4e646124b18a8be01571c14f19381c9e374a590dcfb26f",
+      "bytes": 10896
     },
     "memory/handoffs/LATEST.md": {
       "path": "memory/handoffs/LATEST.md",
-      "sha256": "8f3b3a58711f00741bd39572adedcda7967ea7af3bc0a9339685e413b09bd003",
-      "bytes": 9369
+      "sha256": "8bb82c922387fd549e4ecdd12e6ca745e247b453c6a39b23a201d95f801061b8",
+      "bytes": 10040
     },
     "research/02_CURRENT_STATE.md": {
       "path": "research/02_CURRENT_STATE.md",
-      "sha256": "c9786eee703cda59f4a372cb9bc90d67921c4eeea5196d221c34c146400c4c4a",
-      "bytes": 7949
+      "sha256": "45c7d23533c6decc27f608d3180040baeb1f1e762781adc75c035f73056c53f6",
+      "bytes": 8264
     },
     "research/09_NEXT_ACTIONS.md": {
       "path": "research/09_NEXT_ACTIONS.md",
-      "sha256": "06b9bb3fbb1c8e552fe7db14eafa6b68ae7fa232e037a8732d29069f4d595e93",
-      "bytes": 7653
+      "sha256": "64c6cce275b3be3c11aa1bb56db1c8dad2eb37238df5783fdd5e9a386074992a",
+      "bytes": 8312
     },
     "paper/EXPERIMENT_MASTER_TABLE.md": {
       "path": "paper/EXPERIMENT_MASTER_TABLE.md",
-      "sha256": "df5e39224c2b667d07b147dccfc06b7a0678b572d3008fc0b314da46a98a1a77",
-      "bytes": 45827
+      "sha256": "87508d91dfb8394f046b655e9a91a523c04bc889f560cd076e41634ff2dd7662",
+      "bytes": 45939
     },
     "paper/INTERNAL_TO_PAPER_MAPPING.md": {
       "path": "paper/INTERNAL_TO_PAPER_MAPPING.md",
-      "sha256": "c75e7ba3230033a26796c07e2f92adf21ed50504a8a1c431af21bf2ab0b619bf",
-      "bytes": 9918
+      "sha256": "971258234dd1b4b0eea1524a68bbda15cbc57e7a80ce924712e3bde1a494a5ea",
+      "bytes": 9912
     },
     "research/615_WC_FOUR_CARD_DATA_DISK_WORKSPACE_AND_ENVIRONMENT_PREPARATION_20261020.md": {
       "path": "research/615_WC_FOUR_CARD_DATA_DISK_WORKSPACE_AND_ENVIRONMENT_PREPARATION_20261020.md",
@@ -14175,21 +14176,22 @@
   },
   "operation_policy": {
     "current_status_ref": "docs/project_status.json",
-    "current_running_card": "PG-SHARED-DEV128",
+    "current_running_card": "CARA-IG-B1-R2",
     "current_running_cards": [
-      "PG-SHARED-DEV128"
+      "CARA-IG-B1-R2"
     ],
-    "snapshot_observed_at": 1793029085.426868,
-    "active_launch_ref": "reports/cara_DEV128_A6000_GPU_actual_launch_20261026.json",
+    "snapshot_observed_at": 1793045234.154902,
+    "active_launch_ref": "reports/cara_IG_B1_R2_two_card_launch_20261027.json",
     "execution_site": "four-card RTX 6000 Ada server; private authorized connection",
     "do_not_resume_two_card": true,
     "no_replay_on_unknown": true,
     "preserve_complete_card_and_original_failures": true,
     "historical_operation_policy_ref": "docs/archive/20261022_before_navigation/paper/experiment_master_table.json",
-    "current_preparation_card": null
+    "current_preparation_card": null,
+    "completed_DEV128_launch_ref": "reports/cara_DEV128_A6000_GPU_actual_launch_20261026.json"
   },
   "mapping_sha256_at_inventory": "88b3d760a0c94c20b6c802e21f30c7286d6e596cc9b3f3100e7ee6feaa3938f3",
-  "latest_mapping_sha256": "17a17488e0d32642e0ab15084bc3d2f0e94b0faf4fe03f83ccb641c259b8a5e5",
+  "latest_mapping_sha256": "5424bd6dc39df6086cb35ffa943c8e5a6529dc10ced722ea1242d6f7fd1fc8df",
   "revision_plan": {
     "registry_ref": "plans/cara_v6_20261020/TASK_REGISTRY_V6.yaml",
     "report_ref": "research/610_WC_CARA_V6_REVIEW_CLOSURE_PLAN_INTERVAL_SPEC_AND_FIRST_DEV_SCOPE_20261020.md",

@@ -4,57 +4,63 @@
 
 当前核心问题是：**相同刷新次数下，把完整计算放在更有价值的时间步，能否更好保留完整模型的视频输出？** CAL66在24/25D上支持过渡段刷新优于末段刷新，并按原规则选出不含A的Shared25-C。下一步是在16个新输入上比较固定主候选、强布局、原修正与少步Native。历史修正的局部与终点保真收益保留，同时报告其独立质量代价。
 
-**Shared25-C新DEV128采集完成，释放GPU后CPU评分中。**
+**DEV128完整接受：Shared25-C通过16新输入冻结继续门。**
 
-2026-10-27 01:17技术更正：128/128采集完成、80/80 LPIPS完成；正式质量状态167/288（MUSIQ96、主体71、运动0），另1份正式文件刚写入等待状态提交。此前274/288错误地把raw与正式JSON重复计数，约01:00完成预测撤回。原评分进程与CPU0–1正常，无GPU重派。各维度耗时不同，不再按混合文件间隔外推；同一最终检查调整04:00。原CPU预测约07:36、10小时截止约09:02仅为时间参照。完整接受及中央结算仍待办。
+2026-10-27完整128路径、26控制、80LPIPS/7440帧及288质量全部接受；原GPU与CPU均退出，锁释放、Default恢复。Shared25-C相对冻结强参考S25-A的LPIPS降低14.82%，16/16改善，成对差单侧95%上界−0.007669；相对S25-C降低26.16%。完整请求246.675秒，V上界0.9863，三项独立质量非劣门均过。实际9.417059GPUh已中央唯一结算，按原合同进入登记独立最终确认，不自动追加GPU。该结论支持固定布局泛化，非自动规划创新或最终部署接受。
 
-[证据1](research/705_CARA_DEV128_A6000_EXCLUSIVE_LAUNCH_AND_ACCEPTANCE_SCHEDULE_20261026.md) · [证据2](reports/cara_DEV128_A6000_GPU_actual_launch_20261026.json) · [证据3](reports/cara_DEV128_A6000_technical_admission_20261026.json) · [证据4](reports/cara_DEV128_A6000_central_admission_20261026.json) · [证据5](reports/cara_DEV128_A6000_acceptance_schedule_20261026.json) · [证据6](reports/cara_DEV128_A6000_storage_20261026.json) · [证据7](reports/cara_DEV128_prelaunch_dual_exposure_reviewed_20261026.json) · [证据8](reports/cara_DEV128_full_four_card_CPU_accepted_r4_20261026.json) · [证据9](reports/cara_DEV128_full_two_card_CPU_accepted_r4_20261026.json) · [证据10](reports/cara_DEV128_A6000_technical_followup_20261026.json) · [证据11](reports/cara_DEV128_A6000_technical_progress_20261026_1742.json) · [证据12](reports/cara_DEV128_A6000_progress_capture_20261026_1743.json) · [证据13](reports/cara_DEV128_A6000_progress_pace_20261026_1744.json) · [证据14](reports/cara_DEV128_A6000_halfway_capture_20261026_1948.json) · [证据15](reports/cara_DEV128_A6000_halfway_technical_20261026_1948.json) · [证据16](reports/cara_DEV128_A6000_halfway_pace_20261026_1948.json) · [证据17](research/711_CARA_DEV128_A6000_HALFWAY_TECHNICAL_20261026.md) · [证据18](reports/cara_DEV128_GMSD_CPU_scoring_resource_review_20261026.json) · [证据19](reports/cara_DEV128_A6000_GMSD_window_technical_20261026_2340.json) · [证据20](reports/cara_GMSD_CAP1_two_card_preparation_review_20261026.json) · [证据21](reports/cara_DEV128_A6000_CPU_progress_20261027_0055.json) · [证据22](reports/cara_DEV128_A6000_post_status_only_20261027_0120.json) · [证据23](reports/cara_DEV128_A6000_terminal_20261027_0115.json) · [证据24](reports/cara_DEV128_partial_payload_exposure_note_20261027.json) · [证据25](reports/cara_DEV128_post_counter_CPU_r2_20261027.json)
+[证据1](research/705_CARA_DEV128_A6000_EXCLUSIVE_LAUNCH_AND_ACCEPTANCE_SCHEDULE_20261026.md) · [证据2](reports/cara_DEV128_A6000_GPU_actual_launch_20261026.json) · [证据3](reports/cara_DEV128_A6000_technical_admission_20261026.json) · [证据4](reports/cara_DEV128_A6000_central_admission_20261026.json) · [证据5](reports/cara_DEV128_A6000_acceptance_schedule_20261026.json) · [证据6](reports/cara_DEV128_A6000_storage_20261026.json) · [证据7](reports/cara_DEV128_prelaunch_dual_exposure_reviewed_20261026.json) · [证据8](reports/cara_DEV128_full_four_card_CPU_accepted_r4_20261026.json) · [证据9](reports/cara_DEV128_full_two_card_CPU_accepted_r4_20261026.json) · [证据10](reports/cara_DEV128_A6000_technical_followup_20261026.json) · [证据11](reports/cara_DEV128_A6000_technical_progress_20261026_1742.json) · [证据12](reports/cara_DEV128_A6000_progress_capture_20261026_1743.json) · [证据13](reports/cara_DEV128_A6000_progress_pace_20261026_1744.json) · [证据14](reports/cara_DEV128_A6000_halfway_capture_20261026_1948.json) · [证据15](reports/cara_DEV128_A6000_halfway_technical_20261026_1948.json) · [证据16](reports/cara_DEV128_A6000_halfway_pace_20261026_1948.json) · [证据17](research/711_CARA_DEV128_A6000_HALFWAY_TECHNICAL_20261026.md) · [证据18](reports/cara_DEV128_GMSD_CPU_scoring_resource_review_20261026.json) · [证据19](reports/cara_DEV128_A6000_GMSD_window_technical_20261026_2340.json) · [证据20](reports/cara_GMSD_CAP1_two_card_preparation_review_20261026.json) · [证据21](reports/cara_DEV128_A6000_CPU_progress_20261027_0055.json) · [证据22](reports/cara_DEV128_A6000_post_status_only_20261027_0120.json) · [证据23](reports/cara_DEV128_A6000_terminal_20261027_0115.json) · [证据24](reports/cara_DEV128_partial_payload_exposure_note_20261027.json) · [证据25](reports/cara_DEV128_post_counter_CPU_r2_20261027.json) · [证据26](reports/cara_DEV128_A6000_terminal_20261027_0400.json) · [证据27](reports/cara_DEV128_A6000_accepted_20261027_0404.json) · [证据28](reports/cara_DEV128_A6000_central_settlement_20261027_0404.json) · [证据29](reports/cara_DEV128_A6000_complete_analysis_20261027.json) · [证据30](research/716_CARA_DEV128_COMPLETE_ACCEPTANCE_AND_FROZEN_DECISION_20261027.md)
 
 ## 方法及比较对象
 
-04:00沿原launch检查；评分未完则按实际状态调整同一任务，全部退出后中央结算与独立接受。技术监测只用正式编号和状态字段，不返回部分评分。
+按原合同准备独立最终确认与必要迁移的完整范围、报价；冻结主候选不改，不用DEV反向调新读出。已独立授权的IG实验保持其原运行与验收。
 
 WorldCache 是原始缓存基线；RA-CFGCache 是本项目固定协议下的本地适配对照。Efficient、High-Fidelity 是历史版本的两个工作点，具有各自源码、配置与批次身份。完整对应关系见[术语映射](paper/INTERNAL_TO_PAPER_MAPPING.md)，不同版本不合并成一个“最终方法”均值。
 
 ## 主要科学结果
 
-### 1. Shared25-C通过完整CAL筛查
+### 1. Shared25-C通过16新DEV冻结验证
+
+相对冻结S25-A的LPIPS降低14.82%，16/16改善；相对S25-C降低26.16%。246.675秒、约1.269倍，V单侧95%上界0.9863；三项质量非劣门均通过。
+
+完整128路径、80组LPIPS、288质量；16新DEV、seed0，原主候选和阈值冻结。属于DEV继续证据，最终16组和迁移仍待独立确认。 [证据1](research/716_CARA_DEV128_COMPLETE_ACCEPTANCE_AND_FROZEN_DECISION_20261027.md) · [证据2](reports/cara_DEV128_A6000_complete_analysis_20261027.json)
+
+### 2. Shared25-C通过完整CAL筛查
 
 同批A6000四个CAL上，Shared25-C相对较强S25-A的LPIPS下降15.34%，4/4改善；246.852秒，原双预算和三项独立质量筛查通过。
 
 完整66/48LPIPS/156质量；4个已曝光CAL、seed0，非新DEV或最终部署结论。四个含A候选未过相对Native的MUSIQ界。 [证据1](research/702_CARA_CAL66_A6000_COMPLETE_RESULTS_AND_FROZEN_SHARED25_C_20261026.md) · [证据2](reports/cara_CAL66_A6000_complete_analysis_20261026.json)
 
-### 2. 修正读出有跨输入机制收益
+### 3. 修正读出有跨输入机制收益
 
 BANK24六个新DEV中，A相对C的同状态扩散速度预测MSE全部降低43.53%–63.00%，等权场景均值降低52.53%。
 
 6DEV；18正式+6warm；24视频、12组LPIPS全部接受。这里的52.53%是局部MSE，不是视频质量提升。 [证据1](research/644_CARA_BANK24_COMPLETE_DEV6_RESULTS_20261022.md)
 
-### 3. 连续修正改善最终视频保真
+### 4. 连续修正改善最终视频保真
 
 Window24同25D布局下，A3较C的平均LPIPS低26.6335%，较A1低19.7690%；CAL12四格补齐了后两次A的独立增量。
 
 4个旧CAL、seed0；A3仍比26D前密C高5.7235%失真。 [证据1](research/604_WC_WINDOW24_FULL24_ACCEPTED_CONTINUOUS_CORRECTION_RESULTS_AND_CAL12_NEXT_20261019.md) · [证据2](research/609_WC_CAL12_FULL_FACTORIAL_A_AND_SHARED_PLAN_INDEPENDENT_EFFECTS_20261019.md)
 
-### 4. 固定预算下刷新位置影响保真
+### 5. 固定预算下刷新位置影响保真
 
 CAL12同26D、同纯C的共享计划较前密C的LPIPS低15.36%，四场景均改善。
 
 由既有轨迹变化量导出的一个冻结布局；属于CAL证据，独立输入和净时间待验证。 [证据1](research/609_WC_CAL12_FULL_FACTORIAL_A_AND_SHARED_PLAN_INDEPENDENT_EFFECTS_20261019.md)
 
-### 5. 已有质量—时间工作点
+### 6. 已有质量—时间工作点
 
 D14同批比较中，Efficient比WorldCache耗时少13.72%、LPIPS低11.1600%；同26D的A较plain低3.5196%，增加0.8762秒。
 
 历史4CAL工作点；同卡40正式+20warm。N07/N08/N10已补充共同评价、重复计时和自动质量。 [证据1](research/420_WC_FULL60_COST_CURVE_COMPLETE_RESULTS_AND_CONVERGENCE_20261014.md) · [证据2](research/552_WC_N08_FULL40_ACCEPTED_REPEATED_TIMING_AND_PENDING_TASK_CLOSURE_20261017.md) · [证据3](research/599_WC_N10_FULL960_ACCEPTED_DIMENSIONWISE_RESULTS_AND_WINDOW24_RESOURCE_QUEUE_20261018.md)
 
-### 6. 冻结单点门控未优于随机配额分配
+### 7. 冻结单点门控未优于随机配额分配
 
 BANK24冻结z门控在同3D配额的20种分配中排12/20；LPIPS 0.0778937，高于随机分配期望0.0768148。
 
 四CAL冻结规则，六DEV不重拟合。接下来检验真实区间标签与动作价格驱动的联合策略。 [证据1](research/644_CARA_BANK24_COMPLETE_DEV6_RESULTS_20261022.md)
 
-当前验证链条是：**固定刷新位置 → 新输入上的端点保真和独立质量 → 完整请求预算 → 新设置中的规则迁移**。Shared25-C的新DEV结果尚不存在，现有能量规则与模板同掩码；自动规则的额外贡献需要后续可辨识的比较。
+当前验证链条是：**固定刷新位置 → 新输入上的端点保真和独立质量 → 完整请求预算 → 新设置中的规则迁移**。Shared25-C已通过16新DEV的冻结继续门，见[716完整结果](research/716_CARA_DEV128_COMPLETE_ACCEPTANCE_AND_FROZEN_DECISION_20261027.md)。现有能量规则与模板同掩码；自动规则的额外贡献仍需后续可辨识比较，独立最终确认与迁移另行登记。
 
 ## 已完成的评价基础
 
@@ -83,7 +89,7 @@ LPIPS百分比以同批场景均值之比计算；视频帧不当独立样本；
 
 | 顺序 | 当前阶段 | 下一项验收 / 动作 |
 |---|---|---|
-| PG-SHARED-DEV128 | Shared25-C：16新DEV、六角色128路径：Shared25-C新DEV128采集完成，释放GPU后CPU评分中 | 04:00沿原launch检查；评分未完则按实际状态调整同一任务，全部退出后中央结算与独立接受。技术监测只用正式编号和状态字段，不返回部分评分。 |
+| PG-SHARED-DEV128 | Shared25-C：16新DEV、六角色128路径：DEV128完整接受：Shared25-C通过16新输入冻结继续门 | 按原合同准备独立最终确认与必要迁移的完整范围、报价；冻结主候选不改，不用DEV反向调新读出。已独立授权的IG实验保持其原运行与验收。 |
 
 ## 历史与复核
 

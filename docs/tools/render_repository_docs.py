@@ -775,7 +775,20 @@ def build():
         actual = load(execution['launch_ref'])
         technical = load(execution['technical_ref'])
         central = load(execution['central_admission_ref'])
+        completed = execution.get('full_protocol_accepted') is True
         cpu_scoring = execution['status'] == 'DEV128_A6000_GPU_RELEASED_CPU_SCORING_RUNNING'
+        if completed:
+            accepted = load(execution['acceptance_ref'])
+            analysis = load(execution['analysis_ref'])
+            if (not accepted['full_protocol_accepted']
+                    or accepted['launch_id'] != actual['launch_id']
+                    or accepted['source_revision'] != actual['source_revision']
+                    or accepted['capture_sha256'] != digest((ROOT / execution['terminal_ref']).read_bytes())['sha256']
+                    or accepted['central_settlement_sha256'] != digest((ROOT / execution['settlement_ref']).read_bytes())['sha256']
+                    or analysis['evidence']['acceptance']['sha256'] != digest((ROOT / execution['acceptance_ref']).read_bytes())['sha256']
+                    or analysis['launch_id'] != actual['launch_id']
+                    or accepted['mode_restoration_pending']):
+                raise ValueError('DEV128 completion requires bound original acceptance, settlement and analysis')
         if cpu_scoring:
             post = load(execution['CPU_scoring_technical_ref'])
             if (post['launch_id'] != actual['launch_id']
@@ -791,28 +804,32 @@ def build():
                 or technical['launch_id'] != actual['launch_id']
                 or central['launch'] != actual
                 or technical['source_revision'] != actual['source_revision']
-                or (not cpu_scoring and not technical['actual_unique_runner_accepted'])
+                or (not completed and not cpu_scoring and not technical['actual_unique_runner_accepted'])
                 or technical['violations']
                 or actual['scope_counts']['total_paths'] != 128
-                or actual['billed_limit_GPUh'] != 12
-                or execution['full_protocol_accepted']):
+                or actual['billed_limit_GPUh'] != 12):
             raise ValueError('DEV128 launch snapshot requires original exclusive admission only')
         snapshot = '**' + execution['status_zh'] + '。**\n\n' + execution['summary'] + '\n\n' + refs(execution['evidence_refs'])
         run_details = ('| 字段 | DEV128实际运行 |\n|---|---|\n'
             '| 原启动 | ' + local_time(actual['started_unix']) + '；' + actual['launch_id'] + ' |\n'
-            '| GPU | 两卡GPU1 A6000；' + ('原runner已退出，CPU评分中，模式待原guardian收尾' if cpu_scoring else 'EXCLUSIVE_PROCESS原runner唯一上下文') + ' |\n'
+            '| GPU | 两卡GPU1 A6000；' + ('原全部句柄退出，锁释放，Default模式已恢复' if completed else '原runner已退出，CPU评分中，模式待原guardian收尾' if cpu_scoring else 'EXCLUSIVE_PROCESS原runner唯一上下文') + ' |\n'
             '| 完整范围 | 16新DEV、六角色、128路径；原α/强基线保持 |\n'
             '| GPU预算 | 预测11.618228h / 硬12h / 累计226h |\n'
             '| 释放后评分 | 80LPIPS/7440帧、288质量；2CPU/8GiB，最多10h |\n'
             '| 自动检查 | ' + execution.get('check_schedule_zh', '10月26日19:26半程；10月27日10:04终态，按实际进度调整') + ' |')
         actions = execution['next_action']
         row = by_id['PG-SHARED-DEV128']
-        row.update(state=execution['status'],new_GPU_submissions=1,full_protocol_accepted=False,
+        row.update(state=execution['status'],new_GPU_submissions=1,full_protocol_accepted=completed,
             evidence_or_planned_scope=execution['summary'], GPU_dispatch_ready=False)
         row['reader'].update(status=execution['status_zh'],result=execution['summary'],next_action=actions)
         master['operation_policy'].update(current_preparation_card=None,
-            current_running_card='PG-SHARED-DEV128', current_running_cards=['PG-SHARED-DEV128'],
-            active_launch_ref=execution['launch_ref'], snapshot_observed_at=technical['observed_unix'])
+            current_running_card=None if completed else 'PG-SHARED-DEV128', current_running_cards=[] if completed else ['PG-SHARED-DEV128'],
+            active_launch_ref=None if completed else execution['launch_ref'], snapshot_observed_at=execution['observed_unix'])
+        if completed:
+            master['operation_policy']['completed_DEV128_launch_ref'] = execution['launch_ref']
+            ig = status.get('innovation_gain_exploration_R1', {})
+            if 'RUNNING' in ig.get('status', ''):
+                master['operation_policy'].update(current_running_card='CARA-IG-B1-R2',current_running_cards=['CARA-IG-B1-R2'],active_launch_ref=ig['launch_ref'])
         master['status_counts'] = {state:sum(r['state']==state for r in rows) for state in sorted({r['state'] for r in rows})}
     headlines = '\n'.join(f"- **{f['title']}**（{f['short_scope']}）：{f['result']} {refs(f['refs'])}"
                            for f in status['headline_results'])

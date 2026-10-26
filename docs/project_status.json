@@ -4,7 +4,7 @@
   "evidence_observed_at": "2026-10-26T09:30:00.005338+08:00",
   "timezone": "Asia/Shanghai",
   "snapshot_note": "CAL66完整66路径、48组LPIPS/156质量评分已接受，实际4.776208 GPUh已中央结算。Shared25-C相对较强S25-A的LPIPS改善15.34%且4/4同向，246.852秒/V0.98188，三项质量筛查通过，冻结为新DEV主候选。原GPU/容器/锁释放、模式恢复；四个A候选未过相对Native的MUSIQ界。当前仅CAL证据，新DEV未启动。",
-  "research_summary": "CAL66完整结果支持刷新位置的CAL收益：Shared24/25-C相对同配额S-C的LPIPS下降20.68%/25.84%，均4/4改善。按原质量与双预算规则冻结Shared25-C，较强S25-A参考改善15.34%；含A候选因MUSIQ界未被选为主方法。能量/传播先验/模板同掩码，自动规则增量和新输入泛化仍待独立验证。",
+  "research_summary": "Shared25-C在16新DEV上相对冻结S25-A保真改善14.82%、16/16同向，原双预算与三项质量非劣门均通过，进入登记独立最终确认。放置效应已由CAL推广至新输入；当前能量规则与模板同掩码，自动规划增量需独立可辨识验证。",
   "active_experiment_id": "PG-SHARED-CAL66",
   "active_state": "DEV128_A6000_EXCLUSIVE_RUNNING",
   "active_state_zh": "Shared25-C新DEV128已在两卡A6000独占启动",
@@ -15,6 +15,16 @@
   "run_report_ref": "research/702_CARA_CAL66_A6000_COMPLETE_RESULTS_AND_FROZEN_SHARED25_C_20261026.md",
   "next_checks": [],
   "headline_results": [
+    {
+      "title": "Shared25-C通过16新DEV冻结验证",
+      "result": "相对冻结S25-A的LPIPS降低14.82%，16/16改善；相对S25-C降低26.16%。246.675秒、约1.269倍，V单侧95%上界0.9863；三项质量非劣门均通过。",
+      "scope": "完整128路径、80组LPIPS、288质量；16新DEV、seed0，原主候选和阈值冻结。属于DEV继续证据，最终16组和迁移仍待独立确认。",
+      "short_scope": "DEV16，完整128，冻结强基线与双预算",
+      "refs": [
+        "research/716_CARA_DEV128_COMPLETE_ACCEPTANCE_AND_FROZEN_DECISION_20261027.md",
+        "reports/cara_DEV128_A6000_complete_analysis_20261027.json"
+      ]
+    },
     {
       "title": "Shared25-C通过完整CAL筛查",
       "result": "同批A6000四个CAL上，Shared25-C相对较强S25-A的LPIPS下降15.34%，4/4改善；246.852秒，原双预算和三项独立质量筛查通过。",
@@ -743,9 +753,9 @@
     "execution_authorized": true
   },
   "Shared25_DEV128_execution": {
-    "status": "DEV128_A6000_GPU_RELEASED_CPU_SCORING_RUNNING",
-    "status_zh": "Shared25-C新DEV128采集完成，释放GPU后CPU评分中",
-    "observed_unix": 1793035075.5966387,
+    "status": "DEV128_A6000_COMPLETE_ACCEPTED_FROZEN_CONTINUE",
+    "status_zh": "DEV128完整接受：Shared25-C通过16新输入冻结继续门",
+    "observed_unix": 1793045234.154902,
     "GPU_running": false,
     "new_GPU_submissions": 1,
     "launch_ref": "reports/cara_DEV128_A6000_GPU_actual_launch_20261026.json",
@@ -804,15 +814,14 @@
     "cumulative_cap_GPUh": 226,
     "final_deployment_budget": "min(257.7712338712067 seconds, 0.8 freshNative)",
     "pool_totals": {
-      "used_gpu_hours": 161.39662063362806,
-      "reserved_gpu_hours": 28.5,
-      "available_gpu_hours": 36.10337936637194,
-      "gpu_jobs_launched": 119
+      "used_gpu_hours": 171.39640328980082,
+      "reserved_gpu_hours": 18.0,
+      "available_gpu_hours": 36.603596710199184
     },
-    "full_protocol_accepted": false,
-    "report_ref": "research/705_CARA_DEV128_A6000_EXCLUSIVE_LAUNCH_AND_ACCEPTANCE_SCHEDULE_20261026.md",
-    "summary": "2026-10-27 01:17技术更正：128/128采集完成、80/80 LPIPS完成；正式质量状态167/288（MUSIQ96、主体71、运动0），另1份正式文件刚写入等待状态提交。此前274/288错误地把raw与正式JSON重复计数，约01:00完成预测撤回。原评分进程与CPU0–1正常，无GPU重派。各维度耗时不同，不再按混合文件间隔外推；同一最终检查调整04:00。原CPU预测约07:36、10小时截止约09:02仅为时间参照。完整接受及中央结算仍待办。",
-    "next_action": "04:00沿原launch检查；评分未完则按实际状态调整同一任务，全部退出后中央结算与独立接受。技术监测只用正式编号和状态字段，不返回部分评分。",
+    "full_protocol_accepted": true,
+    "report_ref": "research/716_CARA_DEV128_COMPLETE_ACCEPTANCE_AND_FROZEN_DECISION_20261027.md",
+    "summary": "2026-10-27完整128路径、26控制、80LPIPS/7440帧及288质量全部接受；原GPU与CPU均退出，锁释放、Default恢复。Shared25-C相对冻结强参考S25-A的LPIPS降低14.82%，16/16改善，成对差单侧95%上界−0.007669；相对S25-C降低26.16%。完整请求246.675秒，V上界0.9863，三项独立质量非劣门均过。实际9.417059GPUh已中央唯一结算，按原合同进入登记独立最终确认，不自动追加GPU。该结论支持固定布局泛化，非自动规划创新或最终部署接受。",
+    "next_action": "按原合同准备独立最终确认与必要迁移的完整范围、报价；冻结主候选不改，不用DEV反向调新读出。已独立授权的IG实验保持其原运行与验收。",
     "evidence_refs": [
       "research/705_CARA_DEV128_A6000_EXCLUSIVE_LAUNCH_AND_ACCEPTANCE_SCHEDULE_20261026.md",
       "reports/cara_DEV128_A6000_GPU_actual_launch_20261026.json",
@@ -838,7 +847,12 @@
       "reports/cara_DEV128_A6000_post_status_only_20261027_0120.json",
       "reports/cara_DEV128_A6000_terminal_20261027_0115.json",
       "reports/cara_DEV128_partial_payload_exposure_note_20261027.json",
-      "reports/cara_DEV128_post_counter_CPU_r2_20261027.json"
+      "reports/cara_DEV128_post_counter_CPU_r2_20261027.json",
+      "reports/cara_DEV128_A6000_terminal_20261027_0400.json",
+      "reports/cara_DEV128_A6000_accepted_20261027_0404.json",
+      "reports/cara_DEV128_A6000_central_settlement_20261027_0404.json",
+      "reports/cara_DEV128_A6000_complete_analysis_20261027.json",
+      "research/716_CARA_DEV128_COMPLETE_ACCEPTANCE_AND_FROZEN_DECISION_20261027.md"
     ],
     "shared_host_coordination_ref": "reports/cara_GMSD_CAP1_two_card_preparation_review_20261026.json",
     "shared_host_coordination_status": "PREPARATION_AND_LATER_WINDOW_REQUEST_ALLOWED_NO_CURRENT_DISPATCH_CLEARANCE",
@@ -855,30 +869,29 @@
       "output_available_GiB": 29.583763122558594,
       "cross_disk_telemetry_age_seconds": 0.4125833511352539,
       "CPU_scoring_started": true,
-      "full_terminal_accepted": false,
+      "full_terminal_accepted": true,
       "collection_estimate_local": "2026-10-26T22:57:07.850019+08:00",
       "estimate_not_guarantee": true,
       "LPIPS_files_present": 80,
-      "quality_files_present": 168,
+      "quality_files_present": 288,
       "quality_recent20_mean_interval_seconds": null,
-      "quality_scored_positions": 167,
+      "quality_scored_positions": 288,
       "quality_dimensions": {
         "MUSIQ_LONGER512": {
           "SCORED": 96
         },
         "subject_consistency": {
-          "SCORED": 71,
-          "RUNNING": 1,
-          "NOT_REACHED": 24
+          "SCORED": 96
         },
         "motion_smoothness": {
-          "NOT_REACHED": 96
+          "SCORED": 96
         }
       },
-      "quality_pending_status_commit": 1,
-      "previous_glob_counts_invalid": true
+      "quality_pending_status_commit": 0,
+      "previous_glob_counts_invalid": true,
+      "CPU_scoring_complete": true
     },
-    "check_schedule_zh": "半程已删除；计数口径更正，最终检查由01:15调整10月27日04:00，不新增任务",
+    "check_schedule_zh": "半程和最终验收已完成，DEV128两个一次自动化均已删除",
     "halfway_check": {
       "actual_capture_unix": 1793015277.7561822,
       "technical_observed_unix": 1793015314.145158,
@@ -923,7 +936,14 @@
     },
     "CPU_scoring_technical_ref": "reports/cara_DEV128_A6000_CPU_progress_20261027_0055.json",
     "latest_post_progress_ref": "reports/cara_DEV128_A6000_post_status_only_20261027_0120.json",
-    "partial_payload_exposure_ref": "reports/cara_DEV128_partial_payload_exposure_note_20261027.json"
+    "partial_payload_exposure_ref": "reports/cara_DEV128_partial_payload_exposure_note_20261027.json",
+    "terminal_ref": "reports/cara_DEV128_A6000_terminal_20261027_0400.json",
+    "acceptance_ref": "reports/cara_DEV128_A6000_accepted_20261027_0404.json",
+    "settlement_ref": "reports/cara_DEV128_A6000_central_settlement_20261027_0404.json",
+    "analysis_ref": "reports/cara_DEV128_A6000_complete_analysis_20261027.json",
+    "actual_GPUh": 9.417059154665719,
+    "final_deployment_accepted": false,
+    "terminal_automation_deleted": true
   },
   "predictor_refresh_scout_V2": {
     "status": "PLAN_INTEGRATED_E0_PENDING_NO_GPU",
