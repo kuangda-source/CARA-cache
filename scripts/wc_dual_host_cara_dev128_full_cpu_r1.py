@@ -45,6 +45,7 @@ def main():
   for n in sorted(names):
    raw=(ROOT/n).read_bytes()
    if n in inputs:assert hashlib.sha256(raw).hexdigest()==inputs[n]
+   elif n.startswith('vendor/'):assert hashlib.sha256(raw).hexdigest()==previous[n],'Accepted pinned vendor changed'
    else:assert subprocess.check_output(['git','show',rev+':'+n],cwd=ROOT)==raw,'Commit source first '+n
    files[n]=base64.b64encode(raw).decode();hashes[n]=hashlib.sha256(raw).hexdigest()
   ref='reports/cara_DEV128_'+a.host+'_CPU_'
