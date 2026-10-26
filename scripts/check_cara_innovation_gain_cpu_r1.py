@@ -29,10 +29,12 @@ def main():
         tests=unittest.TextTestRunner(stream=stream,verbosity=2).run(unittest.defaultTestLoader.loadTestsFromName('test_innovation_gain_r1'))
         if not tests.wasSuccessful():raise ValueError('Innovation unit/source-adapter checks failed')
         import check_scout_parent_cpu_v22 as parent_test
+        original_parent_body_source=inspect.getsource(parent_test.body)
         from wcomr.innovation_gain_observer_r1 import execute, restore_readout_inputs
         from wcomr.innovation_gain_r1 import InnovationGainKernel
+        from wcomr.innovation_gain_assets_r1 import GainAssetStore, load_state
         from test_scout_readout_v22 import fixture
-        real_schema=None
+        real_schema=None;actual_request=None
         if (ROOT/'registration.json').exists():
             # Host execution only: import the actual frozen request class.
             # Explicit optional-dependency CPU import adapters match prior
@@ -69,16 +71,24 @@ def main():
             real_schema=dict(actual_class=InferenceArguments.__module__+'.'+InferenceArguments.__qualname__,
                 actual_frozen=True,production_requests_validated=len(samples),production_resolution='432,768',
                 declared_CPU_fixture_resolution='16,16',real_weights=False)
-        seen=[];replays=[]
+        seen=[];replays=[];stores=[]
         def new_execute(*args,**kwargs):
             sink=kwargs['sink']
             schemas={}
+            store=None
             def checked_sink(payload):
+                nonlocal store
                 extra=payload['innovation_gain']
                 assert extra['additional_guided_adapter_replays']==3
                 assert extra['token_layout']=='BTHWD' and set(extra['outputs'])=={'f10','f01','f05'}
                 assert 'gain_moments' in payload
-                restored=restore_readout_inputs(payload,schemas[payload['context'][0]],'cpu')
+                if store is None:
+                    store=GainAssetStore(a.artifacts/('streamed_'+str(len(stores))),
+                                        byte_limit=2**30,check_space=lambda:None)
+                    stores.append(store)
+                artifact=store.save(payload)
+                loaded=load_state(store.root,artifact)
+                restored=restore_readout_inputs(loaded,schemas[payload['context'][0]],'cpu')
                 warp=fixture()[0].warp
                 for gains,label in (((0.,0.),'FULL'),((1.,1.),'R4_GLOBAL')):
                     kernel=InnovationGainKernel(args[0].pipe.model,kwargs['runtime'],kwargs['wc'],kwargs['rf'],
@@ -93,16 +103,22 @@ def main():
             return execute(*args,**{**kwargs,'sink':checked_sink},condition_registry=schemas)
         parent_test.execute=new_execute
         controls=parent_test.run(ROOT/'cache/runtime',lambda path:torch.load(path,map_location='cpu',weights_only=True),a.artifacts)
+        from check_innovation_gain_deployment_cpu_r1 import run as deploy_checks
+        deployment=deploy_checks(ROOT/'cache/runtime',a.artifacts/'deployment',
+                                 body_source=original_parent_body_source,actual_request=actual_request)
         value=dict(status='IG_SOURCE_BOUND_CPU_PASS_NOT_REAL_MODEL_RESULT',unit_tests=tests.testsRun,
                    full_parent_controls=controls,observed_gain_states_including_failure_attempts=len(seen),
                    saved_input_endpoint_replays_including_failure_attempts=len(replays),
+                   streamed_unique_anchor_stores=len(stores),
                    actual_request_schema=real_schema,
+                   free_running_deployment_controls=deployment,
                    original_parent_implementation_unchanged=True)
     except BaseException:
         value=dict(status='CPU_FAILED',traceback=traceback.format_exc())
     files=[str(x.relative_to(ROOT)) for pattern in ('src/wcomr/innovation_gain*_r1.py','tests/test_innovation_gain_r1.py') for x in ROOT.glob(pattern)]
     files += ['scripts/check_cara_innovation_gain_cpu_r1.py','src/wcomr/scout_parent_v22.py','src/wcomr/scout_readout_v22.py',
               'tests/check_scout_parent_cpu_v22.py','tests/test_scout_readout_v22.py']
+    files+=['tests/check_innovation_gain_deployment_cpu_r1.py']
     value.update(source_sha256={f:hashlib.sha256((ROOT/f).read_bytes()).hexdigest() for f in files},
         tests_log=stream.getvalue(),wall_seconds=time.monotonic()-start,observed_unix=time.time(),
         cuda_initialized=torch.cuda.is_initialized(),GPU_submissions=0,real_model_inference=False)

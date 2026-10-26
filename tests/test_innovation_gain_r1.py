@@ -10,6 +10,8 @@ from wcomr.full_sampling import CompleteStateRoundtrip
 from wcomr.innovation_gain_r1 import InnovationGainKernel, project_spatial_blocks, gain_proposal
 from wcomr.innovation_gain_fit_r1 import output_moments, calibration, fit, box_quadratic
 from wcomr.scout_readout_v22 import UnsupportedReadout, proposal
+from wcomr.innovation_gain_deployment_r1 import paid_readout
+from wcomr.scout_readout_v22 import validate_state
 
 
 def kernel_for(base, gains):
@@ -21,6 +23,18 @@ def kernel_for(base, gains):
 
 
 class InnovationTests(unittest.TestCase):
+    def test_paid_C_reuse_equals_isolated_actual_adapter(self):
+        for flow in (False,True):
+            for step in (22,25,35):
+                k,a=fixture(flow,step);spans=validate_state(a['context'],step,a['xi'],a['anchors'])
+                cached=k.evaluate('WC_C',**a)['outputs']
+                for role,gains,label in [('A_PHASE',None,'A_PHASE'),('FULL',None,'FULL'),
+                        ('DEEP',None,'R4_GLOBAL'),('DCTA',None,'DCTA'),('IG_SCALAR',(.3,.3),None),('IG_BAND',(.2,.8),None)]:
+                    actual=paid_readout(k,role,current=a['current'],anchors=a['anchors'],pair_inputs=a['pair_inputs'],
+                        cached=cached,ratio=spans['kappa'],age=spans['age'],alpha=spans['alpha'],gains=gains)
+                    expected=(k.evaluate(label,**a) if label else kernel_for(k,gains).evaluate_gain(**a))['outputs']
+                    self.assertTrue(all(torch.equal(x,y) for x,y in zip(actual,expected)))
+
     def test_projection_partial_boundary_and_axes(self):
         g = torch.Generator().manual_seed(20261027)
         for h,w in ((7,9),(1,3),(2,2),(3,1)):
