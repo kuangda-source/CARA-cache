@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""One resident Cosmos, all66 frozen historical/boundary paths; no search."""
+"""One resident Cosmos, all128 frozen held-out paths; no search."""
 import argparse,json,os,sys,time
 from pathlib import Path
 
@@ -9,7 +9,7 @@ def main():
  p.add_argument('--source-revision',required=True);p.add_argument('--gpu-uuid',required=True);a=p.parse_args()
  os.environ.update(WC_SCOUT_KIND='CAL12',HF_HUB_CACHE=str(a.project/'cache/huggingface/hub'),HF_HUB_OFFLINE='1',TRANSFORMERS_OFFLINE='1')
  sys.path[:0]=[str(a.stage/'src'),str(a.stage/'scripts'),str(a.project/'runtime'),str(a.project/'runtime/packages/cosmos-oss'),str(a.project/'runtime/packages/cosmos-cuda')]
- from wcomr.policy_generator_r1.dev128_card import validate,read,sha,RUN,COUNTS,CONFIG
+ from wcomr.policy_generator_r1.dev128_execution import validate,read,sha,RUN,COUNTS,CONFIG
  c,reg,card=validate(a.project,a.stage)
  from wcomr.history104_storage_r2 import storage_for
  storage=storage_for(a.stage);storage.check()
