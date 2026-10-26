@@ -37,7 +37,12 @@ def main():
   rev=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip();files={};hashes={}
   from wcomr.policy_generator_r1.dev128_card import MANIFEST
   inputs=json.loads((ROOT/MANIFEST).read_text())['input_bindings']
-  for n in sorted(old.names()):
+  # Reuse the accepted full-CPU closure; GPU dispatch/provision controllers are
+  # separate control-plane code and must never pull private bootstrap scripts.
+  previous=json.loads((ROOT/'reports/cara_DEV128_full_two_card_CPU_complete_r2_20261026.json').read_text())['registration']['payload_sha256']
+  names={n for n in previous if (ROOT/n).is_file() and n.startswith(('src/','scripts/','tests/','manifests/','configs/','reports/','plans/','vendor/'))}
+  names.update(inputs)
+  for n in sorted(names):
    raw=(ROOT/n).read_bytes()
    if n in inputs:assert hashlib.sha256(raw).hexdigest()==inputs[n]
    else:assert subprocess.check_output(['git','show',rev+':'+n],cwd=ROOT)==raw,'Commit source first '+n
