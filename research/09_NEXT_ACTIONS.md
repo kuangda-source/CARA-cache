@@ -2,24 +2,24 @@
 
 # CARA-Cache 后续实验顺序
 
-**CAL66完整接受，Shared25-C通过CAL筛查并冻结。**
+**Shared25-C新DEV128：双服务器生产CPU接受，尚未启动GPU。**
 
-CAL66完整66路径、48组LPIPS/156质量评分已接受，实际4.776208 GPUh已中央结算。Shared25-C相对较强S25-A的LPIPS改善15.34%且4/4同向，246.852秒/V0.98188，三项质量筛查通过，冻结为新DEV主候选。原GPU/容器/锁释放、模式恢复；四个A候选未过相对Native的MUSIQ界。当前仅CAL证据，新DEV未启动。
+16新DEV双端曝光核查及六角色128路径的生产入口、采集/释放后评分CPU均已接受；新DEV推理与GPU提交为0。四卡报价12.349232GPUh超12h设计子池，两卡11.618228；原α、强基线、累计226和部署预算不变。128专用GPU监督/财务终态绑定仍待接受。
 
-[证据1](701_CARA_CAL66_A6000_MIGRATION_AND_EXECUTION_20261025.md) · [证据2](../reports/cara_CAL66_A6000_GPU_actual_launch_20261025.json) · [证据3](../reports/cara_CAL66_A6000_technical_admission_20261025.json) · [证据4](../reports/cara_CAL66_A6000_CPU_accepted_r3_20261025.json) · [证据5](../reports/cara_CAL66_A6000_central_admission_confirmed_20261025.json) · [证据6](../reports/cara_CAL66_A6000_technical_progress_20261026_022914.json) · [证据7](../reports/cara_CAL66_A6000_progress_capture_20261026_0230.json) · [证据8](../reports/cara_CAL66_A6000_progress_pace_20261026_0231.json) · [证据9](../reports/cara_CAL66_A6000_halfway_20261026_030425.json) · [证据10](../reports/cara_CAL66_A6000_halfway_technical_20261026_030425.json) · [证据11](../reports/cara_CAL66_A6000_terminal_20261026_0930.json) · [证据12](../reports/cara_CAL66_A6000_terminal_accepted_20261026_0930.json) · [证据13](../reports/cara_CAL66_A6000_central_settlement_20261026_0933.json) · [证据14](../reports/cara_CAL66_A6000_complete_analysis_20261026.json) · [证据15](../manifests/cara_CAL66_selected_CAL_candidate_r1_20261026.json) · [证据16](702_CARA_CAL66_A6000_COMPLETE_RESULTS_AND_FROZEN_SHARED25_C_20261026.md)
+[证据1](703_CARA_DEV128_DUAL_HOST_CPU_AND_CAL66_QUALITY_DIAGNOSIS_20261026.md) · [证据2](../manifests/cara_DEV128_scope_r1_20261026.json) · [证据3](../reports/cara_DEV128_dual_host_exposure_20261026.json) · [证据4](../reports/cara_DEV128_four_card_CPU_accepted_r4_20261026.json) · [证据5](../reports/cara_DEV128_two_card_CPU_accepted_r4_20261026.json) · [证据6](../manifests/cara_DEV128_dual_host_whole_quote_r1_20261026.json) · [证据7](../plans/cara_policy_generator_20261020/CAL66_FEEDBACK_AND_DEV128_BOUNDARIES_20261026.md)
 
 | 顺序 | 当前阶段 | 下一项验收 / 动作 |
 |---|---|---|
-| PG-SHARED-CAL66 | CAL66：刷新位置、原phase修正与尾部停用：CAL66完整接受，Shared25-C通过CAL筛查并冻结 | 准备冻结16新DEV的双主机增量曝光核查、六角色128路径完整报价和必要CPU验收；新GPU执行需具体授权，保持累计226和最终部署预算。 |
+| PG-SHARED-DEV128 | Shared25-C：16新DEV、六角色128路径：双端生产/采集评分CPU接受；GPU未授权 | 先补128整卡监督/财务终态与双端单次调度组合检查；解决四卡报价超12h子池或明确选择合规主机。fresh输入/资源/账本准入与GPU授权前不提交。 |
 | PG-P2 | 等预算与等查询强基线：五原模型CPU可复用；P2整卡绑定及完整五指标视频评分待确认 | Shared探索后冻结一个方法/预算档；新输入增量核查，少步Native与独立质量共同确认。 |
 | PG-P3 | 固定程序跨预算/模型：条件性后续 | P1/P2后先0.70×Native，再成熟第二模型或明确第二设置重新校准。 |
 | PG-P4 | 最终独立TEST与部署评价：待方法冻结 | 冻结方法、对手、预算、选择规则后再选新TEST；计入warm与全流程成本。 |
 
 ## 本轮授权范围与下一步
 
-用户已授权新的完整CAL66 R2独占执行及半程/最终验收。新R2身份、真实参数链和监督/存储CPU、stage与磁盘保护已接受，当前等待空闲GPU；每30分钟检查准入，见[700](700_CARA_CAL66_R2_BOUND_CPU_STORAGE_AND_IDLE_GPU_ADMISSION_20261025.md)。原R1失败已结算，不重放；新卡预计6.880951GPUh，上限8，累计226和最终部署预算不变。
+CAL66已完整接受并结算，Shared25-C被冻结为唯一新DEV主候选；旧四卡R2没有派发，不能恢复等待启动。本轮用户只授权双服务器准备、曝光核查、生产CPU和完整报价，明确不启动GPU。
 
-空闲卡通过fresh源码/资源/账本核验后单次启动。已有intent或UNKNOWN只恢复原句柄，不重复prepare/provision/launch。半程与全程检查绑定新launch实际起点；完整接受后按原冻结合同选一个主工作点，首次DEV前做增量曝光审计并重新报价128请求；不承诺其必然装入12GPUh规划池。
+新卡为16DEV六角色128路径，保留原α和强基线。双端当前与两卡旧输出的身份核查已通过；双端受影响生产入口、采集评分与真实质量模型CPU均已独立接受。四卡保守预计12.349232GPUh，超过12h设计子池；两卡11.618228GPUh可容纳。当前不增加上限、不缩卡，不自动改选主机。详见[新准备合同](../plans/cara_policy_generator_20261020/SHARED25_DEV128_DUAL_HOST_PREPARATION_R1_20261026.md)。执行前仍需128专用监督/财务终态组合、最新曝光及资源准入和明确执行授权。
 
 若新DEV正向，新增工作点优先20D；构造规则迁移优先同模型换步数，并包含仅传播先验与缩放模板。WC保持官方工作点，RA在预登记CAL有限阈值网格对齐时间。所有新卡独立报价，不放宽累计226和最终部署预算。
 
@@ -29,6 +29,6 @@ CAL66完整66路径、48组LPIPS/156质量评分已接受，实际4.776208 GPUh�
 - 完整104 R2接受，历史强布局超过原GRAPH；计时最大低估2.618秒失败，实际7.395282 GPUh保留。
 - COST112完整接受，计时最大低估5.006秒失败，实际8.139511 GPUh保留。[归因691](691_CARA_COST112_CAUSE_SEPARATION_AND_P1_REPAIR_PLAN_20261025.md)。
 - 新纯计时重跑和GRAPH102暂缓；原CPU与未执行报价保留，不重新解释为成功。
-- 旧两卡16.5 GPUh未知责任预约继续保留；退役两卡不恢复。
+- 旧两卡16.5 GPUh未知责任预约继续保留；旧两卡实验不重启；当前两卡隔离运行环境已通过CAL66迁移接受。
 
 [新合同](../plans/cara_policy_generator_20261020/CAL66_DESIGN_AND_DECISION_CONTRACT_R1_20261025.md) · [本轮记录694](694_CARA_CAL66_REDESIGN_MASK_IDENTIFIABILITY_AND_QUOTE_20261025.md) · [完整实验总表](../paper/EXPERIMENT_MASTER_TABLE.md) · [历史计划](../docs/archive/README.md)

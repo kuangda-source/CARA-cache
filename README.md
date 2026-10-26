@@ -2,9 +2,9 @@
 
 # CARA-Cache
 
-**用 CFG 对齐的缓存修正减少视频扩散推理误差，再由校准数据决定何时复用、修正或完整刷新。**
+**通过选择完整刷新的时间位置，在加速视频扩散时尽量保留完整模型的输出。**
 
-CARA-Cache（CFG-Aligned Readout and Cost-Aware Allocation for Video Diffusion）是一个基于 Cosmos / WorldCache 实验栈的视频扩散加速研究项目。它研究两个相连的问题：缓存读出怎样更准确，以及有限计算预算应该花在哪些时间步。历史目录 `worldcache_omr` 与 Python 包 `wcomr` 为兼容既有实验保留；本仓库当前只维护 WorldCache/CARA 主线。
+CARA-Cache（CFG-Aligned Readout and Cost-Aware Allocation for Video Diffusion）是一个基于 Cosmos / WorldCache 实验栈的视频扩散加速研究项目。它研究两个相连的问题：缓存读出怎样更准确，以及有限计算预算应该花在哪些时间步。当前冻结的新DEV候选Shared25-C采用完整刷新D与缓存复用C，不包含修正A；A保留为机制对照。CARA为沿用的项目名。历史目录 `worldcache_omr` 与 Python 包 `wcomr` 为兼容既有实验保留；本仓库当前只维护 WorldCache/CARA 主线。
 
 ## 第一次阅读
 
@@ -12,20 +12,20 @@ CARA-Cache（CFG-Aligned Readout and Cost-Aware Allocation for Video Diffusion�
 |---|---|
 | 做了什么、主要结果怎样 | [研究与结果概览](EXPERIMENT_REPORT.md) |
 | 现在在跑什么、下一次何时验收 | [当前状态](research/02_CURRENT_STATE.md) |
-| 每项实验是否完成、支持什么结论 | [59项实验总表](paper/EXPERIMENT_MASTER_TABLE.md) |
+| 每项实验是否完成、支持什么结论 | [60项实验总表](paper/EXPERIMENT_MASTER_TABLE.md) |
 | 下一步解决什么问题 | [后续实验顺序](research/09_NEXT_ACTIONS.md) |
 | 如何复核代码、原件和统计 | [复现与证据指南](docs/REPRODUCIBILITY.md) |
 | 从项目开始到现在的完整记录 | [历史入口](docs/archive/README.md) |
 
 ## 方法直觉
 
-扩散模型逐步生成视频。完整计算昂贵，直接复用旧缓存会积累误差；CARA研究一种利用当前浅层增量和历史真实锚点的低成本修正，并将修正与完整刷新共同分配到时间轴上。
+扩散模型逐步生成视频。完整计算昂贵，复用旧缓存会积累误差；当前研究重点是在固定刷新次数下，保留过渡区间的完整计算、减少末段刷新。CAL66的Shared25-C采用这一布局，接下来检验它在新输入上是否优于间隔布局及少步Native。历史修正A利用当前浅层增量和真实深层锚点，在新DEV中作为机制对照。
 
-准备冻结16新DEV的双主机增量曝光核查、六角色128路径完整报价和必要CPU验收；新GPU执行需具体授权，保持累计226和最终部署预算。
+先补128整卡监督/财务终态与双端单次调度组合检查；解决四卡报价超12h子池或明确选择合规主机。fresh输入/资源/账本准入与GPU授权前不提交。
 
 CFG 指 classifier-free guidance，包含条件与负条件两支。A 使用共享修正强度，保持两支融合口径一致。D 更新当前请求的真实深层锚点；A 不把近似结果冒充新的真实锚点。Native 是每个请求步均完整计算的参考推理。
 
-目标流程是：**模型与预算 → 校准区间误差/动作价格 → 自动生成 C/A/D 计划 → 冻结选择规则 → 独立输入与实际时间验证**。现有阶段工作点、共享布局探索和最终自动生成器分别保留身份。
+当前流程是：**CAL比较刷新布局 → 冻结Shared25-C → 新输入上的保真、独立质量与实测预算确认 → 新设置中的规则迁移**。当前网格上能量规则与简单模板给出相同掩码；自动规则的额外价值留给可区分两者的新设置检验。历史GRAPH搜索与C/A/D生成器单独保留。
 
 阅读数字时：**CAL**是校准集，**DEV**是开发验证集，**TEST**是方法冻结后才使用的独立测试集；`26D`表示26次完整刷新，`A1/A3`表示所考察窗口内修正1次/连续3次。
 
@@ -34,9 +34,9 @@ CFG 指 classifier-free guidance，包含条件与负条件两支。A 使用共�
 - **Shared25-C通过完整CAL筛查**（CAL4，同批强基线，冻结待DEV）：同批A6000四个CAL上，Shared25-C相对较强S25-A的LPIPS下降15.34%，4/4改善；246.852秒，原双预算和三项独立质量筛查通过。 [证据1](research/702_CARA_CAL66_A6000_COMPLETE_RESULTS_AND_FROZEN_SHARED25_C_20261026.md) · [证据2](reports/cara_CAL66_A6000_complete_analysis_20261026.json)
 - **修正读出有跨输入机制收益**（6个新DEV，局部机制）：BANK24六个新DEV中，A相对C的同状态扩散速度预测MSE全部降低43.53%–63.00%，等权场景均值降低52.53%。 [证据1](research/644_CARA_BANK24_COMPLETE_DEV6_RESULTS_20261022.md)
 - **连续修正改善最终视频保真**（4个旧CAL，同25D布局）：Window24同25D布局下，A3较C的平均LPIPS低26.6335%，较A1低19.7690%；CAL12四格补齐了后两次A的独立增量。 [证据1](research/604_WC_WINDOW24_FULL24_ACCEPTED_CONTINUOUS_CORRECTION_RESULTS_AND_CAL12_NEXT_20261019.md) · [证据2](research/609_WC_CAL12_FULL_FACTORIAL_A_AND_SHARED_PLAN_INDEPENDENT_EFFECTS_20261019.md)
-- **刷新位置值得从数据生成**（4个旧CAL，同26D/10C）：CAL12同26D、同纯C的共享计划较前密C的LPIPS低15.36%，四场景均改善。 [证据1](research/609_WC_CAL12_FULL_FACTORIAL_A_AND_SHARED_PLAN_INDEPENDENT_EFFECTS_20261019.md)
+- **固定预算下刷新位置影响保真**（4个旧CAL，同26D/10C）：CAL12同26D、同纯C的共享计划较前密C的LPIPS低15.36%，四场景均改善。 [证据1](research/609_WC_CAL12_FULL_FACTORIAL_A_AND_SHARED_PLAN_INDEPENDENT_EFFECTS_20261019.md)
 - **已有质量—时间工作点**（4个旧CAL，历史冻结工作点）：D14同批比较中，Efficient比WorldCache耗时少13.72%、LPIPS低11.1600%；同26D的A较plain低3.5196%，增加0.8762秒。 [证据1](research/420_WC_FULL60_COST_CURVE_COMPLETE_RESULTS_AND_CONVERGENCE_20261014.md) · [证据2](research/552_WC_N08_FULL40_ACCEPTED_REPEATED_TIMING_AND_PENDING_TASK_CLOSURE_20261017.md) · [证据3](research/599_WC_N10_FULL960_ACCEPTED_DIMENSIONWISE_RESULTS_AND_WINDOW24_RESOURCE_QUEUE_20261018.md)
-- **单点门控给出明确的改进方向**（6个新DEV，同3D配额）：BANK24冻结z门控在同3D配额的20种分配中排12/20；LPIPS 0.0778937，高于随机分配期望0.0768148。 [证据1](research/644_CARA_BANK24_COMPLETE_DEV6_RESULTS_20261022.md)
+- **冻结单点门控未优于随机配额分配**（6个新DEV，同3D配额）：BANK24冻结z门控在同3D配额的20种分配中排12/20；LPIPS 0.0778937，高于随机分配期望0.0768148。 [证据1](research/644_CARA_BANK24_COMPLETE_DEV6_RESULTS_20261022.md)
 
 LPIPS 越低表示越接近同输入的 Native 视频；它与局部速度 MSE、语义/物理质量、实际延迟分别报告。更多共同评价、重复时间、自动质量及失败分母见[结果概览](EXPERIMENT_REPORT.md)。
 
@@ -46,17 +46,13 @@ LPIPS 越低表示越接近同输入的 Native 视频；它与局部速度 MSE�
 
 ## 当前进度
 
-**CAL66完整接受，Shared25-C通过CAL筛查并冻结。**
+**Shared25-C新DEV128：双服务器生产CPU接受，尚未启动GPU。**
 
-CAL66完整66路径、48组LPIPS/156质量评分已接受，实际4.776208 GPUh已中央结算。Shared25-C相对较强S25-A的LPIPS改善15.34%且4/4同向，246.852秒/V0.98188，三项质量筛查通过，冻结为新DEV主候选。原GPU/容器/锁释放、模式恢复；四个A候选未过相对Native的MUSIQ界。当前仅CAL证据，新DEV未启动。
+16新DEV双端曝光核查及六角色128路径的生产入口、采集/释放后评分CPU均已接受；新DEV推理与GPU提交为0。四卡报价12.349232GPUh超12h设计子池，两卡11.618228；原α、强基线、累计226和部署预算不变。128专用GPU监督/财务终态绑定仍待接受。
 
-[证据1](research/701_CARA_CAL66_A6000_MIGRATION_AND_EXECUTION_20261025.md) · [证据2](reports/cara_CAL66_A6000_GPU_actual_launch_20261025.json) · [证据3](reports/cara_CAL66_A6000_technical_admission_20261025.json) · [证据4](reports/cara_CAL66_A6000_CPU_accepted_r3_20261025.json) · [证据5](reports/cara_CAL66_A6000_central_admission_confirmed_20261025.json) · [证据6](reports/cara_CAL66_A6000_technical_progress_20261026_022914.json) · [证据7](reports/cara_CAL66_A6000_progress_capture_20261026_0230.json) · [证据8](reports/cara_CAL66_A6000_progress_pace_20261026_0231.json) · [证据9](reports/cara_CAL66_A6000_halfway_20261026_030425.json) · [证据10](reports/cara_CAL66_A6000_halfway_technical_20261026_030425.json) · [证据11](reports/cara_CAL66_A6000_terminal_20261026_0930.json) · [证据12](reports/cara_CAL66_A6000_terminal_accepted_20261026_0930.json) · [证据13](reports/cara_CAL66_A6000_central_settlement_20261026_0933.json) · [证据14](reports/cara_CAL66_A6000_complete_analysis_20261026.json) · [证据15](manifests/cara_CAL66_selected_CAL_candidate_r1_20261026.json) · [证据16](research/702_CARA_CAL66_A6000_COMPLETE_RESULTS_AND_FROZEN_SHARED25_C_20261026.md)
+[证据1](research/703_CARA_DEV128_DUAL_HOST_CPU_AND_CAL66_QUALITY_DIAGNOSIS_20261026.md) · [证据2](manifests/cara_DEV128_scope_r1_20261026.json) · [证据3](reports/cara_DEV128_dual_host_exposure_20261026.json) · [证据4](reports/cara_DEV128_four_card_CPU_accepted_r4_20261026.json) · [证据5](reports/cara_DEV128_two_card_CPU_accepted_r4_20261026.json) · [证据6](manifests/cara_DEV128_dual_host_whole_quote_r1_20261026.json) · [证据7](plans/cara_policy_generator_20261020/CAL66_FEEDBACK_AND_DEV128_BOUNDARIES_20261026.md)
 
-10月24日完整终态见[685](research/685_CARA_HISTORY104_R2_COMPLETE_ACCEPTANCE_RESULTS_AND_COST_GATE_20261024.md)：104路径与72评分完整接受，实际7.395282GPUh，GPU和锁已释放。历史强基线均胜原GRAPH；24/25D实测可行，但计时模型最坏低估2.618秒未过2秒门槛。COST112于10月25日完整接受，实际8.139511GPUh；计时最大低估5.006秒未过2秒门槛，新P1不准入，P2仍等待冻结策略。见[690](research/690_CARA_COST112_COMPLETE_ACCEPTANCE_AND_TIMING_GATE_FAILURE_20261025.md)。
-
-P1原件与财务已完整接受，但没有预算可行的冻结策略，P2目前不准入。保留已通过的P2组合CPU与五模型入口准备；完整离线分析确认全请求价格低估与可行性恢复搜索缺口，见[669原因分析与修复](research/669_CARA_PG_P1_COMPLETE_BUDGET_ATTRIBUTION_AND_REPAIR_PLAN_20261024.md)。历史强基线原alpha及24/25D新旧入口148路径CPU已接受；[104路径预算边界卡](research/670_CARA_HISTORICAL_BASELINE_EQUIVALENCE_AND_BOUNDARY104_20261024.md)已完整报价11.423207/11.9 GPUh，替代未执行44路径草案。104卡组合CPU已接受，但GPU采集在08:49因磁盘满提前退出；旧health为72/104完成，GPU已释放，完整验收未通过，旧11.9GPUh预约已释放，按明确标注的保守重建值5.48GPUh结算；新完整104 R2于13:41:30在GPU3硬独占启动，现104路径/72评分已完整接受并结算7.395282GPUh，独立输出卷与跨盘日志核验通过；计时模型未过2秒最大低估门槛，先修成本验证。部署257.771秒及累计226 GPUh不变。见[676失败原件](research/676_CARA_HISTORY104_DISK_FULL_EARLY_EXIT_20261024.md)。见[671实际执行](research/671_CARA_HISTORY104_COMBINATION_AND_EXCLUSIVE_EXECUTION_20261024.md)。已完成旧实验约4.45 GiB实体去重，38原路径和所有SHA保持；两个压缩包经全量一致核验后清理，本次合计释放63.05 GiB，另三个差异包保留。见[668当前原件与维护](research/668_CARA_STORAGE_DEDUP_AND_P1_ORIGINAL_TERMINAL_ACCEPTANCE_20261024.md)。
-
-104完整结果已按预定口径分析：强历史布局优于原GRAPH，24/25D实测可行，计时模型最大低估未过门槛；COST112独立验证已完整结束，最大低估门槛失败。P1修复按模型验证和真实可行性分支接续，开发曝光与下一阶段Q≤8分列。[673分析准备](research/673_CARA_HISTORY104_ANALYSIS_READY_AND_P1_REPAIR_DECISIONS_20261024.md) · [674解释口径](research/674_CARA_HISTORY104_INTERPRETATION_CLARIFICATIONS_20261024.md) · [681 R2接续复核](research/681_CARA_HISTORY104_R2_ANALYSIS_ENTRY_AND_P1_HANDOFF_CHECKED_20261024.md) · [固定接续口径](plans/cara_policy_generator_20261020/HISTORY104_ANALYSIS_AND_P1_REPAIR_HANDOFF_R1_20261024.md)。
+历史研究阶段：[原P1](research/669_CARA_PG_P1_COMPLETE_BUDGET_ATTRIBUTION_AND_REPAIR_PLAN_20261024.md)未选出预算可行策略；[104](research/685_CARA_HISTORY104_R2_COMPLETE_ACCEPTANCE_RESULTS_AND_COST_GATE_20261024.md)与[COST112](research/690_CARA_COST112_COMPLETE_ACCEPTANCE_AND_TIMING_GATE_FAILURE_20261025.md)完成采集，但原最大低估计时门均失败。该路线暂缓，失败与费用保持；当前按[CAL66完整结果](research/702_CARA_CAL66_A6000_COMPLETE_RESULTS_AND_FROZEN_SHARED25_C_20261026.md)冻结Shared25-C，准备新DEV确认。
 
 ## 仓库结构与使用
 
@@ -77,8 +73,4 @@ python3 docs/tools/render_repository_docs.py --check
 
 运行实验需对应卡的固定资源、生产CPU验证、完整成本与准入条件，见[复现指南](docs/REPRODUCIBILITY.md)。日常文档更新只改规范数据和模板，再统一生成，见[维护规则](docs/MAINTENANCE.md)。
 
-磁盘增长归因已定向核对：guanwenfei的SAM区域文件约57.09GiB、user账号BeamNG采集约19.73GiB、CARA约0.80GiB；与77.62GiB空间下降基本对齐。72条/216原件SHA保持，已给出迁移和新104/跨会话64备选报价，均未执行。[677存储归因与恢复方案](research/677_CARA_DISK_GROWTH_ATTRIBUTION_SAFE_MIGRATION_AND_104_RECOVERY_20261024.md)。
-
-用户指定NuPlan数据和ConvMAE训练检查点已按清单清理约1.326TiB，579份代码/配置/日志/基础权重SHA保持一致；实测普通用户空间恢复约1358.0GiB。原104失败已按保守值5.48GPUh结算；新的完整104 R2已完成并独立验收，实际7.395282GPUh。见记录678及`reports/cara_two_targets_authorized_bulk_cleanup_complete_20261024.json`。
-
-[679最终恢复准备](research/679_CARA_HISTORY104_FAILED_SETTLEMENT_STORAGE_GUARD_AND_FINAL_RECOVERY_20261024.md)：旧失败保守结算5.48GPUh；新完整104维持11.423207/11.9GPUh，32GiB独立输出卷与跨盘日志、真实ENOSPC组合CPU通过。后续启动授权及实际执行见[680新完整104 R2](research/680_CARA_HISTORY104_R2_EXCLUSIVE_LAUNCH_AND_ACCEPTANCE_20261024.md)；该新卡现已完整验收，7.395282GPUh结算，原11.9GPUh预约释放。
+历史存储维护和失败恢复记录：[677空间归因](research/677_CARA_DISK_GROWTH_ATTRIBUTION_SAFE_MIGRATION_AND_104_RECOVERY_20261024.md)、[679恢复方案](research/679_CARA_HISTORY104_FAILED_SETTLEMENT_STORAGE_GUARD_AND_FINAL_RECOVERY_20261024.md)、[680执行](research/680_CARA_HISTORY104_R2_EXCLUSIVE_LAUNCH_AND_ACCEPTANCE_20261024.md)。它们描述当时状态；当前运行与准备以本页快照为准。

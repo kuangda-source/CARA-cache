@@ -2,41 +2,39 @@
 
 # CARA-Cache 当前交接
 
-**CAL66完整接受，Shared25-C通过CAL筛查并冻结。**
+**Shared25-C新DEV128：双服务器生产CPU接受，尚未启动GPU。**
 
-CAL66完整66路径、48组LPIPS/156质量评分已接受，实际4.776208 GPUh已中央结算。Shared25-C相对较强S25-A的LPIPS改善15.34%且4/4同向，246.852秒/V0.98188，三项质量筛查通过，冻结为新DEV主候选。原GPU/容器/锁释放、模式恢复；四个A候选未过相对Native的MUSIQ界。当前仅CAL证据，新DEV未启动。
+16新DEV双端曝光核查及六角色128路径的生产入口、采集/释放后评分CPU均已接受；新DEV推理与GPU提交为0。四卡报价12.349232GPUh超12h设计子池，两卡11.618228；原α、强基线、累计226和部署预算不变。128专用GPU监督/财务终态绑定仍待接受。
 
-[证据1](../../research/701_CARA_CAL66_A6000_MIGRATION_AND_EXECUTION_20261025.md) · [证据2](../../reports/cara_CAL66_A6000_GPU_actual_launch_20261025.json) · [证据3](../../reports/cara_CAL66_A6000_technical_admission_20261025.json) · [证据4](../../reports/cara_CAL66_A6000_CPU_accepted_r3_20261025.json) · [证据5](../../reports/cara_CAL66_A6000_central_admission_confirmed_20261025.json) · [证据6](../../reports/cara_CAL66_A6000_technical_progress_20261026_022914.json) · [证据7](../../reports/cara_CAL66_A6000_progress_capture_20261026_0230.json) · [证据8](../../reports/cara_CAL66_A6000_progress_pace_20261026_0231.json) · [证据9](../../reports/cara_CAL66_A6000_halfway_20261026_030425.json) · [证据10](../../reports/cara_CAL66_A6000_halfway_technical_20261026_030425.json) · [证据11](../../reports/cara_CAL66_A6000_terminal_20261026_0930.json) · [证据12](../../reports/cara_CAL66_A6000_terminal_accepted_20261026_0930.json) · [证据13](../../reports/cara_CAL66_A6000_central_settlement_20261026_0933.json) · [证据14](../../reports/cara_CAL66_A6000_complete_analysis_20261026.json) · [证据15](../../manifests/cara_CAL66_selected_CAL_candidate_r1_20261026.json) · [证据16](../../research/702_CARA_CAL66_A6000_COMPLETE_RESULTS_AND_FROZEN_SHARED25_C_20261026.md)
+[证据1](../../research/703_CARA_DEV128_DUAL_HOST_CPU_AND_CAL66_QUALITY_DIAGNOSIS_20261026.md) · [证据2](../../manifests/cara_DEV128_scope_r1_20261026.json) · [证据3](../../reports/cara_DEV128_dual_host_exposure_20261026.json) · [证据4](../../reports/cara_DEV128_four_card_CPU_accepted_r4_20261026.json) · [证据5](../../reports/cara_DEV128_two_card_CPU_accepted_r4_20261026.json) · [证据6](../../manifests/cara_DEV128_dual_host_whole_quote_r1_20261026.json) · [证据7](../../plans/cara_policy_generator_20261020/CAL66_FEEDBACK_AND_DEV128_BOUNDARIES_20261026.md)
 
-| 字段 | 两卡迁移状态 |
+| 字段 | DEV128准备状态 |
 |---|---|
-| 范围 | 66完整/52正式/48组LPIPS4464帧/156独立质量，单load |
-| 终态 | 03:52:58 GPU释放；06:23:09容器退出0；09:30实际完整收件 |
-| 独占/存储 | 7786样本接受、最大间隔3.320秒；锁释放、Default已恢复、跨盘原件一致 |
-| 费用 | 本卡4.776207536318 GPUh；中央已用161.396620633628/旧未知预留16.5/可用48.103379366372/上限226 |
-| 筛查 | Shared25-C，LPIPS0.062206；相对S25-A改善15.34%，4/4；原质量界通过 |
-| 时钟 | 246.852秒/Native314.260秒；V0.98188；CAL描述性区间不替代部署验收 |
-| 下一步 | 冻结一个25D/C工作点；双端准备新DEV六角色128路径，未授权启动 |
+| 完整范围 | 16输入、六角色、128路径；原α与强基线保持 |
+| 双端CPU收件 | 2026-10-26T12:32:28+08:00；两端已退出0 |
+| 新DEV推理 / GPU提交 / 预约 | 0 / 0 / 0 |
+| 完整GPU报价 | 默认四卡12.349232h（超12h子池）；两卡11.618228h |
+| 尚缺 | 128专用GPU监督、财务终态与双端单次调度组合接受；执行授权和fresh准入 |
 
 ## 执行流程与已完成准备
 
-[流程R2](../../docs/EXECUTION_MODES.md)、[问题队列](../../plans/QUESTION_QUEUE.md)和[专项交接](CODEX_EFFICIENT_WORKFLOW_HANDOFF_20261025.md)已统一：按变更复用/验证、事件式文档、聊天授权有效，无新增GPU权限。固定48组本次[增量审计](../../reports/cara_new_input_pool48_delta_r1_20261025.json)范围内清楚，首次使用前再查；[最小入口](../../cards/README.md)仅离线规格和既有句柄收件适配，不提供启动功能。流程更新时未修改CAL66运行；其后原失败与本轮修复以顶部最新证据为准。流程详见[697](../../research/697_CARA_WORKFLOW_R2_POOL_DELTA_AND_MINIMAL_ENTRY_20261025.md)。
+[流程R3](../../docs/EXECUTION_MODES.md)、[问题队列](../../plans/QUESTION_QUEUE.md)和[专项交接](CODEX_EFFICIENT_WORKFLOW_HANDOFF_20261025.md)已统一：按变更复用/验证、事件式文档、聊天授权有效，无新增GPU权限。固定48组本次[增量审计](../../reports/cara_new_input_pool48_delta_r1_20261025.json)范围内清楚，首次使用前再查；[最小入口](../../cards/README.md)仅离线规格和既有句柄收件适配，不提供启动功能。流程更新时未修改CAL66运行；其后原失败与本轮修复以顶部最新证据为准。流程详见[697](../../research/697_CARA_WORKFLOW_R2_POOL_DELTA_AND_MINIMAL_ENTRY_20261025.md)。
 
 ## 当前用户授权
 
-用户已授权按完整R2方案独占执行、估时并安排半程/最终验收。新stage及CPU/磁盘准备接受，目前等待空闲GPU；已建立每30分钟准入检查，见[700](../../research/700_CARA_CAL66_R2_BOUND_CPU_STORAGE_AND_IDLE_GPU_ADMISSION_20261025.md)。新R2单次执行上限8GPUh，累计226与最终部署预算不变；原R1失败不重放。
+本轮只准备Shared25-C新DEV：双端曝光、128路径入口、真实生产CPU和完整报价，不启动GPU。CAL66已完整释放并结算，四卡旧R2没有派发，不得沿旧自动化重新启动。新卡不继承CAL66的8h授权。按[128准备合同](../../plans/cara_policy_generator_20261020/SHARED25_DEV128_DUAL_HOST_PREPARATION_R1_20261026.md)推进，四卡默认、两卡兼容、一套科学清单和中央账本。
 
-- 原CAL66已失败并结算（见698），下列为保留的原范围：13正式角色×4输入、6重复、6warm、2历史桥接，共66；预计6.478451、上限8GPUh，该原授权已执行。原α、β、强基线身份不变；20D后置但新DEV正向后优先补齐。
-- 原CAL106入口与组合CPU接受保留，旧106不派发。旧60路径入口漏检冻结类，已由f35c826d真实参数链CPU替代；历史原件RGB及48/156评分终态组合未改部分按323bb2a1源码SHA复用；五原模型前向和93帧三指标探针均已独立接受，完整合并复核与质量绑定见695；52视频质量外推加旧LPIPS、50%余量及600秒准备约4.72小时，CPU6小时上限不变，不是整批实测。
+- 128=96正式+24重复+6warm+2旧CAL控制；4419pairs/8838CFG；释放后80组LPIPS和288质量位置。四卡报价12.349232超12h设计子池，两卡11.618228；本轮不调配或提高上限。
+- 原CAL106入口与组合CPU接受保留，旧106不派发。旧60路径入口漏检冻结类，已由f35c826d真实参数链CPU替代；历史原件RGB及48/156评分终态组合未改部分按323bb2a1源码SHA复用；五原模型前向和93帧三指标探针均已独立接受，完整合并复核与质量绑定见695；52视频质量外推加旧LPIPS、50%余量及600秒准备约4.72小时，这些是旧CAL66的6小时上限；新DEV128另报2CPU/8GiB、预计8.56小时/拟10小时上限，不能沿用旧6小时，不是整批实测。
 - Shared24/25全A与age3只差A34/35；当前完整能量、仅传播先验与模板同掩码。新卡不能证明能量优于模板；第二设置先做CPU可辨识性检查。
 - 新输入48组已范围内曝光核查及源字节校验，16新DEV/16最终确认候选/16备用；不读新输入端点来修规则，首次执行前做增量身份审计。
 - 旧104/112最大低估失败保持，新探索不再要求先通过旧2秒门；最终冻结方法仍需完整请求的0.8×新Native和257.7712338712067秒上限确认。累计226、旧两卡16.5未知责任不变。
 - 新纯计时卡与GRAPH102暂缓；原P1/104/112/1624/价格卡均已结束，不重跑或重新结算。未知只恢复原句柄，不盲重派。
-- 四卡私有入口、真实硬独占、磁盘保护、跨盘日志、完整分母、实际费用和来源SHA保障保留；不改忙卡模式、不触碰他人进程、不恢复两卡。
+- 四卡私有入口、真实硬独占、磁盘保护、跨盘日志、完整分母、实际费用和来源SHA保障保留；不改忙卡模式、不触碰他人进程、不重启旧两卡实验；新卡只能使用已验隔离双端环境。
 
 | 顺序 | 当前阶段 | 下一项验收 / 动作 |
 |---|---|---|
-| PG-SHARED-CAL66 | CAL66：刷新位置、原phase修正与尾部停用：CAL66完整接受，Shared25-C通过CAL筛查并冻结 | 准备冻结16新DEV的双主机增量曝光核查、六角色128路径完整报价和必要CPU验收；新GPU执行需具体授权，保持累计226和最终部署预算。 |
+| PG-SHARED-DEV128 | Shared25-C：16新DEV、六角色128路径：双端生产/采集评分CPU接受；GPU未授权 | 先补128整卡监督/财务终态与双端单次调度组合检查；解决四卡报价超12h子池或明确选择合规主机。fresh输入/资源/账本准入与GPU授权前不提交。 |
 | PG-P2 | 等预算与等查询强基线：五原模型CPU可复用；P2整卡绑定及完整五指标视频评分待确认 | Shared探索后冻结一个方法/预算档；新输入增量核查，少步Native与独立质量共同确认。 |
 | PG-P3 | 固定程序跨预算/模型：条件性后续 | P1/P2后先0.70×Native，再成熟第二模型或明确第二设置重新校准。 |
 | PG-P4 | 最终独立TEST与部署评价：待方法冻结 | 冻结方法、对手、预算、选择规则后再选新TEST；计入warm与全流程成本。 |

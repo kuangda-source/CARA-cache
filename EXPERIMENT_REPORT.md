@@ -2,17 +2,17 @@
 
 # CARA-Cache：研究与结果概览
 
-本项目的核心价值是把**缓存读出质量**与**计算时机分配**放在同一预算问题中研究。已完成的实验说明：CFG对齐修正能降低局部误差，并在固定刷新布局下改善视频终点；数据导出的共享布局也有CAL信号。正在推进的自动生成器将这些证据接到可复现、计入校准费用的完整质量—时间比较。
+当前核心问题是：**相同刷新次数下，把完整计算放在更有价值的时间步，能否更好保留完整模型的视频输出？** CAL66在24/25D上支持过渡段刷新优于末段刷新，并按原规则选出不含A的Shared25-C。下一步是在16个新输入上比较固定主候选、强布局、原修正与少步Native。历史修正的局部与终点保真收益保留，同时报告其独立质量代价。
 
-**CAL66完整接受，Shared25-C通过CAL筛查并冻结。**
+**Shared25-C新DEV128：双服务器生产CPU接受，尚未启动GPU。**
 
-CAL66完整66路径、48组LPIPS/156质量评分已接受，实际4.776208 GPUh已中央结算。Shared25-C相对较强S25-A的LPIPS改善15.34%且4/4同向，246.852秒/V0.98188，三项质量筛查通过，冻结为新DEV主候选。原GPU/容器/锁释放、模式恢复；四个A候选未过相对Native的MUSIQ界。当前仅CAL证据，新DEV未启动。
+16新DEV双端曝光核查及六角色128路径的生产入口、采集/释放后评分CPU均已接受；新DEV推理与GPU提交为0。四卡报价12.349232GPUh超12h设计子池，两卡11.618228；原α、强基线、累计226和部署预算不变。128专用GPU监督/财务终态绑定仍待接受。
 
-[证据1](research/701_CARA_CAL66_A6000_MIGRATION_AND_EXECUTION_20261025.md) · [证据2](reports/cara_CAL66_A6000_GPU_actual_launch_20261025.json) · [证据3](reports/cara_CAL66_A6000_technical_admission_20261025.json) · [证据4](reports/cara_CAL66_A6000_CPU_accepted_r3_20261025.json) · [证据5](reports/cara_CAL66_A6000_central_admission_confirmed_20261025.json) · [证据6](reports/cara_CAL66_A6000_technical_progress_20261026_022914.json) · [证据7](reports/cara_CAL66_A6000_progress_capture_20261026_0230.json) · [证据8](reports/cara_CAL66_A6000_progress_pace_20261026_0231.json) · [证据9](reports/cara_CAL66_A6000_halfway_20261026_030425.json) · [证据10](reports/cara_CAL66_A6000_halfway_technical_20261026_030425.json) · [证据11](reports/cara_CAL66_A6000_terminal_20261026_0930.json) · [证据12](reports/cara_CAL66_A6000_terminal_accepted_20261026_0930.json) · [证据13](reports/cara_CAL66_A6000_central_settlement_20261026_0933.json) · [证据14](reports/cara_CAL66_A6000_complete_analysis_20261026.json) · [证据15](manifests/cara_CAL66_selected_CAL_candidate_r1_20261026.json) · [证据16](research/702_CARA_CAL66_A6000_COMPLETE_RESULTS_AND_FROZEN_SHARED25_C_20261026.md)
+[证据1](research/703_CARA_DEV128_DUAL_HOST_CPU_AND_CAL66_QUALITY_DIAGNOSIS_20261026.md) · [证据2](manifests/cara_DEV128_scope_r1_20261026.json) · [证据3](reports/cara_DEV128_dual_host_exposure_20261026.json) · [证据4](reports/cara_DEV128_four_card_CPU_accepted_r4_20261026.json) · [证据5](reports/cara_DEV128_two_card_CPU_accepted_r4_20261026.json) · [证据6](manifests/cara_DEV128_dual_host_whole_quote_r1_20261026.json) · [证据7](plans/cara_policy_generator_20261020/CAL66_FEEDBACK_AND_DEV128_BOUNDARIES_20261026.md)
 
 ## 方法及比较对象
 
-准备冻结16新DEV的双主机增量曝光核查、六角色128路径完整报价和必要CPU验收；新GPU执行需具体授权，保持累计226和最终部署预算。
+先补128整卡监督/财务终态与双端单次调度组合检查；解决四卡报价超12h子池或明确选择合规主机。fresh输入/资源/账本准入与GPU授权前不提交。
 
 WorldCache 是原始缓存基线；RA-CFGCache 是本项目固定协议下的本地适配对照。Efficient、High-Fidelity 是历史版本的两个工作点，具有各自源码、配置与批次身份。完整对应关系见[术语映射](paper/INTERNAL_TO_PAPER_MAPPING.md)，不同版本不合并成一个“最终方法”均值。
 
@@ -36,7 +36,7 @@ Window24同25D布局下，A3较C的平均LPIPS低26.6335%，较A1低19.7690%；C
 
 4个旧CAL、seed0；A3仍比26D前密C高5.7235%失真。 [证据1](research/604_WC_WINDOW24_FULL24_ACCEPTED_CONTINUOUS_CORRECTION_RESULTS_AND_CAL12_NEXT_20261019.md) · [证据2](research/609_WC_CAL12_FULL_FACTORIAL_A_AND_SHARED_PLAN_INDEPENDENT_EFFECTS_20261019.md)
 
-### 4. 刷新位置值得从数据生成
+### 4. 固定预算下刷新位置影响保真
 
 CAL12同26D、同纯C的共享计划较前密C的LPIPS低15.36%，四场景均改善。
 
@@ -48,13 +48,13 @@ D14同批比较中，Efficient比WorldCache耗时少13.72%、LPIPS低11.1600%；
 
 历史4CAL工作点；同卡40正式+20warm。N07/N08/N10已补充共同评价、重复计时和自动质量。 [证据1](research/420_WC_FULL60_COST_CURVE_COMPLETE_RESULTS_AND_CONVERGENCE_20261014.md) · [证据2](research/552_WC_N08_FULL40_ACCEPTED_REPEATED_TIMING_AND_PENDING_TASK_CLOSURE_20261017.md) · [证据3](research/599_WC_N10_FULL960_ACCEPTED_DIMENSIONWISE_RESULTS_AND_WINDOW24_RESOURCE_QUEUE_20261018.md)
 
-### 6. 单点门控给出明确的改进方向
+### 6. 冻结单点门控未优于随机配额分配
 
 BANK24冻结z门控在同3D配额的20种分配中排12/20；LPIPS 0.0778937，高于随机分配期望0.0768148。
 
 四CAL冻结规则，六DEV不重拟合。接下来检验真实区间标签与动作价格驱动的联合策略。 [证据1](research/644_CARA_BANK24_COMPLETE_DEV6_RESULTS_20261022.md)
 
-最值得继续加强的链条是：**真实区间误差与动作价格 → 自动生成计划 → 冻结后在新输入上优于强简单布局 → 计入维护和校准成本的稳定质量—时间收益**。N06已经证明前密C/A是有竞争力的对照，PG-P2将其纳入同预算、同查询成本的比较。
+当前验证链条是：**固定刷新位置 → 新输入上的端点保真和独立质量 → 完整请求预算 → 新设置中的规则迁移**。Shared25-C的新DEV结果尚不存在，现有能量规则与模板同掩码；自动规则的额外贡献需要后续可辨识的比较。
 
 ## 已完成的评价基础
 
@@ -67,7 +67,7 @@ BANK24冻结z门控在同3D配额的20种分配中排12/20；LPIPS 0.0778937，�
 | N10 | 960登记位置审计：645有效评分、155原视频不可用、160静态N/A；129视频、5模型、19配对比较 | 自动视频质量；按维度配对及prompt分组bootstrap |
 | BANK24 | 6新DEV，18正式+6warm，24完整视频、12组LPIPS、原控制/费用接受 | 新输入局部修正机制、冻结单点门控与X-R诊断 |
 
-每项的原件、详细范围与后续动作均在[实验总表](paper/EXPERIMENT_MASTER_TABLE.md)。历史N07/N08/N10评价的是其冻结版本；最终自动生成器将在PG-P4得到自己的独立评价。
+每项的原件、详细范围与后续动作均在[实验总表](paper/EXPERIMENT_MASTER_TABLE.md)。历史N07/N08/N10评价的是其冻结版本；最终冻结方法须在独立确认集获得自己的评价。
 
 ## 怎样理解证据
 
@@ -81,7 +81,7 @@ LPIPS百分比以同批场景均值之比计算；视频帧不当独立样本；
 
 | 顺序 | 当前阶段 | 下一项验收 / 动作 |
 |---|---|---|
-| PG-SHARED-CAL66 | CAL66：刷新位置、原phase修正与尾部停用：CAL66完整接受，Shared25-C通过CAL筛查并冻结 | 准备冻结16新DEV的双主机增量曝光核查、六角色128路径完整报价和必要CPU验收；新GPU执行需具体授权，保持累计226和最终部署预算。 |
+| PG-SHARED-DEV128 | Shared25-C：16新DEV、六角色128路径：双端生产/采集评分CPU接受；GPU未授权 | 先补128整卡监督/财务终态与双端单次调度组合检查；解决四卡报价超12h子池或明确选择合规主机。fresh输入/资源/账本准入与GPU授权前不提交。 |
 | PG-P2 | 等预算与等查询强基线：五原模型CPU可复用；P2整卡绑定及完整五指标视频评分待确认 | Shared探索后冻结一个方法/预算档；新输入增量核查，少步Native与独立质量共同确认。 |
 | PG-P3 | 固定程序跨预算/模型：条件性后续 | P1/P2后先0.70×Native，再成熟第二模型或明确第二设置重新校准。 |
 | PG-P4 | 最终独立TEST与部署评价：待方法冻结 | 冻结方法、对手、预算、选择规则后再选新TEST；计入warm与全流程成本。 |

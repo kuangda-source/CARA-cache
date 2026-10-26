@@ -45,7 +45,7 @@
       "short_scope": "4个旧CAL，同25D布局"
     },
     {
-      "title": "刷新位置值得从数据生成",
+      "title": "固定预算下刷新位置影响保真",
       "result": "CAL12同26D、同纯C的共享计划较前密C的LPIPS低15.36%，四场景均改善。",
       "scope": "由既有轨迹变化量导出的一个冻结布局；属于CAL证据，独立输入和净时间待验证。",
       "refs": [
@@ -65,7 +65,7 @@
       "short_scope": "4个旧CAL，历史冻结工作点"
     },
     {
-      "title": "单点门控给出明确的改进方向",
+      "title": "冻结单点门控未优于随机配额分配",
       "result": "BANK24冻结z门控在同3D配额的20种分配中排12/20；LPIPS 0.0778937，高于随机分配期望0.0768148。",
       "scope": "四CAL冻结规则，六DEV不重拟合。接下来检验真实区间标签与动作价格驱动的联合策略。",
       "refs": [
@@ -75,7 +75,7 @@
     }
   ],
   "next_sequence": [
-    "PG-SHARED-CAL66",
+    "PG-SHARED-DEV128",
     "PG-P2",
     "PG-P3",
     "PG-P4"
@@ -684,5 +684,46 @@
     "analysis_ref": "reports/cara_CAL66_A6000_complete_analysis_20261026.json",
     "selected_candidate_ref": "manifests/cara_CAL66_selected_CAL_candidate_r1_20261026.json",
     "report_ref": "research/702_CARA_CAL66_A6000_COMPLETE_RESULTS_AND_FROZEN_SHARED25_C_20261026.md"
+  },
+  "Shared25_DEV128_preparation": {
+    "status": "DUAL_HOST_AFFECTED_PRODUCTION_CPU_ACCEPTED_NO_GPU",
+    "scope_ref": "manifests/cara_DEV128_scope_r1_20261026.json",
+    "exposure_ref": "reports/cara_DEV128_dual_host_exposure_20261026.json",
+    "quote_ref": "manifests/cara_DEV128_dual_host_whole_quote_r1_20261026.json",
+    "plan_ref": "plans/cara_policy_generator_20261020/SHARED25_DEV128_DUAL_HOST_PREPARATION_R1_20261026.md",
+    "GPU_submissions": 0,
+    "ledger_written": false,
+    "host_preference": [
+      "four_card",
+      "two_card"
+    ],
+    "resource_window": {
+      "CAL66_fully_released": true,
+      "CPU_per_host": 0,
+      "memory_GiB_per_host": 0,
+      "GPU_requested": false,
+      "observed_unix": 1792989148.2909796,
+      "CPU_running": false
+    },
+    "full_GPU_dispatch_ready": false,
+    "CPU_acceptance_refs": {
+      "four_card": "reports/cara_DEV128_four_card_CPU_accepted_r4_20261026.json",
+      "two_card": "reports/cara_DEV128_two_card_CPU_accepted_r4_20261026.json"
+    },
+    "observed_unix": 1792989148.2909796,
+    "report_ref": "research/703_CARA_DEV128_DUAL_HOST_CPU_AND_CAL66_QUALITY_DIAGNOSIS_20261026.md",
+    "feedback_ref": "plans/cara_policy_generator_20261020/CAL66_FEEDBACK_AND_DEV128_BOUNDARIES_20261026.md",
+    "full_GPU_supervisor_financial_terminal_binding_accepted": false,
+    "summary": "16新DEV双端曝光核查及六角色128路径的生产入口、采集/释放后评分CPU均已接受；新DEV推理与GPU提交为0。四卡报价12.349232GPUh超12h设计子池，两卡11.618228；原α、强基线、累计226和部署预算不变。128专用GPU监督/财务终态绑定仍待接受。",
+    "next_action": "先补128整卡监督/财务终态与双端单次调度组合检查；解决四卡报价超12h子池或明确选择合规主机。fresh输入/资源/账本准入与GPU授权前不提交。",
+    "evidence_refs": [
+      "research/703_CARA_DEV128_DUAL_HOST_CPU_AND_CAL66_QUALITY_DIAGNOSIS_20261026.md",
+      "manifests/cara_DEV128_scope_r1_20261026.json",
+      "reports/cara_DEV128_dual_host_exposure_20261026.json",
+      "reports/cara_DEV128_four_card_CPU_accepted_r4_20261026.json",
+      "reports/cara_DEV128_two_card_CPU_accepted_r4_20261026.json",
+      "manifests/cara_DEV128_dual_host_whole_quote_r1_20261026.json",
+      "plans/cara_policy_generator_20261020/CAL66_FEEDBACK_AND_DEV128_BOUNDARIES_20261026.md"
+    ]
   }
 }
