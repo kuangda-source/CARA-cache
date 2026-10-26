@@ -27,6 +27,25 @@ from wcomr.policy_generator_r1.dev128_card import COUNTS,MANIFEST,CONFIG
 card=read(stage/MANIFEST)
 c=dict(host=p['host'],compute_capability=[8,9] if p['host']=='four_card' else [8,6],scope_counts=COUNTS,matrix=card['matrix'],GPU_dispatch_authorized=False)
 (stage/CONFIG).write_text(json.dumps(c,indent=2)+'\n');names.add(CONFIG)
+# Optional reuse is limited to completed entry/combination sections in an exited
+# GPU-hidden CPU container. Only packaging/model-child changes may differ.
+reuse=p.get('reuse_launch')
+if reuse:
+ old=pathlib.Path(reuse['stage']);previous=read(old/'registration.json')
+ assert sha(old/'registration.json')==reuse['registration_sha256'] and reuse['host']==p['host']
+ con=json.loads(subprocess.check_output(['docker','inspect',reuse['container']]))[0]
+ assert not con['State']['Running'] and not con['HostConfig']['DeviceRequests']
+ assert previous['runtime_source_sha256']==original['runtime_source_sha256']
+ changed={'scripts/wc_dual_host_cara_dev128_cpu_r1.py','scripts/check_cara_dev128_cpu_r1.py','scripts/score_cara_dev128_quality_cpu_r1.py','scripts/audit_cara_dev128_cpu_r1.py'}
+ for n,h in previous['payload_sha256'].items():
+  if n not in changed:assert n in names and sha(stage/n)==h,'Cannot reuse changed production dependency: '+n
+ section_files={}
+ for section in ('entry','combination'):
+  src=old/(section+'-CPU.json');proof=read(src)
+  assert proof['registration_sha256']==reuse['registration_sha256'] and proof['source_revision']==previous['source_revision']
+  target='CPU-reuse-'+section+'.json';shutil.copyfile(src,stage/target);names.add(target);section_files[target]=sha(stage/target)
+ binding=dict(parent_launch=reuse,parent_registration=previous,allowed_changed_files=sorted(changed),section_files=section_files,prior_container_exited=True,prior_GPU_hidden=True)
+ (stage/'CPU-reuse-binding.json').write_text(json.dumps(binding,indent=2)+'\n');names.add('CPU-reuse-binding.json')
 reg=dict(namespace='CARA_SHARED25_DEV128_CPU_R1',stage=str(stage),source_revision=p['revision'],payload_sha256={n:sha(stage/n) for n in sorted(names)},runtime_source_sha256=original['runtime_source_sha256'],parent_registration_sha256=p['base_registration_sha256'],host=p['host'])
 (stage/'registration.json').write_text(json.dumps(reg,indent=2)+'\n')
 from wcomr.policy_generator_r1.dev128_card import validate
@@ -80,7 +99,7 @@ def names():
   if old==ns:return ns
 
 def main():
- p=argparse.ArgumentParser();p.add_argument('command',choices=['prepare','capture']);p.add_argument('--host',choices=['four_card','two_card'],required=True);p.add_argument('--stage-name');p.add_argument('--launch-ref',type=Path);p.add_argument('--output',type=Path,required=True);a=p.parse_args();assert not a.output.exists()
+ p=argparse.ArgumentParser();p.add_argument('command',choices=['prepare','capture']);p.add_argument('--host',choices=['four_card','two_card'],required=True);p.add_argument('--stage-name');p.add_argument('--launch-ref',type=Path);p.add_argument('--reuse-launch',type=Path);p.add_argument('--output',type=Path,required=True);a=p.parse_args();assert not a.output.exists()
  def remote(code,data):
   if a.host=='two_card':return ssh(code,data,docker_group=True,timeout=600)
   from wc_four_card_policy_assets_r1 import bridge,read,RUNTIME_REF
@@ -98,7 +117,7 @@ def main():
    else:
     assert subprocess.check_output(['git','show',rev+':'+n],cwd=ROOT)==raw,'Commit exact source first: '+n
    files[n]=base64.b64encode(raw).decode();hashes[n]=hashlib.sha256(raw).hexdigest()
-  v=remote(PREPARE,dict(root=REMOTE,host=a.host,stage_name=a.stage_name,revision=rev,files=files,hashes=hashes,base_registration_sha256='48193714a15f219b33fd62a6f929ee8e7a5c17b1b6c3dfd9c7615318318c7561'))
+  v=remote(PREPARE,dict(root=REMOTE,host=a.host,stage_name=a.stage_name,revision=rev,files=files,hashes=hashes,base_registration_sha256='48193714a15f219b33fd62a6f929ee8e7a5c17b1b6c3dfd9c7615318318c7561',reuse_launch=json.loads(a.reuse_launch.read_text()) if a.reuse_launch else None))
  with a.output.open('x') as f:json.dump(v,f,indent=2);f.write('\n')
  print(json.dumps({k:v.get(k) for k in ('status','host','stage','proof_sha256')}))
 if __name__=='__main__':main()

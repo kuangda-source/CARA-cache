@@ -17,6 +17,17 @@ def accept(cap):
  assert not con['HostConfig']['DeviceRequests']
  env=dict(x.split('=',1) for x in con['Config']['Env']);assert env['CUDA_VISIBLE_DEVICES']=='' and env['NVIDIA_VISIBLE_DEVICES']=='void'
  assert con['Config']['Labels']['wcomr.manifest']==L['registration_sha256']
+ if p.get('reuse'):
+  reuse=p['reuse'];old=reuse['parent_registration']
+  assert reuse['prior_container_exited'] and reuse['prior_GPU_hidden'] and old['runtime_source_sha256']==reg['runtime_source_sha256']
+  allowed={'scripts/wc_dual_host_cara_dev128_cpu_r1.py','scripts/check_cara_dev128_cpu_r1.py','scripts/score_cara_dev128_quality_cpu_r1.py','scripts/audit_cara_dev128_cpu_r1.py'}
+  assert set(reuse['allowed_changed_files'])==allowed
+  assert all(reg['payload_sha256'].get(n)==h for n,h in old['payload_sha256'].items() if n not in allowed)
+  assert all(reg['payload_sha256'][n]==h for n,h in reuse['section_files'].items())
+  for key in ('entry','combination'):
+   prior=p['outputs'][key];assert prior['registration_sha256']==reuse['parent_launch']['registration_sha256'] and prior['source_revision']==old['source_revision']
+ else:
+  assert all(p['outputs'][k]['registration_sha256']==L['registration_sha256'] for k in ('entry','combination'))
  e=p['outputs']['entry'];b=e['frozen_boundary'];combo=p['outputs']['combination'];q=p['outputs']['quality']
  assert e['actual_request_count']==e['guard_refusal_controls']==102
  assert b['preload_validated_slots']==128 and b['failed128_original_denominator_retained'] and b['failed128_unreached']==127

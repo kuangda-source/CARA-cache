@@ -14,6 +14,12 @@ def main():
  p.add_argument('--plan',type=Path);p.add_argument('--release',type=Path);p.add_argument('--output',type=Path,required=True)
  p.add_argument('--declared-synthetic-CPU-probe',action='store_true');a=p.parse_args()
  assert os.environ.get('CUDA_VISIBLE_DEVICES')==''
+ b=json.loads(a.binding.read_text());quality_root=Path(b['registration']['stage']);assert quality_root.is_dir()
+ # Import metrics from their accepted original stage. Only new plan orchestration
+ # is resolved from this DEV stage; do not rebind model source identities.
+ sys.path[:0]=[str(quality_root/'src'),str(quality_root/'scripts')]
+ import wcomr.policy_generator_r1 as package
+ package.__path__.append(str(ROOT/'src/wcomr/policy_generator_r1'))
  import torch
  torch.set_num_threads(2);assert not torch.cuda.is_initialized()
  from wcomr.policy_generator_r1.p2_quality_entry import original_factory,validate_sources_and_decoder
@@ -22,7 +28,6 @@ def main():
  from wcomr.automatic_quality_batch_r1 import validate_result
  from wcomr.automatic_quality_r1 import sampling_spec,text_sha
  from wcomr.policy_generator_r1.production_evidence import sha
- b=json.loads(a.binding.read_text());quality_root=Path(b['registration']['stage']);assert quality_root.is_dir()
  factory=original_factory(stage=quality_root,resources=b['resources'],acceptance=b['acceptance'],registration=b['registration'],identity=b['identity'],torch=torch,device='cpu')
  if not a.declared_synthetic_CPU_probe:
   release=json.loads(a.release.read_text());plan=json.loads(a.plan.read_text())
