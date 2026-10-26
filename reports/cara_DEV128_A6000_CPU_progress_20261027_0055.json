@@ -1,0 +1,92 @@
+{
+  "observed_unix": 1793033709.3120568,
+  "launch_id": "61587bb0-0e0d-4379-973b-d5502158fcd2",
+  "source_revision": "f273eefceef4fe88ab75edc74eaf714081126550",
+  "supervisor": {
+    "status": "DEV128_GPU_RELEASED_CPU_POST_PENDING",
+    "post_identity": {
+      "pid": 3966891,
+      "state": "R",
+      "start_ticks": 632182898,
+      "command": "/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/bin/python /data20t/gaokuangda/worldcache_workspace/.sync/cara-dev128-full-a6000-r1-20261026/scripts/postprocess_cara_dev128_r1.py --project /data20t/gaokuangda/worldcache_workspace --stage /data20t/gaokuangda/worldcache_workspace/.sync/cara-dev128-full-a6000-r1-20261026 "
+    },
+    "post_started_unix": 1793026925.4751153,
+    "post_exit_code": null,
+    "actual_GPUh": 9.417059154665719,
+    "exclusive_monitor_accepted": true,
+    "ended_unix": 1793026925.179703
+  },
+  "post_exit_exists": false,
+  "health": {
+    "phase": "COMPLETE128_ORIGINALS_PENDING_AUDIT",
+    "registered_paths": 128,
+    "completed_paths": 128,
+    "running_paths": 0,
+    "failed_paths": 0
+  },
+  "post_live": true,
+  "runner_live": false,
+  "supervisor_live": true,
+  "post_process": {
+    "pid": 3966891,
+    "affinity": [
+      0,
+      1
+    ],
+    "status": {
+      "VmSize": "5070640 kB",
+      "VmRSS": "770656 kB",
+      "Threads": "5",
+      "Cpus_allowed_list": "0-1"
+    }
+  },
+  "memory": {
+    "MemAvailable": "54007512 kB",
+    "SwapFree": "4716484 kB"
+  },
+  "GPU_query": "0, GPU-de9a5370-cd87-0f1c-a48e-288888777dd3, 391 MiB, Default\n1, GPU-cebf7119-cf03-23b9-e192-cd196332b704, 24 MiB, Exclusive_Process\n",
+  "GPU_apps": "",
+  "score_counts": {
+    "LPIPS": 80,
+    "quality": 274
+  },
+  "quality_last_write_unix": 1793033679.9444544,
+  "quality_recent20_mean_interval_seconds": 22.61211278438568,
+  "billing": {
+    "status": "DEV128_ACTUAL_GPU_WALL_BILL",
+    "run_id": "cara-shared25-dev128-r1",
+    "launch_id": "61587bb0-0e0d-4379-973b-d5502158fcd2",
+    "source_revision": "f273eefceef4fe88ab75edc74eaf714081126550",
+    "gpu_uuid": "GPU-cebf7119-cf03-23b9-e192-cd196332b704",
+    "scope_counts": {
+      "total_paths": 128,
+      "DEV": 16,
+      "seeds": [
+        0
+      ],
+      "roles": 6,
+      "quality_paths": 96,
+      "timing_repeat_paths": 24,
+      "warm_paths": 6,
+      "diagnostic_paths": 2,
+      "guided_pairs": 4419,
+      "CFG_calls": 8838,
+      "loads": 1,
+      "LPIPS_pairs": 80,
+      "LPIPS_frames": 7440,
+      "independent_quality_videos": 96,
+      "independent_quality_positions": 288
+    },
+    "wall_seconds": 33901.41295679659,
+    "actual_GPUh": 9.417059154665719,
+    "billed_limit_GPUh": 12,
+    "ended_unix": 1793026924.3449137
+  },
+  "storage": {
+    "output_available": 31765323776,
+    "host_available": 1221618823168,
+    "free_inodes": 2096128
+  },
+  "post_log_tail_errors": [],
+  "scientific_values_read": false
+}
