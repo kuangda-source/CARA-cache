@@ -103,3 +103,13 @@ fresh只读原句柄：128/128完成、0失败，原GPU runner退出；15335独�
 主机MemAvailable52.14GiB，内存PSI近期0，IO PSI avg60约0.31%；这是时点观察，不是并发无影响证明。GMSD新请求为CAP-1原20层182forward、900秒帽、GPU0、4CPU/32GiB、不加载T5、不训练；来自对方消息，非本方新增授权。允许继续本地准备原生入口CPU验证方案与同机报价，并在完成后重新申请协调窗口；当前不授予双卡GPU或高负载CPU启动窗口。须先证明避开CARA评分0–1核、完整8GiB评分包和系统余量、原40GiB准入及加载I/O边界；不能确认则等评分结束。两台独立主机的旧GMSD窗口不自动延续到本次。
 
 原件：[技术观察](../reports/cara_DEV128_A6000_GMSD_window_technical_20261026_2340.json)、[评分资源](../reports/cara_DEV128_GMSD_CPU_scoring_resource_review_20261026.json)、[协调结论](../reports/cara_GMSD_CAP1_two_card_preparation_review_20261026.json)。不分析DEV部分结果，不改运行stage，不新增预约或跨对话发送。
+
+### CAP-1改用独立四卡窗口（2026-10-26T23:53:05.518522+08:00）
+
+GMSD报告35项CPU检查通过，双卡缺244项约200MiB输入未传输，四卡247项已有；这些准备结果由对方负责独立验收。本聊天fresh四卡只读：CARA中央预约无四卡GPU1/3，E1尚无GPU执行授权/预约；GPU1 23MiB、GPU3 24MiB且无计算进程，RAM约81.68GiB，磁盘约990.75GiB。锁仍由执行方fresh核验。
+
+从CARA资源协调侧允许四卡独立CPU验收准备及随后原CAP-1单GPU窗口，优先GPU1；仅原20层182forward、900秒累计帽，4CPU/32GiB和主机40GiB门保持。原生入口、同机完整报价及对方直接用户授权/原账本必须先通过，不能重置此前CAP费用，也不续用旧RA1窗口。本条不授予新GPU权限或预算。
+
+两卡评分期间本次不安排200MiB补齐、CPU验证或GPU加载：既有独立四卡可用，优先避免同机I/O与CPU竞争，而不是断言200MiB传输必然有害。保留CARA CPU0–1及其SMT兄弟40–41的保护建议（SMT拓扑来自GMSD报告，本轮未独立核实）。两卡DEV128不改变、不读取部分分数，10月27日10:04终态检查保持。
+
+[四卡资源与协调原件](../reports/cara_GMSD_CAP1_four_card_window_readonly_20261026.json)。本聊天无GPU提交、账本修改或跨对话发送。
