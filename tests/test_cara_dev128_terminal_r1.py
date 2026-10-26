@@ -186,4 +186,3 @@ class QualityResume(unittest.TestCase):
    originals={f.name:f.read_bytes() for f in (out/'failures').glob('*.json')};self.assertEqual(len(originals),1)
    state=execute(p,factory,out,release,lambda v:None);self.assertEqual(audit(p,state)['positions'],288)
    self.assertEqual(originals,{f.name:f.read_bytes() for f in (out/'failures').glob('*.json')})
-
