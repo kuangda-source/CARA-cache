@@ -1,0 +1,149 @@
+version: CARA_INNOVATION_GAIN_SCOUT_R1_DRAFT
+created: '2026-10-27'
+status: DESIGN_ONLY_NO_NEW_GPU_AUTHORIZATION
+scope:
+  dev128: UNCHANGED_NO_INTERIM_RESULT_ACCESS
+  old_e1_e2: PRESERVE_REGISTERED_IDENTITIES_APPEND_ONLY_IF_AUTHORIZED
+  task: FIXED_D_READOUT_EXPLORATION
+  online_teacher: false
+  new_backbone_training: false
+  closed_branches_reopened: []
+  new_branch: SPATIAL_INNOVATION_GAIN_READOUT
+  global_plan_search: false
+assets:
+  source: EXISTING_ACCEPTED_E1_IF_COMPATIBLE_ELSE_ORIGINAL_E1_COLLECTION
+  prompts: 2
+  states_per_prompt: 6
+  state_ids: BIND_EXISTING_ACCEPTED_OR_FROZEN_MANIFEST
+  parent: SHARED25_C_FREE_RUNNING
+  required:
+    - per_branch_current_o_p_r_teacher
+    - per_branch_two_true_D_anchor_p_r
+    - actual_sigma_history
+    - native_outputs_and_common_conversion_inputs
+    - window_cache_solver_RNG_identity
+  missing_vectors_from_1624: DO_NOT_RECONSTRUCT_FROM_SCALARS
+coordinates:
+  primary: ACTUAL_SIGMA_MONOTONE_AFFINE_NORMALIZATION
+  ratio_name: lambda_t_h_over_H
+  support: ORIGINAL_E1
+projection:
+  name: DISJOINT_SPATIAL_BLOCK_CONSTANTS
+  block_size: [2, 2]
+  time_axis_mixed: false
+  channel_axis_mixed: false
+  reconstruction: BLOCK_VALUE_REPLICATION
+  boundary: MEAN_OVER_ACTUAL_INCOMPLETE_BLOCK
+  token_layout: BIND_REAL_VIDEO_TOKEN_GRID
+  selection_by_output: false
+models:
+  IG_SCALAR:
+    parameters: 1
+    formula: FULL + kappa * innovation
+  IG_BAND:
+    parameters: 2
+    formula: FULL + kH*innovation + (kL-kH)*PL(innovation)
+  primary_box: [0.0, 1.0]
+  shared_between_cfg_branches: true
+  original_alpha: PRESERVE_EXACT_PROFILE
+  original_beta_A: PRESERVE
+  new_true_anchor_writeback: D_ONLY
+  insufficient_history_fallback: ORIGINAL_LEGAL_C_OR_EXISTING_SUPPORT_FALLBACK
+calibration:
+  raw_fit_role: INITIALIZATION_AND_ORACLE_DIAGNOSTIC_ONLY
+  deployed_target: ACTUAL_GUIDED_OUTPUT_MSE
+  conversion: ORIGINAL_WARP_HEAD_RF_AND_OUTER_ALPHA
+  corners: [[0, 0], [1, 0], [0, 1], [1, 1]]
+  midpoint: [0.5, 0.5]
+  retain_output_gram_cross_term: true
+  validation: LEAVE_ONE_PROMPT_OUT
+  statewise_teacher_gain_for_deployment: false
+  prompt_weighting: EQUAL_PROMPTS_THEN_EQUAL_STATES
+  band_regularization:
+    dimensionless_lambda: 0.05
+    scale: TRACE_GRAM_OVER_TWO
+    prior: TRAIN_FOLD_SCALAR_GAIN_SHARED_ACROSS_BANDS
+  nonlinear_surrogate_repair: FOUR_CORNER_BILINEAR_WITH_ACTUAL_PARAMETER_CHECK
+  additional_guided_adapter_replays_max: 84
+  additional_branch_adapter_replays_max: 168
+  global_gain_success_required_for_band: false
+  numerical_tolerances: BIND_PRODUCTION_CONTROL_BEFORE_RESULT_INSPECTION
+stages:
+  B0:
+    new_complete_generations: 0
+    outputs: [assets, algebra, token_layout, compatibility]
+  B1:
+    role: E1_GAIN_APPENDIX
+    original_five_predictors_preserved: true
+    new_roles: [IG_SCALAR, IG_BAND]
+    quality_diagnostics:
+      - guided_MSE
+      - teacher_relative_spatial_difference_MSE
+      - detail_energy_ratio
+      - branch_error_and_CFG_effect
+      - actual_readout_time_and_peak_memory
+  B2:
+    role: FIXED_D_COMPLETE_VIDEO
+    layout: SHARED25_C_FROZEN
+    prompts: 4
+    seeds: [0]
+    core_roles: [WC_C, ORIGINAL_PHASE_A, FULL, DEEP, DCTA_PORT, IG_SCALAR, IG_BAND]
+    core_formal_paths: 28
+    support_roles: [NATIVE35, S25_C_QUALITY_REFERENCE]
+    support_formal_paths: 8
+    proposed_complete_warm_paths: 4
+    additional_repeat_paths: 6
+    total_max_paths: 46
+    execution_stages:
+      - TWO_NON_GAIN_FIT_OLD_CAL_PROMPTS_ALL_ROLES
+      - TWO_GAIN_FIT_OLD_CAL_PROMPTS_ALL_ROLES_AND_REGISTERED_REPEATS
+    independent_test_claim: false
+    actual_cost_protocol: BIND_COMPLETE_REQUEST_CONTRACT
+    quality_contract: BIND_CAL66_ORIGINAL_THRESHOLDS_PREPROCESSING_REFERENCE_AND_COHORT
+  B3:
+    max_scientific_revisions: 1
+    mutually_exclusive_options:
+      - STABLE_BOUNDARY_RELEASE_TO_MINUS_0P5_PLUS_1P5
+      - NORMALIZED_DETAIL_OBJECTIVE_WEIGHT_0P1_SAME_PARAMETERS
+      - SMALL_ON_POLICY_STATE_RECALIBRATION
+    new_configuration_identity_required: true
+    proposed_max_complete_paths: 10
+  B4:
+    status: CONDITIONAL_SEPARATE_CONFIRMATION
+    new_inputs_required: true
+    external_baseline: INCLUDE_FREQUENCY_PREDICTOR_IF_BAND_IS_MAIN_CLAIM
+    new_scheduler_required: false
+continuation:
+  eight_of_twelve_hard_gate: false
+  five_percent_hard_gate: false
+  all_states_positive_required: false
+  direction_cosine_hard_gate: false
+  paths:
+    - REASONABLE_GROUP_HOLDOUT_GAIN_AT_ACCEPTABLE_COST
+    - STABLE_DETAIL_GAIN_WITHOUT_SUBSTANTIAL_GLOBAL_ERROR_LOSS
+    - COMPARABLE_QUALITY_WITH_MEANINGFUL_COST_ADVANTAGE
+    - CLEAR_FIXABLE_RESPONSE_OR_COORDINATE_ISSUE_WITH_ONE_REVISION
+  formal_quality_gate_relaxation: false
+  preserve_all_failures_and_missingness: true
+budget:
+  cumulative_project_GPUh_cap: 226
+  proposed_exploration_total_GPUh: 7.0
+  components_GPUh:
+    missing_original_E1_collection: 1.0
+    new_gain_adapter_evaluation: 0.5
+    fixed_layout_video_card: 4.5
+    one_revision: 1.0
+  combine_with_original_E1_E2_not_automatically_additive: true
+  protect_new_input_confirmation_GPUh_planning: 12
+  protect_transfer_GPUh_planning: 10
+  fresh_ledger_required: true
+  existing_unknown_reservation_unchanged: true
+  forecast_and_hard_cap: MUST_BIND_ACTUAL_ENTRY_AND_SCOPE
+  deploy_time_budget: MIN_257P7712338712067_SECONDS_AND_0P8_FRESH_NATIVE
+operations:
+  remote_changes_performed: false
+  new_GPU_authorized_by_this_document: false
+  new_GPU_submitted: false
+  use_existing_lifecycle_and_storage_controls: true
+  no_rebuilding_entire_audit_pipeline: true
+  no_split_cards_to_evade_authorization_limits: true

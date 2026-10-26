@@ -1,0 +1,90 @@
+{
+  "version": "CARA_IG_R1_INTAKE",
+  "user_request": "这是 Cara-Cache 的一个新探索方向，抓紧做验证，得到结果后再决定是否并入主线",
+  "authorization_source": "DIRECT_CURRENT_USER_MESSAGE_NOT_ATTACHED_DOCUMENT",
+  "purpose": "BOUNDED_SEPARATE_VALIDATION_BEFORE_MAINLINE_DECISION",
+  "source_files": {
+    "03_Experiment_Registry_Draft.yaml": "bb10559afa5228fb7a005417d71bcfd7c23fe20e18d9bd95803bc17ff1750a8d",
+    "01_Derivation_and_Experimental_Plan.md": "ef18d0c77674aa9af38c699550192c309df25432663fd1604e870649dc61aa9e",
+    "02_Codex_Handoff.md": "600b07fbdeed2bc10690854a037648400090ea1c6ecac368c02314c68027aa22",
+    "README.md": "b2db9b06d5b739659ba30c5c57ca11d9a5aba45994d10cc7e6030cf9e118ae8b",
+    "04_algebra_checks.py": "2e90e80d8152443394f4b7b4a53ccfc7f5b503fb0f3dbbb68bd6d80d97ec7fc7",
+    "05_synthetic_checks.json": "9a82caa503b7c1c782f10bb4121bab02e61c323f602001e504c473061dce6d32"
+  },
+  "current_status": "LOCAL_CPU_ACCEPTED_PRODUCTION_PREPARATION_IN_PROGRESS",
+  "mainline_modified": false,
+  "DEV128_used_for_fit": false,
+  "GPU_submitted": false,
+  "budget_reserved_GPUh": 0,
+  "round_cap_GPUh": 7.0,
+  "cumulative_cap_GPUh": 226.0,
+  "protect_confirmation_and_transfer_GPUh": [
+    12.0,
+    10.0
+  ],
+  "old_unknown_hold_GPUh": 16.5,
+  "B1": {
+    "prompts": [
+      "AV28",
+      "Human199"
+    ],
+    "steps": [
+      22,
+      23,
+      25,
+      33,
+      34,
+      35
+    ],
+    "parent": "SHARED25_C",
+    "proposed_complete_parent_paths": 4,
+    "original_readouts": [
+      "WC_C",
+      "A_PHASE",
+      "FULL",
+      "R4_GLOBAL",
+      "R4_LONG",
+      "DCTA"
+    ],
+    "new_corner_midpoint_replays": 36,
+    "proposed_saved_input_FULL_DEEP_control_replays": 24,
+    "held_out_actual_replays": 24,
+    "final_parameter_actual_replays": 24,
+    "total_additional_guided_adapter_replays": 108,
+    "head_pairs_per_gain_replay": 2,
+    "note": "108 rather than attachment 84 includes 24 explicit saved-input FULL/DEEP controls; same round budget, no hidden free heads"
+  },
+  "B2": {
+    "core_roles": [
+      "WC_C",
+      "A_PHASE",
+      "FULL",
+      "DEEP",
+      "DCTA",
+      "IG_SCALAR",
+      "IG_BAND"
+    ],
+    "CAL_prompts": 4,
+    "seed": 0,
+    "formal_core": 28,
+    "Native_and_S25_reference": 8,
+    "warm": 4,
+    "repeat": 6,
+    "total_complete_paths": 46,
+    "quality_contract_ref": "plans/cara_policy_generator_20261020/CAL66_DESIGN_AND_DECISION_CONTRACT_R1_20261025.md",
+    "selection": "Development evidence only; no automatic mainline integration"
+  },
+  "B3": {
+    "max_revisions": 1,
+    "conditional_paths_max": 10,
+    "within_same_round_cap": true
+  },
+  "not_yet_accepted": [
+    "saved-state actual replay control",
+    "real model shapes/storage/VRAM accounting",
+    "dual-host affected production CPU",
+    "whole-cost forecast and lifecycle binding",
+    "actual model B1",
+    "conditional B2 complete videos and original quality scoring"
+  ]
+}
