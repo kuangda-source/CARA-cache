@@ -60,7 +60,7 @@ sys.path[:0]=[str(stage/'src'),str(stage/'scripts')]
 from wcomr.policy_generator_r1.dev128_execution import RUN,COUNTS,CONFIG,CPU_PROOF,read,sha,execution_quote
 from wcomr.policy_generator_r1.dev128_card import check_card,MANIFEST
 from wcomr.policy_generator_r1.production_exclusive import observe
-from wcomr.gpu_budget_pool_v2 import BudgetPool
+from wcomr.policy_generator_r1.dev128_finance import HostBudgetPool as BudgetPool
 from wcomr.history104_storage_r2 import storage_for
 assert sha(stage/'registration.json')==L['registration_sha256'];reg=read(stage/'registration.json')
 assert reg['namespace']=='CARA_DEV128_EXECUTION_R1' and reg['host']=='two_card' and reg['stage']==str(stage)
@@ -95,8 +95,9 @@ value=dict(status='DEV128_PREFLIGHT_PASS' if not reasons else 'DEV128_WAIT',admi
 CENTRAL=r'''
 import json,sys,pathlib,time,copy,hashlib
 p=json.load(sys.stdin);root=pathlib.Path('/data20t/gaokuangda/worldcache_workspace')
-sys.path[:0]=[str(root/'.sync/cara-dev128-fullCPU-ada-r2-20261026/src')]
-from wcomr.gpu_budget_pool_v2 import BudgetPool,atomic_json
+sys.path[:0]=[str(root/'.sync/cara-dev128-fullCPU-ada-r3-20261026/src')]
+from wcomr.gpu_budget_pool_v2 import atomic_json
+from wcomr.policy_generator_r1.dev128_finance import HostBudgetPool as BudgetPool
 from wcomr.policy_generator_r1.dev128_finance import ENVELOPE,RUN
 pool=BudgetPool(root);auth=p['auth'];target=root/'reports/dev128-central-envelope-original.json'
 with pool.transaction() as v:
@@ -172,7 +173,8 @@ def launch(a):
  ssh(r'''
 import pathlib,json,sys
 p=json.load(sys.stdin);s=pathlib.Path(p['auth']['stage']);root=pathlib.Path(p['project']);sys.path[:0]=[str(s/'src')]
-from wcomr.gpu_budget_pool_v2 import BudgetPool,atomic_json
+from wcomr.gpu_budget_pool_v2 import atomic_json
+from wcomr.policy_generator_r1.dev128_finance import HostBudgetPool as BudgetPool
 pool=BudgetPool(root)
 with pool.transaction() as old:
  assert p['auth']['run_id'] not in old['jobs']
@@ -200,8 +202,8 @@ def confirm(a):
  for snap,phase,kw in ((guard['mode_admission']['verified_snapshot'],'idle',{}),(v['current_GPU'],'active',dict(runner=ident))):assert exclusive_gate(snap,gpu_uuid=L['gpu_uuid'],phase=phase,now=snap['observed_unix'],**kw)['observation_passed']
  return transport.four_ssh(r'''
 import pathlib,json,sys,time
-p=json.load(sys.stdin);root=pathlib.Path('/data20t/gaokuangda/worldcache_workspace');sys.path.insert(0,str(root/'.sync/cara-dev128-fullCPU-ada-r2-20261026/src'))
-from wcomr.gpu_budget_pool_v2 import BudgetPool
+p=json.load(sys.stdin);root=pathlib.Path('/data20t/gaokuangda/worldcache_workspace');sys.path.insert(0,str(root/'.sync/cara-dev128-fullCPU-ada-r3-20261026/src'))
+from wcomr.policy_generator_r1.dev128_finance import HostBudgetPool as BudgetPool
 from wcomr.policy_generator_r1.dev128_finance import ENVELOPE
 pool=BudgetPool(root);L=p['launch']
 with pool.transaction() as v:
@@ -220,9 +222,10 @@ def settle(a):
  subset={k:v[k] for k in ('launch','pool','original_live_handles','own_UUID_lock_free')};subset['files']={'billing':v['files']['billing']}
  return transport.four_ssh(r'''
 import pathlib,json,sys,time
-p=json.load(sys.stdin);root=pathlib.Path('/data20t/gaokuangda/worldcache_workspace');sys.path.insert(0,str(root/'.sync/cara-dev128-fullCPU-ada-r2-20261026/src'))
+p=json.load(sys.stdin);root=pathlib.Path('/data20t/gaokuangda/worldcache_workspace');sys.path.insert(0,str(root/'.sync/cara-dev128-fullCPU-ada-r3-20261026/src'))
 from wcomr.policy_generator_r1.dev128_finance import settle_original
-from wcomr.gpu_budget_pool_v2 import BudgetPool,atomic_json
+from wcomr.gpu_budget_pool_v2 import atomic_json
+from wcomr.policy_generator_r1.dev128_finance import HostBudgetPool as BudgetPool
 v=settle_original(BudgetPool(root),p);target=root/'reports/dev128-central-settlement-original.json'
 if target.exists():
  old=json.loads(target.read_text());assert old['billing_sha256']==v['billing_sha256'] and old['launch_id']==v['launch_id'];v=old

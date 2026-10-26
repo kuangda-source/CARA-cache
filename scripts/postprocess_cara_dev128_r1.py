@@ -15,7 +15,8 @@ def main():
  from wcomr.policy_generator_r1.dev128_collection import score_after_release
  from wcomr.policy_generator_r1.dev128_capture import collect
  from wcomr.policy_generator_r1.dev128_terminal import scientific
- from wcomr.gpu_budget_pool_v2 import BudgetPool,DeviceLease,process_identity,atomic_json
+ from wcomr.gpu_budget_pool_v2 import DeviceLease,process_identity,atomic_json
+ from wcomr.policy_generator_r1.dev128_finance import HostBudgetPool as BudgetPool
  c,reg,card=validate(a.project,a.stage);out=a.project/'outputs'/RUN
  sup=read(out/'supervisor.json');bill=read(out/'billing.json');pool=BudgetPool(a.project).read()
  ident=process_identity(sup['child_identity']['pid']);assert ident['start_ticks']!=sup['child_identity']['start_ticks'] or ident['state'] in (None,'Z','X')

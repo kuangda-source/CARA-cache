@@ -86,7 +86,7 @@ def accept(v):
     actual=bill['actual_GPUh'];require(0<actual==bill['wall_seconds']/3600<=L['billed_limit_GPUh'],'Invalid actual whole-card bill')
     exclusive=monitor(v,L,sup['child_identity'],bill['wall_seconds'])
     pool=v['pool'];job=pool['jobs'][RUN]
-    from ..gpu_budget_pool_v2 import BudgetPool
+    from .dev128_finance import HostBudgetPool as BudgetPool
     require(job['status']=='SETTLED' and job['actual_GPUh']==actual and job['launch_id']==L['launch_id'] and job['billing_sha256']==v['files']['billing']['sha256'],'Actual bill not authoritatively settled')
     require(pool['cap_gpu_hours']==226 and all(pool[k]==x for k,x in BudgetPool.accounting(pool).items()),'Cumulative ledger mismatch')
     runner=record(v,'runner')
