@@ -95,3 +95,11 @@ GMSD线程报告原标签阶段30编码/60场、298.964秒，阶段间CPU182场/
 两卡DEV128继续不受GMSD加载/传输/计算影响。若下一臂前CARA获得新的明确执行授权，在注册的臂/checkpoint边界优先交还，暂缓下一臂；不驱逐或强行中断当前进程。全部完成或原安全预算触发后释放GPU/锁并结算，不能自动追加后续科学训练。本聊天不派发、不改账本、不发送跨对话消息。
 
 [四卡只读观察与新窗口协调原件](../reports/cara_GMSD_RA1_four_card_window_readonly_20261026.json)。
+
+## GPU采集结束、CPU评分与CAP-1窗口申请复核（2026-10-26T23:39:01.384480+08:00）
+
+fresh只读原句柄：128/128完成、0失败，原GPU runner退出；15335独占样本无违规、最大间隔3.501秒。原单调账单33901.4129568秒/9.417059154666GPUh已形成，本轮未执行中央结算，不称完整科学或财务接受。CPU post实际2026-10-26T23:02:05.475115+08:00启动，PID3966891/start632182898，affinity为0–1，原2CPU/8GiB/10h不变。80组LPIPS与40/288质量评分文件已存在；只数文件，不读取分数。GPU1仍Exclusive_Process，由原guardian负责后续恢复，本次不改模式。原10月27日10:04终态检查不变。
+
+主机MemAvailable52.14GiB，内存PSI近期0，IO PSI avg60约0.31%；这是时点观察，不是并发无影响证明。GMSD新请求为CAP-1原20层182forward、900秒帽、GPU0、4CPU/32GiB、不加载T5、不训练；来自对方消息，非本方新增授权。允许继续本地准备原生入口CPU验证方案与同机报价，并在完成后重新申请协调窗口；当前不授予双卡GPU或高负载CPU启动窗口。须先证明避开CARA评分0–1核、完整8GiB评分包和系统余量、原40GiB准入及加载I/O边界；不能确认则等评分结束。两台独立主机的旧GMSD窗口不自动延续到本次。
+
+原件：[技术观察](../reports/cara_DEV128_A6000_GMSD_window_technical_20261026_2340.json)、[评分资源](../reports/cara_DEV128_GMSD_CPU_scoring_resource_review_20261026.json)、[协调结论](../reports/cara_GMSD_CAP1_two_card_preparation_review_20261026.json)。不分析DEV部分结果，不改运行stage，不新增预约或跨对话发送。

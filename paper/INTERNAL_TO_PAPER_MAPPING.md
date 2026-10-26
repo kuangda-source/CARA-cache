@@ -6,7 +6,7 @@
 
 ## 核心动作
 
-技术半程已完成并关闭；继续同一launch采集，GPU释放后CPU评分及真实账单中央结算，10月27日10:04完整验收。不得重派或用部分结果调参。
+继续原CPU评分；沿唯一launch完成全部评分、中央结算和独立终态验收，不重派GPU。
 
 C包含原WorldCache的probe/window/warp/head/RF读出，并非单纯复制旧速度。A在post-RF分支速度上修正，共享alpha后做CFG融合；语义C/A都可能显示为物理CC。D对两CFG支做完整深层计算，更新真实D历史，但不会抹掉已有轨迹误差。WorldCache自己的决策可能出现DC/CD。
 

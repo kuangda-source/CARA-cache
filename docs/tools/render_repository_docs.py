@@ -775,11 +775,23 @@ def build():
         actual = load(execution['launch_ref'])
         technical = load(execution['technical_ref'])
         central = load(execution['central_admission_ref'])
+        cpu_scoring = execution['status'] == 'DEV128_A6000_GPU_RELEASED_CPU_SCORING_RUNNING'
+        if cpu_scoring:
+            post = load(execution['CPU_scoring_technical_ref'])
+            if (post['launch_id'] != actual['launch_id']
+                    or technical['runner_live']
+                    or technical['health']['completed_paths'] != 128
+                    or technical['health']['failed_paths'] != 0
+                    or post['post_exit_exists']
+                    or not post['supervisor']['exclusive_monitor_accepted']
+                    or post['post_process']['pid'] != post['supervisor']['post_identity']['pid']
+                    or post['billing']['launch_id'] != actual['launch_id']):
+                raise ValueError('DEV128 CPU snapshot requires original completed GPU and live post evidence')
         if (actual['launch_id'] != execution['launch_id']
                 or technical['launch_id'] != actual['launch_id']
                 or central['launch'] != actual
                 or technical['source_revision'] != actual['source_revision']
-                or not technical['actual_unique_runner_accepted']
+                or (not cpu_scoring and not technical['actual_unique_runner_accepted'])
                 or technical['violations']
                 or actual['scope_counts']['total_paths'] != 128
                 or actual['billed_limit_GPUh'] != 12
@@ -788,7 +800,7 @@ def build():
         snapshot = '**' + execution['status_zh'] + '。**\n\n' + execution['summary'] + '\n\n' + refs(execution['evidence_refs'])
         run_details = ('| 字段 | DEV128实际运行 |\n|---|---|\n'
             '| 原启动 | ' + local_time(actual['started_unix']) + '；' + actual['launch_id'] + ' |\n'
-            '| GPU | 两卡GPU1 A6000；EXCLUSIVE_PROCESS原runner唯一上下文 |\n'
+            '| GPU | 两卡GPU1 A6000；' + ('原runner已退出，CPU评分中，模式待原guardian收尾' if cpu_scoring else 'EXCLUSIVE_PROCESS原runner唯一上下文') + ' |\n'
             '| 完整范围 | 16新DEV、六角色、128路径；原α/强基线保持 |\n'
             '| GPU预算 | 预测11.618228h / 硬12h / 累计226h |\n'
             '| 释放后评分 | 80LPIPS/7440帧、288质量；2CPU/8GiB，最多10h |\n'

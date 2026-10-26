@@ -1,0 +1,30 @@
+{
+  "observed_unix": 1793029141.38448,
+  "evidence_ref": "reports/cara_DEV128_GMSD_CPU_scoring_resource_review_20261026.json",
+  "decision": "PREPARATION_AND_LATER_WINDOW_REQUEST_ALLOWED_NO_CURRENT_DISPATCH_CLEARANCE",
+  "CARA_phase": "GPU_COLLECTION_COMPLETE_CPU_SCORING_RUNNING",
+  "GMSD_scope_reported": {
+    "task": "CAP-1",
+    "forwards": 182,
+    "layers": 20,
+    "wall_cap_seconds": 900,
+    "GPU_index": 0,
+    "memory_cap_GiB": 32,
+    "CPU_cap": 4,
+    "host_MemAvailable_admission_GiB": 40,
+    "no_T5": true,
+    "no_training": true
+  },
+  "required_before_later_window_review": [
+    "GMSD own direct user authorization, native entry CPU evidence and complete quote",
+    "Fresh original CARA post identity and affinity; do not use cores 0 or 1 while scoring remains there",
+    "Fresh GMSD original 40 GiB memory gate plus CARA full 8 GiB envelope and system headroom after added peak, not current RSS alone",
+    "Measured loading/forward memory and bounded IO impact; no interference with CARA ten-hour scoring limit",
+    "Fresh GPU0 process/VRAM/UUID/lock checks; GPU1 mode belongs to original CARA guardian and must not be changed",
+    "No CPU/GPU execution under this coordination receipt; if coexistence cannot be established, wait for scoring completion"
+  ],
+  "new_GPU_authorization": false,
+  "new_reservation": false,
+  "central_settlement_performed": false,
+  "partial_scientific_values_read": false
+}
