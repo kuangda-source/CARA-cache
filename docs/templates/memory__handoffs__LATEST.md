@@ -23,3 +23,5 @@
 {{queue}}
 
 [当前状态](repo:research/02_CURRENT_STATE.md) · [后续顺序](repo:research/09_NEXT_ACTIONS.md) · [实验总表](repo:paper/EXPERIMENT_MASTER_TABLE.md)
+
+最新整卡准备见[704双端组合CPU接受](repo:research/704_CARA_DEV128_FULL_CPU_COMBINATION_ACCEPTED_AND_QUOTE_20261026.md)：每端10生命周期、6存储、61终态/财务/评分检查通过；报价与范围不变，GPU未授权。

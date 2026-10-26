@@ -21,7 +21,7 @@ CARA-Cache（CFG-Aligned Readout and Cost-Aware Allocation for Video Diffusion�
 
 扩散模型逐步生成视频。完整计算昂贵，复用旧缓存会积累误差；当前研究重点是在固定刷新次数下，保留过渡区间的完整计算、减少末段刷新。CAL66的Shared25-C采用这一布局，接下来检验它在新输入上是否优于间隔布局及少步Native。历史修正A利用当前浅层增量和真实深层锚点，在新DEV中作为机制对照。
 
-先补128整卡监督/财务终态与双端单次调度组合检查；解决四卡报价超12h子池或明确选择合规主机。fresh输入/资源/账本准入与GPU授权前不提交。
+CPU组合准备完成；执行授权后再绑定新执行stage及单一中央意图、复查双端输入曝光与资源账本。四卡报价仍超12h，不提高上限或缩卡；选择合规主机须满足授权与fresh准入。当前不启动GPU。
 
 CFG 指 classifier-free guidance，包含条件与负条件两支。A 使用共享修正强度，保持两支融合口径一致。D 更新当前请求的真实深层锚点；A 不把近似结果冒充新的真实锚点。Native 是每个请求步均完整计算的参考推理。
 
@@ -48,9 +48,9 @@ LPIPS 越低表示越接近同输入的 Native 视频；它与局部速度 MSE�
 
 **Shared25-C新DEV128：双服务器生产CPU接受，尚未启动GPU。**
 
-16新DEV双端曝光核查及六角色128路径的生产入口、采集/释放后评分CPU均已接受；新DEV推理与GPU提交为0。四卡报价12.349232GPUh超12h设计子池，两卡11.618228；原α、强基线、累计226和部署预算不变。128专用GPU监督/财务终态绑定仍待接受。
+双服务器128路径整卡监督、释放GPU后评分及财务终态组合CPU已接受，每端10个生命周期、6个真实ENOSPC场景、61项终态/财务/评分检查通过；真实模型沿已接受SHA复用。新DEV推理、GPU提交及正式账本写入均为0。四卡报价12.349232GPUh仍超12h设计子池，两卡11.618228；原α、强基线、累计226和最终部署预算不变。
 
-[证据1](research/703_CARA_DEV128_DUAL_HOST_CPU_AND_CAL66_QUALITY_DIAGNOSIS_20261026.md) · [证据2](manifests/cara_DEV128_scope_r1_20261026.json) · [证据3](reports/cara_DEV128_dual_host_exposure_20261026.json) · [证据4](reports/cara_DEV128_four_card_CPU_accepted_r4_20261026.json) · [证据5](reports/cara_DEV128_two_card_CPU_accepted_r4_20261026.json) · [证据6](manifests/cara_DEV128_dual_host_whole_quote_r1_20261026.json) · [证据7](plans/cara_policy_generator_20261020/CAL66_FEEDBACK_AND_DEV128_BOUNDARIES_20261026.md)
+[证据1](research/704_CARA_DEV128_FULL_CPU_COMBINATION_ACCEPTED_AND_QUOTE_20261026.md) · [证据2](plans/cara_policy_generator_20261020/DEV128_FULL_LIFECYCLE_AND_FINANCE_CPU_R1_20261026.md) · [证据3](reports/cara_DEV128_full_four_card_CPU_accepted_r3_20261026.json) · [证据4](reports/cara_DEV128_full_two_card_CPU_accepted_r3_20261026.json) · [证据5](reports/cara_DEV128_full_quote_recheck_20261026.json) · [证据6](reports/cara_DEV128_full_central_ledger_readonly_20261026.json) · [证据7](reports/cara_DEV128_full_acceptance_negative_checks_20261026.json) · [证据8](research/703_CARA_DEV128_DUAL_HOST_CPU_AND_CAL66_QUALITY_DIAGNOSIS_20261026.md) · [证据9](manifests/cara_DEV128_scope_r1_20261026.json) · [证据10](reports/cara_DEV128_dual_host_exposure_20261026.json) · [证据11](reports/cara_DEV128_four_card_CPU_accepted_r4_20261026.json) · [证据12](reports/cara_DEV128_two_card_CPU_accepted_r4_20261026.json) · [证据13](manifests/cara_DEV128_dual_host_whole_quote_r1_20261026.json) · [证据14](plans/cara_policy_generator_20261020/CAL66_FEEDBACK_AND_DEV128_BOUNDARIES_20261026.md)
 
 历史研究阶段：[原P1](research/669_CARA_PG_P1_COMPLETE_BUDGET_ATTRIBUTION_AND_REPAIR_PLAN_20261024.md)未选出预算可行策略；[104](research/685_CARA_HISTORY104_R2_COMPLETE_ACCEPTANCE_RESULTS_AND_COST_GATE_20261024.md)与[COST112](research/690_CARA_COST112_COMPLETE_ACCEPTANCE_AND_TIMING_GATE_FAILURE_20261025.md)完成采集，但原最大低估计时门均失败。该路线暂缓，失败与费用保持；当前按[CAL66完整结果](research/702_CARA_CAL66_A6000_COMPLETE_RESULTS_AND_FROZEN_SHARED25_C_20261026.md)冻结Shared25-C，准备新DEV确认。
 

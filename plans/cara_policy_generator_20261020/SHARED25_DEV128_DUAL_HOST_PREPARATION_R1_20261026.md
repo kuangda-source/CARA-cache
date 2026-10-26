@@ -56,3 +56,7 @@ CAL66已完整释放并结算。本轮CARA只使用两台服务器各至多2CPU/
 ## 本次完成回执
 
 两端R4原容器均exit0，生产入口/128采集与释放后评分组合/真实质量模型已接受，详见[703](../../research/703_CARA_DEV128_DUAL_HOST_CPU_AND_CAL66_QUALITY_DIAGNOSIS_20261026.md)。本轮源d39abcbb；未接受的128专用GPU监督/财务终态绑定仍明确为false，未启动GPU。
+
+## 2026-10-26 整卡组合补齐
+
+上述703时点的组合缺口已由[704](../../research/704_CARA_DEV128_FULL_CPU_COMBINATION_ACCEPTED_AND_QUOTE_20261026.md)双服务器CPU接受补齐；完整证据与报价见[整卡方案](DEV128_FULL_LIFECYCLE_AND_FINANCE_CPU_R1_20261026.md)。GPU执行仍未授权；CPUstage不作为GPUstage，后续执行stage与中央单次准入另行绑定。

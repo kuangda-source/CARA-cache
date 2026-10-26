@@ -7,6 +7,9 @@ from wcomr.policy_generator_r1.dev128_execution import execution_quote
 
 def accept(c):
  L=c['launch'];p=c['proof'];reg=c['registration'];con=c['container']
+ # Producers use atomic_json(indent=2,newline); bind parsed objects back to bytes.
+ for name in ('proof','registration'):
+  assert hashlib.sha256((json.dumps(c[name],indent=2,allow_nan=False)+'\n').encode()).hexdigest()==c[name+'_sha256']
  assert p['status']=='DEV128_FULL_LIFECYCLE_RELEASE_SCORE_FINANCE_CPU_COMPLETE'
  assert p['host']==L['host']==reg['host'] and p['scope']==COUNTS
  assert p['registration_sha256']==L['registration_sha256']==c['registration_sha256'] and p['source_revision']==L['source_revision']==reg['source_revision']
@@ -28,7 +31,7 @@ def accept(c):
  from wcomr.policy_generator_r1.dev128_card import MANIFEST
  card=json.loads((Path(__file__).resolve().parents[1]/MANIFEST).read_text());check_card(card)
  assert p['quotes']=={h:execution_quote(card,h) for h in ('four_card','two_card')}
- return dict(status='DEV128_COMPLETE_CPU_COMBINATION_ACCEPTED_NOT_GPU',host=L['host'],source_revision=L['source_revision'],registration_sha256=L['registration_sha256'],proof_sha256=c['proof_sha256'],observed_unix=c['observed_unix'],scope=COUNTS,
+ return dict(status='DEV128_COMPLETE_CPU_COMBINATION_ACCEPTED_NOT_GPU',host=L['host'],source_revision=L['source_revision'],registration_sha256=L['registration_sha256'],proof_sha256=c['proof_sha256'],acceptance_auditor_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),observed_unix=c['observed_unix'],scope=COUNTS,
   production_CPU_accepted=True,full_GPU_lifecycle_CPU_accepted=True,independent_quality_models_CPU_accepted=True,full_GPU_supervisor_financial_terminal_binding_accepted=True,
   lifecycle_cases=10,real_ENOSPC_storage_cases=6,terminal_tests=p['terminal_tests'],reused_production_acceptance=r['acceptance'],host_quote=p['quotes'][L['host']],
   GPU_submissions=0,ledger_written=False,new_DEV_inference=False,GPU_dispatch_ready=False,hardware_exclusive_verified=False,execution_authorized=False)

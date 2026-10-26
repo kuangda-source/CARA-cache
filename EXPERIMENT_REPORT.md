@@ -6,13 +6,13 @@
 
 **Shared25-C新DEV128：双服务器生产CPU接受，尚未启动GPU。**
 
-16新DEV双端曝光核查及六角色128路径的生产入口、采集/释放后评分CPU均已接受；新DEV推理与GPU提交为0。四卡报价12.349232GPUh超12h设计子池，两卡11.618228；原α、强基线、累计226和部署预算不变。128专用GPU监督/财务终态绑定仍待接受。
+双服务器128路径整卡监督、释放GPU后评分及财务终态组合CPU已接受，每端10个生命周期、6个真实ENOSPC场景、61项终态/财务/评分检查通过；真实模型沿已接受SHA复用。新DEV推理、GPU提交及正式账本写入均为0。四卡报价12.349232GPUh仍超12h设计子池，两卡11.618228；原α、强基线、累计226和最终部署预算不变。
 
-[证据1](research/703_CARA_DEV128_DUAL_HOST_CPU_AND_CAL66_QUALITY_DIAGNOSIS_20261026.md) · [证据2](manifests/cara_DEV128_scope_r1_20261026.json) · [证据3](reports/cara_DEV128_dual_host_exposure_20261026.json) · [证据4](reports/cara_DEV128_four_card_CPU_accepted_r4_20261026.json) · [证据5](reports/cara_DEV128_two_card_CPU_accepted_r4_20261026.json) · [证据6](manifests/cara_DEV128_dual_host_whole_quote_r1_20261026.json) · [证据7](plans/cara_policy_generator_20261020/CAL66_FEEDBACK_AND_DEV128_BOUNDARIES_20261026.md)
+[证据1](research/704_CARA_DEV128_FULL_CPU_COMBINATION_ACCEPTED_AND_QUOTE_20261026.md) · [证据2](plans/cara_policy_generator_20261020/DEV128_FULL_LIFECYCLE_AND_FINANCE_CPU_R1_20261026.md) · [证据3](reports/cara_DEV128_full_four_card_CPU_accepted_r3_20261026.json) · [证据4](reports/cara_DEV128_full_two_card_CPU_accepted_r3_20261026.json) · [证据5](reports/cara_DEV128_full_quote_recheck_20261026.json) · [证据6](reports/cara_DEV128_full_central_ledger_readonly_20261026.json) · [证据7](reports/cara_DEV128_full_acceptance_negative_checks_20261026.json) · [证据8](research/703_CARA_DEV128_DUAL_HOST_CPU_AND_CAL66_QUALITY_DIAGNOSIS_20261026.md) · [证据9](manifests/cara_DEV128_scope_r1_20261026.json) · [证据10](reports/cara_DEV128_dual_host_exposure_20261026.json) · [证据11](reports/cara_DEV128_four_card_CPU_accepted_r4_20261026.json) · [证据12](reports/cara_DEV128_two_card_CPU_accepted_r4_20261026.json) · [证据13](manifests/cara_DEV128_dual_host_whole_quote_r1_20261026.json) · [证据14](plans/cara_policy_generator_20261020/CAL66_FEEDBACK_AND_DEV128_BOUNDARIES_20261026.md)
 
 ## 方法及比较对象
 
-先补128整卡监督/财务终态与双端单次调度组合检查；解决四卡报价超12h子池或明确选择合规主机。fresh输入/资源/账本准入与GPU授权前不提交。
+CPU组合准备完成；执行授权后再绑定新执行stage及单一中央意图、复查双端输入曝光与资源账本。四卡报价仍超12h，不提高上限或缩卡；选择合规主机须满足授权与fresh准入。当前不启动GPU。
 
 WorldCache 是原始缓存基线；RA-CFGCache 是本项目固定协议下的本地适配对照。Efficient、High-Fidelity 是历史版本的两个工作点，具有各自源码、配置与批次身份。完整对应关系见[术语映射](paper/INTERNAL_TO_PAPER_MAPPING.md)，不同版本不合并成一个“最终方法”均值。
 
@@ -81,7 +81,7 @@ LPIPS百分比以同批场景均值之比计算；视频帧不当独立样本；
 
 | 顺序 | 当前阶段 | 下一项验收 / 动作 |
 |---|---|---|
-| PG-SHARED-DEV128 | Shared25-C：16新DEV、六角色128路径：双端生产/采集评分CPU接受；GPU未授权 | 先补128整卡监督/财务终态与双端单次调度组合检查；解决四卡报价超12h子池或明确选择合规主机。fresh输入/资源/账本准入与GPU授权前不提交。 |
+| PG-SHARED-DEV128 | Shared25-C：16新DEV、六角色128路径：双端整卡组合CPU接受；GPU未授权 | CPU组合准备完成；执行授权后再绑定新执行stage及单一中央意图、复查双端输入曝光与资源账本。四卡报价仍超12h，不提高上限或缩卡；选择合规主机须满足授权与fresh准入。当前不启动GPU。 |
 | PG-P2 | 等预算与等查询强基线：五原模型CPU可复用；P2整卡绑定及完整五指标视频评分待确认 | Shared探索后冻结一个方法/预算档；新输入增量核查，少步Native与独立质量共同确认。 |
 | PG-P3 | 固定程序跨预算/模型：条件性后续 | P1/P2后先0.70×Native，再成熟第二模型或明确第二设置重新校准。 |
 | PG-P4 | 最终独立TEST与部署评价：待方法冻结 | 冻结方法、对手、预算、选择规则后再选新TEST；计入warm与全流程成本。 |

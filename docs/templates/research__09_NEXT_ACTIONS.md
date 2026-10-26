@@ -8,7 +8,7 @@
 
 CAL66已完整接受并结算，Shared25-C被冻结为唯一新DEV主候选；旧四卡R2没有派发，不能恢复等待启动。本轮用户只授权双服务器准备、曝光核查、生产CPU和完整报价，明确不启动GPU。
 
-新卡为16DEV六角色128路径，保留原α和强基线。双端当前与两卡旧输出的身份核查已通过；双端受影响生产入口、采集评分与真实质量模型CPU均已独立接受。四卡保守预计12.349232GPUh，超过12h设计子池；两卡11.618228GPUh可容纳。当前不增加上限、不缩卡，不自动改选主机。详见[新准备合同](repo:plans/cara_policy_generator_20261020/SHARED25_DEV128_DUAL_HOST_PREPARATION_R1_20261026.md)。执行前仍需128专用监督/财务终态组合、最新曝光及资源准入和明确执行授权。
+新卡为16DEV六角色128路径，保留原α和强基线。双端当前与两卡旧输出的身份核查已通过；双端受影响生产入口、采集评分与真实质量模型CPU均已独立接受。四卡保守预计12.349232GPUh，超过12h设计子池；两卡11.618228GPUh可容纳。当前不增加上限、不缩卡，不自动改选主机。详见[新准备合同](repo:plans/cara_policy_generator_20261020/SHARED25_DEV128_DUAL_HOST_PREPARATION_R1_20261026.md)。128专用监督/财务终态组合已接受（704）；执行前仍需新执行stage/中央单次意图绑定、最新曝光及资源准入和明确执行授权。
 
 若新DEV正向，新增工作点优先20D；构造规则迁移优先同模型换步数，并包含仅传播先验与缩放模板。WC保持官方工作点，RA在预登记CAL有限阈值网格对齐时间。所有新卡独立报价，不放宽累计226和最终部署预算。
 
@@ -21,3 +21,5 @@ CAL66已完整接受并结算，Shared25-C被冻结为唯一新DEV主候选；�
 - 旧两卡16.5 GPUh未知责任预约继续保留；旧两卡实验不重启；当前两卡隔离运行环境已通过CAL66迁移接受。
 
 [新合同](repo:plans/cara_policy_generator_20261020/CAL66_DESIGN_AND_DECISION_CONTRACT_R1_20261025.md) · [本轮记录694](repo:research/694_CARA_CAL66_REDESIGN_MASK_IDENTIFIABILITY_AND_QUOTE_20261025.md) · [完整实验总表](repo:paper/EXPERIMENT_MASTER_TABLE.md) · [历史计划](repo:docs/archive/README.md)
+
+最新整卡准备见[704双端组合CPU接受](repo:research/704_CARA_DEV128_FULL_CPU_COMBINATION_ACCEPTED_AND_QUOTE_20261026.md)：每端10生命周期、6存储、61终态/财务/评分检查通过；报价与范围不变，GPU未授权。

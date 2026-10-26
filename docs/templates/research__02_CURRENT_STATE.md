@@ -12,7 +12,7 @@
 
 ## 本轮已完成与尚缺
 
-- [703双端DEV128准备](repo:research/703_CARA_DEV128_DUAL_HOST_CPU_AND_CAL66_QUALITY_DIAGNOSIS_20261026.md)：16输入曝光核查、六角色128路径生产入口与采集评分CPU已接受；四卡报价12.349232、两卡11.618228 GPUh，未启动GPU，128监督/财务终态绑定仍待完成。
+- [703双端DEV128准备](repo:research/703_CARA_DEV128_DUAL_HOST_CPU_AND_CAL66_QUALITY_DIAGNOSIS_20261026.md)：16输入曝光核查、六角色128路径生产入口与采集评分CPU已接受；四卡报价12.349232、两卡11.618228 GPUh，未启动GPU，128监督/财务终态组合已由704双端CPU接受；GPU执行仍未授权。
 
 - [702完整结果](repo:research/702_CARA_CAL66_A6000_COMPLETE_RESULTS_AND_FROZEN_SHARED25_C_20261026.md)：66/48/156完整接受，4.776208 GPUh已中央结算，Shared25-C按原CAL规则冻结；下一步是双端新DEV准备，未启动GPU。
 
@@ -39,3 +39,5 @@
 [本轮设计694](repo:research/694_CARA_CAL66_REDESIGN_MASK_IDENTIFIABILITY_AND_QUOTE_20261025.md) · [规范状态](repo:docs/project_status.json) · [实验总表](repo:paper/EXPERIMENT_MASTER_TABLE.md) · [历史记录](repo:docs/archive/README.md)
 
 文档时间不代替实际观测；原终态绑定其launch和SHA。只有后续明确GPU授权、完整CPU/报价和fresh独占/存储/账本准入后才能提交新GPU。
+
+最新整卡准备见[704双端组合CPU接受](repo:research/704_CARA_DEV128_FULL_CPU_COMBINATION_ACCEPTED_AND_QUOTE_20261026.md)：每端10生命周期、6存储、61终态/财务/评分检查通过；报价与范围不变，GPU未授权。

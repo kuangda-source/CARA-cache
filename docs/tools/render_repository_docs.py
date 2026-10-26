@@ -736,13 +736,31 @@ def build():
                     or capture['container']['State']['Running']
                     or capture['container']['State']['ExitCode'] != 0):
                 raise ValueError('DEV128 snapshot requires bound, completed CPU evidence only')
+        full_refs = dev.get('full_CPU_acceptance_refs', {})
+        if full_refs:
+            if set(full_refs) != {'four_card', 'two_card'}:
+                raise ValueError('DEV128 complete CPU requires both registered hosts')
+            for host, ref in full_refs.items():
+                accepted = load(ref)
+                capture = load(accepted['capture_ref'])
+                if (accepted['host'] != host
+                        or not accepted['full_GPU_lifecycle_CPU_accepted']
+                        or not accepted['full_GPU_supervisor_financial_terminal_binding_accepted']
+                        or not accepted['independent_quality_models_CPU_accepted']
+                        or accepted['scope']['total_paths'] != 128
+                        or accepted['GPU_submissions'] != 0 or accepted['ledger_written']
+                        or accepted['execution_authorized'] or accepted['GPU_dispatch_ready']
+                        or accepted['capture_sha256'] != digest((ROOT / accepted['capture_ref']).read_bytes())['sha256']
+                        or capture['container']['State']['Running']
+                        or capture['container']['State']['ExitCode'] != 0):
+                    raise ValueError('DEV128 full CPU requires bound completed non-GPU evidence')
         snapshot = '**Shared25-C新DEV128：双服务器生产CPU接受，尚未启动GPU。**\n\n' + dev['summary'] + '\n\n' + refs(dev['evidence_refs'])
         run_details = ('| 字段 | DEV128准备状态 |\n|---|---|\n'
             '| 完整范围 | 16输入、六角色、128路径；原α与强基线保持 |\n'
             '| 双端CPU收件 | ' + local_time(dev['observed_unix']) + '；两端已退出0 |\n'
             '| 新DEV推理 / GPU提交 / 预约 | 0 / 0 / 0 |\n'
             '| 完整GPU报价 | 默认四卡12.349232h（超12h子池）；两卡11.618228h |\n'
-            '| 尚缺 | 128专用GPU监督、财务终态与双端单次调度组合接受；执行授权和fresh准入 |')
+            + ('| 整卡组合 | 双端监督/释放评分/财务终态CPU已接受；执行授权、新执行stage及中央单次意图绑定、fresh准入仍需完成 |' if full_refs else '| 尚缺 | 128专用GPU监督、财务终态组合接受；执行授权和fresh准入 |'))
         actions = dev['next_action']
         row = by_id['PG-SHARED-DEV128']
         row['state'] = dev['status']
