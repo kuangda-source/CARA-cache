@@ -67,3 +67,13 @@ GMSD线程报告主机MemAvailable约30.5GiB、其T5构造转换瞬时模型张�
 2026-10-26 17:41–17:42实际技术观察：DEV128已完成55/128、1运行、0失败。两卡GPU1原runner仍为唯一EXCLUSIVE_PROCESS上下文，原guardian/supervisor/runner/container与锁正常；6627独占样本无违规，最大间隔3.501秒。输出卷可用30.73GiB，跨盘日志新鲜度1.56秒。最近20完成文件间隔均值259.02秒，仅技术预测今晚23点前后完成采集，释放后CPU评分原预测8.56449h/最多10h，暂估明早7:30–9:30具备完整收件条件。原19:26半程和明日10:04终态保持，半程按新节奏再调整；未读取部分科学结果。
 
 文件名1742/1743/1744为标签，实际时间以observed_unix为准。原件：[cara_DEV128_A6000_technical_progress_20261026_1742.json](../reports/cara_DEV128_A6000_technical_progress_20261026_1742.json)、[cara_DEV128_A6000_progress_capture_20261026_1743.json](../reports/cara_DEV128_A6000_progress_capture_20261026_1743.json)、[cara_DEV128_A6000_progress_pace_20261026_1744.json](../reports/cara_DEV128_A6000_progress_pace_20261026_1744.json)。采集节奏仅来自已完成request文件mtime，不读取分角色时钟、视频或评分；未启动CPU评分。运行约4.09小时是墙钟，不冒充已结算GPU账单。
+
+## 独立四卡窗口协调（2026-10-26 20:17）
+
+GMSD线程提出在独立four_card主机的GPU1或GPU3执行原900秒标签采集、阶段间CPU验收、原600秒配对测量。本聊天fresh只读中央CARA账本：有效执行预约仅为两卡DEV128外部包12GPUh，另保留旧两卡16.5责任；所询四卡两UUID没有CARA优先预约。E1仅本地准备、无GPU授权或预约。
+
+从CARA资源协调侧，同意本轮在上述四卡UUID中仅选一张的窗口；不是新GMSD执行授权或预算，执行线程须核对自己的直接用户授权、原累计范围与账本，并fresh核验UUID/PID/锁/RAM/磁盘/资产/hash。未把对方20:15空卡报告当作本方实际准入；未读取或改写GMSD账本。CARA余额不能转给GMSD。
+
+两卡DEV128的禁加载条件不变，本次不得使用两卡传输/计算。两技术阶段累计GPU不超过原25分钟，不重置已用量；按原阶段边界退出上下文、释放锁、结算费用，空闲时才恢复模式。阶段间CPU验收失败或资源变化则不能继续。若下一阶段前CARA有新的明确授权，阶段边界优先交还，不驱逐运行中的进程；没有授权的E1准备不抢占该窗口。
+
+[只读预约核对与协调原件](../reports/cara_GMSD_four_card_window_reservation_check_20261026.json)。本轮没有GPU操作、跨对话发送消息或更改DEV128验收。

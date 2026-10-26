@@ -1,0 +1,104 @@
+{
+  "observed_unix": 1793017074.8041463,
+  "source": "/data20t/gaokuangda/worldcache_workspace/reports/gpu-budget-v2.json",
+  "sha256": "fc57fdc035f10dc590bf5a084103cc544ce95993569d3b8fb0d1413535fdeccf",
+  "pool_totals": {
+    "used_gpu_hours": 161.39662063362806,
+    "reserved_gpu_hours": 28.5,
+    "available_gpu_hours": 36.10337936637194
+  },
+  "active_jobs": {
+    "retired-two-card-bank24-uncertainty-hold-20261022": {
+      "job_id": "retired-two-card-bank24-uncertainty-hold-20261022",
+      "kind": "UNCONFIRMED_RETIRED_HOST_WHOLE_CARD_LIABILITY_HOLD",
+      "status": "RESERVED_OR_RUNNING",
+      "billed_limit_GPUh": 4.5,
+      "gpu_uuid": "GPU-de9a5370-cd87-0f1c-a48e-288888777dd3",
+      "supervisor_pid": null,
+      "supervisor_start_ticks": null,
+      "source_revision": "NO_NEW_OLD_HOST_RUN_ASSERTED",
+      "launch_id": "NOT_A_CONFIRMED_GPU_SUBMISSION",
+      "stage": "RETIRED_HOST_UNKNOWN_DO_NOT_CONTACT",
+      "actual_cost_unknown": true,
+      "confirmed_GPU_submission": false,
+      "reserved_unix": 1792654151.8925738,
+      "release_policy": "ONLY_WITH_INDEPENDENT_TERMINAL_OR_EXPLICIT_BUDGET_RECONCILIATION"
+    },
+    "retired-two-card-full1624-uncertainty-hold-20261022": {
+      "job_id": "retired-two-card-full1624-uncertainty-hold-20261022",
+      "kind": "UNCONFIRMED_RETIRED_HOST_WHOLE_CARD_LIABILITY_HOLD",
+      "status": "RESERVED_OR_RUNNING",
+      "billed_limit_GPUh": 12.0,
+      "gpu_uuid": "GPU-cebf7119-cf03-23b9-e192-cd196332b704",
+      "supervisor_pid": null,
+      "supervisor_start_ticks": null,
+      "source_revision": "NO_NEW_OLD_HOST_RUN_ASSERTED",
+      "launch_id": "NOT_A_CONFIRMED_GPU_SUBMISSION",
+      "stage": "RETIRED_HOST_UNKNOWN_DO_NOT_CONTACT",
+      "actual_cost_unknown": true,
+      "confirmed_GPU_submission": false,
+      "reserved_unix": 1792654151.8925738,
+      "release_policy": "ONLY_WITH_INDEPENDENT_TERMINAL_OR_EXPLICIT_BUDGET_RECONCILIATION"
+    },
+    "cara-shared25-dev128-r1-external-budget-envelope": {
+      "run_id": "cara-shared25-dev128-r1",
+      "launch_id": "61587bb0-0e0d-4379-973b-d5502158fcd2",
+      "source_revision": "f273eefceef4fe88ab75edc74eaf714081126550",
+      "gpu_uuid": "GPU-cebf7119-cf03-23b9-e192-cd196332b704",
+      "stage": "/data20t/gaokuangda/worldcache_workspace/.sync/cara-dev128-full-a6000-r1-20261026",
+      "scope_counts": {
+        "total_paths": 128,
+        "DEV": 16,
+        "seeds": [
+          0
+        ],
+        "roles": 6,
+        "quality_paths": 96,
+        "timing_repeat_paths": 24,
+        "warm_paths": 6,
+        "diagnostic_paths": 2,
+        "guided_pairs": 4419,
+        "CFG_calls": 8838,
+        "loads": 1,
+        "LPIPS_pairs": 80,
+        "LPIPS_frames": 7440,
+        "independent_quality_videos": 96,
+        "independent_quality_positions": 288
+      },
+      "billed_limit_GPUh": 12,
+      "job_id": "cara-shared25-dev128-r1-external-budget-envelope",
+      "kind": "EXTERNAL_HOST_DEV128",
+      "host": "two_card",
+      "status": "RESERVED_OR_RUNNING",
+      "confirmed_GPU_submission": true,
+      "actual_GPU_submission_known": true,
+      "created_unix": 1792993014.2653701,
+      "admission_capture_sha256": "fb346cd24eb64cfeb9fd6dcdf163680932e82a6b7bedc43392744a0f9881594c"
+    }
+  },
+  "purpose": "CARA_RESERVATION_ONLY_GMSD_FOUR_CARD_COORDINATION",
+  "new_GPU_authorization": false,
+  "ledger_written": false,
+  "coordination_decision": {
+    "CARA_priority_reservation_on_requested_UUIDs": false,
+    "requested_UUIDs": [
+      "GPU-19d4d100-f845-018d-ec30-def1553c01f5",
+      "GPU-d4868f0a-29df-9077-82db-77f7bf0f9934"
+    ],
+    "CARA_side_window_clear": true,
+    "scope": "One GPU only on four_card; existing GMSD 900-second label stage, CPU acceptance, then 600-second paired measurement; cumulative original scope, no scientific training",
+    "not_new_execution_or_budget_authorization": true,
+    "GMSD_authorization_and_own_ledger_must_be_verified_by_executing_thread": true,
+    "fresh_admission_required": true,
+    "no_two_card_loading_transfer_or_computation": true,
+    "no_CARA_budget_transfer": true,
+    "CARA_DEV128_unchanged": true,
+    "release_conditions": [
+      "Original cumulative GPU limit <=25 minutes; no reset or restart to obtain extra runtime",
+      "Release GPU/context/project lock and settle actual fees at registered stage boundaries; restore mode only when idle",
+      "CPU acceptance failure or changed resource/asset conditions closes continuation window; no next stage without required checks",
+      "If CARA acquires new explicit GPU authorization before the next GMSD stage, give CARA priority at that boundary; do not evict a running process"
+    ],
+    "not_a_live_GPU_idle_observation": true
+  }
+}
