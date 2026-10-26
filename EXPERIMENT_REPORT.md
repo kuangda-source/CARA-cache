@@ -6,9 +6,9 @@
 
 **Shared25-C新DEV128已在两卡A6000独占启动。**
 
-2026-10-26 13:36:59在两卡GPU1 A6000单次启动完整128路径。13:45技术原件确认原runner唯一EXCLUSIVE_PROCESS上下文，222独占样本无违规、最大间隔2.362秒；32GiB预留卷及48MiB跨盘日志正常，首条路径运行中、0失败。GPU报价11.618228h、硬上限12h；GPU释放后2CPU/8GiB评分，预计8.56449h、最多10h。目前只有技术准入，没有新DEV科学结果。
+2026-10-26 17:41–17:42实际技术观察：DEV128已完成55/128、1运行、0失败。两卡GPU1原runner仍为唯一EXCLUSIVE_PROCESS上下文，原guardian/supervisor/runner/container与锁正常；6627独占样本无违规，最大间隔3.501秒。输出卷可用30.73GiB，跨盘日志新鲜度1.56秒。最近20完成文件间隔均值259.02秒，仅技术预测今晚23点前后完成采集，释放后CPU评分原预测8.56449h/最多10h，暂估明早7:30–9:30具备完整收件条件。原19:26半程和明日10:04终态保持，半程按新节奏再调整；未读取部分科学结果。
 
-[证据1](research/705_CARA_DEV128_A6000_EXCLUSIVE_LAUNCH_AND_ACCEPTANCE_SCHEDULE_20261026.md) · [证据2](reports/cara_DEV128_A6000_GPU_actual_launch_20261026.json) · [证据3](reports/cara_DEV128_A6000_technical_admission_20261026.json) · [证据4](reports/cara_DEV128_A6000_central_admission_20261026.json) · [证据5](reports/cara_DEV128_A6000_acceptance_schedule_20261026.json) · [证据6](reports/cara_DEV128_A6000_storage_20261026.json) · [证据7](reports/cara_DEV128_prelaunch_dual_exposure_reviewed_20261026.json) · [证据8](reports/cara_DEV128_full_four_card_CPU_accepted_r4_20261026.json) · [证据9](reports/cara_DEV128_full_two_card_CPU_accepted_r4_20261026.json) · [证据10](reports/cara_DEV128_A6000_technical_followup_20261026.json)
+[证据1](research/705_CARA_DEV128_A6000_EXCLUSIVE_LAUNCH_AND_ACCEPTANCE_SCHEDULE_20261026.md) · [证据2](reports/cara_DEV128_A6000_GPU_actual_launch_20261026.json) · [证据3](reports/cara_DEV128_A6000_technical_admission_20261026.json) · [证据4](reports/cara_DEV128_A6000_central_admission_20261026.json) · [证据5](reports/cara_DEV128_A6000_acceptance_schedule_20261026.json) · [证据6](reports/cara_DEV128_A6000_storage_20261026.json) · [证据7](reports/cara_DEV128_prelaunch_dual_exposure_reviewed_20261026.json) · [证据8](reports/cara_DEV128_full_four_card_CPU_accepted_r4_20261026.json) · [证据9](reports/cara_DEV128_full_two_card_CPU_accepted_r4_20261026.json) · [证据10](reports/cara_DEV128_A6000_technical_followup_20261026.json) · [证据11](reports/cara_DEV128_A6000_technical_progress_20261026_1742.json) · [证据12](reports/cara_DEV128_A6000_progress_capture_20261026_1743.json) · [证据13](reports/cara_DEV128_A6000_progress_pace_20261026_1744.json)
 
 ## 方法及比较对象
 

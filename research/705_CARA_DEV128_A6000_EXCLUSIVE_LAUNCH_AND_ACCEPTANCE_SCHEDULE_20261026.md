@@ -61,3 +61,9 @@ GMSD线程报告主机MemAvailable约30.5GiB、其T5构造转换瞬时模型张�
 协调结论：CARA采集计时期间，GMSD保持等待，不新增T5加载和标签任务；不暂停或改变CARA。原GPU子进程退出、账单形成并本地结算、锁释放后，才可重新评估非计时阶段并发。届时仍须fresh满足GMSD原40GiB准入，保留CARA评分8GiB/2CPU资源与系统余量，读取实际post子进程CPU affinity以免重叠，并核验共享内存/IO可承受；不能只靠绑核或单次快照保证没有干扰。不能确认则等CPU评分结束。GPU释放后评分不再测推理延迟，但有10小时上限，不能忽略评分资源。
 
 本条只记录本任务的协调条件，不新增GMSD授权、不降低任何门槛、不修改运行stage，也不主动跨对话发消息。原始机器记录：[协调原件](../reports/cara_DEV128_GMSD_shared_host_coordination_20261026.json)。
+
+## 17:41–17:42技术进度（非半程替代）
+
+2026-10-26 17:41–17:42实际技术观察：DEV128已完成55/128、1运行、0失败。两卡GPU1原runner仍为唯一EXCLUSIVE_PROCESS上下文，原guardian/supervisor/runner/container与锁正常；6627独占样本无违规，最大间隔3.501秒。输出卷可用30.73GiB，跨盘日志新鲜度1.56秒。最近20完成文件间隔均值259.02秒，仅技术预测今晚23点前后完成采集，释放后CPU评分原预测8.56449h/最多10h，暂估明早7:30–9:30具备完整收件条件。原19:26半程和明日10:04终态保持，半程按新节奏再调整；未读取部分科学结果。
+
+文件名1742/1743/1744为标签，实际时间以observed_unix为准。原件：[cara_DEV128_A6000_technical_progress_20261026_1742.json](../reports/cara_DEV128_A6000_technical_progress_20261026_1742.json)、[cara_DEV128_A6000_progress_capture_20261026_1743.json](../reports/cara_DEV128_A6000_progress_capture_20261026_1743.json)、[cara_DEV128_A6000_progress_pace_20261026_1744.json](../reports/cara_DEV128_A6000_progress_pace_20261026_1744.json)。采集节奏仅来自已完成request文件mtime，不读取分角色时钟、视频或评分；未启动CPU评分。运行约4.09小时是墙钟，不冒充已结算GPU账单。

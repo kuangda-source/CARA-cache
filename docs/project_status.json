@@ -745,7 +745,7 @@
   "Shared25_DEV128_execution": {
     "status": "DEV128_A6000_EXCLUSIVE_RUNNING",
     "status_zh": "Shared25-C新DEV128已在两卡A6000独占启动",
-    "observed_unix": 1792993513.1557627,
+    "observed_unix": 1793007705.379877,
     "GPU_running": true,
     "new_GPU_submissions": 1,
     "launch_ref": "reports/cara_DEV128_A6000_GPU_actual_launch_20261026.json",
@@ -772,7 +772,7 @@
       "start_ticks": 628792481,
       "command": "/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/bin/python /data20t/gaokuangda/worldcache_workspace/.sync/cara-dev128-full-a6000-r1-20261026/scripts/wc_cara_dev128_worker_r1.py supervise --project /data20t/gaokuangda/worldcache_workspace --stage /data20t/gaokuangda/worldcache_workspace/.sync/cara-dev128-full-a6000-r1-20261026 "
     },
-    "technical_ref": "reports/cara_DEV128_A6000_technical_followup_20261026.json",
+    "technical_ref": "reports/cara_DEV128_A6000_technical_progress_20261026_1742.json",
     "admission_capture_ref": "reports/cara_DEV128_A6000_admission_capture_20261026.json",
     "central_admission_ref": "reports/cara_DEV128_A6000_central_admission_20261026.json",
     "schedule_ref": "reports/cara_DEV128_A6000_acceptance_schedule_20261026.json",
@@ -811,7 +811,7 @@
     },
     "full_protocol_accepted": false,
     "report_ref": "research/705_CARA_DEV128_A6000_EXCLUSIVE_LAUNCH_AND_ACCEPTANCE_SCHEDULE_20261026.md",
-    "summary": "2026-10-26 13:36:59在两卡GPU1 A6000单次启动完整128路径。13:45技术原件确认原runner唯一EXCLUSIVE_PROCESS上下文，222独占样本无违规、最大间隔2.362秒；32GiB预留卷及48MiB跨盘日志正常，首条路径运行中、0失败。GPU报价11.618228h、硬上限12h；GPU释放后2CPU/8GiB评分，预计8.56449h、最多10h。目前只有技术准入，没有新DEV科学结果。",
+    "summary": "2026-10-26 17:41–17:42实际技术观察：DEV128已完成55/128、1运行、0失败。两卡GPU1原runner仍为唯一EXCLUSIVE_PROCESS上下文，原guardian/supervisor/runner/container与锁正常；6627独占样本无违规，最大间隔3.501秒。输出卷可用30.73GiB，跨盘日志新鲜度1.56秒。最近20完成文件间隔均值259.02秒，仅技术预测今晚23点前后完成采集，释放后CPU评分原预测8.56449h/最多10h，暂估明早7:30–9:30具备完整收件条件。原19:26半程和明日10:04终态保持，半程按新节奏再调整；未读取部分科学结果。",
     "next_action": "按原launch半程与终态收件；释放GPU后完成80LPIPS/288质量评分，中央原账单结算后独立完整接受。不得重派、看部分结果调参或自动追加GPU。",
     "evidence_refs": [
       "research/705_CARA_DEV128_A6000_EXCLUSIVE_LAUNCH_AND_ACCEPTANCE_SCHEDULE_20261026.md",
@@ -823,10 +823,30 @@
       "reports/cara_DEV128_prelaunch_dual_exposure_reviewed_20261026.json",
       "reports/cara_DEV128_full_four_card_CPU_accepted_r4_20261026.json",
       "reports/cara_DEV128_full_two_card_CPU_accepted_r4_20261026.json",
-      "reports/cara_DEV128_A6000_technical_followup_20261026.json"
+      "reports/cara_DEV128_A6000_technical_followup_20261026.json",
+      "reports/cara_DEV128_A6000_technical_progress_20261026_1742.json",
+      "reports/cara_DEV128_A6000_progress_capture_20261026_1743.json",
+      "reports/cara_DEV128_A6000_progress_pace_20261026_1744.json"
     ],
     "shared_host_coordination_ref": "reports/cara_DEV128_GMSD_shared_host_coordination_20261026.json",
-    "shared_host_coordination_status": "WAIT_FOR_CARA_GPU_COLLECTION_RELEASE_THEN_FRESH_ADMISSION_REVIEW"
+    "shared_host_coordination_status": "WAIT_FOR_CARA_GPU_COLLECTION_RELEASE_THEN_FRESH_ADMISSION_REVIEW",
+    "latest_progress_capture_ref": "reports/cara_DEV128_A6000_progress_capture_20261026_1743.json",
+    "technical_pace_ref": "reports/cara_DEV128_A6000_progress_pace_20261026_1744.json",
+    "technical_progress": {
+      "completed_paths": 55,
+      "running_paths": 1,
+      "failed_paths": 0,
+      "registered_paths": 128,
+      "monitor_prefix_samples": 6627,
+      "maximum_interval_seconds": 3.500567947514355,
+      "prefix_violations": 0,
+      "output_available_GiB": 30.725200653076172,
+      "cross_disk_telemetry_age_seconds": 1.559149980545044,
+      "CPU_scoring_started": false,
+      "full_terminal_accepted": false,
+      "collection_estimate_local": "2026-10-26T22:55:10+08:00",
+      "estimate_not_guarantee": true
+    }
   },
   "predictor_refresh_scout_V2": {
     "status": "PLAN_INTEGRATED_E0_PENDING_NO_GPU",
