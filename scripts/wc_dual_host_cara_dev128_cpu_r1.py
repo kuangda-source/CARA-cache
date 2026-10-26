@@ -72,7 +72,10 @@ def names():
 
 def main():
  p=argparse.ArgumentParser();p.add_argument('command',choices=['prepare','capture']);p.add_argument('--host',choices=['four_card','two_card'],required=True);p.add_argument('--stage-name');p.add_argument('--launch-ref',type=Path);p.add_argument('--output',type=Path,required=True);a=p.parse_args();assert not a.output.exists()
- def remote(code,data):return four_ssh(code,data,timeout=600) if a.host=='four_card' else ssh(code,data,docker_group=True,timeout=600)
+ def remote(code,data):
+  if a.host=='two_card':return ssh(code,data,docker_group=True,timeout=600)
+  from wc_four_card_policy_assets_r1 import bridge,read,RUNTIME_REF
+  return four_ssh(bridge(code,read(ROOT/RUNTIME_REF)),data,timeout=600)
  if a.command=='capture':
   L=json.loads(a.launch_ref.read_text());assert L['host']==a.host;v=remote(CAPTURE,L)
  else:
