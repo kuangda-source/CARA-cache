@@ -48,3 +48,5 @@
 [当前状态](../../research/02_CURRENT_STATE.md) · [后续顺序](../../research/09_NEXT_ACTIONS.md) · [实验总表](../../paper/EXPERIMENT_MASTER_TABLE.md)
 
 最新执行见[705实际独占启动](../../research/705_CARA_DEV128_A6000_EXCLUSIVE_LAUNCH_AND_ACCEPTANCE_SCHEDULE_20261026.md)：两卡GPU1完整128已于13:36:59启动；双端财务兼容修复后各10生命周期、6存储、63终态检查接受。单卡12h/累计226与最终部署预算不变；仅跟踪原launch，不重复派发。
+
+E0最新准备：[官方源审计与11组CPU用例](../../plans/cara_predictor_refresh_scout_v2_20261026/E0_SOURCE_AUDIT_AND_E1_CPU_CASES_R1.md)。DCTA Wan/FLUX裁剪差异已核对，本地8个旧视频SHA一致；生产移植、状态隔离和报价尚未接受，DEV128不变。
