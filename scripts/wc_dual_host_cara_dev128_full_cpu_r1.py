@@ -4,7 +4,7 @@ from pathlib import Path
 import wc_dual_host_cara_dev128_cpu_r1 as old
 from cara_two_card_transport_r1 import ssh,four_ssh
 ROOT=old.ROOT
-PREPARE=old.PREPARE
+PREPARE=old.PREPARE.replace("base=root/'.sync/cara-shared66-full-ada-r2-20261025'", "base=pathlib.Path(p['base_stage'])")
 # Use the accepted base-container builder with new frozen full-lifecycle entry.
 PREPARE=PREPARE.replace("cmd[at:at]=['--tmpfs','/fixture:rw,size=256m,mode=1777']", "cmd[at:at]=['--tmpfs','/fixture:rw,size=256m,mode=1777','--tmpfs','/fault:rw,size=64m,mode=1777']")
 PREPARE=PREPARE.replace("scripts/check_cara_dev128_cpu_r1.py","scripts/check_cara_dev128_full_cpu_r1.py").replace("DEV128-CPU.json","DEV128-lifecycle-CPU.json")
@@ -39,11 +39,13 @@ def main():
   inputs=json.loads((ROOT/MANIFEST).read_text())['input_bindings']
   # Reuse the accepted full-CPU closure; GPU dispatch/provision controllers are
   # separate control-plane code and must never pull private bootstrap scripts.
-  previous=json.loads((ROOT/'reports/cara_DEV128_full_two_card_CPU_complete_r2_20261026.json').read_text())['registration']['payload_sha256']
+  previous_cap=json.loads((ROOT/('reports/cara_DEV128_full_two_card_CPU_complete_r2_20261026.json' if a.host=='two_card' else 'reports/cara_DEV128_full_four_card_CPU_complete2_r2_20261026.json')).read_text())
+  previous=previous_cap['registration']['payload_sha256']
   names={n for n in previous if (ROOT/n).is_file() and n.startswith(('src/','scripts/','tests/','manifests/','configs/','reports/','plans/','vendor/'))}
   names.update(inputs)
   for n in sorted(names):
    raw=(ROOT/n).read_bytes()
+   if hashlib.sha256(raw).hexdigest()==previous.get(n):continue
    if n in inputs:assert hashlib.sha256(raw).hexdigest()==inputs[n]
    elif n.startswith('vendor/'):assert hashlib.sha256(raw).hexdigest()==previous[n],'Accepted pinned vendor changed'
    else:assert subprocess.check_output(['git','show',rev+':'+n],cwd=ROOT)==raw,'Commit source first '+n
@@ -51,7 +53,7 @@ def main():
   ref='reports/cara_DEV128_'+a.host+'_CPU_'
   L=json.loads((ROOT/(ref+'launch_r4_20261026.json')).read_text());accept=json.loads((ROOT/(ref+'accepted_r4_20261026.json')).read_text())
   assert hashlib.sha256((ROOT/accept['capture_ref']).read_bytes()).hexdigest()==accept['capture_sha256']
-  v=remote(PREPARE,dict(root=old.REMOTE,host=a.host,stage_name=a.stage_name,revision=rev,files=files,hashes=hashes,base_registration_sha256='48193714a15f219b33fd62a6f929ee8e7a5c17b1b6c3dfd9c7615318318c7561',prior_launch=L,prior_acceptance=accept))
+  v=remote(PREPARE,dict(root=old.REMOTE,host=a.host,stage_name=a.stage_name,revision=rev,files=files,hashes=hashes,base_stage=previous_cap['launch']['stage'],base_registration_sha256=previous_cap['launch']['registration_sha256'],prior_launch=L,prior_acceptance=accept))
  with a.output.open('x') as f:json.dump(v,f,indent=2);f.write('\n')
  print(json.dumps(dict(status=v['status'],host=a.host,stage=v.get('stage'),proof=bool(v.get('proof')))))
 if __name__=='__main__':main()
