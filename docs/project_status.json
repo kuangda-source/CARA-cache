@@ -745,7 +745,7 @@
   "Shared25_DEV128_execution": {
     "status": "DEV128_A6000_GPU_RELEASED_CPU_SCORING_RUNNING",
     "status_zh": "Shared25-C新DEV128采集完成，释放GPU后CPU评分中",
-    "observed_unix": 1793033709.3120568,
+    "observed_unix": 1793035075.5966387,
     "GPU_running": false,
     "new_GPU_submissions": 1,
     "launch_ref": "reports/cara_DEV128_A6000_GPU_actual_launch_20261026.json",
@@ -811,8 +811,8 @@
     },
     "full_protocol_accepted": false,
     "report_ref": "research/705_CARA_DEV128_A6000_EXCLUSIVE_LAUNCH_AND_ACCEPTANCE_SCHEDULE_20261026.md",
-    "summary": "2026-10-27 00:55:09实查：128/128采集完成、0失败，GPU runner退出。原GPU账单9.417059GPUh已形成，中央结算待收件。原CPU评分进程身份匹配、CPU0–1；80/80 LPIPS与274/288质量文件已生成，未读分数。日志尾部无错误，输出卷29.58GiB可用。最近20质量文件间隔22.612秒，预计约01:00评分完成，同一终态检查提前01:15；尚非完整接受。",
-    "next_action": "原CPU评分完成后，01:15沿唯一launch完整收件、中央结算与独立验收；未完成则调整同一检查，不重派GPU。",
+    "summary": "2026-10-27 01:17技术更正：128/128采集完成、80/80 LPIPS完成；正式质量状态167/288（MUSIQ96、主体71、运动0），另1份正式文件刚写入等待状态提交。此前274/288错误地把raw与正式JSON重复计数，约01:00完成预测撤回。原评分进程与CPU0–1正常，无GPU重派。各维度耗时不同，不再按混合文件间隔外推；同一最终检查调整04:00。原CPU预测约07:36、10小时截止约09:02仅为时间参照。完整接受及中央结算仍待办。",
+    "next_action": "04:00沿原launch检查；评分未完则按实际状态调整同一任务，全部退出后中央结算与独立接受。技术监测只用正式编号和状态字段，不返回部分评分。",
     "evidence_refs": [
       "research/705_CARA_DEV128_A6000_EXCLUSIVE_LAUNCH_AND_ACCEPTANCE_SCHEDULE_20261026.md",
       "reports/cara_DEV128_A6000_GPU_actual_launch_20261026.json",
@@ -834,7 +834,11 @@
       "reports/cara_DEV128_GMSD_CPU_scoring_resource_review_20261026.json",
       "reports/cara_DEV128_A6000_GMSD_window_technical_20261026_2340.json",
       "reports/cara_GMSD_CAP1_two_card_preparation_review_20261026.json",
-      "reports/cara_DEV128_A6000_CPU_progress_20261027_0055.json"
+      "reports/cara_DEV128_A6000_CPU_progress_20261027_0055.json",
+      "reports/cara_DEV128_A6000_post_status_only_20261027_0120.json",
+      "reports/cara_DEV128_A6000_terminal_20261027_0115.json",
+      "reports/cara_DEV128_partial_payload_exposure_note_20261027.json",
+      "reports/cara_DEV128_post_counter_CPU_r2_20261027.json"
     ],
     "shared_host_coordination_ref": "reports/cara_GMSD_CAP1_two_card_preparation_review_20261026.json",
     "shared_host_coordination_status": "PREPARATION_AND_LATER_WINDOW_REQUEST_ALLOWED_NO_CURRENT_DISPATCH_CLEARANCE",
@@ -855,10 +859,26 @@
       "collection_estimate_local": "2026-10-26T22:57:07.850019+08:00",
       "estimate_not_guarantee": true,
       "LPIPS_files_present": 80,
-      "quality_files_present": 274,
-      "quality_recent20_mean_interval_seconds": 22.61211278438568
+      "quality_files_present": 168,
+      "quality_recent20_mean_interval_seconds": null,
+      "quality_scored_positions": 167,
+      "quality_dimensions": {
+        "MUSIQ_LONGER512": {
+          "SCORED": 96
+        },
+        "subject_consistency": {
+          "SCORED": 71,
+          "RUNNING": 1,
+          "NOT_REACHED": 24
+        },
+        "motion_smoothness": {
+          "NOT_REACHED": 96
+        }
+      },
+      "quality_pending_status_commit": 1,
+      "previous_glob_counts_invalid": true
     },
-    "check_schedule_zh": "半程已完成并删除；10月27日最终检查由10:04提前至01:15，按实际状态调整",
+    "check_schedule_zh": "半程已删除；计数口径更正，最终检查由01:15调整10月27日04:00，不新增任务",
     "halfway_check": {
       "actual_capture_unix": 1793015277.7561822,
       "technical_observed_unix": 1793015314.145158,
@@ -901,7 +921,9 @@
       "billed_limit_GPUh": 12,
       "ended_unix": 1793026924.3449137
     },
-    "CPU_scoring_technical_ref": "reports/cara_DEV128_A6000_CPU_progress_20261027_0055.json"
+    "CPU_scoring_technical_ref": "reports/cara_DEV128_A6000_CPU_progress_20261027_0055.json",
+    "latest_post_progress_ref": "reports/cara_DEV128_A6000_post_status_only_20261027_0120.json",
+    "partial_payload_exposure_ref": "reports/cara_DEV128_partial_payload_exposure_note_20261027.json"
   },
   "predictor_refresh_scout_V2": {
     "status": "PLAN_INTEGRATED_E0_PENDING_NO_GPU",

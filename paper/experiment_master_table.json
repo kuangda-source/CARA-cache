@@ -6224,12 +6224,12 @@
       "full_protocol_accepted": false,
       "GPU_dispatch_ready": false,
       "new_GPU_submissions": 1,
-      "evidence_or_planned_scope": "2026-10-27 00:55:09实查：128/128采集完成、0失败，GPU runner退出。原GPU账单9.417059GPUh已形成，中央结算待收件。原CPU评分进程身份匹配、CPU0–1；80/80 LPIPS与274/288质量文件已生成，未读分数。日志尾部无错误，输出卷29.58GiB可用。最近20质量文件间隔22.612秒，预计约01:00评分完成，同一终态检查提前01:15；尚非完整接受。",
+      "evidence_or_planned_scope": "2026-10-27 01:17技术更正：128/128采集完成、80/80 LPIPS完成；正式质量状态167/288（MUSIQ96、主体71、运动0），另1份正式文件刚写入等待状态提交。此前274/288错误地把raw与正式JSON重复计数，约01:00完成预测撤回。原评分进程与CPU0–1正常，无GPU重派。各维度耗时不同，不再按混合文件间隔外推；同一最终检查调整04:00。原CPU预测约07:36、10小时截止约09:02仅为时间参照。完整接受及中央结算仍待办。",
       "reader": {
         "title": "Shared25-C：16新DEV、六角色128路径",
         "status": "Shared25-C新DEV128采集完成，释放GPU后CPU评分中",
-        "result": "2026-10-27 00:55:09实查：128/128采集完成、0失败，GPU runner退出。原GPU账单9.417059GPUh已形成，中央结算待收件。原CPU评分进程身份匹配、CPU0–1；80/80 LPIPS与274/288质量文件已生成，未读分数。日志尾部无错误，输出卷29.58GiB可用。最近20质量文件间隔22.612秒，预计约01:00评分完成，同一终态检查提前01:15；尚非完整接受。",
-        "next_action": "原CPU评分完成后，01:15沿唯一launch完整收件、中央结算与独立验收；未完成则调整同一检查，不重派GPU。",
+        "result": "2026-10-27 01:17技术更正：128/128采集完成、80/80 LPIPS完成；正式质量状态167/288（MUSIQ96、主体71、运动0），另1份正式文件刚写入等待状态提交。此前274/288错误地把raw与正式JSON重复计数，约01:00完成预测撤回。原评分进程与CPU0–1正常，无GPU重派。各维度耗时不同，不再按混合文件间隔外推；同一最终检查调整04:00。原CPU预测约07:36、10小时截止约09:02仅为时间参照。完整接受及中央结算仍待办。",
+        "next_action": "04:00沿原launch检查；评分未完则按实际状态调整同一任务，全部退出后中央结算与独立接受。技术监测只用正式编号和状态字段，不返回部分评分。",
         "evidence_refs": [
           "research/704_CARA_DEV128_FULL_CPU_COMBINATION_ACCEPTED_AND_QUOTE_20261026.md",
           "plans/cara_policy_generator_20261020/DEV128_FULL_LIFECYCLE_AND_FINANCE_CPU_R1_20261026.md",
@@ -12186,33 +12186,33 @@
     },
     "EXPERIMENT_REPORT.md": {
       "path": "EXPERIMENT_REPORT.md",
-      "sha256": "0e357c37b3d36501e081d4d1d887f13aff190d5c6f5b45621afe56098273cf08",
-      "bytes": 9151
+      "sha256": "8bf01d7162c7ed6d56b1fd7fe0a3130aed6ac27ddee9a864924b085590ec5947",
+      "bytes": 9662
     },
     "memory/handoffs/LATEST.md": {
       "path": "memory/handoffs/LATEST.md",
-      "sha256": "c827c6b0967db78708b35a5d439083f05dd1383c13a97890edc92533f501ec98",
-      "bytes": 8888
+      "sha256": "8f3b3a58711f00741bd39572adedcda7967ea7af3bc0a9339685e413b09bd003",
+      "bytes": 9369
     },
     "research/02_CURRENT_STATE.md": {
       "path": "research/02_CURRENT_STATE.md",
-      "sha256": "fd7b6d12b17999c71bf82f326555c5dfbbac79ab7c5d731340706bc370f9d424",
-      "bytes": 7334
+      "sha256": "1b986a8a647f0e7a85301e00e795507d717e458e5df845b6c15c875397340263",
+      "bytes": 7803
     },
     "research/09_NEXT_ACTIONS.md": {
       "path": "research/09_NEXT_ACTIONS.md",
-      "sha256": "22e91838811ccc878f503cce722f2708587f1249706658bd3802d527d9043dc6",
-      "bytes": 7187
+      "sha256": "06b9bb3fbb1c8e552fe7db14eafa6b68ae7fa232e037a8732d29069f4d595e93",
+      "bytes": 7653
     },
     "paper/EXPERIMENT_MASTER_TABLE.md": {
       "path": "paper/EXPERIMENT_MASTER_TABLE.md",
-      "sha256": "151aafa3e9d01c3d8747457347c20de16f1a00eb24a56bed334916e348931e8b",
-      "bytes": 45258
+      "sha256": "df5e39224c2b667d07b147dccfc06b7a0678b572d3008fc0b314da46a98a1a77",
+      "bytes": 45827
     },
     "paper/INTERNAL_TO_PAPER_MAPPING.md": {
       "path": "paper/INTERNAL_TO_PAPER_MAPPING.md",
-      "sha256": "38a017476205d0b2efd7fcb9b0cfd61bdf4a0751b1bb6a18251fe0d685d6bac6",
-      "bytes": 9861
+      "sha256": "c75e7ba3230033a26796c07e2f92adf21ed50504a8a1c431af21bf2ab0b619bf",
+      "bytes": 9918
     },
     "research/615_WC_FOUR_CARD_DATA_DISK_WORKSPACE_AND_ENVIRONMENT_PREPARATION_20261020.md": {
       "path": "research/615_WC_FOUR_CARD_DATA_DISK_WORKSPACE_AND_ENVIRONMENT_PREPARATION_20261020.md",
@@ -14189,7 +14189,7 @@
     "current_preparation_card": null
   },
   "mapping_sha256_at_inventory": "88b3d760a0c94c20b6c802e21f30c7286d6e596cc9b3f3100e7ee6feaa3938f3",
-  "latest_mapping_sha256": "9a029169f4b4c9f25cf7ef1b8b66b6aacd775b5373850dcbe321631e63a3b71c",
+  "latest_mapping_sha256": "59ad86184795e4fc17dfa5f5efba46f0c2fdeb080f9850466d7b4e020a419d99",
   "revision_plan": {
     "registry_ref": "plans/cara_v6_20261020/TASK_REGISTRY_V6.yaml",
     "report_ref": "research/610_WC_CARA_V6_REVIEW_CLOSURE_PLAN_INTERVAL_SPEC_AND_FIRST_DEV_SCOPE_20261020.md",
