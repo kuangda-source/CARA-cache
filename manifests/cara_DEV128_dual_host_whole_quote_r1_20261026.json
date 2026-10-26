@@ -1,0 +1,107 @@
+{
+  "version": "CARA_DEV128_DUAL_HOST_WHOLE_QUOTE_R1",
+  "scope": {
+    "total_paths": 128,
+    "DEV": 16,
+    "seeds": [
+      0
+    ],
+    "roles": 6,
+    "quality_paths": 96,
+    "timing_repeat_paths": 24,
+    "warm_paths": 6,
+    "diagnostic_paths": 2,
+    "guided_pairs": 4419,
+    "CFG_calls": 8838,
+    "loads": 1,
+    "LPIPS_pairs": 80,
+    "LPIPS_frames": 7440,
+    "independent_quality_videos": 96,
+    "independent_quality_positions": 288
+  },
+  "manifest_sha256": "46b731e16e958a92ccb2574aa731db12d823697377ddf1cf9a07a0af251d34c6",
+  "host_preference": [
+    "four_card",
+    "two_card"
+  ],
+  "quotes": {
+    "four_card": {
+      "host": "four_card",
+      "compute_capability": [
+        8,
+        9
+      ],
+      "basis": "Accepted Ada COST112 exact S25 roles; unmeasured Native26/Shared25 use conservative PG_ALL_D mean, no A6000 speed transfer",
+      "arm_seconds": {
+        "NATIVE35": 298.4505488628056,
+        "NATIVE26": 298.4505488628056,
+        "S25_C": 235.9577125874348,
+        "S25_A_PHASE": 236.98129762918688,
+        "SHARED25_C": 298.4505488628056,
+        "SHARED25_A_PHASE_AGE3": 298.4505488628056
+      },
+      "components": {
+        "all128_generation_GPUh": 9.88846289354176,
+        "startup_allowance_GPUh": 0.5,
+        "artifact_save_release_GPUh": 0.35
+      },
+      "uncertainty_margin": 0.15,
+      "forecast_GPUh": 12.349232327573024,
+      "planning_subpool_GPUh": 12,
+      "proposed_limit_GPUh": 12,
+      "forecast_fits_subpool": false,
+      "limit_approved": false,
+      "GPU_dispatch_authorized": false
+    },
+    "two_card": {
+      "host": "two_card",
+      "compute_capability": [
+        8,
+        6
+      ],
+      "basis": "Accepted A6000 CAL66 same six-role complete request means; no new DEV timing used",
+      "arm_seconds": {
+        "NATIVE35": 314.260374635458,
+        "NATIVE26": 253.49980689934455,
+        "S25_C": 247.3176264781505,
+        "S25_A_PHASE": 248.8778699359391,
+        "SHARED25_C": 246.851957147941,
+        "SHARED25_A_PHASE_AGE3": 248.6682779516559
+      },
+      "components": {
+        "all128_generation_GPUh": 9.252807362722686,
+        "startup_allowance_GPUh": 0.5,
+        "artifact_save_release_GPUh": 0.35
+      },
+      "uncertainty_margin": 0.15,
+      "forecast_GPUh": 11.618228467131088,
+      "planning_subpool_GPUh": 12,
+      "proposed_limit_GPUh": 12,
+      "forecast_fits_subpool": true,
+      "limit_approved": false,
+      "GPU_dispatch_authorized": false
+    }
+  },
+  "cumulative_cap_GPUh": 226,
+  "deployment_budget": {
+    "cumulative_GPUh": 226,
+    "absolute_seconds": 257.7712338712067,
+    "relative_native": 0.8
+  },
+  "ledger_snapshot": {
+    "used": 161.39662063362806,
+    "reserved": 16.5,
+    "available": 48.10337936637194
+  },
+  "post_release_CPU": {
+    "cpus": 2,
+    "memory_GiB": 8,
+    "wall_limit_hours": 10,
+    "LPIPS_pairs": 80,
+    "quality_positions": 288,
+    "forecast_hours": 8.564486974358973,
+    "forecast_basis": "Prior conservative CAL66 52-video throughput scaled to96, unchanged model/93frames; GPU released before scoring"
+  },
+  "GPU_submissions": 0,
+  "ledger_written": false
+}
