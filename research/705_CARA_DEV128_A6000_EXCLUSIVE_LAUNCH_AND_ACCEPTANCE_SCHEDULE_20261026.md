@@ -51,3 +51,13 @@
 - [reports/cara_DEV128_CPU_transfer_cancelled_before_stage_20261026.json](../reports/cara_DEV128_CPU_transfer_cancelled_before_stage_20261026.json)
 
 13:45技术补充：[原件](../reports/cara_DEV128_A6000_technical_followup_20261026.json)确认首条路径RUNNING、0失败，222独占样本无违规、最大间隔2.362秒，跨盘遥测新鲜度1.397秒；不读取部分科学结果。
+
+## GMSD并发协调：采集阶段继续等待
+
+依据冻结执行源码，96条QUALITY路径同样提供完整请求时钟，不只有24条重复路径计时；计时包括方法安装、guarded pipeline、视频写入及清理。EXCLUSIVE_PROCESS只隔离本GPU上下文，不隔离主机CPU、内存带宽和I/O。固定顺序没有外部作业的暂停/窗口握手，因此不能把warm、两路径之间或诊断间隙承诺为安全加载窗口。
+
+GMSD线程报告主机MemAvailable约30.5GiB、其T5构造转换瞬时模型张量约23.12GiB，原准入门槛40GiB；这些数值仅归因于对方报告，本轮未重新测量。近期PSI为0与另一张GPU空闲均不能证明新增加载不会影响本卡或满足原40GiB门槛。
+
+协调结论：CARA采集计时期间，GMSD保持等待，不新增T5加载和标签任务；不暂停或改变CARA。原GPU子进程退出、账单形成并本地结算、锁释放后，才可重新评估非计时阶段并发。届时仍须fresh满足GMSD原40GiB准入，保留CARA评分8GiB/2CPU资源与系统余量，读取实际post子进程CPU affinity以免重叠，并核验共享内存/IO可承受；不能只靠绑核或单次快照保证没有干扰。不能确认则等CPU评分结束。GPU释放后评分不再测推理延迟，但有10小时上限，不能忽略评分资源。
+
+本条只记录本任务的协调条件，不新增GMSD授权、不降低任何门槛、不修改运行stage，也不主动跨对话发消息。原始机器记录：[协调原件](../reports/cara_DEV128_GMSD_shared_host_coordination_20261026.json)。

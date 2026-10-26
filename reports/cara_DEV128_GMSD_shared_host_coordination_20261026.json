@@ -1,0 +1,59 @@
+{
+  "status": "WAIT_FOR_CARA_GPU_COLLECTION_RELEASE_THEN_FRESH_ADMISSION_REVIEW",
+  "observed_unix": 1792994757.04351,
+  "evidence_kind": "FROZEN_SOURCE_REVIEW_AND_ATTRIBUTED_INCOMING_RESOURCE_REPORT",
+  "launch_ref": "reports/cara_DEV128_A6000_GPU_actual_launch_20261026.json",
+  "launch_id": "61587bb0-0e0d-4379-973b-d5502158fcd2",
+  "source_revision": "f273eefceef4fe88ab75edc74eaf714081126550",
+  "incoming_report": {
+    "source_thread_id": "01a0f8c7-2f9c-7372-87e3-bd77f830f9f2",
+    "independently_remeasured_here": false,
+    "reported_CARA_container_GiB": 22.29,
+    "reported_MemAvailable_GiB": 30.5,
+    "reported_recent_memory_PSI": 0,
+    "reported_GMSD_existing_admission_GiB": 40,
+    "reported_T5_transient_model_tensor_GiB": 23.12
+  },
+  "confirmed_source_facts": {
+    "complete_request_timing_includes": [
+      "method_install",
+      "guarded_pipeline_without_write",
+      "video_write",
+      "method_cleanup"
+    ],
+    "quality_paths_also_supply_measured_clocks": true,
+    "collection_fixed_order_without_external_window_handshake": true,
+    "per_GPU_EXCLUSIVE_PROCESS_is_not_shared_CPU_memory_IO_isolation": true,
+    "post_CPU_only_after_original_GPU_child_exit_bill_settlement_and_lease_release": true,
+    "post_CPU_affinity_max_cores": 2,
+    "post_CPU_address_space_GiB": 8,
+    "post_CPU_wall_limit_hours": 10
+  },
+  "decision": {
+    "during_CARA_collection": "Do not schedule the new GMSD T5 load or label job on this shared host; retain the current wait. No modification or suspension of CARA.",
+    "reason": "Reported free memory is below the existing GMSD 40 GiB gate; CPU, memory-bandwidth and I/O competition can affect the full-request clocks even on another GPU. No registered inter-path or warmup window can safely contain an asynchronously loaded T5 job.",
+    "after_CARA_GPU_release": "Only a fresh admission review becomes possible. This record is not an unconditional start authorization and does not change GMSD policy.",
+    "required_observations_before_reconsideration": [
+      "Original CARA GPU child exited; billing and local ledger settled; original GPU lock released; no inference request will resume",
+      "Fresh MemAvailable passes the unchanged GMSD 40 GiB gate while preserving CARA post-score 8 GiB envelope and host headroom",
+      "Read actual CARA post-child CPU affinity; any GMSD CPU placement must not overlap those CPUs; keep existing CPU/memory/I/O limits and verify shared-host resource feasibility",
+      "If only snapshots or core affinity exist without a reliable bound on shared memory/IO impact, wait for CARA CPU scoring to finish"
+    ],
+    "CPU_post_does_not_remeasure_inference_latency": true,
+    "CPU_post_still_has_10h_deadline_and_memory_IO_needs": true,
+    "no_new_GPU_authority_or_budget": true
+  },
+  "actions": {
+    "remote_commands": 0,
+    "weight_loads": 0,
+    "GPU_submissions": 0,
+    "running_stage_changes": 0,
+    "cross_thread_messages": 0
+  },
+  "source_bindings": {
+    "scripts/wc_cara_dev128_worker_r1.py": "2612723fcb8eb8c81b4855149632d3b95ed84806c945e489a349dca471848308",
+    "scripts/run_cara_dev128_r1.py": "0248aa1c48041a04388572d9e44e1641f6053d9f19e60748c47617f76f239d48",
+    "src/wcomr/policy_generator_r1/dev128_collection.py": "093db59ba175f98590feede1ac0ae2d20f1171bb8662753e89d359f064b3badd",
+    "src/wcomr/policy_generator_r1/production_sampling.py": "793a1d35381d10af45ea9b74845448a67a0cc4fdd07799fb6a044758b5f9cb48"
+  }
+}
