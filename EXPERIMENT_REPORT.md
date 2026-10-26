@@ -79,7 +79,7 @@ LPIPS百分比以同批场景均值之比计算；视频帧不当独立样本；
 
 ## 接下来
 
-[创新量增益探索R1](plans/cara_innovation_gain_20261027/README.md)已完成双端CPU复核与一次两卡真实工程尝试。原B1在首条观测路径的两状态实测约8分钟/状态，瓶颈是反复GPU到CPU的全状态哈希；为避免超过1.5GPUh阶段上限已停止，实际0.582724GPUh结算并保留原件。R2仅优化隔离审计结构，本地逐点原适配器对照通过，双端CPU与新的独立执行卡待完成。无方法效果结论，DEV128保持原样。见[714](research/714_CARA_IG_B1_HASH_OVERHEAD_AND_GROUPED_REPAIR_20261027.md)。
+[创新量增益探索R1](plans/cara_innovation_gain_20261027/README.md)的分组审计R2已通过两卡/四卡各12项CPU检查，并在两卡GPU0独占启动。唯一句柄`f1510940-8681-439d-9e92-77171eac5369`，同4父路径/12状态/108附加重放，1.5GPUh阶段上限。原工程尝试0.582724GPUh已结算，计入同一7GPUh；无方法效果结论，DEV128保持原样。见[715](research/715_CARA_IG_GROUPED_R2_DUAL_HOST_AND_A6000_LAUNCH_20261027.md)及[原失败714](research/714_CARA_IG_B1_HASH_OVERHEAD_AND_GROUPED_REPAIR_20261027.md)。
 
 | 顺序 | 当前阶段 | 下一项验收 / 动作 |
 |---|---|---|
