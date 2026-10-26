@@ -65,6 +65,7 @@ assert sha(s/'registration.json')==L['registration_sha256'];reg=json.loads((s/'r
 container=json.loads(subprocess.run(['docker','inspect',L['container']],capture_output=True,text=True,check=True).stdout)[0]
 p=s/'analysis.json'
 v=dict(status='B1_SAVED_CPU_ANALYSIS_CAPTURE',observed_unix=time.time(),launch=L,
+ original_B1_result_sha256=reg['original_B1_result_sha256'],original_B1_billing_sha256=reg['original_B1_billing_sha256'],
  source_hashes_equal=all(sha(s/n)==h for n,h in reg['payload_sha256'].items()),
  container_state=container['State'],device_requests=container['HostConfig']['DeviceRequests'],
  result=json.loads(p.read_text()) if p.exists() else None,result_sha256=sha(p) if p.exists() else None,

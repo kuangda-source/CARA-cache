@@ -104,16 +104,78 @@ def main():
     p = argparse.ArgumentParser()
     for key in ('capture', 'settlement', 'prior', 'output'):
         p.add_argument('--' + key, type=Path, required=True)
+    p.add_argument('--saved-capture', type=Path)
     a = p.parse_args()
     assert not a.output.exists()
     inputs = {key: getattr(a, key) for key in ('capture', 'settlement', 'prior')}
     result = analyze(**{k: json.loads(path.read_text()) for k, path in inputs.items()})
+    if a.saved_capture:
+        saved = json.loads(a.saved_capture.read_text())
+        terminal = json.loads(a.capture.read_text())
+        result['saved_diagnostics'] = integrate_saved(result, terminal, saved)
+        inputs['saved_capture'] = a.saved_capture
     result['evidence'] = {k: dict(path=str(path), sha256=hashlib.sha256(path.read_bytes()).hexdigest())
                           for k, path in inputs.items()}
     with a.output.open('x') as f:
         json.dump(result, f, indent=2, allow_nan=False)
         f.write('\n')
     print(result['status'])
+
+
+def integrate_saved(analysis, terminal, saved):
+    assert saved['container_state']['Status'] == 'exited' and saved['container_state']['ExitCode'] == 0
+    assert saved['source_hashes_equal'] and not saved['device_requests']
+    for key, name in [('result', 'B1-results.json'), ('billing', 'billing')]:
+        assert saved['original_B1_' + key + '_sha256'] == terminal['files'][name]['sha256']
+    value = saved['result']
+    assert value['status'] == 'B1_COMPLETE_SAVED_CPU_DIAGNOSTICS_NOT_VIDEO' and not value['cuda_initialized']
+    rows = value['rows']
+    base = terminal['files']['B1-results.json']['value']
+    prompts, steps = base['calibration']['expected_prompts'], base['calibration']['expected_steps']
+    assert len(rows) == 12 and {(r['prompt'], r['step']) for r in rows} == set(itertools.product(prompts, steps))
+    labels = ('WC_C', 'A_PHASE', 'FULL', 'R4_GLOBAL', 'R4_LONG', 'DCTA')
+    summaries = {}
+    for label in labels:
+        supported = all(r['original_readout_summary'][label]['status'] == 'SUPPORTED' for r in rows)
+        summaries[label] = dict(complete_supported=supported, by_prompt={})
+        if supported:
+            for prompt in prompts:
+                means = {k:math.fsum(r['original_readout_summary'][label][k] for r in rows
+                                    if r['prompt'] == prompt) / 6 for k in ('MSE', 'gradient_residual_MSE')}
+                summaries[label]['by_prompt'][prompt] = means
+            summaries[label]['mean_MSE'] = math.fsum(summaries[label]['by_prompt'][p]['MSE'] for p in prompts) / 2
+    valid = [l for l in labels if summaries[l]['complete_supported']]
+    assert valid
+    best = min(valid, key=lambda l:(summaries[l]['mean_MSE'], l))
+    holdout = {}
+    for prompt in prompts:
+        train = next(p for p in prompts if p != prompt)
+        chosen = min(valid, key=lambda l:(summaries[l]['by_prompt'][train]['MSE'], l))
+        baseline = summaries[chosen]['by_prompt'][prompt]['MSE']
+        holdout[prompt] = dict(training_prompt=train, selected_readout=chosen, held_out_baseline_MSE=baseline,
+            candidate_improvements_percent={role:100 * (1 - analysis['summary']['LOPO']['by_prompt'][prompt][role]['actual_guided_MSE']/baseline)
+                                            if baseline > 0 else None for role in ('IG_SCALAR', 'IG_BAND')})
+    discrepancies = []
+    moments = {(r['prompt'], r['step']):r['moments'] for r in rows}
+    for replay in base['replays']:
+        if replay['kind'] == 'ENDPOINT':continue
+        m = moments[(replay['prompt'], replay['step'])]
+        x,y = replay['gains'];z = (x,y,x*y)
+        predicted = m['c'] + math.fsum(z[i]*m['G'][i][j]*z[j] for i in range(3) for j in range(3)) - 2*math.fsum(m['b'][i]*z[i] for i in range(3))
+        discrepancies.append(dict(prompt=replay['prompt'],step=replay['step'],kind=replay['kind'],role=replay['role'],
+            surrogate_error_MSE=predicted,actual_error_MSE=replay['actual_guided_MSE'],
+            error_MSE_difference=replay['actual_guided_MSE']-predicted))
+    return dict(original_readouts=summaries,
+        all_data_best_fixed_readout_descriptive_only=best,train_prompt_selected_baseline_LOPO=holdout,
+        fitted_surrogate_error_discrepancies=discrepancies,
+        discrepancy_is_not_output_MSE=True,
+        midpoint_mean_bilinear_output_error_MSE=math.fsum(r['moments']['midpoint_bilinear_error_MSE'] for r in rows)/12,
+        midpoint_mean_teacher_error_MSE=math.fsum(r['moments']['midpoint_actual_error_MSE'] for r in rows)/12,
+        pooled_raw_oracle=value['pooled_raw_oracle'],
+        original_parity_states=value['original_parity_states'],
+        all_available_original_parity_equal=value['all_available_original_parity_equal'],
+        fitted_gain_detail_error_available=False,
+        scientific_detail_claim=False)
 
 
 if __name__ == '__main__':
