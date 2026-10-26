@@ -65,6 +65,10 @@ def names():
   for n in list(ns):
    if not n.endswith('.py'):continue
    for node in ast.walk(ast.parse((ROOT/n).read_text())):
+    if isinstance(node,ast.ImportFrom) and node.module and node.level==0:
+     for folder in ('scripts','tests'):
+      imported=Path(folder)/(node.module.replace('.', '/')+'.py')
+      if (ROOT/imported).is_file():ns.add(str(imported))
     if isinstance(node,ast.Constant) and isinstance(node.value,str) and re.fullmatch(r'[a-z_][a-z0-9_]*(?:\.py)?',node.value):
      sibling=Path(n).parent/(node.value if node.value.endswith('.py') else node.value+'.py')
      if (ROOT/sibling).is_file():ns.add(str(sibling))
