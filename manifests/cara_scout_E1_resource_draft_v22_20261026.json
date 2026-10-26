@@ -1,0 +1,91 @@
+{
+  "status": "DRAFT_RESOURCE_ACCOUNTING_NOT_WHOLE_QUOTE_NOT_AUTHORIZED",
+  "observed_unix": 1793013629.992651,
+  "scope": {
+    "CAL": 2,
+    "states_per_CAL": 6,
+    "logical_candidates": 6,
+    "parent_mask": "SHARED25_C",
+    "minimum_parent_requests": 2,
+    "proposed_parent_noninterference_controls": 2,
+    "controls_scope_frozen": false,
+    "same_state_teacher_pairs": 12,
+    "candidate_head_pairs_current_implementation": 132,
+    "candidate_head_calls": 264,
+    "teacher_replay_and_native_head_control_counts_pending": true
+  },
+  "source_bindings": {
+    "src/wcomr/scout_readout_v22.py": "57bcf8507d2be2c6d67ea80b0cad163200ac15dcb67a69a5d4cdfbf247a55be0",
+    "plans/cara_predictor_refresh_scout_v2_20261026/E1_STATE_METADATA_V22.json": "1d2b9dffa5f1fabc2317dbf7990cd8f211a822acf5239ee1d6bc1a8a65dfc4f2"
+  },
+  "feature_storage_scenario": {
+    "illustrative_hidden_shape": [
+      1,
+      24,
+      27,
+      48,
+      2048
+    ],
+    "actual_shape_hook_verified": false,
+    "dtype": "float32",
+    "bytes_per_tensor": 254803968,
+    "unique_anchor_steps_per_prompt": [
+      20,
+      21,
+      24,
+      27,
+      30
+    ],
+    "anchor_p_r_tensors_per_prompt": 20,
+    "current_o_p_teacher_hidden_tensors_per_prompt": 36,
+    "hidden_tensor_bytes_total_two_prompts": 28538044416,
+    "hidden_GiB_total": 26.578125,
+    "output_velocity_solver_condition_log_bytes_not_included": true,
+    "provisional_output_volume_GiB": 64,
+    "volume_not_provisioned": true,
+    "copy_cap_not_equal_peak_VRAM": true
+  },
+  "historical_A6000_request_reference": {
+    "source": "reports/cara_CAL66_A6000_terminal_20261026_0930.json",
+    "Shared25_C_mean_seconds": 246.851957147941,
+    "Native35_mean_seconds": 314.260374635458,
+    "two_parent_seconds": 493.703914295882,
+    "four_parent_with_controls_seconds": 987.407828591764,
+    "excludes_model_load_copy_hash_save_teacher_candidate_readouts_scoring_teardown": true
+  },
+  "hosts": {
+    "four_card_SM89_default": {
+      "scientific_scope_shared": true,
+      "source_bound_local_small_tensor_CPU": true,
+      "actual_host_affected_path_CPU_accepted": false,
+      "actual_peak_VRAM_accepted": false,
+      "forecast_GPUh": null,
+      "hard_limit_GPUh": null,
+      "dispatch_authorized": false
+    },
+    "two_card_SM86_fallback": {
+      "scientific_scope_shared": true,
+      "source_bound_local_small_tensor_CPU": true,
+      "actual_host_affected_path_CPU_accepted": false,
+      "actual_peak_VRAM_accepted": false,
+      "forecast_GPUh": null,
+      "hard_limit_GPUh": null,
+      "dispatch_authorized": false
+    }
+  },
+  "missing_for_whole_quote": [
+    "complete parent/control/warm/teacher/replay physical matrix",
+    "actual feature dimensions and serialized saved-state definition",
+    "load/teacher/readout/transfer/hash/write/warm/cleanup timing bounds per host",
+    "actual baseline plus incremental peak memory bound",
+    "complete CPU/lifecycle acceptance and fresh central ledger"
+  ],
+  "budget": {
+    "cumulative_cap_GPUh": 226,
+    "final_absolute_seconds": 257.7712338712067,
+    "fresh_Native_ratio": 0.8,
+    "new_reserved_GPUh": 0,
+    "old_E1_1GPUh_target_is_not_quote": true,
+    "DEV128_reservation_unchanged": true
+  }
+}
