@@ -4,11 +4,11 @@
 
 论文主线：**CFG对齐读出修正 → 数据驱动计算时机 → 冻结自动程序的实际质量—时间收益**。已有机制结果放在前面，自动生成器的最终数值由后续真实验证填入。
 
-**CAL66已在两卡A6000 GPU1硬独占运行。**
+**CAL66完整接受，Shared25-C通过CAL筛查并冻结。**
 
-10月26日03:04实际半程技术收件54/66完成、1运行0失败；原4句柄和GPU1独占锁正常，6469监测样本无违规、最大间隔3.287秒，独立卷与跨盘日志正常。仍符合03:50–04:20采集、09:30完整检查的技术预测。半程一次检查已删除，未分析部分结果。
+CAL66完整66路径、48组LPIPS/156质量评分已接受，实际4.776208 GPUh已中央结算。Shared25-C相对较强S25-A的LPIPS改善15.34%且4/4同向，246.852秒/V0.98188，三项质量筛查通过，冻结为新DEV主候选。原GPU/容器/锁释放、模式恢复；四个A候选未过相对Native的MUSIQ界。当前仅CAL证据，新DEV未启动。
 
-[证据1](../research/701_CARA_CAL66_A6000_MIGRATION_AND_EXECUTION_20261025.md) · [证据2](../reports/cara_CAL66_A6000_GPU_actual_launch_20261025.json) · [证据3](../reports/cara_CAL66_A6000_technical_admission_20261025.json) · [证据4](../reports/cara_CAL66_A6000_CPU_accepted_r3_20261025.json) · [证据5](../reports/cara_CAL66_A6000_central_admission_confirmed_20261025.json) · [证据6](../reports/cara_CAL66_A6000_technical_progress_20261026_022914.json) · [证据7](../reports/cara_CAL66_A6000_progress_capture_20261026_0230.json) · [证据8](../reports/cara_CAL66_A6000_progress_pace_20261026_0231.json) · [证据9](../reports/cara_CAL66_A6000_halfway_20261026_030425.json) · [证据10](../reports/cara_CAL66_A6000_halfway_technical_20261026_030425.json)
+[证据1](../research/701_CARA_CAL66_A6000_MIGRATION_AND_EXECUTION_20261025.md) · [证据2](../reports/cara_CAL66_A6000_GPU_actual_launch_20261025.json) · [证据3](../reports/cara_CAL66_A6000_technical_admission_20261025.json) · [证据4](../reports/cara_CAL66_A6000_CPU_accepted_r3_20261025.json) · [证据5](../reports/cara_CAL66_A6000_central_admission_confirmed_20261025.json) · [证据6](../reports/cara_CAL66_A6000_technical_progress_20261026_022914.json) · [证据7](../reports/cara_CAL66_A6000_progress_capture_20261026_0230.json) · [证据8](../reports/cara_CAL66_A6000_progress_pace_20261026_0231.json) · [证据9](../reports/cara_CAL66_A6000_halfway_20261026_030425.json) · [证据10](../reports/cara_CAL66_A6000_halfway_technical_20261026_030425.json) · [证据11](../reports/cara_CAL66_A6000_terminal_20261026_0930.json) · [证据12](../reports/cara_CAL66_A6000_terminal_accepted_20261026_0930.json) · [证据13](../reports/cara_CAL66_A6000_central_settlement_20261026_0933.json) · [证据14](../reports/cara_CAL66_A6000_complete_analysis_20261026.json) · [证据15](../manifests/cara_CAL66_selected_CAL_candidate_r1_20261026.json) · [证据16](../research/702_CARA_CAL66_A6000_COMPLETE_RESULTS_AND_FROZEN_SHARED25_C_20261026.md)
 
 | 需要的材料 | 入口 |
 |---|---|

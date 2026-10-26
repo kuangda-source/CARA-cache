@@ -23,7 +23,7 @@
     "X": "closed or explicitly deferred; not in the active queue"
   },
   "status_counts": {
-    "CAL66_A6000_EXCLUSIVE_RUNNING": 2,
+    "CAL66_A6000_COMPLETE_ACCEPTED_SHARED25_C_FROZEN": 2,
     "CLAIM_AND_EVIDENCE_WRITING_PROTOCOL_READY": 1,
     "CONDITIONAL_DISABLED_PRESELECT_SUBSET_BEFORE_R4A": 1,
     "CONDITIONAL_OTHER_WINDOWS_NOT_RUNTIME_VALIDATED": 1,
@@ -5431,7 +5431,7 @@
     },
     {
       "id": "PG-P1",
-      "state": "CAL66_A6000_EXCLUSIVE_RUNNING",
+      "state": "CAL66_A6000_COMPLETE_ACCEPTED_SHARED25_C_FROZEN",
       "paper_experiment_name": "One measured budget, Q<=8 and one CAL_SELECT freeze",
       "internal_ids": [
         "PG-P1"
@@ -5495,7 +5495,7 @@
       "theory_review_ref": "research/624_WC_REPRODUCIBLE_POLICY_GENERATOR_THEORY_VALIDITY_AND_EVIDENCE_20261021.md",
       "reader": {
         "title": "单预算自动策略闭环",
-        "status": "CAL66已在两卡A6000 GPU1硬独占运行",
+        "status": "CAL66完整接受，Shared25-C通过CAL筛查并冻结",
         "result": "原件与财务完整接受；实际2.557833 GPUh。64登记位置中执行30路径、16评分、4候选查询；未选出满足冻结预算的策略，PG-P2尚不准入。",
         "next_action": "保留旧失败与费用；纯计时及GRAPH102暂缓，推进CAL66设计。",
         "evidence_refs": [
@@ -6079,7 +6079,7 @@
     },
     {
       "id": "PG-SHARED-CAL66",
-      "state": "CAL66_A6000_EXCLUSIVE_RUNNING",
+      "state": "CAL66_A6000_COMPLETE_ACCEPTED_SHARED25_C_FROZEN",
       "paper_experiment_name": "Transition refresh placement and controlled correction at24/25D",
       "internal_ids": [
         "cara-shared-cal66-design-r1"
@@ -6096,29 +6096,45 @@
         "reports/cara_CAL66_combination_CPU_accepted_r3_20261025.json",
         "reports/cara_CAL66_quality_models_CPU_accepted_r1_20261025.json",
         "reports/cara_CAL66_complete_CPU_preparation_and_quote_20261025.json",
-        "reports/cara_CAL66_quality_video_CPU_accepted_r1_20261025.json"
+        "reports/cara_CAL66_quality_video_CPU_accepted_r1_20261025.json",
+        "research/701_CARA_CAL66_A6000_MIGRATION_AND_EXECUTION_20261025.md",
+        "reports/cara_CAL66_A6000_GPU_actual_launch_20261025.json",
+        "reports/cara_CAL66_A6000_technical_admission_20261025.json",
+        "reports/cara_CAL66_A6000_CPU_accepted_r3_20261025.json",
+        "reports/cara_CAL66_A6000_central_admission_confirmed_20261025.json",
+        "reports/cara_CAL66_A6000_technical_progress_20261026_022914.json",
+        "reports/cara_CAL66_A6000_progress_capture_20261026_0230.json",
+        "reports/cara_CAL66_A6000_progress_pace_20261026_0231.json",
+        "reports/cara_CAL66_A6000_halfway_20261026_030425.json",
+        "reports/cara_CAL66_A6000_halfway_technical_20261026_030425.json",
+        "reports/cara_CAL66_A6000_terminal_20261026_0930.json",
+        "reports/cara_CAL66_A6000_terminal_accepted_20261026_0930.json",
+        "reports/cara_CAL66_A6000_central_settlement_20261026_0933.json",
+        "reports/cara_CAL66_A6000_complete_analysis_20261026.json",
+        "manifests/cara_CAL66_selected_CAL_candidate_r1_20261026.json",
+        "research/702_CARA_CAL66_A6000_COMPLETE_RESULTS_AND_FROZEN_SHARED25_C_20261026.md"
       ],
       "method_mapping_ids": [],
       "contribution_ids": [
         "C1",
         "C2"
       ],
-      "claim_relation": "DESIGN_NOT_SCIENTIFIC_RESULT",
+      "claim_relation": "COMPLETE_CAL_SCREENING_NOT_HELDOUT_OR_FINAL_DEPLOYMENT",
       "paper_placement": "CAL机制筛查与主工作点选择",
       "dependencies": [
         "PG-SHARED-CAL106",
         "PG-P1-ASSETS"
       ],
       "production_CPU_accepted": true,
-      "full_protocol_accepted": false,
+      "full_protocol_accepted": true,
       "GPU_dispatch_ready": false,
-      "new_GPU_submissions": 0,
-      "evidence_or_planned_scope": "10月26日03:04实际半程技术收件54/66完成、1运行0失败；原4句柄和GPU1独占锁正常，6469监测样本无违规、最大间隔3.287秒，独立卷与跨盘日志正常。仍符合03:50–04:20采集、09:30完整检查的技术预测。半程一次检查已删除，未分析部分结果。",
+      "new_GPU_submissions": 1,
+      "evidence_or_planned_scope": "CAL66完整66路径、48组LPIPS/156质量评分已接受，实际4.776208 GPUh已中央结算。Shared25-C相对较强S25-A的LPIPS改善15.34%且4/4同向，246.852秒/V0.98188，三项质量筛查通过，冻结为新DEV主候选。原GPU/容器/锁释放、模式恢复；四个A候选未过相对Native的MUSIQ界。当前仅CAL证据，新DEV未启动。",
       "reader": {
         "title": "CAL66：刷新位置、原phase修正与尾部停用",
-        "status": "CAL66已在两卡A6000 GPU1硬独占运行",
-        "result": "10月26日03:04实际半程技术收件54/66完成、1运行0失败；原4句柄和GPU1独占锁正常，6469监测样本无违规、最大间隔3.287秒，独立卷与跨盘日志正常。仍符合03:50–04:20采集、09:30完整检查的技术预测。半程一次检查已删除，未分析部分结果。",
-        "next_action": "沿唯一A6000 launch于09:30完整收件，GPU释放后评分及中央结算；仍评分则复用终态检查调整时间。完整接受后按冻结合同分析，不重派。",
+        "status": "CAL66完整接受，Shared25-C通过CAL筛查并冻结",
+        "result": "CAL66完整66路径、48组LPIPS/156质量评分已接受，实际4.776208 GPUh已中央结算。Shared25-C相对较强S25-A的LPIPS改善15.34%且4/4同向，246.852秒/V0.98188，三项质量筛查通过，冻结为新DEV主候选。原GPU/容器/锁释放、模式恢复；四个A候选未过相对Native的MUSIQ界。当前仅CAL证据，新DEV未启动。",
+        "next_action": "准备冻结16新DEV的双主机增量曝光核查、六角色128路径完整报价和必要CPU验收；新GPU执行需具体授权，保持累计226和最终部署预算。",
         "evidence_refs": [
           "research/694_CARA_CAL66_REDESIGN_MASK_IDENTIFIABILITY_AND_QUOTE_20261025.md",
           "plans/cara_policy_generator_20261020/CAL66_DESIGN_AND_DECISION_CONTRACT_R1_20261025.md",
@@ -6154,13 +6170,21 @@
           "reports/cara_CAL66_A6000_progress_capture_20261026_0230.json",
           "reports/cara_CAL66_A6000_progress_pace_20261026_0231.json",
           "reports/cara_CAL66_A6000_halfway_20261026_030425.json",
-          "reports/cara_CAL66_A6000_halfway_technical_20261026_030425.json"
+          "reports/cara_CAL66_A6000_halfway_technical_20261026_030425.json",
+          "reports/cara_CAL66_A6000_terminal_20261026_0930.json",
+          "reports/cara_CAL66_A6000_terminal_accepted_20261026_0930.json",
+          "reports/cara_CAL66_A6000_central_settlement_20261026_0933.json",
+          "reports/cara_CAL66_A6000_complete_analysis_20261026.json",
+          "manifests/cara_CAL66_selected_CAL_candidate_r1_20261026.json",
+          "research/702_CARA_CAL66_A6000_COMPLETE_RESULTS_AND_FROZEN_SHARED25_C_20261026.md"
         ]
       },
       "full_GPU_lifecycle_CPU_accepted": true,
       "quality_models_CPU_accepted": true,
       "complete_CPU_preparation_accepted": true,
-      "quality_video_CPU_accepted": true
+      "quality_video_CPU_accepted": true,
+      "actual_GPUh": 4.7762075363177185,
+      "selected_CAL_role": "SHARED25_C"
     }
   ],
   "source_refs": {
@@ -12084,38 +12108,38 @@
     },
     "AGENTS.md": {
       "path": "AGENTS.md",
-      "sha256": "ec60338915ce751218689cb0647179449b38760ea2c4bdc535c87367d98a4f4a",
-      "bytes": 6994
+      "sha256": "e3e06eecaa2b267768784435ee72e7df272a7b289e1b047d526815ea02c22d0f",
+      "bytes": 7130
     },
     "EXPERIMENT_REPORT.md": {
       "path": "EXPERIMENT_REPORT.md",
-      "sha256": "33ef06ba15eaafaf620c9de9fac89b12395614c3f091be3e3ffe97b9203ee524",
-      "bytes": 7856
+      "sha256": "96c4d7091c1e6f6a6236b56599bb538b6634c9453dd6f169d3b7fd54b703a973",
+      "bytes": 8885
     },
     "memory/handoffs/LATEST.md": {
       "path": "memory/handoffs/LATEST.md",
-      "sha256": "6b9c0881e6112f239844658c505a893df0bf1549d47f1d201a88e889195dd866",
-      "bytes": 5997
+      "sha256": "123f7b12bf8e60fdf6165817b56a10b9e57e1f6ef29a033a9bffbbe11b2e1b2e",
+      "bytes": 6433
     },
     "research/02_CURRENT_STATE.md": {
       "path": "research/02_CURRENT_STATE.md",
-      "sha256": "ea32c6e81e20e782087cac0ee90c264e0b46dfe2188334a7c089975e40905b14",
-      "bytes": 5898
+      "sha256": "b4b0cc0a61334b664da23276251cba8f6021118d7e6be8a6344d31b0235c180b",
+      "bytes": 6620
     },
     "research/09_NEXT_ACTIONS.md": {
       "path": "research/09_NEXT_ACTIONS.md",
-      "sha256": "9041668d017a4bc9c6379533a079d33608d8d00e6805e8c880f39f59dddefd1d",
-      "bytes": 4127
+      "sha256": "f02f61181e1dd2a3778e81cdb5ef9ebba8d83fb54e2eb3b773599e3559eec98f",
+      "bytes": 4672
     },
     "paper/EXPERIMENT_MASTER_TABLE.md": {
       "path": "paper/EXPERIMENT_MASTER_TABLE.md",
-      "sha256": "c213588b1c600e18aa70d440c4acd3c74cac540ee0ee5744157354eff72aa639",
-      "bytes": 41087
+      "sha256": "2941b62616b9c70e932c7e79c4d81be09ba407155427dbaa8a709c23ca96e731",
+      "bytes": 42192
     },
     "paper/INTERNAL_TO_PAPER_MAPPING.md": {
       "path": "paper/INTERNAL_TO_PAPER_MAPPING.md",
-      "sha256": "9c6435d767744b774e1645ca92116e60a7bbed508df908f87712962feca50f4e",
-      "bytes": 9900
+      "sha256": "9b0c6de7fc619241810ba98e6fde32aa23724df19859ce8f320803952181eb37",
+      "bytes": 9897
     },
     "research/615_WC_FOUR_CARD_DATA_DISK_WORKSPACE_AND_ENVIRONMENT_PREPARATION_20261020.md": {
       "path": "research/615_WC_FOUR_CARD_DATA_DISK_WORKSPACE_AND_ENVIRONMENT_PREPARATION_20261020.md",
@@ -14078,12 +14102,10 @@
   },
   "operation_policy": {
     "current_status_ref": "docs/project_status.json",
-    "current_running_card": "PG-SHARED-CAL66",
-    "current_running_cards": [
-      "PG-SHARED-CAL66"
-    ],
-    "snapshot_observed_at": 1792955069.2617536,
-    "active_launch_ref": "reports/cara_CAL66_A6000_GPU_actual_launch_20261025.json",
+    "current_running_card": null,
+    "current_running_cards": [],
+    "snapshot_observed_at": 1792978200.005338,
+    "active_launch_ref": null,
     "execution_site": "four-card RTX 6000 Ada server; private authorized connection",
     "do_not_resume_two_card": true,
     "no_replay_on_unknown": true,
@@ -14091,7 +14113,7 @@
     "historical_operation_policy_ref": "docs/archive/20261022_before_navigation/paper/experiment_master_table.json"
   },
   "mapping_sha256_at_inventory": "88b3d760a0c94c20b6c802e21f30c7286d6e596cc9b3f3100e7ee6feaa3938f3",
-  "latest_mapping_sha256": "257c0214ee6f5ecf9ed977898e048b895f010ae3873ebeb5989b4b72bae9de4d",
+  "latest_mapping_sha256": "f154e4d1f7a7a0efad985b5e5b53d3dcbf8fb1e5c4063331607fca0973059cde",
   "revision_plan": {
     "registry_ref": "plans/cara_v6_20261020/TASK_REGISTRY_V6.yaml",
     "report_ref": "research/610_WC_CARA_V6_REVIEW_CLOSURE_PLAN_INTERVAL_SPEC_AND_FIRST_DEV_SCOPE_20261020.md",

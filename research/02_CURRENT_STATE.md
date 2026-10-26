@@ -2,35 +2,36 @@
 
 # CARA-Cache 当前状态
 
-**CAL66已在两卡A6000 GPU1硬独占运行。**
+**CAL66完整接受，Shared25-C通过CAL筛查并冻结。**
 
-10月26日03:04实际半程技术收件54/66完成、1运行0失败；原4句柄和GPU1独占锁正常，6469监测样本无违规、最大间隔3.287秒，独立卷与跨盘日志正常。仍符合03:50–04:20采集、09:30完整检查的技术预测。半程一次检查已删除，未分析部分结果。
+CAL66完整66路径、48组LPIPS/156质量评分已接受，实际4.776208 GPUh已中央结算。Shared25-C相对较强S25-A的LPIPS改善15.34%且4/4同向，246.852秒/V0.98188，三项质量筛查通过，冻结为新DEV主候选。原GPU/容器/锁释放、模式恢复；四个A候选未过相对Native的MUSIQ界。当前仅CAL证据，新DEV未启动。
 
-[证据1](701_CARA_CAL66_A6000_MIGRATION_AND_EXECUTION_20261025.md) · [证据2](../reports/cara_CAL66_A6000_GPU_actual_launch_20261025.json) · [证据3](../reports/cara_CAL66_A6000_technical_admission_20261025.json) · [证据4](../reports/cara_CAL66_A6000_CPU_accepted_r3_20261025.json) · [证据5](../reports/cara_CAL66_A6000_central_admission_confirmed_20261025.json) · [证据6](../reports/cara_CAL66_A6000_technical_progress_20261026_022914.json) · [证据7](../reports/cara_CAL66_A6000_progress_capture_20261026_0230.json) · [证据8](../reports/cara_CAL66_A6000_progress_pace_20261026_0231.json) · [证据9](../reports/cara_CAL66_A6000_halfway_20261026_030425.json) · [证据10](../reports/cara_CAL66_A6000_halfway_technical_20261026_030425.json)
+[证据1](701_CARA_CAL66_A6000_MIGRATION_AND_EXECUTION_20261025.md) · [证据2](../reports/cara_CAL66_A6000_GPU_actual_launch_20261025.json) · [证据3](../reports/cara_CAL66_A6000_technical_admission_20261025.json) · [证据4](../reports/cara_CAL66_A6000_CPU_accepted_r3_20261025.json) · [证据5](../reports/cara_CAL66_A6000_central_admission_confirmed_20261025.json) · [证据6](../reports/cara_CAL66_A6000_technical_progress_20261026_022914.json) · [证据7](../reports/cara_CAL66_A6000_progress_capture_20261026_0230.json) · [证据8](../reports/cara_CAL66_A6000_progress_pace_20261026_0231.json) · [证据9](../reports/cara_CAL66_A6000_halfway_20261026_030425.json) · [证据10](../reports/cara_CAL66_A6000_halfway_technical_20261026_030425.json) · [证据11](../reports/cara_CAL66_A6000_terminal_20261026_0930.json) · [证据12](../reports/cara_CAL66_A6000_terminal_accepted_20261026_0930.json) · [证据13](../reports/cara_CAL66_A6000_central_settlement_20261026_0933.json) · [证据14](../reports/cara_CAL66_A6000_complete_analysis_20261026.json) · [证据15](../manifests/cara_CAL66_selected_CAL_candidate_r1_20261026.json) · [证据16](702_CARA_CAL66_A6000_COMPLETE_RESULTS_AND_FROZEN_SHARED25_C_20261026.md)
 
 | 字段 | 两卡迁移状态 |
 |---|---|
-| 范围 | 52正式+6重复+6warm+2桥接；2296pairs/4592CFG，单load |
-| GPU | GPU1 A6000真实Exclusive_Process，唯一runner3755108/UID1004 |
-| 运行 | 54/66完成，1运行0失败；原4句柄存活，UUID锁持有，无错误行 |
-| CPU | 迁移实际冻结参数、采样链、60终态及监督/存储、真实三模型93帧检查接受 |
-| 预算 | 预计7.767292，上限8；中央used156.620413/reserved24.5/available44.879587，含旧16.5未知责任 |
-| 存储 | 独立卷约30.73GiB可用，跨盘日志采样年龄1.36秒；StorageGuard正常 |
-| 半程 | 10月26日03:04实际收件通过技术检查，一次半程自动化已删除；不代表完整接受 |
-| 采集/验收预测 | 10月26日03:50–04:20采集；原4.715486h评分预测08:35–09:05，09:30最终检查；6h评分上限不变 |
+| 范围 | 66完整/52正式/48组LPIPS4464帧/156独立质量，单load |
+| 终态 | 03:52:58 GPU释放；06:23:09容器退出0；09:30实际完整收件 |
+| 独占/存储 | 7786样本接受、最大间隔3.320秒；锁释放、Default已恢复、跨盘原件一致 |
+| 费用 | 本卡4.776207536318 GPUh；中央已用161.396620633628/旧未知预留16.5/可用48.103379366372/上限226 |
+| 筛查 | Shared25-C，LPIPS0.062206；相对S25-A改善15.34%，4/4；原质量界通过 |
+| 时钟 | 246.852秒/Native314.260秒；V0.98188；CAL描述性区间不替代部署验收 |
+| 下一步 | 冻结一个25D/C工作点；双端准备新DEV六角色128路径，未授权启动 |
 
 ## 当前研究判断
 
-CAL66检验过渡段刷新位置、同布局phase修正与尾部A34/35停用。当前24/25/26D能量、传播先验与模板同掩码；构造规则增量留给可辨识的第二设置。只冻结一个主工作点进入新DEV，累计与最终部署预算不变。
+CAL66完整结果支持刷新位置的CAL收益：Shared24/25-C相对同配额S-C的LPIPS下降20.68%/25.84%，均4/4改善。按原质量与双预算规则冻结Shared25-C，较强S25-A参考改善15.34%；含A候选因MUSIQ界未被选为主方法。能量/传播先验/模板同掩码，自动规则增量和新输入泛化仍待独立验证。
 
 | 顺序 | 当前阶段 | 下一项验收 / 动作 |
 |---|---|---|
-| PG-SHARED-CAL66 | CAL66：刷新位置、原phase修正与尾部停用：CAL66已在两卡A6000 GPU1硬独占运行 | 沿唯一A6000 launch于09:30完整收件，GPU释放后评分及中央结算；仍评分则复用终态检查调整时间。完整接受后按冻结合同分析，不重派。 |
+| PG-SHARED-CAL66 | CAL66：刷新位置、原phase修正与尾部停用：CAL66完整接受，Shared25-C通过CAL筛查并冻结 | 准备冻结16新DEV的双主机增量曝光核查、六角色128路径完整报价和必要CPU验收；新GPU执行需具体授权，保持累计226和最终部署预算。 |
 | PG-P2 | 等预算与等查询强基线：五原模型CPU可复用；P2整卡绑定及完整五指标视频评分待确认 | Shared探索后冻结一个方法/预算档；新输入增量核查，少步Native与独立质量共同确认。 |
 | PG-P3 | 固定程序跨预算/模型：条件性后续 | P1/P2后先0.70×Native，再成熟第二模型或明确第二设置重新校准。 |
 | PG-P4 | 最终独立TEST与部署评价：待方法冻结 | 冻结方法、对手、预算、选择规则后再选新TEST；计入warm与全流程成本。 |
 
 ## 本轮已完成与尚缺
+
+- [702完整结果](702_CARA_CAL66_A6000_COMPLETE_RESULTS_AND_FROZEN_SHARED25_C_20261026.md)：66/48/156完整接受，4.776208 GPUh已中央结算，Shared25-C按原CAL规则冻结；下一步是双端新DEV准备，未启动GPU。
 
 - CAL66独立登记66路径：52正式、6反序重复、6warm、2历史桥接；新增Shared-all对照隔离A34/35停用效应，原α及历史强布局身份不变。
 - 24/25/26D的完整能量、仅传播先验、简单模板同掩码；本轮检验位置价值，构造规则增量留给换步数设置，不重复生成别名。

@@ -705,6 +705,20 @@ def build():
         active66['reader'].update(status=status['active_state_zh'],result=migration['summary'],next_action=migration['next_action'])
         active66['evidence_or_planned_scope']=migration['summary']
         active66['reader']['evidence_refs']=list(dict.fromkeys(active66['reader']['evidence_refs']+migration['evidence_refs']))
+        if migration.get('terminal_acceptance_ref'):
+            accepted=load(migration['terminal_acceptance_ref'])
+            settlement=load(migration['central_settlement_ref'])
+            analysis=load(migration['analysis_ref'])
+            if not accepted['full_protocol_accepted'] or accepted['launch_id']!=launch['launch_id']:
+                raise ValueError('A6000 terminal acceptance must bind the original launch')
+            if settlement['original']['launch']!=launch or settlement['original']['billing']['actual_GPUh']!=accepted['actual_GPUh']:
+                raise ValueError('A6000 central settlement must match the accepted bill')
+            if analysis['launch_id']!=launch['launch_id'] or analysis['deployment_accepted']:
+                raise ValueError('CAL screening is not deployment acceptance')
+            active66.update(full_protocol_accepted=True, actual_GPUh=accepted['actual_GPUh'],
+                claim_relation='COMPLETE_CAL_SCREENING_NOT_HELDOUT_OR_FINAL_DEPLOYMENT',
+                selected_CAL_role=analysis['selected_role'], new_GPU_submissions=1,
+                evidence_refs=list(dict.fromkeys(active66['evidence_refs']+migration['evidence_refs'])))
         current=migration.get('launch_ref') if migration.get('GPU_running') else None
         master['operation_policy'].update(current_running_card='PG-SHARED-CAL66' if current else None,current_running_cards=['PG-SHARED-CAL66'] if current else [],active_launch_ref=current,snapshot_observed_at=migration['observed_unix'])
         master['status_counts']={state:sum(r['state']==state for r in rows) for state in sorted({r['state'] for r in rows})}
