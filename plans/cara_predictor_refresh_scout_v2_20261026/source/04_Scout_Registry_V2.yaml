@@ -1,0 +1,106 @@
+version: CARA_PREDICTOR_REFRESH_SCOUT_V2
+created_date: '2026-10-26'
+status: DESIGN_ONLY_NOT_GPU_AUTHORIZATION
+mainline:
+  preserve: [DEV128, original_alpha, original_deployment_budget, original_quality_contract]
+  use_partial_dev128_results_for_design: false
+  closed_branches_remain_closed: [F_B, online_probe_gate, asymmetric_refresh, frequency_split, legacy_GRAPH]
+provenance:
+  old_plan: 01_Research_Assessment.md
+  new_plan: 01_Research_Assessment_and_Plan_V2.md
+  dicache_paper: https://arxiv.org/html/2508.17356v2
+  dicache_official_repo: https://github.com/Bujiazi/DiCache
+  dicache_commit: null
+  cal66_quality_contract_ref: null
+  cal66_quality_contract_hash: null
+  latest_ledger_ref: null
+  fields_null_are_not_passes: true
+coordinates:
+  primary: normalized_actual_sigma_monotone_in_update_order
+  formula: '(sigma_start - sigma_t) / (sigma_start - sigma_end)'
+  sensitivity_only: monotone_log_sigma_on_positive_common_domain
+  select_coordinate_after_outcomes: false
+  denominator_guard: inherit_and_freeze_before_outputs
+  uncertainty_note: No independent sparse-H evidence can be inferred from adjacent-anchor-only statistics.
+E0:
+  new_generator_calls: 0
+  allowed:
+    - inventory_actual_assets
+    - adjacent_anchor_guided_quadratic_statistics
+    - old_video_native_relative_gradient_error
+    - one_prefixed_blur_C_diagnostic
+    - bind_quality_contract_and_ledger
+  cannot_recover:
+    - branch_feature_vectors_from_scalar_moments
+    - arbitrary_sparse_history
+    - new_predictor_outputs_without_needed_features
+E1:
+  old_prompts: 2
+  states_per_prompt: 6
+  expected_states: 12
+  seed_rule: frozen_existing_seed
+  state_selection: deterministic_by_identity_and_legal_phase_span_coverage_before_new_errors
+  parent_policy: frozen_real_sparse_policy_verified_before_collection
+  outputs_in_order:
+    - native_and_cache_conversion_path_checks
+    - direction_amplitude_and_exact_gain
+    - actual_guided_five_predictor_errors_and_cost
+  predictors: [WC_C, A_PHASE, FULL_RESIDUAL_SECANT, DEEP_REMAINDER_SECANT, DCTA_FIXED_MASK_PORT]
+  preserve_both_cfg_branches: true
+  teacher_writes_to_parent: false
+  predictions_written_as_true_anchor: false
+  state_isolation: restore_solver_cache_rng_between_counterfactuals
+  stream_export: true
+  duplicate_d_storage: false
+  estimated_gpu_hours_target: 1.0
+  complete_quote_required: true
+  suggested_pre_output_screen:
+    minimum_wins_against_A_and_FULL: 8
+    expected_denominator: 12
+    improvement_above_numerical_noise: true
+    require_each_prompt_positive: true
+    aggregate_relative_gain_resource_target: 0.05
+    statistical_significance_claim: false
+    require_actual_guided_outputs_not_only_raw: true
+    DCTA_cost_quality_dominance_stops_new_candidate: true
+    cosine_d_must_exceed_cosine_r: false
+    missingness_may_be_silently_dropped: false
+    final_gate_must_be_frozen_before_output_read: true
+E2:
+  maximum_layouts: 2
+  frozen_predictors: 2
+  old_prompts: 4
+  seeds_per_prompt: 1
+  maximum_formal_outputs: 16
+  identical_layouts_deduplicated: true
+  extra_RA_card_automatic: false
+  RA_fixed_mask_may_be_one_preregistered_layout: true
+  estimated_gpu_hours_target_range: [2.0, 3.0]
+  main_reports: [per_prompt_effects, each_layout_effect, full_request_time, independent_quality, worst_case]
+  interaction_Gamma_is_descriptive: true
+  local_teacher_mse_is_video_quality: false
+quality:
+  contract: inherit_exact_CAL66_contract_and_user_current_constraints
+  MUSIQ_threshold: null
+  MUSIQ_baseline: null
+  aggregation_and_missingness: null
+  before_gpu_quote_bind_from_original_records: true
+  missing_values_do_not_block_read_only_analysis: true
+  no_new_threshold_after_candidate_results: true
+budget:
+  historical_cumulative_cap_GPUh: 226
+  user_estimated_post_DEV128_available_GPUh: 36
+  estimated_available_is_live_verified: false
+  suggested_envelopes_GPUh:
+    entire_small_scout: 4
+    new_input_confirmation: 12
+    possible_second_backbone: 10
+    residual_settlement_and_failure_margin: 10
+  no_actual_reservation_created: true
+  protect_existing_unknown_liabilities: true
+stop_rules:
+  - stop_specific_candidate_when_correct_actual_readout_lacks_usable_quality_cost_space
+  - stop_if_complete_quality_contract_fails_do_not_relax_after_results
+  - stop_predictor_specific_scheduling_when_masks_same_but_allow_readout_only_validation
+  - allow_one_identified_engineering_repair_not_unbounded_scientific_complexity
+  - keep_uncertain_or_missing_evidence_distinct_from_proven_no_value

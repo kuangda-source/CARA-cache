@@ -33,12 +33,17 @@
 - 新纯计时卡与GRAPH102暂缓；原P1/104/112/1624/价格卡均已结束，不重跑或重新结算。未知只恢复原句柄，不盲重派。
 - 四卡私有入口、真实硬独占、磁盘保护、跨盘日志、完整分母、实际费用和来源SHA保障保留；不改忙卡模式、不触碰他人进程、不重启旧两卡实验；新卡只能使用已验隔离双端环境。
 
+## 新增后续计划：预测器—刷新探索 V2
+
+已查收[外部V2原件](../../plans/cara_predictor_refresh_scout_v2_20261026/source/01_Research_Assessment_and_Plan_V2.md)，仓库执行口径见[接续计划](../../plans/cara_predictor_refresh_scout_v2_20261026/README.md)和[绑定登记表](../../plans/cara_predictor_refresh_scout_v2_20261026/SCOUT_REGISTRY_BOUND_V2.yaml)。原manifest四项SHA通过，见[706](../../research/706_CARA_PREDICTOR_REFRESH_SCOUT_V2_PLAN_INTAKE_20261026.md)。
+
+主线DEV128及原自动检查不变。旁路顺序：E0已有资产/坐标/DCTA/质量绑定 → E1同状态五读出、路径与方向幅度诊断 → 条件E2固定布局或2×2 → 独立新输入确认/迁移。原锐度诊断已做；新增分析尚未执行。8/12、5%是待冻结建议，1/2–3/4GPUh仅规划，不是完整报价或新GPU授权。E2的16是机制正式输出上限，不含warm、缺失Native、额外强基线和评分，须完整报价。
+
+质量原门已绑定（MUSIQ 1、主体/运动各0.01，相对S参考及Native），新E2角色映射/支持域/CPU仍待完成。保存的中央准入账目可用36.103379GPUh已扣DEV128 12h预约，不是结算后余额；实际派发前再核账。默认四卡、两端兼容、累计226及最终部署预算保持，不复活GRAPH/在线门控或读部分DEV结果。
+
 | 顺序 | 当前阶段 | 下一项验收 / 动作 |
 |---|---|---|
 | PG-SHARED-DEV128 | Shared25-C：16新DEV、六角色128路径：Shared25-C新DEV128已在两卡A6000独占启动 | 按原launch半程与终态收件；释放GPU后完成80LPIPS/288质量评分，中央原账单结算后独立完整接受。不得重派、看部分结果调参或自动追加GPU。 |
-| PG-P2 | 等预算与等查询强基线：五原模型CPU可复用；P2整卡绑定及完整五指标视频评分待确认 | Shared探索后冻结一个方法/预算档；新输入增量核查，少步Native与独立质量共同确认。 |
-| PG-P3 | 固定程序跨预算/模型：条件性后续 | P1/P2后先0.70×Native，再成熟第二模型或明确第二设置重新校准。 |
-| PG-P4 | 最终独立TEST与部署评价：待方法冻结 | 冻结方法、对手、预算、选择规则后再选新TEST；计入warm与全流程成本。 |
 
 [当前状态](../../research/02_CURRENT_STATE.md) · [后续顺序](../../research/09_NEXT_ACTIONS.md) · [实验总表](../../paper/EXPERIMENT_MASTER_TABLE.md)
 

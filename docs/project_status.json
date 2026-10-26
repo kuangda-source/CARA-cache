@@ -75,10 +75,7 @@
     }
   ],
   "next_sequence": [
-    "PG-SHARED-DEV128",
-    "PG-P2",
-    "PG-P3",
-    "PG-P4"
+    "PG-SHARED-DEV128"
   ],
   "history_snapshot_ref": "docs/archive/20261022_before_navigation/manifest.json",
   "master_ref": "paper/experiment_master_table.json",
@@ -830,5 +827,33 @@
     ],
     "shared_host_coordination_ref": "reports/cara_DEV128_GMSD_shared_host_coordination_20261026.json",
     "shared_host_coordination_status": "WAIT_FOR_CARA_GPU_COLLECTION_RELEASE_THEN_FRESH_ADMISSION_REVIEW"
+  },
+  "predictor_refresh_scout_V2": {
+    "status": "PLAN_INTEGRATED_E0_PENDING_NO_GPU",
+    "updated_at": "2026-10-26T17:35:21.216283+08:00",
+    "plan_ref": "plans/cara_predictor_refresh_scout_v2_20261026/README.md",
+    "registry_ref": "plans/cara_predictor_refresh_scout_v2_20261026/SCOUT_REGISTRY_BOUND_V2.yaml",
+    "intake_ref": "reports/cara_predictor_refresh_scout_v2_intake_20261026.json",
+    "source_manifest_ref": "plans/cara_predictor_refresh_scout_v2_20261026/source/MANIFEST.json",
+    "next_action": "复用旧CAL诊断，先完成E0资产/坐标/DCTA/质量绑定，再冻结E1范围与双端完整报价；不读取DEV128部分结果。",
+    "GPU_authorized": false,
+    "GPU_submissions": 0,
+    "budget_reserved_GPUh": 0,
+    "production_CPU_accepted": false,
+    "whole_quote_accepted": false,
+    "sequence": [
+      "E0_NO_NEW_GENERATION",
+      "E1_CONDITIONAL_FEATURE_SCOUT",
+      "E2_CONDITIONAL_READOUT_OR_2X2",
+      "NEW_INPUT_CONFIRMATION",
+      "CONDITIONAL_TRANSFER"
+    ],
+    "previous_next_sequence": [
+      "PG-SHARED-DEV128",
+      "PG-P2",
+      "PG-P3",
+      "PG-P4"
+    ],
+    "mainline_unchanged": true
   }
 }

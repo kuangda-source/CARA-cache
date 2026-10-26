@@ -98,5 +98,7 @@ CPU验证可以并入同一流水线，不必为它另建实验卡、长文档�
 ## 8. 当前权限
 
 - CAL66已迁至两卡GPU1并于10月26日完整接受，唯一历史launch为`5d262751-5d8d-4c61-9081-96d816b9d581`。以[701启动原件](../research/701_CARA_CAL66_A6000_MIGRATION_AND_EXECUTION_20261025.md)为准，原Ada等待入口不得再启动；66路径、8GPUh、累计226及最终部署预算不变。
-- 双服务器流程/模板更新本身新增GPU提交、预约均为0。CAL66已完整退出并结算4.776207536318 GPUh，半程和终态检查已删除；见[702](../research/702_CARA_CAL66_A6000_COMPLETE_RESULTS_AND_FROZEN_SHARED25_C_20261026.md)。新DEV只准备，不自动启动。
+- 双服务器流程/模板更新本身新增GPU提交、预约均为0。CAL66已完整退出并结算4.776207536318 GPUh，半程和终态检查已删除；见[702](../research/702_CARA_CAL66_A6000_COMPLETE_RESULTS_AND_FROZEN_SHARED25_C_20261026.md)。此句原属CAL66完成快照；其后DEV128已另获用户明确授权并单次启动，见[705](../research/705_CARA_DEV128_A6000_EXCLUSIVE_LAUNCH_AND_ACCEPTANCE_SCHEDULE_20261026.md)，不得重派。
 - 探索卡通用自主启动额度未批准；未来新卡沿用已有明确授权范围，超出时提交具体范围与报价。双端准备和默认选机不授予额外实验、重跑或预算权限。
+
+后续预测器探索已按用户要求接收[V2计划](../plans/cara_predictor_refresh_scout_v2_20261026/README.md)，E0/E1/E2均不增加通用GPU权限；正式范围、双端报价和受影响真实CPU接受仍须绑定。

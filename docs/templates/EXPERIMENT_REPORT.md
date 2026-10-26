@@ -39,6 +39,8 @@ LPIPS百分比以同批场景均值之比计算；视频帧不当独立样本；
 
 ## 接下来
 
+后续探索已更新为[预测器—刷新V2接续计划](repo:plans/cara_predictor_refresh_scout_v2_20261026/README.md)：先E0已有资产，再有条件E1五读出与E2闭环；仅计划整合，尚无新CPU接受、完整报价或GPU授权，DEV128原合同保持。见[706接收记录](repo:research/706_CARA_PREDICTOR_REFRESH_SCOUT_V2_PLAN_INTAKE_20261026.md)。
+
 {{queue}}
 
 ## 历史与复核
