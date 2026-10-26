@@ -12,6 +12,9 @@ needle="reg=dict(namespace='CARA_SHARED25_DEV128_CPU_R1'"
 insert="""prior=pathlib.Path(p['prior_launch']['stage']);prior_reg=read(prior/'registration.json')
 assert sha(prior/'registration.json')==p['prior_launch']['registration_sha256']
 proof=prior/'DEV128-CPU.json';assert sha(proof)==p['prior_acceptance']['proof_sha256']
+for metadata in ('CPU-reuse-binding.json','CPU-reuse-entry.json','CPU-reuse-combination.json'):
+ assert sha(prior/metadata)==prior_reg['payload_sha256'][metadata]
+ shutil.copyfile(prior/metadata,stage/metadata);names.add(metadata)
 con=json.loads(subprocess.check_output(['docker','inspect',p['prior_launch']['container']]))[0]
 assert not con['State']['Running'] and con['State']['ExitCode']==0 and not con['HostConfig']['DeviceRequests']
 for name,src in [('prior-production-proof.json',proof),('prior-runner.py.txt',prior/'scripts/run_cara_dev128_r1.py')]:
