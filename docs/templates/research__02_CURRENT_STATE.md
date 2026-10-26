@@ -8,7 +8,7 @@
 
 {{research_summary}}
 
-[创新量增益探索R1](repo:plans/cara_innovation_gain_20261027/README.md)已建立同一科学源码的两卡A6000/四卡Ada配置，两端各8项单元检查、8条采集CPU路径和20条自由运行CPU路径通过，含原生冻结请求与保存后端点重放。仅为CPU实现/兼容证据；真实权重B1、完整报价、GPU生命周期准入及条件B2尚未完成。用户要求先验证再决定并入主线，DEV128保持原样。见[712](repo:research/712_CARA_IG_DUAL_HOST_CPU_AND_PENDING_MODEL_VALIDATION_20261027.md)。
+[创新量增益探索R1](repo:plans/cara_innovation_gain_20261027/README.md)的两卡A6000/四卡Ada同源CPU复核通过，每端9项检查及新增B1整卡拟合/实际重放控制通过。B1已在两卡GPU0独占启动，唯一句柄`82bec7e7-c131-412a-b5e5-3e2069609ff9`，阶段上限1.5GPUh属于全轮7GPUh内。真实模型已加载并进入父路径采集，尚无科学结果；DEV128的CPU评分及其中央责任保持原样。见[713](repo:research/713_CARA_IG_B1_EXCLUSIVE_A6000_LAUNCH_20261027.md)。
 
 {{queue}}
 
