@@ -21,7 +21,7 @@
 
 CAL66完整结果支持刷新位置的CAL收益：Shared24/25-C相对同配额S-C的LPIPS下降20.68%/25.84%，均4/4改善。按原质量与双预算规则冻结Shared25-C，较强S25-A参考改善15.34%；含A候选因MUSIQ界未被选为主方法。能量/传播先验/模板同掩码，自动规则增量和新输入泛化仍待独立验证。
 
-后续探索已更新为[预测器—刷新V2接续计划](../plans/cara_predictor_refresh_scout_v2_20261026/README.md)：先E0已有资产，再有条件E1五读出与E2闭环；仅计划整合，尚无新CPU接受、完整报价或GPU授权，DEV128原合同保持。见[706接收记录](706_CARA_PREDICTOR_REFRESH_SCOUT_V2_PLAN_INTAKE_20261026.md)。
+后续探索已增量登记为[E1 V2.2](../plans/cara_predictor_refresh_scout_v2_20261026/E1_V22_AMENDMENT_AND_FREEZE_CHECKLIST.md)：global/long双路线、全队列固定基线分母、先E2-R后条件E2-I。仅掩码/保存网格元数据已核对，真实CPU、精确门槛和完整报价待办；原V2与DEV128不变。见[707](707_CARA_SCOUT_V22_STRATIFIED_READOUT_PLAN_20261026.md)。
 
 | 顺序 | 当前阶段 | 下一项验收 / 动作 |
 |---|---|---|

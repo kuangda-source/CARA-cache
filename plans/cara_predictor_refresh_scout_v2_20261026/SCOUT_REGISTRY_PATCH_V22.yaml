@@ -1,0 +1,285 @@
+version: CARA_PREDICTOR_REFRESH_SCOUT_V2_2
+status: DESIGN_AMENDMENT_REGISTERED_FULL_PREFLIGHT_FREEZE_PENDING
+created_at: '2026-10-26T18:12:35.317581+08:00'
+source: user-supplied V2.2 message 2026-10-26; this is a repository interpretation,
+  not a verbatim source attachment
+inherits:
+  path: plans/cara_predictor_refresh_scout_v2_20261026/SCOUT_REGISTRY_BOUND_V2.yaml
+  sha256: d35afddd9361f5a1510e15f7deec93f2dfdcd0a33e7787812e2a455f715ac8c9
+override_rule: V2.2 fields replace corresponding future scout design fields only;
+  all omitted V2 protections remain; no change to completed or active cards
+authorization:
+  new_GPU_dispatch: false
+  new_reservation_GPUh: 0
+  new_generation_calls: 0
+  server_actions_this_update: 0
+mainline:
+  preserve:
+  - DEV128
+  - original_alpha
+  - original_deployment_budget
+  - original_quality_contract
+  use_partial_dev128_results_for_design: false
+  closed_branches_remain_closed:
+  - F_B
+  - online_probe_gate
+  - asymmetric_refresh
+  - frequency_split
+  - legacy_GRAPH
+quality_inherited_sources:
+- path: plans/cara_policy_generator_20261020/CAL66_DESIGN_AND_DECISION_CONTRACT_R1_20261025.md
+  sha256: 1d5e44f1d4fe5dffe73a94c3d97305c15bc3755d90182768757b56d8aae1c462
+- path: scripts/analyze_cara_cal66_complete_r1.py
+  sha256: 009d7dfc0a74cbc11dfdd14de15a7e2469e34a891d5f18a90df4c60d45784834
+- path: src/wcomr/policy_generator_r1/shared66_quality.py
+  sha256: 6a76121cfdd6f8f8873afc81e7f1f4d6212a8718ae3750ef14968b981aa0d0e9
+- path: src/wcomr/policy_generator_r1/p2_quality_entry.py
+  sha256: e2aa375e3f6d1674757c091f39d88bd0d21312b9f308603f1c955f62f6b16e92
+- path: src/wcomr/automatic_quality_r1.py
+  sha256: 2a8c00004e77747fa15e8a74a399d6d27ac8643cd2266dbbc2ca260078f66cd5
+- path: reports/cara_CAL66_A6000_terminal_accepted_20261026_0930.json
+  sha256: bd379f2c4b40fc557eabfe9edba442aaf1765c7e4a6d383da08478073f68336a
+- path: reports/cara_CAL66_A6000_complete_analysis_20261026.json
+  sha256: f641e2ed9ff06557cd3a5e3cc465fb582c43f928a71ad319521cf5cba42b25d0
+parent_and_states:
+  path: plans/cara_predictor_refresh_scout_v2_20261026/E1_STATE_METADATA_V22.json
+  sha256: 1d2b9dffa5f1fabc2317dbf7990cd8f211a822acf5239ee1d6bc1a8a65dfc4f2
+E0_status_correction:
+  completed:
+  - CAL66 sharpness and MUSIQ original-frame diagnostics
+  pending:
+  - Native-relative gradient error
+  - one fixed light-blur C explanation control
+  - actual old tensor inventory
+  - DCTA official commit/code audit
+  do_not_claim_pending_work_completed: true
+coordinates:
+  primary: xi=(sigma_start-sigma_t)/(sigma_start-sigma_end)
+  h: abs(xi_t-xi_b)
+  H: abs(xi_b-xi_older)
+  H_must_be_positive: true
+  strata_use_integer_age_not_numeric_h: true
+  sensitivity: one preregistered log-sigma coordinate on positive common domain only
+  main_sigma_metadata_bound: true
+  production_hook_mapping_accepted: false
+  no_coordinate_selection_after_outcomes: true
+E1:
+  causal_identity: C-policy-state same-state counterfactual readout evaluation; not
+    candidate own-trajectory rollout
+  parent_policy_fingerprint: 008d9fa12c7aad67e40440533a6e552147d79b82e44afebd8df55954f47b6e60
+  planned_prompt_count: 2
+  planned_states_per_prompt: 6
+  raw_predictor_families: 5
+  logical_candidates:
+  - WC_C
+  - A_PHASE
+  - FULL
+  - R4_GLOBAL
+  - R4_LONG
+  - DCTA
+  A_reference:
+    role: SHARED25_A_PHASE_ALL
+    fingerprint: 5be522418a1a9a3b17b7928f79520521d8925a4c3bbaa7effaa7b61561c61a52
+    scope_ref:
+      path: manifests/cara_shared_CAL66_scope_quote_r1_20261025.json
+      sha256: b992b6824b9780bc7360748069dfa692f97444f5fb162e5f3de9bf01383267de
+    not_DEV128_age3_role: true
+    alpha: target<25:1; target>=25:0.5; beta=1
+  R4_global: DEEP_REMAINDER_SECANT at every verified supported point; unsupported
+    points explicit diagnostic/incomplete, not silently deleted
+  R4_long: R4 when integer age>=3 and verified support; otherwise exact original A_PHASE
+    fallback with no changed anchor/RNG/solver
+  common_history: true
+  teacher_is_scoring_oracle_only: true
+  teacher_writes_to_parent: false
+  cross_candidate_state_pollution_allowed: false
+  strata:
+    short: h_age<=2
+    long: h_age>=3
+    phase:
+    - step<25
+    - step>=25
+    expected_long_points: 6
+    minimum_supported_points_for_any_stratum_signal: 4
+    required_prompts_per_stratum: 2
+    crossed_stratum_significance_claim: false
+    early_long_cells: structurally absent
+  support:
+    planned_support_fixed_before_outputs: true
+    same_paired_support_all_methods: true
+    missing_states_retained_in_registered_denominator: true
+    partial_available_statistics: descriptive only; missing required cells mean evidence_incomplete,
+      never promotion by dropping failures
+    external_RA_parent: only separate-distribution diagnosis with complete compatible
+      state and separately preregistered scope; not included now
+  metric: actual transformed guided-output MSE, not raw hidden error
+  aggregation:
+    q_j: equal mean across 2 prompts of within-prompt mean on the same preregistered
+      paired states
+    baseline_set:
+    - WC_C
+    - A_PHASE
+    - FULL
+    - DCTA
+    strong_fixed_baseline: argmin q_b over whole frozen queue; fixed tie order WC_C,A_PHASE,FULL,DCTA
+    gain: 1-q_R4/q_bstar
+    zero_denominator: undefined, no epsilon-made improvement or promotion
+    prompt_oracle: descriptive upper bound only, never main denominator
+    long_queue: same formula restricted to preregistered long states; select one global
+      fixed baseline for this queue, not one per prompt
+  screen:
+    resource_gain_target: 0.05
+    R4_global:
+      wins_vs_both_A_and_FULL: 8
+      planned_denominator: 12
+      gain_vs_strong_fixed_baseline_required: true
+      both_prompt_aggregate_positive: true
+    R4_long:
+      wins_vs_long_strong_fixed_baseline: 4
+      planned_long_denominator: 6
+      both_prompt_long_aggregate_nonworse: true
+      gain_vs_long_strong_fixed_baseline_required: true
+      full_queue_composite_and_short_A_equality_required: true
+      global_8_of_12_cannot_veto: true
+    numerical_noise_threshold: null
+    cost_and_peak_memory_feasibility_limit: null
+    worst_state_limit_if_any: null
+    DCTA_dominance: same support and registered error/cost/memory/tail metrics; exact
+      near-tie tolerances pending before E1 outputs
+    scientific_significance_claim: false
+    screen_fully_executable: false
+  j0: WC_C fixed mechanism reference; distinct from bstar denominator
+  j1_rule: eligible R4_GLOBAL/R4_LONG only; choose lowest q on common full 12-state
+    queue; exact q tie uses R4_LONG then R4_GLOBAL; preregistered cost/memory gate
+    must also pass; no prompt-wise winner
+  j1_tie_order:
+  - R4_LONG
+  - R4_GLOBAL
+  j1_frozen: false
+  DCTA_is_new_CARA_component: false
+  diagnostics:
+    primary_field: guided velocity
+    secondary_native_x0: only if production parameterization and mapping verified;
+      no generic guessed conversion
+    gradient: fixed spatial finite difference, same tensor layout/boundary convention
+      for all six candidates; exact convention pending
+    metrics:
+    - mean(abs(grad(vhat-vD))^2)
+    - norm(grad(vhat))^2/(norm(grad(vD))^2+epsilon)
+    epsilon: null
+    FFT: optional later preregistered fixed-bandwidth offline sensitivity only; not
+      enabled by this patch
+    quality_hard_veto: false
+    online_frequency_branch_enabled: false
+    costs_counted: true
+E2:
+  R:
+    status: CONDITIONAL_ON_E1
+    layout_proposal: SHARED25
+    roles:
+    - WC_C
+    - A_PHASE
+    - DCTA
+    - FROZEN_R4
+    prompts: 4
+    seed: 0
+    formal_outputs: 16
+    purpose: readout benefit on fixed layout
+  I:
+    status: CONDITIONAL_ON_E2_R
+    layout_proposals:
+    - S25
+    - SHARED25
+    predictors:
+    - WC_C
+    - FROZEN_R4
+    prompts: 4
+    seed: 0
+    formal_outputs: 16
+    purpose: development evidence of layout-dependent predictor effect
+    automatically_generated_planner_claim: false
+    Gamma_alone_passes: false
+  combined_count:
+    without_reuse: 32
+    shared_role_slots_if_identical_full_execution: 8
+    with_exact_reuse: 24
+    counts_exclude:
+    - warm
+    - fresh Native
+    - additional strong S-A reference
+    - timing repeats
+    - diagnostics
+    - post-release quality scoring
+    example_extra_refs_if_all_missing:
+      Native35: 4
+      S25_A_PHASE: 4
+      mechanism_plus_these_refs: 32
+    this_is_not_final_card_quote: true
+    cross_hardware_timing_reuse: false
+  execution_identity_dedupe: model/weights,prompt/preprocess,seed,solver/grid,mask,alpha/beta,head/readout/precision/runtime,host
+    and timing protocol; frozen method before phase R; no reranking or modifying it
+    in phase I
+  baseline_obligation: WC_C and original A/DCTA remain direct readout controls; CAL66
+    S reference and Native quality comparisons must be explicitly covered
+  decision_boundary: staged stopping must be frozen with complete maximum denominator
+    and fees before dispatch
+  joint_planning_future_gate: new preregistered error-cost rule must generate distinct
+    masks and pass independent video tests; 12 state table cannot score all 36 steps
+  quality: original MUSIQ_LONGER512 1 point, subject 0.01, motion 0.01 relative to
+    S reference and full Native, same preprocessing/aggregation; MOS is not a substitute
+  full_quote_ready: false
+  CPU_accepted: false
+budget:
+  cap_GPUh: 226
+  deployment_absolute_seconds: 257.7712338712067
+  deployment_fresh_native_ratio: 0.8
+  snapshot:
+    receipt:
+      path: reports/cara_DEV128_A6000_central_admission_20261026.json
+      sha256: 0d5212b3b54bf79c1d6e13c79030bfb289e3ac58afc02bbdbe176d46073cbdc0
+    observed_unix: 1792993086.5852575
+    totals:
+      used_gpu_hours: 161.39662063362806
+      reserved_gpu_hours: 28.5
+      available_gpu_hours: 36.10337936637194
+      gpu_jobs_launched: 119
+    reserved_breakdown_GPUh:
+      old_unknown: 16.5
+      DEV128: 12.0
+    post_DEV128_available_formula: 48.10337936637194 - actual_DEV128_GPUh, assuming
+      no other ledger change
+    fresh_read_required_before_quote_or_dispatch: true
+  original_targets_only:
+    E1: 1
+    E2:
+    - 2
+    - 3
+    combined: 4
+  re_quote_both_hosts_required: true
+  E2_old_16_path_bound_superseded_for_new_design: true
+  do_not_charge_DEV128_reservation_twice: true
+  confirmation_12_and_transfer_10_are_conditional_envelopes: true
+server_preparation:
+  required_hosts:
+  - four_card
+  - two_card
+  default: four_card
+  common_science_manifest: true
+  single_dispatch_across_hosts: true
+  CPU_accepted: false
+  whole_quote_accepted: false
+freeze_blockers:
+- DCTA official commit and audited exact component math
+- R4 and all baseline support, actual sigma hook mapping and state restoration CPU
+- exact numerical tolerance, incremental time/memory ceiling and dominance/near-tie
+  definitions
+- fixed gradient operator/layout/epsilon and blur-control definition
+- actual feature shapes and complete GPU+CPU post-score quote on both hosts
+- E2 role/quality-reference mapping and full maximum scope
+- explicit execution authorization and fresh resource admission
+full_E1_freeze_complete: false
+merge_semantics:
+  operation: replace entire top-level fields present in this patch; inherit absent
+    fields from immutable V2
+  do_not_deep_merge_old_E1_or_E2_screens: true
+  old_E2_maximum_formal_outputs_16_not_applicable_to_combined_R_and_I: true

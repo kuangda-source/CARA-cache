@@ -20,13 +20,13 @@
 - 新纯计时卡与GRAPH102暂缓；原P1/104/112/1624/价格卡均已结束，不重跑或重新结算。未知只恢复原句柄，不盲重派。
 - 四卡私有入口、真实硬独占、磁盘保护、跨盘日志、完整分母、实际费用和来源SHA保障保留；不改忙卡模式、不触碰他人进程、不重启旧两卡实验；新卡只能使用已验隔离双端环境。
 
-## 新增后续计划：预测器—刷新探索 V2
+## 后续探索当前版本：E1 V2.2
 
-已查收[外部V2原件](repo:plans/cara_predictor_refresh_scout_v2_20261026/source/01_Research_Assessment_and_Plan_V2.md)，仓库执行口径见[接续计划](repo:plans/cara_predictor_refresh_scout_v2_20261026/README.md)和[绑定登记表](repo:plans/cara_predictor_refresh_scout_v2_20261026/SCOUT_REGISTRY_BOUND_V2.yaml)。原manifest四项SHA通过，见[706](repo:research/706_CARA_PREDICTOR_REFRESH_SCOUT_V2_PLAN_INTAKE_20261026.md)。
+[V2原始包](repo:plans/cara_predictor_refresh_scout_v2_20261026/source/01_Research_Assessment_and_Plan_V2.md)及[原绑定表](repo:plans/cara_predictor_refresh_scout_v2_20261026/SCOUT_REGISTRY_BOUND_V2.yaml)保持不变；未来探索以[V2.2修订说明](repo:plans/cara_predictor_refresh_scout_v2_20261026/E1_V22_AMENDMENT_AND_FREEZE_CHECKLIST.md)和[增量登记](repo:plans/cara_predictor_refresh_scout_v2_20261026/SCOUT_REGISTRY_PATCH_V22.yaml)为准，见[707](repo:research/707_CARA_SCOUT_V22_STRATIFIED_READOUT_PLAN_20261026.md)。
 
-主线DEV128及原自动检查不变。旁路顺序：E0已有资产/坐标/DCTA/质量绑定 → E1同状态五读出、路径与方向幅度诊断 → 条件E2固定布局或2×2 → 独立新输入确认/迁移。原锐度诊断已做；新增分析尚未执行。8/12、5%是待冻结建议，1/2–3/4GPUh仅规划，不是完整报价或新GPU授权。E2的16是机制正式输出上限，不含warm、缺失Native、额外强基线和评分，须完整报价。
+先E0已有资产与DCTA核查，再E1同状态五类/六逻辑读出（global/long两新候选），之后E2-R固定布局读出，条件满足才E2-I交互。主分母是全队列最强固定基线，不是逐prompt oracle。22/23/25/33/34/35的保存掩码/网格元数据已复算，短长各6点；新端口支持/状态恢复、精确数值及费用门、双端CPU和完整报价尚未通过，不能称完整冻结。
 
-质量原门已绑定（MUSIQ 1、主体/运动各0.01，相对S参考及Native），新E2角色映射/支持域/CPU仍待完成。保存的中央准入账目可用36.103379GPUh已扣DEV128 12h预约，不是结算后余额；实际派发前再核账。默认四卡、两端兼容、累计226及最终部署预算保持，不复活GRAPH/在线门控或读部分DEV结果。
+已有锐度/MUSIQ诊断复用，Native-relative梯度与固定轻模糊对照未做。E2-R/I各16逻辑输出，合并完全同身份可复用8条时为24唯一机制输出，否则32；warm/Native/强参考/重复/评分另报，不能沿用旧16条/2–3GPUh为完整报价。原三项质量门、α、强基线、累计226及最终部署预算保持；DEV128原自动检查和运行合同不变，未新增GPU授权/预约，不读其中途结果。
 
 {{queue}}
 

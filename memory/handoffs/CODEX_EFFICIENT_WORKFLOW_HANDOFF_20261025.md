@@ -1,6 +1,6 @@
 # Codex 交接：高效实验流程 R3
 
-> 2026-10-26接续索引：下文CAL66后“新DEV未授权/待准备”为历史流程快照；DEV128已授权单次启动，唯一句柄以[当前交接](LATEST.md)为准。新增旁路以[V2接续计划](../../plans/cara_predictor_refresh_scout_v2_20261026/README.md)为准，先E0再有条件E1/E2；本次计划接收无新GPU授权。
+> 2026-10-26接续索引：下文CAL66后“新DEV未授权/待准备”为历史流程快照；DEV128已授权单次启动，唯一句柄以[当前交接](LATEST.md)为准。新增旁路以[V2.2修订计划](../../plans/cara_predictor_refresh_scout_v2_20261026/E1_V22_AMENDMENT_AND_FREEZE_CHECKLIST.md)为准，先E0/E1再有条件E2-R与E2-I；本次计划接收无新GPU授权。
 
 2026-10-25。新卡同时准备四卡SM89和两卡SM86兼容profile，共用科学manifest；启动时默认四卡，四卡无合格空闲卡才选两卡。双端各自验证受影响生产路径、资源、存储与报价；单一中央预算包、跨主机单次提交，原预算与GPU授权边界不变。详见[执行流程第7节](../../docs/EXECUTION_MODES.md#7-双服务器准备与启动选择)。最小入口尚不实现自动选机，不能把模板当作启动证明。
 

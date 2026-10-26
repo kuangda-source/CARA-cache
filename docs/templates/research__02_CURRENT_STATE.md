@@ -8,7 +8,7 @@
 
 {{research_summary}}
 
-后续探索已更新为[预测器—刷新V2接续计划](repo:plans/cara_predictor_refresh_scout_v2_20261026/README.md)：先E0已有资产，再有条件E1五读出与E2闭环；仅计划整合，尚无新CPU接受、完整报价或GPU授权，DEV128原合同保持。见[706接收记录](repo:research/706_CARA_PREDICTOR_REFRESH_SCOUT_V2_PLAN_INTAKE_20261026.md)。
+后续探索已增量登记为[E1 V2.2](repo:plans/cara_predictor_refresh_scout_v2_20261026/E1_V22_AMENDMENT_AND_FREEZE_CHECKLIST.md)：global/long双路线、全队列固定基线分母、先E2-R后条件E2-I。仅掩码/保存网格元数据已核对，真实CPU、精确门槛和完整报价待办；原V2与DEV128不变。见[707](repo:research/707_CARA_SCOUT_V22_STRATIFIED_READOUT_PLAN_20261026.md)。
 
 {{queue}}
 
