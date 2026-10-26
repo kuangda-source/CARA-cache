@@ -8,7 +8,7 @@
 
 {{research_summary}}
 
-后续探索已增量登记为[E1 V2.2](repo:plans/cara_predictor_refresh_scout_v2_20261026/E1_V22_AMENDMENT_AND_FREEZE_CHECKLIST.md)：global/long双路线、全队列固定基线分母、先E2-R后条件E2-I。仅掩码/保存网格元数据已核对，真实CPU、精确门槛和完整报价待办；原V2与DEV128不变。见[707](repo:research/707_CARA_SCOUT_V22_STRATIFIED_READOUT_PLAN_20261026.md)。
+[创新量增益探索R1](repo:plans/cara_innovation_gain_20261027/README.md)已建立同一科学源码的两卡A6000/四卡Ada配置，两端各8项单元检查、8条采集CPU路径和20条自由运行CPU路径通过，含原生冻结请求与保存后端点重放。仅为CPU实现/兼容证据；真实权重B1、完整报价、GPU生命周期准入及条件B2尚未完成。用户要求先验证再决定并入主线，DEV128保持原样。见[712](repo:research/712_CARA_IG_DUAL_HOST_CPU_AND_PENDING_MODEL_VALIDATION_20261027.md)。
 
 {{queue}}
 

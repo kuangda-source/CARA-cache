@@ -1,0 +1,121 @@
+{
+  "schema": "CARA_IG_DUAL_HOST_PROFILES_R1",
+  "scientific_source_sha256": {
+    "src/wcomr/innovation_gain_observer_r1.py": "28a14eff0159712b6de67c570cf14e0a761ade002abbeb5b3101ad2e61e4ce8e",
+    "src/wcomr/innovation_gain_r1.py": "742a2466b1c66cf360623b5aafaf7a2faa62c3c12a5c2df9c0778aa5e24231ac",
+    "src/wcomr/innovation_gain_deployment_r1.py": "90df5f209d24a07d8e6e6fdfa6bfb20eff873933c7a35325f950b15e1f3c4bc1",
+    "src/wcomr/innovation_gain_assets_r1.py": "7aaeea4f0016c25d8a44bc87937f6fcf26f44d7f7726e6b3170b1c14606304bb",
+    "src/wcomr/innovation_gain_fit_r1.py": "9d186d989e2f113fa62b770cfd61f6907b18a042b438113f53cf8b161ae82536"
+  },
+  "scientific_manifest_ref": "manifests/cara_IG_scope_intake_r1_20261027.json",
+  "common": {
+    "model": "Cosmos-Predict2.5-2B/post-trained",
+    "torch": "2.7.1+cu128",
+    "runtime_container_image": "sha256:1e81ac62ee68ca1a6ef655515096a1d84579b01aa4986810c9b18d4f6c4c552d",
+    "parent_D_steps": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      24,
+      27,
+      30,
+      36
+    ],
+    "original_phase_alpha": {
+      "step_lt_25": 1.0,
+      "step_ge_25": 0.5
+    },
+    "CFG_shared_gains": true,
+    "primary_gain_box": [
+      0.0,
+      1.0
+    ],
+    "projection": "BTHWD_SPATIAL_2x2_ACTUAL_EDGE_AREA",
+    "request_resolution": [
+      432,
+      768
+    ],
+    "output_frames": 93,
+    "seed": 0,
+    "expected_final_latent_shape": [
+      1,
+      16,
+      24,
+      54,
+      96
+    ],
+    "cumulative_cap_GPUh": 226.0,
+    "round_cap_GPUh": 7.0,
+    "cross_host_same_scientific_manifest": true,
+    "one_host_per_scientific_batch": true,
+    "no_mixed_hardware_timing": true,
+    "no_same_card_replay": true
+  },
+  "profiles": {
+    "two_card": {
+      "GPU_family": "RTX A6000",
+      "compute_capability": [
+        8,
+        6
+      ],
+      "CPU_launch_ref": "reports/cara_IG_two_card_CPU_launch_r2_20261027.json",
+      "CPU_limit": 2,
+      "CPU_memory_GiB": 8,
+      "proposed_inference_CPUs": [
+        2,
+        3
+      ],
+      "CPU_affinity_requires_live_validation": true,
+      "GPU_selection": "FRESH_IDLE_UUID_WITH_NO_COMPUTE_APPS_AND_EXCLUSIVE_PROCESS",
+      "GPU_CUDA_validation": false
+    },
+    "four_card": {
+      "GPU_family": "RTX 6000 Ada",
+      "compute_capability": [
+        8,
+        9
+      ],
+      "CPU_launch_ref": "reports/cara_IG_four_card_CPU_launch_r2_20261027.json",
+      "CPU_limit": 2,
+      "CPU_memory_GiB": 8,
+      "GPU_selection": "FRESH_IDLE_UUID_WITH_NO_COMPUTE_APPS_AND_EXCLUSIVE_PROCESS",
+      "GPU_CUDA_validation": false
+    }
+  },
+  "dispatch_preference_this_request": [
+    "two_card",
+    "four_card"
+  ],
+  "predecessor_boundary": {
+    "DEV128_CPU_scoring_untouched": true,
+    "central_reservation_does_not_prove_GPU_context_active": true,
+    "existing_controller_currently_blocks_confirmed_unsettled_job": true,
+    "released_GPU_reuse_requires_exact_original_release_and_billing_proof_and_new_ledger_admission": true,
+    "do_not_relabel_or_settle_DEV128_early": true
+  },
+  "production_GPU_launch_ready": false,
+  "remaining_gates": [
+    "complete measured-or-conservative whole quote bound to actual shapes and asset writer",
+    "new GPU controller/lifecycle/source binding",
+    "fresh model/resource/UUID/storage/ledger/exclusivity acceptance",
+    "actual B1 output replay before video decision"
+  ]
+}

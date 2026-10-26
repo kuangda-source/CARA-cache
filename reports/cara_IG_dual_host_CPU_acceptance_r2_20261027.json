@@ -1,0 +1,95 @@
+{
+  "status": "IG_DUAL_HOST_SOURCE_CPU_ACCEPTED_NOT_CUDA_OR_SCIENCE",
+  "hosts": {
+    "four_card": {
+      "capture_ref": "reports/cara_IG_four_card_CPU_complete_r2_20261027.json",
+      "capture_sha256": "7377b886d7725d55bbeb346b04497299a85565acb5f1eac55ddf8587cd118c1a",
+      "launch": {
+        "status": "IG_GPU_HIDDEN_CPU_LAUNCHED",
+        "host": "four_card",
+        "project": "/data20t/gaokuangda/worldcache_workspace",
+        "stage": "/data20t/gaokuangda/worldcache_workspace/.sync/cara-ig-cpu-ada-r2-20261027",
+        "source_revision": "4a295b6d6add433733f65130c44cfa39775a1e2a",
+        "registration_sha256": "9050f701dfca6ff435512ae17293de9c3d7ed530e45053ad0c00f5593a0df080",
+        "container": "cara-ig-cpu-ada-r2-20261027-cpu",
+        "identity": {
+          "pid": 3149209,
+          "start_ticks": 982265815
+        },
+        "started_unix": 1793037594.7959435,
+        "GPU_submissions": 0,
+        "ledger_written": false
+      },
+      "source_bound_CPU_accepted": true,
+      "unit_tests": 8,
+      "observer_complete_CPU_paths": 8,
+      "deployment_complete_CPU_paths": 20,
+      "failure_boundaries": 6,
+      "saved_input_endpoint_replays_including_failure_attempts": 72,
+      "wall_seconds": 173.84742955490947,
+      "actual_frozen_request_schema": {
+        "actual_class": "cosmos_predict2.config.InferenceArguments",
+        "actual_frozen": true,
+        "production_requests_validated": 2,
+        "production_resolution": "432,768",
+        "declared_CPU_fixture_resolution": "16,16",
+        "real_weights": false
+      },
+      "CUDA_executed": false
+    },
+    "two_card": {
+      "capture_ref": "reports/cara_IG_two_card_CPU_complete_r2_20261027.json",
+      "capture_sha256": "a1cde95f8bad7413ff2b341ca6dfcc202830cde934b47d44cb1d89964e41ad5a",
+      "launch": {
+        "status": "IG_GPU_HIDDEN_CPU_LAUNCHED",
+        "host": "two_card",
+        "project": "/data20t/gaokuangda/worldcache_workspace",
+        "stage": "/data20t/gaokuangda/worldcache_workspace/.sync/cara-ig-cpu-a6000-r2-20261027",
+        "source_revision": "4a295b6d6add433733f65130c44cfa39775a1e2a",
+        "registration_sha256": "51759f0b3054bbf648834a4e6f841d0702939d8c7ec42afa40a90aa4354f4681",
+        "container": "cara-ig-cpu-a6000-r2-20261027-cpu",
+        "identity": {
+          "pid": 4036273,
+          "start_ticks": 633267329
+        },
+        "started_unix": 1793037769.7704682,
+        "GPU_submissions": 0,
+        "ledger_written": false
+      },
+      "source_bound_CPU_accepted": true,
+      "unit_tests": 8,
+      "observer_complete_CPU_paths": 8,
+      "deployment_complete_CPU_paths": 20,
+      "failure_boundaries": 6,
+      "saved_input_endpoint_replays_including_failure_attempts": 72,
+      "wall_seconds": 171.28166148718446,
+      "actual_frozen_request_schema": {
+        "actual_class": "cosmos_predict2.config.InferenceArguments",
+        "actual_frozen": true,
+        "production_requests_validated": 2,
+        "production_resolution": "432,768",
+        "declared_CPU_fixture_resolution": "16,16",
+        "real_weights": false
+      },
+      "CUDA_executed": false
+    }
+  },
+  "same_scientific_source": true,
+  "protected_files_unchanged": [
+    "src/wcomr/scout_parent_v22.py",
+    "src/wcomr/scout_readout_v22.py",
+    "configs/cara_DEV128_requests_r1_20261026.json",
+    "manifests/cara_DEV128_scope_r1_20261026.json",
+    "plans/cara_predictor_refresh_scout_v2_20261026/SCOUT_REGISTRY_PATCH_V22.yaml"
+  ],
+  "new_GPU_submissions": 0,
+  "new_GPU_reserved": 0,
+  "real_model_results_available": false,
+  "mainline_integration_decided": false,
+  "remaining": [
+    "whole production resource quote and lifecycle binding",
+    "new-card admission while preserving DEV128 CPU post and reservation",
+    "B1 actual model collection and guided replay",
+    "conditional B2 actual video cost and original independent quality"
+  ]
+}

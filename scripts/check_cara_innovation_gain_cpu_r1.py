@@ -26,7 +26,7 @@ def main():
     torch.cuda._lazy_init=forbid;torch.hub.download_url_to_file=forbid
     start=time.monotonic();stream=io.StringIO();value={}
     try:
-        tests=unittest.TextTestRunner(stream=stream,verbosity=2).run(unittest.defaultTestLoader.loadTestsFromName('test_innovation_gain_r1'))
+        tests=unittest.TextTestRunner(stream=stream,verbosity=2).run(unittest.defaultTestLoader.loadTestsFromNames(['test_innovation_gain_r1','test_innovation_gain_finance_r1']))
         if not tests.wasSuccessful():raise ValueError('Innovation unit/source-adapter checks failed')
         import check_scout_parent_cpu_v22 as parent_test
         original_parent_body_source=inspect.getsource(parent_test.body)
@@ -106,12 +106,15 @@ def main():
         from check_innovation_gain_deployment_cpu_r1 import run as deploy_checks
         deployment=deploy_checks(ROOT/'cache/runtime',a.artifacts/'deployment',
                                  body_source=original_parent_body_source,actual_request=actual_request)
+        from check_innovation_gain_batch_cpu_r1 import run as batch_checks
+        batch=batch_checks(ROOT/'cache/runtime',a.artifacts/'B1',original_parent_body_source,actual_request)
         value=dict(status='IG_SOURCE_BOUND_CPU_PASS_NOT_REAL_MODEL_RESULT',unit_tests=tests.testsRun,
                    full_parent_controls=controls,observed_gain_states_including_failure_attempts=len(seen),
                    saved_input_endpoint_replays_including_failure_attempts=len(replays),
                    streamed_unique_anchor_stores=len(stores),
                    actual_request_schema=real_schema,
                    free_running_deployment_controls=deployment,
+                   B1_batch_controls=batch,
                    original_parent_implementation_unchanged=True)
     except BaseException:
         value=dict(status='CPU_FAILED',traceback=traceback.format_exc())
@@ -119,6 +122,10 @@ def main():
     files += ['scripts/check_cara_innovation_gain_cpu_r1.py','src/wcomr/scout_parent_v22.py','src/wcomr/scout_readout_v22.py',
               'tests/check_scout_parent_cpu_v22.py','tests/test_scout_readout_v22.py']
     files+=['tests/check_innovation_gain_deployment_cpu_r1.py']
+    files+=['tests/check_innovation_gain_batch_cpu_r1.py']
+    files+=['tests/test_innovation_gain_finance_r1.py','scripts/run_cara_ig_b1_r1.py',
+            'scripts/wc_cara_ig_b1_worker_r1.py','scripts/wc_cara_ig_b1_host_guardian_r1.py',
+            'scripts/postprocess_cara_ig_b1_r1.py']
     value.update(source_sha256={f:hashlib.sha256((ROOT/f).read_bytes()).hexdigest() for f in files},
         tests_log=stream.getvalue(),wall_seconds=time.monotonic()-start,observed_unix=time.time(),
         cuda_initialized=torch.cuda.is_initialized(),GPU_submissions=0,real_model_inference=False)
