@@ -4,11 +4,11 @@
 
 当前论文主线：**刷新位置的价值 → 固定Shared25-C在新输入上的输出保真与质量—时间比较 → 规则迁移**。Shared25-C不含修正A；A作为局部误差、端点保真和独立质量之间权衡的机制对照。能量规则与模板在当前网格同掩码，自动规则的增量由后续新设置检验。
 
-**Shared25-C新DEV128：双服务器生产CPU接受，尚未启动GPU。**
+**Shared25-C新DEV128已在两卡A6000独占启动。**
 
-双服务器128路径整卡监督、释放GPU后评分及财务终态组合CPU已接受，每端10个生命周期、6个真实ENOSPC场景、61项终态/财务/评分检查通过；真实模型沿已接受SHA复用。新DEV推理、GPU提交及正式账本写入均为0。四卡报价12.349232GPUh仍超12h设计子池，两卡11.618228；原α、强基线、累计226和最终部署预算不变。
+2026-10-26 13:36:59在两卡GPU1 A6000单次启动完整128路径。13:45技术原件确认原runner唯一EXCLUSIVE_PROCESS上下文，222独占样本无违规、最大间隔2.362秒；32GiB预留卷及48MiB跨盘日志正常，首条路径运行中、0失败。GPU报价11.618228h、硬上限12h；GPU释放后2CPU/8GiB评分，预计8.56449h、最多10h。目前只有技术准入，没有新DEV科学结果。
 
-[证据1](../research/704_CARA_DEV128_FULL_CPU_COMBINATION_ACCEPTED_AND_QUOTE_20261026.md) · [证据2](../plans/cara_policy_generator_20261020/DEV128_FULL_LIFECYCLE_AND_FINANCE_CPU_R1_20261026.md) · [证据3](../reports/cara_DEV128_full_four_card_CPU_accepted_r3_20261026.json) · [证据4](../reports/cara_DEV128_full_two_card_CPU_accepted_r3_20261026.json) · [证据5](../reports/cara_DEV128_full_quote_recheck_20261026.json) · [证据6](../reports/cara_DEV128_full_central_ledger_readonly_20261026.json) · [证据7](../reports/cara_DEV128_full_acceptance_negative_checks_20261026.json) · [证据8](../research/703_CARA_DEV128_DUAL_HOST_CPU_AND_CAL66_QUALITY_DIAGNOSIS_20261026.md) · [证据9](../manifests/cara_DEV128_scope_r1_20261026.json) · [证据10](../reports/cara_DEV128_dual_host_exposure_20261026.json) · [证据11](../reports/cara_DEV128_four_card_CPU_accepted_r4_20261026.json) · [证据12](../reports/cara_DEV128_two_card_CPU_accepted_r4_20261026.json) · [证据13](../manifests/cara_DEV128_dual_host_whole_quote_r1_20261026.json) · [证据14](../plans/cara_policy_generator_20261020/CAL66_FEEDBACK_AND_DEV128_BOUNDARIES_20261026.md)
+[证据1](../research/705_CARA_DEV128_A6000_EXCLUSIVE_LAUNCH_AND_ACCEPTANCE_SCHEDULE_20261026.md) · [证据2](../reports/cara_DEV128_A6000_GPU_actual_launch_20261026.json) · [证据3](../reports/cara_DEV128_A6000_technical_admission_20261026.json) · [证据4](../reports/cara_DEV128_A6000_central_admission_20261026.json) · [证据5](../reports/cara_DEV128_A6000_acceptance_schedule_20261026.json) · [证据6](../reports/cara_DEV128_A6000_storage_20261026.json) · [证据7](../reports/cara_DEV128_prelaunch_dual_exposure_reviewed_20261026.json) · [证据8](../reports/cara_DEV128_full_four_card_CPU_accepted_r4_20261026.json) · [证据9](../reports/cara_DEV128_full_two_card_CPU_accepted_r4_20261026.json) · [证据10](../reports/cara_DEV128_A6000_technical_followup_20261026.json)
 
 | 需要的材料 | 入口 |
 |---|---|

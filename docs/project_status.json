@@ -6,8 +6,8 @@
   "snapshot_note": "CAL66完整66路径、48组LPIPS/156质量评分已接受，实际4.776208 GPUh已中央结算。Shared25-C相对较强S25-A的LPIPS改善15.34%且4/4同向，246.852秒/V0.98188，三项质量筛查通过，冻结为新DEV主候选。原GPU/容器/锁释放、模式恢复；四个A候选未过相对Native的MUSIQ界。当前仅CAL证据，新DEV未启动。",
   "research_summary": "CAL66完整结果支持刷新位置的CAL收益：Shared24/25-C相对同配额S-C的LPIPS下降20.68%/25.84%，均4/4改善。按原质量与双预算规则冻结Shared25-C，较强S25-A参考改善15.34%；含A候选因MUSIQ界未被选为主方法。能量/传播先验/模板同掩码，自动规则增量和新输入泛化仍待独立验证。",
   "active_experiment_id": "PG-SHARED-CAL66",
-  "active_state": "CAL66_A6000_COMPLETE_ACCEPTED_SHARED25_C_FROZEN",
-  "active_state_zh": "CAL66完整接受，Shared25-C通过CAL筛查并冻结",
+  "active_state": "DEV128_A6000_EXCLUSIVE_RUNNING",
+  "active_state_zh": "Shared25-C新DEV128已在两卡A6000独占启动",
   "launch_ref": "reports/cara_CAL66_A6000_GPU_actual_launch_20261025.json",
   "observation_ref": "reports/cara_CAL66_A6000_terminal_20261026_0930.json",
   "admission_ref": "reports/cara_CAL66_A6000_technical_admission_20261025.json",
@@ -683,7 +683,9 @@
     "central_settlement_ref": "reports/cara_CAL66_A6000_central_settlement_20261026_0933.json",
     "analysis_ref": "reports/cara_CAL66_A6000_complete_analysis_20261026.json",
     "selected_candidate_ref": "manifests/cara_CAL66_selected_CAL_candidate_r1_20261026.json",
-    "report_ref": "research/702_CARA_CAL66_A6000_COMPLETE_RESULTS_AND_FROZEN_SHARED25_C_20261026.md"
+    "report_ref": "research/702_CARA_CAL66_A6000_COMPLETE_RESULTS_AND_FROZEN_SHARED25_C_20261026.md",
+    "state": "CAL66_A6000_COMPLETE_ACCEPTED_SHARED25_C_FROZEN",
+    "state_zh": "CAL66完整接受，Shared25-C通过CAL筛查并冻结"
   },
   "Shared25_DEV128_preparation": {
     "status": "DUAL_HOST_COMPLETE_CPU_COMBINATION_ACCEPTED_NO_GPU",
@@ -715,8 +717,8 @@
     "report_ref": "research/703_CARA_DEV128_DUAL_HOST_CPU_AND_CAL66_QUALITY_DIAGNOSIS_20261026.md",
     "feedback_ref": "plans/cara_policy_generator_20261020/CAL66_FEEDBACK_AND_DEV128_BOUNDARIES_20261026.md",
     "full_GPU_supervisor_financial_terminal_binding_accepted": true,
-    "summary": "双服务器128路径整卡监督、释放GPU后评分及财务终态组合CPU已接受，每端10个生命周期、6个真实ENOSPC场景、61项终态/财务/评分检查通过；真实模型沿已接受SHA复用。新DEV推理、GPU提交及正式账本写入均为0。四卡报价12.349232GPUh仍超12h设计子池，两卡11.618228；原α、强基线、累计226和最终部署预算不变。",
-    "next_action": "CPU组合准备完成；执行授权后再绑定新执行stage及单一中央意图、复查双端输入曝光与资源账本。四卡报价仍超12h，不提高上限或缩卡；选择合规主机须满足授权与fresh准入。当前不启动GPU。",
+    "summary": "双端完整组合CPU已补验接受：每端10生命周期、6真实存储故障、63终态/财务/评分检查。旧16.5GPUh责任预约保持，修复其与真实GPU占用的身份区分。准备阶段未提交GPU；随后唯一实际执行见独立execution记录。",
+    "next_action": "准备已完成；跟踪同一A6000 launch的半程及完整终态，不重复派发。",
     "evidence_refs": [
       "research/704_CARA_DEV128_FULL_CPU_COMBINATION_ACCEPTED_AND_QUOTE_20261026.md",
       "plans/cara_policy_generator_20261020/DEV128_FULL_LIFECYCLE_AND_FINANCE_CPU_R1_20261026.md",
@@ -731,14 +733,100 @@
       "reports/cara_DEV128_four_card_CPU_accepted_r4_20261026.json",
       "reports/cara_DEV128_two_card_CPU_accepted_r4_20261026.json",
       "manifests/cara_DEV128_dual_host_whole_quote_r1_20261026.json",
-      "plans/cara_policy_generator_20261020/CAL66_FEEDBACK_AND_DEV128_BOUNDARIES_20261026.md"
+      "plans/cara_policy_generator_20261020/CAL66_FEEDBACK_AND_DEV128_BOUNDARIES_20261026.md",
+      "reports/cara_DEV128_full_four_card_CPU_accepted_r4_20261026.json",
+      "reports/cara_DEV128_full_two_card_CPU_accepted_r4_20261026.json"
     ],
     "full_CPU_acceptance_refs": {
-      "four_card": "reports/cara_DEV128_full_four_card_CPU_accepted_r3_20261026.json",
-      "two_card": "reports/cara_DEV128_full_two_card_CPU_accepted_r3_20261026.json"
+      "four_card": "reports/cara_DEV128_full_four_card_CPU_accepted_r4_20261026.json",
+      "two_card": "reports/cara_DEV128_full_two_card_CPU_accepted_r4_20261026.json"
     },
     "full_CPU_report_ref": "research/704_CARA_DEV128_FULL_CPU_COMBINATION_ACCEPTED_AND_QUOTE_20261026.md",
     "full_CPU_plan_ref": "plans/cara_policy_generator_20261020/DEV128_FULL_LIFECYCLE_AND_FINANCE_CPU_R1_20261026.md",
-    "execution_authorized": false
+    "execution_authorized": true
+  },
+  "Shared25_DEV128_execution": {
+    "status": "DEV128_A6000_EXCLUSIVE_RUNNING",
+    "status_zh": "Shared25-C新DEV128已在两卡A6000独占启动",
+    "observed_unix": 1792993513.1557627,
+    "GPU_running": true,
+    "new_GPU_submissions": 1,
+    "launch_ref": "reports/cara_DEV128_A6000_GPU_actual_launch_20261026.json",
+    "stage_ref": "reports/cara_DEV128_A6000_GPU_stage_20261026.json",
+    "source_revision": "f273eefceef4fe88ab75edc74eaf714081126550",
+    "run_id": "cara-shared25-dev128-r1",
+    "launch_id": "61587bb0-0e0d-4379-973b-d5502158fcd2",
+    "gpu_uuid": "GPU-cebf7119-cf03-23b9-e192-cd196332b704",
+    "host": "two_card",
+    "runner": {
+      "pid": 3845233,
+      "start_ticks": 628792670,
+      "uid": 1004
+    },
+    "guardian": {
+      "pid": 3845133,
+      "state": "R",
+      "start_ticks": 628792336,
+      "command": "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python -u /data20t/gaokuangda/worldcache_workspace/.sync/cara-dev128-full-a6000-r1-20261026/scripts/wc_cara_dev128_host_guardian_r1.py --project /data20t/gaokuangda/worldcache_workspace --stage /data20t/gaokuangda/worldcache_workspace/.sync/cara-dev128-full-a6000-r1-20261026 "
+    },
+    "supervisor": {
+      "pid": 3845191,
+      "state": "R",
+      "start_ticks": 628792481,
+      "command": "/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/bin/python /data20t/gaokuangda/worldcache_workspace/.sync/cara-dev128-full-a6000-r1-20261026/scripts/wc_cara_dev128_worker_r1.py supervise --project /data20t/gaokuangda/worldcache_workspace --stage /data20t/gaokuangda/worldcache_workspace/.sync/cara-dev128-full-a6000-r1-20261026 "
+    },
+    "technical_ref": "reports/cara_DEV128_A6000_technical_followup_20261026.json",
+    "admission_capture_ref": "reports/cara_DEV128_A6000_admission_capture_20261026.json",
+    "central_admission_ref": "reports/cara_DEV128_A6000_central_admission_20261026.json",
+    "schedule_ref": "reports/cara_DEV128_A6000_acceptance_schedule_20261026.json",
+    "CPU_acceptance_refs": {
+      "four_card": "reports/cara_DEV128_full_four_card_CPU_accepted_r4_20261026.json",
+      "two_card": "reports/cara_DEV128_full_two_card_CPU_accepted_r4_20261026.json"
+    },
+    "quote_ref": "manifests/cara_DEV128_dual_host_whole_quote_r1_20261026.json",
+    "scope": {
+      "total_paths": 128,
+      "DEV": 16,
+      "seeds": [
+        0
+      ],
+      "roles": 6,
+      "quality_paths": 96,
+      "timing_repeat_paths": 24,
+      "warm_paths": 6,
+      "diagnostic_paths": 2,
+      "guided_pairs": 4419,
+      "CFG_calls": 8838,
+      "loads": 1,
+      "LPIPS_pairs": 80,
+      "LPIPS_frames": 7440,
+      "independent_quality_videos": 96,
+      "independent_quality_positions": 288
+    },
+    "billed_limit_GPUh": 12,
+    "cumulative_cap_GPUh": 226,
+    "final_deployment_budget": "min(257.7712338712067 seconds, 0.8 freshNative)",
+    "pool_totals": {
+      "used_gpu_hours": 161.39662063362806,
+      "reserved_gpu_hours": 28.5,
+      "available_gpu_hours": 36.10337936637194,
+      "gpu_jobs_launched": 119
+    },
+    "full_protocol_accepted": false,
+    "report_ref": "research/705_CARA_DEV128_A6000_EXCLUSIVE_LAUNCH_AND_ACCEPTANCE_SCHEDULE_20261026.md",
+    "summary": "2026-10-26 13:36:59在两卡GPU1 A6000单次启动完整128路径。13:45技术原件确认原runner唯一EXCLUSIVE_PROCESS上下文，222独占样本无违规、最大间隔2.362秒；32GiB预留卷及48MiB跨盘日志正常，首条路径运行中、0失败。GPU报价11.618228h、硬上限12h；GPU释放后2CPU/8GiB评分，预计8.56449h、最多10h。目前只有技术准入，没有新DEV科学结果。",
+    "next_action": "按原launch半程与终态收件；释放GPU后完成80LPIPS/288质量评分，中央原账单结算后独立完整接受。不得重派、看部分结果调参或自动追加GPU。",
+    "evidence_refs": [
+      "research/705_CARA_DEV128_A6000_EXCLUSIVE_LAUNCH_AND_ACCEPTANCE_SCHEDULE_20261026.md",
+      "reports/cara_DEV128_A6000_GPU_actual_launch_20261026.json",
+      "reports/cara_DEV128_A6000_technical_admission_20261026.json",
+      "reports/cara_DEV128_A6000_central_admission_20261026.json",
+      "reports/cara_DEV128_A6000_acceptance_schedule_20261026.json",
+      "reports/cara_DEV128_A6000_storage_20261026.json",
+      "reports/cara_DEV128_prelaunch_dual_exposure_reviewed_20261026.json",
+      "reports/cara_DEV128_full_four_card_CPU_accepted_r4_20261026.json",
+      "reports/cara_DEV128_full_two_card_CPU_accepted_r4_20261026.json",
+      "reports/cara_DEV128_A6000_technical_followup_20261026.json"
+    ]
   }
 }

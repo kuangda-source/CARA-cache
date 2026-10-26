@@ -319,7 +319,8 @@ def build():
                     f"观测：{pg['observed_at']}。原半程/终态检查已关闭，无重复提交。\n\n"
                     f"{link(pg['observation_ref'], '完整原终态')} · {link(pg['terminal_acceptance_ref'], '独立接受')} · "
                     f"{link(status['run_report_ref'], '完整记录')}。{status['snapshot_note']}")
-        active['reader'].update(status=status['active_state_zh'],result=result,next_action=next_action)
+        active['state'] = 'PG_P1_COMPLETE_SELECTED' if sc['selected_policy'] is not None else 'PG_P1_COMPLETE_NO_FEASIBLE_POLICY'
+        active['reader'].update(status='原P1完整接受；已选策略' if sc['selected_policy'] is not None else '原P1完整接受；无预算可行策略',result=result,next_action=next_action)
         active['evidence_or_planned_scope'] = result
         master['operation_policy'].update(current_running_card=None,current_running_cards=[],snapshot_observed_at=pg['observed_at'])
         run_details += '\n\n' + result + '\n\n' + next_action
@@ -698,11 +699,11 @@ def build():
         if q['scope']['total_paths']!=66 or q['billed_limit_GPUh']!=8 or q['cumulative_cap_GPUh']!=226:
             raise ValueError('A6000 migration cannot change scope or budget')
         for ref in migration['evidence_refs']:load(ref) if ref.endswith('.json') else (ROOT/ref).read_text()
-        snapshot='**'+status['active_state_zh']+'。**\n\n'+migration['summary']+'\n\n'+refs(migration['evidence_refs'])
+        snapshot='**'+migration.get('state_zh', status['active_state_zh'])+'。**\n\n'+migration['summary']+'\n\n'+refs(migration['evidence_refs'])
         run_details='| 字段 | 两卡迁移状态 |\n|---|---|\n'+'\n'.join('| '+cell(k)+' | '+cell(v)+' |' for k,v in migration['details'].items())
         actions=migration['next_action']
-        active66=by_id['PG-SHARED-CAL66'];active66['state']=status['active_state']
-        active66['reader'].update(status=status['active_state_zh'],result=migration['summary'],next_action=migration['next_action'])
+        active66=by_id['PG-SHARED-CAL66'];active66['state']=migration.get('state', status['active_state'])
+        active66['reader'].update(status=migration.get('state_zh', status['active_state_zh']),result=migration['summary'],next_action=migration['next_action'])
         active66['evidence_or_planned_scope']=migration['summary']
         active66['reader']['evidence_refs']=list(dict.fromkeys(active66['reader']['evidence_refs']+migration['evidence_refs']))
         if migration.get('terminal_acceptance_ref'):
@@ -768,6 +769,38 @@ def build():
         master['operation_policy'].update(current_preparation_card='PG-SHARED-DEV128',
             current_running_card=None, current_running_cards=[], active_launch_ref=None,
             snapshot_observed_at=dev['observed_unix'])
+        master['status_counts'] = {state:sum(r['state']==state for r in rows) for state in sorted({r['state'] for r in rows})}
+    execution = status.get('Shared25_DEV128_execution')
+    if execution:
+        actual = load(execution['launch_ref'])
+        technical = load(execution['technical_ref'])
+        central = load(execution['central_admission_ref'])
+        if (actual['launch_id'] != execution['launch_id']
+                or technical['launch_id'] != actual['launch_id']
+                or central['launch'] != actual
+                or technical['source_revision'] != actual['source_revision']
+                or not technical['actual_unique_runner_accepted']
+                or technical['violations']
+                or actual['scope_counts']['total_paths'] != 128
+                or actual['billed_limit_GPUh'] != 12
+                or execution['full_protocol_accepted']):
+            raise ValueError('DEV128 launch snapshot requires original exclusive admission only')
+        snapshot = '**' + execution['status_zh'] + '。**\n\n' + execution['summary'] + '\n\n' + refs(execution['evidence_refs'])
+        run_details = ('| 字段 | DEV128实际运行 |\n|---|---|\n'
+            '| 原启动 | ' + local_time(actual['started_unix']) + '；' + actual['launch_id'] + ' |\n'
+            '| GPU | 两卡GPU1 A6000；EXCLUSIVE_PROCESS原runner唯一上下文 |\n'
+            '| 完整范围 | 16新DEV、六角色、128路径；原α/强基线保持 |\n'
+            '| GPU预算 | 预测11.618228h / 硬12h / 累计226h |\n'
+            '| 释放后评分 | 80LPIPS/7440帧、288质量；2CPU/8GiB，最多10h |\n'
+            '| 自动检查 | 10月26日19:26半程；10月27日10:04终态，按实际进度调整 |')
+        actions = execution['next_action']
+        row = by_id['PG-SHARED-DEV128']
+        row.update(state=execution['status'],new_GPU_submissions=1,full_protocol_accepted=False,
+            evidence_or_planned_scope=execution['summary'], GPU_dispatch_ready=False)
+        row['reader'].update(status=execution['status_zh'],result=execution['summary'],next_action=actions)
+        master['operation_policy'].update(current_preparation_card=None,
+            current_running_card='PG-SHARED-DEV128', current_running_cards=['PG-SHARED-DEV128'],
+            active_launch_ref=execution['launch_ref'], snapshot_observed_at=technical['observed_unix'])
         master['status_counts'] = {state:sum(r['state']==state for r in rows) for state in sorted({r['state'] for r in rows})}
     headlines = '\n'.join(f"- **{f['title']}**（{f['short_scope']}）：{f['result']} {refs(f['refs'])}"
                            for f in status['headline_results'])
