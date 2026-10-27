@@ -1,0 +1,1690 @@
+{
+  "scope_sha256": "d98fd5d3d466ce2f2e3250cc07b1b3d13b6e1d8076a14db046da00746cc78fb1",
+  "counts": {
+    "physical_paths": 73,
+    "phase_A": 26,
+    "phase_B": 47,
+    "formal_cells": 28,
+    "calibration_physical_paths": 4,
+    "calibration_anchor_paths": 4,
+    "selected_reused_cells": 0,
+    "warm": 13,
+    "timing_repeats": 12,
+    "diagnostic_on_off_three_arm": 12,
+    "quality_videos": 28,
+    "quality_positions": 112,
+    "LPIPS_pairs_per_metric": 24,
+    "LPIPS_frames_per_metric": 2232,
+    "LPIPS_metrics": 2,
+    "selection_Alex_pairs": 4,
+    "selection_Alex_frames": 372,
+    "loads": 2,
+    "automatic_GPU_retries": 0
+  },
+  "source_sha256": {
+    "reports/cara_latency_boundary_audit_r1_20261027.json": "f21ba981351afd67f0b9090d76e548238c6d0c3dc0fe3981b1d47b1615e92c64",
+    "reports/wc_clean_speed20_live_or_terminal_capture_20261012.json": "57489739ce28dc79b77c085a522c157b5c022e4c5a6932f863256a9b8816a22e",
+    "reports/cara_CAL66_A6000_terminal_20261026_0930.json": "73e24858a79b4950cb364e0d9272dc78c1fb2f577fd61479dc56bdb673d3e5e9",
+    "reports/cara_DEV128_A6000_terminal_20261027_0400.json": "dab5170aa942deb92f88ffa40c63871d6ea7305bdbcc19e379d7e8a9f48d6cb6"
+  },
+  "historical_method_observations": {
+    "NATIVE": {
+      "host": "two_card",
+      "n": 4,
+      "mean": 314.2952914147172,
+      "max": 321.25985078234226,
+      "source": "reports/wc_clean_speed20_live_or_terminal_capture_20261012.json",
+      "new_T_DD": null
+    },
+    "WC": {
+      "host": "two_card",
+      "n": 4,
+      "mean": 201.12629555445164,
+      "max": 205.1741077899933,
+      "source": "reports/wc_clean_speed20_live_or_terminal_capture_20261012.json",
+      "new_T_DD": null
+    },
+    "RA": {
+      "host": "two_card",
+      "n": 4,
+      "mean": 177.84816287411377,
+      "max": 179.94564162474126,
+      "source": "reports/wc_clean_speed20_live_or_terminal_capture_20261012.json",
+      "new_T_DD": null
+    }
+  },
+  "quality_CPU_observations": [
+    {
+      "source": "reports/cara_CAL66_A6000_terminal_20261026_0930.json",
+      "videos": 52,
+      "positions": 156,
+      "CPU_seconds": 8035.541874885559,
+      "cores": 2
+    },
+    {
+      "source": "reports/cara_DEV128_A6000_terminal_20261027_0400.json",
+      "videos": 96,
+      "positions": 288,
+      "CPU_seconds": 15112.443295955658,
+      "cores": 2
+    }
+  ],
+  "hosts": {
+    "two_card": {
+      "reference_native_mean": 314.260374635458,
+      "reference_native_max": 315.17188172228634,
+      "reference_card": "CAL66",
+      "role_unit_allowances": {
+        "NATIVE_U36": 315.17188172228634,
+        "WC_WRAPPER_ALLD_U36": 378.2062580667436,
+        "WC_README_U36": 378.2062580667436,
+        "WC_PAPER_PORT_U36": 378.2062580667436,
+        "WC_TUNED_U36": 378.2062580667436,
+        "RA_LOCAL_U36": 378.2062580667436,
+        "CARA_SHARED25_C_U36": 378.2062580667436,
+        "TAU_0.04": 378.2062580667436,
+        "TAU_0.06": 378.2062580667436
+      },
+      "positions": [
+        {
+          "id": "A_WARM:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:NATIVE_U36:1",
+          "role": "NATIVE_U36",
+          "phase": "A",
+          "section": "A_WARM",
+          "request_allowance_seconds": 315.17188172228634,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 315.17188172228634,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "A_WARM:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:WC_WRAPPER_ALLD_U36:1",
+          "role": "WC_WRAPPER_ALLD_U36",
+          "phase": "A",
+          "section": "A_WARM",
+          "request_allowance_seconds": 378.2062580667436,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 378.2062580667436,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "A_WARM:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:WC_README_U36:1",
+          "role": "WC_README_U36",
+          "phase": "A",
+          "section": "A_WARM",
+          "request_allowance_seconds": 378.2062580667436,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 378.2062580667436,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "A_WARM:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:CARA_SHARED25_C_U36:1",
+          "role": "CARA_SHARED25_C_U36",
+          "phase": "A",
+          "section": "A_WARM",
+          "request_allowance_seconds": 378.2062580667436,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 378.2062580667436,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "A_WARM:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:TAU_0.04:1",
+          "role": "TAU_0.04",
+          "phase": "A",
+          "section": "A_WARM",
+          "request_allowance_seconds": 378.2062580667436,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 378.2062580667436,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "A_WARM:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:TAU_0.06:1",
+          "role": "TAU_0.06",
+          "phase": "A",
+          "section": "A_WARM",
+          "request_allowance_seconds": 378.2062580667436,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 378.2062580667436,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "A_DIAGNOSTIC:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:NATIVE_U36:1",
+          "role": "NATIVE_U36",
+          "phase": "A",
+          "section": "A_DIAGNOSTIC",
+          "request_allowance_seconds": 315.17188172228634,
+          "diagnostic_multiplier": 1.5,
+          "forecast_seconds": 472.7578225834295,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "A_DIAGNOSTIC:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:NATIVE_U36:2",
+          "role": "NATIVE_U36",
+          "phase": "A",
+          "section": "A_DIAGNOSTIC",
+          "request_allowance_seconds": 315.17188172228634,
+          "diagnostic_multiplier": 1.5,
+          "forecast_seconds": 472.7578225834295,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "A_DIAGNOSTIC:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:WC_WRAPPER_ALLD_U36:1",
+          "role": "WC_WRAPPER_ALLD_U36",
+          "phase": "A",
+          "section": "A_DIAGNOSTIC",
+          "request_allowance_seconds": 378.2062580667436,
+          "diagnostic_multiplier": 1.5,
+          "forecast_seconds": 567.3093871001154,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "A_DIAGNOSTIC:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:WC_WRAPPER_ALLD_U36:2",
+          "role": "WC_WRAPPER_ALLD_U36",
+          "phase": "A",
+          "section": "A_DIAGNOSTIC",
+          "request_allowance_seconds": 378.2062580667436,
+          "diagnostic_multiplier": 1.5,
+          "forecast_seconds": 567.3093871001154,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "A_DIAGNOSTIC:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:WC_README_U36:1",
+          "role": "WC_README_U36",
+          "phase": "A",
+          "section": "A_DIAGNOSTIC",
+          "request_allowance_seconds": 378.2062580667436,
+          "diagnostic_multiplier": 1.5,
+          "forecast_seconds": 567.3093871001154,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "A_DIAGNOSTIC:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:WC_README_U36:2",
+          "role": "WC_README_U36",
+          "phase": "A",
+          "section": "A_DIAGNOSTIC",
+          "request_allowance_seconds": 378.2062580667436,
+          "diagnostic_multiplier": 1.5,
+          "forecast_seconds": 567.3093871001154,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "A_DIAGNOSTIC:human_199:NATIVE_U36:1",
+          "role": "NATIVE_U36",
+          "phase": "A",
+          "section": "A_DIAGNOSTIC",
+          "request_allowance_seconds": 315.17188172228634,
+          "diagnostic_multiplier": 1.5,
+          "forecast_seconds": 472.7578225834295,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "A_DIAGNOSTIC:human_199:NATIVE_U36:2",
+          "role": "NATIVE_U36",
+          "phase": "A",
+          "section": "A_DIAGNOSTIC",
+          "request_allowance_seconds": 315.17188172228634,
+          "diagnostic_multiplier": 1.5,
+          "forecast_seconds": 472.7578225834295,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "A_DIAGNOSTIC:human_199:WC_WRAPPER_ALLD_U36:1",
+          "role": "WC_WRAPPER_ALLD_U36",
+          "phase": "A",
+          "section": "A_DIAGNOSTIC",
+          "request_allowance_seconds": 378.2062580667436,
+          "diagnostic_multiplier": 1.5,
+          "forecast_seconds": 567.3093871001154,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "A_DIAGNOSTIC:human_199:WC_WRAPPER_ALLD_U36:2",
+          "role": "WC_WRAPPER_ALLD_U36",
+          "phase": "A",
+          "section": "A_DIAGNOSTIC",
+          "request_allowance_seconds": 378.2062580667436,
+          "diagnostic_multiplier": 1.5,
+          "forecast_seconds": 567.3093871001154,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "A_DIAGNOSTIC:human_199:WC_README_U36:1",
+          "role": "WC_README_U36",
+          "phase": "A",
+          "section": "A_DIAGNOSTIC",
+          "request_allowance_seconds": 378.2062580667436,
+          "diagnostic_multiplier": 1.5,
+          "forecast_seconds": 567.3093871001154,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "A_DIAGNOSTIC:human_199:WC_README_U36:2",
+          "role": "WC_README_U36",
+          "phase": "A",
+          "section": "A_DIAGNOSTIC",
+          "request_allowance_seconds": 378.2062580667436,
+          "diagnostic_multiplier": 1.5,
+          "forecast_seconds": 567.3093871001154,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "A_ANCHOR:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:NATIVE_U36:1",
+          "role": "NATIVE_U36",
+          "phase": "A",
+          "section": "A_ANCHOR",
+          "request_allowance_seconds": 315.17188172228634,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 315.17188172228634,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "A_ANCHOR:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:CARA_SHARED25_C_U36:1",
+          "role": "CARA_SHARED25_C_U36",
+          "phase": "A",
+          "section": "A_ANCHOR",
+          "request_allowance_seconds": 378.2062580667436,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 378.2062580667436,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "A_CALIBRATION:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:TAU_0.04:1",
+          "role": "TAU_0.04",
+          "phase": "A",
+          "section": "A_CALIBRATION",
+          "request_allowance_seconds": 378.2062580667436,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 378.2062580667436,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "A_CALIBRATION:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:TAU_0.06:1",
+          "role": "TAU_0.06",
+          "phase": "A",
+          "section": "A_CALIBRATION",
+          "request_allowance_seconds": 378.2062580667436,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 378.2062580667436,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "A_ANCHOR:human_199:NATIVE_U36:1",
+          "role": "NATIVE_U36",
+          "phase": "A",
+          "section": "A_ANCHOR",
+          "request_allowance_seconds": 315.17188172228634,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 315.17188172228634,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "A_ANCHOR:human_199:CARA_SHARED25_C_U36:1",
+          "role": "CARA_SHARED25_C_U36",
+          "phase": "A",
+          "section": "A_ANCHOR",
+          "request_allowance_seconds": 378.2062580667436,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 378.2062580667436,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "A_CALIBRATION:human_199:TAU_0.04:1",
+          "role": "TAU_0.04",
+          "phase": "A",
+          "section": "A_CALIBRATION",
+          "request_allowance_seconds": 378.2062580667436,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 378.2062580667436,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "A_CALIBRATION:human_199:TAU_0.06:1",
+          "role": "TAU_0.06",
+          "phase": "A",
+          "section": "A_CALIBRATION",
+          "request_allowance_seconds": 378.2062580667436,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 378.2062580667436,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_WARM:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:NATIVE_U36:1",
+          "role": "NATIVE_U36",
+          "phase": "B",
+          "section": "B_WARM",
+          "request_allowance_seconds": 315.17188172228634,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 315.17188172228634,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_WARM:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:WC_WRAPPER_ALLD_U36:1",
+          "role": "WC_WRAPPER_ALLD_U36",
+          "phase": "B",
+          "section": "B_WARM",
+          "request_allowance_seconds": 378.2062580667436,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 378.2062580667436,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_WARM:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:WC_README_U36:1",
+          "role": "WC_README_U36",
+          "phase": "B",
+          "section": "B_WARM",
+          "request_allowance_seconds": 378.2062580667436,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 378.2062580667436,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_WARM:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:WC_PAPER_PORT_U36:1",
+          "role": "WC_PAPER_PORT_U36",
+          "phase": "B",
+          "section": "B_WARM",
+          "request_allowance_seconds": 378.2062580667436,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 378.2062580667436,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_WARM:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:WC_TUNED_U36:1",
+          "role": "WC_TUNED_U36",
+          "phase": "B",
+          "section": "B_WARM",
+          "request_allowance_seconds": 378.2062580667436,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 378.2062580667436,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_WARM:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:RA_LOCAL_U36:1",
+          "role": "RA_LOCAL_U36",
+          "phase": "B",
+          "section": "B_WARM",
+          "request_allowance_seconds": 378.2062580667436,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 378.2062580667436,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_WARM:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:CARA_SHARED25_C_U36:1",
+          "role": "CARA_SHARED25_C_U36",
+          "phase": "B",
+          "section": "B_WARM",
+          "request_allowance_seconds": 378.2062580667436,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 378.2062580667436,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_QUALITY:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:NATIVE_U36:1",
+          "role": "NATIVE_U36",
+          "phase": "B",
+          "section": "B_QUALITY",
+          "request_allowance_seconds": 315.17188172228634,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 315.17188172228634,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_QUALITY:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:WC_WRAPPER_ALLD_U36:1",
+          "role": "WC_WRAPPER_ALLD_U36",
+          "phase": "B",
+          "section": "B_QUALITY",
+          "request_allowance_seconds": 378.2062580667436,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 378.2062580667436,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_QUALITY:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:WC_README_U36:1",
+          "role": "WC_README_U36",
+          "phase": "B",
+          "section": "B_QUALITY",
+          "request_allowance_seconds": 378.2062580667436,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 378.2062580667436,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_QUALITY:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:WC_PAPER_PORT_U36:1",
+          "role": "WC_PAPER_PORT_U36",
+          "phase": "B",
+          "section": "B_QUALITY",
+          "request_allowance_seconds": 378.2062580667436,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 378.2062580667436,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_QUALITY:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:WC_TUNED_U36:1",
+          "role": "WC_TUNED_U36",
+          "phase": "B",
+          "section": "B_QUALITY",
+          "request_allowance_seconds": 378.2062580667436,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 378.2062580667436,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_QUALITY:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:RA_LOCAL_U36:1",
+          "role": "RA_LOCAL_U36",
+          "phase": "B",
+          "section": "B_QUALITY",
+          "request_allowance_seconds": 378.2062580667436,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 378.2062580667436,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_QUALITY:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:CARA_SHARED25_C_U36:1",
+          "role": "CARA_SHARED25_C_U36",
+          "phase": "B",
+          "section": "B_QUALITY",
+          "request_allowance_seconds": 378.2062580667436,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 378.2062580667436,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_QUALITY:human_199:CARA_SHARED25_C_U36:1",
+          "role": "CARA_SHARED25_C_U36",
+          "phase": "B",
+          "section": "B_QUALITY",
+          "request_allowance_seconds": 378.2062580667436,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 378.2062580667436,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_QUALITY:human_199:RA_LOCAL_U36:1",
+          "role": "RA_LOCAL_U36",
+          "phase": "B",
+          "section": "B_QUALITY",
+          "request_allowance_seconds": 378.2062580667436,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 378.2062580667436,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_QUALITY:human_199:WC_TUNED_U36:1",
+          "role": "WC_TUNED_U36",
+          "phase": "B",
+          "section": "B_QUALITY",
+          "request_allowance_seconds": 378.2062580667436,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 378.2062580667436,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_QUALITY:human_199:WC_PAPER_PORT_U36:1",
+          "role": "WC_PAPER_PORT_U36",
+          "phase": "B",
+          "section": "B_QUALITY",
+          "request_allowance_seconds": 378.2062580667436,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 378.2062580667436,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_QUALITY:human_199:WC_README_U36:1",
+          "role": "WC_README_U36",
+          "phase": "B",
+          "section": "B_QUALITY",
+          "request_allowance_seconds": 378.2062580667436,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 378.2062580667436,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_QUALITY:human_199:WC_WRAPPER_ALLD_U36:1",
+          "role": "WC_WRAPPER_ALLD_U36",
+          "phase": "B",
+          "section": "B_QUALITY",
+          "request_allowance_seconds": 378.2062580667436,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 378.2062580667436,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_QUALITY:human_199:NATIVE_U36:1",
+          "role": "NATIVE_U36",
+          "phase": "B",
+          "section": "B_QUALITY",
+          "request_allowance_seconds": 315.17188172228634,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 315.17188172228634,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_QUALITY:misc_13398218_3840_2160_60fps:NATIVE_U36:1",
+          "role": "NATIVE_U36",
+          "phase": "B",
+          "section": "B_QUALITY",
+          "request_allowance_seconds": 315.17188172228634,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 315.17188172228634,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_QUALITY:misc_13398218_3840_2160_60fps:WC_WRAPPER_ALLD_U36:1",
+          "role": "WC_WRAPPER_ALLD_U36",
+          "phase": "B",
+          "section": "B_QUALITY",
+          "request_allowance_seconds": 378.2062580667436,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 378.2062580667436,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_QUALITY:misc_13398218_3840_2160_60fps:WC_README_U36:1",
+          "role": "WC_README_U36",
+          "phase": "B",
+          "section": "B_QUALITY",
+          "request_allowance_seconds": 378.2062580667436,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 378.2062580667436,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_QUALITY:misc_13398218_3840_2160_60fps:WC_PAPER_PORT_U36:1",
+          "role": "WC_PAPER_PORT_U36",
+          "phase": "B",
+          "section": "B_QUALITY",
+          "request_allowance_seconds": 378.2062580667436,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 378.2062580667436,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_QUALITY:misc_13398218_3840_2160_60fps:WC_TUNED_U36:1",
+          "role": "WC_TUNED_U36",
+          "phase": "B",
+          "section": "B_QUALITY",
+          "request_allowance_seconds": 378.2062580667436,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 378.2062580667436,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_QUALITY:misc_13398218_3840_2160_60fps:RA_LOCAL_U36:1",
+          "role": "RA_LOCAL_U36",
+          "phase": "B",
+          "section": "B_QUALITY",
+          "request_allowance_seconds": 378.2062580667436,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 378.2062580667436,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_QUALITY:misc_13398218_3840_2160_60fps:CARA_SHARED25_C_U36:1",
+          "role": "CARA_SHARED25_C_U36",
+          "phase": "B",
+          "section": "B_QUALITY",
+          "request_allowance_seconds": 378.2062580667436,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 378.2062580667436,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_QUALITY:av_51b45829-502e-4143-9c32-c026bd6ab191:CARA_SHARED25_C_U36:1",
+          "role": "CARA_SHARED25_C_U36",
+          "phase": "B",
+          "section": "B_QUALITY",
+          "request_allowance_seconds": 378.2062580667436,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 378.2062580667436,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_QUALITY:av_51b45829-502e-4143-9c32-c026bd6ab191:RA_LOCAL_U36:1",
+          "role": "RA_LOCAL_U36",
+          "phase": "B",
+          "section": "B_QUALITY",
+          "request_allowance_seconds": 378.2062580667436,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 378.2062580667436,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_QUALITY:av_51b45829-502e-4143-9c32-c026bd6ab191:WC_TUNED_U36:1",
+          "role": "WC_TUNED_U36",
+          "phase": "B",
+          "section": "B_QUALITY",
+          "request_allowance_seconds": 378.2062580667436,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 378.2062580667436,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_QUALITY:av_51b45829-502e-4143-9c32-c026bd6ab191:WC_PAPER_PORT_U36:1",
+          "role": "WC_PAPER_PORT_U36",
+          "phase": "B",
+          "section": "B_QUALITY",
+          "request_allowance_seconds": 378.2062580667436,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 378.2062580667436,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_QUALITY:av_51b45829-502e-4143-9c32-c026bd6ab191:WC_README_U36:1",
+          "role": "WC_README_U36",
+          "phase": "B",
+          "section": "B_QUALITY",
+          "request_allowance_seconds": 378.2062580667436,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 378.2062580667436,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_QUALITY:av_51b45829-502e-4143-9c32-c026bd6ab191:WC_WRAPPER_ALLD_U36:1",
+          "role": "WC_WRAPPER_ALLD_U36",
+          "phase": "B",
+          "section": "B_QUALITY",
+          "request_allowance_seconds": 378.2062580667436,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 378.2062580667436,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_QUALITY:av_51b45829-502e-4143-9c32-c026bd6ab191:NATIVE_U36:1",
+          "role": "NATIVE_U36",
+          "phase": "B",
+          "section": "B_QUALITY",
+          "request_allowance_seconds": 315.17188172228634,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 315.17188172228634,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_TIMING_REPEAT:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:CARA_SHARED25_C_U36:2",
+          "role": "CARA_SHARED25_C_U36",
+          "phase": "B",
+          "section": "B_TIMING_REPEAT",
+          "request_allowance_seconds": 378.2062580667436,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 378.2062580667436,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_TIMING_REPEAT:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:RA_LOCAL_U36:2",
+          "role": "RA_LOCAL_U36",
+          "phase": "B",
+          "section": "B_TIMING_REPEAT",
+          "request_allowance_seconds": 378.2062580667436,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 378.2062580667436,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_TIMING_REPEAT:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:WC_TUNED_U36:2",
+          "role": "WC_TUNED_U36",
+          "phase": "B",
+          "section": "B_TIMING_REPEAT",
+          "request_allowance_seconds": 378.2062580667436,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 378.2062580667436,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_TIMING_REPEAT:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:WC_PAPER_PORT_U36:2",
+          "role": "WC_PAPER_PORT_U36",
+          "phase": "B",
+          "section": "B_TIMING_REPEAT",
+          "request_allowance_seconds": 378.2062580667436,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 378.2062580667436,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_TIMING_REPEAT:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:WC_README_U36:2",
+          "role": "WC_README_U36",
+          "phase": "B",
+          "section": "B_TIMING_REPEAT",
+          "request_allowance_seconds": 378.2062580667436,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 378.2062580667436,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_TIMING_REPEAT:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:NATIVE_U36:2",
+          "role": "NATIVE_U36",
+          "phase": "B",
+          "section": "B_TIMING_REPEAT",
+          "request_allowance_seconds": 315.17188172228634,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 315.17188172228634,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_TIMING_REPEAT:human_199:CARA_SHARED25_C_U36:2",
+          "role": "CARA_SHARED25_C_U36",
+          "phase": "B",
+          "section": "B_TIMING_REPEAT",
+          "request_allowance_seconds": 378.2062580667436,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 378.2062580667436,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_TIMING_REPEAT:human_199:RA_LOCAL_U36:2",
+          "role": "RA_LOCAL_U36",
+          "phase": "B",
+          "section": "B_TIMING_REPEAT",
+          "request_allowance_seconds": 378.2062580667436,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 378.2062580667436,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_TIMING_REPEAT:human_199:WC_TUNED_U36:2",
+          "role": "WC_TUNED_U36",
+          "phase": "B",
+          "section": "B_TIMING_REPEAT",
+          "request_allowance_seconds": 378.2062580667436,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 378.2062580667436,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_TIMING_REPEAT:human_199:WC_PAPER_PORT_U36:2",
+          "role": "WC_PAPER_PORT_U36",
+          "phase": "B",
+          "section": "B_TIMING_REPEAT",
+          "request_allowance_seconds": 378.2062580667436,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 378.2062580667436,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_TIMING_REPEAT:human_199:WC_README_U36:2",
+          "role": "WC_README_U36",
+          "phase": "B",
+          "section": "B_TIMING_REPEAT",
+          "request_allowance_seconds": 378.2062580667436,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 378.2062580667436,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_TIMING_REPEAT:human_199:NATIVE_U36:2",
+          "role": "NATIVE_U36",
+          "phase": "B",
+          "section": "B_TIMING_REPEAT",
+          "request_allowance_seconds": 315.17188172228634,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 315.17188172228634,
+          "new_measured_seconds": null
+        }
+      ],
+      "phases": {
+        "A": {
+          "paths": 26,
+          "request_seconds": 11535.290871035686,
+          "overhead_seconds": {
+            "model_load": 300,
+            "source_checks_and_context": 180,
+            "reset_hash_save_decode_checks": 300,
+            "thermal_wait": 300,
+            "stop_release_settlement": 120
+          },
+          "contingency_factor": 1.15,
+          "forecast_GPUh": 4.0682179171363995,
+          "proposed_hard_GPUh": 5,
+          "stop_before_hard_seconds": 120
+        },
+        "B": {
+          "paths": 47,
+          "request_seconds": 17334.45349472576,
+          "overhead_seconds": {
+            "model_load": 300,
+            "source_checks_and_context": 180,
+            "reset_hash_save_decode_checks": 240,
+            "thermal_wait": 300,
+            "stop_release_settlement": 120
+          },
+          "contingency_factor": 1.15,
+          "forecast_GPUh": 5.901561533037395,
+          "proposed_hard_GPUh": 7,
+          "stop_before_hard_seconds": 120
+        }
+      },
+      "forecast_complete_GPUh": 9.969779450173794,
+      "proposed_whole_hard_GPUh": 12,
+      "actual_new_GPUh": null,
+      "whole_wall_excluding_queue_hours": [
+        11.969779450173794,
+        13.969779450173794
+      ],
+      "sequential_worst_bound_hours": 19,
+      "price_type": "HISTORICAL_ANCHORED_FULL_SCOPE_ENGINEERING_QUOTE_NOT_MEASURED_NEW_RATES"
+    },
+    "four_card": {
+      "reference_native_mean": 297.4608236462809,
+      "reference_native_max": 299.00618623383343,
+      "reference_card": "C112",
+      "role_unit_allowances": {
+        "NATIVE_U36": 299.00618623383343,
+        "WC_WRAPPER_ALLD_U36": 358.8074234806001,
+        "WC_README_U36": 358.8074234806001,
+        "WC_PAPER_PORT_U36": 358.8074234806001,
+        "WC_TUNED_U36": 358.8074234806001,
+        "RA_LOCAL_U36": 358.8074234806001,
+        "CARA_SHARED25_C_U36": 358.8074234806001,
+        "TAU_0.04": 358.8074234806001,
+        "TAU_0.06": 358.8074234806001
+      },
+      "positions": [
+        {
+          "id": "A_WARM:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:NATIVE_U36:1",
+          "role": "NATIVE_U36",
+          "phase": "A",
+          "section": "A_WARM",
+          "request_allowance_seconds": 299.00618623383343,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 299.00618623383343,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "A_WARM:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:WC_WRAPPER_ALLD_U36:1",
+          "role": "WC_WRAPPER_ALLD_U36",
+          "phase": "A",
+          "section": "A_WARM",
+          "request_allowance_seconds": 358.8074234806001,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 358.8074234806001,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "A_WARM:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:WC_README_U36:1",
+          "role": "WC_README_U36",
+          "phase": "A",
+          "section": "A_WARM",
+          "request_allowance_seconds": 358.8074234806001,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 358.8074234806001,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "A_WARM:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:CARA_SHARED25_C_U36:1",
+          "role": "CARA_SHARED25_C_U36",
+          "phase": "A",
+          "section": "A_WARM",
+          "request_allowance_seconds": 358.8074234806001,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 358.8074234806001,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "A_WARM:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:TAU_0.04:1",
+          "role": "TAU_0.04",
+          "phase": "A",
+          "section": "A_WARM",
+          "request_allowance_seconds": 358.8074234806001,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 358.8074234806001,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "A_WARM:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:TAU_0.06:1",
+          "role": "TAU_0.06",
+          "phase": "A",
+          "section": "A_WARM",
+          "request_allowance_seconds": 358.8074234806001,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 358.8074234806001,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "A_DIAGNOSTIC:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:NATIVE_U36:1",
+          "role": "NATIVE_U36",
+          "phase": "A",
+          "section": "A_DIAGNOSTIC",
+          "request_allowance_seconds": 299.00618623383343,
+          "diagnostic_multiplier": 1.5,
+          "forecast_seconds": 448.50927935075015,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "A_DIAGNOSTIC:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:NATIVE_U36:2",
+          "role": "NATIVE_U36",
+          "phase": "A",
+          "section": "A_DIAGNOSTIC",
+          "request_allowance_seconds": 299.00618623383343,
+          "diagnostic_multiplier": 1.5,
+          "forecast_seconds": 448.50927935075015,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "A_DIAGNOSTIC:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:WC_WRAPPER_ALLD_U36:1",
+          "role": "WC_WRAPPER_ALLD_U36",
+          "phase": "A",
+          "section": "A_DIAGNOSTIC",
+          "request_allowance_seconds": 358.8074234806001,
+          "diagnostic_multiplier": 1.5,
+          "forecast_seconds": 538.2111352209001,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "A_DIAGNOSTIC:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:WC_WRAPPER_ALLD_U36:2",
+          "role": "WC_WRAPPER_ALLD_U36",
+          "phase": "A",
+          "section": "A_DIAGNOSTIC",
+          "request_allowance_seconds": 358.8074234806001,
+          "diagnostic_multiplier": 1.5,
+          "forecast_seconds": 538.2111352209001,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "A_DIAGNOSTIC:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:WC_README_U36:1",
+          "role": "WC_README_U36",
+          "phase": "A",
+          "section": "A_DIAGNOSTIC",
+          "request_allowance_seconds": 358.8074234806001,
+          "diagnostic_multiplier": 1.5,
+          "forecast_seconds": 538.2111352209001,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "A_DIAGNOSTIC:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:WC_README_U36:2",
+          "role": "WC_README_U36",
+          "phase": "A",
+          "section": "A_DIAGNOSTIC",
+          "request_allowance_seconds": 358.8074234806001,
+          "diagnostic_multiplier": 1.5,
+          "forecast_seconds": 538.2111352209001,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "A_DIAGNOSTIC:human_199:NATIVE_U36:1",
+          "role": "NATIVE_U36",
+          "phase": "A",
+          "section": "A_DIAGNOSTIC",
+          "request_allowance_seconds": 299.00618623383343,
+          "diagnostic_multiplier": 1.5,
+          "forecast_seconds": 448.50927935075015,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "A_DIAGNOSTIC:human_199:NATIVE_U36:2",
+          "role": "NATIVE_U36",
+          "phase": "A",
+          "section": "A_DIAGNOSTIC",
+          "request_allowance_seconds": 299.00618623383343,
+          "diagnostic_multiplier": 1.5,
+          "forecast_seconds": 448.50927935075015,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "A_DIAGNOSTIC:human_199:WC_WRAPPER_ALLD_U36:1",
+          "role": "WC_WRAPPER_ALLD_U36",
+          "phase": "A",
+          "section": "A_DIAGNOSTIC",
+          "request_allowance_seconds": 358.8074234806001,
+          "diagnostic_multiplier": 1.5,
+          "forecast_seconds": 538.2111352209001,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "A_DIAGNOSTIC:human_199:WC_WRAPPER_ALLD_U36:2",
+          "role": "WC_WRAPPER_ALLD_U36",
+          "phase": "A",
+          "section": "A_DIAGNOSTIC",
+          "request_allowance_seconds": 358.8074234806001,
+          "diagnostic_multiplier": 1.5,
+          "forecast_seconds": 538.2111352209001,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "A_DIAGNOSTIC:human_199:WC_README_U36:1",
+          "role": "WC_README_U36",
+          "phase": "A",
+          "section": "A_DIAGNOSTIC",
+          "request_allowance_seconds": 358.8074234806001,
+          "diagnostic_multiplier": 1.5,
+          "forecast_seconds": 538.2111352209001,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "A_DIAGNOSTIC:human_199:WC_README_U36:2",
+          "role": "WC_README_U36",
+          "phase": "A",
+          "section": "A_DIAGNOSTIC",
+          "request_allowance_seconds": 358.8074234806001,
+          "diagnostic_multiplier": 1.5,
+          "forecast_seconds": 538.2111352209001,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "A_ANCHOR:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:NATIVE_U36:1",
+          "role": "NATIVE_U36",
+          "phase": "A",
+          "section": "A_ANCHOR",
+          "request_allowance_seconds": 299.00618623383343,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 299.00618623383343,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "A_ANCHOR:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:CARA_SHARED25_C_U36:1",
+          "role": "CARA_SHARED25_C_U36",
+          "phase": "A",
+          "section": "A_ANCHOR",
+          "request_allowance_seconds": 358.8074234806001,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 358.8074234806001,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "A_CALIBRATION:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:TAU_0.04:1",
+          "role": "TAU_0.04",
+          "phase": "A",
+          "section": "A_CALIBRATION",
+          "request_allowance_seconds": 358.8074234806001,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 358.8074234806001,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "A_CALIBRATION:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:TAU_0.06:1",
+          "role": "TAU_0.06",
+          "phase": "A",
+          "section": "A_CALIBRATION",
+          "request_allowance_seconds": 358.8074234806001,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 358.8074234806001,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "A_ANCHOR:human_199:NATIVE_U36:1",
+          "role": "NATIVE_U36",
+          "phase": "A",
+          "section": "A_ANCHOR",
+          "request_allowance_seconds": 299.00618623383343,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 299.00618623383343,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "A_ANCHOR:human_199:CARA_SHARED25_C_U36:1",
+          "role": "CARA_SHARED25_C_U36",
+          "phase": "A",
+          "section": "A_ANCHOR",
+          "request_allowance_seconds": 358.8074234806001,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 358.8074234806001,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "A_CALIBRATION:human_199:TAU_0.04:1",
+          "role": "TAU_0.04",
+          "phase": "A",
+          "section": "A_CALIBRATION",
+          "request_allowance_seconds": 358.8074234806001,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 358.8074234806001,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "A_CALIBRATION:human_199:TAU_0.06:1",
+          "role": "TAU_0.06",
+          "phase": "A",
+          "section": "A_CALIBRATION",
+          "request_allowance_seconds": 358.8074234806001,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 358.8074234806001,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_WARM:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:NATIVE_U36:1",
+          "role": "NATIVE_U36",
+          "phase": "B",
+          "section": "B_WARM",
+          "request_allowance_seconds": 299.00618623383343,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 299.00618623383343,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_WARM:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:WC_WRAPPER_ALLD_U36:1",
+          "role": "WC_WRAPPER_ALLD_U36",
+          "phase": "B",
+          "section": "B_WARM",
+          "request_allowance_seconds": 358.8074234806001,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 358.8074234806001,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_WARM:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:WC_README_U36:1",
+          "role": "WC_README_U36",
+          "phase": "B",
+          "section": "B_WARM",
+          "request_allowance_seconds": 358.8074234806001,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 358.8074234806001,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_WARM:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:WC_PAPER_PORT_U36:1",
+          "role": "WC_PAPER_PORT_U36",
+          "phase": "B",
+          "section": "B_WARM",
+          "request_allowance_seconds": 358.8074234806001,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 358.8074234806001,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_WARM:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:WC_TUNED_U36:1",
+          "role": "WC_TUNED_U36",
+          "phase": "B",
+          "section": "B_WARM",
+          "request_allowance_seconds": 358.8074234806001,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 358.8074234806001,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_WARM:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:RA_LOCAL_U36:1",
+          "role": "RA_LOCAL_U36",
+          "phase": "B",
+          "section": "B_WARM",
+          "request_allowance_seconds": 358.8074234806001,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 358.8074234806001,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_WARM:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:CARA_SHARED25_C_U36:1",
+          "role": "CARA_SHARED25_C_U36",
+          "phase": "B",
+          "section": "B_WARM",
+          "request_allowance_seconds": 358.8074234806001,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 358.8074234806001,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_QUALITY:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:NATIVE_U36:1",
+          "role": "NATIVE_U36",
+          "phase": "B",
+          "section": "B_QUALITY",
+          "request_allowance_seconds": 299.00618623383343,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 299.00618623383343,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_QUALITY:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:WC_WRAPPER_ALLD_U36:1",
+          "role": "WC_WRAPPER_ALLD_U36",
+          "phase": "B",
+          "section": "B_QUALITY",
+          "request_allowance_seconds": 358.8074234806001,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 358.8074234806001,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_QUALITY:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:WC_README_U36:1",
+          "role": "WC_README_U36",
+          "phase": "B",
+          "section": "B_QUALITY",
+          "request_allowance_seconds": 358.8074234806001,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 358.8074234806001,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_QUALITY:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:WC_PAPER_PORT_U36:1",
+          "role": "WC_PAPER_PORT_U36",
+          "phase": "B",
+          "section": "B_QUALITY",
+          "request_allowance_seconds": 358.8074234806001,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 358.8074234806001,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_QUALITY:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:WC_TUNED_U36:1",
+          "role": "WC_TUNED_U36",
+          "phase": "B",
+          "section": "B_QUALITY",
+          "request_allowance_seconds": 358.8074234806001,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 358.8074234806001,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_QUALITY:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:RA_LOCAL_U36:1",
+          "role": "RA_LOCAL_U36",
+          "phase": "B",
+          "section": "B_QUALITY",
+          "request_allowance_seconds": 358.8074234806001,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 358.8074234806001,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_QUALITY:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:CARA_SHARED25_C_U36:1",
+          "role": "CARA_SHARED25_C_U36",
+          "phase": "B",
+          "section": "B_QUALITY",
+          "request_allowance_seconds": 358.8074234806001,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 358.8074234806001,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_QUALITY:human_199:CARA_SHARED25_C_U36:1",
+          "role": "CARA_SHARED25_C_U36",
+          "phase": "B",
+          "section": "B_QUALITY",
+          "request_allowance_seconds": 358.8074234806001,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 358.8074234806001,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_QUALITY:human_199:RA_LOCAL_U36:1",
+          "role": "RA_LOCAL_U36",
+          "phase": "B",
+          "section": "B_QUALITY",
+          "request_allowance_seconds": 358.8074234806001,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 358.8074234806001,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_QUALITY:human_199:WC_TUNED_U36:1",
+          "role": "WC_TUNED_U36",
+          "phase": "B",
+          "section": "B_QUALITY",
+          "request_allowance_seconds": 358.8074234806001,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 358.8074234806001,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_QUALITY:human_199:WC_PAPER_PORT_U36:1",
+          "role": "WC_PAPER_PORT_U36",
+          "phase": "B",
+          "section": "B_QUALITY",
+          "request_allowance_seconds": 358.8074234806001,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 358.8074234806001,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_QUALITY:human_199:WC_README_U36:1",
+          "role": "WC_README_U36",
+          "phase": "B",
+          "section": "B_QUALITY",
+          "request_allowance_seconds": 358.8074234806001,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 358.8074234806001,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_QUALITY:human_199:WC_WRAPPER_ALLD_U36:1",
+          "role": "WC_WRAPPER_ALLD_U36",
+          "phase": "B",
+          "section": "B_QUALITY",
+          "request_allowance_seconds": 358.8074234806001,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 358.8074234806001,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_QUALITY:human_199:NATIVE_U36:1",
+          "role": "NATIVE_U36",
+          "phase": "B",
+          "section": "B_QUALITY",
+          "request_allowance_seconds": 299.00618623383343,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 299.00618623383343,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_QUALITY:misc_13398218_3840_2160_60fps:NATIVE_U36:1",
+          "role": "NATIVE_U36",
+          "phase": "B",
+          "section": "B_QUALITY",
+          "request_allowance_seconds": 299.00618623383343,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 299.00618623383343,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_QUALITY:misc_13398218_3840_2160_60fps:WC_WRAPPER_ALLD_U36:1",
+          "role": "WC_WRAPPER_ALLD_U36",
+          "phase": "B",
+          "section": "B_QUALITY",
+          "request_allowance_seconds": 358.8074234806001,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 358.8074234806001,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_QUALITY:misc_13398218_3840_2160_60fps:WC_README_U36:1",
+          "role": "WC_README_U36",
+          "phase": "B",
+          "section": "B_QUALITY",
+          "request_allowance_seconds": 358.8074234806001,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 358.8074234806001,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_QUALITY:misc_13398218_3840_2160_60fps:WC_PAPER_PORT_U36:1",
+          "role": "WC_PAPER_PORT_U36",
+          "phase": "B",
+          "section": "B_QUALITY",
+          "request_allowance_seconds": 358.8074234806001,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 358.8074234806001,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_QUALITY:misc_13398218_3840_2160_60fps:WC_TUNED_U36:1",
+          "role": "WC_TUNED_U36",
+          "phase": "B",
+          "section": "B_QUALITY",
+          "request_allowance_seconds": 358.8074234806001,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 358.8074234806001,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_QUALITY:misc_13398218_3840_2160_60fps:RA_LOCAL_U36:1",
+          "role": "RA_LOCAL_U36",
+          "phase": "B",
+          "section": "B_QUALITY",
+          "request_allowance_seconds": 358.8074234806001,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 358.8074234806001,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_QUALITY:misc_13398218_3840_2160_60fps:CARA_SHARED25_C_U36:1",
+          "role": "CARA_SHARED25_C_U36",
+          "phase": "B",
+          "section": "B_QUALITY",
+          "request_allowance_seconds": 358.8074234806001,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 358.8074234806001,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_QUALITY:av_51b45829-502e-4143-9c32-c026bd6ab191:CARA_SHARED25_C_U36:1",
+          "role": "CARA_SHARED25_C_U36",
+          "phase": "B",
+          "section": "B_QUALITY",
+          "request_allowance_seconds": 358.8074234806001,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 358.8074234806001,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_QUALITY:av_51b45829-502e-4143-9c32-c026bd6ab191:RA_LOCAL_U36:1",
+          "role": "RA_LOCAL_U36",
+          "phase": "B",
+          "section": "B_QUALITY",
+          "request_allowance_seconds": 358.8074234806001,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 358.8074234806001,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_QUALITY:av_51b45829-502e-4143-9c32-c026bd6ab191:WC_TUNED_U36:1",
+          "role": "WC_TUNED_U36",
+          "phase": "B",
+          "section": "B_QUALITY",
+          "request_allowance_seconds": 358.8074234806001,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 358.8074234806001,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_QUALITY:av_51b45829-502e-4143-9c32-c026bd6ab191:WC_PAPER_PORT_U36:1",
+          "role": "WC_PAPER_PORT_U36",
+          "phase": "B",
+          "section": "B_QUALITY",
+          "request_allowance_seconds": 358.8074234806001,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 358.8074234806001,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_QUALITY:av_51b45829-502e-4143-9c32-c026bd6ab191:WC_README_U36:1",
+          "role": "WC_README_U36",
+          "phase": "B",
+          "section": "B_QUALITY",
+          "request_allowance_seconds": 358.8074234806001,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 358.8074234806001,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_QUALITY:av_51b45829-502e-4143-9c32-c026bd6ab191:WC_WRAPPER_ALLD_U36:1",
+          "role": "WC_WRAPPER_ALLD_U36",
+          "phase": "B",
+          "section": "B_QUALITY",
+          "request_allowance_seconds": 358.8074234806001,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 358.8074234806001,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_QUALITY:av_51b45829-502e-4143-9c32-c026bd6ab191:NATIVE_U36:1",
+          "role": "NATIVE_U36",
+          "phase": "B",
+          "section": "B_QUALITY",
+          "request_allowance_seconds": 299.00618623383343,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 299.00618623383343,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_TIMING_REPEAT:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:CARA_SHARED25_C_U36:2",
+          "role": "CARA_SHARED25_C_U36",
+          "phase": "B",
+          "section": "B_TIMING_REPEAT",
+          "request_allowance_seconds": 358.8074234806001,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 358.8074234806001,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_TIMING_REPEAT:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:RA_LOCAL_U36:2",
+          "role": "RA_LOCAL_U36",
+          "phase": "B",
+          "section": "B_TIMING_REPEAT",
+          "request_allowance_seconds": 358.8074234806001,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 358.8074234806001,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_TIMING_REPEAT:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:WC_TUNED_U36:2",
+          "role": "WC_TUNED_U36",
+          "phase": "B",
+          "section": "B_TIMING_REPEAT",
+          "request_allowance_seconds": 358.8074234806001,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 358.8074234806001,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_TIMING_REPEAT:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:WC_PAPER_PORT_U36:2",
+          "role": "WC_PAPER_PORT_U36",
+          "phase": "B",
+          "section": "B_TIMING_REPEAT",
+          "request_allowance_seconds": 358.8074234806001,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 358.8074234806001,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_TIMING_REPEAT:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:WC_README_U36:2",
+          "role": "WC_README_U36",
+          "phase": "B",
+          "section": "B_TIMING_REPEAT",
+          "request_allowance_seconds": 358.8074234806001,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 358.8074234806001,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_TIMING_REPEAT:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:NATIVE_U36:2",
+          "role": "NATIVE_U36",
+          "phase": "B",
+          "section": "B_TIMING_REPEAT",
+          "request_allowance_seconds": 299.00618623383343,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 299.00618623383343,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_TIMING_REPEAT:human_199:CARA_SHARED25_C_U36:2",
+          "role": "CARA_SHARED25_C_U36",
+          "phase": "B",
+          "section": "B_TIMING_REPEAT",
+          "request_allowance_seconds": 358.8074234806001,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 358.8074234806001,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_TIMING_REPEAT:human_199:RA_LOCAL_U36:2",
+          "role": "RA_LOCAL_U36",
+          "phase": "B",
+          "section": "B_TIMING_REPEAT",
+          "request_allowance_seconds": 358.8074234806001,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 358.8074234806001,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_TIMING_REPEAT:human_199:WC_TUNED_U36:2",
+          "role": "WC_TUNED_U36",
+          "phase": "B",
+          "section": "B_TIMING_REPEAT",
+          "request_allowance_seconds": 358.8074234806001,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 358.8074234806001,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_TIMING_REPEAT:human_199:WC_PAPER_PORT_U36:2",
+          "role": "WC_PAPER_PORT_U36",
+          "phase": "B",
+          "section": "B_TIMING_REPEAT",
+          "request_allowance_seconds": 358.8074234806001,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 358.8074234806001,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_TIMING_REPEAT:human_199:WC_README_U36:2",
+          "role": "WC_README_U36",
+          "phase": "B",
+          "section": "B_TIMING_REPEAT",
+          "request_allowance_seconds": 358.8074234806001,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 358.8074234806001,
+          "new_measured_seconds": null
+        },
+        {
+          "id": "B_TIMING_REPEAT:human_199:NATIVE_U36:2",
+          "role": "NATIVE_U36",
+          "phase": "B",
+          "section": "B_TIMING_REPEAT",
+          "request_allowance_seconds": 299.00618623383343,
+          "diagnostic_multiplier": 1.0,
+          "forecast_seconds": 299.00618623383343,
+          "new_measured_seconds": null
+        }
+      ],
+      "phases": {
+        "A": {
+          "paths": 26,
+          "request_seconds": 10943.62641615831,
+          "overhead_seconds": {
+            "model_load": 316.7786429123953,
+            "source_checks_and_context": 180,
+            "reset_hash_save_decode_checks": 300,
+            "thermal_wait": 300,
+            "stop_release_settlement": 120
+          },
+          "contingency_factor": 1.15,
+          "forecast_GPUh": 3.8845738383142527,
+          "proposed_hard_GPUh": 5,
+          "stop_before_hard_seconds": 120
+        },
+        "B": {
+          "paths": 47,
+          "request_seconds": 16445.340242860853,
+          "overhead_seconds": {
+            "model_load": 316.7786429123953,
+            "source_checks_and_context": 180,
+            "reset_hash_save_decode_checks": 240,
+            "thermal_wait": 300,
+            "stop_release_settlement": 120
+          },
+          "contingency_factor": 1.15,
+          "forecast_GPUh": 5.6228990885108985,
+          "proposed_hard_GPUh": 7,
+          "stop_before_hard_seconds": 120
+        }
+      },
+      "forecast_complete_GPUh": 9.507472926825152,
+      "proposed_whole_hard_GPUh": 12,
+      "actual_new_GPUh": null,
+      "whole_wall_excluding_queue_hours": [
+        11.507472926825152,
+        13.507472926825152
+      ],
+      "sequential_worst_bound_hours": 19,
+      "price_type": "HISTORICAL_ANCHORED_FULL_SCOPE_ENGINEERING_QUOTE_NOT_MEASURED_NEW_RATES"
+    }
+  },
+  "CPU": {
+    "phase_A": {
+      "cores": 4,
+      "memory_GiB": 12,
+      "wall_cap_hours": 1,
+      "Alex_pairs": 4
+    },
+    "phase_B": {
+      "cores": 4,
+      "memory_GiB": 12,
+      "wall_cap_hours": 6,
+      "Alex_pairs": 24,
+      "VGG_pairs": 24,
+      "quality_gate_positions": 84,
+      "dynamic_degree_positions": 28
+    },
+    "allocated_vCPUh_cap": 28,
+    "forecast_wall_hours": [
+      2,
+      4
+    ],
+    "actual_current_GPU_model_scoring": 0
+  },
+  "overhead_policy": "All warm, diagnostics, rejected tau, reload, writes, checks, held idle, failure and termination included; CPU selection after release. No automatic retry or added calibration.",
+  "budget": {
+    "central_cap": 226,
+    "available_snapshot": 37.234225285801614,
+    "uncertainty_hold": 16.5,
+    "proposed_whole_envelope": 12,
+    "final_confirmation_planning_earmark": 16,
+    "remaining_after_both": 9.234225285801614,
+    "earmark_is_not_ledger_reservation": true,
+    "increase_applied": false,
+    "permission_increment": 24
+  },
+  "billing": "One physical GPU chosen for both phases; A and B actual costs add into one envelope, no second-host credit; hard stop retains failures and denominators.",
+  "uncertainty": "No new real GPU sample collected. Historical cache observations are disclosed only; all cache roles use conservative full-Native+20% planning. No guaranteed runtime bound or new T_DD inferred.",
+  "GPU_authorized": false
+}

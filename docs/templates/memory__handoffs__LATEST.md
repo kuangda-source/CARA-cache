@@ -1,5 +1,7 @@
 # CARA-Cache 当前交接
 
+[725统一时间与七角色CPU](repo:research/725_CARA_WC_TIME_UNIFIED_SEVEN_ROLE_DUAL_CPU_AND_WHOLE_QUOTE_20261027.md)：双端各160小张量完整路径、阶段控制与真实Alex/PIQ权重CPU通过；73路径整卡工程预测Ada9.51/A6000 9.97GPUh，硬限12仅提案。GPU未授权未启动，仍需设备/中央责任/宿主监督准入和A阶段真实GPU门；原门槛不变。
+
 [726 R4共同长龄生产准备](../../research/726_CARA_COMMON_LONG_PRODUCTION_CPU_NEW_STATES_AND_DUAL_CLOCK_20261027.md)：双端各8路径/24状态/168读出受影响CPU独立接受，原α与六对照保持；新状态6路径方案估计2.608114GPUh、建议上限3，未预约未启动。双时间标诊断；候选自身闭环、干净成本与完整监督终态仍待绑定，j1为空，IG暂停。
 
 [723双时间与WC公平控制P0](repo:research/723_CARA_WC_TIME_PROTOCOL_P0_CPU_AND_INCREMENTAL_SCOPE_20261027.md)：双端真实源小张量CPU通过；增量73条开发范围与评分/热环境已登记，真实GPU等价、完整生产组合和实测报价仍待完成，无GPU提交。新批T_DD/T_request并列，旧门槛与原件不变。主线预算可按用户新授权每次加24GPUh并通知，本轮未加。

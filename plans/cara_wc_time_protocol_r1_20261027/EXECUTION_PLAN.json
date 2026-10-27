@@ -1,0 +1,113 @@
+{
+  "schema": "WC_TIME_CAL73_EXECUTION_PLAN_R1",
+  "science_matrix_ref": "plans/cara_wc_time_protocol_p0_20261027/CONTROL_IDENTITY_MATRIX.yaml",
+  "science_matrix_sha256": "45ad822d7a520cacafde7a21cf84f2c57c9747536fa2d452a0202082866e83eb",
+  "CPU_acceptance_ref": "plans/cara_wc_time_protocol_r1_20261027/CPU_ACCEPTANCE.json",
+  "CPU_acceptance_sha256": "8c7af5b52526c76075fa5a14bd39b1bb6c39e415ef8cfe09d8497d1a678a8ea5",
+  "quote_sha256": "544cebc13cc597cc12ef8d08acf53467fdfb3df660d16be2e64149640719b67a",
+  "role_request_entry": "wcomr.wc_time_card_r1.Requests",
+  "collection_entry": "wcomr.wc_time_collection_r1.collect_phase",
+  "diagnostic_gate": "wcomr.wc_time_diagnostics_r1.verify",
+  "freeze_entry": "wcomr.wc_time_collection_r1.freeze_selection",
+  "GPU_execution_authorized": false,
+  "selected_host": null,
+  "selected_UUID": null,
+  "launch_id": null,
+  "selected_tau": null,
+  "phase_order": [
+    "A_GPU26",
+    "A_RELEASE_SETTLE",
+    "A_CPU_SELECT4",
+    "FREEZE",
+    "B_FRESH_ADMISSION",
+    "B_GPU47",
+    "B_RELEASE_SETTLE",
+    "B_CPU_FULL_SCORE"
+  ],
+  "scope_counts": {
+    "physical_paths": 73,
+    "phase_A": 26,
+    "phase_B": 47,
+    "formal_cells": 28,
+    "calibration_physical_paths": 4,
+    "calibration_anchor_paths": 4,
+    "selected_reused_cells": 0,
+    "warm": 13,
+    "timing_repeats": 12,
+    "diagnostic_on_off_three_arm": 12,
+    "quality_videos": 28,
+    "quality_positions": 112,
+    "LPIPS_pairs_per_metric": 24,
+    "LPIPS_frames_per_metric": 2232,
+    "LPIPS_metrics": 2,
+    "selection_Alex_pairs": 4,
+    "selection_Alex_frames": 372,
+    "loads": 2,
+    "automatic_GPU_retries": 0
+  },
+  "budget": {
+    "A_limit_GPUh": 5,
+    "B_limit_GPUh": 7,
+    "whole_GPUh": 12,
+    "automatic_retries": 0
+  },
+  "host_profiles": {
+    "four_card": {
+      "CPU": {
+        "numerical_receipt": "reports/cara_wc_seven_four_card_CPU_terminal_r2_20261027.json",
+        "numerical_sha256": "6743671adcb27cc1ec1f630fe8d55fc0216722de37b6c4a63ad72b709146613d",
+        "lifecycle_receipt": "reports/cara_wc_lifecycle_four_card_CPU_terminal_r2_20261027.json",
+        "lifecycle_sha256": "06408c93eb597de07f01a83078e2028a413cd7b5c57d07dcffa8ba39be8fd25c",
+        "metric_receipt": "reports/cara_wc_time_score_four_card_CPU_r1_20261027.json",
+        "metric_sha256": "e0b77e44b933874f4d6f489ed1c7182f29a66cfd03404ec9e512d160305bc0d7",
+        "complete_tiny_paths": 160,
+        "registered_slot_paths": 146,
+        "numerical_wall_seconds": 341.7642068862915,
+        "lifecycle_wall_seconds": 5.294179439544678,
+        "metric_wall_seconds": 15.00822138786316,
+        "CUDA_initialized": false,
+        "GPU_submissions": 0
+      },
+      "capability": [
+        8,
+        9
+      ],
+      "preferred": true,
+      "single_GPU": true,
+      "container": "sha256:1e81ac62ee68ca1a6ef655515096a1d84579b01aa4986810c9b18d4f6c4c552d",
+      "score_overlay": "/data20t/gaokuangda/worldcache_workspace/.sync/wc-time-score-CPU-four_card-r1-20261027"
+    },
+    "two_card": {
+      "CPU": {
+        "numerical_receipt": "reports/cara_wc_seven_two_card_CPU_terminal_r2_20261027.json",
+        "numerical_sha256": "d4a25108656322c30e8f7a1e66a18ef88d802152b3b792f88441f3f46499e796",
+        "lifecycle_receipt": "reports/cara_wc_lifecycle_two_card_CPU_terminal_r2_20261027.json",
+        "lifecycle_sha256": "2393f957308527d144b43db17c6283f1efd08b5e605cd536be5202568478b2cb",
+        "metric_receipt": "reports/cara_wc_time_score_two_card_CPU_r1_20261027.json",
+        "metric_sha256": "86e1542f8f8a4cdde3179b0345f0364cfd948e3679fa969a57c4a1bc70e083c7",
+        "complete_tiny_paths": 160,
+        "registered_slot_paths": 146,
+        "numerical_wall_seconds": 378.914990901947,
+        "lifecycle_wall_seconds": 4.6601808071136475,
+        "metric_wall_seconds": 11.98474669456482,
+        "CUDA_initialized": false,
+        "GPU_submissions": 0
+      },
+      "capability": [
+        8,
+        6
+      ],
+      "preferred": false,
+      "single_GPU": true,
+      "container": "sha256:1e81ac62ee68ca1a6ef655515096a1d84579b01aa4986810c9b18d4f6c4c552d",
+      "score_overlay": "/data20t/gaokuangda/worldcache_workspace/.sync/wc-time-score-CPU-two_card-r1-20261027"
+    }
+  },
+  "remaining_runtime_bindings": [
+    "explicit whole-card execution approval",
+    "unique central intent/reservation and host-specific supervised launch binding",
+    "fresh exact UUID exclusivity, storage, hashes, context and runtime checks",
+    "actual A-stage numerical gate, included in scope"
+  ],
+  "no_new_scientific_claims": true
+}
