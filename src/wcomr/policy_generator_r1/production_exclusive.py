@@ -28,7 +28,7 @@ def observe(gpu_uuid):
         if not path.name.isdigit():continue
         try:
             if (path/'comm').read_text().strip().startswith('nvidia-cuda-mps'):mps.append(int(path.name))
-        except FileNotFoundError:pass
+        except (FileNotFoundError, ProcessLookupError):pass
         except PermissionError:mps=None;break
     return dict(gpu_uuid=gpu_uuid,compute_mode=gpu[0][1],compute_apps=apps,
                 mps_processes=mps,observed_unix=time.time())
