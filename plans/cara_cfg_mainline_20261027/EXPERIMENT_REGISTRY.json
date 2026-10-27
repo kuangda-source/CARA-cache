@@ -1,0 +1,30 @@
+{
+  "schema": "CARA_CFG_RESEARCH_PORTFOLIO_R1",
+  "created_date": "2026-10-27",
+  "observed_repository_commit": "88406a054d90066bbb8970c5dce256ea0341a16a",
+  "status": "DESIGN_ONLY_NOT_EXECUTION_READY",
+  "gpu_authorized": false,
+  "new_gpu_submissions": 0,
+  "new_budget_reserved_GPUh": 0,
+  "protected": {
+    "mainline": "Shared25-C",
+    "dev128": "completed_keep_original",
+    "final_input_pool": "protected_no_tuning",
+    "original_alpha": true,
+    "original_quality_gates": true,
+    "timing": ["T_DD_exact_future", "T_request_original_gate"],
+    "cap_last_known_GPUh": 226,
+    "uncertain_reserve_GPUh": 16.5,
+    "automatic_cap_increase": false
+  },
+  "tracks": [
+    {"id":"PROTO","priority":0,"source":"research/725_CARA_WC_TIME_UNIFIED_SEVEN_ROLE_DUAL_CPU_AND_WHOLE_QUOTE_20261027.md","scope":73,"state":"EXISTING_CPU_PREPARED_GPU_NOT_AUTHORIZED","do_not_reduplicate":true},
+    {"id":"ASSET","priority":1,"state":"DESIGN","parents":["S25_C","Shared25_C"],"training_prompts":["AV28","Human199"],"seed":0,"targets":[8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,25,26,27,28,29,30,31,32,33,34,35],"collect_paths":4,"max_shadow_dense_pairs":44,"formal_state_labels":108,"off_paths":4,"warm_paths":2,"maximum_parent_paths":10,"raw_parent":"Shared25_C","raw_steps":[9,22,33,35],"forecast_GPUh":null,"planning_target_GPUh":3,"cpu_accepted":false},
+    {"id":"S","priority":1,"state":"DESIGN","readout":"WC-C","n_dense":25,"precision":"unchanged","risk_targets":["BR","DIAG","CFG"],"search":"one_legal_positive_exchange","formal_roles":["S25_C","Shared25_C","S_DIAG_C","S_CFG_C"],"cal_prompts":4,"seed":0,"maximum_formal_paths":16,"maximum_paths_with_controls":32,"planning_target_GPUh":3,"forecast_GPUh":null,"requires_new_readout_j1":false,"mask_dedup":true},
+    {"id":"Q","priority":2,"state":"DESIGN","model_quantization":false,"target_cache":"all_consumed_r_residual_window_items","unchanged":["probe_precision","solver","D_mask","model_weights","readout"],"bases":["independent_branches","common_difference"],"rates":{"R16":[[8,8]],"R12":[[4,8],[8,4]]},"quantizer":{"group_channels":128,"symmetric":true,"scale_dtype":"float32","real_int4_packing_required":true},"objectives":["branch_output_MSE","guided_output_MSE"],"same_actual_bytes":true,"formal_video_roles_max":4,"cal_prompts":4,"maximum_formal_videos":16,"planning_readout_GPUh":1,"forecast_GPUh":null,"video_followup_conditional":true}
+  ],
+  "acceptance": {"prompt_is_statistical_unit":true,"frames_not_independent":true,"new_test_for_new_method":true,"local_mse_not_video":true,"compression_not_speed":true,"same_hardware_timing":true},
+  "runtime_freeze_required": ["fresh ledger and device","all artifact SHA and exposure manifests","host-specific complete quote","affected production CPU acceptance","actual codec state storage","quality reference-role mapping","protected steps and supported histories","exact threshold/selection contract","card-level execution authorization"],
+  "no_revival": ["IG Scalar/Band","F/B","GRAPH102","closed online gate","unapproved single-branch refresh"],
+  "provenance": {"queue_archive_blob":"d1a124a86edc74e3988ec643ebd5b77c8e71e731","scientific_status_mutated":false,"generated_navigation_mutated":false}
+}
