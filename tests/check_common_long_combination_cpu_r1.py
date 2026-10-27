@@ -18,8 +18,11 @@ def run(runtime, artifacts, host, actual_sample, manifest):
             enabled=enabled,context=(name,'DECLARED_CPU_WEIGHTS',PARENT_FINGERPRINT),sink=sink,copy_cap=1<<30,
             table_parameters=tables,previous_parameters=prior,runtime=runtime,wc=wc,rf=rf,settings=settings,
             calibration=cal,specs=specs,inference_module=inference_module,expected_shape=[1,8,2,8,8],output=directory,audit=True)
+    def save_progress(v):
+        assert v['status']=='COMMON_LONG6_COLLECTING'
+        assert len(v['rows'])==6
     try:
-        result=collect(root,_manifest,request,check_space=lambda:None,byte_limit=1<<30,save=lambda v:None)
+        result=collect(root,_manifest,request,check_space=lambda:None,byte_limit=1<<30,save=save_progress)
         scored=rescore(result,_manifest)
         assert scored['states']==12 and scored['readout_positions']==84
         # A changed byte or missing position must fail independent rescore.

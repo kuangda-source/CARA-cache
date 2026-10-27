@@ -11,7 +11,7 @@ from .mid_coverage import tree_digest
 def collect(root, manifest, request, *, check_space, byte_limit, save):
  root=Path(root);assets=root/'assets';assets.mkdir(parents=True,exist_ok=False)
  rows=[dict(s,status='NOT_REACHED') for s in matrix(manifest)];states=[];used=0;off={}
- def checkpoint():save(dict(rows=rows,states=[dict(prompt=s['prompt'],step=s['step']) for s in states]))
+ def checkpoint():save(dict(status='COMMON_LONG6_COLLECTING',rows=rows,states=[dict(prompt=s['prompt'],step=s['step']) for s in states]))
  checkpoint()
  for row in rows:
   row['status']='RUNNING';checkpoint()
