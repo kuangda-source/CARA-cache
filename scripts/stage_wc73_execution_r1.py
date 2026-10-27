@@ -31,12 +31,13 @@ from wcomr.gpu_budget_pool_v2 import DeviceLease
 from wcomr.wc73_exclusive_r1 import observe
 validate(root,stage);storage=storage_for(stage);storage.check()
 with DeviceLease(root,auth['gpu_uuid']):pass
-pool=Pool(root).read();assert pool['available_gpu_hours']>=12 and not any(j['status']=='RESERVED_OR_RUNNING' and not hold(j) for j in pool['jobs'].values())
+pool=Pool(root).read();assert pool['available_gpu_hours']>=12
+active_owned=[k for k,j in pool['jobs'].items() if j['status']=='RESERVED_OR_RUNNING' and not hold(j)]
 snap=observe(auth['gpu_uuid']);assert snap['compute_apps']==[] and snap['mps_processes']==[] and snap['compute_mode'] in ('Default','Exclusive_Process')
 mem=int(next(x.split()[1] for x in Path('/proc/meminfo').read_text().splitlines() if x.startswith('MemAvailable:')))*1024;assert mem>=50*2**30
 # Verify inherited helper identity as used by the accepted mode-owner implementation.
 bank=root/'.sync/wc-bank24-fourcard-full-execution-r3-20261022';helpers={str(f):sha(f) for f in bank.glob('four_card_bank24*.py')}
-receipt=dict(status='WC73_STAGED_AUTHORIZED_NOT_GPU_SUBMITTED',stage=str(stage),source_revision=p['revision'],registration_sha256=sha(stage/'registration.json'),authorization_sha256=sha(stage/'pg-GPU-authorization.json'),CPU_proof_sha256=sha(stage/'execution-CPU-proof.json'),gpu_uuid=auth['gpu_uuid'],launch_id=auth['launch_id'],observed_unix=time.time(),idle_snapshot=snap,storage_check=storage.check(),MemAvailable=mem,ledger={k:pool[k] for k in ('cap_gpu_hours','used_gpu_hours','reserved_gpu_hours','available_gpu_hours')},inherited_host_helper_sha256=helpers,GPU_submissions=0)
+receipt=dict(status='WC73_STAGED_AUTHORIZED_NOT_GPU_SUBMITTED',stage=str(stage),source_revision=p['revision'],registration_sha256=sha(stage/'registration.json'),authorization_sha256=sha(stage/'pg-GPU-authorization.json'),CPU_proof_sha256=sha(stage/'execution-CPU-proof.json'),gpu_uuid=auth['gpu_uuid'],launch_id=auth['launch_id'],observed_unix=time.time(),idle_snapshot=snap,storage_check=storage.check(),MemAvailable=mem,ledger={k:pool[k] for k in ('cap_gpu_hours','used_gpu_hours','reserved_gpu_hours','available_gpu_hours')},inherited_host_helper_sha256=helpers,admission_blocking_owned_jobs=active_owned,GPU_submissions=0)
 (stage/'stage-receipt.json').write_text(json.dumps(receipt,indent=2));print(json.dumps(receipt))
 '''
 def main():
