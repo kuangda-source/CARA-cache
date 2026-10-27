@@ -952,7 +952,7 @@
     "registry_ref": "plans/cara_predictor_refresh_scout_v2_20261026/SCOUT_REGISTRY_BOUND_V2.yaml",
     "intake_ref": "reports/cara_predictor_refresh_scout_v2_intake_20261026.json",
     "source_manifest_ref": "plans/cara_predictor_refresh_scout_v2_20261026/source/MANIFEST.json",
-    "next_action": "以V2.2及718接续为准：已有原读出不重复采集，先CPU误差分解，无GPU授权。",
+    "next_action": "按719保存张量CPU完整诊断推进两支联合误差机制；原V2/V2.2保持，IG暂停，无GPU授权。",
     "GPU_authorized": false,
     "GPU_submissions": 0,
     "budget_reserved_GPUh": 0,
@@ -974,7 +974,7 @@
     "mainline_unchanged": true
   },
   "predictor_refresh_scout_V22": {
-    "status": "PREPARING_FROM_ACCEPTED_E1_READOUT_ASSETS_NO_GPU",
+    "status": "SAVED_TENSOR_CPU_MECHANISM_COMPLETE_CFG_PHASE_REVERSAL",
     "plan_ref": "plans/cara_predictor_refresh_scout_v2_20261026/E1_V22_AMENDMENT_AND_FREEZE_CHECKLIST.md",
     "registry_patch_ref": "plans/cara_predictor_refresh_scout_v2_20261026/SCOUT_REGISTRY_PATCH_V22.yaml",
     "state_metadata_ref": "plans/cara_predictor_refresh_scout_v2_20261026/E1_STATE_METADATA_V22.json",
@@ -986,7 +986,7 @@
     "new_GPU_authorized": false,
     "new_GPU_submissions": 0,
     "budget_reserved_GPUh": 0,
-    "next_action": "复用已接受B1原读出，先做CPU原张量误差分解；当前R4必要条件负向，无j1，不提交E2。",
+    "next_action": "CPU沿保存两支p/d分析共同与差分方向；当前R4无j1，不改alpha、不拟合IG、不追加GPU。",
     "mainline_unchanged": true,
     "E0_preparation_ref": "plans/cara_predictor_refresh_scout_v2_20261026/E0_SOURCE_AUDIT_AND_E1_CPU_CASES_R1.md",
     "E0_preparation_receipt_ref": "reports/cara_scout_E0_source_and_local_assets_20261026.json",
@@ -1012,7 +1012,14 @@
     "reuse_scope": "原B1父采集与读出源码；不等于新E2整卡CPU/费用接受",
     "j1": null,
     "saved_tensor_mechanism_CPU_synthetic_ref": "reports/cara_scout_mechanism_algebra_CPU_20261027.json",
-    "saved_tensor_mechanism_actual_executed": false
+    "saved_tensor_mechanism_actual_executed": true,
+    "saved_tensor_mechanism_actual_ref": "reports/cara_scout_mechanism_CPU_accepted_analysis_20261027.json",
+    "saved_output_geometry_ref": "reports/cara_scout_output_geometry_CPU_accepted_20261027.json",
+    "saved_tensor_full_hash_ref": "reports/cara_scout_mechanism_full_hash_preflight_20261027.json",
+    "mechanism_report_ref": "research/719_CARA_SAVED_TENSOR_A_R4_MECHANISM_CPU_20261027.md",
+    "active_CPU_jobs": 0,
+    "mechanism_new_GPUh": 0,
+    "evidence_observed_unix": 1793080097.916148
   },
   "current_followup_plan_ref": "plans/cara_predictor_refresh_scout_v2_20261026/MECHANISM_REUSE_AND_PREPARATION_R1_20261027.md",
   "innovation_gain_exploration_R1": {

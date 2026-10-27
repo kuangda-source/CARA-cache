@@ -2,6 +2,10 @@
 
 2026-10-27。用户明确暂停IG创新量增益分支，优先准备预测器—刷新机制线。本次不启动GPU、不预约预算、不重新拟合IG，不改变原V2/V2.2历史登记、原α、强基线、226GPUh及最终部署预算。IG已有结果和费用保留；暂停是后续执行状态，不抹去717的科学筛查结论。
 
+## 2026-10-27执行更新
+
+保存张量CPU已完整接受，详见[719](../../research/719_CARA_SAVED_TENSOR_A_R4_MECHANISM_CPU_20261027.md)。32原文件SHA一致，两轮12状态诊断分别226.41/70.34秒，资源释放。A guided收益12/12；R4在长龄raw和单支输出均改善，但差分误差被CFG放大，原alpha融合后guided 0/6改善。下一步只做保存两支p/d的共同/差分方向定位；原alpha不变、不拟合增益、不重开IG、不提交E2。本文件以下准备文字作为执行前历史保留，以本更新和719为当前状态。
+
 ## 已完成的复用审计
 
 [独立回执](../../reports/cara_scout_E1_original_reuse_audit_20261027.json)重放原终态与中央结算接受，核对保存CPU结果到原B1结果/账单SHA、12个固定状态和两个prompt。四个科学源码文件与原运行commit、两端已接受CPU的哈希一致：scout_parent_v22、scout_readout_v22、grouped transaction、asset store。没有重新计算Scalar/Band。

@@ -10,13 +10,15 @@
 
 [创新量增益探索R1](repo:plans/cara_innovation_gain_20261027/README.md)已完成两卡真实模型B1与保存资产分析：4父路径、12状态、108附加重放。Scalar=1、Band=(1,1)，均退化DEEP，相对最强固定A_PHASE的留出局部误差高62.2%/53.2%。本轮停止这两个具体候选，不提交条件视频或范围修订，不并入主线；总1.452095GPUh含工程失败均已结算，GPU/CPU已退出。两卡/四卡生产CPU兼容均通过，四卡真实GPU未运行。见[717完整结果](repo:research/717_CARA_IG_B1_COMPLETE_BOX_ENDPOINT_RESULT_20261027.md)。
 
+[719保存张量CPU机制诊断](repo:research/719_CARA_SAVED_TENSOR_A_R4_MECHANISM_CPU_20261027.md)已完成：A实际guided纠错方向12/12有效；长龄R4单支输出更准，却增大CFG差分误差，原phase融合进一步放大劣势。32原文件SHA匹配，无新GPU或拟合，IG仍暂停。
+
 {{queue}}
 
 ## 本轮已完成与尚缺
 
-- [703双端DEV128准备](repo:research/703_CARA_DEV128_DUAL_HOST_CPU_AND_CAL66_QUALITY_DIAGNOSIS_20261026.md)与[704组合接受](repo:research/704_CARA_DEV128_FULL_CPU_COMBINATION_ACCEPTED_AND_QUOTE_20261026.md)保留为准备历史；当前已按705在两卡启动，不应沿用旧“未授权”状态。
+- [703双端DEV128准备](repo:research/703_CARA_DEV128_DUAL_HOST_CPU_AND_CAL66_QUALITY_DIAGNOSIS_20261026.md)与[704组合接受](repo:research/704_CARA_DEV128_FULL_CPU_COMBINATION_ACCEPTED_AND_QUOTE_20261026.md)保留为准备历史；DEV128其后已按716完整接受，不应沿用旧运行或未授权状态。
 
-- [702完整结果](repo:research/702_CARA_CAL66_A6000_COMPLETE_RESULTS_AND_FROZEN_SHARED25_C_20261026.md)：66/48/156完整接受，4.776208 GPUh已中央结算，Shared25-C按原CAL规则冻结；后续新DEV128已单次启动，完整结果待验收。
+- [702完整结果](repo:research/702_CARA_CAL66_A6000_COMPLETE_RESULTS_AND_FROZEN_SHARED25_C_20261026.md)：66/48/156完整接受，4.776208 GPUh已中央结算，Shared25-C按原CAL规则冻结；后续新DEV128已按716完整接受。
 
 - CAL66独立登记66路径：52正式、6反序重复、6warm、2历史桥接；新增Shared-all对照隔离A34/35停用效应，原α及历史强布局身份不变。
 - 24/25/26D的完整能量、仅传播先验、简单模板同掩码；本轮检验位置价值，构造规则增量留给换步数设置，不重复生成别名。

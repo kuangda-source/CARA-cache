@@ -20,14 +20,14 @@
 - 新纯计时卡与GRAPH102暂缓；原P1/104/112/1624/价格卡均已结束，不重跑或重新结算。未知只恢复原句柄，不盲重派。
 - 四卡私有入口、真实硬独占、磁盘保护、跨盘日志、完整分母、实际费用和来源SHA保障保留；不改忙卡模式、不触碰他人进程、不重启旧两卡实验；新卡只能使用已验隔离双端环境。
 
-## 当前探索：机制线CPU准备，IG用户暂停
+## 当前探索：机制线CPU完整诊断，IG用户暂停
 
-当前入口为[718接续记录](repo:research/718_CARA_IG_PAUSED_SCOUT_REUSE_AND_CPU_PREPARATION_20261027.md)和[原件复用/CPU方案](repo:plans/cara_predictor_refresh_scout_v2_20261026/MECHANISM_REUSE_AND_PREPARATION_R1_20261027.md)。原V2/V2.2历史登记不改。
+当前入口为[719完整机制诊断](repo:research/719_CARA_SAVED_TENSOR_A_R4_MECHANISM_CPU_20261027.md)和[原件复用/CPU方案](repo:plans/cara_predictor_refresh_scout_v2_20261026/MECHANISM_REUSE_AND_PREPARATION_R1_20261027.md)。原V2/V2.2历史登记不改。
 
 - IG后续暂停；B1原件与费用保留，无运行任务，不执行B2/B3。DEV128完整接受且自动检查已删除，不重复运行。
 - 两旧CAL×6状态×6固定读出已有原B1真实模型证据；独立审计核对原终态/中央结算/保存CPU/两端源码，避免重新采集。实际GPU来自A6000，四卡复用到CPU兼容证据。
 - 原长龄6点R4均未胜A，聚合误差增加14.97%；无可晋级j1，不提交当前R4的E2视频卡。精确数值/费用合同缺口不事后补作预登记。
-- 新只读CPU原张量分解入口已通过合成代数测试；真实张量分解仍待原资产SHA与CPU/I/O准入，不执行head或CUDA，不拟合系数。使用已有两支p/r和真锚点，不假称存在完整可恢复solver checkpoint。
+- 32文件SHA全部匹配；12状态原张量与已保存输出CPU完整接受，两轮已退出，无CUDA/head重跑或拟合。A实际guided误差12/12改善51.54%；长龄R4两支各自更准，但差分误差增大，经CFG及原alpha融合后guided恶化14.97%。下一步仅CPU追踪共同/差分方向，不把原始残差MSE当选择目标。
 - E2-R/I仍按原条件与完整分母准备，不能以IG46路径CPU替代E2整卡接受。没有有效j1时完整GPU报价NOT_READY，无预约。双端兼容、默认四卡；原α、强基线、累计226与最终部署双预算保持。
 
 {{queue}}
