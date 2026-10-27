@@ -10,7 +10,7 @@
 
 [创新量增益探索R1](repo:plans/cara_innovation_gain_20261027/README.md)已完成两卡真实模型B1与保存资产分析：4父路径、12状态、108附加重放。Scalar=1、Band=(1,1)，均退化DEEP，相对最强固定A_PHASE的留出局部误差高62.2%/53.2%。本轮停止这两个具体候选，不提交条件视频或范围修订，不并入主线；总1.452095GPUh含工程失败均已结算，GPU/CPU已退出。两卡/四卡生产CPU兼容均通过，四卡真实GPU未运行。见[717完整结果](repo:research/717_CARA_IG_B1_COMPLETE_BOX_ENDPOINT_RESULT_20261027.md)。
 
-[719保存张量CPU机制诊断](repo:research/719_CARA_SAVED_TENSOR_A_R4_MECHANISM_CPU_20261027.md)已完成：A实际guided纠错方向12/12有效；长龄R4单支输出更准，却增大CFG差分误差，原phase融合进一步放大劣势。32原文件SHA匹配，无新GPU或拟合，IG仍暂停。
+[720共同/差分CPU诊断](repo:research/720_CARA_CFG_COMMON_DIFFERENCE_MECHANISM_AND_PREDICTOR_HYPOTHESIS_20261027.md)完整接受：R4共同历史外推有用、差分历史外推逆向；实际输出只保留共同增量，原alpha下长龄6/6改善3.93%。这是已曝光CAL事后结构诊断，teacher-free参考CPU已过，真实生产/费用未过，无j1或新GPU。IG继续暂停。
 
 {{queue}}
 

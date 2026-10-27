@@ -1,6 +1,6 @@
 # CARA 问题队列
 
-2026-10-27 R13。执行规则以[流程](../docs/EXECUTION_MODES.md)为准，科学判断以每卡冻结合同为准。费用栏是规划提示，不构成授权。CAL66已完整接受并冻结Shared25-C；DEV128已完整接受；用户暂停IG，预测器—刷新机制线CPU完整诊断见[719](../research/719_CARA_SAVED_TENSOR_A_R4_MECHANISM_CPU_20261027.md)。
+2026-10-27 R14。执行规则以[流程](../docs/EXECUTION_MODES.md)为准，科学判断以每卡冻结合同为准。费用栏是规划提示，不构成授权。CAL66已完整接受并冻结Shared25-C；DEV128已完整接受；用户暂停IG，预测器—刷新机制线CPU完整诊断见[720](../research/720_CARA_CFG_COMMON_DIFFERENCE_MECHANISM_AND_PREDICTOR_HYPOTHESIS_20261027.md)。
 
 | # | 问题与下一决策 | 状态 | 费用与边界 |
 |---|---|---|---|
@@ -16,11 +16,11 @@
 | Q10 | GRAPH102可行性修复 | DEFERRED | 旧教师代理搜索未胜强规则，不等于否定全部DP/离线调度；旧报价不作为新授权 |
 | Q11 | 再开纯计时卡 | DEFERRED | 原104/112失败保留；当前路线改用预登记成对预算确认，不以“都是噪声”抹去失败 |
 | Q12 / E0 | 现存资产、固定sigma、DCTA commit与质量绑定 | 官方DCTA核对、旧12视频Native-relative梯度/固定模糊诊断完成；32文件SHA全集复核通过 | 不新增生成，本地资源先查；[V2.2](cara_predictor_refresh_scout_v2_20261026/E1_V22_AMENDMENT_AND_FREEZE_CHECKLIST.md) |
-| Q13 / E1 | 原A与R4的同状态误差机制，是否有可部署增量 | CPU_DIAGNOSED：12状态完整分解；A guided改善51.54%；R4单支更准却扩大CFG差分，长龄0/6，无j1 | 无新GPU；完整成本门不能事后补冻结；[接续](cara_predictor_refresh_scout_v2_20261026/MECHANISM_REUSE_AND_PREPARATION_R1_20261027.md) |
-| Q14 / E2 | 先读出验证，再有条件检验布局依赖 | BLOCKED_ON_QUALIFYING_J1：当前R4不满足正向必要条件；不派视频卡 | 原R/I各16逻辑机制输出，完全同身份可合并24唯一输出；整卡参考/warm/评分另报，NOT_READY |
+| Q13 / E1 | 原A与R4的同状态误差机制，是否有可部署增量 | CPU_DIAGNOSED：历史共同/差分方向分离；输出共同项诊断长龄6/6、改善3.93%；新结构仅参考CPU通过，无j1 | 无新GPU；完整成本门不能事后补冻结；[接续](cara_predictor_refresh_scout_v2_20261026/MECHANISM_REUSE_AND_PREPARATION_R1_20261027.md) |
+| Q14 / E2 | 先读出验证，再有条件检验布局依赖 | BLOCKED_ON_QUALIFYING_J1：R4_COMMON_LONG是假设，真实生产/成本与新状态未验；不派视频卡 | 原R/I各16逻辑机制输出，完全同身份可合并24唯一输出；整卡参考/warm/评分另报，NOT_READY |
 | Q15 / IG | 创新量Scalar/Band的增量 | PAUSED_BY_USER：B1完整结束，当前候选停止，无IG运行；不执行B2/B3 | 实际1.452095GPUh已结算，原结果保留；复用六固定读出不等于重启IG |
 
-当前顺序：IG暂停 → 复用E0和完整B1六固定读出 → 原张量CPU完整诊断已完成 → 两支共同/差分机制定位 → 若有独立增量假设再冻结新候选与E2方案。当前无j1，E2不自动启动；不使用DEV128拟合，不重采已有状态。最终确认、迁移和20D保留条件性计划。
+当前顺序：IG暂停 → 复用E0和完整B1六固定读出 → 原张量CPU完整诊断已完成 → 共同/差分机制已定位 → R4共同输出+A差分的真实CPU/成本准备 → 新状态验证后才决定E2。当前无j1，E2不自动启动；不使用DEV128拟合，不重采已有状态。最终确认、迁移和20D保留条件性计划。
 
 ## 2026-W43复盘（以下为2026-10-26历史快照，当前状态以上表及718为准）
 
