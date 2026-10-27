@@ -10,7 +10,7 @@
 
 ## 当前用户授权
 
-用户已明确授权完整128路径在两卡单次运行，实际启动已完成。CAL66已结算且旧四卡R2未派发；禁止恢复旧任务或双边启动。运行详情以705和当前状态唯一launch为准。
+用户最新指示为IG暂停、优先机制线准备，无新GPU授权。DEV128原单次授权已执行、完整验收并结算；CAL66也已结算，禁止重放。以下保留已完成卡的边界记录，不代表仍在运行。
 
 - 128=96正式+24重复+6warm+2旧CAL控制；4419pairs/8838CFG；释放后80组LPIPS和288质量位置。四卡报价12.349232超12h设计子池，两卡11.618228；本轮不调配或提高上限。
 - 原CAL106入口与组合CPU接受保留，旧106不派发。旧60路径入口漏检冻结类，已由f35c826d真实参数链CPU替代；历史原件RGB及48/156评分终态组合未改部分按323bb2a1源码SHA复用；五原模型前向和93帧三指标探针均已独立接受，完整合并复核与质量绑定见695；52视频质量外推加旧LPIPS、50%余量及600秒准备约4.72小时，这些是旧CAL66的6小时上限；新DEV128另报2CPU/8GiB、预计8.56小时/10小时上限，不能沿用旧6小时，不是整批实测。
@@ -20,24 +20,16 @@
 - 新纯计时卡与GRAPH102暂缓；原P1/104/112/1624/价格卡均已结束，不重跑或重新结算。未知只恢复原句柄，不盲重派。
 - 四卡私有入口、真实硬独占、磁盘保护、跨盘日志、完整分母、实际费用和来源SHA保障保留；不改忙卡模式、不触碰他人进程、不重启旧两卡实验；新卡只能使用已验隔离双端环境。
 
-## 后续探索当前版本：E1 V2.2
+## 当前探索：机制线CPU准备，IG用户暂停
 
-[V2原始包](repo:plans/cara_predictor_refresh_scout_v2_20261026/source/01_Research_Assessment_and_Plan_V2.md)及[原绑定表](repo:plans/cara_predictor_refresh_scout_v2_20261026/SCOUT_REGISTRY_BOUND_V2.yaml)保持不变；未来探索以[V2.2修订说明](repo:plans/cara_predictor_refresh_scout_v2_20261026/E1_V22_AMENDMENT_AND_FREEZE_CHECKLIST.md)和[增量登记](repo:plans/cara_predictor_refresh_scout_v2_20261026/SCOUT_REGISTRY_PATCH_V22.yaml)为准，见[707](repo:research/707_CARA_SCOUT_V22_STRATIFIED_READOUT_PLAN_20261026.md)。
+当前入口为[718接续记录](repo:research/718_CARA_IG_PAUSED_SCOUT_REUSE_AND_CPU_PREPARATION_20261027.md)和[原件复用/CPU方案](repo:plans/cara_predictor_refresh_scout_v2_20261026/MECHANISM_REUSE_AND_PREPARATION_R1_20261027.md)。原V2/V2.2历史登记不改。
 
-先E0已有资产与DCTA核查，再E1同状态五类/六逻辑读出（global/long两新候选），之后E2-R固定布局读出，条件满足才E2-I交互。主分母是全队列最强固定基线，不是逐prompt oracle。22/23/25/33/34/35的保存掩码/网格元数据已复算，短长各6点；新端口支持/状态恢复、精确数值及费用门、双端CPU和完整报价尚未通过，不能称完整冻结。
-
-已有锐度/MUSIQ诊断复用，旧CAL66 Native-relative梯度与固定轻模糊对照现已完成（709）；六候选11项小张量与完整稀疏父采集本地CPU控制已过（710：8路径/24状态/6故障）；实际权重、双端生产和整卡验收仍待办。E2-R/I各16逻辑输出，合并完全同身份可复用8条时为24唯一机制输出，否则32；warm/Native/强参考/重复/评分另报，不能沿用旧16条/2–3GPUh为完整报价。原三项质量门、α、强基线、累计226及最终部署预算保持；DEV128原自动检查和运行合同不变，未新增GPU授权/预约，不读其中途结果。
+- IG后续暂停；B1原件与费用保留，无运行任务，不执行B2/B3。DEV128完整接受且自动检查已删除，不重复运行。
+- 两旧CAL×6状态×6固定读出已有原B1真实模型证据；独立审计核对原终态/中央结算/保存CPU/两端源码，避免重新采集。实际GPU来自A6000，四卡复用到CPU兼容证据。
+- 原长龄6点R4均未胜A，聚合误差增加14.97%；无可晋级j1，不提交当前R4的E2视频卡。精确数值/费用合同缺口不事后补作预登记。
+- 新只读CPU原张量分解入口已通过合成代数测试；真实张量分解仍待原资产SHA与CPU/I/O准入，不执行head或CUDA，不拟合系数。使用已有两支p/r和真锚点，不假称存在完整可恢复solver checkpoint。
+- E2-R/I仍按原条件与完整分母准备，不能以IG46路径CPU替代E2整卡接受。没有有效j1时完整GPU报价NOT_READY，无预约。双端兼容、默认四卡；原α、强基线、累计226与最终部署双预算保持。
 
 {{queue}}
 
 [当前状态](repo:research/02_CURRENT_STATE.md) · [后续顺序](repo:research/09_NEXT_ACTIONS.md) · [实验总表](repo:paper/EXPERIMENT_MASTER_TABLE.md)
-
-最新执行见[705实际独占启动](repo:research/705_CARA_DEV128_A6000_EXCLUSIVE_LAUNCH_AND_ACCEPTANCE_SCHEDULE_20261026.md)：两卡GPU1完整128已于13:36:59启动；双端财务兼容修复后各10生命周期、6存储、63终态检查接受。单卡12h/累计226与最终部署预算不变；仅跟踪原launch，不重复派发。
-
-E0最新准备：[官方源审计与11组CPU用例](../../plans/cara_predictor_refresh_scout_v2_20261026/E0_SOURCE_AUDIT_AND_E1_CPU_CASES_R1.md)。DCTA Wan/FLUX裁剪差异已核对，本地8个旧视频SHA一致；生产移植、状态隔离和报价尚未接受，DEV128不变。
-
-E1准备接续见[709](../../research/709_CARA_SCOUT_READOUT_CPU_AND_NATIVE_GRADIENT_20261026.md)：新入口本地11项与原区间模块12项检查通过；两端资源草案尚无完整forecast/硬额度，未启动GPU。先补真实父状态/teacher/完整控制和双端CPU，不能把小张量通过称为完整生产接受。
-
-E1下一步见[710](../../research/710_CARA_SCOUT_SPARSE_PARENT_CPU_NONINTERFERENCE_20261026.md)：按SHA去重writer、真实冻结请求和双端受影响生产CPU；原DEV128运行与验收不变。
-
-DEV128 已完整接受，见[冻结结果与决策](repo:research/716_CARA_DEV128_COMPLETE_ACCEPTANCE_AND_FROZEN_DECISION_20261027.md)。两项 DEV128 一次性检查已删除，不重跑或自动启动下一 GPU 实验；独立授权的 IG 执行保持不变。

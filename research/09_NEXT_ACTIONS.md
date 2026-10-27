@@ -8,25 +8,23 @@
 
 [证据1](705_CARA_DEV128_A6000_EXCLUSIVE_LAUNCH_AND_ACCEPTANCE_SCHEDULE_20261026.md) · [证据2](../reports/cara_DEV128_A6000_GPU_actual_launch_20261026.json) · [证据3](../reports/cara_DEV128_A6000_technical_admission_20261026.json) · [证据4](../reports/cara_DEV128_A6000_central_admission_20261026.json) · [证据5](../reports/cara_DEV128_A6000_acceptance_schedule_20261026.json) · [证据6](../reports/cara_DEV128_A6000_storage_20261026.json) · [证据7](../reports/cara_DEV128_prelaunch_dual_exposure_reviewed_20261026.json) · [证据8](../reports/cara_DEV128_full_four_card_CPU_accepted_r4_20261026.json) · [证据9](../reports/cara_DEV128_full_two_card_CPU_accepted_r4_20261026.json) · [证据10](../reports/cara_DEV128_A6000_technical_followup_20261026.json) · [证据11](../reports/cara_DEV128_A6000_technical_progress_20261026_1742.json) · [证据12](../reports/cara_DEV128_A6000_progress_capture_20261026_1743.json) · [证据13](../reports/cara_DEV128_A6000_progress_pace_20261026_1744.json) · [证据14](../reports/cara_DEV128_A6000_halfway_capture_20261026_1948.json) · [证据15](../reports/cara_DEV128_A6000_halfway_technical_20261026_1948.json) · [证据16](../reports/cara_DEV128_A6000_halfway_pace_20261026_1948.json) · [证据17](711_CARA_DEV128_A6000_HALFWAY_TECHNICAL_20261026.md) · [证据18](../reports/cara_DEV128_GMSD_CPU_scoring_resource_review_20261026.json) · [证据19](../reports/cara_DEV128_A6000_GMSD_window_technical_20261026_2340.json) · [证据20](../reports/cara_GMSD_CAP1_two_card_preparation_review_20261026.json) · [证据21](../reports/cara_DEV128_A6000_CPU_progress_20261027_0055.json) · [证据22](../reports/cara_DEV128_A6000_post_status_only_20261027_0120.json) · [证据23](../reports/cara_DEV128_A6000_terminal_20261027_0115.json) · [证据24](../reports/cara_DEV128_partial_payload_exposure_note_20261027.json) · [证据25](../reports/cara_DEV128_post_counter_CPU_r2_20261027.json) · [证据26](../reports/cara_DEV128_A6000_terminal_20261027_0400.json) · [证据27](../reports/cara_DEV128_A6000_accepted_20261027_0404.json) · [证据28](../reports/cara_DEV128_A6000_central_settlement_20261027_0404.json) · [证据29](../reports/cara_DEV128_A6000_complete_analysis_20261027.json) · [证据30](716_CARA_DEV128_COMPLETE_ACCEPTANCE_AND_FROZEN_DECISION_20261027.md)
 
-## 后续探索当前版本：E1 V2.2
+## 当前探索：机制线CPU准备，IG用户暂停
 
-[V2原始包](../plans/cara_predictor_refresh_scout_v2_20261026/source/01_Research_Assessment_and_Plan_V2.md)及[原绑定表](../plans/cara_predictor_refresh_scout_v2_20261026/SCOUT_REGISTRY_BOUND_V2.yaml)保持不变；未来探索以[V2.2修订说明](../plans/cara_predictor_refresh_scout_v2_20261026/E1_V22_AMENDMENT_AND_FREEZE_CHECKLIST.md)和[增量登记](../plans/cara_predictor_refresh_scout_v2_20261026/SCOUT_REGISTRY_PATCH_V22.yaml)为准，见[707](707_CARA_SCOUT_V22_STRATIFIED_READOUT_PLAN_20261026.md)。
+当前入口为[718接续记录](718_CARA_IG_PAUSED_SCOUT_REUSE_AND_CPU_PREPARATION_20261027.md)和[原件复用/CPU方案](../plans/cara_predictor_refresh_scout_v2_20261026/MECHANISM_REUSE_AND_PREPARATION_R1_20261027.md)。原V2/V2.2历史登记不改。
 
-先E0已有资产与DCTA核查，再E1同状态五类/六逻辑读出（global/long两新候选），之后E2-R固定布局读出，条件满足才E2-I交互。主分母是全队列最强固定基线，不是逐prompt oracle。22/23/25/33/34/35的保存掩码/网格元数据已复算，短长各6点；新端口支持/状态恢复、精确数值及费用门、双端CPU和完整报价尚未通过，不能称完整冻结。
-
-已有锐度/MUSIQ诊断复用，旧CAL66 Native-relative梯度与固定轻模糊对照现已完成（709）；六候选11项小张量与完整稀疏父采集本地CPU控制已过（710：8路径/24状态/6故障）；实际权重、双端生产和整卡验收仍待办。E2-R/I各16逻辑输出，合并完全同身份可复用8条时为24唯一机制输出，否则32；warm/Native/强参考/重复/评分另报，不能沿用旧16条/2–3GPUh为完整报价。原三项质量门、α、强基线、累计226及最终部署预算保持；DEV128原自动检查和运行合同不变，未新增GPU授权/预约，不读其中途结果。
+- IG后续暂停；B1原件与费用保留，无运行任务，不执行B2/B3。DEV128完整接受且自动检查已删除，不重复运行。
+- 两旧CAL×6状态×6固定读出已有原B1真实模型证据；独立审计核对原终态/中央结算/保存CPU/两端源码，避免重新采集。实际GPU来自A6000，四卡复用到CPU兼容证据。
+- 原长龄6点R4均未胜A，聚合误差增加14.97%；无可晋级j1，不提交当前R4的E2视频卡。精确数值/费用合同缺口不事后补作预登记。
+- 新只读CPU原张量分解入口已通过合成代数测试；真实张量分解仍待原资产SHA与CPU/I/O准入，不执行head或CUDA，不拟合系数。使用已有两支p/r和真锚点，不假称存在完整可恢复solver checkpoint。
+- E2-R/I仍按原条件与完整分母准备，不能以IG46路径CPU替代E2整卡接受。没有有效j1时完整GPU报价NOT_READY，无预约。双端兼容、默认四卡；原α、强基线、累计226与最终部署双预算保持。
 
 | 顺序 | 当前阶段 | 下一项验收 / 动作 |
 |---|---|---|
-| PG-SHARED-DEV128 | Shared25-C：16新DEV、六角色128路径：DEV128完整接受：Shared25-C通过16新输入冻结继续门 | 按原合同准备独立最终确认与必要迁移的完整范围、报价；冻结主候选不改，不用DEV反向调新读出。已独立授权的IG实验保持其原运行与验收。 |
+| PG-SHARED-DEV128 | Shared25-C：16新DEV、六角色128路径：DEV128完整接受：Shared25-C通过16新输入冻结继续门 | DEV128完整结果保持；用户优先预测器—刷新机制线的CPU准备，IG暂停。新读出不使用DEV拟合，当前R4无E2准入，最终确认保留。 |
 
 ## 本轮授权范围与下一步
 
-CAL66已完整接受并结算，Shared25-C被冻结为唯一新DEV主候选；用户已授权并实际启动两卡DEV128，旧四卡R2不得派发。
-
-16DEV六角色128路径、原α和强基线保持。两端生产CPU与财务修复补验接受，首次使用前双端曝光复核通过；本次按用户指定两卡执行，报价11.618228GPUh、硬12h。新执行stage、中央单次意图、fresh独占和磁盘准入均已完成。
-
-DEV128完整接受后仍按原三分支合同判断；新的机制探索采用V2.2的E0→E1→E2-R→条件E2-I顺序。20D、换步数及第二骨干均为条件后续，不因DEV结果正向自动启动。WC固定工作点和RA公平对照保持；RA固定掩码可提前登记为E2布局，不无条件另开重复卡。所有新卡独立完整报价，累计226和最终部署预算不变。
+用户仅要求优先准备机制线，暂不追加GPU。先完成原张量CPU误差分解与资产身份核查；当前R4无j1，后续E2需另有预登记增量依据、双端受影响生产CPU和完整报价。DEV128接受、最终确认保护组与所有历史失败/费用保留。
 
 ## 已完成历史与暂缓方案
 
@@ -37,13 +35,3 @@ DEV128完整接受后仍按原三分支合同判断；新的机制探索采用V2
 - 旧两卡16.5 GPUh未知责任预约继续保留；旧两卡实验不重启；当前两卡隔离运行环境已通过CAL66迁移接受。
 
 [新合同](../plans/cara_policy_generator_20261020/CAL66_DESIGN_AND_DECISION_CONTRACT_R1_20261025.md) · [本轮记录694](694_CARA_CAL66_REDESIGN_MASK_IDENTIFIABILITY_AND_QUOTE_20261025.md) · [完整实验总表](../paper/EXPERIMENT_MASTER_TABLE.md) · [历史计划](../docs/archive/README.md)
-
-最新执行见[705实际独占启动](705_CARA_DEV128_A6000_EXCLUSIVE_LAUNCH_AND_ACCEPTANCE_SCHEDULE_20261026.md)：两卡GPU1完整128已于13:36:59启动；双端财务兼容修复后各10生命周期、6存储、63终态检查接受。单卡12h/累计226与最终部署预算不变；仅跟踪原launch，不重复派发。
-
-E0最新准备：[官方源审计与11组CPU用例](../plans/cara_predictor_refresh_scout_v2_20261026/E0_SOURCE_AUDIT_AND_E1_CPU_CASES_R1.md)。DCTA Wan/FLUX裁剪差异已核对，本地8个旧视频SHA一致；生产移植、状态隔离和报价尚未接受，DEV128不变。
-
-E1准备接续见[709](../research/709_CARA_SCOUT_READOUT_CPU_AND_NATIVE_GRADIENT_20261026.md)：新入口本地11项与原区间模块12项检查通过；两端资源草案尚无完整forecast/硬额度，未启动GPU。先补真实父状态/teacher/完整控制和双端CPU，不能把小张量通过称为完整生产接受。
-
-E1下一步见[710](../research/710_CARA_SCOUT_SPARSE_PARENT_CPU_NONINTERFERENCE_20261026.md)：按SHA去重writer、真实冻结请求和双端受影响生产CPU；原DEV128运行与验收不变。
-
-DEV128 已完整接受，见[冻结结果与决策](716_CARA_DEV128_COMPLETE_ACCEPTANCE_AND_FROZEN_DECISION_20261027.md)。两项 DEV128 一次性检查已删除，不重跑或自动启动下一 GPU 实验；独立授权的 IG 执行保持不变。

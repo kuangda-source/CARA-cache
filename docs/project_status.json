@@ -821,7 +821,7 @@
     "full_protocol_accepted": true,
     "report_ref": "research/716_CARA_DEV128_COMPLETE_ACCEPTANCE_AND_FROZEN_DECISION_20261027.md",
     "summary": "2026-10-27完整128路径、26控制、80LPIPS/7440帧及288质量全部接受；原GPU与CPU均退出，锁释放、Default恢复。Shared25-C相对冻结强参考S25-A的LPIPS降低14.82%，16/16改善，成对差单侧95%上界−0.007669；相对S25-C降低26.16%。完整请求246.675秒，V上界0.9863，三项独立质量非劣门均过。实际9.417059GPUh已中央唯一结算，按原合同进入登记独立最终确认，不自动追加GPU。该结论支持固定布局泛化，非自动规划创新或最终部署接受。",
-    "next_action": "按原合同准备独立最终确认与必要迁移的完整范围、报价；冻结主候选不改，不用DEV反向调新读出。已独立授权的IG实验保持其原运行与验收。",
+    "next_action": "DEV128完整结果保持；用户优先预测器—刷新机制线的CPU准备，IG暂停。新读出不使用DEV拟合，当前R4无E2准入，最终确认保留。",
     "evidence_refs": [
       "research/705_CARA_DEV128_A6000_EXCLUSIVE_LAUNCH_AND_ACCEPTANCE_SCHEDULE_20261026.md",
       "reports/cara_DEV128_A6000_GPU_actual_launch_20261026.json",
@@ -952,7 +952,7 @@
     "registry_ref": "plans/cara_predictor_refresh_scout_v2_20261026/SCOUT_REGISTRY_BOUND_V2.yaml",
     "intake_ref": "reports/cara_predictor_refresh_scout_v2_intake_20261026.json",
     "source_manifest_ref": "plans/cara_predictor_refresh_scout_v2_20261026/source/MANIFEST.json",
-    "next_action": "复用旧CAL诊断，先完成E0资产/坐标/DCTA/质量绑定，再冻结E1范围与双端完整报价；不读取DEV128部分结果。",
+    "next_action": "以V2.2及718接续为准：已有原读出不重复采集，先CPU误差分解，无GPU授权。",
     "GPU_authorized": false,
     "GPU_submissions": 0,
     "budget_reserved_GPUh": 0,
@@ -974,7 +974,7 @@
     "mainline_unchanged": true
   },
   "predictor_refresh_scout_V22": {
-    "status": "DESIGN_AMENDMENT_REGISTERED_FULL_PREFLIGHT_FREEZE_PENDING",
+    "status": "PREPARING_FROM_ACCEPTED_E1_READOUT_ASSETS_NO_GPU",
     "plan_ref": "plans/cara_predictor_refresh_scout_v2_20261026/E1_V22_AMENDMENT_AND_FREEZE_CHECKLIST.md",
     "registry_patch_ref": "plans/cara_predictor_refresh_scout_v2_20261026/SCOUT_REGISTRY_PATCH_V22.yaml",
     "state_metadata_ref": "plans/cara_predictor_refresh_scout_v2_20261026/E1_STATE_METADATA_V22.json",
@@ -986,7 +986,7 @@
     "new_GPU_authorized": false,
     "new_GPU_submissions": 0,
     "budget_reserved_GPUh": 0,
-    "next_action": "完整稀疏父轨迹本地CPU控制已过（8路径/24状态/6故障）；接按SHA去重writer、真实冻结请求和双端受影响生产CPU，再补生命周期及完整报价。DEV128不变，无GPU授权或预约。",
+    "next_action": "复用已接受B1原读出，先做CPU原张量误差分解；当前R4必要条件负向，无j1，不提交E2。",
     "mainline_unchanged": true,
     "E0_preparation_ref": "plans/cara_predictor_refresh_scout_v2_20261026/E0_SOURCE_AUDIT_AND_E1_CPU_CASES_R1.md",
     "E0_preparation_receipt_ref": "reports/cara_scout_E0_source_and_local_assets_20261026.json",
@@ -1004,13 +1004,19 @@
     "local_parent_source_path_CPU_passed": true,
     "local_parent_complete_CPU_paths": 8,
     "local_parent_failure_attempts": 6,
-    "real_weight_parent_collection_accepted": false,
-    "dual_host_production_CPU_accepted": false,
-    "local_parent_resource_addendum_ref": "manifests/cara_scout_E1_resource_addendum_parent_v22_20261026.json"
+    "real_weight_parent_collection_accepted": true,
+    "dual_host_production_CPU_accepted": true,
+    "local_parent_resource_addendum_ref": "manifests/cara_scout_E1_resource_addendum_parent_v22_20261026.json",
+    "reuse_audit_ref": "reports/cara_scout_E1_original_reuse_audit_20261027.json",
+    "current_preparation_ref": "plans/cara_predictor_refresh_scout_v2_20261026/MECHANISM_REUSE_AND_PREPARATION_R1_20261027.md",
+    "reuse_scope": "原B1父采集与读出源码；不等于新E2整卡CPU/费用接受",
+    "j1": null,
+    "saved_tensor_mechanism_CPU_synthetic_ref": "reports/cara_scout_mechanism_algebra_CPU_20261027.json",
+    "saved_tensor_mechanism_actual_executed": false
   },
-  "current_followup_plan_ref": "plans/cara_innovation_gain_20261027/README.md",
+  "current_followup_plan_ref": "plans/cara_predictor_refresh_scout_v2_20261026/MECHANISM_REUSE_AND_PREPARATION_R1_20261027.md",
   "innovation_gain_exploration_R1": {
-    "status": "B1_COMPLETE_CURRENT_SCALAR_BAND_STOPPED_NO_MAINLINE_ADMISSION",
+    "status": "PAUSED_BY_USER_AFTER_COMPLETE_B1",
     "plan_ref": "plans/cara_innovation_gain_20261027/README.md",
     "scope_ref": "manifests/cara_IG_scope_intake_r1_20261027.json",
     "host_profiles_ref": "manifests/cara_IG_dual_host_profiles_r1_20261027.json",
@@ -1024,7 +1030,7 @@
     "reserved_GPUh": 0,
     "mainline_unchanged": true,
     "DEV128_partial_metrics_read": false,
-    "next_action": "本轮具体候选停止：Scalar/Band均退化DEEP且被A_PHASE稳定超过；不提交B2/范围修订，不并入主线。保留双端兼容代码、原件与已结算费用。",
+    "next_action": "用户暂停：不执行IG B2/B3或系数搜索；717科学筛查结果和费用保留。",
     "launch_ref": "reports/cara_IG_B1_R2_two_card_launch_20261027.json",
     "admission_ref": "reports/cara_IG_B1_R2_central_admission_20261027.json",
     "latest_operational_ref": "reports/cara_IG_B1_R2_terminal_20261027.json",
@@ -1043,6 +1049,10 @@
     "scientific_revision_submissions": 0,
     "active_IG_jobs": 0,
     "decision": "STOP_CURRENT_CANDIDATES_AFTER_COMPLETE_B1",
-    "mainline_admitted": false
+    "mainline_admitted": false,
+    "scientific_status_before_user_pause": "B1_COMPLETE_CURRENT_SCALAR_BAND_STOPPED_NO_MAINLINE_ADMISSION",
+    "user_paused": true,
+    "pause_instruction": "2026-10-27: IG创新量增益分支先暂停，先准备预测器-刷新机制探索线",
+    "pause_ref": "research/718_CARA_IG_PAUSED_SCOUT_REUSE_AND_CPU_PREPARATION_20261027.md"
   }
 }
