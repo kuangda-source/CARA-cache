@@ -2,7 +2,7 @@
 
 # CARA-Cache 当前交接
 
-[732 WC73已启动](../../research/732_CARA_WC73_PER_HOST_ADMISSION_AND_LAUNCH_20261027.md)：用户允许两台服务器各一项独占任务；Ada GPU1于10月27日20:40:06确认唯一CUDA上下文，原73路径、12GPUh（A5/B7）。A失败即停，通过后释放/结算、CPU按预注册冻结再B；预计10月28日08:10–10:10含CPU评分完成。仅监测唯一r2 stage，不重派、不改旧门槛或部分科学解读；心跳wc73按真实起点检查。
+[736 WC73热保护停止](../../research/736_CARA_WC73_THERMAL_STOP_AND_SETTLEMENT_20261028.md)：原任务10月27日21:38:56因≥90°C热保护停止；A完成11/26，等价门禁未形成结论，未冻结、未启动B。全部原进程/锁已释放、Default恢复，0.980652754 GPUh中央精确结算；未重跑。原ETA作废，两项检查已删除，旧门槛与16.5未知责任不变。
 
 [735 CFG mainline and checklist](../../research/735_CARA_CFG_MAINLINE_PLAN_AND_FEISHU_RECONCILIATION_20261028.md): S scheduling and Q cache compression plans registered separately. Independent confirmation/Q5 no longer wait for R4; asset/mask/codec CPU work pending. Existing WC73 unchanged; Feishu checklist updated and verified, no GPU or budget added, IG paused.
 
