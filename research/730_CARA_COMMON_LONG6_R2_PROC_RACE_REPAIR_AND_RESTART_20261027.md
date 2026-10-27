@@ -49,3 +49,13 @@
 [原半程回执](../reports/cara_common_long6_A6000_R2_halfway_20261027_2127.json)实际观察21:27:25.254394（1793107645.254394），5/6完成、1运行、0失败。原guardian、supervisor、runner及容器仍运行，2209独占样本无违规，最大间隔2.285秒；私有输出卷32331718656字节可用，存储保护未报错，日志无错误。尚无GPU账单或CPU终态，不作科学接受。按启动墙钟计算距3h硬上限约100分钟，仅作技术余量，不替代单调账单。
 
 半程一次自动化cara-r2已删除；23:50终态cara-r2-2继续绑定同launch。保持原采集约22:44及释放后最多1h CPU评分的保守安排，本次不凭单个完成计数重估各阶段速度。不读取部分分数，不调参，不重派。
+
+## Terminal acceptance (23:50 scheduled check)
+
+[Terminal receipt](../reports/cara_common_long6_A6000_R2_terminal_20261027_2350.json), [central settlement](../reports/cara_common_long6_A6000_R2_central_settlement_20261027_2350.json), and [independent acceptance](../reports/cara_common_long6_A6000_R2_accepted_20261027_2350.json). Original GPU billing ended at 21:44:47.004238 +08; CPU postprocessing exited 0 at 21:45:13.215702. These are original end times, not this check's observation time.
+
+All 6 paths / 12 states / 84 readouts passed. OFF/ON all-36/final/video parity, original alpha, matrix, source/assets and both diagnostic clocks passed. All 2690 exclusivity observations passed; original guardian/supervisor/runner/post/container exited, UUID lock released, and guardian restored Default while idle. Storage and cross-disk journal checks passed.
+
+Exact monotonic bill: 5829.267072642222 seconds = 1.6192408535117284 GPUh, below 3h. Central envelope settled once. Central snapshot: used175.8058597668662 / reserved16.5 / available33.694140233133794 / cap226. Other jobs account for their own pool changes; old R1 cost and uncertainty reserve remain.
+
+Status: TECHNICAL_FINANCIAL_ACCEPTED_PENDING_FROZEN_ANALYSIS. No claim of candidate benefit, j1 promotion or closed-loop video quality. Frozen scientific analysis remains next; no E2/IG or new GPU dispatch. One-time terminal automation cara-r2-2 deleted.
