@@ -2,6 +2,8 @@
 
 [732 WC73已启动](../../research/732_CARA_WC73_PER_HOST_ADMISSION_AND_LAUNCH_20261027.md)：用户允许两台服务器各一项独占任务；Ada GPU1于10月27日20:40:06确认唯一CUDA上下文，原73路径、12GPUh（A5/B7）。A失败即停，通过后释放/结算、CPU按预注册冻结再B；预计10月28日08:10–10:10含CPU评分完成。仅监测唯一r2 stage，不重派、不改旧门槛或部分科学解读；心跳wc73按真实起点检查。
 
+[733 R2 frozen analysis](../../research/733_CARA_COMMON_LONG_R2_FROZEN_ANALYSIS_AND_STOP_20261028.md): technical/financial acceptance retained; R4_COMMON_LONG fails the frozen local gate (1.65% versus A, below 5%; AV51 worsens). No E2 or new GPU; IG paused. Next: bounded saved-tensor CPU cause decomposition, no tuning.
+
 [730 共同长龄R2已独占重启](repo:research/730_CARA_COMMON_LONG6_R2_PROC_RACE_REPAIR_AND_RESTART_20261027.md) — TERMINAL ACCEPTED: 6/6 paths, 12 states, 84 readouts; original alpha and OFF/ON parity verified. GPU ended 21:44:47, CPU 21:45:13; 1.619241 GPUh centrally settled. Handles/lock released, Default restored. Frozen mechanism analysis pending; no automatic GPU or j1 promotion, IG paused.
 
 [729 R4共同长龄提前退出并结算](repo:research/729_CARA_COMMON_LONG6_PROC_RACE_FAILURE_AND_SETTLEMENT_20261027.md)：原六路径任务18:25因/proc进程消失ESRCH未捕获而由监督停止，完整范围未完成，未评分或科学接受。原费用0.940191GPUh已中央结算，全部句柄与锁释放、Default恢复；两次检查已删除，不自动重派。原α/强基线/226预算不变，IG暂停。

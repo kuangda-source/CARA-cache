@@ -1,0 +1,256 @@
+{
+  "status": "FROZEN_LOCAL_GATE_FAILED_NO_E2",
+  "created_unix": 1793117990.812923,
+  "source_refs": {
+    "terminal": "reports/cara_common_long6_A6000_R2_terminal_20261027_2350.json",
+    "settlement": "reports/cara_common_long6_A6000_R2_central_settlement_20261027_2350.json",
+    "acceptance": "reports/cara_common_long6_A6000_R2_accepted_20261027_2350.json"
+  },
+  "source_SHA256": {
+    "terminal": "26e984de8ac0f8e4db18e5c156595a9fe20726c6db1d0d8d7e2b03390a8ccc44",
+    "settlement": "a4e21ea1b8f1ccff1156764f7bbd9e62590afee9d0647ca289712b45e0adb8f6",
+    "acceptance": "da2907afc1e46c7ca866c005ceb5b34bb1fcc800da7475fec6c2c3f5ed88bcd4"
+  },
+  "contract_ref": "manifests/cara_common_long_newstates_scope_quote_r1_20261027.json",
+  "contract_SHA256": "d2eccdb3781695d50a1fcc01fd42e3cee2c9b878903dbf4b8bd1e3fc93eb5704",
+  "long_MSE": {
+    "WC_C": 0.7837167362511913,
+    "A_PHASE": 0.3888811379736659,
+    "FULL": 0.7977930338776389,
+    "R4_GLOBAL": 0.45972477868543593,
+    "R4_LONG": 0.45972477868543593,
+    "DCTA": 0.8752834581471871,
+    "R4_COMMON_LONG": 0.3824632804407605
+  },
+  "short_MSE": {
+    "WC_C": 0.12855139310275393,
+    "A_PHASE": 0.0649391098816832,
+    "FULL": 0.27470425484001537,
+    "R4_GLOBAL": 0.22580023964149354,
+    "R4_LONG": 0.0649391098816832,
+    "DCTA": 0.14914750292717016,
+    "R4_COMMON_LONG": 0.0649391098816832
+  },
+  "all_MSE": {
+    "WC_C": 0.4561340646769726,
+    "A_PHASE": 0.22691012392767457,
+    "FULL": 0.5362486443588272,
+    "R4_GLOBAL": 0.34276250916346473,
+    "R4_LONG": 0.26233194428355955,
+    "DCTA": 0.5122154805371787,
+    "R4_COMMON_LONG": 0.22370119516122186
+  },
+  "best_fixed_baseline": "A_PHASE",
+  "gain_vs_best": 0.01650339115532007,
+  "gates": {
+    "gain_at_least_5pct": false,
+    "at_least_4_of_6_strict_A_wins": true,
+    "both_prompt_long_means_nonworse": false,
+    "short_exact_A_verified_by_accepted_tensor_rescore": true
+  },
+  "passed": false,
+  "per_prompt_long_MSE": {
+    "av_51b45829-502e-4143-9c32-c026bd6ab191": {
+      "WC_C": 0.8386143822428177,
+      "A_PHASE": 0.3964350082325145,
+      "FULL": 0.8517221940838333,
+      "R4_GLOBAL": 0.4849877133568951,
+      "R4_LONG": 0.4849877133568951,
+      "DCTA": 0.9304416821529911,
+      "R4_COMMON_LONG": 0.4006903410203912
+    },
+    "misc_13398218_3840_2160_60fps": {
+      "WC_C": 0.7288190902595649,
+      "A_PHASE": 0.38132726771481734,
+      "FULL": 0.7438638736714446,
+      "R4_GLOBAL": 0.4344618440139767,
+      "R4_LONG": 0.4344618440139767,
+      "DCTA": 0.8201252341413832,
+      "R4_COMMON_LONG": 0.36423621986112986
+    }
+  },
+  "per_state": [
+    {
+      "prompt": "misc_13398218_3840_2160_60fps",
+      "step": 22,
+      "A_MSE": 0.0634872741585477,
+      "candidate_MSE": 0.0634872741585477,
+      "gain": 0.0,
+      "strict_win": false
+    },
+    {
+      "prompt": "misc_13398218_3840_2160_60fps",
+      "step": 23,
+      "A_MSE": 0.08058962736237638,
+      "candidate_MSE": 0.08058962736237638,
+      "gain": 0.0,
+      "strict_win": false
+    },
+    {
+      "prompt": "misc_13398218_3840_2160_60fps",
+      "step": 25,
+      "A_MSE": 0.05576053439391572,
+      "candidate_MSE": 0.05576053439391572,
+      "gain": 0.0,
+      "strict_win": false
+    },
+    {
+      "prompt": "misc_13398218_3840_2160_60fps",
+      "step": 33,
+      "A_MSE": 0.3034348375035723,
+      "candidate_MSE": 0.2876245167707963,
+      "gain": 0.052104500797769626,
+      "strict_win": true
+    },
+    {
+      "prompt": "misc_13398218_3840_2160_60fps",
+      "step": 34,
+      "A_MSE": 0.3920260425195083,
+      "candidate_MSE": 0.37410356468228095,
+      "gain": 0.04571756948094963,
+      "strict_win": true
+    },
+    {
+      "prompt": "misc_13398218_3840_2160_60fps",
+      "step": 35,
+      "A_MSE": 0.44852092312137143,
+      "candidate_MSE": 0.4309805781303123,
+      "gain": 0.03910708305198196,
+      "strict_win": true
+    },
+    {
+      "prompt": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+      "step": 22,
+      "A_MSE": 0.05335294227446456,
+      "candidate_MSE": 0.05335294227446456,
+      "gain": 0.0,
+      "strict_win": false
+    },
+    {
+      "prompt": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+      "step": 23,
+      "A_MSE": 0.07763310018431074,
+      "candidate_MSE": 0.07763310018431074,
+      "gain": 0.0,
+      "strict_win": false
+    },
+    {
+      "prompt": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+      "step": 25,
+      "A_MSE": 0.058811180916484095,
+      "candidate_MSE": 0.058811180916484095,
+      "gain": 0.0,
+      "strict_win": false
+    },
+    {
+      "prompt": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+      "step": 33,
+      "A_MSE": 0.3155810873518094,
+      "candidate_MSE": 0.30639229591189826,
+      "gain": 0.02911705361375949,
+      "strict_win": true
+    },
+    {
+      "prompt": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+      "step": 34,
+      "A_MSE": 0.40882234812528245,
+      "candidate_MSE": 0.41219194631418465,
+      "gain": -0.008242206436008148,
+      "strict_win": false
+    },
+    {
+      "prompt": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+      "step": 35,
+      "A_MSE": 0.46490158922045155,
+      "candidate_MSE": 0.4834867808350907,
+      "gain": -0.03997661450416401,
+      "strict_win": false
+    }
+  ],
+  "gradient_long": {
+    "WC_C": 1.5396472381491821,
+    "A_PHASE": 0.7148783006998364,
+    "FULL": 1.5634148547041227,
+    "R4_GLOBAL": 0.8460392607688821,
+    "R4_LONG": 0.8460392607688821,
+    "DCTA": 1.6968040873443186,
+    "R4_COMMON_LONG": 0.7098319703716971
+  },
+  "energy_ratio_long": {
+    "WC_C": 2.1467910055340766,
+    "A_PHASE": 1.0495454771303638,
+    "FULL": 2.110868535139147,
+    "R4_GLOBAL": 1.291786561079646,
+    "R4_LONG": 1.291786561079646,
+    "DCTA": 2.1321226394492325,
+    "R4_COMMON_LONG": 1.1960487386913798
+  },
+  "diagnostic_long_seconds": {
+    "WC_C": 27.813393119877826,
+    "A_PHASE": 27.75532682177921,
+    "FULL": 27.775785299949348,
+    "R4_GLOBAL": 27.820612330144893,
+    "R4_LONG": 27.79585959358762,
+    "DCTA": 27.631159708679963,
+    "R4_COMMON_LONG": 84.67336612707004
+  },
+  "cumulative_peak_bytes": 30921473536,
+  "path_clocks": [
+    {
+      "id": "WARM_0",
+      "prompt": "misc_13398218_3840_2160_60fps",
+      "section": "WARM",
+      "full_request_seconds": 277.2661888888106,
+      "paper_denoise_decode_seconds": 188.439086822,
+      "timing_is_diagnostic": true
+    },
+    {
+      "id": "WARM_1",
+      "prompt": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+      "section": "WARM",
+      "full_request_seconds": 257.19818191137165,
+      "paper_denoise_decode_seconds": 186.810559358,
+      "timing_is_diagnostic": true
+    },
+    {
+      "id": "OFF_0",
+      "prompt": "misc_13398218_3840_2160_60fps",
+      "section": "OFF",
+      "full_request_seconds": 256.592716534622,
+      "paper_denoise_decode_seconds": 186.753749885,
+      "timing_is_diagnostic": true
+    },
+    {
+      "id": "OFF_1",
+      "prompt": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+      "section": "OFF",
+      "full_request_seconds": 255.00883769709617,
+      "paper_denoise_decode_seconds": 186.879852787,
+      "timing_is_diagnostic": true
+    },
+    {
+      "id": "ON_0",
+      "prompt": "misc_13398218_3840_2160_60fps",
+      "section": "ON",
+      "full_request_seconds": 2188.587131592445,
+      "paper_denoise_decode_seconds": 2111.972220807,
+      "timing_is_diagnostic": true
+    },
+    {
+      "id": "ON_1",
+      "prompt": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+      "section": "ON",
+      "full_request_seconds": 2356.2784969061613,
+      "paper_denoise_decode_seconds": 2283.108373708,
+      "timing_is_diagnostic": true
+    }
+  ],
+  "limitations": [
+    "2 old CAL prompts; same C-policy states, not candidate free running",
+    "long age confounded with late stage and anchor interval",
+    "clock includes copies/hash/roundtrip; peak cumulative, not candidate incremental",
+    "no final video quality or deployment budget claim"
+  ],
+  "IG": "PAUSED",
+  "GPU_authorized": false
+}
