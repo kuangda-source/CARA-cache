@@ -4,6 +4,8 @@
 
 [732 WC73已启动](../../research/732_CARA_WC73_PER_HOST_ADMISSION_AND_LAUNCH_20261027.md)：用户允许两台服务器各一项独占任务；Ada GPU1于10月27日20:40:06确认唯一CUDA上下文，原73路径、12GPUh（A5/B7）。A失败即停，通过后释放/结算、CPU按预注册冻结再B；预计10月28日08:10–10:10含CPU评分完成。仅监测唯一r2 stage，不重派、不改旧门槛或部分科学解读；心跳wc73按真实起点检查。
 
+[735 CFG mainline and checklist](../../research/735_CARA_CFG_MAINLINE_PLAN_AND_FEISHU_RECONCILIATION_20261028.md): S scheduling and Q cache compression plans registered separately. Independent confirmation/Q5 no longer wait for R4; asset/mask/codec CPU work pending. Existing WC73 unchanged; Feishu checklist updated and verified, no GPU or budget added, IG paused.
+
 [734 DEV128 age3 secondary review](../../research/734_CARA_DEV128_AGE3_QUALITY_TRADEOFF_AND_CONFIRMATION_20261028.md): original quality bounds versus Native35/S25-A and mean time budget pass; LPIPS versus Shared25-C improves 6.68%, with MUSIQ tradeoff. Worth a separately registered independent confirmation; original main candidate unchanged, no GPU authorized, IG paused.
 
 [733 R2 frozen analysis](../../research/733_CARA_COMMON_LONG_R2_FROZEN_ANALYSIS_AND_STOP_20261028.md): technical/financial acceptance retained; R4_COMMON_LONG fails the frozen local gate (1.65% versus A, below 5%; AV51 worsens). No E2 or new GPU; IG paused. Next: bounded saved-tensor CPU cause decomposition, no tuning.
