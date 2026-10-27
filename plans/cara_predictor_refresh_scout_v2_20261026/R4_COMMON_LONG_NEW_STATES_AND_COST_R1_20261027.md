@@ -39,3 +39,7 @@
 ## 接续
 
 先完成受影响双端CPU独立接受 → 完整清单绑定监督/终态与资源准入准备 → 提交具体GPU方案。优先四卡；两卡兼容；只允许一端单次执行。新候选未过门前不启动E2视频，不恢复IG。后续E2另报全参考、warm、重复、评分与释放后CPU费用，本卡3GPUh不是E2授权。
+
+## 整卡组合准备完成（2026-10-27）
+
+见[727](../../research/727_CARA_COMMON_LONG_WHOLE_CARD_CPU_AND_DUAL_HOST_REVIEW_20261027.md)及[双端独立接受](../../reports/cara_common_long_combination_review_r4_20261027.json)。6路径/原α/七读出与原报价不变。监督、GPU释放后CPU重评分、存储故障和财务终态组合已双端CPU接受；实际CUDA/模式准入、实测费用和科学门未运行。曝光仅登记workspace元数据范围，不把两条旧CAL称全新输入。GPU提交与真实预约均为0，启动仍待用户授权。
