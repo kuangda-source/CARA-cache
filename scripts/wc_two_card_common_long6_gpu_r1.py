@@ -141,10 +141,11 @@ if not L:print(json.dumps(dict(status='RECOVERED_NO_LAUNCH',files=files,observed
 sup=read(out/'supervisor.json') if (out/'supervisor.json').exists() else {}
 health=read(out/'runner-health.json') if (out/'runner-health.json').exists() else {}
 mon=out/'exclusive-monitor.jsonl';rows=[json.loads(l) for l in mon.read_text().splitlines()] if mon.exists() else []
-from wcomr.policy_generator_r1.production_exclusive import verify
+from wcomr.policy_generator_r1.production_exclusive import exclusive_gate
 bad=0
 for r in rows:
- try:verify(r['snapshot'],L['gpu_uuid'],sup.get('child_identity') if r['context_granted'] else None)
+ try:
+  active=bool(r['snapshot']['compute_apps']);gate=exclusive_gate(r['snapshot'],gpu_uuid=L['gpu_uuid'],phase='active' if active else 'idle',runner=sup.get('child_identity') if active else None,now=r['snapshot']['observed_unix']);bad+=int(not gate['observation_passed'])
  except (ValueError,AssertionError):bad+=1
 ins=subprocess.run(['docker','inspect',L['container']],capture_output=True,text=True,timeout=15)
 con=json.loads(ins.stdout)[0]['State'] if ins.returncode==0 else {'missing':True}
