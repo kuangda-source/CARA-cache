@@ -28,3 +28,7 @@
 本轮检索已登记本地plans/configs/manifests/src/scripts及相关主线讨论，未找到可合并的已冻结19D完整执行身份。不能据此宣称所有并行工作都不存在。19D完全排除本包；若出现，另建增量范围，以checkpoint/source/runtime/scheduler-sigma/prompt-seed/config/action policy/thermal-round/role/purpose完整身份去重，重新汇总双方费用。仅同D掩码或同名称不足以复用；warm、时间重复和诊断不能按科学样本去重。
 
 [用户附件原文副本](USER_PLAN_REFERENCE.md)仅作来源；实际用户请求及后续预算授权优先，附件中的执行建议不是GPU启动指令。
+
+## 提交前并行主线增量
+
+初始快照之后，主线加入 `5b5cab2c` 的时间适配及双端CPU接受，本轮提交保留该父历史。[并行引用清单](CONCURRENT_MAIN_REFERENCE.json)独立绑定其源SHA。两套埋点目前没有组合，未来生产接入只能选择一套并完成七角色组合CPU验收，禁止同时安装造成重复同步；各自CPU结果不互相冒认。本包没有启动GPU或附加19D。
