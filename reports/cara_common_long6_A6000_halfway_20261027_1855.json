@@ -1,0 +1,173 @@
+{
+  "status": "COMMON_LONG6_TECHNICAL_ONLY",
+  "observed_unix": 1793102087.2755,
+  "launch": {
+    "status": "COMMON_LONG6_SINGLE_DISPATCHED_ADMISSION_PENDING",
+    "host": "two_card",
+    "run_id": "cara-common-long-newstates6-r1",
+    "launch_id": "33fc1816-ae18-461a-a4de-a2a0a50cfc99",
+    "stage": "/data20t/gaokuangda/worldcache_workspace/.sync/cara-common-long6-a6000-r1-20261027",
+    "source_revision": "306e60d68ec2184a320bac50a0c9527f03e1f86e",
+    "gpu_uuid": "GPU-cebf7119-cf03-23b9-e192-cd196332b704",
+    "scope_counts": {
+      "total_paths": 6,
+      "warm_paths": 2,
+      "formal_paths": 4,
+      "states": 12,
+      "readout_positions": 84,
+      "guided_pairs": 228,
+      "CFG_calls": 456,
+      "extra_head_pairs": 186,
+      "loads": 1
+    },
+    "billed_limit_GPUh": 3,
+    "project": "/data20t/gaokuangda/worldcache_workspace",
+    "guardian_identity": {
+      "pid": 262271,
+      "state": "R",
+      "start_ticks": 638823024,
+      "command": "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python -u /data20t/gaokuangda/worldcache_workspace/.sync/cara-common-long6-a6000-r1-20261027/scripts/wc_common_long6_host_guardian_r1.py --project /data20t/gaokuangda/worldcache_workspace --stage /data20t/gaokuangda/worldcache_workspace/.sync/cara-common-long6-a6000-r1-20261027 "
+    },
+    "container": "cara-common-long6-a6000-r1-20261027-gpu",
+    "started_unix": 1793093326.7195446,
+    "forecast_GPUh": 2.608114273192671,
+    "registration_sha256": "e0b8f8de9236cff1c0b13de269d159bf5e32c445cde8884450f27d64082138f5",
+    "authorization_sha256": "6fd9aa8647f5a3cd5d0a85fcf2018a1c0a66df434422667d22166ff54a2ce83f"
+  },
+  "guardian": {
+    "status": "COMMON_LONG6_HOST_GUARDIAN_TERMINAL",
+    "identity": {
+      "pid": 262271,
+      "state": "R",
+      "start_ticks": 638823024,
+      "command": "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python -u /data20t/gaokuangda/worldcache_workspace/.sync/cara-common-long6-a6000-r1-20261027/scripts/wc_common_long6_host_guardian_r1.py --project /data20t/gaokuangda/worldcache_workspace --stage /data20t/gaokuangda/worldcache_workspace/.sync/cara-common-long6-a6000-r1-20261027 "
+    },
+    "gpu_uuid": "GPU-cebf7119-cf03-23b9-e192-cd196332b704",
+    "source_revision": "306e60d68ec2184a320bac50a0c9527f03e1f86e",
+    "started_unix": 1793093327.4438121,
+    "mode_admission": {
+      "prior_mode": "Default",
+      "changed": true,
+      "verified_snapshot": {
+        "gpu_uuid": "GPU-cebf7119-cf03-23b9-e192-cd196332b704",
+        "compute_mode": "Exclusive_Process",
+        "compute_apps": [],
+        "mps_processes": [],
+        "observed_unix": 1793093327.8588228
+      }
+    },
+    "container_cli_identity": {
+      "pid": 262284,
+      "state": "R",
+      "start_ticks": 638823193,
+      "command": "docker run --read-only --network none --pid host --name cara-common-long6-a6000-r1-20261027-gpu --label wcomr.manifest=e0b8f8de9236cff1c0b13de269d159bf5e32c445cde8884450f27d64082138f5 --user 1004:998 --cpus 2 --memory 48g --pids-limit 512 --tmpfs /tmp:rw,size=2g -v /data20t/gaokuangda/worldcache_workspace:/data20t/gaokuangda/worldcache_workspace:ro -v /data20t/gaokuangda/worldcache_workspace/.sync/cara-common-long6-a6000-r1-20261027:/data20t/gaokuangda/worldcache_workspace/.sync/cara-common-long6-a6000-r1-20261027:rw -w /data20t/gaokuangda/worldcache_workspace/runtime --gpus device=GPU-cebf7119-cf03-23b9-e192-cd196332b704 -v /data20t/gaokuangda/worldcache_workspace/outputs:/data20t/gaokuangda/worldcache_workspace/outputs:rw -v /data20t/gaokuangda/worldcache_workspace/reports:/data20t/gaokuangda/worldcache_workspace/reports:rw -v /data20t/gaokuangda/worldcache_workspace/.sync:/data20t/gaokuangda/worldcache_workspace/.sync:rw -e CUDA_CACHE_PATH=/data20t/gaokuangda/worldcache_workspace/.sync/cara-common-long6-a6000-r1-20261027/GPU-caches/cuda -e CUDA_HOME=/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cuda_nvrtc -e CUDA_PATH=/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cuda_nvrtc -e CUDA_VISIBLE_DEVICES= -e HF_HOME=/data20t/gaokuangda/worldcache_workspace/cache/huggingface -e HF_HUB_CACHE=/data20t/gaokuangda/worldcache_workspace/cache/huggingface/hub -e HF_HUB_OFFLINE=1 -e LD_LIBRARY_PATH=/data20t/gaokuangda/worldcache_workspace/system-libs-r1/usr/lib/x86_64-linux-gnu/blas:/data20t/gaokuangda/worldcache_workspace/system-libs-r1/usr/lib/x86_64-linux-gnu/lapack:/data20t/gaokuangda/worldcache_workspace/system-libs-r1/usr/lib/x86_64-linux-gnu/pulseaudio:/data20t/gaokuangda/worldcache_workspace/system-libs-r1/usr/lib/x86_64-linux-gnu:/data20t/gaokuangda/worldcache_workspace/system-libs-r1/lib/x86_64-linux-gnu:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cuda_nvrtc/lib:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cuda_runtime/lib:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cudnn/lib:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/nvjitlink/lib:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cublas/lib:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/torch/lib -e LOGNAME=gaokuangda -e NLTK_DATA=/data20t/gaokuangda/worldcache_workspace/runtime-resources/nltk-guardrail-d6d4bfa8-r1 -e NVIDIA_VISIBLE_DEVICES=GPU-cebf7119-cf03-23b9-e192-cd196332b704 -e OMP_NUM_THREADS=2 -e OPENBLAS_NUM_THREADS=2 -e PATH=/data20t/gaokuangda/worldcache_workspace/system-libs-r1/usr/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin -e PYTHONDONTWRITEBYTECODE=1 -e PYTHONPATH=/data20t/gaokuangda/worldcache_workspace/.sync/cara-common-long6-a6000-r1-20261027/scripts:/data20t/gaokuangda/worldcache_workspace/.sync/cara-common-long6-a6000-r1-20261027/src -e TOKENIZERS_PARALLELISM=false -e TORCHINDUCTOR_CACHE_DIR=/data20t/gaokuangda/worldcache_workspace/.sync/cara-common-long6-a6000-r1-20261027/GPU-caches/torchinductor -e TORCH_EXTENSIONS_DIR=/data20t/gaokuangda/worldcache_workspace/.sync/cara-common-long6-a6000-r1-20261027/GPU-caches/extensions -e TORCH_HOME=/data20t/gaokuangda/worldcache_workspace/cache/torch -e TRANSFORMERS_OFFLINE=1 -e TRITON_CACHE_DIR=/data20t/gaokuangda/worldcache_workspace/.sync/cara-common-long6-a6000-r1-20261027/GPU-caches/triton -e USER=gaokuangda -e WC_SCOUT_KIND=CAL12 -e XDG_CACHE_HOME=/data20t/gaokuangda/worldcache_workspace/.sync/cara-common-long6-a6000-r1-20261027/GPU-caches/xdg --cpuset-cpus 2,3 -v /data20t/gaokuangda/worldcache_workspace/outputs/cara-common-long-newstates6-r1:/data20t/gaokuangda/worldcache_workspace/outputs/cara-common-long-newstates6-r1:rw -v /home/gaokuangda/cara_control/common-long6-r1/control.journal:/home/gaokuangda/cara_control/common-long6-r1/control.journal:rw -v /data20t/gaokuangda/worldcache_workspace/.sync/storage-reservations/common-long6-r1/output.ext4:/data20t/gaokuangda/worldcache_workspace/.sync/storage-reservations/common-long6-r1/output.ext4:ro --entrypoint /data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/bin/python sha256:1e81ac62ee68ca1a6ef655515096a1d84579b01aa4986810c9b18d4f6c4c552d /data20t/gaokuangda/worldcache_workspace/.sync/cara-common-long6-a6000-r1-20261027/scripts/wc_common_long6_worker_r1.py supervise --project /data20t/gaokuangda/worldcache_workspace --stage /data20t/gaokuangda/worldcache_workspace/.sync/cara-common-long6-a6000-r1-20261027 "
+    },
+    "container": "cara-common-long6-a6000-r1-20261027-gpu",
+    "container_exit_code": 1,
+    "mode_restoration": {
+      "status": "PRIOR_MODE_RESTORED_IDLE",
+      "restored": true,
+      "changed": true,
+      "snapshot": {
+        "gpu_uuid": "GPU-cebf7119-cf03-23b9-e192-cd196332b704",
+        "compute_mode": "Default",
+        "compute_apps": [],
+        "mps_processes": [],
+        "observed_unix": 1793096716.472833
+      }
+    },
+    "ended_unix": 1793096716.4732141
+  },
+  "container_state": {
+    "Status": "exited",
+    "Running": false,
+    "Paused": false,
+    "Restarting": false,
+    "OOMKilled": false,
+    "Dead": false,
+    "Pid": 0,
+    "ExitCode": 1,
+    "Error": "",
+    "StartedAt": "2026-10-27T09:28:48.547111058Z",
+    "FinishedAt": "2026-10-27T10:25:15.88509075Z"
+  },
+  "original_identities": {
+    "supervisor_identity": {
+      "identity": {
+        "pid": 262333,
+        "state": "R",
+        "start_ticks": 638823212,
+        "command": "/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/bin/python /data20t/gaokuangda/worldcache_workspace/.sync/cara-common-long6-a6000-r1-20261027/scripts/wc_common_long6_worker_r1.py supervise --project /data20t/gaokuangda/worldcache_workspace --stage /data20t/gaokuangda/worldcache_workspace/.sync/cara-common-long6-a6000-r1-20261027 "
+      },
+      "live": false
+    },
+    "child_identity": {
+      "identity": {
+        "pid": 262377,
+        "start_ticks": 638823402,
+        "uid": 1004
+      },
+      "live": false
+    },
+    "post_identity": {
+      "identity": null,
+      "live": false
+    }
+  },
+  "health": {
+    "phase": "COMMON_LONG6_COLLECTING",
+    "registered_paths": 6,
+    "completed_paths": 4,
+    "running_paths": 1,
+    "failed_paths": 0
+  },
+  "GPU": {
+    "gpu_uuid": "GPU-cebf7119-cf03-23b9-e192-cd196332b704",
+    "compute_mode": "Default",
+    "compute_apps": [],
+    "mps_processes": [],
+    "observed_unix": 1793102087.466582
+  },
+  "storage": {
+    "output_available": 32843055104,
+    "host_available": 1047936512000,
+    "free_inodes": 2097112
+  },
+  "monitor_samples": 1561,
+  "monitor_violations": 0,
+  "max_monitor_gap": 2.2921767719089985,
+  "context_granted": {
+    "runner": {
+      "pid": 262377,
+      "start_ticks": 638823402,
+      "uid": 1004
+    },
+    "gpu_uuid": "GPU-cebf7119-cf03-23b9-e192-cd196332b704",
+    "observed_unix": 1793093335.1826036,
+    "source_revision": "306e60d68ec2184a320bac50a0c9527f03e1f86e"
+  },
+  "billing": {
+    "status": "COMMON_LONG6_ACTUAL_GPU_WALL_BILL",
+    "run_id": "cara-common-long-newstates6-r1",
+    "launch_id": "33fc1816-ae18-461a-a4de-a2a0a50cfc99",
+    "source_revision": "306e60d68ec2184a320bac50a0c9527f03e1f86e",
+    "gpu_uuid": "GPU-cebf7119-cf03-23b9-e192-cd196332b704",
+    "scope_counts": {
+      "total_paths": 6,
+      "warm_paths": 2,
+      "formal_paths": 4,
+      "states": 12,
+      "readout_positions": 84,
+      "guided_pairs": 228,
+      "CFG_calls": 456,
+      "extra_head_pairs": 186,
+      "loads": 1
+    },
+    "wall_seconds": 3384.689202470705,
+    "actual_GPUh": 0.9401914451307514,
+    "billed_limit_GPUh": 3,
+    "ended_unix": 1793096714.8421297
+  },
+  "post_exit": null,
+  "error_logs": {}
+}

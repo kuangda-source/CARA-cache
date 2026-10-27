@@ -2,7 +2,7 @@
 
 # CARA-Cache 当前交接
 
-[728 R4共同长龄两卡独占运行](../../research/728_CARA_COMMON_LONG6_A6000_AUTHORIZED_EXECUTION_20261027.md)：用户已授权完整6路径/3GPUh，17:28:46在A6000 GPU1单次启动，真实唯一上下文及中央预约已确认。半程18:48、终态21:10；预计20:05采集后释放GPU，CPU评分最多1h。只看技术状态，不改原α/强基线，不以部分结果调参，IG暂停；已有intent禁止重复派发。
+[729 R4共同长龄提前退出并结算](../../research/729_CARA_COMMON_LONG6_PROC_RACE_FAILURE_AND_SETTLEMENT_20261027.md)：原六路径任务18:25因/proc进程消失ESRCH未捕获而由监督停止，完整范围未完成，未评分或科学接受。原费用0.940191GPUh已中央结算，全部句柄与锁释放、Default恢复；两次检查已删除，不自动重派。原α/强基线/226预算不变，IG暂停。
 
 [725统一时间与七角色CPU](../../research/725_CARA_WC_TIME_UNIFIED_SEVEN_ROLE_DUAL_CPU_AND_WHOLE_QUOTE_20261027.md)：双端各160小张量完整路径、阶段控制与真实Alex/PIQ权重CPU通过；73路径整卡工程预测Ada9.51/A6000 9.97GPUh，硬限12仅提案。GPU未授权未启动，仍需设备/中央责任/宿主监督准入和A阶段真实GPU门；原门槛不变。
 
