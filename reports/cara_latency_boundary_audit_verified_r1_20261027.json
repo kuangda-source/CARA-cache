@@ -1,0 +1,47 @@
+{
+  "status": "PASS",
+  "observed_at": "2026-10-27T14:42:12.123857+08:00",
+  "method": "Separate direct read of original requests and math.fsum; original acceptors replayed by producer in isolated workers. No tensor/model/server access.",
+  "checks": {
+    "DEV128": {
+      "acceptance_replayed": true,
+      "direct_raw_prompt_balanced_means_match": true,
+      "speedup_arithmetic_match": true,
+      "original_hashes_unchanged": true,
+      "exact_paper_time_not_imputed": true,
+      "clean_paths": 120
+    },
+    "CAL66": {
+      "acceptance_replayed": true,
+      "direct_raw_prompt_balanced_means_match": true,
+      "speedup_arithmetic_match": true,
+      "original_hashes_unchanged": true,
+      "exact_paper_time_not_imputed": true,
+      "clean_paths": 52
+    },
+    "H104": {
+      "acceptance_replayed": true,
+      "direct_raw_prompt_balanced_means_match": true,
+      "speedup_arithmetic_match": true,
+      "original_hashes_unchanged": true,
+      "exact_paper_time_not_imputed": true,
+      "clean_paths": 80
+    },
+    "C112": {
+      "acceptance_replayed": true,
+      "direct_raw_prompt_balanced_means_match": true,
+      "speedup_arithmetic_match": true,
+      "original_hashes_unchanged": true,
+      "exact_paper_time_not_imputed": true,
+      "clean_paths": 80
+    }
+  },
+  "inspected_paths": 410,
+  "analyzed_paths": 332,
+  "source_sha256": {
+    "reports/cara_latency_boundary_audit_r1_20261027.json": "f21ba981351afd67f0b9090d76e548238c6d0c3dc0fe3981b1d47b1615e92c64",
+    "scripts/audit_cara_latency_boundaries_r1.py": "ef51623e85521b6d62a1c77e3a127a9fab94bbb7c659265341a55c64cdb2d813"
+  },
+  "new_gpu_submissions": 0,
+  "ledger_changes": false
+}

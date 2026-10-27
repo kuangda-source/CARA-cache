@@ -27,6 +27,8 @@ Shared25-C在16新DEV上相对冻结S25-A保真改善14.82%、16/16同向，原�
 
 [721历史WC/Native LPIPS审计](721_WC_NATIVE_LPIPS_OFFICIAL_PROTOCOL_FORENSIC_AUDIT_20261027.md)：九对837帧CPU重评分完整接受，旧Alex分数可复算、原件配对与RGB一致；已确认UniPC/参数及Alex-VGG与论文口径不等价。保留全部历史结果和Native门槛，不称论文精确复现，不将跨批剩余因素全部归为缓存偏移；无新GPU或生成。
 
+[722计时边界核查](722_CARA_PAPER_LATENCY_BOUNDARY_AUDIT_AND_MINIMAL_MEASUREMENT_PLAN_20261027.md)：四卡410请求原时钟与接受复核通过，332正式路径并列分析；DEV128 Shared25-C完整请求246.675秒/1.269×，含条件准备的生成函数214.010秒/1.314×。后者不是论文“去噪＋解码”，精确边界缺失，不估算补造。优先下一张已授权卡加边界时钟，备用16路径约1.73GPUh仅提案；原预算/验收不变、无GPU。
+
 | 顺序 | 当前阶段 | 下一项验收 / 动作 |
 |---|---|---|
 | PG-SHARED-DEV128 | Shared25-C：16新DEV、六角色128路径：DEV128完整接受：Shared25-C通过16新输入冻结继续门 | DEV128完整结果保持；用户优先预测器—刷新机制线的CPU准备，IG暂停。新读出不使用DEV拟合，当前R4无E2准入，最终确认保留。 |
