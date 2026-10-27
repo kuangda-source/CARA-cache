@@ -32,6 +32,8 @@
 
 [722计时边界核查](repo:research/722_CARA_PAPER_LATENCY_BOUNDARY_AUDIT_AND_MINIMAL_MEASUREMENT_PLAN_20261027.md)：四卡410请求原时钟与接受复核通过，332正式路径并列分析；DEV128 Shared25-C完整请求246.675秒/1.269×，含条件准备的生成函数214.010秒/1.314×。后者不是论文“去噪＋解码”，精确边界缺失，不估算补造。优先下一张已授权卡加边界时钟，备用16路径约1.73GPUh仅提案；原预算/验收不变、无GPU。
 
+[724准确论文时钟准备](repo:research/724_CARA_EXACT_PAPER_TIMING_DUAL_HOST_CPU_AND_METHOD_HANDOFF_20261027.md)：可选新入口已接入固定布局/少步Native，双服务器各18完整CPU路径及边界/失败检查通过，原α/输出一致。保留完整请求时间与原验收；真实GPU时钟与新读出整卡尚未接受。后续方法卡按[附件](repo:plans/cara_predictor_refresh_scout_v2_20261026/PAPER_TIMING_ATTACHMENT_R1_20261027.md)绑定，无单独GPU补测或新预算。
+
 {{queue}}
 
 [当前状态](repo:research/02_CURRENT_STATE.md) · [后续顺序](repo:research/09_NEXT_ACTIONS.md) · [实验总表](repo:paper/EXPERIMENT_MASTER_TABLE.md)

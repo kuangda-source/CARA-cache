@@ -13,7 +13,16 @@ scope: {manifest: {path: null, sha256: null}, logical_roles: null, physical_path
 # Includes model/weights,input/preprocess,seed,solver/grid,D/C/A,alpha/beta,readout,precision/runtime.
 dedupe: {identity: full_execution_fingerprint_v1, method_aliases_only: true, preserve_slots: [TIMING_REPEAT, WARM, CONTROL, HISTORICAL_BRIDGE]}
 quality: {formal_rounds: 1, reuse_repeat_scores_only_after_latent_and_RGB_equal: true}
-timing: {all_formal_requests_measured: true, repeats_ref: null, same_input_fresh_native: true}
+timing:
+  all_formal_requests_measured: true
+  repeats_ref: null
+  same_input_fresh_native: true
+  acceptance_clock: full_request_seconds   # Existing deployment budget stays unchanged
+  # Opt-in for future method cards only. Bind the attachment SHA and affected CPU evidence.
+  paper_boundary_attachment: {path: null, sha256: null}
+  paper_boundary_entry: wcomr.method_experiment_timing_r1.TimedRequests
+  supplementary_clock: paper_denoise_decode_seconds
+  exclude_diagnostics_from_deployment_latency: true
 budget:
   quote: {path: null, sha256: null}
   forecast_gpuh: null

@@ -1,0 +1,70 @@
+{
+  "status": "OPTIONAL_TIMING_ATTACHMENT_DUAL_HOST_CPU_ACCEPTED_NO_GPU_AUTHORIZATION",
+  "boundary": "SOLVER_LOOP_START_THROUGH_MODEL_DECODE_COMPLETION_WALL_R1",
+  "entry": "wcomr.method_experiment_timing_r1.TimedRequests",
+  "mechanism_entry": "wcomr.method_experiment_timing_r1.scout_parent",
+  "validated_CPU_roles": [
+    "NATIVE35",
+    "NATIVE26",
+    "S25_A_PHASE",
+    "SHARED25_C"
+  ],
+  "validated_actual_loop_updates": [
+    36,
+    27
+  ],
+  "source_sha256": {
+    "src/wcomr/paper_latency_r1.py": "d39b0dc8505cc324e5230022516a3ca9bbd5bee038a51c101084c3fe2e3f7d9a",
+    "src/wcomr/method_experiment_timing_r1.py": "861ff6d06ce05f928a3a9196998a3459a3247b599989b51c6f13a2172962042f",
+    "scripts/check_cara_paper_timing_cpu_r1.py": "8a91952fa0d4c6ed95a57c52430c3d4bb3b0a2e28d85ac4b965517f0fde0ac4f",
+    "scripts/audit_cara_paper_timing_cpu_r1.py": "d7d07f662234c0d309544e1de8a240b1d8337ba6d48ddb7c85bcd102c77d6f80",
+    "scripts/wc_dual_host_paper_timing_cpu_r1.py": "67cbf35de478a3e5bc4f2eae4ceb842e7ec253351687a7c7206ae5a6ff4fe515",
+    "tests/test_paper_latency_r1.py": "6fe7439b547098220db42694a69036a38beed6510a1862a4209452b3b1c38e37",
+    "tests/check_cara_paper_timing_cpu_r1.py": "bd59d565f57308c8f583a41292dbd28be630cfe41f083ccaa3a27b667f8f843c",
+    "tests/test_paper_timing_cpu_acceptance_r1.py": "faab0094cfb8400ffe17f7ecc4e49c0f29f46b36ebe7f47a45c83aa06b30af05"
+  },
+  "legacy_protected_sha256": {
+    "src/wcomr/clean_speed20_r1.py": "49ebb32a6f9afce64f223c435b2fd87090229de9c40708f8852999c35628637c",
+    "src/wcomr/policy_generator_r1/production_sampling.py": "793a1d35381d10af45ea9b74845448a67a0cc4fdd07799fb6a044758b5f9cb48",
+    "src/wcomr/policy_generator_r1/p2_native_sampling.py": "2c711d1a251c95f7ca66d696990f1e9b80e2c9aa770d00c1028cb4484a26fe65",
+    "src/wcomr/policy_generator_r1/exploration_requests.py": "0b24bae0c2d41749bc909774b007d0bb62d326ca57ea6fb12de63123bfe57ff7",
+    "src/wcomr/scout_parent_v22.py": "e304ba28a9118c5d5836b05f9830a8dad3dda76918a587aed4d42c54ef676ffe",
+    "src/wcomr/scout_cfg_common_proposal_r1.py": "dbbdedc50977cd271bbc94d50f2bce4458ec2c30a58b0f64e033bdb0f383d203"
+  },
+  "host_preference": [
+    "four_card",
+    "two_card"
+  ],
+  "host_CPU": {
+    "four_card": {
+      "capture": {
+        "path": "reports/cara_paper_timing_four_card_CPU_terminal_r2_20261027.json",
+        "sha256": "7a464eed709910da98c4c3d1ccd86809819644ed3c24407a81f56e1071b42006"
+      },
+      "accepted": {
+        "path": "reports/cara_paper_timing_four_card_CPU_accepted_r2_20261027.json",
+        "sha256": "13183b0e3dee7ecd8d87d12c7b0c469186e5bfb038f854c4d0dec15d477d636c"
+      }
+    },
+    "two_card": {
+      "capture": {
+        "path": "reports/cara_paper_timing_two_card_CPU_terminal_r2_20261027.json",
+        "sha256": "9901f8a2b36ebd698e89bf707e375b878bb353adb95ab6d335c2360c8d374685"
+      },
+      "accepted": {
+        "path": "reports/cara_paper_timing_two_card_CPU_accepted_r2_20261027.json",
+        "sha256": "0ead2dd880274f820270d88ddf888057e2e9874d0f31d0b2f967c61bd975e071"
+      }
+    }
+  },
+  "production_GPU_timing_validated": false,
+  "method_R4_COMMON_LONG_production_validated": false,
+  "whole_method_card_accepted": false,
+  "original_budget_clock": "full_request_seconds",
+  "deployment_absolute_cap_seconds": 257.7712338712067,
+  "deployment_ratio_cap": 0.8,
+  "cumulative_GPUh_cap": 226,
+  "standalone_GPU_authorized": false,
+  "GPU_submissions": 0,
+  "new_reservation_GPUh": 0
+}
