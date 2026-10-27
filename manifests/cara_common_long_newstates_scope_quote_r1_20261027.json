@@ -1,0 +1,168 @@
+{
+  "status": "FROZEN_DESIGN_CPU_PREPARATION_NO_GPU_AUTHORIZATION",
+  "candidate": "R4_COMMON_LONG",
+  "requests": [
+    {
+      "inference_type": "text2world",
+      "seed": 0,
+      "guidance": 7,
+      "num_output_frames": 93,
+      "resolution": "432,768",
+      "negative_prompt": "The video captures a series of frames showing ugly scenes, static with no motion, motion blur, over-saturation, shaky footage, low resolution, grainy texture, pixelated images, poorly lit areas, underexposed and overexposed scenes, poor color balance, washed out colors, choppy sequences, jerky movements, low frame rate, artifacting, color banding, unnatural transitions, outdated special effects, fake elements, unconvincing visuals, poorly edited content, jump cuts, visual noise, and flickering. Overall, the video is of poor quality.",
+      "name": "misc_13398218_3840_2160_60fps",
+      "prompt": "The video opens with a wide shot of a snow-covered urban street, likely in a city known for its winter weather. Snow blankets the sidewalks and road, creating a thick layer that obscures the pavement beneath. The street is flanked by tall buildings, one of which prominently displays the word \"CANADA\" on its facade. A traffic light on the left side of the frame shows a green signal, indicating that vehicles can proceed. A no-parking sign is affixed to the same pole, suggesting restrictions during the snowstorm. Bare trees line the sidewalk, their branches laden with snow. A few individuals can be seen walking on the left side of the street, bundled up against the cold weather. The atmosphere is quiet and serene, with the falling snow adding to the wintry ambiance.  As the video progresses, the snow continues to fall steadily, accumulating more on the ground and buildings. Pedestrians continue to walk on the left side of the street, moving slowly due to the slippery conditions. The traffic light remains consistently green, and a white sedan car moves slowly into the scene along the road. The scene maintains its tranquil and wintry feel throughout the duration of the video, with the snowflakes gently swirling around the urban landscape.",
+      "num_steps": 35
+    },
+    {
+      "inference_type": "text2world",
+      "seed": 0,
+      "guidance": 7,
+      "num_output_frames": 93,
+      "resolution": "432,768",
+      "negative_prompt": "The video captures a series of frames showing ugly scenes, static with no motion, motion blur, over-saturation, shaky footage, low resolution, grainy texture, pixelated images, poorly lit areas, underexposed and overexposed scenes, poor color balance, washed out colors, choppy sequences, jerky movements, low frame rate, artifacting, color banding, unnatural transitions, outdated special effects, fake elements, unconvincing visuals, poorly edited content, jump cuts, visual noise, and flickering. Overall, the video is of poor quality.",
+      "name": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+      "prompt": "A nighttime scene viewed from the top of a vehicle captures the hood of the car in the foreground. The road ahead is illuminated by streetlights, casting a soft glow over the asphalt. The ego vehicle comes to a stop next to a white RV, which goes off the screen. Across the road, beyond the road median, a red car is seen driving away into the distance. A one-way sign is visible under the ego vehicle's headlights. The surroundings include trees and other houses, suggesting a suburban neighborhood. The sky is dark, indicating it is late at night, and the overall atmosphere is quiet and calm. As the video progresses, the scene remains largely static, with no significant changes in the environment. The white RV on the right side of the ego vehicle remains stationary, and the red car continues to drive away into the distance. The streetlights continue to illuminate the road, and the trees and houses in the background remain unchanged. The overall scene maintains its tranquil nighttime setting without any notable movements or new objects entering the frame. The ego vehicle carefully makes a right turn at the t-intersection, and by the final frame, the scene is consistent with the initial one, depicting the same quiet suburban street under the night sky.",
+      "num_steps": 35
+    }
+  ],
+  "request_source": "configs/wc_scout_cal12_production_entry_r1_20261018.json",
+  "request_source_sha256": "9f76a04f8fa52b59d72c5693bf9ddfea4996559d7bf338a1f576be6a5d67d8cd",
+  "exposure": "OLD_CAL_PREVIOUS_ENDPOINT_EXPOSURE_NEW_MECHANISM_STATES_PENDING_PRELAUNCH_DELTA_AUDIT",
+  "parent": "Shared25-C",
+  "states": [
+    22,
+    23,
+    25,
+    33,
+    34,
+    35
+  ],
+  "short": [
+    22,
+    23,
+    25
+  ],
+  "long": [
+    33,
+    34,
+    35
+  ],
+  "alpha": {
+    "step_lt_25": 1.0,
+    "step_ge_25": 0.5
+  },
+  "guidance": 7,
+  "labels": [
+    "WC_C",
+    "A_PHASE",
+    "FULL",
+    "R4_GLOBAL",
+    "R4_LONG",
+    "DCTA",
+    "R4_COMMON_LONG"
+  ],
+  "scope": {
+    "loads": 1,
+    "warm_off": 2,
+    "formal_off": 2,
+    "formal_on": 2,
+    "total_full_paths": 6,
+    "base_pairs": 216,
+    "teacher_pairs": 12,
+    "total_denoiser_pairs": 228,
+    "total_CFG_calls": 456,
+    "formal_states": 12,
+    "readout_positions": 84,
+    "readout_head_pairs": 174,
+    "dense_replay_head_pairs": 12,
+    "total_extra_head_pairs": 186,
+    "extra_head_branch_calls": 372,
+    "accepted_scientific_videos": 0
+  },
+  "decision": {
+    "common_support": "ALL_12_NO_DROPPING_OR_NEW_BINNING",
+    "baseline_set": [
+      "WC_C",
+      "A_PHASE",
+      "FULL",
+      "DCTA"
+    ],
+    "aggregate": "equal_prompt_mean_of_fixed_state_MSE",
+    "main": "long_6",
+    "promotion": "relative_gain_at_least_0.05_vs_single_best_fixed_baseline_on_long_6; >=4/6 strict wins over A; both prompt long means nonworse than A; short exact A",
+    "numerical_tolerance": "1e-6 * max(1, abs(A_MSE))",
+    "cost": "diagnostic readout seconds reported but not used as deployment cost; E2 admission remains conditional on clean candidate production cost",
+    "unsupported": "retain denominator; any missing mandatory candidate/control blocks promotion",
+    "no_auto_E2": true,
+    "no_DEV_fit": true
+  },
+  "clocks": {
+    "complete_request": "original acceptance unchanged",
+    "denoise_decode": "paper_latency_r1 diagnostic True; no deployment speed claim",
+    "readout": "includes roundtrip copy/hash and synchronization; cumulative device peak, not incremental"
+  },
+  "quote": {
+    "reference": "reports/cara_IG_B1_R2_central_settlement_20261027.json",
+    "reference_GPUh": 0.8693714243975571,
+    "reference_paths": 4,
+    "formula": "reference_GPUh * 6/4 * 2 (conservative engineering margin)",
+    "forecast_GPUh": 2.608114273192671,
+    "proposed_hard_GPUh": 3.0,
+    "hosts": {
+      "four_card": {
+        "forecast_GPUh": 2.608114273192671,
+        "basis": "A6000 transfer estimate, no assumed Ada speedup",
+        "measured": false
+      },
+      "two_card": {
+        "forecast_GPUh": 2.608114273192671,
+        "basis": "prior actual A6000 job, conservative scope factor",
+        "measured": false
+      }
+    },
+    "included": [
+      "single model load",
+      "2 warm full paths",
+      "4 formal paths",
+      "teacher",
+      "all seven readouts and repeated C",
+      "copy/hash/snapshot",
+      "tensor save",
+      "guardrails decode video write",
+      "synchronization",
+      "cleanup"
+    ],
+    "CPU_post": {
+      "cores": 2,
+      "GiB": 8,
+      "hours_limit": 1,
+      "video_quality_scores": 0,
+      "scope": "12 fixed local states plus hashes and all OFF/ON controls"
+    },
+    "storage": {
+      "output_GiB": 32,
+      "cross_disk_journal_MiB": 48
+    },
+    "resource_gate": "actual new peak and full supervisor/storage/financial binding still required before GPU; NOT_READY_FOR_DISPATCH",
+    "reserve_GPUh": 0,
+    "cumulative_cap_GPUh": 226
+  },
+  "final_deployment_cap": {
+    "absolute_seconds": 257.7712338712067,
+    "fresh_native_fraction": 0.8
+  },
+  "IG": "PAUSED",
+  "CPU_binding": {
+    "path": "reports/cara_common_long_dual_host_CPU_review_r2_20261027.json",
+    "sha256": "8197580b9fcac42ea6163494647a51119b7537ecef5df204ee902094db37e731"
+  },
+  "source_sha256": {
+    "src/wcomr/scout_common_long_r1.py": "85ddff83704c16a8525151bb59fc5e908626b8d95b8c8fe9ce11096444b82a03",
+    "scripts/check_cara_common_long_cpu_r1.py": "3b832a1eda3d8a233396c78f996d609a27bcde74733273029fcfdc7b17784925",
+    "scripts/wc_dual_host_common_long_cpu_r1.py": "95639c1efd57a3a79a5b629c7d71f73e46e0deb685b8e991fc71a53088bf1804",
+    "scripts/audit_cara_common_long_cpu_r1.py": "eeb6d8054590152ee12362d7dae4ed1a5d0614b4247f1f4279b00edcda2d35fa",
+    "tests/check_common_long_production_cpu_r1.py": "352a83b42bba172736e2b4194b461a55673b08e1a83ff70a471f6c9f4cd1f192",
+    "tests/test_common_long_r1.py": "f35000b3fe7a2feb954bb417ba389e0d62a200cc261f627344ac1cd099532ff2",
+    "tests/test_common_long_acceptance_r1.py": "3db7418658914c7268fb2c79a698c5eda214c2af6660b6d5ae833bcf82831690"
+  }
+}
