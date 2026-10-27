@@ -1,0 +1,72 @@
+{
+  "status": "COMPLETE_SCOPE_PLANNING_QUOTE_NOT_NEW_GPU_MEASUREMENT",
+  "reference": {
+    "path": "reports/cara_IG_B1_R2_central_settlement_20261027.json",
+    "sha256": "8daa81edaa52adb38b1635882fb11dc399991edf1c975045bf1ef4107f4cd347",
+    "actual_GPUh": 0.8693714243975571
+  },
+  "scope": {
+    "loads": 1,
+    "warm_off": 2,
+    "formal_off": 2,
+    "formal_on": 2,
+    "total_full_paths": 6,
+    "base_pairs": 216,
+    "teacher_pairs": 12,
+    "total_denoiser_pairs": 228,
+    "total_CFG_calls": 456,
+    "formal_states": 12,
+    "readout_positions": 84,
+    "readout_head_pairs": 174,
+    "dense_replay_head_pairs": 12,
+    "total_extra_head_pairs": 186,
+    "extra_head_branch_calls": 372,
+    "accepted_scientific_videos": 0
+  },
+  "formula": "prior complete4 actual * (6/4) * 2 engineering margin",
+  "forecast_GPUh": 2.608114273192671,
+  "proposed_hard_GPUh": 3,
+  "hosts": {
+    "four_card": {
+      "forecast_GPUh": 2.608114273192671,
+      "hard_GPUh": 3,
+      "actual_GPU_price_measured": false
+    },
+    "two_card": {
+      "forecast_GPUh": 2.608114273192671,
+      "hard_GPUh": 3,
+      "actual_GPU_price_measured": false
+    }
+  },
+  "CPU_post": {
+    "cores": 2,
+    "memory_GiB": 8,
+    "wall_hours": 1,
+    "GPU_held": false
+  },
+  "includes": [
+    "single model load",
+    "2 warm full paths",
+    "4 formal paths",
+    "teacher",
+    "all seven readouts and repeated C",
+    "copy/hash/snapshot",
+    "tensor save",
+    "guardrails decode video write",
+    "synchronization",
+    "cleanup"
+  ],
+  "central_totals_snapshot": {
+    "cap_gpu_hours": 226,
+    "used_gpu_hours": 172.2657747141984,
+    "reserved_gpu_hours": 16.5,
+    "available_gpu_hours": 37.234225285801614
+  },
+  "local_mirror_is_authoritative": false,
+  "two_card_mirror_delta_used_GPUh": 1.4520949259046176,
+  "central_reservation_needed_before_dispatch": true,
+  "unknown_reserve_preserved": 16.5,
+  "new_scope_parent_same_state_not_new_videos": true,
+  "GPU_submissions": 0,
+  "ledger_written": false
+}
