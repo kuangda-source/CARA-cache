@@ -1,0 +1,228 @@
+{
+  "status": "PASS_HISTORICAL_IDENTITIES_NOT_PAPER_EXACT_REPRODUCTION",
+  "input_sha256": {
+    "reports/w1d_cal8_r1_runner.json": "934dc2d63b79ee1cc68f765fdcb21bfea91f4f81584ad17259e9f6c55cd3eec9",
+    "reports/wc_w1_native_reference_runner_20261006.json": "7954983a565a05323e74bf796e3eec9fe87b701776452f01e046fe120a29856c",
+    "reports/wc_w1_native_reference_full93_lpips_cpu_r1_20261006.json": "de7416fc071fef41147d78d324799cfc142276addec3cbea34426ba300da2ba5",
+    "reports/wc_existing_fair_w1_lpips_cpu_r1_20261004.json": "fc7eb9b08fc98919581179dcd034d0ace81f01114eb587273f12ac2eb76a7141",
+    "reports/wc_fair_cal_r1_runner_20261004.json.gz": "64792ea6b2c41bdd0a516d17fe9b048c747495f139507eb027bcddd1b0be5049",
+    "manifests/f1_runtime_protocol.json": "c4f580da88c78e4e68a533b2b58b16a82c9ea4935656642faa9e5149d29a4ed7",
+    "vendor/WorldCache/Models/Cosmos-Predict2.5/cosmos_predict2/_src/predict2/inference/worldcache_utils.py": "b485cb8fd6e262a40e5823365c34ef7db1bc036c591d7577489e04077c515903",
+    "vendor/WorldCache/Models/Cosmos-Predict2.5/cosmos_predict2/_src/predict2/inference/video2world.py": "59aa9e236a5e7e26490f5cfcb94ab95ce911d9c38eba61dd8aef7d067e458a95",
+    "vendor/WorldCache/Evaluation/EgoDex-Eval/evaluate.py": "74c058035f930b5f8431fe2f9e4d01b3f49592ea782d6ddea71a9715c4159b2d",
+    "vendor/WorldCache/README.md": "adb274fc0c17a0d961a47fc9904fc9de7dfcac0aca0b6f2c4ea485e86d791761",
+    "vendor/CosmosPredict25/cosmos_predict2/_src/imaginaire/utils/misc.py": "15e2b34a21ca3857747c3c349ad6f0750a70d0806eab288259d6f483e42e4a8f"
+  },
+  "setup_differences": {
+    "worldcache_enabled": [
+      true,
+      false
+    ],
+    "output_dir": [
+      "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/worldcache_omr/outputs/w1d-cal8-r1",
+      "/home/gaokuangda/data/gkd/worldcache_omr/outputs/wc-w1-native-reference-cal8-r1/diagnostic"
+    ]
+  },
+  "same_request_native_five": [
+    {
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "full_request_equal": true,
+      "seed": 0,
+      "timesteps_equal": true,
+      "backend_flags_equal": true,
+      "Native_full_calls": 72
+    },
+    {
+      "scene": "industry_084",
+      "full_request_equal": true,
+      "seed": 0,
+      "timesteps_equal": true,
+      "backend_flags_equal": true,
+      "Native_full_calls": 72
+    },
+    {
+      "scene": "misc_13398218_3840_2160_60fps",
+      "full_request_equal": true,
+      "seed": 0,
+      "timesteps_equal": true,
+      "backend_flags_equal": true,
+      "Native_full_calls": 72
+    },
+    {
+      "scene": "physics_045",
+      "full_request_equal": true,
+      "seed": 0,
+      "timesteps_equal": true,
+      "backend_flags_equal": true,
+      "Native_full_calls": 72
+    },
+    {
+      "scene": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+      "full_request_equal": true,
+      "seed": 0,
+      "timesteps_equal": true,
+      "backend_flags_equal": true,
+      "Native_full_calls": 72
+    }
+  ],
+  "fair_two_byte_equal_bridges": [
+    {
+      "scene": "common_sense_6487f37f-ef57-49ca-afdc-d898922b5191",
+      "WC_byte_equal_across_batches": true,
+      "reference_byte_equal": true
+    },
+    {
+      "scene": "human_199",
+      "WC_byte_equal_across_batches": true,
+      "reference_byte_equal": true
+    }
+  ],
+  "same_batch_threshold_sweeps": [
+    {
+      "scene": "common_sense_6487f37f-ef57-49ca-afdc-d898922b5191",
+      "rows": [
+        {
+          "variant": "native35",
+          "counts": {
+            "denoiser_calls": 72,
+            "full_calls": 72,
+            "skipped_deep_calls": 0
+          }
+        },
+        {
+          "variant": "wc004",
+          "counts": {
+            "denoiser_calls": 72,
+            "full_calls": 43,
+            "skipped_deep_calls": 29
+          }
+        },
+        {
+          "variant": "wc006",
+          "counts": {
+            "denoiser_calls": 72,
+            "full_calls": 35,
+            "skipped_deep_calls": 37
+          }
+        },
+        {
+          "variant": "wc008",
+          "counts": {
+            "denoiser_calls": 72,
+            "full_calls": 32,
+            "skipped_deep_calls": 40
+          }
+        }
+      ]
+    },
+    {
+      "scene": "human_199",
+      "rows": [
+        {
+          "variant": "native35",
+          "counts": {
+            "denoiser_calls": 72,
+            "full_calls": 72,
+            "skipped_deep_calls": 0
+          }
+        },
+        {
+          "variant": "wc004",
+          "counts": {
+            "denoiser_calls": 72,
+            "full_calls": 44,
+            "skipped_deep_calls": 28
+          }
+        },
+        {
+          "variant": "wc006",
+          "counts": {
+            "denoiser_calls": 72,
+            "full_calls": 38,
+            "skipped_deep_calls": 34
+          }
+        },
+        {
+          "variant": "wc008",
+          "counts": {
+            "denoiser_calls": 72,
+            "full_calls": 32,
+            "skipped_deep_calls": 40
+          }
+        }
+      ]
+    }
+  ],
+  "original_denominator": 8,
+  "accepted_WC_native_pairs": 7,
+  "original_rejection": "robot_054_VIDEO_REJECTED_NOT_REPLACED",
+  "original_Alex_WC006_scene_mean": 0.4105051592015268,
+  "sampler": {
+    "name": "public_code_unipc_karras_35_requested_36_actual",
+    "approved_by_user": "2026-09-30: 先完成当前代码技术对照",
+    "scheduler_source_sha256": "f6a06c75f059693ade6c802e99f6058575969b6a71ef18ab05e7ed46701053d3",
+    "scheduler_class": "FlowUniPCMultistepScheduler",
+    "requested_steps": 35,
+    "actual_steps": 36,
+    "cfg_calls": 72,
+    "use_kerras_sigma": true,
+    "timesteps": [
+      995,
+      994,
+      993,
+      992,
+      990,
+      988,
+      986,
+      984,
+      981,
+      977,
+      973,
+      967,
+      960,
+      951,
+      941,
+      927,
+      910,
+      889,
+      863,
+      831,
+      791,
+      742,
+      684,
+      618,
+      543,
+      462,
+      380,
+      301,
+      228,
+      166,
+      116,
+      77,
+      49,
+      30,
+      17,
+      9
+    ],
+    "worldcache_horizon": 70,
+    "scope": "Current completed public-code technical comparison, not paper Euler reproduction"
+  },
+  "actual_ATS_base_multiplier": 5.0,
+  "noise_evidence": "same explicit seed/shape; arch_invariant_rand uses private numpy RandomState(seed); original initial-noise tensor hashes not recovered",
+  "remaining_attribution_limits": [
+    "No saved same-run forced-all-full WC wrapper versus Native parity control identified.",
+    "Five Native references were generated later with shared eval; old WC runner does not persist the same explicit eval guard. Two FAIR WC006 bridges are byte equal, but do not prove five other scenes mode-equivalent.",
+    "Paper Euler35 sigma grid and author per-sample generation artifacts are not fully pinned publicly."
+  ],
+  "paper_mismatches": {
+    "sampler": "Euler35 versus UniPC/Karras36",
+    "threshold": ".08 versus .06 (.08 exists only in two-scene sweep)",
+    "saliency_weight": ".12 versus 1.0",
+    "flow_scale": ".5 paper/default versus 2.0 README/local; direct interpolate factor",
+    "ATS": "paper beta_d=4 versus pinned expression at horizon70 gives5",
+    "metric": "PIQ default VGG16 versus lpips AlexNet",
+    "reference": "EgoDex I2V ground truth versus CAL T2W Native"
+  },
+  "standards_changed": false,
+  "GPU_submissions": 0
+}

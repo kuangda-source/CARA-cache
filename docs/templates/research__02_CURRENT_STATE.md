@@ -12,6 +12,8 @@
 
 [720共同/差分CPU诊断](repo:research/720_CARA_CFG_COMMON_DIFFERENCE_MECHANISM_AND_PREDICTOR_HYPOTHESIS_20261027.md)完整接受：R4共同历史外推有用、差分历史外推逆向；实际输出只保留共同增量，原alpha下长龄6/6改善3.93%。这是已曝光CAL事后结构诊断，teacher-free参考CPU已过，真实生产/费用未过，无j1或新GPU。IG继续暂停。
 
+[721历史WC/Native LPIPS审计](repo:research/721_WC_NATIVE_LPIPS_OFFICIAL_PROTOCOL_FORENSIC_AUDIT_20261027.md)：九对837帧CPU重评分完整接受，旧Alex分数可复算、原件配对与RGB一致；已确认UniPC/参数及Alex-VGG与论文口径不等价。保留全部历史结果和Native门槛，不称论文精确复现，不将跨批剩余因素全部归为缓存偏移；无新GPU或生成。
+
 {{queue}}
 
 ## 本轮已完成与尚缺
