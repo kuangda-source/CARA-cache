@@ -2,6 +2,8 @@
 
 [732 WC73已启动](732_CARA_WC73_PER_HOST_ADMISSION_AND_LAUNCH_20261027.md)：用户允许两台服务器各一项独占任务；Ada GPU1于10月27日20:40:06确认唯一CUDA上下文，原73路径、12GPUh（A5/B7）。A失败即停，通过后释放/结算、CPU按预注册冻结再B；预计10月28日08:10–10:10含CPU评分完成。仅监测唯一r2 stage，不重派、不改旧门槛或部分科学解读；心跳wc73按真实起点检查。
 
+[734 DEV128 age3 secondary review](734_CARA_DEV128_AGE3_QUALITY_TRADEOFF_AND_CONFIRMATION_20261028.md): original quality bounds versus Native35/S25-A and mean time budget pass; LPIPS versus Shared25-C improves 6.68%, with MUSIQ tradeoff. Worth a separately registered independent confirmation; original main candidate unchanged, no GPU authorized, IG paused.
+
 [733 R2 frozen analysis](733_CARA_COMMON_LONG_R2_FROZEN_ANALYSIS_AND_STOP_20261028.md): technical/financial acceptance retained; R4_COMMON_LONG fails the frozen local gate (1.65% versus A, below 5%; AV51 worsens). No E2 or new GPU; IG paused. Next: bounded saved-tensor CPU cause decomposition, no tuning.
 
 [730 共同长龄R2已独占重启](repo:research/730_CARA_COMMON_LONG6_R2_PROC_RACE_REPAIR_AND_RESTART_20261027.md) — TERMINAL ACCEPTED: 6/6 paths, 12 states, 84 readouts; original alpha and OFF/ON parity verified. GPU ended 21:44:47, CPU 21:45:13; 1.619241 GPUh centrally settled. Handles/lock released, Default restored. Frozen mechanism analysis pending; no automatic GPU or j1 promotion, IG paused.
