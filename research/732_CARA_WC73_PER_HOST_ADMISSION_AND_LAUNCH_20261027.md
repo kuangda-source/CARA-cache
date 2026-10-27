@@ -7,3 +7,9 @@
 原未启动r1 stage完整保留；新r2 stage沿用原不可变科学payload，仅覆盖已验证的财务准入模块和worker。先排查所有WC73意图，唯一RUN与输出卷保留，不复制生成路径、追加预算或修改COMMON_LONG6。当前Ada GPU1空闲；两卡GPU1正运行独立COMMON_LONG6 R2，符合新授权。
 
 执行stage、真实启动、上下文独占与ETA以新增回执为准。计划Ada约9.5075 GPUh、从实际起点至含CPU评分完成约11.5–13.5小时；这不是实测科学时钟。
+
+## 真实启动
+
+2026-10-27T20:40:06.425117+08:00 在Ada GPU1（`GPU-19d4d100-f845-018d-ec30-def1553c01f5`）启动。原runner PID 3316711/start_ticks 988987025、硬件Exclusive_Process与唯一CUDA上下文握手已确认；源 `5c8d354ab8499623eee1029ff919706f60ed4f5a`。中央原12GPUh包唯一预约，另一台COMMON_LONG6 R2原3GPUh包和16.5未知责任保持。
+
+实际起点后的整卡预计完成窗口为 2026-10-28T08:10:06.425117+08:00 至 2026-10-28T10:10:06.425117+08:00，含CPU评分，A预计约00:35；A尚未通过，不能作任何科学接受。半程和终态计划记录在 `reports/cara_wc73_actual_start_and_schedule_20261027.json`，由原wc73心跳执行，不新建重复监控。

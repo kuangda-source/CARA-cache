@@ -1,5 +1,7 @@
 # CARA-Cache 当前状态
 
+[732 WC73已启动](732_CARA_WC73_PER_HOST_ADMISSION_AND_LAUNCH_20261027.md)：用户允许两台服务器各一项独占任务；Ada GPU1于10月27日20:40:06确认唯一CUDA上下文，原73路径、12GPUh（A5/B7）。A失败即停，通过后释放/结算、CPU按预注册冻结再B；预计10月28日08:10–10:10含CPU评分完成。仅监测唯一r2 stage，不重派、不改旧门槛或部分科学解读；心跳wc73按真实起点检查。
+
 [730 共同长龄R2已独占重启](repo:research/730_CARA_COMMON_LONG6_R2_PROC_RACE_REPAIR_AND_RESTART_20261027.md)：/proc ESRCH竞态修复及双端完整CPU通过，用户授权完整6路径重新运行。两卡GPU1于20:07:34启动，真实唯一上下文与中央3GPUh包已确认；21:27半程、23:50终态。旧失败0.940191GPUh保留，不拼接；原α/强基线/226预算不变，IG暂停。
 
 [729 R4共同长龄提前退出并结算](repo:research/729_CARA_COMMON_LONG6_PROC_RACE_FAILURE_AND_SETTLEMENT_20261027.md)：原六路径任务18:25因/proc进程消失ESRCH未捕获而由监督停止，完整范围未完成，未评分或科学接受。原费用0.940191GPUh已中央结算，全部句柄与锁释放、Default恢复；两次检查已删除，不自动重派。原α/强基线/226预算不变，IG暂停。
