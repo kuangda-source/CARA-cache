@@ -9,6 +9,7 @@ import cara_two_card_transport_r1 as transport
 
 ROOT=Path(__file__).resolve().parents[1]
 STAGE='cara-scout-mechanism-saved-r1-20261027'
+ANALYZER='scripts/analyze_cara_scout_mechanism_saved_r1.py'
 MANIFEST='5487f8db32d45a5d0f3304333bf362d9d6ec46fb3181c735d7267b78a6e398fa'
 
 PREFLIGHT=r'''
@@ -86,7 +87,7 @@ i=cmd.index(str(stage/'scripts/wc_policy_interval_assets_lifecycle_r1.py'))
 ep=cmd.index('--entrypoint')+1;python=cmd[ep];cmd[ep]='/usr/bin/timeout'
 assert i==ep+2
 cmd=cmd[:i]+['--signal=TERM','--kill-after=10s','1800',python,
- str(stage/'scripts/analyze_cara_scout_mechanism_saved_r1.py'),'--assets',str(out/'assets'),
+ str(stage/p['analyzer']),'--assets',str(out/'assets'),
  '--manifest-sha256',p['manifest_sha256'],'--output',str(stage/'analysis.json')]
 assert '--gpus' not in cmd and any(x=='CUDA_VISIBLE_DEVICES=' for x in cmd)
 (stage/'command.json').write_text(json.dumps(cmd))
@@ -131,11 +132,11 @@ def main():
     else:
         revision=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip()
         assert subprocess.check_output(['git','ls-remote','origin','refs/heads/main'],cwd=ROOT,text=True).split()[0]==revision
-        names=['scripts/analyze_cara_scout_mechanism_saved_r1.py'];files={n:(ROOT/n).read_bytes() for n in names}
+        names=list(dict.fromkeys(['scripts/analyze_cara_scout_mechanism_saved_r1.py',ANALYZER]));files={n:(ROOT/n).read_bytes() for n in names}
         assert all(subprocess.check_output(['git','show',revision+':'+n],cwd=ROOT)==b for n,b in files.items())
         result=transport.ssh(LAUNCH,dict(stage_name=STAGE,manifest_sha256=MANIFEST,preflight=read(a.preflight),
             capture=original,CPU=read(ROOT/'reports/cara_IG_grouped_two_card_CPU_finished_r1_20261027.json'),
-            revision=revision,files={n:base64.b64encode(b).decode() for n,b in files.items()},
+            revision=revision,analyzer=ANALYZER,files={n:base64.b64encode(b).decode() for n,b in files.items()},
             hashes={n:hashlib.sha256(b).hexdigest() for n,b in files.items()}),docker_group=True)
     with a.output.open('x') as f:json.dump(result,f,indent=2);f.write('\n')
     print(json.dumps({k:result.get(k) for k in ('status','container_state','result_sha256')}))
