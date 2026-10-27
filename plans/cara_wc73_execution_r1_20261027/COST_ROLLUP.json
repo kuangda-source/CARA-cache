@@ -1,0 +1,126 @@
+{
+  "schema": "WC73_PRELAUNCH_COST_SINGLE_ROLLUP",
+  "status": "WAIT_OTHER_OWNED_GPU_CARD_NOT_LAUNCHED",
+  "observed_at": "2026-10-27T12:14:21.698703+00:00",
+  "GPUh_actual": 0,
+  "GPU_submissions": 0,
+  "WC73_central_reservation_GPUh": 0,
+  "known_CPU_jobs": [
+    {
+      "receipt": "reports/cara_wc73_execution_four_card_CPU_r1_20261027.json",
+      "host": "four_card",
+      "kind": "execution",
+      "wall_seconds": 42.36414098739624,
+      "GPUh": 0,
+      "production_quality_model_execution": false
+    },
+    {
+      "receipt": "reports/cara_wc73_execution_two_card_CPU_r1_20261027.json",
+      "host": "two_card",
+      "kind": "execution",
+      "wall_seconds": 40.38518476486206,
+      "GPUh": 0,
+      "production_quality_model_execution": false
+    },
+    {
+      "receipt": "reports/cara_wc73_whole_four_card_CPU_r1_20261027.json",
+      "host": "four_card",
+      "kind": "whole",
+      "wall_seconds": 11.835338592529297,
+      "GPUh": 0,
+      "production_quality_model_execution": false
+    },
+    {
+      "receipt": "reports/cara_wc73_whole_two_card_CPU_r1_20261027.json",
+      "host": "two_card",
+      "kind": "whole",
+      "wall_seconds": 7.766762733459473,
+      "GPUh": 0,
+      "production_quality_model_execution": false
+    },
+    {
+      "receipt": "reports/cara_wc73_admission_four_card_CPU_terminal_r2_20261027.json",
+      "host": "four_card",
+      "kind": "admission_r2",
+      "wall_seconds": 56.782767,
+      "allocated_CPU": 2.0,
+      "allocated_vCPUh_upper_bound": 0.03154598166666667,
+      "memory_bytes": 8589934592,
+      "GPUh": 0,
+      "exit_code": 0,
+      "production_quality_model_execution": false
+    },
+    {
+      "receipt": "reports/cara_wc73_admission_two_card_CPU_terminal_r2_20261027.json",
+      "host": "two_card",
+      "kind": "admission_r2",
+      "wall_seconds": 44.046887,
+      "allocated_CPU": 2.0,
+      "allocated_vCPUh_upper_bound": 0.024470492777777776,
+      "memory_bytes": 8589934592,
+      "GPUh": 0,
+      "exit_code": 1,
+      "production_quality_model_execution": false
+    },
+    {
+      "receipt": "reports/cara_wc73_admission_four_card_CPU_terminal_r5_20261027.json",
+      "host": "four_card",
+      "kind": "admission_r5",
+      "wall_seconds": 55.718637,
+      "allocated_CPU": 2.0,
+      "allocated_vCPUh_upper_bound": 0.030954798333333335,
+      "memory_bytes": 8589934592,
+      "GPUh": 0,
+      "exit_code": 0,
+      "production_quality_model_execution": false
+    },
+    {
+      "receipt": "reports/cara_wc73_admission_two_card_CPU_terminal_r5_20261027.json",
+      "host": "two_card",
+      "kind": "admission_r5",
+      "wall_seconds": 55.142332,
+      "allocated_CPU": 2.0,
+      "allocated_vCPUh_upper_bound": 0.03063462888888889,
+      "memory_bytes": 8589934592,
+      "GPUh": 0,
+      "exit_code": 0,
+      "production_quality_model_execution": false
+    }
+  ],
+  "sum_observed_CPU_job_wall_seconds": 314.0420500782471,
+  "known_allocated_vCPUh_upper_bound": 0.11760590166666667,
+  "weight_hash_read_elapsed_seconds": 44.500672817230225,
+  "weight_hash_read_bytes": 5241531773,
+  "new_quality_model_executions": 0,
+  "prior_accepted_score_models_reused": true,
+  "unmetered": [
+    "Local editing, tests, transport, document rendering and Git CPU usage were not process-metered; no numeric actual CPU charge invented",
+    "R3/R4 Docker name-conflict attempts created no new containers; CLI CPU duration was not measured",
+    "Storage provisioning elapsed CPU/IO and network interruption elapsed CPU were not process-metered"
+  ],
+  "storage": {
+    "new_output_preallocated_bytes": 34359738368,
+    "new_crossdisk_journal_bytes": 50331648,
+    "receipt": "reports/cara_wc73_private_storage_20261027.json"
+  },
+  "full_future_quote": {
+    "reference": "plans/cara_wc_time_protocol_r1_20261027/WHOLE_QUOTE.json",
+    "Ada_forecast_GPUh": 9.507472926825152,
+    "whole_hard_GPUh": 12,
+    "A_hard_GPUh": 5,
+    "B_hard_GPUh": 7,
+    "CPU_cores": 4,
+    "CPU_memory_GiB": 12,
+    "CPU_A_hours_cap": 1,
+    "CPU_B_hours_cap": 6,
+    "CPU_allocated_vCPUh_cap": 28,
+    "wall_forecast_hours_after_actual_start": [
+      11.5,
+      13.5
+    ],
+    "queue_time_excluded": true
+  },
+  "central_cap_GPUh": 226,
+  "cap_increased": false,
+  "unknown_liability_GPUh": 16.5
+}
