@@ -8,6 +8,7 @@ import argparse
 import json
 import math
 import os
+import resource
 from pathlib import Path
 import sys
 import time
@@ -35,10 +36,23 @@ def algebra(p, pb, po, r, rb, ro, k):
         R4_identity_residual=(direct_R4-ea-correction).abs().max(),elements=p.numel())
 
 
+def output_delta(base, candidate, teacher):
+    """Exact squared-error decomposition after the real stored conversion."""
+    e=base.double()-teacher.double();delta=candidate.double()-base.double()
+    mse=float(e.square().mean());norm=float(delta.square().mean())
+    cross=float(2*(e*delta).mean());new=float((candidate.double()-teacher.double()).square().mean())
+    assert math.isclose(new-mse,norm+cross,rel_tol=1e-9,abs_tol=1e-10)
+    return dict(base_MSE=mse,candidate_MSE=new,delta_MSE=new-mse,
+        change_norm=norm,cross_with_base_error=cross,
+        cosine_to_desired_change=-cross/(2*math.sqrt(mse*norm)) if mse*norm>0 else None,
+        change_to_base_error_norm_ratio=math.sqrt(norm/mse) if mse>0 else None)
+
+
 def run(assets, expected_sha):
     import torch
     from wcomr.innovation_gain_assets_r1 import load_state,sha
     from wcomr.scout_readout_v22 import PARENT_FINGERPRINT,STATE_STEPS
+    from wcomr.policy_interval_readout_r1 import guided
     manifest_path=assets/'manifest.json'
     assert sha(manifest_path)==expected_sha
     manifest=json.loads(manifest_path.read_text())
@@ -76,10 +90,19 @@ def run(assets, expected_sha):
             assert math.isclose(normalized['raw_R4_MSE']-normalized['raw_A_MSE'],
                 normalized['R4_extra_norm']+normalized['R4_cross'],rel_tol=1e-9,abs_tol=1e-10)
             branches.append(dict(branch=b,kappa=k,**normalized,**errors))
+        outputs={label:guided(item['outputs']) for label,item in value['readouts'].items()}
+        teacher=guided(value['teacher'])
+        for label,tensor in outputs.items():
+            mse=float((tensor.double()-teacher.double()).square().mean())
+            assert math.isclose(mse,value['summary'][label]['MSE'],rel_tol=1e-12,abs_tol=1e-12)
+        conversions={left+'_vs_'+right:output_delta(outputs[right],outputs[left],teacher)
+            for left,right in [('A_PHASE','WC_C'),('R4_GLOBAL','A_PHASE'),('R4_LONG','A_PHASE')]}
         out.append(dict(prompt=row['prompt'],step=row['step'],source_anchor_steps=value['source_anchor_steps'],
             xi=value['xi'],sigma=value['sigma'],branches=branches,
+            actual_guided_decomposition=conversions,
             original_actual_guided_scores=value['summary'],artifact=row['artifact']))
-        del value
+        del value,outputs,teacher
+        print(json.dumps(dict(completed_states=len(out),total_states=12)),flush=True)
     return dict(status='SAVED_BRANCH_MECHANISM_DIAGNOSTIC_NOT_CANDIDATE_GATE',rows=out,
         manifest_sha256=expected_sha,raw_space='prewarp hidden residual FP64 algebra; no CFG synthesis before nonlinear head',
         no_full_pipeline_resume=True,policy_selected=False,thresholds_fitted=False,
@@ -98,8 +121,11 @@ def self_test():
     # A common change to hidden h0 cannot change correctly centered p/r.
     h0=torch.full((1,1,2,2,3),10.,dtype=torch.float64);p=torch.ones_like(h0);r=3*p
     assert torch.equal((h0+p)-h0,p) and torch.equal((h0+r)-h0,r)
+    assert output_delta(p,2*p,3*p)['delta_MSE']<0
+    assert output_delta(p,-p,3*p)['delta_MSE']>0
+    assert output_delta(p,p,3*p)['cosine_to_desired_change'] is None
     return dict(status='SYNTHETIC_ALGEBRA_CPU_PASS_NOT_REAL_ASSET_RESULT',span_cases=3,
-        centered_hidden_control=True,GPU_submissions=0)
+        centered_hidden_control=True,actual_output_decomposition_cases=3,GPU_submissions=0)
 
 
 if __name__=='__main__':
@@ -115,6 +141,7 @@ if __name__=='__main__':
     if not a.self_test and (not a.assets or not a.manifest_sha256):ap.error('Bound assets and SHA required')
     result=self_test() if a.self_test else run(a.assets,a.manifest_sha256)
     assert not torch.cuda.is_initialized()
-    result.update(CPU_wall_seconds=time.monotonic()-start,CUDA_initialized=False)
+    result.update(CPU_wall_seconds=time.monotonic()-start,CUDA_initialized=False,
+        peak_rss_platform_units=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,platform=sys.platform)
     with a.output.open('x') as f:json.dump(result,f,indent=2,allow_nan=False);f.write('\n')
     print(result['status'])
