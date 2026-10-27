@@ -1,0 +1,170 @@
+{
+  "observed_unix": 1793106103.8494024,
+  "controller": {
+    "status": "A_GPU_ADMISSION_OR_RUNNING",
+    "identity": {
+      "pid": 3316588,
+      "state": "R",
+      "start_ticks": 988986684,
+      "command": "/usr/bin/python3 /data20t/gaokuangda/worldcache_workspace/.sync/cara-wc73-execution-ada-r2-20261027/scripts/wc73_whole_controller_r1.py --project /data20t/gaokuangda/worldcache_workspace --stage /data20t/gaokuangda/worldcache_workspace/.sync/cara-wc73-execution-ada-r2-20261027 "
+    },
+    "started_unix": 1793104803.6973736,
+    "stage": "/data20t/gaokuangda/worldcache_workspace/.sync/cara-wc73-execution-ada-r2-20261027",
+    "source_revision": "5c8d354ab8499623eee1029ff919706f60ed4f5a",
+    "run_id": "cara-wc73-r1-20261027",
+    "launch_id": "cara-wc73-ada-original-r1-20261027",
+    "active_child": {
+      "pid": 3316589,
+      "state": "R",
+      "start_ticks": 988986747,
+      "command": "/usr/bin/python3 /data20t/gaokuangda/worldcache_workspace/.sync/cara-wc73-execution-ada-r2-20261027/scripts/wc_wc73_host_guardian_r1.py --project /data20t/gaokuangda/worldcache_workspace --stage /data20t/gaokuangda/worldcache_workspace/.sync/cara-wc73-execution-ada-r2-20261027 "
+    },
+    "active_step": "A-guardian"
+  },
+  "GPU": {
+    "gpu_uuid": "GPU-19d4d100-f845-018d-ec30-def1553c01f5",
+    "compute_mode": "Exclusive_Process",
+    "compute_apps": [
+      {
+        "gpu_uuid": "GPU-19d4d100-f845-018d-ec30-def1553c01f5",
+        "pid": 3316711,
+        "start_ticks": 988987025,
+        "uid": 1000,
+        "memory_MiB": "15980"
+      }
+    ],
+    "mps_processes": [],
+    "observed_unix": 1793106104.0931716
+  },
+  "A_supervisor": {
+    "status": "WC73_GPU_RUNNING",
+    "error": null,
+    "started_unix": 1793104806.4251175,
+    "ended_unix": null,
+    "actual_GPUh": null,
+    "child_identity": {
+      "pid": 3316711,
+      "start_ticks": 988987025,
+      "uid": 1000
+    }
+  },
+  "A_process": {
+    "pid": 3316711,
+    "state": "R",
+    "start_ticks": 988987025,
+    "command": "/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/bin/python -u /data20t/gaokuangda/worldcache_workspace/.sync/cara-wc73-execution-ada-r2-20261027/scripts/run_cara_wc73_r1.py --project /data20t/gaokuangda/worldcache_workspace --stage /data20t/gaokuangda/worldcache_workspace/.sync/cara-wc73-execution-ada-r2-20261027 --source-revision 5c8d354ab8499623eee1029ff919706f60ed4f5a --gpu-uuid GPU-19d4d100-f845-018d-ec30-def1553c01f5 "
+  },
+  "A_runner": {
+    "status": "RUNNING",
+    "started_unix": 1793104843.481983,
+    "ended_unix": null,
+    "load_seconds": 298.54302726499736
+  },
+  "A_collection": {
+    "status": "RUNNING",
+    "diagnostic_gate": null,
+    "counts": {
+      "COMPLETE": 3,
+      "RUNNING": 1,
+      "TECH_FAILED": 0,
+      "NOT_REACHED": 22
+    },
+    "sections": {
+      "A_ANCHOR": {
+        "COMPLETE": 0,
+        "RUNNING": 0,
+        "TECH_FAILED": 0,
+        "NOT_REACHED": 4
+      },
+      "A_CALIBRATION": {
+        "COMPLETE": 0,
+        "RUNNING": 0,
+        "TECH_FAILED": 0,
+        "NOT_REACHED": 4
+      },
+      "A_DIAGNOSTIC": {
+        "COMPLETE": 0,
+        "RUNNING": 0,
+        "TECH_FAILED": 0,
+        "NOT_REACHED": 12
+      },
+      "A_WARM": {
+        "COMPLETE": 3,
+        "RUNNING": 1,
+        "TECH_FAILED": 0,
+        "NOT_REACHED": 2
+      }
+    },
+    "active": [
+      "A_WARM:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:CARA_SHARED25_C_U36:1"
+    ],
+    "errors": []
+  },
+  "A_release": null,
+  "A_billing": null,
+  "B_release": null,
+  "B_billing": null,
+  "freeze_exists": false,
+  "budget": {
+    "cap_gpu_hours": 226,
+    "used_gpu_hours": 173.20596615932914,
+    "reserved_gpu_hours": 31.5,
+    "available_gpu_hours": 21.294033840670863
+  },
+  "wc73_budget_job": {
+    "job_id": "cara-wc73-r1-20261027",
+    "run_id": "cara-wc73-r1-20261027",
+    "launch_id": "cara-wc73-ada-original-r1-20261027",
+    "gpu_uuid": "GPU-19d4d100-f845-018d-ec30-def1553c01f5",
+    "source_revision": "5c8d354ab8499623eee1029ff919706f60ed4f5a",
+    "config_sha256": "45ad822d7a520cacafde7a21cf84f2c57c9747536fa2d452a0202082866e83eb",
+    "registration_sha256": "d3f132ac70d216d8a3d3f8a974fa5f880a442042e9867303ea79294fe874b3bd",
+    "production_CPU_sha256": "ac14e7be3e8431387f2fb92e54a8763c3cf1d2b416d65acab759281982c4610e",
+    "authorization_sha256": "708e1c9c39940a63920c27f548b9bf709f1df3d1afa4f8ef35547bfbb2f82436",
+    "scope_counts": {
+      "physical_paths": 73,
+      "phase_A": 26,
+      "phase_B": 47,
+      "formal_cells": 28,
+      "calibration_physical_paths": 4,
+      "calibration_anchor_paths": 4,
+      "selected_reused_cells": 0,
+      "warm": 13,
+      "timing_repeats": 12,
+      "diagnostic_on_off_three_arm": 12,
+      "quality_videos": 28,
+      "quality_positions": 112,
+      "LPIPS_pairs_per_metric": 24,
+      "LPIPS_frames_per_metric": 2232,
+      "LPIPS_metrics": 2,
+      "selection_Alex_pairs": 4,
+      "selection_Alex_frames": 372,
+      "loads": 2,
+      "automatic_GPU_retries": 0
+    },
+    "forecast_GPUh": 9.507472926825152,
+    "billed_limit_GPUh": 12,
+    "cumulative_cap_GPUh": 226,
+    "budget_origin_used_GPUh": 79.99637737158223,
+    "supervisor_pid": 3316656,
+    "supervisor_start_ticks": 988986870,
+    "stage": "/data20t/gaokuangda/worldcache_workspace/.sync/cara-wc73-execution-ada-r2-20261027",
+    "host": "four_card",
+    "kind": "V2",
+    "status": "RESERVED_OR_RUNNING",
+    "whole_limit_GPUh": 12,
+    "reserved_unix": 1793104806.2893362
+  },
+  "assessment": {
+    "observed_Asia_Shanghai": "2026-10-27T21:01:43.849402+08:00",
+    "A_equivalence": "NOT_YET_REACHED",
+    "ETA_changed": false,
+    "reason": "Only 3 of 6 A warm paths complete; no diagnostic paths complete and no observed failure. Retain original whole-card forecast; do not extrapolate warm paths as diagnostic throughput.",
+    "A_forecast_Asia_Shanghai": "2026-10-28 around 00:35",
+    "whole_forecast_Asia_Shanghai": [
+      "2026-10-28 08:10",
+      "2026-10-28 10:10"
+    ],
+    "scientific_acceptance": false
+  }
+}
