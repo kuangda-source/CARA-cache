@@ -1,0 +1,87 @@
+{
+  "launch": {
+    "stage": "/data20t/gaokuangda/worldcache_workspace/.sync/cara-wc73-perhost-CPU-a6000-r6-20261027",
+    "container": "cara-wc73-perhost-CPU-a6000-r6-20261027-cpu",
+    "started_unix": 1793104588.6475642,
+    "pid": 352979,
+    "source_sha256": {
+      "src/wcomr/wc73_execution_r1.py": "015651352b0ce6f1e3acfbfd34a199521cad3eb337c676552b0449ee95318a4b",
+      "scripts/wc_wc73_worker_r1.py": "bfbcf2222710baf72b3c8925dfbe585d8d3fd7867190afb337baac42d47baf94",
+      "tests/test_wc73_per_host_r2.py": "52c53dbcf46d41a764307ad332fa20fe675735de7c1044a4c8412376d9f61bf7",
+      "scripts/check_wc73_perhost_cpu_r2.py": "e7b1a81effffca48d5ea71ede68b9bc963b9e3e062caa755317cd1c73fac2e15"
+    },
+    "GPU_submissions": 0
+  },
+  "container_state": {
+    "Status": "exited",
+    "Running": false,
+    "Paused": false,
+    "Restarting": false,
+    "OOMKilled": false,
+    "Dead": false,
+    "Pid": 0,
+    "ExitCode": 0,
+    "Error": "",
+    "StartedAt": "2026-10-27T12:36:28.769906376Z",
+    "FinishedAt": "2026-10-27T12:37:05.066471321Z"
+  },
+  "host_config": {
+    "DeviceRequests": null,
+    "Memory": 8589934592,
+    "NanoCpus": 2000000000,
+    "NetworkMode": "none"
+  },
+  "proof": {
+    "passed": true,
+    "checks": [
+      {
+        "scenario": "success_A",
+        "passed": true,
+        "real_child": true,
+        "fixture_ledger_only": true
+      },
+      {
+        "scenario": "failure_A",
+        "passed": true,
+        "real_child": true,
+        "fixture_ledger_only": true
+      },
+      {
+        "scenario": "foreign_context",
+        "passed": true,
+        "real_child": true,
+        "fixture_ledger_only": true
+      },
+      {
+        "scenario": "release_lost",
+        "passed": true,
+        "real_child": true,
+        "fixture_ledger_only": true
+      },
+      {
+        "scenario": "success_B",
+        "passed": true,
+        "real_child": true,
+        "fixture_ledger_only": true
+      },
+      {
+        "scenario": "timeout_A",
+        "passed": true,
+        "real_child": true,
+        "fixture_ledger_only": true
+      }
+    ],
+    "finance_idempotent": true,
+    "GPU_submissions": 0,
+    "per_host_tests": 6,
+    "elapsed_seconds": 35.50894379615784,
+    "source_sha256": {
+      "src/wcomr/wc73_execution_r1.py": "015651352b0ce6f1e3acfbfd34a199521cad3eb337c676552b0449ee95318a4b",
+      "scripts/wc_wc73_worker_r1.py": "bfbcf2222710baf72b3c8925dfbe585d8d3fd7867190afb337baac42d47baf94",
+      "tests/test_wc73_per_host_r2.py": "52c53dbcf46d41a764307ad332fa20fe675735de7c1044a4c8412376d9f61bf7",
+      "scripts/check_wc73_perhost_cpu_r2.py": "e7b1a81effffca48d5ea71ede68b9bc963b9e3e062caa755317cd1c73fac2e15"
+    }
+  },
+  "log_tail": "......\n----------------------------------------------------------------------\nRan 6 tests in 0.005s\n\nOK\n{\"passed\": true, \"per_host_tests\": 6}\n",
+  "source_intact": true
+}

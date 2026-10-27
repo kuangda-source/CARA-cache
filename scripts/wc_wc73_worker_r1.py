@@ -18,7 +18,7 @@ def stop(child):
 
 
 def supervise(a):
-    from wcomr.wc73_execution_r1 import RUN,read,sha,validate,Pool as BudgetPool,MATRIX,hold
+    from wcomr.wc73_execution_r1 import RUN,read,sha,validate,Pool as BudgetPool,MATRIX,admit_host
     from wcomr.gpu_budget_pool_v2 import DeviceLease,process_identity,atomic_json
     from wcomr.wc73_exclusive_r1 import observe,verify
     card,reg,auth=validate(a.project,a.stage);phase=auth['phase']
@@ -52,7 +52,7 @@ def supervise(a):
         before=pool.read()
         if phase=='A':after=pool.reserve(job,gpu)
         else:
-            assert not any(k!=RUN and j['status']=='RESERVED_OR_RUNNING' and not hold(j) for k,j in before['jobs'].items()),'Another expensive owned job active'
+            admit_host(before,auth['host'],exclude=RUN)
             original=before['jobs'][RUN]
             assert original['status']=='RESERVED_OR_RUNNING' and original['billed_limit_GPUh']==7 and original['gpu_uuid']==uuid
             assert original['source_revision']==reg['source_revision'] and original['host']==auth['host']
