@@ -1,0 +1,127 @@
+{
+  "status": "P0_PINNED_SOURCE_TINY_CPU_PASS_NOT_GPU_PARITY",
+  "source_and_receipt_SHA": {
+    "src/wcomr/wc_time_protocol_p0.py": "a5f5ae67e0c42a6b85a980098fac1f3b7388185f8fdc4db78804681ccc6cb9fa",
+    "tests/check_wc_time_protocol_p0.py": "958e47033bd0f436572dd2f43f779b168aa8ca67b2169b275373081638b4d893",
+    "reports/cara_wc_time_P0_local_CPU_20261027.json": "79299794a91cf3a1642f57dfe68102316edc5a5747a67dd69fa92cc76257dea3",
+    "reports/cara_wc_time_P0_dual_host_CPU_20261027.json": "1ea1a5e9a6a82c4f9da40dbd14daa7fab4cb7e6eac6292e5b517f9fa506ef175",
+    "reports/cara_wc_time_P0_dual_host_CPU_attempt1_20261027.json": "f2427ed64bec435d85ead24dc3a0cb138d450400d4980198bf382c3748436f83",
+    "reports/cara_wc_time_P0_resources_postcheck_20261027.json": "201111b2cbd25dda210d4a534acc98315cf8706c2958312fe805fc182b2a4562"
+  },
+  "local": {
+    "status": "P0_PINNED_SOURCE_TINY_CPU_PASS_NOT_GPU_PARITY",
+    "checks": [
+      {
+        "flow": false,
+        "complete_tiny_paths": 7,
+        "true_native_forward": true,
+        "three_roles": [
+          "Native",
+          "WC_wrapper_allD",
+          "WC_README"
+        ],
+        "Native_WC_allD_guided_latent_RGB_RNG_equal": true,
+        "timing_on_off_all_three_equal": true,
+        "two_boundary_sync_only": true,
+        "refusal_null_T_DD": true,
+        "port_runs_CPU_only": true,
+        "port_actual_parameter_routing": true,
+        "proofs": [
+          {
+            "source_sha256": "b485cb8fd6e262a40e5823365c34ef7db1bc036c591d7577489e04077c515903",
+            "force_full": true,
+            "paper_port": false,
+            "changed_sites": [
+              "skip_predicate_false"
+            ],
+            "compiled_AST_sha256": "f4d3efcf221b7fd009836231b6538746fb6f6870694d67f4df627dc091af6fad",
+            "paper_exact": false
+          },
+          {
+            "source_sha256": "b485cb8fd6e262a40e5823365c34ef7db1bc036c591d7577489e04077c515903",
+            "force_full": false,
+            "paper_port": true,
+            "changed_sites": [
+              "ATS_base_mult_4"
+            ],
+            "compiled_AST_sha256": "60e30ba2c9fba7c030366b18669c7fc7f66455e88505f2e9063a5be7a6b3bb14",
+            "paper_exact": false
+          }
+        ],
+        "actual_Cosmos_weights": false,
+        "real_encoded_video": false,
+        "GPU_parity": false
+      },
+      {
+        "flow": true,
+        "complete_tiny_paths": 7,
+        "true_native_forward": true,
+        "three_roles": [
+          "Native",
+          "WC_wrapper_allD",
+          "WC_README"
+        ],
+        "Native_WC_allD_guided_latent_RGB_RNG_equal": true,
+        "timing_on_off_all_three_equal": true,
+        "two_boundary_sync_only": true,
+        "refusal_null_T_DD": true,
+        "port_runs_CPU_only": true,
+        "port_actual_parameter_routing": true,
+        "proofs": [
+          {
+            "source_sha256": "b485cb8fd6e262a40e5823365c34ef7db1bc036c591d7577489e04077c515903",
+            "force_full": true,
+            "paper_port": false,
+            "changed_sites": [
+              "skip_predicate_false"
+            ],
+            "compiled_AST_sha256": "f4d3efcf221b7fd009836231b6538746fb6f6870694d67f4df627dc091af6fad",
+            "paper_exact": false
+          },
+          {
+            "source_sha256": "b485cb8fd6e262a40e5823365c34ef7db1bc036c591d7577489e04077c515903",
+            "force_full": false,
+            "paper_port": true,
+            "changed_sites": [
+              "ATS_base_mult_4"
+            ],
+            "compiled_AST_sha256": "60e30ba2c9fba7c030366b18669c7fc7f66455e88505f2e9063a5be7a6b3bb14",
+            "paper_exact": false
+          }
+        ],
+        "actual_Cosmos_weights": false,
+        "real_encoded_video": false,
+        "GPU_parity": false
+      }
+    ],
+    "upstream_sha256": {
+      "cosmos_predict2/inference.py": "0db96c49f0b3f18a971bc989e0727132dafc27ef621145a2d25a3da62a7a1975",
+      "cosmos_predict2/_src/predict2/inference/video2world.py": "59aa9e236a5e7e26490f5cfcb94ab95ce911d9c38eba61dd8aef7d067e458a95",
+      "cosmos_predict2/_src/predict2/inference/worldcache_utils.py": "b485cb8fd6e262a40e5823365c34ef7db1bc036c591d7577489e04077c515903",
+      "cosmos_predict2/_src/predict2/models/text2world_model_rectified_flow.py": "c6c68f297859e11c76d2921667a29cabfecef3a7b5d3ab831bf9bb54b25b7d87",
+      "cosmos_predict2/_src/predict2/models/fm_solvers_unipc.py": "f6a06c75f059693ade6c802e99f6058575969b6a71ef18ab05e7ed46701053d3"
+    },
+    "cuda_initialized": false,
+    "limits": "Pinned Native/WC/RF/UniPC bodies; explicit tiny CPU weights, noise generator, attention, conditioner, decoder and mock writer. No real Cosmos weights, encoded videos, GPU equality, quality score or latency evidence.",
+    "CUDA_initialized": false,
+    "GPU_submissions": 0,
+    "CPU_wall_seconds": 2.3860035
+  },
+  "hosts": {
+    "four_card": {
+      "exit_code": 0,
+      "wall_seconds": 17.444047689437866,
+      "container_running": false,
+      "device_requests": null
+    },
+    "two_card": {
+      "exit_code": 0,
+      "wall_seconds": 20.173147201538086,
+      "container_running": false,
+      "device_requests": null
+    }
+  },
+  "GPU_submissions": 0,
+  "real_GPU_equivalence_passed": false,
+  "seven_role_production_combination_passed": false
+}

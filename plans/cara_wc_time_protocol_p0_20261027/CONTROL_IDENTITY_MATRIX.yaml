@@ -1,0 +1,1356 @@
+{
+  "schema": "CARA_WC_TIME_P0_PREREG_R1",
+  "source_main": "f8bb36e545659870deffc1ba220a145020db26fc",
+  "user_plan_sha256": "c7a6b9e4946ffa538bf510311c33074627c562a93866f8c302ababa63e327181",
+  "request": "CPU_PREP_ONLY_NO_GPU",
+  "roles": {
+    "NATIVE_U36": {
+      "kind": "native",
+      "entry": "wcomr.policy_generator_r1.p2_native_sampling.execute",
+      "cache": false,
+      "identity_fingerprint": "2231167e32f68af1826a073ef03cbdad0862284d52808d71fc0d6942f780f473"
+    },
+    "WC_WRAPPER_ALLD_U36": {
+      "kind": "wc",
+      "settings": {
+        "worldcache_num_steps": 35,
+        "worldcache_rel_l1_thresh": 0.06,
+        "worldcache_ret_ratio": 0.2,
+        "worldcache_probe_depth": 2,
+        "worldcache_motion_sensitivity": 2.0,
+        "worldcache_flow_enabled": true,
+        "worldcache_flow_scale": 2.0,
+        "worldcache_saliency_enabled": true,
+        "worldcache_saliency_weight": 1.0,
+        "worldcache_osi_enabled": true,
+        "worldcache_dynamic_decay": true
+      },
+      "force_full": true,
+      "edit": "skip predicate False only; probe/history intact",
+      "identity_fingerprint": "c7b24bb8d5025264fb52bef65f8c2b5d35d96176a1800b6fceb3203ca56eb2c6"
+    },
+    "WC_README_U36": {
+      "kind": "wc",
+      "settings": {
+        "worldcache_num_steps": 35,
+        "worldcache_rel_l1_thresh": 0.06,
+        "worldcache_ret_ratio": 0.2,
+        "worldcache_probe_depth": 2,
+        "worldcache_motion_sensitivity": 2.0,
+        "worldcache_flow_enabled": true,
+        "worldcache_flow_scale": 2.0,
+        "worldcache_saliency_enabled": true,
+        "worldcache_saliency_weight": 1.0,
+        "worldcache_osi_enabled": true,
+        "worldcache_dynamic_decay": true
+      },
+      "force_full": false,
+      "ATS_base_mult": 5,
+      "identity_fingerprint": "8e667f222ff4f0df8d44dbb6ac19f5c1550fe3f19f71b33671ad15edb6d885f6"
+    },
+    "WC_PAPER_PORT_U36": {
+      "kind": "wc",
+      "settings": {
+        "worldcache_num_steps": 35,
+        "worldcache_rel_l1_thresh": 0.08,
+        "worldcache_ret_ratio": 0.2,
+        "worldcache_probe_depth": 2,
+        "worldcache_motion_sensitivity": 2.0,
+        "worldcache_flow_enabled": true,
+        "worldcache_flow_scale": 0.5,
+        "worldcache_saliency_enabled": true,
+        "worldcache_saliency_weight": 0.12,
+        "worldcache_osi_enabled": true,
+        "worldcache_dynamic_decay": true
+      },
+      "ATS_base_mult": 4,
+      "ATS_fraction": "cnt/70 per CFG; reset unchanged",
+      "paper_exact": false,
+      "identity_fingerprint": "49459895d70b63efb119ee54905af454ef18a6328606b3703070a1be78598f17"
+    },
+    "WC_TUNED_U36": {
+      "kind": "selected_shared_tau",
+      "base": "WC_PAPER_PORT_U36",
+      "tau_candidates": [
+        0.04,
+        0.06
+      ],
+      "selected_tau": null,
+      "identity_fingerprint": "cf3f41d86e51a70192c14091a4b1517a4737358eded47b3f790958e82d6f3020"
+    },
+    "RA_LOCAL_U36": {
+      "kind": "local_RA",
+      "entry": "wcomr.clean_speed20_r1.execute:RA",
+      "calibration_fingerprint": "9ab1d77c303560823ed2f32f43b2982318cdd9835828a46da4835a1b95ea7d7a",
+      "threshold": 0.070744235098772,
+      "RA_spec": {
+        "threshold": 0.070744235098772,
+        "costs": {
+          "fingerprint": "d20e74b80698d71bb9841560f42274d5a56ec85f13faf5ffeb6ff40bad6f93a8",
+          "C": 0.16846076643560082,
+          "D": 6.25420393414485,
+          "P": null,
+          "boundary": "POST_ALREADY_PAID_TWO_SHALLOW_PROBES_THROUGH_POST_RF_PAIR",
+          "cost_role": "ACTION_ORDER_ONLY_NOT_TOTAL_PAIR_OR_END_TO_END_TIME"
+        },
+        "partial_prior": null,
+        "working_epoch_strategy": "WORKING_P_AGE_KEEP_INTERVAL"
+      },
+      "paper_exact": false,
+      "identity_fingerprint": "d35e28f4b46f565036197773d8d8015797bde217cab2186f68e1347e01e4cc2f"
+    },
+    "CARA_SHARED25_C_U36": {
+      "kind": "frozen_policy",
+      "entry": "wcomr.policy_generator_r1.production_sampling.execute",
+      "policy": {
+        "version": "CARA_POLICY_GENERATOR_CPU_R1",
+        "fingerprint": "008d9fa12c7aad67e40440533a6e552147d79b82e44afebd8df55954f47b6e60",
+        "profile_identity": "8b35974e725fa1fbb72fb5474f10c763edb998e4b59bd21f7775e44ed3c6a00b",
+        "grammar_sha256": "0273c501d6f8383b81900d113dc68f9a304feed444dfc5c3d29184ec6c2e5889",
+        "dense_mask": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          false,
+          false,
+          true,
+          false,
+          false,
+          true,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true
+        ],
+        "actions": [
+          "D",
+          "D",
+          "D",
+          "D",
+          "D",
+          "D",
+          "D",
+          "D",
+          "D",
+          "D",
+          "D",
+          "D",
+          "D",
+          "D",
+          "D",
+          "D",
+          "D",
+          "D",
+          "D",
+          "D",
+          "D",
+          "C",
+          "C",
+          "D",
+          "C",
+          "C",
+          "D",
+          "C",
+          "C",
+          "D",
+          "C",
+          "C",
+          "C",
+          "C",
+          "C",
+          "D"
+        ],
+        "shared_alpha": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "source_before": [
+          null,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          21,
+          21,
+          24,
+          24,
+          24,
+          27,
+          27,
+          27,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30
+        ],
+        "intervals": [
+          {
+            "start": 1,
+            "end": 2,
+            "A_window": [],
+            "alpha": 0.0
+          },
+          {
+            "start": 2,
+            "end": 3,
+            "A_window": [],
+            "alpha": 0.0
+          },
+          {
+            "start": 3,
+            "end": 4,
+            "A_window": [],
+            "alpha": 0.0
+          },
+          {
+            "start": 4,
+            "end": 5,
+            "A_window": [],
+            "alpha": 0.0
+          },
+          {
+            "start": 5,
+            "end": 6,
+            "A_window": [],
+            "alpha": 0.0
+          },
+          {
+            "start": 6,
+            "end": 7,
+            "A_window": [],
+            "alpha": 0.0
+          },
+          {
+            "start": 7,
+            "end": 8,
+            "A_window": [],
+            "alpha": 0.0
+          },
+          {
+            "start": 8,
+            "end": 9,
+            "A_window": [],
+            "alpha": 0.0
+          },
+          {
+            "start": 9,
+            "end": 10,
+            "A_window": [],
+            "alpha": 0.0
+          },
+          {
+            "start": 10,
+            "end": 11,
+            "A_window": [],
+            "alpha": 0.0
+          },
+          {
+            "start": 11,
+            "end": 12,
+            "A_window": [],
+            "alpha": 0.0
+          },
+          {
+            "start": 12,
+            "end": 13,
+            "A_window": [],
+            "alpha": 0.0
+          },
+          {
+            "start": 13,
+            "end": 14,
+            "A_window": [],
+            "alpha": 0.0
+          },
+          {
+            "start": 14,
+            "end": 15,
+            "A_window": [],
+            "alpha": 0.0
+          },
+          {
+            "start": 15,
+            "end": 16,
+            "A_window": [],
+            "alpha": 0.0
+          },
+          {
+            "start": 16,
+            "end": 17,
+            "A_window": [],
+            "alpha": 0.0
+          },
+          {
+            "start": 17,
+            "end": 18,
+            "A_window": [],
+            "alpha": 0.0
+          },
+          {
+            "start": 18,
+            "end": 19,
+            "A_window": [],
+            "alpha": 0.0
+          },
+          {
+            "start": 19,
+            "end": 20,
+            "A_window": [],
+            "alpha": 0.0
+          },
+          {
+            "start": 20,
+            "end": 21,
+            "A_window": [],
+            "alpha": 0.0
+          },
+          {
+            "start": 21,
+            "end": 24,
+            "A_window": [],
+            "alpha": 0.0
+          },
+          {
+            "start": 24,
+            "end": 27,
+            "A_window": [],
+            "alpha": 0.0
+          },
+          {
+            "start": 27,
+            "end": 30,
+            "A_window": [],
+            "alpha": 0.0
+          },
+          {
+            "start": 30,
+            "end": 36,
+            "A_window": [],
+            "alpha": 0.0
+          },
+          {
+            "start": 36,
+            "end": 37,
+            "A_window": [],
+            "alpha": 0.0
+          }
+        ],
+        "terminal_node": 37,
+        "terminal_model_calls": 0,
+        "counts": {
+          "D": 25,
+          "A": 0,
+          "C": 11
+        },
+        "fallback_policy": "FULL_D_ON_UNSUPPORTED_OR_NONFINITE_READOUT_RECORD_ACTUAL_COST",
+        "budget_predicted_seconds": null,
+        "budget_observed_seconds": null,
+        "deployment_budget_status": "BUDGET_NOT_VERIFIED",
+        "production_CPU_accepted": false,
+        "GPU_dispatch_ready": false
+      },
+      "policy_fingerprint": "008d9fa12c7aad67e40440533a6e552147d79b82e44afebd8df55954f47b6e60",
+      "identity_fingerprint": "d1ecd9227e4a3445f9458f8a8dc608ecf1f3a1c36c7efb0a03057e3d2de28a11"
+    }
+  },
+  "config_mapping": {
+    "worldcache_num_steps": {
+      "local": 35,
+      "consumer": "video2world.generate_vid2world: target_steps=num_steps*2",
+      "effective": 70,
+      "actual_CFG": 72,
+      "reset_after": 70
+    },
+    "worldcache_rel_l1_thresh": {
+      "local": 0.06,
+      "consumer": "wc.apply_worldcache -> model.net.worldcache_rel_l1_thresh"
+    },
+    "worldcache_ret_ratio": {
+      "local": 0.2,
+      "consumer": "wc.apply_worldcache -> model.net.worldcache_ret_ratio"
+    },
+    "worldcache_probe_depth": {
+      "local": 2,
+      "consumer": "wc.apply_worldcache -> model.net.worldcache_probe_depth"
+    },
+    "worldcache_motion_sensitivity": {
+      "local": 2.0,
+      "consumer": "wc.apply_worldcache -> model.net.worldcache_motion_sensitivity"
+    },
+    "worldcache_flow_enabled": {
+      "local": true,
+      "consumer": "wc.apply_worldcache -> model.net.worldcache_flow_enabled"
+    },
+    "worldcache_flow_scale": {
+      "local": 2.0,
+      "consumer": "wc.apply_worldcache -> model.net.worldcache_flow_scale"
+    },
+    "worldcache_saliency_enabled": {
+      "local": true,
+      "consumer": "wc.apply_worldcache -> model.net.worldcache_saliency_enabled"
+    },
+    "worldcache_saliency_weight": {
+      "local": 1.0,
+      "consumer": "wc.apply_worldcache -> model.net.worldcache_saliency_weight"
+    },
+    "worldcache_osi_enabled": {
+      "local": true,
+      "consumer": "wc.apply_worldcache -> model.net.worldcache_osi_enabled"
+    },
+    "worldcache_dynamic_decay": {
+      "local": true,
+      "consumer": "wc.apply_worldcache -> model.net.worldcache_dynamic_decay"
+    }
+  },
+  "schedule": {
+    "requested_steps": 35,
+    "actual_updates": 36,
+    "timesteps": [
+      995,
+      994,
+      993,
+      992,
+      990,
+      988,
+      986,
+      984,
+      981,
+      977,
+      973,
+      967,
+      960,
+      951,
+      941,
+      927,
+      910,
+      889,
+      863,
+      831,
+      791,
+      742,
+      684,
+      618,
+      543,
+      462,
+      380,
+      301,
+      228,
+      166,
+      116,
+      77,
+      49,
+      30,
+      17,
+      9
+    ],
+    "sigmas": [
+      0.9950248599052429,
+      0.9942067265510559,
+      0.993232011795044,
+      0.992066502571106,
+      0.9906675815582275,
+      0.9889820218086243,
+      0.9869430661201477,
+      0.9844666123390198,
+      0.9814466834068298,
+      0.9777488112449646,
+      0.9732025861740112,
+      0.9675912261009216,
+      0.9606394171714783,
+      0.9519975781440735,
+      0.9412240386009216,
+      0.9277644157409668,
+      0.9109315872192383,
+      0.8898900747299194,
+      0.8636542558670044,
+      0.831115186214447,
+      0.7911184430122375,
+      0.7426198720932007,
+      0.6849421262741089,
+      0.618124783039093,
+      0.5433000922203064,
+      0.4629429578781128,
+      0.38079413771629333,
+      0.30132922530174255,
+      0.22886677086353302,
+      0.16665080189704895,
+      0.11629515886306763,
+      0.07776966691017151,
+      0.04981577768921852,
+      0.03052404895424843,
+      0.017841218039393425,
+      0.009900989942252636,
+      0.0
+    ]
+  },
+  "schedule_sha256": "65ffb14b08fa40b48ed4d19eccd9ccc11bf30d3b9b3675aada7e991fea3aaeea",
+  "requests": [
+    {
+      "inference_type": "text2world",
+      "seed": 0,
+      "guidance": 7,
+      "num_output_frames": 93,
+      "resolution": "432,768",
+      "negative_prompt": "The video captures a series of frames showing ugly scenes, static with no motion, motion blur, over-saturation, shaky footage, low resolution, grainy texture, pixelated images, poorly lit areas, underexposed and overexposed scenes, poor color balance, washed out colors, choppy sequences, jerky movements, low frame rate, artifacting, color banding, unnatural transitions, outdated special effects, fake elements, unconvincing visuals, poorly edited content, jump cuts, visual noise, and flickering. Overall, the video is of poor quality.",
+      "name": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "prompt": "The video opens with a nighttime scene captured from inside a vehicle, likely through a dashboard camera, providing a first-person perspective. The road ahead has three lanes, with clear lane markings and a mix of left-turn and right-turn indicators. The scene is dimly lit by the car's headlights and scattered streetlights, creating a moody and atmospheric setting. A semi-truck is visible in the distance, its lights glowing faintly against the dark sky. To the right, a pedestrian crossing sign is visible, and a building or structure with a lit sign suggests a gas station or convenience store. The environment feels quiet and somewhat eerie due to the darkness and limited visibility.  As the video progresses, the car continues its journey along the highway, with additional vehicles occasionally appearing and disappearing into the headlights' reach. The streetlights continue to cast their glow, reflecting off the road surface, enhancing the sense of movement and depth. By the final frame, the car approaches an intersection, where traffic lights are visible, and the road markings become clearer, indicating the direction of travel. The overall scene conveys a sense of solitude and anticipation as the vehicle navigates the quiet, dimly lit road.",
+      "num_steps": 35
+    },
+    {
+      "inference_type": "text2world",
+      "seed": 0,
+      "guidance": 7,
+      "num_output_frames": 93,
+      "resolution": "432,768",
+      "negative_prompt": "The video captures a series of frames showing ugly scenes, static with no motion, motion blur, over-saturation, shaky footage, low resolution, grainy texture, pixelated images, poorly lit areas, underexposed and overexposed scenes, poor color balance, washed out colors, choppy sequences, jerky movements, low frame rate, artifacting, color banding, unnatural transitions, outdated special effects, fake elements, unconvincing visuals, poorly edited content, jump cuts, visual noise, and flickering. Overall, the video is of poor quality.",
+      "name": "human_199",
+      "prompt": "A wide shot captures an outdoor tennis court at the University of Barcelona, as indicated by the signage on the green portion and fence surrounding the court. The court is a standard hard surface with white boundary lines marking the playing area. Two players are present: one on the left side of the frame, dressed in a white shirt and dark shorts, holding a tennis racket and preparing to serve, while the other player is positioned on the far side of the court, ready to receive the serve. The court is enclosed by a high fence adorned with banners and flags, beyond which a row of parked cars and a building can be seen. The setting suggests a clear day with ample daylight illuminating the scene. The position of the camera remains steady, capturing the players' focused and deliberate movements as they engage in the game. The player on the left side of the court serves the ball across the net towards the opponent, who is poised to return the serve. The ball is seen in mid-air, traveling from one side of the court to the other, indicating the beginning of a rally. The players' movements are fluid and engaged, showcasing their concentration and skill. The video concludes with the ball still in play, suggesting that the rally continues beyond the frame's end.",
+      "num_steps": 35
+    },
+    {
+      "inference_type": "text2world",
+      "seed": 0,
+      "guidance": 7,
+      "num_output_frames": 93,
+      "resolution": "432,768",
+      "negative_prompt": "The video captures a series of frames showing ugly scenes, static with no motion, motion blur, over-saturation, shaky footage, low resolution, grainy texture, pixelated images, poorly lit areas, underexposed and overexposed scenes, poor color balance, washed out colors, choppy sequences, jerky movements, low frame rate, artifacting, color banding, unnatural transitions, outdated special effects, fake elements, unconvincing visuals, poorly edited content, jump cuts, visual noise, and flickering. Overall, the video is of poor quality.",
+      "name": "misc_13398218_3840_2160_60fps",
+      "prompt": "The video opens with a wide shot of a snow-covered urban street, likely in a city known for its winter weather. Snow blankets the sidewalks and road, creating a thick layer that obscures the pavement beneath. The street is flanked by tall buildings, one of which prominently displays the word \"CANADA\" on its facade. A traffic light on the left side of the frame shows a green signal, indicating that vehicles can proceed. A no-parking sign is affixed to the same pole, suggesting restrictions during the snowstorm. Bare trees line the sidewalk, their branches laden with snow. A few individuals can be seen walking on the left side of the street, bundled up against the cold weather. The atmosphere is quiet and serene, with the falling snow adding to the wintry ambiance.  As the video progresses, the snow continues to fall steadily, accumulating more on the ground and buildings. Pedestrians continue to walk on the left side of the street, moving slowly due to the slippery conditions. The traffic light remains consistently green, and a white sedan car moves slowly into the scene along the road. The scene maintains its tranquil and wintry feel throughout the duration of the video, with the snowflakes gently swirling around the urban landscape.",
+      "num_steps": 35
+    },
+    {
+      "inference_type": "text2world",
+      "seed": 0,
+      "guidance": 7,
+      "num_output_frames": 93,
+      "resolution": "432,768",
+      "negative_prompt": "The video captures a series of frames showing ugly scenes, static with no motion, motion blur, over-saturation, shaky footage, low resolution, grainy texture, pixelated images, poorly lit areas, underexposed and overexposed scenes, poor color balance, washed out colors, choppy sequences, jerky movements, low frame rate, artifacting, color banding, unnatural transitions, outdated special effects, fake elements, unconvincing visuals, poorly edited content, jump cuts, visual noise, and flickering. Overall, the video is of poor quality.",
+      "name": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+      "prompt": "A nighttime scene viewed from the top of a vehicle captures the hood of the car in the foreground. The road ahead is illuminated by streetlights, casting a soft glow over the asphalt. The ego vehicle comes to a stop next to a white RV, which goes off the screen. Across the road, beyond the road median, a red car is seen driving away into the distance. A one-way sign is visible under the ego vehicle's headlights. The surroundings include trees and other houses, suggesting a suburban neighborhood. The sky is dark, indicating it is late at night, and the overall atmosphere is quiet and calm. As the video progresses, the scene remains largely static, with no significant changes in the environment. The white RV on the right side of the ego vehicle remains stationary, and the red car continues to drive away into the distance. The streetlights continue to illuminate the road, and the trees and houses in the background remain unchanged. The overall scene maintains its tranquil nighttime setting without any notable movements or new objects entering the frame. The ego vehicle carefully makes a right turn at the t-intersection, and by the final frame, the scene is consistent with the initial one, depicting the same quiet suburban street under the night sky.",
+      "num_steps": 35
+    }
+  ],
+  "request_sha256": {
+    "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632": "1e2e3e9a4610e7ed0a34d377dc28a8536bc879d4e87491ee75bb8014ceffa9c7",
+    "human_199": "c31a6c204f86aca24f7231c04ff1c07eebc214c1d28f33e22328e1985c7d8fab",
+    "misc_13398218_3840_2160_60fps": "2ad3500de5c7a743033ef3f09e062a514b1f034ad7deeed15435cf4e01eae8c0",
+    "av_51b45829-502e-4143-9c32-c026bd6ab191": "76651f33ce7f08338a776c98a07abb3552796a45dc19bb71ac987b09325323c6"
+  },
+  "scope": {
+    "physical_paths": 73,
+    "phase_A": 26,
+    "phase_B": 47,
+    "formal_cells": 28,
+    "calibration_physical_paths": 4,
+    "calibration_anchor_paths": 4,
+    "selected_reused_cells": 0,
+    "warm": 13,
+    "timing_repeats": 12,
+    "diagnostic_on_off_three_arm": 12,
+    "quality_videos": 28,
+    "quality_positions": 112,
+    "LPIPS_pairs_per_metric": 24,
+    "LPIPS_frames_per_metric": 2232,
+    "LPIPS_metrics": 2,
+    "selection_Alex_pairs": 4,
+    "selection_Alex_frames": 372,
+    "loads": 2,
+    "automatic_GPU_retries": 0
+  },
+  "physical_matrix": [
+    {
+      "id": "A_WARM:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:NATIVE_U36:1",
+      "section": "A_WARM",
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "role": "NATIVE_U36",
+      "seed": 0,
+      "repeat": 1,
+      "eligible_clean_time": false
+    },
+    {
+      "id": "A_WARM:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:WC_WRAPPER_ALLD_U36:1",
+      "section": "A_WARM",
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "role": "WC_WRAPPER_ALLD_U36",
+      "seed": 0,
+      "repeat": 1,
+      "eligible_clean_time": false
+    },
+    {
+      "id": "A_WARM:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:WC_README_U36:1",
+      "section": "A_WARM",
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "role": "WC_README_U36",
+      "seed": 0,
+      "repeat": 1,
+      "eligible_clean_time": false
+    },
+    {
+      "id": "A_WARM:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:CARA_SHARED25_C_U36:1",
+      "section": "A_WARM",
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "role": "CARA_SHARED25_C_U36",
+      "seed": 0,
+      "repeat": 1,
+      "eligible_clean_time": false
+    },
+    {
+      "id": "A_WARM:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:TAU_0.04:1",
+      "section": "A_WARM",
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "role": "TAU_0.04",
+      "seed": 0,
+      "repeat": 1,
+      "eligible_clean_time": false
+    },
+    {
+      "id": "A_WARM:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:TAU_0.06:1",
+      "section": "A_WARM",
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "role": "TAU_0.06",
+      "seed": 0,
+      "repeat": 1,
+      "eligible_clean_time": false
+    },
+    {
+      "id": "A_DIAGNOSTIC:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:NATIVE_U36:1",
+      "section": "A_DIAGNOSTIC",
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "role": "NATIVE_U36",
+      "seed": 0,
+      "repeat": 1,
+      "timing_enabled": false,
+      "eligible_clean_time": false
+    },
+    {
+      "id": "A_DIAGNOSTIC:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:NATIVE_U36:2",
+      "section": "A_DIAGNOSTIC",
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "role": "NATIVE_U36",
+      "seed": 0,
+      "repeat": 2,
+      "timing_enabled": true,
+      "eligible_clean_time": false
+    },
+    {
+      "id": "A_DIAGNOSTIC:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:WC_WRAPPER_ALLD_U36:1",
+      "section": "A_DIAGNOSTIC",
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "role": "WC_WRAPPER_ALLD_U36",
+      "seed": 0,
+      "repeat": 1,
+      "timing_enabled": false,
+      "eligible_clean_time": false
+    },
+    {
+      "id": "A_DIAGNOSTIC:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:WC_WRAPPER_ALLD_U36:2",
+      "section": "A_DIAGNOSTIC",
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "role": "WC_WRAPPER_ALLD_U36",
+      "seed": 0,
+      "repeat": 2,
+      "timing_enabled": true,
+      "eligible_clean_time": false
+    },
+    {
+      "id": "A_DIAGNOSTIC:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:WC_README_U36:1",
+      "section": "A_DIAGNOSTIC",
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "role": "WC_README_U36",
+      "seed": 0,
+      "repeat": 1,
+      "timing_enabled": false,
+      "eligible_clean_time": false
+    },
+    {
+      "id": "A_DIAGNOSTIC:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:WC_README_U36:2",
+      "section": "A_DIAGNOSTIC",
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "role": "WC_README_U36",
+      "seed": 0,
+      "repeat": 2,
+      "timing_enabled": true,
+      "eligible_clean_time": false
+    },
+    {
+      "id": "A_DIAGNOSTIC:human_199:NATIVE_U36:1",
+      "section": "A_DIAGNOSTIC",
+      "scene": "human_199",
+      "role": "NATIVE_U36",
+      "seed": 0,
+      "repeat": 1,
+      "timing_enabled": false,
+      "eligible_clean_time": false
+    },
+    {
+      "id": "A_DIAGNOSTIC:human_199:NATIVE_U36:2",
+      "section": "A_DIAGNOSTIC",
+      "scene": "human_199",
+      "role": "NATIVE_U36",
+      "seed": 0,
+      "repeat": 2,
+      "timing_enabled": true,
+      "eligible_clean_time": false
+    },
+    {
+      "id": "A_DIAGNOSTIC:human_199:WC_WRAPPER_ALLD_U36:1",
+      "section": "A_DIAGNOSTIC",
+      "scene": "human_199",
+      "role": "WC_WRAPPER_ALLD_U36",
+      "seed": 0,
+      "repeat": 1,
+      "timing_enabled": false,
+      "eligible_clean_time": false
+    },
+    {
+      "id": "A_DIAGNOSTIC:human_199:WC_WRAPPER_ALLD_U36:2",
+      "section": "A_DIAGNOSTIC",
+      "scene": "human_199",
+      "role": "WC_WRAPPER_ALLD_U36",
+      "seed": 0,
+      "repeat": 2,
+      "timing_enabled": true,
+      "eligible_clean_time": false
+    },
+    {
+      "id": "A_DIAGNOSTIC:human_199:WC_README_U36:1",
+      "section": "A_DIAGNOSTIC",
+      "scene": "human_199",
+      "role": "WC_README_U36",
+      "seed": 0,
+      "repeat": 1,
+      "timing_enabled": false,
+      "eligible_clean_time": false
+    },
+    {
+      "id": "A_DIAGNOSTIC:human_199:WC_README_U36:2",
+      "section": "A_DIAGNOSTIC",
+      "scene": "human_199",
+      "role": "WC_README_U36",
+      "seed": 0,
+      "repeat": 2,
+      "timing_enabled": true,
+      "eligible_clean_time": false
+    },
+    {
+      "id": "A_ANCHOR:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:NATIVE_U36:1",
+      "section": "A_ANCHOR",
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "role": "NATIVE_U36",
+      "seed": 0,
+      "repeat": 1,
+      "eligible_clean_time": true
+    },
+    {
+      "id": "A_ANCHOR:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:CARA_SHARED25_C_U36:1",
+      "section": "A_ANCHOR",
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "role": "CARA_SHARED25_C_U36",
+      "seed": 0,
+      "repeat": 1,
+      "eligible_clean_time": true
+    },
+    {
+      "id": "A_CALIBRATION:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:TAU_0.04:1",
+      "section": "A_CALIBRATION",
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "role": "TAU_0.04",
+      "seed": 0,
+      "repeat": 1,
+      "tau": 0.04,
+      "eligible_clean_time": true
+    },
+    {
+      "id": "A_CALIBRATION:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:TAU_0.06:1",
+      "section": "A_CALIBRATION",
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "role": "TAU_0.06",
+      "seed": 0,
+      "repeat": 1,
+      "tau": 0.06,
+      "eligible_clean_time": true
+    },
+    {
+      "id": "A_ANCHOR:human_199:NATIVE_U36:1",
+      "section": "A_ANCHOR",
+      "scene": "human_199",
+      "role": "NATIVE_U36",
+      "seed": 0,
+      "repeat": 1,
+      "eligible_clean_time": true
+    },
+    {
+      "id": "A_ANCHOR:human_199:CARA_SHARED25_C_U36:1",
+      "section": "A_ANCHOR",
+      "scene": "human_199",
+      "role": "CARA_SHARED25_C_U36",
+      "seed": 0,
+      "repeat": 1,
+      "eligible_clean_time": true
+    },
+    {
+      "id": "A_CALIBRATION:human_199:TAU_0.04:1",
+      "section": "A_CALIBRATION",
+      "scene": "human_199",
+      "role": "TAU_0.04",
+      "seed": 0,
+      "repeat": 1,
+      "tau": 0.04,
+      "eligible_clean_time": true
+    },
+    {
+      "id": "A_CALIBRATION:human_199:TAU_0.06:1",
+      "section": "A_CALIBRATION",
+      "scene": "human_199",
+      "role": "TAU_0.06",
+      "seed": 0,
+      "repeat": 1,
+      "tau": 0.06,
+      "eligible_clean_time": true
+    },
+    {
+      "id": "B_WARM:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:NATIVE_U36:1",
+      "section": "B_WARM",
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "role": "NATIVE_U36",
+      "seed": 0,
+      "repeat": 1,
+      "eligible_clean_time": false
+    },
+    {
+      "id": "B_WARM:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:WC_WRAPPER_ALLD_U36:1",
+      "section": "B_WARM",
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "role": "WC_WRAPPER_ALLD_U36",
+      "seed": 0,
+      "repeat": 1,
+      "eligible_clean_time": false
+    },
+    {
+      "id": "B_WARM:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:WC_README_U36:1",
+      "section": "B_WARM",
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "role": "WC_README_U36",
+      "seed": 0,
+      "repeat": 1,
+      "eligible_clean_time": false
+    },
+    {
+      "id": "B_WARM:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:WC_PAPER_PORT_U36:1",
+      "section": "B_WARM",
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "role": "WC_PAPER_PORT_U36",
+      "seed": 0,
+      "repeat": 1,
+      "eligible_clean_time": false
+    },
+    {
+      "id": "B_WARM:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:WC_TUNED_U36:1",
+      "section": "B_WARM",
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "role": "WC_TUNED_U36",
+      "seed": 0,
+      "repeat": 1,
+      "eligible_clean_time": false
+    },
+    {
+      "id": "B_WARM:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:RA_LOCAL_U36:1",
+      "section": "B_WARM",
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "role": "RA_LOCAL_U36",
+      "seed": 0,
+      "repeat": 1,
+      "eligible_clean_time": false
+    },
+    {
+      "id": "B_WARM:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:CARA_SHARED25_C_U36:1",
+      "section": "B_WARM",
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "role": "CARA_SHARED25_C_U36",
+      "seed": 0,
+      "repeat": 1,
+      "eligible_clean_time": false
+    },
+    {
+      "id": "B_QUALITY:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:NATIVE_U36:1",
+      "section": "B_QUALITY",
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "role": "NATIVE_U36",
+      "seed": 0,
+      "repeat": 1,
+      "eligible_clean_time": true
+    },
+    {
+      "id": "B_QUALITY:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:WC_WRAPPER_ALLD_U36:1",
+      "section": "B_QUALITY",
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "role": "WC_WRAPPER_ALLD_U36",
+      "seed": 0,
+      "repeat": 1,
+      "eligible_clean_time": true
+    },
+    {
+      "id": "B_QUALITY:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:WC_README_U36:1",
+      "section": "B_QUALITY",
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "role": "WC_README_U36",
+      "seed": 0,
+      "repeat": 1,
+      "eligible_clean_time": true
+    },
+    {
+      "id": "B_QUALITY:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:WC_PAPER_PORT_U36:1",
+      "section": "B_QUALITY",
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "role": "WC_PAPER_PORT_U36",
+      "seed": 0,
+      "repeat": 1,
+      "eligible_clean_time": true
+    },
+    {
+      "id": "B_QUALITY:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:WC_TUNED_U36:1",
+      "section": "B_QUALITY",
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "role": "WC_TUNED_U36",
+      "seed": 0,
+      "repeat": 1,
+      "eligible_clean_time": true
+    },
+    {
+      "id": "B_QUALITY:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:RA_LOCAL_U36:1",
+      "section": "B_QUALITY",
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "role": "RA_LOCAL_U36",
+      "seed": 0,
+      "repeat": 1,
+      "eligible_clean_time": true
+    },
+    {
+      "id": "B_QUALITY:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:CARA_SHARED25_C_U36:1",
+      "section": "B_QUALITY",
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "role": "CARA_SHARED25_C_U36",
+      "seed": 0,
+      "repeat": 1,
+      "eligible_clean_time": true
+    },
+    {
+      "id": "B_QUALITY:human_199:CARA_SHARED25_C_U36:1",
+      "section": "B_QUALITY",
+      "scene": "human_199",
+      "role": "CARA_SHARED25_C_U36",
+      "seed": 0,
+      "repeat": 1,
+      "eligible_clean_time": true
+    },
+    {
+      "id": "B_QUALITY:human_199:RA_LOCAL_U36:1",
+      "section": "B_QUALITY",
+      "scene": "human_199",
+      "role": "RA_LOCAL_U36",
+      "seed": 0,
+      "repeat": 1,
+      "eligible_clean_time": true
+    },
+    {
+      "id": "B_QUALITY:human_199:WC_TUNED_U36:1",
+      "section": "B_QUALITY",
+      "scene": "human_199",
+      "role": "WC_TUNED_U36",
+      "seed": 0,
+      "repeat": 1,
+      "eligible_clean_time": true
+    },
+    {
+      "id": "B_QUALITY:human_199:WC_PAPER_PORT_U36:1",
+      "section": "B_QUALITY",
+      "scene": "human_199",
+      "role": "WC_PAPER_PORT_U36",
+      "seed": 0,
+      "repeat": 1,
+      "eligible_clean_time": true
+    },
+    {
+      "id": "B_QUALITY:human_199:WC_README_U36:1",
+      "section": "B_QUALITY",
+      "scene": "human_199",
+      "role": "WC_README_U36",
+      "seed": 0,
+      "repeat": 1,
+      "eligible_clean_time": true
+    },
+    {
+      "id": "B_QUALITY:human_199:WC_WRAPPER_ALLD_U36:1",
+      "section": "B_QUALITY",
+      "scene": "human_199",
+      "role": "WC_WRAPPER_ALLD_U36",
+      "seed": 0,
+      "repeat": 1,
+      "eligible_clean_time": true
+    },
+    {
+      "id": "B_QUALITY:human_199:NATIVE_U36:1",
+      "section": "B_QUALITY",
+      "scene": "human_199",
+      "role": "NATIVE_U36",
+      "seed": 0,
+      "repeat": 1,
+      "eligible_clean_time": true
+    },
+    {
+      "id": "B_QUALITY:misc_13398218_3840_2160_60fps:NATIVE_U36:1",
+      "section": "B_QUALITY",
+      "scene": "misc_13398218_3840_2160_60fps",
+      "role": "NATIVE_U36",
+      "seed": 0,
+      "repeat": 1,
+      "eligible_clean_time": true
+    },
+    {
+      "id": "B_QUALITY:misc_13398218_3840_2160_60fps:WC_WRAPPER_ALLD_U36:1",
+      "section": "B_QUALITY",
+      "scene": "misc_13398218_3840_2160_60fps",
+      "role": "WC_WRAPPER_ALLD_U36",
+      "seed": 0,
+      "repeat": 1,
+      "eligible_clean_time": true
+    },
+    {
+      "id": "B_QUALITY:misc_13398218_3840_2160_60fps:WC_README_U36:1",
+      "section": "B_QUALITY",
+      "scene": "misc_13398218_3840_2160_60fps",
+      "role": "WC_README_U36",
+      "seed": 0,
+      "repeat": 1,
+      "eligible_clean_time": true
+    },
+    {
+      "id": "B_QUALITY:misc_13398218_3840_2160_60fps:WC_PAPER_PORT_U36:1",
+      "section": "B_QUALITY",
+      "scene": "misc_13398218_3840_2160_60fps",
+      "role": "WC_PAPER_PORT_U36",
+      "seed": 0,
+      "repeat": 1,
+      "eligible_clean_time": true
+    },
+    {
+      "id": "B_QUALITY:misc_13398218_3840_2160_60fps:WC_TUNED_U36:1",
+      "section": "B_QUALITY",
+      "scene": "misc_13398218_3840_2160_60fps",
+      "role": "WC_TUNED_U36",
+      "seed": 0,
+      "repeat": 1,
+      "eligible_clean_time": true
+    },
+    {
+      "id": "B_QUALITY:misc_13398218_3840_2160_60fps:RA_LOCAL_U36:1",
+      "section": "B_QUALITY",
+      "scene": "misc_13398218_3840_2160_60fps",
+      "role": "RA_LOCAL_U36",
+      "seed": 0,
+      "repeat": 1,
+      "eligible_clean_time": true
+    },
+    {
+      "id": "B_QUALITY:misc_13398218_3840_2160_60fps:CARA_SHARED25_C_U36:1",
+      "section": "B_QUALITY",
+      "scene": "misc_13398218_3840_2160_60fps",
+      "role": "CARA_SHARED25_C_U36",
+      "seed": 0,
+      "repeat": 1,
+      "eligible_clean_time": true
+    },
+    {
+      "id": "B_QUALITY:av_51b45829-502e-4143-9c32-c026bd6ab191:CARA_SHARED25_C_U36:1",
+      "section": "B_QUALITY",
+      "scene": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+      "role": "CARA_SHARED25_C_U36",
+      "seed": 0,
+      "repeat": 1,
+      "eligible_clean_time": true
+    },
+    {
+      "id": "B_QUALITY:av_51b45829-502e-4143-9c32-c026bd6ab191:RA_LOCAL_U36:1",
+      "section": "B_QUALITY",
+      "scene": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+      "role": "RA_LOCAL_U36",
+      "seed": 0,
+      "repeat": 1,
+      "eligible_clean_time": true
+    },
+    {
+      "id": "B_QUALITY:av_51b45829-502e-4143-9c32-c026bd6ab191:WC_TUNED_U36:1",
+      "section": "B_QUALITY",
+      "scene": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+      "role": "WC_TUNED_U36",
+      "seed": 0,
+      "repeat": 1,
+      "eligible_clean_time": true
+    },
+    {
+      "id": "B_QUALITY:av_51b45829-502e-4143-9c32-c026bd6ab191:WC_PAPER_PORT_U36:1",
+      "section": "B_QUALITY",
+      "scene": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+      "role": "WC_PAPER_PORT_U36",
+      "seed": 0,
+      "repeat": 1,
+      "eligible_clean_time": true
+    },
+    {
+      "id": "B_QUALITY:av_51b45829-502e-4143-9c32-c026bd6ab191:WC_README_U36:1",
+      "section": "B_QUALITY",
+      "scene": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+      "role": "WC_README_U36",
+      "seed": 0,
+      "repeat": 1,
+      "eligible_clean_time": true
+    },
+    {
+      "id": "B_QUALITY:av_51b45829-502e-4143-9c32-c026bd6ab191:WC_WRAPPER_ALLD_U36:1",
+      "section": "B_QUALITY",
+      "scene": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+      "role": "WC_WRAPPER_ALLD_U36",
+      "seed": 0,
+      "repeat": 1,
+      "eligible_clean_time": true
+    },
+    {
+      "id": "B_QUALITY:av_51b45829-502e-4143-9c32-c026bd6ab191:NATIVE_U36:1",
+      "section": "B_QUALITY",
+      "scene": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+      "role": "NATIVE_U36",
+      "seed": 0,
+      "repeat": 1,
+      "eligible_clean_time": true
+    },
+    {
+      "id": "B_TIMING_REPEAT:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:CARA_SHARED25_C_U36:2",
+      "section": "B_TIMING_REPEAT",
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "role": "CARA_SHARED25_C_U36",
+      "seed": 0,
+      "repeat": 2,
+      "eligible_clean_time": true
+    },
+    {
+      "id": "B_TIMING_REPEAT:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:RA_LOCAL_U36:2",
+      "section": "B_TIMING_REPEAT",
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "role": "RA_LOCAL_U36",
+      "seed": 0,
+      "repeat": 2,
+      "eligible_clean_time": true
+    },
+    {
+      "id": "B_TIMING_REPEAT:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:WC_TUNED_U36:2",
+      "section": "B_TIMING_REPEAT",
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "role": "WC_TUNED_U36",
+      "seed": 0,
+      "repeat": 2,
+      "eligible_clean_time": true
+    },
+    {
+      "id": "B_TIMING_REPEAT:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:WC_PAPER_PORT_U36:2",
+      "section": "B_TIMING_REPEAT",
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "role": "WC_PAPER_PORT_U36",
+      "seed": 0,
+      "repeat": 2,
+      "eligible_clean_time": true
+    },
+    {
+      "id": "B_TIMING_REPEAT:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:WC_README_U36:2",
+      "section": "B_TIMING_REPEAT",
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "role": "WC_README_U36",
+      "seed": 0,
+      "repeat": 2,
+      "eligible_clean_time": true
+    },
+    {
+      "id": "B_TIMING_REPEAT:av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632:NATIVE_U36:2",
+      "section": "B_TIMING_REPEAT",
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "role": "NATIVE_U36",
+      "seed": 0,
+      "repeat": 2,
+      "eligible_clean_time": true
+    },
+    {
+      "id": "B_TIMING_REPEAT:human_199:CARA_SHARED25_C_U36:2",
+      "section": "B_TIMING_REPEAT",
+      "scene": "human_199",
+      "role": "CARA_SHARED25_C_U36",
+      "seed": 0,
+      "repeat": 2,
+      "eligible_clean_time": true
+    },
+    {
+      "id": "B_TIMING_REPEAT:human_199:RA_LOCAL_U36:2",
+      "section": "B_TIMING_REPEAT",
+      "scene": "human_199",
+      "role": "RA_LOCAL_U36",
+      "seed": 0,
+      "repeat": 2,
+      "eligible_clean_time": true
+    },
+    {
+      "id": "B_TIMING_REPEAT:human_199:WC_TUNED_U36:2",
+      "section": "B_TIMING_REPEAT",
+      "scene": "human_199",
+      "role": "WC_TUNED_U36",
+      "seed": 0,
+      "repeat": 2,
+      "eligible_clean_time": true
+    },
+    {
+      "id": "B_TIMING_REPEAT:human_199:WC_PAPER_PORT_U36:2",
+      "section": "B_TIMING_REPEAT",
+      "scene": "human_199",
+      "role": "WC_PAPER_PORT_U36",
+      "seed": 0,
+      "repeat": 2,
+      "eligible_clean_time": true
+    },
+    {
+      "id": "B_TIMING_REPEAT:human_199:WC_README_U36:2",
+      "section": "B_TIMING_REPEAT",
+      "scene": "human_199",
+      "role": "WC_README_U36",
+      "seed": 0,
+      "repeat": 2,
+      "eligible_clean_time": true
+    },
+    {
+      "id": "B_TIMING_REPEAT:human_199:NATIVE_U36:2",
+      "section": "B_TIMING_REPEAT",
+      "scene": "human_199",
+      "role": "NATIVE_U36",
+      "seed": 0,
+      "repeat": 2,
+      "eligible_clean_time": true
+    }
+  ],
+  "execution_dependencies": [
+    "physical_matrix is exact sequential order within each phase",
+    "Phase A ends with release and settlement, then four CPU Alex scores and immutable tau freeze",
+    "Phase B requires fresh admission and load, seven warm paths, all28 same-batch formal cells, then12 reverse repeats",
+    "Release Phase B before all quality scoring; no cross-phase formal reuse"
+  ],
+  "selection": {
+    "CAL": [
+      "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "human_199"
+    ],
+    "candidates": [
+      0.04,
+      0.06
+    ],
+    "no_adaptive_expansion": true,
+    "per_prompt_time_tolerance_fraction": 0.05,
+    "eligible": "Both prompts abs(T_DD_tau/T_DD_CARA-1)<=.05",
+    "rank": [
+      "eligible: lowest mean Alex",
+      "otherwise: lowest max relative absolute T_DD mismatch, label UNMATCHED",
+      "tie: lower mean Alex",
+      "tie: smaller tau"
+    ],
+    "finite_complete_only": true,
+    "selection_if_any_candidate_missing": "NO_SELECTION_COMPLETE_DENOMINATOR_REQUIRED",
+    "freeze_before_other_two_CAL": true,
+    "final16_tuning": false
+  },
+  "GPU_authorized": false,
+  "GPU_dispatch_ready": false,
+  "real_GPU_equivalence_passed": false,
+  "old_thresholds_unchanged": true,
+  "old_T_DD": null,
+  "final16": "ORIGINAL_PROTECTED_IDENTITY_NOT_READ_FOR_SELECTION",
+  "highspeed19D": "NO_REGISTERED_LOCAL_ENTRY_FOUND_NOT_MERGED",
+  "budget_increment_permission": {
+    "source": "direct_user_chat_20261027",
+    "mainline_only": true,
+    "increment_GPUh": 24,
+    "notify_each_increase": true,
+    "applied_now": false,
+    "does_not_authorize_GPU_launch": true
+  },
+  "scope_sha256": "d98fd5d3d466ce2f2e3250cc07b1b3d13b6e1d8076a14db046da00746cc78fb1"
+}

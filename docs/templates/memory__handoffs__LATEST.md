@@ -1,5 +1,7 @@
 # CARA-Cache 当前交接
 
+[723双时间与WC公平控制P0](repo:research/723_CARA_WC_TIME_PROTOCOL_P0_CPU_AND_INCREMENTAL_SCOPE_20261027.md)：双端真实源小张量CPU通过；增量73条开发范围与评分/热环境已登记，真实GPU等价、完整生产组合和实测报价仍待完成，无GPU提交。新批T_DD/T_request并列，旧门槛与原件不变。主线预算可按用户新授权每次加24GPUh并通知，本轮未加。
+
 {{snapshot}}
 
 {{run_details}}

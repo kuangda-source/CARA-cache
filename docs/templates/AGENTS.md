@@ -19,6 +19,8 @@ Read [EXPERIMENT_REPORT.md](repo:EXPERIMENT_REPORT.md), [current state](repo:res
 
 - Execution workflow and documentation cadence follow [docs/EXECUTION_MODES.md](repo:docs/EXECUTION_MODES.md) (EXPLORE/CONFIRM modes, card specs in `cards/`, question queue in [plans/QUESTION_QUEUE.md](repo:plans/QUESTION_QUEUE.md)). It changes process only; the safety and evidence rules above and every registered card's scope, budget and authorization take precedence, and it grants no new GPU authority. Explicit chat authorization remains valid; no additional signature is required. Reuse unchanged accepted components and verify affected paths.
 
+The user authorized mainline total-budget increases on 2026-10-27 in increments of 24 GPUh, with notification of each increase. This supersedes the requirement for a separate total-cap approval only; the current cap remains 226 until an actual ledger adjustment is recorded. It does not authorize a new GPU launch, change an existing card hard limit, or permit edits to completed contracts. P0 remains CPU-only.
+
 ## Documentation and synchronization
 
 - `docs/project_status.json` owns the current evidence snapshot and receipt pointers. `paper/experiment_master_table.json` owns the scientific rows and their evidence references. `paper/internal_to_paper_mapping.json` owns names and versioned identities. Update these inputs and the relevant `docs/templates/` file, then run `python3 docs/tools/render_repository_docs.py` and `--check`.

@@ -1,0 +1,99 @@
+{
+  "status": "P0_PINNED_SOURCE_TINY_CPU_PASS_NOT_GPU_PARITY",
+  "checks": [
+    {
+      "flow": false,
+      "complete_tiny_paths": 7,
+      "true_native_forward": true,
+      "three_roles": [
+        "Native",
+        "WC_wrapper_allD",
+        "WC_README"
+      ],
+      "Native_WC_allD_guided_latent_RGB_RNG_equal": true,
+      "timing_on_off_all_three_equal": true,
+      "two_boundary_sync_only": true,
+      "refusal_null_T_DD": true,
+      "port_runs_CPU_only": true,
+      "port_actual_parameter_routing": true,
+      "proofs": [
+        {
+          "source_sha256": "b485cb8fd6e262a40e5823365c34ef7db1bc036c591d7577489e04077c515903",
+          "force_full": true,
+          "paper_port": false,
+          "changed_sites": [
+            "skip_predicate_false"
+          ],
+          "compiled_AST_sha256": "f4d3efcf221b7fd009836231b6538746fb6f6870694d67f4df627dc091af6fad",
+          "paper_exact": false
+        },
+        {
+          "source_sha256": "b485cb8fd6e262a40e5823365c34ef7db1bc036c591d7577489e04077c515903",
+          "force_full": false,
+          "paper_port": true,
+          "changed_sites": [
+            "ATS_base_mult_4"
+          ],
+          "compiled_AST_sha256": "60e30ba2c9fba7c030366b18669c7fc7f66455e88505f2e9063a5be7a6b3bb14",
+          "paper_exact": false
+        }
+      ],
+      "actual_Cosmos_weights": false,
+      "real_encoded_video": false,
+      "GPU_parity": false
+    },
+    {
+      "flow": true,
+      "complete_tiny_paths": 7,
+      "true_native_forward": true,
+      "three_roles": [
+        "Native",
+        "WC_wrapper_allD",
+        "WC_README"
+      ],
+      "Native_WC_allD_guided_latent_RGB_RNG_equal": true,
+      "timing_on_off_all_three_equal": true,
+      "two_boundary_sync_only": true,
+      "refusal_null_T_DD": true,
+      "port_runs_CPU_only": true,
+      "port_actual_parameter_routing": true,
+      "proofs": [
+        {
+          "source_sha256": "b485cb8fd6e262a40e5823365c34ef7db1bc036c591d7577489e04077c515903",
+          "force_full": true,
+          "paper_port": false,
+          "changed_sites": [
+            "skip_predicate_false"
+          ],
+          "compiled_AST_sha256": "f4d3efcf221b7fd009836231b6538746fb6f6870694d67f4df627dc091af6fad",
+          "paper_exact": false
+        },
+        {
+          "source_sha256": "b485cb8fd6e262a40e5823365c34ef7db1bc036c591d7577489e04077c515903",
+          "force_full": false,
+          "paper_port": true,
+          "changed_sites": [
+            "ATS_base_mult_4"
+          ],
+          "compiled_AST_sha256": "60e30ba2c9fba7c030366b18669c7fc7f66455e88505f2e9063a5be7a6b3bb14",
+          "paper_exact": false
+        }
+      ],
+      "actual_Cosmos_weights": false,
+      "real_encoded_video": false,
+      "GPU_parity": false
+    }
+  ],
+  "upstream_sha256": {
+    "cosmos_predict2/inference.py": "0db96c49f0b3f18a971bc989e0727132dafc27ef621145a2d25a3da62a7a1975",
+    "cosmos_predict2/_src/predict2/inference/video2world.py": "59aa9e236a5e7e26490f5cfcb94ab95ce911d9c38eba61dd8aef7d067e458a95",
+    "cosmos_predict2/_src/predict2/inference/worldcache_utils.py": "b485cb8fd6e262a40e5823365c34ef7db1bc036c591d7577489e04077c515903",
+    "cosmos_predict2/_src/predict2/models/text2world_model_rectified_flow.py": "c6c68f297859e11c76d2921667a29cabfecef3a7b5d3ab831bf9bb54b25b7d87",
+    "cosmos_predict2/_src/predict2/models/fm_solvers_unipc.py": "f6a06c75f059693ade6c802e99f6058575969b6a71ef18ab05e7ed46701053d3"
+  },
+  "cuda_initialized": false,
+  "limits": "Pinned Native/WC/RF/UniPC bodies; explicit tiny CPU weights, noise generator, attention, conditioner, decoder and mock writer. No real Cosmos weights, encoded videos, GPU equality, quality score or latency evidence.",
+  "CUDA_initialized": false,
+  "GPU_submissions": 0,
+  "CPU_wall_seconds": 2.3860035
+}
