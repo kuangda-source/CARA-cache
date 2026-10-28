@@ -1,6 +1,6 @@
-# Fast R2：A32已单次启动，等待完整验收
+# Fast R2：A32完整接受并冻结，B36待独立准入
 
-用户明确批准后，A32于2026-10-28 **22:17:40** 在A6000 GPU1单次启动，32条、硬5GPUh，独占原runner上下文已确认。唯一中央预约5GPUh、cap226保持；实际费用与科学结果待完整验收。10月29日00:47半程、03:15终验，B36后置。[原运行交接](A32_POST_LAUNCH_HANDOFF.md) · [实际启动](../../../../reports/cara_fast_A6000_GPU_actual_launch_r1_20261028.json)。以下CPU准备与报价保留其原证据范围。
+用户明确批准的A32已经完成完整32条、技术/费用/释放及12对真实CPU评分接受，并按原规则一次冻结。实际费用2.2557055054700728GPUh已中央唯一结算、cap226保持；两个检查均已删除。[真实冻结](A32_FROZEN_BASELINES.json)为WC_T006/RA_T1/Native22：前两者UNMATCHED，只有Native22进入Native_T_DD/1.5的5%时间窗。[745完整校准结果](../../../../research/745_CARA_A32_COMPLETE_FIT_SCORES_AND_FROZEN_BASELINES_20261029.md) · [原运行交接](A32_POST_LAUNCH_HANDOFF.md)。B36尚未启动，以下CPU准备与报价保留其原证据范围。
 
 ## 68条生产绑定
 

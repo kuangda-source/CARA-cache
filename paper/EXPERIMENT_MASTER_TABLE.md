@@ -4,11 +4,11 @@
 
 本表由[机器索引](experiment_master_table.json)自动生成，共 **60项**。每行是一组科学问题或完整实验卡，不是一次工程重试；不同实验复用的原件不累加为独立样本。`D`为历史开发、`N`为评价/后续、`X`为探索、`REV`为v6设计、`PG`为现行自动生成器路线。
 
-**A32已在A6000独占启动，等待完整验收。**
+**A32完整验收并冻结两个FIT的基线，B36后置。**
 
-A32于10月28日22:17:40在两卡GPU1 A6000独占启动；32条、硬5GPUh，原runner上下文已确认。中央226上限保持，唯一预约5GPUh、旧16.5未知责任保留。10月29日00:47半程、03:15终验；完整GPU数值门、保真与速度结论仍待验收，B36后置。
+A32完整32/32、技术/释放/原费用及12对93帧评分均已接受，实际2.2557055054700728GPUh已中央结算。按原规则冻结WC_T006、RA_T1与Native22；WC/RA保留UNMATCHED，只有Native22满足1.5目标的5%时间窗。仅两个旧CAL的FIT校准，无F19比较或新输入结论；两项检查已删除，B36未启动。
 
-[证据1](../reports/cara_fast_A6000_GPU_actual_launch_r1_20261028.json) · [证据2](../reports/cara_fast_A6000_context_start_confirmed_r1_20261028.json) · [证据3](../reports/cara_fast_A6000_central_admission_r1_20261028.json) · [证据4](../reports/cara_fast_A6000_storage_r1_20261028.json) · [证据5](../reports/cara_fast_A6000_acceptance_schedule_r1_20261028.json) · [证据6](../reports/cara_fast_resource_CPU_acceptance_r4_20261028.json) · [证据7](../reports/cara_fast_post_CPU_acceptance_r2_20261028.json) · [证据8](../reports/cara_fast_A6000_startup_progress_r2_20261028.json) · [证据9](../reports/cara_fast_A6000_status_20261028_2327.json) · [证据10](../reports/cara_fast_A6000_resource_status_20261028_2327.json) · [证据11](../reports/cara_fast_A6000_budget_status_20261028_2327.json)
+[证据1](../reports/cara_fast_A6000_GPU_actual_launch_r1_20261028.json) · [证据2](../reports/cara_fast_A6000_context_start_confirmed_r1_20261028.json) · [证据3](../reports/cara_fast_A6000_central_admission_r1_20261028.json) · [证据4](../reports/cara_fast_A6000_storage_r1_20261028.json) · [证据5](../reports/cara_fast_A6000_acceptance_schedule_r1_20261028.json) · [证据6](../reports/cara_fast_resource_CPU_acceptance_r4_20261028.json) · [证据7](../reports/cara_fast_post_CPU_acceptance_r2_20261028.json) · [证据8](../reports/cara_fast_A6000_startup_progress_r2_20261028.json) · [证据9](../reports/cara_fast_A6000_status_20261028_2327.json) · [证据10](../reports/cara_fast_A6000_resource_status_20261028_2327.json) · [证据11](../reports/cara_fast_A6000_budget_status_20261028_2327.json) · [证据12](../reports/cara_fast_A6000_terminal_20261029_0050.json) · [证据13](../reports/cara_fast_A6000_release_accepted_20261029_0053.json) · [证据14](../reports/cara_fast_A6000_central_settlement_20261029_0052.json) · [证据15](../reports/cara_fast_A6000_CPU_score_launch_20261029_0056.json) · [证据16](../reports/cara_fast_A6000_score_manifest_20261029_0053.json) · [证据17](../reports/cara_fast_A6000_CPU_score_status_20261029_0058.json) · [证据18](../plans/cara_next_stage_20261028/mainline/r2/A32_FROZEN_BASELINES.json) · [证据19](../reports/cara_fast_A6000_CPU_scores_terminal_20261029_0107.json) · [证据20](../reports/cara_fast_A6000_CPU_scores_accepted_20261029_0108.json) · [证据21](../plans/cara_next_stage_20261028/mainline/r2/A32_TO_B36_BOUND_HANDOFF.json) · [证据22](../reports/cara_fast_A6000_frozen_calibration_analysis_20261029_0110.json)
 
 ## 现行自动生成器路线
 

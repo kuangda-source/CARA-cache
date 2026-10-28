@@ -2,6 +2,23 @@
 
 用户已明确批准单次 A32。2026-10-28 **22:17:40 Asia/Shanghai** 实际启动，32条、硬5 GPUh；不得在任一主机重派，也不自动启动 B36。
 
+**最新：A32完整链已接受并一次冻结，两个检查均已删除。** GPU00:33结束、CPU01:01:26退出0；真实12对评分接受后已生成 `A32_FROZEN_BASELINES.json`。WC_T006/RA_T1保留UNMATCHED，Native22为MATCHED。见 `research/745_CARA_A32_COMPLETE_FIT_SCORES_AND_FROZEN_BASELINES_20261029.md`。以下CPU启动/检查与原GPU身份保留为历史记录，不再派发任何原任务。
+
+验收过程中复用的原回执：
+
+- 原terminal：`reports/cara_fast_A6000_terminal_20261029_0050.json`
+- 原中央settlement：`reports/cara_fast_A6000_central_settlement_20261029_0052.json`
+- 原release接受：`reports/cara_fast_A6000_release_accepted_20261029_0053.json`
+- 原12对manifest：`reports/cara_fast_A6000_score_manifest_20261029_0053.json`
+- 原CPU启动：`reports/cara_fast_A6000_CPU_score_launch_20261029_0056.json`
+- CPU状态：`reports/cara_fast_A6000_CPU_score_status_20261029_0058.json`（当时仍运行，不含分数）
+
+GPU原32/32、3559观测、最大gap4.715004秒/最高88°C与全部原件哈希通过；实际**2.2557055054700728 GPUh**已中央唯一结算，cap226、旧16.5责任保持。不要重新派发GPU、终态读取器或CPU评分，也不要重新创建一个settlement快照来替换原文件：manifest绑定原release/settlement摘要。
+
+CPU于2026-10-29 **00:55:16** 单次启动，2CPU/8GiB、cores26,27、禁swap、无GPU、原件/source只读，2小时上限。原容器`cara-fast-cal-a32-a6000-r2-20261028-A-score-cpu`，manifest SHA `7937a4895626d1555864bf30b78b3ee33f345e870ed53e84af93f3be2d33c767`。现有`A-score-CPU-intent.json`和`A-score-CPU-launch.json`位于原GPUstage，恢复原CPU句柄，禁止重试。
+
+最终评分原捕获为 `reports/cara_fast_A6000_CPU_scores_terminal_20261029_0107.json`，独立接受为 `reports/cara_fast_A6000_CPU_scores_accepted_20261029_0108.json`，实际冻结为 `plans/cara_next_stage_20261028/mainline/r2/A32_FROZEN_BASELINES.json`，已在真实六原件上核对的B承接为 `A32_TO_B36_BOUND_HANDOFF.json`。冻结文件已存在，只能验证，绝不覆盖。B36仍待独立授权，不重开任何A32读取/评分进程。
+
 - run：`cara-fast-cal-a32-r2-20261028`
 - launch：`5a5ab53ebb604433ab83cea06e1ab412`
 - 源码：`9eaa5eb30c5509810c99a55002b51d6b71da1ef6`；准入操作器后续仅修正真实路径和实际英语资源复核，`4cfc16ce`，未改GPU运行源。

@@ -832,6 +832,7 @@ def build():
                 master['operation_policy'].update(current_running_card='CARA-IG-B1-R2',current_running_cards=['CARA-IG-B1-R2'],active_launch_ref=ig['launch_ref'])
         master['status_counts'] = {state:sum(r['state']==state for r in rows) for state in sorted({r['state'] for r in rows})}
     fast = status.get('fast_A32_execution_20261028')
+    fast_terminal = bool(fast and fast.get('GPU_technical_accepted'))
     if fast:
         actual = load(fast['launch_ref'])
         observed = load(fast['context_ref'])
@@ -851,6 +852,25 @@ def build():
         master['operation_policy'].update(current_running_card=actual['run_id'],
             current_running_cards=[actual['run_id']],active_launch_ref=fast['launch_ref'],
             snapshot_observed_at=fast['observed_unix'])
+        if fast_terminal:
+            release = load(fast['release_ref'])
+            if (not all(release.get(key) is True for key in (
+                    'technical_accepted','GPU_released','original_process_exited','cost_settled'))
+                    or release['launch_id'] != actual['launch_id']):
+                raise ValueError('Original accepted A32 release differs')
+            run_details = ('| 字段 | A32终态与释放后评分 |\n|---|---|\n'
+                '| GPU原运行 | ' + local_time(observed['supervisor']['started_unix']) + '启动；'
+                + local_time(fast['GPU_ended_unix']) + '正常结束，32/32完整 |\n'
+                '| 独占与释放 | 原四个句柄退出、锁释放、Default恢复；原独占/热界完整接受 |\n'
+                '| 实际费用 | ' + str(release['actual_GPUh']) + ' GPUh已中央唯一结算；cap226、旧16.5未知责任保持 |\n'
+                '| CPU评分 | 12对、93帧；2CPU/8GiB、无GPU，原source和产物只读 |\n'
+                '| 基线冻结 | ' + ('已按完整评分一次冻结' if fast.get('baseline_frozen') else '等待完整评分接受；不从部分分数选择') + '；B36另批 |\n'
+                '| 自动检查 | ' + fast['check_schedule_zh'] + ' |')
+            active_cpu = fast.get('CPU_score_status') == 'RUNNING'
+            master['operation_policy'].update(current_running_card=None,current_running_cards=[],active_launch_ref=None,
+                current_CPU_card=actual['run_id']+'-A-score' if active_cpu else None,
+                current_CPU_launch_ref=fast['CPU_score_launch_ref'] if active_cpu else None,
+                completed_A32_launch_ref=fast['launch_ref'])
     headlines = '\n'.join(f"- **{f['title']}**（{f['short_scope']}）：{f['result']} {refs(f['refs'])}"
                            for f in status['headline_results'])
     details = '\n\n'.join(f"### {i+1}. {f['title']}\n\n{f['result']}\n\n{f['scope']} {refs(f['refs'])}"
@@ -868,7 +888,7 @@ def build():
                 or workstreams['new_budget_reserved_GPUh']):
             raise ValueError('Next-stage preparation registry or authority differs')
         queue = (link(next_stage['reconciliation_ref'], '最新计划与对话分工')
-                 + ('；A32已单次启动，其余按各卡条件推进，科学结果以终态验收为准。\n\n' if fast else '；以下为准备/条件提案，不是科学结果或GPU准入。\n\n')
+                 + ('；A32 GPU阶段已接受，其余按各卡条件推进，评分/科学解释分开验收。\n\n' if fast_terminal else '；A32已单次启动，其余按各卡条件推进，科学结果以终态验收为准。\n\n' if fast else '；以下为准备/条件提案，不是科学结果或GPU准入。\n\n')
                  + '| 顺序 / 负责人 | 当前阶段 | 下一项验收 / 动作 |\n|---|---|---|\n'
                  + '\n'.join(f"| {cell(r['id'])} · {cell(r['owner'])} | {cell(r['state'])} | "
                               f"{cell(r['next_action'])} |" for r in workstreams['schedule']))
@@ -898,7 +918,7 @@ def build():
         '**2026-10-28最新安排：主线P0/F19，探索S-FAST19与固定Shared25-C的Q并行准备。** '
         + link(next_stage['reconciliation_ref'], '最新计划与两个对话分工')
         + ' · ' + link(next_stage['research_ref'], '739接收记录')
-        + ('。A32已获单次授权并在A6000启动，32条、硬5GPUh，B36仍后置；Fidelity-v2前瞻绑定。' if fast else '。新评价Fidelity-v2按新卡前瞻绑定；GPU未新增授权、未预约、未启动。')
+        + ('。A32完整32条及12对评分已接受，真实基线已冻结；B36后置。' if fast_terminal and fast.get('baseline_frozen') else '。A32 GPU完整32条已接受并释放，实际费用已结算；CPU评分与基线冻结按原链推进，B36后置。' if fast_terminal else '。A32已获单次授权并在A6000启动，32条、硬5GPUh，B36仍后置；Fidelity-v2前瞻绑定。' if fast else '。新评价Fidelity-v2按新卡前瞻绑定；GPU未新增授权、未预约、未启动。')
         + 'WC73已热停结算，禁止自动重派；原DEV128、旧合同与失败保持。以下旧准备记录仅作历史复用依据。'
         if next_stage else '')
     mainline = status.get('fast_mainline_preparation_20261028')
@@ -910,7 +930,7 @@ def build():
             + ' · ' + link(mainline['orchestration_review_ref'], '编排CPU控制接受')
             + ('。该段为启动前CPU准备快照；当前A32运行见下，旧时钟与原科学结果不改。' if fast else '。GPU提交/预约/新增费用均为0；旧时钟与原科学结果不改。'))
     if fast:
-        values['next_stage_notice'] += ('\n\n' + link(fast['research_ref'], '742 A32实际启动与检查安排')
+        values['next_stage_notice'] += ('\n\n' + link(fast['research_ref'], fast.get('notice_title','742 A32实际启动与检查安排'))
             + '：' + fast['summary'] + ' ' + link(fast['launch_ref'], '唯一启动回执'))
     b36_cpu = status.get('fast_B36_CPU_preparation_20261029')
     if b36_cpu:

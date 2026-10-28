@@ -6,7 +6,7 @@
 
 ## 核心动作
 
-恢复唯一A32原句柄，继续独立CPU准备；按实际起点半程/终态检查。完整终态与中央费用接受后，12对CPU评分并一次冻结WC/RA/Native-k；B36另行说明目的与报价后审批。
+保留真实冻结文件及WC/RA的UNMATCHED；B36仅在完整源/CPU/同卡fresh准入和单独授权后启动，不重派A32、不扩大校准网格。
 
 C包含原WorldCache的probe/window/warp/head/RF读出，并非单纯复制旧速度。A在post-RF分支速度上修正，共享alpha后做CFG融合；语义C/A都可能显示为物理CC。D对两CFG支做完整深层计算，更新真实D历史，但不会抹掉已有轨迹误差。WorldCache自己的决策可能出现DC/CD。
 

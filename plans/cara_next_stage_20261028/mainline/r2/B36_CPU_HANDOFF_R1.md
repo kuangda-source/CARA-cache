@@ -33,3 +33,5 @@
 ## 下一边界
 
 本次未生成实际A32冻结文件。本库的CPU测试冻结文件全部位于独立测试目录，含CPU fixture标记，不能用于生产。A32真实终态、释放、中央实际结算及12对实际CPU评分接受后，才执行原一次冻结；然后将原六文件交给上述承接。B36完整报价/单独授权、全新宿主预算与硬件准入、最终GPU终态仍后置，`GPU_dispatch_ready=False`。本次不修改旧方法、mask、alpha、评分协议或历史科学记录。
+
+后续更新：A32实际完整链与一次冻结已经接受，真实六份原件已通过同一承接validator，见 [A32_TO_B36_BOUND_HANDOFF.json](A32_TO_B36_BOUND_HANDOFF.json) 和 [745结果记录](../../../../research/745_CARA_A32_COMPLETE_FIT_SCORES_AND_FROZEN_BASELINES_20261029.md)。WC_T006/RA_T1的UNMATCHED保持，实际承接不是CPU夹具，但仍不授予B36 GPU启动。
