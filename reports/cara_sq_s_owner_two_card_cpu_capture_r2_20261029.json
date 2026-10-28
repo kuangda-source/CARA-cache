@@ -1,0 +1,287 @@
+{
+  "status": "SQ_CPU_PREPARATION_CAPTURE",
+  "observed_unix": 1793207288.5793111,
+  "launch": {
+    "status": "SQ_GPU_HIDDEN_CPU_PREPARATION_LAUNCHED",
+    "stage": "/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-owner-cpu-two-card-r2-20261029",
+    "container": "cara-sq-s-owner-cpu-two-card-r2-20261029-cpu",
+    "source_revision": "8779bb2599029c75d1e651b5ba9ae8e861491bf3",
+    "registration_sha256": "050cb2d133342b96ea2b88aa72f00cc1f87605fbe4aba04abdb349b8695d5ab1",
+    "identity": {
+      "pid": 817742,
+      "state": "R",
+      "start_ticks": 650198075,
+      "command": "docker run --cpuset-cpus 4,5 --memory-swap 8g --ulimit fsize=67108864:67108864 -v /data20t/gaokuangda/worldcache_workspace/outputs/cara-ig-b1-r2-20261027:/data20t/gaokuangda/worldcache_workspace/outputs/cara-ig-b1-r2-20261027:ro --read-only --network none --pid host --name cara-sq-s-owner-cpu-two-card-r2-20261029-cpu --label wcomr.manifest=050cb2d133342b96ea2b88aa72f00cc1f87605fbe4aba04abdb349b8695d5ab1 --user 1004:998 --cpus 2 --memory 8g --pids-limit 512 --tmpfs /tmp:rw,size=2g -v /data20t/gaokuangda/worldcache_workspace:/data20t/gaokuangda/worldcache_workspace:ro -v /data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-owner-cpu-two-card-r2-20261029:/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-owner-cpu-two-card-r2-20261029:rw -w /data20t/gaokuangda/worldcache_workspace/runtime -e CUDA_CACHE_PATH=/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-owner-cpu-two-card-r2-20261029/CPU-caches/cuda -e CUDA_HOME=/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cuda_nvrtc -e CUDA_PATH=/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cuda_nvrtc -e CUDA_VISIBLE_DEVICES= -e HF_HOME=/data20t/gaokuangda/worldcache_workspace/cache/huggingface -e HF_HUB_CACHE=/data20t/gaokuangda/worldcache_workspace/cache/huggingface/hub -e HF_HUB_OFFLINE=1 -e LD_LIBRARY_PATH=/data20t/gaokuangda/worldcache_workspace/system-libs-r1/usr/lib/x86_64-linux-gnu/blas:/data20t/gaokuangda/worldcache_workspace/system-libs-r1/usr/lib/x86_64-linux-gnu/lapack:/data20t/gaokuangda/worldcache_workspace/system-libs-r1/usr/lib/x86_64-linux-gnu/pulseaudio:/data20t/gaokuangda/worldcache_workspace/system-libs-r1/usr/lib/x86_64-linux-gnu:/data20t/gaokuangda/worldcache_workspace/system-libs-r1/lib/x86_64-linux-gnu:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cuda_nvrtc/lib:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cuda_runtime/lib:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cudnn/lib:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/nvjitlink/lib:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cublas/lib:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/torch/lib -e LOGNAME=gaokuangda -e NLTK_DATA=/data20t/gaokuangda/worldcache_workspace/runtime-resources/nltk-guardrail-d6d4bfa8-r1 -e NVIDIA_VISIBLE_DEVICES=void -e OMP_NUM_THREADS=2 -e OPENBLAS_NUM_THREADS=2 -e PATH=/data20t/gaokuangda/worldcache_workspace/system-libs-r1/usr/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin -e PYTHONDONTWRITEBYTECODE=1 -e PYTHONPATH=/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-owner-cpu-two-card-r2-20261029/scripts:/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-owner-cpu-two-card-r2-20261029/src -e TOKENIZERS_PARALLELISM=false -e TORCHINDUCTOR_CACHE_DIR=/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-owner-cpu-two-card-r2-20261029/CPU-caches/torchinductor -e TORCH_EXTENSIONS_DIR=/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-owner-cpu-two-card-r2-20261029/CPU-caches/extensions -e TORCH_HOME=/data20t/gaokuangda/worldcache_workspace/cache/torch -e TRANSFORMERS_OFFLINE=1 -e TRITON_CACHE_DIR=/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-owner-cpu-two-card-r2-20261029/CPU-caches/triton -e USER=gaokuangda -e WC_SCOUT_KIND=CAL12 -e XDG_CACHE_HOME=/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-owner-cpu-two-card-r2-20261029/CPU-caches/xdg --entrypoint /usr/bin/timeout sha256:1e81ac62ee68ca1a6ef655515096a1d84579b01aa4986810c9b18d4f6c4c552d --signal=TERM --kill-after=10s 1800 /usr/bin/ionice -c 3 /data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/bin/python /data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-owner-cpu-two-card-r2-20261029/scripts/check_cara_sq_s_owner_cpu_r1.py --assets /data20t/gaokuangda/worldcache_workspace/outputs/cara-ig-b1-r2-20261027/assets --manifest-sha256 5487f8db32d45a5d0f3304333bf362d9d6ec46fb3181c735d7267b78a6e398fa --profile two_card --scope plans/cara_next_stage_20261028/sq/S_OWNER_ROUNDTRIP_CPU_R1.json --output /data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-owner-cpu-two-card-r2-20261029/analysis.json "
+    },
+    "started_unix": 1793207077.2359438,
+    "resource_limits": {
+      "CPUs": 2,
+      "cpuset": "4,5",
+      "RAM_bytes": 8589934592,
+      "wall_seconds": 1800,
+      "allocated_vCPUh_max": 1.0,
+      "output_bytes_max": 67108864,
+      "assets_readonly": true,
+      "network": "none",
+      "GPU": "hidden"
+    },
+    "new_GPU_submissions": 0,
+    "ledger_writes": 0
+  },
+  "source_hashes_equal": true,
+  "runtime_hashes_equal": true,
+  "container_state": {
+    "Status": "exited",
+    "Running": false,
+    "Paused": false,
+    "Restarting": false,
+    "OOMKilled": false,
+    "Dead": false,
+    "Pid": 0,
+    "ExitCode": 0,
+    "Error": "",
+    "StartedAt": "2026-10-28T17:04:37.355627837Z",
+    "FinishedAt": "2026-10-28T17:05:25.508643928Z"
+  },
+  "host_config": {
+    "DeviceRequests": null,
+    "NanoCpus": 2000000000,
+    "Memory": 8589934592,
+    "MemorySwap": 8589934592,
+    "CpusetCpus": "4,5",
+    "NetworkMode": "none",
+    "ReadonlyRootfs": true
+  },
+  "mounts": [
+    {
+      "Type": "bind",
+      "Source": "/data20t/gaokuangda/worldcache_workspace/outputs/cara-ig-b1-r2-20261027",
+      "Destination": "/data20t/gaokuangda/worldcache_workspace/outputs/cara-ig-b1-r2-20261027",
+      "Mode": "ro",
+      "RW": false,
+      "Propagation": "rprivate"
+    },
+    {
+      "Type": "bind",
+      "Source": "/data20t/gaokuangda/worldcache_workspace",
+      "Destination": "/data20t/gaokuangda/worldcache_workspace",
+      "Mode": "ro",
+      "RW": false,
+      "Propagation": "rprivate"
+    },
+    {
+      "Type": "bind",
+      "Source": "/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-owner-cpu-two-card-r2-20261029",
+      "Destination": "/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-owner-cpu-two-card-r2-20261029",
+      "Mode": "rw",
+      "RW": true,
+      "Propagation": "rprivate"
+    }
+  ],
+  "image": "sha256:1e81ac62ee68ca1a6ef655515096a1d84579b01aa4986810c9b18d4f6c4c552d",
+  "result": {
+    "status": "SQ_S_OWNER_CPU_PASS_STANDINS_NOT_COMPLETE_COLLECTOR",
+    "profile": "two_card",
+    "scope": {
+      "schema": "SQ_S_POLICY_OWNER_ROUNDTRIP_CPU_COMPONENT_R1",
+      "scope": "Actual PolicyOwner and pinned sampler with declared tiny CPU weights/conditioner/decoder",
+      "parents": [
+        "Shared25-C",
+        "F19-C"
+      ],
+      "flows": [
+        false,
+        true
+      ],
+      "complete_CPU_paths": 8,
+      "solver_pairs_per_path": 36,
+      "checked_post_pair_steps": [
+        8,
+        9,
+        22,
+        35
+      ],
+      "expected_checked_boundaries": 16,
+      "dirty_owner_must_be_rejected_after_cleanup": true,
+      "changed_policy_or_poisoned_owner_must_not_restore": true,
+      "S_labels_collected": 0,
+      "actual_Cosmos_weights": false,
+      "real_generated_video": false,
+      "complete_S_collector_accepted": false,
+      "GPU_authorized": false,
+      "GPU_submissions": 0,
+      "ledger_writes": 0
+    },
+    "rows": [
+      {
+        "flow": false,
+        "status": "PASS",
+        "parents": [
+          {
+            "parent": "Shared25-C",
+            "full36_OFF_ON_guided_latent_CPU_video_equal": true
+          },
+          {
+            "parent": "F19-C",
+            "full36_OFF_ON_guided_latent_CPU_video_equal": true
+          }
+        ],
+        "events": [
+          {
+            "step": 8,
+            "dirty_owner_refused_and_cleaned": true,
+            "policy_and_poison_changes_refused": true,
+            "logical_snapshot_bytes": 131072
+          },
+          {
+            "step": 9,
+            "dirty_owner_refused_and_cleaned": true,
+            "policy_and_poison_changes_refused": true,
+            "logical_snapshot_bytes": 131072
+          },
+          {
+            "step": 22,
+            "dirty_owner_refused_and_cleaned": true,
+            "policy_and_poison_changes_refused": true,
+            "logical_snapshot_bytes": 131072
+          },
+          {
+            "step": 35,
+            "dirty_owner_refused_and_cleaned": true,
+            "policy_and_poison_changes_refused": true,
+            "logical_snapshot_bytes": 131072
+          },
+          {
+            "step": 8,
+            "dirty_owner_refused_and_cleaned": true,
+            "policy_and_poison_changes_refused": true,
+            "logical_snapshot_bytes": 131072
+          },
+          {
+            "step": 9,
+            "dirty_owner_refused_and_cleaned": true,
+            "policy_and_poison_changes_refused": true,
+            "logical_snapshot_bytes": 131072
+          },
+          {
+            "step": 22,
+            "dirty_owner_refused_and_cleaned": true,
+            "policy_and_poison_changes_refused": true,
+            "logical_snapshot_bytes": 131072
+          },
+          {
+            "step": 35,
+            "dirty_owner_refused_and_cleaned": true,
+            "policy_and_poison_changes_refused": true,
+            "logical_snapshot_bytes": 131072
+          }
+        ],
+        "complete_CPU_paths": 4,
+        "actual_Cosmos_weights": false,
+        "real_generated_video": false,
+        "S_labels_collected": 0,
+        "complete_S_collector_accepted": false
+      },
+      {
+        "flow": true,
+        "status": "PASS",
+        "parents": [
+          {
+            "parent": "Shared25-C",
+            "full36_OFF_ON_guided_latent_CPU_video_equal": true
+          },
+          {
+            "parent": "F19-C",
+            "full36_OFF_ON_guided_latent_CPU_video_equal": true
+          }
+        ],
+        "events": [
+          {
+            "step": 8,
+            "dirty_owner_refused_and_cleaned": true,
+            "policy_and_poison_changes_refused": true,
+            "logical_snapshot_bytes": 131072
+          },
+          {
+            "step": 9,
+            "dirty_owner_refused_and_cleaned": true,
+            "policy_and_poison_changes_refused": true,
+            "logical_snapshot_bytes": 131072
+          },
+          {
+            "step": 22,
+            "dirty_owner_refused_and_cleaned": true,
+            "policy_and_poison_changes_refused": true,
+            "logical_snapshot_bytes": 131072
+          },
+          {
+            "step": 35,
+            "dirty_owner_refused_and_cleaned": true,
+            "policy_and_poison_changes_refused": true,
+            "logical_snapshot_bytes": 131072
+          },
+          {
+            "step": 8,
+            "dirty_owner_refused_and_cleaned": true,
+            "policy_and_poison_changes_refused": true,
+            "logical_snapshot_bytes": 131072
+          },
+          {
+            "step": 9,
+            "dirty_owner_refused_and_cleaned": true,
+            "policy_and_poison_changes_refused": true,
+            "logical_snapshot_bytes": 131072
+          },
+          {
+            "step": 22,
+            "dirty_owner_refused_and_cleaned": true,
+            "policy_and_poison_changes_refused": true,
+            "logical_snapshot_bytes": 131072
+          },
+          {
+            "step": 35,
+            "dirty_owner_refused_and_cleaned": true,
+            "policy_and_poison_changes_refused": true,
+            "logical_snapshot_bytes": 131072
+          }
+        ],
+        "complete_CPU_paths": 4,
+        "actual_Cosmos_weights": false,
+        "real_generated_video": false,
+        "S_labels_collected": 0,
+        "complete_S_collector_accepted": false
+      }
+    ],
+    "CPU_wall_seconds": 44.924261851236224,
+    "CPU_seconds": 46.919131182,
+    "peak_RSS_KiB": 930368,
+    "actual_platform": {
+      "system": "Linux",
+      "machine": "x86_64"
+    },
+    "torch_version": "2.7.1+cu128",
+    "fixture_status": "PINNED_PIPELINE_CPU_FIXTURE_EXTERNAL_EXERCISE_COMPLETE",
+    "upstream_sha256": {
+      "cosmos_predict2/inference.py": "0db96c49f0b3f18a971bc989e0727132dafc27ef621145a2d25a3da62a7a1975",
+      "cosmos_predict2/_src/predict2/inference/video2world.py": "59aa9e236a5e7e26490f5cfcb94ab95ce911d9c38eba61dd8aef7d067e458a95",
+      "cosmos_predict2/_src/predict2/inference/worldcache_utils.py": "b485cb8fd6e262a40e5823365c34ef7db1bc036c591d7577489e04077c515903",
+      "cosmos_predict2/_src/predict2/models/text2world_model_rectified_flow.py": "c6c68f297859e11c76d2921667a29cabfecef3a7b5d3ab831bf9bb54b25b7d87",
+      "cosmos_predict2/_src/predict2/models/fm_solvers_unipc.py": "f6a06c75f059693ade6c802e99f6058575969b6a71ef18ab05e7ed46701053d3"
+    },
+    "CPU_import_adapter": "ACCEPTED_PG_IMPORT_ONLY_FLASH_PROBES_AND_CURRENT_DEVICE",
+    "CPU_import_probes_restored_before_sampling": true,
+    "model_weight_loads_forbidden": true,
+    "CUDA_initialized": false,
+    "actual_Cosmos_weights": false,
+    "real_generated_video": false,
+    "complete_S_collector_accepted": false,
+    "S_labels_collected": 0,
+    "GPU_submissions": 0,
+    "new_GPUh": 0,
+    "ledger_writes": 0
+  },
+  "result_sha256": "54b35689c6b16c0f061fd0b310c421167fcfa2956ef71f819c04fa1a2d403235",
+  "log_tail": "ini_train_dit_forward] [WorldCache] Step 53: Drift 0.2993 / Thresh 0.0411 (Base 0.06, Vel 0.0921, Alpha 5.0)\n[10-28 17:05:22|INFO|cosmos_predict2/_src/predict2/inference/worldcache_utils.py#guided-W1-collection:393:worldcache_mini_train_dit_forward] [WorldCache] Step 54: Drift 0.0935 / Thresh 0.0426 (Base 0.06, Vel 0.0817, Alpha 5.0)\n[10-28 17:05:22|INFO|cosmos_predict2/_src/predict2/inference/worldcache_utils.py#guided-W1-collection:393:worldcache_mini_train_dit_forward] [WorldCache] Step 55: Drift 0.0935 / Thresh 0.0426 (Base 0.06, Vel 0.0817, Alpha 5.0)\n[10-28 17:05:22|INFO|cosmos_predict2/_src/predict2/inference/worldcache_utils.py#guided-W1-collection:393:worldcache_mini_train_dit_forward] [WorldCache] Step 56: Drift 0.1733 / Thresh 0.0450 (Base 0.06, Vel 0.0668, Alpha 5.0)\n[10-28 17:05:22|INFO|cosmos_predict2/_src/predict2/inference/worldcache_utils.py#guided-W1-collection:393:worldcache_mini_train_dit_forward] [WorldCache] Step 57: Drift 0.1733 / Thresh 0.0450 (Base 0.06, Vel 0.0668, Alpha 5.0)\n[10-28 17:05:22|INFO|cosmos_predict2/_src/predict2/inference/worldcache_utils.py#guided-W1-collection:393:worldcache_mini_train_dit_forward] [WorldCache] Step 58: Drift 0.2463 / Thresh 0.0457 (Base 0.06, Vel 0.0623, Alpha 5.0)\n[10-28 17:05:22|INFO|cosmos_predict2/_src/predict2/inference/worldcache_utils.py#guided-W1-collection:393:worldcache_mini_train_dit_forward] [WorldCache] Step 59: Drift 0.2463 / Thresh 0.0457 (Base 0.06, Vel 0.0623, Alpha 5.0)\n[10-28 17:05:22|INFO|cosmos_predict2/_src/predict2/inference/worldcache_utils.py#guided-W1-collection:393:worldcache_mini_train_dit_forward] [WorldCache] Step 60: Drift 0.0580 / Thresh 0.0483 (Base 0.06, Vel 0.0485, Alpha 5.0)\n[10-28 17:05:22|INFO|cosmos_predict2/_src/predict2/inference/worldcache_utils.py#guided-W1-collection:393:worldcache_mini_train_dit_forward] [WorldCache] Step 61: Drift 0.0580 / Thresh 0.0483 (Base 0.06, Vel 0.0485, Alpha 5.0)\n[10-28 17:05:22|INFO|cosmos_predict2/_src/predict2/inference/worldcache_utils.py#guided-W1-collection:393:worldcache_mini_train_dit_forward] [WorldCache] Step 62: Drift 0.1030 / Thresh 0.0507 (Base 0.06, Vel 0.0369, Alpha 5.0)\n[10-28 17:05:22|INFO|cosmos_predict2/_src/predict2/inference/worldcache_utils.py#guided-W1-collection:393:worldcache_mini_train_dit_forward] [WorldCache] Step 63: Drift 0.1030 / Thresh 0.0507 (Base 0.06, Vel 0.0369, Alpha 5.0)\n[10-28 17:05:22|INFO|cosmos_predict2/_src/predict2/inference/worldcache_utils.py#guided-W1-collection:393:worldcache_mini_train_dit_forward] [WorldCache] Step 64: Drift 0.1370 / Thresh 0.0526 (Base 0.06, Vel 0.0281, Alpha 5.0)\n[10-28 17:05:22|INFO|cosmos_predict2/_src/predict2/inference/worldcache_utils.py#guided-W1-collection:393:worldcache_mini_train_dit_forward] [WorldCache] Step 65: Drift 0.1370 / Thresh 0.0526 (Base 0.06, Vel 0.0281, Alpha 5.0)\n[10-28 17:05:22|INFO|cosmos_predict2/_src/predict2/inference/worldcache_utils.py#guided-W1-collection:393:worldcache_mini_train_dit_forward] [WorldCache] Step 66: Drift 0.1609 / Thresh 0.0545 (Base 0.06, Vel 0.0200, Alpha 5.0)\n[10-28 17:05:22|INFO|cosmos_predict2/_src/predict2/inference/worldcache_utils.py#guided-W1-collection:393:worldcache_mini_train_dit_forward] [WorldCache] Step 67: Drift 0.1610 / Thresh 0.0545 (Base 0.06, Vel 0.0200, Alpha 5.0)\n[10-28 17:05:22|INFO|cosmos_predict2/_src/predict2/inference/worldcache_utils.py#guided-W1-collection:393:worldcache_mini_train_dit_forward] [WorldCache] Step 68: Drift 0.1772 / Thresh 0.0562 (Base 0.06, Vel 0.0135, Alpha 5.0)\n[10-28 17:05:22|INFO|cosmos_predict2/_src/predict2/inference/worldcache_utils.py#guided-W1-collection:393:worldcache_mini_train_dit_forward] [WorldCache] Step 69: Drift 0.1772 / Thresh 0.0562 (Base 0.06, Vel 0.0135, Alpha 5.0)\n[10-28 17:05:22|INFO|cosmos_predict2/_src/predict2/inference/worldcache_utils.py#guided-W1-collection:558:worldcache_mini_train_dit_forward] [WorldCache Summary] Skipped 34/70 steps (48.6%) | MotionSens=5.0\nSQ_S_OWNER_CPU_PASS_STANDINS_NOT_COMPLETE_COLLECTOR\n",
+  "new_GPU_submissions": 0,
+  "ledger_writes": 0
+}

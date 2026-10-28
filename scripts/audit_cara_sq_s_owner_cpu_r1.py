@@ -27,6 +27,18 @@ def instant(value):
     return datetime.fromisoformat(re.sub(r'(\.\d{6})\d+(?=Z|[+-])',r'\1',value).replace('Z','+00:00'))
 
 
+def cpu_mounts(capture,host):
+    root='/data20t/gaokuangda/worldcache_workspace';stage=capture['launch']['stage']
+    readonly={root}
+    if host=='two_card':readonly.add(root+'/outputs/cara-ig-b1-r2-20261027')
+    mounts={row['Destination']:row for row in capture['mounts']}
+    require(set(mounts)==readonly|{stage} and len(mounts)==len(capture['mounts'])
+            and all(row['Type']=='bind' and row['Source']==row['Destination'] for row in mounts.values())
+            and all(mounts[path]['RW'] is False and mounts[path]['Mode']=='ro' for path in readonly)
+            and mounts[stage]['RW'] is True and mounts[stage]['Mode']=='rw',
+            'S CPU mounts differ from registered read-only assets and sole writable stage')
+
+
 def accept(capture,scope,revision,host='four_card'):
     require(host in ('two_card','four_card'),'Registered S CPU host required')
     state=capture['container_state'];launch=capture['launch'];result=capture['result']
@@ -45,10 +57,7 @@ def accept(capture,scope,revision,host='four_card'):
     require(capture['host_config']==dict(DeviceRequests=None,NanoCpus=2_000_000_000,
             Memory=8*2**30,MemorySwap=8*2**30,CpusetCpus='4,5',NetworkMode='none',ReadonlyRootfs=True),
             'S CPU resource boundary differs')
-    mounts={row['Destination']:row for row in capture['mounts']}
-    root='/data20t/gaokuangda/worldcache_workspace'
-    require(set(mounts)=={root,launch['stage']} and not mounts[root]['RW'] and mounts[launch['stage']]['RW'],
-            'S CPU writable mount escaped its own stage')
+    cpu_mounts(capture,host)
     require(result is not None and result_sha(result)==capture['result_sha256'],
             'S CPU original result bytes differ')
     require(result['status']=='SQ_S_OWNER_CPU_PASS_STANDINS_NOT_COMPLETE_COLLECTOR'
@@ -100,7 +109,9 @@ def main():
     require(subprocess.check_output(['git','rev-parse',capture['launch']['source_revision']+'^{commit}'],
             cwd=ROOT,text=True).strip()==revision,'Recorded source abbreviation does not resolve to the frozen full revision')
     accepted=accept(capture,scope,revision,args.host);negative=[]
-    for case in ('running','missing_boundary','missing_parent','wrong_host','CUDA_claim','real_video_claim'):
+    cases=('running','missing_boundary','missing_parent','wrong_host','CUDA_claim','real_video_claim','extra_RO_mount')
+    if args.host=='two_card':cases+=('asset_mount_writable',)
+    for case in cases:
         bad=copy.deepcopy(capture)
         if case=='running':bad['container_state'].update(Status='running',Running=True)
         elif case=='missing_boundary':bad['result']['rows'][-1]['events'].pop()
@@ -108,6 +119,11 @@ def main():
         elif case=='wrong_host':bad['result']['profile']='four_card' if args.host=='two_card' else 'two_card'
         elif case=='CUDA_claim':bad['result']['CUDA_initialized']=True
         elif case=='real_video_claim':bad['result']['real_generated_video']=True
+        elif case=='extra_RO_mount':
+            extra=copy.deepcopy(bad['mounts'][0]);extra.update(Source='/unregistered',Destination='/unregistered',RW=False,Mode='ro');bad['mounts'].append(extra)
+        elif case=='asset_mount_writable':
+            for mount in bad['mounts']:
+                if mount['Destination'].endswith('/outputs/cara-ig-b1-r2-20261027'):mount.update(RW=True,Mode='rw')
         bad['result_sha256']=result_sha(bad['result'])
         try:accept(bad,scope,revision,args.host)
         except ValueError as error:negative.append(dict(case=case,rejected=True,reason=str(error)))

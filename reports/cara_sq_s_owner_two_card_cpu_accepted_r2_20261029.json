@@ -1,0 +1,77 @@
+{
+  "status": "S_OWNER_TWO_CARD_R2_CPU_COMPONENT_ACCEPTED_NOT_COMPLETE_S_COLLECTOR",
+  "passed": true,
+  "host": "two_card",
+  "dual_host_CPU_accepted": false,
+  "source_revision": "8779bb2599029c75d1e651b5ba9ae8e861491bf3",
+  "source_revision_as_recorded": "8779bb2599029c75d1e651b5ba9ae8e861491bf3",
+  "critical_source_sha256": {
+    "src/wcomr/sq_s_owner_roundtrip_r1.py": "f93c7e803cd2ad72ac8253875b525b522a18f504685b471cc3496e7b45a14412",
+    "src/wcomr/sq_s_sources_r1.py": "03ca23c97c8d9096f1bae7fb84e6ef1cc53bb63ba9688fe39ac74b44b64fb13e",
+    "tests/check_sq_s_owner_roundtrip_cpu_r1.py": "89806b38505cd356eb7bc06ec9e0b3d28461db0d46687b388bf59ecaaa40931b",
+    "scripts/check_cara_sq_s_owner_cpu_r1.py": "57550bb59f842ef409e49f54ca8acfbb712383821c4ed6b8a89029455a43e601",
+    "plans/cara_next_stage_20261028/sq/S_OWNER_ROUNDTRIP_CPU_R1.json": "6b182548551397d5485e4be17f26ee9ea847da2a7f7f137368a1fa97648a6bea"
+  },
+  "capture_ref": "reports/cara_sq_s_owner_two_card_cpu_capture_r2_20261029.json",
+  "capture_sha256": "ed012e513e44d082cb7a514e1b4190eff40c68d921557feb50981f68125bb647",
+  "result_sha256": "54b35689c6b16c0f061fd0b310c421167fcfa2956ef71f819c04fa1a2d403235",
+  "accepted": {
+    "host": "two_card",
+    "complete_CPU_paths": 8,
+    "checked_boundaries": 16,
+    "worker_wall_seconds": 44.924261851236224,
+    "CPU_seconds": 46.919131182,
+    "peak_RSS_GiB": 0.88726806640625,
+    "container_wall_seconds": 48.153016,
+    "component_CPU_accepted": true,
+    "complete_S_collector_accepted": false,
+    "actual_GPU_or_science_accepted": false
+  },
+  "negative_controls": [
+    {
+      "case": "running",
+      "rejected": true,
+      "reason": "Original S CPU container is not cleanly terminal"
+    },
+    {
+      "case": "missing_boundary",
+      "rejected": true,
+      "reason": "S CPU parent, full path, restoration or falsification cohort missing"
+    },
+    {
+      "case": "missing_parent",
+      "rejected": true,
+      "reason": "S CPU parent, full path, restoration or falsification cohort missing"
+    },
+    {
+      "case": "wrong_host",
+      "rejected": true,
+      "reason": "Complete frozen S CPU fixture required"
+    },
+    {
+      "case": "CUDA_claim",
+      "rejected": true,
+      "reason": "S component exceeded its CPU-only evidence boundary"
+    },
+    {
+      "case": "real_video_claim",
+      "rejected": true,
+      "reason": "S component exceeded its CPU-only evidence boundary"
+    },
+    {
+      "case": "extra_RO_mount",
+      "rejected": true,
+      "reason": "S CPU mounts differ from registered read-only assets and sole writable stage"
+    },
+    {
+      "case": "asset_mount_writable",
+      "rejected": true,
+      "reason": "S CPU mounts differ from registered read-only assets and sole writable stage"
+    }
+  ],
+  "complete_S_collector_accepted": false,
+  "S_labels_collected": 0,
+  "GPU_submissions": 0,
+  "new_GPUh": 0,
+  "ledger_writes": 0
+}

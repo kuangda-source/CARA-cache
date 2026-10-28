@@ -1,0 +1,25 @@
+{
+  "status": "S_TWO_CARD_CPU_ACCEPTOR_REGISTERED_READONLY_MOUNT_DIAGNOSTIC",
+  "original_capture_ref": "reports/cara_sq_s_owner_two_card_cpu_capture_r2_20261029.json",
+  "original_capture_sha256": "ed012e513e44d082cb7a514e1b4190eff40c68d921557feb50981f68125bb647",
+  "original_worker_status": "SQ_S_OWNER_CPU_PASS_STANDINS_NOT_COMPLETE_COLLECTOR",
+  "original_container_exit": 0,
+  "rejection": "S CPU writable mount escaped its own stage",
+  "expected_set_in_old_acceptor": "project read-only plus own stage read-write only",
+  "actual_additional_mount": [
+    {
+      "Type": "bind",
+      "Source": "/data20t/gaokuangda/worldcache_workspace/outputs/cara-ig-b1-r2-20261027",
+      "Destination": "/data20t/gaokuangda/worldcache_workspace/outputs/cara-ig-b1-r2-20261027",
+      "Mode": "ro",
+      "RW": false,
+      "Propagation": "rprivate"
+    }
+  ],
+  "registered_source": "scripts/cara_sq_q1_cpu_r1.py:33 two_card-only original asset-parent read-only mount",
+  "correction": "Require exact host-specific read-only destinations and source bindings; only own stage may be writable",
+  "remote_stage_restarted": false,
+  "scientific_or_numerical_gate_changed": false,
+  "GPU_submissions": 0,
+  "ledger_writes": 0
+}

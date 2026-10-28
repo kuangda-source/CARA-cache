@@ -7,7 +7,7 @@ import math
 from pathlib import Path
 import subprocess
 
-from audit_cara_sq_s_owner_cpu_r1 import instant,require,result_sha
+from audit_cara_sq_s_owner_cpu_r1 import cpu_mounts,instant,require,result_sha
 
 ROOT=Path(__file__).resolve().parents[1]
 SCOPE='plans/cara_next_stage_20261028/sq/S_COLLECTION_CPU_R1.json'
@@ -33,9 +33,7 @@ def accept(capture,scope,revision,*,storage=False,host='four_card'):
             and capture['host_config']==dict(DeviceRequests=None,NanoCpus=2_000_000_000,
             Memory=8*2**30,MemorySwap=8*2**30,CpusetCpus='4,5',NetworkMode='none',ReadonlyRootfs=True),
             'S topology CPU runtime or resource boundary differs')
-    mounts={row['Destination']:row for row in capture['mounts']};root='/data20t/gaokuangda/worldcache_workspace'
-    require(set(mounts)=={root,launch['stage']} and not mounts[root]['RW'] and mounts[launch['stage']]['RW'],
-            'S topology CPU writable mount escaped its own stage')
+    cpu_mounts(capture,host)
     require(result is not None and result_sha(result)==capture['result_sha256'],
             'S topology original result bytes differ')
     status=('SQ_S_COLLECTION_STREAMING_CPU_PASS_NOT_REAL_MODEL_ACCEPTANCE' if storage

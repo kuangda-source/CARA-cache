@@ -26,9 +26,11 @@ def main():
     capture=json.loads(args.capture.read_text());scope=json.loads((ROOT/SCOPE).read_text())
     revision=subprocess.check_output(['git','rev-parse',args.source_revision+'^{commit}'],cwd=ROOT,text=True).strip()
     accepted=accept(capture,scope,revision,storage=True,host=args.host);negative=[]
-    for case in ('running','missing_parent','missing_raw','current_D_source','wrong_Dense_count',
+    cases=('running','missing_parent','missing_raw','current_D_source','wrong_Dense_count',
             'incomplete_reloads','storage_unit_skip','wrong_unit_load_count','storage_cap',
-            'wrong_host','CUDA_claim','real_storage_claim'):
+            'wrong_host','CUDA_claim','real_storage_claim','extra_RO_mount')
+    if args.host=='two_card':cases+=('asset_mount_writable',)
+    for case in cases:
         bad=copy.deepcopy(capture)
         if case=='running':bad['container_state'].update(Status='running',Running=True)
         elif case=='missing_parent':bad['result']['rows'][-1]['OFF_ON_controls'].pop()
@@ -43,6 +45,11 @@ def main():
         elif case=='wrong_host':bad['result']['profile']='four_card' if args.host=='two_card' else 'two_card'
         elif case=='CUDA_claim':bad['result']['CUDA_initialized']=True
         elif case=='real_storage_claim':bad['result']['streaming_raw_storage_accepted']=True
+        elif case=='extra_RO_mount':
+            extra=copy.deepcopy(bad['mounts'][0]);extra.update(Source='/unregistered',Destination='/unregistered',RW=False,Mode='ro');bad['mounts'].append(extra)
+        elif case=='asset_mount_writable':
+            for mount in bad['mounts']:
+                if mount['Destination'].endswith('/outputs/cara-ig-b1-r2-20261027'):mount.update(RW=True,Mode='rw')
         bad['result_sha256']=result_sha(bad['result'])
         try:accept(bad,scope,revision,storage=True,host=args.host)
         except ValueError as error:negative.append(dict(case=case,rejected=True,reason=str(error)))

@@ -1,6 +1,6 @@
 # S 固定父轨迹采集准备
 
-2026-10-29。四卡已接受 [S owner R2 CPU 组件](../../../reports/cara_sq_s_owner_four_card_cpu_accepted_r2_20261029.json)、[R1 完整采集 CPU 拓扑](../../../reports/cara_sq_s_collection_four_card_cpu_accepted_r1_20261029.json)及 [R2 raw/流式存储 CPU 组合](../../../reports/cara_sq_s_storage_four_card_cpu_accepted_r2_20261029.json)。R1 源码 `6ec052dbcf8343800ba1206d704484f98593e045`，R2 源码 `591ac3bd2b8231de8a44c933bf26560acc7921e0`，各自 16 完整路径；原失败保持。两卡同版本检查、真实数据/资源与整卡报价未齐，尚无实际 S 标签、掩码或新 GPU 授权。
+2026-10-29。最新[双端 S 组件与完整流式存储 CPU 组合](../../../reports/cara_sq_s_dual_cpu_accepted_r2_20261029.json)均已接受：两端 owner 各八路径/十六边界、存储各十六路径，固定同一源码。两卡 worker CPU 139.18 秒、峰值 RSS 0.898 GiB，原挂载清单拒绝与修正保留在[双端进度](DUAL_HOST_PROGRESS_20261029.md)。以下保留四卡 R1/R2 的原阶段记录；真实数据/资源、整卡 GPU 入口与报价尚未齐，无实际 S 标签、掩码或新 GPU 授权。
 
 ## 本轮接通的接口
 
