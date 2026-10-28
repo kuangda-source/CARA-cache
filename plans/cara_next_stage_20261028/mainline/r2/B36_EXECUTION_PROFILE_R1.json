@@ -1,5 +1,5 @@
 {
-  "schema": "CARA_FAST_B36_EXECUTION_PROFILE_R1",
+  "schema": "CARA_FAST_B36_EXECUTION_PROFILE_R2",
   "state": "CPU_PREPARATION_NO_GPU_AUTHORITY",
   "scope_sha256": "d0ad38bc0fd29615e82dae7f726938bac15aec2842e4484bb3577e0949694fb4",
   "run_id": "cara-fast-f19-b36-r1-20261029",
@@ -119,7 +119,7 @@
     ]
   },
   "monitoring": {
-    "time_origin": "Actual B supervisor started_unix; bind new launch/PID-start ticks/container/UUID/source",
+    "time_origin": "Actual B guardian allocation started_unix; original new launch/PID-start ticks/container/UUID/source, supervisor interval separate",
     "halfway": "Actual start + unchanged host B forecast / 2",
     "terminal": "Actual start + unchanged host B forecast, then recover exact original handle",
     "operational_only_midway": true,
@@ -169,5 +169,14 @@
     "RA_T1": "UNMATCHED",
     "NATIVE22": "MATCHED"
   },
-  "scope_note": "Complete original B36, 6 warm + 24 formal + 6 repeat; 32 logical positions include eight original A sources. No extra calibration or threshold search."
+  "scope_note": "Complete original B36, 6 warm + 24 formal + 6 repeat; 32 logical positions include eight original A sources. No extra calibration or threshold search.",
+  "billing": {
+    "owner": "HOST_GUARDIAN",
+    "canonical_path": "stage/B-billing.json",
+    "actual_GPUh_rule": "Original guardian monotonic allocation wall /3600, including this card admission/container/release overhead",
+    "zero_cost_from_missing_supervisor_forbidden": true,
+    "unclosed_original_container_is_not_settleable": true,
+    "supervisor_interval_path": "output/B-supervisor-billing.json",
+    "single_central_bill": true
+  }
 }

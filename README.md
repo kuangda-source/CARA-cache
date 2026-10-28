@@ -10,7 +10,7 @@
 
 [743 B36双端CPU承接接受](research/743_CARA_B36_COMPLETE_CONTINUATION_DUAL_CPU_ACCEPTANCE_20261029.md)：每端两种flow各完整36条，合计72条成功tiny路径，失败清理与禁止重试通过；CPU使用合成冻结包，实际基线采用A32完整验收后的原一次冻结文件。[CPU接受回执](reports/cara_fast_B36_CPU_acceptance_r1_20261029.json)
 
-[746 B36宿主与终态收件CPU](research/746_CARA_B36_DUAL_HOST_EXECUTION_AND_TERMINAL_CPU_20261029.md)：双端新增7项宿主执行与8项终态收件控制通过，四个CPU容器退出0；32正式评分位置保持，6个原A已接受FIT配对直接引用，其余26对交原评分CLI。未运行模型或度量网络；单次派发入口及启动前失败费用恢复待完成，无B GPU预约或启动。 [组合CPU接受](reports/cara_fast_B36_execution_post_CPU_acceptance_r1_20261029.json) · [剩余派发边界](plans/cara_next_stage_20261028/mainline/r2/B36_EXECUTION_READINESS_R1.md)
+[747 B36单次派发与完整CPU接受](research/747_CARA_B36_ONCE_DISPATCH_BILLING_CPU_AND_GPU_REVIEW_20261029.md)：B36单次GPU/CPU入口、启动前失败唯一账单与未知拒绝已完成双端22项CPU控制；20个实际模型/辅助资产21.35GB完整摘要通过。仍无B GPUstage/预约/启动，等待明确批准预计5.0215、硬5.5GPUh及同A6000 UUID的fresh准入；32位置由26新评分和6份原A评分组成。 [组合CPU接受](reports/cara_fast_B36_dispatch_CPU_acceptance_r2_20261029.json) · [剩余派发边界](plans/cara_next_stage_20261028/mainline/r2/B36_GPU_REVIEW_R2.md)
 
 **通过选择完整刷新的时间位置，在加速视频扩散时尽量保留完整模型的输出。**
 

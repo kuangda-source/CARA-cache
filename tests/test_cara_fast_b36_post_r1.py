@@ -11,7 +11,7 @@ from unittest.mock import patch
 from wcomr.cara_fast_b36_capture_r1 import capture_terminal,capture_scores,file_sha,captured_file
 from wcomr.cara_fast_b36_execution_r1 import RUN,PROFILE,load_handoff
 from wcomr.cara_fast_b36_post_r1 import formal_manifest,new_pairs_manifest,assemble_scores,accept_scores,SCORER_SOURCES
-from wcomr.cara_fast_b36_terminal_r1 import settle_original,released_terminal,record,audit_monitor
+from wcomr.cara_fast_b36_terminal_r1 import settle_original,released_terminal,record,audit_monitor,container_record
 from wcomr.cara_fast_b36_r1 import COMMON_SOURCES
 from wcomr.cara_fast_spec_r1 import digest
 from test_cara_fast_b36_execution_r1 import real_binding,complete_fixture,BoundaryTests,script
@@ -32,7 +32,9 @@ def fixture(project):
     output=project/'outputs'/RUN
     stage.mkdir(parents=True)
     sources=[*COMMON_SOURCES,'src/wcomr/cara_fast_b36_terminal_r1.py','src/wcomr/cara_fast_b36_capture_r1.py',
-             'src/wcomr/cara_fast_b36_post_r1.py',*SCORER_SOURCES]
+             'src/wcomr/cara_fast_b36_post_r1.py',*SCORER_SOURCES,'scripts/dispatch_cara_fast_b36_score_cpu_r2.py',
+             'scripts/postprocess_cara_fast_b36_r1.py','plans/cara_next_stage_20261028/mainline/r2/RUN_SPEC.json',
+             'plans/cara_next_stage_20261028/mainline/RUN_MANIFEST.json']
     profile=json.loads((ROOT/PROFILE).read_text())
     sources+=list(descriptor['path'] for descriptor in profile['A32_handoff_files'].values())
     for name in sources:
@@ -104,14 +106,18 @@ def fixture(project):
     write(output/'B-collection.json',collection)
     billing=dict(status='FAST_B36_ORIGINAL_WALL_BILL',wall_seconds=10.,actual_GPUh=10/3600,billed_limit_GPUh=5.5,
         **{key:launch[key] for key in ('run_id','phase','host','gpu_uuid','launch_id','source_revision','scope_sha256')})
-    write(output/'B-billing.json',billing)
+    billing.update(started_monotonic=1000.,ended_monotonic=1010.,billing_clock_owner='HOST_GUARDIAN',wall_interval_complete=True)
+    write(stage/'B-billing.json',billing)
+    interval=dict(wall_seconds=9.,started_monotonic=1000.5,ended_monotonic=1009.5,central_cost_owner='HOST_GUARDIAN',
+        **{key:launch[key] for key in ('run_id','phase','host','gpu_uuid','launch_id','source_revision','scope_sha256')})
+    write(output/'B-supervisor-billing.json',interval)
     supervisor=dict(status='FAST_B36_TERMINAL_CENTRAL_SETTLEMENT_PENDING',child_exit_code=0,
         supervisor_identity=identities['supervisor'],child_identity=identities['runner'],started_unix=1000.,
         observations=3,exclusive_monitor_accepted=True,phase_state_sha256=digest(collection),
         **{key:launch[key] for key in ('run_id','phase','host','gpu_uuid','launch_id','source_revision','scope_sha256')})
     write(output/'B-supervisor.json',supervisor)
     pending=dict(GPU_released=True,original_process_exited=True,technical_accepted=True,cost_settled=False,
-        phase_state_sha256=digest(collection),billing_sha256=file_sha(output/'B-billing.json'),final_snapshot=snapshot(1010),
+        phase_state_sha256=digest(collection),supervisor_billing_sha256=file_sha(output/'B-supervisor-billing.json'),final_snapshot=snapshot(1010),
         **{key:launch[key] for key in ('run_id','phase','host','gpu_uuid','launch_id','scope_sha256')})
     write(output/'B-release-pending-central.json',pending)
     write(output/'B-model-precision.json',bound['A_precision'])
@@ -126,10 +132,18 @@ def fixture(project):
         path.parent.mkdir(parents=True,exist_ok=True)
         path.touch()
     image='sha256:1e81ac62ee68ca1a6ef655515096a1d84579b01aa4986810c9b18d4f6c4c552d'
-    docker=dict(State=dict(Status='exited',Running=False,ExitCode=0,OOMKilled=False,Pid=0),Image=image,
+    docker=dict(Id='CPU-ONLY-CONTAINER',State=dict(Status='exited',Running=False,ExitCode=0,OOMKilled=False,Pid=0),Image=image,
         Config=dict(Labels={'wcomr.manifest':launch['registration_sha256']}),
         HostConfig=dict(DeviceRequests=[dict(DeviceIDs=[launch['gpu_uuid']])],ReadonlyRootfs=True,
             PidMode='host',NetworkMode='none',NanoCpus=2*10**9,Memory=profile['GPU_container']['memory_GiB']*1024**3))
+    guardian.update(started_monotonic=1000.,ended_monotonic=1010.,billing_sha256=file_sha(stage/'B-billing.json'),
+        container_dispatch_state='STARTED',container_terminal_witness=dict(kind='BOUND_CONTAINER_TERMINAL',complete=True,
+            container=container_record(docker)),
+        **{key:launch[key] for key in ('phase','host','scope_sha256')})
+    write(stage/'pg-host-guardian.json',guardian)
+    write(stage/'B-supervisor-start.json',dict(identity=identities['supervisor'],runner_dispatch_state='NOT_ATTEMPTED'))
+    write(stage/'B-runner-intent.json',dict(launch_id=launch['launch_id'],supervisor_identity=identities['supervisor'],no_replay=True))
+    write(stage/'B-runner-start.json',dict(identity=identities['runner'],launch_id=launch['launch_id']))
     current=snapshot(2000,False,'Default')
     # A different user may legitimately start after this job restored Default.
     current['compute_apps']=[dict(pid=987654,start_ticks=9999,uid=os.getuid()+1)]
@@ -224,7 +238,9 @@ class PostTests(unittest.TestCase):
                 elif kind=='monitor':capture['monitor_audit']['passed']=False
                 elif kind=='artifact':capture['artifacts'].pop(next(iter(capture['artifacts'])))
                 elif kind=='precision':replace_record(capture,'precision',lambda row:row.update(outer_autocast=True))
-                elif kind=='overrun':replace_record(capture,'billing',lambda row:row.update(wall_seconds=19801.,actual_GPUh=19801/3600))
+                elif kind=='overrun':
+                    replace_record(capture,'billing',lambda row:row.update(wall_seconds=19801.,actual_GPUh=19801/3600,ended_monotonic=20801.))
+                    replace_record(capture,'guardian',lambda row:row.update(ended_monotonic=20801.,billing_sha256=capture['files']['billing']['sha256']))
                 else:
                     key=next(iter(capture['artifacts']))
                     packet=capture['artifacts'][key]['arguments']
@@ -311,7 +327,10 @@ class PostTests(unittest.TestCase):
             docker['State'].update(StartedAt='2026-10-28T12:00:00.123456789Z',FinishedAt='2026-10-28T12:01:30.123456789Z')
             docker['HostConfig'].update(Memory=8*1024**3,MemorySwap=8*1024**3,CpusetCpus='26,27',DeviceRequests=None)
             inspected=type('Inspected',(),dict(returncode=0,stdout=json.dumps([docker])))()
-            with patch('wcomr.cara_fast_b36_capture_r1.subprocess.run',return_value=inspected):
+            def inspect_score(command,**kwargs):
+                self.assertEqual(command,['docker','inspect',stage.name+'-B-score-cpu'])
+                return inspected
+            with patch('wcomr.cara_fast_b36_capture_r1.subprocess.run',side_effect=inspect_score):
                 observed=capture_scores(project,stage,path,file_sha(path))
             final=accept_scores(capture,card,settlement,values[0],file_sha(path),record(observed,'scores'),observed['execution'],
                 new_manifest=observed['files']['new_manifest'],new_scores=observed['files']['new_scores'])
@@ -371,10 +390,9 @@ class PostTests(unittest.TestCase):
                 elif kind=='gap':rows[-1]['monotonic_elapsed']=100
                 else:rows[-1]['thermal']['temperature.gpu']='90'
                 with self.subTest(kind=kind),self.assertRaises(ValueError):
-                    audit_monitor(rows,record(capture,'launch'),record(capture,'supervisor'),record(capture,'billing'),
+                    audit_monitor(rows,record(capture,'launch'),record(capture,'supervisor'),record(capture,'supervisor_billing'),
                         record(capture,'ready'),record(capture,'grant'),record(capture,'pending_release'))
 
 
 if __name__=='__main__':
     unittest.main()
-

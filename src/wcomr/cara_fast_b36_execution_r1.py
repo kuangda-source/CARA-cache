@@ -6,7 +6,6 @@ from pathlib import Path
 from .cara_fast_b36_r1 import bind_handoff, read_handoff
 from .cara_fast_binding_r2 import load_card
 from .cara_fast_execution_r2 import RUN as A_RUN, SPEC, QUOTE, RA, read, require
-from .cara_fast_spec_r1 import digest
 from .cara_fast_terminal_r2 import record
 from .gpu_budget_pool_v2 import finite, sha
 from .wc73_execution_r1 import Pool as CentralPool, admit_host
@@ -18,7 +17,10 @@ EXECUTION_SOURCES = (
     'src/wcomr/cara_fast_b36_execution_r1.py',
     'scripts/cara_fast_b36_worker_r1.py',
     'scripts/cara_fast_b36_host_guardian_r1.py',
-    'scripts/run_cara_fast_b36_r1.py', PROFILE)
+    'scripts/run_cara_fast_b36_r1.py','scripts/cara_fast_b36_dispatch_r2.py',
+    'scripts/dispatch_cara_fast_b36_score_cpu_r2.py',
+    'src/wcomr/cara_fast_b36_dispatch_r2.py',
+    'plans/cara_next_stage_20261028/mainline/r2/B36_FROZEN_ASSETS_R1.json', PROFILE)
 
 
 def load_handoff(stage, card, profile):
@@ -94,7 +96,8 @@ def admitted_inputs(project, stage):
     card = load_card(stage, SPEC)
     profile, quote = read(stage/PROFILE), read(stage/QUOTE)
     require(profile['run_id'] == RUN and profile['phase'] == 'B' and profile['physical_paths'] == 36
-            and profile['scope_sha256'] == quote['scope_sha256'] == card['scope_sha256'], 'B scope differs')
+            and profile['scope_sha256'] == quote['scope_sha256'] == card['scope_sha256']
+            and profile['billing']['owner']=='HOST_GUARDIAN', 'B scope/billing policy differs')
     bound = load_handoff(stage, card, profile)
     require(registration['runtime_source_sha256'] == bound['A_runtime_source_sha256'],
             'B must use the unchanged A pinned runtime')

@@ -244,8 +244,11 @@ if __SCENARIO__ in ('thermal','budget','foreign_context'):time.sleep(60)
                     self.journal.write(key,value)
                     writer(path,value)
             storage=Storage();storage.output=output
-            authority=dict(host='two_card',gpu_uuid=bound['gpu_uuid'],launch_id='B36-CPU-CHILD',whole_GPUh=5.5)
+            authority=dict(host='two_card',gpu_uuid=bound['gpu_uuid'],launch_id='B36-CPU-CHILD',whole_GPUh=5.5,
+                run_id=execution.RUN,source_revision='CPU_FIXTURE_NOT_GPU_AUTHORITY')
             registration=dict(source_revision='CPU_FIXTURE_NOT_GPU_AUTHORITY')
+            guardian=dict(authority,started_unix=time.time()-1)
+            (stage/'pg-host-guardian.json').write_text(json.dumps(guardian))
             def observe(uuid):
                 apps=[]
                 ready=stage/'pg-runner-context-ready.json'
@@ -263,22 +266,24 @@ if __SCENARIO__ in ('thermal','budget','foreign_context'):time.sleep(60)
                 if scenario=='complete':worker.supervise(args)
                 else:
                     with self.assertRaises((ValueError,RuntimeError,TimeoutError)):worker.supervise(args)
-            bill=execution.read(output/'B-billing.json')
+            bill=execution.read(output/'B-supervisor-billing.json')
             release=execution.read(output/'B-release-pending-central.json')
-            self.assertGreater(bill['actual_GPUh'],0)
-            self.assertEqual(bill['actual_GPUh'],bill['wall_seconds']/3600)
+            self.assertGreater(bill['wall_seconds'],0)
+            self.assertEqual(bill['central_cost_owner'],'HOST_GUARDIAN')
+            self.assertFalse((output/'B-billing.json').exists())
+            self.assertFalse((stage/'B-billing.json').exists())
             self.assertTrue(release['original_process_exited'] and release['GPU_released'])
             self.assertEqual(release['technical_accepted'],scenario=='complete')
             self.assertFalse(release['cost_settled'])
-            self.assertEqual(storage.journal.records['billing'],bill)
+            self.assertEqual(storage.journal.records['accounting'],bill)
             if scenario=='thermal':self.assertEqual(storage.journal.records['telemetry']['thermal']['temperature.gpu'],'90')
             with DeviceLease(root,bound['gpu_uuid']):pass
             with patch.object(execution,'validate',return_value=(card,registration,authority,bound)),\
                  patch.object(storage_module,'storage_for',return_value=storage),self.assertRaises(ValueError):worker.supervise(args)
             schedule=execution.read(output/'B-check-schedule.json')
             state=execution.read(output/'B-supervisor.json')
-            self.assertAlmostEqual(schedule['halfway_unix']-state['started_unix'],5.022*1800,places=5)
-            self.assertEqual(schedule['hard_terminal_unix']-state['started_unix'],5.5*3600)
+            self.assertAlmostEqual(schedule['halfway_unix']-guardian['started_unix'],5.022*1800,places=5)
+            self.assertEqual(schedule['hard_terminal_unix']-guardian['started_unix'],5.5*3600)
 
     @unittest.skipUnless(Path('/proc/self').exists(),'Linux inherited-FD child/process-group control')
     def test_normal_failure_partial_thermal_budget_foreign_context(self):

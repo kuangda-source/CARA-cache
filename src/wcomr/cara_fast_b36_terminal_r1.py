@@ -18,6 +18,15 @@ MAX_MONITOR_GAP_SECONDS=45
 HANDLES=('guardian','container_cli','supervisor','runner')
 
 
+def container_record(actual):
+    config=actual['HostConfig']
+    return dict(state=actual['State'],image=actual['Image'],
+        manifest_sha256=actual['Config']['Labels'].get('wcomr.manifest'),
+        device_requests=config['DeviceRequests'],readonly_root=config['ReadonlyRootfs'],
+        pid_mode=config['PidMode'],network=config['NetworkMode'],
+        cpus=config['NanoCpus']/10**9,memory_GiB=config['Memory']/1024**3)
+
+
 def bound_A(capture,card):
     package=capture['A32_handoff']
     launch=record(capture,'launch')
@@ -97,20 +106,38 @@ def financial_terminal(capture,card):
     launch=original_identity(capture,card)
     require(capture['status']=='FAST_B36_TERMINAL_CAPTURE'
             and set(capture['original_live_handles'])==set(HANDLES)
-            and all(value is False for value in capture['original_live_handles'].values())
-            and capture['own_UUID_lock_free'] is True and capture['mode_owner_lock_free'] is True,
+            and all(value is False for value in capture['original_live_handles'].values()),
             'Recover original handles/locks before settling; unknown is not terminal')
+    guardian=record(capture,'guardian')
+    witness=guardian['container_terminal_witness']
+    require(guardian['status']=='FAST_B36_HOST_GUARDIAN_TERMINAL' and witness['complete'] is True
+            and all(guardian['identity'][key]==launch['guardian_identity'][key] for key in ('pid','start_ticks')),
+            'Original guardian/container has not ended')
+    require(all(guardian[key]==launch[key] for key in ('run_id','phase','host','gpu_uuid','launch_id','scope_sha256','source_revision')),
+            'Original measured allocation guardian differs')
+    no_container=witness['kind'] in ('NO_CONTAINER_DISPATCH','ORIGINAL_CONTAINER_NEVER_CREATED')
+    require(no_container or (capture['own_UUID_lock_free'] is True and capture['mode_owner_lock_free'] is True),
+            'Original allocation resource closure unknown')
     container=capture['container']
-    require(container['state']['Status']=='exited' and not container['state']['Running']
+    if no_container:
+        require(container is None and capture['files']['runner_intent']['exists'] is False,
+                'No-container closure cannot hide a runner intent')
+    else:
+        require(container['state']['Status'] in ('created','exited') and not container['state']['Running']
+            and container['state']['Pid']==0 and container==witness['container']
             and container['image']==IMAGE and container['manifest_sha256']==launch['registration_sha256']
             and container['device_requests'][0]['DeviceIDs']==[launch['gpu_uuid']]
             and len(container['device_requests'])==1, 'Original container identity/terminal state differs')
-    supervisor=record(capture,'supervisor')
     billing=record(capture,'billing')
     for key in ('run_id','host','gpu_uuid','launch_id','source_revision','scope_sha256','phase'):
-        require(billing[key]==launch[key] and supervisor[key]==launch[key], 'Original bill/supervisor differs: '+key)
+        require(billing[key]==launch[key], 'Original guardian bill differs: '+key)
     require(billing['billed_limit_GPUh']==LIMITS[launch['host']] and finite(billing['wall_seconds'])
-            and billing['wall_seconds']>0 and billing['actual_GPUh']==billing['wall_seconds']/3600,
+            and billing['wall_seconds']>0 and billing['actual_GPUh']==billing['wall_seconds']/3600
+            and billing['billing_clock_owner']=='HOST_GUARDIAN' and billing['wall_interval_complete'] is True
+            and billing['wall_seconds']==billing['ended_monotonic']-billing['started_monotonic']
+            and billing['started_monotonic']==guardian['started_monotonic']
+            and billing['ended_monotonic']==guardian['ended_monotonic']
+            and guardian['billing_sha256']==capture['files']['billing']['sha256'],
             'Exact original measured wall bill required; no estimates or zero assumptions')
     return launch,billing
 
@@ -218,10 +245,16 @@ def technical_terminal(capture,card):
             and container['cpus']==2 and container['memory_GiB']==record(capture,'profile')['GPU_container']['memory_GiB'],
             'Original GPU execution failed')
     require(all(pending.get(key) is True for key in ('GPU_released','original_process_exited','technical_accepted'))
-            and pending['cost_settled'] is False and pending['billing_sha256']==capture['files']['billing']['sha256'],
+            and pending['cost_settled'] is False
+            and pending['supervisor_billing_sha256']==capture['files']['supervisor_billing']['sha256'],
             'Original pending release differs')
     require(all(pending[key]==launch[key] for key in ('run_id','phase','host','gpu_uuid','launch_id','scope_sha256')),
             'Original pending release launch differs')
+    interval=record(capture,'supervisor_billing')
+    require(all(interval[key]==launch[key] for key in ('run_id','phase','host','gpu_uuid','launch_id','source_revision','scope_sha256'))
+            and billing['started_monotonic']<=interval['started_monotonic']<interval['ended_monotonic']<=billing['ended_monotonic']
+            and interval['wall_seconds']==interval['ended_monotonic']-interval['started_monotonic']
+            and interval['central_cost_owner']=='HOST_GUARDIAN', 'Original monitored supervisor interval differs')
     collection=record(capture,'collection')
     bound=bound_A(capture,card)
     require(record(capture,'precision')==bound['A_precision'], 'Actual B precision/backend differs from A')
@@ -261,10 +294,12 @@ def released_terminal(capture,card,settlement):
     """A failed run can be financially released, but can never enter scoring."""
     billing=audit_settlement(capture,card,settlement)
     launch=record(capture,'launch')
-    pending=record(capture,'pending_release')
+    pending=record(capture,'pending_release') if capture['files']['pending_release']['exists'] else {}
+    guardian=record(capture,'guardian')
+    never_started=guardian['container_terminal_witness']['kind'] in ('NO_CONTAINER_DISPATCH','ORIGINAL_CONTAINER_NEVER_CREATED')
     release=dict(phase='B',run_id=RUN,launch_id=launch['launch_id'],host=launch['host'],
         gpu_uuid=launch['gpu_uuid'],scope_sha256=card['scope_sha256'],
-        original_process_exited=True,cost_settled=True,GPU_released=pending.get('GPU_released') is True,
+        original_process_exited=True,cost_settled=True,GPU_released=never_started or pending.get('GPU_released') is True,
         billing_sha256=capture['files']['billing']['sha256'],actual_GPUh=billing['actual_GPUh'],
         terminal_capture_sha256=digest(capture),central_settlement_sha256=digest(settlement),
         technical_accepted=False,authorizes_phase_B=False,authorizes_replay=False)

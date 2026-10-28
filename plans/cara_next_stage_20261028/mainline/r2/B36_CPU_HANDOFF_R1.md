@@ -1,5 +1,7 @@
 # B36执行承接：双端CPU已接受
 
+**最新：[R2单次GPU/CPU入口及启动前账单完整CPU接受](../../../../reports/cara_fast_B36_dispatch_CPU_acceptance_r2_20261029.json)，每端22项；实际20资产/21.35GB摘要完成。** 当前等待 [B36单次5.0215/硬5.5GPUh审批](B36_GPU_REVIEW_R2.md) 和fresh准入；无B GPU授权、stage、预约或启动。下文R1“派发待完成”已被此R2状态替代。
+
 最新增量：[746宿主与终态收件CPU](../../../../research/746_CARA_B36_DUAL_HOST_EXECUTION_AND_TERMINAL_CPU_20261029.md)已接受每端7项执行与8项收件控制，真实A六原件和原冻结已绑定；32正式评分位置引用6个原A已接受配对，仅新增26对计算。单次派发与启动前失败收尾仍待完成，见 [当前就绪清单](B36_EXECUTION_READINESS_R1.md)，无B GPU授权、预约或启动。下文保留原核心路由的CPU接受范围。
 
 用户要求补齐B36执行承接的CPU验证，并保留实际基线选择直到A32完整验收后冻结。2026-10-29已接受[双端CPU回执](../../../../reports/cara_fast_B36_CPU_acceptance_r1_20261029.json)。本次未读取A32实际输出、未冻结实际基线、未启动B36 GPU，原A32源/配置和自动检查未改。

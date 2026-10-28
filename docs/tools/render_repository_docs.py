@@ -949,7 +949,7 @@ def build():
                 or proof['real_ledger_written'] or proof['new_metric_computations'] != 26
                 or proof['reused_accepted_A_metric_pairs'] != 6 or proof['registered_scoring_positions'] != 32):
             raise ValueError('B36 execution/post CPU scope differs')
-        values['next_stage_notice'] += ('\n\n' + link(b36_execution['research_ref'], '746 B36宿主与终态收件CPU')
+        values['next_stage_notice'] += ('\n\n' + link(b36_execution['research_ref'], b36_execution.get('notice_title','746 B36宿主与终态收件CPU'))
             + '：' + b36_execution['summary'] + ' '
             + link(b36_execution['accepted_receipt_ref'], '组合CPU接受') + ' · '
             + link(b36_execution['readiness_ref'], '剩余派发边界'))

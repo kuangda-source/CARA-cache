@@ -26,6 +26,9 @@ def supervise(args):
     require(storage.output==output and not (output/'B-supervisor.json').exists(),
             'Original B36 handle exists; recover it, never restart')
     quote=read(args.stage/QUOTE)['host_quotes'][authority['host']]['phases']['B']
+    guardian=read(args.stage/'pg-host-guardian.json')
+    require(all(guardian[key]==authority[key] for key in ('run_id','launch_id','gpu_uuid','source_revision')),
+            'Original allocation guardian differs')
     uuid=authority['gpu_uuid']
     lease=DeviceLease(args.project,uuid)
     child=None
@@ -48,13 +51,14 @@ def supervise(args):
             launch_id=authority['launch_id'],gpu_uuid=uuid,host=authority['host'],
             supervisor_identity=identity,started_unix=started_unix,whole_limit_GPUh=limit,
             A_launch_id=bound['A_launch_id'],frozen_file_sha256=bound['frozen_file_sha256'],
-            exclusive_monitor_accepted=False,central_cost_settled=False)
+            exclusive_monitor_accepted=False,central_cost_settled=False,runner_dispatch_state='NOT_ATTEMPTED')
         save()
         atomic_json(output/'B-check-schedule.json',dict(run_id=RUN,launch_id=authority['launch_id'],
-            gpu_uuid=uuid,source_revision=registration['source_revision'],started_unix=started_unix,
-            halfway_unix=started_unix+quote['forecast_GPUh']*1800,
-            expected_terminal_unix=started_unix+quote['forecast_GPUh']*3600,
-            hard_terminal_unix=started_unix+limit*3600,
+            gpu_uuid=uuid,source_revision=registration['source_revision'],started_unix=guardian['started_unix'],
+            supervisor_started_unix=started_unix,billing_clock_owner='HOST_GUARDIAN',
+            halfway_unix=guardian['started_unix']+quote['forecast_GPUh']*1800,
+            expected_terminal_unix=guardian['started_unix']+quote['forecast_GPUh']*3600,
+            hard_terminal_unix=guardian['started_unix']+limit*3600,
             midway_scope='Operational handle, progress, thermal, exclusivity and ledger only; no science scores',
             terminal_scope='Original process/container exit, complete36 or retained failures, gate, artifacts, release and central bill',
             scheduler_created=False,authorizes_retry=False,authorizes_phase_B=False))
@@ -68,11 +72,20 @@ def supervise(args):
                  WC_SUPERVISOR_PID=str(os.getpid()),TORCHINDUCTOR_COMPILE_THREADS='1',
                  OMP_NUM_THREADS='2',OPENBLAS_NUM_THREADS='2')
         with (output/'B-GPU.log').open('x') as log:
+            with (args.stage/'B-runner-intent.json').open('x') as handle:
+                json.dump(dict(launch_id=authority['launch_id'],source_revision=registration['source_revision'],
+                    gpu_uuid=uuid,supervisor_identity=identity,command=command,no_replay=True),handle)
+                handle.flush();os.fsync(handle.fileno())
+            state['runner_dispatch_state']='INTENT_WRITTEN'
+            save()
             child=subprocess.Popen(command,stdout=log,stderr=subprocess.STDOUT,env=env,
                 pass_fds=(lease.handle.fileno(),),start_new_session=True)
             runner={k:process_identity(child.pid)[k] for k in ('pid','start_ticks')}
             runner['uid']=os.getuid()
             state['child_identity']=runner
+            state['runner_dispatch_state']='STARTED'
+            atomic_json(args.stage/'B-runner-start.json',dict(identity=runner,launch_id=authority['launch_id'],
+                gpu_uuid=uuid,source_revision=registration['source_revision']))
             save()
             ready=args.stage/'pg-runner-context-ready.json'
             thermal=None
@@ -113,8 +126,8 @@ def supervise(args):
     except BaseException as error:
         if state is None:
             atomic_json(args.stage/'pg-admission-failure.json',dict(error_type=type(error).__name__,
-                error=str(error),GPU_child_started=False,actual_GPUh=0,
-                central_envelope_must_be_reconciled=True))
+                error=str(error),GPU_child_started=False,
+                central_envelope_must_be_reconciled=True,billing_clock_owner='HOST_GUARDIAN'))
         else:
             state.update(error_type=type(error).__name__,error=str(error))
         raise
@@ -131,22 +144,23 @@ def supervise(args):
                 except Exception as error:
                     state.update(exclusive_monitor_accepted=False,release_error=str(error))
                 wall=time.monotonic()-start
-                billing=dict(status='FAST_B36_ORIGINAL_WALL_BILL',run_id=RUN,phase='B',
+                billing=dict(status='FAST_B36_SUPERVISOR_INTERVAL_ONLY_NOT_CENTRAL_BILL',run_id=RUN,phase='B',
                     launch_id=authority['launch_id'],gpu_uuid=uuid,host=authority['host'],
                     source_revision=registration['source_revision'],scope_sha256=card['scope_sha256'],
-                    wall_seconds=wall,actual_GPUh=wall/3600,billed_limit_GPUh=limit,
-                    ended_unix=time.time(),central_settlement_pending=True)
-                storage.journal.write('billing',billing)
-                atomic_json(output/'B-billing.json',billing)
+                    wall_seconds=wall,started_monotonic=start,ended_monotonic=start+wall,
+                    ended_unix=time.time(),central_cost_owner='HOST_GUARDIAN')
+                storage.journal.write('accounting',billing)
+                atomic_json(output/'B-supervisor-billing.json',billing)
                 release=dict(phase='B',scope_sha256=card['scope_sha256'],run_id=RUN,
                     host=authority['host'],gpu_uuid=uuid,launch_id=authority['launch_id'],
                     GPU_released=released,original_process_exited=child is not None and child.poll() is not None,
                     cost_settled=False,technical_accepted=state['exclusive_monitor_accepted'],
-                    phase_state_sha256=state.get('phase_state_sha256'),billing_sha256=sha(output/'B-billing.json'),
+                    phase_state_sha256=state.get('phase_state_sha256'),
+                    supervisor_billing_sha256=sha(output/'B-supervisor-billing.json'),
                     final_snapshot=snapshot,authorizes_phase_B=False)
                 atomic_json(output/'B-release-pending-central.json',release)
                 state.update(status='FAST_B36_TERMINAL_CENTRAL_SETTLEMENT_PENDING',ended_unix=time.time(),
-                             actual_GPUh=wall/3600,observations=observations,billing_sha256=release['billing_sha256'])
+                             observations=observations,supervisor_billing_sha256=release['supervisor_billing_sha256'])
                 save()
         finally:
             lease.close()
@@ -161,6 +175,11 @@ def main():
     args=parser.parse_args()
     sys.path[:0]=[str(args.stage/'src'),str(args.stage/'scripts')]
     os.environ['CUDA_VISIBLE_DEVICES']=''
+    from wcomr.gpu_budget_pool_v2 import process_identity
+    with (args.stage/'B-supervisor-start.json').open('x') as handle:
+        json.dump(dict(identity=process_identity(os.getpid()),started_unix=time.time(),
+                       runner_dispatch_state='NOT_ATTEMPTED'),handle)
+        handle.flush();os.fsync(handle.fileno())
     supervise(args)
 
 

@@ -1,5 +1,7 @@
 # B36等待期准备：配对与报告布局
 
+最新：[R2完整入口/账单CPU每端22项已接受](../../../../reports/cara_fast_B36_dispatch_CPU_acceptance_r2_20261029.json)，实际20资产摘要也通过，现等待 [B36单次GPU审批](B36_GPU_REVIEW_R2.md) 与fresh准入。原32评分位置及6对原评分引用不变；以下先前“入口待完成”为历史准备状态。
+
 最新执行/收件增量见 [B36_EXECUTION_READINESS_R1.md](B36_EXECUTION_READINESS_R1.md)：双端CPU新增7+8项接受，原评分分母32保持，6个原A FIT配对引用已接受指标，原评分CLI只计算其余26对。单次派发和启动前失败收尾仍待完成，无B GPU提交。下文的布局生成发生在A32运行期间，实际冻结以已存在的原一次文件为准。
 
 本清单只读冻结RUN_SPEC和Fidelity-v2，未读取A32运行产物或部分分数；没有GPU提交、参数选择、图表数据或科学结论。

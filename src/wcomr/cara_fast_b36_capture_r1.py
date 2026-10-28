@@ -10,7 +10,7 @@ import time
 from datetime import datetime
 
 from .cara_fast_b36_execution_r1 import RUN,require,PROFILE
-from .cara_fast_b36_terminal_r1 import audit_monitor
+from .cara_fast_b36_terminal_r1 import audit_monitor,container_record
 from .gpu_budget_pool_v2 import atomic_json,process_identity,same_live_process
 from .policy_price_terminal_r1 import record
 from .wc73_exclusive_r1 import observe
@@ -79,7 +79,9 @@ def capture_terminal(project,stage,expected_launch_sha256):
         launch='GPU-launch.json',registration='registration.json',authorization='pg-GPU-authorization.json',
         CPU_acceptance='execution-CPU-proof.json',core_CPU_acceptance='B36-core-CPU-proof.json',central_reservation='central-reservation.json',
         launch_binding='launch-binding.json',profile=PROFILE,guardian='pg-host-guardian.json',
-        ready='pg-runner-context-ready.json',grant='pg-runner-context-granted.json').items()}
+        ready='pg-runner-context-ready.json',grant='pg-runner-context-granted.json',
+        supervisor_start='B-supervisor-start.json',runner_intent='B-runner-intent.json',
+        runner_start='B-runner-start.json',billing='B-billing.json').items()}
     require(files['launch'].get('sha256')==expected_launch_sha256, 'Recover the original launch receipt')
     value=dict(files=files)
     launch=record(value,'launch')
@@ -89,19 +91,40 @@ def capture_terminal(project,stage,expected_launch_sha256):
     files['supervisor']=captured_file(output/'B-supervisor.json')
     guardian=record(value,'guardian') if files['guardian']['exists'] else {}
     supervisor=record(value,'supervisor') if files['supervisor']['exists'] else {}
+    boot=record(value,'supervisor_start') if files['supervisor_start']['exists'] else {}
+    runner_start=record(value,'runner_start') if files['runner_start']['exists'] else {}
+    witness=guardian.get('container_terminal_witness',{})
+    guardian_terminal=guardian.get('status')=='FAST_B36_HOST_GUARDIAN_TERMINAL' and witness.get('complete') is True
+    no_container=guardian_terminal and witness['kind'] in ('NO_CONTAINER_DISPATCH','ORIGINAL_CONTAINER_NEVER_CREATED')
     identities=dict(guardian=launch['guardian_identity'],container_cli=guardian.get('container_cli_identity'),
-                    supervisor=supervisor.get('supervisor_identity'),runner=supervisor.get('child_identity'))
+                    supervisor=supervisor.get('supervisor_identity',boot.get('identity')),
+                    runner=supervisor.get('child_identity',runner_start.get('identity')))
     live={key:same_live_process(identity) if identity and identity.get('start_ticks') is not None else None
           for key,identity in identities.items()}
-    inspected=subprocess.run(['docker','inspect',launch['container']],capture_output=True,text=True,timeout=20)
-    if inspected.returncode:
-        return dict(status='FAST_B36_HANDLE_UNKNOWN',launch_id=launch['launch_id'],
-                    original_live_handles=live,reason='Original container observation unavailable',
-                    scientific_rows_returned=False,GPU_submissions=0,ledger_written=False)
-    container=json.loads(inspected.stdout)[0]
-    if container['State']['Running'] or any(item is not False for item in live.values()):
+    evidence={key:'ORIGINAL_PID_START_TICKS' for key in identities if identities[key]}
+    if no_container:
+        require(not any(files[key]['exists'] for key in ('supervisor_start','runner_intent','runner_start'))
+                and not files['supervisor']['exists'], 'No-container witness conflicts with worker records')
+        for key in ('supervisor','runner'):
+            live[key]=False;evidence[key]='SOURCE_BOUND_NO_CONTAINER_DISPATCH'
+        if not guardian.get('container_cli_identity') and guardian.get('container_dispatch_state') in ('NOT_ATTEMPTED','SPAWN_FAILED_NO_EXEC'):
+            live['container_cli']=False;evidence['container_cli']='GUARDIAN_CONFIRMED_NO_EXEC'
+        container=None
+    else:
+        inspected=subprocess.run(['docker','inspect',launch['container']],capture_output=True,text=True,timeout=20)
+        if inspected.returncode:
+            return dict(status='FAST_B36_HANDLE_UNKNOWN',launch_id=launch['launch_id'],
+                        original_live_handles=live,reason='Original container observation unavailable',
+                        scientific_rows_returned=False,GPU_submissions=0,ledger_written=False)
+        container=container_record(json.loads(inspected.stdout)[0])
+        if guardian_terminal and not container['state']['Running'] and container['state']['Pid']==0 and not files['runner_intent']['exists']:
+            live['runner']=False;evidence['runner']='BOUND_CONTAINER_ENDED_NO_RUNNER_INTENT'
+            if identities['supervisor'] is None:
+                live['supervisor']=False;evidence['supervisor']='BOUND_CONTAINER_INIT_ENDED_BEFORE_RUNNER_DISPATCH'
+    if (not guardian_terminal or (container and container['state']['Running'])
+            or any(item is not False for item in live.values())):
         return dict(status='FAST_B36_LIVE_OR_HANDLE_UNKNOWN_OPERATIONAL_ONLY',launch_id=launch['launch_id'],
-                    original_live_handles=live,container_state=container['State'],
+                    original_live_handles=live,container_state=container['state'] if container else None,
                     scientific_rows_returned=False,GPU_submissions=0,ledger_written=False)
     intent=dict(launch_sha256=expected_launch_sha256,identity=process_identity(os.getpid()),
                 capture_worker_sha256=file_sha(__file__),started_unix=time.time(),
@@ -116,12 +139,11 @@ def capture_terminal(project,stage,expected_launch_sha256):
     try:
         registration=record(value,'registration')
         files.update({key:captured_file(output/name) for key,name in dict(
-            collection='B-collection.json',billing='B-billing.json',pending_release='B-release-pending-central.json',
+            collection='B-collection.json',supervisor_billing='B-supervisor-billing.json',pending_release='B-release-pending-central.json',
             precision='B-model-precision.json',runner='B-runner.json').items()})
         from .cara_fast_b36_r1 import read_handoff
         profile=record(value,'profile')
         value['A32_handoff']=read_handoff({name:stage/descriptor['path'] for name,descriptor in profile['A32_handoff_files'].items()})
-        config=container['HostConfig']
         # Availability after the original job released its context is a separate
         # observation. A later user's job or a transient probe failure cannot
         # invalidate the original final-idle/handle evidence or block its bill.
@@ -130,13 +152,10 @@ def capture_terminal(project,stage,expected_launch_sha256):
         except (OSError,subprocess.SubprocessError,ValueError) as error:
             current_gpu=dict(observation_unavailable=True,error_type=type(error).__name__,error=str(error))
         value.update(status='FAST_B36_TERMINAL_CAPTURE',original_live_handles=live,
+            original_handle_evidence=evidence,
             own_UUID_lock_free=lock_free(project/'.sync/gpu-locks'/(launch['gpu_uuid']+'.lock')),
             mode_owner_lock_free=lock_free(project/'.sync/gpu-locks'/(launch['gpu_uuid']+'.mode-owner.lock')),
-            container=dict(state=container['State'],image=container['Image'],
-                manifest_sha256=container['Config']['Labels'].get('wcomr.manifest'),
-                device_requests=config['DeviceRequests'],readonly_root=config['ReadonlyRootfs'],
-                pid_mode=config['PidMode'],network=config['NetworkMode'],
-                cpus=config['NanoCpus']/10**9,memory_GiB=config['Memory']/1024**3),
+            container=container,
             payload_actual_sha256={name:file_sha(stage/name) for name in registration['payload_sha256']},
             runtime_actual_sha256={name:file_sha(project/'runtime'/name) for name in registration['runtime_source_sha256']},
             terminal_validator_sha256=file_sha(Path(__file__).with_name('cara_fast_b36_terminal_r1.py')),
@@ -149,7 +168,7 @@ def capture_terminal(project,stage,expected_launch_sha256):
             require(monitor.stat().st_size<=MAX_METADATA_BYTES, 'Monitor resource bound exceeded')
             rows=[json.loads(line) for line in monitor.read_text().splitlines()]
             require(len(rows)<=10000, 'Original monitor row bound exceeded')
-            audit=audit_monitor(rows,launch,supervisor,record(value,'billing'),
+            audit=audit_monitor(rows,launch,supervisor,record(value,'supervisor_billing'),
                                 record(value,'ready'),record(value,'grant'),record(value,'pending_release'))
             value['monitor_audit']=dict(audit,passed=True,path=str(monitor),sha256=file_sha(monitor),
                 validator_sha256=value['terminal_validator_sha256'])
@@ -204,7 +223,7 @@ def capture_scores(project,stage,manifest_path,expected_manifest_sha256):
     require(manifest['run_id']==RUN and set(manifest['scorer_source_sha256'])==set(SCORER_SOURCES),
             'Original B36 scoring source scope differs')
     require(Path(manifest['manifest_path'])==manifest_path, 'Original scoring manifest path differs')
-    inspected=subprocess.run(['docker','inspect',stage.name+'-A-score-cpu'],capture_output=True,text=True,timeout=20)
+    inspected=subprocess.run(['docker','inspect',stage.name+'-B-score-cpu'],capture_output=True,text=True,timeout=20)
     if inspected.returncode:
         return dict(status='FAST_B36_SCORE_HANDLE_UNKNOWN',scientific_rows_returned=False,GPU_submissions=0)
     container=json.loads(inspected.stdout)[0]
