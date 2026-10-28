@@ -39,6 +39,10 @@ def accept(capture,scope,contract,revision,host):
         require(row['status']=='PASS' and row['physical_counts']==expected['counts_per_flow']
             and row['complete_new_CPU_paths']==expected['counts_per_flow']['new_paths']
             and row['fixture_source_CPU_paths']==expected['fixture_source_paths_per_flow']
+            and row['fixture_source_forward_counts']==dict(head=72*expected['fixture_source_paths_per_flow'],
+                deep=50*expected['fixture_source_paths_per_flow'])
+            and row['total_observed_head_calls_including_source']==expected['counts_per_flow']['branch_readouts']+72*expected['fixture_source_paths_per_flow']
+            and row['total_observed_deep_calls_including_source']==expected['counts_per_flow']['deep_block_calls']+50*expected['fixture_source_paths_per_flow']
             and row['logical_paths']==10 and len(row['OFF_ON_controls'])==4
             and all(c['exact'] for c in row['OFF_ON_controls'])
             and row['observed_head_forward_calls']==expected['counts_per_flow']['branch_readouts']
@@ -63,7 +67,9 @@ def accept(capture,scope,contract,revision,host):
                 and record['mutable_buffer_bytes']==0
                 and 0<record['original_logical_copy_guard_bytes']<=contract['limits']['logical_copy_guard_bytes']
                 and 0<record['full_backing_copy_guard_bytes']<=contract['limits']['backing_copy_guard_bytes']
-                and set(record['live_backing_storage_bytes_by_device'])=={'cpu'},'Resource metadata or scope changed')
+                and set(record['live_backing_storage_bytes_by_device'])=={'cpu'}
+                and record['live_backing_storage_bytes_by_device']['cpu']<=contract['limits']['live_backing_storage_bytes_by_device_kind']['cpu'],
+                'Resource metadata or scope changed')
             maxima['logical']=max(maxima['logical'],record['original_logical_copy_guard_bytes'])
             maxima['backing']=max(maxima['backing'],record['full_backing_copy_guard_bytes'])
         require(len(slots)==4 and len({s[1] for s in slots})==2
@@ -105,6 +111,7 @@ def main():
         bypass_schema=lambda c:c['result']['rows'][0]['resource_entry']['records'][0].update(unknown_tensor_fields_refused=False),
         bad_contract=lambda c:c['result']['rows'][0]['resource_entry']['records'][0].update(contract_sha256='0'*64),
         missing_raw=lambda c:c['result']['rows'][0]['storage'].update(raw_states=7),
+        missing_source_cost=lambda c:c['result']['rows'][0].update(total_observed_head_calls_including_source=0),
         whole_GPU_claim=lambda c:c['result'].update(actual_S_GPU_entry_accepted=True))
     rejected={}
     for name,mutate in cases.items():
@@ -113,6 +120,7 @@ def main():
         except ValueError:rejected[name]=True
         else:raise ValueError('Forged guard CPU evidence accepted: '+name)
     result.update(capture_ref=str(args.capture),capture_sha256=hashlib.sha256(args.capture.read_bytes()).hexdigest(),
+        auditor_source_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
         rejection_controls=rejected,critical_source_sha256={n:hashlib.sha256(subprocess.check_output(
             ['git','show',revision+':'+n],cwd=ROOT)).hexdigest() for n in FILES})
     with args.output.open('x') as f:json.dump(result,f,indent=2,allow_nan=False);f.write('\n')
