@@ -7,14 +7,14 @@ from pathlib import Path
 import subprocess
 
 from audit_cara_sq_s_owner_cpu_r1 import cpu_mounts, instant, require, result_sha
-from cara_sq_s_physical_cpu_r1 import FILES, SCOPE
+from cara_sq_s_physical_cpu_r1 import FILES, SCOPE, SCOPE_R2
 
 ROOT=Path(__file__).resolve().parents[1]
 
 
-def accept(capture,scope,revision,host):
+def accept(capture,scope,revision,host,attempt='r1'):
     state,launch,result=capture['container_state'],capture['launch'],capture['result']
-    stage='cara-sq-s-physical-cpu-'+host.replace('_','-')+'-r1-20261029'
+    stage='cara-sq-s-physical-cpu-'+host.replace('_','-')+'-'+attempt+'-20261029'
     require(state['Status']=='exited' and state['ExitCode']==0 and not state['Error']
             and not any(state[k] for k in ('Running','Paused','Restarting','OOMKilled','Dead')),
             'Original CPU container must exit cleanly before physical acceptance')
@@ -41,7 +41,8 @@ def accept(capture,scope,revision,host):
             'Physical CPU exceeded its science/GPU boundary')
     expected=scope['hosts'][host]['counts_per_flow'];rows=result['rows']
     require(len(rows)==2 and {r['flow'] for r in rows}=={False,True}
-            and result['tiny_tensor_files_loaded']==80,'Both complete physical CPU flows required')
+            and result['tiny_tensor_files_loaded']==scope['hosts'][host].get('tiny_tensor_reloads',80),
+            'Both complete physical CPU flows and exact tiny loads required')
     for row in rows:
         require(row['status']=='PASS' and row['physical_counts']==expected
                 and row['complete_new_CPU_paths']==expected['new_paths'] and row['logical_paths']==10
@@ -60,6 +61,14 @@ def accept(capture,scope,revision,host):
                 and row['reload_audit']['files_SHA_and_bytes_reloaded']==140
                 and row['S_labels_collected']==0 and not row['actual_Cosmos_weights'] and not row['real_generated_video'],
                 'Complete data-only streaming/reload cohort differs')
+        source_paths=scope['hosts'][host].get('fixture_source_paths_per_flow',0)
+        if source_paths:
+            require(row['fixture_source_CPU_paths']==1 and row['fixture_checkpoint_reloaded'] is True
+                    and len(row['fixture_model_sha256'])==64
+                    and row['fixture_source_forward_counts']==dict(head=72,deep=50)
+                    and row['total_observed_head_calls_including_source']==expected['branch_readouts']+72
+                    and row['total_observed_deep_calls_including_source']==expected['deep_block_calls']+50,
+                    'Count the separately prepared checkpoint-bound tiny OFF source role')
     decode=result['actual_synthetic93_MP4_decode_control'];black=hashlib.sha256();frame=bytes(432*768*3)
     for _ in range(93):black.update(frame)
     require(decode==dict(status='PASS',frames=93,HWC=[432,768,3],production_default_decoder=True,
@@ -72,6 +81,8 @@ def accept(capture,scope,revision,host):
     return dict(passed=True,status='S_PHYSICAL_COLLECTION_CPU_ACCEPTED_NOT_REAL_GPU_OR_LABELS',host=host,
         source_revision=revision,new_CPU_paths=2*expected['new_paths'],logical_roles=20,
         imported_tiny_OFF_roles=2*expected['reused_OFF_paths'],actual_heads_per_flow=expected['branch_readouts'],
+        separately_prepared_tiny_OFF_source_paths=2*scope['hosts'][host].get('fixture_source_paths_per_flow',0),
+        source_fixture_head_calls_per_flow=72*scope['hosts'][host].get('fixture_source_paths_per_flow',0),
         actual_deep_blocks_per_flow=expected['deep_block_calls'],unit_controls=9,files_reloaded=280,
         production_adapter_synthetic93_MP4_decode_accepted=True,real_OFF_ON_equivalence_accepted=False,
         complete_S_GPU_card_accepted=False,S_real_labels=0,GPU_submissions=0,ledger_writes=0,
@@ -85,11 +96,13 @@ def accept(capture,scope,revision,host):
 def main():
     p=argparse.ArgumentParser();p.add_argument('--capture',type=Path,required=True)
     p.add_argument('--host',choices=('two_card','four_card'),required=True)
+    p.add_argument('--attempt',choices=('r1','r2'),default='r1')
     p.add_argument('--source-revision',required=True);p.add_argument('--output',type=Path,required=True);args=p.parse_args()
     if args.output.exists():raise FileExistsError('Retain independent physical CPU acceptance')
-    capture=json.loads(args.capture.read_text());scope=json.loads((ROOT/SCOPE).read_text())
+    scope_name=SCOPE_R2 if args.attempt=='r2' else SCOPE
+    capture=json.loads(args.capture.read_text());scope=json.loads((ROOT/scope_name).read_text())
     revision=subprocess.check_output(['git','rev-parse',args.source_revision+'^{commit}'],cwd=ROOT,text=True).strip()
-    result=accept(capture,scope,revision,args.host)
+    result=accept(capture,scope,revision,args.host,args.attempt)
     mutations=dict(running_body=lambda c:c['container_state'].update(Running=True),
         changed_source=lambda c:c.update(source_hashes_equal=False),
         GPU_request=lambda c:c['host_config'].update(DeviceRequests=[{'Count':1}]),
@@ -101,12 +114,13 @@ def main():
     rejected={}
     for name,mutate in mutations.items():
         altered=copy.deepcopy(capture);mutate(altered);altered['result_sha256']=result_sha(altered['result'])
-        try:accept(altered,scope,revision,args.host)
+        try:accept(altered,scope,revision,args.host,args.attempt)
         except ValueError:rejected[name]=True
         else:raise ValueError('Forged physical CPU receipt accepted: '+name)
     result.update(capture_ref=str(args.capture),capture_sha256=hashlib.sha256(args.capture.read_bytes()).hexdigest(),
         rejection_controls=rejected,critical_source_sha256={name:hashlib.sha256(subprocess.check_output(
-            ['git','show',revision+':'+name],cwd=ROOT)).hexdigest() for name in FILES})
+            ['git','show',revision+':'+name],cwd=ROOT)).hexdigest()
+            for name in FILES+((SCOPE_R2,) if args.attempt=='r2' else ())})
     with args.output.open('x') as f:json.dump(result,f,indent=2,allow_nan=False);f.write('\n')
     print(json.dumps({k:result[k] for k in ('status','host','new_CPU_paths','actual_heads_per_flow','resources')}))
 

@@ -76,16 +76,17 @@ def main():
         raise ValueError('Physical S controls failed: '+log.getvalue())
     decode=actual_decode_control(args.profile)
     retained=json.loads((ROOT/scope['retained_CPU_fixture_ref']).read_text())
-    if args.profile=='two_card':
+    if args.profile=='two_card' and not expected.get('fixture_source_paths_per_flow'):
         registration=json.loads((ROOT/'registration.json').read_text())
         if retained['base']['stage']!=registration['base']['stage']:
             raise ValueError('Use the original accepted tiny OFF fixture stage')
     artifacts=ROOT/'S-physical-CPU-artifacts';loads=[]
     def tiny_loader(path,**kwargs):
         path=Path(path)
+        streaming=path.parent.name=='streaming' and path.name.startswith(('anchor-','state-')) and path.suffix=='.pt'
+        tiny_weights=path.parent.name=='CPU-fixture-assets' and path.name=='weights.pt'
         if (path.is_symlink() or not path.resolve().is_relative_to(artifacts.resolve())
-                or path.parent.name!='streaming' or path.stat().st_size>8*2**20
-                or not path.name.startswith(('anchor-','state-')) or path.suffix!='.pt'
+                or not (streaming or tiny_weights) or path.stat().st_size>8*2**20
                 or kwargs!={'map_location':'cpu','weights_only':True}):
             raise ValueError('Only this stage\'s tiny streaming output may be loaded')
         loads.append(path.name)
@@ -93,8 +94,8 @@ def main():
     from check_sq_s_physical_cpu_r1 import run
     fixture=run(runtime,artifacts,tiny_loader,args.profile,retained)
     rows=fixture['checks']
-    if len(rows)!=2 or {r['flow'] for r in rows}!={False,True} or len(loads)!=80 or torch.cuda.is_initialized():
-        raise ValueError('Both complete physical flow matrices and80 tiny loads required')
+    if len(rows)!=2 or {r['flow'] for r in rows}!={False,True} or len(loads)!=expected.get('tiny_tensor_reloads',80) or torch.cuda.is_initialized():
+        raise ValueError('Both complete physical flow matrices and exact admitted tiny loads required')
     for row in rows:
         if (row['status']!='PASS' or row['physical_counts']!=expected['counts_per_flow']
                 or row['complete_new_CPU_paths']!=expected['counts_per_flow']['new_paths']

@@ -16,3 +16,11 @@
 CPU 准备分别覆盖两端两种 flow：A6000 18 条新 tiny 路径 + 两份原 tiny OFF，Ada 20 条新 tiny 路径。每端九项控制、280 文件重读；另用一份 93 帧 / 432×768 纯黑合成 MP4，实际走生产适配器的默认解码路径并核对所有 RGB 字节。tiny sampler 的视频摘要仍明确标为 CPU stand-in，合成视频也不是 Cosmos 生成结果。
 
 CPU 卡保持 2 CPU / 8 GiB / 1800 秒、GPU 隐藏、无网络、源与旧资产只读、仅独立 stage 可写。源码先发布，双端先恢复既有句柄；一旦存在原 stage 只恢复。真实 S GPU 生命周期、完整内存/存储边界及包括哈希/复制/I-O/释放的整卡报价仍待完成，Q1 的独立待授权状态保持。
+
+## A6000 R1 tiny 复用失败与 R2
+
+原 A6000 R1 在 39.271999 秒后退出 1：第一组 OFF/ON 从第 1 个 Dense 输出起即失配，动作语法一致。旧 tiny fixture 构造 28 个真实小 Block 时使用默认随机参数初始化，却没有保存权重，跨次模型身份无法建立，故该旧 tiny OFF 不可作为正向等价见证。[原失配](../../../reports/cara_sq_s_physical_two_card_retained_fixture_mismatch_r1_20261029.json)和[资格判定](../../../reports/cara_sq_s_tiny_fixture_qualification_r1_20261029.json)保持；没有修改容差或采样/科学规则。真实旧 OFF 具有固定完整 checkpoint SHA，其独立原件接受不受该 tiny 缺口影响。
+
+[A6000 CPU R2](S_PHYSICAL_CPU_R2.json)仅修复测试模型身份：每个 flow 先另计一条 OFF 源准备路径，保存并重载该 tiny 网络参数，校验参数值摘要后再执行九条物理路径。共两条源准备 + 18 条矩阵路径；每个 flow 另计源准备 72 heads / 50 deep calls，不能把总 CPU 费用写成只有 18 条。两份 tiny 权重重读将本端受限加载分母从 80 改为 82。生产 `sq_s_physical_r1.py`、真实执行绑定与 9/10 矩阵全部未变。
+
+Ada R1 不导入任何旧 tiny OFF，仍按原 `763007ab` 句柄完成两种 flow 的二十条完整路径；不因 A6000 fixture 修复而修改或重派该原件。两端最终按各自源包、完整终态与未变化的共同生产源码接受。

@@ -1,0 +1,21 @@
+{
+  "status": "OLD_TINY_OFF_NOT_REUSABLE_WITHOUT_RETAINED_MODEL_IDENTITY",
+  "evidence_sha256": {
+    "reports/cara_sq_s_physical_two_card_cpu_capture1_r1_20261029.json": "4bf16f02267242870f94246b1b0da28442fc6a91bb7958de324af952e5275c5a",
+    "reports/cara_sq_s_physical_two_card_retained_fixture_mismatch_r1_20261029.json": "9fbb93add6f0857b45218050696970c9891a0955a1ec0c1336ce0f319e05fdb6",
+    "tests/check_partial_mlp_guided_sampling_cpu_r1.py": "d2d6b63280c181a326507400ac8c63b89d58c684bdeaf3c53cc91521f160e2a4"
+  },
+  "original_container_exit_code": 1,
+  "original_container_wall_seconds": 39.271999,
+  "first_mismatch_guided_step": 1,
+  "semantic_actions_equal": true,
+  "original_tiny_parameters_not_serialized": true,
+  "initialization": "pinned_blocks constructs28 real tiny Blocks using fresh default parameter initialization",
+  "conclusion": "Original cross-run tiny model identity cannot be established; retain mismatch and do not use its OFF as a positive equivalence fixture",
+  "correction": "Separately prepare one tiny OFF per flow, save/reload its parameters, bind the parameter digest, and charge both source preparation paths before the nine-role physical matrix",
+  "production_S_source_changed": false,
+  "real_retained_OFF_acceptance_unchanged": true,
+  "relaxed_tolerance": false,
+  "GPU_submissions": 0,
+  "ledger_writes": 0
+}
