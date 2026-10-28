@@ -1,0 +1,43 @@
+{
+  "passed": true,
+  "status": "FULL_HOST_ALLOCATION_COMPONENT_CPU_ACCEPTED_NOT_INTEGRATED_GPU_CARD",
+  "host": "two_card",
+  "source_revision": "bbf3b9da4659d1e1dcd117d8821dce749ecab2fd",
+  "unit_controls": 12,
+  "actual_CPU_children": 9,
+  "all_CPU_children_exited": true,
+  "real_hardware_calls": false,
+  "Q1_correction_integrated": false,
+  "S_GPU_entry_integrated": false,
+  "GPU_submissions": 0,
+  "ledger_writes": 0,
+  "resources": {
+    "container_wall_seconds": 1.033065,
+    "worker_wall_seconds": 0.4937228513881564,
+    "parent_CPU_seconds": 0.22815090800000004,
+    "reaped_child_CPU_seconds": 0.21483599999999997,
+    "parent_peak_RSS_GiB": 0.024227142333984375,
+    "allocated_vCPU_seconds_upper_bound": 2.06613,
+    "transport_staging_git_CPU_unmetered": true
+  },
+  "capture_ref": "reports/cara_sq_allocation_two_card_cpu_terminal_r2_20261029.json",
+  "capture_sha256": "ac2564350aa52eb1770d97622ddd2d041efb6adb83d51c1f819d4cc98603fae0",
+  "rejection_controls": {
+    "running_body": true,
+    "stale_source": true,
+    "GPU_exposure": true,
+    "skipped_control": true,
+    "live_child": true,
+    "hardware_call": true,
+    "premature_Q1_ready": true,
+    "simulated_bill_is_not_real": true
+  },
+  "critical_source_sha256": {
+    "src/wcomr/sq_gpu_allocation_r1.py": "0a378d83e0b4402afacc439ee4cb12661cdebd18e8774c8a456238986c131995",
+    "tests/test_sq_gpu_allocation_r1.py": "236232600c7eb3ec32a6006d21e15ee75d134e465976ef152c1c09c95a5c501f",
+    "scripts/check_cara_sq_allocation_cpu_r1.py": "4e7c6531c23b3ca2fb7adf4b03c40280f5f088c0c718f40c156f0a8607e16249",
+    "scripts/cara_sq_q1_control_r1.py": "e949f2d7619c6c76f85fc6a8ea5285e0e767d3d30682fdee75ee8f1c1a4d3049",
+    "plans/cara_next_stage_20261028/sq/ALLOCATION_CPU_R1.json": "7dd610889e3f572dd3d8b4900dd4c96d1eb05de0b699bf0fef0491f566a11f0b",
+    "plans/cara_next_stage_20261028/sq/ALLOCATION_CPU_R2.json": "72d167b9b16cdf757c33084a10d4c7f35e278a511e5b8174b271d4f759c2d0ef"
+  }
+}

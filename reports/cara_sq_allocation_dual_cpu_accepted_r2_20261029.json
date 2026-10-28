@@ -1,0 +1,86 @@
+{
+  "status": "S_Q_HOST_ALLOCATION_COMPONENT_DUAL_CPU_ACCEPTED_Q1_CARD_STILL_WITHDRAWN",
+  "source_revision": "bbf3b9da4659d1e1dcd117d8821dce749ecab2fd",
+  "hosts": {
+    "two_card": {
+      "accepted_ref": "reports/cara_sq_allocation_two_card_cpu_accepted_r2_20261029.json",
+      "unit_controls": 12,
+      "actual_CPU_children": 9,
+      "rejection_controls": 8,
+      "resources": {
+        "container_wall_seconds": 1.033065,
+        "worker_wall_seconds": 0.4937228513881564,
+        "parent_CPU_seconds": 0.22815090800000004,
+        "reaped_child_CPU_seconds": 0.21483599999999997,
+        "parent_peak_RSS_GiB": 0.024227142333984375,
+        "allocated_vCPU_seconds_upper_bound": 2.06613,
+        "transport_staging_git_CPU_unmetered": true
+      }
+    },
+    "four_card": {
+      "accepted_ref": "reports/cara_sq_allocation_four_card_cpu_accepted_r2_20261029.json",
+      "unit_controls": 12,
+      "actual_CPU_children": 9,
+      "rejection_controls": 8,
+      "resources": {
+        "container_wall_seconds": 1.209466,
+        "worker_wall_seconds": 0.5306731276214123,
+        "parent_CPU_seconds": 0.256884075,
+        "reaped_child_CPU_seconds": 0.23180499999999998,
+        "parent_peak_RSS_GiB": 0.0236968994140625,
+        "allocated_vCPU_seconds_upper_bound": 2.418932,
+        "transport_staging_git_CPU_unmetered": true
+      }
+    }
+  },
+  "critical_source_sha256": {
+    "src/wcomr/sq_gpu_allocation_r1.py": "0a378d83e0b4402afacc439ee4cb12661cdebd18e8774c8a456238986c131995",
+    "tests/test_sq_gpu_allocation_r1.py": "236232600c7eb3ec32a6006d21e15ee75d134e465976ef152c1c09c95a5c501f",
+    "scripts/check_cara_sq_allocation_cpu_r1.py": "4e7c6531c23b3ca2fb7adf4b03c40280f5f088c0c718f40c156f0a8607e16249",
+    "scripts/cara_sq_q1_control_r1.py": "e949f2d7619c6c76f85fc6a8ea5285e0e767d3d30682fdee75ee8f1c1a4d3049",
+    "plans/cara_next_stage_20261028/sq/ALLOCATION_CPU_R1.json": "7dd610889e3f572dd3d8b4900dd4c96d1eb05de0b699bf0fef0491f566a11f0b",
+    "plans/cara_next_stage_20261028/sq/ALLOCATION_CPU_R2.json": "72d167b9b16cdf757c33084a10d4c7f35e278a511e5b8174b271d4f759c2d0ef"
+  },
+  "original_failed_R1_costs": {
+    "two_card": {
+      "ref": "reports/cara_sq_allocation_two_card_cpu_terminal_r1_20261029.json",
+      "container_wall_seconds": 1.024156,
+      "allocated_vCPU_seconds_upper_bound": 2.048312,
+      "worker_CPU_unmetered": true
+    },
+    "four_card": {
+      "ref": "reports/cara_sq_allocation_four_card_cpu_terminal_r1_20261029.json",
+      "container_wall_seconds": 1.267474,
+      "allocated_vCPU_seconds_upper_bound": 2.534948,
+      "worker_CPU_unmetered": true
+    }
+  },
+  "all_tests_hardware_and_billing_values_synthetic": true,
+  "actual_linux_children_exited": true,
+  "Torch_imported": false,
+  "old_Q1_f3_readiness_withdrawn": true,
+  "Q1_scientific_scope_111_pairs_unchanged": true,
+  "Q1_guardian_supervisor_capture_settlement_integration_complete": false,
+  "S_GPU_entry_integration_complete": false,
+  "next_required": [
+    "Wire the host bill to Q1 guardian and rename inner supervisor bill/release as diagnostics",
+    "Use the same allocation start/deadline for halfway and terminal checks; retain inner monitor timing separately",
+    "Accept canonical full-host bill and pre-worker failures in capture/financial terminal/central settlement; UNKNOWN remains recovery-only",
+    "Preserve old stages, prepare corrected immutable stages and complete affected dual-host CPU acceptance before restoring Q1 readiness",
+    "Reuse the verified component in complete S GPU entry, resource bounds and whole-card quotes"
+  ],
+  "direct_human_GPU_approval_received": false,
+  "GPU_submissions": 0,
+  "ledger_writes": 0,
+  "evidence_sha256": {
+    "plans/cara_next_stage_20261028/sq/ALLOCATION_CPU_R2.json": "72d167b9b16cdf757c33084a10d4c7f35e278a511e5b8174b271d4f759c2d0ef",
+    "reports/cara_sq_allocation_two_card_cpu_accepted_r2_20261029.json": "fa6ea13be3061a3d069c90dc52f431334ed452143a6d0a85d75955c42fad2b0e",
+    "reports/cara_sq_allocation_two_card_cpu_terminal_r2_20261029.json": "ac2564350aa52eb1770d97622ddd2d041efb6adb83d51c1f819d4cc98603fae0",
+    "reports/cara_sq_allocation_two_card_cpu_terminal_r1_20261029.json": "3b0c22a20f93209718b1ca4d2c3d34915bb3f04da0014a6038d317d369290a45",
+    "reports/cara_sq_allocation_four_card_cpu_accepted_r2_20261029.json": "79b2ec654240ce2d569b657910f120ad93b3647c87234cb4d229f9f156506ab0",
+    "reports/cara_sq_allocation_four_card_cpu_terminal_r2_20261029.json": "df9e8f1a3f52d6ae2eb8737823cfd66a3c158bb55fc6840baf5757cae7c5e8f4",
+    "reports/cara_sq_allocation_four_card_cpu_terminal_r1_20261029.json": "621cf89009281129175e2597180c14b4eaaab5fddc55e73922ce6e4916e32050",
+    "reports/cara_sq_q1_allocation_billing_counterexample_r1_20261029.json": "e6d1574e853375948862b38b7fb5448d42e245a75163b379e180e6d854ef29f3",
+    "reports/cara_sq_q1_allocation_readiness_withdrawal_r1_20261029.json": "0844878e64e0b38cd134eada9c603eca034d0111e2dbafa10bd659770ec7e8cc"
+  }
+}
