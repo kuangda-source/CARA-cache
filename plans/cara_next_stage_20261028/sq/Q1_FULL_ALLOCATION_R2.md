@@ -15,3 +15,5 @@ guardian 在模式准入前持有唯一 monotonic 起点，在绑定的原容器
 [R4 受影响 CPU 范围](Q1_ALLOCATION_CPU_R4.json)为 51 项核心和 14 项控制器测试；包括 14 个可枚举 allocation CPU 子进程及原监督器/自发布 handoff/后处理 CLI 的实际 Linux 控制。GPU/容器/温度观察均为显式夹具，账本为临时文件。资源沿用 2 CPU / 8 GiB / 1800 秒、隐藏 GPU、无网络、只写独立 stage。双端完成后由独立解析器核验源、容器实际退出、CLI 退出、资源、原字节、65 项完整分母、14 个子进程终态及十类错误回执拒绝，再准备新 GPU stage 并出具完整审阅。
 
 R4 接续审查另发现：父控制器若把凭据管道错误追加到返回的 launch，会改变原子 guardian 回执的字节，导致随后按 SHA 恢复失败。修正后错误只写独立 diagnostic，返回的原 launch 字节保持；新增一次实际 Linux 早退子进程和显式 BrokenPipe 控制。[R5 CPU 范围](Q1_ALLOCATION_CPU_R5.json)为 51+15 共 66 项，其余分母/资源不变；只在同端原 R4 确定退出后使用新的 R5 stage，不改运行中的 R4。R4 原成本/收件全部保留，最终执行准备绑定修正后的 R5 源与完整双端 proof。
+
+双端实际只读 Docker 检查均返回 `Error response from daemon: No such container: <绑定原名>`，旧两个模拟错误文本没有覆盖该原生命令格式，保守地将不存在判为 UNKNOWN。R6 只增加这一完整、绑定名称的精确缺失响应；其他 daemon、权限、外来名字和不明错误仍保留 UNKNOWN。原生 probe 新增实际 inspect，只确认原容器不存在，不创建/停止容器、不改模式、不用 GPU。[R6 CPU 范围](Q1_ALLOCATION_CPU_R6.json)仍为 66 项和 14 个枚举 allocation 子进程，最终整卡准备须绑定 R6 双端接受；此前全部 stage 和成本保留。

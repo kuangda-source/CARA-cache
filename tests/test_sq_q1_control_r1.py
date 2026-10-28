@@ -23,7 +23,7 @@ from wcomr.sq_q1_capture_r1 import capture
 class ControlTests(unittest.TestCase):
     def test_recovery_covers_old_stage_and_unknown_docker_without_dispatch(self):
         control=script('cara_sq_q1_control_r1')
-        for case in ('old_intent','unknown'):
+        for case in ('old_intent','unknown','actual_missing'):
             with self.subTest(case=case),tempfile.TemporaryDirectory() as directory:
                 project=Path(directory)
                 if case=='old_intent':
@@ -31,15 +31,19 @@ class ControlTests(unittest.TestCase):
                     atomic_json(old/'GPU-intent.json',dict(CPU_ONLY=True))
                 def inspect(command,**kwargs):
                     name=command[-1]
-                    return type('Result',(),dict(returncode=1,stdout='',stderr=(
-                        'Cannot connect to Docker daemon' if case=='unknown' else 'Error: No such container: '+name)))()
+                    error=('Cannot connect to Docker daemon' if case=='unknown' else
+                        ('Error response from daemon: No such container: ' if case=='actual_missing' else 'Error: No such container: ')+name)
+                    return type('Result',(),dict(returncode=1,stdout='',stderr=error))()
                 stream=io.StringIO();program=control.RECOVER.replace('/data20t/gaokuangda/worldcache_workspace',str(project))
                 with patch('sys.stdin',io.StringIO(json.dumps(dict(host='two_card',run=RUN)))),\
                         patch.object(control.subprocess,'run',side_effect=inspect),contextlib.redirect_stdout(stream):
                     exec(program,{})
-                result=json.loads(stream.getvalue());self.assertTrue(result['handles'])
+                result=json.loads(stream.getvalue())
                 if case=='old_intent':self.assertIn('r1-20261028/GPU-intent.json',result['handles'])
-                else:self.assertTrue(all(row['status']=='UNKNOWN_RECOVER_ONLY' for row in result['handles'].values()))
+                elif case=='unknown':
+                    self.assertTrue(result['handles'])
+                    self.assertTrue(all(row['status']=='UNKNOWN_RECOVER_ONLY' for row in result['handles'].values()))
+                else:self.assertEqual(result['handles'],{})
                 self.assertEqual(result['GPU_submissions'],0)
 
     def test_prepared_inputs_reuse_checks_original_sha_fresh_identity_and_empty_output(self):

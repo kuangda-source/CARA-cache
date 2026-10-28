@@ -52,7 +52,8 @@ class SystemOperations:
         name=stage.name+'-gpu'
         inspected=subprocess.run(['docker','inspect','--type','container',name],capture_output=True,text=True,timeout=20)
         if inspected.returncode:
-            missing=('Error: No such object: '+name,'Error: No such container: '+name)
+            missing=('Error: No such object: '+name,'Error: No such container: '+name,
+                     'Error response from daemon: No such container: '+name)
             if inspected.returncode==1 and inspected.stderr.strip() in missing:return None
             raise RuntimeError('Original container observation is unknown; recover only')
         actual=json.loads(inspected.stdout)[0]

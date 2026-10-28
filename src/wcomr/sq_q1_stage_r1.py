@@ -340,7 +340,7 @@ def provision_storage(project,host,password):
 
 
 def native_probe(project,host):
-    """Actual host Python import/command check with no Docker/mode/GPU launch."""
+    """Actual imports/command and original-container observation; no dispatch/mode action."""
     import importlib.util
     project=Path(project);stage=stage_path(project,host);profile=read(stage/PROFILE)
     from .history104_storage_r2 import storage_for
@@ -354,11 +354,14 @@ def native_probe(project,host):
     require(command[command.index('--memory')+1]=='16g' and command.count('--memory-swap')==1
             and command[command.index('--memory-swap')+1]=='16g' and 'torch' not in sys.modules,
             'Native command memory or import boundary differs')
+    require(sq_gpu_allocation_r1.SystemOperations().inspect_container(stage,sha(stage/'registration.json'),
+        'GPU-CPU-NATIVE-PROBE') is None,'Recover an existing Q1 container before native preparation')
     result=dict(status='Q1_NATIVE_HOST_COMMAND_CPU_PASS',host=host,native_python=sys.version,
         source_revision=read(stage/'registration.json')['source_revision'],
         guardian_sha256=sha(stage/'scripts/cara_sq_q1_guardian_r1.py'),
         command_sha256=hashlib.sha256(json.dumps(command).encode()).hexdigest(),
-        command_executed=False,torch_imported=False,GPU_submissions=0,mode_changes=0,ledger_writes=0)
+        command_executed=False,original_container_definitely_absent=True,
+        actual_Docker_inspection_only=True,torch_imported=False,GPU_submissions=0,mode_changes=0,ledger_writes=0)
     atomic_json(stage/'Q1-native-probe.json',result);return result
 
 

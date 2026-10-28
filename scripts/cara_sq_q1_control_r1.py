@@ -49,7 +49,7 @@ for version in ('r1-20261028','r2-20261029'):
  if q.returncode==0:
   actual=json.loads(q.stdout)[0]
   value['handles'][version+'/container']=dict(id=actual['Id'],state=actual['State'])
- elif q.returncode!=1 or q.stderr.strip() not in ('Error: No such object: '+original.name+'-gpu','Error: No such container: '+original.name+'-gpu'):
+ elif q.returncode!=1 or q.stderr.strip() not in ('Error: No such object: '+original.name+'-gpu','Error: No such container: '+original.name+'-gpu','Error response from daemon: No such container: '+original.name+'-gpu'):
   value['handles'][version+'/container_observation']=dict(status='UNKNOWN_RECOVER_ONLY')
 pool=project/'reports/gpu-budget-v2.json'
 value['central_job']=json.loads(pool.read_text())['jobs'].get(p['run']) if p['host']=='four_card' and pool.exists() else None

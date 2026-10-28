@@ -171,7 +171,11 @@ class AllocationTests(unittest.TestCase):
 class PureBoundaryTests(unittest.TestCase):
     def test_missing_container_requires_exact_docker_missing_response(self):
         ops=SystemOperations();stage=Path('/CPU_ONLY_STUB')
-        for error,missing in [('Error: No such object: CPU_ONLY_STUB-gpu',True),('Cannot connect to Docker daemon',False)]:
+        for error,missing in [('Error: No such object: CPU_ONLY_STUB-gpu',True),
+                ('Error: No such container: CPU_ONLY_STUB-gpu',True),
+                ('Error response from daemon: No such container: CPU_ONLY_STUB-gpu',True),
+                ('Error response from daemon: No such container: FOREIGN-gpu',False),
+                ('Cannot connect to Docker daemon',False)]:
             with patch('wcomr.sq_gpu_allocation_r1.subprocess.run',return_value=SimpleNamespace(returncode=1,stderr=error,stdout='')):
                 if missing:self.assertIsNone(ops.inspect_container(stage,'x','CPU_GPU'))
                 else:

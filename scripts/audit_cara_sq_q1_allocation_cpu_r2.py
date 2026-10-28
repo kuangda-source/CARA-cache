@@ -11,10 +11,10 @@ from cara_sq_q1_control_cpu_r1 import FILES
 from wcomr.sq_q1_spec_r1 import EXECUTION_CRITICAL,SCOPE
 
 ROOT=Path(__file__).resolve().parents[1]
-CPU_SCOPE='plans/cara_next_stage_20261028/sq/Q1_ALLOCATION_CPU_R5.json'
+CPU_SCOPE='plans/cara_next_stage_20261028/sq/Q1_ALLOCATION_CPU_R6.json'
 
 
-def accept(capture,host,revision,attempt='r5'):
+def accept(capture,host,revision,attempt='r6'):
     state,launch,result=capture['container_state'],capture['launch'],capture['result']
     name='cara-sq-q1-control-cpu-'+host.replace('_','-')+'-'+attempt+'-20261028'
     wrapper_tests=14 if attempt=='r4' else 15
@@ -61,7 +61,8 @@ def accept(capture,host,revision,attempt='r5'):
         and all(v[k]==0 for v in (core,result) for k in ('GPU_submissions','new_GPUh','ledger_writes'))
         and capture['new_GPU_submissions']==capture['ledger_writes']==0,
         'CPU correction controls exceeded their fixture/GPU-free boundary')
-    names=[name for name in FILES if attempt!='r4' or not name.endswith('/Q1_ALLOCATION_CPU_R5.json')]
+    names=[name for name in FILES if not any(name.endswith('/Q1_ALLOCATION_CPU_R'+str(number)+'.json')
+            for number in range(int(attempt[1:])+1,7))]
     hashes={name:hashlib.sha256(subprocess.check_output(['git','show',revision+':'+name],cwd=ROOT)).hexdigest()
             for name in names}
     require(core['critical_source_sha256']=={name:hashes[name] for name in EXECUTION_CRITICAL}
@@ -87,7 +88,7 @@ def accept(capture,host,revision,attempt='r5'):
 def main():
     p=argparse.ArgumentParser();p.add_argument('--capture',type=Path,required=True)
     p.add_argument('--host',choices=('two_card','four_card'),required=True)
-    p.add_argument('--attempt',choices=('r4','r5'),default='r5')
+    p.add_argument('--attempt',choices=('r4','r5','r6'),default='r6')
     p.add_argument('--source-revision',required=True);p.add_argument('--output',type=Path,required=True);args=p.parse_args()
     require(not args.output.exists(),'Preserve original corrected Q1 CPU acceptance')
     revision=subprocess.check_output(['git','rev-parse',args.source_revision+'^{commit}'],cwd=ROOT,text=True).strip()
@@ -111,7 +112,7 @@ def main():
         except ValueError:rejected[name]=True
         else:raise ValueError('Forged corrected Q1 CPU receipt accepted: '+name)
     accepted.update(capture_ref=str(args.capture),capture_sha256=hashlib.sha256(args.capture.read_bytes()).hexdigest(),
-        CPU_scope_sha256=hashlib.sha256((ROOT/(CPU_SCOPE if args.attempt=='r5' else CPU_SCOPE.replace('R5','R4'))).read_bytes()).hexdigest(),
+        CPU_scope_sha256=hashlib.sha256((ROOT/CPU_SCOPE.replace('R6',args.attempt.upper())).read_bytes()).hexdigest(),
         rejection_controls=rejected)
     with args.output.open('x') as stream:json.dump(accepted,stream,indent=2,allow_nan=False);stream.write('\n')
     print(json.dumps({key:accepted[key] for key in ('status','host','tests','resources')}))

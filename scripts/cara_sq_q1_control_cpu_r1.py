@@ -15,7 +15,8 @@ ROOT=Path(__file__).resolve().parents[1]
 FILES=tuple(dict.fromkeys(previous.FILES+('tests/test_sq_q1_control_r1.py',
     'scripts/check_cara_sq_q1_control_cpu_r1.py',
     'plans/cara_next_stage_20261028/sq/Q1_ALLOCATION_CPU_R4.json',
-    'plans/cara_next_stage_20261028/sq/Q1_ALLOCATION_CPU_R5.json')))
+    'plans/cara_next_stage_20261028/sq/Q1_ALLOCATION_CPU_R5.json',
+    'plans/cara_next_stage_20261028/sq/Q1_ALLOCATION_CPU_R6.json')))
 
 
 def launch_source():
@@ -26,8 +27,8 @@ def launch_source():
         if code.count(before)!=1:raise ValueError('Accepted CPU boundary changed: '+before)
         code=code.replace(before,after)
     for before,after in (
-        ('cara-sq-q1-control-CPU-only-r1.lock','cara-sq-q1-control-CPU-only-r5.lock'),
-        ('CARA_SQ_Q1_CONTROL_CPU_R1','CARA_SQ_Q1_CONTROL_CPU_R5')):
+        ('cara-sq-q1-control-CPU-only-r1.lock','cara-sq-q1-control-CPU-only-r6.lock'),
+        ('CARA_SQ_Q1_CONTROL_CPU_R1','CARA_SQ_Q1_CONTROL_CPU_R6')):
         if code.count(before)!=1:raise ValueError('Affected CPU entry changed: '+before)
         code=code.replace(before,after)
     return code
@@ -36,7 +37,7 @@ def launch_source():
 def main():
     p=argparse.ArgumentParser();p.add_argument('command',choices=('recover','launch','capture'))
     p.add_argument('--host',choices=('two_card','four_card'),required=True)
-    p.add_argument('--attempt',choices=('r1','r2','r3','r4','r5'),default='r5')
+    p.add_argument('--attempt',choices=('r1','r2','r3','r4','r5','r6'),default='r6')
     p.add_argument('--source-revision',help='Explicit already published immutable source; permits later unrelated repository commits')
     p.add_argument('--launch-ref',type=Path);p.add_argument('--output',type=Path,required=True)
     args=p.parse_args()
@@ -45,7 +46,7 @@ def main():
     def remote(code,data=None):
         return transport.ssh(code,data,docker_group=True) if args.host=='two_card' else transport.four_ssh(code,data)
     if args.command=='launch':
-        if args.attempt!='r5':raise ValueError('Earlier attempts are immutable; recover/capture their original handles')
+        if args.attempt!='r6':raise ValueError('Earlier attempts are immutable; recover/capture their original handles')
         accepted=json.loads((ROOT/f'reports/cara_sq_q1_control_{args.host}_cpu_accepted_r4_20261029.json').read_text())
         prior_path=ROOT/accepted['capture_ref'];prior=json.loads(prior_path.read_text())
         if (not accepted['passed'] or accepted['host']!=args.host
