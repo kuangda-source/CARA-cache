@@ -14,7 +14,8 @@ from wcomr.sq_q1_spec_r1 import SCOPE,MANIFEST_SHA,RUNTIME_REQUIRED
 ROOT=Path(__file__).resolve().parents[1]
 FILES=tuple(dict.fromkeys(previous.FILES+('tests/test_sq_q1_control_r1.py',
     'scripts/check_cara_sq_q1_control_cpu_r1.py',
-    'plans/cara_next_stage_20261028/sq/Q1_ALLOCATION_CPU_R4.json')))
+    'plans/cara_next_stage_20261028/sq/Q1_ALLOCATION_CPU_R4.json',
+    'plans/cara_next_stage_20261028/sq/Q1_ALLOCATION_CPU_R5.json')))
 
 
 def launch_source():
@@ -25,8 +26,8 @@ def launch_source():
         if code.count(before)!=1:raise ValueError('Accepted CPU boundary changed: '+before)
         code=code.replace(before,after)
     for before,after in (
-        ('cara-sq-q1-control-CPU-only-r1.lock','cara-sq-q1-control-CPU-only-r4.lock'),
-        ('CARA_SQ_Q1_CONTROL_CPU_R1','CARA_SQ_Q1_CONTROL_CPU_R4')):
+        ('cara-sq-q1-control-CPU-only-r1.lock','cara-sq-q1-control-CPU-only-r5.lock'),
+        ('CARA_SQ_Q1_CONTROL_CPU_R1','CARA_SQ_Q1_CONTROL_CPU_R5')):
         if code.count(before)!=1:raise ValueError('Affected CPU entry changed: '+before)
         code=code.replace(before,after)
     return code
@@ -35,7 +36,7 @@ def launch_source():
 def main():
     p=argparse.ArgumentParser();p.add_argument('command',choices=('recover','launch','capture'))
     p.add_argument('--host',choices=('two_card','four_card'),required=True)
-    p.add_argument('--attempt',choices=('r1','r2','r3','r4'),default='r4')
+    p.add_argument('--attempt',choices=('r1','r2','r3','r4','r5'),default='r5')
     p.add_argument('--source-revision',help='Explicit already published immutable source; permits later unrelated repository commits')
     p.add_argument('--launch-ref',type=Path);p.add_argument('--output',type=Path,required=True)
     args=p.parse_args()
@@ -44,7 +45,14 @@ def main():
     def remote(code,data=None):
         return transport.ssh(code,data,docker_group=True) if args.host=='two_card' else transport.four_ssh(code,data)
     if args.command=='launch':
-        if args.attempt!='r4':raise ValueError('Earlier attempts are immutable; recover/capture their original handles')
+        if args.attempt!='r5':raise ValueError('Earlier attempts are immutable; recover/capture their original handles')
+        accepted=json.loads((ROOT/f'reports/cara_sq_q1_control_{args.host}_cpu_accepted_r4_20261029.json').read_text())
+        prior_path=ROOT/accepted['capture_ref'];prior=json.loads(prior_path.read_text())
+        if (not accepted['passed'] or accepted['host']!=args.host
+                or hashlib.sha256(prior_path.read_bytes()).hexdigest()!=accepted['capture_sha256']
+                or prior['container_state']['Running'] or prior['container_state']['ExitCode']!=0
+                or prior['original_CLI_live'] is not False):
+            raise ValueError('Recover the original same-host R4 terminal before R5 CPU dispatch')
         revision=args.source_revision or subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip()
         published=subprocess.check_output(['git','ls-remote','origin','refs/heads/main'],cwd=ROOT,text=True).split()[0]
         if subprocess.run(['git','merge-base','--is-ancestor',revision,published],cwd=ROOT).returncode:

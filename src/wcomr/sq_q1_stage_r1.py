@@ -206,6 +206,10 @@ def dispatch(project,host,envelope,intent_sha256,password,*,host_python=sys.exec
             delivery_error=type(error).__name__
             try:child.stdin.close()
             except OSError:pass
+    if delivery_error:
+        exclusive_json(stage/'GPU-credential-delivery-diagnostic.json',dict(
+            launch_id=authority['launch_id'],error_type=delivery_error,observed_unix=time.time(),
+            authorizes_retry=False))
     # Only the child can publish its PID/start ticks. Credential loss or an
     # early exit cannot turn a consumed handoff into another submission.
     until=time.monotonic()+5
@@ -213,7 +217,6 @@ def dispatch(project,host,envelope,intent_sha256,password,*,host_python=sys.exec
         if (stage/'GPU-launch.json').exists():
             launch=read(stage/'GPU-launch.json')
             require(launch['launch_id']==authority['launch_id'],'Original child launch differs')
-            if delivery_error:launch=dict(launch,credential_delivery_error=delivery_error)
             return launch
         if child.poll() is not None:break
         time.sleep(.02)

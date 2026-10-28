@@ -296,6 +296,43 @@ raise SystemExit(7)
                 self.assertEqual(len(children),1)
 
     @unittest.skipUnless(Path('/proc/self').exists(),'Real Linux handoff child and raw CPU post CLI')
+    def test_credential_pipe_failure_preserves_original_launch_bytes(self):
+        from wcomr import sq_q1_stage_r1 as module
+        with tempfile.TemporaryDirectory() as directory:
+            project=Path(directory);stage=stage_path(project,'two_card')
+            _,authority,registration,_=authority_fixture(project,stage_name=stage.name)
+            envelope=json.loads((stage/'central-reservation.json').read_text())
+            (stage/'central-reservation.json').unlink();(stage/'launch-binding.json').unlink()
+            stub='''import sys
+from pathlib import Path
+sys.path.insert(0,__SOURCE__)
+from wcomr.sq_q1_stage_r1 import publish_launch
+stage=Path(__file__).resolve().parents[1]
+publish_launch(stage.parents[1],stage)
+raise SystemExit(7)
+'''.replace('__SOURCE__',repr(str(ROOT/'src')))
+            (stage/'scripts/cara_sq_q1_guardian_r1.py').write_text(stub)
+            children=[];popen=subprocess.Popen
+            def spawn(*args,**kwargs):
+                child=popen(*args,**kwargs);children.append(child);original=child.stdin
+                class FailedPipe:
+                    def write(self,data):raise BrokenPipeError('CPU_SYNTHETIC_CREDENTIAL_PIPE_FAILURE')
+                    def close(self):original.close()
+                child.stdin=FailedPipe();return child
+            with patch.object(module,'asset_identity_current',return_value=True),\
+                    patch.object(module,'validate',return_value=(json.loads((ROOT/SCOPE).read_text()),registration,authority)),\
+                    patch.object(module.subprocess,'Popen',side_effect=spawn):
+                intent=prepare_intent(project,'two_card',authority)
+                result=dispatch(project,'two_card',envelope,intent['intent_sha256'],None)
+                self.assertEqual(children[0].wait(timeout=30),7)
+                self.assertEqual((json.dumps(result,indent=2)+'\n').encode(),(stage/'GPU-launch.json').read_bytes())
+                self.assertNotIn('credential_delivery_error',result)
+                diagnostic=json.loads((stage/'GPU-credential-delivery-diagnostic.json').read_text())
+                self.assertEqual(diagnostic['error_type'],'BrokenPipeError')
+                with self.assertRaises(ValueError):dispatch(project,'two_card',envelope,intent['intent_sha256'],None)
+                self.assertEqual(len(children),1)
+
+    @unittest.skipUnless(Path('/proc/self').exists(),'Real Linux handoff child and raw CPU post CLI')
     def test_actual_CPU_post_CLI_requires_settlement_before_selection(self):
         with tempfile.TemporaryDirectory() as directory:
             project=Path(directory);captured,scope,pool=fixture(project)
