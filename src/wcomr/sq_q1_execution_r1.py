@@ -153,17 +153,43 @@ def check_collection(scope,result):
     return dict(kind='ORIGINAL_NUMERIC_GATE_NOT_ACCEPTED',complete=False,selection_allowed_after_release=False)
 
 
-def settle_central(pool,authority,billing,release,guardian,*,billing_sha256):
-    """Settle the original host bill once; numerical failure is not free work."""
+def check_host_bill(authority,billing,release,guardian,*,billing_sha256):
+    """The supervisor interval can never substitute for the complete host bill."""
     require(release['GPU_released'] and release['original_process_exited']
-            and guardian['mode_restoration']['restored'],'Original GPU/context/mode release is not proven')
-    require(release['billing_sha256']==billing_sha256,'Original captured billing bytes differ')
-    require(finite(billing['wall_seconds']) and billing['wall_seconds']>=0
-            and billing['actual_GPUh']==billing['wall_seconds']/3600,'Exact finite original wall bill required')
+            and release['allocation_release_accepted'] is True
+            and guardian['mode_restoration']['restored'] is True
+            and guardian['container_terminal_witness']['complete'] is True,
+            'Original GPU/context/mode release is not proven')
+    require(release['billing_sha256']==guardian['billing_sha256']==billing_sha256,
+            'Original captured host billing bytes differ')
+    require(billing['billing_clock_owner']==guardian['billing_clock_owner']=='HOST_GUARDIAN'
+            and billing['status']=='SQ_Q1_ORIGINAL_WALL_BILL'
+            and billing['wall_interval_complete'] is True
+            and billing['supervisor_bill_is_diagnostic_only'] is True
+            and guardian['status']=='SQ_Q1_HOST_GUARDIAN_TERMINAL',
+            'Complete host guardian allocation bill required; inner bill is diagnostic only')
+    start,end=billing['started_monotonic'],billing['ended_monotonic']
+    require(finite(start) and finite(end) and 0<=start<=end
+            and start==guardian['started_monotonic'] and end==guardian['ended_monotonic']
+            and billing['started_unix']==guardian['started_unix']
+            and billing['ended_unix']==guardian['ended_unix']
+            and finite(billing['wall_seconds']) and billing['wall_seconds']==end-start
+            and billing['actual_GPUh']==billing['wall_seconds']/3600,
+            'Exact complete host allocation interval differs')
+    require(release['container_terminal_witness']==guardian['container_terminal_witness']
+            and release['mode_restoration']==guardian['mode_restoration']
+            and release['cost_settled'] is False and release['authorizes_retry'] is False,
+            'Original allocation release witness differs')
     for key in ('run_id','launch_id','host','gpu_uuid','source_revision','scope_sha256'):
-        require(billing[key]==release[key]==authority[key],'Original bill/release/authority differs: '+key)
+        require(billing[key]==release[key]==guardian[key]==authority[key],
+                'Original bill/release/authority differs: '+key)
     require(billing['run_id']==RUN and billing['billed_limit_GPUh']==authority['whole_GPUh'],
             'Wrong Q1 bill or whole limit')
+
+
+def settle_central(pool,authority,billing,release,guardian,*,billing_sha256):
+    """Settle the original host bill once; numerical failure is not free work."""
+    check_host_bill(authority,billing,release,guardian,billing_sha256=billing_sha256)
     before=pool.read();job=before['jobs'][RUN]
     for key in ('run_id','launch_id','host','gpu_uuid','source_revision','scope_sha256'):
         require(job[key]==authority[key],'Wrong original central job: '+key)

@@ -241,8 +241,13 @@ if __CASE__ in ('thermal','timeout'):time.sleep(60)
                 def check(self):return {}
                 def persist(self,key,path,value,writer):self.journal.write(key,value);writer(path,value)
             storage=Storage();storage.output=output
-            authority=dict(host='two_card',gpu_uuid=gpu()['uuid'],launch_id='CPU_NO_GPU_LAUNCH',scope_sha256='a'*64)
+            authority=dict(run_id=RUN,host='two_card',gpu_uuid=gpu()['uuid'],launch_id='CPU_NO_GPU_LAUNCH',
+                scope_sha256='a'*64,source_revision='CPU_REAL_SUBPROCESS_CONTROL')
             registration=dict(source_revision='CPU_REAL_SUBPROCESS_CONTROL')
+            allocation_start=time.monotonic()-(179 if scenario=='timeout' else 0)
+            allocation_unix=time.time()-(179 if scenario=='timeout' else 0)
+            atomic_json(stage/'pg-host-guardian.json',dict(authority,billing_clock_owner='HOST_GUARDIAN',
+                started_monotonic=allocation_start,started_unix=allocation_unix))
             def observe(uuid):
                 ready=stage/'pg-runner-context-ready.json';apps=[]
                 if ready.exists():
@@ -252,7 +257,7 @@ if __CASE__ in ('thermal','timeout'):time.sleep(60)
                     mps_processes=[],observed_unix=time.time())
             args=type('Arguments',(),dict(project=project,stage=stage))()
             thermal={'temperature.gpu':'90' if scenario=='thermal' else '50'}
-            limits=dict(LIMITS,two_card=1/3600 if scenario=='timeout' else 1.25)
+            limits=dict(LIMITS,two_card=360/3600 if scenario=='timeout' else 1.25)
             with patch.object(execution,'validate',return_value=(scope,registration,authority)),\
                     patch.object(storage_module,'storage_for',return_value=storage),\
                     patch.object(exclusive,'observe',side_effect=observe),\
@@ -260,13 +265,18 @@ if __CASE__ in ('thermal','timeout'):time.sleep(60)
                 if scenario in ('complete','numeric_failure'):worker.supervise(args)
                 else:
                     with self.assertRaises((RuntimeError,ValueError,TimeoutError)):worker.supervise(args)
-            bill=json.loads((output/'Q1-billing.json').read_text())
-            release=json.loads((output/'Q1-release-pending-central.json').read_text())
+            bill=json.loads((output/'Q1-supervisor-billing-diagnostic.json').read_text())
+            release=json.loads((output/'Q1-supervisor-release-diagnostic.json').read_text())
+            self.assertFalse((output/'Q1-billing.json').exists())
+            self.assertFalse((output/'Q1-release-pending-central.json').exists())
             self.assertGreater(bill['actual_GPUh'],0)
             self.assertTrue(release['GPU_released'] and release['original_process_exited'])
             self.assertFalse(release['cost_settled'])
             self.assertEqual(release['technical_accepted'],scenario in ('complete','numeric_failure'))
-            self.assertEqual(storage.journal.records['billing'],bill)
+            self.assertTrue(bill['diagnostic_only']);self.assertFalse(bill['chargeable'])
+            schedule=json.loads((output/'Q1-check-schedule.json').read_text())
+            self.assertEqual(schedule['started_unix'],allocation_unix)
+            self.assertEqual(storage.journal.records['supervisor_billing_diagnostic'],bill)
             if scenario=='thermal':self.assertEqual(storage.journal.records['telemetry']['thermal']['temperature.gpu'],'90')
             with DeviceLease(project,gpu()['uuid']):pass
             with patch.object(execution,'validate',return_value=(scope,registration,authority)),\

@@ -10,7 +10,7 @@ import math
 from .gpu_budget_pool_v2 import finite
 from .policy_asset_price_review_r1 import exclusive_gate
 from .policy_price_terminal_r1 import record
-from .sq_q1_execution_r1 import require,check_collection,settle_central,Pool
+from .sq_q1_execution_r1 import require,check_collection,check_host_bill,settle_central,Pool
 from .sq_q1_spec_r1 import (RUN,COUNTS,LIMITS,SCOPE,PROFILE,QUOTES,EXECUTION_CRITICAL,
                             RUNTIME_REQUIRED)
 
@@ -81,25 +81,32 @@ def financial_terminal(capture,scope):
             and all(value is False for value in capture['original_live_handles'].values())
             and capture['own_UUID_lock_free'] is True and capture['mode_owner_lock_free'] is True,
             'Recover original Q1 handles and locks before settlement')
-    con=capture['container'];state=con['state']
-    require(state['Status']=='exited' and not state['Running'] and con['image']==IMAGE
-            and con['manifest_sha256']==launch['registration_sha256']
-            and len(con['device_requests'])==1
-            and con['device_requests'][0]['DeviceIDs']==[launch['gpu_uuid']],
-            'Original Q1 container is not terminal or changed identity')
     billing=record(capture,'billing');pending=record(capture,'pending_release')
-    supervisor=record(capture,'supervisor');guardian=record(capture,'guardian')
-    for value in (billing,pending,supervisor):
-        for key in ('run_id','host','gpu_uuid','launch_id','source_revision','scope_sha256'):
-            require(value[key]==launch[key],'Original Q1 terminal identity differs: '+key)
-    require(billing['billed_limit_GPUh']==launch['whole_GPUh'] and finite(billing['wall_seconds'])
-            and billing['wall_seconds']>0 and billing['actual_GPUh']==billing['wall_seconds']/3600
-            and pending['billing_sha256']==capture['files']['billing']['sha256'],
-            'Original exact Q1 wall bill differs')
-    require(guardian['status']=='SQ_Q1_HOST_GUARDIAN_TERMINAL'
-            and all(guardian[key]==launch[key] for key in ('run_id','gpu_uuid','launch_id','source_revision'))
-            and all(guardian['identity'][key]==launch['guardian_identity'][key]
+    guardian=record(capture,'guardian');allocation=record(capture,'allocation_release')
+    check_host_bill(launch,billing,pending,guardian,billing_sha256=capture['files']['billing']['sha256'])
+    require(pending['allocation_release_sha256']==capture['files']['allocation_release']['sha256']
+            and all(pending[key]==value for key,value in allocation.items()),
+            'Original host allocation release bytes differ')
+    require(all(guardian['identity'][key]==launch['guardian_identity'][key]
                     for key in ('pid','start_ticks')),'Original Q1 guardian identity differs')
+    witness=guardian['container_terminal_witness'];con=capture['container']
+    if witness['kind']=='BOUND_CONTAINER_TERMINAL':
+        require(con is not None and con['state']['Status'] in ('created','exited')
+                and not con['state']['Running'] and con['state']['Pid']==0 and con['image']==IMAGE
+                and con['id']==witness['container_id']
+                and all(con[key]==value for key,value in witness['container'].items())
+                and con['manifest_sha256']==launch['registration_sha256']
+                and len(con['device_requests'])==1
+                and con['device_requests'][0]['DeviceIDs']==[launch['gpu_uuid']],
+                'Original Q1 container is not terminal or changed identity')
+    else:
+        require(con is None and capture['container_observation']=='DEFINITE_NO_SUCH_CONTAINER'
+                and ((witness['kind']=='NO_CONTAINER_DISPATCH'
+                      and witness['dispatch_state']==guardian['container_dispatch_state']
+                      and witness['dispatch_state'] in ('NOT_ATTEMPTED','SPAWN_FAILED_NO_EXEC'))
+                     or (witness['kind']=='ORIGINAL_CONTAINER_NEVER_CREATED'
+                         and guardian['container_dispatch_state']=='STARTED')),
+                'No-container Q1 terminal is not proven; recover only')
     return launch,billing
 
 
@@ -137,7 +144,28 @@ def audit_settlement(capture,scope,settlement):
 def technical_terminal(capture,scope):
     launch,billing=financial_terminal(capture,scope)
     supervisor=record(capture,'supervisor');pending=record(capture,'pending_release')
-    guardian=record(capture,'guardian');con=capture['container'];state=con['state']
+    guardian=record(capture,'guardian');con=capture['container']
+    require(con is not None,'No-container terminal has no Q1 technical collection')
+    state=con['state']
+    inner=record(capture,'supervisor_billing');diagnostic=record(capture,'supervisor_release')
+    require(pending['supervisor_billing_sha256']==capture['files']['supervisor_billing']['sha256']
+            ==diagnostic['billing_sha256']==supervisor['supervisor_billing_sha256']
+            and pending['supervisor_release_sha256']==capture['files']['supervisor_release']['sha256']
+            and inner['billing_clock_owner']=='SUPERVISOR_DIAGNOSTIC'
+            and inner['diagnostic_only'] is True and inner['chargeable'] is False
+            and diagnostic['diagnostic_only'] is True,
+            'Original supervisor monitoring diagnostic bytes differ')
+    for value in (supervisor,inner,diagnostic):
+        require(all(value[key]==launch[key] for key in (
+            'run_id','host','gpu_uuid','launch_id','source_revision','scope_sha256')),
+            'Original Q1 supervisor diagnostic identity differs')
+    require(billing['started_monotonic']<=inner['started_monotonic']<=inner['ended_monotonic']<=billing['ended_monotonic']
+            and inner['allocation_started_monotonic']==supervisor['allocation_started_monotonic']==billing['started_monotonic']
+            and inner['started_monotonic']==supervisor['started_monotonic']
+            and inner['ended_monotonic']==supervisor['ended_monotonic']
+            and inner['wall_seconds']==inner['ended_monotonic']-inner['started_monotonic']
+            ==supervisor['diagnostic_wall_seconds'],
+            'Original continuous-monitor interval is not within the complete host allocation')
     require(billing['actual_GPUh']<=launch['whole_GPUh'] and state['ExitCode']==0 and not state['OOMKilled']
             and con['readonly_root'] and con['pid_mode']=='host' and con['network']=='none'
             and con['cpus']==2 and con['memory_GiB']==con['memory_swap_GiB']==16
@@ -183,7 +211,7 @@ def technical_terminal(capture,scope):
         temperature=float(row['thermal']['temperature.gpu'])
         require(math.isfinite(temperature) and temperature<90,'Original Q1 thermal stop or invalid value')
         maximum_temperature=max(maximum_temperature,temperature)
-    require(active and 0<=billing['wall_seconds']-last<=45,'Unmonitored original Q1 terminal interval')
+    require(active and 0<=inner['wall_seconds']-last<=45,'Unmonitored original Q1 terminal interval')
     final=pending['final_snapshot']
     require(exclusive_gate(final,gpu_uuid=launch['gpu_uuid'],phase='idle',now=final['observed_unix'])[
         'observation_passed'],'Original Q1 context release not independently verified')

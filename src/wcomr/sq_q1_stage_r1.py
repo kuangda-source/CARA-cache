@@ -34,7 +34,7 @@ def verify_lease_fd(project,gpu_uuid,descriptor):
 
 def stage_path(project,host):
     require(host in LIMITS,'Registered Q1 host required')
-    return Path(project)/'.sync'/('cara-sq-q1-saved-'+host.replace('_','-')+'-r1-20261028')
+    return Path(project)/'.sync'/('cara-sq-q1-saved-'+host.replace('_','-')+'-r2-20261029')
 
 
 def install(project,host,base,proof,proof_raw,base_registration_sha256):
@@ -120,6 +120,41 @@ def asset_identity_current(stage):
     return len(value['files'])==33
 
 
+def reuse_prepared_inputs(project,host,expected):
+    """Reuse accepted full digests and empty private storage with fresh identities."""
+    from .history104_storage_r2 import StorageGuard
+    project=Path(project);stage=stage_path(project,host)
+    old=project/'.sync'/('cara-sq-q1-saved-'+host.replace('_','-')+'-r1-20261028')
+    require(old.is_dir() and not old.is_symlink() and stage.is_dir(),'Original and corrected Q1 stages required')
+    for source in (old,stage):
+        require(not any((source/name).exists() for name in (
+            'GPU-intent.json','GPU-launch.json','GPU-dispatch-consumed.json','pg-host-guardian.json')),
+            'An original Q1 intent exists; recover only')
+    names=dict(registration='registration.json',assets='Q1-asset-verification.json',storage='history104-storage.json')
+    require(all(sha(old/name)==expected[key+'_sha256'] for key,name in names.items()),
+            'Original accepted prepared-input receipt bytes differ')
+    require(read(old/'registration.json')['host']==host==read(stage/'registration.json')['host']
+            and read(old/'registration.json')['runtime_source_sha256']==read(stage/'registration.json')['runtime_source_sha256']
+            and asset_identity_current(old) and sha(project/ASSETS/'manifest.json')==MANIFEST_SHA,
+            'Accepted complete asset identities or pinned runtime changed')
+    assets=read(old/'Q1-asset-verification.json');contract=read(old/'history104-storage.json')
+    require(assets['manifest_sha256']==MANIFEST_SHA and assets['checkpoint_sha256']==CHECKPOINT_SHA
+            and contract['run_id']==RUN and contract['output_mount']==str(project/'outputs'/RUN)
+            and not any(Path(contract['output_mount']).iterdir()),
+            'Only the same verified assets and never-used empty Q1 output may be reused')
+    check=StorageGuard(contract).check()
+    require(not any((stage/name).exists() for name in ('Q1-asset-verification.json','history104-storage.json',
+        'Q1-prepared-inputs-reuse.json')),'Prepared-input binding already exists; recover it')
+    for name in ('Q1-asset-verification.json','history104-storage.json'):
+        with (stage/name).open('xb') as stream:
+            stream.write((old/name).read_bytes());stream.flush();os.fsync(stream.fileno())
+    result=dict(status='Q1_ACCEPTED_INPUTS_REBOUND_WITH_FRESH_IDENTITIES_NO_RESCAN',host=host,
+        old_stage=str(old),stage=str(stage),original_receipt_sha256=expected,
+        assets_current=True,verified_asset_files=33,empty_private_output=True,
+        storage_check=check,observed_unix=time.time(),GPU_submissions=0,ledger_writes=0)
+    exclusive_json(stage/'Q1-prepared-inputs-reuse.json',result);return result
+
+
 def prepare_intent(project,host,authority):
     """No process/mode action; an existing intent permanently blocks replay."""
     stage=stage_path(project,host)
@@ -165,14 +200,40 @@ def dispatch(project,host,envelope,intent_sha256,password,*,host_python=sys.exec
     with (stage/'GPU-guardian.log').open('x') as log:
         child=subprocess.Popen(command,stdin=subprocess.PIPE,stdout=log,stderr=subprocess.STDOUT,
             start_new_session=True,env=dict(os.environ,CUDA_VISIBLE_DEVICES='',PYTHONDONTWRITEBYTECODE='1'))
-        child.stdin.write(json.dumps(dict(sudo_password=password)).encode());child.stdin.close()
+        delivery_error=None
+        try:child.stdin.write(json.dumps(dict(sudo_password=password)).encode());child.stdin.close()
+        except (BrokenPipeError,OSError) as error:
+            delivery_error=type(error).__name__
+            try:child.stdin.close()
+            except OSError:pass
+    # Only the child can publish its PID/start ticks. Credential loss or an
+    # early exit cannot turn a consumed handoff into another submission.
+    until=time.monotonic()+5
+    while time.monotonic()<until:
+        if (stage/'GPU-launch.json').exists():
+            launch=read(stage/'GPU-launch.json')
+            require(launch['launch_id']==authority['launch_id'],'Original child launch differs')
+            if delivery_error:launch=dict(launch,credential_delivery_error=delivery_error)
+            return launch
+        if child.poll() is not None:break
+        time.sleep(.02)
+    return dict(status='Q1_CONSUMED_HANDOFF_NO_PUBLISHED_LAUNCH_RECOVER_ONLY',
+        launch_id=authority['launch_id'],guardian_identity=process_identity(child.pid),
+        credential_delivery_error=delivery_error,actual_GPU_started=False,authorizes_retry=False)
+
+
+def publish_launch(project,stage):
+    """Publish this original child before reading any credential pipe."""
+    stage=Path(stage);authority=read(stage/'pg-GPU-authorization.json')
+    require(stage==stage_path(project,authority['host']) and (stage/'GPU-dispatch-consumed.json').exists(),
+            'Original consumed Q1 handoff required')
     launch=dict(status='SQ_Q1_SINGLE_DISPATCHED_HARDWARE_ADMISSION_PENDING',
         **{key:authority[key] for key in ('run_id','host','gpu_uuid','launch_id','source_revision','scope_sha256',
             'scope_counts','whole_GPUh','registration_sha256')},
-        stage=str(stage),container=stage.name+'-gpu',guardian_identity=process_identity(child.pid),
+        stage=str(stage),container=stage.name+'-gpu',guardian_identity=process_identity(os.getpid()),
         authorization_sha256=sha(stage/'pg-GPU-authorization.json'),started_unix=time.time(),
         actual_GPU_started=False,automatic_retry_authorized=False)
-    atomic_json(stage/'GPU-launch.json',launch);return launch
+    exclusive_json(stage/'GPU-launch.json',launch);return launch
 
 
 def preflight(project,host):
@@ -280,6 +341,7 @@ def native_probe(project,host):
     import importlib.util
     project=Path(project);stage=stage_path(project,host);profile=read(stage/PROFILE)
     from .history104_storage_r2 import storage_for
+    from . import sq_gpu_allocation_r1,sq_q1_capture_r1,sq_q1_terminal_r1
     require(os.environ.get('CUDA_VISIBLE_DEVICES')=='','Native probe must hide CUDA')
     storage=storage_for(stage);storage.check()
     spec=importlib.util.spec_from_file_location('q1_native_guardian',stage/'scripts/cara_sq_q1_guardian_r1.py')

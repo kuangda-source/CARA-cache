@@ -1,8 +1,8 @@
 """Pure-data identities shared by Q1 collection and host-side execution."""
 RUN = 'cara-sq-q1-saved-r1-20261028'
 SCOPE = 'plans/cara_next_stage_20261028/sq/Q1_WHOLE_SCOPE_R1.json'
-PROFILE = 'plans/cara_next_stage_20261028/sq/Q1_EXECUTION_PROFILE_R1.json'
-QUOTES = {host:'plans/cara_next_stage_20261028/sq/Q1_WHOLE_QUOTE_'+host.upper()+'_R1.json'
+PROFILE = 'plans/cara_next_stage_20261028/sq/Q1_EXECUTION_PROFILE_R2.json'
+QUOTES = {host:'plans/cara_next_stage_20261028/sq/Q1_WHOLE_QUOTE_'+host.upper()+'_R2.json'
           for host in ('two_card','four_card')}
 PROMPTS = ('av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632','human_199')
 STEPS = (22,23,25,33,34,35)
@@ -30,6 +30,7 @@ EXECUTION_CRITICAL = (
     'src/wcomr/gpu_budget_pool_v2.py','src/wcomr/wc73_execution_r1.py',
     'src/wcomr/wc73_exclusive_r1.py','src/wcomr/history104_storage_r2.py',
     'src/wcomr/policy_price_mode_guard_r1.py',
+    'src/wcomr/sq_gpu_allocation_r1.py',
     'scripts/run_cara_sq_q1_r1.py','scripts/cara_sq_q1_worker_r1.py',
     'scripts/cara_sq_q1_guardian_r1.py','scripts/cara_fast_worker_r2.py',
     'scripts/cara_fast_host_guardian_r2.py',

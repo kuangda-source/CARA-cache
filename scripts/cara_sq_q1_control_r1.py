@@ -29,7 +29,7 @@ PREFIX="""
 import json,os,sys,time,socket,subprocess
 from pathlib import Path
 p=json.load(sys.stdin);project=Path('/data20t/gaokuangda/worldcache_workspace')
-host=p['host'];stage=project/'.sync'/('cara-sq-q1-saved-'+host.replace('_','-')+'-r1-20261028')
+host=p['host'];stage=project/'.sync'/('cara-sq-q1-saved-'+host.replace('_','-')+'-r2-20261029')
 os.environ['CUDA_VISIBLE_DEVICES']=''
 sys.path[:0]=[str(stage/'src'),str(stage/'scripts')]
 """
@@ -38,15 +38,21 @@ RECOVER="""
 import json,sys,subprocess
 from pathlib import Path
 p=json.load(sys.stdin);project=Path('/data20t/gaokuangda/worldcache_workspace')
-stage=project/'.sync'/('cara-sq-q1-saved-'+p['host'].replace('_','-')+'-r1-20261028')
+stage=project/'.sync'/('cara-sq-q1-saved-'+p['host'].replace('_','-')+'-r2-20261029')
 value=dict(status='Q1_ORIGINAL_HANDLE_RECOVERY_ONLY',host=p['host'],stage=str(stage),
  stage_exists=stage.exists(),handles={},GPU_submissions=0,ledger_writes=0)
-for name in ('GPU-intent.json','GPU-dispatch-consumed.json','GPU-launch.json','pg-host-guardian.json'):
- if (stage/name).exists():value['handles'][name]=json.loads((stage/name).read_text())
+for version in ('r1-20261028','r2-20261029'):
+ original=project/'.sync'/('cara-sq-q1-saved-'+p['host'].replace('_','-')+'-'+version)
+ for name in ('GPU-intent.json','GPU-dispatch-consumed.json','GPU-launch.json','pg-host-guardian.json'):
+  if (original/name).exists():value['handles'][version+'/'+name]=json.loads((original/name).read_text())
+ q=subprocess.run(['docker','inspect','--type','container',original.name+'-gpu'],capture_output=True,text=True,timeout=20)
+ if q.returncode==0:
+  actual=json.loads(q.stdout)[0]
+  value['handles'][version+'/container']=dict(id=actual['Id'],state=actual['State'])
+ elif q.returncode!=1 or q.stderr.strip() not in ('Error: No such object: '+original.name+'-gpu','Error: No such container: '+original.name+'-gpu'):
+  value['handles'][version+'/container_observation']=dict(status='UNKNOWN_RECOVER_ONLY')
 pool=project/'reports/gpu-budget-v2.json'
 value['central_job']=json.loads(pool.read_text())['jobs'].get(p['run']) if p['host']=='four_card' and pool.exists() else None
-q=subprocess.run(['docker','inspect',stage.name+'-gpu'],capture_output=True,text=True,timeout=20)
-value['container_state']=json.loads(q.stdout)[0]['State'] if q.returncode==0 else None
 print(json.dumps(value))
 """
 
@@ -112,6 +118,15 @@ print(json.dumps(install(root,p['host'],base,p['proof'],p['proof_raw'],p['base_r
 """
     return remote(args.host,code,dict(host=args.host,base=launch['stage'],proof=proof,proof_raw=raw,
         base_registration_sha256=launch['registration_sha256']))
+
+
+def reuse_inputs(args):
+    recovered=recover_both()
+    require(not any(value['handles'] or value['central_job'] is not None for value in recovered.values()),
+            'Recover every old/corrected Q1 intent before rebinding prepared inputs')
+    expected=json.loads(args.inputs_ref.read_text())
+    code=PREFIX+"\nfrom wcomr.sq_q1_stage_r1 import reuse_prepared_inputs\nprint(json.dumps(reuse_prepared_inputs(project,host,p['expected'])))"
+    return remote(args.host,code,dict(host=args.host,expected=expected))
 
 
 def preflight_both():
@@ -238,9 +253,9 @@ print(json.dumps(result))
 
 def main():
     p=argparse.ArgumentParser();p.add_argument('command',choices=('prepare','recover','preflight','launch','capture','settle',
-        'assets','assets-status','provision','native-probe','analyse','post-capture'))
+        'assets','assets-status','provision','native-probe','analyse','post-capture','reuse-inputs'))
     p.add_argument('--host',choices=tuple(LIMITS));p.add_argument('--output',type=Path,required=True)
-    for name in ('cpu-launch','cpu-proof','authorization','launch','capture','settlement'):p.add_argument('--'+name,type=Path)
+    for name in ('cpu-launch','cpu-proof','authorization','launch','capture','settlement','inputs-ref'):p.add_argument('--'+name,type=Path)
     args=p.parse_args();require(not args.output.exists(),'Preserve original Q1 controller output')
     if args.command=='provision':
         if args.host=='two_card':secret=transport.password()

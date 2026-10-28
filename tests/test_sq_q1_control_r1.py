@@ -1,5 +1,7 @@
 """Q1 control wrappers with no real GPU, budget, mode or service mutation."""
 import copy
+import contextlib
+import io
 import json
 import os
 from pathlib import Path
@@ -19,6 +21,59 @@ from wcomr.sq_q1_capture_r1 import capture
 
 
 class ControlTests(unittest.TestCase):
+    def test_recovery_covers_old_stage_and_unknown_docker_without_dispatch(self):
+        control=script('cara_sq_q1_control_r1')
+        for case in ('old_intent','unknown'):
+            with self.subTest(case=case),tempfile.TemporaryDirectory() as directory:
+                project=Path(directory)
+                if case=='old_intent':
+                    old=project/'.sync/cara-sq-q1-saved-two-card-r1-20261028';old.mkdir(parents=True)
+                    atomic_json(old/'GPU-intent.json',dict(CPU_ONLY=True))
+                def inspect(command,**kwargs):
+                    name=command[-1]
+                    return type('Result',(),dict(returncode=1,stdout='',stderr=(
+                        'Cannot connect to Docker daemon' if case=='unknown' else 'Error: No such container: '+name)))()
+                stream=io.StringIO();program=control.RECOVER.replace('/data20t/gaokuangda/worldcache_workspace',str(project))
+                with patch('sys.stdin',io.StringIO(json.dumps(dict(host='two_card',run=RUN)))),\
+                        patch.object(control.subprocess,'run',side_effect=inspect),contextlib.redirect_stdout(stream):
+                    exec(program,{})
+                result=json.loads(stream.getvalue());self.assertTrue(result['handles'])
+                if case=='old_intent':self.assertIn('r1-20261028/GPU-intent.json',result['handles'])
+                else:self.assertTrue(all(row['status']=='UNKNOWN_RECOVER_ONLY' for row in result['handles'].values()))
+                self.assertEqual(result['GPU_submissions'],0)
+
+    def test_prepared_inputs_reuse_checks_original_sha_fresh_identity_and_empty_output(self):
+        from wcomr import sq_q1_stage_r1 as module
+        from test_sq_q1_assets_r1 import tiny_assets
+        for case in ('pass','changed','nonempty','old_intent','sha'):
+            with self.subTest(case=case),tempfile.TemporaryDirectory() as directory:
+                project=Path(directory);old,_,reg,_=authority_fixture(project,
+                    stage_name='cara-sq-q1-saved-two-card-r1-20261028')
+                stage=stage_path(project,'two_card');stage.mkdir(parents=True)
+                atomic_json(stage/'registration.json',reg)
+                assets=project/module.ASSETS;assets.mkdir(parents=True);manifest=tiny_assets(assets)
+                weight=project/module.WEIGHT;weight.parent.mkdir(parents=True);weight.write_bytes(b'CPU_ONLY_WEIGHT')
+                digest=sha(weight);output=project/'outputs'/RUN;output.mkdir(parents=True)
+                with patch.object(module,'MANIFEST_SHA',manifest),patch.object(module,'CHECKPOINT_SHA',digest),\
+                        patch.object(module,'CHECKPOINT_BYTES',weight.stat().st_size),\
+                        patch('wcomr.history104_storage_r2.StorageGuard') as guard:
+                    guard.return_value.check.return_value=dict(CPU_SYNTHETIC=True)
+                    module.verify_assets(project,old)
+                    expected={key+'_sha256':sha(old/name) for key,name in dict(
+                        registration='registration.json',assets='Q1-asset-verification.json',storage='history104-storage.json').items()}
+                    if case=='changed':weight.write_bytes(b'CPU_ONLY_WEIGHT')
+                    elif case=='nonempty':(output/'original-attempt').write_text('KEEP')
+                    elif case=='old_intent':atomic_json(old/'GPU-intent.json',dict(CPU_ONLY=True))
+                    elif case=='sha':expected['assets_sha256']='f'*64
+                    if case=='pass':
+                        result=module.reuse_prepared_inputs(project,'two_card',expected)
+                        self.assertEqual(result['verified_asset_files'],33)
+                        self.assertEqual(sha(stage/'Q1-asset-verification.json'),expected['assets_sha256'])
+                        with self.assertRaises(ValueError):module.reuse_prepared_inputs(project,'two_card',expected)
+                    else:
+                        with self.assertRaises(ValueError):module.reuse_prepared_inputs(project,'two_card',expected)
+                        self.assertFalse((stage/'Q1-prepared-inputs-reuse.json').exists())
+
     def test_GPU_stage_copies_only_accepted_source_and_is_once_only(self):
         with tempfile.TemporaryDirectory() as directory:
             project=Path(directory);base,_,reg,_=authority_fixture(project)
@@ -84,7 +139,8 @@ class ControlTests(unittest.TestCase):
             atomic_json(stage/'GPU-launch.json',launch)
             out=project/'outputs'/RUN;out.mkdir(parents=True)
             atomic_json(out/'Q1-health.json',dict(completed_states=2,head_calls={},states=['SECRET_SCIENTIFIC_ROWS'],selections={'x':1}))
-            con=dict(State=dict(Running=True),Config=dict(Labels={'wcomr.manifest':'a'*64}))
+            con=dict(State=dict(Running=True),Config=dict(Labels={'wcomr.manifest':'a'*64}),
+                HostConfig=dict(DeviceRequests=[dict(DeviceIDs=[launch['gpu_uuid']])]))
             result=type('Result',(),dict(returncode=0,stdout=json.dumps([con])))()
             with patch.object(module.subprocess,'run',return_value=result),patch.object(module,'same_live_process',return_value=True):
                 observed=capture(project,stage,sha(stage/'GPU-launch.json'))
@@ -105,10 +161,13 @@ class ControlTests(unittest.TestCase):
             output=project/'outputs'/RUN;output.mkdir(parents=True)
             for key,name in names.items():(stage/name).write_text(saved['files'][key]['raw_utf8'])
             for key,name in dict(supervisor='Q1-supervisor.json',collection='Q1-collection.json',
-                billing='Q1-billing.json',pending_release='Q1-release-pending-central.json').items():
+                billing='Q1-billing.json',pending_release='Q1-release-pending-central.json',
+                allocation_release='Q1-allocation-release.json',
+                supervisor_billing='Q1-supervisor-billing-diagnostic.json',
+                supervisor_release='Q1-supervisor-release-diagnostic.json').items():
                 (output/name).write_text(saved['files'][key]['raw_utf8'])
             (output/'Q1-exclusive-monitor.jsonl').write_text(saved['monitor_raw_utf8'])
-            original=saved['container'];con=dict(State=original['state'],Image=original['image'],
+            original=saved['container'];con=dict(Id=original['id'],State=original['state'],Image=original['image'],
                 Config=dict(Labels={'wcomr.manifest':original['manifest_sha256']}),
                 HostConfig=dict(DeviceRequests=original['device_requests'],ReadonlyRootfs=True,
                     PidMode='host',NetworkMode='none',NanoCpus=2*10**9,CpusetCpus='24,25',Memory=16*2**30,MemorySwap=16*2**30))
@@ -184,10 +243,14 @@ class ControlTests(unittest.TestCase):
             (stage/'central-reservation.json').unlink();(stage/'launch-binding.json').unlink()
             (stage/'scripts/cara_sq_q1_guardian_r1.py').write_text('''import json,os,sys
 from pathlib import Path
+sys.path.insert(0,__SOURCE__)
+from wcomr.sq_q1_stage_r1 import publish_launch
+stage=Path(__file__).resolve().parents[1]
+publish_launch(stage.parents[1],stage)
 assert os.environ['CUDA_VISIBLE_DEVICES']==''
 assert json.load(sys.stdin)=={'sudo_password':'UNIT_FAKE_NON_SECRET'}
 (Path(__file__).resolve().parents[1]/'CPU_STUB_ONLY.json').write_text(json.dumps({'GPU_submissions':0}))
-''')
+'''.replace('__SOURCE__',repr(str(ROOT/'src'))))
             children=[];popen=subprocess.Popen
             def spawn(*args,**kwargs):
                 child=popen(*args,**kwargs);children.append(child);return child
@@ -199,6 +262,37 @@ assert json.load(sys.stdin)=={'sudo_password':'UNIT_FAKE_NON_SECRET'}
                 self.assertEqual(children[0].wait(timeout=30),0)
                 self.assertFalse(result['actual_GPU_started'])
                 with self.assertRaises(ValueError):dispatch(project,'two_card',envelope,intent['intent_sha256'],'UNIT_FAKE_NON_SECRET')
+                self.assertEqual(len(children),1)
+
+    @unittest.skipUnless(Path('/proc/self').exists(),'Real Linux handoff child and raw CPU post CLI')
+    def test_early_child_exit_keeps_its_self_published_original_identity(self):
+        from wcomr import sq_q1_stage_r1 as module
+        with tempfile.TemporaryDirectory() as directory:
+            project=Path(directory);stage=stage_path(project,'two_card')
+            _,authority,registration,_=authority_fixture(project,stage_name=stage.name)
+            envelope=json.loads((stage/'central-reservation.json').read_text())
+            (stage/'central-reservation.json').unlink();(stage/'launch-binding.json').unlink()
+            stub='''import sys
+from pathlib import Path
+sys.path.insert(0,__SOURCE__)
+from wcomr.sq_q1_stage_r1 import publish_launch
+stage=Path(__file__).resolve().parents[1]
+publish_launch(stage.parents[1],stage)
+raise SystemExit(7)
+'''.replace('__SOURCE__',repr(str(ROOT/'src')))
+            (stage/'scripts/cara_sq_q1_guardian_r1.py').write_text(stub)
+            children=[];popen=subprocess.Popen
+            def spawn(*args,**kwargs):
+                child=popen(*args,**kwargs);children.append(child);return child
+            with patch.object(module,'asset_identity_current',return_value=True),\
+                    patch.object(module,'validate',return_value=(json.loads((ROOT/SCOPE).read_text()),registration,authority)),\
+                    patch.object(module.subprocess,'Popen',side_effect=spawn):
+                intent=prepare_intent(project,'two_card',authority)
+                result=dispatch(project,'two_card',envelope,intent['intent_sha256'],None)
+                self.assertEqual(children[0].wait(timeout=30),7)
+                self.assertEqual(result['guardian_identity']['pid'],children[0].pid)
+                self.assertIsNotNone(result['guardian_identity']['start_ticks'])
+                with self.assertRaises(ValueError):dispatch(project,'two_card',envelope,intent['intent_sha256'],None)
                 self.assertEqual(len(children),1)
 
     @unittest.skipUnless(Path('/proc/self').exists(),'Real Linux handoff child and raw CPU post CLI')

@@ -17,6 +17,7 @@ FILES=tuple(dict.fromkeys(previous.FILES+EXECUTION_CRITICAL+tuple(QUOTES.values(
     'src/wcomr/policy_price_terminal_r1.py','src/wcomr/policy_asset_price_review_r1.py',
     'src/wcomr/policy_price_refresh_contract_r1.py','src/wcomr/policy_interval_assets_r1.py',
     'tests/test_sq_q1_execution_r1.py','tests/test_sq_q1_terminal_r1.py','tests/test_sq_q1_assets_r1.py',
+    'tests/test_sq_gpu_allocation_r1.py','tests/test_sq_q1_allocation_r2.py',
     'scripts/check_cara_sq_q1_execution_cpu_r1.py')))
 
 

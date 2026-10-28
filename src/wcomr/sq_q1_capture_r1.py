@@ -10,6 +10,7 @@ from .gpu_budget_pool_v2 import same_live_process,sha
 from .policy_price_terminal_r1 import record
 from .sq_q1_execution_r1 import require,read
 from .sq_q1_spec_r1 import RUN,SCOPE,PROFILE,QUOTES
+from .sq_gpu_allocation_r1 import SystemOperations,container_record
 
 MAX_METADATA=16*1024**2
 
@@ -54,19 +55,29 @@ def capture(project,stage,launch_sha256):
         supervisor=supervisor.get('supervisor_identity'),runner=supervisor.get('child_identity'))
     live={key:same_live_process(ident) if ident and ident.get('start_ticks') is not None else None
           for key,ident in identities.items()}
-    inspected=subprocess.run(['docker','inspect',launch['container']],capture_output=True,text=True,timeout=20)
-    if inspected.returncode:
+    try:
+        container=SystemOperations().inspect_container(stage,launch['registration_sha256'],launch['gpu_uuid'])
+    except (RuntimeError,ValueError,KeyError,subprocess.SubprocessError):
         return dict(status='SQ_Q1_ORIGINAL_CONTAINER_UNKNOWN_RECOVER_ONLY',launch_id=launch['launch_id'],
             original_live_handles=live,scientific_rows_returned=False,GPU_submissions=0,ledger_writes=0)
-    container=json.loads(inspected.stdout)[0]
-    require(container['Config']['Labels'].get('wcomr.manifest')==launch['registration_sha256'],
-            'Observed container is not the original Q1 manifest')
-    if container['State']['Running'] or any(item is not False for item in live.values()):
+    witness=guardian.get('container_terminal_witness',{})
+    closed=(guardian.get('status')=='SQ_Q1_HOST_GUARDIAN_TERMINAL' and witness.get('complete') is True
+            and ((container is None and witness.get('kind') in ('NO_CONTAINER_DISPATCH','ORIGINAL_CONTAINER_NEVER_CREATED'))
+                 or (container is not None and witness.get('kind')=='BOUND_CONTAINER_TERMINAL'
+                     and container['Id']==witness.get('container_id') and not container['State']['Running']
+                     and container['State']['Pid']==0)))
+    absence={}
+    if closed:
+        for key in ('container_cli','supervisor','runner'):
+            if identities[key] is None:
+                # This proves closure, not that an unrecorded worker never ran.
+                live[key]=False;absence[key]='NO_PUBLISHED_HANDLE_IN_VERIFIED_ORIGINAL_TERMINAL'
+    if not closed or any(item is not False for item in live.values()):
         health=read(output/'Q1-health.json') if (output/'Q1-health.json').exists() else {}
         allow=('status','run_id','launch_id','completed_states','expected_states','formal_C_pairs_completed',
                'head_calls','scientific_selection','verified_files','total_files')
         return dict(status='SQ_Q1_LIVE_OR_HANDLE_UNKNOWN_OPERATIONAL_ONLY',launch_id=launch['launch_id'],
-            original_live_handles=live,container_state=container['State'],
+            original_live_handles=live,container_state=container['State'] if container else None,
             health={key:health[key] for key in allow if key in health},
             scientific_rows_returned=False,GPU_submissions=0,ledger_writes=0)
     registration=record(value,'registration');host=launch['host']
@@ -74,17 +85,22 @@ def capture(project,stage,launch_sha256):
         ('scope',SCOPE),('profile',PROFILE),('quote',QUOTES[host]))})
     files.update({key:captured_file(output/name) for key,name in (
         ('collection','Q1-collection.json'),('billing','Q1-billing.json'),
-        ('pending_release','Q1-release-pending-central.json'))})
-    config=container['HostConfig']
+        ('pending_release','Q1-release-pending-central.json'),('allocation_release','Q1-allocation-release.json'),
+        ('supervisor_billing','Q1-supervisor-billing-diagnostic.json'),
+        ('supervisor_release','Q1-supervisor-release-diagnostic.json'))})
+    no_exec=witness['kind']=='NO_CONTAINER_DISPATCH' and witness['dispatch_state'] in ('NOT_ATTEMPTED','SPAWN_FAILED_NO_EXEC')
+    uuid_lock=lock_free(project/'.sync/gpu-locks'/(launch['gpu_uuid']+'.lock'))
+    mode_lock=lock_free(project/'.sync/gpu-locks'/(launch['gpu_uuid']+'.mode-owner.lock'))
+    if no_exec and uuid_lock is None:uuid_lock=True
+    if no_exec and mode_lock is None and not guardian['mode_owner_fenced']:mode_lock=True
+    observed_container=None
+    if container is not None:
+        config=container['HostConfig']
+        observed_container=dict(container_record(container),id=container['Id'],
+            cpuset_cpus=config['CpusetCpus'],memory_swap_GiB=config['MemorySwap']/2**30)
     value.update(status='SQ_Q1_TERMINAL_CAPTURE_R1',original_live_handles=live,
-        own_UUID_lock_free=lock_free(project/'.sync/gpu-locks'/(launch['gpu_uuid']+'.lock')),
-        mode_owner_lock_free=lock_free(project/'.sync/gpu-locks'/(launch['gpu_uuid']+'.mode-owner.lock')),
-        container=dict(state=container['State'],image=container['Image'],
-            manifest_sha256=container['Config']['Labels'].get('wcomr.manifest'),
-            device_requests=config['DeviceRequests'],readonly_root=config['ReadonlyRootfs'],
-            pid_mode=config['PidMode'],network=config['NetworkMode'],cpus=config['NanoCpus']/10**9,
-            cpuset_cpus=config['CpusetCpus'],memory_GiB=config['Memory']/2**30,
-            memory_swap_GiB=config['MemorySwap']/2**30),
+        own_UUID_lock_free=uuid_lock,mode_owner_lock_free=mode_lock,original_handle_absence_witness=absence,
+        container=observed_container,container_observation='BOUND_ORIGINAL_CONTAINER' if container else 'DEFINITE_NO_SUCH_CONTAINER',
         payload_actual_sha256={name:sha(stage/name) for name in registration['payload_sha256']},
         runtime_actual_sha256={name:sha(project/'runtime'/name) for name in registration['runtime_source_sha256']},
         terminal_validator_sha256=sha(Path(__file__).with_name('sq_q1_terminal_r1.py')),
