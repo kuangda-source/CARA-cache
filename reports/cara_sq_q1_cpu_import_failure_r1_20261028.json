@@ -1,0 +1,18 @@
+{
+  "schema": "Q1_CPU_R1_CONDITION_IMPORT_FAILURE",
+  "status": "PRESERVED_ORIGINAL_CPU_FAILURE_NO_GPU",
+  "cause": "Pinned Video2World condition module transitively imports Qwen; FlashAttention availability assertion fails with GPUs deliberately hidden",
+  "source_revision": "9168e6a8",
+  "R1_capture_refs": [
+    "reports/cara_sq_q1_two_card_cpu_capture1_20261028.json",
+    "reports/cara_sq_q1_four_card_cpu_capture1_20261028.json"
+  ],
+  "fixture_tests_before_import": 9,
+  "new_GPU_submissions": 0,
+  "actual_CPU_seconds": null,
+  "repair": "Use existing pinned entire class CPU compiler for source/body restoration only; keep real module import as GPU-entry gate and report its failure explicitly",
+  "server_stages_modified": false,
+  "old_R1_stage_relaunches": 0,
+  "confirmed_failed_host": "two_card",
+  "four_card_state_at_first_capture": "RUNNING_CONFIRMED_PID_3635217_NOT_TERMINAL"
+}

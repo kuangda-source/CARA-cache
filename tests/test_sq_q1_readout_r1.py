@@ -79,6 +79,17 @@ class Q1Tests(unittest.TestCase):
             self.assertEqual(error[j]['q_codec'],.25)
             self.assertEqual(error[j]['twice_alignment'],-1)
 
+    def test_pinned_entire_Video2World_condition_definition(self):
+        from check_rv0_video_actions_cpu import pinned_video_condition
+        condition_type,class_sha=pinned_video_condition(ROOT/'cache/runtime',CPUDataType)
+        kernel,payload,_=saved_fixture()
+        for row in payload['pair_inputs']['conditions']:
+            row['class_name']=condition_type.__qualname__
+        schema=[(condition_type,{'data_type':CPUDataType}) for _ in (0,1)]
+        result=evaluate_saved_state(kernel,payload,schema,device='cpu',max_copy_bytes=128*2**20)
+        self.assertTrue(result['original_C_exact'])
+        self.assertEqual(len(class_sha),64)
+
     def test_eight_formal_readouts_original_parity_and_no_mutation(self):
         for flow in (False,True):
             kernel,payload,schema = saved_fixture(flow=flow)

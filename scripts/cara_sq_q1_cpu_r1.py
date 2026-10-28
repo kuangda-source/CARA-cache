@@ -15,6 +15,7 @@ FILES=('src/wcomr/sq_q1_readout_r1.py','src/wcomr/sq_schedule_profile_r2.py',
        'src/wcomr/innovation_gain_observer_r1.py','src/wcomr/scout_readout_v22.py',
        'src/wcomr/policy_interval_readout_r1.py','src/wcomr/cfg_guided_w1_forward.py',
        'tests/test_sq_q1_readout_r1.py','tests/test_scout_readout_v22.py',
+       'tests/check_rv0_video_actions_cpu.py','tests/check_rv0_restore_cpu.py',
        'manifests/cara_DEV128_scope_r1_20261026.json','scripts/check_cara_sq_q1_cpu_r1.py')
 
 
@@ -39,8 +40,9 @@ def launch_source():
 def main():
     p=argparse.ArgumentParser();p.add_argument('command',choices=('launch','capture','recover'))
     p.add_argument('--host',choices=('two_card','four_card'),required=True);p.add_argument('--launch-ref',type=Path)
+    p.add_argument('--attempt',choices=('r1','r2'),default='r2')
     p.add_argument('--output',type=Path,required=True);args=p.parse_args();assert not args.output.exists()
-    stage='cara-sq-q1-cpu-'+args.host.replace('_','-')+'-r1-20261028'
+    stage='cara-sq-q1-cpu-'+args.host.replace('_','-')+'-'+args.attempt+'-20261028'
     def remote(code,data=None):
         return transport.ssh(code,data,docker_group=True) if args.host=='two_card' else transport.four_ssh(code,data)
     if args.command=='launch':

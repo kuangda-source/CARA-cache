@@ -52,14 +52,30 @@ def run(args):
     except RuntimeError as error:
         probe['BF16_CPU_grid_sample_supported']=False
         probe['BF16_CPU_grid_sample_error']=str(error)
+    probe['actual_condition_module_imported']=False
     try:
         schema=cosmos_condition_schema()
-        probe['actual_condition_schema']=[dict(module=cls.__module__,class_name=cls.__qualname__,
-            enum_fields={k:typ.__module__+'.'+typ.__qualname__ for k,typ in enums.items()}) for cls,enums in schema]
+        probe['actual_condition_module_imported']=True
+        probe['condition_definition_mode']='ACTUAL_RUNTIME_MODULE'
+    except AssertionError as error:
+        if str(error)!='flash_attn_2 not available. run pip install flash_attn':
+            raise
+        # This is the existing accepted CPU class-body path. Production keeps
+        # the actual module import; CUDA availability is never falsified.
+        from cosmos_predict2._src.predict2.conditioner import DataType
+        from check_rv0_video_actions_cpu import pinned_video_condition
+        cls,class_sha=pinned_video_condition(runtime,DataType)
+        schema=[(cls,{'data_type':DataType}) for _ in (0,1)]
+        probe['condition_schema_import_error']=dict(type=type(error).__name__,message=str(error))
+        probe['condition_definition_mode']='EXISTING_PINNED_WHOLE_CLASS_CPU_COMPILATION'
+        probe['condition_class_AST_sha256']=class_sha
     except (ImportError,RuntimeError,OSError) as error:
         # Preserve an actual dependency/context limitation; no stand-in schema.
         schema=None
         probe['condition_schema_import_error']=dict(type=type(error).__name__,message=str(error)[-1800:])
+    if schema is not None:
+        probe['actual_condition_schema']=[dict(module=cls.__module__,class_name=cls.__qualname__,
+            enum_fields={k:typ.__module__+'.'+typ.__qualname__ for k,typ in enums.items()}) for cls,enums in schema]
     if args.profile=='two_card' and schema is not None:
         if sha(args.assets/'manifest.json') != args.manifest_sha256:
             raise ValueError('Original B1 manifest drifted')
