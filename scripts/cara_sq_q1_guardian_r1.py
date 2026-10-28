@@ -12,12 +12,11 @@ import time
 
 def container_arguments(project,stage,storage,registration_sha,cpuset,uid,gid,uuid):
     from cara_fast_host_guardian_r2 import container_arguments as base_arguments
-    command=base_arguments(project,stage,storage,registration_sha,cpuset,uid,gid,uuid)
+    command=base_arguments(project,stage,storage,registration_sha,cpuset,uid,gid,uuid,memory_GiB=16)
     old=str(stage/'scripts/cara_fast_worker_r2.py')
     command[command.index(old)]=str(stage/'scripts/cara_sq_q1_worker_r1.py')
-    command[command.index('--memory')+1]='16g'
     at=command.index('--entrypoint')
-    command[at:at]=['--memory-swap','16g','--ulimit','fsize=67108864:67108864']
+    command[at:at]=['--ulimit','fsize=67108864:67108864']
     return command
 
 
@@ -35,6 +34,9 @@ def main():
     storage=storage_for(args.stage);storage.check();uuid=authority['gpu_uuid']
     cpuset=read(args.stage/PROFILE)['hosts'][authority['host']]['cpuset_cpus']
     assert set(map(int,cpuset.split(',')))<=os.sched_getaffinity(0)
+    # Resolve host imports and the exact 16 GiB command before any mode change.
+    command=container_arguments(args.project,args.stage,storage,sha(args.stage/'registration.json'),
+        cpuset,os.getuid(),os.getgid(),uuid)
     incoming=json.load(sys.stdin);password=incoming.pop('sudo_password');assert not incoming
     def change(selected,mode):
         if selected!=uuid or mode not in ('EXCLUSIVE_PROCESS','DEFAULT'):
@@ -53,8 +55,6 @@ def main():
         fcntl.flock(mode_lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
         try:
             with DeviceLease(args.project,uuid):state['mode_admission']=guard.acquire();save()
-            command=container_arguments(args.project,args.stage,storage,sha(args.stage/'registration.json'),
-                cpuset,os.getuid(),os.getgid(),uuid)
             atomic_json(args.stage/'GPU-command.json',command)
             with (args.stage/'pg-container.log').open('x') as log:
                 child=subprocess.Popen(command,stdin=subprocess.DEVNULL,stdout=log,stderr=subprocess.STDOUT,start_new_session=True)

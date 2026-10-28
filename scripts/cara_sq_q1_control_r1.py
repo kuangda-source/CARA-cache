@@ -84,7 +84,11 @@ def selected_authority(approval,probe):
 
 
 def bound_controller(revision):
-    for name in EXECUTION_CRITICAL:
+    # Remote workers use the complete immutable stage registration. A later
+    # unrelated shared-file edit must not rebind that frozen remote package.
+    local_names=('scripts/cara_sq_q1_control_r1.py','src/wcomr/sq_q1_spec_r1.py',
+        'src/wcomr/sq_q1_execution_r1.py','src/wcomr/wc73_execution_r1.py','src/wcomr/gpu_budget_pool_v2.py')
+    for name in local_names:
         require(subprocess.check_output(['git','show',revision+':'+name],cwd=ROOT)==(ROOT/name).read_bytes(),
             'Use the exact prospectively CPU-accepted Q1 controller source: '+name)
 
@@ -230,7 +234,7 @@ print(json.dumps(result))
 
 def main():
     p=argparse.ArgumentParser();p.add_argument('command',choices=('prepare','recover','preflight','launch','capture','settle',
-        'assets','assets-status','provision','analyse','post-capture'))
+        'assets','assets-status','provision','native-probe','analyse','post-capture'))
     p.add_argument('--host',choices=tuple(LIMITS));p.add_argument('--output',type=Path,required=True)
     for name in ('cpu-launch','cpu-proof','authorization','launch','capture','settlement'):p.add_argument('--'+name,type=Path)
     args=p.parse_args();require(not args.output.exists(),'Preserve original Q1 controller output')
@@ -243,8 +247,8 @@ def main():
         try:
             result=remote(args.host,PREFIX+"\nfrom wcomr.sq_q1_stage_r1 import provision_storage\nprint(json.dumps(provision_storage(project,host,p.pop('sudo_password'))))",data)
         finally:data.pop('sudo_password',None);secret=None
-    elif args.command in ('assets','assets-status'):
-        action='start_assets' if args.command=='assets' else 'assets_status'
+    elif args.command in ('assets','assets-status','native-probe'):
+        action={'assets':'start_assets','assets-status':'assets_status','native-probe':'native_probe'}[args.command]
         code=PREFIX+'\nfrom wcomr.sq_q1_stage_r1 import '+action+'\nprint(json.dumps('+action+'(project,host)))'
         result=remote(args.host,code,dict(host=args.host))
     else:

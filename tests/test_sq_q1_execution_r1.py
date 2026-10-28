@@ -192,6 +192,7 @@ class ExecutionTests(unittest.TestCase):
             command=guardian.container_arguments(project,stage,storage,'a'*64,'24,25',1000,1000,gpu()['uuid'])
             self.assertEqual(command[command.index('--memory')+1],'16g')
             self.assertEqual(command[command.index('--memory-swap')+1],'16g')
+            self.assertEqual(command.count('--memory-swap'),1)
             self.assertEqual(command[command.index('--gpus')+1],'device='+gpu()['uuid'])
             self.assertIn('CUDA_VISIBLE_DEVICES=',command)
             self.assertIn(str(stage/'scripts/cara_sq_q1_worker_r1.py'),command)

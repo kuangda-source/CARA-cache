@@ -1,0 +1,19 @@
+{
+  "status": "Q1_R2_ORIGINAL_HANDLES_RECOVERED_SOURCE_REUSE_REFUSED",
+  "original_source_revision": "2a6e3164",
+  "recovery_ref": "reports/cara_sq_q1_control_r2_readonly_recovery_20261028.json",
+  "two_card_failure_ref": "reports/cara_sq_q1_control_two_card_r2_original_failure_20261028.json",
+  "two_card_original_CPU_container_exit": 1,
+  "four_card_R2_stage_exists": false,
+  "changed_shared_component": "scripts/cara_fast_host_guardian_r2.py",
+  "change": "Explicit container memory/memory-swap parameter added; old complete-core proof cannot be reused unchanged",
+  "resolution": "Bind Q1 memory_GiB=16 explicitly, ensure one memory-swap flag, construct command before mode changes; fresh full CPU validation of the changed binding",
+  "original_post_CPU_test_60_second_timeout_retained": true,
+  "production_post_CPU_bound_seconds": 300,
+  "R3_reuses_old_core_result": false,
+  "GPU_submissions": 0,
+  "new_GPUh": 0,
+  "ledger_writes": 0,
+  "SSH_hostname_checks_succeeded": true,
+  "earlier_read_operation_timeout_is_not_a_terminal_GPU_result": true
+}

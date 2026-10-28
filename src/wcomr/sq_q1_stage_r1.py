@@ -187,6 +187,9 @@ def preflight(project,host):
             and all(sha(project/'runtime'/n)==h for n,h in reg['runtime_source_sha256'].items()),
             'Original source/runtime changed')
     reasons=[]
+    probe=stage/'Q1-native-probe.json'
+    if not probe.exists() or read(probe).get('status')!='Q1_NATIVE_HOST_COMMAND_CPU_PASS':
+        reasons.append('Actual native host command/import CPU probe is not accepted')
     if not asset_identity_current(stage):reasons.append('Original assets not completely SHA-verified/current')
     if (stage/'asset-CPU-launch.json').exists():
         from .gpu_budget_pool_v2 import same_live_process
@@ -270,6 +273,28 @@ def provision_storage(project,host,password):
         shared_disk_reserve_ratio_modified=False,reboot_remount_must_be_reverified=True)
     check=StorageGuard(contract).check();atomic_json(target,contract)
     return dict(status='Q1_PRIVATE_STORAGE_PREPARED_NO_GPU',storage_contract=contract,check=check,GPU_submissions=0)
+
+
+def native_probe(project,host):
+    """Actual host Python import/command check with no Docker/mode/GPU launch."""
+    import importlib.util
+    project=Path(project);stage=stage_path(project,host);profile=read(stage/PROFILE)
+    from .history104_storage_r2 import storage_for
+    require(os.environ.get('CUDA_VISIBLE_DEVICES')=='','Native probe must hide CUDA')
+    storage=storage_for(stage);storage.check()
+    spec=importlib.util.spec_from_file_location('q1_native_guardian',stage/'scripts/cara_sq_q1_guardian_r1.py')
+    module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
+    command=module.container_arguments(project,stage,storage,sha(stage/'registration.json'),
+        profile['hosts'][host]['cpuset_cpus'],os.getuid(),os.getgid(),'GPU-CPU-NATIVE-PROBE')
+    require(command[command.index('--memory')+1]=='16g' and command.count('--memory-swap')==1
+            and command[command.index('--memory-swap')+1]=='16g' and 'torch' not in sys.modules,
+            'Native command memory or import boundary differs')
+    result=dict(status='Q1_NATIVE_HOST_COMMAND_CPU_PASS',host=host,native_python=sys.version,
+        source_revision=read(stage/'registration.json')['source_revision'],
+        guardian_sha256=sha(stage/'scripts/cara_sq_q1_guardian_r1.py'),
+        command_sha256=hashlib.sha256(json.dumps(command).encode()).hexdigest(),
+        command_executed=False,torch_imported=False,GPU_submissions=0,mode_changes=0,ledger_writes=0)
+    atomic_json(stage/'Q1-native-probe.json',result);return result
 
 
 def start_assets(project,host,*,host_python=sys.executable):
