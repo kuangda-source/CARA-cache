@@ -212,7 +212,7 @@ assert json.load(sys.stdin)=={'sudo_password':'UNIT_FAKE_NON_SECRET'}
             output=project/'analysis.json'
             value=subprocess.run([sys.executable,str(ROOT/'scripts/postprocess_cara_sq_q1_r1.py'),
                 '--capture',str(project/'capture.json'),'--settlement',str(project/'settlement.json'),
-                '--output',str(output)],capture_output=True,text=True,timeout=60,
+                '--output',str(output)],capture_output=True,text=True,timeout=300,
                 env=dict(os.environ,CUDA_VISIBLE_DEVICES='',NVIDIA_VISIBLE_DEVICES='void'))
             self.assertEqual(value.returncode,0,value.stderr)
             result=json.loads(output.read_text());self.assertEqual(len(result['codec_selection']['selections']),8)

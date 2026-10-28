@@ -16,6 +16,12 @@ def accept(capture,host):
             'Original wrapper CPU status differs')
     core=copy.deepcopy(capture);core['result']=result['core_result'];core['result_sha256']=result['core_result_sha256']
     accepted=accept_core(core,host);checks=result['wrapper_checks']
+    reused=result.get('reused_core_evidence')
+    if reused:
+        require(reused['sha256']==result['core_result_sha256']
+                and reused['unchanged_critical_source_verified'] is True
+                and reused['unchanged_runtime_verified'] is True and reused['new_core_replays']==0,
+                'Original complete core evidence was not reused exactly')
     require(checks['tests']==11 and checks['errors']==checks['failures']==checks['skipped']==0
             and checks['real_Linux_stub_handoff_and_post_CLI'] is True
             and checks['actual_GPU_guardian_started'] is False,'Complete GPU-free wrapper control cohort required')

@@ -1,0 +1,79 @@
+{
+  "status": "SQ_CPU_PREPARATION_CAPTURE",
+  "observed_unix": 1793194177.4728365,
+  "launch": {
+    "status": "SQ_GPU_HIDDEN_CPU_PREPARATION_LAUNCHED",
+    "stage": "/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-q1-control-cpu-four-card-r1-20261028",
+    "container": "cara-sq-q1-control-cpu-four-card-r1-20261028-cpu",
+    "source_revision": "d486c21c21a70fbf19414f5e0982f7a7e0fe5127",
+    "registration_sha256": "9f5d56065dd85e1ad2dcd2ddc9791e46174b3beec58807b1a67499ecf93be32b",
+    "identity": {
+      "pid": 3719042,
+      "state": "R",
+      "start_ticks": 997888270,
+      "command": "docker run --cpuset-cpus 4,5 --memory-swap 8g --ulimit fsize=67108864:67108864 --read-only --network none --pid host --name cara-sq-q1-control-cpu-four-card-r1-20261028-cpu --label wcomr.manifest=9f5d56065dd85e1ad2dcd2ddc9791e46174b3beec58807b1a67499ecf93be32b --user 1000:1000 --cpus 2 --memory 8g --pids-limit 512 --tmpfs /tmp:rw,size=2g -v /data20t/gaokuangda/worldcache_workspace:/data20t/gaokuangda/worldcache_workspace:ro -v /data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-q1-control-cpu-four-card-r1-20261028:/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-q1-control-cpu-four-card-r1-20261028:rw -w /data20t/gaokuangda/worldcache_workspace/runtime -e CUDA_CACHE_PATH=/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-q1-control-cpu-four-card-r1-20261028/CPU-caches/cuda -e CUDA_HOME=/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cuda_nvrtc -e CUDA_PATH=/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cuda_nvrtc -e CUDA_VISIBLE_DEVICES= -e HF_HOME=/data20t/gaokuangda/worldcache_workspace/cache/huggingface -e HF_HUB_CACHE=/data20t/gaokuangda/worldcache_workspace/cache/huggingface/hub -e HF_HUB_OFFLINE=1 -e LD_LIBRARY_PATH=/data20t/gaokuangda/worldcache_workspace/system-libs-r1/usr/lib/x86_64-linux-gnu/blas:/data20t/gaokuangda/worldcache_workspace/system-libs-r1/usr/lib/x86_64-linux-gnu/lapack:/data20t/gaokuangda/worldcache_workspace/system-libs-r1/usr/lib/x86_64-linux-gnu/pulseaudio:/data20t/gaokuangda/worldcache_workspace/system-libs-r1/usr/lib/x86_64-linux-gnu:/data20t/gaokuangda/worldcache_workspace/system-libs-r1/lib/x86_64-linux-gnu:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cuda_nvrtc/lib:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cuda_runtime/lib:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cudnn/lib:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/nvjitlink/lib:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cublas/lib:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/torch/lib -e LOGNAME=gaokuangda -e NLTK_DATA=/data20t/gaokuangda/worldcache_workspace/runtime-resources/nltk-guardrail-d6d4bfa8-r1 -e NVIDIA_VISIBLE_DEVICES=void -e OMP_NUM_THREADS=2 -e OPENBLAS_NUM_THREADS=2 -e PATH=/data20t/gaokuangda/worldcache_workspace/system-libs-r1/usr/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin -e PYTHONDONTWRITEBYTECODE=1 -e PYTHONPATH=/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-q1-control-cpu-four-card-r1-20261028/scripts:/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-q1-control-cpu-four-card-r1-20261028/src -e TOKENIZERS_PARALLELISM=false -e TORCHINDUCTOR_CACHE_DIR=/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-q1-control-cpu-four-card-r1-20261028/CPU-caches/torchinductor -e TORCH_EXTENSIONS_DIR=/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-q1-control-cpu-four-card-r1-20261028/CPU-caches/extensions -e TORCH_HOME=/data20t/gaokuangda/worldcache_workspace/cache/torch -e TRANSFORMERS_OFFLINE=1 -e TRITON_CACHE_DIR=/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-q1-control-cpu-four-card-r1-20261028/CPU-caches/triton -e USER=gaokuangda -e WC_SCOUT_KIND=CAL12 -e XDG_CACHE_HOME=/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-q1-control-cpu-four-card-r1-20261028/CPU-caches/xdg --entrypoint /usr/bin/timeout sha256:1e81ac62ee68ca1a6ef655515096a1d84579b01aa4986810c9b18d4f6c4c552d --signal=TERM --kill-after=10s 1800 /usr/bin/ionice -c 3 /data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/bin/python /data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-q1-control-cpu-four-card-r1-20261028/scripts/check_cara_sq_q1_control_cpu_r1.py --assets /data20t/gaokuangda/worldcache_workspace/outputs/cara-ig-b1-r2-20261027/assets --manifest-sha256 5487f8db32d45a5d0f3304333bf362d9d6ec46fb3181c735d7267b78a6e398fa --profile four_card --scope plans/cara_next_stage_20261028/sq/Q1_WHOLE_SCOPE_R1.json --output /data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-q1-control-cpu-four-card-r1-20261028/analysis.json "
+    },
+    "started_unix": 1793193819.3460424,
+    "resource_limits": {
+      "CPUs": 2,
+      "cpuset": "4,5",
+      "RAM_bytes": 8589934592,
+      "wall_seconds": 1800,
+      "allocated_vCPUh_max": 1.0,
+      "output_bytes_max": 67108864,
+      "assets_readonly": true,
+      "network": "none",
+      "GPU": "hidden"
+    },
+    "new_GPU_submissions": 0,
+    "ledger_writes": 0
+  },
+  "source_hashes_equal": true,
+  "runtime_hashes_equal": true,
+  "container_state": {
+    "Status": "exited",
+    "Running": false,
+    "Paused": false,
+    "Restarting": false,
+    "OOMKilled": false,
+    "Dead": false,
+    "Pid": 0,
+    "ExitCode": 1,
+    "Error": "",
+    "StartedAt": "2026-10-28T13:23:39.414576252Z",
+    "FinishedAt": "2026-10-28T13:28:38.457826519Z"
+  },
+  "host_config": {
+    "DeviceRequests": null,
+    "NanoCpus": 2000000000,
+    "Memory": 8589934592,
+    "MemorySwap": 8589934592,
+    "CpusetCpus": "4,5",
+    "NetworkMode": "none",
+    "ReadonlyRootfs": true
+  },
+  "mounts": [
+    {
+      "Type": "bind",
+      "Source": "/data20t/gaokuangda/worldcache_workspace",
+      "Destination": "/data20t/gaokuangda/worldcache_workspace",
+      "Mode": "ro",
+      "RW": false,
+      "Propagation": "rprivate"
+    },
+    {
+      "Type": "bind",
+      "Source": "/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-q1-control-cpu-four-card-r1-20261028",
+      "Destination": "/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-q1-control-cpu-four-card-r1-20261028",
+      "Mode": "rw",
+      "RW": true,
+      "Propagation": "rprivate"
+    }
+  ],
+  "image": "sha256:1e81ac62ee68ca1a6ef655515096a1d84579b01aa4986810c9b18d4f6c4c552d",
+  "result": null,
+  "result_sha256": null,
+  "log_tail": "SQ_Q1_EXECUTION_CPU_PASS_FIXTURES_NOT_REAL_CUDA\nTraceback (most recent call last):\n  File \"/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-q1-control-cpu-four-card-r1-20261028/scripts/check_cara_sq_q1_control_cpu_r1.py\", line 45, in <module>\n    if __name__=='__main__':main()\n  File \"/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-q1-control-cpu-four-card-r1-20261028/scripts/check_cara_sq_q1_control_cpu_r1.py\", line 24, in main\n    if not tests.wasSuccessful():raise RuntimeError(stream.getvalue())\nRuntimeError: test_CPU_post_command_is_GPU_hidden_readonly_and_bounded (test_sq_q1_control_r1.ControlTests) ... ok\ntest_GPU_stage_copies_only_accepted_source_and_is_once_only (test_sq_q1_control_r1.ControlTests) ... ok\ntest_GPU_stage_rejects_unaccepted_source_without_creating_a_stage (test_sq_q1_control_r1.ControlTests) ... ok\ntest_actual_CPU_post_CLI_requires_settlement_before_selection (test_sq_q1_control_r1.ControlTests) ... ERROR\ntest_any_existing_host_intent_prevents_all_reservation_and_dispatch (test_sq_q1_control_r1.ControlTests) ... ok\ntest_consumed_handoff_starts_one_CPU_stub_and_never_replays (test_sq_q1_control_r1.ControlTests) ... ok\ntest_host_preference_and_scope_bound_authority_do_not_select_busy_hosts (test_sq_q1_control_r1.ControlTests) ... ok\ntest_live_capture_returns_allowlisted_counts_without_loading_scientific_rows (test_sq_q1_control_r1.ControlTests) ... ok\ntest_private_storage_refuses_same_filesystem_before_format_or_mount (test_sq_q1_control_r1.ControlTests) ... ok\ntest_streamed_asset_hashes_and_identity_stamp_reject_later_changes (test_sq_q1_control_r1.ControlTests) ... ok\ntest_terminal_capture_keeps_original_bytes_and_complete_readout_cohort (test_sq_q1_control_r1.ControlTests) ... ok\n\n======================================================================\nERROR: test_actual_CPU_post_CLI_requires_settlement_before_selection (test_sq_q1_control_r1.ControlTests)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-q1-control-cpu-four-card-r1-20261028/tests/test_sq_q1_control_r1.py\", line 213, in test_actual_CPU_post_CLI_requires_settlement_before_selection\n    value=subprocess.run([sys.executable,str(ROOT/'scripts/postprocess_cara_sq_q1_r1.py'),\n  File \"/usr/local/lib/python3.10/subprocess.py\", line 505, in run\n    stdout, stderr = process.communicate(input, timeout=timeout)\n  File \"/usr/local/lib/python3.10/subprocess.py\", line 1154, in communicate\n    stdout, stderr = self._communicate(input, endtime, timeout)\n  File \"/usr/local/lib/python3.10/subprocess.py\", line 2022, in _communicate\n    self._check_timeout(endtime, orig_timeout, stdout, stderr)\n  File \"/usr/local/lib/python3.10/subprocess.py\", line 1198, in _check_timeout\n    raise TimeoutExpired(\nsubprocess.TimeoutExpired: Command '['/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/bin/python', '/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-q1-control-cpu-four-card-r1-20261028/scripts/postprocess_cara_sq_q1_r1.py', '--capture', '/tmp/tmp2j5k78mo/capture.json', '--settlement', '/tmp/tmp2j5k78mo/settlement.json', '--output', '/tmp/tmp2j5k78mo/analysis.json']' timed out after 60 seconds\n\n----------------------------------------------------------------------\nRan 11 tests in 60.827s\n\nFAILED (errors=1)\n\n",
+  "new_GPU_submissions": 0,
+  "ledger_writes": 0
+}
