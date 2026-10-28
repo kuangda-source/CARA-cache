@@ -1,0 +1,62 @@
+{
+  "status": "S_OWNER_FOUR_CARD_R2_CPU_COMPONENT_ACCEPTED_NOT_COMPLETE_S_COLLECTOR",
+  "passed": true,
+  "host": "four_card",
+  "dual_host_CPU_accepted": false,
+  "source_revision": "8779bb2599029c75d1e651b5ba9ae8e861491bf3",
+  "source_revision_as_recorded": "8779bb25",
+  "critical_source_sha256": {
+    "src/wcomr/sq_s_owner_roundtrip_r1.py": "f93c7e803cd2ad72ac8253875b525b522a18f504685b471cc3496e7b45a14412",
+    "src/wcomr/sq_s_sources_r1.py": "03ca23c97c8d9096f1bae7fb84e6ef1cc53bb63ba9688fe39ac74b44b64fb13e",
+    "tests/check_sq_s_owner_roundtrip_cpu_r1.py": "89806b38505cd356eb7bc06ec9e0b3d28461db0d46687b388bf59ecaaa40931b",
+    "scripts/check_cara_sq_s_owner_cpu_r1.py": "57550bb59f842ef409e49f54ca8acfbb712383821c4ed6b8a89029455a43e601",
+    "plans/cara_next_stage_20261028/sq/S_OWNER_ROUNDTRIP_CPU_R1.json": "6b182548551397d5485e4be17f26ee9ea847da2a7f7f137368a1fa97648a6bea"
+  },
+  "capture_ref": "reports/cara_sq_s_owner_four_card_cpu_capture_r2_20261029.json",
+  "capture_sha256": "9fd1f0104a4c99559c2c2ecf3fdda0eb74a4a80b4d1ce7418016b3bee23f0e22",
+  "result_sha256": "a17ba8acd41b51affe722705f7ff7781e45dc7e240b27e17bacdd2dbec91aff8",
+  "accepted": {
+    "host": "four_card",
+    "complete_CPU_paths": 8,
+    "checked_boundaries": 16,
+    "worker_wall_seconds": 219.11350687406957,
+    "CPU_seconds": 68.69816890099999,
+    "peak_RSS_GiB": 0.8744277954101562,
+    "container_wall_seconds": 229.758558,
+    "component_CPU_accepted": true,
+    "complete_S_collector_accepted": false,
+    "actual_GPU_or_science_accepted": false
+  },
+  "negative_controls": [
+    {
+      "case": "running",
+      "rejected": true,
+      "reason": "Original S CPU container is not cleanly terminal"
+    },
+    {
+      "case": "missing_boundary",
+      "rejected": true,
+      "reason": "S CPU parent, full path, restoration or falsification cohort missing"
+    },
+    {
+      "case": "missing_parent",
+      "rejected": true,
+      "reason": "S CPU parent, full path, restoration or falsification cohort missing"
+    },
+    {
+      "case": "CUDA_claim",
+      "rejected": true,
+      "reason": "S component exceeded its CPU-only evidence boundary"
+    },
+    {
+      "case": "real_video_claim",
+      "rejected": true,
+      "reason": "S component exceeded its CPU-only evidence boundary"
+    }
+  ],
+  "complete_S_collector_accepted": false,
+  "S_labels_collected": 0,
+  "GPU_submissions": 0,
+  "new_GPUh": 0,
+  "ledger_writes": 0
+}

@@ -21,6 +21,8 @@
 
 已准备[完整 CPU 检查](../../../tests/check_sq_s_owner_roundtrip_cpu_r1.py)：两父策略、flow 开/关、OFF/ON 共八条声明小权重路径，核对全 36 pair、最终 latent 与占位视频字节。本地运行时缺少 OmegaConf，改用已登记 Linux 环境。四卡 R1 于 10 月 29 日 00:07:31 退出 1，未进入组件检查：GPU 隐藏时官方模块导入触发 FlashAttention 可用性断言。[原终态](../../../reports/cara_sq_s_owner_four_card_cpu_failed_terminal_r1_20261029.json)和[诊断](../../../reports/cara_sq_s_owner_cpu_import_failure_diagnostic_r1_20261029.json)保留；容器墙钟约 450.17 秒，实际 CPU 秒未留存，不解释为方法失败。
 
-新 R2 仅复用仓库已接受的 PG CPU 导入适配，导入后恢复探针，再执行同样八路径/十六边界；模型权重加载和 Triton 执行仍禁止。另修正 fixture 回执读取为其 `checks` 字段，未改变 cohort。新阶段须独立记录，旧 R1 不重派。当前尚未接受该组件，也未收集 S 标签；完整 108 标签采集器仍待接通。
+新 R2 复用仓库已接受的 PG CPU 导入适配，导入后恢复探针，执行同样八路径/十六边界；模型权重加载和 Triton 执行仍禁止。另修正 fixture 回执读取为其 `checks` 字段，未改变 cohort。[四卡 R2 原终态](../../../reports/cara_sq_s_owner_four_card_cpu_capture_r2_20261029.json)退出 0，八条完整 CPU 路径、十六检查边界均通过；worker 墙钟 219.11 秒、进程 CPU 68.70 秒、峰值 RSS 0.874 GiB。[独立接受](../../../reports/cara_sq_s_owner_four_card_cpu_accepted_r2_20261029.json)同时拒绝运行中、缺边界、缺父策略、CUDA 和真实视频五类伪回执。记录中源码缩写 `8779bb25` 已按 Git 唯一解析到完整提交，原回执未改。
 
-后续继续接入生产 observer、pre-D 来源、56 个额外 Dense teacher/52 个 C shadow 的完整事务、八 F19 raw 状态流式存储和整卡报价。S/Q 各自完成端点验证前不组合。全局 canonical、主线 A32 源码与预算未由本对话修改。
+该接受仅覆盖父 owner 状态组件，不含真实 Cosmos 权重、S 科学标签或完整采集卡。下一步的[完整采集 CPU 拓扑](S_COLLECTION_PREPARATION_R1.md)已写出，待独立阶段验证；两卡同组件未启动。
+
+后续先验证生产 observer、pre-D 来源与 56 个额外 Dense teacher/52 个 C shadow 的完整 CPU 事务，再补八 F19 raw 状态流式去重存储、双端证据和整卡报价。S/Q 各自完成端点验证前不组合。全局 canonical、主线 A32 源码与预算未由本对话修改。

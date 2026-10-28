@@ -46,7 +46,7 @@ def main():
                 or failed['container_state']['Running'] or failed['container_state']['ExitCode']!=1
                 or failed['result'] is not None):
             raise ValueError('Recover the original terminal R1 before preparing a new CPU stage')
-        revision=args.source_revision or subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip()
+        revision=subprocess.check_output(['git','rev-parse',(args.source_revision or 'HEAD')+'^{commit}'],cwd=ROOT,text=True).strip()
         published=subprocess.check_output(['git','ls-remote','origin','refs/heads/main'],cwd=ROOT,text=True).split()[0]
         if subprocess.run(['git','merge-base','--is-ancestor',revision,published],cwd=ROOT).returncode:
             raise ValueError('Publish exact S CPU component source before dispatch')
