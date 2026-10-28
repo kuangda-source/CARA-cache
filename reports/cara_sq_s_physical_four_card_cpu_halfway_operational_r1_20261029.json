@@ -1,0 +1,67 @@
+{
+  "status": "ORIGINAL_CPU_HANDLE_HALFWAY_READONLY",
+  "observed_unix": 1793218891.1680598,
+  "container": "cara-sq-s-physical-cpu-four-card-r1-20261029-cpu",
+  "state": {
+    "Status": "running",
+    "Running": true,
+    "Paused": false,
+    "Restarting": false,
+    "OOMKilled": false,
+    "Dead": false,
+    "Pid": 3831882,
+    "ExitCode": 0,
+    "Error": "",
+    "StartedAt": "2026-10-28T20:12:27.691329627Z",
+    "FinishedAt": "0001-01-01T00:00:00Z"
+  },
+  "owned_processes": [
+    {
+      "pid": 3831882,
+      "parent": 3831856,
+      "comm": "timeout",
+      "state": "S",
+      "CPU_ticks": 7,
+      "start_ticks": 1000341119,
+      "wait_channel": "sigsuspend"
+    },
+    {
+      "pid": 3831920,
+      "parent": 3831882,
+      "comm": "python",
+      "state": "R",
+      "CPU_ticks": 12332,
+      "start_ticks": 1000341142,
+      "wait_channel": "0"
+    },
+    {
+      "pid": 3832312,
+      "parent": 3831920,
+      "comm": "python",
+      "state": "S",
+      "CPU_ticks": 863,
+      "start_ticks": 1000359880,
+      "wait_channel": "pipe_read"
+    },
+    {
+      "pid": 3832370,
+      "parent": 3832312,
+      "comm": "python",
+      "state": "S",
+      "CPU_ticks": 2,
+      "start_ticks": 1000364112,
+      "wait_channel": "futex_wait_queue_me"
+    },
+    {
+      "pid": 3832371,
+      "parent": 3832312,
+      "comm": "python",
+      "state": "S",
+      "CPU_ticks": 2,
+      "start_ticks": 1000364113,
+      "wait_channel": "pipe_read"
+    }
+  ],
+  "GPU_submissions": 0,
+  "ledger_writes": 0
+}

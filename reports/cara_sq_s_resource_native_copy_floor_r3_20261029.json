@@ -1,0 +1,42 @@
+{
+  "status": "S_PINNED_NATIVE_FIELD_LOGICAL_COPY_FLOOR_NOT_PHYSICAL_PEAK_OR_FULL_QUOTE",
+  "evidence_sha256": {
+    "reports/cara_sq_s_native_window_readonly_r1_20261029.json": "0587743d97f3476b8f58b39426909ca7aa7478ee8e58f48d672c88eb3371590d",
+    "reports/cara_sq_s_resource_analytical_floor_r2_20261029.json": "089b7c81bafbcf06b4af33dab3788440eb5c1f0cf4651e3d3c67d8beb453af5d",
+    "src/wcomr/sq_s_collection_r1.py": "a0b2b3e6a4e0f44e00a764030966027ebbb20e8d25db6f2188b48d02402dde69",
+    "src/wcomr/mid_coverage.py": "8e02d740b4ee794531c6263666bbed18348e32ba84c9b94b89f7c979a106fbf4",
+    "src/wcomr/partial_mlp_deployment_state.py": "c7501223a35e9276391586006602470d80a50de8ff4adcdc72aa241b3a7c6137",
+    "cache/runtime/cosmos_predict2/_src/predict2/inference/worldcache_utils.py": "b485cb8fd6e262a40e5823365c34ef7db1bc036c591d7577489e04077c515903"
+  },
+  "basis": "Pinned production CPU before-pair window inventory plus accepted real B1 BF16 feature/condition geometry",
+  "assumption": "Same full2B model, resolution and BF16 native feature geometry as the accepted B1 assets",
+  "observed_native_slots_per_branch": 3,
+  "native_feature_reference_count_by_field": {
+    "residual_window": 6,
+    "probe_residual_window": 6,
+    "residual_cache": 2,
+    "probe_residual_cache": 2,
+    "previous_internal_states": 2,
+    "previous_input": 2
+  },
+  "native_known_feature_tensor_reference_bytes": 2548039680,
+  "calibrator_two_true_D_anchor_reference_bytes": 1019215872,
+  "paired_input_tensor_reference_bytes": 239693838,
+  "copy_guard_multiplier": 8,
+  "logical_copy_guard_bytes_lower_bound": 30455595120,
+  "logical_copy_guard_GiB_lower_bound": 28.363983258605003,
+  "prior_logical_copy_guard_GiB_lower_bound": 16.973358258605003,
+  "reference_aliases_not_deduplicated": true,
+  "physical_GPU_or_RAM_peak_measured": false,
+  "excluded": [
+    "previous_output, affine/log embeddings and projected cross-attention fields",
+    "Scheduler tensor state, module buffers, other owner fields and metadata",
+    "Model weights, transient activations, allocator/cache overhead and actual transfers"
+  ],
+  "native_source_modified": false,
+  "tensor_allocation_bytes": 0,
+  "consequence": "The complete S logical copy cap must exceed this floor plus excluded fields; it is not a GPU allocation estimate",
+  "S_real_labels": 0,
+  "GPU_submissions": 0,
+  "ledger_writes": 0
+}

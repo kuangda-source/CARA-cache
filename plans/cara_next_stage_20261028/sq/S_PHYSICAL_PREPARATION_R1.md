@@ -24,3 +24,15 @@ CPU 卡保持 2 CPU / 8 GiB / 1800 秒、GPU 隐藏、无网络、源与旧资�
 [A6000 CPU R2](S_PHYSICAL_CPU_R2.json)仅修复测试模型身份：每个 flow 先另计一条 OFF 源准备路径，保存并重载该 tiny 网络参数，校验参数值摘要后再执行九条物理路径。共两条源准备 + 18 条矩阵路径；每个 flow 另计源准备 72 heads / 50 deep calls，不能把总 CPU 费用写成只有 18 条。两份 tiny 权重重读将本端受限加载分母从 80 改为 82。生产 `sq_s_physical_r1.py`、真实执行绑定与 9/10 矩阵全部未变。
 
 Ada R1 不导入任何旧 tiny OFF，仍按原 `763007ab` 句柄完成两种 flow 的二十条完整路径；不因 A6000 fixture 修复而修改或重派该原件。两端最终按各自源包、完整终态与未变化的共同生产源码接受。
+
+## 双端完整 CPU 终态接受
+
+[双端接受](../../../reports/cara_sq_s_physical_dual_cpu_accepted_r1_20261029.json)已完成。A6000 R2 源码 `94d3ed31` 的原容器退出 0，墙钟 146.330871 秒：两种 flow 的 18 条矩阵路径 + 两条单列的 checkpoint 绑定 OFF 源准备、82 次受限 tiny 张量加载、280 文件完整重读。矩阵每 flow 实测 864 heads / 502 deep；另计源准备 72 heads / 50 deep。worker CPU 156.744652 秒、已回收子进程 CPU 3.736521 秒、worker 峰值 RSS 0.897095 GiB；原 R1 的 39.271999 秒失败仍单列。
+
+Ada R1 原容器退出 0，墙钟 755.177367 秒：两种 flow 共 20 条新 tiny 路径，80 次受限 tiny 加载、280 文件重读；每 flow 936 heads / 552 deep。worker CPU 218.201149 秒、已回收子进程 CPU 8.391709 秒、worker 峰值 RSS 0.844673 GiB。parent CPU/RSS 与已回收子进程计数都不是整个 cgroup 的完整成本/聚合峰值，源包、传输与 Git CPU 未完整计量。
+
+两端各九项单元控制、八项错误回执拒绝检查及一份实际默认解码路径的 93 帧合成 MP4 控制通过。共同 15 项生产源码/真实执行绑定 SHA 相同；不同源码版本只处理本次 CPU fixture 差异。tiny 的 sampler/decoder stand-in、合成视频、真实 S 结果明确分开，真实 S 标签与新 GPU 提交仍为零。
+
+[半程和终态检查](../../../reports/cara_sq_s_physical_CPU_halfway_terminal_checks_r1_20261029.json)绑定实际原容器起点与前一同主机 CPU 用时预测。Ada 曾正文 PASS 而容器仍运行，继续等原终态后才接受；A6000 一次 SSH 状态读取断开后只恢复原句柄，没有重派。
+
+[原生字段核算](../../../reports/cara_sq_s_resource_native_copy_floor_r3_20261029.json)进一步核对 pinned native 窗口实际保留三槽，连同 residual/probe cache、previous input/internal state 和 calibrator，将已知逻辑复制守卫下限细化到 28.36398 GiB。该计数包含别名的重复引用，不是实测 GPU/RAM 分配；仍缺 output/embedding、solver/buffer 等字段及完整复制/哈希费用。下一步完成完整 GPU 入口、实际资源边界和双端整卡报价，之后才申请 S 单独执行授权。
