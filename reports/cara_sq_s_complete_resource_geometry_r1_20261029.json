@@ -1,0 +1,1069 @@
+{
+  "status": "S_COMPLETE_EIGHT_GROUP_LOGICAL_GEOMETRY_PROJECTION_NOT_PHYSICAL_PEAK_OR_GPU_QUOTE",
+  "evidence_sha256": {
+    "plans/cara_next_stage_20261028/sq/S_RESOURCES_CPU_R5.json": "8f54dcbfc3e76c0fdd5798d5295511179f9cac84d852cf7ea53c2e3b9e6abf37",
+    "reports/cara_sq_s_resources_two_card_cpu_accepted_r5_20261029.json": "36690864e7be8cd70053e3e4446d5f7221a8199d5287f182632c93fd13757efb",
+    "reports/cara_sq_s_resources_two_card_cpu_terminal_check_r5_20261029.json": "131b0c90994e6fa24fa8f46a042508dcb29a7603f87ec600ec0514b54064e836",
+    "reports/cara_sq_s_resources_four_card_cpu_accepted_r5_20261029.json": "58d48e1a36b992adde9d4d2f7a03fa24a969adc4bc05206308f007d819afedb8",
+    "reports/cara_sq_s_resources_four_card_cpu_released_r5_20261029.json": "5fa775b7ad8a41def891ba7d6225938f7511e77de8976b3fc14ed5116334d368",
+    "reports/cara_sq_two_card_cpu_terminal_20261028.json": "d3fb3c2cd64998724d218c683de12f1376206741d63cf28528be35978d2884de"
+  },
+  "source_revision": "1afa79684182508804af2646668a27c536e70058",
+  "accepted_host_inventories_equal": true,
+  "complete_boundaries_per_host": 108,
+  "unique_schemas": 33,
+  "geometry": {
+    "feature_shape": [
+      1,
+      24,
+      27,
+      48,
+      2048
+    ],
+    "feature_elements": 63700992,
+    "original_feature_dtype": "torch.bfloat16",
+    "latent_shape": [
+      1,
+      16,
+      24,
+      54,
+      96
+    ],
+    "latent_bytes": 7962624,
+    "embedding_bytes": 196608,
+    "projected_cross_attention_bytes_upper_bound": 2097152,
+    "two_real_conditions_bytes": 223768582,
+    "full2B_buffer_bytes_upper_bound": 712
+  },
+  "full2B_parameter_logical_bytes": 4118349824,
+  "full2B_buffers": [
+    {
+      "name": "accum_video_sample_counter",
+      "shape": [],
+      "dtype": "torch.int64",
+      "bytes": 8
+    },
+    {
+      "name": "accum_image_sample_counter",
+      "shape": [],
+      "dtype": "torch.int64",
+      "bytes": 8
+    },
+    {
+      "name": "accum_iteration",
+      "shape": [],
+      "dtype": "torch.int64",
+      "bytes": 8
+    },
+    {
+      "name": "accum_train_in_hours",
+      "shape": [],
+      "dtype": "torch.bfloat16",
+      "bytes": 2
+    },
+    {
+      "name": "pos_embedder.seq",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 256
+    },
+    {
+      "name": "pos_embedder.dim_spatial_range",
+      "shape": [
+        21
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 42
+    },
+    {
+      "name": "pos_embedder.dim_temporal_range",
+      "shape": [
+        22
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 44
+    }
+  ],
+  "projections": {
+    "original_BF16_features": {
+      "feature_element_bytes": 2,
+      "schemas": {
+        "f00b1effb98590051a201ea12e57ddb13f34a05ce0866a37821a86bd99dc120b": {
+          "group_logical_bytes": {
+            "native": 2566455296,
+            "solver": 23888324,
+            "buffers": 712,
+            "owner_history": 0,
+            "readout_history": 0,
+            "calibrators": 1019215872,
+            "paired_inputs": 15925256,
+            "conditions": 223768582
+          },
+          "logical_tensor_bytes": 3849254042,
+          "logical_copy_guard_bytes": 30794032336
+        },
+        "34914b7cc471b51c04c753256855d6f73090fe95da9cefb33f7d7d05ab4667e1": {
+          "group_logical_bytes": {
+            "native": 2566455296,
+            "solver": 23888324,
+            "buffers": 712,
+            "owner_history": 0,
+            "readout_history": 0,
+            "calibrators": 1019215872,
+            "paired_inputs": 15925256,
+            "conditions": 223768582
+          },
+          "logical_tensor_bytes": 3849254042,
+          "logical_copy_guard_bytes": 30794032336
+        },
+        "d1de8a4c9a35488d4fb547b2ff4e6f193f054ceabdf284f0a81fcaf96bdcbbd7": {
+          "group_logical_bytes": {
+            "native": 2566455296,
+            "solver": 23888324,
+            "buffers": 712,
+            "owner_history": 0,
+            "readout_history": 0,
+            "calibrators": 1019215872,
+            "paired_inputs": 15925256,
+            "conditions": 223768582
+          },
+          "logical_tensor_bytes": 3849254042,
+          "logical_copy_guard_bytes": 30794032336
+        },
+        "44df14222bf9ab245f768362013fa478e4fe86fd1a8097a82378cfe21e31250c": {
+          "group_logical_bytes": {
+            "native": 2566455296,
+            "solver": 23888324,
+            "buffers": 712,
+            "owner_history": 0,
+            "readout_history": 0,
+            "calibrators": 1019215872,
+            "paired_inputs": 15925256,
+            "conditions": 223768582
+          },
+          "logical_tensor_bytes": 3849254042,
+          "logical_copy_guard_bytes": 30794032336
+        },
+        "c6a694ad07cba01de1786b2784a93cdf57c1df5f19d4ea7dd379f0521e5332e0": {
+          "group_logical_bytes": {
+            "native": 2566455296,
+            "solver": 23888324,
+            "buffers": 712,
+            "owner_history": 0,
+            "readout_history": 0,
+            "calibrators": 1019215872,
+            "paired_inputs": 15925256,
+            "conditions": 223768582
+          },
+          "logical_tensor_bytes": 3849254042,
+          "logical_copy_guard_bytes": 30794032336
+        },
+        "9bf99dcead4d6a035b5085de8f915b5d7303c32e08878cafca274f82c7f86b46": {
+          "group_logical_bytes": {
+            "native": 2566455296,
+            "solver": 23888324,
+            "buffers": 712,
+            "owner_history": 0,
+            "readout_history": 0,
+            "calibrators": 1019215872,
+            "paired_inputs": 15925256,
+            "conditions": 223768582
+          },
+          "logical_tensor_bytes": 3849254042,
+          "logical_copy_guard_bytes": 30794032336
+        },
+        "322ff8fe37330aa366887475f7ce3a3752e236a1bbbb17aa8f9231eed13b2c7e": {
+          "group_logical_bytes": {
+            "native": 2566455296,
+            "solver": 23888324,
+            "buffers": 712,
+            "owner_history": 0,
+            "readout_history": 0,
+            "calibrators": 1019215872,
+            "paired_inputs": 15925256,
+            "conditions": 223768582
+          },
+          "logical_tensor_bytes": 3849254042,
+          "logical_copy_guard_bytes": 30794032336
+        },
+        "71787f279eea063f03bc916f25e0d63149aa027770beeab7257abc652477be30": {
+          "group_logical_bytes": {
+            "native": 2566455296,
+            "solver": 23888324,
+            "buffers": 712,
+            "owner_history": 0,
+            "readout_history": 0,
+            "calibrators": 1019215872,
+            "paired_inputs": 15925256,
+            "conditions": 223768582
+          },
+          "logical_tensor_bytes": 3849254042,
+          "logical_copy_guard_bytes": 30794032336
+        },
+        "6a0f2d317300ee2f8b16c6b49139001c0ac03512dd7db5f246bf7ef0e97a4761": {
+          "group_logical_bytes": {
+            "native": 2566455296,
+            "solver": 23888324,
+            "buffers": 712,
+            "owner_history": 0,
+            "readout_history": 0,
+            "calibrators": 1019215872,
+            "paired_inputs": 15925256,
+            "conditions": 223768582
+          },
+          "logical_tensor_bytes": 3849254042,
+          "logical_copy_guard_bytes": 30794032336
+        },
+        "fee2d0e3d364d192dccfd0a990fec20668d6e9ff73eb04cdca0f8658f7c69c7c": {
+          "group_logical_bytes": {
+            "native": 2566455296,
+            "solver": 23888324,
+            "buffers": 712,
+            "owner_history": 0,
+            "readout_history": 0,
+            "calibrators": 1019215872,
+            "paired_inputs": 15925256,
+            "conditions": 223768582
+          },
+          "logical_tensor_bytes": 3849254042,
+          "logical_copy_guard_bytes": 30794032336
+        },
+        "0b290b29a29a99923b4a0af0e1d24a40faea372b695a6da1e63e660874d621d3": {
+          "group_logical_bytes": {
+            "native": 2566455296,
+            "solver": 23888324,
+            "buffers": 712,
+            "owner_history": 0,
+            "readout_history": 0,
+            "calibrators": 1019215872,
+            "paired_inputs": 15925256,
+            "conditions": 223768582
+          },
+          "logical_tensor_bytes": 3849254042,
+          "logical_copy_guard_bytes": 30794032336
+        },
+        "f040c699cd30de290c0fa754ce7800fe67aaaa451dee97376b0b77cc6483074c": {
+          "group_logical_bytes": {
+            "native": 2566455296,
+            "solver": 23888324,
+            "buffers": 712,
+            "owner_history": 0,
+            "readout_history": 0,
+            "calibrators": 1019215872,
+            "paired_inputs": 15925256,
+            "conditions": 223768582
+          },
+          "logical_tensor_bytes": 3849254042,
+          "logical_copy_guard_bytes": 30794032336
+        },
+        "ecfa8be6b0af4cc6692706baa0727914a421680993deec04388a4c5adfd90ed1": {
+          "group_logical_bytes": {
+            "native": 2566455296,
+            "solver": 23888324,
+            "buffers": 712,
+            "owner_history": 0,
+            "readout_history": 0,
+            "calibrators": 1019215872,
+            "paired_inputs": 15925256,
+            "conditions": 223768582
+          },
+          "logical_tensor_bytes": 3849254042,
+          "logical_copy_guard_bytes": 30794032336
+        },
+        "4a6fadbec8e4d1de167d23312e6511e8ee914b0442ec047dda314eef05ad7c4e": {
+          "group_logical_bytes": {
+            "native": 2566455296,
+            "solver": 23888324,
+            "buffers": 712,
+            "owner_history": 0,
+            "readout_history": 0,
+            "calibrators": 1019215872,
+            "paired_inputs": 15925256,
+            "conditions": 223768582
+          },
+          "logical_tensor_bytes": 3849254042,
+          "logical_copy_guard_bytes": 30794032336
+        },
+        "3a25a4b820752ea9e137d1553cfa695e0cc4b0386fdb1dc3fdcbae55e4acda0a": {
+          "group_logical_bytes": {
+            "native": 2566455296,
+            "solver": 23888324,
+            "buffers": 712,
+            "owner_history": 0,
+            "readout_history": 0,
+            "calibrators": 1019215872,
+            "paired_inputs": 15925256,
+            "conditions": 223768582
+          },
+          "logical_tensor_bytes": 3849254042,
+          "logical_copy_guard_bytes": 30794032336
+        },
+        "e2f3fcee2af2a050bd6cf95ffd15adde6dff8bfce70acd58d3630b77d87d079d": {
+          "group_logical_bytes": {
+            "native": 2566455312,
+            "solver": 23888324,
+            "buffers": 712,
+            "owner_history": 0,
+            "readout_history": 0,
+            "calibrators": 1019215872,
+            "paired_inputs": 15925256,
+            "conditions": 223768582
+          },
+          "logical_tensor_bytes": 3849254058,
+          "logical_copy_guard_bytes": 30794032464
+        },
+        "ca58adb97ad8249e69367befbe0c3b5df359bb16b2d1428a397a6d8d3bf68add": {
+          "group_logical_bytes": {
+            "native": 2566455296,
+            "solver": 23888324,
+            "buffers": 712,
+            "owner_history": 0,
+            "readout_history": 0,
+            "calibrators": 1019215872,
+            "paired_inputs": 15925256,
+            "conditions": 223768582
+          },
+          "logical_tensor_bytes": 3849254042,
+          "logical_copy_guard_bytes": 30794032336
+        },
+        "b3a09d0bc8bf872fb427b161f7044fb27f13b328cf919ae01f9986e6cd5b6347": {
+          "group_logical_bytes": {
+            "native": 2566455312,
+            "solver": 23888324,
+            "buffers": 712,
+            "owner_history": 0,
+            "readout_history": 0,
+            "calibrators": 1019215872,
+            "paired_inputs": 15925256,
+            "conditions": 223768582
+          },
+          "logical_tensor_bytes": 3849254058,
+          "logical_copy_guard_bytes": 30794032464
+        },
+        "2b6ea7783e866bc3c66c8aa836fc0ed3606860a0081c211cd1c95ea270936190": {
+          "group_logical_bytes": {
+            "native": 2566455312,
+            "solver": 23888324,
+            "buffers": 712,
+            "owner_history": 0,
+            "readout_history": 0,
+            "calibrators": 1019215872,
+            "paired_inputs": 15925256,
+            "conditions": 223768582
+          },
+          "logical_tensor_bytes": 3849254058,
+          "logical_copy_guard_bytes": 30794032464
+        },
+        "bcc558d576d6b6947d454090cd12ac165f563f9765c8b1b035e155b43004f6fd": {
+          "group_logical_bytes": {
+            "native": 2566455296,
+            "solver": 23888324,
+            "buffers": 712,
+            "owner_history": 0,
+            "readout_history": 0,
+            "calibrators": 1019215872,
+            "paired_inputs": 15925256,
+            "conditions": 223768582
+          },
+          "logical_tensor_bytes": 3849254042,
+          "logical_copy_guard_bytes": 30794032336
+        },
+        "442898b7cf664b87ef02e5d084a1c061bd247fb96dc211c990dabbb7f4b65cb5": {
+          "group_logical_bytes": {
+            "native": 2566455312,
+            "solver": 23888324,
+            "buffers": 712,
+            "owner_history": 0,
+            "readout_history": 0,
+            "calibrators": 1019215872,
+            "paired_inputs": 15925256,
+            "conditions": 223768582
+          },
+          "logical_tensor_bytes": 3849254058,
+          "logical_copy_guard_bytes": 30794032464
+        },
+        "de347b5de6ae7d02af83cef213910ccd11b31872d6ef6ab0781032f02b347996": {
+          "group_logical_bytes": {
+            "native": 2566455312,
+            "solver": 23888324,
+            "buffers": 712,
+            "owner_history": 0,
+            "readout_history": 0,
+            "calibrators": 1019215872,
+            "paired_inputs": 15925256,
+            "conditions": 223768582
+          },
+          "logical_tensor_bytes": 3849254058,
+          "logical_copy_guard_bytes": 30794032464
+        },
+        "ddaa9e2913f06bafcb53573a35affa376dd060f3d2b628892ae9197b76b02c40": {
+          "group_logical_bytes": {
+            "native": 2566455296,
+            "solver": 23888324,
+            "buffers": 712,
+            "owner_history": 0,
+            "readout_history": 0,
+            "calibrators": 1019215872,
+            "paired_inputs": 15925256,
+            "conditions": 223768582
+          },
+          "logical_tensor_bytes": 3849254042,
+          "logical_copy_guard_bytes": 30794032336
+        },
+        "f7e9bb27abb8d398e92af264d929c9971aa39e9873ad71ac05ab7578a7feab70": {
+          "group_logical_bytes": {
+            "native": 2566455312,
+            "solver": 23888324,
+            "buffers": 712,
+            "owner_history": 0,
+            "readout_history": 0,
+            "calibrators": 1019215872,
+            "paired_inputs": 15925256,
+            "conditions": 223768582
+          },
+          "logical_tensor_bytes": 3849254058,
+          "logical_copy_guard_bytes": 30794032464
+        },
+        "4941f54dde5367a846453822e8944d4993838a25776793d95934d6d1d0402f5a": {
+          "group_logical_bytes": {
+            "native": 2566455312,
+            "solver": 23888324,
+            "buffers": 712,
+            "owner_history": 0,
+            "readout_history": 0,
+            "calibrators": 1019215872,
+            "paired_inputs": 15925256,
+            "conditions": 223768582
+          },
+          "logical_tensor_bytes": 3849254058,
+          "logical_copy_guard_bytes": 30794032464
+        },
+        "aefa08f16850f01634058658f3542fbbaa9f54dc4c513c34aa9d605f2ac290ee": {
+          "group_logical_bytes": {
+            "native": 2566455312,
+            "solver": 23888324,
+            "buffers": 712,
+            "owner_history": 0,
+            "readout_history": 0,
+            "calibrators": 1019215872,
+            "paired_inputs": 15925256,
+            "conditions": 223768582
+          },
+          "logical_tensor_bytes": 3849254058,
+          "logical_copy_guard_bytes": 30794032464
+        },
+        "7b986f9f4dc429fef65f2cb690a246879729a07c903be19fc9a01ff252c510ef": {
+          "group_logical_bytes": {
+            "native": 2566455312,
+            "solver": 23888324,
+            "buffers": 712,
+            "owner_history": 0,
+            "readout_history": 0,
+            "calibrators": 1019215872,
+            "paired_inputs": 15925256,
+            "conditions": 223768582
+          },
+          "logical_tensor_bytes": 3849254058,
+          "logical_copy_guard_bytes": 30794032464
+        },
+        "ccef02badcdcbdf064f4b27795901c3f0e9736e461d424e4f5043152f48d1f8a": {
+          "group_logical_bytes": {
+            "native": 2566455312,
+            "solver": 23888324,
+            "buffers": 712,
+            "owner_history": 0,
+            "readout_history": 0,
+            "calibrators": 1019215872,
+            "paired_inputs": 15925256,
+            "conditions": 223768582
+          },
+          "logical_tensor_bytes": 3849254058,
+          "logical_copy_guard_bytes": 30794032464
+        },
+        "c2c9b38f9bd241f5061f4297dafa6f31fee2e05d49a7eb8eb7fdc5be08c43f44": {
+          "group_logical_bytes": {
+            "native": 2566455312,
+            "solver": 23888324,
+            "buffers": 712,
+            "owner_history": 0,
+            "readout_history": 0,
+            "calibrators": 1019215872,
+            "paired_inputs": 15925256,
+            "conditions": 223768582
+          },
+          "logical_tensor_bytes": 3849254058,
+          "logical_copy_guard_bytes": 30794032464
+        },
+        "f92f1e9ff7a1017d217e2deb9c1c3af27a058cd6f1f9827393b9aeda489c574a": {
+          "group_logical_bytes": {
+            "native": 2566455312,
+            "solver": 23888324,
+            "buffers": 712,
+            "owner_history": 0,
+            "readout_history": 0,
+            "calibrators": 1019215872,
+            "paired_inputs": 15925256,
+            "conditions": 223768582
+          },
+          "logical_tensor_bytes": 3849254058,
+          "logical_copy_guard_bytes": 30794032464
+        },
+        "61d7fcdcd3730c0c82fd73519bce2062dca2572fd0cf6f9f023276d169839130": {
+          "group_logical_bytes": {
+            "native": 2566455312,
+            "solver": 23888324,
+            "buffers": 712,
+            "owner_history": 0,
+            "readout_history": 0,
+            "calibrators": 1019215872,
+            "paired_inputs": 15925256,
+            "conditions": 223768582
+          },
+          "logical_tensor_bytes": 3849254058,
+          "logical_copy_guard_bytes": 30794032464
+        },
+        "fe08af562cd84e04b42c25271703c7ddbfeaf65e9fa326c7243a18f71d68af9f": {
+          "group_logical_bytes": {
+            "native": 2566455312,
+            "solver": 23888324,
+            "buffers": 712,
+            "owner_history": 0,
+            "readout_history": 0,
+            "calibrators": 1019215872,
+            "paired_inputs": 15925256,
+            "conditions": 223768582
+          },
+          "logical_tensor_bytes": 3849254058,
+          "logical_copy_guard_bytes": 30794032464
+        },
+        "19b75f1579b753bc2e9d01c0c4d657ba0c2e28feed9f4f6987f161c8cc14e3db": {
+          "group_logical_bytes": {
+            "native": 2566455312,
+            "solver": 23888324,
+            "buffers": 712,
+            "owner_history": 0,
+            "readout_history": 0,
+            "calibrators": 1019215872,
+            "paired_inputs": 15925256,
+            "conditions": 223768582
+          },
+          "logical_tensor_bytes": 3849254058,
+          "logical_copy_guard_bytes": 30794032464
+        }
+      },
+      "max_logical_copy_guard_bytes": 30794032464,
+      "max_logical_copy_guard_GiB": 28.679177597165108,
+      "max_by_group_logical_bytes": {
+        "native": 2566455312,
+        "solver": 23888324,
+        "buffers": 712,
+        "owner_history": 0,
+        "readout_history": 0,
+        "calibrators": 1019215872,
+        "paired_inputs": 15925256,
+        "conditions": 223768582
+      }
+    },
+    "conservative_FP32_features": {
+      "feature_element_bytes": 4,
+      "schemas": {
+        "f00b1effb98590051a201ea12e57ddb13f34a05ce0866a37821a86bd99dc120b": {
+          "group_logical_bytes": {
+            "native": 5114494976,
+            "solver": 23888324,
+            "buffers": 712,
+            "owner_history": 0,
+            "readout_history": 0,
+            "calibrators": 2038431744,
+            "paired_inputs": 15925256,
+            "conditions": 223768582
+          },
+          "logical_tensor_bytes": 7416509594,
+          "logical_copy_guard_bytes": 59332076752
+        },
+        "34914b7cc471b51c04c753256855d6f73090fe95da9cefb33f7d7d05ab4667e1": {
+          "group_logical_bytes": {
+            "native": 5114494976,
+            "solver": 23888324,
+            "buffers": 712,
+            "owner_history": 0,
+            "readout_history": 0,
+            "calibrators": 2038431744,
+            "paired_inputs": 15925256,
+            "conditions": 223768582
+          },
+          "logical_tensor_bytes": 7416509594,
+          "logical_copy_guard_bytes": 59332076752
+        },
+        "d1de8a4c9a35488d4fb547b2ff4e6f193f054ceabdf284f0a81fcaf96bdcbbd7": {
+          "group_logical_bytes": {
+            "native": 5114494976,
+            "solver": 23888324,
+            "buffers": 712,
+            "owner_history": 0,
+            "readout_history": 0,
+            "calibrators": 2038431744,
+            "paired_inputs": 15925256,
+            "conditions": 223768582
+          },
+          "logical_tensor_bytes": 7416509594,
+          "logical_copy_guard_bytes": 59332076752
+        },
+        "44df14222bf9ab245f768362013fa478e4fe86fd1a8097a82378cfe21e31250c": {
+          "group_logical_bytes": {
+            "native": 5114494976,
+            "solver": 23888324,
+            "buffers": 712,
+            "owner_history": 0,
+            "readout_history": 0,
+            "calibrators": 2038431744,
+            "paired_inputs": 15925256,
+            "conditions": 223768582
+          },
+          "logical_tensor_bytes": 7416509594,
+          "logical_copy_guard_bytes": 59332076752
+        },
+        "c6a694ad07cba01de1786b2784a93cdf57c1df5f19d4ea7dd379f0521e5332e0": {
+          "group_logical_bytes": {
+            "native": 5114494976,
+            "solver": 23888324,
+            "buffers": 712,
+            "owner_history": 0,
+            "readout_history": 0,
+            "calibrators": 2038431744,
+            "paired_inputs": 15925256,
+            "conditions": 223768582
+          },
+          "logical_tensor_bytes": 7416509594,
+          "logical_copy_guard_bytes": 59332076752
+        },
+        "9bf99dcead4d6a035b5085de8f915b5d7303c32e08878cafca274f82c7f86b46": {
+          "group_logical_bytes": {
+            "native": 5114494976,
+            "solver": 23888324,
+            "buffers": 712,
+            "owner_history": 0,
+            "readout_history": 0,
+            "calibrators": 2038431744,
+            "paired_inputs": 15925256,
+            "conditions": 223768582
+          },
+          "logical_tensor_bytes": 7416509594,
+          "logical_copy_guard_bytes": 59332076752
+        },
+        "322ff8fe37330aa366887475f7ce3a3752e236a1bbbb17aa8f9231eed13b2c7e": {
+          "group_logical_bytes": {
+            "native": 5114494976,
+            "solver": 23888324,
+            "buffers": 712,
+            "owner_history": 0,
+            "readout_history": 0,
+            "calibrators": 2038431744,
+            "paired_inputs": 15925256,
+            "conditions": 223768582
+          },
+          "logical_tensor_bytes": 7416509594,
+          "logical_copy_guard_bytes": 59332076752
+        },
+        "71787f279eea063f03bc916f25e0d63149aa027770beeab7257abc652477be30": {
+          "group_logical_bytes": {
+            "native": 5114494976,
+            "solver": 23888324,
+            "buffers": 712,
+            "owner_history": 0,
+            "readout_history": 0,
+            "calibrators": 2038431744,
+            "paired_inputs": 15925256,
+            "conditions": 223768582
+          },
+          "logical_tensor_bytes": 7416509594,
+          "logical_copy_guard_bytes": 59332076752
+        },
+        "6a0f2d317300ee2f8b16c6b49139001c0ac03512dd7db5f246bf7ef0e97a4761": {
+          "group_logical_bytes": {
+            "native": 5114494976,
+            "solver": 23888324,
+            "buffers": 712,
+            "owner_history": 0,
+            "readout_history": 0,
+            "calibrators": 2038431744,
+            "paired_inputs": 15925256,
+            "conditions": 223768582
+          },
+          "logical_tensor_bytes": 7416509594,
+          "logical_copy_guard_bytes": 59332076752
+        },
+        "fee2d0e3d364d192dccfd0a990fec20668d6e9ff73eb04cdca0f8658f7c69c7c": {
+          "group_logical_bytes": {
+            "native": 5114494976,
+            "solver": 23888324,
+            "buffers": 712,
+            "owner_history": 0,
+            "readout_history": 0,
+            "calibrators": 2038431744,
+            "paired_inputs": 15925256,
+            "conditions": 223768582
+          },
+          "logical_tensor_bytes": 7416509594,
+          "logical_copy_guard_bytes": 59332076752
+        },
+        "0b290b29a29a99923b4a0af0e1d24a40faea372b695a6da1e63e660874d621d3": {
+          "group_logical_bytes": {
+            "native": 5114494976,
+            "solver": 23888324,
+            "buffers": 712,
+            "owner_history": 0,
+            "readout_history": 0,
+            "calibrators": 2038431744,
+            "paired_inputs": 15925256,
+            "conditions": 223768582
+          },
+          "logical_tensor_bytes": 7416509594,
+          "logical_copy_guard_bytes": 59332076752
+        },
+        "f040c699cd30de290c0fa754ce7800fe67aaaa451dee97376b0b77cc6483074c": {
+          "group_logical_bytes": {
+            "native": 5114494976,
+            "solver": 23888324,
+            "buffers": 712,
+            "owner_history": 0,
+            "readout_history": 0,
+            "calibrators": 2038431744,
+            "paired_inputs": 15925256,
+            "conditions": 223768582
+          },
+          "logical_tensor_bytes": 7416509594,
+          "logical_copy_guard_bytes": 59332076752
+        },
+        "ecfa8be6b0af4cc6692706baa0727914a421680993deec04388a4c5adfd90ed1": {
+          "group_logical_bytes": {
+            "native": 5114494976,
+            "solver": 23888324,
+            "buffers": 712,
+            "owner_history": 0,
+            "readout_history": 0,
+            "calibrators": 2038431744,
+            "paired_inputs": 15925256,
+            "conditions": 223768582
+          },
+          "logical_tensor_bytes": 7416509594,
+          "logical_copy_guard_bytes": 59332076752
+        },
+        "4a6fadbec8e4d1de167d23312e6511e8ee914b0442ec047dda314eef05ad7c4e": {
+          "group_logical_bytes": {
+            "native": 5114494976,
+            "solver": 23888324,
+            "buffers": 712,
+            "owner_history": 0,
+            "readout_history": 0,
+            "calibrators": 2038431744,
+            "paired_inputs": 15925256,
+            "conditions": 223768582
+          },
+          "logical_tensor_bytes": 7416509594,
+          "logical_copy_guard_bytes": 59332076752
+        },
+        "3a25a4b820752ea9e137d1553cfa695e0cc4b0386fdb1dc3fdcbae55e4acda0a": {
+          "group_logical_bytes": {
+            "native": 5114494976,
+            "solver": 23888324,
+            "buffers": 712,
+            "owner_history": 0,
+            "readout_history": 0,
+            "calibrators": 2038431744,
+            "paired_inputs": 15925256,
+            "conditions": 223768582
+          },
+          "logical_tensor_bytes": 7416509594,
+          "logical_copy_guard_bytes": 59332076752
+        },
+        "e2f3fcee2af2a050bd6cf95ffd15adde6dff8bfce70acd58d3630b77d87d079d": {
+          "group_logical_bytes": {
+            "native": 5114494992,
+            "solver": 23888324,
+            "buffers": 712,
+            "owner_history": 0,
+            "readout_history": 0,
+            "calibrators": 2038431744,
+            "paired_inputs": 15925256,
+            "conditions": 223768582
+          },
+          "logical_tensor_bytes": 7416509610,
+          "logical_copy_guard_bytes": 59332076880
+        },
+        "ca58adb97ad8249e69367befbe0c3b5df359bb16b2d1428a397a6d8d3bf68add": {
+          "group_logical_bytes": {
+            "native": 5114494976,
+            "solver": 23888324,
+            "buffers": 712,
+            "owner_history": 0,
+            "readout_history": 0,
+            "calibrators": 2038431744,
+            "paired_inputs": 15925256,
+            "conditions": 223768582
+          },
+          "logical_tensor_bytes": 7416509594,
+          "logical_copy_guard_bytes": 59332076752
+        },
+        "b3a09d0bc8bf872fb427b161f7044fb27f13b328cf919ae01f9986e6cd5b6347": {
+          "group_logical_bytes": {
+            "native": 5114494992,
+            "solver": 23888324,
+            "buffers": 712,
+            "owner_history": 0,
+            "readout_history": 0,
+            "calibrators": 2038431744,
+            "paired_inputs": 15925256,
+            "conditions": 223768582
+          },
+          "logical_tensor_bytes": 7416509610,
+          "logical_copy_guard_bytes": 59332076880
+        },
+        "2b6ea7783e866bc3c66c8aa836fc0ed3606860a0081c211cd1c95ea270936190": {
+          "group_logical_bytes": {
+            "native": 5114494992,
+            "solver": 23888324,
+            "buffers": 712,
+            "owner_history": 0,
+            "readout_history": 0,
+            "calibrators": 2038431744,
+            "paired_inputs": 15925256,
+            "conditions": 223768582
+          },
+          "logical_tensor_bytes": 7416509610,
+          "logical_copy_guard_bytes": 59332076880
+        },
+        "bcc558d576d6b6947d454090cd12ac165f563f9765c8b1b035e155b43004f6fd": {
+          "group_logical_bytes": {
+            "native": 5114494976,
+            "solver": 23888324,
+            "buffers": 712,
+            "owner_history": 0,
+            "readout_history": 0,
+            "calibrators": 2038431744,
+            "paired_inputs": 15925256,
+            "conditions": 223768582
+          },
+          "logical_tensor_bytes": 7416509594,
+          "logical_copy_guard_bytes": 59332076752
+        },
+        "442898b7cf664b87ef02e5d084a1c061bd247fb96dc211c990dabbb7f4b65cb5": {
+          "group_logical_bytes": {
+            "native": 5114494992,
+            "solver": 23888324,
+            "buffers": 712,
+            "owner_history": 0,
+            "readout_history": 0,
+            "calibrators": 2038431744,
+            "paired_inputs": 15925256,
+            "conditions": 223768582
+          },
+          "logical_tensor_bytes": 7416509610,
+          "logical_copy_guard_bytes": 59332076880
+        },
+        "de347b5de6ae7d02af83cef213910ccd11b31872d6ef6ab0781032f02b347996": {
+          "group_logical_bytes": {
+            "native": 5114494992,
+            "solver": 23888324,
+            "buffers": 712,
+            "owner_history": 0,
+            "readout_history": 0,
+            "calibrators": 2038431744,
+            "paired_inputs": 15925256,
+            "conditions": 223768582
+          },
+          "logical_tensor_bytes": 7416509610,
+          "logical_copy_guard_bytes": 59332076880
+        },
+        "ddaa9e2913f06bafcb53573a35affa376dd060f3d2b628892ae9197b76b02c40": {
+          "group_logical_bytes": {
+            "native": 5114494976,
+            "solver": 23888324,
+            "buffers": 712,
+            "owner_history": 0,
+            "readout_history": 0,
+            "calibrators": 2038431744,
+            "paired_inputs": 15925256,
+            "conditions": 223768582
+          },
+          "logical_tensor_bytes": 7416509594,
+          "logical_copy_guard_bytes": 59332076752
+        },
+        "f7e9bb27abb8d398e92af264d929c9971aa39e9873ad71ac05ab7578a7feab70": {
+          "group_logical_bytes": {
+            "native": 5114494992,
+            "solver": 23888324,
+            "buffers": 712,
+            "owner_history": 0,
+            "readout_history": 0,
+            "calibrators": 2038431744,
+            "paired_inputs": 15925256,
+            "conditions": 223768582
+          },
+          "logical_tensor_bytes": 7416509610,
+          "logical_copy_guard_bytes": 59332076880
+        },
+        "4941f54dde5367a846453822e8944d4993838a25776793d95934d6d1d0402f5a": {
+          "group_logical_bytes": {
+            "native": 5114494992,
+            "solver": 23888324,
+            "buffers": 712,
+            "owner_history": 0,
+            "readout_history": 0,
+            "calibrators": 2038431744,
+            "paired_inputs": 15925256,
+            "conditions": 223768582
+          },
+          "logical_tensor_bytes": 7416509610,
+          "logical_copy_guard_bytes": 59332076880
+        },
+        "aefa08f16850f01634058658f3542fbbaa9f54dc4c513c34aa9d605f2ac290ee": {
+          "group_logical_bytes": {
+            "native": 5114494992,
+            "solver": 23888324,
+            "buffers": 712,
+            "owner_history": 0,
+            "readout_history": 0,
+            "calibrators": 2038431744,
+            "paired_inputs": 15925256,
+            "conditions": 223768582
+          },
+          "logical_tensor_bytes": 7416509610,
+          "logical_copy_guard_bytes": 59332076880
+        },
+        "7b986f9f4dc429fef65f2cb690a246879729a07c903be19fc9a01ff252c510ef": {
+          "group_logical_bytes": {
+            "native": 5114494992,
+            "solver": 23888324,
+            "buffers": 712,
+            "owner_history": 0,
+            "readout_history": 0,
+            "calibrators": 2038431744,
+            "paired_inputs": 15925256,
+            "conditions": 223768582
+          },
+          "logical_tensor_bytes": 7416509610,
+          "logical_copy_guard_bytes": 59332076880
+        },
+        "ccef02badcdcbdf064f4b27795901c3f0e9736e461d424e4f5043152f48d1f8a": {
+          "group_logical_bytes": {
+            "native": 5114494992,
+            "solver": 23888324,
+            "buffers": 712,
+            "owner_history": 0,
+            "readout_history": 0,
+            "calibrators": 2038431744,
+            "paired_inputs": 15925256,
+            "conditions": 223768582
+          },
+          "logical_tensor_bytes": 7416509610,
+          "logical_copy_guard_bytes": 59332076880
+        },
+        "c2c9b38f9bd241f5061f4297dafa6f31fee2e05d49a7eb8eb7fdc5be08c43f44": {
+          "group_logical_bytes": {
+            "native": 5114494992,
+            "solver": 23888324,
+            "buffers": 712,
+            "owner_history": 0,
+            "readout_history": 0,
+            "calibrators": 2038431744,
+            "paired_inputs": 15925256,
+            "conditions": 223768582
+          },
+          "logical_tensor_bytes": 7416509610,
+          "logical_copy_guard_bytes": 59332076880
+        },
+        "f92f1e9ff7a1017d217e2deb9c1c3af27a058cd6f1f9827393b9aeda489c574a": {
+          "group_logical_bytes": {
+            "native": 5114494992,
+            "solver": 23888324,
+            "buffers": 712,
+            "owner_history": 0,
+            "readout_history": 0,
+            "calibrators": 2038431744,
+            "paired_inputs": 15925256,
+            "conditions": 223768582
+          },
+          "logical_tensor_bytes": 7416509610,
+          "logical_copy_guard_bytes": 59332076880
+        },
+        "61d7fcdcd3730c0c82fd73519bce2062dca2572fd0cf6f9f023276d169839130": {
+          "group_logical_bytes": {
+            "native": 5114494992,
+            "solver": 23888324,
+            "buffers": 712,
+            "owner_history": 0,
+            "readout_history": 0,
+            "calibrators": 2038431744,
+            "paired_inputs": 15925256,
+            "conditions": 223768582
+          },
+          "logical_tensor_bytes": 7416509610,
+          "logical_copy_guard_bytes": 59332076880
+        },
+        "fe08af562cd84e04b42c25271703c7ddbfeaf65e9fa326c7243a18f71d68af9f": {
+          "group_logical_bytes": {
+            "native": 5114494992,
+            "solver": 23888324,
+            "buffers": 712,
+            "owner_history": 0,
+            "readout_history": 0,
+            "calibrators": 2038431744,
+            "paired_inputs": 15925256,
+            "conditions": 223768582
+          },
+          "logical_tensor_bytes": 7416509610,
+          "logical_copy_guard_bytes": 59332076880
+        },
+        "19b75f1579b753bc2e9d01c0c4d657ba0c2e28feed9f4f6987f161c8cc14e3db": {
+          "group_logical_bytes": {
+            "native": 5114494992,
+            "solver": 23888324,
+            "buffers": 712,
+            "owner_history": 0,
+            "readout_history": 0,
+            "calibrators": 2038431744,
+            "paired_inputs": 15925256,
+            "conditions": 223768582
+          },
+          "logical_tensor_bytes": 7416509610,
+          "logical_copy_guard_bytes": 59332076880
+        }
+      },
+      "max_logical_copy_guard_bytes": 59332076880,
+      "max_logical_copy_guard_GiB": 55.25730259716511,
+      "max_by_group_logical_bytes": {
+        "native": 5114494992,
+        "solver": 23888324,
+        "buffers": 712,
+        "owner_history": 0,
+        "readout_history": 0,
+        "calibrators": 2038431744,
+        "paired_inputs": 15925256,
+        "conditions": 223768582
+      }
+    }
+  },
+  "assumptions": [
+    "The exact frozen 2B/resolution/conditioning and native field families are retained",
+    "The output/solver latent is bounded by FP32; timestep/log and projected context use conservative widths",
+    "Real full2B buffers keep the observed shapes, with floating buffers allowed FP32",
+    "The eight-group logical counter covers references; full backing storage and transient allocations remain separate"
+  ],
+  "proposed_logical_guard_GiB": 64,
+  "proposed_guard_frozen_in_GPU_profile": false,
+  "remaining": [
+    "Before any actual snapshots, inspect all actual tensor schemas and full backing storage; refuse unknown fields or cap excess",
+    "Bind lifecycle, physical device/host limits, complete hashing/copy/I-O costs and both whole-card quotes",
+    "Obtain separate S GPU authority and fresh admission before any real collection"
+  ],
+  "physical_GPU_or_RAM_peak_measured": false,
+  "whole_S_quote_frozen": false,
+  "complete_S_GPU_entry_accepted": false,
+  "S_real_labels": 0,
+  "GPU_submissions": 0,
+  "new_GPUh": 0,
+  "ledger_writes": 0
+}

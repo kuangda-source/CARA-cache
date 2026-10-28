@@ -1,0 +1,143 @@
+{
+  "status": "S_COMPLETE_STATE_AND_FULL2B_META_DUAL_CPU_ACCEPTED_NOT_GPU_CARD",
+  "source_revision": "1afa79684182508804af2646668a27c536e70058",
+  "accepted": {
+    "two_card": {
+      "acceptance_ref": "reports/cara_sq_s_resources_two_card_cpu_accepted_r5_20261029.json",
+      "acceptance_sha256": "36690864e7be8cd70053e3e4446d5f7221a8199d5287f182632c93fd13757efb",
+      "capture_ref": "reports/cara_sq_s_resources_two_card_cpu_terminal_check_r5_20261029.json",
+      "capture_sha256": "131b0c90994e6fa24fa8f46a042508dcb29a7603f87ec600ec0514b54064e836"
+    },
+    "four_card": {
+      "acceptance_ref": "reports/cara_sq_s_resources_four_card_cpu_accepted_r5_20261029.json",
+      "acceptance_sha256": "58d48e1a36b992adde9d4d2f7a03fa24a969adc4bc05206308f007d819afedb8",
+      "capture_ref": "reports/cara_sq_s_resources_four_card_cpu_released_r5_20261029.json",
+      "capture_sha256": "5fa775b7ad8a41def891ba7d6225938f7511e77de8976b3fc14ed5116334d368"
+    }
+  },
+  "complete_tiny_paths_per_host": 4,
+  "before_pair_boundaries_per_host": 108,
+  "unique_schemas_per_host": 33,
+  "unit_controls_per_host": 9,
+  "forged_receipt_refusals_per_host": 10,
+  "original_fixed_sampler": true,
+  "declared_tiny_model_and_decoder_standins": true,
+  "metadata_inventories_equal_across_registered_hosts": true,
+  "full2B_meta_parameter_objects": 569,
+  "full2B_virtual_parameter_bytes": 4118349824,
+  "full2B_meta_buffer_objects": 7,
+  "full2B_virtual_buffer_bytes": 368,
+  "CPU_checks": {
+    "plan_ref": "reports/cara_sq_s_resources_CPU_checks_plan_both_r5_20261029.json",
+    "original_observations": {
+      "two_card": [
+        {
+          "ref": "reports/cara_sq_s_resources_two_card_cpu_halfway_r5_20261029.json",
+          "seconds_after_actual_allocation_start": 23.577136278152466,
+          "container_status": "running",
+          "original_CLI_live": true
+        },
+        {
+          "ref": "reports/cara_sq_s_resources_two_card_cpu_terminal_r5_20261029.json",
+          "seconds_after_actual_allocation_start": 49.99044370651245,
+          "container_status": "running",
+          "original_CLI_live": true
+        },
+        {
+          "ref": "reports/cara_sq_s_resources_two_card_cpu_terminal_check_r5_20261029.json",
+          "seconds_after_actual_allocation_start": 95.99000000953674,
+          "container_status": "exited",
+          "original_CLI_live": false
+        }
+      ],
+      "four_card": [
+        {
+          "ref": "reports/cara_sq_s_resources_four_card_cpu_start_observation_r5_20261029.json",
+          "seconds_after_actual_allocation_start": 131.46516489982605,
+          "container_status": "running",
+          "original_CLI_live": true
+        },
+        {
+          "ref": "reports/cara_sq_s_resources_four_card_cpu_halfway_r5_20261029.json",
+          "seconds_after_actual_allocation_start": 248.51516222953796,
+          "container_status": "running",
+          "original_CLI_live": true
+        },
+        {
+          "ref": "reports/cara_sq_s_resources_four_card_cpu_terminal_r5_20261029.json",
+          "seconds_after_actual_allocation_start": 300.7839472293854,
+          "container_status": "running",
+          "original_CLI_live": true
+        },
+        {
+          "ref": "reports/cara_sq_s_resources_four_card_cpu_terminal_check_r5_20261029.json",
+          "seconds_after_actual_allocation_start": 386.35294914245605,
+          "container_status": "running",
+          "original_CLI_live": true
+        },
+        {
+          "ref": "reports/cara_sq_s_resources_four_card_cpu_terminal_final_r5_20261029.json",
+          "seconds_after_actual_allocation_start": 442.7140107154846,
+          "container_status": "running",
+          "original_CLI_live": true
+        },
+        {
+          "ref": "reports/cara_sq_s_resources_four_card_cpu_released_r5_20261029.json",
+          "seconds_after_actual_allocation_start": 512.1552946567535,
+          "container_status": "exited",
+          "original_CLI_live": false
+        }
+      ]
+    },
+    "early_midpoint_ref": "reports/cara_sq_s_resources_two_card_cpu_terminal_r5_20261029.json",
+    "early_midpoint_seconds_after_actual_start": 49.99044370651245,
+    "Four_body_result_seen_while_running_then_original_terminal_verified": true
+  },
+  "costs": {
+    "failed_original_CPU_attempts": 7,
+    "failed_cost_ref": "reports/cara_sq_s_resources_original_failed_CPU_costs_r1_20261029.json",
+    "failed_cost_sha256": "387cbf449f38a759bd7e20c01b3f6d7309e478dd8f87abcfd3155e9e8e31832d",
+    "successful_original_CPU_attempts": 2,
+    "successful": {
+      "two_card": {
+        "container_wall_seconds": 68.45011,
+        "worker_wall_seconds": 64.63565572258085,
+        "worker_CPU_seconds": 74.036253499,
+        "reaped_child_CPU_seconds": 2.943211,
+        "parent_peak_RSS_GiB": 1.007415771484375,
+        "allocated_vCPU_seconds_upper_bound": 136.90022,
+        "staging_transport_git_CPU_unmetered": true
+      },
+      "four_card": {
+        "container_wall_seconds": 459.525201,
+        "worker_wall_seconds": 425.3945616520941,
+        "worker_CPU_seconds": 118.041442807,
+        "reaped_child_CPU_seconds": 5.717769,
+        "parent_peak_RSS_GiB": 0.9742469787597656,
+        "allocated_vCPU_seconds_upper_bound": 919.050402,
+        "staging_transport_git_CPU_unmetered": true
+      }
+    },
+    "all_nine_container_wall_seconds": 1805.790696,
+    "all_nine_allocated_vCPU_seconds_upper_bound": 3611.581392,
+    "successful_measured_worker_and_reaped_child_CPU_seconds": 200.738676306,
+    "failed_worker_wrapper_and_post_result_teardown_CPU_unmetered": true,
+    "host_setup_transport_git_CPU_unmetered": true,
+    "aggregate_cgroup_peak_measured": false
+  },
+  "geometry_projection_ref": "reports/cara_sq_s_complete_resource_geometry_r1_20261029.json",
+  "geometry_projection_sha256": "5b8cce3211f53cc9b9395eec953084b31164d9d5fee72997e2bad9398ec8c6e4",
+  "geometry_analysis_source_ref": "scripts/analyze_cara_sq_s_resource_geometry_r1.py",
+  "geometry_analysis_source_sha256": "39b6450634007c05b4188f78f834e9bd8a8b4ce92fe17721f3d6d84742e26a8b",
+  "S_real_labels": 0,
+  "real_video_generation": false,
+  "real_Cosmos_weights_loaded": false,
+  "full_real_model_forward": false,
+  "physical_GPU_or_RAM_peak_measured": false,
+  "complete_S_GPU_entry_accepted": false,
+  "whole_S_quote_frozen": false,
+  "S_GPU_authorized": false,
+  "GPU_submissions": 0,
+  "new_GPUh": 0,
+  "ledger_writes": 0
+}

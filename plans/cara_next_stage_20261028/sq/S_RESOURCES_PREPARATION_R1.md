@@ -1,5 +1,7 @@
 # S 完整状态资源清单准备
 
+**最新：双端 R5 已完整接受。** 原容器及 CLI 均已退出0，每端九项单元、四条完整 tiny 路径、108个状态边界、33种schema和十项错误回执拒绝通过；两端清单及原2B meta架构相同。[双端验收与完整CPU费用](../../../reports/cara_sq_s_resources_dual_cpu_accepted_r5_20261029.json) · [750记录](../../../research/750_CARA_SQ_COMPLETE_STATE_RESOURCE_CPU_AND_GEOMETRY_20261029.md)。下文保留原R1–R4准备与失败历史。
+
 2026-10-29。旧 28.36398 GiB 是已知逻辑引用下限，遗漏 output/embedding、solver、buffers 等，不能作为实际 GPU/RAM 峰值或完整上限。[新清单组件](../../../src/wcomr/sq_s_resources_r1.py)把每条 tensor 引用、独立对象和完整底层 storage 分开，同时保留 NumPy 状态字节；只读取元数据，不扫描值、不复制张量、不触发设备传输。逻辑复制计数与现有生产 `SParentCollector.copy_budget` 的八组内容逐项对应，仍采用原 ×8 守卫。
 
 [受限 CPU 范围](S_RESOURCES_CPU_R1.json)含六项单元控制，覆盖别名/view、meta 虚拟字节、完整字段、NumPy、超限拒绝和无隐式 finite/hash 扫描。在注册 2 CPU / 8 GiB / 1800 秒、GPU 隐藏/无网的独立 stage 中，解析原生产实验配置，仅在 meta 设备构造 `cfg.model.config.net`。要求28 Block、569个BF16参数对象及原共享 eval 模块拓扑一致；禁止 checkpoint 加载、完整真实模型前向和 pipeline 构造。实际 A32 精度原件作为范围内的来源绑定，meta 字节不表示已分配显存。
@@ -31,3 +33,11 @@ R3 到达原网络 `init_weights`，TE 的原 `reset_parameters` 对 meta weight
 R4 的九项控制发现固定 Linux PyTorch 2.7.1 与本地 2.8 的 API 差异：2.7 的 `get_default_device()` 不反映外围 `torch.device('meta')`。新 R5 用零元素 factory 的实际设备验证 meta context，没有底层 storage 分配或数值读取；同一个原 TE resolver 与恢复机制保持。九项控制移到重型原生 import 之前，避免已知单元拒绝仍消耗后续 import 时间，并记录单元通过和 full2B meta 通过两个 CPU 阶段。
 
 [R5 范围](S_RESOURCES_CPU_R5.json)保留四条 tiny 路径、108 清单边界和原资源。各端必须先核验自己的 R4 原容器及 CLI 已失败退出，保留原失败与费用后才启动新 stage。旧 R1–R4 不重派、源不变；本地单元通过不能替代固定 Linux 运行时的实测接受。
+
+## R5 完整接受后的下一项
+
+A6000/Ada 的原 R5 容器分别68.450110/459.525201秒，源均为 `1afa79684182508804af2646668a27c536e70058`；Ada正文完成时原容器仍在运行，原件退出后才接受。完整meta构造含569个BF16参数、七个buffer，虚拟字节分别4,118,349,824/368；没有加载权重或执行完整真实模型。
+
+[完整几何核算](../../../reports/cara_sq_s_complete_resource_geometry_r1_20261029.json)覆盖所有33种八组schema，加入旧实际B1完整条件和full2B buffers。原BF16特征情景的逻辑复制守卫最大28.679178GiB；特征按FP32保守情景为55.257303GiB。64GiB是下一版逻辑守卫的提案，不能解释为物理RAM/VRAM峰值，也未冻结到GPU profile。
+
+接下来把实际tensor schema与完整backing-storage限额接入S入口，未知字段或超限须在snapshot前拒绝；再绑定主机物理资源、整段allocation计费和覆盖hash/copy/I-O/释放的双端整卡报价，完成受影响的组合CPU验证后提交单独S授权卡。108真实S标签、实际S GPU入口接受、整卡报价与GPU授权仍未形成；Q1继续按自己的完整R2审阅卡独立待授权。
