@@ -37,6 +37,7 @@ def main():
     p=argparse.ArgumentParser();p.add_argument('command',choices=('recover','launch','capture'))
     p.add_argument('--host',choices=('two_card','four_card'),required=True)
     p.add_argument('--attempt',choices=('r1','r2'),default='r2')
+    p.add_argument('--prior-capture',type=Path,help='Explicit original R1 terminal capture; preserve earlier live snapshots')
     p.add_argument('--source-revision');p.add_argument('--launch-ref',type=Path)
     p.add_argument('--output',type=Path,required=True);args=p.parse_args()
     if args.output.exists():raise FileExistsError('Retain original journal correction CPU receipt')
@@ -44,7 +45,8 @@ def main():
     def remote(code,data=None):return ssh(code,data,docker_group=True) if args.host=='two_card' else four_ssh(code,data)
     if args.command=='launch':
         if args.attempt!='r2':raise ValueError('Original R1 CPU attempt is immutable; recover only')
-        failed=json.loads((ROOT/f'reports/cara_sq_control_journal_{args.host}_cpu_check_r1_20261029.json').read_text())
+        prior=args.prior_capture or ROOT/f'reports/cara_sq_control_journal_{args.host}_cpu_check_r1_20261029.json'
+        failed=json.loads(prior.read_text())
         if (failed['launch']['source_revision']!='c26de98365f8d6b57d4c29b25219a94e9ca2ab70'
                 or not failed['launch']['stage'].endswith('/'+stage.replace('-r2-','-r1-'))
                 or failed['container_state']['Status']!='exited' or failed['container_state']['ExitCode']!=1
