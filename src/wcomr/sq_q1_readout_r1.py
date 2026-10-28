@@ -18,9 +18,8 @@ from .partial_mlp_deployment_state import plain, tensor_bytes
 from .policy_interval_readout_r1 import guided
 from .scout_readout_v22 import validate_state
 from .sq_codec_r1 import packed_source, storage_bytes, transform_roundtrip, leave_one_prompt_out
+from .sq_q1_spec_r1 import PROMPTS, STEPS
 
-PROMPTS = ('av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632', 'human_199')
-STEPS = (22, 23, 25, 33, 34, 35)
 CODECS = tuple((basis, bits) for basis in ('I', 'M') for bits in ((8, 8), (4, 8), (8, 4)))
 
 

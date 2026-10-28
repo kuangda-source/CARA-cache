@@ -1,0 +1,28 @@
+{
+  "schema":"SQ_Q1_DUAL_HOST_EXECUTION_PROFILE_R1",
+  "status":"PREPARATION_NOT_AUTHORIZATION",
+  "host_RAM_GiB":16,
+  "minimum_host_MemAvailable_GiB":24,
+  "private_input_logical_cap_GiB":8,
+  "CUDA_allocator_fraction_max":0.5,
+  "output_image_GiB":1,
+  "control_journal_MiB":48,
+  "output_file_MiB_max":64,
+  "stop_release_margin_seconds":60,
+  "CPU_post_wall_seconds_max":300,
+  "hosts":{
+    "two_card":{
+      "capability":[8,6],"cpuset_cpus":"24,25",
+      "image_path":"/home/gaokuangda/cara_sq_storage/cara-sq-q1-saved-r1-20261028.img",
+      "journal_path":"/data20t/gaokuangda/worldcache_workspace/reports/cara-sq-q1-saved-r1-20261028.control.journal"
+    },
+    "four_card":{
+      "capability":[8,9],"cpuset_cpus":"24,25",
+      "image_path":"/home/user/cara_sq_storage/cara-sq-q1-saved-r1-20261028.img",
+      "journal_path":"/data20t/gaokuangda/worldcache_workspace/reports/cara-sq-q1-saved-r1-20261028.control.journal"
+    }
+  },
+  "output_backing":"Dedicated fully allocated 1 GiB image on the previously verified host system SSD; independent HDD double-buffered journal",
+  "input_mounts":"Project, original B1, runtime and weights read-only; only this output, stage, journal and GPU-lock directory writable",
+  "GPU_devices":1,"new_GPU_submissions":0,"budget_reserved_GPUh":0,"ledger_writes":0
+}

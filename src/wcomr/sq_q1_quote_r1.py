@@ -8,7 +8,7 @@ import hashlib
 import json
 import math
 
-from .sq_q1_collection_r1 import COUNTS
+from .sq_q1_spec_r1 import COUNTS
 
 SCOPE = 'plans/cara_next_stage_20261028/sq/Q1_WHOLE_SCOPE_R1.json'
 Q0 = 'reports/cara_sq_cpu_accepted_20261028.json'

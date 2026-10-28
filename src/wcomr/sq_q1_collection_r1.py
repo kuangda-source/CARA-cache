@@ -11,16 +11,9 @@ import torch
 from .innovation_gain_observer_r1 import restore_readout_inputs
 from .partial_mlp_deployment_state import plain, tensor_bytes
 from .scout_readout_v22 import validate_state
-from .sq_q1_readout_r1 import (PROMPTS, STEPS, source_from_anchors,
-    evaluate_saved_state)
+from .sq_q1_readout_r1 import source_from_anchors, evaluate_saved_state
+from .sq_q1_spec_r1 import COUNTS, STATE_KEYS
 from .sq_readout_subgraph_r1 import original_controls, dense_hidden_outputs, compare_outputs
-
-STATE_KEYS = tuple((prompt, step) for prompt in PROMPTS for step in STEPS)
-COUNTS = dict(states=12, formal_C_pairs=96, formal_head_calls=192,
-              warm_C_pairs=2, preview_original_C_pairs=1, stored_dense_hidden_head_pairs=12,
-              complete_readout_pairs=111, complete_head_calls=222,
-              codec_C_pairs=72, new_deep_pairs=0, new_parent_paths=0, new_videos=0)
-
 
 @torch.no_grad()
 def collect_saved_q1(kernel, records, load, schema, *, device, max_copy_bytes, save_health, synchronize=None):

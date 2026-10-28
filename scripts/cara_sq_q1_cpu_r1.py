@@ -10,7 +10,7 @@ import cara_sq_two_card_cpu_r1 as previous
 import cara_two_card_transport_r1 as transport
 
 ROOT=Path(__file__).resolve().parents[1]
-FILES=('src/wcomr/sq_q1_readout_r1.py','src/wcomr/sq_schedule_profile_r2.py',
+FILES=('src/wcomr/sq_q1_readout_r1.py','src/wcomr/sq_q1_spec_r1.py','src/wcomr/sq_schedule_profile_r2.py',
        'src/wcomr/sq_codec_r1.py','src/wcomr/sq_risk_r1.py',
        'src/wcomr/innovation_gain_observer_r1.py','src/wcomr/scout_readout_v22.py',
        'src/wcomr/policy_interval_readout_r1.py','src/wcomr/cfg_guided_w1_forward.py',
