@@ -25,3 +25,9 @@ A6000 R2 原容器已退出1：实际 TE RMSNorm 的 `canonicalize_device(None)`
 R3 到达原网络 `init_weights`，TE 的原 `reset_parameters` 对 meta weight 仍调用 `canonicalize_device(None)`，再次被 CUDA 拒绝守卫阻断。R4 在明确 meta context 内，将同一个原 resolver 的 None 参数显式改为 meta 后执行原函数；constructor、reset、resolver 的原函数体与模块 class 均保留，两个适配在 tiny 采样前恢复。记录原 TE constructor/operation/resolver 源 SHA，原完整H0拓扑与569个BF16参数要求保持。
 
 [R4 范围](S_RESOURCES_CPU_R4.json)增加 resolver 的上下文/真实设备拒绝/原函数恢复控制，共九项。所有旧失败与原费用保留，每端只在自己的 R3 确定退出后启动新 R4；GPU、权重值和真实模型前向继续禁止。
+
+## R4 的 PyTorch 2.7 上下文读取差异与 R5
+
+R4 的九项控制发现固定 Linux PyTorch 2.7.1 与本地 2.8 的 API 差异：2.7 的 `get_default_device()` 不反映外围 `torch.device('meta')`。新 R5 用零元素 factory 的实际设备验证 meta context，没有底层 storage 分配或数值读取；同一个原 TE resolver 与恢复机制保持。九项控制移到重型原生 import 之前，避免已知单元拒绝仍消耗后续 import 时间，并记录单元通过和 full2B meta 通过两个 CPU 阶段。
+
+[R5 范围](S_RESOURCES_CPU_R5.json)保留四条 tiny 路径、108 清单边界和原资源。各端必须先核验自己的 R4 原容器及 CLI 已失败退出，保留原失败与费用后才启动新 stage。旧 R1–R4 不重派、源不变；本地单元通过不能替代固定 Linux 运行时的实测接受。

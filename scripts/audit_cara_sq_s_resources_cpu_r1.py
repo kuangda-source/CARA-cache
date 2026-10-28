@@ -8,7 +8,7 @@ from pathlib import Path
 import subprocess
 
 from audit_cara_sq_s_owner_cpu_r1 import cpu_mounts,instant,require,result_sha
-from cara_sq_s_resources_cpu_r1 import FILES,SCOPE_R2,SCOPE_R3,SCOPE_R4
+from cara_sq_s_resources_cpu_r1 import FILES,SCOPE_R2,SCOPE_R3,SCOPE_R4,SCOPE_R5
 
 ROOT=Path(__file__).resolve().parents[1]
 WIDTHS={'torch.bool':1,'torch.uint8':1,'torch.int8':1,'torch.int16':2,'torch.int32':4,'torch.int64':8,
@@ -42,7 +42,7 @@ def validate_inventory(report):
 
 def accept(capture,scope,revision,host):
     state,launch,result=capture['container_state'],capture['launch'],capture['result']
-    name='cara-sq-s-resources-cpu-'+host.replace('_','-')+'-r4-20261029'
+    name='cara-sq-s-resources-cpu-'+host.replace('_','-')+'-r5-20261029'
     require(state['Status']=='exited' and state['ExitCode']==0 and not state['Error']
         and not any(state[k] for k in ('Running','Paused','Restarting','OOMKilled','Dead'))
         and capture['original_CLI_live'] is False,'Original S resource CPU handles are not terminal')
@@ -127,7 +127,7 @@ def main():
     p.add_argument('--source-revision',required=True);p.add_argument('--output',type=Path,required=True);args=p.parse_args()
     require(not args.output.exists(),'Retain original resource acceptance')
     revision=subprocess.check_output(['git','rev-parse',args.source_revision+'^{commit}'],cwd=ROOT,text=True).strip()
-    capture=json.loads(args.capture.read_text());scope=json.loads(subprocess.check_output(['git','show',revision+':'+SCOPE_R4],cwd=ROOT))
+    capture=json.loads(args.capture.read_text());scope=json.loads(subprocess.check_output(['git','show',revision+':'+SCOPE_R5],cwd=ROOT))
     result=accept(capture,scope,revision,args.host)
     cases=dict(live_container=lambda c:c['container_state'].update(Running=True),
         live_CLI=lambda c:c.update(original_CLI_live=True),
@@ -147,7 +147,7 @@ def main():
         else:raise ValueError('Forged S resource receipt accepted: '+name)
     result.update(capture_ref=str(args.capture),capture_sha256=hashlib.sha256(args.capture.read_bytes()).hexdigest(),
         rejection_controls=rejected,critical_source_sha256={n:hashlib.sha256(subprocess.check_output(
-            ['git','show',revision+':'+n],cwd=ROOT)).hexdigest() for n in FILES+(SCOPE_R2,SCOPE_R3,SCOPE_R4)})
+            ['git','show',revision+':'+n],cwd=ROOT)).hexdigest() for n in FILES+(SCOPE_R2,SCOPE_R3,SCOPE_R4,SCOPE_R5)})
     with args.output.open('x') as f:json.dump(result,f,indent=2,allow_nan=False);f.write('\n')
     print(json.dumps({k:result[k] for k in ('status','host','schemas','full2B_parameter_logical_bytes','resources')}))
 

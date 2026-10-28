@@ -89,6 +89,11 @@ def main():
     import huggingface_hub
     huggingface_hub.hf_hub_download=forbidden;huggingface_hub.snapshot_download=forbidden
     torch.set_num_threads(2);os.nice(10)
+    scope=json.loads((ROOT/args.scope).read_text());identity=json.loads((ROOT/scope['identity_ref']).read_text())
+    log=io.StringIO()
+    tests=unittest.TextTestRunner(stream=log,verbosity=2).run(unittest.defaultTestLoader.loadTestsFromName('test_sq_s_resources_r1'))
+    if not tests.wasSuccessful() or tests.testsRun!=scope['unit_controls'] or tests.skipped:raise ValueError(log.getvalue())
+    print(json.dumps(dict(status='S_RESOURCE_CPU_UNIT_CONTROLS_PASS',tests=tests.testsRun,GPU_submissions=0)),flush=True)
     runtime=ROOT/'cache/runtime'
     sys.path[:0]=[str(runtime),str(runtime/'packages/cosmos-oss'),str(runtime/'packages/cosmos-cuda')]
     import triton
@@ -108,11 +113,9 @@ def main():
         transformer_utils.is_flash_attn_2_available,import_utils.is_flash_attn_2_available,torch.cuda.current_device=saved
     from cosmos_predict2._src.imaginaire.utils import checkpoint_db
     checkpoint_db.hf_hub_download=forbidden;checkpoint_db.snapshot_download=forbidden
-    scope=json.loads((ROOT/args.scope).read_text());identity=json.loads((ROOT/scope['identity_ref']).read_text())
-    log=io.StringIO()
-    tests=unittest.TextTestRunner(stream=log,verbosity=2).run(unittest.defaultTestLoader.loadTestsFromName('test_sq_s_resources_r1'))
-    if not tests.wasSuccessful() or tests.testsRun!=scope['unit_controls'] or tests.skipped:raise ValueError(log.getvalue())
     model=meta_architecture(runtime,identity)
+    print(json.dumps(dict(status='FULL2B_META_ARCHITECTURE_PASS_NO_WEIGHTS_OR_FORWARD',
+        parameters=model['parameter_tensors'],GPU_submissions=0)),flush=True)
     from check_sq_s_resources_cpu_r1 import run
     fixture=run(runtime,ROOT/'S-resource-CPU-artifacts');rows=fixture['checks']
     if len(rows)!=2 or {r['flow'] for r in rows}!={False,True}:raise ValueError('Both complete CPU flow settings required')

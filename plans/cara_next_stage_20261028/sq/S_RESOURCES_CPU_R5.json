@@ -1,0 +1,112 @@
+{
+  "version": "S_COMPLETE_OWNERSHIP_AND_FULL2B_META_CPU_R5",
+  "identity_ref": "plans/cara_next_stage_20261028/sq/S_EXECUTION_IDENTITY_R1.json",
+  "unit_controls": 9,
+  "full2B_architecture": "Resolved original experiment, cfg.model.config.net only, device meta, no checkpoint or pipeline",
+  "expected_blocks": 28,
+  "expected_parameter_tensors": 569,
+  "expected_parameter_dtype": "torch.bfloat16",
+  "shared_eval_module_topology_must_match": true,
+  "tiny_scope": {
+    "flow_settings": [
+      false,
+      true
+    ],
+    "parents": [
+      "Shared25-C",
+      "F19-C"
+    ],
+    "fixture_inputs_per_flow": 1,
+    "complete_paths": 4,
+    "solver_pairs_per_path": 36,
+    "before_pair_boundaries": 108,
+    "targets": [
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35
+    ],
+    "sampling_model": "PINNED_SAMPLER_WITH_DECLARED_TINY_CPU_MODEL_AND_DECODER_STANDINS"
+  },
+  "inventory_groups": [
+    "native",
+    "solver",
+    "buffers",
+    "owner_history",
+    "readout_history",
+    "calibrators",
+    "paired_inputs",
+    "conditions"
+  ],
+  "resource_limits": {
+    "CPUs": 2,
+    "RAM_GiB": 8,
+    "wall_seconds": 1800,
+    "GPU": "hidden",
+    "network": "none"
+  },
+  "weight_loading_forbidden": true,
+  "real_model_forward_forbidden": true,
+  "physical_GPU_or_RAM_peak_measured": false,
+  "whole_S_quote_frozen": false,
+  "S_real_labels": 0,
+  "GPU_submissions": 0,
+  "ledger_writes": 0,
+  "GPU_authority": false,
+  "original_precision_evidence": {
+    "capture_ref": "reports/cara_fast_A6000_terminal_20261029_0050.json",
+    "capture_sha256": "f33f9944e180bcb98d0e51952d7a3bda9247bdaab60a3c1e9bdca710a8749b8f",
+    "precision_sha256": "da3a82502ffcb5476a567479dde662a406f42f58338faafbff3ade713ccc05e8",
+    "precision": {
+      "model_precision": "torch.bfloat16",
+      "net_parameter_dtypes": {
+        "torch.bfloat16": 569
+      },
+      "use_wan_fp32_strategy": true,
+      "conditional_frame_timestep": 0.1,
+      "matmul_allow_tf32": true,
+      "cudnn_allow_tf32": true,
+      "cudnn_benchmark": true,
+      "cudnn_deterministic": false,
+      "outer_autocast": false
+    }
+  },
+  "checkpoint_path_resolution_forbidden": true,
+  "Hugging_Face_downloads_blocked": true,
+  "supersedes_R1_setup_path_only": true,
+  "meta_only_constructor_adapter": {
+    "class_path": "transformer_engine.pytorch.module.rmsnorm.RMSNorm",
+    "change": "Explicit original constructor device=meta, no class/body substitution",
+    "expected_calls": 113,
+    "original_constructor_restored_before_tiny_sampling": true
+  },
+  "supersedes_R2_TE_default_device_only": true,
+  "meta_reset_device_adapter": "Original TE canonicalize_device receives explicit meta for None inside meta-only context; restored before sampling",
+  "supersedes_R3_reset_default_device_only": true,
+  "meta_context_probe": "Zero-element torch.empty(0) factory device observes the active meta context in pinned PyTorch 2.7; no backing storage or value read",
+  "unit_controls_run_before_heavy_native_imports": true,
+  "supersedes_R4_default_device_probe_only": true
+}

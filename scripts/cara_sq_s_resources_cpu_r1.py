@@ -16,6 +16,7 @@ SCOPE='plans/cara_next_stage_20261028/sq/S_RESOURCES_CPU_R1.json'
 SCOPE_R2='plans/cara_next_stage_20261028/sq/S_RESOURCES_CPU_R2.json'
 SCOPE_R3='plans/cara_next_stage_20261028/sq/S_RESOURCES_CPU_R3.json'
 SCOPE_R4='plans/cara_next_stage_20261028/sq/S_RESOURCES_CPU_R4.json'
+SCOPE_R5='plans/cara_next_stage_20261028/sq/S_RESOURCES_CPU_R5.json'
 FILES=tuple(dict.fromkeys(previous.FILES+('src/wcomr/sq_s_resources_r1.py',
     'tests/test_sq_s_resources_r1.py','tests/check_sq_s_resources_cpu_r1.py',
     'scripts/check_cara_sq_s_resources_cpu_r1.py','src/wcomr/runtime_config.py',
@@ -27,7 +28,7 @@ RUNTIME_EXTRA=('cosmos_predict2/_src/predict2/configs/video2world/defaults/net.p
     'cosmos_predict2/_src/imaginaire/utils/config_helper.py')
 
 
-def launch_source(attempt='r4'):
+def launch_source(attempt='r5'):
     code=boundary.launch_source()
     for before,after in (('cara-sq-q1-control-CPU-only-r6.lock','cara-sq-s-resources-CPU-only-'+attempt+'.lock'),
         ('CARA_SQ_Q1_CONTROL_CPU_R6','CARA_SQ_S_RESOURCES_CPU_'+attempt.upper()),
@@ -44,7 +45,7 @@ def launch_source(attempt='r4'):
 def main():
     p=argparse.ArgumentParser();p.add_argument('command',choices=('recover','launch','capture'))
     p.add_argument('--host',choices=('two_card','four_card'),required=True)
-    p.add_argument('--attempt',choices=('r1','r2','r3','r4'),default='r4')
+    p.add_argument('--attempt',choices=('r1','r2','r3','r4','r5'),default='r5')
     p.add_argument('--source-revision');p.add_argument('--launch-ref',type=Path)
     p.add_argument('--output',type=Path,required=True);args=p.parse_args()
     if args.output.exists():raise FileExistsError('Retain original resource CPU receipt')
@@ -52,7 +53,7 @@ def main():
     def remote(code,data=None):
         return ssh(code,data,docker_group=True) if args.host=='two_card' else four_ssh(code,data)
     if args.command=='launch':
-        if args.attempt!='r4':raise ValueError('Earlier resource stages are immutable; recover their original handles')
+        if args.attempt!='r5':raise ValueError('Earlier resource stages are immutable; recover their original handles')
         failed=json.loads((ROOT/f'reports/cara_sq_s_resources_{args.host}_cpu_failed_r1_20261029.json').read_text())
         if not failed['failure_terminal_verified'] or failed['container_state']['ExitCode']!=1 or failed['original_CLI_live'] is not False:
             raise ValueError('Recover original same-host R1 failure before the corrected metadata stage')
@@ -63,6 +64,15 @@ def main():
         failed3=json.loads((ROOT/f'reports/cara_sq_s_resources_{args.host}_cpu_failed_r3_20261029.json').read_text())
         if not failed3['failure_terminal_verified'] or failed3['original_CLI_live'] is not False:
             raise ValueError('Recover original same-host R3 reset refusal before R4 metadata dispatch')
+        failed4=json.loads((ROOT/f'reports/cara_sq_s_resources_{args.host}_cpu_failed_r4_20261029.json').read_text())
+        capture4=ROOT/failed4['capture_ref']
+        original4=json.loads(capture4.read_text())
+        if (not failed4['failure_terminal_verified'] or failed4['original_CLI_live'] is not False
+                or hashlib.sha256(capture4.read_bytes()).hexdigest()!=failed4['capture_sha256']
+                or original4['container_state']['Status']!='exited' or original4['container_state']['ExitCode']!=1
+                or original4['original_CLI_live'] is not False or not original4['source_hashes_equal']
+                or not original4['runtime_hashes_equal']):
+            raise ValueError('Recover original same-host R4 runtime incompatibility before R5 metadata dispatch')
         version='r2' if args.host=='two_card' else 'r1'
         accepted=json.loads((ROOT/f'reports/cara_sq_s_physical_{args.host}_cpu_accepted_{version}_20261029.json').read_text())
         base=json.loads((ROOT/f'reports/cara_sq_s_physical_{args.host}_cpu_launch_{version}_20261029.json').read_text())
@@ -74,8 +84,8 @@ def main():
         published=subprocess.check_output(['git','ls-remote','origin','refs/heads/main'],cwd=ROOT,text=True).split()[0]
         if subprocess.run(['git','merge-base','--is-ancestor',revision,published],cwd=ROOT).returncode:
             raise ValueError('Publish the exact resource CPU source before dispatch')
-        files={name:subprocess.check_output(['git','show',revision+':'+name],cwd=ROOT) for name in FILES+(SCOPE_R2,SCOPE_R3,SCOPE_R4)}
-        value=remote(launch_source(args.attempt),dict(stage_name=stage,profile=args.host,scope_name=SCOPE_R4,
+        files={name:subprocess.check_output(['git','show',revision+':'+name],cwd=ROOT) for name in FILES+(SCOPE_R2,SCOPE_R3,SCOPE_R4,SCOPE_R5)}
+        value=remote(launch_source(args.attempt),dict(stage_name=stage,profile=args.host,scope_name=SCOPE_R5,
             manifest_sha256=previous.previous.MANIFEST_SHA,base=base,revision=revision,
             files={n:base64.b64encode(raw).decode() for n,raw in files.items()},
             hashes={n:hashlib.sha256(raw).hexdigest() for n,raw in files.items()},

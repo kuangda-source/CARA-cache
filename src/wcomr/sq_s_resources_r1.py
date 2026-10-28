@@ -49,7 +49,10 @@ def explicit_meta_device_resolver(namespace):
     original=namespace.canonicalize_device
     state=dict(default_calls=0,explicit_calls=0,restored=False)
     def resolve(device):
-        require(torch.get_default_device().type=='meta','TE metadata resolver needs an explicit meta context')
+        # PyTorch2.7 get_default_device() does not report a surrounding
+        # torch.device context. A zero-element factory observes that context
+        # without allocating any backing storage or reading tensor values.
+        require(torch.empty(0).device.type=='meta','TE metadata resolver needs an explicit meta context')
         if device is None:
             state['default_calls']+=1;device=torch.device('meta')
         else:
