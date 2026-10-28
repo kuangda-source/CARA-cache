@@ -21,6 +21,8 @@ HANDLES=('guardian','container_cli','supervisor','runner')
 def original_identity(capture,scope):
     launch=record(capture,'launch');reg=record(capture,'registration')
     auth=record(capture,'authorization');envelope=record(capture,'central_reservation')
+    require(auth['storage_contract_sha256']==capture['files']['storage']['sha256'],
+            'Original private Q1 storage bytes changed')
     binding=record(capture,'launch_binding');proof=record(capture,'CPU_acceptance')
     host=launch['host']
     require(launch['run_id']==RUN and host in LIMITS and launch['whole_GPUh']==LIMITS[host]

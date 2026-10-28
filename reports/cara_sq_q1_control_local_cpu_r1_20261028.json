@@ -1,0 +1,163 @@
+{
+  "status": "SQ_Q1_CONTROL_CPU_PASS_BOUND_WRAPPERS_NOT_REAL_CUDA",
+  "core_result": {
+    "status": "SQ_Q1_EXECUTION_CPU_PASS_FIXTURES_NOT_REAL_CUDA",
+    "profile": "local",
+    "scope": {
+      "schema": "SQ_Q1_WHOLE_SAVED_STATE_SCOPE_R1",
+      "status": "PROPOSED_CPU_PREPARATION_NO_GPU_AUTHORITY",
+      "fixed_layout": "Shared25-C",
+      "original_B1_manifest_sha256": "5487f8db32d45a5d0f3304333bf362d9d6ec46fb3181c735d7267b78a6e398fa",
+      "fit_prompts": [
+        "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+        "human_199"
+      ],
+      "steps": [
+        22,
+        23,
+        25,
+        33,
+        34,
+        35
+      ],
+      "formal_roles": [
+        "original_uncompressed_C",
+        "FP32_M_roundtrip_C",
+        "I_8_8",
+        "I_4_8",
+        "I_8_4",
+        "M_8_8",
+        "M_4_8",
+        "M_8_4"
+      ],
+      "scope_counts": {
+        "states": 12,
+        "formal_C_pairs": 96,
+        "formal_head_calls": 192,
+        "warm_C_pairs": 2,
+        "preview_original_C_pairs": 1,
+        "stored_dense_hidden_head_pairs": 12,
+        "complete_readout_pairs": 111,
+        "complete_head_calls": 222,
+        "codec_C_pairs": 72,
+        "new_deep_pairs": 0,
+        "new_parent_paths": 0,
+        "new_videos": 0
+      },
+      "execution_order": "Two original C warmups on AV28 step22; original C plus stored-D-hidden head preview; eight formal roles on each state, with a stored-D-hidden head control before each later state. Original C preview is additional; each state's formal original C remains in the 96 denominator.",
+      "numerical_gate": "torch.equal for original C and stored-D-hidden head against immutable B1 outputs; any failure stops subsequent codec work and prevents all partial-state selection. Do not change tolerance, method precision, coefficients, bit sets or source to fit outputs.",
+      "backend": "Pinned selected experiment WAN FP32 head strategy and conditional_frame_timestep=0.1; original loader TF32=True and default trainer cudnn benchmark=True/deterministic=False, scoped and restored.",
+      "timing_repeats": 0,
+      "timing_scope": "Separate diagnostic CPU encode/decode, transfer and actual C readout records; no clean deployed speed claim and no extra timing-only trajectories.",
+      "selection": "Only after complete 12-state acceptance: LOPO and one shared final bit direction per representation/rate/objective. Raw reconstruction is not a selection objective.",
+      "formal_counts_are_not_whole_quote": true,
+      "raw_references": "Offline immutable inputs/teachers only; deployment-cache bytes and peak savings are not measured by this card.",
+      "GPU_authorization": false,
+      "new_GPU_submissions": 0,
+      "new_GPUh": 0,
+      "budget_reserved_GPUh": 0,
+      "ledger_writes": 0
+    },
+    "tests": 34,
+    "errors": 0,
+    "failures": 0,
+    "skipped": 1,
+    "test_log": "test_authority_source_and_lifecycle_proof_are_bound_on_both_hosts (test_sq_q1_execution_r1.ExecutionTests) ... ok\ntest_both_host_prices_keep_one_envelope_and_unknown_reserve (test_sq_q1_execution_r1.ExecutionTests) ... ok\ntest_busy_stale_funds_wrong_scope_and_same_host_overlap_do_not_mutate (test_sq_q1_execution_r1.ExecutionTests) ... ok\ntest_complete_and_all_original_gate_stops_have_exact_denominators (test_sq_q1_execution_r1.ExecutionTests) ... ok\ntest_gpu_container_exposes_only_own_writes_and_registered_16GiB (test_sq_q1_execution_r1.ExecutionTests) ... ok\ntest_no_authority_retry_S_scope_and_foreign_envelope_refuse (test_sq_q1_execution_r1.ExecutionTests) ... ok\ntest_original_success_numeric_failure_runner_failure_thermal_and_timeout (test_sq_q1_execution_r1.SupervisorTests) ... skipped 'Requires real Linux PID/startticks/inherited FD'\ntest_numeric_failure_is_billed_and_never_selects_codecs (test_sq_q1_terminal_r1.TerminalTests) ... ok\ntest_original_bill_settles_once_before_complete_selection (test_sq_q1_terminal_r1.TerminalTests) ... ok\ntest_tampered_bill_live_runner_and_unreleased_mode_cannot_settle (test_sq_q1_terminal_r1.TerminalTests) ... ok\ntest_technical_failure_keeps_charge_but_cannot_reach_analysis (test_sq_q1_terminal_r1.TerminalTests) ... ok\ntest_all_32_hashes_precede_loading_and_synthetic_geometry_is_rejected (test_sq_q1_assets_r1.AssetTests) ... ok\ntest_changed_file_and_symlink_refuse_without_rehashing_all_inputs (test_sq_q1_assets_r1.AssetTests) ... ok\ntest_real_manifest_sha_cannot_be_replaced_by_a_tiny_fixture (test_sq_q1_assets_r1.AssetTests) ... ok\ntest_complete_fixed_cohort_and_all_extra_head_denominators (test_sq_q1_collection_r1.CollectionTests) ... ok\ntest_incomplete_cohort_refused_before_loader_or_head (test_sq_q1_collection_r1.CollectionTests) ... ok\ntest_later_original_C_failure_preserves_denominator_without_partial_selection (test_sq_q1_collection_r1.CollectionTests) ... ok\ntest_original_preview_failure_stops_before_any_codec_or_selection (test_sq_q1_collection_r1.CollectionTests) ... ok\ntest_actual_output_error_cancellation_is_separate (test_sq_q1_readout_r1.Q1Tests) ... ok\ntest_complete_cohort_selection_and_partial_refusal (test_sq_q1_readout_r1.Q1Tests) ... ok\ntest_copy_cap_and_missing_control_refuse_before_head (test_sq_q1_readout_r1.Q1Tests) ... ok\ntest_eight_formal_readouts_original_parity_and_no_mutation (test_sq_q1_readout_r1.Q1Tests) ... ok\ntest_head_failure_restores_model_solver_and_three_rngs (test_sq_q1_readout_r1.Q1Tests) ... ok\ntest_pinned_entire_Video2World_condition_definition (test_sq_q1_readout_r1.Q1Tests) ... ok\ntest_restored_condition_and_tensor_alias_transfer (test_sq_q1_readout_r1.Q1Tests) ... ok\ntest_wrong_original_output_stops_before_codec_and_no_tolerance_tuning (test_sq_q1_readout_r1.Q1Tests) ... ok\ntest_missing_moments_refuse_and_full_fixture_masks_deduplicate (test_sq_q1_readout_r1.SProfileTests) ... ok\ntest_production_age_and_old_scout_default_are_distinct (test_sq_q1_readout_r1.SProfileTests) ... ok\ntest_original_C_and_dense_control_preserve_inputs_and_report_mismatch (test_sq_readout_subgraph_r1.SubgraphTests) ... ok\ntest_original_backend_flags_restore_after_failure_without_CUDA_init (test_sq_readout_subgraph_r1.SubgraphTests) ... ok\ntest_original_control_head_failure_restores_buffers_solver_and_rng (test_sq_readout_subgraph_r1.SubgraphTests) ... ok\ntest_selected_experiment_overrides_are_source_bound (test_sq_readout_subgraph_r1.SubgraphTests) ... ok\ntest_unregistered_weights_refused (test_sq_readout_subgraph_r1.SubgraphTests) ... ok\ntest_whole_pinned_class_and_unpatchify_mixed_precision (test_sq_readout_subgraph_r1.SubgraphTests) ... ok\n\n----------------------------------------------------------------------\nRan 34 tests in 5.559s\n\nOK (skipped=1)\n",
+    "real_Linux_subprocess_control": false,
+    "subprocess_scenarios": [
+      "complete",
+      "numeric_failure",
+      "runner_failure",
+      "thermal",
+      "timeout"
+    ],
+    "fixture_head_calls": {
+      "warm": {
+        "started": 4,
+        "completed": 4
+      },
+      "controls": {
+        "started": 26,
+        "completed": 26
+      },
+      "formal": {
+        "started": 192,
+        "completed": 192
+      }
+    },
+    "critical_source_sha256": {
+      "src/wcomr/sq_q1_spec_r1.py": "d45468a94c3ee9fcc837b1b0300ff06351bb1a39cf0f9976d636baa0ea1c4375",
+      "src/wcomr/sq_q1_execution_r1.py": "ff7c338a6d092a19ad448ae28306961dca553499991b5c59dcdef0aff74e0d61",
+      "src/wcomr/sq_q1_terminal_r1.py": "cd8de69506f7a65c48034a1afe81e9f4f7e8d037b8c46be5e3e0974b877185fb",
+      "src/wcomr/sq_q1_assets_r1.py": "808d27a15073d9b913c0d2e72d9a5aae610add7bb95cf268903f9059782cc2db",
+      "src/wcomr/sq_q1_collection_r1.py": "42828bfc12721bc0a885edcfad4eaf95d08655a4dc32e878aaddfea97d742bc9",
+      "src/wcomr/sq_q1_readout_r1.py": "bd6ee4fde49e8a4e1e7838d1c7564c42460ed938a92681332a21e3d42c1e9119",
+      "src/wcomr/sq_readout_subgraph_r1.py": "6748bae276273165a0a36c3bfff05ef9d6747c690f7aac76c4dcc3f76d4f8474",
+      "src/wcomr/sq_codec_r1.py": "e3deada2c71c8c3b38336d1ac8ef12db0be5513f43c3b20cc34824b852bcaf8d",
+      "src/wcomr/gpu_budget_pool_v2.py": "4203547121c30119ce637d6cd0d6d8d02810e6bf388fe9a6a7b9cd9b1b658754",
+      "src/wcomr/wc73_execution_r1.py": "015651352b0ce6f1e3acfbfd34a199521cad3eb337c676552b0449ee95318a4b",
+      "src/wcomr/wc73_exclusive_r1.py": "db8198388ee8d6f3241870003cf0da1b44b01d1469717153116ddf3341771a35",
+      "src/wcomr/history104_storage_r2.py": "90636ca74f1ae88db5ed1b8478f6aef8f83fd57db827db04da2e4d58a48c1361",
+      "src/wcomr/policy_price_mode_guard_r1.py": "d0fbff561d7e3bb79f87e9a2a64549ca0cdf421a4b2483eae7c8bab60763d878",
+      "scripts/run_cara_sq_q1_r1.py": "a8754b7024deef50763e28aa71a59e2ddd33e4948e1b09060004145c03cfad79",
+      "scripts/cara_sq_q1_worker_r1.py": "852bf986b757d99c7460e027c0bc9b012efea91ed0746a6a2a1ba35588c068c3",
+      "scripts/cara_sq_q1_guardian_r1.py": "6dcb9c3319e6daf92fc53aedbd9acb49da9b3ba0e327473d50589311bc06b4f8",
+      "scripts/cara_fast_worker_r2.py": "32a9ecf6d1cc6be3ead9627ec46c0fdf7a55868769200e805b9bd7e035078ab2",
+      "scripts/cara_fast_host_guardian_r2.py": "7658ba88d9d80c0efcdcc6041abd7756cea435f8ff84bc7ac603d53206cd92bb",
+      "scripts/four_card_policy_assets_port_r1.py": "27bd44549dfb19efc6ba91ff6bb3a3a95e4293eb02645ba748b391beebc76c0e",
+      "scripts/four_card_bank24_execution_tools_r1.py": "3e58bb9a2345fe938d7ce70e90a01300dd8e6d05d005ca91c5aa253c24d3cde4",
+      "src/wcomr/sq_q1_stage_r1.py": "ae65fcde287738715db3d58637f0ced0f1c407c2a24e2a0a657cd08d5eea5664",
+      "src/wcomr/sq_q1_capture_r1.py": "94f46e29569fe74bd85a5199fab6c3a531fa563c8bda8493d39913d84da4e498",
+      "scripts/cara_sq_q1_control_r1.py": "eab6a164e6e7b24a5eee7d7111b5a9ad3bdc851cf2a96eda4edd0a9b390c5fe8",
+      "scripts/cara_sq_q1_assets_cpu_r1.py": "0a1bc09baf888b0f862bb3a61da4fb6ca7fa4a2852191ab8a6b64f4e273e4bae",
+      "scripts/postprocess_cara_sq_q1_r1.py": "03c742f872bf55fbab20dc0fc7ede0be2655758f8fbca31acb89dc336ed33dcf"
+    },
+    "fixture_is_GPU_evidence": false,
+    "actual_B1_replay": false,
+    "actual_model_weights": false,
+    "CUDA_initialized": false,
+    "original_C_CUDA_parity_accepted": false,
+    "GPU_ready": false,
+    "actual_GPU_runner_entry_accepted": false,
+    "actual_financial_settlement_performed": false,
+    "GPU_submissions": 0,
+    "new_GPUh": 0,
+    "ledger_writes": 0,
+    "temporary_fixture_ledger_only": true,
+    "synthetic_authority_only": true,
+    "wall_seconds": 6.467459958,
+    "CPU_seconds": 6.147852,
+    "child_CPU_seconds": 0.0,
+    "total_process_CPU_seconds": 6.147852,
+    "peak_RSS_KiB": 247408.0,
+    "raw_ru_maxrss": 253345792,
+    "raw_ru_maxrss_unit": "bytes",
+    "torch_version": "2.8.0",
+    "torch_threads": 1,
+    "observed_unix": 1793193670.03636,
+    "actual_platform": {
+      "hostname": "kuangda-gaodeMacBook-Air.local",
+      "system": "Darwin",
+      "machine": "arm64"
+    }
+  },
+  "core_result_sha256": "c0a4b5c37669a784fcc1bbd6fd5bd8b71ee267f4f64895aace9e99ac45a562b0",
+  "wrapper_checks": {
+    "tests": 11,
+    "errors": 0,
+    "failures": 0,
+    "skipped": 2,
+    "log": "test_CPU_post_command_is_GPU_hidden_readonly_and_bounded (test_sq_q1_control_r1.ControlTests) ... ok\ntest_GPU_stage_copies_only_accepted_source_and_is_once_only (test_sq_q1_control_r1.ControlTests) ... ok\ntest_GPU_stage_rejects_unaccepted_source_without_creating_a_stage (test_sq_q1_control_r1.ControlTests) ... ok\ntest_actual_CPU_post_CLI_requires_settlement_before_selection (test_sq_q1_control_r1.ControlTests) ... skipped 'Real Linux handoff child and raw CPU post CLI'\ntest_any_existing_host_intent_prevents_all_reservation_and_dispatch (test_sq_q1_control_r1.ControlTests) ... ok\ntest_consumed_handoff_starts_one_CPU_stub_and_never_replays (test_sq_q1_control_r1.ControlTests) ... skipped 'Real Linux handoff, no GPU entry executed'\ntest_host_preference_and_scope_bound_authority_do_not_select_busy_hosts (test_sq_q1_control_r1.ControlTests) ... ok\ntest_live_capture_returns_allowlisted_counts_without_loading_scientific_rows (test_sq_q1_control_r1.ControlTests) ... ok\ntest_private_storage_refuses_same_filesystem_before_format_or_mount (test_sq_q1_control_r1.ControlTests) ... ok\ntest_streamed_asset_hashes_and_identity_stamp_reject_later_changes (test_sq_q1_control_r1.ControlTests) ... ok\ntest_terminal_capture_keeps_original_bytes_and_complete_readout_cohort (test_sq_q1_control_r1.ControlTests) ... ok\n\n----------------------------------------------------------------------\nRan 11 tests in 0.097s\n\nOK (skipped=2)\n",
+    "actual_GPU_guardian_started": false,
+    "real_Linux_stub_handoff_and_post_CLI": false
+  },
+  "wall_seconds": 7.451601625,
+  "CPU_seconds": 6.795249,
+  "child_CPU_seconds": 0.0,
+  "total_process_CPU_seconds": 6.795249999999999,
+  "peak_RSS_KiB": 247408.0,
+  "CUDA_initialized": false,
+  "GPU_submissions": 0,
+  "new_GPUh": 0,
+  "ledger_writes": 0
+}

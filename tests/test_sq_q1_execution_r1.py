@@ -67,8 +67,8 @@ def raw_fixture():
     return result
 
 
-def authority_fixture(project,host='two_card'):
-    stage=project/'.sync/Q1_SYNTHETIC_AUTHORITY_CONTROL_ONLY'
+def authority_fixture(project,host='two_card',stage_name='Q1_SYNTHETIC_AUTHORITY_CONTROL_ONLY'):
+    stage=project/'.sync'/stage_name
     paths=set(EXECUTION_CRITICAL)|{SCOPE,PROFILE,QUOTES[host]}
     for name in paths:
         path=stage/name;path.parent.mkdir(parents=True,exist_ok=True)
@@ -82,6 +82,9 @@ def authority_fixture(project,host='two_card'):
     proof=dict(passed=True,GPU_submissions=0,
         critical_source_sha256={name:sha(stage/name) for name in EXECUTION_CRITICAL})
     atomic_json(stage/'execution-CPU-proof.json',proof)
+    profile=json.loads((stage/PROFILE).read_text())
+    atomic_json(stage/'history104-storage.json',dict(run_id=RUN,output_mount=str(project/'outputs'/RUN),
+        image_path=profile['hosts'][host]['image_path'],journal_path=profile['hosts'][host]['journal_path'],image_bytes=2**30))
     authority=dict(direct_user_authorization=True,
         user_quote='SYNTHETIC UNIT INPUT ONLY, NOT A HUMAN GPU AUTHORIZATION',run_id=RUN,
         scope_counts=COUNTS,whole_GPUh=LIMITS[host],host=host,
@@ -89,6 +92,7 @@ def authority_fixture(project,host='two_card'):
         source_revision=registration['source_revision'],registration_sha256=sha(stage/'registration.json'),
         CPU_proof_sha256=sha(stage/'execution-CPU-proof.json'),quote_sha256=sha(stage/QUOTES[host]),
         gpu_uuid=gpu(host)['uuid'],launch_id='CPU_CONTROL_NO_GPU_LAUNCH')
+    authority['storage_contract_sha256']=sha(stage/'history104-storage.json')
     atomic_json(stage/'pg-GPU-authorization.json',authority)
     envelope_job=dict(job(host),**{key:authority[key] for key in (
         'scope_sha256','source_revision','registration_sha256')},

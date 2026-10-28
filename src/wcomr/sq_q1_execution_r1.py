@@ -62,6 +62,13 @@ def validate(project,stage):
     require(scope['scope_counts']==COUNTS,'Complete 111-pair Q1 denominator differs')
     authority=read(stage/'pg-GPU-authorization.json')
     host=authority['host'];quote=read(stage/QUOTES[host]);profile=read(stage/PROFILE)
+    storage=read(stage/'history104-storage.json')
+    require(authority['storage_contract_sha256']==sha(stage/'history104-storage.json')
+            and storage['run_id']==RUN and storage['output_mount']==str(project/'outputs'/RUN)
+            and storage['image_path']==profile['hosts'][host]['image_path']
+            and storage['journal_path']==profile['hosts'][host]['journal_path']
+            and storage['image_bytes']==profile['output_image_GiB']*2**30,
+            'Original Q1 private storage identity differs')
     require(authority.get('direct_user_authorization') is True and bool(authority.get('user_quote')),
             'Direct human authorization for this new Q1 card is required')
     require(authority['run_id']==RUN and authority['scope_sha256']==scope_sha

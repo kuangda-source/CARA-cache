@@ -14,6 +14,7 @@ COUNTS = dict(states=12,formal_C_pairs=96,formal_head_calls=192,
 LIMITS = {'two_card':1.25,'four_card':2.}
 MANIFEST_SHA = '5487f8db32d45a5d0f3304333bf362d9d6ec46fb3181c735d7267b78a6e398fa'
 CHECKPOINT_SHA = '565bbb2c9645737327983f4461e4d32627bba465b0a8dc26447edea144e1ff47'
+CHECKPOINT_BYTES = 4118575006
 ASSETS = 'outputs/cara-ig-b1-r2-20261027/assets'
 WEIGHT = ('cache/huggingface/hub/models--nvidia--Cosmos-Predict2.5-2B/'
           'snapshots/15a82a2ec231bc318692aa0456a36537c806e7d4/'
@@ -33,7 +34,10 @@ EXECUTION_CRITICAL = (
     'scripts/cara_sq_q1_guardian_r1.py','scripts/cara_fast_worker_r2.py',
     'scripts/cara_fast_host_guardian_r2.py',
     'scripts/four_card_policy_assets_port_r1.py',
-    'scripts/four_card_bank24_execution_tools_r1.py')
+    'scripts/four_card_bank24_execution_tools_r1.py',
+    'src/wcomr/sq_q1_stage_r1.py','src/wcomr/sq_q1_capture_r1.py',
+    'scripts/cara_sq_q1_control_r1.py','scripts/cara_sq_q1_assets_cpu_r1.py',
+    'scripts/postprocess_cara_sq_q1_r1.py')
 RUNTIME_REQUIRED = (
     'cosmos_predict2/_src/predict2/networks/minimal_v4_dit.py',
     'cosmos_predict2/_src/predict2/inference/worldcache_utils.py',

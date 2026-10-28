@@ -18,15 +18,15 @@ def captured(value):
     return dict(exists=True,bytes=len(data),sha256=hashlib.sha256(data).hexdigest(),raw_utf8=raw)
 
 
-def fixture(project,failed_numeric=False):
-    stage,authority,registration,job=authority_fixture(project)
+def fixture(project,failed_numeric=False,stage_name='Q1_SYNTHETIC_AUTHORITY_CONTROL_ONLY'):
+    stage,authority,registration,job=authority_fixture(project,stage_name=stage_name)
     pool=ledger(project);envelope=pool.reserve(job,gpu())
     reservation=dict(central_ledger_host='four_card',new_reservation=True,job=envelope['jobs'][RUN])
     atomic_json(stage/'central-reservation.json',reservation)
     atomic_json(stage/'launch-binding.json',dict(authorization_sha256=sha(stage/'pg-GPU-authorization.json'),
         central_reservation_sha256=sha(stage/'central-reservation.json')))
     scope=json.loads((stage/SCOPE).read_text())
-    launch=dict(authority,stage=str(stage),authorization_sha256=sha(stage/'pg-GPU-authorization.json'),
+    launch=dict(authority,stage=str(stage),container=stage.name+'-gpu',authorization_sha256=sha(stage/'pg-GPU-authorization.json'),
         guardian_identity=dict(pid=123,start_ticks=456))
     identity={key:authority[key] for key in ('run_id','host','gpu_uuid','launch_id','source_revision','scope_sha256')}
     collection=copy.deepcopy(raw_fixture())
@@ -42,10 +42,11 @@ def fixture(project,failed_numeric=False):
     active=dict(idle,compute_apps=[dict(runner,gpu_uuid=authority['gpu_uuid'],memory_MiB=1)])
     supervisor=dict(identity,child_exit_code=0,exclusive_monitor_accepted=True,
         collection_sha256=captured(collection)['sha256'],collection_classification=classification,
-        child_identity=runner,observations=2)
+        child_identity=runner,supervisor_identity=dict(pid=125,start_ticks=458),observations=2)
     guardian=dict(run_id=RUN,launch_id=authority['launch_id'],gpu_uuid=authority['gpu_uuid'],
         source_revision=authority['source_revision'],identity=launch['guardian_identity'],
         status='SQ_Q1_HOST_GUARDIAN_TERMINAL',container_exit_code=0,
+        container_cli_identity=dict(pid=124,start_ticks=457),
         mode_restoration=dict(restored=True),mode_admission=dict(verified_snapshot=idle))
     pending=dict(identity,billing_sha256=captured(bill)['sha256'],GPU_released=True,
         original_process_exited=True,technical_accepted=True,cost_settled=False,
@@ -53,6 +54,7 @@ def fixture(project,failed_numeric=False):
     values=dict(launch=launch,registration=registration,authorization=authority,central_reservation=reservation,
         launch_binding=json.loads((stage/'launch-binding.json').read_text()),
         CPU_acceptance=json.loads((stage/'execution-CPU-proof.json').read_text()),scope=scope,
+        storage=json.loads((stage/'history104-storage.json').read_text()),
         profile=json.loads((stage/PROFILE).read_text()),quote=json.loads((stage/QUOTES['two_card']).read_text()),
         billing=bill,pending_release=pending,supervisor=supervisor,guardian=guardian,collection=collection,
         ready=dict(identity=runner,GPU_context_held=True,source_revision=authority['source_revision']),
