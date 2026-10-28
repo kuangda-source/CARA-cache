@@ -91,7 +91,7 @@ if action=='provision':
 elif action=='admit':
  from four_card_bank24_execution_tools_r1 import verify_nltk_resources
  assert not (stage/'GPU-intent.json').exists() and not (stage/'GPU-launch.json').exists(),'Recover original handle'
- snapshot=idle();storage=storage_for(stage).check();nltk=verify_nltk_resources(root)
+ snapshot=idle();storage=storage_for(stage).check();nltk=verify_nltk_resources(root.resolve())
  image=profile['GPU_container']['image']
  actual=json.loads(subprocess.check_output(['docker','image','inspect',image],text=True))[0]
  assert actual['Id']==image
