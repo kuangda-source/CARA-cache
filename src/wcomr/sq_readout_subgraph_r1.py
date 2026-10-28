@@ -23,11 +23,48 @@ from .sq_q1_readout_r1 import source_from_anchors
 DIT_PATH = 'cosmos_predict2/_src/predict2/networks/minimal_v4_dit.py'
 DIT_SHA = 'a41a1772f694ee338e4b91f032428ea81f28e80fb90990e2db86eb7d1ce30071'
 CHECKPOINT_SHA = '565bbb2c9645737327983f4461e4d32627bba465b0a8dc26447edea144e1ff47'
+BASE_CONFIG = 'cosmos_predict2/_src/predict2/configs/video2world/experiment/reason_embeddings/model_2B_reason_1p1_rectified_flow.py'
+BASE_CONFIG_SHA = 'a8405ef1e46aedc7004026a51ce980a6a6509162738dfda34a10e83f3a19b32b'
+SELECTED_CONFIG = 'cosmos_predict2/_src/predict2/configs/video2world/experiment/specialized_model/SFT_2B_RF.py'
+SELECTED_CONFIG_SHA = '719fa25c90dcc4f51a9226fa1b5ac677c52cbb1c292c8eac1e3121ab3c3ce814'
+BASE_NAME = 'T2V_REASON_EMBEDDINGS_V1P1_STAGE_C_PT_4_INDEX_26_SIZE_2B_RES_720_FPS16_RECTIFIED_FLOW'
+SELECTED_NAME = 'STAGE_C_PT_4_INDEX_2_SIZE_2B_RES_720_FPS16_RECTIFIED_FLOW_WITH_EDM_CKPT'
 HEAD = {
     'linear.weight': ((64, 2048), '7c266057e634bfffa481fd48ba345b6ee212108ccb8f460b5cf57504232e0004'),
     'adaln_modulation.1.weight': ((256, 2048), 'aeff7bbfebf26969c1f1de535a02798d6237ea36cc27a97a3646e5f7167ca46c'),
     'adaln_modulation.2.weight': ((4096, 256), '5fabf73df79e695ceb1a9f55920b112759d98d5171c424907328029f3e29e0b7'),
 }
+
+
+def selected_settings(runtime):
+    """Read the two pinned LazyDict declarations without importing training."""
+    declarations = []
+    for relative, digest, name in ((BASE_CONFIG, BASE_CONFIG_SHA, BASE_NAME),
+                                   (SELECTED_CONFIG, SELECTED_CONFIG_SHA, SELECTED_NAME)):
+        raw = (runtime/relative).read_bytes()
+        if hashlib.sha256(raw).hexdigest() != digest:
+            raise ValueError('Selected 2B experiment source changed: '+relative)
+        nodes = [n.value.args[0] for n in ast.parse(raw).body if isinstance(n, ast.Assign)
+                 and any(isinstance(t, ast.Name) and t.id == name for t in n.targets)]
+        if len(nodes) != 1:
+            raise ValueError('One pinned selected 2B declaration required')
+        declarations.append(nodes[0])
+    def keyword(node, *path):
+        for key in path:
+            node = next(k.value for k in node.keywords if k.arg == key)
+        return node
+    base, selected = declarations
+    if not any(isinstance(n, ast.Name) and n.id == BASE_NAME
+               for n in ast.walk(keyword(selected, 'defaults'))):
+        raise ValueError('Selected 2B experiment inheritance differs')
+    strategy = ast.literal_eval(keyword(base, 'model', 'config', 'net', 'use_wan_fp32_strategy'))
+    timestep = ast.literal_eval(keyword(selected, 'model', 'config', 'conditional_frame_timestep'))
+    if strategy is not True or timestep != .1:
+        raise ValueError('Selected original precision/conditioning configuration differs')
+    return dict(use_wan_fp32_strategy=strategy, conditional_frame_timestep=timestep,
+        selected_experiment='Stage-c_pt_4-Index-2-Size-2B-Res-720-Fps-16-Note-rf_with_edm_ckpt',
+        source_sha256={BASE_CONFIG:BASE_CONFIG_SHA, SELECTED_CONFIG:SELECTED_CONFIG_SHA},
+        full_config_module_imported=False)
 
 
 def compile_head(runtime):
@@ -73,12 +110,14 @@ class ReadoutOnlyNet(nn.Module):
 
 def build_kernel(runtime, checkpoint, *, device='cpu'):
     final_layer, unpatchify, proof = compile_head(runtime)
+    settings = selected_settings(runtime)
     # Explicit standalone binding: FP32 parameters and embedding/adaln, BF16
     # saved hidden features, no outer autocast. The saved output equality gate
     # must establish compatibility with the original execution precision.
     with torch.random.fork_rng(devices=[]), torch.device('cpu'):
         head = final_layer(2048, 2, 1, 16, use_adaln_lora=True,
-                           adaln_lora_dim=256, use_wan_fp32_strategy=False).float().eval()
+                           adaln_lora_dim=256,
+                           use_wan_fp32_strategy=settings['use_wan_fp32_strategy']).float().eval()
     metadata = load_head_weights(head, checkpoint)
     net = ReadoutOnlyNet()
     net.final_layer = head.to(device=device)
@@ -96,9 +135,11 @@ def build_kernel(runtime, checkpoint, *, device='cpu'):
     rf.torch = torch
     model = SimpleNamespace(net=net, sample_scheduler=SimpleNamespace(),
         tensor_kwargs={'device': device, 'dtype': torch.bfloat16},
-        config=SimpleNamespace(conditional_frame_timestep=-1., denoise_replace_gt_frames=True))
+        config=SimpleNamespace(conditional_frame_timestep=settings['conditional_frame_timestep'],
+                               denoise_replace_gt_frames=True))
     kernel = ReadoutKernel(model, runtime, wc, rf, warp=None)
     proof.update(head_tensors=metadata, parameter_dtype='torch.float32', outer_autocast=False,
+                 selected_experiment_settings=settings,
                  head_parameter_bytes=sum(p.numel()*p.element_size() for p in net.parameters()),
                  WC=dict(kernel.proof), RF=dict(kernel.RF_proof), full_model_constructed=False)
     return kernel, proof

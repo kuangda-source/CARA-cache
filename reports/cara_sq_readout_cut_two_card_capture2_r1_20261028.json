@@ -1,0 +1,412 @@
+{
+  "status": "SQ_CPU_PREPARATION_CAPTURE",
+  "observed_unix": 1793185595.264887,
+  "launch": {
+    "status": "SQ_GPU_HIDDEN_CPU_PREPARATION_LAUNCHED",
+    "stage": "/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-readout-cut-cpu-two-card-r1-20261028",
+    "container": "cara-sq-readout-cut-cpu-two-card-r1-20261028-cpu",
+    "source_revision": "2cdce597a9a93a6060a646f692a6ee6886986ab0",
+    "registration_sha256": "583ad5763c036530926ac67a7b35fa6f2b74106abc1ec176e99722be0bf36888",
+    "identity": {
+      "pid": 608535,
+      "state": "R",
+      "start_ticks": 648035150,
+      "command": "docker run --cpuset-cpus 4,5 --memory-swap 8g --ulimit fsize=67108864:67108864 -v /data20t/gaokuangda/worldcache_workspace/outputs/cara-ig-b1-r2-20261027:/data20t/gaokuangda/worldcache_workspace/outputs/cara-ig-b1-r2-20261027:ro --read-only --network none --pid host --name cara-sq-readout-cut-cpu-two-card-r1-20261028-cpu --label wcomr.manifest=583ad5763c036530926ac67a7b35fa6f2b74106abc1ec176e99722be0bf36888 --user 1004:998 --cpus 2 --memory 8g --pids-limit 512 --tmpfs /tmp:rw,size=2g -v /data20t/gaokuangda/worldcache_workspace:/data20t/gaokuangda/worldcache_workspace:ro -v /data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-readout-cut-cpu-two-card-r1-20261028:/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-readout-cut-cpu-two-card-r1-20261028:rw -w /data20t/gaokuangda/worldcache_workspace/runtime -e CUDA_CACHE_PATH=/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-readout-cut-cpu-two-card-r1-20261028/CPU-caches/cuda -e CUDA_HOME=/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cuda_nvrtc -e CUDA_PATH=/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cuda_nvrtc -e CUDA_VISIBLE_DEVICES= -e HF_HOME=/data20t/gaokuangda/worldcache_workspace/cache/huggingface -e HF_HUB_CACHE=/data20t/gaokuangda/worldcache_workspace/cache/huggingface/hub -e HF_HUB_OFFLINE=1 -e LD_LIBRARY_PATH=/data20t/gaokuangda/worldcache_workspace/system-libs-r1/usr/lib/x86_64-linux-gnu/blas:/data20t/gaokuangda/worldcache_workspace/system-libs-r1/usr/lib/x86_64-linux-gnu/lapack:/data20t/gaokuangda/worldcache_workspace/system-libs-r1/usr/lib/x86_64-linux-gnu/pulseaudio:/data20t/gaokuangda/worldcache_workspace/system-libs-r1/usr/lib/x86_64-linux-gnu:/data20t/gaokuangda/worldcache_workspace/system-libs-r1/lib/x86_64-linux-gnu:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cuda_nvrtc/lib:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cuda_runtime/lib:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cudnn/lib:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/nvjitlink/lib:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cublas/lib:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/torch/lib -e LOGNAME=gaokuangda -e NLTK_DATA=/data20t/gaokuangda/worldcache_workspace/runtime-resources/nltk-guardrail-d6d4bfa8-r1 -e NVIDIA_VISIBLE_DEVICES=void -e OMP_NUM_THREADS=2 -e OPENBLAS_NUM_THREADS=2 -e PATH=/data20t/gaokuangda/worldcache_workspace/system-libs-r1/usr/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin -e PYTHONDONTWRITEBYTECODE=1 -e PYTHONPATH=/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-readout-cut-cpu-two-card-r1-20261028/scripts:/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-readout-cut-cpu-two-card-r1-20261028/src -e TOKENIZERS_PARALLELISM=false -e TORCHINDUCTOR_CACHE_DIR=/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-readout-cut-cpu-two-card-r1-20261028/CPU-caches/torchinductor -e TORCH_EXTENSIONS_DIR=/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-readout-cut-cpu-two-card-r1-20261028/CPU-caches/extensions -e TORCH_HOME=/data20t/gaokuangda/worldcache_workspace/cache/torch -e TRANSFORMERS_OFFLINE=1 -e TRITON_CACHE_DIR=/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-readout-cut-cpu-two-card-r1-20261028/CPU-caches/triton -e USER=gaokuangda -e WC_SCOUT_KIND=CAL12 -e XDG_CACHE_HOME=/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-readout-cut-cpu-two-card-r1-20261028/CPU-caches/xdg --entrypoint /usr/bin/timeout sha256:1e81ac62ee68ca1a6ef655515096a1d84579b01aa4986810c9b18d4f6c4c552d --signal=TERM --kill-after=10s 1800 /usr/bin/ionice -c 3 /data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/bin/python /data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-readout-cut-cpu-two-card-r1-20261028/scripts/check_cara_sq_readout_cut_cpu_r1.py --assets /data20t/gaokuangda/worldcache_workspace/outputs/cara-ig-b1-r2-20261027/assets --manifest-sha256 5487f8db32d45a5d0f3304333bf362d9d6ec46fb3181c735d7267b78a6e398fa --profile two_card --output /data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-readout-cut-cpu-two-card-r1-20261028/analysis.json "
+    },
+    "started_unix": 1793185447.9882965,
+    "resource_limits": {
+      "CPUs": 2,
+      "cpuset": "4,5",
+      "RAM_bytes": 8589934592,
+      "wall_seconds": 1800,
+      "allocated_vCPUh_max": 1.0,
+      "output_bytes_max": 67108864,
+      "assets_readonly": true,
+      "network": "none",
+      "GPU": "hidden"
+    },
+    "new_GPU_submissions": 0,
+    "ledger_writes": 0
+  },
+  "source_hashes_equal": true,
+  "runtime_hashes_equal": true,
+  "container_state": {
+    "Status": "exited",
+    "Running": false,
+    "Paused": false,
+    "Restarting": false,
+    "OOMKilled": false,
+    "Dead": false,
+    "Pid": 0,
+    "ExitCode": 0,
+    "Error": "",
+    "StartedAt": "2026-10-28T11:04:08.101949544Z",
+    "FinishedAt": "2026-10-28T11:05:47.532297922Z"
+  },
+  "host_config": {
+    "DeviceRequests": null,
+    "NanoCpus": 2000000000,
+    "Memory": 8589934592,
+    "MemorySwap": 8589934592,
+    "CpusetCpus": "4,5",
+    "NetworkMode": "none",
+    "ReadonlyRootfs": true
+  },
+  "mounts": [
+    {
+      "Type": "bind",
+      "Source": "/data20t/gaokuangda/worldcache_workspace/outputs/cara-ig-b1-r2-20261027",
+      "Destination": "/data20t/gaokuangda/worldcache_workspace/outputs/cara-ig-b1-r2-20261027",
+      "Mode": "ro",
+      "RW": false,
+      "Propagation": "rprivate"
+    },
+    {
+      "Type": "bind",
+      "Source": "/data20t/gaokuangda/worldcache_workspace",
+      "Destination": "/data20t/gaokuangda/worldcache_workspace",
+      "Mode": "ro",
+      "RW": false,
+      "Propagation": "rprivate"
+    },
+    {
+      "Type": "bind",
+      "Source": "/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-readout-cut-cpu-two-card-r1-20261028",
+      "Destination": "/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-readout-cut-cpu-two-card-r1-20261028",
+      "Mode": "rw",
+      "RW": true,
+      "Propagation": "rprivate"
+    }
+  ],
+  "image": "sha256:1e81ac62ee68ca1a6ef655515096a1d84579b01aa4986810c9b18d4f6c4c552d",
+  "result": {
+    "status": "ORIGINAL_READOUT_CONTROLS_MISMATCH_CPU_NO_CODEC_SCORING",
+    "profile": "two_card",
+    "source_scope": {
+      "schema": "SQ_READOUT_SUBGRAPH_CPU_CONTROL_R3",
+      "status": "CPU_PREPARATION_ONLY_NO_GPU_AUTHORITY",
+      "prompt": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "step": 22,
+      "roles": [
+        "original_C_pair",
+        "stored_dense_hidden_head_pair"
+      ],
+      "two_card_actual_saved_states": 1,
+      "two_card_actual_head_calls": 4,
+      "four_card_actual_saved_states": 0,
+      "four_card_scope": "Pinned whole-class fixtures and original selected-head construction/weight validation; no B1 port",
+      "original_B1_manifest_sha256": "5487f8db32d45a5d0f3304333bf362d9d6ec46fb3181c735d7267b78a6e398fa",
+      "original_files_readonly": true,
+      "new_states": 0,
+      "new_videos": 0,
+      "deep_calls": 0,
+      "codec_pairs": 0,
+      "precision": "FP32 head materialized from registered BF16 checkpoint tensors; saved BF16 hidden and FP32 embedding/adaln; no outer autocast; original numerical compatibility remains gated",
+      "acceptance": "Record torch.equal and exact maxabs/MSE for original C and stored-D-hidden head against immutable original GPU outputs. Any mismatch blocks codec scoring; never tune tolerance or precision to force a pass.",
+      "resources_each_host": {
+        "CPUs": 2,
+        "cpuset": "4,5",
+        "RAM_GiB": 8,
+        "wall_seconds": 1800,
+        "allocated_vCPUh_max": 1,
+        "output_MiB_max": 64,
+        "network": "none",
+        "GPU": "hidden"
+      },
+      "allocated_vCPUh_max_two_hosts": 2,
+      "new_GPU_submissions": 0,
+      "new_GPUh": 0,
+      "budget_reserved_GPUh": 0,
+      "ledger_writes": 0,
+      "GPU_ready": false
+    },
+    "fixture_checks": {
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "log": "test_original_C_and_dense_control_preserve_inputs_and_report_mismatch (test_sq_readout_subgraph_r1.SubgraphTests) ... ok\ntest_unregistered_weights_refused (test_sq_readout_subgraph_r1.SubgraphTests) ... ok\ntest_whole_pinned_class_and_unpatchify_mixed_precision (test_sq_readout_subgraph_r1.SubgraphTests) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 2.979s\n\nOK\n",
+      "real_model": false
+    },
+    "checkpoint": {
+      "path": "/data20t/gaokuangda/worldcache_workspace/cache/huggingface/hub/models--nvidia--Cosmos-Predict2.5-2B/snapshots/15a82a2ec231bc318692aa0456a36537c806e7d4/base/post-trained/81edfebe-bd6a-4039-8c1d-737df1a790bf_ema_bf16.pt",
+      "bytes": 4118575006,
+      "sha256": "565bbb2c9645737327983f4461e4d32627bba465b0a8dc26447edea144e1ff47"
+    },
+    "build_and_weight_hash_seconds": 13.609690930694342,
+    "source_proof": {
+      "source_sha256": "a41a1772f694ee338e4b91f032428ea81f28e80fb90990e2db86eb7d1ce30071",
+      "entire_FinalLayer_AST_sha256": "0e1c3ed3204eb2695b71eaad671203d0d242e6442efb858ece26e57b6d764911",
+      "unpatchify_AST_sha256": "5697adbed196bdc03f20e4d2903b97791d4548b0c79016c43e23a75cde1422e3",
+      "unchanged_whole_class": true,
+      "full_runtime_module_imported": false,
+      "head_tensors": {
+        "linear.weight": {
+          "shape": [
+            64,
+            2048
+          ],
+          "checkpoint_dtype": "torch.bfloat16",
+          "sha256": "7c266057e634bfffa481fd48ba345b6ee212108ccb8f460b5cf57504232e0004"
+        },
+        "adaln_modulation.1.weight": {
+          "shape": [
+            256,
+            2048
+          ],
+          "checkpoint_dtype": "torch.bfloat16",
+          "sha256": "aeff7bbfebf26969c1f1de535a02798d6237ea36cc27a97a3646e5f7167ca46c"
+        },
+        "adaln_modulation.2.weight": {
+          "shape": [
+            4096,
+            256
+          ],
+          "checkpoint_dtype": "torch.bfloat16",
+          "sha256": "5fabf73df79e695ceb1a9f55920b112759d98d5171c424907328029f3e29e0b7"
+        }
+      },
+      "parameter_dtype": "torch.float32",
+      "outer_autocast": false,
+      "head_parameter_bytes": 6815744,
+      "WC": {
+        "full_C_skip_branch_inverse_AST_equal": true,
+        "source_sha256": "b485cb8fd6e262a40e5823365c34ef7db1bc036c591d7577489e04077c515903",
+        "mutation_target": "ISOLATED_SOURCE_VIEW_ONLY",
+        "protected_forward_modified": false
+      },
+      "RF": {
+        "RF_source_sha256": "9b53e3f024e5cbb2cb3778819e1a6fd353923c13ad9b868d99602051640a65e8",
+        "supplied_output_inverse_AST_equal": true,
+        "actual_RF_globals": {
+          "torch": {
+            "binding": "actual_module_global",
+            "type": "builtins.module",
+            "module": "torch",
+            "qualname": null
+          }
+        },
+        "net_calls": 0,
+        "teacher_or_same_state_proof": false
+      },
+      "full_model_constructed": false
+    },
+    "actual_saved_state": {
+      "prompt": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "step": 22,
+      "support": {
+        "h": 0.048741064543508406,
+        "H": 0.040196727553137135,
+        "kappa": 1.2125629997883853,
+        "age": 1,
+        "alpha": 1.0
+      },
+      "controls": {
+        "original_C": {
+          "exact": false,
+          "branches": [
+            {
+              "exact": false,
+              "max_absolute": 0.5782914161682129,
+              "MSE": 0.003511582917299245,
+              "dtype": "torch.float32",
+              "shape": [
+                1,
+                16,
+                24,
+                54,
+                96
+              ]
+            },
+            {
+              "exact": false,
+              "max_absolute": 0.5724730491638184,
+              "MSE": 0.0034696834756888567,
+              "dtype": "torch.float32",
+              "shape": [
+                1,
+                16,
+                24,
+                54,
+                96
+              ]
+            }
+          ]
+        },
+        "stored_dense_hidden_head": {
+          "exact": false,
+          "branches": [
+            {
+              "exact": false,
+              "max_absolute": 0.007472723722457886,
+              "MSE": 1.724894989409033e-06,
+              "dtype": "torch.float32",
+              "shape": [
+                1,
+                16,
+                24,
+                54,
+                96
+              ]
+            },
+            {
+              "exact": false,
+              "max_absolute": 0.00767064094543457,
+              "MSE": 1.731838477427109e-06,
+              "dtype": "torch.float32",
+              "shape": [
+                1,
+                16,
+                24,
+                54,
+                96
+              ]
+            }
+          ]
+        },
+        "original_controls_exact": false,
+        "original_C_pairs": 1,
+        "stored_dense_hidden_head_pairs": 1,
+        "head_calls": 4,
+        "deep_calls": 0,
+        "codec_pairs": 0,
+        "inputs_and_CPU_RNG_unchanged": true,
+        "weights_unchanged": true,
+        "complete_Q1_cohort": false,
+        "deployment_memory_measured": false
+      },
+      "controls_wall_seconds": 54.3134506624192,
+      "current_metadata": [
+        {
+          "original": {
+            "shape": [
+              1,
+              24,
+              27,
+              48,
+              2048
+            ],
+            "dtype": "torch.bfloat16"
+          },
+          "probe": {
+            "shape": [
+              1,
+              24,
+              27,
+              48,
+              2048
+            ],
+            "dtype": "torch.bfloat16"
+          },
+          "embedding": {
+            "shape": [
+              1,
+              24,
+              2048
+            ],
+            "dtype": "torch.float32"
+          },
+          "adaln": {
+            "shape": [
+              1,
+              24,
+              6144
+            ],
+            "dtype": "torch.float32"
+          }
+        },
+        {
+          "original": {
+            "shape": [
+              1,
+              24,
+              27,
+              48,
+              2048
+            ],
+            "dtype": "torch.bfloat16"
+          },
+          "probe": {
+            "shape": [
+              1,
+              24,
+              27,
+              48,
+              2048
+            ],
+            "dtype": "torch.bfloat16"
+          },
+          "embedding": {
+            "shape": [
+              1,
+              24,
+              2048
+            ],
+            "dtype": "torch.float32"
+          },
+          "adaln": {
+            "shape": [
+              1,
+              24,
+              6144
+            ],
+            "dtype": "torch.float32"
+          }
+        }
+      ]
+    },
+    "actual_weighted_head_executed": true,
+    "complete_Q1_cohort": false,
+    "codec_pairs": 0,
+    "new_states": 0,
+    "new_videos": 0,
+    "new_GPU_submissions": 0,
+    "new_GPUh": 0,
+    "ledger_writes": 0,
+    "GPU_ready": false,
+    "asset_read_hash_and_restore_seconds": 19.087766493670642,
+    "verified_B1_files": [
+      {
+        "name": "state_05303aaef6e159d9_22.pt",
+        "sha256": "fc0abb4ceea56dd85ec9c6a26747f955debca71383e953e5fbd6fbee6bfac8a4",
+        "bytes": 1308287270
+      },
+      {
+        "name": "anchor_05303aaef6e159d9_0_20.pt",
+        "sha256": "8aa8701fef14e6dd0565028ca1cbf8e15797864c4ad6480e53fe3d249689e9d2",
+        "bytes": 254806053,
+        "tensor_identity": "8c413fbc8c138b96aa6fbc8deb0115ee08b2bfeb9b623c295e6930cb962015e6"
+      },
+      {
+        "name": "anchor_05303aaef6e159d9_0_21.pt",
+        "sha256": "bfed2dc7a8917f7d82c02bd49d69efe6a443f0af66669cfd2a0b712a1543eb1c",
+        "bytes": 254806053,
+        "tensor_identity": "77740a5d86d66c038b6bd8f3f9f6a0de1d0ded225dbb2423b3f68b3953ad33ea"
+      },
+      {
+        "name": "anchor_05303aaef6e159d9_1_20.pt",
+        "sha256": "7e06dd90cc4b428cf48ad35c1e52ebe69b84152360296c37ab018349a7fa0e12",
+        "bytes": 254806053,
+        "tensor_identity": "164d4fc05437eb73e61c7e82516f33428b70d96f0b44efe923e058230508c764"
+      },
+      {
+        "name": "anchor_05303aaef6e159d9_1_21.pt",
+        "sha256": "98aa187fc8b8719e31b90cafdd6622eae869babde9a703563c123fcaefe9f27d",
+        "bytes": 254806053,
+        "tensor_identity": "931d24d830106ee728540d902959d30b5f1edd8d7de544d6802098bf5e1e8fcb"
+      }
+    ],
+    "condition_class_AST_sha256": "59e3528fca84aa6c0f3e33114cacf85f5f358ab28300c397645ef976e868b696",
+    "condition_mode": "EXISTING_PINNED_WHOLE_CLASS_CPU_COMPILATION",
+    "full_condition_module_imported": false,
+    "CUDA_initialized": false,
+    "wall_seconds": 90.1129863942042,
+    "CPU_seconds": 81.835653264,
+    "peak_RSS_KiB": 6096816,
+    "torch_version": "2.7.1+cu128",
+    "observed_unix": 1793185545.0185916
+  },
+  "result_sha256": "5ed60b04624e1d10b075c12defdf1e216a00202f1e6911df01d866367599f510",
+  "log_tail": "READOUT_CUT_FIXTURES_PASS\nORIGINAL_HEAD_WEIGHTS_VERIFIED\nNo CUDA runtime is found, using CUDA_HOME='/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cuda_nvrtc'\nAV28_STEP22_RESTORED\nORIGINAL_READOUT_CONTROLS_MISMATCH_CPU_NO_CODEC_SCORING\n",
+  "new_GPU_submissions": 0,
+  "ledger_writes": 0
+}

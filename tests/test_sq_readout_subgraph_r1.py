@@ -10,12 +10,23 @@ import torch
 
 from test_sq_q1_readout_r1 import saved_fixture
 from wcomr.innovation_gain_observer_r1 import restore_readout_inputs
-from wcomr.sq_readout_subgraph_r1 import (compile_head, DIT_PATH, load_head_weights, original_controls)
+from wcomr.sq_readout_subgraph_r1 import (compile_head, DIT_PATH, BASE_CONFIG,
+    selected_settings, load_head_weights, original_controls)
 
 ROOT = Path(__file__).resolve().parents[1]
 
 
 class SubgraphTests(unittest.TestCase):
+    def test_selected_experiment_overrides_are_source_bound(self):
+        settings = selected_settings(ROOT/'cache/runtime')
+        self.assertTrue(settings['use_wan_fp32_strategy'])
+        self.assertEqual(settings['conditional_frame_timestep'], .1)
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory)/BASE_CONFIG; path.parent.mkdir(parents=True)
+            path.write_text('changed_source = True\n')
+            with self.assertRaisesRegex(ValueError, 'experiment source changed'):
+                selected_settings(Path(directory))
+
     def test_whole_pinned_class_and_unpatchify_mixed_precision(self):
         cls, unpatchify, proof = compile_head(ROOT/'cache/runtime')
         source = ast.parse((ROOT/'cache/runtime'/DIT_PATH).read_bytes())

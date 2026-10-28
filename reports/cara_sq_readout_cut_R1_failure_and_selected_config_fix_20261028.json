@@ -1,0 +1,117 @@
+{
+  "status": "R1_CPU_MISMATCH_PRESERVED_SELECTED_EXPERIMENT_BINDING_CORRECTED_LOCALLY",
+  "observed_unix": 1793186155.26223,
+  "R1_result_sha256": "5ed60b04624e1d10b075c12defdf1e216a00202f1e6911df01d866367599f510",
+  "R1_original_controls": {
+    "original_C": {
+      "exact": false,
+      "branches": [
+        {
+          "exact": false,
+          "max_absolute": 0.5782914161682129,
+          "MSE": 0.003511582917299245,
+          "dtype": "torch.float32",
+          "shape": [
+            1,
+            16,
+            24,
+            54,
+            96
+          ]
+        },
+        {
+          "exact": false,
+          "max_absolute": 0.5724730491638184,
+          "MSE": 0.0034696834756888567,
+          "dtype": "torch.float32",
+          "shape": [
+            1,
+            16,
+            24,
+            54,
+            96
+          ]
+        }
+      ]
+    },
+    "stored_dense_hidden_head": {
+      "exact": false,
+      "branches": [
+        {
+          "exact": false,
+          "max_absolute": 0.007472723722457886,
+          "MSE": 1.724894989409033e-06,
+          "dtype": "torch.float32",
+          "shape": [
+            1,
+            16,
+            24,
+            54,
+            96
+          ]
+        },
+        {
+          "exact": false,
+          "max_absolute": 0.00767064094543457,
+          "MSE": 1.731838477427109e-06,
+          "dtype": "torch.float32",
+          "shape": [
+            1,
+            16,
+            24,
+            54,
+            96
+          ]
+        }
+      ]
+    },
+    "original_controls_exact": false,
+    "original_C_pairs": 1,
+    "stored_dense_hidden_head_pairs": 1,
+    "head_calls": 4,
+    "deep_calls": 0,
+    "codec_pairs": 0,
+    "inputs_and_CPU_RNG_unchanged": true,
+    "weights_unchanged": true,
+    "complete_Q1_cohort": false,
+    "deployment_memory_measured": false
+  },
+  "R1_CPU_seconds": 81.835653264,
+  "cause_of_numeric_difference": "NOT_ESTABLISHED",
+  "known_source_binding_bug": {
+    "R1_use_wan_fp32_strategy": false,
+    "selected_use_wan_fp32_strategy": true,
+    "R1_conditional_frame_timestep": -1.0,
+    "selected_conditional_frame_timestep": 0.1
+  },
+  "corrected_selected_source_sha256": {
+    "reason_embeddings/model_2B_reason_1p1_rectified_flow.py": "a8405ef1e46aedc7004026a51ce980a6a6509162738dfda34a10e83f3a19b32b",
+    "specialized_model/SFT_2B_RF.py": "719fa25c90dcc4f51a9226fa1b5ac677c52cbb1c292c8eac1e3121ab3c3ce814"
+  },
+  "local_fixed_checks": {
+    "tests": 14,
+    "errors": 0,
+    "failures": 0,
+    "unittest_wall_seconds": 1.507
+  },
+  "negative_acceptor_controls": [
+    "fake_C_acceptance",
+    "GPU_exposure",
+    "foreign_state",
+    "wrong_head_weight"
+  ],
+  "negative_acceptor_controls_rejected": 4,
+  "new_GPU_submissions": 0,
+  "new_GPUh": 0,
+  "ledger_writes": 0,
+  "GPU_ready": false,
+  "source_sha256": {
+    "src/wcomr/sq_readout_subgraph_r1.py": "ff664f7dc007b1114f8f2b6bf9f7b3b480bcc8e3e543c79f2a168ac01289db06",
+    "tests/test_sq_readout_subgraph_r1.py": "9cdf0371147dcc223e243143ceb073fff8ccd8a634e922ba6440aeef9440575f",
+    "scripts/cara_sq_readout_cut_cpu_r1.py": "c7399997f3034afc64b1f3aaea2f36f579a04fb18baee57ccab794f9953c9de3",
+    "scripts/check_cara_sq_readout_cut_cpu_r1.py": "bce27999be6d5cb346801f61196e23278b4664f55ac6b41203a86ca4b10f5527",
+    "scripts/audit_cara_sq_readout_cut_cpu_r1.py": "41b31b49ea45814d2ca821e2ddf7ae02d7e51a1a27086ce11d8db6a09ef323bd",
+    "plans/cara_next_stage_20261028/sq/Q1_READOUT_CONTROL_CPU_R4.json": "ca7cf56f8683c73b250cad4cf83301e8929b0dace3f0fb8b5e4b706343545aea"
+  },
+  "next": "One prospectively frozen CPU R2 using selected experiment flags; preserve R1 stage/output. No codec scoring if original C still differs. Same-hardware CUDA parity remains a separately quoted/admitted scope."
+}

@@ -34,7 +34,7 @@ def sha(path):
 
 
 def run(args):
-    scope = json.loads((ROOT/SCOPE).read_text())
+    scope = json.loads((ROOT/args.scope).read_text())
     if (scope['prompt'] != PROMPTS[0] or scope['step'] != 22 or scope['new_GPU_submissions'] != 0
             or scope['roles'] != ['original_C_pair', 'stored_dense_hidden_head_pair']
             or scope['codec_pairs'] != 0 or scope['original_files_readonly'] is not True):
@@ -53,6 +53,10 @@ def run(args):
         raise ValueError('Original 2B checkpoint SHA differs')
     weights = torch.load(checkpoint, map_location='cpu', weights_only=True, mmap=True)
     kernel, proof = build_kernel(runtime, weights)
+    selected = proof['selected_experiment_settings']
+    if scope['selected_experiment_settings'] != {key:selected[key]
+            for key in ('use_wan_fp32_strategy','conditional_frame_timestep')}:
+        raise ValueError('Selected experiment differs from the corrected frozen CPU scope')
     del weights; gc.collect()
     result = dict(status='PINNED_READOUT_CUT_HEAD_PREPARED_CPU', profile=args.profile,
         source_scope=scope, fixture_checks=dict(tests=tests.testsRun, failures=len(tests.failures),
@@ -117,6 +121,7 @@ def main():
     p = argparse.ArgumentParser()
     p.add_argument('--assets', type=Path, required=True); p.add_argument('--manifest-sha256', required=True)
     p.add_argument('--profile', choices=('two_card','four_card'), required=True)
+    p.add_argument('--scope', default=SCOPE)
     p.add_argument('--output', type=Path, required=True)
     args = p.parse_args()
     if args.output.exists(): raise FileExistsError('Keep the original CPU result')

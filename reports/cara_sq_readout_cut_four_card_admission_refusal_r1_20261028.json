@@ -1,0 +1,16 @@
+{
+  "status": "CPU_ADMISSION_REFUSED_BEFORE_STAGE_OR_CONTAINER_CREATION",
+  "host": "four_card",
+  "source_revision": "2cdce597",
+  "observed_unix": 1793185526.268019,
+  "error": "AssertionError: Review current CPU allocations",
+  "boundary": "assert not docker ps -q; before stage.mkdir and Popen",
+  "prior_readonly_check_had_no_container": true,
+  "race_observation": "Another CPU allocation appeared between prior check and atomic dispatch boundary",
+  "new_CPU_containers": 0,
+  "new_GPU_submissions": 0,
+  "new_GPUh": 0,
+  "ledger_writes": 0,
+  "scientific_result": false,
+  "next": "Recover the original intended stage; retry only after fresh CPU resource admission if it still does not exist"
+}
