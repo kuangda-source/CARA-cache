@@ -35,6 +35,7 @@ def main():
     p=argparse.ArgumentParser();p.add_argument('command',choices=('recover','launch','capture'))
     p.add_argument('--host',choices=('two_card','four_card'),required=True)
     p.add_argument('--attempt',choices=('r1','r2','r3'),default='r3')
+    p.add_argument('--source-revision',help='Explicit already published immutable source; permits later unrelated repository commits')
     p.add_argument('--launch-ref',type=Path);p.add_argument('--output',type=Path,required=True)
     args=p.parse_args()
     if args.output.exists():raise FileExistsError('Preserve original wrapper CPU receipt')
@@ -43,12 +44,13 @@ def main():
         return transport.ssh(code,data,docker_group=True) if args.host=='two_card' else transport.four_ssh(code,data)
     if args.command=='launch':
         if args.attempt!='r3':raise ValueError('Earlier attempts are immutable; recover/capture their original handles')
-        revision=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip()
-        if subprocess.check_output(['git','ls-remote','origin','refs/heads/main'],cwd=ROOT,text=True).split()[0]!=revision:
-            raise ValueError('Publish exact complete control source before CPU dispatch')
-        files={name:(ROOT/name).read_bytes() for name in FILES}
-        if any(subprocess.check_output(['git','show',revision+':'+name],cwd=ROOT)!=raw for name,raw in files.items()):
-            raise ValueError('Unpublished wrapper CPU source')
+        revision=args.source_revision or subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip()
+        published=subprocess.check_output(['git','ls-remote','origin','refs/heads/main'],cwd=ROOT,text=True).split()[0]
+        if subprocess.run(['git','merge-base','--is-ancestor',revision,published],cwd=ROOT).returncode:
+            raise ValueError('Chosen immutable CPU source is not on published main')
+        # Load the declared Git tree, keeping an accepted card independent of
+        # simultaneous edits in another chat's shared checkout.
+        files={name:subprocess.check_output(['git','show',revision+':'+name],cwd=ROOT) for name in FILES}
         ref={'two_card':'cara_IG_grouped_two_card_CPU_finished_r1_20261027.json',
             'four_card':'cara_IG_four_card_CPU_terminal_r3_20261027.json'}[args.host]
         value=remote(launch_source(),dict(stage_name=stage,profile=args.host,
