@@ -1,0 +1,50 @@
+{
+  "schema": "CARA_NEXT_STAGE_WORKSTREAMS_R1",
+  "date": "2026-10-28",
+  "state": "PLAN_ADOPTED_PREPARATION_PENDING",
+  "source_design_registry_ref": "plans/cara_next_stage_20261028/experiment_registry.json",
+  "source_design_registry_sha256": "d2825f85c83be4461f189b39110f2dc5669cce14d37c4739cd21850ec0f656fb",
+  "reconciliation_ref": "plans/cara_next_stage_20261028/08_REPOSITORY_RECONCILIATION.md",
+  "intake_receipt_ref": "reports/cara_next_stage_plan_intake_20261028.json",
+  "gpu_authorized": false,
+  "new_GPU_submissions": 0,
+  "new_budget_reserved_GPUh": 0,
+  "future_evaluation": "Fidelity-v2_PROPOSED_BIND_IN_EACH_NEW_CARD_BEFORE_OUTPUT_ACCESS",
+  "historical_contracts_unchanged": true,
+  "chat_ownership": {
+    "mainline": {
+      "title": "CARA 主线实验：F19 与公平基线",
+      "cards": ["P0", "F19", "F18", "Q5", "WAN", "FINAL"],
+      "owns": ["plans/cara_next_stage_20261028/mainline/", "reports/cara_fast_*", "global canonical navigation and budget coordination"],
+      "first_delivery": "Affected-path CPU preparation, masks, scoring interface, reuse/dedup manifest and complete quotes; no new GPU"
+    },
+    "sq": {
+      "title": "CARA S/Q 探索：S-FAST19 与缓存压缩",
+      "cards": ["A-SQ-FAST", "S-FAST19", "Q0-Q1", "Q-END"],
+      "owns": ["plans/cara_next_stage_20261028/sq/", "reports/cara_sq_*", "new exploration-specific source and tests"],
+      "host_preparation": "two-card A6000 as requested; shared scientific implementation with separately prepared four-card profile",
+      "first_delivery": "Old-asset gap audit, CFG risk/mask interfaces and actual packed-byte Q0 CPU preparation; no new video or GPU"
+    }
+  },
+  "schedule": [
+    {"id":"P0","owner":"主线","state":"准备；原WC73已热停结算","next_action":"复用已完成子集与双时钟，明确公平WC/RA缺口、热/存储环境和新补完范围；不重派73槽"},
+    {"id":"F19","owner":"主线","state":"首个高速可行性设计，未运行","next_action":"冻结掩码/动作/Uniform19、时间匹配WC/RA与Native-k；去重完整范围、CPU及双端报价"},
+    {"id":"S-FAST19","owner":"S/Q探索","state":"与F19准备并行；完整分支矩不足","next_action":"旧资产覆盖审计，BR/DIAG/CFG共同语法与合法交换/掩码等价；不从12状态生成全36步结论"},
+    {"id":"Q0-Q1","owner":"S/Q探索","state":"双卡CPU准备；固定Shared25-C","next_action":"真实r窗口INT4/INT8打包、同字节及源绑定读出；raw误差不替代实际输出或部署峰值"},
+    {"id":"A-SQ-FAST","owner":"S/Q探索","state":"仅明确缺口后准备采集卡","next_action":"绑定新父策略的108标签/56额外Dense pair与存储；解决F19 raw和Q25布局兼容问题，共同费用只计一次"},
+    {"id":"S-END / Q-END","owner":"S/Q探索","state":"各自条件晋级，不互设成功前提","next_action":"不同合法mask或实际同bytes读出证据后，冻结最小完整视频比较与强基线，再报价申请"},
+    {"id":"F18 / Q5","owner":"主线，S/Q提供冻结规则","state":"后置；可先做CPU可辨识性","next_action":"冻结方法后检验唯一相邻预算/新网格；不扫描预算或指数制造赢家"},
+    {"id":"WAN / FINAL","owner":"主线","state":"迁移后置、最终输入持续保护","next_action":"冻结checkpoint/协议/比较及完整报价；保留16最终输入和额外seed子集，实际曝光先核查"},
+    {"id":"B-S / B-Q / B-E","owner":"按失败位置指定单一负责人","state":"休眠；当前未启用","next_action":"最多一个备用进入新GPU探索；不自动恢复IG/R4/GRAPH/F/B"}
+  ],
+  "resource_coordination": {
+    "single_central_ledger": true,
+    "saved_budget_ref": "reports/cara_wc73_terminal_failure_verified_20261028.json",
+    "saved_budget_is_not_current_admission": true,
+    "no_independent_lane_GPU_allowance": true,
+    "recover_existing_handles_before_dispatch": true,
+    "same_host_overlap_forbidden": true,
+    "git_is_not_execution_lock": true,
+    "common_teacher_and_assets_count_once": true
+  }
+}

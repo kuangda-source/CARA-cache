@@ -2,6 +2,8 @@
 
 # CARA-Cache
 
+**2026-10-28最新安排：主线P0/F19，探索S-FAST19与固定Shared25-C的Q并行准备。** [最新计划与两个对话分工](plans/cara_next_stage_20261028/08_REPOSITORY_RECONCILIATION.md) · [739接收记录](research/739_CARA_NEXT_STAGE_FAST_SQ_PLAN_AND_CHAT_HANDOFF_20261028.md)。新评价Fidelity-v2尚须逐新卡绑定；GPU未新增授权、未预约、未启动。WC73已热停结算，禁止自动重派；原DEV128、旧合同与失败保持。以下旧准备记录仅作历史复用依据。
+
 **通过选择完整刷新的时间位置，在加速视频扩散时尽量保留完整模型的输出。**
 
 CARA-Cache（CFG-Aligned Readout and Cost-Aware Allocation for Video Diffusion）是一个基于 Cosmos / WorldCache 实验栈的视频扩散加速研究项目。它研究两个相连的问题：缓存读出怎样更准确，以及有限计算预算应该花在哪些时间步。当前冻结的新DEV候选Shared25-C采用完整刷新D与缓存复用C，不包含修正A；A保留为机制对照。CARA为沿用的项目名。历史目录 `worldcache_omr` 与 Python 包 `wcomr` 为兼容既有实验保留；本仓库当前只维护 WorldCache/CARA 主线。
@@ -19,13 +21,13 @@ CARA-Cache（CFG-Aligned Readout and Cost-Aware Allocation for Video Diffusion�
 
 ## 方法直觉
 
-扩散模型逐步生成视频。完整计算昂贵，复用旧缓存会积累误差；当前研究重点是在固定刷新次数下，保留过渡区间的完整计算、减少末段刷新。CAL66的Shared25-C采用这一布局，接下来检验它在新输入上是否优于间隔布局及少步Native。历史修正A利用当前浅层增量和真实深层锚点，在新DEV中作为机制对照。
+扩散模型逐步生成视频。完整计算昂贵，复用旧缓存会积累误差；当前研究重点是在固定刷新次数下，保留过渡区间的完整计算、减少末段刷新。CAL66的Shared25-C采用这一布局，DEV128已完成冻结继续验证，当前将它保留为高保真参照，并准备高速F19与S/Q机制。历史修正A利用当前浅层增量和真实深层锚点，在新DEV中作为机制对照。
 
-DEV128完整结果保持；用户优先预测器—刷新机制线的CPU准备，IG暂停。新读出不使用DEV拟合，当前R4无E2准入，最终确认保留。
+保留DEV128原冻结接受与费用；转P0/F19及S-FAST19/Q准备，保护最终输入。原C/限龄A不由DEV重新选作独立成功；新范围、评价与完整报价逐卡冻结，无新GPU授权。
 
 CFG 指 classifier-free guidance，包含条件与负条件两支。A 使用共享修正强度，保持两支融合口径一致。D 更新当前请求的真实深层锚点；A 不把近似结果冒充新的真实锚点。Native 是每个请求步均完整计算的参考推理。
 
-当前流程是：**CAL比较刷新布局 → 冻结Shared25-C → 新输入上的保真、独立质量与实测预算确认 → 新设置中的规则迁移**。当前网格上能量规则与简单模板给出相同掩码；自动规则的额外价值留给可区分两者的新设置检验。历史GRAPH搜索与C/A/D生成器单独保留。
+当前流程是：**公平基线与评价/时钟 → F19可行性及S/Q独立准备 → 冻结规则 → 第二预算/网格 → 第二骨干与独立确认**。当前网格上能量规则与简单模板给出相同掩码；自动规则的额外价值留给可区分两者的新设置检验。历史GRAPH搜索与C/A/D生成器单独保留。
 
 阅读数字时：**CAL**是校准集，**DEV**是开发验证集，**TEST**是方法冻结后才使用的独立测试集；`26D`表示26次完整刷新，`A1/A3`表示所考察窗口内修正1次/连续3次。
 
@@ -53,7 +55,7 @@ LPIPS 越低表示越接近同输入的 Native 视频；它与局部速度 MSE�
 
 [证据1](research/705_CARA_DEV128_A6000_EXCLUSIVE_LAUNCH_AND_ACCEPTANCE_SCHEDULE_20261026.md) · [证据2](reports/cara_DEV128_A6000_GPU_actual_launch_20261026.json) · [证据3](reports/cara_DEV128_A6000_technical_admission_20261026.json) · [证据4](reports/cara_DEV128_A6000_central_admission_20261026.json) · [证据5](reports/cara_DEV128_A6000_acceptance_schedule_20261026.json) · [证据6](reports/cara_DEV128_A6000_storage_20261026.json) · [证据7](reports/cara_DEV128_prelaunch_dual_exposure_reviewed_20261026.json) · [证据8](reports/cara_DEV128_full_four_card_CPU_accepted_r4_20261026.json) · [证据9](reports/cara_DEV128_full_two_card_CPU_accepted_r4_20261026.json) · [证据10](reports/cara_DEV128_A6000_technical_followup_20261026.json) · [证据11](reports/cara_DEV128_A6000_technical_progress_20261026_1742.json) · [证据12](reports/cara_DEV128_A6000_progress_capture_20261026_1743.json) · [证据13](reports/cara_DEV128_A6000_progress_pace_20261026_1744.json) · [证据14](reports/cara_DEV128_A6000_halfway_capture_20261026_1948.json) · [证据15](reports/cara_DEV128_A6000_halfway_technical_20261026_1948.json) · [证据16](reports/cara_DEV128_A6000_halfway_pace_20261026_1948.json) · [证据17](research/711_CARA_DEV128_A6000_HALFWAY_TECHNICAL_20261026.md) · [证据18](reports/cara_DEV128_GMSD_CPU_scoring_resource_review_20261026.json) · [证据19](reports/cara_DEV128_A6000_GMSD_window_technical_20261026_2340.json) · [证据20](reports/cara_GMSD_CAP1_two_card_preparation_review_20261026.json) · [证据21](reports/cara_DEV128_A6000_CPU_progress_20261027_0055.json) · [证据22](reports/cara_DEV128_A6000_post_status_only_20261027_0120.json) · [证据23](reports/cara_DEV128_A6000_terminal_20261027_0115.json) · [证据24](reports/cara_DEV128_partial_payload_exposure_note_20261027.json) · [证据25](reports/cara_DEV128_post_counter_CPU_r2_20261027.json) · [证据26](reports/cara_DEV128_A6000_terminal_20261027_0400.json) · [证据27](reports/cara_DEV128_A6000_accepted_20261027_0404.json) · [证据28](reports/cara_DEV128_A6000_central_settlement_20261027_0404.json) · [证据29](reports/cara_DEV128_A6000_complete_analysis_20261027.json) · [证据30](research/716_CARA_DEV128_COMPLETE_ACCEPTANCE_AND_FROZEN_DECISION_20261027.md)
 
-历史研究阶段：[原P1](research/669_CARA_PG_P1_COMPLETE_BUDGET_ATTRIBUTION_AND_REPAIR_PLAN_20261024.md)未选出预算可行策略；[104](research/685_CARA_HISTORY104_R2_COMPLETE_ACCEPTANCE_RESULTS_AND_COST_GATE_20261024.md)与[COST112](research/690_CARA_COST112_COMPLETE_ACCEPTANCE_AND_TIMING_GATE_FAILURE_20261025.md)完成采集，但原最大低估计时门均失败。该路线暂缓，失败与费用保持；当前按[CAL66完整结果](research/702_CARA_CAL66_A6000_COMPLETE_RESULTS_AND_FROZEN_SHARED25_C_20261026.md)冻结Shared25-C，准备新DEV确认。
+历史研究阶段：[原P1](research/669_CARA_PG_P1_COMPLETE_BUDGET_ATTRIBUTION_AND_REPAIR_PLAN_20261024.md)未选出预算可行策略；[104](research/685_CARA_HISTORY104_R2_COMPLETE_ACCEPTANCE_RESULTS_AND_COST_GATE_20261024.md)与[COST112](research/690_CARA_COST112_COMPLETE_ACCEPTANCE_AND_TIMING_GATE_FAILURE_20261025.md)完成采集，但原最大低估计时门均失败。该路线暂缓，失败与费用保持；当前按[CAL66完整结果](research/702_CARA_CAL66_A6000_COMPLETE_RESULTS_AND_FROZEN_SHARED25_C_20261026.md)保留Shared25-C已完成的DEV128结论；未来工作按顶部新计划推进。
 
 ## 仓库结构与使用
 

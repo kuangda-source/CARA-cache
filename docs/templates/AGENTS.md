@@ -4,6 +4,8 @@
 
 Read [EXPERIMENT_REPORT.md](repo:EXPERIMENT_REPORT.md), [current state](repo:research/02_CURRENT_STATE.md), [next actions](repo:research/09_NEXT_ACTIONS.md), and [handoff](repo:memory/handoffs/LATEST.md). Use the source receipts linked by current state; generated documentation is a timestamped snapshot, not a runtime lock. Historical instructions and completed authorizations remain in [the archive](repo:docs/archive/README.md).
 
+The user adopted the [next-stage arrangements and two-chat split](repo:plans/cara_next_stage_20261028/08_REPOSITORY_RECONCILIATION.md) on 2026-10-28. The mainline chat owns P0/F19, shared evaluation, canonical navigation and budget coordination; the S/Q chat owns S-FAST19 and fixed-Shared25-C Q preparation, continuing the requested two-card preparation. Use [WORKSTREAMS.json](repo:plans/cara_next_stage_20261028/WORKSTREAMS.json) for the forward queue, keeping proposal rows separate from accepted scientific results. CPU work may proceed within existing authorization; this split grants no new GPU card or budget. Preserve the original 25D S plan, all old gates and stopped WC73; Fidelity-v2 must be bound prospectively in each new card. Avoid concurrent edits to shared canonical files or the Git index; commit only exact owned paths and preserve others' work.
+
 ## Execution and evidence
 
 - This repository is WorldCache/CARA-only. OMR work belongs to the separate `omr-experiments` repository. Keep legacy package/project/stage identifiers for compatibility.

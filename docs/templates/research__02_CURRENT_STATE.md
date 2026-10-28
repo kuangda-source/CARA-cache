@@ -1,5 +1,11 @@
 # CARA-Cache 当前状态
 
+{{next_stage_notice}}
+
+{{queue}}
+
+## 既有终态与历史准备记录
+
 [736 WC73热保护停止](736_CARA_WC73_THERMAL_STOP_AND_SETTLEMENT_20261028.md)：原任务10月27日21:38:56因≥90°C热保护停止；A完成11/26，等价门禁未形成结论，未冻结、未启动B。全部原进程/锁已释放、Default恢复，0.980652754 GPUh中央精确结算；未重跑。原ETA作废，两项检查已删除，旧门槛与16.5未知责任不变。
 
 [738 WC73已完成子集等价核验](738_CARA_WC73_CPU_IO_OUTPUT_EQUIVALENCE_AND_THERMAL_DIAGNOSIS_20261028.md)：11份张量原SHA、11视频/1023帧完整；首个AV28 Native/allD三组配对的36步输出、latent、RGB及输入/RNG精确一致。CPU超时定位为共享HDD/loop读取等待，原A三臂门仍不完整；散热余量为优先排查方向，物理根因未定，未重跑GPU。
@@ -37,8 +43,6 @@
 [722计时边界核查](repo:research/722_CARA_PAPER_LATENCY_BOUNDARY_AUDIT_AND_MINIMAL_MEASUREMENT_PLAN_20261027.md)：四卡410请求原时钟与接受复核通过，332正式路径并列分析；DEV128 Shared25-C完整请求246.675秒/1.269×，含条件准备的生成函数214.010秒/1.314×。后者不是论文“去噪＋解码”，精确边界缺失，不估算补造。优先下一张已授权卡加边界时钟，备用16路径约1.73GPUh仅提案；原预算/验收不变、无GPU。
 
 [724准确论文时钟准备](repo:research/724_CARA_EXACT_PAPER_TIMING_DUAL_HOST_CPU_AND_METHOD_HANDOFF_20261027.md)：可选新入口已接入固定布局/少步Native，双服务器各18完整CPU路径及边界/失败检查通过，原α/输出一致。保留完整请求时间与原验收；真实GPU时钟与新读出整卡尚未接受。后续方法卡按[附件](repo:plans/cara_predictor_refresh_scout_v2_20261026/PAPER_TIMING_ATTACHMENT_R1_20261027.md)绑定，无单独GPU补测或新预算。
-
-{{queue}}
 
 ## 本轮已完成与尚缺
 

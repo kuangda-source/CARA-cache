@@ -838,6 +838,20 @@ def build():
     queue = '| 顺序 | 当前阶段 | 下一项验收 / 动作 |\n|---|---|---|\n' + '\n'.join(
         f"| {id} | {cell(by_id[id]['reader']['title'])}：{cell(by_id[id]['reader']['status'])} | "
         f"{cell(by_id[id]['reader']['next_action'])} |" for id in status['next_sequence'])
+    # Forward preparation belongs to its plan registry, not fabricated result rows.
+    next_stage = status.get('next_stage_plan_20261028')
+    if next_stage:
+        workstreams = load(next_stage['workstreams_ref'])
+        registry = workstreams['source_design_registry_ref']
+        if (digest((ROOT / registry).read_bytes())['sha256'] != workstreams['source_design_registry_sha256']
+                or workstreams['gpu_authorized'] or workstreams['new_GPU_submissions']
+                or workstreams['new_budget_reserved_GPUh']):
+            raise ValueError('Next-stage preparation registry or authority differs')
+        queue = (link(next_stage['reconciliation_ref'], '最新计划与对话分工')
+                 + '；以下为准备/条件提案，不是科学结果或GPU准入。\n\n'
+                 + '| 顺序 / 负责人 | 当前阶段 | 下一项验收 / 动作 |\n|---|---|---|\n'
+                 + '\n'.join(f"| {cell(r['id'])} · {cell(r['owner'])} | {cell(r['state'])} | "
+                              f"{cell(r['next_action'])} |" for r in workstreams['schedule']))
     groups = [('现行自动生成器路线', lambda id: id.startswith('PG-')),
               ('机制与历史方法开发', lambda id: id.startswith('D') or id == 'R01'),
               ('共同评价、归因与后续卡', lambda id: id.startswith('N') or id == 'Z01'),
@@ -860,6 +874,13 @@ def build():
     values = dict(actions=actions, snapshot=snapshot, run_details=run_details, headlines=headlines,
                   results_detail=details, research_summary=status['research_summary'], queue=queue,
                   row_count=str(len(rows)), master_tables='\n\n'.join(tables), mapping_table=mapping_table)
+    values['next_stage_notice'] = (
+        '**2026-10-28最新安排：主线P0/F19，探索S-FAST19与固定Shared25-C的Q并行准备。** '
+        + link(next_stage['reconciliation_ref'], '最新计划与两个对话分工')
+        + ' · ' + link(next_stage['research_ref'], '739接收记录')
+        + '。新评价Fidelity-v2尚须逐新卡绑定；GPU未新增授权、未预约、未启动。'
+        + 'WC73已热停结算，禁止自动重派；原DEV128、旧合同与失败保持。以下旧准备记录仅作历史复用依据。'
+        if next_stage else '')
     outputs = {}
     for template in sorted((ROOT / 'docs/templates').glob('*.md')):
         target = template.name.replace('__', '/')

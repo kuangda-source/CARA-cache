@@ -6,7 +6,7 @@
 
 ## 核心动作
 
-DEV128完整结果保持；用户优先预测器—刷新机制线的CPU准备，IG暂停。新读出不使用DEV拟合，当前R4无E2准入，最终确认保留。
+保留DEV128原冻结接受与费用；转P0/F19及S-FAST19/Q准备，保护最终输入。原C/限龄A不由DEV重新选作独立成功；新范围、评价与完整报价逐卡冻结，无新GPU授权。
 
 C包含原WorldCache的probe/window/warp/head/RF读出，并非单纯复制旧速度。A在post-RF分支速度上修正，共享alpha后做CFG融合；语义C/A都可能显示为物理CC。D对两CFG支做完整深层计算，更新真实D历史，但不会抹掉已有轨迹误差。WorldCache自己的决策可能出现DC/CD。
 

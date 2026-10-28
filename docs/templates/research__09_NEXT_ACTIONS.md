@@ -1,5 +1,11 @@
 # CARA-Cache 后续实验顺序
 
+{{next_stage_notice}}
+
+{{queue}}
+
+## 既有终态与历史准备记录
+
 [736 WC73热保护停止](736_CARA_WC73_THERMAL_STOP_AND_SETTLEMENT_20261028.md)：原任务10月27日21:38:56因≥90°C热保护停止；A完成11/26，等价门禁未形成结论，未冻结、未启动B。全部原进程/锁已释放、Default恢复，0.980652754 GPUh中央精确结算；未重跑。原ETA作废，两项检查已删除，旧门槛与16.5未知责任不变。
 
 [738 WC73已完成子集等价核验](738_CARA_WC73_CPU_IO_OUTPUT_EQUIVALENCE_AND_THERMAL_DIAGNOSIS_20261028.md)：11份张量原SHA、11视频/1023帧完整；首个AV28 Native/allD三组配对的36步输出、latent、RGB及输入/RNG精确一致。CPU超时定位为共享HDD/loop读取等待，原A三臂门仍不完整；散热余量为优先排查方向，物理根因未定，未重跑GPU。
@@ -22,25 +28,17 @@
 
 {{snapshot}}
 
-## 当前探索：机制线CPU完整诊断，IG用户暂停
+## 历史机制诊断与停止边界
 
-当前入口为[720共同/差分完整诊断](repo:research/720_CARA_CFG_COMMON_DIFFERENCE_MECHANISM_AND_PREDICTOR_HYPOTHESIS_20261027.md)和[原件复用/CPU方案](repo:plans/cara_predictor_refresh_scout_v2_20261026/MECHANISM_REUSE_AND_PREPARATION_R1_20261027.md)。原V2/V2.2历史登记不改。
-
-- IG后续暂停；B1原件与费用保留，无运行任务，不执行B2/B3。DEV128完整接受且自动检查已删除，不重复运行。
-- 两旧CAL×6状态×6固定读出已有原B1真实模型证据；独立审计核对原终态/中央结算/保存CPU/两端源码，避免重新采集。实际GPU来自A6000，四卡复用到CPU兼容证据。
-- 原长龄6点R4均未胜A，聚合误差增加14.97%；无可晋级j1，不提交当前R4的E2视频卡。精确数值/费用合同缺口不事后补作预登记。
-- 32文件再次SHA匹配；共同/差分CPU完整12/12已退出，无CUDA/head或拟合。R4历史共同方向有用、差分方向逆向，隐藏层已出现；只保留实际输出共同增量并保持A差分，原alpha下长龄6/6改善3.93%，仅已曝光CAL事后诊断。teacher-free参考结构CPU通过，但真实生产/费用未接受，j1仍为空。下一步先做受影响接口和双端成本，不改alpha、不追加GPU。
-- E2-R/I仍按原条件与完整分母准备，不能以IG46路径CPU替代E2整卡接受。没有有效j1时完整GPU报价NOT_READY，无预约。双端兼容、默认四卡；原α、强基线、累计226与最终部署双预算保持。
+B1/719/720的保存资产和来源诊断可供本轮S/Q复用；它们仅覆盖两个已曝光CAL的12局部状态。[733完整R2科学分析](repo:research/733_CARA_COMMON_LONG_R2_FROZEN_ANALYSIS_AND_STOP_20261028.md)已按原门停止当前R4，不再等待或准备其E2/j1；IG继续暂停，原GRAPH/F/B/在线门控不重启。新S/Q按顶部最新计划推进，不以历史准备记录授予新的GPU。
 
 [722计时边界核查](repo:research/722_CARA_PAPER_LATENCY_BOUNDARY_AUDIT_AND_MINIMAL_MEASUREMENT_PLAN_20261027.md)：四卡410请求原时钟与接受复核通过，332正式路径并列分析；DEV128 Shared25-C完整请求246.675秒/1.269×，含条件准备的生成函数214.010秒/1.314×。后者不是论文“去噪＋解码”，精确边界缺失，不估算补造。优先下一张已授权卡加边界时钟，备用16路径约1.73GPUh仅提案；原预算/验收不变、无GPU。
 
 [724准确论文时钟准备](repo:research/724_CARA_EXACT_PAPER_TIMING_DUAL_HOST_CPU_AND_METHOD_HANDOFF_20261027.md)：可选新入口已接入固定布局/少步Native，双服务器各18完整CPU路径及边界/失败检查通过，原α/输出一致。保留完整请求时间与原验收；真实GPU时钟与新读出整卡尚未接受。后续方法卡按[附件](repo:plans/cara_predictor_refresh_scout_v2_20261026/PAPER_TIMING_ATTACHMENT_R1_20261027.md)绑定，无单独GPU补测或新预算。
 
-{{queue}}
-
 ## 本轮授权范围与下一步
 
-用户仅要求优先准备机制线，暂不追加GPU。原张量CPU误差分解与资产身份核查已完成，见719；共同/差分来源已由720定位，下一步准备新结构真实CPU接口与成本；当前R4无j1，后续E2需另有预登记增量依据、双端受影响生产CPU和完整报价。DEV128接受、最终确认保护组与所有历史失败/费用保留。
+用户已要求更新计划并分出主线、S/Q两个对话；先执行各自文档/代码和有资源边界的CPU准备，S/Q接续双卡准备。所有新GPU卡仍需冻结范围、完整报价和相应授权；DEV128接受、原最终输入与历史失败/费用保留。
 
 ## 已完成历史与暂缓方案
 

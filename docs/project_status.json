@@ -4,7 +4,7 @@
   "evidence_observed_at": "2026-10-26T09:30:00.005338+08:00",
   "timezone": "Asia/Shanghai",
   "snapshot_note": "CAL66完整66路径、48组LPIPS/156质量评分已接受，实际4.776208 GPUh已中央结算。Shared25-C相对较强S25-A的LPIPS改善15.34%且4/4同向，246.852秒/V0.98188，三项质量筛查通过，冻结为新DEV主候选。原GPU/容器/锁释放、模式恢复；四个A候选未过相对Native的MUSIQ界。当前仅CAL证据，新DEV未启动。",
-  "research_summary": "Shared25-C在16新DEV上相对冻结S25-A保真改善14.82%、16/16同向，原双预算与三项质量非劣门均通过，进入登记独立最终确认。放置效应已由CAL推广至新输入；当前能量规则与模板同掩码，自动规划增量需独立可辨识验证。",
+  "research_summary": "Shared25-C的DEV128冻结结果与限龄A次要分析保留；DEV128已作为后续选型的开发证据。最新主线先准备同设备公平WC/RA、双时钟与F19高速可行性，S-FAST19和固定Shared25-C的Q独立CPU准备；冻结方法后检验18D/新网格/第二骨干及保护输入确认。约1.5倍是待测目标，Fidelity-v2仅为未来新卡提案；原质量/完整请求预算不追溯修改，当前没有新增GPU授权。",
   "active_experiment_id": "PG-SHARED-CAL66",
   "active_state": "DEV128_A6000_EXCLUSIVE_RUNNING",
   "active_state_zh": "Shared25-C新DEV128已在两卡A6000独占启动",
@@ -84,9 +84,7 @@
       "short_scope": "6个新DEV，同3D配额"
     }
   ],
-  "next_sequence": [
-    "PG-SHARED-DEV128"
-  ],
+  "next_sequence": [],
   "history_snapshot_ref": "docs/archive/20261022_before_navigation/manifest.json",
   "master_ref": "paper/experiment_master_table.json",
   "mapping_ref": "paper/internal_to_paper_mapping.json",
@@ -821,7 +819,7 @@
     "full_protocol_accepted": true,
     "report_ref": "research/716_CARA_DEV128_COMPLETE_ACCEPTANCE_AND_FROZEN_DECISION_20261027.md",
     "summary": "2026-10-27完整128路径、26控制、80LPIPS/7440帧及288质量全部接受；原GPU与CPU均退出，锁释放、Default恢复。Shared25-C相对冻结强参考S25-A的LPIPS降低14.82%，16/16改善，成对差单侧95%上界−0.007669；相对S25-C降低26.16%。完整请求246.675秒，V上界0.9863，三项独立质量非劣门均过。实际9.417059GPUh已中央唯一结算，按原合同进入登记独立最终确认，不自动追加GPU。该结论支持固定布局泛化，非自动规划创新或最终部署接受。",
-    "next_action": "DEV128完整结果保持；用户优先预测器—刷新机制线的CPU准备，IG暂停。新读出不使用DEV拟合，当前R4无E2准入，最终确认保留。",
+    "next_action": "保留DEV128原冻结接受与费用；转P0/F19及S-FAST19/Q准备，保护最终输入。原C/限龄A不由DEV重新选作独立成功；新范围、评价与完整报价逐卡冻结，无新GPU授权。",
     "evidence_refs": [
       "research/705_CARA_DEV128_A6000_EXCLUSIVE_LAUNCH_AND_ACCEPTANCE_SCHEDULE_20261026.md",
       "reports/cara_DEV128_A6000_GPU_actual_launch_20261026.json",
@@ -1026,7 +1024,7 @@
     "new_candidate_production_accepted": false,
     "new_candidate_GPU_authorized": false
   },
-  "current_followup_plan_ref": "plans/cara_predictor_refresh_scout_v2_20261026/MECHANISM_REUSE_AND_PREPARATION_R1_20261027.md",
+  "current_followup_plan_ref": "plans/cara_next_stage_20261028/08_REPOSITORY_RECONCILIATION.md",
   "innovation_gain_exploration_R1": {
     "status": "PAUSED_BY_USER_AFTER_COMPLETE_B1",
     "plan_ref": "plans/cara_innovation_gain_20261027/README.md",
@@ -1325,6 +1323,26 @@
     "S_status": "ASSET_MASK_CPU_PENDING",
     "Q_status": "CODEC_CPU_PENDING",
     "GPU_submissions": 0,
-    "IG": "PAUSED"
+    "IG": "PAUSED",
+    "forward_update_ref": "plans/cara_next_stage_20261028/08_REPOSITORY_RECONCILIATION.md"
+  },
+  "next_stage_plan_20261028": {
+    "status": "PLAN_ADOPTED_PREPARATION_PENDING_NO_NEW_GPU",
+    "source_package_ref": "plans/cara_next_stage_20261028/README.md",
+    "reconciliation_ref": "plans/cara_next_stage_20261028/08_REPOSITORY_RECONCILIATION.md",
+    "workstreams_ref": "plans/cara_next_stage_20261028/WORKSTREAMS.json",
+    "registry_ref": "plans/cara_next_stage_20261028/experiment_registry.json",
+    "receipt_ref": "reports/cara_next_stage_plan_intake_20261028.json",
+    "research_ref": "research/739_CARA_NEXT_STAGE_FAST_SQ_PLAN_AND_CHAT_HANDOFF_20261028.md",
+    "new_GPU_submissions": 0,
+    "new_budget_reserved_GPUh": 0,
+    "mainline": "P0/F19 fairness and high-speed preparation; retain high-fidelity25D",
+    "S": "S-FAST19; branch moments/mask capability and asset gaps pending",
+    "Q": "Q0/Q1 Shared25-C actual cache bytes preparation pending",
+    "future_evaluation": "Fidelity-v2 proposal; bind in a new card before output access, old gates preserved",
+    "saved_budget_ref": "reports/cara_wc73_terminal_failure_verified_20261028.json",
+    "saved_budget_is_not_live": true,
+    "new_GPU_authorization": false,
+    "old_WC73_replay": false
   }
 }
