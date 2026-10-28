@@ -20,14 +20,15 @@ CRITICAL=('src/wcomr/sq_s_collection_r1.py','src/wcomr/sq_s_storage_r1.py',
 
 def main():
     p=argparse.ArgumentParser();p.add_argument('--capture',type=Path,required=True)
+    p.add_argument('--host',choices=('two_card','four_card'),default='four_card')
     p.add_argument('--source-revision',required=True);p.add_argument('--output',type=Path,required=True);args=p.parse_args()
     if args.output.exists():raise FileExistsError('Preserve original S CPU storage acceptance')
     capture=json.loads(args.capture.read_text());scope=json.loads((ROOT/SCOPE).read_text())
     revision=subprocess.check_output(['git','rev-parse',args.source_revision+'^{commit}'],cwd=ROOT,text=True).strip()
-    accepted=accept(capture,scope,revision,storage=True);negative=[]
+    accepted=accept(capture,scope,revision,storage=True,host=args.host);negative=[]
     for case in ('running','missing_parent','missing_raw','current_D_source','wrong_Dense_count',
             'incomplete_reloads','storage_unit_skip','wrong_unit_load_count','storage_cap',
-            'CUDA_claim','real_storage_claim'):
+            'wrong_host','CUDA_claim','real_storage_claim'):
         bad=copy.deepcopy(capture)
         if case=='running':bad['container_state'].update(Status='running',Running=True)
         elif case=='missing_parent':bad['result']['rows'][-1]['OFF_ON_controls'].pop()
@@ -39,14 +40,15 @@ def main():
         elif case=='storage_unit_skip':bad['result']['storage_unit_controls']['skipped']=1
         elif case=='wrong_unit_load_count':bad['result']['storage_unit_controls']['tiny_tensor_reloads']=5
         elif case=='storage_cap':bad['result']['rows'][-1]['storage']['actual_stored_bytes']=16*2**20+1
+        elif case=='wrong_host':bad['result']['profile']='four_card' if args.host=='two_card' else 'two_card'
         elif case=='CUDA_claim':bad['result']['CUDA_initialized']=True
         elif case=='real_storage_claim':bad['result']['streaming_raw_storage_accepted']=True
         bad['result_sha256']=result_sha(bad['result'])
-        try:accept(bad,scope,revision,storage=True)
+        try:accept(bad,scope,revision,storage=True,host=args.host)
         except ValueError as error:negative.append(dict(case=case,rejected=True,reason=str(error)))
         else:raise AssertionError('S CPU storage acceptance admitted '+case)
-    value=dict(status='S_FOUR_CARD_STREAMING_CPU_COMPOSITION_ACCEPTED_NOT_REAL_MODEL_ASSETS',
-        passed=True,host='four_card',dual_host_CPU_accepted=False,source_revision=revision,
+    value=dict(status='S_'+args.host.upper()+'_STREAMING_CPU_COMPOSITION_ACCEPTED_NOT_REAL_MODEL_ASSETS',
+        passed=True,host=args.host,dual_host_CPU_accepted=False,source_revision=revision,
         critical_source_sha256={name:hashlib.sha256(subprocess.check_output(['git','show',revision+':'+name],cwd=ROOT)).hexdigest()
                                for name in CRITICAL},
         capture_ref=str(args.capture),capture_sha256=hashlib.sha256(args.capture.read_bytes()).hexdigest(),

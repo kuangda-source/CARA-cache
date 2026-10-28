@@ -1,0 +1,55 @@
+{
+  "status": "S_DUAL_HOST_CPU_ENTRY_LOCAL_CONTROLS_PASS_REMOTE_TWO_CARD_PENDING",
+  "source_sha256": {
+    "scripts/cara_sq_s_owner_cpu_r1.py": "92492b128a08101bff7b17b77dd242de9d41c2552d33c7dfa1055c687294686c",
+    "scripts/cara_sq_s_storage_cpu_r2.py": "90a72d3bc8767cdddbdb3dcb1aa0f102bb92140a629bf0ccf6b217dcad7929f2",
+    "scripts/audit_cara_sq_s_owner_cpu_r1.py": "15d21c9328265af654028bef0111771c46c071999162141758838118bba48471",
+    "scripts/audit_cara_sq_s_collection_cpu_r1.py": "6b1cf4ef221ae061182f71838c110d4cc35e1eb84d3ff63518c3b8ea841f82ca",
+    "scripts/audit_cara_sq_s_storage_cpu_r2.py": "12b4d15d9cf9351addef7e504647c006dc988af628933d6041771a758763ad5e"
+  },
+  "checks": [
+    {
+      "case": "owner_original_four_card_unchanged",
+      "passed": true
+    },
+    {
+      "case": "owner_foreign_host_profile_refused",
+      "passed": true,
+      "reason": "S CPU writable mount escaped its own stage"
+    },
+    {
+      "case": "collection_R1_original_four_card_unchanged",
+      "passed": true
+    },
+    {
+      "case": "collection_R1_foreign_host_profile_refused",
+      "passed": true,
+      "reason": "S topology CPU writable mount escaped its own stage"
+    },
+    {
+      "case": "storage_R2_original_four_card_unchanged",
+      "passed": true
+    },
+    {
+      "case": "storage_R2_foreign_host_profile_refused",
+      "passed": true,
+      "reason": "S topology CPU writable mount escaped its own stage"
+    }
+  ],
+  "CPU_resource_boundary": {
+    "CPUs": 2,
+    "RAM_GiB": 8,
+    "wall_seconds": 1800,
+    "cpuset": "4,5",
+    "GPU": "hidden",
+    "network": "none"
+  },
+  "source_revisions": {
+    "owner": "8779bb25",
+    "streaming": "591ac3bd"
+  },
+  "no_original_stages_replayed": true,
+  "GPU_submissions": 0,
+  "ledger_writes": 0,
+  "remote_two_card_S_accepted": false
+}

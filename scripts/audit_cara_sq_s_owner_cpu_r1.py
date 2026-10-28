@@ -27,15 +27,17 @@ def instant(value):
     return datetime.fromisoformat(re.sub(r'(\.\d{6})\d+(?=Z|[+-])',r'\1',value).replace('Z','+00:00'))
 
 
-def accept(capture,scope,revision):
+def accept(capture,scope,revision,host='four_card'):
+    require(host in ('two_card','four_card'),'Registered S CPU host required')
     state=capture['container_state'];launch=capture['launch'];result=capture['result']
+    stage='cara-sq-s-owner-cpu-'+host.replace('_','-')+'-r2-20261029'
     require(capture['status']=='SQ_CPU_PREPARATION_CAPTURE' and state['Status']=='exited'
             and not any(state[k] for k in ('Running','Paused','Restarting','OOMKilled','Dead'))
             and state['ExitCode']==0 and not state['Error'],'Original S CPU container is not cleanly terminal')
     recorded=launch['source_revision']
     require(len(recorded)>=8 and revision.startswith(recorded) and launch['status']=='SQ_GPU_HIDDEN_CPU_PREPARATION_LAUNCHED'
-            and launch['stage'].endswith('/cara-sq-s-owner-cpu-four-card-r2-20261029')
-            and launch['container']=='cara-sq-s-owner-cpu-four-card-r2-20261029-cpu'
+            and launch['stage'].endswith('/'+stage)
+            and launch['container']==stage+'-cpu'
             and capture['source_hashes_equal'] and capture['runtime_hashes_equal'],
             'S CPU original handle or immutable source differs')
     require(capture['image']=='sha256:1e81ac62ee68ca1a6ef655515096a1d84579b01aa4986810c9b18d4f6c4c552d',
@@ -50,7 +52,7 @@ def accept(capture,scope,revision):
     require(result is not None and result_sha(result)==capture['result_sha256'],
             'S CPU original result bytes differ')
     require(result['status']=='SQ_S_OWNER_CPU_PASS_STANDINS_NOT_COMPLETE_COLLECTOR'
-            and result['scope']==scope and result['profile']=='four_card'
+            and result['scope']==scope and result['profile']==host
             and result['fixture_status']=='PINNED_PIPELINE_CPU_FIXTURE_EXTERNAL_EXERCISE_COMPLETE',
             'Complete frozen S CPU fixture required')
     require(all(result[k] is False for k in ('CUDA_initialized','actual_Cosmos_weights',
@@ -81,7 +83,7 @@ def accept(capture,scope,revision):
             ('CPU_wall_seconds','CPU_seconds','peak_RSS_KiB'))
             and result['CPU_wall_seconds']<=wall and result['CPU_seconds']<=2*wall
             and result['peak_RSS_KiB']*1024<=8*2**30,'S CPU resource record exceeds the registered scope')
-    return dict(host='four_card',complete_CPU_paths=8,checked_boundaries=16,
+    return dict(host=host,complete_CPU_paths=8,checked_boundaries=16,
         worker_wall_seconds=result['CPU_wall_seconds'],CPU_seconds=result['CPU_seconds'],
         peak_RSS_GiB=result['peak_RSS_KiB']/2**20,container_wall_seconds=wall,
         component_CPU_accepted=True,complete_S_collector_accepted=False,actual_GPU_or_science_accepted=False)
@@ -89,6 +91,7 @@ def accept(capture,scope,revision):
 
 def main():
     p=argparse.ArgumentParser();p.add_argument('--capture',type=Path,required=True)
+    p.add_argument('--host',choices=('two_card','four_card'),default='four_card')
     p.add_argument('--source-revision',required=True);p.add_argument('--output',type=Path,required=True)
     args=p.parse_args()
     if args.output.exists():raise FileExistsError('Preserve original S CPU acceptance')
@@ -96,20 +99,21 @@ def main():
     revision=subprocess.check_output(['git','rev-parse',args.source_revision],cwd=ROOT,text=True).strip()
     require(subprocess.check_output(['git','rev-parse',capture['launch']['source_revision']+'^{commit}'],
             cwd=ROOT,text=True).strip()==revision,'Recorded source abbreviation does not resolve to the frozen full revision')
-    accepted=accept(capture,scope,revision);negative=[]
-    for case in ('running','missing_boundary','missing_parent','CUDA_claim','real_video_claim'):
+    accepted=accept(capture,scope,revision,args.host);negative=[]
+    for case in ('running','missing_boundary','missing_parent','wrong_host','CUDA_claim','real_video_claim'):
         bad=copy.deepcopy(capture)
         if case=='running':bad['container_state'].update(Status='running',Running=True)
         elif case=='missing_boundary':bad['result']['rows'][-1]['events'].pop()
         elif case=='missing_parent':bad['result']['rows'][-1]['parents'].pop()
+        elif case=='wrong_host':bad['result']['profile']='four_card' if args.host=='two_card' else 'two_card'
         elif case=='CUDA_claim':bad['result']['CUDA_initialized']=True
         elif case=='real_video_claim':bad['result']['real_generated_video']=True
         bad['result_sha256']=result_sha(bad['result'])
-        try:accept(bad,scope,revision)
+        try:accept(bad,scope,revision,args.host)
         except ValueError as error:negative.append(dict(case=case,rejected=True,reason=str(error)))
         else:raise AssertionError('S component acceptance admitted '+case)
-    value=dict(status='S_OWNER_FOUR_CARD_R2_CPU_COMPONENT_ACCEPTED_NOT_COMPLETE_S_COLLECTOR',
-        passed=True,host='four_card',dual_host_CPU_accepted=False,source_revision=revision,
+    value=dict(status='S_OWNER_'+args.host.upper()+'_R2_CPU_COMPONENT_ACCEPTED_NOT_COMPLETE_S_COLLECTOR',
+        passed=True,host=args.host,dual_host_CPU_accepted=False,source_revision=revision,
         source_revision_as_recorded=capture['launch']['source_revision'],
         critical_source_sha256={name:hashlib.sha256(subprocess.check_output(['git','show',revision+':'+name],cwd=ROOT)).hexdigest()
                                for name in CRITICAL},

@@ -17,9 +17,11 @@ CRITICAL=('src/wcomr/sq_s_collection_r1.py','src/wcomr/sq_s_owner_roundtrip_r1.p
     'tests/check_sq_s_collection_cpu_r1.py','scripts/check_cara_sq_s_collection_cpu_r1.py',SCOPE)
 
 
-def accept(capture,scope,revision,*,storage=False):
+def accept(capture,scope,revision,*,storage=False,host='four_card'):
+    require(host in ('two_card','four_card'),'Registered S CPU host required')
     state=capture['container_state'];launch=capture['launch'];result=capture['result']
     stage='cara-sq-s-storage-cpu-four-card-r2-20261029' if storage else STAGE
+    stage=stage.replace('four-card',host.replace('_','-'))
     require(capture['status']=='SQ_CPU_PREPARATION_CAPTURE' and state['Status']=='exited'
             and not any(state[k] for k in ('Running','Paused','Restarting','OOMKilled','Dead'))
             and state['ExitCode']==0 and not state['Error'],'Original S topology CPU container is not cleanly terminal')
@@ -39,7 +41,7 @@ def accept(capture,scope,revision,*,storage=False):
     status=('SQ_S_COLLECTION_STREAMING_CPU_PASS_NOT_REAL_MODEL_ACCEPTANCE' if storage
             else 'SQ_S_COLLECTION_CPU_TOPOLOGY_PASS_NOT_REAL_MODEL_OR_STORAGE_ACCEPTANCE')
     require(result['status']==status
-            and result['scope']==scope and result['profile']=='four_card'
+            and result['scope']==scope and result['profile']==host
             and result['fixture_status']=='PINNED_PIPELINE_CPU_FIXTURE_EXTERNAL_EXERCISE_COMPLETE',
             'Complete frozen S CPU topology required')
     require(all(result[k] is False for k in ('CUDA_initialized','actual_Cosmos_weights','real_generated_video',
@@ -97,7 +99,7 @@ def accept(capture,scope,revision,*,storage=False):
             ('CPU_wall_seconds','CPU_seconds','peak_RSS_KiB'))
             and result['CPU_wall_seconds']<=wall and result['CPU_seconds']<=2*wall
             and result['peak_RSS_KiB']*1024<=8*2**30,'S topology CPU resources exceed the registered boundary')
-    accepted=dict(host='four_card',complete_CPU_paths=16,CPU_fixture_moment_rows=216,
+    accepted=dict(host=host,complete_CPU_paths=16,CPU_fixture_moment_rows=216,
         extra_Dense_teacher_pairs=112,extra_C_readout_pairs=104,raw_CPU_callbacks=16,
         worker_wall_seconds=result['CPU_wall_seconds'],CPU_seconds=result['CPU_seconds'],
         peak_RSS_GiB=result['peak_RSS_KiB']/2**20,container_wall_seconds=wall,

@@ -1,14 +1,15 @@
 # Q1 控制入口与 S 父状态组件进度
 
-2026-10-28。**Q1 四卡 R3 的 45 项 GPU 隐藏 CPU 检查已接受；同版本两卡检查尚未启动。真实 CUDA 数值门、codec 科学结果和新的 GPU 执行均未发生。**
+2026-10-29 更新。**Q1 两端 R3 的各 45 项 GPU 隐藏 CPU 检查均已接受，固定同一源码。真实 CUDA 数值门、codec 科学结果和新的 GPU 执行均未发生。** [双端进度与后续准备](DUAL_HOST_PROGRESS_20261029.md)。
 
 ## Q1 当前证据
 
 - 固定生产源码为 `f3be7662175889c77e3719521fecb9c4d3be83af`；后续仓库编辑不重绑定该源包。唯一提交、恢复、运行/终态捕获、中央结算与释放后 CPU 分析入口已实现。
 - [四卡 R3 接受](../../../reports/cara_sq_q1_control_four_card_cpu_accepted_r3_20261028.json)：34 项核心和 11 项包装控制全部通过，零跳过；容器退出 0。进程 CPU 含子进程约 52.84 秒，worker 墙钟约 332.51 秒、峰值 RSS 0.552 GiB。它验证小张量/临时账本与实际 Linux 子进程，不验证真实 CUDA 原 C 输出或部署效果。
+- [两卡 R3 接受](../../../reports/cara_sq_q1_control_two_card_cpu_accepted_r3_20261029.json)：同一固定源码的 34+11 项、五种实际 Linux 子进程场景均通过，零跳过；00:52:47 容器退出 0。worker 墙钟 47.53 秒、进程 CPU 含子进程 30.00 秒、峰值 RSS 0.568 GiB。[双端组合接受](../../../reports/cara_sq_q1_control_dual_cpu_accepted_r3_20261029.json)核对全部 25 个关键源码 SHA 相同；原 C CUDA 门和真实账本结算仍为 false。
 - [R1 超时原件](../../../reports/cara_sq_q1_control_cpu_timeout_diagnostic_r1_20261028.json)保留：两卡 R1 的 45 项通过；四卡 R1 的后处理 CLI 超过测试脚本的 60 秒限制。生产报价原已绑定 300 秒，后续测试按该原上限验证，未增加 GPU 范围或预算。
 - [R2 绑定诊断](../../../reports/cara_sq_q1_control_r2_binding_diagnostic_20261028.json)保留：共享容器函数发生内存参数变化后，旧核心证据的整体复用被正确拒绝。R3 显式传入 16 GiB、只生成一组 memory-swap 参数，并在改变 GPU 模式前完成命令构造。
-- [现场资源观察](../../../reports/cara_sq_q1_control_r3_allocation_readonly_20261028.json)：两卡主线 A32 容器正在运行，占用 CPU 24/25、40 GiB 和一张 A6000；本对话未改变它。两卡 R3 CPU 阶段未创建，待其资源允许时验证同一冻结源码。四卡 R3 的完整原件见[启动](../../../reports/cara_sq_q1_control_four_card_cpu_launch_r3_20261028.json)、[终态](../../../reports/cara_sq_q1_control_four_card_cpu_terminal_r3_20261028.json)。瞬时资源观察不是 GPU 准入。
+- [前阶段资源观察](../../../reports/cara_sq_q1_control_r3_allocation_readonly_20261028.json)保留：当时两卡 A32 占用 CPU 24/25、40 GiB。本轮[新的 CPU 准备观察](../../../reports/cara_sq_two_card_cpu_admission_readonly_20261029_0051.json)确认两卡无运行容器、约 46 GiB 可用内存且 R3 stage 不存在，随后单次启动该 CPU stage；本对话没有改变主线原件或裁定其科学结果。两卡原件见[启动](../../../reports/cara_sq_q1_control_two_card_cpu_launch_r3_20261029.json)、[终态](../../../reports/cara_sq_q1_control_two_card_cpu_capture_r3_20261029.json)。瞬时资源观察不是 GPU 准入。
 - 四卡已[暂存独立 Q1 源包](../../../reports/cara_sq_q1_four_card_source_prepared_r1_20261028.json)，仅绑定该主机已接受的 CPU 证据，不冒称双端完成。[私有输出盘](../../../reports/cara_sq_q1_four_card_storage_prepared_r1_20261028.json)已准备：1 GiB SSD 输出和异盘 48 MiB 控制日志；[实际宿主 Python 命令探针](../../../reports/cara_sq_q1_four_card_native_probe_r1_20261028.json)通过，未执行 Docker/GPU 命令或改变设备模式。原件 SHA 核验仍待完成；四卡 B1 仍缺失，未启动跨机原件传输。
 
 新卡仍是[原完整范围](Q1_WHOLE_SCOPE_R1.json)：两个旧 FIT × 六位置，96 正式 C pair，加预热/预检/Dense-hidden 控制共 **111 pair / 222 heads**，新增 deep、父轨迹、视频均为 0。[原双端整卡报价](Q1_WHOLE_PREPARATION_R1.md)保持，A6000 预测 54.33 分钟/硬限 1.25 GPUh，Ada 预测 109.28 分钟/硬限 2 GPUh，均为含未实测 GPU 余量的规划值。
