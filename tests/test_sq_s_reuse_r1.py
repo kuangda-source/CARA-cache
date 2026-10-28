@@ -1,11 +1,22 @@
+import ast
 import copy
+import hashlib
+from pathlib import Path
 import unittest
 
 import torch
 
-from wcomr.policy_generator_r1.dev128_collection import tensor_digest
 from wcomr.sq_s_batch_r1 import tensor_signature
 from wcomr.sq_s_reuse_r1 import tensor_bridge, trajectory_bridge
+
+# Exercise the retained producer's actual digest function without importing
+# its unrelated generation/scoring modules into this data-only CPU audit.
+source = Path(__file__).resolve().parents[1]/'src/wcomr/policy_generator_r1/dev128_collection.py'
+function = next(n for n in ast.parse(source.read_text()).body
+                if isinstance(n, ast.FunctionDef) and n.name == 'tensor_digest')
+namespace = dict(hashlib=hashlib)
+exec(compile(ast.Module(body=[function], type_ignores=[]), str(source), 'exec'), namespace)
+tensor_digest = namespace['tensor_digest']
 
 
 class LegacyBridge(unittest.TestCase):

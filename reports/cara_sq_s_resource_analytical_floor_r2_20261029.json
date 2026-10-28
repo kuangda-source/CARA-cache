@@ -1,0 +1,51 @@
+{
+  "status": "S_CONDITION_INCLUSIVE_ANALYTICAL_FLOOR_AND_HASH_VISITS_NOT_MEASURED_PEAK_OR_QUOTE",
+  "evidence_sha256": {
+    "reports/cara_sq_two_card_cpu_terminal_20261028.json": "d3fb3c2cd64998724d218c683de12f1376206741d63cf28528be35978d2884de",
+    "reports/cara_sq_s_resource_analytical_floor_r1_20261029.json": "258aefc74b3dc505df8f44bb560f1326195962cda6cfb56eea0a9a55cbea985b",
+    "src/wcomr/sq_s_collection_r1.py": "a0b2b3e6a4e0f44e00a764030966027ebbb20e8d25db6f2188b48d02402dde69",
+    "src/wcomr/sq_s_storage_r1.py": "4b96cb8a7b8d1b2c88b4846df923350615cf8db0fa39c8e4796fd9a65402fad0",
+    "src/wcomr/sq_q1_readout_r1.py": "bd6ee4fde49e8a4e1e7838d1c7564c42460ed938a92681332a21e3d42c1e9119",
+    "src/wcomr/mid_coverage.py": "8e02d740b4ee794531c6263666bbed18348e32ba84c9b94b89f7c979a106fbf4",
+    "src/wcomr/partial_mlp_deployment_state.py": "c7501223a35e9276391586006602470d80a50de8ff4adcdc72aa241b3a7c6137"
+  },
+  "basis": "Accepted old B1 actual field geometry; prospective S assumes same model/resolution/condition shapes",
+  "tensor_allocation_bytes": 0,
+  "per_raw_tensor_components_bytes": {
+    "current": 511180800,
+    "pair_inputs_including_conditions": 239693838,
+    "teacher": 15925248,
+    "reference_C": 15925248,
+    "teacher_features": 256376832
+  },
+  "conditions_bytes_per_raw": 223768582,
+  "raw_state_known_tensor_bytes_lower_bound": 1039101966,
+  "raw8_plus_anchor24_known_tensor_bytes_lower_bound": 14428110960,
+  "raw8_plus_anchor24_known_tensor_GiB_lower_bound": 13.437225446105003,
+  "logical_copy_guard_bytes_lower_bound": 18225004656,
+  "logical_copy_guard_GiB_lower_bound": 16.973358258605003,
+  "physical_GPU_or_RAM_peak_measured": false,
+  "hash_visits": {
+    "successful_target_rows": 108,
+    "calls_per_input_or_source": 3,
+    "source_feature_references_per_call": 12,
+    "source_unique_feature_tensors_per_call": 8,
+    "source_tensor_bytes_per_call": 1528823808,
+    "source_tensor_visits_bytes": 495338913792,
+    "paired_input_tensor_visits_bytes": 77660803512,
+    "combined_tensor_visits_bytes": 572999717304,
+    "combined_tensor_visits_GiB": 533.6475719735026,
+    "actual_device_transfer_or_hash_time_measured": false,
+    "interpretation": "Logical byte visits without alias dedup; GPU-resident entries also incur CPU transfers"
+  },
+  "exclusions": [
+    "Serialization and non-tensor metadata; videos and complete OFF/ON witnesses",
+    "Remaining native WC fields, scheduler, buffers and owner state",
+    "Snapshot clones/restores, finite scans and all other state fingerprints",
+    "Model loading, parent/teacher/head execution and lifecycle/I-O time"
+  ],
+  "consequence": "Q1/tiny caps cannot admit S; include hash/copy work in complete host-specific quote before GPU",
+  "actual_new_S_labels": 0,
+  "GPU_submissions": 0,
+  "ledger_writes": 0
+}
