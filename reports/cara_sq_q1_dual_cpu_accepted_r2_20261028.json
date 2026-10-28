@@ -1,0 +1,133 @@
+{
+  "status": "Q1_AFFECTED_CPU_AND_SOURCE_CONDITION_RESTORE_ACCEPTED_SCOPED",
+  "hosts": {
+    "two_card": {
+      "source_revision": "f92ac0621fde2e68b08ef58dd96ba53decf2bc1c",
+      "container": "cara-sq-q1-cpu-two-card-r2-20261028-cpu",
+      "result_sha256": "e4dfe6f64d928691af2bed7920b2a40a60db15879f24cbd2c770d55dbb092f87",
+      "container_wall_seconds": 121.784917,
+      "worker_wall_seconds": 113.93243656400591,
+      "actual_process_CPU_seconds": 95.525167746,
+      "worker_peak_RSS_GiB": 0.8148918151855469,
+      "pinned_condition_definition": true,
+      "actual_runtime_condition_import": false,
+      "actual_B1_condition_states": 12,
+      "head_metadata": {
+        "checkpoint": "/data20t/gaokuangda/worldcache_workspace/cache/huggingface/hub/models--nvidia--Cosmos-Predict2.5-2B/snapshots/15a82a2ec231bc318692aa0456a36537c806e7d4/base/post-trained/81edfebe-bd6a-4039-8c1d-737df1a790bf_ema_bf16.pt",
+        "checkpoint_sha256": "565bbb2c9645737327983f4461e4d32627bba465b0a8dc26447edea144e1ff47",
+        "checkpoint_bytes": 4118575006,
+        "read_and_hash_wall_seconds": 24.25418546423316,
+        "tensors": {
+          "net.final_layer.linear.weight": {
+            "shape": [
+              64,
+              2048
+            ],
+            "dtype": "torch.bfloat16",
+            "bytes": 262144,
+            "sha256": "7c266057e634bfffa481fd48ba345b6ee212108ccb8f460b5cf57504232e0004"
+          },
+          "net.final_layer.adaln_modulation.1.weight": {
+            "shape": [
+              256,
+              2048
+            ],
+            "dtype": "torch.bfloat16",
+            "bytes": 1048576,
+            "sha256": "aeff7bbfebf26969c1f1de535a02798d6237ea36cc27a97a3646e5f7167ca46c"
+          },
+          "net.final_layer.adaln_modulation.2.weight": {
+            "shape": [
+              4096,
+              256
+            ],
+            "dtype": "torch.bfloat16",
+            "bytes": 2097152,
+            "sha256": "5fabf73df79e695ceb1a9f55920b112759d98d5171c424907328029f3e29e0b7"
+          }
+        },
+        "full_model_constructed": false,
+        "head_executed": false
+      },
+      "BF16_CPU_grid_sample_supported": true,
+      "actual_C_replay": false
+    },
+    "four_card": {
+      "source_revision": "f92ac0621fde2e68b08ef58dd96ba53decf2bc1c",
+      "container": "cara-sq-q1-cpu-four-card-r2-20261028-cpu",
+      "result_sha256": "5d7b636acf3cb9cad5f77fcb8459991cb1a3d25e33a111cb9e9bac73d6a5d55a",
+      "container_wall_seconds": 309.851358,
+      "worker_wall_seconds": 279.6117415074259,
+      "actual_process_CPU_seconds": 47.407953063,
+      "worker_peak_RSS_GiB": 0.8101654052734375,
+      "pinned_condition_definition": true,
+      "actual_runtime_condition_import": false,
+      "actual_B1_condition_states": 0,
+      "head_metadata": {
+        "checkpoint": "/data20t/gaokuangda/worldcache_workspace/cache/huggingface/hub/models--nvidia--Cosmos-Predict2.5-2B/snapshots/15a82a2ec231bc318692aa0456a36537c806e7d4/base/post-trained/81edfebe-bd6a-4039-8c1d-737df1a790bf_ema_bf16.pt",
+        "checkpoint_sha256": "565bbb2c9645737327983f4461e4d32627bba465b0a8dc26447edea144e1ff47",
+        "checkpoint_bytes": 4118575006,
+        "read_and_hash_wall_seconds": 169.4740217011422,
+        "tensors": {
+          "net.final_layer.linear.weight": {
+            "shape": [
+              64,
+              2048
+            ],
+            "dtype": "torch.bfloat16",
+            "bytes": 262144,
+            "sha256": "7c266057e634bfffa481fd48ba345b6ee212108ccb8f460b5cf57504232e0004"
+          },
+          "net.final_layer.adaln_modulation.1.weight": {
+            "shape": [
+              256,
+              2048
+            ],
+            "dtype": "torch.bfloat16",
+            "bytes": 1048576,
+            "sha256": "aeff7bbfebf26969c1f1de535a02798d6237ea36cc27a97a3646e5f7167ca46c"
+          },
+          "net.final_layer.adaln_modulation.2.weight": {
+            "shape": [
+              4096,
+              256
+            ],
+            "dtype": "torch.bfloat16",
+            "bytes": 2097152,
+            "sha256": "5fabf73df79e695ceb1a9f55920b112759d98d5171c424907328029f3e29e0b7"
+          }
+        },
+        "full_model_constructed": false,
+        "head_executed": false
+      },
+      "BF16_CPU_grid_sample_supported": true,
+      "actual_C_replay": false
+    }
+  },
+  "actual_process_CPUh_R2": 0.03970364466916667,
+  "allocated_vCPUh_upper_bound_R2": 0.23979793055555557,
+  "allocated_vCPUh_upper_bound_R1_failures": 0.1796418038888889,
+  "R1_actual_process_CPUh": null,
+  "R1_failures_preserved": true,
+  "R1_original_stages_unchanged": true,
+  "new_GPU_submissions": 0,
+  "new_GPUh": 0,
+  "budget_reserved_GPUh": 0,
+  "ledger_writes": 0,
+  "actual_model_C_replay": false,
+  "GPU_ready": false,
+  "limits": [
+    "Full CUDA-linked condition module import remains unvalidated here",
+    "Four-card B1 tensor data is absent; no bulk port performed",
+    "Head weights identified, not executed; no compression quality/deployment result",
+    "Local editing, SSH/staging and Git CPU were not fully metered"
+  ],
+  "evidence_sha256": {
+    "reports/cara_sq_q1_two_card_cpu_capture1_r2_20261028.json": "836ffd803e793206a22ac7822674c4de9aed94d01c0bedef658b7ee41b4c9034",
+    "reports/cara_sq_q1_four_card_cpu_capture2_r2_20261028.json": "c06a47d337802dfd25ce92e37224d01e53dfc230c999516090ef98323ce6c77f",
+    "reports/cara_sq_q1_two_card_cpu_capture1_20261028.json": "5037ba9e22442ca5ab34337c79fbfbba9143873643feb973778485832ac404fe",
+    "reports/cara_sq_q1_four_card_cpu_capture2_20261028.json": "e4b85afae4424a964e489d79717e058e2dda84f3fc556ca1daa620a4db957966",
+    "reports/cara_wc73_asset_recheck_20261027.json": "05d4b404423c3914317202f39279ff05b6046ef9fe7dd6d79ad473f4ded682bb",
+    "scripts/audit_cara_sq_q1_cpu_r1.py": "52b1944b58aec0116602e28adb1b21cccd27ca40a34c7c083d6f676c7dda9ea3"
+  }
+}
