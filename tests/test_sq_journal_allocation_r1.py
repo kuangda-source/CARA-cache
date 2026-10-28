@@ -15,7 +15,7 @@ from wcomr.gpu_budget_pool_v2 import atomic_json
 from wcomr.history104_storage_r2 import StorageGuard
 from wcomr.sq_control_storage_r1 import storage_for
 from wcomr.sq_gpu_allocation_r1 import run_allocation
-from wcomr.sq_q1_spec_r1 import RUN,PROFILE
+from wcomr.sq_q1_spec_r1 import RUN,PROFILE,QUOTES
 
 ROOT=Path(__file__).resolve().parents[1]
 
@@ -32,6 +32,8 @@ class JournalAllocationTests(unittest.TestCase):
         atomic_json(stage/'registration.json',dict(source_revision='CPU_SYNTHETIC_NO_GPU'))
         target=stage/PROFILE;target.parent.mkdir(parents=True,exist_ok=True)
         atomic_json(target,json.loads((ROOT/PROFILE).read_text()))
+        for name in QUOTES.values():
+            atomic_json(stage/name,json.loads((ROOT/name).read_text()))
         authority=dict(direct_user_authorization=True,run_id=RUN,host='two_card',
             gpu_uuid='GPU-CPU-SYNTHETIC-ONLY',launch_id='CPU_NO_HUMAN_GPU_AUTHORITY',
             source_revision='CPU_SYNTHETIC_NO_GPU',scope_sha256='a'*64,whole_GPUh=.1)

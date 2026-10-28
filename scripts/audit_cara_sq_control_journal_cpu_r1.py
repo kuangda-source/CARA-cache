@@ -19,7 +19,7 @@ def source(revision):
 
 def accept(capture,host,revision,files):
     state,launch,result=capture['container_state'],capture['launch'],capture['result']
-    name='cara-sq-control-journal-cpu-'+host.replace('_','-')+'-r1-20261029'
+    name='cara-sq-control-journal-cpu-'+host.replace('_','-')+'-r2-20261029'
     require(state['Status']=='exited' and state['ExitCode']==0 and not state['Error']
         and not any(state[k] for k in ('Running','Paused','Restarting','OOMKilled','Dead'))
         and capture['original_CLI_live'] is False,'Original journal CPU handles must be terminal')
