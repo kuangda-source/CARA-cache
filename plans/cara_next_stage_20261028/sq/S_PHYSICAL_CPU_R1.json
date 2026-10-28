@@ -1,0 +1,65 @@
+{
+  "schema": "SQ_S_PHYSICAL_MATRIX_CPU_R1",
+  "scope": "Two complete CPU flow matrices per host; explicit tiny sampler/decoder stand-ins and one real synthetic-MP4 decode through the production adapter",
+  "hosts": {
+    "two_card": {
+      "physical_scope_ref": "plans/cara_next_stage_20261028/sq/S_PHYSICAL_TWO_CARD_R1.json",
+      "counts_per_flow": {
+        "new_paths": 9,
+        "reused_OFF_paths": 1,
+        "logical_paths": 10,
+        "warm_paths": 2,
+        "new_ON_paths": 4,
+        "new_OFF_paths": 3,
+        "parent_Dense_pairs": 195,
+        "parent_C_pairs": 129,
+        "extra_Dense_teacher_pairs": 56,
+        "extra_C_shadow_pairs": 52,
+        "total_pairs": 432,
+        "branch_readouts": 864,
+        "deep_block_calls": 502,
+        "moment_rows": 108,
+        "raw_states": 8,
+        "unique_anchors": 24
+      }
+    },
+    "four_card": {
+      "physical_scope_ref": "plans/cara_next_stage_20261028/sq/S_PHYSICAL_FOUR_CARD_R1.json",
+      "counts_per_flow": {
+        "new_paths": 10,
+        "reused_OFF_paths": 0,
+        "logical_paths": 10,
+        "warm_paths": 2,
+        "new_ON_paths": 4,
+        "new_OFF_paths": 4,
+        "parent_Dense_pairs": 220,
+        "parent_C_pairs": 140,
+        "extra_Dense_teacher_pairs": 56,
+        "extra_C_shadow_pairs": 52,
+        "total_pairs": 468,
+        "branch_readouts": 936,
+        "deep_block_calls": 552,
+        "moment_rows": 108,
+        "raw_states": 8,
+        "unique_anchors": 24
+      }
+    }
+  },
+  "flows": [
+    false,
+    true
+  ],
+  "unit_controls": 9,
+  "tiny_tensor_reloads": 80,
+  "streamed_file_reloads_per_host": 280,
+  "retained_CPU_fixture_ref": "reports/cara_sq_s_retained_CPU_OFF_fixture_r1_20261029.json",
+  "actual_synthetic_full93_MP4_decode_controls_per_host": 1,
+  "logical_OFF_ON_pairs_per_flow": 4,
+  "real_Cosmos_weights": false,
+  "actual_S_labels": 0,
+  "real_OFF_ON_equivalence_accepted": false,
+  "complete_S_GPU_card_accepted": false,
+  "GPU_authorized": false,
+  "GPU_submissions": 0,
+  "ledger_writes": 0
+}

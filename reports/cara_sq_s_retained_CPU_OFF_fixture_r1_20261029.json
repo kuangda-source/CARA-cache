@@ -1,0 +1,1020 @@
+{
+  "status": "RETAINED_TINY_CPU_FIXTURE_METADATA_ONLY",
+  "base": {
+    "status": "SQ_GPU_HIDDEN_CPU_PREPARATION_LAUNCHED",
+    "stage": "/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-batch-cpu-two-card-r1-20261029",
+    "container": "cara-sq-s-batch-cpu-two-card-r1-20261029-cpu",
+    "source_revision": "6035fe2f3716b3745accf6476e7f758a7bd07325",
+    "registration_sha256": "bbd743a9bfe5c486d0772c7fe441cead99963a62c1545a0261388a025d4a371a",
+    "identity": {
+      "pid": 828295,
+      "state": "R",
+      "start_ticks": 650909074,
+      "command": "docker run --cpuset-cpus 4,5 --memory-swap 8g --ulimit fsize=67108864:67108864 -v /data20t/gaokuangda/worldcache_workspace/outputs/cara-ig-b1-r2-20261027:/data20t/gaokuangda/worldcache_workspace/outputs/cara-ig-b1-r2-20261027:ro --read-only --network none --pid host --name cara-sq-s-batch-cpu-two-card-r1-20261029-cpu --label wcomr.manifest=bbd743a9bfe5c486d0772c7fe441cead99963a62c1545a0261388a025d4a371a --user 1004:998 --cpus 2 --memory 8g --pids-limit 512 --tmpfs /tmp:rw,size=2g -v /data20t/gaokuangda/worldcache_workspace:/data20t/gaokuangda/worldcache_workspace:ro -v /data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-batch-cpu-two-card-r1-20261029:/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-batch-cpu-two-card-r1-20261029:rw -w /data20t/gaokuangda/worldcache_workspace/runtime -e CUDA_CACHE_PATH=/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-batch-cpu-two-card-r1-20261029/CPU-caches/cuda -e CUDA_HOME=/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cuda_nvrtc -e CUDA_PATH=/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cuda_nvrtc -e CUDA_VISIBLE_DEVICES= -e HF_HOME=/data20t/gaokuangda/worldcache_workspace/cache/huggingface -e HF_HUB_CACHE=/data20t/gaokuangda/worldcache_workspace/cache/huggingface/hub -e HF_HUB_OFFLINE=1 -e LD_LIBRARY_PATH=/data20t/gaokuangda/worldcache_workspace/system-libs-r1/usr/lib/x86_64-linux-gnu/blas:/data20t/gaokuangda/worldcache_workspace/system-libs-r1/usr/lib/x86_64-linux-gnu/lapack:/data20t/gaokuangda/worldcache_workspace/system-libs-r1/usr/lib/x86_64-linux-gnu/pulseaudio:/data20t/gaokuangda/worldcache_workspace/system-libs-r1/usr/lib/x86_64-linux-gnu:/data20t/gaokuangda/worldcache_workspace/system-libs-r1/lib/x86_64-linux-gnu:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cuda_nvrtc/lib:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cuda_runtime/lib:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cudnn/lib:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/nvjitlink/lib:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cublas/lib:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/torch/lib -e LOGNAME=gaokuangda -e NLTK_DATA=/data20t/gaokuangda/worldcache_workspace/runtime-resources/nltk-guardrail-d6d4bfa8-r1 -e NVIDIA_VISIBLE_DEVICES=void -e OMP_NUM_THREADS=2 -e OPENBLAS_NUM_THREADS=2 -e PATH=/data20t/gaokuangda/worldcache_workspace/system-libs-r1/usr/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin -e PYTHONDONTWRITEBYTECODE=1 -e PYTHONPATH=/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-batch-cpu-two-card-r1-20261029/scripts:/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-batch-cpu-two-card-r1-20261029/src -e TOKENIZERS_PARALLELISM=false -e TORCHINDUCTOR_CACHE_DIR=/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-batch-cpu-two-card-r1-20261029/CPU-caches/torchinductor -e TORCH_EXTENSIONS_DIR=/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-batch-cpu-two-card-r1-20261029/CPU-caches/extensions -e TORCH_HOME=/data20t/gaokuangda/worldcache_workspace/cache/torch -e TRANSFORMERS_OFFLINE=1 -e TRITON_CACHE_DIR=/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-batch-cpu-two-card-r1-20261029/CPU-caches/triton -e USER=gaokuangda -e WC_SCOUT_KIND=CAL12 -e XDG_CACHE_HOME=/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-batch-cpu-two-card-r1-20261029/CPU-caches/xdg --entrypoint /usr/bin/timeout sha256:1e81ac62ee68ca1a6ef655515096a1d84579b01aa4986810c9b18d4f6c4c552d --signal=TERM --kill-after=10s 1800 /usr/bin/ionice -c 3 /data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/bin/python /data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-batch-cpu-two-card-r1-20261029/scripts/check_cara_sq_s_batch_cpu_r1.py --assets /data20t/gaokuangda/worldcache_workspace/outputs/cara-ig-b1-r2-20261027/assets --manifest-sha256 5487f8db32d45a5d0f3304333bf362d9d6ec46fb3181c735d7267b78a6e398fa --profile two_card --scope plans/cara_next_stage_20261028/sq/S_BATCH_CPU_R1.json --output /data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-batch-cpu-two-card-r1-20261029/analysis.json "
+    },
+    "started_unix": 1793214187.229859,
+    "resource_limits": {
+      "CPUs": 2,
+      "cpuset": "4,5",
+      "RAM_bytes": 8589934592,
+      "wall_seconds": 1800,
+      "allocated_vCPUh_max": 1.0,
+      "output_bytes_max": 67108864,
+      "assets_readonly": true,
+      "network": "none",
+      "GPU": "hidden"
+    },
+    "new_GPU_submissions": 0,
+    "ledger_writes": 0
+  },
+  "rows": [
+    {
+      "flow": false,
+      "path": "/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-batch-cpu-two-card-r1-20261029/S-batch-CPU-artifacts/batch-flow-False/batch.json",
+      "bytes": 432231,
+      "sha256": "ad75e4bb3a5e6284ba8bbe5b175c856f91d86f6a1bcbd31c1f79a870cb5d22fc",
+      "identity": [
+        2065,
+        12972619203,
+        432231,
+        1793214289638984165,
+        1793214289682984280
+      ],
+      "OFF": {
+        "slot": {
+          "id": "p0-Shared25-C-OFF",
+          "prompt": "AV28_CPU",
+          "parent": "Shared25-C",
+          "purpose": "CONTROL",
+          "enabled": false
+        },
+        "status": "COMPLETE",
+        "result": {
+          "status": "COMPLETE",
+          "CPU_fixture": true,
+          "policy_fingerprint": "e93760178c1f16675b20a021738f658a5a50cb735dd60c0a84dd0a6de0569177",
+          "guided": [
+            {
+              "shape": [
+                1,
+                8,
+                2,
+                8,
+                8
+              ],
+              "dtype": "torch.float32",
+              "sha256": "4a01316930f6aada5f3fa4bb51e1e74b16d14b716666ae9891f840abad9b8142"
+            },
+            {
+              "shape": [
+                1,
+                8,
+                2,
+                8,
+                8
+              ],
+              "dtype": "torch.float32",
+              "sha256": "56e415773c6c39a9033ae891ced1350901fcd85cac3545231929c04e4ac7e0e2"
+            },
+            {
+              "shape": [
+                1,
+                8,
+                2,
+                8,
+                8
+              ],
+              "dtype": "torch.float32",
+              "sha256": "3ea4bb4836c6c44b4b4fd5159aa43e7595bc8992a3954d9c6d77d9a5ede6f834"
+            },
+            {
+              "shape": [
+                1,
+                8,
+                2,
+                8,
+                8
+              ],
+              "dtype": "torch.float32",
+              "sha256": "9b6d6fce9ebd3045165eabdf64fb6981244391cd40767fce049ce6ebc2640d5f"
+            },
+            {
+              "shape": [
+                1,
+                8,
+                2,
+                8,
+                8
+              ],
+              "dtype": "torch.float32",
+              "sha256": "22fffd6d90c8278be57d85100253d08b8c4f3e6dee00f9d46c074a8162818ebb"
+            },
+            {
+              "shape": [
+                1,
+                8,
+                2,
+                8,
+                8
+              ],
+              "dtype": "torch.float32",
+              "sha256": "891d7fc70061ebb9664f23bfb86c62e79bea3b505e9c860c8ac27e459aa481a0"
+            },
+            {
+              "shape": [
+                1,
+                8,
+                2,
+                8,
+                8
+              ],
+              "dtype": "torch.float32",
+              "sha256": "1e0792a520643a48d4868c87f24a1376eb6cea77cbc58ffd15e99c2cd40479a1"
+            },
+            {
+              "shape": [
+                1,
+                8,
+                2,
+                8,
+                8
+              ],
+              "dtype": "torch.float32",
+              "sha256": "a72a0609ea251e64bedc718f7c6ba40f1de0ee40fca04dbdc9d9bfc25c21ba99"
+            },
+            {
+              "shape": [
+                1,
+                8,
+                2,
+                8,
+                8
+              ],
+              "dtype": "torch.float32",
+              "sha256": "9bb4fa7850f16cb3b4eb29b64a20dd877428e98af83e7ad28ab5730ab6e1a695"
+            },
+            {
+              "shape": [
+                1,
+                8,
+                2,
+                8,
+                8
+              ],
+              "dtype": "torch.float32",
+              "sha256": "d06a37afb716005a482e8562cd1b5bca5228cb2fa2c3d06114c578d9c44e73dc"
+            },
+            {
+              "shape": [
+                1,
+                8,
+                2,
+                8,
+                8
+              ],
+              "dtype": "torch.float32",
+              "sha256": "20a2aa70f0ba50ebab41a054942490998ac04dc5a8550f7fea85293542d5b44e"
+            },
+            {
+              "shape": [
+                1,
+                8,
+                2,
+                8,
+                8
+              ],
+              "dtype": "torch.float32",
+              "sha256": "8618b3484e2d705d4fdc5d18a08854edd112e65487698b484158f854021e89e2"
+            },
+            {
+              "shape": [
+                1,
+                8,
+                2,
+                8,
+                8
+              ],
+              "dtype": "torch.float32",
+              "sha256": "f484273732f7184dc70f8c9376832d9e101bfa4e96432cf45c5c8a79ae00545e"
+            },
+            {
+              "shape": [
+                1,
+                8,
+                2,
+                8,
+                8
+              ],
+              "dtype": "torch.float32",
+              "sha256": "3d6db8117d0d1f0d328eec7ebed8017bd94398c51df28559a20b1808b35efca7"
+            },
+            {
+              "shape": [
+                1,
+                8,
+                2,
+                8,
+                8
+              ],
+              "dtype": "torch.float32",
+              "sha256": "4a23b8a93c88c1f74b4347ede3411d3e187f37268fbf81c6ee4c4049f5846c12"
+            },
+            {
+              "shape": [
+                1,
+                8,
+                2,
+                8,
+                8
+              ],
+              "dtype": "torch.float32",
+              "sha256": "fe35651cbc26d0990d8a1d5c2eb6472a3fce255991e45360690c889318f3e700"
+            },
+            {
+              "shape": [
+                1,
+                8,
+                2,
+                8,
+                8
+              ],
+              "dtype": "torch.float32",
+              "sha256": "b1f72beae7d20f0bafeb42bb3960e2cd285159626fc742c6175c8c4701658524"
+            },
+            {
+              "shape": [
+                1,
+                8,
+                2,
+                8,
+                8
+              ],
+              "dtype": "torch.float32",
+              "sha256": "9823d5124f088c21c4067094de9980e5e827932a5fb6c6ec7677b23d12afcad2"
+            },
+            {
+              "shape": [
+                1,
+                8,
+                2,
+                8,
+                8
+              ],
+              "dtype": "torch.float32",
+              "sha256": "7e30af905997c07b6e03443ff5dfd0f576b9c5ae2334a15bbebb6f8bd79acb3d"
+            },
+            {
+              "shape": [
+                1,
+                8,
+                2,
+                8,
+                8
+              ],
+              "dtype": "torch.float32",
+              "sha256": "f366cd5ee423da18a878fde43e32a91e3f911aafa03d99152d6e9a2a15f6e570"
+            },
+            {
+              "shape": [
+                1,
+                8,
+                2,
+                8,
+                8
+              ],
+              "dtype": "torch.float32",
+              "sha256": "677f9d253bbaced45935324621c638c69fa219869e76b5335bdc8bcc80d09031"
+            },
+            {
+              "shape": [
+                1,
+                8,
+                2,
+                8,
+                8
+              ],
+              "dtype": "torch.float32",
+              "sha256": "b71d51227c431c86cab1bdcce8d54c5e30cef5d0554f54279bdd956d4a6f7b3f"
+            },
+            {
+              "shape": [
+                1,
+                8,
+                2,
+                8,
+                8
+              ],
+              "dtype": "torch.float32",
+              "sha256": "1552b7299aa00f5618ca30affde40a52524e920d2aa567bccf3d8c06f3944fa6"
+            },
+            {
+              "shape": [
+                1,
+                8,
+                2,
+                8,
+                8
+              ],
+              "dtype": "torch.float32",
+              "sha256": "6ef6cf401ade484d2578b8defb9d3fa26e1cb94d1d3b3d2aa93526622bd6a7b8"
+            },
+            {
+              "shape": [
+                1,
+                8,
+                2,
+                8,
+                8
+              ],
+              "dtype": "torch.float32",
+              "sha256": "9ff03de5e44b29acebefb36e61580466783316c20cf337257dbe543b181fb022"
+            },
+            {
+              "shape": [
+                1,
+                8,
+                2,
+                8,
+                8
+              ],
+              "dtype": "torch.float32",
+              "sha256": "b620e1229d0166063ce8b25eb121820754188d921627f11b98fc79eb0f4ee026"
+            },
+            {
+              "shape": [
+                1,
+                8,
+                2,
+                8,
+                8
+              ],
+              "dtype": "torch.float32",
+              "sha256": "3415bff124a80899c61b12e8979efbdd552d225d3111c2efeb71f77be69b796f"
+            },
+            {
+              "shape": [
+                1,
+                8,
+                2,
+                8,
+                8
+              ],
+              "dtype": "torch.float32",
+              "sha256": "80e58e15b405ab859b604ac2d4b092de615e3d0b7bd3cf87d18a5c1d6d2ac387"
+            },
+            {
+              "shape": [
+                1,
+                8,
+                2,
+                8,
+                8
+              ],
+              "dtype": "torch.float32",
+              "sha256": "f6ef24100d9d8973be4aaea773db97da9f3b8155d83d0fe87b924695d7789994"
+            },
+            {
+              "shape": [
+                1,
+                8,
+                2,
+                8,
+                8
+              ],
+              "dtype": "torch.float32",
+              "sha256": "ceda42fb2a97ca5b28f7c877ed02d2ab321a1692783516e27a1ba7417ab9fb0d"
+            },
+            {
+              "shape": [
+                1,
+                8,
+                2,
+                8,
+                8
+              ],
+              "dtype": "torch.float32",
+              "sha256": "e9d9981f557d83021bf5f92db96d37ca9172a630c031c0a9de6e0f5800bfb9e3"
+            },
+            {
+              "shape": [
+                1,
+                8,
+                2,
+                8,
+                8
+              ],
+              "dtype": "torch.float32",
+              "sha256": "203e263d2b14475d76dbbc73fd6ae16ead16486a39e98b774fbef05606965aec"
+            },
+            {
+              "shape": [
+                1,
+                8,
+                2,
+                8,
+                8
+              ],
+              "dtype": "torch.float32",
+              "sha256": "261448f6aab06aa967c113eefd82e44943aaad157a02dc061cb2de5c26bdcf3e"
+            },
+            {
+              "shape": [
+                1,
+                8,
+                2,
+                8,
+                8
+              ],
+              "dtype": "torch.float32",
+              "sha256": "00ce31752cc56283c1bbf9a3a6c93ebd55a277fd6eaec8782f0ccdac5b3c97df"
+            },
+            {
+              "shape": [
+                1,
+                8,
+                2,
+                8,
+                8
+              ],
+              "dtype": "torch.float32",
+              "sha256": "c986c24874e33f4c5b71af751d2a534fcb67c12e04d36e2017ddad1b5ec1fdee"
+            },
+            {
+              "shape": [
+                1,
+                8,
+                2,
+                8,
+                8
+              ],
+              "dtype": "torch.float32",
+              "sha256": "ddcb2c08ff8147126813730707099b9c13c9dbad1f01aa613aab3944c40c2e11"
+            }
+          ],
+          "final_latent": {
+            "shape": [
+              1,
+              8,
+              2,
+              8,
+              8
+            ],
+            "dtype": "torch.float32",
+            "sha256": "b263506dfda98dc18d48b82f216b8a6d37c0609e33dce55157ea92cdd835b91b"
+          },
+          "RGB": {
+            "shape": [
+              93,
+              16,
+              16,
+              3
+            ],
+            "dtype": "uint8",
+            "sha256": "edb4649d91a401ff6ed9455b80d87838f128adff1ec1480d9ddf8b09e692f4ed"
+          },
+          "semantic_actions": [
+            "D",
+            "D",
+            "D",
+            "D",
+            "D",
+            "D",
+            "D",
+            "D",
+            "D",
+            "D",
+            "D",
+            "D",
+            "D",
+            "D",
+            "D",
+            "D",
+            "D",
+            "D",
+            "D",
+            "D",
+            "D",
+            "C",
+            "C",
+            "D",
+            "C",
+            "C",
+            "D",
+            "C",
+            "C",
+            "D",
+            "C",
+            "C",
+            "C",
+            "C",
+            "C",
+            "D"
+          ],
+          "S_rows": [],
+          "encoded_video": {
+            "path": "/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-batch-cpu-two-card-r1-20261029/S-batch-CPU-artifacts/batch-flow-False/paths/p0-Shared25-C-OFF/AV28_CPU.mp4",
+            "bytes": 221,
+            "sha256": "f722e4e97b681f6bb0228ae91a5151a3724543ebe664bc775406af65689fdb48"
+          },
+          "solver_steps": 36,
+          "diagnostic_only_no_clean_clock": true
+        }
+      }
+    },
+    {
+      "flow": true,
+      "path": "/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-batch-cpu-two-card-r1-20261029/S-batch-CPU-artifacts/batch-flow-True/batch.json",
+      "bytes": 431461,
+      "sha256": "a1db564852d4807c3f4e7aa0705c24eeff57d2e70716dd361b500c48f01d1b88",
+      "identity": [
+        2065,
+        10758072872,
+        431461,
+        1793214349983143029,
+        1793214350039143179
+      ],
+      "OFF": {
+        "slot": {
+          "id": "p0-Shared25-C-OFF",
+          "prompt": "AV28_CPU",
+          "parent": "Shared25-C",
+          "purpose": "CONTROL",
+          "enabled": false
+        },
+        "status": "COMPLETE",
+        "result": {
+          "status": "COMPLETE",
+          "CPU_fixture": true,
+          "policy_fingerprint": "e93760178c1f16675b20a021738f658a5a50cb735dd60c0a84dd0a6de0569177",
+          "guided": [
+            {
+              "shape": [
+                1,
+                8,
+                2,
+                8,
+                8
+              ],
+              "dtype": "torch.float32",
+              "sha256": "9b06f7536badaf7d2bf72e04f42d5fac37c2e1495206b5a57edae934c57f06de"
+            },
+            {
+              "shape": [
+                1,
+                8,
+                2,
+                8,
+                8
+              ],
+              "dtype": "torch.float32",
+              "sha256": "e4fd7bea06864d795d217d1d2bc1ced9b09b181e45ad62eb615eaaead3cde1ad"
+            },
+            {
+              "shape": [
+                1,
+                8,
+                2,
+                8,
+                8
+              ],
+              "dtype": "torch.float32",
+              "sha256": "a891419f4064fcff4e39dbaa326b684e9bb8db9adcacfbcda580f87eda3adcac"
+            },
+            {
+              "shape": [
+                1,
+                8,
+                2,
+                8,
+                8
+              ],
+              "dtype": "torch.float32",
+              "sha256": "9632d7bc912a31fe8ff80b5239d62845c8f16b7faa35c4bf5e2dbd6d01032218"
+            },
+            {
+              "shape": [
+                1,
+                8,
+                2,
+                8,
+                8
+              ],
+              "dtype": "torch.float32",
+              "sha256": "4d265116a182c03e5bf83a2341132d3d696d93df82c72d666b0b20b143e4b82d"
+            },
+            {
+              "shape": [
+                1,
+                8,
+                2,
+                8,
+                8
+              ],
+              "dtype": "torch.float32",
+              "sha256": "1e87fbc39c95e0796d68ba46bb892fef1b67c785bb66b7b03a6476e0678a6d3e"
+            },
+            {
+              "shape": [
+                1,
+                8,
+                2,
+                8,
+                8
+              ],
+              "dtype": "torch.float32",
+              "sha256": "e29359b201590e486c949b451aa64647d43993c2e53666411e8248d84001cd7f"
+            },
+            {
+              "shape": [
+                1,
+                8,
+                2,
+                8,
+                8
+              ],
+              "dtype": "torch.float32",
+              "sha256": "bf85eae8071ee2b59575c41f08f25bee8f572ed55a97ee3e8748cff1c43e270f"
+            },
+            {
+              "shape": [
+                1,
+                8,
+                2,
+                8,
+                8
+              ],
+              "dtype": "torch.float32",
+              "sha256": "70a0e2df7039015b49a4e674b6546545a05640ff8af865a77a9ccd110a29ff96"
+            },
+            {
+              "shape": [
+                1,
+                8,
+                2,
+                8,
+                8
+              ],
+              "dtype": "torch.float32",
+              "sha256": "0676a9dc1e8e71a5724d252340275acd2fae4ca23c26f6d1ef3933b42b575936"
+            },
+            {
+              "shape": [
+                1,
+                8,
+                2,
+                8,
+                8
+              ],
+              "dtype": "torch.float32",
+              "sha256": "51855f2373672d0f7c3d0d1e05b05d83ff79a9a6aa147b56e3f6d35b04947378"
+            },
+            {
+              "shape": [
+                1,
+                8,
+                2,
+                8,
+                8
+              ],
+              "dtype": "torch.float32",
+              "sha256": "cba4adc01c7e0ba1dc0049103ac75d3bd42ba5d87007ccbeb995b143b0eced48"
+            },
+            {
+              "shape": [
+                1,
+                8,
+                2,
+                8,
+                8
+              ],
+              "dtype": "torch.float32",
+              "sha256": "a12287f596d846050592a0ed834a09b3d984611054ad9a90ec88a980a37b9f90"
+            },
+            {
+              "shape": [
+                1,
+                8,
+                2,
+                8,
+                8
+              ],
+              "dtype": "torch.float32",
+              "sha256": "a1086193beeef8f144ad395ba8ce91bdaf99f9ba02fe939b4c7bcb4a3e977c8d"
+            },
+            {
+              "shape": [
+                1,
+                8,
+                2,
+                8,
+                8
+              ],
+              "dtype": "torch.float32",
+              "sha256": "c4751a25b70b4a1d54ab0e914e3ed41e2d7d660be7eadfd8188bc8b1d709e488"
+            },
+            {
+              "shape": [
+                1,
+                8,
+                2,
+                8,
+                8
+              ],
+              "dtype": "torch.float32",
+              "sha256": "ac9ba8a00848da5e5a47c11f36644b0f4647f0abe42acec4dfdb93b788b3c3ea"
+            },
+            {
+              "shape": [
+                1,
+                8,
+                2,
+                8,
+                8
+              ],
+              "dtype": "torch.float32",
+              "sha256": "32c55e69e0eacb8f4dfcf5411600d40c2e7d149899806d897a0576b69bbf5660"
+            },
+            {
+              "shape": [
+                1,
+                8,
+                2,
+                8,
+                8
+              ],
+              "dtype": "torch.float32",
+              "sha256": "cbe0adedc0c0385a9e24bb39a8f0de47c5440110b65a1c917b4d0b1efc365553"
+            },
+            {
+              "shape": [
+                1,
+                8,
+                2,
+                8,
+                8
+              ],
+              "dtype": "torch.float32",
+              "sha256": "5c055842850fbbbae8228231b56d8b0569b0a27ae96ea183259e2e84ff574331"
+            },
+            {
+              "shape": [
+                1,
+                8,
+                2,
+                8,
+                8
+              ],
+              "dtype": "torch.float32",
+              "sha256": "ea6cb0b0f28d22251c52e4b5847176efe009b6b14a50fc54da5e8a6d95e71d88"
+            },
+            {
+              "shape": [
+                1,
+                8,
+                2,
+                8,
+                8
+              ],
+              "dtype": "torch.float32",
+              "sha256": "2e0f1f45b327a59101743bec15ff847cb5787a4fe26a0210891bc535a3d12cd6"
+            },
+            {
+              "shape": [
+                1,
+                8,
+                2,
+                8,
+                8
+              ],
+              "dtype": "torch.float32",
+              "sha256": "4fcea6b60535e3d48c260206932053565ab71ac863e29c89727d395b9df5fff6"
+            },
+            {
+              "shape": [
+                1,
+                8,
+                2,
+                8,
+                8
+              ],
+              "dtype": "torch.float32",
+              "sha256": "c92bc9d0488dedcea937c6aa6e40d249b981306f0f94a573cd225dde3c55bd30"
+            },
+            {
+              "shape": [
+                1,
+                8,
+                2,
+                8,
+                8
+              ],
+              "dtype": "torch.float32",
+              "sha256": "0be1f525e70bae5e44acfa25fec420eb0edddd0742d5f239b111864fb49e94d1"
+            },
+            {
+              "shape": [
+                1,
+                8,
+                2,
+                8,
+                8
+              ],
+              "dtype": "torch.float32",
+              "sha256": "3763e02bd30d1621d8f2428dfd6680ab1e5334852d0939a1c934b70c5d3ac14a"
+            },
+            {
+              "shape": [
+                1,
+                8,
+                2,
+                8,
+                8
+              ],
+              "dtype": "torch.float32",
+              "sha256": "8d1ed81792fd33ccb6f89456d8f7581d3d0c49747c9c60e5f39d9a60ecb904f7"
+            },
+            {
+              "shape": [
+                1,
+                8,
+                2,
+                8,
+                8
+              ],
+              "dtype": "torch.float32",
+              "sha256": "bb384c370449d54e2dbc2c069d8d85d34b28c146c17da09585e6a8b7c7279e71"
+            },
+            {
+              "shape": [
+                1,
+                8,
+                2,
+                8,
+                8
+              ],
+              "dtype": "torch.float32",
+              "sha256": "a292bbb9d637937aff3f978dfee89e44577b07d60fcfeec7e6ce2e57875ab17a"
+            },
+            {
+              "shape": [
+                1,
+                8,
+                2,
+                8,
+                8
+              ],
+              "dtype": "torch.float32",
+              "sha256": "702605602711ad1e132cfe34db21fad5f2070e514a98caeb4c347ebebad9f5d2"
+            },
+            {
+              "shape": [
+                1,
+                8,
+                2,
+                8,
+                8
+              ],
+              "dtype": "torch.float32",
+              "sha256": "20a79544b9fbd08230edf1d0d11c637231e68d56c96c54ca8912d823a7694912"
+            },
+            {
+              "shape": [
+                1,
+                8,
+                2,
+                8,
+                8
+              ],
+              "dtype": "torch.float32",
+              "sha256": "49e4e1b246451ec512838f3e3bfb13200b61b6b730228c129a02fd71d2dc5507"
+            },
+            {
+              "shape": [
+                1,
+                8,
+                2,
+                8,
+                8
+              ],
+              "dtype": "torch.float32",
+              "sha256": "4f503cb6f718a6cd3ef5f3ce3086683f9d112528186726f2c1788a7acea72dda"
+            },
+            {
+              "shape": [
+                1,
+                8,
+                2,
+                8,
+                8
+              ],
+              "dtype": "torch.float32",
+              "sha256": "7e934dd05795a88a02f845ac960ed4e46f442800dc25557a64ba9baae8951e79"
+            },
+            {
+              "shape": [
+                1,
+                8,
+                2,
+                8,
+                8
+              ],
+              "dtype": "torch.float32",
+              "sha256": "672a665b19a5968e74cd78c861684888cec8366d9844b606a262e088a695e30a"
+            },
+            {
+              "shape": [
+                1,
+                8,
+                2,
+                8,
+                8
+              ],
+              "dtype": "torch.float32",
+              "sha256": "d7dc5c1b34709d9512d5ab6de7439f598cd78ac60f24e4f9448a0232a87c8095"
+            },
+            {
+              "shape": [
+                1,
+                8,
+                2,
+                8,
+                8
+              ],
+              "dtype": "torch.float32",
+              "sha256": "336bf6374f2aca6318a5711685df6df8ac3c57ce51f20587153ac4c4f0acbe36"
+            }
+          ],
+          "final_latent": {
+            "shape": [
+              1,
+              8,
+              2,
+              8,
+              8
+            ],
+            "dtype": "torch.float32",
+            "sha256": "41aec82cf49205e1c90b252f62907bee016ccf0394b7a7f81131ab5b73e05522"
+          },
+          "RGB": {
+            "shape": [
+              93,
+              16,
+              16,
+              3
+            ],
+            "dtype": "uint8",
+            "sha256": "ab436a2ddffec8ece5d258ec322ba8a08b788c7824d47bd2265892b5aa7bf49b"
+          },
+          "semantic_actions": [
+            "D",
+            "D",
+            "D",
+            "D",
+            "D",
+            "D",
+            "D",
+            "D",
+            "D",
+            "D",
+            "D",
+            "D",
+            "D",
+            "D",
+            "D",
+            "D",
+            "D",
+            "D",
+            "D",
+            "D",
+            "D",
+            "C",
+            "C",
+            "D",
+            "C",
+            "C",
+            "D",
+            "C",
+            "C",
+            "D",
+            "C",
+            "C",
+            "C",
+            "C",
+            "C",
+            "D"
+          ],
+          "S_rows": [],
+          "encoded_video": {
+            "path": "/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-batch-cpu-two-card-r1-20261029/S-batch-CPU-artifacts/batch-flow-True/paths/p0-Shared25-C-OFF/AV28_CPU.mp4",
+            "bytes": 221,
+            "sha256": "61f1ca7bb902178bf2c927b45e0cc84b5bf3d1c60b09617fe7458a21aafdf303"
+          },
+          "solver_steps": 36,
+          "diagnostic_only_no_clean_clock": true
+        }
+      }
+    }
+  ],
+  "GPU_submissions": 0,
+  "ledger_writes": 0
+}
