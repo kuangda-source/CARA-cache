@@ -89,9 +89,18 @@ if action=='provision':
  value=dict(status='A32_SSD_PRIVATE_STORAGE_PROVISIONED_NO_GPU',storage_contract=config,check=check,observed_unix=time.time(),GPU_submissions=0)
  create(stage/'storage-provision.json',value);print(json.dumps(value))
 elif action=='admit':
- from four_card_bank24_execution_tools_r1 import verify_nltk_resources
+ from four_card_bank24_execution_tools_r1 import NLTK_RESOURCE_REL,NLTK_MANIFEST_SHA
  assert not (stage/'GPU-intent.json').exists() and not (stage/'GPU-launch.json').exists(),'Recover original handle'
- snapshot=idle();storage=storage_for(stage).check();nltk=verify_nltk_resources(root.resolve())
+ storage=storage_for(stage).check()
+ nltk_root=root.resolve()/NLTK_RESOURCE_REL;manifest=nltk_root.with_suffix('.manifest.json')
+ assert nltk_root.is_dir() and not nltk_root.is_symlink() and sha(manifest)==NLTK_MANIFEST_SHA
+ entries=read(manifest)['files'];english=[name for name in entries if name.startswith('tokenizers/punkt_tab/english/')]
+ assert len(english)==4
+ for name in english:
+  path=nltk_root/name
+  assert not path.is_symlink() and path.stat().st_size==entries[name]['bytes'] and sha(path)==entries[name]['sha256']
+ nltk=dict(root=str(nltk_root),manifest_sha256=NLTK_MANIFEST_SHA,fresh_actual_English_files=english,other_languages='Reuse complete accepted immutable NLTK manifest; no other language is used by this English card')
+ snapshot=idle()
  image=profile['GPU_container']['image']
  actual=json.loads(subprocess.check_output(['docker','image','inspect',image],text=True))[0]
  assert actual['Id']==image
