@@ -135,6 +135,9 @@ class ExecutionTests(unittest.TestCase):
                 self.assertNotIn(str(project/name)+':'+str(project/name)+':rw',command)
             for path in (stage,storage.output,storage.journal.path,project/'.sync/gpu-locks'):
                 self.assertIn(str(path)+':'+str(path)+':rw',command)
+            bounded=guardian.container_arguments(project,stage,storage,'a'*64,'24,25',os.getuid(),os.getgid(),'GPU-CPU-CONTROL',40)
+            self.assertEqual(bounded[bounded.index('--memory')+1],'40g')
+            self.assertEqual(bounded[bounded.index('--memory-swap')+1],'40g')
 
 
 class SupervisorTests(unittest.TestCase):

@@ -10,12 +10,14 @@ import sys
 import time
 
 
-def container_arguments(project, stage, storage, registration_sha, cpuset, uid, gid, uuid):
+def container_arguments(project, stage, storage, registration_sha, cpuset, uid, gid, uuid, memory_GiB=48):
     from four_card_bank24_execution_tools_r1 import process_environment
     from four_card_policy_assets_port_r1 import container_command
     environment=process_environment(project,stage/'GPU-caches')
     environment['TORCHINDUCTOR_COMPILE_THREADS']='1'
     command=container_command(project,stage,'supervise',registration_sha,environment,uid,gid,uuid)
+    command[command.index('--memory')+1]=str(memory_GiB)+'g'
+    command[command.index('--entrypoint'):command.index('--entrypoint')]=['--memory-swap',str(memory_GiB)+'g']
     for directory in ('outputs','reports','.sync'):
         volume=str(project/directory)+':'+str(project/directory)+':rw'
         index=command.index(volume)
@@ -50,7 +52,8 @@ def main():
     storage=storage_for(args.stage)
     storage.check()
     uuid=authority['gpu_uuid']
-    cpuset=read(args.stage/PROFILE)['hosts'][authority['host']]['cpuset_cpus']
+    profile=read(args.stage/PROFILE)
+    cpuset=profile['hosts'][authority['host']]['cpuset_cpus']
     assert set(map(int,cpuset.split(',')))<=os.sched_getaffinity(0)
     # The credential is carried only on stdin and never written or logged.
     incoming=json.load(sys.stdin)
@@ -83,7 +86,7 @@ def main():
                 state['mode_admission']=guard.acquire()
                 save()
             command=container_arguments(args.project,args.stage,storage,sha(args.stage/'registration.json'),
-                                         cpuset,os.getuid(),os.getgid(),uuid)
+                                         cpuset,os.getuid(),os.getgid(),uuid,profile['GPU_container']['memory_GiB'])
             atomic_json(args.stage/'GPU-command.json',command)
             with (args.stage/'pg-container.log').open('x') as log:
                 child=subprocess.Popen(command,stdin=subprocess.DEVNULL,stdout=log,

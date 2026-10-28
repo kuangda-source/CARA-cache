@@ -21,13 +21,15 @@ def main():
     p.add_argument('--binding-r2',action='store_true')
     p.add_argument('--score-cli-control',action='store_true')
     p.add_argument('--orchestration-r2',action='store_true')
+    p.add_argument('--post-r2',action='store_true')
     p.add_argument('--output',type=Path,required=True);a=p.parse_args();assert not a.output.exists()
     label='ada' if a.host=='four_card' else 'a6000'
     stage_name='cara-fast-CPU-'+label+'-r'+str(a.revision)+'-20261028'
     payload=dict(action=a.action,host=a.host,stage_name=stage_name)
     # Exact accepted launch/capture code, unchanged CPU/network/memory safeguards.
-    assert sum(bool(v) for v in (a.shutdown_repair,a.exit_diagnostic,a.binding_r2,a.score_cli_control,a.orchestration_r2))<=1
-    worker=('check_cara_fast_orchestration_cpu_r2.py' if a.orchestration_r2 else
+    assert sum(bool(v) for v in (a.shutdown_repair,a.exit_diagnostic,a.binding_r2,a.score_cli_control,a.orchestration_r2,a.post_r2))<=1
+    worker=('check_cara_fast_post_cpu_r2.py' if a.post_r2 else
+            'check_cara_fast_orchestration_cpu_r2.py' if a.orchestration_r2 else
             'check_cara_fast_scoring_cli_cpu_r2.py' if a.score_cli_control else
             'check_cara_fast_binding_cpu_r2.py' if a.binding_r2 else
             'diagnose_cara_fast_exit_r1.py' if a.exit_diagnostic else
@@ -76,6 +78,7 @@ def main():
                    'src/wcomr/cara_fast_collection_r2.py','src/wcomr/cara_fast_execution_r2.py',
                    'tests/test_cara_fast_freeze_r2.py','tests/test_cara_fast_execution_r2.py',
                    'plans/cara_next_stage_20261028/mainline/r2/RUN_SPEC.json',
+                   'plans/cara_next_stage_20261028/mainline/r2/EXECUTION_PROFILE.json',
                    'plans/cara_next_stage_20261028/mainline/r2/WHOLE_QUOTE.json',
                    'plans/cara_next_stage_20261028/mainline/r2/EXECUTION_PROFILE.json']
             pending=['check_cara_fast_orchestration_cpu_r2','cara_fast_worker_r2',
@@ -101,6 +104,32 @@ def main():
             before="runtime_source_sha256=reg['runtime_source_sha256'],parent_git_revision="
             assert remote.count(before)==1
             remote=remote.replace(before,"runtime_source_sha256={**reg['runtime_source_sha256'],**p['additional_runtime_sha256']},parent_git_revision=")
+        if a.post_r2:
+            names=['src/wcomr/cara_fast_binding_r2.py','src/wcomr/cara_fast_collection_r2.py',
+                   'src/wcomr/cara_fast_execution_r2.py','src/wcomr/cara_fast_terminal_r2.py',
+                   'src/wcomr/cara_fast_capture_r2.py','src/wcomr/cara_fast_post_r2.py',
+                   'src/wcomr/cara_fast_scoring_manifest_r2.py',
+                   'tests/test_cara_fast_post_r2.py','tests/test_cara_fast_execution_r2.py',
+                   'tests/test_cara_fast_freeze_r2.py',
+                   'plans/cara_next_stage_20261028/mainline/r2/RUN_SPEC.json',
+                   'plans/cara_next_stage_20261028/mainline/r2/EXECUTION_PROFILE.json',
+                   'reports/cara_fast_score_cli_two_card_raw_receipts_r2_20261028.json',
+                   'reports/cara_fast_four_card_host_profile_readonly_r2_20261028.json']
+            pending=['check_cara_fast_post_cpu_r2','postprocess_cara_fast_r2',
+                     'capture_cara_fast_terminal_r2','score_cara_fast_fidelity_r1']
+            seen=set()
+            while pending:
+                name=pending.pop()
+                if name in seen:
+                    continue
+                seen.add(name)
+                path=ROOT/'scripts'/(name+'.py')
+                names.append(str(path.relative_to(ROOT)))
+                for node in ast.walk(ast.parse(path.read_bytes())):
+                    modules=([node.module] if isinstance(node,ast.ImportFrom) and node.module else
+                             [alias.name for alias in node.names] if isinstance(node,ast.Import) else [])
+                    pending.extend(module for module in modules if (ROOT/'scripts'/(module+'.py')).exists())
+            files.update({name:(ROOT/name).read_bytes() for name in names})
         payload.update(base_stage=launch['stage'],base_registration_sha256=launch['registration_sha256'],
                        parent_git_revision=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),
                        files={n:base64.b64encode(b).decode() for n,b in files.items()},

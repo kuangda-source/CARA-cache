@@ -11,10 +11,11 @@ def main():
     parser=argparse.ArgumentParser()
     parser.add_argument('--output',type=Path,required=True)
     parser.add_argument('--revision',type=int,default=11)
+    parser.add_argument('--capture-prefix',default='cara_fast_orchestration')
     args=parser.parse_args()
     assert not args.output.exists()
     sha=lambda path:hashlib.sha256(path.read_bytes()).hexdigest()
-    captures={host:json.loads((ROOT/'reports'/('cara_fast_orchestration_'+host+'_CPU_capture_r'+str(args.revision)+'_20261028.json')).read_text())
+    captures={host:json.loads((ROOT/'reports'/(args.capture_prefix+'_'+host+'_CPU_capture_r'+str(args.revision)+'_20261028.json')).read_text())
               for host in ('four_card','two_card')}
     first=captures['four_card']['CPU_proof']['payload_sha256']
     shared=['gpu_budget_pool_v2','wc73_execution_r1','wc73_exclusive_r1',
@@ -40,7 +41,7 @@ def main():
         assert proof['real_mode_changes']==0 and proof['actual_model_constructor_executed'] is False
         assert proof['registration_sha256']==capture['registration_sha256']
         assert all(proof['payload_sha256'].get(name)==expected for name,expected in critical.items())
-        name='reports/cara_fast_orchestration_'+host+'_CPU_capture_r'+str(args.revision)+'_20261028.json'
+        name='reports/'+args.capture_prefix+'_'+host+'_CPU_capture_r'+str(args.revision)+'_20261028.json'
         receipts[host]=dict(path=name,sha256=sha(ROOT/name),
             launch=capture['launch'],container_state=state,runtime_source_sha256=proof['runtime_source_sha256'])
     assert receipts['four_card']['runtime_source_sha256']==receipts['two_card']['runtime_source_sha256']

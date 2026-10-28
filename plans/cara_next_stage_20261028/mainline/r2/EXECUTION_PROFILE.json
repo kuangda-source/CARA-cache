@@ -28,12 +28,13 @@
   "GPU_container": {
     "image": "sha256:1e81ac62ee68ca1a6ef655515096a1d84579b01aa4986810c9b18d4f6c4c552d",
     "cpus": 2,
-    "memory_GiB": 48,
+    "memory_GiB": 40,
     "network": "none",
     "readonly_rootfs": true,
     "pid_namespace": "host",
     "supervisor_CUDA_visible": false,
-    "only_exact_runner_CUDA_visible": true
+    "only_exact_runner_CUDA_visible": true,
+    "memory_swap_GiB": 40
   },
   "hosts": {
     "four_card": {
@@ -51,7 +52,7 @@
       "output_backing": "Verified non-rotational system disk; dedicated fully allocated per-run image",
       "journal_backing": "Independent HDD filesystem; preallocated double-buffered original journal",
       "provisioned": false,
-      "minimum_host_MemAvailable_GiB": 64,
+      "minimum_host_MemAvailable_GiB": 44,
       "minimum_SSD_free_before_provision_GiB": 64,
       "stage_A_forecast_GPUh": 4.72629852630077
     },
@@ -70,7 +71,7 @@
       "output_backing": "Verified non-rotational system disk; dedicated fully allocated per-run image",
       "journal_backing": "Independent HDD filesystem; preallocated double-buffered original journal",
       "provisioned": false,
-      "minimum_host_MemAvailable_GiB": 64,
+      "minimum_host_MemAvailable_GiB": 44,
       "minimum_SSD_free_before_provision_GiB": 64,
       "stage_A_forecast_GPUh": 4.953222232105553
     }
