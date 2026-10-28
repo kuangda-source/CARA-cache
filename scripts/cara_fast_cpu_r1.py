@@ -1,5 +1,6 @@
 """Reuse the accepted CPU container lifecycle; only payload and worker differ."""
 import argparse
+import ast
 import base64
 import hashlib
 import json
@@ -16,12 +17,21 @@ def main():
     p=argparse.ArgumentParser();p.add_argument('action',choices=['prepare','capture'])
     p.add_argument('--host',choices=['four_card','two_card'],required=True);p.add_argument('--revision',type=int,default=1)
     p.add_argument('--shutdown-repair',action='store_true')
+    p.add_argument('--exit-diagnostic',choices=['default','single'])
+    p.add_argument('--binding-r2',action='store_true')
+    p.add_argument('--score-cli-control',action='store_true')
+    p.add_argument('--orchestration-r2',action='store_true')
     p.add_argument('--output',type=Path,required=True);a=p.parse_args();assert not a.output.exists()
     label='ada' if a.host=='four_card' else 'a6000'
     stage_name='cara-fast-CPU-'+label+'-r'+str(a.revision)+'-20261028'
     payload=dict(action=a.action,host=a.host,stage_name=stage_name)
     # Exact accepted launch/capture code, unchanged CPU/network/memory safeguards.
-    worker='check_cara_fast_shutdown_cpu_r1.py' if a.shutdown_repair else 'check_cara_fast_cpu_r1.py'
+    assert sum(bool(v) for v in (a.shutdown_repair,a.exit_diagnostic,a.binding_r2,a.score_cli_control,a.orchestration_r2))<=1
+    worker=('check_cara_fast_orchestration_cpu_r2.py' if a.orchestration_r2 else
+            'check_cara_fast_scoring_cli_cpu_r2.py' if a.score_cli_control else
+            'check_cara_fast_binding_cpu_r2.py' if a.binding_r2 else
+            'diagnose_cara_fast_exit_r1.py' if a.exit_diagnostic else
+            'check_cara_fast_shutdown_cpu_r1.py' if a.shutdown_repair else 'check_cara_fast_cpu_r1.py')
     remote=EXISTING_CPU_TRANSPORT.replace('check_wc_time_card_cpu_r1.py',worker)
     assert remote.count(worker)==1
     if a.action=='prepare':
@@ -42,6 +52,55 @@ def main():
         if a.shutdown_repair:
             for n in ['scripts/check_cara_fast_shutdown_cpu_r1.py','reports/cara_fast_four_card_CPU_terminal_r1_20261028.json']:
                 files[n]=(ROOT/n).read_bytes()
+        if a.exit_diagnostic:
+            # Import/exit owns no numerical implementation; copy only its worker
+            # and mode, while inheriting the same pinned runtime and CPU sandbox.
+            files={'scripts/diagnose_cara_fast_exit_r1.py':(ROOT/'scripts/diagnose_cara_fast_exit_r1.py').read_bytes(),
+                   'exit-mode.json':(json.dumps(dict(mode=a.exit_diagnostic))+'\n').encode()}
+        if a.binding_r2:
+            for name in ['src/wcomr/cara_fast_binding_r2.py','src/wcomr/cara_fast_requests_r2.py',
+                         'tests/test_cara_fast_binding_r2.py','tests/check_cara_fast_binding_routes_r2.py',
+                         'scripts/check_cara_fast_binding_cpu_r2.py',
+                         'plans/cara_next_stage_20261028/mainline/r2/RUN_SPEC.json',
+                         'plans/cara_next_stage_20261028/mainline/r2/WHOLE_QUOTE.json']:
+                files[name]=(ROOT/name).read_bytes()
+        if a.score_cli_control:
+            names=['src/wcomr/__init__.py','src/wcomr/cara_fast_spec_r1.py',
+                   'src/wcomr/policy_generator_r1/__init__.py','src/wcomr/policy_generator_r1/interval_grammar.py',
+                   'src/wcomr/cara_fast_fidelity_r1.py','src/wcomr/cara_fast_scoring_manifest_r2.py',
+                   'scripts/score_cara_fast_fidelity_r1.py','scripts/check_cara_fast_scoring_cli_cpu_r2.py',
+                   'plans/cara_next_stage_20261028/mainline/FIDELITY_PROTOCOL.json']
+            files={name:(ROOT/name).read_bytes() for name in names}
+        if a.orchestration_r2:
+            names=['src/wcomr/cara_fast_binding_r2.py','src/wcomr/cara_fast_requests_r2.py',
+                   'src/wcomr/cara_fast_collection_r2.py','src/wcomr/cara_fast_execution_r2.py',
+                   'tests/test_cara_fast_freeze_r2.py','tests/test_cara_fast_execution_r2.py',
+                   'plans/cara_next_stage_20261028/mainline/r2/RUN_SPEC.json',
+                   'plans/cara_next_stage_20261028/mainline/r2/WHOLE_QUOTE.json',
+                   'plans/cara_next_stage_20261028/mainline/r2/EXECUTION_PROFILE.json']
+            pending=['check_cara_fast_orchestration_cpu_r2','cara_fast_worker_r2',
+                     'cara_fast_host_guardian_r2','run_cara_fast_r2']
+            seen=set()
+            while pending:
+                name=pending.pop()
+                if name in seen:
+                    continue
+                seen.add(name)
+                path=ROOT/'scripts'/(name+'.py')
+                names.append(str(path.relative_to(ROOT)))
+                for node in ast.walk(ast.parse(path.read_bytes())):
+                    modules=([node.module] if isinstance(node,ast.ImportFrom) and node.module else
+                             [alias.name for alias in node.names] if isinstance(node,ast.Import) else [])
+                    pending.extend(m for m in modules if (ROOT/'scripts'/(m+'.py')).exists())
+            files.update({name:(ROOT/name).read_bytes() for name in names})
+            profile=json.loads((ROOT/'plans/cara_next_stage_20261028/mainline/r2/EXECUTION_PROFILE.json').read_text())
+            payload['additional_runtime_sha256']=profile['precision']['runtime_source_sha256']
+            before="assert all(sha(root/'runtime'/n)==h for n,h in reg['runtime_source_sha256'].items())"
+            assert remote.count(before)==1
+            remote=remote.replace(before,before+"\n assert all(sha(root/'runtime'/n)==h for n,h in p['additional_runtime_sha256'].items())")
+            before="runtime_source_sha256=reg['runtime_source_sha256'],parent_git_revision="
+            assert remote.count(before)==1
+            remote=remote.replace(before,"runtime_source_sha256={**reg['runtime_source_sha256'],**p['additional_runtime_sha256']},parent_git_revision=")
         payload.update(base_stage=launch['stage'],base_registration_sha256=launch['registration_sha256'],
                        parent_git_revision=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),
                        files={n:base64.b64encode(b).decode() for n,b in files.items()},

@@ -2,18 +2,18 @@
 
 # CARA-Cache 当前交接
 
-**2026-10-28最新安排：主线P0/F19，探索S-FAST19与固定Shared25-C的Q并行准备。** [最新计划与两个对话分工](../../plans/cara_next_stage_20261028/08_REPOSITORY_RECONCILIATION.md) · [739接收记录](../../research/739_CARA_NEXT_STAGE_FAST_SQ_PLAN_AND_CHAT_HANDOFF_20261028.md)。新评价Fidelity-v2尚须逐新卡绑定；GPU未新增授权、未预约、未启动。WC73已热停结算，禁止自动重派；原DEV128、旧合同与失败保持。以下旧准备记录仅作历史复用依据。
+**2026-10-28最新安排：主线P0/F19，探索S-FAST19与固定Shared25-C的Q并行准备。** [最新计划与两个对话分工](../../plans/cara_next_stage_20261028/08_REPOSITORY_RECONCILIATION.md) · [739接收记录](../../research/739_CARA_NEXT_STAGE_FAST_SQ_PLAN_AND_CHAT_HANDOFF_20261028.md)。新评价Fidelity-v2按新卡前瞻绑定；GPU未新增授权、未预约、未启动。WC73已热停结算，禁止自动重派；原DEV128、旧合同与失败保持。以下旧准备记录仅作历史复用依据。
 
-[740主线准备与阻塞](../../research/740_CARA_FAST_MAINLINE_PREPARATION_AND_CPU_EXIT_BOUNDARY_20261028.md)：F19/F18/Uniform19、评分入口与双端报价已具体化；60条为范围修订提案，下一最小卡A24。A6000 CPU终态通过，Ada数值/评分组件完成但两次退出142，整体验收未过；[独立复核](../../reports/cara_fast_CPU_review_r2_20261028.json)。GPU提交/预约/新增费用均为0；旧时钟与原科学结果不改。
+[741主线R2与A32审阅](../../research/741_CARA_FAST_CLEAN_BINDING_DUAL_CPU_AND_A32_REVIEW_20261028.md)：新采样路由、实际93帧合成评分CLI和Linux生命周期控制双端接受；完整三臂控制及独立clean Native使提案改为68条（A32+B36）。下一最小A32预计4.7–5小时、硬限5GPUh，仍需新卡授权和fresh资源准入；cap226保持，原Ada142根因未证明；[采样/评分CPU接受](../../reports/cara_fast_scoped_CPU_acceptance_r2_20261028.json) · [编排CPU控制接受](../../reports/cara_fast_orchestration_CPU_acceptance_r3_20261028.json)。GPU提交/预约/新增费用均为0；旧时钟与原科学结果不改。
 
 [最新计划与对话分工](../../plans/cara_next_stage_20261028/08_REPOSITORY_RECONCILIATION.md)；以下为准备/条件提案，不是科学结果或GPU准入。
 
 | 顺序 / 负责人 | 当前阶段 | 下一项验收 / 动作 |
 |---|---|---|
-| P0 · 主线 | 数值/评分组件已复核；Ada CPU退出待修 | 先做最小退出栈诊断，复用已完成组件；A6000终态0，Ada两次142；原WC73不重派 |
-| F19 · 主线 | 掩码/入口/报价具体化；无新GPU | 复核mainline清单：60条为修订提案，下一最小A24；Ada整CPU/新卡接线与逐卡授权仍待完成 |
-| S-FAST19 · S/Q探索 | 与F19准备并行；完整分支矩不足 | 旧资产覆盖审计，BR/DIAG/CFG共同语法与合法交换/掩码等价；不从12状态生成全36步结论 |
-| Q0-Q1 · S/Q探索 | 双卡CPU准备；固定Shared25-C | 真实r窗口INT4/INT8打包、同字节及源绑定读出；raw误差不替代实际输出或部署峰值 |
+| P0 · 主线 | 采样/实际93帧合成评分CLI及Linux生命周期控制双端CPU接受 | 完整三臂GPU门仍待A32；原Ada142根因未证明，旧WC73不重派 |
+| F19 · 主线 | 68条生产提案；最小A32待授权 | A32硬5GPUh、cap226保持；完成fresh准入和真实数值门，再做12个FIT校准；B36不自动启动 |
+| S-FAST19 · S/Q探索 | 生产profile的170共同结构候选；尚无全支持mask | 完整风险缺口保持；BR/DIAG/CFG共同语法，见S/Q R3状态；不外推12保存状态 |
+| Q0-Q1 · S/Q探索 | 双端CPU控制与源码绑定完成；原C CPU未过历史GPU逐值门 | 同硬件CUDA数值控制仅提案；当前codec评分0，固定Shared25-C及旧资产不重采 |
 | A-SQ-FAST · S/Q探索 | 仅明确缺口后准备采集卡 | 绑定新父策略的108标签/56额外Dense pair与存储；解决F19 raw和Q25布局兼容问题，共同费用只计一次 |
 | S-END / Q-END · S/Q探索 | 各自条件晋级，不互设成功前提 | 不同合法mask或实际同bytes读出证据后，冻结最小完整视频比较与强基线，再报价申请 |
 | F18 / Q5 · 主线，S/Q提供冻结规则 | 后置；可先做CPU可辨识性 | 冻结方法后检验唯一相邻预算/新网格；不扫描预算或指数制造赢家 |

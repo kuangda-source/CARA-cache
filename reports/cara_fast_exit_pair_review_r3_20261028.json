@@ -1,0 +1,20 @@
+{
+  "status": "BOTH_MINIMAL_IMPORT_EXIT_CONTROLS_CLEAN_OLD_FAILURE_NOT_REPRODUCED",
+  "default_ref": "reports/cara_fast_exit_default_CPU_capture2_r3_20261028.json",
+  "single_ref": "reports/cara_fast_exit_single_CPU_capture_r4_20261028.json",
+  "defaults": {
+    "compile_threads": 32,
+    "compile_pools": 1,
+    "exit_code": 0
+  },
+  "single": {
+    "compile_threads": 1,
+    "compile_pools": 0,
+    "exit_code": 0
+  },
+  "root_cause_of_R1_R2": "UNPROVEN; these import-only controls do not reproduce either original exit142",
+  "forward_CPU_resource_setting": "TORCHINDUCTOR_COMPILE_THREADS=1; match the 1CPU preparation allocation and remove unused compiler workers; validate actual changed route/scoring termination separately",
+  "timing_boundary": "Ordered runs have cache/import differences; no CPU or GPU speedup inference",
+  "new_model_or_scientific_paths": 0,
+  "GPU_submissions": 0
+}

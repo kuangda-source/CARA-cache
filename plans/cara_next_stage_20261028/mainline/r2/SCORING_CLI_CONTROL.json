@@ -1,0 +1,29 @@
+{
+  "state": "REGISTERED_SINGLE_SYNTHETIC_FULL93_CPU_CONTROL",
+  "scope": "One lossless encoded deterministic synthetic RGB93 clip, 432x768 at16fps; same pixels on both descriptors",
+  "purpose": "Validate the actual scoring CLI and full-frame/PTS/PSNRinf/SSIM/Alex/temporal/gradient path, including distinct Native-k execution identity with unchanged comparison input",
+  "actual_resource_ceiling": {
+    "cpus": 1,
+    "memory_GiB": 4,
+    "work_seconds": 600,
+    "exit_seconds": 60,
+    "network": "none",
+    "GPU_hidden": true
+  },
+  "method_or_model_evidence": false,
+  "real_model_videos_generated": 0,
+  "old_video_batches_read": 0,
+  "Alex_weights": "Reuse exact original accepted AlexNet and v0.1 linear weights; no downloads",
+  "exit_dependency": "Both scorer child and CPU container must exit0; completed result JSON alone is insufficient",
+  "GPU_submissions": 0,
+  "ledger_writes": 0,
+  "registration_scope": "One separate control per registered host",
+  "synthetic_control_clips_per_host": 1,
+  "hosts": [
+    "four_card",
+    "two_card"
+  ],
+  "allocated_vCPUh_planning_max_per_host": 0.1833333333,
+  "allocated_GiBh_planning_max_per_host": 0.7333333333,
+  "maximum_aggregate_vCPUh": 0.36666666666666664
+}

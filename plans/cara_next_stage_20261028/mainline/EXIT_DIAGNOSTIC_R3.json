@@ -1,0 +1,28 @@
+{
+  "state": "REGISTERED_CPU_IMPORT_EXIT_DISCRIMINATOR",
+  "date": "2026-10-28",
+  "question": "Does the import-time TorchInductor compiler pool own the observed Ada Python exit wait?",
+  "source_audit_ref": "reports/cara_fast_exit_source_and_handle_audit_20261028.json",
+  "variants": [
+    {"mode": "default", "revision": 3, "TORCHINDUCTOR_COMPILE_THREADS": null},
+    {"mode": "single", "revision": 4, "TORCHINDUCTOR_COMPILE_THREADS": "1"}
+  ],
+  "order": "sequential; recover the exact variant handle before any dispatch",
+  "each_resource_bound": {"cpus": 1, "memory_GiB": 4, "network": "none", "GPU_hidden": true, "import_seconds": 300, "exit_seconds": 20},
+  "allocated_vCPUh_planning_max": 0.1777777778,
+  "allocated_GiBh_planning_max": 0.7111111111,
+  "runtime": "same registered image, environment, pinned Cosmos imports and declared CPU-only import adapters as R1/R2",
+  "measure": ["actual compile thread count", "compiler pool class/PID", "exit traceback", "container terminal status", "unchanged runtime SHA", "CUDA uninitialized"],
+  "decision": {
+    "default_hangs_in_compiler_pool_and_single_exits0": "Apply the documented compile_threads=1 setting to CPU preparation only; revalidate affected exit composition with unchanged numerical/scoring evidence",
+    "both_exit0": "The failure did not reproduce; retain uncertainty and inspect the next smallest differing import/resource boundary",
+    "single_still_fails": "Use the captured exit stack to repair its actual owner; no blind retries or os._exit success bypass"
+  },
+  "numerical_matrix_paths": 0,
+  "weights_loaded": false,
+  "old_videos_scored": 0,
+  "GPU_submissions": 0,
+  "ledger_writes": 0,
+  "scientific_scope_or_acceptance_changes": false,
+  "long_GPU_monitoring": "At an admitted GPU card's actual start, bind one halfway check and one complete acceptance to the exact launch and process identity; this CPU diagnostic creates no GPU schedule"
+}

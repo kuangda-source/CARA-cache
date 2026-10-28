@@ -2,9 +2,9 @@
 
 # CARA-Cache
 
-**2026-10-28最新安排：主线P0/F19，探索S-FAST19与固定Shared25-C的Q并行准备。** [最新计划与两个对话分工](plans/cara_next_stage_20261028/08_REPOSITORY_RECONCILIATION.md) · [739接收记录](research/739_CARA_NEXT_STAGE_FAST_SQ_PLAN_AND_CHAT_HANDOFF_20261028.md)。新评价Fidelity-v2尚须逐新卡绑定；GPU未新增授权、未预约、未启动。WC73已热停结算，禁止自动重派；原DEV128、旧合同与失败保持。以下旧准备记录仅作历史复用依据。
+**2026-10-28最新安排：主线P0/F19，探索S-FAST19与固定Shared25-C的Q并行准备。** [最新计划与两个对话分工](plans/cara_next_stage_20261028/08_REPOSITORY_RECONCILIATION.md) · [739接收记录](research/739_CARA_NEXT_STAGE_FAST_SQ_PLAN_AND_CHAT_HANDOFF_20261028.md)。新评价Fidelity-v2按新卡前瞻绑定；GPU未新增授权、未预约、未启动。WC73已热停结算，禁止自动重派；原DEV128、旧合同与失败保持。以下旧准备记录仅作历史复用依据。
 
-[740主线准备与阻塞](research/740_CARA_FAST_MAINLINE_PREPARATION_AND_CPU_EXIT_BOUNDARY_20261028.md)：F19/F18/Uniform19、评分入口与双端报价已具体化；60条为范围修订提案，下一最小卡A24。A6000 CPU终态通过，Ada数值/评分组件完成但两次退出142，整体验收未过；[独立复核](reports/cara_fast_CPU_review_r2_20261028.json)。GPU提交/预约/新增费用均为0；旧时钟与原科学结果不改。
+[741主线R2与A32审阅](research/741_CARA_FAST_CLEAN_BINDING_DUAL_CPU_AND_A32_REVIEW_20261028.md)：新采样路由、实际93帧合成评分CLI和Linux生命周期控制双端接受；完整三臂控制及独立clean Native使提案改为68条（A32+B36）。下一最小A32预计4.7–5小时、硬限5GPUh，仍需新卡授权和fresh资源准入；cap226保持，原Ada142根因未证明；[采样/评分CPU接受](reports/cara_fast_scoped_CPU_acceptance_r2_20261028.json) · [编排CPU控制接受](reports/cara_fast_orchestration_CPU_acceptance_r3_20261028.json)。GPU提交/预约/新增费用均为0；旧时钟与原科学结果不改。
 
 **通过选择完整刷新的时间位置，在加速视频扩散时尽量保留完整模型的输出。**
 

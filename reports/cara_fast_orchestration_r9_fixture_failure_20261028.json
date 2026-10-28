@@ -1,0 +1,13 @@
+{
+  "status": "CPU_TEST_FIXTURE_MOCK_SCOPE_FAILURE_NOT_GPU",
+  "source_sha256": "90959b6378690f6b75086c875863779494b016d3b66f1cd6e84fa9aa2851e2e0",
+  "source_archive": "plans/cara_next_stage_20261028/mainline/r2/ORCHESTRATION_R9_TEST_FIXTURE_BEFORE_FIX.py.txt",
+  "reason": "The no-replay assertion ran after the simulated external validation/storage context had closed. The real validator correctly attempted to read the synthetic stage and raised FileNotFoundError. All three lifecycle bodies reached their post-billing assertions before this fixture error.",
+  "correction": "Keep simulated validation/storage active for the no-replay assertion only; production worker unchanged",
+  "failed_revisions": {
+    "four_card": 9,
+    "two_card": 9
+  },
+  "GPU_submissions": 0,
+  "ledger_written": false
+}

@@ -21,21 +21,15 @@ def main():
     p.add_argument('--output',type=Path,required=True);a=p.parse_args();assert not a.output.exists()
     from wcomr.cara_fast_spec_r1 import digest
     from wcomr.cara_fast_fidelity_r1 import file_sha,score_video_pair
+    from wcomr.cara_fast_scoring_manifest_r2 import validate_pair_identities
     cfg=json.loads(a.manifest.read_text());bound=cfg['CPU_bound']
     if (cfg['protocol_sha256']!=digest(json.loads((ROOT/'plans/cara_next_stage_20261028/mainline/FIDELITY_PROTOCOL.json').read_text()))
             or not 1<=bound['cpus']<=2 or not 0<bound['wall_hours']<=6
             or not 0<len(cfg['pairs'])<=bound['max_pairs']<=44
             or bound['memory_GiB']!=8 or cfg.get('GPU_released') is not True):
         raise ValueError('Frozen protocol and explicit post-release CPU resource bound required')
-    ids=[r['id'] for r in cfg['pairs']]
-    if len(ids)!=len(set(ids)):raise ValueError('Duplicate physical scoring pair')
+    ids=validate_pair_identities(cfg)
     signal.alarm(int(bound['wall_hours']*3600));start=time.time();cpu=time.process_time()
-    for row in cfg['pairs']:
-        ref=row['reference'];candidate=row['candidate']
-        if ref['role']!='NATIVE35':raise ValueError('Matched full Native35 reference required')
-        for key in ('member','seed','host','gpu_uuid','model_sha256','input_sha256','precision','scope_sha256'):
-            if candidate[key]!=ref[key]:raise ValueError('Mismatched reference identity: '+key)
-        if candidate['scope_sha256']!=cfg['scope_sha256']:raise ValueError('Mixed card scopes')
     os.environ.update(CUDA_VISIBLE_DEVICES='',NVIDIA_VISIBLE_DEVICES='void',TORCH_HOME=cfg['torch_home'],
                       HF_HUB_OFFLINE='1',TRANSFORMERS_OFFLINE='1')
     sys.path.insert(0,cfg['piq_site'])
