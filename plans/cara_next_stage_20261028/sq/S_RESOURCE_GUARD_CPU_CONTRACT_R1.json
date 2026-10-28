@@ -1,0 +1,676 @@
+{
+  "schema": "SQ_S_BEFORE_SNAPSHOT_RESOURCE_CONTRACT_R1",
+  "evidence_sha256": {
+    "reports/cara_sq_s_resources_dual_cpu_accepted_r5_20261029.json": "412503cde28f639e49e5fb0971d50f4f4b2478975b942e4dcadf129d51266da5",
+    "reports/cara_sq_two_card_cpu_terminal_20261028.json": "d3fb3c2cd64998724d218c683de12f1376206741d63cf28528be35978d2884de",
+    "reports/cara_sq_s_complete_resource_geometry_r1_20261029.json": "5b8cce3211f53cc9b9395eec953084b31164d9d5fee72997e2bad9398ec8c6e4"
+  },
+  "native_field_names": [
+    "accumulated_rel_l1_distance",
+    "affline_emb",
+    "affline_scale_log_info",
+    "cnt",
+    "crossattn_emb",
+    "previous_input",
+    "previous_internal_states",
+    "previous_output",
+    "probe_residual_cache",
+    "probe_residual_window",
+    "residual_cache",
+    "residual_window",
+    "resume_flag",
+    "worldcache_step_skipped_count"
+  ],
+  "solver_field_names": [
+    "_begin_index",
+    "_internal_dict",
+    "_step_index",
+    "disable_corrector",
+    "last_sample",
+    "lower_order_nums",
+    "model_outputs",
+    "num_inference_steps",
+    "predict_x0",
+    "sigma_max",
+    "sigma_min",
+    "sigmas",
+    "solver_p",
+    "this_order",
+    "timestep_list",
+    "timesteps"
+  ],
+  "source_identity_ref": "plans/cara_next_stage_20261028/sq/S_EXECUTION_IDENTITY_R1.json",
+  "source_identity_sha256": "290054171f617d78359f1825dd398d9066e51ccbfcf119ca9f252861b7be2254",
+  "GPU_authority": false,
+  "physical_peak_established": false,
+  "whole_S_quote_frozen": false,
+  "CPU_fixture_only": true,
+  "tensor_schema": {
+    "native": {
+      "root/residual_cache/0": {
+        "shape": [
+          1,
+          2,
+          16,
+          16,
+          8
+        ],
+        "dtypes": [
+          "torch.float32"
+        ]
+      },
+      "root/residual_cache/1": {
+        "shape": [
+          1,
+          2,
+          16,
+          16,
+          8
+        ],
+        "dtypes": [
+          "torch.float32"
+        ]
+      },
+      "root/probe_residual_cache/0": {
+        "shape": [
+          1,
+          2,
+          16,
+          16,
+          8
+        ],
+        "dtypes": [
+          "torch.float32"
+        ]
+      },
+      "root/probe_residual_cache/1": {
+        "shape": [
+          1,
+          2,
+          16,
+          16,
+          8
+        ],
+        "dtypes": [
+          "torch.float32"
+        ]
+      },
+      "root/residual_window/0/0": {
+        "shape": [
+          1,
+          2,
+          16,
+          16,
+          8
+        ],
+        "dtypes": [
+          "torch.float32"
+        ]
+      },
+      "root/residual_window/0/1": {
+        "shape": [
+          1,
+          2,
+          16,
+          16,
+          8
+        ],
+        "dtypes": [
+          "torch.float32"
+        ]
+      },
+      "root/residual_window/0/2": {
+        "shape": [
+          1,
+          2,
+          16,
+          16,
+          8
+        ],
+        "dtypes": [
+          "torch.float32"
+        ]
+      },
+      "root/residual_window/1/0": {
+        "shape": [
+          1,
+          2,
+          16,
+          16,
+          8
+        ],
+        "dtypes": [
+          "torch.float32"
+        ]
+      },
+      "root/residual_window/1/1": {
+        "shape": [
+          1,
+          2,
+          16,
+          16,
+          8
+        ],
+        "dtypes": [
+          "torch.float32"
+        ]
+      },
+      "root/residual_window/1/2": {
+        "shape": [
+          1,
+          2,
+          16,
+          16,
+          8
+        ],
+        "dtypes": [
+          "torch.float32"
+        ]
+      },
+      "root/probe_residual_window/0/0": {
+        "shape": [
+          1,
+          2,
+          16,
+          16,
+          8
+        ],
+        "dtypes": [
+          "torch.float32"
+        ]
+      },
+      "root/probe_residual_window/0/1": {
+        "shape": [
+          1,
+          2,
+          16,
+          16,
+          8
+        ],
+        "dtypes": [
+          "torch.float32"
+        ]
+      },
+      "root/probe_residual_window/0/2": {
+        "shape": [
+          1,
+          2,
+          16,
+          16,
+          8
+        ],
+        "dtypes": [
+          "torch.float32"
+        ]
+      },
+      "root/probe_residual_window/1/0": {
+        "shape": [
+          1,
+          2,
+          16,
+          16,
+          8
+        ],
+        "dtypes": [
+          "torch.float32"
+        ]
+      },
+      "root/probe_residual_window/1/1": {
+        "shape": [
+          1,
+          2,
+          16,
+          16,
+          8
+        ],
+        "dtypes": [
+          "torch.float32"
+        ]
+      },
+      "root/probe_residual_window/1/2": {
+        "shape": [
+          1,
+          2,
+          16,
+          16,
+          8
+        ],
+        "dtypes": [
+          "torch.float32"
+        ]
+      },
+      "root/previous_internal_states/0": {
+        "shape": [
+          1,
+          2,
+          16,
+          16,
+          8
+        ],
+        "dtypes": [
+          "torch.float32"
+        ]
+      },
+      "root/previous_internal_states/1": {
+        "shape": [
+          1,
+          2,
+          16,
+          16,
+          8
+        ],
+        "dtypes": [
+          "torch.float32"
+        ]
+      },
+      "root/previous_input/0": {
+        "shape": [
+          1,
+          2,
+          16,
+          16,
+          8
+        ],
+        "dtypes": [
+          "torch.float32"
+        ]
+      },
+      "root/previous_input/1": {
+        "shape": [
+          1,
+          2,
+          16,
+          16,
+          8
+        ],
+        "dtypes": [
+          "torch.float32"
+        ]
+      },
+      "root/previous_output/0": {
+        "shape": [
+          1,
+          8,
+          2,
+          8,
+          8
+        ],
+        "dtypes": [
+          "torch.float32"
+        ]
+      },
+      "root/previous_output/1": {
+        "shape": [
+          1,
+          8,
+          2,
+          8,
+          8
+        ],
+        "dtypes": [
+          "torch.float32"
+        ]
+      },
+      "root/affline_scale_log_info/t_embedding_B_T_D": {
+        "shape": [
+          1,
+          1,
+          8
+        ],
+        "dtypes": [
+          "torch.float32"
+        ]
+      },
+      "root/affline_emb": {
+        "shape": [
+          1,
+          1,
+          8
+        ],
+        "dtypes": [
+          "torch.float32"
+        ]
+      },
+      "root/crossattn_emb": {
+        "shape": [
+          1,
+          3,
+          4
+        ],
+        "dtypes": [
+          "torch.float32"
+        ]
+      },
+      "root/accumulated_rel_l1_distance/0": {
+        "shape": [],
+        "dtypes": [
+          "torch.float32"
+        ]
+      },
+      "root/accumulated_rel_l1_distance/1": {
+        "shape": [],
+        "dtypes": [
+          "torch.float32"
+        ]
+      }
+    },
+    "solver": {
+      "root/sigmas": {
+        "shape": [
+          37
+        ],
+        "dtypes": [
+          "torch.float32"
+        ]
+      },
+      "root/timesteps": {
+        "shape": [
+          36
+        ],
+        "dtypes": [
+          "torch.int64"
+        ]
+      },
+      "root/model_outputs/0": {
+        "shape": [
+          1,
+          1,
+          8,
+          2,
+          8,
+          8
+        ],
+        "dtypes": [
+          "torch.float32"
+        ]
+      },
+      "root/model_outputs/1": {
+        "shape": [
+          1,
+          1,
+          8,
+          2,
+          8,
+          8
+        ],
+        "dtypes": [
+          "torch.float32"
+        ]
+      },
+      "root/timestep_list/0": {
+        "shape": [],
+        "dtypes": [
+          "torch.int64"
+        ]
+      },
+      "root/timestep_list/1": {
+        "shape": [],
+        "dtypes": [
+          "torch.int64"
+        ]
+      },
+      "root/last_sample": {
+        "shape": [
+          1,
+          1,
+          8,
+          2,
+          8,
+          8
+        ],
+        "dtypes": [
+          "torch.float32"
+        ]
+      }
+    },
+    "buffers": {},
+    "owner_history": {},
+    "readout_history": {},
+    "calibrators": {
+      "root/0/anchors/0/probe": {
+        "shape": [
+          1,
+          2,
+          16,
+          16,
+          8
+        ],
+        "dtypes": [
+          "torch.float32"
+        ]
+      },
+      "root/0/anchors/0/residual": {
+        "shape": [
+          1,
+          2,
+          16,
+          16,
+          8
+        ],
+        "dtypes": [
+          "torch.float32"
+        ]
+      },
+      "root/0/anchors/1/probe": {
+        "shape": [
+          1,
+          2,
+          16,
+          16,
+          8
+        ],
+        "dtypes": [
+          "torch.float32"
+        ]
+      },
+      "root/0/anchors/1/residual": {
+        "shape": [
+          1,
+          2,
+          16,
+          16,
+          8
+        ],
+        "dtypes": [
+          "torch.float32"
+        ]
+      },
+      "root/1/anchors/0/probe": {
+        "shape": [
+          1,
+          2,
+          16,
+          16,
+          8
+        ],
+        "dtypes": [
+          "torch.float32"
+        ]
+      },
+      "root/1/anchors/0/residual": {
+        "shape": [
+          1,
+          2,
+          16,
+          16,
+          8
+        ],
+        "dtypes": [
+          "torch.float32"
+        ]
+      },
+      "root/1/anchors/1/probe": {
+        "shape": [
+          1,
+          2,
+          16,
+          16,
+          8
+        ],
+        "dtypes": [
+          "torch.float32"
+        ]
+      },
+      "root/1/anchors/1/residual": {
+        "shape": [
+          1,
+          2,
+          16,
+          16,
+          8
+        ],
+        "dtypes": [
+          "torch.float32"
+        ]
+      }
+    },
+    "paired_inputs": {
+      "root/0": {
+        "shape": [
+          1,
+          8,
+          2,
+          8,
+          8
+        ],
+        "dtypes": [
+          "torch.float32"
+        ]
+      },
+      "root/1": {
+        "shape": [
+          1,
+          8,
+          2,
+          8,
+          8
+        ],
+        "dtypes": [
+          "torch.float32"
+        ]
+      },
+      "root/2": {
+        "shape": [
+          1,
+          1
+        ],
+        "dtypes": [
+          "torch.int64"
+        ]
+      }
+    },
+    "conditions": {
+      "root/0/crossattn_emb": {
+        "shape": [
+          1,
+          3,
+          4
+        ],
+        "dtypes": [
+          "torch.float32"
+        ]
+      },
+      "root/0/fps": {
+        "shape": [
+          1
+        ],
+        "dtypes": [
+          "torch.float32"
+        ]
+      },
+      "root/0/use_video_condition": {
+        "shape": [
+          1
+        ],
+        "dtypes": [
+          "torch.bool"
+        ]
+      },
+      "root/0/gt_frames": {
+        "shape": [
+          1,
+          8,
+          2,
+          8,
+          8
+        ],
+        "dtypes": [
+          "torch.float32"
+        ]
+      },
+      "root/0/condition_video_input_mask_B_C_T_H_W": {
+        "shape": [
+          1,
+          1,
+          2,
+          8,
+          8
+        ],
+        "dtypes": [
+          "torch.float32"
+        ]
+      },
+      "root/1/crossattn_emb": {
+        "shape": [
+          1,
+          3,
+          4
+        ],
+        "dtypes": [
+          "torch.float32"
+        ]
+      },
+      "root/1/fps": {
+        "shape": [
+          1
+        ],
+        "dtypes": [
+          "torch.float32"
+        ]
+      },
+      "root/1/use_video_condition": {
+        "shape": [
+          1
+        ],
+        "dtypes": [
+          "torch.bool"
+        ]
+      },
+      "root/1/gt_frames": {
+        "shape": [
+          1,
+          8,
+          2,
+          8,
+          8
+        ],
+        "dtypes": [
+          "torch.float32"
+        ]
+      },
+      "root/1/condition_video_input_mask_B_C_T_H_W": {
+        "shape": [
+          1,
+          1,
+          2,
+          8,
+          8
+        ],
+        "dtypes": [
+          "torch.float32"
+        ]
+      }
+    }
+  },
+  "buffer_names": [],
+  "limits": {
+    "logical_copy_guard_bytes": 134217728,
+    "backing_copy_guard_bytes": 134217728,
+    "mutable_buffer_bytes": 0,
+    "numpy_backing_bytes": 0,
+    "live_backing_storage_bytes_by_device_kind": {
+      "cpu": 16777216
+    }
+  },
+  "contract_sha256": "4611a68a39fed6fd2d81c09274baab312f0b0a6539cb65a2060eef7a6b4b20a5"
+}
