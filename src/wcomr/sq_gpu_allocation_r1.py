@@ -107,9 +107,13 @@ def run_allocation(project,stage,authority,registration,storage,profile,prefix,c
     state=dict(common,status='SQ_'+prefix+'_MODE_OWNER_ADMITTING',identity=identity,
         started_unix=clock.time(),started_monotonic=start,container_dispatch_state='NOT_ATTEMPTED',
         mode_owner_fenced=False,billing_clock_owner='HOST_GUARDIAN')
-    child=mode_lock=None;guard=ops.mode_guard(uuid,password,clock)
+    child=mode_lock=guard=None
+    previous_signal=signal.getsignal(signal.SIGTERM)
+    def interrupted(signum,frame):raise KeyboardInterrupt('Own S/Q allocation guardian interrupted')
+    signal.signal(signal.SIGTERM,interrupted)
     def save():storage.persist('guardian',state_path,state,atomic_json)
     try:
+        guard=ops.mode_guard(uuid,password,clock)
         save();storage.check()
         require(password is not None,'Credential delivery failed before mode/container dispatch')
         lock=project/'.sync/gpu-locks'/(uuid+'.mode-owner.lock');lock.parent.mkdir(parents=True,exist_ok=True)
@@ -132,6 +136,7 @@ def run_allocation(project,stage,authority,registration,storage,profile,prefix,c
     except BaseException as error:
         state.update(error_type=type(error).__name__,error=str(error));raise
     finally:
+        signal.signal(signal.SIGTERM,signal.SIG_IGN)
         try:
             try:
                 state['container_terminal_witness']=finish_original(ops,stage,sha(stage/'registration.json'),
@@ -139,7 +144,7 @@ def run_allocation(project,stage,authority,registration,storage,profile,prefix,c
             except Exception as error:
                 state['container_terminal_witness']=dict(complete=False,error_type=type(error).__name__,error=str(error))
             finally:ops.stop_own_cli(child)
-            try:state['mode_restoration']=guard.restore()
+            try:state['mode_restoration']=(guard.restore() if guard else dict(restored=True,changed=False,mode_guard_never_created=True))
             except Exception as error:
                 state['mode_restoration']=dict(restored=False,error_type=type(error).__name__,error=str(error))
             end=clock.monotonic()
@@ -160,6 +165,7 @@ def run_allocation(project,stage,authority,registration,storage,profile,prefix,c
         finally:
             password=None
             if mode_lock is not None:mode_lock.close()
+            signal.signal(signal.SIGTERM,previous_signal)
     require(state['container_terminal_witness']['complete'] and state['mode_restoration']['restored'],
             'Original allocation closure unknown; retain bill/envelope and recover')
     return state

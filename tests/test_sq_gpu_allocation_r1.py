@@ -3,6 +3,7 @@ import copy
 import importlib.util
 import json
 import os
+import signal
 from pathlib import Path
 import subprocess
 import sys
@@ -57,6 +58,7 @@ class Operations(SystemOperations):
     def wait(self,child,remaining):
         self.remaining=remaining
         if self.case=='timeout':raise subprocess.TimeoutExpired('CPU_STUB',remaining)
+        if self.case=='interrupt':os.kill(os.getpid(),signal.SIGTERM)
         if self.case in ('unknown','foreign'):raise RuntimeError('CPU original observation control')
         return super().wait(child,remaining)
     def inspect_container(self,stage,registration_sha,uuid):
@@ -83,7 +85,7 @@ class AllocationTests(unittest.TestCase):
             host='two_card',gpu_uuid='GPU-CPU-SYNTHETIC-ONLY',launch_id='CPU_ONLY',
             source_revision='CPU_SYNTHETIC_NO_GPU',scope_sha256='a'*64,whole_GPUh=.1)
         storage=Storage(output);ops=Operations(case);clock=Clock()
-        code='import time; time.sleep(60)' if case in ('timeout','unknown','foreign') else 'raise SystemExit('+('7' if case=='child_failure' else '0')+')'
+        code='import time; time.sleep(60)' if case in ('timeout','interrupt','unknown','foreign') else 'raise SystemExit('+('7' if case=='child_failure' else '0')+')'
         command=lambda:[sys.executable,'-c',code]
         action=lambda:run_allocation(project,stage,authority,dict(source_revision=authority['source_revision']),
             storage,dict(guardian_release_margin_seconds=180),'Q1',command,password,ops=ops,clock=clock)
@@ -126,10 +128,14 @@ class AllocationTests(unittest.TestCase):
         self.assertNotIn('scientific_accepted',storage.rows['allocation_release'])
 
     def test_timeout_stops_only_original_bound_CPU_child(self):
-        _,_,storage,ops,action=self.exercise('timeout')
-        with self.assertRaises(subprocess.TimeoutExpired):action()
-        self.assertEqual(ops.container_stops,1);self.assertIsNotNone(ops.child.poll())
-        self.assertTrue(storage.rows['billing']['wall_interval_complete'])
+        for case,error in [('timeout',subprocess.TimeoutExpired),('interrupt',KeyboardInterrupt)]:
+            with self.subTest(case=case):
+                _,_,storage,ops,action=self.exercise(case)
+                before=signal.getsignal(signal.SIGTERM)
+                with self.assertRaises(error):action()
+                self.assertEqual(ops.container_stops,1);self.assertIsNotNone(ops.child.poll())
+                self.assertTrue(storage.rows['billing']['wall_interval_complete'])
+                self.assertEqual(signal.getsignal(signal.SIGTERM),before)
 
     def test_unknown_or_foreign_container_cannot_be_stopped_or_settled(self):
         for case in ('unknown','foreign'):
