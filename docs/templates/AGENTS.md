@@ -31,3 +31,74 @@ The user authorized mainline total-budget increases on 2026-10-27 in increments 
 - Preserve unrelated changes and remote parent history; no force push. When reconciling Git, choose evidence by actual receipt identity/time rather than combining incompatible statuses. A connector atomic commit is acceptable if local Git access fails; verify the resulting commit/tree.
 
 For routine documentation work, use saved receipts and local checks; do not poll, restart or re-stage a running experiment merely to refresh prose.
+
+## Style Guide
+
+Applies to new and modified code. Language- and framework-specific rules apply only where that language, runtime, or framework is already in use; they do not request a migration to TypeScript, Bun, or Effect.
+
+For experiments, retain necessary authorization, resource, budget, provenance, and data-integrity checks. A fresh check of mutable external state at dispatch is a separate boundary, not redundant validation. Approval requirements below apply to changes outside the user's already authorized scope; routine implementation and fixes within that scope can proceed.
+
+### General Principles
+
+- Prioritize correctness, readability, maintainability, and simplicity over minimizing lines of code.
+- Prefer the simplest implementation that satisfies the actual requirements.
+- Follow established repository conventions before introducing new patterns.
+- Avoid unnecessary abstractions, defensive programming, speculative generalization, and unrelated refactoring.
+- Keep changes focused on the requested task.
+
+### Code Structure
+
+- Keep straightforward logic close to where it is used.
+- Extract functions when they improve readability, isolate a meaningful responsibility, enable focused testing, or are reused.
+- Do not introduce single-use helpers merely to reduce function length or create artificial abstractions.
+- Prefer readable intermediate variables over deeply nested expressions.
+- Inline trivial single-use values when doing so improves clarity. Do not optimize for variable count.
+
+### Types and Validation
+
+- Avoid `any`. Prefer `unknown` for untrusted values and narrow types explicitly.
+- Validate unknown data once at the boundary that owns it.
+- Pass validated, typed values inward instead of repeating runtime checks.
+- Trust invariants already established by schemas, constructors, and internal types.
+- Prefer type inference for local implementation details.
+- Use explicit types or interfaces when they clarify public contracts, complex structures, or module boundaries.
+- Avoid redundant type annotations and unnecessary type assertions.
+
+### Error Handling
+
+- Handle errors at meaningful boundaries, especially I/O, external APIs, database operations, and subprocesses.
+- Avoid redundant try/catch blocks that merely rethrow or obscure errors.
+- Never silently swallow unexpected errors.
+- Preserve useful diagnostic context when propagating failures.
+- Prefer the project's existing error-handling conventions, including typed errors in Effect-based code.
+
+### Control Flow and Performance
+
+- Prefer `map`, `filter`, and `flatMap` for clear, straightforward data transformations.
+- Use `for` loops when they better express stateful logic, early exits, sequential asynchronous operations, or performance-sensitive paths.
+- Avoid unnecessary allocations and intermediate collections in hot paths.
+- Do not sacrifice readability for micro-optimizations without evidence.
+
+### Runtime and Project Conventions
+
+- Prefer Bun APIs, such as `Bun.file()`, when the project explicitly targets Bun and the API is appropriate.
+- Preserve compatibility with the project's supported runtimes.
+- Follow existing import, export, and module organization conventions.
+- In `src/config`, follow the established module export pattern when adding new configuration modules.
+- In Effect generators, bind services to named variables before invoking their methods.
+
+### Scope and Complexity
+
+- Do not add infrastructure for speculative or extremely unlikely failure scenarios.
+- Address concrete correctness, security, and data-integrity risks.
+- Before introducing substantial complexity for an uncertain edge case, explain the failure mode, likelihood, and maintenance cost.
+- Ask for approval when the solution materially expands scope, changes external behavior, or introduces significant dependencies.
+- Otherwise, prefer a simple, safe implementation and document remaining limitations.
+
+### Verification
+
+- Preserve existing behavior unless a change is explicitly requested.
+- Run relevant tests, type checks, and lint checks when available.
+- Add or update focused tests for meaningful behavioral changes.
+- Do not claim verification that has not been performed.
+- Report unresolved failures and relevant limitations clearly.
