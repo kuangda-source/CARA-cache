@@ -7,6 +7,7 @@ import torch
 from test_sq_q1_readout_r1 import saved_fixture
 from wcomr.innovation_gain_observer_r1 import restore_readout_inputs
 from wcomr.sq_q1_collection_r1 import collect_saved_q1, STATE_KEYS, COUNTS
+from wcomr.sq_q1_readout_r1 import select_shared_codecs
 from wcomr.sq_readout_subgraph_r1 import dense_hidden_outputs
 
 
@@ -43,7 +44,9 @@ class CollectionTests(unittest.TestCase):
         self.assertEqual(sum(v['completed'] for v in result['head_calls'].values()),222)
         self.assertEqual(result['scope_counts'],COUNTS)
         self.assertEqual(len(result['states']),12)
-        self.assertFalse(result['selections']['partial_state_selection'])
+        self.assertIsNone(result['selections'])
+        selected_fixture = select_shared_codecs(result['states'])
+        self.assertFalse(selected_fixture['partial_state_selection'])
         self.assertEqual(result['new_deep_pairs'],0)
 
     def test_original_preview_failure_stops_before_any_codec_or_selection(self):

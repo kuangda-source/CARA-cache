@@ -12,7 +12,7 @@ from .innovation_gain_observer_r1 import restore_readout_inputs
 from .partial_mlp_deployment_state import plain, tensor_bytes
 from .scout_readout_v22 import validate_state
 from .sq_q1_readout_r1 import (PROMPTS, STEPS, source_from_anchors,
-    evaluate_saved_state, select_shared_codecs)
+    evaluate_saved_state)
 from .sq_readout_subgraph_r1 import original_controls, dense_hidden_outputs, compare_outputs
 
 STATE_KEYS = tuple((prompt, step) for prompt in PROMPTS for step in STEPS)
@@ -112,7 +112,9 @@ def collect_saved_q1(kernel, records, load, schema, *, device, max_copy_bytes, s
         if any(v['started'] != v['completed'] for v in calls.values()):
             raise ValueError('An incomplete head call cannot enter Q1 acceptance')
         result = terminal('Q1_COMPLETE_ACTUAL_OUTPUTS_PENDING_INDEPENDENT_ACCEPTANCE')
-        result.update(complete_Q1_cohort=True, selections=select_shared_codecs(states))
+        # Only a post-release, independently accepted terminal may run LOPO or
+        # choose bit directions. The GPU-held collection returns raw records.
+        result.update(complete_Q1_cohort=True, selections=None)
         return result
     except BaseException:
         health('Q1_TECHNICAL_FAILURE_NO_SELECTION')

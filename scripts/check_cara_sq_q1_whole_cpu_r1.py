@@ -14,6 +14,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path[:0] = [str(ROOT/'src'),str(ROOT/'tests')]
 import torch
 from wcomr.sq_q1_collection_r1 import COUNTS, STATE_KEYS, collect_saved_q1
+from wcomr.sq_q1_readout_r1 import select_shared_codecs
 from wcomr.sq_readout_subgraph_r1 import original_backend_policy, selected_settings
 
 
@@ -35,6 +36,9 @@ def run(args):
         max_copy_bytes=128*2**20,save_health=events.append)
     if not result['complete_Q1_cohort'] or sum(v['completed'] for v in result['head_calls'].values()) != 222:
         raise ValueError('Complete extra/formal Q1 head denominators differ')
+    if result['selections'] is not None:
+        raise ValueError('GPU-held collection must defer all bit-direction selection')
+    fixture_selection = select_shared_codecs(result['states'])
     runtime = ROOT/'cache/runtime'
     settings = selected_settings(runtime)
     with original_backend_policy(runtime) as policy:
@@ -46,6 +50,8 @@ def run(args):
         production_entry_fixture=dict(complete=True,states=result['completed_states'],
             actual_head_calls=result['head_calls'],scope_counts=result['scope_counts'],
             actual_model_weights=False,selection_on_complete_fixture_only=True),
+        GPU_held_collection_selects_directions=False,
+        complete_fixture_selection_cells=len(fixture_selection['selections']),
         selected_experiment_settings=settings,original_backend_policy=backend,
         health_has_no_scores=all('states' not in row and 'selections' not in row for row in events),
         actual_B1_replay=False,original_C_CUDA_parity_accepted=False,
