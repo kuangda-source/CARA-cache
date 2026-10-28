@@ -21,3 +21,11 @@
 原 R1 CPU 容器在 3.553648 秒后退出 1，未读 guided/latent 大文件、未产生结果。原因是 CPU 基础包没有包含 `configs/f1_setup.json`，核验器首先正确拒绝缺失的冻结配置。保留[原终态及日志](../../../reports/cara_sq_s_reuse_two_card_cpu_capture1_r1_20261029.json)。R2 显式纳入所有待比对的源文件/配置及旧摘要函数源，并在本地核对打包分母；使用新的唯一 CPU stage，不修改或重派 R1。
 
 [条件张量与哈希处理量核算](../../../reports/cara_sq_s_resource_analytical_floor_r2_20261029.json)补入旧实际状态的 223,768,582 字节条件字段。八 raw + 24 去重锚点的已知张量下限为 13.4372 GiB，逻辑复制守卫下限 16.9734 GiB，均不是实测物理峰值。108 成功事务中，仅输入与 true-D 来源的三轮摘要便遍历约 533.65 GiB 逻辑张量字节，尚未计入完整状态、复制/恢复、有限性扫描等。整卡报价必须覆盖这些工作，不能沿用 Q1 或 tiny fixture 的资源边界。
+
+## R2 原件核验终态
+
+R2 使用已发布源码 `9a5ba5a284652bfd86aaea3813563cfe1bf444dd`，原容器实际 12.622061 秒后退出 0。七文件的 SHA/实际身份、36 guided + 最终 latent 的 37 份双格式摘要、93 帧完整 MP4 解码 RGB 全部通过；原 checkpoint 文件身份未变，没有再次读取权重。五项实际 Linux 单元控制与八项错误回执拒绝检查通过，[独立接受](../../../reports/cara_sq_s_reuse_two_card_cpu_accepted_r2_20261029.json)绑定原始捕获，不以正文 PASS 替代容器终态。
+
+worker CPU 9.262890 秒、已回收子进程 CPU 0.640145 秒、worker 峰值 RSS 0.975185 GiB；该 RSS 不是整个 cgroup 的聚合峰值。原 R1 失败的 CPU 未完整计量，R1/R2 容器合计 16.175709 秒；源包、传输与 Git CPU 另列为未计量。GPU 提交、预约、账本写入与新 S 标签仍为零。
+
+[本轮综合收件](../../../reports/cara_sq_s_reuse_and_resource_readiness_r2_20261029.json)确认一份可继续绑定的旧 OFF 候选。下一步完成实际 S 输入/模型/后端冻结、复用入口与真实新 ON 的全轨迹等价控制，再冻结各主机的实际物理矩阵；同时补齐剩余原生 WC/solver/buffer 字段、完整复制和摘要费用、双端生命周期与报价。旧 OFF 资产已接受不等于 S 采集或科学结果已接受。
