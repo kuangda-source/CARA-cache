@@ -10,14 +10,14 @@
 
 [743 B36双端CPU承接接受](743_CARA_B36_COMPLETE_CONTINUATION_DUAL_CPU_ACCEPTANCE_20261029.md)：每端两种flow各完整36条，合计72条成功tiny路径，失败清理与禁止重试通过；CPU使用合成冻结包，实际基线采用A32完整验收后的原一次冻结文件。[CPU接受回执](../reports/cara_fast_B36_CPU_acceptance_r1_20261029.json)
 
-[747 B36单次派发与完整CPU接受](747_CARA_B36_ONCE_DISPATCH_BILLING_CPU_AND_GPU_REVIEW_20261029.md)：B36单次GPU/CPU入口、启动前失败唯一账单与未知拒绝已完成双端22项CPU控制；20个实际模型/辅助资产21.35GB完整摘要通过。仍无B GPUstage/预约/启动，等待明确批准预计5.0215、硬5.5GPUh及同A6000 UUID的fresh准入；32位置由26新评分和6份原A评分组成。 [组合CPU接受](../reports/cara_fast_B36_dispatch_CPU_acceptance_r2_20261029.json) · [剩余派发边界](../plans/cara_next_stage_20261028/mainline/r2/B36_GPU_REVIEW_R2.md)
+[748 B36完整汇总CPU接受与待审批](748_CARA_B36_COMPLETE_RESULT_AGGREGATION_CPU_20261029.md)：执行入口双端22项CPU及20个实际资产核验保持，正式汇总另经双端各6项CPU接受，覆盖输入等权、登记重复、双时钟及FIT原A敏感性。没有新B指标或GPU派发；仍等待单次B36预计5.0215、硬5.5GPUh的明确批准及同A6000 UUID fresh准入，WC/RA保持UNMATCHED。 [组合CPU接受](../reports/cara_fast_B36_dispatch_CPU_acceptance_r2_20261029.json) · [剩余派发边界](../plans/cara_next_stage_20261028/mainline/r2/B36_GPU_REVIEW_R2.md)
 
 [最新计划与对话分工](../plans/cara_next_stage_20261028/08_REPOSITORY_RECONCILIATION.md)；A32 GPU阶段已接受，其余按各卡条件推进，评分/科学解释分开验收。
 
 | 顺序 / 负责人 | 当前阶段 | 下一项验收 / 动作 |
 |---|---|---|
 | P0 · 主线 | A32完整三臂GPU门及技术验收通过 | 保留32完整原件、原控制与双时钟；GPU已释放、费用已唯一结算 |
-| F19 · 主线 | A32全链冻结；B36完整入口/账单双端22项CPU及实际资产接受 | 等待明确批准单次B36预计5.0215/硬5.5GPUh；再对原A6000同UUID fresh准入，WC/RA的UNMATCHED保持 |
+| F19 · 主线 | A32全链冻结；B36执行22项/汇总6项CPU双端接受 | 等待明确批准单次B36预计5.0215/硬5.5GPUh；再对原A6000同UUID fresh准入，WC/RA的UNMATCHED保持 |
 | S-FAST19 · S/Q探索 | 生产profile的170共同结构候选；尚无全支持mask | 完整风险缺口保持；BR/DIAG/CFG共同语法，见S/Q R3状态；不外推12保存状态 |
 | Q0-Q1 · S/Q探索 | 双端CPU控制与源码绑定完成；原C CPU未过历史GPU逐值门 | 同硬件CUDA数值控制仅提案；当前codec评分0，固定Shared25-C及旧资产不重采 |
 | A-SQ-FAST · S/Q探索 | 仅明确缺口后准备采集卡 | 绑定新父策略的108标签/56额外Dense pair与存储；解决F19 raw和Q25布局兼容问题，共同费用只计一次 |

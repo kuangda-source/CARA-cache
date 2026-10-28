@@ -1,5 +1,11 @@
 # B36等待期准备：配对与报告布局
 
+**当前：完整汇总工具已通过双端各6项CPU控制。** [接受回执](../../../../reports/cara_fast_B36_analysis_CPU_acceptance_r1_20261029.json) · [748完整记录](../../../../research/748_CARA_B36_COMPLETE_RESULT_AGGREGATION_CPU_20261029.md)。下文静态布局保留原历史依赖描述；A32现已完整接受并冻结。B36仍需单独批准预计5.0215/硬5.5GPUh，本次没有派发GPU或计算B指标。
+
+实际汇总入口 `scripts/analyze_cara_fast_b36_complete_r1.py` 只读取五个显式原件：`--capture`、`--settlement`、`--manifest`、`--score-capture`、`--accepted-scores`，并要求新的 `--output`。它重新验证完整B终态/结算/释放及32位置评分接受；运行、UNKNOWN、部分数据、混源或CPU夹具不能形成正式报告。原执行52文件与A冻结字节保持，本工具位于单独的分析代码中。
+
+汇总覆盖32正式来源及6个登记重复。先在输入内平均正式与重复计时，再对输入等权；两个时钟分开，另列FIT仅原A计时的敏感性结果。所有93帧曲线、逐视频PSNR及未定义梯度状态保留，WC/RA继续标原FIT冻结的UNMATCHED；不增阈值、网格、选择或新输入主张。首次R24打包漏依赖失败保留，新R25双端各6项通过。
+
 最新：[R2完整入口/账单CPU每端22项已接受](../../../../reports/cara_fast_B36_dispatch_CPU_acceptance_r2_20261029.json)，实际20资产摘要也通过，现等待 [B36单次GPU审批](B36_GPU_REVIEW_R2.md) 与fresh准入。原32评分位置及6对原评分引用不变；以下先前“入口待完成”为历史准备状态。
 
 最新执行/收件增量见 [B36_EXECUTION_READINESS_R1.md](B36_EXECUTION_READINESS_R1.md)：双端CPU新增7+8项接受，原评分分母32保持，6个原A FIT配对引用已接受指标，原评分CLI只计算其余26对。单次派发和启动前失败收尾仍待完成，无B GPU提交。下文的布局生成发生在A32运行期间，实际冻结以已存在的原一次文件为准。
