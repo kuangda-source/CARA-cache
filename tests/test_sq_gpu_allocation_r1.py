@@ -51,7 +51,7 @@ class Operations(SystemOperations):
         return Guard()
     def spawn(self,command,log):
         if self.case=='spawn':raise OSError('CPU synthetic no exec')
-        self.clock.offset+=4
+        self.clock.offset+=400 if self.case=='startup_deadline' else 4
         self.child=super().spawn(command,log)
         EVENTS.append(dict(kind='CPU_CHILD',pid=self.child.pid,process=self.child))
         return self.child
@@ -85,7 +85,7 @@ class AllocationTests(unittest.TestCase):
             host='two_card',gpu_uuid='GPU-CPU-SYNTHETIC-ONLY',launch_id='CPU_ONLY',
             source_revision='CPU_SYNTHETIC_NO_GPU',scope_sha256='a'*64,whole_GPUh=.1)
         storage=Storage(output);ops=Operations(case);clock=Clock()
-        code='import time; time.sleep(60)' if case in ('timeout','interrupt','unknown','foreign') else 'raise SystemExit('+('7' if case=='child_failure' else '0')+')'
+        code='import time; time.sleep(60)' if case in ('timeout','interrupt','unknown','foreign','startup_deadline') else 'raise SystemExit('+('7' if case=='child_failure' else '0')+')'
         command=lambda:[sys.executable,'-c',code]
         action=lambda:run_allocation(project,stage,authority,dict(source_revision=authority['source_revision']),
             storage,dict(guardian_release_margin_seconds=180),'Q1',command,password,ops=ops,clock=clock)
@@ -153,10 +153,14 @@ class AllocationTests(unittest.TestCase):
         self.assertEqual(storage.rows['guardian']['status'],'SQ_Q1_ALLOCATION_RECOVERY_PENDING')
 
     def test_admission_consumes_the_same_deadline_and_cost_is_never_clamped(self):
-        _,_,storage,ops,action=self.exercise('deadline')
-        with self.assertRaisesRegex(ValueError,'deadline reached'):action()
-        self.assertIsNone(ops.child)
-        self.assertGreater(storage.rows['billing']['actual_GPUh'],.1)
+        for case,error in [('deadline',ValueError),('startup_deadline',TimeoutError)]:
+            with self.subTest(case=case):
+                _,_,storage,ops,action=self.exercise(case)
+                with self.assertRaisesRegex(error,'deadline reached'):action()
+                if case=='deadline':self.assertIsNone(ops.child)
+                else:
+                    self.assertIsNotNone(ops.child.poll());self.assertEqual(ops.container_stops,1)
+                self.assertGreater(storage.rows['billing']['actual_GPUh'],.1)
 
     def test_existing_original_guardian_cannot_restart(self):
         _,stage,storage,_,action=self.exercise();action();before=sha(storage.output/'Q1-billing.json')

@@ -132,6 +132,8 @@ def run_allocation(project,stage,authority,registration,storage,profile,prefix,c
             state.update(status='SQ_'+prefix+'_ORIGINAL_CONTAINER_RUNNING',container_dispatch_state='STARTED',
                 container_cli_identity=process_identity(child.pid),container=stage.name+'-gpu')
             save()
+            remaining=authority['whole_GPUh']*3600-margin-(clock.monotonic()-start)
+            if remaining<=0:raise TimeoutError('Allocation deadline reached during container startup')
             state['container_exit_code']=ops.wait(child,remaining)
     except BaseException as error:
         state.update(error_type=type(error).__name__,error=str(error));raise

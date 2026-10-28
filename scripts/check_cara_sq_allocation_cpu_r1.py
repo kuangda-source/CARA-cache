@@ -42,8 +42,8 @@ def main():
     scope=json.loads((ROOT/args.scope).read_text())
     if not tests.wasSuccessful() or tests.testsRun!=12 or tests.skipped:
         raise ValueError('Actual Linux allocation controls failed: '+log.getvalue())
-    if len(commands)!=8 or any(e['process'].poll() is None for e in units.EVENTS):
-        raise ValueError('Exact eight CPU children must all be terminal')
+    if len(commands)!=scope['actual_CPU_children'] or any(e['process'].poll() is None for e in units.EVENTS):
+        raise ValueError('All admitted CPU children must be terminal')
     if 'torch' in sys.modules:raise ValueError('This allocation proof may not import Torch')
     child=resource.getrusage(resource.RUSAGE_CHILDREN)
     result=dict(status='SQ_FULL_ALLOCATION_CPU_PASS_STUB_HARDWARE_NOT_GPU_READY',profile=args.profile,scope=scope,

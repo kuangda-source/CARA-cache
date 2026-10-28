@@ -1,0 +1,21 @@
+{
+  "schema": "SQ_FULL_HOST_ALLOCATION_CPU_R2",
+  "purpose": "Host admission/startup/teardown whole-clock and closure component; explicit fake GPU/container observations and real Linux CPU children",
+  "unit_controls": 12,
+  "actual_CPU_children": 9,
+  "resource_limits": {
+    "CPUs": 2,
+    "RAM_GiB": 8,
+    "wall_seconds": 1800,
+    "GPU": "hidden",
+    "network": "none"
+  },
+  "simulated_billing_times": true,
+  "real_gpu_mode_changes": false,
+  "Q1_correction_integrated": false,
+  "S_GPU_entry_integrated": false,
+  "actual_model_weights": false,
+  "GPU_submissions": 0,
+  "ledger_writes": 0,
+  "correction": "Recompute the same deadline after container startup; additionally stop and bill a source-bound CPU child when startup exhausted the allocation margin"
+}
