@@ -1,0 +1,79 @@
+{
+  "status": "SQ_CPU_PREPARATION_CAPTURE",
+  "observed_unix": 1793203882.775434,
+  "launch": {
+    "status": "SQ_GPU_HIDDEN_CPU_PREPARATION_LAUNCHED",
+    "stage": "/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-owner-cpu-four-card-r1-20261028",
+    "container": "cara-sq-s-owner-cpu-four-card-r1-20261028-cpu",
+    "source_revision": "dd86c61df725ead299dc47da2726662b751fc1c5",
+    "registration_sha256": "6aa1010fd88b42e0fee17a6b821682a6443b26ac216cdb12160cbdd9d4126867",
+    "identity": {
+      "pid": 3784282,
+      "state": "R",
+      "start_ticks": 998826421,
+      "command": "docker run --cpuset-cpus 4,5 --memory-swap 8g --ulimit fsize=67108864:67108864 --read-only --network none --pid host --name cara-sq-s-owner-cpu-four-card-r1-20261028-cpu --label wcomr.manifest=6aa1010fd88b42e0fee17a6b821682a6443b26ac216cdb12160cbdd9d4126867 --user 1000:1000 --cpus 2 --memory 8g --pids-limit 512 --tmpfs /tmp:rw,size=2g -v /data20t/gaokuangda/worldcache_workspace:/data20t/gaokuangda/worldcache_workspace:ro -v /data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-owner-cpu-four-card-r1-20261028:/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-owner-cpu-four-card-r1-20261028:rw -w /data20t/gaokuangda/worldcache_workspace/runtime -e CUDA_CACHE_PATH=/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-owner-cpu-four-card-r1-20261028/CPU-caches/cuda -e CUDA_HOME=/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cuda_nvrtc -e CUDA_PATH=/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cuda_nvrtc -e CUDA_VISIBLE_DEVICES= -e HF_HOME=/data20t/gaokuangda/worldcache_workspace/cache/huggingface -e HF_HUB_CACHE=/data20t/gaokuangda/worldcache_workspace/cache/huggingface/hub -e HF_HUB_OFFLINE=1 -e LD_LIBRARY_PATH=/data20t/gaokuangda/worldcache_workspace/system-libs-r1/usr/lib/x86_64-linux-gnu/blas:/data20t/gaokuangda/worldcache_workspace/system-libs-r1/usr/lib/x86_64-linux-gnu/lapack:/data20t/gaokuangda/worldcache_workspace/system-libs-r1/usr/lib/x86_64-linux-gnu/pulseaudio:/data20t/gaokuangda/worldcache_workspace/system-libs-r1/usr/lib/x86_64-linux-gnu:/data20t/gaokuangda/worldcache_workspace/system-libs-r1/lib/x86_64-linux-gnu:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cuda_nvrtc/lib:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cuda_runtime/lib:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cudnn/lib:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/nvjitlink/lib:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cublas/lib:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/torch/lib -e LOGNAME=gaokuangda -e NLTK_DATA=/data20t/gaokuangda/worldcache_workspace/runtime-resources/nltk-guardrail-d6d4bfa8-r1 -e NVIDIA_VISIBLE_DEVICES=void -e OMP_NUM_THREADS=2 -e OPENBLAS_NUM_THREADS=2 -e PATH=/data20t/gaokuangda/worldcache_workspace/system-libs-r1/usr/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin -e PYTHONDONTWRITEBYTECODE=1 -e PYTHONPATH=/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-owner-cpu-four-card-r1-20261028/scripts:/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-owner-cpu-four-card-r1-20261028/src -e TOKENIZERS_PARALLELISM=false -e TORCHINDUCTOR_CACHE_DIR=/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-owner-cpu-four-card-r1-20261028/CPU-caches/torchinductor -e TORCH_EXTENSIONS_DIR=/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-owner-cpu-four-card-r1-20261028/CPU-caches/extensions -e TORCH_HOME=/data20t/gaokuangda/worldcache_workspace/cache/torch -e TRANSFORMERS_OFFLINE=1 -e TRITON_CACHE_DIR=/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-owner-cpu-four-card-r1-20261028/CPU-caches/triton -e USER=gaokuangda -e WC_SCOUT_KIND=CAL12 -e XDG_CACHE_HOME=/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-owner-cpu-four-card-r1-20261028/CPU-caches/xdg --entrypoint /usr/bin/timeout sha256:1e81ac62ee68ca1a6ef655515096a1d84579b01aa4986810c9b18d4f6c4c552d --signal=TERM --kill-after=10s 1800 /usr/bin/ionice -c 3 /data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/bin/python /data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-owner-cpu-four-card-r1-20261028/scripts/check_cara_sq_s_owner_cpu_r1.py --assets /data20t/gaokuangda/worldcache_workspace/outputs/cara-ig-b1-r2-20261027/assets --manifest-sha256 5487f8db32d45a5d0f3304333bf362d9d6ec46fb3181c735d7267b78a6e398fa --profile four_card --scope plans/cara_next_stage_20261028/sq/S_OWNER_ROUNDTRIP_CPU_R1.json --output /data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-owner-cpu-four-card-r1-20261028/analysis.json "
+    },
+    "started_unix": 1793203200.855205,
+    "resource_limits": {
+      "CPUs": 2,
+      "cpuset": "4,5",
+      "RAM_bytes": 8589934592,
+      "wall_seconds": 1800,
+      "allocated_vCPUh_max": 1.0,
+      "output_bytes_max": 67108864,
+      "assets_readonly": true,
+      "network": "none",
+      "GPU": "hidden"
+    },
+    "new_GPU_submissions": 0,
+    "ledger_writes": 0
+  },
+  "source_hashes_equal": true,
+  "runtime_hashes_equal": true,
+  "container_state": {
+    "Status": "exited",
+    "Running": false,
+    "Paused": false,
+    "Restarting": false,
+    "OOMKilled": false,
+    "Dead": false,
+    "Pid": 0,
+    "ExitCode": 1,
+    "Error": "",
+    "StartedAt": "2026-10-28T16:00:00.94536903Z",
+    "FinishedAt": "2026-10-28T16:07:31.114075712Z"
+  },
+  "host_config": {
+    "DeviceRequests": null,
+    "NanoCpus": 2000000000,
+    "Memory": 8589934592,
+    "MemorySwap": 8589934592,
+    "CpusetCpus": "4,5",
+    "NetworkMode": "none",
+    "ReadonlyRootfs": true
+  },
+  "mounts": [
+    {
+      "Type": "bind",
+      "Source": "/data20t/gaokuangda/worldcache_workspace",
+      "Destination": "/data20t/gaokuangda/worldcache_workspace",
+      "Mode": "ro",
+      "RW": false,
+      "Propagation": "rprivate"
+    },
+    {
+      "Type": "bind",
+      "Source": "/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-owner-cpu-four-card-r1-20261028",
+      "Destination": "/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-owner-cpu-four-card-r1-20261028",
+      "Mode": "rw",
+      "RW": true,
+      "Propagation": "rprivate"
+    }
+  ],
+  "image": "sha256:1e81ac62ee68ca1a6ef655515096a1d84579b01aa4986810c9b18d4f6c4c552d",
+  "result": null,
+  "result_sha256": null,
+  "log_tail": "a20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-owner-cpu-four-card-r1-20261028/scripts/check_cara_sq_s_owner_cpu_r1.py\", line 30, in main\n    rows=run(ROOT/'cache/runtime',ROOT/'S-owner-CPU-artifacts')\n  File \"/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-owner-cpu-four-card-r1-20261028/tests/check_sq_s_owner_roundtrip_cpu_r1.py\", line 128, in run\n    try:return previous.run(runtime,artifact_root)\n  File \"/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-owner-cpu-four-card-r1-20261028/tests/check_cara_pg_production_sampling_cpu_r1.py\", line 111, in run\n    return load('check_full_sampling').run(runtime,exercise=lambda **kw:ns['exercise'](runtime=Path(runtime),tensor_loader=None,artifact_root=artifact_root,**kw))\n  File \"/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-owner-cpu-four-card-r1-20261028/tests/check_full_sampling.py\", line 282, in run\n    checks.extend(exercise(inference=inference, samples=[Sample('common'), Sample('human')],\n  File \"/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-owner-cpu-four-card-r1-20261028/tests/check_cara_pg_production_sampling_cpu_r1.py\", line 111, in <lambda>\n    return load('check_full_sampling').run(runtime,exercise=lambda **kw:ns['exercise'](runtime=Path(runtime),tensor_loader=None,artifact_root=artifact_root,**kw))\n  File \"/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-owner-cpu-four-card-r1-20261028/tests/check_cara_pg_production_sampling_cpu_r1.py#pinned-Toy-setup\", line 3, in exercise\n    Toy CPU weights/attention/prepare/decode/writer remain explicit stand-ins. The\n  File \"/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-owner-cpu-four-card-r1-20261028/cache/runtime/cosmos_predict2/_src/predict2/models/video2world_model_rectified_flow.py\", line 25, in <module>\n    from cosmos_predict2._src.predict2.configs.video2world.defaults.conditioner import Video2WorldCondition\n  File \"/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-owner-cpu-four-card-r1-20261028/cache/runtime/cosmos_predict2/_src/predict2/configs/video2world/defaults/conditioner.py\", line 34, in <module>\n    from cosmos_predict2._src.predict2.models.video2world_wan2pt1_model import WAN2PT1_I2V_COND_LATENT_KEY\n  File \"/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-owner-cpu-four-card-r1-20261028/cache/runtime/cosmos_predict2/_src/predict2/models/video2world_wan2pt1_model.py\", line 21, in <module>\n    from cosmos_predict2._src.predict2.models.text2world_model import Text2WorldCondition\n  File \"/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-owner-cpu-four-card-r1-20261028/cache/runtime/cosmos_predict2/_src/predict2/models/text2world_model.py\", line 62, in <module>\n    from cosmos_predict2._src.predict2.text_encoders.text_encoder import TextEncoder, TextEncoderConfig\n  File \"/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-owner-cpu-four-card-r1-20261028/cache/runtime/cosmos_predict2/_src/predict2/text_encoders/text_encoder.py\", line 30, in <module>\n    from cosmos_predict2._src.predict2.text_encoders.reason1 import QwenVLBaseModel\n  File \"/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-owner-cpu-four-card-r1-20261028/cache/runtime/cosmos_predict2/_src/predict2/text_encoders/reason1.py\", line 26, in <module>\n    from cosmos_predict2._src.reason1.models.vlm_qwen import QwenModel\n  File \"/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-owner-cpu-four-card-r1-20261028/cache/runtime/cosmos_predict2/_src/reason1/models/vlm_qwen.py\", line 25, in <module>\n    from cosmos_predict2._src.reason1.networks.qwen2_5_vl import Qwen2_5_VisionTransformerPretrainedModel, Qwen2_5_VLModel\n  File \"/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-owner-cpu-four-card-r1-20261028/cache/runtime/cosmos_predict2/_src/reason1/networks/qwen2_5_vl.py\", line 68, in <module>\n    assert is_flash_attn_2_available(), \"flash_attn_2 not available. run pip install flash_attn\"\nAssertionError: flash_attn_2 not available. run pip install flash_attn\n",
+  "new_GPU_submissions": 0,
+  "ledger_writes": 0
+}

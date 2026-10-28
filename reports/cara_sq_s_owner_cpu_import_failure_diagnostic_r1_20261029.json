@@ -1,0 +1,38 @@
+{
+  "status": "S_OWNER_R1_TERMINAL_IMPORT_FAILURE_RETAINED_R2_CPU_ONLY_PREPARED",
+  "original_capture_ref": "reports/cara_sq_s_owner_four_card_cpu_failed_terminal_r1_20261029.json",
+  "original_capture_sha256": "64880598be311cf1b4f1c0b5899b98ce08a1e078584fb42c84f532ad1229208a",
+  "original_stage": "/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-owner-cpu-four-card-r1-20261028",
+  "original_source_revision": "dd86c61df725ead299dc47da2726662b751fc1c5",
+  "original_exit_code": 1,
+  "original_container_wall_seconds": 450.168706,
+  "allocated_vCPUh_upper_bound": 0.25009372555555553,
+  "process_CPU_seconds": null,
+  "reason": "GPU-hidden official module import asserted FlashAttention availability before the component cohort entered",
+  "assertion": "flash_attn_2 not available. run pip install flash_attn",
+  "method_failed": false,
+  "component_CPU_accepted": false,
+  "complete_S_collector_accepted": false,
+  "prospective_R2_changes": [
+    "Reuse existing accepted PG import-only probes and restore all three before sampling",
+    "Disable model-weight loading and Triton execution",
+    "Read the pinned full-sampler result checks field; require the same 8 paths and 16 checked boundaries",
+    "Version a new immutable CPU stage after preserving R1 terminal"
+  ],
+  "source_compile_check": [
+    "scripts/check_cara_sq_s_owner_cpu_r1.py",
+    "scripts/cara_sq_s_owner_cpu_r1.py"
+  ],
+  "actual_sampling_test_executed_locally": false,
+  "CPU_scope_unchanged": {
+    "paths": 8,
+    "checked_boundaries": 16,
+    "CPUs": 2,
+    "RAM_GiB": 8,
+    "wall_seconds": 1800
+  },
+  "R2_launched": false,
+  "GPU_submissions": 0,
+  "ledger_writes": 0,
+  "S_labels_collected": 0
+}

@@ -9,7 +9,7 @@
 - [R1 超时原件](../../../reports/cara_sq_q1_control_cpu_timeout_diagnostic_r1_20261028.json)保留：两卡 R1 的 45 项通过；四卡 R1 的后处理 CLI 超过测试脚本的 60 秒限制。生产报价原已绑定 300 秒，后续测试按该原上限验证，未增加 GPU 范围或预算。
 - [R2 绑定诊断](../../../reports/cara_sq_q1_control_r2_binding_diagnostic_20261028.json)保留：共享容器函数发生内存参数变化后，旧核心证据的整体复用被正确拒绝。R3 显式传入 16 GiB、只生成一组 memory-swap 参数，并在改变 GPU 模式前完成命令构造。
 - [现场资源观察](../../../reports/cara_sq_q1_control_r3_allocation_readonly_20261028.json)：两卡主线 A32 容器正在运行，占用 CPU 24/25、40 GiB 和一张 A6000；本对话未改变它。两卡 R3 CPU 阶段未创建，待其资源允许时验证同一冻结源码。四卡 R3 的完整原件见[启动](../../../reports/cara_sq_q1_control_four_card_cpu_launch_r3_20261028.json)、[终态](../../../reports/cara_sq_q1_control_four_card_cpu_terminal_r3_20261028.json)。瞬时资源观察不是 GPU 准入。
-- 四卡已[暂存独立 Q1 源包](../../../reports/cara_sq_q1_four_card_source_prepared_r1_20261028.json)，仅绑定该主机已接受的 CPU 证据，不冒称双端完成。私有输出盘、实际宿主 Python 命令探针及原件 SHA 核验仍待完成；四卡 B1 仍缺失，未启动跨机原件传输。
+- 四卡已[暂存独立 Q1 源包](../../../reports/cara_sq_q1_four_card_source_prepared_r1_20261028.json)，仅绑定该主机已接受的 CPU 证据，不冒称双端完成。[私有输出盘](../../../reports/cara_sq_q1_four_card_storage_prepared_r1_20261028.json)已准备：1 GiB SSD 输出和异盘 48 MiB 控制日志；[实际宿主 Python 命令探针](../../../reports/cara_sq_q1_four_card_native_probe_r1_20261028.json)通过，未执行 Docker/GPU 命令或改变设备模式。原件 SHA 核验仍待完成；四卡 B1 仍缺失，未启动跨机原件传输。
 
 新卡仍是[原完整范围](Q1_WHOLE_SCOPE_R1.json)：两个旧 FIT × 六位置，96 正式 C pair，加预热/预检/Dense-hidden 控制共 **111 pair / 222 heads**，新增 deep、父轨迹、视频均为 0。[原双端整卡报价](Q1_WHOLE_PREPARATION_R1.md)保持，A6000 预测 54.33 分钟/硬限 1.25 GPUh，Ada 预测 109.28 分钟/硬限 2 GPUh，均为含未实测 GPU 余量的规划值。
 
@@ -19,6 +19,8 @@
 
 新增 [PolicyOwner 状态回滚组件](../../../src/wcomr/sq_s_owner_roundtrip_r1.py)覆盖实际父 owner、读出历史、校准器和 executor 元数据；未知字段、策略绑定变化、已推进的父 pair 或 poisoned owner 均拒绝。发现元数据被影子计算改变时，只清理恢复并报错，不接受该采集证据。物理模型、求解器、buffer 和 RNG 由既有 CompleteStateRoundtrip 单独负责。
 
-已准备[完整 CPU 检查](../../../tests/check_sq_s_owner_roundtrip_cpu_r1.py)：两父策略、flow 开/关、OFF/ON 共八条声明小权重路径，核对全 36 pair、最终 latent 与占位视频字节。本地运行时缺少 OmegaConf，完整检查改用已登记 Linux 环境；当前尚未接受该新组件。它不生成 S 风险标签，也不等于 108 标签采集器完成。
+已准备[完整 CPU 检查](../../../tests/check_sq_s_owner_roundtrip_cpu_r1.py)：两父策略、flow 开/关、OFF/ON 共八条声明小权重路径，核对全 36 pair、最终 latent 与占位视频字节。本地运行时缺少 OmegaConf，改用已登记 Linux 环境。四卡 R1 于 10 月 29 日 00:07:31 退出 1，未进入组件检查：GPU 隐藏时官方模块导入触发 FlashAttention 可用性断言。[原终态](../../../reports/cara_sq_s_owner_four_card_cpu_failed_terminal_r1_20261029.json)和[诊断](../../../reports/cara_sq_s_owner_cpu_import_failure_diagnostic_r1_20261029.json)保留；容器墙钟约 450.17 秒，实际 CPU 秒未留存，不解释为方法失败。
+
+新 R2 仅复用仓库已接受的 PG CPU 导入适配，导入后恢复探针，再执行同样八路径/十六边界；模型权重加载和 Triton 执行仍禁止。另修正 fixture 回执读取为其 `checks` 字段，未改变 cohort。新阶段须独立记录，旧 R1 不重派。当前尚未接受该组件，也未收集 S 标签；完整 108 标签采集器仍待接通。
 
 后续继续接入生产 observer、pre-D 来源、56 个额外 Dense teacher/52 个 C shadow 的完整事务、八 F19 raw 状态流式存储和整卡报价。S/Q 各自完成端点验证前不组合。全局 canonical、主线 A32 源码与预算未由本对话修改。
