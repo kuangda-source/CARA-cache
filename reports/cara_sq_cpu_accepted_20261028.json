@@ -1,0 +1,91 @@
+{
+  "status": "SQ_CPU_PREPARATION_ACCEPTED_SCOPED_NOT_GPU_READY",
+  "manifest_sha256": "5487f8db32d45a5d0f3304333bf362d9d6ec46fb3181c735d7267b78a6e398fa",
+  "verified_original_files": 32,
+  "verified_original_bytes": 20795567276,
+  "S": {
+    "FP64_local_states": 12,
+    "expected_labels": 108,
+    "missing_labels": 96,
+    "structural_exchange_candidates": 158,
+    "fully_witnessed_candidates": 0,
+    "S_mask": null
+  },
+  "Q": {
+    "real_anchor_pairs": 10,
+    "real_packed_pairs": 60,
+    "same_bytes_within_all_rates": true,
+    "tensor_shape_dtype": {
+      "shape": [
+        1,
+        24,
+        27,
+        48,
+        2048
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 127401984
+    },
+    "packed_pair_bytes_by_rate": {
+      "R16": [
+        131383488
+      ],
+      "R12": [
+        99532992
+      ]
+    },
+    "corpus_bytes_by_codec": {
+      "('I', (8, 8))": {
+        "raw": 2548039680,
+        "packed": 1313834880
+      },
+      "('I', (4, 8))": {
+        "raw": 2548039680,
+        "packed": 995329920
+      },
+      "('I', (8, 4))": {
+        "raw": 2548039680,
+        "packed": 995329920
+      },
+      "('M', (8, 8))": {
+        "raw": 2548039680,
+        "packed": 1313834880
+      },
+      "('M', (4, 8))": {
+        "raw": 2548039680,
+        "packed": 995329920
+      },
+      "('M', (8, 4))": {
+        "raw": 2548039680,
+        "packed": 995329920
+      }
+    },
+    "raw_error_does_not_choose_codec": true,
+    "actual_model_C_replay": false,
+    "source_bound_C_warp_head_RF_fixture": true,
+    "deployed_peak_or_speed_measured": false
+  },
+  "resources": {
+    "container_wall_seconds": 587.943438,
+    "worker_wall_seconds": 583.0946652181447,
+    "actual_process_CPU_seconds": 459.802423458,
+    "actual_process_CPUh": 0.127722895405,
+    "allocated_vCPUh_upper_bound": 0.3266352433333333,
+    "worker_peak_RSS_GiB": 2.2478294372558594,
+    "hash_wall_seconds": 191.3867715727538,
+    "GPUh": 0,
+    "new_budget_reserved_GPUh": 0,
+    "ledger_writes": 0,
+    "local_edit_transport_and_git_CPU_metered": false
+  },
+  "source_revision": "90768615417cb9858b83fb1d5916b82c7b7f2aef",
+  "container": "cara-sq-cpu-r1-20261028-cpu",
+  "image": "sha256:1e81ac62ee68ca1a6ef655515096a1d84579b01aa4986810c9b18d4f6c4c552d",
+  "GPU_ready": false,
+  "scientific_benefit_established": false,
+  "evidence_sha256": {
+    "reports/cara_sq_two_card_cpu_terminal_20261028.json": "d3fb3c2cd64998724d218c683de12f1376206741d63cf28528be35978d2884de",
+    "reports/cara_sq_resource_audit_20261028.json": "e3bfbd7bea37d57ea2b9412803c1967d410f7bea1354abe4935a98d049c36d03",
+    "scripts/audit_cara_sq_cpu_r1.py": "cc49716800fe160b45fadd8eb0f194d8af86fa11ced82d46d5d78bce87aed912"
+  }
+}

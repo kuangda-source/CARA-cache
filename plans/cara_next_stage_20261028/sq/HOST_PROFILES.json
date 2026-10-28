@@ -1,0 +1,55 @@
+{
+  "schema": "SQ_DUAL_HOST_PREPARATION_PROFILES_R1",
+  "status": "CPU_PREPARATION_ONLY_NO_GPU_PROFILE_ADMISSION",
+  "same_scientific_sources": [
+    "src/wcomr/sq_codec_r1.py",
+    "src/wcomr/sq_risk_r1.py",
+    "plans/cara_next_stage_20261028/sq/NEXT_MINIMUM_CARDS.json"
+  ],
+  "same_scientific_source_sha256": {
+    "src/wcomr/sq_codec_r1.py": "e3deada2c71c8c3b38336d1ac8ef12db0be5513f43c3b20cc34824b852bcaf8d",
+    "src/wcomr/sq_risk_r1.py": "5505cff318e0c1842e14ef9d98dd223eb686c519a01ef27440a6867bce08a39f",
+    "plans/cara_next_stage_20261028/sq/NEXT_MINIMUM_CARDS.json": "13f0af77bf39a5c37ab507442969da02f83d47c7c992a74549ab395b2454c134"
+  },
+  "dispatch_policy": "After card authorization and both profile acceptance, recover handles on both first, prefer admissible four-card GPU, otherwise admissible two-card GPU; one shared ledger and no same-host GPU overlap",
+  "two_card": {
+    "hostname": "minchen-X11DAi-N",
+    "root": "/data20t/gaokuangda/worldcache_workspace",
+    "GPU": "RTX A6000",
+    "SM": "8.6",
+    "transport": "registered two_card_lan via four_card",
+    "CPU_result_ref": "reports/cara_sq_cpu_accepted_20261028.json",
+    "CPU_source_revision": "90768615417cb9858b83fb1d5916b82c7b7f2aef",
+    "CPU_image": "sha256:1e81ac62ee68ca1a6ef655515096a1d84579b01aa4986810c9b18d4f6c4c552d",
+    "CPU_scope": "Real B1 tensor audit/packing; pinned source small tensor C/warp/RF with toy head",
+    "B1_manifest_sha256": "5487f8db32d45a5d0f3304333bf362d9d6ec46fb3181c735d7267b78a6e398fa",
+    "B1_bulk_sha_verified_files": 32,
+    "codec_GPU_acceptance": false,
+    "actual_model_C_codec_acceptance": false,
+    "next_GPU_whole_quote": null
+  },
+  "four_card": {
+    "hostname": "user-Super-Server",
+    "root": "/data20t/gaokuangda/worldcache_workspace",
+    "GPU": "RTX 6000 Ada",
+    "SM": "8.9",
+    "transport": "registered four_card key route",
+    "new_SQ_CPU_run": false,
+    "new_SQ_CPU_accepted": false,
+    "B1_assets_present": false,
+    "B1_asset_observation_ref": "reports/cara_sq_four_card_asset_profile_20261028.json",
+    "legacy_environment_evidence_ref": "reports/cara_IG_four_card_CPU_terminal_r3_20261027.json",
+    "legacy_evidence_is_not_current_SQ_acceptance": true,
+    "next_affected_path_checks": [
+      "same immutable codec/risk source fixtures under registered GPU-hidden environment",
+      "if Q1-saved selected: separately cost and verify one deduplicated B1 tensor port; do not resample model",
+      "bind real condition/precision/C readout and host-specific load/transfer quote"
+    ],
+    "next_GPU_whole_quote": null
+  },
+  "central_ledger_snapshot_ref": "reports/cara_sq_central_ledger_readonly_20261028.json",
+  "GPU_ready": false,
+  "GPU_authorization": false,
+  "new_GPU_submissions": 0,
+  "ledger_writes": 0
+}

@@ -1,0 +1,156 @@
+{
+  "schema": "SQ_NEXT_MINIMUM_CARDS_PROPOSAL_R1",
+  "status": "PREPARE_ONLY_NO_GPU_AUTHORIZATION_NO_RESERVATION",
+  "scope_source": "plans/cara_next_stage_20261028/02_SQ_Method_and_Experiments.md",
+  "Q1_saved": {
+    "priority": "smallest next Q GPU evidence after actual-model adapter CPU preparation",
+    "fixed_layout": "Shared25-C",
+    "fit_prompts": [
+      "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "human_199"
+    ],
+    "steps": [
+      22,
+      23,
+      25,
+      33,
+      34,
+      35
+    ],
+    "same_state_source": "B1 immutable original manifest 5487f8db32d45a5d0f3304333bf362d9d6ec46fb3181c735d7267b78a6e398fa",
+    "states": 12,
+    "actual_C_roles_per_state": [
+      "original_uncompressed_C",
+      "FP32_M_transform_roundtrip_C",
+      "I_8_8",
+      "M_8_8",
+      "I_4_8",
+      "I_8_4",
+      "M_4_8",
+      "M_8_4"
+    ],
+    "formal_same_window_C_pairs": 96,
+    "formal_heads": 192,
+    "new_deep_pairs": 0,
+    "new_parent_paths": 0,
+    "new_videos": 0,
+    "teacher_raw_is_offline_only": true,
+    "selection": "LOPO, one shared bit direction per training prompt, per representation/rate/objective; raw reconstruction is not a selection metric",
+    "outputs": [
+      "q_total_BR_CFG_vs_D",
+      "q_codec_BR_CFG_vs_C",
+      "2_cross_alignment",
+      "common_teacher_normalization",
+      "raw_vs_M_roundtrip",
+      "same_actual_bytes",
+      "CPU_pack_and_transfer_and_actual_readout_time_separate"
+    ],
+    "not_supported_by_this_card": [
+      "full_video_endpoint",
+      "deployed_cache_capacity",
+      "CUDA_codec_kernel_speed",
+      "full_runtime_cache_peak_saving"
+    ],
+    "formal_counts_are_not_whole_quote": true,
+    "whole_quote": {
+      "model_loads": null,
+      "warm_pair_calls": null,
+      "timing_repeats": null,
+      "numerical_controls": "12 original C exact controls included in formal baseline; additional required controls pending CPU adapter acceptance",
+      "input_hash_IO": "20.8GB original corpus, stream and deduplicate anchors; bind measured CPU costs",
+      "scoring_and_release": null,
+      "failure_allowance": null,
+      "forecast_GPUh_two_card": null,
+      "forecast_GPUh_four_card": null,
+      "hard_limit_GPUh": null
+    },
+    "pending_before_quote": [
+      "real condition-class restore without new sampling",
+      "original-weight source and BF16/FP32 autocast binding",
+      "original C outputs replay parity",
+      "actual changed-path CPU fixtures and numerical refusal",
+      "measured host-specific readout and load terms; no per-video mean substitution"
+    ]
+  },
+  "A_SQ_FAST": {
+    "priority": "necessary S branch coverage collection, after no-cost reuse audit and affected parent CPU checks",
+    "fit_prompts": 2,
+    "parents": [
+      "Shared25-C",
+      "F19-C"
+    ],
+    "targets": [
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35
+    ],
+    "label_positions": 108,
+    "ON_paths": 4,
+    "OFF_paths_max": 4,
+    "warm_paths_max": 2,
+    "parent_paths_max": 10,
+    "extra_dense_teacher_pairs_max": 56,
+    "extra_C_shadow_pairs_at_actual_D_steps_max": 52,
+    "dense_teacher_calculation": "2*(11 Shared25 C + 17 F19 C)=56",
+    "C_shadow_calculation": "2*((27-11)+(27-17))=52; shadow C uses cache BEFORE actual D",
+    "raw_parent": "F19-C",
+    "raw_steps": [
+      9,
+      22,
+      33,
+      35
+    ],
+    "raw_states_max": 8,
+    "additional_Q25_raw_states": 0,
+    "Q25_boundary": "Old B1 supports Q0 and proposed local Q1; new F19 raw is not first-round Q25 evidence",
+    "prospective_explicit_field_amendment_before_freeze": [
+      "metadata-only WC_FIELDS alias/storage/shape/dtype inventory including stale first window and solver for each parent; no added raw Q25 tensors"
+    ],
+    "reuse_candidates": [
+      "B1 Shared25 12 local labels only after exact current/model/branch/source/precision/noise identity; no automatic shadow-count reduction",
+      "B1 Shared25 OFF videos for parity/fidelity only after full matching identity; no cross-hardware time pooling"
+    ],
+    "common_expense_count_once": true,
+    "forecast_GPUh_two_card": null,
+    "forecast_GPUh_four_card": null,
+    "hard_limit_GPUh": null,
+    "not_ready": [
+      "108-label production collector for both parents",
+      "pre-D-cache shadow C control",
+      "OFF/ON solver/RNG/latent/video parity",
+      "streaming storage/RAM bound for eight F19 raw states",
+      "complete deduplicated role quote"
+    ]
+  },
+  "endpoints": {
+    "S_END": "Wait for non-equivalent supported CFG/DIAG masks; retain F19-A1 strong comparator; no video scope frozen",
+    "Q_END": "Wait for actual same-byte C output evidence; S success is not a dependency; no video scope frozen"
+  },
+  "GPU_submissions": 0,
+  "new_GPUh": 0,
+  "ledger_writes": 0
+}
