@@ -1,5 +1,7 @@
 # S 固定合成张量的主机 CPU 成本
 
+**最新：双端原容器及CLI已退出0并独立接受。** 原tree_digest含CPU finite扫描，最慢正式重复对应A6000约182.06MiB/s、Ada约142.63MiB/s；这些是固定合成负载的CPU观测。完整[成本与资源原件](../../../reports/cara_sq_s_entry_and_cost_readiness_r1_20261029.json)及[整卡工程草案](../../../reports/cara_sq_s_work_inventory_and_whole_quote_proposal_r1_20261029.json)保持未冻结/无GPU授权状态。
+
 2026-10-29。该范围用于给完整S报价补上CPU哈希、复制、序列化项。它不读取保存状态或模型权重，不执行真实模型、GPU传输或SSD写入，不生成标签和视频，也不是任何GPU原生价格接受。
 
 [冻结范围](S_HOST_COST_CPU_R1.json)使用一个独立创建的全零BF16 CPU tensor，shape `[1,24,27,48,2048]`、127,401,984字节，与登记特征的几何一致。固定四种操作：原 `tree_digest`（含finite扫描）、原 `data_record` 的CPU clone、原tensor deepcopy和 `torch.save` 到BytesIO。每种一次warmup加三次正式调用，另有一次显式setup digest及八次计时外独立副本逐值检查。原始顺序全部保留，不丢弃重复，不根据结果重选规模或次数；报价使用三次正式中最大的耗时作为保守观测。

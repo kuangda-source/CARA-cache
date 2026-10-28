@@ -1,5 +1,7 @@
 # S 目标事务的 snapshot 前资源入口
 
+**最新：原完整物理矩阵的资源入口已双端接受。** 每端13项控制、216次目标检查、280文件重读及11类伪回执拒绝通过，原容器/CLI均退出0。[双端接受](../../../reports/cara_sq_s_resource_guard_dual_cpu_accepted_r1_20261029.json)。A6000矩阵18路径另计两条源准备，Ada20路径；真实S标签和GPU提交为0。完整GPU runner/生命周期仍需单独组合接受。
+
 2026-10-29。[原双端完整清单](../../../reports/cara_sq_s_resources_dual_cpu_accepted_r5_20261029.json)已接受，本项只验证新增资源入口的受影响组合。原数值采集器、固定父轨迹、物理矩阵与存储源码保持；原full2B meta架构和默认93帧合成MP4解码控制按原SHA复用，不重派未改动组件。
 
 新 `ResourceCheckedRequests` 复用原完整 `Requests`。仅在单个请求内，将原 `execute` 的同一 bytecode 的 `SParentCollector` 绑定到新增子类，且异常时恢复原模块入口。目标事务调用 `copy_budget` 时，先检查完整八组元数据、native/solver字段、buffer名称、每条tensor的shape/dtype/grad、逻辑字节、每组完整backing storage和NumPy字节，再调用原逻辑计数器；两者必须逐值相同后才进入原来源捕获和snapshot。该边界是目标诊断事务，整体pipeline加载/初始复位仍属于后续GPU卡资源与生命周期。

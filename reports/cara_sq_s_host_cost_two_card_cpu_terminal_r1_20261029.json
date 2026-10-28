@@ -1,0 +1,244 @@
+{
+  "original_CLI_live": false,
+  "status": "SQ_CPU_PREPARATION_CAPTURE",
+  "observed_unix": 1793227877.0212917,
+  "launch": {
+    "status": "SQ_GPU_HIDDEN_CPU_PREPARATION_LAUNCHED",
+    "stage": "/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-host-cost-cpu-two-card-r1-20261029",
+    "container": "cara-sq-s-host-cost-cpu-two-card-r1-20261029-cpu",
+    "source_revision": "471eebb1cf9decc49b4f4de5666f75f479b38fc7",
+    "registration_sha256": "c0fafa166aad98c3ee75ae76f1ae903f9a52ef46c903d74cc600bd3e0314f3e9",
+    "identity": {
+      "pid": 858808,
+      "state": "R",
+      "start_ticks": 652268134,
+      "command": "docker run --cpuset-cpus 4,5 --memory-swap 8g --ulimit fsize=67108864:67108864 -v /data20t/gaokuangda/worldcache_workspace/outputs/cara-ig-b1-r2-20261027:/data20t/gaokuangda/worldcache_workspace/outputs/cara-ig-b1-r2-20261027:ro --read-only --network none --pid host --name cara-sq-s-host-cost-cpu-two-card-r1-20261029-cpu --label wcomr.manifest=c0fafa166aad98c3ee75ae76f1ae903f9a52ef46c903d74cc600bd3e0314f3e9 --user 1004:998 --cpus 2 --memory 8g --pids-limit 512 --tmpfs /tmp:rw,size=2g -v /data20t/gaokuangda/worldcache_workspace:/data20t/gaokuangda/worldcache_workspace:ro -v /data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-host-cost-cpu-two-card-r1-20261029:/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-host-cost-cpu-two-card-r1-20261029:rw -w /data20t/gaokuangda/worldcache_workspace/runtime -e CUDA_CACHE_PATH=/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-host-cost-cpu-two-card-r1-20261029/CPU-caches/cuda -e CUDA_HOME=/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cuda_nvrtc -e CUDA_PATH=/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cuda_nvrtc -e CUDA_VISIBLE_DEVICES= -e HF_HOME=/data20t/gaokuangda/worldcache_workspace/cache/huggingface -e HF_HUB_CACHE=/data20t/gaokuangda/worldcache_workspace/cache/huggingface/hub -e HF_HUB_OFFLINE=1 -e LD_LIBRARY_PATH=/data20t/gaokuangda/worldcache_workspace/system-libs-r1/usr/lib/x86_64-linux-gnu/blas:/data20t/gaokuangda/worldcache_workspace/system-libs-r1/usr/lib/x86_64-linux-gnu/lapack:/data20t/gaokuangda/worldcache_workspace/system-libs-r1/usr/lib/x86_64-linux-gnu/pulseaudio:/data20t/gaokuangda/worldcache_workspace/system-libs-r1/usr/lib/x86_64-linux-gnu:/data20t/gaokuangda/worldcache_workspace/system-libs-r1/lib/x86_64-linux-gnu:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cuda_nvrtc/lib:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cuda_runtime/lib:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cudnn/lib:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/nvjitlink/lib:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cublas/lib:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/torch/lib -e LOGNAME=gaokuangda -e NLTK_DATA=/data20t/gaokuangda/worldcache_workspace/runtime-resources/nltk-guardrail-d6d4bfa8-r1 -e NVIDIA_VISIBLE_DEVICES=void -e OMP_NUM_THREADS=2 -e OPENBLAS_NUM_THREADS=2 -e PATH=/data20t/gaokuangda/worldcache_workspace/system-libs-r1/usr/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin -e PYTHONDONTWRITEBYTECODE=1 -e PYTHONPATH=/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-host-cost-cpu-two-card-r1-20261029/scripts:/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-host-cost-cpu-two-card-r1-20261029/src -e TOKENIZERS_PARALLELISM=false -e TORCHINDUCTOR_CACHE_DIR=/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-host-cost-cpu-two-card-r1-20261029/CPU-caches/torchinductor -e TORCH_EXTENSIONS_DIR=/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-host-cost-cpu-two-card-r1-20261029/CPU-caches/extensions -e TORCH_HOME=/data20t/gaokuangda/worldcache_workspace/cache/torch -e TRANSFORMERS_OFFLINE=1 -e TRITON_CACHE_DIR=/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-host-cost-cpu-two-card-r1-20261029/CPU-caches/triton -e USER=gaokuangda -e WC_SCOUT_KIND=CAL12 -e XDG_CACHE_HOME=/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-host-cost-cpu-two-card-r1-20261029/CPU-caches/xdg --entrypoint /usr/bin/timeout sha256:1e81ac62ee68ca1a6ef655515096a1d84579b01aa4986810c9b18d4f6c4c552d --signal=TERM --kill-after=10s 1800 /usr/bin/ionice -c 3 /data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/bin/python /data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-host-cost-cpu-two-card-r1-20261029/scripts/check_cara_sq_s_host_cost_cpu_r1.py --assets /data20t/gaokuangda/worldcache_workspace/outputs/cara-ig-b1-r2-20261027/assets --manifest-sha256 5487f8db32d45a5d0f3304333bf362d9d6ec46fb3181c735d7267b78a6e398fa --profile two_card --scope plans/cara_next_stage_20261028/sq/S_HOST_COST_CPU_R1.json --output /data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-host-cost-cpu-two-card-r1-20261029/analysis.json "
+    },
+    "started_unix": 1793227777.8224301,
+    "resource_limits": {
+      "CPUs": 2,
+      "cpuset": "4,5",
+      "RAM_bytes": 8589934592,
+      "wall_seconds": 1800,
+      "allocated_vCPUh_max": 1.0,
+      "output_bytes_max": 67108864,
+      "assets_readonly": true,
+      "network": "none",
+      "GPU": "hidden"
+    },
+    "new_GPU_submissions": 0,
+    "ledger_writes": 0
+  },
+  "source_hashes_equal": true,
+  "runtime_hashes_equal": true,
+  "container_state": {
+    "Status": "exited",
+    "Running": false,
+    "Paused": false,
+    "Restarting": false,
+    "OOMKilled": false,
+    "Dead": false,
+    "Pid": 0,
+    "ExitCode": 0,
+    "Error": "",
+    "StartedAt": "2026-10-28T22:49:37.935172447Z",
+    "FinishedAt": "2026-10-28T22:49:48.60418264Z"
+  },
+  "host_config": {
+    "DeviceRequests": null,
+    "NanoCpus": 2000000000,
+    "Memory": 8589934592,
+    "MemorySwap": 8589934592,
+    "CpusetCpus": "4,5",
+    "NetworkMode": "none",
+    "ReadonlyRootfs": true
+  },
+  "mounts": [
+    {
+      "Type": "bind",
+      "Source": "/data20t/gaokuangda/worldcache_workspace",
+      "Destination": "/data20t/gaokuangda/worldcache_workspace",
+      "Mode": "ro",
+      "RW": false,
+      "Propagation": "rprivate"
+    },
+    {
+      "Type": "bind",
+      "Source": "/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-host-cost-cpu-two-card-r1-20261029",
+      "Destination": "/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-host-cost-cpu-two-card-r1-20261029",
+      "Mode": "rw",
+      "RW": true,
+      "Propagation": "rprivate"
+    },
+    {
+      "Type": "bind",
+      "Source": "/data20t/gaokuangda/worldcache_workspace/outputs/cara-ig-b1-r2-20261027",
+      "Destination": "/data20t/gaokuangda/worldcache_workspace/outputs/cara-ig-b1-r2-20261027",
+      "Mode": "ro",
+      "RW": false,
+      "Propagation": "rprivate"
+    }
+  ],
+  "image": "sha256:1e81ac62ee68ca1a6ef655515096a1d84579b01aa4986810c9b18d4f6c4c552d",
+  "result": {
+    "status": "S_FIXED_SYNTHETIC_HOST_CPU_COSTS_COMPLETE_NOT_GPU_OR_SSD_PRICE",
+    "scope": {
+      "schema": "S_FIXED_SYNTHETIC_HOST_CPU_COST_R1",
+      "synthetic_shape": [
+        1,
+        24,
+        27,
+        48,
+        2048
+      ],
+      "synthetic_dtype": "torch.bfloat16",
+      "synthetic_tensor_bytes": 127401984,
+      "operations": [
+        "source_exact_tree_digest_including_finite_scan",
+        "source_exact_data_record_CPU_clone",
+        "original_deepcopy_CPU_tensor",
+        "original_torch_save_CPU_to_BytesIO_no_disk"
+      ],
+      "warmups_per_operation": 1,
+      "formal_repeats_per_operation": 3,
+      "explicit_setup_digest_calls": 1,
+      "formal_operation_calls": 12,
+      "warmup_operation_calls": 4,
+      "copy_value_checks_outside_operation_clock": 8,
+      "real_states_or_weights": false,
+      "resource_limits": {
+        "CPUs": 2,
+        "RAM_GiB": 8,
+        "wall_seconds": 1800,
+        "GPU": "hidden",
+        "network": "none"
+      },
+      "GPU_transfer_or_GPU_forward_or_SSD_IO_price_measured": false,
+      "whole_S_quote_frozen": false,
+      "GPU_authority": false,
+      "GPU_submissions": 0,
+      "ledger_writes": 0
+    },
+    "profile": "two_card",
+    "operations": {
+      "source_exact_tree_digest_including_finite_scan": {
+        "warmup_seconds": [
+          0.6549040768295527
+        ],
+        "ordered_repeat_seconds": [
+          0.623006728477776,
+          0.6673514517024159,
+          0.6290490133687854
+        ],
+        "input_tensor_bytes_per_call": 127401984,
+        "output_bytes": [
+          64,
+          64,
+          64
+        ],
+        "maximum_observed_seconds": 0.6673514517024159,
+        "minimum_observed_input_bytes_per_second": 190906880.73727432,
+        "repeats_dropped": 0
+      },
+      "source_exact_data_record_CPU_clone": {
+        "warmup_seconds": [
+          0.06538995075970888
+        ],
+        "ordered_repeat_seconds": [
+          0.05710925534367561,
+          0.05695345904678106,
+          0.05727200210094452
+        ],
+        "input_tensor_bytes_per_call": 127401984,
+        "output_bytes": [
+          127401984,
+          127401984,
+          127401984
+        ],
+        "maximum_observed_seconds": 0.05727200210094452,
+        "minimum_observed_input_bytes_per_second": 2224507251.823468,
+        "repeats_dropped": 0
+      },
+      "original_deepcopy_CPU_tensor": {
+        "warmup_seconds": [
+          0.058141762390732765
+        ],
+        "ordered_repeat_seconds": [
+          0.057411580346524715,
+          0.05732081364840269,
+          0.05718026962131262
+        ],
+        "input_tensor_bytes_per_call": 127401984,
+        "output_bytes": [
+          127401984,
+          127401984,
+          127401984
+        ],
+        "maximum_observed_seconds": 0.057411580346524715,
+        "minimum_observed_input_bytes_per_second": 2219099060.346838,
+        "repeats_dropped": 0
+      },
+      "original_torch_save_CPU_to_BytesIO_no_disk": {
+        "warmup_seconds": [
+          0.16765738651156425
+        ],
+        "ordered_repeat_seconds": [
+          0.16480319015681744,
+          0.16473861876875162,
+          0.16506835259497166
+        ],
+        "input_tensor_bytes_per_call": 127401984,
+        "output_bytes": [
+          127403625,
+          127403625,
+          127403625
+        ],
+        "maximum_observed_seconds": 0.16506835259497166,
+        "minimum_observed_input_bytes_per_second": 771813506.3273233,
+        "repeats_dropped": 0
+      }
+    },
+    "explicit_setup_digest_seconds": 0.6315404484048486,
+    "synthetic_input": {
+      "shape": [
+        1,
+        24,
+        27,
+        48,
+        2048
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 127401984,
+      "deterministic_zero_fixture": true,
+      "checkpoint_or_real_state": false
+    },
+    "formal_operation_calls": 12,
+    "warmup_operation_calls": 4,
+    "separate_setup_digest_calls": 1,
+    "copy_value_checks_outside_operation_clock": 8,
+    "source_input_version_unchanged": true,
+    "CPU_wall_seconds": 9.824019285850227,
+    "CPU_seconds": 12.054664344,
+    "peak_RSS_KiB": 908768,
+    "actual_platform": {
+      "system": "Linux",
+      "machine": "x86_64"
+    },
+    "torch_version": "2.7.1+cu128",
+    "actual_CUDA": false,
+    "real_state_or_weights_loaded": false,
+    "real_generated_video": false,
+    "actual_GPU_transfer_price_measured": false,
+    "actual_GPU_forward_price_measured": false,
+    "actual_SSD_IO_price_measured": false,
+    "whole_S_quote_frozen": false,
+    "S_real_labels": 0,
+    "GPU_submissions": 0,
+    "new_GPUh": 0,
+    "ledger_writes": 0
+  },
+  "result_sha256": "22fc12ce31c030aff5b9bd05ac6416b3f8324c6c278ee7c62d9e2b84b143a431",
+  "log_tail": "S_FIXED_SYNTHETIC_HOST_CPU_COSTS_COMPLETE_NOT_GPU_OR_SSD_PRICE\n",
+  "new_GPU_submissions": 0,
+  "ledger_writes": 0
+}

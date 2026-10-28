@@ -1,0 +1,114 @@
+{
+  "status": "S_RESOURCE_ENTRY_AND_FIXED_HOST_CPU_COSTS_COMPLETE_PLANNING_ONLY_NOT_GPU_AUTHORITY",
+  "accepted": {
+    "resource_guard_two_card": {
+      "acceptance_ref": "reports/cara_sq_s_resource_guard_two_card_cpu_accepted_r1_20261029.json",
+      "acceptance_sha256": "ef4b621cbbb4e3df0243c337358ef22f8e4e836db0e60df0a32d91aa1e006ea1",
+      "capture_ref": "reports/cara_sq_s_resource_guard_two_card_cpu_halfway_r1_20261029.json",
+      "capture_sha256": "710a6ee7e68620385570ab060e011e719bfd741e2d776c6f115916c4d0cdb5da"
+    },
+    "resource_guard_four_card": {
+      "acceptance_ref": "reports/cara_sq_s_resource_guard_four_card_cpu_accepted_r1_20261029.json",
+      "acceptance_sha256": "fe4d992fbaa9910a35733484f203c06a5a9883f7957d9c2213ca0ccbf1d01194",
+      "capture_ref": "reports/cara_sq_s_resource_guard_four_card_cpu_terminal_final_r1_20261029.json",
+      "capture_sha256": "ad6ea0ea6a76da2e70e7d7d0218dee107e31c3e586ea68d2d647b7fe6103bedc"
+    },
+    "host_cost_two_card": {
+      "acceptance_ref": "reports/cara_sq_s_host_cost_two_card_cpu_accepted_r1_20261029.json",
+      "acceptance_sha256": "203081414b9e716447f236d137bb9937bf5cafb2db62d2ea77bd676c8ebab345",
+      "capture_ref": "reports/cara_sq_s_host_cost_two_card_cpu_terminal_r1_20261029.json",
+      "capture_sha256": "b437322cac19d657239152fc404f30b9ce86f9f82f85387ed2ec4b663e854fe3"
+    },
+    "host_cost_four_card": {
+      "acceptance_ref": "reports/cara_sq_s_host_cost_four_card_cpu_accepted_r1_20261029.json",
+      "acceptance_sha256": "c93a2dd33b5e38acabcfba47ff0688dc2d4becf293bdf628b44f4f039d5567e7",
+      "capture_ref": "reports/cara_sq_s_host_cost_four_card_cpu_terminal_r1_20261029.json",
+      "capture_sha256": "df51a8d1a827d9382a6fe3be4d26fdfb584f8c64a97e72ac4d4b3b2379e761de"
+    }
+  },
+  "CPU_resources": {
+    "resource_guard_two_card": {
+      "container_wall_seconds": 146.09242,
+      "worker_wall_seconds": 142.9933327799663,
+      "worker_CPU_seconds": 159.277368333,
+      "reaped_child_CPU_seconds": 2.934435,
+      "parent_peak_RSS_GiB": 0.8970565795898438,
+      "allocated_vCPU_seconds_upper_bound": 292.18484,
+      "wrapper_post_result_and_staging_CPU_unmetered": true
+    },
+    "resource_guard_four_card": {
+      "container_wall_seconds": 633.650219,
+      "worker_wall_seconds": 583.4263657405972,
+      "worker_CPU_seconds": 221.141680248,
+      "reaped_child_CPU_seconds": 5.677,
+      "parent_peak_RSS_GiB": 0.8647613525390625,
+      "allocated_vCPU_seconds_upper_bound": 1267.300438,
+      "wrapper_post_result_and_staging_CPU_unmetered": true
+    },
+    "host_cost_two_card": {
+      "container_wall_seconds": 10.66901,
+      "worker_wall_seconds": 9.824019285850227,
+      "worker_CPU_seconds": 12.054664344,
+      "parent_peak_RSS_GiB": 0.866668701171875,
+      "allocated_vCPU_seconds_upper_bound": 21.33802,
+      "interpreter_wrapper_and_staging_CPU_unmetered": true
+    },
+    "host_cost_four_card": {
+      "container_wall_seconds": 60.128169,
+      "worker_wall_seconds": 53.15070077776909,
+      "worker_CPU_seconds": 18.633549641,
+      "parent_peak_RSS_GiB": 0.8563766479492188,
+      "allocated_vCPU_seconds_upper_bound": 120.256338,
+      "interpreter_wrapper_and_staging_CPU_unmetered": true
+    }
+  },
+  "costs": {
+    "original_CPU_containers": 4,
+    "container_wall_seconds_total": 850.539818,
+    "allocated_vCPU_seconds_upper_bound": 1701.079636,
+    "measured_worker_CPU_seconds": 411.107262566,
+    "measured_reaped_child_CPU_seconds": 8.611435,
+    "all_cost_benchmark_children_and_wrapper_post_result_staging_CPU_unmetered": true,
+    "aggregate_cgroup_peak_measured": false
+  },
+  "resource_guard": {
+    "controls_per_host": 13,
+    "forged_receipt_refusals_per_host": 11,
+    "target_boundaries_per_host": 216,
+    "new_complete_tiny_paths_including_fixture_sources_per_host": 20,
+    "streamed_files_reloaded_per_host": 280
+  },
+  "cost_protocol": {
+    "synthetic_feature_bytes": 127401984,
+    "formal_operations_per_host": 12,
+    "warmups_per_host": 4,
+    "setup_digests_per_host": 1,
+    "forged_receipt_refusals_per_host": 8,
+    "CPU_only": true,
+    "GPU_or_SSD_native_price_measured": false
+  },
+  "whole_quote_proposal": {
+    "two_card": {
+      "ref": "plans/cara_next_stage_20261028/sq/S_WHOLE_QUOTE_TWO_CARD_R1.json",
+      "expected_original_BF16_GPUh": 7.779722222222222,
+      "permitted_FP32_scenario_GPUh": 12.52,
+      "proposed_hard_limit_GPUh": 14
+    },
+    "four_card": {
+      "ref": "plans/cara_next_stage_20261028/sq/S_WHOLE_QUOTE_FOUR_CARD_R1.json",
+      "expected_original_BF16_GPUh": 9.231111111111112,
+      "permitted_FP32_scenario_GPUh": 15.0425,
+      "proposed_hard_limit_GPUh": 17
+    }
+  },
+  "whole_quote_report_ref": "reports/cara_sq_s_work_inventory_and_whole_quote_proposal_r1_20261029.json",
+  "actual_new_S_asset_verification": false,
+  "complete_S_GPU_entry_accepted": false,
+  "whole_S_quote_frozen": false,
+  "actual_real_S_labels": 0,
+  "new_real_videos": 0,
+  "GPU_authorized": false,
+  "GPU_submissions": 0,
+  "new_GPUh": 0,
+  "ledger_writes": 0
+}
