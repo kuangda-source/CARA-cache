@@ -1,0 +1,27 @@
+# S 整卡上限编排与 CPU 接续
+
+2026-10-29。单路径 S 采集及存储的双端原 CPU 接受保持。新增整批入口把原上限 2 warm + 4 OFF + 4 ON 接到同一生产采样器，当前仅准备受限 CPU 验证；新 S GPU 卡、预约和真实标签仍为零。Q1 的固定源包与待回答授权问题保持。
+
+## 固定上限与实际执行分母
+
+[新入口](../../../src/wcomr/sq_s_batch_r1.py)枚举两个旧 FIT、两个固定父策略 Shared25-C/F19-C；正式四组 OFF/ON 的先后次序预先交错，两次 warm 均关闭采集。每请求完整 36 pair，不增加 Dense-hidden head 重放或 Q25 raw。
+
+| 上限矩阵项 | pair 数 |
+|---|---:|
+| 10 条父轨迹的 D | 220 |
+| 10 条父轨迹的 C | 140 |
+| ON 的独立 Dense teacher | 56 |
+| 实际 D 的 pre-D C shadow | 52 |
+| 合计 | 468 |
+
+上限共 936 次分支读出，产生 108 行矩、八个 F19 raw、24 个去重锚点。各项包含两次 warm；组件内部的 shadow 事务、恢复、哈希、CPU 传输和流式 I/O 仍须另计墙钟费用。真正 GPU 报价前必须完成相容 OFF/预热原件复用审计，再冻结去重后的实际矩阵；本文件不直接授权跑满十条。
+
+## 新接口边界
+
+每请求立即将全 36 guided 与最终 latent 转为完整字节摘要，保留原实际动作；完整批次元数据不长驻全部轨迹张量。四组 OFF/ON 核对全部 93 帧解码 RGB，采用 pinned `save_img_or_video` 的 float/BF16/uint8 像素转换；编码文件 SHA 独立记录。七项本地控制覆盖真实 writer 源码转换、完整矩阵/分母、RGB 失配、资源预检失败、缺行/短 guided/错误 CPU 身份、禁止复跑，以及 Q1 权限不能进入真实 S 入口。
+
+批次第一次尝试即消费本 adapter；资源预检或任何请求失败均保留状态与片段，禁止从中间重试或续跑。108/56/52、十路径、四 OFF/ON、八 raw/24 锚点全部齐备后，才发布 data-only 完成元数据；GPU 释放/财务/独立终态接受与后续 S 掩码选择仍属外层流程。真实 S 入口要求单独 source/scope/launch/GPU 绑定的 S 权限上下文，不继承 Q1。
+
+[CPU 范围](S_BATCH_CPU_R1.json)为两个 flow 设置各十条完整路径，共 20 条；小权重、真实 pinned WC/RF/UniPC 与占位 decoder/writer，GPU 隐藏、禁网、2 核/8 GiB、1800 秒、64 MiB 文件限制。每 flow 用原流式存储上限 16 MiB/8 MiB，重载 140 文件，双 flow 合计 80 次 tiny tensor 读取。原 owner/采集/存储阶段不重派，真实权重与外部 tensor 读取禁止。
+
+当前七项本地控制通过；新 Linux 原阶段尚待首次启动和独立验收。真实资源仍按[解析下界](../../../reports/cara_sq_s_resource_analytical_floor_r1_20261029.json)继续补齐字段清单、物理峰值边界与双端完整工程报价；CPU fixture 限额不用于真实卡。
