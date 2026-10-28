@@ -51,7 +51,7 @@ def run(args,password,*,ops=None,clock=time):
     from wcomr.sq_q1_execution_r1 import validate,read,require
     from wcomr.sq_q1_spec_r1 import PROFILE
     from wcomr.gpu_budget_pool_v2 import sha
-    from wcomr.history104_storage_r2 import storage_for
+    from wcomr.sq_control_storage_r1 import storage_for
     from wcomr.sq_gpu_allocation_r1 import run_allocation
     _,registration,authority=validate(args.project,args.stage)
     storage=storage_for(args.stage);profile=read(args.stage/PROFILE)

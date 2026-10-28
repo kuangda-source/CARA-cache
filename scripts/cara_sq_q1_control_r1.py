@@ -29,7 +29,7 @@ PREFIX="""
 import json,os,sys,time,socket,subprocess
 from pathlib import Path
 p=json.load(sys.stdin);project=Path('/data20t/gaokuangda/worldcache_workspace')
-host=p['host'];stage=project/'.sync'/('cara-sq-q1-saved-'+host.replace('_','-')+'-r2-20261029')
+host=p['host'];stage=project/'.sync'/('cara-sq-q1-saved-'+host.replace('_','-')+'-r3-20261029')
 os.environ['CUDA_VISIBLE_DEVICES']=''
 sys.path[:0]=[str(stage/'src'),str(stage/'scripts')]
 """
@@ -38,10 +38,10 @@ RECOVER="""
 import json,sys,subprocess
 from pathlib import Path
 p=json.load(sys.stdin);project=Path('/data20t/gaokuangda/worldcache_workspace')
-stage=project/'.sync'/('cara-sq-q1-saved-'+p['host'].replace('_','-')+'-r2-20261029')
+stage=project/'.sync'/('cara-sq-q1-saved-'+p['host'].replace('_','-')+'-r3-20261029')
 value=dict(status='Q1_ORIGINAL_HANDLE_RECOVERY_ONLY',host=p['host'],stage=str(stage),
  stage_exists=stage.exists(),handles={},GPU_submissions=0,ledger_writes=0)
-for version in ('r1-20261028','r2-20261029'):
+for version in ('r1-20261028','r2-20261029','r3-20261029'):
  original=project/'.sync'/('cara-sq-q1-saved-'+p['host'].replace('_','-')+'-'+version)
  for name in ('GPU-intent.json','GPU-dispatch-consumed.json','GPU-launch.json','pg-host-guardian.json'):
   if (original/name).exists():value['handles'][version+'/'+name]=json.loads((original/name).read_text())
@@ -90,6 +90,8 @@ def selected_authority(approval,probe):
 
 
 def bound_controller(revision):
+    require(revision!='a8dc60f53f62adbbecaab07d207f466ab1ca471e',
+        'Q1 readiness withdrawn: actual 48MiB production journal refuses allocation/release diagnostic keys; preserve the original stage and use the corrected real-journal CPU proof')
     # This unused prepared source predates the host allocation clock. It must
     # not launch while the source-bound correction and CPU proof are prepared.
     require(revision!='f3be7662175889c77e3719521fecb9c4d3be83af',

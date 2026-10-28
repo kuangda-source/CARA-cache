@@ -18,7 +18,7 @@ def main():
     from wcomr.sq_q1_execution_r1 import validate,read,require
     from wcomr.sq_q1_spec_r1 import RUN,ASSETS,WEIGHT,CHECKPOINT_SHA,MANIFEST_SHA,PROFILE
     from wcomr.gpu_budget_pool_v2 import atomic_json
-    from wcomr.history104_storage_r2 import storage_for
+    from wcomr.sq_control_storage_r1 import storage_for
     from wcomr.sq_q1_stage_r1 import verify_lease_fd
     from wcomr.wc73_exclusive_r1 import runner_context_gate
     scope,registration,authority=validate(args.project,args.stage)

@@ -34,7 +34,7 @@ def verify_lease_fd(project,gpu_uuid,descriptor):
 
 def stage_path(project,host):
     require(host in LIMITS,'Registered Q1 host required')
-    return Path(project)/'.sync'/('cara-sq-q1-saved-'+host.replace('_','-')+'-r2-20261029')
+    return Path(project)/'.sync'/('cara-sq-q1-saved-'+host.replace('_','-')+'-r3-20261029')
 
 
 def install(project,host,base,proof,proof_raw,base_registration_sha256):

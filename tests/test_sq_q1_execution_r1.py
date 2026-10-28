@@ -209,7 +209,7 @@ class SupervisorTests(unittest.TestCase):
     def exercise(self,scenario):
         worker=script('cara_sq_q1_worker_r1')
         from wcomr import sq_q1_execution_r1 as execution,sq_q1_spec_r1 as spec
-        from wcomr import wc73_exclusive_r1 as exclusive,history104_storage_r2 as storage_module
+        from wcomr import wc73_exclusive_r1 as exclusive,sq_control_storage_r1 as storage_module
         scope=json.loads((ROOT/SCOPE).read_text());collection=copy.deepcopy(raw_fixture())
         if scenario=='numeric_failure':collection=numeric_failure(collection)
         with tempfile.TemporaryDirectory() as directory:

@@ -22,7 +22,7 @@ from wcomr.sq_q1_terminal_r1 import settle_original,technical_terminal
 @unittest.skipUnless(Path('/proc/self').exists(),'Real Linux child cleanup/lease required')
 class WholeAllocationTests(unittest.TestCase):
     def test_guardian_capture_and_settlement_cover_pre_worker_failures(self):
-        from wcomr import history104_storage_r2 as storage_module
+        from wcomr import sq_control_storage_r1 as storage_module
         from wcomr import sq_q1_capture_r1 as capture_module
         from wcomr.sq_gpu_allocation_r1 import SystemOperations
         for case in ('credential','admission','spawn','child_failure','never_created','timeout','unknown','restore'):

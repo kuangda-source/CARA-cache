@@ -14,7 +14,7 @@ def supervise(args):
     from wcomr.sq_q1_execution_r1 import validate,read,require,check_collection
     from wcomr.sq_q1_spec_r1 import RUN,QUOTES,PROFILE,LIMITS,COUNTS
     from wcomr.gpu_budget_pool_v2 import DeviceLease,process_identity,atomic_json,sha
-    from wcomr.history104_storage_r2 import storage_for
+    from wcomr.sq_control_storage_r1 import storage_for
     from wcomr.wc73_exclusive_r1 import observe,verify
     scope,registration,authority=validate(args.project,args.stage)
     storage=storage_for(args.stage);storage.check();output=args.project/'outputs'/RUN
