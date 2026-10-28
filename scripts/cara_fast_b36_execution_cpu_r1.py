@@ -23,15 +23,17 @@ def main():
     parser.add_argument('--dispatch',action='store_true')
     parser.add_argument('--assets',action='store_true')
     parser.add_argument('--analysis',action='store_true')
+    parser.add_argument('--figures',action='store_true')
     parser.add_argument('--output',type=Path,required=True)
     args=parser.parse_args()
     assert not args.output.exists()
     label={'four_card':'ada','two_card':'a6000'}[args.host]
-    assert sum(map(bool,(args.post,args.startup,args.dispatch,args.assets,args.analysis)))<=1
-    phase=('analysis' if args.analysis else 'assets' if args.assets else 'dispatch' if args.dispatch
+    assert sum(map(bool,(args.post,args.startup,args.dispatch,args.assets,args.analysis,args.figures)))<=1
+    phase=('figures' if args.figures else 'analysis' if args.analysis else 'assets' if args.assets else 'dispatch' if args.dispatch
            else 'startup' if args.startup else 'post' if args.post else 'outer')
     payload=dict(action=args.action,host=args.host,stage_name='cara-fast-B36-'+phase+'-CPU-'+label+'-r'+str(args.revision)+'-20261029')
-    worker=('check_cara_fast_b36_analysis_cpu_r1.py' if args.analysis else
+    worker=('check_cara_fast_b36_figures_cpu_r1.py' if args.figures else
+            'check_cara_fast_b36_analysis_cpu_r1.py' if args.analysis else
             'check_cara_fast_b36_assets_cpu_r2.py' if args.assets else
             'check_cara_fast_b36_dispatch_cpu_r2.py' if args.dispatch else
             'check_cara_fast_b36_startup_cpu_r2.py' if args.startup else
@@ -49,6 +51,10 @@ def main():
     before="('NanoCpus','Memory','DeviceRequests','NetworkMode','ReadonlyRootfs')"
     assert remote.count(before)==1
     remote=remote.replace(before,"('NanoCpus','Memory','MemorySwap','CpusetCpus','DeviceRequests','NetworkMode','ReadonlyRootfs')")
+    if args.figures:
+        before="CPU_proof_sha256=sha(proof) if proof.exists() else None,"
+        assert remote.count(before)==1
+        remote=remote.replace(before,before+"figure_layout=dict(proof_sha256=sha(stage/'figure-layout-preview/CPU-layout-proof.json'),files={q.name:sha(q) for q in (stage/'figure-layout-preview').iterdir() if q.is_file() and q.name!='CPU-layout-proof.json'}) if (stage/'figure-layout-preview/CPU-layout-proof.json').exists() else None,")
     if args.action=='prepare':
         prior={'four_card':'cara_DEV128_full_four_card_CPU_complete2_r3_20261026.json',
                'two_card':'cara_DEV128_full_two_card_CPU_complete_r3_20261026.json'}[args.host]
@@ -65,17 +71,22 @@ def main():
         names.update(row['path'] for row in profile['A32_handoff_files'].values())
         pending=['check_cara_fast_b36_execution_cpu_r1','cara_fast_b36_worker_r1',
                  'cara_fast_b36_host_guardian_r1','run_cara_fast_b36_r1']
-        if args.post or args.startup or args.dispatch or args.analysis:
+        if args.post or args.startup or args.dispatch or args.analysis or args.figures:
             names.update(['src/wcomr/cara_fast_b36_terminal_r1.py','src/wcomr/cara_fast_b36_capture_r1.py',
                 'src/wcomr/cara_fast_b36_post_r1.py','tests/test_cara_fast_b36_post_r1.py',
                 'reports/cara_fast_score_cli_two_card_raw_receipts_r2_20261028.json',
                 'reports/cara_fast_four_card_host_profile_readonly_r2_20261028.json'])
             pending.extend(['check_cara_fast_b36_post_cpu_r1','postprocess_cara_fast_b36_r1',
                 'capture_cara_fast_b36_terminal_r1','score_cara_fast_b36_fidelity_r1','score_cara_fast_fidelity_r1'])
-        if args.analysis:
+        if args.analysis or args.figures:
             names.update(['src/wcomr/cara_fast_b36_analysis_r1.py','tests/test_cara_fast_b36_analysis_r1.py'])
             pending.extend(['check_cara_fast_b36_analysis_cpu_r1','analyze_cara_fast_b36_complete_r1',
                             'dispatch_cara_fast_b36_score_cpu_r2'])
+        if args.figures:
+            names.update(['src/wcomr/cara_fast_b36_figures_r1.py','tests/test_cara_fast_b36_figures_r1.py',
+                'reports/cara_fast_B36_analysis_CPU_acceptance_r1_20261029.json',
+                'plans/cara_next_stage_20261028/mainline/PAPER_RESULTS_MANIFEST.json'])
+            pending.extend(['check_cara_fast_b36_figures_cpu_r1','render_cara_fast_b36_figures_r1','analyze_cara_fast_r1'])
         if args.startup or args.dispatch:
             names.add('tests/test_cara_fast_b36_startup_r2.py')
             pending.append('check_cara_fast_b36_startup_cpu_r2')

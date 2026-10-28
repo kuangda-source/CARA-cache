@@ -10,7 +10,7 @@
 
 [743 B36双端CPU承接接受](research/743_CARA_B36_COMPLETE_CONTINUATION_DUAL_CPU_ACCEPTANCE_20261029.md)：每端两种flow各完整36条，合计72条成功tiny路径，失败清理与禁止重试通过；CPU使用合成冻结包，实际基线采用A32完整验收后的原一次冻结文件。[CPU接受回执](reports/cara_fast_B36_CPU_acceptance_r1_20261029.json)
 
-[748 B36完整汇总CPU接受与待审批](research/748_CARA_B36_COMPLETE_RESULT_AGGREGATION_CPU_20261029.md)：执行入口双端22项CPU及20个实际资产核验保持，正式汇总另经双端各6项CPU接受，覆盖输入等权、登记重复、双时钟及FIT原A敏感性。没有新B指标或GPU派发；仍等待单次B36预计5.0215、硬5.5GPUh的明确批准及同A6000 UUID fresh准入，WC/RA保持UNMATCHED。 [组合CPU接受](reports/cara_fast_B36_dispatch_CPU_acceptance_r2_20261029.json) · [剩余派发边界](plans/cara_next_stage_20261028/mainline/r2/B36_GPU_REVIEW_R2.md)
+[749 B36图表承接CPU接受与待审批](research/749_CARA_B36_FIGURES_DUAL_CPU_AND_LAYOUT_20261029.md)：执行22项、汇总6项、绘图6项分别双端接受，四组图及四CSV已作显式CPU夹具和图面验证；原52执行/4汇总源码及冻结保持。仍无B GPU派发或实际比较，等待单次B36预计5.0215、硬5.5GPUh的明确批准，WC/RA保持FIT UNMATCHED。 [组合CPU接受](reports/cara_fast_B36_dispatch_CPU_acceptance_r2_20261029.json) · [剩余派发边界](plans/cara_next_stage_20261028/mainline/r2/B36_GPU_REVIEW_R2.md)
 
 当前核心问题是：**相同刷新次数下，把完整计算放在更有价值的时间步，能否更好保留完整模型的视频输出？** CAL66在24/25D上支持过渡段刷新优于末段刷新，并按原规则选出不含A的Shared25-C。这项DEV128比较已完成；当前先准备F19高速可行性和S/Q独立机制。历史修正的局部与终点保真收益保留，同时报告其独立质量代价。
 
@@ -102,7 +102,7 @@ LPIPS百分比以同批场景均值之比计算；视频帧不当独立样本；
 | 顺序 / 负责人 | 当前阶段 | 下一项验收 / 动作 |
 |---|---|---|
 | P0 · 主线 | A32完整三臂GPU门及技术验收通过 | 保留32完整原件、原控制与双时钟；GPU已释放、费用已唯一结算 |
-| F19 · 主线 | A32全链冻结；B36执行22项/汇总6项CPU双端接受 | 等待明确批准单次B36预计5.0215/硬5.5GPUh；再对原A6000同UUID fresh准入，WC/RA的UNMATCHED保持 |
+| F19 · 主线 | A32已冻结；B36执行/汇总/图表CPU双端接受 | 等待明确批准单次B36预计5.0215/硬5.5GPUh；再对原A6000同UUID fresh准入，WC/RA的UNMATCHED保持 |
 | S-FAST19 · S/Q探索 | 生产profile的170共同结构候选；尚无全支持mask | 完整风险缺口保持；BR/DIAG/CFG共同语法，见S/Q R3状态；不外推12保存状态 |
 | Q0-Q1 · S/Q探索 | 双端CPU控制与源码绑定完成；原C CPU未过历史GPU逐值门 | 同硬件CUDA数值控制仅提案；当前codec评分0，固定Shared25-C及旧资产不重采 |
 | A-SQ-FAST · S/Q探索 | 仅明确缺口后准备采集卡 | 绑定新父策略的108标签/56额外Dense pair与存储；解决F19 raw和Q25布局兼容问题，共同费用只计一次 |

@@ -1,5 +1,7 @@
 # B36等待期准备：配对与报告布局
 
+图表承接现也已完成：[导出交接](B36_FIGURE_READINESS_R1.md) · [最终双端各6项CPU接受](../../../../reports/cara_fast_B36_figures_CPU_acceptance_r2_20261029.json) · [749图面检查记录](../../../../research/749_CARA_B36_FIGURES_DUAL_CPU_AND_LAYOUT_20261029.md)。四组PNG/PDF和四CSV仅以显式CPU夹具验证，实际入口仍须重建完整B接受链；原52执行文件及4汇总文件保持。
+
 **当前：完整汇总工具已通过双端各6项CPU控制。** [接受回执](../../../../reports/cara_fast_B36_analysis_CPU_acceptance_r1_20261029.json) · [748完整记录](../../../../research/748_CARA_B36_COMPLETE_RESULT_AGGREGATION_CPU_20261029.md)。下文静态布局保留原历史依赖描述；A32现已完整接受并冻结。B36仍需单独批准预计5.0215/硬5.5GPUh，本次没有派发GPU或计算B指标。
 
 实际汇总入口 `scripts/analyze_cara_fast_b36_complete_r1.py` 只读取五个显式原件：`--capture`、`--settlement`、`--manifest`、`--score-capture`、`--accepted-scores`，并要求新的 `--output`。它重新验证完整B终态/结算/释放及32位置评分接受；运行、UNKNOWN、部分数据、混源或CPU夹具不能形成正式报告。原执行52文件与A冻结字节保持，本工具位于单独的分析代码中。
