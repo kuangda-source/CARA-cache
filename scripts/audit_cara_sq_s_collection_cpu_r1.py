@@ -17,13 +17,14 @@ CRITICAL=('src/wcomr/sq_s_collection_r1.py','src/wcomr/sq_s_owner_roundtrip_r1.p
     'tests/check_sq_s_collection_cpu_r1.py','scripts/check_cara_sq_s_collection_cpu_r1.py',SCOPE)
 
 
-def accept(capture,scope,revision):
+def accept(capture,scope,revision,*,storage=False):
     state=capture['container_state'];launch=capture['launch'];result=capture['result']
+    stage='cara-sq-s-storage-cpu-four-card-r2-20261029' if storage else STAGE
     require(capture['status']=='SQ_CPU_PREPARATION_CAPTURE' and state['Status']=='exited'
             and not any(state[k] for k in ('Running','Paused','Restarting','OOMKilled','Dead'))
             and state['ExitCode']==0 and not state['Error'],'Original S topology CPU container is not cleanly terminal')
     require(launch['source_revision']==revision and launch['status']=='SQ_GPU_HIDDEN_CPU_PREPARATION_LAUNCHED'
-            and launch['stage'].endswith('/'+STAGE) and launch['container']==STAGE+'-cpu'
+            and launch['stage'].endswith('/'+stage) and launch['container']==stage+'-cpu'
             and capture['source_hashes_equal'] and capture['runtime_hashes_equal'],
             'S topology original handle or immutable source differs')
     require(capture['image']=='sha256:1e81ac62ee68ca1a6ef655515096a1d84579b01aa4986810c9b18d4f6c4c552d'
@@ -35,7 +36,9 @@ def accept(capture,scope,revision):
             'S topology CPU writable mount escaped its own stage')
     require(result is not None and result_sha(result)==capture['result_sha256'],
             'S topology original result bytes differ')
-    require(result['status']=='SQ_S_COLLECTION_CPU_TOPOLOGY_PASS_NOT_REAL_MODEL_OR_STORAGE_ACCEPTANCE'
+    status=('SQ_S_COLLECTION_STREAMING_CPU_PASS_NOT_REAL_MODEL_ACCEPTANCE' if storage
+            else 'SQ_S_COLLECTION_CPU_TOPOLOGY_PASS_NOT_REAL_MODEL_OR_STORAGE_ACCEPTANCE')
+    require(result['status']==status
             and result['scope']==scope and result['profile']=='four_card'
             and result['fixture_status']=='PINNED_PIPELINE_CPU_FIXTURE_EXTERNAL_EXERCISE_COMPLETE',
             'Complete frozen S CPU topology required')
@@ -47,6 +50,15 @@ def accept(capture,scope,revision):
             'S topology exceeded its CPU-only evidence boundary')
     require(result['actual_platform']['system']=='Linux' and result['torch_version']=='2.7.1+cu128',
             'Registered Linux CPU runtime required')
+    if storage:
+        unit=result['storage_unit_controls']
+        require(scope['schema']=='SQ_S_COLLECTION_STREAMING_CPU_R2'
+                and result['CPU_streaming_storage_accepted'] is True
+                and result['tiny_tensor_files_loaded']==scope['tiny_tensor_reloads']==80
+                and unit['tests']==scope['storage_unit_tests']==5 and unit['skipped']==0
+                and unit['tiny_tensor_reloads']==scope['storage_unit_tiny_tensor_reloads']==6
+                and unit['log'].rstrip().endswith('OK'),
+                'S CPU storage unit/failure controls or bounded reload denominator differs')
     rows=result['rows'];require(len(rows)==2 and {r['flow'] for r in rows}=={False,True},'Both full flow settings required')
     expected_controls={(p,h) for p in scope['CPU_prompts'] for h in scope['parents']}
     expected_raw={(p,'F19-C',t) for p in scope['CPU_prompts'] for t in scope['raw_steps']}
@@ -67,18 +79,33 @@ def accept(capture,scope,revision):
         require(row['actual_Cosmos_weights'] is False and row['real_generated_video'] is False
                 and row['S_labels_collected']==0 and row['streaming_raw_storage_accepted'] is False
                 and row['real_model_S_collector_accepted'] is False,'S fixture cannot accept real labels, videos or storage')
+        if storage:
+            saved=row['storage'];audit=saved['reload_audit'];manifest=saved['manifest']
+            require(row['CPU_streaming_storage_accepted'] is True and saved['CPU_data_storage_only'] is True
+                    and (saved['measured_rows'],saved['raw_states'],saved['unique_anchor_files'])==(108,8,24)
+                    and 0<saved['actual_stored_bytes']<=scope['storage_total_cap_bytes_per_flow']==16*2**20
+                    and manifest['name']=='manifest.json' and 0<manifest['bytes']<=8*2**20
+                    and len(manifest['sha256'])==64
+                    and (audit['files_SHA_and_bytes_reloaded'],audit['measured_rows_reloaded'],
+                         audit['raw_states_reloaded'],audit['unique_anchors_reloaded'])==(140,108,8,24)
+                    and audit['actual_C_reference_and_noise_grid_retained'] is True
+                    and audit['real_Cosmos_weights_loaded'] is False,
+                    'S CPU streaming artifacts, byte boundary or actual reload cohort missing')
     require(sum(r['complete_CPU_paths'] for r in rows)==scope['complete_CPU_paths'],'S topology complete path denominator differs')
     wall=(instant(state['FinishedAt'])-instant(state['StartedAt'])).total_seconds()
     require(0<wall<=1810 and all(math.isfinite(result[k]) and result[k]>0 for k in
             ('CPU_wall_seconds','CPU_seconds','peak_RSS_KiB'))
             and result['CPU_wall_seconds']<=wall and result['CPU_seconds']<=2*wall
             and result['peak_RSS_KiB']*1024<=8*2**30,'S topology CPU resources exceed the registered boundary')
-    return dict(host='four_card',complete_CPU_paths=16,CPU_fixture_moment_rows=216,
+    accepted=dict(host='four_card',complete_CPU_paths=16,CPU_fixture_moment_rows=216,
         extra_Dense_teacher_pairs=112,extra_C_readout_pairs=104,raw_CPU_callbacks=16,
         worker_wall_seconds=result['CPU_wall_seconds'],CPU_seconds=result['CPU_seconds'],
         peak_RSS_GiB=result['peak_RSS_KiB']/2**20,container_wall_seconds=wall,
         CPU_topology_accepted=True,streaming_raw_storage_accepted=False,
         real_model_S_collector_accepted=False,actual_GPU_or_science_accepted=False)
+    if storage:accepted.update(CPU_streaming_storage_accepted=True,files_SHA_and_bytes_reloaded=280,
+        tiny_tensor_files_loaded=80,storage_unit_controls=5,storage_unit_tiny_tensor_reloads=6)
+    return accepted
 
 
 def main():

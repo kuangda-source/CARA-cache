@@ -1,0 +1,108 @@
+{
+  "status": "S_FOUR_CARD_STREAMING_CPU_COMPOSITION_ACCEPTED_NOT_REAL_MODEL_ASSETS",
+  "passed": true,
+  "host": "four_card",
+  "dual_host_CPU_accepted": false,
+  "source_revision": "591ac3bd2b8231de8a44c933bf26560acc7921e0",
+  "critical_source_sha256": {
+    "src/wcomr/sq_s_collection_r1.py": "a0b2b3e6a4e0f44e00a764030966027ebbb20e8d25db6f2188b48d02402dde69",
+    "src/wcomr/sq_s_storage_r1.py": "4b96cb8a7b8d1b2c88b4846df923350615cf8db0fa39c8e4796fd9a65402fad0",
+    "src/wcomr/sq_s_owner_roundtrip_r1.py": "f93c7e803cd2ad72ac8253875b525b522a18f504685b471cc3496e7b45a14412",
+    "src/wcomr/sq_s_sources_r1.py": "03ca23c97c8d9096f1bae7fb84e6ef1cc53bb63ba9688fe39ac74b44b64fb13e",
+    "src/wcomr/sq_risk_r1.py": "5505cff318e0c1842e14ef9d98dd223eb686c519a01ef27440a6867bce08a39f",
+    "src/wcomr/scout_parent_v22.py": "e304ba28a9118c5d5836b05f9830a8dad3dda76918a587aed4d42c54ef676ffe",
+    "tests/check_sq_s_collection_cpu_r1.py": "9339075d594b700c83475c669f8706e77078bf5e7f78ec05e9c5cfa041bb8d39",
+    "tests/check_sq_s_collection_storage_cpu_r2.py": "b0c4f926650c50b768b288e167039d8aebd2c0b9d8e41af863361c4276e794eb",
+    "tests/test_sq_s_storage_r1.py": "19ed2d032ebcabff8e075e1787c520355eb6672bbf72c998a69d1707dbe4c5fa",
+    "scripts/check_cara_sq_s_collection_cpu_r1.py": "b96bd30d61a5a68aec07fbc41fc9f89ec5428e3bd4e80940cd45f5ae8487fcc2",
+    "plans/cara_next_stage_20261028/sq/S_COLLECTION_STORAGE_CPU_R2.json": "f9170d14d9771d6e48aae8a08110932ab1f3ba77c372a6fa3dbb4fbfcf077d3f"
+  },
+  "capture_ref": "reports/cara_sq_s_storage_four_card_cpu_capture_r2_20261029.json",
+  "capture_sha256": "e840e3cf741ff167b7ce87d6b8d9a17b0ffe9502a159678b177e39eb3484ce86",
+  "result_sha256": "e5290f32ebd093a2f0f07bd2f67fac2093c4f1f9a6d8c5b346d35f3b02b332da",
+  "accepted": {
+    "host": "four_card",
+    "complete_CPU_paths": 16,
+    "CPU_fixture_moment_rows": 216,
+    "extra_Dense_teacher_pairs": 112,
+    "extra_C_readout_pairs": 104,
+    "raw_CPU_callbacks": 16,
+    "worker_wall_seconds": 151.66085884533823,
+    "CPU_seconds": 135.207543652,
+    "peak_RSS_GiB": 0.8829421997070312,
+    "container_wall_seconds": 154.661886,
+    "CPU_topology_accepted": true,
+    "streaming_raw_storage_accepted": false,
+    "real_model_S_collector_accepted": false,
+    "actual_GPU_or_science_accepted": false,
+    "CPU_streaming_storage_accepted": true,
+    "files_SHA_and_bytes_reloaded": 280,
+    "tiny_tensor_files_loaded": 80,
+    "storage_unit_controls": 5,
+    "storage_unit_tiny_tensor_reloads": 6
+  },
+  "negative_controls": [
+    {
+      "case": "running",
+      "rejected": true,
+      "reason": "Original S topology CPU container is not cleanly terminal"
+    },
+    {
+      "case": "missing_parent",
+      "rejected": true,
+      "reason": "S full36 parent OFF/ON controls missing"
+    },
+    {
+      "case": "missing_raw",
+      "rejected": true,
+      "reason": "S raw callback identities or strictly past sources differ"
+    },
+    {
+      "case": "current_D_source",
+      "rejected": true,
+      "reason": "S raw callback identities or strictly past sources differ"
+    },
+    {
+      "case": "wrong_Dense_count",
+      "rejected": true,
+      "reason": "S topology 108/56/52 denominators or source controls differ"
+    },
+    {
+      "case": "incomplete_reloads",
+      "rejected": true,
+      "reason": "S CPU streaming artifacts, byte boundary or actual reload cohort missing"
+    },
+    {
+      "case": "storage_unit_skip",
+      "rejected": true,
+      "reason": "S CPU storage unit/failure controls or bounded reload denominator differs"
+    },
+    {
+      "case": "wrong_unit_load_count",
+      "rejected": true,
+      "reason": "S CPU storage unit/failure controls or bounded reload denominator differs"
+    },
+    {
+      "case": "storage_cap",
+      "rejected": true,
+      "reason": "S CPU streaming artifacts, byte boundary or actual reload cohort missing"
+    },
+    {
+      "case": "CUDA_claim",
+      "rejected": true,
+      "reason": "S topology exceeded its CPU-only evidence boundary"
+    },
+    {
+      "case": "real_storage_claim",
+      "rejected": true,
+      "reason": "S topology exceeded its CPU-only evidence boundary"
+    }
+  ],
+  "CPU_streaming_storage_accepted": true,
+  "streaming_raw_storage_accepted": false,
+  "complete_S_card_accepted": false,
+  "S_labels_collected": 0,
+  "GPU_submissions": 0,
+  "new_GPUh": 0,
+  "ledger_writes": 0
+}

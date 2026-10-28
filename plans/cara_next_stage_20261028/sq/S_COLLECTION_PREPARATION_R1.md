@@ -1,6 +1,6 @@
 # S 固定父轨迹采集准备
 
-2026-10-29。四卡已接受 [S owner R2 CPU 组件](../../../reports/cara_sq_s_owner_four_card_cpu_accepted_r2_20261029.json)及 [R1 完整采集 CPU 拓扑](../../../reports/cara_sq_s_collection_four_card_cpu_accepted_r1_20261029.json)。R1 固定源码 `6ec052dbcf8343800ba1206d704484f98593e045`，16 完整路径；原失败保持。新增 R2 时间/raw 协议和流式存储组合仍待登记 Linux 验证，尚无实际 S 标签、掩码或 GPU 授权。
+2026-10-29。四卡已接受 [S owner R2 CPU 组件](../../../reports/cara_sq_s_owner_four_card_cpu_accepted_r2_20261029.json)、[R1 完整采集 CPU 拓扑](../../../reports/cara_sq_s_collection_four_card_cpu_accepted_r1_20261029.json)及 [R2 raw/流式存储 CPU 组合](../../../reports/cara_sq_s_storage_four_card_cpu_accepted_r2_20261029.json)。R1 源码 `6ec052dbcf8343800ba1206d704484f98593e045`，R2 源码 `591ac3bd2b8231de8a44c933bf26560acc7921e0`，各自 16 完整路径；原失败保持。两卡同版本检查、真实数据/资源与整卡报价未齐，尚无实际 S 标签、掩码或新 GPU 授权。
 
 ## 本轮接通的接口
 
@@ -20,12 +20,14 @@ CPU 容器保持 2 核、8 GiB、1800 秒、64 MiB 单文件上限、无网、�
 
 R1 于 00:30:31 退出 0，源/运行时一致；worker 墙钟 312.07 秒、CPU 162.91 秒、峰值 RSS 0.875 GiB。两个 flow 各 108 行、56 Dense/52 C、八 raw 回调和四组完整 OFF/ON 均通过；[独立接受](../../../reports/cara_sq_s_collection_four_card_cpu_accepted_r1_20261029.json)拒绝运行中、缺父、缺 raw、当前 D 混源、少 Dense、CUDA 与存储越界宣称七类伪回执。原完整[启动](../../../reports/cara_sq_s_collection_four_card_cpu_launch_r1_20261029.json)和[终态](../../../reports/cara_sq_s_collection_four_card_cpu_terminal_r1_20261029.json)保持。它验证回调接口，不验证真实数据保存。
 
-[流式存储组件](../../../src/wcomr/sq_s_storage_r1.py)已实现独占写入、逐文件 SHA/字节、24 个旧真锚点去重、八 state 和 108 行终态分母；触发限额、混源、重复或同源不同字节即保留 partial 并终止，不支持续跑覆盖。本地五项实际文件检查通过，原 R1/R2 schema 的记录分别保持；受影响的 R2 完整 Linux 组合尚待运行。[R2 冻结范围](S_COLLECTION_STORAGE_CPU_R2.json)仍是 16 CPU 路径，另含五项小文件失败检查；每个 flow 实际重载校验 140 文件，80 次 tiny tensor 读取加六次单元夹具读取均限制在自己的 CPU 输出或临时目录，Cosmos 权重不可读。
+[流式存储组件](../../../src/wcomr/sq_s_storage_r1.py)实现独占写入、逐文件 SHA/字节、24 个旧真锚点去重、八 state 和 108 行终态分母；触发限额、混源、重复或同源不同字节即保留 partial 并终止，不支持续跑覆盖。本地五项实际文件检查和完整 R2 Linux 组合均通过，原 R1/R2 schema 的记录分别保持。[R2 冻结范围](S_COLLECTION_STORAGE_CPU_R2.json)是 16 CPU 路径，另含五项小文件失败检查；每个 flow 实际重载校验 140 文件，80 次 tiny tensor 读取加六次单元夹具读取均限制在自己的 CPU 输出或临时目录，Cosmos 权重不可读。
 
-[新 R2 阶段控制](../../../scripts/cara_sq_s_storage_cpu_r2.py)先核对原 R1 终态/接受和 owner 组件源码。R2 将验证新增 raw 时间/原 C 字段与写入；原 owner R1/R2、采集 R1、Q1 R3 均不重派。R2 tiny-file 的 16 MiB/flow、8 MiB/file 上限仅是 CPU 夹具资源，不能作为真实 raw GPU 卡的存储报价。
+[R2 原启动](../../../reports/cara_sq_s_storage_four_card_cpu_launch_r2_20261029.json)于 00:41:15、[原终态](../../../reports/cara_sq_s_storage_four_card_cpu_capture_r2_20261029.json)于 00:43:49 退出 0，源/运行时一致。worker 墙钟 151.66 秒、CPU 135.21 秒、峰值 RSS 0.883 GiB；每个 flow 的 108 行、56/52 和八 raw/24 unique anchors 均完整，新增原 C 与实际噪声坐标身份在文件重载后保留。五项 Linux 存储单元检查零跳过，[独立接受](../../../reports/cara_sq_s_storage_four_card_cpu_accepted_r2_20261029.json)另拒绝十一类缺项/越界伪回执。
+
+每个 flow 的小张量夹具实际保存约 2.29 MB，全部 280 个数据文件重载 SHA/字节一致；不把该数值外推为 F19 真实 raw 大小、部署缓存或 peak。[阶段控制](../../../scripts/cara_sq_s_storage_cpu_r2.py)核对过原 R1 终态/接受和 owner 组件源码。原 owner R1/R2、采集 R1、存储 R2、Q1 R3 均不重派。R2 tiny-file 的 16 MiB/flow、8 MiB/file 上限仅是 CPU 夹具资源，不能作为真实 raw GPU 卡的存储报价。
 
 ## 之后的顺序
 
-R2 raw/存储完整 CPU 组合 → 两主机受影响路径验证/真实资源与完整报价 → 单独申请 A-SQ-FAST GPU 卡。该卡仍最多 4 ON + 4 OFF + 2 warm，范围在去重后冻结；相容原件优先复用。S-END 以不同合法 mask 和自身端点比较为晋级条件，Q-END 按独立 Q1 证据推进。
+两卡同版本受影响路径验证 → 两主机真实存储/RAM/资源与完整报价 → 单独申请 A-SQ-FAST GPU 卡。主线 A32 保持原状态，不在其运行中启动 20 GB B1 跨机读取或扩大本对话资源边界。该新 S 卡仍最多 4 ON + 4 OFF + 2 warm，范围在去重后冻结；相容原件优先复用。S-END 以不同合法 mask 和自身端点比较为晋级条件，Q-END 按独立 Q1 证据推进。
 
 Q1 仍固定旧 Shared25-C 的 111 pair/222 heads；不因本 S 接口增加其父轨迹、raw、heads 或预算。两条线尚无新 GPU 执行、预算预约或 ledger 写入。
