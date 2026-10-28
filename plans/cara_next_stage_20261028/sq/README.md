@@ -1,6 +1,6 @@
 # S/Q 双卡 CPU 准备交付
 
-**最新进展：** [S/Q下一步与原C数值门R3](Q1_PREPARATION_STATUS_R3.md)。单状态真实权重CPU对照未达到历史GPU输出逐值相等门，codec评分为0；选定实验配置绑定已修正，下一步准备同硬件CUDA数值控制。[R2](Q1_PREPARATION_STATUS_R2.md)的条件恢复/源码证据与生产profile的170结构候选保持。下文保留首轮R1的158候选和max-age6诊断记录，不能将两版本混读为同一冻结方法。
+**最新进展：** [Q1完整流程/整卡报价与S来源接口](Q1_WHOLE_PREPARATION_R1.md)。正式96个C pair不变，计入额外工作共111 pair/222 heads；双端各20项CPU夹具及完整入口通过，GPU runner/财务生命周期与真实CUDA原C数值门仍未接受。S pre-D来源接口另有5项本地检查，尚非完整采集器。[R3数值失败](Q1_PREPARATION_STATUS_R3.md)、[R2条件恢复/源码证据](Q1_PREPARATION_STATUS_R2.md)与生产profile的170结构候选保持。下文保留首轮R1的158候选和max-age6诊断记录，不能将两版本混读为同一冻结方法。
 
 2026-10-28。**本轮接受的是旧资产审计、S 局部数学与 Q0 实际字节原型；真实模型 C 重放、调度收益、部署峰值与速度均未接受，GPU_READY=false。**
 

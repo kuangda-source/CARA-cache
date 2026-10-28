@@ -1,0 +1,237 @@
+{
+  "status": "SQ_CPU_PREPARATION_CAPTURE",
+  "observed_unix": 1793188470.7377527,
+  "launch": {
+    "status": "SQ_GPU_HIDDEN_CPU_PREPARATION_LAUNCHED",
+    "stage": "/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-q1-whole-cpu-two-card-r1-20261028",
+    "container": "cara-sq-q1-whole-cpu-two-card-r1-20261028-cpu",
+    "source_revision": "475225cbbc270763da3c84f500e2669196896be2",
+    "registration_sha256": "f34000be0cea1efca357ddefb6dcf085a8c47eefdce79bacd2f1089fe969749b",
+    "identity": {
+      "pid": 632884,
+      "state": "R",
+      "start_ticks": 648320752,
+      "command": "docker run --cpuset-cpus 4,5 --memory-swap 8g --ulimit fsize=67108864:67108864 -v /data20t/gaokuangda/worldcache_workspace/outputs/cara-ig-b1-r2-20261027:/data20t/gaokuangda/worldcache_workspace/outputs/cara-ig-b1-r2-20261027:ro --read-only --network none --pid host --name cara-sq-q1-whole-cpu-two-card-r1-20261028-cpu --label wcomr.manifest=f34000be0cea1efca357ddefb6dcf085a8c47eefdce79bacd2f1089fe969749b --user 1004:998 --cpus 2 --memory 8g --pids-limit 512 --tmpfs /tmp:rw,size=2g -v /data20t/gaokuangda/worldcache_workspace:/data20t/gaokuangda/worldcache_workspace:ro -v /data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-q1-whole-cpu-two-card-r1-20261028:/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-q1-whole-cpu-two-card-r1-20261028:rw -w /data20t/gaokuangda/worldcache_workspace/runtime -e CUDA_CACHE_PATH=/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-q1-whole-cpu-two-card-r1-20261028/CPU-caches/cuda -e CUDA_HOME=/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cuda_nvrtc -e CUDA_PATH=/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cuda_nvrtc -e CUDA_VISIBLE_DEVICES= -e HF_HOME=/data20t/gaokuangda/worldcache_workspace/cache/huggingface -e HF_HUB_CACHE=/data20t/gaokuangda/worldcache_workspace/cache/huggingface/hub -e HF_HUB_OFFLINE=1 -e LD_LIBRARY_PATH=/data20t/gaokuangda/worldcache_workspace/system-libs-r1/usr/lib/x86_64-linux-gnu/blas:/data20t/gaokuangda/worldcache_workspace/system-libs-r1/usr/lib/x86_64-linux-gnu/lapack:/data20t/gaokuangda/worldcache_workspace/system-libs-r1/usr/lib/x86_64-linux-gnu/pulseaudio:/data20t/gaokuangda/worldcache_workspace/system-libs-r1/usr/lib/x86_64-linux-gnu:/data20t/gaokuangda/worldcache_workspace/system-libs-r1/lib/x86_64-linux-gnu:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cuda_nvrtc/lib:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cuda_runtime/lib:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cudnn/lib:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/nvjitlink/lib:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cublas/lib:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/torch/lib -e LOGNAME=gaokuangda -e NLTK_DATA=/data20t/gaokuangda/worldcache_workspace/runtime-resources/nltk-guardrail-d6d4bfa8-r1 -e NVIDIA_VISIBLE_DEVICES=void -e OMP_NUM_THREADS=2 -e OPENBLAS_NUM_THREADS=2 -e PATH=/data20t/gaokuangda/worldcache_workspace/system-libs-r1/usr/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin -e PYTHONDONTWRITEBYTECODE=1 -e PYTHONPATH=/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-q1-whole-cpu-two-card-r1-20261028/scripts:/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-q1-whole-cpu-two-card-r1-20261028/src -e TOKENIZERS_PARALLELISM=false -e TORCHINDUCTOR_CACHE_DIR=/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-q1-whole-cpu-two-card-r1-20261028/CPU-caches/torchinductor -e TORCH_EXTENSIONS_DIR=/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-q1-whole-cpu-two-card-r1-20261028/CPU-caches/extensions -e TORCH_HOME=/data20t/gaokuangda/worldcache_workspace/cache/torch -e TRANSFORMERS_OFFLINE=1 -e TRITON_CACHE_DIR=/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-q1-whole-cpu-two-card-r1-20261028/CPU-caches/triton -e USER=gaokuangda -e WC_SCOUT_KIND=CAL12 -e XDG_CACHE_HOME=/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-q1-whole-cpu-two-card-r1-20261028/CPU-caches/xdg --entrypoint /usr/bin/timeout sha256:1e81ac62ee68ca1a6ef655515096a1d84579b01aa4986810c9b18d4f6c4c552d --signal=TERM --kill-after=10s 1800 /usr/bin/ionice -c 3 /data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/bin/python /data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-q1-whole-cpu-two-card-r1-20261028/scripts/check_cara_sq_q1_whole_cpu_r1.py --assets /data20t/gaokuangda/worldcache_workspace/outputs/cara-ig-b1-r2-20261027/assets --manifest-sha256 5487f8db32d45a5d0f3304333bf362d9d6ec46fb3181c735d7267b78a6e398fa --profile two_card --scope plans/cara_next_stage_20261028/sq/Q1_WHOLE_SCOPE_R1.json --output /data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-q1-whole-cpu-two-card-r1-20261028/analysis.json "
+    },
+    "started_unix": 1793188304.0014586,
+    "resource_limits": {
+      "CPUs": 2,
+      "cpuset": "4,5",
+      "RAM_bytes": 8589934592,
+      "wall_seconds": 1800,
+      "allocated_vCPUh_max": 1.0,
+      "output_bytes_max": 67108864,
+      "assets_readonly": true,
+      "network": "none",
+      "GPU": "hidden"
+    },
+    "new_GPU_submissions": 0,
+    "ledger_writes": 0
+  },
+  "source_hashes_equal": true,
+  "runtime_hashes_equal": true,
+  "container_state": {
+    "Status": "exited",
+    "Running": false,
+    "Paused": false,
+    "Restarting": false,
+    "OOMKilled": false,
+    "Dead": false,
+    "Pid": 0,
+    "ExitCode": 0,
+    "Error": "",
+    "StartedAt": "2026-10-28T11:51:44.11838209Z",
+    "FinishedAt": "2026-10-28T11:52:58.896165883Z"
+  },
+  "host_config": {
+    "DeviceRequests": null,
+    "NanoCpus": 2000000000,
+    "Memory": 8589934592,
+    "MemorySwap": 8589934592,
+    "CpusetCpus": "4,5",
+    "NetworkMode": "none",
+    "ReadonlyRootfs": true
+  },
+  "mounts": [
+    {
+      "Type": "bind",
+      "Source": "/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-q1-whole-cpu-two-card-r1-20261028",
+      "Destination": "/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-q1-whole-cpu-two-card-r1-20261028",
+      "Mode": "rw",
+      "RW": true,
+      "Propagation": "rprivate"
+    },
+    {
+      "Type": "bind",
+      "Source": "/data20t/gaokuangda/worldcache_workspace/outputs/cara-ig-b1-r2-20261027",
+      "Destination": "/data20t/gaokuangda/worldcache_workspace/outputs/cara-ig-b1-r2-20261027",
+      "Mode": "ro",
+      "RW": false,
+      "Propagation": "rprivate"
+    },
+    {
+      "Type": "bind",
+      "Source": "/data20t/gaokuangda/worldcache_workspace",
+      "Destination": "/data20t/gaokuangda/worldcache_workspace",
+      "Mode": "ro",
+      "RW": false,
+      "Propagation": "rprivate"
+    }
+  ],
+  "image": "sha256:1e81ac62ee68ca1a6ef655515096a1d84579b01aa4986810c9b18d4f6c4c552d",
+  "result": {
+    "status": "SQ_Q1_WHOLE_ENTRY_CPU_PASS_FIXTURES_NOT_REAL_CUDA",
+    "profile": "two_card",
+    "scope": {
+      "schema": "SQ_Q1_WHOLE_SAVED_STATE_SCOPE_R1",
+      "status": "PROPOSED_CPU_PREPARATION_NO_GPU_AUTHORITY",
+      "fixed_layout": "Shared25-C",
+      "original_B1_manifest_sha256": "5487f8db32d45a5d0f3304333bf362d9d6ec46fb3181c735d7267b78a6e398fa",
+      "fit_prompts": [
+        "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+        "human_199"
+      ],
+      "steps": [
+        22,
+        23,
+        25,
+        33,
+        34,
+        35
+      ],
+      "formal_roles": [
+        "original_uncompressed_C",
+        "FP32_M_roundtrip_C",
+        "I_8_8",
+        "I_4_8",
+        "I_8_4",
+        "M_8_8",
+        "M_4_8",
+        "M_8_4"
+      ],
+      "scope_counts": {
+        "states": 12,
+        "formal_C_pairs": 96,
+        "formal_head_calls": 192,
+        "warm_C_pairs": 2,
+        "preview_original_C_pairs": 1,
+        "stored_dense_hidden_head_pairs": 12,
+        "complete_readout_pairs": 111,
+        "complete_head_calls": 222,
+        "codec_C_pairs": 72,
+        "new_deep_pairs": 0,
+        "new_parent_paths": 0,
+        "new_videos": 0
+      },
+      "execution_order": "Two original C warmups on AV28 step22; original C plus stored-D-hidden head preview; eight formal roles on each state, with a stored-D-hidden head control before each later state. Original C preview is additional; each state's formal original C remains in the 96 denominator.",
+      "numerical_gate": "torch.equal for original C and stored-D-hidden head against immutable B1 outputs; any failure stops subsequent codec work and prevents all partial-state selection. Do not change tolerance, method precision, coefficients, bit sets or source to fit outputs.",
+      "backend": "Pinned selected experiment WAN FP32 head strategy and conditional_frame_timestep=0.1; original loader TF32=True and default trainer cudnn benchmark=True/deterministic=False, scoped and restored.",
+      "timing_repeats": 0,
+      "timing_scope": "Separate diagnostic CPU encode/decode, transfer and actual C readout records; no clean deployed speed claim and no extra timing-only trajectories.",
+      "selection": "Only after complete 12-state acceptance: LOPO and one shared final bit direction per representation/rate/objective. Raw reconstruction is not a selection objective.",
+      "formal_counts_are_not_whole_quote": true,
+      "raw_references": "Offline immutable inputs/teachers only; deployment-cache bytes and peak savings are not measured by this card.",
+      "GPU_authorization": false,
+      "new_GPU_submissions": 0,
+      "new_GPUh": 0,
+      "budget_reserved_GPUh": 0,
+      "ledger_writes": 0
+    },
+    "fixture_checks": {
+      "tests": 20,
+      "errors": 0,
+      "failures": 0,
+      "log": "test_complete_fixed_cohort_and_all_extra_head_denominators (test_sq_q1_collection_r1.CollectionTests) ... ok\ntest_incomplete_cohort_refused_before_loader_or_head (test_sq_q1_collection_r1.CollectionTests) ... ok\ntest_later_original_C_failure_preserves_denominator_without_partial_selection (test_sq_q1_collection_r1.CollectionTests) ... ok\ntest_original_preview_failure_stops_before_any_codec_or_selection (test_sq_q1_collection_r1.CollectionTests) ... ok\ntest_original_C_and_dense_control_preserve_inputs_and_report_mismatch (test_sq_readout_subgraph_r1.SubgraphTests) ... ok\ntest_original_backend_flags_restore_after_failure_without_CUDA_init (test_sq_readout_subgraph_r1.SubgraphTests) ... ok\ntest_original_control_head_failure_restores_buffers_solver_and_rng (test_sq_readout_subgraph_r1.SubgraphTests) ... ok\ntest_selected_experiment_overrides_are_source_bound (test_sq_readout_subgraph_r1.SubgraphTests) ... ok\ntest_unregistered_weights_refused (test_sq_readout_subgraph_r1.SubgraphTests) ... ok\ntest_whole_pinned_class_and_unpatchify_mixed_precision (test_sq_readout_subgraph_r1.SubgraphTests) ... ok\ntest_actual_output_error_cancellation_is_separate (test_sq_q1_readout_r1.Q1Tests) ... ok\ntest_complete_cohort_selection_and_partial_refusal (test_sq_q1_readout_r1.Q1Tests) ... ok\ntest_copy_cap_and_missing_control_refuse_before_head (test_sq_q1_readout_r1.Q1Tests) ... ok\ntest_eight_formal_readouts_original_parity_and_no_mutation (test_sq_q1_readout_r1.Q1Tests) ... ok\ntest_head_failure_restores_model_solver_and_three_rngs (test_sq_q1_readout_r1.Q1Tests) ... ok\ntest_pinned_entire_Video2World_condition_definition (test_sq_q1_readout_r1.Q1Tests) ... ok\ntest_restored_condition_and_tensor_alias_transfer (test_sq_q1_readout_r1.Q1Tests) ... ok\ntest_wrong_original_output_stops_before_codec_and_no_tolerance_tuning (test_sq_q1_readout_r1.Q1Tests) ... ok\ntest_missing_moments_refuse_and_full_fixture_masks_deduplicate (test_sq_q1_readout_r1.SProfileTests) ... ok\ntest_production_age_and_old_scout_default_are_distinct (test_sq_q1_readout_r1.SProfileTests) ... ok\n\n----------------------------------------------------------------------\nRan 20 tests in 33.527s\n\nOK\n",
+      "real_model": false
+    },
+    "production_entry_fixture": {
+      "complete": true,
+      "states": 12,
+      "actual_head_calls": {
+        "warm": {
+          "started": 4,
+          "completed": 4
+        },
+        "controls": {
+          "started": 26,
+          "completed": 26
+        },
+        "formal": {
+          "started": 192,
+          "completed": 192
+        }
+      },
+      "scope_counts": {
+        "states": 12,
+        "formal_C_pairs": 96,
+        "formal_head_calls": 192,
+        "warm_C_pairs": 2,
+        "preview_original_C_pairs": 1,
+        "stored_dense_hidden_head_pairs": 12,
+        "complete_readout_pairs": 111,
+        "complete_head_calls": 222,
+        "codec_C_pairs": 72,
+        "new_deep_pairs": 0,
+        "new_parent_paths": 0,
+        "new_videos": 0
+      },
+      "actual_model_weights": false,
+      "selection_on_complete_fixture_only": true
+    },
+    "GPU_held_collection_selects_directions": false,
+    "complete_fixture_selection_cells": 8,
+    "selected_experiment_settings": {
+      "use_wan_fp32_strategy": true,
+      "conditional_frame_timestep": 0.1,
+      "selected_experiment": "Stage-c_pt_4-Index-2-Size-2B-Res-720-Fps-16-Note-rf_with_edm_ckpt",
+      "source_sha256": {
+        "cosmos_predict2/_src/predict2/configs/video2world/experiment/reason_embeddings/model_2B_reason_1p1_rectified_flow.py": "a8405ef1e46aedc7004026a51ce980a6a6509162738dfda34a10e83f3a19b32b",
+        "cosmos_predict2/_src/predict2/configs/video2world/experiment/specialized_model/SFT_2B_RF.py": "719fa25c90dcc4f51a9226fa1b5ac677c52cbb1c292c8eac1e3121ab3c3ce814"
+      },
+      "full_config_module_imported": false
+    },
+    "original_backend_policy": {
+      "flags": {
+        "cudnn_enabled": true,
+        "cudnn_benchmark": true,
+        "cudnn_deterministic": false,
+        "cudnn_allow_tf32": true,
+        "matmul_allow_tf32": true,
+        "deterministic_algorithms": false
+      },
+      "float32_matmul_precision": "high",
+      "source_sha256": {
+        "cosmos_predict2/_src/predict2/utils/model_loader.py": "34764531d719fd71c3db97db39ff1305121ada5a4534656ede5d9695718a79b6",
+        "cosmos_predict2/_src/imaginaire/config.py": "7ab54034ec40d4fffded33dcf70a4a076741fa08a72e360d41a760c37958b23d"
+      },
+      "original_loader_assignment_verified": true
+    },
+    "health_has_no_scores": true,
+    "actual_B1_replay": false,
+    "original_C_CUDA_parity_accepted": false,
+    "GPU_runner_entry_accepted": false,
+    "financial_lifecycle_accepted": false,
+    "CUDA_initialized": false,
+    "GPU_ready": false,
+    "new_GPU_submissions": 0,
+    "new_GPUh": 0,
+    "ledger_writes": 0,
+    "wall_seconds": 37.03649646323174,
+    "CPU_seconds": 18.52212879,
+    "peak_RSS_KiB": 602568,
+    "raw_ru_maxrss": 602568,
+    "raw_ru_maxrss_unit": "KiB",
+    "torch_version": "2.7.1+cu128",
+    "torch_threads": 1,
+    "observed_unix": 1793188371.6618795,
+    "actual_platform": {
+      "hostname": "a1bd5d91a426",
+      "system": "Linux",
+      "machine": "x86_64"
+    }
+  },
+  "result_sha256": "9c9e5467e3446c72564b07cf398651de2573c5b75dfc75a581acb75f60f33c83",
+  "log_tail": "SQ_Q1_WHOLE_ENTRY_CPU_PASS_FIXTURES_NOT_REAL_CUDA\n",
+  "new_GPU_submissions": 0,
+  "ledger_writes": 0
+}
