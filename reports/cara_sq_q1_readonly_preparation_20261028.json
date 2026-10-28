@@ -1,0 +1,71 @@
+{
+  "status": "SQ_Q1_READONLY_PREPARATION_AUDIT",
+  "observed_unix": 1793181414.581771,
+  "handles": [
+    {
+      "stage": "/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-cpu-r1-20261028",
+      "launch": {
+        "status": "SQ_GPU_HIDDEN_CPU_PREPARATION_LAUNCHED",
+        "stage": "/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-cpu-r1-20261028",
+        "container": "cara-sq-cpu-r1-20261028-cpu",
+        "source_revision": "90768615417cb9858b83fb1d5916b82c7b7f2aef",
+        "registration_sha256": "c7c075ea71b75208be4696c748fd1a4d8e974258ea00182e848703e5d9d24e52",
+        "identity": {
+          "pid": 591633,
+          "state": "R",
+          "start_ticks": 647429404,
+          "command": "docker run --cpuset-cpus 4,5 --memory-swap 8g --ulimit fsize=67108864:67108864 -v /data20t/gaokuangda/worldcache_workspace/outputs/cara-ig-b1-r2-20261027:/data20t/gaokuangda/worldcache_workspace/outputs/cara-ig-b1-r2-20261027:ro --read-only --network none --pid host --name cara-sq-cpu-r1-20261028-cpu --label wcomr.manifest=c7c075ea71b75208be4696c748fd1a4d8e974258ea00182e848703e5d9d24e52 --user 1004:998 --cpus 2 --memory 8g --pids-limit 512 --tmpfs /tmp:rw,size=2g -v /data20t/gaokuangda/worldcache_workspace:/data20t/gaokuangda/worldcache_workspace:ro -v /data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-cpu-r1-20261028:/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-cpu-r1-20261028:rw -w /data20t/gaokuangda/worldcache_workspace/runtime -e CUDA_CACHE_PATH=/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-cpu-r1-20261028/CPU-caches/cuda -e CUDA_HOME=/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cuda_nvrtc -e CUDA_PATH=/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cuda_nvrtc -e CUDA_VISIBLE_DEVICES= -e HF_HOME=/data20t/gaokuangda/worldcache_workspace/cache/huggingface -e HF_HUB_CACHE=/data20t/gaokuangda/worldcache_workspace/cache/huggingface/hub -e HF_HUB_OFFLINE=1 -e LD_LIBRARY_PATH=/data20t/gaokuangda/worldcache_workspace/system-libs-r1/usr/lib/x86_64-linux-gnu/blas:/data20t/gaokuangda/worldcache_workspace/system-libs-r1/usr/lib/x86_64-linux-gnu/lapack:/data20t/gaokuangda/worldcache_workspace/system-libs-r1/usr/lib/x86_64-linux-gnu/pulseaudio:/data20t/gaokuangda/worldcache_workspace/system-libs-r1/usr/lib/x86_64-linux-gnu:/data20t/gaokuangda/worldcache_workspace/system-libs-r1/lib/x86_64-linux-gnu:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cuda_nvrtc/lib:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cuda_runtime/lib:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cudnn/lib:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/nvjitlink/lib:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cublas/lib:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/torch/lib -e LOGNAME=gaokuangda -e NLTK_DATA=/data20t/gaokuangda/worldcache_workspace/runtime-resources/nltk-guardrail-d6d4bfa8-r1 -e NVIDIA_VISIBLE_DEVICES=void -e OMP_NUM_THREADS=2 -e OPENBLAS_NUM_THREADS=2 -e PATH=/data20t/gaokuangda/worldcache_workspace/system-libs-r1/usr/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin -e PYTHONDONTWRITEBYTECODE=1 -e PYTHONPATH=/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-cpu-r1-20261028/scripts:/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-cpu-r1-20261028/src -e TOKENIZERS_PARALLELISM=false -e TORCHINDUCTOR_CACHE_DIR=/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-cpu-r1-20261028/CPU-caches/torchinductor -e TORCH_EXTENSIONS_DIR=/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-cpu-r1-20261028/CPU-caches/extensions -e TORCH_HOME=/data20t/gaokuangda/worldcache_workspace/cache/torch -e TRANSFORMERS_OFFLINE=1 -e TRITON_CACHE_DIR=/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-cpu-r1-20261028/CPU-caches/triton -e USER=gaokuangda -e WC_SCOUT_KIND=CAL12 -e XDG_CACHE_HOME=/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-cpu-r1-20261028/CPU-caches/xdg --entrypoint /usr/bin/timeout sha256:1e81ac62ee68ca1a6ef655515096a1d84579b01aa4986810c9b18d4f6c4c552d --signal=TERM --kill-after=10s 1800 /usr/bin/ionice -c 3 /data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/bin/python /data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-cpu-r1-20261028/scripts/cara_sq_saved_cpu_r1.py --assets /data20t/gaokuangda/worldcache_workspace/outputs/cara-ig-b1-r2-20261027/assets --manifest-sha256 5487f8db32d45a5d0f3304333bf362d9d6ec46fb3181c735d7267b78a6e398fa --output /data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-cpu-r1-20261028/analysis.json "
+        },
+        "started_unix": 1793179390.5279608,
+        "resource_limits": {
+          "CPUs": 2,
+          "cpuset": "4,5",
+          "RAM_bytes": 8589934592,
+          "wall_seconds": 1800,
+          "allocated_vCPUh_max": 1.0,
+          "output_bytes_max": 67108864,
+          "assets_readonly": true,
+          "network": "none",
+          "GPU": "hidden"
+        },
+        "new_GPU_submissions": 0,
+        "ledger_writes": 0
+      }
+    }
+  ],
+  "active_containers": [],
+  "MemAvailable": "MemAvailable:   57108124 kB",
+  "B1_model_load_seconds": 176.4690015092492,
+  "B1_runner_keys": [
+    "status",
+    "pid",
+    "source_revision",
+    "config_sha256",
+    "registration_sha256",
+    "scope_counts",
+    "model_loads",
+    "started_unix",
+    "load_seconds",
+    "batch",
+    "ended_unix"
+  ],
+  "candidate_roots": {
+    "/data20t/gaokuangda/worldcache_workspace/runtime/checkpoints": null,
+    "/data20t/gaokuangda/worldcache_workspace/cache/huggingface/hub": [
+      "/data20t/gaokuangda/worldcache_workspace/cache/huggingface/hub/.locks",
+      "/data20t/gaokuangda/worldcache_workspace/cache/huggingface/hub/models--nvidia--Cosmos-Reason1-7B",
+      "/data20t/gaokuangda/worldcache_workspace/cache/huggingface/hub/models--nvidia--Cosmos-Guardrail1",
+      "/data20t/gaokuangda/worldcache_workspace/cache/huggingface/hub/.wc-frozen-model-relay-server.lock",
+      "/data20t/gaokuangda/worldcache_workspace/cache/huggingface/hub/.wc-public-auxiliary-acquisition.lock",
+      "/data20t/gaokuangda/worldcache_workspace/cache/huggingface/hub/models--google--siglip-so400m-patch14-384",
+      "/data20t/gaokuangda/worldcache_workspace/cache/huggingface/hub/models--Qwen--Qwen3Guard-Gen-0.6B",
+      "/data20t/gaokuangda/worldcache_workspace/cache/huggingface/hub/models--nvidia--Cosmos-Predict2.5-2B",
+      "/data20t/gaokuangda/worldcache_workspace/cache/huggingface/hub/.wc-hybrid-r3-wc-fourcard-fixed-models-hybrid-r3-20261021"
+    ]
+  },
+  "B1_stage_candidates": [
+    "/data20t/gaokuangda/worldcache_workspace/.sync/cara-ig-b1-a6000-r2-20261027"
+  ],
+  "new_GPU_submissions": 0,
+  "ledger_writes": 0
+}
