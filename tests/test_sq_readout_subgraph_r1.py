@@ -5,18 +5,34 @@ import hashlib
 from pathlib import Path
 import tempfile
 import unittest
+from unittest.mock import patch
 
 import torch
 
 from test_sq_q1_readout_r1 import saved_fixture
 from wcomr.innovation_gain_observer_r1 import restore_readout_inputs
 from wcomr.sq_readout_subgraph_r1 import (compile_head, DIT_PATH, BASE_CONFIG,
-    selected_settings, load_head_weights, original_controls)
+    selected_settings, load_head_weights, original_controls, original_backend_policy)
+from wcomr.decoder_policy import backend_flags
+from wcomr.full_sampling import CompleteStateRoundtrip
 
 ROOT = Path(__file__).resolve().parents[1]
 
 
 class SubgraphTests(unittest.TestCase):
+    def test_original_backend_flags_restore_after_failure_without_CUDA_init(self):
+        before = backend_flags(); precision = torch.get_float32_matmul_precision()
+        with patch('torch.cuda._lazy_init', side_effect=AssertionError('CPU check must not initialize CUDA')):
+            with self.assertRaisesRegex(RuntimeError, 'injected failure'):
+                with original_backend_policy(ROOT/'cache/runtime') as proof:
+                    self.assertTrue(proof['flags']['matmul_allow_tf32'])
+                    self.assertTrue(proof['flags']['cudnn_allow_tf32'])
+                    self.assertTrue(proof['flags']['cudnn_benchmark'])
+                    self.assertFalse(proof['flags']['cudnn_deterministic'])
+                    raise RuntimeError('injected failure')
+        self.assertEqual(backend_flags(), before)
+        self.assertEqual(torch.get_float32_matmul_precision(), precision)
+
     def test_selected_experiment_overrides_are_source_bound(self):
         settings = selected_settings(ROOT/'cache/runtime')
         self.assertTrue(settings['use_wan_fp32_strategy'])
@@ -69,6 +85,22 @@ class SubgraphTests(unittest.TestCase):
         self.assertFalse(rejected['original_controls_exact'])
         self.assertTrue(rejected['stored_dense_hidden_head']['exact'])
         self.assertEqual(rejected['codec_pairs'], 0)
+
+    def test_original_control_head_failure_restores_buffers_solver_and_rng(self):
+        kernel, payload, schema = saved_fixture(flow=True)
+        inputs = restore_readout_inputs(payload, schema, 'cpu')
+        payload['teacher_hidden'] = [r['original'] for r in inputs['current']]
+        snapshot = CompleteStateRoundtrip(kernel.net, kernel.model.sample_scheduler,inputs['pair_inputs'][1])
+        before = snapshot.fingerprint()
+        def fail(*args, **kwargs):
+            kernel.net.audit_buffer.add_(1)
+            kernel.model.sample_scheduler.history.append(torch.ones(1))
+            torch.rand(3)
+            raise RuntimeError('head failure')
+        with patch.object(kernel.net.final_layer,'forward',side_effect=fail):
+            with self.assertRaisesRegex(RuntimeError, 'head failure'):
+                original_controls(kernel, inputs, payload)
+        self.assertEqual(snapshot.fingerprint(),before)
 
 
 if __name__ == '__main__': unittest.main()

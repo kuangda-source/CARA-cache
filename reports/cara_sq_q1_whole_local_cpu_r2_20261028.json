@@ -1,0 +1,149 @@
+{
+  "status": "SQ_Q1_WHOLE_ENTRY_CPU_PASS_FIXTURES_NOT_REAL_CUDA",
+  "profile": "local",
+  "scope": {
+    "schema": "SQ_Q1_WHOLE_SAVED_STATE_SCOPE_R1",
+    "status": "PROPOSED_CPU_PREPARATION_NO_GPU_AUTHORITY",
+    "fixed_layout": "Shared25-C",
+    "original_B1_manifest_sha256": "5487f8db32d45a5d0f3304333bf362d9d6ec46fb3181c735d7267b78a6e398fa",
+    "fit_prompts": [
+      "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "human_199"
+    ],
+    "steps": [
+      22,
+      23,
+      25,
+      33,
+      34,
+      35
+    ],
+    "formal_roles": [
+      "original_uncompressed_C",
+      "FP32_M_roundtrip_C",
+      "I_8_8",
+      "I_4_8",
+      "I_8_4",
+      "M_8_8",
+      "M_4_8",
+      "M_8_4"
+    ],
+    "scope_counts": {
+      "states": 12,
+      "formal_C_pairs": 96,
+      "formal_head_calls": 192,
+      "warm_C_pairs": 2,
+      "preview_original_C_pairs": 1,
+      "stored_dense_hidden_head_pairs": 12,
+      "complete_readout_pairs": 111,
+      "complete_head_calls": 222,
+      "codec_C_pairs": 72,
+      "new_deep_pairs": 0,
+      "new_parent_paths": 0,
+      "new_videos": 0
+    },
+    "execution_order": "Two original C warmups on AV28 step22; original C plus stored-D-hidden head preview; eight formal roles on each state, with a stored-D-hidden head control before each later state. Original C preview is additional; each state's formal original C remains in the 96 denominator.",
+    "numerical_gate": "torch.equal for original C and stored-D-hidden head against immutable B1 outputs; any failure stops subsequent codec work and prevents all partial-state selection. Do not change tolerance, method precision, coefficients, bit sets or source to fit outputs.",
+    "backend": "Pinned selected experiment WAN FP32 head strategy and conditional_frame_timestep=0.1; original loader TF32=True and default trainer cudnn benchmark=True/deterministic=False, scoped and restored.",
+    "timing_repeats": 0,
+    "timing_scope": "Separate diagnostic CPU encode/decode, transfer and actual C readout records; no clean deployed speed claim and no extra timing-only trajectories.",
+    "selection": "Only after complete 12-state acceptance: LOPO and one shared final bit direction per representation/rate/objective. Raw reconstruction is not a selection objective.",
+    "formal_counts_are_not_whole_quote": true,
+    "raw_references": "Offline immutable inputs/teachers only; deployment-cache bytes and peak savings are not measured by this card.",
+    "GPU_authorization": false,
+    "new_GPU_submissions": 0,
+    "new_GPUh": 0,
+    "budget_reserved_GPUh": 0,
+    "ledger_writes": 0
+  },
+  "fixture_checks": {
+    "tests": 20,
+    "errors": 0,
+    "failures": 0,
+    "log": "test_complete_fixed_cohort_and_all_extra_head_denominators (test_sq_q1_collection_r1.CollectionTests) ... ok\ntest_incomplete_cohort_refused_before_loader_or_head (test_sq_q1_collection_r1.CollectionTests) ... ok\ntest_later_original_C_failure_preserves_denominator_without_partial_selection (test_sq_q1_collection_r1.CollectionTests) ... ok\ntest_original_preview_failure_stops_before_any_codec_or_selection (test_sq_q1_collection_r1.CollectionTests) ... ok\ntest_original_C_and_dense_control_preserve_inputs_and_report_mismatch (test_sq_readout_subgraph_r1.SubgraphTests) ... ok\ntest_original_backend_flags_restore_after_failure_without_CUDA_init (test_sq_readout_subgraph_r1.SubgraphTests) ... ok\ntest_original_control_head_failure_restores_buffers_solver_and_rng (test_sq_readout_subgraph_r1.SubgraphTests) ... ok\ntest_selected_experiment_overrides_are_source_bound (test_sq_readout_subgraph_r1.SubgraphTests) ... ok\ntest_unregistered_weights_refused (test_sq_readout_subgraph_r1.SubgraphTests) ... ok\ntest_whole_pinned_class_and_unpatchify_mixed_precision (test_sq_readout_subgraph_r1.SubgraphTests) ... ok\ntest_actual_output_error_cancellation_is_separate (test_sq_q1_readout_r1.Q1Tests) ... ok\ntest_complete_cohort_selection_and_partial_refusal (test_sq_q1_readout_r1.Q1Tests) ... ok\ntest_copy_cap_and_missing_control_refuse_before_head (test_sq_q1_readout_r1.Q1Tests) ... ok\ntest_eight_formal_readouts_original_parity_and_no_mutation (test_sq_q1_readout_r1.Q1Tests) ... ok\ntest_head_failure_restores_model_solver_and_three_rngs (test_sq_q1_readout_r1.Q1Tests) ... ok\ntest_pinned_entire_Video2World_condition_definition (test_sq_q1_readout_r1.Q1Tests) ... ok\ntest_restored_condition_and_tensor_alias_transfer (test_sq_q1_readout_r1.Q1Tests) ... ok\ntest_wrong_original_output_stops_before_codec_and_no_tolerance_tuning (test_sq_q1_readout_r1.Q1Tests) ... ok\ntest_missing_moments_refuse_and_full_fixture_masks_deduplicate (test_sq_q1_readout_r1.SProfileTests) ... ok\ntest_production_age_and_old_scout_default_are_distinct (test_sq_q1_readout_r1.SProfileTests) ... ok\n\n----------------------------------------------------------------------\nRan 20 tests in 3.869s\n\nOK\n",
+    "real_model": false
+  },
+  "production_entry_fixture": {
+    "complete": true,
+    "states": 12,
+    "actual_head_calls": {
+      "warm": {
+        "started": 4,
+        "completed": 4
+      },
+      "controls": {
+        "started": 26,
+        "completed": 26
+      },
+      "formal": {
+        "started": 192,
+        "completed": 192
+      }
+    },
+    "scope_counts": {
+      "states": 12,
+      "formal_C_pairs": 96,
+      "formal_head_calls": 192,
+      "warm_C_pairs": 2,
+      "preview_original_C_pairs": 1,
+      "stored_dense_hidden_head_pairs": 12,
+      "complete_readout_pairs": 111,
+      "complete_head_calls": 222,
+      "codec_C_pairs": 72,
+      "new_deep_pairs": 0,
+      "new_parent_paths": 0,
+      "new_videos": 0
+    },
+    "actual_model_weights": false,
+    "selection_on_complete_fixture_only": true
+  },
+  "selected_experiment_settings": {
+    "use_wan_fp32_strategy": true,
+    "conditional_frame_timestep": 0.1,
+    "selected_experiment": "Stage-c_pt_4-Index-2-Size-2B-Res-720-Fps-16-Note-rf_with_edm_ckpt",
+    "source_sha256": {
+      "cosmos_predict2/_src/predict2/configs/video2world/experiment/reason_embeddings/model_2B_reason_1p1_rectified_flow.py": "a8405ef1e46aedc7004026a51ce980a6a6509162738dfda34a10e83f3a19b32b",
+      "cosmos_predict2/_src/predict2/configs/video2world/experiment/specialized_model/SFT_2B_RF.py": "719fa25c90dcc4f51a9226fa1b5ac677c52cbb1c292c8eac1e3121ab3c3ce814"
+    },
+    "full_config_module_imported": false
+  },
+  "original_backend_policy": {
+    "flags": {
+      "cudnn_enabled": true,
+      "cudnn_benchmark": true,
+      "cudnn_deterministic": false,
+      "cudnn_allow_tf32": true,
+      "matmul_allow_tf32": true,
+      "deterministic_algorithms": false
+    },
+    "float32_matmul_precision": "high",
+    "source_sha256": {
+      "cosmos_predict2/_src/predict2/utils/model_loader.py": "34764531d719fd71c3db97db39ff1305121ada5a4534656ede5d9695718a79b6",
+      "cosmos_predict2/_src/imaginaire/config.py": "7ab54034ec40d4fffded33dcf70a4a076741fa08a72e360d41a760c37958b23d"
+    },
+    "original_loader_assignment_verified": true
+  },
+  "health_has_no_scores": true,
+  "actual_B1_replay": false,
+  "original_C_CUDA_parity_accepted": false,
+  "GPU_runner_entry_accepted": false,
+  "financial_lifecycle_accepted": false,
+  "CUDA_initialized": false,
+  "GPU_ready": false,
+  "new_GPU_submissions": 0,
+  "new_GPUh": 0,
+  "ledger_writes": 0,
+  "wall_seconds": 4.789401208,
+  "CPU_seconds": 4.566890000000001,
+  "peak_RSS_KiB": 250880.0,
+  "raw_ru_maxrss": 256901120,
+  "raw_ru_maxrss_unit": "bytes",
+  "torch_version": "2.8.0",
+  "torch_threads": 1,
+  "observed_unix": 1793187963.578028,
+  "actual_platform": {
+    "hostname": "kuangda-gaodeMacBook-Air.local",
+    "system": "Darwin",
+    "machine": "arm64"
+  }
+}

@@ -5,6 +5,7 @@ conditioner, sampling, codec selection or deployment-memory claim is provided.
 The CPU/GPU numerical control is an outcome, never a tolerance to tune.
 """
 import ast
+from contextlib import contextmanager
 import hashlib
 import math
 from types import MethodType, ModuleType, SimpleNamespace
@@ -15,6 +16,8 @@ import torch
 from torch import amp, nn
 
 from .cfg_paired_probe_forward import _compile, _function, WC_PATH, WC_SHA, RF_PATH
+from .decoder_policy import backend_flags
+from .full_sampling import CompleteStateRoundtrip
 from .mid_coverage import tree_digest
 from .partial_mlp_deployment_state import plain
 from .policy_interval_readout_r1 import ReadoutKernel
@@ -29,6 +32,10 @@ SELECTED_CONFIG = 'cosmos_predict2/_src/predict2/configs/video2world/experiment/
 SELECTED_CONFIG_SHA = '719fa25c90dcc4f51a9226fa1b5ac677c52cbb1c292c8eac1e3121ab3c3ce814'
 BASE_NAME = 'T2V_REASON_EMBEDDINGS_V1P1_STAGE_C_PT_4_INDEX_26_SIZE_2B_RES_720_FPS16_RECTIFIED_FLOW'
 SELECTED_NAME = 'STAGE_C_PT_4_INDEX_2_SIZE_2B_RES_720_FPS16_RECTIFIED_FLOW_WITH_EDM_CKPT'
+LOADER_PATH = 'cosmos_predict2/_src/predict2/utils/model_loader.py'
+LOADER_SHA = '34764531d719fd71c3db97db39ff1305121ada5a4534656ede5d9695718a79b6'
+TRAINER_PATH = 'cosmos_predict2/_src/imaginaire/config.py'
+TRAINER_SHA = '7ab54034ec40d4fffded33dcf70a4a076741fa08a72e360d41a760c37958b23d'
 HEAD = {
     'linear.weight': ((64, 2048), '7c266057e634bfffa481fd48ba345b6ee212108ccb8f460b5cf57504232e0004'),
     'adaln_modulation.1.weight': ((256, 2048), 'aeff7bbfebf26969c1f1de535a02798d6237ea36cc27a97a3646e5f7167ca46c'),
@@ -65,6 +72,44 @@ def selected_settings(runtime):
         selected_experiment='Stage-c_pt_4-Index-2-Size-2B-Res-720-Fps-16-Note-rf_with_edm_ckpt',
         source_sha256={BASE_CONFIG:BASE_CONFIG_SHA, SELECTED_CONFIG:SELECTED_CONFIG_SHA},
         full_config_module_imported=False)
+
+
+@contextmanager
+def original_backend_policy(runtime):
+    """Bind the original loader's TF32 and default trainer cuDNN flags.
+
+    The selected 2B declarations contain no cuDNN overrides. These flags are
+    part of the original execution binding, not knobs for fitting parity.
+    CUDA initialization and hardware admission remain the runner's job.
+    """
+    for relative, expected in ((LOADER_PATH, LOADER_SHA), (TRAINER_PATH, TRAINER_SHA)):
+        if hashlib.sha256((runtime/relative).read_bytes()).hexdigest() != expected:
+            raise ValueError('Pinned backend configuration source changed: '+relative)
+    loader = ast.parse((runtime/LOADER_PATH).read_bytes())
+    assignment = 'torch.backends.cudnn.allow_tf32 = torch.backends.cuda.matmul.allow_tf32 = True'
+    if sum(isinstance(n, ast.Assign) and ast.unparse(n)==assignment for n in ast.walk(loader)) != 1:
+        raise ValueError('Original TF32 loader assignment differs')
+    trainer = ast.parse((runtime/TRAINER_PATH).read_bytes())
+    config = next(n for n in trainer.body if isinstance(n, ast.ClassDef) and n.name=='CuDNNConfig')
+    defaults = {n.target.id:ast.literal_eval(n.value) for n in config.body if isinstance(n, ast.AnnAssign)}
+    if defaults['benchmark'] is not True or defaults['deterministic'] is not False:
+        raise ValueError('Original trainer cuDNN defaults differ')
+    before = backend_flags()
+    precision = torch.get_float32_matmul_precision()
+    warn_only = torch.is_deterministic_algorithms_warn_only_enabled()
+    try:
+        torch.backends.cuda.matmul.allow_tf32 = True
+        torch.use_deterministic_algorithms(False)
+        with torch.backends.cudnn.flags(enabled=True, benchmark=True, deterministic=False, allow_tf32=True):
+            yield dict(flags=backend_flags(), float32_matmul_precision=torch.get_float32_matmul_precision(),
+                       source_sha256={LOADER_PATH:LOADER_SHA, TRAINER_PATH:TRAINER_SHA},
+                       original_loader_assignment_verified=True)
+    finally:
+        torch.backends.cuda.matmul.allow_tf32 = before['matmul_allow_tf32']
+        torch.set_float32_matmul_precision(precision)
+        torch.use_deterministic_algorithms(before['deterministic_algorithms'],warn_only=warn_only)
+        if backend_flags() != before:
+            raise RuntimeError('Readout backend policy leaked outside its scope')
 
 
 def compile_head(runtime):
@@ -150,6 +195,7 @@ def compare_outputs(outputs, expected):
         raise ValueError('Two complete branch outputs required')
     rows = []
     for value, target in zip(outputs, expected):
+        value, target = value.detach().cpu(), target.detach().cpu()
         if value.shape != target.shape or value.dtype != target.dtype or not torch.isfinite(value).all():
             raise ValueError('Saved output shape/dtype/finite control differs')
         difference = value.double()-target.double()
@@ -159,29 +205,41 @@ def compare_outputs(outputs, expected):
 
 
 @torch.no_grad()
+def dense_hidden_outputs(kernel, inputs, teacher_hidden):
+    """Only the original head/RF on stored teacher hidden, never deep blocks."""
+    noise, latent, timestep, conditions = inputs['pair_inputs']
+    outputs = []
+    for branch in (0, 1):
+        row = inputs['current'][branch]
+        hidden = teacher_hidden[branch].to(device=row['embedding'].device)
+        head = kernel.net.unpatchify(kernel.net.final_layer(hidden,
+            row['embedding'], adaln_lora_B_T_3D=row['adaln']))
+        outputs.append(kernel.to_velocity(kernel.model, noise, latent, timestep,
+                       conditions[branch], _supplied_net_output=head))
+    return tuple(outputs)
+
+
+@torch.no_grad()
 def original_controls(kernel, inputs, payload):
     """One original C pair plus one stored-D-hidden head pair, no codecs."""
     protected = plain((inputs, payload['teacher_hidden']))
     before = tree_digest(protected)
-    rng = torch.get_rng_state().clone()
+    snapshot = CompleteStateRoundtrip(kernel.net, kernel.model.sample_scheduler, inputs['pair_inputs'][1])
+    state_before = snapshot.fingerprint()
     versions = [(p, p._version) for p in kernel.net.parameters()]
-    outputs = kernel.run('C', source=source_from_anchors(inputs['anchors']),
-                         current=inputs['current'], pair_inputs=inputs['pair_inputs'])[0]
-    C = compare_outputs(outputs, payload['readouts']['WC_C']['outputs'])
-    noise, latent, timestep, conditions = inputs['pair_inputs']
-    dense = []
-    for branch in (0, 1):
-        row = inputs['current'][branch]
-        head = kernel.net.unpatchify(kernel.net.final_layer(payload['teacher_hidden'][branch],
-            row['embedding'], adaln_lora_B_T_3D=row['adaln']))
-        dense.append(kernel.to_velocity(kernel.model, noise, latent, timestep,
-                     conditions[branch], _supplied_net_output=head))
-    D = compare_outputs(dense, payload['teacher'])
-    if tree_digest(protected) != before or not torch.equal(torch.get_rng_state(), rng):
-        raise RuntimeError('Saved readout cut mutated original inputs or CPU RNG')
-    if any(p._version != version for p, version in versions):
-        raise RuntimeError('Saved readout cut mutated original head weights')
+    try:
+        outputs = kernel.run('C', source=source_from_anchors(inputs['anchors']),
+                             current=inputs['current'], pair_inputs=inputs['pair_inputs'])[0]
+        C = compare_outputs(outputs, payload['readouts']['WC_C']['outputs'])
+        D = compare_outputs(dense_hidden_outputs(kernel, inputs, payload['teacher_hidden']), payload['teacher'])
+    finally:
+        snapshot.restore()
+        if tree_digest(protected) != before or snapshot.fingerprint() != state_before:
+            raise RuntimeError('Saved readout cut mutated original inputs or protected state')
+        if any(p._version != version for p, version in versions):
+            raise RuntimeError('Saved readout cut mutated original head weights')
     return dict(original_C=C, stored_dense_hidden_head=D, original_controls_exact=C['exact'] and D['exact'],
                 original_C_pairs=1, stored_dense_hidden_head_pairs=1, head_calls=4, deep_calls=0,
-                codec_pairs=0, inputs_and_CPU_RNG_unchanged=True, weights_unchanged=True,
+                codec_pairs=0, inputs_and_CPU_RNG_unchanged=True, all_RNG_and_buffers_restored=True,
+                weights_unchanged=True,
                 complete_Q1_cohort=False, deployment_memory_measured=False)

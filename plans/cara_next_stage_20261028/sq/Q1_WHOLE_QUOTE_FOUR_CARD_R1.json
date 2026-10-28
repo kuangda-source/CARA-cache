@@ -1,0 +1,93 @@
+{
+  "schema": "SQ_Q1_WHOLE_QUOTE_R1",
+  "host": "four_card",
+  "status": "PROPOSED_WHOLE_PLANNING_ALLOWANCE_NOT_GPU_PRICE_ACCEPTANCE",
+  "scope_counts": {
+    "states": 12,
+    "formal_C_pairs": 96,
+    "formal_head_calls": 192,
+    "warm_C_pairs": 2,
+    "preview_original_C_pairs": 1,
+    "stored_dense_hidden_head_pairs": 12,
+    "complete_readout_pairs": 111,
+    "complete_head_calls": 222,
+    "codec_C_pairs": 72,
+    "new_deep_pairs": 0,
+    "new_parent_paths": 0,
+    "new_videos": 0
+  },
+  "model_loads": 1,
+  "loaded_model_scope": "READOUT_ONLY_THREE_ORIGINAL_HEAD_TENSORS",
+  "terms_GPU_held_wall_seconds": {
+    "context_import_startup_allowance": 180.0,
+    "checkpoint_SHA_and_head_load": 169.4740217011422,
+    "original_32_file_SHA_and_read_allowance": 1671.6231269992224,
+    "inline_144_pair_CPU_codec_work": 1880.197889497876,
+    "FP32_M_roundtrip_24_pairs_allowance": 240.0,
+    "CPU_GPU_transfer_allowance": 180.0,
+    "original_C_or_dense_head_pairs_allowance": 444.0,
+    "input_state_rng_buffer_audit_allowance": 360.0,
+    "output_and_GPU_release_allowance": 120.0
+  },
+  "subtotal_seconds": 5245.295038198241,
+  "failure_allowance_fraction": 0.25,
+  "forecast_complete_GPUh": 1.821388888888889,
+  "proposed_hard_limit_GPUh": 2.0,
+  "timing_repeats": 0,
+  "additional_C_or_D_hidden_head_pairs": 15,
+  "formal_C_pairs": 96,
+  "CPU_post_release": {
+    "wall_seconds_max": 300,
+    "CPUs_max": 2,
+    "allocated_vCPUh_max": 0.16666666666666666
+  },
+  "Ada_B1_port_before_GPU": {
+    "required": true,
+    "started": false,
+    "original_bytes": 20795567276,
+    "file_count": 32,
+    "wall_seconds_max": 7200,
+    "CPUs_max": 2,
+    "allocated_vCPUh_max": 4.0,
+    "new_GPUh": 0,
+    "destination_reserve_bytes_min": 34359738368,
+    "source_and_destination_SHA_required": true
+  },
+  "resource_proposal": {
+    "GPU_devices": 1,
+    "host_CPUs": 2,
+    "host_RAM_GiB": 16,
+    "private_input_logical_cap_GiB": 8,
+    "CUDA_allocator_fraction_max": 0.5,
+    "output_reserved_GiB": 1,
+    "independent_control_journal_MiB": 48,
+    "output_file_MiB_max": 64
+  },
+  "basis": {
+    "Q0_unique_pairs": 10,
+    "Q0_packet_variants": 60,
+    "whole_inline_pair_variants": 144,
+    "measured_Q0_non_hash_wall_seconds": 391.70789364539087,
+    "host_checkpoint_IO_factor": 6.987413448745161,
+    "host_CPU_codec_allowance_factor": 2.0,
+    "per_readout_pair_seconds_allowance": 4.0,
+    "measured_GPU_readout_unit_price": false,
+    "Ada_codec_work_measured": false,
+    "whole_card_native_quote_accepted": false
+  },
+  "input_source_sha256": {
+    "plans/cara_next_stage_20261028/sq/Q1_WHOLE_SCOPE_R1.json": "cd28b4743c949acdcce3cab42b2dd6933deecb803f4ef7942f173ab60ba20e14",
+    "reports/cara_sq_cpu_accepted_20261028.json": "66bed5c047ff4c30a0173ac0c366a2d2e6a0078b1de2a8c96ccd57f6681625e3",
+    "reports/cara_sq_q1_dual_cpu_accepted_r2_20261028.json": "41d4cffac9dadb7d2115cccfd9fdf76bcb878b5c65ed605f0960123289d284a8"
+  },
+  "policy": "Recover both-host intents; prefer admissible Ada, otherwise admissible A6000. Existing B1 raw is present only on A6000; Ada needs a separately verified immutable port before admission.",
+  "first_original_control_failure": "Stop subsequent codecs and all selection; settle the original bill. No tolerance fitting, replays or automatic retries.",
+  "scheduling": "After actual unique launch, schedule halfway at forecast/2 from actual start and terminal at forecast plus release/scoring allowance; update existing checks if ETA changes.",
+  "GPU_authorization": false,
+  "GPU_ready": false,
+  "new_GPU_submissions": 0,
+  "budget_reserved_GPUh": 0,
+  "ledger_writes": 0,
+  "cumulative_cap_GPUh": 226,
+  "unknown_liability_GPUh_preserved": 16.5
+}

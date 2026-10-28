@@ -1,0 +1,25 @@
+{
+  "schema": "SQ_Q1_WHOLE_SAVED_STATE_SCOPE_R1",
+  "status": "PROPOSED_CPU_PREPARATION_NO_GPU_AUTHORITY",
+  "fixed_layout": "Shared25-C",
+  "original_B1_manifest_sha256": "5487f8db32d45a5d0f3304333bf362d9d6ec46fb3181c735d7267b78a6e398fa",
+  "fit_prompts": ["av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632", "human_199"],
+  "steps": [22,23,25,33,34,35],
+  "formal_roles": ["original_uncompressed_C", "FP32_M_roundtrip_C", "I_8_8", "I_4_8", "I_8_4", "M_8_8", "M_4_8", "M_8_4"],
+  "scope_counts": {
+    "states":12,"formal_C_pairs":96,"formal_head_calls":192,
+    "warm_C_pairs":2,"preview_original_C_pairs":1,"stored_dense_hidden_head_pairs":12,
+    "complete_readout_pairs":111,"complete_head_calls":222,"codec_C_pairs":72,
+    "new_deep_pairs":0,"new_parent_paths":0,"new_videos":0
+  },
+  "execution_order": "Two original C warmups on AV28 step22; original C plus stored-D-hidden head preview; eight formal roles on each state, with a stored-D-hidden head control before each later state. Original C preview is additional; each state's formal original C remains in the 96 denominator.",
+  "numerical_gate": "torch.equal for original C and stored-D-hidden head against immutable B1 outputs; any failure stops subsequent codec work and prevents all partial-state selection. Do not change tolerance, method precision, coefficients, bit sets or source to fit outputs.",
+  "backend": "Pinned selected experiment WAN FP32 head strategy and conditional_frame_timestep=0.1; original loader TF32=True and default trainer cudnn benchmark=True/deterministic=False, scoped and restored.",
+  "timing_repeats":0,
+  "timing_scope": "Separate diagnostic CPU encode/decode, transfer and actual C readout records; no clean deployed speed claim and no extra timing-only trajectories.",
+  "selection": "Only after complete 12-state acceptance: LOPO and one shared final bit direction per representation/rate/objective. Raw reconstruction is not a selection objective.",
+  "formal_counts_are_not_whole_quote":true,
+  "raw_references": "Offline immutable inputs/teachers only; deployment-cache bytes and peak savings are not measured by this card.",
+  "GPU_authorization":false,
+  "new_GPU_submissions":0,"new_GPUh":0,"budget_reserved_GPUh":0,"ledger_writes":0
+}
