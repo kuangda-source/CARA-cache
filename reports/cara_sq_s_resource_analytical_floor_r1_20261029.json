@@ -1,0 +1,57 @@
+{
+  "status": "S_SAME_GEOMETRY_ANALYTICAL_RESOURCE_LOWER_BOUND_ONLY",
+  "observed_unix": 1793211253.271144,
+  "basis": "Actual old B1 BF16 feature geometry plus pinned S raw R2 schema and production copy_budget; assumes unchanged model/resolution geometry on proposed F19 card",
+  "source_sha256": {
+    "reports/cara_sq_cpu_accepted_20261028.json": "66bed5c047ff4c30a0173ac0c366a2d2e6a0078b1de2a8c96ccd57f6681625e3",
+    "src/wcomr/sq_q1_assets_r1.py": "808d27a15073d9b913c0d2e72d9a5aae610add7bb95cf268903f9059782cc2db",
+    "src/wcomr/sq_s_collection_r1.py": "a0b2b3e6a4e0f44e00a764030966027ebbb20e8d25db6f2188b48d02402dde69",
+    "src/wcomr/sq_s_storage_r1.py": "4b96cb8a7b8d1b2c88b4846df923350615cf8db0fa39c8e4796fd9a65402fad0",
+    "src/wcomr/sq_s_sources_r1.py": "03ca23c97c8d9096f1bae7fb84e6ef1cc53bb63ba9688fe39ac74b44b64fb13e",
+    "src/wcomr/partial_mlp_deployment_state.py": "c7501223a35e9276391586006602470d80a50de8ff4adcdc72aa241b3a7c6137",
+    "src/wcomr/mid_coverage.py": "8e02d740b4ee794531c6263666bbed18348e32ba84c9b94b89f7c979a106fbf4"
+  },
+  "tensor_allocation_bytes": 0,
+  "feature_shape": [
+    1,
+    24,
+    27,
+    48,
+    2048
+  ],
+  "feature_dtype": "BF16",
+  "feature_bytes": 127401984,
+  "output_bytes": 7962624,
+  "raw_state_known_tensor_bytes_lower_bound": 815333376,
+  "unique_anchor_tensor_bytes_lower_bound": 6115295232,
+  "raw8_plus_anchor24_known_tensor_bytes_lower_bound": 12637962240,
+  "raw8_plus_anchor24_known_tensor_GiB_lower_bound": 11.77001953125,
+  "excluded_storage": [
+    "conditions",
+    "timestep",
+    "noise coordinate and source metadata",
+    "row JSON",
+    "Torch serialization containers",
+    "manifest",
+    "videos and OFF/ON controls"
+  ],
+  "copy_guard_floor": {
+    "native_windows_minimum_feature_tensors": 8,
+    "calibrator_minimum_feature_tensors": 8,
+    "multiplier": 8,
+    "logical_copy_bytes_lower_bound": 16307453952,
+    "logical_copy_GiB_lower_bound": 15.1875,
+    "excludes_remaining_WC_fields_solver_buffers_inputs_history": true,
+    "physical_GPU_or_RAM_peak_measured": false
+  },
+  "consequences": {
+    "Q1_private_copy_8GiB_must_not_be_reused": true,
+    "Q1_single_file_64MiB_must_not_be_reused": true,
+    "tiny_S_caps_must_not_be_reused": true,
+    "complete_host_specific_RAM_GPU_and_storage_quote_still_required": true
+  },
+  "actual_new_S_labels": 0,
+  "S_GPU_authority": false,
+  "GPU_submissions": 0,
+  "ledger_writes": 0
+}

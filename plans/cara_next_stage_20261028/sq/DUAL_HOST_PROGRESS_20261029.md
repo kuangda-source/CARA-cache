@@ -16,6 +16,10 @@ GPU 前 CPU [原件直传](B1_PORT_CPU_PROFILE_R1.json)限定原 32 文件、20,
 
 直传 R1 已启动并保留原句柄、源码和进度。[只读运输诊断](../../../reports/cara_sq_b1_sftp_bounded_diagnostic_r1_20261029.json)在同一个 32 MiB 前缀上得到串行 3.48 MiB/s、有界 32 请求 41.02 MiB/s，SHA 相同；此为 SSH 运输测量，不是模型或 GPU 加速。[R2 准备回执](../../../reports/cara_sq_b1_port_bounded32_prepared_r1_20261029.json)绑定六项本地检查及服务器实际新代码前缀验证。R2 只允许在精确释放原 R1 CPU 进程组和只读源句柄后启动；保留 R1 完整目标、未验片段、源包与费用，使用独立 stage/片段目录，整段墙钟仍截止于 R1 实际起点加 7200 秒。两轮诊断共只读 96 MiB。
 
+[R2 原终态](../../../reports/cara_sq_b1_port_terminal_r2_20261029.json)已完成：32/32、20,795,567,276 B 原件均经过目标 SHA 核验，17 个既存完整目标去重，仅复制其余 15 文件。R2 墙钟 894.29 秒，目标进程 CPU 548.26 秒、峰值 RSS 44,572 KiB；R1 起点至 R2 退出共约 39 分钟，未增加原 7200 秒 envelope。[已知句柄释放](../../../reports/cara_sq_b1_port_release_accepted_r2_20261029.json)确认 R2 timeout、worker 与源 SFTP 都已退出，R1 的 50,331,648 B 未验片段保留。[CPU 费用记录](../../../reports/cara_sq_b1_port_cpu_costs_r2_20261029.json)同时保留 R1 的已测下界和未完整计量项，不把失败轮当作免费工作。
+
+四卡[原 Q1 独立资产 CPU 核验](../../../reports/cara_sq_q1_four_card_asset_cpu_launch_r1_20261029.json)已首次启动，须等其 33 项原件/权重 SHA 与实际身份终态后，才完成新卡审阅包；不以直传完成代替该项。
+
 卡仍为两旧 FIT × 六位置、111 pair/222 heads、零新增 deep/父轨迹/视频。原 C 与 Dense-hidden 逐值门、GPU 释放/中央结算后 CPU LOPO、双端原报价均保持。双端 CPU 接受不代表 CUDA 数值、真实资产、GPU 峰值或科学结果已通过。
 
 ## S

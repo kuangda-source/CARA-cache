@@ -1,0 +1,67 @@
+{
+  "status": "B1_EXACT32_CPU_PORT_AND_KNOWN_HANDLES_ACCEPTED",
+  "destination": {
+    "status": "B1_ORIGINAL_DESTINATION_CPU_HANDLES_RELEASED",
+    "observed_unix": 1793211835.5920923,
+    "identities": [
+      {
+        "identity": {
+          "pid": 3800810,
+          "state": "R",
+          "start_ticks": 999594266,
+          "command": "/usr/bin/timeout --signal=TERM --kill-after=10s 5755 /usr/bin/ionice -c 3 /usr/bin/python3 -u /home/user/cara_sq_b1_port_cpu_r2_20261029/scripts/cara_sq_b1_port_worker_r1.py --stage /home/user/cara_sq_b1_port_cpu_r2_20261029 "
+        },
+        "live": false
+      },
+      {
+        "identity": {
+          "pid": 3800811,
+          "state": "R",
+          "start_ticks": 999594266,
+          "command": "/usr/bin/python3 -u /home/user/cara_sq_b1_port_cpu_r2_20261029/scripts/cara_sq_b1_port_worker_r1.py --stage /home/user/cara_sq_b1_port_cpu_r2_20261029 "
+        },
+        "live": false
+      }
+    ],
+    "original_R1_partials_retained": [
+      {
+        "name": "anchor_8df7c40ff7cc6514_0_30.pt.partial",
+        "bytes": 50331648
+      }
+    ],
+    "clock_ticks_per_second": 100,
+    "GPU_submissions": 0,
+    "ledger_writes": 0
+  },
+  "source": {
+    "status": "B1_R2_ORIGINAL_SOURCE_CPU_HANDLE_RELEASED_READONLY",
+    "observed_unix": 1793211836.9933445,
+    "identity": {
+      "status": "SQ_B1_READONLY_SOURCE_SERVER",
+      "pid": 823438,
+      "start_ticks": 650578356,
+      "CPUs": [
+        4,
+        5
+      ],
+      "address_space_bytes": 2147483648,
+      "CUDA_VISIBLE_DEVICES": "",
+      "source_readonly": true
+    },
+    "actual": {
+      "pid": 823438,
+      "state": null,
+      "start_ticks": null,
+      "command": null
+    },
+    "live": false,
+    "GPU_submissions": 0,
+    "ledger_writes": 0
+  },
+  "capture_ref": "reports/cara_sq_b1_port_terminal_r2_20261029.json",
+  "files": 32,
+  "bytes": 20795567276,
+  "scientific_or_GPU_acceptance": false,
+  "GPU_submissions": 0,
+  "ledger_writes": 0
+}
