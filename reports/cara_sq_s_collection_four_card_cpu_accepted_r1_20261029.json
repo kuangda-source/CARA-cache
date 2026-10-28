@@ -1,0 +1,78 @@
+{
+  "status": "S_COLLECTION_FOUR_CARD_CPU_TOPOLOGY_ACCEPTED_NOT_REAL_MODEL_OR_STORAGE",
+  "passed": true,
+  "host": "four_card",
+  "dual_host_CPU_accepted": false,
+  "source_revision": "6ec052dbcf8343800ba1206d704484f98593e045",
+  "critical_source_sha256": {
+    "src/wcomr/sq_s_collection_r1.py": "cc9854d5eeca3a3a553457d9e438f81f8417e6beaeaaaf95a7c2ceb207c3ac7c",
+    "src/wcomr/sq_s_owner_roundtrip_r1.py": "f93c7e803cd2ad72ac8253875b525b522a18f504685b471cc3496e7b45a14412",
+    "src/wcomr/sq_s_sources_r1.py": "03ca23c97c8d9096f1bae7fb84e6ef1cc53bb63ba9688fe39ac74b44b64fb13e",
+    "src/wcomr/sq_risk_r1.py": "5505cff318e0c1842e14ef9d98dd223eb686c519a01ef27440a6867bce08a39f",
+    "tests/check_sq_s_collection_cpu_r1.py": "d27edeb04af59a7af1d8db835f9743fd5867503033b13198c2095f35be17d47f",
+    "scripts/check_cara_sq_s_collection_cpu_r1.py": "72f56bbb9c650b504e366d92ea47a6a5dd2dfa45ed490c2a146fda3903ff103e",
+    "plans/cara_next_stage_20261028/sq/S_COLLECTION_CPU_R1.json": "7aa0c927ef83783552e465d76860d4a232dd6ef182698a6eae956ff5f586c9bb"
+  },
+  "capture_ref": "reports/cara_sq_s_collection_four_card_cpu_terminal_r1_20261029.json",
+  "capture_sha256": "e1261b7ff47066608ba78681aa03bb93b54939cc0a12d482df8e4fc023fb714c",
+  "result_sha256": "f75ca17ea30fb1d4da8abe9696b5f223782dd728cb3a91ab7b90ed4c6edb2c72",
+  "accepted": {
+    "host": "four_card",
+    "complete_CPU_paths": 16,
+    "CPU_fixture_moment_rows": 216,
+    "extra_Dense_teacher_pairs": 112,
+    "extra_C_readout_pairs": 104,
+    "raw_CPU_callbacks": 16,
+    "worker_wall_seconds": 312.0745511222631,
+    "CPU_seconds": 162.911035402,
+    "peak_RSS_GiB": 0.8746223449707031,
+    "container_wall_seconds": 319.094225,
+    "CPU_topology_accepted": true,
+    "streaming_raw_storage_accepted": false,
+    "real_model_S_collector_accepted": false,
+    "actual_GPU_or_science_accepted": false
+  },
+  "negative_controls": [
+    {
+      "case": "running",
+      "rejected": true,
+      "reason": "Original S topology CPU container is not cleanly terminal"
+    },
+    {
+      "case": "missing_parent",
+      "rejected": true,
+      "reason": "S full36 parent OFF/ON controls missing"
+    },
+    {
+      "case": "missing_raw",
+      "rejected": true,
+      "reason": "S raw callback identities or strictly past sources differ"
+    },
+    {
+      "case": "current_D_source",
+      "rejected": true,
+      "reason": "S raw callback identities or strictly past sources differ"
+    },
+    {
+      "case": "wrong_Dense_count",
+      "rejected": true,
+      "reason": "S topology 108/56/52 denominators or source controls differ"
+    },
+    {
+      "case": "CUDA_claim",
+      "rejected": true,
+      "reason": "S topology exceeded its CPU-only evidence boundary"
+    },
+    {
+      "case": "storage_claim",
+      "rejected": true,
+      "reason": "S topology exceeded its CPU-only evidence boundary"
+    }
+  ],
+  "streaming_raw_storage_accepted": false,
+  "complete_S_card_accepted": false,
+  "S_labels_collected": 0,
+  "GPU_submissions": 0,
+  "new_GPUh": 0,
+  "ledger_writes": 0
+}

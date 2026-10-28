@@ -23,6 +23,6 @@
 
 新 R2 复用仓库已接受的 PG CPU 导入适配，导入后恢复探针，执行同样八路径/十六边界；模型权重加载和 Triton 执行仍禁止。另修正 fixture 回执读取为其 `checks` 字段，未改变 cohort。[四卡 R2 原终态](../../../reports/cara_sq_s_owner_four_card_cpu_capture_r2_20261029.json)退出 0，八条完整 CPU 路径、十六检查边界均通过；worker 墙钟 219.11 秒、进程 CPU 68.70 秒、峰值 RSS 0.874 GiB。[独立接受](../../../reports/cara_sq_s_owner_four_card_cpu_accepted_r2_20261029.json)同时拒绝运行中、缺边界、缺父策略、CUDA 和真实视频五类伪回执。记录中源码缩写 `8779bb25` 已按 Git 唯一解析到完整提交，原回执未改。
 
-该接受仅覆盖父 owner 状态组件，不含真实 Cosmos 权重、S 科学标签或完整采集卡。下一步的[完整采集 CPU 拓扑](S_COLLECTION_PREPARATION_R1.md)已写出，待独立阶段验证；两卡同组件未启动。
+该接受仅覆盖父 owner 状态组件，不含真实 Cosmos 权重、S 科学标签或完整采集卡。四卡[完整采集 CPU 拓扑 R1](S_COLLECTION_PREPARATION_R1.md)也已接受：两个 flow 共 16 路径，每个 flow 均为 108 行、56 Dense/52 C 和八 raw 回调，完整 OFF/ON 相等；worker CPU 162.91 秒。R2 新增噪声坐标、直接复用的原 C 输出和流式去重写入，完整 Linux 组合待验证。两卡同组件未启动。
 
-后续先验证生产 observer、pre-D 来源与 56 个额外 Dense teacher/52 个 C shadow 的完整 CPU 事务，再补八 F19 raw 状态流式去重存储、双端证据和整卡报价。S/Q 各自完成端点验证前不组合。全局 canonical、主线 A32 源码与预算未由本对话修改。
+后续先验收 R2 raw/流式存储组合，再补双端证据、真实存储/RAM边界和整卡报价。S/Q 各自完成端点验证前不组合。全局 canonical、主线 A32 源码与预算未由本对话修改。

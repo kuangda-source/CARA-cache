@@ -22,6 +22,7 @@ from .mid_coverage import WC_FIELDS, tree_digest
 from .partial_mlp_deployment_state import plain, tensor_bytes
 from .policy_generator_r1 import production_sampling as production
 from .policy_interval_readout_r1 import ReadoutKernel
+from .scout_parent_v22 import GRID_SHA256,noise_coordinates
 from .source_aware_phase_sampling import bind_globals
 from .sq_risk_r1 import TARGETS, branch_moments
 from .sq_s_owner_roundtrip_r1 import PolicyOwnerRoundtrip
@@ -110,9 +111,10 @@ class SParentCollector:
         owner=self.owner;step=owner.readout.completed+1;inputs=(noise,latent,timestep,conditions)
         selected=self.enabled and step in TARGETS
         self.features={};self.collecting=selected
-        pre=past=None;logical=0
+        pre=past=None;logical=0;grid=None
         if selected:
             logical=self.copy_budget(inputs)
+            grid=noise_coordinates(owner.model.sample_scheduler,step,timestep)
             past=capture_before_pair(owner,parent=self.parent,step=step)
             if step not in PARENTS[self.parent]:
                 pre=CompleteStateRoundtrip(owner.net,owner.model.sample_scheduler,latent)
@@ -121,12 +123,13 @@ class SParentCollector:
         history=owner.history[-1]
         require(history['actual']==owner.policy['actions'][step-1] and history['fallback_reason'] is None
                 and history['source_history']['extra_heads']==0,'Fixed S parent deviated or paid an unregistered head')
-        if selected:self.observe(step,inputs,actual,pre,past,logical)
+        if selected:self.observe(step,inputs,actual,pre,past,logical,grid)
         self.features.clear()
         return actual
 
-    def observe(self,step,inputs,actual,pre,past,logical):
+    def observe(self,step,inputs,actual,pre,past,logical,grid):
         owner=self.owner;net=owner.net;started=time.perf_counter()
+        xis,sigmas=grid
         require(set(self.features)=={0,1},'Both paid parent prefixes required')
         post=CompleteStateRoundtrip(net,owner.model.sample_scheduler,inputs[1])
         own=PolicyOwnerRoundtrip(owner,logical_copy_cap_bytes=self.copy_cap)
@@ -168,7 +171,9 @@ class SParentCollector:
             moments=branch_moments(candidate,teacher,a=8.,b=-7.)
             row=dict(prompt=self.prompt,parent=self.parent,step=step,context=list(owner.readout.context),
                 planned_parent_action=owner.policy['actions'][step-1],moments=moments,
-                source=past.metadata(),extra_Dense_teacher_pairs=int(pre is not None),
+                source=dict(past.metadata(),complete_shadow_transaction_accepted=True),
+                xi=xis[step-1],sigma=sigmas[step-1],noise_grid_sha256=GRID_SHA256,
+                extra_Dense_teacher_pairs=int(pre is not None),
                 extra_C_readout_pairs=int(pre is None),extra_Dense_hidden_replay_heads=0,
                 raw_state_selected=raw_selected,teacher_writes_parent=False,
                 actual_D_teacher_reused=pre is None,paid_prefix_equal=True,
@@ -176,10 +181,17 @@ class SParentCollector:
                 P1_Dense_hidden_head_replay_accepted=False)
             if raw_selected:
                 require(dense_features is not None,'The four registered F19 raw positions must be actual C')
-                raw=data_record(dict(schema='SQ_S_F19_RAW_CPU_DATA_R1',prompt=self.prompt,parent=self.parent,
-                    context=owner.readout.context,step=step,source=past.metadata(),anchors=past.anchors,
+                raw_anchors=tuple(tuple(dict(context=owner.readout.context,branch=b,step=a.step,
+                    xi=xis[a.step-1],probe=a.probe,residual=a.residual) for a in pair)
+                    for b,pair in enumerate(past.anchors))
+                raw=data_record(dict(schema='SQ_S_F19_RAW_CPU_DATA_R2',prompt=self.prompt,parent=self.parent,
+                    context=owner.readout.context,step=step,source=row['source'],anchors=raw_anchors,
+                    xi=xis[step-1],sigma=sigmas[step-1],noise_grid_sha256=GRID_SHA256,
+                    noise_grid=dict(xi=xis,sigmas=sigmas,
+                        timesteps=[int(t) for t in owner.model.sample_scheduler.timesteps]),
                     current=[self.features[b] for b in (0,1)],teacher=teacher,
-                    teacher_features=[dense_features[b] for b in (0,1)],
+                    reference_C=candidate,P2_actual_C_reference_available=True,
+                    teacher_features=[{k:dense_features[b][k] for k in ('hidden','embedding','adaln')} for b in (0,1)],
                     pair_inputs=dict(noise=inputs[0],latent=inputs[1],timestep=inputs[2],
                         conditions=[dict(class_name=type(c).__qualname__,fields=vars(c)) for c in inputs[3]]),
                     P1_Dense_hidden_head_replay_accepted=False,
