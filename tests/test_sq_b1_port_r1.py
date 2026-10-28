@@ -20,6 +20,22 @@ class LocalSource:
             st_mode=value.st_mode,st_uid=value.st_uid,st_gid=value.st_gid)
 
 
+class ReadvSource(LocalSource):
+    def __init__(self,root):super().__init__(root);self.batches=[]
+    def open(self,name,mode):
+        stream=super().open(name,mode)
+        if Path(name).name=='manifest.json':return stream
+        owner=self
+        class Reader:
+            def __enter__(self):return self
+            def __exit__(self,*args):stream.close()
+            def read(self,size):return stream.read(size)
+            def readv(self,chunks):
+                owner.batches.append(list(chunks))
+                for offset,size in chunks:stream.seek(offset);yield stream.read(size)
+        return Reader()
+
+
 def fixture(root):
     root.mkdir();refs=[]
     for i in range(32):
@@ -32,6 +48,25 @@ def fixture(root):
 
 
 class PortTests(unittest.TestCase):
+    def test_bounded32_reads_preserve_old_partials_and_exact_bytes(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory);options,refs=fixture(root/'source')
+            first=root/'source'/refs[0]['name'];first.write_bytes(b'R'*(2**20+37))
+            refs[0].update(bytes=first.stat().st_size,sha256=hashlib.sha256(first.read_bytes()).hexdigest())
+            manifest=dict(unique_anchors=refs[:20],states=[dict(artifact=r) for r in refs[20:]])
+            raw=json.dumps(manifest).encode();(root/'source/manifest.json').write_bytes(raw)
+            options.update(expected_manifest_sha=hashlib.sha256(raw).hexdigest(),expected_total_bytes=sum(r['bytes'] for r in refs))
+            target=root/'target';old=target/'.sq-b1-port-cpu-r1-20261029';old.mkdir(parents=True)
+            (old/'original.partial').write_bytes(b'preserve operator-stopped original')
+            source=ReadvSource(root/'source')
+            result=copy_assets(source,'/readonly',target,readv_requests=32,incoming_name='.sq-b1-port-cpu-r2-20261029',**options)
+            self.assertEqual(result['transferred_bytes'],options['expected_total_bytes'])
+            self.assertEqual(result['maximum_prefetch_bytes'],2**20)
+            self.assertEqual((old/'original.partial').read_bytes(),b'preserve operator-stopped original')
+            self.assertTrue(any(len(chunks)==32 for chunks in source.batches))
+            self.assertTrue(all(0<len(chunks)<=32 and all(0<n<=32768 for _,n in chunks) for chunks in source.batches))
+            self.assertEqual((target/refs[0]['name']).read_bytes(),first.read_bytes())
+
     def test_complete32_source_stream_and_readback_equal(self):
         with tempfile.TemporaryDirectory() as directory:
             root=Path(directory);options,refs=fixture(root/'source');source=LocalSource(root/'source');events=[]

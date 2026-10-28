@@ -1,0 +1,107 @@
+{
+  "status": "B1_ORIGINAL_CPU_PORT_CAPTURE",
+  "observed_unix": 1793209668.7074025,
+  "launch": {
+    "status": "B1_EXACT32_DIRECT_CPU_PORT_STARTED",
+    "stage": "/home/user/cara_sq_b1_port_cpu_r1_20261029",
+    "source_revision": "18a03c2544a5409189daee7c3bd17c0df29a5596",
+    "registration_sha256": "dbd29babcc78ddf3c83ecdb057e63d370958cb8217aac066a5131d01c55b0395",
+    "identity": {
+      "pid": 3797928,
+      "state": "R",
+      "start_ticks": 999449776,
+      "command": "/usr/bin/timeout --signal=TERM --kill-after=10s 7200 /usr/bin/ionice -c 3 /usr/bin/python3 -u /home/user/cara_sq_b1_port_cpu_r1_20261029/scripts/cara_sq_b1_port_worker_r1.py --stage /home/user/cara_sq_b1_port_cpu_r1_20261029 "
+    },
+    "started_unix": 1793209434.409598,
+    "source_host": "two_card",
+    "destination_host": "four_card",
+    "planned_files": 32,
+    "planned_bytes": 20795567276,
+    "wall_seconds_max": 7200,
+    "GPU_submissions": 0,
+    "ledger_writes": 0
+  },
+  "original_handle_live": true,
+  "payload_intact": true,
+  "worker": {
+    "status": "B1_CPU_PORT_CONNECTING",
+    "identity": {
+      "pid": 3797929,
+      "state": "R",
+      "start_ticks": 999449777,
+      "command": "/usr/bin/python3 -u /home/user/cara_sq_b1_port_cpu_r1_20261029/scripts/cara_sq_b1_port_worker_r1.py --stage /home/user/cara_sq_b1_port_cpu_r1_20261029 "
+    },
+    "GPU_submissions": 0,
+    "ledger_writes": 0,
+    "source_server": {
+      "status": "SQ_B1_READONLY_SOURCE_SERVER",
+      "pid": 821193,
+      "start_ticks": 650433866,
+      "CPUs": [
+        4,
+        5
+      ],
+      "address_space_bytes": 2147483648,
+      "CUDA_VISIBLE_DEVICES": "",
+      "source_readonly": true
+    }
+  },
+  "progress": {
+    "status": "B1_CPU_PORT_RUNNING",
+    "planned_files": 32,
+    "planned_bytes": 20795567276,
+    "transferred_bytes": 710938698,
+    "verified_target_bytes": 509612106,
+    "files": [
+      {
+        "name": "anchor_05303aaef6e159d9_0_20.pt",
+        "bytes": 254806053,
+        "sha256": "8aa8701fef14e6dd0565028ca1cbf8e15797864c4ad6480e53fe3d249689e9d2",
+        "method": "DIRECT_SOURCE_STREAM_AND_TARGET_READBACK_SHA",
+        "source_attributes": {
+          "size": 254806053,
+          "mtime": 1793043282,
+          "mode": 33188,
+          "uid": 1004,
+          "gid": 998
+        },
+        "target_identity": [
+          2081,
+          185838247,
+          254806053,
+          1793209516955065351,
+          1793209520963076028
+        ]
+      },
+      {
+        "name": "anchor_05303aaef6e159d9_0_21.pt",
+        "bytes": 254806053,
+        "sha256": "bfed2dc7a8917f7d82c02bd49d69efe6a443f0af66669cfd2a0b712a1543eb1c",
+        "method": "DIRECT_SOURCE_STREAM_AND_TARGET_READBACK_SHA",
+        "source_attributes": {
+          "size": 254806053,
+          "mtime": 1793043284,
+          "mode": 33188,
+          "uid": 1004,
+          "gid": 998
+        },
+        "target_identity": [
+          2081,
+          185838248,
+          254806053,
+          1793209601651289956,
+          1793209603583295057
+        ]
+      }
+    ],
+    "started_unix": 1793209435.2632773,
+    "GPU_submissions": 0,
+    "ledger_writes": 0,
+    "current_file": "anchor_05303aaef6e159d9_1_20.pt"
+  },
+  "exit": null,
+  "result": null,
+  "log_tail": "",
+  "GPU_submissions": 0,
+  "ledger_writes": 0
+}

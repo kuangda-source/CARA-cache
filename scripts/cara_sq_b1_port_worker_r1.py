@@ -29,10 +29,14 @@ def main():
     status=dict(status='B1_CPU_PORT_CONNECTING',identity=process_identity(os.getpid()),GPU_submissions=0,ledger_writes=0)
     atomic_json(stage/'worker.json',status)
     try:
-        with readonly_source(reg['endpoint'],reg['host_key_pins'],password) as (sftp,source):
+        remaining=int(reg.get('original_deadline_unix',time.time()+7200)-time.time())
+        require(0<remaining<=7200,'Original CPU transfer time envelope exhausted')
+        with readonly_source(reg['endpoint'],reg['host_key_pins'],password,wall_seconds=remaining) as (sftp,source):
             password=None;status['source_server']=source;atomic_json(stage/'worker.json',status)
             result=copy_assets(sftp,PROJECT+'/'+ASSETS,Path(PROJECT)/ASSETS,
                 minimum_free_bytes=profile['minimum_destination_free_bytes'],
+                readv_requests=profile.get('readv_requests',0),
+                incoming_name=profile.get('incoming_name','.sq-b1-port-cpu-r1-20261029'),
                 save=lambda value:atomic_json(stage/'progress.json',value))
         result.update(source_server=source,CPU_wall_seconds=time.monotonic()-started,
             destination_CPU_seconds=time.process_time()-cpu,source_SSH_daemon_CPU_seconds=None,

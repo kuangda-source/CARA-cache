@@ -41,26 +41,35 @@ START=r'''
 import base64,fcntl,hashlib,json,os,pathlib,subprocess,sys,time
 p=json.load(sys.stdin);s=pathlib.Path(p['stage']);project=pathlib.Path('/data20t/gaokuangda/worldcache_workspace')
 sys.path.insert(0,str(project/'.sync/cara-sq-q1-saved-four-card-r1-20261028/src'))
-from wcomr.gpu_budget_pool_v2 import atomic_json,process_identity
+from wcomr.gpu_budget_pool_v2 import atomic_json,process_identity,same_live_process
 with pathlib.Path('/home/user/.cara-sq-b1-port-cpu-r1.lock').open('a') as lock:
  fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
  if s.exists():
   print(json.dumps(dict(status='B1_EXISTING_CPU_PORT_RECOVER_ONLY',stage=str(s),launch=json.loads((s/'launch.json').read_text()) if (s/'launch.json').exists() else None)));sys.exit(0)
  assert not subprocess.check_output(['docker','ps','-q'],text=True).strip(),'Preserve current CPU allocations'
  assert {4,5}<=os.sched_getaffinity(0)
+ previous=p.get('previous_launch');deadline=time.time()+7200
+ if previous is not None:
+  old=pathlib.Path(previous['stage']);assert json.loads((old/'launch.json').read_text())==previous
+  assert not same_live_process(previous['identity']) and json.loads((old/'operator-stop.json').read_text())['original_payload_intact']
+  worker=json.loads((old/'worker.json').read_text());assert not same_live_process(worker['identity'])
+  assert p['source_release']['original_source_live'] is False
+  assert p['source_release']['identity']['pid']==worker['source_server']['pid'] and p['source_release']['identity']['start_ticks']==worker['source_server']['start_ticks']
+  deadline=previous['started_unix']+7200
+ remaining=int(deadline-time.time());assert 0<remaining<=7200,'Preserve the original whole CPU transfer deadline'
  s.mkdir(mode=0o700);hashes={}
  for name,encoded in p['files'].items():
   raw=base64.b64decode(encoded);target=s/name;target.parent.mkdir(parents=True,exist_ok=True);target.write_bytes(raw);hashes[name]=hashlib.sha256(raw).hexdigest()
  profile=json.loads((s/p['profile_path']).read_text())
  assert profile['control_directory']==str(s) and profile['files']==32 and profile['asset_bytes']==20795567276
- reg=dict(source_revision=p['revision'],profile_path=p['profile_path'],endpoint=p['endpoint'],host_key_pins=p['pins'],payload_sha256=hashes,GPU_submissions=0,ledger_writes=0)
+ reg=dict(source_revision=p['revision'],profile_path=p['profile_path'],endpoint=p['endpoint'],host_key_pins=p['pins'],payload_sha256=hashes,original_deadline_unix=deadline,previous_launch=previous,GPU_submissions=0,ledger_writes=0)
  atomic_json(s/'registration.json',reg)
- cmd=['/usr/bin/timeout','--signal=TERM','--kill-after=10s','7200','/usr/bin/ionice','-c','3','/usr/bin/python3','-u',str(s/'scripts/cara_sq_b1_port_worker_r1.py'),'--stage',str(s)]
+ cmd=['/usr/bin/timeout','--signal=TERM','--kill-after=10s',str(remaining),'/usr/bin/ionice','-c','3','/usr/bin/python3','-u',str(s/'scripts/cara_sq_b1_port_worker_r1.py'),'--stage',str(s)]
  with (s/'intent.json').open('x') as f:json.dump(dict(command=cmd,created_unix=time.time(),GPU_submissions=0),f);f.flush();os.fsync(f.fileno())
  with (s/'CPU.log').open('x') as log:
   child=subprocess.Popen(cmd,stdin=subprocess.PIPE,stdout=log,stderr=subprocess.STDOUT,start_new_session=True,env=dict(os.environ,CUDA_VISIBLE_DEVICES='',NVIDIA_VISIBLE_DEVICES='void',PYTHONDONTWRITEBYTECODE='1'))
   child.stdin.write(json.dumps(dict(source_password=p.pop('source_password'))).encode());child.stdin.close()
- result=dict(status='B1_EXACT32_DIRECT_CPU_PORT_STARTED',stage=str(s),source_revision=reg['source_revision'],registration_sha256=hashlib.sha256((s/'registration.json').read_bytes()).hexdigest(),identity=process_identity(child.pid),started_unix=time.time(),source_host='two_card',destination_host='four_card',planned_files=32,planned_bytes=20795567276,wall_seconds_max=7200,GPU_submissions=0,ledger_writes=0)
+ result=dict(status='B1_EXACT32_DIRECT_CPU_PORT_STARTED',stage=str(s),source_revision=reg['source_revision'],registration_sha256=hashlib.sha256((s/'registration.json').read_bytes()).hexdigest(),identity=process_identity(child.pid),started_unix=time.time(),original_deadline_unix=deadline,source_host='two_card',destination_host='four_card',planned_files=32,planned_bytes=20795567276,wall_seconds_max=7200,GPU_submissions=0,ledger_writes=0)
  atomic_json(s/'launch.json',result);print(json.dumps(result))
 '''
 

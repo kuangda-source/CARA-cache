@@ -44,7 +44,7 @@ def require(value,message):
 
 
 @contextmanager
-def readonly_source(endpoint,pins,password):
+def readonly_source(endpoint,pins,password,*,wall_seconds=7200):
     import paramiko
     transport=paramiko.Transport(socket.create_connection((endpoint['hostname'],int(endpoint['port'])),timeout=15))
     transport.banner_timeout=15;transport.auth_timeout=15
@@ -55,7 +55,8 @@ def readonly_source(endpoint,pins,password):
         require(pins.get(key.get_name())==key.get_base64(),'Source SSH key differs from the existing verified Mac pin')
         transport.auth_password(endpoint['user'],password);password=None
         channel=transport.open_session(timeout=30);channel.settimeout(60)
-        command='/usr/bin/timeout --signal=TERM --kill-after=10s 7200 /usr/bin/python3 -u -c '+shlex.quote(SOURCE_WRAPPER)
+        require(type(wall_seconds) is int and 0<wall_seconds<=7200,'Original CPU transfer deadline required')
+        command='/usr/bin/timeout --signal=TERM --kill-after=10s '+str(wall_seconds)+' /usr/bin/python3 -u -c '+shlex.quote(SOURCE_WRAPPER)
         channel.exec_command(command)
         banner=json.loads(channel.makefile_stderr('rb').readline(8192))
         require(banner['status']=='SQ_B1_READONLY_SOURCE_SERVER' and banner['source_readonly'] is True
@@ -92,8 +93,31 @@ def directory_sync(path):
     finally:os.close(fd)
 
 
+def stream_blocks(reader,size,readv_requests):
+    require(readv_requests in (0,32),'Only the serial original or bounded32 transport is registered')
+    if not readv_requests:
+        left=size
+        while left:
+            block=reader.read(min(CHUNK,left))
+            require(bool(block) and len(block)<=left,'Original B1 stream ended early or exceeded its declared size')
+            left-=len(block);yield block
+        return
+    # Paramiko2.6 readv schedules only these chunks. Consume every response
+    # before starting the next batch: <=32 requests and <=1MiB prefetched.
+    step=32768
+    for base in range(0,size,readv_requests*step):
+        chunks=[(offset,min(step,size-offset)) for offset in range(base,min(size,base+readv_requests*step),step)]
+        values=iter(reader.readv(chunks))
+        for _,length in chunks:
+            block=next(values,None)
+            require(block is not None and len(block)==length,'Bounded B1 readv response size/order differs')
+            yield block
+        require(next(values,None) is None,'Bounded B1 readv returned an unregistered block')
+
+
 def copy_assets(sftp,source_root,target,*,expected_manifest_sha=MANIFEST_SHA,
                 expected_total_bytes=TOTAL_BYTES,minimum_free_bytes=4*2**30,
+                readv_requests=0,incoming_name='.sq-b1-port-cpu-r1-20261029',
                 save=lambda value:None,free_bytes=lambda path:shutil.disk_usage(path).free):
     """Stream exactly 32 declared leaves; preserve originals on every failure."""
     with sftp.open(source_root+'/manifest.json','rb') as stream:manifest_raw=stream.read(2**20+1)
@@ -111,11 +135,15 @@ def copy_assets(sftp,source_root,target,*,expected_manifest_sha=MANIFEST_SHA,
     require(not target.is_symlink(),'B1 target directory cannot be a symlink')
     existing=target/'manifest.json'
     if existing.exists():require(not existing.is_symlink() and sha(existing)==expected_manifest_sha,'Preserve foreign target manifest')
-    incoming=target/'.sq-b1-port-cpu-r1-20261029';incoming.mkdir(mode=0o700,exist_ok=False)
+    require(incoming_name in ('.sq-b1-port-cpu-r1-20261029','.sq-b1-port-cpu-r2-20261029'),
+            'Registered private transfer attempt directory required')
+    incoming=target/incoming_name;incoming.mkdir(mode=0o700,exist_ok=False)
     missing=sum(r['bytes'] for r in refs if not (target/r['name']).exists())
     require(free_bytes(target)>=missing+minimum_free_bytes,'Insufficient target capacity for the full B1 cohort')
     state=dict(status='B1_CPU_PORT_RUNNING',planned_files=FILES,planned_bytes=expected_total_bytes,
-        transferred_bytes=0,verified_target_bytes=0,files=[],started_unix=time.time(),GPU_submissions=0,ledger_writes=0)
+        transferred_bytes=0,verified_target_bytes=0,files=[],started_unix=time.time(),
+        readv_requests=readv_requests,maximum_prefetch_bytes=readv_requests*32768,
+        GPU_submissions=0,ledger_writes=0)
     last=[0.]
     def progress(force=False):
         now=time.monotonic()
@@ -135,12 +163,12 @@ def copy_assets(sftp,source_root,target,*,expected_manifest_sha=MANIFEST_SHA,
         else:
             partial=incoming/(ref['name']+'.partial');digest=hashlib.sha256();remaining=ref['bytes']
             with sftp.open(source,'rb') as reader,partial.open('xb') as writer:
-                while remaining:
-                    require(free_bytes(target)>=minimum_free_bytes+min(CHUNK,remaining),'Target free-space low water during B1 copy')
-                    block=reader.read(min(CHUNK,remaining))
+                for block in stream_blocks(reader,ref['bytes'],readv_requests):
+                    require(free_bytes(target)>=minimum_free_bytes+len(block),'Target free-space low water during B1 copy')
                     require(bool(block) and len(block)<=remaining,'Original B1 stream ended early or exceeded its declared size')
                     writer.write(block);digest.update(block);remaining-=len(block)
                     state['transferred_bytes']+=len(block);progress()
+                require(remaining==0,'Original B1 transfer byte denominator differs')
                 require(not reader.read(1),'Original B1 stream exceeded its declared size')
                 writer.flush();os.fsync(writer.fileno())
             require(source_identity(sftp.lstat(source))==original,'Original B1 source attributes changed during copy')

@@ -12,6 +12,10 @@
 
 GPU 前 CPU [原件直传](B1_PORT_CPU_PROFILE_R1.json)限定原 32 文件、20,795,567,276 B，不重采、不过本机。直传用已有 Mac 验证过的 SSH 主机密钥，账户密码仅走 stdin/内存；源端实际运行有 CPU/内存上限的 `sftp-server -R`。[本地五项检查](../../../reports/cara_sq_b1_port_local_cpu_r2_20261029.json)及[服务器只读服务探针](../../../reports/cara_sq_b1_readonly_native_probe_r2_20261029.json)通过，源 manifest 写句柄确实被拒绝。源/目标均用 CPU 4/5、2 GiB AS、nice10/ionice3、7200 秒墙钟上限，与 GPU 入口的 CPU 24/25 分开；先前 CPU24/25 探针原件保留。源/目标 SHA 检查、整组空间、单次句柄、损坏/符号链接/既存目标拒绝覆盖均由新 CPU 程序负责；真实 20.8 GB 传输和 Q1 原生资产核验仍待完成。
 
+两卡[原资产 CPU 终态](../../../reports/cara_sq_q1_two_card_asset_cpu_terminal_r1_20261029.json)已通过：原 worker 退出 0，32 个 B1 文件及一个 4.12 GB 原权重共 33 项 SHA/实际身份核验，墙钟 206.46 秒、CPU 83.31 秒；未重采张量、未导入模型或提交 GPU。四卡仍需在直传完成后接受原 Q1 的独立资产核验。
+
+直传 R1 已启动并保留原句柄、源码和进度。[只读运输诊断](../../../reports/cara_sq_b1_sftp_bounded_diagnostic_r1_20261029.json)在同一个 32 MiB 前缀上得到串行 3.48 MiB/s、有界 32 请求 41.02 MiB/s，SHA 相同；此为 SSH 运输测量，不是模型或 GPU 加速。[R2 准备回执](../../../reports/cara_sq_b1_port_bounded32_prepared_r1_20261029.json)绑定六项本地检查及服务器实际新代码前缀验证。R2 只允许在精确释放原 R1 CPU 进程组和只读源句柄后启动；保留 R1 完整目标、未验片段、源包与费用，使用独立 stage/片段目录，整段墙钟仍截止于 R1 实际起点加 7200 秒。两轮诊断共只读 96 MiB。
+
 卡仍为两旧 FIT × 六位置、111 pair/222 heads、零新增 deep/父轨迹/视频。原 C 与 Dense-hidden 逐值门、GPU 释放/中央结算后 CPU LOPO、双端原报价均保持。双端 CPU 接受不代表 CUDA 数值、真实资产、GPU 峰值或科学结果已通过。
 
 ## S
