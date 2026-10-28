@@ -3,6 +3,7 @@ import argparse
 from collections import Counter
 import hashlib
 import io
+import inspect
 import json
 import os
 from pathlib import Path
@@ -22,7 +23,7 @@ def meta_architecture(runtime,identity):
     import torch
     from wcomr.runtime_config import install_core_inference_registration,MODEL,EXPERIMENT
     from wcomr.h0_mode import mode_snapshot
-    from wcomr.sq_s_resources_r1 import inventory,registered_experiment
+    from wcomr.sq_s_resources_r1 import inventory,registered_experiment,explicit_meta_constructor
     from cosmos_predict2.config import MODEL_KEYS,MODEL_CHECKPOINTS
     from cosmos_predict2._src.imaginaire.utils.config_helper import get_config_module,override
     from cosmos_predict2._src.imaginaire.lazy_config import instantiate
@@ -33,14 +34,22 @@ def meta_architecture(runtime,identity):
     module=get_config_module('cosmos_predict2/_src/predict2/configs/video2world/config.py')
     config=importlib.import_module(module).make_config()
     config=override(config,['--','experiment='+experiment,'~data_train'])
-    with torch.device('meta'):
-        net=instantiate(config.model.config.net).to(dtype=torch.bfloat16)
+    import transformer_engine as te
+    original=te.pytorch.RMSNorm.__init__
+    constructor_path=Path(inspect.getsourcefile(original))
+    expected=json.loads((ROOT/identity['shared_eval_mode_ref']).read_text())
+    norm_class=te.pytorch.RMSNorm.__module__+'.'+te.pytorch.RMSNorm.__qualname__
+    with explicit_meta_constructor(te.pytorch.RMSNorm) as constructor:
+        with torch.device('meta'):
+            net=instantiate(config.model.config.net).to(dtype=torch.bfloat16)
+    if te.pytorch.RMSNorm.__init__ is not original or constructor['calls']!=expected['module_types'][norm_class]:
+        raise ValueError('Exact original RMSNorm topology or constructor restoration differs')
     parameters=list(net.named_parameters());buffers=list(net.named_buffers())
     if len(net.blocks)!=28 or len(parameters)!=569 or any(v.device.type!='meta' for _,v in parameters+buffers):
         raise ValueError('Full2B metadata architecture differs from original A32 binding')
     if Counter(str(v.dtype) for _,v in parameters)!=Counter({'torch.bfloat16':569}) or not net.use_wan_fp32_strategy:
         raise ValueError('Original BF16/Wan FP32 strategy differs')
-    mode=mode_snapshot(net);expected=json.loads((ROOT/identity['shared_eval_mode_ref']).read_text())
+    mode=mode_snapshot(net)
     if mode['module_types']!=expected['module_types']:raise ValueError('Actual full2B module topology differs')
     result=dict(status='FULL2B_NET_META_ARCHITECTURE_ONLY_NO_WEIGHTS_OR_FORWARD',
         resolved_experiment=experiment,checkpoint_paths_resolved=False,blocks=len(net.blocks),parameter_tensors=len(parameters),
@@ -48,6 +57,9 @@ def meta_architecture(runtime,identity):
         parameters=inventory(dict(parameters)),buffers=inventory(dict(buffers)),
         buffer_schema=[dict(name=n,shape=list(v.shape),dtype=str(v.dtype),bytes=v.numel()*v.element_size()) for n,v in buffers],
         module_types=mode['module_types'],matches_original_shared_eval_topology=True,
+        constructor_adapter=dict(constructor,class_path=te.pytorch.RMSNorm.__module__+'.'+te.pytorch.RMSNorm.__qualname__,
+            original_source_sha256=hashlib.sha256(constructor_path.read_bytes()).hexdigest(),
+            original_class_and_body_preserved=True,restored_before_tiny_sampling=True),
         use_wan_fp32_strategy=net.use_wan_fp32_strategy,weights_loaded=False,
         network_forward_executed=False,full_model_GPU_memory_peak_measured=False)
     del net,parameters,buffers

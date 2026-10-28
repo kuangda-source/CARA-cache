@@ -5,10 +5,26 @@ import unittest
 import numpy as np
 import torch
 
-from wcomr.sq_s_resources_r1 import inventory,before_pair_inventory,check_limits,registered_experiment
+from wcomr.sq_s_resources_r1 import inventory,before_pair_inventory,check_limits,registered_experiment,explicit_meta_constructor
 
 
 class ResourceTests(unittest.TestCase):
+    def test_explicit_meta_device_preserves_original_class_and_restores_constructor(self):
+        class DeviceRequired(torch.nn.Module):
+            def __init__(self,n,*,device=None):
+                super().__init__()
+                if device is None:raise RuntimeError('This original default would request CUDA')
+                self.weight=torch.nn.Parameter(torch.empty(n,device=device))
+        original=DeviceRequired.__init__
+        with explicit_meta_constructor(DeviceRequired) as state:
+            module=DeviceRequired(128)
+            self.assertIs(type(module),DeviceRequired)
+            self.assertEqual(module.weight.device.type,'meta')
+            with self.assertRaises(ValueError):DeviceRequired(128,device='cpu')
+        self.assertIs(DeviceRequired.__init__,original)
+        self.assertTrue(state['restored']);self.assertEqual(state['calls'],1)
+        with self.assertRaises(RuntimeError):DeviceRequired(128)
+
     def test_experiment_lookup_never_resolves_checkpoint_path(self):
         class Checkpoint:
             experiment='FROZEN_CPU_EXPERIMENT'

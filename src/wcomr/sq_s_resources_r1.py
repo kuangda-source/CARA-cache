@@ -5,6 +5,7 @@ the full backing allocation once, including views. No tensor values are read,
 copied, hashed or transferred by this inventory.
 """
 from collections.abc import Mapping
+from contextlib import contextmanager
 from enum import Enum
 
 import numpy as np
@@ -24,6 +25,22 @@ def registered_experiment(model,keys,checkpoints,*,expected_model,expected_exper
     experiment=checkpoints[keys[model]].experiment
     require(experiment==expected_experiment,'Frozen S registered experiment differs')
     return experiment
+
+
+@contextmanager
+def explicit_meta_constructor(cls):
+    """Use the original constructor's device argument; preserve its class/body."""
+    require(issubclass(cls,torch.nn.Module),'An actual module constructor is required')
+    original=cls.__init__;state=dict(calls=0,device='meta',restored=False)
+    def initialize(instance,*args,**kwargs):
+        device=kwargs.pop('device',None)
+        require(device is None or torch.device(device).type=='meta',
+                'Metadata constructor cannot allocate a real device')
+        state['calls']+=1
+        return original(instance,*args,device=torch.device('meta'),**kwargs)
+    cls.__init__=initialize
+    try:yield state
+    finally:cls.__init__=original;state['restored']=True
 
 
 def inventory(value):

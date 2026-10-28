@@ -13,3 +13,9 @@
 原 R1 在 meta 网络构造前调用 `SetupArguments`，其前置验证会解析 checkpoint 路径，随后因缺少必填 `output_dir` 拒绝；原容器/日志/实际 CPU 成本保留，没有权重加载、真实模型前向或 GPU 动作。该失败不能解释为 S 方法失败。
 
 [R2 范围](S_RESOURCES_CPU_R2.json)只从固定 `MODEL_KEYS/MODEL_CHECKPOINTS` 注册表读取 experiment，直接复用原配置注册器；不构造 `SetupArguments`，不访问 `.path`，并显式拒绝 Hugging Face 两类下载函数。新增 checkpoint.path 抛错而 experiment 仍正常读取的控制，共七项。四条 tiny 路径、108清单边界与资源不变；仅在同端原 R1 确定失败退出后使用新的 R2 stage，原 R1 不重派、不覆盖。
+
+## R2 的 TE 默认设备拒绝与 R3
+
+A6000 R2 原容器已退出1：实际 TE RMSNorm 的 `canonicalize_device(None)` 直接取 CUDA，不服从外围 `torch.device('meta')`；CUDA拒绝守卫在初始化前抛错。原 TE 源支持显式 `device=meta` 并推迟参数初始化，故 R3 只在 meta 网络构造期间向同一个原 RMSNorm 构造器传该参数，保留原 class/body，不以 torch 层替代 TE。构造次数直接对照原H0的113个同类模块（含顶层时间嵌入 norm），完整拓扑仍须一致；完成后恢复原构造器，再开始 tiny 采样。
+
+[R3 范围](S_RESOURCES_CPU_R3.json)增加构造器恢复与禁止真实设备控制，共八项；原CPU资源和四路径/108边界不变。R1双端、R2两卡端的原失败、句柄与成本保留；Ada没有启动R2，不为重复一个已定位的构造拒绝而补派。最终资源证据仅接受原容器/CLI已完整退出的 R3 源，当前仍无 S GPU 权限。
