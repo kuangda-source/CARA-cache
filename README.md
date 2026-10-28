@@ -10,6 +10,8 @@
 
 [743 B36双端CPU承接接受](research/743_CARA_B36_COMPLETE_CONTINUATION_DUAL_CPU_ACCEPTANCE_20261029.md)：每端两种flow各完整36条，合计72条成功tiny路径，失败清理与禁止重试通过；CPU使用合成冻结包，实际基线采用A32完整验收后的原一次冻结文件。[CPU接受回执](reports/cara_fast_B36_CPU_acceptance_r1_20261029.json)
 
+[746 B36宿主与终态收件CPU](research/746_CARA_B36_DUAL_HOST_EXECUTION_AND_TERMINAL_CPU_20261029.md)：双端新增7项宿主执行与8项终态收件控制通过，四个CPU容器退出0；32正式评分位置保持，6个原A已接受FIT配对直接引用，其余26对交原评分CLI。未运行模型或度量网络；单次派发入口及启动前失败费用恢复待完成，无B GPU预约或启动。 [组合CPU接受](reports/cara_fast_B36_execution_post_CPU_acceptance_r1_20261029.json) · [剩余派发边界](plans/cara_next_stage_20261028/mainline/r2/B36_EXECUTION_READINESS_R1.md)
+
 **通过选择完整刷新的时间位置，在加速视频扩散时尽量保留完整模型的输出。**
 
 CARA-Cache（CFG-Aligned Readout and Cost-Aware Allocation for Video Diffusion）是一个基于 Cosmos / WorldCache 实验栈的视频扩散加速研究项目。它研究两个相连的问题：缓存读出怎样更准确，以及有限计算预算应该花在哪些时间步。当前冻结的新DEV候选Shared25-C采用完整刷新D与缓存复用C，不包含修正A；A保留为机制对照。CARA为沿用的项目名。历史目录 `worldcache_omr` 与 Python 包 `wcomr` 为兼容既有实验保留；本仓库当前只维护 WorldCache/CARA 主线。

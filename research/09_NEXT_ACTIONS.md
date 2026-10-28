@@ -10,12 +10,14 @@
 
 [743 B36双端CPU承接接受](743_CARA_B36_COMPLETE_CONTINUATION_DUAL_CPU_ACCEPTANCE_20261029.md)：每端两种flow各完整36条，合计72条成功tiny路径，失败清理与禁止重试通过；CPU使用合成冻结包，实际基线采用A32完整验收后的原一次冻结文件。[CPU接受回执](../reports/cara_fast_B36_CPU_acceptance_r1_20261029.json)
 
+[746 B36宿主与终态收件CPU](746_CARA_B36_DUAL_HOST_EXECUTION_AND_TERMINAL_CPU_20261029.md)：双端新增7项宿主执行与8项终态收件控制通过，四个CPU容器退出0；32正式评分位置保持，6个原A已接受FIT配对直接引用，其余26对交原评分CLI。未运行模型或度量网络；单次派发入口及启动前失败费用恢复待完成，无B GPU预约或启动。 [组合CPU接受](../reports/cara_fast_B36_execution_post_CPU_acceptance_r1_20261029.json) · [剩余派发边界](../plans/cara_next_stage_20261028/mainline/r2/B36_EXECUTION_READINESS_R1.md)
+
 [最新计划与对话分工](../plans/cara_next_stage_20261028/08_REPOSITORY_RECONCILIATION.md)；A32 GPU阶段已接受，其余按各卡条件推进，评分/科学解释分开验收。
 
 | 顺序 / 负责人 | 当前阶段 | 下一项验收 / 动作 |
 |---|---|---|
 | P0 · 主线 | A32完整三臂GPU门及技术验收通过 | 保留32完整原件、原控制与双时钟；GPU已释放、费用已唯一结算 |
-| F19 · 主线 | A32全链接受并冻结；B36双端CPU及真实原件承接通过 | WC_T006/RA_T1为UNMATCHED，Native22为MATCHED；B36独立授权与实际宿主/同卡资源准入后再执行 |
+| F19 · 主线 | A32全链冻结；B36路由、宿主执行及终态收件CPU通过 | 完成单次派发与启动前失败费用恢复；再独立批准5.0215/硬5.5GPUh并对原A6000同UUID fresh准入，保持WC/RA的UNMATCHED |
 | S-FAST19 · S/Q探索 | 生产profile的170共同结构候选；尚无全支持mask | 完整风险缺口保持；BR/DIAG/CFG共同语法，见S/Q R3状态；不外推12保存状态 |
 | Q0-Q1 · S/Q探索 | 双端CPU控制与源码绑定完成；原C CPU未过历史GPU逐值门 | 同硬件CUDA数值控制仅提案；当前codec评分0，固定Shared25-C及旧资产不重采 |
 | A-SQ-FAST · S/Q探索 | 仅明确缺口后准备采集卡 | 绑定新父策略的108标签/56额外Dense pair与存储；解决F19 raw和Q25布局兼容问题，共同费用只计一次 |

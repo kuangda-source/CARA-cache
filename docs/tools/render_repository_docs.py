@@ -942,6 +942,17 @@ def build():
             + '：每端两种flow各完整36条，合计72条成功tiny路径，失败清理与禁止重试通过；'
             + 'CPU使用合成冻结包，实际基线采用A32完整验收后的原一次冻结文件。'
             + link(b36_cpu['accepted_receipt_ref'], 'CPU接受回执'))
+    b36_execution = status.get('fast_B36_execution_preparation_20261029')
+    if b36_execution:
+        proof = load(b36_execution['accepted_receipt_ref'])
+        if (not proof['passed'] or proof['new_GPU_submissions'] != 0
+                or proof['real_ledger_written'] or proof['new_metric_computations'] != 26
+                or proof['reused_accepted_A_metric_pairs'] != 6 or proof['registered_scoring_positions'] != 32):
+            raise ValueError('B36 execution/post CPU scope differs')
+        values['next_stage_notice'] += ('\n\n' + link(b36_execution['research_ref'], '746 B36宿主与终态收件CPU')
+            + '：' + b36_execution['summary'] + ' '
+            + link(b36_execution['accepted_receipt_ref'], '组合CPU接受') + ' · '
+            + link(b36_execution['readiness_ref'], '剩余派发边界'))
     outputs = {}
     for template in sorted((ROOT / 'docs/templates').glob('*.md')):
         target = template.name.replace('__', '/')

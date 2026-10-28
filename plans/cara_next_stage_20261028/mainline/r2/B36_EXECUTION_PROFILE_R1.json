@@ -1,0 +1,173 @@
+{
+  "schema": "CARA_FAST_B36_EXECUTION_PROFILE_R1",
+  "state": "CPU_PREPARATION_NO_GPU_AUTHORITY",
+  "scope_sha256": "d0ad38bc0fd29615e82dae7f726938bac15aec2842e4484bb3577e0949694fb4",
+  "run_id": "cara-fast-f19-b36-r1-20261029",
+  "physical_paths": 36,
+  "phase": "B",
+  "parent_complete_proposal_paths": 68,
+  "parent_whole_quote_ref": "plans/cara_next_stage_20261028/mainline/r2/WHOLE_QUOTE.json",
+  "authorizes_phase_B": false,
+  "authorizes_replay": false,
+  "CPU_sampler_scorer_acceptance_ref": "reports/cara_fast_scoped_CPU_acceptance_r2_20261028.json",
+  "precision": {
+    "policy": "Keep original pinned loader and selected 2B experiment. Record actual model/parameter/backend dtypes before first physical path; reject changes across requests. Do not cast or tune backend flags.",
+    "model_precision": "torch.bfloat16",
+    "selected_net_use_wan_fp32_strategy": true,
+    "conditional_frame_timestep": 0.1,
+    "outer_autocast": false,
+    "actual_loaded_parameter_histogram": "MUST_EQUAL_COMPLETE_A32_PRECISION_RECEIPT",
+    "runtime_source_sha256": {
+      "cosmos_predict2/_src/predict2/utils/model_loader.py": "34764531d719fd71c3db97db39ff1305121ada5a4534656ede5d9695718a79b6",
+      "cosmos_predict2/_src/predict2/models/text2world_model.py": "2856cb1d030613e30fe4c4ad3d19c215729fd7bc424a30e7225b9c744aee13d7",
+      "cosmos_predict2/_src/predict2/configs/video2world/experiment/reason_embeddings/model_2B_reason_1p1_rectified_flow.py": "a8405ef1e46aedc7004026a51ce980a6a6509162738dfda34a10e83f3a19b32b",
+      "cosmos_predict2/_src/predict2/configs/video2world/experiment/specialized_model/SFT_2B_RF.py": "719fa25c90dcc4f51a9226fa1b5ac677c52cbb1c292c8eac1e3121ab3c3ce814"
+    }
+  },
+  "GPU_container": {
+    "image": "sha256:1e81ac62ee68ca1a6ef655515096a1d84579b01aa4986810c9b18d4f6c4c552d",
+    "cpus": 2,
+    "memory_GiB": 40,
+    "network": "none",
+    "readonly_rootfs": true,
+    "pid_namespace": "host",
+    "supervisor_CUDA_visible": false,
+    "only_exact_runner_CUDA_visible": true,
+    "memory_swap_GiB": 40
+  },
+  "hosts": {
+    "four_card": {
+      "capability": [
+        8,
+        9
+      ],
+      "cpuset_cpus": "24,25",
+      "readonly_host_profile_ref": "reports/cara_fast_four_card_host_profile_readonly_r2_20261028.json",
+      "image_path": "/home/user/cara_fast_storage/cara-fast-f19-b36-r1-20261029.img",
+      "output_image_GiB": 32,
+      "output_mount": "/data20t/gaokuangda/worldcache_workspace/outputs/cara-fast-f19-b36-r1-20261029",
+      "journal_path": "/data20t/gaokuangda/worldcache_workspace/reports/cara-fast-f19-b36-r1-20261029.control.journal",
+      "journal_MiB": 48,
+      "output_backing": "Verified non-rotational system disk; dedicated fully allocated per-run image",
+      "journal_backing": "Independent HDD filesystem; preallocated double-buffered original journal",
+      "provisioned": false,
+      "minimum_host_MemAvailable_GiB": 44,
+      "minimum_SSD_free_before_provision_GiB": 64,
+      "stage_B_forecast_GPUh": 4.791083199984766
+    },
+    "two_card": {
+      "capability": [
+        8,
+        6
+      ],
+      "cpuset_cpus": "24,25",
+      "readonly_host_profile_ref": "reports/cara_fast_two_card_host_profile_readonly_r2_20261028.json",
+      "image_path": "/home/gaokuangda/cara_fast_storage/cara-fast-f19-b36-r1-20261029.img",
+      "output_image_GiB": 32,
+      "output_mount": "/data20t/gaokuangda/worldcache_workspace/outputs/cara-fast-f19-b36-r1-20261029",
+      "journal_path": "/data20t/gaokuangda/worldcache_workspace/reports/cara-fast-f19-b36-r1-20261029.control.journal",
+      "journal_MiB": 48,
+      "output_backing": "Verified non-rotational system disk; dedicated fully allocated per-run image",
+      "journal_backing": "Independent HDD filesystem; preallocated double-buffered original journal",
+      "provisioned": false,
+      "minimum_host_MemAvailable_GiB": 44,
+      "minimum_SSD_free_before_provision_GiB": 64,
+      "stage_B_forecast_GPUh": 5.02150947314538
+    }
+  },
+  "admission": {
+    "preference": [
+      "four_card",
+      "two_card"
+    ],
+    "central_ledger_host": "four_card",
+    "two_card_ledger_is_non_authoritative": true,
+    "preserve_old_uncertainty_GPUh": 16.5,
+    "one_owned_GPU_job_per_host": true,
+    "card_unique_across_hosts": true,
+    "standing_cap_increment_GPUh": 24,
+    "cap_increment_requires_notification": true,
+    "current_central_cap_GPUh": 226,
+    "cap_increment_already_recorded": false,
+    "fresh_actual_GPU_mode": "Supported EXCLUSIVE_PROCESS or administrator isolation plus exact sole-runner context; flock alone insufficient",
+    "existing_handle_recovery_before_dispatch": true,
+    "fresh_bulk_asset_SHA_required": true,
+    "fresh_disk_memory_UUID_VRAM_apps_lock_ledger_required": true,
+    "mainline_planning_pool_GPUh": 11,
+    "protected_final_and_reserve_input_membership_unchanged": true,
+    "required_free_central_GPUh_before_B": {
+      "four_card": 5,
+      "two_card": 5.5
+    },
+    "same_physical_A32_GPU_required": true,
+    "actual_A32_host": "two_card",
+    "other_host_requires_new_scope": true,
+    "separate_direct_B36_authorization_required": true
+  },
+  "thermal": {
+    "stop_C": 90,
+    "sample_seconds": 30,
+    "retain_triggering_observation_before_stop": true,
+    "fields": [
+      "temperature.gpu",
+      "power.draw",
+      "clocks.sm",
+      "utilization.gpu",
+      "memory.used",
+      "fan.speed",
+      "clocks_event_reasons.active"
+    ]
+  },
+  "monitoring": {
+    "time_origin": "Actual B supervisor started_unix; bind new launch/PID-start ticks/container/UUID/source",
+    "halfway": "Actual start + unchanged host B forecast / 2",
+    "terminal": "Actual start + unchanged host B forecast, then recover exact original handle",
+    "operational_only_midway": true,
+    "schedule_after_real_launch_only": true,
+    "automations_created": 0
+  },
+  "GPU_authorized": false,
+  "GPU_dispatch_ready": false,
+  "GPU_submissions": 0,
+  "ledger_written": false,
+  "whole_hard_GPUh_by_host": {
+    "four_card": 5,
+    "two_card": 5.5
+  },
+  "A_launch_id": "5a5ab53ebb604433ab83cea06e1ab412",
+  "A_host": "two_card",
+  "A_gpu_uuid": "GPU-cebf7119-cf03-23b9-e192-cd196332b704",
+  "A_frozen_sha256": "56e1eb84fed0a459ae8fdeb6598680009226dced9529052cabc57cf11cef2be8",
+  "A32_handoff_files": {
+    "capture": {
+      "path": "reports/cara_fast_A6000_terminal_20261029_0050.json",
+      "sha256": "f33f9944e180bcb98d0e51952d7a3bda9247bdaab60a3c1e9bdca710a8749b8f"
+    },
+    "settlement": {
+      "path": "reports/cara_fast_A6000_central_settlement_20261029_0052.json",
+      "sha256": "6bad4f93699c272cac6070ca9a60636202fb095b491ce34e913cd06af3fb2a77"
+    },
+    "manifest": {
+      "path": "reports/cara_fast_A6000_score_manifest_20261029_0053.json",
+      "sha256": "7937a4895626d1555864bf30b78b3ee33f345e870ed53e84af93f3be2d33c767"
+    },
+    "score_capture": {
+      "path": "reports/cara_fast_A6000_CPU_scores_terminal_20261029_0107.json",
+      "sha256": "e6d3f0287c57f6b53b1a4536480a477136342ab2d6dc0c46d8473d1568483049"
+    },
+    "accepted_scores": {
+      "path": "reports/cara_fast_A6000_CPU_scores_accepted_20261029_0108.json",
+      "sha256": "1186402db55886d36da487bd953bee5a3cb085324da00eb6802eba565a833d74"
+    },
+    "frozen": {
+      "path": "plans/cara_next_stage_20261028/mainline/r2/A32_FROZEN_BASELINES.json",
+      "sha256": "56e1eb84fed0a459ae8fdeb6598680009226dced9529052cabc57cf11cef2be8"
+    }
+  },
+  "baseline_time_match": {
+    "WC_T006": "UNMATCHED",
+    "RA_T1": "UNMATCHED",
+    "NATIVE22": "MATCHED"
+  },
+  "scope_note": "Complete original B36, 6 warm + 24 formal + 6 repeat; 32 logical positions include eight original A sources. No extra calibration or threshold search."
+}

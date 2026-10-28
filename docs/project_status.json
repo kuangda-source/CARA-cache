@@ -1816,7 +1816,7 @@
     "independent_new_inputs": false,
     "complete_QA_ref": "reports/cara_fast_A6000_complete_frozen_QA_20261029_0115.json"
   },
-  "current_evidence_observed_at": "2026-10-29T01:16:33.810471+08:00",
+  "current_evidence_observed_at": "2026-10-29T01:47:19.858052+08:00",
   "fast_B36_CPU_preparation_20261029": {
     "status": "ACCEPTED_DUAL_HOST_COMPLETE_B36_CPU_CONTINUATION_ONLY",
     "accepted_receipt_ref": "reports/cara_fast_B36_CPU_acceptance_r1_20261029.json",
@@ -1828,5 +1828,24 @@
     "actual_A32_outputs_read": false,
     "GPU_submissions": 0,
     "GPU_dispatch_ready": false
+  },
+  "fast_B36_execution_preparation_20261029": {
+    "status": "ACCEPTED_B36_DUAL_HOST_EXECUTION_AND_POST_CPU_ONLY",
+    "accepted_receipt_ref": "reports/cara_fast_B36_execution_post_CPU_acceptance_r1_20261029.json",
+    "research_ref": "research/746_CARA_B36_DUAL_HOST_EXECUTION_AND_TERMINAL_CPU_20261029.md",
+    "readiness_ref": "plans/cara_next_stage_20261028/mainline/r2/B36_EXECUTION_READINESS_R1.md",
+    "outer_accepted_receipt_ref": "reports/cara_fast_B36_outer_CPU_acceptance_r1_20261029.json",
+    "summary": "双端新增7项宿主执行与8项终态收件控制通过，四个CPU容器退出0；32正式评分位置保持，6个原A已接受FIT配对直接引用，其余26对交原评分CLI。未运行模型或度量网络；单次派发入口及启动前失败费用恢复待完成，无B GPU预约或启动。",
+    "observed_unix": 1793209639.858763,
+    "outer_tests_per_host": 7,
+    "post_tests_per_host": 8,
+    "registered_scoring_positions": 32,
+    "new_metric_computations": 26,
+    "reused_accepted_A_metric_pairs": 6,
+    "actual_models_or_metrics_executed": false,
+    "new_GPU_submissions": 0,
+    "new_reserved_GPUh": 0,
+    "GPU_dispatch_ready": false,
+    "separate_B36_approval_required": true
   }
 }
