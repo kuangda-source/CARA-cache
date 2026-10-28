@@ -20,17 +20,19 @@ def meta_architecture(runtime,identity):
     """Instantiate only cfg.model.config.net on meta; never build a pipeline."""
     import importlib
     import torch
-    from wcomr.runtime_config import install_core_inference_registration
+    from wcomr.runtime_config import install_core_inference_registration,MODEL,EXPERIMENT
     from wcomr.h0_mode import mode_snapshot
-    from wcomr.sq_s_resources_r1 import inventory
-    from cosmos_predict2.config import SetupArguments
+    from wcomr.sq_s_resources_r1 import inventory,registered_experiment
+    from cosmos_predict2.config import MODEL_KEYS,MODEL_CHECKPOINTS
     from cosmos_predict2._src.imaginaire.utils.config_helper import get_config_module,override
     from cosmos_predict2._src.imaginaire.lazy_config import instantiate
-    setup=SetupArguments(**identity['model_setup'])
-    install_core_inference_registration(setup.model,setup.experiment)
+    model_name=identity['model_setup']['model']
+    experiment=registered_experiment(model_name,MODEL_KEYS,MODEL_CHECKPOINTS,
+        expected_model=MODEL,expected_experiment=EXPERIMENT)
+    install_core_inference_registration(model_name,experiment)
     module=get_config_module('cosmos_predict2/_src/predict2/configs/video2world/config.py')
     config=importlib.import_module(module).make_config()
-    config=override(config,['--','experiment='+setup.experiment,'~data_train'])
+    config=override(config,['--','experiment='+experiment,'~data_train'])
     with torch.device('meta'):
         net=instantiate(config.model.config.net).to(dtype=torch.bfloat16)
     parameters=list(net.named_parameters());buffers=list(net.named_buffers())
@@ -41,7 +43,7 @@ def meta_architecture(runtime,identity):
     mode=mode_snapshot(net);expected=json.loads((ROOT/identity['shared_eval_mode_ref']).read_text())
     if mode['module_types']!=expected['module_types']:raise ValueError('Actual full2B module topology differs')
     result=dict(status='FULL2B_NET_META_ARCHITECTURE_ONLY_NO_WEIGHTS_OR_FORWARD',
-        resolved_experiment=setup.experiment,blocks=len(net.blocks),parameter_tensors=len(parameters),
+        resolved_experiment=experiment,checkpoint_paths_resolved=False,blocks=len(net.blocks),parameter_tensors=len(parameters),
         parameter_dtypes=dict(Counter(str(v.dtype) for _,v in parameters)),
         parameters=inventory(dict(parameters)),buffers=inventory(dict(buffers)),
         buffer_schema=[dict(name=n,shape=list(v.shape),dtype=str(v.dtype),bytes=v.numel()*v.element_size()) for n,v in buffers],
@@ -64,6 +66,8 @@ def main():
     import torch
     def forbidden(*a,**kw):raise RuntimeError('S resource CPU forbids CUDA, weight loading and downloads')
     torch.cuda._lazy_init=forbidden;torch.load=forbidden;torch.hub.download_url_to_file=forbidden
+    import huggingface_hub
+    huggingface_hub.hf_hub_download=forbidden;huggingface_hub.snapshot_download=forbidden
     torch.set_num_threads(2);os.nice(10)
     runtime=ROOT/'cache/runtime'
     sys.path[:0]=[str(runtime),str(runtime/'packages/cosmos-oss'),str(runtime/'packages/cosmos-cuda')]
@@ -82,10 +86,12 @@ def main():
         import cosmos_predict2._src.predict2.models.video2world_model_rectified_flow
     finally:
         transformer_utils.is_flash_attn_2_available,import_utils.is_flash_attn_2_available,torch.cuda.current_device=saved
+    from cosmos_predict2._src.imaginaire.utils import checkpoint_db
+    checkpoint_db.hf_hub_download=forbidden;checkpoint_db.snapshot_download=forbidden
     scope=json.loads((ROOT/args.scope).read_text());identity=json.loads((ROOT/scope['identity_ref']).read_text())
     log=io.StringIO()
     tests=unittest.TextTestRunner(stream=log,verbosity=2).run(unittest.defaultTestLoader.loadTestsFromName('test_sq_s_resources_r1'))
-    if not tests.wasSuccessful() or tests.testsRun!=6 or tests.skipped:raise ValueError(log.getvalue())
+    if not tests.wasSuccessful() or tests.testsRun!=scope['unit_controls'] or tests.skipped:raise ValueError(log.getvalue())
     model=meta_architecture(runtime,identity)
     from check_sq_s_resources_cpu_r1 import run
     fixture=run(runtime,ROOT/'S-resource-CPU-artifacts');rows=fixture['checks']
@@ -101,10 +107,11 @@ def main():
     if len(boundaries)!=108 or torch.cuda.is_initialized():raise ValueError('Exact CPU inventory denominator/GPU boundary differs')
     children=resource.getrusage(resource.RUSAGE_CHILDREN)
     result=dict(status='SQ_S_COMPLETE_OWNERSHIP_AND_META_ARCHITECTURE_CPU_PASS_NOT_GPU_CARD',
-        scope=scope,profile=args.profile,unit_controls=dict(tests=6,skipped=0,log=log.getvalue()),
+        scope=scope,profile=args.profile,unit_controls=dict(tests=tests.testsRun,skipped=0,log=log.getvalue()),
         full2B_meta_architecture=model,complete_tiny_CPU_paths=4,before_pair_boundaries=boundaries,schemas=schemas,
         original_deployed_copy_guard_reconciled=True,native_production_source_modified=False,
         CPU_import_probes_restored_before_metadata_and_sampling=True,model_weight_loads_forbidden=True,
+        Hugging_Face_download_functions_blocked=True,
         actual_Cosmos_weights=False,real_generated_video=False,S_real_labels=0,CUDA_initialized=False,
         physical_GPU_or_RAM_peak_measured=False,complete_S_GPU_entry_accepted=False,whole_S_quote_frozen=False,
         CPU_wall_seconds=time.monotonic()-started,CPU_seconds=time.process_time()-cpu,

@@ -18,6 +18,14 @@ def require(value,message):
     if not value:raise ValueError(message)
 
 
+def registered_experiment(model,keys,checkpoints,*,expected_model,expected_experiment):
+    """Read the registry's experiment only; never resolve checkpoint.path."""
+    require(model==expected_model,'Frozen S model name differs')
+    experiment=checkpoints[keys[model]].experiment
+    require(experiment==expected_experiment,'Frozen S registered experiment differs')
+    return experiment
+
+
 def inventory(value):
     rows=[];objects={};storages={};arrays={}
     def walk(item,path):
@@ -45,7 +53,7 @@ def inventory(value):
         elif isinstance(item,(tuple,list)):
             for index,child in enumerate(item):walk(child,path+'/'+str(index))
         elif isinstance(item,Enum):walk(item.value,path)
-        elif item is None or type(item) in (str,int,bool):pass
+        elif item is None or type(item) in (str,int,bool) or isinstance(item,(np.bool_,torch.dtype,torch.device)):pass
         elif isinstance(item,(float,np.number)):
             require(bool(np.isfinite(item)),'Nonfinite S metadata at '+path)
         else:raise TypeError('Unregistered S inventory value at '+path+': '+type(item).__name__)

@@ -5,10 +5,20 @@ import unittest
 import numpy as np
 import torch
 
-from wcomr.sq_s_resources_r1 import inventory,before_pair_inventory,check_limits
+from wcomr.sq_s_resources_r1 import inventory,before_pair_inventory,check_limits,registered_experiment
 
 
 class ResourceTests(unittest.TestCase):
+    def test_experiment_lookup_never_resolves_checkpoint_path(self):
+        class Checkpoint:
+            experiment='FROZEN_CPU_EXPERIMENT'
+            @property
+            def path(self):raise AssertionError('Checkpoint path/download must not be resolved')
+        kwargs=dict(expected_model='CPU_MODEL',expected_experiment='FROZEN_CPU_EXPERIMENT')
+        self.assertEqual(registered_experiment('CPU_MODEL',{'CPU_MODEL':'k'},{'k':Checkpoint()},**kwargs),
+            'FROZEN_CPU_EXPERIMENT')
+        with self.assertRaises(ValueError):registered_experiment('OTHER',{}, {},**kwargs)
+
     def test_references_objects_and_full_backing_storage_are_distinct(self):
         value=torch.zeros(16);view=value[2:5]
         report=inventory(dict(original=value,alias=value,view=view))
@@ -40,6 +50,7 @@ class ResourceTests(unittest.TestCase):
         self.assertIn('cache',report['solver_field_names'])
         self.assertEqual(report['numpy_backing_bytes'],32)
         self.assertEqual(report['logical_copy_guard_bytes'],8*report['logical_tensor_bytes'])
+        self.assertEqual(inventory((torch.device('cpu'),torch.float32,np.bool_(True)))['logical_tensor_bytes'],0)
         with self.assertRaises(TypeError):inventory(dict(unregistered=object()))
 
     def test_numpy_views_are_counted_once_separately_from_torch_logical_bytes(self):
