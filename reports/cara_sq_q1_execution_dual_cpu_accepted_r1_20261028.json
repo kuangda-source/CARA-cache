@@ -1,0 +1,128 @@
+{
+  "status": "SQ_Q1_EXECUTION_DUAL_CPU_CONTROLS_ACCEPTED_NOT_CUDA",
+  "passed": true,
+  "source_revision": "a8ce13e85dc502b4f463b72ef9d7452ad1e3b213",
+  "hosts": [
+    {
+      "host": "two_card",
+      "source_revision": "a8ce13e85dc502b4f463b72ef9d7452ad1e3b213",
+      "result_sha256": "b53b02155de5aec6d501010d876c59c6db42cdece300aa9d6c722849126e389a",
+      "tests": 34,
+      "skipped": 0,
+      "real_Linux_lifecycle_controls": 5,
+      "worker_wall_seconds": 35.60233109258115,
+      "CPU_seconds": 21.987627435999997,
+      "child_CPU_seconds": 0.727613,
+      "total_process_CPU_seconds": 22.71524268,
+      "peak_RSS_GiB": 0.5741920471191406,
+      "terminal_torch_threads": 1,
+      "execution_and_terminal_controls_CPU_accepted": true,
+      "actual_GPU_or_science_accepted": false
+    },
+    {
+      "host": "four_card",
+      "source_revision": "a8ce13e85dc502b4f463b72ef9d7452ad1e3b213",
+      "result_sha256": "07851251a2802a0a1f89bbb4ca8ea74a9d187f12fd53e52b18fb2cd4d7983242",
+      "tests": 34,
+      "skipped": 0,
+      "real_Linux_lifecycle_controls": 5,
+      "worker_wall_seconds": 37.79439267143607,
+      "CPU_seconds": 23.204622754,
+      "child_CPU_seconds": 0.806337,
+      "total_process_CPU_seconds": 24.010961819,
+      "peak_RSS_GiB": 0.5674247741699219,
+      "terminal_torch_threads": 1,
+      "execution_and_terminal_controls_CPU_accepted": true,
+      "actual_GPU_or_science_accepted": false
+    }
+  ],
+  "capture_refs": {
+    "two_card": "reports/cara_sq_q1_execution_two_card_cpu_capture_r1_20261028.json",
+    "four_card": "reports/cara_sq_q1_execution_four_card_cpu_terminal_r1_20261028.json"
+  },
+  "capture_sha256": {
+    "two_card": "19697b00e2b4d2ed2955d6d94cae307306659b18bb15c3065e55a2effed9661a",
+    "four_card": "b8b95d9a9accba8ff3081291d4dc3e660cdeaaa28a1292196bebfd7098993925"
+  },
+  "critical_source_sha256": {
+    "src/wcomr/sq_q1_spec_r1.py": "401f98cd18869192440eefd04580e728b01ea964c61960380c0472bdaf5948f9",
+    "src/wcomr/sq_q1_execution_r1.py": "64beb7e67071e330918314fdc164aa003c659fbd023ea430e09cafe1b5c57ce4",
+    "src/wcomr/sq_q1_terminal_r1.py": "e1a569b483a699ed18ea87ddf75dd8640408ee81024839fdb8f22153b22cc813",
+    "src/wcomr/sq_q1_assets_r1.py": "808d27a15073d9b913c0d2e72d9a5aae610add7bb95cf268903f9059782cc2db",
+    "src/wcomr/sq_q1_collection_r1.py": "42828bfc12721bc0a885edcfad4eaf95d08655a4dc32e878aaddfea97d742bc9",
+    "src/wcomr/sq_q1_readout_r1.py": "bd6ee4fde49e8a4e1e7838d1c7564c42460ed938a92681332a21e3d42c1e9119",
+    "src/wcomr/sq_readout_subgraph_r1.py": "6748bae276273165a0a36c3bfff05ef9d6747c690f7aac76c4dcc3f76d4f8474",
+    "src/wcomr/sq_codec_r1.py": "e3deada2c71c8c3b38336d1ac8ef12db0be5513f43c3b20cc34824b852bcaf8d",
+    "src/wcomr/gpu_budget_pool_v2.py": "4203547121c30119ce637d6cd0d6d8d02810e6bf388fe9a6a7b9cd9b1b658754",
+    "src/wcomr/wc73_execution_r1.py": "015651352b0ce6f1e3acfbfd34a199521cad3eb337c676552b0449ee95318a4b",
+    "src/wcomr/wc73_exclusive_r1.py": "db8198388ee8d6f3241870003cf0da1b44b01d1469717153116ddf3341771a35",
+    "src/wcomr/history104_storage_r2.py": "90636ca74f1ae88db5ed1b8478f6aef8f83fd57db827db04da2e4d58a48c1361",
+    "src/wcomr/policy_price_mode_guard_r1.py": "d0fbff561d7e3bb79f87e9a2a64549ca0cdf421a4b2483eae7c8bab60763d878",
+    "scripts/run_cara_sq_q1_r1.py": "42d0789ac6a96729c895fc5906264bf4b7a1ba4bf6e0209869660f29658ed449",
+    "scripts/cara_sq_q1_worker_r1.py": "852bf986b757d99c7460e027c0bc9b012efea91ed0746a6a2a1ba35588c068c3",
+    "scripts/cara_sq_q1_guardian_r1.py": "6dcb9c3319e6daf92fc53aedbd9acb49da9b3ba0e327473d50589311bc06b4f8",
+    "scripts/cara_fast_worker_r2.py": "32a9ecf6d1cc6be3ead9627ec46c0fdf7a55868769200e805b9bd7e035078ab2",
+    "scripts/cara_fast_host_guardian_r2.py": "7658ba88d9d80c0efcdcc6041abd7756cea435f8ff84bc7ac603d53206cd92bb",
+    "scripts/four_card_policy_assets_port_r1.py": "27bd44549dfb19efc6ba91ff6bb3a3a95e4293eb02645ba748b391beebc76c0e",
+    "scripts/four_card_bank24_execution_tools_r1.py": "3e58bb9a2345fe938d7ce70e90a01300dd8e6d05d005ca91c5aa253c24d3cde4"
+  },
+  "GPU_entry_and_terminal_control_CPU_accepted": true,
+  "financial_lifecycle_CPU_controls_accepted": true,
+  "actual_GPU_runner_execution_accepted": false,
+  "original_C_CUDA_parity_accepted": false,
+  "actual_central_settlement_performed": false,
+  "GPU_ready": false,
+  "GPU_submissions": 0,
+  "new_GPUh": 0,
+  "ledger_writes": 0,
+  "falsification_controls": [
+    {
+      "case": "running",
+      "rejected": true,
+      "reason": "Original CPU container is not cleanly terminal"
+    },
+    {
+      "case": "GPU_evidence",
+      "rejected": true,
+      "reason": "CPU controls overstated as actual evidence: fixture_is_GPU_evidence"
+    },
+    {
+      "case": "missing_scenario",
+      "rejected": true,
+      "reason": "A required original-process lifecycle scenario is absent"
+    },
+    {
+      "case": "source",
+      "rejected": true,
+      "reason": "Original CPU source/runtime differs"
+    },
+    {
+      "case": "skipped",
+      "rejected": true,
+      "reason": "Complete Linux control cohort required"
+    },
+    {
+      "case": "CUDA_parity",
+      "rejected": true,
+      "reason": "CPU controls overstated as actual evidence: original_C_CUDA_parity_accepted"
+    },
+    {
+      "case": "cost_mutation",
+      "rejected": true,
+      "reason": "CPU proof changed GPU or budget state"
+    }
+  ],
+  "container_wall_seconds": {
+    "two_card": 41.09858,
+    "four_card": 48.053175
+  },
+  "total_process_CPUh": 0.012979501249722221,
+  "allocated_vCPUh_upper": 0.04952875277777778,
+  "cost_boundary": "Counted worker parent/child CPU and allocated container upper bound; SSH/staging/Git/local editing not fully measured",
+  "next_required": [
+    "Frozen GPU staging/recovery/capture and post-release CLI binding",
+    "Fresh original B1/checkpoint/host resources and single central admission",
+    "Direct authorization for this Q1-only whole card",
+    "Actual CUDA original C and Dense-hidden equality before any codec scoring"
+  ]
+}

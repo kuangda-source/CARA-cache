@@ -1,6 +1,6 @@
 # Q1 完整流程、整卡报价与 S 来源接口
 
-2026-10-28。**Q1 流程/后端配置的双端 CPU 夹具已接受；真实 CUDA 原 C 数值门、GPU 启动/财务生命周期和整卡执行尚未接受，GPU_ready=false。** [双端回执](../../../reports/cara_sq_q1_whole_dual_cpu_accepted_r1_20261028.json)。此前 [R3 单状态 CPU 数值诊断](Q1_PREPARATION_STATUS_R3.md) 的失败仍保持，本轮没有重复真实 B1 加权重放。
+2026-10-28。**Q1 流程/后端配置的双端 CPU 夹具已接受；真实 CUDA 原 C 数值门和整卡执行尚未接受，GPU_ready=false。** [原流程回执](../../../reports/cara_sq_q1_whole_dual_cpu_accepted_r1_20261028.json)保留；后续[执行/财务生命周期的双端 CPU 控制](Q1_EXECUTION_PREPARATION_R1.md)已各34项通过，仅为夹具与临时账本接受，实际 GPU 启动/结算未发生。此前 [R3 单状态 CPU 数值诊断](Q1_PREPARATION_STATUS_R3.md) 的失败仍保持，本轮没有重复真实 B1 加权重放。
 
 ## 完整分母
 
