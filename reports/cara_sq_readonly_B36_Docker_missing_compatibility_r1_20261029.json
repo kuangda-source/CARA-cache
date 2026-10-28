@@ -1,0 +1,23 @@
+{
+  "status": "SQ_READONLY_B36_NATIVE_MISSING_FORMAT_COMPATIBILITY_OBSERVATION",
+  "scope": "CPU_SYNTHETIC_RESPONSE_REPRODUCER_ONLY_NOT_A_B36_PRODUCTION_FAILURE",
+  "actual_native_response_ref": "reports/cara_sq_q1_Docker_missing_response_native_readonly_r1_20261029.json",
+  "source_ref": "scripts/cara_fast_b36_host_guardian_r1.py",
+  "source_sha256": "b08732d34892bb4f163c69a52fbbbd13ad4982544fb8ef39c2ff17be6d4f6b11",
+  "synthetic_response": {
+    "returncode": 1,
+    "stdout": "[]\n",
+    "stderr": "Error response from daemon: No such container: cara-fast-f19-b36-a6000-r1-20261029-gpu\n"
+  },
+  "observed": {
+    "error_type": "RuntimeError",
+    "error": "Original container observation unknown; retain original envelope"
+  },
+  "interpretation": "The reviewed B36 helper treats the same observed native missing-response format as UNKNOWN; mainline must independently reconcile its own source/proof before relying on missing-container recovery.",
+  "mainline_files_changed": false,
+  "mainline_messages_sent": false,
+  "real_Docker_commands_executed": false,
+  "GPU_submissions": 0,
+  "ledger_writes": 0,
+  "observed_unix": 1793223123.5817978
+}

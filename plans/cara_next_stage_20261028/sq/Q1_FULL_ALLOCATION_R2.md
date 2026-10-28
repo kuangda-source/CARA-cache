@@ -17,3 +17,5 @@ guardian 在模式准入前持有唯一 monotonic 起点，在绑定的原容器
 R4 接续审查另发现：父控制器若把凭据管道错误追加到返回的 launch，会改变原子 guardian 回执的字节，导致随后按 SHA 恢复失败。修正后错误只写独立 diagnostic，返回的原 launch 字节保持；新增一次实际 Linux 早退子进程和显式 BrokenPipe 控制。[R5 CPU 范围](Q1_ALLOCATION_CPU_R5.json)为 51+15 共 66 项，其余分母/资源不变；只在同端原 R4 确定退出后使用新的 R5 stage，不改运行中的 R4。R4 原成本/收件全部保留，最终执行准备绑定修正后的 R5 源与完整双端 proof。
 
 双端实际只读 Docker 检查均返回 `Error response from daemon: No such container: <绑定原名>`，旧两个模拟错误文本没有覆盖该原生命令格式，保守地将不存在判为 UNKNOWN。R6 只增加这一完整、绑定名称的精确缺失响应；其他 daemon、权限、外来名字和不明错误仍保留 UNKNOWN。原生 probe 新增实际 inspect，只确认原容器不存在，不创建/停止容器、不改模式、不用 GPU。[R6 CPU 范围](Q1_ALLOCATION_CPU_R6.json)仍为 66 项和 14 个枚举 allocation 子进程，最终整卡准备须绑定 R6 双端接受；此前全部 stage 和成本保留。
+
+只读承接提示：[B36 兼容性观察](../../../reports/cara_sq_readonly_B36_Docker_missing_compatibility_r1_20261029.json)以本轮实机观测格式构造 CPU 响应，当前主线 `inspect_original` 同样将其判为 UNKNOWN。这是源绑定的模拟响应复现，不是实际 B36 运行失败；主线须在自身源码/CPU proof 中独立核对该恢复分支。本轮没有修改主线文件或向其他聊天发消息。
