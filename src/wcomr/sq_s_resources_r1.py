@@ -43,6 +43,24 @@ def explicit_meta_constructor(cls):
     finally:cls.__init__=original;state['restored']=True
 
 
+@contextmanager
+def explicit_meta_device_resolver(namespace):
+    """Pass meta explicitly to the original TE resolver, including reset paths."""
+    original=namespace.canonicalize_device
+    state=dict(default_calls=0,explicit_calls=0,restored=False)
+    def resolve(device):
+        require(torch.get_default_device().type=='meta','TE metadata resolver needs an explicit meta context')
+        if device is None:
+            state['default_calls']+=1;device=torch.device('meta')
+        else:
+            require(torch.device(device).type=='meta','Metadata resolver cannot select a real device')
+            state['explicit_calls']+=1
+        return original(device)
+    namespace.canonicalize_device=resolve
+    try:yield state
+    finally:namespace.canonicalize_device=original;state['restored']=True
+
+
 def inventory(value):
     rows=[];objects={};storages={};arrays={}
     def walk(item,path):

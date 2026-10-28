@@ -23,7 +23,8 @@ def meta_architecture(runtime,identity):
     import torch
     from wcomr.runtime_config import install_core_inference_registration,MODEL,EXPERIMENT
     from wcomr.h0_mode import mode_snapshot
-    from wcomr.sq_s_resources_r1 import inventory,registered_experiment,explicit_meta_constructor
+    from wcomr.sq_s_resources_r1 import (inventory,registered_experiment,explicit_meta_constructor,
+        explicit_meta_device_resolver)
     from cosmos_predict2.config import MODEL_KEYS,MODEL_CHECKPOINTS
     from cosmos_predict2._src.imaginaire.utils.config_helper import get_config_module,override
     from cosmos_predict2._src.imaginaire.lazy_config import instantiate
@@ -35,15 +36,19 @@ def meta_architecture(runtime,identity):
     config=importlib.import_module(module).make_config()
     config=override(config,['--','experiment='+experiment,'~data_train'])
     import transformer_engine as te
+    rmsnorm_ops=importlib.import_module('transformer_engine.pytorch.ops.basic.rmsnorm')
     original=te.pytorch.RMSNorm.__init__
+    original_resolver=rmsnorm_ops.canonicalize_device
     constructor_path=Path(inspect.getsourcefile(original))
     expected=json.loads((ROOT/identity['shared_eval_mode_ref']).read_text())
     norm_class=te.pytorch.RMSNorm.__module__+'.'+te.pytorch.RMSNorm.__qualname__
     with explicit_meta_constructor(te.pytorch.RMSNorm) as constructor:
-        with torch.device('meta'):
+        with torch.device('meta'),explicit_meta_device_resolver(rmsnorm_ops) as resolver:
             net=instantiate(config.model.config.net).to(dtype=torch.bfloat16)
     if te.pytorch.RMSNorm.__init__ is not original or constructor['calls']!=expected['module_types'][norm_class]:
         raise ValueError('Exact original RMSNorm topology or constructor restoration differs')
+    if rmsnorm_ops.canonicalize_device is not original_resolver or resolver['default_calls']<1:
+        raise ValueError('Original TE reset-device resolver was not exercised/restored')
     parameters=list(net.named_parameters());buffers=list(net.named_buffers())
     if len(net.blocks)!=28 or len(parameters)!=569 or any(v.device.type!='meta' for _,v in parameters+buffers):
         raise ValueError('Full2B metadata architecture differs from original A32 binding')
@@ -60,6 +65,9 @@ def meta_architecture(runtime,identity):
         constructor_adapter=dict(constructor,class_path=te.pytorch.RMSNorm.__module__+'.'+te.pytorch.RMSNorm.__qualname__,
             original_source_sha256=hashlib.sha256(constructor_path.read_bytes()).hexdigest(),
             original_class_and_body_preserved=True,restored_before_tiny_sampling=True),
+        reset_device_adapter=dict(resolver,original_resolver_body_preserved=True,restored_before_tiny_sampling=True,
+            original_resolver_source_sha256=hashlib.sha256(Path(inspect.getsourcefile(original_resolver)).read_bytes()).hexdigest(),
+            original_operation_source_sha256=hashlib.sha256(Path(rmsnorm_ops.__file__).read_bytes()).hexdigest()),
         use_wan_fp32_strategy=net.use_wan_fp32_strategy,weights_loaded=False,
         network_forward_executed=False,full_model_GPU_memory_peak_measured=False)
     del net,parameters,buffers

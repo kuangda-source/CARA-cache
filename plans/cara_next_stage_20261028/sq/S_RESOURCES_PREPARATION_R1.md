@@ -19,3 +19,9 @@
 A6000 R2 原容器已退出1：实际 TE RMSNorm 的 `canonicalize_device(None)` 直接取 CUDA，不服从外围 `torch.device('meta')`；CUDA拒绝守卫在初始化前抛错。原 TE 源支持显式 `device=meta` 并推迟参数初始化，故 R3 只在 meta 网络构造期间向同一个原 RMSNorm 构造器传该参数，保留原 class/body，不以 torch 层替代 TE。构造次数直接对照原H0的113个同类模块（含顶层时间嵌入 norm），完整拓扑仍须一致；完成后恢复原构造器，再开始 tiny 采样。
 
 [R3 范围](S_RESOURCES_CPU_R3.json)增加构造器恢复与禁止真实设备控制，共八项；原CPU资源和四路径/108边界不变。R1双端、R2两卡端的原失败、句柄与成本保留；Ada没有启动R2，不为重复一个已定位的构造拒绝而补派。最终资源证据仅接受原容器/CLI已完整退出的 R3 源，当前仍无 S GPU 权限。
+
+## R3 参数重置拒绝与 R4
+
+R3 到达原网络 `init_weights`，TE 的原 `reset_parameters` 对 meta weight 仍调用 `canonicalize_device(None)`，再次被 CUDA 拒绝守卫阻断。R4 在明确 meta context 内，将同一个原 resolver 的 None 参数显式改为 meta 后执行原函数；constructor、reset、resolver 的原函数体与模块 class 均保留，两个适配在 tiny 采样前恢复。记录原 TE constructor/operation/resolver 源 SHA，原完整H0拓扑与569个BF16参数要求保持。
+
+[R4 范围](S_RESOURCES_CPU_R4.json)增加 resolver 的上下文/真实设备拒绝/原函数恢复控制，共九项。所有旧失败与原费用保留，每端只在自己的 R3 确定退出后启动新 R4；GPU、权重值和真实模型前向继续禁止。

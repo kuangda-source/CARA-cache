@@ -5,10 +5,26 @@ import unittest
 import numpy as np
 import torch
 
-from wcomr.sq_s_resources_r1 import inventory,before_pair_inventory,check_limits,registered_experiment,explicit_meta_constructor
+from wcomr.sq_s_resources_r1 import (inventory,before_pair_inventory,check_limits,registered_experiment,
+    explicit_meta_constructor,explicit_meta_device_resolver)
 
 
 class ResourceTests(unittest.TestCase):
+    def test_meta_reset_uses_original_resolver_with_explicit_device_and_restores_it(self):
+        calls=[]
+        def original(device):
+            if device is None:raise AssertionError('Original None default would select CUDA')
+            calls.append(device);return torch.device(device)
+        namespace=SimpleNamespace(canonicalize_device=original)
+        with torch.device('meta'),explicit_meta_device_resolver(namespace) as state:
+            self.assertEqual(namespace.canonicalize_device(None).type,'meta')
+            self.assertEqual(namespace.canonicalize_device('meta').type,'meta')
+            with self.assertRaises(ValueError):namespace.canonicalize_device('cpu')
+        self.assertIs(namespace.canonicalize_device,original)
+        self.assertTrue(state['restored']);self.assertEqual(len(calls),2)
+        with explicit_meta_device_resolver(namespace):
+            with self.assertRaises(ValueError):namespace.canonicalize_device(None)
+
     def test_explicit_meta_device_preserves_original_class_and_restores_constructor(self):
         class DeviceRequired(torch.nn.Module):
             def __init__(self,n,*,device=None):
