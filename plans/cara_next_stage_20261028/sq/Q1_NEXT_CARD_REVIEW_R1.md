@@ -1,5 +1,7 @@
 # 下一张 Q1-saved 卡：完整审阅包
 
+> **2026-10-29 更新：旧 f3 启动准备已撤回，暂不能据本历史审阅包启动。** [CPU 反例](../../../reports/cara_sq_q1_allocation_billing_counterexample_r1_20261029.json)证实原计费边界漏掉主机独占准入、容器启动/退出及模式恢复；[撤回记录](../../../reports/cara_sq_q1_allocation_readiness_withdrawal_r1_20261029.json)绑定旧源，当前控制器已拒绝该源。111 pair、原数值门与 1.25/2 GPUh 硬限不变。正在补全主机整段计费、失败收件及相应 CPU 接受；原 GPU 阶段仍未启动，旧源包与全部旧回执保留。下文是旧准备快照。
+
 2026-10-29。本卡单独验证固定 Shared25-C 的同字节缓存表示，使用两个已曝光 FIT 输入的旧 B1 状态。双端 CPU、实际资产、源包和资源准备已齐，[完整机器审阅回执](../../../reports/cara_sq_q1_complete_review_r1_20261029.json)绑定原件与所有 SHA，可以申请一次新 Q1 GPU 授权。尚未提交或预约 GPU。主线 B36 与 S 新父轨迹采集分别处理。
 
 ## 做什么、按什么停止

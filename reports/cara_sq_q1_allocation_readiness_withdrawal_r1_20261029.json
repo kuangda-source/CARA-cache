@@ -1,0 +1,27 @@
+{
+  "status": "Q1_OLD_F3_GPU_READINESS_WITHDRAWN_PENDING_FULL_HOST_ALLOCATION_FIX",
+  "withdrawn_source_revision": "f3be7662175889c77e3719521fecb9c4d3be83af",
+  "reason": "Inner supervisor wall bill omits host allocation admission/startup/exit/restoration; old parser accepted a synthetic undercount",
+  "counterexample_ref": "reports/cara_sq_q1_allocation_billing_counterexample_r1_20261029.json",
+  "counterexample_sha256": "e6d1574e853375948862b38b7fb5448d42e245a75163b379e180e6d854ef29f3",
+  "local_controller_rejects_old_f3": true,
+  "remote_old_stages_preserved": true,
+  "old_complete_review_is_historical_only": true,
+  "Q1_scientific_scope_111_pairs_unchanged": true,
+  "original_numerical_gates_unchanged": true,
+  "allowed_hard_limits_GPUh": {
+    "two_card": 1.25,
+    "four_card": 2.0
+  },
+  "new_host_allocation_component": "src/wcomr/sq_gpu_allocation_r1.py",
+  "component_CPU_validation": "PENDING_DUAL_HOST",
+  "pending": [
+    "Complete dual Linux component acceptance",
+    "Integrate corrected Q1 guardian/supervisor/financial capture/settlement and affected CPU controls",
+    "Prepare immutable corrected stages; update complete review before any GPU authorization is consumed"
+  ],
+  "direct_human_approval_received": false,
+  "Q1_GPU_launches": 0,
+  "S_GPU_launches": 0,
+  "ledger_writes": 0
+}

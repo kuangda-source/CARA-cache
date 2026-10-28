@@ -84,6 +84,10 @@ def selected_authority(approval,probe):
 
 
 def bound_controller(revision):
+    # This unused prepared source predates the host allocation clock. It must
+    # not launch while the source-bound correction and CPU proof are prepared.
+    require(revision!='f3be7662175889c77e3719521fecb9c4d3be83af',
+        'Original Q1 readiness withdrawn: host admission/container/release billing is incomplete; use the corrected complete CPU-accepted source')
     # Remote workers use the complete immutable stage registration. A later
     # unrelated shared-file edit must not rebind that frozen remote package.
     local_names=('scripts/cara_sq_q1_control_r1.py','src/wcomr/sq_q1_spec_r1.py',
