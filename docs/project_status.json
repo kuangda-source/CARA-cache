@@ -426,7 +426,7 @@
     "original_reservation_released": true,
     "recovery_preparation_acceptance_ref": "reports/cara_history104_recovery_prelaunch_acceptance_20261024.json"
   },
-  "current_active_experiment_id": "PG-SHARED-CAL66",
+  "current_active_experiment_id": "CARA-FAST-CAL-A32-R2",
   "cost112_GPU": {
     "status": "COST112_COMPLETE_ACCEPTED_TIMING_GATE_FAILED",
     "launch_ref": "reports/cara_cost112_GPU_actual_launch_r1_20261025.json",
@@ -1327,26 +1327,27 @@
     "forward_update_ref": "plans/cara_next_stage_20261028/08_REPOSITORY_RECONCILIATION.md"
   },
   "next_stage_plan_20261028": {
-    "status": "PLAN_ADOPTED_PREPARATION_PENDING_NO_NEW_GPU",
+    "status": "A32_SINGLE_GPU_AUTHORIZED_AND_RUNNING_OTHER_CARDS_CONDITIONAL",
     "source_package_ref": "plans/cara_next_stage_20261028/README.md",
     "reconciliation_ref": "plans/cara_next_stage_20261028/08_REPOSITORY_RECONCILIATION.md",
     "workstreams_ref": "plans/cara_next_stage_20261028/WORKSTREAMS.json",
     "registry_ref": "plans/cara_next_stage_20261028/experiment_registry.json",
     "receipt_ref": "reports/cara_next_stage_plan_intake_20261028.json",
     "research_ref": "research/739_CARA_NEXT_STAGE_FAST_SQ_PLAN_AND_CHAT_HANDOFF_20261028.md",
-    "new_GPU_submissions": 0,
-    "new_budget_reserved_GPUh": 0,
-    "mainline": "R2 audit/clean routing, synthetic93 scoring CLI and Linux lifecycle CPU controls accepted on both hosts;68-path proposal,A32 minimum5GPUh, new card authorization and fresh admission pending;cap226 unchanged",
+    "new_GPU_submissions": 1,
+    "new_budget_reserved_GPUh": 5,
+    "mainline": "A32于10月28日22:17:40在两卡GPU1 A6000独占启动；32条、硬5GPUh，原runner上下文已确认。中央226上限保持，唯一预约5GPUh、旧16.5未知责任保留。10月29日00:47半程、03:15终验；完整GPU数值门、保真与速度结论仍待验收，B36后置。",
     "S": "Production-profile common grammar170 structures; full-risk coverage absent, no frozen S mask",
     "Q": "Source-bound original-C CPU control did not meet exact historicalGPU output gate;codec scores0; same-hardware CUDA numerical control proposed only",
     "future_evaluation": "Fidelity-v2 proposal; bind in a new card before output access, old gates preserved",
     "saved_budget_ref": "reports/cara_wc73_terminal_failure_verified_20261028.json",
     "saved_budget_is_not_live": true,
-    "new_GPU_authorization": false,
+    "new_GPU_authorization": true,
     "old_WC73_replay": false,
     "mainline_preparation_ref": "reports/cara_fast_preparation_summary_r2_20261028.json",
     "mainline_R1_history_ref": "reports/cara_fast_preparation_summary_r1_20261028.json",
-    "sq_latest_status_ref": "plans/cara_next_stage_20261028/sq/Q1_PREPARATION_STATUS_R3.md"
+    "sq_latest_status_ref": "plans/cara_next_stage_20261028/sq/Q1_PREPARATION_STATUS_R3.md",
+    "mainline_execution_ref": "reports/cara_fast_A6000_execution_summary_r1_20261028.json"
   },
   "fast_mainline_preparation_20261028": {
     "schema": "CARA_FAST_PREPARATION_SUMMARY_R2",
@@ -1719,5 +1720,57 @@
     "old_WC73_resumed": false,
     "old_IG_R4_reopened": false,
     "protected_final_input_membership_changed": false
-  }
+  },
+  "fast_A32_execution_20261028": {
+    "status": "A32_A6000_EXCLUSIVE_RUNNING",
+    "status_zh": "A32已在A6000独占启动，等待完整验收",
+    "summary": "A32于10月28日22:17:40在两卡GPU1 A6000独占启动；32条、硬5GPUh，原runner上下文已确认。中央226上限保持，唯一预约5GPUh、旧16.5未知责任保留。10月29日00:47半程、03:15终验；完整GPU数值门、保真与速度结论仍待验收，B36后置。",
+    "launch_ref": "reports/cara_fast_A6000_GPU_actual_launch_r1_20261028.json",
+    "context_ref": "reports/cara_fast_A6000_context_start_confirmed_r1_20261028.json",
+    "admission_ref": "reports/cara_fast_A6000_central_admission_r1_20261028.json",
+    "storage_ref": "reports/cara_fast_A6000_storage_r1_20261028.json",
+    "schedule_ref": "reports/cara_fast_A6000_acceptance_schedule_r1_20261028.json",
+    "CPU_acceptance_ref": "reports/cara_fast_resource_CPU_acceptance_r4_20261028.json",
+    "post_CPU_acceptance_ref": "reports/cara_fast_post_CPU_acceptance_r2_20261028.json",
+    "research_ref": "research/742_CARA_A32_A6000_ACTUAL_LAUNCH_AND_CHECK_SCHEDULE_20261028.md",
+    "handoff_ref": "plans/cara_next_stage_20261028/mainline/r2/A32_POST_LAUNCH_HANDOFF.md",
+    "evidence_refs": [
+      "reports/cara_fast_A6000_GPU_actual_launch_r1_20261028.json",
+      "reports/cara_fast_A6000_context_start_confirmed_r1_20261028.json",
+      "reports/cara_fast_A6000_central_admission_r1_20261028.json",
+      "reports/cara_fast_A6000_storage_r1_20261028.json",
+      "reports/cara_fast_A6000_acceptance_schedule_r1_20261028.json",
+      "reports/cara_fast_resource_CPU_acceptance_r4_20261028.json",
+      "reports/cara_fast_post_CPU_acceptance_r2_20261028.json",
+      "reports/cara_fast_A6000_startup_progress_r2_20261028.json"
+    ],
+    "observed_unix": 1793199501.62809,
+    "GPU_submissions": 1,
+    "new_reserved_GPUh": 5,
+    "actual_GPUh": "PENDING_ORIGINAL_TERMINAL_BILL",
+    "cap_GPUh": 226,
+    "preserved_old_unknown_GPUh": 16.5,
+    "budget_snapshot": {
+      "cap": 226,
+      "used": 175.8058597668662,
+      "reserved": 21.5,
+      "available": 28.694140233133794
+    },
+    "scientific_results_accepted": false,
+    "authorizes_phase_B": false,
+    "source_revision": "9eaa5eb30c5509810c99a55002b51d6b71da1ef6",
+    "operator_revision": "4cfc16ce",
+    "next_action": "恢复唯一A32原句柄，继续独立CPU准备；按实际起点半程/终态检查。完整终态与中央费用接受后，12对CPU评分并一次冻结WC/RA/Native-k；B36另行说明目的与报价后审批。",
+    "startup_progress_ref": "reports/cara_fast_A6000_startup_progress_r2_20261028.json",
+    "operational_progress": {
+      "status": "RUNNING",
+      "complete": 8,
+      "recorded": 32,
+      "denominator": 32
+    },
+    "actual_GPU_model_constructor_observed": true,
+    "last_observed_temperature_C": 88,
+    "original_thermal_stop_C": 90
+  },
+  "current_evidence_observed_at": "2026-10-28T22:19:13.605506+08:00"
 }

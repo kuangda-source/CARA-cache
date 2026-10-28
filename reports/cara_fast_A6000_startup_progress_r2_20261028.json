@@ -1,0 +1,72 @@
+{
+  "status": "A32_STARTUP_PROGRESS_OPERATIONAL_ONLY",
+  "launch_id": "5a5ab53ebb604433ab83cea06e1ab412",
+  "observed_unix": 1793199501.62809,
+  "partial_scientific_scores_returned": false,
+  "supervisor": {
+    "status": "FAST_A32_RUNNING",
+    "run_id": "cara-fast-cal-a32-r2-20261028",
+    "phase": "A",
+    "physical_paths": 32,
+    "source_revision": "9eaa5eb30c5509810c99a55002b51d6b71da1ef6",
+    "scope_sha256": "d0ad38bc0fd29615e82dae7f726938bac15aec2842e4484bb3577e0949694fb4",
+    "launch_id": "5a5ab53ebb604433ab83cea06e1ab412",
+    "gpu_uuid": "GPU-cebf7119-cf03-23b9-e192-cd196332b704",
+    "host": "two_card",
+    "supervisor_identity": {
+      "pid": 735091,
+      "state": "R",
+      "start_ticks": 649196297,
+      "command": "/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/bin/python /data20t/gaokuangda/worldcache_workspace/.sync/cara-fast-cal-a32-a6000-r2-20261028/scripts/cara_fast_worker_r2.py supervise --project /data20t/gaokuangda/worldcache_workspace --stage /data20t/gaokuangda/worldcache_workspace/.sync/cara-fast-cal-a32-a6000-r2-20261028 "
+    },
+    "started_unix": 1793197060.4785576,
+    "whole_limit_GPUh": 5,
+    "exclusive_monitor_accepted": false,
+    "central_cost_settled": false,
+    "child_identity": {
+      "pid": 735135,
+      "start_ticks": 649196413,
+      "uid": 1004
+    }
+  },
+  "runner": {
+    "phase": "A",
+    "status": "RUNNING",
+    "started_unix": 1793197122.3078015,
+    "load_seconds": 191.5779774338007,
+    "precision": {
+      "model_precision": "torch.bfloat16",
+      "net_parameter_dtypes": {
+        "torch.bfloat16": 569
+      },
+      "use_wan_fp32_strategy": true,
+      "conditional_frame_timestep": 0.1,
+      "matmul_allow_tf32": true,
+      "cudnn_allow_tf32": true,
+      "cudnn_benchmark": true,
+      "cudnn_deterministic": false,
+      "outer_autocast": false
+    }
+  },
+  "progress": {
+    "status": "RUNNING",
+    "complete": 8,
+    "recorded": 32,
+    "denominator": 32
+  },
+  "gpu": "GPU-cebf7119-cf03-23b9-e192-cd196332b704, Exclusive_Process, 15782, 100, 88\n",
+  "container_state": {
+    "Status": "running",
+    "Running": true,
+    "Paused": false,
+    "Restarting": false,
+    "OOMKilled": false,
+    "Dead": false,
+    "Pid": 735091,
+    "ExitCode": 0,
+    "Error": "",
+    "StartedAt": "2026-10-28T14:17:39.414264352Z",
+    "FinishedAt": "0001-01-01T00:00:00Z"
+  },
+  "memory_limit": 42949672960
+}

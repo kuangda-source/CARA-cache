@@ -1,6 +1,6 @@
-# Fast R2：干净计时绑定与 A32 审阅包
+# Fast R2：A32已单次启动，等待完整验收
 
-双机接受了新的采样路由、实际全93帧评分 CLI 和 Linux 生命周期 CPU 控制。下一步是审阅 [FAST-CAL-A32](NEXT_CARD.json)，取得新卡授权后再做实际资源准入。GPU提交、预约、新GPUh和cap调整均为0。CPU控制没有产生 Cosmos 视频或加速、画质结果。
+用户明确批准后，A32于2026-10-28 **22:17:40** 在A6000 GPU1单次启动，32条、硬5GPUh，独占原runner上下文已确认。唯一中央预约5GPUh、cap226保持；实际费用与科学结果待完整验收。10月29日00:47半程、03:15终验，B36后置。[原运行交接](A32_POST_LAUNCH_HANDOFF.md) · [实际启动](../../../../reports/cara_fast_A6000_GPU_actual_launch_r1_20261028.json)。以下CPU准备与报价保留其原证据范围。
 
 ## 68条生产绑定
 
@@ -39,10 +39,10 @@ Ada旧R1/R2的两次exit142不撤销。最小默认/单编译线程导入控制�
 
 这些是工程估计，未测新工作点速度。A包含在整68报价中，不另计一遍。A释放、真实进程退出、中央实际账单结算和12对CPU评分独立接受后，才可一次性冻结WC/RA/Native-k选择；新冻结函数拒绝脏Native锚、CPU计时、部分分母和额外候选，且不授予B。
 
-[执行profile](EXECUTION_PROFILE.json)冻结待准入参数：原BF16模型与选定2B的Wan FP32策略、无额外autocast，实际参数dtype/后端状态在第一物理路径前记录并跨请求核对。48GiB/2CPU GPU容器无网、root只读，CUDA只开放给确切runner。输出拟用各host的SSD上独立32GiB全分配image；控制journal在另一文件系统预分配48MiB。四卡用户目录实际为 `/home/user`，两卡为 `/home/gaokuangda`。本轮未创建image、journal或GPUstage。
+[执行profile](EXECUTION_PROFILE.json)保留原BF16模型与选定2B的Wan FP32策略、无额外autocast，实际参数dtype/后端状态在第一物理路径前记录并跨请求核对。40GiB/2CPU GPU容器无swap、无网、root只读，CUDA只开放给确切runner；主机可用内存门为44GiB，双端R14验证资源改动。A6000的SSD独立32GiB全分配image、跨盘48MiB journal和唯一GPUstage已创建并验证，四卡未派发。实际费用从supervisor启动计，不把此前CPU检查和存储准备算作GPU执行。
 
-只读中央账本仍为cap226 / used175.8058597668662 / reserved16.5 / available33.694140233133794 GPUh。原总计划为主线分配11GPUh规划池；完整68条建议硬限最多10.5GPUh，A32硬5均在该池内。本卡不需要增加总cap，两卡旧副本不能提供第二份额度。保护的是原最终/备用输入集合，不能把输入数量当成GPUh。先前准备中的错误货币下界、旧源码与CPU控制作为纠正证据保留；R11按正确单位重新验证，未发生错误预约或cap调整。
+启动前中央快照为cap226 / used175.8058597668662 / reserved16.5 / available33.694140233133794 GPUh；A32单次预约后reserved21.5、available28.694140233133794。原总计划为主线分配11GPUh规划池；完整68条建议硬限最多10.5GPUh，A32硬5均在该池内。本卡不增加总cap，两卡旧副本不能提供第二份额度。保护的是原最终/备用输入集合，不能把输入数量当成GPUh。先前准备中的错误货币下界、旧源码与CPU控制作为纠正证据保留；R11按正确单位重新验证。
 
-真实提交前仍需恢复双host已有句柄、发布完整source/config闭包、重新核对所有模型/输入/guardrail/NLTK资源SHA、输入曝光、RAM与disk，验证新存储，完成唯一中央预约、设备锁和硬件独占；当前只读GPU空闲状态不作准入。热保护保持90°C，先持久化触发温度/风扇/限频字段再停止，不干预他人进程或调阈值。
+实际准入已核对两host原句柄、已发布source/config闭包、模型/VAE/guardrail、实际英语分词资源及固定NLTK manifest、输入曝光、RAM/disk、新存储、唯一中央预约、设备锁与硬件独占；其余语言复用原完整资源接受记录。热保护保持90°C，先持久化触发温度/风扇/限频字段再停止，不干预他人进程或调阈值。
 
 半程与终验时间以真实supervisor启动回执为原点，绑定launch/PID/start ticks/container/UUID/source。A32预计约4.7–5小时，半程约2.4–2.5小时；未启动前只保存相对计划，不虚构检查任务。半程仅运维状态；终验包含原始完整分母、退出、数值门、工件、释放与中央结算。失败不自动重跑，B不自动启动。

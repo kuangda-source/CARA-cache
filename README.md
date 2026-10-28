@@ -2,9 +2,11 @@
 
 # CARA-Cache
 
-**2026-10-28最新安排：主线P0/F19，探索S-FAST19与固定Shared25-C的Q并行准备。** [最新计划与两个对话分工](plans/cara_next_stage_20261028/08_REPOSITORY_RECONCILIATION.md) · [739接收记录](research/739_CARA_NEXT_STAGE_FAST_SQ_PLAN_AND_CHAT_HANDOFF_20261028.md)。新评价Fidelity-v2按新卡前瞻绑定；GPU未新增授权、未预约、未启动。WC73已热停结算，禁止自动重派；原DEV128、旧合同与失败保持。以下旧准备记录仅作历史复用依据。
+**2026-10-28最新安排：主线P0/F19，探索S-FAST19与固定Shared25-C的Q并行准备。** [最新计划与两个对话分工](plans/cara_next_stage_20261028/08_REPOSITORY_RECONCILIATION.md) · [739接收记录](research/739_CARA_NEXT_STAGE_FAST_SQ_PLAN_AND_CHAT_HANDOFF_20261028.md)。A32已获单次授权并在A6000启动，32条、硬5GPUh，B36仍后置；Fidelity-v2前瞻绑定。WC73已热停结算，禁止自动重派；原DEV128、旧合同与失败保持。以下旧准备记录仅作历史复用依据。
 
-[741主线R2与A32审阅](research/741_CARA_FAST_CLEAN_BINDING_DUAL_CPU_AND_A32_REVIEW_20261028.md)：新采样路由、实际93帧合成评分CLI和Linux生命周期控制双端接受；完整三臂控制及独立clean Native使提案改为68条（A32+B36）。下一最小A32预计4.7–5小时、硬限5GPUh，仍需新卡授权和fresh资源准入；cap226保持，原Ada142根因未证明；[采样/评分CPU接受](reports/cara_fast_scoped_CPU_acceptance_r2_20261028.json) · [编排CPU控制接受](reports/cara_fast_orchestration_CPU_acceptance_r3_20261028.json)。GPU提交/预约/新增费用均为0；旧时钟与原科学结果不改。
+[741主线R2与A32审阅](research/741_CARA_FAST_CLEAN_BINDING_DUAL_CPU_AND_A32_REVIEW_20261028.md)：新采样路由、实际93帧合成评分CLI和Linux生命周期控制双端接受；完整三臂控制及独立clean Native使提案改为68条（A32+B36）。下一最小A32预计4.7–5小时、硬限5GPUh，仍需新卡授权和fresh资源准入；cap226保持，原Ada142根因未证明；[采样/评分CPU接受](reports/cara_fast_scoped_CPU_acceptance_r2_20261028.json) · [编排CPU控制接受](reports/cara_fast_orchestration_CPU_acceptance_r3_20261028.json)。该段为启动前CPU准备快照；当前A32运行见下，旧时钟与原科学结果不改。
+
+[742 A32实际启动与检查安排](research/742_CARA_A32_A6000_ACTUAL_LAUNCH_AND_CHECK_SCHEDULE_20261028.md)：A32于10月28日22:17:40在两卡GPU1 A6000独占启动；32条、硬5GPUh，原runner上下文已确认。中央226上限保持，唯一预约5GPUh、旧16.5未知责任保留。10月29日00:47半程、03:15终验；完整GPU数值门、保真与速度结论仍待验收，B36后置。 [唯一启动回执](reports/cara_fast_A6000_GPU_actual_launch_r1_20261028.json)
 
 **通过选择完整刷新的时间位置，在加速视频扩散时尽量保留完整模型的输出。**
 
@@ -25,7 +27,7 @@ CARA-Cache（CFG-Aligned Readout and Cost-Aware Allocation for Video Diffusion�
 
 扩散模型逐步生成视频。完整计算昂贵，复用旧缓存会积累误差；当前研究重点是在固定刷新次数下，保留过渡区间的完整计算、减少末段刷新。CAL66的Shared25-C采用这一布局，DEV128已完成冻结继续验证，当前将它保留为高保真参照，并准备高速F19与S/Q机制。历史修正A利用当前浅层增量和真实深层锚点，在新DEV中作为机制对照。
 
-保留DEV128原冻结接受与费用；转P0/F19及S-FAST19/Q准备，保护最终输入。原C/限龄A不由DEV重新选作独立成功；新范围、评价与完整报价逐卡冻结，无新GPU授权。
+恢复唯一A32原句柄，继续独立CPU准备；按实际起点半程/终态检查。完整终态与中央费用接受后，12对CPU评分并一次冻结WC/RA/Native-k；B36另行说明目的与报价后审批。
 
 CFG 指 classifier-free guidance，包含条件与负条件两支。A 使用共享修正强度，保持两支融合口径一致。D 更新当前请求的真实深层锚点；A 不把近似结果冒充新的真实锚点。Native 是每个请求步均完整计算的参考推理。
 
@@ -51,11 +53,11 @@ LPIPS 越低表示越接近同输入的 Native 视频；它与局部速度 MSE�
 
 ## 当前进度
 
-**DEV128完整接受：Shared25-C通过16新输入冻结继续门。**
+**A32已在A6000独占启动，等待完整验收。**
 
-2026-10-27完整128路径、26控制、80LPIPS/7440帧及288质量全部接受；原GPU与CPU均退出，锁释放、Default恢复。Shared25-C相对冻结强参考S25-A的LPIPS降低14.82%，16/16改善，成对差单侧95%上界−0.007669；相对S25-C降低26.16%。完整请求246.675秒，V上界0.9863，三项独立质量非劣门均过。实际9.417059GPUh已中央唯一结算，按原合同进入登记独立最终确认，不自动追加GPU。该结论支持固定布局泛化，非自动规划创新或最终部署接受。
+A32于10月28日22:17:40在两卡GPU1 A6000独占启动；32条、硬5GPUh，原runner上下文已确认。中央226上限保持，唯一预约5GPUh、旧16.5未知责任保留。10月29日00:47半程、03:15终验；完整GPU数值门、保真与速度结论仍待验收，B36后置。
 
-[证据1](research/705_CARA_DEV128_A6000_EXCLUSIVE_LAUNCH_AND_ACCEPTANCE_SCHEDULE_20261026.md) · [证据2](reports/cara_DEV128_A6000_GPU_actual_launch_20261026.json) · [证据3](reports/cara_DEV128_A6000_technical_admission_20261026.json) · [证据4](reports/cara_DEV128_A6000_central_admission_20261026.json) · [证据5](reports/cara_DEV128_A6000_acceptance_schedule_20261026.json) · [证据6](reports/cara_DEV128_A6000_storage_20261026.json) · [证据7](reports/cara_DEV128_prelaunch_dual_exposure_reviewed_20261026.json) · [证据8](reports/cara_DEV128_full_four_card_CPU_accepted_r4_20261026.json) · [证据9](reports/cara_DEV128_full_two_card_CPU_accepted_r4_20261026.json) · [证据10](reports/cara_DEV128_A6000_technical_followup_20261026.json) · [证据11](reports/cara_DEV128_A6000_technical_progress_20261026_1742.json) · [证据12](reports/cara_DEV128_A6000_progress_capture_20261026_1743.json) · [证据13](reports/cara_DEV128_A6000_progress_pace_20261026_1744.json) · [证据14](reports/cara_DEV128_A6000_halfway_capture_20261026_1948.json) · [证据15](reports/cara_DEV128_A6000_halfway_technical_20261026_1948.json) · [证据16](reports/cara_DEV128_A6000_halfway_pace_20261026_1948.json) · [证据17](research/711_CARA_DEV128_A6000_HALFWAY_TECHNICAL_20261026.md) · [证据18](reports/cara_DEV128_GMSD_CPU_scoring_resource_review_20261026.json) · [证据19](reports/cara_DEV128_A6000_GMSD_window_technical_20261026_2340.json) · [证据20](reports/cara_GMSD_CAP1_two_card_preparation_review_20261026.json) · [证据21](reports/cara_DEV128_A6000_CPU_progress_20261027_0055.json) · [证据22](reports/cara_DEV128_A6000_post_status_only_20261027_0120.json) · [证据23](reports/cara_DEV128_A6000_terminal_20261027_0115.json) · [证据24](reports/cara_DEV128_partial_payload_exposure_note_20261027.json) · [证据25](reports/cara_DEV128_post_counter_CPU_r2_20261027.json) · [证据26](reports/cara_DEV128_A6000_terminal_20261027_0400.json) · [证据27](reports/cara_DEV128_A6000_accepted_20261027_0404.json) · [证据28](reports/cara_DEV128_A6000_central_settlement_20261027_0404.json) · [证据29](reports/cara_DEV128_A6000_complete_analysis_20261027.json) · [证据30](research/716_CARA_DEV128_COMPLETE_ACCEPTANCE_AND_FROZEN_DECISION_20261027.md)
+[证据1](reports/cara_fast_A6000_GPU_actual_launch_r1_20261028.json) · [证据2](reports/cara_fast_A6000_context_start_confirmed_r1_20261028.json) · [证据3](reports/cara_fast_A6000_central_admission_r1_20261028.json) · [证据4](reports/cara_fast_A6000_storage_r1_20261028.json) · [证据5](reports/cara_fast_A6000_acceptance_schedule_r1_20261028.json) · [证据6](reports/cara_fast_resource_CPU_acceptance_r4_20261028.json) · [证据7](reports/cara_fast_post_CPU_acceptance_r2_20261028.json) · [证据8](reports/cara_fast_A6000_startup_progress_r2_20261028.json)
 
 历史研究阶段：[原P1](research/669_CARA_PG_P1_COMPLETE_BUDGET_ATTRIBUTION_AND_REPAIR_PLAN_20261024.md)未选出预算可行策略；[104](research/685_CARA_HISTORY104_R2_COMPLETE_ACCEPTANCE_RESULTS_AND_COST_GATE_20261024.md)与[COST112](research/690_CARA_COST112_COMPLETE_ACCEPTANCE_AND_TIMING_GATE_FAILURE_20261025.md)完成采集，但原最大低估计时门均失败。该路线暂缓，失败与费用保持；当前按[CAL66完整结果](research/702_CARA_CAL66_A6000_COMPLETE_RESULTS_AND_FROZEN_SHARED25_C_20261026.md)保留Shared25-C已完成的DEV128结论；未来工作按顶部新计划推进。
 

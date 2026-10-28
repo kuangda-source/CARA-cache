@@ -1,7 +1,7 @@
 {
   "schema": "CARA_NEXT_STAGE_WORKSTREAMS_R1",
   "date": "2026-10-28",
-  "state": "MAINLINE_R2_SCOPED_DUAL_CPU_ACCEPTED_A32_REVIEW_PENDING_NO_GPU",
+  "state": "MAINLINE_A32_SINGLE_AUTHORIZED_A6000_RUNNING",
   "source_design_registry_ref": "plans/cara_next_stage_20261028/experiment_registry.json",
   "source_design_registry_sha256": "d2825f85c83be4461f189b39110f2dc5669cce14d37c4739cd21850ec0f656fb",
   "reconciliation_ref": "plans/cara_next_stage_20261028/08_REPOSITORY_RECONCILIATION.md",
@@ -27,7 +27,7 @@
         "reports/cara_fast_*",
         "global canonical navigation and budget coordination"
       ],
-      "first_delivery": "Affected-path CPU preparation, masks, scoring interface, reuse/dedup manifest and complete quotes; no new GPU"
+      "first_delivery": "Scoped dual-host CPU accepted; one authorized A32 running, exact-handle acceptance pending"
     },
     "sq": {
       "title": "CARA S/Q 探索：S-FAST19 与缓存压缩",
@@ -50,14 +50,14 @@
     {
       "id": "P0",
       "owner": "主线",
-      "state": "采样/实际93帧合成评分CLI及Linux生命周期控制双端CPU接受",
-      "next_action": "完整三臂GPU门仍待A32；原Ada142根因未证明，旧WC73不重派"
+      "state": "A32真实GPU数值门运行中",
+      "next_action": "按原12条三臂门完整验收；旧WC73不重派，旧142根因未证明"
     },
     {
       "id": "F19",
       "owner": "主线",
-      "state": "68条生产提案；最小A32待授权",
-      "next_action": "A32硬5GPUh、cap226保持；完成fresh准入和真实数值门，再做12个FIT校准；B36不自动启动"
+      "state": "A32已获单次授权并在A6000独占运行",
+      "next_action": "32条硬5GPUh；10月29日00:47半程、03:15终验，释放并结算后12对CPU评分/冻结；B36后置另批"
     },
     {
       "id": "S-FAST19",
@@ -116,5 +116,7 @@
   "mainline_readme_ref": "plans/cara_next_stage_20261028/mainline/r2/README.md",
   "mainline_CPU_review_ref": "reports/cara_fast_scoped_CPU_acceptance_r2_20261028.json",
   "mainline_orchestration_review_ref": "reports/cara_fast_orchestration_CPU_acceptance_r3_20261028.json",
-  "sq_latest_status_ref": "plans/cara_next_stage_20261028/sq/Q1_PREPARATION_STATUS_R3.md"
+  "sq_latest_status_ref": "plans/cara_next_stage_20261028/sq/Q1_PREPARATION_STATUS_R3.md",
+  "GPU_execution_ref": "reports/cara_fast_A6000_execution_summary_r1_20261028.json",
+  "preparation_authority_fields_scope": "Original plan alone grants no GPU; current explicit A32 authorization and actual execution are recorded by GPU_execution_ref"
 }

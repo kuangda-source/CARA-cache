@@ -831,6 +831,26 @@ def build():
             if 'RUNNING' in ig.get('status', ''):
                 master['operation_policy'].update(current_running_card='CARA-IG-B1-R2',current_running_cards=['CARA-IG-B1-R2'],active_launch_ref=ig['launch_ref'])
         master['status_counts'] = {state:sum(r['state']==state for r in rows) for state in sorted({r['state'] for r in rows})}
+    fast = status.get('fast_A32_execution_20261028')
+    if fast:
+        actual = load(fast['launch_ref'])
+        observed = load(fast['context_ref'])
+        if (actual['run_id'] != 'cara-fast-cal-a32-r2-20261028' or actual['phase'] != 'A'
+                or actual['physical_paths'] != 32 or actual['whole_GPUh'] != 5
+                or observed['launch_id'] != actual['launch_id']
+                or observed['context_granted']['runner'] != observed['context_ready']['identity']):
+            raise ValueError('Original A32 execution identity differs')
+        snapshot = '**' + fast['status_zh'] + '。**\n\n' + fast['summary'] + '\n\n' + refs(fast['evidence_refs'])
+        run_details = ('| 字段 | A32实际运行 |\n|---|---|\n'
+            '| 实际启动 | ' + local_time(observed['supervisor']['started_unix']) + '；' + actual['launch_id'] + ' |\n'
+            '| GPU | 两卡GPU1 A6000，EXCLUSIVE_PROCESS与原runner上下文已核对 |\n'
+            '| 范围与预算 | 32条；硬5GPUh；中央cap226保持，唯一预约5GPUh |\n'
+            '| 自动检查 | 10月29日00:47半程、03:15终验；仅两个一次检查 |\n'
+            '| 结果边界 | 完整数值门、保真、速度与基线冻结均待终态接受；B36后置 |')
+        actions = fast['next_action']
+        master['operation_policy'].update(current_running_card=actual['run_id'],
+            current_running_cards=[actual['run_id']],active_launch_ref=fast['launch_ref'],
+            snapshot_observed_at=fast['observed_unix'])
     headlines = '\n'.join(f"- **{f['title']}**（{f['short_scope']}）：{f['result']} {refs(f['refs'])}"
                            for f in status['headline_results'])
     details = '\n\n'.join(f"### {i+1}. {f['title']}\n\n{f['result']}\n\n{f['scope']} {refs(f['refs'])}"
@@ -848,7 +868,7 @@ def build():
                 or workstreams['new_budget_reserved_GPUh']):
             raise ValueError('Next-stage preparation registry or authority differs')
         queue = (link(next_stage['reconciliation_ref'], '最新计划与对话分工')
-                 + '；以下为准备/条件提案，不是科学结果或GPU准入。\n\n'
+                 + ('；A32已单次启动，其余按各卡条件推进，科学结果以终态验收为准。\n\n' if fast else '；以下为准备/条件提案，不是科学结果或GPU准入。\n\n')
                  + '| 顺序 / 负责人 | 当前阶段 | 下一项验收 / 动作 |\n|---|---|---|\n'
                  + '\n'.join(f"| {cell(r['id'])} · {cell(r['owner'])} | {cell(r['state'])} | "
                               f"{cell(r['next_action'])} |" for r in workstreams['schedule']))
@@ -878,7 +898,7 @@ def build():
         '**2026-10-28最新安排：主线P0/F19，探索S-FAST19与固定Shared25-C的Q并行准备。** '
         + link(next_stage['reconciliation_ref'], '最新计划与两个对话分工')
         + ' · ' + link(next_stage['research_ref'], '739接收记录')
-        + '。新评价Fidelity-v2按新卡前瞻绑定；GPU未新增授权、未预约、未启动。'
+        + ('。A32已获单次授权并在A6000启动，32条、硬5GPUh，B36仍后置；Fidelity-v2前瞻绑定。' if fast else '。新评价Fidelity-v2按新卡前瞻绑定；GPU未新增授权、未预约、未启动。')
         + 'WC73已热停结算，禁止自动重派；原DEV128、旧合同与失败保持。以下旧准备记录仅作历史复用依据。'
         if next_stage else '')
     mainline = status.get('fast_mainline_preparation_20261028')
@@ -888,7 +908,10 @@ def build():
             + '：' + mainline['notice_text'] + '；'
             + link(mainline['CPU_review_ref'], '采样/评分CPU接受')
             + ' · ' + link(mainline['orchestration_review_ref'], '编排CPU控制接受')
-            + '。GPU提交/预约/新增费用均为0；旧时钟与原科学结果不改。')
+            + ('。该段为启动前CPU准备快照；当前A32运行见下，旧时钟与原科学结果不改。' if fast else '。GPU提交/预约/新增费用均为0；旧时钟与原科学结果不改。'))
+    if fast:
+        values['next_stage_notice'] += ('\n\n' + link(fast['research_ref'], '742 A32实际启动与检查安排')
+            + '：' + fast['summary'] + ' ' + link(fast['launch_ref'], '唯一启动回执'))
     outputs = {}
     for template in sorted((ROOT / 'docs/templates').glob('*.md')):
         target = template.name.replace('__', '/')

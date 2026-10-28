@@ -1,0 +1,123 @@
+{
+  "status": "A32_ACTUAL_CONTEXT_AND_START_OPERATIONAL_ONLY",
+  "observed_unix": 1793197153.6055057,
+  "launch_id": "5a5ab53ebb604433ab83cea06e1ab412",
+  "source_revision": "9eaa5eb30c5509810c99a55002b51d6b71da1ef6",
+  "context_ready": {
+    "identity": {
+      "pid": 735135,
+      "start_ticks": 649196413,
+      "uid": 1004
+    },
+    "snapshot": {
+      "gpu_uuid": "GPU-cebf7119-cf03-23b9-e192-cd196332b704",
+      "compute_mode": "Exclusive_Process",
+      "compute_apps": [
+        {
+          "gpu_uuid": "GPU-cebf7119-cf03-23b9-e192-cd196332b704",
+          "pid": 735135,
+          "start_ticks": 649196413,
+          "uid": 1004,
+          "memory_MiB": "306"
+        }
+      ],
+      "mps_processes": [],
+      "observed_unix": 1793197071.1898012
+    },
+    "GPU_context_held": true,
+    "source_revision": "9eaa5eb30c5509810c99a55002b51d6b71da1ef6"
+  },
+  "context_granted": {
+    "runner": {
+      "pid": 735135,
+      "start_ticks": 649196413,
+      "uid": 1004
+    },
+    "gpu_uuid": "GPU-cebf7119-cf03-23b9-e192-cd196332b704",
+    "observed_unix": 1793197072.8215709,
+    "source_revision": "9eaa5eb30c5509810c99a55002b51d6b71da1ef6"
+  },
+  "runner": {
+    "phase": "A",
+    "status": "MODEL_LOADING",
+    "started_unix": 1793197122.3078015
+  },
+  "last_monitor": {
+    "snapshot": {
+      "gpu_uuid": "GPU-cebf7119-cf03-23b9-e192-cd196332b704",
+      "compute_mode": "Exclusive_Process",
+      "compute_apps": [
+        {
+          "gpu_uuid": "GPU-cebf7119-cf03-23b9-e192-cd196332b704",
+          "pid": 735135,
+          "start_ticks": 649196413,
+          "uid": 1004,
+          "memory_MiB": "24482"
+        }
+      ],
+      "mps_processes": [],
+      "observed_unix": 1793197149.7358375
+    },
+    "thermal": {
+      "temperature.gpu": "48",
+      "power.draw": "17.81",
+      "clocks.sm": "210",
+      "utilization.gpu": "0",
+      "memory.used": "338",
+      "fan.speed": "30",
+      "clocks_event_reasons.active": "0x0000000000000001"
+    },
+    "thermal_monotonic": 6492027.285246697,
+    "context_granted": true,
+    "monotonic_elapsed": 89.08268103655428,
+    "launch_id": "5a5ab53ebb604433ab83cea06e1ab412",
+    "run_id": "cara-fast-cal-a32-r2-20261028",
+    "runner": {
+      "pid": 735135,
+      "start_ticks": 649196413,
+      "uid": 1004
+    }
+  },
+  "gpu": "GPU-cebf7119-cf03-23b9-e192-cd196332b704, Exclusive_Process, 24514, 0, 53\n",
+  "supervisor": {
+    "status": "FAST_A32_RUNNING",
+    "run_id": "cara-fast-cal-a32-r2-20261028",
+    "phase": "A",
+    "physical_paths": 32,
+    "source_revision": "9eaa5eb30c5509810c99a55002b51d6b71da1ef6",
+    "scope_sha256": "d0ad38bc0fd29615e82dae7f726938bac15aec2842e4484bb3577e0949694fb4",
+    "launch_id": "5a5ab53ebb604433ab83cea06e1ab412",
+    "gpu_uuid": "GPU-cebf7119-cf03-23b9-e192-cd196332b704",
+    "host": "two_card",
+    "supervisor_identity": {
+      "pid": 735091,
+      "state": "R",
+      "start_ticks": 649196297,
+      "command": "/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/bin/python /data20t/gaokuangda/worldcache_workspace/.sync/cara-fast-cal-a32-a6000-r2-20261028/scripts/cara_fast_worker_r2.py supervise --project /data20t/gaokuangda/worldcache_workspace --stage /data20t/gaokuangda/worldcache_workspace/.sync/cara-fast-cal-a32-a6000-r2-20261028 "
+    },
+    "started_unix": 1793197060.4785576,
+    "whole_limit_GPUh": 5,
+    "exclusive_monitor_accepted": false,
+    "central_cost_settled": false,
+    "child_identity": {
+      "pid": 735135,
+      "start_ticks": 649196413,
+      "uid": 1004
+    }
+  },
+  "check_schedule": {
+    "run_id": "cara-fast-cal-a32-r2-20261028",
+    "launch_id": "5a5ab53ebb604433ab83cea06e1ab412",
+    "gpu_uuid": "GPU-cebf7119-cf03-23b9-e192-cd196332b704",
+    "source_revision": "9eaa5eb30c5509810c99a55002b51d6b71da1ef6",
+    "started_unix": 1793197060.4785576,
+    "halfway_unix": 1793205976.2785754,
+    "expected_terminal_unix": 1793214892.0785933,
+    "hard_terminal_unix": 1793215060.4785576,
+    "midway_scope": "Operational handle, progress, thermal, exclusivity and ledger only; no science scores",
+    "terminal_scope": "Original process/container exit, complete32 or retained failures, gate, artifacts, release and central bill",
+    "scheduler_created": false,
+    "authorizes_retry": false,
+    "authorizes_phase_B": false
+  }
+}
