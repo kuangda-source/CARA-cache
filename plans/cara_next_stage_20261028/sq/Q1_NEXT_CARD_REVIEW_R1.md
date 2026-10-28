@@ -1,6 +1,6 @@
 # 下一张 Q1-saved 卡：完整审阅包
 
-2026-10-29。本卡单独验证固定 Shared25-C 的同字节缓存表示，使用两个已曝光 FIT 输入的旧 B1 状态。以下完整范围保持为待申请草案：四卡原资产 CPU 尚在运行，终态接受前不提出 GPU 批准请求。尚未获得新的 GPU 授权。主线 B36 与 S 新父轨迹采集分别处理。
+2026-10-29。本卡单独验证固定 Shared25-C 的同字节缓存表示，使用两个已曝光 FIT 输入的旧 B1 状态。双端 CPU、实际资产、源包和资源准备已齐，[完整机器审阅回执](../../../reports/cara_sq_q1_complete_review_r1_20261029.json)绑定原件与所有 SHA，可以申请一次新 Q1 GPU 授权。尚未提交或预约 GPU。主线 B36 与 S 新父轨迹采集分别处理。
 
 ## 做什么、按什么停止
 
@@ -9,6 +9,8 @@
 原 C 和 Dense-hidden 输出必须与旧 B1 `torch.equal`。首个失败立即结束后续 codec，保留完整失败、原费用和已完成分母，不改容差/精度，不换主机续跑或重试。此前单状态 CPU 数值门未过；本卡的 CUDA 控制正用于检查真实执行后端是否能满足原门槛，尚不预设通过。
 
 成功时 GPU 阶段只收集；全部句柄退出、独占锁释放、Default 恢复、中央结算及独立终态接受后，再以 2 CPU / 8 GiB / 最多 300 秒做完整 12 状态的 LOPO 和一套共享方向选择。未完整则不使用部分状态选方向。报告真实 packet 字节、q_total、q_codec、交叉项与编码/传输/实际读出分别计时；本卡不证明完整视频收益或部署缓存峰值节省。
+
+前瞻绑定[主计划 1.2 的 Fidelity-v2 评价范围](../01_Master_Experiment_Plan.md#12-保真评价)：本卡零新视频，完整视频 LPIPS/PSNR/SSIM、参考时序/细节与盲审指标在本卡不适用，也不以局部输出失真替代它们。当前仅分析已登记的同状态实际读出指标和真实 packet 字节。未来 S-END/Q-END 须另行冻结完整 Fidelity-v2 视频比较，旧 MUSIQ 合同与历史判定保持。
 
 ## 一次单卡与整卡费用
 
@@ -25,13 +27,15 @@ GPU profile 固定为 2 CPU（24/25）/ 16 GiB、私有输入逻辑副本上限 
 
 两端 R3 各 45 项受影响 CPU 控制均通过，含五类真实 Linux 子进程生命周期；使用声明的 GPU/温度/临时账本夹具。两端源包、原生命令及独立私有存储已接受。[双端 CPU 回执](../../../reports/cara_sq_q1_control_dual_cpu_accepted_r3_20261029.json)；CPU 接受不等于 CUDA 数值、真实大张量峰值或科学结果通过。
 
-两卡[33 项资产 SHA/实际身份](../../../reports/cara_sq_q1_two_card_asset_cpu_terminal_r1_20261029.json)已通过。四卡 [32 文件直传](../../../reports/cara_sq_b1_port_terminal_r2_20261029.json)已完成并[释放已知原句柄](../../../reports/cara_sq_b1_port_release_accepted_r2_20261029.json)；R1 + R2 共 38.99 分钟，仍在原两小时 envelope 内。四卡[原独立资产 CPU 扫描](../../../reports/cara_sq_q1_four_card_asset_cpu_launch_r1_20261029.json)运行中，尚未将复制接受升级为真实资产接受。两端实际源 SFTP/SSH CPU 未完整计量，目标已测 CPU、R1 片段与未计量项见[原费用记录](../../../reports/cara_sq_b1_port_cpu_costs_r2_20261029.json)。
+双端各 [33 项真实资产 SHA/实际身份](../../../reports/cara_sq_q1_assets_dual_cpu_accepted_r1_20261029.json)已通过，全部文件 SHA/大小跨主机相同。四卡原 worker 退出 0，墙钟 772.79 秒、CPU 126.10 秒、峰值 RSS 34,388 KiB；两卡原 worker 墙钟 206.46 秒、CPU 83.31 秒。四卡一次状态读取未返回，随后只恢复同一个原句柄并接受其完整终态，[原读取事件](../../../reports/cara_sq_q1_asset_status_read_recovery_r1_20261029.json)保留，扫描未重派。
 
-原 Q1 manifest SHA 为 `5487f8db32d45a5d0f3304333bf362d9d6ec46fb3181c735d7267b78a6e398fa`；4.12 GB 权重 SHA 为 `565bbb2c9645737327983f4461e4d32627bba465b0a8dc26447edea144e1ff47`。机器可读审阅回执将绑定双端原件、CPU proof、源包、scope、profile 和两份整卡报价，批准后按 fresh 选中主机填入对应已审阅 proof SHA。
+四卡 [32 文件直传](../../../reports/cara_sq_b1_port_terminal_r2_20261029.json)已完成并[释放已知原句柄](../../../reports/cara_sq_b1_port_release_accepted_r2_20261029.json)；R1 + R2 共 38.99 分钟，仍在原两小时 envelope 内。两端实际源 SFTP/SSH CPU 未完整计量，目标已测 CPU、R1 片段与未计量项见[原费用记录](../../../reports/cara_sq_b1_port_cpu_costs_r2_20261029.json)。
+
+原 Q1 manifest SHA 为 `5487f8db32d45a5d0f3304333bf362d9d6ec46fb3181c735d7267b78a6e398fa`；4.12 GB 权重 SHA 为 `565bbb2c9645737327983f4461e4d32627bba465b0a8dc26447edea144e1ff47`。机器审阅回执已绑定双端原件、CPU proof、源包、scope、profile 和两份整卡报价。批准后按 fresh 选中主机填入对应已审阅 proof SHA。
 
 ## 唯一启动和验收
 
-本轮双端只读恢复均无 Q1 GPU intent/容器/中央预约。中央只读快照为 cap 226、已用 178.061565、保留 16.5、可用 31.438435 GPUh；[原账本快照](../../../reports/cara_sq_q1_budget_readonly_20261029_0210.json)只作审阅，提交前再次核验。
+本轮[双端原句柄恢复](../../../reports/cara_sq_q1_original_handles_readonly_20261029_0240.json)均无 Q1 GPU intent/容器/中央预约。[资源快照](../../../reports/cara_sq_q1_preflight_readonly_20261029_0240.json)确认双端真实资产与私有盘均有效；Ada 四张卡当时均占用、A6000 有合格空闲候选。中央只读快照为 cap 226、已用 178.061565、保留 16.5、可用 31.438435 GPUh；[原账本快照](../../../reports/cara_sq_q1_budget_readonly_20261029_0240.json)只作审阅，提交前再次核验。
 
 仅在用户明确批准本卡后，使用已 CPU 验证的唯一控制器进行双端原句柄恢复、源/运行时/资产身份与 fresh 独占/显存/温度/CPU/RAM/存储/余额准入；任何已存在 intent 都转恢复，不能重新提交。实际 GPU 开始后，以原起点安排一次预测半程检查和一次预测终态验收；半程只读身份、进度与资源，ETA 变化时更新原检查。完整释放与结算后另做 CPU 选择，失败按原合同收件。
 

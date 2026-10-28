@@ -1,6 +1,6 @@
 # S/Q 双卡 CPU 准备交付
 
-**当前入口：** [Q1 控制 R3 与 S 采集准备](Q1_CONTROL_STATUS_R3.md) · [双端后续准备](DUAL_HOST_PROGRESS_20261029.md)。Q1 R3 两端各 45 项 CPU、独立源包/私有盘/宿主探针均已完成；S 两端各八路径/十六边界状态组件与十六路径 raw/流式存储组合均已接受。B1 的 32 文件直传已完成、已知句柄释放；两卡 33 项真实资产 SHA 通过，四卡原独立扫描运行中。Q1 固定 111 pair/222 heads，真实 CUDA 数值门和新 GPU 执行均未发生。下方保留前阶段回执与边界。
+**当前入口：** [Q1 控制 R3 与 S 采集准备](Q1_CONTROL_STATUS_R3.md) · [双端后续准备](DUAL_HOST_PROGRESS_20261029.md) · [完整 Q1 新卡审阅](Q1_NEXT_CARD_REVIEW_R1.md)。Q1 R3 两端各 45 项 CPU、独立源包/私有盘/宿主探针均已完成；S 两端各八路径/十六边界状态组件与十六路径 raw/流式存储组合均已接受。B1 的 32 文件直传已完成、已知句柄释放；两端各 33 项真实资产 SHA/身份已独立接受。Q1 固定 111 pair/222 heads，GPU 新授权及 fresh 准入仍待完成，真实 CUDA 数值门和新 GPU 执行均未发生。下方保留前阶段回执与边界。
 
 **最新进展：** [Q1执行与释放后验收的双端CPU控制](Q1_EXECUTION_PREPARATION_R1.md)已接受，两端各34项、零跳过，包含五种真实Linux子进程路径；GPU隐藏、仅临时账本。固定范围仍为111 pair/222 heads，[完整流程/整卡报价](Q1_WHOLE_PREPARATION_R1.md)保持。唯一GPU staging/capture/CPU后处理入口仍需接齐，真实CUDA原C数值门未过，GPU_ready=false。S pre-D来源接口另有5项本地检查，尚非完整采集器。[R3数值失败](Q1_PREPARATION_STATUS_R3.md)、[R2条件恢复/源码证据](Q1_PREPARATION_STATUS_R2.md)与生产profile的170结构候选保持。下文保留首轮R1的158候选和max-age6诊断记录，不能将两版本混读为同一冻结方法。
 

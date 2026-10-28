@@ -18,7 +18,9 @@ GPU 前 CPU [原件直传](B1_PORT_CPU_PROFILE_R1.json)限定原 32 文件、20,
 
 [R2 原终态](../../../reports/cara_sq_b1_port_terminal_r2_20261029.json)已完成：32/32、20,795,567,276 B 原件均经过目标 SHA 核验，17 个既存完整目标去重，仅复制其余 15 文件。R2 墙钟 894.29 秒，目标进程 CPU 548.26 秒、峰值 RSS 44,572 KiB；R1 起点至 R2 退出共约 39 分钟，未增加原 7200 秒 envelope。[已知句柄释放](../../../reports/cara_sq_b1_port_release_accepted_r2_20261029.json)确认 R2 timeout、worker 与源 SFTP 都已退出，R1 的 50,331,648 B 未验片段保留。[CPU 费用记录](../../../reports/cara_sq_b1_port_cpu_costs_r2_20261029.json)同时保留 R1 的已测下界和未完整计量项，不把失败轮当作免费工作。
 
-四卡[原 Q1 独立资产 CPU 核验](../../../reports/cara_sq_q1_four_card_asset_cpu_launch_r1_20261029.json)已首次启动，须等其 33 项原件/权重 SHA 与实际身份终态后，才完成新卡审阅包；不以直传完成代替该项。
+四卡[原 Q1 独立资产 CPU 核验](../../../reports/cara_sq_q1_four_card_asset_cpu_recovery_r1_20261029.json)已退出 0：33 项全部 SHA/实际身份通过，墙钟 772.79 秒、CPU 126.10 秒、峰值 RSS 34,388 KiB。一次长状态读取未返回后只恢复原句柄，[事件](../../../reports/cara_sq_q1_asset_status_read_recovery_r1_20261029.json)保留，未重派扫描。[双端独立资产接受](../../../reports/cara_sq_q1_assets_dual_cpu_accepted_r1_20261029.json)确认两端各 33 项 SHA/大小相同。
+
+[完整下一张 Q1 审阅卡](Q1_NEXT_CARD_REVIEW_R1.md)与[机器回执](../../../reports/cara_sq_q1_complete_review_r1_20261029.json)现已具备：固定 f3be7662、两端 CPU/源/真实资产/资源与原整卡报价绑定，Fidelity-v2 视频评价在零新视频的本卡明确不适用，后续端点卡须另行冻结。仍无新 GPU 授权、intent、预约、CUDA 数值结论或 codec 科学结果；批准后才 fresh 准入和一次单卡提交。
 
 卡仍为两旧 FIT × 六位置、111 pair/222 heads、零新增 deep/父轨迹/视频。原 C 与 Dense-hidden 逐值门、GPU 释放/中央结算后 CPU LOPO、双端原报价均保持。双端 CPU 接受不代表 CUDA 数值、真实资产、GPU 峰值或科学结果已通过。
 
