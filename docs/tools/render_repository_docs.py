@@ -912,6 +912,16 @@ def build():
     if fast:
         values['next_stage_notice'] += ('\n\n' + link(fast['research_ref'], '742 A32实际启动与检查安排')
             + '：' + fast['summary'] + ' ' + link(fast['launch_ref'], '唯一启动回执'))
+    b36_cpu = status.get('fast_B36_CPU_preparation_20261029')
+    if b36_cpu:
+        proof = load(b36_cpu['accepted_receipt_ref'])
+        if (not proof['passed'] or proof['GPU_submissions'] != 0
+                or proof['actual_baseline_selection_frozen'] or proof['actual_A32_outputs_read']):
+            raise ValueError('B36 CPU continuation scope differs')
+        values['next_stage_notice'] += ('\n\n' + link(b36_cpu['research_ref'], '743 B36双端CPU承接接受')
+            + '：每端两种flow各完整36条，合计72条成功tiny路径，失败清理与禁止重试通过；'
+            + 'CPU使用合成冻结包，实际基线采用A32完整验收后的原一次冻结文件。'
+            + link(b36_cpu['accepted_receipt_ref'], 'CPU接受回执'))
     outputs = {}
     for template in sorted((ROOT / 'docs/templates').glob('*.md')):
         target = template.name.replace('__', '/')

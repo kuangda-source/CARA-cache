@@ -8,6 +8,8 @@
 
 [742 A32实际启动与检查安排](742_CARA_A32_A6000_ACTUAL_LAUNCH_AND_CHECK_SCHEDULE_20261028.md)：A32于10月28日22:17:40在两卡GPU1 A6000独占启动；32条、硬5GPUh，原runner上下文已确认。中央226上限保持，唯一预约5GPUh、旧16.5未知责任保留。10月29日00:47半程、03:15终验；完整GPU数值门、保真与速度结论仍待验收，B36后置。 [唯一启动回执](../reports/cara_fast_A6000_GPU_actual_launch_r1_20261028.json)
 
+[743 B36双端CPU承接接受](743_CARA_B36_COMPLETE_CONTINUATION_DUAL_CPU_ACCEPTANCE_20261029.md)：每端两种flow各完整36条，合计72条成功tiny路径，失败清理与禁止重试通过；CPU使用合成冻结包，实际基线采用A32完整验收后的原一次冻结文件。[CPU接受回执](../reports/cara_fast_B36_CPU_acceptance_r1_20261029.json)
+
 [最新计划与对话分工](../plans/cara_next_stage_20261028/08_REPOSITORY_RECONCILIATION.md)；A32已单次启动，其余按各卡条件推进，科学结果以终态验收为准。
 
 | 顺序 / 负责人 | 当前阶段 | 下一项验收 / 动作 |

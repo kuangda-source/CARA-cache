@@ -22,13 +22,15 @@ def main():
     p.add_argument('--score-cli-control',action='store_true')
     p.add_argument('--orchestration-r2',action='store_true')
     p.add_argument('--post-r2',action='store_true')
+    p.add_argument('--b36-r1',action='store_true')
     p.add_argument('--output',type=Path,required=True);a=p.parse_args();assert not a.output.exists()
     label='ada' if a.host=='four_card' else 'a6000'
     stage_name='cara-fast-CPU-'+label+'-r'+str(a.revision)+'-20261028'
     payload=dict(action=a.action,host=a.host,stage_name=stage_name)
     # Exact accepted launch/capture code, unchanged CPU/network/memory safeguards.
-    assert sum(bool(v) for v in (a.shutdown_repair,a.exit_diagnostic,a.binding_r2,a.score_cli_control,a.orchestration_r2,a.post_r2))<=1
-    worker=('check_cara_fast_post_cpu_r2.py' if a.post_r2 else
+    assert sum(bool(v) for v in (a.shutdown_repair,a.exit_diagnostic,a.binding_r2,a.score_cli_control,a.orchestration_r2,a.post_r2,a.b36_r1))<=1
+    worker=('check_cara_fast_b36_cpu_r1.py' if a.b36_r1 else
+            'check_cara_fast_post_cpu_r2.py' if a.post_r2 else
             'check_cara_fast_orchestration_cpu_r2.py' if a.orchestration_r2 else
             'check_cara_fast_scoring_cli_cpu_r2.py' if a.score_cli_control else
             'check_cara_fast_binding_cpu_r2.py' if a.binding_r2 else
@@ -36,6 +38,16 @@ def main():
             'check_cara_fast_shutdown_cpu_r1.py' if a.shutdown_repair else 'check_cara_fast_cpu_r1.py')
     remote=EXISTING_CPU_TRANSPORT.replace('check_wc_time_card_cpu_r1.py',worker)
     assert remote.count(worker)==1
+    if a.b36_r1:
+        before=" end=cmd.index('--entrypoint')+3"
+        assert remote.count(before)==1
+        remote=remote.replace(before,""" for option,value in [('--cpuset-cpus','26'),('--memory-swap','4g')]:
+  if option in cmd:cmd[cmd.index(option)+1]=value
+  else:cmd[cmd.index('--entrypoint'):cmd.index('--entrypoint')]=[option,value]
+ end=cmd.index('--entrypoint')+3""")
+        before="('NanoCpus','Memory','DeviceRequests','NetworkMode','ReadonlyRootfs')"
+        assert remote.count(before)==1
+        remote=remote.replace(before,"('NanoCpus','Memory','MemorySwap','CpusetCpus','DeviceRequests','NetworkMode','ReadonlyRootfs')")
     if a.action=='prepare':
         prior={'four_card':'cara_DEV128_full_four_card_CPU_complete2_r3_20261026.json',
                'two_card':'cara_DEV128_full_two_card_CPU_complete_r3_20261026.json'}[a.host]
@@ -130,6 +142,23 @@ def main():
                              [alias.name for alias in node.names] if isinstance(node,ast.Import) else [])
                     pending.extend(module for module in modules if (ROOT/'scripts'/(module+'.py')).exists())
             files.update({name:(ROOT/name).read_bytes() for name in names})
+        if a.b36_r1:
+            names=['src/wcomr/cara_fast_b36_r1.py','tests/test_cara_fast_b36_r1.py',
+                   'tests/check_cara_fast_b36_routes_r1.py','scripts/check_cara_fast_b36_cpu_r1.py',
+                   'scripts/score_cara_fast_fidelity_r1.py',
+                   'plans/cara_next_stage_20261028/mainline/r2/RUN_SPEC.json',
+                   'plans/cara_next_stage_20261028/mainline/r2/EXECUTION_PROFILE.json',
+                   'plans/cara_next_stage_20261028/mainline/r2/WHOLE_QUOTE.json',
+                   'reports/cara_fast_score_cli_two_card_raw_receipts_r2_20261028.json']
+            files.update({name:(ROOT/name).read_bytes() for name in names})
+            profile=json.loads((ROOT/'plans/cara_next_stage_20261028/mainline/r2/EXECUTION_PROFILE.json').read_text())
+            payload['additional_runtime_sha256']=profile['precision']['runtime_source_sha256']
+            before="assert all(sha(root/'runtime'/n)==h for n,h in reg['runtime_source_sha256'].items())"
+            assert remote.count(before)==1
+            remote=remote.replace(before,before+"\n assert all(sha(root/'runtime'/n)==h for n,h in p['additional_runtime_sha256'].items())")
+            before="runtime_source_sha256=reg['runtime_source_sha256'],parent_git_revision="
+            assert remote.count(before)==1
+            remote=remote.replace(before,"runtime_source_sha256={**reg['runtime_source_sha256'],**p['additional_runtime_sha256']},parent_git_revision=")
         payload.update(base_stage=launch['stage'],base_registration_sha256=launch['registration_sha256'],
                        parent_git_revision=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),
                        files={n:base64.b64encode(b).decode() for n,b in files.items()},

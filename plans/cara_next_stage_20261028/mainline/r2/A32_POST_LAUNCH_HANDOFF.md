@@ -61,4 +61,6 @@ CPU退出后用 `capture_cara_fast_terminal_r2.py --launch <原launch> --score-m
 
 ### 3. 完成后
 
+B36核心执行承接已在独立CPU夹具中双端接受，见 [B36_CPU_HANDOFF_R1.md](B36_CPU_HANDOFF_R1.md) 和 `reports/cara_fast_B36_CPU_acceptance_r1_20261029.json`。A32真实六份终态/评分/冻结原件生成后，可交给 `cara_fast_b36_r1.read_handoff` / `bind_handoff` 验证；CPU夹具冻结文件不可用于实际B。仍不自动启动GPU或B36。
+
 更新 `docs/project_status.json` 的 `fast_A32_execution_20261028`、WORKSTREAMS的运行指针和742后续研究记录，按生成器统一更新导航。若已结束，生成器运行展示也要改成终态；不得让旧RUNNING快照继续冒充实时状态。保留原历史60行科学结果和所有失败；A32完整接受后才新增相应科学事实。提交精确owned路径，推送private origin；不发送其他对话或外部消息。B36预计A6000约5.02GPUh、建议硬5.5，超过4GPUh，向用户解释目的并等独立授权。
