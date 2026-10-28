@@ -1,0 +1,126 @@
+{
+  "schema": "CARA_FAST_MINIMUM_NEXT_CARD_R1",
+  "id": "FAST-CAL-A24",
+  "state": "DRAFT_DEPENDENCIES_EXPLICIT_NO_GPU_AUTHORIZATION",
+  "mode": "EXPLORE",
+  "question": "Can finite same-device WC/RA/Native-k baselines reach the fixed Native T_DD/1.5 target while preserving the two-FIT numerical bridge?",
+  "inputs": [
+    "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+    "human_199"
+  ],
+  "seed": 0,
+  "manifest_ref": "plans/cara_next_stage_20261028/mainline/RUN_MANIFEST.json",
+  "manifest_file_sha256": "1b0d712d6e1a6e09cae794867c8048374f3f978c2444cf1f4b24644ed0518f2a",
+  "scope_sha256": "3e104fb567643cdcde08da327a08b5d735ba9861a6522d976ed7a28e5f024428",
+  "physical_slot_ids": [
+    "FAST_R1_001",
+    "FAST_R1_002",
+    "FAST_R1_003",
+    "FAST_R1_004",
+    "FAST_R1_005",
+    "FAST_R1_006",
+    "FAST_R1_007",
+    "FAST_R1_008",
+    "FAST_R1_009",
+    "FAST_R1_010",
+    "FAST_R1_011",
+    "FAST_R1_012",
+    "FAST_R1_013",
+    "FAST_R1_014",
+    "FAST_R1_015",
+    "FAST_R1_016",
+    "FAST_R1_017",
+    "FAST_R1_018",
+    "FAST_R1_019",
+    "FAST_R1_020",
+    "FAST_R1_021",
+    "FAST_R1_022",
+    "FAST_R1_023",
+    "FAST_R1_024"
+  ],
+  "counts": {
+    "physical_paths": 24,
+    "engine_warm": 6,
+    "Native35_ON_references": 2,
+    "numeric_controls": 4,
+    "finite_calibration_candidates": 12
+  },
+  "quote_ref": "plans/cara_next_stage_20261028/mainline/WHOLE_QUOTE.json",
+  "quotes": {
+    "two_card": {
+      "physical_paths": 24,
+      "by_purpose_seconds": {
+        "formal": 630.3437634445727,
+        "calibration": 4349.371967767552,
+        "warm": 2190.44457796989,
+        "repeat": 0,
+        "control": 2080.13441936709
+      },
+      "overhead_seconds": {
+        "model_load": 300,
+        "checks_and_compile": 180,
+        "save_hash_and_IO": 300,
+        "held_thermal_wait": 300,
+        "release_and_settlement": 180
+      },
+      "base_GPUh": 2.919526313485863,
+      "failure_reserve_factor": 1.2,
+      "forecast_GPUh": 3.5034315761830355,
+      "proposed_hard_GPUh": 4.0,
+      "stop_release_margin_seconds": 180
+    },
+    "four_card": {
+      "physical_paths": 24,
+      "by_purpose_seconds": {
+        "formal": 598.0123724676669,
+        "calibration": 4126.285370026902,
+        "warm": 2078.092994325142,
+        "repeat": 0,
+        "control": 1973.4408291433006
+      },
+      "overhead_seconds": {
+        "model_load": 316.7786429123953,
+        "checks_and_compile": 180,
+        "save_hash_and_IO": 300,
+        "held_thermal_wait": 300,
+        "release_and_settlement": 180
+      },
+      "base_GPUh": 2.792391724687613,
+      "failure_reserve_factor": 1.2,
+      "forecast_GPUh": 3.3508700696251355,
+      "proposed_hard_GPUh": 3.5,
+      "stop_release_margin_seconds": 180
+    }
+  },
+  "CPU_after_release": {
+    "pairs_max": 12,
+    "cores": 2,
+    "memory_GiB": 8,
+    "wall_cap_hours": 2,
+    "engineering_forecast_wall_hours": 0.5168011425497632,
+    "frame_cost_factor": 1.5,
+    "import_model_load_SHA_decode_IO_failure_allowance_seconds": 600,
+    "assumed_thread_speedup": 1.0
+  },
+  "decision": {
+    "numerical_failure": "Stop, retain failure/actual cost; no B",
+    "complete_grid": "Freeze one configuration per family using FIT only; unmatched stays labelled",
+    "missing_grid": "No partial selection or unplanned replacement",
+    "B": "Separate authorization, same device, exact original scope; A24 alone never authorizes B36"
+  },
+  "requires_before_dispatch": [
+    "Publish exact source closure and bind a new card adapter to the existing lifecycle",
+    "Accept affected CPU terminal evidence on both profiles",
+    "Freeze the revised 60-path whole scope if B is proposed; A24-only authorization states B is excluded",
+    "Read central ledger/intent/locks again, reserve one envelope once, recover UNKNOWN",
+    "Fresh selected-device hard exclusivity and thermal/storage admission; 90C unchanged",
+    "Bind per-host image/assets/weights/output/log volume SHA and CPU scoring resources",
+    "Explicit card-level GPU authorization"
+  ],
+  "no_GPU_submission_or_reservation": true,
+  "whole_F19_scope_planning_paths": 60,
+  "whole_scope_not_a_56_path_card": true,
+  "protected_final_inputs_accessed": false,
+  "CPU_review_ref": "reports/cara_fast_CPU_review_r2_20261028.json",
+  "Ada_CPU_exit_dependency": "Two 142 terminations retained; diagnose exit stack, do not reinterpret proof as whole CPU pass"
+}

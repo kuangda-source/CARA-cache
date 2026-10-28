@@ -4,6 +4,8 @@
 
 **2026-10-28最新安排：主线P0/F19，探索S-FAST19与固定Shared25-C的Q并行准备。** [最新计划与两个对话分工](plans/cara_next_stage_20261028/08_REPOSITORY_RECONCILIATION.md) · [739接收记录](research/739_CARA_NEXT_STAGE_FAST_SQ_PLAN_AND_CHAT_HANDOFF_20261028.md)。新评价Fidelity-v2尚须逐新卡绑定；GPU未新增授权、未预约、未启动。WC73已热停结算，禁止自动重派；原DEV128、旧合同与失败保持。以下旧准备记录仅作历史复用依据。
 
+[740主线准备与阻塞](research/740_CARA_FAST_MAINLINE_PREPARATION_AND_CPU_EXIT_BOUNDARY_20261028.md)：F19/F18/Uniform19、评分入口与双端报价已具体化；60条为范围修订提案，下一最小卡A24。A6000 CPU终态通过，Ada数值/评分组件完成但两次退出142，整体验收未过；[独立复核](reports/cara_fast_CPU_review_r2_20261028.json)。GPU提交/预约/新增费用均为0；旧时钟与原科学结果不改。
+
 **通过选择完整刷新的时间位置，在加速视频扩散时尽量保留完整模型的输出。**
 
 CARA-Cache（CFG-Aligned Readout and Cost-Aware Allocation for Video Diffusion）是一个基于 Cosmos / WorldCache 实验栈的视频扩散加速研究项目。它研究两个相连的问题：缓存读出怎样更准确，以及有限计算预算应该花在哪些时间步。当前冻结的新DEV候选Shared25-C采用完整刷新D与缓存复用C，不包含修正A；A保留为机制对照。CARA为沿用的项目名。历史目录 `worldcache_omr` 与 Python 包 `wcomr` 为兼容既有实验保留；本仓库当前只维护 WorldCache/CARA 主线。

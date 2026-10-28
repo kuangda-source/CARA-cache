@@ -1,11 +1,11 @@
-# CARA 问题队列 R17
+# CARA 问题队列 R18
 
 2026-10-28。现行依据为[最新总计划](cara_next_stage_20261028/01_Master_Experiment_Plan.md)、[S/Q修订](cara_next_stage_20261028/02_SQ_Method_and_Experiments.md)和[接收/两对话分工](cara_next_stage_20261028/08_REPOSITORY_RECONCILIATION.md)。原R16[逐字归档](cara_next_stage_20261028/QUESTION_QUEUE_BEFORE_R17.md)。以下均是准备/条件提案，非GPU授权。
 
 | 阶段 / 负责人 | 当前状态 | 下一步与边界 |
 |---|---|---|
-| P0 · 主线 | 准备；原WC73已热停结算 | 复用已完成子集与双时钟，明确公平WC/RA缺口、热/存储环境和新补完范围；不重派73槽 |
-| F19 · 主线 | 首个高速可行性设计，未运行 | 冻结掩码/动作/Uniform19、时间匹配WC/RA与Native-k；去重完整范围、CPU及双端报价 |
+| P0 · 主线 | 数值/评分组件完成；Ada CPU退出两次142 | A6000终态通过；下一最小CPU为退出栈诊断，复用组件、不重跑完整矩阵；原WC73不重派 |
+| F19 · 主线 | 掩码/入口/报价已具体化；无新GPU | [主线准备](cara_next_stage_20261028/mainline/README.md)：60条为范围修订提案，最小A24；新卡接线、资源/准入与授权仍待 |
 | S-FAST19 · S/Q探索 | 与F19准备并行；完整分支矩不足 | 旧资产覆盖审计，BR/DIAG/CFG共同语法与合法交换/掩码等价；不从12状态生成全36步结论 |
 | Q0-Q1 · S/Q探索 | 双卡CPU准备；固定Shared25-C | 真实r窗口INT4/INT8打包、同字节及源绑定读出；raw误差不替代实际输出或部署峰值 |
 | A-SQ-FAST · S/Q探索 | 仅明确缺口后准备采集卡 | 绑定新父策略的108标签/56额外Dense pair与存储；解决F19 raw和Q25布局兼容问题，共同费用只计一次 |
@@ -31,3 +31,5 @@ WC73已按736/738热停并结算，原完整A门未形成、B未启动，不重�
 Fidelity-v2仅用于未来逐卡冻结提案；旧质量门、原α、完整请求双预算与结果不改。DEV128已成为后续选择的开发证据，原最终输入继续保护。
 
 最近保存账本cap226、used175.8058597668662、reserved16.5、available33.694140233133794 GPUh不是实时余额。新分池不等于hard limit/预约或授权，两个对话共用中央账本；一份公共采集不重复记费。双端准备、唯一责任、硬独占和每宿主不重叠要求保持。
+
+本轮主线准备见[740记录](../research/740_CARA_FAST_MAINLINE_PREPARATION_AND_CPU_EXIT_BOUNDARY_20261028.md)；[原R17队列](cara_next_stage_20261028/mainline/QUESTION_QUEUE_BEFORE_MAINLINE_R18.md)保留。原56仅规划上界；本轮两候选/重载预热完整计费后为60条提案，未预约或执行。Ada成功proof不覆盖两次142终态，禁止写成双端整CPU通过。

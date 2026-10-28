@@ -1,0 +1,72 @@
+{
+  "status": "COMPONENTS_REVIEWED_ADA_WHOLE_CPU_ACCEPTANCE_BLOCKED",
+  "scope_sha256": "3e104fb567643cdcde08da327a08b5d735ba9861a6522d976ed7a28e5f024428",
+  "hosts": {
+    "four_card": {
+      "receipt_scope": "Affected production tiny CPU and synthetic fidelity only",
+      "tiny_registered_paths": 120,
+      "OFF_ON_pairs": 24,
+      "F18_extra_CPU_paths": 4,
+      "declared_fault_cases": 24,
+      "own_CPU_process_seconds": 341.844573627,
+      "worker_wall_seconds": 897.5601119995117,
+      "full_resolution_synthetic_frame_seconds": 0.75297736749053,
+      "validation_mode": "COMPONENT_ONLY_NOT_WHOLE_CPU_ACCEPTANCE",
+      "original_container_exit_code": 142,
+      "whole_CPU_accepted": false,
+      "critical_payload_sha256": {
+        "plans/cara_next_stage_20261028/mainline/FIDELITY_PROTOCOL.json": "49f9f5612e361b694fb76f52ec9108e21e99e4b7048d9fcbfb77f47134ea6473",
+        "plans/cara_next_stage_20261028/mainline/RUN_MANIFEST.json": "1b0d712d6e1a6e09cae794867c8048374f3f978c2444cf1f4b24644ed0518f2a",
+        "scripts/check_cara_fast_cpu_r1.py": "d112ec495441f9ac1970f758784f5a28fb4cb85a2ae8fa1179c45179839538c4",
+        "src/wcomr/cara_fast_fidelity_r1.py": "8adf7ad6e24ccec9e2c1ce4c6a9830f64f9198df14c357fa19c8e4dd245978eb",
+        "src/wcomr/cara_fast_requests_r1.py": "5138195c562e3f35af7503d9d387a95acc53fc0041c37eca51aceea11737f491",
+        "src/wcomr/cara_fast_spec_r1.py": "5cb5211b5e6c81df7a371840753c7c5dd74c0c6f318311f2574971e48c572fb0",
+        "tests/check_cara_fast_production_cpu_r1.py": "0cf0c0bf5624228fa37457616334fa1be68557cc9eaa47af063634e0071d9086",
+        "tests/test_cara_fast_spec_r1.py": "2a97c55f773c507f4177f80f3ed6563eda1399905f7dfb0fae84d97b88cc353c"
+      },
+      "receipt": "reports/cara_fast_four_card_CPU_terminal_r1_20261028.json",
+      "receipt_sha256": "e11676e747d5879ff6f5a24654fac3b963586120bf3a081841b9cf94fd13c302",
+      "exit_repair_receipt": "reports/cara_fast_four_card_CPU_shutdown_terminal_r2_20261028.json",
+      "exit_repair_receipt_sha256": "81abc6d83c052c5657260a1a4364f7b53122b738a0f3f99ac682d928fdecdbc9",
+      "exit_repair_exit_code": 142
+    },
+    "two_card": {
+      "receipt_scope": "Affected production tiny CPU and synthetic fidelity only",
+      "tiny_registered_paths": 120,
+      "OFF_ON_pairs": 24,
+      "F18_extra_CPU_paths": 4,
+      "declared_fault_cases": 24,
+      "own_CPU_process_seconds": 324.12599926,
+      "worker_wall_seconds": 397.01825499534607,
+      "full_resolution_synthetic_frame_seconds": 0.7332365717738867,
+      "validation_mode": "CLEAN_ORIGINAL_COMPLETE",
+      "original_container_exit_code": 0,
+      "whole_CPU_accepted": true,
+      "critical_payload_sha256": {
+        "plans/cara_next_stage_20261028/mainline/FIDELITY_PROTOCOL.json": "49f9f5612e361b694fb76f52ec9108e21e99e4b7048d9fcbfb77f47134ea6473",
+        "plans/cara_next_stage_20261028/mainline/RUN_MANIFEST.json": "1b0d712d6e1a6e09cae794867c8048374f3f978c2444cf1f4b24644ed0518f2a",
+        "scripts/check_cara_fast_cpu_r1.py": "d112ec495441f9ac1970f758784f5a28fb4cb85a2ae8fa1179c45179839538c4",
+        "src/wcomr/cara_fast_fidelity_r1.py": "8adf7ad6e24ccec9e2c1ce4c6a9830f64f9198df14c357fa19c8e4dd245978eb",
+        "src/wcomr/cara_fast_requests_r1.py": "5138195c562e3f35af7503d9d387a95acc53fc0041c37eca51aceea11737f491",
+        "src/wcomr/cara_fast_spec_r1.py": "5cb5211b5e6c81df7a371840753c7c5dd74c0c6f318311f2574971e48c572fb0",
+        "tests/check_cara_fast_production_cpu_r1.py": "0cf0c0bf5624228fa37457616334fa1be68557cc9eaa47af063634e0071d9086",
+        "tests/test_cara_fast_spec_r1.py": "2a97c55f773c507f4177f80f3ed6563eda1399905f7dfb0fae84d97b88cc353c"
+      },
+      "receipt": "reports/cara_fast_two_card_CPU_capture4_r1_20261028.json",
+      "receipt_sha256": "8d7d1d0e01ca9359d2a07b4183628368b3221efdda5efa6d7a59f54d4dbcf425"
+    }
+  },
+  "independent_rejection_controls": 6,
+  "GPU_submissions": 0,
+  "new_GPUh": 0,
+  "new_reserved_GPUh": 0,
+  "Cosmos_model_loaded": false,
+  "new_videos_generated": 0,
+  "old_videos_rescored": 0,
+  "complete_GPU_adapter_ready": false,
+  "dual_host_whole_CPU_accepted": false,
+  "full_CPU_batch_scoring_run": false,
+  "original_Ada_failures_retained": true,
+  "failed_lifecycle_does_not_count_as_pass": true,
+  "CPU_cost_boundary": "Worker own process time measured; children, I/O wait, transport and local editing not fully process-metered"
+}

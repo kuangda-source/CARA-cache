@@ -1,0 +1,33 @@
+{
+  "name": "Fidelity-v2-fast-r1",
+  "state": "PROSPECTIVE_SPEC_BEFORE_NEW_OUTPUT_ACCESS",
+  "primary": "original lpips 0.1.4 Alex v0.1; RGB/127.5-1; all93 mean; prompt equal",
+  "PSNR": "10*log10(1 / mean_video_RGB_squared_error); zero MSE => string +inf",
+  "SSIM": {
+    "implementation": "piq 0.8.0 ssim",
+    "kernel_size": 11,
+    "kernel_sigma": 1.5,
+    "data_range": 1.0,
+    "k1": 0.01,
+    "k2": 0.03,
+    "downsample": false,
+    "reduction": "none",
+    "channels": "RGB arithmetic mean",
+    "aggregation": "all93 frame arithmetic mean"
+  },
+  "temporal": "mean abs((I[f+1]-N[f+1])-(I[f]-N[f])); all92 pairs; one video statistic",
+  "detail": "forward x/y pixel differences; mean absolute gradient residual, mean squared gradient energy ratio",
+  "zero_reference_gradient": "ratio null with explicit ZERO_REFERENCE_ENERGY status",
+  "frame_curves": "all93 Alex; higher q95 and first worst frame index",
+  "geometry": [
+    93,
+    432,
+    768,
+    3
+  ],
+  "fps": 16,
+  "color": "decoded RGB24 uint8 /255; no resize/trim/alignment",
+  "blind_review": "diagnostic pending; no human agreement claim or retrospective automatic veto",
+  "old_metrics_alpha_and_request_gates_unchanged": true,
+  "supplemental_veto_thresholds": null
+}

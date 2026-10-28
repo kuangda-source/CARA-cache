@@ -881,6 +881,14 @@ def build():
         + '。新评价Fidelity-v2尚须逐新卡绑定；GPU未新增授权、未预约、未启动。'
         + 'WC73已热停结算，禁止自动重派；原DEV128、旧合同与失败保持。以下旧准备记录仅作历史复用依据。'
         if next_stage else '')
+    mainline = status.get('fast_mainline_preparation_20261028')
+    if mainline:
+        values['next_stage_notice'] += (
+            '\n\n' + link(mainline['research_ref'], '740主线准备与阻塞')
+            + '：F19/F18/Uniform19、评分入口与双端报价已具体化；60条为范围修订提案，下一最小卡A24。'
+            + 'A6000 CPU终态通过，Ada数值/评分组件完成但两次退出142，整体验收未过；'
+            + link(mainline['CPU_review_ref'], '独立复核')
+            + '。GPU提交/预约/新增费用均为0；旧时钟与原科学结果不改。')
     outputs = {}
     for template in sorted((ROOT / 'docs/templates').glob('*.md')):
         target = template.name.replace('__', '/')

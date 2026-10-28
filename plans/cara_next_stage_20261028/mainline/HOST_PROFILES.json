@@ -1,0 +1,84 @@
+{
+  "schema": "CARA_FAST_DUAL_HOST_BINDINGS_R1",
+  "scope_sha256": "3e104fb567643cdcde08da327a08b5d735ba9861a6522d976ed7a28e5f024428",
+  "common_model": "Cosmos-Predict2.5-2B/post-trained",
+  "common_setup_ref": "configs/f1_setup.json",
+  "common_setup_sha256": "ffc7fa84d38667236cda4a2f0825b57d832cee0378d637ba375d6e6ea3c60a9f",
+  "request_inputs_sha256": {
+    "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632": "1e2e3e9a4610e7ed0a34d377dc28a8536bc879d4e87491ee75bb8014ceffa9c7",
+    "human_199": "c31a6c204f86aca24f7231c04ff1c07eebc214c1d28f33e22328e1985c7d8fab",
+    "misc_13398218_3840_2160_60fps": "2ad3500de5c7a743033ef3f09e062a514b1f034ad7deeed15435cf4e01eae8c0",
+    "av_51b45829-502e-4143-9c32-c026bd6ab191": "76651f33ce7f08338a776c98a07abb3552796a45dc19bb71ac987b09325323c6"
+  },
+  "legacy_asset_identity_ref": "reports/cara_wc73_asset_recheck_20261027.json",
+  "legacy_asset_receipt_sha256": "05d4b404423c3914317202f39279ff05b6046ef9fe7dd6d79ad473f4ded682bb",
+  "live_bulk_model_weight_rehash_performed": false,
+  "new_model_weights_loaded": false,
+  "science_scope_shared": true,
+  "profiles": {
+    "four_card": {
+      "capability": [
+        8,
+        9
+      ],
+      "container_image": "sha256:1e81ac62ee68ca1a6ef655515096a1d84579b01aa4986810c9b18d4f6c4c552d",
+      "score_overlay": "/data20t/gaokuangda/worldcache_workspace/.sync/wc-time-score-CPU-four_card-r1-20261027",
+      "CPU_limit": {
+        "cpus": 1,
+        "memory_GiB": 4,
+        "wall_seconds": 900,
+        "network": "none",
+        "GPU_hidden": true
+      },
+      "old_unchanged_lifecycle_CPU": "reports/cara_wc_lifecycle_four_card_CPU_terminal_r2_20261027.json",
+      "current_Fast_affected_CPU": {
+        "review_ref": "reports/cara_fast_CPU_review_r2_20261028.json",
+        "component_complete": true,
+        "whole_CPU_accepted": false,
+        "current_CPU_worker_exit_fix_accepted": false
+      },
+      "quote_ref": "plans/cara_next_stage_20261028/mainline/WHOLE_QUOTE.json",
+      "no_GPU_context_created": true,
+      "execution_dtype": "MUST_RECORD_ACTUAL_DTYPES_BEFORE_GPU_CARD_FREEZE",
+      "output_and_cross_disk_log_bindings": "UNBOUND_NO_VOLUME_PROVISIONING",
+      "hard_exclusivity_and_lock": "FRESH_ADMISSION_REQUIRED"
+    },
+    "two_card": {
+      "capability": [
+        8,
+        6
+      ],
+      "container_image": "sha256:1e81ac62ee68ca1a6ef655515096a1d84579b01aa4986810c9b18d4f6c4c552d",
+      "score_overlay": "/data20t/gaokuangda/worldcache_workspace/.sync/wc-time-score-CPU-two_card-r1-20261027",
+      "CPU_limit": {
+        "cpus": 1,
+        "memory_GiB": 4,
+        "wall_seconds": 900,
+        "network": "none",
+        "GPU_hidden": true
+      },
+      "old_unchanged_lifecycle_CPU": "reports/cara_wc_lifecycle_two_card_CPU_terminal_r2_20261027.json",
+      "current_Fast_affected_CPU": {
+        "review_ref": "reports/cara_fast_CPU_review_r2_20261028.json",
+        "component_complete": true,
+        "whole_CPU_accepted": true,
+        "current_CPU_worker_exit_fix_accepted": false
+      },
+      "quote_ref": "plans/cara_next_stage_20261028/mainline/WHOLE_QUOTE.json",
+      "no_GPU_context_created": true,
+      "execution_dtype": "MUST_RECORD_ACTUAL_DTYPES_BEFORE_GPU_CARD_FREEZE",
+      "output_and_cross_disk_log_bindings": "UNBOUND_NO_VOLUME_PROVISIONING",
+      "hard_exclusivity_and_lock": "FRESH_ADMISSION_REQUIRED"
+    }
+  },
+  "preference": [
+    "four_card",
+    "two_card"
+  ],
+  "pinned_host_and_UUID_after_launch": true,
+  "central_ledger_host": "four_card",
+  "no_same_host_overlap": true,
+  "single_card_unique_across_hosts": true,
+  "GPU_authorized": false,
+  "GPU_dispatch_ready": false
+}

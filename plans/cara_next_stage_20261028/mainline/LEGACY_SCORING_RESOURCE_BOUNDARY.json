@@ -1,0 +1,41 @@
+{
+  "state": "RESOURCE_QUOTE_ONLY_NO_LEGACY_BATCH_STARTED",
+  "scope": "Existing videos only, original accepted identities and frozen matched Native; no reinterpretation of historical acceptance",
+  "pair_manifest": null,
+  "actual_deduplicated_pair_count": null,
+  "prototype_frame_seconds": 0.75297736749053,
+  "probe_boundary": "One full-resolution synthetic frame per host; old all93 videos not read or rescored in this turn",
+  "proposed_boundaries": [
+    {
+      "max_pairs": 12,
+      "frames_per_pair": 93,
+      "cores": 2,
+      "memory_GiB": 8,
+      "wall_cap_hours": 2,
+      "allocated_vCPUh_cap": 4,
+      "allocated_GiBh_cap": 16,
+      "engineering_wall_hours": 0.5168011425497632
+    },
+    {
+      "max_pairs": 44,
+      "frames_per_pair": 93,
+      "cores": 2,
+      "memory_GiB": 8,
+      "wall_cap_hours": 4,
+      "allocated_vCPUh_cap": 8,
+      "allocated_GiBh_cap": 32,
+      "engineering_wall_hours": 1.4504930782380203
+    }
+  ],
+  "overhead": "50% per-frame margin plus600s import/load/SHA/decode/I-O/failure allowance; storage admission can reject the estimate",
+  "total_scope": "Freeze the whole intended old batch and global CPU envelope before execution; never split a larger batch to evade these bounds",
+  "requirements": [
+    "Deduplicated complete candidate/Native video-SHA and request/seed/model/host/geometry/PTS identity manifest",
+    "Isolated GPU-hidden CPU container and exact packages/weights/protocol binding",
+    "New supplemental scores stored separately; all old alpha, quality gates and decisions retained"
+  ],
+  "optical_flow_included": false,
+  "new_GPUh": 0,
+  "CPU_batch_authorized": false,
+  "CPU_batch_launched": false
+}

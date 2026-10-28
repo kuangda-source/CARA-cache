@@ -1,0 +1,45 @@
+{
+  "schema": "CARA_FAST_PAPER_RESULTS_R1",
+  "state": "NO_NEW_ACCEPTED_RESULTS",
+  "scope_sha256": "3e104fb567643cdcde08da327a08b5d735ba9861a6522d976ed7a28e5f024428",
+  "accepted_batches": [],
+  "protocol_ref": "plans/cara_next_stage_20261028/mainline/FIDELITY_PROTOCOL.json",
+  "protocol_file_sha256": "49f9f5612e361b694fb76f52ec9108e21e99e4b7048d9fcbfb77f47134ea6473",
+  "statistics": {
+    "unit": "prompt",
+    "frame_count_not_independent_n": true,
+    "prompt_equal": true,
+    "repeats": "average within prompt first",
+    "bootstrap_samples": 20000,
+    "bootstrap_seed": 20261028,
+    "quantile": "higher",
+    "interval": "two-sided95 exploratory"
+  },
+  "claims": [
+    {
+      "id": "25D",
+      "state": "OLD_ACCEPTED_DEVELOPMENT_EVIDENCE",
+      "ref": "reports/cara_DEV128_A6000_complete_analysis_20261027.json"
+    },
+    {
+      "id": "Fast19",
+      "state": "TARGET_ONLY_NO_RESULT",
+      "speedup_T_DD_target": 1.5
+    },
+    {
+      "id": "S",
+      "state": "SQ_OWNED_PENDING",
+      "ref": "plans/cara_next_stage_20261028/sq/CPU_PREPARATION_R1.md"
+    },
+    {
+      "id": "Q",
+      "state": "SQ_OWNED_PENDING"
+    },
+    {
+      "id": "contingency",
+      "state": "NOT_ENABLED"
+    }
+  ],
+  "analysis_entry": "scripts/analyze_cara_fast_r1.py",
+  "guard": "No Fast plot/table from planned or partial values. Accepted batches require technical, financial and CPU scoring acceptance; same device per batch."
+}
