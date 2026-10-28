@@ -1,0 +1,107 @@
+{
+  "unix": 1793160128.0564106,
+  "iostat": {
+    "rc": 0,
+    "stdout": "Linux 5.15.0-139-generic (user-Super-Server) \t10/28/26 \t_x86_64_\t(48 CPU)\n\nDevice            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz  aqu-sz  %util\nloop6            0.00      0.10     0.00   0.00  188.18   101.35    0.00      0.15     0.00   0.00  401.89   180.72    0.00      0.00     0.00   0.00    0.00     0.00    0.00   0.01\nsdc             61.86   2597.19     7.66  11.02    3.31    41.99    5.39   2952.14     1.85  25.56   32.72   547.53    0.00      0.00     0.00   0.00    0.00     0.00    0.39  13.49\n\n\nDevice            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz  aqu-sz  %util\nloop6           12.00     52.00     0.00   0.00  627.75     4.33    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    7.53  99.20\nsdc            258.00  20792.00    33.00  11.34   69.09    80.59    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00   17.83  98.80\n\n\n",
+    "stderr": ""
+  },
+  "GPU_thermal": {
+    "rc": 0,
+    "stdout": "\n==============NVSMI LOG==============\n\nTimestamp                                 : Wed Oct 28 12:02:09 2026\nDriver Version                            : 550.67\nCUDA Version                              : 12.4\n\nAttached GPUs                             : 4\nGPU 00000000:03:00.0\n    Performance State                     : P2\n    Clocks Event Reasons\n        Idle                              : Not Active\n        Applications Clocks Setting       : Not Active\n        SW Power Cap                      : Not Active\n        HW Slowdown                       : Not Active\n            HW Thermal Slowdown           : Not Active\n            HW Power Brake Slowdown       : Not Active\n        Sync Boost                        : Not Active\n        SW Thermal Slowdown               : Not Active\n        Display Clock Setting             : Not Active\n    Sparse Operation Mode                 : N/A\n    Temperature\n        GPU Current Temp                  : 80 C\n        GPU T.Limit Temp                  : 10 C\n        GPU Shutdown T.Limit Temp         : -7 C\n        GPU Slowdown T.Limit Temp         : -2 C\n        GPU Max Operating T.Limit Temp    : 0 C\n        GPU Target Temperature            : 85 C\n        Memory Current Temp               : N/A\n        Memory Max Operating T.Limit Temp : N/A\n    GPU Power Readings\n        Power Draw                        : 130.68 W\n        Current Power Limit               : 300.00 W\n        Requested Power Limit             : 300.00 W\n        Default Power Limit               : 300.00 W\n        Min Power Limit                   : 100.00 W\n        Max Power Limit                   : 300.00 W\n    Power Samples\n        Duration                          : 2.36 sec\n        Number of Samples                 : 119\n        Max                               : 131.23 W\n        Min                               : 130.31 W\n        Avg                               : 130.67 W\n    GPU Memory Power Readings \n        Power Draw                        : N/A\n    Module Power Readings\n        Power Draw                        : N/A\n        Current Power Limit               : N/A\n        Requested Power Limit             : N/A\n        Default Power Limit               : N/A\n        Min Power Limit                   : N/A\n        Max Power Limit                   : N/A\n    Clocks\n        Graphics                          : 2730 MHz\n        SM                                : 2730 MHz\n        Memory                            : 9500 MHz\n        Video                             : 2145 MHz\n    Applications Clocks\n        Graphics                          : 2505 MHz\n        Memory                            : 10001 MHz\n    Default Applications Clocks\n        Graphics                          : 2505 MHz\n        Memory                            : 10001 MHz\n    Deferred Clocks\n        Memory                            : N/A\n    Max Clocks\n        Graphics                          : 3105 MHz\n        SM                                : 3105 MHz\n        Memory                            : 10001 MHz\n        Video                             : 2415 MHz\n    Max Customer Boost Clocks\n        Graphics                          : N/A\n    SM Clock Samples\n        Duration                          : Not Found\n        Number of Samples                 : Not Found\n        Max                               : Not Found\n        Min                               : Not Found\n        Avg                               : Not Found\n    Memory Clock Samples\n        Duration                          : Not Found\n        Number of Samples                 : Not Found\n        Max                               : Not Found\n        Min                               : Not Found\n        Avg                               : Not Found\n    Clock Policy\n        Auto Boost                        : N/A\n        Auto Boost Default                : N/A\n\n",
+    "stderr": ""
+  },
+  "GPU_all": {
+    "rc": 0,
+    "stdout": "index, uuid, temperature.gpu, fan.speed [%], power.draw [W], power.limit [W], clocks.current.sm [MHz], utilization.gpu [%]\n0, GPU-830ec0a7-f9c2-4d77-3700-8597b32a5134, 65, 40 %, 85.21 W, 300.00 W, 2505 MHz, 15 %\n1, GPU-19d4d100-f845-018d-ec30-def1553c01f5, 80, 56 %, 130.67 W, 300.00 W, 2730 MHz, 100 %\n2, GPU-ad5c68cd-890e-b4c1-d0b6-4d80c7d51018, 76, 50 %, 130.31 W, 300.00 W, 2745 MHz, 100 %\n3, GPU-d4868f0a-29df-9077-82db-77f7bf0f9934, 79, 58 %, 123.47 W, 300.00 W, 2655 MHz, 100 %\n",
+    "stderr": ""
+  },
+  "loop": {
+    "rc": 0,
+    "stdout": "TARGET                                                                 SOURCE     FSTYPE OPTIONS\n/data20t/gaokuangda/worldcache_workspace/outputs/cara-wc73-r1-20261027 /dev/loop6 ext4   rw,nosuid,nodev,noexec,relatime\n",
+    "stderr": ""
+  },
+  "kernel": {
+    "rc": 0,
+    "stdout": "729043.237209] ata6.00: failed command: READ DMA\n[9729043.237212] ata6.00: cmd c8/00:02:82:70:7b/00:00:00:00:00/e0 tag 3 dma 1024 in\n                          res 51/04:02:82:70:7b/00:00:00:00:00/e0 Emask 0x1 (device error)\n[9729043.237223] ata6.00: status: { DRDY ERR }\n[9729043.237226] ata6.00: error: { ABRT }\n[9729043.297200] ata6.00: exception Emask 0x0 SAct 0x0 SErr 0x0 action 0x0\n[9729043.297215] ata6.00: irq_stat 0x40000001\n[9729043.297221] ata6.00: failed command: READ DMA\n[9729043.297225] ata6.00: cmd c8/00:04:84:70:7b/00:00:00:00:00/e0 tag 0 dma 2048 in\n                          res 51/04:04:84:70:7b/00:00:00:00:00/e0 Emask 0x1 (device error)\n[9729043.297238] ata6.00: status: { DRDY ERR }\n[9729043.297242] ata6.00: error: { ABRT }\n[9729043.341174] ata6.00: exception Emask 0x0 SAct 0x0 SErr 0x0 action 0x0\n[9729043.341191] ata6.00: irq_stat 0x40000001\n[9729043.341198] ata6.00: failed command: READ DMA\n[9729043.341202] ata6.00: cmd c8/00:02:80:70:7b/00:00:00:00:00/e0 tag 12 dma 1024 in\n                          res 51/04:02:80:70:7b/00:00:00:00:00/e0 Emask 0x1 (device error)\n[9729043.341215] ata6.00: status: { DRDY ERR }\n[9729043.341219] ata6.00: error: { ABRT }\n[9729043.373179] ata6.00: exception Emask 0x0 SAct 0x0 SErr 0x0 action 0x0\n[9729043.373192] ata6.00: irq_stat 0x40000001\n[9729043.373200] ata6.00: failed command: READ DMA\n[9729043.373203] ata6.00: cmd c8/00:02:82:70:7b/00:00:00:00:00/e0 tag 17 dma 1024 in\n                          res 51/04:02:82:70:7b/00:00:00:00:00/e0 Emask 0x1 (device error)\n[9729043.373215] ata6.00: status: { DRDY ERR }\n[9729043.373219] ata6.00: error: { ABRT }\n[9729043.405188] ata6.00: exception Emask 0x0 SAct 0x0 SErr 0x0 action 0x0\n[9729043.405214] ata6.00: irq_stat 0x40000001\n[9729043.405223] ata6.00: failed command: READ DMA\n[9729043.405227] ata6.00: cmd c8/00:04:84:70:7b/00:00:00:00:00/e0 tag 22 dma 2048 in\n                          res 51/04:04:84:70:7b/00:00:00:00:00/e0 Emask 0x1 (device error)\n[9729043.405241] ata6.00: status: { DRDY ERR }\n[9729043.405245] ata6.00: error: { ABRT }\n[9729043.437179] ata6.00: exception Emask 0x0 SAct 0x0 SErr 0x0 action 0x0\n[9729043.437188] ata6.00: irq_stat 0x40000001\n[9729043.437193] ata6.00: failed command: READ DMA\n[9729043.437196] ata6.00: cmd c8/00:02:80:70:7b/00:00:00:00:00/e0 tag 6 dma 1024 in\n                          res 51/04:02:80:70:7b/00:00:00:00:00/e0 Emask 0x1 (device error)\n[9729043.437203] ata6.00: status: { DRDY ERR }\n[9729043.437206] ata6.00: error: { ABRT }\n[9729043.473151] ata6.00: exception Emask 0x0 SAct 0x0 SErr 0x0 action 0x0\n[9729043.473165] ata6.00: irq_stat 0x40000001\n[9729043.473173] ata6.00: failed command: READ DMA\n[9729043.473176] ata6.00: cmd c8/00:02:82:70:7b/00:00:00:00:00/e0 tag 13 dma 1024 in\n                          res 51/04:02:82:70:7b/00:00:00:00:00/e0 Emask 0x1 (device error)\n[9729043.473189] ata6.00: status: { DRDY ERR }\n[9729043.473193] ata6.00: error: { ABRT }\n[9729043.513175] ata6.00: exception Emask 0x0 SAct 0x0 SErr 0x0 action 0x0\n[9729043.513185] ata6.00: irq_stat 0x40000001\n[9729043.513191] ata6.00: failed command: READ DMA\n[9729043.513193] ata6.00: cmd c8/00:04:84:70:7b/00:00:00:00:00/e0 tag 20 dma 2048 in\n                          res 51/04:04:84:70:7b/00:00:00:00:00/e0 Emask 0x1 (device error)\n[9729043.513220] ata6.00: status: { DRDY ERR }\n[9729043.513224] ata6.00: error: { ABRT }\n[9729043.545177] ata6.00: exception Emask 0x0 SAct 0x0 SErr 0x0 action 0x0\n[9729043.545188] ata6.00: irq_stat 0x40000001\n[9729043.545204] ata6.00: failed command: READ DMA\n[9729043.545207] ata6.00: cmd c8/00:02:80:70:7b/00:00:00:00:00/e0 tag 1 dma 1024 in\n                          res 51/04:02:80:70:7b/00:00:00:00:00/e0 Emask 0x1 (device error)\n[9729043.545220] ata6.00: status: { DRDY ERR }\n[9729043.545224] ata6.00: error: { ABRT }\n[9729043.577172] ata6.00: exception Emask 0x0 SAct 0x0 SErr 0x0 action 0x0\n[9729043.577185] ata6.00: irq_stat 0x40000001\n[9729043.577193] ata6.00: failed command: READ DMA\n[9729043.577196] ata6.00: cmd c8/00:02:82:70:7b/00:00:00:00:00/e0 tag 8 dma 1024 in\n                          res 51/04:02:82:70:7b/00:00:00:00:00/e0 Emask 0x1 (device error)\n[9729043.577208] ata6.00: status: { DRDY ERR }\n[9729043.577211] ata6.00: error: { ABRT }\n[9729043.617144] ata6.00: exception Emask 0x0 SAct 0x0 SErr 0x0 action 0x0\n[9729043.617159] ata6.00: irq_stat 0x40000001\n[9729043.617166] ata6.00: failed command: READ DMA\n[9729043.617170] ata6.00: cmd c8/00:04:84:70:7b/00:00:00:00:00/e0 tag 15 dma 2048 in\n                          res 51/04:04:84:70:7b/00:00:00:00:00/e0 Emask 0x1 (device error)\n[9729043.617191] ata6.00: status: { DRDY ERR }\n[9729043.617195] ata6.00: error: { ABRT }\n[9729043.649184] ata6.00: exception Emask 0x0 SAct 0x0 SErr 0x0 action 0x0\n[9729043.649204] ata6.00: irq_stat 0x40000001\n[9729043.649213] ata6.00: failed command: READ DMA\n[9729043.649217] ata6.00: cmd c8/00:02:80:70:7b/00:00:00:00:00/e0 tag 20 dma 1024 in\n                          res 51/04:02:80:70:7b/00:00:00:00:00/e0 Emask 0x1 (device error)\n[9729043.649231] ata6.00: status: { DRDY ERR }\n[9729043.649235] ata6.00: error: { ABRT }\n[9729043.685150] ata6.00: exception Emask 0x0 SAct 0x0 SErr 0x0 action 0x0\n[9729043.685166] ata6.00: irq_stat 0x40000001\n[9729043.685174] ata6.00: failed command: READ DMA\n[9729043.685179] ata6.00: cmd c8/00:02:82:70:7b/00:00:00:00:00/e0 tag 25 dma 1024 in\n                          res 51/04:02:82:70:7b/00:00:00:00:00/e0 Emask 0x1 (device error)\n[9729043.685192] ata6.00: status: { DRDY ERR }\n[9729043.685197] ata6.00: error: { ABRT }\n[9729043.725150] ata6.00: exception Emask 0x0 SAct 0x0 SErr 0x0 action 0x0\n[9729043.725166] ata6.00: irq_stat 0x40000001\n[9729043.725174] ata6.00: failed command: READ DMA\n[9729043.725177] ata6.00: cmd c8/00:04:84:70:7b/00:00:00:00:00/e0 tag 30 dma 2048 in\n                          res 51/04:04:84:70:7b/00:00:00:00:00/e0 Emask 0x1 (device error)\n[9729043.725188] ata6.00: status: { DRDY ERR }\n[9729043.725192] ata6.00: error: { ABRT }\n[9729043.757142] ata6.00: exception Emask 0x0 SAct 0x0 SErr 0x0 action 0x0\n[9729043.757156] ata6.00: irq_stat 0x40000001\n[9729043.757162] ata6.00: failed command: READ DMA\n[9729043.757167] ata6.00: cmd c8/00:02:80:70:7b/00:00:00:00:00/e0 tag 4 dma 1024 in\n                          res 51/04:02:80:70:7b/00:00:00:00:00/e0 Emask 0x1 (device error)\n[9729043.757179] ata6.00: status: { DRDY ERR }\n[9729043.757182] ata6.00: error: { ABRT }\n[9729043.757403] blk_update_request: I/O error, dev sdb, sector 8089728 op 0x0:(READ) flags 0x0 phys_seg 1 prio class 0\n[9729043.757413] buffer_io_error: 2 callbacks suppressed\n[9729043.757415] Buffer I/O error on dev sdb, logical block 4044864, async page read\n[9729043.793144] ata6.00: exception Emask 0x0 SAct 0x0 SErr 0x0 action 0x0\n[9729043.793158] ata6.00: irq_stat 0x40000001\n[9729043.793165] ata6.00: failed command: READ DMA\n[9729043.793169] ata6.00: cmd c8/00:02:82:70:7b/00:00:00:00:00/e0 tag 14 dma 1024 in\n                          res 51/04:02:82:70:7b/00:00:00:00:00/e0 Emask 0x1 (device error)\n[9729043.793181] ata6.00: status: { DRDY ERR }\n[9729043.793185] ata6.00: error: { ABRT }\n[9729043.793393] blk_update_request: I/O error, dev sdb, sector 8089730 op 0x0:(READ) flags 0x0 phys_seg 1 prio class 0\n[9729043.793403] Buffer I/O error on dev sdb, logical block 4044865, async page read\n[9729043.825152] ata6.00: exception Emask 0x0 SAct 0x0 SErr 0x0 action 0x0\n[9729043.825168] ata6.00: irq_stat 0x40000001\n[9729043.825176] ata6.00: failed command: READ DMA\n[9729043.825180] ata6.00: cmd c8/00:04:84:70:7b/00:00:00:00:00/e0 tag 17 dma 2048 in\n                          res 51/04:04:84:70:7b/00:00:00:00:00/e0 Emask 0x1 (device error)\n[9729043.825193] ata6.00: status: { DRDY ERR }\n[9729043.825197] ata6.00: error: { ABRT }\n[9729043.825405] blk_update_request: I/O error, dev sdb, sector 8089732 op 0x0:(READ) flags 0x0 phys_seg 2 prio class 0\n[9729043.825415] Buffer I/O error on dev sdb, logical block 4044866, async page read\n[9729043.825421] Buffer I/O error on dev sdb, logical block 4044867, async page read\n[9729044.761138] ata6.00: exception Emask 0x0 SAct 0x0 SErr 0x0 action 0x0\n[9729044.761153] ata6.00: irq_stat 0x40000001\n[9729044.761162] ata6.00: failed command: READ DMA\n[9729044.761166] ata6.00: cmd c8/00:08:80:70:7b/00:00:00:00:00/e0 tag 31 dma 4096 in\n                          res 51/04:08:80:70:7b/00:00:00:00:00/e0 Emask 0x1 (device error)\n[9729044.761178] ata6.00: status: { DRDY ERR }\n[9729044.761182] ata6.00: error: { ABRT }\n[9729044.761402] blk_update_request: I/O error, dev sdb, sector 8089728 op 0x0:(READ) flags 0x80700 phys_seg 1 prio class 0\n[9729044.813148] ata6.00: exception Emask 0x0 SAct 0x0 SErr 0x0 action 0x0\n[9729044.813164] ata6.00: irq_stat 0x40000001\n[9729044.813176] ata6.00: failed command: READ DMA\n[9729044.813181] ata6.00: cmd c8/00:08:80:70:7b/00:00:00:00:00/e0 tag 22 dma 4096 in\n                          res 51/04:08:80:70:7b/00:00:00:00:00/e0 Emask 0x1 (device error)\n[9729044.813198] ata6.00: status: { DRDY ERR }\n[9729044.813204] ata6.00: error: { ABRT }\n[9729044.845130] ata6.00: exception Emask 0x0 SAct 0x0 SErr 0x0 action 0x0\n[9729044.845144] ata6.00: irq_stat 0x40000001\n[9729044.845152] ata6.00: failed command: READ DMA\n[9729044.845156] ata6.00: cmd c8/00:08:80:70:7b/00:00:00:00:00/e0 tag 26 dma 4096 in\n                          res 51/04:08:80:70:7b/00:00:00:00:00/e0 Emask 0x1 (device error)\n[9729044.845168] ata6.00: status: { DRDY ERR }\n[9729044.845172] ata6.00: error: { ABRT }\n[9729044.881136] ata6.00: exception Emask 0x0 SAct 0x0 SErr 0x0 action 0x0\n[9729044.881152] ata6.00: irq_stat 0x40000001\n[9729044.881162] ata6.00: failed command: READ DMA\n[9729044.881165] ata6.00: cmd c8/00:08:80:70:7b/00:00:00:00:00/e0 tag 29 dma 4096 in\n                          res 51/04:08:80:70:7b/00:00:00:00:00/e0 Emask 0x1 (device error)\n[9729044.881178] ata6.00: status: { DRDY ERR }\n[9729044.881182] ata6.00: error: { ABRT }\n[9729044.917155] ata6.00: exception Emask 0x0 SAct 0x0 SErr 0x0 action 0x0\n[9729044.917164] ata6.00: irq_stat 0x40000001\n[9729044.917169] ata6.00: failed command: READ DMA\n[9729044.917171] ata6.00: cmd c8/00:08:80:70:7b/00:00:00:00:00/e0 tag 0 dma 4096 in\n                          res 51/04:08:80:70:7b/00:00:00:00:00/e0 Emask 0x1 (device error)\n[9729044.917179] ata6.00: status: { DRDY ERR }\n[9729044.917182] ata6.00: error: { ABRT }\n[9729044.949166] ata6.00: exception Emask 0x0 SAct 0x0 SErr 0x0 action 0x0\n[9729044.949176] ata6.00: irq_stat 0x40000001\n[9729044.949180] ata6.00: failed command: READ DMA\n[9729044.949182] ata6.00: cmd c8/00:08:80:70:7b/00:00:00:00:00/e0 tag 3 dma 4096 in\n                          res 51/04:08:80:70:7b/00:00:00:00:00/e0 Emask 0x1 (device error)\n[9729044.949191] ata6.00: status: { DRDY ERR }\n[9729044.949193] ata6.00: error: { ABRT }\n[9729044.981151] ata6.00: exception Emask 0x0 SAct 0x0 SErr 0x0 action 0x0\n[9729044.981160] ata6.00: irq_stat 0x40000001\n[9729044.981165] ata6.00: failed command: READ DMA\n[9729044.981168] ata6.00: cmd c8/00:08:80:70:7b/00:00:00:00:00/e0 tag 6 dma 4096 in\n                          res 51/04:08:80:70:7b/00:00:00:00:00/e0 Emask 0x1 (device error)\n[9729044.981175] ata6.00: status: { DRDY ERR }\n[9729044.981178] ata6.00: error: { ABRT }\n[9729044.981358] blk_update_request: I/O error, dev sdb, sector 8089728 op 0x0:(READ) flags 0x0 phys_seg 4 prio class 0\n[9729044.981365] Buffer I/O error on dev sdb, logical block 4044864, async page read\n[9729044.981370] Buffer I/O error on dev sdb, logical block 4044865, async page read\n[9729044.981372] Buffer I/O error on dev sdb, logical block 4044866, async page read\n[9729044.981374] Buffer I/O error on dev sdb, logical block 4044867, async page read\n[9797237.578467] kauditd_printk_skb: 2 callbacks suppressed\n[9797242.714446] kauditd_printk_skb: 264 callbacks suppressed\n[9797917.498156] kauditd_printk_skb: 37 callbacks suppressed\n[9798022.712698] kauditd_printk_skb: 265 callbacks suppressed\n[9908099.560539] show_signal_msg: 42 callbacks suppressed\n",
+    "stderr": ""
+  },
+  "vmstat": {
+    "rc": 0,
+    "stdout": "procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----\n r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st\n 9 14 2097148 14037740 1553408 36127616    0    0    57    64    0    0  8  3 88  1  0\n 7 17 2097148 14170268 1553500 36298828    0    0 17116   352 67510 22951 13  2 61 24  0\n",
+    "stderr": ""
+  },
+  "io_pressure": "some avg10=30.66 avg60=33.83 avg300=31.81 total=276725452300\nfull avg10=28.32 avg60=31.68 avg300=29.93 total=256322092195\n",
+  "hwmon": {
+    "hwmon2": {
+      "temp14_label": "Core 12",
+      "temp6_input": "43000",
+      "temp13_input": "39000",
+      "temp4_label": "Core 2",
+      "temp11_label": "Core 9",
+      "temp3_input": "40000",
+      "temp10_input": "40000",
+      "temp1_label": "Package id 0",
+      "temp15_label": "Core 13",
+      "temp7_input": "42000",
+      "temp14_input": "39000",
+      "temp5_label": "Core 3",
+      "temp12_label": "Core 10",
+      "temp4_input": "41000",
+      "temp11_input": "40000",
+      "temp2_label": "Core 0",
+      "temp1_input": "47000",
+      "temp15_input": "39000",
+      "temp6_label": "Core 4",
+      "temp13_label": "Core 11",
+      "temp5_input": "40000",
+      "temp12_input": "40000",
+      "temp3_label": "Core 1",
+      "temp10_label": "Core 8",
+      "name": "coretemp",
+      "temp2_input": "39000",
+      "temp7_label": "Core 5"
+    },
+    "hwmon0": {
+      "temp1_label": "loc1",
+      "temp1_input": "67000",
+      "name": "i350bb"
+    },
+    "hwmon3": {
+      "temp14_label": "Core 12",
+      "temp6_input": "47000",
+      "temp13_input": "46000",
+      "temp4_label": "Core 2",
+      "temp11_label": "Core 9",
+      "temp3_input": "45000",
+      "temp10_input": "44000",
+      "temp1_label": "Package id 1",
+      "temp15_label": "Core 13",
+      "temp7_input": "44000",
+      "temp14_input": "44000",
+      "temp5_label": "Core 3",
+      "temp12_label": "Core 10",
+      "temp4_input": "43000",
+      "temp11_input": "43000",
+      "temp2_label": "Core 0",
+      "temp1_input": "49000",
+      "temp15_input": "43000",
+      "temp6_label": "Core 4",
+      "temp13_label": "Core 11",
+      "temp5_input": "43000",
+      "temp12_input": "44000",
+      "temp3_label": "Core 1",
+      "temp10_label": "Core 8",
+      "name": "coretemp",
+      "temp2_input": "43000",
+      "temp7_label": "Core 5"
+    },
+    "hwmon1": {}
+  },
+  "audit_progress": {
+    "at": 1793160084.5619004,
+    "pid": 3438607,
+    "step": "file_sha",
+    "path": "/data20t/gaokuangda/worldcache_workspace/outputs/cara-wc73-r1-20261027/A/A_DIAGNOSTIC_av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632_NATIVE_U36_1.pt"
+  },
+  "audit_io": "rchar: 163537632\nwchar: 277\nsyscr: 313\nsyscw: 2\nread_bytes: 69435392\nwrite_bytes: 8192\ncancelled_write_bytes: 4096\n"
+}

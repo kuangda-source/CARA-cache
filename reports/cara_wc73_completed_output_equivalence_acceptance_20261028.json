@@ -1,0 +1,176 @@
+{
+  "status": "COMPLETED_AVAILABLE_PAIRS_EXACT_OUTPUT_EQUIVALENCE_ACCEPTED",
+  "scope": "AV28 only; completed paths only; posthoc recovery",
+  "complete_original_A_gate": false,
+  "A_registered_diagnostics": 12,
+  "A_completed_diagnostics": 5,
+  "artifact_SHA_verified": 11,
+  "videos": 11,
+  "frames": 1023,
+  "guided_vectors_per_diagnostic": 36,
+  "full_guided_latent_RGB_input_RNG_comparisons": [
+    {
+      "left": [
+        "NATIVE_U36",
+        false
+      ],
+      "right": [
+        "NATIVE_U36",
+        true
+      ],
+      "tensor_metadata_equal": true,
+      "tensor_storage_bytes_equal": true,
+      "inputs_RNG_equal": true
+    },
+    {
+      "left": [
+        "WC_WRAPPER_ALLD_U36",
+        false
+      ],
+      "right": [
+        "WC_WRAPPER_ALLD_U36",
+        true
+      ],
+      "tensor_metadata_equal": true,
+      "tensor_storage_bytes_equal": true,
+      "inputs_RNG_equal": true
+    },
+    {
+      "left": [
+        "NATIVE_U36",
+        true
+      ],
+      "right": [
+        "WC_WRAPPER_ALLD_U36",
+        true
+      ],
+      "tensor_metadata_equal": true,
+      "tensor_storage_bytes_equal": true,
+      "inputs_RNG_equal": true
+    }
+  ],
+  "supplemental_final_latent_RGB_checks": [
+    {
+      "left": [
+        "A_DIAGNOSTIC",
+        "NATIVE_U36",
+        false
+      ],
+      "right": [
+        "A_DIAGNOSTIC",
+        "NATIVE_U36",
+        true
+      ],
+      "final_latent_exact": true,
+      "RGB_exact": true,
+      "PTS_exact": true
+    },
+    {
+      "left": [
+        "A_DIAGNOSTIC",
+        "WC_WRAPPER_ALLD_U36",
+        false
+      ],
+      "right": [
+        "A_DIAGNOSTIC",
+        "WC_WRAPPER_ALLD_U36",
+        true
+      ],
+      "final_latent_exact": true,
+      "RGB_exact": true,
+      "PTS_exact": true
+    },
+    {
+      "left": [
+        "A_DIAGNOSTIC",
+        "NATIVE_U36",
+        true
+      ],
+      "right": [
+        "A_DIAGNOSTIC",
+        "WC_WRAPPER_ALLD_U36",
+        true
+      ],
+      "final_latent_exact": true,
+      "RGB_exact": true,
+      "PTS_exact": true
+    },
+    {
+      "left": [
+        "A_WARM",
+        "NATIVE_U36",
+        null
+      ],
+      "right": [
+        "A_DIAGNOSTIC",
+        "NATIVE_U36",
+        false
+      ],
+      "final_latent_exact": true,
+      "RGB_exact": true,
+      "PTS_exact": true
+    },
+    {
+      "left": [
+        "A_WARM",
+        "WC_WRAPPER_ALLD_U36",
+        null
+      ],
+      "right": [
+        "A_DIAGNOSTIC",
+        "WC_WRAPPER_ALLD_U36",
+        false
+      ],
+      "final_latent_exact": true,
+      "RGB_exact": true,
+      "PTS_exact": true
+    },
+    {
+      "left": [
+        "A_WARM",
+        "WC_README_U36",
+        null
+      ],
+      "right": [
+        "A_DIAGNOSTIC",
+        "WC_README_U36",
+        false
+      ],
+      "final_latent_exact": true,
+      "RGB_exact": true,
+      "PTS_exact": true
+    }
+  ],
+  "missing": [
+    "AV28 README ON interrupted",
+    "second CAL all six diagnostics not started"
+  ],
+  "selection_frozen": false,
+  "B_started": false,
+  "original_thresholds_changed": false,
+  "new_GPUh": 0,
+  "original_WC73_actual_GPUh": 0.9806527540253268,
+  "CPU_cost": {
+    "storage_r2_wall_seconds": 379.6117088794708,
+    "storage_r2_process_CPU_seconds": 15.754596000000001,
+    "RGB_wall_seconds": 70.4052345752716,
+    "RGB_process_and_children_CPU_seconds": 16.110714,
+    "metadata_wall_seconds": 26.27827262878418,
+    "metadata_CPU_seconds": 0.767041,
+    "completed_checks_CPU_seconds_sum": 32.632351,
+    "r1_stopped_wall_upper_seconds": 300.62932419776917,
+    "r1_actual_CPU_seconds": "NOT_PRECISELY_METERED",
+    "other_readonly_probes_local_transport_CPU": "NOT_METERED"
+  },
+  "CPU_handles_released": true,
+  "physical_thermal_root_cause": "NOT_IDENTIFIABLE_FROM_RECORDED_SENSORS; cooling margin primary hypothesis",
+  "evidence_SHA256": {
+    "reports/cara_wc73_completed_tensor_verified_20261028.json": "1a66f75c43c8fb78c3ce68eaf8e214c93f67b48071499b6e39fab1b6841ff309",
+    "reports/cara_wc73_completed_RGB_verified_20261028.json": "b18adb664d54f7b97679c81a0dbb5fb12306e0ee9b1abfcde1ad0365c46a5fad",
+    "reports/cara_wc73_completed_latent_metadata_20261028.json": "f9f3102cafaec8376ea0a8c3a9e7103be7d8925767edbc13075f636fc0d40c92",
+    "reports/cara_wc73_partial_input_control_check_20261028.json": "2aebd89119391461ad938e49e4ebc4b84636fa7259ec96c8689f3496103dcf8a",
+    "reports/cara_wc73_CPU_IO_and_Ada_thermal_diagnosis_20261028.json": "145980f1fe1793441982dbb7e7f592d949354c9834494c1339e657bbad6b77bd",
+    "reports/cara_wc73_storage_layout_diagnosis_20261028.json": "62ff584781810455e103fb008892296c497a72366d4d15dcfa5025173105fc17",
+    "reports/cara_wc73_RGB_CPU_resource_release_20261028.json": "2ce396fe495af876439b29ce3a30c03a740702313eafbc54b4112a448e5e7c73"
+  }
+}

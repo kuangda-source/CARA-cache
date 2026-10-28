@@ -2,6 +2,8 @@
 
 [736 WC73热保护停止](../../research/736_CARA_WC73_THERMAL_STOP_AND_SETTLEMENT_20261028.md)：原任务10月27日21:38:56因≥90°C热保护停止；A完成11/26，等价门禁未形成结论，未冻结、未启动B。全部原进程/锁已释放、Default恢复，0.980652754 GPUh中央精确结算；未重跑。原ETA作废，两项检查已删除，旧门槛与16.5未知责任不变。
 
+[738 WC73已完成子集等价核验](../../research/738_CARA_WC73_CPU_IO_OUTPUT_EQUIVALENCE_AND_THERMAL_DIAGNOSIS_20261028.md)：11份张量原SHA、11视频/1023帧完整；首个AV28 Native/allD三组配对的36步输出、latent、RGB及输入/RNG精确一致。CPU超时定位为共享HDD/loop读取等待，原A三臂门仍不完整；散热余量为优先排查方向，物理根因未定，未重跑GPU。
+
 [735 CFG mainline and checklist](../../research/735_CARA_CFG_MAINLINE_PLAN_AND_FEISHU_RECONCILIATION_20261028.md): S scheduling and Q cache compression plans registered separately. Independent confirmation/Q5 no longer wait for R4; asset/mask/codec CPU work pending. Existing WC73 unchanged; Feishu checklist updated and verified, no GPU or budget added, IG paused.
 
 [734 DEV128 age3 secondary review](../../research/734_CARA_DEV128_AGE3_QUALITY_TRADEOFF_AND_CONFIRMATION_20261028.md): original quality bounds versus Native35/S25-A and mean time budget pass; LPIPS versus Shared25-C improves 6.68%, with MUSIQ tradeoff. Worth a separately registered independent confirmation; original main candidate unchanged, no GPU authorized, IG paused.
