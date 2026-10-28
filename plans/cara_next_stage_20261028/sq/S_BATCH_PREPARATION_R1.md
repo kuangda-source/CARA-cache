@@ -24,4 +24,10 @@
 
 [CPU 范围](S_BATCH_CPU_R1.json)为两个 flow 设置各十条完整路径，共 20 条；小权重、真实 pinned WC/RF/UniPC 与占位 decoder/writer，GPU 隐藏、禁网、2 核/8 GiB、1800 秒、64 MiB 文件限制。每 flow 用原流式存储上限 16 MiB/8 MiB，重载 140 文件，双 flow 合计 80 次 tiny tensor 读取。原 owner/采集/存储阶段不重派，真实权重与外部 tensor 读取禁止。
 
-当前七项本地控制通过；新 Linux 原阶段尚待首次启动和独立验收。真实资源仍按[解析下界](../../../reports/cara_sq_s_resource_analytical_floor_r1_20261029.json)继续补齐字段清单、物理峰值边界与双端完整工程报价；CPU fixture 限额不用于真实卡。
+同一源码 `6035fe2f` 的[双端整批 CPU 接受](../../../reports/cara_sq_s_batch_dual_cpu_accepted_r1_20261029.json)已完成：每端七项控制、两个 flow 共 20 完整路径；每 flow 实际 head 936、深层 block 552、四组完整 OFF/ON，140 文件重载，两 flow 合计 280 文件、80 次 tiny tensor 读取。独立接受器每端另拒绝十二类缺项/篡改/越界回执。全部实际 S 标签和 GPU 提交仍为零。
+
+两卡 worker 墙钟 162.34 秒、父进程 CPU 156.32 秒、父峰值 RSS 0.890 GiB；容器墙钟 168.71 秒。四卡 worker 墙钟 762.71 秒、父进程 CPU 206.45 秒、父峰值 RSS 0.823 GiB；容器墙钟 894.86 秒。四卡结果写出后约 130.65 秒才完成进程退出，原 Inductor 子进程、读盘与退出状态均保留；直到容器退出 0 后才接受。编译子进程 CPU 未完整计量，按容器 2 CPU × 实际墙钟保留全部子进程分配上界，不能把父 CPU 当总 CPU。两卡一次读取断开后仅恢复原容器，未重派。
+
+[复用候选审计](../../../reports/cara_sq_s_collection_reuse_candidates_r1_20261029.json)已找到旧 DEV128 的 `DIAGNOSTIC_SHARED25_C_0_1`：AV28 的完整 36 guided、latent 与 93 帧已接受 RGB 控制。它仍待源/模型/输入/策略/精度、实际文件身份、主机及摘要协议匹配；旧解码文件 RGB SHA 与新入口的编码前像素 SHA 不能直接混用。B1 的完整 OFF/ON 布尔接受不等于保存了全 36 guided；A32 F19-C 预热关闭 guided 审计；CAL66 Shared25-C 属于 QUALITY。当前不据这些较弱元数据自动减少路径，也不提前断言没有可复用原件。
+
+下一步先完成该候选资格审查和实际矩阵去重，再按[真实几何解析下界](../../../reports/cara_sq_s_resource_analytical_floor_r1_20261029.json)补齐字段清单、物理峰值边界与双端完整工程报价。CPU fixture 限额不用于真实卡；GPU 外层权限/独占/费用/终态入口仍须继续接齐，双端整批 CPU 接受不代表完整 S GPU 卡已就绪。

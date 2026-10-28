@@ -1,0 +1,298 @@
+{
+  "status": "SQ_CPU_PREPARATION_CAPTURE",
+  "observed_unix": 1793215082.621816,
+  "launch": {
+    "status": "SQ_GPU_HIDDEN_CPU_PREPARATION_LAUNCHED",
+    "stage": "/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-batch-cpu-four-card-r1-20261029",
+    "container": "cara-sq-s-batch-cpu-four-card-r1-20261029-cpu",
+    "source_revision": "6035fe2f3716b3745accf6476e7f758a7bd07325",
+    "registration_sha256": "77dedb6f4a905b159736a5066706200511f19bd2d5b6f524415bb15777a3f5c7",
+    "identity": {
+      "pid": 3823603,
+      "state": "R",
+      "start_ticks": 999926858,
+      "command": "docker run --cpuset-cpus 4,5 --memory-swap 8g --ulimit fsize=67108864:67108864 --read-only --network none --pid host --name cara-sq-s-batch-cpu-four-card-r1-20261029-cpu --label wcomr.manifest=77dedb6f4a905b159736a5066706200511f19bd2d5b6f524415bb15777a3f5c7 --user 1000:1000 --cpus 2 --memory 8g --pids-limit 512 --tmpfs /tmp:rw,size=2g -v /data20t/gaokuangda/worldcache_workspace:/data20t/gaokuangda/worldcache_workspace:ro -v /data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-batch-cpu-four-card-r1-20261029:/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-batch-cpu-four-card-r1-20261029:rw -w /data20t/gaokuangda/worldcache_workspace/runtime -e CUDA_CACHE_PATH=/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-batch-cpu-four-card-r1-20261029/CPU-caches/cuda -e CUDA_HOME=/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cuda_nvrtc -e CUDA_PATH=/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cuda_nvrtc -e CUDA_VISIBLE_DEVICES= -e HF_HOME=/data20t/gaokuangda/worldcache_workspace/cache/huggingface -e HF_HUB_CACHE=/data20t/gaokuangda/worldcache_workspace/cache/huggingface/hub -e HF_HUB_OFFLINE=1 -e LD_LIBRARY_PATH=/data20t/gaokuangda/worldcache_workspace/system-libs-r1/usr/lib/x86_64-linux-gnu/blas:/data20t/gaokuangda/worldcache_workspace/system-libs-r1/usr/lib/x86_64-linux-gnu/lapack:/data20t/gaokuangda/worldcache_workspace/system-libs-r1/usr/lib/x86_64-linux-gnu/pulseaudio:/data20t/gaokuangda/worldcache_workspace/system-libs-r1/usr/lib/x86_64-linux-gnu:/data20t/gaokuangda/worldcache_workspace/system-libs-r1/lib/x86_64-linux-gnu:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cuda_nvrtc/lib:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cuda_runtime/lib:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cudnn/lib:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/nvjitlink/lib:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cublas/lib:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/torch/lib -e LOGNAME=gaokuangda -e NLTK_DATA=/data20t/gaokuangda/worldcache_workspace/runtime-resources/nltk-guardrail-d6d4bfa8-r1 -e NVIDIA_VISIBLE_DEVICES=void -e OMP_NUM_THREADS=2 -e OPENBLAS_NUM_THREADS=2 -e PATH=/data20t/gaokuangda/worldcache_workspace/system-libs-r1/usr/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin -e PYTHONDONTWRITEBYTECODE=1 -e PYTHONPATH=/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-batch-cpu-four-card-r1-20261029/scripts:/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-batch-cpu-four-card-r1-20261029/src -e TOKENIZERS_PARALLELISM=false -e TORCHINDUCTOR_CACHE_DIR=/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-batch-cpu-four-card-r1-20261029/CPU-caches/torchinductor -e TORCH_EXTENSIONS_DIR=/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-batch-cpu-four-card-r1-20261029/CPU-caches/extensions -e TORCH_HOME=/data20t/gaokuangda/worldcache_workspace/cache/torch -e TRANSFORMERS_OFFLINE=1 -e TRITON_CACHE_DIR=/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-batch-cpu-four-card-r1-20261029/CPU-caches/triton -e USER=gaokuangda -e WC_SCOUT_KIND=CAL12 -e XDG_CACHE_HOME=/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-batch-cpu-four-card-r1-20261029/CPU-caches/xdg --entrypoint /usr/bin/timeout sha256:1e81ac62ee68ca1a6ef655515096a1d84579b01aa4986810c9b18d4f6c4c552d --signal=TERM --kill-after=10s 1800 /usr/bin/ionice -c 3 /data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/bin/python /data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-batch-cpu-four-card-r1-20261029/scripts/check_cara_sq_s_batch_cpu_r1.py --assets /data20t/gaokuangda/worldcache_workspace/outputs/cara-ig-b1-r2-20261027/assets --manifest-sha256 5487f8db32d45a5d0f3304333bf362d9d6ec46fb3181c735d7267b78a6e398fa --profile four_card --scope plans/cara_next_stage_20261028/sq/S_BATCH_CPU_R1.json --output /data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-batch-cpu-four-card-r1-20261029/analysis.json "
+    },
+    "started_unix": 1793214205.2256634,
+    "resource_limits": {
+      "CPUs": 2,
+      "cpuset": "4,5",
+      "RAM_bytes": 8589934592,
+      "wall_seconds": 1800,
+      "allocated_vCPUh_max": 1.0,
+      "output_bytes_max": 67108864,
+      "assets_readonly": true,
+      "network": "none",
+      "GPU": "hidden"
+    },
+    "new_GPU_submissions": 0,
+    "ledger_writes": 0
+  },
+  "source_hashes_equal": true,
+  "runtime_hashes_equal": true,
+  "container_state": {
+    "Status": "running",
+    "Running": true,
+    "Paused": false,
+    "Restarting": false,
+    "OOMKilled": false,
+    "Dead": false,
+    "Pid": 3823648,
+    "ExitCode": 0,
+    "Error": "",
+    "StartedAt": "2026-10-28T19:03:25.287253562Z",
+    "FinishedAt": "0001-01-01T00:00:00Z"
+  },
+  "host_config": {
+    "DeviceRequests": null,
+    "NanoCpus": 2000000000,
+    "Memory": 8589934592,
+    "MemorySwap": 8589934592,
+    "CpusetCpus": "4,5",
+    "NetworkMode": "none",
+    "ReadonlyRootfs": true
+  },
+  "mounts": [
+    {
+      "Type": "bind",
+      "Source": "/data20t/gaokuangda/worldcache_workspace",
+      "Destination": "/data20t/gaokuangda/worldcache_workspace",
+      "Mode": "ro",
+      "RW": false,
+      "Propagation": "rprivate"
+    },
+    {
+      "Type": "bind",
+      "Source": "/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-batch-cpu-four-card-r1-20261029",
+      "Destination": "/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-batch-cpu-four-card-r1-20261029",
+      "Mode": "rw",
+      "RW": true,
+      "Propagation": "rprivate"
+    }
+  ],
+  "image": "sha256:1e81ac62ee68ca1a6ef655515096a1d84579b01aa4986810c9b18d4f6c4c552d",
+  "result": {
+    "status": "S_WHOLE_UPPER_MATRIX_CPU_PASS_NOT_GPU_OR_SCIENTIFIC_ACCEPTANCE",
+    "profile": "four_card",
+    "scope": {
+      "schema": "SQ_S_COMPLETE_UPPER_MATRIX_CPU_R1",
+      "scope": "Pinned production request adapter and whole ten-path S upper matrix; tiny CPU weights/conditioner/decoder/writer only",
+      "flows": [
+        false,
+        true
+      ],
+      "CPU_prompts": [
+        "AV28_CPU",
+        "Human_CPU"
+      ],
+      "complete_CPU_paths": 20,
+      "CPU_paths_per_flow": 10,
+      "warm_paths_per_flow": 2,
+      "OFF_ON_controls_per_flow": 4,
+      "moment_rows_per_flow": 108,
+      "parent_Dense_pairs_per_flow": 220,
+      "parent_C_pairs_per_flow": 140,
+      "extra_Dense_teacher_pairs_per_flow": 56,
+      "extra_C_shadow_pairs_per_flow": 52,
+      "total_readout_pairs_per_flow": 468,
+      "total_branch_readouts_per_flow": 936,
+      "raw_CPU_states_per_flow": 8,
+      "unique_anchors_per_flow": 24,
+      "streamed_files_per_flow": 140,
+      "storage_total_cap_bytes_per_flow": 16777216,
+      "storage_file_cap_bytes": 8388608,
+      "tiny_tensor_reloads": 80,
+      "unit_controls": 7,
+      "reuse_audit_required_before_real_GPU_quote": true,
+      "actual_S_labels": 0,
+      "actual_Cosmos_weights": false,
+      "real_generated_video": false,
+      "GPU_authorized": false,
+      "GPU_submissions": 0,
+      "ledger_writes": 0
+    },
+    "rows": [
+      {
+        "flow": false,
+        "status": "PASS",
+        "complete_CPU_paths": 10,
+        "warm_CPU_paths": 2,
+        "counts": {
+          "paths": 10,
+          "warm_paths": 2,
+          "OFF_paths": 4,
+          "ON_paths": 4,
+          "parent_solver_pairs": 360,
+          "parent_Dense_pairs": 220,
+          "parent_C_pairs": 140,
+          "extra_Dense_teacher_pairs": 56,
+          "extra_C_shadow_pairs": 52,
+          "total_pairs": 468,
+          "total_branch_readouts": 936,
+          "moment_rows": 108,
+          "F19_raw_states": 8,
+          "unique_raw_anchors": 24,
+          "extra_Dense_hidden_head_pairs": 0
+        },
+        "scope_sha256": "902f324eeb43d44dfaf62807e964cc7bf7ddd7e6a444d9dc7b68f6c4cc34e52b",
+        "whole_state_status": "COMPLETE_DATA_ONLY_AWAITING_TERMINAL_ACCEPTANCE",
+        "OFF_ON_controls": [
+          {
+            "prompt": "AV28_CPU",
+            "parent": "Shared25-C",
+            "exact": true
+          },
+          {
+            "prompt": "AV28_CPU",
+            "parent": "F19-C",
+            "exact": true
+          },
+          {
+            "prompt": "Human_CPU",
+            "parent": "Shared25-C",
+            "exact": true
+          },
+          {
+            "prompt": "Human_CPU",
+            "parent": "F19-C",
+            "exact": true
+          }
+        ],
+        "observed_head_forward_calls": 936,
+        "observed_deep_block_calls": 552,
+        "exact_full36_guided_final_latent_decoded93_RGB": true,
+        "all_results_JSON_metadata_only": true,
+        "storage": {
+          "manifest": {
+            "name": "manifest.json",
+            "bytes": 47403,
+            "sha256": "a126ac4c5cc261dde646642c5afcf5f65aa704ffda8d34509fa8a99641f30b25"
+          },
+          "measured_rows": 108,
+          "raw_states": 8,
+          "unique_anchor_files": 24,
+          "actual_stored_bytes": 2285260,
+          "CPU_data_storage_only": true
+        },
+        "reload_audit": {
+          "files_SHA_and_bytes_reloaded": 140,
+          "measured_rows_reloaded": 108,
+          "raw_states_reloaded": 8,
+          "unique_anchors_reloaded": 24,
+          "actual_C_reference_and_noise_grid_retained": true,
+          "real_Cosmos_weights_loaded": false
+        },
+        "S_labels_collected": 0,
+        "actual_Cosmos_weights": false,
+        "real_generated_video": false
+      },
+      {
+        "flow": true,
+        "status": "PASS",
+        "complete_CPU_paths": 10,
+        "warm_CPU_paths": 2,
+        "counts": {
+          "paths": 10,
+          "warm_paths": 2,
+          "OFF_paths": 4,
+          "ON_paths": 4,
+          "parent_solver_pairs": 360,
+          "parent_Dense_pairs": 220,
+          "parent_C_pairs": 140,
+          "extra_Dense_teacher_pairs": 56,
+          "extra_C_shadow_pairs": 52,
+          "total_pairs": 468,
+          "total_branch_readouts": 936,
+          "moment_rows": 108,
+          "F19_raw_states": 8,
+          "unique_raw_anchors": 24,
+          "extra_Dense_hidden_head_pairs": 0
+        },
+        "scope_sha256": "902f324eeb43d44dfaf62807e964cc7bf7ddd7e6a444d9dc7b68f6c4cc34e52b",
+        "whole_state_status": "COMPLETE_DATA_ONLY_AWAITING_TERMINAL_ACCEPTANCE",
+        "OFF_ON_controls": [
+          {
+            "prompt": "AV28_CPU",
+            "parent": "Shared25-C",
+            "exact": true
+          },
+          {
+            "prompt": "AV28_CPU",
+            "parent": "F19-C",
+            "exact": true
+          },
+          {
+            "prompt": "Human_CPU",
+            "parent": "Shared25-C",
+            "exact": true
+          },
+          {
+            "prompt": "Human_CPU",
+            "parent": "F19-C",
+            "exact": true
+          }
+        ],
+        "observed_head_forward_calls": 936,
+        "observed_deep_block_calls": 552,
+        "exact_full36_guided_final_latent_decoded93_RGB": true,
+        "all_results_JSON_metadata_only": true,
+        "storage": {
+          "manifest": {
+            "name": "manifest.json",
+            "bytes": 47403,
+            "sha256": "c4a2f880c0aabcc081edef564fca40d4a0e3763a4781f931cd3575f3f75a722a"
+          },
+          "measured_rows": 108,
+          "raw_states": 8,
+          "unique_anchor_files": 24,
+          "actual_stored_bytes": 2285616,
+          "CPU_data_storage_only": true
+        },
+        "reload_audit": {
+          "files_SHA_and_bytes_reloaded": 140,
+          "measured_rows_reloaded": 108,
+          "raw_states_reloaded": 8,
+          "unique_anchors_reloaded": 24,
+          "actual_C_reference_and_noise_grid_retained": true,
+          "real_Cosmos_weights_loaded": false
+        },
+        "S_labels_collected": 0,
+        "actual_Cosmos_weights": false,
+        "real_generated_video": false
+      }
+    ],
+    "upstream_sha256": {
+      "cosmos_predict2/inference.py": "0db96c49f0b3f18a971bc989e0727132dafc27ef621145a2d25a3da62a7a1975",
+      "cosmos_predict2/_src/predict2/inference/video2world.py": "59aa9e236a5e7e26490f5cfcb94ab95ce911d9c38eba61dd8aef7d067e458a95",
+      "cosmos_predict2/_src/predict2/inference/worldcache_utils.py": "b485cb8fd6e262a40e5823365c34ef7db1bc036c591d7577489e04077c515903",
+      "cosmos_predict2/_src/predict2/models/text2world_model_rectified_flow.py": "c6c68f297859e11c76d2921667a29cabfecef3a7b5d3ab831bf9bb54b25b7d87",
+      "cosmos_predict2/_src/predict2/models/fm_solvers_unipc.py": "f6a06c75f059693ade6c802e99f6058575969b6a71ef18ab05e7ed46701053d3"
+    },
+    "CPU_wall_seconds": 762.7107204534113,
+    "CPU_seconds": 206.45276839399997,
+    "peak_RSS_KiB": 863288,
+    "actual_platform": {
+      "system": "Linux",
+      "machine": "x86_64"
+    },
+    "torch_version": "2.7.1+cu128",
+    "unit_controls": {
+      "tests": 7,
+      "skipped": 0,
+      "log": "test_Q1_or_missing_authority_cannot_enter_real_S_requests (test_sq_s_batch_r1.BatchTests) ... ok\ntest_RGB_mismatch_retains_failure_and_cannot_restart (test_sq_s_batch_r1.BatchTests) ... ok\ntest_altered_complete_scope_and_denominator_rejected (test_sq_s_batch_r1.BatchTests) ... ok\ntest_complete_json_roundtrip_and_both_observer_orders (test_sq_s_batch_r1.BatchTests) ... ok\ntest_first_resource_failure_also_consumes_whole_attempt (test_sq_s_batch_r1.BatchTests) ... ok\ntest_missing_rows_or_CPU_substitution_stop_before_finish (test_sq_s_batch_r1.BatchTests) ... ok\ntest_pixels_match_actual_pinned_writer_for_float_bfloat16_and_uint8 (test_sq_s_batch_r1.BatchTests) ... ok\n\n----------------------------------------------------------------------\nRan 7 tests in 3.286s\n\nOK\n"
+    },
+    "tiny_tensor_files_loaded": 80,
+    "actual_Cosmos_weights": false,
+    "real_generated_video": false,
+    "model_weight_loads_forbidden": true,
+    "CUDA_initialized": false,
+    "S_labels_collected": 0,
+    "GPU_submissions": 0,
+    "new_GPUh": 0,
+    "ledger_writes": 0
+  },
+  "result_sha256": "6ef3ec2bd6340fb5d6b422c936d19fe31030f7bc4b9f47fcf75003f8ddee27e8",
+  "log_tail": "ldcache_mini_train_dit_forward] [WorldCache] Step 62: Drift 0.0807 / Thresh 0.0513 (Base 0.06, Vel 0.0337, Alpha 5.0)\n[10-28 19:16:01|INFO|cosmos_predict2/_src/predict2/inference/worldcache_utils.py#guided-W1-collection:393:worldcache_mini_train_dit_forward] [WorldCache] Step 63: Drift 0.0807 / Thresh 0.0513 (Base 0.06, Vel 0.0337, Alpha 5.0)\n[10-28 19:16:01|INFO|cosmos_predict2/_src/predict2/inference/worldcache_utils.py#guided-W1-collection:393:worldcache_mini_train_dit_forward] [WorldCache] Step 62: Drift 0.0807 / Thresh 0.0513 (Base 0.06, Vel 0.0337, Alpha 5.0)\n[10-28 19:16:01|INFO|cosmos_predict2/_src/predict2/inference/worldcache_utils.py#guided-W1-collection:393:worldcache_mini_train_dit_forward] [WorldCache] Step 63: Drift 0.0807 / Thresh 0.0513 (Base 0.06, Vel 0.0337, Alpha 5.0)\n[10-28 19:16:02|INFO|cosmos_predict2/_src/predict2/inference/worldcache_utils.py#guided-W1-collection:393:worldcache_mini_train_dit_forward] [WorldCache] Step 64: Drift 0.1067 / Thresh 0.0532 (Base 0.06, Vel 0.0255, Alpha 5.0)\n[10-28 19:16:02|INFO|cosmos_predict2/_src/predict2/inference/worldcache_utils.py#guided-W1-collection:393:worldcache_mini_train_dit_forward] [WorldCache] Step 65: Drift 0.1067 / Thresh 0.0532 (Base 0.06, Vel 0.0255, Alpha 5.0)\n[10-28 19:16:03|INFO|cosmos_predict2/_src/predict2/inference/worldcache_utils.py#guided-W1-collection:393:worldcache_mini_train_dit_forward] [WorldCache] Step 64: Drift 0.1067 / Thresh 0.0532 (Base 0.06, Vel 0.0255, Alpha 5.0)\n[10-28 19:16:03|INFO|cosmos_predict2/_src/predict2/inference/worldcache_utils.py#guided-W1-collection:393:worldcache_mini_train_dit_forward] [WorldCache] Step 65: Drift 0.1067 / Thresh 0.0532 (Base 0.06, Vel 0.0255, Alpha 5.0)\n[10-28 19:16:05|INFO|cosmos_predict2/_src/predict2/inference/worldcache_utils.py#guided-W1-collection:393:worldcache_mini_train_dit_forward] [WorldCache] Step 66: Drift 0.1249 / Thresh 0.0550 (Base 0.06, Vel 0.0183, Alpha 5.0)\n[10-28 19:16:05|INFO|cosmos_predict2/_src/predict2/inference/worldcache_utils.py#guided-W1-collection:393:worldcache_mini_train_dit_forward] [WorldCache] Step 67: Drift 0.1249 / Thresh 0.0550 (Base 0.06, Vel 0.0183, Alpha 5.0)\n[10-28 19:16:06|INFO|cosmos_predict2/_src/predict2/inference/worldcache_utils.py#guided-W1-collection:393:worldcache_mini_train_dit_forward] [WorldCache] Step 66: Drift 0.1249 / Thresh 0.0550 (Base 0.06, Vel 0.0183, Alpha 5.0)\n[10-28 19:16:06|INFO|cosmos_predict2/_src/predict2/inference/worldcache_utils.py#guided-W1-collection:393:worldcache_mini_train_dit_forward] [WorldCache] Step 67: Drift 0.1249 / Thresh 0.0550 (Base 0.06, Vel 0.0183, Alpha 5.0)\n[10-28 19:16:06|INFO|cosmos_predict2/_src/predict2/inference/worldcache_utils.py#guided-W1-collection:393:worldcache_mini_train_dit_forward] [WorldCache] Step 68: Drift 0.1371 / Thresh 0.0565 (Base 0.06, Vel 0.0123, Alpha 5.0)\n[10-28 19:16:06|INFO|cosmos_predict2/_src/predict2/inference/worldcache_utils.py#guided-W1-collection:393:worldcache_mini_train_dit_forward] [WorldCache] Step 69: Drift 0.1371 / Thresh 0.0565 (Base 0.06, Vel 0.0123, Alpha 5.0)\n[10-28 19:16:06|INFO|cosmos_predict2/_src/predict2/inference/worldcache_utils.py#guided-W1-collection:558:worldcache_mini_train_dit_forward] [WorldCache Summary] Skipped 34/70 steps (48.6%) | MotionSens=5.0\n[10-28 19:16:06|INFO|cosmos_predict2/_src/predict2/inference/worldcache_utils.py#guided-W1-collection:393:worldcache_mini_train_dit_forward] [WorldCache] Step 68: Drift 0.1371 / Thresh 0.0565 (Base 0.06, Vel 0.0123, Alpha 5.0)\n[10-28 19:16:06|INFO|cosmos_predict2/_src/predict2/inference/worldcache_utils.py#guided-W1-collection:393:worldcache_mini_train_dit_forward] [WorldCache] Step 69: Drift 0.1371 / Thresh 0.0565 (Base 0.06, Vel 0.0123, Alpha 5.0)\n[10-28 19:16:06|INFO|cosmos_predict2/_src/predict2/inference/worldcache_utils.py#guided-W1-collection:558:worldcache_mini_train_dit_forward] [WorldCache Summary] Skipped 32/70 steps (45.7%) | MotionSens=5.0\nS_WHOLE_UPPER_MATRIX_CPU_PASS_NOT_GPU_OR_SCIENTIFIC_ACCEPTANCE\n",
+  "new_GPU_submissions": 0,
+  "ledger_writes": 0
+}

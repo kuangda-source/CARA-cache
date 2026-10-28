@@ -2,6 +2,8 @@
 
 2026-10-29。最新[双端 S 组件与完整流式存储 CPU 组合](../../../reports/cara_sq_s_dual_cpu_accepted_r2_20261029.json)均已接受：两端 owner 各八路径/十六边界、存储各十六路径，固定同一源码。两卡 worker CPU 139.18 秒、峰值 RSS 0.898 GiB，原挂载清单拒绝与修正保留在[双端进度](DUAL_HOST_PROGRESS_20261029.md)。以下保留四卡 R1/R2 的原阶段记录；真实数据/资源、整卡 GPU 入口与报价尚未齐，无实际 S 标签、掩码或新 GPU 授权。
 
+后续[完整十路径上限编排的双端 CPU](S_BATCH_PREPARATION_R1.md)也已接受：每端两个 flow 共 20 路径，实际每 flow 936 head/552 深层 block、四组完整 OFF/ON 和 140 文件重载；新原件与旧组件证据分别保留。已发现旧 DEV128 的一个完整 Shared25-C 诊断候选，实际复用资格和新 GPU 卡报价继续准备。
+
 ## 本轮接通的接口
 
 [采集事务](../../../src/wcomr/sq_s_collection_r1.py)逐步绑定生产 PolicyOwner。它只增加声明的 hidden 观察点，并检查其余编译 proof 保持；父动作和读出不变。

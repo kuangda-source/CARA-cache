@@ -33,3 +33,5 @@ GPU 前 CPU [原件直传](B1_PORT_CPU_PROFILE_R1.json)限定原 32 文件、20,
 两卡原 CPU 边界比四卡多一个登记的 B1 原件只读挂载，初次收件的精确挂载清单漏列了它；[原拒绝诊断](../../../reports/cara_sq_s_two_card_CPU_mount_diagnostic_r1_20261029.json)保持。验收器现逐主机绑定所有只读目标与来源，仅本 stage 可写，额外挂载或把 B1 改为可写均拒绝。原容器、源码、数值、四卡三份接受结果均未重跑/改变。
 
 继续真实 RAM/存储和整卡报价、真实生产 GPU 入口及生命周期准备。真实 S 卡仍最多 4 ON + 4 OFF + 2 warm，108 个实际标签与八个 F19 raw；CPU 夹具不生成 S mask、视频收益或 Q codec 选择。
+
+新增[整批上限入口与双端 CPU 接受](S_BATCH_PREPARATION_R1.md)：固定源码 `6035fe2f`，每端两个 flow 共 20 完整路径；每 flow 936 head/552 深层 block 由实际 hook 核对，七项控制、四组全36/latent/93 RGB 的 OFF/ON 与 140 文件重载均通过。原阶段不重派，四卡读盘/编译及约131秒退出延迟、两卡读取恢复和未完整计量的子进程 CPU 均已保留。S GPU 入口/资源/报价未齐；旧 DEV128 的一个 Shared25-C 完整诊断已登记为待严格匹配的复用候选，实际路径去重未冻结。

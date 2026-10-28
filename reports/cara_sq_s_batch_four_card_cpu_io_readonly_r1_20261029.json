@@ -1,0 +1,56 @@
+{
+  "status": "S_BATCH_ORIGINAL_CPU_IMPORT_IO_READONLY",
+  "observed_unix": 1793214795.0945785,
+  "container_state": {
+    "Status": "running",
+    "Running": true,
+    "Paused": false,
+    "Restarting": false,
+    "OOMKilled": false,
+    "Dead": false,
+    "Pid": 3823648,
+    "ExitCode": 0,
+    "Error": "",
+    "StartedAt": "2026-10-28T19:03:25.287253562Z",
+    "FinishedAt": "0001-01-01T00:00:00Z"
+  },
+  "own_processes": [
+    {
+      "pid": 3823648,
+      "command": "/usr/bin/timeout --signal=TERM --kill-after=10s 1800 /usr/bin/ionice -c 3 /data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/bin/python /data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-batch-cpu-four-card-r1-20261029/scripts/check_cara_sq_s_batch_cpu_r1.py --assets /data20t/gaokuangda/worldcache_workspace/outputs/cara-ig-b1-r2-20261027/assets --manifest-sha256 5487f8db32d45a5d0f3304333bf362d9d6ec46fb3181c735d7267b78a6e398fa --profile four_card --scope plans/cara_next_stage_20261028/sq/S_BATCH_CPU_R1.json --output /data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-batch-cpu-four-card-r1-20261029/analysis.json ",
+      "wchan": "sigsuspend",
+      "io": "rchar: 69342\nwchar: 9577\nsyscr: 52\nsyscw: 8\nread_bytes: 1544192\nwrite_bytes: 0\ncancelled_write_bytes: 0\n",
+      "open_files": []
+    },
+    {
+      "pid": 3823688,
+      "command": "/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/bin/python /data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-batch-cpu-four-card-r1-20261029/scripts/check_cara_sq_s_batch_cpu_r1.py --assets /data20t/gaokuangda/worldcache_workspace/outputs/cara-ig-b1-r2-20261027/assets --manifest-sha256 5487f8db32d45a5d0f3304333bf362d9d6ec46fb3181c735d7267b78a6e398fa --profile four_card --scope plans/cara_next_stage_20261028/sq/S_BATCH_CPU_R1.json --output /data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-batch-cpu-four-card-r1-20261029/analysis.json ",
+      "wchan": "0",
+      "io": "rchar: 155716394\nwchar: 2542336\nsyscr: 19330\nsyscw: 877\nread_bytes: 600350720\nwrite_bytes: 2678784\ncancelled_write_bytes: 0\n",
+      "open_files": []
+    },
+    {
+      "pid": 3825251,
+      "command": "/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/bin/python /data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/torch/_inductor/compile_worker/__main__.py --pickler=torch._inductor.compile_worker.subproc_pool.SubprocPickler --kind=fork --workers=2 --parent=3823688 --read-fd=3 --write-fd=6 ",
+      "wchan": "pipe_read",
+      "io": "rchar: 359969352\nwchar: 2887\nsyscr: 5537\nsyscw: 10\nread_bytes: 301617152\nwrite_bytes: 0\ncancelled_write_bytes: 0\n",
+      "open_files": []
+    },
+    {
+      "pid": 3825407,
+      "command": "/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/bin/python /data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/torch/_inductor/compile_worker/__main__.py --pickler=torch._inductor.compile_worker.subproc_pool.SubprocPickler --kind=fork --workers=2 --parent=3823688 --read-fd=3 --write-fd=6 ",
+      "wchan": "futex_wait_queue_me",
+      "io": "rchar: 328\nwchar: 126\nsyscr: 2\nsyscw: 1\nread_bytes: 0\nwrite_bytes: 0\ncancelled_write_bytes: 0\n",
+      "open_files": []
+    },
+    {
+      "pid": 3825409,
+      "command": "/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/bin/python /data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/torch/_inductor/compile_worker/__main__.py --pickler=torch._inductor.compile_worker.subproc_pool.SubprocPickler --kind=fork --workers=2 --parent=3823688 --read-fd=3 --write-fd=6 ",
+      "wchan": "pipe_read",
+      "io": "rchar: 0\nwchar: 0\nsyscr: 0\nsyscw: 0\nread_bytes: 0\nwrite_bytes: 0\ncancelled_write_bytes: 0\n",
+      "open_files": []
+    }
+  ],
+  "GPU_submissions": 0,
+  "ledger_writes": 0
+}
