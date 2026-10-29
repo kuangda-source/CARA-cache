@@ -1,0 +1,83 @@
+{
+  "schema": "S_RUNNER_FULL_PHYSICAL_CPU_R1",
+  "unit_controls": 26,
+  "hosts": {
+    "two_card": {
+      "physical_scope_ref": "plans/cara_next_stage_20261028/sq/S_PHYSICAL_TWO_CARD_R1.json",
+      "counts_per_flow": {
+        "new_paths": 9,
+        "reused_OFF_paths": 1,
+        "logical_paths": 10,
+        "warm_paths": 2,
+        "new_ON_paths": 4,
+        "new_OFF_paths": 3,
+        "parent_Dense_pairs": 195,
+        "parent_C_pairs": 129,
+        "extra_Dense_teacher_pairs": 56,
+        "extra_C_shadow_pairs": 52,
+        "total_pairs": 432,
+        "branch_readouts": 864,
+        "deep_block_calls": 502,
+        "moment_rows": 108,
+        "raw_states": 8,
+        "unique_anchors": 24
+      },
+      "fixture_source_paths_per_flow": 1,
+      "tiny_tensor_reloads": 82
+    },
+    "four_card": {
+      "physical_scope_ref": "plans/cara_next_stage_20261028/sq/S_PHYSICAL_FOUR_CARD_R1.json",
+      "counts_per_flow": {
+        "new_paths": 10,
+        "reused_OFF_paths": 0,
+        "logical_paths": 10,
+        "warm_paths": 2,
+        "new_ON_paths": 4,
+        "new_OFF_paths": 4,
+        "parent_Dense_pairs": 220,
+        "parent_C_pairs": 140,
+        "extra_Dense_teacher_pairs": 56,
+        "extra_C_shadow_pairs": 52,
+        "total_pairs": 468,
+        "branch_readouts": 936,
+        "deep_block_calls": 552,
+        "moment_rows": 108,
+        "raw_states": 8,
+        "unique_anchors": 24
+      },
+      "fixture_source_paths_per_flow": 0,
+      "tiny_tensor_reloads": 80
+    }
+  },
+  "flows": [
+    false,
+    true
+  ],
+  "before_snapshot_checks_per_flow": 108,
+  "before_snapshot_checks_per_host": 216,
+  "streamed_file_reloads_per_host": 280,
+  "retained_CPU_fixture_ref": "reports/cara_sq_s_retained_CPU_OFF_fixture_r1_20261029.json",
+  "accepted_unchanged_components": {
+    "reports/cara_sq_s_resources_dual_cpu_accepted_r5_20261029.json": "412503cde28f639e49e5fb0971d50f4f4b2478975b942e4dcadf129d51266da5",
+    "reports/cara_sq_s_physical_dual_cpu_accepted_r1_20261029.json": "8009a7d2ad7edce6e6b3e801471cf0d4f4d9b00b54be76a477e0386dcdc47503"
+  },
+  "new_meta_architecture_or_synthetic_decode_runs": 0,
+  "resource_limits": {
+    "CPUs": 2,
+    "RAM_GiB": 8,
+    "wall_seconds": 1800,
+    "GPU": "hidden",
+    "network": "none"
+  },
+  "real_Cosmos_weights": false,
+  "actual_S_labels": 0,
+  "actual_S_GPU_entry_accepted": false,
+  "whole_S_quote_frozen": false,
+  "GPU_authority": false,
+  "GPU_submissions": 0,
+  "ledger_writes": 0,
+  "complete_runner_entry_matrices_per_host": 2,
+  "full_GPU_model_loader_or_allocation_accepted": false,
+  "unchanged_components_source": "S_RESOURCE_GUARD_CPU_R1",
+  "test_scope": "Actual run_matrix adapter construction, all original physical roles, complete reset/precision checks, same bounded store and independent full matrix classifier"
+}

@@ -1,6 +1,6 @@
 # Q1-saved R3：真实日志修复后的独立实验卡
 
-双端完整真实日志 CPU、新 r3 源、原生入口和 33 项输入的当前身份绑定均已接受，尚无 GPU 授权、预约或派发。[完整机器审阅](../../../reports/cara_sq_q1_complete_review_r3_20261029.json)。旧 R2 就绪状态已[撤回](../../../reports/cara_sq_q1_readiness_withdrawn_control_journal_r1_20261029.json)：生产日志不接受释放记录使用的额外键。修复保持共享 48 MiB 日志格式，在独立 S/Q wrapper 的 accounting 槽中保存命名记录，并以跨进程锁保护读改写。原 r1/r2 GPU stage、失败和回执保持。新执行源为 `cd368922cbc70d610aaece6d1a71069fa45a3ecd`，使用 GPU r3 stage/R3 profile。
+双端完整真实日志 CPU、新 r3 源、原生入口和 33 项输入的当前身份绑定均已接受。用户已明确批准这一次 Q1 单卡；当前等待完整主机与物理准入，尚无 Q1 预约或派发。[直接批准](Q1_GPU_APPROVAL_R1_20261029.json) · [准入等待](../../../reports/cara_sq_q1_approved_waiting_admission_r1_20261029.json) · [完整机器审阅](../../../reports/cara_sq_q1_complete_review_r3_20261029.json)。旧 R2 就绪状态已[撤回](../../../reports/cara_sq_q1_readiness_withdrawn_control_journal_r1_20261029.json)：生产日志不接受释放记录使用的额外键。修复保持共享 48 MiB 日志格式，在独立 S/Q wrapper 的 accounting 槽中保存命名记录，并以跨进程锁保护读改写。原 r1/r2 GPU stage、失败和回执保持。新执行源为 `cd368922cbc70d610aaece6d1a71069fa45a3ecd`，使用 GPU r3 stage/R3 profile。
 
 ## 要回答的问题
 
@@ -29,6 +29,6 @@
 
 最终 A6000/Ada CPU 容器分别 46.671/105.662 秒，退出 0；本轮含两次保留失败的四个原 CPU 容器合计 444.548 秒，分配 vCPU 上界 889.096 秒，成功两次已测 worker＋回收子进程 CPU 94.425 秒。失败 worker、cgroup 总 CPU 和本地/传输/Git CPU 未完整计量。Ada 在预测半程点之前已完成，名为 half 的原捕获实际是终态，未据此声称半程运行观察。[完整 CPU 费用](../../../reports/cara_sq_control_journal_CPU_full_costs_r2_20261029.json)。
 
-本轮已[恢复双端 r1/r2/r3 原句柄](../../../reports/cara_sq_q1_original_handles_prepared_r3_20261029.json)：没有 intent、GPU 容器或中央 Q1 envelope。原 33 项完整摘要复用前重新核对文件身份和空私有盘，未重复制或重扫输入。下一步仍需这一张 Q1 的单独 GPU 授权；准备、CPU PASS 和空闲 GPU 不构成执行权限。批准后先重新恢复两主机全部旧/新原句柄，优先 fresh 合格 Ada，否则 A6000，只派发一次。此卡不授权 S、Q-END、新视频、重放或预算扩容。
+准备时已[恢复双端 r1/r2/r3 原句柄](../../../reports/cara_sq_q1_original_handles_prepared_r3_20261029.json)：没有 intent、GPU 容器或中央 Q1 envelope。原 33 项完整摘要复用前重新核对文件身份和空私有盘，未重复制或重扫输入。收到直接批准后的新检查仍无 Q1 原件：Ada 无合格空闲卡，A6000 虽有物理候选，但主线 B36 持有该主机的中央预约，原 guardian 和容器已只读确认在运行。按每主机一个所属 GPU job 的约定等待，不叠加、释放或修改 B36。已建立本对话 15 分钟准入监控 `q1`；状态不变静默。完整准入成立后使用本次已有批准，优先 fresh 合格 Ada，否则 A6000，只派发一次，再从实际起点安排半程与全程验收。此卡不授权 S、Q-END、新视频、重放或预算扩容。
 
 S 独立继续准备完整执行入口，真实 108 标签仍为零；其 14/17 GPUh 报价是未冻结提案。各自局部验证有用后进入各自完整视频，两者分别成立后才做最终布局×codec 组合；主线 F19/B36 的范围、权限和预算保持独立。
