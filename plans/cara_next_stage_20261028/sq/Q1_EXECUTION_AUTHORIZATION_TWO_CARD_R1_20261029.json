@@ -1,0 +1,52 @@
+{
+  "schema": "Q1_DIRECT_HUMAN_APPROVAL_R1",
+  "direct_user_authorization": true,
+  "user_quote": "批准这一次 Q1 单卡",
+  "original_question": "是否批准这一次 Q1-saved 单卡验证：12 个旧状态、111 pair/222 heads；合格 Ada 优先（硬限 2 GPUh），否则 A6000（硬限 1.25 GPUh）；原数值门失败即停，不重试，不含 S 采集？",
+  "trusted_evidence": "Direct human reply to request_user_input_async call_4169bca8373e43d183c08d43ad1626f3 item0",
+  "recorded_UTC": "2026-10-29T00:22:09.797956+00:00",
+  "run_id": "cara-sq-q1-saved-r1-20261028",
+  "scope_counts": {
+    "states": 12,
+    "formal_C_pairs": 96,
+    "formal_head_calls": 192,
+    "warm_C_pairs": 2,
+    "preview_original_C_pairs": 1,
+    "stored_dense_hidden_head_pairs": 12,
+    "complete_readout_pairs": 111,
+    "complete_head_calls": 222,
+    "codec_C_pairs": 72,
+    "new_deep_pairs": 0,
+    "new_parent_paths": 0,
+    "new_videos": 0
+  },
+  "source_revision": "cd368922cbc70d610aaece6d1a71069fa45a3ecd",
+  "scope_sha256": "cd28b4743c949acdcce3cab42b2dd6933deecb803f4ef7942f173ab60ba20e14",
+  "reviewed_ref": "reports/cara_sq_q1_complete_review_r3_20261029.json",
+  "reviewed_sha256": "7aa0d0ade64599cbcb6f987f5d4f73223f232f78e761f43cdd793d895f3122f1",
+  "host_policy": "PREFER_ADMISSIBLE_FOUR_ELSE_TWO",
+  "allowed_host_hard_limits_GPUh": {
+    "two_card": 1.25,
+    "four_card": 2.0
+  },
+  "CPU_proof_sha256_by_host": {
+    "two_card": "53f99b049a9177be70d7c4e7e297ba49e4372cd47593ff7ca12ec784bf47dfc1",
+    "four_card": "82dbf9b3afac50cd5181f97d57f4306aa9887c8bc83fa81b095e9a16501a0a52"
+  },
+  "quote_sha256": {
+    "two_card": "09a6ed953e032afbf2c7d0d8c9a24a64af275cf7e25e72389e8ec04808d795fc",
+    "four_card": "b0d8639cbcf412797afda4e67cf6559820c483841e34891959acc87e250b74f8"
+  },
+  "authorizes_retry": false,
+  "authorizes_S_collection": false,
+  "original_control_failure": "STOP_ALL_FOLLOWING_CODECS_AND_SELECTION",
+  "permits_same_host_overlap": false,
+  "fresh_source_asset_physical_host_lock_disk_memory_and_central_admission_required": true,
+  "GPU_dispatch_occurred": false,
+  "CPU_proof_sha256": "53f99b049a9177be70d7c4e7e297ba49e4372cd47593ff7ca12ec784bf47dfc1",
+  "derived_from_human_approval_ref": "plans/cara_next_stage_20261028/sq/Q1_GPU_APPROVAL_R1_20261029.json",
+  "derived_from_human_approval_sha256": "e9fc4d3b299d48e5eccd3057a80d8a82901015c581cedb8a7d706bab20d4745c",
+  "CPU_proof_bound_host": "two_card",
+  "alternative_binding_for_the_same_one_card": true,
+  "direct_approval_is_not_an_admission_or_dispatch": true
+}
