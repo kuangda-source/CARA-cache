@@ -1,0 +1,80 @@
+{
+  "original_CLI_live": false,
+  "status": "SQ_CPU_PREPARATION_CAPTURE",
+  "observed_unix": 1793230364.3411336,
+  "launch": {
+    "status": "SQ_GPU_HIDDEN_CPU_PREPARATION_LAUNCHED",
+    "stage": "/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-control-journal-cpu-four-card-r1-20261029",
+    "container": "cara-sq-control-journal-cpu-four-card-r1-20261029-cpu",
+    "source_revision": "c26de98365f8d6b57d4c29b25219a94e9ca2ab70",
+    "registration_sha256": "d75ff70d8b212595e454c9264eb11a890d919d38cf8c80756417f3fb591f2deb",
+    "identity": {
+      "pid": 3855327,
+      "state": "R",
+      "start_ticks": 1001516434,
+      "command": "docker run --cpuset-cpus 4,5 --memory-swap 8g --ulimit fsize=67108864:67108864 --read-only --network none --pid host --name cara-sq-control-journal-cpu-four-card-r1-20261029-cpu --label wcomr.manifest=d75ff70d8b212595e454c9264eb11a890d919d38cf8c80756417f3fb591f2deb --user 1000:1000 --cpus 2 --memory 8g --pids-limit 512 --tmpfs /tmp:rw,size=2g -v /data20t/gaokuangda/worldcache_workspace:/data20t/gaokuangda/worldcache_workspace:ro -v /data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-control-journal-cpu-four-card-r1-20261029:/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-control-journal-cpu-four-card-r1-20261029:rw -w /data20t/gaokuangda/worldcache_workspace/runtime -e CUDA_CACHE_PATH=/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-control-journal-cpu-four-card-r1-20261029/CPU-caches/cuda -e CUDA_HOME=/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cuda_nvrtc -e CUDA_PATH=/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cuda_nvrtc -e CUDA_VISIBLE_DEVICES= -e HF_HOME=/data20t/gaokuangda/worldcache_workspace/cache/huggingface -e HF_HUB_CACHE=/data20t/gaokuangda/worldcache_workspace/cache/huggingface/hub -e HF_HUB_OFFLINE=1 -e LD_LIBRARY_PATH=/data20t/gaokuangda/worldcache_workspace/system-libs-r1/usr/lib/x86_64-linux-gnu/blas:/data20t/gaokuangda/worldcache_workspace/system-libs-r1/usr/lib/x86_64-linux-gnu/lapack:/data20t/gaokuangda/worldcache_workspace/system-libs-r1/usr/lib/x86_64-linux-gnu/pulseaudio:/data20t/gaokuangda/worldcache_workspace/system-libs-r1/usr/lib/x86_64-linux-gnu:/data20t/gaokuangda/worldcache_workspace/system-libs-r1/lib/x86_64-linux-gnu:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cuda_nvrtc/lib:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cuda_runtime/lib:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cudnn/lib:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/nvjitlink/lib:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cublas/lib:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/torch/lib -e LOGNAME=gaokuangda -e NLTK_DATA=/data20t/gaokuangda/worldcache_workspace/runtime-resources/nltk-guardrail-d6d4bfa8-r1 -e NVIDIA_VISIBLE_DEVICES=void -e OMP_NUM_THREADS=2 -e OPENBLAS_NUM_THREADS=2 -e PATH=/data20t/gaokuangda/worldcache_workspace/system-libs-r1/usr/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin -e PYTHONDONTWRITEBYTECODE=1 -e PYTHONPATH=/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-control-journal-cpu-four-card-r1-20261029/scripts:/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-control-journal-cpu-four-card-r1-20261029/src -e TOKENIZERS_PARALLELISM=false -e TORCHINDUCTOR_CACHE_DIR=/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-control-journal-cpu-four-card-r1-20261029/CPU-caches/torchinductor -e TORCH_EXTENSIONS_DIR=/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-control-journal-cpu-four-card-r1-20261029/CPU-caches/extensions -e TORCH_HOME=/data20t/gaokuangda/worldcache_workspace/cache/torch -e TRANSFORMERS_OFFLINE=1 -e TRITON_CACHE_DIR=/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-control-journal-cpu-four-card-r1-20261029/CPU-caches/triton -e USER=gaokuangda -e WC_SCOUT_KIND=CAL12 -e XDG_CACHE_HOME=/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-control-journal-cpu-four-card-r1-20261029/CPU-caches/xdg --entrypoint /usr/bin/timeout sha256:1e81ac62ee68ca1a6ef655515096a1d84579b01aa4986810c9b18d4f6c4c552d --signal=TERM --kill-after=10s 1800 /usr/bin/ionice -c 3 /data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/bin/python /data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-control-journal-cpu-four-card-r1-20261029/scripts/check_cara_sq_control_journal_cpu_r1.py --assets /data20t/gaokuangda/worldcache_workspace/outputs/cara-ig-b1-r2-20261027/assets --manifest-sha256 5487f8db32d45a5d0f3304333bf362d9d6ec46fb3181c735d7267b78a6e398fa --profile four_card --scope plans/cara_next_stage_20261028/sq/Q1_WHOLE_SCOPE_R1.json --output /data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-control-journal-cpu-four-card-r1-20261029/analysis.json "
+    },
+    "started_unix": 1793230100.9897828,
+    "resource_limits": {
+      "CPUs": 2,
+      "cpuset": "4,5",
+      "RAM_bytes": 8589934592,
+      "wall_seconds": 1800,
+      "allocated_vCPUh_max": 1.0,
+      "output_bytes_max": 67108864,
+      "assets_readonly": true,
+      "network": "none",
+      "GPU": "hidden"
+    },
+    "new_GPU_submissions": 0,
+    "ledger_writes": 0
+  },
+  "source_hashes_equal": true,
+  "runtime_hashes_equal": true,
+  "container_state": {
+    "Status": "exited",
+    "Running": false,
+    "Paused": false,
+    "Restarting": false,
+    "OOMKilled": false,
+    "Dead": false,
+    "Pid": 0,
+    "ExitCode": 1,
+    "Error": "",
+    "StartedAt": "2026-10-28T23:28:21.059292199Z",
+    "FinishedAt": "2026-10-28T23:32:27.165499467Z"
+  },
+  "host_config": {
+    "DeviceRequests": null,
+    "NanoCpus": 2000000000,
+    "Memory": 8589934592,
+    "MemorySwap": 8589934592,
+    "CpusetCpus": "4,5",
+    "NetworkMode": "none",
+    "ReadonlyRootfs": true
+  },
+  "mounts": [
+    {
+      "Type": "bind",
+      "Source": "/data20t/gaokuangda/worldcache_workspace",
+      "Destination": "/data20t/gaokuangda/worldcache_workspace",
+      "Mode": "ro",
+      "RW": false,
+      "Propagation": "rprivate"
+    },
+    {
+      "Type": "bind",
+      "Source": "/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-control-journal-cpu-four-card-r1-20261029",
+      "Destination": "/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-control-journal-cpu-four-card-r1-20261029",
+      "Mode": "rw",
+      "RW": true,
+      "Propagation": "rprivate"
+    }
+  ],
+  "image": "sha256:1e81ac62ee68ca1a6ef655515096a1d84579b01aa4986810c9b18d4f6c4c552d",
+  "result": null,
+  "result_sha256": null,
+  "log_tail": "SQ_Q1_EXECUTION_CPU_PASS_FIXTURES_NOT_REAL_CUDA\nSQ_Q1_CONTROL_CPU_PASS_BOUND_WRAPPERS_NOT_REAL_CUDA\nTraceback (most recent call last):\n  File \"/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-control-journal-cpu-four-card-r1-20261029/scripts/check_cara_sq_control_journal_cpu_r1.py\", line 67, in <module>\n    if __name__=='__main__':main()\n  File \"/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-control-journal-cpu-four-card-r1-20261029/scripts/check_cara_sq_control_journal_cpu_r1.py\", line 36, in main\n    if not tests.wasSuccessful() or tests.skipped or tests.testsRun!=16:raise ValueError(log.getvalue())\nValueError: test_all_release_and_diagnostic_keys_are_separately_durable (test_sq_control_storage_r1.JournalTests) ... ok\ntest_corrupt_nonempty_accounting_is_not_treated_as_new (test_sq_control_storage_r1.JournalTests) ... ok\ntest_existing_standard_slots_are_not_reinitialized (test_sq_control_storage_r1.JournalTests) ... ok\ntest_foreign_packet_is_refused_without_overwrite (test_sq_control_storage_r1.JournalTests) ... ok\ntest_independent_durability_precedes_original_file_failure (test_sq_control_storage_r1.JournalTests) ... ok\ntest_original_six_slot_format_and_size_are_unchanged (test_sq_control_storage_r1.JournalTests) ... ok\ntest_other_run_packet_is_refused_without_overwrite (test_sq_control_storage_r1.JournalTests) ... ok\ntest_oversize_packet_retains_the_previous_valid_generation (test_sq_control_storage_r1.JournalTests) ... ok\ntest_same_key_updates_preserve_every_other_logical_record (test_sq_control_storage_r1.JournalTests) ... ok\ntest_source_stage_factory_uses_the_same_registered_paths (test_sq_control_storage_r1.JournalTests) ... ok\ntest_two_CPU_process_writers_retain_both_final_records (test_sq_control_storage_r1.JournalTests) ... ok\ntest_unknown_key_cannot_clobber_a_slot (test_sq_control_storage_r1.JournalTests) ... ok\ntest_S_prefix_uses_the_same_real_journal_and_complete_host_clock (test_sq_journal_allocation_r1.JournalAllocationTests) ... ok\ntest_actual_Q1_guardian_persists_allocation_and_pending_release (test_sq_journal_allocation_r1.JournalAllocationTests) ... ok\ntest_actual_Q1_missing_credentials_still_has_original_durable_bill (test_sq_journal_allocation_r1.JournalAllocationTests) ... ok\ntest_actual_Q1_supervisor_failure_retains_independent_diagnostic (test_sq_journal_allocation_r1.JournalAllocationTests) ... FAIL\n\n======================================================================\nFAIL: test_actual_Q1_supervisor_failure_retains_independent_diagnostic (test_sq_journal_allocation_r1.JournalAllocationTests)\n----------------------------------------------------------------------\nFileNotFoundError: [Errno 2] No such file or directory: '/tmp/SQ_CPU_JOURNAL_ONLY_sq7p1ibg/.sync/CPU_REAL_JOURNAL/plans/cara_next_stage_20261028/sq/Q1_WHOLE_QUOTE_TWO_CARD_R3.json'\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-control-journal-cpu-four-card-r1-20261029/tests/test_sq_journal_allocation_r1.py\", line 80, in test_actual_Q1_supervisor_failure_retains_independent_diagnostic\n    with self.assertRaisesRegex(OSError,'controlled no exec'):\nAssertionError: \"controlled no exec\" does not match \"[Errno 2] No such file or directory: '/tmp/SQ_CPU_JOURNAL_ONLY_sq7p1ibg/.sync/CPU_REAL_JOURNAL/plans/cara_next_stage_20261028/sq/Q1_WHOLE_QUOTE_TWO_CARD_R3.json'\"\n\n----------------------------------------------------------------------\nRan 16 tests in 3.537s\n\nFAILED (failures=1)\n\n",
+  "new_GPU_submissions": 0,
+  "ledger_writes": 0
+}
