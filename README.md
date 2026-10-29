@@ -12,7 +12,7 @@
 
 [749 B36图表承接CPU接受与待审批](research/749_CARA_B36_FIGURES_DUAL_CPU_AND_LAYOUT_20261029.md)：启动前执行22项、汇总6项、绘图6项分别双端接受，四组图及四CSV已作显式CPU夹具和图面验证；原52执行/4汇总源码及原冻结保持。此处保留CPU准备快照，当前单次B36以实际启动记录为准，不授予重派。 [组合CPU接受](reports/cara_fast_B36_dispatch_CPU_acceptance_r2_20261029.json) · [剩余派发边界](plans/cara_next_stage_20261028/mainline/r2/B36_GPU_REVIEW_R2.md)
 
-[755 B36恢复连接、完整GPU接受与CPU评分](research/755_CARA_B36_CONNECTION_RECOVERED_GPU_ACCEPTED_CPU_SCORE_20261029.md)：连接已通过隔离的本机SSH代理恢复，原B36完整36/36、0失败，10:40:41正常退出；原四进程均结束、GPU释放并恢复Default。3797次独占监测完整，最高88C、最大间隔4.8985秒；原源码/精度/参数/双时钟及36套原件通过接受。HOST_GUARDIAN实际2.384553982338661GPUh已在four_card唯一结算，cap226及旧16.5不变。13:32:19单次启动无GPU的2CPU/8GiB评分，只计算26新配对并复用六原A指标；完整32接受及汇总仍待CPU退出。共享FRPC、TUN和SSH配置未改，GPU无重启/重派。 [B36唯一启动回执](reports/cara_fast_B36_GPU_actual_launch_r1_20261029.json) · [原句柄与验收交接](plans/cara_next_stage_20261028/mainline/r2/B36_POST_LAUNCH_HANDOFF.md)
+[756 B36完整验收、结果与正式图表](research/756_CARA_B36_COMPLETE_ACCEPTANCE_RESULTS_AND_FIGURES_20261029.md)：B36完整36/36、0失败，原GPU/CPU/导图CPU均正常退出；原费用2.384553982338661GPUh已中央唯一结算，5.5GPUh硬限、cap226及旧16.5保持。26新评分＋六原A指标组成完整32接受；原规则汇总及四组PNG/PDF、四CSV均完成，两个自动检查已删除。4旧CAL输入等权结果：F19_C为1.703×T_DD、1.486×完整请求，Alex0.24936，较同19D的Uniform19_C降低46.82%；F19_A1为1.691×/1.479×、Alex0.23150，较F19_C再降7.16%，T_DD开销0.70%。WC/RA保持FIT UNMATCHED，原A32评分与冻结未重做；CHECK仍为旧CAL内部留出。临时通道完成取证后仍偶发断连，额外最终账本重读未完成，已接受原结算和结果保持。 [B36唯一启动回执](reports/cara_fast_B36_GPU_actual_launch_r1_20261029.json) · [原句柄与验收交接](plans/cara_next_stage_20261028/mainline/r2/B36_POST_LAUNCH_HANDOFF.md)
 
 **通过选择完整刷新的时间位置，在加速视频扩散时尽量保留完整模型的输出。**
 
@@ -33,7 +33,7 @@ CARA-Cache（CFG-Aligned Readout and Cost-Aware Allocation for Video Diffusion�
 
 扩散模型逐步生成视频。完整计算昂贵，复用旧缓存会积累误差；当前研究重点是在固定刷新次数下，保留过渡区间的完整计算、减少末段刷新。CAL66的Shared25-C采用这一布局，DEV128已完成冻结继续验证，当前将它保留为高保真参照，并准备高速F19与S/Q机制。历史修正A利用当前浅层增量和真实深层锚点，在新DEV中作为机制对照。
 
-仅恢复原CPU评分句柄；完整32位置/93帧曲线/资源与退出接受后再按原工具汇总和导图，保持WC/RA FIT UNMATCHED与旧CAL边界，完成后删除同一个终验。
+保留原证据、一次冻结和正式图表；后续新输入确认按独立范围与报价另行登记。
 
 CFG 指 classifier-free guidance，包含条件与负条件两支。A 使用共享修正强度，保持两支融合口径一致。D 更新当前请求的真实深层锚点；A 不把近似结果冒充新的真实锚点。Native 是每个请求步均完整计算的参考推理。
 
@@ -43,6 +43,7 @@ CFG 指 classifier-free guidance，包含条件与负条件两支。A 使用共�
 
 ## 已经得到什么结果
 
+- **F19布局在4旧CAL的同19D比较中降低参考误差**（旧CAL4，B36完整36与32评分，双时钟）：F19_C为1.703倍T_DD、1.486倍完整请求速度，Alex0.24936，较Uniform19_C降低46.82%；F19_A1为1.691倍T_DD、Alex0.23150，较F19_C再降低7.16%，4/4同向。 [证据1](research/756_CARA_B36_COMPLETE_ACCEPTANCE_RESULTS_AND_FIGURES_20261029.md) · [证据2](reports/cara_fast_B36_complete_analysis_r1_20261029.json) · [证据3](reports/cara_fast_B36_figures_actual_r1_20261029/report.json)
 - **Shared25-C通过16新DEV冻结验证**（DEV16，完整128，冻结强基线与双预算）：相对冻结S25-A的LPIPS降低14.82%，16/16改善；相对S25-C降低26.16%。246.675秒、约1.269倍，V单侧95%上界0.9863；三项质量非劣门均通过。 [证据1](research/716_CARA_DEV128_COMPLETE_ACCEPTANCE_AND_FROZEN_DECISION_20261027.md) · [证据2](reports/cara_DEV128_A6000_complete_analysis_20261027.json)
 - **Shared25-C通过完整CAL筛查**（CAL4，同批强基线，冻结待DEV）：同批A6000四个CAL上，Shared25-C相对较强S25-A的LPIPS下降15.34%，4/4改善；246.852秒，原双预算和三项独立质量筛查通过。 [证据1](research/702_CARA_CAL66_A6000_COMPLETE_RESULTS_AND_FROZEN_SHARED25_C_20261026.md) · [证据2](reports/cara_CAL66_A6000_complete_analysis_20261026.json)
 - **修正读出有跨输入机制收益**（6个新DEV，局部机制）：BANK24六个新DEV中，A相对C的同状态扩散速度预测MSE全部降低43.53%–63.00%，等权场景均值降低52.53%。 [证据1](research/644_CARA_BANK24_COMPLETE_DEV6_RESULTS_20261022.md)
@@ -59,11 +60,11 @@ LPIPS 越低表示越接近同输入的 Native 视频；它与局部速度 MSE�
 
 ## 当前进度
 
-**B36完整36条GPU验收及费用结算通过，原CPU评分运行中。**
+**B36完整链已验收并完成图表，全部原实验已退出。**
 
-连接已通过隔离的本机SSH代理恢复，原B36完整36/36、0失败，10:40:41正常退出；原四进程均结束、GPU释放并恢复Default。3797次独占监测完整，最高88C、最大间隔4.8985秒；原源码/精度/参数/双时钟及36套原件通过接受。HOST_GUARDIAN实际2.384553982338661GPUh已在four_card唯一结算，cap226及旧16.5不变。13:32:19单次启动无GPU的2CPU/8GiB评分，只计算26新配对并复用六原A指标；完整32接受及汇总仍待CPU退出。共享FRPC、TUN和SSH配置未改，GPU无重启/重派。
+B36完整36/36、0失败，原GPU/CPU/导图CPU均正常退出；原费用2.384553982338661GPUh已中央唯一结算，5.5GPUh硬限、cap226及旧16.5保持。26新评分＋六原A指标组成完整32接受；原规则汇总及四组PNG/PDF、四CSV均完成，两个自动检查已删除。4旧CAL输入等权结果：F19_C为1.703×T_DD、1.486×完整请求，Alex0.24936，较同19D的Uniform19_C降低46.82%；F19_A1为1.691×/1.479×、Alex0.23150，较F19_C再降7.16%，T_DD开销0.70%。WC/RA保持FIT UNMATCHED，原A32评分与冻结未重做；CHECK仍为旧CAL内部留出。临时通道完成取证后仍偶发断连，额外最终账本重读未完成，已接受原结算和结果保持。
 
-[证据1](plans/cara_next_stage_20261028/mainline/r2/B36_USER_AUTHORIZATION_20261029.json) · [证据2](reports/cara_fast_B36_GPU_actual_launch_r1_20261029.json) · [证据3](reports/cara_fast_B36_original_context_startup_r1_20261029.json) · [证据4](reports/cara_fast_B36_runtime_observation_r1_20261029.json) · [证据5](reports/cara_fast_B36_actual_admission_r1_20261029.json) · [证据6](reports/cara_fast_B36_actual_storage_r1_20261029.json) · [证据7](reports/cara_fast_B36_actual_central_reservation_r1_20261029.json) · [证据8](reports/cara_fast_B36_live_budget_after_launch_r1_20261029.json) · [证据9](reports/cara_fast_B36_acceptance_schedule_r1_20261029.json) · [证据10](reports/cara_fast_B36_check_followup_policy_r1_20261029.json) · [证据11](reports/cara_fast_B36_precommit_status_r1_20261029.json) · [证据12](reports/cara_fast_B36_recovered_status_r1_20261029.json) · [证据13](reports/cara_fast_B36_original_terminal_r1_20261029.json) · [证据14](reports/cara_fast_B36_original_central_settlement_r1_20261029.json) · [证据15](reports/cara_fast_B36_original_release_accepted_r1_20261029.json) · [证据16](reports/cara_fast_B36_original_score_manifest_r1_20261029.json) · [证据17](reports/cara_fast_B36_original_score_CPU_launch_r1_20261029.json) · [证据18](reports/cara_fast_B36_original_CPU_operational_r1_20261029.json) · [证据19](reports/cara_fast_B36_original_connection_recovered_r1_20261029.json)
+[证据1](plans/cara_next_stage_20261028/mainline/r2/B36_USER_AUTHORIZATION_20261029.json) · [证据2](reports/cara_fast_B36_GPU_actual_launch_r1_20261029.json) · [证据3](reports/cara_fast_B36_original_context_startup_r1_20261029.json) · [证据4](reports/cara_fast_B36_runtime_observation_r1_20261029.json) · [证据5](reports/cara_fast_B36_actual_admission_r1_20261029.json) · [证据6](reports/cara_fast_B36_actual_storage_r1_20261029.json) · [证据7](reports/cara_fast_B36_actual_central_reservation_r1_20261029.json) · [证据8](reports/cara_fast_B36_live_budget_after_launch_r1_20261029.json) · [证据9](reports/cara_fast_B36_acceptance_schedule_r1_20261029.json) · [证据10](reports/cara_fast_B36_check_followup_policy_r1_20261029.json) · [证据11](reports/cara_fast_B36_precommit_status_r1_20261029.json) · [证据12](reports/cara_fast_B36_recovered_status_r1_20261029.json) · [证据13](reports/cara_fast_B36_original_terminal_r1_20261029.json) · [证据14](reports/cara_fast_B36_original_central_settlement_r1_20261029.json) · [证据15](reports/cara_fast_B36_original_release_accepted_r1_20261029.json) · [证据16](reports/cara_fast_B36_original_score_manifest_r1_20261029.json) · [证据17](reports/cara_fast_B36_original_score_CPU_launch_r1_20261029.json) · [证据18](reports/cara_fast_B36_original_CPU_operational_r1_20261029.json) · [证据19](reports/cara_fast_B36_original_connection_recovered_r1_20261029.json) · [证据20](reports/cara_fast_B36_original_CPU_score_capture_r3_20261029.json) · [证据21](reports/cara_fast_B36_complete_scores_accepted_r1_20261029.json) · [证据22](reports/cara_fast_B36_complete_analysis_r1_20261029.json) · [证据23](reports/cara_fast_B36_figures_actual_r1_20261029/report.json) · [证据24](reports/cara_fast_B36_figures_actual_CPU_acceptance_r1_20261029.json) · [证据25](reports/cara_fast_B36_figures_actual_visual_QA_r1_20261029.json) · [证据26](reports/cara_fast_B36_complete_acceptance_cleanup_r1_20261029.json) · [证据27](reports/cara_fast_B36_postacceptance_connection_observation_r1_20261029.json) · [证据28](reports/cara_fast_B36_complete_final_revalidation_r1_20261029.json)
 
 历史研究阶段：[原P1](research/669_CARA_PG_P1_COMPLETE_BUDGET_ATTRIBUTION_AND_REPAIR_PLAN_20261024.md)未选出预算可行策略；[104](research/685_CARA_HISTORY104_R2_COMPLETE_ACCEPTANCE_RESULTS_AND_COST_GATE_20261024.md)与[COST112](research/690_CARA_COST112_COMPLETE_ACCEPTANCE_AND_TIMING_GATE_FAILURE_20261025.md)完成采集，但原最大低估计时门均失败。该路线暂缓，失败与费用保持；当前按[CAL66完整结果](research/702_CARA_CAL66_A6000_COMPLETE_RESULTS_AND_FROZEN_SHARED25_C_20261026.md)保留Shared25-C已完成的DEV128结论；未来工作按顶部新计划推进。
 

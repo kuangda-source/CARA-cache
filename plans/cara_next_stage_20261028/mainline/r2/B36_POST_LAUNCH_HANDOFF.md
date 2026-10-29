@@ -71,3 +71,13 @@ WC_T006、RA_T1保持原FIT的 **UNMATCHED**，Native22为MATCHED；不重新冻
 原连接现在通过独立的本机隔离代理恢复；共享FRPC、TUN与全局SSH配置未改。执行现有scripts时只给该子进程PATH前置 `.sync/b36-original-transport-recovery-20261029/bin` 的绝对路径，包装器继承原已固定主机密钥。私有通道core PID16947、FRPC PID16948、SSH localhost22619；配置和日志仅在忽略目录，不能入Git。可恢复这些连接进程，禁止触碰原实验。
 
 CPU已于13:32:19**单次**启动，见 `reports/cara_fast_B36_original_score_CPU_launch_r1_20261029.json`。原CLI PID969049/start_ticks654684263、容器init PID969093/start_ticks654684280、容器 `cara-fast-f19-b36-a6000-r1-20261029-B-score-cpu`，2CPU/8GiB/禁swap、cores26,27、无GPU/网络/root只读均已观测。manifest为 `reports/cara_fast_B36_original_score_manifest_r1_20261029.json`，SHA057277a410b602f64c83df800b07bb50f33b291987cb6e837f246808231903fa。只恢复原评分，不可重派；26新对＋六原A组成完整32，A32十二对/冻结不重做。仅保留同一个b36-2于13:55续验原CPU，完整后按上文接受、汇总、导图、canonical和提交推送，再删除终验。
+
+## 全链已接受与检查清理
+
+[756完整结果与图表](../../../../research/756_CARA_B36_COMPLETE_ACCEPTANCE_RESULTS_AND_FIGURES_20261029.md)及[完整机器摘要](../../../../reports/cara_fast_B36_complete_summary_r1_20261029.json)为当前状态。原评分CPU于13:44:46正常退出（747.235937秒）；26新配对＋六原A指标构成32完整接受，93帧/92时序对/PTS与资源/源码/无OOM及退出均通过。原分析已重建五份完整原件，正式图表由未修改的原实现导出，四PNG已逐一检查，四PDF与四CSV行数/哈希通过。
+
+本机图表测试stage缺生产协议文件，已在独立的只读CPU导出stage复制原B完整source和已接受图表/汇总文件，1129文件逐项同SHA；原GPU/评分stage未改。首次图表SSH请求没有形成输入或容器，之后恢复原操作并单次完成图表CPU，原GPU/评分均无重启或重派。
+
+B36已完整收尾，b36和b36-2均删除。原5.5GPUh硬限、cap226及旧16.5保持；只用原guardian实测2.384553982338661GPUh结算。临时连接完成原件和导图取证后仍有偶发reset；额外最终账本重读未成功，不能把13:31结算快照当作当前live资源准入。已接受完整原结算与实验终态保留，无需再次评分或结算。
+
+F19_C去噪1.703倍、全请求1.486倍，Alex较Uniform19_C降低46.82%；A1再降低7.16%，去噪时间增加0.70%。这些是四旧CAL的输入等权比较，CHECK仍在CAL内部，WC/RA的FIT UNMATCHED和原A冻结保持。后续新卡需单独登记范围与报价；本交接不授权重派。

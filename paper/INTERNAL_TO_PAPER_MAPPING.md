@@ -6,7 +6,7 @@
 
 ## 核心动作
 
-仅恢复原CPU评分句柄；完整32位置/93帧曲线/资源与退出接受后再按原工具汇总和导图，保持WC/RA FIT UNMATCHED与旧CAL边界，完成后删除同一个终验。
+保留原证据、一次冻结和正式图表；后续新输入确认按独立范围与报价另行登记。
 
 C包含原WorldCache的probe/window/warp/head/RF读出，并非单纯复制旧速度。A在post-RF分支速度上修正，共享alpha后做CFG融合；语义C/A都可能显示为物理CC。D对两CFG支做完整深层计算，更新真实D历史，但不会抹掉已有轨迹误差。WorldCache自己的决策可能出现DC/CD。
 
