@@ -63,3 +63,11 @@ WC_T006、RA_T1保持原FIT的 **UNMATCHED**，Native22为MATCHED；不重新冻
 ## 2026-10-29 半程连接中断交接
 
 见 [原句柄UNKNOWN运维回执](../../../../reports/cara_fast_B36_halfway_connection_unknown_r1_20261029.json)。原FRP端口拒绝、office_tailscale超时，直连及临时独立visitor也未取回远端；共享FRP与SSH配置未更改。09:18的14/36、0失败只是最后已知计数，当前温度/独占/资源/账本/终态均UNKNOWN。不得将未知升级为结束、失败或零费用，原5.5GPUh责任与身份保持。半程b36已删除；只保留同一个b36-2，13:35先恢复原连接和句柄，若仍未知则同一检查续至13:51覆盖原硬截止后边界。原13:47:37硬截止不变，无GPU或CPU重新派发。
+
+## 连接恢复及原GPU已接受，当前只续验CPU
+
+[755最新记录](../../../../research/755_CARA_B36_CONNECTION_RECOVERED_GPU_ACCEPTED_CPU_SCORE_20261029.md)与[恢复回执](../../../../reports/cara_fast_B36_original_connection_recovered_r1_20261029.json)取代上节UNKNOWN当前状态。原B36已于10:40:41正常退出，完整36/36、0失败、3797次监测、最高88C，原四句柄全退出、Default恢复及原件/源码/精度/双时钟接受；原guardian实际2.384553982338661GPUh已中央唯一结算。原settlement见 `reports/cara_fast_B36_original_central_settlement_r1_20261029.json`，保持同字节，不再产生另一份结算快照。
+
+原连接现在通过独立的本机隔离代理恢复；共享FRPC、TUN与全局SSH配置未改。执行现有scripts时只给该子进程PATH前置 `.sync/b36-original-transport-recovery-20261029/bin` 的绝对路径，包装器继承原已固定主机密钥。私有通道core PID16947、FRPC PID16948、SSH localhost22619；配置和日志仅在忽略目录，不能入Git。可恢复这些连接进程，禁止触碰原实验。
+
+CPU已于13:32:19**单次**启动，见 `reports/cara_fast_B36_original_score_CPU_launch_r1_20261029.json`。原CLI PID969049/start_ticks654684263、容器init PID969093/start_ticks654684280、容器 `cara-fast-f19-b36-a6000-r1-20261029-B-score-cpu`，2CPU/8GiB/禁swap、cores26,27、无GPU/网络/root只读均已观测。manifest为 `reports/cara_fast_B36_original_score_manifest_r1_20261029.json`，SHA057277a410b602f64c83df800b07bb50f33b291987cb6e837f246808231903fa。只恢复原评分，不可重派；26新对＋六原A组成完整32，A32十二对/冻结不重做。仅保留同一个b36-2于13:55续验原CPU，完整后按上文接受、汇总、导图、canonical和提交推送，再删除终验。

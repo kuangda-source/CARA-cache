@@ -1,0 +1,83 @@
+{
+  "status": "B36_ORIGINAL_CONNECTION_RECOVERED_GPU_ACCEPTED_CPU_SCORE_ONCE_RUNNING",
+  "observed_at": "2026-10-29T13:35:35.983813+08:00",
+  "observed_unix": 1793252135.983813,
+  "run_id": "cara-fast-f19-b36-r1-20261029",
+  "launch_id": "b684eb05c8674a94ad3dad8187f1c6b9",
+  "source_revision": "249aadcb2f33e360520560fea83059293ac77fed",
+  "original_GPU_launch_ref": "reports/cara_fast_B36_GPU_actual_launch_r1_20261029.json",
+  "network_recovery": {
+    "local_only": true,
+    "global_proxy_TUN_and_SSH_configuration_changed": false,
+    "shared_FRPC_restarted": false,
+    "scoped_proxy_PID": 16947,
+    "scoped_FRPC_PID": 16948,
+    "localhost_proxy_port": 7901,
+    "localhost_SSH_port": 22619,
+    "original_server_and_secret_reused": true,
+    "strict_original_host_key_verification": true,
+    "verified_central_hostname": "user-Super-Server",
+    "verified_GPU_hostname": "minchen-X11DAi-N",
+    "task_process_PATH_prefix": "/Users/kuangda_gao/Documents/世界模型加速实验/worldcache_omr/.sync/b36-original-transport-recovery-20261029/bin",
+    "private_config_and_log_directory": ".sync/b36-original-transport-recovery-20261029",
+    "failed_bound_local_FRPC_16617_stopped": true,
+    "original_failing_shared_FRPC_63606_untouched": true
+  },
+  "GPU_complete_paths": 36,
+  "GPU_failed_paths": 0,
+  "original_GPU_actual_GPUh": 2.384553982338661,
+  "original_GPU_hard_GPUh": 5.5,
+  "original_GPU_finished_Beijing": "2026-10-29T10:40:41+08:00",
+  "original_GPU_technical_accepted": true,
+  "original_GPU_released": true,
+  "original_mode_restored": "Default",
+  "original_process_handles_all_exited": true,
+  "monitor_audit": {
+    "samples": 3797,
+    "max_gap_seconds": 4.898454077541828,
+    "max_temperature_C": 88.0,
+    "passed": true,
+    "path": "/data20t/gaokuangda/worldcache_workspace/outputs/cara-fast-f19-b36-r1-20261029/B-exclusive-monitor.jsonl",
+    "sha256": "bdc6d552825c0f69a520c068bd66789d4d64f0842dabda2419b135419afb1afc",
+    "validator_sha256": "c89daffeb5223697225c3afdd405b26d00585482fa280623841d7bf2706bdb44"
+  },
+  "central_settlement_ref": "reports/cara_fast_B36_original_central_settlement_r1_20261029.json",
+  "central_settlement_raw_sha256": "9c77a9c4aaceca4541b623e15ea38899745565463eab8167a04e21a5ecb72668",
+  "central_budget_now": {
+    "used_gpu_hours": 180.44611925467495,
+    "reserved_gpu_hours": 16.5,
+    "available_gpu_hours": 29.053880745325046,
+    "gpu_jobs_launched": 126
+  },
+  "central_cap_GPUh": 226,
+  "old_unknown_GPUh": 16.5,
+  "new_GPU_dispatches": 0,
+  "CPU_score_dispatches": 1,
+  "CPU_launch_ref": "reports/cara_fast_B36_original_score_CPU_launch_r1_20261029.json",
+  "CPU_operational_ref": "reports/cara_fast_B36_original_CPU_operational_r1_20261029.json",
+  "CPU_container": "cara-fast-f19-b36-a6000-r1-20261029-B-score-cpu",
+  "CPU_launcher_identity": {
+    "pid": 969049,
+    "state": "R",
+    "start_ticks": 654684263,
+    "command": "docker run --read-only --network none --pid host --name cara-fast-f19-b36-a6000-r1-20261029-B-score-cpu --label wcomr.manifest=057277a410b602f64c83df800b07bb50f33b291987cb6e837f246808231903fa --user 1004:998 --cpus 2 --memory 8g --pids-limit 512 --tmpfs /tmp:rw,size=2g -v /data20t/gaokuangda/worldcache_workspace:/data20t/gaokuangda/worldcache_workspace:ro -v /data20t/gaokuangda/worldcache_workspace/.sync/cara-fast-f19-b36-a6000-r1-20261029:/data20t/gaokuangda/worldcache_workspace/.sync/cara-fast-f19-b36-a6000-r1-20261029:ro -w /data20t/gaokuangda/worldcache_workspace/runtime -e CUDA_CACHE_PATH=/data20t/gaokuangda/worldcache_workspace/outputs/cara-fast-f19-b36-r1-20261029/B-score-CPU/caches/cuda -e CUDA_HOME=/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cuda_nvrtc -e CUDA_PATH=/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cuda_nvrtc -e CUDA_VISIBLE_DEVICES= -e HF_HOME=/data20t/gaokuangda/worldcache_workspace/cache/huggingface -e HF_HUB_CACHE=/data20t/gaokuangda/worldcache_workspace/cache/huggingface/hub -e HF_HUB_OFFLINE=1 -e LD_LIBRARY_PATH=/data20t/gaokuangda/worldcache_workspace/system-libs-r1/usr/lib/x86_64-linux-gnu/blas:/data20t/gaokuangda/worldcache_workspace/system-libs-r1/usr/lib/x86_64-linux-gnu/lapack:/data20t/gaokuangda/worldcache_workspace/system-libs-r1/usr/lib/x86_64-linux-gnu/pulseaudio:/data20t/gaokuangda/worldcache_workspace/system-libs-r1/usr/lib/x86_64-linux-gnu:/data20t/gaokuangda/worldcache_workspace/system-libs-r1/lib/x86_64-linux-gnu:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cuda_nvrtc/lib:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cuda_runtime/lib:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cudnn/lib:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/nvjitlink/lib:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cublas/lib:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/torch/lib -e LOGNAME=gaokuangda -e NLTK_DATA=/data20t/gaokuangda/worldcache_workspace/runtime-resources/nltk-guardrail-d6d4bfa8-r1 -e NVIDIA_VISIBLE_DEVICES=void -e OMP_NUM_THREADS=2 -e OPENBLAS_NUM_THREADS=2 -e PATH=/data20t/gaokuangda/worldcache_workspace/system-libs-r1/usr/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin -e PYTHONDONTWRITEBYTECODE=1 -e PYTHONPATH=/data20t/gaokuangda/worldcache_workspace/.sync/cara-fast-f19-b36-a6000-r1-20261029/scripts:/data20t/gaokuangda/worldcache_workspace/.sync/cara-fast-f19-b36-a6000-r1-20261029/src -e TOKENIZERS_PARALLELISM=false -e TORCHINDUCTOR_CACHE_DIR=/data20t/gaokuangda/worldcache_workspace/outputs/cara-fast-f19-b36-r1-20261029/B-score-CPU/caches/torchinductor -e TORCHINDUCTOR_COMPILE_THREADS=1 -e TORCH_EXTENSIONS_DIR=/data20t/gaokuangda/worldcache_workspace/outputs/cara-fast-f19-b36-r1-20261029/B-score-CPU/caches/extensions -e TORCH_HOME=/data20t/gaokuangda/worldcache_workspace/.sync/wc-time-score-CPU-two_card-r1-20261027/torch -e TRANSFORMERS_OFFLINE=1 -e TRITON_CACHE_DIR=/data20t/gaokuangda/worldcache_workspace/outputs/cara-fast-f19-b36-r1-20261029/B-score-CPU/caches/triton -e USER=gaokuangda -e WC_SCOUT_KIND=CAL12 -e XDG_CACHE_HOME=/data20t/gaokuangda/worldcache_workspace/outputs/cara-fast-f19-b36-r1-20261029/B-score-CPU/caches/xdg --memory-swap 8g --cpuset-cpus 26,27 -v /data20t/gaokuangda/worldcache_workspace/outputs/cara-fast-cal-a32-r2-20261028:/data20t/gaokuangda/worldcache_workspace/outputs/cara-fast-cal-a32-r2-20261028:ro -v /data20t/gaokuangda/worldcache_workspace/outputs/cara-fast-f19-b36-r1-20261029:/data20t/gaokuangda/worldcache_workspace/outputs/cara-fast-f19-b36-r1-20261029:ro -v /data20t/gaokuangda/worldcache_workspace/outputs/cara-fast-f19-b36-r1-20261029/B-score-CPU:/data20t/gaokuangda/worldcache_workspace/outputs/cara-fast-f19-b36-r1-20261029/B-score-CPU:rw --entrypoint /data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/bin/python sha256:1e81ac62ee68ca1a6ef655515096a1d84579b01aa4986810c9b18d4f6c4c552d /data20t/gaokuangda/worldcache_workspace/.sync/cara-fast-f19-b36-a6000-r1-20261029/scripts/score_cara_fast_b36_fidelity_r1.py --manifest /data20t/gaokuangda/worldcache_workspace/outputs/cara-fast-f19-b36-r1-20261029/B-score-CPU/manifest.json --output /data20t/gaokuangda/worldcache_workspace/outputs/cara-fast-f19-b36-r1-20261029/B-score-CPU/scores.json "
+  },
+  "CPU_init_identity": {
+    "pid": 969093,
+    "start_ticks": 654684280,
+    "state": "S"
+  },
+  "new_score_pairs": 26,
+  "reused_accepted_A_pairs": 6,
+  "formal_score_positions": 32,
+  "partial_scientific_scores_accessed": false,
+  "A32_score_or_freeze_repeated": false,
+  "halfway_automation_deleted": true,
+  "terminal_automation": {
+    "id": "b36-2",
+    "same_existing_automation": true,
+    "status": "ACTIVE",
+    "scheduled_Beijing": "2026-10-29T13:55:00+08:00",
+    "configuration_sha256": "9c99982afd277eba2e16a880b3b7683d15469eb11aa766e920c05e518b6e58ff"
+  }
+}

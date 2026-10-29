@@ -1,7 +1,7 @@
 {
   "schema": "CARA_NEXT_STAGE_WORKSTREAMS_R1",
   "date": "2026-10-28",
-  "state": "MAINLINE_A32_COMPLETE_FROZEN_B36_ORIGINAL_HANDLE_CONNECTION_UNKNOWN",
+  "state": "MAINLINE_A32_FROZEN_B36_GPU_ACCEPTED_ORIGINAL_CPU_SCORES_RUNNING",
   "source_design_registry_ref": "plans/cara_next_stage_20261028/experiment_registry.json",
   "source_design_registry_sha256": "d2825f85c83be4461f189b39110f2dc5669cce14d37c4739cd21850ec0f656fb",
   "reconciliation_ref": "plans/cara_next_stage_20261028/08_REPOSITORY_RECONCILIATION.md",
@@ -56,8 +56,8 @@
     {
       "id": "F19",
       "owner": "主线",
-      "state": "A32已完整冻结；单次B36原句柄连接未知，费用责任保持",
-      "next_action": "13:35同一终验恢复原句柄；必要时13:51续验，原硬截止13:47:37不改；完整36/原账单/释放后才评分，禁止重派"
+      "state": "A32已完整冻结；B36完整36条GPU接受并结算，原CPU评分运行",
+      "next_action": "仅恢复原26新CPU评分＋六原A指标；完整32接受后原规则汇总/导图；同一个b36-2于13:55续验，禁止GPU重派"
     },
     {
       "id": "S-FAST19",
@@ -118,8 +118,8 @@
   "mainline_CPU_review_ref": "reports/cara_fast_scoped_CPU_acceptance_r2_20261028.json",
   "mainline_orchestration_review_ref": "reports/cara_fast_orchestration_CPU_acceptance_r3_20261028.json",
   "sq_latest_status_ref": "plans/cara_next_stage_20261028/sq/Q1_PREPARATION_STATUS_R3.md",
-  "GPU_execution_ref": "reports/cara_fast_B36_connection_unknown_summary_r1_20261029.json",
-  "preparation_authority_fields_scope": "Original CPU plan zero fields grant no GPU. Original A32 is complete; direct B36 approval and its unique original handle remain in GPU_execution_ref. Connection UNKNOWN preserves the original identity and liabilities; no replay.",
+  "GPU_execution_ref": "reports/cara_fast_B36_GPU_accepted_CPU_running_summary_r1_20261029.json",
+  "preparation_authority_fields_scope": "Historical CPU plan zero fields grant no GPU. Original B36 GPU complete and settled; only its once-dispatched CPU scorer is active. Never replay GPU or A32 scores/freeze.",
   "mainline_B36_analysis_layout_ref": "plans/cara_next_stage_20261028/mainline/r2/B36_ANALYSIS_LAYOUT_R1.json",
   "mainline_B36_CPU_acceptance_ref": "reports/cara_fast_B36_CPU_acceptance_r1_20261029.json",
   "mainline_B36_CPU_handoff_ref": "plans/cara_next_stage_20261028/mainline/r2/B36_CPU_HANDOFF_R1.md",

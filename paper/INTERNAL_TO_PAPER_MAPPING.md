@@ -6,7 +6,7 @@
 
 ## 核心动作
 
-先恢复原FRP或既有office连接，再核对原guardian、终态读者和中央账本；连接UNKNOWN不推定结束或零费用。原5.5GPUh与90C保持；完整36技术/释放接受后才派发一次26新CPU评分，禁止重派GPU。
+仅恢复原CPU评分句柄；完整32位置/93帧曲线/资源与退出接受后再按原工具汇总和导图，保持WC/RA FIT UNMATCHED与旧CAL边界，完成后删除同一个终验。
 
 C包含原WorldCache的probe/window/warp/head/RF读出，并非单纯复制旧速度。A在post-RF分支速度上修正，共享alpha后做CFG融合；语义C/A都可能显示为物理CC。D对两CFG支做完整深层计算，更新真实D历史，但不会抹掉已有轨迹误差。WorldCache自己的决策可能出现DC/CD。
 

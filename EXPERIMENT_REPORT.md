@@ -12,19 +12,19 @@
 
 [749 B36图表承接CPU接受与待审批](research/749_CARA_B36_FIGURES_DUAL_CPU_AND_LAYOUT_20261029.md)：启动前执行22项、汇总6项、绘图6项分别双端接受，四组图及四CSV已作显式CPU夹具和图面验证；原52执行/4汇总源码及原冻结保持。此处保留CPU准备快照，当前单次B36以实际启动记录为准，不授予重派。 [组合CPU接受](reports/cara_fast_B36_dispatch_CPU_acceptance_r2_20261029.json) · [剩余派发边界](plans/cara_next_stage_20261028/mainline/r2/B36_GPU_REVIEW_R2.md)
 
-[754 B36半程连接未知与原句柄续验](research/754_CARA_B36_HALFWAY_CONNECTION_UNKNOWN_20261029.md)：单次B36原运行身份保持。半程检查中FRP原端口拒绝连接，备用office_tailscale及直连也未成功，13:17再次核验仍无法读取远端；最新已确认进度仅为09:18的14/36、0失败，不能当作当前进度。当前温度、资源、独占、终态与中央账本均未重新核验；原5.5GPUh责任保留，实测账单未取回，不推定结束或零费用。已删除本次半程检查，同一个b36-2移至13:35恢复原句柄，原硬截止13:47:37不改，必要时同一终验续至13:51。尚无完整36/释放接受或CPU评分。 [B36唯一启动回执](reports/cara_fast_B36_GPU_actual_launch_r1_20261029.json) · [原句柄与验收交接](plans/cara_next_stage_20261028/mainline/r2/B36_POST_LAUNCH_HANDOFF.md)
+[755 B36恢复连接、完整GPU接受与CPU评分](research/755_CARA_B36_CONNECTION_RECOVERED_GPU_ACCEPTED_CPU_SCORE_20261029.md)：连接已通过隔离的本机SSH代理恢复，原B36完整36/36、0失败，10:40:41正常退出；原四进程均结束、GPU释放并恢复Default。3797次独占监测完整，最高88C、最大间隔4.8985秒；原源码/精度/参数/双时钟及36套原件通过接受。HOST_GUARDIAN实际2.384553982338661GPUh已在four_card唯一结算，cap226及旧16.5不变。13:32:19单次启动无GPU的2CPU/8GiB评分，只计算26新配对并复用六原A指标；完整32接受及汇总仍待CPU退出。共享FRPC、TUN和SSH配置未改，GPU无重启/重派。 [B36唯一启动回执](reports/cara_fast_B36_GPU_actual_launch_r1_20261029.json) · [原句柄与验收交接](plans/cara_next_stage_20261028/mainline/r2/B36_POST_LAUNCH_HANDOFF.md)
 
 当前核心问题是：**相同刷新次数下，把完整计算放在更有价值的时间步，能否更好保留完整模型的视频输出？** CAL66在24/25D上支持过渡段刷新优于末段刷新，并按原规则选出不含A的Shared25-C。这项DEV128比较已完成；当前先准备F19高速可行性和S/Q独立机制。历史修正的局部与终点保真收益保留，同时报告其独立质量代价。
 
-**B36原句柄连接中断，当前运行及验收状态未知。**
+**B36完整36条GPU验收及费用结算通过，原CPU评分运行中。**
 
-单次B36原运行身份保持。半程检查中FRP原端口拒绝连接，备用office_tailscale及直连也未成功，13:17再次核验仍无法读取远端；最新已确认进度仅为09:18的14/36、0失败，不能当作当前进度。当前温度、资源、独占、终态与中央账本均未重新核验；原5.5GPUh责任保留，实测账单未取回，不推定结束或零费用。已删除本次半程检查，同一个b36-2移至13:35恢复原句柄，原硬截止13:47:37不改，必要时同一终验续至13:51。尚无完整36/释放接受或CPU评分。
+连接已通过隔离的本机SSH代理恢复，原B36完整36/36、0失败，10:40:41正常退出；原四进程均结束、GPU释放并恢复Default。3797次独占监测完整，最高88C、最大间隔4.8985秒；原源码/精度/参数/双时钟及36套原件通过接受。HOST_GUARDIAN实际2.384553982338661GPUh已在four_card唯一结算，cap226及旧16.5不变。13:32:19单次启动无GPU的2CPU/8GiB评分，只计算26新配对并复用六原A指标；完整32接受及汇总仍待CPU退出。共享FRPC、TUN和SSH配置未改，GPU无重启/重派。
 
-[证据1](plans/cara_next_stage_20261028/mainline/r2/B36_USER_AUTHORIZATION_20261029.json) · [证据2](reports/cara_fast_B36_GPU_actual_launch_r1_20261029.json) · [证据3](reports/cara_fast_B36_original_context_startup_r1_20261029.json) · [证据4](reports/cara_fast_B36_runtime_observation_r1_20261029.json) · [证据5](reports/cara_fast_B36_actual_admission_r1_20261029.json) · [证据6](reports/cara_fast_B36_actual_storage_r1_20261029.json) · [证据7](reports/cara_fast_B36_actual_central_reservation_r1_20261029.json) · [证据8](reports/cara_fast_B36_live_budget_after_launch_r1_20261029.json) · [证据9](reports/cara_fast_B36_acceptance_schedule_r1_20261029.json) · [证据10](reports/cara_fast_B36_check_followup_policy_r1_20261029.json) · [证据11](reports/cara_fast_B36_precommit_status_r1_20261029.json) · [证据12](reports/cara_fast_B36_halfway_connection_unknown_r1_20261029.json)
+[证据1](plans/cara_next_stage_20261028/mainline/r2/B36_USER_AUTHORIZATION_20261029.json) · [证据2](reports/cara_fast_B36_GPU_actual_launch_r1_20261029.json) · [证据3](reports/cara_fast_B36_original_context_startup_r1_20261029.json) · [证据4](reports/cara_fast_B36_runtime_observation_r1_20261029.json) · [证据5](reports/cara_fast_B36_actual_admission_r1_20261029.json) · [证据6](reports/cara_fast_B36_actual_storage_r1_20261029.json) · [证据7](reports/cara_fast_B36_actual_central_reservation_r1_20261029.json) · [证据8](reports/cara_fast_B36_live_budget_after_launch_r1_20261029.json) · [证据9](reports/cara_fast_B36_acceptance_schedule_r1_20261029.json) · [证据10](reports/cara_fast_B36_check_followup_policy_r1_20261029.json) · [证据11](reports/cara_fast_B36_precommit_status_r1_20261029.json) · [证据12](reports/cara_fast_B36_recovered_status_r1_20261029.json) · [证据13](reports/cara_fast_B36_original_terminal_r1_20261029.json) · [证据14](reports/cara_fast_B36_original_central_settlement_r1_20261029.json) · [证据15](reports/cara_fast_B36_original_release_accepted_r1_20261029.json) · [证据16](reports/cara_fast_B36_original_score_manifest_r1_20261029.json) · [证据17](reports/cara_fast_B36_original_score_CPU_launch_r1_20261029.json) · [证据18](reports/cara_fast_B36_original_CPU_operational_r1_20261029.json) · [证据19](reports/cara_fast_B36_original_connection_recovered_r1_20261029.json)
 
 ## 方法及比较对象
 
-先恢复原FRP或既有office连接，再核对原guardian、终态读者和中央账本；连接UNKNOWN不推定结束或零费用。原5.5GPUh与90C保持；完整36技术/释放接受后才派发一次26新CPU评分，禁止重派GPU。
+仅恢复原CPU评分句柄；完整32位置/93帧曲线/资源与退出接受后再按原工具汇总和导图，保持WC/RA FIT UNMATCHED与旧CAL边界，完成后删除同一个终验。
 
 WorldCache 是原始缓存基线；RA-CFGCache 是本项目固定协议下的本地适配对照。Efficient、High-Fidelity 是历史版本的两个工作点，具有各自源码、配置与批次身份。完整对应关系见[术语映射](paper/INTERNAL_TO_PAPER_MAPPING.md)，不同版本不合并成一个“最终方法”均值。
 
@@ -104,7 +104,7 @@ LPIPS百分比以同批场景均值之比计算；视频帧不当独立样本；
 | 顺序 / 负责人 | 当前阶段 | 下一项验收 / 动作 |
 |---|---|---|
 | P0 · 主线 | A32完整三臂GPU门及技术验收通过 | 保留32完整原件、原控制与双时钟；GPU已释放、费用已唯一结算 |
-| F19 · 主线 | A32已完整冻结；单次B36原句柄连接未知，费用责任保持 | 13:35同一终验恢复原句柄；必要时13:51续验，原硬截止13:47:37不改；完整36/原账单/释放后才评分，禁止重派 |
+| F19 · 主线 | A32已完整冻结；B36完整36条GPU接受并结算，原CPU评分运行 | 仅恢复原26新CPU评分＋六原A指标；完整32接受后原规则汇总/导图；同一个b36-2于13:55续验，禁止GPU重派 |
 | S-FAST19 · S/Q探索 | 生产profile的170共同结构候选；尚无全支持mask | 完整风险缺口保持；BR/DIAG/CFG共同语法，见S/Q R3状态；不外推12保存状态 |
 | Q0-Q1 · S/Q探索 | 双端CPU控制与源码绑定完成；原C CPU未过历史GPU逐值门 | 同硬件CUDA数值控制仅提案；当前codec评分0，固定Shared25-C及旧资产不重采 |
 | A-SQ-FAST · S/Q探索 | 仅明确缺口后准备采集卡 | 绑定新父策略的108标签/56额外Dense pair与存储；解决F19 raw和Q25布局兼容问题，共同费用只计一次 |
