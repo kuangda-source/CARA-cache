@@ -4,7 +4,7 @@
   "evidence_observed_at": "2026-10-26T09:30:00.005338+08:00",
   "timezone": "Asia/Shanghai",
   "snapshot_note": "CAL66完整66路径、48组LPIPS/156质量评分已接受，实际4.776208 GPUh已中央结算。Shared25-C相对较强S25-A的LPIPS改善15.34%且4/4同向，246.852秒/V0.98188，三项质量筛查通过，冻结为新DEV主候选。原GPU/容器/锁释放、模式恢复；四个A候选未过相对Native的MUSIQ界。当前仅CAL证据，新DEV未启动。",
-  "research_summary": "Shared25-C既有DEV128冻结结果保留；A32已完成原32条、十二对评分和真实基线冻结。用户又明确批准的B36正在原A6000同UUID运行，固定36物理/32逻辑位置、硬5.5GPUh，用于比较F19布局及age-1更新与强基线的速度—保真取舍；实际结果待完整终态、费用、释放与评分接受。S-FAST19/Q维持独立分工；约1.5倍是待测目标，原alpha、质量及完整请求预算保持。",
+  "research_summary": "Shared25-C既有DEV128冻结结果和已完成A32的原32条、十二对评分与真实基线冻结保留。单次B36已在原A6000启动，但半程远程连接中断，当前状态UNKNOWN；09:18的14/36仅为最后已知运维计数。原5.5GPUh及中央责任保持，等待恢复同一原句柄后接受完整终态、费用、释放与评分；S-FAST19/Q维持独立分工。",
   "active_experiment_id": "PG-SHARED-CAL66",
   "active_state": "DEV128_A6000_EXCLUSIVE_RUNNING",
   "active_state_zh": "Shared25-C新DEV128已在两卡A6000独占启动",
@@ -1869,9 +1869,9 @@
     "authority_fields_scope": "Historical CPU preparation; actual B approval and execution are in fast_B36_execution_20261029"
   },
   "fast_B36_execution_20261029": {
-    "status": "B36_A6000_ORIGINAL_GPU_RUNNING",
-    "status_zh": "B36已获单次批准并在原A6000独占运行",
-    "summary": "用户明确批准的单次B36于2026-10-29 08:17:37在原A6000同UUID开始，原runner独占及真实模型构造已观测，截至09:18运维检查14/36完成、0失败。中央唯一预约5.5GPUh、cap226及旧16.5保持，按实际开始创建10:49半程和13:19全程验收，硬截止13:47:37。当前仅运行状态，完整36技术/释放/原bill及32位置评分后才接受比较；WC/RA的FIT UNMATCHED与原A冻结不改。",
+    "status": "B36_ORIGINAL_HANDLE_CONNECTION_UNKNOWN",
+    "status_zh": "B36原句柄连接中断，当前运行及验收状态未知",
+    "summary": "单次B36原运行身份保持。半程检查中FRP原端口拒绝连接，备用office_tailscale及直连也未成功，13:17再次核验仍无法读取远端；最新已确认进度仅为09:18的14/36、0失败，不能当作当前进度。当前温度、资源、独占、终态与中央账本均未重新核验；原5.5GPUh责任保留，实测账单未取回，不推定结束或零费用。已删除本次半程检查，同一个b36-2移至13:35恢复原句柄，原硬截止13:47:37不改，必要时同一终验续至13:51。尚无完整36/释放接受或CPU评分。",
     "run_id": "cara-fast-f19-b36-r1-20261029",
     "launch_id": "b684eb05c8674a94ad3dad8187f1c6b9",
     "source_revision": "249aadcb2f33e360520560fea83059293ac77fed",
@@ -1884,8 +1884,8 @@
     "reservation_ref": "reports/cara_fast_B36_actual_central_reservation_r1_20261029.json",
     "schedule_ref": "reports/cara_fast_B36_acceptance_schedule_r1_20261029.json",
     "handoff_ref": "plans/cara_next_stage_20261028/mainline/r2/B36_POST_LAUNCH_HANDOFF.md",
-    "research_ref": "research/753_CARA_B36_A6000_ACTUAL_LAUNCH_AND_CHECKS_20261029.md",
-    "notice_title": "753 B36单次启动与实际开始检查",
+    "research_ref": "research/754_CARA_B36_HALFWAY_CONNECTION_UNKNOWN_20261029.md",
+    "notice_title": "754 B36半程连接未知与原句柄续验",
     "evidence_refs": [
       "plans/cara_next_stage_20261028/mainline/r2/B36_USER_AUTHORIZATION_20261029.json",
       "reports/cara_fast_B36_GPU_actual_launch_r1_20261029.json",
@@ -1897,9 +1897,10 @@
       "reports/cara_fast_B36_live_budget_after_launch_r1_20261029.json",
       "reports/cara_fast_B36_acceptance_schedule_r1_20261029.json",
       "reports/cara_fast_B36_check_followup_policy_r1_20261029.json",
-      "reports/cara_fast_B36_precommit_status_r1_20261029.json"
+      "reports/cara_fast_B36_precommit_status_r1_20261029.json",
+      "reports/cara_fast_B36_halfway_connection_unknown_r1_20261029.json"
     ],
-    "observed_unix": 1793236712.2684183,
+    "observed_unix": 1793251172.060764,
     "started_unix": 1793233057.4184854,
     "host": "two_card",
     "gpu_uuid": "GPU-cebf7119-cf03-23b9-e192-cd196332b704",
@@ -1929,7 +1930,7 @@
     "thermal_stop_C": 90,
     "explicit_B36_approval_received": true,
     "authorizes_replay": false,
-    "check_schedule_zh": "10月29日10:49半程、13:19预计全程验收；可依原运维进度前移或跟进同一个终验检查，不增加重复检查；原硬截止13:47:37保持",
+    "check_schedule_zh": "本次半程检查已删除；同一个b36-2于10月29日13:35恢复原句柄，必要时续至13:51；原硬截止13:47:37保持",
     "budget_snapshot": {
       "cap": 226,
       "used_gpu_hours": 178.06156527233628,
@@ -1939,8 +1940,13 @@
       "old_unknown_GPUh": 16.5,
       "observed_unix": 1793233719.3672788
     },
-    "next_action": "按唯一原句柄监控、保持90C与5.5GPUh硬界；结束后成功失败均唯一结算原guardian实际bill，完整接受释放后仅26新评分＋六原A指标组成32接受，不重派或重做A冻结。",
+    "next_action": "先恢复原FRP或既有office连接，再核对原guardian、终态读者和中央账本；连接UNKNOWN不推定结束或零费用。原5.5GPUh与90C保持；完整36技术/释放接受后才派发一次26新CPU评分，禁止重派GPU。",
     "check_followup_policy_ref": "reports/cara_fast_B36_check_followup_policy_r1_20261029.json",
-    "latest_operational_ref": "reports/cara_fast_B36_precommit_status_r1_20261029.json"
+    "latest_operational_ref": "reports/cara_fast_B36_halfway_connection_unknown_r1_20261029.json",
+    "last_verified_operational_unix": 1793236712.2684183,
+    "connection_state": "UNKNOWN",
+    "progress_is_current": false,
+    "temperature_is_current": false,
+    "budget_snapshot_is_current": false
   }
 }

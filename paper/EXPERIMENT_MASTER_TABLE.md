@@ -4,11 +4,11 @@
 
 本表由[机器索引](experiment_master_table.json)自动生成，共 **60项**。每行是一组科学问题或完整实验卡，不是一次工程重试；不同实验复用的原件不累加为独立样本。`D`为历史开发、`N`为评价/后续、`X`为探索、`REV`为v6设计、`PG`为现行自动生成器路线。
 
-**B36已获单次批准并在原A6000独占运行。**
+**B36原句柄连接中断，当前运行及验收状态未知。**
 
-用户明确批准的单次B36于2026-10-29 08:17:37在原A6000同UUID开始，原runner独占及真实模型构造已观测，截至09:18运维检查14/36完成、0失败。中央唯一预约5.5GPUh、cap226及旧16.5保持，按实际开始创建10:49半程和13:19全程验收，硬截止13:47:37。当前仅运行状态，完整36技术/释放/原bill及32位置评分后才接受比较；WC/RA的FIT UNMATCHED与原A冻结不改。
+单次B36原运行身份保持。半程检查中FRP原端口拒绝连接，备用office_tailscale及直连也未成功，13:17再次核验仍无法读取远端；最新已确认进度仅为09:18的14/36、0失败，不能当作当前进度。当前温度、资源、独占、终态与中央账本均未重新核验；原5.5GPUh责任保留，实测账单未取回，不推定结束或零费用。已删除本次半程检查，同一个b36-2移至13:35恢复原句柄，原硬截止13:47:37不改，必要时同一终验续至13:51。尚无完整36/释放接受或CPU评分。
 
-[证据1](../plans/cara_next_stage_20261028/mainline/r2/B36_USER_AUTHORIZATION_20261029.json) · [证据2](../reports/cara_fast_B36_GPU_actual_launch_r1_20261029.json) · [证据3](../reports/cara_fast_B36_original_context_startup_r1_20261029.json) · [证据4](../reports/cara_fast_B36_runtime_observation_r1_20261029.json) · [证据5](../reports/cara_fast_B36_actual_admission_r1_20261029.json) · [证据6](../reports/cara_fast_B36_actual_storage_r1_20261029.json) · [证据7](../reports/cara_fast_B36_actual_central_reservation_r1_20261029.json) · [证据8](../reports/cara_fast_B36_live_budget_after_launch_r1_20261029.json) · [证据9](../reports/cara_fast_B36_acceptance_schedule_r1_20261029.json) · [证据10](../reports/cara_fast_B36_check_followup_policy_r1_20261029.json) · [证据11](../reports/cara_fast_B36_precommit_status_r1_20261029.json)
+[证据1](../plans/cara_next_stage_20261028/mainline/r2/B36_USER_AUTHORIZATION_20261029.json) · [证据2](../reports/cara_fast_B36_GPU_actual_launch_r1_20261029.json) · [证据3](../reports/cara_fast_B36_original_context_startup_r1_20261029.json) · [证据4](../reports/cara_fast_B36_runtime_observation_r1_20261029.json) · [证据5](../reports/cara_fast_B36_actual_admission_r1_20261029.json) · [证据6](../reports/cara_fast_B36_actual_storage_r1_20261029.json) · [证据7](../reports/cara_fast_B36_actual_central_reservation_r1_20261029.json) · [证据8](../reports/cara_fast_B36_live_budget_after_launch_r1_20261029.json) · [证据9](../reports/cara_fast_B36_acceptance_schedule_r1_20261029.json) · [证据10](../reports/cara_fast_B36_check_followup_policy_r1_20261029.json) · [证据11](../reports/cara_fast_B36_precommit_status_r1_20261029.json) · [证据12](../reports/cara_fast_B36_halfway_connection_unknown_r1_20261029.json)
 
 ## 现行自动生成器路线
 

@@ -1,0 +1,118 @@
+{
+  "status": "B36_ORIGINAL_HANDLE_CONNECTION_UNKNOWN",
+  "observed_at": "2026-10-29T13:19:32.060764+08:00",
+  "observed_unix": 1793251172.060764,
+  "timezone": "Asia/Shanghai",
+  "automation_id": "b36",
+  "trigger_time_iso": "2026-10-29T03:01:58.851Z",
+  "launch_id": "b684eb05c8674a94ad3dad8187f1c6b9",
+  "run_id": "cara-fast-f19-b36-r1-20261029",
+  "source_revision": "249aadcb2f33e360520560fea83059293ac77fed",
+  "gpu_uuid": "GPU-cebf7119-cf03-23b9-e192-cd196332b704",
+  "original_launch_ref": "reports/cara_fast_B36_GPU_actual_launch_r1_20261029.json",
+  "original_launch_sha256": "86ea3bb8230f47756b15cfc8fd812cb32e698d04c2f518b83a35b4c7283a795e",
+  "original_stage": "/data20t/gaokuangda/worldcache_workspace/.sync/cara-fast-f19-b36-a6000-r1-20261029",
+  "original_container": "cara-fast-f19-b36-a6000-r1-20261029-gpu",
+  "original_process_handles": {
+    "guardian": {
+      "pid": 878084,
+      "start_ticks": 652796038
+    },
+    "docker_cli": {
+      "pid": 878097,
+      "start_ticks": 652796192
+    },
+    "supervisor": {
+      "pid": 878142,
+      "start_ticks": 652796209
+    },
+    "runner": {
+      "pid": 878186,
+      "start_ticks": 652796350
+    }
+  },
+  "connection_attempts": [
+    {
+      "route": "original scripts/cara_fast_b36_dispatch_r2.py status via two_card_lan ProxyJump=four_card",
+      "result": "FAILED_BEFORE_REMOTE_READ",
+      "error": "ssh: connect to host localhost port 22617: Connection refused; Connection closed by UNKNOWN port 65535",
+      "attempt_output_refs": [
+        "reports/cara_fast_B36_halfway_status_20261029_112155.json",
+        "reports/cara_fast_B36_halfway_status_20261029_131210.json"
+      ],
+      "output_receipts_created": false
+    },
+    {
+      "route": "existing office_tailscale -> four_card_lan / two_card_lan",
+      "result": "FAILED_BEFORE_REMOTE_READ",
+      "error": "ssh: connect to host 100.103.229.16 port 22: Operation timed out",
+      "final_office_probe_ConnectTimeout_seconds": 30
+    },
+    {
+      "route": "direct existing four_card_lan with ProxyJump=none",
+      "result": "FAILED_BEFORE_REMOTE_READ",
+      "error": "Connection closed by 10.156.160.3 port 22617"
+    },
+    {
+      "route": "direct existing two_card_lan with ProxyJump=none",
+      "result": "FAILED_BEFORE_REMOTE_READ",
+      "error": "Connection closed by 10.128.160.181 port 22"
+    },
+    {
+      "route": "isolated local FRPC visitor 127.0.0.1:22619, same saved server credentials",
+      "result": "FAILED_BEFORE_REMOTE_READ",
+      "error": "connect to server error: session shutdown; loginFailExit enabled; temporary client stopped",
+      "private_evidence_dir": ".sync/b36-original-transport-recovery-20261029",
+      "local_temporary_client_pid": 15833,
+      "existing_FRPC_63606_restarted": false,
+      "SSH_configuration_changed": false
+    }
+  ],
+  "current_remote_state": "UNKNOWN",
+  "live_progress": null,
+  "live_temperature_C": null,
+  "live_resources": null,
+  "live_exclusivity": null,
+  "live_central_ledger": null,
+  "last_verified_operational_ref": "reports/cara_fast_B36_precommit_status_r1_20261029.json",
+  "last_verified_operational_unix": 1793236712.2684183,
+  "last_verified_progress": {
+    "denominator": 36,
+    "complete": 14,
+    "failed": 0,
+    "not_reached": 21
+  },
+  "last_verified_progress_is_current": false,
+  "last_verified_temperature_C": 88,
+  "temperature_is_current": false,
+  "GPU_terminal_confirmed": false,
+  "GPU_release_confirmed": false,
+  "bill_captured": false,
+  "cost_settled": false,
+  "original_hard_GPUh": 5.5,
+  "original_started_unix": 1793233057.4184854,
+  "original_hard_terminal_unix": 1793252857.4184854,
+  "central_cap_GPUh": 226,
+  "old_unknown_liability_GPUh": 16.5,
+  "original_B36_reservation_GPUh": 5.5,
+  "liabilities_released_or_changed": false,
+  "remote_read_completed": false,
+  "remote_terminal_reader_dispatched": false,
+  "GPU_dispatches_this_check": 0,
+  "GPU_restarts_this_check": 0,
+  "CPU_score_dispatches_this_check": 0,
+  "running_source_or_config_modified": false,
+  "partial_scientific_values_accessed": false,
+  "central_ledger_writes": 0,
+  "halfway_automation_deleted": true,
+  "halfway_automation_delete_status": "deleted",
+  "terminal_automation": {
+    "id": "b36-2",
+    "status": "ACTIVE",
+    "scheduled_Beijing": "2026-10-29T13:35:00+08:00",
+    "configuration_sha256": "5df66691c373cbe7c531d21c2e6aea13478ede45090fc25846d5bb2561eb95ca",
+    "same_existing_automation": true,
+    "next_if_still_unknown": "Recover original handles again at 13:51, after original hard deadline and release margin; preserve liabilities and do not redispatch"
+  },
+  "next_action": "Recover original SSH/FRP or existing office route, then original guardian and capture/ledger; UNKNOWN is neither successful termination nor zero cost. Preserve original 5.5GPUh/90C limits. No GPU or scoring dispatch until original complete terminal/release acceptance."
+}

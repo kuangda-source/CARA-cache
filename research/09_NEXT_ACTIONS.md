@@ -12,14 +12,14 @@
 
 [749 B36图表承接CPU接受与待审批](749_CARA_B36_FIGURES_DUAL_CPU_AND_LAYOUT_20261029.md)：启动前执行22项、汇总6项、绘图6项分别双端接受，四组图及四CSV已作显式CPU夹具和图面验证；原52执行/4汇总源码及原冻结保持。此处保留CPU准备快照，当前单次B36以实际启动记录为准，不授予重派。 [组合CPU接受](../reports/cara_fast_B36_dispatch_CPU_acceptance_r2_20261029.json) · [剩余派发边界](../plans/cara_next_stage_20261028/mainline/r2/B36_GPU_REVIEW_R2.md)
 
-[753 B36单次启动与实际开始检查](753_CARA_B36_A6000_ACTUAL_LAUNCH_AND_CHECKS_20261029.md)：用户明确批准的单次B36于2026-10-29 08:17:37在原A6000同UUID开始，原runner独占及真实模型构造已观测，截至09:18运维检查14/36完成、0失败。中央唯一预约5.5GPUh、cap226及旧16.5保持，按实际开始创建10:49半程和13:19全程验收，硬截止13:47:37。当前仅运行状态，完整36技术/释放/原bill及32位置评分后才接受比较；WC/RA的FIT UNMATCHED与原A冻结不改。 [B36唯一启动回执](../reports/cara_fast_B36_GPU_actual_launch_r1_20261029.json) · [原句柄与验收交接](../plans/cara_next_stage_20261028/mainline/r2/B36_POST_LAUNCH_HANDOFF.md)
+[754 B36半程连接未知与原句柄续验](754_CARA_B36_HALFWAY_CONNECTION_UNKNOWN_20261029.md)：单次B36原运行身份保持。半程检查中FRP原端口拒绝连接，备用office_tailscale及直连也未成功，13:17再次核验仍无法读取远端；最新已确认进度仅为09:18的14/36、0失败，不能当作当前进度。当前温度、资源、独占、终态与中央账本均未重新核验；原5.5GPUh责任保留，实测账单未取回，不推定结束或零费用。已删除本次半程检查，同一个b36-2移至13:35恢复原句柄，原硬截止13:47:37不改，必要时同一终验续至13:51。尚无完整36/释放接受或CPU评分。 [B36唯一启动回执](../reports/cara_fast_B36_GPU_actual_launch_r1_20261029.json) · [原句柄与验收交接](../plans/cara_next_stage_20261028/mainline/r2/B36_POST_LAUNCH_HANDOFF.md)
 
 [最新计划与对话分工](../plans/cara_next_stage_20261028/08_REPOSITORY_RECONCILIATION.md)；A32 GPU阶段已接受，其余按各卡条件推进，评分/科学解释分开验收。
 
 | 顺序 / 负责人 | 当前阶段 | 下一项验收 / 动作 |
 |---|---|---|
 | P0 · 主线 | A32完整三臂GPU门及技术验收通过 | 保留32完整原件、原控制与双时钟；GPU已释放、费用已唯一结算 |
-| F19 · 主线 | A32已完整冻结；单次B36正在原A6000独占运行 | 10:49半程、13:19终验；完整36与原实际账单/释放后，再接受26新评分＋六原A指标的完整32；保持FIT UNMATCHED与5.5GPUh硬限 |
+| F19 · 主线 | A32已完整冻结；单次B36原句柄连接未知，费用责任保持 | 13:35同一终验恢复原句柄；必要时13:51续验，原硬截止13:47:37不改；完整36/原账单/释放后才评分，禁止重派 |
 | S-FAST19 · S/Q探索 | 生产profile的170共同结构候选；尚无全支持mask | 完整风险缺口保持；BR/DIAG/CFG共同语法，见S/Q R3状态；不外推12保存状态 |
 | Q0-Q1 · S/Q探索 | 双端CPU控制与源码绑定完成；原C CPU未过历史GPU逐值门 | 同硬件CUDA数值控制仅提案；当前codec评分0，固定Shared25-C及旧资产不重采 |
 | A-SQ-FAST · S/Q探索 | 仅明确缺口后准备采集卡 | 绑定新父策略的108标签/56额外Dense pair与存储；解决F19 raw和Q25布局兼容问题，共同费用只计一次 |
@@ -50,11 +50,11 @@
 
 [723双时间与WC公平控制P0](723_CARA_WC_TIME_PROTOCOL_P0_CPU_AND_INCREMENTAL_SCOPE_20261027.md)：双端真实源小张量CPU通过；增量73条开发范围与评分/热环境已登记，真实GPU等价、完整生产组合和实测报价仍待完成，无GPU提交。新批T_DD/T_request并列，旧门槛与原件不变。主线预算可按用户新授权每次加24GPUh并通知，本轮未加。
 
-**B36已获单次批准并在原A6000独占运行。**
+**B36原句柄连接中断，当前运行及验收状态未知。**
 
-用户明确批准的单次B36于2026-10-29 08:17:37在原A6000同UUID开始，原runner独占及真实模型构造已观测，截至09:18运维检查14/36完成、0失败。中央唯一预约5.5GPUh、cap226及旧16.5保持，按实际开始创建10:49半程和13:19全程验收，硬截止13:47:37。当前仅运行状态，完整36技术/释放/原bill及32位置评分后才接受比较；WC/RA的FIT UNMATCHED与原A冻结不改。
+单次B36原运行身份保持。半程检查中FRP原端口拒绝连接，备用office_tailscale及直连也未成功，13:17再次核验仍无法读取远端；最新已确认进度仅为09:18的14/36、0失败，不能当作当前进度。当前温度、资源、独占、终态与中央账本均未重新核验；原5.5GPUh责任保留，实测账单未取回，不推定结束或零费用。已删除本次半程检查，同一个b36-2移至13:35恢复原句柄，原硬截止13:47:37不改，必要时同一终验续至13:51。尚无完整36/释放接受或CPU评分。
 
-[证据1](../plans/cara_next_stage_20261028/mainline/r2/B36_USER_AUTHORIZATION_20261029.json) · [证据2](../reports/cara_fast_B36_GPU_actual_launch_r1_20261029.json) · [证据3](../reports/cara_fast_B36_original_context_startup_r1_20261029.json) · [证据4](../reports/cara_fast_B36_runtime_observation_r1_20261029.json) · [证据5](../reports/cara_fast_B36_actual_admission_r1_20261029.json) · [证据6](../reports/cara_fast_B36_actual_storage_r1_20261029.json) · [证据7](../reports/cara_fast_B36_actual_central_reservation_r1_20261029.json) · [证据8](../reports/cara_fast_B36_live_budget_after_launch_r1_20261029.json) · [证据9](../reports/cara_fast_B36_acceptance_schedule_r1_20261029.json) · [证据10](../reports/cara_fast_B36_check_followup_policy_r1_20261029.json) · [证据11](../reports/cara_fast_B36_precommit_status_r1_20261029.json)
+[证据1](../plans/cara_next_stage_20261028/mainline/r2/B36_USER_AUTHORIZATION_20261029.json) · [证据2](../reports/cara_fast_B36_GPU_actual_launch_r1_20261029.json) · [证据3](../reports/cara_fast_B36_original_context_startup_r1_20261029.json) · [证据4](../reports/cara_fast_B36_runtime_observation_r1_20261029.json) · [证据5](../reports/cara_fast_B36_actual_admission_r1_20261029.json) · [证据6](../reports/cara_fast_B36_actual_storage_r1_20261029.json) · [证据7](../reports/cara_fast_B36_actual_central_reservation_r1_20261029.json) · [证据8](../reports/cara_fast_B36_live_budget_after_launch_r1_20261029.json) · [证据9](../reports/cara_fast_B36_acceptance_schedule_r1_20261029.json) · [证据10](../reports/cara_fast_B36_check_followup_policy_r1_20261029.json) · [证据11](../reports/cara_fast_B36_precommit_status_r1_20261029.json) · [证据12](../reports/cara_fast_B36_halfway_connection_unknown_r1_20261029.json)
 
 ## 历史机制诊断与停止边界
 
