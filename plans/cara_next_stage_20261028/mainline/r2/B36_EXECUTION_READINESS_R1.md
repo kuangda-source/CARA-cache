@@ -1,5 +1,7 @@
 # B36 宿主与收件 CPU 状态
 
+**实际执行更新：用户已单独批准，原B36于2026-10-29 08:17:37单次开始。** 见[原句柄与验收交接](B36_POST_LAUNCH_HANDOFF.md)。下方待授权/未启动描述保留为启动前CPU准备快照；不再据此创建第二次GPU提交。
+
 **最新R2：单次GPU/CPU派发和启动前失败账单控制已双端接受，每端22项；20个实际资产/21.35GB摘要也已接受。等待单次B36明确批准及实际fresh准入，未预约、未创建GPUstage、未启动。** 见 [完整审批卡](B36_GPU_REVIEW_R2.md)、[CPU接受](../../../../reports/cara_fast_B36_dispatch_CPU_acceptance_r2_20261029.json) 和 [747记录](../../../../research/747_CARA_B36_ONCE_DISPATCH_BILLING_CPU_AND_GPU_REVIEW_20261029.md)。以下R1段落保留为此前准备记录；其“待完成入口”已由R2替代。
 
 2026-10-29：原完整 B36 路由、真实 A32 六原件承接、宿主监督与终态收件已有分别绑定的 CPU 证据。完整新卡尚未具备派发入口及其全失败收尾控制，`GPU_dispatch_ready=False`；没有预约、启动或新增 GPU 费用。

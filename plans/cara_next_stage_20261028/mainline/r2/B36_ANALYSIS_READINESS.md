@@ -1,5 +1,7 @@
 # B36等待期准备：配对与报告布局
 
+**实际执行更新：用户已单独批准，原B36于2026-10-29 08:17:37单次开始。** 见[原句柄与验收交接](B36_POST_LAUNCH_HANDOFF.md)。下方待授权/未启动描述保留为启动前CPU准备快照；不再据此创建第二次GPU提交。
+
 图表承接现也已完成：[导出交接](B36_FIGURE_READINESS_R1.md) · [最终双端各6项CPU接受](../../../../reports/cara_fast_B36_figures_CPU_acceptance_r2_20261029.json) · [749图面检查记录](../../../../research/749_CARA_B36_FIGURES_DUAL_CPU_AND_LAYOUT_20261029.md)。四组PNG/PDF和四CSV仅以显式CPU夹具验证，实际入口仍须重建完整B接受链；原52执行文件及4汇总文件保持。
 
 **当前：完整汇总工具已通过双端各6项CPU控制。** [接受回执](../../../../reports/cara_fast_B36_analysis_CPU_acceptance_r1_20261029.json) · [748完整记录](../../../../research/748_CARA_B36_COMPLETE_RESULT_AGGREGATION_CPU_20261029.md)。下文静态布局保留原历史依赖描述；A32现已完整接受并冻结。B36仍需单独批准预计5.0215/硬5.5GPUh，本次没有派发GPU或计算B指标。

@@ -1,5 +1,7 @@
 # B36完整验收后的图表导出
 
+**实际执行更新：用户已单独批准，原B36于2026-10-29 08:17:37单次开始。** 见[原句柄与验收交接](B36_POST_LAUNCH_HANDOFF.md)。下方待授权/未启动描述保留为启动前CPU准备快照；不再据此创建第二次GPU提交。
+
 当前为CPU准备完成状态。[最终双端CPU接受](../../../../reports/cara_fast_B36_figures_CPU_acceptance_r2_20261029.json)与[图面检查](../../../../reports/cara_fast_B36_figures_visual_QA_r1_20261029.json)均仅针对显式CPU夹具；B36仍待[预计5.0215/硬5.5GPUh的单次批准](B36_GPU_REVIEW_R2.md)。原执行52文件和已接受汇总4文件均未改动，没有GPU派发、B指标或正式B图表。
 
 ## 完整结果的入口

@@ -871,6 +871,33 @@ def build():
                 current_CPU_card=actual['run_id']+'-A-score' if active_cpu else None,
                 current_CPU_launch_ref=fast['CPU_score_launch_ref'] if active_cpu else None,
                 completed_A32_launch_ref=fast['launch_ref'])
+    b36_current = status.get('fast_B36_execution_20261029')
+    if b36_current:
+        launched = load(b36_current['launch_ref'])
+        context = load(b36_current['context_ref'])
+        authority = load(b36_current['authorization_ref'])
+        if (launched['run_id'] != 'cara-fast-f19-b36-r1-20261029' or launched['phase'] != 'B'
+                or launched['physical_paths'] != 36 or launched['whole_GPUh'] != 5.5
+                or launched['launch_id'] != authority['launch_id']
+                or not authority['direct_user_authorization'] or not authority['new_B36_authorization']
+                or authority['authorizes_replay'] or not context['exclusive_gate']['observation_passed']
+                or context['original_launch_sha256'] != digest((ROOT / b36_current['launch_ref']).read_bytes())['sha256']):
+            raise ValueError('Original approved B36 execution identity differs')
+        released = b36_current.get('GPU_released') is True
+        snapshot = '**' + b36_current['status_zh'] + '。**\n\n' + b36_current['summary'] + '\n\n' + refs(b36_current['evidence_refs'])
+        run_details = ('| 字段 | B36原运行 |\n|---|---|\n'
+            '| 实际开始 | ' + local_time(context['guardian']['started_unix']) + '；' + launched['launch_id'] + ' |\n'
+            '| GPU与原句柄 | 原A6000同UUID；原runner PID/start ticks与EXCLUSIVE_PROCESS已核对 |\n'
+            '| 固定范围 | 6预热＋24新正式＋6重复＝36；32逻辑正式位置引用8个A产物 |\n'
+            '| GPU费用 | ' + (str(b36_current['actual_GPUh']) + ' GPUh已中央唯一结算' if b36_current.get('cost_settled') else '硬5.5GPUh，中央唯一预约；原guardian单调实际bill结算') + '；cap226及旧16.5责任保持 |\n'
+            '| 自动检查 | ' + b36_current['check_schedule_zh'] + ' |\n'
+            '| 评分与冻结 | 释放后仅26新对＋6份原A指标，完整32接受；原A冻结不重做，WC/RA保留FIT UNMATCHED |\n'
+            '| 结果边界 | ' + ('完整结果与科学解释见原接受回执' if b36_current.get('scores_accepted') else '当前仅运行/收尾状态；不读部分科学分数，四个旧CAL不作为独立DEV') + ' |')
+        actions = b36_current['next_action']
+        master['operation_policy'].update(current_running_card=None if released else launched['run_id'],
+            current_running_cards=[] if released else [launched['run_id']],
+            active_launch_ref=None if released else b36_current['launch_ref'],
+            snapshot_observed_at=b36_current['observed_unix'])
     headlines = '\n'.join(f"- **{f['title']}**（{f['short_scope']}）：{f['result']} {refs(f['refs'])}"
                            for f in status['headline_results'])
     details = '\n\n'.join(f"### {i+1}. {f['title']}\n\n{f['result']}\n\n{f['scope']} {refs(f['refs'])}"
@@ -918,7 +945,7 @@ def build():
         '**2026-10-28最新安排：主线P0/F19，探索S-FAST19与固定Shared25-C的Q并行准备。** '
         + link(next_stage['reconciliation_ref'], '最新计划与两个对话分工')
         + ' · ' + link(next_stage['research_ref'], '739接收记录')
-        + ('。A32完整32条及12对评分已接受，真实基线已冻结；B36后置。' if fast_terminal and fast.get('baseline_frozen') else '。A32 GPU完整32条已接受并释放，实际费用已结算；CPU评分与基线冻结按原链推进，B36后置。' if fast_terminal else '。A32已获单次授权并在A6000启动，32条、硬5GPUh，B36仍后置；Fidelity-v2前瞻绑定。' if fast else '。新评价Fidelity-v2按新卡前瞻绑定；GPU未新增授权、未预约、未启动。')
+        + ('。A32已完整验收并冻结；B36已获单次批准，实际状态以原运行记录为准。' if b36_current else '。A32完整32条及12对评分已接受，真实基线已冻结；B36后置。' if fast_terminal and fast.get('baseline_frozen') else '。A32 GPU完整32条已接受并释放，实际费用已结算；CPU评分与基线冻结按原链推进，B36后置。' if fast_terminal else '。A32已获单次授权并在A6000启动，32条、硬5GPUh，B36仍后置；Fidelity-v2前瞻绑定。' if fast else '。新评价Fidelity-v2按新卡前瞻绑定；GPU未新增授权、未预约、未启动。')
         + 'WC73已热停结算，禁止自动重派；原DEV128、旧合同与失败保持。以下旧准备记录仅作历史复用依据。'
         if next_stage else '')
     mainline = status.get('fast_mainline_preparation_20261028')
@@ -932,6 +959,8 @@ def build():
     if fast:
         values['next_stage_notice'] += ('\n\n' + link(fast['research_ref'], fast.get('notice_title','742 A32实际启动与检查安排'))
             + '：' + fast['summary'] + ' ' + link(fast['launch_ref'], '唯一启动回执'))
+        if b36_current:
+            values['next_stage_notice'] += '。该段保留A32完成时快照，当前B36见原运行记录。'
     b36_cpu = status.get('fast_B36_CPU_preparation_20261029')
     if b36_cpu:
         proof = load(b36_cpu['accepted_receipt_ref'])
@@ -953,6 +982,10 @@ def build():
             + '：' + b36_execution['summary'] + ' '
             + link(b36_execution['accepted_receipt_ref'], '组合CPU接受') + ' · '
             + link(b36_execution['readiness_ref'], '剩余派发边界'))
+    if b36_current:
+        values['next_stage_notice'] += ('\n\n' + link(b36_current['research_ref'], b36_current['notice_title'])
+            + '：' + b36_current['summary'] + ' ' + link(b36_current['launch_ref'], 'B36唯一启动回执')
+            + ' · ' + link(b36_current['handoff_ref'], '原句柄与验收交接'))
     outputs = {}
     for template in sorted((ROOT / 'docs/templates').glob('*.md')):
         target = template.name.replace('__', '/')

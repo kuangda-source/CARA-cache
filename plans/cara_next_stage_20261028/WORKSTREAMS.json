@@ -1,7 +1,7 @@
 {
   "schema": "CARA_NEXT_STAGE_WORKSTREAMS_R1",
   "date": "2026-10-28",
-  "state": "MAINLINE_A32_COMPLETE_FROZEN_B36_PENDING_INDEPENDENT_ADMISSION",
+  "state": "MAINLINE_A32_COMPLETE_FROZEN_B36_ORIGINAL_GPU_RUNNING",
   "source_design_registry_ref": "plans/cara_next_stage_20261028/experiment_registry.json",
   "source_design_registry_sha256": "d2825f85c83be4461f189b39110f2dc5669cce14d37c4739cd21850ec0f656fb",
   "reconciliation_ref": "plans/cara_next_stage_20261028/08_REPOSITORY_RECONCILIATION.md",
@@ -56,8 +56,8 @@
     {
       "id": "F19",
       "owner": "主线",
-      "state": "A32已冻结；B36执行/汇总/图表CPU双端接受",
-      "next_action": "等待明确批准单次B36预计5.0215/硬5.5GPUh；再对原A6000同UUID fresh准入，WC/RA的UNMATCHED保持"
+      "state": "A32已完整冻结；单次B36正在原A6000独占运行",
+      "next_action": "10:49半程、13:19终验；完整36与原实际账单/释放后，再接受26新评分＋六原A指标的完整32；保持FIT UNMATCHED与5.5GPUh硬限"
     },
     {
       "id": "S-FAST19",
@@ -110,15 +110,16 @@
     "recover_existing_handles_before_dispatch": true,
     "same_host_overlap_forbidden": true,
     "git_is_not_execution_lock": true,
-    "common_teacher_and_assets_count_once": true
+    "common_teacher_and_assets_count_once": true,
+    "current_two_card_GPU_execution_ref": "reports/cara_fast_B36_GPU_actual_launch_r1_20261029.json"
   },
   "mainline_preparation_ref": "reports/cara_fast_preparation_summary_r2_20261028.json",
   "mainline_readme_ref": "plans/cara_next_stage_20261028/mainline/r2/README.md",
   "mainline_CPU_review_ref": "reports/cara_fast_scoped_CPU_acceptance_r2_20261028.json",
   "mainline_orchestration_review_ref": "reports/cara_fast_orchestration_CPU_acceptance_r3_20261028.json",
   "sq_latest_status_ref": "plans/cara_next_stage_20261028/sq/Q1_PREPARATION_STATUS_R3.md",
-  "GPU_execution_ref": "reports/cara_fast_A6000_complete_frozen_summary_r4_20261029.json",
-  "preparation_authority_fields_scope": "Original plan alone grants no GPU; current explicit A32 authorization and actual execution are recorded by GPU_execution_ref",
+  "GPU_execution_ref": "reports/cara_fast_B36_running_summary_r1_20261029.json",
+  "preparation_authority_fields_scope": "Original CPU plan zero fields grant no GPU. Original A32 is complete; direct B36 approval and unique running handle are in GPU_execution_ref.",
   "mainline_B36_analysis_layout_ref": "plans/cara_next_stage_20261028/mainline/r2/B36_ANALYSIS_LAYOUT_R1.json",
   "mainline_B36_CPU_acceptance_ref": "reports/cara_fast_B36_CPU_acceptance_r1_20261029.json",
   "mainline_B36_CPU_handoff_ref": "plans/cara_next_stage_20261028/mainline/r2/B36_CPU_HANDOFF_R1.md",
@@ -130,5 +131,6 @@
   "mainline_B36_analysis_CPU_ref": "reports/cara_fast_B36_analysis_CPU_acceptance_r1_20261029.json",
   "mainline_B36_analysis_readiness_ref": "plans/cara_next_stage_20261028/mainline/r2/B36_ANALYSIS_READINESS.md",
   "mainline_B36_figures_CPU_ref": "reports/cara_fast_B36_figures_CPU_acceptance_r2_20261029.json",
-  "mainline_B36_figures_QA_ref": "reports/cara_fast_B36_figures_visual_QA_r1_20261029.json"
+  "mainline_B36_figures_QA_ref": "reports/cara_fast_B36_figures_visual_QA_r1_20261029.json",
+  "completed_A32_execution_ref": "reports/cara_fast_A6000_complete_frozen_summary_r4_20261029.json"
 }

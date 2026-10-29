@@ -6,7 +6,7 @@
 
 ## 核心动作
 
-保留真实冻结文件及WC/RA的UNMATCHED；B36仅在完整源/CPU/同卡fresh准入和单独授权后启动，不重派A32、不扩大校准网格。
+按唯一原句柄监控、保持90C与5.5GPUh硬界；结束后成功失败均唯一结算原guardian实际bill，完整接受释放后仅26新评分＋六原A指标组成32接受，不重派或重做A冻结。
 
 C包含原WorldCache的probe/window/warp/head/RF读出，并非单纯复制旧速度。A在post-RF分支速度上修正，共享alpha后做CFG融合；语义C/A都可能显示为物理CC。D对两CFG支做完整深层计算，更新真实D历史，但不会抹掉已有轨迹误差。WorldCache自己的决策可能出现DC/CD。
 
