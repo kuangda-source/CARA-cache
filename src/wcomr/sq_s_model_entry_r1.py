@@ -100,6 +100,7 @@ def execute(*,bundle,runtime,output,storage,context,runtime_api,save_health,
                 'Original S model/runtime/sole device differs')
         precision=dict(model_precision=str(model.precision),
             parameter_dtypes=dict(Counter(str(p.dtype) for p in net.parameters())),
+            parameter_devices=dict(Counter(str(p.device) for p in net.parameters())),
             parameter_tensors=sum(1 for _ in net.parameters()),blocks=len(net.blocks),
             use_wan_fp32_strategy=net.use_wan_fp32_strategy,
             conditional_frame_timestep=model.config.conditional_frame_timestep,
@@ -108,7 +109,8 @@ def execute(*,bundle,runtime,output,storage,context,runtime_api,save_health,
             and precision['use_wan_fp32_strategy'] is True,'Original S condition/autocast/Wan strategy differs')
         if not CPU_fixture:
             require(precision['model_precision']=='torch.bfloat16' and precision['parameter_tensors']==569
-                and precision['parameter_dtypes']=={'torch.bfloat16':569},'Original full2B parameter precision differs')
+                and precision['parameter_dtypes']=={'torch.bfloat16':569}
+                and precision['parameter_devices']=={'cuda:0':569},'Original resident full2B parameter precision/device differs')
         state['precision']=precision
         mode=establish_shared_eval(net,bundle['mode_types']);verify_shared_eval(net,mode)
         settings=identity['historical_WC_settings']
