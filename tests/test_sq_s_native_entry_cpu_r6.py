@@ -46,6 +46,8 @@ def packet():
             StartedAt='2026-10-30T00:00:00+00:00', FinishedAt='2026-10-30T00:00:12+00:00'),
         host_config=dict(DeviceRequests=[], NetworkMode='none', Memory=8*2**30,
             MemorySwap=8*2**30, NanoCpus=2*10**9, CpusetCpus='4,5'), result=result)
+    digest = hashlib.sha256((json.dumps(capture['registration'], indent=2)+'\n').encode()).hexdigest()
+    capture.update(registration_sha256=digest, launch=dict(source_revision='SYNTHETIC_CPU_UNIT_ONLY', registration_sha256=digest))
     return capture, scope
 
 
@@ -99,6 +101,8 @@ class NativeAcceptanceTests(unittest.TestCase):
         with self.assertRaises(ValueError): self.accept(capture, scope)
         capture, scope = packet(); capture['result']['full_S_entry_CPU_accepted'] = True
         with self.assertRaises(ValueError): self.accept(capture, scope)
+        capture, scope = packet(); capture['registration_sha256'] = '0'*64
+        with self.assertRaisesRegex(ValueError, 'registration bytes'): self.accept(capture, scope)
 
     def test_native_worker_refuses_non_Linux_before_imports_or_output(self):
         checker = script('check_cara_sq_s_production_entry_cpu_r6')

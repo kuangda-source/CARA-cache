@@ -1,0 +1,15 @@
+{
+  "status": "S_NATIVE_CPU_COMPRESSED_LAUNCH_OBSERVATION_FAILED_RECOVER_ORIGINAL",
+  "observed_UTC": "2026-10-30T06:05:00.228356+00:00",
+  "host": "four_card",
+  "source_revision": "ab3a306144f0cf24c04c0f0001a17665748a7518",
+  "exit_code": 1,
+  "wall_seconds": 146.41422491683625,
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/Users/kuangda_gao/Documents/\u4e16\u754c\u6a21\u578b\u52a0\u901f\u5b9e\u9a8c/worldcache_omr_sq_entry/scripts/cara_sq_s_production_entry_cpu_r6.py\", line 121, in <module>\n    if __name__ == '__main__': main()\n                               ^^^^^^\n  File \"/Users/kuangda_gao/Documents/\u4e16\u754c\u6a21\u578b\u52a0\u901f\u5b9e\u9a8c/worldcache_omr_sq_entry/scripts/cara_sq_s_production_entry_cpu_r6.py\", line 102, in main\n    value = remote(args.host, launch_source(), dict(stage_name=stage, profile=args.host,\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/kuangda_gao/Documents/\u4e16\u754c\u6a21\u578b\u52a0\u901f\u5b9e\u9a8c/worldcache_omr_sq_entry/scripts/cara_sq_s_production_entry_cpu_r6.py\", line 58, in remote\n    if host == 'four_card': return transport.four_ssh(code, data, timeout=420)\n                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/kuangda_gao/Documents/\u4e16\u754c\u6a21\u578b\u52a0\u901f\u5b9e\u9a8c/worldcache_omr_sq_entry/scripts/cara_two_card_transport_r1.py\", line 48, in four_ssh\n    if r.returncode: raise RuntimeError('Four-card control failed: '+r.stderr[-1200:])\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Four-card control failed: ** WARNING: connection is not using a post-quantum key exchange algorithm.\n** This session may be vulnerable to \"store now, decrypt later\" attacks.\n** The server may need to be upgraded. See https://openssh.com/pq.html\n** WARNING: connection is not using a post-quantum key exchange algorithm.\n** This session may be vulnerable to \"store now, decrypt later\" attacks.\n** The server may need to be upgraded. See https://openssh.com/pq.html\nTimeout, server 100.103.229.16 not responding.\nTimeout, server 10.156.160.3 not responding.\n\n",
+  "launch_receipt_exists": false,
+  "original_no_stage_no_control_and_free_lock_verified": true,
+  "GPU_submissions": 0,
+  "new_GPUh": 0,
+  "automatic_retry": false
+}

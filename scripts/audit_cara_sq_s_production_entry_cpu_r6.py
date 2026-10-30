@@ -21,6 +21,9 @@ def accept(capture, scope, host, revision):
     require(capture['source_hashes_equal'] and capture['runtime_hashes_equal']
         and registration['source_revision'] == revision and registration['GPU_submissions'] == 0,
         'Original native S CPU source/runtime differs')
+    registration_digest = hashlib.sha256((json.dumps(registration, indent=2)+'\n').encode()).hexdigest()
+    require(capture['registration_sha256'] == capture['launch']['registration_sha256'] == registration_digest
+        and capture['launch']['source_revision'] == revision, 'Original launch/registration bytes differ')
     require(not config.get('DeviceRequests') and config['NetworkMode'] == 'none'
         and config['Memory'] == config['MemorySwap'] == limits['RAM_bytes']
         and config['NanoCpus'] == limits['CPUs']*10**9 and config['CpusetCpus'] == limits['cpuset'],

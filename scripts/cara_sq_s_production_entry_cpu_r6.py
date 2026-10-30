@@ -48,6 +48,19 @@ def launch_source():
     return code
 
 
+def capture_source():
+    code = CAPTURE
+    replacements = (
+        ("print(json.dumps(dict(status='SQ_CPU_PREPARATION_CAPTURE'",
+         "sys.path.insert(0,str(s/'src'))\nfrom wcomr.gpu_budget_pool_v2 import same_live_process\nprint(json.dumps(dict(original_CLI_live=same_live_process(L['identity']),status='SQ_CPU_PREPARATION_CAPTURE'"),
+        ('observed_unix=time.time(),launch=L,',
+         "observed_unix=time.time(),launch=L,registration=reg,registration_sha256=sha(s/'registration.json'),"))
+    for before, after in replacements:
+        if code.count(before) != 1: raise ValueError('Original CPU capture boundary changed')
+        code = code.replace(before, after)
+    return code
+
+
 def remote(host, code, data=None, *, credential_file=None, docker_group=False):
     # The 1.7 MiB source requests hit the SSH observation limit over DERP.
     # Compress only transport bytes; original per-file SHA checks still run.
@@ -108,9 +121,8 @@ def main():
     elif args.command == 'capture':
         original = json.loads(args.launch_ref.read_text())
         if not original['stage'].endswith('/'+stage): raise ValueError('Capture original native S CPU handle')
-        code = CAPTURE.replace("print(json.dumps(dict(status='SQ_CPU_PREPARATION_CAPTURE'",
-            "sys.path.insert(0,str(s/'src'))\nfrom wcomr.gpu_budget_pool_v2 import same_live_process\nprint(json.dumps(dict(original_CLI_live=same_live_process(L['identity']),status='SQ_CPU_PREPARATION_CAPTURE'")
-        value = remote(args.host, code, original)
+        value = remote(args.host, capture_source(), original, credential_file=args.credential_file,
+            docker_group=args.host == 'two_card')
     else:
         code = "from pathlib import Path;import json;p=Path('/data20t/gaokuangda/worldcache_workspace/.sync/"+stage+"/launch.json');print(p.read_text() if p.exists() else json.dumps(dict(status='NO_S_NATIVE_ENTRY_CPU_LAUNCH',stage_exists=p.parent.exists())))"
         value = remote(args.host, code)
