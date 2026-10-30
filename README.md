@@ -2,7 +2,7 @@
 
 # CARA-Cache
 
-[765 BudCache预算搜索组件CPU接受](research/765_CARA_BUDCACHE_BOUNDED_SEARCH_COMPONENT_CPU_20261030.md)：BudCache式同36更新/19D的SA与采样HC搜索组件通过11项本地CPU控制：固定原Uniform19起点、原网格/profile和双FIT；完整合成301查询/602候选端点请求，查询上限、失败停止及随机源隔离通过。真实Cosmos评价、持久化查询恢复、双端生产CPU与完整报价仍待，未冻结实际GPU查询预算。S原单次批准和原对话派发责任保持，本轮0GPUh。
+[766 预算搜索查询日志CPU接受](research/766_CARA_BUDGET_SEARCH_QUERY_JOURNAL_CPU_20261030.md)：预算搜索新增持久化查询日志，14项本地控制通过：完整4查询恢复时复用4份返回、0新增评价；真实子进程意图后退出保持原查询UNKNOWN，不重试。原765控制器/Uniform19/查询上限保持。真实Cosmos评价、原物理句柄终态读者、专用存储、双端生产CPU与GPU整卡报价仍待；本轮0GPUh，S/Q原任务由原对话承接。
 
 **2026-10-28最新安排：主线P0/F19，探索S-FAST19与固定Shared25-C的Q并行准备。** [最新计划与两个对话分工](plans/cara_next_stage_20261028/08_REPOSITORY_RECONCILIATION.md) · [739接收记录](research/739_CARA_NEXT_STAGE_FAST_SQ_PLAN_AND_CHAT_HANDOFF_20261028.md)。A32已完整验收并冻结；B36已获单次批准，实际状态以原运行记录为准。WC73已热停结算，禁止自动重派；原DEV128、旧合同与失败保持。以下旧准备记录仅作历史复用依据。
 
