@@ -15,7 +15,7 @@ from unittest.mock import patch
 
 import torch
 
-from wcomr.cfg_paired_probe_forward import WC_PATH, RF_PATH, RF_SHA
+from wcomr.cfg_paired_probe_forward import WC_PATH, WC_SHA, RF_PATH, RF_SHA
 from wcomr.h0_mode import mode_snapshot
 from wcomr.sq_s_batch_r1 import digest, make_scope
 from wcomr.sq_s_physical_r1 import make_physical_scope
@@ -24,7 +24,7 @@ ROOT = Path(__file__).resolve().parents[1]
 BASE = ROOT / 'plans/cara_next_stage_20261028/sq'
 
 
-def run(runtime, artifacts, host, actual_config, tiny_loader):
+def run(runtime, artifacts, host, actual_config, tiny_loader, *, native_modules=None):
     import check_full_sampling as full
     import check_partial_mlp_guided_sampling_cpu_r1 as blocks
     import check_rv0_video_actions_cpu as conditions_source
@@ -40,6 +40,7 @@ def run(runtime, artifacts, host, actual_config, tiny_loader):
     import run_cara_sq_s_r2 as cli
 
     def body(*, inference, wc, settings, inference_module, flow, **unused):
+        if native_modules is not None: wc, rf = native_modules
         model = inference.pipe.model
         net = model.net
         original = dict(blocks=net.blocks, t_embedder=net.t_embedder,
@@ -90,21 +91,27 @@ def run(runtime, artifacts, host, actual_config, tiny_loader):
             assert 'num_conditional_frames' not in batch
             return dict(batch, num_conditional_frames=0)
         inference.pipe._get_data_batch_input = prepare
-        rf = ModuleType('cpu_S_pinned_RF')
-        namespace = dict(torch=torch, DataType=wc.DataType, NUM_CONDITIONAL_FRAMES_KEY='num_conditional_frames',
-            parallel_state=SimpleNamespace(is_initialized=lambda: False))
-        # These CPU namespaces contain the unchanged functions extracted from
-        # these files. Full upstream module imports and their CUDA dependencies
-        # are explicitly outside this local composition proof.
-        wc.__file__ = str(runtime/WC_PATH)
-        full.load_functions(runtime/WC_PATH, ['compute_saliency_map'], vars(wc))
-        rf.__file__ = str(runtime/RF_PATH)
-        vars(rf).update(namespace)
-        assert hashlib.sha256((runtime/RF_PATH).read_bytes()).hexdigest() == RF_SHA
         names = ('denoise', 'get_velocity_fn_from_batch')
-        full.load_functions(runtime/RF_PATH, names, vars(rf))
-        methods = {name: getattr(rf, name) for name in names}
-        rf.Video2WorldModelRectifiedFlow = type('PinnedCPUVideo2World', (), methods)
+        if native_modules is None:
+            rf = ModuleType('cpu_S_pinned_RF')
+            namespace = dict(torch=torch, DataType=wc.DataType, NUM_CONDITIONAL_FRAMES_KEY='num_conditional_frames',
+                parallel_state=SimpleNamespace(is_initialized=lambda: False))
+            # Only the local branch uses extracted functions and CPU globals.
+            wc.__file__ = str(runtime/WC_PATH)
+            full.load_functions(runtime/WC_PATH, ['compute_saliency_map'], vars(wc))
+            rf.__file__ = str(runtime/RF_PATH)
+            vars(rf).update(namespace)
+            assert hashlib.sha256((runtime/RF_PATH).read_bytes()).hexdigest() == RF_SHA
+            full.load_functions(runtime/RF_PATH, names, vars(rf))
+        else:
+            for module, path, expected in ((wc, WC_PATH, WC_SHA), (rf, RF_PATH, RF_SHA)):
+                assert Path(module.__file__).resolve() == (runtime/path).resolve()
+                assert hashlib.sha256((runtime/path).read_bytes()).hexdigest() == expected
+            assert rf.Video2WorldModelRectifiedFlow.get_velocity_fn_from_batch.__globals__ is vars(rf)
+        methods = {name: getattr(rf if native_modules is None else rf.Video2WorldModelRectifiedFlow, name)
+            for name in names}
+        if native_modules is None:
+            rf.Video2WorldModelRectifiedFlow = type('PinnedCPUVideo2World', (), methods)
         for name, method in methods.items(): setattr(model, name, method.__get__(model))
         root = Path(artifacts)/('flow-'+str(flow))
         root.mkdir(parents=True, exist_ok=False)
@@ -146,12 +153,12 @@ def run(runtime, artifacts, host, actual_config, tiny_loader):
         inference_package.worldcache_utils = wc
         models_package = ModuleType('cosmos_predict2._src.predict2.models')
         models_package.video2world_model_rectified_flow = rf
-        modules = {'cosmos_predict2.inference': inference_module,
-            'cosmos_predict2._src.predict2.inference': inference_package,
-            'cosmos_predict2._src.predict2.inference.worldcache_utils': wc,
-            'cosmos_predict2._src.predict2.models': models_package,
-            'cosmos_predict2._src.predict2.models.video2world_model_rectified_flow': rf,
-            'cosmos_oss': oss, 'cosmos_oss.init': environment}
+        modules = {'cosmos_predict2.inference': inference_module, 'cosmos_oss': oss, 'cosmos_oss.init': environment}
+        if native_modules is None:
+            modules.update({'cosmos_predict2._src.predict2.inference': inference_package,
+                'cosmos_predict2._src.predict2.inference.worldcache_utils': wc,
+                'cosmos_predict2._src.predict2.models': models_package,
+                'cosmos_predict2._src.predict2.models.video2world_model_rectified_flow': rf})
         import cosmos_predict2
         original_execute, original_check = entry.execute, data.check_result
         def cpu_entry(**kw):
@@ -201,6 +208,10 @@ def run(runtime, artifacts, host, actual_config, tiny_loader):
             with patch.object(topology, '_tiny_tensor_loader', tiny_loader):
                 reload_audit = topology.audit_storage(output/'streaming', rows)
             assert reload_audit['files_SHA_and_bytes_reloaded'] == 140
+            scopes = output/'CPU-fixture-scopes.json'
+            with scopes.open('x') as stream:
+                json.dump(dict(identity=identity, upper=upper, physical=physical, resource_contract=contract),
+                    stream, indent=2, allow_nan=False); stream.write('\n')
             return [dict(host=host, flow=flow, status='CPU_CLI_MODEL_MATRIX_PASS',
                 model_load_standins=1, environment_cleanup_standins=1, new_tiny_paths=10,
                 reused_OFF_roles=0, observed_head_calls=counts['head'], observed_deep_calls=counts['deep'],
@@ -208,6 +219,9 @@ def run(runtime, artifacts, host, actual_config, tiny_loader):
                 original_cli_replay_refused=True, actual_pinned_config_parser=True,
                 original_two_FIT_argument_objects=True, CPU_latent_shape_adapter_calls=len(geometry_calls),
                 original_request_resolution_preserved=True, classification=classifications[0],
+                full_native_WC_RF_module_namespaces=native_modules is not None,
+                CPU_fixture_scopes_path=str(scopes),
+                CPU_fixture_scopes_sha256=hashlib.sha256(scopes.read_bytes()).hexdigest(),
                 reload_audit=reload_audit, output=str(output), events=events,
                 actual_weights=False, actual_CUDA=False, real_S_labels=0)]
         finally:

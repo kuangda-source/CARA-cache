@@ -1,0 +1,102 @@
+{
+  "schema": "S_NATIVE_COMPLETE_ENTRY_CPU_R6",
+  "unit_controls": 123,
+  "unit_modules": [
+    "test_sq_s_risk_post_r3",
+    "test_sq_s_execution_r2",
+    "test_sq_s_artifact_terminal_r2",
+    "test_sq_s_terminal_r2",
+    "test_sq_s_host_entry_r2",
+    "test_sq_s_data_terminal_r2",
+    "test_sq_s_model_entry_r1",
+    "test_sq_s_native_entry_cpu_r6"
+  ],
+  "hosts": [
+    "two_card",
+    "four_card"
+  ],
+  "flows": [
+    false,
+    true
+  ],
+  "new_tiny_paths_per_flow": 10,
+  "import_full_native_inference_WC_RF_modules": true,
+  "checkpoint_metadata_sentinel_forbidden": true,
+  "diffusion_checkpoint_bytes": 4118575006,
+  "diffusion_checkpoint_asset": {
+    "path": "cache/huggingface/hub/models--nvidia--Cosmos-Predict2.5-2B/blobs/565bbb2c9645737327983f4461e4d32627bba465b0a8dc26447edea144e1ff47",
+    "bytes": 4118575006,
+    "digest": "565bbb2c9645737327983f4461e4d32627bba465b0a8dc26447edea144e1ff47",
+    "digest_kind": "sha256"
+  },
+  "retained_manifest_sha256": "5487f8db32d45a5d0f3304333bf362d9d6ec46fb3181c735d7267b78a6e398fa",
+  "supervisor_scenarios": [
+    "complete",
+    "complete",
+    "missing_row",
+    "runner_failure",
+    "thermal"
+  ],
+  "native_parser_source_sha256": "83fce9944547335b94ae1000db8de1ffa1fb6a9bd12f907c77c1c98f217a7916",
+  "critical_source_sha256": {
+    "src/wcomr/sq_s_spec_r2.py": "aa55e531002ae6910f8d546bdb5a226e342fb26f3ec12f8a1813a3322b14d085",
+    "src/wcomr/sq_s_execution_r2.py": "538d1b1933e61d5603f886e8a4ee479fc9c469eda4589b7b8065ef0a666e388c",
+    "src/wcomr/sq_s_stage_r2.py": "6446db40306876af287c43551e2be7aed7a70d4fe6a4f0ebda5dc07cba86f39a",
+    "src/wcomr/sq_s_capture_r2.py": "60d1f9541415e26232ed94cedda6c9c1076c3a66850473764ff2dd150e6283c6",
+    "src/wcomr/sq_s_terminal_r2.py": "a31c118f8323f35c6d0bb68edbb65ce594ac62a5808233330627d2a46e80a815",
+    "src/wcomr/sq_s_monitor_terminal_r2.py": "1af07aba7f4e00cb0a28b13b85a7805aa37179b063f0f150bc5e4ae51580c89f",
+    "src/wcomr/sq_s_artifact_terminal_r2.py": "61c1706160231e97182607cf70172c8ce78a302a5edd52eda982bd6916064d65",
+    "src/wcomr/sq_s_risk_post_r3.py": "e4c0fc40175fa5e3bbb8388f9aa1670c8b76dc568a66395004e5977826d77f03",
+    "scripts/prepare_cara_sq_s_history_support_r3.py": "0d5ceff999a4588210392247333b65ceec0f3a6c79c4ad19c2be0e1ad42a9ee9",
+    "src/wcomr/sq_s_model_entry_r1.py": "2da76b62a3d5edbd12c245463e86d38893600c4b52803ea70b44d629c221ccef",
+    "src/wcomr/sq_s_data_terminal_r2.py": "c2c2ed78f9562095a9d4c10aeed7791aaa5f07eff55a90cb82663c9b44cba058",
+    "src/wcomr/sq_s_runner_r1.py": "f5ec79b57780315f36326a293ebde9a81b93ae367fa8d53647fcf8a9b7912ef1",
+    "src/wcomr/sq_s_batch_r1.py": "bde336affbb856a4def8f0c3e7f5ddbdda518bb2a38118a5b8246114bae59720",
+    "src/wcomr/sq_s_physical_r1.py": "aad28ff3236e85ee943ef78d2ce03c92e3a902ae6af80570101b843ab665ac71",
+    "src/wcomr/sq_s_reuse_r1.py": "882180a2090fb0fc0493839a071ee3ba55536ce06f7b9891c68d20fd2ae27e3f",
+    "src/wcomr/sq_s_resource_guard_r1.py": "9a1f7c5d6ce9545bbd343d00fb6745cdb58f7b1c64ec3c8299d30a1749b9938c",
+    "src/wcomr/sq_s_resources_r1.py": "a7f31ab1634ab27bbfe54177d03ba9a64103a78224be83fbd8432c292214c4a6",
+    "src/wcomr/sq_s_collection_r1.py": "a0b2b3e6a4e0f44e00a764030966027ebbb20e8d25db6f2188b48d02402dde69",
+    "src/wcomr/sq_s_sources_r1.py": "03ca23c97c8d9096f1bae7fb84e6ef1cc53bb63ba9688fe39ac74b44b64fb13e",
+    "src/wcomr/sq_s_owner_roundtrip_r1.py": "f93c7e803cd2ad72ac8253875b525b522a18f504685b471cc3496e7b45a14412",
+    "src/wcomr/sq_s_storage_r1.py": "4b96cb8a7b8d1b2c88b4846df923350615cf8db0fa39c8e4796fd9a65402fad0",
+    "src/wcomr/sq_risk_r1.py": "5505cff318e0c1842e14ef9d98dd223eb686c519a01ef27440a6867bce08a39f",
+    "src/wcomr/gpu_budget_pool_v2.py": "4203547121c30119ce637d6cd0d6d8d02810e6bf388fe9a6a7b9cd9b1b658754",
+    "src/wcomr/wc73_execution_r1.py": "015651352b0ce6f1e3acfbfd34a199521cad3eb337c676552b0449ee95318a4b",
+    "src/wcomr/wc73_exclusive_r1.py": "db8198388ee8d6f3241870003cf0da1b44b01d1469717153116ddf3341771a35",
+    "src/wcomr/history104_storage_r2.py": "90636ca74f1ae88db5ed1b8478f6aef8f83fd57db827db04da2e4d58a48c1361",
+    "src/wcomr/sq_control_storage_r1.py": "9a5a3d929072e9558de5adb6cbbc685e1b73a0357348a4b6a590802d5cac8d86",
+    "src/wcomr/policy_price_mode_guard_r1.py": "d0fbff561d7e3bb79f87e9a2a64549ca0cdf421a4b2483eae7c8bab60763d878",
+    "src/wcomr/sq_gpu_allocation_r1.py": "24422eb2b3807e2e761ed2ce899ccefb0b153a18071de0a4c92c5b07c55da53c",
+    "scripts/run_cara_sq_s_r2.py": "103c55226ae41e6a6e52b42f75931a96cef6095d65b90466b54d4e7df77c7610",
+    "scripts/cara_sq_s_worker_r2.py": "90525b4933ac0dc5985c173f252b9ebed29fd5171ae74563f0fcc9c4d877e671",
+    "scripts/capture_cara_sq_s_r2.py": "828e935a760be8486a6918393bc459ca426653c01f3810fffdca20b6e2e8f3ac",
+    "scripts/postprocess_cara_sq_s_r2.py": "ebaf52dcfd23ca0f0facd9d57a6336770a4e6c9d7ac379ee4d22d193f1179a35",
+    "scripts/cara_sq_s_guardian_r2.py": "bbd4a0ae0f2baf7f879c846a72cd49eab57e24c6fb5aa13bf4b41dd27a90b24d",
+    "scripts/cara_fast_worker_r2.py": "32a9ecf6d1cc6be3ead9627ec46c0fdf7a55868769200e805b9bd7e035078ab2",
+    "scripts/cara_fast_host_guardian_r2.py": "3dc1f0407cd52a83d2c9708205e0b809a546ef43c0ccc1e8a3e67498715ace3e",
+    "scripts/four_card_policy_assets_port_r1.py": "27bd44549dfb19efc6ba91ff6bb3a3a95e4293eb02645ba748b391beebc76c0e",
+    "scripts/four_card_bank24_execution_tools_r1.py": "3e58bb9a2345fe938d7ce70e90a01300dd8e6d05d005ca91c5aa253c24d3cde4"
+  },
+  "CPU_resource_contract": "plans/cara_next_stage_20261028/sq/S_MODEL_ENTRY_CPU_RESOURCE_CONTRACT_R5.json",
+  "resources": {
+    "CPUs": 2,
+    "cpuset": "4,5",
+    "RAM_bytes": 8589934592,
+    "wall_seconds": 1800,
+    "output_file_bytes_max": 67108864,
+    "network": "none",
+    "GPU": "hidden"
+  },
+  "GPU_authorized": false,
+  "GPU_submissions": 0,
+  "real_S_labels": 0,
+  "real_central_ledger_writes": 0,
+  "supervisor_flows": [
+    false,
+    true,
+    false,
+    true,
+    false
+  ]
+}
