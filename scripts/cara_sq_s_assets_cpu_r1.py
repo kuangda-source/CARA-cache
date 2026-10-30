@@ -1,5 +1,7 @@
 """One bounded, content-only verification of the complete frozen S assets."""
 import argparse
+import ast
+import hashlib
 import json
 import os
 from pathlib import Path
@@ -15,6 +17,7 @@ def main():
         parser.add_argument('--' + name, type=Path, required=True)
     parser.add_argument('--registration-sha256', required=True)
     parser.add_argument('--worker-sha256', required=True)
+    parser.add_argument('--verifier-sha256', required=True)
     args = parser.parse_args()
     sys.path[:0] = [str(args.stage / 'src'), str(args.stage / 'scripts')]
     from wcomr.gpu_budget_pool_v2 import atomic_json, process_identity, sha
@@ -50,11 +53,16 @@ def main():
             maximum_file_MiB=64, wall_seconds=1800, CPU_seconds=1800, nice=10, GPU='hidden'))
     create(args.stage / 'S-asset-CPU-consumed.json', state)
     try:
-        # Reuse the unchanged, accepted streaming verifier. Never deserialize weights.
-        module_path = args.stage / 'src/wcomr/cara_fast_b36_dispatch_r2.py'
-        require(sha(module_path) == registration['payload_sha256']['src/wcomr/cara_fast_b36_dispatch_r2.py'],
-            'Original accepted asset verifier changed')
-        from wcomr.cara_fast_b36_dispatch_r2 import assets_check, assets_unchanged
+        # Reuse just the two original functions; B36's GPU entry is not imported.
+        module_path = args.stage / 'S-assets-original-verifier-r1.py'
+        require(sha(module_path) == args.verifier_sha256, 'Original accepted asset verifier changed')
+        functions = [node for node in ast.parse(module_path.read_text()).body
+            if isinstance(node, ast.FunctionDef) and node.name in ('assets_check', 'assets_unchanged')]
+        require([node.name for node in functions] == ['assets_check', 'assets_unchanged'],
+            'Original two streaming verifier functions required')
+        namespace = dict(Path=Path, hashlib=hashlib, require=require)
+        exec(compile(ast.Module(body=functions, type_ignores=[]), str(module_path), 'exec'), namespace)
+        assets_check, assets_unchanged = namespace['assets_check'], namespace['assets_unchanged']
         specification = json.loads((args.stage / ASSETS).read_text())
         require(len(specification['files']) == 20, 'Complete twenty file S membership required')
         files = []
