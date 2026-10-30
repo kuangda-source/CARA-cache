@@ -4,7 +4,7 @@
   "evidence_observed_at": "2026-10-26T09:30:00.005338+08:00",
   "timezone": "Asia/Shanghai",
   "snapshot_note": "CAL66完整66路径、48组LPIPS/156质量评分已接受，实际4.776208 GPUh已中央结算。Shared25-C相对较强S25-A的LPIPS改善15.34%且4/4同向，246.852秒/V0.98188，三项质量筛查通过，冻结为新DEV主候选。原GPU/容器/锁释放、模式恢复；四个A候选未过相对Native的MUSIQ界。当前仅CAL证据，新DEV未启动。",
-  "research_summary": "B36完整36条与32评分位置、原实际费用及释放/图表均已验收。4旧CAL内F19_C以1.703倍T_DD/1.486倍完整请求速度，Alex较同19D均匀布局降低46.82%；A1再降低7.16%，T_DD开销0.70%。原DEV128结果、A32一次冻结及WC/RA FIT UNMATCHED保持；当前没有活跃B36实验或自动检查，后续新输入证据另行登记。",
+  "research_summary": "B36完整结果保持：4旧CAL内F19_C为1.703倍T_DD/1.486倍完整请求，A1的Alex改善在输入间不均匀，约93.06%的绝对改善来自两个输入。32条原视频匿名审阅包已装配并通过CPU/浏览器核验，人类审阅0；F18三策略静态可区分但GPU未就绪，下一步保持S优先。原DEV128、A32一次冻结、WC/RA FIT UNMATCHED及最终输入保护保持，本轮未重跑实验或指标。",
   "active_experiment_id": "PG-SHARED-CAL66",
   "active_state": "DEV128_A6000_EXCLUSIVE_RUNNING",
   "active_state_zh": "Shared25-C新DEV128已在两卡A6000独占启动",
@@ -437,7 +437,7 @@
     "original_reservation_released": true,
     "recovery_preparation_acceptance_ref": "reports/cara_history104_recovery_prelaunch_acceptance_20261024.json"
   },
-  "current_active_experiment_id": "CARA-FAST-F19-B36-R1",
+  "current_active_experiment_id": null,
   "cost112_GPU": {
     "status": "COST112_COMPLETE_ACCEPTED_TIMING_GATE_FAILED",
     "launch_ref": "reports/cara_cost112_GPU_actual_launch_r1_20261025.json",
@@ -1338,7 +1338,7 @@
     "forward_update_ref": "plans/cara_next_stage_20261028/08_REPOSITORY_RECONCILIATION.md"
   },
   "next_stage_plan_20261028": {
-    "status": "A32_COMPLETE_FROZEN_B36_ORIGINAL_GPU_RUNNING",
+    "status": "A32_AND_B36_COMPLETE_ACCEPTED_MAINLINE_CPU_FOLLOWUP",
     "source_package_ref": "plans/cara_next_stage_20261028/README.md",
     "reconciliation_ref": "plans/cara_next_stage_20261028/08_REPOSITORY_RECONCILIATION.md",
     "workstreams_ref": "plans/cara_next_stage_20261028/WORKSTREAMS.json",
@@ -1346,21 +1346,22 @@
     "receipt_ref": "reports/cara_next_stage_plan_intake_20261028.json",
     "research_ref": "research/739_CARA_NEXT_STAGE_FAST_SQ_PLAN_AND_CHAT_HANDOFF_20261028.md",
     "new_GPU_submissions": 2,
-    "new_budget_reserved_GPUh": 5.5,
-    "mainline": "用户明确批准的单次B36于2026-10-29 08:17:37在原A6000同UUID开始，原runner独占及真实模型构造已观测，截至09:18运维检查14/36完成、0失败。中央唯一预约5.5GPUh、cap226及旧16.5保持，按实际开始创建10:49半程和13:19全程验收，硬截止13:47:37。当前仅运行状态，完整36技术/释放/原bill及32位置评分后才接受比较；WC/RA的FIT UNMATCHED与原A冻结不改。",
+    "new_budget_reserved_GPUh": 0,
+    "mainline": "A32完整32条/12对评分及一次冻结、B36完整36条/32评分位置及正式图表均已接受，费用唯一结算。当前继续原视频匿名审阅承接、完整结果描述性诊断与F18静态CPU；无新GPU、预约或重评。",
     "S": "Production-profile common grammar170 structures; full-risk coverage absent, no frozen S mask",
     "Q": "Source-bound original-C CPU control did not meet exact historicalGPU output gate;codec scores0; same-hardware CUDA numerical control proposed only",
     "future_evaluation": "Fidelity-v2 proposal; bind in a new card before output access, old gates preserved",
     "saved_budget_ref": "reports/cara_wc73_terminal_failure_verified_20261028.json",
     "saved_budget_is_not_live": true,
-    "new_GPU_authorization": true,
+    "new_GPU_authorization": false,
     "old_WC73_replay": false,
     "mainline_preparation_ref": "reports/cara_fast_preparation_summary_r2_20261028.json",
     "mainline_R1_history_ref": "reports/cara_fast_preparation_summary_r1_20261028.json",
     "sq_latest_status_ref": "plans/cara_next_stage_20261028/sq/Q1_PREPARATION_STATUS_R3.md",
-    "mainline_execution_ref": "reports/cara_fast_B36_running_summary_r1_20261029.json",
-    "actual_mainline_GPUh": 2.2557055054700728,
-    "actual_mainline_GPUh_scope": "A32 settled only; current B36 cost pending original measured bill"
+    "mainline_execution_ref": "reports/cara_fast_B36_complete_summary_r1_20261029.json",
+    "actual_mainline_GPUh": 4.640259487808734,
+    "actual_mainline_GPUh_scope": "A32 plus B36 original once-only settlements",
+    "authority_fields_scope": "Two historical completed launches; future cards still require whole quotes and admission within standing user authority"
   },
   "fast_mainline_preparation_20261028": {
     "schema": "CARA_FAST_PREPARATION_SUMMARY_R2",
@@ -1828,7 +1829,7 @@
     "independent_new_inputs": false,
     "complete_QA_ref": "reports/cara_fast_A6000_complete_frozen_QA_20261029_0115.json"
   },
-  "current_evidence_observed_at": "2026-10-29T09:18:32.268418+08:00",
+  "current_evidence_observed_at": "2026-10-30T12:30:16.860412+08:00",
   "fast_B36_CPU_preparation_20261029": {
     "status": "ACCEPTED_DUAL_HOST_COMPLETE_B36_CPU_CONTINUATION_ONLY",
     "accepted_receipt_ref": "reports/cara_fast_B36_CPU_acceptance_r1_20261029.json",
@@ -1968,7 +1969,7 @@
       "observed_unix": 1793251882.4281094,
       "asof_basis": "Original immutable central_after and B36 settled_unix"
     },
-    "next_action": "保留原证据、一次冻结和正式图表；后续新输入确认按独立范围与报价另行登记。",
+    "next_action": "保留原完整接受、一次冻结与正式图表；32位置原视频匿名页面已CPU/浏览器核验，人工记录单独接受。保持S优先；F18完整生产CPU、物理范围与报价冻结后才决定新GPU卡。",
     "check_followup_policy_ref": "reports/cara_fast_B36_check_followup_policy_r1_20261029.json",
     "latest_operational_ref": "reports/cara_fast_B36_complete_acceptance_cleanup_r1_20261029.json",
     "connection_state": "RECOVERED_FOR_ACCEPTANCE_INTERMITTENT_AFTER_EXPORT",
@@ -2026,6 +2027,30 @@
     "original_reservation_GPUh": 5.5,
     "current_B36_reserved_GPUh": 0,
     "central_B36_job_status": "SETTLED",
-    "final_revalidation_ref": "reports/cara_fast_B36_complete_final_revalidation_r1_20261029.json"
+    "final_revalidation_ref": "reports/cara_fast_B36_complete_final_revalidation_r1_20261029.json",
+    "postacceptance_transport_ref": "reports/cara_fast_mainline_Tailscale_recovery_r1_20261030.json",
+    "postacceptance_budget_read_ref": "reports/cara_fast_mainline_budget_readonly_r1_20261030.json"
+  },
+  "fast_mainline_post_result_CPU_20261030": {
+    "status": "MAINLINE_POST_B36_CPU_AND_ORIGINAL_VIDEO_HANDOFF_ACCEPTED",
+    "notice_title": "757 B36原视频审阅承接与F18静态CPU",
+    "research_ref": "research/757_CARA_B36_ORIGINAL_VIDEO_REVIEW_AND_F18_CPU_20261030.md",
+    "summary": "32份原视频已按原哈希完整传回，32条匿名比较/36份媒体已装配；本地8项CPU控制、全部32条浏览器加载、播放保存和导出通过，交接表单为空，人类审阅仍为0。完整结果描述性诊断与F18八项静态控制已保存；F18完整范围、双端生产CPU及报价未冻结，保持S优先、GPU不就绪。原62份源码及A32冻结保持，本轮GPU、预约、指标重算均为0。",
+    "component_CPU_ref": "reports/cara_fast_B36_review_component_CPU_acceptance_r1_20261030.json",
+    "review_plan_ref": "reports/cara_fast_B36_review_plan_r1_20261030.json",
+    "diagnostics_ref": "reports/cara_fast_B36_post_result_diagnostics_r1_20261030.json",
+    "F18_static_CPU_ref": "reports/cara_fast_F18_identifiability_CPU_r1_20261030.json",
+    "transport_ref": "reports/cara_fast_mainline_Tailscale_recovery_r1_20261030.json",
+    "budget_readonly_ref": "reports/cara_fast_mainline_budget_readonly_r1_20261030.json",
+    "review_packet_ready": true,
+    "human_reviews": 0,
+    "new_GPU_submissions": 0,
+    "new_reserved_GPUh": 0,
+    "new_metrics_computed": 0,
+    "summary_ref": "reports/cara_fast_mainline_post_result_CPU_summary_r1_20261030.json",
+    "review_transfer_ref": "reports/cara_fast_B36_review_video_transfer_r1_20261030.json",
+    "review_materialized_ref": "reports/cara_fast_B36_review_materialized_r1_20261030.json",
+    "review_browser_QA_ref": "reports/cara_fast_B36_review_browser_QA_r1_20261030.json",
+    "observed_unix": 1793334616.860412
   }
 }

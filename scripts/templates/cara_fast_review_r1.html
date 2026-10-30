@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>完整视频参考保持审阅</title>
+<style>
+body{max-width:1100px;margin:32px auto;padding:0 20px;background:#f4f6fa;color:#172033;font:16px/1.6 system-ui}
+main{background:white;border-radius:12px;padding:24px}.pair{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+video{width:100%;background:#111}button,input,select{font:inherit;padding:8px;margin:6px 10px 6px 0}label{display:block;margin:10px 0}
+textarea{display:block;box-sizing:border-box;width:100%;min-height:80px;font:inherit}#status{min-height:1.8em;color:#8b3c13}
+@media(max-width:700px){.pair{grid-template-columns:1fr}}
+</style>
+<h1>完整视频参考保持审阅</h1>
+<p>逐条完整观看参考视频与匿名候选，记录内容、运动及细节相对参考的变化。允许“无明显差别”或“无法判断”。更锐利、运动更少或更平滑不自动代表保持得更好。</p>
+<label>审阅者代号 <input id="reviewer" autocomplete="off" placeholder="使用你自己的代号"></label>
+<p id="progress"></p>
+<main>
+  <h2 id="case-title"></h2>
+  <div class="pair">
+    <div><h3>参考视频</h3><video id="reference" controls playsinline preload="metadata"></video></div>
+    <div><h3>匿名候选</h3><video id="candidate" controls playsinline preload="metadata"></video></div>
+  </div>
+  <button id="play">同时从头播放</button><button id="pause">同时暂停</button>
+  <label><input id="watched" type="checkbox">我已完整观看这两个视频</label>
+  <label>内容与动作保持 <select id="content"></select></label>
+  <label>运动保持 <select id="motion"></select></label>
+  <label>可见细节保持 <select id="detail"></select></label>
+  <label>观察记录（可选）<textarea id="notes"></textarea></label>
+  <button id="previous">上一条</button><button id="next">下一条</button><button id="unfinished">跳到未完成</button>
+</main>
+<p>本页在当前浏览器保存进度；请导出文件以提交记录。每位审阅者应领取独立审阅包。播放范围和“完整观看”声明供后续复核，不代表已经完成独立评审。</p>
+<button id="export">导出审阅记录 JSON</button><p id="status" role="status"></p>
+<script>
+const packet=__PACKET__;
+const axes=['content','motion','detail'];
+const choiceLabels={worse:'比参考更差',no_obvious_difference:'无明显差别',better:'比参考更好',uncertain:'无法判断'};
+const fields=[...axes,'notes'];
+const byId=id=>document.getElementById(id);
+const storageKey='cara-review:'+packet.package_id;
+let index=0;
+let state={reviewer:'',responses:Object.fromEntries(packet.cases.map(c=>[c.case_id,{case_id:c.case_id,full_watch_attested:false,content:'',motion:'',detail:'',notes:''}]))};
+try{
+  const saved=JSON.parse(localStorage.getItem(storageKey));
+  if(saved&&saved.package_id===packet.package_id)state=saved;
+}catch{byId('status').textContent='浏览器存储不可用，请及时导出记录。';}
+for(const axis of axes){
+  byId(axis).add(new Option('请选择',''));
+  for(const [value,label] of Object.entries(choiceLabels))byId(axis).add(new Option(label,value));
+}
+byId('reviewer').value=state.reviewer;
+function complete(row){return row.full_watch_attested&&axes.every(a=>packet.choices.includes(row[a]));}
+function save(){
+  const row=state.responses[packet.cases[index].case_id];
+  for(const f of fields)row[f]=byId(f).value;
+  row.full_watch_attested=byId('watched').checked;
+  row.played=row.played||{};
+  for(const id of ['reference','candidate']){
+    const ranges=byId(id).played,current=[...Array(ranges.length)].map((_,i)=>[ranges.start(i),ranges.end(i)]);
+    const coverage=items=>(items||[]).reduce((total,r)=>total+r[1]-r[0],0);
+    if(coverage(current)>=coverage(row.played[id]))row.played[id]=current;
+  }
+  state.reviewer=byId('reviewer').value.trim();state.package_id=packet.package_id;
+  try{localStorage.setItem(storageKey,JSON.stringify(state));}catch{byId('status').textContent='未能保存到浏览器，请导出文件。';}
+  byId('progress').textContent=`已填写 ${Object.values(state.responses).filter(complete).length} / ${packet.case_count} 条 · ${packet.scene_count} 个输入`;
+}
+function show(){
+  const c=packet.cases[index],row=state.responses[c.case_id];
+  byId('case-title').textContent=`第 ${index+1} / ${packet.case_count} 条 · ${c.scene} · ${c.case_id}`;
+  byId('reference').src=c.reference;byId('candidate').src=c.candidate;
+  for(const f of fields)byId(f).value=row[f];
+  byId('watched').checked=row.full_watch_attested;
+  byId('previous').disabled=index===0;byId('next').disabled=index===packet.cases.length-1;
+  byId('progress').textContent=`已填写 ${Object.values(state.responses).filter(complete).length} / ${packet.case_count} 条 · ${packet.scene_count} 个输入`;
+}
+function move(to){save();byId('reference').pause();byId('candidate').pause();index=to;show();}
+byId('previous').onclick=()=>move(index-1);byId('next').onclick=()=>move(index+1);
+byId('unfinished').onclick=()=>{save();const next=packet.cases.findIndex(c=>!complete(state.responses[c.case_id]));if(next>=0)move(next);};
+byId('play').onclick=()=>{for(const id of ['reference','candidate']){const v=byId(id);v.currentTime=0;v.play().catch(()=>{byId('status').textContent='请点击各视频的播放按钮。';});}};
+byId('pause').onclick=()=>{byId('reference').pause();byId('candidate').pause();};
+for(const id of [...fields,'watched','reviewer'])byId(id).onchange=save;
+byId('export').onclick=()=>{
+  save();if(!state.reviewer){byId('status').textContent='请先填写审阅者代号。';return;}
+  const responses=packet.cases.map(c=>state.responses[c.case_id]);
+  const result={schema:'CARA_VIDEO_REVIEW_RESPONSE_R1',package_id:packet.package_id,reviewer:state.reviewer,created_at:new Date().toISOString(),status:responses.every(complete)?'COMPLETE_RESPONSE_NOT_INDEPENDENTLY_ACCEPTED':'INCOMPLETE',responses};
+  const url=URL.createObjectURL(new Blob([JSON.stringify(result,null,2)],{type:'application/json'}));
+  const link=document.createElement('a');link.href=url;link.download=packet.package_id+'-review.json';link.click();setTimeout(()=>URL.revokeObjectURL(url),5000);
+  byId('status').textContent='已导出；完成性与独立性仍需复核。';
+};
+show();
+</script>
+</html>

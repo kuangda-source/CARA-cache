@@ -986,6 +986,10 @@ def build():
         values['next_stage_notice'] += ('\n\n' + link(b36_current['research_ref'], b36_current['notice_title'])
             + '：' + b36_current['summary'] + ' ' + link(b36_current['launch_ref'], 'B36唯一启动回执')
             + ' · ' + link(b36_current['handoff_ref'], '原句柄与验收交接'))
+    followup = status.get('fast_mainline_post_result_CPU_20261030')
+    if followup:
+        values['next_stage_notice'] = (link(followup['research_ref'], followup['notice_title'])
+            + '：' + followup['summary'] + '\n\n' + values['next_stage_notice'])
     outputs = {}
     for template in sorted((ROOT / 'docs/templates').glob('*.md')):
         target = template.name.replace('__', '/')

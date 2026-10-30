@@ -2,6 +2,8 @@
 
 # CARA-Cache
 
+[757 B36原视频审阅承接与F18静态CPU](research/757_CARA_B36_ORIGINAL_VIDEO_REVIEW_AND_F18_CPU_20261030.md)：32份原视频已按原哈希完整传回，32条匿名比较/36份媒体已装配；本地8项CPU控制、全部32条浏览器加载、播放保存和导出通过，交接表单为空，人类审阅仍为0。完整结果描述性诊断与F18八项静态控制已保存；F18完整范围、双端生产CPU及报价未冻结，保持S优先、GPU不就绪。原62份源码及A32冻结保持，本轮GPU、预约、指标重算均为0。
+
 **2026-10-28最新安排：主线P0/F19，探索S-FAST19与固定Shared25-C的Q并行准备。** [最新计划与两个对话分工](plans/cara_next_stage_20261028/08_REPOSITORY_RECONCILIATION.md) · [739接收记录](research/739_CARA_NEXT_STAGE_FAST_SQ_PLAN_AND_CHAT_HANDOFF_20261028.md)。A32已完整验收并冻结；B36已获单次批准，实际状态以原运行记录为准。WC73已热停结算，禁止自动重派；原DEV128、旧合同与失败保持。以下旧准备记录仅作历史复用依据。
 
 [741主线R2与A32审阅](research/741_CARA_FAST_CLEAN_BINDING_DUAL_CPU_AND_A32_REVIEW_20261028.md)：新采样路由、实际93帧合成评分CLI和Linux生命周期控制双端接受；完整三臂控制及独立clean Native使提案改为68条（A32+B36）。下一最小A32预计4.7–5小时、硬限5GPUh，仍需新卡授权和fresh资源准入；cap226保持，原Ada142根因未证明；[采样/评分CPU接受](reports/cara_fast_scoped_CPU_acceptance_r2_20261028.json) · [编排CPU控制接受](reports/cara_fast_orchestration_CPU_acceptance_r3_20261028.json)。该段为启动前CPU准备快照；当前A32运行见下，旧时钟与原科学结果不改。
@@ -33,7 +35,7 @@ CARA-Cache（CFG-Aligned Readout and Cost-Aware Allocation for Video Diffusion�
 
 扩散模型逐步生成视频。完整计算昂贵，复用旧缓存会积累误差；当前研究重点是在固定刷新次数下，保留过渡区间的完整计算、减少末段刷新。CAL66的Shared25-C采用这一布局，DEV128已完成冻结继续验证，当前将它保留为高保真参照，并准备高速F19与S/Q机制。历史修正A利用当前浅层增量和真实深层锚点，在新DEV中作为机制对照。
 
-保留原证据、一次冻结和正式图表；后续新输入确认按独立范围与报价另行登记。
+保留原完整接受、一次冻结与正式图表；32位置原视频匿名页面已CPU/浏览器核验，人工记录单独接受。保持S优先；F18完整生产CPU、物理范围与报价冻结后才决定新GPU卡。
 
 CFG 指 classifier-free guidance，包含条件与负条件两支。A 使用共享修正强度，保持两支融合口径一致。D 更新当前请求的真实深层锚点；A 不把近似结果冒充新的真实锚点。Native 是每个请求步均完整计算的参考推理。
 
