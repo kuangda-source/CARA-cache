@@ -2,7 +2,7 @@
 
 # CARA-Cache
 
-[774完整校准入口与四卡CPU运行](research/774_CARA_COMPLETE_CALIBRATION_ENTRY_AND_FOUR_CARD_CPU_20261030.md)：完整112路径/51双FIT查询入口已组合；7项本地控制和只读采集/接收器10项控制通过。四卡CPU原容器18:46:12启动，18:58确认已进入第二种flow且仍运行，1CPU/4GiB/零swap；两种flow的完整矩阵待原终态验收，不重派。入口仍为CPU准备，GPU采集/guardian组合、从未取得锁失败分支、双端CPU与报价存储仍待；14GPUh实际启动未批准。
+[775完整校准CPU验收与失败结算修订](research/775_CARA_COMPLETE_CALIBRATION_CPU_ACCEPTANCE_AND_FAILURE_BOUNDARY_20261030.md)：四卡原完整CPU已于19:04退出/0并验收：224设计路径、102双FIT目标、6预定失败及无重试检查通过，实际资源符合登记。原证明绑定发布源e31cc212；后续失败结算修订与源版本验收器另通过27项本地控制，Linux delta及GPU guardian组合仍待。64GiB存储核算为未实施提案；两卡S优先，完整报价及14GPUh实际启动批准仍待。
 
 **2026-10-28最新安排：主线P0/F19，探索S-FAST19与固定Shared25-C的Q并行准备。** [最新计划与两个对话分工](plans/cara_next_stage_20261028/08_REPOSITORY_RECONCILIATION.md) · [739接收记录](research/739_CARA_NEXT_STAGE_FAST_SQ_PLAN_AND_CHAT_HANDOFF_20261028.md)。A32已完整验收并冻结；B36已获单次批准，实际状态以原运行记录为准。WC73已热停结算，禁止自动重派；原DEV128、旧合同与失败保持。以下旧准备记录仅作历史复用依据。
 

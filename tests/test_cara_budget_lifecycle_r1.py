@@ -226,5 +226,32 @@ class LifecycleTests(unittest.TestCase):
             else:after['jobs'][self.job['job_id']]['authorization_sha256']='0'*64
             with self.subTest(change=change),self.assertRaises(ValueError):self.release(altered)
 
+    def test_proven_preallocation_failure_can_settle_without_owning_resource_locks(self):
+        self.capture['container']=None
+        for key in ('supervisor_start','runner_start','runner_intent'):self.capture['files'][key]={'exists':False}
+        guardian=record(self.capture,'guardian')
+        for role in ('container_cli','supervisor','runner'):
+            guardian['original_handles'][role]=None;self.capture['process_observations'][role]=None
+        guardian.update(container_terminal_witness=dict(kind='NO_CONTAINER_DISPATCH',complete=True),
+            container_dispatch_state='NOT_ATTEMPTED',GPU_mode_change_attempted=False,mode_owner_fenced=False,
+            error_type='CredentialUnavailable',mode_restoration=dict(restored=True,status='PRIOR_MODE_UNCHANGED'),
+            allocation_never_attempted_witness=dict(mode_lock_attempted=False,device_lease_attempted=False,
+                mode_change_attempted=False,container_dispatch_attempted=False))
+        put(self.capture,'guardian',guardian)
+        for lock_state in (None,False):
+            self.capture['own_UUID_lock_free']=self.capture['mode_owner_lock_free']=lock_state
+            result=self.release();self.assertTrue(result['cost_settled']);self.assertFalse(result['container_exit_success'])
+        valid=copy.deepcopy(self.capture)
+        for fault in ('missing','mode_lock_attempted','device_lease_attempted','mode_change_attempted',
+                      'container_dispatch_attempted','mode_changed','fenced','no_error'):
+            self.capture=copy.deepcopy(valid);g=record(self.capture,'guardian')
+            if fault=='missing':g.pop('allocation_never_attempted_witness')
+            elif fault=='mode_changed':g['GPU_mode_change_attempted']=True
+            elif fault=='fenced':g['mode_owner_fenced']=True
+            elif fault=='no_error':g.pop('error_type')
+            else:g['allocation_never_attempted_witness'][fault]=True
+            put(self.capture,'guardian',g)
+            with self.subTest(fault=fault),self.assertRaises(ValueError):self.finance()
+
 
 if __name__=='__main__':unittest.main()

@@ -2,7 +2,9 @@
 import argparse
 import hashlib
 import json
+import re
 from pathlib import Path
+import subprocess
 import time
 
 from cara_budget_calibration_cpu_hosts_r1 import NEW_FILES, PARENTS, STAGES, HOST_CONFIG
@@ -14,7 +16,16 @@ def sha(path):
     return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 
 
-def accept(paths):
+def accept(paths, *, source_revision=None):
+    if source_revision is not None and not re.fullmatch(r"[0-9a-f]{40}", source_revision):
+        raise ValueError("Historical evidence requires an immutable full commit SHA")
+    def bound_sha(name):
+        if source_revision is None:return sha(ROOT/name)
+        try:
+            raw=subprocess.check_output(['git','show',source_revision+':'+name],cwd=ROOT,stderr=subprocess.PIPE)
+        except subprocess.CalledProcessError as error:
+            raise ValueError(f'Cannot read historical source {source_revision}:{name}') from error
+        return hashlib.sha256(raw).hexdigest()
     if len(paths)!=1: raise ValueError('One original four-card CPU capture required')
     receipts=[]
     for host,path in zip(('four_card',),paths):
@@ -48,11 +59,11 @@ def accept(paths):
         if registration['base_registration_sha256']!=parent['registration_sha256']:
             raise ValueError('Original accepted parent CPU changed')
         for name in NEW_FILES:
-            if registration['payload_sha256'][name]!=sha(ROOT/name):
+            if registration['payload_sha256'][name]!=bound_sha(name):
                 raise ValueError('Affected endpoint source changed: '+name)
         intent=json.loads((ROOT/'plans/cara_next_stage_20261028/mainline/r2/BUDGET_CALIBRATION_CPU_FRAGMENT_R1.json').read_text())
         for name,expected_sha in intent['source_sha256'].items():
-            if sha(ROOT/name)!=expected_sha:
+            if bound_sha(name)!=expected_sha:
                 raise ValueError('Original CPU scope source changed: '+name)
         if (proof['status']!='COMPLETE_CALIBRATION_ROUTES_CPU_NOT_GPU' or proof['spec_tests']!=3
                 or proof['calibration_lifecycle_tests']!=21
@@ -84,7 +95,8 @@ def accept(paths):
         if len(original)!=count or any(sha(ROOT/p)!=h for p,h in original.items()):
             raise ValueError('Original accepted B36 source changed')
     return dict(status='FOUR_CARD_COMPLETE_CALIBRATION_CPU_ACCEPTED_NOT_DUAL_HOST_OR_GPU',
-        observed_unix=time.time(),receipts=receipts,source_sha256={p:sha(ROOT/p) for p in NEW_FILES},
+        observed_unix=time.time(),receipts=receipts,source_sha256={p:bound_sha(p) for p in NEW_FILES},
+        verified_source_revision=source_revision,
         acceptor_source_sha256=sha(__file__),complete_design_paths=224,complete_two_FIT_objectives=102,
         successful_physical_paths=266,declared_failure_attempts=6,total_physical_attempts=272,
         local_calibration_and_lifecycle_tests=21,original_62_B36_sources_unchanged=True,
@@ -97,9 +109,10 @@ def main():
     parser=argparse.ArgumentParser()
     parser.add_argument('--four-card',type=Path,required=True)
     parser.add_argument('--output',type=Path,required=True)
+    parser.add_argument('--source-revision',help='Explicit immutable published source for historical CPU evidence')
     args=parser.parse_args()
     if args.output.exists(): raise ValueError('Fresh acceptance receipt required')
-    result=accept([args.four_card])
+    result=accept([args.four_card],source_revision=args.source_revision)
     with args.output.open('x') as stream:
         json.dump(result,stream,indent=2,allow_nan=False);stream.write('\n')
     print(json.dumps(dict(status=result['status'],hosts=1,GPU_submissions=0)))

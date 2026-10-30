@@ -39,7 +39,8 @@ class AcceptanceTests(unittest.TestCase):
 
     def check(self,capture):
         capture['CPU_proof_sha256']=hashlib.sha256((json.dumps(capture['CPU_proof'],indent=2,allow_nan=False)+'\n').encode()).hexdigest()
-        self.path.write_text(json.dumps(capture));return accept([self.path])
+        self.path.write_text(json.dumps(capture))
+        return accept([self.path],source_revision='e31cc212836882e80f835bec0f0c9016a07b30af')
 
     def test_complete_fixture_has_no_dual_host_or_GPU_authority(self):
         result=self.check(self.original)
@@ -68,6 +69,13 @@ class AcceptanceTests(unittest.TestCase):
             if change=='stage':c['launch']['stage']+='/another'
             else:c['CPU_proof']['payload_sha256']={}
             with self.subTest(change=change),self.assertRaises(ValueError):self.check(c)
+
+    def test_other_revision_cannot_replace_original_source(self):
+        self.check(self.original)
+        with self.assertRaises(ValueError):
+            accept([self.path],source_revision='0a5729ef3bebcd1e7c006165f6f4720a9dd7c349')
+        with self.assertRaisesRegex(ValueError,'immutable full commit SHA'):
+            accept([self.path],source_revision='HEAD')
 
 
 if __name__=='__main__':unittest.main()

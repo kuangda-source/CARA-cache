@@ -115,8 +115,23 @@ def financial_terminal(capture, expected_launch_sha256, *, cpu_validation=False)
                 and current['start_ticks'] > 0 and current['start_ticks'] != handle['start_ticks'])
             or (reason == 'ORIGINAL_PROCESS_ZOMBIE_OR_DEAD' and current['state'] in ('Z', 'X')
                 and current['start_ticks'] == handle['start_ticks'])), 'Unsubstantiated original exit')
-    require(capture['own_UUID_lock_free'] is True and capture['mode_owner_lock_free'] is True,
-            'Original resource lock closure unknown')
+    # A guardian that failed before any allocation cannot own either lock.
+    # Missing files alone never prove this: require the terminal source-bound
+    # event history and absence of every child/dispatch instead.
+    never_acquired=guardian.get('allocation_never_attempted_witness')
+    if never_acquired is not None:
+        require(isinstance(never_acquired,dict)
+                and set(never_acquired)=={'mode_lock_attempted','device_lease_attempted',
+                                         'mode_change_attempted','container_dispatch_attempted'}
+                and all(value is False for value in never_acquired.values())
+                and kind=='NO_CONTAINER_DISPATCH' and guardian['container_dispatch_state']=='NOT_ATTEMPTED'
+                and guardian['GPU_mode_change_attempted'] is False
+                and guardian.get('mode_owner_fenced') is False and bool(guardian.get('error_type'))
+                and all(handles[role] is None for role in ('container_cli','supervisor','runner')),
+                'A never-acquired witness cannot erase attempted allocation or execution')
+    else:
+        require(capture['own_UUID_lock_free'] is True and capture['mode_owner_lock_free'] is True,
+                'Original resource lock closure unknown')
     billing = record(capture, 'billing')
     require(all(billing[k] == launch[k] for k in IDENTITY)
             and guardian['billing_sha256'] == capture['files']['billing']['sha256']

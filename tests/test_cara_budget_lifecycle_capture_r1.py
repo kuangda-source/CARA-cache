@@ -96,5 +96,19 @@ class CaptureTests(unittest.TestCase):
         captured=self.capture()
         with self.assertRaises(ValueError):lifecycle.financial_terminal(captured,self.expected,cpu_validation=True)
 
+    def test_preallocation_failure_capture_with_absent_lock_files(self):
+        guardian=record(self.original,'guardian')
+        for role in ('container_cli','supervisor','runner'):guardian['original_handles'][role]=None
+        guardian.update(container_terminal_witness=dict(kind='NO_CONTAINER_DISPATCH',complete=True),
+            container_dispatch_state='NOT_ATTEMPTED',GPU_mode_change_attempted=False,mode_owner_fenced=False,
+            error_type='CredentialUnavailable',allocation_never_attempted_witness=dict(mode_lock_attempted=False,
+                device_lease_attempted=False,mode_change_attempted=False,container_dispatch_attempted=False))
+        (self.stage/reader.METADATA['guardian']).write_text(json.dumps(guardian))
+        for key in ('supervisor_start','runner_start','runner_intent'):(self.stage/reader.METADATA[key]).unlink()
+        for path in (self.project/'.sync/gpu-locks').iterdir():path.unlink()
+        captured=self.capture(container=False)
+        self.assertIsNone(captured['own_UUID_lock_free']);self.assertIsNone(captured['mode_owner_lock_free'])
+        self.assertEqual(lifecycle.financial_terminal(captured,self.expected,cpu_validation=True)[1]['actual_GPUh'],.05)
+
 
 if __name__=='__main__':unittest.main()

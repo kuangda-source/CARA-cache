@@ -1,0 +1,133 @@
+{
+  "status": "14GPUh_COMPLETE_STORAGE_ACCOUNTING_PROPOSAL_NOT_ADMITTED",
+  "observed_unix": 1793358410.972079,
+  "source_ref": "reports/cara_fast_B36_original_terminal_r1_20261029.json",
+  "source_sha256": "1fc4d3d4c0cbd740d3f79789c3b66424675f999ba13f61de60b9505d53abb20c",
+  "historical_complete_FIT_artifact_sizes": [
+    {
+      "slot": "FAST_R2_033",
+      "member": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "video_bytes": 355051,
+      "arguments_bytes": 2094
+    },
+    {
+      "slot": "FAST_R2_034",
+      "member": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "video_bytes": 375961,
+      "arguments_bytes": 2094
+    },
+    {
+      "slot": "FAST_R2_035",
+      "member": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "video_bytes": 354873,
+      "arguments_bytes": 2094
+    },
+    {
+      "slot": "FAST_R2_036",
+      "member": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "video_bytes": 516056,
+      "arguments_bytes": 2094
+    },
+    {
+      "slot": "FAST_R2_037",
+      "member": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "video_bytes": 449913,
+      "arguments_bytes": 2094
+    },
+    {
+      "slot": "FAST_R2_038",
+      "member": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "video_bytes": 463588,
+      "arguments_bytes": 2094
+    },
+    {
+      "slot": "FAST_R2_039",
+      "member": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "video_bytes": 375961,
+      "arguments_bytes": 2094
+    },
+    {
+      "slot": "FAST_R2_040",
+      "member": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "video_bytes": 405802,
+      "arguments_bytes": 2094
+    },
+    {
+      "slot": "FAST_R2_041",
+      "member": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "video_bytes": 354873,
+      "arguments_bytes": 2094
+    },
+    {
+      "slot": "FAST_R2_042",
+      "member": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "video_bytes": 396794,
+      "arguments_bytes": 2094
+    },
+    {
+      "slot": "FAST_R2_043",
+      "member": "human_199",
+      "video_bytes": 1174095,
+      "arguments_bytes": 2076
+    },
+    {
+      "slot": "FAST_R2_044",
+      "member": "human_199",
+      "video_bytes": 1296272,
+      "arguments_bytes": 2076
+    },
+    {
+      "slot": "FAST_R2_045",
+      "member": "human_199",
+      "video_bytes": 1313063,
+      "arguments_bytes": 2076
+    },
+    {
+      "slot": "FAST_R2_046",
+      "member": "human_199",
+      "video_bytes": 1246070,
+      "arguments_bytes": 2076
+    },
+    {
+      "slot": "FAST_R2_063",
+      "member": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "video_bytes": 355051,
+      "arguments_bytes": 2094
+    },
+    {
+      "slot": "FAST_R2_064",
+      "member": "human_199",
+      "video_bytes": 1160297,
+      "arguments_bytes": 2076
+    }
+  ],
+  "historical_max_video_bytes": 1313063,
+  "historical_sizes_are_future_upper_bounds": false,
+  "physical_paths": 112,
+  "retained_RGB_NPY_bytes_per_path": 370262144,
+  "proposed_generation_payload_cap_bytes_per_path": 134217728,
+  "proposed_identity_and_result_cap_bytes_per_path": 1048576,
+  "accounted_bytes": {
+    "retained_RGB_NPY": 41469360128,
+    "per_path_generation_payload": 15032385536,
+    "per_path_identity_and_result": 117440512,
+    "query_journal_and_source_metadata": 268435456,
+    "one_request_temporary_allowance": 2147483648,
+    "filesystem_and_failure_reserve": 4294967296
+  },
+  "total_accounted_bytes": 63330072576,
+  "proposed_volume_bytes": 68719476736,
+  "unallocated_volume_margin_bytes": 5389404160,
+  "required_enforcement": [
+    "Bind the dedicated64GiB volume and hard quota before any request",
+    "Bound complete generation-directory payload per original physical path before accepting its completion",
+    "Count incomplete/failed paths and temporary files; never remove them to reset the budget",
+    "Reserve source/journal/control metadata separately from the112 full RGB artifacts",
+    "Stop with original failure and cost if any ceiling is exceeded"
+  ],
+  "generation_payload_cap_enforced_in_current_calibration_code": false,
+  "physical_storage_admitted": false,
+  "whole_GPU_storage_accepted": false,
+  "GPU_submissions": 0,
+  "ledger_written": false
+}
