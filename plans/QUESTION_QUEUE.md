@@ -85,3 +85,5 @@ S单次授权已接收：用户在S/Q原对话批准另一张A6000完整十条�
 [780双端Docker观察与容器入口](../research/780_CARA_DOCKER_OBSERVATION_AND_CALIBRATION_CONTAINER_ENTRY_20261030.md)：两个原SSH入口均完成真实Docker空容器只读验证；26项本地观察/参数/worker/验收控制通过。原R3按发布源复核、不重跑。下一步连接真实校准runner、完整验收/once入口、64GiB硬配额及双端整卡CPU/报价；容器实际执行尚未验收，14GPUh未启动。
 
 [781校准运行器与原CPU终态待恢复](../research/781_CARA_CALIBRATION_PRODUCTION_RUNNER_AND_AFFECTED_CPU_20261030.md)：14GPUh拟议完整51查询/112路径运行器已接通；32项本地控制通过，唯一四卡CPU见运行后终态读取受跳板间歇超时影响，仅恢复原句柄。ProxyJump原已配置，userspace曾双层认证通过但未稳定，Windows同期日志待回；不重派、不新增GPU。完整验收/once、64GiB实际配额及双端整卡CPU/报价仍待。
+
+[782原CPU差量接受与完整验收器](../research/782_CARA_CALIBRATION_CPU_ACCEPTED_AND_COMPLETE_READER_20261030.md)：原781四卡CPU已退出0/无OOM并完整接受；无重跑。新完整112路径/51查询验收和一次冻结入口11项本地CPU控制通过，先原释放/唯一结算后科学读。剩整卡once、64GiB实际存储和双端整卡CPU/报价；生产端末次全量回读须计入GPU报价，14GPUh仍待启动批准。

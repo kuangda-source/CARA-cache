@@ -2,7 +2,7 @@
 
 # CARA-Cache
 
-[781校准运行器与原CPU终态待恢复](research/781_CARA_CALIBRATION_PRODUCTION_RUNNER_AND_AFFECTED_CPU_20261030.md)：已接通14GPUh/51查询/112路径校准producer、完整随机状态摘要及原模型/精度运行器；27项本地控制＋5项验收控制通过。四卡受影响采样CPU已唯一启动并见运行，后续跳板间歇超时，原终态未知、未接受、不重派。ProxyJump原本已配置，userspace通路曾双层认证成功但仍不稳定；等待Windows同期只读日志。完整验收/once入口、64GiB硬配额及双端整卡CPU/报价仍待；0新GPU。
+[782原CPU差量接受与完整验收器](research/782_CARA_CALIBRATION_CPU_ACCEPTED_AND_COMPLETE_READER_20261030.md)：已恢复781唯一四卡CPU并接受退出0/无OOM：两种flow各18路径/4查询，27+3控制、完整CPU随机状态等价和零生成恢复通过，无重跑。完整112/51结果验收及一次冻结入口新增11项本地CPU控制通过，先验原释放/唯一结算，再读科学工件；CPU夹具不能生产冻结。整卡once派发、64GiB实际存储及双端整卡CPU/报价仍待，报价需计生产端末次全量回读；0新GPU。
 
 **2026-10-28最新安排：主线P0/F19，探索S-FAST19与固定Shared25-C的Q并行准备。** [最新计划与两个对话分工](plans/cara_next_stage_20261028/08_REPOSITORY_RECONCILIATION.md) · [739接收记录](research/739_CARA_NEXT_STAGE_FAST_SQ_PLAN_AND_CHAT_HANDOFF_20261028.md)。A32已完整验收并冻结；B36已获单次批准，实际状态以原运行记录为准。WC73已热停结算，禁止自动重派；原DEV128、旧合同与失败保持。以下旧准备记录仅作历史复用依据。
 
