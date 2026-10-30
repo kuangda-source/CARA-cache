@@ -17,3 +17,7 @@
 14GPUh只是设计方向，未批准实际GPU。原中央账本在四卡；维护期间不可用时，不复制旧快照建立第二账本或绕过fresh资金检查。先完成两卡CPU、真实存储、完整报价及执行链承接，再处理中央唯一账本可用性与具体GPU审批。cap226、旧16.5、A32/B36/S原结果和结算保持。
 
 首次成功运维捕获：`reports/cara_budget_current_CPU_two_R4_operational_r2_20261031.json`。container ID `91bdcdc6a97c561548f40f32e82ca2f6df3ed71c03b2a3c8d9b99070f08b5f65`，CLI PID/start ticks `2240515/667464465`，worker `2240559/667464482`，boot ID `13495735-f30b-47a2-af0a-2496f5206a0b`，PID namespace inode `4026531836`。本次观测为running；后续仅按这些身份与原stage恢复。
+
+## 已完成：只读原接受，不重跑
+
+2026-10-31 01:17:53原容器exit0、无OOM；完整捕获为 `reports/cara_budget_current_CPU_two_R4_capture_r4_20261031.json`，独立接受为 `reports/cara_budget_current_CPU_two_R4_accepted_r1_20261031.json`。两种flow完整矩阵及134+3控制通过，实际GPU派发仍未接受。半程与终验均已删除，见 `reports/cara_budget_current_CPU_two_R4_check_cleanup_r1_20261031.json`。完整收尾见 `research/789_CARA_TWO_CARD_R4_CPU_ACCEPTED_AND_COMPLETE_COST_DRAFT_20261031.md`。

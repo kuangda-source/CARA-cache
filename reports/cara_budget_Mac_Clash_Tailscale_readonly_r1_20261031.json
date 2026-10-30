@@ -1,0 +1,28 @@
+{
+  "effective_config": {
+    "mode": "rule",
+    "tun": {
+      "enable": true,
+      "device": "utun4",
+      "stack": "Mixed",
+      "dns-hijack": [
+        "any:53"
+      ],
+      "auto-route": true,
+      "auto-detect-interface": true,
+      "gso-max-size": 65536,
+      "inet4-address": [
+        "198.18.0.1/30"
+      ],
+      "inet6-address": [
+        "fdfe:dcba:9876::1/126"
+      ],
+      "file-descriptor": 0,
+      "recvmsgx": true,
+      "processors-per-channel": 1
+    }
+  },
+  "tailscale_connections": [],
+  "observed_unix": 1793380487.1717849,
+  "configuration_changed": false
+}

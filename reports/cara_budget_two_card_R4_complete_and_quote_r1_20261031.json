@@ -1,0 +1,44 @@
+{
+  "status": "TWO_CARD_R4_CPU_ACCEPTED_COMPLETE_COST_DRAFT_NOT_GPU_READY",
+  "observed_unix": 1793381339.179378,
+  "summary": "仅两卡推进。原R4 CPU于01:17:53正常退出并完整验收：两种flow各112设计路径，134执行+3规格控制通过；两项检查删除。完整93帧RGB读写组件接受，五项整卡费用草案13.03253GPUh/硬限14，尚含未实测余量。实际派发链、私有存储、唯一中央账本fresh准入及GPU审批仍待。",
+  "evidence_refs": [
+    "reports/cara_budget_current_CPU_two_R4_accepted_r1_20261031.json",
+    "reports/cara_budget_two_RGB_cost_CPU_accepted_r1_20261031.json",
+    "reports/cara_budget_two_card_complete_quote_draft_r1_20261031.json",
+    "reports/cara_budget_current_CPU_two_R4_check_cleanup_r1_20261031.json",
+    "reports/cara_budget_current_CPU_two_R4_halfway_r1_20261031.json",
+    "reports/cara_budget_Mac_Clash_Tailscale_readonly_r1_20261031.json",
+    "reports/cara_budget_Mac_DERP_routes_readonly_r1_20261031.json",
+    "reports/cara_budget_Tailscale_original_peer_readonly_r1_20261031.json"
+  ],
+  "required_hosts": [
+    "two_card"
+  ],
+  "four_card_contacted": false,
+  "current_R4_accepted": true,
+  "execution_controls": 134,
+  "spec_controls": 3,
+  "complete_design_paths": 224,
+  "successful_physical_paths": 266,
+  "declared_failure_attempts": 6,
+  "physical_attempts": 272,
+  "forecast_GPUh": 13.03253065964414,
+  "proposed_hard_GPUh": 14,
+  "quote_original_R4_pending_item_resolved_by": "reports/cara_budget_current_CPU_two_R4_accepted_r1_20261031.json",
+  "whole_card_CPU_accepted": false,
+  "whole_GPU_quote_accepted": false,
+  "GPU_dispatch_ready": false,
+  "GPU_submissions": 0,
+  "ledger_written": false,
+  "cap_GPUh": 226,
+  "old_unknown_liability_GPUh": 16.5,
+  "remaining": [
+    "Actual dispatcher-child integration",
+    "Two-card-only production execution binding",
+    "Actual private storage and cold-readback admission",
+    "Single authoritative central ledger availability",
+    "Complete GPU card approval and fresh admission"
+  ],
+  "network_diagnosis": "Mac TUN and DERP-IP routes observed; no matching Clash connection records. Cause remains unproven. No network settings changed."
+}

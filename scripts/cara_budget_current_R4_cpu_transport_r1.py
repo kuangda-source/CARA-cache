@@ -1,4 +1,4 @@
-import sys,json,hashlib,base64,subprocess,shlex,os,signal,time
+import sys,json,hashlib,base64,gzip,subprocess,shlex,os,signal,time
 from pathlib import Path
 sys.path[:0]=['scripts','src']
 from cara_budget_calibration_cpu_hosts_r3 import REMOTE as ORIGINAL
@@ -7,6 +7,8 @@ from wcomr.cara_budget_cpu_resources_r2 import HOST_CONFIG
 stage='cara-budget-calibration-CPU-a6000-r4-20261031'
 action=sys.argv[1];output=Path(sys.argv[2]);assert action in ('prepare','capture') and not output.exists()
 remote=ORIGINAL
+if action=='capture':
+ remote="import io,sys,gzip,base64,json,hashlib\noriginal_stdout=sys.stdout\nsys.stdout=io.StringIO()\nexec("+repr(remote)+")\nraw=sys.stdout.getvalue().encode()\nsys.stdout=original_stdout\nprint(json.dumps(dict(gzip_base64=base64.b64encode(gzip.compress(raw)).decode(),raw_sha256=hashlib.sha256(raw).hexdigest())))\n"
 payload=dict(action=action,host='two_card',stage_name=stage)
 revision='c2b079781ceb8a2d458f5eb3680fb267326a3927'
 if action=='prepare':
@@ -37,6 +39,11 @@ cmd=['ssh','-F','.sync/cara-fast-mainline-tailscale-20261030/ssh_config.budget_d
 child=subprocess.Popen(cmd,stdin=subprocess.PIPE,stdout=subprocess.PIPE,stderr=subprocess.PIPE,start_new_session=True)
 try:out,err=child.communicate((secret+'\n'+json.dumps(payload)).encode(),timeout=100)
 except subprocess.TimeoutExpired:os.killpg(child.pid,signal.SIGTERM);out,err=child.communicate()
-row=dict(binding,observed_unix=time.time(),exit_code=child.returncode,stderr=err.decode(errors='replace').replace(secret,'[REDACTED]'),result=json.loads(out) if child.returncode==0 else None,recovery_only_on_unknown=True)
+result=json.loads(out) if child.returncode==0 else None
+if result is not None and action=='capture':
+ raw=gzip.decompress(base64.b64decode(result['gzip_base64']))
+ assert hashlib.sha256(raw).hexdigest()==result['raw_sha256']
+ result=json.loads(raw)
+row=dict(binding,observed_unix=time.time(),exit_code=child.returncode,stderr=err.decode(errors='replace').replace(secret,'[REDACTED]'),result=result,recovery_only_on_unknown=True)
 with output.open('x') as f:json.dump(row,f,indent=2);f.write('\n')
 print(json.dumps(dict(output=str(output),exit_code=child.returncode,result_status=(row['result'] or {}).get('status'))))

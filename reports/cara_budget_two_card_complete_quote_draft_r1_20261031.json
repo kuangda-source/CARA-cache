@@ -1,0 +1,61 @@
+{
+  "status": "TWO_CARD_COMPLETE_COST_FORECAST_DRAFT_NOT_DISPATCH_ACCEPTED",
+  "observed_unix": 1793380912.902294,
+  "host": "two_card",
+  "physical_paths": 112,
+  "candidate_queries": 51,
+  "components_seconds": {
+    "generation": 35997.110374718904,
+    "path_artifacts_and_objectives": 6720,
+    "producer_final_full_readback": 1800,
+    "admission_and_model_load": 1800,
+    "stop_and_release": 600
+  },
+  "forecast_GPUh": 13.03253065964414,
+  "hard_GPUh": 14,
+  "hard_limit_margin_seconds": 3482.8896252810955,
+  "synthetic_producer_operation_counts": {
+    "save": 112,
+    "MSE": 204,
+    "read": 102
+  },
+  "synthetic_postrelease_recovery_operation_counts": {
+    "read": 112,
+    "MSE": 102
+  },
+  "measured_IO_extrapolation_seconds": {
+    "path_save_and_initial_objectives": 705.7791404016316,
+    "producer_candidate_RGB_readback_and_objectives": 182.09816030412912,
+    "postrelease_CPU_recovery_not_GPU_billed": 194.1554210819304
+  },
+  "assumptions": [
+    "Generation uses the slowest historical A6000 Native full request for every path; this is a conservative proxy, not a proven bound.",
+    "6720s covers path artifacts, initial objectives and unmeasured GPU-to-CPU transfer; two-card full-size IO is one cache-uncontrolled observation.",
+    "1800s final producer readback includes102 candidate RGB checks/objectives plus generation-payload hashing and metadata/storage scans; cold-volume timing remains unmeasured.",
+    "Admission/model loading1800s and stop/release600s are planning allowances, not current-host measurements.",
+    "Postrelease acceptance and once-freeze are CPU work after the original GPU is released; do not add them to the allocation clock twice."
+  ],
+  "source_sha256": {
+    "src/wcomr/cara_budget_calibration_r1.py": "947c5ebcf1e1b64f7506eb87d5fada651fd995bea9dc46e4f01fbb8211c0a862",
+    "src/wcomr/cara_budget_rgb_objective_r1.py": "3250c5ca513db9cbaad4186e515a39c9093c0fbc51d6dd534416c63b6af15d2c",
+    "tests/test_cara_budget_calibration_r1.py": "8e8241129595fdc0ae0d7e44a5c5e1ca7b10a4192c90d06f0f8c5bf0c3c4db76"
+  },
+  "evidence_refs": [
+    "reports/cara_budget_two_RGB_cost_CPU_accepted_r1_20261031.json",
+    "plans/cara_next_stage_20261028/mainline/r2/BUDGET_CALIBRATION_14GPUH_DESIGN_R1.json",
+    "reports/cara_budget_calibration_cost_basis_r1_20261030.json"
+  ],
+  "unresolved": [
+    "Complete original R4 CPU acceptance",
+    "Actual dispatcher-child integration",
+    "Actual64GiB private storage and cold-readback admission",
+    "Two-card-only execution binding",
+    "Single authoritative central ledger availability",
+    "Separate actual GPU-card approval and fresh admission"
+  ],
+  "matched_actual_spend_with_S": false,
+  "whole_GPU_quote_accepted": false,
+  "GPU_dispatch_ready": false,
+  "GPU_submissions": 0,
+  "ledger_written": false
+}

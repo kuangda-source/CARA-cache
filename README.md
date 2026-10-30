@@ -2,7 +2,7 @@
 
 # CARA-Cache
 
-[788两卡限定与完整R4 CPU运行](research/788_CARA_TWO_CARD_ONLY_READINESS_ACCEPTED_AND_FULL_CPU_RUNNING_20261031.md)：四卡硬件维护期间按用户指令仅两卡推进。时序回归及原Linux控制26/26接受；两卡R4完整CPU于01:02:21开始，原容器/PID身份确认运行，01:23半程、01:44终验。完整112设计矩阵未验收；14GPUh未批准、中央唯一账本fresh准入仍待。
+[789两卡完整CPU接受与费用草案](research/789_CARA_TWO_CARD_R4_CPU_ACCEPTED_AND_COMPLETE_COST_DRAFT_20261031.md)：仅两卡推进。原R4 CPU于01:17:53正常退出并完整验收：两种flow各112设计路径，134执行+3规格控制通过；两项检查删除。完整93帧RGB读写组件接受，五项整卡费用草案13.03253GPUh/硬限14，尚含未实测余量。实际派发链、私有存储、唯一中央账本fresh准入及GPU审批仍待。
 
 **2026-10-28最新安排：主线P0/F19，探索S-FAST19与固定Shared25-C的Q并行准备。** [最新计划与两个对话分工](plans/cara_next_stage_20261028/08_REPOSITORY_RECONCILIATION.md) · [739接收记录](research/739_CARA_NEXT_STAGE_FAST_SQ_PLAN_AND_CHAT_HANDOFF_20261028.md)。A32已完整验收并冻结；B36已获单次批准，实际状态以原运行记录为准。WC73已热停结算，禁止自动重派；原DEV128、旧合同与失败保持。以下旧准备记录仅作历史复用依据。
 
