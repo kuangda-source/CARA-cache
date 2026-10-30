@@ -2,7 +2,7 @@
 
 # CARA-Cache
 
-[779原guardian控制链Linux CPU接受](research/779_CARA_HOST_GUARDIAN_ALLOCATION_CHAIN_CPU_20261030.md)：外层guardian、原CLI/监督器/runner、模式恢复和唯一原费用已组合；R3四卡CPU20:30:45退出/0，13项Linux控制及7项验收控制通过。12场景含7个真实CPU runner，启动回执前失败保留父进程原身份，UNKNOWN不结算；R1/R2失败及SSH恢复保留。GPU/Docker观察为夹具；实际Docker空容器消息兼容、64GiB硬配额、完整入口/科学验收与双端CPU/报价仍待，14GPUh未新启动。
+[780双端Docker观察与校准容器入口](research/780_CARA_DOCKER_OBSERVATION_AND_CALIBRATION_CONTAINER_ENTRY_20261030.md)：四卡和两卡真实Docker只读检查已验证精确空容器格式；26项本地控制通过。已补单UUID/2CPU/40GiB零swap、宿主PID、精确cidfile及限定可写目录的容器参数与监督器入口，拒绝死/未知guardian。原R3控制链以发布源17cf1e34复核，无重跑。容器执行尚未实测，真实校准runner、完整验收/once入口、64GiB硬配额与双端整卡CPU/报价仍待；14GPUh未新启动。
 
 **2026-10-28最新安排：主线P0/F19，探索S-FAST19与固定Shared25-C的Q并行准备。** [最新计划与两个对话分工](plans/cara_next_stage_20261028/08_REPOSITORY_RECONCILIATION.md) · [739接收记录](research/739_CARA_NEXT_STAGE_FAST_SQ_PLAN_AND_CHAT_HANDOFF_20261028.md)。A32已完整验收并冻结；B36已获单次批准，实际状态以原运行记录为准。WC73已热停结算，禁止自动重派；原DEV128、旧合同与失败保持。以下旧准备记录仅作历史复用依据。
 

@@ -20,7 +20,8 @@ class AcceptanceTests(unittest.TestCase):
     def check(self,capture):
         if capture['CPU_proof'] is not None:
             capture['CPU_proof_sha256']=hashlib.sha256((json.dumps(capture['CPU_proof'],indent=2,allow_nan=False)+'\n').encode()).hexdigest()
-        self.path.write_text(json.dumps(capture));return accept(self.path)
+        self.path.write_text(json.dumps(capture));return accept(self.path,
+            source_revision='17cf1e348ec4f56d717c44ee5fd596b7054345a0')
 
     def test_original_complete_CPU_scope(self):
         result=self.check(self.original)

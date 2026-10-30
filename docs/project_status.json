@@ -1834,7 +1834,7 @@
     "independent_new_inputs": false,
     "complete_QA_ref": "reports/cara_fast_A6000_complete_frozen_QA_20261029_0115.json"
   },
-  "current_evidence_observed_at": "2026-10-30T20:40:40.197569+08:00",
+  "current_evidence_observed_at": "2026-10-30T21:03:33.281507+08:00",
   "fast_B36_CPU_preparation_20261029": {
     "status": "ACCEPTED_DUAL_HOST_COMPLETE_B36_CPU_CONTINUATION_ONLY",
     "accepted_receipt_ref": "reports/cara_fast_B36_CPU_acceptance_r1_20261029.json",
@@ -2037,10 +2037,10 @@
     "postacceptance_budget_read_ref": "reports/cara_fast_mainline_budget_readonly_r1_20261030.json"
   },
   "fast_mainline_post_result_CPU_20261030": {
-    "status": "HOST_GUARDIAN_ALLOCATION_CHAIN_FOUR_CARD_LINUX13_ACCEPTED_NOT_GPU",
-    "notice_title": "779原guardian控制链Linux CPU接受",
-    "research_ref": "research/779_CARA_HOST_GUARDIAN_ALLOCATION_CHAIN_CPU_20261030.md",
-    "summary": "外层guardian、原CLI/监督器/runner、模式恢复和唯一原费用已组合；R3四卡CPU20:30:45退出/0，13项Linux控制及7项验收控制通过。12场景含7个真实CPU runner，启动回执前失败保留父进程原身份，UNKNOWN不结算；R1/R2失败及SSH恢复保留。GPU/Docker观察为夹具；实际Docker空容器消息兼容、64GiB硬配额、完整入口/科学验收与双端CPU/报价仍待，14GPUh未新启动。",
+    "status": "DOCKER_OBSERVATION_DUAL_HOST_AND_CONTAINER_COMMAND_CPU_ACCEPTED_NOT_GPU",
+    "notice_title": "780双端Docker观察与校准容器入口",
+    "research_ref": "research/780_CARA_DOCKER_OBSERVATION_AND_CALIBRATION_CONTAINER_ENTRY_20261030.md",
+    "summary": "四卡和两卡真实Docker只读检查已验证精确空容器格式；26项本地控制通过。已补单UUID/2CPU/40GiB零swap、宿主PID、精确cidfile及限定可写目录的容器参数与监督器入口，拒绝死/未知guardian。原R3控制链以发布源17cf1e34复核，无重跑。容器执行尚未实测，真实校准runner、完整验收/once入口、64GiB硬配额与双端整卡CPU/报价仍待；14GPUh未新启动。",
     "component_CPU_ref": "reports/cara_fast_B36_review_component_CPU_acceptance_r1_20261030.json",
     "review_plan_ref": "reports/cara_fast_B36_review_plan_r1_20261030.json",
     "diagnostics_ref": "reports/cara_fast_B36_post_result_diagnostics_r1_20261030.json",
@@ -2052,11 +2052,11 @@
     "new_GPU_submissions": 0,
     "new_reserved_GPUh": 0,
     "new_metrics_computed": 0,
-    "summary_ref": "reports/cara_budget_allocation_four_card_CPU_accepted_r3_20261030.json",
+    "summary_ref": "reports/cara_budget_container_preparation_CPU_r1_20261030.json",
     "review_transfer_ref": "reports/cara_fast_B36_review_video_transfer_r1_20261030.json",
     "review_materialized_ref": "reports/cara_fast_B36_review_materialized_r1_20261030.json",
     "review_browser_QA_ref": "reports/cara_fast_B36_review_browser_QA_r1_20261030.json",
-    "observed_unix": 1793364040.1975691,
+    "observed_unix": 1793365413.281507,
     "original_video_review_research_ref": "research/757_CARA_B36_ORIGINAL_VIDEO_REVIEW_AND_F18_CPU_20261030.md",
     "original_video_review_summary_ref": "reports/cara_fast_mainline_post_result_CPU_summary_r1_20261030.json",
     "paper_results_manifest_ref": "plans/cara_next_stage_20261028/mainline/PAPER_RESULTS_MANIFEST_R2.json",
@@ -2323,7 +2323,19 @@
       "reports/cara_budget_allocation_four_card_CPU_failed_r2_20261030.json"
     ],
     "allocation_chain_original_capture_recovered": true,
-    "container_absence_compatibility_pending_ref": "reports/cara_budget_allocation_four_card_CPU_container_recovery_r3_20261030.json"
+    "container_absence_original_discovery_ref": "reports/cara_budget_allocation_four_card_CPU_container_recovery_r3_20261030.json",
+    "container_absence_compatibility_pending": false,
+    "container_observation_dual_host_readonly_refs": [
+      "reports/cara_budget_docker_four_card_readonly_r1_20261030.json",
+      "reports/cara_budget_docker_two_card_readonly_r1_20261030.json"
+    ],
+    "container_preparation_CPU_ref": "reports/cara_budget_container_preparation_CPU_r1_20261030.json",
+    "container_preparation_research_ref": "research/780_CARA_DOCKER_OBSERVATION_AND_CALIBRATION_CONTAINER_ENTRY_20261030.md",
+    "container_profile_ref": "plans/cara_next_stage_20261028/mainline/r2/BUDGET_CONTAINER_PROFILE_R1.json",
+    "container_command_ref": "scripts/cara_budget_container_r1.py",
+    "supervisor_worker_entry_ref": "scripts/cara_budget_supervisor_worker_r1.py",
+    "container_actual_execution_accepted": false,
+    "allocation_chain_original_published_source_ref": "reports/cara_budget_allocation_four_card_CPU_published_source_revalidation_r4_20261030.json"
   },
   "fast_SQ_original_runtime_intake_20261030": {
     "receipt_ref": "reports/cara_mainline_S_launch_Q1_complete_intake_r1_20261030.json",

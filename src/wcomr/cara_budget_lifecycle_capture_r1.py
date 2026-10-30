@@ -27,7 +27,8 @@ def inspect_container(name):
     result=subprocess.run(['docker','inspect','--type','container',name],capture_output=True,text=True,timeout=20)
     if result.returncode:
         if result.returncode==1 and result.stderr.strip() in (
-                'Error: No such object: '+name,'Error: No such container: '+name):
+                'Error: No such object: '+name,'Error: No such container: '+name,
+                'Error response from daemon: No such container: '+name):
             return None
         raise RuntimeError('Original Docker observation unavailable')
     rows=json.loads(result.stdout)

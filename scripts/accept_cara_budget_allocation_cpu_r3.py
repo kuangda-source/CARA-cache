@@ -2,6 +2,8 @@
 import argparse
 import hashlib
 import json
+import re
+import subprocess
 from pathlib import Path
 import sys
 import time
@@ -14,8 +16,16 @@ from wcomr.cara_budget_cpu_resources_r2 import HOST_CONFIG
 def sha(path):return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 
 
-def accept(path, *, revision="r3"):
+def accept(path, *, revision="r3", source_revision=None):
     if revision!="r3":raise ValueError("Explicit original CPU revision required")
+    if source_revision is not None and not re.fullmatch('[0-9a-f]{40}',source_revision):
+        raise ValueError('Historical evidence requires an immutable full commit SHA')
+    def bound_sha(name):
+        if source_revision is None:return sha(ROOT/name)
+        try:raw=subprocess.check_output(['git','show',source_revision+':'+name],cwd=ROOT,stderr=subprocess.PIPE)
+        except subprocess.CalledProcessError as error:
+            raise ValueError('Original published CPU source unavailable: '+name) from error
+        return hashlib.sha256(raw).hexdigest()
     capture=json.loads(Path(path).read_text());state=capture['container_state'];proof=capture['CPU_proof'];reg=capture['registration']
     if (state['Status']!='exited' or state['Running'] or state['Pid']!=0 or state['ExitCode']!=0
             or state['OOMKilled'] or proof is None):
@@ -35,7 +45,7 @@ def accept(path, *, revision="r3"):
             or reg['payload_sha256']!=proof['source_sha256'] or reg['payload_sha256']!=binding['full_payload_sha256']):
         raise ValueError('Original launch/registration/payload/proof identity differs')
     for name,expected in intent['source_sha256'].items():
-        if sha(ROOT/name)!=expected or (name in reg['payload_sha256'] and reg['payload_sha256'][name]!=expected):
+        if bound_sha(name)!=expected or (name in reg['payload_sha256'] and reg['payload_sha256'][name]!=expected):
             raise ValueError('Registered lifecycle delta source changed: '+name)
     if (proof['status']!='ALLOCATION_LINUX_CHAIN_CPU_CONTROLS_COMPLETE_NOT_GPU'
             or proof['tests_run']!=13 or proof['tests_skipped']!=0
@@ -73,6 +83,7 @@ def accept(path, *, revision="r3"):
     return dict(status='FOUR_CARD_ALLOCATION_LINUX_CPU_CHAIN_ACCEPTED_NOT_GPU',observed_unix=time.time(),
         capture_ref=str(path),capture_sha256=sha(path),launch=launch,container_state=state,host_config=HOST_CONFIG,
         CPU_proof_sha256=proof_sha,source_sha256=intent['source_sha256'],acceptor_source_sha256=sha(__file__),
+        verified_source_revision=source_revision,
         worker_wall_seconds=proof['ended_unix']-proof['started_unix'],tests_run=13,operational_scenarios=12,actual_runner_CPU_children=7,actual_guardian_CPU_children=12,
         actual_GPU_lifecycle_accepted=False,production_GPU_dispatch_bound=False,actual_GPU_monitor_verified=False,
         dual_host_accepted=False,GPU_submissions=0,ledger_written=False)
@@ -80,9 +91,10 @@ def accept(path, *, revision="r3"):
 
 def main():
     parser=argparse.ArgumentParser();parser.add_argument('--capture',type=Path,required=True)
-    parser.add_argument('--output',type=Path,required=True);parser.add_argument('--revision',choices=['r3'],default='r3');args=parser.parse_args()
+    parser.add_argument('--output',type=Path,required=True);parser.add_argument('--revision',choices=['r3'],default='r3')
+    parser.add_argument('--source-revision',help='Immutable published source for historical CPU evidence');args=parser.parse_args()
     if args.output.exists():raise ValueError('Fresh acceptance receipt required')
-    result=accept(args.capture,revision=args.revision)
+    result=accept(args.capture,revision=args.revision,source_revision=args.source_revision)
     with args.output.open('x') as stream:json.dump(result,stream,indent=2,allow_nan=False);stream.write('\n')
     print(json.dumps(dict(status=result['status'],tests_run=result['tests_run'])))
 
