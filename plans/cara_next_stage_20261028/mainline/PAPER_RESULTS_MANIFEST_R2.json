@@ -1,0 +1,92 @@
+{
+  "schema": "CARA_FAST_PAPER_RESULTS_R2",
+  "state": "COMPLETE_ACCEPTED_B36_REGISTERED",
+  "parent_manifest": {
+    "path": "plans/cara_next_stage_20261028/mainline/PAPER_RESULTS_MANIFEST.json",
+    "sha256": "e4d18f4f24d55c504af79623c216356d8e250bc25f91acd1cb8213e6531e7e2f"
+  },
+  "parent_manifest_scope": "Immutable pre-launch R1; original six-file figure CPU acceptance remains unchanged",
+  "accepted_batches": [
+    {
+      "id": "cara-fast-f19-b36-r1-20261029",
+      "analysis": {
+        "path": "reports/cara_fast_B36_complete_analysis_r1_20261029.json",
+        "sha256": "6f4acb1d2f83a39eebd8ada0c183ea057676a39d94b2ea01495bca91cd60223d"
+      },
+      "figures": {
+        "path": "reports/cara_fast_B36_figures_actual_r1_20261029/report.json",
+        "sha256": "12bf62b844929ef8e0c5b0cd2d007f3e055f95897744dc10a0b5e0d29424e469"
+      },
+      "visual_acceptance": {
+        "path": "reports/cara_fast_B36_figures_actual_visual_QA_r1_20261029.json",
+        "sha256": "bbaf6f7dd1c9c8d91d7730e028779100f9e72d6a6d110314a9ddaf22540b1bd9"
+      },
+      "figure_CPU_acceptance": {
+        "path": "reports/cara_fast_B36_figures_CPU_acceptance_r2_20261029.json",
+        "sha256": "30186f2591338019999a52fc412d6e49f9b76e47f747e738a6d5657109f3979d"
+      },
+      "figure_production_acceptance": {
+        "path": "reports/cara_fast_B36_figures_actual_CPU_acceptance_r1_20261029.json",
+        "sha256": "10abb63aa5da9693d57426c77b65a9748550ddea235f961e3dd53ea6658790e4"
+      }
+    }
+  ],
+  "analysis_entry": "scripts/assemble_cara_fast_paper_results_r2.py",
+  "complete_analysis_entry": "scripts/analyze_cara_fast_b36_complete_r1.py",
+  "figure_entry": "scripts/render_cara_fast_b36_figures_r1.py",
+  "claims": [
+    {
+      "id": "25D",
+      "state": "OLD_ACCEPTED_DEVELOPMENT_EVIDENCE_SEPARATE_COHORT",
+      "ref": {
+        "path": "reports/cara_DEV128_A6000_complete_analysis_20261027.json",
+        "sha256": "e57c2601f3cd36c1648fb06464a90d1a0827b10c36e27a054393cdc95c150a48"
+      }
+    },
+    {
+      "id": "Fast19",
+      "state": "ACCEPTED_FOUR_OLD_CAL_FEASIBILITY_COMPARISON",
+      "batch": "cara-fast-f19-b36-r1-20261029",
+      "independent_new_inputs": false,
+      "endpoint_competitive_claim": false,
+      "new_method_claim_accepted": false
+    },
+    {
+      "id": "S",
+      "state": "SQ_OWNED_NO_ACCEPTED_METHOD_RESULT_IN_THIS_REGISTRY"
+    },
+    {
+      "id": "Q",
+      "state": "SQ_OWNED_NO_ACCEPTED_METHOD_RESULT_IN_THIS_REGISTRY"
+    },
+    {
+      "id": "F18",
+      "state": "STATIC_CPU_ONLY_NO_GPU_RESULT",
+      "ref": {
+        "path": "reports/cara_fast_F18_identifiability_CPU_r1_20261030.json",
+        "sha256": "25f9914894dd82d4086c081e3fbb9078813c43e7eb010e2b9cf4ea79b8511b98"
+      }
+    },
+    {
+      "id": "Q5",
+      "state": "POST_FROZEN_METHOD_PROPOSAL"
+    },
+    {
+      "id": "contingency",
+      "state": "NOT_ENABLED"
+    }
+  ],
+  "statistics": {
+    "unit": "prompt",
+    "frame_count_not_independent_n": true,
+    "prompt_equal": true,
+    "repeats": "average within prompt first",
+    "bootstrap_samples": 20000,
+    "bootstrap_seed": 20261028,
+    "quantile": "higher",
+    "interval": "two-sided95 exploratory"
+  },
+  "GPU_submissions": 0,
+  "new_reserved_GPUh": 0,
+  "authorizes_replay": false
+}

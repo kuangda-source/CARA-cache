@@ -1,0 +1,48 @@
+{
+  "status": "FAST_PAPER_RESULTS_R2_LOCAL_CPU_AND_PRODUCTION_ENTRY_ACCEPTED",
+  "observed_unix": 1793335720.694539,
+  "manifest_ref": "plans/cara_next_stage_20261028/mainline/PAPER_RESULTS_MANIFEST_R2.json",
+  "index_ref": "paper/results/cara_fast_r2_20261030/FAST_RESULTS.md",
+  "machine_index_ref": "paper/results/cara_fast_r2_20261030/accepted-results.json",
+  "test_command": "python3 -m unittest discover -s tests -p test_cara_fast_paper_results_r2.py -v",
+  "tests_passed": 8,
+  "tests_scope": [
+    "complete original analysis and data semantics",
+    "original export links and fresh output",
+    "no new bootstrap; original CI reuse",
+    "planned empty duplicate wrong registry refusal",
+    "altered aggregate despite changed outer hash refusal",
+    "CPU fixture and partial comparison refusal",
+    "changed CSV source or visual acceptance refusal",
+    "running or failed original figure CPU refusal"
+  ],
+  "production_command": "python3 scripts/assemble_cara_fast_paper_results_r2.py --manifest plans/cara_next_stage_20261028/mainline/PAPER_RESULTS_MANIFEST_R2.json --output-dir paper/results/cara_fast_r2_20261030",
+  "production_exit_code": 0,
+  "registered_batches": 1,
+  "formal_positions": 32,
+  "independent_input_clusters": 4,
+  "prompt_equal_rows": 24,
+  "linked_original_exports": 12,
+  "all_relative_links_resolve": true,
+  "source_sha256": {
+    "scripts/assemble_cara_fast_paper_results_r2.py": "26a65948b33831bd2e660a48c8fc92e78da2b53aa841dbc493bb0c0cbba7d32f",
+    "tests/test_cara_fast_paper_results_r2.py": "6df17ffe57c2e40886252b86675b355bde85e4272f415b2972ed7603324730fe",
+    "plans/cara_next_stage_20261028/mainline/PAPER_RESULTS_MANIFEST_R2.json": "c6e9c83a433d4a99010176bf871b318c24e459add145a4f8ad9477e03666d74b"
+  },
+  "output_sha256": {
+    "paper/results/cara_fast_r2_20261030/FAST_RESULTS.md": "f76fac44c03667d7daa0422645792d3b7d6b858203a890a3da83f738aac73a81",
+    "paper/results/cara_fast_r2_20261030/accepted-results.json": "3ac1eff688215c1f2c8dd683ae9ea4eb528ad9c7f261849b379011e4e6c58e30"
+  },
+  "original_62_sources_unchanged": true,
+  "original_prelaunch_R1_manifest_unchanged": true,
+  "original_A32_freeze_unchanged": true,
+  "original_A32_plus_B36_GPUh": 4.640259487808734,
+  "new_GPUh": 0,
+  "new_GPU_submissions": 0,
+  "metric_networks_executed": false,
+  "new_bootstrap": false,
+  "ledger_written": false,
+  "human_reviews_included": 0,
+  "new_method_claim_accepted": false,
+  "independent_new_inputs": false
+}
