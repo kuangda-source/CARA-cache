@@ -56,6 +56,7 @@ def fixture(project,host='two_card'):
     profile=execution.read(stage/PROFILE);profile['hosts'][host]['output_mount']=str(project/'outputs'/RUN)
     atomic_json(stage/PROFILE,profile)
     reg=dict(namespace='SQ_S_COMPLETE_EXECUTION_R2',host=host,stage=str(stage),native_hostname=socket.gethostname(),
+        native_boot_id=execution.kernel_boot_id(),
         source_revision='SYNTHETIC_CPU_CONTROL_NOT_A_GPU_AUTHORIZATION',
         payload_sha256={name:sha(stage/name) for name in sorted(paths)},
         runtime_source_sha256=identity['runtime_source_sha256'])

@@ -19,6 +19,11 @@ from .wc73_execution_r1 import Pool as CentralPool,admit_host
 def read(path):return json.loads(Path(path).read_text())
 
 
+def kernel_boot_id():
+    path=Path('/proc/sys/kernel/random/boot_id')
+    return path.read_text().strip() if path.is_file() else 'NON_LINUX_CPU_ONLY:'+socket.gethostname()
+
+
 def make_check_schedule(authority,guardian,quote,profile):
     """Derive both checks only from the original host guardian start."""
     require(guardian['billing_clock_owner']=='HOST_GUARDIAN' and all(guardian[key]==authority[key]
@@ -68,7 +73,7 @@ def validate_source(project,stage):
     project,stage=Path(project),Path(stage);reg=read(stage/'registration.json');host=reg['host']
     require(reg['namespace']=='SQ_S_COMPLETE_EXECUTION_R2' and stage==stage_path(project,host)
         and not stage.is_symlink() and reg['stage']==str(stage)
-        and reg['native_hostname']==socket.gethostname(),'Original independent S host/stage required')
+        and reg['native_boot_id']==kernel_boot_id(),'Original independent S host/stage required')
     required=set(EXECUTION_CRITICAL)|{SCOPE,PROFILE,IDENTITY,RESOURCE,ASSETS,MODE,RISK,HISTORY,PHYSICAL[host],QUOTES[host]}
     require(required<=set(reg['payload_sha256']),'S source registration is incomplete')
     for name,expected in reg['payload_sha256'].items():

@@ -49,4 +49,4 @@ EXECUTION_CRITICAL=(
 def stage_path(project,host):
     from pathlib import Path
     if host not in LIMITS:raise ValueError('Registered S host required')
-    return Path(project)/'.sync'/('cara-sq-s-complete-'+host.replace('_','-')+'-r3-20261030')
+    return Path(project)/'.sync'/('cara-sq-s-complete-'+host.replace('_','-')+'-r4-20261030')

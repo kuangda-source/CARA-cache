@@ -20,7 +20,7 @@
   "numerical_execution_identity_unchanged": true,
   "scientific_scope_unchanged": true,
   "old_stages_and_receipts_retained": true,
-  "new_stage_suffix": "r3-20261030",
+  "new_stage_suffix": "r4-20261030",
   "acceptance_strategy": "Reuse unchanged native123-control/two-flow20-path/five-supervisor evidence; validate only affected admission, source/authority and Linux allocation controls on both hosts",
   "numerical_pipeline_to_reexecute": false,
   "affected_test_modules": [
@@ -28,10 +28,12 @@
     "test_sq_s_execution_r2",
     "test_sq_s_host_entry_r2"
   ],
-  "expected_affected_Linux_controls": 30,
+  "expected_affected_Linux_controls": 32,
   "all_native_skips_refused": true,
   "GPU_submissions": 0,
   "ledger_writes": 0,
   "requires_original_Q1_release_and_settlement": true,
-  "availability_polling": false
+  "availability_polling": false,
+  "kernel_identity": "native Linux boot ID, shared by host and Docker UTS namespaces",
+  "prior_r3_CPU_attempt": "Retained: hostname binding rejected the actual CPU container before tests; no GPU was submitted"
 }

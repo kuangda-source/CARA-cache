@@ -41,7 +41,7 @@ def main():
     log = io.StringIO()
     suite = unittest.TestSuite(unittest.defaultTestLoader.loadTestsFromName(name) for name in names)
     tests = unittest.TextTestRunner(stream=log, verbosity=2).run(suite)
-    passed = tests.wasSuccessful() and tests.testsRun == 30 and not tests.skipped and 'torch' not in sys.modules
+    passed = tests.wasSuccessful() and tests.testsRun == 32 and not tests.skipped and 'torch' not in sys.modules
     result = dict(status='S_RAM50_AFFECTED_LINUX_CPU_PASS' if passed else 'S_RAM50_AFFECTED_LINUX_CPU_FAIL',
         passed=passed, host=registration['host'], stage=str(args.stage), source_revision=registration['source_revision'],
         registration_sha256=sha(args.stage / 'registration.json'), tests=tests.testsRun,

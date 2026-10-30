@@ -71,6 +71,24 @@ class HostMemoryPolicyTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, 'resource boundary'):
                 sq_s_execution_r2.validate_source(project, stage)
 
+    def test_same_kernel_identity_survives_a_container_hostname(self):
+        with tempfile.TemporaryDirectory() as directory:
+            project = Path(directory)
+            stage, _, _, _ = fixture(project)
+            with patch.object(sq_s_execution_r2, 'kernel_boot_id', return_value=sq_s_execution_r2.kernel_boot_id()), \
+                    patch.object(sq_s_execution_r2.socket, 'gethostname', return_value='CPU_CONTAINER_HOSTNAME'):
+                sq_s_execution_r2.validate_source(project, stage)
+
+    def test_foreign_kernel_boot_identity_is_refused(self):
+        with tempfile.TemporaryDirectory() as directory:
+            project = Path(directory)
+            stage, _, _, _ = fixture(project)
+            registration = json.loads((stage / 'registration.json').read_text())
+            registration['native_boot_id'] = 'CPU_FOREIGN_BOOT_ID'
+            atomic_json(stage / 'registration.json', registration)
+            with self.assertRaisesRegex(ValueError, 'host/stage'):
+                sq_s_execution_r2.validate_source(project, stage)
+
 
 if __name__ == '__main__':
     unittest.main()
