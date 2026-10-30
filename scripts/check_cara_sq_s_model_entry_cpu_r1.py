@@ -28,7 +28,14 @@ def main():
     def forbidden(*a,**kw):raise RuntimeError('S model-entry CPU forbids CUDA, weights and downloads')
     torch.cuda._lazy_init=forbidden;torch.load=forbidden;torch.hub.download_url_to_file=forbidden
     import huggingface_hub
-    huggingface_hub.hf_hub_download=forbidden;huggingface_hub.snapshot_download=forbidden
+    # The original SetupArguments parser resolves its checkpoint through this
+    # API even when the file is already cached. Permit that readonly lookup;
+    # cache misses must fail without attempting a download.
+    cached_file=huggingface_hub.hf_hub_download
+    cached_snapshot=huggingface_hub.snapshot_download
+    def local_file(*a,**kw):return cached_file(*a,**dict(kw,local_files_only=True))
+    def local_snapshot(*a,**kw):return cached_snapshot(*a,**dict(kw,local_files_only=True))
+    huggingface_hub.hf_hub_download=local_file;huggingface_hub.snapshot_download=local_snapshot
     torch.set_num_threads(2);os.nice(10)
     scope=json.loads((ROOT/args.scope).read_text())
     log=io.StringIO();tests=unittest.TextTestRunner(stream=log,verbosity=2).run(
@@ -60,6 +67,7 @@ def main():
     r=dict(status='S_MODEL_ENTRY_PARSERS_AND_LOADER_BOUNDARIES_CPU_PASS_NOT_GPU_CARD',
         profile=args.profile,scope=scope,unit_controls=dict(tests=tests.testsRun,skipped=0,errors=0,failures=0,log=log.getvalue()),
         actual_pinned_Cosmos_config_parser=True,pinned_config_source_sha256=sha(config_path),
+        checkpoint_resolution_readonly_existing_cache_only=True,
         original_two_FIT_input_objects_lossless=True,original_setup_fields_lossless=True,
         original_model_and_experiment_parser_binding=True,
         native_parser_probe=dict(events=events,model_load_standins=1,environment_cleanup_standins=1,

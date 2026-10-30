@@ -1,0 +1,168 @@
+{
+  "status": "S_PARSER_EXISTING_CACHE_AND_CACHE_MISS_CPU_BOUNDARIES_PASS",
+  "observed_UTC": "2026-10-30T04:39:19.538826+00:00",
+  "positive_CPU_parser_boundary_proof": {
+    "status": "S_MODEL_ENTRY_PARSERS_AND_LOADER_BOUNDARIES_CPU_PASS_NOT_GPU_CARD",
+    "profile": "local_metadata_cache_fixture",
+    "scope": {
+      "schema": "S_MODEL_ENTRY_LOADER_BOUNDARIES_AND_NATIVE_PARSERS_CPU_R1",
+      "unit_controls": 15,
+      "actual_pinned_Cosmos_config_parser_probe": 1,
+      "pinned_config_source_sha256": "83fce9944547335b94ae1000db8de1ffa1fb6a9bd12f907c77c1c98f217a7916",
+      "unchanged_matrix_acceptance": {
+        "ref": "reports/cara_sq_s_runner_four_card_cpu_accepted_r1_20261029.json",
+        "sha256": "855e08024f9209866affebc2a5fd614a6f1c5a5069f83bbc6b2676e7e95d152c",
+        "source_revision": "6dccf20c5d78de43e7f1ae40b640950f9a1f068c",
+        "host": "four_card",
+        "full_matrix_paths": 20,
+        "full_flows": [
+          false,
+          true
+        ]
+      },
+      "declared_CPU_substitutions": [
+        "environment",
+        "inference weight loader",
+        "registration call",
+        "worldcache installation",
+        "matrix execution"
+      ],
+      "expected_GPU_model_loads": 0,
+      "expected_actual_model_forwards": 0,
+      "real_S_labels": 0,
+      "complete_S_GPU_entry_accepted": false,
+      "resources": {
+        "CPUs": 2,
+        "RAM_GiB": 8,
+        "wall_seconds": 1800,
+        "GPU": "hidden",
+        "network": "none"
+      },
+      "GPU_authorized": false,
+      "GPU_submissions": 0,
+      "new_GPUh": 0,
+      "ledger_writes": 0
+    },
+    "unit_controls": {
+      "tests": 15,
+      "skipped": 0,
+      "errors": 0,
+      "failures": 0,
+      "log": "test_CPU_fixture_cannot_enter_the_production_default (test_sq_s_model_entry_r1.ModelEntryTests.test_CPU_fixture_cannot_enter_the_production_default) ... ok\ntest_Q1_only_context_cannot_authorize_S_loading (test_sq_s_model_entry_r1.ModelEntryTests.test_Q1_only_context_cannot_authorize_S_loading) ... ok\ntest_Wan_strategy_change_stops_before_matrix_and_cleans (test_sq_s_model_entry_r1.ModelEntryTests.test_Wan_strategy_change_stops_before_matrix_and_cleans) ... ok\ntest_cleanup_failure_cannot_publish_complete_result (test_sq_s_model_entry_r1.ModelEntryTests.test_cleanup_failure_cannot_publish_complete_result) ... ok\ntest_cleanup_failure_retains_original_loader_failure_too (test_sq_s_model_entry_r1.ModelEntryTests.test_cleanup_failure_retains_original_loader_failure_too) ... ok\ntest_guardrail_disable_refused_before_environment_or_load (test_sq_s_model_entry_r1.ModelEntryTests.test_guardrail_disable_refused_before_environment_or_load) ... ok\ntest_input_parser_cannot_change_original_prompt (test_sq_s_model_entry_r1.ModelEntryTests.test_input_parser_cannot_change_original_prompt) ... ok\ntest_loader_failure_retains_original_attempt_and_cleans_once (test_sq_s_model_entry_r1.ModelEntryTests.test_loader_failure_retains_original_attempt_and_cleans_once) ... ok\ntest_matrix_failure_cleans_model_without_publishing_complete_result (test_sq_s_model_entry_r1.ModelEntryTests.test_matrix_failure_cleans_model_without_publishing_complete_result) ... ok\ntest_model_conditional_timestep_change_stops_before_matrix (test_sq_s_model_entry_r1.ModelEntryTests.test_model_conditional_timestep_change_stops_before_matrix) ... ok\ntest_one_original_load_and_cleanup_precede_result_publication (test_sq_s_model_entry_r1.ModelEntryTests.test_one_original_load_and_cleanup_precede_result_publication) ... ok\ntest_original_path_typed_setup_parser_is_supported (test_sq_s_model_entry_r1.ModelEntryTests.test_original_path_typed_setup_parser_is_supported) ... ok\ntest_real_loader_refuses_a_CPU_decode_adapter_before_loading (test_sq_s_model_entry_r1.ModelEntryTests.test_real_loader_refuses_a_CPU_decode_adapter_before_loading) ... ok\ntest_retained_OFF_cannot_load_on_a_foreign_GPU (test_sq_s_model_entry_r1.ModelEntryTests.test_retained_OFF_cannot_load_on_a_foreign_GPU) ... ok\ntest_setup_parser_cannot_change_original_flow_scale (test_sq_s_model_entry_r1.ModelEntryTests.test_setup_parser_cannot_change_original_flow_scale) ... ok\n\n----------------------------------------------------------------------\nRan 15 tests in 0.059s\n\nOK\n"
+    },
+    "actual_pinned_Cosmos_config_parser": true,
+    "pinned_config_source_sha256": "83fce9944547335b94ae1000db8de1ffa1fb6a9bd12f907c77c1c98f217a7916",
+    "checkpoint_resolution_readonly_existing_cache_only": true,
+    "original_two_FIT_input_objects_lossless": true,
+    "original_setup_fields_lossless": true,
+    "original_model_and_experiment_parser_binding": true,
+    "native_parser_probe": {
+      "events": [
+        "storage",
+        "init",
+        "output",
+        "register",
+        "load",
+        "worldcache",
+        "matrix",
+        "storage",
+        "cleanup"
+      ],
+      "model_load_standins": 1,
+      "environment_cleanup_standins": 1,
+      "actual_environment_loader_and_matrix_replaced": true,
+      "runtime_registration_and_worldcache_install_replaced": true,
+      "result": {
+        "status": "S_COMPLETE_MATRIX_AWAITING_MODEL_CLEANUP_AND_ALLOCATION_TERMINAL",
+        "CPU_fixture": true,
+        "CPU_loader_and_matrix_standins": true,
+        "model_entry": {
+          "status": "S_MODEL_AND_MATRIX_COMPLETE_AWAITING_ORIGINAL_ALLOCATION_TERMINAL",
+          "CPU_fixture": true,
+          "execution_identity_sha256": "9f89370c6d7daef1d97a302187f64d95244126b219db5eba0a48f2e93b6cf400",
+          "physical_scope_sha256": "7d458c94d04589fed777dc0083b798ad532113565137807ac388b5dc7eb11e6b",
+          "model_load_attempts": 1,
+          "model_loads": 1,
+          "environment_cleanup_attempted": true,
+          "environment_cleanup_accepted": true,
+          "original_GPU_release_accepted": false,
+          "original_financial_settlement_accepted": false,
+          "actual_scientific_labels_accepted": false,
+          "started_unix": 1793335050.881133,
+          "model_load_seconds": 5.830079317092896e-07,
+          "precision": {
+            "model_precision": "torch.float32",
+            "parameter_dtypes": {
+              "torch.float32": 1
+            },
+            "parameter_devices": {
+              "cpu": 1
+            },
+            "parameter_tensors": 1,
+            "blocks": 1,
+            "use_wan_fp32_strategy": true,
+            "conditional_frame_timestep": 0.1,
+            "outer_autocast": false,
+            "backend": {
+              "cudnn_enabled": true,
+              "cudnn_benchmark": false,
+              "cudnn_deterministic": false,
+              "cudnn_allow_tf32": true,
+              "matmul_allow_tf32": false,
+              "deterministic_algorithms": false
+            }
+          },
+          "ended_unix": 1793335050.881462
+        }
+      }
+    },
+    "original_matrix_component_reused_unchanged": {
+      "ref": "reports/cara_sq_s_runner_four_card_cpu_accepted_r1_20261029.json",
+      "sha256": "855e08024f9209866affebc2a5fd614a6f1c5a5069f83bbc6b2676e7e95d152c",
+      "source_revision": "6dccf20c5d78de43e7f1ae40b640950f9a1f068c",
+      "host": "four_card",
+      "full_matrix_paths": 20,
+      "full_flows": [
+        false,
+        true
+      ]
+    },
+    "actual_Cosmos_weights": false,
+    "actual_model_forward_calls": 0,
+    "complete_GPU_model_entry_accepted": false,
+    "actual_S_labels": 0,
+    "CUDA_initialized": false,
+    "whole_S_quote_frozen": false,
+    "CPU_wall_seconds": 1.2786967500578612,
+    "CPU_seconds": 1.25966,
+    "parent_peak_RSS_KiB": 219561984,
+    "actual_platform": {
+      "system": "Darwin",
+      "machine": "arm64"
+    },
+    "torch_version": "2.7.1",
+    "GPU_submissions": 0,
+    "new_GPUh": 0,
+    "ledger_writes": 0
+  },
+  "positive_result_sha256": "0e68e7245966b2245243f23b27bbaf6a9022c2e7cbfe93f130d8c800a9dcf4fa",
+  "negative": {
+    "exit_code": 1,
+    "wall_seconds": 1.7839565828908235,
+    "expected_missing_cache_refusal": true,
+    "log_path": "/Users/kuangda_gao/Documents/\u4e16\u754c\u6a21\u578b\u52a0\u901f\u5b9e\u9a8c/worldcache_omr_sq_entry/.sync/cara-sq-s-cache-boundary-r5-20261030/missing-cache-r5b.log",
+    "log_sha256": "3b1c6cd3edad48f9b5676192392db4b9fa9722fcfbe2dad0e1ff2b81a00853c7",
+    "failure_tail": "S_MODEL_ENTRY_15_CPU_CONTROLS_PASS\n[10-30 12:39:19|INFO|cache/runtime/cosmos_predict2/_src/imaginaire/utils/checkpoint_db.py:171:path] Downloading checkpoint nvidia/Cosmos-Predict2.5-2B/base/post-trained(81edfebe-bd6a-4039-8c1d-737df1a790bf)\n[10-30 12:39:19|INFO|cache/runtime/cosmos_predict2/_src/imaginaire/utils/checkpoint_db.py:96:_download] Downloading checkpoint file from Hugging Face with {'repo_id': 'nvidia/Cosmos-Predict2.5-2B', 'repo_type': 'model', 'revision': '15a82a2ec231bc318692aa0456a36537c806e7d4', 'filename': 'base/post-trained/81edfebe-bd6a-4039-8c1d-737df1a790bf_ema_bf16.pt'}\nTraceback (most recent call last):\n  File \"<string>\", line 6, in <module>\n  File \"<frozen runpy>\", line 287, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"scripts/check_cara_sq_s_model_entry_cpu_r1.py\", line 87, in <module>\n    if __name__=='__main__':main()\n                            ^^^^^^\n  File \"scripts/check_cara_sq_s_model_entry_cpu_r1.py\", line 58, in main\n    result,(_,_,api,_,events,health,_,outputs)=test.run_entry(before=actual_parser)\n                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/kuangda_gao/Documents/\u4e16\u754c\u6a21\u578b\u52a0\u901f\u5b9e\u9a8c/worldcache_omr_sq_entry/tests/test_sq_s_model_entry_r1.py\", line 82, in run_entry\n    try:return entry.execute(**kwargs),self.last\n               ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/kuangda_gao/Documents/\u4e16\u754c\u6a21\u578b\u52a0\u901f\u5b9e\u9a8c/worldcache_omr_sq_entry/src/wcomr/sq_s_model_entry_r1.py\", line 65, in execute\n    setup=runtime_api.config.SetupArguments(**setup_values)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/kuangda_gao/Documents/\u4e16\u754c\u6a21\u578b\u52a0\u901f\u5b9e\u9a8c/worldcache_omr_sq_entry/.sync/sq-s-local-python312-r5-20261030/lib/python3.12/site-packages/pydantic/main.py\", line 253, in __init__\n    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\npydantic_core._pydantic_core.ValidationError: 1 validation error for SetupArguments\n  Value error, Cannot find the requested files in the disk cache and outgoing traffic has been disabled. To enable hf.co look-ups and downloads online, set 'local_files_only' to False. [type=value_error, input_value={'model': '2B/post-traine...680000gn/T/tmpl3aj_1et'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/value_error\n"
+  },
+  "checkpoint_file_is_synthetic_metadata_only": true,
+  "checkpoint_metadata_bytes": 59,
+  "checkpoint_metadata_sha256": "a54337a869fe5b8a8e75e4a0b616099d4a6031a4c9a015b0e2e8ee01b8d1b84a",
+  "original_hf_cache_lookup_used": true,
+  "socket_outbound_blocked": true,
+  "actual_weights_loaded": false,
+  "actual_checkpoint_bytes_verified": false,
+  "native_Linux_acceptance": false,
+  "GPU_submissions": 0,
+  "remote_compute_server_queries": 0,
+  "checker_sha256": "226f656496f21d79d5dac76f82b7c86d9409c2c7a93e34b3f17947ddd45893e1"
+}
