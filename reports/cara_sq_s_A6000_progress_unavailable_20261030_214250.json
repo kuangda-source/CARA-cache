@@ -1,0 +1,54 @@
+{
+  "status": "S_PROGRESS_QUERY_UNAVAILABLE_ORIGINAL_RUN_STATE_UNKNOWN",
+  "observed_Asia_Shanghai": "2026-10-30T21:42:50.135861+08:00",
+  "run_id": "cara-sq-s-complete-r2-20261029",
+  "launch_id": "bfa488af-8d97-43ca-b634-b4e3a3be9040",
+  "source_revision": "3a85be21eed90150e5a487796547741cd2e1f3ef",
+  "attempts": [
+    {
+      "transport": "existing_task_owned_tailscale_wrapper",
+      "result": "office TCP22 timeout before usable SSH session",
+      "original_failure_ref": "reports/cara_sq_s_A6000_progress_transport_failure_20261030_213705.json"
+    },
+    {
+      "transport": "existing_default_gkd_minchen_forward",
+      "result": "localhost33620 connection refused"
+    },
+    {
+      "transport": "same_original_read_after_relay_warmup",
+      "result": "no usable remote command response; stopped local read-only observer after more than 180 seconds",
+      "local_query_process_group": 31699,
+      "local_query_cancelled": true
+    }
+  ],
+  "network_evidence": {
+    "local_Tailscale_running": true,
+    "local_Tailscale_online": true,
+    "office_Tailscale_online": true,
+    "office_DERP_HKG_pong_ms": 3048,
+    "office_direct_path_established": false,
+    "final_observer_office_TCP22_established": true,
+    "usable_SSH_command_or_current_task_status_confirmed": false
+  },
+  "last_verified_capture_ref": "reports/cara_sq_s_RAM50_A6000_original_start_capture_r1_20261030.json",
+  "last_verified_observed_unix": 1793353652.722225,
+  "last_verified_observed_Asia_Shanghai": "2026-10-30T17:47:32.722225+08:00",
+  "last_verified_health": {
+    "status": "S_MODEL_LOADING",
+    "run_id": "cara-sq-s-complete-r2-20261029",
+    "launch_id": "bfa488af-8d97-43ca-b634-b4e3a3be9040",
+    "model_load_attempts": 1,
+    "model_loads": 0,
+    "attempted_new_paths": 0
+  },
+  "current_completed_paths": null,
+  "current_heads": null,
+  "current_actual_GPUh": null,
+  "current_GPU_released": null,
+  "remote_run_stopped_by_this_query": false,
+  "GPU_submissions": 0,
+  "ledger_writes": 0,
+  "halfway_check_id": "s",
+  "terminal_check_id": "s-2",
+  "automatic_GPU_retry_authorized": false
+}
