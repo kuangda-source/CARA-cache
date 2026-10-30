@@ -17,7 +17,7 @@ OPERATOR = 'scripts/provision_cara_budget_two_storage_r1.py'
 REMOTE = r'''
 import base64,hashlib,json,os,pathlib,subprocess,sys,time
 p=packet['arguments'];root=pathlib.Path('/data20t/gaokuangda/worldcache_workspace')
-control=root/'.sync/cara-budget-storage-provision-two-r1-20261031'
+control=root/'.sync/cara-budget-storage-provision-two-r2-20261031'
 cpu=root/'.sync/cara-budget-two-card-policy-CPU-a6000-r1-20261031'
 sha=lambda path:hashlib.sha256(pathlib.Path(path).read_bytes()).hexdigest()
 assert sha(cpu/'registration.json')=='cee04693f585c3089614febe71078d409112b1d73df93d847292a261b2be3181'
@@ -29,7 +29,7 @@ from wcomr.cara_budget_original_handles_r1 import bind_original_process,observe_
 if p['action']=='launch':
  assert not control.exists() and not control.is_symlink(),'Original preparation exists: capture only'
  raw=base64.b64decode(p['operator']);assert hashlib.sha256(raw).hexdigest()==p['operator_sha256']
- control.mkdir(mode=0o700);operator=control/'operator.py';operator.write_bytes(raw)
+ control.mkdir(mode=0o700);operator=control/'budget_storage_worker.py';operator.write_bytes(raw)
  registration=dict(source_revision=p['source_revision'],operator_sha256=p['operator_sha256'],GPU_submissions=0,ledger_written=False)
  (control/'registration.json').write_text(json.dumps(registration,indent=2)+'\n')
  with (control/'process.log').open('x') as log:
@@ -42,8 +42,13 @@ if p['action']=='launch':
  print(json.dumps(launch))
 else:
  assert p['action']=='capture'
+ if not (control/'launch.json').exists():
+  targets=[control,root/'.sync/storage-reservations/budget-calibration-r1',root/'outputs/cara-budget-calibration-14gpuh-r1-20261030',pathlib.Path('/home/gaokuangda/cara_control/budget-calibration-r1')]
+  rows=[dict(path=str(x),exists=x.exists(),symlink=x.is_symlink()) for x in targets]
+  print(json.dumps(dict(status='ORIGINAL_STORAGE_HANDLE_ABSENT_OR_PARTIAL',paths=rows,all_targets_absent=all(not r['exists'] and not r['symlink'] for r in rows),observed_unix=time.time(),GPU_submissions=0)))
+  raise SystemExit(0)
  launch=json.loads((control/'launch.json').read_text());state=control/'state.json'
- print(json.dumps(dict(status='ORIGINAL_TWO_CARD_STORAGE_CAPTURE',launch=launch,observation=observe_original_process(launch['identity']),operator_intact=sha(control/'operator.py')==launch['operator_sha256'],state=json.loads(state.read_text()) if state.exists() else None,log_tail=(control/'process.log').read_text(errors='replace')[-3000:],observed_unix=time.time(),GPU_submissions=0,ledger_written=False)))
+ print(json.dumps(dict(status='ORIGINAL_TWO_CARD_STORAGE_CAPTURE',launch=launch,observation=observe_original_process(launch['identity']),operator_intact=sha(control/'budget_storage_worker.py')==launch['operator_sha256'],state=json.loads(state.read_text()) if state.exists() else None,log_tail=(control/'process.log').read_text(errors='replace')[-3000:],observed_unix=time.time(),GPU_submissions=0,ledger_written=False)))
 '''
 
 

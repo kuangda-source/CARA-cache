@@ -11,7 +11,7 @@ import sys
 import time
 
 ROOT = Path('/data20t/gaokuangda/worldcache_workspace')
-CONTROL = ROOT/'.sync/cara-budget-storage-provision-two-r1-20261031'
+CONTROL = ROOT/'.sync/cara-budget-storage-provision-two-r2-20261031'
 BASE = ROOT/'.sync/storage-reservations/budget-calibration-r1'
 RUN = 'cara-budget-calibration-14gpuh-r1-20261030'
 OUTPUT = ROOT/'outputs'/RUN

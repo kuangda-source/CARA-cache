@@ -3,11 +3,14 @@ from contextlib import ExitStack
 import os
 from pathlib import Path
 import shutil
+import subprocess
+import sys
 import tempfile
 import unittest
 from unittest.mock import patch
 
 import provision_cara_budget_two_storage_r1 as operator
+import cara_budget_storage_two_transport_r1 as transport
 
 
 class StorageProvisionTests(unittest.TestCase):
@@ -53,6 +56,21 @@ class StorageProvisionTests(unittest.TestCase):
         self.assertNotEqual(result['data_device'], result['journal_device'])
         self.assertEqual(result['MemAvailable_bytes'], 8*2**30)
         self.assertFalse(self.base.exists())
+
+    def test_deployed_worker_name_does_not_shadow_standard_library(self):
+        filename = 'budget_storage_worker.py'
+        self.assertIn("operator=control/'"+filename+"'", transport.REMOTE)
+        source = Path(operator.__file__).read_text()
+        marker = "if __name__ == '__main__':\n    main()"
+        self.assertEqual(source.count(marker), 1)
+        # Run all real top-level imports from the actual deployment basename,
+        # without entering the host-only formatting or mounting routine.
+        deployed = self.root/filename
+        deployed.write_text(source.replace(marker, "print('IMPORTS_OK')"))
+        result = subprocess.run([sys.executable, str(deployed)], text=True,
+                                capture_output=True, timeout=10)
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertEqual(result.stdout.strip(), 'IMPORTS_OK')
 
     def test_existing_target_is_preserved_and_refused(self):
         self.base.mkdir()
