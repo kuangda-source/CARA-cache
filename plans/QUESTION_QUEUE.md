@@ -101,3 +101,5 @@ S单次授权已接收：用户在S/Q原对话批准另一张A6000完整十条�
 [788两卡限定与完整R4 CPU运行](../research/788_CARA_TWO_CARD_ONLY_READINESS_ACCEPTED_AND_FULL_CPU_RUNNING_20261031.md)：四卡维护期间按用户指令仅两卡推进；26项Linux回归接受，原R4于01:02:21开始，01:23/01:44检查。完整矩阵未接受；中央唯一账本仍在四卡，后续GPU不得用历史快照绕过fresh准入。
 
 [789两卡完整CPU接受与费用草案](../research/789_CARA_TWO_CARD_R4_CPU_ACCEPTED_AND_COMPLETE_COST_DRAFT_20261031.md)：仅两卡推进。原R4 CPU于01:17:53正常退出并完整验收：两种flow各112设计路径，134执行+3规格控制通过；两项检查删除。完整93帧RGB读写组件接受，五项整卡费用草案13.03253GPUh/硬限14，尚含未实测余量。实际派发链、私有存储、唯一中央账本fresh准入及GPU审批仍待。
+
+[790两卡限定与实际子进程CPU](../research/790_CARA_TWO_CARD_POLICY_AND_ACTUAL_DISPATCH_CHILD_CPU_20261031.md)：两卡限定已绑定准备/派发的源码、授权、CPU与报价；43项实际Linux增量控制通过，原CPU容器01:47:45退出0。真实子进程/私有管道/原身份发布及失败账单、不重派已验证；原R4完整数值复用。实际64GiB存储、GPU生命周期和完整费用准入仍待，中央唯一账本与原句柄去重门不变，14GPUh未批准。
