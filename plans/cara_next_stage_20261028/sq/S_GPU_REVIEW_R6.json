@@ -1,0 +1,127 @@
+{
+  "schema": "SQ_S_COMPLETE_OTHER_A6000_REVIEW_R6",
+  "status": "CPU_PREPARATION_COMPLETE_AWAITING_SEPARATE_S_BUDGET_APPROVAL",
+  "proposed_run_id": "cara-sq-s-complete-r2-20261029",
+  "selected_host": "two_card",
+  "selected_gpu_uuid": "GPU-de9a5370-cd87-0f1c-a48e-288888777dd3",
+  "new_GPU_allocations_proposed": 1,
+  "stage": "/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-complete-two-card-r2-20261029",
+  "execution_source_revision": "ab3a306144f0cf24c04c0f0001a17665748a7518",
+  "registration_sha256": "1438590045d242674fe6c6ffb91bf0aecbf481d9c1efebb72706c48a1f6b51c6",
+  "scope_ref": "plans/cara_next_stage_20261028/sq/S_WHOLE_SCOPE_R2.json",
+  "scope_sha256": "c1a2b18855a6692eb5a9dce45ddce0340e5573bd393677359470be1429a75a95",
+  "scope_counts": {
+    "paths": 10,
+    "warm_paths": 2,
+    "OFF_paths": 4,
+    "ON_paths": 4,
+    "parent_solver_pairs": 360,
+    "parent_Dense_pairs": 220,
+    "parent_C_pairs": 140,
+    "extra_Dense_teacher_pairs": 56,
+    "extra_C_shadow_pairs": 52,
+    "total_pairs": 468,
+    "total_branch_readouts": 936,
+    "moment_rows": 108,
+    "F19_raw_states": 8,
+    "unique_raw_anchors": 24,
+    "extra_Dense_hidden_head_pairs": 0
+  },
+  "physical_scope_ref": "plans/cara_next_stage_20261028/sq/S_PHYSICAL_TWO_CARD_OTHER_GPU_R2.json",
+  "physical_scope_sha256": "861fb8463373181e2f5a2e0517044bc140be8b4575ca2b961eae22481528901e",
+  "quote_ref": "plans/cara_next_stage_20261028/sq/S_WHOLE_QUOTE_TWO_CARD_OTHER_GPU_R2.json",
+  "quote_sha256": "e66b05ebc1121edeadfc17f1276bce387ae0820223d14f92f853e9fa9dca09ce",
+  "forecast_GPUh": 12.7125,
+  "proposed_hard_GPUh": 14,
+  "pricing_case": "conservative_FP32_features",
+  "whole_native_GPU_price_measured": false,
+  "unmeasured_allowances_explicit_in_original_quote": true,
+  "proposed_limit_frozen_by_human_approval": false,
+  "native_CPU_proof_sha256": "1c0d51ef608f6b117716820933209a549db510aa4b3157ce6555229663cd4e25",
+  "real_asset_proof_sha256": "fa4bab68696a4a278f2b1b8e0a595d6ce1bb005a7809fa03a57268f5c6dbc575",
+  "storage_contract_sha256": "3bee62c19196ceed260fd94b69b5f61ff20229c8f68a3b3400dc0fb787e55b3d",
+  "proof_refs": {
+    "native_CPU": "reports/cara_sq_s_native_entry_two_card_cpu_accepted_r6_20261030.json",
+    "model_assets": "reports/cara_sq_s_assets_two_card_cpu_accepted_r1_20261030.json",
+    "private_storage": "reports/cara_sq_s_storage_two_card_cpu_accepted_r1_20261030.json",
+    "source_install": "reports/cara_sq_s_complete_two_card_source_install_r6_20261030.json",
+    "one_time_GPU_observation": "reports/cara_sq_two_card_other_gpu_one_time_observation_r6_20261030.json"
+  },
+  "proof_file_sha256": {
+    "native_CPU": "1c0d51ef608f6b117716820933209a549db510aa4b3157ce6555229663cd4e25",
+    "model_assets": "95a51c5c07692f98f6ae009a53c941c2dd63175460a22e505ba4ff8483b098e1",
+    "private_storage": "c8e0a33e9267f36769932f15eeade155578ee32149a7cbded58f08fdedfca2a9",
+    "source_install": "8f05fbb48de9f79893e9ef653d6afb86c33ac117ba78cab5576d61586341f1d4",
+    "one_time_GPU_observation": "05a656d3713e7a7b28d604d17d544d1484142f3638f22b896f4e44b3aa043ee1"
+  },
+  "preparation": {
+    "native_controls": 123,
+    "skipped": 0,
+    "complete_tiny_paths": 20,
+    "Linux_supervisor_controls": 5,
+    "real_model_asset_files_hashed": 20,
+    "real_model_asset_bytes_hashed": 21348071882,
+    "actual_model_weights_loaded": false,
+    "output_image_GiB": 32,
+    "independent_journal_MiB": 48,
+    "production_critical_source_files_unchanged": 38
+  },
+  "central_budget_readonly_snapshot": {
+    "observed_unix": 1793343913.3156238,
+    "ledger_sha256": "5db6fddf69e4e1b256c6a8aac19ba091ae29975683e797e7bf67231fd0323924",
+    "cap_GPUh": 226,
+    "accounting": {
+      "used_gpu_hours": 180.44611925467495,
+      "reserved_gpu_hours": 16.5,
+      "available_gpu_hours": 29.053880745325046,
+      "gpu_jobs_launched": 126
+    },
+    "active_jobs": [
+      {
+        "job_id": "retired-two-card-bank24-uncertainty-hold-20261022",
+        "host": null,
+        "financial_liability_only": true,
+        "billed_limit_GPUh": 4.5
+      },
+      {
+        "job_id": "retired-two-card-full1624-uncertainty-hold-20261022",
+        "host": null,
+        "financial_liability_only": true,
+        "billed_limit_GPUh": 12.0
+      }
+    ],
+    "ledger_writes": 0
+  },
+  "central_budget_snapshot_capture_ref": "reports/cara_sq_s_assets_four_card_cpu_original_capture_r1_20261030.json",
+  "cap_change_requested": false,
+  "old_16_5_GPUh_uncertainty_reserve_unchanged": true,
+  "fresh_dispatch_required": [
+    "original intents on both hosts",
+    "same-host central ownership",
+    "published source/runtime",
+    "original asset stamps and snapshot links",
+    "exact UUID/VRAM/apps/temperature",
+    "hardware exclusivity and exact sole runner",
+    "host memory and private storage",
+    "whole central reservation"
+  ],
+  "user_priority": "S when resources permit; no resource-availability polling",
+  "actual_start_check_policy": {
+    "clock_owner": "HOST_GUARDIAN",
+    "halfway_hours_after_start": 6.35625,
+    "expected_GPU_terminal_hours_after_start": 12.7125,
+    "expected_full_acceptance_hours_after_start": 13.7125,
+    "hard_GPU_limit_hours_after_start": 14,
+    "checks_created_before_launch": false
+  },
+  "failure_policy": "Retain original failure and actual allocation cost; stop, no automatic retry or scope reduction",
+  "scientific_scope": "Two previously exposed FIT inputs; full risk labels and frozen rule analysis only",
+  "S_END_or_new_inputs_or_Q_collection_authorized_by_this_review": false,
+  "existing_Q1_authorization_unchanged": true,
+  "S_GPU_authority_created": false,
+  "actual_S_labels": 0,
+  "GPU_submissions": 0,
+  "central_budget_reservations": 0,
+  "ledger_writes": 0,
+  "created_UTC": "2026-10-30T07:22:37.819665+00:00"
+}

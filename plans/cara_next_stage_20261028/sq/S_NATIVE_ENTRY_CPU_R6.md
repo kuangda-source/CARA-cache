@@ -27,3 +27,7 @@
 用户要求停止反复查看资源后，14:52北京时间只核查两卡一次：0号A6000的利用率0%、显存450MiB、43°C，两张卡均无计算进程、项目GPU租约未持有、无本项目运行容器。[该次观察](../../../reports/cara_sq_two_card_other_gpu_one_time_observation_r6_20261030.json)支持把另一张卡作为S候选，不建立硬独占，不替代实际派发时的fresh准入，也不恢复资源轮询。
 
 后续CPU准备复用既有 `cara_fast_b36_dispatch_r2.assets_check/assets_unchanged` 对原20个模型和辅助文件逐字节校验。新worker只绑定原S源码stage并产生单次、不可覆盖的PID/摘要回执；2CPU（4、5）、2GiB地址空间、低优先级及1800秒硬限，无模型加载或GPU权限。原38个生产关键文件与两个原生CPU接受的源码不变。
+
+这次真实资产核验两端均已结束并独立接受：每端20个文件、21,348,071,882字节及全部snapshot links匹配，两卡124.995秒、四卡429.512秒。原启动回传和一次四卡终态收件曾中断，随后均恢复原PID/start ticks及不可覆盖的原摘要，没有重跑。四卡原半程仍活跃的16/20进度和后续终态迟收均保留。见[两卡资产接受](../../../reports/cara_sq_s_assets_two_card_cpu_accepted_r1_20261030.json)、[四卡资产接受](../../../reports/cara_sq_s_assets_four_card_cpu_accepted_r1_20261030.json)。
+
+所选两卡端又完成实际私有存储准备：32GiB非稀疏镜像、独立挂载的输出文件系统及异盘48MiB预分配日志均通过原StorageGuard，原worker退出0；CPU/source/assets/storage完整绑定见[单次另一张A6000的S审阅卡](S_GPU_REVIEW_R6.md)。预计12.7125GPUh、申请硬限14GPUh仍待单独批准；没有GPU意图、分配或中央预算写入。Q1原授权保持，资源空闲轮询不恢复。

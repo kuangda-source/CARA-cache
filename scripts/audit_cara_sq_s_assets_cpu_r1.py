@@ -15,6 +15,8 @@ def require(value, message):
 
 
 def accept(capture, installed, specification, verifier_sha256):
+    require(capture.get('status') == 'ORIGINAL_S_ASSET_CPU_CAPTURE',
+        'A transport error is not an original CPU terminal capture')
     launch, consumed, exit = (capture[key] for key in ('launch', 'consumed', 'worker_exit'))
     proof = capture['proof']
     require(capture['status'] == 'ORIGINAL_S_ASSET_CPU_CAPTURE' and capture['original_worker_live'] is False
