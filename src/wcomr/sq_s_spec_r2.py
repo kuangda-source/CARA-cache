@@ -2,7 +2,7 @@
 RUN='cara-sq-s-complete-r2-20261029'
 PLAN='plans/cara_next_stage_20261028/sq/'
 SCOPE=PLAN+'S_WHOLE_SCOPE_R2.json'
-PROFILE=PLAN+'S_EXECUTION_PROFILE_R2.json'
+PROFILE=PLAN+'S_EXECUTION_PROFILE_R3.json'
 IDENTITY=PLAN+'S_EXECUTION_IDENTITY_R1.json'
 RESOURCE=PLAN+'S_RESOURCE_GUARD_REAL_CONTRACT_R1.json'
 ASSETS=PLAN+'S_MODEL_ASSETS_R1.json'
@@ -49,4 +49,4 @@ EXECUTION_CRITICAL=(
 def stage_path(project,host):
     from pathlib import Path
     if host not in LIMITS:raise ValueError('Registered S host required')
-    return Path(project)/'.sync'/('cara-sq-s-complete-'+host.replace('_','-')+'-r2-20261029')
+    return Path(project)/'.sync'/('cara-sq-s-complete-'+host.replace('_','-')+'-r3-20261030')

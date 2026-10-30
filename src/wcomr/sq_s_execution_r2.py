@@ -101,7 +101,8 @@ def validate_source(project,stage):
         output_file_GiB_max=2,monitor_file_MiB_max=512,control_journal_MiB=48,billing_clock_owner='HOST_GUARDIAN',
         supervisor_interval_diagnostic_only=True,one_owned_GPU_job_per_host=True).items())
         and profile['guardian_release_margin_seconds']>=180 and profile['stop_release_margin_seconds']>=180
-        and profile['minimum_host_MemAvailable_GiB']>=52 and profile['minimum_output_free_MiB']>=512
+        and profile['minimum_host_MemAvailable_GiB']>=profile['host_RAM_GiB']+10
+        and profile['minimum_output_free_MiB']>=512
         and profile['minimum_storage_host_free_GiB']>=4 and profile['maximum_idle_admission_temperature_C']<=70
         and profile['CPU_pre_wall_seconds_max']==7200 and profile['CPU_post_wall_seconds_max']==3600,
         'Original S whole-allocation resource boundary differs')
