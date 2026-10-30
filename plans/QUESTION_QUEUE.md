@@ -97,3 +97,5 @@ S单次授权已接收：用户在S/Q原对话批准另一张A6000完整十条�
 [786当前完整CPU源与S完整承接](../research/786_CARA_CURRENT_COMPLETE_CPU_SOURCE_AND_S_ACCEPTED_INTAKE_20261031.md)：1174文件双端一致；本地109项通过、25项Linux跳过。两端原R3 stage/容器均不存在，传输尚未恢复，新CPU/GPU未启动。S完整接受且三目标同mask，后续合并；同14GPUh上限不冒称相同实耗，完整CPU/存储/报价后再审阅启动。
 
 [787原R3 CPU失败与连接边界](../research/787_CARA_R3_CPU_ORIGINAL_FAILURE_AND_TRANSPORT_RECOVERY_20261031.md)：原两卡00:43:36→00:48:09退出/1，133/134执行控制通过、完整数值矩阵未开始；原源/资源及失败保留。就绪/采样顺序修复已发布，Linux回归待验；四卡仅源文件部分传输，未启动CPU。直接入口仍间歇重置，根因未证，不改全局服务，不重启原任务。
+
+[788两卡限定与完整R4 CPU运行](../research/788_CARA_TWO_CARD_ONLY_READINESS_ACCEPTED_AND_FULL_CPU_RUNNING_20261031.md)：四卡维护期间按用户指令仅两卡推进；26项Linux回归接受，原R4于01:02:21开始，01:23/01:44检查。完整矩阵未接受；中央唯一账本仍在四卡，后续GPU不得用历史快照绕过fresh准入。

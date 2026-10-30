@@ -2,7 +2,7 @@
 
 # CARA-Cache
 
-[787原R3 CPU失败与连接恢复边界](research/787_CARA_R3_CPU_ORIGINAL_FAILURE_AND_TRANSPORT_RECOVERY_20261031.md)：两卡原R3 CPU正常建容器后退出/1：3项规格通过、134执行控制中1项失败，完整数值矩阵未开始。原源/资源完整，失败保留；就绪与采样顺序修复已发布，Linux回归待验。直接入口可取回原结果但仍间歇重置，四卡CPU未启动；无新GPU或账本写入。
+[788两卡限定与完整R4 CPU运行](research/788_CARA_TWO_CARD_ONLY_READINESS_ACCEPTED_AND_FULL_CPU_RUNNING_20261031.md)：四卡硬件维护期间按用户指令仅两卡推进。时序回归及原Linux控制26/26接受；两卡R4完整CPU于01:02:21开始，原容器/PID身份确认运行，01:23半程、01:44终验。完整112设计矩阵未验收；14GPUh未批准、中央唯一账本fresh准入仍待。
 
 **2026-10-28最新安排：主线P0/F19，探索S-FAST19与固定Shared25-C的Q并行准备。** [最新计划与两个对话分工](plans/cara_next_stage_20261028/08_REPOSITORY_RECONCILIATION.md) · [739接收记录](research/739_CARA_NEXT_STAGE_FAST_SQ_PLAN_AND_CHAT_HANDOFF_20261028.md)。A32已完整验收并冻结；B36已获单次批准，实际状态以原运行记录为准。WC73已热停结算，禁止自动重派；原DEV128、旧合同与失败保持。以下旧准备记录仅作历史复用依据。
 

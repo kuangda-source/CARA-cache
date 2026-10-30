@@ -7,7 +7,7 @@ import sys
 import unittest
 
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'scripts'))
-from accept_cara_budget_calibration_cpu_r3 import accept,encoded_sha,COUNTS,HOST_CONFIG,STAGES
+from accept_cara_budget_calibration_cpu_r3 import accept,encoded_sha,COUNTS,HOST_CONFIG,STAGES,TWO_CARD_R4_STAGE
 
 
 class CurrentCPUAcceptanceTests(unittest.TestCase):
@@ -52,6 +52,21 @@ class CurrentCPUAcceptanceTests(unittest.TestCase):
         for host in STAGES:
             result=self.check(self.fixture(host));self.assertEqual(result['complete_design_paths'],224)
             self.assertFalse(result['GPU_dispatch_ready']);self.assertFalse(result['whole_card_CPU_accepted'])
+
+    def test_R4_is_an_independent_two_card_stage_with_unchanged_complete_scope(self):
+        for host in STAGES:
+            x=copy.deepcopy(self.fixture(host));cap,launch=x[:2]
+            reg=cap['registration'];proof=cap['CPU_proof']
+            reg['stage']=launch['stage']='/fixture/.sync/'+TWO_CARD_R4_STAGE
+            launch['container']=TWO_CARD_R4_STAGE+'-cpu'
+            cap['registration_sha256']=launch['registration_sha256']=proof['registration_sha256']=encoded_sha(reg)
+            cap['CPU_proof_sha256']=encoded_sha(proof)
+            if host=='two_card':
+                result=self.check(x)
+                self.assertEqual(result['status'],'CURRENT_R4_CPU_MATRIX_ACCEPTED_NOT_GPU_DISPATCH')
+                self.assertEqual(result['complete_design_paths'],224)
+            else:
+                with self.assertRaises(ValueError):self.check(x)
 
     def test_live_failure_or_wrong_resource_is_refused(self):
         for target,key,value in [('container_state','Running',True),('container_state','ExitCode',9),

@@ -1834,7 +1834,7 @@
     "independent_new_inputs": false,
     "complete_QA_ref": "reports/cara_fast_A6000_complete_frozen_QA_20261029_0115.json"
   },
-  "current_evidence_observed_at": "2026-10-31T00:55:27.062879+08:00",
+  "current_evidence_observed_at": "2026-10-31T01:09:13.259647+08:00",
   "fast_B36_CPU_preparation_20261029": {
     "status": "ACCEPTED_DUAL_HOST_COMPLETE_B36_CPU_CONTINUATION_ONLY",
     "accepted_receipt_ref": "reports/cara_fast_B36_CPU_acceptance_r1_20261029.json",
@@ -2037,10 +2037,10 @@
     "postacceptance_budget_read_ref": "reports/cara_fast_mainline_budget_readonly_r1_20261030.json"
   },
   "fast_mainline_post_result_CPU_20261030": {
-    "status": "R3_TWO_CARD_CPU_FAILED_PRESERVED_READINESS_FIX_LINUX_PENDING",
-    "notice_title": "787原R3 CPU失败与连接恢复边界",
-    "research_ref": "research/787_CARA_R3_CPU_ORIGINAL_FAILURE_AND_TRANSPORT_RECOVERY_20261031.md",
-    "summary": "两卡原R3 CPU正常建容器后退出/1：3项规格通过、134执行控制中1项失败，完整数值矩阵未开始。原源/资源完整，失败保留；就绪与采样顺序修复已发布，Linux回归待验。直接入口可取回原结果但仍间歇重置，四卡CPU未启动；无新GPU或账本写入。",
+    "status": "TWO_CARD_ONLY_READINESS_ACCEPTED_COMPLETE_R4_CPU_RUNNING",
+    "notice_title": "788两卡限定与完整R4 CPU运行",
+    "research_ref": "research/788_CARA_TWO_CARD_ONLY_READINESS_ACCEPTED_AND_FULL_CPU_RUNNING_20261031.md",
+    "summary": "四卡硬件维护期间按用户指令仅两卡推进。时序回归及原Linux控制26/26接受；两卡R4完整CPU于01:02:21开始，原容器/PID身份确认运行，01:23半程、01:44终验。完整112设计矩阵未验收；14GPUh未批准、中央唯一账本fresh准入仍待。",
     "component_CPU_ref": "reports/cara_fast_B36_review_component_CPU_acceptance_r1_20261030.json",
     "review_plan_ref": "reports/cara_fast_B36_review_plan_r1_20261030.json",
     "diagnostics_ref": "reports/cara_fast_B36_post_result_diagnostics_r1_20261030.json",
@@ -2052,11 +2052,11 @@
     "new_GPU_submissions": 0,
     "new_reserved_GPUh": 0,
     "new_metrics_computed": 0,
-    "summary_ref": "reports/cara_budget_R3_original_failure_and_network_recovery_r1_20261031.json",
+    "summary_ref": "reports/cara_budget_two_card_only_readiness_and_R4_running_r1_20261031.json",
     "review_transfer_ref": "reports/cara_fast_B36_review_video_transfer_r1_20261030.json",
     "review_materialized_ref": "reports/cara_fast_B36_review_materialized_r1_20261030.json",
     "review_browser_QA_ref": "reports/cara_fast_B36_review_browser_QA_r1_20261030.json",
-    "observed_unix": 1793379327.062879,
+    "observed_unix": 1793380153.259647,
     "original_video_review_research_ref": "research/757_CARA_B36_ORIGINAL_VIDEO_REVIEW_AND_F18_CPU_20261030.md",
     "original_video_review_summary_ref": "reports/cara_fast_mainline_post_result_CPU_summary_r1_20261030.json",
     "paper_results_manifest_ref": "plans/cara_next_stage_20261028/mainline/PAPER_RESULTS_MANIFEST_R2.json",
@@ -2388,8 +2388,8 @@
     "source_stage_original_observation_complete": false,
     "host_transport_research_ref": "research/785_CARA_WINDOWS_SSH_DIAGNOSTIC_AND_HOST_TRANSPORT_20261030.md",
     "current_published_full_host_payloads_equal": true,
-    "current_CPU_preparation_ref": "reports/cara_budget_R3_original_failure_and_network_recovery_r1_20261031.json",
-    "current_CPU_preparation_research_ref": "research/787_CARA_R3_CPU_ORIGINAL_FAILURE_AND_TRANSPORT_RECOVERY_20261031.md",
+    "current_CPU_preparation_ref": "reports/cara_budget_two_card_only_readiness_and_R4_running_r1_20261031.json",
+    "current_CPU_preparation_research_ref": "research/788_CARA_TWO_CARD_ONLY_READINESS_ACCEPTED_AND_FULL_CPU_RUNNING_20261031.md",
     "current_CPU_local_regression_ref": "reports/cara_budget_current_scope_local_r4_20261030.json",
     "current_CPU_published_payloads_ref": "reports/cara_budget_current_published_payloads_r1_20261031.json",
     "current_CPU_host_states": {
@@ -2398,21 +2398,26 @@
         "original_absence_ref": "reports/cara_budget_current_CPU_four_card_original_observation_r1_20261031.json",
         "launch_attempt_ref": "reports/cara_budget_current_CPU_four_launch_r1_20261031.json",
         "capture_attempt_ref": "reports/cara_budget_current_CPU_four_capture_r1_20261031.json",
-        "current_state": "CPU_NOT_STARTED_SOURCE_TRANSFER_INCOMPLETE",
+        "current_state": "USER_REPORTED_HARDWARE_MAINTENANCE_DO_NOT_PROBE_OR_DISPATCH",
         "actual_CPU_start_confirmed": false,
-        "source_transfer_ref": "reports/cara_budget_CPU_chunk_transfer_four_r1_20261031.json"
+        "source_transfer_ref": "reports/cara_budget_CPU_chunk_transfer_four_r1_20261031.json",
+        "required_for_current_work": false
       },
       "two_card": {
-        "stage": "/data20t/gaokuangda/worldcache_workspace/.sync/cara-budget-calibration-CPU-a6000-r3-20261030",
+        "stage": "/data20t/gaokuangda/worldcache_workspace/.sync/cara-budget-calibration-CPU-a6000-r4-20261031",
         "original_absence_ref": "reports/cara_budget_current_CPU_two_card_original_observation_r1_20261031.json",
         "launch_attempt_ref": "reports/cara_budget_current_CPU_two_launch_r1_20261031.json",
         "capture_attempt_ref": "reports/cara_budget_current_CPU_two_capture_r1_20261031.json",
-        "current_state": "EXITED_ONE_ORIGINAL_FAILURE_PRESERVED_NO_REPLAY",
+        "current_state": "R4_ORIGINAL_RUNNING_NOT_COMPLETE_ACCEPTED",
         "actual_CPU_start_confirmed": true,
-        "actual_launch_ref": "reports/cara_budget_current_CPU_two_file_launch_r2_20261031.json",
+        "actual_launch_ref": "reports/cara_budget_current_CPU_two_R4_launch_r1_20261031.json",
         "terminal_capture_ref": "reports/cara_budget_current_CPU_two_capture_r2_20261031.json",
-        "container_id": "c5e892d90c5bd7632050338c34ffe83e8dc51e6d6f37eb861cf8ad62174a7e8f",
-        "complete_CPU_accepted": false
+        "container_id": "91bdcdc6a97c561548f40f32e82ca2f6df3ed71c03b2a3c8d9b99070f08b5f65",
+        "complete_CPU_accepted": false,
+        "R3_state_preserved": "EXITED_ONE_ORIGINAL_FAILURE_PRESERVED_NO_REPLAY",
+        "operational_ref": "reports/cara_budget_current_CPU_two_R4_operational_r2_20261031.json",
+        "latest_transport_ref": "reports/cara_budget_current_CPU_two_R4_operational_r3_20261031.json",
+        "latest_transport_state": "UNKNOWN_AFTER_CONFIRMED_RUNNING"
       }
     },
     "actual_CPU_jobs_started": 1,
@@ -2420,7 +2425,19 @@
     "current_R3_failure_ref": "reports/cara_budget_current_CPU_two_failed_diagnostic_r1_20261031.json",
     "readiness_fix_revision": "b4b847b18392c3010d55e34ee11ee10fff0d1ac1",
     "readiness_fix_regression_ref": "reports/cara_budget_context_readiness_regression_preparation_r1_20261031.json",
-    "readiness_fix_actual_Linux_accepted": false
+    "readiness_fix_actual_Linux_accepted": true,
+    "readiness_fix_actual_Linux_ref": "reports/cara_budget_readiness_two_CPU_accepted_r1_20261031.json",
+    "current_execution_host_policy_ref": "plans/cara_next_stage_20261028/mainline/r2/TWO_CARD_ONLY_HARDWARE_MAINTENANCE_20261031.json",
+    "current_required_hosts": [
+      "two_card"
+    ],
+    "four_card_hardware_update_user_reported": true,
+    "current_work_waits_for_four_card_CPU": false,
+    "central_current_admission_pending": true,
+    "current_R4_launch_ref": "reports/cara_budget_current_CPU_two_R4_launch_r1_20261031.json",
+    "current_R4_handoff_ref": "plans/cara_next_stage_20261028/mainline/r2/BUDGET_R4_CPU_HANDOFF_20261031.md",
+    "current_R4_schedule_ref": "reports/cara_budget_current_CPU_two_R4_schedule_r1_20261031.json",
+    "current_R4_accepted": false
   },
   "fast_SQ_original_runtime_intake_20261030": {
     "receipt_ref": "reports/cara_mainline_S_launch_Q1_complete_intake_r1_20261030.json",

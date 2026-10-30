@@ -13,6 +13,8 @@ sys.path.insert(0,str(ROOT/'src'))
 from cara_budget_calibration_cpu_hosts_r3 import STAGES
 from wcomr.cara_budget_cpu_resources_r2 import HOST_CONFIG
 
+TWO_CARD_R4_STAGE='cara-budget-calibration-CPU-a6000-r4-20261031'
+
 COUNTS={'test_cara_budget_prepare_r1':9,'test_cara_budget_central_r1':11,
     'test_cara_budget_dispatch_r1':15,'test_cara_budget_runner_binding_r1':7,
     'test_cara_budget_lifecycle_r1':16,'test_cara_budget_calibration_r1':7,
@@ -41,8 +43,10 @@ def accept(capture,launch,plan,base,revision,*,published_bytes,package_receipt):
     for name,expected_sha in plan['overlay_sha256'].items():
         require(hashlib.sha256(published_bytes(name)).hexdigest()==expected_sha,'Published overlay differs: '+name)
     reg=capture['registration'];proof=capture['CPU_proof'];state=capture['container_state']
+    stage_name=Path(reg['stage']).name
+    allowed_stages=(STAGES[host],TWO_CARD_R4_STAGE) if host=='two_card' else (STAGES[host],)
     require(capture['launch']==launch and reg['stage']==launch['stage']
-        and Path(reg['stage']).name==STAGES[host] and launch['container']==STAGES[host]+'-cpu'
+        and stage_name in allowed_stages and launch['container']==stage_name+'-cpu'
         and launch['status']=='PAPER_TIMING_CPU_LAUNCHED_NOT_GPU', 'Original CPU launch or stage differs')
     require(state['Status']=='exited' and not state['Running'] and state['Pid']==0
         and state['ExitCode']==0 and not state['OOMKilled'] and proof is not None,
@@ -89,7 +93,8 @@ def accept(capture,launch,plan,base,revision,*,published_bytes,package_receipt):
             'Complete112/51 query matrix or original failure/recovery scope differs')
     require(proof['ended_unix']>=proof['started_unix']>=launch['started_unix']
         and proof['ended_unix']-proof['started_unix']<=2400,'Original CPU work clock differs')
-    return dict(status='CURRENT_R3_CPU_MATRIX_ACCEPTED_NOT_GPU_DISPATCH',host=host,observed_unix=time.time(),
+    return dict(status=('CURRENT_R4_CPU_MATRIX_ACCEPTED_NOT_GPU_DISPATCH' if stage_name==TWO_CARD_R4_STAGE
+                        else 'CURRENT_R3_CPU_MATRIX_ACCEPTED_NOT_GPU_DISPATCH'),host=host,observed_unix=time.time(),
         launch=launch,source_revision=revision,scope_sha256=card['scope_sha256'],
         payload_sha256=expected,runtime_source_sha256=base['runtime_source_sha256'],
         registration_sha256=capture['registration_sha256'],CPU_proof_sha256=capture['CPU_proof_sha256'],
@@ -117,6 +122,8 @@ def main():
     launch=result(args.original_launch)
     package_ref={'four_card':'reports/cara_budget_published_source_package_r2_20261031.json',
         'two_card':'reports/cara_budget_published_source_two_package_r2_20261031.json'}[launch['host']]
+    if launch['host']=='two_card' and Path(launch['stage']).name==TWO_CARD_R4_STAGE:
+        package_ref='reports/cara_budget_two_R4_published_source_r1_20261031.json'
     output=accept(result(args.capture),launch,
         json.loads((args.package/'source-plan.json').read_text()),
         json.loads((args.package/'base-registration.json').read_text()),args.source_revision,published_bytes=published,package_receipt=json.loads((ROOT/package_ref).read_text()))
