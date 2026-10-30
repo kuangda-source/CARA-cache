@@ -31,3 +31,7 @@
 这次真实资产核验两端均已结束并独立接受：每端20个文件、21,348,071,882字节及全部snapshot links匹配，两卡124.995秒、四卡429.512秒。原启动回传和一次四卡终态收件曾中断，随后均恢复原PID/start ticks及不可覆盖的原摘要，没有重跑。四卡原半程仍活跃的16/20进度和后续终态迟收均保留。见[两卡资产接受](../../../reports/cara_sq_s_assets_two_card_cpu_accepted_r1_20261030.json)、[四卡资产接受](../../../reports/cara_sq_s_assets_four_card_cpu_accepted_r1_20261030.json)。
 
 所选两卡端又完成实际私有存储准备：32GiB非稀疏镜像、独立挂载的输出文件系统及异盘48MiB预分配日志均通过原StorageGuard，原worker退出0；CPU/source/assets/storage完整绑定见[单次另一张A6000的S审阅卡](S_GPU_REVIEW_R6.md)。预计12.7125GPUh、申请硬限14GPUh仍待单独批准；没有GPU意图、分配或中央预算写入。Q1原授权保持，资源空闲轮询不恢复。
+
+随后用户已[明确批准该单次A6000 S、硬限14GPUh](../../../reports/cara_sq_s_complete_two_card_human_authorization_r1_20261030.json)。最后准入先纠正了辅助NLTK检查的调用路径：两卡workspace本身是既有软链接，原资源与manifest SHA均正确，给原核验器传同一project的物理路径后通过，生产38文件未改。实际可用RAM为51.6689GiB，低于原52GiB门槛约0.3311GiB，准入在GPU意图和预算预留前拒绝；未放宽门槛、未启动GPU、未改他人进程。见[原内存拒绝与延期状态](../../../reports/cara_sq_s_A6000_approved_memory_deferred_r1_20261030.json)。原S批准保留，空闲轮询不恢复；现尝试在Ada端推进原已批准的Q1单卡，保持S绑定的A6000空出，Q1不扩大范围或重试。
+
+原Q1已在原A6000承接一次运行并获真实context，完整12状态和费用尚待验收；[原运行及按真实起点的检查](Q1_ACTUAL_A6000_R1_20261030.md)。S保持前述独立14GPUh批准和原52GiB门，不与同主机Q1重叠。
