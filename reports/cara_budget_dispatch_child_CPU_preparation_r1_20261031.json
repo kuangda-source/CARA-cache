@@ -1,0 +1,25 @@
+{
+  "status": "ACTUAL_DISPATCH_CHILD_CPU_PREPARATION_NOT_GPU",
+  "observed_unix": 1793381636.9142241,
+  "host": "two_card",
+  "stage": "cara-budget-dispatch-child-CPU-a6000-r1-20261031",
+  "base_capture_ref": "reports/cara_budget_current_CPU_two_R4_capture_r4_20261031.json",
+  "source_sha256": {
+    "tests/check_cara_budget_dispatch_child_fixture_r1.py": "238cc368d3961520510fd86be07534e133261111128457c638a7e924d7ae8aea",
+    "tests/test_cara_budget_dispatch_child_r1.py": "4d4f34e39ca9de73ef989c2fe728625e22bf9fa2303777dd97a03858fcb68a72",
+    "scripts/check_cara_budget_dispatch_child_cpu_r1.py": "92c45b4d755c341fe8b4bae997e0b885874bc69d027937c92547ee284141c930",
+    "scripts/cara_budget_dispatch_child_cpu_transport_r1.py": "8c84e321a7dc38bbd62ea248c03c7bc7f5394b961b6174c25c23a0d063e77d53"
+  },
+  "local_existing_controls_passed": 15,
+  "actual_Linux_child_control_skipped_locally": true,
+  "actual_Linux_acceptance_pending": true,
+  "resource_bound": {
+    "cpus": 1,
+    "memory_GiB": 4,
+    "work_seconds": 180,
+    "exit_seconds": 30
+  },
+  "test_boundary": "Real Popen, original process identity, private pipe and unchanged entry; synthetic admission/storage and deliberate missing credential before any GPU action; only temporary fixture bill",
+  "GPU_submissions": 0,
+  "ledger_written": false
+}
