@@ -11,3 +11,5 @@ S仍须等待原Q1完整释放、唯一结算，并在实际提交时通过中�
 原R3的第一次Linux CPU容器在测试前暴露了宿主/容器hostname不同的真实接线问题，失败包保留。R4用同一Linux内核boot ID绑定宿主与容器，并测试容器hostname变化和外来boot ID拒绝；原R2以及数学源码保持。
 
 两端R4现已各32项Linux控制、零跳过并独立接受，原native123/20tiny/5监督证据按未改数学源码复用。新源3a85be21与原模型、数学、范围及14GPUh保持；实际执行绑定见 reports/cara_sq_s_RAM50_two_card_execution_authorization_r2_20261030.json。Q1全部GPU、释放、中央0.2987564935850807GPUh结算和全12状态CPU分析均已独立接受；q1-2/q1-3检查已删除，原q1空闲监控继续暂停。
+
+原单次S现已完成新门槛准入，提交时MemAvailable为50.15840148925781 GiB。北京时间2026-10-30 17:44:29.424989从实际宿主guardian起钟，另一张A6000的原runner已取得Exclusive_Process下唯一CUDA上下文；首次捕获时仍为S_MODEL_LOADING，尚无实测整卡内存峰值或完整科学结果。[实际启动与检查记录](S_ACTUAL_A6000_R1_20261030.md)保留唯一原句柄、14GPUh中央预约和次日两项验收；不恢复空闲资源轮询。
