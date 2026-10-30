@@ -15,7 +15,7 @@ def main():
         p.add_argument('--'+key,type=Path,required=True)
     args=p.parse_args();sys.path.insert(0,str(args.stage/'src'))
     from wcomr.sq_s_execution_r2 import read,require
-    from wcomr.sq_s_spec_r2 import RUN,SCOPE
+    from wcomr.sq_s_spec_r2 import RUN,SCOPE,RISK,HISTORY
     from wcomr.sq_s_terminal_r2 import audit_settlement,technical_terminal,record
     from wcomr.sq_s_artifact_terminal_r2 import check_artifacts
     from wcomr.gpu_budget_pool_v2 import sha,process_identity
@@ -46,12 +46,20 @@ def main():
         collection_sha256=capture['files']['collection']['sha256'])
     require(artifacts['validator_sha256']==reg['payload_sha256']['src/wcomr/sq_s_artifact_terminal_r2.py'],
         'Original S artifact checker is unbound')
-    value=dict(status='S_COMPLETE_DATA_AND_BYTES_ACCEPTED_POST_RELEASE_RISK_ANALYSIS_PENDING',run_id=RUN,
+    from wcomr.sq_s_risk_post_r3 import from_validated_rows
+    require(all(sha(args.stage/name)==reg['payload_sha256'][name] for name in (RISK,HISTORY)),
+        'Original pre-data S risk/history bytes changed')
+    rule=read(args.stage/RISK);history=read(args.stage/HISTORY);collection=record(capture,'collection')
+    rows=[row for item in collection['matrix']['rows'] for row in item['result']['S_rows']]
+    decisions=from_validated_rows(rows,scope,rule,history,dict(execution_identity_sha256=rule['execution_identity_sha256'],
+        actual_precision_and_backend=collection['model_entry']['precision']))
+    value=dict(status='S_COMPLETE_POST_RELEASE_FROZEN_RISK_AND_MASK_PROPOSALS',run_id=RUN,
         launch_id=launch['launch_id'],source_revision=launch['source_revision'],actual_GPUh=billing['actual_GPUh'],
         capture_sha256=sha(args.capture),settlement_sha256=sha(args.settlement),
         technical_acceptance=technical,artifact_acceptance=artifacts,complete_same_state_rows_accepted=108,
         original_GPU_release_accepted=True,original_financial_settlement_accepted=True,
-        scientific_S_effect_established=False,generated_risk_mask=None,
+        scientific_S_effect_established=False,risk_and_mask_proposals=decisions,
+        generated_risk_mask={name:choice['dense'] for name,choice in decisions['choices'].items()},
         complete_video_deployment_or_speed_established=False,
         CPU_wall_seconds=time.monotonic()-started,GPU_submissions=0,new_GPUh=0,ledger_writes=0)
     require('torch' not in sys.modules,'Native S byte acceptance cannot import Torch')

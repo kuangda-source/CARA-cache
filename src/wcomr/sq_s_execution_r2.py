@@ -11,7 +11,7 @@ import time
 
 from .gpu_budget_pool_v2 import finite,sha
 from .sq_s_data_terminal_r2 import digest,require
-from .sq_s_spec_r2 import (RUN,SCOPE,PROFILE,IDENTITY,RESOURCE,ASSETS,MODE,PHYSICAL,
+from .sq_s_spec_r2 import (RUN,SCOPE,PROFILE,IDENTITY,RESOURCE,ASSETS,MODE,RISK,HISTORY,PHYSICAL,
     QUOTES,LIMITS,COUNTS,IDENTITY_SHA,RESOURCE_SHA,UPPER_SHA,OTHER_A6000,EXECUTION_CRITICAL,stage_path)
 from .wc73_execution_r1 import Pool as CentralPool,admit_host
 
@@ -69,7 +69,7 @@ def validate_source(project,stage):
     require(reg['namespace']=='SQ_S_COMPLETE_EXECUTION_R2' and stage==stage_path(project,host)
         and not stage.is_symlink() and reg['stage']==str(stage)
         and reg['native_hostname']==socket.gethostname(),'Original independent S host/stage required')
-    required=set(EXECUTION_CRITICAL)|{SCOPE,PROFILE,IDENTITY,RESOURCE,ASSETS,MODE,PHYSICAL[host],QUOTES[host]}
+    required=set(EXECUTION_CRITICAL)|{SCOPE,PROFILE,IDENTITY,RESOURCE,ASSETS,MODE,RISK,HISTORY,PHYSICAL[host],QUOTES[host]}
     require(required<=set(reg['payload_sha256']),'S source registration is incomplete')
     for name,expected in reg['payload_sha256'].items():
         relative=Path(name);path=stage/relative
@@ -114,6 +114,15 @@ def validate_source(project,stage):
         and 0<quote['forecast_complete_GPUh']<=LIMITS[host]
         and all(reg['payload_sha256'].get(name)==value for name,value in quote['source_evidence_sha256'].items()),
         'Complete original S whole quote or source inventory differs')
+    from .sq_s_risk_post_r3 import validated_domain
+    rule=read(stage/RISK);history=read(stage/HISTORY);validated_domain(upper,rule,history)
+    require(history['rule_sha256']==rule['rule_sha256'] and history['GPU_submissions']==0
+        and history['producer_sha256']==reg['payload_sha256']['scripts/prepare_cara_sq_s_history_support_r3.py']
+        and all(reg['payload_sha256'].get(rule['legacy_source_ref'][key])==value
+            for key,value in rule['legacy_source_sha256'].items())
+        and reg['payload_sha256'].get(rule['method_ref'])==rule['method_sha256']
+        and reg['payload_sha256'].get(rule['support_ref'])==rule['support_sha256'],
+        'Original pre-data S risk rule/history source binding differs')
     return dict(upper=upper,physical=physical,identity=identity,resource_contract=contract,
         execution_profile=profile,quote=quote,mode_types=read(stage/MODE)['module_types']),reg
 

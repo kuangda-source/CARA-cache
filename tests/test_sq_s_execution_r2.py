@@ -18,7 +18,7 @@ from unittest.mock import patch
 
 from wcomr.gpu_budget_pool_v2 import SCHEMA,atomic_json,sha
 from wcomr import sq_s_execution_r2 as execution
-from wcomr.sq_s_spec_r2 import (RUN,SCOPE,PROFILE,IDENTITY,RESOURCE,ASSETS,MODE,PHYSICAL,QUOTES,
+from wcomr.sq_s_spec_r2 import (RUN,SCOPE,PROFILE,IDENTITY,RESOURCE,ASSETS,MODE,RISK,HISTORY,PHYSICAL,QUOTES,
     LIMITS,COUNTS,IDENTITY_SHA,RESOURCE_SHA,OTHER_A6000,EXECUTION_CRITICAL,stage_path)
 
 ROOT=Path(__file__).resolve().parents[1]
@@ -46,7 +46,9 @@ def ledger(project):
 def fixture(project,host='two_card'):
     stage=stage_path(project,host);identity=execution.read(ROOT/IDENTITY)
     quote=execution.read(ROOT/QUOTES[host])
-    paths=set(EXECUTION_CRITICAL)|{SCOPE,PROFILE,IDENTITY,RESOURCE,ASSETS,MODE,PHYSICAL[host],QUOTES[host]}
+    paths=set(EXECUTION_CRITICAL)|{SCOPE,PROFILE,IDENTITY,RESOURCE,ASSETS,MODE,RISK,HISTORY,PHYSICAL[host],QUOTES[host]}
+    rule=execution.read(ROOT/RISK)
+    paths.update(rule['legacy_source_ref'].values());paths.update((rule['method_ref'],rule['support_ref']))
     paths.update(quote['source_evidence_sha256']);paths.update(identity['numerical_source_sha256'])
     for name in paths:
         target=stage/name;target.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(ROOT/name,target)
@@ -131,6 +133,13 @@ class SourceAndAuthorityTests(unittest.TestCase):
             reg['runtime_source_sha256']=dict(reg['runtime_source_sha256']);reg['runtime_source_sha256'].pop('cosmos_predict2/config.py')
             atomic_json(stage/'registration.json',reg)
             with self.assertRaisesRegex(ValueError,'incomplete'):execution.validate_source(project,stage)
+
+    def test_incomplete_candidate_history_support_is_refused_before_GPU_authority(self):
+        with tempfile.TemporaryDirectory() as directory:
+            project=Path(directory);stage,_,reg,_=fixture(project)
+            proof=execution.read(stage/HISTORY);proof['supported_C_histories'].pop();atomic_json(stage/HISTORY,proof)
+            reg['payload_sha256'][HISTORY]=sha(stage/HISTORY);atomic_json(stage/'registration.json',reg)
+            with self.assertRaisesRegex(ValueError,'history-slot support'):execution.validate_source(project,stage)
 
     def refuse_auth(self,mutate):
         with tempfile.TemporaryDirectory() as directory:
