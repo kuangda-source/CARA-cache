@@ -22,22 +22,19 @@ REQUIRED=(SOURCE,RUNNER,SPEC,PROFILE,LIMITS,'src/wcomr/cara_budget_calibration_r
     'src/wcomr/prepared_input.py','src/wcomr/full_sampling.py')
 
 
-def validate(project,stage):
+def validate_inputs(project,stage):
     project,stage=Path(project),Path(stage)
-    launch=read_record(stage/'GPU-launch.json');registration=read_record(stage/'registration.json')
+    registration=read_record(stage/'registration.json')
     authority=read_record(stage/'GPU-authorization.json')
+    launch={k:authority[k] for k in IDENTITY}
     require(stage.parent==project/'.sync' and stage.name.startswith('cara-budget-calibration-GPU-')
             and launch['stage']==str(stage) and launch['run_id'].startswith('cara-budget-calibration-'),
             'Original calibration stage/run required')
-    require(launch['CPU_fixture_only'] is False and authority['CPU_fixture_only'] is False
+    require(authority['CPU_fixture_only'] is False
             and authority['execution_authorized'] is True and authority['authorizes_replay'] is False
             and authority.get('direct_user_authorization') is True and bool(authority.get('user_quote'))
-            and all(authority[k]==launch[k] for k in IDENTITY)
             and all(registration[k]==launch[k] for k in ('host','stage','source_revision')),
             'One direct human-approved original calibration required')
-    require(launch['authorization_sha256']==sha(stage/'GPU-authorization.json')
-            and launch['registration_sha256']==sha(stage/'registration.json'),
-            'Original authority/registration bytes differ')
     payload=registration['payload_sha256']
     require(set(REQUIRED)<=set(payload) and all(not Path(n).is_absolute() and '..' not in Path(n).parts
                 and sha(stage/n)==expected for n,expected in payload.items())
@@ -70,6 +67,18 @@ def validate(project,stage):
             and host_quote['hard_GPUh']==14 and 0<host_quote['forecast_GPUh']<=14
             and host_quote['physical_paths']==112 and host_quote['candidate_queries']==51,
             'Complete admitted host quote required')
+    return card,registration,authority,profile,limits
+
+
+def validate(project,stage):
+    project,stage=Path(project),Path(stage)
+    card,registration,authority,profile,limits=validate_inputs(project,stage)
+    launch=read_record(stage/'GPU-launch.json')
+    require(launch['CPU_fixture_only'] is False
+            and all(authority[k]==launch[k] for k in IDENTITY)
+            and launch['authorization_sha256']==sha(stage/'GPU-authorization.json')
+            and launch['registration_sha256']==sha(stage/'registration.json'),
+            'Original authority/registration bytes differ')
     envelope=read_record(stage/'central-reservation.json');job=envelope['job']
     require(launch['central_reservation_sha256']==sha(stage/'central-reservation.json')
             and envelope['central_ledger_host']=='four_card' and envelope['new_reservation'] is True

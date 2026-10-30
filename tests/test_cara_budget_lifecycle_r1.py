@@ -19,13 +19,13 @@ def put(capture, name, value):
     return capture['files'][name]['sha256']
 
 
-def fixture():
+def fixture(*,host='four_card',gpu_uuid='GPU-CPU-FIXTURE'):
     view = dict(boot_id='12345678-1234-1234-1234-123456789abc', pid_namespace_inode=123)
     handles = {role:dict(pid=100+i, start_ticks=1000+i, host_view=view) for i,role in enumerate(ROLES)}
     capture = dict(files={}, payload_actual_sha256={lifecycle.SOURCE:sha(lifecycle.__file__)},
                    runtime_actual_sha256={'runtime.py':'a'*64}, own_UUID_lock_free=True, mode_owner_lock_free=True)
     identity = dict(run_id='CPU-FIXTURE-CALIBRATION',launch_id='CPU-FIXTURE-UNIQUE-LAUNCH',
-        host='four_card',gpu_uuid='GPU-CPU-FIXTURE',stage='/CPU-FIXTURE/original-stage',
+        host=host,gpu_uuid=gpu_uuid,stage='/CPU-FIXTURE/original-stage',
         source_revision='f'*40,scope_sha256='d'*64,billed_limit_GPUh=2.)
     registration = dict(host=identity['host'],stage=identity['stage'],source_revision=identity['source_revision'],
         payload_sha256=capture['payload_actual_sha256'],runtime_source_sha256=capture['runtime_actual_sha256'],
@@ -101,6 +101,24 @@ class LifecycleTests(unittest.TestCase):
             self.assertFalse(result['complete_search_accepted']);self.assertFalse(result['dispatch_allowed'])
             self.assertFalse(result['ledger_written'])
         with self.assertRaises(ValueError):self.pool.settle(self.job['job_id'],.06,'a'*64)
+
+    def test_real_central_liability_layout_accepts_same_UUID_without_altering_old_holds(self):
+        from wcomr.wc73_execution_r1 import Pool,hold
+        root=Path(__file__).resolve().parents[1]
+        packet=json.loads((root/'reports/cara_fast_B36_actual_central_reservation_r1_20261029.json').read_text())
+        value=copy.deepcopy(packet['central_envelope']['central_before'])
+        old={k:v for k,v in value['jobs'].items() if hold(v)}
+        self.assertEqual(sorted(v['billed_limit_GPUh'] for v in old.values()),[4.5,12.])
+        self.capture,self.expected,self.job=fixture(host='two_card',gpu_uuid=next(iter(old.values()))['gpu_uuid'])
+        value['jobs'][self.job['job_id']]=self.job;value.update(Pool.accounting(value))
+        self.pool=Pool(self.temp.name);self.pool.path.write_text(json.dumps(value))
+        first=self.settle();second=self.settle()
+        for receipt in (first,second):
+            self.assertTrue(self.release(receipt)['cost_settled'])
+            self.assertTrue(self.release(json.loads(json.dumps(receipt,sort_keys=True)))['cost_settled'])
+            self.assertEqual(receipt['central_after']['reserved_gpu_hours'],16.5)
+            self.assertEqual({k:receipt['central_after']['jobs'][k] for k in old},old)
+        self.assertEqual(first['central_after'],second['central_after'])
 
     def test_fixture_refused_without_explicit_CPU_mode(self):
         with self.assertRaises(ValueError):lifecycle.financial_terminal(self.capture,self.expected)

@@ -3,8 +3,11 @@
 The caller supplies the launch SHA retained at dispatch. Financial closure and
 resource release remain separate from complete-search scientific acceptance.
 """
+import math
+
 from .cara_budget_original_handles_r1 import ROLES
-from .gpu_budget_pool_v2 import BudgetPool, finite, sha
+from .gpu_budget_pool_v2 import finite, sha
+from .wc73_execution_r1 import Pool
 from .policy_asset_price_review_r1 import exclusive_gate
 from .policy_price_terminal_r1 import record, require
 
@@ -160,7 +163,10 @@ def audit_settlement(capture, expected_launch_sha256, settlement, *, cpu_validat
             and all(after['jobs'][k] == v for k, v in before['jobs'].items() if k != launch['run_id']),
             'Unrelated jobs, old liability or central origin changed')
     for ledger in (before, after):
-        require(all(ledger[k] == v for k, v in BudgetPool.accounting(ledger).items()), 'Incorrect central totals')
+        # JSON key order may change addition order by a few floating-point ulps.
+        # Original job charges and before/after identities remain exact below.
+        require(all(finite(ledger[k]) and math.isclose(ledger[k],v,rel_tol=0,abs_tol=1e-9)
+                    for k,v in Pool.accounting(ledger).items()), 'Incorrect central totals')
         job = ledger['jobs'][launch['run_id']]
         require(job['job_id'] == launch['run_id'] and all(job[k] == launch[k] for k in JOB_IDENTITY),
                 'Central job differs from original launch')

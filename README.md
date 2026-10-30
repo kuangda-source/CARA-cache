@@ -2,7 +2,7 @@
 
 # CARA-Cache
 
-[782原CPU差量接受与完整验收器](research/782_CARA_CALIBRATION_CPU_ACCEPTED_AND_COMPLETE_READER_20261030.md)：已恢复781唯一四卡CPU并接受退出0/无OOM：两种flow各18路径/4查询，27+3控制、完整CPU随机状态等价和零生成恢复通过，无重跑。完整112/51结果验收及一次冻结入口新增11项本地CPU控制通过，先验原释放/唯一结算，再读科学工件；CPU夹具不能生产冻结。整卡once派发、64GiB实际存储及双端整卡CPU/报价仍待，报价需计生产端末次全量回读；0新GPU。
+[783单次宿主入口与旧责任账本兼容](research/783_CARA_CALIBRATION_ONCE_DISPATCH_AND_CENTRAL_LIABILITY_20261030.md)：预算搜索单次宿主入口已接原guardian与运行器；56项本地CPU回归通过，已有意图仅恢复。用真实账本结构修正旧4.5+12GPUh责任保留与同UUID新卡的验收兼容；实际费用和旧责任不改。发布源打包/中央预约连接、64GiB实际配额及双端整卡CPU/报价仍待，14GPUh未获启动批准，0新GPU。
 
 **2026-10-28最新安排：主线P0/F19，探索S-FAST19与固定Shared25-C的Q并行准备。** [最新计划与两个对话分工](plans/cara_next_stage_20261028/08_REPOSITORY_RECONCILIATION.md) · [739接收记录](research/739_CARA_NEXT_STAGE_FAST_SQ_PLAN_AND_CHAT_HANDOFF_20261028.md)。A32已完整验收并冻结；B36已获单次批准，实际状态以原运行记录为准。WC73已热停结算，禁止自动重派；原DEV128、旧合同与失败保持。以下旧准备记录仅作历史复用依据。
 

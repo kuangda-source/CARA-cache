@@ -1834,7 +1834,7 @@
     "independent_new_inputs": false,
     "complete_QA_ref": "reports/cara_fast_A6000_complete_frozen_QA_20261029_0115.json"
   },
-  "current_evidence_observed_at": "2026-10-30T22:28:19.858499+08:00",
+  "current_evidence_observed_at": "2026-10-30T22:54:11+08:00",
   "fast_B36_CPU_preparation_20261029": {
     "status": "ACCEPTED_DUAL_HOST_COMPLETE_B36_CPU_CONTINUATION_ONLY",
     "accepted_receipt_ref": "reports/cara_fast_B36_CPU_acceptance_r1_20261029.json",
@@ -2037,10 +2037,10 @@
     "postacceptance_budget_read_ref": "reports/cara_fast_mainline_budget_readonly_r1_20261030.json"
   },
   "fast_mainline_post_result_CPU_20261030": {
-    "status": "ORIGINAL_AFFECTED_CPU_ACCEPTED_AND_COMPLETE_READER_LOCAL_CPU_ACCEPTED_NOT_GPU",
-    "notice_title": "782原CPU差量接受与完整验收器",
-    "research_ref": "research/782_CARA_CALIBRATION_CPU_ACCEPTED_AND_COMPLETE_READER_20261030.md",
-    "summary": "已恢复781唯一四卡CPU并接受退出0/无OOM：两种flow各18路径/4查询，27+3控制、完整CPU随机状态等价和零生成恢复通过，无重跑。完整112/51结果验收及一次冻结入口新增11项本地CPU控制通过，先验原释放/唯一结算，再读科学工件；CPU夹具不能生产冻结。整卡once派发、64GiB实际存储及双端整卡CPU/报价仍待，报价需计生产端末次全量回读；0新GPU。",
+    "status": "ONCE_HOST_DISPATCH_LOCAL_CPU_ACCEPTED_NOT_WHOLE_GPU_READY",
+    "notice_title": "783单次宿主入口与旧责任账本兼容",
+    "research_ref": "research/783_CARA_CALIBRATION_ONCE_DISPATCH_AND_CENTRAL_LIABILITY_20261030.md",
+    "summary": "预算搜索单次宿主入口已接原guardian与运行器；56项本地CPU回归通过，已有意图仅恢复。用真实账本结构修正旧4.5+12GPUh责任保留与同UUID新卡的验收兼容；实际费用和旧责任不改。发布源打包/中央预约连接、64GiB实际配额及双端整卡CPU/报价仍待，14GPUh未获启动批准，0新GPU。",
     "component_CPU_ref": "reports/cara_fast_B36_review_component_CPU_acceptance_r1_20261030.json",
     "review_plan_ref": "reports/cara_fast_B36_review_plan_r1_20261030.json",
     "diagnostics_ref": "reports/cara_fast_B36_post_result_diagnostics_r1_20261030.json",
@@ -2052,11 +2052,11 @@
     "new_GPU_submissions": 0,
     "new_reserved_GPUh": 0,
     "new_metrics_computed": 0,
-    "summary_ref": "reports/cara_budget_complete_reader_preparation_r1_20261030.json",
+    "summary_ref": "reports/cara_budget_dispatch_preparation_r1_20261030.json",
     "review_transfer_ref": "reports/cara_fast_B36_review_video_transfer_r1_20261030.json",
     "review_materialized_ref": "reports/cara_fast_B36_review_materialized_r1_20261030.json",
     "review_browser_QA_ref": "reports/cara_fast_B36_review_browser_QA_r1_20261030.json",
-    "observed_unix": 1793370499.858499,
+    "observed_unix": 1793372051.783274,
     "original_video_review_research_ref": "research/757_CARA_B36_ORIGINAL_VIDEO_REVIEW_AND_F18_CPU_20261030.md",
     "original_video_review_summary_ref": "reports/cara_fast_mainline_post_result_CPU_summary_r1_20261030.json",
     "paper_results_manifest_ref": "plans/cara_next_stage_20261028/mainline/PAPER_RESULTS_MANIFEST_R2.json",
@@ -2360,7 +2360,18 @@
     "once_freeze_implemented": true,
     "complete_reader_actual_model_output_CPU_accepted": false,
     "complete_reader_dual_host_whole_CPU_accepted": false,
-    "producer_full_readback_quote_pending": true
+    "producer_full_readback_quote_pending": true,
+    "once_host_dispatch_source_ref": "src/wcomr/cara_budget_dispatch_r1.py",
+    "once_host_dispatch_CLI_ref": "scripts/cara_budget_dispatch_r1.py",
+    "once_host_guardian_entry_ref": "scripts/cara_budget_host_entry_r1.py",
+    "once_host_dispatch_implemented": true,
+    "once_dispatch_preparation_ref": "reports/cara_budget_dispatch_preparation_r1_20261030.json",
+    "once_dispatch_local_CPU_ref": "reports/cara_budget_dispatch_local_CPU_r1_20261030.json",
+    "once_dispatch_research_ref": "research/783_CARA_CALIBRATION_ONCE_DISPATCH_AND_CENTRAL_LIABILITY_20261030.md",
+    "once_dispatch_actual_Linux_accepted": false,
+    "central_liability_aware_acceptance_implemented": true,
+    "current_binding_and_lifecycle_source_actual_CPU_accepted": false,
+    "current_source_dual_host_whole_card_CPU_accepted": false
   },
   "fast_SQ_original_runtime_intake_20261030": {
     "receipt_ref": "reports/cara_mainline_S_launch_Q1_complete_intake_r1_20261030.json",
