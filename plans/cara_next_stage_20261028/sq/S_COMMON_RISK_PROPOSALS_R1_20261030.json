@@ -1,0 +1,205 @@
+{
+  "schema": "S_COMPLETE_OLD_FIT_FROZEN_COMMON_RISK_PROPOSALS_R1",
+  "status": "BR_DIAG_CFG_SELECT_IDENTICAL_COMPILED_POLICY",
+  "run_id": "cara-sq-s-complete-r2-20261029",
+  "launch_id": "bfa488af-8d97-43ca-b634-b4e3a3be9040",
+  "source_revision": "3a85be21eed90150e5a487796547741cd2e1f3ef",
+  "source_result_ref": "reports/cara_sq_s_A6000_complete_frozen_risk_result_r1_20261030.json",
+  "source_result_sha256": "080d7fd77fa8a840677e1e882e80c8abf3d83d547a508baf2ce44eb80669f88d",
+  "independent_acceptance_ref": "reports/cara_sq_s_A6000_post_analysis_accepted_r1_20261030.json",
+  "independent_acceptance_sha256": "9e40e0d753d65ad23487945ac21dca07753d984cccbeceb76fe4f6f16ef39150",
+  "rule_sha256": "38f25eca68e9ea21375707bb3444fbfa12785d0dbf7784a06076709317ee2c22",
+  "input_role": "two_old_FIT_only",
+  "prompts": [
+    "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+    "human_199"
+  ],
+  "common_candidate_count": 170,
+  "objectives": [
+    "BR",
+    "DIAG",
+    "CFG"
+  ],
+  "choices": {
+    "BR": {
+      "dense": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        12,
+        14,
+        16,
+        18,
+        20,
+        24,
+        27,
+        30,
+        35,
+        36
+      ],
+      "remove": 21,
+      "add": 35,
+      "score": 0.5558215382012475,
+      "policy_fingerprint": "34d45bec362a8745387e04c28654bcbc5c4b827653fb77e04ed2805509fda606"
+    },
+    "DIAG": {
+      "dense": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        12,
+        14,
+        16,
+        18,
+        20,
+        24,
+        27,
+        30,
+        35,
+        36
+      ],
+      "remove": 21,
+      "add": 35,
+      "score": 62.98870927837109,
+      "policy_fingerprint": "34d45bec362a8745387e04c28654bcbc5c4b827653fb77e04ed2805509fda606"
+    },
+    "CFG": {
+      "dense": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        12,
+        14,
+        16,
+        18,
+        20,
+        24,
+        27,
+        30,
+        35,
+        36
+      ],
+      "remove": 21,
+      "add": 35,
+      "score": 0.8415518958644252,
+      "policy_fingerprint": "34d45bec362a8745387e04c28654bcbc5c4b827653fb77e04ed2805509fda606"
+    }
+  },
+  "dense_mask": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    10,
+    12,
+    14,
+    16,
+    18,
+    20,
+    24,
+    27,
+    30,
+    35,
+    36
+  ],
+  "shared_exchange": {
+    "remove": 21,
+    "add": 35
+  },
+  "compiled_policy_fingerprint": "34d45bec362a8745387e04c28654bcbc5c4b827653fb77e04ed2805509fda606",
+  "execution_equivalence": {
+    "e95a4a22ca4a62e574ed82e78979fd9b50941a2ae6390011086316ed2d706807": [
+      "F19_C"
+    ],
+    "8e91bda3b5fc89663b44d0edf682f7d3dd18384e2d4d9053df1a80d8e6330416": [
+      "Uniform19_C",
+      "time_prior_C"
+    ],
+    "f768ddca9d6092fc626292e424d03b5bedcd597842aaf60abe95271464bc6fda": [
+      "S_BR19",
+      "S_DIAG19",
+      "S_CFG19"
+    ]
+  },
+  "per_prompt_choices": {
+    "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632": {
+      "BR": {
+        "remove": 21,
+        "add": 35,
+        "score": 0.6289667719985514
+      },
+      "DIAG": {
+        "remove": 21,
+        "add": 35,
+        "score": 71.27108059048246
+      },
+      "CFG": {
+        "remove": 21,
+        "add": 35,
+        "score": 0.963773485659042
+      }
+    },
+    "human_199": {
+      "BR": {
+        "remove": 21,
+        "add": 35,
+        "score": 0.4826763044039433
+      },
+      "DIAG": {
+        "remove": 21,
+        "add": 35,
+        "score": 54.70633796625972
+      },
+      "CFG": {
+        "remove": 21,
+        "add": 9,
+        "score": 1.0336448406332404
+      }
+    }
+  },
+  "full_ranking_diagnostics_vs_DIAG": {
+    "BR": {
+      "identical_rank_order": false,
+      "different_rank_positions": 75,
+      "candidate_count": 170,
+      "diagnostic_only": true,
+      "new_selection_gate": false
+    },
+    "CFG": {
+      "identical_rank_order": false,
+      "different_rank_positions": 165,
+      "candidate_count": 170,
+      "diagnostic_only": true,
+      "new_selection_gate": false
+    }
+  },
+  "posthoc_refit_or_rule_change": false,
+  "CFG_vs_DIAG_distinct_policy": false,
+  "S_END_CFG_vs_DIAG_identifiable": false,
+  "shared_proposal_distinct_from_F19_and_Uniform": true,
+  "endpoint_or_free_running_effect_accepted": false,
+  "GPU_ready": false,
+  "new_GPU_authorization": false
+}

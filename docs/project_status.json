@@ -1834,7 +1834,7 @@
     "independent_new_inputs": false,
     "complete_QA_ref": "reports/cara_fast_A6000_complete_frozen_QA_20261029_0115.json"
   },
-  "current_evidence_observed_at": "2026-10-30T23:52:41+08:00",
+  "current_evidence_observed_at": "2026-10-31T00:16:45+08:00",
   "fast_B36_CPU_preparation_20261029": {
     "status": "ACCEPTED_DUAL_HOST_COMPLETE_B36_CPU_CONTINUATION_ONLY",
     "accepted_receipt_ref": "reports/cara_fast_B36_CPU_acceptance_r1_20261029.json",
@@ -2037,10 +2037,10 @@
     "postacceptance_budget_read_ref": "reports/cara_fast_mainline_budget_readonly_r1_20261030.json"
   },
   "fast_mainline_post_result_CPU_20261030": {
-    "status": "INTERMITTENT_AUTHENTICATED_TRANSPORT_NOT_RECOVERED",
-    "notice_title": "785跳板诊断与宿主传输",
-    "research_ref": "research/785_CARA_WINDOWS_SSH_DIAGNOSTIC_AND_HOST_TRANSPORT_20261030.md",
-    "summary": "原ProxyJump曾双端登录成功；Windows的sshd监听与公钥认证正常，但后续两端原stage观察仍无响应。宿主解释器路径已修正，延长握手等待仍未恢复完整观察；Clash/TUN同期日志待回。未提交CPU/GPU；安装前还需统一双端完整源包，再完成整卡CPU、实际配额与报价。",
+    "status": "CURRENT_SOURCE_CPU_READY_TO_ATTEMPT_AFTER_TRANSPORT_RECOVERY_S_COMPLETE_INTAKE",
+    "notice_title": "786相同源包与S完整验收承接",
+    "research_ref": "research/786_CARA_CURRENT_COMPLETE_CPU_SOURCE_AND_S_ACCEPTED_INTAKE_20261031.md",
+    "summary": "双端1174文件发布源已统一，当前完整112路径CPU入口与134项控制已连接；Mac109项通过、25项Linux跳过。两端传输失败后原stage/容器均确认不存在，未启动新CPU/GPU。S原卡完整证据已承接并复核技术/财务终态，三风险目标同一冻结mask；后续合并相同执行臂。",
     "component_CPU_ref": "reports/cara_fast_B36_review_component_CPU_acceptance_r1_20261030.json",
     "review_plan_ref": "reports/cara_fast_B36_review_plan_r1_20261030.json",
     "diagnostics_ref": "reports/cara_fast_B36_post_result_diagnostics_r1_20261030.json",
@@ -2052,11 +2052,11 @@
     "new_GPU_submissions": 0,
     "new_reserved_GPUh": 0,
     "new_metrics_computed": 0,
-    "summary_ref": "reports/cara_budget_transport_windows_diagnostic_r3_20261030.json",
+    "summary_ref": "reports/cara_budget_current_CPU_preparation_and_S_intake_r1_20261031.json",
     "review_transfer_ref": "reports/cara_fast_B36_review_video_transfer_r1_20261030.json",
     "review_materialized_ref": "reports/cara_fast_B36_review_materialized_r1_20261030.json",
     "review_browser_QA_ref": "reports/cara_fast_B36_review_browser_QA_r1_20261030.json",
-    "observed_unix": 1793375561.61678,
+    "observed_unix": 1793377005.876873,
     "original_video_review_research_ref": "research/757_CARA_B36_ORIGINAL_VIDEO_REVIEW_AND_F18_CPU_20261030.md",
     "original_video_review_summary_ref": "reports/cara_fast_mainline_post_result_CPU_summary_r1_20261030.json",
     "paper_results_manifest_ref": "plans/cara_next_stage_20261028/mainline/PAPER_RESULTS_MANIFEST_R2.json",
@@ -2377,17 +2377,40 @@
     "source_central_local_CPU_ref": "reports/cara_budget_preparation_central_local_CPU_r2_20261030.json",
     "source_preparation_entry_ref": "scripts/cara_budget_prepare_r1.py",
     "central_transaction_entry_ref": "scripts/cara_budget_central_r1.py",
-    "published_source_revision": "e56648d19be6b75825579642aac60c376d1acf50",
+    "published_source_revision": "a49864e19f04c3abf9137bd892ad9b43ad0d0716",
     "published_source_package_refs": {
-      "four_card": "reports/cara_budget_published_source_package_r1_20261030.json",
-      "two_card": "reports/cara_budget_published_source_two_package_r1_20261030.json"
+      "four_card": "reports/cara_budget_published_source_package_r2_20261031.json",
+      "two_card": "reports/cara_budget_published_source_two_package_r2_20261031.json"
     },
     "central_once_reservation_implemented": true,
     "central_original_settlement_implemented": true,
     "remote_source_preparation_attempted": false,
     "source_stage_original_observation_complete": false,
     "host_transport_research_ref": "research/785_CARA_WINDOWS_SSH_DIAGNOSTIC_AND_HOST_TRANSPORT_20261030.md",
-    "current_published_full_host_payloads_equal": false
+    "current_published_full_host_payloads_equal": true,
+    "current_CPU_preparation_ref": "reports/cara_budget_current_CPU_preparation_and_S_intake_r1_20261031.json",
+    "current_CPU_preparation_research_ref": "research/786_CARA_CURRENT_COMPLETE_CPU_SOURCE_AND_S_ACCEPTED_INTAKE_20261031.md",
+    "current_CPU_local_regression_ref": "reports/cara_budget_current_scope_local_r4_20261030.json",
+    "current_CPU_published_payloads_ref": "reports/cara_budget_current_published_payloads_r1_20261031.json",
+    "current_CPU_host_states": {
+      "four_card": {
+        "stage": "/data20t/gaokuangda/worldcache_workspace/.sync/cara-budget-calibration-CPU-ada-r3-20261030",
+        "original_absence_ref": "reports/cara_budget_current_CPU_four_card_original_observation_r1_20261031.json",
+        "launch_attempt_ref": "reports/cara_budget_current_CPU_four_launch_r1_20261031.json",
+        "capture_attempt_ref": "reports/cara_budget_current_CPU_four_capture_r1_20261031.json",
+        "current_state": "STAGE_AND_CONTAINER_ABSENT_AFTER_TRANSPORT_FAILURE",
+        "actual_CPU_start_confirmed": false
+      },
+      "two_card": {
+        "stage": "/data20t/gaokuangda/worldcache_workspace/.sync/cara-budget-calibration-CPU-a6000-r3-20261030",
+        "original_absence_ref": "reports/cara_budget_current_CPU_two_card_original_observation_r1_20261031.json",
+        "launch_attempt_ref": "reports/cara_budget_current_CPU_two_launch_r1_20261031.json",
+        "capture_attempt_ref": "reports/cara_budget_current_CPU_two_capture_r1_20261031.json",
+        "current_state": "STAGE_AND_CONTAINER_ABSENT_AFTER_TRANSPORT_FAILURE",
+        "actual_CPU_start_confirmed": false
+      }
+    },
+    "actual_CPU_jobs_started": 0
   },
   "fast_SQ_original_runtime_intake_20261030": {
     "receipt_ref": "reports/cara_mainline_S_launch_Q1_complete_intake_r1_20261030.json",
@@ -2397,13 +2420,25 @@
     "S_GPU_UUID": "GPU-de9a5370-cd87-0f1c-a48e-288888777dd3",
     "S_actual_allocation_start": "2026-10-30T17:44:29.424989+08:00",
     "S_hard_GPUh": 14,
-    "S_scientific_result_accepted": false,
     "S_snapshot_not_fresh_poll": true,
     "original_observer_owner": "S/Q",
     "Q1_original_complete_accepted": true,
     "Q1_actual_GPUh": 0.2987564935850807,
     "Q1_endpoint_benefit_established": false,
     "Q1_deployment_memory_or_speed_measured": false,
-    "ledger_written": false
+    "ledger_written": false,
+    "S_complete_intake_ref": "reports/cara_fast_S_complete_intake_r1_20261031.json",
+    "S_complete_research_ref": "research/786_CARA_CURRENT_COMPLETE_CPU_SOURCE_AND_S_ACCEPTED_INTAKE_20261031.md",
+    "S_complete_owner_published_revision": "aae8bc4d96e9183348001f903d81d500ad89cdc3",
+    "S_complete_card_accepted": true,
+    "S_complete_frozen_risk_accepted": true,
+    "S_actual_GPUh": 3.039352411208933,
+    "S_original_cost_settled": true,
+    "S_GPU_and_CPU_released": true,
+    "S_original_checks_deleted": true,
+    "S_all_three_objectives_same_mask": true,
+    "S_CFG_vs_DIAG_distinct_policy": false,
+    "S_endpoint_or_deployment_effect_accepted": false,
+    "S_frozen_proposals_ref": "plans/cara_next_stage_20261028/sq/S_COMMON_RISK_PROPOSALS_R1_20261030.json"
   }
 }

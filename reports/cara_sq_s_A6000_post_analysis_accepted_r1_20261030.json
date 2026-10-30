@@ -1,0 +1,1013 @@
+{
+  "status": "S_COMPLETE_POST_RELEASE_ARTIFACTS_AND_FROZEN_RISK_INDEPENDENTLY_ACCEPTED",
+  "run_id": "cara-sq-s-complete-r2-20261029",
+  "launch_id": "bfa488af-8d97-43ca-b634-b4e3a3be9040",
+  "source_revision": "3a85be21eed90150e5a487796547741cd2e1f3ef",
+  "evidence": {
+    "capture": {
+      "ref": "reports/cara_sq_s_A6000_original_terminal_capture_r1_20261030.json",
+      "sha256": "7b4b7c6182324a5da2b5d6e1acfb39ccf80e91b0d46b0bced844823444a41e2b"
+    },
+    "settlement": {
+      "ref": "reports/cara_sq_s_A6000_central_settlement_r1_20261030.json",
+      "sha256": "6350ce53a863673faa067f7a53da1595957295d23ed2c141eb12874dee026e7a"
+    },
+    "launch": {
+      "ref": "reports/cara_sq_s_A6000_CPU_post_launch_r1_20261030.json",
+      "sha256": "1f8a6a7f34b774d2bf8432c923996244cb2f3b5a2c16e70249ba8d33fdc9dae1"
+    },
+    "CPU_terminal": {
+      "ref": "reports/cara_sq_s_A6000_CPU_post_capture_20261030_231734.json",
+      "sha256": "d263b52d4a9f3274de1c4ffd19c2f3c6a4ff9d5f8d2f9aa9fca3c80a6cf1b5ce"
+    },
+    "result": {
+      "ref": "reports/cara_sq_s_A6000_complete_frozen_risk_result_r1_20261030.json",
+      "sha256": "080d7fd77fa8a840677e1e882e80c8abf3d83d547a508baf2ce44eb80669f88d"
+    }
+  },
+  "complete_new_paths": 10,
+  "complete_pairs": 468,
+  "complete_heads": 936,
+  "complete_same_state_rows": 108,
+  "complete_artifact_files": 151,
+  "streaming_bytes": 14428574281,
+  "video_bytes": 7463555,
+  "original_GPU_release_accepted": true,
+  "original_financial_settlement_accepted": true,
+  "actual_GPUh": 3.039352411208933,
+  "CPU_worker_wall_seconds": 55.51049153320491,
+  "CPU_exit_code": 0,
+  "CPU_oom_killed": false,
+  "CPU_limits": {
+    "CPUs": 2,
+    "RAM_GiB": 8,
+    "memory_swap_GiB": 8,
+    "cpuset_cpus": "24,25",
+    "wall_seconds": 3600,
+    "network": "none",
+    "GPU": "hidden"
+  },
+  "all_original_GPU_and_CPU_handles_exited": true,
+  "independent_recompute_exact": true,
+  "independent_recompute_Python": "3.9.6",
+  "original_CPU_Python": "3.10 pinned runtime",
+  "rule_sha256": "38f25eca68e9ea21375707bb3444fbfa12785d0dbf7784a06076709317ee2c22",
+  "common_candidate_count": 170,
+  "choices": {
+    "BR": {
+      "dense": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        12,
+        14,
+        16,
+        18,
+        20,
+        24,
+        27,
+        30,
+        35,
+        36
+      ],
+      "remove": 21,
+      "add": 35,
+      "score": 0.5558215382012475,
+      "policy_fingerprint": "34d45bec362a8745387e04c28654bcbc5c4b827653fb77e04ed2805509fda606"
+    },
+    "DIAG": {
+      "dense": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        12,
+        14,
+        16,
+        18,
+        20,
+        24,
+        27,
+        30,
+        35,
+        36
+      ],
+      "remove": 21,
+      "add": 35,
+      "score": 62.98870927837109,
+      "policy_fingerprint": "34d45bec362a8745387e04c28654bcbc5c4b827653fb77e04ed2805509fda606"
+    },
+    "CFG": {
+      "dense": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        12,
+        14,
+        16,
+        18,
+        20,
+        24,
+        27,
+        30,
+        35,
+        36
+      ],
+      "remove": 21,
+      "add": 35,
+      "score": 0.8415518958644252,
+      "policy_fingerprint": "34d45bec362a8745387e04c28654bcbc5c4b827653fb77e04ed2805509fda606"
+    }
+  },
+  "execution_equivalence": {
+    "e95a4a22ca4a62e574ed82e78979fd9b50941a2ae6390011086316ed2d706807": [
+      "F19_C"
+    ],
+    "8e91bda3b5fc89663b44d0edf682f7d3dd18384e2d4d9053df1a80d8e6330416": [
+      "Uniform19_C",
+      "time_prior_C"
+    ],
+    "f768ddca9d6092fc626292e424d03b5bedcd597842aaf60abe95271464bc6fda": [
+      "S_BR19",
+      "S_DIAG19",
+      "S_CFG19"
+    ]
+  },
+  "CFG_DIAG_same_mask": true,
+  "all_three_objectives_same_mask": true,
+  "ranking_diagnostics": {
+    "BR": {
+      "same_top_exchange": true,
+      "score_gap_top2": 0.00528742690398154
+    },
+    "DIAG": {
+      "same_top_exchange": true,
+      "score_gap_top2": 0.577229562845119
+    },
+    "CFG": {
+      "same_top_exchange": false,
+      "score_gap_top2": 0.024674477587533827
+    }
+  },
+  "per_prompt_choices": {
+    "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632": {
+      "BR": {
+        "dense": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          24,
+          27,
+          30,
+          35,
+          36
+        ],
+        "exchange": {
+          "remove": 21,
+          "add": 35,
+          "dense": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            10,
+            12,
+            14,
+            16,
+            18,
+            20,
+            24,
+            27,
+            30,
+            35,
+            36
+          ],
+          "history": [
+            [
+              9,
+              7,
+              8
+            ],
+            [
+              11,
+              8,
+              10
+            ],
+            [
+              13,
+              10,
+              12
+            ],
+            [
+              15,
+              12,
+              14
+            ],
+            [
+              17,
+              14,
+              16
+            ],
+            [
+              19,
+              16,
+              18
+            ],
+            [
+              21,
+              18,
+              20
+            ],
+            [
+              22,
+              18,
+              20
+            ],
+            [
+              23,
+              18,
+              20
+            ],
+            [
+              25,
+              20,
+              24
+            ],
+            [
+              26,
+              20,
+              24
+            ],
+            [
+              28,
+              24,
+              27
+            ],
+            [
+              29,
+              24,
+              27
+            ],
+            [
+              31,
+              27,
+              30
+            ],
+            [
+              32,
+              27,
+              30
+            ],
+            [
+              33,
+              27,
+              30
+            ],
+            [
+              34,
+              27,
+              30
+            ]
+          ],
+          "policy_fingerprint": "34d45bec362a8745387e04c28654bcbc5c4b827653fb77e04ed2805509fda606"
+        },
+        "score": 0.6289667719985514
+      },
+      "DIAG": {
+        "dense": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          24,
+          27,
+          30,
+          35,
+          36
+        ],
+        "exchange": {
+          "remove": 21,
+          "add": 35,
+          "dense": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            10,
+            12,
+            14,
+            16,
+            18,
+            20,
+            24,
+            27,
+            30,
+            35,
+            36
+          ],
+          "history": [
+            [
+              9,
+              7,
+              8
+            ],
+            [
+              11,
+              8,
+              10
+            ],
+            [
+              13,
+              10,
+              12
+            ],
+            [
+              15,
+              12,
+              14
+            ],
+            [
+              17,
+              14,
+              16
+            ],
+            [
+              19,
+              16,
+              18
+            ],
+            [
+              21,
+              18,
+              20
+            ],
+            [
+              22,
+              18,
+              20
+            ],
+            [
+              23,
+              18,
+              20
+            ],
+            [
+              25,
+              20,
+              24
+            ],
+            [
+              26,
+              20,
+              24
+            ],
+            [
+              28,
+              24,
+              27
+            ],
+            [
+              29,
+              24,
+              27
+            ],
+            [
+              31,
+              27,
+              30
+            ],
+            [
+              32,
+              27,
+              30
+            ],
+            [
+              33,
+              27,
+              30
+            ],
+            [
+              34,
+              27,
+              30
+            ]
+          ],
+          "policy_fingerprint": "34d45bec362a8745387e04c28654bcbc5c4b827653fb77e04ed2805509fda606"
+        },
+        "score": 71.27108059048246
+      },
+      "CFG": {
+        "dense": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          24,
+          27,
+          30,
+          35,
+          36
+        ],
+        "exchange": {
+          "remove": 21,
+          "add": 35,
+          "dense": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            10,
+            12,
+            14,
+            16,
+            18,
+            20,
+            24,
+            27,
+            30,
+            35,
+            36
+          ],
+          "history": [
+            [
+              9,
+              7,
+              8
+            ],
+            [
+              11,
+              8,
+              10
+            ],
+            [
+              13,
+              10,
+              12
+            ],
+            [
+              15,
+              12,
+              14
+            ],
+            [
+              17,
+              14,
+              16
+            ],
+            [
+              19,
+              16,
+              18
+            ],
+            [
+              21,
+              18,
+              20
+            ],
+            [
+              22,
+              18,
+              20
+            ],
+            [
+              23,
+              18,
+              20
+            ],
+            [
+              25,
+              20,
+              24
+            ],
+            [
+              26,
+              20,
+              24
+            ],
+            [
+              28,
+              24,
+              27
+            ],
+            [
+              29,
+              24,
+              27
+            ],
+            [
+              31,
+              27,
+              30
+            ],
+            [
+              32,
+              27,
+              30
+            ],
+            [
+              33,
+              27,
+              30
+            ],
+            [
+              34,
+              27,
+              30
+            ]
+          ],
+          "policy_fingerprint": "34d45bec362a8745387e04c28654bcbc5c4b827653fb77e04ed2805509fda606"
+        },
+        "score": 0.963773485659042
+      }
+    },
+    "human_199": {
+      "BR": {
+        "dense": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          24,
+          27,
+          30,
+          35,
+          36
+        ],
+        "exchange": {
+          "remove": 21,
+          "add": 35,
+          "dense": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            10,
+            12,
+            14,
+            16,
+            18,
+            20,
+            24,
+            27,
+            30,
+            35,
+            36
+          ],
+          "history": [
+            [
+              9,
+              7,
+              8
+            ],
+            [
+              11,
+              8,
+              10
+            ],
+            [
+              13,
+              10,
+              12
+            ],
+            [
+              15,
+              12,
+              14
+            ],
+            [
+              17,
+              14,
+              16
+            ],
+            [
+              19,
+              16,
+              18
+            ],
+            [
+              21,
+              18,
+              20
+            ],
+            [
+              22,
+              18,
+              20
+            ],
+            [
+              23,
+              18,
+              20
+            ],
+            [
+              25,
+              20,
+              24
+            ],
+            [
+              26,
+              20,
+              24
+            ],
+            [
+              28,
+              24,
+              27
+            ],
+            [
+              29,
+              24,
+              27
+            ],
+            [
+              31,
+              27,
+              30
+            ],
+            [
+              32,
+              27,
+              30
+            ],
+            [
+              33,
+              27,
+              30
+            ],
+            [
+              34,
+              27,
+              30
+            ]
+          ],
+          "policy_fingerprint": "34d45bec362a8745387e04c28654bcbc5c4b827653fb77e04ed2805509fda606"
+        },
+        "score": 0.4826763044039433
+      },
+      "DIAG": {
+        "dense": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          24,
+          27,
+          30,
+          35,
+          36
+        ],
+        "exchange": {
+          "remove": 21,
+          "add": 35,
+          "dense": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            10,
+            12,
+            14,
+            16,
+            18,
+            20,
+            24,
+            27,
+            30,
+            35,
+            36
+          ],
+          "history": [
+            [
+              9,
+              7,
+              8
+            ],
+            [
+              11,
+              8,
+              10
+            ],
+            [
+              13,
+              10,
+              12
+            ],
+            [
+              15,
+              12,
+              14
+            ],
+            [
+              17,
+              14,
+              16
+            ],
+            [
+              19,
+              16,
+              18
+            ],
+            [
+              21,
+              18,
+              20
+            ],
+            [
+              22,
+              18,
+              20
+            ],
+            [
+              23,
+              18,
+              20
+            ],
+            [
+              25,
+              20,
+              24
+            ],
+            [
+              26,
+              20,
+              24
+            ],
+            [
+              28,
+              24,
+              27
+            ],
+            [
+              29,
+              24,
+              27
+            ],
+            [
+              31,
+              27,
+              30
+            ],
+            [
+              32,
+              27,
+              30
+            ],
+            [
+              33,
+              27,
+              30
+            ],
+            [
+              34,
+              27,
+              30
+            ]
+          ],
+          "policy_fingerprint": "34d45bec362a8745387e04c28654bcbc5c4b827653fb77e04ed2805509fda606"
+        },
+        "score": 54.70633796625972
+      },
+      "CFG": {
+        "dense": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          24,
+          27,
+          30,
+          36
+        ],
+        "exchange": {
+          "remove": 21,
+          "add": 9,
+          "dense": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            12,
+            14,
+            16,
+            18,
+            20,
+            24,
+            27,
+            30,
+            36
+          ],
+          "history": [
+            [
+              11,
+              9,
+              10
+            ],
+            [
+              13,
+              10,
+              12
+            ],
+            [
+              15,
+              12,
+              14
+            ],
+            [
+              17,
+              14,
+              16
+            ],
+            [
+              19,
+              16,
+              18
+            ],
+            [
+              21,
+              18,
+              20
+            ],
+            [
+              22,
+              18,
+              20
+            ],
+            [
+              23,
+              18,
+              20
+            ],
+            [
+              25,
+              20,
+              24
+            ],
+            [
+              26,
+              20,
+              24
+            ],
+            [
+              28,
+              24,
+              27
+            ],
+            [
+              29,
+              24,
+              27
+            ],
+            [
+              31,
+              27,
+              30
+            ],
+            [
+              32,
+              27,
+              30
+            ],
+            [
+              33,
+              27,
+              30
+            ],
+            [
+              34,
+              27,
+              30
+            ],
+            [
+              35,
+              27,
+              30
+            ]
+          ],
+          "policy_fingerprint": "4a9811afb4666c9e0be58044b5aaf515a865aafc724b18dca898e6c4f9c409f3"
+        },
+        "score": 1.0336448406332404
+      }
+    }
+  },
+  "scientific_scope": {
+    "prompts": [
+      "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "human_199"
+    ],
+    "role": "two_old_FIT_only",
+    "endpoint_or_free_running_effect_accepted": false,
+    "deployment_memory_or_clean_speed_accepted": false,
+    "raw_tensor_replay_accepted": false,
+    "CFG_vs_DIAG_policy_contrast_identifiable": false
+  },
+  "new_GPU_submissions": 0,
+  "new_GPUh": 0,
+  "ledger_writes_by_CPU": 0,
+  "GPU_retry_authorized": false,
+  "scheduler_cleanup_pending": true
+}

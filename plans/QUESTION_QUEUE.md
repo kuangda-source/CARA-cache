@@ -93,3 +93,5 @@ S单次授权已接收：用户在S/Q原对话批准另一张A6000完整十条�
 [784发布源包与中央单次事务](../research/784_CARA_PUBLISHED_SOURCE_AND_CENTRAL_TRANSACTIONS_20261030.md)：58项本地CPU控制通过，两端301文件覆盖包已绑定发布源；原两笔责任保留不改。双端原stage只读观察再次SSH握手超时，未远端prepare或提交CPU/GPU；继续原入口恢复，补实际Linux/双端整卡CPU、64GiB硬配额和完整报价。
 
 [785跳板诊断与宿主传输](../research/785_CARA_WINDOWS_SSH_DIAGNOSTIC_AND_HOST_TRANSPORT_20261030.md)：Windows监听/认证正常，原ProxyJump曾双端成功但后续观察仍超时；根因未定，Clash/TUN日志待回。修正宿主解释器路径，未提交新CPU/GPU；安装前还需统一完整源包及实际整卡CPU。
+
+[786当前完整CPU源与S完整承接](../research/786_CARA_CURRENT_COMPLETE_CPU_SOURCE_AND_S_ACCEPTED_INTAKE_20261031.md)：1174文件双端一致；本地109项通过、25项Linux跳过。两端原R3 stage/容器均不存在，传输尚未恢复，新CPU/GPU未启动。S完整接受且三目标同mask，后续合并；同14GPUh上限不冒称相同实耗，完整CPU/存储/报价后再审阅启动。

@@ -2,7 +2,7 @@
 
 # CARA-Cache
 
-[785跳板诊断与宿主传输](research/785_CARA_WINDOWS_SSH_DIAGNOSTIC_AND_HOST_TRANSPORT_20261030.md)：原ProxyJump曾双端登录成功；Windows的sshd监听与公钥认证正常，但后续两端原stage观察仍无响应。宿主解释器路径已修正，延长握手等待仍未恢复完整观察；Clash/TUN同期日志待回。未提交CPU/GPU；安装前还需统一双端完整源包，再完成整卡CPU、实际配额与报价。
+[786相同源包与S完整验收承接](research/786_CARA_CURRENT_COMPLETE_CPU_SOURCE_AND_S_ACCEPTED_INTAKE_20261031.md)：双端1174文件发布源已统一，当前完整112路径CPU入口与134项控制已连接；Mac109项通过、25项Linux跳过。两端传输失败后原stage/容器均确认不存在，未启动新CPU/GPU。S原卡完整证据已承接并复核技术/财务终态，三风险目标同一冻结mask；后续合并相同执行臂。
 
 **2026-10-28最新安排：主线P0/F19，探索S-FAST19与固定Shared25-C的Q并行准备。** [最新计划与两个对话分工](plans/cara_next_stage_20261028/08_REPOSITORY_RECONCILIATION.md) · [739接收记录](research/739_CARA_NEXT_STAGE_FAST_SQ_PLAN_AND_CHAT_HANDOFF_20261028.md)。A32已完整验收并冻结；B36已获单次批准，实际状态以原运行记录为准。WC73已热停结算，禁止自动重派；原DEV128、旧合同与失败保持。以下旧准备记录仅作历史复用依据。
 
