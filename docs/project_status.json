@@ -1834,7 +1834,7 @@
     "independent_new_inputs": false,
     "complete_QA_ref": "reports/cara_fast_A6000_complete_frozen_QA_20261029_0115.json"
   },
-  "current_evidence_observed_at": "2026-10-30T19:26:30.094186+08:00",
+  "current_evidence_observed_at": "2026-10-30T19:42:25.073704+08:00",
   "fast_B36_CPU_preparation_20261029": {
     "status": "ACCEPTED_DUAL_HOST_COMPLETE_B36_CPU_CONTINUATION_ONLY",
     "accepted_receipt_ref": "reports/cara_fast_B36_CPU_acceptance_r1_20261029.json",
@@ -2037,10 +2037,10 @@
     "postacceptance_budget_read_ref": "reports/cara_fast_mainline_budget_readonly_r1_20261030.json"
   },
   "fast_mainline_post_result_CPU_20261030": {
-    "status": "LIFECYCLE_LINUX_DELTA_ACCEPTED_STORAGE_LOCAL_GUARDS_PENDING_PRODUCTION_INTEGRATION",
-    "notice_title": "776生命周期Linux增量与存储检查",
-    "research_ref": "research/776_CARA_LIFECYCLE_LINUX_DELTA_AND_STORAGE_GUARDS_20261030.md",
-    "summary": "生命周期CPU的R1缺依赖失败原件已保留；修订载荷R2四卡19:23:37退出/0、完整22项和资源/源绑定通过，另5项验收控制通过。存储检查接入完整校准，13项本地控制覆盖全51查询、超额停止与工件完整性；实际硬配额、GPU guardian组合及双端CPU/报价仍待。原完整采样CPU按775对应源复用，14GPUh未获新GPU启动批准。",
+    "status": "GUARDIAN_DURABLE_ATTEMPTS_AND_STORAGE_FOUR_CARD_LINUX48_ACCEPTED",
+    "notice_title": "777原尝试持久化与存储组合CPU",
+    "research_ref": "research/777_CARA_GUARDIAN_DURABLE_ATTEMPTS_AND_STORAGE_CPU_20261030.md",
+    "summary": "原尝试持久化记录器接通独立48MiB日志和原费用读者，输出文件失败可恢复同一账单。四卡原组合CPU19:35:45退出/0，完整48项与资源/源绑定通过，另5项验收器控制通过；首次采集超时只恢复原stage，未重复执行。实际GPU监督器/64GiB硬配额、双端CPU和整卡报价仍待，14GPUh未获新启动批准。",
     "component_CPU_ref": "reports/cara_fast_B36_review_component_CPU_acceptance_r1_20261030.json",
     "review_plan_ref": "reports/cara_fast_B36_review_plan_r1_20261030.json",
     "diagnostics_ref": "reports/cara_fast_B36_post_result_diagnostics_r1_20261030.json",
@@ -2052,11 +2052,11 @@
     "new_GPU_submissions": 0,
     "new_reserved_GPUh": 0,
     "new_metrics_computed": 0,
-    "summary_ref": "reports/cara_budget_lifecycle_four_card_CPU_accepted_r2_20261030.json",
+    "summary_ref": "reports/cara_budget_guard_storage_four_card_CPU_accepted_r1_20261030.json",
     "review_transfer_ref": "reports/cara_fast_B36_review_video_transfer_r1_20261030.json",
     "review_materialized_ref": "reports/cara_fast_B36_review_materialized_r1_20261030.json",
     "review_browser_QA_ref": "reports/cara_fast_B36_review_browser_QA_r1_20261030.json",
-    "observed_unix": 1793359590.094186,
+    "observed_unix": 1793360545.073704,
     "original_video_review_research_ref": "research/757_CARA_B36_ORIGINAL_VIDEO_REVIEW_AND_F18_CPU_20261030.md",
     "original_video_review_summary_ref": "reports/cara_fast_mainline_post_result_CPU_summary_r1_20261030.json",
     "paper_results_manifest_ref": "plans/cara_next_stage_20261028/mainline/PAPER_RESULTS_MANIFEST_R2.json",
@@ -2292,7 +2292,18 @@
     "storage_limits_candidate_ref": "plans/cara_next_stage_20261028/mainline/r2/BUDGET_STORAGE_LIMITS_R1.json",
     "per_path_storage_guard_implemented": true,
     "storage_physical_hard_quota_verified": false,
-    "storage_guard_actual_Linux_accepted": false
+    "storage_guard_actual_Linux_accepted": true,
+    "guardian_durable_attempts_ref": "src/wcomr/cara_budget_guardian_journal_r1.py",
+    "guardian_storage_CPU_intent_ref": "plans/cara_next_stage_20261028/mainline/r2/BUDGET_GUARD_STORAGE_CPU_FRAGMENT_R1.json",
+    "guardian_storage_local_CPU_ref": "reports/cara_budget_guard_storage_isolated_local_CPU_r1_20261030.json",
+    "guardian_storage_four_card_launch_ref": "reports/cara_budget_guard_storage_four_card_CPU_launch_r1_20261030.json",
+    "guardian_storage_four_card_state": "EXITED_ZERO_COMPLETE48_AND_RESOURCES_ACCEPTED",
+    "guardian_storage_original_capture_unknown_ref": "reports/cara_budget_guard_storage_four_card_CPU_capture_unknown_r1_20261030.json",
+    "guardian_storage_research_ref": "research/777_CARA_GUARDIAN_DURABLE_ATTEMPTS_AND_STORAGE_CPU_20261030.md",
+    "guardian_witness_emitter_implemented": true,
+    "guardian_production_dispatch_bound": false,
+    "guardian_storage_four_card_acceptance_ref": "reports/cara_budget_guard_storage_four_card_CPU_accepted_r1_20261030.json",
+    "guardian_durable_attempts_four_card_CPU_accepted": true
   },
   "fast_SQ_original_runtime_intake_20261030": {
     "receipt_ref": "reports/cara_mainline_S_launch_Q1_complete_intake_r1_20261030.json",
