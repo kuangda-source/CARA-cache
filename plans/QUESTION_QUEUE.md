@@ -61,3 +61,5 @@ S单次授权已接收：用户在S/Q原对话批准另一张A6000完整十条�
 [769同步CPU原端点恢复](../research/769_CARA_ORIGINAL_ENDPOINT_CALLBACK_RECOVERY_CPU_20261030.md)：9项本地/Linux控制、四组原生产CPU工件副本复核和4项接收器控制通过。原值一致、原件SHA保持，0新增生成；只补最后一个完整但缺失返回的原意图。GPU物理终态、双端端点验收与整卡费用仍待。
 
 [770原S启动、Q1完整承接与校准成本](../research/770_CARA_S_ORIGINAL_START_Q1_COMPLETE_AND_CALIBRATION_COST_BASIS_20261030.md)：S原卡及既有双检查已承接，Q1原完整费用0.29875649GPUh；主线不重派或重记。完整RGB成本实测及10+2Q校准草案已补齐，14GPUh适配或默认301方向待用户选择，尚未冻结整卡费用或授权新GPU。
+
+[771原进程身份CPU组件](../research/771_CARA_ORIGINAL_PROCESS_IDENTITY_CPU_COMPONENT_20261030.md)：7项本地/Linux控制、四个真实子进程、6项接收器控制通过；错误boot/命名空间保持UNKNOWN，全部退出不授予执行或结算。后续仍需原容器/设备/锁/费用联合终态、双端端点CPU与完整报价，预算方向未冻结。

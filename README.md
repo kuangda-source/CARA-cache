@@ -2,7 +2,7 @@
 
 # CARA-Cache
 
-[770 S原卡、Q1完整承接与校准费用依据](research/770_CARA_S_ORIGINAL_START_Q1_COMPLETE_AND_CALIBRATION_COST_BASIS_20261030.md)：已逐字节接入S/Q已发布原回执：S原卡10月30日17:44:29分配、独占CUDA已确认，硬14GPUh；半程10月31日00:05:52、终验07:27:15由原S/Q检查负责。Q1完整12状态/111pair/222head、释放与CPU分析接受，0.29875649GPUh已唯一结算；无完整视频或部署收益结论。主线完整RGB CPU成本测量退出/0，双FIT工件分项约29.17秒，非冷盘/GPU复制上界；默认301查询的原请求时间代理36.34GPUh，整卡费用更高。完整校准草案10+2Q路径，预算方向待用户选择，未冻结查询数或启动新GPU。
+[771原进程身份观察CPU接受](research/771_CARA_ORIGINAL_PROCESS_IDENTITY_CPU_COMPONENT_20261030.md)：四卡原CPU容器18:15:16至18:15:17退出/0；7项本地/Linux控制、四个真实CPU子进程及6项接收器控制通过。原boot/PID命名空间/PID/start ticks联合观察，错误视图保持UNKNOWN，部分退出不判完整终态。只接受进程身份组件，GPU容器/设备/锁/账本联合终态仍待；未新派GPU，预算方向未冻结，S原卡及原双检查保持。
 
 **2026-10-28最新安排：主线P0/F19，探索S-FAST19与固定Shared25-C的Q并行准备。** [最新计划与两个对话分工](plans/cara_next_stage_20261028/08_REPOSITORY_RECONCILIATION.md) · [739接收记录](research/739_CARA_NEXT_STAGE_FAST_SQ_PLAN_AND_CHAT_HANDOFF_20261028.md)。A32已完整验收并冻结；B36已获单次批准，实际状态以原运行记录为准。WC73已热停结算，禁止自动重派；原DEV128、旧合同与失败保持。以下旧准备记录仅作历史复用依据。
 
