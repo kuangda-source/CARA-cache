@@ -2,7 +2,7 @@
 
 # CARA-Cache
 
-[783单次宿主入口与旧责任账本兼容](research/783_CARA_CALIBRATION_ONCE_DISPATCH_AND_CENTRAL_LIABILITY_20261030.md)：预算搜索单次宿主入口已接原guardian与运行器；56项本地CPU回归通过，已有意图仅恢复。用真实账本结构修正旧4.5+12GPUh责任保留与同UUID新卡的验收兼容；实际费用和旧责任不改。发布源打包/中央预约连接、64GiB实际配额及双端整卡CPU/报价仍待，14GPUh未获启动批准，0新GPU。
+[784发布源包与中央单次事务](research/784_CARA_PUBLISHED_SOURCE_AND_CENTRAL_TRANSACTIONS_20261030.md)：源准备/批准绑定/中央单次预约与原费用结算入口已连接，58项本地CPU控制通过；两个原基底分别形成301文件的发布源包。只读登录曾成功，随后双端stage观察又握手超时；远端prepare与CPU/GPU均未提交。继续恢复原观察后开展Linux及双端整卡CPU、64GiB实际配额与完整报价，再申请14GPUh单次启动。
 
 **2026-10-28最新安排：主线P0/F19，探索S-FAST19与固定Shared25-C的Q并行准备。** [最新计划与两个对话分工](plans/cara_next_stage_20261028/08_REPOSITORY_RECONCILIATION.md) · [739接收记录](research/739_CARA_NEXT_STAGE_FAST_SQ_PLAN_AND_CHAT_HANDOFF_20261028.md)。A32已完整验收并冻结；B36已获单次批准，实际状态以原运行记录为准。WC73已热停结算，禁止自动重派；原DEV128、旧合同与失败保持。以下旧准备记录仅作历史复用依据。
 

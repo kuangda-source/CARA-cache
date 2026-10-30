@@ -89,3 +89,5 @@ S单次授权已接收：用户在S/Q原对话批准另一张A6000完整十条�
 [782原CPU差量接受与完整验收器](../research/782_CARA_CALIBRATION_CPU_ACCEPTED_AND_COMPLETE_READER_20261030.md)：原781四卡CPU已退出0/无OOM并完整接受；无重跑。新完整112路径/51查询验收和一次冻结入口11项本地CPU控制通过，先原释放/唯一结算后科学读。剩整卡once、64GiB实际存储和双端整卡CPU/报价；生产端末次全量回读须计入GPU报价，14GPUh仍待启动批准。
 
 [783单次宿主入口与旧责任账本兼容](../research/783_CARA_CALIBRATION_ONCE_DISPATCH_AND_CENTRAL_LIABILITY_20261030.md)：56项本地CPU回归通过；已有意图只恢复，原guardian句柄与启动序列化已连接。修正4.5+12GPUh责任保留的中央核算兼容，旧费用不改。源打包/中央预约连接、64GiB实际存储与当前源双端整卡CPU/报价仍待，0新GPU。
+
+[784发布源包与中央单次事务](../research/784_CARA_PUBLISHED_SOURCE_AND_CENTRAL_TRANSACTIONS_20261030.md)：58项本地CPU控制通过，两端301文件覆盖包已绑定发布源；原两笔责任保留不改。双端原stage只读观察再次SSH握手超时，未远端prepare或提交CPU/GPU；继续原入口恢复，补实际Linux/双端整卡CPU、64GiB硬配额和完整报价。
