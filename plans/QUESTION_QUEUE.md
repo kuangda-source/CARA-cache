@@ -77,3 +77,5 @@ S单次授权已接收：用户在S/Q原对话批准另一张A6000完整十条�
 [776生命周期Linux与存储](../research/776_CARA_LIFECYCLE_LINUX_DELTA_AND_STORAGE_GUARDS_20261030.md)：R1缺依赖失败保留；修订R2四卡22项通过且退出/0，5项验收器控制通过。存储边界接入完整校准并通过13项本地控制；实际硬配额和GPU生产组合、双端CPU/整卡报价仍待，0新增GPU。
 
 [777原尝试日志与存储组合](../research/777_CARA_GUARDIAN_DURABLE_ATTEMPTS_AND_STORAGE_CPU_20261030.md)：独立日志持久化尝试/原费用及原账单恢复已实现；四卡原CPU19:35:45退出/0，48项及资源/源绑定接受。连接超时仅恢复原stage，另5项验收器控制通过。生产GPU监督器/硬配额组合、双端CPU与报价仍待，0新增GPU。
+
+[778原runner监督](../research/778_CARA_ORIGINAL_RUNNER_SUPERVISION_LINUX_CPU_20261030.md)：四卡原CPU19:53:07退出/0，12项Linux进程控制通过，11场景/8实际CPU runner；原硬限、热停、上下文/存储失败仅停止原子进程，旁侧哨兵保持，另6项验收控制通过。外层guardian/硬配额、双端CPU和报价仍待，0新增GPU。

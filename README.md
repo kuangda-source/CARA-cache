@@ -2,7 +2,7 @@
 
 # CARA-Cache
 
-[777原尝试持久化与存储组合CPU](research/777_CARA_GUARDIAN_DURABLE_ATTEMPTS_AND_STORAGE_CPU_20261030.md)：原尝试持久化记录器接通独立48MiB日志和原费用读者，输出文件失败可恢复同一账单。四卡原组合CPU19:35:45退出/0，完整48项与资源/源绑定通过，另5项验收器控制通过；首次采集超时只恢复原stage，未重复执行。实际GPU监督器/64GiB硬配额、双端CPU和整卡报价仍待，14GPUh未获新启动批准。
+[778原runner监督Linux CPU接受](research/778_CARA_ORIGINAL_RUNNER_SUPERVISION_LINUX_CPU_20261030.md)：原runner启动握手、硬限停止和独占/温度/存储检查已组合；四卡CPU19:53:07退出/0，12项Linux控制通过，覆盖11场景和8个真实CPU runner，另6项验收控制通过。停止原因、原子进程退出、旁侧哨兵和租约均核对，监督器未另记费用。GPU观测为夹具，外层guardian/container_cli、64GiB硬配额和双端CPU/完整报价仍待；14GPUh未新启动。
 
 **2026-10-28最新安排：主线P0/F19，探索S-FAST19与固定Shared25-C的Q并行准备。** [最新计划与两个对话分工](plans/cara_next_stage_20261028/08_REPOSITORY_RECONCILIATION.md) · [739接收记录](research/739_CARA_NEXT_STAGE_FAST_SQ_PLAN_AND_CHAT_HANDOFF_20261028.md)。A32已完整验收并冻结；B36已获单次批准，实际状态以原运行记录为准。WC73已热停结算，禁止自动重派；原DEV128、旧合同与失败保持。以下旧准备记录仅作历史复用依据。
 
