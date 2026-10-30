@@ -1,0 +1,79 @@
+{
+  "status": "INTERMITTENT_AUTHENTICATED_TRANSPORT_NOT_RECOVERED",
+  "observed_unix": 1793375561.61678,
+  "research_ref": "research/785_CARA_WINDOWS_SSH_DIAGNOSTIC_AND_HOST_TRANSPORT_20261030.md",
+  "windows_observed_at": "2026-10-30T23:48:36.7649258+08:00",
+  "windows_sshd_status": "Running",
+  "windows_listeners": [
+    {
+      "LocalAddress": "::",
+      "LocalPort": 22,
+      "OwningProcess": 20316
+    },
+    {
+      "LocalAddress": "0.0.0.0",
+      "LocalPort": 22,
+      "OwningProcess": 20316
+    }
+  ],
+  "mac_established_connections": 2,
+  "recent_OpenSSH_events_inspected": 15,
+  "observed_event_categories": [
+    "Accepted publickey",
+    "Received disconnect",
+    "Disconnected"
+  ],
+  "service_crash_or_authentication_rejection_seen": false,
+  "root_cause_confirmed": false,
+  "Clash_TUN_correlated_logs_received": false,
+  "successful_two_hop_seconds": 15.356398542,
+  "successful_two_hop_milestones": [
+    {
+      "elapsed_seconds": 7.675,
+      "text": "Authenticated to 100.103.229.16 (via proxy) using \"publickey\"."
+    },
+    {
+      "elapsed_seconds": 12.489,
+      "text": "Authenticated to 10.128.160.181 (via proxy) using \"publickey\"."
+    },
+    {
+      "elapsed_seconds": 15.353,
+      "text": "minchen-X11DAi-N"
+    }
+  ],
+  "original_stage_observation_refs": [
+    "reports/cara_budget_source_four_observe_r2_20261030.json",
+    "reports/cara_budget_source_two_observe_r2_20261030.json",
+    "reports/cara_budget_source_four_observe_r3_20261030.json",
+    "reports/cara_budget_source_two_observe_r3_20261030.json",
+    "reports/cara_budget_source_four_observe_r4_20261030.json",
+    "reports/cara_budget_source_two_observe_r4_20261030.json"
+  ],
+  "transport_client_ref": "scripts/cara_budget_source_hosts_r1.py",
+  "transport_client_sha256": "0e8f311739e09c3df6866b3ad9b17b5b7b2844e479ac7f0d90beb750fe907f19",
+  "host_interpreter_correction": {
+    "four_card": "python3",
+    "two_card": "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python"
+  },
+  "connect_timeout_seconds": 60,
+  "total_transport_timeout_seconds": 90,
+  "extended_timeout_restored_observation": false,
+  "network_or_service_configuration_changed": false,
+  "remote_prepare_called": false,
+  "CPU_jobs_started": 0,
+  "GPU_submissions": 0,
+  "ledger_written": false,
+  "original_62_B36_sources_unchanged": true,
+  "A32_freeze_unchanged": true,
+  "full_host_payloads_equal": false,
+  "full_payload_difference": {
+    "four_files": 1164,
+    "two_files": 1170,
+    "two_only_files": 6,
+    "shared_files_with_different_bytes": 3
+  },
+  "private_log_refs": [
+    ".sync/cara_windows_readonly_diagnostic_r3_20261030.private.json",
+    ".sync/cara_two_hop_timing_r1_20261030.private.json"
+  ]
+}

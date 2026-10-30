@@ -63,13 +63,14 @@ def main():
         remote_code_sha256=hashlib.sha256(REMOTE.encode()).hexdigest(),started_unix=time.time(),
         GPU_submissions=0,CPU_jobs_started=0)
     with args.binding.open('x') as f:json.dump(binding,f,indent=2);f.write('\n')
-    interpreter='/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/bin/python'
+    interpreter=('python3' if args.host=='four_card' else
+        '/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python')
     command=shlex.quote(interpreter)+' -c '+shlex.quote(REMOTE);data=json.dumps(payload);secret=None
     if args.host=='two_card':
         from cara_two_card_transport_r1 import password
         secret=password();command="sudo -S -p '' -u gaokuangda -g docker "+command;data=secret+'\n'+data
     target='four_card' if args.host=='four_card' else 'two_card_lan'
-    child=subprocess.Popen(['ssh','-F',str(args.ssh_config),'-o','BatchMode=yes','-o','ConnectTimeout=30',
+    child=subprocess.Popen(['ssh','-F',str(args.ssh_config),'-o','BatchMode=yes','-o','ConnectTimeout=60',
         '-o','ServerAliveInterval=10','-o','ServerAliveCountMax=3',target,command],
         stdin=subprocess.PIPE,stdout=subprocess.PIPE,stderr=subprocess.PIPE,start_new_session=True)
     try:out,err=child.communicate(data.encode(),timeout=90)
