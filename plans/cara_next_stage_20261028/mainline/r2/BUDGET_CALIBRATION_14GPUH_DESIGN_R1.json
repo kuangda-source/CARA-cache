@@ -1,0 +1,79 @@
+{
+  "status": "14GPUh_COMPLETE_SA_HC_DESIGN_CANDIDATE_NOT_DISPATCH_FROZEN",
+  "design_choice_ref": "reports/cara_budget_14GPUh_design_direction_20261030.json",
+  "design_hard_GPUh": 14,
+  "proposed_search_config": {
+    "seed": 42,
+    "max_evaluations": 51,
+    "sa_iterations": 30,
+    "hc_iterations": 1,
+    "temperature_start": 0.1,
+    "temperature_end": 0.0001,
+    "hc_neighbors": 20,
+    "local_window": 3
+  },
+  "candidate_queries": 51,
+  "new_GPU_paths": 112,
+  "query_paths": 102,
+  "warm_teacher_and_control_paths": 10,
+  "physical_scope_draft_ref": "plans/cara_next_stage_20261028/mainline/r2/BUDGET_CALIBRATION_WHOLE_SCOPE_DRAFT_R1.json",
+  "allocation_rationale": "30 SA proposals followed by one full20-neighbor HC sweep. Retain original sampledHC neighborhood design and reserve measured-cost uncertainty. This is a disclosed budget adaptation, not default200SA/5HC reproduction or convergence.",
+  "upstream_defaults": {
+    "sa_iterations": 200,
+    "hc_iterations": 5,
+    "hc_neighbors": 20,
+    "total_queries": 301
+  },
+  "unchanged": [
+    "both FIT inputs for every query",
+    "19D/36updates",
+    "Uniform19 initialization",
+    "full supported current-mask swap neighborhood",
+    "HC local/global sampling",
+    "temperature endpoints",
+    "generation seed0",
+    "duplicates charged",
+    "no memoization",
+    "no retry"
+  ],
+  "complete_requires": "INITIAL1 + SA30 + all20HC evaluations and all10 warm/teacher/control paths accepted; any hard stop or failed query cannot freeze a scientifically accepted winner",
+  "price_basis_ref": "reports/cara_budget_calibration_cost_basis_r1_20261030.json",
+  "price_basis_sha256": "fb765d73c0f5c6ff51ad39c676efbc7d268db2139ab69353f2c39f39f302579e",
+  "request_allowance_host": "two_card A6000 historical only",
+  "all_path_request_allowance_seconds": 321.40277120284736,
+  "planning_allowances": {
+    "all_paths_at_slowest_original_Native_request_seconds": 35997.110374718904,
+    "query_RGB_transfer_IO_evaluation_allowance_seconds": 6120,
+    "ten_warm_control_RGB_IO_allowance_seconds": 600,
+    "loading_and_admission_allowance_seconds": 1800,
+    "release_and_failure_shutdown_allowance_seconds": 600
+  },
+  "planning_total_seconds": 45117.110374718904,
+  "planning_total_GPUh": 12.53253065964414,
+  "unallocated_hard_limit_margin_seconds": 5282.8896252810955,
+  "allowances_are_measurements_or_proven_upper_bounds": false,
+  "production_whole_quote_accepted": false,
+  "storage": {
+    "RGB_paths": 112,
+    "NPY_bytes_per_path": 370262144,
+    "retained_NPY_bytes": 41469360128,
+    "retained_NPY_GiB": 38.62135124206543,
+    "proposed_dedicated_quota_GiB": 64,
+    "remaining_for_other_artifacts_and_filesystem_GiB": 25.37864875793457,
+    "storage_admitted": false
+  },
+  "fairness": "Same allowed whole-card14GPUh ceiling as S; actual costs and query counts differ and are reported separately. No matched-query or matched-consumption claim.",
+  "four_card_quote_pending": true,
+  "actual_query_cap_frozen": false,
+  "launch_authorized": false,
+  "remaining": [
+    "GPU evaluator and complete control/search acceptance integration",
+    "source-bound actual lifecycle capture",
+    "dual-host affected productionCPU",
+    "GPU-copy/coldIO allowance substantiation",
+    "complete per-host quote and dedicated storage admission",
+    "single >4GPUh launch approval and fresh original-handle/resource/budget admission"
+  ],
+  "GPU_submissions": 0,
+  "ledger_written": false
+}

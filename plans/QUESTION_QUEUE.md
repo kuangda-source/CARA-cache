@@ -67,3 +67,5 @@ S单次授权已接收：用户在S/Q原对话批准另一张A6000完整十条�
 [772生命周期回执CPU控制](../research/772_CARA_CALIBRATION_LIFECYCLE_RECEIPT_CPU_CONTROLS_20261030.md)：14项本地控制核验原启动/容器/锁/实耗和临时账本唯一结算；失败与超限不能报告成功。真实采集入口、完整监控/搜索验收和双端生产CPU待接通，旧原件及预算方向保持。
 
 用户已选择[14GPUh完整SA+HC设计方向](../reports/cara_budget_14GPUh_design_direction_20261030.json)，替代此前待选状态；实际查询数、完整报价与单次GPU启动审批仍待。
+
+[773十四GPUh完整SA+HC草案](../research/773_CARA_14GPUH_SA_HC_BUDGET_DESIGN_20261030.md)：提出初始1+SA30+HC20共51次双FIT查询、整卡112路径；五种原控制器CPU情形通过。规划12.53GPUh、余量1.47GPUh，非已接受报价；下一步完整生产组合、双端CPU和单次启动审阅。

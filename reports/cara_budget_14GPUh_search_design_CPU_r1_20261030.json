@@ -1,0 +1,102 @@
+{
+  "status": "14GPUh_SEARCH_DESIGN_ACTUAL_CONTROLLER_CPU_FIXTURES_PASSED",
+  "observed_unix": 1793356525.8921402,
+  "cases": [
+    {
+      "fixture": "flat",
+      "termination": "CONFIGURED_SEARCH_FINISHED",
+      "queries": 51,
+      "phases": {
+        "INITIAL": 1,
+        "SA": 30,
+        "HC": 20
+      },
+      "SA_completed": 30,
+      "HC_completed": 1,
+      "unique_masks": 51,
+      "duplicates": 0,
+      "query_requests_sha256": "4090b34d6a79c993fcb3e0cb778344b87e6b3b397f6d15e59f21710a50045b8d",
+      "GPU_dispatch_ready": false
+    },
+    {
+      "fixture": "decreasing",
+      "termination": "CONFIGURED_SEARCH_FINISHED",
+      "queries": 51,
+      "phases": {
+        "INITIAL": 1,
+        "SA": 30,
+        "HC": 20
+      },
+      "SA_completed": 30,
+      "HC_completed": 1,
+      "unique_masks": 51,
+      "duplicates": 0,
+      "query_requests_sha256": "7e2572ba4be34f6370dcfab1d352f173c5a2f6d102c7ed69ff72b90bfd319d10",
+      "GPU_dispatch_ready": false
+    },
+    {
+      "fixture": "increasing",
+      "termination": "CONFIGURED_SEARCH_FINISHED",
+      "queries": 51,
+      "phases": {
+        "INITIAL": 1,
+        "SA": 30,
+        "HC": 20
+      },
+      "SA_completed": 30,
+      "HC_completed": 1,
+      "unique_masks": 48,
+      "duplicates": 3,
+      "query_requests_sha256": "49adf0ce240091b7c0833dd3ca7984de12e010c5175da16c35825fe7928d4153",
+      "GPU_dispatch_ready": false
+    },
+    {
+      "fixture": "truncated_HC",
+      "termination": "QUERY_CAP_REACHED",
+      "queries": 50,
+      "phases": {
+        "INITIAL": 1,
+        "SA": 30,
+        "HC": 19
+      },
+      "SA_completed": 30,
+      "HC_completed": 0,
+      "unique_masks": 50,
+      "duplicates": 0,
+      "query_requests_sha256": "ff8f2007cdd5dfb0bb298b355497788dd6f0f71e9e650d0d3bf0c5efb1285956",
+      "GPU_dispatch_ready": false
+    },
+    {
+      "fixture": "failed_HC",
+      "termination": "EVALUATION_FAILED_NO_RETRY",
+      "queries": 32,
+      "phases": {
+        "INITIAL": 1,
+        "SA": 30,
+        "HC": 1
+      },
+      "SA_completed": 30,
+      "HC_completed": 0,
+      "unique_masks": 32,
+      "duplicates": 0,
+      "query_requests_sha256": "4485685c2e465300cfb57fa692c968428cfa5d2b989415eac02b02c38aaea8eb",
+      "GPU_dispatch_ready": false
+    }
+  ],
+  "config": {
+    "seed": 42,
+    "max_evaluations": 51,
+    "sa_iterations": 30,
+    "hc_iterations": 1,
+    "temperature_start": 0.1,
+    "temperature_end": 0.0001,
+    "hc_neighbors": 20,
+    "local_window": 3
+  },
+  "source_sha256": {
+    "src/wcomr/cara_budget_search_r1.py": "948c5489447f1f77226889209517db560fedce4fc25587b34ae663a82a8de741",
+    "plans/cara_next_stage_20261028/mainline/r2/BUDGET_CALIBRATION_14GPUH_DESIGN_R1.json": "a05231c5ee849b5c29ffdc1d8c9032b8534e42b984534144c8936eda34889f06"
+  },
+  "GPU_submissions": 0,
+  "ledger_written": false
+}

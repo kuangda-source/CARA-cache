@@ -2,7 +2,7 @@
 
 # CARA-Cache
 
-[772校准生命周期回执CPU控制](research/772_CARA_CALIBRATION_LIFECYCLE_RECEIPT_CPU_CONTROLS_20261030.md)：预算搜索原终态回执组件通过14项本地控制，临时账本验证成功/失败实耗、唯一结算、超限保留及旧16.5责任保持。绑定原launch、worker身份、容器/UUID、锁和guardian单调时钟；完整搜索与生产采集入口尚待接通。本次无实际GPU/Docker/中央账本访问，未新派GPU；用户已选择14GPUh完整SA+HC设计，查询数与启动审批仍待；S原卡安排保持。
+[773预算搜索14GPUh完整SA+HC草案](research/773_CARA_14GPUH_SA_HC_BUDGET_DESIGN_20261030.md)：用户已选择14GPUh整卡设计。草案51次双FIT查询（初始1+SA30+HC20）及10条预热/教师/控制，共112路径；原控制器五种合成情形验证完整搜索、截断和失败无重试。工程估算12.53GPUh、余量1.47GPUh，112份RGB约38.62GiB；非生产报价或启动批准。原生命周期回执14项本地控制通过，实际采集、双端CPU、完整报价与存储仍待；S原卡保持。
 
 **2026-10-28最新安排：主线P0/F19，探索S-FAST19与固定Shared25-C的Q并行准备。** [最新计划与两个对话分工](plans/cara_next_stage_20261028/08_REPOSITORY_RECONCILIATION.md) · [739接收记录](research/739_CARA_NEXT_STAGE_FAST_SQ_PLAN_AND_CHAT_HANDOFF_20261028.md)。A32已完整验收并冻结；B36已获单次批准，实际状态以原运行记录为准。WC73已热停结算，禁止自动重派；原DEV128、旧合同与失败保持。以下旧准备记录仅作历史复用依据。
 
