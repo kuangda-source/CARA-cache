@@ -2,7 +2,7 @@
 
 # CARA-Cache 当前状态
 
-[778原runner监督Linux CPU接受](778_CARA_ORIGINAL_RUNNER_SUPERVISION_LINUX_CPU_20261030.md)：原runner启动握手、硬限停止和独占/温度/存储检查已组合；四卡CPU19:53:07退出/0，12项Linux控制通过，覆盖11场景和8个真实CPU runner，另6项验收控制通过。停止原因、原子进程退出、旁侧哨兵和租约均核对，监督器未另记费用。GPU观测为夹具，外层guardian/container_cli、64GiB硬配额和双端CPU/完整报价仍待；14GPUh未新启动。
+[779原guardian控制链Linux CPU接受](779_CARA_HOST_GUARDIAN_ALLOCATION_CHAIN_CPU_20261030.md)：外层guardian、原CLI/监督器/runner、模式恢复和唯一原费用已组合；R3四卡CPU20:30:45退出/0，13项Linux控制及7项验收控制通过。12场景含7个真实CPU runner，启动回执前失败保留父进程原身份，UNKNOWN不结算；R1/R2失败及SSH恢复保留。GPU/Docker观察为夹具；实际Docker空容器消息兼容、64GiB硬配额、完整入口/科学验收与双端CPU/报价仍待，14GPUh未新启动。
 
 **2026-10-28最新安排：主线P0/F19，探索S-FAST19与固定Shared25-C的Q并行准备。** [最新计划与两个对话分工](../plans/cara_next_stage_20261028/08_REPOSITORY_RECONCILIATION.md) · [739接收记录](739_CARA_NEXT_STAGE_FAST_SQ_PLAN_AND_CHAT_HANDOFF_20261028.md)。A32已完整验收并冻结；B36已获单次批准，实际状态以原运行记录为准。WC73已热停结算，禁止自动重派；原DEV128、旧合同与失败保持。以下旧准备记录仅作历史复用依据。
 
@@ -26,7 +26,7 @@
 | Q0-Q1 · S/Q探索 | 原Q1完整12状态、111pair/222head、释放、唯一中央结算及CPU分析已接受，实际0.29875649GPUh | 保留执行别名和旧状态范围；由S/Q评估Q-END完整比较，不将局部codec输出解释为视频或部署显存/速度收益 |
 | A-SQ-FAST · S/Q探索 | 仅明确缺口后准备采集卡 | 绑定新父策略的108标签/56额外Dense pair与存储；解决F19 raw和Q25布局兼容问题，共同费用只计一次 |
 | S-END / Q-END · S/Q探索 | 各自条件晋级，不互设成功前提 | 不同合法mask或实际同bytes读出证据后，冻结最小完整视频比较与强基线，再报价申请 |
-| 预算分配强基线 · 主线公平比较 | 原完整校准CPU、持久化/存储组合均四卡接受；原runner监督12项Linux控制通过 | 串接外层host guardian/container_cli、模式恢复和原唯一费用，验证64GiB硬配额、完整科学验收与双端CPU/报价后提交14GPUh单次批准；两卡S优先 |
+| 预算分配强基线 · 主线公平比较 | 原完整校准CPU和原guardian控制链四卡接受；控制链R3共13项Linux控制通过，失败历史保留 | 补实际Docker空容器观察兼容，组合64GiB硬配额/完整入口/科学验收及双端CPU/整卡报价，再提交14GPUh单次批准；两卡S优先 |
 | F18 / Q5 · 主线，S/Q提供冻结规则 | F18与Q5 Native50参考组件均双端CPU接受；方法/整卡范围/报价未冻结 | 保持S优先；等待冻结输出mask和方法端点证据，承接50步保护/年龄映射及可辨识比较，再组完整范围与报价 |
 | WAN / FINAL · 主线 | 迁移后置；原最终16/备用16双端身份复核，登记范围未见执行 | 保留原池，首次使用前再做增量核查；冻结方法/checkpoint/协议、额外seed子集与完整物理范围/报价后再决定 |
 | B-S / B-Q / B-E · 按失败位置指定单一负责人 | 休眠；当前未启用 | 最多一个备用进入新GPU探索；不自动恢复IG/R4/GRAPH/F/B |
