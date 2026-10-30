@@ -2,7 +2,7 @@
 
 # CARA-Cache
 
-[763 S原生入口CPU承接与单次授权接收](research/763_CARA_S_PUBLISHED_NATIVE_CPU_HANDOFF_20261030.md)：S双端原生入口CPU已承接，每端123控制/20tiny路径/5生命周期控制与38源绑定通过。已核对用户在S/Q对话的明确批准：另一张A6000、完整10条、硬限14GPUh、失败即停不重试；5份审批引用的准备原件SHA相符。原对话负责唯一派发、fresh准入及实际开始时间对应检查，主线尚未收到可确认启动的原回执。真实风险数据/方法效力仍待，F18/Q5组件与最终输入保护保持；本轮主线0GPUh、无预约。
+[764 BudCache强基线源码与查询范围核查](research/764_CARA_BUDCACHE_PRIMARY_SOURCE_AND_QUERY_SCOPE_AUDIT_20261030.md)：已固定官方BudCache源码，核对七份原文件并执行原搜索控制器CPU替身：默认1教师＋301候选＝302请求；双FIT目标规划上界604请求，不能视为低费用现成基线。已登记同Cosmos-C/36步/19D适配边界、独立搜索随机源及终点查询/完整校准费用要求；实际适配和GPU报价未完成。S原单次A6000硬限14GPUh批准保持，由S/Q原对话负责派发；F18/Q5组件和原最终输入保护保持，本轮0GPUh。
 
 **2026-10-28最新安排：主线P0/F19，探索S-FAST19与固定Shared25-C的Q并行准备。** [最新计划与两个对话分工](plans/cara_next_stage_20261028/08_REPOSITORY_RECONCILIATION.md) · [739接收记录](research/739_CARA_NEXT_STAGE_FAST_SQ_PLAN_AND_CHAT_HANDOFF_20261028.md)。A32已完整验收并冻结；B36已获单次批准，实际状态以原运行记录为准。WC73已热停结算，禁止自动重派；原DEV128、旧合同与失败保持。以下旧准备记录仅作历史复用依据。
 

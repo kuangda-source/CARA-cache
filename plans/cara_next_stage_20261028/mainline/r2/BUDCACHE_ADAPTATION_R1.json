@@ -1,0 +1,88 @@
+{
+  "schema": "CARA_BUDCACHE_STYLE_COMPARATOR_ADAPTATION_PROPOSAL_R1",
+  "status": "SOURCE_AND_CPU_CONTROLLER_AUDITED_PRODUCTION_ADAPTER_NOT_IMPLEMENTED",
+  "adopted_requirement": "plans/cara_next_stage_20261028/02_SQ_Method_and_Experiments.md A2.1",
+  "owner": "mainline fair method comparison",
+  "source_audit_ref": "reports/cara_fast_BudCache_source_CPU_audit_r1_20261030.json",
+  "source_audit_sha256": "4ca760387b3ef82ca55ec8c8749ba76a4dd5185b9fd2c8a09b6dc875c81c79dd",
+  "upstream_revision": "14ba4c5106a17848e757e7b93ad4b4daeb5b742c",
+  "upstream_license": "Apache-2.0",
+  "proposed_label": "BudCache-style SA+HC with CARA-C readout; same-grid Cosmos adaptation",
+  "official_complete_reproduction": false,
+  "stage2_schedule_training_included": false,
+  "changes_existing_S_card": false,
+  "prospective_comparison": {
+    "requested_steps": 35,
+    "actual_updates": 36,
+    "D_pair_budget": 19,
+    "readout": "existing frozen CARA-C for both CFG branches",
+    "profile_identity": "8b35974e725fa1fbb72fb5474f10c763edb998e4b59bd21f7775e44ed3c6a00b",
+    "protected_dense_steps": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      24,
+      36
+    ],
+    "max_source_age": 28,
+    "min_true_C_anchors": 2,
+    "candidates": "quota-preserving swaps within complete validated production support; no reduction to only the F19 single-swap neighborhood to weaken the baseline",
+    "initialization": "shared deterministic noise-grid Uniform19 seed; explicit adaptation from upstream Wan random-prefix initialization",
+    "search": "retain SA and sampled HC; separate frozen search RNG from generation seed; preserve query ledger and best-so-far",
+    "objective": "same two FIT inputs equally weighted; complete same-encoding decoded RGB MSE to own same-grid Native; do not substitute S local moments",
+    "FIT_members": [
+      "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "human_199"
+    ],
+    "generation_seed": 0,
+    "CHECK_used_for_search": false,
+    "final16_used_for_search": false,
+    "teachers": "reuse only exact request/source/RNG and pre-encoding RGB identity; otherwise include complete new Native requests in scope",
+    "fallback": "unsupported or altered actual D count invalidates fixed-budget comparison; preserve failure and actual cost"
+  },
+  "source_risk_binding": {
+    "revision": "fcfb0816dd8f625cf7c05470015577615fc57cd7",
+    "path": "plans/cara_next_stage_20261028/sq/S_FROZEN_RISK_RULE_R3.json",
+    "sha256": "456e771ebea518d763ed68a086f5b4a2ce874eb15ab742698ef5b10e6561bde0"
+  },
+  "cost_boundary": {
+    "upstream_default_candidate_calls": 301,
+    "upstream_teacher_calls": 1,
+    "upstream_default_total": 302,
+    "prospective_two_FIT_upper_requests_without_reuse": 604,
+    "request_bound_is_not_a_GPUh_quote": true,
+    "actual_candidate_query_cap": null,
+    "whole_GPUh_quote": null,
+    "hard_GPUh": null,
+    "required_cost_items": [
+      "exact teacher reuse or regeneration",
+      "all unique and repeated candidate requests",
+      "conditioning and decode",
+      "CPU or GPU objective evaluation while GPU held",
+      "warmup and source/numerical controls",
+      "clean deployment timing repeats",
+      "allocation and release",
+      "failures and stopping overhead"
+    ],
+    "fairness": "predeclare the allowed endpoint-query ceiling and whole calibration GPUh for both procedures; report allowed and actually consumed budgets separately; no claim of matched queries from equal D quota",
+    "hard_query_cap_reached": "return observed best-so-far and mark budget exhaustion; do not claim completed HC convergence",
+    "proposal_cache": "if repeated evaluations are memoized, key full input/source/RNG/schedule/readout identity and report requested and unique counts separately; official replay counts remain historical"
+  },
+  "remaining": [
+    "source-bound Cosmos evaluator and query-budget controller",
+    "full support and prospective objective acceptance",
+    "dual-host affected production CPU proof",
+    "complete teacher/warm/candidate/control/evaluation/repeat scope",
+    "explicit calibration/query budget and complete dual-host GPU quote",
+    "authority per user thresholds and live unique admission"
+  ],
+  "S_priority_preserved": true,
+  "production_CPU_accepted": false,
+  "GPU_dispatch_ready": false,
+  "new_GPU_submissions": 0,
+  "new_reserved_GPUh": 0
+}

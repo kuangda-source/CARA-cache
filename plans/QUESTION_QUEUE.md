@@ -47,3 +47,5 @@ Q5唯一50步的Native参考组件已按[761记录](../research/761_CARA_Q5_NATI
 [763 S原生入口CPU主线承接](../research/763_CARA_S_PUBLISHED_NATIVE_CPU_HANDOFF_20261030.md)：复算发布快照双端原终态，每端123控制、20tiny路径、5生命周期控制与38源绑定一致。完整S R2十条采集卡仍待单次审批；实际风险数据和方法端点效力未形成，保持S优先。
 
 S单次授权已接收：用户在S/Q原对话批准另一张A6000完整十条卡，硬限14GPUh；由原对话唯一派发，主线等待原启动回执，详见[授权记录](../reports/cara_fast_S_user_authorization_intake_r1_20261030.json)。不再重复申请批准。
+
+[764 BudCache强基线源码与查询范围核查](../research/764_CARA_BUDCACHE_PRIMARY_SOURCE_AND_QUERY_SCOPE_AUDIT_20261030.md)：按A2.1补齐正式方法近邻的事前准备。官方默认控制器实际CPU替身计数302请求，双FIT适配规划上界604；须先定Cosmos同读出适配、终点查询/完整费用及双端生产CPU，不能直接引用原文搜索分钟数或NFE比作为本项目费用/速度。
