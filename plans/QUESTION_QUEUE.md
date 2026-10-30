@@ -57,3 +57,5 @@ S单次授权已接收：用户在S/Q原对话批准另一张A6000完整十条�
 [767完整RGB评价与四卡CPU终态](../research/767_CARA_BUDGET_RGB_ENDPOINT_AND_PENDING_PRODUCTION_CPU_20261030.md)：原CPU退出/0，31项组件控制、54成功路径/8预定失败、12完整目标完成。实际swap边界不符，验收器拒绝；保留原终态，先修正后续资源绑定，两卡保持S内存优先。双端生产CPU未接受。
 
 [768资源修订与RGB存储](../research/768_CARA_BUDGET_CPU_RESOURCE_REPAIR_AND_RGB_STORAGE_20261030.md)：R2资源控制通过8项本地测试，四卡原CPU退出/0、完整数值及1CPU/4GiB/零swap已核验；两卡因56GiB门拒绝且stage不存在，保留S优先。默认604份RGB NPY约208.28GiB，3项容量控制通过；该默认仅作容量示例，未冻结GPU范围或报价。
+
+[769同步CPU原端点恢复](../research/769_CARA_ORIGINAL_ENDPOINT_CALLBACK_RECOVERY_CPU_20261030.md)：9项本地/Linux控制、四组原生产CPU工件副本复核和4项接收器控制通过。原值一致、原件SHA保持，0新增生成；只补最后一个完整但缺失返回的原意图。GPU物理终态、双端端点验收与整卡费用仍待。
