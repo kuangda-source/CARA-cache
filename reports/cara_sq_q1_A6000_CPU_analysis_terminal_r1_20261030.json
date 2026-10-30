@@ -1,0 +1,382 @@
+{
+  "status": "Q1_CPU_POST_CAPTURE",
+  "launch": {
+    "status": "Q1_RELEASED_CPU_POST_STARTED",
+    "host": "two_card",
+    "stage": "/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-q1-saved-two-card-r3-20261029",
+    "directory": "/data20t/gaokuangda/worldcache_workspace/outputs/cara-sq-q1-saved-r1-20261028/CPU-post",
+    "container": "cara-sq-q1-saved-two-card-r3-20261029-post-cpu",
+    "identity": {
+      "pid": 2129709,
+      "state": "R",
+      "start_ticks": 664692712,
+      "command": "docker run --read-only --network none --pid host --name cara-sq-q1-saved-two-card-r3-20261029-post-cpu --label wcomr.manifest=c0a9643751d3c0467451cad398447ba479038814638e40b54a252b8ab4d9c251 --user 1004:998 --cpus 2 --memory 8g --pids-limit 512 --tmpfs /tmp:rw,size=2g -v /data20t/gaokuangda/worldcache_workspace:/data20t/gaokuangda/worldcache_workspace:ro -v /data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-q1-saved-two-card-r3-20261029:/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-q1-saved-two-card-r3-20261029:ro -w /data20t/gaokuangda/worldcache_workspace/runtime -e CUDA_CACHE_PATH=/data20t/gaokuangda/worldcache_workspace/outputs/cara-sq-q1-saved-r1-20261028/CPU-post/caches/cuda -e CUDA_HOME=/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cuda_nvrtc -e CUDA_PATH=/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cuda_nvrtc -e CUDA_VISIBLE_DEVICES= -e HF_HOME=/data20t/gaokuangda/worldcache_workspace/cache/huggingface -e HF_HUB_CACHE=/data20t/gaokuangda/worldcache_workspace/cache/huggingface/hub -e HF_HUB_OFFLINE=1 -e LD_LIBRARY_PATH=/data20t/gaokuangda/worldcache_workspace/system-libs-r1/usr/lib/x86_64-linux-gnu/blas:/data20t/gaokuangda/worldcache_workspace/system-libs-r1/usr/lib/x86_64-linux-gnu/lapack:/data20t/gaokuangda/worldcache_workspace/system-libs-r1/usr/lib/x86_64-linux-gnu/pulseaudio:/data20t/gaokuangda/worldcache_workspace/system-libs-r1/usr/lib/x86_64-linux-gnu:/data20t/gaokuangda/worldcache_workspace/system-libs-r1/lib/x86_64-linux-gnu:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cuda_nvrtc/lib:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cuda_runtime/lib:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cudnn/lib:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/nvjitlink/lib:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cublas/lib:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/torch/lib -e LOGNAME=gaokuangda -e NLTK_DATA=/data20t/gaokuangda/worldcache_workspace/runtime-resources/nltk-guardrail-d6d4bfa8-r1 -e NVIDIA_VISIBLE_DEVICES=void -e OMP_NUM_THREADS=2 -e OPENBLAS_NUM_THREADS=2 -e PATH=/data20t/gaokuangda/worldcache_workspace/system-libs-r1/usr/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin -e PYTHONDONTWRITEBYTECODE=1 -e PYTHONPATH=/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-q1-saved-two-card-r3-20261029/scripts:/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-q1-saved-two-card-r3-20261029/src -e TOKENIZERS_PARALLELISM=false -e TORCHINDUCTOR_CACHE_DIR=/data20t/gaokuangda/worldcache_workspace/outputs/cara-sq-q1-saved-r1-20261028/CPU-post/caches/torchinductor -e TORCH_EXTENSIONS_DIR=/data20t/gaokuangda/worldcache_workspace/outputs/cara-sq-q1-saved-r1-20261028/CPU-post/caches/extensions -e TORCH_HOME=/data20t/gaokuangda/worldcache_workspace/cache/torch -e TRANSFORMERS_OFFLINE=1 -e TRITON_CACHE_DIR=/data20t/gaokuangda/worldcache_workspace/outputs/cara-sq-q1-saved-r1-20261028/CPU-post/caches/triton -e USER=gaokuangda -e WC_SCOUT_KIND=CAL12 -e XDG_CACHE_HOME=/data20t/gaokuangda/worldcache_workspace/outputs/cara-sq-q1-saved-r1-20261028/CPU-post/caches/xdg --memory-swap 8g --cpuset-cpus 24,25 -v /data20t/gaokuangda/worldcache_workspace/outputs/cara-sq-q1-saved-r1-20261028/CPU-post:/data20t/gaokuangda/worldcache_workspace/outputs/cara-sq-q1-saved-r1-20261028/CPU-post:rw --ulimit fsize=67108864:67108864 --entrypoint /usr/bin/timeout sha256:1e81ac62ee68ca1a6ef655515096a1d84579b01aa4986810c9b18d4f6c4c552d --signal=TERM --kill-after=10s 300 /usr/bin/ionice -c 3 /data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/bin/python /data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-q1-saved-two-card-r3-20261029/scripts/postprocess_cara_sq_q1_r1.py --capture /data20t/gaokuangda/worldcache_workspace/outputs/cara-sq-q1-saved-r1-20261028/CPU-post/capture.json --settlement /data20t/gaokuangda/worldcache_workspace/outputs/cara-sq-q1-saved-r1-20261028/CPU-post/settlement.json --output /data20t/gaokuangda/worldcache_workspace/outputs/cara-sq-q1-saved-r1-20261028/CPU-post/analysis.json "
+    },
+    "started_unix": 1793352023.6016405,
+    "resource_limits": {
+      "CPUs": 2,
+      "RAM_GiB": 8,
+      "wall_seconds": 300
+    },
+    "GPU_submissions": 0,
+    "ledger_writes": 0
+  },
+  "original_handle_live": false,
+  "container_state": {
+    "Status": "exited",
+    "Running": false,
+    "Paused": false,
+    "Restarting": false,
+    "OOMKilled": false,
+    "Dead": false,
+    "Pid": 0,
+    "ExitCode": 0,
+    "Error": "",
+    "StartedAt": "2026-10-30T09:20:23.839262728Z",
+    "FinishedAt": "2026-10-30T09:20:30.649821428Z"
+  },
+  "GPU_submissions": 0,
+  "ledger_writes": 0,
+  "analysis": {
+    "status": "Q1_COMPLETE_POST_RELEASE_CODEC_SELECTION",
+    "run_id": "cara-sq-q1-saved-r1-20261028",
+    "actual_GPUh": 0.2987564935850807,
+    "technical_acceptance": {
+      "kind": "COMPLETE_NUMERIC_COLLECTION",
+      "complete": true,
+      "selection_allowed_after_release": true,
+      "monitor_samples": 458,
+      "max_monitor_gap_seconds": 4.348863520659506,
+      "max_temperature_C": 70.0
+    },
+    "codec_selection": {
+      "selections": {
+        "R16_I_BR": {
+          "LOPO": [
+            {
+              "training_prompt": "human_199",
+              "heldout_prompt": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+              "bits": [
+                8,
+                8
+              ],
+              "heldout_mean": 0.23637490498447974,
+              "training_scores": {
+                "(8, 8)": 0.18701439580180734
+              }
+            },
+            {
+              "training_prompt": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+              "heldout_prompt": "human_199",
+              "bits": [
+                8,
+                8
+              ],
+              "heldout_mean": 0.18701439580180734,
+              "training_scores": {
+                "(8, 8)": 0.23637490498447974
+              }
+            }
+          ],
+          "final_bits": [
+            8,
+            8
+          ],
+          "final_training_scores": {
+            "(8, 8)": 0.21169465039314353
+          }
+        },
+        "R16_I_CFG": {
+          "LOPO": [
+            {
+              "training_prompt": "human_199",
+              "heldout_prompt": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+              "bits": [
+                8,
+                8
+              ],
+              "heldout_mean": 0.5688828736101162,
+              "training_scores": {
+                "(8, 8)": 0.4300891840403968
+              }
+            },
+            {
+              "training_prompt": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+              "heldout_prompt": "human_199",
+              "bits": [
+                8,
+                8
+              ],
+              "heldout_mean": 0.4300891840403968,
+              "training_scores": {
+                "(8, 8)": 0.5688828736101162
+              }
+            }
+          ],
+          "final_bits": [
+            8,
+            8
+          ],
+          "final_training_scores": {
+            "(8, 8)": 0.4994860288252565
+          }
+        },
+        "R16_M_BR": {
+          "LOPO": [
+            {
+              "training_prompt": "human_199",
+              "heldout_prompt": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+              "bits": [
+                8,
+                8
+              ],
+              "heldout_mean": 0.23637110460630087,
+              "training_scores": {
+                "(8, 8)": 0.18702118735566842
+              }
+            },
+            {
+              "training_prompt": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+              "heldout_prompt": "human_199",
+              "bits": [
+                8,
+                8
+              ],
+              "heldout_mean": 0.18702118735566842,
+              "training_scores": {
+                "(8, 8)": 0.23637110460630087
+              }
+            }
+          ],
+          "final_bits": [
+            8,
+            8
+          ],
+          "final_training_scores": {
+            "(8, 8)": 0.21169614598098466
+          }
+        },
+        "R16_M_CFG": {
+          "LOPO": [
+            {
+              "training_prompt": "human_199",
+              "heldout_prompt": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+              "bits": [
+                8,
+                8
+              ],
+              "heldout_mean": 0.4383200636032505,
+              "training_scores": {
+                "(8, 8)": 0.35426729976036925
+              }
+            },
+            {
+              "training_prompt": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+              "heldout_prompt": "human_199",
+              "bits": [
+                8,
+                8
+              ],
+              "heldout_mean": 0.35426729976036925,
+              "training_scores": {
+                "(8, 8)": 0.4383200636032505
+              }
+            }
+          ],
+          "final_bits": [
+            8,
+            8
+          ],
+          "final_training_scores": {
+            "(8, 8)": 0.3962936816818099
+          }
+        },
+        "R12_I_BR": {
+          "LOPO": [
+            {
+              "training_prompt": "human_199",
+              "heldout_prompt": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+              "bits": [
+                4,
+                8
+              ],
+              "heldout_mean": 0.3055913500747847,
+              "training_scores": {
+                "(4, 8)": 0.24407314235342903,
+                "(8, 4)": 0.24536445250276376
+              }
+            },
+            {
+              "training_prompt": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+              "heldout_prompt": "human_199",
+              "bits": [
+                4,
+                8
+              ],
+              "heldout_mean": 0.24407314235342903,
+              "training_scores": {
+                "(4, 8)": 0.3055913500747847,
+                "(8, 4)": 0.3067222090364374
+              }
+            }
+          ],
+          "final_bits": [
+            4,
+            8
+          ],
+          "final_training_scores": {
+            "(4, 8)": 0.2748322462141069,
+            "(8, 4)": 0.2760433307696006
+          }
+        },
+        "R12_I_CFG": {
+          "LOPO": [
+            {
+              "training_prompt": "human_199",
+              "heldout_prompt": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+              "bits": [
+                8,
+                4
+              ],
+              "heldout_mean": 9.597374142711589,
+              "training_scores": {
+                "(4, 8)": 8.935668736555302,
+                "(8, 4)": 7.37118299355994
+              }
+            },
+            {
+              "training_prompt": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+              "heldout_prompt": "human_199",
+              "bits": [
+                8,
+                4
+              ],
+              "heldout_mean": 7.37118299355994,
+              "training_scores": {
+                "(4, 8)": 11.53040936763223,
+                "(8, 4)": 9.597374142711589
+              }
+            }
+          ],
+          "final_bits": [
+            8,
+            4
+          ],
+          "final_training_scores": {
+            "(4, 8)": 10.233039052093766,
+            "(8, 4)": 8.484278568135766
+          }
+        },
+        "R12_M_BR": {
+          "LOPO": [
+            {
+              "training_prompt": "human_199",
+              "heldout_prompt": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+              "bits": [
+                8,
+                4
+              ],
+              "heldout_mean": 0.23639432801905555,
+              "training_scores": {
+                "(4, 8)": 0.3020998621960245,
+                "(8, 4)": 0.18704834606958473
+              }
+            },
+            {
+              "training_prompt": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+              "heldout_prompt": "human_199",
+              "bits": [
+                8,
+                4
+              ],
+              "heldout_mean": 0.18704834606958473,
+              "training_scores": {
+                "(4, 8)": 0.3755799496709871,
+                "(8, 4)": 0.23639432801905555
+              }
+            }
+          ],
+          "final_bits": [
+            8,
+            4
+          ],
+          "final_training_scores": {
+            "(4, 8)": 0.3388399059335059,
+            "(8, 4)": 0.21172133704432014
+          }
+        },
+        "R12_M_CFG": {
+          "LOPO": [
+            {
+              "training_prompt": "human_199",
+              "heldout_prompt": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+              "bits": [
+                8,
+                4
+              ],
+              "heldout_mean": 0.4399312958619042,
+              "training_scores": {
+                "(4, 8)": 0.4369337278603074,
+                "(8, 4)": 0.355406141821283
+              }
+            },
+            {
+              "training_prompt": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+              "heldout_prompt": "human_199",
+              "bits": [
+                8,
+                4
+              ],
+              "heldout_mean": 0.355406141821283,
+              "training_scores": {
+                "(4, 8)": 0.5359321915627423,
+                "(8, 4)": 0.4399312958619042
+              }
+            }
+          ],
+          "final_bits": [
+            8,
+            4
+          ],
+          "final_training_scores": {
+            "(4, 8)": 0.48643295971152484,
+            "(8, 4)": 0.39766871884159355
+          }
+        }
+      },
+      "execution_aliases": {
+        "('R16', 'I', (8, 8))": [
+          "R16_I_BR",
+          "R16_I_CFG"
+        ],
+        "('R16', 'M', (8, 8))": [
+          "R16_M_BR",
+          "R16_M_CFG"
+        ],
+        "('R12', 'I', (4, 8))": [
+          "R12_I_BR"
+        ],
+        "('R12', 'I', (8, 4))": [
+          "R12_I_CFG"
+        ],
+        "('R12', 'M', (8, 4))": [
+          "R12_M_BR",
+          "R12_M_CFG"
+        ]
+      },
+      "partial_state_selection": false,
+      "endpoint_benefit_established": false
+    },
+    "endpoint_benefit_established": false,
+    "deployment_memory_or_speed_measured": false,
+    "capture_sha256": "0b7543679f9eb7c4154208ce357ddedf2e08a4e9d1f93adaadf89f145354177d",
+    "settlement_sha256": "ca760474ce7b1fc62bfdcea449008235cc42132599e55eb520b7855b56f124d2",
+    "CPU_wall_seconds": 6.0524107264354825,
+    "CPU_seconds": 4.743498822,
+    "peak_RSS_KiB": 471968,
+    "CUDA_initialized": false,
+    "GPU_submissions": 0,
+    "ledger_writes": 0
+  },
+  "analysis_sha256": "21a3d8bc28bb28578fade84a377ef891632d905d759431f78b5ed1b377c6c0a7"
+}
