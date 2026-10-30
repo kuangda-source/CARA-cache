@@ -4,11 +4,13 @@ CPU preparation only. The GPU guardian, admission and complete lifecycle reader
 must be bound separately before this can become a production dispatch entry.
 """
 import copy
+from dataclasses import asdict
 import fcntl
 from pathlib import Path
 
 import numpy as np
 
+from .cara_budget_storage_r1 import StorageLimits, check_scope, generation_snapshot, check_path_metadata
 from .cara_budget_search_r1 import SearchConfig, FIT_MEMBERS, SCHEDULE_SHA256, PROFILE_FINGERPRINT
 from .cara_budget_search_journal_r1 import create_record, read_record, sync_directory, run_search, OriginalQueryUnknown
 from .cara_budget_rgb_objective_r1 import save_endpoint, read_endpoint, full_rgb_mse, file_sha
@@ -17,7 +19,7 @@ from .cara_fast_spec_r1 import digest, profile_from, policy_from_mask
 
 class Calibration:
     def __init__(self, *, root, card, config, context_sha256, RGB_shape, execute,
-                 cpu_validation=False, create=False):
+                 cpu_validation=False, create=False, storage_limits=None):
         if cpu_validation is not True:
             raise ValueError('Whole GPU calibration is not yet admitted; CPU preparation only')
         self.card=copy.deepcopy(card);self.profile=profile_from(card['profile'])
@@ -32,9 +34,13 @@ class Calibration:
                 or any(type(n) is not int or n<=0 for n in RGB_shape)):
             raise ValueError('Bound context and complete RGB geometry required')
         self.root=Path(root);self.config=config;self.context=context_sha256;self.shape=list(RGB_shape)
+        if storage_limits is not None and not isinstance(storage_limits,StorageLimits):
+            raise ValueError('Explicit storage limits required')
+        self.storage_limits=storage_limits
         self.execute=execute;self.physical_calls=0;self.allow_new=False
         self.binding=dict(CPU_fixture_only=True,scope_sha256=card['scope_sha256'],context_sha256=context_sha256,
-            config=vars(config),RGB_shape=self.shape,source_sha256=file_sha(__file__))
+            config=vars(config),RGB_shape=self.shape,source_sha256=file_sha(__file__),
+            storage_limits=asdict(storage_limits) if storage_limits else None)
         if create:
             self.root.mkdir(mode=0o700);sync_directory(self.root.parent)
             create_record(self.root/'binding.json',self.binding);create_record(self.root/'calibration.lock',{})
@@ -55,12 +61,18 @@ class Calibration:
             proof=read_record(path/'complete.json')
             if proof['identity']!=identity or proof['status']!='COMPLETE':
                 raise ValueError('Original physical result differs')
+            if self.storage_limits:
+                if proof['generation_payload']!=generation_snapshot(path/'generation',self.storage_limits):
+                    raise ValueError('Original retained generation payload differs')
+                check_path_metadata(path,self.storage_limits)
+                check_scope(self.root,self.storage_limits)
             rgb,artifact=read_endpoint(path/'endpoint',identity)
             if proof['RGB_sha256']!=artifact['RGB_sha256']:
                 raise ValueError('Original physical RGB completion differs')
             return rgb,proof
         if not self.allow_new:
             raise ValueError('Recovery cannot create a new physical request')
+        if self.storage_limits:check_scope(self.root,self.storage_limits,reserve_next=True)
         path.mkdir(mode=0o700);sync_directory(path.parent);create_record(path/'intent.json',identity)
         self.physical_calls+=1
         result,rgb,rng_sha=self.execute(slot,policy,path/'generation')
@@ -75,12 +87,20 @@ class Calibration:
                 raise ValueError('Actual policy departed from the registered fixed D budget')
         if not isinstance(rng_sha,str) or len(rng_sha)!=64:
             raise ValueError('Complete post-request RNG witness required')
+        generation=generation_snapshot(path/'generation',self.storage_limits) if self.storage_limits else None
         artifact=save_endpoint(path/'endpoint',identity,rgb)
+        if self.storage_limits and (path/'endpoint/RGB.npy').stat().st_size>self.storage_limits.RGB_bytes_per_path:
+            raise ValueError('Full RGB artifact exceeds its registered allowance')
         proof=dict(status='COMPLETE',identity=identity,RGB_sha256=artifact['RGB_sha256'],
             rng_sha256=rng_sha,solver_steps=36,guided_pairs=36,
             actual_D=19 if role in ('UNIFORM19_C','SEARCH_CANDIDATE') else 36,
             T_DD=result['T_DD'],T_request=result['T_request'],CPU_fixture_only=True)
+        if self.storage_limits:
+            proof['generation_payload']=generation
+            check_path_metadata(path,self.storage_limits)
+            check_scope(self.root,self.storage_limits)
         create_record(path/'complete.json',proof)
+        if self.storage_limits:check_path_metadata(path,self.storage_limits)
         return rgb,proof
 
     @staticmethod
@@ -124,6 +144,7 @@ class Calibration:
             fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
             calls_before=self.physical_calls
             self.allow_new=allow_new
+            if self.storage_limits:check_scope(self.root,self.storage_limits)
             self.prepare()
             journal=self.root/'queries'
             if not journal.exists() and not allow_new:
@@ -146,7 +167,8 @@ class Calibration:
                     response=self.evaluate(query)
                     if {r['member']:r['RGB_MSE'] for r in response['rows']}!=row['RGB_MSE_by_member']:
                         raise ValueError('Original complete query objective differs from saved RGB')
-            return dict(status='CALIBRATION_CPU_COMPLETE' if complete else 'CALIBRATION_CPU_INCOMPLETE',
+            storage=check_scope(self.root,self.storage_limits) if self.storage_limits else None
+            return dict(storage_accounting=storage,status='CALIBRATION_CPU_COMPLETE' if complete else 'CALIBRATION_CPU_INCOMPLETE',
                 complete=complete,expected_physical_paths=expected,complete_physical_paths=len(completed),
                 new_physical_calls=self.physical_calls-calls_before,search=result,CPU_fixture_only=True,
                 GPU_dispatch_ready=False,scientific_freeze_written=False,GPU_submissions=0,ledger_written=False)

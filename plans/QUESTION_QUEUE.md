@@ -73,3 +73,5 @@ S单次授权已接收：用户在S/Q原对话批准另一张A6000完整十条�
 [774完整校准CPU入口](../research/774_CARA_COMPLETE_CALIBRATION_ENTRY_AND_FOUR_CARD_CPU_20261030.md)：原112路径/51双FIT查询已组合，四卡原CPU18:46启动、18:56仍运行；完整两flow矩阵待原终态接受。只读采集与接收器本地控制通过，GPU组合及pre-lock失败见证仍待，未新派GPU。
 
 [775完整校准CPU验收](../research/775_CARA_COMPLETE_CALIBRATION_CPU_ACCEPTANCE_AND_FAILURE_BOUNDARY_20261030.md)：四卡原CPU19:04退出/0，224设计路径、102双FIT目标及6预定失败通过，原发布源e31cc212明确绑定。失败结算修订及验收器27项本地控制通过，受影响Linux与GPU组合待验；64GiB存储额度待实施，双端CPU/报价和单次GPU批准仍待。
+
+[776生命周期Linux与存储](../research/776_CARA_LIFECYCLE_LINUX_DELTA_AND_STORAGE_GUARDS_20261030.md)：R1缺依赖失败保留；修订R2四卡22项通过且退出/0，5项验收器控制通过。存储边界接入完整校准并通过13项本地控制；实际硬配额和GPU生产组合、双端CPU/整卡报价仍待，0新增GPU。
