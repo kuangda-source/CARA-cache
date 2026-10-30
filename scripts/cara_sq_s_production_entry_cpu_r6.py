@@ -1,6 +1,7 @@
 """Immutable native S CPU card; uses the existing direct two-card FRP alias."""
 import argparse
 import base64
+import gzip
 import hashlib
 import json
 from pathlib import Path
@@ -48,7 +49,13 @@ def launch_source():
 
 
 def remote(host, code, data=None, *, credential_file=None, docker_group=False):
-    if host == 'four_card': return transport.four_ssh(code, data)
+    # The 1.7 MiB source requests hit the SSH observation limit over DERP.
+    # Compress only transport bytes; original per-file SHA checks still run.
+    if data is not None:
+        data = base64.b64encode(gzip.compress(json.dumps(data).encode(), mtime=0)).decode()
+        code = ('import base64,gzip,io,json,sys\n'
+            'sys.stdin=io.StringIO(gzip.decompress(base64.b64decode(json.load(sys.stdin))).decode())\n'+code)
+    if host == 'four_card': return transport.four_ssh(code, data, timeout=420)
     password = None
     command = shlex.quote('/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python')+' -c '+shlex.quote(code)
     payload = json.dumps(data) if data is not None else ''
@@ -59,7 +66,7 @@ def remote(host, code, data=None, *, credential_file=None, docker_group=False):
         payload = password+'\n'+payload
     result = subprocess.run(['ssh', '-o', 'BatchMode=yes', '-o', 'ConnectTimeout=15',
         '-o', 'ClearAllForwardings=yes', '-o', 'StrictHostKeyChecking=yes', 'gkd_minchen', command],
-        input=payload, text=True, capture_output=True, timeout=180)
+        input=payload, text=True, capture_output=True, timeout=420)
     if result.returncode:
         error = result.stderr[-1800:]
         if password: error = error.replace(password, '[REDACTED]')
