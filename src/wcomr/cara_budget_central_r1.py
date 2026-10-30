@@ -11,6 +11,7 @@ from .cara_fast_b36_dispatch_r2 import create
 from .gpu_budget_pool_v2 import atomic_json, finite,sha
 from .policy_price_terminal_r1 import require
 from .wc73_execution_r1 import Pool, admit_host, hold
+from .cara_budget_host_policy_r1 import HOSTS, POLICY_SHA256
 
 RUN='cara-budget-calibration-14gpuh-r1-20261030'
 STAGES={'four_card':'cara-budget-calibration-GPU-ada-r1-20261030',
@@ -18,8 +19,9 @@ STAGES={'four_card':'cara-budget-calibration-GPU-ada-r1-20261030',
 SOURCE='src/wcomr/cara_budget_central_r1.py'
 
 
-def original_absence(observations,project):
-    require(set(observations)==set(STAGES),'Both registered original handles must be observed')
+def original_absence(observations,project,*,hosts=tuple(STAGES)):
+    require(bool(hosts) and set(observations)==set(hosts) and set(hosts)<=set(STAGES),
+            'All required original handles must be observed')
     for host,row in observations.items():
         require(row['host']==host and row['stage']==str(Path(project)/'.sync'/STAGES[host])
                 and row['run_id']==RUN and row['observation_complete'] is True
@@ -43,7 +45,8 @@ def reserve(project,admission,observations):
     require(auth['run_id']==RUN and auth['CPU_fixture_only'] is False
             and auth['execution_authorized'] is True and auth['direct_user_authorization'] is True
             and bool(auth['user_quote']) and auth['authorizes_replay'] is False
-            and auth['billed_limit_GPUh']==14 and auth['host'] in STAGES
+            and auth['billed_limit_GPUh']==14 and auth['host'] in HOSTS
+            and auth.get('execution_host_policy_sha256')==POLICY_SHA256
             and auth['stage']==str(project/'.sync'/STAGES[auth['host']]),'One complete approved 14 GPUh card required')
     job.update(job_id=RUN,registration_sha256=admission['registration_sha256'],
         authorization_sha256=admission['authorization_sha256'],physical_paths=112,candidate_queries=51,
@@ -66,7 +69,9 @@ def reserve(project,admission,observations):
         original_absence(observations,project)
         require(admission['status']=='CALIBRATION_COMPLETE_FRESH_ADMISSION_NO_GPU'
                 and admission['central_operator_sha256']==sha(__file__)
-                and admission['dual_host_whole_card_CPU_accepted'] is True
+                and admission.get('required_host_whole_card_CPU_accepted') is True
+                and admission.get('required_hosts')==list(HOSTS)
+                and admission.get('execution_host_policy_sha256')==POLICY_SHA256
                 and admission['physical_paths']==112 and admission['candidate_queries']==51
                 and finite(admission['observed_unix']) and 0<=time.time()-admission['observed_unix']<=60
                 and finite(job['forecast_GPUh']) and 0<job['forecast_GPUh']<=14,

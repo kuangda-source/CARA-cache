@@ -29,12 +29,14 @@ class CentralTests(unittest.TestCase):
             host='two_card',gpu_uuid='GPU-cebf7119-cf03-23b9-e192-cd196332b704',
             stage=str(self.project/'.sync'/central.STAGES['two_card']),billed_limit_GPUh=14,
             CPU_fixture_only=False,execution_authorized=True,direct_user_authorization=True,
-            user_quote='Synthetic metadata for temporary ledger only',authorizes_replay=False)
+            user_quote='Synthetic metadata for temporary ledger only',authorizes_replay=False,
+            execution_host_policy_sha256=central.POLICY_SHA256)
         self.observations={host:dict(host=host,stage=str(self.project/'.sync'/stage),run_id=central.RUN,
             observation_complete=True,observed_unix=time.time(),dispatch_records=[],container=None)
             for host,stage in central.STAGES.items()}
         self.admission=dict(authorization=self.auth,registration_sha256='c'*64,forecast_GPUh=13,
-            status='CALIBRATION_COMPLETE_FRESH_ADMISSION_NO_GPU',dual_host_whole_card_CPU_accepted=True,
+            status='CALIBRATION_COMPLETE_FRESH_ADMISSION_NO_GPU',required_host_whole_card_CPU_accepted=True,
+            required_hosts=['two_card'],execution_host_policy_sha256=central.POLICY_SHA256,
             central_operator_sha256=sha(central.__file__),physical_paths=112,candidate_queries=51,observed_unix=time.time(),
             resources=dict(gpu=dict(uuid=self.auth['gpu_uuid'],name='NVIDIA RTX A6000',compute_cap='8.6',
                 utilization_percent=0,pids=[],memory_used_mib=0,temperature_C=35,unix=time.time())))
@@ -67,6 +69,9 @@ class CentralTests(unittest.TestCase):
         self.assertEqual(self.pool.read(),self.before)
 
     def test_original_other_host_intent_unknown_or_stale_refuses(self):
+        original=self.observations.pop('four_card')
+        with self.assertRaisesRegex(ValueError,'required original handles'):self.reserve()
+        self.observations['four_card']=original
         for field,value in [('dispatch_records',['GPU-intent.json']),('observation_complete',False),
                             ('container',{'Running':False}),('observed_unix',time.time()-61)]:
             original=self.observations['four_card'][field];self.observations['four_card'][field]=value
@@ -79,7 +84,8 @@ class CentralTests(unittest.TestCase):
         with self.assertRaises(ValueError):self.reserve()
         self.auth['direct_user_authorization']=True;self.refresh_authority()
         for key,value in [('physical_paths',111),('candidate_queries',50),('forecast_GPUh',15),
-                          ('observed_unix',time.time()-61),('dual_host_whole_card_CPU_accepted',False),
+                          ('observed_unix',time.time()-61),('required_host_whole_card_CPU_accepted',False),
+                          ('required_hosts',['four_card']),('execution_host_policy_sha256','0'*64),
                           ('central_operator_sha256','0'*64)]:
             original=self.admission[key];self.admission[key]=value
             with self.subTest(key=key),self.assertRaises(ValueError):self.reserve()

@@ -14,6 +14,7 @@ from .cara_fast_b36_dispatch_r2 import create,assets_check
 from .gpu_budget_pool_v2 import sha,atomic_json
 from .immutable_stage_payload_r1 import local_python_closure,configuration_closure,overlay_bytes,source_bytes
 from .policy_price_terminal_r1 import require
+from .cara_budget_host_policy_r1 import HOSTS, POLICY, POLICY_SHA256
 
 SOURCE='src/wcomr/cara_budget_prepare_r1.py'
 # The accepted CPU bases differ on these inherited files. Overlay the same
@@ -65,7 +66,7 @@ def source_plan(root,base_registration_sha256,base_source_revision,base_revision
 
 
 def observe_original(project,host):
-    require(host in STAGES,'Registered host required')
+    require(host in HOSTS,'Current user restriction permits only two-card observation')
     stage=Path(project)/'.sync'/STAGES[host]
     require(not stage.is_symlink(),'Original stage must not be a symlink')
     records=[name for name in ('GPU-intent.json','GPU-dispatch.json','GPU-launch.json','guardian-intent.json')
@@ -78,10 +79,12 @@ def observe_original(project,host):
 
 def prepare(project,host,base,archive,plan,revision,observations):
     project,base=Path(project),Path(base)
-    require(host in STAGES and re.fullmatch('[0-9a-f]{40}',revision),'Registered host and published revision required')
+    require(host in HOSTS and re.fullmatch('[0-9a-f]{40}',revision),'Two-card host and published revision required')
     stage=project/'.sync'/STAGES[host]
     require(not stage.is_symlink(),'Original stage must not be a symlink')
-    original_absence(observations,project)
+    # Source-only installation does not need to contact the maintenance host.
+    # Central reservation still retains its independent all-original-handle gate.
+    original_absence(observations,project,hosts=HOSTS)
     require(sha(base/'registration.json')==plan['base_registration_sha256'],'Original base registration differs')
     registered=read_record(base/'registration.json')
     require(plan['base_revision_field'] in ('source_revision','parent_git_revision')
@@ -89,6 +92,7 @@ def prepare(project,host,base,archive,plan,revision,observations):
             'Original host/base source differs')
     raw=overlay_bytes(archive,plan)
     require(set(REQUIRED)|set(DISPATCH_REQUIRED)|set(EXTRA)<=set(raw),'Complete preparation/dispatch overlay required')
+    require(hashlib.sha256(raw[POLICY]).hexdigest()==POLICY_SHA256,'Exact current host restriction required')
     combined={**registered['payload_sha256'],**plan['overlay_sha256']}
     require(base.parent==project/'.sync' and base!=stage and not base.is_symlink(),'Independent original sibling base required')
     runtime=registered['runtime_source_sha256']
@@ -122,7 +126,7 @@ def prepare(project,host,base,archive,plan,revision,observations):
 def bind_authority(project,stage,authority,proof,quote):
     """New direct approval is supplied externally after the reviewable CPU work."""
     project,stage=Path(project),Path(stage)
-    require(authority['run_id']==RUN and authority['host'] in STAGES
+    require(authority['run_id']==RUN and authority['host'] in HOSTS
             and stage==project/'.sync'/STAGES[authority['host']] and authority['stage']==str(stage)
             and authority['CPU_fixture_only'] is False and authority['execution_authorized'] is True
             and authority['direct_user_authorization'] is True and bool(authority['user_quote'])
@@ -157,7 +161,8 @@ def admit(project,stage):
         central_operator_sha256=registration['payload_sha256']['src/wcomr/cara_budget_central_r1.py'],
         authorization_raw_utf8=(stage/'GPU-authorization.json').read_text(),resources=resources,
         forecast_GPUh=quote['forecast_GPUh'],physical_paths=112,candidate_queries=51,
-        dual_host_whole_card_CPU_accepted=True,observed_unix=time.time(),GPU_submissions=0)
+        required_hosts=list(HOSTS),required_host_whole_card_CPU_accepted=True,
+        execution_host_policy_sha256=POLICY_SHA256,observed_unix=time.time(),GPU_submissions=0)
     atomic_json(stage/'fresh-admission.json',result)
     return result
 

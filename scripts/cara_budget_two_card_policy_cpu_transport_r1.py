@@ -1,0 +1,50 @@
+import sys,json,hashlib,base64,gzip,subprocess,shlex,os,signal,time
+from pathlib import Path
+sys.path[:0]=['scripts','src']
+from cara_budget_calibration_cpu_hosts_r3 import REMOTE as ORIGINAL
+from cara_two_card_transport_r1 import password
+from wcomr.cara_budget_cpu_resources_r2 import HOST_CONFIG
+stage='cara-budget-two-card-policy-CPU-a6000-r1-20261031'
+action=sys.argv[1];output=Path(sys.argv[2]);assert action in ('prepare','capture') and not output.exists()
+remote=ORIGINAL.replace('check_cara_budget_calibration_cpu_r3.py','check_cara_budget_two_card_policy_cpu_r1.py')
+if action=='capture':
+ remote="import io,sys,gzip,base64,json,hashlib\noriginal_stdout=sys.stdout\nsys.stdout=io.StringIO()\nexec("+repr(remote)+")\nraw=sys.stdout.getvalue().encode()\nsys.stdout=original_stdout\nprint(json.dumps(dict(gzip_base64=base64.b64encode(gzip.compress(raw)).decode(),raw_sha256=hashlib.sha256(raw).hexdigest())))\n"
+payload=dict(action=action,host='two_card',stage_name=stage)
+revision=sys.argv[3]
+assert len(revision)==40 and all(c in '0123456789abcdef' for c in revision)
+if action=='prepare':
+ cap=json.loads(Path('reports/cara_budget_current_CPU_two_R4_capture_r4_20261031.json').read_text())['result']
+ base=cap['registration'];names=['src/wcomr/cara_budget_host_policy_r1.py', 'src/wcomr/cara_budget_dispatch_r1.py', 'src/wcomr/cara_budget_prepare_r1.py', 'src/wcomr/cara_budget_central_r1.py', 'tests/test_cara_budget_dispatch_r1.py', 'tests/test_cara_budget_prepare_r1.py', 'tests/test_cara_budget_central_r1.py', 'tests/check_cara_budget_dispatch_child_fixture_r1.py', 'tests/test_cara_budget_dispatch_child_r1.py', 'scripts/check_cara_budget_two_card_policy_cpu_r1.py', 'plans/cara_next_stage_20261028/mainline/r2/TWO_CARD_ONLY_HARDWARE_MAINTENANCE_20261031.json']
+ raw={name:subprocess.check_output(['git','show',revision+':'+name]) for name in names}
+ assert all(Path(name).read_bytes()==data for name,data in raw.items())
+ hashes={**base['payload_sha256'],**{n:hashlib.sha256(b).hexdigest() for n,b in raw.items()}}
+ payload.update(base_stage=cap['launch']['stage'],base_registration_sha256=cap['registration_sha256'],parent_git_revision=revision,
+  expected_host_config=HOST_CONFIG,minimum_available_memory_GiB=8,files={n:base64.b64encode(b).decode() for n,b in raw.items()},
+  overlay_sha256={n:hashlib.sha256(b).hexdigest() for n,b in raw.items()},full_mapping_sha256=hashlib.sha256(json.dumps(hashes,sort_keys=True,separators=(',',':')).encode()).hexdigest())
+ wrapper="""import json,sys,hashlib,io
+from pathlib import Path
+p=json.load(sys.stdin)
+if p['action']=='prepare':
+ b=Path(p['base_stage'])/'registration.json';assert hashlib.sha256(b.read_bytes()).hexdigest()==p['base_registration_sha256']
+ p['hashes']={**json.loads(b.read_text())['payload_sha256'],**p.pop('overlay_sha256')}
+ assert hashlib.sha256(json.dumps(p['hashes'],sort_keys=True,separators=(',',':')).encode()).hexdigest()==p.pop('full_mapping_sha256')
+sys.stdin=io.StringIO(json.dumps(p))
+"""
+ remote=wrapper+'\nexec('+repr(remote)+')\n'
+binding=dict(action=action,host='two_card',stage=stage,started_unix=time.time(),source_revision=revision,
+ remote_code_sha256=hashlib.sha256(remote.encode()).hexdigest(),local_transport_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
+ payload_sha256=hashlib.sha256(json.dumps(payload,sort_keys=True).encode()).hexdigest(),GPU_submissions=0,work_seconds=180,exit_seconds=30)
+with output.with_name(output.stem+'_binding.json').open('x') as f:json.dump(binding,f,indent=2);f.write('\n')
+secret=password();command="sudo -S -p '' -u gaokuangda -g docker /home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python -c "+shlex.quote(remote)
+cmd=['ssh','-C','-F','.sync/cara-fast-mainline-tailscale-20261030/ssh_config.budget_direct.private','-o','BatchMode=yes','-o','ConnectTimeout=35','-o','ServerAliveInterval=5','-o','ServerAliveCountMax=2','two_card_lan',command]
+child=subprocess.Popen(cmd,stdin=subprocess.PIPE,stdout=subprocess.PIPE,stderr=subprocess.PIPE,start_new_session=True)
+try:out,err=child.communicate((secret+'\n'+json.dumps(payload)).encode(),timeout=100)
+except subprocess.TimeoutExpired:os.killpg(child.pid,signal.SIGTERM);out,err=child.communicate()
+result=json.loads(out) if child.returncode==0 else None
+if result is not None and action=='capture':
+ raw=gzip.decompress(base64.b64decode(result['gzip_base64']))
+ assert hashlib.sha256(raw).hexdigest()==result['raw_sha256']
+ result=json.loads(raw)
+row=dict(binding,observed_unix=time.time(),exit_code=child.returncode,stderr=err.decode(errors='replace').replace(secret,'[REDACTED]'),result=result,recovery_only_on_unknown=True)
+with output.open('x') as f:json.dump(row,f,indent=2);f.write('\n')
+print(json.dumps(dict(output=str(output),exit_code=child.returncode,result_status=(row['result'] or {}).get('status'))))

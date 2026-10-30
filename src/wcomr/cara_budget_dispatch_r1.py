@@ -24,12 +24,13 @@ from .history104_storage_r2 import storage_for
 from .policy_price_terminal_r1 import require
 from .wc73_exclusive_r1 import observe
 from .wc73_execution_r1 import Pool, hold, admit_host
+from .cara_budget_host_policy_r1 import SOURCE as HOST_POLICY_SOURCE, POLICY, POLICY_SHA256, bound_policy
 
 SOURCE='src/wcomr/cara_budget_dispatch_r1.py'
 GUARDIAN='scripts/cara_budget_host_entry_r1.py'
 CLI='scripts/cara_budget_dispatch_r1.py'
 ASSETS='plans/cara_next_stage_20261028/mainline/r2/B36_FROZEN_ASSETS_R1.json'
-REQUIRED=(SOURCE,GUARDIAN,CLI,ASSETS,
+REQUIRED=(SOURCE,GUARDIAN,CLI,ASSETS,HOST_POLICY_SOURCE,POLICY,
     'src/wcomr/cara_budget_host_guardian_r1.py','src/wcomr/cara_budget_guardian_journal_r1.py',
     'src/wcomr/cara_budget_supervisor_r1.py','scripts/cara_budget_process_bootstrap_r1.py',
     'scripts/cara_budget_container_r1.py','scripts/cara_budget_supervisor_worker_r1.py',
@@ -53,14 +54,17 @@ def ready_inputs(project,stage):
             and re.fullmatch('[0-9a-f-]{32,36}',authority['launch_id'])
             and registration['container_image']==profile['GPU_container']['image'],
             'Published source, unique launch and pinned image required')
+    hosts=bound_policy(stage,registration,authority)
     proof=read_record(Path(stage)/'execution-CPU-proof.json')
-    require(proof.get('dual_host_whole_card_CPU_accepted') is True
-            and set(proof['host_receipts'])=={'four_card','two_card'}
+    require(proof.get('required_host_whole_card_CPU_accepted') is True
+            and proof.get('execution_host_policy_sha256')==POLICY_SHA256
+            and proof.get('required_hosts')==list(hosts) and set(proof['host_receipts'])==set(hosts)
             and all(row['whole_card_CPU_accepted'] is True and row['scope_sha256']==card['scope_sha256']
                     and row['payload_sha256']==payload for row in proof['host_receipts'].values()),
-            'Both hosts need full affected execution CPU acceptance')
+            'Required two-card host needs full affected execution CPU acceptance')
     quote=read_record(Path(stage)/'whole-quote.json')
-    require(set(quote['host_quotes'])=={'four_card','two_card'},'Both complete host quotes required')
+    require(quote.get('execution_host_policy_sha256')==POLICY_SHA256
+            and set(quote['host_quotes'])==set(hosts),'Complete two-card policy-bound quote required')
     components={'generation','path_artifacts_and_objectives','producer_final_full_readback',
                 'admission_and_model_load','stop_and_release'}
     for row in quote['host_quotes'].values():

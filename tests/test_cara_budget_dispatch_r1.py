@@ -28,21 +28,26 @@ class DispatchTests(unittest.TestCase):
 
     def setUp(self):
         fixtures.RunnerBindingTests.setUp(self)
+        self.auth['host']=self.launch['host']=self.reg['host']=self.proof['host']='two_card'
+        self.auth['execution_host_policy_sha256']=dispatch.POLICY_SHA256
         for name in dispatch.REQUIRED:
             target=self.stage/name;target.parent.mkdir(parents=True,exist_ok=True)
             target.write_bytes((ROOT/name).read_bytes())
             self.reg['payload_sha256'][name]=sha(target)
         profile=read_record(self.stage/dispatch.PROFILE)
         self.reg['container_image']=profile['GPU_container']['image']
-        self.proof['dual_host_whole_card_CPU_accepted']=True
+        self.proof['required_host_whole_card_CPU_accepted']=True
+        self.proof['required_hosts']=['two_card']
+        self.proof['execution_host_policy_sha256']=dispatch.POLICY_SHA256
+        self.quote['execution_host_policy_sha256']=dispatch.POLICY_SHA256
         self.proof['host_receipts']={host:dict(whole_card_CPU_accepted=True,
             scope_sha256=self.card['scope_sha256'],payload_sha256=self.reg['payload_sha256'])
-            for host in ('four_card','two_card')}
+            for host in ('two_card',)}
         costs=dict(generation=35000,path_artifacts_and_objectives=6000,
             producer_final_full_readback=3000,admission_and_model_load=1000,stop_and_release=600)
         self.quote['host_quotes']={host:dict(hard_GPUh=14,forecast_GPUh=sum(costs.values())/3600,
             physical_paths=112,candidate_queries=51,components_seconds=dict(costs),
-            evidence_refs=['SYNTHETIC_METADATA_FIXTURE_NOT_ACTUAL_HOST_QUOTE']) for host in ('four_card','two_card')}
+            evidence_refs=['SYNTHETIC_METADATA_FIXTURE_NOT_ACTUAL_HOST_QUOTE']) for host in ('two_card',)}
         output=self.project/'outputs'/self.launch['run_id'];journal=self.project/'reports/fixture.journal'
         self.storage=SimpleNamespace(output=output,journal=SimpleNamespace(path=journal),check=lambda:None,
             config=dict(output_mount=str(output),image_path=str(self.project/'image.ext4'),image_bytes=64*2**30,
@@ -77,23 +82,23 @@ class DispatchTests(unittest.TestCase):
              patch.object(dispatch,'storage_for',return_value=self.storage):
             return dispatch.publish_launch(self.project,self.stage)
 
-    def test_prelaunch_inputs_work_without_launch_file_on_both_hosts(self):
-        for host in ('four_card','two_card'):
-            self.auth['host']=self.launch['host']=self.reg['host']=self.proof['host']=host
-            if host=='two_card':
-                old=read_record(self.stage/'central-reservation.json')['central_before']['jobs'][self.old_keys[0]]
-                self.auth['gpu_uuid']=self.launch['gpu_uuid']=old['gpu_uuid']
-            self.refresh()
-            self.assertEqual(dispatch.ready_inputs(self.project,self.stage)[2]['host'],host)
-            self.assertEqual(dispatch.central_binding(self.stage,self.auth,self.snapshot)['job']['host'],host)
-            self.assertFalse((self.stage/'GPU-launch.json').exists())
+    def test_prelaunch_requires_current_two_card_policy_and_refuses_four_card(self):
+        self.assertEqual(dispatch.ready_inputs(self.project,self.stage)[2]['host'],'two_card')
+        self.assertEqual(dispatch.central_binding(self.stage,self.auth,self.snapshot)['job']['host'],'two_card')
+        self.assertFalse((self.stage/'GPU-launch.json').exists())
+        self.auth['execution_host_policy_sha256']='0'*64;self.refresh()
+        with self.assertRaisesRegex(ValueError,'two-card policy'):dispatch.ready_inputs(self.project,self.stage)
+        self.auth['execution_host_policy_sha256']=dispatch.POLICY_SHA256
+        self.auth['host']=self.launch['host']=self.reg['host']=self.proof['host']='four_card'
+        self.quote['host_quotes']['four_card']=self.quote['host_quotes']['two_card'];self.refresh()
+        with self.assertRaisesRegex(ValueError,'two-card policy'):dispatch.ready_inputs(self.project,self.stage)
 
     def test_resource_gate_checks_selected_GPU_MPS_memory_affinity_and_exact_absence(self):
         from wcomr import cara_budget_lifecycle_capture_r1 as capture
         profile=read_record(self.stage/dispatch.PROFILE)
         self.write('fresh-admission.json',dict(registration_sha256=sha(self.stage/'registration.json'),
             authorization_sha256=sha(self.stage/'GPU-authorization.json'),asset_spec_sha256=sha(self.stage/dispatch.ASSETS),assets=[]))
-        gpu=dict(uuid=self.auth['gpu_uuid'],compute_cap='8.9',utilization_percent=0,pids=[],memory_used_mib=0,
+        gpu=dict(uuid=self.auth['gpu_uuid'],compute_cap='8.6',utilization_percent=0,pids=[],memory_used_mib=0,
             temperature_C=30,compute_mode='Default')
         observation=dict(gpu_uuid=self.auth['gpu_uuid'],compute_apps=[],mps_processes=[])
         def check(gpu_override=None,hardware=None,memory=48,affinity=(24,25),container=None):
@@ -108,7 +113,7 @@ class DispatchTests(unittest.TestCase):
                 return dispatch.fresh_resources(self.project,self.stage,self.auth,profile)
         self.assertEqual(check()[1]['MemAvailable_bytes'],48*2**30)
         failures=[dict(gpu_override=dict(gpu,temperature_C=90)),dict(gpu_override=dict(gpu,pids=[999])),
-            dict(gpu_override=dict(gpu,compute_cap='8.6')),dict(gpu_override=dict(gpu,memory_used_mib=1025)),
+            dict(gpu_override=dict(gpu,compute_cap='8.9')),dict(gpu_override=dict(gpu,memory_used_mib=1025)),
             dict(hardware=dict(observation,mps_processes=None)),dict(hardware=dict(observation,compute_apps=[{}])),
             dict(memory=43),dict(affinity=(0,1)),dict(container={'unrelated':'existing'})]
         for arguments in failures:
@@ -125,12 +130,12 @@ class DispatchTests(unittest.TestCase):
         popen.assert_not_called();self.assertFalse(result['authorizes_retry'])
 
     def test_other_live_job_on_same_host_refused_and_unrelated_host_allowed(self):
-        other=dict(status='RESERVED_OR_RUNNING',host='four_card',gpu_uuid='GPU-other',billed_limit_GPUh=1)
+        other=dict(status='RESERVED_OR_RUNNING',host='two_card',gpu_uuid='GPU-other',billed_limit_GPUh=1)
         self.snapshot['ledger']['jobs']['other']=other
         self.snapshot['ledger'].update(Pool.accounting(self.snapshot['ledger']))
         with self.assertRaisesRegex(ValueError,'already has an owned GPU job'):
             dispatch.central_binding(self.stage,self.auth,self.snapshot)
-        other['host']='two_card'
+        other['host']='four_card'
         self.assertEqual(dispatch.central_binding(self.stage,self.auth,self.snapshot)['job'],self.job)
 
     def test_original_guardian_publication_binds_frozen_commands_and_runner_context(self):
@@ -193,10 +198,10 @@ class DispatchTests(unittest.TestCase):
         popen.assert_not_called();self.assertFalse((self.stage/'GPU-intent.json').exists())
 
     def test_changed_source_incomplete_CPU_and_missing_readback_quote_refused(self):
-        self.proof['dual_host_whole_card_CPU_accepted']=False;self.refresh()
-        with self.assertRaisesRegex(ValueError,'Both hosts'):dispatch.ready_inputs(self.project,self.stage)
-        self.proof['dual_host_whole_card_CPU_accepted']=True
-        del self.quote['host_quotes']['four_card']['components_seconds']['producer_final_full_readback'];self.refresh()
+        self.proof['required_host_whole_card_CPU_accepted']=False;self.refresh()
+        with self.assertRaisesRegex(ValueError,'Required two-card'):dispatch.ready_inputs(self.project,self.stage)
+        self.proof['required_host_whole_card_CPU_accepted']=True
+        del self.quote['host_quotes']['two_card']['components_seconds']['producer_final_full_readback'];self.refresh()
         with self.assertRaisesRegex(ValueError,'Whole quote'):dispatch.ready_inputs(self.project,self.stage)
         (self.stage/dispatch.GUARDIAN).write_text('# Different source\n')
         with self.assertRaisesRegex(ValueError,'source differs'):dispatch.ready_inputs(self.project,self.stage)
@@ -210,7 +215,7 @@ class DispatchTests(unittest.TestCase):
         for fault in ('stale','other_host','liability','cap','funds'):
             self.refresh()
             if fault=='stale':self.snapshot['observed_unix']-=61
-            if fault=='other_host':self.snapshot['ledger']['jobs'][self.auth['run_id']]['host']='two_card'
+            if fault=='other_host':self.snapshot['ledger']['jobs'][self.auth['run_id']]['host']='four_card'
             if fault=='liability':self.snapshot['ledger']['jobs'][self.old_keys[0]]['billed_limit_GPUh']=15
             if fault=='cap':self.snapshot['ledger']['cap_gpu_hours']=250
             if fault=='funds':self.snapshot['ledger']['available_gpu_hours']=100
