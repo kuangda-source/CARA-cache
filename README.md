@@ -2,7 +2,7 @@
 
 # CARA-Cache
 
-[764 BudCache强基线源码与查询范围核查](research/764_CARA_BUDCACHE_PRIMARY_SOURCE_AND_QUERY_SCOPE_AUDIT_20261030.md)：已固定官方BudCache源码，核对七份原文件并执行原搜索控制器CPU替身：默认1教师＋301候选＝302请求；双FIT目标规划上界604请求，不能视为低费用现成基线。已登记同Cosmos-C/36步/19D适配边界、独立搜索随机源及终点查询/完整校准费用要求；实际适配和GPU报价未完成。S原单次A6000硬限14GPUh批准保持，由S/Q原对话负责派发；F18/Q5组件和原最终输入保护保持，本轮0GPUh。
+[765 BudCache预算搜索组件CPU接受](research/765_CARA_BUDCACHE_BOUNDED_SEARCH_COMPONENT_CPU_20261030.md)：BudCache式同36更新/19D的SA与采样HC搜索组件通过11项本地CPU控制：固定原Uniform19起点、原网格/profile和双FIT；完整合成301查询/602候选端点请求，查询上限、失败停止及随机源隔离通过。真实Cosmos评价、持久化查询恢复、双端生产CPU与完整报价仍待，未冻结实际GPU查询预算。S原单次批准和原对话派发责任保持，本轮0GPUh。
 
 **2026-10-28最新安排：主线P0/F19，探索S-FAST19与固定Shared25-C的Q并行准备。** [最新计划与两个对话分工](plans/cara_next_stage_20261028/08_REPOSITORY_RECONCILIATION.md) · [739接收记录](research/739_CARA_NEXT_STAGE_FAST_SQ_PLAN_AND_CHAT_HANDOFF_20261028.md)。A32已完整验收并冻结；B36已获单次批准，实际状态以原运行记录为准。WC73已热停结算，禁止自动重派；原DEV128、旧合同与失败保持。以下旧准备记录仅作历史复用依据。
 
