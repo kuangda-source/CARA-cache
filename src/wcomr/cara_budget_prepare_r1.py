@@ -16,8 +16,17 @@ from .immutable_stage_payload_r1 import local_python_closure,configuration_closu
 from .policy_price_terminal_r1 import require
 
 SOURCE='src/wcomr/cara_budget_prepare_r1.py'
-EXTRA=(SOURCE,'src/wcomr/cara_budget_central_r1.py','src/wcomr/immutable_stage_payload_r1.py',
+# The accepted CPU bases differ on these inherited files. Overlay the same
+# published bytes on both hosts before freezing the complete payload identity.
+COMMON_BASE_OVERLAY=(
+    'scripts/check_cara_fast_f18_cpu_r1.py','scripts/check_cara_q5_native50_cpu_r1.py',
+    'src/wcomr/cara_q5_native50_r1.py','tests/check_cara_fast_f18_routes_r1.py',
+    'tests/check_cara_q5_native50_routes_r1.py','tests/test_cara_q5_native50_source_r1.py',
+    'src/wcomr/sq_q1_readout_r1.py','src/wcomr/sq_readout_subgraph_r1.py',
+    'tests/test_sq_readout_subgraph_r1.py')
+EXTRA=COMMON_BASE_OVERLAY+(SOURCE,'src/wcomr/cara_budget_central_r1.py','src/wcomr/immutable_stage_payload_r1.py',
     'scripts/cara_budget_prepare_r1.py','scripts/cara_budget_central_r1.py',
+    'scripts/cara_budget_calibration_cpu_hosts_r3.py',
     'configs/f1_setup.json','configs/wc_ra_comparison_production_r2_20261010.json',
     'manifests/wc_h0_eval_mode_contract_20261003.json',
     'plans/cara_next_stage_20261028/mainline/r2/BUDGET_CALIBRATION_14GPUH_DESIGN_R1.json',
