@@ -1,0 +1,173 @@
+{
+  "action": "capture",
+  "source_revision": "b9d6dce102aaf31fb7fbb705997f47f6707cb167",
+  "started_unix": 1793383961.450324,
+  "observed_unix": 1793383974.305171,
+  "exit_code": 0,
+  "remote_code_sha256": "aab06693314cf8559aa14e9356b6425d8b93909c625794286f8fdd5fcbc60361",
+  "transport_sha256": "57f574bbe4b1aec412a11f83e451a19ca32eb3689a4cfab38617aba77c6076cc",
+  "stderr": "** WARNING: connection is not using a post-quantum key exchange algorithm.\r\n** This session may be vulnerable to \"store now, decrypt later\" attacks.\r\n** The server may need to be upgraded. See https://openssh.com/pq.html\r\n** WARNING: connection is not using a post-quantum key exchange algorithm.\r\n** This session may be vulnerable to \"store now, decrypt later\" attacks.\r\n** The server may need to be upgraded. See https://openssh.com/pq.html\r\n",
+  "result": {
+    "status": "ORIGINAL_TWO_CARD_STORAGE_CAPTURE",
+    "launch": {
+      "status": "ORIGINAL_TWO_CARD_STORAGE_PROCESS_LAUNCHED_NO_GPU",
+      "control": "/data20t/gaokuangda/worldcache_workspace/.sync/cara-budget-storage-provision-two-r2-20261031",
+      "identity": {
+        "pid": 2246438,
+        "start_ticks": 667885154,
+        "host_view": {
+          "boot_id": "13495735-f30b-47a2-af0a-2496f5206a0b",
+          "pid_namespace_inode": 4026531836
+        },
+        "original_command_sha256": "e5ce1fb5693e9228025cf1a06f2ac1c446c7350a98f915e9fa7753993aff0b23"
+      },
+      "source_revision": "b9d6dce102aaf31fb7fbb705997f47f6707cb167",
+      "operator_sha256": "fde2ec92d3c0cbfdf20318e5236ba02dc7030e88e34d326d9cd53cfbad29d14b",
+      "started_unix": 1793383948.025625,
+      "GPU_submissions": 0,
+      "ledger_written": false
+    },
+    "observation": {
+      "observed_unix": 1793383974.8132167,
+      "original_pid": 2246438,
+      "original_start_ticks": 667885154,
+      "original_live": false,
+      "status": "ORIGINAL_NOT_LIVE",
+      "reason": "ORIGINAL_PROC_ABSENT",
+      "dispatch_allowed": false,
+      "financial_settlement_allowed": false,
+      "scientific_read_allowed": false,
+      "observed_host_view": {
+        "boot_id": "13495735-f30b-47a2-af0a-2496f5206a0b",
+        "pid_namespace_inode": 4026531836
+      },
+      "observed_process": {
+        "pid": 2246438,
+        "state": null,
+        "start_ticks": null
+      }
+    },
+    "operator_intact": true,
+    "state": {
+      "status": "TWO_CARD_PRIVATE64_STORAGE_PROVISIONED_NO_GPU",
+      "started_unix": 1793383948.0841448,
+      "identity": {
+        "pid": 2246438,
+        "start_ticks": 667885154,
+        "host_view": {
+          "boot_id": "13495735-f30b-47a2-af0a-2496f5206a0b",
+          "pid_namespace_inode": 4026531836
+        },
+        "original_command_sha256": "e5ce1fb5693e9228025cf1a06f2ac1c446c7350a98f915e9fa7753993aff0b23"
+      },
+      "source_revision": "b9d6dce102aaf31fb7fbb705997f47f6707cb167",
+      "operator_sha256": "fde2ec92d3c0cbfdf20318e5236ba02dc7030e88e34d326d9cd53cfbad29d14b",
+      "helper_sha256": "90636ca74f1ae88db5ed1b8478f6aef8f83fd57db827db04da2e4d58a48c1361",
+      "steps": [
+        {
+          "name": "PRIVATE_DIRECTORIES_CREATED",
+          "unix": 1793383948.1619232
+        },
+        {
+          "name": "FULL64_GIB_BACKING_RESERVED",
+          "unix": 1793383948.2835371
+        },
+        {
+          "name": "EXT4_FORMATTED_AND_RESERVATION_VERIFIED",
+          "unix": 1793383948.6426668
+        },
+        {
+          "name": "PRIVATE_FILESYSTEM_MOUNTED",
+          "unix": 1793383948.8265326
+        },
+        {
+          "name": "STORAGE_GUARD_AND_PRISTINE_JOURNAL_ACCEPTED",
+          "unix": 1793383948.9761405
+        }
+      ],
+      "GPU_submissions": 0,
+      "ledger_written": false,
+      "fresh_resources": {
+        "data_free_bytes": 1145063321600,
+        "journal_free_bytes": 65925746688,
+        "MemAvailable_bytes": 55149940736,
+        "data_device": 2065,
+        "journal_device": 2053
+      },
+      "result": {
+        "status": "TWO_CARD_PRIVATE64_STORAGE_PROVISIONED_NO_GPU",
+        "observed_unix": 1793383948.913805,
+        "storage_contract": {
+          "version": "HISTORY104_PRIVATE_STORAGE_R2",
+          "run_id": "cara-budget-calibration-14gpuh-r1-20261030",
+          "output_mount": "/data20t/gaokuangda/worldcache_workspace/outputs/cara-budget-calibration-14gpuh-r1-20261030",
+          "output_device": 1834,
+          "image_path": "/data20t/gaokuangda/worldcache_workspace/.sync/storage-reservations/budget-calibration-r1/output.ext4",
+          "image_inode": 6495988236,
+          "image_bytes": 68719476736,
+          "journal_path": "/home/gaokuangda/cara_control/budget-calibration-r1/control.journal",
+          "journal_bytes": 50331648,
+          "minimum_output_free_bytes": 4294967296,
+          "minimum_free_inodes": 1024,
+          "minimum_host_free_bytes": 134217728,
+          "shared_disk_reserve_ratio_modified": false,
+          "reboot_remount_must_be_reverified": true
+        },
+        "check": {
+          "output_available": 67032879104,
+          "host_available": 1076343840768,
+          "free_inodes": 4194294
+        },
+        "journal_pristine": true,
+        "image_allocated_bytes": 68719480832,
+        "journal_allocated_bytes": 50331648,
+        "findmnt": {
+          "filesystems": [
+            {
+              "target": "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/cara_cal66_sm86_workspace/outputs/cara-budget-calibration-14gpuh-r1-20261030",
+              "source": "/dev/loop42",
+              "fstype": "ext4",
+              "options": "rw,nosuid,nodev,noexec,relatime"
+            }
+          ]
+        },
+        "source_revision": "b9d6dce102aaf31fb7fbb705997f47f6707cb167",
+        "operator_sha256": "fde2ec92d3c0cbfdf20318e5236ba02dc7030e88e34d326d9cd53cfbad29d14b",
+        "helper_sha256": "90636ca74f1ae88db5ed1b8478f6aef8f83fd57db827db04da2e4d58a48c1361",
+        "GPU_submissions": 0,
+        "ledger_written": false
+      },
+      "ended_unix": 1793383949.0345478
+    },
+    "log_tail": "",
+    "observed_unix": 1793383974.8136492,
+    "GPU_submissions": 0,
+    "ledger_written": false,
+    "independent_storage_observation": {
+      "provision_sha256": "6f0e02cbc722ed85d312adae957079026fd78ecd6888bca632399e9d4bf60484",
+      "storage_guard": {
+        "output_available": 67032879104,
+        "host_available": 1076343836672,
+        "free_inodes": 4194294
+      },
+      "journal_pristine": true,
+      "output_children": [],
+      "image_allocated_bytes": 68719480832,
+      "journal_allocated_bytes": 50331648,
+      "findmnt": {
+        "filesystems": [
+          {
+            "target": "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/cara_cal66_sm86_workspace/outputs/cara-budget-calibration-14gpuh-r1-20261030",
+            "source": "/dev/loop42",
+            "fstype": "ext4",
+            "options": "rw,nosuid,nodev,noexec,relatime"
+          }
+        ]
+      },
+      "observed_unix": 1793383974.8408084
+    }
+  },
+  "recovery_only_on_unknown": true,
+  "GPU_submissions": 0,
+  "ledger_written": false
+}

@@ -2,7 +2,7 @@
 
 # CARA-Cache
 
-[790两卡限定与实际子进程CPU接受](research/790_CARA_TWO_CARD_POLICY_AND_ACTUAL_DISPATCH_CHILD_CPU_20261031.md)：两卡限定已绑定准备/派发的源码、授权、CPU与报价；43项实际Linux增量控制通过，原CPU容器01:47:45退出0。真实子进程/私有管道/原身份发布及失败账单、不重派已验证；原R4完整数值复用。实际64GiB存储、GPU生命周期和完整费用准入仍待，中央唯一账本与原句柄去重门不变，14GPUh未批准。
+[791两卡私有存储实际接受](research/791_CARA_TWO_CARD_PRIVATE_STORAGE_ACCEPTED_20261031.md)：两卡64GiB私有卷及独立48MiB控制日志已实际创建并复核，原进程结束，输出为空。六项本地控制通过，首次部署导入失败原件保留；未使用GPU、未访问四卡。下一步补私有卷完整RGB读回与报价；中央唯一账本fresh准入及14GPUh批准仍待。
 
 **2026-10-28最新安排：主线P0/F19，探索S-FAST19与固定Shared25-C的Q并行准备。** [最新计划与两个对话分工](plans/cara_next_stage_20261028/08_REPOSITORY_RECONCILIATION.md) · [739接收记录](research/739_CARA_NEXT_STAGE_FAST_SQ_PLAN_AND_CHAT_HANDOFF_20261028.md)。A32已完整验收并冻结；B36已获单次批准，实际状态以原运行记录为准。WC73已热停结算，禁止自动重派；原DEV128、旧合同与失败保持。以下旧准备记录仅作历史复用依据。
 

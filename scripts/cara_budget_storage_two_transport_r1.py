@@ -48,7 +48,18 @@ else:
   print(json.dumps(dict(status='ORIGINAL_STORAGE_HANDLE_ABSENT_OR_PARTIAL',paths=rows,all_targets_absent=all(not r['exists'] and not r['symlink'] for r in rows),observed_unix=time.time(),GPU_submissions=0)))
   raise SystemExit(0)
  launch=json.loads((control/'launch.json').read_text());state=control/'state.json'
- print(json.dumps(dict(status='ORIGINAL_TWO_CARD_STORAGE_CAPTURE',launch=launch,observation=observe_original_process(launch['identity']),operator_intact=sha(control/'budget_storage_worker.py')==launch['operator_sha256'],state=json.loads(state.read_text()) if state.exists() else None,log_tail=(control/'process.log').read_text(errors='replace')[-3000:],observed_unix=time.time(),GPU_submissions=0,ledger_written=False)))
+ report=dict(status='ORIGINAL_TWO_CARD_STORAGE_CAPTURE',launch=launch,observation=observe_original_process(launch['identity']),operator_intact=sha(control/'budget_storage_worker.py')==launch['operator_sha256'],state=json.loads(state.read_text()) if state.exists() else None,log_tail=(control/'process.log').read_text(errors='replace')[-3000:],observed_unix=time.time(),GPU_submissions=0,ledger_written=False)
+ if report['state'] and report['state']['status']=='TWO_CARD_PRIVATE64_STORAGE_PROVISIONED_NO_GPU':
+  from wcomr.history104_storage_r2 import StorageGuard
+  provision_path=root/'.sync/storage-reservations/budget-calibration-r1/provision.json'
+  provision=json.loads(provision_path.read_text());assert provision==report['state']['result']
+  guard=StorageGuard(provision['storage_contract']);checked=guard.check()
+  journal=guard.journal.path
+  with journal.open('rb') as stream:
+   pristine=all(block==bytes(len(block)) for block in iter(lambda:stream.read(2**20),b''))
+  image=pathlib.Path(provision['storage_contract']['image_path'])
+  report['independent_storage_observation']=dict(provision_sha256=sha(provision_path),storage_guard=checked,journal_pristine=pristine,output_children=sorted(x.name for x in guard.output.iterdir()),image_allocated_bytes=image.stat().st_blocks*512,journal_allocated_bytes=journal.stat().st_blocks*512,findmnt=json.loads(subprocess.check_output(['findmnt','-J',str(guard.output)],text=True)),observed_unix=time.time())
+ print(json.dumps(report))
 '''
 
 
