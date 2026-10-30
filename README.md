@@ -2,7 +2,7 @@
 
 # CARA-Cache
 
-[769 原完整端点回执恢复CPU](research/769_CARA_ORIGINAL_ENDPOINT_CALLBACK_RECOVERY_CPU_20261030.md)：原完整同步CPU端点恢复组件完成：9项本地与Linux控制通过，四组已完成生产CPU工件副本的恢复目标与原返回逐值一致，原件SHA保持，0新增生成调用；原容器退出/0，1CPU/4GiB/零swap。接收器4项控制通过，未知/部分/损坏/原错误均拒绝重算或覆盖。四卡端点R2证据保持，两卡仍缺且保持S内存优先；GPU原进程终态读者、专用存储、实际公平查询预算和整卡报价仍待。本轮0GPUh。
+[770 S原卡、Q1完整承接与校准费用依据](research/770_CARA_S_ORIGINAL_START_Q1_COMPLETE_AND_CALIBRATION_COST_BASIS_20261030.md)：已逐字节接入S/Q已发布原回执：S原卡10月30日17:44:29分配、独占CUDA已确认，硬14GPUh；半程10月31日00:05:52、终验07:27:15由原S/Q检查负责。Q1完整12状态/111pair/222head、释放与CPU分析接受，0.29875649GPUh已唯一结算；无完整视频或部署收益结论。主线完整RGB CPU成本测量退出/0，双FIT工件分项约29.17秒，非冷盘/GPU复制上界；默认301查询的原请求时间代理36.34GPUh，整卡费用更高。完整校准草案10+2Q路径，预算方向待用户选择，未冻结查询数或启动新GPU。
 
 **2026-10-28最新安排：主线P0/F19，探索S-FAST19与固定Shared25-C的Q并行准备。** [最新计划与两个对话分工](plans/cara_next_stage_20261028/08_REPOSITORY_RECONCILIATION.md) · [739接收记录](research/739_CARA_NEXT_STAGE_FAST_SQ_PLAN_AND_CHAT_HANDOFF_20261028.md)。A32已完整验收并冻结；B36已获单次批准，实际状态以原运行记录为准。WC73已热停结算，禁止自动重派；原DEV128、旧合同与失败保持。以下旧准备记录仅作历史复用依据。
 

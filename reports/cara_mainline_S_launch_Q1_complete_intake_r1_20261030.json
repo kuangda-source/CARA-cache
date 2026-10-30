@@ -1,0 +1,173 @@
+{
+  "status": "MAINLINE_INTAKE_OF_PUBLISHED_S_ORIGINAL_START_AND_Q1_COMPLETE",
+  "observed_unix": 1793354423.1559832,
+  "source_branch": "codex/sq-production-entry-20261029",
+  "published_revision": "b4c4f6b9ad4c088bd44d6ad08b085ea6eacfd528",
+  "source_files_sha256": {
+    "reports/cara_sq_s_RAM50_A6000_GPU_actual_launch_r1_20261030.json": "38419f6968ef1f375b2513e91b87f25ad8453dfa3328bdd4774fcca822dc86cb",
+    "reports/cara_sq_s_RAM50_A6000_context_start_confirmed_r1_20261030.json": "be712de84c1653c47512266ca2f776b8c3dfd82ac749175aff149be00f2cff16",
+    "reports/cara_sq_s_RAM50_A6000_native_checks_registered_r1_20261030.json": "7a8778fa514bb47151509f733fb6b5952c11f7c8b1db525890483b7bac51275f",
+    "reports/cara_sq_s_RAM50_A6000_actual_start_check_schedule_r1_20261030.json": "dcebb70ea85a3e748e69f0fba68268e68aa99ba2f48a0cabf1ea2b1a0bb49785",
+    "reports/cara_sq_q1_A6000_complete_accepted_r1_20261030.json": "2b621a7483d3d059750e33877e4ed7a833f8d21e4311bb2a7b3f8fad0e250c63"
+  },
+  "source_bytes_match_published_commit": true,
+  "S": {
+    "launch": {
+      "status": "SQ_S_SINGLE_DISPATCHED_HARDWARE_ADMISSION_PENDING",
+      "run_id": "cara-sq-s-complete-r2-20261029",
+      "host": "two_card",
+      "gpu_uuid": "GPU-de9a5370-cd87-0f1c-a48e-288888777dd3",
+      "launch_id": "bfa488af-8d97-43ca-b634-b4e3a3be9040",
+      "source_revision": "3a85be21eed90150e5a487796547741cd2e1f3ef",
+      "scope_sha256": "bff1498ac31d78f22e1aefb28357cacbc4d48ec21ce207e41dc575cd8c840355",
+      "physical_scope_sha256": "861fb8463373181e2f5a2e0517044bc140be8b4575ca2b961eae22481528901e",
+      "scope_counts": {
+        "new_paths": 10,
+        "reused_OFF_paths": 0,
+        "logical_paths": 10,
+        "warm_paths": 2,
+        "new_ON_paths": 4,
+        "new_OFF_paths": 4,
+        "parent_Dense_pairs": 220,
+        "parent_C_pairs": 140,
+        "extra_Dense_teacher_pairs": 56,
+        "extra_C_shadow_pairs": 52,
+        "total_pairs": 468,
+        "branch_readouts": 936,
+        "deep_block_calls": 552,
+        "moment_rows": 108,
+        "raw_states": 8,
+        "unique_anchors": 24
+      },
+      "whole_GPUh": 14,
+      "registration_sha256": "bea7d6bc2e20430597e4863c166136f258d72746a4b6e14949c86a25dcfa7e0c",
+      "stage": "/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-complete-two-card-r4-20261030",
+      "container": "cara-sq-s-complete-two-card-r4-20261030-gpu",
+      "guardian_identity": {
+        "pid": 2131897,
+        "state": "R",
+        "start_ticks": 664837217,
+        "command": "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python -u /data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-complete-two-card-r4-20261030/scripts/cara_sq_s_guardian_r2.py --project /data20t/gaokuangda/worldcache_workspace --stage /data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-complete-two-card-r4-20261030 "
+      },
+      "authorization_sha256": "a4cb2730967b04636054d2cbbe689cf00921b294ff0c403e8812d9bcf8ed3156",
+      "started_unix": 1793353468.7316582,
+      "actual_GPU_started": false,
+      "automatic_retry_authorized": false
+    },
+    "context": {
+      "status": "S_ORIGINAL_A6000_EXCLUSIVE_CONTEXT_CONFIRMED_MODEL_LOADING",
+      "run_id": "cara-sq-s-complete-r2-20261029",
+      "launch_id": "bfa488af-8d97-43ca-b634-b4e3a3be9040",
+      "gpu_uuid": "GPU-de9a5370-cd87-0f1c-a48e-288888777dd3",
+      "source_revision": "3a85be21eed90150e5a487796547741cd2e1f3ef",
+      "stage": "/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-complete-two-card-r4-20261030",
+      "container": "cara-sq-s-complete-two-card-r4-20261030-gpu",
+      "guardian_identity": {
+        "pid": 2131897,
+        "state": "R",
+        "start_ticks": 664837217,
+        "command": "/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python -u /data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-complete-two-card-r4-20261030/scripts/cara_sq_s_guardian_r2.py --project /data20t/gaokuangda/worldcache_workspace --stage /data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-complete-two-card-r4-20261030 "
+      },
+      "original_launch_ref": "reports/cara_sq_s_RAM50_A6000_GPU_actual_launch_r1_20261030.json",
+      "original_remote_launch_sha256": "38419f6968ef1f375b2513e91b87f25ad8453dfa3328bdd4774fcca822dc86cb",
+      "capture_ref": "reports/cara_sq_s_RAM50_A6000_original_start_capture_r1_20261030.json",
+      "capture_sha256": "9065d7065ade222a7a140dc3f28d3419941c7db5eb9d3f3d0a069f50d7e73511",
+      "billing_clock_owner": "HOST_GUARDIAN",
+      "actual_host_allocation_started_unix": 1793353469.4249887,
+      "original_context_ready_unix": 1793353480.500803,
+      "original_context_granted_unix": 1793353482.0623794,
+      "GPU_context_held": true,
+      "sole_runner_context": {
+        "pid": 2131999,
+        "start_ticks": 664837595,
+        "uid": 1004
+      },
+      "model_load_attempts": 1,
+      "model_loads_at_observation": 0,
+      "scientific_result_accepted": false,
+      "whole_GPUh": 14,
+      "minimum_host_MemAvailable_GiB": 50,
+      "container_memory_GiB": 40,
+      "container_swap_disabled": true,
+      "automatic_retry_authorized": false
+    },
+    "checks": {
+      "status": "S_ACTUAL_START_NATIVE_HALF_AND_TERMINAL_CHECKS_REGISTERED",
+      "run_id": "cara-sq-s-complete-r2-20261029",
+      "launch_id": "bfa488af-8d97-43ca-b634-b4e3a3be9040",
+      "gpu_uuid": "GPU-de9a5370-cd87-0f1c-a48e-288888777dd3",
+      "source_revision": "3a85be21eed90150e5a487796547741cd2e1f3ef",
+      "schedule_ref": "reports/cara_sq_s_RAM50_A6000_actual_start_check_schedule_r1_20261030.json",
+      "schedule_sha256": "dcebb70ea85a3e748e69f0fba68268e68aa99ba2f48a0cabf1ea2b1a0bb49785",
+      "checks": [
+        {
+          "automation_id": "s",
+          "name": "S 原卡半程验收",
+          "target_thread_id": "01a181c8-44e9-7341-a9a1-64894d9447ce",
+          "actual_start_derived_schedule_key": "halfway_unix",
+          "scheduled_unix": 1793376352,
+          "scheduled_Asia_Shanghai": "2026-10-31T00:05:52+08:00",
+          "kind": "heartbeat",
+          "status": "ACTIVE",
+          "prompt_sha256": "221fe68cd052af79bc226896ec9b1975a5761b76750913c196a504a40f61ee17"
+        },
+        {
+          "automation_id": "s-2",
+          "name": "S 原卡全程验收",
+          "target_thread_id": "01a181c8-44e9-7341-a9a1-64894d9447ce",
+          "actual_start_derived_schedule_key": "expected_terminal_unix",
+          "scheduled_unix": 1793402835,
+          "scheduled_Asia_Shanghai": "2026-10-31T07:27:15+08:00",
+          "kind": "heartbeat",
+          "status": "ACTIVE",
+          "prompt_sha256": "dabc5f4f8ed48c8ac5193f5e9cb31912b6ef148cf2709961d7e458a382d8d207"
+        }
+      ],
+      "resource_availability_polling_enabled": false,
+      "original_q1_heartbeat_status": "PAUSED",
+      "GPU_submissions_by_registration": 0,
+      "automatic_retry_authorized": false
+    },
+    "actual_start_Asia_Shanghai": "2026-10-30T17:44:29.424989+08:00",
+    "hard_deadline_Asia_Shanghai": "2026-10-31T07:44:29.424989+08:00",
+    "latest_evidence_is_start_snapshot_not_fresh_poll": true,
+    "ongoing_observer_owner": "S/Q original thread"
+  },
+  "Q1": {
+    "status": "Q1_COMPLETE_ORIGINAL_GPU_RELEASE_FINANCE_AND_CPU_ANALYSIS_ACCEPTED",
+    "run_id": "cara-sq-q1-saved-r1-20261028",
+    "actual_GPUh": 0.2987564935850807,
+    "full_states": 12,
+    "complete_pairs": 111,
+    "complete_heads": 222,
+    "numerical_control_passed": true,
+    "CPU_analysis_recomputed_exactly": true,
+    "endpoint_benefit_established": false,
+    "deployment_memory_or_speed_measured": false,
+    "selection_aliases": {
+      "('R16', 'I', (8, 8))": [
+        "R16_I_BR",
+        "R16_I_CFG"
+      ],
+      "('R16', 'M', (8, 8))": [
+        "R16_M_BR",
+        "R16_M_CFG"
+      ],
+      "('R12', 'I', (4, 8))": [
+        "R12_I_BR"
+      ],
+      "('R12', 'I', (8, 4))": [
+        "R12_I_CFG"
+      ],
+      "('R12', 'M', (8, 4))": [
+        "R12_M_BR",
+        "R12_M_CFG"
+      ]
+    }
+  },
+  "ledger_rewritten": false,
+  "new_GPU_submissions": 0,
+  "new_GPUh_billed": 0,
+  "duplicate_checks_created": 0,
+  "scientific_master_rows_changed": false
+}

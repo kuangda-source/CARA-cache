@@ -1,0 +1,147 @@
+{
+  "status": "CALIBRATION_REQUEST_AND_FULL_RGB_COST_COMPONENTS_NOT_WHOLE_QUOTE",
+  "observed_unix": 1793354643.9745321,
+  "timing_source_host": "two_card",
+  "timing_source_GPU": "GPU-cebf7119-cf03-23b9-e192-cd196332b704",
+  "FIT_timing_samples": [
+    {
+      "member": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "role": "NATIVE35",
+      "samples": [
+        {
+          "slot_id": "FAST_R2_019",
+          "phase": "A",
+          "section": "A_ANCHOR",
+          "T_DD": 252.581039608,
+          "T_request": 321.40277120284736
+        },
+        {
+          "slot_id": "FAST_R2_063",
+          "phase": "B",
+          "section": "B_REPEAT",
+          "T_DD": 252.821798876,
+          "T_request": 316.41551093850285
+        }
+      ],
+      "maximum_seconds": 321.40277120284736
+    },
+    {
+      "member": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "role": "F19_C",
+      "samples": [
+        {
+          "slot_id": "FAST_R2_040",
+          "phase": "B",
+          "section": "B_QUALITY",
+          "T_DD": 148.481353795,
+          "T_request": 214.69151232019067
+        }
+      ],
+      "maximum_seconds": 214.69151232019067
+    },
+    {
+      "member": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "role": "UNIFORM19_C",
+      "samples": [
+        {
+          "slot_id": "FAST_R2_042",
+          "phase": "B",
+          "section": "B_QUALITY",
+          "T_DD": 148.508712825,
+          "T_request": 215.4715826297179
+        }
+      ],
+      "maximum_seconds": 215.4715826297179
+    },
+    {
+      "member": "human_199",
+      "role": "UNIFORM19_C",
+      "samples": [
+        {
+          "slot_id": "FAST_R2_043",
+          "phase": "B",
+          "section": "B_QUALITY",
+          "T_DD": 148.303297198,
+          "T_request": 217.02522549871355
+        }
+      ],
+      "maximum_seconds": 217.02522549871355
+    },
+    {
+      "member": "human_199",
+      "role": "F19_C",
+      "samples": [
+        {
+          "slot_id": "FAST_R2_045",
+          "phase": "B",
+          "section": "B_QUALITY",
+          "T_DD": 148.392932811,
+          "T_request": 215.61167549993843
+        }
+      ],
+      "maximum_seconds": 215.61167549993843
+    },
+    {
+      "member": "human_199",
+      "role": "NATIVE35",
+      "samples": [
+        {
+          "slot_id": "FAST_R2_026",
+          "phase": "A",
+          "section": "A_ANCHOR",
+          "T_DD": 252.707719159,
+          "T_request": 317.16414054390043
+        },
+        {
+          "slot_id": "FAST_R2_064",
+          "phase": "B",
+          "section": "B_REPEAT",
+          "T_DD": 252.80762106,
+          "T_request": 317.48553404584527
+        }
+      ],
+      "maximum_seconds": 317.48553404584527
+    }
+  ],
+  "two_native_teacher_request_seconds": 638.8883052486926,
+  "two_FIT_query_request_proxy_seconds": 432.49680812843144,
+  "default_candidate_queries": 301,
+  "default_teacher_plus_candidate_paths": 604,
+  "default_pipeline_request_proxy_GPUh": 36.33900765330738,
+  "proxy_assumption": "Future19D requests resemble saved F19/Uniform19 full-request clocks; not a measured future price or upper bound",
+  "default_all_native_request_allowance_GPUh": 53.92424272403328,
+  "all_native_allowance_is_proven_upper_bound": false,
+  "RGB_CPU_host": "four_card",
+  "full_RGB_CPU_proof_sha256": "dbb42b66f417e68e2954d43958e1432dd44471dd60da2216a3aceed54cf1efa2",
+  "RGB_CPU_measurement": {
+    "native_save_fsync_and_hash_seconds": 5.83771376311779,
+    "candidate_save_fsync_and_hash_seconds": 6.489998107776046,
+    "read_hash_validate_two_arrays_seconds": 7.256195859983563,
+    "full_MSE_validate_and_compute_seconds": 0.8391841445118189,
+    "peak_RSS_bytes": 869191680,
+    "cache_state": "NOT_CONTROLLED_NO_CACHE_EVICTION"
+  },
+  "prospective_two_FIT_RGB_CPU_seconds_at_observed_cost": 29.170756224542856,
+  "cross_host_measurements_pooled_as_GPU_quote": false,
+  "omitted_whole_card_items": [
+    "warm paths",
+    "numerical and timing controls",
+    "cold model/auxiliary loading",
+    "GPU-to-CPU copy",
+    "cold disk and device contention",
+    "allocation/release/failure overhead",
+    "complete CPU evaluation while GPU held",
+    "dedicated disk quota and reserve"
+  ],
+  "candidate_query_cap_frozen": false,
+  "search_iteration_allocation_frozen": false,
+  "whole_GPU_quote_accepted": false,
+  "proposed_hard_GPUh": null,
+  "GPU_submissions": 0,
+  "ledger_written": false,
+  "input_sha256": {
+    "reports/cara_fast_B36_complete_analysis_r1_20261029.json": "6f4acb1d2f83a39eebd8ada0c183ea057676a39d94b2ea01495bca91cd60223d",
+    "reports/cara_budget_full_RGB_cost_four_card_CPU_capture_r1_20261030.json": "6ca3a56ebcc0ce8e998089fe213c4409cf016c4883af20145e8031a9ccb20e91"
+  },
+  "calculator_source_sha256": "a22024797ce5d3d6bb73a7619f43ec272918736d875ff398e846715e6498a054"
+}

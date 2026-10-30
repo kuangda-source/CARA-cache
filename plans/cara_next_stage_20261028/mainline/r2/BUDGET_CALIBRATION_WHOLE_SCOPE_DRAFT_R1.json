@@ -1,0 +1,113 @@
+{
+  "status": "PROSPECTIVE_COMPLETE_CALIBRATION_SCOPE_DRAFT_NOT_FROZEN",
+  "purpose": "Produce one full-support19D BudCache-style mask with a complete SA+HC search and explicit calibration budget, before the common endpoint comparison",
+  "source_proposal": "plans/cara_next_stage_20261028/mainline/r2/BUDCACHE_ADAPTATION_R1.json",
+  "requested_steps": 35,
+  "actual_updates": 36,
+  "D_pair_budget": 19,
+  "full_RGB_shape": [
+    3,
+    93,
+    432,
+    768
+  ],
+  "generation_seed": 0,
+  "FIT_members": [
+    "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+    "human_199"
+  ],
+  "CHECK_or_final_used_for_selection": false,
+  "search_RNG_seed_proposal": 42,
+  "actual_candidate_query_cap": null,
+  "actual_SA_iterations": null,
+  "actual_HC_iterations": null,
+  "same_complete_current_mask_neighborhood": true,
+  "duplicates_consume_query_and_physical_cost": true,
+  "physical_stages": [
+    {
+      "stage": "WARM",
+      "paths": 2,
+      "roles": [
+        "Native35 on FIT0",
+        "Uniform19-C on FIT0"
+      ]
+    },
+    {
+      "stage": "NATIVE_TEACHERS",
+      "paths": 2,
+      "roles": [
+        "Native35 timing-OFF on each FIT"
+      ]
+    },
+    {
+      "stage": "NATIVE_TIMING_CONTROLS",
+      "paths": 2,
+      "roles": [
+        "Native35 timing-ON on each FIT"
+      ]
+    },
+    {
+      "stage": "ALL_D_OUTPUT_CONTROLS",
+      "paths": 2,
+      "roles": [
+        "allD timing-ON on each FIT"
+      ]
+    },
+    {
+      "stage": "INITIAL_UNIFORM_TIMING_CONTROLS",
+      "paths": 2,
+      "roles": [
+        "Uniform19-C timing-OFF on each FIT; compare first original query timing-ON"
+      ]
+    },
+    {
+      "stage": "ADAPTIVE_QUERY_COHORTS",
+      "paths_formula": "2 * Q",
+      "roles": [
+        "First original query Uniform19-C timing-ON, then full supported SA+HC policies"
+      ]
+    }
+  ],
+  "total_new_paths_formula": "10 + 2*Q",
+  "default301_illustrative_new_paths": 612,
+  "retained_full_RGB_paths_formula": "10 + 2*Q",
+  "default301_is_actual_authorized_scope": false,
+  "control_acceptance_requirements": [
+    "All36 solver updates and bothCFG branches",
+    "Native/allD and timingON/OFF output/RNG equivalence",
+    "No actual19D departure or fallback",
+    "Complete93-frame RGB identity",
+    "BothFIT complete before each objective",
+    "All source/request/teacher identity bindings"
+  ],
+  "release_and_acceptance_requirements": [
+    "Original guardian terminal and actual single settlement",
+    "Original process/container/locks released",
+    "Complete intended search and all controls",
+    "Single frozen selected mask with original query/source identity",
+    "No scientific acceptance after hard GPUh termination or partial control failure"
+  ],
+  "teacher_reuse": "No compatible pre-encoding RGB teacher has been accepted; count two new teachers",
+  "physical_retry_allowed": false,
+  "split_to_fit_autonomy_threshold": false,
+  "final_deployment_comparison": {
+    "included_in_this_calibration_scope": false,
+    "required": true,
+    "owner": "mainline common S-END and fair baseline comparison",
+    "reason": "Requires the frozen S and budget-search masks; complete common role/dedup/repeat/Native scope is bound after calibration, not omitted from final evaluation"
+  },
+  "budget_direction": "USER_PREFERENCE_REQUEST_PENDING_14GPUh_MATCHED_VS_DEFAULT301",
+  "hard_GPUh": null,
+  "whole_GPU_quote": null,
+  "remaining": [
+    "Budget direction and complete SA/HC iteration allocation",
+    "GPU evaluator and original process/guardian reader",
+    "Dual-host affected production CPU acceptance",
+    "Dedicated storage admission including full RGB/video/metadata/reserve",
+    "Complete cost quote including all stages/IO/GPU copy/load/release/failures",
+    "Explicit >4GPUh launch approval and fresh admission"
+  ],
+  "GPU_dispatch_ready": false,
+  "GPU_submissions": 0,
+  "ledger_written": false
+}
