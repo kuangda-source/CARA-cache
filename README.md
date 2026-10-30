@@ -2,7 +2,7 @@
 
 # CARA-Cache
 
-[762 原最终16与备用16双端身份复核](research/762_CARA_FINAL16_RESERVE16_DUAL_HOST_IDENTITY_AUDIT_20261030.md)：原池和48份输入字节保持；前16已用于DEV128，原最终16及备用16在5,565份本地登记元数据、两端三个原输出目录的3,997份JSON中未见执行身份，读取错误0。仅当前登记范围快照，首次使用前再做增量核查。B36的32条单人诊断、F18及Q5 Native50双端CPU接受保持；S规则、稀疏50步映射与完整GPU卡仍待，S优先。本轮0GPUh，原指标/冻结/费用不改。
+[763 S原生入口CPU主线承接](research/763_CARA_S_PUBLISHED_NATIVE_CPU_HANDOFF_20261030.md)：S/Q已发布的双端原生入口CPU终态由主线复算接受：每端123项控制、20条tiny路径和5项Linux生命周期控制，38份关键源码绑定一致。原R2完整十条S采集卡规划A6000预计12.7125/提议硬限14GPUh、Ada15.0478/17GPUh；均待超过4GPUh的单次审批及fresh准入，S/Q继续收齐审批材料。真实S风险数据/输出mask与方法效力仍待，保持S优先；F18/Q5参考组件、B36原诊断及最终输入保护保持。本轮仅本地承接，0GPUh。
 
 **2026-10-28最新安排：主线P0/F19，探索S-FAST19与固定Shared25-C的Q并行准备。** [最新计划与两个对话分工](plans/cara_next_stage_20261028/08_REPOSITORY_RECONCILIATION.md) · [739接收记录](research/739_CARA_NEXT_STAGE_FAST_SQ_PLAN_AND_CHAT_HANDOFF_20261028.md)。A32已完整验收并冻结；B36已获单次批准，实际状态以原运行记录为准。WC73已热停结算，禁止自动重派；原DEV128、旧合同与失败保持。以下旧准备记录仅作历史复用依据。
 
