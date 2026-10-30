@@ -24,6 +24,8 @@ COUNTS=dict(new_paths=10,reused_OFF_paths=0,logical_paths=10,warm_paths=2,
 # Other unchanged numeric imports are also bound by the complete registration.
 EXECUTION_CRITICAL=(
     'src/wcomr/sq_s_spec_r2.py','src/wcomr/sq_s_execution_r2.py','src/wcomr/sq_s_stage_r2.py',
+    'src/wcomr/sq_s_capture_r2.py','src/wcomr/sq_s_terminal_r2.py',
+    'src/wcomr/sq_s_monitor_terminal_r2.py','src/wcomr/sq_s_artifact_terminal_r2.py',
     'src/wcomr/sq_s_model_entry_r1.py','src/wcomr/sq_s_data_terminal_r2.py',
     'src/wcomr/sq_s_runner_r1.py','src/wcomr/sq_s_batch_r1.py',
     'src/wcomr/sq_s_physical_r1.py','src/wcomr/sq_s_reuse_r1.py',
@@ -35,6 +37,7 @@ EXECUTION_CRITICAL=(
     'src/wcomr/history104_storage_r2.py','src/wcomr/sq_control_storage_r1.py',
     'src/wcomr/policy_price_mode_guard_r1.py','src/wcomr/sq_gpu_allocation_r1.py',
     'scripts/run_cara_sq_s_r2.py','scripts/cara_sq_s_worker_r2.py',
+    'scripts/capture_cara_sq_s_r2.py','scripts/postprocess_cara_sq_s_r2.py',
     'scripts/cara_sq_s_guardian_r2.py','scripts/cara_fast_worker_r2.py',
     'scripts/cara_fast_host_guardian_r2.py','scripts/four_card_policy_assets_port_r1.py',
     'scripts/four_card_bank24_execution_tools_r1.py')
