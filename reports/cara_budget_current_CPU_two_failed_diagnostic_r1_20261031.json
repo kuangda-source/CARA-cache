@@ -1,0 +1,55 @@
+{
+  "exit_code": 0,
+  "stderr": "** WARNING: connection is not using a post-quantum key exchange algorithm.\r\n** This session may be vulnerable to \"store now, decrypt later\" attacks.\r\n** The server may need to be upgraded. See https://openssh.com/pq.html\r\n** WARNING: connection is not using a post-quantum key exchange algorithm.\r\n** This session may be vulnerable to \"store now, decrypt later\" attacks.\r\n** The server may need to be upgraded. See https://openssh.com/pq.html\r\n",
+  "remote_code_sha256": "5a44b41bcd921d23dfd87f011891b5ad1152c7836114faeed6cb70215bb45fd4",
+  "result": {
+    "log_sha256": "a96da801275c4807151c5b670c4d1f0a91379818cf17a8caa104f198b123d6dc",
+    "log_bytes": 26286,
+    "failure_sections": [
+      "1.HostGuardianTests) ... ok\n\n======================================================================\nFAIL: test_replaced_container_not_stopped (test_cara_budget_host_guardian_r1.HostGuardianTests)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/data20t/gaokuangda/worldcache_workspace/.sync/cara-budget-calibration-CPU-a6000-r3-20261030/tests/test_cara_budget_host_guardian_r1.py\", line 169, in test_replaced_container_not_stopped\n    def test_replaced_container_not_stopped(self):self.run_scenario('wrong_container')\n  File \"/data20t/gaokuangda/worldcache_workspace/.sync/cara-budget-calibration-CPU-a6000-r3-20261030/tests/test_cara_budget_host_guardian_r1.py\", line 100, in run_scenario\n    if scenario in expected:self.assertIn(expected[scenario],stop_reason,json.dumps(diagnostics))\nAssertionError: 'original Docker creation ID' not found in 'Original container CLI failed; no replay' : {\"scenario\": \"wrong_container\", \"exit_code\": 1, \"metadata\": {\"guardian.json\": {\"run_id\": \"CPU-ALLOCATION\", \"launch_id\": \"CPU-UNIQUE-ALLOCATION\", \"host\": \"four_card\", \"gpu_uuid\": \"GPU-CPU-FIXTURE\", \"stage\": \"/tmp/tmpay1hrphd/.sync/cara-budget-calibration-GPU-CPU-ALLOCATION\", \"source_revision\": \"ffffffffffffffffffffffffffffffffffffffff\", \"scope_sha256\": \"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\", \"billed_limit_GPUh\": 0.01, \"status\": \"BUDGET_CALIBRATION_GUARDIAN_TERMINAL\", \"started_monotonic\": 6673783.042332804, \"started_unix\": 1793378879.5205805, \"original_handles\": {\"guardian\": {\"host_view\": {\"boot_id\": \"13495735-f30b-47a2-af0a-2496f5206a0b\", \"pid_namespace_inode\": 4026531836}, \"original_command_sha256\": \"d8d1652d0c3807137b16c83a09c4a194a6332bd423a946c050b9fe77b6e73604\", \"pid\": 2239266, \"start_ticks\": 667378261}, \"container_cli\": {\"pid\": 2239267, \"start_ticks\": 667378304, \"host_view\": {\"boot_id\": \"13495735-f30b-47a2-af0a-2496f5206a0b\", \"pid_namespace_inode\": 4026531836}, \"original_command_sha256\": \"255c2d671d156cde03ac79f97d47a8aea27d01fdeb770be9c79fbc9561fe8fa8\"}, \"supervisor\": {\"host_view\": {\"boot_id\": \"13495735-f30b-47a2-af0a-2496f5206a0b\", \"pid_namespace_inode\": 4026531836}, \"original_command_sha256\": \"495cec257d764fce25e2b3f4ba04735cdb582a7e4f2151d208ee96a06ee182f7\", \"pid\": 2239268, \"start_ticks\": 667378363}, \"runner\": {\"pid\": 2239270, \"start_ticks\": 667378397, \"host_view\": {\"boot_id\": \"13495735-f30b-47a2-af0a-2496f5206a0b\", \"pid_namespace_inode\": 4026531836}, \"original_command_sha256\": \"1913f6802a2acd220c80103696bfc3efe51f10223c616ed49aa7980e1b588def\"}}, \"allocation_attempts\": {\"mode_lock_attempted\": true, \"device_lease_attempted\": true, \"mode_change_attempted\": true, \"container_dispatch_attempted\": true}, \"container_dispatch_state\": \"STARTED\", \"mode_owner_fenced\": true, \"GPU_mode_change_attempted\": true, \"CPU_fixture_only\": true, \"mode_admission\": {\"prior_mode\": \"Default\", \"changed\": true, \"verified_snapshot\": {\"gpu_uuid\": \"GPU-CPU-FIXTURE\", \"compute_mode\": \"Exclusive_Process\", \"compute_apps\": [], \"mps_processes\": [], \"observed_unix\": 1793378879.5237436}}, \"container_exit_code\": 1, \"error_type\": \"ValueError\", \"error\": \"Original container CLI failed; no replay\", \"container_terminal_witness\": {\"kind\": \"BOUND_CONTAINER_TERMINAL\", \"complete\": true, \"container_id\": \"15bec522834f35aa604f37d31ca39069f4ae6e51e4ffd01656c606d2edba360c\", \"container\": {\"id\": \"15bec522834f35aa604f37d31ca39069f4ae6e51e4ffd01656c606d2edba360c\", \"name\": \"cara-budget-calibration-GPU-CPU-ALLOCATION-gpu\", \"image\": \"sha256:eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee\", \"manifest_sha256\": \"8363257dfaa06d4cbce97964df5d99736d02bf0bc3f21550dc9a07483796cf53\", \"device_ids\": [\"GPU-CPU-FIXTURE\"], \"state\": {\"Status\": \"exited\", \"Running\": false, \"Pid\": 0, \"ExitCode\": 1, \"OOMKilled\": false}}}, \"mode_restoration\": {\"status\": \"PRIOR_MODE_RESTORED_IDLE\", \"restored\": true, \"changed\": true, \"snapshot\": {\"gpu_uuid\": \"GPU-CPU-FIXTURE\", \"compute_mode\": \"Default\", \"compute_apps\": [], \"mps_processes\": [], \"observed_unix\": 1793378881.2790966}}, \"ended_monotonic\": 6673784.80096061, \"ended_unix\": 1793378881.2792134, \"billing_sha256\": \"da22f1feb4fbbf1c7fed2aad9a3429b0dc6a4d174149be364da25dac7255207a\"}, \"supervisor.json\": {\"run_id\": \"CPU-ALLOCATION\", \"launch_id\": \"CPU-UNIQUE-ALLOCATION\", \"host\": \"four_card\", \"gpu_uuid\": \"GPU-CPU-FIXTURE\", \"stage\": \"/tmp/tmpay1hrphd/.sync/cara-budget-calibration-GPU-CPU-ALLOCATION\", \"source_revision\": \"ffffffffffffffffffffffffffffffffffffffff\", \"scope_sha256\": \"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\", \"billed_limit_GPUh\": 0.01, \"s"
+    ],
+    "test_summaries": [
+      "Ran 3 tests in 0.035s",
+      "OK",
+      "Ran 9 tests in 2.858s",
+      "OK",
+      "Ran 11 tests in 0.405s",
+      "OK",
+      "Ran 15 tests in 0.809s",
+      "OK",
+      "Ran 7 tests in 0.060s",
+      "OK",
+      "Ran 16 tests in 0.108s",
+      "OK",
+      "Ran 7 tests in 3.150s",
+      "OK",
+      "Ran 13 tests in 12.417s",
+      "OK",
+      "Ran 11 tests in 154.697s",
+      "OK",
+      "Ran 7 tests in 0.036s",
+      "OK",
+      "Ran 13 tests in 0.451s",
+      "OK",
+      "Ran 12 tests in 7.168s",
+      "OK",
+      "Ran 13 tests in 36.031s",
+      "FAILED (failures=1)"
+    ],
+    "container_id": "c5e892d90c5bd7632050338c34ffe83e8dc51e6d6f37eb861cf8ad62174a7e8f",
+    "container_state": {
+      "Status": "exited",
+      "Running": false,
+      "Paused": false,
+      "Restarting": false,
+      "OOMKilled": false,
+      "Dead": false,
+      "Pid": 0,
+      "ExitCode": 1,
+      "Error": "",
+      "StartedAt": "2026-10-30T16:43:36.515273188Z",
+      "FinishedAt": "2026-10-30T16:48:09.158311811Z"
+    },
+    "observed_unix": 1793379039.9941251
+  }
+}

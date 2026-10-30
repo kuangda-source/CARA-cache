@@ -2,7 +2,7 @@
 
 # CARA-Cache
 
-[786相同源包与S完整验收承接](research/786_CARA_CURRENT_COMPLETE_CPU_SOURCE_AND_S_ACCEPTED_INTAKE_20261031.md)：双端1174文件发布源已统一，当前完整112路径CPU入口与134项控制已连接；Mac109项通过、25项Linux跳过。两端传输失败后原stage/容器均确认不存在，未启动新CPU/GPU。S原卡完整证据已承接并复核技术/财务终态，三风险目标同一冻结mask；后续合并相同执行臂。
+[787原R3 CPU失败与连接恢复边界](research/787_CARA_R3_CPU_ORIGINAL_FAILURE_AND_TRANSPORT_RECOVERY_20261031.md)：两卡原R3 CPU正常建容器后退出/1：3项规格通过、134执行控制中1项失败，完整数值矩阵未开始。原源/资源完整，失败保留；就绪与采样顺序修复已发布，Linux回归待验。直接入口可取回原结果但仍间歇重置，四卡CPU未启动；无新GPU或账本写入。
 
 **2026-10-28最新安排：主线P0/F19，探索S-FAST19与固定Shared25-C的Q并行准备。** [最新计划与两个对话分工](plans/cara_next_stage_20261028/08_REPOSITORY_RECONCILIATION.md) · [739接收记录](research/739_CARA_NEXT_STAGE_FAST_SQ_PLAN_AND_CHAT_HANDOFF_20261028.md)。A32已完整验收并冻结；B36已获单次批准，实际状态以原运行记录为准。WC73已热停结算，禁止自动重派；原DEV128、旧合同与失败保持。以下旧准备记录仅作历史复用依据。
 

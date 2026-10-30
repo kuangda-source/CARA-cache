@@ -1,0 +1,21 @@
+{
+  "status": "ORIGINAL_FAILED_CPU_ACCEPTANCE_REFUSED",
+  "command": [
+    "python3",
+    "scripts/accept_cara_budget_calibration_cpu_r3.py",
+    "--capture",
+    "reports/cara_budget_current_CPU_two_capture_r2_20261031.json",
+    "--original-launch",
+    "reports/cara_budget_current_CPU_two_file_launch_r2_20261031.json",
+    "--package",
+    ".sync/cara-budget-published-source-two-r2-20261031",
+    "--source-revision",
+    "a49864e19f04c3abf9137bd892ad9b43ad0d0716",
+    "--output",
+    ".sync/cara-budget-R3-failed-acceptance-must-not-exist.json"
+  ],
+  "exit_code": 1,
+  "stderr": "Traceback (most recent call last):\n  File \"/Users/kuangda_gao/Documents/\u4e16\u754c\u6a21\u578b\u52a0\u901f\u5b9e\u9a8c/worldcache_omr/scripts/accept_cara_budget_calibration_cpu_r3.py\", line 130, in <module>\n    if __name__=='__main__':main()\n  File \"/Users/kuangda_gao/Documents/\u4e16\u754c\u6a21\u578b\u52a0\u901f\u5b9e\u9a8c/worldcache_omr/scripts/accept_cara_budget_calibration_cpu_r3.py\", line 120, in main\n    output=accept(result(args.capture),launch,\n  File \"/Users/kuangda_gao/Documents/\u4e16\u754c\u6a21\u578b\u52a0\u901f\u5b9e\u9a8c/worldcache_omr/scripts/accept_cara_budget_calibration_cpu_r3.py\", line 47, in accept\n    require(state['Status']=='exited' and not state['Running'] and state['Pid']==0\n  File \"/Users/kuangda_gao/Documents/\u4e16\u754c\u6a21\u578b\u52a0\u901f\u5b9e\u9a8c/worldcache_omr/scripts/accept_cara_budget_calibration_cpu_r3.py\", line 25, in require\n    if not condition:raise ValueError(message)\nValueError: Original CPU must exit normally with its complete proof\n",
+  "acceptance_created": false,
+  "observed_unix": 1793379229.6821902
+}

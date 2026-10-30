@@ -1,0 +1,50 @@
+{
+  "status": "TASK_PRIVATE_EFFECTIVE_SSH_CONFIG_ONLY",
+  "observed_unix": 1793379025.4133859,
+  "hosts": {
+    "office_tailscale": {
+      "user": "admin",
+      "hostname": "100.103.229.16",
+      "port": "22",
+      "controlmaster": "false",
+      "stricthostkeychecking": "true",
+      "serveralivecountmax": "3",
+      "serveraliveinterval": "30",
+      "hostkeyalias": "wc-office-jump-tailscale",
+      "controlpersist": "no"
+    },
+    "two_card_lan": {
+      "user": "gaokuangda",
+      "hostname": "10.128.160.181",
+      "port": "22",
+      "controlmaster": "false",
+      "stricthostkeychecking": "true",
+      "serveralivecountmax": "3",
+      "serveraliveinterval": "30",
+      "hostkeyalias": "wc-two-card-original-lan",
+      "controlpersist": "no",
+      "proxyjump": "office_tailscale"
+    },
+    "four_card": {
+      "user": "user",
+      "hostname": "10.156.160.3",
+      "port": "22617",
+      "controlmaster": "false",
+      "stricthostkeychecking": "true",
+      "serveralivecountmax": "3",
+      "serveraliveinterval": "30",
+      "hostkeyalias": "wc-four-card-original-lan",
+      "controlpersist": "no",
+      "proxyjump": "office_tailscale"
+    }
+  },
+  "global_configuration_changed": false,
+  "Windows_report_source": "User supplied read-only diagnostic",
+  "Windows_claims": {
+    "TUN_enabled": false,
+    "sshd_authentication_failures_observed": false,
+    "Tailscale_and_firewall_logs_unavailable": true
+  },
+  "dead_master_confirmed": false,
+  "transport_root_cause_confirmed": false
+}
