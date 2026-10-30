@@ -2,7 +2,7 @@
 
 # CARA-Cache
 
-[773预算搜索14GPUh完整SA+HC草案](research/773_CARA_14GPUH_SA_HC_BUDGET_DESIGN_20261030.md)：用户已选择14GPUh整卡设计。草案51次双FIT查询（初始1+SA30+HC20）及10条预热/教师/控制，共112路径；原控制器五种合成情形验证完整搜索、截断和失败无重试。工程估算12.53GPUh、余量1.47GPUh，112份RGB约38.62GiB；非生产报价或启动批准。原生命周期回执14项本地控制通过，实际采集、双端CPU、完整报价与存储仍待；S原卡保持。
+[774完整校准入口与四卡CPU运行](research/774_CARA_COMPLETE_CALIBRATION_ENTRY_AND_FOUR_CARD_CPU_20261030.md)：完整112路径/51双FIT查询入口已组合；7项本地控制和只读采集/接收器10项控制通过。四卡CPU原容器18:46:12启动，18:58确认已进入第二种flow且仍运行，1CPU/4GiB/零swap；两种flow的完整矩阵待原终态验收，不重派。入口仍为CPU准备，GPU采集/guardian组合、从未取得锁失败分支、双端CPU与报价存储仍待；14GPUh实际启动未批准。
 
 **2026-10-28最新安排：主线P0/F19，探索S-FAST19与固定Shared25-C的Q并行准备。** [最新计划与两个对话分工](plans/cara_next_stage_20261028/08_REPOSITORY_RECONCILIATION.md) · [739接收记录](research/739_CARA_NEXT_STAGE_FAST_SQ_PLAN_AND_CHAT_HANDOFF_20261028.md)。A32已完整验收并冻结；B36已获单次批准，实际状态以原运行记录为准。WC73已热停结算，禁止自动重派；原DEV128、旧合同与失败保持。以下旧准备记录仅作历史复用依据。
 

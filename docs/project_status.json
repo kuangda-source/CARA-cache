@@ -1834,7 +1834,7 @@
     "independent_new_inputs": false,
     "complete_QA_ref": "reports/cara_fast_A6000_complete_frozen_QA_20261029_0115.json"
   },
-  "current_evidence_observed_at": "2026-10-30T18:36:57.259255+08:00",
+  "current_evidence_observed_at": "2026-10-30T18:57:06.124010+08:00",
   "fast_B36_CPU_preparation_20261029": {
     "status": "ACCEPTED_DUAL_HOST_COMPLETE_B36_CPU_CONTINUATION_ONLY",
     "accepted_receipt_ref": "reports/cara_fast_B36_CPU_acceptance_r1_20261029.json",
@@ -2037,10 +2037,10 @@
     "postacceptance_budget_read_ref": "reports/cara_fast_mainline_budget_readonly_r1_20261030.json"
   },
   "fast_mainline_post_result_CPU_20261030": {
-    "status": "14GPUh_SA_HC_DESIGN_CANDIDATE_CPU_COUNTS_VERIFIED_NOT_LAUNCH_APPROVED",
-    "notice_title": "773预算搜索14GPUh完整SA+HC草案",
-    "research_ref": "research/773_CARA_14GPUH_SA_HC_BUDGET_DESIGN_20261030.md",
-    "summary": "用户已选择14GPUh整卡设计。草案51次双FIT查询（初始1+SA30+HC20）及10条预热/教师/控制，共112路径；原控制器五种合成情形验证完整搜索、截断和失败无重试。工程估算12.53GPUh、余量1.47GPUh，112份RGB约38.62GiB；非生产报价或启动批准。原生命周期回执14项本地控制通过，实际采集、双端CPU、完整报价与存储仍待；S原卡保持。",
+    "status": "COMPLETE_CALIBRATION_ENTRY_FOUR_CARD_CPU_ORIGINAL_RUNNING_ACCEPTANCE_PENDING",
+    "notice_title": "774完整校准入口与四卡CPU运行",
+    "research_ref": "research/774_CARA_COMPLETE_CALIBRATION_ENTRY_AND_FOUR_CARD_CPU_20261030.md",
+    "summary": "完整112路径/51双FIT查询入口已组合；7项本地控制和只读采集/接收器10项控制通过。四卡CPU原容器18:46:12启动，18:58确认已进入第二种flow且仍运行，1CPU/4GiB/零swap；两种flow的完整矩阵待原终态验收，不重派。入口仍为CPU准备，GPU采集/guardian组合、从未取得锁失败分支、双端CPU与报价存储仍待；14GPUh实际启动未批准。",
     "component_CPU_ref": "reports/cara_fast_B36_review_component_CPU_acceptance_r1_20261030.json",
     "review_plan_ref": "reports/cara_fast_B36_review_plan_r1_20261030.json",
     "diagnostics_ref": "reports/cara_fast_B36_post_result_diagnostics_r1_20261030.json",
@@ -2052,11 +2052,11 @@
     "new_GPU_submissions": 0,
     "new_reserved_GPUh": 0,
     "new_metrics_computed": 0,
-    "summary_ref": "reports/cara_budget_14GPUh_search_design_CPU_r1_20261030.json",
+    "summary_ref": "reports/cara_budget_calibration_four_card_CPU_launch_r1_20261030.json",
     "review_transfer_ref": "reports/cara_fast_B36_review_video_transfer_r1_20261030.json",
     "review_materialized_ref": "reports/cara_fast_B36_review_materialized_r1_20261030.json",
     "review_browser_QA_ref": "reports/cara_fast_B36_review_browser_QA_r1_20261030.json",
-    "observed_unix": 1793356617.2595918,
+    "observed_unix": 1793357826.124301,
     "original_video_review_research_ref": "research/757_CARA_B36_ORIGINAL_VIDEO_REVIEW_AND_F18_CPU_20261030.md",
     "original_video_review_summary_ref": "reports/cara_fast_mainline_post_result_CPU_summary_r1_20261030.json",
     "paper_results_manifest_ref": "plans/cara_next_stage_20261028/mainline/PAPER_RESULTS_MANIFEST_R2.json",
@@ -2268,7 +2268,17 @@
     "proposed_query_count": 51,
     "proposed_physical_paths": 112,
     "proposed_SA_iterations": 30,
-    "proposed_HC_iterations": 1
+    "proposed_HC_iterations": 1,
+    "complete_calibration_entry_ref": "src/wcomr/cara_budget_calibration_r1.py",
+    "complete_calibration_local_CPU_ref": "reports/cara_budget_calibration_local_CPU_r1_20261030.json",
+    "complete_calibration_CPU_intent_ref": "plans/cara_next_stage_20261028/mainline/r2/BUDGET_CALIBRATION_CPU_FRAGMENT_R1.json",
+    "complete_calibration_four_card_launch_ref": "reports/cara_budget_calibration_four_card_CPU_launch_r1_20261030.json",
+    "complete_calibration_four_card_observation_ref": "reports/cara_budget_calibration_four_card_CPU_terminal_probe_r1_20261030.json",
+    "complete_calibration_four_card_state": "ORIGINAL_CONTAINER_RUNNING_TERMINAL_PENDING",
+    "complete_calibration_research_ref": "research/774_CARA_COMPLETE_CALIBRATION_ENTRY_AND_FOUR_CARD_CPU_20261030.md",
+    "readonly_lifecycle_capture_local_CPU_ref": "reports/cara_budget_calibration_capture_acceptor_local_CPU_r1_20261030.json",
+    "readonly_lifecycle_capture_production_accepted": false,
+    "complete_calibration_four_card_counts_ref": "reports/cara_budget_calibration_four_card_CPU_counts_r1_20261030.json"
   },
   "fast_SQ_original_runtime_intake_20261030": {
     "receipt_ref": "reports/cara_mainline_S_launch_Q1_complete_intake_r1_20261030.json",
