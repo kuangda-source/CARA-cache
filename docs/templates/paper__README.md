@@ -7,6 +7,8 @@
 | 需要的材料 | 入口 |
 |---|---|
 | 主要结果与范围 | [研究概览](repo:EXPERIMENT_REPORT.md) |
+| Fast完整B36原数值与图表 | [当前结果R2](repo:paper/results/cara_fast_r2_20261030/FAST_RESULTS.md)及[绑定清单](repo:plans/cara_next_stage_20261028/mainline/PAPER_RESULTS_MANIFEST_R2.json) |
+| 原32条视频的单人诊断 | [760完整记录](repo:research/760_CARA_B36_COMPLETE_SINGLE_REVIEWER_DIAGNOSTIC_20261030.md)，四旧CAL、非独立人类评价 |
 | 每项实验的完成状态、结论、下一步 | [实验总表](repo:paper/EXPERIMENT_MASTER_TABLE.md)及[机器索引](repo:paper/experiment_master_table.json) |
 | 名词、动作、历史配置身份 | [术语映射](repo:paper/INTERNAL_TO_PAPER_MAPPING.md)及[完整机器映射](repo:paper/internal_to_paper_mapping.json) |
 | 连续修正机制图 | [Window24图](repo:paper/figures/cara_window24_mechanism_r1_20261022/matched25D_readout.png) |
