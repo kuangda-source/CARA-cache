@@ -2,7 +2,7 @@
 
 # CARA-Cache
 
-[767 完整RGB评价与四卡CPU终态](research/767_CARA_BUDGET_RGB_ENDPOINT_AND_PENDING_PRODUCTION_CPU_20261030.md)：完整93帧编码前RGB评价和双FIT请求入口已实现，6项本地控制通过。四卡原CPU已正常退出，31项组件控制、54条成功tiny路径、8条预定失败和12个完整双FIT目标完成；原62份B36源码保持。实际4GiB内存加4GiB可用swap与登记无swap不符，验收器拒绝，双端CPU尚未接受。保留原终态，后续先修正资源绑定；两卡未启动并保持S优先。本轮0GPUh。
+[768 CPU资源修订与完整RGB容量](research/768_CARA_BUDGET_CPU_RESOURCE_REPAIR_AND_RGB_STORAGE_20261030.md)：R2资源绑定修复完成：四卡原CPU退出/0，1CPU/4GiB/零swap配置与来源核验通过，31项组件控制、54成功tiny路径、8预定失败及12完整双FIT目标完成；8项本地资源/接收器控制通过。两卡资源门拒绝且原stage不存在，可用51.26GiB低于保留S内存的56GiB门，双端接受仍待。RGB容量组件3项控制通过，默认604份完整NPY约208.28GiB；实际查询预算、专用存储及整卡报价尚未冻结。本轮0GPUh。
 
 **2026-10-28最新安排：主线P0/F19，探索S-FAST19与固定Shared25-C的Q并行准备。** [最新计划与两个对话分工](plans/cara_next_stage_20261028/08_REPOSITORY_RECONCILIATION.md) · [739接收记录](research/739_CARA_NEXT_STAGE_FAST_SQ_PLAN_AND_CHAT_HANDOFF_20261028.md)。A32已完整验收并冻结；B36已获单次批准，实际状态以原运行记录为准。WC73已热停结算，禁止自动重派；原DEV128、旧合同与失败保持。以下旧准备记录仅作历史复用依据。
 
