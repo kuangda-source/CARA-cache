@@ -21,3 +21,9 @@
 两卡原R6容器已正常退出0并独立接受：123项控制、两个flow完整20条小张量路径和五个Linux监督场景通过，容器192.869秒、进程峰值1.372GiB。它在原预计450秒半程前完成；连接波动导致首次成功终态快照比实际结束晚约332秒，未按及时收件描述。原收件器缺少登记对象，已补取与原启动SHA一致的登记字节；此接收端修复未重跑CPU。收件时沿用原两卡Docker组执行边界。见[完整接受](../../../reports/cara_sq_s_native_entry_two_card_cpu_accepted_r6_20261030.json)与[检查时间记录](../../../reports/cara_sq_s_native_entry_two_card_acceptance_schedule_r6_20261030.json)。
 
 四卡压缩请求遇到连接中断；随后确认原控制进程已退出、锁空闲、同R6 stage不存在，才能继续该CPU卡。两卡成功不替代四卡证据，也不授予S的GPU权限。GPU提交和真实S标签仍为0。
+
+四卡随后沿同一R6句柄完成，06:45:32 UTC退出0，容器431.963秒；123项控制、两个flow共20条tiny路径及五个Linux监督场景均独立接受。首次成功收件在06:51:35 UTC，半程收件未获接受，保留迟收事实，不补写及时检查。见[四卡完整接受](../../../reports/cara_sq_s_native_entry_four_card_cpu_accepted_r6_20261030.json)与[原时间记录](../../../reports/cara_sq_s_native_entry_four_card_acceptance_schedule_r6_20261030.json)。两端原生CPU接受只证明接线与控制流程，真实S标签和GPU提交仍为0。
+
+用户要求停止反复查看资源后，14:52北京时间只核查两卡一次：0号A6000的利用率0%、显存450MiB、43°C，两张卡均无计算进程、项目GPU租约未持有、无本项目运行容器。[该次观察](../../../reports/cara_sq_two_card_other_gpu_one_time_observation_r6_20261030.json)支持把另一张卡作为S候选，不建立硬独占，不替代实际派发时的fresh准入，也不恢复资源轮询。
+
+后续CPU准备复用既有 `cara_fast_b36_dispatch_r2.assets_check/assets_unchanged` 对原20个模型和辅助文件逐字节校验。新worker只绑定原S源码stage并产生单次、不可覆盖的PID/摘要回执；2CPU（4、5）、2GiB地址空间、低优先级及1800秒硬限，无模型加载或GPU权限。原38个生产关键文件与两个原生CPU接受的源码不变。
