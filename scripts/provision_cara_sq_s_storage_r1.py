@@ -5,6 +5,7 @@ import os
 from pathlib import Path
 import resource
 import shutil
+import signal
 import subprocess
 import sys
 import time
@@ -65,10 +66,17 @@ def main():
     os.sched_setaffinity(0, {4, 5})
     os.nice(10)
     resource.setrlimit(resource.RLIMIT_AS, (2 * 2**30, 2 * 2**30))
+    resource.setrlimit(resource.RLIMIT_CPU, (1800, 1800))
+    resource.setrlimit(resource.RLIMIT_FSIZE, (image_bytes, image_bytes))
+    def timed_out(signum, frame):
+        raise TimeoutError('Original S storage preparation reached its 1800 second wall limit')
+    signal.signal(signal.SIGALRM, timed_out)
+    signal.alarm(1800)
     state = dict(status='S_STORAGE_CPU_RUNNING_NO_GPU', identity=process_identity(os.getpid()),
         started_unix=time.time(), host=registration['host'], stage=str(args.stage),
         registration_sha256=args.registration_sha256, worker_sha256=args.worker_sha256,
         image_path=str(image), output_mount=str(output), journal_path=str(journal),
+        resources=dict(cpus=[4, 5], address_space_GiB=2, wall_seconds=1800, CPU_seconds=1800),
         GPU_submissions=0, ledger_writes=0, authorizes_retry=False)
     create(args.stage / 'S-storage-CPU-request.json', state)
     started = time.monotonic()
