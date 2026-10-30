@@ -1,0 +1,42 @@
+{
+  "status": "ORIGINAL_PROXYJUMP_AUTHENTICATED_ONCE_BUT_INTERMITTENT_TRANSPORT_UNRESOLVED",
+  "observed_unix": 1793368804.193132,
+  "original_private_config_already_uses_ProxyJump": true,
+  "missing_Mac_subnet_route_explanation_not_supported": true,
+  "office_peer_ref": "reports/cara_budget_runner_original_office_peer_readonly_r1_20261030.json",
+  "office_SSH_probe_ref": "reports/cara_budget_runner_original_office_SSH_readonly_r1_20261030.json",
+  "original_two_card_authenticated_ref": "reports/cara_budget_two_card_original_jump_diagnosis_r1_20261030.json",
+  "userspace_transport": "office_tailscale ProxyCommand /Applications/Tailscale.app/Contents/MacOS/Tailscale nc %h %p; original downstream ProxyJump retained",
+  "original_task_ssh_config_unchanged": true,
+  "task_private_alternative_created": true,
+  "global_SSH_or_Clash_or_Tailscale_changed": false,
+  "local_route": {
+    "interface": "utun7",
+    "local_Tailscale_IP": "100.106.51.65",
+    "both_original_office_address_families": true
+  },
+  "local_Clash_observation": {
+    "mode": "rule",
+    "tun_enabled": true,
+    "device": "utun4",
+    "stack": "Mixed",
+    "auto_route": true,
+    "original_peer_connections_visible_in_controller": []
+  },
+  "diagnostic_pings": {
+    "DERP_hkg_ms": 620,
+    "TSMP_seconds": 1.309,
+    "WireGuard_ICMP_seconds": 1.261,
+    "normal_ICMP_received": 2,
+    "normal_ICMP_sent": 2,
+    "normal_ICMP_average_ms": 1625.691
+  },
+  "later_userspace_failure": "Dial 100.103.229.16:22: unexpected HTTP response: 502 Bad Gateway, dial failure: dial tcp 100.103.229.16:22: i/o timeout",
+  "old_FRP_localhost_22617": "Listener exists, original ControlMaster absent, SSH KEX reset by peer",
+  "Windows_Clash_specific_cause_confirmed": false,
+  "stable_connection_restored": false,
+  "next_diagnostic": "User agreed to request simultaneous Windows OpenSSH/Operational logs, listener/connection counts and Clash/TUN rule/connection records; readonly, no service/config changes",
+  "S_Q_connection_method_sent_with_prior_user_authorization": true,
+  "experiment_replayed": false,
+  "GPU_submissions": 0
+}

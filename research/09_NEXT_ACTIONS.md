@@ -2,7 +2,7 @@
 
 # CARA-Cache 后续实验顺序
 
-[780双端Docker观察与校准容器入口](780_CARA_DOCKER_OBSERVATION_AND_CALIBRATION_CONTAINER_ENTRY_20261030.md)：四卡和两卡真实Docker只读检查已验证精确空容器格式；26项本地控制通过。已补单UUID/2CPU/40GiB零swap、宿主PID、精确cidfile及限定可写目录的容器参数与监督器入口，拒绝死/未知guardian。原R3控制链以发布源17cf1e34复核，无重跑。容器执行尚未实测，真实校准runner、完整验收/once入口、64GiB硬配额与双端整卡CPU/报价仍待；14GPUh未新启动。
+[781校准运行器与原CPU终态待恢复](781_CARA_CALIBRATION_PRODUCTION_RUNNER_AND_AFFECTED_CPU_20261030.md)：已接通14GPUh/51查询/112路径校准producer、完整随机状态摘要及原模型/精度运行器；27项本地控制＋5项验收控制通过。四卡受影响采样CPU已唯一启动并见运行，后续跳板间歇超时，原终态未知、未接受、不重派。ProxyJump原本已配置，userspace通路曾双层认证成功但仍不稳定；等待Windows同期只读日志。完整验收/once入口、64GiB硬配额及双端整卡CPU/报价仍待；0新GPU。
 
 **2026-10-28最新安排：主线P0/F19，探索S-FAST19与固定Shared25-C的Q并行准备。** [最新计划与两个对话分工](../plans/cara_next_stage_20261028/08_REPOSITORY_RECONCILIATION.md) · [739接收记录](739_CARA_NEXT_STAGE_FAST_SQ_PLAN_AND_CHAT_HANDOFF_20261028.md)。A32已完整验收并冻结；B36已获单次批准，实际状态以原运行记录为准。WC73已热停结算，禁止自动重派；原DEV128、旧合同与失败保持。以下旧准备记录仅作历史复用依据。
 
@@ -26,7 +26,7 @@
 | Q0-Q1 · S/Q探索 | 原Q1完整12状态、111pair/222head、释放、唯一中央结算及CPU分析已接受，实际0.29875649GPUh | 保留执行别名和旧状态范围；由S/Q评估Q-END完整比较，不将局部codec输出解释为视频或部署显存/速度收益 |
 | A-SQ-FAST · S/Q探索 | 仅明确缺口后准备采集卡 | 绑定新父策略的108标签/56额外Dense pair与存储；解决F19 raw和Q25布局兼容问题，共同费用只计一次 |
 | S-END / Q-END · S/Q探索 | 各自条件晋级，不互设成功前提 | 不同合法mask或实际同bytes读出证据后，冻结最小完整视频比较与强基线，再报价申请 |
-| 预算分配强基线 · 主线公平比较 | 原校准CPU/guardian控制链四卡接受；双端实际Docker空容器观察及容器入口本地CPU通过 | 连接真实校准runner、完整结果验收与once入口，完成64GiB专用存储及双端整卡CPU/报价后提交单次14GPUh批准；原GPU未启动 |
+| 预算分配强基线 · 主线公平比较 | 校准运行器已实现；32项本地CPU通过；唯一四卡受影响CPU终态待原连接恢复 | 只恢复原CPU并接受；随后补完整结果验收/once、64GiB实际配额及双端整卡CPU/报价，再提交单次14GPUh批准；不重派 |
 | F18 / Q5 · 主线，S/Q提供冻结规则 | F18与Q5 Native50参考组件均双端CPU接受；方法/整卡范围/报价未冻结 | 保持S优先；等待冻结输出mask和方法端点证据，承接50步保护/年龄映射及可辨识比较，再组完整范围与报价 |
 | WAN / FINAL · 主线 | 迁移后置；原最终16/备用16双端身份复核，登记范围未见执行 | 保留原池，首次使用前再做增量核查；冻结方法/checkpoint/协议、额外seed子集与完整物理范围/报价后再决定 |
 | B-S / B-Q / B-E · 按失败位置指定单一负责人 | 休眠；当前未启用 | 最多一个备用进入新GPU探索；不自动恢复IG/R4/GRAPH/F/B |

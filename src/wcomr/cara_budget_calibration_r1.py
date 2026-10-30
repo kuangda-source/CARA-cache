@@ -1,7 +1,7 @@
 """Complete calibration orchestration on registered production request routes.
 
-CPU preparation only. The GPU guardian, admission and complete lifecycle reader
-must be bound separately before this can become a production dispatch entry.
+The producer is source/context bound, but is not a dispatch or acceptance entry.
+The guardian, approval, admission and terminal reader own those boundaries.
 """
 import copy
 from dataclasses import asdict
@@ -17,11 +17,38 @@ from .cara_budget_rgb_objective_r1 import save_endpoint, read_endpoint, full_rgb
 from .cara_fast_spec_r1 import digest, profile_from, policy_from_mask
 
 
+PRODUCTION_CONFIG=SearchConfig(42,51,sa_iterations=30,hc_iterations=1)
+
+
+def validate_production_context(context,card,config,shape,limits):
+    import re
+    if (not isinstance(context,dict) or context.get('CPU_fixture_only') is not False
+            or context.get('scope_sha256')!=card['scope_sha256']
+            or context.get('host') not in ('four_card','two_card')
+            or not re.fullmatch(r'[0-9a-f]{40}',context.get('source_revision',''))
+            or not re.fullmatch(r'[0-9a-f-]{32,36}',context.get('launch_id',''))
+            or not re.fullmatch(r'GPU-[0-9a-f-]{36}',context.get('gpu_uuid',''))
+            or any(not re.fullmatch(r'[0-9a-f]{64}',context.get(key,'')) for key in
+                ('launch_sha256','registration_sha256','runner_profile_sha256'))
+            or context.get('billed_limit_GPUh')!=14
+            or context.get('candidate_queries')!=51 or context.get('physical_paths')!=112
+            or config!=PRODUCTION_CONFIG or list(shape)!=[3,93,432,768]
+            or not isinstance(limits,StorageLimits) or limits.volume_bytes!=64*2**30):
+        raise ValueError('Bound complete14GPUh/51query/112path production context required')
+
+
 class Calibration:
     def __init__(self, *, root, card, config, context_sha256, RGB_shape, execute,
-                 cpu_validation=False, create=False, storage_limits=None):
-        if cpu_validation is not True:
-            raise ValueError('Whole GPU calibration is not yet admitted; CPU preparation only')
+                 cpu_validation=False, create=False, storage_limits=None, production_context=None):
+        self.cpu_validation=cpu_validation
+        if type(cpu_validation) is not bool:
+            raise ValueError('Explicit CPU/production mode required')
+        if not cpu_validation:
+            validate_production_context(production_context,card,config,RGB_shape,storage_limits)
+            if digest(production_context)!=context_sha256:
+                raise ValueError('Original production context digest differs')
+        elif production_context is not None:
+            raise ValueError('CPU fixtures cannot carry production authority')
         self.card=copy.deepcopy(card);self.profile=profile_from(card['profile'])
         if (digest({k:v for k,v in card.items() if k!='scope_sha256'})!=card['scope_sha256']
                 or digest(card['schedule'])!=SCHEDULE_SHA256 or self.profile.fingerprint!=PROFILE_FINGERPRINT
@@ -38,7 +65,7 @@ class Calibration:
             raise ValueError('Explicit storage limits required')
         self.storage_limits=storage_limits
         self.execute=execute;self.physical_calls=0;self.allow_new=False
-        self.binding=dict(CPU_fixture_only=True,scope_sha256=card['scope_sha256'],context_sha256=context_sha256,
+        self.binding=dict(CPU_fixture_only=self.cpu_validation,scope_sha256=card['scope_sha256'],context_sha256=context_sha256,
             config=vars(config),RGB_shape=self.shape,source_sha256=file_sha(__file__),
             storage_limits=asdict(storage_limits) if storage_limits else None)
         if create:
@@ -50,10 +77,10 @@ class Calibration:
     def physical(self, name, member, role, timing, query=None):
         policy=query['policy'] if query else None
         slot=dict(id=name,member=member,role=role,seed=0,timing_enabled=timing,
-            phase='CALIBRATION_CPU',audit_enabled=False,eligible_clean_time=False)
+            phase='CALIBRATION_CPU' if self.cpu_validation else 'CALIBRATION',audit_enabled=False,eligible_clean_time=False)
         identity=dict(context_sha256=self.context,original_scope_sha256=self.card['scope_sha256'],
             slot=slot,policy=policy,query_sha256=query['request_sha256'] if query else None,
-            RGB_shape=self.shape,CPU_fixture_only=True)
+            RGB_shape=self.shape,CPU_fixture_only=self.cpu_validation)
         path=self.root/name
         if path.exists():
             if not (path/'complete.json').exists():
@@ -77,7 +104,7 @@ class Calibration:
         self.physical_calls+=1
         result,rgb,rng_sha=self.execute(slot,policy,path/'generation')
         if (result['status']!='COMPLETE' or result['solver_steps']!=36 or result['guided_pairs']!=36
-                or result['CPU_fixture'] is not True):
+                or result['CPU_fixture'] is not self.cpu_validation):
             raise ValueError('Complete original full36 request required')
         expected_policy=policy if query else self.card['roles'][role].get('policy')
         if expected_policy:
@@ -94,7 +121,7 @@ class Calibration:
         proof=dict(status='COMPLETE',identity=identity,RGB_sha256=artifact['RGB_sha256'],
             rng_sha256=rng_sha,solver_steps=36,guided_pairs=36,
             actual_D=19 if role in ('UNIFORM19_C','SEARCH_CANDIDATE') else 36,
-            T_DD=result['T_DD'],T_request=result['T_request'],CPU_fixture_only=True)
+            T_DD=result['T_DD'],T_request=result['T_request'],CPU_fixture_only=self.cpu_validation)
         if self.storage_limits:
             proof['generation_payload']=generation
             check_path_metadata(path,self.storage_limits)
@@ -136,7 +163,7 @@ class Calibration:
         # Both FIT requests and the initial timing control precede any objective.
         return dict(request_sha256=query['request_sha256'],rows=[dict(member=m,status='COMPLETE',
             RGB_MSE=full_rgb_mse(c[0],t[0]),candidate_RGB_sha256=c[1]['RGB_sha256'],
-            teacher_RGB_sha256=t[1]['RGB_sha256'],complete_frames=93,CPU_fixture_only=True)
+            teacher_RGB_sha256=t[1]['RGB_sha256'],complete_frames=93,CPU_fixture_only=self.cpu_validation)
             for m,c,t in zip(FIT_MEMBERS,candidates,self.teachers)])
 
     def run(self, *, allow_new=False):
@@ -168,18 +195,27 @@ class Calibration:
                     if {r['member']:r['RGB_MSE'] for r in response['rows']}!=row['RGB_MSE_by_member']:
                         raise ValueError('Original complete query objective differs from saved RGB')
             storage=check_scope(self.root,self.storage_limits) if self.storage_limits else None
-            return dict(storage_accounting=storage,status='CALIBRATION_CPU_COMPLETE' if complete else 'CALIBRATION_CPU_INCOMPLETE',
+            return dict(storage_accounting=storage,status=('CALIBRATION_CPU_' if self.cpu_validation else 'CALIBRATION_')+('COMPLETE' if complete else 'INCOMPLETE'),
                 complete=complete,expected_physical_paths=expected,complete_physical_paths=len(completed),
-                new_physical_calls=self.physical_calls-calls_before,search=result,CPU_fixture_only=True,
+                new_physical_calls=self.physical_calls-calls_before,search=result,CPU_fixture_only=self.cpu_validation,
                 GPU_dispatch_ready=False,scientific_freeze_written=False,GPU_submissions=0,ledger_written=False)
 
 
-class ProductionRequestsCPU:
-    """The full native, allD and sparse sampler routes with tiny CPU weights."""
-    def __init__(self, *, card, inference, samples, common, ra_binding, host, before_request):
+class ProductionRequests:
+    """Shared unchanged request routes, with mode-bound per-query child cards."""
+    def __init__(self, *, card, inference, samples, common, ra_binding, host, before_request,
+                 cpu_validation=False, production_context=None):
+        if type(cpu_validation) is not bool or (cpu_validation and production_context is not None):
+            raise ValueError('Explicit request mode required')
+        if not cpu_validation and (not production_context or
+                production_context['scope_sha256']!=card['scope_sha256'] or
+                production_context['host']!=host or not production_context['gpu_uuid'] or
+                not production_context['launch_id']):
+            raise ValueError('Original production request identity required')
         self.card=card;self.before_request=before_request
+        self.cpu_validation=cpu_validation;self.production_context=copy.deepcopy(production_context)
         self.kwargs=dict(inference=inference,samples=samples,common=common,ra_binding=ra_binding,
-                         host=host,cpu_validation=True)
+                         host=host,cpu_validation=cpu_validation)
 
     def __call__(self,slot,policy,output):
         import torch
@@ -188,7 +224,7 @@ class ProductionRequestsCPU:
         card=copy.deepcopy(self.card);card.pop('scope_sha256')
         if policy:
             card['roles']['SEARCH_CANDIDATE']=dict(kind='policy',requested_steps=35,policy=policy)
-        card.update(physical_matrix=[slot],formal_matrix=[],CPU_FRAGMENT_ONLY=True,GPU_dispatch_ready=False)
+        card.update(physical_matrix=[slot],formal_matrix=[],CPU_FRAGMENT_ONLY=self.cpu_validation,GPU_dispatch_ready=False)
         card['scope_sha256']=digest(card)
         captured=[];module=self.kwargs['common']['inference_module'];writer=module.save_img_or_video
         def save(video,path,fps):
@@ -196,7 +232,15 @@ class ProductionRequestsCPU:
             return writer(video,path,fps)
         self.before_request()
         with clean.patched(module,'save_img_or_video',save):
-            result=Requests(card=card,**self.kwargs)(slot,output)
+            context=None if self.cpu_validation else {**self.production_context,'scope_sha256':card['scope_sha256']}
+            result=Requests(card=card,production_context=context,**self.kwargs)(slot,output)
         if len(captured)!=1:
             raise ValueError('Exactly one guardrail-passed pre-encoding RGB required')
-        return result,captured[0],digest(torch.get_rng_state().tolist())
+        from .prepared_input import RNGState
+        return result,captured[0],digest(RNGState().signatures())
+
+
+class ProductionRequestsCPU(ProductionRequests):
+    """Compatibility entry for tiny CPU weights on the same sampler routes."""
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs,cpu_validation=True)

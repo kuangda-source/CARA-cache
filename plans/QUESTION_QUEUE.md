@@ -83,3 +83,5 @@ S单次授权已接收：用户在S/Q原对话批准另一张A6000完整十条�
 [779原guardian控制链CPU](../research/779_CARA_HOST_GUARDIAN_ALLOCATION_CHAIN_CPU_20261030.md)：原R1/R2失败保留；R3原CPU20:30:45退出/0，13项Linux及7项验收控制通过，12场景/7个真实CPU runner。启动回执前失败采用原父进程身份见证，UNKNOWN不结算；SSH异常仅恢复原stage。实际Docker空容器兼容、64GiB硬配额、完整入口/科学验收、双端CPU/报价与14GPUh单次审批仍待，0新增GPU。
 
 [780双端Docker观察与容器入口](../research/780_CARA_DOCKER_OBSERVATION_AND_CALIBRATION_CONTAINER_ENTRY_20261030.md)：两个原SSH入口均完成真实Docker空容器只读验证；26项本地观察/参数/worker/验收控制通过。原R3按发布源复核、不重跑。下一步连接真实校准runner、完整验收/once入口、64GiB硬配额及双端整卡CPU/报价；容器实际执行尚未验收，14GPUh未启动。
+
+[781校准运行器与原CPU终态待恢复](../research/781_CARA_CALIBRATION_PRODUCTION_RUNNER_AND_AFFECTED_CPU_20261030.md)：14GPUh拟议完整51查询/112路径运行器已接通；32项本地控制通过，唯一四卡CPU见运行后终态读取受跳板间歇超时影响，仅恢复原句柄。ProxyJump原已配置，userspace曾双层认证通过但未稳定，Windows同期日志待回；不重派、不新增GPU。完整验收/once、64GiB实际配额及双端整卡CPU/报价仍待。
