@@ -2,7 +2,7 @@
 
 # CARA-Cache
 
-[771原进程身份观察CPU接受](research/771_CARA_ORIGINAL_PROCESS_IDENTITY_CPU_COMPONENT_20261030.md)：四卡原CPU容器18:15:16至18:15:17退出/0；7项本地/Linux控制、四个真实CPU子进程及6项接收器控制通过。原boot/PID命名空间/PID/start ticks联合观察，错误视图保持UNKNOWN，部分退出不判完整终态。只接受进程身份组件，GPU容器/设备/锁/账本联合终态仍待；未新派GPU，预算方向未冻结，S原卡及原双检查保持。
+[772校准生命周期回执CPU控制](research/772_CARA_CALIBRATION_LIFECYCLE_RECEIPT_CPU_CONTROLS_20261030.md)：预算搜索原终态回执组件通过14项本地控制，临时账本验证成功/失败实耗、唯一结算、超限保留及旧16.5责任保持。绑定原launch、worker身份、容器/UUID、锁和guardian单调时钟；完整搜索与生产采集入口尚待接通。本次无实际GPU/Docker/中央账本访问，未新派GPU；用户已选择14GPUh完整SA+HC设计，查询数与启动审批仍待；S原卡安排保持。
 
 **2026-10-28最新安排：主线P0/F19，探索S-FAST19与固定Shared25-C的Q并行准备。** [最新计划与两个对话分工](plans/cara_next_stage_20261028/08_REPOSITORY_RECONCILIATION.md) · [739接收记录](research/739_CARA_NEXT_STAGE_FAST_SQ_PLAN_AND_CHAT_HANDOFF_20261028.md)。A32已完整验收并冻结；B36已获单次批准，实际状态以原运行记录为准。WC73已热停结算，禁止自动重派；原DEV128、旧合同与失败保持。以下旧准备记录仅作历史复用依据。
 
