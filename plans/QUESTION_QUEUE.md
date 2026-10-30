@@ -45,3 +45,5 @@ Q5唯一50步的Native参考组件已按[761记录](../research/761_CARA_Q5_NATI
 [762双端身份复核](../research/762_CARA_FINAL16_RESERVE16_DUAL_HOST_IDENTITY_AUDIT_20261030.md)覆盖5,565份本地登记元数据，以及两端三个原项目输出目录的3,997份JSON。原最终16/备用16未发现执行身份，读取错误0，原池和48份输入字节保持；前16已用于DEV128，单独登记。该快照不替代首次使用前的fresh增量检查，不覆盖未登记外部存储；最终方法/物理范围/报价仍未冻结，0新增GPUh。
 
 [763 S原生入口CPU主线承接](../research/763_CARA_S_PUBLISHED_NATIVE_CPU_HANDOFF_20261030.md)：复算发布快照双端原终态，每端123控制、20tiny路径、5生命周期控制与38源绑定一致。完整S R2十条采集卡仍待单次审批；实际风险数据和方法端点效力未形成，保持S优先。
+
+S单次授权已接收：用户在S/Q原对话批准另一张A6000完整十条卡，硬限14GPUh；由原对话唯一派发，主线等待原启动回执，详见[授权记录](../reports/cara_fast_S_user_authorization_intake_r1_20261030.json)。不再重复申请批准。

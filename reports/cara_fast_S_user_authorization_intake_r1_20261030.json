@@ -1,0 +1,84 @@
+{
+  "status": "HUMAN_S_SINGLE_CARD_APPROVAL_INTAKE_PENDING_ORIGINAL_DISPATCH_RECEIPT",
+  "observed_unix": 1793345564.3664691,
+  "source_thread_id": "01a181c8-44e9-7341-a9a1-64894d9447ce",
+  "source_thread_title": "CARA S/Q 探索：S-FAST19 与缓存压缩",
+  "human_message_id": "01a18bb5-18b9-7071-9ea5-ee5069a75831",
+  "question_item_id": "[\"request_user_input_async\",\"call_260a58a3420847de85342a6f31137633\",0]",
+  "question": "是否批准在两卡服务器另一张 A6000 上运行一次完整 S：10 条新路径、936 heads、108 行风险标签，预计 12.71 GPUh、硬限 14 GPUh；原门失败即停、不重试？CPU、模型文件和输出盘准备已完成，提交前再做一次准入核验。",
+  "human_answer": "批准单次完整 S（A6000，硬限 14 GPUh）",
+  "source_kind": "read_thread actual userMessage",
+  "review_revision": "fcfb0816dd8f625cf7c05470015577615fc57cd7",
+  "review_path": "plans/cara_next_stage_20261028/sq/S_GPU_REVIEW_R6.json",
+  "review_sha256": "c525d262b02bc86f32b84e7e94da8a0f15b3b675d2d7206a24f11a7ff4b2571c",
+  "review_url": "https://github.com/kuangda-source/CARA-cache/blob/fcfb0816dd8f625cf7c05470015577615fc57cd7/plans/cara_next_stage_20261028/sq/S_GPU_REVIEW_R6.json",
+  "selected_host": "two_card",
+  "selected_gpu_uuid": "GPU-de9a5370-cd87-0f1c-a48e-288888777dd3",
+  "execution_source_revision": "ab3a306144f0cf24c04c0f0001a17665748a7518",
+  "original_stage": "/data20t/gaokuangda/worldcache_workspace/.sync/cara-sq-s-complete-two-card-r2-20261029",
+  "registration_sha256": "1438590045d242674fe6c6ffb91bf0aecbf481d9c1efebb72706c48a1f6b51c6",
+  "scope_sha256": "c1a2b18855a6692eb5a9dce45ddce0340e5573bd393677359470be1429a75a95",
+  "scope_counts": {
+    "paths": 10,
+    "warm_paths": 2,
+    "OFF_paths": 4,
+    "ON_paths": 4,
+    "parent_solver_pairs": 360,
+    "parent_Dense_pairs": 220,
+    "parent_C_pairs": 140,
+    "extra_Dense_teacher_pairs": 56,
+    "extra_C_shadow_pairs": 52,
+    "total_pairs": 468,
+    "total_branch_readouts": 936,
+    "moment_rows": 108,
+    "F19_raw_states": 8,
+    "unique_raw_anchors": 24,
+    "extra_Dense_hidden_head_pairs": 0
+  },
+  "forecast_GPUh": 12.7125,
+  "approved_hard_GPUh": 14,
+  "allowed_single_allocations": 1,
+  "proofs_verified": {
+    "native_CPU": {
+      "path": "reports/cara_sq_s_native_entry_two_card_cpu_accepted_r6_20261030.json",
+      "sha256": "1c0d51ef608f6b117716820933209a549db510aa4b3157ce6555229663cd4e25"
+    },
+    "model_assets": {
+      "path": "reports/cara_sq_s_assets_two_card_cpu_accepted_r1_20261030.json",
+      "sha256": "95a51c5c07692f98f6ae009a53c941c2dd63175460a22e505ba4ff8483b098e1"
+    },
+    "private_storage": {
+      "path": "reports/cara_sq_s_storage_two_card_cpu_accepted_r1_20261030.json",
+      "sha256": "c8e0a33e9267f36769932f15eeade155578ee32149a7cbded58f08fdedfca2a9"
+    },
+    "source_install": {
+      "path": "reports/cara_sq_s_complete_two_card_source_install_r6_20261030.json",
+      "sha256": "8f05fbb48de9f79893e9ef653d6afb86c33ac117ba78cab5576d61586341f1d4"
+    },
+    "one_time_GPU_observation": {
+      "path": "reports/cara_sq_two_card_other_gpu_one_time_observation_r6_20261030.json",
+      "sha256": "05a656d3713e7a7b28d604d17d544d1484142f3638f22b896f4e44b3aa043ee1"
+    }
+  },
+  "dispatch_owner_thread_id": "01a181c8-44e9-7341-a9a1-64894d9447ce",
+  "approval_received": true,
+  "actual_GPU_start_verified_by_this_intake": false,
+  "launch_receipt": null,
+  "fresh_admission_required": true,
+  "old_16_5_GPUh_reserve_preserved": true,
+  "central_cap_GPUh": 226,
+  "no_automatic_retry": true,
+  "S_END_authorized": false,
+  "Q_collection_authorized": false,
+  "check_policy": {
+    "clock_owner": "HOST_GUARDIAN",
+    "halfway_hours_after_start": 6.35625,
+    "expected_GPU_terminal_hours_after_start": 12.7125,
+    "expected_full_acceptance_hours_after_start": 13.7125,
+    "hard_GPU_limit_hours_after_start": 14,
+    "checks_created_before_launch": false
+  },
+  "new_mainline_GPU_submissions": 0,
+  "new_mainline_reservations": 0,
+  "ledger_written": false
+}
