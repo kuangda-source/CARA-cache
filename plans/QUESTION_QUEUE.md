@@ -53,3 +53,5 @@ S单次授权已接收：用户在S/Q原对话批准另一张A6000完整十条�
 [765预算搜索组件CPU接受](../research/765_CARA_BUDCACHE_BOUNDED_SEARCH_COMPONENT_CPU_20261030.md)：同36更新/19D控制器通过11项本地合成控制，原Uniform19起点保持，限额中止与失败无重试已验证。下一步接入真实Cosmos终点评价和持久化原查询恢复，再做双端受影响CPU及完整费用冻结；301查询仅为CPU夹具上限，无新GPU预算或派发。
 
 [766查询日志CPU接受](../research/766_CARA_BUDGET_SEARCH_QUERY_JOURNAL_CPU_20261030.md)：14项本地控制通过，原返回重放0新增评价，真实子进程中断保持UNKNOWN，额度不重置。原765控制器源码保持；下一步真实Cosmos评价、原物理终态读者和专用存储，再双端生产CPU与整卡报价。
+
+[767完整RGB评价与四卡CPU终态](../research/767_CARA_BUDGET_RGB_ENDPOINT_AND_PENDING_PRODUCTION_CPU_20261030.md)：原CPU退出/0，31项组件控制、54成功路径/8预定失败、12完整目标完成。实际swap边界不符，验收器拒绝；保留原终态，先修正后续资源绑定，两卡保持S内存优先。双端生产CPU未接受。

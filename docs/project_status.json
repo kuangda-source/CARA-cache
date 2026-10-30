@@ -4,7 +4,7 @@
   "evidence_observed_at": "2026-10-26T09:30:00.005338+08:00",
   "timezone": "Asia/Shanghai",
   "snapshot_note": "CAL66完整66路径、48组LPIPS/156质量评分已接受，实际4.776208 GPUh已中央结算。Shared25-C相对较强S25-A的LPIPS改善15.34%且4/4同向，246.852秒/V0.98188，三项质量筛查通过，冻结为新DEV主候选。原GPU/容器/锁释放、模式恢复；四个A候选未过相对Native的MUSIQ界。当前仅CAL证据，新DEV未启动。",
-  "research_summary": "B36原完整结果保持：F19_C为1.703倍T_DD/1.486倍完整请求。原匿名包32条单人诊断已完整接收，四条Native自比较均无明显差别；F19-C三个输入三项均无明显差别，Human199三项更差，A1未显示额外参考保持改善。三条播放范围记录缺口原样保留。F18与Q5 Native50参考组件均双端CPU接受，后者实际51更新/102次CFG调用；最终方法/输出mask、整卡范围与报价仍待，GPU保持S优先。原A32冻结、WC/RA FIT UNMATCHED及四旧CAL范围保持，本轮0GPUh、未重评原指标。 原最终16/备用16已按762双端身份复核，登记范围未见执行；原池不替换，首次使用前仍需fresh增量检查。 S原生入口CPU已按763由主线承接，真实S采集和端点效果仍待；完整R2十条卡已由用户在S/Q对话批准，另一张A6000硬限14GPUh；主线等待原启动回执，尚不称运行。 BudCache预算分配近邻已按764完成官方源码/原控制器CPU核查；默认302请求，双FIT适配上界604请求，生产适配与完整费用仍待。 按765，预算搜索控制器现通过11项本地合成CPU控制；原Uniform19起点保持，实际Cosmos评价及持久化查询恢复尚未接受。 按766，查询持久化/已完成返回重放通过14项本地CPU控制；中断未知不重试，原物理终态读者和真实评价仍待。",
+  "research_summary": "B36原完整结果保持：F19_C为1.703倍T_DD/1.486倍完整请求。原匿名包32条单人诊断已完整接收，四条Native自比较均无明显差别；F19-C三个输入三项均无明显差别，Human199三项更差，A1未显示额外参考保持改善。三条播放范围记录缺口原样保留。F18与Q5 Native50参考组件均双端CPU接受，后者实际51更新/102次CFG调用；最终方法/输出mask、整卡范围与报价仍待，GPU保持S优先。原A32冻结、WC/RA FIT UNMATCHED及四旧CAL范围保持，本轮0GPUh、未重评原指标。 原最终16/备用16已按762双端身份复核，登记范围未见执行；原池不替换，首次使用前仍需fresh增量检查。 S原生入口CPU已按763由主线承接，真实S采集和端点效果仍待；完整R2十条卡已由用户在S/Q对话批准，另一张A6000硬限14GPUh；主线等待原启动回执，尚不称运行。 BudCache预算分配近邻已按764完成官方源码/原控制器CPU核查；默认302请求，双FIT适配上界604请求，生产适配与完整费用仍待。 按765，预算搜索控制器现通过11项本地合成CPU控制；原Uniform19起点保持，实际Cosmos评价及持久化查询恢复尚未接受。 按766，查询持久化/已完成返回重放通过14项本地CPU控制；中断未知不重试，原物理终态读者和真实评价仍待。 按767，四卡原CPU已退出/0，完整端点数值矩阵通过；实际swap资源边界不符，验收器拒绝，双端生产CPU未接受。保留原终态，修正后续资源绑定。",
   "active_experiment_id": "PG-SHARED-CAL66",
   "active_state": "DEV128_A6000_EXCLUSIVE_RUNNING",
   "active_state_zh": "Shared25-C新DEV128已在两卡A6000独占启动",
@@ -1834,7 +1834,7 @@
     "independent_new_inputs": false,
     "complete_QA_ref": "reports/cara_fast_A6000_complete_frozen_QA_20261029_0115.json"
   },
-  "current_evidence_observed_at": "2026-10-30T16:24:00.292002+08:00",
+  "current_evidence_observed_at": "2026-10-30T17:19:40+08:00",
   "fast_B36_CPU_preparation_20261029": {
     "status": "ACCEPTED_DUAL_HOST_COMPLETE_B36_CPU_CONTINUATION_ONLY",
     "accepted_receipt_ref": "reports/cara_fast_B36_CPU_acceptance_r1_20261029.json",
@@ -2037,10 +2037,10 @@
     "postacceptance_budget_read_ref": "reports/cara_fast_mainline_budget_readonly_r1_20261030.json"
   },
   "fast_mainline_post_result_CPU_20261030": {
-    "status": "BUDCACHE_QUERY_JOURNAL_LOCAL_CPU_ACCEPTED_PRODUCTION_PENDING",
-    "notice_title": "766 预算搜索查询日志CPU接受",
-    "research_ref": "research/766_CARA_BUDGET_SEARCH_QUERY_JOURNAL_CPU_20261030.md",
-    "summary": "预算搜索新增持久化查询日志，14项本地控制通过：完整4查询恢复时复用4份返回、0新增评价；真实子进程意图后退出保持原查询UNKNOWN，不重试。原765控制器/Uniform19/查询上限保持。真实Cosmos评价、原物理句柄终态读者、专用存储、双端生产CPU与GPU整卡报价仍待；本轮0GPUh，S/Q原任务由原对话承接。",
+    "status": "ENDPOINT_CPU_NUMERIC_COMPLETE_RESOURCE_CONTRACT_NOT_ACCEPTED",
+    "notice_title": "767 完整RGB评价与四卡CPU终态",
+    "research_ref": "research/767_CARA_BUDGET_RGB_ENDPOINT_AND_PENDING_PRODUCTION_CPU_20261030.md",
+    "summary": "完整93帧编码前RGB评价和双FIT请求入口已实现，6项本地控制通过。四卡原CPU已正常退出，31项组件控制、54条成功tiny路径、8条预定失败和12个完整双FIT目标完成；原62份B36源码保持。实际4GiB内存加4GiB可用swap与登记无swap不符，验收器拒绝，双端CPU尚未接受。保留原终态，后续先修正资源绑定；两卡未启动并保持S优先。本轮0GPUh。",
     "component_CPU_ref": "reports/cara_fast_B36_review_component_CPU_acceptance_r1_20261030.json",
     "review_plan_ref": "reports/cara_fast_B36_review_plan_r1_20261030.json",
     "diagnostics_ref": "reports/cara_fast_B36_post_result_diagnostics_r1_20261030.json",
@@ -2052,11 +2052,11 @@
     "new_GPU_submissions": 0,
     "new_reserved_GPUh": 0,
     "new_metrics_computed": 0,
-    "summary_ref": "reports/cara_fast_BudCache_query_journal_CPU_r1_20261030.json",
+    "summary_ref": "reports/cara_budget_endpoint_four_card_CPU_terminal_assessment_r1_20261030.json",
     "review_transfer_ref": "reports/cara_fast_B36_review_video_transfer_r1_20261030.json",
     "review_materialized_ref": "reports/cara_fast_B36_review_materialized_r1_20261030.json",
     "review_browser_QA_ref": "reports/cara_fast_B36_review_browser_QA_r1_20261030.json",
-    "observed_unix": 1793348640.292002,
+    "observed_unix": 1793351980.555368,
     "original_video_review_research_ref": "research/757_CARA_B36_ORIGINAL_VIDEO_REVIEW_AND_F18_CPU_20261030.md",
     "original_video_review_summary_ref": "reports/cara_fast_mainline_post_result_CPU_summary_r1_20261030.json",
     "paper_results_manifest_ref": "plans/cara_next_stage_20261028/mainline/PAPER_RESULTS_MANIFEST_R2.json",
@@ -2089,7 +2089,9 @@
     "budget_search_component_ref": "reports/cara_fast_BudCache_search_component_CPU_r1_20261030.json",
     "budget_search_component_research_ref": "research/765_CARA_BUDCACHE_BOUNDED_SEARCH_COMPONENT_CPU_20261030.md",
     "budget_query_journal_ref": "reports/cara_fast_BudCache_query_journal_CPU_r1_20261030.json",
-    "budget_query_journal_research_ref": "research/766_CARA_BUDGET_SEARCH_QUERY_JOURNAL_CPU_20261030.md"
+    "budget_query_journal_research_ref": "research/766_CARA_BUDGET_SEARCH_QUERY_JOURNAL_CPU_20261030.md",
+    "budget_RGB_endpoint_ref": "reports/cara_budget_RGB_objective_local_CPU_r1_20261030.json",
+    "budget_RGB_endpoint_research_ref": "research/767_CARA_BUDGET_RGB_ENDPOINT_AND_PENDING_PRODUCTION_CPU_20261030.md"
   },
   "fast_F18_CPU_preparation_20261030": {
     "status": "F18_AFFECTED_PRODUCTION_CPU_DUAL_HOST_ACCEPTED_NOT_GPU",
@@ -2190,7 +2192,7 @@
     "new_mainline_reservations": 0
   },
   "fast_budget_search_baseline_preparation_20261030": {
-    "status": "LOCAL_QUERY_PERSISTENCE_AND_REPLAY_CPU_ACCEPTED_PRODUCTION_PENDING",
+    "status": "ENDPOINT_CPU_NUMERIC_COMPLETE_RESOURCE_CONTRACT_NOT_ACCEPTED",
     "receipt_ref": "reports/cara_fast_BudCache_source_CPU_audit_r1_20261030.json",
     "research_ref": "research/764_CARA_BUDCACHE_PRIMARY_SOURCE_AND_QUERY_SCOPE_AUDIT_20261030.md",
     "adaptation_proposal_ref": "plans/cara_next_stage_20261028/mainline/r2/BUDCACHE_ADAPTATION_R1.json",
@@ -2217,6 +2219,16 @@
     "local_query_journal_controls_passed": 14,
     "local_persisted_return_replay_accepted": true,
     "original_unknown_process_reader_accepted": false,
-    "dedicated_production_storage_accepted": false
+    "dedicated_production_storage_accepted": false,
+    "RGB_endpoint_local_ref": "reports/cara_budget_RGB_objective_local_CPU_r1_20261030.json",
+    "RGB_endpoint_research_ref": "research/767_CARA_BUDGET_RGB_ENDPOINT_AND_PENDING_PRODUCTION_CPU_20261030.md",
+    "RGB_local_tests_passed": 6,
+    "endpoint_production_CPU_intent_ref": "plans/cara_next_stage_20261028/mainline/r2/BUDGET_ENDPOINT_CPU_FRAGMENT_R1.json",
+    "endpoint_original_CPU_unknown_ref": "reports/cara_budget_endpoint_four_card_CPU_prepare_unknown_r1_20261030.json",
+    "endpoint_production_CPU_accepted": false,
+    "endpoint_original_CPU_state": "EXITED_ZERO_NUMERIC_COMPLETE_RESOURCE_CONTRACT_MISMATCH",
+    "endpoint_original_CPU_terminal_ref": "reports/cara_budget_endpoint_four_card_CPU_terminal_assessment_r1_20261030.json",
+    "endpoint_original_CPU_launch_ref": "reports/cara_budget_endpoint_four_card_CPU_launch_r1_20261030.json",
+    "endpoint_four_card_numeric_complete": true
   }
 }

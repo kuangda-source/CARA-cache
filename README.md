@@ -2,7 +2,7 @@
 
 # CARA-Cache
 
-[766 预算搜索查询日志CPU接受](research/766_CARA_BUDGET_SEARCH_QUERY_JOURNAL_CPU_20261030.md)：预算搜索新增持久化查询日志，14项本地控制通过：完整4查询恢复时复用4份返回、0新增评价；真实子进程意图后退出保持原查询UNKNOWN，不重试。原765控制器/Uniform19/查询上限保持。真实Cosmos评价、原物理句柄终态读者、专用存储、双端生产CPU与GPU整卡报价仍待；本轮0GPUh，S/Q原任务由原对话承接。
+[767 完整RGB评价与四卡CPU终态](research/767_CARA_BUDGET_RGB_ENDPOINT_AND_PENDING_PRODUCTION_CPU_20261030.md)：完整93帧编码前RGB评价和双FIT请求入口已实现，6项本地控制通过。四卡原CPU已正常退出，31项组件控制、54条成功tiny路径、8条预定失败和12个完整双FIT目标完成；原62份B36源码保持。实际4GiB内存加4GiB可用swap与登记无swap不符，验收器拒绝，双端CPU尚未接受。保留原终态，后续先修正资源绑定；两卡未启动并保持S优先。本轮0GPUh。
 
 **2026-10-28最新安排：主线P0/F19，探索S-FAST19与固定Shared25-C的Q并行准备。** [最新计划与两个对话分工](plans/cara_next_stage_20261028/08_REPOSITORY_RECONCILIATION.md) · [739接收记录](research/739_CARA_NEXT_STAGE_FAST_SQ_PLAN_AND_CHAT_HANDOFF_20261028.md)。A32已完整验收并冻结；B36已获单次批准，实际状态以原运行记录为准。WC73已热停结算，禁止自动重派；原DEV128、旧合同与失败保持。以下旧准备记录仅作历史复用依据。
 
