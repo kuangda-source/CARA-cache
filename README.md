@@ -2,7 +2,7 @@
 
 # CARA-Cache
 
-[758 论文结果入口接通完整B36](research/758_CARA_FAST_PAPER_RESULTS_R2_BOUND_TO_COMPLETE_B36_20261030.md)：论文结果清单R2已接入原完整B36：八角色、24分区摘要行、四组图和四CSV均绑定原接受，原置信区间直接引用；生产入口与8项CPU控制通过。旧R1及62份冻结源码保持；本轮新增GPUh为0，无指标重评、bootstrap或结算。原视频审阅包继续保留，下一步可补F18受影响的生产CPU，GPU仍保持S优先。
+[759 F18受影响生产CPU双端接受](research/759_CARA_F18_AFFECTED_PRODUCTION_CPU_DUAL_HOST_ACCEPTED_20261030.md)：F18-C/A1/Uniform18通过原CLI/模型/UniPC双端小张量完整路径；每端36成功及18预定失败，两flow、ON/OFF与clean/audit逐值一致，step9仍为D7来源的C。原容器均exited/0，GPU不可见，原62份源码及冻结保持。本轮0GPUh；完整GPU物理范围、方法冻结与整卡报价仍待，S优先。论文R2与原视频包保持。
 
 **2026-10-28最新安排：主线P0/F19，探索S-FAST19与固定Shared25-C的Q并行准备。** [最新计划与两个对话分工](plans/cara_next_stage_20261028/08_REPOSITORY_RECONCILIATION.md) · [739接收记录](research/739_CARA_NEXT_STAGE_FAST_SQ_PLAN_AND_CHAT_HANDOFF_20261028.md)。A32已完整验收并冻结；B36已获单次批准，实际状态以原运行记录为准。WC73已热停结算，禁止自动重派；原DEV128、旧合同与失败保持。以下旧准备记录仅作历史复用依据。
 
@@ -35,7 +35,7 @@ CARA-Cache（CFG-Aligned Readout and Cost-Aware Allocation for Video Diffusion�
 
 扩散模型逐步生成视频。完整计算昂贵，复用旧缓存会积累误差；当前研究重点是在固定刷新次数下，保留过渡区间的完整计算、减少末段刷新。CAL66的Shared25-C采用这一布局，DEV128已完成冻结继续验证，当前将它保留为高保真参照，并准备高速F19与S/Q机制。历史修正A利用当前浅层增量和真实深层锚点，在新DEV中作为机制对照。
 
-使用R2论文索引及原32位置匿名视频包；人工记录单独接受。先补既定F18策略的受影响生产CPU，GPU保持S优先，待完整方法/范围/报价后再决定新卡。
+保留R2论文索引及原匿名视频包，人工记录另行接受；F18受影响CPU片段已双端通过，完整卡与报价仍后置，GPU顺序S优先。
 
 CFG 指 classifier-free guidance，包含条件与负条件两支。A 使用共享修正强度，保持两支融合口径一致。D 更新当前请求的真实深层锚点；A 不把近似结果冒充新的真实锚点。Native 是每个请求步均完整计算的参考推理。
 

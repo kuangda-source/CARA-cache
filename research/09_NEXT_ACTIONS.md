@@ -2,7 +2,7 @@
 
 # CARA-Cache 后续实验顺序
 
-[758 论文结果入口接通完整B36](758_CARA_FAST_PAPER_RESULTS_R2_BOUND_TO_COMPLETE_B36_20261030.md)：论文结果清单R2已接入原完整B36：八角色、24分区摘要行、四组图和四CSV均绑定原接受，原置信区间直接引用；生产入口与8项CPU控制通过。旧R1及62份冻结源码保持；本轮新增GPUh为0，无指标重评、bootstrap或结算。原视频审阅包继续保留，下一步可补F18受影响的生产CPU，GPU仍保持S优先。
+[759 F18受影响生产CPU双端接受](759_CARA_F18_AFFECTED_PRODUCTION_CPU_DUAL_HOST_ACCEPTED_20261030.md)：F18-C/A1/Uniform18通过原CLI/模型/UniPC双端小张量完整路径；每端36成功及18预定失败，两flow、ON/OFF与clean/audit逐值一致，step9仍为D7来源的C。原容器均exited/0，GPU不可见，原62份源码及冻结保持。本轮0GPUh；完整GPU物理范围、方法冻结与整卡报价仍待，S优先。论文R2与原视频包保持。
 
 **2026-10-28最新安排：主线P0/F19，探索S-FAST19与固定Shared25-C的Q并行准备。** [最新计划与两个对话分工](../plans/cara_next_stage_20261028/08_REPOSITORY_RECONCILIATION.md) · [739接收记录](739_CARA_NEXT_STAGE_FAST_SQ_PLAN_AND_CHAT_HANDOFF_20261028.md)。A32已完整验收并冻结；B36已获单次批准，实际状态以原运行记录为准。WC73已热停结算，禁止自动重派；原DEV128、旧合同与失败保持。以下旧准备记录仅作历史复用依据。
 
@@ -26,7 +26,7 @@
 | Q0-Q1 · S/Q探索 | 双端CPU控制与源码绑定完成；原C CPU未过历史GPU逐值门 | 同硬件CUDA数值控制仅提案；当前codec评分0，固定Shared25-C及旧资产不重采 |
 | A-SQ-FAST · S/Q探索 | 仅明确缺口后准备采集卡 | 绑定新父策略的108标签/56额外Dense pair与存储；解决F19 raw和Q25布局兼容问题，共同费用只计一次 |
 | S-END / Q-END · S/Q探索 | 各自条件晋级，不互设成功前提 | 不同合法mask或实际同bytes读出证据后，冻结最小完整视频比较与强基线，再报价申请 |
-| F18 / Q5 · 主线，S/Q提供冻结规则 | F18三策略静态可区分；完整生产CPU/报价未齐 | 先补既定F18-C/A1/Uniform18受影响的生产CPU；GPU保持S优先，冻结方法、完整物理范围与报价后再决定 |
+| F18 / Q5 · 主线，S/Q提供冻结规则 | F18受影响生产CPU片段双端接受；整卡范围/报价未冻结 | 保持S优先；F18待方法和整卡范围/报价冻结；可先核查Q5唯一50步网格及生产支持域，不作GPU准入 |
 | WAN / FINAL · 主线 | 迁移后置、最终输入持续保护 | 冻结checkpoint/协议/比较及完整报价；保留16最终输入和额外seed子集，实际曝光先核查 |
 | B-S / B-Q / B-E · 按失败位置指定单一负责人 | 休眠；当前未启用 | 最多一个备用进入新GPU探索；不自动恢复IG/R4/GRAPH/F/B |
 

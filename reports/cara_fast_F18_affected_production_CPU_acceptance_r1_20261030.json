@@ -1,0 +1,155 @@
+{
+  "status": "F18_AFFECTED_PRODUCTION_CPU_DUAL_HOST_ACCEPTED_NOT_GPU",
+  "observed_unix": 1793337324.1657221,
+  "receipts": [
+    {
+      "host": "four_card",
+      "path": "reports/cara_fast_F18_four_card_CPU_terminal_r1_20261030.json",
+      "sha256": "0cd8d5f415244f98bb43708b0002b72177e8eb308f884c6ca105c17e0739e898",
+      "launch": {
+        "status": "PAPER_TIMING_CPU_LAUNCHED_NOT_GPU",
+        "host": "four_card",
+        "stage": "/data20t/gaokuangda/worldcache_workspace/.sync/cara-fast-F18-CPU-ada-r1-20261030",
+        "container": "cara-fast-F18-CPU-ada-r1-20261030-cpu",
+        "registration_sha256": "137cefd42ec7879784581771b76cc65b1fe12cbfbe9ce102a90b698b69622ef5",
+        "pid": 4146883,
+        "client_identity": {
+          "pid": 4146883,
+          "state": "R",
+          "start_ticks": 1012155169
+        },
+        "started_unix": 1793336488.3337796,
+        "MemAvailable_before": 67931475968,
+        "free_disk_before": 993619263488,
+        "GPU_submissions": 0,
+        "ledger_written": false
+      },
+      "container_state": {
+        "Status": "exited",
+        "Running": false,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 0,
+        "ExitCode": 0,
+        "Error": "",
+        "StartedAt": "2026-10-30T05:01:28.420689267Z",
+        "FinishedAt": "2026-10-30T05:06:57.140080451Z"
+      },
+      "host_config": {
+        "NanoCpus": 1000000000,
+        "Memory": 4294967296,
+        "MemorySwap": 4294967296,
+        "CpusetCpus": "26",
+        "DeviceRequests": null,
+        "NetworkMode": "none",
+        "ReadonlyRootfs": true
+      },
+      "CPU_proof_sha256": "1f66304e92ce4dfb3628b99fd7d32f7bbbde42deefd31b6cd10df333d1d5d22a",
+      "parent_acceptance_ref": "reports/cara_fast_binding_four_card_CPU_capture3_r6_20261028.json",
+      "CPU_process_seconds": 127.62910563999999,
+      "worker_wall_seconds": 304.803279876709
+    },
+    {
+      "host": "two_card",
+      "path": "reports/cara_fast_F18_two_card_CPU_terminal_r1_20261030.json",
+      "sha256": "18d689fd83e968b2cd9f7a154f52e8f64983173a4c59934bc4601d8b7328cee5",
+      "launch": {
+        "status": "PAPER_TIMING_CPU_LAUNCHED_NOT_GPU",
+        "host": "two_card",
+        "stage": "/data20t/gaokuangda/worldcache_workspace/.sync/cara-fast-F18-CPU-a6000-r1-20261030",
+        "container": "cara-fast-F18-CPU-a6000-r1-20261030-cpu",
+        "registration_sha256": "404c09f53a1602f673786cda86518e0381b38615f5ce5083969398768312adf5",
+        "pid": 1974875,
+        "client_identity": {
+          "pid": 1974875,
+          "state": "R",
+          "start_ticks": 663146641
+        },
+        "started_unix": 1793336562.8955643,
+        "MemAvailable_before": 55235117056,
+        "free_disk_before": 890804129792,
+        "GPU_submissions": 0,
+        "ledger_written": false
+      },
+      "container_state": {
+        "Status": "exited",
+        "Running": false,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 0,
+        "ExitCode": 0,
+        "Error": "",
+        "StartedAt": "2026-10-30T05:02:43.221280096Z",
+        "FinishedAt": "2026-10-30T05:05:19.848535777Z"
+      },
+      "host_config": {
+        "NanoCpus": 1000000000,
+        "Memory": 4294967296,
+        "MemorySwap": 4294967296,
+        "CpusetCpus": "26",
+        "DeviceRequests": null,
+        "NetworkMode": "none",
+        "ReadonlyRootfs": true
+      },
+      "CPU_proof_sha256": "3de3d472f874e9043c946e1e2381622cb4ca6e33fd724d1e79abfd45ac6aa82b",
+      "parent_acceptance_ref": "reports/cara_fast_binding_two_card_CPU_capture_r8_20261028.json",
+      "CPU_process_seconds": 109.139060313,
+      "worker_wall_seconds": 150.93026471138
+    }
+  ],
+  "CPU_fragment_scope_sha256": "ff398fbafe753483d4f3fe39b1fd47d3fba195d8828aa0d8e2a27d8ddcead203",
+  "CHECK_positions": 6,
+  "roles": [
+    "F18_C",
+    "F18_A1",
+    "UNIFORM18_C"
+  ],
+  "successful_tiny_paths_per_host": 36,
+  "declared_failure_attempts_per_host": 18,
+  "acceptor_source_sha256": "ea0923ad0e097e44ebaa91d72891dbad885381a7e784310c4b2b2f70a1fc5397",
+  "flow_modes": [
+    false,
+    true
+  ],
+  "source_sha256": {
+    "scripts/check_cara_fast_f18_cpu_r1.py": "bf95e76e833edd87ad9ed437f8b8b70efe914f787272956d7464878c96829c41",
+    "tests/check_cara_fast_f18_routes_r1.py": "ad144db44da1c0f65a23a379b4cf947cbc93837099f2290d9605f7cb844c630c"
+  },
+  "inherited_critical_component_sha256": {
+    "plans/cara_next_stage_20261028/mainline/FIDELITY_PROTOCOL.json": "49f9f5612e361b694fb76f52ec9108e21e99e4b7048d9fcbfb77f47134ea6473",
+    "plans/cara_next_stage_20261028/mainline/RUN_MANIFEST.json": "1b0d712d6e1a6e09cae794867c8048374f3f978c2444cf1f4b24644ed0518f2a",
+    "plans/cara_next_stage_20261028/mainline/r2/RUN_SPEC.json": "c080258c0692ecac5af75d23f11858b87e27820a65e0a19495f0d066eeddd2d4",
+    "plans/cara_next_stage_20261028/mainline/r2/WHOLE_QUOTE.json": "83dec6ed911ca99a1847f2b0033939c4b54b1bddd666fa989a8b880af940d3a8",
+    "src/wcomr/cara_fast_binding_r2.py": "a579845ea84369032b030c424eb42f4fc4584fd18b6135c1461bd628f6948004",
+    "src/wcomr/cara_fast_fidelity_r1.py": "8adf7ad6e24ccec9e2c1ce4c6a9830f64f9198df14c357fa19c8e4dd245978eb",
+    "src/wcomr/cara_fast_requests_r1.py": "5138195c562e3f35af7503d9d387a95acc53fc0041c37eca51aceea11737f491",
+    "src/wcomr/cara_fast_requests_r2.py": "9ab954f37c80e2b3f57b28f78fcbf8383ee4a5aecd181a14186446a9a110cfb4",
+    "src/wcomr/cara_fast_spec_r1.py": "5cb5211b5e6c81df7a371840753c7c5dd74c0c6f318311f2574971e48c572fb0",
+    "src/wcomr/full_sampling.py": "d5fc455dbf8d0fe3b5b1fdc2a69d00d1a2a41dd7cc741fc6b0830b74f7b881aa",
+    "src/wcomr/gpu_budget_pool_v2.py": "4203547121c30119ce637d6cd0d6d8d02810e6bf388fe9a6a7b9cd9b1b658754",
+    "src/wcomr/h0_mode.py": "849afc06fa124c606e39205542458e7bcaa974adca28d9772f3c23730c1668b4",
+    "src/wcomr/history104_storage_r2.py": "90636ca74f1ae88db5ed1b8478f6aef8f83fd57db827db04da2e4d58a48c1361",
+    "src/wcomr/paper_latency_r1.py": "d39b0dc8505cc324e5230022516a3ca9bbd5bee038a51c101084c3fe2e3f7d9a",
+    "src/wcomr/policy_asset_price_review_r1.py": "923842668285ea4d2e60dda134fe84b46767e9a1bfb8f68e8d8b68419f498e8e",
+    "src/wcomr/policy_generator_r1/p2_native_sampling.py": "2c711d1a251c95f7ca66d696990f1e9b80e2c9aa770d00c1028cb4484a26fe65",
+    "src/wcomr/policy_generator_r1/production_sampling.py": "793a1d35381d10af45ea9b74845448a67a0cc4fdd07799fb6a044758b5f9cb48",
+    "src/wcomr/policy_price_mode_guard_r1.py": "d0fbff561d7e3bb79f87e9a2a64549ca0cdf421a4b2483eae7c8bab60763d878",
+    "src/wcomr/runtime_config.py": "d35c08a30fb5d0aea31a80e83755c0ed44969988d78c47a65dd3b62a8d507065",
+    "src/wcomr/wc73_exclusive_r1.py": "db8198388ee8d6f3241870003cf0da1b44b01d1469717153116ddf3341771a35",
+    "src/wcomr/wc73_execution_r1.py": "015651352b0ce6f1e3acfbfd34a199521cad3eb337c676552b0449ee95318a4b",
+    "src/wcomr/wc_time_collection_r1.py": "2ccba3124553fa4d50c89d7e00884eeda75db2faf68f1289e279808e0b940375"
+  },
+  "original_62_sources_unchanged": true,
+  "full_F18_physical_GPU_scope_frozen": false,
+  "whole_quote_frozen": false,
+  "GPU_dispatch_ready": false,
+  "Cosmos_weights_loaded": false,
+  "real_video_quality_or_speed_result": false,
+  "GPU_submissions": 0,
+  "new_reserved_GPUh": 0,
+  "ledger_written": false
+}

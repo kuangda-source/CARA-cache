@@ -10,7 +10,7 @@
 | Q0-Q1 · S/Q探索 | 双端CPU控制与源码绑定完成；原C CPU未过历史GPU逐值门 | 同硬件CUDA数值控制仅提案；当前codec评分0，固定Shared25-C及旧资产不重采 |
 | A-SQ-FAST · S/Q探索 | 仅明确缺口后准备采集卡 | 绑定新父策略的108标签/56额外Dense pair与存储；解决F19 raw和Q25布局兼容问题，共同费用只计一次 |
 | S-END / Q-END · S/Q探索 | 各自条件晋级，不互设成功前提 | 不同合法mask或实际同bytes读出证据后，冻结最小完整视频比较与强基线，再报价申请 |
-| F18 / Q5 · 主线，S/Q提供冻结规则 | F18三条策略静态可区分，step9保持C；完整生产CPU/报价未齐 | 先补既定F18受影响生产CPU；GPU保持S优先，冻结方法、完整范围和报价后再决定，不扫描预算 |
+| F18 / Q5 · 主线，S/Q提供冻结规则 | F18三策略生产CPU片段双端通过，step9保持C；整卡范围/报价未齐 | GPU保持S优先，冻结方法、完整范围和报价后再决定；可先核查Q5唯一50步网格及生产支持域 |
 | WAN / FINAL · 主线 | 迁移后置、最终输入持续保护 | 冻结checkpoint/协议/比较及完整报价；保留16最终输入和额外seed子集，实际曝光先核查 |
 | B-S / B-Q / B-E · 按失败位置指定单一负责人 | 休眠；当前未启用 | 最多一个备用进入新GPU探索；不自动恢复IG/R4/GRAPH/F/B |
 
@@ -35,3 +35,5 @@ B36原结算快照为cap226、used180.44611925467495、reserved16.5、available2
 主线完整闭环见[756记录](../research/756_CARA_B36_COMPLETE_ACCEPTANCE_RESULTS_AND_FIGURES_20261029.md)，后续 CPU 与原视频审阅见[757记录](../research/757_CARA_B36_ORIGINAL_VIDEO_REVIEW_AND_F18_CPU_20261030.md)和[审阅承接](cara_next_stage_20261028/mainline/r2/B36_ANONYMOUS_REVIEW_R1.md)。原 A32 实际2.2557055054700728 GPUh、B36 实际2.384553982338661 GPUh均已中央唯一结算；本轮新增 GPU 和预约均为0。旧R19[逐字归档](cara_next_stage_20261028/mainline/QUESTION_QUEUE_BEFORE_MAINLINE_R20.md)，原准备、失败、范围和报价历史保留。保护输入数量不当作 GPUh。
 
 当前论文结果入口见[清单R2](cara_next_stage_20261028/mainline/PAPER_RESULTS_MANIFEST_R2.json)和[758承接记录](../research/758_CARA_FAST_PAPER_RESULTS_R2_BOUND_TO_COMPLETE_B36_20261030.md)。原R1属于冻结绘图组件，保留原字节；R2不新增GPU或科学范围。
+
+F18受影响生产CPU已按[759记录](../research/759_CARA_F18_AFFECTED_PRODUCTION_CPU_DUAL_HOST_ACCEPTED_20261030.md)双端接受；每端36成功/18预定失败仅为小张量验证，未形成真实视频或速度结论，也未冻结GPU整卡。
