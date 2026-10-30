@@ -36,7 +36,10 @@ REQUIRED=(SOURCE,GUARDIAN,CLI,ASSETS,
     'src/wcomr/cara_budget_complete_r1.py','scripts/accept_cara_budget_complete_r1.py',
     'src/wcomr/cara_fast_b36_dispatch_r2.py','scripts/cara_fast_host_guardian_r2.py',
     'scripts/four_card_bank24_execution_tools_r1.py','scripts/four_card_policy_assets_port_r1.py',
-    'src/wcomr/cara_budget_lifecycle_r1.py','src/wcomr/wc73_execution_r1.py')
+    'src/wcomr/cara_budget_lifecycle_r1.py','src/wcomr/wc73_execution_r1.py',
+    'src/wcomr/cara_budget_central_r1.py','src/wcomr/cara_budget_prepare_r1.py',
+    'scripts/cara_budget_central_r1.py','scripts/cara_budget_prepare_r1.py',
+    'src/wcomr/immutable_stage_payload_r1.py')
 
 
 def ready_inputs(project,stage):

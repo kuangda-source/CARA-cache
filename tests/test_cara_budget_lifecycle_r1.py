@@ -19,14 +19,15 @@ def put(capture, name, value):
     return capture['files'][name]['sha256']
 
 
-def fixture(*,host='four_card',gpu_uuid='GPU-CPU-FIXTURE'):
+def fixture(*,host='four_card',gpu_uuid='GPU-CPU-FIXTURE',run_id='CPU-FIXTURE-CALIBRATION',
+            billed_limit_GPUh=2.,extra_sources=None):
     view = dict(boot_id='12345678-1234-1234-1234-123456789abc', pid_namespace_inode=123)
     handles = {role:dict(pid=100+i, start_ticks=1000+i, host_view=view) for i,role in enumerate(ROLES)}
-    capture = dict(files={}, payload_actual_sha256={lifecycle.SOURCE:sha(lifecycle.__file__)},
+    capture = dict(files={}, payload_actual_sha256={lifecycle.SOURCE:sha(lifecycle.__file__),**(extra_sources or {})},
                    runtime_actual_sha256={'runtime.py':'a'*64}, own_UUID_lock_free=True, mode_owner_lock_free=True)
-    identity = dict(run_id='CPU-FIXTURE-CALIBRATION',launch_id='CPU-FIXTURE-UNIQUE-LAUNCH',
+    identity = dict(run_id=run_id,launch_id='CPU-FIXTURE-UNIQUE-LAUNCH',
         host=host,gpu_uuid=gpu_uuid,stage='/CPU-FIXTURE/original-stage',
-        source_revision='f'*40,scope_sha256='d'*64,billed_limit_GPUh=2.)
+        source_revision='f'*40,scope_sha256='d'*64,billed_limit_GPUh=billed_limit_GPUh)
     registration = dict(host=identity['host'],stage=identity['stage'],source_revision=identity['source_revision'],
         payload_sha256=capture['payload_actual_sha256'],runtime_source_sha256=capture['runtime_actual_sha256'],
         container_image='sha256:'+'e'*64)
