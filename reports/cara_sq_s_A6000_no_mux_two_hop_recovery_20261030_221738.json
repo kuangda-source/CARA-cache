@@ -1,0 +1,178 @@
+{
+  "status": "S_ORIGINAL_NO_MUX_TWO_HOP_RECOVERY",
+  "started_Asia_Shanghai": "2026-10-30T22:17:38.548110+08:00",
+  "ended_Asia_Shanghai": "2026-10-30T22:18:00.699402+08:00",
+  "returncode": 0,
+  "local_timeout": false,
+  "launch_id": "bfa488af-8d97-43ca-b634-b4e3a3be9040",
+  "both_hops": {
+    "ControlMaster": "no",
+    "ControlPath": "none",
+    "ControlPersist": "no",
+    "ServerAliveInterval": 10,
+    "ServerAliveCountMax": 2
+  },
+  "effective_target_options": {
+    "hostname": "10.128.160.181",
+    "port": "22",
+    "user": "gaokuangda",
+    "controlmaster": "false",
+    "controlpath": "none",
+    "controlpersist": "no",
+    "serveraliveinterval": "10",
+    "serveralivecountmax": "2",
+    "connecttimeout": "60"
+  },
+  "separate_timestamped_stages": {
+    "office": [
+      "2026-10-30T22:17:39.588+08:00 OFFICE debug1: Remote protocol version 2.0, remote software version OpenSSH_for_Windows_9.5",
+      "2026-10-30T22:17:39.588+08:00 OFFICE debug1: Authenticating to 100.103.229.16:22 as 'admin'",
+      "2026-10-30T22:17:43.037+08:00 OFFICE Authenticated to 100.103.229.16 (via proxy) using \"publickey\".",
+      "2026-10-30T22:17:43.037+08:00 OFFICE debug1: channel_connect_stdio_fwd: 10.128.160.181:22"
+    ],
+    "target": [
+      "2026-10-30T22:17:44.443+08:00 TARGET debug1: Remote protocol version 2.0, remote software version OpenSSH_8.2p1 Ubuntu-4ubuntu0.13",
+      "2026-10-30T22:17:44.443+08:00 TARGET debug1: Authenticating to 10.128.160.181:22 as 'gaokuangda'",
+      "2026-10-30T22:17:53.137+08:00 TARGET Authenticated to 10.128.160.181 (via proxy) using \"publickey\".",
+      "2026-10-30T22:18:00.673+08:00 TARGET debug1: Exit status 0"
+    ]
+  },
+  "task_state": "ORIGINAL_METADATA_RECOVERED_NOT_YET_INDEPENDENTLY_ACCEPTED",
+  "GPU_submissions": 0,
+  "ledger_writes": 0,
+  "global_configuration_changes": 0,
+  "original_task": {
+    "status": "S_ORIGINAL_THIN_HANDLE_RECOVERY",
+    "native_hostname": "minchen-X11DAi-N",
+    "observed_unix": 1793369880.7280245,
+    "launch_id": "bfa488af-8d97-43ca-b634-b4e3a3be9040",
+    "gpu_uuid": "GPU-de9a5370-cd87-0f1c-a48e-288888777dd3",
+    "source_revision": "3a85be21eed90150e5a487796547741cd2e1f3ef",
+    "launch_sha256": "38419f6968ef1f375b2513e91b87f25ad8453dfa3328bdd4774fcca822dc86cb",
+    "live_handles": {
+      "guardian": false,
+      "container_cli": false,
+      "supervisor": false,
+      "runner": false
+    },
+    "guardian": {
+      "status": "SQ_S_HOST_GUARDIAN_TERMINAL",
+      "started_unix": 1793353469.4249887,
+      "ended_unix": 1793364411.0937884,
+      "container_exit_code": 0,
+      "container_dispatch_state": "STARTED",
+      "mode_restoration": {
+        "status": "PRIOR_MODE_RESTORED_IDLE",
+        "restored": true,
+        "changed": true,
+        "snapshot": {
+          "gpu_uuid": "GPU-de9a5370-cd87-0f1c-a48e-288888777dd3",
+          "compute_mode": "Default",
+          "compute_apps": [],
+          "mps_processes": [],
+          "observed_unix": 1793364411.0935562
+        }
+      },
+      "container_terminal_witness": {
+        "kind": "BOUND_CONTAINER_TERMINAL",
+        "complete": true,
+        "container_id": "a259d53a3b0bddf2664c8f42b5adbb3c10a392e777a663c38a24aa96485c2660",
+        "container": {
+          "state": {
+            "Status": "exited",
+            "Running": false,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 0,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-10-30T09:44:30.617871344Z",
+            "FinishedAt": "2026-10-30T12:46:50.255518668Z"
+          },
+          "image": "sha256:1e81ac62ee68ca1a6ef655515096a1d84579b01aa4986810c9b18d4f6c4c552d",
+          "manifest_sha256": "bea7d6bc2e20430597e4863c166136f258d72746a4b6e14949c86a25dcfa7e0c",
+          "device_requests": [
+            {
+              "Driver": "",
+              "Count": 0,
+              "DeviceIDs": [
+                "GPU-de9a5370-cd87-0f1c-a48e-288888777dd3"
+              ],
+              "Capabilities": [
+                [
+                  "gpu"
+                ]
+              ],
+              "Options": {}
+            }
+          ],
+          "readonly_root": true,
+          "pid_mode": "host",
+          "network": "none",
+          "cpus": 2.0,
+          "memory_GiB": 40.0
+        },
+        "manifest_sha256": "bea7d6bc2e20430597e4863c166136f258d72746a4b6e14949c86a25dcfa7e0c"
+      }
+    },
+    "supervisor": {
+      "status": "SQ_S_TERMINAL_CENTRAL_SETTLEMENT_PENDING",
+      "child_exit_code": 0,
+      "ended_unix": 1793364409.914578,
+      "exclusive_monitor_accepted": true,
+      "observations": 4859
+    },
+    "health": {
+      "status": "S_MODEL_AND_MATRIX_COMPLETE_AWAITING_ORIGINAL_ALLOCATION_TERMINAL",
+      "model_load_attempts": 1,
+      "model_loads": 1,
+      "model_load_seconds": 157.0815412607044,
+      "ended_unix": 1793364386.6386058,
+      "environment_cleanup_accepted": true
+    },
+    "matrix": {},
+    "billing": {
+      "run_id": "cara-sq-s-complete-r2-20261029",
+      "host": "two_card",
+      "gpu_uuid": "GPU-de9a5370-cd87-0f1c-a48e-288888777dd3",
+      "launch_id": "bfa488af-8d97-43ca-b634-b4e3a3be9040",
+      "source_revision": "3a85be21eed90150e5a487796547741cd2e1f3ef",
+      "scope_sha256": "bff1498ac31d78f22e1aefb28357cacbc4d48ec21ce207e41dc575cd8c840355",
+      "status": "SQ_S_ORIGINAL_WALL_BILL",
+      "started_monotonic": 6648372.94664562,
+      "ended_monotonic": 6659314.615325972,
+      "wall_seconds": 10941.668680352159,
+      "actual_GPUh": 3.039352411208933,
+      "billed_limit_GPUh": 14,
+      "started_unix": 1793353469.4249887,
+      "ended_unix": 1793364411.0937884,
+      "billing_clock_owner": "HOST_GUARDIAN",
+      "wall_interval_complete": true,
+      "central_settlement_pending": true,
+      "supervisor_bill_is_diagnostic_only": true
+    },
+    "pending_release": {
+      "allocation_release_accepted": true,
+      "GPU_released": true,
+      "original_process_exited": true,
+      "technical_accepted": true,
+      "mode_restoration": {
+        "status": "PRIOR_MODE_RESTORED_IDLE",
+        "restored": true,
+        "changed": true,
+        "snapshot": {
+          "gpu_uuid": "GPU-de9a5370-cd87-0f1c-a48e-288888777dd3",
+          "compute_mode": "Default",
+          "compute_apps": [],
+          "mps_processes": [],
+          "observed_unix": 1793364411.0935562
+        }
+      },
+      "billing_sha256": "2670857abb6f50e5fc0e92a33e94b3ee0ca5287ae39842262210647765a7bb47"
+    },
+    "GPU_submissions": 0,
+    "ledger_writes": 0
+  }
+}

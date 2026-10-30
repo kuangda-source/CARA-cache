@@ -1,0 +1,75 @@
+{
+  "status": "MAC_SSH_READONLY_DIAGNOSIS_CONTROLMASTER_HYPOTHESIS_UNPROVEN",
+  "observed_Asia_Shanghai": "2026-10-30T22:43:21.298772+08:00",
+  "effective_SSH_options": {
+    "office_tailscale": {
+      "hostname": "100.103.229.16",
+      "port": "22",
+      "user": "admin",
+      "controlmaster": "false",
+      "controlpath": null,
+      "controlpersist": "no",
+      "serveraliveinterval": "30",
+      "serveralivecountmax": "3",
+      "connecttimeout": "30",
+      "proxyjump": null
+    },
+    "two_card_lan": {
+      "hostname": "10.128.160.181",
+      "port": "22",
+      "user": "gaokuangda",
+      "controlmaster": "false",
+      "controlpath": null,
+      "controlpersist": "no",
+      "serveraliveinterval": "30",
+      "serveralivecountmax": "3",
+      "connecttimeout": "10",
+      "proxyjump": "office_tailscale"
+    }
+  },
+  "task_owned_old_office_socket_exists": false,
+  "existing_keepalive_already_enabled": true,
+  "fresh_no_mux_success_ref": "reports/cara_sq_s_A6000_no_mux_two_hop_recovery_20261030_221738.json",
+  "fresh_no_mux_reproduced_post_auth_stall": {
+    "office": {
+      "private_log_path": "/Users/kuangda_gao/Documents/世界模型加速实验/worldcache_omr_sq_entry/.sync/cara-sq-s-tailscale-r6-20261030/clean-two_card-20261030_222229-d56351-office.private.log",
+      "sha256": "aa7ca23ed6473f33969839ed2c2367e1b1f5d393932788a207613e564a6bc5c9",
+      "stages": [
+        "2026-10-30T22:22:31.318+08:00 OFFICE debug1: Remote protocol version 2.0, remote software version OpenSSH_for_Windows_9.5",
+        "2026-10-30T22:22:35.314+08:00 OFFICE Authenticated to 100.103.229.16 (via proxy) using \"publickey\".",
+        "2026-10-30T22:22:35.314+08:00 OFFICE debug1: channel_connect_stdio_fwd: 10.128.160.181:22"
+      ]
+    },
+    "target": {
+      "private_log_path": "/Users/kuangda_gao/Documents/世界模型加速实验/worldcache_omr_sq_entry/.sync/cara-sq-s-tailscale-r6-20261030/clean-two_card-20261030_222229-d56351-target.private.log",
+      "sha256": "cd041cd5320cd121ef15e27abcbeaa12e216ed4dc704474a4631bdbba908beed",
+      "stages": [
+        "debug1: Remote protocol version 2.0, remote software version OpenSSH_8.2p1 Ubuntu-4ubuntu0.13",
+        "Authenticated to 10.128.160.181 (via proxy) using \"publickey\".",
+        "debug2: exec request accepted on channel 0",
+        "Timeout, server 10.128.160.181 not responding."
+      ]
+    }
+  },
+  "causal_conclusion": "The stalled path also occurs with ControlMaster=no and ControlPath=none; stale master reuse does not explain all current observations. Specific Tailscale or OS root cause remains unproven.",
+  "network_observations": {
+    "observed_Asia_Shanghai": "2026-10-30T22:14:34.978955+08:00",
+    "office_ping_via": "DERP(hkg)",
+    "office_ping_ms": 630,
+    "UDP": true,
+    "MappingVariesByDestIP": true,
+    "nearest_DERP": "Nuremberg",
+    "netcheck_warning": "routerIP/FetchRIB: sysctl: cannot allocate memory",
+    "warning_cause_established": false
+  },
+  "Mac_readonly_route_and_proxy_observations": {
+    "system_HTTP_proxy_enabled": false,
+    "system_HTTPS_proxy_enabled": false,
+    "system_SOCKS_proxy_enabled": false,
+    "office_route_interface": "utun7"
+  },
+  "global_SSH_or_Tailscale_or_Clash_configuration_changes": 0,
+  "other_users_or_other_tasks_connections_stopped": false,
+  "experiment_GPU_submissions": 0,
+  "ledger_writes": 0
+}
