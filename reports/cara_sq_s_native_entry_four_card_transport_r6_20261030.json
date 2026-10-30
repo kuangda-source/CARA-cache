@@ -1,0 +1,26 @@
+{
+  "status": "S_NATIVE_CPU_SSH_TRANSPORT_NOT_ADMITTED",
+  "observed_UTC": "2026-10-30T05:17:44.233767+00:00",
+  "host": "four_card",
+  "source_revision": "f72f5a821bfd26683fbadd257f7ef6ac4d037db4",
+  "route": "existing_four_card",
+  "command": [
+    "/Users/kuangda_gao/Documents/\u4e16\u754c\u6a21\u578b\u52a0\u901f\u5b9e\u9a8c/worldcache_omr_sq_entry/.sync/sq-s-local-python312-r5-20261030/bin/python",
+    "scripts/cara_sq_s_production_entry_cpu_r6.py",
+    "recover",
+    "--host",
+    "four_card",
+    "--output",
+    "/Users/kuangda_gao/Documents/\u4e16\u754c\u6a21\u578b\u52a0\u901f\u5b9e\u9a8c/worldcache_omr_sq_entry/reports/cara_sq_s_native_entry_four_card_recover_r6_20261030.json"
+  ],
+  "exit_code": 1,
+  "wall_seconds": 0.07235333300195634,
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/Users/kuangda_gao/Documents/\u4e16\u754c\u6a21\u578b\u52a0\u901f\u5b9e\u9a8c/worldcache_omr_sq_entry/scripts/cara_sq_s_production_entry_cpu_r6.py\", line 114, in <module>\n    if __name__ == '__main__': main()\n                               ^^^^^^\n  File \"/Users/kuangda_gao/Documents/\u4e16\u754c\u6a21\u578b\u52a0\u901f\u5b9e\u9a8c/worldcache_omr_sq_entry/scripts/cara_sq_s_production_entry_cpu_r6.py\", line 109, in main\n    value = remote(args.host, code)\n            ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/kuangda_gao/Documents/\u4e16\u754c\u6a21\u578b\u52a0\u901f\u5b9e\u9a8c/worldcache_omr_sq_entry/scripts/cara_sq_s_production_entry_cpu_r6.py\", line 51, in remote\n    if host == 'four_card': return transport.four_ssh(code, data)\n                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/kuangda_gao/Documents/\u4e16\u754c\u6a21\u578b\u52a0\u901f\u5b9e\u9a8c/worldcache_omr_sq_entry/scripts/cara_two_card_transport_r1.py\", line 48, in four_ssh\n    if r.returncode: raise RuntimeError('Four-card control failed: '+r.stderr[-1200:])\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Four-card control failed: kex_exchange_identification: read: Connection reset by peer\nConnection reset by 127.0.0.1 port 22617\n\n",
+  "recovery_output_exists": false,
+  "CPU_launch_attempted": false,
+  "GPU_submissions": 0,
+  "real_central_ledger_writes": 0,
+  "new_schedulers_created": 0,
+  "automatic_transport_retry": false
+}

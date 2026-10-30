@@ -13,3 +13,5 @@
 新CPU控制器的两卡路线使用现有 `gkd_minchen` FRP别名，关闭本次SSH的附带转发，要求已有主机密钥；不改SSH配置、不启动FRP。四卡仍用原 `four_card` 路线。两卡Docker组执行仅从既有0600凭据文件读取到stdin，隔离worktree不复制凭据。
 
 先 `recover` 原R6 stage，再以已发布的精确提交 `launch` 一次；`capture` 只恢复同一启动句柄，未知状态不重派。尚无实际CPU启动时间，因此本轮不创建半程/终态检查；启动后按原句柄和实际时间安排。资源轮询和Q1旧heartbeat保持停止，S优先安排不变。
+
+源码 `f72f5a82` 已发布。一次句柄恢复中，两卡33620拒绝连接，四卡22617在SSH握手时重置。随后仅选择原配置中的两卡visitor，经stdin交给独立FRP进程；原配置与凭据文件未复制或修改。该进程连接中继KCP超时、退出1，未重试，也未触碰其他进程。实际stage状态仍未知，尚未派发CPU/GPU卡；需可用SSH入口后继续。见[连接回执](../../../reports/cara_sq_s_native_entry_connection_block_r6_20261030.json)。
