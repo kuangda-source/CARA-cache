@@ -106,8 +106,11 @@ def supervise(project,stage,storage,*,cpu_validation=False,observe_gpu=observe,t
         runner=dict(pid=handle['pid'],start_ticks=handle['start_ticks'],uid=os.getuid())
         ready=stage/'pg-runner-context-ready.json';last_thermal=initial_thermal;thermal_at=monotonic()
         while child.poll() is None:
-            remaining();snapshot=observe_gpu(uuid)
-            if ready.exists():
+            remaining()
+            # A newly published readiness witness cannot validate an older GPU sample.
+            context_ready=ready.exists()
+            snapshot=observe_gpu(uuid)
+            if context_ready:
                 require(read_record(ready)['identity']==runner,'Original GPU context readiness differs')
                 if child.poll() is not None:break
                 verify(snapshot,uuid,runner)
