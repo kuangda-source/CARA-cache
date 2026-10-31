@@ -9,7 +9,7 @@ import time
 
 ROOT=Path(__file__).resolve().parents[1]
 sys.path[:0]=[str(ROOT/'src'),str(ROOT/'scripts'),str(ROOT/'tests')]
-from cara_s_endpoint_runner_cpu_r1 import STAGE,OVERLAY
+from cara_s_endpoint_runner_cpu_r2 import STAGE,OVERLAY
 from cara_s_initialization_selector_cpu_r1 import BASE_CAPTURE,BASE_ACCEPTED,LIMITS
 from wcomr.policy_price_terminal_r1 import require
 

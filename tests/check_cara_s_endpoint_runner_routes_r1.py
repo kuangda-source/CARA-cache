@@ -22,10 +22,18 @@ def body(inference,selected,wc,rf,common,unused_initial,profile,root,native,flow
     model.config.conditional_frame_timestep=.1
     ra=json.loads((ROOT/'plans/cara_wc_time_protocol_r1_20261027/RA_BINDING.json').read_text())
     modes=mode_snapshot(net)['module_types'];cases=[];failures=[]
-    originals=(model.generate_samples_from_batch,model.decode,inference.pipe.generate_vid2world,net.forward)
-    def restored():
-        assert (model.generate_samples_from_batch,model.decode,inference.pipe.generate_vid2world,net.forward)==originals
-        assert '_cara_paper_timing_active_r1' not in vars(model)
+    def methods():return (model.generate_samples_from_batch,model.decode,inference.pipe.generate_vid2world,net.forward)
+    def run_loaded(args):
+        before=methods();established=[];apply=wc.apply_worldcache
+        def observe_setup(*positional,**keywords):
+            result=apply(*positional,**keywords)
+            if not established:established.append(methods())
+            return result
+        try:
+            with clean.patched(wc,'apply_worldcache',observe_setup):return collect_loaded(**args)
+        finally:
+            assert methods()==(established[0] if established else before)
+            assert '_cara_paper_timing_active_r1' not in vars(model)
     def decoder(latent):
         base=latent.mean().tanh().reshape(1,1,1,1,1)
         return (base+torch.linspace(-.1,.1,93).reshape(1,1,93,1,1)).expand(1,3,93,64,64).clone()
@@ -50,13 +58,13 @@ def body(inference,selected,wc,rf,common,unused_initial,profile,root,native,flow
     with clean.patched(model.tokenizer,'decode',decoder),clean.patched(inference_module,'save_img_or_video',write_video):
         for alias in (False,True):
             args=arguments(alias,root/('loaded-alias25' if alias else 'loaded-full32'))
-            collection,evidence=collect_loaded(**args);restored()
+            collection,evidence=run_loaded(args)
             recovered=inspect_original(args['card'],args['output']/'endpoint-collection.json',cpu_validation=True)
             count=25 if alias else 32
             assert recovered['counts']['COMPLETE']==evidence['request_boundary_checks']==count
             assert args['storage'].calls==count+1 and evidence['final_state_restored'] and evidence['shared_eval_verified']
             calls=args['storage'].calls
-            try:collect_loaded(**args)
+            try:run_loaded(args)
             except ValueError:pass
             else:raise AssertionError('Original loaded collection replayed')
             assert args['storage'].calls==calls
@@ -66,12 +74,11 @@ def body(inference,selected,wc,rf,common,unused_initial,profile,root,native,flow
             args=arguments(False,root/('loaded-refuse-'+kind));args['storage']=Storage(kind)
             if kind=='precision':args['context']['model_precision_sha256']='f'*64
             if kind=='mode':args['mode_types']={'CPU.wrong.Module':1}
-            try:collect_loaded(**args)
+            try:run_loaded(args)
             except (ValueError,OSError) as error:
                 expected={'storage':'low-water','parameter':'parameters changed','precision':'precision differs','mode':'topology differs'}[kind]
                 assert expected in str(error),(kind,str(error))
             else:raise AssertionError('Loaded runner boundary not enforced: '+kind)
-            restored()
             path=args['output']/'endpoint-collection.json'
             if kind in ('storage','parameter'):
                 collection=json.loads(path.read_text())
