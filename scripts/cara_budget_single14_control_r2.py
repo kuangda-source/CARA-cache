@@ -28,7 +28,43 @@ sys.dont_write_bytecode=True;sys.path[:0]=[str(stage/'src'),str(stage/'scripts')
 from wcomr.cara_budget_prepare_r1 import observe_original,bind_reservation
 from wcomr.cara_budget_dispatch_r1 import ready_inputs,fresh_resources,dispatch,recover
 from wcomr.gpu_budget_pool_v2 import atomic_json
-if p['action']=='refresh':
+if p['action']=='complete-admission':
+ # Resume only the resource phase after the original CPU worker fully hashed
+ # the assets and then failed its own overly narrow CPU-affinity check.
+ from wcomr.cara_budget_original_handles_r1 import observe_original_process
+ from wcomr.cara_budget_host_policy_r1 import HOSTS,POLICY_SHA256
+ from wcomr.cara_fast_b36_dispatch_r2 import create
+ launch=json.loads((stage/'CPU-admission-r2-launch.json').read_text())
+ state=json.loads((stage/'CPU-admission-r2-state.json').read_text())
+ assert launch==p['failed_admission']['launch'] and state==p['failed_admission']['state']
+ assert state['status']=='ORIGINAL_ADMISSION_CPU_FAILED_NO_GPU' and state['error']=='Host CPU/memory margin unavailable'
+ assert sha(stage/'CPU-admission-r2-worker.py')==launch['worker_sha256']
+ observation=observe_original_process(launch['identity'])
+ assert observation['status']=='ORIGINAL_NOT_LIVE'
+ assert recover(stage) is None
+ card,registration,authority,profile,limits=ready_inputs(root,stage)
+ partial=json.loads((stage/'fresh-admission.json').read_text())
+ assert set(partial)=={'registration_sha256','authorization_sha256','asset_spec_sha256','assets'}
+ archive=stage/'CPU-admission-r2-complete-asset-digests.json'
+ if archive.exists():assert json.loads(archive.read_text())==partial
+ else:create(archive,partial)
+ required=set(map(int,profile['hosts'][authority['host']]['cpuset_cpus'].split(',')))
+ assert required<=os.sched_getaffinity(0)
+ os.sched_setaffinity(0,required)
+ storage,resources=fresh_resources(root,stage,authority,profile)
+ quote=json.loads((stage/'whole-quote.json').read_text())['host_quotes'][authority['host']]
+ admission=dict(partial,status='CALIBRATION_COMPLETE_FRESH_ADMISSION_NO_GPU',authorization=authority,
+  central_operator_sha256=registration['payload_sha256']['src/wcomr/cara_budget_central_r1.py'],
+  authorization_raw_utf8=(stage/'GPU-authorization.json').read_text(),resources=resources,
+  forecast_GPUh=quote['forecast_GPUh'],physical_paths=112,candidate_queries=51,
+  required_hosts=list(HOSTS),required_host_whole_card_CPU_accepted=True,
+  execution_host_policy_sha256=POLICY_SHA256,observed_unix=time.time(),GPU_submissions=0)
+ atomic_json(stage/'fresh-admission.json',admission)
+ result=dict(status='ORIGINAL_ASSET_DIGESTS_REVALIDATED_RESOURCE_PHASE_COMPLETE_NO_GPU',
+  admission=admission,original=observe_original(root,'two_card'),original_worker_observation=observation,
+  original_asset_digests_sha256=sha(archive),resource_check_cpu_affinity=sorted(os.sched_getaffinity(0)),
+  GPU_submissions=0,ledger_written=False)
+elif p['action']=='refresh':
  assert recover(stage) is None,'Original dispatch exists: recover only'
  card,registration,authority,profile,limits=ready_inputs(root,stage)
  admission=json.loads((stage/'fresh-admission.json').read_text())
@@ -91,7 +127,7 @@ with tempfile.TemporaryDirectory(prefix='single14-central-operator-') as tempora
 
 
 def main():
-    parser=argparse.ArgumentParser();parser.add_argument('action',choices=['refresh','reserve','dispatch','status','central-status','settle'])
+    parser=argparse.ArgumentParser();parser.add_argument('action',choices=['complete-admission','refresh','reserve','dispatch','status','central-status','settle'])
     parser.add_argument('--input',type=Path);parser.add_argument('--output',type=Path,required=True);args=parser.parse_args();assert not args.output.exists()
     read=lambda name:json.loads((ROOT/name).read_text())
     authority=read('plans/cara_next_stage_20261028/mainline/r2/BUDGET_SINGLE14GPUH_EXECUTION_BINDING_R2_20261031.json')
@@ -111,6 +147,8 @@ def main():
         elif args.action=='dispatch':p['central']=supplied['result']
         else:
             original=supplied['result'];p.update(capture=original['lifecycle'],expected_launch_sha256=original['launch_sha256'],expected_launch_id=authority['launch_id'])
+    if args.action=='complete-admission':
+        p['failed_admission']=read('reports/cara_budget_approved_two_admission_capture_r4_20261031.json')['result']
     secret=None if central else password()
     if args.action=='dispatch':p['sudo_password']=secret
     remote=CENTRAL if central else TWO
