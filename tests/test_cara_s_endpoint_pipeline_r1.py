@@ -18,6 +18,15 @@ class Pipeline(unittest.TestCase):
     def collect(self):
         return pipeline.collect(self.adapter,self.out,self.context,before_request=lambda slot:None,precision={})
 
+    def test_all16_original_historical_routes(self):
+        from check_cara_s_endpoint_pipeline_fixture_r1 import historical_slot
+        from wcomr.cara_fast_binding_r2 import load_card
+        base=load_card(Path(__file__).resolve().parents[1],'plans/cara_next_stage_20261028/mainline/r2/RUN_SPEC.json')
+        slots=[historical_slot(base,member,role) for member in base['FIT']+base['CHECK']
+               for role in ('NATIVE35','F19_C','UNIFORM19_C','F19_A1')]
+        self.assertEqual(len({s['id'] for s in slots}),16)
+        self.assertEqual(sum(s['section']=='A_ANCHOR' for s in slots),2)
+
     def test_wrong_scope_before_intent(self):
         self.context['scope_sha256']='c'*64
         with self.assertRaises(ValueError):self.collect()

@@ -28,7 +28,7 @@ from wcomr.cara_s_uniform_endpoint_execution_r1 import make_requests
 from wcomr.full_sampling import CompleteStateRoundtrip
 from wcomr.gpu_budget_pool_v2 import atomic_json,sha
 from wcomr.policy_price_terminal_r1 import record
-from check_cara_s_endpoint_pipeline_fixture_r1 import packet
+from check_cara_s_endpoint_pipeline_fixture_r1 import packet,historical_slot
 from test_cara_budget_lifecycle_r1 import put
 
 ROOT=Path(__file__).resolve().parents[1]
@@ -156,7 +156,7 @@ def body(inference,selected,wc,rf,common,unused_initial,profile,root,native,flow
     def historical_writer(path,tag):
         member,role=tag.split('|');key=(member,role)
         if key not in cached:
-            slot=next(s for s in base['physical_matrix'] if s['section']=='B_QUALITY' and s['member']==member and s['role']==role)
+            slot=historical_slot(base,member,role)
             before(slot);result=historical(slot,path.parent)
             assert result['status']=='COMPLETE' and result['video_path']==str(path)
             cached[key]=path

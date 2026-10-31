@@ -20,6 +20,11 @@ PROPOSAL='plans/cara_next_stage_20261028/mainline/r2/S_UNIFORM_BUDGET_ENDPOINT32
 SCORES='reports/cara_fast_B36_complete_scores_accepted_r1_20261029.json'
 
 
+def historical_slot(base,member,role):
+    section='A_ANCHOR' if role=='NATIVE35' and member in base['FIT'] else 'B_QUALITY'
+    return next(s for s in base['physical_matrix'] if s['section']==section and s['member']==member and s['role']==role)
+
+
 def packet(project,write_media,decode,*,alias=False,shape=(93,64,64,3),flow=True):
     project=Path(project);project.mkdir(parents=True,exist_ok=True)
     proposal=json.loads((ROOT/PROPOSAL).read_text())
