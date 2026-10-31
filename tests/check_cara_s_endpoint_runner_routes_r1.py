@@ -14,7 +14,7 @@ from check_cara_s_endpoint_pipeline_routes_r1 import write_video
 ROOT=Path(__file__).resolve().parents[1]
 
 
-def body(inference,selected,wc,rf,common,unused_initial,profile,root,native,flow,inference_module,host,samples):
+def loaded_body(inference,selected,wc,rf,common,unused_initial,profile,root,native,flow,inference_module,host,samples):
     import check_wc_time_card_r1 as fixture
     model,net=inference.pipe.model,inference.pipe.model.net
     net.__class__=fixture.load('check_fair_sampling_cpu').native_toy_class(Path(common['runtime']),type(net),dict(vars(wc)))
@@ -91,6 +91,19 @@ def body(inference,selected,wc,rf,common,unused_initial,profile,root,native,flow
     return [dict(status='PASS',flow=flow,cases=cases,failure_controls=failures,actual_complete_paths=57,
         all36_updates_and_policies_checked=True,real93_frame_video=True,model_weights_loaded=False,
         actual_GPU_context=False,GPU_submissions=0,ledger_written=False)]
+
+
+
+def body(*args,**kwargs):
+    # The outer numerical fixture owns the pre-initialization class/forward.
+    # Each collect_loaded call still verifies its post-setup restoration above.
+    net=args[0].pipe.model.net
+    original_class=type(net);owned_forward='forward' in vars(net);forward=vars(net).get('forward')
+    try:return loaded_body(*args,**kwargs)
+    finally:
+        net.__class__=original_class
+        if owned_forward:net.forward=forward
+        else:vars(net).pop('forward',None)
 
 
 def run(runtime,artifact_root,host,samples):
