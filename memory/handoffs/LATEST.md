@@ -2,7 +2,7 @@
 
 # CARA-Cache 当前交接
 
-[802 — 完整预算冻结至端点比较的CPU绑定](../../research/802_CARA_COMPLETE_BUDGET_FREEZE_ENDPOINT_BINDING_CPU_20261031.md)：新增只读绑定组件：重建原112路径/51查询完整接受后，核对已存在的唯一冻结，再生成完整端点位置映射。15项绑定控制与16项既有提案回归通过。本轮仅本地CPU夹具；实际预算策略未绑定，整卡运行器、所选策略数值CPU、最终源与报价仍待。原14GPUh运行、硬截止和两项自动检查保持，未访问其科学输出或中央账本。
+[803 — 完整端点编排与原件恢复CPU接受](../../research/803_CARA_ENDPOINT_COLLECTION_CPU_ORIGINAL_TERMINAL_RECOVERY_20261031.md)：完整端点执行与只读恢复组件已通过两卡实际CPU验收：两种flow下完整32及去重25路径，共114条收集路径、16条单独参考调用、6项失败控制；20项本地组合及独立验收控制通过。原CPU容器退出0，工作318.834秒。真实预算mask、guardian/费用/释放组合和评分链仍待；原14GPUh实验及检查安排保持，本轮未读其科学输出、未派新GPU、未写中央账本。
 
 **2026-10-28最新安排：主线P0/F19，探索S-FAST19与固定Shared25-C的Q并行准备。** [最新计划与两个对话分工](../../plans/cara_next_stage_20261028/08_REPOSITORY_RECONCILIATION.md) · [739接收记录](../../research/739_CARA_NEXT_STAGE_FAST_SQ_PLAN_AND_CHAT_HANDOFF_20261028.md)。A32已完整验收并冻结；B36已获单次批准，实际状态以原运行记录为准。WC73已热停结算，禁止自动重派；原DEV128、旧合同与失败保持。以下旧准备记录仅作历史复用依据。
 
