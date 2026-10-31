@@ -53,8 +53,8 @@ def main():
     state=dict(status='MODEL_LOADING',started_unix=time.time(),scope_sha256=card['scope_sha256'],
         source_revision=launch['source_revision'],identity=identity,CPU_fixture_only=False,scientific_accepted=False)
     atomic_json(output/'endpoint-model-runner.json',state)
-    init_environment()
     try:
+        init_environment()
         init_output_dir(output,profile=False);install_core_inference_registration(setup.model,setup.experiment)
         started=time.monotonic();inference=inference_module.Inference(setup);torch.cuda.synchronize()
         state['load_seconds']=time.monotonic()-started

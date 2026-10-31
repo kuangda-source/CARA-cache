@@ -25,9 +25,10 @@ def main():
     import test_cara_s_endpoint_container_r1 as container
     import test_cara_s_endpoint_gpu_dispatch_child_r1 as child
     import test_cara_s_endpoint_reuse_admission_r1 as reuse
-    suite=unittest.TestSuite(unittest.defaultTestLoader.loadTestsFromModule(m) for m in (dispatch,container,child,reuse))
+    import test_cara_s_endpoint_entry_r1 as entry
+    suite=unittest.TestSuite(unittest.defaultTestLoader.loadTestsFromModule(m) for m in (dispatch,container,child,reuse,entry))
     result=unittest.TextTestRunner(verbosity=2).run(suite)
-    assert result.testsRun==38 and result.wasSuccessful() and not result.skipped
+    assert result.testsRun==48 and result.wasSuccessful() and not result.skipped
     assert len(child.OBSERVATIONS)==1
     from wcomr.cara_s_endpoint_reuse_admission_r1 import verify_reuse
     proposal_ref='plans/cara_next_stage_20261028/mainline/r2/S_UNIFORM_BUDGET_ENDPOINT32_PROPOSAL_R1_20261031.json'
@@ -40,7 +41,7 @@ def main():
         registration_sha256=sha(args.stage/'registration.json'),payload_sha256=registration['payload_sha256'],
         runtime_source_sha256=registration['runtime_source_sha256'],actual_CPU_affinity=sorted(os.sched_getaffinity(0)),
         tests_run=result.testsRun,failures=len(result.failures),errors=len(result.errors),skipped=len(result.skipped),
-        reuse_controls=13,dispatch_container_controls=24,actual_Linux_child_controls=1,observations=child.OBSERVATIONS,
+        reuse_controls=13,dispatch_container_controls=24,entry_controls=10,entry_model_and_CUDA_simulated=True,actual_Linux_child_controls=1,observations=child.OBSERVATIONS,
         actual_original_reuse=actual,original_proposal_ref=proposal_ref,original_scores_ref=scores_ref,
         original_proposal_sha256=sha(args.stage/proposal_ref),original_scores_sha256=sha(args.stage/scores_ref),
         work_seconds=180,exit_seconds=30,GPU_submissions=0,ledger_written=False,metrics_computed=0,
