@@ -7,12 +7,14 @@ import argparse
 import base64
 import gzip
 import hashlib
+import io
 import json
 import os
 from pathlib import Path
 import shlex
 import signal
 import subprocess
+import tarfile
 import time
 from cara_two_card_transport_r1 import password
 
@@ -96,9 +98,10 @@ print(json.dumps(result))
 CENTRAL=r'''
 import base64,hashlib,io,json,os,pathlib,subprocess,sys,tarfile,tempfile,time
 p=packet['arguments'];root=pathlib.Path('/data20t/gaokuangda/worldcache_workspace')
-raw=base64.b64decode(p['archive']);assert hashlib.sha256(raw).hexdigest()==p['archive_sha256']
-with tempfile.TemporaryDirectory(prefix='single14-central-operator-') as temporary:
- source=pathlib.Path(temporary);expected=p['plan']['overlay_sha256'];found=set()
+expected=p['plan']['overlay_sha256']
+if p['action']=='central-prepare':
+ raw=base64.b64decode(p['archive']);assert hashlib.sha256(raw).hexdigest()==p['archive_sha256']
+ source=pathlib.Path(tempfile.mkdtemp(prefix='single14-central-operator-'));found=set()
  with tarfile.open(fileobj=io.BytesIO(raw),mode='r:gz') as archive:
   for member in archive:
    name=member.name;relative=pathlib.Path(name)
@@ -106,13 +109,20 @@ with tempfile.TemporaryDirectory(prefix='single14-central-operator-') as tempora
    body=archive.extractfile(member).read();assert hashlib.sha256(body).hexdigest()==expected[name]
    target=source/name;target.parent.mkdir(parents=True,exist_ok=True);target.write_bytes(body);found.add(name)
  assert found==set(expected)
+else:
+ source=pathlib.Path(p['operator_cache'])
+ assert source.parent==pathlib.Path('/tmp') and source.name.startswith('single14-central-operator-') and not source.is_symlink()
+assert all(hashlib.sha256((source/n).read_bytes()).hexdigest()==h for n,h in expected.items())
+if True:
  sys.dont_write_bytecode=True;sys.path[:0]=[str(source/'src'),str(source/'scripts')]
  from wcomr.cara_budget_central_r1 import reserve,settle,Pool,STAGES,RUN
  from wcomr.cara_budget_lifecycle_capture_r1 import inspect_container
  stage=root/'.sync'/STAGES['four_card']
  original=dict(host='four_card',stage=str(stage),run_id=RUN,stage_exists=stage.exists(),dispatch_records=[n for n in ('GPU-intent.json','GPU-dispatch.json','GPU-launch.json','guardian-intent.json') if (stage/n).exists()],container=inspect_container(stage.name+'-gpu'),observation_complete=True,observed_unix=time.time())
  pool=Pool(root);receipt=root/'reports'/(RUN+'.central-reservation.json')
- if p['action']=='reserve':
+ if p['action']=='central-prepare':
+  envelope=None
+ elif p['action']=='reserve':
   assert p['transaction_authority']['launch_id']==p['refresh']['admission']['authorization']['launch_id']
   envelope=reserve(root,p['refresh']['admission'],dict(two_card=p['refresh']['original'],four_card=original))
  elif p['action']=='settle':
@@ -122,24 +132,53 @@ with tempfile.TemporaryDirectory(prefix='single14-central-operator-') as tempora
   assert p['action']=='central-status'
   envelope=json.loads(receipt.read_text()) if receipt.exists() else None
  snapshot=dict(central_ledger_host='four_card',ledger=pool.read(),observed_unix=time.time())
- print(json.dumps(dict(status='ORIGINAL_CENTRAL_CARD_TRANSACTION_OR_RECOVERY',action=p['action'],envelope=envelope,snapshot=snapshot,original=original,GPU_submissions=0,ledger_written=p['action'] in ('reserve','settle'))))
+ print(json.dumps(dict(status='ORIGINAL_CENTRAL_CARD_TRANSACTION_OR_RECOVERY',action=p['action'],operator_cache=str(source),operator_source_files=len(expected),envelope=envelope,snapshot=snapshot,original=original,GPU_submissions=0,ledger_written=p['action'] in ('reserve','settle'))))
+'''
+
+
+CENTRAL_STATUS=r'''
+import hashlib,json,pathlib,subprocess,time
+root=pathlib.Path('/data20t/gaokuangda/worldcache_workspace');run='cara-budget-calibration-14gpuh-r1-20261030'
+ledger=root/'reports/gpu-budget-v2.json';receipt=root/'reports'/(run+'.central-reservation.json')
+raw=ledger.read_bytes();value=json.loads(raw)
+stage=root/'.sync/cara-budget-calibration-GPU-ada-r1-20261030'
+check=subprocess.run(['docker','inspect',stage.name+'-gpu'],capture_output=True,text=True,timeout=20)
+assert check.returncode==0 or ('No such object' in check.stderr or 'No such container' in check.stderr),check.stderr
+original=dict(host='four_card',stage=str(stage),run_id=run,stage_exists=stage.exists(),dispatch_records=[n for n in ('GPU-intent.json','GPU-dispatch.json','GPU-launch.json','guardian-intent.json') if (stage/n).exists()],container=json.loads(check.stdout) if check.returncode==0 else None,observation_complete=True,observed_unix=time.time())
+print(json.dumps(dict(status='ORIGINAL_CENTRAL_CARD_READONLY_RECOVERY',envelope=json.loads(receipt.read_text()) if receipt.exists() else None,snapshot=dict(central_ledger_host='four_card',ledger=value,observed_unix=time.time()),ledger_sha256=hashlib.sha256(raw).hexdigest(),original=original,GPU_submissions=0,ledger_written=False)))
 '''
 
 
 def main():
-    parser=argparse.ArgumentParser();parser.add_argument('action',choices=['complete-admission','refresh','reserve','dispatch','status','central-status','settle'])
+    parser=argparse.ArgumentParser();parser.add_argument('action',choices=['central-prepare','complete-admission','refresh','reserve','dispatch','status','central-status','settle'])
     parser.add_argument('--input',type=Path);parser.add_argument('--output',type=Path,required=True);args=parser.parse_args();assert not args.output.exists()
     read=lambda name:json.loads((ROOT/name).read_text())
     authority=read('plans/cara_next_stage_20261028/mainline/r2/BUDGET_SINGLE14GPUH_EXECUTION_BINDING_R2_20261031.json')
     transaction=read('plans/cara_next_stage_20261028/mainline/r2/BUDGET_SINGLE14_CENTRAL_TRANSACTION_AUTHORIZATION_20261031.json')
     assert transaction['launch_id']==authority['launch_id'] and transaction['hard_GPUh']==14
-    central=args.action in ('reserve','central-status','settle')
+    central=args.action in ('central-prepare','reserve','central-status','settle')
     p=dict(action=args.action,authority=authority,transaction_authority=transaction)
-    if central:
+    if central and args.action!='central-status':
         proof=read('reports/cara_budget_two_card_whole_CPU_composed_r2_20261031.json');package=ROOT/proof['package_ref']
         raw=(package/'source.tar.gz').read_bytes();assert hashlib.sha256(raw).hexdigest()==proof['package_archive_sha256']
-        p.update(archive=base64.b64encode(raw).decode(),archive_sha256=proof['package_archive_sha256'],plan=json.loads((package/'source-plan.json').read_text()))
-    else:p['registration_sha256']=read('reports/cara_budget_approved_two_source_prepare_r2_20261031.json')['result']['registration_sha256']
+        import sys
+        sys.path.insert(0,str(ROOT/'src'))
+        from wcomr.immutable_stage_payload_r1 import local_python_closure
+        expected=local_python_closure(ROOT,['src/wcomr/cara_budget_central_r1.py','src/wcomr/cara_budget_lifecycle_capture_r1.py'])
+        full_plan=json.loads((package/'source-plan.json').read_text())
+        assert all(full_plan['overlay_sha256'][name]==digest for name,digest in expected.items())
+        p['plan']=dict(overlay_sha256=expected)
+        if args.action=='central-prepare':
+            buffer=io.BytesIO()
+            with tarfile.open(fileobj=io.BytesIO(raw),mode='r:gz') as original,tarfile.open(fileobj=buffer,mode='w:gz') as subset:
+                for member in original:
+                    if member.name in expected:subset.addfile(member,original.extractfile(member))
+            selected=buffer.getvalue();p.update(archive=base64.b64encode(selected).decode(),archive_sha256=hashlib.sha256(selected).hexdigest())
+        else:
+            prepared=read('reports/cara_budget_single14_central_operator_ready_r1_20261031.json')
+            assert prepared['exit_code']==0
+            p['operator_cache']=prepared['result']['operator_cache']
+    elif not central:p['registration_sha256']=read('reports/cara_budget_approved_two_source_prepare_r2_20261031.json')['result']['registration_sha256']
     if args.action in ('reserve','dispatch','settle'):
         assert args.input is not None
         supplied=json.loads(args.input.read_text());assert supplied['exit_code']==0
@@ -151,7 +190,7 @@ def main():
         p['failed_admission']=read('reports/cara_budget_approved_two_admission_capture_r4_20261031.json')['result']
     secret=None if central else password()
     if args.action=='dispatch':p['sudo_password']=secret
-    remote=CENTRAL if central else TWO
+    remote=CENTRAL_STATUS if args.action=='central-status' else CENTRAL if central else TWO
     code="import io,sys,json,gzip,base64\nsaved=sys.stdout;sys.stdout=io.StringIO()\nexec("+repr(remote)+")\nraw=sys.stdout.getvalue().encode();sys.stdout=saved\nprint(json.dumps(dict(gzip_base64=base64.b64encode(gzip.compress(raw)).decode(),sha256=hashlib.sha256(raw).hexdigest())))\n"
     encoded=base64.b64encode(gzip.compress(json.dumps(dict(code=code,arguments=p)).encode())).decode()
     interpreter='python3' if central else '/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python'
@@ -159,7 +198,7 @@ def main():
     if not central:command="sudo -S -p '' -u gaokuangda -g docker "+command
     started=time.time();child=subprocess.Popen(['ssh','-C','-F',str(ROOT/'.sync/cara-fast-mainline-tailscale-20261030/ssh_config.budget_direct.private'),'-o','BatchMode=yes','-o','ConnectTimeout=25','-o','ServerAliveInterval=15','-o','ServerAliveCountMax=3','four_card_lan' if central else 'two_card_lan',command],stdin=subprocess.PIPE,stdout=subprocess.PIPE,stderr=subprocess.PIPE,start_new_session=True)
     try:out,err=child.communicate(((secret+'\n' if secret else '')+encoded).encode(),timeout=110)
-    except subprocess.TimeoutExpired:os.killpg(child.pid,signal.SIGTERM);out,err=child.communicate()
+    except subprocess.TimeoutExpired:os.killpg(child.pid,signal.SIGKILL);out,err=child.communicate()
     result=None
     if child.returncode==0:
         wrapped=json.loads(out);decoded=gzip.decompress(base64.b64decode(wrapped['gzip_base64']));assert hashlib.sha256(decoded).hexdigest()==wrapped['sha256'];result=json.loads(decoded)
