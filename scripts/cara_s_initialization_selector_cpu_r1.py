@@ -31,21 +31,22 @@ REMOTE = BASE_REMOTE.replace('check_cara_budget_calibration_cpu_r3.py',
     "cmd=bind_cpu_limits(cmd);cmd[2:2]=['--cpuset-cpus','26']")
 
 
-def main():
+def main(*, stage=STAGE, overlay=OVERLAY, remote_code=REMOTE,
+         work_seconds=180, exit_seconds=30):
     parser = argparse.ArgumentParser()
     parser.add_argument('action', choices=['prepare','capture'])
     parser.add_argument('--source-revision', required=True)
     parser.add_argument('--output', type=Path, required=True)
     args = parser.parse_args()
     assert not args.output.exists()
-    p = dict(action=args.action, host='two_card', stage_name=STAGE)
+    p = dict(action=args.action, host='two_card', stage_name=stage)
     if args.action == 'prepare':
         raw_base = (ROOT/BASE_CAPTURE).read_bytes()
         accepted = json.loads((ROOT/BASE_ACCEPTED).read_text())
         assert accepted['capture_sha256'] == hashlib.sha256(raw_base).hexdigest()
         assert accepted['total_controls_passed'] == 113
         base = json.loads(raw_base)['result']
-        raw = {n:subprocess.check_output(['git','show',args.source_revision+':'+n],cwd=ROOT) for n in OVERLAY}
+        raw = {n:subprocess.check_output(['git','show',args.source_revision+':'+n],cwd=ROOT) for n in overlay}
         assert all((ROOT/n).read_bytes() == b for n,b in raw.items())
         hashes = {**base['registration']['payload_sha256'], **{n:hashlib.sha256(b).hexdigest() for n,b in raw.items()}}
         p.update(base_stage=base['launch']['stage'],base_registration_sha256=base['registration_sha256'],
@@ -62,13 +63,13 @@ if p['action']=='prepare':
  assert hashlib.sha256(json.dumps(p['hashes'],sort_keys=True,separators=(',',':')).encode()).hexdigest()==p.pop('full_mapping_sha256')
 sys.stdin=io.StringIO(json.dumps(p))
 """
-    remote = wrapper+'\nexec('+repr(REMOTE)+')\n'
+    remote = wrapper+'\nexec('+repr(remote_code)+')\n'
     remote = "import io,sys,gzip,base64,json,hashlib\nsaved=sys.stdout;sys.stdout=io.StringIO()\nexec("+repr(remote)+")\nraw=sys.stdout.getvalue().encode();sys.stdout=saved\nprint(json.dumps(dict(gzip_base64=base64.b64encode(gzip.compress(raw)).decode(),sha256=hashlib.sha256(raw).hexdigest())))\n"
     secret = password()
     command = "sudo -S -p '' -u gaokuangda -g docker /home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python -c "+shlex.quote("import sys,json,io,gzip,base64;packet=json.loads(gzip.decompress(base64.b64decode(sys.stdin.read())));sys.stdin=io.StringIO(json.dumps(packet['payload']));exec(packet['code'])")
     encoded = base64.b64encode(gzip.compress(json.dumps(dict(code=remote,payload=p)).encode())).decode()
-    binding = dict(action=args.action,host='two_card',stage_name=STAGE,source_revision=args.source_revision,
-        started_unix=time.time(),expected_host_config=LIMITS,work_seconds=180,exit_seconds=30,
+    binding = dict(action=args.action,host='two_card',stage_name=stage,source_revision=args.source_revision,
+        started_unix=time.time(),expected_host_config=LIMITS,work_seconds=work_seconds,exit_seconds=exit_seconds,
         remote_code_sha256=hashlib.sha256(remote.encode()).hexdigest(),transport_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
         payload_sha256=hashlib.sha256(json.dumps(p,sort_keys=True).encode()).hexdigest(),GPU_submissions=0,ledger_written=False)
     with args.output.with_name(args.output.stem+'_binding.json').open('x') as stream:
