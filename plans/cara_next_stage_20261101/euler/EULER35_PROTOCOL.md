@@ -6,4 +6,4 @@
 
 新增隔离scheduler与已有ATS beta4适配器共同验证70-call reset；Native与强制全计算wrapper的70个分支输出、35个更新latent、最终latent、微型解码RGB及RNG一致。原UniPC及已准备E1源包保持不变。
 
-执行在macOS CPU，使用明确的微型模型/条件/解码和mock writer边界。当前未加载真实权重或派发Euler GPU，Linux兼容和真实权重Native/allD等价仍待。方法相关噪声坐标保护、年龄、晚期间隔及完整卡费用须在E1确定方法后前瞻冻结；此版本不进入科学结果表。
+821在macOS CPU完成，822已补齐目标Linux CPU兼容；两者使用明确的微型模型/条件/解码和mock writer边界。当前未加载真实权重或派发Euler GPU，真实权重Native/allD等价仍待。方法相关噪声坐标保护、年龄、晚期间隔及完整卡费用须在E1确定方法后前瞻冻结；此版本不进入科学结果表。

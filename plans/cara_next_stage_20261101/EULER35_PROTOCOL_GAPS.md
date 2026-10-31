@@ -54,4 +54,6 @@
 
 [CPU汇总](euler/EULER35_CPU_ACCEPTANCE.json)已接受本地8条完整微型路径与5项调度边界控制：每条35更新/70CFG；Native/allD同初噪、70分支输出、35更新latent、最终latent、93帧微型RGB、RNG一致；计时开/关一致；WC在第70次调用后重置。ATS beta4沿用原隔离适配器，与70-call horizon分开，不修改UniPC或E1源包。
 
-这里的完整入口仍使用声明的微型权重/条件/解码及mock writer，执行在macOS CPU。Linux兼容和真实权重GPU等价未验证；策略约束仍待E1胜出方法前瞻冻结。原818数值回执与sigma合同保留，不覆盖为更强结论。
+这里的完整入口仍使用声明的微型权重/条件/解码及mock writer，执行在macOS CPU。822已补齐目标Linux CPU兼容；真实权重GPU等价未验证；策略约束仍待E1胜出方法前瞻冻结。原818数值回执与sigma合同保留，不覆盖为更强结论。
+
+822已按唯一原句柄完成两卡Linux CPU验收：8条路径和5项边界控制通过，原容器退出0/无OOM。见[原接受回执](../../reports/cara_euler35_sampler_Linux_CPU_accepted_r1_20261101.json)；不重跑原CPU，真实权重及GPU验收门保持。

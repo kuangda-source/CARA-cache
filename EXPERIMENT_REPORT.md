@@ -2,7 +2,7 @@
 
 # CARA-Cache：研究与结果概览
 
-[821 — E1待批期间完成Euler35微型采样CPU](research/821_CARA_EULER35_FULL_SAMPLER_AND_WC_RESET_CPU_20261101.md)：E1所选46路径整卡已就绪，单次硬7GPUh及本卡原中央账本许可待回复。独立Euler-E0新增8条完整微型CPU路径及5项控制通过：35更新/70CFG、Native/allD逐步latent/RGB一致、70-call重置与ATS beta4；不是真实权重或GPU结果。
+[822 — Euler35目标Linux CPU已完整接受](research/822_CARA_EULER35_ORIGINAL_LINUX_CPU_ACCEPTANCE_20261101.md)：E1所选46路径整卡已就绪，单次硬7GPUh及本卡原中央账本许可仍待回复。Euler-E0原Linux CPU退出0：8条完整微型路径及5项边界控制通过，35更新/70CFG、Native/allD一致、70-call reset与ATS beta4；无真实权重/GPU结果。
 
 **2026-10-28最新安排：主线P0/F19，探索S-FAST19与固定Shared25-C的Q并行准备。** [最新计划与两个对话分工](plans/cara_next_stage_20261028/08_REPOSITORY_RECONCILIATION.md) · [739接收记录](research/739_CARA_NEXT_STAGE_FAST_SQ_PLAN_AND_CHAT_HANDOFF_20261028.md)。A32已完整验收并冻结；B36已获单次批准，实际状态以原运行记录为准。WC73已热停结算，禁止自动重派；原DEV128、旧合同与失败保持。以下旧准备记录仅作历史复用依据。
 

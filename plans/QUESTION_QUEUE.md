@@ -154,3 +154,5 @@ S单次授权已接收：用户在S/Q原对话批准另一张A6000完整十条�
 [820整卡准备与单次7GPUh审阅](../research/820_CARA_ENDPOINT7_WHOLE_CPU_SOURCE_STORAGE_AND_SINGLE7_REVIEW_20261101.md)：46/28/16/13整卡CPU、Linux16+13控制、新64GiB存储、1268文件生产源及原32文件复用校验通过。等待单次GPU与本卡原中央账本授权，批准后fresh准入；未启动GPU、未预约费用，不重跑既有实验。
 
 [821 Euler35完整微型采样CPU](../research/821_CARA_EULER35_FULL_SAMPLER_AND_WC_RESET_CPU_20261101.md)：8条路径及5项调度控制通过，35更新/70CFG、Native/allD逐步latent/RGB/RNG一致、70-call reset和ATS beta4接通。真实权重/GPU和最终策略约束仍待；唯一待批GPU卡仍是E1硬7GPUh。
+
+[822 Euler35原Linux CPU接受](../research/822_CARA_EULER35_ORIGINAL_LINUX_CPU_ACCEPTANCE_20261101.md)：原CPU退出0/无OOM，8条完整微型路径与5项边界控制通过，E1源包保持。当前待E1单次7GPUh及本卡原中央账本批准；真实权重Euler卡仍后置。
