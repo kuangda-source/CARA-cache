@@ -2,7 +2,7 @@
 
 # CARA-Cache
 
-[816 — 预算GPU完整结算，CPU验收运行中](research/816_CARA_BUDGET_SUCCESSOR_GPU_SETTLED_CPU_ACCEPTANCE_RUNNING_20261101.md)：预算搜索原GPU完整112/112退出释放，实耗7.197644817GPUh已唯一结算。固定源完整112/51的CPU读者00:18:07唯一启动，00:20仍活跃，赢家尚未完整接受冻结。同一个14h-2在00:30恢复原CPU；不重派、不重复计费。
+[817 — 预算搜索完整接受与一次冻结](research/817_CARA_BUDGET_SEARCH_COMPLETE_ACCEPTANCE_AND_FROZEN_WINNER_20261101.md)：预算搜索完整112路径/51双FIT查询已接受并一次冻结，第39次HC选中19D，双FIT平均RGB MSE由0.0427533降至0.0241206（43.58%）。原GPU/CPU均退出释放，实耗7.197644817GPUh已唯一结算；两检查均删除。尚无新策略CHECK/LPIPS或部署时延结论，下一端点卡未授权。
 
 **2026-10-28最新安排：主线P0/F19，探索S-FAST19与固定Shared25-C的Q并行准备。** [最新计划与两个对话分工](plans/cara_next_stage_20261028/08_REPOSITORY_RECONCILIATION.md) · [739接收记录](research/739_CARA_NEXT_STAGE_FAST_SQ_PLAN_AND_CHAT_HANDOFF_20261028.md)。A32已完整验收并冻结；B36已获单次批准，实际状态以原运行记录为准。WC73已热停结算，禁止自动重派；原DEV128、旧合同与失败保持。以下旧准备记录仅作历史复用依据。
 

@@ -1,5 +1,5 @@
 {
-  "status": "GPU_COMPLETE_SETTLED_SAME_FINAL_CONTINUES_ORIGINAL_CPU",
+  "status": "COMPLETE_ACCEPTED_FROZEN_ALL_CHECKS_DELETED",
   "launch_id": "323ef0d5e8eb4a91a1c8a4ba47c24b18",
   "actual_started_local": "2026-10-31T16:45:04.590671+08:00",
   "hard_deadline_local": "2026-11-01T06:45:04.590671+08:00",
@@ -22,7 +22,7 @@
       "rrule": "FREQ=DAILY;BYHOUR=6;BYMINUTE=1;BYSECOND=0;COUNT=1",
       "automation_config_sha256": "0fd292b6b09db047ae443c151f9ad1cf7d2cbba0bcf3210c756c367339b10d54"
     },
-    "status": "ACTIVE_RECOVER_ORIGINAL_CPU_ONLY",
+    "status": "COMPLETED_DELETED",
     "advance_basis_ref": "reports/cara_budget_successor_halfway_summary_r1_20261031.json",
     "completed_check_attempts": [
       {
@@ -30,9 +30,16 @@
         "GPU_terminal_ref": "reports/cara_budget_successor_final_capture_r1_20261101.json",
         "CPU_operational_ref": "reports/cara_budget_successor_final_CPU_capture_r3_20261101.json",
         "outcome": "GPU_SETTLED_CPU_ORIGINAL_RUNNING"
+      },
+      {
+        "scheduled_local": "2026-11-01T00:30:00+08:00",
+        "CPU_terminal_ref": "reports/cara_budget_successor_final_CPU_capture_r4_20261101.json",
+        "outcome": "COMPLETE112_51_ACCEPTED_ONCE_FROZEN"
       }
     ],
-    "continuation_ref": "reports/cara_budget_successor_GPU_settled_CPU_running_r1_20261101.json"
+    "continuation_ref": "reports/cara_budget_successor_GPU_settled_CPU_running_r1_20261101.json",
+    "complete_summary_ref": "reports/cara_budget_successor_complete_summary_r1_20261101.json",
+    "cleanup_ref": "reports/cara_budget_successor_complete_check_cleanup_r1_20261101.json"
   },
   "unchanged_silent": true,
   "delete_after_complete": true,
