@@ -51,4 +51,3 @@ def install():
     subprocess.Popen = forbidden
     subprocess.run = forbidden
     subprocess.check_output = forbidden
-
