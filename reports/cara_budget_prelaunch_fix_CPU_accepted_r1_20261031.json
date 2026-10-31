@@ -1,0 +1,422 @@
+{
+  "status": "TWO_CARD_PRELAUNCH_ALIAS_AND_CONTROL_CHAIN_CPU_ACCEPTED_NOT_GPU",
+  "observed_unix": 1793428759.607948,
+  "host": "two_card",
+  "launch": {
+    "status": "PAPER_TIMING_CPU_LAUNCHED_NOT_GPU",
+    "host": "two_card",
+    "stage": "/data20t/gaokuangda/worldcache_workspace/.sync/cara-budget-prelaunch-fix-CPU-a6000-r1-20261031",
+    "container": "cara-budget-prelaunch-fix-CPU-a6000-r1-20261031-cpu",
+    "registration_sha256": "2de9f2b14878a86b385e9c2aee1981057b89761da145c80ce1b2ed5f1a4aa417",
+    "pid": 2344303,
+    "started_unix": 1793428690.3591008,
+    "MemAvailable_before": 54839025664,
+    "free_disk_before": 1076283875328,
+    "GPU_submissions": 0,
+    "ledger_written": false
+  },
+  "source_revision": "8a4eb813e5122cc450d980be45d4c3816ad9b4ae",
+  "overlay_sha256": {
+    "src/wcomr/cara_budget_central_r1.py": "bed0ac7139a5c4630246e177c2daf391347921ae78b0a098fe653310a7189b48",
+    "src/wcomr/cara_budget_lifecycle_capture_r1.py": "c436a467a43a2481a0e3bc59389749986f64af7f5f4cc278d3eeb0ddf1b0a116",
+    "tests/test_cara_budget_lifecycle_capture_r1.py": "14052156ef0c1b7cd66016403c8180e75b2ae629766f272c0b418067a94a5552",
+    "scripts/check_cara_budget_prelaunch_fix_cpu_r1.py": "489f6f6baf35f05239015e0c664123cda21b5ed02cc37cd8f127ff2d5784d9ed"
+  },
+  "full_source_files": 1182,
+  "original_R4_sources_unchanged": false,
+  "affected_controls": [
+    {
+      "module": "test_cara_budget_dispatch_r1",
+      "tests_run": 15,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "Linux_observations": []
+    },
+    {
+      "module": "test_cara_budget_prepare_r1",
+      "tests_run": 9,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "Linux_observations": []
+    },
+    {
+      "module": "test_cara_budget_central_r1",
+      "tests_run": 11,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "Linux_observations": []
+    },
+    {
+      "module": "test_cara_budget_runner_binding_r1",
+      "tests_run": 7,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "Linux_observations": []
+    },
+    {
+      "module": "test_cara_budget_dispatch_child_r1",
+      "tests_run": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "Linux_observations": [
+        {
+          "original_identity": {
+            "pid": 2344439,
+            "start_ticks": 672359874,
+            "host_view": {
+              "boot_id": "13495735-f30b-47a2-af0a-2496f5206a0b",
+              "pid_namespace_inode": 4026531836
+            },
+            "original_command_sha256": "7f0eee7e1434a18c9c06c5e622c6db907c9f90b14ca42fcfd9b2b9c5a3245a6a"
+          },
+          "child_exit_code": 1,
+          "exact_guardian_entry": true,
+          "real_Popen_and_private_pipe": true,
+          "guardian_launch_identity_equal": true,
+          "original_child_ended": true,
+          "original_failure_journal_and_bill_complete": true,
+          "no_allocation_attempted": true,
+          "no_replay": true,
+          "sources_unchanged": true,
+          "synthetic_metadata_only": true,
+          "actual_GPU_resources_exercised": false,
+          "actual_GPUh": 0,
+          "ledger_written": false
+        }
+      ]
+    },
+    {
+      "module": "test_cara_budget_lifecycle_capture_r1",
+      "tests_run": 9,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "Linux_observations": []
+    },
+    {
+      "module": "test_cara_budget_lifecycle_r1",
+      "tests_run": 16,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "Linux_observations": []
+    },
+    {
+      "module": "test_cara_budget_host_guardian_r1",
+      "tests_run": 13,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "Linux_observations": [
+        {
+          "scenario": "busy",
+          "actual_bound_process_roles": [
+            "guardian"
+          ],
+          "original_processes_ended": true,
+          "foreign_CPU_sentinel_preserved": true,
+          "own_lease_released": true,
+          "no_replay": true,
+          "original_wall_interval_complete": true,
+          "temporary_settlement_events": 1,
+          "operational_status": "ORIGINAL_CALIBRATION_LIFECYCLE_CAPTURE",
+          "execution_success": false,
+          "mode_restored": true,
+          "error_type": "ValueError",
+          "error": "Selected GPU is busy, stale, MPS present, or unknown; no mode change",
+          "stop_reason": "Selected GPU is busy, stale, MPS present, or unknown; no mode change"
+        },
+        {
+          "scenario": "restore_busy",
+          "actual_bound_process_roles": [
+            "guardian",
+            "container_cli",
+            "supervisor",
+            "runner"
+          ],
+          "original_processes_ended": true,
+          "foreign_CPU_sentinel_preserved": true,
+          "own_lease_released": true,
+          "no_replay": true,
+          "original_wall_interval_complete": true,
+          "temporary_settlement_events": 1,
+          "operational_status": "ORIGINAL_CALIBRATION_LIFECYCLE_CAPTURE",
+          "execution_success": false,
+          "mode_restored": false,
+          "error_type": null,
+          "error": null,
+          "stop_reason": ""
+        },
+        {
+          "scenario": "no_container",
+          "actual_bound_process_roles": [
+            "guardian",
+            "container_cli"
+          ],
+          "original_processes_ended": true,
+          "foreign_CPU_sentinel_preserved": true,
+          "own_lease_released": true,
+          "no_replay": true,
+          "original_wall_interval_complete": true,
+          "temporary_settlement_events": 1,
+          "operational_status": "ORIGINAL_CALIBRATION_LIFECYCLE_CAPTURE",
+          "execution_success": false,
+          "mode_restored": true,
+          "error_type": "ValueError",
+          "error": "Original container CLI failed; no replay",
+          "stop_reason": "Original container CLI failed; no replay"
+        },
+        {
+          "scenario": "complete",
+          "actual_bound_process_roles": [
+            "guardian",
+            "container_cli",
+            "supervisor",
+            "runner"
+          ],
+          "original_processes_ended": true,
+          "foreign_CPU_sentinel_preserved": true,
+          "own_lease_released": true,
+          "no_replay": true,
+          "original_wall_interval_complete": true,
+          "temporary_settlement_events": 1,
+          "operational_status": "ORIGINAL_CALIBRATION_LIFECYCLE_CAPTURE",
+          "execution_success": true,
+          "mode_restored": true,
+          "error_type": null,
+          "error": null,
+          "stop_reason": ""
+        },
+        {
+          "scenario": "init_failure",
+          "actual_bound_process_roles": [
+            "guardian",
+            "container_cli"
+          ],
+          "original_processes_ended": true,
+          "foreign_CPU_sentinel_preserved": true,
+          "own_lease_released": true,
+          "no_replay": true,
+          "original_wall_interval_complete": true,
+          "temporary_settlement_events": 1,
+          "operational_status": "ORIGINAL_CALIBRATION_LIFECYCLE_CAPTURE",
+          "execution_success": false,
+          "mode_restored": true,
+          "error_type": "ValueError",
+          "error": "Original container CLI failed; no replay",
+          "stop_reason": "Original container CLI failed; no replay"
+        },
+        {
+          "scenario": "missing_credential",
+          "actual_bound_process_roles": [
+            "guardian"
+          ],
+          "original_processes_ended": true,
+          "foreign_CPU_sentinel_preserved": true,
+          "own_lease_released": true,
+          "no_replay": true,
+          "original_wall_interval_complete": true,
+          "temporary_settlement_events": 1,
+          "operational_status": "ORIGINAL_CALIBRATION_LIFECYCLE_CAPTURE",
+          "execution_success": false,
+          "mode_restored": true,
+          "error_type": "ValueError",
+          "error": "Original launch credential delivery failed",
+          "stop_reason": "Original launch credential delivery failed"
+        },
+        {
+          "scenario": "mode_failure",
+          "actual_bound_process_roles": [
+            "guardian"
+          ],
+          "original_processes_ended": true,
+          "foreign_CPU_sentinel_preserved": true,
+          "own_lease_released": true,
+          "no_replay": true,
+          "original_wall_interval_complete": true,
+          "temporary_settlement_events": 1,
+          "operational_status": "ORIGINAL_CALIBRATION_LIFECYCLE_CAPTURE",
+          "execution_success": false,
+          "mode_restored": true,
+          "error_type": "RuntimeError",
+          "error": "CPU fixture mode command failed",
+          "stop_reason": "CPU fixture mode command failed"
+        },
+        {
+          "scenario": "bootstrap_failure",
+          "actual_bound_process_roles": [
+            "guardian",
+            "container_cli",
+            "supervisor",
+            "runner"
+          ],
+          "original_processes_ended": true,
+          "foreign_CPU_sentinel_preserved": true,
+          "own_lease_released": true,
+          "no_replay": true,
+          "original_wall_interval_complete": true,
+          "temporary_settlement_events": 1,
+          "operational_status": "ORIGINAL_CALIBRATION_LIFECYCLE_CAPTURE",
+          "execution_success": false,
+          "mode_restored": true,
+          "error_type": "ValueError",
+          "error": "Original container CLI failed; no replay",
+          "stop_reason": "Original container CLI failed; no replay"
+        },
+        {
+          "scenario": "hard_limit",
+          "actual_bound_process_roles": [
+            "guardian",
+            "container_cli",
+            "supervisor",
+            "runner"
+          ],
+          "original_processes_ended": true,
+          "foreign_CPU_sentinel_preserved": true,
+          "own_lease_released": true,
+          "no_replay": true,
+          "original_wall_interval_complete": true,
+          "temporary_settlement_events": 1,
+          "operational_status": "ORIGINAL_CALIBRATION_LIFECYCLE_CAPTURE",
+          "execution_success": false,
+          "mode_restored": true,
+          "error_type": "TimeoutError",
+          "error": "Original allocation reached its release margin; no new work",
+          "stop_reason": "Original allocation reached its release margin; no new work Original calibration supervisor interrupted"
+        },
+        {
+          "scenario": "wrong_container",
+          "actual_bound_process_roles": [
+            "guardian",
+            "container_cli",
+            "supervisor",
+            "runner"
+          ],
+          "original_processes_ended": true,
+          "foreign_CPU_sentinel_preserved": true,
+          "own_lease_released": true,
+          "no_replay": true,
+          "original_wall_interval_complete": false,
+          "temporary_settlement_events": 0,
+          "operational_status": "ORIGINAL_CALIBRATION_LIVE_OR_UNKNOWN",
+          "execution_success": false,
+          "mode_restored": true,
+          "error_type": "ValueError",
+          "error": "Container differs from the original Docker creation ID; do not stop it",
+          "stop_reason": "Container differs from the original Docker creation ID; do not stop it"
+        },
+        {
+          "scenario": "runner_failure",
+          "actual_bound_process_roles": [
+            "guardian",
+            "container_cli",
+            "supervisor",
+            "runner"
+          ],
+          "original_processes_ended": true,
+          "foreign_CPU_sentinel_preserved": true,
+          "own_lease_released": true,
+          "no_replay": true,
+          "original_wall_interval_complete": true,
+          "temporary_settlement_events": 1,
+          "operational_status": "ORIGINAL_CALIBRATION_LIFECYCLE_CAPTURE",
+          "execution_success": false,
+          "mode_restored": true,
+          "error_type": "ValueError",
+          "error": "Original container CLI failed; no replay",
+          "stop_reason": "Original container CLI failed; no replay"
+        },
+        {
+          "scenario": "unknown",
+          "actual_bound_process_roles": [
+            "guardian",
+            "container_cli",
+            "supervisor",
+            "runner"
+          ],
+          "original_processes_ended": true,
+          "foreign_CPU_sentinel_preserved": true,
+          "own_lease_released": true,
+          "no_replay": true,
+          "original_wall_interval_complete": false,
+          "temporary_settlement_events": 0,
+          "operational_status": "ORIGINAL_CALIBRATION_LIVE_OR_UNKNOWN",
+          "execution_success": false,
+          "mode_restored": true,
+          "error_type": "RuntimeError",
+          "error": "CPU fixture Docker observation unknown",
+          "stop_reason": "CPU fixture Docker observation unknown"
+        }
+      ]
+    }
+  ],
+  "original_R4_numeric_sources_reused_unchanged": true,
+  "original_CPU_base_acceptance_ref": "reports/cara_budget_two_card_policy_CPU_accepted_r1_20261031.json",
+  "container_state": {
+    "Status": "exited",
+    "Running": false,
+    "Paused": false,
+    "Restarting": false,
+    "OOMKilled": false,
+    "Dead": false,
+    "Pid": 0,
+    "ExitCode": 0,
+    "Error": "",
+    "StartedAt": "2026-10-31T06:38:10.500154992Z",
+    "FinishedAt": "2026-10-31T06:38:53.080686513Z"
+  },
+  "host_config": {
+    "NanoCpus": 1000000000,
+    "Memory": 4294967296,
+    "MemorySwap": 4294967296,
+    "CpusetCpus": "",
+    "DeviceRequests": null,
+    "NetworkMode": "none",
+    "ReadonlyRootfs": true
+  },
+  "CPU_wall_seconds": 42.044673919677734,
+  "observations": [
+    {
+      "original_identity": {
+        "pid": 2344439,
+        "start_ticks": 672359874,
+        "host_view": {
+          "boot_id": "13495735-f30b-47a2-af0a-2496f5206a0b",
+          "pid_namespace_inode": 4026531836
+        },
+        "original_command_sha256": "7f0eee7e1434a18c9c06c5e622c6db907c9f90b14ca42fcfd9b2b9c5a3245a6a"
+      },
+      "child_exit_code": 1,
+      "exact_guardian_entry": true,
+      "real_Popen_and_private_pipe": true,
+      "guardian_launch_identity_equal": true,
+      "original_child_ended": true,
+      "original_failure_journal_and_bill_complete": true,
+      "no_allocation_attempted": true,
+      "no_replay": true,
+      "sources_unchanged": true,
+      "synthetic_metadata_only": true,
+      "actual_GPU_resources_exercised": false,
+      "actual_GPUh": 0,
+      "ledger_written": false
+    }
+  ],
+  "capture_ref": "reports/cara_budget_prelaunch_fix_CPU_capture_r1_20261031.json",
+  "capture_sha256": "2f51f64d9e8534ab13cd567d0d2bfd552a92cd3b0de7be96af0edb45c9cf31a0",
+  "launch_ref": "reports/cara_budget_prelaunch_fix_CPU_launch_r1_20261031.json",
+  "launch_sha256": "7db488066e91e47d11c478e4fc5f4335565b486a15c3c8b83e1cce0c9bde0805",
+  "CPU_proof_sha256": "db5d53eda8dda5578ccf24b588516cfd6633329620d1e7e943239410f7492789",
+  "registration_sha256": "2de9f2b14878a86b385e9c2aee1981057b89761da145c80ce1b2ed5f1a4aa417",
+  "acceptor_sha256": "48e0185242f43d793c09a782c488e0416994c1650df9a4416bc59e1698a7cb05",
+  "whole_card_CPU_accepted": false,
+  "real_Docker_GPU_lifecycle_exercised": false,
+  "actual_64GiB_storage_exercised": false,
+  "GPU_dispatch_ready": false,
+  "GPU_submissions": 0,
+  "ledger_written": false
+}
