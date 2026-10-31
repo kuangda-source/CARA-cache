@@ -1834,7 +1834,7 @@
     "independent_new_inputs": false,
     "complete_QA_ref": "reports/cara_fast_A6000_complete_frozen_QA_20261029_0115.json"
   },
-  "current_evidence_observed_at": "2026-11-01T02:28:42.526946+08:00",
+  "current_evidence_observed_at": "2026-11-01T02:51:34.291499+08:00",
   "fast_B36_CPU_preparation_20261029": {
     "status": "ACCEPTED_DUAL_HOST_COMPLETE_B36_CPU_CONTINUATION_ONLY",
     "accepted_receipt_ref": "reports/cara_fast_B36_CPU_acceptance_r1_20261029.json",
@@ -2037,10 +2037,10 @@
     "postacceptance_budget_read_ref": "reports/cara_fast_mainline_budget_readonly_r1_20261030.json"
   },
   "fast_mainline_post_result_CPU_20261030": {
-    "status": "EULER_E0_ORIGINAL_LINUX_CPU_ACCEPTED_E1_APPROVAL_PENDING",
-    "notice_title": "822 — Euler35目标Linux CPU已完整接受",
-    "research_ref": "research/822_CARA_EULER35_ORIGINAL_LINUX_CPU_ACCEPTANCE_20261101.md",
-    "summary": "E1所选46路径整卡已就绪，单次硬7GPUh及本卡原中央账本许可仍待回复。Euler-E0原Linux CPU退出0：8条完整微型路径及5项边界控制通过，35更新/70CFG、Native/allD一致、70-call reset与ATS beta4；无真实权重/GPU结果。",
+    "status": "E1_ORIGINAL_SINGLE46_GPU_ACTUAL_START_ACCEPTED",
+    "notice_title": "823 — E1七角色46路径已实际启动",
+    "research_ref": "research/823_CARA_ENDPOINT7_SINGLE7_GPU_ACTUAL_START_20261101.md",
+    "summary": "E1原A6000于11月1日02:47:33启动，完整46/28/16/13，硬7GPUh；实时资源、原中央预约和唯一独占runner通过。半程05:49、终验08:50、硬截止09:47:33；仅恢复原句柄，完整释放结算后一次16新对评分，无部分科学结论。",
     "component_CPU_ref": "reports/cara_fast_B36_review_component_CPU_acceptance_r1_20261030.json",
     "review_plan_ref": "reports/cara_fast_B36_review_plan_r1_20261030.json",
     "diagnostics_ref": "reports/cara_fast_B36_post_result_diagnostics_r1_20261030.json",
@@ -2052,11 +2052,11 @@
     "new_GPU_submissions": 2,
     "new_reserved_GPUh": 14,
     "new_metrics_computed": 0,
-    "summary_ref": "reports/cara_euler35_sampler_Linux_CPU_accepted_r1_20261101.json",
+    "summary_ref": "reports/cara_endpoint7_actual_start_accepted_r1_20261101.json",
     "review_transfer_ref": "reports/cara_fast_B36_review_video_transfer_r1_20261030.json",
     "review_materialized_ref": "reports/cara_fast_B36_review_materialized_r1_20261030.json",
     "review_browser_QA_ref": "reports/cara_fast_B36_review_browser_QA_r1_20261030.json",
-    "observed_unix": 1793471322.525635,
+    "observed_unix": 1793472694.291907,
     "original_video_review_research_ref": "research/757_CARA_B36_ORIGINAL_VIDEO_REVIEW_AND_F18_CPU_20261030.md",
     "original_video_review_summary_ref": "reports/cara_fast_mainline_post_result_CPU_summary_r1_20261030.json",
     "paper_results_manifest_ref": "plans/cara_next_stage_20261028/mainline/PAPER_RESULTS_MANIFEST_R2.json",
@@ -2095,7 +2095,20 @@
     "budget_original_process_identity_ref": "reports/cara_budget_original_handles_four_card_CPU_accepted_r1_20261030.json",
     "budget_original_process_identity_research_ref": "research/771_CARA_ORIGINAL_PROCESS_IDENTITY_CPU_COMPONENT_20261030.md",
     "external_review_packet_ref": "research/815_CARA_RECENT_EXPERIMENTS_OPUS_REVIEW_20261031.md",
-    "external_review_packet_scope": "2026-10-28 to 2026-10-31 designs, accepted results and open questions; active budget run snapshot 2026-10-31T23:24:49+08:00; no new execution or scientific result"
+    "external_review_packet_scope": "2026-10-28 to 2026-10-31 designs, accepted results and open questions; active budget run snapshot 2026-10-31T23:24:49+08:00; no new execution or scientific result",
+    "handoff_ref": "plans/cara_next_stage_20261101/e1/ENDPOINT7_POST_LAUNCH_HANDOFF_20261101.md",
+    "schedule_ref": "reports/cara_endpoint7_acceptance_schedule_r1_20261101.json",
+    "launch_id": "8d750a6de77d4d4fa2c84c4f97fff7f3",
+    "source_revision": "af7c7d8e6d6348a1c87c5e13ce2c88bda86db16e",
+    "physical_paths": 46,
+    "new_scoring_pairs": 16,
+    "logical_positions": 28,
+    "GPU_authorized": true,
+    "central_transaction_authorized": true,
+    "GPU_submissions": 1,
+    "hard_GPUh": 7,
+    "scientific_accepted": false,
+    "latest_observation_ref": "reports/cara_endpoint7_original_precommit_r3_20261101.json"
   },
   "fast_F18_CPU_preparation_20261030": {
     "status": "F18_AFFECTED_PRODUCTION_CPU_DUAL_HOST_ACCEPTED_NOT_GPU",
@@ -2857,7 +2870,7 @@
     "superseded_by_selected_endpoint7_ref": "plans/cara_next_stage_20261101/e1/USER_SCOPE_SELECTION_R1.json"
   },
   "next_experiments_E1_Euler_20261101": {
-    "status": "E1_SELECTED46_WHOLE_CPU_SOURCE_STORAGE_REVIEW_READY_AWAITING_AUTHORITY",
+    "status": "E1_ORIGINAL_SINGLE46_GPU_ACTUAL_START_ACCEPTED",
     "observed_unix": 1793467844.362968,
     "source_HEAD": "15aea5e55644c7eecee4f4890b211a12bbc51497",
     "source_input_ref": "plans/cara_next_stage_20261101/USER_DESIGN_INPUT_R1.md",
@@ -2891,15 +2904,15 @@
     "production_entry_lifecycle_score28_binding_complete": true,
     "whole_GPU_card_CPU_accepted": true,
     "next_actions": [
-      "Direct decision on one complete46 hard7GPUh card and its original-central ledger exception",
-      "After approval bind authority and recheck actual GPU/runtime/assets/exclusivity/storage/ledger, then dispatch once",
-      "Actual-start midpoint and terminal acceptance; release and unique bill precede sole16-new-pair CPU scoring and complete28 analysis"
+      "Recover only original E1 handles; actual-start midpoint and terminal acceptance",
+      "Original full GPU release and unique actual settlement, then13 RGB gates and once16-new-pair CPU scoring",
+      "Accept complete28 and figures before registered scientific decision; no automatic next GPU card"
     ],
     "protected_TEST_accessed": false,
     "old_freezes_changed": false,
     "old_scores_recomputed": false,
-    "GPU_authorized": false,
-    "GPU_submissions": 0,
+    "GPU_authorized": true,
+    "GPU_submissions": 1,
     "new_reserved_GPUh": 0,
     "ledger_written": false,
     "evidence_sha256": {
@@ -2950,7 +2963,11 @@
     "Euler_full_tiny_pipeline_CPU_ref": "reports/cara_euler35_sampler_CPU_r1_20261101.json",
     "Euler_layered_CPU_ref": "plans/cara_next_stage_20261101/euler/EULER35_CPU_ACCEPTANCE.json",
     "Euler_Linux_CPU_ref": "reports/cara_euler35_sampler_Linux_CPU_accepted_r1_20261101.json",
-    "Euler_Linux_CPU_accepted": true
+    "Euler_Linux_CPU_accepted": true,
+    "execution_ref": "reports/cara_endpoint7_actual_start_accepted_r1_20261101.json",
+    "handoff_ref": "plans/cara_next_stage_20261101/e1/ENDPOINT7_POST_LAUNCH_HANDOFF_20261101.md",
+    "schedule_ref": "reports/cara_endpoint7_acceptance_schedule_r1_20261101.json",
+    "central_transaction_authorized": true
   },
   "endpoint7_interfaces_preparation_20261101": {
     "status": "E1_SELECTED46_INTERFACES_CPU_ACCEPTED_FINAL_PACKAGE_PENDING",
@@ -3084,5 +3101,31 @@
     "real_weights_loaded": false,
     "GPU_submissions": 0,
     "ledger_written": false
+  },
+  "endpoint7_execution_20261101": {
+    "status": "E1_ORIGINAL_SINGLE46_GPU_ACTUAL_START_ACCEPTED",
+    "research_ref": "research/823_CARA_ENDPOINT7_SINGLE7_GPU_ACTUAL_START_20261101.md",
+    "summary_ref": "reports/cara_endpoint7_actual_start_accepted_r1_20261101.json",
+    "handoff_ref": "plans/cara_next_stage_20261101/e1/ENDPOINT7_POST_LAUNCH_HANDOFF_20261101.md",
+    "schedule_ref": "reports/cara_endpoint7_acceptance_schedule_r1_20261101.json",
+    "launch_id": "8d750a6de77d4d4fa2c84c4f97fff7f3",
+    "source_revision": "af7c7d8e6d6348a1c87c5e13ce2c88bda86db16e",
+    "observed_unix": 1793472724.9858391,
+    "physical_paths": 46,
+    "new_scoring_pairs": 16,
+    "logical_positions": 28,
+    "GPU_authorized": true,
+    "central_transaction_authorized": true,
+    "GPU_submissions": 1,
+    "hard_GPUh": 7,
+    "scientific_accepted": false,
+    "latest_observation_ref": "reports/cara_endpoint7_original_precommit_r3_20261101.json",
+    "verification_ref": "reports/cara_endpoint7_launch_closeout_verified_r1_20261101.json",
+    "operational_counts": {
+      "COMPLETE": 0,
+      "TECH_FAILED": 0,
+      "RUNNING": 1,
+      "NOT_REACHED": 45
+    }
   }
 }

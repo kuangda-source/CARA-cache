@@ -71,7 +71,17 @@ else:
  output=root/'outputs'/auth['run_id']
  if output.exists():
   disk=os.statvfs(output)
-  result['operational_progress']=dict(expected_physical_paths=46,artifact_pairs=len(list((output/'B').glob('*.mp4'))),free_bytes=disk.f_bavail*disk.f_frsize,scientific_scores_read=False)
+  progress=dict(expected_physical_paths=46,encoded_video_files=len(list((output/'B').rglob('*.mp4'))),free_bytes=disk.f_bavail*disk.f_frsize,scientific_scores_read=False)
+  collection=output/'endpoint-collection.json'
+  if collection.exists():
+   # Export only operational row states, never partial scores or timings.
+   state=json.loads(collection.read_text())
+   assert state['scope_sha256']==auth['scope_sha256'] and len(state['rows'])==46
+   counts={name:sum(row['status']==name for row in state['rows']) for name in ('COMPLETE','TECH_FAILED','RUNNING','NOT_REACHED')}
+   assert sum(counts.values())==46
+   progress.update(collection_state=state['status'],counts=counts)
+  else:progress['collection_state']='NOT_STARTED'
+  result['operational_progress']=progress
  if result.get('lifecycle',{}).get('status')=='ORIGINAL_ENDPOINT_LIFECYCLE_CAPTURE':
   result['terminal_diagnostic_logs']={n:(stage/n).read_text(errors='replace')[-9000:] for n in ('runner.log','container-cli.log') if (stage/n).exists()}
  result['host_guardian_log_tail']=(stage/'host-guardian.log').read_text(errors='replace')[-2500:] if (stage/'host-guardian.log').exists() else None
