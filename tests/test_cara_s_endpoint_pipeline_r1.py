@@ -41,6 +41,16 @@ class Pipeline(unittest.TestCase):
         self.assertEqual(len(seen),16)
         self.assertNotIn('collection',result['capture']['files'])
 
+    def test_pinned_writer_layout_and_quantization(self):
+        import numpy as np
+        from check_cara_s_endpoint_pipeline_fixture_r1 import rgb_frames
+        video=np.zeros((3,93,64,64),dtype=np.float32)
+        video[0]=1.;video[1]=.5;video[2]=-.1
+        frames=rgb_frames(video)
+        self.assertEqual(frames.shape,(93,64,64,3))
+        self.assertEqual(frames[0,0,0].tolist(),[255,127,0])
+        with self.assertRaises(AssertionError):rgb_frames(frames)
+
     def test_wrong_scope_before_intent(self):
         self.context['scope_sha256']='c'*64
         with self.assertRaises(ValueError):self.collect()

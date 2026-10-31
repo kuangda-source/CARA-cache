@@ -20,6 +20,13 @@ PROPOSAL='plans/cara_next_stage_20261028/mainline/r2/S_UNIFORM_BUDGET_ENDPOINT32
 SCORES='reports/cara_fast_B36_complete_scores_accepted_r1_20261029.json'
 
 
+def rgb_frames(video):
+    import numpy as np
+    value=np.asarray(video)
+    assert value.shape==(3,93,64,64) and value.dtype==np.float32,(value.shape,str(value.dtype))
+    return np.clip(value*255,0,255).astype(np.uint8).transpose(1,2,3,0)
+
+
 def historical_slot(base,member,role):
     section='A_ANCHOR' if role=='NATIVE35' and member in base['FIT'] else 'B_QUALITY'
     return next(s for s in base['physical_matrix'] if s['section']==section and s['member']==member and s['role']==role)

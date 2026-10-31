@@ -28,7 +28,7 @@ from wcomr.cara_s_uniform_endpoint_execution_r1 import make_requests
 from wcomr.full_sampling import CompleteStateRoundtrip
 from wcomr.gpu_budget_pool_v2 import atomic_json,sha
 from wcomr.policy_price_terminal_r1 import record
-from check_cara_s_endpoint_pipeline_fixture_r1 import packet,historical_slot
+from check_cara_s_endpoint_pipeline_fixture_r1 import packet,historical_slot,rgb_frames
 from test_cara_budget_lifecycle_r1 import put
 
 ROOT=Path(__file__).resolve().parents[1]
@@ -36,8 +36,8 @@ ROOT=Path(__file__).resolve().parents[1]
 
 def write_video(video,path,fps):
     import av
-    value=np.asarray(video)
-    assert value.shape==(93,64,64,3) and value.dtype==np.uint8 and fps==16
+    value=rgb_frames(video)
+    assert fps==16,fps
     with av.open(str(path)+'.mp4','w',format='mp4') as container:
         stream=container.add_stream('libx264',rate=16);stream.width=stream.height=64;stream.pix_fmt='yuv420p'
         stream.options={'crf':'0','preset':'ultrafast'};stream.codec_context.thread_count=1
