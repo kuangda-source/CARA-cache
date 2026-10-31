@@ -2,7 +2,7 @@
 
 # CARA-Cache
 
-[817 — 预算搜索完整接受与一次冻结](research/817_CARA_BUDGET_SEARCH_COMPLETE_ACCEPTANCE_AND_FROZEN_WINNER_20261101.md)：预算搜索完整112路径/51双FIT查询已接受并一次冻结，第39次HC选中19D，双FIT平均RGB MSE由0.0427533降至0.0241206（43.58%）。原GPU/CPU均退出释放，实耗7.197644817GPUh已唯一结算；两检查均删除。尚无新策略CHECK/LPIPS或部署时延结论，下一端点卡未授权。
+[818 — 七角色46路径端点准备与Euler-E0 CPU](research/818_CARA_SEVEN_ROLE_ENDPOINT_SCOPE_AND_EULER_E0_CPU_20261101.md)：用户已选择七角色46路径E1，预计6.040147/建议硬7GPUh；原16视频SHA核验，完整46生产采集路由CPU及5个OFF对照通过。Euler35/70数值原型CPU通过；新GPU未授权，46/28/16/13生产验收接线与完整资产存储包仍待。维护四卡未访问、旧结果和冻结不变。
 
 **2026-10-28最新安排：主线P0/F19，探索S-FAST19与固定Shared25-C的Q并行准备。** [最新计划与两个对话分工](plans/cara_next_stage_20261028/08_REPOSITORY_RECONCILIATION.md) · [739接收记录](research/739_CARA_NEXT_STAGE_FAST_SQ_PLAN_AND_CHAT_HANDOFF_20261028.md)。A32已完整验收并冻结；B36已获单次批准，实际状态以原运行记录为准。WC73已热停结算，禁止自动重派；原DEV128、旧合同与失败保持。以下旧准备记录仅作历史复用依据。
 
