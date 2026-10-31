@@ -37,15 +37,21 @@
 
 [WorldCache原文4.1与附录](https://arxiv.org/html/2603.22286v1)描述Euler35；本地README和论文式配置需分列。论文式目标为阈值0.08、motion2.0、saliency0.12、warp空间scale0.5、ATS系数4。完整sigma、精确实现版本与运行环境不能由这些参数唯一确定。
 
-当前wrapper共享`worldcache_num_steps`作为分支计数horizon和ATS系数输入：horizon70时系数是5，不能一边保留70调用末尾重置，一边声称系数已是4。将horizon改35会在中途重置，同样不是正确适配。未来需隔离新增Euler适配，明确分开“70分支调用horizon”和“ATS beta4”，通过边界CPU后才能用。
+当前wrapper共享`worldcache_num_steps`作为分支计数horizon和ATS系数输入：horizon70时系数是5，不能一边保留70调用末尾重置，一边声称系数已是4。将horizon改35会在中途重置，同样不是正确适配。821已在隔离Euler入口复用显式ATS beta4适配，并通过70调用计数的微型CPU控制；旧入口保持原样。
 
 原F19等规则是36更新的策略，不能直接复制整数步号。原型采用归一化log-SNR坐标的有序一一匹配，固定保护前七/末点；示例不选择科学方法，不是已经成立的跨网格生成算法。D24保护点对应关系、区间年龄/尾部间隔约束、22D/25D预算配方需随E1胜出方法前瞻冻结，不从Euler输出补调。
 
 ## E0尚未关闭的硬门
 
-1. 将显式Euler更新器接入完整生产Native/WC wrapper并验证同初噪、每步、最终latent及RGB；当前只有实际CFG函数与数值原型CPU，**完整wrapper CPU未接受**。
-2. 单独实现WC horizon/ATS解耦，保留原UniPC行为及源码身份；不把新版参数塞进正在使用的旧入口。
+1. 将显式Euler更新器接入完整生产Native/WC wrapper并验证同初噪、每步、最终latent及RGB；818为实际CFG数值原型；821已通过完整固定sampler/Native/WC的8条微型CPU路径，见下文。真实权重等价仍待。
+2. 821复用原隔离ATS beta4适配器，实际70调用后重置；原UniPC行为及源码身份保持。部署时只使用显式Euler入口。
 3. 固定noise-coordinate策略生成约束、source/grid SHA、Euler自己的Native参考和双时钟。
 4. 真实权重Native/allD对照是未来单独授权Euler卡的前置路径，不能由微型CPU替代。
 
 后续Euler GPU必须等UniPC端点支持并冻结一套方法；任何2输入×4角色的8视频只是正式部分，控制、warm、重复、失败分母和全额费用另列。不使用保护TEST进行Euler开发。
+
+## 821增量：完整微型采样接线
+
+[CPU汇总](euler/EULER35_CPU_ACCEPTANCE.json)已接受本地8条完整微型路径与5项调度边界控制：每条35更新/70CFG；Native/allD同初噪、70分支输出、35更新latent、最终latent、93帧微型RGB、RNG一致；计时开/关一致；WC在第70次调用后重置。ATS beta4沿用原隔离适配器，与70-call horizon分开，不修改UniPC或E1源包。
+
+这里的完整入口仍使用声明的微型权重/条件/解码及mock writer，执行在macOS CPU。Linux兼容和真实权重GPU等价未验证；策略约束仍待E1胜出方法前瞻冻结。原818数值回执与sigma合同保留，不覆盖为更强结论。

@@ -1834,7 +1834,7 @@
     "independent_new_inputs": false,
     "complete_QA_ref": "reports/cara_fast_A6000_complete_frozen_QA_20261029_0115.json"
   },
-  "current_evidence_observed_at": "2026-11-01T02:18:04.032204+08:00",
+  "current_evidence_observed_at": "2026-11-01T02:24:49.038008+08:00",
   "fast_B36_CPU_preparation_20261029": {
     "status": "ACCEPTED_DUAL_HOST_COMPLETE_B36_CPU_CONTINUATION_ONLY",
     "accepted_receipt_ref": "reports/cara_fast_B36_CPU_acceptance_r1_20261029.json",
@@ -2037,10 +2037,10 @@
     "postacceptance_budget_read_ref": "reports/cara_fast_mainline_budget_readonly_r1_20261030.json"
   },
   "fast_mainline_post_result_CPU_20261030": {
-    "status": "E1_SELECTED46_WHOLE_CPU_SOURCE_STORAGE_REVIEW_READY_AWAITING_AUTHORITY",
-    "notice_title": "820 — E1整卡CPU、生产源及独立存储已就绪",
-    "research_ref": "research/820_CARA_ENDPOINT7_WHOLE_CPU_SOURCE_STORAGE_AND_SINGLE7_REVIEW_20261101.md",
-    "summary": "所选46/28/16/13已完成整卡CPU组合；Linux最终16项和临时账本13项通过，独立64GiB存储与1268文件生产源已绑定，原32文件复用校验通过。预计6.040147、拟硬7GPUh，等待单次卡和本卡原中央账本许可；未启动GPU。",
+    "status": "EULER_E0_FULL_TINY_PIPELINE_CPU_ACCEPTED_E1_APPROVAL_PENDING",
+    "notice_title": "821 — E1待批期间完成Euler35微型采样CPU",
+    "research_ref": "research/821_CARA_EULER35_FULL_SAMPLER_AND_WC_RESET_CPU_20261101.md",
+    "summary": "E1所选46路径整卡已就绪，单次硬7GPUh及本卡原中央账本许可待回复。独立Euler-E0新增8条完整微型CPU路径及5项控制通过：35更新/70CFG、Native/allD逐步latent/RGB一致、70-call重置与ATS beta4；不是真实权重或GPU结果。",
     "component_CPU_ref": "reports/cara_fast_B36_review_component_CPU_acceptance_r1_20261030.json",
     "review_plan_ref": "reports/cara_fast_B36_review_plan_r1_20261030.json",
     "diagnostics_ref": "reports/cara_fast_B36_post_result_diagnostics_r1_20261030.json",
@@ -2052,11 +2052,11 @@
     "new_GPU_submissions": 2,
     "new_reserved_GPUh": 14,
     "new_metrics_computed": 0,
-    "summary_ref": "reports/cara_endpoint7_final_review_ready_r1_20261101.json",
+    "summary_ref": "reports/cara_euler35_sampler_CPU_r1_20261101.json",
     "review_transfer_ref": "reports/cara_fast_B36_review_video_transfer_r1_20261030.json",
     "review_materialized_ref": "reports/cara_fast_B36_review_materialized_r1_20261030.json",
     "review_browser_QA_ref": "reports/cara_fast_B36_review_browser_QA_r1_20261030.json",
-    "observed_unix": 1793470684.027786,
+    "observed_unix": 1793471089.037472,
     "original_video_review_research_ref": "research/757_CARA_B36_ORIGINAL_VIDEO_REVIEW_AND_F18_CPU_20261030.md",
     "original_video_review_summary_ref": "reports/cara_fast_mainline_post_result_CPU_summary_r1_20261030.json",
     "paper_results_manifest_ref": "plans/cara_next_stage_20261028/mainline/PAPER_RESULTS_MANIFEST_R2.json",
@@ -2946,7 +2946,9 @@
     "final_review_ref": "plans/cara_next_stage_20261101/e1/ENDPOINT7_SINGLE7GPUH_REVIEW_R1.md",
     "final_source_ref": "reports/cara_endpoint7_source_preparation_r1_20261101.json",
     "private_storage_ref": "reports/cara_endpoint7_storage_accepted_r1_20261101.json",
-    "final_preparation_ref": "reports/cara_endpoint7_final_review_ready_r1_20261101.json"
+    "final_preparation_ref": "reports/cara_endpoint7_final_review_ready_r1_20261101.json",
+    "Euler_full_tiny_pipeline_CPU_ref": "reports/cara_euler35_sampler_CPU_r1_20261101.json",
+    "Euler_layered_CPU_ref": "plans/cara_next_stage_20261101/euler/EULER35_CPU_ACCEPTANCE.json"
   },
   "endpoint7_interfaces_preparation_20261101": {
     "status": "E1_SELECTED46_INTERFACES_CPU_ACCEPTED_FINAL_PACKAGE_PENDING",
@@ -3044,5 +3046,22 @@
       "reports/cara_endpoint7_central_CPU_accepted_r1_20261101.json": "7f6c2cac0e353e37eb936ef237b9b103ed0e034707daa6b817fb7817a73c6227",
       "reports/cara_endpoint7_final_CPU_capture_r1_20261101.json": "016f06ed4274251cb0547384bafcf4e1ccfa41e73030d6dc8b1dca2ad0afaa49"
     }
+  },
+  "Euler_E0_full_sampler_CPU_20261101": {
+    "status": "EULER_E0_FULL_TINY_PIPELINE_CPU_ACCEPTED_E1_APPROVAL_PENDING",
+    "observed_unix": 1793471089.037472,
+    "research_ref": "research/821_CARA_EULER35_FULL_SAMPLER_AND_WC_RESET_CPU_20261101.md",
+    "CPU_ref": "reports/cara_euler35_sampler_CPU_r1_20261101.json",
+    "layered_acceptance_ref": "plans/cara_next_stage_20261101/euler/EULER35_CPU_ACCEPTANCE.json",
+    "physical_CPU_paths": 8,
+    "updates_per_path": 35,
+    "CFG_calls_per_path": 70,
+    "unit_tests": 5,
+    "WC_horizon": 70,
+    "ATS_beta": 4,
+    "E1_payload_unchanged": true,
+    "real_weights_loaded": false,
+    "GPU_submissions": 0,
+    "ledger_written": false
   }
 }
