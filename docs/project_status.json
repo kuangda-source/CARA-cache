@@ -2037,10 +2037,10 @@
     "postacceptance_budget_read_ref": "reports/cara_fast_mainline_budget_readonly_r1_20261030.json"
   },
   "fast_mainline_post_result_CPU_20261030": {
-    "status": "UNIFORM_AND_BUDGET_COMPLETE32_ENDPOINT_PREPARATION_PENDING_ORIGINAL_CALIBRATION",
-    "notice_title": "801 — 通用初始化与预算基线完整32路径准备",
-    "research_ref": "research/801_CARA_UNIFORM_AND_BUDGET_COMPLETE_ENDPOINT32_PREPARATION_20261031.md",
-    "summary": "完整端点比较草案为32条新GPU路径、24个质量位置（12旧评分复用＋12新评分）；16项本地控制通过，16段旧视频和16份原参数文件已在两卡逐一哈希核对。整卡预计4.556914GPUh、建议硬限5.25GPUh。预算基线仍须等待原112路径/51查询完整验收及唯一冻结，整卡CPU与执行源未接受；未申请新卡启动、未预约、未派GPU。",
+    "status": "COMPLETE_BUDGET_FREEZE_BINDING_LOCAL_CPU_ACCEPTED_WHOLE_CARD_PENDING",
+    "notice_title": "802 — 完整预算冻结至端点比较的CPU绑定",
+    "research_ref": "research/802_CARA_COMPLETE_BUDGET_FREEZE_ENDPOINT_BINDING_CPU_20261031.md",
+    "summary": "新增只读绑定组件：重建原112路径/51查询完整接受后，核对已存在的唯一冻结，再生成完整端点位置映射。15项绑定控制与16项既有提案回归通过。本轮仅本地CPU夹具；实际预算策略未绑定，整卡运行器、所选策略数值CPU、最终源与报价仍待。原14GPUh运行、硬截止和两项自动检查保持，未访问其科学输出或中央账本。",
     "component_CPU_ref": "reports/cara_fast_B36_review_component_CPU_acceptance_r1_20261030.json",
     "review_plan_ref": "reports/cara_fast_B36_review_plan_r1_20261030.json",
     "diagnostics_ref": "reports/cara_fast_B36_post_result_diagnostics_r1_20261030.json",
@@ -2052,11 +2052,11 @@
     "new_GPU_submissions": 2,
     "new_reserved_GPUh": 14,
     "new_metrics_computed": 0,
-    "summary_ref": "reports/cara_s_uniform_budget_endpoint32_scope_reuse_r1_20261031.json",
+    "summary_ref": "reports/cara_s_uniform_endpoint_binding_CPU_r1_20261031.json",
     "review_transfer_ref": "reports/cara_fast_B36_review_video_transfer_r1_20261030.json",
     "review_materialized_ref": "reports/cara_fast_B36_review_materialized_r1_20261030.json",
     "review_browser_QA_ref": "reports/cara_fast_B36_review_browser_QA_r1_20261030.json",
-    "observed_unix": 1793439789.981336,
+    "observed_unix": 1793440881.8068879,
     "original_video_review_research_ref": "research/757_CARA_B36_ORIGINAL_VIDEO_REVIEW_AND_F18_CPU_20261030.md",
     "original_video_review_summary_ref": "reports/cara_fast_mainline_post_result_CPU_summary_r1_20261030.json",
     "paper_results_manifest_ref": "plans/cara_next_stage_20261028/mainline/PAPER_RESULTS_MANIFEST_R2.json",
@@ -2652,6 +2652,12 @@
     "GPU_submissions": 0,
     "ledger_written": false,
     "original_S_freeze_changed": false,
-    "next_action": "Prepare once-only full-card runner/recovery/scorer CPU chain; bind only complete original budget-search freeze after its release; final CPU, quote and approval precede dispatch"
+    "next_action": "Prepare complete production runner/recovery/release/scoring CPU chain; only after original complete112/51 release and once-freeze bind actual selected policy, validate affected production numeric path and recalculate unique-path quote; obtain new over4 approval and central transaction permission before any dispatch",
+    "binding_CPU_component_ref": "reports/cara_s_uniform_endpoint_binding_CPU_r1_20261031.json",
+    "binding_CPU_research_ref": "research/802_CARA_COMPLETE_BUDGET_FREEZE_ENDPOINT_BINDING_CPU_20261031.md",
+    "binding_local_CPU_controls": 15,
+    "binding_proposal_regression_controls": 16,
+    "physical_equivalence_mapping_CPU_accepted": true,
+    "production_budget_policy_bound": false
   }
 }
