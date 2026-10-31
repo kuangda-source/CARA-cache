@@ -7,6 +7,7 @@ from .cara_fast_spec_r1 import digest,profile_from,policy_from_mask
 NEW_ROLES = ('SU19_BR_DIAG_C','SU19_CFG_C')
 REUSED_ROLES = ('F19_C','UNIFORM19_C','F19_A1')
 FORMAL_ROLES = REUSED_ROLES + NEW_ROLES
+BUDGET_ROLE = 'BUDGET_SEARCH19_C'
 
 
 def require(condition,message):
@@ -143,47 +144,107 @@ def build(card,diagnostic,scores,analysis,numeric):
 
 def validate(plan):
     members=plan['FIT']+plan['CHECK']
+    joint='budget_comparator' in plan
+    new_roles=NEW_ROLES+(BUDGET_ROLE,) if joint else NEW_ROLES
+    formal_roles=REUSED_ROLES+new_roles
+    quality_count=24 if joint else 20
+    path_count=32 if joint else 25
     formal=plan['formal_matrix'];physical=plan['physical_matrix']
-    require(len(formal)==20 and {(r['member'],r['role']) for r in formal}==
-        {(m,r) for m in members for r in FORMAL_ROLES},'Complete20 scientific matrix required')
+    require(len(formal)==quality_count and {(r['member'],r['role']) for r in formal}==
+        {(m,r) for m in members for r in formal_roles},f'Complete{quality_count} scientific matrix required')
     require(sum(r['mode']=='REUSE_COMPLETE_SCORE' for r in formal)==12 and
-        sum(r['mode']=='GENERATE_AND_SCORE' for r in formal)==8,'Exact12 reused plus8 new required')
+        sum(r['mode']=='GENERATE_AND_SCORE' for r in formal)==4*len(new_roles),'Exact original reused and new score counts required')
     require(all(r['mode']==('REUSE_COMPLETE_SCORE' if r['role'] in REUSED_ROLES else 'GENERATE_AND_SCORE')
         for r in formal),'Reuse cannot replace a new method endpoint')
-    expected={'WARM':4,'ALLD_EQUIVALENCE':1,'FORMAL':8,'REPLAY_CONTROL':8,'REPEAT':4}
-    require(len(physical)==25 and len({r['id'] for r in physical})==25
-        and {k:sum(r['section']==k for r in physical) for k in expected}==expected,'Complete25 physical scope required')
-    for section,roles,inputs in [('FORMAL',NEW_ROLES,members),('REPLAY_CONTROL',('NATIVE35','F19_A1'),members),
-                                ('REPEAT',NEW_ROLES,plan['CHECK']),
-                                ('WARM',('NATIVE35','F19_A1')+NEW_ROLES,[plan['FIT'][0]]),
+    expected={'WARM':2+len(new_roles),'ALLD_EQUIVALENCE':1,'FORMAL':4*len(new_roles),'REPLAY_CONTROL':8,'REPEAT':2*len(new_roles)}
+    require(len(physical)==path_count and len({r['id'] for r in physical})==path_count
+        and {k:sum(r['section']==k for r in physical) for k in expected}==expected,f'Complete{path_count} physical scope required')
+    for section,roles,inputs in [('FORMAL',new_roles,members),('REPLAY_CONTROL',('NATIVE35','F19_A1'),members),
+                                ('REPEAT',new_roles,plan['CHECK']),
+                                ('WARM',('NATIVE35','F19_A1')+new_roles,[plan['FIT'][0]]),
                                 ('ALLD_EQUIVALENCE',('ALLD',),[plan['FIT'][0]])]:
         require({(r['member'],r['role']) for r in physical if r['section']==section}==
             {(m,r) for m in inputs for r in roles},'Physical role/member coverage differs')
     require(len(plan['identity_controls'])==9 and all(r['seed']==0 and not r['audit_enabled'] for r in physical)
-        and sum(r['eligible_clean_time'] for r in physical)==20,'Identity controls or clean timing differs')
+        and sum(r['eligible_clean_time'] for r in physical)==8+6*len(new_roles),'Identity controls or clean timing differs')
     require({(r['member'],r['role']) for r in plan['identity_controls']}==
         {(m,r) for m in members for r in ('NATIVE35','F19_A1')}|{(plan['FIT'][0],'ALLD')}
         and all(r['eligible_clean_time']==(r['section'] in ('FORMAL','REPLAY_CONTROL','REPEAT')) for r in physical),
         'Complete replay controls and warm exclusion required')
     require(not plan['GPU_authorized'] and not plan['GPU_dispatch_ready'] and not plan['ledger_written']
         and plan['GPU_submissions']==0,'Preparation grants no GPU execution')
+    if joint:
+        require(plan['budget_comparator']['policy_bound'] is False
+            and plan['budget_comparator']['partial_running_results_accessed'] is False
+            and plan['budget_comparator']['selection_source']=='Original complete112/51 acceptance and once-only freeze',
+            'Unbound budget comparator cannot become an accepted selection')
+
+
+def include_budget_comparator(core):
+    """Keep the final comparison complete before the running search chooses its mask."""
+    validate(core)
+    require('budget_comparator' not in core,'Do not duplicate the budget comparator')
+    plan=copy.deepcopy(core)
+    plan['core25_scope_sha256']=plan.pop('scope_sha256')
+    plan['schema']='CARA_SU19_AND_BUDGET_COMPLETE_ENDPOINT32_PROPOSAL_R1'
+    plan['status']='COMPLETE32_SCOPE_PENDING_ORIGINAL_BUDGET_FREEZE_AND_WHOLE_CPU'
+    plan['budget_comparator']=dict(role=BUDGET_ROLE,policy_bound=False,expected_dense_budget=19,
+        original_run_id='cara-budget-calibration-14gpuh-r2-20261031',
+        original_launch_id='323ef0d5e8eb4a91a1c8a4ba47c24b18',
+        original_source_revision='33fc2263405baaa77f6dbcfdfdfabedb20f066bc',
+        original_scope_sha256='8a9f386932f798d30f4f0aa749d45f098f2e8188ff2e9f216e567ab40f620739',
+        selection_source='Original complete112/51 acceptance and once-only freeze',
+        partial_running_results_accessed=False,calibration_queries=51,
+        calibration_hard_GPUh=14,calibration_actual_GPUh=None,
+        execution_history_CPU_must_cover_selected_policy=True,
+        if_original_search_fails='Keep full comparison incomplete; no silent removal or substitute selection')
+    plan['scientific_roles'].append(BUDGET_ROLE)
+    for reference in plan['reference_sources']:
+        plan['formal_matrix'].append(dict(member=reference['member'],role=BUDGET_ROLE,
+            mode='GENERATE_AND_SCORE',reference_score_id=reference['score_id'],reference=copy.deepcopy(reference['source'])))
+    new_roles=NEW_ROLES+(BUDGET_ROLE,)
+    physical=[]
+    def add(section,member,role,clean=False):
+        physical.append(dict(id=f'SU19_BUDGET_END_{len(physical)+1:03d}',section=section,
+            member=member,role=role,seed=0,timing_enabled=True,audit_enabled=False,eligible_clean_time=clean))
+    for role in ('NATIVE35','F19_A1')+new_roles:add('WARM',plan['FIT'][0],role)
+    add('ALLD_EQUIVALENCE',plan['FIT'][0],'ALLD')
+    timing_roles=('NATIVE35','F19_A1')+new_roles
+    for i,member in enumerate(plan['FIT']+plan['CHECK']):
+        for role in timing_roles[i:]+timing_roles[:i]:
+            add('FORMAL' if role in new_roles else 'REPLAY_CONTROL',member,role,True)
+    for i,member in enumerate(plan['CHECK']):
+        for role in new_roles[::1 if i==0 else -1]:add('REPEAT',member,role,True)
+    plan['physical_matrix']=physical
+    plan['counts'].update(logical_quality_positions=24,new_scoring_pairs=12,new_GPU_paths=32,
+        warm_paths=5,formal_candidate_paths=12,timing_repeat_paths=6,clean_timing_samples=26)
+    plan['timing']['primary_batch_roles']=list(timing_roles)
+    plan['acceptance']['complete32_and_original_release_before_CPU']=plan['acceptance'].pop('complete25_and_original_release_before_CPU')
+    plan['acceptance']['new_scoring']='Once only all twelve new candidate-versus-original-Native pairs, all93 frames'
+    plan['readiness']['whole32_CPU_accepted']=plan['readiness'].pop('whole25_CPU_accepted')
+    plan['readiness']['budget_comparator_policy_bound']=False
+    plan['readiness']['budget_comparator_affected_CPU_accepted']=False
+    validate(plan)
+    plan['scope_sha256']=digest(plan)
+    return plan
 
 
 def quote(plan,analysis):
     validate(plan)
+    paths=len(plan['physical_matrix'])
     slowest=max(t['T_request'] for r in analysis['per_member'] if r['role']=='NATIVE35' for t in r['timing_samples'])
     require(math.isfinite(slowest) and slowest>0,'Historical full Native request price required')
-    components=dict(generation_all25_at_slowest_Native=25*slowest,
-        artifact_copy_save_hash_allowance=25*60,producer_complete_readback_allowance=1800,
-        admission_and_model_load_allowance=1800,stop_and_release_allowance=600)
+    components={f'generation_all{paths}_at_slowest_Native':paths*slowest,
+        'artifact_copy_save_hash_allowance':paths*60,'producer_complete_readback_allowance':1800,
+        'admission_and_model_load_allowance':1800,'stop_and_release_allowance':600}
     forecast=math.fsum(components.values())/3600
     hard=math.ceil(forecast*1.10*4)/4
     return dict(status='COMPLETE_ENGINEERING_QUOTE_DRAFT_NOT_DISPATCH_ACCEPTED',
-        scope_sha256=plan['scope_sha256'],host='two_card',physical_paths=25,
+        scope_sha256=plan['scope_sha256'],host='two_card',physical_paths=paths,
         components_seconds=components,slowest_original_Native_request_seconds=slowest,
         forecast_GPUh=forecast,proposed_hard_GPUh=hard,hard_limit_rule='10% above forecast, round up to quarter GPUh',
         margin_seconds=(hard-forecast)*3600,requires_separate_over4_GPUh_approval=hard>4,
         postrelease_CPU_scoring_not_GPU_billed=True,all_native_proxy_is_proven_bound=False,
-        source_of_allowances='Same explicit whole-card allowances as accepted successor14 engineering quote; artifact allowance scales to25 paths',
+        source_of_allowances=f'Same explicit whole-card allowances as accepted successor14 engineering quote; artifact allowance scales to{paths} paths',
         actual_new_policy_GPU_timing_measured=False,whole_quote_accepted=False,
         current_ledger_or_resource_facts_checked=False,GPU_dispatch_ready=False,GPU_submissions=0,ledger_written=False)

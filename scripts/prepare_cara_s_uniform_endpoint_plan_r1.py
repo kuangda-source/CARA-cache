@@ -11,7 +11,7 @@ sys.path[:0]=[str(ROOT/'src'),str(ROOT/'scripts')]
 from wcomr.cara_fast_b36_analysis_r1 import analyze_complete
 from wcomr.cara_fast_binding_r2 import load_card
 from wcomr.cara_s_initialization_audit_r1 import audit
-from wcomr.cara_s_uniform_endpoint_plan_r1 import build,quote
+from wcomr.cara_s_uniform_endpoint_plan_r1 import build,quote,include_budget_comparator
 from accept_cara_s_initialization_numeric_cpu_r1 import accept as accept_numeric
 
 
@@ -19,6 +19,8 @@ def main():
     parser=argparse.ArgumentParser()
     for name in ('plan','quote','receipt'):
         parser.add_argument('--'+name,type=Path,required=True)
+    parser.add_argument('--include-budget-comparator',action='store_true')
+    parser.add_argument('--reuse-assets',type=Path)
     args=parser.parse_args()
     assert all(not p.exists() for p in (args.plan,args.quote,args.receipt))
     evidence={}
@@ -47,22 +49,37 @@ def main():
     rebuilt=accept_numeric(captured,launched)
     assert all(numeric[k]==v for k,v in rebuilt.items() if k!='observed_unix')
     plan=build(card,diagnostic,values['accepted-scores'],analysis,numeric)
+    if args.include_budget_comparator:
+        plan=include_budget_comparator(plan)
     cost=quote(plan,analysis)
+    assets=None
+    if args.reuse_assets:
+        assets=read(str(args.reuse_assets))
+        assert assets['status']=='ORIGINAL_REUSE_ASSETS_HASH_VERIFIED' and assets['exit_code']==0
+        expected=[]
+        sources=[r['source'] for r in plan['formal_matrix'] if r['mode']=='REUSE_COMPLETE_SCORE']
+        sources.extend(r['source'] for r in plan['reference_sources'])
+        for source in sources:
+            expected.extend([(source['path'],source['sha256']),
+                (str(Path(source['path']).with_suffix('.json')),source['argument_file_sha256'])])
+        assert expected==[(r['path'],r['sha256']) for r in assets['result']['files']]
     sources={name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in (
         'scripts/prepare_cara_s_uniform_endpoint_plan_r1.py','src/wcomr/cara_s_uniform_endpoint_plan_r1.py')}
-    report=dict(status='COMPLETE25_ENDPOINT_SCOPE_AND_REUSE_LOCAL_REVALIDATED_NOT_DISPATCH',
+    report=dict(status='COMPLETE_ENDPOINT_SCOPE_AND_REUSE_LOCAL_REVALIDATED_NOT_DISPATCH',
         observed_unix=time.time(),plan_ref=str(args.plan),quote_ref=str(args.quote),
         original_complete_B36_rebuilt=True,original_initialization_diagnostic_rebuilt=True,
         original_numerical_CPU_acceptance_rebuilt=True,evidence_sha256=evidence,source_sha256=sources,
-        physical_paths=25,reused_score_rows=12,new_score_pairs=8,decoded_identity_controls=9,
-        remote_assets_read=False,actual_asset_availability_currently_verified=False,
-        source_selection_used_new_endpoint_results=False,whole25_GPU_entry_CPU_accepted=False,
+        physical_paths=plan['counts']['new_GPU_paths'],reused_score_rows=12,
+        new_score_pairs=plan['counts']['new_scoring_pairs'],decoded_identity_controls=9,
+        remote_assets_read=False,original_asset_hash_receipt_ref=str(args.reuse_assets) if assets else None,
+        original_asset_hash_receipt_compatible=bool(assets),fresh_admission_still_required=True,
+        source_selection_used_new_endpoint_results=False,whole_GPU_entry_CPU_accepted=False,
         new_GPU_authorization_requested=False,GPU_submissions=0,ledger_written=False)
     for path,data in ((args.plan,plan),(args.quote,cost)):
         with path.open('x') as f:json.dump(data,f,indent=2,allow_nan=False);f.write('\n')
         report[path.stem+'_sha256']=hashlib.sha256(path.read_bytes()).hexdigest()
     with args.receipt.open('x') as f:json.dump(report,f,indent=2);f.write('\n')
-    print(json.dumps(dict(physical_paths=25,forecast_GPUh=cost['forecast_GPUh'],proposed_hard_GPUh=cost['proposed_hard_GPUh'])))
+    print(json.dumps(dict(physical_paths=plan['counts']['new_GPU_paths'],forecast_GPUh=cost['forecast_GPUh'],proposed_hard_GPUh=cost['proposed_hard_GPUh'])))
 
 
 if __name__=='__main__':

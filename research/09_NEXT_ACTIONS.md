@@ -2,7 +2,7 @@
 
 # CARA-Cache 后续实验顺序
 
-[800 — S初始化配对数值CPU接受](800_CARA_S_INITIALIZATION_MATCHED_NUMERICAL_CPU_ACCEPTED_20261031.md)：Uniform19起点及BR/DIAG、CFG两种不同提案的完整微型CPU矩阵已接受：36条生产路径、12条旧入口对照、18项失败控制；完整36步guided与终态latent/RGB/Torch RNG精确一致，12项独立验收控制通过。两次早期失败保留，原GPU卡与S冻结保持；真实权重和视频端点仍未接受。
+[801 — 通用初始化与预算基线完整32路径准备](801_CARA_UNIFORM_AND_BUDGET_COMPLETE_ENDPOINT32_PREPARATION_20261031.md)：完整端点比较草案为32条新GPU路径、24个质量位置（12旧评分复用＋12新评分）；16项本地控制通过，16段旧视频和16份原参数文件已在两卡逐一哈希核对。整卡预计4.556914GPUh、建议硬限5.25GPUh。预算基线仍须等待原112路径/51查询完整验收及唯一冻结，整卡CPU与执行源未接受；未申请新卡启动、未预约、未派GPU。
 
 **2026-10-28最新安排：主线P0/F19，探索S-FAST19与固定Shared25-C的Q并行准备。** [最新计划与两个对话分工](../plans/cara_next_stage_20261028/08_REPOSITORY_RECONCILIATION.md) · [739接收记录](739_CARA_NEXT_STAGE_FAST_SQ_PLAN_AND_CHAT_HANDOFF_20261028.md)。A32已完整验收并冻结；B36已获单次批准，实际状态以原运行记录为准。WC73已热停结算，禁止自动重派；原DEV128、旧合同与失败保持。以下旧准备记录仅作历史复用依据。
 

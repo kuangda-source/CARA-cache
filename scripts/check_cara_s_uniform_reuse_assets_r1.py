@@ -22,11 +22,13 @@ resource.setrlimit(resource.RLIMIT_AS,(256*1024**2,256*1024**2))
 p=json.load(sys.stdin)
 roots=('/data20t/gaokuangda/worldcache_workspace/outputs/cara-fast-cal-a32-r2-20261028/',
        '/data20t/gaokuangda/worldcache_workspace/outputs/cara-fast-f19-b36-r1-20261029/')
+resolved_roots={r:str(pathlib.Path(r).resolve()) for r in roots}
 assert len(p['files'])==32 and len({r['path'] for r in p['files']})==32
 start=time.time();rows=[]
 for row in p['files']:
  path=pathlib.Path(row['path'])
- assert str(path.resolve()).startswith(roots) and '..' not in path.parts
+ original_root=next(r for r in roots if str(path).startswith(r))
+ assert '..' not in path.parts and path.resolve().is_relative_to(pathlib.Path(resolved_roots[original_root]))
  assert path.suffix in ('.mp4','.json')
  before=path.stat();assert before.st_size<=16*1024**2
  h=hashlib.sha256()
@@ -39,9 +41,9 @@ for row in p['files']:
  assert (before.st_ino,before.st_size,before.st_mtime_ns)==(after.st_ino,after.st_size,after.st_mtime_ns)
  actual=h.hexdigest()
  assert actual==row['sha256'] and (row.get('bytes') is None or after.st_size==row['bytes'])
- rows.append(dict(path=str(path),bytes=after.st_size,sha256=actual,stable_during_read=True))
+ rows.append(dict(path=str(path),resolved_path=str(path.resolve()),bytes=after.st_size,sha256=actual,stable_during_read=True))
 print(json.dumps(dict(status='ORIGINAL32_VIDEO_ARGUMENT_FILES_HASH_MATCH',host='two_card',
- started_unix=start,ended_unix=time.time(),files=rows,read_bytes=sum(r['bytes'] for r in rows),
+ started_unix=start,ended_unix=time.time(),files=rows,read_bytes=sum(r['bytes'] for r in rows),resolved_roots=resolved_roots,
  CPU_affinity=sorted(os.sched_getaffinity(0)),memory_limit_bytes=256*1024**2,
  GPU_submissions=0,ledger_written=False,active_GPU_outputs_read=False)))
 '''

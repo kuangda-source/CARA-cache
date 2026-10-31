@@ -8,7 +8,7 @@ import unittest
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'src'))
 from wcomr.cara_fast_binding_r2 import load_card
-from wcomr.cara_s_uniform_endpoint_plan_r1 import build,validate,quote
+from wcomr.cara_s_uniform_endpoint_plan_r1 import build,validate,quote,include_budget_comparator
 
 
 class CompleteEndpointPlan(unittest.TestCase):
@@ -82,6 +82,30 @@ class CompleteEndpointPlan(unittest.TestCase):
 
     def test_no_implicit_execution_authority(self):
         self.changed_plan(lambda p:p.update(GPU_authorized=True),'no GPU execution')
+
+    def test_complete_joint_comparison(self):
+        core=build(*self.args);plan=include_budget_comparator(core)
+        cost=quote(plan,self.args[3])
+        self.assertEqual(plan['core25_scope_sha256'],core['scope_sha256'])
+        self.assertEqual(len(plan['physical_matrix']),32)
+        self.assertEqual(len(plan['formal_matrix']),24)
+        self.assertEqual(cost['proposed_hard_GPUh'],5.25)
+        self.assertFalse(plan['budget_comparator']['policy_bound'])
+        self.assertFalse(plan['GPU_dispatch_ready'])
+
+    def test_no_silent_budget_comparator_removal(self):
+        plan=include_budget_comparator(build(*self.args))
+        plan['formal_matrix'].pop()
+        with self.assertRaisesRegex(ValueError,'Complete24'):validate(plan)
+
+    def test_partial_budget_selection_refused(self):
+        plan=include_budget_comparator(build(*self.args))
+        plan['budget_comparator']['partial_running_results_accessed']=True
+        with self.assertRaisesRegex(ValueError,'Unbound budget'):validate(plan)
+
+    def test_budget_comparator_not_duplicated(self):
+        plan=include_budget_comparator(build(*self.args))
+        with self.assertRaisesRegex(ValueError,'duplicate'):include_budget_comparator(plan)
 
 
 if __name__=='__main__':unittest.main()
