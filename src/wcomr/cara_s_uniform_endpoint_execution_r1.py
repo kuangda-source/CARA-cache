@@ -85,7 +85,15 @@ def check_collection(card, state, *, cpu_validation):
 
 def execute(adapter, output, *, before_request, save):
     from .wc_time_collection_r1 import collect_phase
-    require(not adapter.seen and len(adapter.card['physical_matrix']) in (25, 32),
+    if adapter.card.get('schema') == 'CARA_ENDPOINT7_PROSPECTIVE_REQUEST_CARD_R1':
+        from .cara_endpoint7_plan_r1 import validate as validate_seven
+        validate_seven(adapter.card)
+        require(adapter.cpu_validation and adapter.card['CPU_fixture_only'],
+                'Seven-role collection is CPU preparation only; production lifecycle is not yet bound')
+        allowed_counts = (39, 46)
+    else:
+        allowed_counts = (25, 32)
+    require(not adapter.seen and len(adapter.card['physical_matrix']) in allowed_counts,
             'Fresh complete endpoint adapter required; never resume execution')
 
     class Checked:
