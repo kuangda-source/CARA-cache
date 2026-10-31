@@ -2037,10 +2037,10 @@
     "postacceptance_budget_read_ref": "reports/cara_fast_mainline_budget_readonly_r1_20261030.json"
   },
   "fast_mainline_post_result_CPU_20261030": {
-    "status": "S_INITIALIZATION_SENSITIVITY_CPU_WITH_ORIGINAL_SUCCESSOR_GPU_RUNNING",
-    "notice_title": "798 — S初始化敏感性CPU核验",
-    "research_ref": "research/798_CARA_S_INITIALIZATION_SENSITIVITY_ON_ACCEPTED_FIT_RISKS_20261031.md",
-    "summary": "按既定A2.1复用已完整接受的S风险，F19起点三目标均精确复现D21→D35；固定Uniform19起点BR/DIAG为D22→D35，CFG为D25→D35。7项本地CPU控制通过；新增138种历史槽组合待生产选择器CPU验证，不改原S冻结、不读取运行中预算搜索分数、不形成端点收益或新GPU权限。",
+    "status": "S_INITIALIZATION_PRODUCTION_SELECTOR_CPU_ACCEPTED_WITH_ORIGINAL_SUCCESSOR_GPU_RUNNING",
+    "notice_title": "799 — S初始化生产选择器CPU接受",
+    "research_ref": "research/799_CARA_S_INITIALIZATION_PRODUCTION_SELECTOR_CPU_ACCEPTED_20261031.md",
+    "summary": "两卡原CPU容器退出/0，342个策略的12,312对生产选择器调用与11,628次C分支历史检查通过，覆盖全部新增138种历史组合；8项独立验收控制通过。仅接受选择器与过去锚点执行，不构成完整模型数值或端点收益验证；原S冻结和运行中14GPUh预算搜索卡保持。",
     "component_CPU_ref": "reports/cara_fast_B36_review_component_CPU_acceptance_r1_20261030.json",
     "review_plan_ref": "reports/cara_fast_B36_review_plan_r1_20261030.json",
     "diagnostics_ref": "reports/cara_fast_B36_post_result_diagnostics_r1_20261030.json",
@@ -2052,11 +2052,11 @@
     "new_GPU_submissions": 2,
     "new_reserved_GPUh": 14,
     "new_metrics_computed": 0,
-    "summary_ref": "reports/cara_s_initialization_sensitivity_r1_20261031.json",
+    "summary_ref": "reports/cara_s_initialization_selector_CPU_accepted_r1_20261031.json",
     "review_transfer_ref": "reports/cara_fast_B36_review_video_transfer_r1_20261030.json",
     "review_materialized_ref": "reports/cara_fast_B36_review_materialized_r1_20261030.json",
     "review_browser_QA_ref": "reports/cara_fast_B36_review_browser_QA_r1_20261030.json",
-    "observed_unix": 1793437107.494451,
+    "observed_unix": 1793437713.70307,
     "original_video_review_research_ref": "research/757_CARA_B36_ORIGINAL_VIDEO_REVIEW_AND_F18_CPU_20261030.md",
     "original_video_review_summary_ref": "reports/cara_fast_mainline_post_result_CPU_summary_r1_20261030.json",
     "paper_results_manifest_ref": "plans/cara_next_stage_20261028/mainline/PAPER_RESULTS_MANIFEST_R2.json",
@@ -2597,16 +2597,24 @@
     "S_frozen_proposals_ref": "plans/cara_next_stage_20261028/sq/S_COMMON_RISK_PROPOSALS_R1_20261030.json"
   },
   "S_initialization_sensitivity_CPU_20261031": {
-    "status": "ACCEPTED_S_RISK_INITIALIZATION_SENSITIVITY_CPU_ONLY",
+    "status": "INITIALIZATION_DIAGNOSTIC_AND_PRODUCTION_SELECTOR_HISTORY_CPU_ACCEPTED_NOT_ENDPOINT",
     "research_ref": "research/798_CARA_S_INITIALIZATION_SENSITIVITY_ON_ACCEPTED_FIT_RISKS_20261031.md",
     "receipt_ref": "reports/cara_s_initialization_sensitivity_r1_20261031.json",
     "checks_ref": "reports/cara_s_initialization_sensitivity_checks_r1_20261031.json",
     "tests_run": 7,
     "additional_selector_histories": 138,
-    "new_selector_history_CPU_accepted": false,
+    "new_selector_history_CPU_accepted": true,
     "original_S_freeze_changed": false,
     "new_method_recipe_frozen": false,
     "new_GPU_submissions": 0,
-    "next_action": "Bounded GPU-hidden original production selector CPU coverage for fixed Uniform19 candidate histories; no endpoint or new GPU authority"
+    "next_action": "Prepare affected-path paired numerical validation and a complete endpoint card; original S freeze unchanged",
+    "selector_research_ref": "research/799_CARA_S_INITIALIZATION_PRODUCTION_SELECTOR_CPU_ACCEPTED_20261031.md",
+    "selector_acceptance_ref": "reports/cara_s_initialization_selector_CPU_accepted_r1_20261031.json",
+    "selector_acceptor_checks_ref": "reports/cara_s_initialization_selector_CPU_acceptor_checks_r1_20261031.json",
+    "checked_distinct_policies": 342,
+    "checked_selector_pairs": 12312,
+    "checked_C_branch_histories": 11628,
+    "selector_acceptor_controls": 8,
+    "free_running_or_endpoint_acceptance": false
   }
 }

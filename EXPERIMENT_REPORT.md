@@ -2,7 +2,7 @@
 
 # CARA-Cache：研究与结果概览
 
-[798 — S初始化敏感性CPU核验](research/798_CARA_S_INITIALIZATION_SENSITIVITY_ON_ACCEPTED_FIT_RISKS_20261031.md)：按既定A2.1复用已完整接受的S风险，F19起点三目标均精确复现D21→D35；固定Uniform19起点BR/DIAG为D22→D35，CFG为D25→D35。7项本地CPU控制通过；新增138种历史槽组合待生产选择器CPU验证，不改原S冻结、不读取运行中预算搜索分数、不形成端点收益或新GPU权限。
+[799 — S初始化生产选择器CPU接受](research/799_CARA_S_INITIALIZATION_PRODUCTION_SELECTOR_CPU_ACCEPTED_20261031.md)：两卡原CPU容器退出/0，342个策略的12,312对生产选择器调用与11,628次C分支历史检查通过，覆盖全部新增138种历史组合；8项独立验收控制通过。仅接受选择器与过去锚点执行，不构成完整模型数值或端点收益验证；原S冻结和运行中14GPUh预算搜索卡保持。
 
 **2026-10-28最新安排：主线P0/F19，探索S-FAST19与固定Shared25-C的Q并行准备。** [最新计划与两个对话分工](plans/cara_next_stage_20261028/08_REPOSITORY_RECONCILIATION.md) · [739接收记录](research/739_CARA_NEXT_STAGE_FAST_SQ_PLAN_AND_CHAT_HANDOFF_20261028.md)。A32已完整验收并冻结；B36已获单次批准，实际状态以原运行记录为准。WC73已热停结算，禁止自动重派；原DEV128、旧合同与失败保持。以下旧准备记录仅作历史复用依据。
 
