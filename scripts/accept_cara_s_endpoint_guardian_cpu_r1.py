@@ -9,9 +9,9 @@ import time
 
 ROOT=Path(__file__).resolve().parents[1]
 sys.path[:0]=[str(ROOT/'src'),str(ROOT/'scripts'),str(ROOT/'tests')]
-from cara_s_endpoint_guardian_cpu_r1 import STAGE,OVERLAY
+from cara_s_endpoint_guardian_cpu_r2 import STAGE,OVERLAY
 from cara_s_initialization_selector_cpu_r1 import BASE_CAPTURE,BASE_ACCEPTED,LIMITS
-from test_cara_s_endpoint_host_guardian_r1 import SCENARIOS
+from test_cara_s_endpoint_host_guardian_r2 import SCENARIOS
 from wcomr.policy_price_terminal_r1 import require
 
 
@@ -48,7 +48,7 @@ def accept(captured,launched):
             and proof['actual_process_scenarios']==14,'Complete CPU denominator differs')
     results=proof['control_results']
     require(len(results)==2 and [(r['module'],r['tests_run']) for r in results]==[
-        ('test_cara_s_endpoint_guardian_binding_r1',4),('test_cara_s_endpoint_host_guardian_r1',15)]
+        ('test_cara_s_endpoint_guardian_binding_r1',4),('test_cara_s_endpoint_host_guardian_r2',15)]
         and all(r['failures']==r['errors']==r['skipped']==0 for r in results),'All Linux controls must pass')
     rows=results[1]['observations']
     require(len(rows)==len(SCENARIOS) and {r['scenario'] for r in rows}==set(SCENARIOS),
