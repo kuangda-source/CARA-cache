@@ -1,0 +1,158 @@
+{
+  "status": "SINGLE14_ORIGINAL_FAILED_RELEASED_SETTLED_EXEC_HANDOFF_CPU_FIX_ACCEPTED",
+  "observed_unix": 1793434314.370983,
+  "summary": "单次14GPUh已于16:00:22在两卡按原授权唯一启动，runner在exec身份检查处退出，0/112路径、无CUDA就绪或科学结果。原8.335秒/0.002315298GPUh已唯一结算，容器和四原进程退出、锁释放、Default恢复；余额25.71345654，旧16.5保持。真实Linux CPU复现命令哈希随exec变化；候选修复及8项实际进程控制通过，原失败源不改、不自动重跑。",
+  "run_id": "cara-budget-calibration-14gpuh-r1-20261030",
+  "launch_id": "2b8058a77c7248f181acffddd399c257",
+  "host": "two_card",
+  "gpu_uuid": "GPU-cebf7119-cf03-23b9-e192-cd196332b704",
+  "original_source_revision": "8a4eb813e5122cc450d980be45d4c3816ad9b4ae",
+  "original_stage": "/data20t/gaokuangda/worldcache_workspace/.sync/cara-budget-calibration-GPU-a6000-r2-20261031",
+  "launch_sha256": "524487887300d0822cf36f05c1263c844fb2e172ea98b36212c9812834db06b8",
+  "registration_sha256": "cdedc4a6bafd0227326cd3583ad34e343e76c801b22129aed7cdc25545d882ac",
+  "actual_started_local": "2026-10-31T16:00:22.729488+08:00",
+  "actual_ended_local": "2026-10-31T16:00:31.064562+08:00",
+  "original_handles": {
+    "guardian": {
+      "pid": 2364428,
+      "start_ticks": 672852558,
+      "host_view": {
+        "boot_id": "13495735-f30b-47a2-af0a-2496f5206a0b",
+        "pid_namespace_inode": 4026531836
+      },
+      "original_command_sha256": "a0adf47592a49c16cf497cf88f36ab537e54b51c1152435259c6882ecf9206cb"
+    },
+    "container_cli": {
+      "pid": 2364515,
+      "start_ticks": 672852746,
+      "host_view": {
+        "boot_id": "13495735-f30b-47a2-af0a-2496f5206a0b",
+        "pid_namespace_inode": 4026531836
+      },
+      "original_command_sha256": "22d551f2bdcf03baa0c78083eab185f3928467970568bb6b9e7fd48884c1e65b"
+    },
+    "supervisor": {
+      "host_view": {
+        "boot_id": "13495735-f30b-47a2-af0a-2496f5206a0b",
+        "pid_namespace_inode": 4026531836
+      },
+      "original_command_sha256": "6560dcb6435730e569de821171b52173ed87ad174cc2af875a869afcee97084e",
+      "pid": 2364570,
+      "start_ticks": 672852789
+    },
+    "runner": {
+      "host_view": {
+        "boot_id": "13495735-f30b-47a2-af0a-2496f5206a0b",
+        "pid_namespace_inode": 4026531836
+      },
+      "original_command_sha256": "3b9b6b5a9d7aadd6f652bd5e1e6b42d3a222ebbdf9c644d45e643dae228b72ff",
+      "pid": 2364614,
+      "start_ticks": 672852945
+    }
+  },
+  "container": {
+    "id": "53a3c5ed9751abb2fb549271bd2093a021d00407ac22d6c6632a3017db5cb236",
+    "name": "cara-budget-calibration-GPU-a6000-r2-20261031-gpu",
+    "image": "sha256:1e81ac62ee68ca1a6ef655515096a1d84579b01aa4986810c9b18d4f6c4c552d",
+    "manifest_sha256": "cdedc4a6bafd0227326cd3583ad34e343e76c801b22129aed7cdc25545d882ac",
+    "device_ids": [
+      "GPU-cebf7119-cf03-23b9-e192-cd196332b704"
+    ],
+    "state": {
+      "Status": "exited",
+      "Running": false,
+      "Paused": false,
+      "Restarting": false,
+      "OOMKilled": false,
+      "Dead": false,
+      "Pid": 0,
+      "ExitCode": 1,
+      "Error": "",
+      "StartedAt": "2026-10-31T08:00:24.322034107Z",
+      "FinishedAt": "2026-10-31T08:00:28.918010334Z"
+    }
+  },
+  "hard_GPUh": 14,
+  "actual_GPUh": 0.002315298004800247,
+  "allocation_wall_seconds": 8.335072817280889,
+  "physical_paths_expected": 112,
+  "physical_paths_attempted": 0,
+  "physical_paths_completed": 0,
+  "CUDA_context_granted": false,
+  "scientific_result_accepted": false,
+  "scientific_freeze_written": false,
+  "lifecycle_acceptance": {
+    "status": "ORIGINAL_LIFECYCLE_AUDITED_NOT_SCIENTIFIC_ACCEPTANCE",
+    "launch_id": "2b8058a77c7248f181acffddd399c257",
+    "actual_GPUh": 0.002315298004800247,
+    "cost_settled": true,
+    "original_processes_ended": true,
+    "GPU_released": true,
+    "mode_restored": true,
+    "container_exit_success": false,
+    "hard_limit_exceeded": false,
+    "complete_search_accepted": false,
+    "scientific_read_allowed": false,
+    "dispatch_allowed": false,
+    "authorizes_replay": false,
+    "CPU_fixture_only": false,
+    "GPU_submissions": 0,
+    "ledger_written": false
+  },
+  "central_ledger_host": "four_card",
+  "central_cap_GPUh": 226,
+  "central_available_GPUh": 25.713456542526245,
+  "old_unknown_liability_GPUh": 16.5,
+  "central_settlement_recovered_after_transport_loss": true,
+  "central_settlement_event_count": 1,
+  "prelaunch_Linux_delta_controls": 81,
+  "prelaunch_asset_count": 20,
+  "failure": "Original runner grant and live guardian required",
+  "root_cause": "Bootstrap-to-runner exec preserves PID/start ticks/host view but changes command hash; full identity dictionary equality incorrectly refused the same original process",
+  "CPU_real_exec_reproduction_ref": "reports/cara_budget_single14_exec_identity_CPU_reproduction_r1_20261031.json",
+  "CPU_candidate_fix_ref": "reports/cara_budget_single14_exec_handoff_CPU_repair_r1_20261031.json",
+  "candidate_runner_sha256": "84b132ce58483bd6410796363c7ccc1e3db4def07e983eddfd837f3697a6b745",
+  "candidate_real_exec_controls_passed": 8,
+  "local_runner_binding_controls_passed": 7,
+  "candidate_whole_card_rebound": false,
+  "candidate_new_GPU_authorized": false,
+  "original_source_untouched": true,
+  "original_GPU_submissions": 1,
+  "additional_GPU_submissions": 0,
+  "automations_ref": "reports/cara_budget_single14_checks_closed_before_midpoint_r1_20261031.json",
+  "A32_original_freeze_unchanged": true,
+  "B36_62_protected_sources_unchanged": true,
+  "remaining": [
+    "Publish candidate CPU repair and reconcile complete next-card source/quote if proposed",
+    "A replacement GPU card needs a new identity, storage/control journal and explicit single-card approval; original must never replay"
+  ],
+  "evidence_sha256": {
+    "reports/cara_budget_single14_actual_dispatch_r1_20261031.json": "9cc0dcfacf67156c0eafb2c53fdaa6455f81e77d3bf4c4c4f455895927a5b29e",
+    "reports/cara_budget_single14_actual_settlement_r1_20261031.json": "a0efc084c2bed95d52d3728237257ccc1fb1a593cc9f86a03efef17014f51759",
+    "reports/cara_budget_single14_approved_prelaunch_repair_r1_20261031.json": "8679c4567efc982b42c1877623eb27896da7507e9925513042eb87a6c6ce672c",
+    "reports/cara_budget_single14_central_operator_ready_r1_20261031.json": "8ceeaf26383abca9d0f77260e195b9e9de2aba230f7084ef3fc4d722e796ff42",
+    "reports/cara_budget_single14_central_recovery_r1_20261031.json": "a4ce21bf4edda6dbbf8a39c7fc3851a4a7419d41598c600bb5722752fd662839",
+    "reports/cara_budget_single14_central_reserve_r1_20261031.json": "e48ea1e74b779d18b5fa43fc41b57558ad6e508597e3d1677aebb9da57a39217",
+    "reports/cara_budget_single14_central_reserve_r2_20261031.json": "c32443011360932723a2dc83b950b6f75309e3bc2359108ffb983f967320b5e0",
+    "reports/cara_budget_single14_central_settlement_recovery_r1_20261031.json": "8fb9c4fe3d644821a25095b60b7c1f49885d0c4a4fdf0467e36760a765af9b21",
+    "reports/cara_budget_single14_central_settlement_recovery_r2_20261031.json": "99b08348cf20f998293d924ebf3e98f38404a785aaf64f33135e8fce11c6fb51",
+    "reports/cara_budget_single14_checks_closed_before_midpoint_r1_20261031.json": "fd9bad97aed4f17aba3ffb2d0575dd2449945ba1a47f3b74277f1cdc69fe9715",
+    "reports/cara_budget_single14_exec_handoff_CPU_repair_r1_20261031.json": "e4f52bfa5cb9032265f40dd8134b4a0dfc41095a5c7f11aee09a37e59a4f3302",
+    "reports/cara_budget_single14_exec_identity_CPU_reproduction_r1_20261031.json": "8cf92f4ce0cb915d347507e12f2786b3a988b67ce7a3390c641876022a87d566",
+    "reports/cara_budget_single14_fresh_admission_r1_20261031.json": "2a7c4482c1b57e76669acc770727b09b23e4577012faa73118f5c9b592c5ca98",
+    "reports/cara_budget_single14_original_startup_r1_20261031.json": "6d43cca0c59109be6bab927588f09f270d2ca32e356a50cbf2bda32f6ab1434b",
+    "reports/cara_budget_single14_original_terminal_diagnostic_r1_20261031.json": "fdc0e85d690d68ef4754c5679ac426574ae29f138200f7d3a6b6ddf2b9e59959",
+    "reports/cara_budget_single14_original_terminal_diagnostic_r2_20261031.json": "6d75aa5d37bad238460d9a7661143f897e6e35a6f0273f1bab3169c34812f5ff",
+    "reports/cara_budget_single14_original_terminal_diagnostic_r3_20261031.json": "5c321642e7153b9bba1011c7e41b43c60c5775a81d46e505c7f3729625c09ef3",
+    "reports/cara_budget_single14_original_terminal_diagnostic_r4_20261031.json": "658079b135ce6d6afd1521af3801ea609e4ced26bb771d2b9ca0e25b7a358973",
+    "reports/cara_budget_prelaunch_fix_CPU_accepted_r1_20261031.json": "47ec2c085366cde7955780ef3a6d2e7f06d9912916fdc94e5ee76396c6a5af90",
+    "reports/cara_budget_two_card_whole_CPU_composed_r2_20261031.json": "853883006b93136bb4cd271e0a7544bcb1d21a7b7c37b4c460b60b6f14a03516",
+    "reports/cara_budget_two_card_whole_quote_r2_20261031.json": "e1577d322cb39e52b6c10abd6eecbc4b26ade208925ae184a0019e61553873f6",
+    "reports/cara_budget_approved_two_source_prepare_r2_20261031.json": "816dffd509d735bd1a0ee13b4f18da75f836fa94b38a6ceb3a50fc82401a645a",
+    "reports/cara_budget_approved_two_admission_completed_r1_20261031.json": "77a4c1384d76bf903248763cf43f0c7ec61488dbb97349f87ed23ba444d0c959",
+    "scripts/cara_budget_single14_control_r2.py": "38c5ecda5e2348aa9b7005879c17e24aeb228f6e446b6b2eee2cb9ea3f517f09",
+    "scripts/check_cara_budget_exec_identity_cpu_r1.py": "f78be4b77946d1bc1cf7bc82b0a43f9aaaa128706705d6f547a8a87d9ca6fdd8",
+    "scripts/check_cara_budget_exec_handoff_cpu_r1.py": "006787e0c8561c1da588c7e31ceb65729405199a190878a116f39016c0d1d491",
+    "scripts/run_cara_budget_calibration_r1.py": "84b132ce58483bd6410796363c7ccc1e3db4def07e983eddfd837f3697a6b745"
+  }
+}

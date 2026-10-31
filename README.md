@@ -2,7 +2,7 @@
 
 # CARA-Cache
 
-[794单次14GPUh批准与启动前修复](research/794_CARA_SINGLE14_APPROVED_CENTRAL_RECOVERED_AND_PREFLIGHT_REPAIR_20261031.md)：单次14GPUh及本卡原中央账本预约/结算已获明确批准。四卡控制入口只读恢复：可用25.71577GPUh、旧16.5保留，无本卡原运行或其他活动登记作业。两卡源包完成；首次资产准入CPU因2GiB虚拟内存限制在读取证明时退出，未派GPU。另复现并修正终态读取器的项目符号链接路径问题，25项本地控制通过；先补实际Linux增量与准入修复再启动，不重复询问已有授权。
+[795单次14GPUh原失败结算与CPU修复](research/795_CARA_SINGLE14_ORIGINAL_FAILED_SETTLED_AND_EXEC_HANDOFF_CPU_REPAIR_20261031.md)：单次14GPUh已于16:00:22在两卡按原授权唯一启动，runner在exec身份检查处退出，0/112路径、无CUDA就绪或科学结果。原8.335秒/0.002315298GPUh已唯一结算，容器和四原进程退出、锁释放、Default恢复；余额25.71345654，旧16.5保持。真实Linux CPU复现命令哈希随exec变化；候选修复及8项实际进程控制通过，原失败源不改、不自动重跑。
 
 **2026-10-28最新安排：主线P0/F19，探索S-FAST19与固定Shared25-C的Q并行准备。** [最新计划与两个对话分工](plans/cara_next_stage_20261028/08_REPOSITORY_RECONCILIATION.md) · [739接收记录](research/739_CARA_NEXT_STAGE_FAST_SQ_PLAN_AND_CHAT_HANDOFF_20261028.md)。A32已完整验收并冻结；B36已获单次批准，实际状态以原运行记录为准。WC73已热停结算，禁止自动重派；原DEV128、旧合同与失败保持。以下旧准备记录仅作历史复用依据。
 

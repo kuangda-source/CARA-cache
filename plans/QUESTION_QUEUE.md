@@ -111,3 +111,5 @@ S单次授权已接收：用户在S/Q原对话批准另一张A6000完整十条�
 [793两卡完整CPU与单次14GPUh审阅](../research/793_CARA_TWO_CARD_WHOLE_CPU_AND_SINGLE14GPUH_REVIEW_20261031.md)：两卡完整CPU证据按原回执及发布源组合接受，1181文件对应cc5f38a1；完整工程报价13.03253GPUh/硬限14，单次112路径/51双FIT查询审阅卡已就绪。实际启动待用户批准及中央唯一账本fresh核验；四卡维护期间不访问、不复制历史账本，未新派GPU。
 
 [794已批准与启动前修复](../research/794_CARA_SINGLE14_APPROVED_CENTRAL_RECOVERED_AND_PREFLIGHT_REPAIR_20261031.md)：单次14GPUh及本卡原中央账本预约/结算已获明确批准。四卡控制入口只读恢复：可用25.71577GPUh、旧16.5保留，无本卡原运行或其他活动登记作业。两卡源包完成；首次资产准入CPU因2GiB虚拟内存限制在读取证明时退出，未派GPU。另复现并修正终态读取器的项目符号链接路径问题，25项本地控制通过；先补实际Linux增量与准入修复再启动，不重复询问已有授权。
+
+[795原单次启动失败已结算](../research/795_CARA_SINGLE14_ORIGINAL_FAILED_SETTLED_AND_EXEC_HANDOFF_CPU_REPAIR_20261031.md)：单次14GPUh已于16:00:22在两卡按原授权唯一启动，runner在exec身份检查处退出，0/112路径、无CUDA就绪或科学结果。原8.335秒/0.002315298GPUh已唯一结算，容器和四原进程退出、锁释放、Default恢复；余额25.71345654，旧16.5保持。真实Linux CPU复现命令哈希随exec变化；候选修复及8项实际进程控制通过，原失败源不改、不自动重跑。

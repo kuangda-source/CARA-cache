@@ -7,6 +7,23 @@ import sys
 import time
 
 
+def validate_runner_handoff(stage, launch, launch_sha256, expected_command):
+    from wcomr.cara_budget_original_handles_r1 import bind_original_process, observe_original_process
+    from wcomr.cara_budget_search_journal_r1 import read_record
+    from wcomr.policy_price_terminal_r1 import require
+
+    identity = read_record(stage / 'runner-start.json')['identity']
+    current = bind_original_process(os.getpid())
+    # exec preserves this process identity while replacing the bootstrap argv.
+    # Keep the original command hash as provenance in all downstream receipts.
+    require(all(identity[key] == current[key] for key in ('pid', 'start_ticks', 'host_view'))
+            and read_record(stage / 'runner-dispatch-grant.json') == dict(identity=identity, launch_sha256=launch_sha256)
+            and observe_original_process(launch['guardian_identity'])['original_live'] is True,
+            'Original runner grant and live guardian required')
+    require(launch['commands']['runner'] == expected_command, 'Original frozen runner command differs')
+    return identity
+
+
 def main():
     parser=argparse.ArgumentParser()
     for key in ('project','stage'):
@@ -21,7 +38,6 @@ def main():
     from wcomr.policy_price_terminal_r1 import require
     from wcomr.cara_fast_execution_r2 import RA
     from wcomr.cara_fast_spec_r1 import digest
-    from wcomr.cara_budget_original_handles_r1 import bind_original_process,observe_original_process
     from wcomr.gpu_budget_pool_v2 import atomic_json
     from wcomr.history104_storage_r2 import storage_for
     from wcomr.wc73_exclusive_r1 import runner_context_gate
@@ -33,14 +49,9 @@ def main():
             'Wrong original calibration storage')
     require(launch['source_revision']==args.source_revision
             and launch['gpu_uuid']==args.gpu_uuid==os.environ['CUDA_VISIBLE_DEVICES'], 'Runner identity differs')
-    identity=bind_original_process(os.getpid())
-    require(read(args.stage/'runner-start.json')['identity']==identity
-            and read(args.stage/'runner-dispatch-grant.json')==dict(identity=identity,launch_sha256=production_context['launch_sha256'])
-            and observe_original_process(launch['guardian_identity'])['original_live'] is True,
-            'Original runner grant and live guardian required')
     expected_command=[sys.executable,str(args.stage/RUNNER),'--project',str(args.project),
         '--stage',str(args.stage),'--source-revision',args.source_revision,'--gpu-uuid',args.gpu_uuid]
-    require(launch['commands']['runner']==expected_command,'Original frozen runner command differs')
+    identity=validate_runner_handoff(args.stage,launch,production_context['launch_sha256'],expected_command)
     create_record(output/'calibration-runner-intent.json',dict(identity=identity,context=production_context))
     require(os.environ['WC_SUPERVISOR_PID']==str(os.getppid()), 'Wrong supervisor')
     require(Path('/proc/self/fd/'+os.environ['WC_LOCK_FD']).resolve()

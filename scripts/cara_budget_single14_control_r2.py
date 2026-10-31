@@ -89,9 +89,15 @@ else:
   result['launch_sha256']=sha(launch);result['lifecycle']=capture_lifecycle(root,stage,result['launch_sha256'])
   from wcomr.cara_fast_b36_dispatch_r2 import selected_gpu
   result['selected_gpu']=selected_gpu(p['authority']['gpu_uuid'])
-  for name in ('guardian.json','supervisor-start.json','runner-start.json','billing.json'):
+  for name in ('guardian.json','supervisor-start.json','supervisor.json','runner-start.json','pg-runner-context-granted.json','billing.json'):
    path=stage/name
    if path.exists():result[name]=json.loads(path.read_text())
+ output=root/'outputs'/p['authority']['run_id']
+ if output.exists():
+  tree=output/'calibration';disk=os.statvfs(output)
+  result['operational_progress']=dict(expected_physical_paths=112,attempted_paths=len(list(tree.glob('*/intent.json'))),completed_paths=len(list(tree.glob('*/complete.json'))),free_bytes=disk.f_bavail*disk.f_frsize,scientific_scores_read=False)
+ if result.get('lifecycle',{}).get('status')=='ORIGINAL_CALIBRATION_LIFECYCLE_CAPTURE':
+  result['terminal_diagnostic_logs']={name:(stage/name).read_text(errors='replace')[-9000:] for name in ('runner.log','container-cli.log') if (stage/name).exists()}
  result['host_guardian_log_tail']=(stage/'host-guardian.log').read_text(errors='replace')[-2000:] if (stage/'host-guardian.log').exists() else None
 print(json.dumps(result))
 '''
@@ -145,13 +151,13 @@ stage=root/'.sync/cara-budget-calibration-GPU-ada-r1-20261030'
 check=subprocess.run(['docker','inspect',stage.name+'-gpu'],capture_output=True,text=True,timeout=20)
 assert check.returncode==0 or ('No such object' in check.stderr or 'No such container' in check.stderr),check.stderr
 original=dict(host='four_card',stage=str(stage),run_id=run,stage_exists=stage.exists(),dispatch_records=[n for n in ('GPU-intent.json','GPU-dispatch.json','GPU-launch.json','guardian-intent.json') if (stage/n).exists()],container=json.loads(check.stdout) if check.returncode==0 else None,observation_complete=True,observed_unix=time.time())
-print(json.dumps(dict(status='ORIGINAL_CENTRAL_CARD_READONLY_RECOVERY',envelope=json.loads(receipt.read_text()) if receipt.exists() else None,snapshot=dict(central_ledger_host='four_card',ledger=value,observed_unix=time.time()),ledger_sha256=hashlib.sha256(raw).hexdigest(),original=original,GPU_submissions=0,ledger_written=False)))
+print(json.dumps(dict(status='ORIGINAL_CENTRAL_CARD_READONLY_RECOVERY',envelope=json.loads(receipt.read_text()) if receipt.exists() else None,snapshot=dict(central_ledger_host='four_card',ledger=value,observed_unix=time.time()),ledger_sha256=hashlib.sha256(raw).hexdigest(),settlement=json.loads((root/'reports'/(run+'.central-settlement.json')).read_text()) if (root/'reports'/(run+'.central-settlement.json')).exists() else None,original=original,GPU_submissions=0,ledger_written=False)))
 '''
 
 
 def main():
     parser=argparse.ArgumentParser();parser.add_argument('action',choices=['central-prepare','complete-admission','refresh','reserve','dispatch','status','central-status','settle'])
-    parser.add_argument('--input',type=Path);parser.add_argument('--output',type=Path,required=True);args=parser.parse_args();assert not args.output.exists()
+    parser.add_argument('--ssh-config',type=Path,default=ROOT/'.sync/cara-fast-mainline-tailscale-20261030/ssh_config.budget_direct.private');parser.add_argument('--input',type=Path);parser.add_argument('--output',type=Path,required=True);args=parser.parse_args();assert not args.output.exists()
     read=lambda name:json.loads((ROOT/name).read_text())
     authority=read('plans/cara_next_stage_20261028/mainline/r2/BUDGET_SINGLE14GPUH_EXECUTION_BINDING_R2_20261031.json')
     transaction=read('plans/cara_next_stage_20261028/mainline/r2/BUDGET_SINGLE14_CENTRAL_TRANSACTION_AUTHORIZATION_20261031.json')
@@ -196,7 +202,7 @@ def main():
     interpreter='python3' if central else '/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python'
     command=shlex.quote(interpreter)+' -c '+shlex.quote("import sys,json,gzip,base64,hashlib;packet=json.loads(gzip.decompress(base64.b64decode(sys.stdin.read())));exec(packet['code'])")
     if not central:command="sudo -S -p '' -u gaokuangda -g docker "+command
-    started=time.time();child=subprocess.Popen(['ssh','-C','-F',str(ROOT/'.sync/cara-fast-mainline-tailscale-20261030/ssh_config.budget_direct.private'),'-o','BatchMode=yes','-o','ConnectTimeout=25','-o','ServerAliveInterval=15','-o','ServerAliveCountMax=3','four_card_lan' if central else 'two_card_lan',command],stdin=subprocess.PIPE,stdout=subprocess.PIPE,stderr=subprocess.PIPE,start_new_session=True)
+    started=time.time();child=subprocess.Popen(['ssh','-C','-F',str(args.ssh_config),'-o','BatchMode=yes','-o','ConnectTimeout=25','-o','ServerAliveInterval=15','-o','ServerAliveCountMax=3','four_card_lan' if central else 'two_card_lan',command],stdin=subprocess.PIPE,stdout=subprocess.PIPE,stderr=subprocess.PIPE,start_new_session=True)
     try:out,err=child.communicate(((secret+'\n' if secret else '')+encoded).encode(),timeout=110)
     except subprocess.TimeoutExpired:os.killpg(child.pid,signal.SIGKILL);out,err=child.communicate()
     result=None
