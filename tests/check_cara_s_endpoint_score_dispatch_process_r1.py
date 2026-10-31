@@ -103,7 +103,7 @@ def run(root):
             save(stage/'registration.json',registration);args['registration_sha256']=sha(stage/'registration.json')
             save(stage/'CPU-scenario.json',dict(scenario=scenario,CPU_fixture_only=True))
             save(stage/'CPU-container-template.json',container);save(stage/'CPU-result-template.json',result)
-            args['work_seconds']=.8 if scenario in ('timeout','wrong_container') else 10.
+            args['work_seconds']=2. if scenario in ('timeout','wrong_container') else 10.
             original_popen=subprocess.Popen;children=[]
             def spawn(command,**kwargs):
                 assert command[1:3]==[str(stage/dispatch.BOOTSTRAP),'supervise']
