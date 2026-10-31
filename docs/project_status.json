@@ -2472,8 +2472,8 @@
     "prelaunch_source_prepared_ref": "reports/cara_budget_successor_source_prepared_r1_20261031.json",
     "prelaunch_admission_failure_ref": "reports/cara_budget_approved_two_admission_capture_r1_20261031.json",
     "current_modified_source_CPU_pending": false,
-    "summary": "修复后新单次14GPUh获批，113项Linux CPU、20资产及实时资源/中央准入通过；10月31日16:45:04两卡A6000唯一启动，原四进程存活、runner独占CUDA通过。完整112路径/51双FIT查询，硬截止11月1日06:45:04；23:16半程、06:01终验已绑定。原失败与0.002315298GPUh结算保留，无部分科学结果。",
-    "summary_ref": "reports/cara_budget_successor_launch_summary_r1_20261031.json",
+    "summary": "原14GPUh卡半程核验正常：23:24:49已完成104/112，原四进程及runner独占CUDA通过，76C、容器23.49/40GiB。原账本唯一14预约及旧16.5保持。按计数和墙钟将同一个14h-2终验前移至11月1日00:10，半程14h已删除；硬截止06:45:04不变，尚未完整接受、结算或冻结。",
+    "summary_ref": "reports/cara_budget_successor_halfway_summary_r1_20261031.json",
     "current_GPU_state": "SUCCESSOR_ORIGINAL_RUNNING_SOLE_CUDA_VERIFIED",
     "actual_GPU_launch_ref": "reports/cara_budget_successor_actual_dispatch_r1_20261031.json",
     "actual_GPU_terminal_ref": null,
@@ -2502,7 +2502,7 @@
     },
     "current_authorization_consumed": true,
     "current_actual_start_ref": "reports/cara_budget_successor_actual_start_accepted_r1_20261031.json",
-    "current_original_observation_ref": "reports/cara_budget_successor_original_startup_r2_20261031.json",
+    "current_original_observation_ref": "reports/cara_budget_successor_halfway_capture_r1_20261031.json",
     "current_central_reservation_ref": "reports/cara_budget_successor_central_reservation_r1_20261031.json",
     "actual_started_local": "2026-10-31T16:45:04.590671+08:00",
     "hard_deadline_local": "2026-11-01T06:45:04.590671+08:00",
@@ -2548,24 +2548,32 @@
     "current_sole_runner_CUDA_verified": true,
     "latest_operational_progress": {
       "expected_physical_paths": 112,
-      "attempted_paths": 0,
-      "completed_paths": 0,
-      "free_bytes": 67032776704,
+      "attempted_paths": 105,
+      "completed_paths": 104,
+      "free_bytes": 28436410368,
       "scientific_scores_read": false
     },
     "latest_GPU_snapshot": {
       "uuid": "GPU-cebf7119-cf03-23b9-e192-cd196332b704",
       "name": "NVIDIA RTX A6000",
       "compute_cap": "8.6",
-      "utilization_percent": 9,
-      "memory_used_mib": 24450,
+      "utilization_percent": 13,
+      "memory_used_mib": 25614,
       "compute_mode": "Exclusive_Process",
-      "temperature_C": 59,
+      "temperature_C": 76,
       "pids": [
         2371944
       ],
-      "unix": 1793436461.1065109
-    }
+      "unix": 1793460289.9397514
+    },
+    "current_halfway_summary_ref": "reports/cara_budget_successor_halfway_summary_r1_20261031.json",
+    "current_halfway_research_ref": "research/814_CARA_BUDGET_SUCCESSOR14_HALF_CHECK_20261031.md",
+    "current_halfway_cleanup_ref": "reports/cara_budget_successor_halfway_check_cleanup_r1_20261031.json",
+    "current_operational_resource_ref": "reports/cara_budget_successor_halfway_resources_r1_20261031.json",
+    "current_central_readonly_observation_ref": "reports/cara_budget_successor_halfway_central_r1_20261031.json",
+    "current_operational_observed_local": "2026-10-31T23:24:49.741618+08:00",
+    "halfway_check_deleted": true,
+    "final_scheduled_local": "2026-11-01T00:10:00+08:00"
   },
   "fast_SQ_original_runtime_intake_20261030": {
     "receipt_ref": "reports/cara_mainline_S_launch_Q1_complete_intake_r1_20261030.json",
