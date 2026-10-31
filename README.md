@@ -2,7 +2,7 @@
 
 # CARA-Cache
 
-[795单次14GPUh原失败结算与CPU修复](research/795_CARA_SINGLE14_ORIGINAL_FAILED_SETTLED_AND_EXEC_HANDOFF_CPU_REPAIR_20261031.md)：单次14GPUh已于16:00:22在两卡按原授权唯一启动，runner在exec身份检查处退出，0/112路径、无CUDA就绪或科学结果。原8.335秒/0.002315298GPUh已唯一结算，容器和四原进程退出、锁释放、Default恢复；余额25.71345654，旧16.5保持。真实Linux CPU复现命令哈希随exec变化；候选修复及8项实际进程控制通过，原失败源不改、不自动重跑。
+[796新卡113项CPU与完整14GPUh审阅](research/796_CARA_SUCCESSOR113_CPU_SOURCE_AND_NEW_SINGLE14_REVIEW_20261031.md)：修复后的新卡113项实际Linux CPU控制全部通过，1184文件固定源已在两卡独立阶段核对，64GiB卷与48MiB日志独立绑定。完整112路径/51次双FIT查询预计13.03253GPUh、硬限14；新GPU及该卡中央预约/结算尚待单独批准。原失败0/112及0.002315298GPUh唯一结算保留，未重派。
 
 **2026-10-28最新安排：主线P0/F19，探索S-FAST19与固定Shared25-C的Q并行准备。** [最新计划与两个对话分工](plans/cara_next_stage_20261028/08_REPOSITORY_RECONCILIATION.md) · [739接收记录](research/739_CARA_NEXT_STAGE_FAST_SQ_PLAN_AND_CHAT_HANDOFF_20261028.md)。A32已完整验收并冻结；B36已获单次批准，实际状态以原运行记录为准。WC73已热停结算，禁止自动重派；原DEV128、旧合同与失败保持。以下旧准备记录仅作历史复用依据。
 
