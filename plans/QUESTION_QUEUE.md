@@ -130,3 +130,5 @@ S单次授权已接收：用户在S/Q原对话批准另一张A6000完整十条�
 [803 — 完整端点编排与原件恢复CPU接受](../research/803_CARA_ENDPOINT_COLLECTION_CPU_ORIGINAL_TERMINAL_RECOVERY_20261031.md): 完整端点执行与只读恢复组件已通过两卡实际CPU验收：两种flow下完整32及去重25路径，共114条收集路径、16条单独参考调用、6项失败控制；20项本地组合及独立验收控制通过。原CPU容器退出0，工作318.834秒。真实预算mask、guardian/费用/释放组合和评分链仍待；原14GPUh实验及检查安排保持，本轮未读其科学输出、未派新GPU、未写中央账本。
 
 [804 — 端点费用与释放承接CPU边界](../research/804_CARA_ENDPOINT_FINANCE_RELEASE_CPU_BOUNDARY_20261031.md): 新端点卡的原费用、唯一结算和释放后完整集合承接组件通过33项本地CPU控制（17项新端点控制＋16项原生命周期回归）。真实临时账本I/O验证失败仍结算、重复接受不新增费用、旧16.5GPUh责任保持，以及原句柄未知/未退出、锁未释放、模式未恢复、未结算均在读取集合前拒绝。本轮未派GPU、未访问或修改中央账本，未操作正在运行的14GPUh原卡。
+
+- 2026-10-31 / 805: Endpoint guardian Linux CPU component accepted:19 controls/14 actual process scenarios and11 acceptance controls, original R2 exited0. Preserve R1 temporary-central-host fixture refusal and original14GPUh run. Next: whole once-dispatch/runner, artifact and9RGB controls, cross-allocation scoring; actual mask/full quote/new-card authority still pending. See `research/805_CARA_ENDPOINT_GUARDIAN_LINUX_CPU_ACCEPTANCE_20261031.md`.
