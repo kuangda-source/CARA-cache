@@ -121,3 +121,5 @@ S单次授权已接收：用户在S/Q原对话批准另一张A6000完整十条�
 [798 — S初始化敏感性CPU核验](../research/798_CARA_S_INITIALIZATION_SENSITIVITY_ON_ACCEPTED_FIT_RISKS_20261031.md): 按既定A2.1复用已完整接受的S风险，F19起点三目标均精确复现D21→D35；固定Uniform19起点BR/DIAG为D22→D35，CFG为D25→D35。7项本地CPU控制通过；新增138种历史槽组合待生产选择器CPU验证，不改原S冻结、不读取运行中预算搜索分数、不形成端点收益或新GPU权限。
 
 [799 — S初始化生产选择器CPU接受](../research/799_CARA_S_INITIALIZATION_PRODUCTION_SELECTOR_CPU_ACCEPTED_20261031.md): 两卡原CPU容器退出/0，342个策略的12,312对生产选择器调用与11,628次C分支历史检查通过，覆盖全部新增138种历史组合；8项独立验收控制通过。仅接受选择器与过去锚点执行，不构成完整模型数值或端点收益验证；原S冻结和运行中14GPUh预算搜索卡保持。
+
+[800 — S初始化配对数值CPU接受](../research/800_CARA_S_INITIALIZATION_MATCHED_NUMERICAL_CPU_ACCEPTED_20261031.md): Uniform19起点及BR/DIAG、CFG两种不同提案的完整微型CPU矩阵已接受：36条生产路径、12条旧入口对照、18项失败控制；完整36步guided与终态latent/RGB/Torch RNG精确一致，12项独立验收控制通过。两次早期失败保留，原GPU卡与S冻结保持；真实权重和视频端点仍未接受。

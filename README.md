@@ -2,7 +2,7 @@
 
 # CARA-Cache
 
-[799 — S初始化生产选择器CPU接受](research/799_CARA_S_INITIALIZATION_PRODUCTION_SELECTOR_CPU_ACCEPTED_20261031.md)：两卡原CPU容器退出/0，342个策略的12,312对生产选择器调用与11,628次C分支历史检查通过，覆盖全部新增138种历史组合；8项独立验收控制通过。仅接受选择器与过去锚点执行，不构成完整模型数值或端点收益验证；原S冻结和运行中14GPUh预算搜索卡保持。
+[800 — S初始化配对数值CPU接受](research/800_CARA_S_INITIALIZATION_MATCHED_NUMERICAL_CPU_ACCEPTED_20261031.md)：Uniform19起点及BR/DIAG、CFG两种不同提案的完整微型CPU矩阵已接受：36条生产路径、12条旧入口对照、18项失败控制；完整36步guided与终态latent/RGB/Torch RNG精确一致，12项独立验收控制通过。两次早期失败保留，原GPU卡与S冻结保持；真实权重和视频端点仍未接受。
 
 **2026-10-28最新安排：主线P0/F19，探索S-FAST19与固定Shared25-C的Q并行准备。** [最新计划与两个对话分工](plans/cara_next_stage_20261028/08_REPOSITORY_RECONCILIATION.md) · [739接收记录](research/739_CARA_NEXT_STAGE_FAST_SQ_PLAN_AND_CHAT_HANDOFF_20261028.md)。A32已完整验收并冻结；B36已获单次批准，实际状态以原运行记录为准。WC73已热停结算，禁止自动重派；原DEV128、旧合同与失败保持。以下旧准备记录仅作历史复用依据。
 
