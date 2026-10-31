@@ -2,7 +2,7 @@
 
 # CARA-Cache
 
-[818 — 七角色46路径端点准备与Euler-E0 CPU](research/818_CARA_SEVEN_ROLE_ENDPOINT_SCOPE_AND_EULER_E0_CPU_20261101.md)：用户已选择七角色46路径E1，预计6.040147/建议硬7GPUh；原16视频SHA核验，完整46生产采集路由CPU及5个OFF对照通过。Euler35/70数值原型CPU通过；新GPU未授权，46/28/16/13生产验收接线与完整资产存储包仍待。维护四卡未访问、旧结果和冻结不变。
+[819 — 七角色生产接口与完整评分CPU接受](research/819_CARA_ENDPOINT7_INTERFACES_SCORING_CPU_AND_ANALYSIS_20261101.md)：用户选择的46/28/16/13接口已接入；本地78项回归及两卡9项接口/16个93帧合成对评分通过，原CPU退出0。原16视频与16参数SHA一致，汇总导图本地8项通过。尚待最终源包/独立存储组合；预计6.040147、拟硬7GPUh，新GPU未授权，四卡未访问。
 
 **2026-10-28最新安排：主线P0/F19，探索S-FAST19与固定Shared25-C的Q并行准备。** [最新计划与两个对话分工](plans/cara_next_stage_20261028/08_REPOSITORY_RECONCILIATION.md) · [739接收记录](research/739_CARA_NEXT_STAGE_FAST_SQ_PLAN_AND_CHAT_HANDOFF_20261028.md)。A32已完整验收并冻结；B36已获单次批准，实际状态以原运行记录为准。WC73已热停结算，禁止自动重派；原DEV128、旧合同与失败保持。以下旧准备记录仅作历史复用依据。
 
