@@ -16,6 +16,14 @@ SOURCE='src/wcomr/cara_s_endpoint_score_capture_r1.py'
 IMAGE='sha256:1e81ac62ee68ca1a6ef655515096a1d84579b01aa4986810c9b18d4f6c4c552d'
 
 
+def container_time(value):
+    # Docker uses RFC3339Nano; Python 3.9/3.10 fromisoformat cannot parse nine digits.
+    match=re.fullmatch(r'(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2})(?:\.(\d{1,9}))?Z',value)
+    require(match is not None,'Original Docker UTC timestamp required')
+    base=datetime.datetime.strptime(match[1],'%Y-%m-%dT%H:%M:%S')
+    return base.replace(tzinfo=datetime.timezone.utc,microsecond=int((match[2] or '').ljust(6,'0')[:6])).timestamp()
+
+
 def inspect_original(container_id):
     """Absent and transport/daemon failures are UNKNOWN, never permission to run."""
     try:
@@ -121,8 +129,7 @@ def recover(binding,packet,config,*,cpu_validation=False):
     if worker['original_live'] is not False:return operational
     result=read_record(out/'scores.json')
     require(result['original_identity']==intent['original_identity'],'Original scorer process replaced')
-    parse=lambda value:datetime.datetime.fromisoformat(value.replace('Z','+00:00')).timestamp()
-    started,ended=parse(state['StartedAt']),parse(state['FinishedAt'])
+    started,ended=container_time(state['StartedAt']),container_time(state['FinishedAt'])
     require(started<=result['started_unix']<=result['ended_unix']<=ended,
             'Original scoring interval is outside the container lifetime')
     execution=dict(kind='ORIGINAL_ENDPOINT_SCORE_CONTAINER',container_id=container['Id'],container_state=state,

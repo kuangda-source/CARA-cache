@@ -26,7 +26,7 @@ def main():
     sys.path[:0]=[str(args.stage/'src'),str(args.stage/'tests')]
     import test_cara_s_endpoint_score_capture_r1
     tests=unittest.TextTestRunner(verbosity=2).run(unittest.defaultTestLoader.loadTestsFromModule(test_cara_s_endpoint_score_capture_r1))
-    assert tests.wasSuccessful() and not tests.skipped and tests.testsRun==20
+    assert tests.wasSuccessful() and not tests.skipped and tests.testsRun==22
     from check_cara_s_endpoint_capture_process_r1 import run
     actual=run(args.stage/'CPU-recovery-checks')
     proof=dict(status='ENDPOINT_SCORE_RECOVERY_CPU_COMPLETE_NOT_WHOLE_CARD',host=args.host,
@@ -34,7 +34,7 @@ def main():
         registration_sha256=sha(args.stage/'registration.json'),payload_sha256=registration['payload_sha256'],
         runtime_source_sha256=registration['runtime_source_sha256'],actual_CPU_affinity=sorted(os.sched_getaffinity(0)),
         metadata_controls=dict(tests_run=tests.testsRun,failures=len(tests.failures),errors=len(tests.errors),skipped=len(tests.skipped)),
-        actual=actual,total_controls_passed=25,Docker_observations_simulated=True,score_rows_synthetic=True,
+        actual=actual,total_controls_passed=27,Docker_observations_simulated=True,score_rows_synthetic=True,
         metric_computations=0,whole_GPU_card_accepted=False,active_experiment_outputs_read=False,
         GPU_submissions=0,ledger_written=False,work_seconds=180,exit_seconds=30)
     signal.alarm(30)

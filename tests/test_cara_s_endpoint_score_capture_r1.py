@@ -19,7 +19,7 @@ def save(path,value):
     path.write_text(json.dumps(value,indent=2,allow_nan=False)+'\n')
 
 
-def timestamp(value):return datetime.datetime.fromtimestamp(value,datetime.timezone.utc).isoformat()
+def timestamp(value):return datetime.datetime.fromtimestamp(value,datetime.timezone.utc).isoformat().replace('+00:00','Z')
 
 
 def fixture(project,*,alias=False):
@@ -151,6 +151,14 @@ class CaptureControls(unittest.TestCase):
     def test_wrong_interval_refused(self):
         self.container['State']['FinishedAt']=timestamp(1001.5)
         with self.assertRaisesRegex(ValueError,'interval'):self.capture()
+
+    def test_actual_docker_nanosecond_timestamp(self):
+        self.assertEqual(reader.container_time('2026-10-31T12:37:09.617180999Z'),1793450229.617180)
+        self.container['State'].update(StartedAt='1970-01-01T00:16:40.000000001Z',FinishedAt='1970-01-01T00:16:43.000000999Z')
+        self.assertEqual(self.capture()['status'],'ORIGINAL_COMPLETE24_SCORE_ACCEPTED')
+
+    def test_timezone_missing_refused(self):
+        with self.assertRaisesRegex(ValueError,'UTC timestamp'):reader.container_time('2026-10-31T12:37:09.617180999')
 
     def test_cpu_fixture_cannot_be_production(self):
         self.args['cpu_validation']=False
