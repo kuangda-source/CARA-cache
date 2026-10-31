@@ -1,5 +1,13 @@
 # E1 七角色46路径：唯一原运行交接
 
+## 当前终态（2026-11-01 05:54后更新）
+
+原GPU完整46/46、0失败已于05:50退出释放并按guardian全段3.0556730066974542GPUh唯一结算。原Default恢复、四进程与锁均结束；不得再次dispatch或settle。原单次CPU工件读者随后因GPU-launch.json缺model_sha256字段退出1，尚未进入13RGB核验、未启动16对评分，完整28未接受。原stage1268源与所有原字节保持。
+
+见[824](../../../research/824_CARA_ENDPOINT7_COMPLETE46_GPU_SETTLED_POSTRELEASE_INTERFACE_FAILURE_20261101.md)、[原失败捕获](../../../reports/cara_endpoint7_artifact_CPU_capture_r1_20261101.json)及[接口诊断](../../../reports/cara_endpoint7_acceptance_interface_failure_r1_20261101.json)。e1和e1-2均已删除，原日程保留为历史，[清理回执](../../../reports/cara_endpoint7_acceptance_schedule_closed_r2_20261101.json)为当前状态。下列启动/接受说明仅作为原设计和身份历史，不能用于重跑GPU、读者或绕过当前接口失败。
+
+只可通过外部入口scripts/cara_endpoint7_accept_transport_r1.py capture --output 新唯一回执恢复原失败CPU；artifacts/score不会清除原目录和失败intent，当前不可重派。下一步需独立版本的CPU接受接口修复，对原实际launch schema回归，不改原GPU/CPU源及回执，不重跑GPU；13RGB通过前不派评分。
+
 2026-11-01，Asia/Shanghai。用户直接批准“批准单次7 GPUh及本卡原账本事务”，本卡已唯一预约与启动。后续只恢复原句柄，任何连接UNKNOWN不代表允许重试。原生产源、配置和容器不能修改。
 
 ## 固定身份与时间

@@ -1834,7 +1834,7 @@
     "independent_new_inputs": false,
     "complete_QA_ref": "reports/cara_fast_A6000_complete_frozen_QA_20261029_0115.json"
   },
-  "current_evidence_observed_at": "2026-11-01T02:51:34.291499+08:00",
+  "current_evidence_observed_at": "2026-11-01T05:57:01.043313+08:00",
   "fast_B36_CPU_preparation_20261029": {
     "status": "ACCEPTED_DUAL_HOST_COMPLETE_B36_CPU_CONTINUATION_ONLY",
     "accepted_receipt_ref": "reports/cara_fast_B36_CPU_acceptance_r1_20261029.json",
@@ -2037,10 +2037,10 @@
     "postacceptance_budget_read_ref": "reports/cara_fast_mainline_budget_readonly_r1_20261030.json"
   },
   "fast_mainline_post_result_CPU_20261030": {
-    "status": "E1_ORIGINAL_SINGLE46_GPU_ACTUAL_START_ACCEPTED",
-    "notice_title": "823 — E1七角色46路径已实际启动",
-    "research_ref": "research/823_CARA_ENDPOINT7_SINGLE7_GPU_ACTUAL_START_20261101.md",
-    "summary": "E1原A6000于11月1日02:47:33启动，完整46/28/16/13，硬7GPUh；实时资源、原中央预约和唯一独占runner通过。半程05:49、终验08:50、硬截止09:47:33；仅恢复原句柄，完整释放结算后一次16新对评分，无部分科学结论。",
+    "status": "E1_GPU_COMPLETE46_SETTLED_POSTRELEASE_READER_SCHEMA_FAILURE",
+    "notice_title": "824 — E1完整46路径已结算，CPU接受接口失败",
+    "research_ref": "research/824_CARA_ENDPOINT7_COMPLETE46_GPU_SETTLED_POSTRELEASE_INTERFACE_FAILURE_20261101.md",
+    "summary": "E1完整46/46、0GPU路径失败，原GPU已释放并唯一结算3.055673007GPUh；CPU工件读者因原launch缺model_sha256退出1，13RGB未达、16新对评分未启动，尚无E1科学接受。两项自动检查均删除；后续仅准备CPU接口修复并保留原件。",
     "component_CPU_ref": "reports/cara_fast_B36_review_component_CPU_acceptance_r1_20261030.json",
     "review_plan_ref": "reports/cara_fast_B36_review_plan_r1_20261030.json",
     "diagnostics_ref": "reports/cara_fast_B36_post_result_diagnostics_r1_20261030.json",
@@ -2052,11 +2052,11 @@
     "new_GPU_submissions": 2,
     "new_reserved_GPUh": 14,
     "new_metrics_computed": 0,
-    "summary_ref": "reports/cara_endpoint7_actual_start_accepted_r1_20261101.json",
+    "summary_ref": "reports/cara_endpoint7_acceptance_interface_failure_r1_20261101.json",
     "review_transfer_ref": "reports/cara_fast_B36_review_video_transfer_r1_20261030.json",
     "review_materialized_ref": "reports/cara_fast_B36_review_materialized_r1_20261030.json",
     "review_browser_QA_ref": "reports/cara_fast_B36_review_browser_QA_r1_20261030.json",
-    "observed_unix": 1793472694.291907,
+    "observed_unix": 1793483821.0376918,
     "original_video_review_research_ref": "research/757_CARA_B36_ORIGINAL_VIDEO_REVIEW_AND_F18_CPU_20261030.md",
     "original_video_review_summary_ref": "reports/cara_fast_mainline_post_result_CPU_summary_r1_20261030.json",
     "paper_results_manifest_ref": "plans/cara_next_stage_20261028/mainline/PAPER_RESULTS_MANIFEST_R2.json",
@@ -2097,7 +2097,7 @@
     "external_review_packet_ref": "research/815_CARA_RECENT_EXPERIMENTS_OPUS_REVIEW_20261031.md",
     "external_review_packet_scope": "2026-10-28 to 2026-10-31 designs, accepted results and open questions; active budget run snapshot 2026-10-31T23:24:49+08:00; no new execution or scientific result",
     "handoff_ref": "plans/cara_next_stage_20261101/e1/ENDPOINT7_POST_LAUNCH_HANDOFF_20261101.md",
-    "schedule_ref": "reports/cara_endpoint7_acceptance_schedule_r1_20261101.json",
+    "schedule_ref": "reports/cara_endpoint7_acceptance_schedule_closed_r2_20261101.json",
     "launch_id": "8d750a6de77d4d4fa2c84c4f97fff7f3",
     "source_revision": "af7c7d8e6d6348a1c87c5e13ce2c88bda86db16e",
     "physical_paths": 46,
@@ -2108,7 +2108,30 @@
     "GPU_submissions": 1,
     "hard_GPUh": 7,
     "scientific_accepted": false,
-    "latest_observation_ref": "reports/cara_endpoint7_original_precommit_r3_20261101.json"
+    "latest_observation_ref": "reports/cara_endpoint7_artifact_CPU_capture_r1_20261101.json",
+    "actual_GPUh": 3.0556730066974542,
+    "operational_counts": {
+      "COMPLETE": 46,
+      "TECH_FAILED": 0,
+      "RUNNING": 0,
+      "NOT_REACHED": 0
+    },
+    "GPU_complete": true,
+    "GPU_released": true,
+    "cost_settled": true,
+    "complete28_accepted": false,
+    "RGB_identity_accepted": false,
+    "score_CPU_submissions": 0,
+    "acceptance_interface_failed": true,
+    "terminal_capture_ref": "reports/cara_endpoint7_final_original_r1_20261101.json",
+    "settlement_ref": "reports/cara_endpoint7_final_settlement_r1_20261101.json",
+    "release_ref": "reports/cara_endpoint7_final_release_accepted_r1_20261101.json",
+    "original_start_ref": "reports/cara_endpoint7_actual_start_accepted_r1_20261101.json",
+    "old_launch_verification_ref": "reports/cara_endpoint7_launch_closeout_verified_r1_20261101.json",
+    "automations_deleted": [
+      "e1",
+      "e1-2"
+    ]
   },
   "fast_F18_CPU_preparation_20261030": {
     "status": "F18_AFFECTED_PRODUCTION_CPU_DUAL_HOST_ACCEPTED_NOT_GPU",
@@ -2870,8 +2893,8 @@
     "superseded_by_selected_endpoint7_ref": "plans/cara_next_stage_20261101/e1/USER_SCOPE_SELECTION_R1.json"
   },
   "next_experiments_E1_Euler_20261101": {
-    "status": "E1_ORIGINAL_SINGLE46_GPU_ACTUAL_START_ACCEPTED",
-    "observed_unix": 1793467844.362968,
+    "status": "E1_GPU_COMPLETE46_SETTLED_POSTRELEASE_READER_SCHEMA_FAILURE",
+    "observed_unix": 1793483821.0376918,
     "source_HEAD": "15aea5e55644c7eecee4f4890b211a12bbc51497",
     "source_input_ref": "plans/cara_next_stage_20261101/USER_DESIGN_INPUT_R1.md",
     "source_input_original": "/Users/kuangda_gao/Documents/CARA_Codex_Next_Experiments_UniPC_to_Euler_20261101.md",
@@ -2904,9 +2927,9 @@
     "production_entry_lifecycle_score28_binding_complete": true,
     "whole_GPU_card_CPU_accepted": true,
     "next_actions": [
-      "Recover only original E1 handles; actual-start midpoint and terminal acceptance",
-      "Original full GPU release and unique actual settlement, then13 RGB gates and once16-new-pair CPU scoring",
-      "Accept complete28 and figures before registered scientific decision; no automatic next GPU card"
+      "Prepare separately versioned CPU acceptance-interface repair against actual immutable E1 launch schema",
+      "Keep original full46 GPU artifacts, failed reader and exact settlement; no GPU replay or automatic next card",
+      "All13 RGB controls must pass before any once16-new-pair scoring and complete28 acceptance"
     ],
     "protected_TEST_accessed": false,
     "old_freezes_changed": false,
@@ -2964,10 +2987,18 @@
     "Euler_layered_CPU_ref": "plans/cara_next_stage_20261101/euler/EULER35_CPU_ACCEPTANCE.json",
     "Euler_Linux_CPU_ref": "reports/cara_euler35_sampler_Linux_CPU_accepted_r1_20261101.json",
     "Euler_Linux_CPU_accepted": true,
-    "execution_ref": "reports/cara_endpoint7_actual_start_accepted_r1_20261101.json",
+    "execution_ref": "reports/cara_endpoint7_acceptance_interface_failure_r1_20261101.json",
     "handoff_ref": "plans/cara_next_stage_20261101/e1/ENDPOINT7_POST_LAUNCH_HANDOFF_20261101.md",
-    "schedule_ref": "reports/cara_endpoint7_acceptance_schedule_r1_20261101.json",
-    "central_transaction_authorized": true
+    "schedule_ref": "reports/cara_endpoint7_acceptance_schedule_closed_r2_20261101.json",
+    "central_transaction_authorized": true,
+    "latest_observation_ref": "reports/cara_endpoint7_artifact_CPU_capture_r1_20261101.json",
+    "GPU_complete": true,
+    "GPU_released": true,
+    "cost_settled": true,
+    "actual_GPUh": 3.0556730066974542,
+    "scientific_accepted": false,
+    "score_CPU_submissions": 0,
+    "acceptance_interface_failed": true
   },
   "endpoint7_interfaces_preparation_20261101": {
     "status": "E1_SELECTED46_INTERFACES_CPU_ACCEPTED_FINAL_PACKAGE_PENDING",
@@ -3103,29 +3134,45 @@
     "ledger_written": false
   },
   "endpoint7_execution_20261101": {
-    "status": "E1_ORIGINAL_SINGLE46_GPU_ACTUAL_START_ACCEPTED",
-    "research_ref": "research/823_CARA_ENDPOINT7_SINGLE7_GPU_ACTUAL_START_20261101.md",
-    "summary_ref": "reports/cara_endpoint7_actual_start_accepted_r1_20261101.json",
+    "status": "E1_GPU_COMPLETE46_SETTLED_POSTRELEASE_READER_SCHEMA_FAILURE",
+    "research_ref": "research/824_CARA_ENDPOINT7_COMPLETE46_GPU_SETTLED_POSTRELEASE_INTERFACE_FAILURE_20261101.md",
+    "summary_ref": "reports/cara_endpoint7_acceptance_interface_failure_r1_20261101.json",
+    "latest_observation_ref": "reports/cara_endpoint7_artifact_CPU_capture_r1_20261101.json",
     "handoff_ref": "plans/cara_next_stage_20261101/e1/ENDPOINT7_POST_LAUNCH_HANDOFF_20261101.md",
-    "schedule_ref": "reports/cara_endpoint7_acceptance_schedule_r1_20261101.json",
+    "schedule_ref": "reports/cara_endpoint7_acceptance_schedule_closed_r2_20261101.json",
     "launch_id": "8d750a6de77d4d4fa2c84c4f97fff7f3",
     "source_revision": "af7c7d8e6d6348a1c87c5e13ce2c88bda86db16e",
-    "observed_unix": 1793472724.9858391,
+    "observed_unix": 1793483821.0376918,
     "physical_paths": 46,
-    "new_scoring_pairs": 16,
     "logical_positions": 28,
+    "new_scoring_pairs": 16,
     "GPU_authorized": true,
     "central_transaction_authorized": true,
     "GPU_submissions": 1,
     "hard_GPUh": 7,
-    "scientific_accepted": false,
-    "latest_observation_ref": "reports/cara_endpoint7_original_precommit_r3_20261101.json",
-    "verification_ref": "reports/cara_endpoint7_launch_closeout_verified_r1_20261101.json",
+    "actual_GPUh": 3.0556730066974542,
     "operational_counts": {
-      "COMPLETE": 0,
+      "COMPLETE": 46,
       "TECH_FAILED": 0,
-      "RUNNING": 1,
-      "NOT_REACHED": 45
-    }
+      "RUNNING": 0,
+      "NOT_REACHED": 0
+    },
+    "GPU_complete": true,
+    "GPU_released": true,
+    "cost_settled": true,
+    "scientific_accepted": false,
+    "complete28_accepted": false,
+    "RGB_identity_accepted": false,
+    "score_CPU_submissions": 0,
+    "acceptance_interface_failed": true,
+    "terminal_capture_ref": "reports/cara_endpoint7_final_original_r1_20261101.json",
+    "settlement_ref": "reports/cara_endpoint7_final_settlement_r1_20261101.json",
+    "release_ref": "reports/cara_endpoint7_final_release_accepted_r1_20261101.json",
+    "original_start_ref": "reports/cara_endpoint7_actual_start_accepted_r1_20261101.json",
+    "old_launch_verification_ref": "reports/cara_endpoint7_launch_closeout_verified_r1_20261101.json",
+    "automations_deleted": [
+      "e1",
+      "e1-2"
+    ]
   }
 }

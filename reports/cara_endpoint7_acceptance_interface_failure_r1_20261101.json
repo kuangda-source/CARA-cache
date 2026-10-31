@@ -1,0 +1,124 @@
+{
+  "status": "E1_GPU_COMPLETE46_SETTLED_POSTRELEASE_READER_SCHEMA_FAILURE",
+  "observed_unix": 1793483821.0376918,
+  "run_id": "cara-S-endpoint-seven46-r1-20261101",
+  "launch_id": "8d750a6de77d4d4fa2c84c4f97fff7f3",
+  "source_revision": "af7c7d8e6d6348a1c87c5e13ce2c88bda86db16e",
+  "launch_sha256": "866315c096ede0d823cfddb76f5438a26c4f067f8785897a8c25df849326cb63",
+  "physical_paths": 46,
+  "full_GPU_counts": {
+    "COMPLETE": 46,
+    "TECH_FAILED": 0,
+    "RUNNING": 0,
+    "NOT_REACHED": 0
+  },
+  "actual_GPUh": 3.0556730066974542,
+  "hard_GPUh": 7,
+  "hard_limit_exceeded": false,
+  "original_processes_ended": true,
+  "GPU_released": true,
+  "mode_restored": true,
+  "cost_settled": true,
+  "central_after": {
+    "cap_gpu_hours": 226,
+    "used_gpu_hours": 194.03986128165678,
+    "reserved_gpu_hours": 16.5,
+    "available_gpu_hours": 15.460138718343217,
+    "old_host_uncertainty_reserved_GPUh": 16.5
+  },
+  "original_GPU_submissions": 1,
+  "new_GPU_submissions": 0,
+  "replay_authorized": false,
+  "original_artifact_reader": {
+    "container_id": "b9d55cb8e949de9723a08cb75261dfba2b09a9ada2870de24ce3e0f2327978b4",
+    "container_name": "cara-S-endpoint-GPU-a6000-seven46-r1-20261101-artifact-accept-cpu",
+    "original_identity": {
+      "host_view": {
+        "boot_id": "13495735-f30b-47a2-af0a-2496f5206a0b",
+        "pid_namespace_inode": 4026531836
+      },
+      "original_command_sha256": "e225d8dddc0f65e9c89a26f0871253e229403dbb967e6f1d4fe96d6ca3f8942e",
+      "pid": 2760836,
+      "start_ticks": 677853826
+    },
+    "state": {
+      "Status": "exited",
+      "Running": false,
+      "Paused": false,
+      "Restarting": false,
+      "OOMKilled": false,
+      "Dead": false,
+      "Pid": 0,
+      "ExitCode": 1,
+      "Error": "",
+      "StartedAt": "2026-10-31T21:53:54.694210126Z",
+      "FinishedAt": "2026-10-31T21:53:56.092742766Z"
+    },
+    "original_process_ended": true,
+    "error": {
+      "message": "'model_sha256'",
+      "type": "KeyError"
+    },
+    "submissions": 1,
+    "replayed": false
+  },
+  "failure_class": "POSTRELEASE_READER_SCHEMA_INCOMPATIBILITY_NOT_METHOD_EVIDENCE",
+  "root_cause": {
+    "actual_launch_has_model_sha256": false,
+    "publisher_ref": "src/wcomr/cara_s_endpoint_gpu_dispatch_r1.py",
+    "publisher_sha256": "60b85bce47161f098084677628b7d30d0177afb261956f1c50fd896827b400f4",
+    "reader_ref": "src/wcomr/cara_s_endpoint_artifacts_r1.py",
+    "reader_sha256": "88988b62d929c4e3e40b5b97e28525d4ba0a3e68271a54d5f2c9d93dde8b40d2",
+    "explanation": "publish_launch copies JOB_IDENTITY plus ENDPOINT_IDENTITY without model_sha256; postrelease_manifest requires launch[model_sha256] before RGB decoding; CPU artifact/pipeline fixtures add that field manually instead of exercising the actual published schema.",
+    "fixture_refs": [
+      "tests/check_cara_s_endpoint_artifact_fixture_r2.py",
+      "tests/check_cara_s_endpoint_pipeline_fixture_r1.py"
+    ]
+  },
+  "RGB_identity_controls_required": 13,
+  "RGB_identity_controls_not_reached": 13,
+  "RGB_identity_accepted": false,
+  "score_CPU_submissions": 0,
+  "new_pairs_scored": 0,
+  "required_new_pairs": 16,
+  "reused_original_rows_required": 12,
+  "required_logical_positions": 28,
+  "complete28_accepted": false,
+  "scientific_accepted": false,
+  "new_scientific_conclusion_frozen": false,
+  "partial_scientific_scores_read": false,
+  "original_registered_payload_files": 1268,
+  "original_source_and_config_modified": false,
+  "original_scores_recomputed": false,
+  "old_freezes_changed": false,
+  "checks": [
+    {
+      "automation_id": "e1",
+      "status": "DELETED"
+    },
+    {
+      "automation_id": "e1-2",
+      "status": "DELETED"
+    }
+  ],
+  "transport_recovery": {
+    "launch_response_unknown_ref": "reports/cara_endpoint7_artifact_CPU_launch_r1_20261101.json",
+    "reason": "Response wrapper stdout name collided with a remote saved helper after the once-only original reader had started.",
+    "fix_scope": "External transport envelope only; original worker and all production source bytes unchanged.",
+    "recovered_original_ref": "reports/cara_endpoint7_artifact_CPU_capture_r1_20261101.json",
+    "duplicate_submission": false
+  },
+  "next_action": "Prepare a separately versioned CPU-only acceptance-interface repair against the actual original launch schema and unchanged artifacts. Preserve original launch bytes, failed reader and settlement; no GPU replay, no scoring before all13 identity controls pass.",
+  "evidence_sha256": {
+    "reports/cara_endpoint7_final_original_r1_20261101.json": "809a5c6f49c51398ca666a474848d4f2692c3f469429a5b6b348491d12efe2f1",
+    "reports/cara_endpoint7_final_settlement_r1_20261101.json": "afb9a6084abb606902e4a6c93a2e270f766e4a2ee9ca4e012cbdfda15fc035a2",
+    "reports/cara_endpoint7_final_release_accepted_r1_20261101.json": "d2fe296e35a699b09082ecbde650c9d4685f1e679bffda16640084771b240268",
+    "reports/cara_endpoint7_artifact_CPU_capture_r1_20261101.json": "05f00437349c5d47be488164659db2605eca0b474b793d965b2bac86f8acf32c",
+    "reports/cara_endpoint7_midpoint_original_r1_20261101.json": "bdb6c2e1430e4c41fced34c9d047562914892fe3fd86a410deb446fa09247b93",
+    "reports/cara_endpoint7_midpoint_central_r1_20261101.json": "51dbc6467a537dc2512baef386f8e8b3f9d40ecc6cc4f88c6f43b01240140c6c",
+    "reports/cara_endpoint7_midpoint_resources_r1_20261101.json": "2b5e0d89fac9548f697ecfa0dae5c3a46d5bf00ed3a8a3dc7d5302153234d998",
+    "reports/cara_endpoint7_midpoint_operations_r1_20261101.json": "aa97caee5e87d192e1d294b5a1b4b7356bd393ac6359fbba079bf5b149ec5808",
+    "reports/cara_endpoint7_artifact_CPU_launch_r1_20261101.json": "e19cf560f1e7992f21e9d191416a973949d40c4e415a58f4186d97e1e31424c8",
+    "scripts/cara_endpoint7_accept_transport_r1.py": "ef4dbb22422536b47854bf34e6236cbb5dc7bef3f2e9830c28ec7c60cbd76fa4"
+  }
+}
