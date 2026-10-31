@@ -1834,7 +1834,7 @@
     "independent_new_inputs": false,
     "complete_QA_ref": "reports/cara_fast_A6000_complete_frozen_QA_20261029_0115.json"
   },
-  "current_evidence_observed_at": "2026-10-31T16:33:50+0800",
+  "current_evidence_observed_at": "2026-10-31T16:48:24.503194+08:00",
   "fast_B36_CPU_preparation_20261029": {
     "status": "ACCEPTED_DUAL_HOST_COMPLETE_B36_CPU_CONTINUATION_ONLY",
     "accepted_receipt_ref": "reports/cara_fast_B36_CPU_acceptance_r1_20261029.json",
@@ -2037,10 +2037,10 @@
     "postacceptance_budget_read_ref": "reports/cara_fast_mainline_budget_readonly_r1_20261030.json"
   },
   "fast_mainline_post_result_CPU_20261030": {
-    "status": "SUCCESSOR_COMPLETE_CPU_SOURCE_STORAGE_READY_PENDING_NEW_APPROVAL",
-    "notice_title": "796新卡113项CPU与完整14GPUh审阅",
-    "research_ref": "research/796_CARA_SUCCESSOR113_CPU_SOURCE_AND_NEW_SINGLE14_REVIEW_20261031.md",
-    "summary": "修复后的新卡113项实际Linux CPU控制全部通过，1184文件固定源已在两卡独立阶段核对，64GiB卷与48MiB日志独立绑定。完整112路径/51次双FIT查询预计13.03253GPUh、硬限14；新GPU及该卡中央预约/结算尚待单独批准。原失败0/112及0.002315298GPUh唯一结算保留，未重派。",
+    "status": "SUCCESSOR_SINGLE14_RUNNING_ORIGINAL_CUDA_AND_CHECKS_BOUND",
+    "notice_title": "797新单次14GPUh已启动与检查",
+    "research_ref": "research/797_CARA_SUCCESSOR_SINGLE14_ACTUAL_START_AND_CHECKS_20261031.md",
+    "summary": "修复后新单次14GPUh获批，113项Linux CPU、20资产及实时资源/中央准入通过；10月31日16:45:04两卡A6000唯一启动，原四进程存活、runner独占CUDA通过。完整112路径/51双FIT查询，硬截止11月1日06:45:04；23:16半程、06:01终验已绑定。原失败与0.002315298GPUh结算保留，无部分科学结果。",
     "component_CPU_ref": "reports/cara_fast_B36_review_component_CPU_acceptance_r1_20261030.json",
     "review_plan_ref": "reports/cara_fast_B36_review_plan_r1_20261030.json",
     "diagnostics_ref": "reports/cara_fast_B36_post_result_diagnostics_r1_20261030.json",
@@ -2049,14 +2049,14 @@
     "budget_readonly_ref": "reports/cara_fast_mainline_budget_readonly_r1_20261030.json",
     "review_packet_ready": true,
     "human_reviews": 1,
-    "new_GPU_submissions": 1,
-    "new_reserved_GPUh": 0,
+    "new_GPU_submissions": 2,
+    "new_reserved_GPUh": 14,
     "new_metrics_computed": 0,
-    "summary_ref": "reports/cara_budget_successor_review_ready_r1_20261031.json",
+    "summary_ref": "reports/cara_budget_successor_launch_summary_r1_20261031.json",
     "review_transfer_ref": "reports/cara_fast_B36_review_video_transfer_r1_20261030.json",
     "review_materialized_ref": "reports/cara_fast_B36_review_materialized_r1_20261030.json",
     "review_browser_QA_ref": "reports/cara_fast_B36_review_browser_QA_r1_20261030.json",
-    "observed_unix": 1793435630.9940312,
+    "observed_unix": 1793436504.5032902,
     "original_video_review_research_ref": "research/757_CARA_B36_ORIGINAL_VIDEO_REVIEW_AND_F18_CPU_20261030.md",
     "original_video_review_summary_ref": "reports/cara_fast_mainline_post_result_CPU_summary_r1_20261030.json",
     "paper_results_manifest_ref": "plans/cara_next_stage_20261028/mainline/PAPER_RESULTS_MANIFEST_R2.json",
@@ -2194,9 +2194,9 @@
     "new_mainline_reservations": 0
   },
   "fast_budget_search_baseline_preparation_20261030": {
-    "status": "SUCCESSOR_COMPLETE_CPU_SOURCE_STORAGE_READY_PENDING_NEW_APPROVAL",
+    "status": "SUCCESSOR_SINGLE14_RUNNING_ORIGINAL_CUDA_AND_CHECKS_BOUND",
     "receipt_ref": "reports/cara_fast_BudCache_source_CPU_audit_r1_20261030.json",
-    "research_ref": "research/796_CARA_SUCCESSOR113_CPU_SOURCE_AND_NEW_SINGLE14_REVIEW_20261031.md",
+    "research_ref": "research/797_CARA_SUCCESSOR_SINGLE14_ACTUAL_START_AND_CHECKS_20261031.md",
     "adaptation_proposal_ref": "plans/cara_next_stage_20261028/mainline/r2/BUDCACHE_ADAPTATION_R1.json",
     "upstream_revision": "14ba4c5106a17848e757e7b93ad4b4daeb5b742c",
     "source_files_verified": 7,
@@ -2207,7 +2207,7 @@
     "bound_is_GPUh_quote": false,
     "Cosmos_production_adapter_accepted": false,
     "new_GPU_submissions": 0,
-    "new_reserved_GPUh": 0,
+    "new_reserved_GPUh": 14,
     "component_receipt_ref": "reports/cara_fast_BudCache_search_component_CPU_r1_20261030.json",
     "component_research_ref": "research/765_CARA_BUDCACHE_BOUNDED_SEARCH_COMPONENT_CPU_20261030.md",
     "component_local_controls_passed": 11,
@@ -2434,7 +2434,7 @@
     ],
     "four_card_hardware_update_user_reported": true,
     "current_work_waits_for_four_card_CPU": false,
-    "central_current_admission_pending": true,
+    "central_current_admission_pending": false,
     "current_R4_launch_ref": "reports/cara_budget_current_CPU_two_R4_launch_r1_20261031.json",
     "current_R4_handoff_ref": "plans/cara_next_stage_20261028/mainline/r2/BUDGET_R4_CPU_HANDOFF_20261031.md",
     "current_R4_schedule_ref": "reports/cara_budget_current_CPU_two_R4_schedule_r1_20261031.json",
@@ -2451,7 +2451,7 @@
     "once_dispatch_actual_child_boundary_CPU_accepted": true,
     "once_dispatch_actual_child_boundary_CPU_ref": "reports/cara_budget_dispatch_child_CPU_accepted_r1_20261031.json",
     "current_numeric_reused_R4_unchanged": true,
-    "central_all_original_handles_gate_pending": true,
+    "central_all_original_handles_gate_pending": false,
     "current_GPU_dispatch_ready": false,
     "actual_private_storage_accepted": true,
     "actual_private_storage_ref": "reports/cara_budget_successor_storage_accepted_r1_20261031.json",
@@ -2465,35 +2465,107 @@
     "current_whole_quote_ref": "reports/cara_budget_successor_whole_quote_r1_20261031.json",
     "current_whole_quote_accepted": true,
     "current_single_GPU_review_ref": "plans/cara_next_stage_20261028/mainline/r2/BUDGET_SUCCESSOR14GPUH_REVIEW_R1_20261031.md",
-    "direct_launch_approval_received": false,
-    "current_authorization_ref": null,
-    "central_transaction_authorization_ref": null,
+    "direct_launch_approval_received": true,
+    "current_authorization_ref": "plans/cara_next_stage_20261028/mainline/r2/BUDGET_SUCCESSOR14GPUH_USER_AUTHORIZATION_20261031.json",
+    "central_transaction_authorization_ref": "plans/cara_next_stage_20261028/mainline/r2/BUDGET_SUCCESSOR14GPUH_USER_AUTHORIZATION_20261031.json",
     "central_readonly_restored_ref": "reports/cara_budget_four_card_central_readonly_r1_20261031.json",
     "prelaunch_source_prepared_ref": "reports/cara_budget_successor_source_prepared_r1_20261031.json",
     "prelaunch_admission_failure_ref": "reports/cara_budget_approved_two_admission_capture_r1_20261031.json",
     "current_modified_source_CPU_pending": false,
-    "summary": "修复后的新卡113项实际Linux CPU控制全部通过，1184文件固定源已在两卡独立阶段核对，64GiB卷与48MiB日志独立绑定。完整112路径/51次双FIT查询预计13.03253GPUh、硬限14；新GPU及该卡中央预约/结算尚待单独批准。原失败0/112及0.002315298GPUh唯一结算保留，未重派。",
-    "summary_ref": "reports/cara_budget_successor_review_ready_r1_20261031.json",
-    "current_GPU_state": "SUCCESSOR_PREPARED_NOT_AUTHORIZED_NOT_LAUNCHED",
-    "actual_GPU_launch_ref": "reports/cara_budget_single14_actual_dispatch_r1_20261031.json",
-    "actual_GPU_terminal_ref": "reports/cara_budget_single14_original_startup_r1_20261031.json",
-    "actual_GPU_settlement_ref": "reports/cara_budget_single14_central_settlement_recovery_r2_20261031.json",
-    "actual_GPUh": 0.002315298004800247,
+    "summary": "修复后新单次14GPUh获批，113项Linux CPU、20资产及实时资源/中央准入通过；10月31日16:45:04两卡A6000唯一启动，原四进程存活、runner独占CUDA通过。完整112路径/51双FIT查询，硬截止11月1日06:45:04；23:16半程、06:01终验已绑定。原失败与0.002315298GPUh结算保留，无部分科学结果。",
+    "summary_ref": "reports/cara_budget_successor_launch_summary_r1_20261031.json",
+    "current_GPU_state": "SUCCESSOR_ORIGINAL_RUNNING_SOLE_CUDA_VERIFIED",
+    "actual_GPU_launch_ref": "reports/cara_budget_successor_actual_dispatch_r1_20261031.json",
+    "actual_GPU_terminal_ref": null,
+    "actual_GPU_settlement_ref": null,
+    "actual_GPUh": null,
     "complete_search_accepted": false,
     "scientific_freeze_written": false,
     "original_single_GPU_authorization_consumed": true,
     "candidate_exec_handoff_CPU_ref": "reports/cara_budget_single14_exec_handoff_CPU_repair_r1_20261031.json",
     "candidate_whole_card_rebound": true,
-    "new_GPU_authorized": false,
-    "current_handoff_ref": "plans/cara_next_stage_20261028/mainline/r2/BUDGET_SUCCESSOR14GPUH_REVIEW_R1_20261031.md",
-    "current_check_schedule_ref": null,
+    "new_GPU_authorized": true,
+    "current_handoff_ref": "plans/cara_next_stage_20261028/mainline/r2/BUDGET_SUCCESSOR14_POST_LAUNCH_HANDOFF_20261031.md",
+    "current_check_schedule_ref": "reports/cara_budget_successor_acceptance_schedule_r1_20261031.json",
     "original_single14_authorization_ref": "plans/cara_next_stage_20261028/mainline/r2/BUDGET_SINGLE14GPUH_EXECUTION_BINDING_R2_20261031.json",
     "original_central_transaction_authorization_ref": "plans/cara_next_stage_20261028/mainline/r2/BUDGET_SINGLE14_CENTRAL_TRANSACTION_AUTHORIZATION_20261031.json",
     "successor_run_id": "cara-budget-calibration-14gpuh-r2-20261031",
     "successor_launch_id": "323ef0d5e8eb4a91a1c8a4ba47c24b18",
     "successor_CPU_acceptance_ref": "reports/cara_budget_successor_CPU_accepted_r2_20261031.json",
     "successor_CPU_controls": 113,
-    "successor_new_GPU_submissions": 0
+    "successor_new_GPU_submissions": 1,
+    "original_failed_single14": {
+      "launch_ref": "reports/cara_budget_single14_actual_dispatch_r1_20261031.json",
+      "terminal_ref": "reports/cara_budget_single14_original_startup_r1_20261031.json",
+      "settlement_ref": "reports/cara_budget_single14_central_settlement_recovery_r2_20261031.json",
+      "actual_GPUh": 0.002315298004800247
+    },
+    "current_authorization_consumed": true,
+    "current_actual_start_ref": "reports/cara_budget_successor_actual_start_accepted_r1_20261031.json",
+    "current_original_observation_ref": "reports/cara_budget_successor_original_startup_r2_20261031.json",
+    "current_central_reservation_ref": "reports/cara_budget_successor_central_reservation_r1_20261031.json",
+    "actual_started_local": "2026-10-31T16:45:04.590671+08:00",
+    "hard_deadline_local": "2026-11-01T06:45:04.590671+08:00",
+    "original_handles": {
+      "guardian": {
+        "pid": 2371752,
+        "start_ticks": 673120748,
+        "host_view": {
+          "boot_id": "13495735-f30b-47a2-af0a-2496f5206a0b",
+          "pid_namespace_inode": 4026531836
+        },
+        "original_command_sha256": "90b4aff9fa4dd0a3c5435e67c888e8abbcdd280ffa535ebe255787eb747e821e"
+      },
+      "container_cli": {
+        "pid": 2371839,
+        "start_ticks": 673120918,
+        "host_view": {
+          "boot_id": "13495735-f30b-47a2-af0a-2496f5206a0b",
+          "pid_namespace_inode": 4026531836
+        },
+        "original_command_sha256": "f941996f14e0be4de866aa8057e7dbc7b24f84aa63db3f3b358ef3a59d8fa3d3"
+      },
+      "supervisor": {
+        "host_view": {
+          "boot_id": "13495735-f30b-47a2-af0a-2496f5206a0b",
+          "pid_namespace_inode": 4026531836
+        },
+        "original_command_sha256": "ef50275e86291a6fc0d2f4e7b780a6ef19191c0e7e10bc074c166a17b3206294",
+        "pid": 2371899,
+        "start_ticks": 673120956
+      },
+      "runner": {
+        "host_view": {
+          "boot_id": "13495735-f30b-47a2-af0a-2496f5206a0b",
+          "pid_namespace_inode": 4026531836
+        },
+        "original_command_sha256": "a0441002055ae389a4a67197a02f999d6acd9bc6a968cbdd82de658743e2e59d",
+        "pid": 2371944,
+        "start_ticks": 673121069
+      }
+    },
+    "original_launch_sha256": "d7862675a7a046924371d17d1793c7921429d9089861cb21f47cc89c7eecd526",
+    "current_sole_runner_CUDA_verified": true,
+    "latest_operational_progress": {
+      "expected_physical_paths": 112,
+      "attempted_paths": 0,
+      "completed_paths": 0,
+      "free_bytes": 67032776704,
+      "scientific_scores_read": false
+    },
+    "latest_GPU_snapshot": {
+      "uuid": "GPU-cebf7119-cf03-23b9-e192-cd196332b704",
+      "name": "NVIDIA RTX A6000",
+      "compute_cap": "8.6",
+      "utilization_percent": 9,
+      "memory_used_mib": 24450,
+      "compute_mode": "Exclusive_Process",
+      "temperature_C": 59,
+      "pids": [
+        2371944
+      ],
+      "unix": 1793436461.1065109
+    }
   },
   "fast_SQ_original_runtime_intake_20261030": {
     "receipt_ref": "reports/cara_mainline_S_launch_Q1_complete_intake_r1_20261030.json",

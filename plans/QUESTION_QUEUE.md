@@ -115,3 +115,5 @@ S单次授权已接收：用户在S/Q原对话批准另一张A6000完整十条�
 [795原单次启动失败已结算](../research/795_CARA_SINGLE14_ORIGINAL_FAILED_SETTLED_AND_EXEC_HANDOFF_CPU_REPAIR_20261031.md)：单次14GPUh已于16:00:22在两卡按原授权唯一启动，runner在exec身份检查处退出，0/112路径、无CUDA就绪或科学结果。原8.335秒/0.002315298GPUh已唯一结算，容器和四原进程退出、锁释放、Default恢复；余额25.71345654，旧16.5保持。真实Linux CPU复现命令哈希随exec变化；候选修复及8项实际进程控制通过，原失败源不改、不自动重跑。
 
 [796新卡CPU与审阅](../research/796_CARA_SUCCESSOR113_CPU_SOURCE_AND_NEW_SINGLE14_REVIEW_20261031.md)：修复后的新卡113项实际Linux CPU控制全部通过，1184文件固定源已在两卡独立阶段核对，64GiB卷与48MiB日志独立绑定。完整112路径/51次双FIT查询预计13.03253GPUh、硬限14；新GPU及该卡中央预约/结算尚待单独批准。原失败0/112及0.002315298GPUh唯一结算保留，未重派。
+
+[797新单次14GPUh已启动](../research/797_CARA_SUCCESSOR_SINGLE14_ACTUAL_START_AND_CHECKS_20261031.md)：修复后新单次14GPUh获批，113项Linux CPU、20资产及实时资源/中央准入通过；10月31日16:45:04两卡A6000唯一启动，原四进程存活、runner独占CUDA通过。完整112路径/51双FIT查询，硬截止11月1日06:45:04；23:16半程、06:01终验已绑定。原失败与0.002315298GPUh结算保留，无部分科学结果。

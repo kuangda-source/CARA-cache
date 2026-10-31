@@ -1,4 +1,4 @@
-# 新单次14GPUh执行交接（已批准，尚待实际启动）
+# 新单次14GPUh执行交接（已实际唯一启动）
 
 用户明确批准“批准新单次 14 GPUh 及该卡原账本预约、结算”。完整112路径/51次双FIT查询，预计13.03253065964414GPUh，硬限14；仅两卡原A6000，cap226、旧16.5责任保持。
 
@@ -11,3 +11,7 @@ run `cara-budget-calibration-14gpuh-r2-20261031`；launch `323ef0d5e8eb4a91a1c8a
 实际开始后补原guardian/CLI/supervisor/runner PID与start ticks、launchSHA、容器身份、独占上下文和原账本预约。仅运维路径计数，无部分科学分数；实际起点后6.5h半程、13.25h终验、14h硬截止。成功失败均取原终态并唯一结算实耗，所有进程结束/释放后才按原完整接受入口验收112/51并一次冻结；不自动进入其它GPU卡。
 
 终态保存control status完整lifecycle；settle用原launch SHA/capture；未知只central-status恢复。完整结果用固定源 scripts/accept_cara_budget_complete_r1.py，原project/stage/capture/settlement和expected-launch-sha256，--freeze只一次；若失败不读部分赢家、不写科学冻结。保留原存储、容器、日志与失败。完成或真实失败收尾后删除多余自动检查。
+
+实际guardian开始：2026-10-31T16:45:04.590671+08:00；硬截止：2026-11-01T06:45:04.590671+08:00。launch SHA `d7862675a7a046924371d17d1793c7921429d9089861cb21f47cc89c7eecd526`。实际启动接受：reports/cara_budget_successor_actual_start_accepted_r1_20261031.json；四原PID/start ticks均在该回执。runner独占CUDA已核验，启动读取时0/112，52C。
+
+检查：半程14h于10月31日23:16，终验14h-2于11月1日06:01（Asia/Shanghai）；清单 reports/cara_budget_successor_acceptance_schedule_r1_20261031.json。原账本缓存 /tmp/successor14-central-operator-52fh798c，控制器settle必须传 --operator-receipt reports/cara_budget_successor_central_operator_ready_r3_20261031.json。预约后余额11.713456542526245GPUh；不是未来fresh余额。
