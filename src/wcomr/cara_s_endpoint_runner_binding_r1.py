@@ -93,10 +93,13 @@ def validate_inputs(project,stage):
             and profile['hosts']=={'two_card':dict(capability=[8,6],cpuset_cpus='24,25',minimum_MemAvailable_GiB=44)}
             and profile['storage']['output_image_bytes']==64*2**30
             and profile['storage']['independent_journal_bytes']==48*2**20
-            and profile['storage']['minimum_output_free_bytes']==4*2**30
-            and profile['storage']['minimum_host_free_bytes']==128*2**20
+            and profile['storage']['minimum_output_free_bytes']==(8 if card.get('endpoint7') else 4)*2**30
+            and profile['storage']['minimum_host_free_bytes']==(16*2**30 if card.get('endpoint7') else 128*2**20)
             and profile['storage']['minimum_free_inodes']==1024,
             'Pinned endpoint container/host/private storage required')
+    if card.get('endpoint7'):
+        require(profile.get('endpoint7') is True and profile['storage']['minimum_host_free_before_provision_bytes']==80*2**30,
+                'Selected46 private storage preparation floor required')
     proof=read_record(stage/'execution-CPU-proof.json')
     require(authority['CPU_proof_sha256']==sha(stage/'execution-CPU-proof.json')
             and proof['passed'] is True and proof['whole_card_CPU_accepted'] is True

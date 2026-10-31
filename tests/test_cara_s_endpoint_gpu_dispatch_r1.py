@@ -30,7 +30,7 @@ class DispatchTests(unittest.TestCase):
 
     def setUp(self):
         self.temp=tempfile.TemporaryDirectory();self.addCleanup(self.temp.cleanup)
-        self.f=Fixture(self.temp.name)
+        self.f=Fixture(self.temp.name,endpoint7=getattr(self,'endpoint7',False))
         for key in ('project','stage','auth','launch','reg','proof','quote','card'):
             setattr(self,key,getattr(self.f,key))
         for name in dispatch.REQUIRED:
@@ -40,8 +40,8 @@ class DispatchTests(unittest.TestCase):
         output=self.project/'outputs'/self.auth['run_id'];journal=self.project/'reports/fixture.journal'
         self.storage=SimpleNamespace(output=output,journal=SimpleNamespace(path=journal),check=lambda:None,
             config=dict(output_mount=str(output),image_path=str(self.project/'image.ext4'),image_bytes=64*2**30,
-                journal_path=str(journal),journal_bytes=48*2**20,minimum_output_free_bytes=4*2**30,
-                minimum_host_free_bytes=128*2**20,minimum_free_inodes=1024))
+                journal_path=str(journal),journal_bytes=48*2**20,minimum_output_free_bytes=self.f.profile['storage']['minimum_output_free_bytes'],
+                minimum_host_free_bytes=self.f.profile['storage']['minimum_host_free_bytes'],minimum_free_inodes=1024))
         self.identity=dict(pid=333,start_ticks=100,host_view=dict(boot_id='a'*36,pid_namespace_inode=9),
             original_command_sha256='c'*64)
         self.refresh()

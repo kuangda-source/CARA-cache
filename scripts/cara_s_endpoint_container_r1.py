@@ -20,7 +20,7 @@ def container_arguments(*,project,stage,storage,registration_sha,profile,host,ru
     resources=profile['GPU_container'];limits=profile['storage']
     if (profile['schema']!='CARA_ENDPOINT_CONTAINER_PROFILE_R1'
             or host!='two_card'
-            or not (profile['hard_GPUh']>600/3600 and (profile['physical_paths'],profile['new_scoring_pairs']) in ((32,12),(25,8)))
+            or not (profile['hard_GPUh']>600/3600 and (profile['physical_paths'],profile['new_scoring_pairs']) in (((46,16),) if profile.get('endpoint7') else ((32,12),(25,8))))
             or (resources['cpus'],resources['memory_GiB'],resources['memory_swap_GiB'])!=(2,40,40)
             or resources['pid_namespace']!='host' or resources['network']!='none'
             or resources['readonly_rootfs'] is not True or resources['supervisor_CUDA_visible'] is not False
@@ -28,6 +28,10 @@ def container_arguments(*,project,stage,storage,registration_sha,profile,host,ru
             or profile['hosts'][host]['cpuset_cpus']!='24,25'
             or (limits['output_image_bytes'],limits['independent_journal_bytes'])!=(64*2**30,48*2**20)):
         raise ValueError('Registered whole container and storage geometry required')
+    if profile.get('endpoint7') and (limits['minimum_output_free_bytes']!=8*2**30
+            or limits['minimum_host_free_bytes']!=16*2**30
+            or limits['minimum_host_free_before_provision_bytes']!=80*2**30):
+        raise ValueError('Selected46 storage floors differ from complete quote')
     config=storage.config
     if (storage.output!=project/'outputs'/run_id or config['output_mount']!=str(storage.output)
             or config['image_bytes']!=limits['output_image_bytes']

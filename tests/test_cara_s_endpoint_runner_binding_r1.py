@@ -45,6 +45,9 @@ class Fixture:
             endpoint_binding_sha256=self.bound['binding_sha256'],hard_GPUh=5.25,
             physical_paths=len(self.card['physical_matrix']),new_scoring_pairs=self.bound['counts']['unique_new_scoring_pairs'])
         self.profile['hosts']={'two_card':self.profile['hosts']['two_card']}
+        if endpoint7:
+            self.profile['endpoint7']=True
+            self.profile['storage'].update(minimum_output_free_bytes=8*2**30,minimum_host_free_bytes=16*2**30,minimum_host_free_before_provision_bytes=80*2**30)
         self.profile.pop('candidate_queries')
         configs={binding.CARD:self.card,binding.BINDING:self.bound,binding.PROPOSAL:self.proposal,binding.PROFILE:self.profile}
         required=binding.REQUIRED+(('src/wcomr/cara_endpoint7_binding_r1.py','src/wcomr/cara_endpoint7_plan_r1.py') if endpoint7 else ())
