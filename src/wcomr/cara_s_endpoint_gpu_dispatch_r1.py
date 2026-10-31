@@ -13,7 +13,8 @@ import time
 
 from .cara_s_endpoint_lifecycle_r1 import IDENTITY,JOB_IDENTITY
 from .cara_s_endpoint_runner_binding_r1 import validate_inputs,validate,RUNNER,PROFILE
-from .cara_budget_dispatch_r1 import central_binding,fresh_resources,recover,ASSETS
+from .cara_budget_dispatch_r1 import central_binding,fresh_resources as common_fresh_resources,recover,ASSETS
+from .cara_s_endpoint_reuse_admission_r1 import verify_stage as verify_reuse_stage,SOURCE as REUSE_SOURCE,ORIGINAL_SCORES
 from .cara_budget_guardian_journal_r1 import encoded_sha
 from .cara_budget_original_handles_r1 import bind_original_process
 from .cara_budget_search_journal_r1 import create_record,read_record
@@ -26,7 +27,7 @@ SOURCE='src/wcomr/cara_s_endpoint_gpu_dispatch_r1.py'
 GUARDIAN='scripts/cara_s_endpoint_host_entry_r1.py'
 CLI='scripts/cara_s_endpoint_gpu_dispatch_r1.py'
 ENDPOINT_IDENTITY=('physical_paths','endpoint_binding_sha256','original_budget_freeze_sha256')
-REQUIRED=(SOURCE,GUARDIAN,CLI,ASSETS,
+REQUIRED=(SOURCE,GUARDIAN,CLI,ASSETS,REUSE_SOURCE,ORIGINAL_SCORES,
     'src/wcomr/cara_budget_dispatch_r1.py','src/wcomr/cara_budget_runner_binding_r1.py',
     'src/wcomr/cara_budget_lifecycle_capture_r1.py','src/wcomr/cara_budget_guardian_journal_r1.py',
     'src/wcomr/cara_s_endpoint_host_guardian_r1.py','src/wcomr/cara_s_endpoint_guardian_journal_r1.py',
@@ -46,6 +47,13 @@ def ready_inputs(project,stage):
     require(encoded_sha(registration)==sha(Path(stage)/'registration.json'),
             'Registration serialization must match original guardian bytes')
     return result
+
+
+def fresh_resources(project,stage,authority,profile):
+    reuse=verify_reuse_stage(stage)
+    storage,resources=common_fresh_resources(project,stage,authority,profile)
+    resources['original_endpoint_reuse']=reuse
+    return storage,resources
 
 
 def frozen_commands(project,stage,registration,authority,profile,storage):

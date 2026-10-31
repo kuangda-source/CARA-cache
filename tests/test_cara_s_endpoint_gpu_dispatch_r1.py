@@ -35,7 +35,8 @@ class DispatchTests(unittest.TestCase):
             setattr(self,key,getattr(self.f,key))
         for name in dispatch.REQUIRED:
             target=self.stage/name;target.parent.mkdir(parents=True,exist_ok=True)
-            target.write_bytes((ROOT/name).read_bytes());self.reg['payload_sha256'][name]=sha(target)
+            source=ROOT/('reports/cara_fast_B36_complete_scores_accepted_r1_20261029.json' if name==dispatch.ORIGINAL_SCORES else name)
+            target.write_bytes(source.read_bytes());self.reg['payload_sha256'][name]=sha(target)
         output=self.project/'outputs'/self.auth['run_id'];journal=self.project/'reports/fixture.journal'
         self.storage=SimpleNamespace(output=output,journal=SimpleNamespace(path=journal),check=lambda:None,
             config=dict(output_mount=str(output),image_path=str(self.project/'image.ext4'),image_bytes=64*2**30,
@@ -98,7 +99,7 @@ class DispatchTests(unittest.TestCase):
                  patch.object(admission,'observe',return_value=hardware or observation),\
                  patch.object(Path,'read_text',return_value='MemAvailable: '+str(memory*2**20)+' kB\n'),\
                  patch.object(os,'sched_getaffinity',return_value=set(affinity),create=True):
-                return dispatch.fresh_resources(self.project,self.stage,self.auth,profile)
+                return admission.fresh_resources(self.project,self.stage,self.auth,profile)
         self.assertEqual(check()[1]['MemAvailable_bytes'],48*2**30)
         failures=[dict(gpu_override=dict(gpu,temperature_C=90)),dict(gpu_override=dict(gpu,pids=[999])),
             dict(gpu_override=dict(gpu,compute_cap='8.9')),dict(gpu_override=dict(gpu,memory_used_mib=1025)),
