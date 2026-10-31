@@ -2,7 +2,7 @@
 
 # CARA-Cache 当前状态
 
-[805 — 端点守护链Linux CPU接受](805_CARA_ENDPOINT_GUARDIAN_LINUX_CPU_ACCEPTANCE_20261031.md)：原Tailscale/SSH通路已成功完成两卡源码核验、CPU启动与原终态取回。新端点守护链R2在两卡的独立禁GPU容器正常退出，19项Linux CPU控制通过，随后11项独立验收控制通过；没有GPU提交、中央账本访问或原14GPUh运行修改。完整端点卡仍未接受，实际预算mask等待原112路径/51次双FIT查询完整验收后一次冻结。
+[806 — 端点完整工件与跨运行评分清单CPU接受](806_CARA_ENDPOINT_ARTIFACT_AND_CROSS_SCOPE_CPU_ACCEPTANCE_20261031.md)：完整释放后的工件身份门和跨运行评分清单组件通过两卡25项CPU控制（15项元数据控制、两种完整物理范围、八项真实视频错误控制），随后11项独立接受控制通过。实际PyAV读取完整32及去重25的新合成视频、每组四份合成旧Native参考，共65份视频/6,045帧；九项RGB控制每组全部通过。保留两侧原scope，十二份旧指标对象原样引用；本轮未计算新指标、未读原实验视频、未派GPU或访问中央账本。
 
 **2026-10-28最新安排：主线P0/F19，探索S-FAST19与固定Shared25-C的Q并行准备。** [最新计划与两个对话分工](../plans/cara_next_stage_20261028/08_REPOSITORY_RECONCILIATION.md) · [739接收记录](739_CARA_NEXT_STAGE_FAST_SQ_PLAN_AND_CHAT_HANDOFF_20261028.md)。A32已完整验收并冻结；B36已获单次批准，实际状态以原运行记录为准。WC73已热停结算，禁止自动重派；原DEV128、旧合同与失败保持。以下旧准备记录仅作历史复用依据。
 
