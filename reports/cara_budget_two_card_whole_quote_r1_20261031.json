@@ -1,0 +1,49 @@
+{
+  "status": "TWO_CARD_COMPLETE_ENGINEERING_QUOTE_ACCEPTED_PENDING_USER_AND_FRESH_ADMISSION",
+  "observed_unix": 1793427731.166806,
+  "whole_quote_accepted": true,
+  "scope_sha256": "8a9f386932f798d30f4f0aa749d45f098f2e8188ff2e9f216e567ab40f620739",
+  "execution_host_policy_sha256": "9083b1594ae89e9f79057cd04353328c0db8c255276a76bef44956af393eb199",
+  "source_revision": "cc5f38a1233d565158783e3152c06c58516d633b",
+  "host_quotes": {
+    "two_card": {
+      "physical_paths": 112,
+      "candidate_queries": 51,
+      "hard_GPUh": 14,
+      "forecast_GPUh": 13.03253065964414,
+      "components_seconds": {
+        "generation": 35997.110374718904,
+        "path_artifacts_and_objectives": 6720,
+        "producer_final_full_readback": 1800,
+        "admission_and_model_load": 1800,
+        "stop_and_release": 600
+      },
+      "evidence_refs": [
+        "reports/cara_budget_private_RGB_CPU_accepted_r1_20261031.json",
+        "reports/cara_budget_two_RGB_cost_CPU_accepted_r1_20261031.json",
+        "plans/cara_next_stage_20261028/mainline/r2/BUDGET_CALIBRATION_14GPUH_DESIGN_R1.json",
+        "reports/cara_budget_calibration_cost_basis_r1_20261030.json",
+        "reports/cara_budget_current_CPU_two_R4_accepted_r1_20261031.json",
+        "reports/cara_budget_two_card_policy_CPU_accepted_r1_20261031.json",
+        "reports/cara_budget_dispatch_child_CPU_accepted_r1_20261031.json",
+        "reports/cara_budget_two_card_private_storage_accepted_r1_20261031.json"
+      ],
+      "hard_limit_margin_seconds": 3482.8896252810955,
+      "assumptions": [
+        "Generation uses the slowest historical A6000 Native full request for every path; this is a conservative proxy, not a proven bound.",
+        "6720s covers path artifacts, initial objectives and unmeasured GPU-to-CPU transfer; full-size IO uses the slower observation from the original shared directory and accepted private-volume probe.",
+        "1800s final producer readback includes102 candidate RGB checks/objectives plus generation-payload hashing and metadata/storage scans; private NPY and backing-image page residency was zero before the measured read, but one observation is not a universal disk bound.",
+        "Admission/model loading1800s and stop/release600s are planning allowances, not current-host measurements.",
+        "Postrelease acceptance and once-freeze are CPU work after the original GPU is released; do not add them to the allocation clock twice."
+      ]
+    }
+  },
+  "basis_ref": "reports/cara_budget_two_card_complete_quote_draft_r2_20261031.json",
+  "basis_sha256": "8dd031dcfbd348d64f521fc9fca2a3b1beaebc04160c560455f0d30d8e611710",
+  "accepted_as": "Complete engineering forecast with explicitly unmeasured allowances; not a performance guarantee or authorization",
+  "matched_actual_spend_with_S": false,
+  "execution_authorized": false,
+  "GPU_dispatch_ready": false,
+  "GPU_submissions": 0,
+  "ledger_written": false
+}

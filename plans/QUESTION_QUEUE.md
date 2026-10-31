@@ -107,3 +107,5 @@ S单次授权已接收：用户在S/Q原对话批准另一张A6000完整十条�
 [791两卡私有存储实际接受](../research/791_CARA_TWO_CARD_PRIVATE_STORAGE_ACCEPTED_20261031.md)：两卡64GiB私有卷及独立48MiB控制日志已实际创建并复核，原进程结束，输出为空。六项本地控制通过，首次部署导入失败原件保留；未使用GPU、未访问四卡。下一步补私有卷完整RGB读回与报价；中央唯一账本fresh准入及14GPUh批准仍待。
 
 [792两卡私有RGB读写与费用](../research/792_CARA_TWO_CARD_PRIVATE_RGB_IO_AND_COMPLETE_QUOTE_20261031.md)：两卡私有卷完整93帧RGB读写已接受，原CPU容器正常退出；清除文件及镜像缓存后两数组读回校验4.27秒、MSE0.55秒。六个合成文件按SHA清理，输出恢复为空，独立日志未写入。完整费用仍预计13.03253GPUh/硬限14；继续整卡CPU证据组合，中央fresh准入和实际批准仍待。
+
+[793两卡完整CPU与单次14GPUh审阅](../research/793_CARA_TWO_CARD_WHOLE_CPU_AND_SINGLE14GPUH_REVIEW_20261031.md)：两卡完整CPU证据按原回执及发布源组合接受，1181文件对应cc5f38a1；完整工程报价13.03253GPUh/硬限14，单次112路径/51双FIT查询审阅卡已就绪。实际启动待用户批准及中央唯一账本fresh核验；四卡维护期间不访问、不复制历史账本，未新派GPU。

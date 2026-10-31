@@ -2,7 +2,7 @@
 
 # CARA-Cache
 
-[792两卡私有RGB读写与费用更新](research/792_CARA_TWO_CARD_PRIVATE_RGB_IO_AND_COMPLETE_QUOTE_20261031.md)：两卡私有卷完整93帧RGB读写已接受，原CPU容器正常退出；清除文件及镜像缓存后两数组读回校验4.27秒、MSE0.55秒。六个合成文件按SHA清理，输出恢复为空，独立日志未写入。完整费用仍预计13.03253GPUh/硬限14；继续整卡CPU证据组合，中央fresh准入和实际批准仍待。
+[793两卡完整CPU与单次14GPUh审阅](research/793_CARA_TWO_CARD_WHOLE_CPU_AND_SINGLE14GPUH_REVIEW_20261031.md)：两卡完整CPU证据按原回执及发布源组合接受，1181文件对应cc5f38a1；完整工程报价13.03253GPUh/硬限14，单次112路径/51双FIT查询审阅卡已就绪。实际启动待用户批准及中央唯一账本fresh核验；四卡维护期间不访问、不复制历史账本，未新派GPU。
 
 **2026-10-28最新安排：主线P0/F19，探索S-FAST19与固定Shared25-C的Q并行准备。** [最新计划与两个对话分工](plans/cara_next_stage_20261028/08_REPOSITORY_RECONCILIATION.md) · [739接收记录](research/739_CARA_NEXT_STAGE_FAST_SQ_PLAN_AND_CHAT_HANDOFF_20261028.md)。A32已完整验收并冻结；B36已获单次批准，实际状态以原运行记录为准。WC73已热停结算，禁止自动重派；原DEV128、旧合同与失败保持。以下旧准备记录仅作历史复用依据。
 
