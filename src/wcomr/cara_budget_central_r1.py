@@ -15,7 +15,7 @@ from .cara_budget_host_policy_r1 import HOSTS, POLICY_SHA256
 
 RUN='cara-budget-calibration-14gpuh-r1-20261030'
 STAGES={'four_card':'cara-budget-calibration-GPU-ada-r1-20261030',
-        'two_card':'cara-budget-calibration-GPU-a6000-r1-20261030'}
+        'two_card':'cara-budget-calibration-GPU-a6000-r2-20261031'}
 SOURCE='src/wcomr/cara_budget_central_r1.py'
 
 
