@@ -2,7 +2,7 @@
 
 # CARA-Cache 当前交接
 
-[808 — 端点评分原容器恢复与完整接受CPU验证](../../research/808_CARA_ENDPOINT_SCORE_CONTAINER_RECOVERY_CPU_20261031.md)：新端点评分的只读原容器恢复组件通过两卡27项CPU控制，随后12项独立终态接受检查通过。真实Linux子进程验证原CLI、原评分进程退出与host view，Docker状态和评分数值保持显式合成夹具。R2启动回执曾超时，随后只读恢复同一个容器的退出/0终态，未重派。本轮没有指标计算、原实验输出读取、GPU派发或中央账本访问。
+[809 — 端点评分一次派发与有界监督CPU验证](../../research/809_CARA_ENDPOINT_SCORE_ONCE_DISPATCH_CPU_20261031.md)：新端点评分的一次性CPU容器派发、原意图恢复和有界监督组件通过两卡21项CPU控制，随后13项独立终态接受检查通过。真实Linux子进程覆盖七种生命周期，包含超时停止、前置/评分失败、未知连接恢复和错误容器拒绝；内部Docker与评分数值为显式夹具。启动回执超时后仅恢复原stage，原容器正常退出。本轮没有新增指标计算、GPU派发、原实验输出读取或中央账本访问。
 
 **2026-10-28最新安排：主线P0/F19，探索S-FAST19与固定Shared25-C的Q并行准备。** [最新计划与两个对话分工](../../plans/cara_next_stage_20261028/08_REPOSITORY_RECONCILIATION.md) · [739接收记录](../../research/739_CARA_NEXT_STAGE_FAST_SQ_PLAN_AND_CHAT_HANDOFF_20261028.md)。A32已完整验收并冻结；B36已获单次批准，实际状态以原运行记录为准。WC73已热停结算，禁止自动重派；原DEV128、旧合同与失败保持。以下旧准备记录仅作历史复用依据。
 
