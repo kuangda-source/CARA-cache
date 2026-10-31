@@ -42,7 +42,7 @@ def packet(project,write_media,decode,*,alias=False,shape=(93,64,64,3),flow=True
     known={}
 
     def media(path,member,role):
-        path.parent.mkdir(parents=True,exist_ok=True);write_media(path,member+'|'+role)
+        write_media(path,member+'|'+role)
         descriptor=dict(path=str(path),bytes=path.stat().st_size,sha256=sha(path))
         args=json.loads(path.with_suffix('.json').read_text())
         return descriptor,args

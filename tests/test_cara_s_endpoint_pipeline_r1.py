@@ -27,6 +27,20 @@ class Pipeline(unittest.TestCase):
         self.assertEqual(len({s['id'] for s in slots}),16)
         self.assertEqual(sum(s['section']=='A_ANCHOR' for s in slots),2)
 
+    def test_historical_writer_owns_exclusive_output_directory(self):
+        import json
+        from check_cara_s_endpoint_pipeline_fixture_r1 import packet
+        seen=[]
+        def writer(path,tag):
+            self.assertFalse(path.parent.exists())
+            path.parent.mkdir(parents=True)
+            path.write_bytes(b'CPU descriptor fixture')
+            path.with_suffix('.json').write_text(json.dumps({'name':tag.split('|')[0]}))
+            seen.append(tag)
+        result=packet(self.out/'fixture',writer,lambda descriptor,shape:dict(RGB_sha256='a'*64))
+        self.assertEqual(len(seen),16)
+        self.assertNotIn('collection',result['capture']['files'])
+
     def test_wrong_scope_before_intent(self):
         self.context['scope_sha256']='c'*64
         with self.assertRaises(ValueError):self.collect()

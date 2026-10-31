@@ -161,6 +161,7 @@ def body(inference,selected,wc,rf,common,unused_initial,profile,root,native,flow
             assert result['status']=='COMPLETE' and result['video_path']==str(path)
             cached[key]=path
         else:
+            path.parent.mkdir(parents=True)
             for suffix in ('.mp4','.json'):shutil.copyfile(cached[key].with_suffix(suffix),path.with_suffix(suffix))
     try:
         with clean.patched(model.tokenizer,'decode',decoder),clean.patched(inference_module,'save_img_or_video',write_video):
