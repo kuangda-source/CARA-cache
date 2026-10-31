@@ -17,3 +17,9 @@ run `cara-budget-calibration-14gpuh-r2-20261031`；launch `323ef0d5e8eb4a91a1c8a
 原启动排程：半程14h于10月31日23:16，终验14h-2于11月1日06:01（Asia/Shanghai）；清单 reports/cara_budget_successor_acceptance_schedule_r1_20261031.json。原账本缓存 /tmp/successor14-central-operator-52fh798c，控制器settle必须传 --operator-receipt reports/cara_budget_successor_central_operator_ready_r3_20261031.json。预约后余额11.713456542526245GPUh；不是未来fresh余额。
 
 半程已于2026-10-31 23:24:49实际检查：104/112完成、105条已尝试，原四PID/start ticks存活，原runner独占CUDA，76C，容器23.49/40GiB且无额外swap，输出盘剩余28,436,410,368字节。中央本卡仍唯一预约14GPUh，cap226、旧16.5保持，本轮未写账本。仅按6.662542小时墙钟和剩余8条估计23:55完成，已将同一个14h-2终验前移到2026-11-01 00:10；这只是运维估算，实际硬截止06:45:04.590671不变。半程14h已删除。原运行仍活跃，未读取部分科学结果、未结算或冻结。详见 reports/cara_budget_successor_halfway_summary_r1_20261031.json 和 cara_budget_successor_halfway_check_cleanup_r1_20261031.json。
+
+2026-11-01终验承接：原GPU于10月31日23:56:56.112259退出释放，完整112/112、退出0、四原句柄结束、锁释放及Default恢复。原guardian实耗7.197644817485577GPUh已中央唯一结算；原终态 reports/cara_budget_successor_final_capture_r1_20261101.json、结算 cara_budget_successor_final_settlement_r1_20261101.json、释放独立接受 cara_budget_successor_final_release_accepted_r1_20261101.json。不得重复结算或启动GPU。
+
+完整CPU读者已于11月1日00:18:07唯一启动：stage `/data20t/gaokuangda/worldcache_workspace/.sync/cara-budget-successor-accept-CPU-a6000-r1-20261101`，容器同名加`-cpu`；容器PID2654005、reader PID2654036/start ticks675839119。2CPU/8GiB、零额外swap、network none、GPU隐藏，3600秒工作上限。首轮握手失败后，先明确stage/精确容器均不存在才执行首次CPU启动；原失败与缺席回执保留。最新原句柄 reports/cara_budget_successor_final_CPU_capture_r3_20261101.json；只运行 `python3 scripts/cara_budget_successor_accept_transport_r1.py capture --output 新回执.json`，禁止prepare或重复派CPU。
+
+该CPU容器调用原GPU stage固定源的 `accept_cara_budget_complete_r1.py --freeze`，完整原RGB/生成工件/51查询通过后才一次冻结。00:20观察原reader仍活跃，未取最终分数。若成功，capture返回accepted/frozen/collection原始字节与SHA，保存并汇总即可，禁止重跑读者。若失败保留原终态、不得假定赢家接受。14h-2已调整为11月1日00:30继续恢复，完整接受或真实失败收尾后删除；半程14h已删除。汇总 reports/cara_budget_successor_GPU_settled_CPU_running_r1_20261101.json。

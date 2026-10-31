@@ -87,17 +87,31 @@ if p['action']=='prepare' and not cpu.exists():
  create_record(cpu/'dispatch.json',dict(returncode=response.returncode,stdout=response.stdout,stderr=response.stderr,observed_unix=time.time()))
  assert response.returncode==0,response.stderr
  created=True;existing=inspect()
-result=dict(status='ORIGINAL_COMPLETE_READER_CPU_RECOVERY',stage=str(cpu),container=existing,new_CPU_submission=created,GPU_submissions=0,ledger_written=False,observed_unix=time.time())
+result=dict(status='ORIGINAL_COMPLETE_READER_CPU_RECOVERY',stage=str(cpu),stage_exists=cpu.exists(),container=existing,new_CPU_submission=created,GPU_submissions=0,ledger_written=False,observed_unix=time.time())
 if cpu.exists():
  result['files']={n:dict(sha256=sha(cpu/n),value=json.loads((cpu/n).read_text())) for n in ['plan.json','dispatch.json','release-accepted.json','reader-start.json','reader-terminal.json'] if (cpu/n).exists()}
+ if (cpu/'plan.json').exists():
+  plan=json.loads((cpu/'plan.json').read_text())
+  assert plan['stage']==str(stage) and plan['source_revision']==p['source_revision'] and plan['launch_sha256']==p['launch_sha256']
+  assert sha(cpu/'worker.py')==plan['worker_sha256']==p['worker_sha256']
+ if existing is not None:
+  assert (cpu/'plan.json').exists()
+  host=existing['HostConfig'];original=json.loads((stage/'GPU-launch.json').read_text())
+  assert existing['Image']==reg['container_image'] and existing['Config']['Labels']['wcomr.original-launch']==original['launch_id']
+  assert not host['DeviceRequests'] and host['Memory']==host['MemorySwap']==8*2**30 and host['NanoCpus']==2*10**9
+  assert host['NetworkMode']=='none' and host['ReadonlyRootfs'] and host['CpusetCpus']=='26,27'
  if (cpu/'reader-start.json').exists():result['reader_observation']=observe_original_process(json.loads((cpu/'reader-start.json').read_text())['identity'])
  if existing is not None and not existing['State']['Running'] and existing['State']['Pid']==0:
   if (cpu/'reader.log').exists():result['log_tail']=(cpu/'reader.log').read_text(errors='replace')[-4000:]
   if existing['State']['ExitCode']==0 and (cpu/'accepted.json').exists():
    accepted=json.loads((cpu/'accepted.json').read_text());frozen=pathlib.Path(accepted['freeze_path'])
+   assert accepted['complete_search_accepted'] and accepted['complete_physical_paths']==112 and accepted['complete_two_FIT_queries']==51
    assert sha(frozen)==accepted['freeze_sha256']
    result['accepted']=dict(sha256=sha(cpu/'accepted.json'),raw_utf8=(cpu/'accepted.json').read_text(),value=accepted)
    result['frozen']=dict(sha256=sha(frozen),raw_utf8=frozen.read_text(),value=json.loads(frozen.read_text()))
+   collection=root/'outputs'/accepted['run_id']/'calibration-collection.json'
+   assert sha(collection)==accepted['collection_sha256']
+   result['collection']=dict(sha256=sha(collection),raw_utf8=collection.read_text(),value=json.loads(collection.read_text()))
 print(json.dumps(result))
 '''
 

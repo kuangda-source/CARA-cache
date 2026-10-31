@@ -1,0 +1,17 @@
+{
+  "status": "CPU_RECOVERY_TRANSPORT_CONTROLS_PASSED",
+  "checks": 6,
+  "failures": 0,
+  "scope": "Local simulated metadata and Docker inspection; no GPU, remote command, numerical acceptance or science",
+  "command": "python3 -m unittest discover -s tests -p test_cara_budget_successor_accept_transport_r1.py -v",
+  "source_sha256": "ef55c9aab25f0a1c0a965f350a6e7186daec95d898b23d352ce81686c159c116",
+  "tests_sha256": "58d71edd7f884451c2af824518a9a9e6f8d066e3dd94bdc8db71cc0f15d54ffe",
+  "controls": [
+    "absent_capture_does_not_create",
+    "existing_prepare_recovery_only",
+    "directory_without_container_not_replayed",
+    "GPU_device_refused",
+    "changed_worker_refused",
+    "other_launch_refused"
+  ]
+}

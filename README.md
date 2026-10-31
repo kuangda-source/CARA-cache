@@ -2,7 +2,7 @@
 
 # CARA-Cache
 
-[813 — 端点复用资产准入与入口失败收尾CPU接受](research/813_CARA_ENDPOINT_REUSE_ADMISSION_AND_ENTRY_FAILURE_CPU_20261031.md)：端点复用资产准入及入口失败收尾已通过两卡CPU验证：48项控制检查与16项独立验收检查通过，原R2容器退出0、无OOM。已只读核对16段原视频及16份参数文件，共14,106,043字节，全部与原哈希一致；12份旧评分未重算。修复了环境初始化失败时记录停留在模型加载中的缺口，入口控制测试使用明确的模型/CUDA替身。没有新增GPU提交、部分科学结果读取或中央账本写入。
+[816 — 预算GPU完整结算，CPU验收运行中](research/816_CARA_BUDGET_SUCCESSOR_GPU_SETTLED_CPU_ACCEPTANCE_RUNNING_20261101.md)：预算搜索原GPU完整112/112退出释放，实耗7.197644817GPUh已唯一结算。固定源完整112/51的CPU读者00:18:07唯一启动，00:20仍活跃，赢家尚未完整接受冻结。同一个14h-2在00:30恢复原CPU；不重派、不重复计费。
 
 **2026-10-28最新安排：主线P0/F19，探索S-FAST19与固定Shared25-C的Q并行准备。** [最新计划与两个对话分工](plans/cara_next_stage_20261028/08_REPOSITORY_RECONCILIATION.md) · [739接收记录](research/739_CARA_NEXT_STAGE_FAST_SQ_PLAN_AND_CHAT_HANDOFF_20261028.md)。A32已完整验收并冻结；B36已获单次批准，实际状态以原运行记录为准。WC73已热停结算，禁止自动重派；原DEV128、旧合同与失败保持。以下旧准备记录仅作历史复用依据。
 

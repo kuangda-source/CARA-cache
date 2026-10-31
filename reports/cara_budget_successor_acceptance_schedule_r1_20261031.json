@@ -1,5 +1,5 @@
 {
-  "status": "HALF_COMPLETED_DELETED_SAME_FINAL_ADVANCED_FROM_COUNTS",
+  "status": "GPU_COMPLETE_SETTLED_SAME_FINAL_CONTINUES_ORIGINAL_CPU",
   "launch_id": "323ef0d5e8eb4a91a1c8a4ba47c24b18",
   "actual_started_local": "2026-10-31T16:45:04.590671+08:00",
   "hard_deadline_local": "2026-11-01T06:45:04.590671+08:00",
@@ -14,16 +14,25 @@
   },
   "final": {
     "automation_id": "14h-2",
-    "scheduled_local": "2026-11-01T00:10:00+08:00",
-    "rrule": "FREQ=DAILY;BYHOUR=0;BYMINUTE=10;BYSECOND=0;COUNT=1",
-    "automation_config_sha256": "998a9301fe44ad9eec6ca14703803899b2a47c432a2c64ebdf076933fa0d4e0f",
+    "scheduled_local": "2026-11-01T00:30:00+08:00",
+    "rrule": "FREQ=DAILY;BYHOUR=0;BYMINUTE=30;BYSECOND=0;COUNT=1",
+    "automation_config_sha256": "6ee8676313923beaae42162f02522268d030918efac68b3e62d88c1b8c824cbb",
     "original_schedule": {
       "scheduled_local": "2026-11-01T06:01:00+08:00",
       "rrule": "FREQ=DAILY;BYHOUR=6;BYMINUTE=1;BYSECOND=0;COUNT=1",
       "automation_config_sha256": "0fd292b6b09db047ae443c151f9ad1cf7d2cbba0bcf3210c756c367339b10d54"
     },
-    "status": "ACTIVE",
-    "advance_basis_ref": "reports/cara_budget_successor_halfway_summary_r1_20261031.json"
+    "status": "ACTIVE_RECOVER_ORIGINAL_CPU_ONLY",
+    "advance_basis_ref": "reports/cara_budget_successor_halfway_summary_r1_20261031.json",
+    "completed_check_attempts": [
+      {
+        "scheduled_local": "2026-11-01T00:10:00+08:00",
+        "GPU_terminal_ref": "reports/cara_budget_successor_final_capture_r1_20261101.json",
+        "CPU_operational_ref": "reports/cara_budget_successor_final_CPU_capture_r3_20261101.json",
+        "outcome": "GPU_SETTLED_CPU_ORIGINAL_RUNNING"
+      }
+    ],
+    "continuation_ref": "reports/cara_budget_successor_GPU_settled_CPU_running_r1_20261101.json"
   },
   "unchanged_silent": true,
   "delete_after_complete": true,
