@@ -19,8 +19,16 @@ def encoded_sha(value):return hashlib.sha256((json.dumps(value,indent=2)+'\n').e
 
 
 def accept(captured,launched):
-    require(captured['exit_code']==launched['exit_code']==0,'Original launch and capture required')
-    c,l=captured['result'],launched['result']
+    require(captured['exit_code']==0,'Original capture required')
+    c=captured['result'];recovered=launched['exit_code']!=0
+    require(launched['action']=='prepare' and launched['host']=='two_card' and launched['stage_name']==STAGE,
+            'Original prepare binding required')
+    if recovered:
+        require(launched['result'] is None and launched['unknown_requires_original_capture'] is True,
+                'Unknown transport must retain its original prepare binding')
+        l=c['launch']
+        require(l['started_unix']>=launched['started_unix'],'Recovered launch predates original prepare')
+    else:l=launched['result']
     reg,proof,state=c['registration'],c['CPU_proof'],c['container_state']
     require(c['launch']==l and l['host']=='two_card' and Path(l['stage']).name==STAGE
             and l['container']==STAGE+'-cpu','Original endpoint CPU identity differs')
@@ -71,7 +79,7 @@ def accept(captured,launched):
     require(proof['whole_GPU_card_accepted'] is False and proof['active_experiment_outputs_read'] is False
             and actual['original_experiment_outputs_read'] is False,'CPU-only scope differs')
     return dict(status='ENDPOINT_SCORE_RECOVERY_CPU_ACCEPTED_NOT_WHOLE_CARD',observed_unix=time.time(),
-        source_revision=revision,launch=l,container_state=state,host_config=LIMITS,
+        source_revision=revision,launch=l,launch_recovered_from_original_capture=recovered,container_state=state,host_config=LIMITS,
         registration_sha256=c['registration_sha256'],CPU_proof_sha256=c['CPU_proof_sha256'],
         total_controls_passed=27,metadata_controls_passed=22,actual_process_controls_passed=5,
         CPU_wall_seconds=proof['ended_unix']-proof['started_unix'],actual_original_Linux_processes=True,

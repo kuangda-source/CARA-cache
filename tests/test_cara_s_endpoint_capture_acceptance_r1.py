@@ -52,5 +52,15 @@ class RecoveryAcceptance(unittest.TestCase):
     def test_no_new_metrics(self):
         self.reject(lambda c:c['CPU_proof'].update(metric_computations=12),'must not be claimed',True)
 
+    def test_original_unknown_prepare_only(self):
+        launch=copy.deepcopy(self.launch);launch['stage_name']='some-other-stage'
+        with self.assertRaisesRegex(ValueError,'prepare binding'):accept(self.capture,launch)
+
+    def test_no_recovered_launch_before_intent(self):
+        launch=copy.deepcopy(self.launch)
+        launch.update(exit_code=-9,result=None,unknown_requires_original_capture=True,
+                      started_unix=self.capture['result']['launch']['started_unix']+1)
+        with self.assertRaisesRegex(ValueError,'predates'):accept(self.capture,launch)
+
 
 if __name__=='__main__':unittest.main()

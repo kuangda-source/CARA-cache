@@ -2,7 +2,7 @@
 
 # CARA-Cache 当前状态
 
-[807 — 跨运行端点真实评分CLI与完整24接受CPU验证](807_CARA_ENDPOINT_ACTUAL_SCORING_CPU_ACCEPTANCE_20261031.md)：新端点评分CLI和完整24逻辑位置接受组件通过两卡19项CPU控制，随后12项独立CPU终态接受控制通过。实际原Alex权重/PIQ0.8.0与原Fidelity-v2内核完成十二对及八对两种完整合成评分；另一个失败夹具完成一对后因下一视频SHA变化停止，仍保留十二对分母。三个原输出及执行意图均拒绝重跑。本轮未重评原实验视频、未产生新科学结果、未派GPU或访问中央账本。
+[808 — 端点评分原容器恢复与完整接受CPU验证](808_CARA_ENDPOINT_SCORE_CONTAINER_RECOVERY_CPU_20261031.md)：新端点评分的只读原容器恢复组件通过两卡27项CPU控制，随后12项独立终态接受检查通过。真实Linux子进程验证原CLI、原评分进程退出与host view，Docker状态和评分数值保持显式合成夹具。R2启动回执曾超时，随后只读恢复同一个容器的退出/0终态，未重派。本轮没有指标计算、原实验输出读取、GPU派发或中央账本访问。
 
 **2026-10-28最新安排：主线P0/F19，探索S-FAST19与固定Shared25-C的Q并行准备。** [最新计划与两个对话分工](../plans/cara_next_stage_20261028/08_REPOSITORY_RECONCILIATION.md) · [739接收记录](739_CARA_NEXT_STAGE_FAST_SQ_PLAN_AND_CHAT_HANDOFF_20261028.md)。A32已完整验收并冻结；B36已获单次批准，实际状态以原运行记录为准。WC73已热停结算，禁止自动重派；原DEV128、旧合同与失败保持。以下旧准备记录仅作历史复用依据。
 
