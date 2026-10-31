@@ -2,7 +2,7 @@
 
 # CARA-Cache 当前交接
 
-[806 — 端点完整工件与跨运行评分清单CPU接受](../../research/806_CARA_ENDPOINT_ARTIFACT_AND_CROSS_SCOPE_CPU_ACCEPTANCE_20261031.md)：完整释放后的工件身份门和跨运行评分清单组件通过两卡25项CPU控制（15项元数据控制、两种完整物理范围、八项真实视频错误控制），随后11项独立接受控制通过。实际PyAV读取完整32及去重25的新合成视频、每组四份合成旧Native参考，共65份视频/6,045帧；九项RGB控制每组全部通过。保留两侧原scope，十二份旧指标对象原样引用；本轮未计算新指标、未读原实验视频、未派GPU或访问中央账本。
+[807 — 跨运行端点真实评分CLI与完整24接受CPU验证](../../research/807_CARA_ENDPOINT_ACTUAL_SCORING_CPU_ACCEPTANCE_20261031.md)：新端点评分CLI和完整24逻辑位置接受组件通过两卡19项CPU控制，随后12项独立CPU终态接受控制通过。实际原Alex权重/PIQ0.8.0与原Fidelity-v2内核完成十二对及八对两种完整合成评分；另一个失败夹具完成一对后因下一视频SHA变化停止，仍保留十二对分母。三个原输出及执行意图均拒绝重跑。本轮未重评原实验视频、未产生新科学结果、未派GPU或访问中央账本。
 
 **2026-10-28最新安排：主线P0/F19，探索S-FAST19与固定Shared25-C的Q并行准备。** [最新计划与两个对话分工](../../plans/cara_next_stage_20261028/08_REPOSITORY_RECONCILIATION.md) · [739接收记录](../../research/739_CARA_NEXT_STAGE_FAST_SQ_PLAN_AND_CHAT_HANDOFF_20261028.md)。A32已完整验收并冻结；B36已获单次批准，实际状态以原运行记录为准。WC73已热停结算，禁止自动重派；原DEV128、旧合同与失败保持。以下旧准备记录仅作历史复用依据。
 
