@@ -49,6 +49,10 @@ class Acceptance(unittest.TestCase):
     def test_missing_RGB_control(self):
         self.reject(lambda c:c['CPU_proof']['numeric']['checks'][0]['cases'][0].update(RGB_controls=8),'pipeline case',True)
 
+    def test_wrong_metric_kernel(self):
+        self.reject(lambda c:c['CPU_proof']['numeric']['checks'][0]['cases'][0]['score_execution'].update(source_actual_sha256={}),
+                    'metric kernel',True)
+
     def test_live_scorer(self):
         self.reject(lambda c:c['CPU_proof']['numeric']['checks'][0]['cases'][0]['score_execution']['original_observation'].update(original_live=True),'scoring processes',True)
 

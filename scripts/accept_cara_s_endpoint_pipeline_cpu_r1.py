@@ -12,6 +12,7 @@ sys.path[:0]=[str(ROOT/'src'),str(ROOT/'scripts'),str(ROOT/'tests')]
 from cara_s_endpoint_pipeline_cpu_r4 import STAGE,OVERLAY
 from cara_s_initialization_selector_cpu_r1 import BASE_CAPTURE,BASE_ACCEPTED,LIMITS
 from wcomr.policy_price_terminal_r1 import require
+from wcomr.cara_s_endpoint_scores_r1 import SCORER_SOURCES
 
 
 def sha(path):return hashlib.sha256(Path(path).read_bytes()).hexdigest()
@@ -74,6 +75,9 @@ def accept(captured,launched):
                     and case['actual_Cosmos_weights'] is False and case['original_experiment_outputs_read'] is False,
                     'Actual complete pipeline case differs')
             execution=case['score_execution'];identity=execution['original_identity'];observed=execution['original_observation']
+            require(execution['source_actual_sha256']=={p:reg['payload_sha256'][p] for p in SCORER_SOURCES}
+                    and execution['manifest_sha256']==execution['manifest_label_sha256'],
+                    'Original actual metric kernel and manifest binding required')
             identities.append((identity['pid'],identity['start_ticks']))
             require(execution['kind']=='ACTUAL_CPU_FIXTURE_CHILD' and execution['exit_code']==0
                     and execution['original_process_ended'] is True and execution['GPU_hidden'] is True
