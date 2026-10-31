@@ -1,0 +1,45 @@
+"""Bounded CPU recovery checks; real processes, simulated container/score rows."""
+import argparse
+import hashlib
+import json
+import os
+from pathlib import Path
+import signal
+import sys
+import time
+import unittest
+
+
+def main():
+    parser=argparse.ArgumentParser()
+    for name in ('runtime','stage','output'):parser.add_argument('--'+name,type=Path,required=True)
+    parser.add_argument('--host',required=True);args=parser.parse_args()
+    assert args.host=='two_card' and os.sched_getaffinity(0)=={26} and not args.output.exists()
+    assert os.environ['CUDA_VISIBLE_DEVICES']=='' and os.environ['NVIDIA_VISIBLE_DEVICES']=='void'
+    def interrupted(signum,frame):raise TimeoutError('Original recovery CPU proof stopped: '+str(signum))
+    signal.signal(signal.SIGALRM,interrupted);signal.signal(signal.SIGTERM,interrupted);signal.alarm(180)
+    started=time.time();sha=lambda path:hashlib.sha256(Path(path).read_bytes()).hexdigest()
+    registration=json.loads((args.stage/'registration.json').read_text())
+    assert registration['host']==args.host
+    assert all(sha(args.stage/p)==h for p,h in registration['payload_sha256'].items())
+    assert all(sha(args.runtime/p)==h for p,h in registration['runtime_source_sha256'].items())
+    sys.path[:0]=[str(args.stage/'src'),str(args.stage/'tests')]
+    import test_cara_s_endpoint_score_capture_r1
+    tests=unittest.TextTestRunner(verbosity=2).run(unittest.defaultTestLoader.loadTestsFromModule(test_cara_s_endpoint_score_capture_r1))
+    assert tests.wasSuccessful() and not tests.skipped and tests.testsRun==20
+    from check_cara_s_endpoint_capture_process_r1 import run
+    actual=run(args.stage/'CPU-recovery-checks')
+    proof=dict(status='ENDPOINT_SCORE_RECOVERY_CPU_COMPLETE_NOT_WHOLE_CARD',host=args.host,
+        started_unix=started,ended_unix=time.time(),source_revision=registration['parent_git_revision'],
+        registration_sha256=sha(args.stage/'registration.json'),payload_sha256=registration['payload_sha256'],
+        runtime_source_sha256=registration['runtime_source_sha256'],actual_CPU_affinity=sorted(os.sched_getaffinity(0)),
+        metadata_controls=dict(tests_run=tests.testsRun,failures=len(tests.failures),errors=len(tests.errors),skipped=len(tests.skipped)),
+        actual=actual,total_controls_passed=25,Docker_observations_simulated=True,score_rows_synthetic=True,
+        metric_computations=0,whole_GPU_card_accepted=False,active_experiment_outputs_read=False,
+        GPU_submissions=0,ledger_written=False,work_seconds=180,exit_seconds=30)
+    signal.alarm(30)
+    with args.output.open('x') as stream:json.dump(proof,stream,indent=2,allow_nan=False);stream.write('\n')
+    print(json.dumps(dict(status=proof['status'],wall_seconds=time.time()-started)),flush=True)
+
+
+if __name__=='__main__':main()
