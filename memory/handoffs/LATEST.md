@@ -2,7 +2,7 @@
 
 # CARA-Cache 当前交接
 
-[811 — 端点运行器绑定与加载后采集CPU接受](../../research/811_CARA_ENDPOINT_RUNNER_BINDING_AND_LOADED_CPU_20261031.md)：端点运行器的独立绑定与加载后采集组件已通过两卡CPU验证。两种flow各覆盖完整32条和去重25条，共114条实际微型采集路径、8项采样前拒绝检查；14项绑定检查及12项独立终态检查通过。原R4容器退出0、无OOM，工作318.839秒。真实GPU上下文、Cosmos权重加载、整卡入口和一次派发仍未接受；本轮没有新增GPU提交或中央账本写入。
+[812 — 端点GPU一次派发CPU组件接受](../../research/812_CARA_ENDPOINT_GPU_ONCE_DISPATCH_CPU_20261031.md)：端点GPU一次派发与容器入口已通过两卡CPU组件验证：16项派发控制、8项容器/worker控制及1项真实Linux子进程控制，共25项通过；11项独立终态接受检查通过。启动回执曾因SSH超时未知，随后恢复原容器的退出0终态，没有重复提交。真实子进程验证了凭据管道、原guardian发布、分配前失败记账和禁止重派；未使用GPU、未访问中央账本。
 
 **2026-10-28最新安排：主线P0/F19，探索S-FAST19与固定Shared25-C的Q并行准备。** [最新计划与两个对话分工](../../plans/cara_next_stage_20261028/08_REPOSITORY_RECONCILIATION.md) · [739接收记录](../../research/739_CARA_NEXT_STAGE_FAST_SQ_PLAN_AND_CHAT_HANDOFF_20261028.md)。A32已完整验收并冻结；B36已获单次批准，实际状态以原运行记录为准。WC73已热停结算，禁止自动重派；原DEV128、旧合同与失败保持。以下旧准备记录仅作历史复用依据。
 
