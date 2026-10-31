@@ -1,0 +1,147 @@
+{
+  "status": "AFFECTED_UNIFORM_INITIALIZATION_TINY_NUMERICAL_CPU_CONTRACT",
+  "stage_name": "cara-S-init-numeric-CPU-a6000-r3-20261031",
+  "profile": {
+    "horizon": 36,
+    "protected_dense": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      36
+    ],
+    "max_source_age": 28,
+    "min_C_anchors": 2,
+    "min_A_anchors": 1,
+    "alpha_candidates": [
+      0.5,
+      1.0
+    ],
+    "identity": "8b35974e725fa1fbb72fb5474f10c763edb998e4b59bd21f7775e44ed3c6a00b"
+  },
+  "roles": {
+    "Uniform19_C": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      16,
+      19,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      31,
+      36
+    ],
+    "Uniform19_BR_DIAG_C": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      16,
+      19,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      31,
+      35,
+      36
+    ],
+    "Uniform19_CFG_C": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      16,
+      19,
+      22,
+      23,
+      24,
+      26,
+      27,
+      28,
+      29,
+      31,
+      35,
+      36
+    ]
+  },
+  "FIT": [
+    "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+    "human_199"
+  ],
+  "selector_contract_ref": "plans/cara_next_stage_20261028/mainline/r2/S_INITIALIZATION_SELECTOR_CPU_R1_20261031.json",
+  "selector_contract_sha256": "8769ce22989caee45a449655483badf3c8aeb945fde3235abf190907ae05e1db",
+  "selector_acceptance_ref": "reports/cara_s_initialization_selector_CPU_accepted_r1_20261031.json",
+  "selector_acceptance_sha256": "975d3650bc66cf3f42c54f09fe7e91df390d906b7e66e4caf38ed5b0d33eabdc",
+  "expected_flows": [
+    false,
+    true
+  ],
+  "modes": [
+    "ON",
+    "OFF",
+    "AUDIT"
+  ],
+  "expected_production_paths": 36,
+  "expected_old_fixed_paths": 12,
+  "expected_failures": 18,
+  "expected_numerical_pairs": 1728,
+  "work_seconds": 1200,
+  "exit_seconds": 60,
+  "host": "two_card",
+  "CPU_affinity": [
+    26
+  ],
+  "memory_GiB": 4,
+  "extra_swap_GiB": 0,
+  "minimum_host_available_GiB": 8,
+  "GPU_submissions": 0,
+  "ledger_written": false,
+  "Cosmos_weights_loaded": false,
+  "original_S_freeze_changed": false,
+  "endpoint_acceptance": false,
+  "original_failed_capture_ref": "reports/cara_s_initialization_numeric_CPU_capture_r2_20261031.json",
+  "original_failed_capture_sha256": "b794a7a23710fb950f240bbdcda6b75ffb7f983403c1a89d3ca1bad9070a709c",
+  "old_control_parameters_sha256": {
+    "manifests/wc_source_phase_absolute_h1_parameters_r1_20261013.json": "59789ff5b2c87e1f9db8087689b7a91dfb8e4513fa7ad87da7a2fdee7fd6b6cd",
+    "manifests/wc_math_n2_frozen_parameters_r1_20261012.json": "918bdc43c15d26adb5b8b59199860b542ff42c5f21b68a47c8d80b1c44c68f57"
+  },
+  "R2_failed_capture_ref": "reports/cara_s_initialization_numeric_CPU_R2_operational_r1_20261031.json",
+  "R2_failed_capture_sha256": "fc3c32f64e46050d2d4c0ab16919bd9e6f3eda46d3ad440bcdea1ca7e92e08cb",
+  "execution_settings_rule": "Exact original ALLD settings on both entries; only flow_enabled toggles as the declared False/True CPU axis; check each actual installer call",
+  "base_execution_settings": {
+    "worldcache_num_steps": 35,
+    "worldcache_rel_l1_thresh": 0.06,
+    "worldcache_ret_ratio": 0.2,
+    "worldcache_probe_depth": 2,
+    "worldcache_motion_sensitivity": 2.0,
+    "worldcache_flow_enabled": true,
+    "worldcache_flow_scale": 2.0,
+    "worldcache_saliency_enabled": true,
+    "worldcache_saliency_weight": 1.0,
+    "worldcache_osi_enabled": true,
+    "worldcache_dynamic_decay": true
+  }
+}
