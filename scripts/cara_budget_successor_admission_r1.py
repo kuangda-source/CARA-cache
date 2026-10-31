@@ -78,8 +78,10 @@ else:
 def main():
     parser=argparse.ArgumentParser();parser.add_argument('action',choices=['launch','capture']);parser.add_argument('--output',type=Path,required=True);args=parser.parse_args();assert not args.output.exists()
     read=lambda f:json.loads((ROOT/f).read_text())
-    storage=read('reports/cara_budget_successor_storage_accepted_r1_20261031.json')
-    payload=dict(action=args.action,authority=read('plans/cara_next_stage_20261028/mainline/r2/BUDGET_SUCCESSOR14GPUH_USER_AUTHORIZATION_20261031.json'),proof=read('reports/cara_budget_successor_whole_CPU_composed_r1_20261031.json'),quote=read('reports/cara_budget_successor_whole_quote_r1_20261031.json'),registration_sha256=read('reports/cara_budget_successor_source_prepared_r1_20261031.json')['result']['registration_sha256'],storage_contract=storage['storage_contract'],provision_sha256=storage['provision_sha256'],worker=WORKER)
+    payload=dict(action=args.action,authority=read('plans/cara_next_stage_20261028/mainline/r2/BUDGET_SUCCESSOR14GPUH_USER_AUTHORIZATION_20261031.json'),registration_sha256=read('reports/cara_budget_successor_source_prepared_r1_20261031.json')['result']['registration_sha256'])
+    if args.action=='launch':
+        storage=read('reports/cara_budget_successor_storage_accepted_r1_20261031.json')
+        payload.update(proof=read('reports/cara_budget_successor_whole_CPU_composed_r1_20261031.json'),quote=read('reports/cara_budget_successor_whole_quote_r1_20261031.json'),storage_contract=storage['storage_contract'],provision_sha256=storage['provision_sha256'],worker=WORKER)
     secret=password();command="sudo -S -p '' -u gaokuangda -g docker /home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python -c "+shlex.quote("import sys,json,gzip,base64;packet=json.loads(gzip.decompress(base64.b64decode(sys.stdin.read())));exec(packet['code'])")
     encoded=base64.b64encode(gzip.compress(json.dumps(dict(code=REMOTE,arguments=payload)).encode())).decode()
     start=time.time();child=subprocess.Popen(['ssh','-C','-F',str(ROOT/'.sync/cara-fast-mainline-tailscale-20261030/ssh_config.budget_direct.private'),'-o','BatchMode=yes','-o','ConnectTimeout=35','-o','ServerAliveInterval=15','-o','ServerAliveCountMax=3','two_card_lan',command],stdin=subprocess.PIPE,stdout=subprocess.PIPE,stderr=subprocess.PIPE,start_new_session=True)

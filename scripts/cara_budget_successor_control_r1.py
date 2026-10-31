@@ -79,6 +79,11 @@ if p['action']=='central-prepare':
    body=archive.extractfile(member).read();assert hashlib.sha256(body).hexdigest()==expected[name]
    target=source/name;target.parent.mkdir(parents=True,exist_ok=True);target.write_bytes(body);found.add(name)
  assert found==set(expected)
+elif p['action']=='central-recover':
+ candidates=list(pathlib.Path('/tmp').glob('successor14-central-operator-*'))
+ assert len(candidates)==1,'Expected exactly one original operator cache; inspect absence or ambiguity'
+ source=candidates[0]
+ assert source.is_dir() and not source.is_symlink()
 else:
  source=pathlib.Path(p['operator_cache'])
  assert source.parent==pathlib.Path('/tmp') and source.name.startswith('successor14-central-operator-') and not source.is_symlink()
@@ -90,7 +95,7 @@ if True:
  stage=root/'.sync'/STAGES['four_card']
  original=dict(host='four_card',stage=str(stage),run_id=RUN,stage_exists=stage.exists(),dispatch_records=[n for n in ('GPU-intent.json','GPU-dispatch.json','GPU-launch.json','guardian-intent.json') if (stage/n).exists()],container=inspect_container(stage.name+'-gpu'),observation_complete=True,observed_unix=time.time())
  pool=Pool(root);receipt=root/'reports'/(RUN+'.central-reservation.json')
- if p['action']=='central-prepare':
+ if p['action'] in ('central-prepare','central-recover'):
   envelope=None
  elif p['action']=='reserve':
   assert p['transaction_authority']['launch_id']==p['refresh']['admission']['authorization']['launch_id']
@@ -120,13 +125,14 @@ print(json.dumps(dict(status='ORIGINAL_CENTRAL_CARD_READONLY_RECOVERY',envelope=
 
 
 def main():
-    parser=argparse.ArgumentParser();parser.add_argument('action',choices=['central-prepare','refresh','reserve','dispatch','status','central-status','settle'])
+    parser=argparse.ArgumentParser();parser.add_argument('action',choices=['central-prepare','central-recover','refresh','reserve','dispatch','status','central-status','settle'])
+    parser.add_argument('--operator-receipt',default='reports/cara_budget_successor_central_operator_ready_r1_20261031.json')
     parser.add_argument('--ssh-config',type=Path,default=ROOT/'.sync/cara-fast-mainline-tailscale-20261030/ssh_config.budget_direct.private');parser.add_argument('--input',type=Path);parser.add_argument('--output',type=Path,required=True);args=parser.parse_args();assert not args.output.exists()
     read=lambda name:json.loads((ROOT/name).read_text())
     authority=read('plans/cara_next_stage_20261028/mainline/r2/BUDGET_SUCCESSOR14GPUH_USER_AUTHORIZATION_20261031.json')
     transaction=read('plans/cara_next_stage_20261028/mainline/r2/BUDGET_SUCCESSOR14GPUH_USER_AUTHORIZATION_20261031.json')
     assert transaction['launch_id']==authority['launch_id'] and transaction['hard_GPUh']==14 and transaction['central_transactions_authorized'] is True
-    central=args.action in ('central-prepare','reserve','central-status','settle')
+    central=args.action in ('central-prepare','central-recover','reserve','central-status','settle')
     p=dict(action=args.action,authority=authority,transaction_authority=transaction)
     if central and args.action!='central-status':
         proof=read('reports/cara_budget_successor_whole_CPU_composed_r1_20261031.json');package=ROOT/proof['package_ref']
@@ -144,8 +150,8 @@ def main():
                 for member in original:
                     if member.name in expected:subset.addfile(member,original.extractfile(member))
             selected=buffer.getvalue();p.update(archive=base64.b64encode(selected).decode(),archive_sha256=hashlib.sha256(selected).hexdigest())
-        else:
-            prepared=read('reports/cara_budget_successor_central_operator_ready_r1_20261031.json')
+        elif args.action!='central-recover':
+            prepared=read(args.operator_receipt)
             assert prepared['exit_code']==0
             p['operator_cache']=prepared['result']['operator_cache']
     elif not central:p['registration_sha256']=read('reports/cara_budget_successor_source_prepared_r1_20261031.json')['result']['registration_sha256']
