@@ -60,7 +60,7 @@ after=bind_original_process(os.getpid())
 print(json.dumps(dict(repaired_handoff_accepted=True,original_identity_preserved=verified==before,refused=refused,before=before,after=after,stable_identity_equal=all(before[k]==after[k] for k in ('pid','start_ticks','host_view')),full_dictionary_equal=before==after,original_command_changed=before['original_command_sha256']!=after['original_command_sha256'],CUDA_VISIBLE_DEVICES=os.environ.get('CUDA_VISIBLE_DEVICES'),NVIDIA_VISIBLE_DEVICES=os.environ.get('NVIDIA_VISIBLE_DEVICES'))))
 """
         launch = dict(stage=str(fixture), registration_sha256=sha(fixture/'registration.json'),
-                      launch_id='CPU_EXEC_IDENTITY_DIAGNOSTIC_NO_GPU', source_revision=original['source_revision'],
+                      launch_id='CPU_EXEC_IDENTITY_DIAGNOSTIC_NO_GPU', source_revision=original.get('source_revision', original.get('parent_git_revision')),
                       guardian_identity=bind_original_process(os.getpid()), CPU_fixture_only=True, commands={'runner': [sys.executable, '-c', probe, str(fixture)]})
         (fixture / 'GPU-launch.json').write_text(json.dumps(launch))
         environment = dict(os.environ, PYTHONPATH=str(stage/'src'), CUDA_VISIBLE_DEVICES='', NVIDIA_VISIBLE_DEVICES='void', PYTHONDONTWRITEBYTECODE='1')

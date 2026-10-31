@@ -92,6 +92,24 @@ class CentralTests(unittest.TestCase):
             self.admission[key]=original
         self.assertEqual(self.pool.read(),self.before)
 
+    def test_successor_preserves_failed_original_and_refuses_its_approval(self):
+        old_run = 'cara-budget-calibration-14gpuh-r1-20261030'
+        old_job = dict(job_id=old_run, run_id=old_run, kind='V2', status='SETTLED',
+                       host='two_card', billed_limit_GPUh=14, actual_GPUh=0.002315298004800247,
+                       launch_id='2b8058a77c7248f181acffddd399c257')
+        self.before['jobs'][old_run] = old_job
+        self.before.update(self.pool.accounting(self.before))
+        self.pool.path.write_text(json.dumps(self.before))
+        self.auth['run_id'] = old_run
+        self.refresh_authority()
+        with self.assertRaises(ValueError):
+            self.reserve()
+        self.assertEqual(self.pool.read(), self.before)
+        self.auth['run_id'] = central.RUN
+        self.refresh_authority()
+        self.reserve()
+        self.assertEqual(self.pool.read()['jobs'][old_run], old_job)
+
     def test_existing_reservation_cannot_migrate_or_replay(self):
         self.reserve();before=self.pool.read();self.auth['launch_id']='0'*32;self.refresh_authority()
         with self.assertRaisesRegex(ValueError,'Original reservation differs'):self.reserve()
