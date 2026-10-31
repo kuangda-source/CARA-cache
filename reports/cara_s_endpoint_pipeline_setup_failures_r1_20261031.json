@@ -1,0 +1,84 @@
+{
+  "status": "THREE_ORIGINAL_CPU_SETUP_FAILURES_PRESERVED_NOT_GPU_FAILURES",
+  "observed_unix": 1793454417.55234,
+  "failures": [
+    {
+      "stage": "/data20t/gaokuangda/worldcache_workspace/.sync/cara-S-endpoint-pipeline-CPU-a6000-r1-20261031",
+      "source_revision": "86d887be8abd21d88749b3cfde3ad1c2ed17b6dd",
+      "registration_sha256": "256f72d798b70e1b07a4eb99497ab9e1d4739e8ce843a9e872da59ea945fcb1c",
+      "container_state": {
+        "Status": "exited",
+        "Running": false,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 0,
+        "ExitCode": 1,
+        "Error": "",
+        "StartedAt": "2026-10-31T13:32:12.294344279Z",
+        "FinishedAt": "2026-10-31T13:32:53.384846026Z"
+      },
+      "capture_ref": "reports/cara_s_endpoint_pipeline_CPU_capture_r2_20261031.json",
+      "capture_sha256": "e8e30bec125c5018c950f9a3eb3512ede383b6370fb1bf4453bb11edb191a14a",
+      "error_type": "StopIteration",
+      "reason": "Missing A_ANCHOR route for Native FIT",
+      "preserved": true,
+      "acceptance": false,
+      "original_container_replayed": false
+    },
+    {
+      "stage": "/data20t/gaokuangda/worldcache_workspace/.sync/cara-S-endpoint-pipeline-CPU-a6000-r2-20261031",
+      "source_revision": "ad850e05c27344e279e37588580a936de8c12647",
+      "registration_sha256": "135691d24d724ca3a14da7dc1c4cb5836f14baaac3bd97997a06cfcb01fd3a58",
+      "container_state": {
+        "Status": "exited",
+        "Running": false,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 0,
+        "ExitCode": 1,
+        "Error": "",
+        "StartedAt": "2026-10-31T13:37:23.177955738Z",
+        "FinishedAt": "2026-10-31T13:37:50.398992572Z"
+      },
+      "capture_ref": "reports/cara_s_endpoint_pipeline_CPU_capture_r3_20261031.json",
+      "capture_sha256": "42c3f9082410244312cd644543a4afcf44e4401c1b44740d3f6fdc24925dee2d",
+      "error_type": "FileExistsError",
+      "reason": "Fixture precreated an exclusively owned request directory",
+      "preserved": true,
+      "acceptance": false,
+      "original_container_replayed": false
+    },
+    {
+      "stage": "/data20t/gaokuangda/worldcache_workspace/.sync/cara-S-endpoint-pipeline-CPU-a6000-r3-20261031",
+      "source_revision": "71ccc926f0e99f0de87bb05d9579c8c7d71446af",
+      "registration_sha256": "ad1d266ab36397cfbab276c663ebe01c8b357e7f100bc92cab103973ba8df7e7",
+      "container_state": {
+        "Status": "exited",
+        "Running": false,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 0,
+        "ExitCode": 1,
+        "Error": "",
+        "StartedAt": "2026-10-31T13:40:45.706158635Z",
+        "FinishedAt": "2026-10-31T13:41:12.514921834Z"
+      },
+      "capture_ref": "reports/cara_s_endpoint_pipeline_CPU_capture_r4_20261031.json",
+      "capture_sha256": "7aa25143298a1bc1870943bd3bb126955ccc3d34d19622c49ac18aa6eff18e96",
+      "error_type": "AssertionError",
+      "reason": "Writer expected THWC uint8 instead of pinned CTHW float32",
+      "preserved": true,
+      "acceptance": false,
+      "original_container_replayed": false
+    }
+  ],
+  "complete_pipeline_accepted": false,
+  "GPU_submissions": 0,
+  "ledger_written": false
+}
