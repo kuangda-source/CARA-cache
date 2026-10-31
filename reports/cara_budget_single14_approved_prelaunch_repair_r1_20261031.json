@@ -1,0 +1,60 @@
+{
+  "status": "SINGLE14_APPROVED_CENTRAL_AVAILABLE_PREFLIGHT_ENGINEERING_REPAIR_REQUIRED",
+  "observed_unix": 1793428543.6400661,
+  "summary": "单次14GPUh及本卡原中央账本预约/结算已获明确批准。四卡控制入口只读恢复：可用25.71577GPUh、旧16.5保留，无本卡原运行或其他活动登记作业。两卡源包完成；首次资产准入CPU因2GiB虚拟内存限制在读取证明时退出，未派GPU。另复现并修正终态读取器的项目符号链接路径问题，25项本地控制通过；先补实际Linux增量与准入修复再启动，不重复询问已有授权。",
+  "run_id": "cara-budget-calibration-14gpuh-r1-20261030",
+  "launch_id": "2b8058a77c7248f181acffddd399c257",
+  "direct_launch_approval_received": true,
+  "central_transaction_authorized": true,
+  "host": "two_card",
+  "hard_GPUh": 14,
+  "physical_paths": 112,
+  "candidate_queries": 51,
+  "retained_prelaunch_source_revision": "cc5f38a1233d565158783e3152c06c58516d633b",
+  "source_fix_files": {
+    "src/wcomr/cara_budget_lifecycle_capture_r1.py": "c436a467a43a2481a0e3bc59389749986f64af7f5f4cc278d3eeb0ddf1b0a116",
+    "tests/test_cara_budget_lifecycle_capture_r1.py": "14052156ef0c1b7cd66016403c8180e75b2ae629766f272c0b418067a94a5552"
+  },
+  "regression_reproduced_before_fix": true,
+  "local_capture_and_finance_controls": 25,
+  "local_controls_failed": 0,
+  "actual_Linux_delta_accepted": false,
+  "admission_original_identity": {
+    "pid": 2341051,
+    "start_ticks": 672318697,
+    "host_view": {
+      "boot_id": "13495735-f30b-47a2-af0a-2496f5206a0b",
+      "pid_namespace_inode": 4026531836
+    },
+    "original_command_sha256": "dc0e1613e141bd56ca946d2a78feafa64746c0dc1b69c32513df91bfa6208146"
+  },
+  "admission_original_terminal": true,
+  "admission_original_failure": "MemoryError after RLIMIT_AS2GiB, before asset hashing and GPU/resource allocation",
+  "central_available_GPUh_observed": 25.715771840531033,
+  "old_unknown_liability_GPUh": 16.5,
+  "central_snapshot_requires_refresh_at_dispatch": true,
+  "four_card_contact_scope": "User-approved original ledger and original handle checks; reservation/settlement separately approved for this card",
+  "source_R1_stage_preserved": true,
+  "prelaunch_R1_must_not_dispatch": true,
+  "whole_CPU_original_source_acceptance_preserved": true,
+  "current_modified_source_CPU_pending": true,
+  "GPU_submissions": 0,
+  "central_reservation_created": false,
+  "ledger_written": false,
+  "remaining": [
+    "Actual Linux CPU acceptance of project-alias lifecycle fix",
+    "Correct bounded admission resources before new preparation attempt",
+    "Rebind approved one-card identity to final repaired immutable source/stage after original prelaunch absence verification",
+    "Fresh simultaneous ledger/original-handle/resource admission, once reservation and original dispatch",
+    "Actual-start halfway and final checks"
+  ],
+  "evidence_sha256": {
+    "plans/cara_next_stage_20261028/mainline/r2/BUDGET_SINGLE14GPUH_USER_AUTHORIZATION_20261031.json": "418d3db22eeda0fa095d43b577b4d4c96a4664eb840bb4eefe2b433007aa78c9",
+    "plans/cara_next_stage_20261028/mainline/r2/FOUR_CARD_CENTRAL_READONLY_EXCEPTION_20261031.json": "253c0b3027a654e35416e7661030a382921bdbb35f2b687262186f2009e0a84b",
+    "plans/cara_next_stage_20261028/mainline/r2/BUDGET_SINGLE14_CENTRAL_TRANSACTION_AUTHORIZATION_20261031.json": "78fb5fbbba87acbce1d81acad5e20a0eea478e3d1f610f9a9eebd3bf6963302e",
+    "reports/cara_budget_four_card_central_readonly_r1_20261031.json": "6a13bf755a8051b333bf1e67ecae190b382108aa6689ad454735303cc1843ae1",
+    "reports/cara_budget_approved_two_source_prepare_r1_20261031.json": "5f23a2553f3f67acebfc7bd93caa3a22d452b1d497fbf02ba9d4729fe0d67307",
+    "reports/cara_budget_approved_two_admission_launch_r1_20261031.json": "34afb2f00fec276a254162b2ee8de04a79cade70d4c03ddf246177ba5c5c5364",
+    "reports/cara_budget_approved_two_admission_capture_r1_20261031.json": "c3c762567284606beb482baf4ff7946c004d24c5703a092fe5ab4eaa6fb7d2fc"
+  }
+}

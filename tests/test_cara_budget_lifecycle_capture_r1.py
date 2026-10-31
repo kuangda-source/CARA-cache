@@ -17,7 +17,12 @@ from test_cara_budget_lifecycle_r1 import fixture, put
 class CaptureTests(unittest.TestCase):
     def setUp(self):
         self.temp=tempfile.TemporaryDirectory();self.addCleanup(self.temp.cleanup)
-        self.project=Path(self.temp.name).resolve();self.stage=self.project/'.sync/cara-budget-calibration-GPU-CPU-FIXTURE'
+        self.project=Path(self.temp.name).resolve()
+        if getattr(self,'use_project_alias',False):
+            physical=self.project/'physical';physical.mkdir()
+            alias=self.project/'registered';alias.symlink_to(physical,target_is_directory=True)
+            self.project=alias
+        self.stage=self.project/'.sync/cara-budget-calibration-GPU-CPU-FIXTURE'
         self.stage.mkdir(parents=True);(self.project/'runtime').mkdir()
         c,_,_=fixture()
         for key in c['files']:
@@ -59,6 +64,18 @@ class CaptureTests(unittest.TestCase):
         self.assertEqual(lifecycle.financial_terminal(captured,self.expected,cpu_validation=True)[1]['actual_GPUh'],.05)
         after={str(p):hashlib.sha256(p.read_bytes()).hexdigest() for p in self.stage.rglob('*') if p.is_file()}
         self.assertEqual(before,after);self.assertFalse(captured['scientific_rows_returned'])
+
+    def test_registered_project_alias_preserves_full_original_capture(self):
+        self.use_project_alias=True
+        self.setUp()
+        self.assertTrue(self.project.is_symlink())
+        self.test_full_original_capture_reaches_readonly_financial_validator()
+
+    def test_symlinked_stage_is_still_refused(self):
+        link=self.stage.parent/'cara-budget-calibration-GPU-CPU-LINK'
+        link.symlink_to(self.stage,target_is_directory=True)
+        with self.assertRaisesRegex(ValueError,'Original registered GPU stage'):
+            reader.capture_lifecycle(self.project,link,self.expected)
 
     def test_live_or_unknown_never_reads_scientific_or_terminal_files(self):
         for live in (True,None):

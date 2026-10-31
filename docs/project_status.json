@@ -1834,7 +1834,7 @@
     "independent_new_inputs": false,
     "complete_QA_ref": "reports/cara_fast_A6000_complete_frozen_QA_20261029_0115.json"
   },
-  "current_evidence_observed_at": "2026-10-31T14:23:05.585450+08:00",
+  "current_evidence_observed_at": "2026-10-31T14:35:43.643010+08:00",
   "fast_B36_CPU_preparation_20261029": {
     "status": "ACCEPTED_DUAL_HOST_COMPLETE_B36_CPU_CONTINUATION_ONLY",
     "accepted_receipt_ref": "reports/cara_fast_B36_CPU_acceptance_r1_20261029.json",
@@ -2037,10 +2037,10 @@
     "postacceptance_budget_read_ref": "reports/cara_fast_mainline_budget_readonly_r1_20261030.json"
   },
   "fast_mainline_post_result_CPU_20261030": {
-    "status": "TWO_CARD_WHOLE_CPU_AND_QUOTE_ACCEPTED_SINGLE_CARD_REVIEW_PENDING_APPROVAL",
-    "notice_title": "793两卡完整CPU与单次14GPUh审阅",
-    "research_ref": "research/793_CARA_TWO_CARD_WHOLE_CPU_AND_SINGLE14GPUH_REVIEW_20261031.md",
-    "summary": "两卡完整CPU证据按原回执及发布源组合接受，1181文件对应cc5f38a1；完整工程报价13.03253GPUh/硬限14，单次112路径/51双FIT查询审阅卡已就绪。实际启动待用户批准及中央唯一账本fresh核验；四卡维护期间不访问、不复制历史账本，未新派GPU。",
+    "status": "SINGLE14_APPROVED_CENTRAL_AVAILABLE_PREFLIGHT_ENGINEERING_REPAIR_REQUIRED",
+    "notice_title": "794单次14GPUh批准与启动前修复",
+    "research_ref": "research/794_CARA_SINGLE14_APPROVED_CENTRAL_RECOVERED_AND_PREFLIGHT_REPAIR_20261031.md",
+    "summary": "单次14GPUh及本卡原中央账本预约/结算已获明确批准。四卡控制入口只读恢复：可用25.71577GPUh、旧16.5保留，无本卡原运行或其他活动登记作业。两卡源包完成；首次资产准入CPU因2GiB虚拟内存限制在读取证明时退出，未派GPU。另复现并修正终态读取器的项目符号链接路径问题，25项本地控制通过；先补实际Linux增量与准入修复再启动，不重复询问已有授权。",
     "component_CPU_ref": "reports/cara_fast_B36_review_component_CPU_acceptance_r1_20261030.json",
     "review_plan_ref": "reports/cara_fast_B36_review_plan_r1_20261030.json",
     "diagnostics_ref": "reports/cara_fast_B36_post_result_diagnostics_r1_20261030.json",
@@ -2052,11 +2052,11 @@
     "new_GPU_submissions": 0,
     "new_reserved_GPUh": 0,
     "new_metrics_computed": 0,
-    "summary_ref": "reports/cara_budget_two_card_whole_readiness_r1_20261031.json",
+    "summary_ref": "reports/cara_budget_single14_approved_prelaunch_repair_r1_20261031.json",
     "review_transfer_ref": "reports/cara_fast_B36_review_video_transfer_r1_20261030.json",
     "review_materialized_ref": "reports/cara_fast_B36_review_materialized_r1_20261030.json",
     "review_browser_QA_ref": "reports/cara_fast_B36_review_browser_QA_r1_20261030.json",
-    "observed_unix": 1793427785.585569,
+    "observed_unix": 1793428543.643102,
     "original_video_review_research_ref": "research/757_CARA_B36_ORIGINAL_VIDEO_REVIEW_AND_F18_CPU_20261030.md",
     "original_video_review_summary_ref": "reports/cara_fast_mainline_post_result_CPU_summary_r1_20261030.json",
     "paper_results_manifest_ref": "plans/cara_next_stage_20261028/mainline/PAPER_RESULTS_MANIFEST_R2.json",
@@ -2465,7 +2465,13 @@
     "current_whole_quote_ref": "reports/cara_budget_two_card_whole_quote_r1_20261031.json",
     "current_whole_quote_accepted": true,
     "current_single_GPU_review_ref": "plans/cara_next_stage_20261028/mainline/r2/BUDGET_SINGLE14GPUH_REVIEW_R1_20261031.md",
-    "direct_launch_approval_received": false
+    "direct_launch_approval_received": true,
+    "current_authorization_ref": "plans/cara_next_stage_20261028/mainline/r2/BUDGET_SINGLE14GPUH_USER_AUTHORIZATION_20261031.json",
+    "central_transaction_authorization_ref": "plans/cara_next_stage_20261028/mainline/r2/BUDGET_SINGLE14_CENTRAL_TRANSACTION_AUTHORIZATION_20261031.json",
+    "central_readonly_restored_ref": "reports/cara_budget_four_card_central_readonly_r1_20261031.json",
+    "prelaunch_source_prepared_ref": "reports/cara_budget_approved_two_source_prepare_r1_20261031.json",
+    "prelaunch_admission_failure_ref": "reports/cara_budget_approved_two_admission_capture_r1_20261031.json",
+    "current_modified_source_CPU_pending": true
   },
   "fast_SQ_original_runtime_intake_20261030": {
     "receipt_ref": "reports/cara_mainline_S_launch_Q1_complete_intake_r1_20261030.json",

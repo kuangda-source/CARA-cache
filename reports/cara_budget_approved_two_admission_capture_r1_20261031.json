@@ -1,0 +1,77 @@
+{
+  "started_unix": 1793428304.146492,
+  "observed_unix": 1793428343.603799,
+  "action": "capture",
+  "exit_code": 0,
+  "result": {
+    "status": "ORIGINAL_ADMISSION_CAPTURE_NO_GPU",
+    "launch": {
+      "status": "ORIGINAL_ADMISSION_CPU_LAUNCHED_NO_GPU",
+      "identity": {
+        "pid": 2341051,
+        "start_ticks": 672318697,
+        "host_view": {
+          "boot_id": "13495735-f30b-47a2-af0a-2496f5206a0b",
+          "pid_namespace_inode": 4026531836
+        },
+        "original_command_sha256": "dc0e1613e141bd56ca946d2a78feafa64746c0dc1b69c32513df91bfa6208146"
+      },
+      "worker_sha256": "73345fcbed5b2a866c24cb3227b1e9b624cc4f61719f53ded8d809a091afc092",
+      "authority_sha256": "fd54df756718a2333fe5b49fb3725361c9ee92b67773faf61083c9cf62eaaa70",
+      "registration_sha256": "a2e3b9345f6440934e7f18bfbfe19fff2f73a1e378b633678b8d7d8703c9d841",
+      "started_unix": 1793428283.4509764,
+      "wall_limit_seconds": 1200,
+      "GPU_submissions": 0,
+      "ledger_written": false
+    },
+    "observation": {
+      "observed_unix": 1793428343.0602367,
+      "original_pid": 2341051,
+      "original_start_ticks": 672318697,
+      "original_live": false,
+      "status": "ORIGINAL_NOT_LIVE",
+      "reason": "ORIGINAL_PROC_ABSENT",
+      "dispatch_allowed": false,
+      "financial_settlement_allowed": false,
+      "scientific_read_allowed": false,
+      "observed_host_view": {
+        "boot_id": "13495735-f30b-47a2-af0a-2496f5206a0b",
+        "pid_namespace_inode": 4026531836
+      },
+      "observed_process": {
+        "pid": 2341051,
+        "state": null,
+        "start_ticks": null
+      }
+    },
+    "worker_intact": true,
+    "state": {
+      "status": "ORIGINAL_ADMISSION_CPU_FAILED_NO_GPU",
+      "identity": {
+        "pid": 2341051,
+        "start_ticks": 672318697,
+        "host_view": {
+          "boot_id": "13495735-f30b-47a2-af0a-2496f5206a0b",
+          "pid_namespace_inode": 4026531836
+        },
+        "original_command_sha256": "dc0e1613e141bd56ca946d2a78feafa64746c0dc1b69c32513df91bfa6208146"
+      },
+      "started_unix": 1793428283.8025084,
+      "GPU_submissions": 0,
+      "ledger_written": false,
+      "error_type": "MemoryError",
+      "error": "",
+      "ended_unix": 1793428284.010513
+    },
+    "log_tail": "SSION_CPU_COMPLETE_NO_GPU',result=result)\n  File \"/data20t/gaokuangda/worldcache_workspace/.sync/cara-budget-calibration-GPU-a6000-r1-20261030/src/wcomr/cara_budget_prepare_r1.py\", line 150, in admit\n    _,registration,authority,profile,_=ready_inputs(project,stage)\n  File \"/data20t/gaokuangda/worldcache_workspace/.sync/cara-budget-calibration-GPU-a6000-r1-20261030/src/wcomr/cara_budget_dispatch_r1.py\", line 47, in ready_inputs\n    card,registration,authority,profile,limits=validate_inputs(project,stage)\n  File \"/data20t/gaokuangda/worldcache_workspace/.sync/cara-budget-calibration-GPU-a6000-r1-20261030/src/wcomr/cara_budget_runner_binding_r1.py\", line 57, in validate_inputs\n    proof=read_record(stage/'execution-CPU-proof.json')\n  File \"/data20t/gaokuangda/worldcache_workspace/.sync/cara-budget-calibration-GPU-a6000-r1-20261030/src/wcomr/cara_budget_search_journal_r1.py\", line 54, in read_record\n    return json.loads(path.read_bytes())\n  File \"/home/gaokuangda/data/gkd/miniconda3/envs/cosmos/lib/python3.10/json/__init__.py\", line 341, in loads\n    s = s.decode(detect_encoding(s), 'surrogatepass')\nMemoryError\nTraceback (most recent call last):\n  File \"/data20t/gaokuangda/worldcache_workspace/.sync/cara-budget-calibration-GPU-a6000-r1-20261030/CPU-admission-worker.py\", line 15, in <module>\n    result=admit(root,stage);state.update(status='ORIGINAL_ADMISSION_CPU_COMPLETE_NO_GPU',result=result)\n  File \"/data20t/gaokuangda/worldcache_workspace/.sync/cara-budget-calibration-GPU-a6000-r1-20261030/src/wcomr/cara_budget_prepare_r1.py\", line 150, in admit\n    _,registration,authority,profile,_=ready_inputs(project,stage)\n  File \"/data20t/gaokuangda/worldcache_workspace/.sync/cara-budget-calibration-GPU-a6000-r1-20261030/src/wcomr/cara_budget_dispatch_r1.py\", line 47, in ready_inputs\n    card,registration,authority,profile,limits=validate_inputs(project,stage)\n  File \"/data20t/gaokuangda/worldcache_workspace/.sync/cara-budget-calibration-GPU-a6000-r1-20261030/src/wcomr/cara_budget_runner_binding_r1.py\", line 57, in validate_inputs\n    proof=read_record(stage/'execution-CPU-proof.json')\n  File \"/data20t/gaokuangda/worldcache_workspace/.sync/cara-budget-calibration-GPU-a6000-r1-20261030/src/wcomr/cara_budget_search_journal_r1.py\", line 54, in read_record\n    return json.loads(path.read_bytes())\n  File \"/home/gaokuangda/data/gkd/miniconda3/envs/cosmos/lib/python3.10/json/__init__.py\", line 341, in loads\n    s = s.decode(detect_encoding(s), 'surrogatepass')\nMemoryError\n",
+    "observed_unix": 1793428343.0606384,
+    "GPU_submissions": 0,
+    "ledger_written": false
+  },
+  "stderr": "** WARNING: connection is not using a post-quantum key exchange algorithm.\r\n** This session may be vulnerable to \"store now, decrypt later\" attacks.\r\n** The server may need to be upgraded. See https://openssh.com/pq.html\r\n** WARNING: connection is not using a post-quantum key exchange algorithm.\r\n** This session may be vulnerable to \"store now, decrypt later\" attacks.\r\n** The server may need to be upgraded. See https://openssh.com/pq.html\r\n",
+  "transport_sha256": "97787da16fd9ff1826c0d9f4d394076e2cf561fcf3f863108efbf778f7f6c706",
+  "remote_code_sha256": "cc48732ea6a4ed29e5906bb9e204a825327b00767f352df371a175bef07bafe9",
+  "GPU_submissions": 0,
+  "ledger_written": false,
+  "recover_original_only_if_unknown": true
+}

@@ -41,7 +41,8 @@ def inspect_container(name):
 
 
 def capture_lifecycle(project, stage, expected_launch_sha256):
-    project,stage=Path(project).resolve(),Path(stage)
+    # Preserve the registered project alias shared by launch and stage identities.
+    project,stage=Path(project),Path(stage)
     require(stage.is_absolute() and not stage.is_symlink() and stage.parent==project/'.sync'
             and stage.name.startswith('cara-budget-calibration-GPU-'), 'Original registered GPU stage required')
     launch_file=captured_file(stage/METADATA['launch'])
