@@ -117,3 +117,5 @@ S单次授权已接收：用户在S/Q原对话批准另一张A6000完整十条�
 [796新卡CPU与审阅](../research/796_CARA_SUCCESSOR113_CPU_SOURCE_AND_NEW_SINGLE14_REVIEW_20261031.md)：修复后的新卡113项实际Linux CPU控制全部通过，1184文件固定源已在两卡独立阶段核对，64GiB卷与48MiB日志独立绑定。完整112路径/51次双FIT查询预计13.03253GPUh、硬限14；新GPU及该卡中央预约/结算尚待单独批准。原失败0/112及0.002315298GPUh唯一结算保留，未重派。
 
 [797新单次14GPUh已启动](../research/797_CARA_SUCCESSOR_SINGLE14_ACTUAL_START_AND_CHECKS_20261031.md)：修复后新单次14GPUh获批，113项Linux CPU、20资产及实时资源/中央准入通过；10月31日16:45:04两卡A6000唯一启动，原四进程存活、runner独占CUDA通过。完整112路径/51双FIT查询，硬截止11月1日06:45:04；23:16半程、06:01终验已绑定。原失败与0.002315298GPUh结算保留，无部分科学结果。
+
+[798 — S初始化敏感性CPU核验](../research/798_CARA_S_INITIALIZATION_SENSITIVITY_ON_ACCEPTED_FIT_RISKS_20261031.md): 按既定A2.1复用已完整接受的S风险，F19起点三目标均精确复现D21→D35；固定Uniform19起点BR/DIAG为D22→D35，CFG为D25→D35。7项本地CPU控制通过；新增138种历史槽组合待生产选择器CPU验证，不改原S冻结、不读取运行中预算搜索分数、不形成端点收益或新GPU权限。

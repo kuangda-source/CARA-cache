@@ -2,7 +2,7 @@
 
 # CARA-Cache
 
-[797新单次14GPUh已启动与检查](research/797_CARA_SUCCESSOR_SINGLE14_ACTUAL_START_AND_CHECKS_20261031.md)：修复后新单次14GPUh获批，113项Linux CPU、20资产及实时资源/中央准入通过；10月31日16:45:04两卡A6000唯一启动，原四进程存活、runner独占CUDA通过。完整112路径/51双FIT查询，硬截止11月1日06:45:04；23:16半程、06:01终验已绑定。原失败与0.002315298GPUh结算保留，无部分科学结果。
+[798 — S初始化敏感性CPU核验](research/798_CARA_S_INITIALIZATION_SENSITIVITY_ON_ACCEPTED_FIT_RISKS_20261031.md)：按既定A2.1复用已完整接受的S风险，F19起点三目标均精确复现D21→D35；固定Uniform19起点BR/DIAG为D22→D35，CFG为D25→D35。7项本地CPU控制通过；新增138种历史槽组合待生产选择器CPU验证，不改原S冻结、不读取运行中预算搜索分数、不形成端点收益或新GPU权限。
 
 **2026-10-28最新安排：主线P0/F19，探索S-FAST19与固定Shared25-C的Q并行准备。** [最新计划与两个对话分工](plans/cara_next_stage_20261028/08_REPOSITORY_RECONCILIATION.md) · [739接收记录](research/739_CARA_NEXT_STAGE_FAST_SQ_PLAN_AND_CHAT_HANDOFF_20261028.md)。A32已完整验收并冻结；B36已获单次批准，实际状态以原运行记录为准。WC73已热停结算，禁止自动重派；原DEV128、旧合同与失败保持。以下旧准备记录仅作历史复用依据。
 
