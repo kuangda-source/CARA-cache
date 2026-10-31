@@ -19,6 +19,13 @@ SCORER_SOURCES=(WORKER,SOURCE,'src/wcomr/cara_fast_fidelity_r1.py',
 PRODUCTION_BOUND=dict(cpus=2,memory_GiB=8,wall_hours=4,max_pairs=12)
 CPU_BOUND=dict(cpus=1,memory_GiB=8,wall_hours=.2,max_pairs=12)
 
+def scorer_bound(manifest,cpu_validation):
+    value=(CPU_BOUND if cpu_validation else PRODUCTION_BOUND).copy()
+    if manifest.get('endpoint7'):
+        value['max_pairs']=16
+        if not cpu_validation:value['wall_hours']=2
+    return value
+
 
 def bind_scorer(packet,environment,*,cpu_validation=False):
     base=packet['manifest'];validate_pair_identities(base)
@@ -39,7 +46,7 @@ def bind_scorer(packet,environment,*,cpu_validation=False):
     result.update(scorer_source_sha256={p:file_sha(ROOT/p) for p in SCORER_SOURCES},
         artifact_packet_sha256=digest(packet),torch_home=str(environment['torch_home']),
         piq_site=str(environment['piq_site']),weights_sha256=copy.deepcopy(environment['weights_sha256']),
-        CPU_bound=CPU_BOUND.copy() if cpu_validation else PRODUCTION_BOUND.copy(),
+        CPU_bound=scorer_bound(base,cpu_validation),
         score_shape=shape,
         scoring_dispatch_allowed=False)
     return result
@@ -47,7 +54,7 @@ def bind_scorer(packet,environment,*,cpu_validation=False):
 
 def validate_config(config,*,cpu_validation=False):
     require(config['CPU_fixture_only'] is cpu_validation
-            and config['CPU_bound']==(CPU_BOUND if cpu_validation else PRODUCTION_BOUND)
+            and config['CPU_bound']==scorer_bound(config,cpu_validation)
             and config['score_shape']==([93,64,64,3] if cpu_validation else [93,432,768,3]),
             'Exact production or explicit synthetic CPU scorer boundary required')
     require(config['scorer_source_sha256']=={p:file_sha(ROOT/p) for p in SCORER_SOURCES},
@@ -139,10 +146,10 @@ def accept_scores(packet,config,manifest_sha256,result,execution,*,cpu_validatio
     old=copy.deepcopy(config['reused_rows']);fresh=copy.deepcopy(result['rows'])
     sources={row['id']:row for row in old+fresh}
     require(len(sources)==12+len(ids),'Original and new source row IDs collide')
-    return dict(status='ACCEPTED_COMPLETE24_ENDPOINT_SCORES',CPU_fixture_only=cpu_validation,
+    return dict(status='ACCEPTED_COMPLETE28_ENDPOINT_SCORES' if config.get('endpoint7') else 'ACCEPTED_COMPLETE24_ENDPOINT_SCORES',CPU_fixture_only=cpu_validation,
         analysis_scope_sha256=config['analysis_scope_sha256'],protocol_sha256=config['protocol_sha256'],
         artifact_packet_sha256=digest(packet),manifest_sha256=manifest_sha256,new_result_sha256=digest(result),
-        execution_sha256=digest(execution),formal_logical_positions=24,positions=copy.deepcopy(config['formal_positions']),
+        execution_sha256=digest(execution),formal_logical_positions=len(config['formal_positions']),positions=copy.deepcopy(config['formal_positions']),
         source_rows=sources,new_scored_pairs=len(ids),reused_original_rows=12,
         original_scores_sha256=config['original_scores_sha256'],original_reused_rows_sha256=digest(old),
         independent_new_inputs=False,endpoint_competitive_claim=False,GPU_submissions=0,ledger_written=False)

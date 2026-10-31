@@ -27,6 +27,9 @@ def request_card(proposal, bound, base):
     roles = {name: copy.deepcopy(base['roles'][name]) for name in ('NATIVE35', 'F19_A1', 'ALLD')}
     for role, policy in {**proposal['new_policies'], BUDGET_ROLE: bound['budget_policy']}.items():
         roles[role] = dict(kind='policy', requested_steps=35, policy=copy.deepcopy(policy))
+    if proposal.get('endpoint7'):
+        roles['F19_C'] = copy.deepcopy(base['roles']['F19_C'])
+        card['endpoint7'] = True
     slots = [dict(s, phase='B', section='B_' + s['section'], purpose=s['section'])
              for s in mapped['physical_matrix']]
     card.update(schema='CARA_SU19_BUDGET_ENDPOINT_REQUEST_CARD_R1', roles=roles,
@@ -91,6 +94,12 @@ def execute(adapter, output, *, before_request, save):
         require(adapter.cpu_validation and adapter.card['CPU_fixture_only'],
                 'Seven-role collection is CPU preparation only; production lifecycle is not yet bound')
         allowed_counts = (39, 46)
+    elif adapter.card.get('endpoint7'):
+        require(adapter.card['schema'] == 'CARA_SU19_BUDGET_ENDPOINT_REQUEST_CARD_R1'
+                and len(adapter.card['formal_matrix']) == 28
+                and adapter.card['scope_sha256'] == digest({k: v for k, v in adapter.card.items() if k != 'scope_sha256'}),
+                'Bound seven-role request card required')
+        allowed_counts = (46,)
     else:
         allowed_counts = (25, 32)
     require(not adapter.seen and len(adapter.card['physical_matrix']) in allowed_counts,

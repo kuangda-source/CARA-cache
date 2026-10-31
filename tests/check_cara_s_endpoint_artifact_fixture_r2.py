@@ -20,9 +20,10 @@ PROPOSAL='plans/cara_next_stage_20261028/mainline/r2/S_UNIFORM_BUDGET_ENDPOINT32
 SCORES='reports/cara_fast_B36_complete_scores_accepted_r1_20261029.json'
 
 
-def packet(project,write_media,decode,*,alias=False,shape=(93,16,16,3)):
+def packet(project,write_media,decode,*,alias=False,shape=(93,16,16,3),endpoint7=False):
     project=Path(project);project.mkdir(parents=True,exist_ok=True)
     proposal=json.loads((ROOT/PROPOSAL).read_text())
+    if endpoint7:proposal=json.loads((ROOT/'configs/cara_endpoint_proposal.json').read_text())
     original=json.loads((ROOT/SCORES).read_text())
     base=load_card(ROOT,'plans/cara_next_stage_20261028/mainline/r2/RUN_SPEC.json')
     requests={r['name']:r for r in base['inputs']}
@@ -68,7 +69,7 @@ def packet(project,write_media,decode,*,alias=False,shape=(93,16,16,3)):
             control['original_decoded_RGB_sha256']=known[(control['member'],control['role'])][1]
     proposal['CPU_fixture_only']=True
     proposal['scope_sha256']=digest({k:v for k,v in proposal.items() if k!='scope_sha256'})
-    capture,_,job,_,old_bound=endpoint_fixture(alias)
+    capture,_,job,_,old_bound=endpoint_fixture(alias,proposal_override=proposal if endpoint7 else None)
     bound=map_physical_slots(proposal,old_bound['budget_policy'])
     bound.update(CPU_fixture_only=True,proposal_scope_sha256=proposal['scope_sha256'],
         original_freeze_sha256=old_bound['original_freeze_sha256'],original_calibration=old_bound['original_calibration'])

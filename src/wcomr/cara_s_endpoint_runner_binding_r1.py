@@ -55,6 +55,9 @@ def validate_inputs(project,stage):
                 and sha(stage/p)==h for p,h in payload.items()) and payload[SOURCE]==sha(__file__)
             and bool(runtime) and all(not Path(p).is_absolute() and '..' not in Path(p).parts
                 and sha(project/'runtime'/p)==h for p,h in runtime.items()), 'Registered endpoint source/runtime differs')
+    if read_record(stage/PROPOSAL).get('endpoint7'):
+        for path in ('src/wcomr/cara_endpoint7_binding_r1.py', 'src/wcomr/cara_endpoint7_plan_r1.py'):
+            require(payload.get(path)==sha(Path(__file__).parents[2]/path), 'Seven-role binding source missing or changed')
     bound_policy(stage,registration,authority)
     card,bound,proposal,profile=[read_record(stage/p) for p in (CARD,BINDING,PROPOSAL,PROFILE)]
     require(card['CPU_fixture_only'] is bound['CPU_fixture_only'] is False
@@ -75,8 +78,8 @@ def validate_inputs(project,stage):
             and original['selected']['policy_fingerprint']==original['policy']['fingerprint'],
             'Original complete112/51 production budget freeze required')
     require(authority['scope_sha256']==profile['scope_sha256']==card['scope_sha256']
-            and authority['physical_paths']==profile['physical_paths']==count in (25,32)
-            and profile['new_scoring_pairs']==pairs in (8,12)
+            and authority['physical_paths']==profile['physical_paths']==count in ((46,) if card.get('endpoint7') else (25,32))
+            and profile['new_scoring_pairs']==pairs in ((16,) if card.get('endpoint7') else (8,12))
             and authority['endpoint_binding_sha256']==profile['endpoint_binding_sha256']==bound['binding_sha256']
             and authority['original_budget_freeze_sha256']==bound['original_freeze_sha256']
             and authority['gpu_uuid']==proposal['gpu_uuid'] and authority['host']==proposal['host']=='two_card'

@@ -6,18 +6,21 @@ SOURCE='src/wcomr/cara_s_endpoint_scoring_manifest_r1.py'
 
 
 def validate_pair_identities(manifest):
+    seven=manifest.get('endpoint7',False)
+    new_roles=NEW_ROLES+(BUDGET_ROLE,)+(('F19_RISKSWAP_C',) if seven else ())
+    positions_required=28 if seven else 24
     require(manifest['schema']=='CARA_ENDPOINT_CROSS_ALLOCATION_SCORING_R1'
-            and manifest['GPU_released'] is True and manifest['identity_controls_passed']==9
+            and manifest['GPU_released'] is True and manifest['identity_controls_passed']==(13 if seven else 9)
             and manifest['analysis_scope_sha256']!=manifest['original_B36_scope_sha256'],
             'Released cross-allocation identity controls required')
     pairs=manifest['pairs'];ids=[p['id'] for p in pairs]
     representative=manifest['budget_role_representative']
-    require(representative in NEW_ROLES+(BUDGET_ROLE,)
-            and manifest['physical_paths']==(32 if representative==BUDGET_ROLE else 25)
-            and len(pairs)==(12 if representative==BUDGET_ROLE else 8),
+    require((representative==BUDGET_ROLE if seven else representative in new_roles)
+            and manifest['physical_paths']==(46 if seven else 32 if representative==BUDGET_ROLE else 25)
+            and len(pairs)==(16 if seven else 12 if representative==BUDGET_ROLE else 8),
             'Frozen physical equivalence denominator differs')
     require(len(ids)==len(set(ids))==manifest['unique_new_scoring_pairs']
-            and len(ids) in (8,12),'Complete unique new scoring denominator required')
+            and len(ids) in ((16,) if seven else (8,12)),'Complete unique new scoring denominator required')
     members=manifest['members'];references=manifest['original_references']
     require(len(members)==len(set(members))==4 and set(references)==set(members),
             'Four original Native references required')
@@ -26,7 +29,7 @@ def validate_pair_identities(manifest):
         require(reference==references[candidate['member']] and reference['role']=='NATIVE35'
                 and reference['scope_sha256']==manifest['original_B36_scope_sha256']
                 and candidate['scope_sha256']==manifest['analysis_scope_sha256']
-                and candidate['role']==candidate['concrete_role'] in NEW_ROLES+(BUDGET_ROLE,),
+                and candidate['role']==candidate['concrete_role'] in new_roles,
                 'Preserve original reference scope and new candidate identity')
         for field in ('member','seed','host','gpu_uuid','model_sha256','comparison_input_sha256','precision'):
             require(candidate[field]==reference[field],'Mismatched cross-allocation reference: '+field)
@@ -36,12 +39,12 @@ def validate_pair_identities(manifest):
                 require(isinstance(value,str) and len(value)==64 and all(c in '0123456789abcdef' for c in value),
                         'Original descriptor SHA required: '+field)
     reused=manifest['reused_rows'];positions=manifest['formal_positions']
-    require(len(reused)==len({r['id'] for r in reused})==12 and len(positions)==24
+    require(len(reused)==len({r['id'] for r in reused})==12 and len(positions)==positions_required
             and {(r['member'],r['role']) for r in positions}==
-                {(m,r) for m in members for r in REUSED_ROLES+NEW_ROLES+(BUDGET_ROLE,)},
-            'Complete24 logical positions and12 unchanged original rows required')
+                {(m,r) for m in members for r in REUSED_ROLES+new_roles},
+            f'Complete{positions_required} logical positions and12 unchanged original rows required')
     old={r['id']:r for r in reused};fresh={p['id']:p for p in pairs}
-    require(len({r['id'] for r in positions})==24,'Unique logical position identities required')
+    require(len({r['id'] for r in positions})==positions_required,'Unique logical position identities required')
     for position in positions:
         if position['mode']=='REUSE_COMPLETE_SCORE':
             row=old[position['score_id']]
@@ -50,7 +53,7 @@ def validate_pair_identities(manifest):
                     and row['candidate']['scope_sha256']==manifest['original_B36_scope_sha256'],
                     'Original metric identity cannot be projected into the new scope')
         else:
-            require(position['mode']=='GENERATE_AND_SCORE' and position['role'] in NEW_ROLES+(BUDGET_ROLE,),
+            require(position['mode']=='GENERATE_AND_SCORE' and position['role'] in new_roles,
                     'Unknown logical score mode')
             pair=fresh[position['score_id']]
             expected=manifest['budget_role_representative'] if position['role']==BUDGET_ROLE else position['role']

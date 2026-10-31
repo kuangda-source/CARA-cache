@@ -18,12 +18,15 @@ PLAN='plans/cara_next_stage_20261028/mainline/r2/S_UNIFORM_BUDGET_ENDPOINT32_PRO
 
 
 class Fixture:
-    def __init__(self,project,alias=False):
+    def __init__(self,project,alias=False,endpoint7=False):
         self.project=Path(project);self.stage=self.project/'.sync/cara-S-endpoint-GPU-CPU-metadata'
         self.stage.mkdir(parents=True);(self.project/'runtime').mkdir()
         (self.project/'runtime/CPU-source.py').write_text('# CPU metadata fixture, not a production runtime\n')
         self.proposal=json.loads((ROOT/PLAN).read_text());base=load_card(ROOT,binding.BASE)
         policy=self.proposal['new_policies']['SU19_CFG_C'] if alias else base['roles']['UNIFORM19_C']['policy']
+        if endpoint7:
+            self.proposal=json.loads((ROOT/'configs/cara_endpoint_proposal.json').read_text())
+            policy=self.proposal['new_policies']['BUDGET_SEARCH19_C']
         origin=self.proposal['budget_comparator']
         frozen=dict(schema='CARA_BUDGET_COMPLETE_MASK_FREEZE_R1',CPU_fixture_only=False,new_GPU_authority=False,
             complete_physical_paths=112,complete_two_FIT_queries=51,
@@ -44,12 +47,13 @@ class Fixture:
         self.profile['hosts']={'two_card':self.profile['hosts']['two_card']}
         self.profile.pop('candidate_queries')
         configs={binding.CARD:self.card,binding.BINDING:self.bound,binding.PROPOSAL:self.proposal,binding.PROFILE:self.profile}
-        for name in binding.REQUIRED:
+        required=binding.REQUIRED+(('src/wcomr/cara_endpoint7_binding_r1.py','src/wcomr/cara_endpoint7_plan_r1.py') if endpoint7 else ())
+        for name in required:
             target=self.stage/name;target.parent.mkdir(parents=True,exist_ok=True)
             if name in configs:target.write_text(json.dumps(configs[name])+'\n')
             else:target.write_bytes((ROOT/name).read_bytes())
         self.reg=dict(host='two_card',stage=str(self.stage),source_revision='b'*40,container_image=binding.IMAGE,
-            payload_sha256={p:sha(self.stage/p) for p in binding.REQUIRED},
+            payload_sha256={p:sha(self.stage/p) for p in required},
             runtime_source_sha256={'CPU-source.py':sha(self.project/'runtime/CPU-source.py')})
         self.auth=dict(run_id='cara-S-endpoint-cpu-metadata',launch_id='a'*32,host='two_card',gpu_uuid=self.proposal['gpu_uuid'],
             stage=str(self.stage),source_revision='b'*40,scope_sha256=self.card['scope_sha256'],billed_limit_GPUh=5.25,

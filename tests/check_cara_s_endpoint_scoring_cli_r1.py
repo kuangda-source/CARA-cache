@@ -34,7 +34,7 @@ def write_black(path):
         for encoded in stream.encode():container.mux(encoded)
 
 
-def run(root,stage,*,deadline):
+def run(root,stage,*,deadline,endpoint7=False):
     root=Path(root);stage=Path(stage);root.mkdir(parents=True,exist_ok=False)
     members=json.loads((ROOT/PROPOSAL).read_text())['FIT']+json.loads((ROOT/PROPOSAL).read_text())['CHECK']
     cache=root/'media-cache';cache.mkdir();cases=[]
@@ -73,8 +73,8 @@ def run(root,stage,*,deadline):
         assert repeated.returncode!=0 and before=={str(p):sha(p) for p in paths}
         return True
 
-    for alias in (False,True):
-        args=packet(root/('alias25' if alias else 'full32'),writer,artifacts.decode_video,alias=alias,shape=(93,64,64,3))
+    for alias in ((False,) if endpoint7 else (False,True)):
+        args=packet(root/('alias25' if alias else 'full32'),writer,artifacts.decode_video,alias=alias,shape=(93,64,64,3),endpoint7=endpoint7)
         saved=artifacts.postrelease_manifest(**args)
         config=scores.bind_scorer(saved,environment,cpu_validation=True)
         manifest_path=root/('alias-manifest.json' if alias else 'full-manifest.json')
@@ -84,8 +84,8 @@ def run(root,stage,*,deadline):
         assert execution['exit_code']==0,(result_path.with_suffix('.log').read_text()[-2500:])
         assert result['original_identity']==execution['original_identity']
         accepted=scores.accept_scores(saved,config,sha(manifest_path),result,execution,cpu_validation=True)
-        assert accepted['new_scored_pairs']==(8 if alias else 12)
-        assert len(accepted['positions'])==24 and accepted['reused_original_rows']==12
+        assert accepted['new_scored_pairs']==(16 if endpoint7 else 8 if alias else 12)
+        assert len(accepted['positions'])==(28 if endpoint7 else 24) and accepted['reused_original_rows']==12
         assert all(accepted['source_rows'][r['id']]==r for r in config['reused_rows'])
         infinite=[r for r in result['rows'] if r['MSE_video']==0]
         undefined=[r for r in result['rows'] if r['reference_gradient_energy']==0]
@@ -93,7 +93,7 @@ def run(root,stage,*,deadline):
         assert all(r['Alex']==0 and abs(r['SSIM']-1)<1e-6 and r['PSNR_video_dB']=='+inf' for r in infinite)
         assert all(r['gradient_energy_ratio'] is None and r['gradient_ratio_status']=='ZERO_REFERENCE_ENERGY' for r in undefined)
         cases.append(dict(alias=alias,new_pairs=accepted['new_scored_pairs'],frames_per_pair=93,temporal_pairs=92,
-            logical_positions=24,original_rows_unchanged=12,original_scopes_preserved=True,
+            logical_positions=28 if endpoint7 else 24,original_rows_unchanged=12,original_scopes_preserved=True,
             infinite_PSNR_pairs=len(infinite),undefined_gradient_pairs=len(undefined),
             no_replay=no_replay(command,result_path),execution=execution,accepted_sha256=digest(accepted),
             manifest_sha256=sha(manifest_path),result_file_sha256=sha(result_path)))
@@ -105,13 +105,13 @@ def run(root,stage,*,deadline):
     try:result,execution,command=child(manifest_path,result_path)
     finally:target.write_bytes(original)
     assert execution['exit_code']!=0 and result['status']=='FAILED_DENOMINATOR_RETAINED'
-    assert len(result['registered_pairs'])==12 and len(result['rows'])==1
+    assert len(result['registered_pairs'])==(16 if endpoint7 else 12) and len(result['rows'])==1
     assert result['rows'][0]['frames']==93 and not result['CUDA_initialized']
     assert 'SHA differs' in result['error']
     assert no_replay(command,result_path)
     return dict(status='ACTUAL_CROSS_SCOPE_COMPLETE_SCORER_CPU_PASS',cases=cases,
-        failed_case=dict(execution=execution,complete_registered_pairs=12,completed_rows=1,
+        failed_case=dict(execution=execution,complete_registered_pairs=16 if endpoint7 else 12,completed_rows=1,
             status=result['status'],no_replay=True,frame_count_of_completed_row=93),
-        new_synthetic_pairs_scored=20,failure_fixture_pairs_scored=1,old_experiment_videos_rescored=0,
+        new_synthetic_pairs_scored=16 if endpoint7 else 20,failure_fixture_pairs_scored=1,old_experiment_videos_rescored=0,
         original_scientific_scores_computed=0,metric_weights_loaded=True,generative_model_loaded=False,
         whole_GPU_card_accepted=False)

@@ -16,8 +16,8 @@ from test_cara_s_endpoint_score_capture_r1 import fixture as capture_fixture,sav
 ORIGINAL_COMMAND=dispatch.score_command
 
 
-def fixture(project):
-    args,container,out=capture_fixture(project)
+def fixture(project,*,endpoint7=False):
+    args,container,out=capture_fixture(project,endpoint7=endpoint7)
     stage=Path(args['binding']['stage'])
     for source in (dispatch.SOURCE,dispatch.BOOTSTRAP):
         target=stage/source;target.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(ROOT/source,target)

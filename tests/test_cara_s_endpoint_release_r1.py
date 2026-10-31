@@ -25,10 +25,12 @@ def encoded_sha(value):
     return hashlib.sha256((json.dumps(value, indent=2) + '\n').encode()).hexdigest()
 
 
-def endpoint_fixture(alias=False):
+def endpoint_fixture(alias=False,proposal_override=None):
     proposal = json.loads((ROOT / 'plans/cara_next_stage_20261028/mainline/r2/S_UNIFORM_BUDGET_ENDPOINT32_PROPOSAL_R1_20261031.json').read_text())
+    if proposal_override is not None:proposal=copy.deepcopy(proposal_override)
     base = load_card(ROOT, 'plans/cara_next_stage_20261028/mainline/r2/RUN_SPEC.json')
     policy = proposal['new_policies']['SU19_CFG_C'] if alias else base['roles']['UNIFORM19_C']['policy']
+    if proposal.get('endpoint7'):policy=proposal['new_policies']['BUDGET_SEARCH19_C']
     bound = map_physical_slots(proposal, policy)
     bound.update(CPU_fixture_only=True, proposal_scope_sha256=proposal['scope_sha256'],
                  original_freeze_sha256='b' * 64,

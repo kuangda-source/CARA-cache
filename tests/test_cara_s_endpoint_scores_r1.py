@@ -14,8 +14,8 @@ from check_cara_s_endpoint_artifact_fixture_r2 import packet
 from test_cara_s_endpoint_artifacts_r1 import write_media,decode
 
 
-def fixture(root,*,alias=False):
-    args=packet(root,write_media,decode,alias=alias,shape=(93,64,64,3))
+def fixture(root,*,alias=False,endpoint7=False):
+    args=packet(root,write_media,decode,alias=alias,shape=(93,64,64,3),endpoint7=endpoint7)
     with patch.object(artifacts,'decode_video',side_effect=decode):saved=artifacts.postrelease_manifest(**args)
     config=scores.bind_scorer(saved,dict(torch_home='/CPU-ONLY/torch',piq_site='/CPU-ONLY/site',weights_sha256={}),cpu_validation=True)
     manifest_sha=hashlib.sha256((json.dumps(config,indent=2)+'\n').encode()).hexdigest()

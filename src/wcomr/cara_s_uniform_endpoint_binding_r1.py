@@ -80,6 +80,9 @@ def map_physical_slots(proposal, budget_policy):
     already have fresh paths that may replace budget paths. Historical artifacts
     cannot replace the budget role's fresh timing allocation.
     """
+    if proposal.get("endpoint7"):
+        from .cara_endpoint7_binding_r1 import mapping
+        return mapping(proposal, budget_policy)
     representative = next((role for role in NEW_ROLES
                            if proposal['new_policies'][role] == budget_policy), BUDGET_ROLE)
     roles = {BUDGET_ROLE: representative}

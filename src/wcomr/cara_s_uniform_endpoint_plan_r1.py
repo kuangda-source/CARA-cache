@@ -143,6 +143,9 @@ def build(card,diagnostic,scores,analysis,numeric):
 
 
 def validate(plan):
+    if plan.get("endpoint7"):
+        from .cara_endpoint7_binding_r1 import validate as validate_seven
+        return validate_seven(plan)
     members=plan['FIT']+plan['CHECK']
     joint='budget_comparator' in plan
     new_roles=NEW_ROLES+(BUDGET_ROLE,) if joint else NEW_ROLES

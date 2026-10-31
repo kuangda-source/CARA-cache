@@ -22,8 +22,8 @@ def save(path,value):
 def timestamp(value):return datetime.datetime.fromtimestamp(value,datetime.timezone.utc).isoformat().replace('+00:00','Z')
 
 
-def fixture(project,*,alias=False):
-    original=score_fixture(project,alias=alias);packet=original['packet']
+def fixture(project,*,alias=False,endpoint7=False):
+    original=score_fixture(project,alias=alias,endpoint7=endpoint7);packet=original['packet']
     stage=project/'.sync/cara-S-endpoint-CPU-fixture-recovery';stage.mkdir(parents=True)
     save(stage/'GPU-launch.json',dict(CPU_fixture_only=True,launch_id=packet['manifest']['launch_id']))
     packet['release']['original_launch_sha256']=file_sha(stage/'GPU-launch.json')

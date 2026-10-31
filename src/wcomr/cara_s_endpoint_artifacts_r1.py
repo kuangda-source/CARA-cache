@@ -159,7 +159,9 @@ def postrelease_manifest(capture,expected_launch_sha256,settlement,proposal,card
             expected=decoded[slots[('WARM',control['member'],'NATIVE35')]]['RGB_sha256']
         require(decoded[identifier]['RGB_sha256']==expected,'Complete endpoint RGB identity control failed')
         controls.append(dict(control=copy.deepcopy(control),slot_id=identifier,RGB_sha256=expected,passed=True))
-    require(len(controls)==9,'All nine RGB identity controls required')
+    controls_required=13 if proposal.get('endpoint7') else 9
+    positions_required=28 if proposal.get('endpoint7') else 24
+    require(len(controls)==controls_required,'Complete RGB identity controls required')
     pairs=[];positions=[];seen={}
     for i,item in enumerate(bound['formal_matrix']):
         position=dict(id=f'ENDPOINT_FORMAL_{i+1:03d}',member=item['member'],role=item['role'],mode=item['mode'])
@@ -178,13 +180,15 @@ def postrelease_manifest(capture,expected_launch_sha256,settlement,proposal,card
         release_sha256=digest(release),collection_sha256=release['collection_sha256'],
         original_scores_sha256=capture['files']['original_scores']['sha256'],
         members=proposal['FIT']+proposal['CHECK'],original_references=references,reused_rows=reused,
-        formal_positions=positions,pairs=pairs,unique_new_scoring_pairs=len(pairs),formal_logical_positions=24,
+        formal_positions=positions,pairs=pairs,unique_new_scoring_pairs=len(pairs),formal_logical_positions=positions_required,
         budget_role_representative=bound['budget_role_representative'],physical_paths=len(collection['rows']),
         artifact_sha256=digest(artifacts),decoded_identity_sha256=digest(decoded),identity_controls=controls,
-        identity_controls_passed=9,GPU_released=True,CPU_fixture_only=cpu_validation,
+        identity_controls_passed=controls_required,GPU_released=True,CPU_fixture_only=cpu_validation,
         CPU_bound=dict(cpus=2,memory_GiB=8,wall_hours=4,max_pairs=12),
         metrics_computed=0,scoring_dispatch_allowed=False,whole_GPU_card_accepted=False,
         authorizes_replay=False,independent_new_inputs=False,GPU_submissions=0,ledger_written=False)
+    if proposal.get('endpoint7'):
+        manifest.update(endpoint7=True,CPU_bound=dict(cpus=2,memory_GiB=8,wall_hours=2,max_pairs=16))
     validate_pair_identities(manifest)
     return dict(status='COMPLETE_ENDPOINT_ARTIFACTS_AND_CROSS_SCOPE_MANIFEST_NOT_SCORED',
         manifest=manifest,artifacts=artifacts,decoded=decoded,release=release,CPU_fixture_only=cpu_validation,

@@ -99,7 +99,7 @@ def read_intent(stage):
             and intent['artifact_packet_sha256']==digest(packet)
             and intent['manifest_path']==str(out/'manifest.json') and intent['packet_path']==str(out/'artifact-packet.json')
             and 0<intent['work_seconds']<=config['CPU_bound']['wall_hours']*3600
-            and (intent['CPU_fixture_only'] or intent['work_seconds']==4*3600),
+            and (intent['CPU_fixture_only'] or intent['work_seconds']==config['CPU_bound']['wall_hours']*3600),
             'Original frozen score intent differs')
     verify(stage,packet,config,intent['registration_sha256'],cpu_validation=intent['CPU_fixture_only'])
     return intent,packet,config
@@ -128,7 +128,7 @@ def recover(stage):
     require(cli['intent_sha256']==result['intent_sha256'],'Original score CLI binding differs')
     binding=dict(intent,container_id=(control/'container.cid').read_text().strip(),cli_identity=cli['identity'])
     observed=capture.recover(binding,packet,config,cpu_validation=intent['CPU_fixture_only'])
-    if observed['status']=='ORIGINAL_COMPLETE24_SCORE_ACCEPTED':
+    if observed['status'] in ('ORIGINAL_COMPLETE24_SCORE_ACCEPTED','ORIGINAL_COMPLETE28_SCORE_ACCEPTED'):
         require(ended['exit_code']==0 and ended['error'] is None and ended['cleanup_error'] is None,
                 'Failed/timed-out original score supervisor cannot accept scores')
     return dict(result,status=observed['status'],score_capture=observed)

@@ -23,7 +23,7 @@ def collect(adapter,output,context,*,before_request,precision):
     """The enclosing admitted runner owns the model, device, reset and storage."""
     output=Path(output);card=adapter.card
     require(context['scope_sha256']==card['scope_sha256']
-            and context['physical_paths']==len(card['physical_matrix']) in (25,32)
+            and context['physical_paths']==len(card['physical_matrix']) in ((46,) if card.get('endpoint7') else (25,32))
             and context['CPU_fixture_only'] is adapter.cpu_validation
             and context['endpoint_binding_sha256']==card['endpoint_binding_sha256'],
             'Complete original endpoint collection context required')

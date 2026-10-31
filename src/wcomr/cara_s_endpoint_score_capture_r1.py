@@ -140,6 +140,6 @@ def recover(binding,packet,config,*,cpu_validation=False):
     if cpu_validation:execution['kind']='ACTUAL_CPU_FIXTURE_CHILD'
     accepted=accept_scores(packet,config,binding['manifest_sha256'],result,execution,cpu_validation=cpu_validation)
     require(file_sha(manifest)==binding['manifest_sha256'],'Original manifest changed during acceptance')
-    return dict(operational,status='ORIGINAL_COMPLETE24_SCORE_ACCEPTED',scientific_output_read=True,
+    return dict(operational,status='ORIGINAL_COMPLETE28_SCORE_ACCEPTED' if config.get('endpoint7') else 'ORIGINAL_COMPLETE24_SCORE_ACCEPTED',scientific_output_read=True,
         CPU_fixture_only=cpu_validation,execution=execution,accepted=accepted)
 
