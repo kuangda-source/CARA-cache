@@ -1,5 +1,11 @@
 # E1 七角色46路径：唯一原运行交接
 
+## 最终接受（2026-11-01，826）
+
+接口已修复并完成验收：46/46原GPU成功、13/13RGB门、16新+12原行=28完整评分，原CPU504.610173秒正常退出；原GPU3.0556730066974542GPUh已唯一结算。e1/e1-2/e1-cpu均已删除。当前以research/826_CARA_ENDPOINT7_COMPLETE_ACCEPTANCE_RESULTS_AND_REGISTERED_DECISION_20261101.md、reports/cara_endpoint7_complete_acceptance_r1_20261101.json和完整analysis为准。原824失败和825接续均保留为历史。
+
+不再GPU、artifacts或score派发，也不重复结算。所有原源/回执/冻结保持；本次E1只保留CFG机制增量，当前S不晋级主方法。后续仅有限结构化预算配方CPU方向；无新GPU授权。下方运行/接续指令均为历史，不表示仍有任务活跃。
+
 ## 当前接续（2026-11-01 14:23，用户已要求修复并继续验收）
 
 原824接口失败已由独立兼容层修复；原失败与原1268源不改。完整46工件和13/13RGB已由修复读者正常退出接受，见825及reports/cara_endpoint7_repaired_artifacts_accepted_r1_20261101.json。16新对原评分intent已唯一创建，原stage/endpoint-score-control，manifest SHA ed1ff86272d45257707d3447f44a078997f24048ba97d4ceadbc9f1c51482935；12原行不重评分。

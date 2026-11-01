@@ -2,7 +2,7 @@
 
 # CARA-Cache
 
-[825 — E1接口修复与13RGB接受，CPU唯一评分已创建](research/825_CARA_ENDPOINT7_INTERFACE_REPAIRED_RGB13_ACCEPTED_CPU_SCORE_ONCE_20261101.md)：原E1接口已独立修复，8项回归及完整46/13RGB接受通过；16新对CPU原intent已唯一创建，12原行不重评。原GPU和3.055673007GPUh结算保持，等待完整28后导出结果；CPU终验14:35。
+[826 — E1完整验收：CFG有机制增量，当前S不晋级](research/826_CARA_ENDPOINT7_COMPLETE_ACCEPTANCE_RESULTS_AND_REGISTERED_DECISION_20261101.md)：接口修复后46/46、13RGB和28评分完整接受（16新+12原行）；原GPU3.055673007GPUh已结算。S-CFG较DIAG LPIPS低1.53%且4/4同向，但比F19-A1高102.83%；按预注册仅保留机制增量，当前S不晋级。全93帧与双时钟图表完成，检查已删。
 
 **2026-10-28最新安排：主线P0/F19，探索S-FAST19与固定Shared25-C的Q并行准备。** [最新计划与两个对话分工](plans/cara_next_stage_20261028/08_REPOSITORY_RECONCILIATION.md) · [739接收记录](research/739_CARA_NEXT_STAGE_FAST_SQ_PLAN_AND_CHAT_HANDOFF_20261028.md)。A32已完整验收并冻结；B36已获单次批准，实际状态以原运行记录为准。WC73已热停结算，禁止自动重派；原DEV128、旧合同与失败保持。以下旧准备记录仅作历史复用依据。
 
@@ -26,7 +26,7 @@ CARA-Cache（CFG-Aligned Readout and Cost-Aware Allocation for Video Diffusion�
 |---|---|
 | 做了什么、主要结果怎样 | [研究与结果概览](EXPERIMENT_REPORT.md) |
 | 现在在跑什么、下一次何时验收 | [当前状态](research/02_CURRENT_STATE.md) |
-| 每项实验是否完成、支持什么结论 | [60项实验总表](paper/EXPERIMENT_MASTER_TABLE.md) |
+| 每项实验是否完成、支持什么结论 | [61项实验总表](paper/EXPERIMENT_MASTER_TABLE.md) |
 | 下一步解决什么问题 | [后续实验顺序](research/09_NEXT_ACTIONS.md) |
 | 如何复核代码、原件和统计 | [复现与证据指南](docs/REPRODUCIBILITY.md) |
 | 从项目开始到现在的完整记录 | [历史入口](docs/archive/README.md) |

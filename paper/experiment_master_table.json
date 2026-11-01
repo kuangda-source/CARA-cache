@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_local_date": "2026-10-25",
+  "updated_local_date": "2026-11-01",
   "snapshot_basis": "Evidence snapshot at 2026-10-22 22:19:22 Asia/Shanghai; current operation data lives in docs/project_status.json. Historical narrative snapshot is archived byte-for-byte.",
   "git_snapshot_before_inventory": "4cb9fa2640b838dab0d1f913f4bb57e230b9edbd",
   "mapping_ref": "paper/internal_to_paper_mapping.json",
@@ -32,6 +32,7 @@
     "COST112_COMPLETE_ACCEPTED_TIMING_GATE_FAILED": 1,
     "DEFERRED_MANUAL_MASK_SCREEN_SUPERSEDED_BY_GENERATOR_VALIDATION": 2,
     "DEV128_A6000_COMPLETE_ACCEPTED_FROZEN_CONTINUE": 1,
+    "E1_COMPLETE46_RGB13_SCORE28_ACCEPTED_MECHANISM_INCREMENT_NOT_MAIN_METHOD": 1,
     "EXPLORATORY_BANK24_FULL24_ACCEPTED_FROZEN_GATE_AND_XR_ANALYZED": 2,
     "EXPLORATORY_CAL12_A_FACTORIAL_GAIN_ON_CAL_PENDING_INDEPENDENT_CONFIRMATION": 1,
     "EXPLORATORY_CAL12_SHARED26D_PLAN_GAIN_ON_CAL_PENDING_INDEPENDENT_CONFIRMATION": 1,
@@ -6259,6 +6260,49 @@
       },
       "full_GPU_supervisor_financial_terminal_binding_CPU_accepted": true,
       "execution_authorized": true
+    },
+    {
+      "id": "PG-FAST-E1-46",
+      "state": "E1_COMPLETE46_RGB13_SCORE28_ACCEPTED_MECHANISM_INCREMENT_NOT_MAIN_METHOD",
+      "paper_experiment_name": "CFG-aware risk endpoint mechanism and frozen strong baselines",
+      "internal_ids": [
+        "cara-S-endpoint-seven46-r1-20261101"
+      ],
+      "evidence_refs": [
+        "research/826_CARA_ENDPOINT7_COMPLETE_ACCEPTANCE_RESULTS_AND_REGISTERED_DECISION_20261101.md",
+        "reports/cara_endpoint7_complete_acceptance_r1_20261101.json",
+        "reports/cara_endpoint7_complete_analysis_r1_20261101.json",
+        "plans/cara_next_stage_20261101/e1/E1_COMPLETE_ENDPOINT_DECISION_R1.json",
+        "reports/cara_endpoint7_complete_figures_r1_20261101.json",
+        "reports/cara_endpoint7_original_score_CPU_capture_r4_20261101.json"
+      ],
+      "method_mapping_ids": [],
+      "contribution_ids": [
+        "C2"
+      ],
+      "claim_relation": "FOUR_OLD_CAL_ENDPOINT_SCREEN_NOT_INDEPENDENT_TEST",
+      "paper_placement": "端点机制和冻结强基线比较，四旧CAL开发证据",
+      "dependencies": [],
+      "production_CPU_accepted": true,
+      "full_protocol_accepted": true,
+      "new_GPU_submissions": 1,
+      "GPU_dispatch_ready": false,
+      "actual_GPUh": 3.0556730066974542,
+      "evidence_or_planned_scope": "接口修复后46/46、13RGB和28评分完整接受（16新+12原行）；原GPU3.055673007GPUh已结算。S-CFG较DIAG LPIPS低1.53%且4/4同向，但比F19-A1高102.83%；按预注册仅保留机制增量，当前S不晋级。全93帧与双时钟图表完成，检查已删。",
+      "reader": {
+        "title": "E1七角色：CFG/DIAG、风险交换与冻结搜索",
+        "status": "完整接受；CFG机制增量，当前S不晋级",
+        "result": "接口修复后46/46、13RGB和28评分完整接受（16新+12原行）；原GPU3.055673007GPUh已结算。S-CFG较DIAG LPIPS低1.53%且4/4同向，但比F19-A1高102.83%；按预注册仅保留机制增量，当前S不晋级。全93帧与双时钟图表完成，检查已删。",
+        "next_action": "仅有限结构化预算配方CPU原型；不重选搜索赢家，不自动新GPU。",
+        "evidence_refs": [
+          "research/826_CARA_ENDPOINT7_COMPLETE_ACCEPTANCE_RESULTS_AND_REGISTERED_DECISION_20261101.md",
+          "reports/cara_endpoint7_complete_acceptance_r1_20261101.json",
+          "reports/cara_endpoint7_complete_analysis_r1_20261101.json",
+          "plans/cara_next_stage_20261101/e1/E1_COMPLETE_ENDPOINT_DECISION_R1.json",
+          "reports/cara_endpoint7_complete_figures_r1_20261101.json",
+          "reports/cara_endpoint7_original_score_CPU_capture_r4_20261101.json"
+        ]
+      }
     }
   ],
   "source_refs": {
@@ -12187,28 +12231,28 @@
     },
     "EXPERIMENT_REPORT.md": {
       "path": "EXPERIMENT_REPORT.md",
-      "sha256": "ad748b5c0a71ceee19ce60912c2032a4c4922400f98e44d6bdafdd209733db15",
-      "bytes": 18286
+      "sha256": "badab10c8afc2fb0ee1efcc148e19cd906b92dba86814e60726c590b4ec542e6",
+      "bytes": 18347
     },
     "memory/handoffs/LATEST.md": {
       "path": "memory/handoffs/LATEST.md",
-      "sha256": "0758a79599c55674046841c7d740d8fdc80ae5df48ee68381f4d919c3d2719df",
-      "bytes": 19483
+      "sha256": "531c40fa84e288790c4bef478b80ecde3b94ccae62766733b14a7fb27b13220d",
+      "bytes": 19544
     },
     "research/02_CURRENT_STATE.md": {
       "path": "research/02_CURRENT_STATE.md",
-      "sha256": "21b9a930943f15193c8af573dd1d4274f4a3988718790f7ecac240d4dc7e0813",
-      "bytes": 22788
+      "sha256": "d83e4e0b9ef0eace5fbbafe50b0e53eef62d7646b5a7ce4e214ffb7a00fb4313",
+      "bytes": 22849
     },
     "research/09_NEXT_ACTIONS.md": {
       "path": "research/09_NEXT_ACTIONS.md",
-      "sha256": "8f45f7592ab1cc80d85c3d42dd9a469ca47c654c1775291d7780b8a4028b5c37",
-      "bytes": 16660
+      "sha256": "e95a6d7601373a8ad8a6228a1104aedaca6dcb81d89b584e1e29ad15785b8d60",
+      "bytes": 16721
     },
     "paper/EXPERIMENT_MASTER_TABLE.md": {
       "path": "paper/EXPERIMENT_MASTER_TABLE.md",
-      "sha256": "515490c4ae93d49dcd62a8a2def64c94346ec511b0832f94f8916af576027551",
-      "bytes": 46027
+      "sha256": "1cc0b12710e0ce3d711d25f7fd77701ce0a90d7e36a232ab60067c22f4e718d4",
+      "bytes": 47059
     },
     "paper/INTERNAL_TO_PAPER_MAPPING.md": {
       "path": "paper/INTERNAL_TO_PAPER_MAPPING.md",
@@ -14452,7 +14496,7 @@
     "completed_A32_launch_ref": "reports/cara_fast_A6000_GPU_actual_launch_r1_20261028.json"
   },
   "mapping_sha256_at_inventory": "88b3d760a0c94c20b6c802e21f30c7286d6e596cc9b3f3100e7ee6feaa3938f3",
-  "latest_mapping_sha256": "d9e1c92b086507651a4608ed8fb4362f372321b2da10ff55562404c091496f9e",
+  "latest_mapping_sha256": "67b150d364f03d3f2ac6161601a6be10743627a97c8755302b27f3cc0ee3bb36",
   "revision_plan": {
     "registry_ref": "plans/cara_v6_20261020/TASK_REGISTRY_V6.yaml",
     "report_ref": "research/610_WC_CARA_V6_REVIEW_CLOSURE_PLAN_INTERVAL_SPEC_AND_FIRST_DEV_SCOPE_20261020.md",

@@ -1,0 +1,57 @@
+{
+  "schema": "CARA_E1_COMPLETE_ENDPOINT_REGISTERED_DECISION_R1",
+  "status": "COMPLETE28_ACCEPTED_CFG_MECHANISM_INCREMENT_ONLY_CURRENT_S_NOT_PROMOTED",
+  "observed_unix": 1793514842.407058,
+  "launch_id": "8d750a6de77d4d4fa2c84c4f97fff7f3",
+  "run_id": "cara-S-endpoint-seven46-r1-20261101",
+  "scope": "Four old CAL inputs, two old FIT and two old CHECK, seed0",
+  "preregistered_rule_ref": "plans/cara_next_stage_20261101/DECISION_AND_FREEZE_GATE.md",
+  "preregistered_rule_sha256": "a8ef22717f082608a5090549bfa15e1c5d91c279ce73a2e03616cd45e3600c58",
+  "selected_preregistered_case": "CFG优于DIAG，但明显输F19-A1/搜索",
+  "CFG_vs_DIAG": {
+    "Alex_absolute_difference": -0.007315466400756629,
+    "Alex_relative_improvement_percent": 1.5340543716471422,
+    "improved_inputs": 4,
+    "total_inputs": 4
+  },
+  "CFG_vs_Uniform": {
+    "Alex_relative_increase_percent": 0.13320722764627035,
+    "conclusion": "Near Uniform endpoint quality; no improvement established"
+  },
+  "CFG_vs_F19_A1": {
+    "Alex_relative_increase_percent": 102.83242972943553,
+    "inferior_inputs": 4
+  },
+  "search_vs_F19_A1": {
+    "Alex_relative_increase_percent": 32.30422955765797,
+    "inferior_inputs": 4
+  },
+  "F19_RiskSwap_vs_F19_C": {
+    "Alex_relative_increase_percent": 0.29140312765780774,
+    "improved_inputs": 1,
+    "worsened_inputs": 3,
+    "CHECK_worsened_inputs": 2,
+    "conclusion": "Local risk swap does not provide consistent endpoint improvement"
+  },
+  "scientific_interpretation": "Keep the CFG objective mechanism increment; current S recipe is not promoted. Search does not beat the frozen strong-layout baseline on these four old CAL inputs.",
+  "only_followup_direction": "Prepare one finite structured-budget-recipe CPU prototype under the original plan; any later GPU card has its own whole-scope approval/admission.",
+  "new_method_frozen": false,
+  "current_S_promoted_to_main_method": false,
+  "original_search_winner_reselected": false,
+  "independent_TEST": false,
+  "statistical_significance_claim": false,
+  "new_GPU_authority": false,
+  "automatic_next_GPU": false,
+  "old_freezes_changed": false,
+  "original_A32_WC_RA_FIT_status": "UNMATCHED",
+  "calibration_costs_GPUh": {
+    "S_original_collection": 3.039352411208933,
+    "frozen_search": 7.197644817485577
+  },
+  "calibration_budget_note": "Both had14GPUh permitted ceilings in design; actual calibration costs differ and are not time-matched.",
+  "complete_evidence_sha256": {
+    "reports/cara_endpoint7_complete_acceptance_r1_20261101.json": "65975823753368cafcbe48489f124c9ad0213e0c0685180c17ee7268497ed9f2",
+    "reports/cara_endpoint7_complete_analysis_r1_20261101.json": "b15450dc2b27639e165b1ae1867eadae5de5babbc0448415afc1dfe965ec282e",
+    "reports/cara_endpoint7_original_score_CPU_capture_r4_20261101.json": "d3cf99e31a5288f5e81750bcfbe30a8dd3aca2d8abd4a0a0070e5f8633b3b986"
+  }
+}

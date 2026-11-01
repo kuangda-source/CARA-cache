@@ -1834,7 +1834,7 @@
     "independent_new_inputs": false,
     "complete_QA_ref": "reports/cara_fast_A6000_complete_frozen_QA_20261029_0115.json"
   },
-  "current_evidence_observed_at": "2026-11-01T14:24:03.248029+08:00",
+  "current_evidence_observed_at": "2026-11-01T14:34:02.424379+08:00",
   "fast_B36_CPU_preparation_20261029": {
     "status": "ACCEPTED_DUAL_HOST_COMPLETE_B36_CPU_CONTINUATION_ONLY",
     "accepted_receipt_ref": "reports/cara_fast_B36_CPU_acceptance_r1_20261029.json",
@@ -2037,10 +2037,10 @@
     "postacceptance_budget_read_ref": "reports/cara_fast_mainline_budget_readonly_r1_20261030.json"
   },
   "fast_mainline_post_result_CPU_20261030": {
-    "status": "E1_INTERFACE_REPAIRED_FULL46_RGB13_ACCEPTED_ORIGINAL16_SCORE_INTENT_CREATED",
-    "notice_title": "825 — E1接口修复与13RGB接受，CPU唯一评分已创建",
-    "research_ref": "research/825_CARA_ENDPOINT7_INTERFACE_REPAIRED_RGB13_ACCEPTED_CPU_SCORE_ONCE_20261101.md",
-    "summary": "原E1接口已独立修复，8项回归及完整46/13RGB接受通过；16新对CPU原intent已唯一创建，12原行不重评。原GPU和3.055673007GPUh结算保持，等待完整28后导出结果；CPU终验14:35。",
+    "status": "E1_COMPLETE46_RGB13_SCORE28_ACCEPTED_AFTER_CPU_INTERFACE_REPAIR",
+    "notice_title": "826 — E1完整验收：CFG有机制增量，当前S不晋级",
+    "research_ref": "research/826_CARA_ENDPOINT7_COMPLETE_ACCEPTANCE_RESULTS_AND_REGISTERED_DECISION_20261101.md",
+    "summary": "接口修复后46/46、13RGB和28评分完整接受（16新+12原行）；原GPU3.055673007GPUh已结算。S-CFG较DIAG LPIPS低1.53%且4/4同向，但比F19-A1高102.83%；按预注册仅保留机制增量，当前S不晋级。全93帧与双时钟图表完成，检查已删。",
     "component_CPU_ref": "reports/cara_fast_B36_review_component_CPU_acceptance_r1_20261030.json",
     "review_plan_ref": "reports/cara_fast_B36_review_plan_r1_20261030.json",
     "diagnostics_ref": "reports/cara_fast_B36_post_result_diagnostics_r1_20261030.json",
@@ -2052,11 +2052,11 @@
     "new_GPU_submissions": 2,
     "new_reserved_GPUh": 14,
     "new_metrics_computed": 0,
-    "summary_ref": "reports/cara_endpoint7_repaired_artifacts_accepted_r1_20261101.json",
+    "summary_ref": "reports/cara_endpoint7_complete_acceptance_r1_20261101.json",
     "review_transfer_ref": "reports/cara_fast_B36_review_video_transfer_r1_20261030.json",
     "review_materialized_ref": "reports/cara_fast_B36_review_materialized_r1_20261030.json",
     "review_browser_QA_ref": "reports/cara_fast_B36_review_browser_QA_r1_20261030.json",
-    "observed_unix": 1793514243.248371,
+    "observed_unix": 1793514842.4245398,
     "original_video_review_research_ref": "research/757_CARA_B36_ORIGINAL_VIDEO_REVIEW_AND_F18_CPU_20261030.md",
     "original_video_review_summary_ref": "reports/cara_fast_mainline_post_result_CPU_summary_r1_20261030.json",
     "paper_results_manifest_ref": "plans/cara_next_stage_20261028/mainline/PAPER_RESULTS_MANIFEST_R2.json",
@@ -2097,7 +2097,7 @@
     "external_review_packet_ref": "research/815_CARA_RECENT_EXPERIMENTS_OPUS_REVIEW_20261031.md",
     "external_review_packet_scope": "2026-10-28 to 2026-10-31 designs, accepted results and open questions; active budget run snapshot 2026-10-31T23:24:49+08:00; no new execution or scientific result",
     "handoff_ref": "plans/cara_next_stage_20261101/e1/ENDPOINT7_POST_LAUNCH_HANDOFF_20261101.md",
-    "schedule_ref": "reports/cara_endpoint7_repaired_CPU_acceptance_schedule_r1_20261101.json",
+    "schedule_ref": "reports/cara_endpoint7_repaired_CPU_acceptance_schedule_closed_r2_20261101.json",
     "launch_id": "8d750a6de77d4d4fa2c84c4f97fff7f3",
     "source_revision": "af7c7d8e6d6348a1c87c5e13ce2c88bda86db16e",
     "physical_paths": 46,
@@ -2107,8 +2107,8 @@
     "central_transaction_authorized": true,
     "GPU_submissions": 1,
     "hard_GPUh": 7,
-    "scientific_accepted": false,
-    "latest_observation_ref": "reports/cara_endpoint7_original_score_CPU_launch_r1_20261101.json",
+    "scientific_accepted": true,
+    "latest_observation_ref": "reports/cara_endpoint7_original_score_CPU_capture_r4_20261101.json",
     "actual_GPUh": 3.0556730066974542,
     "operational_counts": {
       "COMPLETE": 46,
@@ -2119,7 +2119,7 @@
     "GPU_complete": true,
     "GPU_released": true,
     "cost_settled": true,
-    "complete28_accepted": false,
+    "complete28_accepted": true,
     "RGB_identity_accepted": true,
     "score_CPU_submissions": 1,
     "acceptance_interface_failed": false,
@@ -2130,7 +2130,8 @@
     "old_launch_verification_ref": "reports/cara_endpoint7_launch_closeout_verified_r1_20261101.json",
     "automations_deleted": [
       "e1",
-      "e1-2"
+      "e1-2",
+      "e1-cpu"
     ],
     "original_acceptance_interface_failure_ref": "reports/cara_endpoint7_acceptance_interface_failure_r1_20261101.json",
     "interface_repair_authorized": true,
@@ -2139,7 +2140,15 @@
     "RGB_identity_controls_passed": 13,
     "score_intent_sha256": "658844fae9714727bfdb8c1260bf4006427296536123a11c96995f50829344a7",
     "score_manifest_sha256": "ed1ff86272d45257707d3447f44a078997f24048ba97d4ceadbc9f1c51482935",
-    "active_CPU_automation": "e1-cpu"
+    "active_CPU_automation": null,
+    "analysis_ref": "reports/cara_endpoint7_complete_analysis_r1_20261101.json",
+    "registered_decision_ref": "plans/cara_next_stage_20261101/e1/E1_COMPLETE_ENDPOINT_DECISION_R1.json",
+    "figure_ref": "reports/cara_endpoint7_complete_figures_r1_20261101.json",
+    "scientific_scope": "Four old CAL/seed0 endpoint comparison only",
+    "independent_TEST": false,
+    "main_method_promoted": false,
+    "original_score_CPU_ended": true,
+    "original_score_wall_seconds": 504.61017298698425
   },
   "fast_F18_CPU_preparation_20261030": {
     "status": "F18_AFFECTED_PRODUCTION_CPU_DUAL_HOST_ACCEPTED_NOT_GPU",
@@ -2901,8 +2910,8 @@
     "superseded_by_selected_endpoint7_ref": "plans/cara_next_stage_20261101/e1/USER_SCOPE_SELECTION_R1.json"
   },
   "next_experiments_E1_Euler_20261101": {
-    "status": "E1_INTERFACE_REPAIRED_FULL46_RGB13_ACCEPTED_ORIGINAL16_SCORE_INTENT_CREATED",
-    "observed_unix": 1793514243.248371,
+    "status": "E1_COMPLETE46_RGB13_SCORE28_ACCEPTED_AFTER_CPU_INTERFACE_REPAIR",
+    "observed_unix": 1793514842.4245398,
     "source_HEAD": "15aea5e55644c7eecee4f4890b211a12bbc51497",
     "source_input_ref": "plans/cara_next_stage_20261101/USER_DESIGN_INPUT_R1.md",
     "source_input_original": "/Users/kuangda_gao/Documents/CARA_Codex_Next_Experiments_UniPC_to_Euler_20261101.md",
@@ -2935,9 +2944,9 @@
     "production_entry_lifecycle_score28_binding_complete": true,
     "whole_GPU_card_CPU_accepted": true,
     "next_actions": [
-      "Capture original once16-new-pair CPU score handles only",
-      "Accept complete28 before results, figures and registered interpretation",
-      "Preserve original failed reader, fixed GPU source and unique settlement; no automatic next GPU"
+      "Keep CFG-vs-DIAG mechanism increment; current S is not promoted",
+      "Prepare only one finite structured-budget recipe CPU prototype under the registered plan",
+      "Preserve all old freezes, four-old-CAL scope and protected TEST; no automatic next GPU"
     ],
     "protected_TEST_accessed": false,
     "old_freezes_changed": false,
@@ -2995,20 +3004,24 @@
     "Euler_layered_CPU_ref": "plans/cara_next_stage_20261101/euler/EULER35_CPU_ACCEPTANCE.json",
     "Euler_Linux_CPU_ref": "reports/cara_euler35_sampler_Linux_CPU_accepted_r1_20261101.json",
     "Euler_Linux_CPU_accepted": true,
-    "execution_ref": "reports/cara_endpoint7_repaired_artifacts_accepted_r1_20261101.json",
+    "execution_ref": "reports/cara_endpoint7_complete_acceptance_r1_20261101.json",
     "handoff_ref": "plans/cara_next_stage_20261101/e1/ENDPOINT7_POST_LAUNCH_HANDOFF_20261101.md",
-    "schedule_ref": "reports/cara_endpoint7_repaired_CPU_acceptance_schedule_r1_20261101.json",
+    "schedule_ref": "reports/cara_endpoint7_repaired_CPU_acceptance_schedule_closed_r2_20261101.json",
     "central_transaction_authorized": true,
-    "latest_observation_ref": "reports/cara_endpoint7_original_score_CPU_launch_r1_20261101.json",
+    "latest_observation_ref": "reports/cara_endpoint7_original_score_CPU_capture_r4_20261101.json",
     "GPU_complete": true,
     "GPU_released": true,
     "cost_settled": true,
     "actual_GPUh": 3.0556730066974542,
-    "scientific_accepted": false,
+    "scientific_accepted": true,
     "score_CPU_submissions": 1,
     "acceptance_interface_failed": false,
     "RGB_identity_accepted": true,
-    "RGB_identity_controls_passed": 13
+    "RGB_identity_controls_passed": 13,
+    "complete28_accepted": true,
+    "registered_decision_ref": "plans/cara_next_stage_20261101/e1/E1_COMPLETE_ENDPOINT_DECISION_R1.json",
+    "main_method_promoted": false,
+    "active_CPU_automation": null
   },
   "endpoint7_interfaces_preparation_20261101": {
     "status": "E1_SELECTED46_INTERFACES_CPU_ACCEPTED_FINAL_PACKAGE_PENDING",
@@ -3144,15 +3157,15 @@
     "ledger_written": false
   },
   "endpoint7_execution_20261101": {
-    "status": "E1_INTERFACE_REPAIRED_FULL46_RGB13_ACCEPTED_ORIGINAL16_SCORE_INTENT_CREATED",
-    "research_ref": "research/825_CARA_ENDPOINT7_INTERFACE_REPAIRED_RGB13_ACCEPTED_CPU_SCORE_ONCE_20261101.md",
-    "summary_ref": "reports/cara_endpoint7_repaired_artifacts_accepted_r1_20261101.json",
-    "latest_observation_ref": "reports/cara_endpoint7_original_score_CPU_launch_r1_20261101.json",
+    "status": "E1_COMPLETE46_RGB13_SCORE28_ACCEPTED_AFTER_CPU_INTERFACE_REPAIR",
+    "research_ref": "research/826_CARA_ENDPOINT7_COMPLETE_ACCEPTANCE_RESULTS_AND_REGISTERED_DECISION_20261101.md",
+    "summary_ref": "reports/cara_endpoint7_complete_acceptance_r1_20261101.json",
+    "latest_observation_ref": "reports/cara_endpoint7_original_score_CPU_capture_r4_20261101.json",
     "handoff_ref": "plans/cara_next_stage_20261101/e1/ENDPOINT7_POST_LAUNCH_HANDOFF_20261101.md",
-    "schedule_ref": "reports/cara_endpoint7_repaired_CPU_acceptance_schedule_r1_20261101.json",
+    "schedule_ref": "reports/cara_endpoint7_repaired_CPU_acceptance_schedule_closed_r2_20261101.json",
     "launch_id": "8d750a6de77d4d4fa2c84c4f97fff7f3",
     "source_revision": "af7c7d8e6d6348a1c87c5e13ce2c88bda86db16e",
-    "observed_unix": 1793514243.248371,
+    "observed_unix": 1793514842.4245398,
     "physical_paths": 46,
     "logical_positions": 28,
     "new_scoring_pairs": 16,
@@ -3170,8 +3183,8 @@
     "GPU_complete": true,
     "GPU_released": true,
     "cost_settled": true,
-    "scientific_accepted": false,
-    "complete28_accepted": false,
+    "scientific_accepted": true,
+    "complete28_accepted": true,
     "RGB_identity_accepted": true,
     "score_CPU_submissions": 1,
     "acceptance_interface_failed": false,
@@ -3182,7 +3195,8 @@
     "old_launch_verification_ref": "reports/cara_endpoint7_launch_closeout_verified_r1_20261101.json",
     "automations_deleted": [
       "e1",
-      "e1-2"
+      "e1-2",
+      "e1-cpu"
     ],
     "original_acceptance_interface_failure_ref": "reports/cara_endpoint7_acceptance_interface_failure_r1_20261101.json",
     "interface_repair_authorized": true,
@@ -3191,6 +3205,14 @@
     "RGB_identity_controls_passed": 13,
     "score_intent_sha256": "658844fae9714727bfdb8c1260bf4006427296536123a11c96995f50829344a7",
     "score_manifest_sha256": "ed1ff86272d45257707d3447f44a078997f24048ba97d4ceadbc9f1c51482935",
-    "active_CPU_automation": "e1-cpu"
+    "active_CPU_automation": null,
+    "analysis_ref": "reports/cara_endpoint7_complete_analysis_r1_20261101.json",
+    "registered_decision_ref": "plans/cara_next_stage_20261101/e1/E1_COMPLETE_ENDPOINT_DECISION_R1.json",
+    "figure_ref": "reports/cara_endpoint7_complete_figures_r1_20261101.json",
+    "scientific_scope": "Four old CAL/seed0 endpoint comparison only",
+    "independent_TEST": false,
+    "main_method_promoted": false,
+    "original_score_CPU_ended": true,
+    "original_score_wall_seconds": 504.61017298698425
   }
 }
