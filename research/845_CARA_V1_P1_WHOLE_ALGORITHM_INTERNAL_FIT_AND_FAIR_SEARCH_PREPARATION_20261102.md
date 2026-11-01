@@ -20,7 +20,7 @@ P0两状态已完整接受，后续开始组成能自动给出19D/22D布局的P1
 
 [本地控制回执](../reports/cara_v1_P1_algorithm_local_CPU_component_r1_20261102.json)覆盖固定估值、完整两FIT内部评分、19/22合法搜索、费用停止、半FIT/错误身份拒绝、失败/UNKNOWN及全链无重派恢复。旧R3标量CPU和P0保持，不重放。
 
-原R1 CPU于04:14:07唯一启动，04:17:39退出1。固定源已越过33控制的断言，首条warm Native的夹具writer收到原管线的文件名前缀，却未追加`.mp4`；因此视频工件读回失败，尚未采集来源标签或完成算法接受。[原失败与终态](../reports/cara_v1_P1_algorithm_Linux_CPU_original_failure_r1_20261102.json)保留，不重启。修复只涉及合成writer的后缀契约；新R2使用`scripts/cara_source_lifecycle_p1_linux_cpu_r2.py`，原R1源码和容器保持。
+原R1 CPU于04:14:07唯一启动，04:17:39退出1。固定源已越过33控制的断言，首条warm Native的夹具writer收到原管线的文件名前缀，却未追加`.mp4`；因此视频工件读回失败，尚未采集来源标签或完成算法接受。[原失败与终态](../reports/cara_v1_P1_algorithm_Linux_CPU_original_failure_r1_20261102.json)保留，不重启。修复只涉及合成writer的后缀契约；新R2使用`scripts/cara_source_lifecycle_p1_linux_cpu_r2.py`，原R1源码和容器保持。R2已于04:23:13.302658+08唯一启动，新观察确认源码/runtime完整且正在实际tiny采样，见[原句柄交接](../plans/cara_next_stage_20261101/source_lifecycle/V1_P1_ALGORITHM_CPU_POST_LAUNCH_HANDOFF_20261102.md)；完整接受仍待原终态。
 
 新CPU仅two_card，单核26/4GiB/no-swap/no-network/no-GPU，工作1800秒、退出60秒。它使用原WC/RF globals和实际Cosmos参数执行两种flow的完整tiny算法，并将tiny输出指纹作为显式93×64合成媒体种子运行原Alex真实权重。该媒体与合成费用ticks均非真实模型结果或GPU报价；原进程一旦启动只恢复。
 
