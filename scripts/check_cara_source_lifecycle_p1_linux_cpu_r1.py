@@ -12,7 +12,7 @@ import time
 import unittest
 
 
-def main():
+def main(*, work_seconds=1800):
     parser = argparse.ArgumentParser()
     for name in ('runtime', 'stage', 'output'):
         parser.add_argument('--'+name, type=Path, required=True)
@@ -21,8 +21,8 @@ def main():
     assert args.host == 'two_card' and os.sched_getaffinity(0) == {26} and not args.output.exists()
     assert os.environ['CUDA_VISIBLE_DEVICES'] == '' and os.environ['NVIDIA_VISIBLE_DEVICES'] == 'void'
     started = time.time()
-    signal.alarm(1800)
-    os.environ['CARA_V1_P1_CPU_DEADLINE_MONOTONIC'] = str(time.monotonic()+1680)
+    signal.alarm(work_seconds)
+    os.environ['CARA_V1_P1_CPU_DEADLINE_MONOTONIC'] = str(time.monotonic()+work_seconds-120)
     reg = json.loads((args.stage/'registration.json').read_bytes())
     import hashlib
     sha = lambda p: hashlib.sha256(Path(p).read_bytes()).hexdigest()
@@ -82,6 +82,7 @@ def main():
     assert len(result['checks']) == 2
     assert all(r['semantic_positions'] == 146 and r['source_scalar_rows'] == 64 for r in result['checks'])
     assert all(r['recovery_new_physical_and_score_callbacks'] == 0 for r in result['checks'])
+    assert all(r['caller_forward_binding_restored_on_success_recovery_and_failure'] for r in result['checks'])
     assert not torch.cuda.is_initialized()
     signal.alarm(60)
     faulthandler.enable()
@@ -100,7 +101,7 @@ def main():
         CPU_import_adapters_used=True, synthetic_cost_ticks_not_GPU_quote=True,
         actual_Cosmos_weights=False, real_V1_labels=False, real_video_efficacy=False,
         whole_GPU_entry_accepted=False, P1_GPU_authorized=False, CUDA_initialized=False,
-        work_seconds=1800, exit_seconds=60, GPU_submissions=0, ledger_written=False)
+        work_seconds=work_seconds, exit_seconds=60, GPU_submissions=0, ledger_written=False)
     with args.output.open('x') as stream:
         json.dump(proof, stream, indent=2, allow_nan=False)
         stream.write('\n')

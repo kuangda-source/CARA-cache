@@ -157,6 +157,7 @@ def body(inference, selected, wc, rf, settings, inference_module, runtime, confi
     with clean.patched(inference_module, 'save_img_or_video', writer), patch.object(Requests, '__call__', tick):
         result, proof = collect_loaded(**args, create=True, allow_new=True)
         assert 'failure' not in result, result.get('failure')
+        assert proof['caller_forward_binding_restored']
         assert result['status'] == 'P1_ALGORITHM_COMPLETE_PENDING_ORIGINAL_RELEASE_SETTLEMENT_AND_SCIENCE'
         assert len(result['source_labels']['rows']) == 64 and len(result['FIT_selected']) == 6
         assert len(result['semantic_positions']) == 146
@@ -166,12 +167,28 @@ def body(inference, selected, wc, rf, settings, inference_module, runtime, confi
         assert 'failure' not in recovered, recovered.get('failure')
         assert recovered['FIT_selected'] == result['FIT_selected']
         assert recovered['new_callback_calls'] == 0 and recovery['request_boundary_checks'] == recovery['score_boundary_checks'] == 0
+        assert recovery['caller_forward_binding_restored']
+        assert len(score_calls) == calls_before and clock[0] == clock_before
+        owned_forward, original_forward = 'forward' in vars(net), net.forward
+        class FailedStorage:
+            def check(self):
+                raise OSError('CPU storage refusal before the first sampler request')
+        try:
+            collect_loaded(**{**args, 'output': output/'failed-storage', 'storage': FailedStorage()},
+                           create=True, allow_new=True)
+        except OSError as error:
+            assert 'CPU storage refusal' in str(error)
+        else:
+            raise AssertionError('Loaded entry ignored storage refusal')
+        assert net.forward == original_forward and ('forward' in vars(net)) == owned_forward
+        assert not list((output/'failed-storage').rglob('*.pt'))
         assert len(score_calls) == calls_before and clock[0] == clock_before
     return [dict(status='P1_ACTUAL_LOADED_TINY_ALGORITHM_AND_INTERNAL_CPU_SCORES_PASS', flow=flow,
         source_scalar_rows=64, semantic_positions=146, actual_complete_tiny_requests=proof['request_boundary_checks'],
         accepted_internal_FIT_cohorts=score_calls, actual93_frame_metric_pairs=2*len(score_calls),
         source_labels=digest(result['source_labels']), FIT_selected=result['FIT_selected'],
         shared_state_and_parameters_restored=True, recovery_new_physical_and_score_callbacks=0,
+        caller_forward_binding_restored_on_success_recovery_and_failure=True,
         actual_Cosmos_arguments=True, real_Alex_weights_on_synthetic_media=True,
         synthetic_media_rule='tiny_output_digest_to_explicit93x64_fixture; not_real_model_video',
         cost_clock='SYNTHETIC_OPERATION_SECONDS_NOT_GPU_QUOTE',

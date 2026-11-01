@@ -1,5 +1,7 @@
 # V1 P1算法R2 CPU：唯一原运行承接
 
+**终态更新：R2已于04:41:54退出1。** 首个flow完整146语义/140实际请求、64标签和82对合成真实指标完成，外层调用者`net.forward`未还原而失败，第二flow未到达。原失败/完整首flow已保存；不再prepare、重启或重评分此R2。修复后的独立R3完整CPU见[846](../../../research/846_CARA_P1_FIRST_FLOW_ORIGINAL_CALLER_RESTORATION_AND_HOST_BROKER_20261102.md)。下文保留原运行交接快照。
+
 原R1已退出1并保存写出后缀的夹具失败；不重启。R2只修复同一夹具接口，是独立新CPU原件，非GPU卡、非P1科学结果。
 
 - 固定源：`47a0048cbb32533095951112f172823b5dbfedc0`，two_card。

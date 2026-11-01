@@ -26,6 +26,8 @@
 
 ## P1：完整V1与公平搜索
 
+[846单flow与绑定修复](../../../research/846_CARA_P1_FIRST_FLOW_ORIGINAL_CALLER_RESTORATION_AND_HOST_BROKER_20261102.md)：原R2 CPU首flow完成146语义/140实际请求、64标签和82对合成真实指标，但外层`net.forward`绑定未还原，第二flow未到达，整体验收未通过。生产入口已修复成功/恢复/失败时的调用者绑定，准备独立R3完整双flow、3600秒CPU；原件保持。宿主broker另有九项本地控制，真实Linux独立容器接受待补。
+
 [845完整算法与公平比较准备](../../../research/845_CARA_V1_P1_WHOLE_ALGORITHM_INTERNAL_FIT_AND_FAIR_SEARCH_PREPARATION_20261102.md)已将64标签、三组固定估值、两预算各top3、完整FIT选择、CHECK和新LPIPS搜索接通，本地33项控制通过。原132草案漏14个必要预热/控制，完整上限修正为146；真实加载与独立指标CPU尚待当前新run接受，宿主CPU broker/完整终态接受/正式报价仍待。当前无真实V1结果或新GPU授权。
 
 [108行原件覆盖审计](../../../reports/cara_v1_S108_source_coverage_audit_r1_20261101.json)确认39种(t,a,b)；真正C状态的56行shadow Dense仅17种组合，没有固定阶段/当前年龄、改变前来源间距的对照。全部108行中的六组这种对照来自D父状态反事实。旧S标签保持原用途，不直接拟合任意新来源组合。
