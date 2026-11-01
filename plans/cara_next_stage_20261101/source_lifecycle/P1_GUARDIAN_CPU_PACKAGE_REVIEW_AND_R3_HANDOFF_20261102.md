@@ -1,5 +1,7 @@
 # P1 guardian/FIT CPU 源包复盘与新 R3
 
+终态更新：原R3于05:54:23开始、05:55:28退出0，34控制无skip完整接受，见[849](../../../research/849_CARA_P1_GUARDIAN_FIT_LINUX_CPU_AND_SNAPSHOT_COST_AUDIT_20261102.md)与[原接受](../../../reports/cara_v1_P1_guardian_FIT_Linux_CPU_accepted_r3_20261102.json)。原CPU与全部夹具进程已结束，不再prepare、重启或重放。以下原句柄保留用于审计；下一项为完整生产与释放后接受、正式报价。
+
 两次新CPU均在测试导入阶段结束，未进入原进程场景、未加载模型或派GPU。R1遗漏原guardian测试夹具；R2补上测试依赖后暴露出测试模块为检查REMOTE语法而导入本地SSH transport，间接要求远端携带只应在本机使用的源码。原失败分别保存，原stage不改、不重启。这是同一源包边界的连续失败，按执行流程完成本次复盘。
 
 修复收敛为：远端测试直接读取已注册transport文件的REMOTE字面量并做AST语法检查，不执行本地传输层导入。新的R3先将完整1390文件源包复制到独立临时目录，用隔离解释器、仅包内src/scripts/tests路径执行完整测试集。本地29项通过、5项Linux原PID场景明确skip；新CPU再执行34项且必须无skip。这样验证打包后的真实导入/资源断言，而非继续补传无关本地SSH模块。

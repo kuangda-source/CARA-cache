@@ -4,6 +4,8 @@ P0两状态已完整接受，见[844](../../../research/844_CARA_P0_TWO_POSITION
 
 2026-11-02：[848](../../../research/848_CARA_P1_ALGORITHM_AND_ACTUAL_HOST_FIT_CPU_ACCEPTANCE_20261102.md)接受了原R3完整双flow算法（292语义、268tiny、128标签、158合成指标对）和独立实际宿主FIT CPU（两完整成功cohort＋一次预设失败、零重复）。二者原进程均结束，R3检查已删。以下采集/拟合/选择/搜索要求已有组件证据；当前新增工作只补外层生产入口、guardian服务共同收尾、释放后全结果与正式报价，不重放已接受组件。
 
+新增[849](../../../research/849_CARA_P1_GUARDIAN_FIT_LINUX_CPU_AND_SNAPSHOT_COST_AUDIT_20261102.md)已补齐guardian/FIT共同收尾的34项原Linux控制（含五真实原进程场景），原CPU结束。继续实现生产总CLI/绑定、释放后科学读者与最多32新指标接受、图表/冻结；按各组件实际源码SHA复用既有接受，不重跑已完成算法或评分。原R1/R2导入失败与费用敏感性记录保持。
+
 ## 可复用的已接受组件
 
 - 原标量R3 Linux：source374972708574d6baa790b22b5adbb9047e47ae6f、13控制/32完整tiny请求/128同状态标签，原容器退出0。复用原[接受](../../../reports/cara_v1_scalar_Linux_CPU_accepted_r3_20261102.json)，保留R1/R2失败，不重放这些控制来刷新文档。

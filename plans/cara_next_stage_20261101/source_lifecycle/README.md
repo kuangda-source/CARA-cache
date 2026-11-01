@@ -26,6 +26,8 @@
 
 ## P1：完整V1与公平搜索
 
+[849监督服务共同收尾](../../../research/849_CARA_P1_GUARDIAN_FIT_LINUX_CPU_AND_SNAPSHOT_COST_AUDIT_20261102.md)新增原Linux34控制无skip接受，五原进程场景验证同一guardian时钟、服务/GPU替身失败关闭与未知保留，原CPU结束。完整生产总入口和释放后146接受仍待；快照费用经旧P0完整元数据复核须重新论证，13.0989GPUh草案尚不可冻结，P1 GPU与中央许可仍无。
+
 [848完整算法与宿主评分CPU接受](../../../research/848_CARA_P1_ALGORITHM_AND_ACTUAL_HOST_FIT_CPU_ACCEPTANCE_20261102.md)：原R3已退出0，两flow完整292语义/128标签/268实际tiny请求/158对合成93帧指标接受，caller状态与绑定恢复通过。独立宿主FIT探针也已结束：两完整成功请求、一次预设编码失败保留2分母、重复和终态恢复零新派。原内部评分核不改；无真实V1结果。两项R3检查均已删除。下一步补整卡guardian与宿主服务的原时钟/失败关闭、释放后完整接受及正式报价，P1 GPU与中央事务仍另审。
 
 [846单flow与绑定修复](../../../research/846_CARA_P1_FIRST_FLOW_ORIGINAL_CALLER_RESTORATION_AND_HOST_BROKER_20261102.md)：原R2 CPU首flow完成146语义/140实际请求、64标签和82对合成真实指标，但外层`net.forward`绑定未还原，第二flow未到达，整体验收未通过。生产入口已修复成功/恢复/失败时的调用者绑定，准备独立R3完整双flow、3600秒CPU；原件保持。宿主broker另有九项本地控制，真实Linux独立容器接受待补。
