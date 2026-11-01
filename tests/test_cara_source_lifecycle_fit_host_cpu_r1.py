@@ -6,7 +6,6 @@ import tempfile
 import unittest
 
 from check_cara_source_lifecycle_fit_host_cpu_r1 import cohort, media_command
-from cara_source_lifecycle_fit_host_cpu_r1 import REMOTE
 from wcomr.cara_fast_spec_r1 import profile_from, uniform_mask, policy_from_mask
 from wcomr.cara_source_lifecycle_search_r1 import legal_swaps
 from wcomr.cara_source_lifecycle_fit_scores_r1 import bind_scorer
@@ -69,7 +68,12 @@ class HostFitCPUProbeTests(unittest.TestCase):
             self.assertIn(str(stage)+':'+str(stage)+':ro', command)
             self.assertIn(str(artifact)+':'+str(artifact)+':rw', command)
             self.assertFalse(any('docker.sock' in value for value in command))
-        ast.parse(REMOTE)
+        # The transport is local-only. Inspect its frozen literal without
+        # importing SSH/private-credential and preparation dependencies remotely.
+        source = ast.parse((ROOT/'scripts/cara_source_lifecycle_fit_host_cpu_r1.py').read_bytes())
+        remote = next(ast.literal_eval(node.value) for node in source.body
+            if isinstance(node, ast.Assign) and any(isinstance(t, ast.Name) and t.id=='REMOTE' for t in node.targets))
+        ast.parse(remote)
 
 
 if __name__ == '__main__':

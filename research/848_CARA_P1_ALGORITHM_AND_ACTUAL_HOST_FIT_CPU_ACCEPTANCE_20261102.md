@@ -20,3 +20,5 @@ R3 的两个flow分别有39/40个不同完整评分cohort，质量别名继续�
 完整P1仍为146语义位置上限，最多142物理生成、84内部指标对和32释放后新指标对。全卡释放/唯一结算后须复用原内部分数，完整汇总与一次冻结。10.9158、含20%余量13.0989GPUh仍是草案，硬限未定；待外层源、资源、存储、评分接受及正式报价就绪后，再一次提交>4GPUh和本卡中央事务许可。没有新增GPU或账本操作，旧冻结及16保护/备用16保持。
 
 补充：新增guardian/FIT CPU的R1在导入阶段因缺少`test_cara_s_endpoint_host_guardian_r1`提前退出1，未进入34项控制；[原失败](../reports/cara_v1_P1_guardian_FIT_Linux_CPU_original_failure_r1_20261102.json)已保存，不重放。独立R2补齐两份测试依赖，并在派发前审计62份可达本地测试helper的注册闭包。该修订只影响CPU源包；上表两个已接受原件保持，GPU仍未启动。
+
+R2仍在导入阶段退出：远端测试意外导入本地SSH transport。已[复盘并隔离源包](../plans/cara_next_stage_20261101/source_lifecycle/P1_GUARDIAN_CPU_PACKAGE_REVIEW_AND_R3_HANDOFF_20261102.md)，R3改为读取REMOTE字面量，完整1390文件独立包的本地29通过/5 Linux skip先行接受，随后新CPU要求34无skip。原算法与实际评分接受均不受影响。费用方面复核完整旧P0八干预的请求，236.39秒差值与V1操作数不同，不能当单标签价格；[敏感性审计](../reports/cara_v1_P1_snapshot_cost_sensitivity_r1_20261102.json)要求重新论证原快照余量，13.0989GPUh草案仍不可据此启动。
