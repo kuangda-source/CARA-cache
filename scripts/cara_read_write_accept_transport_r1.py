@@ -128,7 +128,8 @@ print(json.dumps(result))
 
 def main(*,start_ref='reports/cara_read_write_actual_start_accepted_r1_20261101.json',
          terminal_ref='reports/cara_read_write_final_original_r1_20261101.json',
-         settlement_ref='reports/cara_read_write_final_settlement_r1_20261101.json'):
+         settlement_ref='reports/cara_read_write_final_settlement_r1_20261101.json',
+         ssh_config=None, connect_timeout=25):
     parser = argparse.ArgumentParser()
     parser.add_argument('action', choices=['artifacts', 'score', 'capture'])
     parser.add_argument('--output', type=Path, required=True)
@@ -151,8 +152,9 @@ def main(*,start_ref='reports/cara_read_write_actual_start_accepted_r1_20261101.
     bootstrap = "import sys,json,gzip,base64;packet=json.loads(gzip.decompress(base64.b64decode(sys.stdin.read())));exec(packet['code'])"
     command = "sudo -S -p '' -u gaokuangda -g docker /home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python -c " + shlex.quote(bootstrap)
     started = time.time()
-    child = subprocess.Popen(['ssh', '-C', '-F', str(ROOT / '.sync/cara-fast-mainline-tailscale-20261030/ssh_config.budget_direct.private'),
-        '-o', 'BatchMode=yes', '-o', 'ConnectTimeout=25', '-o', 'ServerAliveInterval=15', '-o', 'ServerAliveCountMax=3',
+    config = ssh_config or ROOT / '.sync/cara-fast-mainline-tailscale-20261030/ssh_config.budget_direct.private'
+    child = subprocess.Popen(['ssh', '-C', '-F', str(config),
+        '-o', 'BatchMode=yes', '-o', f'ConnectTimeout={connect_timeout}', '-o', 'ServerAliveInterval=15', '-o', 'ServerAliveCountMax=3',
         'two_card_lan', command], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, start_new_session=True)
     try:
         out, err = child.communicate((secret + '\n' + payload).encode(), timeout=110)
@@ -167,6 +169,7 @@ def main(*,start_ref='reports/cara_read_write_actual_start_accepted_r1_20261101.
         result = json.loads(raw)
     report = dict(action=args.action, started_unix=started, observed_unix=time.time(), exit_code=child.returncode,
         result=result, stderr=err.decode(errors='replace').replace(secret, '[REDACTED]'),
+        ssh_config_ref=str(config.relative_to(ROOT)), connect_timeout_seconds=connect_timeout,
         transport_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
         remote_sha256=hashlib.sha256(REMOTE.encode()).hexdigest(), worker_sha256=arguments['worker_sha256'],
         launch_id=start['launch_id'], GPU_submissions=0, unknown_requires_original_recovery=True)

@@ -2,7 +2,7 @@
 
 # CARA-Cache
 
-[837 — P0第20步整卡准备与本卡账本许可](research/837_CARA_P0_POINT20_COMPLETE_PREPARATION_AND_CENTRAL_AUTHORIZATION_20261102.md)：第20步整卡Linux77控制/28条loaded tiny/8对93帧合成指标及2Native桥接接受；独立存储、固定GPU源和1.60476/硬1.95GPUh完整报价就绪，用户已许可本卡原账本事务。实时准入遇Windows跳板IPv4/IPv6 SSH22均超时，原FRP入口亦不可用；未预约、未派发、无新GPU费用。保留原准备/许可等待连接恢复，完整P1另审预算。
+[838 — P0第20步唯一原运行与实际开始验收安排](research/838_CARA_P0_POINT20_ORIGINAL_LAUNCH_AND_ACCEPTANCE_SCHEDULE_20261102.md)：P0第20步已于2026-11-02 01:24:19在两卡原A6000实际启动；14请求/512pair/8新评分，独占唯一CUDA进程已核对。原中央账本已唯一预约1.95GPUh，旧16.5责任/cap226保持；原硬截止03:21:19，02:13半程与03:03全程验收已建立。只恢复原句柄，完整退出释放结算后一次8新评分并合并旧8；当前无新科学分数，完整P1另审预算。
 
 [826 — E1完整验收：CFG有机制增量，当前S不晋级](research/826_CARA_ENDPOINT7_COMPLETE_ACCEPTANCE_RESULTS_AND_REGISTERED_DECISION_20261101.md)：接口修复后46/46、13RGB和28评分完整接受（16新+12原行）；原GPU3.055673007GPUh已结算。S-CFG较DIAG LPIPS低1.53%且4/4同向，但比F19-A1高102.83%；按预注册仅保留机制增量，当前S不晋级。全93帧与双时钟图表完成，检查已删。
 

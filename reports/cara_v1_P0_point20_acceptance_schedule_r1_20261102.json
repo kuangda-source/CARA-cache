@@ -1,0 +1,44 @@
+{
+  "status": "ACTUAL_START_BOUND_HALF_AND_TERMINAL_CHECKS_ACTIVE",
+  "run_id": "cara-source-lifecycle-P0-point20-full14-r1-20261101",
+  "launch_id": "94ad4122aab5401b834643a84868d417",
+  "source_revision": "3263bdfe0eb93fa7c93daefd34ce892855a5a4b3",
+  "actual_start_ref": "reports/cara_v1_P0_point20_actual_start_accepted_r1_20261101.json",
+  "actual_start_sha256": "6d0dcd1ebf06117b03b1336502fa5743e31ec090315bd0db4ce8168ff0983e66",
+  "actual_start_local": "2026-11-02T01:24:19.536402+08:00",
+  "forecast_GPUh": 1.6047625014886833,
+  "timezone": "Asia/Shanghai",
+  "hard_deadline_local": "2026-11-02T03:21:19.536402+08:00",
+  "stop_release_deadline_local": "2026-11-02T03:11:19.536402+08:00",
+  "billed_limit_GPUh": 1.95,
+  "stop_release_reserve_seconds": 600,
+  "checks": [
+    {
+      "automation_id": "p0-20-2",
+      "role": "halfway",
+      "target_local": "2026-11-02T02:13:00+08:00",
+      "kind": "heartbeat",
+      "name": "P0 第20步半程检查",
+      "rrule": "FREQ=DAILY;BYHOUR=2;BYMINUTE=13;BYSECOND=0",
+      "status": "ACTIVE",
+      "target_thread_id": "01a181c7-aa34-7b03-8ebb-bad130713654",
+      "definition_sha256": "d88fbb31df54530e87e41c9c228e0924491937016769a3a2839c75176aa461f1",
+      "delete_after_one_processing": true
+    },
+    {
+      "automation_id": "p0-20",
+      "role": "terminal",
+      "target_local": "2026-11-02T03:03:00+08:00",
+      "kind": "heartbeat",
+      "name": "P0 第20步全程验收",
+      "rrule": "FREQ=DAILY;BYHOUR=3;BYMINUTE=3;BYSECOND=0",
+      "status": "ACTIVE",
+      "target_thread_id": "01a181c7-aa34-7b03-8ebb-bad130713654",
+      "definition_sha256": "bf1b3ad8f68ff31ff4001bea4117ca0b3cce35bf1d3e21c08c40813785d02a3d",
+      "delete_after_one_processing": true
+    }
+  ],
+  "no_duplicate_checks": true,
+  "scientific_scores_read": false,
+  "automatic_P1_authorized": false
+}

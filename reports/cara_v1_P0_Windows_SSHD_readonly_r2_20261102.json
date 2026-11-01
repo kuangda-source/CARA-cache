@@ -1,0 +1,135 @@
+{
+  "status": "ORIGINAL_WINDOWS_SSHD_READONLY_OUR_CONNECTIONS_ONLY",
+  "started_unix": 1793552148.832544,
+  "observed_unix": 1793552206.976795,
+  "exit_code": 0,
+  "stderr": "** WARNING: connection is not using a post-quantum key exchange algorithm.\r\n** This session may be vulnerable to \"store now, decrypt later\" attacks.\r\n** The server may need to be upgraded. See https://openssh.com/pq.html\r\n#< CLIXML\r\n<Objs Version=\"1.1.0.1\" xmlns=\"http://schemas.microsoft.com/powershell/2004/04\"><Obj S=\"progress\" RefId=\"0\"><TN RefId=\"0\"><T>System.Management.Automation.PSCustomObject</T><T>System.Object</T></TN><MS><I64 N=\"SourceId\">1</I64><PR N=\"Record\"><AV>\ufffd\ufffd\ufffd\ufffd\u05fc\ufffd\ufffd\ufffd\u05f4\ufffd\u02b9\ufffd\ufffd\u0123\ufffd\u9863</AV><AI>0</AI><Nil /><PI>-1</PI><PC>-1</PC><T>Completed</T><SR>-1</SR><SD> </SD></PR></MS></Obj><Obj S=\"progress\" RefId=\"1\"><TNRef RefId=\"0\" /><MS><I64 N=\"SourceId\">1</I64><PR N=\"Record\"><AV>\ufffd\ufffd\ufffd\ufffd\u05fc\ufffd\ufffd\ufffd\u05f4\ufffd\u02b9\ufffd\ufffd\u0123\ufffd\u9863</AV><AI>0</AI><Nil /><PI>-1</PI><PC>-1</PC><T>Completed</T><SR>-1</SR><SD> </SD></PR></MS></Obj><Obj S=\"progress\" RefId=\"2\"><TNRef RefId=\"0\" /><MS><I64 N=\"SourceId\">1</I64><PR N=\"Record\"><AV>\ufffd\ufffd\ufffd\ufffd\u05fc\ufffd\ufffd\ufffd\u05f4\ufffd\u02b9\ufffd\ufffd\u0123\ufffd\u9863</AV><AI>0</AI><Nil /><PI>-1</PI><PC>-1</PC><T>Completed</T><SR>-1</SR><SD> </SD></PR></MS></Obj><Obj S=\"progress\" RefId=\"3\"><TNRef RefId=\"0\" /><MS><I64 N=\"SourceId\">1</I64><PR N=\"Record\"><AV>\ufffd\ufffd\ufffd\ufffd\u05fc\ufffd\ufffd\ufffd\u05f4\ufffd\u02b9\ufffd\ufffd\u0123\ufffd\u9863</AV><AI>0</AI><Nil /><PI>-1</PI><PC>-1</PC><T>Completed</T><SR>-1</SR><SD> </SD></PR></MS></Obj><Obj S=\"progress\" RefId=\"4\"><TNRef RefId=\"0\" /><MS><I64 N=\"SourceId\">2</I64><PR N=\"Record\"><AV>Get-NetTCPConnection -LocalPort 22 -ErrorAction SilentlyContinue | Where-Object {$_.RemoteAddress -in @('100.106.51.65','fd7a:115c:a1e0::d901:33ed')} | Select-Object State,RemoteAddress,RemotePort,OwningProcess);[pscustomobject]@{sshd_status=[string]$service.Status;explicit_forwarding_or_limits=$ruleLines;our_TCP_connections=$connections;our_recent_events=$events} | ConvertTo-Json -Depth 6 -Compress</AV><AI>21838013</AI><Nil /><PI>-1</PI><PC>100</PC><T>Completed</T><SR>0</SR><SD>\ufffd\ufffd\ufffd\ufffd\ufffd 1/1</SD></PR></MS></Obj></Objs>",
+  "no_configuration_changed": true,
+  "GPU_submissions": 0,
+  "ledger_written": false,
+  "result": {
+    "sshd_status": "Running",
+    "explicit_forwarding_or_limits": [
+      "Match Group administrators"
+    ],
+    "our_TCP_connections": [
+      {
+        "State": 5,
+        "RemoteAddress": "100.106.51.65",
+        "RemotePort": 63682,
+        "OwningProcess": 20316
+      },
+      {
+        "State": 5,
+        "RemoteAddress": "100.106.51.65",
+        "RemotePort": 62650,
+        "OwningProcess": 20316
+      }
+    ],
+    "our_recent_events": [
+      {
+        "time": "2026-11-02T00:55:51.8491901+08:00",
+        "Id": 4,
+        "Message": "sshd: Accepted publickey for admin from 100.106.51.65 port 63682 ssh2: ED25519 SHA256:F/sshQuNlDVTf2z0vj8Uuol2RslqBq6rYQDmQu+bnxc"
+      },
+      {
+        "time": "2026-11-02T00:53:02.1696876+08:00",
+        "Id": 4,
+        "Message": "sshd: Accepted publickey for admin from 100.106.51.65 port 62650 ssh2: ED25519 SHA256:F/sshQuNlDVTf2z0vj8Uuol2RslqBq6rYQDmQu+bnxc"
+      },
+      {
+        "time": "2026-11-02T00:45:21.4769677+08:00",
+        "Id": 4,
+        "Message": "sshd: Accepted publickey for admin from 100.106.51.65 port 59858 ssh2: ED25519 SHA256:F/sshQuNlDVTf2z0vj8Uuol2RslqBq6rYQDmQu+bnxc"
+      },
+      {
+        "time": "2026-11-02T00:45:17.8393043+08:00",
+        "Id": 4,
+        "Message": "sshd: Connection closed by authenticating user admin 100.106.51.65 port 59357 [preauth]"
+      },
+      {
+        "time": "2026-11-02T00:40:23.9035481+08:00",
+        "Id": 4,
+        "Message": "sshd: Disconnected from 100.106.51.65 port 57662"
+      },
+      {
+        "time": "2026-11-02T00:40:23.9034819+08:00",
+        "Id": 4,
+        "Message": "sshd: Received disconnect from 100.106.51.65 port 57662:11: disconnected by user"
+      },
+      {
+        "time": "2026-11-02T00:40:14.5668849+08:00",
+        "Id": 4,
+        "Message": "sshd: Accepted publickey for admin from 100.106.51.65 port 57662 ssh2: ED25519 SHA256:F/sshQuNlDVTf2z0vj8Uuol2RslqBq6rYQDmQu+bnxc"
+      },
+      {
+        "time": "2026-11-02T00:36:45.1636368+08:00",
+        "Id": 4,
+        "Message": "sshd: Connection closed by 100.106.51.65 port 56674"
+      },
+      {
+        "time": "2026-11-02T00:36:11.8567157+08:00",
+        "Id": 4,
+        "Message": "sshd: Accepted publickey for admin from 100.106.51.65 port 56382 ssh2: ED25519 SHA256:F/sshQuNlDVTf2z0vj8Uuol2RslqBq6rYQDmQu+bnxc"
+      },
+      {
+        "time": "2026-11-02T00:36:06.2798165+08:00",
+        "Id": 4,
+        "Message": "sshd: Disconnected from 100.106.51.65 port 56320"
+      },
+      {
+        "time": "2026-11-02T00:36:06.2797178+08:00",
+        "Id": 4,
+        "Message": "sshd: Received disconnect from 100.106.51.65 port 56320:11: disconnected by user"
+      },
+      {
+        "time": "2026-11-02T00:35:57.8383812+08:00",
+        "Id": 4,
+        "Message": "sshd: Accepted publickey for admin from 100.106.51.65 port 56320 ssh2: ED25519 SHA256:F/sshQuNlDVTf2z0vj8Uuol2RslqBq6rYQDmQu+bnxc"
+      },
+      {
+        "time": "2026-11-02T00:32:28.8206526+08:00",
+        "Id": 4,
+        "Message": "sshd: Disconnected from 100.106.51.65 port 55092"
+      },
+      {
+        "time": "2026-11-02T00:32:28.8205339+08:00",
+        "Id": 4,
+        "Message": "sshd: Received disconnect from 100.106.51.65 port 55092:11: disconnected by user"
+      },
+      {
+        "time": "2026-11-02T00:32:18.4300331+08:00",
+        "Id": 4,
+        "Message": "sshd: Accepted publickey for admin from 100.106.51.65 port 55242 ssh2: ED25519 SHA256:F/sshQuNlDVTf2z0vj8Uuol2RslqBq6rYQDmQu+bnxc"
+      },
+      {
+        "time": "2026-11-02T00:32:17.5505747+08:00",
+        "Id": 4,
+        "Message": "sshd: Accepted publickey for admin from 100.106.51.65 port 55092 ssh2: ED25519 SHA256:F/sshQuNlDVTf2z0vj8Uuol2RslqBq6rYQDmQu+bnxc"
+      },
+      {
+        "time": "2026-11-02T00:32:13.5460422+08:00",
+        "Id": 4,
+        "Message": "sshd: Disconnected from 100.106.51.65 port 64759"
+      },
+      {
+        "time": "2026-11-02T00:32:13.5459692+08:00",
+        "Id": 4,
+        "Message": "sshd: Received disconnect from 100.106.51.65 port 64759:11: disconnected by user"
+      },
+      {
+        "time": "2026-11-02T00:29:53.2339345+08:00",
+        "Id": 4,
+        "Message": "sshd: Disconnected from 100.106.51.65 port 53944"
+      },
+      {
+        "time": "2026-11-02T00:29:53.2336974+08:00",
+        "Id": 4,
+        "Message": "sshd: Received disconnect from 100.106.51.65 port 53944:11: disconnected by user"
+      }
+    ]
+  },
+  "original_diagnostic_private_ref": ".sync/cara-fast-mainline-tailscale-20261030/P0_Windows_SSHD_readonly.raw.private.json",
+  "original_diagnostic_sha256": "13a2cc0e9d69e81b03e9d2d34e9c382bf4feaa2c21b66c69b4b171d8ea536cc6",
+  "PowerShell_attached_provider_metadata_omitted": true
+}
