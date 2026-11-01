@@ -1,6 +1,6 @@
-# CARA 问题队列 R23
+# CARA 问题队列 R24
 
-2026-11-01当前主线：用户采纳[读写价值框架](cara_next_stage_20261101/read_write/README.md)，以“先建立可解释、可执行、可复现的主方法；允许小幅真实收益”为目标。E1已按[826](../research/826_CARA_ENDPOINT7_COMPLETE_ACCEPTANCE_RESULTS_AND_REGISTERED_DECISION_20261101.md)完整接受，当前S不晋级。后续顺序改为M0实际状态/导数组件、M1两旧FIT同父读写四格、M2有限硬行动与read-only消融、M3小型冻结方法留出；原有限结构化配方仅作简单对照。现阶段本地CPU推进，新GPU整卡未准入；旧冻结、旧CHECK与保护TEST保持。下方旧准备/队列表属于当时快照，不授权重派。
+2026-11-01当前主线：读写价值候选按[828](../research/828_CARA_READ_WRITE_ACTUAL_LINUX_AND_FULL14_CPU_ACCEPTANCE_20261101.md)进入真实Linux/完整14采集CPU已接受状态。现行[执行R2](cara_next_stage_20261101/read_write/M1_FULL14_EXECUTION_R2.md)：两旧FIT八个四格输出、四个独立等价控制、两个新Native，14完整请求/512paired；预计1.6048、拟硬1.95GPUh。下一步接GPU runner、16GiB独立卷、单次派发/结算与释放后完整八对一次评分，组合fresh准入。M0/M1工程准备不当作真实视频或主方法；GPU/账本仍0，旧冻结与保护TEST保持。
 
 2026-10-30 主线更新。现行依据为[最新总计划](cara_next_stage_20261028/01_Master_Experiment_Plan.md)、[S/Q修订](cara_next_stage_20261028/02_SQ_Method_and_Experiments.md)和[接收/两对话分工](cara_next_stage_20261028/08_REPOSITORY_RECONCILIATION.md)。原R16[逐字归档](cara_next_stage_20261028/QUESTION_QUEUE_BEFORE_R17.md)。本轮仅更新主线；S/Q 行保留所属对话原登记，最新状态以其独立回执为准。已完成执行以原接受为准，后续提案不授予新 GPU。
 
