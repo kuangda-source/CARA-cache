@@ -1,0 +1,104 @@
+{
+  "schema": "CARA_READ_WRITE_ADJOINT_CPU_COMPONENT_R1",
+  "observed_at": "2026-11-01T19:56:04.348453+08:00",
+  "passed": true,
+  "tests_run": 5,
+  "failures": [],
+  "metrics": {
+    "dense_incumbent_same_D_minus_C_sign": {
+      "values": {
+        "read": 0.004480858331410189,
+        "write": 0.0,
+        "total": 0.004480858331410189,
+        "incumbent": "D",
+        "continuous_coordinates": 30,
+        "discrete_metadata_gradient": false,
+        "exact_hard_endpoint_gain": false
+      },
+      "central_FD": 0.00448085833135714
+    },
+    "full36_recomputed_adjoint": {
+      "max_absolute_error": 7.979727989493313e-17,
+      "agrees_with_direct_graph": true,
+      "snapshots_unchanged": true,
+      "actual_Cosmos_weights": false
+    },
+    "actual_WC_post35_no_future_cache_consumer": {
+      "read": 4.047980543342182e-06,
+      "write": 0.0,
+      "total": 4.047980543342182e-06,
+      "incumbent": "C",
+      "continuous_coordinates": 9,
+      "discrete_metadata_gradient": false,
+      "exact_hard_endpoint_gain": false
+    },
+    "actual_WC_tiny_point8_auxiliary_derivatives": [
+      {
+        "group": "read",
+        "predicted": 1.4482703358858671e-06,
+        "central_FD": 1.4493457560771361e-06,
+        "absolute_error": 1.0754201912690024e-09,
+        "epsilon": 0.5,
+        "tolerance": 7.241351679429336e-08
+      },
+      {
+        "group": "read",
+        "predicted": 1.4482703358858671e-06,
+        "central_FD": 1.4539304215022142e-06,
+        "absolute_error": 5.660085616347074e-09,
+        "epsilon": 1.0,
+        "tolerance": 7.241351679429336e-08
+      },
+      {
+        "group": "write",
+        "predicted": 2.096662129125644e-05,
+        "central_FD": 2.1060653196958157e-05,
+        "absolute_error": 9.403190570171627e-08,
+        "epsilon": 0.1,
+        "tolerance": 1.048331064562822e-06
+      },
+      {
+        "group": "write",
+        "predicted": 2.096662129125644e-05,
+        "central_FD": 2.1034362902572212e-05,
+        "absolute_error": 6.774161131577184e-08,
+        "epsilon": 0.2,
+        "tolerance": 1.048331064562822e-06
+      },
+      {
+        "group": "total",
+        "predicted": 2.2414891627142306e-05,
+        "central_FD": 2.2380106010633227e-05,
+        "absolute_error": 3.478561650907907e-08,
+        "epsilon": 0.1,
+        "tolerance": 1.1207445813571154e-06
+      },
+      {
+        "group": "total",
+        "predicted": 2.2414891627142306e-05,
+        "central_FD": 2.241107414729937e-05,
+        "absolute_error": 3.817479842936118e-09,
+        "epsilon": 0.2,
+        "tolerance": 1.1207445813571154e-06
+      }
+    ]
+  },
+  "torch_version": "2.8.0",
+  "payload_sha256": {
+    "src/wcomr/cara_read_write_adjoint_r1.py": "d644e10e6f3e22a6c78522bc698bc5e50848759bd1c4b99bb41f1c016677b831",
+    "tests/test_cara_read_write_adjoint_r1.py": "9c7c1991f2214240e32144d8a2622fcb30202b81a29f27e50dad04972e96c0e6",
+    "scripts/check_cara_read_write_adjoint_r1.py": "14519a3bf2ff3837bc23f67d8bc276253735a65576d84e404947f2e630dc41e5",
+    "src/wcomr/cara_read_write_transition_r1.py": "0180ea523d7b4a7f5f1a7083aa500964c16019f83b5cf3a7286aa6da9bc14317",
+    "tests/test_cara_read_write_transition_r1.py": "92a30401114a72d90adf12b83d1114be90254fac4d17d36782ac897c31e8c446",
+    "src/wcomr/cara_read_write_state_r1.py": "8f395654cf751e75cf53e3fd607c4ecf40a509f41ef0d8217c268c59249f5afa"
+  },
+  "actual_WC_RF_UniPC_arithmetic": true,
+  "tiny_model_weights": true,
+  "CPU_dependency_namespaces": true,
+  "complete_tiny_adjoint": true,
+  "actual_Cosmos_weights": false,
+  "real_Cosmos_adjoint": false,
+  "video_terminal_VJP": false,
+  "GPU_submissions": 0,
+  "CUDA_initialized": false
+}

@@ -4,6 +4,8 @@
 
 2026-11-01等待期已推进[M2缓存转移导数](../research/831_CARA_READ_WRITE_M2_PINNED_CACHE_TRANSITION_AND_VJP_CPU_20261101.md)：五项本地CPU控制通过，实际WC/RF递推及原UniPC36步小模型整图梯度与有限差分一致；下一步实际Linux namespace、真实模型VJP、VAE/Alex终点与硬交换效用。见[M2实现安排](cara_next_stage_20261101/read_write/M2_ADJOINT_IMPLEMENTATION_AND_HARD_ACTION_PLAN_R1.md)。当前仍无新M2 GPU/账本权限，原M1继续唯一恢复。
 
+[832更新](../research/832_CARA_M1_HALFWAY_AND_M2_LINUX_TRANSITION_TINY_ADJOINT_20261101.md)：原M1半程7/14正常，m1删除、原20:28终验保留；M2实际Linux缓存导数已接受，小模型完整离散伴随另通过本地五项。真实权重/VAE/Alex/硬swap仍待，未读部分科学结果。
+
 2026-10-30 主线更新。现行依据为[最新总计划](cara_next_stage_20261028/01_Master_Experiment_Plan.md)、[S/Q修订](cara_next_stage_20261028/02_SQ_Method_and_Experiments.md)和[接收/两对话分工](cara_next_stage_20261028/08_REPOSITORY_RECONCILIATION.md)。原R16[逐字归档](cara_next_stage_20261028/QUESTION_QUEUE_BEFORE_R17.md)。本轮仅更新主线；S/Q 行保留所属对话原登记，最新状态以其独立回执为准。已完成执行以原接受为准，后续提案不授予新 GPU。
 
 | 阶段 / 负责人 | 当前状态 | 下一步与边界 |

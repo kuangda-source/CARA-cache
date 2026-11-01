@@ -2,7 +2,7 @@
 
 # CARA-Cache
 
-[831 — M1原运行与M2缓存导数接线](research/831_CARA_READ_WRITE_M2_PINNED_CACHE_TRANSITION_AND_VJP_CPU_20261101.md)：M1原GPU推进到4/14、0技术失败，原硬1.95GPUh及双检查保持。等待期间M2固定WC/RF缓存转移的五项本地CPU控制通过，完整36硬前向/缓存/buffer逐值等价，实际UniPC整图小模型梯度通过有限差分；真实Cosmos模型/视频LPIPS伴随及硬交换效用仍待。未读M1部分科学输出、未改原GPU源或新增卡。
+[832 — M1半程正常，M2缓存导数与小模型伴随推进](research/832_CARA_M1_HALFWAY_AND_M2_LINUX_TRANSITION_TINY_ADJOINT_20261101.md)：原M1半程7/14、0技术失败，四原句柄与独占正常；m1已删除，同一m1-2终验20:28保持，硬1.95GPUh不变。M2固定源码缓存转移已实际Linux CPU接受，原容器退出0；离散伴随/读写值另通过五项本地小模型核对。真实Cosmos权重、视频终点反向和硬交换效用仍待，未读M1部分科学结果或新增GPU。
 
 [826 — E1完整验收：CFG有机制增量，当前S不晋级](research/826_CARA_ENDPOINT7_COMPLETE_ACCEPTANCE_RESULTS_AND_REGISTERED_DECISION_20261101.md)：接口修复后46/46、13RGB和28评分完整接受（16新+12原行）；原GPU3.055673007GPUh已结算。S-CFG较DIAG LPIPS低1.53%且4/4同向，但比F19-A1高102.83%；按预注册仅保留机制增量，当前S不晋级。全93帧与双时钟图表完成，检查已删。
 

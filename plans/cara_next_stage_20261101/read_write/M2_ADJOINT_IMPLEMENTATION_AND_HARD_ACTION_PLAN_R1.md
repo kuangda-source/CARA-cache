@@ -37,3 +37,7 @@ M1完整接受后，先判断写作用是否可辨识，再冻结M2实际完整�
 ## 执行与财务边界
 
 真实GPU桥接和M2整卡仍需完整生产CPU、固定源、资产/显存/私有存储、全段费用及fresh准入。M1的四卡原账本许可只覆盖M1；后续卡不继承。继续遵守两卡执行、cap226、旧16.5和<2自主/2–4说明后推进/>4单独批准的整卡规则，不拆卡规避阈值。当前M2新增GPU与账本事务均为0。
+
+## 19:56实现增量
+
+固定源码缓存转移已由[两卡原CPU终态](../../../reports/cara_read_write_transition_Linux_CPU_accepted_r1_20261101.json)接受五项，44.91秒、容器退出0。另已实现`cara_read_write_adjoint_r1.py`的完整状态余向量/VJP与read/write硬动作差收缩；[本地五项](../../../reports/cara_read_write_adjoint_CPU_component_r2_20261101.json)覆盖36步重算伴随对整图梯度、两幅度辅助方向差分、D起点符号、重置后零write和错位拒绝。原FP32小read方向的精度失败单列保留，未改原RF算术。当前状态坐标保留实际原窗口拓扑；合法内点C/D要求全部已占槽路径对齐，仅原漂移标量的literal0 reset显式对齐。全局固定槽/validity/source-sigma映射与真实GPU资源仍是未完成项。

@@ -11,7 +11,8 @@ import time
 import unittest
 
 
-def main():
+def main(*, suite='transition'):
+    assert suite in ('transition', 'adjoint')
     parser = argparse.ArgumentParser(description=__doc__)
     for name in ('runtime', 'stage', 'output'):
         parser.add_argument('--'+name, type=Path, required=True)
@@ -64,9 +65,13 @@ def main():
          torch.cuda.current_device) = saved
     assert wc.worldcache_mini_train_dit_forward.__globals__ is vars(wc)
     assert rf.Video2WorldModelRectifiedFlow.denoise.__globals__ is vars(rf)
-    import test_cara_read_write_transition_r1 as tests
-    tests.modules = lambda: (wc, rf)
-    tests.DataType = wc.DataType
+    import test_cara_read_write_transition_r1 as fixture
+    fixture.modules = lambda: (wc, rf)
+    fixture.DataType = wc.DataType
+    if suite == 'adjoint':
+        import test_cara_read_write_adjoint_r1 as tests
+    else:
+        tests = fixture
     result = unittest.TextTestRunner(verbosity=2).run(unittest.defaultTestLoader.loadTestsFromModule(tests))
     assert result.wasSuccessful() and result.testsRun == 5 and not result.skipped
     assert not torch.cuda.is_initialized()
@@ -76,14 +81,15 @@ def main():
     from loguru import logger
     logger.complete()
     logger.remove()
-    receipt = dict(status='READ_WRITE_TRANSITION_ACTUAL_LINUX_CPU_PASS_NOT_COSMOS_VJP',
+    receipt = dict(status='READ_WRITE_'+suite.upper()+'_ACTUAL_LINUX_CPU_PASS_NOT_COSMOS_VJP',
         host=args.host, started_unix=started, ended_unix=time.time(), actual_CPU_affinity=[26],
         source_revision=reg['parent_git_revision'], registration_sha256=sha(args.stage/'registration.json'),
         payload_sha256=reg['payload_sha256'], runtime_source_sha256=reg['runtime_source_sha256'],
         tests_run=5, metrics=tests.METRICS, torch_version=torch.__version__,
         actual_WC_RF_imports_and_globals_accepted=True, CPU_import_adapters_used=True,
         tiny_model_weights=True, actual_Cosmos_weights=False, actual_Cosmos_model_VJP=False,
-        terminal_LPIPS_VJP=False, complete_augmented_adjoint=False, CUDA_initialized=False,
+        terminal_LPIPS_VJP=False, complete_augmented_adjoint=False, complete_tiny_adjoint=suite=='adjoint',
+        CUDA_initialized=False,
         GPU_submissions=0, ledger_written=False, work_seconds=600, exit_seconds=60)
     with args.output.open('x') as stream:
         json.dump(receipt, stream, indent=2, allow_nan=False)

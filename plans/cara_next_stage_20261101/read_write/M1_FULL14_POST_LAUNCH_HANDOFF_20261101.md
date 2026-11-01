@@ -28,3 +28,11 @@
 CPU评分环境仍复用原离线Alex/PIQ原权重，不下载。M1只识别同父读/写/交互在一个固定位置的效果，不直接建立部署速度、泛化或整个主方法有效性；M2配方与read-only消融另行完整预注册。
 
 连接使用原Tailscale私有ProxyJump配置和gaokuangda/docker受控角色。纯SSH默认group可能不能inspect Docker；不得据此把原容器说成不存在。保留原两层ControlMaster=no/ControlPath=none，不改Windows/Clash/路由或服务。
+
+## 19:38半程已处理
+
+[半程原状态](../../../reports/cara_read_write_halfway_original_status_r1_20261101.json)于19:38:48回读7/14完整、1运行、6未到达、0技术失败；原四PID/start ticks均存活、原runner独占、67°C。独立[中央只读](../../../reports/cara_read_write_halfway_central_status_r1_20261101.json)确认原1.95预约保持，cap226、used194.03986128165678、reserved18.45、旧16.5不变。未看部分科学分数/时延，未结算活跃运行。
+
+[半程接受](../../../reports/cara_read_write_halfway_accepted_r1_20261101.json)后已删除m1；[检查R2](../../../reports/cara_read_write_acceptance_schedule_r2_20261101.json)保留同一m1-2于20:28，原定义SHA不变。按计数/墙钟无需前移，未新建检查、未延长硬截止。若遇已排队的旧半程消息，复用此原件，不重复半程动作。
+
+M2仅独立CPU准备：[固定源码缓存导数与实现安排](M2_ADJOINT_IMPLEMENTATION_AND_HARD_ACTION_PLAN_R1.md)。其新源和CPU stage不改变本M1的b930df4b源/容器/配置；后续卡不继承本卡账本许可。

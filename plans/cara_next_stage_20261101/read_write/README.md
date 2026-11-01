@@ -71,4 +71,4 @@ PYTHONPATH=src CUDA_VISIBLE_DEVICES='' .venv/bin/python scripts/check_cara_read_
 
 上述命令的输出必须改为新的回执路径再执行；原件不可覆盖。本地M0首轮的外来类拒绝测试接线、M1的namespace/精简runtime缺文件失败均保留，未执行或重派GPU。状态归属与尚缺边界见[状态清单](STATE_AND_ACCEPTANCE_BOUNDARIES_R1.md)。
 
-后续直接任务是**两卡的受影响Linux CPU接线、真实参数状态/内存验证和完整八后缀卡报价**，复用既有监督与评分组件。目前不重跑A32/B36/S/Q/搜索/E1，不扩大CHECK/TEST曝光，不自动复用已完成卡的账本事务权限。
+以上记录最初共享前缀组件准备时的任务：两卡受影响Linux CPU、真实参数状态/内存与完整报价。现已由完整14执行卡承接并实际启动；后续以本文顶部原运行交接和M2实现安排为准，复用既有监督与评分组件。目前不重跑A32/B36/S/Q/搜索/E1，不扩大CHECK/TEST曝光，不自动复用已完成卡的账本事务权限。
