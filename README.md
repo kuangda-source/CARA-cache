@@ -2,7 +2,7 @@
 
 # CARA-Cache
 
-[824 — E1完整46路径已结算，CPU接受接口失败](research/824_CARA_ENDPOINT7_COMPLETE46_GPU_SETTLED_POSTRELEASE_INTERFACE_FAILURE_20261101.md)：E1完整46/46、0GPU路径失败，原GPU已释放并唯一结算3.055673007GPUh；CPU工件读者因原launch缺model_sha256退出1，13RGB未达、16新对评分未启动，尚无E1科学接受。两项自动检查均删除；后续仅准备CPU接口修复并保留原件。
+[825 — E1接口修复与13RGB接受，CPU唯一评分已创建](research/825_CARA_ENDPOINT7_INTERFACE_REPAIRED_RGB13_ACCEPTED_CPU_SCORE_ONCE_20261101.md)：原E1接口已独立修复，8项回归及完整46/13RGB接受通过；16新对CPU原intent已唯一创建，12原行不重评。原GPU和3.055673007GPUh结算保持，等待完整28后导出结果；CPU终验14:35。
 
 **2026-10-28最新安排：主线P0/F19，探索S-FAST19与固定Shared25-C的Q并行准备。** [最新计划与两个对话分工](plans/cara_next_stage_20261028/08_REPOSITORY_RECONCILIATION.md) · [739接收记录](research/739_CARA_NEXT_STAGE_FAST_SQ_PLAN_AND_CHAT_HANDOFF_20261028.md)。A32已完整验收并冻结；B36已获单次批准，实际状态以原运行记录为准。WC73已热停结算，禁止自动重派；原DEV128、旧合同与失败保持。以下旧准备记录仅作历史复用依据。
 

@@ -1,5 +1,13 @@
 # E1 七角色46路径：唯一原运行交接
 
+## 当前接续（2026-11-01 14:23，用户已要求修复并继续验收）
+
+原824接口失败已由独立兼容层修复；原失败与原1268源不改。完整46工件和13/13RGB已由修复读者正常退出接受，见825及reports/cara_endpoint7_repaired_artifacts_accepted_r1_20261101.json。16新对原评分intent已唯一创建，原stage/endpoint-score-control，manifest SHA ed1ff86272d45257707d3447f44a078997f24048ba97d4ceadbc9f1c51482935；12原行不重评分。
+
+仅用scripts/cara_endpoint7_accept_transport_r2.py capture --output 新唯一回执恢复原评分；禁止artifacts/score重复派发。修复源独立SHA e6a068e8b97127693139953885b935a2523fc27de4107378dc3ec9723e9a0fc7，原GPU source/launch和3.0556730066974542GPUh结算保持；不再次GPU/settle。CPU终验e1-cpu为14:35的一次兜底，完整28接受或真实失败后删除。完整接受后仍使用原analyze_cara_endpoint7_complete_r1.py，保存全部原件和93帧/双时钟，按原决策树解释，不自动下一GPU。
+
+下方824失败段和启动段为按时间保存的历史，当前以上述已批准CPU接续为准。
+
 ## 当前终态（2026-11-01 05:54后更新）
 
 原GPU完整46/46、0失败已于05:50退出释放并按guardian全段3.0556730066974542GPUh唯一结算。原Default恢复、四进程与锁均结束；不得再次dispatch或settle。原单次CPU工件读者随后因GPU-launch.json缺model_sha256字段退出1，尚未进入13RGB核验、未启动16对评分，完整28未接受。原stage1268源与所有原字节保持。
