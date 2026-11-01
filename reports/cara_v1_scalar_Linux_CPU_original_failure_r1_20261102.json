@@ -1,0 +1,52 @@
+{
+  "status": "ORIGINAL_SCALAR_CPU_R1_FAILED_BEFORE_COLLECTION_PRESERVED",
+  "capture_ref": "reports/cara_v1_scalar_Linux_CPU_capture_r1_20261102.json",
+  "capture_sha256": "c39f5a82633860ddb4e3cdacb5d912ebffc425c2011891656bb8aba6c63de4d8",
+  "container_state": {
+    "Status": "exited",
+    "Running": false,
+    "Paused": false,
+    "Restarting": false,
+    "OOMKilled": false,
+    "Dead": false,
+    "Pid": 0,
+    "ExitCode": 1,
+    "Error": "",
+    "StartedAt": "2026-11-01T18:29:45.722062508Z",
+    "FinishedAt": "2026-11-01T18:30:42.320393107Z"
+  },
+  "source_revision": "2cd23358697f9b321d2218e97090195ed3a1187a",
+  "recorded_source_revision": "2cd23358",
+  "registration_sha256": "7e22cb96c1b56d782de5fb76390150443ccbd37bea4b3fc03aad31e373dca374",
+  "original_launch": {
+    "status": "PAPER_TIMING_CPU_LAUNCHED_NOT_GPU",
+    "host": "two_card",
+    "stage": "/data20t/gaokuangda/worldcache_workspace/.sync/cara-source-lifecycle-V1-scalar-CPU-a6000-r1-20261102",
+    "container": "cara-source-lifecycle-V1-scalar-CPU-a6000-r1-20261102-cpu",
+    "registration_sha256": "7e22cb96c1b56d782de5fb76390150443ccbd37bea4b3fc03aad31e373dca374",
+    "pid": 3160711,
+    "started_unix": 1793557785.6075914,
+    "MemAvailable_before": 20135854080,
+    "free_disk_before": 808646623232,
+    "GPU_submissions": 0,
+    "ledger_written": false
+  },
+  "payload_intact": true,
+  "runtime_intact": true,
+  "tests_passed_before_failure": 11,
+  "whole_collection_accepted": false,
+  "completed_scalar_rows": 0,
+  "failure": {
+    "type": "TypeError",
+    "message": "<class 'cpu_full_unipc.FlowUniPCMultistepScheduler'> is a built-in class",
+    "boundary": "Pinned UniPC file identity guard; dynamically defined test scheduler has no registered module source"
+  },
+  "repair": "CPU fixture imports original fixed UniPC file through registered importlib module; source guard unchanged",
+  "original_failed_stage_edited": false,
+  "original_P0_GPU_stage_edited": false,
+  "original_CPU_replayed": false,
+  "new_R2_CPU_stage": "cara-source-lifecycle-V1-scalar-CPU-a6000-r2-20261102",
+  "GPU_submissions": 0,
+  "ledger_written": false,
+  "P1_GPU_authorized": false
+}

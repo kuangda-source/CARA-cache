@@ -1,6 +1,8 @@
 """Complete source-scalar parent requests against independent ordinary controls."""
+import importlib.util
 import json
 from pathlib import Path
+import sys
 from unittest.mock import patch
 
 import torch
@@ -41,7 +43,13 @@ def body(inference, selected, wc, rf, settings, inference_module, runtime, confi
     root = Path(__file__).resolve().parents[1]
     design = json.loads((root/'plans/cara_next_stage_20261101/source_lifecycle/V1_CALIBRATION64_DESIGN_R1.json').read_text())
     manifest = json.loads((root/'plans/cara_next_stage_20261101/e1/ENDPOINT7_46_MANIFEST_R1.json').read_text())
-    scale_solver = type(scheduler)(num_train_timesteps=1000, shift=1, use_dynamic_shifting=False)
+    scale_spec = importlib.util.spec_from_file_location('source_scalar_original_UniPC_scale',
+        runtime/'cosmos_predict2/_src/predict2/models/fm_solvers_unipc.py')
+    scale_module = importlib.util.module_from_spec(scale_spec)
+    sys.modules[scale_spec.name] = scale_module
+    scale_spec.loader.exec_module(scale_module)
+    scale_solver = scale_module.FlowUniPCMultistepScheduler(
+        num_train_timesteps=1000, shift=1, use_dynamic_shifting=False)
     scale_solver.set_timesteps(35, device='cpu', shift=5, use_kerras_sigma=True)
     scale = current_velocity_weights(scale_solver)
     assert scale['sigmas'] == manifest['schedule']['sigmas']

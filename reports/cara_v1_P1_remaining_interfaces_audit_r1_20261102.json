@@ -1,0 +1,42 @@
+{
+  "schema": "CARA_V1_P1_REMAINING_PRODUCTION_INTERFACE_AUDIT_R1",
+  "status": "SOURCE_AUDIT_NOT_GPU_AUTHORIZATION",
+  "evidence_sha256": {
+    "src/wcomr/cara_budget_search_r1.py": "948c5489447f1f77226889209517db560fedce4fc25587b34ae663a82a8de741",
+    "src/wcomr/cara_budget_calibration_r1.py": "947c5ebcf1e1b64f7506eb87d5fada651fd995bea9dc46e4f01fbb8211c0a862",
+    "plans/cara_next_stage_20261101/source_lifecycle/V1_PROTOCOL_R1.json": "b84623bcfd94d7c32c2965ac5f05a7496e916ae8b53e7ce0c07afa9eb737d995"
+  },
+  "old_search": {
+    "D_budget": 19,
+    "extra_search_protected_step": 24,
+    "objective": "RGB_MSE",
+    "query_limit_is_GPUh_limit": false,
+    "frozen_original_kept": true
+  },
+  "new_P1_required": {
+    "D_budgets": [
+      19,
+      22
+    ],
+    "objective": "all93_Alex_input_equal",
+    "legal_space": "same_original_profile_as_V1_DP_without_inheriting_old_search_only_step24",
+    "old_RGB_MSE_winner_reselected": false,
+    "actual_cost_limit": "per_budget_measured_V1_collection_share_plus_candidate_selection_and_equal_shared_reference_cost",
+    "held_GPU_CPU_wait_counted": true,
+    "query_counts_and_actual_cost_reported_separately": true
+  },
+  "remaining_interfaces": [
+    "complete accepted source64 collector output into fixed estimates",
+    "actual source/grid-bound UniPC scale export",
+    "complete93 FIT scorer and once-only choice for each estimator/budget",
+    "fresh full CHECK observation of frozen FIT choices",
+    "separate19/22 LPIPS SA+HC controller with durable complete-query recovery",
+    "actual per-budget GPU allocation cost accounting including waiting and partial failures",
+    "shared asset/reference/quality alias accounting without reusing instrumented latency",
+    "whole production entry CPU/source/assets/storage/quote gates"
+  ],
+  "GPU_submissions": 0,
+  "ledger_read": false,
+  "ledger_written": false,
+  "P1_GPU_authorized": false
+}

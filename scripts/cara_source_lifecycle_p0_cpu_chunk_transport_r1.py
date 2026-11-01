@@ -27,7 +27,8 @@ BLOCK_BYTES=8192
 
 
 def main(*, stage=STAGE, overlay=OVERLAY, remote_code=REMOTE,
-         transfer_label='cara-P0-point20-CPU-transfer', connect_timeout=25, probe_peer=False):
+         transfer_label='cara-P0-point20-CPU-transfer', connect_timeout=25, probe_peer=False,
+         inherited_capture_ref=None):
     parser=argparse.ArgumentParser()
     parser.add_argument('--source-revision',required=True)
     parser.add_argument('--output',type=Path,required=True)
@@ -43,11 +44,18 @@ def main(*, stage=STAGE, overlay=OVERLAY, remote_code=REMOTE,
     assert all((ROOT/n).read_bytes()==b for n,b in files.items())
     hashes={**base['registration']['payload_sha256'],
             **{n:hashlib.sha256(b).hexdigest() for n,b in files.items()}}
-    entry_accepted=json.loads((ROOT/'reports/cara_read_write_entry_Linux_CPU_accepted_r1_20261101.json').read_text())
-    entry_raw=(ROOT/entry_accepted['capture_ref']).read_bytes()
-    assert hashlib.sha256(entry_raw).hexdigest()==entry_accepted['capture_sha256']
-    entry=json.loads(entry_raw)['result']
-    assert entry['container_state']['ExitCode']==0 and entry['container_state']['Pid']==0
+    if inherited_capture_ref is None:
+        entry_accepted=json.loads((ROOT/'reports/cara_read_write_entry_Linux_CPU_accepted_r1_20261101.json').read_text())
+        entry_raw=(ROOT/entry_accepted['capture_ref']).read_bytes()
+        assert hashlib.sha256(entry_raw).hexdigest()==entry_accepted['capture_sha256']
+        entry=json.loads(entry_raw)['result']
+        assert entry['container_state']['ExitCode']==0
+    else:
+        captured=json.loads((ROOT/inherited_capture_ref).read_text())
+        assert captured['exit_code']==0
+        entry=captured['result']
+        assert entry['payload_intact'] and entry['runtime_intact'],'Only verified source bytes may be inherited'
+    assert entry['container_state']['Pid']==0 and not entry['container_state']['Running']
     inherited=entry['registration']['payload_sha256']
     assert entry['registration']['runtime_source_sha256']==base['registration']['runtime_source_sha256']
     changed={n:h for n,h in hashes.items() if inherited.get(n)!=h}
