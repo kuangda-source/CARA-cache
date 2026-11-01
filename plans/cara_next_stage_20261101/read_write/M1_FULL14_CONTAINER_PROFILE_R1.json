@@ -1,0 +1,53 @@
+{
+  "schema": "CARA_READ_WRITE_M1_CONTAINER_PROFILE_R1",
+  "state": "PREPARATION_ONLY_NO_GPU_AUTHORITY",
+  "GPU_dispatch_ready": false,
+  "execution_authorized": false,
+  "design_ref": "plans/cara_next_stage_20261028/mainline/r2/BUDGET_CALIBRATION_14GPUH_DESIGN_R1.json",
+  "hard_GPUh": 1.95,
+  "physical_paths": 14,
+  "GPU_container": {
+    "image": "sha256:1e81ac62ee68ca1a6ef655515096a1d84579b01aa4986810c9b18d4f6c4c552d",
+    "cpus": 2,
+    "memory_GiB": 40,
+    "memory_swap_GiB": 40,
+    "pid_namespace": "host",
+    "network": "none",
+    "readonly_rootfs": true,
+    "supervisor_CUDA_visible": false,
+    "only_exact_runner_CUDA_visible": true
+  },
+  "hosts": {
+    "two_card": {
+      "capability": [
+        8,
+        6
+      ],
+      "cpuset_cpus": "24,25",
+      "minimum_MemAvailable_GiB": 44
+    }
+  },
+  "storage": {
+    "contract_filename": "history104-storage.json",
+    "output_image_bytes": 17179869184,
+    "independent_journal_bytes": 50331648,
+    "minimum_output_free_bytes": 4294967296,
+    "minimum_host_free_bytes": 17179869184,
+    "minimum_free_inodes": 1024,
+    "actual_mount_identity_checked_at_dispatch": true,
+    "provisioned": false,
+    "minimum_host_free_before_provision_bytes": 34359738368
+  },
+  "source_runtime_assets_precision_CPU_and_complete_quote_required_at_dispatch": true,
+  "GPU_submissions": 0,
+  "ledger_written": false,
+  "scope_sha256": "e790db9a84a2721e236fbd0cd04a3c35677232aef1b3d4867767f0d130d95b80",
+  "physical_model_pairs": 512,
+  "new_scoring_pairs": 8,
+  "stop_release_reserve_seconds": 600,
+  "temperature_stop_C": 90,
+  "snapshot_limits": {
+    "logical_copy_bytes": 51539607552,
+    "total_CPU_images_bytes": 17179869184
+  }
+}
