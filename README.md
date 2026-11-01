@@ -2,7 +2,7 @@
 
 # CARA-Cache
 
-[828 — 读写干预真实Linux与完整14采集CPU接受](research/828_CARA_READ_WRITE_ACTUAL_LINUX_AND_FULL14_CPU_ACCEPTANCE_20261101.md)：真实WC/RF模块的20控制/8后缀/12完整请求已在两卡接受；完整14采集又通过原冻结参数类的28条tiny请求。现行M1是两旧FIT、8科学输出+4等价控制+2新Native，共512paired；预计1.6048/拟硬1.95GPUh。新runner、16GiB卷及派发/结算/完整释放后一次评分接线仍待；本轮0GPU、0账本操作，旧冻结与TEST保持。
+[829 — M1入口、真实评分CPU、16GiB卷和冻结源码准备完成](research/829_CARA_READ_WRITE_M1_ENTRY_SCORER_STORAGE_AND_SOURCE_READY_20261101.md)：两卡新入口67控制、28加载tiny请求及八对93帧真实Alex/PIQ合成评分接受；独立16GiB输出/48MiB日志与1307份冻结源码已安装。用户已允许新M1的原中央账本读取/预约/实耗结算；cap226、旧16.5责任与可用15.4601GPUh已读取核验。完整14/512预计1.6048、硬1.95GPUh；当前fresh准入，无新预约或GPU提交，真实模型读写收益待本卡。
 
 [826 — E1完整验收：CFG有机制增量，当前S不晋级](research/826_CARA_ENDPOINT7_COMPLETE_ACCEPTANCE_RESULTS_AND_REGISTERED_DECISION_20261101.md)：接口修复后46/46、13RGB和28评分完整接受（16新+12原行）；原GPU3.055673007GPUh已结算。S-CFG较DIAG LPIPS低1.53%且4/4同向，但比F19-A1高102.83%；按预注册仅保留机制增量，当前S不晋级。全93帧与双时钟图表完成，检查已删。
 
