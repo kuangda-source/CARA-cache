@@ -9,8 +9,8 @@ from accept_cara_read_write_transition_linux_cpu_r1 import original_capture
 from cara_source_lifecycle_linux_cpu_r1 import OVERLAY,STAGE
 
 
-def accept(launch,capture):
-    cap,revision,overlay=original_capture(launch,capture,stage=STAGE,overlay_names=OVERLAY,expected_tests=15)
+def accept(launch,capture,*,stage=STAGE,overlay_names=OVERLAY):
+    cap,revision,overlay=original_capture(launch,capture,stage=stage,overlay_names=overlay_names,expected_tests=15)
     proof=cap['CPU_proof'];metrics=proof['metrics']
     assert proof['status']=='SOURCE_LIFECYCLE_V1_ACTUAL_LINUX_CPU_PASS_NOT_VIDEO_METHOD'
     assert proof['real_source_labels_fitted'] is proof['real_generated_plan_efficacy'] is False
@@ -47,11 +47,11 @@ def accept(launch,capture):
         GPU_submissions=0,ledger_written=False)
 
 
-def main():
+def main(*,acceptor=accept):
     parser=argparse.ArgumentParser(description=__doc__)
     for name in ('launch','capture','output'):parser.add_argument('--'+name,type=Path,required=True)
     args=parser.parse_args();assert not args.output.exists()
-    value=accept(args.launch,args.capture)
+    value=acceptor(args.launch,args.capture)
     with args.output.open('x') as stream:json.dump(value,stream,indent=2,allow_nan=False);stream.write('\n')
     print(json.dumps(dict(status=value['status'],wall_seconds=value['wall_seconds'])))
 
