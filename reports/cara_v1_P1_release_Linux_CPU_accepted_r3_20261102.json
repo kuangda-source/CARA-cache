@@ -1,0 +1,172 @@
+{
+  "status": "ORIGINAL_P1_RELEASED146_SCORE52_CPU_ACCEPTED_NOT_WHOLE_GPU_ENTRY",
+  "source_revision": "733e908466aa0c82109a3ea7eeed7e3fb2861923",
+  "CPU_stage": "cara-source-lifecycle-P1-release-CPU-a6000-r3-20261102",
+  "launch_ref": "reports/cara_v1_P1_release_Linux_CPU_launch_r3_20261102.json",
+  "launch_sha256": "8b9353c910bc6785f9ae59e835a0aedbacc424fe78c5b093ebf882648548ce78",
+  "capture_ref": "reports/cara_v1_P1_release_Linux_CPU_capture_r7_20261102.json",
+  "capture_sha256": "31358f95ff75455b0bbe7bb9e18025efccc9d7c3a62379b80b56d7eeee6ee864",
+  "registration_sha256": "ed27e3e05421f05c075d00249de4d904c4dd53cec754fdfc404ed0293d2292b8",
+  "original_proof_sha256": "824c8bec98c82a7260910e47f54a51383bcfc79179948342bd5ae448658dd09c",
+  "original_CPU_ended": true,
+  "original_container_state": {
+    "Status": "exited",
+    "Running": false,
+    "Paused": false,
+    "Restarting": false,
+    "OOMKilled": false,
+    "Dead": false,
+    "Pid": 0,
+    "ExitCode": 0,
+    "Error": "",
+    "StartedAt": "2026-11-01T23:08:20.428088674Z",
+    "FinishedAt": "2026-11-01T23:12:20.734601577Z"
+  },
+  "new_analysis_controls": 4,
+  "reused_R1_controls": 21,
+  "reused_controls_replayed": false,
+  "semantic_positions": 146,
+  "physical_video_latent_reads": 138,
+  "source_labels": 64,
+  "identity_controls": 12,
+  "logical_quality_positions": 52,
+  "new_real93_metric_pairs": 32,
+  "internal_metric_pairs_simulated": 20,
+  "original_metrics_recomputed": 0,
+  "failure_denominator": 32,
+  "failure_completed_pairs": 1,
+  "post_release": {
+    "status": "P1_REAL_FULL146_READER_AND_ORIGINAL_POST_SCORE_CPU_PASS",
+    "semantic_positions": 146,
+    "physical_video_latent_reads": 138,
+    "source_labels": 64,
+    "identity_controls": 12,
+    "logical_quality_positions": 52,
+    "original_sealed_internal_pairs": 20,
+    "original_postrelease_new_pairs": 32,
+    "all_frames": 93,
+    "geometry": [
+      64,
+      64,
+      3
+    ],
+    "actual_metric_weights": true,
+    "internal_service_and_internal_scores_simulated": true,
+    "actual_original_Linux_service_and_postscore_processes_ended": true,
+    "immutable_reader_recovery_no_callbacks": true,
+    "no_replay": true,
+    "refusals": [
+      "no_original_release",
+      "service_unknown",
+      "saved_arguments",
+      "changed_internal_response",
+      "failed_original_score_full_denominator"
+    ],
+    "post_score_execution": {
+      "kind": "ACTUAL_CPU_FIXTURE_CHILD",
+      "exit_code": 0,
+      "original_process_ended": true,
+      "GPU_hidden": true,
+      "original_identity": {
+        "pid": 3226313,
+        "start_ticks": 686947927,
+        "host_view": {
+          "boot_id": "13495735-f30b-47a2-af0a-2496f5206a0b",
+          "pid_namespace_inode": 4026531836
+        },
+        "original_command_sha256": "07310dfb4b70def0a3130bba246fe5cb3d13a7c35ba56393922eac5482ff978f"
+      },
+      "original_observation": {
+        "observed_unix": 1793574683.505314,
+        "original_pid": 3226313,
+        "original_start_ticks": 686947927,
+        "original_live": false,
+        "status": "ORIGINAL_NOT_LIVE",
+        "reason": "ORIGINAL_PROC_ABSENT",
+        "dispatch_allowed": false,
+        "financial_settlement_allowed": false,
+        "scientific_read_allowed": false,
+        "observed_host_view": {
+          "boot_id": "13495735-f30b-47a2-af0a-2496f5206a0b",
+          "pid_namespace_inode": 4026531836
+        },
+        "observed_process": {
+          "pid": 3226313,
+          "state": null,
+          "start_ticks": null
+        }
+      },
+      "config_sha256": "db4d6a8570834cd4fb0cba0d639661c3079387f5149e6d3d200e6308c0b4b131",
+      "source_sha256": {
+        "src/wcomr/cara_source_lifecycle_p1_scores_r1.py": "d6061b3893decf20fd8fccc80df0e5af4da517d2f55312ba0e218f8b25cb694d",
+        "scripts/score_cara_source_lifecycle_p1_r1.py": "5eab3fa43c330b5c77522721ca26782a6e76704d7968667b6f550cb6969cf723",
+        "src/wcomr/cara_source_lifecycle_p1_artifacts_r1.py": "65b53553b645aede28d0e85586582151bba4071253bb2dcb669b1026349f39bf",
+        "src/wcomr/cara_source_lifecycle_p1_inventory_r1.py": "3bba426f9e6896ceed783e574221023600b223bc5fc2cabe16f63f9ae5135137",
+        "src/wcomr/cara_fast_fidelity_r1.py": "8adf7ad6e24ccec9e2c1ce4c6a9830f64f9198df14c357fa19c8e4dd245978eb",
+        "plans/cara_next_stage_20261028/mainline/FIDELITY_PROTOCOL.json": "49f9f5612e361b694fb76f52ec9108e21e99e4b7048d9fcbfb77f47134ea6473"
+      },
+      "wall_seconds": 107.77254295349121,
+      "result_sha256": "23c9bd3812c4bfb23d493b8495429a6e7c2f315e412f31705dd8387a5c664714"
+    },
+    "failed_score_execution": {
+      "kind": "ACTUAL_CPU_FIXTURE_CHILD",
+      "exit_code": 1,
+      "original_process_ended": true,
+      "GPU_hidden": true,
+      "original_identity": {
+        "pid": 3226519,
+        "start_ticks": 686958811,
+        "host_view": {
+          "boot_id": "13495735-f30b-47a2-af0a-2496f5206a0b",
+          "pid_namespace_inode": 4026531836
+        },
+        "original_command_sha256": "392d303ec346d5e77897d01608ef0d3430815c6351f5f2078f3b493b980fa3f5"
+      },
+      "original_observation": {
+        "observed_unix": 1793574699.3826437,
+        "original_pid": 3226519,
+        "original_start_ticks": 686958811,
+        "original_live": false,
+        "status": "ORIGINAL_NOT_LIVE",
+        "reason": "ORIGINAL_PROC_ABSENT",
+        "dispatch_allowed": false,
+        "financial_settlement_allowed": false,
+        "scientific_read_allowed": false,
+        "observed_host_view": {
+          "boot_id": "13495735-f30b-47a2-af0a-2496f5206a0b",
+          "pid_namespace_inode": 4026531836
+        },
+        "observed_process": {
+          "pid": 3226519,
+          "state": null,
+          "start_ticks": null
+        }
+      },
+      "config_sha256": "db4d6a8570834cd4fb0cba0d639661c3079387f5149e6d3d200e6308c0b4b131",
+      "source_sha256": {
+        "src/wcomr/cara_source_lifecycle_p1_scores_r1.py": "d6061b3893decf20fd8fccc80df0e5af4da517d2f55312ba0e218f8b25cb694d",
+        "scripts/score_cara_source_lifecycle_p1_r1.py": "5eab3fa43c330b5c77522721ca26782a6e76704d7968667b6f550cb6969cf723",
+        "src/wcomr/cara_source_lifecycle_p1_artifacts_r1.py": "65b53553b645aede28d0e85586582151bba4071253bb2dcb669b1026349f39bf",
+        "src/wcomr/cara_source_lifecycle_p1_inventory_r1.py": "3bba426f9e6896ceed783e574221023600b223bc5fc2cabe16f63f9ae5135137",
+        "src/wcomr/cara_fast_fidelity_r1.py": "8adf7ad6e24ccec9e2c1ce4c6a9830f64f9198df14c357fa19c8e4dd245978eb",
+        "plans/cara_next_stage_20261028/mainline/FIDELITY_PROTOCOL.json": "49f9f5612e361b694fb76f52ec9108e21e99e4b7048d9fcbfb77f47134ea6473"
+      },
+      "wall_seconds": 14.799798965454102,
+      "result_sha256": "ba46c0807ed9e6dac84a7a9dfb2d22e92eeaeaed66ffec83bf458de7b21d44c6"
+    },
+    "failure_denominator": 32,
+    "failure_completed_pairs": 1,
+    "accepted_sha256": "75cb649885426bffc2cf97c557f7378c6b871182020fd5242df3fe925ea3352d",
+    "packet_sha256": "9e7a04df3c2de64f19ea5676aa760ef52cf3c853a1ac09eb4aae03f8d92aa279",
+    "production_model_weights_loaded": false,
+    "old_algorithm_or_metric_experiments_repeated": false,
+    "production_GPU_entry_accepted": false,
+    "GPU_submissions": 0,
+    "ledger_written": false
+  },
+  "whole_GPU_entry_accepted": false,
+  "P1_GPU_authorized": false,
+  "GPU_submissions": 0,
+  "ledger_written": false,
+  "original_proof_ref": "reports/cara_v1_P1_release_Linux_CPU_original_proof_r3_20261102.json"
+}
