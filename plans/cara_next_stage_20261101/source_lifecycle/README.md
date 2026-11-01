@@ -32,6 +32,8 @@
 
 固定二次多项式嵌套特征与ridge1e-4，训练样本按输入等权；预测截为非负，完整公开截零比例与来源外推范围。不搜索网络、阈值或特征阶数。原始目标为同状态两次实际FP32 CFG运算输出差的FP64均方，不沿用S的teacher-energy归一化风险冒充新目标。
 
+[固定估值/完整FIT选择组件](../../../research/839_CARA_V1_FIXED_ESTIMATION_AND_COMPLETE_FIT_SELECTION_CPU_20261102.md)现已本地11项CPU接受：64标签结构、整父计划4折、三组特征/同DP/19D与22D各top3、全93帧输入等权选择及拒绝控制跑通。参见[实现细节合同](V1_FIXED_ESTIMATION_COMPONENT_CONTRACT_R1.json)、[离线CLI](../../../scripts/fit_cara_source_lifecycle_v1_r1.py)与[回执](../../../reports/cara_v1_fixed_estimation_CPU_component_r1_20261102.json)。使用合成标签和尺度；真实采集、生产来源接受和完整Linux入口仍待，无真实拟合或视频收益。
+
 三个估值器均用相同双来源DP，分别在19D/22D各取至多3个不同的最低代理计划，完整两FIT全93帧LPIPS按预定规则选择一次，再看旧CHECK。选择以输入等权Alex最小，完全相同时按代理成本、D序列字典序；旧CHECK只作已曝光开发检查。共享指纹可复用同一生成/评分，独立计时控制保留物理槽，所有别名/未用上限位置有完整账目。
 
 强对照包含Uniform19/22、F19-C、F19-A1、原一次冻结BudgetSearch19和新LPIPS目标搜索。原RGB-MSE搜索赢家不改。新搜索仅用两FIT，沿用相同初始Uniform、合法空间、完整成对查询和SA+HC接口；为19D/22D分别记录实际校准费用限制。共享采集成本只计一次、按两个预算各半归属V1；新搜索的每预算允许费用等于对应V1实际采集份额、完整候选评分和同口径共用参考费用，包含持卡等待CPU与重算，不以相同允许上限声称已实耗匹配。

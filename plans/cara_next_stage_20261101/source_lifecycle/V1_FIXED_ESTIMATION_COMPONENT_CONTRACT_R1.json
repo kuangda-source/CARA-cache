@@ -1,0 +1,43 @@
+{
+  "schema": "CARA_V1_FIXED_ESTIMATION_COMPONENT_CONTRACT_R1",
+  "state": "CPU_COMPONENT_PREPARATION_NO_P1_GPU_AUTHORITY",
+  "protocol_ref": "plans/cara_next_stage_20261101/source_lifecycle/V1_PROTOCOL_R1.json",
+  "protocol_sha256": "b84623bcfd94d7c32c2965ac5f05a7496e916ae8b53e7ce0c07afa9eb737d995",
+  "design_scope_sha256": "9e19b82275962107d7c2ac5a0b638ce3a9620b5268cb1d088c7882d84aaf1bb8",
+  "original_UniPC_source_sha256": "f6a06c75f059693ade6c802e99f6058575969b6a71ef18ab05e7ed46701053d3",
+  "families": [
+    "stage",
+    "stage_age",
+    "stage_age_previous_gap"
+  ],
+  "raw_coordinate_order": [
+    "sigma",
+    "abs(sigma_t-sigma_b)",
+    "abs(sigma_b-sigma_a)"
+  ],
+  "feature_standardization": false,
+  "intercept_penalized": false,
+  "ridge": 0.0001,
+  "ridge_loss_scale": "sum_over_FIT_equal_input_mean_of_per_label_squared_prediction_error",
+  "solver": "FP64_augmented_least_squares_SVD",
+  "target": "FP64_squared_error_sum_divided_by_actual_CFG_element_count",
+  "nonnegative_output": "clamp_zero_and_report_fraction",
+  "held_out": "one_entire_parent_across_both_FIT",
+  "fold_count": 4,
+  "held_out_rows_per_fold": 16,
+  "training_rows_per_fold": 48,
+  "feature_selection_or_ridge_tuning": false,
+  "missing_labels_or_video_failures": "retain_denominator_and_refuse_partial_fit_or_selection",
+  "candidate_limit_per_family_budget": 3,
+  "D_budgets": [
+    19,
+    22
+  ],
+  "final_selection": "complete93_frame_input_equal_Alex_then_proxy_then_lexicographic_D_mask",
+  "CHECK_used_for_selection": false,
+  "structural_claim_validation_is_production_provenance_acceptance": false,
+  "production_collector_and_Linux_entry_pending": true,
+  "P1_GPU_authorized": false,
+  "new_GPU_submissions": 0,
+  "ledger_written": false
+}
