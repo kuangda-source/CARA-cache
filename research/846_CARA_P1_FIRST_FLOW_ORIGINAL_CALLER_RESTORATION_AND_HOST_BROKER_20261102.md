@@ -10,6 +10,8 @@ P1 R2的首个flow完成了完整算法：146语义位置、140实际tiny请求�
 
 新CPU增加成功、原件恢复及存储拒绝路径的调用者绑定检查。原R2单flow实耗约18分41秒，新的完整双flow工作上限设3600秒、退出余量60秒，仍单核26/4GiB/no-swap/no-network/no-GPU；完整两flow均须接受，未缩小范围。入口`scripts/cara_source_lifecycle_p1_linux_cpu_r3.py`，独立R3 stage；原R2源47a0048c和原工件保持。
 
+R3已于04:57:48.333867+08按新source `aca025a7a51be8d134f4e2b29a3c42f25db429ca` 唯一启动；原句柄和源码/runtime校验确认仍在运行。半程05:18、终验05:38已安排在同一对话，工作边界05:57:48保持。[R3承接](../plans/cara_next_stage_20261101/source_lifecycle/V1_P1_ALGORITHM_CPU_R3_POST_LAUNCH_HANDOFF_20261102.md) · [检查清单](../reports/cara_v1_P1_algorithm_CPU_acceptance_schedule_r1_20261102.json)。
+
 ## 宿主评分接口
 
 [实现](../src/wcomr/cara_source_lifecycle_fit_broker_r1.py)与[原CLI](../scripts/cara_source_lifecycle_fit_broker_r1.py)已接通队列、固定CPU容器命令、原PID/容器恢复及完整内部接受。本地九项控制通过：只读来源和唯一可写CPU输出、2核8GiB/no-swap/无GPU/无网络、错误设备/挂载/命令拒绝、原终态一次接受、活跃/UNKNOWN禁止新派、CPU失败保留双FIT分母、越界工件/非19/22纯C策略拒绝、deadline前置准入、运维仅计数及终态读者不能启动任务。
