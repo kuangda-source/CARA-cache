@@ -1846,7 +1846,7 @@
     "independent_new_inputs": false,
     "complete_QA_ref": "reports/cara_fast_A6000_complete_frozen_QA_20261029_0115.json"
   },
-  "current_evidence_observed_at": "2026-11-01T22:05:33.999326+08:00",
+  "current_evidence_observed_at": "2026-11-01T22:22:14.942078+08:00",
   "fast_B36_CPU_preparation_20261029": {
     "status": "ACCEPTED_DUAL_HOST_COMPLETE_B36_CPU_CONTINUATION_ONLY",
     "accepted_receipt_ref": "reports/cara_fast_B36_CPU_acceptance_r1_20261029.json",
@@ -3230,12 +3230,12 @@
   },
   "current_preparation_id": "PG-SOURCE-LIFECYCLE-V1-DP-P0-P1",
   "read_write_mainline_preparation_20261101": {
-    "status": "V1_SOURCE_LIFECYCLE_MAINLINE_FULL_ADJOINT_V2_DEFERRED",
+    "status": "V1_LINUX_CPU_ACCEPTED_P0_FIRST_WHOLE_POINT20_ENTRY_PENDING",
     "research_ref": "research/836_CARA_V1_SOURCE_LIFECYCLE_MAINLINE_DP_AND_P0_P1_PREPARATION_20261101.md",
-    "receipt_ref": "reports/cara_v1_mainline_intake_preparation_r1_20261101.json",
-    "receipt_sha256": "6605c14e430f07d15ac57536f40f7fa674e5291d1001d86e8573ce2c07d05825",
+    "receipt_ref": "reports/cara_v1_mainline_preparation_r2_20261101.json",
+    "receipt_sha256": "16dadb41e26055e00cc88eba0cf8693807275d2668eb0f8899bd54253315b512",
     "notice_title": "836 — V1来源生命周期规划进入主线，完整伴随转V2",
-    "summary": "按用户新路线，V1优先自动生成并完整视频验证19D/22D；完整伴随不阻塞。M1第8步八科学位置原样复用，新增第20步入口已过两flow共12条小权重CPU。108原标签审计识别C状态来源跨度缺口，四通用父计划64标签设计与双来源DP五项本地控制通过。真实V1与新GPU结果仍待，完整top3费用草案超过建议6GPUh，预算设计问题待用户决定。",
+    "summary": "V1主线、完整伴随V2后置保持；用户已选先补P0、完整P1另审预算。两卡原R2 CPU已退出0，15项状态/DP/覆盖控制和第8/20步共24条tiny完整路径接受，旧R1打包失败保留。第20步独立14路径/512paired范围草稿及三项scope控制完成；继续补整卡源、释放/收件/评分与资源绑定。第8步原八科学位置和费用复用，新增GPU/中央事务0。",
     "plan_ref": "plans/cara_next_stage_20261101/read_write/README.md",
     "protocol_ref": "plans/cara_next_stage_20261101/read_write/EXPERIMENT_PROTOCOL_R1.json",
     "M0_CPU_ref": "reports/cara_read_write_M0_CPU_component_r2_20261101.json",
@@ -3415,9 +3415,9 @@
     "main_method_established": false
   },
   "source_lifecycle_V1_20261101": {
-    "status": "CPU_COMPONENTS_READY_POINT20_AND_COMPLETE_P1_ENTRY_PENDING",
+    "status": "V1_LINUX_CPU_ACCEPTED_P0_FIRST_WHOLE_POINT20_ENTRY_PENDING",
     "research_ref": "research/836_CARA_V1_SOURCE_LIFECYCLE_MAINLINE_DP_AND_P0_P1_PREPARATION_20261101.md",
-    "receipt_ref": "reports/cara_v1_mainline_intake_preparation_r1_20261101.json",
+    "receipt_ref": "reports/cara_v1_mainline_preparation_r2_20261101.json",
     "plan_ref": "plans/cara_next_stage_20261101/source_lifecycle/README.md",
     "protocol_ref": "plans/cara_next_stage_20261101/source_lifecycle/V1_PROTOCOL_R1.json",
     "coverage_ref": "reports/cara_v1_S108_source_coverage_audit_r1_20261101.json",
@@ -3429,10 +3429,16 @@
     "P0_new_point20": 8,
     "real_V1_labels_fitted": false,
     "real_V1_video_results": null,
-    "Linux_CPU_state": "PREPARE_NOT_YET_SENT",
-    "budget_design_question_pending": true,
+    "Linux_CPU_state": "ORIGINAL_R2_COMPLETE_ACCEPTED",
+    "budget_design_question_pending": false,
     "new_GPU_submissions": 0,
     "central_ledger_permission": false,
-    "ledger_written": false
+    "ledger_written": false,
+    "Linux_CPU_ref": "reports/cara_v1_Linux_CPU_accepted_r2_20261101.json",
+    "P0_point20_manifest_draft_ref": "plans/cara_next_stage_20261101/source_lifecycle/P0_POINT20_FULL14_MANIFEST_DRAFT_R1.json",
+    "P0_point20_scope_CPU_ref": "reports/cara_v1_P0_point20_scope_CPU_r1_20261101.json",
+    "budget_direction_ref": "plans/cara_next_stage_20261101/source_lifecycle/P0_FIRST_P1_SEPARATE_BUDGET_DIRECTION_R1.json",
+    "current_next": "bind_distinct_P0_point20_full14_entry_release_scoring_and_resources_then_exact_card_ledger_permission_and_fresh_admission",
+    "active_CPU_containers": []
   }
 }

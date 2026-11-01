@@ -2,7 +2,7 @@
 
 用户最新主线为**[V1来源生命周期感知规划](cara_next_stage_20261101/source_lifecycle/README.md)**，完整离散伴随转V2后置。当前交付：第8步八科学位置原样复用，第20步12条完整tiny CPU通过；原108标签的C子集仅17来源组合、固定阶段/年龄的前跨度对照0，四通用父计划64标签设计已补三组结构对照；双来源DP已通过穷举和真实36网格19D/22D控制。真实模型标签/新规划视频结果仍待。[836记录](../research/836_CARA_V1_SOURCE_LIFECYCLE_MAINLINE_DP_AND_P0_P1_PREPARATION_20261101.md)。
 
-完整top3新增P0/P1费用草案约10.18GPUh，超过建议6；预算设计问题待用户选择，当前仅继续CPU/原件准备。先补实际Linux及新Point20完整卡绑定，P1按同planner/候选额度检验phase/age/gap并含新LPIPS公平费用搜索。原M1账本许可不继承，V1新GPU/原账本事务尚未发生。以下M2记录作为后置V2历史准备保留。
+完整top3新增P0/P1费用草案约10.18GPUh，超过建议6；用户已选择先补P0、完整P1另审预算。实际Linux15项控制及第8/20步24条tiny路径原R2退出0接受，第20步独立14/512 scope和三项scope控制完成；继续整卡源/释放/评分/资源绑定。P1按同planner/候选额度检验phase/age/gap并含新LPIPS公平费用搜索。原M1账本许可不继承，V1新GPU/原账本事务尚未发生。以下M2记录作为后置V2历史准备保留。
 
 2026-11-01当前主线：[M1完整接受](../research/834_CARA_M1_COMPLETE_READ_WRITE_MECHANISM_AND_M2_CONTINUATION_20261101.md)，14生成、四latent/93RGB等价、八对评分、1.500620266GPUh唯一结算与图表均完成；GPU/CPU结束、双检查删除。两旧FIT固定第8步，仅写入平均Alex降低19.51%，仅读出2.02%，完整刷新19.24%；进入M2价值估计与硬行动验证，尚未建立新19D方法。
 
