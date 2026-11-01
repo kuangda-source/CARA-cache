@@ -28,7 +28,7 @@ BLOCK_BYTES=8192
 
 def main(*, stage=STAGE, overlay=OVERLAY, remote_code=REMOTE,
          transfer_label='cara-P0-point20-CPU-transfer', connect_timeout=25, probe_peer=False,
-         inherited_capture_ref=None):
+         inherited_capture_ref=None, work_seconds=600, exit_seconds=60):
     parser=argparse.ArgumentParser()
     parser.add_argument('--source-revision',required=True)
     parser.add_argument('--output',type=Path,required=True)
@@ -157,7 +157,7 @@ with (d/'prepare.lock').open('a') as lock:
           '\nROOT='+repr(REMOTE_ROOT)+'\n'+code)
     observed=call(code)
     report=dict(action='prepare',host='two_card',stage_name=stage,source_revision=args.source_revision,
-        started_unix=started,observed_unix=time.time(),expected_host_config=LIMITS,work_seconds=600,exit_seconds=60,
+        started_unix=started,observed_unix=time.time(),expected_host_config=LIMITS,work_seconds=work_seconds,exit_seconds=exit_seconds,
         remote_code_sha256=hashlib.sha256(remote_code.encode()).hexdigest(),
         transport_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
         source_packet_sha256=digest,source_packet_bytes=len(raw),source_blocks=len(blocks),

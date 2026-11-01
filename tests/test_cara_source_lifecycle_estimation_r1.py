@@ -66,6 +66,11 @@ class Estimation(unittest.TestCase):
             self.assertLess(sample.b, sample.t)
         METRICS['complete_design'] = dict(rows=64, parents=4, members=2, synthetic_labels=True)
 
+    def test_individually_metered_family_preserves_all_original_fixed_outputs(self):
+        separate = [fit_validate_plan(self.samples, self.design, self.manifest, self.weights,
+                    families=(family,))['families'][0] for family in FAMILIES]
+        self.assertEqual(separate, self.pipeline['families'])
+
     def test_partial_duplicate_foreign_and_wrong_source_rows_refused(self):
         mutations = [lambda p: p['rows'].pop(),
                      lambda p: p['rows'].__setitem__(0, deepcopy(p['rows'][1])),

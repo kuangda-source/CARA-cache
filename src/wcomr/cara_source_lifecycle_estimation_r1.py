@@ -156,12 +156,14 @@ def diagnostics(model, samples):
                 unseen_t_a_b_fraction=sum((s.t, s.a, s.b) not in model.source_triples for s in samples)/count)
 
 
-def fit_validate_plan(samples, design, manifest, weights):
+def fit_validate_plan(samples, design, manifest, weights, *, families=FAMILIES):
     """Same four parent-held-out folds and exact19/22 top3 DP for every family."""
     sigmas = manifest['schedule']['sigmas']
     profile = profile_from(manifest['profile'])
     reports = []
-    for family in FAMILIES:
+    if tuple(families) not in (FAMILIES, *((family,) for family in FAMILIES)):
+        raise ValueError('All three frozen families or one individually measured family required')
+    for family in families:
         folds = []
         for parent in design['parents']:
             train = tuple(s for s in samples if s.parent != parent['id'])
