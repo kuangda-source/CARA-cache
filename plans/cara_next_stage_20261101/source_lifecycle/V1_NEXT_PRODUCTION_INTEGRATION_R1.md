@@ -6,6 +6,8 @@ P0两状态已完整接受，见[844](../../../research/844_CARA_P0_TWO_POSITION
 
 新增[849](../../../research/849_CARA_P1_GUARDIAN_FIT_LINUX_CPU_AND_SNAPSHOT_COST_AUDIT_20261102.md)已补齐guardian/FIT共同收尾的34项原Linux控制（含五真实原进程场景），原CPU结束。继续实现生产总CLI/绑定、释放后科学读者与最多32新指标接受、图表/冻结；按各组件实际源码SHA复用既有接受，不重跑已完成算法或评分。原R1/R2导入失败与费用敏感性记录保持。
 
+[850](../../../research/850_CARA_P1_PRODUCTION_BINDING_AND_RELEASED146_SCORE52_PREPARATION_20261102.md)已新增生产模型总CLI/原源绑定、146只读索引、释放后52质量位置/内部原指标复用和最多32新评分worker；21项本地及精确1406文件隔离包通过。新Linux CPU将只验证新增文件/进程路径；当前尚未接受其原终态。GPU外层dispatch/准入/控制、后置评分一次派发/原容器恢复及分析/图表/冻结仍待。硬限未定、P1 GPU与中央事务未授权。
+
 ## 可复用的已接受组件
 
 - 原标量R3 Linux：source374972708574d6baa790b22b5adbb9047e47ae6f、13控制/32完整tiny请求/128同状态标签，原容器退出0。复用原[接受](../../../reports/cara_v1_scalar_Linux_CPU_accepted_r3_20261102.json)，保留R1/R2失败，不重放这些控制来刷新文档。
