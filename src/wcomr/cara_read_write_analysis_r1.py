@@ -4,6 +4,7 @@ import math
 from .cara_fast_spec_r1 import digest
 from .cara_read_write_artifacts_r1 import READ_ROLES
 from .cara_read_write_plan_r1 import validate
+from .cara_read_write_identity_r1 import for_card, P0
 from .policy_price_terminal_r1 import require
 
 
@@ -41,14 +42,20 @@ def analyze(card, accepted, *, cpu_validation=False):
         secondary = {name:contrasts({r:(1-chosen[r]['SSIM'] if name == 'one_minus_SSIM' else chosen[r][name])
             for r in READ_ROLES}) for name in ('MSE_video', 'one_minus_SSIM', 'reference_temporal_L1', 'reference_gradient_L1')}
         members.append(dict(member=member, losses_Alex={r:chosen[r]['Alex'] for r in READ_ROLES},
-            Alex_effects=effects, Alex_frame_effects=curves, secondary_error_effects=secondary))
+            Alex_effects=effects, Alex_frame_effects=curves, secondary_error_effects=secondary,
+            Alex_write_values=dict(W_C=chosen['RW00']['Alex']-chosen['RW01']['Alex'],
+                                  W_D=chosen['RW10']['Alex']-chosen['RW11']['Alex'])))
     means = {name:sum(m['Alex_effects'][name] for m in members)/2 for name in members[0]['Alex_effects']}
     mean_curves = [{name:sum(m['Alex_frame_effects'][i][name] for m in members)/2 for name in means} for i in range(93)]
-    return dict(schema='CARA_M1_COMPLETE_READ_WRITE_ANALYSIS_R1', status='COMPLETE_TWO_OLD_FIT_M1_CONTRASTS',
+    point20 = for_card(card)==P0
+    return dict(schema='CARA_P0_POINT20_COMPLETE_READ_WRITE_ANALYSIS_R1' if point20 else 'CARA_M1_COMPLETE_READ_WRITE_ANALYSIS_R1',
+        status='COMPLETE_TWO_OLD_FIT_P0_POINT20_CONTRASTS' if point20 else 'COMPLETE_TWO_OLD_FIT_M1_CONTRASTS',
         scope_sha256=card['scope_sha256'], accepted_scores_sha256=digest(accepted), CPU_fixture_only=cpu_validation,
-        old_FIT_members=card['FIT'], seed=0, target_update=8, scientific_pairs=8, physical_paths=14,
+        old_FIT_members=card['FIT'], seed=0, target_update=card['target_update'], scientific_pairs=8, physical_paths=14,
         physical_model_pairs=512, members=members, equal_input_mean_Alex_effects=means,
         equal_input_mean_Alex_frame_effects=mean_curves, negative_effect_means_lower_reference_error=True,
+        equal_input_mean_Alex_write_values={k:sum(m['Alex_write_values'][k] for m in members)/2 for k in ('W_C','W_D')},
+        positive_write_value_means_lower_reference_error=True,
         interpretation='Paid same-parent intervention at one fixed update under the frozen future policy',
         independent_new_inputs=False, deployment_speed_claim=False, method_established=False,
         automatic_next_GPU_authorized=False, GPU_submissions=0, ledger_written=False)

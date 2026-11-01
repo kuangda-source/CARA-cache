@@ -168,3 +168,8 @@ S单次授权已接收：用户在S/Q原对话批准另一张A6000完整十条�
 [824 E1完整46已结算，CPU接口失败](../research/824_CARA_ENDPOINT7_COMPLETE46_GPU_SETTLED_POSTRELEASE_INTERFACE_FAILURE_20261101.md)：原GPU成功退出、3.055673007GPUh唯一结算；实际launch缺model_sha256，固定工件读者退出1，13RGB和16新对评分未进入。原字节与旧冻结保持，两项检查已删；下一步仅准备独立CPU接口修复，不重跑GPU。
 
 [826 E1完整验收](../research/826_CARA_ENDPOINT7_COMPLETE_ACCEPTANCE_RESULTS_AND_REGISTERED_DECISION_20261101.md)：46/13RGB/28全部接受；S-CFG较DIAG改善1.53%但明显弱于F19-A1和搜索，当前S不晋级，仅有限结构化预算CPU方向。原3.055673007GPUh结算和旧冻结保持，全部检查已删。
+
+
+## R29 / 2026-11-02：先P0与本卡账本许可已明确
+
+用户选择先补P0、完整P1另审预算。第20步完整Linux77控制/28条tiny/8对真实合成指标及2Native桥接、独立存储、固定GPU源与完整报价现已准备；用户明确回复“允许本卡原账本读取、预约与结算”。只对新P0第20步（14/512/8、预计1.60476、硬1.95GPUh）执行实时准入后单次推进，四卡仅原账本事务。P1完整预算仍单独审阅，不缩小必要强对照来适配6GPUh建议。见[837](../research/837_CARA_P0_POINT20_COMPLETE_PREPARATION_AND_CENTRAL_AUTHORIZATION_20261102.md)。

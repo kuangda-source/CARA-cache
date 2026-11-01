@@ -1,0 +1,87 @@
+{
+  "status": "ORIGINAL_P0_CPU_STORAGE_OPERATIONAL_RECOVERY_ONLY",
+  "exit_code": 0,
+  "started_unix": 1793548377.24454,
+  "observed_unix": 1793548394.791494,
+  "result": {
+    "observed_unix": 1793548393.7426176,
+    "stage_exists": true,
+    "stage_children": [
+      "CPU-caches",
+      "CPU-command.json",
+      "CPU-launch.json",
+      "CPU-scratch",
+      "CPU.log",
+      "configs",
+      "manifests",
+      "plans",
+      "registration.json",
+      "reports",
+      "scripts",
+      "src",
+      "tests"
+    ],
+    "prepare_intent": {
+      "source_sha256": "420d1443fd502bf113de871d6704a8e6b691b2ecbc14fc89b04e8e7647888a27",
+      "started_unix": 1793548253.351199
+    },
+    "prepare_result": {
+      "status": "PAPER_TIMING_CPU_LAUNCHED_NOT_GPU",
+      "host": "two_card",
+      "stage": "/data20t/gaokuangda/worldcache_workspace/.sync/cara-source-lifecycle-P0-point20-entry-CPU-a6000-r1-20261101",
+      "container": "cara-source-lifecycle-P0-point20-entry-CPU-a6000-r1-20261101-cpu",
+      "registration_sha256": "7dc9c7e743f25bb5c9f38aafc1c5f36ad6ab3bfe77e0c6b675110a8736e2f9f1",
+      "pid": 3089656,
+      "started_unix": 1793548254.8054173,
+      "MemAvailable_before": 50395795456,
+      "free_disk_before": 814367817728,
+      "GPU_submissions": 0,
+      "ledger_written": false
+    },
+    "CPU_launch": {
+      "status": "PAPER_TIMING_CPU_LAUNCHED_NOT_GPU",
+      "host": "two_card",
+      "stage": "/data20t/gaokuangda/worldcache_workspace/.sync/cara-source-lifecycle-P0-point20-entry-CPU-a6000-r1-20261101",
+      "container": "cara-source-lifecycle-P0-point20-entry-CPU-a6000-r1-20261101-cpu",
+      "registration_sha256": "7dc9c7e743f25bb5c9f38aafc1c5f36ad6ab3bfe77e0c6b675110a8736e2f9f1",
+      "pid": 3089656,
+      "started_unix": 1793548254.8054173,
+      "MemAvailable_before": 50395795456,
+      "free_disk_before": 814367817728,
+      "GPU_submissions": 0,
+      "ledger_written": false
+    },
+    "CPU_proof_status": null,
+    "CPU_container": {
+      "Status": "running",
+      "Running": true,
+      "Paused": false,
+      "Restarting": false,
+      "OOMKilled": false,
+      "Dead": false,
+      "Pid": 3089705,
+      "ExitCode": 0,
+      "Error": "",
+      "StartedAt": "2026-11-01T15:50:54.924275093Z",
+      "FinishedAt": "0001-01-01T00:00:00Z"
+    },
+    "CPU_log_tail": "apture_r1.CaptureControls) ... ok\ntest_changed_manifest_refused (test_cara_read_write_score_capture_r1.CaptureControls) ... ok\ntest_changed_source_refused (test_cara_read_write_score_capture_r1.CaptureControls) ... ok\ntest_changed_worker_identity_refused (test_cara_read_write_score_capture_r1.CaptureControls) ... ok\ntest_complete8 (test_cara_read_write_score_capture_r1.CaptureControls) ... ok\ntest_cpu_fixture_cannot_be_production (test_cara_read_write_score_capture_r1.CaptureControls) ... ok\ntest_extra_volume_refused (test_cara_read_write_score_capture_r1.CaptureControls) ... ok\ntest_failed_does_not_open_partial_scores (test_cara_read_write_score_capture_r1.CaptureControls) ... ok\ntest_gpu_device_refused (test_cara_read_write_score_capture_r1.CaptureControls) ... ok\ntest_live_cli_does_not_accept (test_cara_read_write_score_capture_r1.CaptureControls) ... ok\ntest_live_worker_does_not_accept (test_cara_read_write_score_capture_r1.CaptureControls) ... ok\ntest_replaced_container_refused (test_cara_read_write_score_capture_r1.CaptureControls) ... ok\ntest_restart_refused (test_cara_read_write_score_capture_r1.CaptureControls) ... ok\ntest_timezone_missing_refused (test_cara_read_write_score_capture_r1.CaptureControls) ... ok\ntest_unknown_does_not_open_scores (test_cara_read_write_score_capture_r1.CaptureControls) ... ok\ntest_writable_stage_refused (test_cara_read_write_score_capture_r1.CaptureControls) ... ok\ntest_wrong_interval_refused (test_cara_read_write_score_capture_r1.CaptureControls) ... ok\ntest_wrong_limits_refused (test_cara_read_write_score_capture_r1.CaptureControls) ... ok\ntest_wrong_manifest_label_refused (test_cara_read_write_score_capture_r1.CaptureControls) ... ok\ntest_changed_registered_source_refused (test_cara_read_write_score_dispatch_r1.DispatchControls) ... ok\ntest_cpu_fixture_not_production (test_cara_read_write_score_dispatch_r1.DispatchControls) ... ok\ntest_existing_scores_refused (test_cara_read_write_score_dispatch_r1.DispatchControls) ... ok\ntest_frozen_command_change_refused (test_cara_read_write_score_dispatch_r1.DispatchControls) ... ok\ntest_intent_persists_before_spawn (test_cara_read_write_score_dispatch_r1.DispatchControls) ... ok\ntest_no_longer_cpu_deadline (test_cara_read_write_score_dispatch_r1.DispatchControls) ... ok\ntest_original_unbound_cid_refuses_spawn (test_cara_read_write_score_dispatch_r1.DispatchControls) ... ok\ntest_production_command_layout (test_cara_read_write_score_dispatch_r1.DispatchControls) ... ok\ntest_resource_refusal_before_intent (test_cara_read_write_score_dispatch_r1.DispatchControls) ... ok\ntest_second_call_only_recovers (test_cara_read_write_score_dispatch_r1.DispatchControls) ... ok\ntest_spawn_failure_never_replays (test_cara_read_write_score_dispatch_r1.DispatchControls) ... ok\ntest_torn_intent_refuses_replay (test_cara_read_write_score_dispatch_r1.DispatchControls) ... ok\ntest_unknown_docker_refuses_before_intent (test_cara_read_write_score_dispatch_r1.DispatchControls) ... ok\ntest_all_four_corners_at20_native_bridges_and_8_new_pairs (test_cara_source_lifecycle_p0_entry_r1.Artifacts) ... ok\ntest_both_native_bridges_required_before_score_binding (test_cara_source_lifecycle_p0_entry_r1.Artifacts) ... ok\ntest_changed_native_RGB_request_or_bridge_bytes_refused (test_cara_source_lifecycle_p0_entry_r1.Artifacts) ... ok\ntest_point8_intervention_cannot_pass_point20_artifacts (test_cara_source_lifecycle_p0_entry_r1.Artifacts) ... ok\ntest_closed_M1_exception_or_point8_identity_cannot_authorize_P0 (test_cara_source_lifecycle_p0_entry_r1.Central) ... ok\ntest_new_original_bill_settles_once_without_recharging_M1 (test_cara_source_lifecycle_p0_entry_r1.Central) ... ok\ntest_only_new_card_is_reserved_and_recovered_once (test_cara_source_lifecycle_p0_entry_r1.Central) ... ok\ntest_new_point20_full14_binding_and_frozen_commands (test_cara_source_lifecycle_p0_entry_r1.Entry) ... ok\ntest_point8_authority_stage_or_proof_cannot_bind_point20 (test_cara_source_lifecycle_p0_entry_r1.Entry) ... ",
+    "storage_status": "TWO_CARD_PRIVATE16_STORAGE_PROVISIONED_NO_GPU",
+    "storage_identity": {
+      "pid": 3088968,
+      "start_ticks": 684302966,
+      "host_view": {
+        "boot_id": "13495735-f30b-47a2-af0a-2496f5206a0b",
+        "pid_namespace_inode": 4026531836
+      },
+      "original_command_sha256": "4bc795cc1188ac9a543e50af9961b90e45d8d1dc0021b4357216c3952d7a146f"
+    },
+    "storage_error": {},
+    "GPU_submissions": 0,
+    "ledger_written": false
+  },
+  "stderr": "** WARNING: connection is not using a post-quantum key exchange algorithm.\r\n** This session may be vulnerable to \"store now, decrypt later\" attacks.\r\n** The server may need to be upgraded. See https://openssh.com/pq.html\r\n** WARNING: connection is not using a post-quantum key exchange algorithm.\r\n** This session may be vulnerable to \"store now, decrypt later\" attacks.\r\n** The server may need to be upgraded. See https://openssh.com/pq.html\r\nAuthenticated to 10.128.160.181 (via proxy) using \"publickey\".\r\nTransferred: sent 3540, received 8924 bytes, in 4.0 seconds\r\nBytes per second: sent 878.7, received 2215.2\r\n",
+  "remote_code_sha256": "3311ce3d0f762799508817b51ca66f25a29a6da7744d48b3d478ad99891f5f8a",
+  "GPU_submissions": 0,
+  "ledger_written": false
+}

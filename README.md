@@ -2,7 +2,7 @@
 
 # CARA-Cache
 
-[836 — V1来源生命周期规划进入主线，完整伴随转V2](research/836_CARA_V1_SOURCE_LIFECYCLE_MAINLINE_DP_AND_P0_P1_PREPARATION_20261101.md)：V1主线、完整伴随V2后置保持；用户已选先补P0、完整P1另审预算。两卡原R2 CPU已退出0，15项状态/DP/覆盖控制和第8/20步共24条tiny完整路径接受，旧R1打包失败保留。第20步独立14路径/512paired范围草稿及三项scope控制完成；继续补整卡源、释放/收件/评分与资源绑定。第8步原八科学位置和费用复用，新增GPU/中央事务0。
+[837 — P0第20步整卡准备与本卡账本许可](research/837_CARA_P0_POINT20_COMPLETE_PREPARATION_AND_CENTRAL_AUTHORIZATION_20261102.md)：先补P0、完整P1另审预算保持。第20步完整Linux CPU原容器退出0：77控制、28条loaded tiny路径、8对93帧合成指标和2Native桥接接受；新16GiB卷/48MiB journal及固定GPU源已准备。预计1.60476/硬1.95GPUh，用户已许可仅本卡原账本事务，进入实时准入；新GPU结果仍为null，不重跑第8步。
 
 [826 — E1完整验收：CFG有机制增量，当前S不晋级](research/826_CARA_ENDPOINT7_COMPLETE_ACCEPTANCE_RESULTS_AND_REGISTERED_DECISION_20261101.md)：接口修复后46/46、13RGB和28评分完整接受（16新+12原行）；原GPU3.055673007GPUh已结算。S-CFG较DIAG LPIPS低1.53%且4/4同向，但比F19-A1高102.83%；按预注册仅保留机制增量，当前S不晋级。全93帧与双时钟图表完成，检查已删。
 
