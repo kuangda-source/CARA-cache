@@ -13,7 +13,7 @@ from cara_read_write_transition_linux_cpu_r1 import OVERLAY, STAGE
 from cara_s_initialization_selector_cpu_r1 import BASE_CAPTURE, BASE_ACCEPTED, LIMITS
 
 
-def original_capture(launch_path, capture_path, *, stage, overlay_names, expected_tests=5):
+def original_terminal_capture(launch_path, capture_path, *, stage, overlay_names, expected_tests):
     encoded = lambda value: hashlib.sha256((json.dumps(value, indent=2)+'\n').encode()).hexdigest()
     launch, capture = [json.loads(Path(p).read_text()) for p in (launch_path, capture_path)]
     assert launch['exit_code'] == capture['exit_code'] == 0
@@ -32,13 +32,22 @@ def original_capture(launch_path, capture_path, *, stage, overlay_names, expecte
     assert reg['payload_sha256'] == proof['payload_sha256'] == {**base['registration']['payload_sha256'], **overlay}
     assert reg['runtime_source_sha256'] == proof['runtime_source_sha256'] == base['registration']['runtime_source_sha256']
     assert proof['tests_run'] == expected_tests
-    assert proof['actual_WC_RF_imports_and_globals_accepted'] and proof['actual_CPU_affinity'] == [26]
-    assert proof['CPU_import_adapters_used'] and proof['tiny_model_weights']
+    assert proof['actual_CPU_affinity'] == [26]
     assert all(proof[k] is False for k in ('CUDA_initialized', 'actual_Cosmos_weights', 'actual_Cosmos_model_VJP',
-        'terminal_LPIPS_VJP', 'complete_augmented_adjoint', 'ledger_written'))
+        'complete_augmented_adjoint', 'ledger_written'))
     assert proof['GPU_submissions'] == 0 and proof['work_seconds'] == 600 and proof['exit_seconds'] == 60
     assert cap['launch']['started_unix'] <= proof['started_unix'] < proof['ended_unix'] <= proof['started_unix']+600
     assert cap['launch']['MemAvailable_before'] >= 8*2**30
+    return cap, revision, overlay
+
+
+def original_capture(launch_path, capture_path, *, stage, overlay_names, expected_tests=5):
+    cap, revision, overlay = original_terminal_capture(launch_path, capture_path,
+        stage=stage, overlay_names=overlay_names, expected_tests=expected_tests)
+    proof = cap['CPU_proof']
+    assert proof['actual_WC_RF_imports_and_globals_accepted']
+    assert proof['CPU_import_adapters_used'] and proof['tiny_model_weights']
+    assert proof['terminal_LPIPS_VJP'] is False
     return cap, revision, overlay
 
 

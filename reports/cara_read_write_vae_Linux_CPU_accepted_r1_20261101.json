@@ -1,0 +1,75 @@
+{
+  "status": "ORIGINAL_READ_WRITE_VAE_LINUX_CPU_ACCEPTED_TINY_NOT_PRETRAINED",
+  "source_revision": "caa7a264a1c0d9bf618d58164886bbb522b0cd26",
+  "launch_ref": "reports/cara_read_write_vae_Linux_CPU_prepare_r1_20261101.json",
+  "launch_sha256": "4f963a5e2494a2e90c00433ced9a84e6c9c6a54d4e6e6078d4475ea07969b4d4",
+  "capture_ref": "reports/cara_read_write_vae_Linux_CPU_capture_r1_20261101.json",
+  "capture_sha256": "1349b58b4945702ef6f600f756acc0c6e8c426fe08fd3b448832ee1db23f4a94",
+  "launch": {
+    "status": "PAPER_TIMING_CPU_LAUNCHED_NOT_GPU",
+    "host": "two_card",
+    "stage": "/data20t/gaokuangda/worldcache_workspace/.sync/cara-read-write-vae-CPU-a6000-r1-20261101",
+    "container": "cara-read-write-vae-CPU-a6000-r1-20261101-cpu",
+    "registration_sha256": "9420daf247d4e92d18d6769f48b75573b75a26e5b67e057ca5ef28ee752a98cc",
+    "pid": 3020909,
+    "started_unix": 1793538020.2832134,
+    "MemAvailable_before": 53417496576,
+    "free_disk_before": 845717798912,
+    "GPU_submissions": 0,
+    "ledger_written": false
+  },
+  "container_state": {
+    "Status": "exited",
+    "Running": false,
+    "Paused": false,
+    "Restarting": false,
+    "OOMKilled": false,
+    "Dead": false,
+    "Pid": 0,
+    "ExitCode": 0,
+    "Error": "",
+    "StartedAt": "2026-11-01T13:00:20.437370374Z",
+    "FinishedAt": "2026-11-01T13:01:00.217598805Z"
+  },
+  "registration_sha256": "9420daf247d4e92d18d6769f48b75573b75a26e5b67e057ca5ef28ee752a98cc",
+  "CPU_proof_sha256": "f9fd53ca5e2832a26bcfc283c87c2043b68ee6a7e78f6d1f63838b718a5e266b",
+  "affected_source_sha256": {
+    "src/wcomr/cara_read_write_vae_r1.py": "32fcb3119c2f42d90d9f21156cac8dd60bfa1a0d159a3004dcccc1b47d0fed3e",
+    "tests/test_cara_read_write_vae_r1.py": "6c12841a93a23dfc76738ad78c7914a71d10042d056565f83a4dd141219db35c",
+    "scripts/check_cara_read_write_transition_linux_cpu_r1.py": "6fa4633e66a36923a0644c00736d5e360a8c9b0fe29c7c4cdf30ada0127ccc40",
+    "scripts/check_cara_read_write_vae_linux_cpu_r1.py": "446dfd200f5b76c00e55a6832bedc1365d296a02bf89b796a8587367d71b97be"
+  },
+  "actual_Linux_Wan21_import": true,
+  "VAE_source_sha256": "885aaa3250f60f026b279f099dc08b2548d904604b839c57000c6c65a8d165bb",
+  "tests_run": 3,
+  "metrics": {
+    "cross_chunk_last_frame_VJP": {
+      "predicted": 0.00047934732179192885,
+      "central_FD": 0.00047934732179226447,
+      "absolute_error": 3.356147824928879e-16,
+      "epsilon": 0.0001,
+      "previous_chunk_gradient_nonzero": true,
+      "actual_pretrained_weights": false
+    },
+    "hard_forward_1": {
+      "full_frames": 1,
+      "bitwise_equal": true,
+      "caller_cache_unchanged": true,
+      "original_no_grad_reference": true,
+      "calibration_graph_retained": true
+    },
+    "hard_forward_24": {
+      "full_frames": 93,
+      "bitwise_equal": true,
+      "caller_cache_unchanged": true,
+      "original_no_grad_reference": true,
+      "calibration_graph_retained": true
+    }
+  },
+  "wall_seconds": 36.915682554244995,
+  "actual_pretrained_VAE": false,
+  "video_Alex_VJP": false,
+  "actual93_GPU_memory": false,
+  "GPU_submissions": 0,
+  "ledger_written": false
+}
