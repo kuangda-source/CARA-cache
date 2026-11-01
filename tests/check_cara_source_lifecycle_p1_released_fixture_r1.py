@@ -67,7 +67,8 @@ def build(project):
     context={k:launch[k] for k in IDENTITY}
     context.update(CPU_fixture_only=True,guardian_started_monotonic=20.,hard_GPUh=18.,admission_sha256='3'*64,
                    launch_sha256=expected,registration_sha256=reg_sha)
-    output=project/'outputs'/RUN_ID;cache=project/'media-cache';cache.mkdir()
+    output=project/'outputs'/RUN_ID;output.mkdir(parents=True)
+    cache=project/'media-cache';cache.mkdir()
     decoded={}
     runtime=SyntheticRequests(context,labels)
     original_execute=runtime.execute
