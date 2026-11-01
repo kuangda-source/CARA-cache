@@ -1,8 +1,8 @@
-# CARA 问题队列 R26
+# CARA 问题队列 R27
 
 2026-11-01当前主线：[M1完整接受](../research/834_CARA_M1_COMPLETE_READ_WRITE_MECHANISM_AND_M2_CONTINUATION_20261101.md)，14生成、四latent/93RGB等价、八对评分、1.500620266GPUh唯一结算与图表均完成；GPU/CPU结束、双检查删除。两旧FIT固定第8步，仅写入平均Alex降低19.51%，仅读出2.02%，完整刷新19.24%；进入M2价值估计与硬行动验证，尚未建立新19D方法。
 
-直接任务：[M2安排](cara_next_stage_20261101/read_write/M2_ADJOINT_IMPLEMENTATION_AND_HARD_ACTION_PLAN_R1.md)中的实际Linux VAE适配、真实模型/VAE/Alex VJP、完整状态/固定槽和显存费用；之后同起点/样本/候选额度对比q、同伴随read-only、full。VAE本地三项小模型CPU通过，真实权重仍待。新整卡按GPUh规则与fresh准入推进，M1账本许可不继承；旧冻结、CAL范围与保护TEST保持。
+直接任务：[M2安排](cara_next_stage_20261101/read_write/M2_ADJOINT_IMPLEMENTATION_AND_HARD_ACTION_PLAN_R1.md)中的真实Cosmos/VAE VJP、完整状态/固定槽和显存费用；之后同起点/样本/候选额度对比q、同伴随read-only、full。[835增量](../research/835_CARA_M2_VAE_LINUX_AND_REAL_ALEX_TERMINAL_VJP_20261101.md)：VAE三项实际Linux小权重CPU与固定真实Alex的完整93帧输入VJP均接受，两个原CPU退出0；Alex合成64×64流式/整图逐值一致、两档差分误差低于0.04%。不当作真实VAE/生成视频或新方法结果。新整卡按GPUh规则与fresh准入推进，M1账本许可不继承；旧冻结、CAL范围与保护TEST保持。
 
 2026-10-30 主线更新。现行依据为[最新总计划](cara_next_stage_20261028/01_Master_Experiment_Plan.md)、[S/Q修订](cara_next_stage_20261028/02_SQ_Method_and_Experiments.md)和[接收/两对话分工](cara_next_stage_20261028/08_REPOSITORY_RECONCILIATION.md)。原R16[逐字归档](cara_next_stage_20261028/QUESTION_QUEUE_BEFORE_R17.md)。本轮仅更新主线；S/Q 行保留所属对话原登记，最新状态以其独立回执为准。已完成执行以原接受为准，后续提案不授予新 GPU。
 

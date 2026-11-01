@@ -6,7 +6,7 @@
 
 [M1完整记录](../../../research/834_CARA_M1_COMPLETE_READ_WRITE_MECHANISM_AND_M2_CONTINUATION_20261101.md)：14生成、四组全latent/93RGB等价、八对评分、1.500620266GPUh唯一结算与图表全部接受，双检查删除。两旧FIT固定第8步，仅写入平均Alex降低19.51%，仅读出2.02%，完整刷新19.24%；M1给出未来写入作用的机制信号，尚未产生新19D方法。
 
-直接推进[M2实现与硬行动安排](M2_ADJOINT_IMPLEMENTATION_AND_HARD_ACTION_PLAN_R1.md)：可微缓存转移和完整状态小模型伴随已各五项实际Linux CPU接受；Wan2.1校准解码另有三项本地小权重CPU通过。真实模型/VAE/Alex反向、全局固定槽/来源映射及GPU显存/全段费用仍待。下方242调用共享前缀为历史组件方案，实际M1执行是完整14/512。
+直接推进[M2实现与硬行动安排](M2_ADJOINT_IMPLEMENTATION_AND_HARD_ACTION_PLAN_R1.md)：可微缓存转移和完整状态小模型伴随已各五项实际Linux CPU接受；Wan2.1校准解码三项实际Linux小权重CPU也通过。新增固定真实Alex权重的93帧输入VJP与整图逐值一致，方向差分误差低于0.04%；范围为合成64×64视频。[835原件与下一步](../../../research/835_CARA_M2_VAE_LINUX_AND_REAL_ALEX_TERMINAL_VJP_20261101.md)。真实Cosmos/VAE权重反向、全局固定槽/来源映射及生产93帧GPU显存/全段费用仍待。下方242调用共享前缀为历史组件方案，实际M1执行是完整14/512。
 
 ## 当前目标与唯一候选
 
@@ -73,4 +73,4 @@ PYTHONPATH=src CUDA_VISIBLE_DEVICES='' .venv/bin/python scripts/check_cara_read_
 
 上述命令的输出必须改为新的回执路径再执行；原件不可覆盖。本地M0首轮的外来类拒绝测试接线、M1的namespace/精简runtime缺文件失败均保留，未执行或重派GPU。状态归属与尚缺边界见[状态清单](STATE_AND_ACCEPTANCE_BOUNDARIES_R1.md)。
 
-以上记录最初共享前缀组件准备时的任务：两卡受影响Linux CPU、真实参数状态/内存与完整报价。现已由完整14执行卡承接并实际启动；后续以本文顶部原运行交接和M2实现安排为准，复用既有监督与评分组件。目前不重跑A32/B36/S/Q/搜索/E1，不扩大CHECK/TEST曝光，不自动复用已完成卡的账本事务权限。
+以上记录最初共享前缀组件准备时的任务：两卡受影响Linux CPU、真实参数状态/内存与完整报价。现已由完整14执行卡承接并完成全部验收；后续以本文顶部完整接受和M2实现安排为准，复用既有监督与评分组件。目前不重跑A32/B36/S/Q/搜索/E1，不扩大CHECK/TEST曝光，不自动复用已完成卡的账本事务权限。

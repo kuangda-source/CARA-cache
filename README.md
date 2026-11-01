@@ -2,7 +2,7 @@
 
 # CARA-Cache
 
-[834 — M1写入机制明确，推进M2读写价值规划](research/834_CARA_M1_COMPLETE_READ_WRITE_MECHANISM_AND_M2_CONTINUATION_20261101.md)：M1完整14、四latent/93RGB等价门与八对评分均接受，原GPU/CPU结束、实际1.500620266GPUh唯一结算、双检查删除。两旧FIT/seed0/Uniform19第8步：仅写入使平均Alex参考误差下降19.51%，仅读出下降2.02%，完整刷新下降19.24%，写项2/2输入且各93帧同向。正交互抵消部分收益；非新19D部署方法结论。主线进入M2实际权重伴随与硬交换验证，旧冻结/TEST保持。
+[835 — M2终点指标梯度接通，推进真实模型伴随](research/835_CARA_M2_VAE_LINUX_AND_REAL_ALEX_TERMINAL_VJP_20261101.md)：M1完整接受与写项19.51%的机制结果保持。新增原Wan2.1解码三项实际Linux小权重CPU和固定真实Alex的93帧输入VJP接受；两个原CPU均退出0，0新增GPU/中央事务。Alex在合成64×64视频上流式值/梯度与整图逐值一致，两档差分误差低于0.04%；下一关是真实Cosmos/VAE权重、完整来源映射与生产显存/全段费用，再做等候选预算硬交换。
 
 [826 — E1完整验收：CFG有机制增量，当前S不晋级](research/826_CARA_ENDPOINT7_COMPLETE_ACCEPTANCE_RESULTS_AND_REGISTERED_DECISION_20261101.md)：接口修复后46/46、13RGB和28评分完整接受（16新+12原行）；原GPU3.055673007GPUh已结算。S-CFG较DIAG LPIPS低1.53%且4/4同向，但比F19-A1高102.83%；按预注册仅保留机制增量，当前S不晋级。全93帧与双时钟图表完成，检查已删。
 

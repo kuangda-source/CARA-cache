@@ -1,0 +1,94 @@
+{
+  "status": "ORIGINAL_REAL_ALEX_FULL93_CPU_INPUT_VJP_ACCEPTED",
+  "source_revision": "660b08759a23f65ddbec13b6b49f9f24b0d8e26e",
+  "launch_ref": "reports/cara_read_write_terminal_Linux_CPU_prepare_r1_20261101.json",
+  "launch_sha256": "c6c4b71aa05f99d85b15719cbc34fb5b3d2c99fef01756e1b6f14ab2b205565e",
+  "capture_ref": "reports/cara_read_write_terminal_Linux_CPU_capture_r1_20261101.json",
+  "capture_sha256": "53c5e2a55f7f57bb9012c9608f48a379cd98c0622fe78b3dadfabaa849abe815",
+  "launch": {
+    "status": "PAPER_TIMING_CPU_LAUNCHED_NOT_GPU",
+    "host": "two_card",
+    "stage": "/data20t/gaokuangda/worldcache_workspace/.sync/cara-read-write-terminal-CPU-a6000-r1-20261101",
+    "container": "cara-read-write-terminal-CPU-a6000-r1-20261101-cpu",
+    "registration_sha256": "973a55c12558f0cc0e6349b4d68247206d01443d27a43e057e584af0f99bdb0c",
+    "pid": 3022233,
+    "started_unix": 1793538660.4593205,
+    "MemAvailable_before": 51376697344,
+    "free_disk_before": 845705728000,
+    "GPU_submissions": 0,
+    "ledger_written": false
+  },
+  "container_state": {
+    "Status": "exited",
+    "Running": false,
+    "Paused": false,
+    "Restarting": false,
+    "OOMKilled": false,
+    "Dead": false,
+    "Pid": 0,
+    "ExitCode": 0,
+    "Error": "",
+    "StartedAt": "2026-11-01T13:11:00.586079823Z",
+    "FinishedAt": "2026-11-01T13:11:41.279165474Z"
+  },
+  "registration_sha256": "973a55c12558f0cc0e6349b4d68247206d01443d27a43e057e584af0f99bdb0c",
+  "CPU_proof_sha256": "e80e9fb75d790192921376de14f135c62a91deadf197b0b8ecc88255ca3f91af",
+  "affected_source_sha256": {
+    "src/wcomr/cara_read_write_terminal_r1.py": "f27e98cc2927296ed1cd95148893541ccaee492705c0d1d8e340637bbaf72264",
+    "scripts/check_cara_read_write_terminal_linux_cpu_r1.py": "3c333261d6d700f37f293805933f0adf51de2effa7be12bc9cda560166cc7359"
+  },
+  "tests_run": 3,
+  "metrics": {
+    "full93_stream_equals_direct": {
+      "frames": 93,
+      "geometry": [
+        64,
+        64
+      ],
+      "value": 0.16997963510533814,
+      "direct_value": 0.16997963510533814,
+      "gradient_max_error": 0.0,
+      "gradient_tolerance": 2e-08,
+      "gradient_max_absolute": 3.0252025680965744e-05,
+      "active_metric_graph_frames": 1,
+      "actual_Alex_weights": true
+    },
+    "full93_real_Alex_directional_FD": [
+      {
+        "epsilon": 0.02,
+        "predicted": 0.014033786952495575,
+        "central_FD": 0.014038315864019213,
+        "absolute_error": 4.528911523637991e-06,
+        "tolerance": 0.0002806757390499115
+      },
+      {
+        "epsilon": 0.01,
+        "predicted": 0.014033786952495575,
+        "central_FD": 0.014028826387979532,
+        "absolute_error": 4.96056451604332e-06,
+        "tolerance": 0.0002806757390499115
+      }
+    ],
+    "refusals": [
+      "PARTIAL_VIDEO",
+      "UNBOUND_MODEL_WEIGHT"
+    ]
+  },
+  "weights_sha256": {
+    "/data20t/gaokuangda/worldcache_workspace/cache/torch/hub/checkpoints/alexnet-owt-7be5be79.pth": "7be5be791159472b1fbf3c69796f7cb30dca7ad8466c2df70058c37116cdee02",
+    "/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/lpips/weights/v0.1/alex.pth": "df73285e35b22355a2df87cdb6b70b343713b667eddbda73e1977e0c860835c0"
+  },
+  "wall_seconds": 38.33864498138428,
+  "real_Alex_input_VJP": true,
+  "synthetic_video": true,
+  "frames": 93,
+  "geometry": [
+    64,
+    64
+  ],
+  "real_experiment_video_read": false,
+  "actual_pretrained_VAE": false,
+  "real_Cosmos_adjoint": false,
+  "GPU_submissions": 0,
+  "ledger_written": false
+}

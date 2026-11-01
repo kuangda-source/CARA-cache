@@ -1846,7 +1846,7 @@
     "independent_new_inputs": false,
     "complete_QA_ref": "reports/cara_fast_A6000_complete_frozen_QA_20261029_0115.json"
   },
-  "current_evidence_observed_at": "2026-11-01T20:47:36.125148+08:00",
+  "current_evidence_observed_at": "2026-11-01T21:16:56.281300+08:00",
   "fast_B36_CPU_preparation_20261029": {
     "status": "ACCEPTED_DUAL_HOST_COMPLETE_B36_CPU_CONTINUATION_ONLY",
     "accepted_receipt_ref": "reports/cara_fast_B36_CPU_acceptance_r1_20261029.json",
@@ -3231,11 +3231,11 @@
   "current_preparation_id": "PG-READ-WRITE-M2-REAL-MODEL-VJP",
   "read_write_mainline_preparation_20261101": {
     "status": "M1_COMPLETE_ACCEPTED_M2_REAL_WEIGHT_CALIBRATION_PREPARATION",
-    "research_ref": "research/834_CARA_M1_COMPLETE_READ_WRITE_MECHANISM_AND_M2_CONTINUATION_20261101.md",
-    "receipt_ref": "reports/cara_read_write_complete_acceptance_r1_20261101.json",
-    "receipt_sha256": "f6d7274a69522bb663dc991d4a656b4cbd7b666a9d3beb043027b44b9960c4dc",
-    "notice_title": "834 — M1写入机制明确，推进M2读写价值规划",
-    "summary": "M1完整14、四latent/93RGB等价门与八对评分均接受，原GPU/CPU结束、实际1.500620266GPUh唯一结算、双检查删除。两旧FIT/seed0/Uniform19第8步：仅写入使平均Alex参考误差下降19.51%，仅读出下降2.02%，完整刷新下降19.24%，写项2/2输入且各93帧同向。正交互抵消部分收益；非新19D部署方法结论。主线进入M2实际权重伴随与硬交换验证，旧冻结/TEST保持。",
+    "research_ref": "research/835_CARA_M2_VAE_LINUX_AND_REAL_ALEX_TERMINAL_VJP_20261101.md",
+    "receipt_ref": "reports/cara_read_write_M2_terminal_progress_r1_20261101.json",
+    "receipt_sha256": "1e03f899ade9d02999e530054b758a1563abd904f8bcc987decdc72b8ef2f201",
+    "notice_title": "835 — M2终点指标梯度接通，推进真实模型伴随",
+    "summary": "M1完整接受与写项19.51%的机制结果保持。新增原Wan2.1解码三项实际Linux小权重CPU和固定真实Alex的93帧输入VJP接受；两个原CPU均退出0，0新增GPU/中央事务。Alex在合成64×64视频上流式值/梯度与整图逐值一致，两档差分误差低于0.04%；下一关是真实Cosmos/VAE权重、完整来源映射与生产显存/全段费用，再做等候选预算硬交换。",
     "plan_ref": "plans/cara_next_stage_20261101/read_write/README.md",
     "protocol_ref": "plans/cara_next_stage_20261101/read_write/EXPERIMENT_PROTOCOL_R1.json",
     "M0_CPU_ref": "reports/cara_read_write_M0_CPU_component_r2_20261101.json",
@@ -3273,7 +3273,10 @@
     "M2_transition_Linux_ref": "reports/cara_read_write_transition_Linux_CPU_accepted_r1_20261101.json",
     "M2_adjoint_local_ref": "reports/cara_read_write_adjoint_CPU_component_r2_20261101.json",
     "M2_adjoint_Linux_ref": "reports/cara_read_write_adjoint_Linux_CPU_accepted_r1_20261101.json",
-    "M2_VAE_source_audit_ref": "reports/cara_read_write_vae_backward_source_audit_r1_20261101.json"
+    "M2_VAE_source_audit_ref": "reports/cara_read_write_vae_backward_source_audit_r1_20261101.json",
+    "M2_VAE_Linux_ref": "reports/cara_read_write_vae_Linux_CPU_accepted_r1_20261101.json",
+    "M2_terminal_Linux_ref": "reports/cara_read_write_terminal_Linux_CPU_accepted_r1_20261101.json",
+    "M1_complete_ref": "reports/cara_read_write_complete_acceptance_r1_20261101.json"
   },
   "read_write_M1_execution_20261101": {
     "status": "COMPLETE14_RGB4_SCORE8_ANALYSIS_FIGURES_ACCEPTED",
@@ -3346,15 +3349,15 @@
     "active_automations": []
   },
   "read_write_M2_transition_preparation_20261101": {
-    "status": "LINUX_TRANSITION_AND_TINY_ADJOINT_ACCEPTED_REAL_WEIGHT_BRIDGE_PENDING",
-    "research_ref": "research/833_CARA_M2_ORIGINAL_LINUX_ADJOINT_ACCEPTED_AND_VAE_BACKWARD_BOUNDARY_20261101.md",
-    "receipt_ref": "reports/cara_read_write_M2_original_Linux_adjoint_progress_r1_20261101.json",
+    "status": "VAE_LINUX_TINY_AND_REAL_ALEX_INPUT_VJP_ACCEPTED_REAL_MODEL_PENDING",
+    "research_ref": "research/835_CARA_M2_VAE_LINUX_AND_REAL_ALEX_TERMINAL_VJP_20261101.md",
+    "receipt_ref": "reports/cara_read_write_M2_terminal_progress_r1_20261101.json",
     "plan_ref": "plans/cara_next_stage_20261101/read_write/M2_ADJOINT_IMPLEMENTATION_AND_HARD_ACTION_PLAN_R1.md",
     "local_CPU_ref": "reports/cara_read_write_transition_CPU_component_r4_20261101.json",
     "Linux_CPU_accepted": true,
     "main_method_established": false,
     "actual_Cosmos_model_VJP": false,
-    "terminal_LPIPS_VJP": false,
+    "terminal_LPIPS_VJP": true,
     "new_GPU_submissions": 0,
     "Linux_CPU_ref": "reports/cara_read_write_transition_Linux_CPU_accepted_r1_20261101.json",
     "adjoint_local_ref": "reports/cara_read_write_adjoint_CPU_component_r2_20261101.json",
@@ -3368,7 +3371,16 @@
     "M1_complete_ref": "reports/cara_read_write_complete_acceptance_r1_20261101.json",
     "VAE_local_CPU_ref": "reports/cara_read_write_vae_CPU_component_r3_20261101.json",
     "VAE_local_tests": 3,
-    "VAE_actual_Linux_accepted": false
+    "VAE_actual_Linux_accepted": true,
+    "VAE_actual_Linux_ref": "reports/cara_read_write_vae_Linux_CPU_accepted_r1_20261101.json",
+    "actual_pretrained_VAE": false,
+    "terminal_LPIPS_VJP_scope": "fixed_real_Alex_weights_synthetic93x64x64_input_VJP_only",
+    "terminal_Linux_CPU_ref": "reports/cara_read_write_terminal_Linux_CPU_accepted_r1_20261101.json",
+    "terminal_local_CPU_ref": "reports/cara_read_write_terminal_CPU_component_r1_20261101.json",
+    "video_terminal_VJP_scope": "actual_pretrained_VAE_latent_to_production93_Alex_pending",
+    "CPU_originals_active": [],
+    "new_central_ledger_accesses": 0,
+    "M2_central_permission": false
   },
   "read_write_M1_complete_20261101": {
     "status": "COMPLETE14_RGB4_SCORE8_ANALYSIS_FIGURES_ACCEPTED",
