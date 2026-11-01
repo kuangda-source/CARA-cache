@@ -20,6 +20,15 @@ from .prepared_input import RNGState
 from .source_aware_phase_sampling import bind_globals
 
 
+def guided_output(pair):
+    """Original RF CFG arithmetic on its two FP32 branch outputs."""
+    if (not isinstance(pair, tuple) or len(pair) != 2
+            or any(not isinstance(v, torch.Tensor) or v.dtype != torch.float32 for v in pair)
+            or pair[0].shape != pair[1].shape):
+        raise ValueError('Actual conditional/unconditional FP32 pair required')
+    return pair[0]+7*(pair[0]-pair[1])
+
+
 class ScalarProbe(ReadWriteSuffixPilot):
     """Reuse complete-state ownership, supporting any registered legal C.
 
@@ -68,25 +77,25 @@ class ScalarProbe(ReadWriteSuffixPilot):
             self.owner.force_dense = True
             try:
                 self.owner.physical_pairs += 1
-                dense = PolicyOwner.pair(self.owner, self.noise, latent, timestep,
-                                         self.conditions, self.owner.choose)
+                dense_pair = PolicyOwner.pair(self.owner, self.noise, latent, timestep,
+                                              self.conditions, self.owner.choose)
             finally:
                 self.owner.force_dense = False
             if (self.owner.history[-1]['actual'] != 'D'
-                    or self.owner.history[-1]['fallback_reason'] is not None
-                    or dense.dtype != torch.float32):
+                    or self.owner.history[-1]['fallback_reason'] is not None):
                 raise ValueError('Actual FP32 same-state Dense teacher without fallback required')
             # Only the guided output moves to CPU. A second feature/cache image
             # is never retained on the GPU alongside the restored parent.
-            dense_cpu = dense.detach().to('cpu', copy=True)
-            del dense
+            dense_cpu = guided_output(dense_pair).detach().to('cpu', copy=True)
+            del dense_pair
             latent = self._restore(self.parent)
             restored = tree_digest(plain(self._state(latent)))
             if restored != self.parent_digest or RNGState().signatures() != self.parent.rng_signature:
                 raise ValueError('Shadow D did not restore the complete original parent/RNG')
             self.owner.physical_pairs += 1
-            cached = PolicyOwner.pair(self.owner, self.noise, latent, timestep,
-                                      self.conditions, self.owner.choose)
+            cached_pair = PolicyOwner.pair(self.owner, self.noise, latent, timestep,
+                                           self.conditions, self.owner.choose)
+            cached = guided_output(cached_pair)
             if (self.owner.history[-1]['actual'] != 'C'
                     or self.owner.history[-1]['fallback_reason'] is not None
                     or cached.dtype != torch.float32 or cached.shape != dense_cpu.shape):
@@ -106,7 +115,7 @@ class ScalarProbe(ReadWriteSuffixPilot):
                                teacher_actual='D', parent_actual='C',
                                teacher_writes_parent=False, shadow_extra_pairs=1)
             # The ordinary sampler now consumes C and advances UniPC once.
-            return cached
+            return cached_pair
         except BaseException:
             self._restore(self.parent)
             raise

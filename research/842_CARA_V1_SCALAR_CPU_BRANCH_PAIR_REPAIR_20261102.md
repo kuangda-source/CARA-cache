@@ -1,0 +1,9 @@
+# V1标量CPU：分支对接口修正与独立R3
+
+原R2 CPU于02:36:40启动、02:37:08退出1，注册源及运行时完整。UniPC正规源导入已通过，执行到首个同状态Dense探针时，采集适配器把`PolicyOwner.pair`的两个分支输出误当成合成后的CFG张量；`dense.dtype`因此抛出AttributeError。完整回执与原失败摘要见[原R2终态](../reports/cara_v1_scalar_Linux_CPU_original_failure_r2_20261102.json)。R2未形成完整标量行，原目录不修改、不重启。
+
+适配器现按固定原RF源码的`cond + 7*(cond-uncond)`计算目标，保持FP32运算顺序，再转FP64计算C/D差的平方和。原分支对原样返回给普通速度闭包，由原闭包合成并推进采样器；父轨迹不会多做一次CFG或改变运算顺序。新增两项CPU检查覆盖该顺序与分支dtype/shape接口，连同原11标量组件及完整32请求一起进入独立R3。
+
+R3为 `cara-source-lifecycle-V1-scalar-CPU-a6000-r3-20261102`，只复制原R2中已终止且逐字核验的源缓存，更新受影响代码；通过实时CPU资源门后单次启动，后续只capture。原R1、R2失败均保留。当前仍未接受生产标量采集，无真实模型方法结论或P1 GPU授权。
+
+P0原14请求GPU继续按source3263bdfe、1.95GPUh、03:03原终验和03:21:19硬截止运行；本修正只用于独立CPU开发目录，原GPU stage及中央115份结算源码保持。

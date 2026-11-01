@@ -66,6 +66,9 @@ def main():
     estimation = importlib.import_module('test_cara_source_lifecycle_estimation_r1')
     tested = unittest.TextTestRunner(verbosity=2).run(unittest.defaultTestLoader.loadTestsFromModule(estimation))
     assert tested.testsRun == 11 and tested.wasSuccessful() and not tested.skipped
+    scalar_math = importlib.import_module('test_cara_source_lifecycle_scalar_math_r1')
+    math_tests = unittest.TextTestRunner(verbosity=2).run(unittest.defaultTestLoader.loadTestsFromModule(scalar_math))
+    assert math_tests.testsRun == 2 and math_tests.wasSuccessful() and not math_tests.skipped
     import check_cara_source_lifecycle_scalar_cpu_r1 as collection
     assert Path(collection.__file__).resolve() == (args.stage/'tests/check_cara_source_lifecycle_scalar_cpu_r1.py').resolve()
     result = collection.run(args.runtime, args.stage/'CPU-scalar-requests', actual_modules=True)
@@ -85,7 +88,8 @@ def main():
                    registration_sha256=sha(args.stage/'registration.json'),
                    payload_sha256=registration['payload_sha256'],
                    runtime_source_sha256=registration['runtime_source_sha256'],
-                   tests_run=11, estimation_metrics=estimation.METRICS,
+                   tests_run=13, fixed_estimation_tests=11, original_CFG_pair_tests=2,
+                   estimation_metrics=estimation.METRICS,
                    collection=result, complete_tiny_requests=32, synthetic_scalar_rows=128,
                    actual_WC_RF_imports_and_globals_accepted=True, CPU_import_adapters_used=True,
                    torch_version=torch.__version__, actual_Cosmos_weights=False,
