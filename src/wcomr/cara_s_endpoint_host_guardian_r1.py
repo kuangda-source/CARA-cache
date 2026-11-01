@@ -55,7 +55,8 @@ def stop_bound_runner(handle):
 
 
 def allocate(project,stage,storage,password,*,cpu_validation=False,observe_gpu=observe,
-             change_mode=set_mode,inspect=inspect_container,stop=stop_container,interval=2.,release_margin=600.):
+             change_mode=set_mode,inspect=inspect_container,stop=stop_container,interval=2.,release_margin=600.,
+             fit_service=None):
     project=Path(project);stage=Path(stage)
     launch=read_record(stage/'GPU-launch.json');registration=read_record(stage/'registration.json')
     authority=read_record(stage/'GPU-authorization.json');envelope=read_record(stage/'central-reservation.json')
@@ -78,6 +79,10 @@ def allocate(project,stage,storage,password,*,cpu_validation=False,observe_gpu=o
             and all(envelope['job'][k]==launch[k] for k in IDENTITY),
             'Original whole authorization and central envelope required')
     require(0<interval<=2 and 0<release_margin<launch['billed_limit_GPUh']*3600,'Bounded guardian release margin required')
+    if fit_service is not None and not cpu_validation:
+        from .cara_source_lifecycle_p1_service_r1 import HeldFITService,KIND
+        require(isinstance(fit_service,HeldFITService) and fit_service.project==project and fit_service.stage==stage
+                and authority.get('card_kind')==KIND,'Only this original P1 host FIT service may join its guardian')
     if not cpu_validation:
         require(interval==2. and release_margin==600.,'Frozen production guardian bounds required')
         command=launch['commands']['container_cli']
@@ -155,6 +160,9 @@ def allocate(project,stage,storage,password,*,cpu_validation=False,observe_gpu=o
         try:journal.state['mode_admission']=guard.acquire();journal.save()
         finally:lease.close()
         journal.remaining_seconds(release_margin)
+        if fit_service is not None:
+            journal.state['FIT_service_start_attempted']=True;journal.save()
+            journal.state['FIT_service_start']=fit_service.start(journal.state);journal.save()
         journal.operation('container_dispatch_attempted',spawn)
         cli_handle=bind_original_process(child.pid);journal.bind_child('container_cli',cli_handle)
         begin=time.monotonic()
@@ -167,6 +175,7 @@ def allocate(project,stage,storage,password,*,cpu_validation=False,observe_gpu=o
         create_record(stage/'container_cli-dispatch-grant.json',dict(identity=cli_handle,launch_sha256=sha(stage/'GPU-launch.json')))
         while child.poll() is None:
             journal.remaining_seconds(release_margin);collect_workers();inspect_bound();storage.check()
+            if fit_service is not None:fit_service.check()
             time.sleep(min(interval,journal.remaining_seconds(release_margin)))
         journal.state['container_exit_code']=child.wait()
         require(child.returncode==0,'Original container CLI failed; no replay')
@@ -210,6 +219,18 @@ def allocate(project,stage,storage,password,*,cpu_validation=False,observe_gpu=o
                 except Exception as cleanup_error:
                     witness['cleanup_error_type']=type(cleanup_error).__name__
                     witness['cleanup_error']=str(cleanup_error)
+            if fit_service is not None:
+                try:
+                    service_witness=fit_service.close()
+                    if service_witness.get('exit_code',0)!=0 and failure is None:
+                        failure=RuntimeError('Original host FIT service failed; retain full card denominator')
+                except BaseException as error:
+                    service_witness=dict(complete=False,error_type=type(error).__name__,error=str(error))
+                    if failure is None:failure=error
+                # GPU release and its actual bill remain recoverable even if
+                # CPU cleanup is unknown. P1 scientific acceptance separately
+                # requires this original service's complete terminal witness.
+                journal.state['FIT_service_terminal_witness']=service_witness
             restoration=guard.restore()
             # The original monotonic interval includes admission, stop and restoration.
             journal.finish(container_terminal_witness=witness,mode_restoration=restoration,

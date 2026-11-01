@@ -25,6 +25,10 @@ def main():
     else:
         if spec['CPU_fixture_only']:
             raise ValueError('Explicit CPU service fixture owns its own clock; production CLI has no fixture bypass')
+        import os
+        import resource
+        os.sched_setaffinity(0, {26, 27})
+        resource.setrlimit(resource.RLIMIT_AS, (4*2**30, 4*2**30))
         guardian = read_record(Path(spec['stage'])/'guardian.json')
         Host(spec, OriginalAllocationClock(guardian, spec['context'])).serve()
 

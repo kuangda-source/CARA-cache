@@ -1,5 +1,7 @@
 # 下一项：宿主评分接口真实CPU probe
 
+2026-11-02终态更新：本probe已按固定source `7c48488afdd7426a64ec9884737e606bcaada990`完整执行并结束接受，见[848](../../../research/848_CARA_P1_ALGORITHM_AND_ACTUAL_HOST_FIT_CPU_ACCEPTANCE_20261102.md)及[原接受](../../../reports/cara_v1_P1_host_FIT_CPU_accepted_r1_20261102.json)。两成功/一预设失败cohort、全部CPU终态与原字节恢复通过；不要再prepare或评分。以下为原执行前设计，下一交付为下文完整P1 outer入口。
+
 当前`cara_source_lifecycle_fit_broker_r1.py`、原CLI和九项本地控制已实现；尚无真实Linux服务/容器接受。本交付不等待P1算法R3空转：继续实现新的宿主CPU probe，再冻结其源并单次执行。原R3运行只恢复，不改源或重派；本probe不运行GPU、模型权重或中央事务。
 
 ## 实现和资源

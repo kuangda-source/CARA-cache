@@ -1,5 +1,7 @@
 # P1完整双flow R3 CPU：唯一原运行
 
+2026-11-02终态：原R3于05:29:37退出0并已完整接受，见[848](../../../research/848_CARA_P1_ALGORITHM_AND_ACTUAL_HOST_FIT_CPU_ACCEPTANCE_20261102.md)和[原接受](../../../reports/cara_v1_P1_algorithm_Linux_CPU_accepted_r3_20261102.json)。292语义/128标签/268实际tiny请求/158对真实Alex合成93帧指标与caller恢复通过，全部原CPU结束。p1-cpu、p1-cpu-2均已删除，不再prepare/capture/replay或评分。以下为启动时原句柄承接快照；下一步外层生产与释放后接受、正式报价，P1 GPU仍未授权。
+
 R1 writer后缀失败、R2 caller forward恢复失败均已退出并保留，不重启、不重评分。R2第一flow完整原件仅作已发生的CPU组件证据，不能替代本R3双flow整体验收。当前固定特征/DP/指标/数据范围均保持，修复的是生产loaded入口的调用者方法恢复及错误清理。
 
 - source `aca025a7a51be8d134f4e2b29a3c42f25db429ca`，two_card。

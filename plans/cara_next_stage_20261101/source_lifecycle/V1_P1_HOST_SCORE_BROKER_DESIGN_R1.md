@@ -1,5 +1,7 @@
 # P1宿主内部评分接口：已实现，真实Linux CPU接受待补
 
+2026-11-02终态更新：[848](../../../research/848_CARA_P1_ALGORITHM_AND_ACTUAL_HOST_FIT_CPU_ACCEPTANCE_20261102.md)与[实际宿主CPU接受](../../../reports/cara_v1_P1_host_FIT_CPU_accepted_r1_20261102.json)已补齐本接口的真实Linux服务/容器接受。原probe结束，完整两FIT成功/预设失败/重复/终态字节恢复通过；下列设计继续约束完整GPU外层集成，尚无真实GPU入口接受或P1授权。
+
 宿主队列/原CLI/原容器读者已实现并有九项本地边界控制，见[846](../../../research/846_CARA_P1_FIRST_FLOW_ORIGINAL_CALLER_RESTORATION_AND_HOST_BROKER_20261102.md)。它仍待真实Linux独立容器与完整服务接受，不授予GPU启动。算法CPU使用受限CPU容器内的独立指标子进程；真实GPU卡采用下述宿主队列，让模型持卡与独立评分容器同时处于各自资源边界。
 
 ## 固定队列和身份
