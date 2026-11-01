@@ -3235,7 +3235,7 @@
     "receipt_ref": "reports/cara_v1_P0_point20_actual_start_accepted_r1_20261101.json",
     "receipt_sha256": "6d0dcd1ebf06117b03b1336502fa5743e31ec090315bd0db4ce8168ff0983e66",
     "notice_title": "838 — P0第20步唯一原运行与实际开始验收安排",
-    "summary": "P0第20步已于2026-11-02 01:24:19在两卡原A6000实际启动；14请求/512pair/8新评分，独占唯一CUDA进程已核对。原中央账本已唯一预约1.95GPUh，旧16.5责任/cap226保持；原硬截止03:21:19，02:13半程与03:03全程验收已建立。只恢复原句柄，完整退出释放结算后一次8新评分并合并旧8；当前无新科学分数，完整P1另审预算。",
+    "summary": "P0第20步已于2026-11-02 01:24:19在两卡原A6000实际启动；14请求/512pair/8新评分，独占唯一CUDA进程已核对。原中央账本已唯一预约1.95GPUh，旧16.5责任/cap226保持；原硬截止03:21:19，半程7/14、0失败已接受并删除，03:03原终验保留。只恢复原句柄，完整退出释放结算后一次8新评分并合并旧8；当前无新科学分数，完整P1另审预算。",
     "plan_ref": "plans/cara_next_stage_20261101/read_write/README.md",
     "protocol_ref": "plans/cara_next_stage_20261101/read_write/EXPERIMENT_PROTOCOL_R1.json",
     "M0_CPU_ref": "reports/cara_read_write_M0_CPU_component_r2_20261101.json",
@@ -3459,7 +3459,7 @@
     "transport_client_ref": "scripts/cara_source_lifecycle_p0_control_r4.py",
     "acceptance_transport_client_ref": "scripts/cara_source_lifecycle_p0_accept_transport_r2.py",
     "P0_point20_actual_start_ref": "reports/cara_v1_P0_point20_actual_start_accepted_r1_20261101.json",
-    "P0_point20_schedule_ref": "reports/cara_v1_P0_point20_acceptance_schedule_r1_20261102.json",
+    "P0_point20_schedule_ref": "reports/cara_v1_P0_point20_acceptance_schedule_r2_20261102.json",
     "P0_point20_scientific_result": null,
     "actual_GPUh": null,
     "P1_GPU_authorized": false,
@@ -3469,7 +3469,10 @@
     "fixed_estimation_contract_ref": "plans/cara_next_stage_20261101/source_lifecycle/V1_FIXED_ESTIMATION_COMPONENT_CONTRACT_R1.json",
     "fixed_estimation_local_tests": 11,
     "scalar_collector_production_accepted": false,
-    "whole_P1_entry_Linux_CPU_accepted": false
+    "whole_P1_entry_Linux_CPU_accepted": false,
+    "scalar_collector_state": "SOURCE_PREPARED_PENDING_NEW_ORIGINAL_LINUX_CPU",
+    "scalar_collector_preparation_ref": "research/840_CARA_P0_HALFWAY_ACCEPTED_AND_V1_SCALAR_ENTRY_PREPARATION_20261102.md",
+    "scalar_collector_CPU_stage": "cara-source-lifecycle-V1-scalar-CPU-a6000-r1-20261102"
   },
   "source_lifecycle_P0_execution_20261102": {
     "status": "ORIGINAL_P0_POINT20_GPU_RUNNING_ACTUAL_START_CHECKS_ACTIVE",
@@ -3526,7 +3529,7 @@
     "actual_start_ref": "reports/cara_v1_P0_point20_actual_start_accepted_r1_20261101.json",
     "actual_start_sha256": "6d0dcd1ebf06117b03b1336502fa5743e31ec090315bd0db4ce8168ff0983e66",
     "operational_ref": "reports/cara_v1_P0_point20_actual_start_status_r1_20261102.json",
-    "schedule_ref": "reports/cara_v1_P0_point20_acceptance_schedule_r1_20261102.json",
+    "schedule_ref": "reports/cara_v1_P0_point20_acceptance_schedule_r2_20261102.json",
     "central_reservation_ref": "reports/cara_v1_P0_point20_actual_central_reservation_r1_20261102.json",
     "central_reservation_snapshot": {
       "cap_gpu_hours": 226,
@@ -3539,14 +3542,16 @@
     "complete_scientific_results_read": false,
     "scientific_accepted": false,
     "automatic_P1_authorized": false,
-    "latest_operational_ref": "reports/cara_v1_P0_point20_goal_operational_r1_20261102_0149.json",
-    "latest_operational_observed_unix": 1793555385.96839,
+    "latest_operational_ref": "reports/cara_v1_P0_point20_halfway_original_r1_20261102.json",
+    "latest_operational_observed_unix": 1793556865.289655,
     "latest_operational_counts": {
-      "COMPLETE": 4,
+      "COMPLETE": 7,
       "TECH_FAILED": 0,
       "RUNNING": 1,
-      "NOT_REACHED": 9
+      "NOT_REACHED": 6
     },
-    "latest_observed_temperature_C": 88
+    "latest_observed_temperature_C": 63,
+    "halfway_acceptance_ref": "reports/cara_v1_P0_point20_halfway_accepted_r1_20261102.json",
+    "halfway_automation_deleted": true
   }
 }

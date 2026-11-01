@@ -32,7 +32,7 @@ REMOTE = BASE_REMOTE.replace('check_cara_budget_calibration_cpu_r3.py',
 
 
 def main(*, stage=STAGE, overlay=OVERLAY, remote_code=REMOTE,
-         work_seconds=180, exit_seconds=30):
+         work_seconds=180, exit_seconds=30, ssh_config=None, connect_timeout=25):
     parser = argparse.ArgumentParser()
     parser.add_argument('action', choices=['prepare','capture'])
     parser.add_argument('--source-revision', required=True)
@@ -74,8 +74,9 @@ sys.stdin=io.StringIO(json.dumps(p))
         payload_sha256=hashlib.sha256(json.dumps(p,sort_keys=True).encode()).hexdigest(),GPU_submissions=0,ledger_written=False)
     with args.output.with_name(args.output.stem+'_binding.json').open('x') as stream:
         json.dump(binding,stream,indent=2);stream.write('\n')
-    child = subprocess.Popen(['ssh','-C','-F',str(ROOT/'.sync/cara-fast-mainline-tailscale-20261030/ssh_config.budget_direct.private'),
-        '-o','BatchMode=yes','-o','ConnectTimeout=25','-o','ServerAliveInterval=15','-o','ServerAliveCountMax=3','two_card_lan',command],
+    config=ssh_config or ROOT/'.sync/cara-fast-mainline-tailscale-20261030/ssh_config.budget_direct.private'
+    child = subprocess.Popen(['ssh','-C','-F',str(config),
+        '-o','BatchMode=yes','-o',f'ConnectTimeout={connect_timeout}','-o','ServerAliveInterval=15','-o','ServerAliveCountMax=3','two_card_lan',command],
         stdin=subprocess.PIPE,stdout=subprocess.PIPE,stderr=subprocess.PIPE,start_new_session=True)
     try:
         out,err = child.communicate((secret+'\n'+encoded).encode(),timeout=110)

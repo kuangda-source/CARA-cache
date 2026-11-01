@@ -26,7 +26,8 @@ REMOTE_ROOT='/data20t/gaokuangda/worldcache_workspace'
 BLOCK_BYTES=8192
 
 
-def main():
+def main(*, stage=STAGE, overlay=OVERLAY, remote_code=REMOTE,
+         transfer_label='cara-P0-point20-CPU-transfer', connect_timeout=25, probe_peer=False):
     parser=argparse.ArgumentParser()
     parser.add_argument('--source-revision',required=True)
     parser.add_argument('--output',type=Path,required=True)
@@ -38,7 +39,7 @@ def main():
     accepted=json.loads((ROOT/BASE_ACCEPTED).read_text())
     assert accepted['capture_sha256']==hashlib.sha256(base_bytes).hexdigest()
     assert accepted['total_controls_passed']==113
-    files={n:subprocess.check_output(['git','show',args.source_revision+':'+n],cwd=ROOT) for n in OVERLAY}
+    files={n:subprocess.check_output(['git','show',args.source_revision+':'+n],cwd=ROOT) for n in overlay}
     assert all((ROOT/n).read_bytes()==b for n,b in files.items())
     hashes={**base['registration']['payload_sha256'],
             **{n:hashlib.sha256(b).hexdigest() for n,b in files.items()}}
@@ -51,7 +52,7 @@ def main():
     assert entry['registration']['runtime_source_sha256']==base['registration']['runtime_source_sha256']
     changed={n:h for n,h in hashes.items() if inherited.get(n)!=h}
     uploads={n:files[n] for n in changed}
-    payload=dict(action='prepare',host='two_card',stage_name=STAGE,
+    payload=dict(action='prepare',host='two_card',stage_name=stage,
         base_stage=entry['launch']['stage'],base_registration_sha256=entry['registration_sha256'],
         parent_git_revision=args.source_revision,expected_host_config=LIMITS,
         minimum_available_memory_GiB=8,hash_patch=changed,hash_remove=sorted(set(inherited)-set(hashes)),
@@ -65,11 +66,11 @@ for name in p.pop('hash_remove'):mapping.pop(name)
 mapping.update(p.pop('hash_patch'));p['hashes']=mapping
 assert hashlib.sha256(json.dumps(mapping,sort_keys=True,separators=(',',':')).encode()).hexdigest()==p.pop('full_mapping_sha256')
 sys.stdin=io.StringIO(json.dumps(p))
-"""+'\nexec('+repr(REMOTE)+')\n'
+"""+'\nexec('+repr(remote_code)+')\n'
     raw=gzip.compress(json.dumps(dict(code=wrapper,payload=payload)).encode(),mtime=0)
     digest=hashlib.sha256(raw).hexdigest()
     blocks=[raw[i:i+BLOCK_BYTES] for i in range(0,len(raw),BLOCK_BYTES)]
-    directory=REMOTE_ROOT+'/.sync/cara-P0-point20-CPU-transfer-'+digest[:16]+'-'+str(BLOCK_BYTES)
+    directory=REMOTE_ROOT+'/.sync/'+transfer_label+'-'+digest[:16]+'-'+str(BLOCK_BYTES)
     config=ROOT/'.sync/cara-fast-mainline-tailscale-20261030/ssh_config.p0_qos_none.private'
     assert config.stat().st_mode&0o077==0
     secret=password()
@@ -81,8 +82,12 @@ sys.stdin=io.StringIO(json.dumps(p))
     # be recovered. This is a transfer journal, never an execution receipt.
     def call(code):
         ast.parse(code)
+        if probe_peer:
+            subprocess.run(['/Applications/Tailscale.app/Contents/MacOS/Tailscale','ping',
+                '--until-direct=false','--c','1','--timeout','5s','100.103.229.16'],
+                capture_output=True,text=True,timeout=12)
         command="sudo -S -p '' -u gaokuangda -g docker python3 -c "+shlex.quote(code)
-        child=subprocess.Popen(['ssh','-C','-F',str(config),'-o','BatchMode=yes','-o','ConnectTimeout=25',
+        child=subprocess.Popen(['ssh','-C','-F',str(config),'-o','BatchMode=yes','-o',f'ConnectTimeout={connect_timeout}',
             '-o','ServerAliveInterval=10','-o','ServerAliveCountMax=2','two_card_lan',command],
             stdin=subprocess.PIPE,stdout=subprocess.PIPE,stderr=subprocess.PIPE,start_new_session=True)
         try:
@@ -143,9 +148,9 @@ with (d/'prepare.lock').open('a') as lock:
     code=('DIRECTORY='+repr(directory)+'\nCOUNT='+repr(len(blocks))+'\nEXPECTED='+repr(digest)+
           '\nROOT='+repr(REMOTE_ROOT)+'\n'+code)
     observed=call(code)
-    report=dict(action='prepare',host='two_card',stage_name=STAGE,source_revision=args.source_revision,
+    report=dict(action='prepare',host='two_card',stage_name=stage,source_revision=args.source_revision,
         started_unix=started,observed_unix=time.time(),expected_host_config=LIMITS,work_seconds=600,exit_seconds=60,
-        remote_code_sha256=hashlib.sha256(REMOTE.encode()).hexdigest(),
+        remote_code_sha256=hashlib.sha256(remote_code.encode()).hexdigest(),
         transport_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
         source_packet_sha256=digest,source_packet_bytes=len(raw),source_blocks=len(blocks),
         transfer_directory=directory,unknown_requires_original_capture=True,
