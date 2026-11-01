@@ -1,0 +1,32 @@
+{
+  "schema": "CARA_READ_WRITE_VAE_CPU_COMPONENT_R1",
+  "passed": false,
+  "tests_run": 3,
+  "failures": [
+    {
+      "test": "test_last_frame_VJP_preserves_previous_latent_chunk_dependency (test_cara_read_write_vae_r1.VAECalibration)",
+      "detail": "Traceback (most recent call last):\n  File \"/Users/kuangda_gao/Documents/\u4e16\u754c\u6a21\u578b\u52a0\u901f\u5b9e\u9a8c/worldcache_omr/tests/test_cara_read_write_vae_r1.py\", line 95, in test_last_frame_VJP_preserves_previous_latent_chunk_dependency\n    adapter = FunctionalWan21Decode(tokenizer, runtime=RUNTIME)\n  File \"/Users/kuangda_gao/Documents/\u4e16\u754c\u6a21\u578b\u52a0\u901f\u5b9e\u9a8c/worldcache_omr/src/wcomr/cara_read_write_vae_r1.py\", line 64, in __init__\n    backend_globals=_bindings(self.decode_backend, vars(module), {}),\n  File \"/Users/kuangda_gao/Documents/\u4e16\u754c\u6a21\u578b\u52a0\u901f\u5b9e\u9a8c/worldcache_omr/src/wcomr/cfg_paired_probe_production.py\", line 54, in _bindings\n    raise ValueError('Unresolved actual production global: '+name)\nValueError: Unresolved actual production global: log\n"
+    },
+    {
+      "test": "test_source_exact_image_and_full93_hard_forward_without_caller_mutation (test_cara_read_write_vae_r1.VAECalibration)",
+      "detail": "Traceback (most recent call last):\n  File \"/Users/kuangda_gao/Documents/\u4e16\u754c\u6a21\u578b\u52a0\u901f\u5b9e\u9a8c/worldcache_omr/tests/test_cara_read_write_vae_r1.py\", line 80, in test_source_exact_image_and_full93_hard_forward_without_caller_mutation\n    adapter = FunctionalWan21Decode(tokenizer, runtime=RUNTIME)\n  File \"/Users/kuangda_gao/Documents/\u4e16\u754c\u6a21\u578b\u52a0\u901f\u5b9e\u9a8c/worldcache_omr/src/wcomr/cara_read_write_vae_r1.py\", line 64, in __init__\n    backend_globals=_bindings(self.decode_backend, vars(module), {}),\n  File \"/Users/kuangda_gao/Documents/\u4e16\u754c\u6a21\u578b\u52a0\u901f\u5b9e\u9a8c/worldcache_omr/src/wcomr/cfg_paired_probe_production.py\", line 54, in _bindings\n    raise ValueError('Unresolved actual production global: '+name)\nValueError: Unresolved actual production global: log\n"
+    },
+    {
+      "test": "test_unverified_parallel_benchmark_trainable_or_inference_modes_refused (test_cara_read_write_vae_r1.VAECalibration)",
+      "detail": "Traceback (most recent call last):\n  File \"/Users/kuangda_gao/Documents/\u4e16\u754c\u6a21\u578b\u52a0\u901f\u5b9e\u9a8c/worldcache_omr/tests/test_cara_read_write_vae_r1.py\", line 119, in test_unverified_parallel_benchmark_trainable_or_inference_modes_refused\n    tokenizer = fixture();adapter = FunctionalWan21Decode(tokenizer, runtime=RUNTIME)\n  File \"/Users/kuangda_gao/Documents/\u4e16\u754c\u6a21\u578b\u52a0\u901f\u5b9e\u9a8c/worldcache_omr/src/wcomr/cara_read_write_vae_r1.py\", line 64, in __init__\n    backend_globals=_bindings(self.decode_backend, vars(module), {}),\n  File \"/Users/kuangda_gao/Documents/\u4e16\u754c\u6a21\u578b\u52a0\u901f\u5b9e\u9a8c/worldcache_omr/src/wcomr/cfg_paired_probe_production.py\", line 54, in _bindings\n    raise ValueError('Unresolved actual production global: '+name)\nValueError: Unresolved actual production global: log\n"
+    }
+  ],
+  "metrics": {},
+  "payload_sha256": {
+    "src/wcomr/cara_read_write_vae_r1.py": "32fcb3119c2f42d90d9f21156cac8dd60bfa1a0d159a3004dcccc1b47d0fed3e",
+    "tests/test_cara_read_write_vae_r1.py": "9a7397043a1ac9a203d6d99d622f3de30f99a268eab2ba3d86fa22346d0b691a"
+  },
+  "original_Wan_decode_source": true,
+  "CPU_namespace": true,
+  "tiny_decoder_weights": true,
+  "actual_pretrained_VAE": false,
+  "actual93_GPU_memory": false,
+  "video_Alex_VJP": false,
+  "GPU_submissions": 0,
+  "CUDA_initialized": false
+}

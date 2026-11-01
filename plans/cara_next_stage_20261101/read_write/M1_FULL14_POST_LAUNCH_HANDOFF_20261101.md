@@ -1,5 +1,7 @@
 # M1完整14：原已启动运行承接
 
+**原M1现已完整接受并关闭。** [834完整记录](../../../research/834_CARA_M1_COMPLETE_READ_WRITE_MECHANISM_AND_M2_CONTINUATION_20261101.md)与[机器接受](../../../reports/cara_read_write_complete_acceptance_r1_20261101.json)覆盖14/四等价门/八评分/图表和唯一1.500620266GPUh结算。原GPU/CPU均结束、双检查删除。后文为原运行流程和历史检查，日常文档复用原件，不再运行status/settle/artifacts/score或创建监控。下一步M2单独准备。
+
 唯一run `cara-read-write-M1-full14-r1-20261101`，launch `7949388215944eb98c7f64f21e8e1dd1`，source `b930df4b04a0924d8bea0af32c0f7aaf8c33a5c8`。只恢复原stage/容器/PID-start ticks，不再GPU dispatch、source prepare、storage launch、换卡或修改运行中源/配置。用户已允许本卡原四卡中央账本读取/预约/实耗结算；不允许四卡实验或账本迁移。
 
 ## 原身份、时间与范围
@@ -40,3 +42,13 @@ M2仅独立CPU准备：[固定源码缓存导数与实现安排](M2_ADJOINT_IMPL
 ## 20:13原运行与CPU承接
 
 [原运维](../../../reports/cara_read_write_preterminal_original_status_r1_20261101.json)：12/14、0技术失败，原四句柄存活、独占、87°C；仍运行，不结算、不读部分科学结果。同一20:28终验保持。M2独立的缓存转移与小模型伴随CPU均已原终态接受并退出，见[833](../../../research/833_CARA_M2_ORIGINAL_LINUX_ADJOINT_ACCEPTED_AND_VAE_BACKWARD_BOUNDARY_20261101.md)，不再prepare/replay；它们没有修改本卡GPU源或构成真实模型科学结果。
+
+## 20:25 GPU全14结束、结算及原CPU读者
+
+原GPU已14/14成功退出，原四进程和锁释放、Default恢复。[原终态](../../../reports/cara_read_write_final_original_r1_20261101.json)、[唯一结算](../../../reports/cara_read_write_final_settlement_r1_20261101.json)、[释放接受](../../../reports/cara_read_write_final_release_accepted_r1_20261101.json)齐全，guardian实际1.50062026643246GPUh已结算，禁止再settle/reserve/dispatch。cap226、used195.54048154808925、reserved16.5、available13.959518451910753；旧责任保持。
+
+[原工件CPU启动](../../../reports/cara_read_write_final_artifact_CPU_launch_r1_20261101.json)：artifact-accept-CPU读者于20:24:59启动，容器cara-read-write-M1-GPU-a6000-full14-r1-20261101-artifact-accept-cpu，原State.Pid2992539。只用accept_transport的capture恢复，禁止重复artifacts派发。四latent/93RGB门通过后唯一score；已存在score intent则仅capture。全部八对前不解释科学结果。
+
+## 全链接受
+
+四组完整latent/93RGB等价通过；八对原评分CPU于20:34:14退出0，完整接受与分析/93帧CSV/PNG/PDF均已保存。半程m1、终验m1-2均已按最终检查R3删除。写入Alex效应两输入同向、均值降低19.51%，仅读出2.02%，完整刷新19.24%；正交互与Human199部分二级误差恶化保留。详见834，M1不等于新19D部署方法。

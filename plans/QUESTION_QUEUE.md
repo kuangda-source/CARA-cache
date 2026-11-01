@@ -1,8 +1,8 @@
-# CARA 问题队列 R25
+# CARA 问题队列 R26
 
-2026-11-01当前主线：[原M1](cara_next_stage_20261101/read_write/M1_FULL14_POST_LAUNCH_HANDOFF_20261101.md)于20:13:24推进12/14、0技术失败，原四句柄/独占正常。原1.95GPUh与20:36:24释放余量/20:46:24硬截止保持；半程m1已删除，同一m1-2于20:28终验。完整14成功释放结算后四latent/93RGB门与八对一次评分，当前未读部分科学输出。
+2026-11-01当前主线：[M1完整接受](../research/834_CARA_M1_COMPLETE_READ_WRITE_MECHANISM_AND_M2_CONTINUATION_20261101.md)，14生成、四latent/93RGB等价、八对评分、1.500620266GPUh唯一结算与图表均完成；GPU/CPU结束、双检查删除。两旧FIT固定第8步，仅写入平均Alex降低19.51%，仅读出2.02%，完整刷新19.24%；进入M2价值估计与硬行动验证，尚未建立新19D方法。
 
-等待期间[M2原Linux缓存/伴随](../research/833_CARA_M2_ORIGINAL_LINUX_ADJOINT_ACCEPTED_AND_VAE_BACKWARD_BOUNDARY_20261101.md)均已CPU接受，各五项、原容器退出0。下一步实际tokenizer/均值标准差/跨时间缓存的VAE校准适配、真实权重VJP、93帧Alex终点与完整硬swap验收；[实现安排](cara_next_stage_20261101/read_write/M2_ADJOINT_IMPLEMENTATION_AND_HARD_ACTION_PLAN_R1.md)保持三估值器与等候选额度。真实模型科学效用、M2全段费用和本卡原账本许可仍待，不继承M1权限。
+直接任务：[M2安排](cara_next_stage_20261101/read_write/M2_ADJOINT_IMPLEMENTATION_AND_HARD_ACTION_PLAN_R1.md)中的实际Linux VAE适配、真实模型/VAE/Alex VJP、完整状态/固定槽和显存费用；之后同起点/样本/候选额度对比q、同伴随read-only、full。VAE本地三项小模型CPU通过，真实权重仍待。新整卡按GPUh规则与fresh准入推进，M1账本许可不继承；旧冻结、CAL范围与保护TEST保持。
 
 2026-10-30 主线更新。现行依据为[最新总计划](cara_next_stage_20261028/01_Master_Experiment_Plan.md)、[S/Q修订](cara_next_stage_20261028/02_SQ_Method_and_Experiments.md)和[接收/两对话分工](cara_next_stage_20261028/08_REPOSITORY_RECONCILIATION.md)。原R16[逐字归档](cara_next_stage_20261028/QUESTION_QUEUE_BEFORE_R17.md)。本轮仅更新主线；S/Q 行保留所属对话原登记，最新状态以其独立回执为准。已完成执行以原接受为准，后续提案不授予新 GPU。
 

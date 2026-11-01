@@ -2,7 +2,7 @@
 
 # CARA-Cache
 
-[833 — M2原Linux伴随通过，M1推进12/14](research/833_CARA_M2_ORIGINAL_LINUX_ADJOINT_ACCEPTED_AND_VAE_BACKWARD_BOUNDARY_20261101.md)：原M1于20:13:24推进12/14、0技术失败，原四句柄和独占正常，硬1.95GPUh与20:28终验保持。M2可微缓存转移与完整状态小模型伴随均已实际Linux CPU接受，各五项、原容器正常退出；真实模型/视频终点/硬swap仍待。原VAE no_grad及时间缓存依赖已定位，未读部分M1科学结果或新增GPU。
+[834 — M1写入机制明确，推进M2读写价值规划](research/834_CARA_M1_COMPLETE_READ_WRITE_MECHANISM_AND_M2_CONTINUATION_20261101.md)：M1完整14、四latent/93RGB等价门与八对评分均接受，原GPU/CPU结束、实际1.500620266GPUh唯一结算、双检查删除。两旧FIT/seed0/Uniform19第8步：仅写入使平均Alex参考误差下降19.51%，仅读出下降2.02%，完整刷新下降19.24%，写项2/2输入且各93帧同向。正交互抵消部分收益；非新19D部署方法结论。主线进入M2实际权重伴随与硬交换验证，旧冻结/TEST保持。
 
 [826 — E1完整验收：CFG有机制增量，当前S不晋级](research/826_CARA_ENDPOINT7_COMPLETE_ACCEPTANCE_RESULTS_AND_REGISTERED_DECISION_20261101.md)：接口修复后46/46、13RGB和28评分完整接受（16新+12原行）；原GPU3.055673007GPUh已结算。S-CFG较DIAG LPIPS低1.53%且4/4同向，但比F19-A1高102.83%；按预注册仅保留机制增量，当前S不晋级。全93帧与双时钟图表完成，检查已删。
 
@@ -28,7 +28,7 @@ CARA-Cache（CFG-Aligned Readout and Cost-Aware Allocation for Video Diffusion�
 |---|---|
 | 做了什么、主要结果怎样 | [研究与结果概览](EXPERIMENT_REPORT.md) |
 | 现在在跑什么、下一次何时验收 | [当前状态](research/02_CURRENT_STATE.md) |
-| 每项实验是否完成、支持什么结论 | [61项实验总表](paper/EXPERIMENT_MASTER_TABLE.md) |
+| 每项实验是否完成、支持什么结论 | [62项实验总表](paper/EXPERIMENT_MASTER_TABLE.md) |
 | 下一步解决什么问题 | [后续实验顺序](research/09_NEXT_ACTIONS.md) |
 | 如何复核代码、原件和统计 | [复现与证据指南](docs/REPRODUCIBILITY.md) |
 | 从项目开始到现在的完整记录 | [历史入口](docs/archive/README.md) |
@@ -47,6 +47,7 @@ CFG 指 classifier-free guidance，包含条件与负条件两支。A 使用共�
 
 ## 已经得到什么结果
 
+- **刷新对未来缓存来源的作用主导本点保真收益**（两旧FIT，固定第8步，同父读写四格）：仅写入平均Alex参考误差降低19.51%，仅读出降低2.02%，完整刷新降低19.24%；写项2/2输入、各93帧均改善，正交互抵消部分收益。 [证据1](research/834_CARA_M1_COMPLETE_READ_WRITE_MECHANISM_AND_M2_CONTINUATION_20261101.md) · [证据2](reports/cara_read_write_complete_acceptance_r1_20261101.json) · [证据3](reports/cara_read_write_complete_analysis_r1_20261101.json) · [证据4](reports/cara_read_write_complete_figures_r1_20261101/figure-report.json)
 - **F19布局在4旧CAL的同19D比较中降低参考误差**（旧CAL4，B36完整36与32评分，双时钟）：F19_C为1.703倍T_DD、1.486倍完整请求速度，Alex0.24936，较Uniform19_C降低46.82%；F19_A1为1.691倍T_DD、Alex0.23150，较F19_C再降低7.16%，4/4同向。 [证据1](research/756_CARA_B36_COMPLETE_ACCEPTANCE_RESULTS_AND_FIGURES_20261029.md) · [证据2](reports/cara_fast_B36_complete_analysis_r1_20261029.json) · [证据3](reports/cara_fast_B36_figures_actual_r1_20261029/report.json)
 - **Shared25-C通过16新DEV冻结验证**（DEV16，完整128，冻结强基线与双预算）：相对冻结S25-A的LPIPS降低14.82%，16/16改善；相对S25-C降低26.16%。246.675秒、约1.269倍，V单侧95%上界0.9863；三项质量非劣门均通过。 [证据1](research/716_CARA_DEV128_COMPLETE_ACCEPTANCE_AND_FROZEN_DECISION_20261027.md) · [证据2](reports/cara_DEV128_A6000_complete_analysis_20261027.json)
 - **Shared25-C通过完整CAL筛查**（CAL4，同批强基线，冻结待DEV）：同批A6000四个CAL上，Shared25-C相对较强S25-A的LPIPS下降15.34%，4/4改善；246.852秒，原双预算和三项独立质量筛查通过。 [证据1](research/702_CARA_CAL66_A6000_COMPLETE_RESULTS_AND_FROZEN_SHARED25_C_20261026.md) · [证据2](reports/cara_CAL66_A6000_complete_analysis_20261026.json)

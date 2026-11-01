@@ -47,3 +47,9 @@ M1完整接受后，先判断写作用是否可辨识，再冻结M2实际完整�
 [原伴随CPU](../../../reports/cara_read_write_adjoint_Linux_CPU_accepted_r1_20261101.json)已退出0，实际导入下五项通过，33.805秒；首次网络未知经stage/容器明确不存在后才进入同一stage首次实际准备，原证据见833。现在两段CPU均结束，只恢复原件。
 
 [VAE源码审计](../../../reports/cara_read_write_vae_backward_source_audit_r1_20261101.json)明确上游外层model与WanVAE两处no_grad、Wan2.1跨时间特征缓存和原normalization/dtype依赖。尚未绑定本卡实际tokenizer类，也没有decode前向等价、真实权重VJP或93帧峰值证明；先实现保留时间缓存的独立校准适配，再完整核验与报价，不假定逐帧独立decode成立。
+
+## M1完整机制信号与VAE组件
+
+[834完整接受](../../../research/834_CARA_M1_COMPLETE_READ_WRITE_MECHANISM_AND_M2_CONTINUATION_20261101.md)支持继续M2：固定点写项2/2同向、平均Alex相对00降低19.51%，read降低2.02%，joint降低19.24%，正交互保留。不从本点手选新计划或修改三估值器/等候选预算；固定K方法收益仍由M2完整硬swap判断。
+
+`cara_read_write_vae_r1.py`已实现source-bound私有Wan2.1解码包装，保留原normalization/dtype与时间缓存，要求原未包装接口、非parallel/benchmark、冻结eval且codec无buffer；仅去掉已核对no_grad装饰。三项本地CPU在小权重下通过一帧/93帧硬前向等价、调用者缓存保持、跨时间VJP/方向有限差分和模式拒绝。源码/hash见[原接受R3](../../../reports/cara_read_write_vae_CPU_component_r3_20261101.json)，R1/R2 CPU namespace缺项保留。实际部署backend身份、真实权重前向/VJP和93帧显存尚未接受；不得据此派GPU。

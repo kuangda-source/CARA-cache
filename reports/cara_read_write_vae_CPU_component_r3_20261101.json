@@ -1,0 +1,45 @@
+{
+  "schema": "CARA_READ_WRITE_VAE_CPU_COMPONENT_R1",
+  "observed_at": "2026-11-01T20:33:36.780123+08:00",
+  "passed": true,
+  "tests_run": 3,
+  "failures": [],
+  "metrics": {
+    "cross_chunk_last_frame_VJP": {
+      "predicted": 0.0004793473217919289,
+      "central_FD": 0.00047934732178792766,
+      "absolute_error": 4.001248117557754e-15,
+      "epsilon": 0.0001,
+      "previous_chunk_gradient_nonzero": true,
+      "actual_pretrained_weights": false
+    },
+    "hard_forward_1": {
+      "full_frames": 1,
+      "bitwise_equal": true,
+      "caller_cache_unchanged": true,
+      "original_no_grad_reference": true,
+      "calibration_graph_retained": true
+    },
+    "hard_forward_24": {
+      "full_frames": 93,
+      "bitwise_equal": true,
+      "caller_cache_unchanged": true,
+      "original_no_grad_reference": true,
+      "calibration_graph_retained": true
+    }
+  },
+  "payload_sha256": {
+    "src/wcomr/cara_read_write_vae_r1.py": "32fcb3119c2f42d90d9f21156cac8dd60bfa1a0d159a3004dcccc1b47d0fed3e",
+    "tests/test_cara_read_write_vae_r1.py": "e758147cbfcb5bcd41ee7f78a9788d871c08b62ffc7845db58774230a71149ca",
+    "scripts/check_cara_read_write_vae_r1.py": "d33c25e49aa1b7e3d6c7b470f01313a89c1e0b3c9d768b4a5fc1d8b9e4eae7f2"
+  },
+  "original_Wan_decode_source": true,
+  "source_sha256": "885aaa3250f60f026b279f099dc08b2548d904604b839c57000c6c65a8d165bb",
+  "CPU_namespace": true,
+  "tiny_decoder_weights": true,
+  "actual_pretrained_VAE": false,
+  "actual93_GPU_memory": false,
+  "video_Alex_VJP": false,
+  "GPU_submissions": 0,
+  "CUDA_initialized": false
+}
