@@ -17,9 +17,10 @@ BASE = ROOT/'plans/cara_next_stage_20261101/source_lifecycle'
 
 
 def frozen_weights(record, schedule, contract, fixture):
-    expected = ('CARA_SOURCE_LIFECYCLE_SYNTHETIC_SCALE_CPU_R1' if fixture else
-                'CARA_SOURCE_LIFECYCLE_FROZEN_UNIPC_SCALE_R1')
-    if (record.get('schema') != expected or record.get('actual_updates') != 36
+    original = 'CARA_SOURCE_LIFECYCLE_FROZEN_UNIPC_SCALE_R1'
+    synthetic = 'CARA_SOURCE_LIFECYCLE_SYNTHETIC_SCALE_CPU_R1'
+    allowed = (original, synthetic) if fixture else (original,)
+    if (record.get('schema') not in allowed or record.get('actual_updates') != 36
             or record.get('sigmas') != schedule['sigmas']
             or record.get('timesteps') != schedule['timesteps']):
         raise ValueError('Complete36 matching original-grid scale export required')
@@ -28,7 +29,7 @@ def frozen_weights(record, schedule, contract, fixture):
             or any(type(v) not in (int, float) or not math.isfinite(v) for v in coefficients+weights)
             or weights != [v*v for v in coefficients] or not any(v > 0 for v in weights)):
         raise ValueError('Complete squared finite current-velocity coefficients required')
-    if not fixture and (record.get('original_UniPC_source_sha256') != contract['original_UniPC_source_sha256']
+    if record['schema'] == original and (record.get('original_UniPC_source_sha256') != contract['original_UniPC_source_sha256']
                         or record.get('current_corrector_and_predictor_included') is not True
                         or record.get('terminal_sensitivity') is not False):
         raise ValueError('Pinned original UniPC numerical scale, without terminal-sensitivity substitution')

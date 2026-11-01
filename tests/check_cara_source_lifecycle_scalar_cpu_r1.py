@@ -2,6 +2,7 @@
 import importlib.util
 import json
 from pathlib import Path
+import subprocess
 import sys
 from unittest.mock import patch
 
@@ -9,7 +10,7 @@ import torch
 
 from wcomr import clean_speed20_r1 as clean
 from wcomr.cara_fast_spec_r1 import digest, profile_from
-from wcomr.cara_source_lifecycle_estimation_r1 import complete_samples, fit_validate_plan
+from wcomr.cara_source_lifecycle_estimation_r1 import complete_samples
 from wcomr.cara_source_lifecycle_scalar_collection_r1 import execute
 from wcomr.cara_source_lifecycle_weights_r1 import current_velocity_weights
 from wcomr.full_sampling import CompleteStateRoundtrip
@@ -91,7 +92,20 @@ def body(inference, selected, wc, rf, settings, inference_module, runtime, confi
                                       teacher_writes_parent=False, target_normalized=False,
                                       target='FP64_MSE_OF_ACTUAL_SAME_STATE_FP32_CFG'))
         samples = complete_samples(packet, design, manifest['schedule'])
-        candidates = fit_validate_plan(samples, design, manifest, scale['weights'])
+        labels_file = Path(artifact_root)/('source-scalar-labels-'+str(flow)+'.json')
+        scale_file = Path(artifact_root)/('original-UnIPC-scale-'+str(flow)+'.json')
+        candidates_file = Path(artifact_root)/('source-scalar-candidates-'+str(flow)+'.json')
+        for file, value in ((labels_file, packet), (scale_file, scale)):
+            with file.open('x') as stream:
+                json.dump(value, stream, indent=2, allow_nan=False)
+                stream.write('\n')
+        fitted = subprocess.run([sys.executable, str(root/'scripts/fit_cara_source_lifecycle_v1_r1.py'),
+                                 '--labels', str(labels_file), '--weights', str(scale_file),
+                                 '--fixture-only', '--output', str(candidates_file)],
+                                capture_output=True, text=True, timeout=60)
+        assert fitted.returncode == 0, fitted.stderr
+        candidates = json.loads(candidates_file.read_text())
+        assert candidates['CPU_fixture_only'] and not candidates['endpoint_selection_performed']
         assert len(samples) == 64 and len(candidates['families']) == 3
         initial.restore()
         assert initial.fingerprint() == origin

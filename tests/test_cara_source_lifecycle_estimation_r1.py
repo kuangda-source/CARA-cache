@@ -192,6 +192,7 @@ class Estimation(unittest.TestCase):
         record.update(original_UniPC_source_sha256=contract['original_UniPC_source_sha256'],
                       current_corrector_and_predictor_included=True, terminal_sensitivity=False)
         self.assertEqual(frozen_weights(record, schedule, contract, False), [1.]*36)
+        self.assertEqual(frozen_weights(record, schedule, contract, True), [1.]*36)
         mutations = [lambda r: r.update(terminal_sensitivity=True),
                      lambda r: r['weights'].pop(),
                      lambda r: r.update(original_UniPC_source_sha256='foreign'),
