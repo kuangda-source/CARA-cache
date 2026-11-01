@@ -1,0 +1,60 @@
+{
+  "schema": "CARA_READ_WRITE_TRANSITION_CPU_R1",
+  "observed_at": "2026-11-01T19:32:26.461667+08:00",
+  "passed": false,
+  "tests_run": 5,
+  "failures": [
+    {
+      "test": "test_full36_WC_RF_UniPC_graph_direction_matches_finite_difference (read_write_transition_CPU.FunctionalTransition)",
+      "detail": "Traceback (most recent call last):\n  File \"/Users/kuangda_gao/Documents/世界模型加速实验/worldcache_omr/tests/test_cara_read_write_transition_r1.py\", line 230, in test_full36_WC_RF_UniPC_graph_direction_matches_finite_difference\n    solver = FunctionalUniPC(scheduler)\n  File \"/Users/kuangda_gao/Documents/世界模型加速实验/worldcache_omr/src/wcomr/cara_read_write_state_r1.py\", line 66, in __init__\n    source = Path(inspect.getfile(type(scheduler)))\n  File \"/Users/kuangda_gao/Documents/世界模型加速实验/worldcache_omr/.venv/lib/python3.9/site-packages/torch/package/package_importer.py\", line 725, in _patched_getfile\n    return _orig_getfile(object)\n  File \"/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/inspect.py\", line 666, in getfile\n    raise TypeError('{!r} is a built-in class'.format(object))\nTypeError: <class 'read_write_transition_original_UniPC.FlowUniPCMultistepScheduler'> is a built-in class\n"
+    }
+  ],
+  "runtime": "/Users/kuangda_gao/Documents/世界模型加速实验/worldcache_omr/.sync/read-write-pinned-runtime-r1",
+  "torch_version": "2.8.0",
+  "metrics": {
+    "actual_C_cache_and_flow_RF_tiny_VJP": [
+      {
+        "group": "current_input",
+        "predicted": 0.008638857452085166,
+        "central_FD": 0.008637471415563758,
+        "absolute_error": 1.3860365214082154e-06,
+        "epsilon": 0.01,
+        "tolerance": 4e-06
+      },
+      {
+        "group": "cached_residual",
+        "predicted": 0.028620088117924172,
+        "central_FD": 0.02862165840043923,
+        "absolute_error": 1.570282515059307e-06,
+        "epsilon": 0.01,
+        "tolerance": 4e-06
+      }
+    ],
+    "C_working_state_is_nonidentity_and_differentiable": true,
+    "flow_False_full36": {
+      "exact_outputs": true,
+      "exact_complete_WC_state": true,
+      "exact_buffers": true,
+      "caller_and_each_input_state_unchanged": true,
+      "original70_call_cycle_reset_covered": true,
+      "total_branches": 72
+    },
+    "flow_True_full36": {
+      "exact_outputs": true,
+      "exact_complete_WC_state": true,
+      "exact_buffers": true,
+      "caller_and_each_input_state_unchanged": true,
+      "original70_call_cycle_reset_covered": true,
+      "total_branches": 72
+    }
+  },
+  "CPU_dependency_namespaces": true,
+  "tiny_model_weights": true,
+  "original_WC_RF_arithmetic": true,
+  "actual_Cosmos_weights": false,
+  "actual_Cosmos_model_VJP": false,
+  "terminal_LPIPS_VJP": false,
+  "complete_augmented_adjoint": false,
+  "GPU_submissions": 0,
+  "CUDA_initialized": false
+}

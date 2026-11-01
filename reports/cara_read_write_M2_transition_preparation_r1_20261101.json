@@ -1,0 +1,67 @@
+{
+  "schema": "CARA_READ_WRITE_M2_TRANSITION_PREPARATION_R1",
+  "observed_at": "2026-11-01T19:38:07.888464+08:00",
+  "status": "LOCAL_PINNED_CACHE_VJP_COMPONENT_ACCEPTED_LINUX_PENDING",
+  "component_ref": "reports/cara_read_write_transition_CPU_component_r4_20261101.json",
+  "component_sha256": "ed8709dc65d9beade4cb95cae153c4b117f967cbf20cd971cd622cf11fa9b4a7",
+  "plan_ref": "plans/cara_next_stage_20261101/read_write/M2_ADJOINT_IMPLEMENTATION_AND_HARD_ACTION_PLAN_R1.md",
+  "tests_run": 5,
+  "metrics": {
+    "actual_C_cache_and_flow_RF_tiny_VJP": [
+      {
+        "group": "current_input",
+        "predicted": 0.008638857452085166,
+        "central_FD": 0.008637471415563758,
+        "absolute_error": 1.3860365214082154e-06,
+        "epsilon": 0.01,
+        "tolerance": 4e-06
+      },
+      {
+        "group": "cached_residual",
+        "predicted": 0.028620088117924172,
+        "central_FD": 0.02862165840043923,
+        "absolute_error": 1.570282515059307e-06,
+        "epsilon": 0.01,
+        "tolerance": 4e-06
+      }
+    ],
+    "C_working_state_is_nonidentity_and_differentiable": true,
+    "full36_pinned_WC_RF_UniPC_tiny_graph": {
+      "predicted": 0.0008874006023975806,
+      "central_FD": 0.0008873937243733098,
+      "absolute_error": 6.878024270788596e-09,
+      "epsilon": 0.01,
+      "tolerance": 4e-06,
+      "actual_Cosmos_weights": false,
+      "terminal_loss": "declared_synthetic_latent_MSE"
+    },
+    "flow_False_full36": {
+      "exact_outputs": true,
+      "exact_complete_WC_state": true,
+      "exact_buffers": true,
+      "caller_and_each_input_state_unchanged": true,
+      "original70_call_cycle_reset_covered": true,
+      "total_branches": 72
+    },
+    "flow_True_full36": {
+      "exact_outputs": true,
+      "exact_complete_WC_state": true,
+      "exact_buffers": true,
+      "caller_and_each_input_state_unchanged": true,
+      "original70_call_cycle_reset_covered": true,
+      "total_branches": 72
+    }
+  },
+  "M1_original_operational_ref": "reports/cara_read_write_goal_original_status_r6_20261101.json",
+  "M1_complete_paths": 4,
+  "M1_denominator": 14,
+  "M1_technical_failures": 0,
+  "M1_source_changed": false,
+  "actual_Cosmos_weights": false,
+  "actual_Cosmos_model_VJP": false,
+  "terminal_LPIPS_VJP": false,
+  "complete_augmented_adjoint": false,
+  "new_GPU_submissions": 0,
+  "ledger_written": false,
+  "scientific_result_added": false
+}

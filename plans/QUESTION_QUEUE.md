@@ -2,6 +2,8 @@
 
 2026-11-01当前主线：读写价值候选的[M1完整14/512](../research/830_CARA_READ_WRITE_M1_ACTUAL_GPU_START_AND_ACCEPTANCE_SCHEDULE_20261101.md)已于18:49:24在原A6000实际启动，唯一launch为7949388215944eb98c7f64f21e8e1dd1。预计1.6048、硬1.95GPUh；19:38半程、20:28终验，原硬截止20:46:24。仅[恢复原运行](cara_next_stage_20261101/read_write/M1_FULL14_POST_LAUNCH_HANDOFF_20261101.md)，完整14正常释放与唯一实际结算后才作四latent/93RGB等价门与八对一次评分。等待期完整分析/93帧导图CPU已就绪；真实科学结果未读，旧冻结与TEST保持。
 
+2026-11-01等待期已推进[M2缓存转移导数](../research/831_CARA_READ_WRITE_M2_PINNED_CACHE_TRANSITION_AND_VJP_CPU_20261101.md)：五项本地CPU控制通过，实际WC/RF递推及原UniPC36步小模型整图梯度与有限差分一致；下一步实际Linux namespace、真实模型VJP、VAE/Alex终点与硬交换效用。见[M2实现安排](cara_next_stage_20261101/read_write/M2_ADJOINT_IMPLEMENTATION_AND_HARD_ACTION_PLAN_R1.md)。当前仍无新M2 GPU/账本权限，原M1继续唯一恢复。
+
 2026-10-30 主线更新。现行依据为[最新总计划](cara_next_stage_20261028/01_Master_Experiment_Plan.md)、[S/Q修订](cara_next_stage_20261028/02_SQ_Method_and_Experiments.md)和[接收/两对话分工](cara_next_stage_20261028/08_REPOSITORY_RECONCILIATION.md)。原R16[逐字归档](cara_next_stage_20261028/QUESTION_QUEUE_BEFORE_R17.md)。本轮仅更新主线；S/Q 行保留所属对话原登记，最新状态以其独立回执为准。已完成执行以原接受为准，后续提案不授予新 GPU。
 
 | 阶段 / 负责人 | 当前状态 | 下一步与边界 |

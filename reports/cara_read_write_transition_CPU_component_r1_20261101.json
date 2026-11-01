@@ -1,0 +1,55 @@
+{
+  "schema": "CARA_READ_WRITE_TRANSITION_CPU_R1",
+  "observed_at": "2026-11-01T19:30:05.191115+08:00",
+  "passed": true,
+  "tests_run": 4,
+  "failures": [],
+  "runtime": "/Users/kuangda_gao/Documents/世界模型加速实验/worldcache_omr/.sync/read-write-pinned-runtime-r1",
+  "torch_version": "2.8.0",
+  "metrics": {
+    "actual_C_cache_and_flow_RF_tiny_VJP": [
+      {
+        "group": "current_input",
+        "predicted": 2.304425616866509e-06,
+        "central_FD": 2.002942887935344e-06,
+        "absolute_error": 3.0148272893116494e-07,
+        "epsilon": 0.01,
+        "tolerance": 4e-06
+      },
+      {
+        "group": "cached_residual",
+        "predicted": 0.0002281011142663,
+        "central_FD": 0.0002273596503080122,
+        "absolute_error": 7.414639582878162e-07,
+        "epsilon": 0.01,
+        "tolerance": 4e-06
+      }
+    ],
+    "C_working_state_is_nonidentity_and_differentiable": true,
+    "flow_False_full36": {
+      "exact_outputs": true,
+      "exact_complete_WC_state": true,
+      "exact_buffers": true,
+      "caller_and_each_input_state_unchanged": true,
+      "original70_call_cycle_reset_covered": true,
+      "total_branches": 72
+    },
+    "flow_True_full36": {
+      "exact_outputs": true,
+      "exact_complete_WC_state": true,
+      "exact_buffers": true,
+      "caller_and_each_input_state_unchanged": true,
+      "original70_call_cycle_reset_covered": true,
+      "total_branches": 72
+    }
+  },
+  "CPU_dependency_namespaces": true,
+  "tiny_model_weights": true,
+  "original_WC_RF_arithmetic": true,
+  "actual_Cosmos_weights": false,
+  "actual_Cosmos_model_VJP": false,
+  "terminal_LPIPS_VJP": false,
+  "complete_augmented_adjoint": false,
+  "GPU_submissions": 0,
+  "CUDA_initialized": false
+}

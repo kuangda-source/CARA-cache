@@ -3219,11 +3219,11 @@
   "current_preparation_id": "PG-READ-WRITE-M1-FULL14",
   "read_write_mainline_preparation_20261101": {
     "status": "ORIGINAL_M1_RUNNING_COMPLETE_RESULTS_NOT_READ",
-    "research_ref": "research/830_CARA_READ_WRITE_M1_ACTUAL_GPU_START_AND_ACCEPTANCE_SCHEDULE_20261101.md",
-    "receipt_ref": "reports/cara_read_write_M1_running_progress_r1_20261101.json",
-    "receipt_sha256": "ca58f322239d327b8512dca45a1187723fd3593fde4fc4a0129df7b52285c952",
-    "notice_title": "830 — 读写价值M1实际GPU启动与全链验收安排",
-    "summary": "读写价值主线已进入真实M1运行：两卡原A6000于2026-11-01 **18:49:24.756352 Asia/Shanghai**启动完整14请求，预计1.6048GPUh、硬限1.95GPUh；唯一runner的CUDA上下文与EXCLUSIVE_PROCESS独占通过。半程19:38、终验20:28已设置。当前仍是执行进度，科学结果须完整14生成、释放与结算后统一接受。",
+    "research_ref": "research/831_CARA_READ_WRITE_M2_PINNED_CACHE_TRANSITION_AND_VJP_CPU_20261101.md",
+    "receipt_ref": "reports/cara_read_write_M2_transition_preparation_r1_20261101.json",
+    "receipt_sha256": "9e980dc00760b94505c53836ed04eb0b9c36d8a3e8b79d70a01fa40c17885956",
+    "notice_title": "831 — M1原运行与M2缓存导数接线",
+    "summary": "M1原GPU推进到4/14、0技术失败，原硬1.95GPUh及双检查保持。等待期间M2固定WC/RF缓存转移的五项本地CPU控制通过，完整36硬前向/缓存/buffer逐值等价，实际UniPC整图小模型梯度通过有限差分；真实Cosmos模型/视频LPIPS伴随及硬交换效用仍待。未读M1部分科学输出、未改原GPU源或新增卡。",
     "plan_ref": "plans/cara_next_stage_20261101/read_write/README.md",
     "protocol_ref": "plans/cara_next_stage_20261101/read_write/EXPERIMENT_PROTOCOL_R1.json",
     "M0_CPU_ref": "reports/cara_read_write_M0_CPU_component_r2_20261101.json",
@@ -3255,12 +3255,14 @@
     "authorization_ref": "plans/cara_next_stage_20261101/read_write/M1_SINGLE1P95GPUH_AUTHORIZATION_R1.json",
     "actual_start_ref": "reports/cara_read_write_actual_start_accepted_r1_20261101.json",
     "acceptance_schedule_ref": "reports/cara_read_write_acceptance_schedule_r1_20261101.json",
-    "new_GPU_authority_needed": false
+    "new_GPU_authority_needed": false,
+    "M2_plan_ref": "plans/cara_next_stage_20261101/read_write/M2_ADJOINT_IMPLEMENTATION_AND_HARD_ACTION_PLAN_R1.md",
+    "M2_transition_CPU_ref": "reports/cara_read_write_transition_CPU_component_r4_20261101.json"
   },
   "read_write_M1_execution_20261101": {
     "status": "ORIGINAL_M1_RUNNING_COMPLETE_RESULTS_NOT_READ",
     "actual_start_ref": "reports/cara_read_write_actual_start_accepted_r1_20261101.json",
-    "operational_ref": "reports/cara_read_write_first_point_operational_r5_20261101.json",
+    "operational_ref": "reports/cara_read_write_goal_original_status_r6_20261101.json",
     "central_reservation_ref": "reports/cara_read_write_central_reservation_r1_20261101.json",
     "schedule_ref": "reports/cara_read_write_acceptance_schedule_r1_20261101.json",
     "source_revision": "b930df4b04a0924d8bea0af32c0f7aaf8c33a5c8",
@@ -3310,5 +3312,17 @@
     },
     "GPU_source_or_configuration_changed": false,
     "scientific_accepted": false
+  },
+  "read_write_M2_transition_preparation_20261101": {
+    "status": "LOCAL_PINNED_CACHE_VJP_COMPONENT_ACCEPTED_LINUX_PENDING",
+    "research_ref": "research/831_CARA_READ_WRITE_M2_PINNED_CACHE_TRANSITION_AND_VJP_CPU_20261101.md",
+    "receipt_ref": "reports/cara_read_write_M2_transition_preparation_r1_20261101.json",
+    "plan_ref": "plans/cara_next_stage_20261101/read_write/M2_ADJOINT_IMPLEMENTATION_AND_HARD_ACTION_PLAN_R1.md",
+    "local_CPU_ref": "reports/cara_read_write_transition_CPU_component_r4_20261101.json",
+    "Linux_CPU_accepted": false,
+    "main_method_established": false,
+    "actual_Cosmos_model_VJP": false,
+    "terminal_LPIPS_VJP": false,
+    "new_GPU_submissions": 0
   }
 }
