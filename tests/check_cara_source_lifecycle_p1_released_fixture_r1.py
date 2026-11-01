@@ -52,7 +52,8 @@ def build(project):
     weights=[1.]*36
     atomic_json(stage/WEIGHTS,dict(weights=weights,CPU_fixture_only=True))
     capture,_,job=lifecycle_fixture(host='two_card',gpu_uuid=GPU,run_id=RUN_ID,billed_limit_GPUh=18.)
-    launch=record(capture,'launch');launch.update(stage=str(stage),scope_sha256=card['scope_sha256'],container=stage.name+'-gpu')
+    launch=record(capture,'launch');launch.update(stage=str(stage),scope_sha256=card['scope_sha256'],
+                                               container=stage.name+'-gpu',admission_sha256='3'*64)
     allocation={k:launch[k] for k in IDENTITY}
     for name in ('authorization','pending_release','billing','guardian'):put(capture,name,dict(record(capture,name),**allocation))
     authority=record(capture,'authorization');authority['card_kind']=KIND;put(capture,'authorization',authority)

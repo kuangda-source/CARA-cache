@@ -24,14 +24,18 @@ def main():
     assert all(sha(args.stage/n)==h for n,h in reg['payload_sha256'].items())
     assert all(sha(args.runtime/n)==h for n,h in reg['runtime_source_sha256'].items())
     old=json.loads((args.stage/'reports/cara_v1_P1_release_Linux_CPU_original_failure_r1_20261102.json').read_bytes())
-    captured_file=args.stage/old['capture_ref'];assert sha(captured_file)==old['capture_sha256']
-    previous=json.loads(captured_file.read_bytes())['result']
-    assert previous['container_state']['Status']=='exited' and previous['container_state']['Pid']==0
-    assert previous['container_state']['ExitCode']==1 and previous['CPU_proof'] is None
+    previous=json.loads((args.stage/'reports/cara_v1_P1_release_R1_original_21_control_binding_r1_20261102.json').read_bytes())
+    assert previous['original_capture_sha256']==old['capture_sha256'] and previous['whole_CPU_accepted'] is False
+    assert previous['original_container_state']['Status']=='exited' and previous['original_container_state']['Pid']==0
+    assert previous['original_container_state']['ExitCode']==1
     assert previous['payload_intact'] and previous['runtime_intact']
-    assert len(re.findall(r'^test_.* \.\.\. ok$',previous['log_tail'],re.M))==21
-    assert 'Ran 21 tests' in previous['log_tail'] and '\nOK\n' in previous['log_tail']
-    changed={n for n,h in previous['registration']['payload_sha256'].items() if reg['payload_sha256'].get(n)!=h}
+    original_stage=Path(previous['original_stage']);assert original_stage.parent==args.stage.parent
+    assert sha(original_stage/'registration.json')==previous['registration_sha256']==old['registration_sha256']
+    old_reg=json.loads((original_stage/'registration.json').read_bytes())
+    assert (original_stage/'CPU.log').read_text().endswith(previous['original_log_tail'])
+    assert len(re.findall(r'^test_.* \.\.\. ok$',previous['original_log_tail'],re.M))==21
+    assert 'Ran 21 tests' in previous['original_log_tail'] and '\nOK\n' in previous['original_log_tail']
+    changed={n for n,h in old_reg['payload_sha256'].items() if reg['payload_sha256'].get(n)!=h}
     assert changed=={'tests/check_cara_source_lifecycle_p1_released_fixture_r1.py'}
     sys.path[:0]=[str(args.stage/'src'),str(args.stage/'scripts'),str(args.stage/'tests')]
     scratch=args.stage/'CPU-release-scratch';scratch.mkdir();tempfile.tempdir=str(scratch)

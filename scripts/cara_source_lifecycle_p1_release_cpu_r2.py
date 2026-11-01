@@ -15,7 +15,7 @@ ROOT=Path(__file__).resolve().parents[1]
 STAGE='cara-source-lifecycle-P1-release-CPU-a6000-r2-20261102'
 OVERLAY=ORIGINAL+('src/wcomr/cara_source_lifecycle_p1_analysis_r1.py','tests/test_cara_source_lifecycle_p1_analysis_r1.py',
     'reports/cara_v1_P1_release_Linux_CPU_original_failure_r1_20261102.json',
-    'reports/cara_v1_P1_release_Linux_CPU_capture_r2_20261102.json',
+    'reports/cara_v1_P1_release_R1_original_21_control_binding_r1_20261102.json',
     'scripts/check_cara_source_lifecycle_p1_release_cpu_r2.py','scripts/cara_source_lifecycle_p1_release_cpu_r2.py')
 assert PREVIOUS.count('check_cara_source_lifecycle_p1_release_cpu_r1.py')==1
 REMOTE=PREVIOUS.replace('check_cara_source_lifecycle_p1_release_cpu_r1.py','check_cara_source_lifecycle_p1_release_cpu_r2.py')
