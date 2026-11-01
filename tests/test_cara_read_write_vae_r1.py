@@ -19,7 +19,7 @@ RUNTIME = Path(os.environ.get('CARA_READ_WRITE_VAE_RUNTIME', ROOT/'.sync/read-wr
 METRICS = {}
 
 
-def fixture():
+def pinned_module():
     module = types.ModuleType('read_write_Wan21_declared_CPU')
     module.__file__ = str(RUNTIME/WAN_PATH)
     sys.modules[module.__name__] = module
@@ -33,6 +33,11 @@ def fixture():
     future = ast.ImportFrom(module='__future__', names=[ast.alias(name='annotations')], level=0)
     exec(compile(ast.fix_missing_locations(ast.Module(body=[future]+nodes, type_ignores=[])),
                  str(RUNTIME/WAN_PATH), 'exec'), vars(module))
+    return module
+
+
+def fixture():
+    module = pinned_module()
 
     class TinyCausalDecoder(torch.nn.Module):
         def __init__(self):

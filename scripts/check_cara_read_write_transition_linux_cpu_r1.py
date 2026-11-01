@@ -12,7 +12,7 @@ import unittest
 
 
 def main(*, suite='transition'):
-    assert suite in ('transition', 'adjoint')
+    assert suite in ('transition', 'adjoint', 'vae')
     parser = argparse.ArgumentParser(description=__doc__)
     for name in ('runtime', 'stage', 'output'):
         parser.add_argument('--'+name, type=Path, required=True)
@@ -27,7 +27,7 @@ def main(*, suite='transition'):
     assert all(sha(args.stage/name) == digest for name,digest in reg['payload_sha256'].items())
     assert all(sha(args.runtime/name) == digest for name,digest in reg['runtime_source_sha256'].items())
     os.environ.update(HF_HUB_OFFLINE='1', TRANSFORMERS_OFFLINE='1', TORCHINDUCTOR_COMPILE_THREADS='1',
-                      CARA_READ_WRITE_RUNTIME=str(args.runtime))
+                      CARA_READ_WRITE_RUNTIME=str(args.runtime), CARA_READ_WRITE_VAE_RUNTIME=str(args.runtime))
     sys.path[:0] = [str(args.stage/'src'), str(args.stage/'scripts'), str(args.stage/'tests'),
         str(args.runtime), str(args.runtime/'packages/cosmos-oss'), str(args.runtime/'packages/cosmos-cuda')]
     import torch
@@ -65,15 +65,22 @@ def main(*, suite='transition'):
          torch.cuda.current_device) = saved
     assert wc.worldcache_mini_train_dit_forward.__globals__ is vars(wc)
     assert rf.Video2WorldModelRectifiedFlow.denoise.__globals__ is vars(rf)
-    import test_cara_read_write_transition_r1 as fixture
-    fixture.modules = lambda: (wc, rf)
-    fixture.DataType = wc.DataType
-    if suite == 'adjoint':
-        import test_cara_read_write_adjoint_r1 as tests
+    if suite == 'vae':
+        from cosmos_predict2._src.predict2.tokenizers import wan2pt1
+        import test_cara_read_write_vae_r1 as tests
+        tests.pinned_module = lambda: wan2pt1
+        expected_tests = 3
     else:
-        tests = fixture
+        import test_cara_read_write_transition_r1 as fixture
+        fixture.modules = lambda: (wc, rf)
+        fixture.DataType = wc.DataType
+        if suite == 'adjoint':
+            import test_cara_read_write_adjoint_r1 as tests
+        else:
+            tests = fixture
+        expected_tests = 5
     result = unittest.TextTestRunner(verbosity=2).run(unittest.defaultTestLoader.loadTestsFromModule(tests))
-    assert result.wasSuccessful() and result.testsRun == 5 and not result.skipped
+    assert result.wasSuccessful() and result.testsRun == expected_tests and not result.skipped
     assert not torch.cuda.is_initialized()
     signal.alarm(60)
     faulthandler.enable()
@@ -85,12 +92,15 @@ def main(*, suite='transition'):
         host=args.host, started_unix=started, ended_unix=time.time(), actual_CPU_affinity=[26],
         source_revision=reg['parent_git_revision'], registration_sha256=sha(args.stage/'registration.json'),
         payload_sha256=reg['payload_sha256'], runtime_source_sha256=reg['runtime_source_sha256'],
-        tests_run=5, metrics=tests.METRICS, torch_version=torch.__version__,
+        tests_run=expected_tests, metrics=tests.METRICS, torch_version=torch.__version__,
         actual_WC_RF_imports_and_globals_accepted=True, CPU_import_adapters_used=True,
         tiny_model_weights=True, actual_Cosmos_weights=False, actual_Cosmos_model_VJP=False,
         terminal_LPIPS_VJP=False, complete_augmented_adjoint=False, complete_tiny_adjoint=suite=='adjoint',
         CUDA_initialized=False,
         GPU_submissions=0, ledger_written=False, work_seconds=600, exit_seconds=60)
+    if suite == 'vae':
+        proof_path = args.runtime/tests.WAN_PATH
+        receipt.update(actual_Wan21_import=True, VAE_source_sha256=sha(proof_path), actual_pretrained_VAE=False)
     with args.output.open('x') as stream:
         json.dump(receipt, stream, indent=2, allow_nan=False)
         stream.write('\n')
