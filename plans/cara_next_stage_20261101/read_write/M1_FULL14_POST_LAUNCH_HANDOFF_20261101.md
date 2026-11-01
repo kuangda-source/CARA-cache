@@ -36,3 +36,7 @@ CPU评分环境仍复用原离线Alex/PIQ原权重，不下载。M1只识别同�
 [半程接受](../../../reports/cara_read_write_halfway_accepted_r1_20261101.json)后已删除m1；[检查R2](../../../reports/cara_read_write_acceptance_schedule_r2_20261101.json)保留同一m1-2于20:28，原定义SHA不变。按计数/墙钟无需前移，未新建检查、未延长硬截止。若遇已排队的旧半程消息，复用此原件，不重复半程动作。
 
 M2仅独立CPU准备：[固定源码缓存导数与实现安排](M2_ADJOINT_IMPLEMENTATION_AND_HARD_ACTION_PLAN_R1.md)。其新源和CPU stage不改变本M1的b930df4b源/容器/配置；后续卡不继承本卡账本许可。
+
+## 20:13原运行与CPU承接
+
+[原运维](../../../reports/cara_read_write_preterminal_original_status_r1_20261101.json)：12/14、0技术失败，原四句柄存活、独占、87°C；仍运行，不结算、不读部分科学结果。同一20:28终验保持。M2独立的缓存转移与小模型伴随CPU均已原终态接受并退出，见[833](../../../research/833_CARA_M2_ORIGINAL_LINUX_ADJOINT_ACCEPTED_AND_VAE_BACKWARD_BOUNDARY_20261101.md)，不再prepare/replay；它们没有修改本卡GPU源或构成真实模型科学结果。

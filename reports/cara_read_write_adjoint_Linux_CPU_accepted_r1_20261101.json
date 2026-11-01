@@ -1,0 +1,135 @@
+{
+  "status": "ORIGINAL_READ_WRITE_ADJOINT_LINUX_CPU_ACCEPTED_TINY_NOT_COSMOS",
+  "source_revision": "22ee936b24acf935817bb88273d72218085bb936",
+  "launch_ref": "reports/cara_read_write_adjoint_Linux_CPU_prepare_r2_20261101.json",
+  "launch_sha256": "2b2e16ec797d30279001f47bcf6d7bd0c79890c72ca81645d17e8613ee7b5816",
+  "capture_ref": "reports/cara_read_write_adjoint_Linux_CPU_capture_r2_20261101.json",
+  "capture_sha256": "bb783e8e1b48d0692d26f5a4e7eaf715dad08d19db98170fa06bf91bb8be13a2",
+  "launch": {
+    "status": "PAPER_TIMING_CPU_LAUNCHED_NOT_GPU",
+    "host": "two_card",
+    "stage": "/data20t/gaokuangda/worldcache_workspace/.sync/cara-read-write-adjoint-CPU-a6000-r1-20261101",
+    "container": "cara-read-write-adjoint-CPU-a6000-r1-20261101-cpu",
+    "registration_sha256": "8c1322be1bf510c4df22ffb17d949175f1215bbeb5d1a3e4fca756eb3838479f",
+    "pid": 2979150,
+    "started_unix": 1793534777.7985091,
+    "MemAvailable_before": 35737628672,
+    "free_disk_before": 845730131968,
+    "GPU_submissions": 0,
+    "ledger_written": false
+  },
+  "container_state": {
+    "Status": "exited",
+    "Running": false,
+    "Paused": false,
+    "Restarting": false,
+    "OOMKilled": false,
+    "Dead": false,
+    "Pid": 0,
+    "ExitCode": 0,
+    "Error": "",
+    "StartedAt": "2026-11-01T12:06:17.929579536Z",
+    "FinishedAt": "2026-11-01T12:06:54.596260586Z"
+  },
+  "registration_sha256": "8c1322be1bf510c4df22ffb17d949175f1215bbeb5d1a3e4fca756eb3838479f",
+  "CPU_proof_sha256": "91807df83f3f9b73f7814f115ab838083faedd09d9c0e31ccf6411cad2d16c05",
+  "affected_source_sha256": {
+    "src/wcomr/cara_read_write_adjoint_r1.py": "d644e10e6f3e22a6c78522bc698bc5e50848759bd1c4b99bb41f1c016677b831",
+    "src/wcomr/cara_read_write_transition_r1.py": "0180ea523d7b4a7f5f1a7083aa500964c16019f83b5cf3a7286aa6da9bc14317",
+    "src/wcomr/cara_read_write_state_r1.py": "8f395654cf751e75cf53e3fd607c4ecf40a509f41ef0d8217c268c59249f5afa",
+    "tests/test_cara_read_write_adjoint_r1.py": "9c7c1991f2214240e32144d8a2622fcb30202b81a29f27e50dad04972e96c0e6",
+    "tests/test_cara_read_write_transition_r1.py": "92a30401114a72d90adf12b83d1114be90254fac4d17d36782ac897c31e8c446",
+    "scripts/check_cara_read_write_transition_linux_cpu_r1.py": "01210cd14eb2a03a9d643446c6cb8a2bab5c8d950b722d92665edceb1c7e0da3",
+    "scripts/check_cara_read_write_adjoint_linux_cpu_r1.py": "aa5a89cb32b7e500bf41f9599d06dbf5c825565c6885aa46fd33a6d2751d0df8",
+    "plans/cara_next_stage_20261101/e1/ENDPOINT7_46_MANIFEST_R1.json": "b51c6342eaeb5aacc0eeb6bffa40957c974a5d71fdbf3c04f8db2f08ba1fe8a5"
+  },
+  "tests_run": 5,
+  "torch_version": "2.7.1+cu128",
+  "metrics": {
+    "dense_incumbent_same_D_minus_C_sign": {
+      "values": {
+        "read": 0.004480858331406824,
+        "write": 0.0,
+        "total": 0.004480858331406824,
+        "incumbent": "D",
+        "continuous_coordinates": 30,
+        "discrete_metadata_gradient": false,
+        "exact_hard_endpoint_gain": false
+      },
+      "central_FD": 0.004480858331401549
+    },
+    "full36_recomputed_adjoint": {
+      "max_absolute_error": 8.673617379884035e-17,
+      "agrees_with_direct_graph": true,
+      "snapshots_unchanged": true,
+      "actual_Cosmos_weights": false
+    },
+    "actual_WC_post35_no_future_cache_consumer": {
+      "read": 4.0477718117928075e-06,
+      "write": 0.0,
+      "total": 4.0477718117928075e-06,
+      "incumbent": "C",
+      "continuous_coordinates": 9,
+      "discrete_metadata_gradient": false,
+      "exact_hard_endpoint_gain": false
+    },
+    "actual_WC_tiny_point8_auxiliary_derivatives": [
+      {
+        "group": "read",
+        "predicted": 1.4482703417859827e-06,
+        "central_FD": 1.4500939787831513e-06,
+        "absolute_error": 1.823636997168591e-09,
+        "epsilon": 0.5,
+        "tolerance": 7.241351708929913e-08
+      },
+      {
+        "group": "read",
+        "predicted": 1.4482703417859827e-06,
+        "central_FD": 1.4540255856565487e-06,
+        "absolute_error": 5.755243870566033e-09,
+        "epsilon": 1.0,
+        "tolerance": 7.241351708929913e-08
+      },
+      {
+        "group": "write",
+        "predicted": 2.096662125749553e-05,
+        "central_FD": 2.1059482142038455e-05,
+        "absolute_error": 9.28608845429248e-08,
+        "epsilon": 0.1,
+        "tolerance": 1.0483310628747765e-06
+      },
+      {
+        "group": "write",
+        "predicted": 2.096662125749553e-05,
+        "central_FD": 2.1033965636463314e-05,
+        "absolute_error": 6.734437896778429e-08,
+        "epsilon": 0.2,
+        "tolerance": 1.0483310628747765e-06
+      },
+      {
+        "group": "total",
+        "predicted": 2.2414891599281512e-05,
+        "central_FD": 2.23798816417764e-05,
+        "absolute_error": 3.500995750511211e-08,
+        "epsilon": 0.1,
+        "tolerance": 1.1207445799640757e-06
+      },
+      {
+        "group": "total",
+        "predicted": 2.2414891599281512e-05,
+        "central_FD": 2.241292644894477e-05,
+        "absolute_error": 1.965150336742335e-09,
+        "epsilon": 0.2,
+        "tolerance": 1.1207445799640757e-06
+      }
+    ]
+  },
+  "wall_seconds": 33.80520415306091,
+  "actual_Linux_imports": true,
+  "complete_tiny_adjoint": true,
+  "actual_Cosmos_weights": false,
+  "real_Cosmos_adjoint": false,
+  "video_terminal_VJP": false,
+  "GPU_submissions": 0,
+  "ledger_written": false
+}

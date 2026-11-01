@@ -1834,7 +1834,7 @@
     "independent_new_inputs": false,
     "complete_QA_ref": "reports/cara_fast_A6000_complete_frozen_QA_20261029_0115.json"
   },
-  "current_evidence_observed_at": "2026-11-01T19:59:24.580154+08:00",
+  "current_evidence_observed_at": "2026-11-01T20:16:23.535253+08:00",
   "fast_B36_CPU_preparation_20261029": {
     "status": "ACCEPTED_DUAL_HOST_COMPLETE_B36_CPU_CONTINUATION_ONLY",
     "accepted_receipt_ref": "reports/cara_fast_B36_CPU_acceptance_r1_20261029.json",
@@ -3219,11 +3219,11 @@
   "current_preparation_id": "PG-READ-WRITE-M1-FULL14",
   "read_write_mainline_preparation_20261101": {
     "status": "ORIGINAL_M1_RUNNING_COMPLETE_RESULTS_NOT_READ",
-    "research_ref": "research/832_CARA_M1_HALFWAY_AND_M2_LINUX_TRANSITION_TINY_ADJOINT_20261101.md",
-    "receipt_ref": "reports/cara_read_write_M2_linux_transition_and_tiny_adjoint_r1_20261101.json",
-    "receipt_sha256": "bb25e3c1c9201165387770a54429f9a1fae671a49d61c2997c411afd8cad8df8",
-    "notice_title": "832 — M1半程正常，M2缓存导数与小模型伴随推进",
-    "summary": "原M1半程7/14、0技术失败，四原句柄与独占正常；m1已删除，同一m1-2终验20:28保持，硬1.95GPUh不变。M2固定源码缓存转移已实际Linux CPU接受，原容器退出0；离散伴随/读写值另通过五项本地小模型核对。真实Cosmos权重、视频终点反向和硬交换效用仍待，未读M1部分科学结果或新增GPU。",
+    "research_ref": "research/833_CARA_M2_ORIGINAL_LINUX_ADJOINT_ACCEPTED_AND_VAE_BACKWARD_BOUNDARY_20261101.md",
+    "receipt_ref": "reports/cara_read_write_M2_original_Linux_adjoint_progress_r1_20261101.json",
+    "receipt_sha256": "8760348de636a6e8a50da024670c21a61ff58f87f7829cc6cab9a71357e8dc1b",
+    "notice_title": "833 — M2原Linux伴随通过，M1推进12/14",
+    "summary": "原M1于20:13:24推进12/14、0技术失败，原四句柄和独占正常，硬1.95GPUh与20:28终验保持。M2可微缓存转移与完整状态小模型伴随均已实际Linux CPU接受，各五项、原容器正常退出；真实模型/视频终点/硬swap仍待。原VAE no_grad及时间缓存依赖已定位，未读部分M1科学结果或新增GPU。",
     "plan_ref": "plans/cara_next_stage_20261101/read_write/README.md",
     "protocol_ref": "plans/cara_next_stage_20261101/read_write/EXPERIMENT_PROTOCOL_R1.json",
     "M0_CPU_ref": "reports/cara_read_write_M0_CPU_component_r2_20261101.json",
@@ -3259,12 +3259,14 @@
     "M2_plan_ref": "plans/cara_next_stage_20261101/read_write/M2_ADJOINT_IMPLEMENTATION_AND_HARD_ACTION_PLAN_R1.md",
     "M2_transition_CPU_ref": "reports/cara_read_write_transition_CPU_component_r4_20261101.json",
     "M2_transition_Linux_ref": "reports/cara_read_write_transition_Linux_CPU_accepted_r1_20261101.json",
-    "M2_adjoint_local_ref": "reports/cara_read_write_adjoint_CPU_component_r2_20261101.json"
+    "M2_adjoint_local_ref": "reports/cara_read_write_adjoint_CPU_component_r2_20261101.json",
+    "M2_adjoint_Linux_ref": "reports/cara_read_write_adjoint_Linux_CPU_accepted_r1_20261101.json",
+    "M2_VAE_source_audit_ref": "reports/cara_read_write_vae_backward_source_audit_r1_20261101.json"
   },
   "read_write_M1_execution_20261101": {
     "status": "ORIGINAL_M1_RUNNING_COMPLETE_RESULTS_NOT_READ",
     "actual_start_ref": "reports/cara_read_write_actual_start_accepted_r1_20261101.json",
-    "operational_ref": "reports/cara_read_write_halfway_original_status_r1_20261101.json",
+    "operational_ref": "reports/cara_read_write_preterminal_original_status_r1_20261101.json",
     "central_reservation_ref": "reports/cara_read_write_central_reservation_r1_20261101.json",
     "schedule_ref": "reports/cara_read_write_acceptance_schedule_r2_20261101.json",
     "source_revision": "b930df4b04a0924d8bea0af32c0f7aaf8c33a5c8",
@@ -3319,9 +3321,9 @@
     "halfway_automation_deleted": true
   },
   "read_write_M2_transition_preparation_20261101": {
-    "status": "ACTUAL_LINUX_TRANSITION_ACCEPTED_LOCAL_TINY_ADJOINT_ACCEPTED",
-    "research_ref": "research/832_CARA_M1_HALFWAY_AND_M2_LINUX_TRANSITION_TINY_ADJOINT_20261101.md",
-    "receipt_ref": "reports/cara_read_write_M2_linux_transition_and_tiny_adjoint_r1_20261101.json",
+    "status": "LINUX_TRANSITION_AND_TINY_ADJOINT_ACCEPTED_REAL_WEIGHT_BRIDGE_PENDING",
+    "research_ref": "research/833_CARA_M2_ORIGINAL_LINUX_ADJOINT_ACCEPTED_AND_VAE_BACKWARD_BOUNDARY_20261101.md",
+    "receipt_ref": "reports/cara_read_write_M2_original_Linux_adjoint_progress_r1_20261101.json",
     "plan_ref": "plans/cara_next_stage_20261101/read_write/M2_ADJOINT_IMPLEMENTATION_AND_HARD_ACTION_PLAN_R1.md",
     "local_CPU_ref": "reports/cara_read_write_transition_CPU_component_r4_20261101.json",
     "Linux_CPU_accepted": true,
@@ -3334,6 +3336,8 @@
     "complete_tiny_adjoint": true,
     "real_Cosmos_adjoint": false,
     "video_terminal_VJP": false,
-    "adjoint_Linux_CPU_accepted": false
+    "adjoint_Linux_CPU_accepted": true,
+    "adjoint_Linux_ref": "reports/cara_read_write_adjoint_Linux_CPU_accepted_r1_20261101.json",
+    "VAE_source_audit_ref": "reports/cara_read_write_vae_backward_source_audit_r1_20261101.json"
   }
 }

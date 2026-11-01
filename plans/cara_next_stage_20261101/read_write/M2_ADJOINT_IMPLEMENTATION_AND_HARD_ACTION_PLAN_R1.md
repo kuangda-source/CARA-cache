@@ -41,3 +41,9 @@ M1完整接受后，先判断写作用是否可辨识，再冻结M2实际完整�
 ## 19:56实现增量
 
 固定源码缓存转移已由[两卡原CPU终态](../../../reports/cara_read_write_transition_Linux_CPU_accepted_r1_20261101.json)接受五项，44.91秒、容器退出0。另已实现`cara_read_write_adjoint_r1.py`的完整状态余向量/VJP与read/write硬动作差收缩；[本地五项](../../../reports/cara_read_write_adjoint_CPU_component_r2_20261101.json)覆盖36步重算伴随对整图梯度、两幅度辅助方向差分、D起点符号、重置后零write和错位拒绝。原FP32小read方向的精度失败单列保留，未改原RF算术。当前状态坐标保留实际原窗口拓扑；合法内点C/D要求全部已占槽路径对齐，仅原漂移标量的literal0 reset显式对齐。全局固定槽/validity/source-sigma映射与真实GPU资源仍是未完成项。
+
+## 20:08原Linux伴随接受与下一道关
+
+[原伴随CPU](../../../reports/cara_read_write_adjoint_Linux_CPU_accepted_r1_20261101.json)已退出0，实际导入下五项通过，33.805秒；首次网络未知经stage/容器明确不存在后才进入同一stage首次实际准备，原证据见833。现在两段CPU均结束，只恢复原件。
+
+[VAE源码审计](../../../reports/cara_read_write_vae_backward_source_audit_r1_20261101.json)明确上游外层model与WanVAE两处no_grad、Wan2.1跨时间特征缓存和原normalization/dtype依赖。尚未绑定本卡实际tokenizer类，也没有decode前向等价、真实权重VJP或93帧峰值证明；先实现保留时间缓存的独立校准适配，再完整核验与报价，不假定逐帧独立decode成立。
