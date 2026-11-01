@@ -110,7 +110,9 @@ def body(inference, selected, wc, rf, settings, inference_module, runtime, confi
         source = media_cache/(tag+'.mp4')
         if not source.exists():
             write_video(source, 'P1_EXPLICIT_SYNTHETIC_93x64_'+tag, height=64, width=64)
-        shutil.copyfile(source, path)
+        # The pinned pipeline passes a filename stem, just like its original
+        # save_img_or_video; the public request result already includes .mp4.
+        shutil.copyfile(source, str(path)+'.mp4')
 
     context = dict(scope_sha256=card['scope_sha256'], host='two_card', CPU_fixture_only=True,
         source_revision=json.loads((stage/'registration.json').read_text())['parent_git_revision'],
