@@ -244,6 +244,20 @@ class FitBrokerTests(unittest.TestCase):
             reader.serve()
         self.assertFalse((self.query/'launch-intent.json').exists())
 
+    def test_terminal_response_published_during_liveness_read_is_consumed_once(self):
+        create_record(Path(self.spec['queue'])/'service-start.json', dict(
+            identity=dict(unit_role='service'), binding_sha256=digest(self.spec)))
+        def ended(handle):
+            payload = dict(reason='ORIGINAL_FIT_FAILED', complete_FIT_denominator=2)
+            create_record(self.query/'response.json', dict(status='FAILED_ORIGINAL',
+                config_sha256=digest(self.config), payload=payload, payload_sha256=digest(payload)))
+            return dict(original_live=False)
+        with patch('wcomr.cara_source_lifecycle_fit_broker_r1.observe_original_process', side_effect=ended):
+            with self.assertRaisesRegex(RuntimeError, 'Original full FIT query failed'):
+                Client(self.spec)(self.packet, None)
+        self.assertEqual(read_record(self.query/'response.json')['payload']['complete_FIT_denominator'], 2)
+        self.assertFalse((self.query/'launch-intent.json').exists())
+
 
 if __name__ == '__main__':
     unittest.main()

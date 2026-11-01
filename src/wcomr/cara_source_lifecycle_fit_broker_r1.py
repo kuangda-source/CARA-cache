@@ -213,6 +213,10 @@ class Client:
             service = read_record(self.queue/'service-start.json')
             if (service['binding_sha256'] != digest(self.spec)
                     or observe_original_process(service['identity'])['original_live'] is not True):
+                # The original service seals its terminal response before exit.
+                # It may have published between the response and liveness reads.
+                if response.exists():
+                    continue
                 raise OriginalQueryUnknown('Original host score service is not confirmed live')
             time.sleep(1.)
 
