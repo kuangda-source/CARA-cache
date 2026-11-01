@@ -142,4 +142,3 @@ def recover(binding,packet,config,*,cpu_validation=False):
     require(file_sha(manifest)==binding['manifest_sha256'],'Original manifest changed during acceptance')
     return dict(operational,status='ORIGINAL_COMPLETE8_M1_SCORE_ACCEPTED',scientific_output_read=True,
         CPU_fixture_only=cpu_validation,execution=execution,accepted=accepted)
-
