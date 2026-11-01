@@ -449,7 +449,7 @@
     "original_reservation_released": true,
     "recovery_preparation_acceptance_ref": "reports/cara_history104_recovery_prelaunch_acceptance_20261024.json"
   },
-  "current_active_experiment_id": "PG-READ-WRITE-M2-CALIBRATION-PREPARATION",
+  "current_active_experiment_id": "PG-SOURCE-LIFECYCLE-V1-PREPARATION",
   "cost112_GPU": {
     "status": "COST112_COMPLETE_ACCEPTED_TIMING_GATE_FAILED",
     "launch_ref": "reports/cara_cost112_GPU_actual_launch_r1_20261025.json",
@@ -1047,7 +1047,7 @@
     "new_candidate_production_accepted": false,
     "new_candidate_GPU_authorized": false
   },
-  "current_followup_plan_ref": "plans/cara_next_stage_20261101/read_write/M2_ADJOINT_IMPLEMENTATION_AND_HARD_ACTION_PLAN_R1.md",
+  "current_followup_plan_ref": "plans/cara_next_stage_20261101/source_lifecycle/README.md",
   "innovation_gain_exploration_R1": {
     "status": "PAUSED_BY_USER_AFTER_COMPLETE_B1",
     "plan_ref": "plans/cara_innovation_gain_20261027/README.md",
@@ -1846,7 +1846,7 @@
     "independent_new_inputs": false,
     "complete_QA_ref": "reports/cara_fast_A6000_complete_frozen_QA_20261029_0115.json"
   },
-  "current_evidence_observed_at": "2026-11-01T21:16:56.281300+08:00",
+  "current_evidence_observed_at": "2026-11-01T22:05:33.999326+08:00",
   "fast_B36_CPU_preparation_20261029": {
     "status": "ACCEPTED_DUAL_HOST_COMPLETE_B36_CPU_CONTINUATION_ONLY",
     "accepted_receipt_ref": "reports/cara_fast_B36_CPU_acceptance_r1_20261029.json",
@@ -3228,14 +3228,14 @@
     "original_score_CPU_ended": true,
     "original_score_wall_seconds": 504.61017298698425
   },
-  "current_preparation_id": "PG-READ-WRITE-M2-REAL-MODEL-VJP",
+  "current_preparation_id": "PG-SOURCE-LIFECYCLE-V1-DP-P0-P1",
   "read_write_mainline_preparation_20261101": {
-    "status": "M1_COMPLETE_ACCEPTED_M2_REAL_WEIGHT_CALIBRATION_PREPARATION",
-    "research_ref": "research/835_CARA_M2_VAE_LINUX_AND_REAL_ALEX_TERMINAL_VJP_20261101.md",
-    "receipt_ref": "reports/cara_read_write_M2_terminal_progress_r1_20261101.json",
-    "receipt_sha256": "1e03f899ade9d02999e530054b758a1563abd904f8bcc987decdc72b8ef2f201",
-    "notice_title": "835 — M2终点指标梯度接通，推进真实模型伴随",
-    "summary": "M1完整接受与写项19.51%的机制结果保持。新增原Wan2.1解码三项实际Linux小权重CPU和固定真实Alex的93帧输入VJP接受；两个原CPU均退出0，0新增GPU/中央事务。Alex在合成64×64视频上流式值/梯度与整图逐值一致，两档差分误差低于0.04%；下一关是真实Cosmos/VAE权重、完整来源映射与生产显存/全段费用，再做等候选预算硬交换。",
+    "status": "V1_SOURCE_LIFECYCLE_MAINLINE_FULL_ADJOINT_V2_DEFERRED",
+    "research_ref": "research/836_CARA_V1_SOURCE_LIFECYCLE_MAINLINE_DP_AND_P0_P1_PREPARATION_20261101.md",
+    "receipt_ref": "reports/cara_v1_mainline_intake_preparation_r1_20261101.json",
+    "receipt_sha256": "6605c14e430f07d15ac57536f40f7fa674e5291d1001d86e8573ce2c07d05825",
+    "notice_title": "836 — V1来源生命周期规划进入主线，完整伴随转V2",
+    "summary": "按用户新路线，V1优先自动生成并完整视频验证19D/22D；完整伴随不阻塞。M1第8步八科学位置原样复用，新增第20步入口已过两flow共12条小权重CPU。108原标签审计识别C状态来源跨度缺口，四通用父计划64标签设计与双来源DP五项本地控制通过。真实V1与新GPU结果仍待，完整top3费用草案超过建议6GPUh，预算设计问题待用户决定。",
     "plan_ref": "plans/cara_next_stage_20261101/read_write/README.md",
     "protocol_ref": "plans/cara_next_stage_20261101/read_write/EXPERIMENT_PROTOCOL_R1.json",
     "M0_CPU_ref": "reports/cara_read_write_M0_CPU_component_r2_20261101.json",
@@ -3276,7 +3276,11 @@
     "M2_VAE_source_audit_ref": "reports/cara_read_write_vae_backward_source_audit_r1_20261101.json",
     "M2_VAE_Linux_ref": "reports/cara_read_write_vae_Linux_CPU_accepted_r1_20261101.json",
     "M2_terminal_Linux_ref": "reports/cara_read_write_terminal_Linux_CPU_accepted_r1_20261101.json",
-    "M1_complete_ref": "reports/cara_read_write_complete_acceptance_r1_20261101.json"
+    "M1_complete_ref": "reports/cara_read_write_complete_acceptance_r1_20261101.json",
+    "current_phase": "V1_CPU_PREPARATION",
+    "V1_plan_ref": "plans/cara_next_stage_20261101/source_lifecycle/README.md",
+    "M1_historical_execution_fields_preserved": true,
+    "V1_GPU_authorized": false
   },
   "read_write_M1_execution_20261101": {
     "status": "COMPLETE14_RGB4_SCORE8_ANALYSIS_FIGURES_ACCEPTED",
@@ -3349,7 +3353,7 @@
     "active_automations": []
   },
   "read_write_M2_transition_preparation_20261101": {
-    "status": "VAE_LINUX_TINY_AND_REAL_ALEX_INPUT_VJP_ACCEPTED_REAL_MODEL_PENDING",
+    "status": "V2_DEFERRED_COMPONENTS_REUSABLE_V1_NOT_BLOCKED",
     "research_ref": "research/835_CARA_M2_VAE_LINUX_AND_REAL_ALEX_TERMINAL_VJP_20261101.md",
     "receipt_ref": "reports/cara_read_write_M2_terminal_progress_r1_20261101.json",
     "plan_ref": "plans/cara_next_stage_20261101/read_write/M2_ADJOINT_IMPLEMENTATION_AND_HARD_ACTION_PLAN_R1.md",
@@ -3380,7 +3384,9 @@
     "video_terminal_VJP_scope": "actual_pretrained_VAE_latent_to_production93_Alex_pending",
     "CPU_originals_active": [],
     "new_central_ledger_accesses": 0,
-    "M2_central_permission": false
+    "M2_central_permission": false,
+    "priority": "V2_after_bounded_endpoint_response_gain",
+    "full_adjoint_required_for_V1": false
   },
   "read_write_M1_complete_20261101": {
     "status": "COMPLETE14_RGB4_SCORE8_ANALYSIS_FIGURES_ACCEPTED",
@@ -3407,5 +3413,26 @@
     },
     "scope": "two old FIT, seed0, Uniform19 update8, paid diagnostic intervention",
     "main_method_established": false
+  },
+  "source_lifecycle_V1_20261101": {
+    "status": "CPU_COMPONENTS_READY_POINT20_AND_COMPLETE_P1_ENTRY_PENDING",
+    "research_ref": "research/836_CARA_V1_SOURCE_LIFECYCLE_MAINLINE_DP_AND_P0_P1_PREPARATION_20261101.md",
+    "receipt_ref": "reports/cara_v1_mainline_intake_preparation_r1_20261101.json",
+    "plan_ref": "plans/cara_next_stage_20261101/source_lifecycle/README.md",
+    "protocol_ref": "plans/cara_next_stage_20261101/source_lifecycle/V1_PROTOCOL_R1.json",
+    "coverage_ref": "reports/cara_v1_S108_source_coverage_audit_r1_20261101.json",
+    "DP_CPU_ref": "reports/cara_source_lifecycle_DP_CPU_component_r2_20261101.json",
+    "point20_CPU_ref": "reports/cara_v1_point20_CPU_component_r1_20261101.json",
+    "calibration64_ref": "plans/cara_next_stage_20261101/source_lifecycle/V1_CALIBRATION64_DESIGN_R1.json",
+    "quote_draft_ref": "plans/cara_next_stage_20261101/source_lifecycle/P0_P1_SCOPE_AND_COST_DRAFT_R1.json",
+    "P0_reused_point8": 8,
+    "P0_new_point20": 8,
+    "real_V1_labels_fitted": false,
+    "real_V1_video_results": null,
+    "Linux_CPU_state": "PREPARE_NOT_YET_SENT",
+    "budget_design_question_pending": true,
+    "new_GPU_submissions": 0,
+    "central_ledger_permission": false,
+    "ledger_written": false
   }
 }

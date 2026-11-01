@@ -1,0 +1,200 @@
+{
+  "schema": "CARA_SOURCE_LIFECYCLE_DP_CPU_R1",
+  "observed_at": "2026-11-01T21:38:49.971525+08:00",
+  "passed": true,
+  "tests_run": 5,
+  "failures": [],
+  "metrics": {
+    "brute_force": {
+      "all_D_budgets": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "top3_exact": true,
+      "horizon": 9,
+      "synthetic_proxy": true
+    },
+    "synthetic_full36": {
+      "19": {
+        "distinct_candidates": 3,
+        "masks": [
+          [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            13,
+            16,
+            18,
+            20,
+            22,
+            24,
+            25,
+            26,
+            27,
+            29,
+            31,
+            36
+          ],
+          [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            13,
+            16,
+            19,
+            21,
+            23,
+            24,
+            25,
+            26,
+            27,
+            29,
+            31,
+            36
+          ],
+          [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            12,
+            15,
+            18,
+            20,
+            22,
+            24,
+            25,
+            26,
+            27,
+            29,
+            31,
+            36
+          ]
+        ],
+        "real_fit_selected": false
+      },
+      "22": {
+        "distinct_candidates": 3,
+        "masks": [
+          [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            13,
+            16,
+            18,
+            20,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            32,
+            36
+          ],
+          [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            12,
+            15,
+            18,
+            20,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            32,
+            36
+          ],
+          [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            12,
+            15,
+            17,
+            19,
+            21,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            32,
+            36
+          ]
+        ],
+        "real_fit_selected": false
+      }
+    },
+    "refusals": [
+      "partial_weights",
+      "negative_risk",
+      "underprotected_budget",
+      "over3_candidates",
+      "wrong_source_grammar"
+    ],
+    "UniPC_current_input_scale": {
+      "updates": 36,
+      "max_gradient_error": 1.4901161193847656e-08,
+      "includes_current_corrector_and_predictor": true,
+      "terminal_sensitivity": false
+    },
+    "source_recomputation": {
+      "different_previous_D_at_same_t_b": true,
+      "full_affected_intervals_recomputed": true,
+      "deterministic_top3_ties": true
+    }
+  },
+  "payload_sha256": {
+    "src/wcomr/cara_source_lifecycle_planner_r1.py": "aee972489ada1e228bd99ec3cb64953034ea515d094994898ff6f83c9e199827",
+    "src/wcomr/cara_source_lifecycle_weights_r1.py": "eaa9a302298375554346aee3d8b5162aafb66160e37930fadd0a655c84fbb5df",
+    "tests/test_cara_source_lifecycle_planner_r1.py": "f9f6c0177fc57a21db92c2bfe499c8c7655cc5c4df1f7c2bcda134217fc95a15"
+  },
+  "actual_Cosmos_weights": false,
+  "real_labels_fitted": false,
+  "real_video_efficacy": false,
+  "GPU_submissions": 0,
+  "CUDA_initialized": false
+}

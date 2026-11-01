@@ -1,0 +1,159 @@
+{
+  "schema": "CARA_SOURCE_LIFECYCLE_V1_MAINLINE_PROTOCOL_R1",
+  "authority": "direct_user_chat_20261101_layered_V1_V2_direction",
+  "status": "PROSPECTIVE_CPU_PREPARATION_NOT_GPU_AUTHORIZATION",
+  "mainline": "V1_source_lifecycle_conditioned_offline_D_C_planner",
+  "V2": "one_bounded_endpoint_response_enhancement_then_optional_full_augmented_discrete_adjoint",
+  "V2_blocks_V1": false,
+  "model": "Cosmos-Predict2.5-2B",
+  "sampler": "original_UniPC",
+  "requested_steps": 35,
+  "actual_updates": 36,
+  "CFG": 7,
+  "CFG_arithmetic": "c+7*(c-u)",
+  "readout": "original_pure_C",
+  "new_A_P_Q_actions": false,
+  "budgets_D": [
+    19,
+    22
+  ],
+  "features": {
+    "stage": [
+      "1",
+      "sigma",
+      "sigma_squared"
+    ],
+    "age_additions": [
+      "sigma_age",
+      "sigma_age_squared",
+      "sigma_times_age"
+    ],
+    "gap_additions": [
+      "previous_sigma_gap",
+      "previous_gap_squared",
+      "sigma_times_previous_gap",
+      "age_times_previous_gap"
+    ]
+  },
+  "fit": {
+    "family": "fixed_quadratic_ridge",
+    "ridge": 0.0001,
+    "negative_prediction": "clamp_zero_and_report_fraction",
+    "neural_control": false,
+    "split": "leave_entire_parent_mask_out_across_both_FIT",
+    "random_adjacent_split": false,
+    "target": "FP64_MSE_between_actual_same_state_FP32_CFG_C_and_D_outputs",
+    "teacher": "candidate_own_current_state_shadow_D",
+    "teacher_writes_parent": false
+  },
+  "proxy": {
+    "interval": "sum_{b<t<c} w[t]*q(t,a,b)",
+    "state": [
+      "previous_true_D_a",
+      "latest_true_D_b"
+    ],
+    "weights": "squared_original_UniPC_current_velocity_coefficient_at_fixed_past_history",
+    "current_corrector_predictor": true,
+    "terminal_sensitivity": false,
+    "exact_proxy_DP": true,
+    "exact_LPIPS": false
+  },
+  "P0": {
+    "points": [
+      8,
+      20
+    ],
+    "point_rule": [
+      "first_legal_C_C",
+      "first_C_C_after_midpoint"
+    ],
+    "FIT": [
+      "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "human_199"
+    ],
+    "seed": 0,
+    "scientific_positions": 16,
+    "reused_accepted_point8_positions": 8,
+    "new_point20_positions": 8,
+    "reports": [
+      "W_C=L00-L01",
+      "W_D=L10-L11",
+      "read",
+      "joint",
+      "interaction",
+      "source_consumers_and_replacement"
+    ],
+    "independent_zero_consumer_control": "CPU_complete_remaining_hard_tail",
+    "P0_is_method_evidence": false
+  },
+  "P1": {
+    "calibration_design_ref": "plans/cara_next_stage_20261101/source_lifecycle/V1_CALIBRATION64_DESIGN_R1.json",
+    "estimators": [
+      "stage",
+      "stage_age",
+      "stage_age_previous_gap"
+    ],
+    "same_planner": true,
+    "same_candidate_limit": true,
+    "per_estimator_budget_top_k_max": 3,
+    "FIT_selection": "full93_Alex_input_equal_then_proxy_then_lexicographic_D_mask",
+    "CHECK": "old_exposed_development_observation_after_single_FIT_selection",
+    "strong_baselines": [
+      "Uniform19",
+      "Uniform22",
+      "F19_C",
+      "F19_A1",
+      "frozen_RGB_MSE_BudgetSearch19",
+      "new_LPIPS_search_at_same_actual_calibration_cost_cap"
+    ],
+    "old_RGB_MSE_search_reselection": false,
+    "engineering_continue_target": {
+      "Alex_ratio_to_same_batch_F19_A1_max": 1.1,
+      "T_DD_ratio_to_same_batch_F19_A1_max": 1.05,
+      "is_paper_acceptance_line": false
+    },
+    "revision_limit": 1
+  },
+  "P2": {
+    "new_DEV_target": 8,
+    "second_grid_requested_steps": 50,
+    "second_grid_actual_updates": 51,
+    "same_features_planner_selection_rule": true,
+    "recalibration_cost_separate": true,
+    "final16_and_reserve16_protected": true
+  },
+  "P3": {
+    "bounded_response_enhancements_max": 1,
+    "full_adjoint_only_after_response_gain": true
+  },
+  "evaluation": {
+    "primary": "all93_frame_Alex_LPIPS_input_equal",
+    "supplement": [
+      "PSNR",
+      "SSIM",
+      "relative_Native_temporal_change",
+      "blind_review"
+    ],
+    "clocks": [
+      "T_DD",
+      "T_request",
+      "calibration_GPUh"
+    ],
+    "statistics_unit": "input",
+    "failure_refusal_missing_denominators_preserved": true
+  },
+  "budget": {
+    "suggested_P0_P1_RandD_GPUh": 6,
+    "suggestion_is_approval": false,
+    "whole_quote_pending": true,
+    "below2_autonomous": true,
+    "between2_and4_explain_then_proceed": true,
+    "above4_separate_approval": true,
+    "two_card_only": true,
+    "central_cap_GPUh": 226,
+    "old_unknown_GPUh": 16.5,
+    "previous_M1_central_exception_reusable": false
+  },
+  "new_GPU_submissions": 0,
+  "ledger_written": false
+}

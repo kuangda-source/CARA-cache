@@ -20,7 +20,7 @@ from check_cara_read_write_suffix_cpu_r1 import ROOT, load, pinned_modules
 
 
 @torch.no_grad()
-def body(inference, selected, wc, rf, settings, inference_module, runtime, config, flow, artifact_root):
+def body(inference, selected, wc, rf, settings, inference_module, runtime, config, flow, artifact_root, *, target_update=8):
     model, net = inference.pipe.model, inference.pipe.model.net
     scheduler = model.sample_scheduler
     model.config.state_ch = 8
@@ -49,7 +49,7 @@ def body(inference, selected, wc, rf, settings, inference_module, runtime, confi
     original_step = scheduler.step
     def record_step(*args, **kwargs):
         result = original_step(*args, **kwargs)
-        if scheduler._step_index == 8:
+        if scheduler._step_index == target_update:
             post_y['current'] = tree_digest(dict(latent=result[0], memory=object_state(scheduler)))
         return result
     try:
@@ -57,6 +57,7 @@ def body(inference, selected, wc, rf, settings, inference_module, runtime, confi
             for corner in ('00', '10', '01', '11'):
                 initial.restore()
                 result = execute(inference, selected[0], profile=profile, policy=policy, corner=corner,
+                    target_update=target_update,
                     logical_copy_cap_bytes=1 << 30, CPU_storage_cap_bytes=1 << 30,
                     output=output/corner, **common)
                 assert result['status'] == 'COMPLETE' and result['physical_model_pairs'] == 37
@@ -64,22 +65,24 @@ def body(inference, selected, wc, rf, settings, inference_module, runtime, confi
                 assert result['diagnostic_timing_only'] and result['intervention']['actual_current_read'] == ('D' if corner[0]=='1' else 'C')
                 rows[corner] = result
                 post_y[corner] = post_y['current']
-            for name, dense in [('C', mask), ('D8', sorted(mask+[8]))]:
+            for name, dense in [('C', mask), ('D_CONTROL', sorted(mask+[target_update]))]:
                 initial.restore()
                 rows[name] = ordinary(inference, selected[0], profile=profile,
                     policy=policy_from_mask(profile, dense), output=output/name, **common)
                 assert rows[name]['status'] == 'COMPLETE'
         assert torch.equal(rows['00']['final_latent'], rows['C']['final_latent'])
-        assert torch.equal(rows['11']['final_latent'], rows['D8']['final_latent'])
+        assert torch.equal(rows['11']['final_latent'], rows['D_CONTROL']['final_latent'])
         assert Path(rows['00']['video_path']).read_bytes() == Path(rows['C']['video_path']).read_bytes()
-        assert Path(rows['11']['video_path']).read_bytes() == Path(rows['D8']['video_path']).read_bytes()
+        assert Path(rows['11']['video_path']).read_bytes() == Path(rows['D_CONTROL']['video_path']).read_bytes()
         assert post_y['00'] == post_y['01'] and post_y['10'] == post_y['11']
         records = {k: rows[k]['intervention'] for k in ('00', '10', '01', '11')}
         assert len({r['parent_state_sha256'] for r in records.values()}) == 1
         assert records['00']['cache_after_sha256'] == records['10']['cache_after_sha256']
         assert records['01']['cache_after_sha256'] == records['11']['cache_after_sha256']
-        assert records['00']['true_D_sources'] == records['10']['true_D_sources'] == [[6, 7], [6, 7]]
-        assert records['01']['true_D_sources'] == records['11']['true_D_sources'] == [[7, 8], [7, 8]]
+        before = [t for t in mask if t < target_update][-2:]
+        after = [before[-1],target_update]
+        assert records['00']['true_D_sources'] == records['10']['true_D_sources'] == [before,before]
+        assert records['01']['true_D_sources'] == records['11']['true_D_sources'] == [after,after]
         assert len(replay.calls) == 6 and all(c['prepared']==replay.calls[0]['prepared'] for c in replay.calls)
         initial.restore()
         assert initial.fingerprint() == origin
@@ -88,14 +91,16 @@ def body(inference, selected, wc, rf, settings, inference_module, runtime, confi
             physical_pairs_per_intervention=37, physical_pairs_per_control=36,
             original_inputs_and_prewrite_state_exact=True, all_solver_memory_with_read=True,
             entire_cache_and_sources_with_write=True, Native_pipeline_decode_and_writer_completed=True,
-            corner00_C_and_corner11_D8_latent_and_mock_RGB_exact=True, caller_restored=True,
+            **{('corner00_C_and_corner11_D8_latent_and_mock_RGB_exact' if target_update == 8
+                 else 'corner00_C_and_corner11_D20_latent_and_mock_RGB_exact'):True}, caller_restored=True,
             records=records, actual_Cosmos_weights=False, real_encoded_video=False,
+            target_update=target_update,
             real_scientific_scores=False, real_model_VJP=False)]
     finally:
         initial.restore()
 
 
-def run(runtime, artifact_root, *, actual_modules=False):
+def run(runtime, artifact_root, *, actual_modules=False, target_update=8):
     old = load('check_partial_mlp_guided_sampling_cpu_r1')
     source = dedent(inspect.getsource(old.exercise))
     if not actual_modules:
@@ -106,7 +111,9 @@ def run(runtime, artifact_root, *, actual_modules=False):
     start = source.index('    results=[]\n    try:')
     end = source.index('\n    finally:\n', start)+1
     source = source[:start]+'    try:\n        return _body(inference,selected,wc,rf,settings,inference_module,runtime,config,flow,artifact_root)\n'+source[end:]
-    namespace = {**vars(old), '_body': body, '_pinned_modules': pinned_modules}
+    def target_body(*args):
+        return body(*args,target_update=target_update)
+    namespace = {**vars(old), '_body': target_body, '_pinned_modules': pinned_modules}
     exec(compile(source, __file__+'#accepted-tiny-setup', 'exec'), namespace)
     return load('check_full_sampling').run(runtime, exercise=lambda **kwargs: namespace['exercise'](
         runtime=Path(runtime), tensor_loader=None, artifact_root=artifact_root, **kwargs))

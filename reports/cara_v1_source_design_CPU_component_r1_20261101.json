@@ -1,0 +1,85 @@
+{
+  "schema": "CARA_SOURCE_LIFECYCLE_DESIGN_CPU_R1",
+  "observed_at": "2026-11-01T21:49:54.771140+08:00",
+  "passed": true,
+  "tests_run": 5,
+  "failures": [],
+  "metrics": {
+    "original_M1_source8": {
+      "C_consumers": [
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        17,
+        18
+      ],
+      "replaced_after_update": 19,
+      "original_accepted_rows": 4,
+      "new_scoring": 0
+    },
+    "old_coverage": {
+      "rows": 108,
+      "unique_source_triples": 39,
+      "actual_C_shadow_D_rows": 56,
+      "C_shadow_unique_source_triples": 17,
+      "C_only_exact_age_gap_contrasts": 0
+    },
+    "prospective_C_coverage": {
+      "parents": 4,
+      "paths": 8,
+      "shadow_D_labels_max": 64,
+      "exact_stage_age_previous_gap_contrasts": [
+        {
+          "t": 11,
+          "b": 10,
+          "previous_a": [
+            7,
+            9
+          ]
+        },
+        {
+          "t": 20,
+          "b": 19,
+          "previous_a": [
+            16,
+            17
+          ]
+        },
+        {
+          "t": 32,
+          "b": 31,
+          "previous_a": [
+            29,
+            30
+          ]
+        }
+      ],
+      "generic_mask_rules": true,
+      "error_values_used": false
+    },
+    "no_future_consumer": {
+      "intervention_update": 35,
+      "future_actions": [
+        "D"
+      ],
+      "identical_y_and_different_cache": true,
+      "full_remaining_endpoint_latent_bitwise_equal": true,
+      "actual_Cosmos_weights": false,
+      "real_video": false
+    }
+  },
+  "payload_sha256": {
+    "src/wcomr/cara_source_lifecycle_design_r1.py": "a21f9a466f76d957a9473139cc5bea94f31f348ebfd8b35e2442c70c41ca6996",
+    "src/wcomr/cara_source_lifecycle_trace_r1.py": "1f6f8c6aca6fd5a8b3d25dd1407819c8d1f45e31ee3a9a80d314206dd1939e48",
+    "scripts/audit_cara_source_lifecycle_coverage_r1.py": "301a0008f20b3b5d2fcea725dcbaa80c0d74d06521de7cb716c2d388b671abcd",
+    "tests/test_cara_source_lifecycle_design_r1.py": "c7b5014cbc4be33a87c46038505cc5a785e1c459c7eeed0dfccc00cdacc782ff"
+  },
+  "real_labels_fitted": false,
+  "real_video_efficacy": false,
+  "GPU_submissions": 0,
+  "CUDA_initialized": false
+}

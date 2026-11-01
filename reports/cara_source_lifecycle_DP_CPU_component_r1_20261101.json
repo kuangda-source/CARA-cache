@@ -1,0 +1,53 @@
+{
+  "schema": "CARA_SOURCE_LIFECYCLE_DP_CPU_R1",
+  "observed_at": "2026-11-01T21:37:43.396821+08:00",
+  "passed": false,
+  "tests_run": 5,
+  "failures": [
+    {
+      "test": "test_true_sources_change_downstream_cost_and_ties_are_deterministic (test_cara_source_lifecycle_planner_r1.Planner)",
+      "detail": "Traceback (most recent call last):\n  File \"/Users/kuangda_gao/Documents/\u4e16\u754c\u6a21\u578b\u52a0\u901f\u5b9e\u9a8c/worldcache_omr/tests/test_cara_source_lifecycle_planner_r1.py\", line 66, in test_true_sources_change_downstream_cost_and_ties_are_deterministic\n    self.assertTrue(any(a != x and t == u and b == y\nAssertionError: False is not true\n"
+    },
+    {
+      "test": "test_original36_generates_exact19_and22_without_F19_initialization (test_cara_source_lifecycle_planner_r1.Planner)",
+      "detail": "Traceback (most recent call last):\n  File \"/Users/kuangda_gao/Documents/\u4e16\u754c\u6a21\u578b\u52a0\u901f\u5b9e\u9a8c/worldcache_omr/tests/test_cara_source_lifecycle_planner_r1.py\", line 83, in test_original36_generates_exact19_and22_without_F19_initialization\n    weights = current_velocity_weights(step.solver._template)['weights']\n  File \"/Users/kuangda_gao/Documents/\u4e16\u754c\u6a21\u578b\u52a0\u901f\u5b9e\u9a8c/worldcache_omr/src/wcomr/cara_source_lifecycle_weights_r1.py\", line 23, in current_velocity_weights\n    zero, next_memory = solver.step(memory, torch.zeros_like(sample), timestep, sample)\n  File \"/Users/kuangda_gao/Documents/\u4e16\u754c\u6a21\u578b\u52a0\u901f\u5b9e\u9a8c/worldcache_omr/src/wcomr/cara_read_write_state_r1.py\", line 85, in step\n    updated = scheduler.step(model_output, timestep, sample, return_dict=False)[0]\n  File \"/Users/kuangda_gao/Documents/\u4e16\u754c\u6a21\u578b\u52a0\u901f\u5b9e\u9a8c/worldcache_omr/.sync/read-write-pinned-runtime-r1/cosmos_predict2/_src/predict2/models/fm_solvers_unipc.py\", line 698, in step\n    prev_sample = self.multistep_uni_p_bh_update(\n  File \"/Users/kuangda_gao/Documents/\u4e16\u754c\u6a21\u578b\u52a0\u901f\u5b9e\u9a8c/worldcache_omr/.sync/read-write-pinned-runtime-r1/cosmos_predict2/_src/predict2/models/fm_solvers_unipc.py\", line 451, in multistep_uni_p_bh_update\n    pred_res = torch.einsum(\"k,bkc...->bc...\", rhos_p, D1s)  # pyright: ignore\n  File \"/Users/kuangda_gao/Documents/\u4e16\u754c\u6a21\u578b\u52a0\u901f\u5b9e\u9a8c/worldcache_omr/.venv/lib/python3.9/site-packages/torch/functional.py\", line 422, in einsum\n    return _VF.einsum(equation, operands)  # type: ignore[attr-defined]\nRuntimeError: einsum(): the number of subscripts in the equation (3) is more than the number of dimensions (2) for operand 1\n"
+    },
+    {
+      "test": "test_solver_scales_match_current_input_autograd_on_nonzero_history (test_cara_source_lifecycle_planner_r1.Planner)",
+      "detail": "Traceback (most recent call last):\n  File \"/Users/kuangda_gao/Documents/\u4e16\u754c\u6a21\u578b\u52a0\u901f\u5b9e\u9a8c/worldcache_omr/tests/test_cara_source_lifecycle_planner_r1.py\", line 95, in test_solver_scales_match_current_input_autograd_on_nonzero_history\n    result = current_velocity_weights(scheduler)\n  File \"/Users/kuangda_gao/Documents/\u4e16\u754c\u6a21\u578b\u52a0\u901f\u5b9e\u9a8c/worldcache_omr/src/wcomr/cara_source_lifecycle_weights_r1.py\", line 23, in current_velocity_weights\n    zero, next_memory = solver.step(memory, torch.zeros_like(sample), timestep, sample)\n  File \"/Users/kuangda_gao/Documents/\u4e16\u754c\u6a21\u578b\u52a0\u901f\u5b9e\u9a8c/worldcache_omr/src/wcomr/cara_read_write_state_r1.py\", line 85, in step\n    updated = scheduler.step(model_output, timestep, sample, return_dict=False)[0]\n  File \"/Users/kuangda_gao/Documents/\u4e16\u754c\u6a21\u578b\u52a0\u901f\u5b9e\u9a8c/worldcache_omr/.sync/read-write-pinned-runtime-r1/cosmos_predict2/_src/predict2/models/fm_solvers_unipc.py\", line 698, in step\n    prev_sample = self.multistep_uni_p_bh_update(\n  File \"/Users/kuangda_gao/Documents/\u4e16\u754c\u6a21\u578b\u52a0\u901f\u5b9e\u9a8c/worldcache_omr/.sync/read-write-pinned-runtime-r1/cosmos_predict2/_src/predict2/models/fm_solvers_unipc.py\", line 451, in multistep_uni_p_bh_update\n    pred_res = torch.einsum(\"k,bkc...->bc...\", rhos_p, D1s)  # pyright: ignore\n  File \"/Users/kuangda_gao/Documents/\u4e16\u754c\u6a21\u578b\u52a0\u901f\u5b9e\u9a8c/worldcache_omr/.venv/lib/python3.9/site-packages/torch/functional.py\", line 422, in einsum\n    return _VF.einsum(equation, operands)  # type: ignore[attr-defined]\nRuntimeError: einsum(): the number of subscripts in the equation (3) is more than the number of dimensions (2) for operand 1\n"
+    }
+  ],
+  "metrics": {
+    "brute_force": {
+      "all_D_budgets": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "top3_exact": true,
+      "horizon": 9,
+      "synthetic_proxy": true
+    },
+    "refusals": [
+      "partial_weights",
+      "negative_risk",
+      "underprotected_budget",
+      "over3_candidates",
+      "wrong_source_grammar"
+    ]
+  },
+  "payload_sha256": {
+    "src/wcomr/cara_source_lifecycle_planner_r1.py": "aee972489ada1e228bd99ec3cb64953034ea515d094994898ff6f83c9e199827",
+    "src/wcomr/cara_source_lifecycle_weights_r1.py": "b9b344ade015b5fb76ca15f0758e9b29145996b303b9a5bd8de600090d92fb8b",
+    "tests/test_cara_source_lifecycle_planner_r1.py": "e15943f547592cbb25960b2989b6bd0c7d5c7ddb19127b5289dc0188c540c622"
+  },
+  "actual_Cosmos_weights": false,
+  "real_labels_fitted": false,
+  "real_video_efficacy": false,
+  "GPU_submissions": 0,
+  "CUDA_initialized": false
+}

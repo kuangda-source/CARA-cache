@@ -1,0 +1,83 @@
+{
+  "schema": "CARA_READ_WRITE_PROVENANCE_CPU_R1",
+  "observed_at": "2026-11-01T21:29:51.910104+08:00",
+  "passed": true,
+  "tests_run": 5,
+  "failures": [],
+  "metrics": {
+    "flow_False_complete36": {
+      "exact_latent_cache_and_buffers": true,
+      "fixed_feature_slots": 22,
+      "invalid_slots_are_None": true,
+      "original_reset_at35": true,
+      "actual_Cosmos_weights": false
+    },
+    "flow_True_complete36": {
+      "exact_latent_cache_and_buffers": true,
+      "fixed_feature_slots": 22,
+      "invalid_slots_are_None": true,
+      "original_reset_at35": true,
+      "actual_Cosmos_weights": false
+    },
+    "bound_augmented_adjoint": {
+      "full_updates": 36,
+      "max_absolute_error": 7.979727989493313e-17,
+      "source_metadata_not_differentiated": true,
+      "complete_tiny_adjoint": true,
+      "actual_Cosmos_weights": false
+    },
+    "refusals": [
+      "foreign_owner",
+      "foreign_sigma_grid",
+      "solver_cache_misalignment",
+      "missing_physical_window",
+      "partial_grid"
+    ],
+    "reset_lifecycle": {
+      "clears_working_residual_windows": true,
+      "output_sources_after_epilogue": [
+        null,
+        35
+      ],
+      "output_action": "C",
+      "regrown_source": 36,
+      "regrown_window_validity": [
+        true,
+        false,
+        false
+      ]
+    },
+    "point8_sources": {
+      "parent_slots": [
+        1,
+        6,
+        7
+      ],
+      "cached_slots": [
+        1,
+        6,
+        7
+      ],
+      "dense_slots": [
+        1,
+        7,
+        8
+      ],
+      "C_working_source": 8,
+      "C_true_D_source": 7,
+      "both_branches_and_actual_source_sigma": true,
+      "continuous_coordinates_not_pruned": true
+    }
+  },
+  "payload_sha256": {
+    "src/wcomr/cara_read_write_provenance_r1.py": "7a264763667b9fdb64e8ed34e0e23bd2f01d2577718e03ae414f05972cd4d622",
+    "src/wcomr/cara_read_write_step_r1.py": "76cc53ae02f2c4ae437b19d9fb3555c80839dbf8fc8c2bdabfe87f9064766114",
+    "src/wcomr/cara_read_write_transition_r1.py": "392e1d7135f1fda3e09e64502e904330d48edd24d610d2aaae4ac145a0fafd9a",
+    "src/wcomr/cara_read_write_adjoint_r1.py": "e3fdff70363ed7bda67f1ed0404ab689ba26f71e97c5623777d21ab5c7222ad0",
+    "tests/test_cara_read_write_provenance_r1.py": "bced5275bbba14c5698c1b63cf78d79677f8aec20c0cf2da008a8646756e20c2"
+  },
+  "CPU_source_namespace": true,
+  "actual_Cosmos_weights": false,
+  "GPU_submissions": 0,
+  "CUDA_initialized": false
+}

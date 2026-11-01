@@ -2,7 +2,7 @@
 
 # CARA-Cache
 
-[835 — M2终点指标梯度接通，推进真实模型伴随](research/835_CARA_M2_VAE_LINUX_AND_REAL_ALEX_TERMINAL_VJP_20261101.md)：M1完整接受与写项19.51%的机制结果保持。新增原Wan2.1解码三项实际Linux小权重CPU和固定真实Alex的93帧输入VJP接受；两个原CPU均退出0，0新增GPU/中央事务。Alex在合成64×64视频上流式值/梯度与整图逐值一致，两档差分误差低于0.04%；下一关是真实Cosmos/VAE权重、完整来源映射与生产显存/全段费用，再做等候选预算硬交换。
+[836 — V1来源生命周期规划进入主线，完整伴随转V2](research/836_CARA_V1_SOURCE_LIFECYCLE_MAINLINE_DP_AND_P0_P1_PREPARATION_20261101.md)：按用户新路线，V1优先自动生成并完整视频验证19D/22D；完整伴随不阻塞。M1第8步八科学位置原样复用，新增第20步入口已过两flow共12条小权重CPU。108原标签审计识别C状态来源跨度缺口，四通用父计划64标签设计与双来源DP五项本地控制通过。真实V1与新GPU结果仍待，完整top3费用草案超过建议6GPUh，预算设计问题待用户决定。
 
 [826 — E1完整验收：CFG有机制增量，当前S不晋级](research/826_CARA_ENDPOINT7_COMPLETE_ACCEPTANCE_RESULTS_AND_REGISTERED_DECISION_20261101.md)：接口修复后46/46、13RGB和28评分完整接受（16新+12原行）；原GPU3.055673007GPUh已结算。S-CFG较DIAG LPIPS低1.53%且4/4同向，但比F19-A1高102.83%；按预注册仅保留机制增量，当前S不晋级。全93帧与双时钟图表完成，检查已删。
 

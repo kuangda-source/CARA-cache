@@ -21,6 +21,7 @@ from .cfg_paired_probe_forward import (
 )
 from .cfg_paired_probe_production import _bindings, _origin
 from .mid_coverage import WC_FIELDS
+from .cara_read_write_provenance_r1 import CacheProvenance
 
 
 def _containers(value):
@@ -48,12 +49,21 @@ def _cache_fields(fields):
 class WorldCacheMemory:
     fields: dict
     buffers: dict[str, torch.Tensor]
+    provenance: CacheProvenance | None = None
 
     @classmethod
-    def capture(cls, net):
+    def capture(cls, net, *, owner=None, timesteps=None, sigmas=None):
         fields = {name: getattr(net, name) for name in WC_FIELDS if hasattr(net, name)}
+        provenance = (CacheProvenance.start(fields, owner=owner, timesteps=timesteps, sigmas=sigmas)
+                      if owner is not None else None)
         return cls(_cache_fields(fields),
-                   {name: value.clone() for name, value in net.named_buffers()})
+                   {name: value.clone() for name, value in net.named_buffers()}, provenance)
+
+    def bundle(self):
+        value = dict(fields=self.fields, buffers=self.buffers)
+        if self.provenance is not None:
+            value['provenance'] = self.provenance
+        return value
 
 
 def _compile_denoise(runtime, rf, net_call):
@@ -135,6 +145,8 @@ gate or stop-gradient approximation is introduced.
                 or any(p.requires_grad for p in self.net.parameters())):
             raise ValueError('Calibration model changed from frozen eval')
         fields = _cache_fields(memory.fields)
+        if memory.provenance is not None:
+            memory.provenance.slots(fields)
         if int(fields['cnt']) % 2 or set(memory.buffers) != self.buffer_names:
             raise ValueError('Aligned original CFG cache and complete buffers required')
         if action == 'C' and (fields['cnt'] < int(self.net.worldcache_num_steps*self.net.worldcache_ret_ratio)
@@ -162,4 +174,6 @@ gate or stop-gradient approximation is introduced.
         # 8*conditional - 7*unconditional and changing finite precision results.
         guided = values[0]+7*(values[0]-values[1])
         after = _cache_fields({name: getattr(net, name) for name in WC_FIELDS if hasattr(net, name)})
-        return guided, WorldCacheMemory(after, buffers)
+        provenance = (memory.provenance.advance(memory.fields, after, action=action, timestep=timestep)
+                      if memory.provenance is not None else None)
+        return guided, WorldCacheMemory(after, buffers, provenance)

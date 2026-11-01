@@ -67,11 +67,14 @@ class PointPilot(ReadWriteSuffixPilot):
 
 
 class PointOwner(PolicyOwner):
-    def __init__(self, *args, corner, logical_copy_cap_bytes, CPU_storage_cap_bytes, **kwargs):
+    def __init__(self, *args, corner, logical_copy_cap_bytes, CPU_storage_cap_bytes, target_update=8, **kwargs):
         super().__init__(*args, **kwargs)
-        if corner not in ('00', '10', '01', '11') or any(a not in ('D', 'C') for a in self.policy['actions']):
+        if (corner not in ('00', '10', '01', '11') or any(a not in ('D', 'C') for a in self.policy['actions'])
+                or type(target_update) is not int or not 8 <= target_update <= 33
+                or self.policy['actions'][target_update-1:target_update+1] != ['C','C']):
             raise ValueError('Registered D/C four-corner scope required')
         self.corner = corner
+        self.target_update = target_update
         self.logical_cap, self.CPU_cap = logical_copy_cap_bytes, CPU_storage_cap_bytes
         self.actual_velocity = self.generator = None
         self.point_record = None
@@ -81,7 +84,7 @@ class PointOwner(PolicyOwner):
 
     @torch.no_grad()
     def pair(self, noise, latent, timestep, conditions, choose):
-        if self.readout.completed + 1 != 8:
+        if self.readout.completed + 1 != self.target_update:
             result = super().pair(noise, latent, timestep, conditions, choose)
             self.physical_pairs += 1
             return result
@@ -89,7 +92,7 @@ class PointOwner(PolicyOwner):
             raise ValueError('Recover the attempted intervention; original closure/generator required')
         self.point_attempted = True
         pilot = PointPilot(self, self.actual_velocity, latent, noise, self.generator,
-            runtime=self.runtime, target_update=8, logical_copy_cap_bytes=self.logical_cap,
+            runtime=self.runtime, target_update=self.target_update, logical_copy_cap_bytes=self.logical_cap,
             CPU_storage_cap_bytes=self.CPU_cap)
         if any(a is not b for a, b in zip(conditions, pilot.conditions)) or choose is not self.choose:
             raise ValueError('Actual current conditions or selector differ')
@@ -101,7 +104,7 @@ class PointOwner(PolicyOwner):
 
 
 def execute(inference, sample, *, profile, policy, corner,
-            logical_copy_cap_bytes, CPU_storage_cap_bytes, **kwargs):
+            logical_copy_cap_bytes, CPU_storage_cap_bytes, target_update=8, **kwargs):
     """One ordinary guarded full36 request, with37 paid model pairs."""
     validate_policy(profile, policy)
     holder = {}
@@ -119,6 +122,7 @@ def execute(inference, sample, *, profile, policy, corner,
         wc.apply_worldcache(model.net, **{k.removeprefix('worldcache_'): v for k, v in settings.items()})
         model.net.worldcache_enabled = True
         owner = PointOwner(model, policy=policy, profile=profile, corner=corner,
+            target_update=target_update,
             logical_copy_cap_bytes=logical_copy_cap_bytes, CPU_storage_cap_bytes=CPU_storage_cap_bytes,
             context=context + (policy['fingerprint'],), runtime=runtime, wc=wc, rf=rf)
         holder['owner'] = owner

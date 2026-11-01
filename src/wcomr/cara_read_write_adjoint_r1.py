@@ -116,6 +116,11 @@ The original accumulator's literal reset zero is the sole scalar/Tensor case.
 """
     if incumbent not in ('C', 'D'):
         raise ValueError('The co-state must name its actual incumbent action')
+    provenance = cached.cache.get('provenance')
+    other = dense.cache.get('provenance')
+    if ((provenance is None) != (other is None)
+            or (provenance is not None and not provenance.same_parent_chart(other))):
+        raise ValueError('Same request/grid and complete hard-action source chart required')
     if (cached.memory.step_index != dense.memory.step_index
             or cached.memory.begin_index != dense.memory.begin_index
             or cached.memory.this_order != dense.memory.this_order
