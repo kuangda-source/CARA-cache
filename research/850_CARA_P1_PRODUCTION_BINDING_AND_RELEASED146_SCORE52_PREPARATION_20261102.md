@@ -27,3 +27,5 @@ P1已补出生产模型总CLI、固定源/原guardian/内部FIT队列绑定、�
 R2只运行原R1尚未到达的真实文件/新后置评分及4项分析控制；原21项以原失败容器的完整日志、注册source/SHA和终态复用，不重放。新[精确1412文件包](../reports/cara_v1_P1_release_packaged_local_CPU_r2_20261102.json)在隔离目录通过4项；其真实Linux终态仍待。内部host/内部指标明确模拟，真实host证据继续复用848。
 
 补充：新P1容器命令与原supervisor接线已有4项本地控制，见[回执](../reports/cara_v1_P1_container_local_CPU_r1_20261102.json)，Linux生产worker仍待。R2在首次CPU派发前完成了合成启动回执admission SHA复核；原源码块传输已停止，保留[未派发记录](../reports/cara_v1_P1_release_R2_transfer_stopped_before_launch_r1_20261102.json)。新源包仅复制原R1控制的紧凑证据并只读绑定原stage，避免重复传输其1406文件注册表。原R1不变，未重派原CPU。
+
+R2原CPU在06:58:37退出1，完整失败发生在合成账本schema，尚未运行新指标；[原件](../reports/cara_v1_P1_release_Linux_CPU_original_failure_r2_20261102.json)保留，两检查删除。夹具现复用真实`SCHEMA`常量，3项纯metadata释放/结算控制通过。R3新精确包在隔离目录通过4分析＋3夹具控制；旧21原控制继续只按原source/日志复用。GPU、中央账本与旧实验均未启动/访问/重派。

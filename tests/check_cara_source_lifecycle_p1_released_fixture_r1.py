@@ -22,7 +22,7 @@ from wcomr.cara_s_endpoint_lifecycle_r1 import IDENTITY,SOURCE as LIFECYCLE
 from wcomr.cara_source_lifecycle_p1_collection_r1 import Collection
 from wcomr.cara_source_lifecycle_p1_runner_binding_r1 import RUN_ID,STAGE_NAME,CARD,PRECISION,GEOMETRY,WEIGHTS,GPU,IMAGE
 from wcomr.cara_source_lifecycle_p1_service_r1 import KIND
-from wcomr.gpu_budget_pool_v2 import atomic_json
+from wcomr.gpu_budget_pool_v2 import atomic_json,SCHEMA
 from wcomr.policy_price_terminal_r1 import record
 from wcomr.wc73_execution_r1 import Pool
 from check_cara_s_endpoint_real_video_r1 import write_video
@@ -32,6 +32,19 @@ from test_cara_source_lifecycle_p1_collection_r1 import SyntheticRequests
 from test_cara_source_lifecycle_estimation_r1 import fixture_packet
 
 ROOT=Path(__file__).resolve().parents[1]
+
+
+def settled_fixture(capture,job):
+    """Pure in-memory CPU ledger; never opens a real ledger."""
+    bill,launch=record(capture,'billing'),record(capture,'launch')
+    before=dict(schema=SCHEMA,cap_gpu_hours=226.,origin_used_gpu_hours=50.,origin_gpu_jobs_launched=10,
+        jobs={'old-unknown-16.5':dict(status='RESERVED_OR_RUNNING',gpu_uuid='GPU-OLD',billed_limit_GPUh=16.5),
+              launch['run_id']:copy.deepcopy(job)},events=[])
+    before.update(Pool.accounting(before));after=copy.deepcopy(before)
+    after['jobs'][launch['run_id']].update(status='SETTLED',actual_GPUh=bill['actual_GPUh'],billing_sha256=capture['files']['billing']['sha256'])
+    after['events'].append(dict(type='SETTLE_ACTUAL_ADDITIVELY',job_id=launch['run_id']));after.update(Pool.accounting(after))
+    return dict(central_ledger_host='four_card',launch_id=launch['launch_id'],billing_sha256=capture['files']['billing']['sha256'],
+                central_before=before,central_after=after)
 
 
 def build(project):
@@ -134,13 +147,7 @@ def build(project):
     guardian=record(capture,'guardian');guardian.update(status='CARA_ENDPOINT_GUARDIAN_TERMINAL_R1',
         billing_sha256=capture['files']['billing']['sha256'],ended_monotonic=bill['ended_monotonic'],FIT_service_terminal_witness=closed)
     guardian['container_terminal_witness']['container']=capture['container'];put(capture,'guardian',guardian)
-    before=dict(schema='gpu-budget-pool-v2',cap_gpu_hours=226.,origin_used_gpu_hours=50.,origin_gpu_jobs_launched=10,
-        jobs={'old-unknown-16.5':dict(status='RESERVED_OR_RUNNING',gpu_uuid='GPU-OLD',billed_limit_GPUh=16.5),RUN_ID:copy.deepcopy(job)},events=[])
-    before.update(Pool.accounting(before));after=copy.deepcopy(before)
-    after['jobs'][RUN_ID].update(status='SETTLED',actual_GPUh=bill['actual_GPUh'],billing_sha256=capture['files']['billing']['sha256'])
-    after['events'].append(dict(type='SETTLE_ACTUAL_ADDITIVELY',job_id=RUN_ID));after.update(Pool.accounting(after))
-    settlement=dict(central_ledger_host='four_card',launch_id=launch['launch_id'],billing_sha256=capture['files']['billing']['sha256'],
-        central_before=before,central_after=after)
+    settlement=settled_fixture(capture,job)
     return dict(capture=capture,expected_launch_sha256=expected,settlement=settlement,cpu_validation=True,cpu_shape=(93,64,64,3)),\
         dict(collection=collection,runtime=runtime,spec=spec,queue=queue,responses=responses)
 

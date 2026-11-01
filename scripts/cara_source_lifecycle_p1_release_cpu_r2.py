@@ -22,15 +22,15 @@ REMOTE=PREVIOUS.replace('check_cara_source_lifecycle_p1_release_cpu_r1.py','chec
 PREFLIGHT='reports/cara_v1_P1_release_packaged_local_CPU_r2_20261102.json'
 
 
-def mapping():
+def mapping(overlay=OVERLAY):
     result=json.loads((ROOT/BASE_CAPTURE).read_bytes())['result']['registration']['payload_sha256'].copy()
-    result.update({n:hashlib.sha256((ROOT/n).read_bytes()).hexdigest() for n in OVERLAY})
+    result.update({n:hashlib.sha256((ROOT/n).read_bytes()).hexdigest() for n in overlay})
     assert all(hashlib.sha256((ROOT/n).read_bytes()).hexdigest()==h for n,h in result.items())
     return result
 
 
-def packaged_local_check():
-    files=mapping()
+def packaged_local_check(*,overlay=OVERLAY,modules=('test_cara_source_lifecycle_p1_analysis_r1',),expected_tests=4):
+    files=mapping(overlay)
     with tempfile.TemporaryDirectory(prefix='cara-P1-release-R2-package-') as temporary:
         root=Path(temporary)
         for n in files:
@@ -38,31 +38,37 @@ def packaged_local_check():
         code="""import importlib,pathlib,sys,unittest
 root=pathlib.Path.cwd();sys.path[:0]=[str(root/'src'),str(root/'scripts'),str(root/'tests')]
 importlib.import_module('check_cara_source_lifecycle_p1_post_scores_cpu_r1')
-module=importlib.import_module('test_cara_source_lifecycle_p1_analysis_r1')
-result=unittest.TextTestRunner(verbosity=1).run(unittest.defaultTestLoader.loadTestsFromModule(module))
-assert result.testsRun==4 and result.wasSuccessful() and not result.skipped
-print('P1_RELEASE_R2_ISOLATED4_PASS')
+suite=unittest.TestSuite(unittest.defaultTestLoader.loadTestsFromName(n) for n in NAMES)
+result=unittest.TextTestRunner(verbosity=1).run(suite)
+assert result.testsRun==EXPECTED and result.wasSuccessful() and not result.skipped
+print('P1_RELEASE_ISOLATED_PASS')
 """
+        code='NAMES='+repr(modules)+'\nEXPECTED='+str(expected_tests)+'\n'+code
         tested=subprocess.run([str(ROOT/'.sync/cara-p0-plot-python/bin/python'),'-I','-c',code],cwd=root,
             capture_output=True,text=True,timeout=90,env=dict(os.environ,PYTHONDONTWRITEBYTECODE='1',CUDA_VISIBLE_DEVICES='',NVIDIA_VISIBLE_DEVICES='void'))
         assert tested.returncode==0,tested.stderr[-7000:]
-        assert tested.stdout.strip()=='P1_RELEASE_R2_ISOLATED4_PASS'
-    return dict(status='EXACT_REGISTERED_P1_RELEASE_R2_PAYLOAD_ISOLATED_LOCAL4_PASS',payload_sha256=files,
-        tests_run=4,original_R1_21_reused_without_replay=True,checkout_on_import_path=False,interpreter_isolated=True,
+        assert tested.stdout.strip()=='P1_RELEASE_ISOLATED_PASS'
+    return dict(status='EXACT_REGISTERED_P1_RELEASE_AFFECTED_PAYLOAD_ISOLATED_LOCAL_PASS',payload_sha256=files,
+        tests_run=expected_tests,original_R1_21_reused_without_replay=True,checkout_on_import_path=False,interpreter_isolated=True,
         stderr=tested.stderr,actual_released_media_and_new_metric_CPU_accepted=False,
         P1_GPU_authorized=False,GPU_submissions=0,ledger_written=False)
 
 
-if __name__=='__main__':
+def main(*,stage=STAGE,overlay=OVERLAY,remote_code=REMOTE,preflight=PREFLIGHT,
+         inherited='reports/cara_v1_P1_release_Linux_CPU_capture_r2_20261102.json',
+         transfer_label='cara-V1-P1-release-R2-CPU-transfer'):
     if len(sys.argv)>1 and sys.argv[1]=='prepare':
         sys.argv.pop(1)
-        proof=json.loads((ROOT/PREFLIGHT).read_bytes())
-        assert proof['status']=='EXACT_REGISTERED_P1_RELEASE_R2_PAYLOAD_ISOLATED_LOCAL4_PASS' and proof['payload_sha256']==mapping()
-        transfer.main(stage=STAGE,overlay=OVERLAY,remote_code=REMOTE,
-            transfer_label='cara-V1-P1-release-R2-CPU-transfer',connect_timeout=60,probe_peer=True,
-            inherited_capture_ref='reports/cara_v1_P1_release_Linux_CPU_capture_r2_20261102.json',work_seconds=1200,exit_seconds=60)
+        proof=json.loads((ROOT/preflight).read_bytes())
+        assert proof['status']=='EXACT_REGISTERED_P1_RELEASE_AFFECTED_PAYLOAD_ISOLATED_LOCAL_PASS' and proof['payload_sha256']==mapping(overlay)
+        transfer.main(stage=stage,overlay=overlay,remote_code=remote_code,
+            transfer_label=transfer_label,connect_timeout=60,probe_peer=True,
+            inherited_capture_ref=inherited,work_seconds=1200,exit_seconds=60)
     else:
         subprocess.run(['/Applications/Tailscale.app/Contents/MacOS/Tailscale','ping','--until-direct=false','--c','1',
                         '--timeout','5s','100.103.229.16'],capture_output=True,text=True,timeout=12)
-        capture(stage=STAGE,overlay=OVERLAY,remote_code=REMOTE,work_seconds=1200,exit_seconds=60,
+        capture(stage=stage,overlay=overlay,remote_code=remote_code,work_seconds=1200,exit_seconds=60,
             ssh_config=ROOT/'.sync/cara-fast-mainline-tailscale-20261030/ssh_config.p0_qos_none.private',connect_timeout=60)
+
+
+if __name__=='__main__':main()
