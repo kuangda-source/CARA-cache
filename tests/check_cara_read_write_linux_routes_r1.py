@@ -14,5 +14,15 @@ def run(runtime, artifact_root):
     source = source[:start]+'    try:\n        return _body(inference,selected,wc,rf,settings,inference_module,runtime,config,flow,artifact_root)\n'+source[end:]
     namespace = {**vars(old), '_body': body}
     exec(compile(source, __file__+'#actual-import-tiny-setup', 'exec'), namespace)
-    return load('check_full_sampling').run(runtime, exercise=lambda **kwargs: namespace['exercise'](
-        runtime=Path(runtime), tensor_loader=None, artifact_root=artifact_root, **kwargs))
+    def exercise(**kwargs):
+        net = kwargs['inference'].pipe.model.net
+        original_forward = net.forward
+        try:
+            return namespace['exercise'](runtime=Path(runtime), tensor_loader=None,
+                                         artifact_root=artifact_root, **kwargs)
+        finally:
+            # Real apply_worldcache binds its own module function. The tiny
+            # fixture starts with a separate source-extracted function, so its
+            # caller's binding must be restored as well as the value state.
+            net.forward = original_forward
+    return load('check_full_sampling').run(runtime, exercise=exercise)
