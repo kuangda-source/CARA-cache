@@ -52,6 +52,7 @@ from wcomr.cara_budget_original_handles_r1 import observe_original_process
 from wcomr.cara_s_endpoint_lifecycle_r1 import released_lifecycle
 from wcomr.cara_read_write_scores_r1 import bind_scorer
 from wcomr.cara_read_write_score_dispatch_r1 import dispatch,recover
+from wcomr.cara_read_write_identity_r1 import for_run
 from four_card_bank24_execution_tools_r1 import process_environment
 from four_card_policy_assets_port_r1 import container_command
 release=released_lifecycle(p['lifecycle'],p['launch_sha256'],p['settlement'])
@@ -108,7 +109,7 @@ if directory.exists():
     assert observation['original_live'] is False and terminal['identity']==started['identity'] and terminal['error'] is None
     packet_value=json.loads((directory/'artifact-packet.json').read_text());assert packet_value['manifest']['identity_controls_passed']==4
     result['artifact_packet']=saved(directory/'artifact-packet.json')
-    result['original_files']={n:saved(path) for n,path in dict(collection=output/'read-write-collection.json',card=stage/'plans/cara_next_stage_20261101/read_write/M1_FULL14_MANIFEST_R2.json').items()}
+    result['original_files']={n:saved(path) for n,path in dict(collection=output/'read-write-collection.json',card=stage/for_run(launch['run_id']).manifest).items()}
    else:result['status']='ORIGINAL_M1_ARTIFACT_READER_FAILED'
 score_control=stage/'endpoint-score-control'
 if (score_control/'intent.json').exists():
@@ -125,16 +126,18 @@ print(json.dumps(result))
 '''
 
 
-def main():
+def main(*,start_ref='reports/cara_read_write_actual_start_accepted_r1_20261101.json',
+         terminal_ref='reports/cara_read_write_final_original_r1_20261101.json',
+         settlement_ref='reports/cara_read_write_final_settlement_r1_20261101.json'):
     parser = argparse.ArgumentParser()
     parser.add_argument('action', choices=['artifacts', 'score', 'capture'])
     parser.add_argument('--output', type=Path, required=True)
     args = parser.parse_args()
     assert not args.output.exists()
     read = lambda name: json.loads((ROOT / name).read_text())
-    start = read('reports/cara_read_write_actual_start_accepted_r1_20261101.json')
-    terminal = read('reports/cara_read_write_final_original_r1_20261101.json')
-    settled = read('reports/cara_read_write_final_settlement_r1_20261101.json')
+    start = read(start_ref)
+    terminal = read(terminal_ref)
+    settled = read(settlement_ref)
     assert terminal['exit_code'] == settled['exit_code'] == 0
     old = read('reports/cara_fast_B36_original_score_manifest_r1_20261029.json')
     arguments = dict(action=args.action, stage=start['stage'], source_revision=start['source_revision'],

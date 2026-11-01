@@ -12,6 +12,7 @@ from wcomr.cara_read_write_scores_r1 import bind_scorer, SCORER_SOURCES, ROOT, W
 from wcomr.cara_fast_fidelity_r1 import file_sha
 from wcomr.cara_fast_spec_r1 import digest
 from test_cara_read_write_postrelease_r1 import score_fixture
+from wcomr.cara_read_write_identity_r1 import M1, P0
 
 
 def save(path,value):
@@ -22,9 +23,10 @@ def save(path,value):
 def timestamp(value):return datetime.datetime.fromtimestamp(value,datetime.timezone.utc).isoformat().replace('+00:00','Z')
 
 
-def fixture(project,*,alias=False,endpoint7=False):
-    original=score_fixture(project);packet=original['packet']
-    stage=project/'.sync/cara-read-write-M1-CPU-fixture-recovery';stage.mkdir(parents=True)
+def fixture(project,*,alias=False,endpoint7=False,identity=M1):
+    original=score_fixture(project,identity=identity);packet=original['packet']
+    name='cara-source-lifecycle-P0-point20-CPU-fixture-recovery' if identity==P0 else 'cara-read-write-M1-CPU-fixture-recovery'
+    stage=project/'.sync'/name;stage.mkdir(parents=True)
     save(stage/'GPU-launch.json',dict(CPU_fixture_only=True,launch_id=packet['manifest']['launch_id']))
     packet['release']['original_launch_sha256']=file_sha(stage/'GPU-launch.json')
     packet['manifest']['original_launch_sha256']=packet['release']['original_launch_sha256']

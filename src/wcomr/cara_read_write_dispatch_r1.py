@@ -8,6 +8,7 @@ import sys
 import time
 
 from .cara_read_write_runner_binding_r1 import validate_inputs, validate, RUNNER, PROFILE
+from .cara_read_write_identity_r1 import for_run
 from .cara_s_endpoint_lifecycle_r1 import IDENTITY, JOB_IDENTITY
 from .cara_budget_dispatch_r1 import central_binding, recover, ASSETS
 from .cara_budget_guardian_journal_r1 import encoded_sha
@@ -101,8 +102,9 @@ def frozen_commands(project, stage, registration, authority, profile, storage):
 
 def dispatch(project, stage, snapshot, password):
     project, stage = Path(project), Path(stage)
-    require(stage.parent == project/'.sync' and stage.name.startswith('cara-read-write-M1-GPU-'),
+    require(stage.parent == project/'.sync',
         'Original M1 stage required')
+    for_run(read_record(stage/'GPU-authorization.json')['run_id']).check_stage(stage.name)
     with (stage/'dispatch-control.lock').open('a+') as lock:
         fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
         original = recover(stage)

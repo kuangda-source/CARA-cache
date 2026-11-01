@@ -18,10 +18,12 @@ def main():
     from wcomr.gpu_budget_pool_v2 import sha
     from wcomr.history104_storage_r2 import storage_for
     from wcomr.policy_price_terminal_r1 import require
+    from wcomr.cara_read_write_identity_r1 import for_run
 
     launch = read_record(args.stage/'GPU-launch.json')
     registration = read_record(args.stage/'registration.json')
     authority = read_record(args.stage/'GPU-authorization.json')
+    PROFILE = for_run(launch['run_id']).profile
     profile = read_record(args.stage/PROFILE)
     require(launch['CPU_fixture_only'] is False and authority['CPU_fixture_only'] is False
         and authority['execution_authorized'] is True and authority['authorizes_replay'] is False

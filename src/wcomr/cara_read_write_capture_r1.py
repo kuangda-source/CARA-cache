@@ -12,6 +12,7 @@ import time
 from .cara_budget_original_handles_r1 import ROLES, observe_original_process
 from .cara_fast_b36_capture_r1 import captured_file, file_sha, lock_free
 from .policy_price_terminal_r1 import record, require
+from .cara_read_write_identity_r1 import for_run
 
 SOURCE='src/wcomr/cara_read_write_capture_r1.py'
 METADATA={
@@ -43,12 +44,13 @@ def inspect_container(name):
 def capture_lifecycle(project, stage, expected_launch_sha256):
     # Preserve the registered project alias shared by launch and stage identities.
     project,stage=Path(project),Path(stage)
-    require(stage.is_absolute() and not stage.is_symlink() and stage.parent==project/'.sync'
-            and stage.name.startswith('cara-read-write-M1-GPU-'), 'Original registered GPU stage required')
+    require(stage.is_absolute() and not stage.is_symlink() and stage.parent==project/'.sync',
+            'Original registered GPU stage required')
     launch_file=captured_file(stage/METADATA['launch'])
     require(launch_file.get('sha256')==expected_launch_sha256,'Original dispatch-bound launch SHA required')
     capture=dict(files={'launch':launch_file})
     launch=record(capture,'launch')
+    for_run(launch['run_id']).check_stage(stage.name)
     require(launch['stage']==str(stage) and launch['container']==stage.name+'-gpu'
             and re.fullmatch(r'GPU-[A-Za-z0-9-]+',launch['gpu_uuid']),
             'Original stage and container name differ')

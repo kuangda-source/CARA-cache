@@ -23,29 +23,30 @@ from wcomr import cara_s_endpoint_supervisor_r1 as supervisor
 from wcomr import history104_storage_r2 as storage_module
 from wcomr.cara_budget_host_policy_r1 import POLICY_SHA256
 from wcomr.gpu_budget_pool_v2 import atomic_json, sha
+from wcomr.cara_read_write_identity_r1 import M1, P0
 
 
 class Fixture:
-    def __init__(self, project):
+    def __init__(self, project, identity=M1):
         self.project = Path(project)
-        self.stage = self.project/'.sync/cara-read-write-M1-GPU-CPU-metadata'
+        self.stage = self.project/'.sync'/(identity.stage_name if identity == P0 else 'cara-read-write-M1-GPU-CPU-metadata')
         self.stage.mkdir(parents=True)
         (self.project/'runtime').mkdir()
         (self.project/'runtime/CPU.py').write_text('# explicit metadata fixture, no production authority\n')
-        names = set(binding.REQUIRED+dispatch.REQUIRED)
+        names = set(binding.required_for(identity)+dispatch.REQUIRED)
         for name in names:
             target = self.stage/name
             target.parent.mkdir(parents=True, exist_ok=True)
             shutil.copyfile(ROOT/name, target)
-        self.card = json.loads((self.stage/binding.CARD).read_text())
-        self.profile = json.loads((self.stage/binding.PROFILE).read_text())
+        self.card = json.loads((self.stage/identity.manifest).read_text())
+        self.profile = json.loads((self.stage/identity.profile).read_text())
         self.reg = dict(host='two_card', stage=str(self.stage), source_revision='b'*40, container_image=binding.IMAGE,
             payload_sha256={n:sha(self.stage/n) for n in names},
             runtime_source_sha256={'CPU.py':sha(self.project/'runtime/CPU.py')})
-        self.auth = dict(run_id='cara-read-write-M1-cpu-metadata', launch_id='a'*32, host='two_card', gpu_uuid=binding.GPU,
+        self.auth = dict(run_id=identity.run_id if identity == P0 else 'cara-read-write-M1-cpu-metadata', launch_id='a'*32, host='two_card', gpu_uuid=binding.GPU,
             stage=str(self.stage), source_revision='b'*40, scope_sha256=self.card['scope_sha256'], billed_limit_GPUh=1.95,
             physical_paths=14, CPU_fixture_only=False, execution_authorized=True, authorizes_replay=False,
-            card_kind='CARA_READ_WRITE_M1_FULL14', authorization_basis='USER_STANDING_BELOW2_GPUH_MAINLINE',
+            card_kind=identity.card_kind, authorization_basis='USER_STANDING_BELOW2_GPUH_MAINLINE',
             user_quote='EXPLICIT CPU METADATA FIXTURE, NOT USER AUTHORITY', execution_host_policy_sha256=POLICY_SHA256)
         self.proof = dict(passed=True, whole_card_CPU_accepted=True, host='two_card', scope_sha256=self.card['scope_sha256'],
             payload_sha256=self.reg['payload_sha256'], runtime_source_sha256=self.reg['runtime_source_sha256'],
@@ -53,6 +54,11 @@ class Fixture:
             loaded_runner_accepted=True, dispatch_finance_release_accepted=True, postrelease_eight_pair_scorer_accepted=True)
         self.quote = json.loads((ROOT/'plans/cara_next_stage_20261101/read_write/M1_FULL14_WHOLE_QUOTE_DRAFT_R2.json').read_text())
         self.quote.update(whole_quote_accepted=True, hard_GPUh=1.95)
+        if identity == P0:
+            self.auth.update(target_update=20)
+            self.proof.update(target_update=20, run_id=identity.run_id, point20_whole_card_accepted=True,
+                              cross_point_Native_bridge_controls_accepted=True)
+            self.quote.update(target_update=20, run_id=identity.run_id, scope_sha256=self.card['scope_sha256'])
         self.storage = SimpleNamespace(output=self.project/'outputs'/self.auth['run_id'],
             journal=SimpleNamespace(path=self.project/'reports/M1-CPU.journal'), check=lambda:None)
         self.storage.config = dict(output_mount=str(self.storage.output), image_path=str(self.project/'private16.ext4'),

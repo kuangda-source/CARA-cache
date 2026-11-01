@@ -35,8 +35,9 @@ def verify(stage,packet,config,registration_sha256,*,cpu_validation=False):
     validate_config(config,cpu_validation=cpu_validation)
     require(config==bind_scorer(packet,{k:config[k] for k in ('torch_home','piq_site','weights_sha256')},
                                cpu_validation=cpu_validation),'Original full artifact/score configuration required')
-    prefix='cara-read-write-M1-CPU-fixture-' if cpu_validation else 'cara-read-write-M1-GPU-'
-    require(stage.name.startswith(prefix) and file_sha(stage/'GPU-launch.json')==packet['release']['original_launch_sha256'],
+    from .cara_read_write_identity_r1 import for_run
+    for_run(config['run_id']).check_stage(stage.name, cpu_validation=cpu_validation)
+    require(file_sha(stage/'GPU-launch.json')==packet['release']['original_launch_sha256'],
             'Original released endpoint stage/launch required')
     registration=read_record(stage/'registration.json')
     require(file_sha(stage/'registration.json')==registration_sha256 and registration['host']=='two_card'

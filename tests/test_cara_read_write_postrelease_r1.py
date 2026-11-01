@@ -14,6 +14,7 @@ from wcomr.gpu_budget_pool_v2 import sha
 from wcomr.policy_price_terminal_r1 import record
 from check_cara_read_write_packet_fixture_r1 import packet
 from test_cara_s_endpoint_artifacts_r1 import write_media, decode
+from wcomr.cara_read_write_identity_r1 import M1
 
 
 class Postrelease(unittest.TestCase):
@@ -70,8 +71,8 @@ class Postrelease(unittest.TestCase):
                 reader.check_collection(card, changed, cpu_validation=True)
 
 
-def score_fixture(root):
-    args = packet(root, write_media)
+def score_fixture(root, *, identity=M1):
+    args = packet(root, write_media, identity=identity)
     with patch.object(reader, 'decode_video', side_effect=decode):
         saved = reader.released_artifacts(**args)
     config = scores.bind_scorer(saved, dict(torch_home='/CPU-ONLY/torch', piq_site='/CPU-ONLY/site', weights_sha256={}), cpu_validation=True)

@@ -18,6 +18,7 @@ OUTPUT = ROOT/'outputs'/RUN
 IMAGE = BASE/'output.ext4'
 JOURNAL_DIR = Path('/home/gaokuangda/cara_control/read-write-M1-r1')
 JOURNAL = JOURNAL_DIR/'control.journal'
+M1_PATHS = (CONTROL, BASE, RUN, OUTPUT, IMAGE, JOURNAL_DIR, JOURNAL)
 CPU_STAGE = ROOT/'.sync/cara-budget-two-card-policy-CPU-a6000-r1-20261031'
 HELPER = CPU_STAGE/'src/wcomr/history104_storage_r2.py'
 HELPER_SHA = '90636ca74f1ae88db5ed1b8478f6aef8f83fd57db827db04da2e4d58a48c1361'
@@ -27,9 +28,9 @@ def sha(path):
     return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 
 
-def write_state(value):
-    target = CONTROL/'state.json'
-    temporary = CONTROL/'state.tmp'
+def write_state(control, value):
+    target = control/'state.json'
+    temporary = control/'state.tmp'
     with temporary.open('w') as stream:
         json.dump(value, stream, indent=2)
         stream.write('\n')
@@ -38,7 +39,7 @@ def write_state(value):
     os.replace(temporary, target)
 
 
-def preflight():
+def preflight(BASE=BASE, OUTPUT=OUTPUT, JOURNAL_DIR=JOURNAL_DIR):
     assert all(not p.exists() and not p.is_symlink() for p in (BASE, OUTPUT, JOURNAL_DIR))
     assert BASE.parent.is_dir() and OUTPUT.parent.is_dir() and JOURNAL_DIR.parent.is_dir()
     assert all(not p.is_symlink() and p.stat().st_uid == os.getuid()
@@ -54,9 +55,21 @@ def preflight():
         data_device=ROOT.stat().st_dev, journal_device=JOURNAL_DIR.parent.stat().st_dev)
 
 
-def main():
+def main(*, point20=False):
+    if point20:
+        CONTROL = ROOT/'.sync/cara-source-lifecycle-P0-point20-storage-provision-r1-20261101'
+        BASE = ROOT/'.sync/storage-reservations/source-lifecycle-P0-point20-r1'
+        RUN = 'cara-source-lifecycle-P0-point20-full14-r1-20261101'
+        OUTPUT = ROOT/'outputs'/RUN
+        IMAGE = BASE/'output.ext4'
+        JOURNAL_DIR = Path('/home/gaokuangda/cara_control/source-lifecycle-P0-point20-r1')
+        JOURNAL = JOURNAL_DIR/'control.journal'
+    else:
+        CONTROL, BASE, RUN, OUTPUT, IMAGE, JOURNAL_DIR, JOURNAL = M1_PATHS
     assert os.getuid() != 0 and Path('/proc/self').exists()
     registration = json.loads((CONTROL/'registration.json').read_text())
+    if point20:
+        assert registration['run_id'] == RUN and registration['point20'] is True
     assert registration['operator_sha256'] == sha(__file__) and sha(HELPER) == HELPER_SHA
     assert not (CONTROL/'state.json').exists(), 'Original provisioning exists; capture, never replay'
     sys.path.insert(0, str(CPU_STAGE/'src'))
@@ -72,7 +85,7 @@ def main():
         identity=bind_original_process(os.getpid()), source_revision=registration['source_revision'],
         operator_sha256=registration['operator_sha256'], helper_sha256=HELPER_SHA,
         steps=[], GPU_submissions=0, ledger_written=False)
-    write_state(state)
+    write_state(CONTROL, state)
     password = None
     try:
         incoming = json.load(sys.stdin)
@@ -80,11 +93,11 @@ def main():
         assert isinstance(password, str) and password
         launch = json.loads((CONTROL/'launch.json').read_text())
         assert launch['identity'] == state['identity'], 'Only the original launched process may provision'
-        state['fresh_resources'] = preflight()
+        state['fresh_resources'] = preflight(BASE, OUTPUT, JOURNAL_DIR)
 
         def step(name):
             state['steps'].append(dict(name=name, unix=time.time()))
-            write_state(state)
+            write_state(CONTROL, state)
 
         def sudo(arguments):
             result = subprocess.run(['sudo', '-S', '-p', '']+arguments, input=password+'\n',
@@ -160,9 +173,10 @@ def main():
     finally:
         password = None
         state['ended_unix'] = time.time()
-        write_state(state)
+        write_state(CONTROL, state)
         signal.alarm(0)
 
 
 if __name__ == '__main__':
-    main()
+    assert sys.argv[1:] in ([],['--point20'])
+    main(point20=sys.argv[1:]==['--point20'])

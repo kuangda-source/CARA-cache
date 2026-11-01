@@ -8,6 +8,7 @@ from .cara_fast_scoring_manifest_r2 import comparison_input_digest, validate_pai
 from .cara_fast_spec_r1 import digest
 from .cara_read_write_plan_r1 import validate
 from .cara_read_write_runner_binding_r1 import CARD, PRECISION, GEOMETRY
+from .cara_read_write_identity_r1 import for_run, for_card, P0
 from .cara_s_endpoint_artifacts_r1 import decode_video, verify_file
 from .cara_s_endpoint_lifecycle_r1 import released_lifecycle
 from .policy_price_terminal_r1 import record, require
@@ -38,11 +39,13 @@ def check_collection(card, collection, *, cpu_validation=False):
             'Every original M1 slot must have its complete paid denominator')
         if slot['role'].startswith('RW'):
             intervention = result['intervention']
-            require(intervention['corner'] == slot['role'][2:], 'Original four-corner identity differs')
+            require(intervention['corner'] == slot['role'][2:]
+                and (intervention.get('target_update', 8) == card['target_update']),
+                'Original four-corner identity or target update differs')
         if slot['role'] != 'NATIVE35':
             expected = card['roles'][slot['role']]['policy']['actions'].copy()
             if slot['role'].startswith('RW'):
-                expected[7] = 'D' if slot['role'][-1] == '1' else 'C'
+                expected[card['target_update']-1] = 'D' if slot['role'][-1] == '1' else 'C'
             require([h['actual'] for h in result['semantic_history']] == expected
                 and all(h['fallback_reason'] is None for h in result['semantic_history']),
                 'M1 left its frozen current write/future policy')
@@ -60,6 +63,14 @@ def validate_manifest(manifest):
         and manifest['physical_model_pairs'] == 512
         and len(manifest['members']) == len(set(manifest['members'])) == 2,
         'Complete released/settled14 collection and four full latent/RGB controls required')
+    if for_run(manifest['run_id']) == P0:
+        require(manifest.get('target_update') == 20 and manifest.get('cross_point_Native_controls_passed') == 2
+            and manifest.get('original_point8_new_scoring') == 0
+            and {c['member'] for c in manifest.get('cross_point_Native_controls', [])} == set(manifest['members'])
+            and all(c['full93_RGB_equal'] and c['PTS_equal']
+                    and c['original_GPU_or_scoring_replayed'] is False
+                    for c in manifest['cross_point_Native_controls']),
+            'P0 point20 requires both original point8 Native bridges before scoring')
     pairs = manifest['pairs']
     require(len(pairs) == 8 and {(p['candidate']['member'], p['candidate']['role']) for p in pairs}
         == {(m, r) for m in manifest['members'] for r in READ_ROLES},
@@ -75,13 +86,16 @@ def released_artifacts(capture, expected_launch_sha256, settlement, *, cpu_valid
     launch, registration = record(capture, 'launch'), record(capture, 'registration')
     require(launch['host'] == 'two_card' and launch['physical_paths'] == 14,
         'Original two-card M1 allocation required')
+    identity = for_run(launch['run_id'])
     stage = Path(launch['stage'])
     project = stage.parents[1]
+    CARD = identity.manifest
     for path in (CARD, PRECISION, GEOMETRY, ASSETS, PROTOCOL, SOURCE):
         require(file_sha(stage/path) == registration['payload_sha256'][path],
             'Original registered M1 identity/reader source changed: '+path)
     card = json.loads((stage/CARD).read_text())
-    require(card['scope_sha256'] == launch['scope_sha256'], 'Original M1 collection scope differs')
+    require(for_card(card) == identity and card['scope_sha256'] == launch['scope_sha256'],
+            'Original M1 collection scope differs')
     require(cpu_shape is None or cpu_validation, 'Tiny geometry is explicit CPU-fixture-only')
     shape = (93,432,768,3) if cpu_shape is None else tuple(cpu_shape)
     require(shape[0] == 93 and shape[-1] == 3, 'All93 RGB frames required')
@@ -141,7 +155,7 @@ def released_artifacts(capture, expected_launch_sha256, settlement, *, cpu_valid
     controls, pairs = [], []
     for member in card['FIT']:
         native = slots[(member, 'NATIVE35')]
-        for role, control in (('RW00', 'UNIFORM19_C'), ('RW11', 'D8_CONTROL')):
+        for role, control in (('RW00', 'UNIFORM19_C'), ('RW11', identity.dense_control)):
             left, right = slots[(member, role)], slots[(member, control)]
             require(torch.equal(latents[left], latents[right]) and decoded[left] == decoded[right],
                 'Full M1 latent/93RGB corner equivalence failed')
@@ -151,6 +165,13 @@ def released_artifacts(capture, expected_launch_sha256, settlement, *, cpu_valid
             identifier = slots[(member, role)]
             require(decoded[identifier]['PTS'] == decoded[native]['PTS'], 'Original M1/Native PTS differ')
             pairs.append(dict(id='M1_PAIR_'+identifier, candidate=descriptors[identifier], reference=descriptors[native]))
+    bridge_controls = []
+    if identity == P0:
+        from .cara_source_lifecycle_native_bridge_r1 import BRIDGE, compare
+        require(file_sha(stage/BRIDGE) == registration['payload_sha256'][BRIDGE],
+                'Registered original point8 Native bridge changed')
+        bridge_controls = compare(json.loads((stage/BRIDGE).read_text()), card, decoded, descriptors,
+                                  cpu_validation=cpu_validation)
     manifest = dict(schema='CARA_READ_WRITE_M1_FULL8_SCORE_MANIFEST_R1', run_id=launch['run_id'], launch_id=launch['launch_id'],
         scope_sha256=card['scope_sha256'], analysis_scope_sha256=card['scope_sha256'], members=card['FIT'], pairs=pairs,
         protocol_sha256=digest(json.loads((stage/PROTOCOL).read_text())), physical_paths=14, physical_model_pairs=512,
@@ -158,6 +179,14 @@ def released_artifacts(capture, expected_launch_sha256, settlement, *, cpu_valid
         original_launch_sha256=expected_launch_sha256, collection_sha256=collection_digest,
         CPU_fixture_only=cpu_validation, diagnostic_timing_only=True, independent_new_inputs=False,
         scientific_accepted=False, GPU_submissions=0, ledger_written=False)
+    if identity == P0:
+        manifest.update(target_update=20, cross_point_Native_controls=bridge_controls,
+            cross_point_Native_controls_passed=2, original_point8_new_scoring=0)
+        from .cara_source_lifecycle_trace_r1 import consumers
+        manifest['source_consumption'] = {member: {
+            r['slot']['role']:consumers(r['result']['semantic_history'],20)
+            for r in collection['rows'] if r['slot']['member'] == member and r['slot']['role'] in READ_ROLES}
+            for member in card['FIT']}
     validate_manifest(manifest)
     release.update(original_launch_sha256=expected_launch_sha256, collection_sha256=collection_digest)
     return dict(status='COMPLETE14_FOUR_LATENT_RGB_CONTROLS_EIGHT_PAIRS_NOT_SCORED', manifest=manifest,

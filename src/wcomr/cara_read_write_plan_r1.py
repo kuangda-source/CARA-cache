@@ -2,6 +2,7 @@
 import copy
 
 from .cara_fast_spec_r1 import digest, policy_from_mask, profile_from, uniform_mask
+from .cara_read_write_identity_r1 import for_card
 
 
 def build(parent):
@@ -41,11 +42,13 @@ def build(parent):
 
 
 def validate(card):
+    identity = for_card(card)
     if digest({k: v for k, v in card.items() if k != 'scope_sha256'}) != card['scope_sha256']:
         raise ValueError('Read/write scope changed')
-    if (card['schema'] != 'CARA_READ_WRITE_M1_FULL14_PROSPECTIVE_CARD_R2'
-            or len(card['physical_matrix']) != 14 or len(card['inputs']) != 2 or card['CHECK']
-            or card['counts']['physical_model_pairs'] != 512):
+    if (len(card['physical_matrix']) != 14 or len(card['inputs']) != 2 or card['CHECK']
+            or card['counts']['physical_model_pairs'] != 512 or len(card['FIT']) != 2
+            or set(card['roles']) != {'NATIVE35', 'UNIFORM19_C', identity.dense_control,
+                                     'RW00', 'RW10', 'RW01', 'RW11'}):
         raise ValueError('Complete prospective14-path scope required')
     for member in card['FIT']:
         slots = [s for s in card['physical_matrix'] if s['member'] == member]

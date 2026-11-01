@@ -15,10 +15,11 @@ sys.dont_write_bytecode=True;sys.path[:0]=[str(stage/'src'),str(stage/'scripts')
 from wcomr.cara_read_write_dispatch_r1 import ready_inputs,fresh_resources,dispatch,recover
 from wcomr.cara_read_write_capture_r1 import inspect_container,capture_lifecycle
 from wcomr.cara_budget_dispatch_r1 import ASSETS,central_binding
-from wcomr.cara_read_write_central_r1 import RUN,STAGES
+from wcomr.cara_read_write_identity_r1 import for_run
 from wcomr.cara_fast_b36_dispatch_r2 import create,assets_check,selected_gpu
 from wcomr.gpu_budget_pool_v2 import atomic_json
-assert auth['run_id']==RUN and stage==root/'.sync'/STAGES['two_card']
+spec=for_run(auth['run_id']);RUN=spec.run_id
+assert auth['run_id']==RUN and auth['card_kind']==spec.card_kind and stage==root/'.sync'/spec.stage_name
 def original():
  return dict(host='two_card',stage=str(stage),run_id=RUN,stage_exists=stage.exists(),dispatch_records=[n for n in ('GPU-intent.json','GPU-dispatch.json','GPU-launch.json','guardian-intent.json') if (stage/n).exists()],container=inspect_container(stage.name+'-gpu'),observation_complete=True,observed_unix=time.time())
 if p['action']=='bind':
@@ -42,7 +43,7 @@ elif p['action'] in ('admit','refresh'):
  assert not list(storage.output.iterdir())
  with storage.journal.path.open('rb') as f:assert all(b==bytes(len(b)) for b in iter(lambda:f.read(2**20),b''))
  quote=json.loads((stage/'whole-quote.json').read_text())
- admission.update(status='READ_WRITE_M1_COMPLETE_FRESH_ADMISSION_NO_GPU',authorization=authority,
+ admission.update(status=spec.phase+'_COMPLETE_FRESH_ADMISSION_NO_GPU',authorization=authority,
   central_operator_sha256=registration['payload_sha256']['src/wcomr/cara_read_write_central_r1.py'],
   authorization_raw_utf8=(stage/'GPU-authorization.json').read_text(),resources=resources,
   forecast_GPUh=quote['forecast_GPUh'],physical_paths=14,physical_model_pairs=512,new_scoring_pairs=8,
@@ -90,8 +91,9 @@ print(json.dumps(result))
 CENTRAL=r'''
 import base64,hashlib,io,json,pathlib,sys,tarfile,time
 p=packet['arguments'];auth=p['authority'];root=pathlib.Path('/data20t/gaokuangda/worldcache_workspace')
-assert auth['central_transaction_authorized'] and auth['run_id']=='cara-read-write-M1-full14-r1-20261101'
-source=pathlib.Path('/tmp')/('read-write-M1-central-operator-'+auth['launch_id'])
+assert auth['central_transaction_authorized'] and auth['run_id'] in ('cara-read-write-M1-full14-r1-20261101','cara-source-lifecycle-P0-point20-full14-r1-20261101')
+label='read-write-M1' if auth['run_id'].startswith('cara-read-write-M1-') else 'source-lifecycle-P0-point20'
+source=pathlib.Path('/tmp')/(label+'-central-operator-'+auth['launch_id'])
 expected=p['plan']['overlay_sha256']
 if p['action']=='central-prepare':
  assert not source.exists(),'Existing or partial operator: recover only'
@@ -107,7 +109,9 @@ if p['action']=='central-prepare':
 assert source.is_dir() and not source.is_symlink()
 assert all(hashlib.sha256((source/n).read_bytes()).hexdigest()==h for n,h in expected.items())
 sys.dont_write_bytecode=True;sys.path[:0]=[str(source/'src'),str(source/'scripts')]
-from wcomr.cara_read_write_central_r1 import reserve,settle,Pool,RUN,ledger_valid
+from wcomr.cara_read_write_central_r1 import reserve,settle,Pool,ledger_valid
+from wcomr.cara_read_write_identity_r1 import for_run
+RUN=for_run(auth['run_id']).run_id;assert RUN==auth['run_id']
 pool=Pool(root);receipt=root/'reports'/(RUN+'.central-reservation.json');envelope=None
 if p['action']=='reserve':
  assert auth==p['refresh']['admission']['authorization']
@@ -121,18 +125,25 @@ snapshot=dict(central_ledger_host='four_card',ledger=pool.read(),observed_unix=t
 print(json.dumps(dict(status='READ_WRITE_M1_ORIGINAL_CENTRAL_TRANSACTION_OR_RECOVERY',action=p['action'],operator_cache=str(source),operator_source_files=len(expected),envelope=envelope,snapshot=snapshot,GPU_submissions=0,ledger_written=p['action'] in ('reserve','settle'))))
 '''
 
-def main():
+def main(*,authorization_ref=AUTH,
+         proof_ref='reports/cara_read_write_whole_CPU_accepted_r1_20261101.json',
+         source_ref='reports/cara_read_write_source_preparation_r1_20261101.json'):
  p=argparse.ArgumentParser();p.add_argument('action',choices=['bind','admit','refresh','dispatch','status','central-prepare','central-recover','central-status','reserve','settle'])
  p.add_argument('--input',type=Path);p.add_argument('--output',type=Path,required=True);a=p.parse_args();assert not a.output.exists()
  read=lambda n:json.loads((ROOT/n).read_text())
- auth=read(AUTH);assert auth['execution_authorized'] and auth['hard_GPUh']==1.95
+ auth=read(authorization_ref);assert auth['execution_authorized'] and auth['hard_GPUh']==1.95
+ sys.path.insert(0,str(ROOT/'src'))
+ from wcomr.cara_read_write_identity_r1 import for_run,P0
+ spec=for_run(auth['run_id']);assert auth['card_kind']==spec.card_kind
  central=a.action.startswith('central-') or a.action in ('reserve','settle')
- if central:assert auth['central_transaction_authorized'] and auth['central_user_quote'],'New M1 central exception required before contacting four-card'
+ if central:
+  assert auth['central_transaction_authorized'] and auth['central_user_quote'],'New exact-card central exception required before contacting four-card'
+  if spec==P0:assert auth.get('central_exception_run_id')==spec.run_id and auth.get('target_update')==20,'Original M1 central exception cannot be reused'
  packet=dict(action=a.action,authority=auth)
  if central:
   sys.path.insert(0,str(ROOT/'src'))
   from wcomr.immutable_stage_payload_r1 import local_python_closure
-  proof=read('reports/cara_read_write_whole_CPU_accepted_r1_20261101.json')
+  proof=read(proof_ref)
   expected=local_python_closure(ROOT,['src/wcomr/cara_read_write_central_r1.py'])
   assert all(proof['payload_sha256'].get(n)==h for n,h in expected.items())
   packet['plan']=dict(overlay_sha256=expected)
@@ -142,7 +153,7 @@ def main():
     for n in sorted(expected):
      raw=(ROOT/n).read_bytes();member=tarfile.TarInfo(n);member.size=len(raw);member.mode=0o644;archive.addfile(member,io.BytesIO(raw))
    raw=buffer.getvalue();packet.update(archive=base64.b64encode(raw).decode(),archive_sha256=hashlib.sha256(raw).hexdigest())
- else:packet['registration_sha256']=read('reports/cara_read_write_source_preparation_r1_20261101.json')['result']['registration_sha256']
+ else:packet['registration_sha256']=read(source_ref)['result']['registration_sha256']
  if a.action in ('reserve','dispatch','settle'):
   assert a.input is not None
   supplied=json.loads(a.input.read_text());assert supplied['exit_code']==0

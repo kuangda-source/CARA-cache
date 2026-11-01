@@ -85,8 +85,9 @@ def recover(binding,packet,config,*,cpu_validation=False):
     require(expected==config and binding['CPU_fixture_only'] is cpu_validation,
             'Original complete artifact packet and fixture mode required')
     stage=Path(binding['stage']);project=stage.parents[1]
-    prefix='cara-read-write-M1-CPU-fixture-' if cpu_validation else 'cara-read-write-M1-GPU-'
-    require(stage.is_absolute() and stage.parent==project/'.sync' and stage.name.startswith(prefix)
+    from .cara_read_write_identity_r1 import for_run
+    for_run(config['run_id']).check_stage(stage.name,cpu_validation=cpu_validation)
+    require(stage.is_absolute() and stage.parent==project/'.sync'
             and Path(config['run_id']).name==config['run_id'] and config['run_id'] not in ('.','..')
             and binding['container']==stage.name+'-endpoint-score-cpu'
             and re.fullmatch('[0-9a-f]{64}',binding['container_id']) is not None,

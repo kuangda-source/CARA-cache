@@ -4,20 +4,23 @@ import re
 
 from cara_fast_host_guardian_r2 import container_arguments as original_container_arguments
 from wcomr.cara_read_write_runner_binding_r1 import PROFILE, validate_profile
+from wcomr.cara_read_write_identity_r1 import for_run
 
 WORKER = 'scripts/cara_read_write_supervisor_worker_r1.py'
 
 
 def container_arguments(*, project, stage, storage, registration_sha, profile, host, run_id, uuid, uid, gid):
     project, stage = Path(project), Path(stage)
+    identity = for_run(run_id)
+    identity.check_stage(stage.name)
     if (not project.is_absolute() or stage.parent != project/'.sync'
-            or not stage.name.startswith('cara-read-write-M1-GPU-')
-            or not re.fullmatch('cara-read-write-M1-[a-z0-9-]+', run_id)
             or not re.fullmatch('[0-9a-f]{64}', registration_sha)
             or uuid != 'GPU-cebf7119-cf03-23b9-e192-cd196332b704' or host != 'two_card'
             or type(uid) is not int or uid <= 0 or type(gid) is not int or gid <= 0):
         raise ValueError('Original M1 absolute stage, two-card UUID and non-root owner required')
     validate_profile(profile, profile['scope_sha256'])
+    if identity.target_update == 20 and profile.get('target_update') != 20:
+        raise ValueError('Original M1 profile cannot bind the distinct P0 point20 container')
     config, limits = storage.config, profile['storage']
     if (storage.output != project/'outputs'/run_id or config['output_mount'] != str(storage.output)
             or config['image_bytes'] != limits['output_image_bytes']

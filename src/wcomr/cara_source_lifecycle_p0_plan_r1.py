@@ -42,3 +42,12 @@ def validate(card,parent):
     if card!=build(parent):
         raise ValueError('Exact new point20 scope; original M1 scope and authority are not reusable')
     return profile_from(card['profile'])
+
+
+def execution_scope(parent):
+    """Close the scope draft without changing its requests or scientific design."""
+    card = build(parent)
+    card.update(schema='CARA_SOURCE_LIFECYCLE_P0_POINT20_FULL14_EXECUTION_SCOPE_R1',
+                state='CPU_PREPARATION_NOT_GPU_AUTHORIZATION')
+    card['scope_sha256'] = digest({k:v for k,v in card.items() if k != 'scope_sha256'})
+    return card

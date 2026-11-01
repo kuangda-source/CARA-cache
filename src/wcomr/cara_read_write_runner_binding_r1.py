@@ -5,6 +5,7 @@ import re
 from .cara_budget_host_policy_r1 import bound_policy, POLICY, POLICY_SHA256
 from .cara_budget_search_journal_r1 import read_record
 from .cara_read_write_plan_r1 import build, validate as validate_card
+from .cara_read_write_identity_r1 import M1, P0, for_run, for_card
 from .cara_s_endpoint_lifecycle_r1 import IDENTITY, JOB_IDENTITY
 from .gpu_budget_pool_v2 import finite, sha
 from .policy_price_terminal_r1 import require
@@ -22,6 +23,7 @@ GEOMETRY = 'configs/wc_ra_comparison_production_r2_20261010.json'
 IMAGE = 'sha256:1e81ac62ee68ca1a6ef655515096a1d84579b01aa4986810c9b18d4f6c4c552d'
 GPU = 'GPU-cebf7119-cf03-23b9-e192-cd196332b704'
 REQUIRED = (SOURCE, RUNNER, LOADED, CARD, PARENT, PROFILE, PRECISION, MODE, SETUP, GEOMETRY, POLICY,
+    'src/wcomr/cara_read_write_identity_r1.py',
     'src/wcomr/cara_read_write_plan_r1.py', 'src/wcomr/cara_read_write_collection_r1.py',
     'src/wcomr/cara_read_write_point_r1.py', 'src/wcomr/cara_read_write_suffix_r1.py',
     'src/wcomr/cpu_owned_state_snapshot.py', 'src/wcomr/cara_s_endpoint_runner_r1.py',
@@ -45,8 +47,19 @@ REQUIRED = (SOURCE, RUNNER, LOADED, CARD, PARENT, PROFILE, PRECISION, MODE, SETU
     'plans/cara_next_stage_20261028/mainline/FIDELITY_PROTOCOL.json')
 
 
+def required_for(identity):
+    if identity == M1:
+        return REQUIRED
+    return tuple(n for n in REQUIRED if n not in (CARD, PROFILE)) + (
+        identity.manifest, identity.profile, 'src/wcomr/cara_source_lifecycle_p0_plan_r1.py',
+        'src/wcomr/cara_source_lifecycle_trace_r1.py',
+        'plans/cara_next_stage_20261101/source_lifecycle/P0_POINT8_NATIVE_BRIDGE_R1.json',
+        'src/wcomr/cara_source_lifecycle_native_bridge_r1.py')
+
+
 def validate_profile(profile, scope_sha256):
-    require(profile['schema'] == 'CARA_READ_WRITE_M1_CONTAINER_PROFILE_R1'
+    require(profile['schema'] in ('CARA_READ_WRITE_M1_CONTAINER_PROFILE_R1',
+                                 'CARA_SOURCE_LIFECYCLE_P0_POINT20_CONTAINER_PROFILE_R1')
         and profile['scope_sha256'] == scope_sha256
         and (profile['physical_paths'], profile['physical_model_pairs'], profile['new_scoring_pairs']) == (14, 512, 8)
         and profile['hard_GPUh'] == 1.95 and profile['stop_release_reserve_seconds'] == 600
@@ -70,27 +83,36 @@ def validate_inputs(project, stage):
     project, stage = Path(project), Path(stage)
     authority = read_record(stage/'GPU-authorization.json')
     registration = read_record(stage/'registration.json')
+    identity = for_run(authority['run_id'])
+    identity.check_stage(stage.name)
     require(project.is_absolute() and stage.parent == project/'.sync'
-        and stage.name.startswith('cara-read-write-M1-GPU-')
         and authority['stage'] == str(stage)
-        and re.fullmatch('cara-read-write-M1-[a-z0-9-]+', authority['run_id'])
         and re.fullmatch('[0-9a-f]{40}', authority['source_revision'])
         and re.fullmatch('[0-9a-f]{32}', authority['launch_id']), 'Original isolated M1 identity required')
     require(authority['CPU_fixture_only'] is False and authority['execution_authorized'] is True
-        and authority['authorizes_replay'] is False and authority['card_kind'] == 'CARA_READ_WRITE_M1_FULL14'
+        and authority['authorizes_replay'] is False and authority['card_kind'] == identity.card_kind
         and authority['authorization_basis'] == 'USER_STANDING_BELOW2_GPUH_MAINLINE'
         and bool(authority['user_quote']) and authority['host'] == 'two_card' and authority['gpu_uuid'] == GPU
         and all(registration[k] == authority[k] for k in ('host', 'stage', 'source_revision')),
         'M1 authority must bind the existing below2GPUh rule and original two-card GPU')
     payload, runtime = registration['payload_sha256'], registration['runtime_source_sha256']
-    require(set(REQUIRED) <= set(payload) and all(not Path(p).is_absolute() and '..' not in Path(p).parts
+    require(set(required_for(identity)) <= set(payload) and all(not Path(p).is_absolute() and '..' not in Path(p).parts
         and sha(stage/p) == h for p, h in payload.items()) and payload[SOURCE] == sha(__file__)
         and bool(runtime) and all(not Path(p).is_absolute() and '..' not in Path(p).parts
         and sha(project/'runtime'/p) == h for p, h in runtime.items()), 'Registered M1 source/runtime differs')
     bound_policy(stage, registration, authority)
-    card, profile = read_record(stage/CARD), read_record(stage/PROFILE)
+    card, profile = read_record(stage/identity.manifest), read_record(stage/identity.profile)
     validate_card(card)
-    require(card == build(read_record(stage/PARENT)), 'Exact original two-FIT complete14 M1 scope required')
+    parent = read_record(stage/PARENT)
+    if identity == P0:
+        from .cara_source_lifecycle_p0_plan_r1 import execution_scope
+        expected = execution_scope(parent)
+        require(authority.get('target_update') == 20 and profile.get('target_update') == 20
+            and profile['schema'] == 'CARA_SOURCE_LIFECYCLE_P0_POINT20_CONTAINER_PROFILE_R1',
+            'P0 point20 requires its own intervention, profile and authorization')
+    else:
+        expected = build(parent)
+    require(for_card(card) == identity and card == expected, 'Exact original two-FIT complete14 M1 scope required')
     validate_profile(profile, card['scope_sha256'])
     require(authority['scope_sha256'] == card['scope_sha256']
         and authority['physical_paths'] == 14 and authority['billed_limit_GPUh'] == profile['hard_GPUh']
@@ -104,6 +126,11 @@ def validate_inputs(project, stage):
         and all(proof[k] is True for k in ('actual_module_full14_accepted', 'loaded_runner_accepted',
             'dispatch_finance_release_accepted', 'postrelease_eight_pair_scorer_accepted')),
         'Complete source-bound affected M1 CPU acceptance required')
+    if identity == P0:
+        require(proof.get('target_update') == 20 and proof.get('run_id') == identity.run_id
+            and proof.get('point20_whole_card_accepted') is True
+            and proof.get('cross_point_Native_bridge_controls_accepted') is True,
+            'Original M1 CPU proof cannot authorize the distinct P0 point20 card')
     quote = read_record(stage/'whole-quote.json')
     require(authority['quote_sha256'] == sha(stage/'whole-quote.json')
         and quote['whole_quote_accepted'] is True and quote['scope_sha256'] == card['scope_sha256']
@@ -119,6 +146,9 @@ def validate_inputs(project, stage):
         and costs['stop_release_reserve_seconds'] >= 600
         and abs(sum(costs.values())/3600 - quote['forecast_GPUh']) < 1e-9,
         'M1 quote must include all requests, snapshots, setup and release')
+    if identity == P0:
+        require(quote.get('target_update') == 20 and quote.get('run_id') == identity.run_id,
+                'Original M1 quote cannot bind the distinct P0 point20 card')
     return card, registration, authority, profile
 
 
@@ -139,7 +169,7 @@ def validate(project, stage):
     admission_sha256 = sha(stage/'fresh-admission.json')
     require(launch['admission_sha256'] == admission_sha256, 'Original M1 asset/resource admission changed')
     context = {k:launch[k] for k in IDENTITY}
-    context.update(phase='READ_WRITE_M1', CPU_fixture_only=False, physical_paths=14,
+    context.update(phase=for_card(card).phase, target_update=card['target_update'], CPU_fixture_only=False, physical_paths=14,
         launch_sha256=sha(stage/'GPU-launch.json'), registration_sha256=launch['registration_sha256'],
         admission_sha256=admission_sha256,
         model_precision_sha256=read_record(stage/PRECISION)['precision_sha256'])

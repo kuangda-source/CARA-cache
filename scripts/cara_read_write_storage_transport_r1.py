@@ -17,7 +17,11 @@ OPERATOR = 'scripts/provision_cara_read_write_storage_r1.py'
 REMOTE = r'''
 import base64,hashlib,json,os,pathlib,subprocess,sys,time
 p=packet['arguments'];root=pathlib.Path('/data20t/gaokuangda/worldcache_workspace')
-control=root/'.sync/cara-read-write-M1-storage-provision-r1-20261101'
+point20=p['point20'];assert type(point20) is bool
+label='source-lifecycle-P0-point20' if point20 else 'read-write-M1'
+run_id='cara-source-lifecycle-P0-point20-full14-r1-20261101' if point20 else 'cara-read-write-M1-full14-r1-20261101'
+control=root/'.sync'/('cara-'+label+'-storage-provision-r1-20261101')
+storage_base=root/'.sync/storage-reservations'/(label+'-r1')
 cpu=root/'.sync/cara-budget-two-card-policy-CPU-a6000-r1-20261031'
 sha=lambda path:hashlib.sha256(pathlib.Path(path).read_bytes()).hexdigest()
 assert sha(cpu/'registration.json')=='cee04693f585c3089614febe71078d409112b1d73df93d847292a261b2be3181'
@@ -30,10 +34,10 @@ if p['action']=='launch':
  assert not control.exists() and not control.is_symlink(),'Original preparation exists: capture only'
  raw=base64.b64decode(p['operator']);assert hashlib.sha256(raw).hexdigest()==p['operator_sha256']
  control.mkdir(mode=0o700);operator=control/'budget_storage_worker.py';operator.write_bytes(raw)
- registration=dict(source_revision=p['source_revision'],operator_sha256=p['operator_sha256'],GPU_submissions=0,ledger_written=False)
+ registration=dict(source_revision=p['source_revision'],operator_sha256=p['operator_sha256'],run_id=run_id,point20=point20,GPU_submissions=0,ledger_written=False)
  (control/'registration.json').write_text(json.dumps(registration,indent=2)+'\n')
  with (control/'process.log').open('x') as log:
-  child=subprocess.Popen([sys.executable,str(operator)],stdin=subprocess.PIPE,stdout=log,stderr=subprocess.STDOUT,start_new_session=True)
+  child=subprocess.Popen([sys.executable,str(operator)]+(['--point20'] if point20 else []),stdin=subprocess.PIPE,stdout=log,stderr=subprocess.STDOUT,start_new_session=True)
   try:
    launch=dict(status='ORIGINAL_TWO_CARD_STORAGE_PROCESS_LAUNCHED_NO_GPU',control=str(control),identity=bind_original_process(child.pid),source_revision=p['source_revision'],operator_sha256=p['operator_sha256'],started_unix=time.time(),GPU_submissions=0,ledger_written=False)
    (control/'launch.json').write_text(json.dumps(launch,indent=2)+'\n')
@@ -43,7 +47,7 @@ if p['action']=='launch':
 else:
  assert p['action']=='capture'
  if not (control/'launch.json').exists():
-  targets=[control,root/'.sync/storage-reservations/read-write-M1-r1',root/'outputs/cara-read-write-M1-full14-r1-20261101',pathlib.Path('/home/gaokuangda/cara_control/read-write-M1-r1')]
+  targets=[control,storage_base,root/'outputs'/run_id,pathlib.Path('/home/gaokuangda/cara_control')/(label+'-r1')]
   rows=[dict(path=str(x),exists=x.exists(),symlink=x.is_symlink()) for x in targets]
   print(json.dumps(dict(status='ORIGINAL_STORAGE_HANDLE_ABSENT_OR_PARTIAL',paths=rows,all_targets_absent=all(not r['exists'] and not r['symlink'] for r in rows),observed_unix=time.time(),GPU_submissions=0)))
   raise SystemExit(0)
@@ -51,7 +55,7 @@ else:
  report=dict(status='ORIGINAL_TWO_CARD_STORAGE_CAPTURE',launch=launch,observation=observe_original_process(launch['identity']),operator_intact=sha(control/'budget_storage_worker.py')==launch['operator_sha256'],state=json.loads(state.read_text()) if state.exists() else None,log_tail=(control/'process.log').read_text(errors='replace')[-3000:],observed_unix=time.time(),GPU_submissions=0,ledger_written=False)
  if report['state'] and report['state']['status']=='TWO_CARD_PRIVATE16_STORAGE_PROVISIONED_NO_GPU':
   from wcomr.history104_storage_r2 import StorageGuard
-  provision_path=root/'.sync/storage-reservations/read-write-M1-r1/provision.json'
+  provision_path=storage_base/'provision.json'
   provision=json.loads(provision_path.read_text());assert provision==report['state']['result']
   guard=StorageGuard(provision['storage_contract']);checked=guard.check()
   journal=guard.journal.path
@@ -63,7 +67,7 @@ else:
 '''
 
 
-def main():
+def main(*,point20=False):
     parser = argparse.ArgumentParser()
     parser.add_argument('action', choices=['launch', 'capture'])
     parser.add_argument('--output', type=Path, required=True)
@@ -74,7 +78,7 @@ def main():
     private = ROOT/'.sync/cara-fast-mainline-tailscale-20261030/ssh_config.budget_direct.private'
     assert private.stat().st_mode & 0o077 == 0
     secret = password()
-    payload = dict(action=args.action, source_revision=args.source_revision)
+    payload = dict(action=args.action, source_revision=args.source_revision, point20=point20)
     if args.action == 'launch':
         raw = subprocess.check_output(['git', 'show', args.source_revision+':'+OPERATOR], cwd=ROOT)
         assert raw == (ROOT/OPERATOR).read_bytes()

@@ -12,18 +12,21 @@ from .gpu_budget_pool_v2 import atomic_json, finite,sha
 from .policy_price_terminal_r1 import require,record as read_record_from_capture
 from .wc73_execution_r1 import Pool, admit_host, hold
 from .cara_budget_host_policy_r1 import HOSTS, POLICY_SHA256
+from .cara_read_write_identity_r1 import M1, P0, for_run
 
 RUN='cara-read-write-M1-full14-r1-20261101'
 STAGES={'two_card':'cara-read-write-M1-GPU-a6000-full14-r1-20261101'}
 SOURCE='src/wcomr/cara_read_write_central_r1.py'
 
 
-def original_absence(observations,project,*,hosts=tuple(STAGES)):
+def original_absence(observations,project,*,hosts=tuple(STAGES),run_id=RUN):
+    spec = for_run(run_id)
+    stages = {'two_card':spec.stage_name}
     require(bool(hosts) and set(observations)==set(hosts) and set(hosts)<=set(STAGES),
             'All required original handles must be observed')
     for host,row in observations.items():
-        require(row['host']==host and row['stage']==str(Path(project)/'.sync'/STAGES[host])
-                and row['run_id']==RUN and row['observation_complete'] is True
+        require(row['host']==host and row['stage']==str(Path(project)/'.sync'/stages[host])
+                and row['run_id']==run_id and row['observation_complete'] is True
                 and finite(row['observed_unix']) and 0<=time.time()-row['observed_unix']<=60
                 and row['dispatch_records']==[] and row['container'] is None,
                 'Original dispatch exists or is unknown on a registered host; recover it')
@@ -39,17 +42,21 @@ def ledger_valid(value):
 def reserve(project,admission,observations):
     """Call only on four_card with the selected host's complete fresh admission."""
     project=Path(project);pool=Pool(project)
-    receipt=project/'reports'/(RUN+'.central-reservation.json')
     auth=admission['authorization'];job={k:auth[k] for k in IDENTITY}
-    require(auth['run_id']==RUN and auth['CPU_fixture_only'] is False
+    spec=for_run(auth['run_id']);run_id=spec.run_id
+    receipt=project/'reports'/(run_id+'.central-reservation.json')
+    require(auth['run_id']==run_id and auth['CPU_fixture_only'] is False
             and auth['execution_authorized'] is True and auth['authorization_basis']=='USER_STANDING_BELOW2_GPUH_MAINLINE'
             and bool(auth['user_quote']) and auth['authorizes_replay'] is False
             and auth['billed_limit_GPUh']==1.95 and auth['host'] in HOSTS
             and auth.get('central_transaction_authorized') is True and bool(auth.get('central_user_quote'))
-            and auth.get('card_kind')=='CARA_READ_WRITE_M1_FULL14' and auth.get('physical_paths')==14
+            and auth.get('card_kind')==spec.card_kind and auth.get('physical_paths')==14
             and auth.get('execution_host_policy_sha256')==POLICY_SHA256
-            and auth['stage']==str(project/'.sync'/STAGES[auth['host']]),'One complete below2GPUh M1 card and its new central exception required')
-    job.update(job_id=RUN,registration_sha256=admission['registration_sha256'],
+            and auth['stage']==str(project/'.sync'/spec.stage_name),'One complete below2GPUh M1 card and its new central exception required')
+    if spec==P0:
+        require(auth.get('target_update')==20 and auth.get('central_exception_run_id')==run_id,
+                'New P0 point20 central exception cannot inherit the closed M1 permission')
+    job.update(job_id=run_id,registration_sha256=admission['registration_sha256'],
         authorization_sha256=admission['authorization_sha256'],physical_paths=14,physical_model_pairs=512,new_scoring_pairs=8,
         forecast_GPUh=admission['forecast_GPUh'])
     require(hashlib.sha256(admission['authorization_raw_utf8'].encode()).hexdigest()==job['authorization_sha256']
@@ -63,12 +70,12 @@ def reserve(project,admission,observations):
             if current==saved['central_before']:
                 atomic_json(pool.path,saved['central_after'])
             else:
-                require(current['jobs'].get(RUN)==original,'Reservation transaction unresolved; preserve original records')
+                require(current['jobs'].get(run_id)==original,'Reservation transaction unresolved; preserve original records')
             return saved
-        require(RUN not in current['jobs'],'Original central job exists without receipt; recover it')
+        require(run_id not in current['jobs'],'Original central job exists without receipt; recover it')
         require(not current.get('budget_overrun_recorded'), 'Unresolved actual overrun forbids a new reservation')
-        original_absence(observations,project)
-        require(admission['status']=='READ_WRITE_M1_COMPLETE_FRESH_ADMISSION_NO_GPU'
+        original_absence(observations,project,run_id=run_id)
+        require(admission['status']==spec.phase+'_COMPLETE_FRESH_ADMISSION_NO_GPU'
                 and admission['central_operator_sha256']==sha(__file__)
                 and admission.get('required_host_whole_card_CPU_accepted') is True
                 and admission.get('required_hosts')==list(HOSTS)
@@ -87,9 +94,9 @@ def reserve(project,admission,observations):
         require(current['available_gpu_hours']>=1.95,'Complete whole-card funds required')
         before=copy.deepcopy(current);after=copy.deepcopy(current);now=time.time()
         job.update(status='RESERVED_OR_RUNNING',kind='V2',reserved_unix=now,central_ledger_host='four_card')
-        after['jobs'][RUN]=job;after.update(Pool.accounting(after))
+        after['jobs'][run_id]=job;after.update(Pool.accounting(after))
         after['events'].append(dict(sequence=len(after['events'])+1,unix=now,
-            type='READ_WRITE_M1_COMPLETE14_RESERVE',job_id=RUN))
+            type=spec.phase+'_COMPLETE14_RESERVE',job_id=run_id))
         value=dict(central_ledger_host='four_card',new_reservation=True,job=job,
             central_before=before,central_after=after,observed_unix=now)
         # Record the exact proposed transaction before its sole atomic ledger write.
@@ -99,16 +106,21 @@ def reserve(project,admission,observations):
 
 def settle(project,capture,expected_launch_sha256,*,cpu_validation=False):
     launch,billing=financial_terminal(capture,expected_launch_sha256,cpu_validation=cpu_validation)
-    require(launch['run_id']==RUN and launch['billed_limit_GPUh']==1.95,'Original whole M1 allocation only')
+    spec=for_run(launch['run_id']);run_id=spec.run_id
+    require(launch['run_id']==run_id and launch['billed_limit_GPUh']==1.95,'Original whole M1 allocation only')
     authority=read_record_from_capture(capture,'authorization')
     require(authority.get('central_transaction_authorized') is True and bool(authority.get('central_user_quote')),
             'Original direct central transaction exception required')
+    if spec==P0:
+        require(authority.get('central_exception_run_id')==run_id and authority.get('target_update')==20
+            and authority.get('card_kind')==spec.card_kind,
+            'Original exact P0 point20 central transaction exception required')
     require(capture['payload_actual_sha256'].get(SOURCE)==sha(__file__), 'Original settlement operator source required')
     project=Path(project);pool=Pool(project)
-    receipt=project/'reports'/(RUN+'.central-settlement.json')
+    receipt=project/'reports'/(run_id+'.central-settlement.json')
     bill_sha=capture['files']['billing']['sha256']
     with pool.transaction() as current:
-        ledger_valid(current);job=current['jobs'][RUN]
+        ledger_valid(current);job=current['jobs'][run_id]
         require(all(job[k]==launch[k] for k in JOB_IDENTITY),'Original central job/source differs')
         if receipt.exists():
             saved=read_record(receipt)
@@ -116,7 +128,7 @@ def settle(project,capture,expected_launch_sha256,*,cpu_validation=False):
             if current==saved['central_before']:
                 atomic_json(pool.path,saved['central_after'])
             else:
-                require(job==saved['central_after']['jobs'][RUN],'Original settlement transaction unresolved')
+                require(job==saved['central_after']['jobs'][run_id],'Original settlement transaction unresolved')
             return saved
         before=copy.deepcopy(current);after=copy.deepcopy(current)
         if job['status']=='SETTLED':
@@ -124,12 +136,12 @@ def settle(project,capture,expected_launch_sha256,*,cpu_validation=False):
                     'Original settled cost differs; never charge again')
         else:
             require(job['status']=='RESERVED_OR_RUNNING','Unknown original central state')
-            now=time.time();after['jobs'][RUN].update(status='SETTLED',actual_GPUh=billing['actual_GPUh'],
+            now=time.time();after['jobs'][run_id].update(status='SETTLED',actual_GPUh=billing['actual_GPUh'],
                 billing_sha256=bill_sha,settled_unix=now)
             if billing['actual_GPUh']>1.95:after['budget_overrun_recorded']=True
             after.update(Pool.accounting(after))
             after['events'].append(dict(sequence=len(after['events'])+1,unix=now,
-                type='SETTLE_ACTUAL_ADDITIVELY',job_id=RUN))
+                type='SETTLE_ACTUAL_ADDITIVELY',job_id=run_id))
         value=dict(central_ledger_host='four_card',launch_id=launch['launch_id'],billing_sha256=bill_sha,
             central_before=before,central_after=after)
         audit_settlement(capture,expected_launch_sha256,value,cpu_validation=cpu_validation)

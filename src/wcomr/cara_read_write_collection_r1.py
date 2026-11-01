@@ -50,17 +50,18 @@ class Requests:
             kwargs.update(profile=self.profile, policy=role['policy'])
             if role['kind'] == 'point':
                 kwargs.update(corner=role['corner'], logical_copy_cap_bytes=self.logical_cap,
-                              CPU_storage_cap_bytes=self.CPU_cap)
+                              CPU_storage_cap_bytes=self.CPU_cap, target_update=self.card['target_update'])
         with clean.patched(self.inference.pipe, '_get_data_batch_input', self.prepared[slot['member']]):
             result = execute_with_timing(runner, self.inference, sample, host='two_card',
                 expected_updates=36, cpu_validation=self.cpu_validation, diagnostic=True, **kwargs)
         if result['status'] != 'COMPLETE' or result['solver_steps'] != 36 or result['guided_pairs'] != 36:
             raise ValueError('A complete guarded output is required for every registered slot')
         if role['kind'] == 'point':
-            if result['physical_model_pairs'] != 37 or result['intervention']['corner'] != role['corner']:
+            if (result['physical_model_pairs'] != 37 or result['intervention']['corner'] != role['corner']
+                    or result['intervention']['target_update'] != self.card['target_update']):
                 raise ValueError('Current paid intervention identity/count differs')
             expected = role['policy']['actions'].copy()
-            expected[7] = 'D' if role['corner'][1] == '1' else 'C'
+            expected[self.card['target_update']-1] = 'D' if role['corner'][1] == '1' else 'C'
             if ([h['actual'] for h in result['semantic_history']] != expected
                     or any(h['fallback_reason'] is not None for h in result['semantic_history'])):
                 raise ValueError('Counterfactual write or future frozen policy differs')

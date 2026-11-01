@@ -18,12 +18,16 @@ ROOT = Path(__file__).resolve().parents[1]
 
 @torch.no_grad()
 def loaded_body(inference, selected, wc, rf, settings, inference_module, runtime, config, flow, artifact_root,
-                *, actual_arguments=False):
+                *, actual_arguments=False, target_update=8):
     model, net = inference.pipe.model, inference.pipe.model.net
     model.precision = torch.float32
     net.use_wan_fp32_strategy = False
     model.config.conditional_frame_timestep = .1
     card = build(json.loads((ROOT/'plans/cara_next_stage_20261101/e1/ENDPOINT7_46_MANIFEST_R1.json').read_text()))
+    if target_update == 20:
+        from wcomr.cara_source_lifecycle_p0_plan_r1 import execution_scope
+        card = execution_scope(json.loads((ROOT/'plans/cara_next_stage_20261101/e1/ENDPOINT7_46_MANIFEST_R1.json').read_text()))
+    assert card['target_update'] == target_update
     if actual_arguments:
         from cosmos_predict2.config import InferenceArguments
         samples = {row['name']:InferenceArguments.model_validate({**{k:v for k,v in row.items() if k != 'partition'},
@@ -98,6 +102,7 @@ def loaded_body(inference, selected, wc, rf, settings, inference_module, runtime
             else:
                 assert not failed.exists()
         return [dict(status='FULL14_LOADED_M1_TINY_CPU_PASS', flow=flow,
+            target_update=target_update,
             complete_paths=14, physical_model_pairs=512, request_boundary_checks=14, storage_checks=15,
             final_state_restored=True, shared_eval_verified=True, replay_refused=True,
             precision_mode_storage_parameter_refusals=True, actual_Cosmos_arguments=actual_arguments,
@@ -109,10 +114,10 @@ def loaded_body(inference, selected, wc, rf, settings, inference_module, runtime
             vars(net).pop('forward', None)
 
 
-def run(runtime, artifact_root, *, actual_modules=False):
+def run(runtime, artifact_root, *, actual_modules=False, target_update=8):
     original = fixture.collect_body
     fixture.collect_body = loaded_body
     try:
-        return fixture.run(runtime, artifact_root, actual_modules=actual_modules)
+        return fixture.run(runtime, artifact_root, actual_modules=actual_modules, target_update=target_update)
     finally:
         fixture.collect_body = original

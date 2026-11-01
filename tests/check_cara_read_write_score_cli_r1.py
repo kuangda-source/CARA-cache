@@ -14,6 +14,7 @@ from wcomr.cara_budget_original_handles_r1 import bind_original_process, observe
 from wcomr.cara_budget_supervisor_r1 import stop_original
 from wcomr.cara_fast_spec_r1 import digest
 from wcomr.gpu_budget_pool_v2 import atomic_json, sha
+from wcomr.cara_read_write_identity_r1 import M1
 from check_cara_read_write_packet_fixture_r1 import packet
 from check_cara_s_endpoint_real_video_r1 import write_video
 from check_cara_s_endpoint_scoring_cli_r1 import write_black
@@ -21,7 +22,7 @@ from check_cara_s_endpoint_scoring_cli_r1 import write_black
 ROOT = Path(__file__).resolve().parents[1]
 
 
-def run(root, stage, *, deadline):
+def run(root, stage, *, deadline, identity=M1):
     root, stage = Path(root), Path(stage)
     root.mkdir(parents=True, exist_ok=False)
     cache = root/'media-cache'
@@ -41,7 +42,7 @@ def run(root, stage, *, deadline):
                 write_video(source, tag, height=64, width=64)
         shutil.copyfile(source, path)
 
-    args = packet(root/'released', writer)
+    args = packet(root/'released', writer, identity=identity, bridge_decoder=reader.decode_video)
     saved = reader.released_artifacts(**args)
     overlay = stage.parent/'wc-time-score-CPU-two_card-r1-20261027'
     environment = dict(torch_home=str(overlay/'torch'), piq_site=str(overlay/'site'), weights_sha256={})
@@ -92,6 +93,7 @@ def run(root, stage, *, deadline):
     assert failed_execution['exit_code'] != 0 and failed['status'] == 'FAILED_DENOMINATOR_RETAINED'
     assert len(failed['registered_pairs']) == 8 and len(failed['rows']) == 1 and not failed['CUDA_initialized']
     return dict(status='REAL_RGB_COMPLETE8_FIDELITY_CPU_PASS', complete_pairs=8, frames_per_pair=93,
+        target_update=identity.target_update, cross_point_Native_controls=saved['manifest'].get('cross_point_Native_controls_passed',0),
         actual_metric_weights=True, artifact14_read=True, latent_RGB_controls=4,
         accepted_sha256=digest(accepted), execution=execution, no_replay=True,
         failure_denominator=8, failure_completed_pairs=1, failure_execution=failed_execution,

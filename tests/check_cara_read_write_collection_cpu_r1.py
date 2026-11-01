@@ -50,10 +50,14 @@ class TinyArguments:
 
 @torch.no_grad()
 def collect_body(inference, selected, wc, rf, settings, inference_module, runtime, config, flow, artifact_root,
-                 *, actual_arguments=False):
+                 *, actual_arguments=False, target_update=8):
     model, net = inference.pipe.model, inference.pipe.model.net
     parent = json.loads((ROOT/'plans/cara_next_stage_20261101/e1/ENDPOINT7_46_MANIFEST_R1.json').read_text())
     card = build(parent)
+    if target_update == 20:
+        from wcomr.cara_source_lifecycle_p0_plan_r1 import execution_scope
+        card = execution_scope(parent)
+    assert card['target_update'] == target_update
     if actual_arguments:
         from cosmos_predict2.config import InferenceArguments
         samples = {row['name']: InferenceArguments.model_validate({**{k:v for k,v in row.items() if k!='partition'},
@@ -91,7 +95,7 @@ def collect_body(inference, selected, wc, rf, settings, inference_module, runtim
             # Real encoded-video identity is accepted after release. These
             # fixture writers are deterministic JSON and labelled accordingly.
             assert rows['RW00']['result']['video_artifact']['sha256'] == rows['UNIFORM19_C']['result']['video_artifact']['sha256']
-            assert rows['RW11']['result']['video_artifact']['sha256'] == rows['D8_CONTROL']['result']['video_artifact']['sha256']
+            assert rows['RW11']['result']['video_artifact']['sha256'] == rows[f'D{target_update}_CONTROL']['result']['video_artifact']['sha256']
         try:
             adapter(card['physical_matrix'][0], output/'duplicate')
         except ValueError:
@@ -101,6 +105,7 @@ def collect_body(inference, selected, wc, rf, settings, inference_module, runtim
         initial.restore()
         assert initial.fingerprint() == original
         return [dict(status='FULL14_READ_WRITE_COLLECTION_TINY_CPU_PASS', flow=flow,
+            target_update=target_update,
             complete_paths=14, scientific_outputs=8, logical_updates=504, physical_model_pairs=512,
             physical_CFG_calls=1024, ordinary_guarded_Native_C_D8_and_all_four_corners=True,
             actual_Cosmos_argument_class=actual_arguments,
@@ -111,14 +116,14 @@ def collect_body(inference, selected, wc, rf, settings, inference_module, runtim
         initial.restore()
 
 
-def run(runtime, artifact_root, *, actual_modules=False):
+def run(runtime, artifact_root, *, actual_modules=False, target_update=8):
     # Reuse just the accepted point fixture's8-channel setup, then replace its
     # exercise with the complete registered two-member matrix.
     template = dedent(inspect.getsource(point.body.__wrapped__))
     start = template.index('    initial = CompleteStateRoundtrip(')
     template = template[:start]+'    return _collect_body(inference,selected,wc,rf,settings,inference_module,runtime,config,flow,artifact_root)\n'
     def configured_body(*args):
-        return collect_body(*args, actual_arguments=actual_modules)
+        return collect_body(*args, actual_arguments=actual_modules, target_update=target_update)
     namespace = {**vars(point), '_collect_body':configured_body}
     exec(compile(template, __file__+'#point-tiny-model-setup', 'exec'), namespace)
     old = load('check_partial_mlp_guided_sampling_cpu_r1')

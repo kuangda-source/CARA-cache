@@ -9,6 +9,7 @@ from pathlib import Path
 import shlex
 import signal
 import subprocess
+import sys
 import time
 
 from cara_two_card_transport_r1 import password
@@ -24,11 +25,12 @@ assert base.parent==root/'.sync' and not base.is_symlink()
 assert all(sha(base/n)==h for n,h in reg['payload_sha256'].items())
 assert all(sha(root/'runtime'/n)==h for n,h in reg['runtime_source_sha256'].items())
 sys.dont_write_bytecode=True;sys.path[:0]=[str(base/'src'),str(base/'scripts')]
-from wcomr.cara_read_write_central_r1 import RUN,STAGES
+from wcomr.cara_read_write_identity_r1 import for_run
 from wcomr.cara_budget_lifecycle_capture_r1 import inspect_container
 from wcomr.cara_fast_b36_dispatch_r2 import create
 from wcomr.history104_storage_r2 import StorageGuard
-stage=root/'.sync'/STAGES['two_card'];assert str(stage)==p['stage'] and RUN==p['run_id']
+spec=for_run(p['run_id']);RUN=spec.run_id
+stage=root/'.sync'/spec.stage_name;assert str(stage)==p['stage'] and RUN==p['run_id']
 assert not stage.is_symlink()
 records=[n for n in ('GPU-intent.json','GPU-dispatch.json','GPU-launch.json','guardian-intent.json','GPU-authorization.json') if (stage/n).exists()]
 container=inspect_container(stage.name+'-gpu')
@@ -44,7 +46,7 @@ if p['action']=='prepare':
   assert not pathlib.Path(name).is_absolute() and '..' not in pathlib.Path(name).parts
   target=stage/name;target.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(base/name,target)
  assert all(sha(stage/n)==h for n,h in reg['payload_sha256'].items())
- profile=json.loads((stage/'plans/cara_next_stage_20261101/read_write/M1_FULL14_CONTAINER_PROFILE_R1.json').read_text())
+ profile=json.loads((stage/spec.profile).read_text())
  prepared=dict(host='two_card',stage=str(stage),source_revision=p['source_revision'],payload_sha256=reg['payload_sha256'],
   runtime_source_sha256=reg['runtime_source_sha256'],container_image=profile['GPU_container']['image'],
   read_only_base_registration_sha256=p['base_registration_sha256'],base_stage=str(base),
@@ -71,10 +73,10 @@ if prepared and all((stage/n).exists() for n in ('history104-storage.json','exec
  for name,value in [('execution-CPU-proof.json',p['proof']),('whole-quote.json',p['quote'])]:assert json.loads((stage/name).read_text())==value
  guard=StorageGuard(json.loads((stage/'history104-storage.json').read_text()))
  result['storage_observation']=guard.check();assert not list(guard.output.iterdir())
- from wcomr.cara_read_write_runner_binding_r1 import CARD,PROFILE,validate_profile
+ from wcomr.cara_read_write_runner_binding_r1 import validate_profile
  from wcomr.cara_read_write_plan_r1 import validate
- card=json.loads((stage/CARD).read_text());validate(card)
- validate_profile(json.loads((stage/PROFILE).read_text()),card['scope_sha256'])
+ card=json.loads((stage/spec.manifest).read_text());validate(card)
+ validate_profile(json.loads((stage/spec.profile).read_text()),card['scope_sha256'])
  assert card['counts']['full_requests']==14 and card['counts']['physical_model_pairs']==512
  result['preparation_complete']=True
 else:result['preparation_complete']=False
@@ -82,19 +84,26 @@ print(json.dumps(result))
 '''
 
 
-def main():
+def main(*,run_id='cara-read-write-M1-full14-r1-20261101',
+         proof_ref='reports/cara_read_write_whole_CPU_accepted_r1_20261101.json',
+         accepted_ref='reports/cara_read_write_entry_Linux_CPU_accepted_r1_20261101.json',
+         quote_ref='plans/cara_next_stage_20261101/read_write/M1_FULL14_WHOLE_QUOTE_R3.json',
+         storage_ref='reports/cara_read_write_storage_accepted_r1_20261101.json'):
     parser=argparse.ArgumentParser();parser.add_argument('action',choices=['prepare','capture']);parser.add_argument('--output',type=Path,required=True);args=parser.parse_args()
     assert not args.output.exists()
     read=lambda name:json.loads((ROOT/name).read_text())
-    proof=read('reports/cara_read_write_whole_CPU_accepted_r1_20261101.json')
+    sys.path.insert(0,str(ROOT/'src'))
+    from wcomr.cara_read_write_identity_r1 import for_run
+    spec=for_run(run_id)
+    proof=read(proof_ref)
     assert proof['whole_card_CPU_accepted'] and not proof['execution_authorized']
-    accepted=read('reports/cara_read_write_entry_Linux_CPU_accepted_r1_20261101.json')
+    accepted=read(accepted_ref)
     assert hashlib.sha256((ROOT/accepted['capture_ref']).read_bytes()).hexdigest()==accepted['capture_sha256']
     cap=read(accepted['capture_ref'])['result'];reg=cap['registration']
-    payload=dict(action=args.action,run_id='cara-read-write-M1-full14-r1-20261101',
-        stage='/data20t/gaokuangda/worldcache_workspace/.sync/cara-read-write-M1-GPU-a6000-full14-r1-20261101',
+    payload=dict(action=args.action,run_id=run_id,
+        stage='/data20t/gaokuangda/worldcache_workspace/.sync/'+spec.stage_name,
         source_revision=proof['source_revision'],base_stage=cap['launch']['stage'],base_registration_sha256=cap['registration_sha256'],
-        proof=proof,recorded_revision=reg['parent_git_revision'],quote=read('plans/cara_next_stage_20261101/read_write/M1_FULL14_WHOLE_QUOTE_R3.json'),storage=read('reports/cara_read_write_storage_accepted_r1_20261101.json'))
+        proof=proof,recorded_revision=reg['parent_git_revision'],quote=read(quote_ref),storage=read(storage_ref))
     secret=password();encoded=base64.b64encode(gzip.compress(json.dumps(dict(code=REMOTE,arguments=payload)).encode())).decode()
     command="sudo -S -p '' -u gaokuangda -g docker /home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python -c "+shlex.quote("import sys,json,gzip,base64;packet=json.loads(gzip.decompress(base64.b64decode(sys.stdin.read())));exec(packet['code'])")
     started=time.time();child=subprocess.Popen(['ssh','-C','-F',str(ROOT/'.sync/cara-fast-mainline-tailscale-20261030/ssh_config.budget_direct.private'),'-o','BatchMode=yes','-o','ConnectTimeout=25','-o','ServerAliveInterval=15','-o','ServerAliveCountMax=3','two_card_lan',command],stdin=subprocess.PIPE,stdout=subprocess.PIPE,stderr=subprocess.PIPE,start_new_session=True)
