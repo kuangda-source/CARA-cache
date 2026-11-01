@@ -22,3 +22,6 @@
 原A32/B36/S/Q/搜索冻结、WC/RA FIT UNMATCHED、旧CAL范围和保护输入保持。科学主表62行、术语映射54项均未新增实验结果。
 
 证据：[整卡准备](../reports/cara_v1_P0_point20_complete_preparation_r1_20261101.json) · [原Linux接受](../reports/cara_v1_P0_point20_entry_Linux_CPU_accepted_r1_20261101.json) · [组合CPU](../reports/cara_v1_P0_point20_whole_CPU_accepted_r1_20261101.json) · [独立存储](../reports/cara_v1_P0_point20_storage_accepted_r1_20261101.json) · [源码安装](../reports/cara_v1_P0_point20_source_preparation_r1_20261101.json) · [完整报价](../plans/cara_next_stage_20261101/source_lifecycle/P0_POINT20_WHOLE_QUOTE_R1.json) · [执行审阅](../plans/cara_next_stage_20261101/source_lifecycle/P0_POINT20_EXECUTION_REVIEW_R1.md) · [本卡账本许可](../plans/cara_next_stage_20261101/source_lifecycle/P0_POINT20_CENTRAL_AUTHORIZATION_R1_20261102.json) · [准入交接](../plans/cara_next_stage_20261101/source_lifecycle/P0_POINT20_PRELAUNCH_HANDOFF_20261102.md)。
+
+
+实时准入承接：Windows原跳板IPv4/IPv6的TCP22均超时，原FRP账本入口亦在SSH前重置。仅调整本任务传输超时并恢复原句柄，TWO/CENTRAL RPC及GPU固定源未改；未调用reserve/dispatch，无新GPU费用、实际开始或检查安排。授权和全部准备保留，待原连接恢复后继续fresh准入，不再次申请已获许可。见[等待回执](../reports/cara_v1_P0_point20_admission_transport_wait_r1_20261102.json)。

@@ -127,7 +127,8 @@ print(json.dumps(dict(status='READ_WRITE_M1_ORIGINAL_CENTRAL_TRANSACTION_OR_RECO
 
 def main(*,authorization_ref=AUTH,
          proof_ref='reports/cara_read_write_whole_CPU_accepted_r1_20261101.json',
-         source_ref='reports/cara_read_write_source_preparation_r1_20261101.json'):
+         source_ref='reports/cara_read_write_source_preparation_r1_20261101.json',
+         ssh_config=None,connect_timeout=25):
  p=argparse.ArgumentParser();p.add_argument('action',choices=['bind','admit','refresh','dispatch','status','central-prepare','central-recover','central-status','reserve','settle'])
  p.add_argument('--input',type=Path);p.add_argument('--output',type=Path,required=True);a=p.parse_args();assert not a.output.exists()
  read=lambda n:json.loads((ROOT/n).read_text())
@@ -168,14 +169,16 @@ def main(*,authorization_ref=AUTH,
  interpreter='python3' if central else '/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python'
  command=shlex.quote(interpreter)+' -c '+shlex.quote("import sys,json,gzip,base64;packet=json.loads(gzip.decompress(base64.b64decode(sys.stdin.read())));exec(packet['code'])")
  if not central:command="sudo -S -p '' -u gaokuangda -g docker "+command
- started=time.time();child=subprocess.Popen(['ssh','-C','-F',str(ROOT/'.sync/cara-fast-mainline-tailscale-20261030/ssh_config.budget_direct.private'),'-o','BatchMode=yes','-o','ConnectTimeout=25','-o','ServerAliveInterval=15','-o','ServerAliveCountMax=3','four_card_lan' if central else 'two_card_lan',command],stdin=subprocess.PIPE,stdout=subprocess.PIPE,stderr=subprocess.PIPE,start_new_session=True)
+ private=ROOT/'.sync/cara-fast-mainline-tailscale-20261030/ssh_config.budget_direct.private' if ssh_config is None else Path(ssh_config)
+ assert private.stat().st_mode&0o077==0 and 0<connect_timeout<=60
+ started=time.time();child=subprocess.Popen(['ssh','-C','-F',str(private),'-o','BatchMode=yes','-o','ConnectTimeout='+str(connect_timeout),'-o','ServerAliveInterval=15','-o','ServerAliveCountMax=3','four_card_lan' if central else 'two_card_lan',command],stdin=subprocess.PIPE,stdout=subprocess.PIPE,stderr=subprocess.PIPE,start_new_session=True)
  try:out,err=child.communicate(((secret+'\n' if secret else '')+encoded).encode(),timeout=300 if a.action=='admit' else 110)
  except subprocess.TimeoutExpired:os.killpg(child.pid,signal.SIGKILL);out,err=child.communicate()
  result=None
  if child.returncode==0:
   wrapped=json.loads(out);raw=gzip.decompress(base64.b64decode(wrapped['gzip_base64']));assert hashlib.sha256(raw).hexdigest()==wrapped['sha256'];result=json.loads(raw)
  stderr=err.decode(errors='replace');stderr=stderr.replace(secret,'[REDACTED]') if secret else stderr
- report=dict(action=a.action,started_unix=started,observed_unix=time.time(),exit_code=child.returncode,result=result,stderr=stderr,transport_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),remote_code_sha256=hashlib.sha256(remote.encode()).hexdigest(),launch_id=auth['launch_id'],source_revision=auth['source_revision'],unknown_requires_original_recovery=True)
+ report=dict(action=a.action,started_unix=started,observed_unix=time.time(),exit_code=child.returncode,result=result,stderr=stderr,transport_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),remote_code_sha256=hashlib.sha256(remote.encode()).hexdigest(),launch_id=auth['launch_id'],source_revision=auth['source_revision'],unknown_requires_original_recovery=True,task_transport_config_override=ssh_config is not None,target_ConnectTimeout_seconds=connect_timeout)
  with a.output.open('x') as f:json.dump(report,f,indent=2);f.write('\n')
  print(json.dumps(dict(action=a.action,exit_code=child.returncode,status=(result or {}).get('status'),stderr=stderr[-1800:])))
 if __name__=='__main__':main()
