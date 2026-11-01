@@ -2,6 +2,8 @@
 
 # CARA-Cache
 
+[827 — 读写价值框架进入主线，M0/M1本地CPU组件通过](research/827_CARA_READ_WRITE_FRAMEWORK_ADOPTED_AND_M0_M1_CPU_PROGRESS_20261101.md)：目标改为先建立可解释、可执行、可复现的主方法，允许小幅真实收益。读写终点价值为唯一候选；20项状态/VJP/预算提案控制及flow OFF/ON八条原WC/RF/UniPC小张量四格后缀通过。真实Cosmos VJP/视频收益尚未验证，下一步两卡受影响Linux CPU、真实状态/资源和完整M1八后缀卡报价；本轮无服务器访问、GPU或账本操作，旧冻结与TEST保护保持。
+
 [826 — E1完整验收：CFG有机制增量，当前S不晋级](research/826_CARA_ENDPOINT7_COMPLETE_ACCEPTANCE_RESULTS_AND_REGISTERED_DECISION_20261101.md)：接口修复后46/46、13RGB和28评分完整接受（16新+12原行）；原GPU3.055673007GPUh已结算。S-CFG较DIAG LPIPS低1.53%且4/4同向，但比F19-A1高102.83%；按预注册仅保留机制增量，当前S不晋级。全93帧与双时钟图表完成，检查已删。
 
 **2026-10-28最新安排：主线P0/F19，探索S-FAST19与固定Shared25-C的Q并行准备。** [最新计划与两个对话分工](plans/cara_next_stage_20261028/08_REPOSITORY_RECONCILIATION.md) · [739接收记录](research/739_CARA_NEXT_STAGE_FAST_SQ_PLAN_AND_CHAT_HANDOFF_20261028.md)。A32已完整验收并冻结；B36已获单次批准，实际状态以原运行记录为准。WC73已热停结算，禁止自动重派；原DEV128、旧合同与失败保持。以下旧准备记录仅作历史复用依据。

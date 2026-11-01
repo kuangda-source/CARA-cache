@@ -1,0 +1,113 @@
+{
+  "schema": "CARA_READ_WRITE_M0_CPU_COMPONENT_R1",
+  "status": "CPU_COMPONENT_FAILED",
+  "passed": false,
+  "started_unix": 1793522361.3000479,
+  "ended_unix": 1793522366.6130261,
+  "execution_host": "local_macOS_CPU",
+  "source_parent_HEAD": "ec783f2185bab38742dd22f37cf1d56f44de0235",
+  "tests_run": 20,
+  "failures": 0,
+  "errors": 1,
+  "skipped": 0,
+  "metrics": {
+    "synthetic_proposals": [
+      {
+        "radius": 1,
+        "added_D": [
+          8
+        ],
+        "removed_D": [
+          16
+        ],
+        "predicted_loss_change": -8.0,
+        "endpoint_evaluated": false,
+        "measured_time_accepted": false
+      },
+      {
+        "radius": 2,
+        "added_D": [
+          8,
+          9
+        ],
+        "removed_D": [
+          16,
+          19
+        ],
+        "predicted_loss_change": -14.0,
+        "endpoint_evaluated": false,
+        "measured_time_accepted": false
+      }
+    ],
+    "synthetic_four_corner_effects": {
+      "read": 0.5599999999999998,
+      "write": 0.5599999999999998,
+      "interaction": 0.31999999999999984,
+      "total": 1.4399999999999995
+    },
+    "all36_forward_and_complete_memory_exact": true,
+    "history_VJP": {
+      "predicted": 0.21359341502824558,
+      "finite_difference": 0.21359341502574788,
+      "absolute_error": 2.4976964940748303e-12,
+      "memory_contribution": 0.21320219858338266,
+      "per_coordinate_group": [
+        0.00039121644486293013,
+        -6.685405458327477e-05,
+        0.0006228865345056679,
+        0.21264616610346027
+      ]
+    },
+    "synthetic_cache_actual_UniPC_suffix": {
+      "read_gradient": -7.384005621538666e-05,
+      "write_gradient": -0.0038897394927533127,
+      "read_FD_error": 2.6993145132298002e-12,
+      "write_FD_error": 1.5017348042184464e-11,
+      "hard_four_corner_effects": {
+        "read": -7.383035710306629e-05,
+        "write": -0.003712567021010832,
+        "interaction": 1.525225829884791e-06,
+        "total": -0.0037848721522840134
+      },
+      "actual_Cosmos_cache_or_model": false
+    },
+    "full36_synthetic_velocity_VJP_absolute_error": 2.1294493945944737e-12
+  },
+  "original_runtime_source_sha256": {
+    "cosmos_predict2/_src/predict2/models/fm_solvers_unipc.py": "f6a06c75f059693ade6c802e99f6058575969b6a71ef18ab05e7ed46701053d3"
+  },
+  "source_sha256": {
+    "src/wcomr/cara_read_write_state_r1.py": "2fd292d5a3cef48cbc12d8ed4222a0a9fff1625c4cca5fdf979c3d80511ac8f9",
+    "src/wcomr/cara_read_write_proposals_r1.py": "1e55a84ec76414c3d8b607a365336335c8a83d4593529823a37d5ec0604143f4",
+    "tests/test_cara_read_write_m0_r1.py": "03d1eecfa0e8192a57b0068d7ee8eba7dc08ff7dbad1c33975eef70d60dd10db",
+    "scripts/check_cara_read_write_m0_r1.py": "75d2ddae40d4183b929eb501987f27c52f04cacd2df302b91d74b9fd6dc169dd",
+    "src/wcomr/policy_generator_r1/interval_grammar.py": "0a01fac5e85e326d153365153a7d7fce6373e5e3c470b0590d9c1589642adf06",
+    "src/wcomr/cara_fast_spec_r1.py": "5cb5211b5e6c81df7a371840753c7c5dd74c0c6f318311f2574971e48c572fb0",
+    "plans/cara_next_stage_20261101/e1/E1_COMPLETE_ENDPOINT_DECISION_R1.json": "2351ff444b446b59a652b17328ccdfea6733555f8113880ca377dfd75b111e11",
+    "plans/cara_next_stage_20261101/read_write/EXPERIMENT_PROTOCOL_R1.json": "432e1105957bac2ddf6137c6c16e611a079324222dd7f762a9379e1a69c46f1a",
+    "plans/cara_next_stage_20261101/read_write/SOURCE_FRAMEWORK_20261101.md": "f0ea1173f628a3d6b1a374d0dfecf407a82fadd5ae52ca67ebd3da2c4096ec4b"
+  },
+  "completed_components": [
+    "original UniPC explicit memory + all36 exact forward parity",
+    "original UniPC history VJP + directional finite differences",
+    "synthetic cache recurrence + original UniPC read/write derivative control",
+    "four-corner partition and signed interaction algebra",
+    "at most two exact-K legal radius1/radius2 hard proposals"
+  ],
+  "remaining": [
+    "actual Cosmos complete cache-state adapter and forward parity",
+    "actual frozen-backbone input VJP, warp/non-smooth handling, VAE/LPIPS backward",
+    "two-card production CPU and complete M1 entry/quote/admission",
+    "real GPU read/write mechanism, hard-swap usefulness and held-out method evidence"
+  ],
+  "model_weights_loaded": false,
+  "actual_Cosmos_cache_differentiated": false,
+  "full_model_adjoint_accepted": false,
+  "scientific_method_established": false,
+  "CUDA_initialized": false,
+  "GPU_submissions": 0,
+  "ledger_written": false,
+  "new_GPU_authority": false,
+  "original_experiments_replayed": false,
+  "original_freezes_changed": false
+}

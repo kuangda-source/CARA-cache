@@ -990,6 +990,10 @@ def build():
     if followup:
         values['next_stage_notice'] = (link(followup['research_ref'], followup['notice_title'])
             + '：' + followup['summary'] + '\n\n' + values['next_stage_notice'])
+    read_write = status.get('read_write_mainline_preparation_20261101')
+    if read_write:
+        values['next_stage_notice'] = (link(read_write['research_ref'], read_write['notice_title'])
+            + '：' + read_write['summary'] + '\n\n' + values['next_stage_notice'])
     outputs = {}
     for template in sorted((ROOT / 'docs/templates').glob('*.md')):
         target = template.name.replace('__', '/')

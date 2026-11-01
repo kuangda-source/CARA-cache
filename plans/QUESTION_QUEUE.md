@@ -1,6 +1,6 @@
-# CARA 问题队列 R22
+# CARA 问题队列 R23
 
-2026-11-01更新：[用户新设计](cara_next_stage_20261101/USER_DESIGN_INPUT_R1.md)已接收，用户选择**E1七角色46路径**，预计6.040147/建议硬7GPUh；46生产采集路由CPU组合已接受，GPU仍未授权。原32草案不执行；新增F19-RiskSwap和F19-C同批时间。819已接受46/28/16/13接口CPU和真实16对合成评分，汇总导图本地CPU通过；当前组合最终源包、独立存储和远端汇总接线，避免重跑已验数值路径。[完整准备记录](../research/818_CARA_SEVEN_ROLE_ENDPOINT_SCOPE_AND_EULER_E0_CPU_20261101.md)。Euler仅E0源码/CPU原型，方法未冻结前不启动Euler GPU。下方R20条目保留历史，不覆盖本轮已完成S/Q/预算搜索终态；详细原件以当前canonical与817–819为准。
+2026-11-01当前主线：用户采纳[读写价值框架](cara_next_stage_20261101/read_write/README.md)，以“先建立可解释、可执行、可复现的主方法；允许小幅真实收益”为目标。E1已按[826](../research/826_CARA_ENDPOINT7_COMPLETE_ACCEPTANCE_RESULTS_AND_REGISTERED_DECISION_20261101.md)完整接受，当前S不晋级。后续顺序改为M0实际状态/导数组件、M1两旧FIT同父读写四格、M2有限硬行动与read-only消融、M3小型冻结方法留出；原有限结构化配方仅作简单对照。现阶段本地CPU推进，新GPU整卡未准入；旧冻结、旧CHECK与保护TEST保持。下方旧准备/队列表属于当时快照，不授权重派。
 
 2026-10-30 主线更新。现行依据为[最新总计划](cara_next_stage_20261028/01_Master_Experiment_Plan.md)、[S/Q修订](cara_next_stage_20261028/02_SQ_Method_and_Experiments.md)和[接收/两对话分工](cara_next_stage_20261028/08_REPOSITORY_RECONCILIATION.md)。原R16[逐字归档](cara_next_stage_20261028/QUESTION_QUEUE_BEFORE_R17.md)。本轮仅更新主线；S/Q 行保留所属对话原登记，最新状态以其独立回执为准。已完成执行以原接受为准，后续提案不授予新 GPU。
 
