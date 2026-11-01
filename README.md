@@ -2,7 +2,7 @@
 
 # CARA-Cache
 
-[838 — P0第20步唯一原运行与实际开始验收安排](research/838_CARA_P0_POINT20_ORIGINAL_LAUNCH_AND_ACCEPTANCE_SCHEDULE_20261102.md)：P0第20步已于2026-11-02 01:24:19在两卡原A6000实际启动；14请求/512pair/8新评分，独占唯一CUDA进程已核对。原中央账本已唯一预约1.95GPUh，旧16.5责任/cap226保持；原硬截止03:21:19，半程7/14、0失败已接受并删除，03:03原终验保留。只恢复原句柄，完整退出释放结算后一次8新评分并合并旧8；当前无新科学分数，完整P1另审预算。
+[844 — P0两状态完整验收与来源生命周期V1承接](research/844_CARA_P0_TWO_POSITION_COMPLETE_RESULTS_AND_V1_CONTINUATION_20261102.md)：P0两预登记状态完整16位置接受（旧8复用＋新8）；第8/20步只写缓存使输入等权LPIPS下降19.51%/0.64%。W_C在4/4输入状态为正，W_D为3/4且Human199第20步轻微负；写入价值依赖状态与读出条件。新14/512、四latent/93RGB和两Native桥、8评分、图表及唯一1.481354487GPUh结算完成，原GPU/CPU退出、两检查已删除。V1标量到DP的13控制/32完整tiny/128标签Linux组件接受；真实P1生产组合、视频与完整预算另审。
 
 [826 — E1完整验收：CFG有机制增量，当前S不晋级](research/826_CARA_ENDPOINT7_COMPLETE_ACCEPTANCE_RESULTS_AND_REGISTERED_DECISION_20261101.md)：接口修复后46/46、13RGB和28评分完整接受（16新+12原行）；原GPU3.055673007GPUh已结算。S-CFG较DIAG LPIPS低1.53%且4/4同向，但比F19-A1高102.83%；按预注册仅保留机制增量，当前S不晋级。全93帧与双时钟图表完成，检查已删。
 
@@ -28,7 +28,7 @@ CARA-Cache（CFG-Aligned Readout and Cost-Aware Allocation for Video Diffusion�
 |---|---|
 | 做了什么、主要结果怎样 | [研究与结果概览](EXPERIMENT_REPORT.md) |
 | 现在在跑什么、下一次何时验收 | [当前状态](research/02_CURRENT_STATE.md) |
-| 每项实验是否完成、支持什么结论 | [62项实验总表](paper/EXPERIMENT_MASTER_TABLE.md) |
+| 每项实验是否完成、支持什么结论 | [63项实验总表](paper/EXPERIMENT_MASTER_TABLE.md) |
 | 下一步解决什么问题 | [后续实验顺序](research/09_NEXT_ACTIONS.md) |
 | 如何复核代码、原件和统计 | [复现与证据指南](docs/REPRODUCIBILITY.md) |
 | 从项目开始到现在的完整记录 | [历史入口](docs/archive/README.md) |
@@ -47,7 +47,7 @@ CFG 指 classifier-free guidance，包含条件与负条件两支。A 使用共�
 
 ## 已经得到什么结果
 
-- **刷新对未来缓存来源的作用主导本点保真收益**（两旧FIT，固定第8步，同父读写四格）：仅写入平均Alex参考误差降低19.51%，仅读出降低2.02%，完整刷新降低19.24%；写项2/2输入、各93帧均改善，正交互抵消部分收益。 [证据1](research/834_CARA_M1_COMPLETE_READ_WRITE_MECHANISM_AND_M2_CONTINUATION_20261101.md) · [证据2](reports/cara_read_write_complete_acceptance_r1_20261101.json) · [证据3](reports/cara_read_write_complete_analysis_r1_20261101.json) · [证据4](reports/cara_read_write_complete_figures_r1_20261101/figure-report.json)
+- **写入价值随状态和当前读出条件变化**（两旧FIT、两预登记状态、完整16位置（复用8））：保持当前C读出、只写缓存时，第8步平均LPIPS下降19.51%，第20步下降0.64%；W_C在4/4输入状态为正，W_D在3/4为正，Human199第20步轻微负。 [证据1](research/844_CARA_P0_TWO_POSITION_COMPLETE_RESULTS_AND_V1_CONTINUATION_20261102.md) · [证据2](reports/cara_v1_P0_two_position_complete_acceptance_r1_20261102.json) · [证据3](reports/cara_v1_P0_two_position_complete_analysis_r1_20261102.json) · [证据4](reports/cara_v1_P0_two_position_figures_r1_20261102/figure-report.json)
 - **F19布局在4旧CAL的同19D比较中降低参考误差**（旧CAL4，B36完整36与32评分，双时钟）：F19_C为1.703倍T_DD、1.486倍完整请求速度，Alex0.24936，较Uniform19_C降低46.82%；F19_A1为1.691倍T_DD、Alex0.23150，较F19_C再降低7.16%，4/4同向。 [证据1](research/756_CARA_B36_COMPLETE_ACCEPTANCE_RESULTS_AND_FIGURES_20261029.md) · [证据2](reports/cara_fast_B36_complete_analysis_r1_20261029.json) · [证据3](reports/cara_fast_B36_figures_actual_r1_20261029/report.json)
 - **Shared25-C通过16新DEV冻结验证**（DEV16，完整128，冻结强基线与双预算）：相对冻结S25-A的LPIPS降低14.82%，16/16改善；相对S25-C降低26.16%。246.675秒、约1.269倍，V单侧95%上界0.9863；三项质量非劣门均通过。 [证据1](research/716_CARA_DEV128_COMPLETE_ACCEPTANCE_AND_FROZEN_DECISION_20261027.md) · [证据2](reports/cara_DEV128_A6000_complete_analysis_20261027.json)
 - **Shared25-C通过完整CAL筛查**（CAL4，同批强基线，冻结待DEV）：同批A6000四个CAL上，Shared25-C相对较强S25-A的LPIPS下降15.34%，4/4改善；246.852秒，原双预算和三项独立质量筛查通过。 [证据1](research/702_CARA_CAL66_A6000_COMPLETE_RESULTS_AND_FROZEN_SHARED25_C_20261026.md) · [证据2](reports/cara_CAL66_A6000_complete_analysis_20261026.json)

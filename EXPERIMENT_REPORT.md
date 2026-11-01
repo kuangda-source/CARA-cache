@@ -2,7 +2,7 @@
 
 # CARA-Cache：研究与结果概览
 
-[838 — P0第20步唯一原运行与实际开始验收安排](research/838_CARA_P0_POINT20_ORIGINAL_LAUNCH_AND_ACCEPTANCE_SCHEDULE_20261102.md)：P0第20步已于2026-11-02 01:24:19在两卡原A6000实际启动；14请求/512pair/8新评分，独占唯一CUDA进程已核对。原中央账本已唯一预约1.95GPUh，旧16.5责任/cap226保持；原硬截止03:21:19，半程7/14、0失败已接受并删除，03:03原终验保留。只恢复原句柄，完整退出释放结算后一次8新评分并合并旧8；当前无新科学分数，完整P1另审预算。
+[844 — P0两状态完整验收与来源生命周期V1承接](research/844_CARA_P0_TWO_POSITION_COMPLETE_RESULTS_AND_V1_CONTINUATION_20261102.md)：P0两预登记状态完整16位置接受（旧8复用＋新8）；第8/20步只写缓存使输入等权LPIPS下降19.51%/0.64%。W_C在4/4输入状态为正，W_D为3/4且Human199第20步轻微负；写入价值依赖状态与读出条件。新14/512、四latent/93RGB和两Native桥、8评分、图表及唯一1.481354487GPUh结算完成，原GPU/CPU退出、两检查已删除。V1标量到DP的13控制/32完整tiny/128标签Linux组件接受；真实P1生产组合、视频与完整预算另审。
 
 [826 — E1完整验收：CFG有机制增量，当前S不晋级](research/826_CARA_ENDPOINT7_COMPLETE_ACCEPTANCE_RESULTS_AND_REGISTERED_DECISION_20261101.md)：接口修复后46/46、13RGB和28评分完整接受（16新+12原行）；原GPU3.055673007GPUh已结算。S-CFG较DIAG LPIPS低1.53%且4/4同向，但比F19-A1高102.83%；按预注册仅保留机制增量，当前S不晋级。全93帧与双时钟图表完成，检查已删。
 
@@ -34,11 +34,11 @@ WorldCache 是原始缓存基线；RA-CFGCache 是本项目固定协议下的本
 
 ## 主要科学结果
 
-### 1. 刷新对未来缓存来源的作用主导本点保真收益
+### 1. 写入价值随状态和当前读出条件变化
 
-仅写入平均Alex参考误差降低19.51%，仅读出降低2.02%，完整刷新降低19.24%；写项2/2输入、各93帧均改善，正交互抵消部分收益。
+保持当前C读出、只写缓存时，第8步平均LPIPS下降19.51%，第20步下降0.64%；W_C在4/4输入状态为正，W_D在3/4为正，Human199第20步轻微负。
 
-完整14生成/四latent和全93RGB等价/八对评分接受。干预均支付Dense计算，完整D8为20D控制；非新19D方法、独立输入或全面质量结论。实际1.500620266GPUh结算并释放。 [证据1](research/834_CARA_M1_COMPLETE_READ_WRITE_MECHANISM_AND_M2_CONTINUATION_20261101.md) · [证据2](reports/cara_read_write_complete_acceptance_r1_20261101.json) · [证据3](reports/cara_read_write_complete_analysis_r1_20261101.json) · [证据4](reports/cara_read_write_complete_figures_r1_20261101/figure-report.json)
+同一Uniform19父计划、seed0，全93帧、四格完整接受。新14路径/8评分与旧8复用，Native桥及释放/唯一1.481354487GPUh结算完成；自动来源规划与独立输入仍待。 [证据1](research/844_CARA_P0_TWO_POSITION_COMPLETE_RESULTS_AND_V1_CONTINUATION_20261102.md) · [证据2](reports/cara_v1_P0_two_position_complete_acceptance_r1_20261102.json) · [证据3](reports/cara_v1_P0_two_position_complete_analysis_r1_20261102.json) · [证据4](reports/cara_v1_P0_two_position_figures_r1_20261102/figure-report.json)
 
 ### 2. F19布局在4旧CAL的同19D比较中降低参考误差
 
@@ -119,7 +119,7 @@ LPIPS百分比以同批场景均值之比计算；视频帧不当独立样本；
 
 | 顺序 / 负责人 | 当前阶段 | 下一项验收 / 动作 |
 |---|---|---|
-| V1 来源生命周期感知规划 P0→P1→P2 · 主线 | P0第20步原14请求已于01:24:19启动；独占唯一CUDA、1.95GPUh原预约和实际开始检查接受 | 半程7/14、0失败已接受并删除；03:03原终验及03:21:19硬截止保持。完整释放/唯一结算后一次8新评分并合并旧8；并行准备新标量CPU入口，完整P1预算另审 |
+| V1 来源生命周期感知规划 P0→P1→P2 · 主线 | P0两状态16完整位置接受、原GPU/CPU退出且唯一费用结算；V1标量13控制/32tiny/128标签组件接受 | 补齐完整P1生产组合、新公平LPIPS19/22搜索、Linux CPU和完整报价；>4GPUh单独审阅，禁止自动新GPU |
 | V2 有界终点响应与完整伴随 · 主线后置 | 原数学/VAE/Alex CPU组件保留；不阻塞V1 | V1固定后先一次有界响应排序，净收益支持时再单独准备完整伴随；当前0新增GPU |
 | E1 UniPC七角色46路径 · 主线 | E1完整46/13RGB/28评分及结算全部接受；CFG机制增量成立，当前S不晋级 | 保留826原预注册决策与完整接受；后续依用户新指示转读写价值框架，原有限结构配方作简单对照，不重派或重评分 |
 | P0 · 主线 | A32完整三臂GPU门及技术验收通过 | 保留32完整原件、原控制与双时钟；GPU已释放、费用已唯一结算 |

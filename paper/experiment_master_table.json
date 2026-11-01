@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_local_date": "2026-11-01",
+  "updated_local_date": "2026-11-02",
   "snapshot_basis": "Evidence snapshot at 2026-10-22 22:19:22 Asia/Shanghai; current operation data lives in docs/project_status.json. Historical narrative snapshot is archived byte-for-byte.",
   "git_snapshot_before_inventory": "4cb9fa2640b838dab0d1f913f4bb57e230b9edbd",
   "mapping_ref": "paper/internal_to_paper_mapping.json",
@@ -43,6 +43,7 @@
     "HISTORY104_R2_COMPLETE_ACCEPTED_COST_MODEL_VALIDATION_FAILED": 1,
     "LOCAL_CPU_PROTOTYPE24_WITH_PROTECTED_PRICE_BRIDGE_NOT_PRODUCTION": 1,
     "M1_COMPLETE14_RGB4_SCORE8_WRITE_MECHANISM_ACCEPTED_NOT_SCHEDULING_METHOD": 1,
+    "P0_TWO_POSITION_COMPLETE16_WITH_ORIGINAL8_REUSED_NOT_PLANNER_METHOD": 1,
     "P1_REPAIR102_ENTRY_CPU_PRESERVED_BLOCKED_BY_COST112_TIMING_FAILURE": 1,
     "PARTIAL_LOCAL_STRUCTURAL_AND_DOCUMENTS_READY": 1,
     "PG_P1_COMPLETE_NO_FEASIBLE_POLICY": 1,
@@ -6334,12 +6335,12 @@
       "new_GPU_submissions": 1,
       "GPU_dispatch_ready": false,
       "actual_GPUh": 1.50062026643246,
-      "evidence_or_planned_scope": "M1完整14、四latent/93RGB等价门与八对评分均接受，原GPU/CPU结束、实际1.500620266GPUh唯一结算、双检查删除。两旧FIT/seed0/Uniform19第8步：仅写入使平均Alex参考误差下降19.51%，仅读出下降2.02%，完整刷新下降19.24%，写项2/2输入且各93帧同向。正交互抵消部分收益；非新19D部署方法结论。主线进入M2实际权重伴随与硬交换验证，旧冻结/TEST保持。",
+      "evidence_or_planned_scope": "M1完整14、四latent/93RGB等价门与八对评分均接受，原GPU/CPU结束、实际1.500620266GPUh唯一结算、双检查删除。两旧FIT/seed0/Uniform19第8步：仅写入使平均Alex参考误差下降19.51%，仅读出下降2.02%，完整刷新下降19.24%，写项2/2输入且各93帧同向。正交互抵消部分收益；非新19D部署方法结论。按用户后续决定复用作V1第8步证据；完整伴随后置V2，旧冻结/TEST保持。",
       "reader": {
         "title": "M1同父读写四格：未来缓存写入作用",
-        "status": "完整接受；机制信号，M2方法验证待完成",
-        "result": "M1完整14、四latent/93RGB等价门与八对评分均接受，原GPU/CPU结束、实际1.500620266GPUh唯一结算、双检查删除。两旧FIT/seed0/Uniform19第8步：仅写入使平均Alex参考误差下降19.51%，仅读出下降2.02%，完整刷新下降19.24%，写项2/2输入且各93帧同向。正交互抵消部分收益；非新19D部署方法结论。主线进入M2实际权重伴随与硬交换验证，旧冻结/TEST保持。",
-        "next_action": "真实模型/VAE/Alex伴随与同预算硬交换；不重评M1或旧实验",
+        "status": "原第8步完整接受；后续按V1新优先级复用",
+        "result": "M1完整14、四latent/93RGB等价门与八对评分均接受，原GPU/CPU结束、实际1.500620266GPUh唯一结算、双检查删除。两旧FIT/seed0/Uniform19第8步：仅写入使平均Alex参考误差下降19.51%，仅读出下降2.02%，完整刷新下降19.24%，写项2/2输入且各93帧同向。正交互抵消部分收益；非新19D部署方法结论。按用户后续决定复用作V1第8步证据；完整伴随后置V2，旧冻结/TEST保持。",
+        "next_action": "复用原第8步八行进入V1来源生命周期规划；完整伴随后置V2，不重评或重结算原M1",
         "evidence_refs": [
           "research/834_CARA_M1_COMPLETE_READ_WRITE_MECHANISM_AND_M2_CONTINUATION_20261101.md",
           "reports/cara_read_write_complete_acceptance_r1_20261101.json",
@@ -6349,6 +6350,65 @@
           "reports/cara_read_write_final_release_accepted_r1_20261101.json",
           "reports/cara_read_write_final_settlement_r1_20261101.json",
           "reports/cara_read_write_final_scores_accepted_r1_20261101.json"
+        ]
+      }
+    },
+    {
+      "id": "PG-SOURCE-LIFECYCLE-P0-TWO-POSITIONS",
+      "state": "P0_TWO_POSITION_COMPLETE16_WITH_ORIGINAL8_REUSED_NOT_PLANNER_METHOD",
+      "paper_experiment_name": "State-dependent read/write refresh intervention at two registered updates",
+      "internal_ids": [
+        "cara-source-lifecycle-P0-point20-full14-r1-20261101"
+      ],
+      "reused_evidence_run_ids": [
+        "cara-read-write-M1-full14-r1-20261101"
+      ],
+      "evidence_refs": [
+        "research/844_CARA_P0_TWO_POSITION_COMPLETE_RESULTS_AND_V1_CONTINUATION_20261102.md",
+        "reports/cara_v1_P0_two_position_complete_acceptance_r1_20261102.json",
+        "reports/cara_v1_P0_two_position_complete_analysis_r1_20261102.json",
+        "reports/cara_v1_P0_two_position_figures_r1_20261102/figure-report.json",
+        "reports/cara_v1_P0_two_position_visual_QA_r1_20261102.json",
+        "reports/cara_v1_P0_point20_final_release_accepted_r1_20261101.json",
+        "reports/cara_v1_P0_point20_final_settlement_r1_20261101.json",
+        "reports/cara_v1_P0_point20_final_scores_accepted_r1_20261101.json",
+        "reports/cara_read_write_complete_acceptance_r1_20261101.json"
+      ],
+      "method_mapping_ids": [],
+      "contribution_ids": [
+        "C2"
+      ],
+      "claim_relation": "TWO_OLD_FIT_TWO_REGISTERED_STATES_PAID_MECHANISM_NOT_AUTOMATIC_POLICY_EFFICACY",
+      "paper_placement": "来源生命周期动机与读写价值机制：两个预登记状态",
+      "dependencies": [
+        "PG-READ-WRITE-M1-FULL14"
+      ],
+      "production_CPU_accepted": true,
+      "full_protocol_accepted": true,
+      "new_GPU_submissions": 1,
+      "GPU_dispatch_ready": false,
+      "actual_GPUh": 1.481354486595115,
+      "combined_reused_evidence_GPUh": 2.9819747530275746,
+      "independent_input_count": 2,
+      "complete_scientific_positions": 16,
+      "new_scoring_pairs": 8,
+      "reused_original_scoring_pairs": 8,
+      "evidence_or_planned_scope": "P0两预登记状态完整16位置接受（旧8复用＋新8）；第8/20步只写缓存使输入等权LPIPS下降19.51%/0.64%。W_C在4/4输入状态为正，W_D为3/4且Human199第20步轻微负；写入价值依赖状态与读出条件。新14/512、四latent/93RGB和两Native桥、8评分、图表及唯一1.481354487GPUh结算完成，原GPU/CPU退出、两检查已删除。V1标量到DP的13控制/32完整tiny/128标签Linux组件接受；真实P1生产组合、视频与完整预算另审。",
+      "reader": {
+        "title": "P0两状态写入价值：强位置差异与读出交互",
+        "status": "完整16位置接受；8原行复用，自动V1仍待",
+        "result": "P0两预登记状态完整16位置接受（旧8复用＋新8）；第8/20步只写缓存使输入等权LPIPS下降19.51%/0.64%。W_C在4/4输入状态为正，W_D为3/4且Human199第20步轻微负；写入价值依赖状态与读出条件。新14/512、四latent/93RGB和两Native桥、8评分、图表及唯一1.481354487GPUh结算完成，原GPU/CPU退出、两检查已删除。V1标量到DP的13控制/32完整tiny/128标签Linux组件接受；真实P1生产组合、视频与完整预算另审。",
+        "next_action": "完整P1生产组合/公平LPIPS19/22搜索/CPU与报价，另审GPU及本卡账本权限；保护最终16/备用16",
+        "evidence_refs": [
+          "research/844_CARA_P0_TWO_POSITION_COMPLETE_RESULTS_AND_V1_CONTINUATION_20261102.md",
+          "reports/cara_v1_P0_two_position_complete_acceptance_r1_20261102.json",
+          "reports/cara_v1_P0_two_position_complete_analysis_r1_20261102.json",
+          "reports/cara_v1_P0_two_position_figures_r1_20261102/figure-report.json",
+          "reports/cara_v1_P0_two_position_visual_QA_r1_20261102.json",
+          "reports/cara_v1_P0_point20_final_release_accepted_r1_20261101.json",
+          "reports/cara_v1_P0_point20_final_settlement_r1_20261101.json",
+          "reports/cara_v1_P0_point20_final_scores_accepted_r1_20261101.json",
+          "reports/cara_read_write_complete_acceptance_r1_20261101.json"
         ]
       }
     }
@@ -12274,33 +12334,33 @@
     },
     "AGENTS.md": {
       "path": "AGENTS.md",
-      "sha256": "3340322334d7eeed79a0e19e79373537035e84a656e1865717b8c3bba8168a59",
-      "bytes": 28875
+      "sha256": "e52954bcdd4090aba3863d3d352e55d72c3da984fc667a10a5db9726a4fd2b75",
+      "bytes": 28846
     },
     "EXPERIMENT_REPORT.md": {
       "path": "EXPERIMENT_REPORT.md",
-      "sha256": "4777bc8ac6ccfd0549bf0cda4f5d9b92aa99bf7901cb9f86afcf452d54ad53c2",
-      "bytes": 20324
+      "sha256": "ce3067e24defac313888afe2726a6da2daf56fbdec40a9ca4ade96c7f6d0b35b",
+      "bytes": 20348
     },
     "memory/handoffs/LATEST.md": {
       "path": "memory/handoffs/LATEST.md",
-      "sha256": "8d432bffbe1f1be9e2bb2aa716c22191c92fa3f1c743a08ff7041f8b95921e28",
-      "bytes": 20754
+      "sha256": "1438e6d22732b1a165bf3f3b5639450a00013fa87c3631bf8c0417e2033eb960",
+      "bytes": 20777
     },
     "research/02_CURRENT_STATE.md": {
       "path": "research/02_CURRENT_STATE.md",
-      "sha256": "143197ca71af9aede461e6b8f167edb6ea6a70eb390e505576bcb6b8afebe13c",
-      "bytes": 24044
+      "sha256": "f450f6b0e2221d04430fd870cde33c4a24e79fc0d196c601848c5e4816c5784e",
+      "bytes": 24067
     },
     "research/09_NEXT_ACTIONS.md": {
       "path": "research/09_NEXT_ACTIONS.md",
-      "sha256": "5d1581ee3b2e5e80b0157ea1ff45ae46dd60e8805d4096c75e4a08a92b7a076d",
-      "bytes": 17916
+      "sha256": "c0eeca6a49c46643732bbe8e47181ff8c97feace6c170b69d170f8139a9220b7",
+      "bytes": 17939
     },
     "paper/EXPERIMENT_MASTER_TABLE.md": {
       "path": "paper/EXPERIMENT_MASTER_TABLE.md",
-      "sha256": "af859aed25b46cee81f9bc75f3c9534edbbf69d687e86b8aad37848e9c933fb7",
-      "bytes": 48420
+      "sha256": "0b59b62f8094f3a628de056d3b42d9c8e1698e5bd7004613db6e5b7a2b777f2d",
+      "bytes": 50060
     },
     "paper/INTERNAL_TO_PAPER_MAPPING.md": {
       "path": "paper/INTERNAL_TO_PAPER_MAPPING.md",
@@ -14559,7 +14619,7 @@
     "completed_A32_launch_ref": "reports/cara_fast_A6000_GPU_actual_launch_r1_20261028.json"
   },
   "mapping_sha256_at_inventory": "88b3d760a0c94c20b6c802e21f30c7286d6e596cc9b3f3100e7ee6feaa3938f3",
-  "latest_mapping_sha256": "4739a92ccb478f2a461d124e4d2b0777483eaad5796fd2c680fb3bc0d4f73a2b",
+  "latest_mapping_sha256": "54f25db15b35532d0a5587708f1965c35d95a6d4de731f375354ac5f5b02cb68",
   "revision_plan": {
     "registry_ref": "plans/cara_v6_20261020/TASK_REGISTRY_V6.yaml",
     "report_ref": "research/610_WC_CARA_V6_REVIEW_CLOSURE_PLAN_INTERVAL_SPEC_AND_FIRST_DEV_SCOPE_20261020.md",

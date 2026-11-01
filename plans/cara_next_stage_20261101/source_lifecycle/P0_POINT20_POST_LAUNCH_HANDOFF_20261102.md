@@ -1,3 +1,5 @@
+**已完整接受并关闭：** 14GPU/8新评分及旧8复用、16科学位置和图表全部接受，原GPU/CPU退出，1.481354486595115GPUh唯一结算，两检查已删除。当前完整结果见[844](../../../research/844_CARA_P0_TWO_POSITION_COMPLETE_RESULTS_AND_V1_CONTINUATION_20261102.md)。以下保留原过程记录，不能重新执行。
+
 # P0 第20步：唯一原运行与完整验收承接
 
 原通路已恢复，实时资产、资源、原句柄、独占和中央余额核验通过。唯一P0于 **2026-11-02 01:24:19.536402 Asia/Shanghai** 实际开始。以下覆盖启动前连接等待快照；禁止再prepare、预约或派发GPU。
@@ -35,12 +37,12 @@
 
 ## 已建立的实际开始检查
 
-[原调度回执](../../../reports/cara_v1_P0_point20_acceptance_schedule_r1_20261102.json)绑定原实际开始；当前状态见[更新调度r2](../../../reports/cara_v1_P0_point20_acceptance_schedule_r2_20261102.json)。半程已完成并删除，仅原终验p0-20仍活跃。
+[原调度回执](../../../reports/cara_v1_P0_point20_acceptance_schedule_r1_20261102.json)绑定原实际开始；当前状态见[当前调度r4](../../../reports/cara_v1_P0_point20_acceptance_schedule_r4_20261102.json)。半程已完成并删除，仅原终验p0-20仍活跃。
 
 | 检查 | 自动化id | 本次时间（Asia/Shanghai） |
 |---|---|---|
 | 半程（完成，已删除） | `p0-20-2` | 2026-11-02 02:13 |
-| 全程验收 | `p0-20` | 2026-11-02 03:03 |
+| 全程验收（CPU继续接受） | `p0-20` | 2026-11-02 03:20 |
 
 半程只读14分母计数、句柄、温度、资源、独占和账本。仍运行保存一次运维回执；只能按完成/剩余计数和实耗墙钟前移同一个终验，不读取部分T_DD、LPIPS、RGB或latent。半程处理后删除自身；全链结束则同时删除多余终验。终验若仍运行或CPU活跃，调整同一id继续接受，原硬截止不变，不新建重复检查。状态无变化或不可行动保持安静，只在有意义进展、完成、失败或需要用户行动时通知。
 
@@ -58,3 +60,13 @@ P0只检验两个预登记状态的写入机制。当前无第20步科学结论�
 ## 已完成半程
 
 [02:14半程接受](../../../reports/cara_v1_P0_point20_halfway_accepted_r1_20261102.json)及原状态/中央回执：7/14完成、0失败、四原句柄活跃，独占唯一CUDA PID3110391，63°C。账本原预约仍RESERVED_OR_RUNNING，cap226、旧16.5和1.95硬限保持。仅使用运维计数与墙钟，原终验03:03及硬截止均未变；半程p0-20-2已删除。P0运行期间新增的V1标量采集CPU准备另有独立stage，不运行GPU，不替换原stage或P0验收。
+
+## 最新终态：GPU已完整释放结算，原工件CPU运行
+
+原GPU于2026-11-02 02:53:12+08结束，14/14成功，四原进程及锁释放，Default恢复。[原终态](../../../reports/cara_v1_P0_point20_final_original_r1_20261101.json)、[原释放接受](../../../reports/cara_v1_P0_point20_final_release_accepted_r1_20261101.json)、[唯一结算](../../../reports/cara_v1_P0_point20_final_settlement_r1_20261101.json)已保存。实际1.481354486595115GPUh已唯一结算，cap226、已用197.02183603468436、旧保留16.5、可用12.478163965315645；不再派GPU或收费。
+
+原工件读者已唯一启动，见[原CPU启动](../../../reports/cara_v1_P0_point20_final_artifact_CPU_launch_r1_20261102.json)：03:01:34+08，容器`cara-source-lifecycle-P0-point20-GPU-a6000-full14-r1-20261101-artifact-accept-cpu`，id`c081589c034bc8a13ea924b7abc867f38c33f589843a5bf47fce23a85d34975c`，hostPID3179068。只用accept_transport_r2的capture恢复，不再artifacts/新读者。待完整四latent/RGB及两Native桥通过才唯一score8新对；已score只capture。原终验p0-20同id调整为03:15继续验收，原GPU硬限仍保留为历史身份，不改源或重启。
+
+## 最新承接：工件门通过，唯一8新对评分活跃
+
+四组完整latent/93RGB等价控制与两份Native桥已通过，[原工件接受](../../../reports/cara_v1_P0_point20_final_artifact_accepted_r1_20261102.json)和原packet/card/collection字节均已保存。读者03:02:10退出0，不再artifacts或新读者。唯一8新对score已于03:07:53+08实际开始，[原启动](../../../reports/cara_v1_P0_point20_final_score_CPU_launch_r1_20261102.json)、[原活跃capture](../../../reports/cara_v1_P0_point20_final_score_CPU_capture_r1_20261102.json)。原supervisorPID3182450/startticks685497627，CLI3182515/startticks685497680，boot/namespace沿原host。只capture恢复，不再score。原终验p0-20同id调整为03:20；完整8接受后合并旧8，禁止旧M1重评/原GPU重派/重复结算。

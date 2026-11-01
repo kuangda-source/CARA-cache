@@ -16,11 +16,11 @@
 
 [原M1完整14](../../../research/834_CARA_M1_COMPLETE_READ_WRITE_MECHANISM_AND_M2_CONTINUATION_20261101.md)直接作为第8步证据，不重跑或重评分。两FIT/seed0：平均`W_C=L00−L01=0.09436819`、`W_D=L10−L11=0.08329722`；两读出条件的写入收益均为正。原费用1.500620266GPUh已唯一结算，检查已删除。
 
-新增第20更新由“序列中点之后首个C/C”确定。仍为同一Uniform19：第8步写入来源被C9–15及C17–18读取、D19后被替换；第20步的预定直接消费者为C21，D23后离开最近两来源。前者直接消费记录从原完整history复用，后者尚待新GPU验证，不能填入新结果。
+新增第20更新由“序列中点之后首个C/C”确定。仍为同一Uniform19：第8步写入来源被C9–15及C17–18读取、D19后被替换；第20步的预定直接消费者为C21，D23后离开最近两来源。前者直接消费记录从原完整history复用，后者现已由第20步完整原history确认，见844完整结果；这些直接来源记录不等同于完整因果影响终点。
 
-两个FIT×两个状态×四格=16个科学位置，其中8个第8步位置复用、8个第20步位置新增。新卡按原完整请求方案计14条：8科学四格、4独立Uniform/D20控制、2 fresh Native，共512paired调用。00对Uniform、11对额外D20的20D控制；混合四格保留完整y/cache分组。新增Point20入口已通过flow OFF/ON各6条完整小权重CPU路径，[回执](../../../reports/cara_v1_point20_CPU_component_r1_20261101.json)；真实权重GPU和新科学结果仍待，整卡收件CPU已由下述完整入口接受。
+两个FIT×两个状态×四格=16个科学位置，其中8个第8步位置复用、8个第20步位置新增。新卡按原完整请求方案计14条：8科学四格、4独立Uniform/D20控制、2 fresh Native，共512paired调用。00对Uniform、11对额外D20的20D控制；混合四格保留完整y/cache分组。新增Point20入口已通过flow OFF/ON各6条完整小权重CPU路径，[回执](../../../reports/cara_v1_point20_CPU_component_r1_20261101.json)；真实权重14路径及8新评分现已完整接受，并与旧8合并；原CPU准备及完整GPU结果分开保存。
 
-[独立Point20完整14范围](P0_POINT20_FULL14_MANIFEST_R1.json)、整卡执行/释放/评分绑定现已完成：原Linux77项控制、28条loaded tiny完整请求、8对93帧合成真实指标和2Native桥接接受；原CPU退出0，新16GiB独立卷/48MiB journal及固定GPU源接受。见[837记录](../../../research/837_CARA_P0_POINT20_COMPLETE_PREPARATION_AND_CENTRAL_AUTHORIZATION_20261102.md)与[完整执行审阅](P0_POINT20_EXECUTION_REVIEW_R1.md)。预计1.60476/硬1.95GPUh；用户2026-11-02已许可仅本卡原账本读取、预约与结算，原卡现已于2026-11-02 01:24:19.536402+08实际开始，独占唯一CUDA与原预约接受；见[838](../../../research/838_CARA_P0_POINT20_ORIGINAL_LAUNCH_AND_ACCEPTANCE_SCHEDULE_20261102.md)和[原运行交接](P0_POINT20_POST_LAUNCH_HANDOFF_20261102.md)。02:13半程、03:03终验已建立，硬截止03:21:19。第20步GPU结果仍为null，原M1执行授权和八行不复用来派发新卡。
+[独立Point20完整14范围](P0_POINT20_FULL14_MANIFEST_R1.json)、整卡执行/释放/评分绑定现已完成：原Linux77项控制、28条loaded tiny完整请求、8对93帧合成真实指标和2Native桥接接受；原CPU退出0，新16GiB独立卷/48MiB journal及固定GPU源接受。见[837记录](../../../research/837_CARA_P0_POINT20_COMPLETE_PREPARATION_AND_CENTRAL_AUTHORIZATION_20261102.md)与[完整执行审阅](P0_POINT20_EXECUTION_REVIEW_R1.md)。预计1.60476/硬1.95GPUh；用户2026-11-02已许可仅本卡原账本读取、预约与结算，原卡已于2026-11-02 01:24:19.536402+08实际开始并于02:53:12结束，14/14、工件与8评分完整接受，实际1.481354486595115GPUh唯一结算，两检查已删除；见[844完整结果](../../../research/844_CARA_P0_TWO_POSITION_COMPLETE_RESULTS_AND_V1_CONTINUATION_20261102.md)。原M1八行原样复用；当前卡及原M1均不可重派或重评。
 
 报告W_C、W_D、读出、总收益和交互，不从部分结果挑条件。按有消费者位置的重复可辨写入作用及可信状态拆分决定是否继续，不设机械5%线。原35步附近“无未来C消费者”的写缓存交换已在原算子小权重CPU上得到剩余latent逐值相同控制。完整缓存仍保存三个物理槽和全部工作状态，不能把“两来源代理”误用成只保存两个张量。
 
@@ -33,6 +33,8 @@
 固定二次多项式嵌套特征与ridge1e-4，训练样本按输入等权；预测截为非负，完整公开截零比例与来源外推范围。不搜索网络、阈值或特征阶数。原始目标为同状态两次实际FP32 CFG运算输出差的FP64均方，不沿用S的teacher-energy归一化风险冒充新目标。
 
 [固定估值/完整FIT选择组件](../../../research/839_CARA_V1_FIXED_ESTIMATION_AND_COMPLETE_FIT_SELECTION_CPU_20261102.md)现已本地11项CPU接受：64标签结构、整父计划4折、三组特征/同DP/19D与22D各top3、全93帧输入等权选择及拒绝控制跑通。参见[实现细节合同](V1_FIXED_ESTIMATION_COMPONENT_CONTRACT_R1.json)、[离线CLI](../../../scripts/fit_cara_source_lifecycle_v1_r1.py)与[回执](../../../reports/cara_v1_fixed_estimation_CPU_component_r1_20261102.json)。使用合成标签和尺度；真实采集、生产来源接受和完整Linux入口仍待，无真实拟合或视频收益。
+
+[标量原缓存入口的R3 Linux组件](../../../research/843_CARA_V1_SOURCE_SCALAR_COMPLETE_LINUX_CPU_ACCEPTANCE_20261102.md)现已退出0并完整接受：13控制、32完整tiny请求、128同状态标签；所有带shadow父请求与独立普通请求的latent/mock RGB逐值一致，实际CLI接通64标签到18个候选位置。[原接受](../../../reports/cara_v1_scalar_Linux_CPU_accepted_r3_20261102.json)和[一次固定的原UniPC数值尺度](../../../reports/cara_v1_frozen_UniPC_current_input_scale_r1_20261102.json)复用，不重跑。R1/R2失败保持；仍无真实模型校准/视频结果，完整P1生产组合和GPU审批另待。
 
 三个估值器均用相同双来源DP，分别在19D/22D各取至多3个不同的最低代理计划，完整两FIT全93帧LPIPS按预定规则选择一次，再看旧CHECK。选择以输入等权Alex最小，完全相同时按代理成本、D序列字典序；旧CHECK只作已曝光开发检查。共享指纹可复用同一生成/评分，独立计时控制保留物理槽，所有别名/未用上限位置有完整账目。
 
@@ -52,8 +54,12 @@ P3先在V1同一批少量合法交换上做一次有界终点响应排序增强�
 
 [完整范围与费用可行性草案](P0_P1_SCOPE_AND_COST_DRAFT_R1.json)逐项计入采集、shadow、参考、所有模型/预算候选、完整评分、对照、新搜索、控制、启动/释放。6GPUh是用户建议的研发设计上限，尚未批准或冻结；同时列新增与包含已完成M1的口径。当前完整top3矩阵的保守外推超过6，不能靠漏掉必要对照、回放旧分数或拆卡规避阈值。
 
-用户已明确[先补P0，完整P1另审预算](P0_FIRST_P1_SEPARATE_BUDGET_DIRECTION_R1.json)。这是设计方向，未批准完整P1或新四卡账本例外。优先完成第20步新卡准备，P1的完整报价后续单独提交。
+用户已明确[先补P0，完整P1另审预算](P0_FIRST_P1_SEPARATE_BUDGET_DIRECTION_R1.json)。这是设计方向，未批准完整P1或新四卡账本例外。第20步已完整接受且不重做；继续完整P1生产组合和报价，后续单独提交。
 
-当前P0第20步已实际运行，原中央1.95GPUh预约接受；只恢复原句柄，完整终态/释放/唯一实耗结算后接受8新CPU评分，与旧8合并。完整P1仍未授权。单张整卡按<2自主、2–4说明后推进、>4单独批准，始终保留fresh准入。中央cap226与旧16.5保持；原M1例外已结束，新P0只依据本卡新许可。
+当前P0两状态已完整接受：[844结果](../../../research/844_CARA_P0_TWO_POSITION_COMPLETE_RESULTS_AND_V1_CONTINUATION_20261102.md)，新14/8评分与旧8复用、图表、释放/唯一1.4813544866GPUh结算完成，GPU/CPU退出，两检查已删除。新标量R3 CPU13控制/32tiny/128标签也已接受。复用原件；完整P1生产组合与预算另审，尚未授权。单张整卡按<2自主、2–4说明后推进、>4单独批准，始终保留fresh准入。中央cap226与旧16.5保持；原M1例外已结束，新P0只依据本卡新许可。
 
-本卡已按实际guardian开始建立一次半程和一次全程验收，见[调度回执](../../../reports/cara_v1_P0_point20_acceptance_schedule_r1_20261102.json)；只恢复原句柄，结束后完成释放、唯一实耗结算和完整评分接受，再删除已完成检查。准备阶段不预建重复监控。
+本卡的半程/终验已按实际开始处理，完整接受后均已删除，见[关闭回执](../../../reports/cara_v1_P0_point20_acceptance_schedule_r5_20261102.json)。未来长程新卡仍须实际开始后安排半程与终验，准备阶段不预建重复监控。
+
+## P0完整两状态结论
+
+第8/20步只写入的输入等权LPIPS分别下降19.51%/0.64%；W_C为4/4输入状态正，W_D为3/4，Human199第20步轻微负。新来源的直接消费者/替换分别为C9–15、17–18/D19和C21/D23；两位置同时改变阶段/年龄/间距，不能独立归因于消费者数量。P0支持写入价值的条件性与继续准备V1，不确立自动规划器。后续完整P1按原top3/强对照/同费用LPIPS搜索报价与审批推进，不改旧门槛或自动新GPU。
