@@ -437,7 +437,7 @@
     "original_reservation_released": true,
     "recovery_preparation_acceptance_ref": "reports/cara_history104_recovery_prelaunch_acceptance_20261024.json"
   },
-  "current_active_experiment_id": null,
+  "current_active_experiment_id": "PG-READ-WRITE-M1-FULL14-A6000",
   "cost112_GPU": {
     "status": "COST112_COMPLETE_ACCEPTED_TIMING_GATE_FAILED",
     "launch_ref": "reports/cara_cost112_GPU_actual_launch_r1_20261025.json",
@@ -1035,7 +1035,7 @@
     "new_candidate_production_accepted": false,
     "new_candidate_GPU_authorized": false
   },
-  "current_followup_plan_ref": "plans/cara_next_stage_20261101/read_write/M1_FULL14_NEXT_HANDOFF_20261101.md",
+  "current_followup_plan_ref": "plans/cara_next_stage_20261101/read_write/M1_FULL14_POST_LAUNCH_HANDOFF_20261101.md",
   "innovation_gain_exploration_R1": {
     "status": "PAUSED_BY_USER_AFTER_COMPLETE_B1",
     "plan_ref": "plans/cara_innovation_gain_20261027/README.md",
@@ -1834,7 +1834,7 @@
     "independent_new_inputs": false,
     "complete_QA_ref": "reports/cara_fast_A6000_complete_frozen_QA_20261029_0115.json"
   },
-  "current_evidence_observed_at": "2026-11-01T18:43:41.014818+08:00",
+  "current_evidence_observed_at": "2026-11-01T19:05:37.061966+08:00",
   "fast_B36_CPU_preparation_20261029": {
     "status": "ACCEPTED_DUAL_HOST_COMPLETE_B36_CPU_CONTINUATION_ONLY",
     "accepted_receipt_ref": "reports/cara_fast_B36_CPU_acceptance_r1_20261029.json",
@@ -3218,12 +3218,12 @@
   },
   "current_preparation_id": "PG-READ-WRITE-M1-FULL14",
   "read_write_mainline_preparation_20261101": {
-    "status": "CPU_STORAGE_SOURCE_ACCEPTED_CENTRAL_AUTHORIZED_FRESH_ADMISSION_IN_PROGRESS",
-    "research_ref": "research/829_CARA_READ_WRITE_M1_ENTRY_SCORER_STORAGE_AND_SOURCE_READY_20261101.md",
-    "receipt_ref": "reports/cara_read_write_M1_preparation_progress_r3_20261101.json",
-    "receipt_sha256": "4001daedda9fc15fe03850e3c12a8c923f5940722195e11c5af7b773bff1879a",
-    "notice_title": "829 — M1入口、真实评分CPU、16GiB卷和冻结源码准备完成",
-    "summary": "两卡新入口67控制、28加载tiny请求及八对93帧真实Alex/PIQ合成评分接受；独立16GiB输出/48MiB日志与1307份冻结源码已安装。用户已允许新M1的原中央账本读取/预约/实耗结算；cap226、旧16.5责任与可用15.4601GPUh已读取核验。完整14/512预计1.6048、硬1.95GPUh；当前fresh准入，无新预约或GPU提交，真实模型读写收益待本卡。",
+    "status": "ORIGINAL_M1_RUNNING_COMPLETE_RESULTS_NOT_READ",
+    "research_ref": "research/830_CARA_READ_WRITE_M1_ACTUAL_GPU_START_AND_ACCEPTANCE_SCHEDULE_20261101.md",
+    "receipt_ref": "reports/cara_read_write_M1_running_progress_r1_20261101.json",
+    "receipt_sha256": "ca58f322239d327b8512dca45a1187723fd3593fde4fc4a0129df7b52285c952",
+    "notice_title": "830 — 读写价值M1实际GPU启动与全链验收安排",
+    "summary": "读写价值主线已进入真实M1运行：两卡原A6000于2026-11-01 **18:49:24.756352 Asia/Shanghai**启动完整14请求，预计1.6048GPUh、硬限1.95GPUh；唯一runner的CUDA上下文与EXCLUSIVE_PROCESS独占通过。半程19:38、终验20:28已设置。当前仍是执行进度，科学结果须完整14生成、释放与结算后统一接受。",
     "plan_ref": "plans/cara_next_stage_20261101/read_write/README.md",
     "protocol_ref": "plans/cara_next_stage_20261101/read_write/EXPERIMENT_PROTOCOL_R1.json",
     "M0_CPU_ref": "reports/cara_read_write_M0_CPU_component_r2_20261101.json",
@@ -3231,10 +3231,10 @@
     "tests": 20,
     "tiny_suffixes": 8,
     "main_method_established": false,
-    "GPU_submissions": 0,
-    "ledger_written": false,
-    "current_execution_ref": "plans/cara_next_stage_20261101/read_write/M1_FULL14_EXECUTION_R2.md",
-    "handoff_ref": "plans/cara_next_stage_20261101/read_write/M1_FULL14_NEXT_HANDOFF_20261101.md",
+    "GPU_submissions": 1,
+    "ledger_written": true,
+    "current_execution_ref": "plans/cara_next_stage_20261101/read_write/M1_FULL14_POST_LAUNCH_HANDOFF_20261101.md",
+    "handoff_ref": "plans/cara_next_stage_20261101/read_write/M1_FULL14_POST_LAUNCH_HANDOFF_20261101.md",
     "Linux_component_ref": "reports/cara_read_write_Linux_CPU_accepted_r2_20261101.json",
     "full14_Linux_ref": "reports/cara_read_write_collection14_Linux_CPU_accepted_r1_20261101.json",
     "physical_paths": 14,
@@ -3252,6 +3252,63 @@
     "hard_GPUh": 1.95,
     "GPU_source_prepared": true,
     "central_exception_pending": false,
-    "authorization_ref": "plans/cara_next_stage_20261101/read_write/M1_SINGLE1P95GPUH_AUTHORIZATION_R1.json"
+    "authorization_ref": "plans/cara_next_stage_20261101/read_write/M1_SINGLE1P95GPUH_AUTHORIZATION_R1.json",
+    "actual_start_ref": "reports/cara_read_write_actual_start_accepted_r1_20261101.json",
+    "acceptance_schedule_ref": "reports/cara_read_write_acceptance_schedule_r1_20261101.json",
+    "new_GPU_authority_needed": false
+  },
+  "read_write_M1_execution_20261101": {
+    "status": "ORIGINAL_M1_RUNNING_COMPLETE_RESULTS_NOT_READ",
+    "actual_start_ref": "reports/cara_read_write_actual_start_accepted_r1_20261101.json",
+    "operational_ref": "reports/cara_read_write_first_point_operational_r5_20261101.json",
+    "central_reservation_ref": "reports/cara_read_write_central_reservation_r1_20261101.json",
+    "schedule_ref": "reports/cara_read_write_acceptance_schedule_r1_20261101.json",
+    "source_revision": "b930df4b04a0924d8bea0af32c0f7aaf8c33a5c8",
+    "launch_id": "7949388215944eb98c7f64f21e8e1dd1",
+    "run_id": "cara-read-write-M1-full14-r1-20261101",
+    "actual_start_local": "2026-11-01T18:49:24.756352+08:00",
+    "hard_deadline_local": "2026-11-01T20:46:24.756352+08:00",
+    "stop_release_deadline_local": "2026-11-01T20:36:24.756352+08:00",
+    "billed_limit_GPUh": 1.95,
+    "original_handles": {
+      "guardian": {
+        "pid": 2919359,
+        "start_ticks": 682506757,
+        "host_view": {
+          "boot_id": "13495735-f30b-47a2-af0a-2496f5206a0b",
+          "pid_namespace_inode": 4026531836
+        },
+        "original_command_sha256": "f87c82df9de765c82ec6e573903cc57f4c805b7ec4beed8c916d1fee5e3bf441"
+      },
+      "container_cli": {
+        "pid": 2919446,
+        "start_ticks": 682506947,
+        "host_view": {
+          "boot_id": "13495735-f30b-47a2-af0a-2496f5206a0b",
+          "pid_namespace_inode": 4026531836
+        },
+        "original_command_sha256": "23011e0c96c7b5acab2fc3d34f1586adc27c1dc0f3851d3c2b77194407edc496"
+      },
+      "supervisor": {
+        "host_view": {
+          "boot_id": "13495735-f30b-47a2-af0a-2496f5206a0b",
+          "pid_namespace_inode": 4026531836
+        },
+        "original_command_sha256": "a7669a556232a2db114763b7813e153b29cc376bdb522623e65429e33c39a296",
+        "pid": 2919504,
+        "start_ticks": 682506989
+      },
+      "runner": {
+        "host_view": {
+          "boot_id": "13495735-f30b-47a2-af0a-2496f5206a0b",
+          "pid_namespace_inode": 4026531836
+        },
+        "original_command_sha256": "54b4ea2ac18524a0c844a81529a62efb418623a3c0bfc30775db97d0da82d79d",
+        "pid": 2919548,
+        "start_ticks": 682507135
+      }
+    },
+    "GPU_source_or_configuration_changed": false,
+    "scientific_accepted": false
   }
 }

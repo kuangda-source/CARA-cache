@@ -1,3 +1,7 @@
+# 原M1执行准备承接：已转实际GPU运行
+
+当前唯一运行已经启动；优先读取[M1_POST_LAUNCH_HANDOFF](M1_FULL14_POST_LAUNCH_HANDOFF_20261101.md)和[actual start](../../../reports/cara_read_write_actual_start_accepted_r1_20261101.json)，不得依下面启动前步骤重复派发。下文保存准备到准入的历史过程。
+
 # M1完整14当前执行承接
 
 当前节点为[829](../../../research/829_CARA_READ_WRITE_M1_ENTRY_SCORER_STORAGE_AND_SOURCE_READY_20261101.md)。执行范围仍是[完整14 R2](M1_FULL14_EXECUTION_R2.md)，现行[执行卡 R3](M1_FULL14_EXECUTION_REVIEW_R3.md)与[报价 R3](M1_FULL14_WHOLE_QUOTE_R3.json)已经具体化。用户已允许本卡原账本事务，已读取原余额，尚无新预约或GPU派发；真实方法结果未建立。
